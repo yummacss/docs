@@ -1,5 +1,5 @@
 <div align="center">
-  <a href="https://yummacss.com" target="_blank">
+  <a href="https://yummacss.com" target="_blank" target="_blank" rel="noopener noreferrer">
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="https://www.yummacss.com/assets/vectors/dark-logo.svg">
       <source media="(prefers-color-scheme: light)" srcset="https://www.yummacss.com/assets/vectors/light-logo.svg">
@@ -25,7 +25,7 @@
 I'd love your help with Yumma CSS. I've included some links below which you might find useful.
 
 - [Join us on the `#yummacss` channel on Discord](https://discord.gg/V6s5jg5TfX)
-  
+
 ### Licensing
 
 MIT — Copyright (c) 2023–present [Renildo Pereira](https://github.com/yumma-lib/yumma-css/graphs/contributors).
