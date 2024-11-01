@@ -10,5 +10,8 @@ node_modules/
 # logs
 npm-debug.log*
 
+# tree
+project-hierarchy.txt
+
 # vs code
 .vscode/
