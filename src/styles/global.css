@@ -1,4 +1,5 @@
 @import "/node_modules/yummacss/dist/yumma-core.min.css";
+@import '@fontsource-variable/plus-jakarta-sans';
 
 /* Dark mode colors. */
 :root {
@@ -13,6 +14,10 @@
     --sl-color-gray-5: #353841;
     --sl-color-gray-6: #24272f;
     --sl-color-black: #17181c;
+
+    --purple-hsl: 310, 50%, 50%;
+    --overlay-blurple: hsla(var(--purple-hsl), 0.2);
+
     --yma-bg-dark: #24272f;
     --yma-bg-darker: #17181c;
 }
@@ -31,8 +36,15 @@
     --sl-color-gray-6: #eceef2;
     --sl-color-gray-7: #f5f6f8;
     --sl-color-black: #ffffff;
+
+    --purple-hsl: 310, 85%, 65%;
+
     --yma-bg-light: #f5f6f8;
     --yma-bg-lighter: #ffffff;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans Variable', sans-serif;
 }
 
 strong {
@@ -41,4 +53,22 @@ strong {
 
 pre {
     background-color: #1f212a !important;
+}
+
+[data-has-hero] .page {
+    background:
+        linear-gradient(215deg, var(--overlay-blurple), transparent 40%),
+        radial-gradient(var(--overlay-blurple), transparent 40%) no-repeat -60vw -40vh / 105vw 200vh,
+        radial-gradient(var(--overlay-blurple), transparent 65%) no-repeat 50% calc(100% + 20rem) / 60rem 30rem;
+}
+
+[data-has-hero] header {
+    border-bottom: 1px solid transparent;
+    background-color: transparent;
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+}
+
+[data-has-hero] .hero>img {
+    filter: drop-shadow(0 0 3rem var(--overlay-blurple));
 }

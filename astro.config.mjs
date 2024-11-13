@@ -89,6 +89,15 @@ export default defineConfig({
             },
           ],
         },
+        // {
+        //   badge: "New",
+        //   label: "CLI",
+        //   items: [
+        //     { label: "Configuration", link: "docs/configuration" },
+        //     { label: "Content", link: "docs/content-configuration" },
+        //     { label: "Output", link: "docs/output-configuration" },
+        //   ],
+        // },
         {
           label: "Concepts",
           items: [
