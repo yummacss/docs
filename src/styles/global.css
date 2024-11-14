@@ -74,5 +74,11 @@ pre {
 }
 
 .starlight-showcases-media-infos {
-    background-color: white;
+    background-color: var(--sl-color-black);
+}
+
+@media (prefers-color-scheme: dark) {
+    .starlight-showcases-media-infos {
+        background-color: var(--sl-color-black);
+    }
 }
