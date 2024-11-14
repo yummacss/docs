@@ -72,3 +72,7 @@ pre {
 [data-has-hero] .hero>img {
     filter: drop-shadow(0 0 3rem var(--overlay-blurple));
 }
+
+.starlight-showcases-media-infos {
+    background-color: white;
+}
