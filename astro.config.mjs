@@ -287,6 +287,7 @@ export default defineConfig({
             "tailwindCard",
             "yummaCard",
           ],
+          "starlight-package-managers": ["PackageManagers "],
           "/src/constants/guide": ["guide"],
         },
       ],
