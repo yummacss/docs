@@ -9,7 +9,7 @@
 </div>
 
 <p align="center">
-  All the tools you need in one package, with abbreviated utility classes — goodbye, massive codebases!
+  A practical CSS framework with an abbreviated naming convention.
   <br>
   <a href="https://yummacss.com"><strong>Read the documentation ↝</strong></a>
 </p>
