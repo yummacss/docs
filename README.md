@@ -18,7 +18,7 @@
 
 ### Support
 
-[Join our Discord server](https://discord.gg/CGw5vyqmQ6). To get support just createa post in the `#help` channel with the <kbd>yummacss</kbd> tag.
+[Join our Discord server](https://discord.gg/CGw5vyqmQ6). To get support just create a post in the `#help` channel with the <kbd>yummacss</kbd> tag.
 
 ### Contributing
 
