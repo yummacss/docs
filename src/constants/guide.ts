@@ -2,7 +2,7 @@ import { getMinifiedImport } from "../utils/getMinifiedImport";
 
 export const guide = {
   angular: {
-    onCSS: getMinifiedImport("../node_modules/yummacss/dist/yumma.min.css"),
+    inCSS: getMinifiedImport("../node_modules/yummacss/dist/yumma.min.css"),
     onPage: `
 <div class="h-1/1 ins">
     <h1 class="fs-xxl fw-500 tc-pink">Yumma CSS + Angular</h1>
@@ -10,7 +10,7 @@ export const guide = {
     `,
   },
   astro: {
-    onCSS: `
+    inCSS: `
 <style is:global>
     ${getMinifiedImport("/node_modules/yummacss/dist/yumma.min.css")}
 </style>
@@ -28,7 +28,7 @@ import Layout from '../layouts/Layout.astro';
     `,
   },
   static: {
-    onCSS: `
+    inCSS: `
       ${getMinifiedImport("https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@latest/dist/yumma.min.css")}
     `,
     onPage: `
@@ -48,7 +48,7 @@ import Layout from '../layouts/Layout.astro';
       `,
   },
   nextjs: {
-    onCSS: getMinifiedImport("yummacss/dist/yumma.min.css"),
+    inCSS: getMinifiedImport("yummacss/dist/yumma.min.css"),
     onPage: `
 export default function Home() {
     return (
@@ -60,7 +60,7 @@ export default function Home() {
     `,
   },
   nodejs: {
-    onCSS: getMinifiedImport(),
+    inCSS: getMinifiedImport(),
     onPage: `
 <!DOCTYPE html>
 <html lang="en">
@@ -78,7 +78,7 @@ export default function Home() {
     `,
   },
   nuxtjs: {
-    onCSS: getMinifiedImport(),
+    inCSS: getMinifiedImport(),
     onConfig: `
 export default defineNuxtConfig({
     compatibilityDate: "2024-04-03",
@@ -95,7 +95,7 @@ export default defineNuxtConfig({
     `,
   },
   preact: {
-    onCSS: getMinifiedImport(),
+    inCSS: getMinifiedImport(),
     onPage: `
 export function Home() {
     return (
@@ -107,7 +107,7 @@ export function Home() {
     `,
   },
   react: {
-    onCSS: getMinifiedImport(),
+    inCSS: getMinifiedImport(),
     onPage: `
 import "./App.css";
 
@@ -123,7 +123,7 @@ export default App;
     `,
   },
   solidjs: {
-    onCSS: getMinifiedImport(),
+    inCSS: getMinifiedImport(),
     onPage: `
 function App() {
     return (
@@ -137,7 +137,7 @@ export default App;
     `,
   },
   svelte: {
-    onCSS: getMinifiedImport(),
+    inCSS: getMinifiedImport(),
     onComponent: `
 <script>
     import "../global.css";
@@ -152,7 +152,7 @@ export default App;
     `,
   },
   vue: {
-    onCSS: getMinifiedImport(),
+    inCSS: getMinifiedImport(),
     onPage: `
 <template>
     <div class="h-1/1 ins">
@@ -162,7 +162,7 @@ export default App;
     `,
   },
   dotnet: {
-    onCSS: getMinifiedImport("/lib/yummacss/dist/yumma.min.css"),
+    inCSS: getMinifiedImport("/lib/yummacss/dist/yumma.min.css"),
     onPage: `
 <div class="h-1/1 ins">
     <h1 class="fs-xxl fw-500 tc-pink">Yumma CSS + .NET</h1>
