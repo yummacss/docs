@@ -27,23 +27,25 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
     `,
   },
-  cdn: {
-    onHead: `
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Minified version -->
-    <link href="https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@latest/dist/yumma.min.css" rel="stylesheet" crossorigin="anonymous" />
-  </head>
-  <body>
-    <div class="h-1/1 ins">
-      <h1 class="fs-xxl fw-500 tc-pink">Try Yumma CSS CDN</h1>
-    </div>
-  </body>
-</html>
+  static: {
+    onCSS: `
+      ${getMinifiedImport("https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@latest/dist/yumma.min.css")}
     `,
+    onPage: `
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="app.css" />
+    </head>
+    <body>
+        <div class="h-1/1 ins">
+            <h1 class="fs-xxl fw-500 tc-pink">Yumma CSS + Static</h1>
+        </div>
+    </body>
+    </html>
+      `,
   },
   nextjs: {
     onCSS: getMinifiedImport("yummacss/dist/yumma.min.css"),

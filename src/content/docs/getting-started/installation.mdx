@@ -10,7 +10,8 @@ slug: docs/installation
 
 export const onCSS = guide.nodejs.onCSS;
 export const onPage = guide.nodejs.onPage;
-export const onHead = guide.cdn.onHead;
+export const CSS = guide.static.onCSS;
+export const Page = guide.static.onPage;
 
 ### What is Yumma CSS?
 
@@ -37,7 +38,7 @@ Here's how you can add `yummacss` into your project or framework.
 
           You're all set to start using Yumma CSS utility classes in your project.
 
-          <Code code={onPage} lang="tsx" mark={[6,9,10,11]} title="src/index.html" />
+          <Code code={onPage} lang="html" mark={[6,9,10,11]} title="src/index.html" />
     </Steps>
 
   </TabItem>
@@ -101,11 +102,15 @@ Here's how you can add `yummacss` into your project or framework.
 
   <TabItem label="Try CDN" icon="document">
     <Steps>
-      1. **Add the CDN to your HTML file**
+      1. **Add the CDN to your main CSS file**
 
-          Just add the CDN to the `<head>` tag to your HTML file, and you're good to go!
+          <Code code={CSS} lang="css" mark={[2]} title="src/index.html" wrap={true} />
 
-          <Code code={onHead} lang="html" mark={[7,10,11,12]} title="src/index.html" wrap={true} />
+      2. **Use Yumma CSS in your project:**
+
+          You’re all set to start using Yumma CSS utility classes in your project.
+
+          <Code code={Page} lang="html" mark={[6,9,10,11]} title="src/index.html" />
     </Steps>
 
   </TabItem>
