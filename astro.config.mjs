@@ -96,6 +96,7 @@ export default defineConfig({
         //     { label: "Configuration", link: "docs/configuration" },
         //     { label: "Content", link: "docs/content-configuration" },
         //     { label: "Output", link: "docs/output-configuration" },
+        //     { label: "Capabilities", link: "docs/capabilities-configuration" },
         //   ],
         // },
         {
