@@ -9,11 +9,11 @@
   "version": "2.1.0",
   "dependencies": {
     "@astrojs/check": "^0.9.4",
-    "@astrojs/starlight": "^0.28.4",
+    "@astrojs/starlight": "^0.29.2",
     "@fontsource-variable/plus-jakarta-sans": "^5.1.0",
     "@fontsource/geist-sans": "^5.1.0",
     "@types/tinycolor2": "^1.4.6",
-    "astro": "^4.16.7",
+    "astro": "^4.16.14",
     "astro-auto-import": "^0.4.2",
     "sharp": "^0.32.5",
     "starlight-blog": "^0.11.0",
