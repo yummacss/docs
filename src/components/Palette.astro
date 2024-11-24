@@ -30,7 +30,6 @@ const generateShades = (color: string): string[] => {
 
   return shades;
 };
-
 ---
 
 <style>
@@ -43,7 +42,6 @@ const generateShades = (color: string): string[] => {
     display: grid;
     grid-template-columns: 40px repeat(13, 1fr);
     font-size: 0.75rem;
-    color: #888;
     text-align: center;
   }
 
@@ -58,7 +56,6 @@ const generateShades = (color: string): string[] => {
     writing-mode: vertical-lr;
     text-align: left;
     font-size: 0.875rem;
-    color: #555;
     white-space: nowrap;
   }
 
@@ -75,26 +72,31 @@ const generateShades = (color: string): string[] => {
 
 <div class="shadeNumbers">
   <div></div>
-  {Array.from({ length: 13 }, (_, i) => (
-    <div>{i === 6 ? "B" : (i < 6 ? i + 1 : i - 6)}</div>
-  ))}
+  {
+    Array.from({ length: 13 }, (_, i) => (
+      <div>{i === 6 ? "B" : i < 6 ? i + 1 : i - 6}</div>
+    ))
+  }
 </div>
 
-  {data.map((colorItem) => {
+{
+  data.map((colorItem) => {
     const shades = generateShades(colorItem.color);
     return (
       <div class="colorRow not-content">
-        <!-- Vertical color name -->
         <div class="colorName">{colorItem.name}</div>
-        <!-- Color swatches -->
         {shades.map((shade, index) => (
-          <div 
-            class="colorSwatch" 
+          <div
+            class="colorSwatch"
             style={`background-color: ${shade}`}
-            title={index === 6 ? "Base Color" : `Shade ${index < 6 ? index + 1 : index - 6}`}
+            title={
+              index === 6
+                ? "Base Color"
+                : `Shade ${index < 6 ? index + 1 : index - 6}`
+            }
           />
         ))}
       </div>
     );
-  })}
-</div>
+  })
+}
