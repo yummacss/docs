@@ -29,50 +29,71 @@ const generateShades = (color: string): string[] => {
 
   return shades;
 };
+
 ---
 
 <style>
-.colorSwatch {
-  border-radius: 0.25rem;
-  height: 40px;
-  width: 80px;
-}
-
-.colorLine {
-  align-items: end;
-  display: flex;
-  gap: 0.45rem;
-}
-
-.colorLineTitle {
-  font-weight: 600;
-  margin-top: 2rem;
-}
-
-@media (max-width: 800px) {
-  .colorLine {
-    align-items: flex-start;
+  .paletteContainer {
+    display: flex;
     flex-direction: column;
+    
+  }
+
+  .shadeNumbers {
+    display: grid;
+    grid-template-columns: 40px repeat(13, 1fr);
+    font-size: 0.75rem;
+    color: #888;
+    text-align: center;
+  }
+
+  .colorRow {
+    display: grid;
+    grid-template-columns: 40px repeat(13, 1fr);
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .colorName {
+    writing-mode: vertical-lr;
+    text-align: left;
+    font-size: 0.875rem;
+    color: #555;
+    white-space: nowrap;
   }
 
   .colorSwatch {
-    margin-bottom: 10px;
     width: 100%;
+    height: 40px;
+    border: 2px solid transparent;
   }
-}
+
+  .colorSwatch:hover {
+    border-color: #202020;
+  }
 </style>
 
-<div>
+<div class="shadeNumbers">
+  <div></div>
+  {Array.from({ length: 13 }, (_, i) => (
+    <div>{i === 6 ? "B" : (i < 6 ? i + 1 : i - 6)}</div>
+  ))}
+</div>
+
   {data.map((colorItem) => {
     const shades = generateShades(colorItem.color);
     return (
-      <div style="width: 100%;">
-        <div class="colorLineTitle">{colorItem.name}</div>
-        <div class="colorLine">
-          {shades.map((v) => (
-            <div class="colorSwatch" style={`background-color: ${v}`}></div>
-          ))}
-        </div>
+      <div class="colorRow not-content">
+        <!-- Vertical color name -->
+        <div class="colorName">{colorItem.name}</div>
+        <!-- Color swatches -->
+        {shades.map((shade, index) => (
+          <div 
+            class="colorSwatch" 
+            style={`background-color: ${shade}`}
+            title={index === 6 ? "Base Color" : `Shade ${index < 6 ? index + 1 : index - 6}`}
+          />
+        ))}
       </div>
     );
   })}

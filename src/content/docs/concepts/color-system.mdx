@@ -7,48 +7,7 @@ prev: false
 
 To stay consistent, Yumma CSS has a set of colors ready to go right out of the box. You can customize them using the `light` and `dark` utility class color shades in your theme to get a specific color.
 
-### Base colors
-
-The foundations of our color palette are defined in SCSS variables. Here's how the colors are defined:
-
-```scss
-// variables
-$yma-colors-red: #d73d3d;
-$yma-colors-orange: #e06814;
-$yma-colors-yellow: #d3a107;
-$yma-colors-green: #1fb155;
-$yma-colors-teal: #12a695;
-$yma-colors-cyan: #05a4bf;
-$yma-colors-blue: #3575dd;
-$yma-colors-indigo: #595cd9;
-$yma-colors-violet: #7d53dd;
-$yma-colors-pink: #d4418a;
-$yma-colors-silver: #bfc2c7;
-$yma-colors-gray: #606773;
-$yma-colors-lead: #3f3f4e
-$yma-colors-black: black;
-$yma-colors-white: white;
-$yma-colors-transparent: transparent;
-```
-
-### Color shades
-
-To specify lighter or darker shade to a given color, you can use the `[class]-l-[color]-[shade]`
-selector to get a lighter color or `[class]-d-[color]-[shade]` selector to get a darker color:
-
-<Aside title="Using shades" type="note">
-
-The current color range is restricted to shades from 1 to 6 for both light and dark variants, with the exclusion of the base color.
-
-```html "bg-l-cyan-3" "bg-d-cyan-3"
-<!-- Light cyan -->
-<button class="bg-l-cyan-3 fw-600 px-5 py-1 rad-1 tc-white">Subscribe</button>
-
-<!-- Dark cyan -->
-<button class="bg-d-cyan-3 fw-600 px-5 py-1 rad-1 tc-white">Subscribe</button>
-```
-
-</Aside>
+### Color palette
 
 <Palette
   data={[
@@ -67,6 +26,44 @@ The current color range is restricted to shades from 1 to 6 for both light and d
     { name: "Silver", color: "#bfc2c7" },
   ]}
 />
+
+```scss title="_variables.scss"
+$yma-colors-red: #d73d3d;
+$yma-colors-orange: #e06814;
+$yma-colors-yellow: #d3a107;
+$yma-colors-green: #1fb155;
+$yma-colors-teal: #12a695;
+$yma-colors-cyan: #05a4bf;
+$yma-colors-blue: #3575dd;
+$yma-colors-indigo: #595cd9;
+$yma-colors-violet: #7d53dd;
+$yma-colors-pink: #d4418a;
+$yma-colors-silver: #bfc2c7;
+$yma-colors-gray: #606773;
+$yma-colors-lead: #3f3f4e
+$yma-colors-black: black;
+$yma-colors-white: white;
+$yma-colors-transparent: transparent;
+```
+
+### Using color shades
+
+To specify lighter or darker shade to a given color, you can use the `[class]-l-[color]-[shade]`
+selector to get a lighter color or `[class]-d-[color]-[shade]` selector to get a darker color:
+
+<Aside title="Using shades" type="note">
+
+The current color range is restricted to shades from 1 to 6 for both light and dark variants, with the exclusion of the base color.
+
+```html "bg-l-cyan-3" "bg-d-cyan-3"
+<!-- Light cyan -->
+<button class="bg-l-cyan-3 fw-600 px-5 py-1 rad-1 tc-white">Subscribe</button>
+
+<!-- Dark cyan -->
+<button class="bg-d-cyan-3 fw-600 px-5 py-1 rad-1 tc-white">Subscribe</button>
+```
+
+</Aside>
 
 ### Color utilities
 
