@@ -38,7 +38,6 @@ That's why I'm excited to introduce Yumma CSS CLI, a new way to create productio
         - yumma-core.css // 3.20 MB
         - yumma-core.min.css // 2.48 MB
 
-
 </FileTree>
 
 #### Upgrade from v2.1 using CLI
@@ -257,6 +256,53 @@ The new syntax for dimension utility classes is a lot more concise.
       propNames={["min-height", "min-width"]}
       range={100}
       unit="rem"
+    />
+  </TabItem>
+</Tabs>
+
+### Color system
+
+The color system is getting some big changes. We've gone from `10%` shade modification to `15%`. This means that light colors are going to be even lighter and dark colors are going to be even darker.
+
+<Tabs>
+  <TabItem icon="approve-check-circle" label="Now">
+    <Palette
+      percentage={15}
+      data={[
+        { name: "Red", color: "#d73d3d" },
+        { name: "Orange", color: "#e06814" },
+        { name: "Yellow", color: "#d3a107" },
+        { name: "Green", color: "#1fb155" },
+        { name: "Teal", color: "#12a695" },
+        { name: "Cyan", color: "#05a4bf" },
+        { name: "Blue", color: "#3575dd" },
+        { name: "Indigo", color: "#595cd9" },
+        { name: "Violet", color: "#7d53dd" },
+        { name: "Pink", color: "#d4418a" },
+        { name: "Gray", color: "#606773" },
+        { name: "Lead", color: "#3f3f4e" },
+        { name: "Silver", color: "#bfc2c7" },
+      ]}
+    />
+  </TabItem>
+  <TabItem icon="close" label="Previously">
+    <Palette
+      percentage={10}
+      data={[
+        { name: "Red", color: "#d73d3d" },
+        { name: "Orange", color: "#e06814" },
+        { name: "Yellow", color: "#d3a107" },
+        { name: "Green", color: "#1fb155" },
+        { name: "Teal", color: "#12a695" },
+        { name: "Cyan", color: "#05a4bf" },
+        { name: "Blue", color: "#3575dd" },
+        { name: "Indigo", color: "#595cd9" },
+        { name: "Violet", color: "#7d53dd" },
+        { name: "Pink", color: "#d4418a" },
+        { name: "Gray", color: "#606773" },
+        { name: "Lead", color: "#3f3f4e" },
+        { name: "Silver", color: "#bfc2c7" },
+      ]}
     />
   </TabItem>
 </Tabs>
