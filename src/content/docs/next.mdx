@@ -1,0 +1,262 @@
+---
+title: "Yumma CSS Next"
+description: "See what’s new in the next version of Yumma CSS."
+slug: "docs/next"
+---
+
+I'm super excited to give you a sneak peek at all the new features coming in the next version of Yumma CSS. This new version is going to be a big leap forward for optimization and performance, and a lot more.
+
+<Aside title="Work in progress" type="caution">
+
+This version is still a work in progress, as are the changes to this page. That means some of the core features and new ones might be updated, removed, or never make it to the main release.
+
+</Aside>
+
+### Yumma CSS CLI
+
+Up until recently, the only way to use Yumma CSS was to import the compiled CSS into your main CSS file. As Yumma CSS is becoming more and more extensive, importing all its content at once might cause performance issues and slower loading times.
+
+That's why I'm excited to introduce Yumma CSS CLI, a new way to create production-ready and fully optimized Yumma CSS projects.
+
+**v2.2**
+
+<FileTree>
+
+    - dist
+        - yumma.css // 1.31 MB
+        - yumma.min.css // 986 KB
+
+</FileTree>
+
+**v2.1**
+
+<FileTree>
+
+    - dist
+        - yumma.css // 3.20 MB
+        - yumma.min.css // 2.48 MB
+        - yumma-core.css // 3.20 MB
+        - yumma-core.min.css // 2.48 MB
+
+
+</FileTree>
+
+#### Upgrade from v2.1 using CLI
+
+The new CLI system lets you get rid of any utilities you're not using in your project files. This makes all of your Yumma CSS projects production-ready, meaning you're not shipping any unused CSS to production.
+
+<Steps>
+
+    1. **Remove `@import` rules**
+
+        Since we're only generating in the main CSS file, we can get rid of the Yumma CSS file that's been compiled.
+
+        ```diff lang="css" title="src/globals.css"
+        - /* Minified Version */
+        - @import "/node_modules/yummacss/dist/yumma.min.css";
+        ```
+
+    2. **Add the Yumma config file**
+
+        Next, add the `yummacss.config.js` to the root level of your project.
+
+        <FileTree>
+            - public
+                - favicon.ico
+            - src
+                - globals.css
+                - page.html
+            - .gitignore
+            - package-lock.json
+            - package.json
+            - **yummacss.config.js** // Add the config file
+
+        </FileTree>
+
+    3. **Set up the config file**
+
+        To allow the CLI command to scan your project files and build the CSS base in the output path, add the content array and output string field.
+
+        ```js title="yummacss.config.js"
+        export const config = {
+            content: ["src/**/*.{html}"],
+            output: "src/globals.css",
+        };
+        ```
+
+    4. **Compile the SCSS**
+
+        To compile the SCSS from to CSS, just run `npx yummacss build`. This command will only compile the used CSS that's been scanned in your project files each time you run the command. It'll also tree shake any unusable utilities in your code.
+
+        ```bash title="Terminal"
+        npx yummacss build
+        ```
+
+</Steps>
+
+### Base style changes
+
+From now on, core files like `yumma-core.css` and `yumma-core.min.css` will be deleted from the `/dist` folder in favor of the `yummacss.config.js` config file.
+
+<Tabs>
+  <TabItem icon="approve-check-circle" label="Now">
+    ```js mark={4-7} title="yummacss.config.js"
+    export const config = {
+        content: ["src/**/*.{html}"],
+        output: "src/globals.css",
+        capabilities: {
+            core: false, // Remove base styles
+            minify: true, // Minifies CSS
+        }
+    };
+    ```
+
+  </TabItem>
+  <TabItem icon="close" label="Previously">
+
+    ```css title="src/globals.css"
+    /* Core Version */
+    @import "https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@latest/dist/yumma-core.min.css";
+
+    /* Minified Core Version */
+    @import "https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@latest/dist/yumma-core.min.css";
+    ```
+
+  </TabItem>
+</Tabs>
+
+### Dimension utilities
+
+The new syntax for dimension utility classes is a lot more concise.
+
+**Dimension**
+
+<Tabs>
+  <TabItem icon="approve-check-circle" label="Now">
+    <Utility
+      additionalClasses={[
+        { name: "1/1", value: "100dvh" },
+        { name: "1/2", value: "50dvh" },
+        { name: "auto", value: "auto" },
+        { name: "fc", value: "fit-content" },
+        { name: "full", value: "100%" },
+        { name: "half", value: "50%" },
+        { name: "max", value: "max-content" },
+        { name: "min", value: "min-content" },
+      ]}
+      classPrefix="d-"
+      incrementValue={0.25}
+      propNames={["height", "width"]}
+      range={100}
+      unit="rem"
+    />
+
+  </TabItem>
+  <TabItem icon="close" label="Previously">
+    <Utility
+      additionalClasses={[
+        { name: "1/1", value: "100dvh" },
+        { name: "1/2", value: "50dvh" },
+        { name: "auto", value: "auto" },
+        { name: "fc", value: "fit-content" },
+        { name: "full", value: "100%" },
+        { name: "half", value: "50%" },
+        { name: "max", value: "max-content" },
+        { name: "min", value: "min-content" },
+      ]}
+      classPrefix="dim-"
+      incrementValue={0.25}
+      propNames={["height", "width"]}
+      range={100}
+      unit="rem"
+    />
+  </TabItem>
+</Tabs>
+
+**Max Dimension**
+
+<Tabs>
+  <TabItem icon="approve-check-circle" label="Now">
+    <Utility
+      additionalClasses={[
+        { name: "1/1", value: "100dvh" },
+        { name: "1/2", value: "50dvh" },
+        { name: "auto", value: "auto" },
+        { name: "fc", value: "fit-content" },
+        { name: "full", value: "100%" },
+        { name: "half", value: "50%" },
+        { name: "max", value: "max-content" },
+        { name: "min", value: "min-content" },
+      ]}
+      classPrefix="max-d-"
+      incrementValue={0.25}
+      propNames={["max-height", "max-width"]}
+      range={100}
+      unit="rem"
+    />
+
+  </TabItem>
+  <TabItem icon="close" label="Previously">
+    <Utility
+      additionalClasses={[
+        { name: "1/1", value: "100dvh" },
+        { name: "1/2", value: "50dvh" },
+        { name: "auto", value: "auto" },
+        { name: "fc", value: "fit-content" },
+        { name: "full", value: "100%" },
+        { name: "half", value: "50%" },
+        { name: "max", value: "max-content" },
+        { name: "min", value: "min-content" },
+      ]}
+      classPrefix="max-dim-"
+      incrementValue={0.25}
+      propNames={["max-height", "max-width"]}
+      range={100}
+      unit="rem"
+    />
+  </TabItem>
+</Tabs>
+
+**Min Dimension**
+
+<Tabs>
+  <TabItem icon="approve-check-circle" label="Now">
+    <Utility
+      additionalClasses={[
+        { name: "1/1", value: "100dvh" },
+        { name: "1/2", value: "50dvh" },
+        { name: "auto", value: "auto" },
+        { name: "fc", value: "fit-content" },
+        { name: "full", value: "100%" },
+        { name: "half", value: "50%" },
+        { name: "max", value: "max-content" },
+        { name: "min", value: "min-content" },
+      ]}
+      classPrefix="min-d-"
+      incrementValue={0.25}
+      propNames={["min-height", "min-width"]}
+      range={100}
+      unit="rem"
+    />
+
+  </TabItem>
+  <TabItem icon="close" label="Previously">
+    <Utility
+      additionalClasses={[
+        { name: "1/1", value: "100dvh" },
+        { name: "1/2", value: "50dvh" },
+        { name: "auto", value: "auto" },
+        { name: "fc", value: "fit-content" },
+        { name: "full", value: "100%" },
+        { name: "half", value: "50%" },
+        { name: "max", value: "max-content" },
+        { name: "min", value: "min-content" },
+      ]}
+      classPrefix="min-dim-"
+      incrementValue={0.25}
+      propNames={["min-height", "min-width"]}
+      range={100}
+      unit="rem"
+    />
+  </TabItem>
+</Tabs>
