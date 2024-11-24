@@ -117,7 +117,7 @@ export default defineConfig({
           items: [
             {
               label: "Backgrounds",
-              autogenerate: { directory: "backgrounds" },
+              autogenerate: { directory: "utilities/backgrounds" },
             },
             {
               label: "Borders & Outlines",
@@ -147,7 +147,7 @@ export default defineConfig({
         },
         {
           label: "Box Model",
-          autogenerate: { directory: "box-model" },
+          autogenerate: { directory: "utilities/box-model" },
         },
         {
           label: "Flexbox & Grid",
@@ -202,11 +202,11 @@ export default defineConfig({
         },
         {
           label: "Interactions",
-          autogenerate: { directory: "interactions" },
+          autogenerate: { directory: "utilities/interactions" },
         },
         {
           label: "Layout",
-          autogenerate: { directory: "layout" },
+          autogenerate: { directory: "utilities/layout" },
         },
         {
           label: "Tables",
