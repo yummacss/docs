@@ -83,7 +83,7 @@ export default defineConfig({
             { label: "Components", link: "/components" },
             { label: "Playground", link: "https://play.yummacss.com" },
             {
-              label: "Screencasts",
+              label: "Walkthroughs",
               link: "https://www.youtube.com/@yummacss",
               badge: "New",
             },
