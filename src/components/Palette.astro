@@ -89,11 +89,7 @@ const generateShades = (color: string): string[] => {
           <div
             class="colorSwatch"
             style={`background-color: ${shade}`}
-            title={
-              index === 6
-                ? "Base Color"
-                : `${colorItem.color}`
-            }
+            title={index === 6 ? "Base Color" : `${colorItem.color}`}
           />
         ))}
       </div>
