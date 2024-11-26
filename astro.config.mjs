@@ -19,6 +19,7 @@ export default defineConfig({
   integrations: [
     starlight({
       title: "Yumma CSS",
+      tableOfContents: { maxHeadingLevel: 5 },
       expressiveCode: {
         themes: [ariakeTheme],
         styleOverrides: {
