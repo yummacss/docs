@@ -1,7 +1,7 @@
 ---
 import { Code, Tabs, TabItem } from "@astrojs/starlight/components";
 
-interface LiveProps {
+interface PreviewProps {
   data: string;
   noScroll?: boolean;
   useCenter?: boolean;
@@ -25,7 +25,7 @@ const {
   useTabs = false,
   useVersion = "",
   useWrap = false,
-} = Astro.props as LiveProps;
+} = Astro.props as PreviewProps;
 
 const newContainer = (
   stylesheet: string,
