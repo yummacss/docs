@@ -57,7 +57,7 @@ export default defineConfig({
       social: {
         github: "https://github.com/yumma-lib/yumma-css",
       },
-      customCss: ["/src/styles/global.css"],
+      customCss: ["/src/styles/globals.css"],
       head: [
         {
           tag: "link",
