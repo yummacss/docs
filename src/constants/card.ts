@@ -101,7 +101,7 @@ export const yummaCard: string = `
 `;
 
 export const tailwindCard: string = `
-<div class="max-w-sm overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+<div class="max-w-sm overflow-hidden rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
   <div class="grow">
     <h4 class="mb-2 text-2xl font-semibold leading-none text-gray-800">Heading</h4>
     <p class="mb-4 text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia velit fugit voluptates quod, placeat quam maxime earum voluptas provident, natus omnis saepe beatae vitae.</p>
