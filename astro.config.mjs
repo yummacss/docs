@@ -262,9 +262,9 @@ export default defineConfig({
         "/src/components/Color.astro",
         "/src/components/Footer.astro",
         "/src/components/Hover.astro",
-        "/src/components/Live.astro",
         "/src/components/Modifier.astro",
         "/src/components/Palette.astro",
+        "/src/components/Preview.astro",
         "/src/components/Utility.astro",
         {
           "@astrojs/starlight/components": [
