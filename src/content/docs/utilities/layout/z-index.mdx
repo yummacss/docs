@@ -1,6 +1,6 @@
 ---
 title: Z-Index
-description: Controls the element's stack order.
+description: Controls the element's stack order
 slug: docs/z-index
 ---
 
@@ -17,18 +17,11 @@ Controls the element's stack order.
 
 ---
 
-### Using breakpoints
-
-Using responsive breakpoints like `sm:zi-*`, `md:zi-*`, `lg:zi-*`, and `xxl:zi-*` allows targeting specific utilities in different viewports.
-
-```html "md:zi-20"
-<div class="zi-10 md:zi-20 ..."></div>
-```
-
-### Using variants
-
-Using `:hover` variants such as `h:zi-*` allows you to override elements and change their values when hovering over them.
-
-```html "h:zi-20"
-<div class="zi-10 h:zi-20 ..."></div>
-```
+<Modifier
+  baseUtil="zi-10"
+  prefixUtil="zi"
+  modifiers={{
+    hoverUtil: "zi-20",
+    responsiveUtil: "zi-20",
+  }}
+/>

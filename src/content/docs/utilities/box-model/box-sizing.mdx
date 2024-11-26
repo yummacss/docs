@@ -1,6 +1,6 @@
 ---
 title: Box Sizing
-description: Controls the calculation of the total size of an element.
+description: Controls the calculation of the total size of an element
 slug: docs/box-sizing
 ---
 
@@ -54,18 +54,11 @@ The height and width of the element are the same for all parts.
 
 ---
 
-### Using breakpoints
-
-Using responsive breakpoints like `sm:bs-*`, `md:bs-*`, `lg:bs-*`, and `xxl:bs-*` allows targeting specific utilities in different viewports.
-
-```html "md:bs-bb"
-<div class="bs-1 md:bs-bb ..."></div>
-```
-
-### Using variants
-
-Using `:hover` variants such as `h:bs-*` allows you to override elements and change their values when hovering over them.
-
-```html "h:bs-bb"
-<div class="bs-cb h:bs-bb ..."></div>
-```
+<Modifier
+  baseUtil="bs-1"
+  prefixUtil="bs"
+  modifiers={{
+    hoverUtil: "bs-bb",
+    responsiveUtil: "bs-bb",
+  }}
+/>

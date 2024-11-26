@@ -1,6 +1,6 @@
 ---
 title: Border Style
-description: Controls the style of the borders of an element.
+description: Controls the style of the borders of an element
 slug: docs/border-style
 ---
 
@@ -36,18 +36,11 @@ Controls the style of the borders of an element.
 
 ---
 
-### Using breakpoints
-
-Using responsive breakpoints like `sm:b-*`, `md:b-*`, `lg:b-*`, and `xxl:b-*` allows targeting specific utilities in different viewports.
-
-```html "md:b-s"
-<div class="b-h md:b-s ..."></div>
-```
-
-### Using variants
-
-Using `:hover` variants such as `h:b-*` allows you to override elements and change their values when hovering over them.
-
-```html "h:b-s"
-<div class="b-h h:b-s ..."></div>
-```
+<Modifier
+  baseUtil="b-h"
+  prefixUtil="b"
+  modifiers={{
+    hoverUtil: "b-s",
+    responsiveUtil: "b-s",
+  }}
+/>

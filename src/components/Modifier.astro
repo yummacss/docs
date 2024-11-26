@@ -1,0 +1,50 @@
+---
+import { Code } from "@astrojs/starlight/components";
+
+export interface ModifierProps {
+  baseUtil: string;
+  prefixUtil: string;
+  modifiers: {
+    hoverUtil: string;
+    responsiveUtil?: string;
+  };
+}
+
+const { baseUtil, modifiers, prefixUtil } = Astro.props;
+---
+
+<section>
+  {
+    modifiers && modifiers.responsiveUtil && (
+      <>
+        <h3>Using responsive modifiers</h3>
+
+        <p>
+          Using responsive breakpoints like <code>sm:{prefixUtil}-*</code>,
+          <code>md:{prefixUtil}-*</code>, <code>lg:{prefixUtil}-*</code>, and{" "}
+          <code>xxl:{prefixUtil}-*</code> allows targeting specific utilities in
+          different viewports.
+        </p>
+
+        <Code
+          code={`<div class="${baseUtil} md:${modifiers.responsiveUtil} ..."></div>`}
+          lang="html"
+          mark={`md:${modifiers.responsiveUtil}`}
+        />
+      </>
+    )
+  }
+
+  <h3>Using hover modifiers</h3>
+
+  <p>
+    Using <code>:hover</code> modifiers such as <code>h:{prefixUtil}-*</code> allows
+    you to override elements and change their values when hovering over them.
+  </p>
+
+  <Code
+    code={`<div class="${baseUtil} h:${modifiers.hoverUtil} ..."></div>`}
+    lang="html"
+    mark={`h:${modifiers.hoverUtil}`}
+  />
+</section>

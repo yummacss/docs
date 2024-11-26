@@ -1,6 +1,6 @@
 ---
 title: Cursor
-description: Controls the cursor style when hovering over an element.
+description: Controls the cursor style when hovering over an element
 slug: docs/cursor
 ---
 
@@ -37,18 +37,11 @@ Controls the cursor style when hovering over an element.
 
 ---
 
-### Using breakpoints
-
-Using responsive breakpoints like `sm:c-*`, `md:c-*`, `lg:c-*`, and `xxl:c-*` allows targeting specific utilities in different viewports.
-
-```html "md:c-wait"
-<div class="c-p md:c-wait ..."></div>
-```
-
-### Using variants
-
-Using `:hover` variants such as `h:c-*` allows you to override elements and change their values when hovering over them.
-
-```html "h:c-wait"
-<div class="c-p h:c-wait ..."></div>
-```
+<Modifier
+  baseUtil="c-p"
+  prefixUtil="c"
+  modifiers={{
+    hoverUtil: "c-wait",
+    responsiveUtil: "c-wait",
+  }}
+/>

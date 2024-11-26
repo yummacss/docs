@@ -102,10 +102,9 @@ export default defineConfig({
         {
           label: "Concepts",
           items: [
-            { label: "Color System", link: "docs/color-system" },
-            { label: "Responsive Design", link: "docs/responsive-design" },
-            { label: "Utility Classes", link: "docs/utility-classes" },
-            { label: "Variants", link: "docs/variants" },
+            { label: "Utilities", link: "docs/utilities" },
+            { label: "Colors", link: "docs/colors" },
+            { label: "Modifiers", link: "docs/modifiers" },
           ],
         },
         {
@@ -264,6 +263,7 @@ export default defineConfig({
         "/src/components/Footer.astro",
         "/src/components/Hover.astro",
         "/src/components/Live.astro",
+        "/src/components/Modifier.astro",
         "/src/components/Palette.astro",
         "/src/components/Utility.astro",
         {

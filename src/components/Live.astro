@@ -14,25 +14,25 @@ interface LiveProps {
   useWrap?: boolean;
 }
 
-const { 
-  data, 
-  noScroll = false, 
-  useCenter = false, 
+const {
+  data,
+  noScroll = false,
+  useCenter = false,
   useExternal = "",
   useHeight = "300px",
   useMarks: useMarks = [],
-  usePadding = false, 
-  useTabs = false, 
-  useVersion = "", 
+  usePadding = false,
+  useTabs = false,
+  useVersion = "",
   useWrap = false,
 } = Astro.props as LiveProps;
 
 const newContainer = (
-  stylesheet: string, 
-  flex: string, 
-  useCenter: boolean, 
-  usePadding: boolean, 
-  noScroll: boolean, 
+  stylesheet: string,
+  flex: string,
+  useCenter: boolean,
+  usePadding: boolean,
+  noScroll: boolean,
   newCode: string
 ) => `
   <html>
@@ -62,35 +62,62 @@ const newContainer = (
   </html>
 `;
 
-const stylesheet = useExternal || `https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@${useVersion}/dist/yumma.css`;
+const stylesheet =
+  useExternal ||
+  `https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@${useVersion}/dist/yumma.css`;
 
 const flexbox = useCenter ? "display: flex;" : "";
 const newCode = data;
 const container = newContainer(
-  stylesheet, 
-  flexbox, 
-  useCenter, 
-  usePadding, 
-  noScroll, 
+  stylesheet,
+  flexbox,
+  useCenter,
+  usePadding,
+  noScroll,
   newCode
 );
 ---
 
 <style>
-.previewIframe {
-  background-color: #f5f6f8;
-  background-image: linear-gradient(rgba(203, 206, 210, 0.16) 1px, transparent 1px), linear-gradient(to right, rgba(203, 206, 210, 0.16) 1px, rgb(245, 246, 248) 1px);
-  background-size: 20px 20px;
-  border: 1px solid #cbced2;
-  overflow-y: auto;
-  width: 100%;
-}
+  .previewIframe {
+    background-color: #f5f6f8;
+    background-image: linear-gradient(
+        rgba(203, 206, 210, 0.16) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to right,
+        rgba(203, 206, 210, 0.16) 1px,
+        rgb(245, 246, 248) 1px
+      );
+    background-size: 20px 20px;
+    border: 1px solid #cbced2;
+    overflow-y: auto;
+    width: 100%;
+  }
 </style>
 
 <div>
-  {useTabs ? (
-    <Tabs>
-      <TabItem label="Live">
+  {
+    useTabs ? (
+      <Tabs>
+        <TabItem icon="seti:video" label="Preview">
+          <iframe
+            loading="lazy"
+            sandbox="allow-scripts allow-same-origin"
+            srcdoc={container}
+            class="previewIframe"
+            style={`height: ${useHeight};`}
+          />
+        </TabItem>
+        <TabItem icon="seti:html" label="Code">
+          <div>
+            <Code code={newCode} lang="html" mark={useMarks} wrap={useWrap} />
+          </div>
+        </TabItem>
+      </Tabs>
+    ) : (
+      <div>
         <iframe
           loading="lazy"
           sandbox="allow-scripts allow-same-origin"
@@ -98,30 +125,10 @@ const container = newContainer(
           class="previewIframe"
           style={`height: ${useHeight};`}
         />
-      </TabItem>
-      <TabItem label="Markup">
-        <div>
-          <Code 
-            code={newCode} 
-            lang="html"
-            mark={useMarks} 
-            wrap={useWrap} 
-          />
+        <div class="codeContainer">
+          <Code code={newCode} lang="html" mark={useMarks} wrap={useWrap} />
         </div>
-      </TabItem>
-    </Tabs>
-  ) : (
-    <div>
-      <iframe
-        loading="lazy"
-        sandbox="allow-scripts allow-same-origin"
-        srcdoc={container}
-        class="previewIframe"
-        style={`height: ${useHeight};`}
-      />
-      <div class="codeContainer">
-        <Code code={newCode} lang="html" mark={useMarks} wrap={useWrap} />
       </div>
-    </div>
-  )}
+    )
+  }
 </div>

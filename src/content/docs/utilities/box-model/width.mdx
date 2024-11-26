@@ -1,6 +1,6 @@
 ---
 title: Width
-description: Controls the width of an element.
+description: Controls the width of an element
 slug: docs/width
 ---
 
@@ -94,18 +94,11 @@ Controls the minimum width of an element.
 
 ---
 
-### Using breakpoints
-
-Using responsive breakpoints like `sm:w-*`, `md:w-*`, `lg:w-*`, and `xxl:w-*` allows targeting specific utilities in different viewports.
-
-```html "md:w-2"
-<div class="w-1 md:w-2 ..."></div>
-```
-
-### Using variants
-
-Using `:hover` variants such as `h:w-*` allows you to override elements and change their values when hovering over them.
-
-```html "h:w-2"
-<div class="w-1 h:w-2 ..."></div>
-```
+<Modifier
+  baseUtil="w-1"
+  prefixUtil="w"
+  modifiers={{
+    hoverUtil: "w-2",
+    responsiveUtil: "w-2",
+  }}
+/>

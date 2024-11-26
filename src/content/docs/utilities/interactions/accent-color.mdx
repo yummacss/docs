@@ -1,6 +1,6 @@
 ---
 title: Accent Color
-description: Controls form control accent color.
+description: Controls form control accent color
 slug: docs/accent-color
 ---
 
@@ -28,10 +28,10 @@ Controls form control accent color.
 
 ---
 
-### Using variants
-
-Using `:hover` variants such as `h:ac-*` allows you to override elements and change their values when hovering over them.
-
-```html "h:ac-2"
-<div class="ac-lead h:ac-pink ..."></div>
-```
+<Modifier
+  baseUtil="ac-lead"
+  prefixUtil="ac"
+  modifiers={{
+    hoverUtil: "ac-cyan",
+  }}
+/>

@@ -1,6 +1,6 @@
 ---
 title: Border Collapse
-description: Controls the collapsing or separation of table borders.
+description: Controls the collapsing or separation of table borders
 slug: docs/border-collapse
 ---
 
@@ -49,18 +49,11 @@ The table borders will be merged.
 
 ---
 
-### Using breakpoints
-
-Using responsive breakpoints like `sm:bc-*`, `md:bc-*`, `lg:bc-*`, and `xxl:bc-*` allows targeting specific utilities in different viewports.
-
-```html "md:bc-c"
-<div class="bc-s md:bc-c ..."></div>
-```
-
-### Using variants
-
-Using `:hover` variants such as `h:bc-*` allows you to override elements and change their values when hovering over them.
-
-```html "h:bc-c"
-<div class="bc-s h:bc-c ..."></div>
-```
+<Modifier
+  baseUtil="bs-s"
+  prefixUtil="bs"
+  modifiers={{
+    hoverUtil: "bc-c",
+    responsiveUtil: "bc-c",
+  }}
+/>

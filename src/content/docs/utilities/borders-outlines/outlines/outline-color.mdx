@@ -1,6 +1,6 @@
 ---
 title: Outline Color
-description: Controls the color of the outline of an element.
+description: Controls the color of the outline of an element
 slug: docs/outline-color
 ---
 
@@ -39,10 +39,10 @@ Controls the color of the outline of an element.
 
 ---
 
-### Using variants
-
-Using `:hover` variants such as `h:oc-*` allows you to override elements and change their values when hovering over them.
-
-```html "h:oc-pink"
-<div class="oc-lead h:oc-pink ..."></div>
-```
+<Modifier
+  baseUtil="oc-lead"
+  prefixUtil="oc"
+  modifiers={{
+    hoverUtil: "oc-cyan",
+  }}
+/>

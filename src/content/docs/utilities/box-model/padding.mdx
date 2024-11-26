@@ -1,6 +1,6 @@
 ---
 title: Padding
-description: Controls the padding of an element.
+description: Controls the padding of an element
 slug: docs/padding
 ---
 
@@ -168,18 +168,11 @@ Controls the top and bottom paddings of an element at once.
 
 ---
 
-### Using breakpoints
-
-Using responsive breakpoints like `sm:p-*`, `md:p-*`, `lg:p-*`, and `xxl:p-*` allows targeting specific utilities in different viewports.
-
-```html "md:p-2"
-<div class="p-1 md:p-2 ..."></div>
-```
-
-### Using variants
-
-Using `:hover` variants such as `h:p-*` allows you to override elements and change their values when hovering over them.
-
-```html "h:p-2"
-<div class="p-1 h:p-2 ..."></div>
-```
+<Modifier
+  baseUtil="p-1"
+  prefixUtil="p"
+  modifiers={{
+    hoverUtil: "p-2",
+    responsiveUtil: "p-2",
+  }}
+/>

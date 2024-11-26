@@ -1,6 +1,6 @@
 ---
 title: Font Family
-description: Controls the font family of an element.
+description: Controls the font family of an element
 slug: docs/font-family
 ---
 
@@ -25,18 +25,11 @@ Controls the font family of an element.
 
 ---
 
-### Using breakpoints
-
-Using responsive breakpoints like `sm:ff-*`, `md:ff-*`, `lg:ff-*`, and `xxl:ff-*` allows targeting specific utilities in different viewports.
-
-```html "md:ff-i"
-<div class="ff-d md:ff-i ..."></div>
-```
-
-### Using variants
-
-Using `:hover` variants such as `h:ff-*` allows you to override elements and change their values when hovering over them.
-
-```html "h:ff-i"
-<div class="ff-d h:ff-i ..."></div>
-```
+<Modifier
+  baseUtil="ff-d"
+  prefixUtil="ff"
+  modifiers={{
+    hoverUtil: "ff-i",
+    responsiveUtil: "ff-i",
+  }}
+/>

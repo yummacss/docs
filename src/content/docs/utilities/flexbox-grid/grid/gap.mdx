@@ -1,6 +1,6 @@
 ---
 title: Gap
-description: Controls gaps between grid and flexbox elements.
+description: Controls gaps between grid and flexbox elements
 slug: docs/gap
 ---
 
@@ -16,18 +16,11 @@ Controls gaps between grid and flexbox elements.
 
 ---
 
-### Using breakpoints
-
-Using responsive breakpoints like `sm:g-*`, `md:g-*`, `lg:g-*`, and `xxl:g-*` allows targeting specific utilities in different viewports.
-
-```html "md:g-2"
-<div class="g-1 md:g-2 ..."></div>
-```
-
-### Using variants
-
-Using `:hover` variants such as `h:g-*` allows you to override elements and change their values when hovering over them.
-
-```html "h:g-2"
-<div class="g-1 h:g-2 ..."></div>
-```
+<Modifier
+  baseUtil="g-1"
+  prefixUtil="g"
+  modifiers={{
+    hoverUtil: "g-2",
+    responsiveUtil: "g-2",
+  }}
+/>

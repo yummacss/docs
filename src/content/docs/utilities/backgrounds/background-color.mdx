@@ -1,6 +1,6 @@
 ---
 title: Background Color
-description: Controls the background color of an element.
+description: Controls the background color of an element
 slug: docs/background-color
 ---
 
@@ -39,10 +39,10 @@ Controls the background color of an element.
 
 ---
 
-### Using variants
-
-Using `:hover` variants such as `h:bg-*` allows you to override elements and change their values when hovering over them.
-
-```html "h:bg-pink"
-<div class="bg-lead h:bg-pink ..."></div>
-```
+<Modifier
+  baseUtil="bg-lead"
+  prefixUtil="bg"
+  modifiers={{
+    hoverUtil: "bg-cyan",
+  }}
+/>

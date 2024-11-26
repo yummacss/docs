@@ -1,6 +1,6 @@
 ---
 title: Outline Style
-description: Controls the outline style of an element.
+description: Controls the outline style of an element
 slug: docs/outline-style
 ---
 
@@ -36,18 +36,11 @@ Controls the outline style of an element.
 
 ---
 
-### Using breakpoints
-
-Using responsive breakpoints like `sm:os-*`, `md:os-*`, `lg:os-*`, and `xxl:os-*` allows targeting specific utilities in different viewports.
-
-```html "md:os-s"
-<div class="os-h md:os-s ..."></div>
-```
-
-### Using variants
-
-Using `:hover` variants such as `h:os-*` allows you to override elements and change their values when hovering over them.
-
-```html "h:os-s"
-<div class="os-h h:os-s ..."></div>
-```
+<Modifier
+  baseUtil="os-h"
+  prefixUtil="os"
+  modifiers={{
+    hoverUtil: "os-s",
+    responsiveUtil: "os-s",
+  }}
+/>

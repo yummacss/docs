@@ -1,6 +1,6 @@
 ---
 title: Grid Auto Columns
-description: Controls the size of grid columns created implicitly.
+description: Controls the size of grid columns created implicitly
 slug: docs/grid-auto-columns
 ---
 
@@ -25,18 +25,11 @@ Controls the size of grid columns created implicitly.
 
 ---
 
-### Using breakpoints
-
-Using responsive breakpoints like `sm:gac-*`, `md:gac-*`, `lg:gac-*`, and `xxl:gac-*` allows targeting specific utilities in different viewports.
-
-```html "md:gac-auto"
-<div class="gac-min md:gac-auto ..."></div>
-```
-
-### Using variants
-
-Using `:hover` variants such as `h:gac-*` allows you to override elements and change their values when hovering over them.
-
-```html "h:gac-auto"
-<div class="gac-min h:gac-auto ..."></div>
-```
+<Modifier
+  baseUtil="gac-min"
+  prefixUtil="gac"
+  modifiers={{
+    hoverUtil: "gac-auto",
+    responsiveUtil: "gac-auto",
+  }}
+/>

@@ -1,6 +1,6 @@
 ---
 title: Aspect Ratio
-description: Controls the aspect ratio of an element.
+description: Controls the aspect ratio of an element
 slug: docs/aspect-ratio
 ---
 
@@ -25,18 +25,11 @@ Controls the aspect ratio of an element.
 
 ---
 
-### Using breakpoints
-
-Using responsive breakpoints like `sm:ar-*`, `md:ar-*`, `lg:ar-*`, and `xxl:ar-*` allows targeting specific utilities in different viewports.
-
-```html "md:ar-l"
-<div class="ar-s md:ar-l ..."></div>
-```
-
-### Using variants
-
-Using `:hover` variants such as `h:ar-*` allows you to override elements and change their values when hovering over them.
-
-```html "h:ar-l"
-<div class="ar-s h:ar-l ..."></div>
-```
+<Modifier
+  baseUtil="ar-s"
+  prefixUtil="ar"
+  modifiers={{
+    hoverUtil: "ar-l",
+    responsiveUtil: "ar-l",
+  }}
+/>

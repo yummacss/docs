@@ -1,6 +1,6 @@
 ---
 title: Font Size
-description: Controls the font size of an element.
+description: Controls the font size of an element
 slug: docs/font-size
 ---
 
@@ -53,18 +53,11 @@ Controls the font size of an element.
 
 ---
 
-### Using breakpoints
-
-Using responsive breakpoints like `sm:fs-*`, `md:fs-*`, `lg:fs-*`, and `xxl:fs-*` allows targeting specific utilities in different viewports.
-
-```html "md:fs-lg"
-<div class="fs-md md:fs-lg ..."></div>
-```
-
-### Using variants
-
-Using `:hover` variants such as `h:fs-*` allows you to override elements and change their values when hovering over them.
-
-```html "h:fs-lg"
-<div class="fs-md h:fs-lg ..."></div>
-```
+<Modifier
+  baseUtil="fs-md"
+  prefixUtil="fs"
+  modifiers={{
+    hoverUtil: "fs-lg",
+    responsiveUtil: "fs-lg",
+  }}
+/>

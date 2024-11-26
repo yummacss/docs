@@ -1,6 +1,6 @@
 ---
 title: Grid Template Columns
-description: Utilities to define the columns in a grid layout.
+description: Utilities to define the columns in a grid layout
 slug: docs/grid-template-columns
 ---
 
@@ -17,18 +17,11 @@ Utilities to define the columns in a grid layout.
 
 ---
 
-### Using breakpoints
-
-Using responsive breakpoints like `sm:gtc-*`, `md:gtc-*`, `lg:gtc-*`, and `xxl:gtc-*` allows targeting specific utilities in different viewports.
-
-```html "md:gtc-2"
-<div class="gtc-1 md:gtc-2 ..."></div>
-```
-
-### Using variants
-
-Using `:hover` variants such as `h:gtc-*` allows you to override elements and change their values when hovering over them.
-
-```html "h:gtc-2"
-<div class="gtc-1 h:gtc-2 ..."></div>
-```
+<Modifier
+  baseUtil="gtc-1"
+  prefixUtil="gtc"
+  modifiers={{
+    hoverUtil: "gtc-2",
+    responsiveUtil: "gtc-2",
+  }}
+/>

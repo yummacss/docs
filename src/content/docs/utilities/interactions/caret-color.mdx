@@ -1,6 +1,6 @@
 ---
 title: Caret Color
-description: Controls the text input cursor color.
+description: Controls the text input cursor color
 slug: docs/caret-color
 ---
 
@@ -28,10 +28,10 @@ Controls the text input cursor color.
 
 ---
 
-### Using variants
-
-Using `:hover` variants such as `h:cc-*` allows you to override elements and change their values when hovering over them.
-
-```html "h:cc-pink
-<div class="cc-lead h:cc-pink ..."></div>
-```
+<Modifier
+  baseUtil="cc-lead"
+  prefixUtil="cc"
+  modifiers={{
+    hoverUtil: "cc-cyan",
+  }}
+/>
