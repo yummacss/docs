@@ -1,6 +1,6 @@
 ---
 title: Margin
-description: Controls the margin of an element.
+description: Controls the margin of an element
 slug: docs/margin
 ---
 
@@ -166,18 +166,11 @@ Controls the top and bottom margins of an element at once.
 
 ---
 
-### Using breakpoints
-
-Using responsive breakpoints like `sm:m-*`, `md:m-*`, `lg:m-*`, and `xxl:m-*` allows targeting specific utilities in different viewports.
-
-```html "md:m-2"
-<div class="m-1 md:m-2 ..."></div>
-```
-
-### Using variants
-
-Using `:hover` variants such as `h:m-*` allows you to override elements and change their values when hovering over them.
-
-```html "h:m-2"
-<div class="m-1 h:m-2 ..."></div>
-```
+<Modifier
+  baseUtil="m-1"
+  prefixUtil="m"
+  modifiers={{
+    hoverUtil: "m-2",
+    responsiveUtil: "m-2",
+  }}
+/>

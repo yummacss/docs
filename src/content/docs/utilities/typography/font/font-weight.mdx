@@ -1,6 +1,6 @@
 ---
 title: Font Weight
-description: Controls the font weight of an element.
+description: Controls the font weight of an element
 slug: docs/font-weight
 ---
 
@@ -17,18 +17,11 @@ Controls the font weight of an element.
 
 ---
 
-### Using breakpoints
-
-Using responsive breakpoints like `sm:fw-*`, `md:fw-*`, `lg:fw-*`, and `xxl:fw-*` allows targeting specific utilities in different viewports.
-
-```html "md:fw-600"
-<div class="fw-400 md:fw-600 ..."></div>
-```
-
-### Using variants
-
-Using `:hover` variants such as `h:fw-*` allows you to override elements and change their values when hovering over them.
-
-```html "h:fw-600"
-<div class="fw-400 h:fw-600 ..."></div>
-```
+<Modifier
+  baseUtil="fw-500"
+  prefixUtil="fw"
+  modifiers={{
+    hoverUtil: "fw-600",
+    responsiveUtil: "fw-600",
+  }}
+/>

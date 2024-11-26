@@ -1,6 +1,6 @@
 ---
 title: Flex
-description: Controls how flex elements grow and shrink.
+description: Controls how flex elements grow and shrink
 slug: docs/flex
 ---
 
@@ -21,18 +21,11 @@ Controls how Flex elements grow and shrink.
 
 ---
 
-### Using breakpoints
-
-Using responsive breakpoints like `sm:f-*`, `md:f-*`, `lg:f-*`, and `xxl:f-*` allows targeting specific utilities in different viewports.
-
-```html "md:f-2"
-<div class="f-1 md:f-2 ..."></div>
-```
-
-### Using variants
-
-Using `:hover` variants such as `h:f-*` allows you to override elements and change their values when hovering over them.
-
-```html "h:f-2"
-<div class="f-1 h:f-2 ..."></div>
-```
+<Modifier
+  baseUtil="f-1"
+  prefixUtil="f"
+  modifiers={{
+    hoverUtil: "f-2",
+    responsiveUtil: "f-2",
+  }}
+/>

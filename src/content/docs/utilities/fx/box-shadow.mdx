@@ -1,6 +1,6 @@
 ---
 title: Box Shadow
-description: Controls the box shadow of an element.
+description: Controls the box shadow of an element
 slug: docs/box-shadow
 ---
 
@@ -48,18 +48,11 @@ Controls the box shadow of an element.
 
 ---
 
-### Using breakpoints
-
-Using responsive breakpoints like `sm:bs-*`, `md:bs-*`, `lg:bs-*`, and `xxl:bs-*` allows targeting specific utilities in different viewports.
-
-```html "md:bs-md"
-<div class="bs-sm md:bs-md ..."></div>
-```
-
-### Using variants
-
-Using `:hover` variants such as `h:bs-*` allows you to override elements and change their values when hovering over them.
-
-```html "h:bs-md"
-<div class="bs-sm h:bs-md ..."></div>
-```
+<Modifier
+  baseUtil="bs-sm"
+  prefixUtil="bs"
+  modifiers={{
+    hoverUtil: "bs-md",
+    responsiveUtil: "bs-md",
+  }}
+/>

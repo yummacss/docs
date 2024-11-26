@@ -1,6 +1,6 @@
 ---
 title: Text Decoration Color
-description: Controls the color of the text decoration.
+description: Controls the color of the text decoration
 slug: docs/text-decoration-color
 ---
 
@@ -28,12 +28,10 @@ Controls the color of the text decoration.
 
 ---
 
-### Using variants
-
-The `:hover` variant, such as `h:tdc-*`, allows you to modify text decoration colors when hovering over elements.
-
-```html "h:tdc-pink"
-<p class="tdc-lead h:tdc-pink ...">
-  The quick brown fox jumps over the lazy dog.
-</p>
-```
+<Modifier
+  baseUtil="tdc-lead"
+  prefixUtil="tdc"
+  modifiers={{
+    hoverUtil: "tdc-cyan",
+  }}
+/>

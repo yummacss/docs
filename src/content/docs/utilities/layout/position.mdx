@@ -1,6 +1,6 @@
 ---
 title: Position
-description: Controls the positioning of elements.
+description: Controls the positioning of elements
 slug: docs/position
 ---
 
@@ -33,18 +33,11 @@ Controls the positioning of elements.
 
 ---
 
-### Using breakpoints
-
-Using responsive breakpoints like `sm:p-*`, `md:p-*`, `lg:p-*`, and `xxl:p-*` allows targeting specific utilities in different viewports.
-
-```html "md:p-s"
-<div class="p-a md:p-s ..."></div>
-```
-
-### Using variants
-
-Using `:hover` variants such as `h:p-*` allows you to override elements and change their values when hovering over them.
-
-```html "h:p-s"
-<div class="p-a h:p-s ..."></div>
-```
+<Modifier
+  baseUtil="p-a"
+  prefixUtil="p"
+  modifiers={{
+    hoverUtil: "p-s",
+    responsiveUtil: "p-s",
+  }}
+/>

@@ -1,6 +1,6 @@
 ---
 title: Flex Direction
-description: Controls the direction of flex elements.
+description: Controls the direction of flex elements
 slug: docs/flex-direction
 ---
 
@@ -29,18 +29,11 @@ Controls the direction of flex elements.
 
 ---
 
-### Using breakpoints
-
-Using responsive breakpoints like `sm:fd-*`, `md:fd-*`, `lg:fd-*`, and `xxl:fd-*` allows targeting specific utilities in different viewports.
-
-```html "md:fd-r"
-<div class="fd-c md:fd-r ..."></div>
-```
-
-### Using variants
-
-Using `:hover` variants such as `h:fd-*` allows you to override elements and change their values when hovering over them.
-
-```html "h:fd-r"
-<div class="fd-c h:fd-r ..."></div>
-```
+<Modifier
+  baseUtil="fd-c"
+  prefixUtil="fd"
+  modifiers={{
+    hoverUtil: "fd-r",
+    responsiveUtil: "fd-r",
+  }}
+/>

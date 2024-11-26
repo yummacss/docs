@@ -1,6 +1,6 @@
 ---
 title: Object Position
-description: Controls how to position the container's content.
+description: Controls how to position the container's content
 slug: docs/object-position
 ---
 
@@ -49,18 +49,11 @@ Controls how to position the container's content.
 
 ---
 
-### Using breakpoints
-
-Using responsive breakpoints like `sm:op-*`, `md:op-*`, `lg:op-*`, and `xxl:op-*` allows targeting specific utilities in different viewports.
-
-```html "md:op-r"
-<div class="op-l md:op-r ..."></div>
-```
-
-### Using variants
-
-Using `:hover` variants such as `h:op-*` allows you to override elements and change their values when hovering over them.
-
-```html "h:op-r"
-<div class="op-l h:op-r ..."></div>
-```
+<Modifier
+  baseUtil="op-l"
+  prefixUtil="op"
+  modifiers={{
+    hoverUtil: "op-r",
+    responsiveUtil: "op-r",
+  }}
+/>

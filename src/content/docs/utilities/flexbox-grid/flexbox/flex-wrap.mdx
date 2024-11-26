@@ -1,6 +1,6 @@
 ---
 title: Flex Wrap
-description: Controls how flex items are wrapped.
+description: Controls how flex items are wrapped
 slug: docs/flex-wrap
 ---
 
@@ -25,18 +25,11 @@ Controls how flex items are wrapped.
 
 ---
 
-### Using breakpoints
-
-Using responsive breakpoints like `sm:fw-*`, `md:fw-*`, `lg:fw-*`, and `xxl:fw-*` allows targeting specific utilities in different viewports.
-
-```html "md:fw-w"
-<div class="fw-wr md:fw-w ..."></div>
-```
-
-### Using variants
-
-Using `:hover` variants such as `h:fw-*` allows you to override elements and change their values when hovering over them.
-
-```html "h:fw-w"
-<div class="fw-wr h:fw-w ..."></div>
-```
+<Modifier
+  baseUtil="fw-wr"
+  prefixUtil="fw"
+  modifiers={{
+    hoverUtil: "fw-w",
+    responsiveUtil: "fw-w",
+  }}
+/>

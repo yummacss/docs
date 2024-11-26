@@ -5,7 +5,7 @@ export const regularCard: string = `
     <p class="card-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia velit fugit voluptates quod, placeat quam maxime earum voluptas provident, natus omnis saepe beatae vitae.</p>
     <a class="card-link">Link to page</a>
   </div>
-  <button class="card-button">Primary Button</button>
+  <button class="card-button">Button</button>
 </div>
 <style>
   .card {
@@ -16,7 +16,7 @@ export const regularCard: string = `
       max-width: 23.75rem;
       overflow: hidden;
       padding: 1.5rem;
-      border-radius: 16px;
+      border-radius: 0.5rem;
   }
 
   @media (min-width: 768px) {
@@ -38,12 +38,13 @@ export const regularCard: string = `
   }
 
   .card-description {
+      font-size: 1rem;
       margin-bottom: 1rem;
       color: #797983;
   }
 
   .card-link {
-      font-size: 14.4px;
+      font-size: 1rem;
       color: #d4418a;
       text-decoration-line: underline;
   }
@@ -56,9 +57,9 @@ export const regularCard: string = `
       margin-top: 1.5rem;
       padding-left: 1.5rem;
       padding-right: 1.5rem;
-      border-radius: 8px;
+      border-radius: 0.25rem;
       color: #ffffff;
-      font-size: 14.4px;
+      font-size: 1rem;
   }
 
   .card-button:hover {
@@ -89,13 +90,13 @@ export const regularCard: string = `
 `;
 
 export const yummaCard: string = `
-<div class="max-w-96 ovf-h rad-4 b-1 bc-l-silver-6 bg-white p-6 bs-xs">
+<div class="max-w-96 ovf-h rad-2 b-1 bc-l-silver-6 bg-white p-6 bs-xs">
   <div class="fg-1">
     <h4 class="mb-2 fs-sm fw-600 lh-1 tc-d-lead-2">Heading</h4>
     <p class="mb-4 tc-l-lead-3 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia velit fugit voluptates quod, placeat quam maxime earum voluptas provident, natus omnis saepe beatae vitae.</p>
     <a class="fs-b lh-1 tc-pink tdl-u">Link to page</a>
   </div>
-  <button class="mb-4 mt-6 h-12 rad-2 bg-pink px-6 fw-600 tc-white h:bg-d-pink-1">Primary</button>
+  <button class="mb-4 mt-6 h-12 rad-1 bg-pink px-6 fw-600 tc-white h:bg-d-pink-1">Button</button>
 </div>
 `;
 
@@ -106,6 +107,6 @@ export const tailwindCard: string = `
     <p class="mb-4 text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia velit fugit voluptates quod, placeat quam maxime earum voluptas provident, natus omnis saepe beatae vitae.</p>
     <a class="text-base leading-none text-pink-500 underline">Link to page</a>
   </div>
-  <button class="mb-4 mt-6 h-12 rounded-lg bg-pink-500 px-6 font-semibold text-white hover:bg-pink-600">Primary</button>
+  <button class="mb-4 mt-6 h-12 rounded-lg bg-pink-500 px-6 font-semibold text-white hover:bg-pink-600">Button</button>
 </div>
 `;

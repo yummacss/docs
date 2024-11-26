@@ -1,6 +1,6 @@
 ---
 title: Overflow
-description: Controls how an element behaves when content overflows.
+description: Controls how an element behaves when content overflows
 slug: docs/overflow
 ---
 
@@ -91,18 +91,11 @@ Controls how an element behaves when content overflows on the Y-axis.
 
 ---
 
-### Using breakpoints
-
-Using responsive breakpoints like `sm:ovf-*`, `md:ovf-*`, `lg:ovf-*`, and `xxl:ovf-*` allows targeting specific utilities in different viewports.
-
-```html "md:ovf-auto"
-<div class="ovf-h md:ovf-auto ..."></div>
-```
-
-### Using variants
-
-Using `:hover` variants such as `h:ovf-*` allows you to override elements and change their values when hovering over them.
-
-```html "h:ovf-auto"
-<div class="ovf-h h:ovf-auto ..."></div>
-```
+<Modifier
+  baseUtil="ovf-h"
+  prefixUtil="ovf"
+  modifiers={{
+    hoverUtil: "ovf-auto",
+    responsiveUtil: "ovf-auto",
+  }}
+/>

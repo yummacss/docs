@@ -1,6 +1,6 @@
 ---
 title: Outline Offset
-description: Controls the offset of an element's outline.
+description: Controls the offset of an element's outline
 slug: docs/outline-offset
 ---
 
@@ -27,18 +27,11 @@ Controls the offset of an element's outline.
 
 ---
 
-### Using breakpoints
-
-Using responsive breakpoints like `sm:oo-*`, `md:oo-*`, `lg:oo-*`, and `xxl:oo-*` allows targeting specific utilities in different viewports.
-
-```html "md:oo-2"
-<div class="oo-1 md:oo-2 ..."></div>
-```
-
-### Using variants
-
-Using `:hover` variants such as `h:oo-*` allows you to override elements and change their values when hovering over them.
-
-```html "h:oo-2"
-<div class="oo-1 h:oo-2 ..."></div>
-```
+<Modifier
+  baseUtil="oo-1"
+  prefixUtil="oo"
+  modifiers={{
+    hoverUtil: "oo-2",
+    responsiveUtil: "oo-2",
+  }}
+/>

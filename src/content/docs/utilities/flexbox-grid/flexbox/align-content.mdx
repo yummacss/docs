@@ -1,6 +1,6 @@
 ---
 title: Align Content
-description: Controls the positioning of rows in multi-row Flex and Grid containers.
+description: Controls the positioning of rows in multi-row Flex and Grid containers
 slug: docs/align-content
 ---
 
@@ -167,18 +167,13 @@ Each line fills its space, and the remaining space is distributed evenly between
   useVersion="2.1.0"
 />
 
-### Using breakpoints
+---
 
-Using responsive breakpoints like `sm:ac-*`, `md:ac-*`, `lg:ac-*`, and `xxl:ac-*` allows targeting specific utilities in different viewports.
-
-```html "md:ac-e"
-<div class="ac-s md:ac-e ac-"></div>
-```
-
-### Using variants
-
-Using `:hover` variants such as `h:ac-*` allows you to override elements and change their values when hovering over them.
-
-```html "h:ac-e"
-<div class="ac-s h:ac-e ac-"></div>
-```
+<Modifier
+  baseUtil="ac-s"
+  prefixUtil="ac"
+  modifiers={{
+    hoverUtil: "ac-e",
+    responsiveUtil: "ac-e",
+  }}
+/>

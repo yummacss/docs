@@ -1,6 +1,6 @@
 ---
 title: Align Items
-description: Controls flex and grid positioning along a container's transverse axis.
+description: Controls flex and grid positioning along a container's transverse axis
 slug: docs/align-items
 ---
 
@@ -106,18 +106,11 @@ Stretches items to fill the container's height.
 
 ---
 
-### Using breakpoints
-
-Using responsive breakpoints like `sm:ai-*`, `md:ai-*`, `lg:ai-*`, and `xxl:ai-*` allows targeting specific utilities in different viewports.
-
-```html "md:ai-e"
-<div class="ai-s md:ai-e ..."></div>
-```
-
-### Using variants
-
-Using `:hover` variants such as `h:ai-*` allows you to override elements and change their values when hovering over them.
-
-```html "h:ai-e"
-<div class="ai-s h:ai-e ..."></div>
-```
+<Modifier
+  baseUtil="ai-s"
+  prefixUtil="ai"
+  modifiers={{
+    hoverUtil: "ai-e",
+    responsiveUtil: "ai-e",
+  }}
+/>

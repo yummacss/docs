@@ -1,6 +1,6 @@
 ---
 title: Text Color
-description: Controls the text color of an element.
+description: Controls the text color of an element
 slug: docs/text-color
 ---
 
@@ -28,12 +28,10 @@ Controls the text color of an element.
 
 ---
 
-### Using variants
-
-The `:hover` variant, such as `h:tc-*`, allows you to modify text colors when hovering over elements.
-
-```html "h:tc-pink"
-<h3 class="tc-lead h:tc-pink ...">
-  The quick brown fox jumps over the lazy dog.
-</h3>
-```
+<Modifier
+  baseUtil="tc-lead"
+  prefixUtil="tc"
+  modifiers={{
+    hoverUtil: "tc-cyan",
+  }}
+/>

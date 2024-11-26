@@ -1,6 +1,6 @@
 ---
 title: Column Gap
-description: Controls the spacing between columns in a grid layout.
+description: Controls the spacing between columns in a grid layout
 slug: docs/column-gap
 ---
 
@@ -16,18 +16,11 @@ Controls the spacing between columns in a grid layout.
 
 ---
 
-### Using breakpoints
-
-Using responsive breakpoints like `sm:cg-*`, `md:cg-*`, `lg:cg-*`, and `xxl:cg-*` allows targeting specific utilities in different viewports.
-
-```html "md:cg-2"
-<div class="cg-1 md:cg-2 ..."></div>
-```
-
-### Using variants
-
-Using `:hover` variants such as `h:cg-*` allows you to override elements and change their values when hovering over them.
-
-```html "h:cg-2"
-<div class="cg-1 h:cg-2 ..."></div>
-```
+<Modifier
+  baseUtil="cg-1"
+  prefixUtil="cg"
+  modifiers={{
+    hoverUtil: "cg-2",
+    responsiveUtil: "cg-2",
+  }}
+/>

@@ -1,6 +1,6 @@
 ---
 title: Flex Basis
-description: Controls the initial size of flex elements.
+description: Controls the initial size of flex elements
 slug: docs/flex-basis
 ---
 
@@ -21,18 +21,11 @@ Controls the initial size of flex elements.
 
 ---
 
-### Using breakpoints
-
-Using responsive breakpoints like `sm:fb-*`, `md:fb-*`, `lg:fb-*`, and `xxl:fb-*` allows targeting specific utilities in different viewports.
-
-```html "md:fb-2"
-<div class="fb-1 md:fb-2 ..."></div>
-```
-
-### Using variants
-
-Using `:hover` variants such as `h:fb-*` allows you to override elements and change their values when hovering over them.
-
-```html "h:fb-2"
-<div class="fb-1 h:fb-2 ..."></div>
-```
+<Modifier
+  baseUtil="fb-1"
+  prefixUtil="fb"
+  modifiers={{
+    hoverUtil: "fb-2",
+    responsiveUtil: "fb-2",
+  }}
+/>

@@ -1,6 +1,6 @@
 ---
 title: Justify Self
-description: Controls the alignment of a single grid element relative to its inline axis.
+description: Controls the alignment of a single grid element relative to its inline axis
 slug: docs/justify-self
 ---
 
@@ -33,18 +33,11 @@ Controls the alignment of a single grid element relative to its inline axis.
 
 ---
 
-### Using breakpoints
-
-Using responsive breakpoints like `sm:js-*`, `md:js-*`, `lg:js-*`, and `xxl:js-*` allows targeting specific utilities in different viewports.
-
-```html "md:js-r"
-<div class="js-l md:js-r ..."></div>
-```
-
-### Using variants
-
-Using `:hover` variants such as `h:js-*` allows you to override elements and change their values when hovering over them.
-
-```html "h:js-r"
-<div class="js-l h:js-r ..."></div>
-```
+<Modifier
+  baseUtil="js-s"
+  prefixUtil="js"
+  modifiers={{
+    hoverUtil: "js-e",
+    responsiveUtil: "js-e",
+  }}
+/>
