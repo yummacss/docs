@@ -107,6 +107,6 @@ export const tailwindCard: string = `
     <p class="mb-4 text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia velit fugit voluptates quod, placeat quam maxime earum voluptas provident, natus omnis saepe beatae vitae.</p>
     <a class="text-base leading-none text-pink-500 underline">Link to page</a>
   </div>
-  <button class="mb-4 mt-6 h-12 rounded-lg bg-pink-500 px-6 font-semibold text-white hover:bg-pink-600">Button</button>
+  <button class="mb-4 mt-6 h-12 rounded bg-pink-500 px-6 font-semibold text-white hover:bg-pink-600">Button</button>
 </div>
 `;
