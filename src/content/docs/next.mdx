@@ -54,12 +54,18 @@ The new CLI system lets you compile and get rid of any unused utilities you're n
 
     1. **Remove `@import` rules**
 
-        Since we're only generating in the main CSS file, we can get rid of the Yumma CSS file that's been compiled.
+        The CLI works by compiling SCSS to CSS, so there's no need to import the Yumma CSS package dependency.
 
         ```diff lang="css" title="src/globals.css"
         - /* Minified Version */
         - @import "/node_modules/yummacss/dist/yumma.min.css";
         ```
+
+				You can also reinstall Yumma as a dev dependency, since you're not depending on the package directly.
+
+				```bash
+				npm install yummacss -D
+				```
 
     2. **Add the Yumma config file**
 
