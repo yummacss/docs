@@ -1,11 +1,11 @@
 import { defineConfig } from "astro/config";
 import { ExpressiveCodeTheme } from "@astrojs/starlight/expressive-code";
 import AutoImport from "astro-auto-import";
+import fs from "node:fs";
 import starlight from "@astrojs/starlight";
 import starlightBlog from "starlight-blog";
 import starlightLinksValidator from "starlight-links-validator";
-
-import fs from "node:fs";
+import vercel from "@astrojs/vercel/serverless";
 
 const theme = fs.readFileSync(
   new URL(`./theme.jsonc`, import.meta.url),
@@ -295,4 +295,11 @@ export default defineConfig({
       ],
     }),
   ],
+
+  output: "server",
+  adapter: vercel({
+    webAnalytics: {
+      enabled: true,
+    },
+  }),
 });
