@@ -52,6 +52,11 @@ strong {
     font-weight: 600;
 }
 
+table {
+    width: 100%;
+    display: inline-table !important;
+}
+
 pre {
     background-color: #1f212a !important;
 }
