@@ -6,6 +6,7 @@ import starlight from "@astrojs/starlight";
 import starlightBlog from "starlight-blog";
 import starlightLinksValidator from "starlight-links-validator";
 import vercel from "@astrojs/vercel/serverless";
+import starlightCoolerCredit from "starlight-cooler-credit";
 
 const theme = fs.readFileSync(
   new URL(`./theme.jsonc`, import.meta.url),
@@ -41,6 +42,17 @@ export default defineConfig({
       },
       plugins: [
         starlightLinksValidator(),
+        starlightCoolerCredit({
+          credit: {
+            title: {
+              en: "Yumma CSS v3.0 Beta",
+            },
+            href: "https://www.yummacss.com/docs/next",
+            description: {
+              en: "A preview of the next Yumma CSS.",
+            },
+          },
+        }),
         starlightBlog({
           authors: {
             Renildo: {
