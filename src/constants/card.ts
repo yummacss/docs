@@ -99,14 +99,3 @@ export const yummaCard: string = `
   <button class="mb-4 mt-6 h-12 rad-1 bg-pink px-6 fw-600 tc-white h:bg-d-pink-1">Button</button>
 </div>
 `;
-
-export const tailwindCard: string = `
-<div class="max-w-sm overflow-hidden rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
-  <div class="grow">
-    <h4 class="mb-2 text-2xl font-semibold leading-none text-gray-800">Heading</h4>
-    <p class="mb-4 text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia velit fugit voluptates quod, placeat quam maxime earum voluptas provident, natus omnis saepe beatae vitae.</p>
-    <a class="text-base leading-none text-pink-500 underline">Link to page</a>
-  </div>
-  <button class="mb-4 mt-6 h-12 rounded bg-pink-500 px-6 font-semibold text-white hover:bg-pink-600">Button</button>
-</div>
-`;
