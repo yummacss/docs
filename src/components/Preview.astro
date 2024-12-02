@@ -6,10 +6,12 @@ interface PreviewProps {
   noScroll?: boolean;
   useCenter?: boolean;
   useExternal?: string;
+  useFrame?: "none" | "code" | "terminal" | "auto";
   useHeight?: string;
   useMarks?: string[];
   usePadding?: boolean;
   useTabs?: boolean;
+  useTitle?: string;
   useVersion?: string;
   useWrap?: boolean;
 }
@@ -19,10 +21,12 @@ const {
   noScroll = false,
   useCenter = false,
   useExternal = "",
+  useFrame = "none",
   useHeight = "300px",
   useMarks: useMarks = [],
   usePadding = false,
   useTabs = false,
+  useTitle = "",
   useVersion = "",
   useWrap = false,
 } = Astro.props as PreviewProps;
@@ -112,7 +116,14 @@ const container = newContainer(
         </TabItem>
         <TabItem icon="seti:html" label="Code">
           <div>
-            <Code code={newCode} lang="html" mark={useMarks} wrap={useWrap} />
+            <Code
+              code={newCode}
+              frame={useFrame}
+              lang="html"
+              mark={useMarks}
+              title={useTitle}
+              wrap={useWrap}
+            />
           </div>
         </TabItem>
       </Tabs>
