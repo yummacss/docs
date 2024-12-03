@@ -34,9 +34,13 @@ This is a major update that introduces groundbreaking features. Major releases f
 
 ---
 
-### All new utilities
+## All new utilities
 
-With each new major release, we always add new customization utilities. This latest release is no exception, as it introduces the Accent Color utilities.
+As part of our standard procedure for each new grand release, we implement a range of new customization utilities.
+
+### Accent Color
+
+This latest release is no exception, as it introduces the Accent Color utilities.
 
 <Color
   classPrefix="ac-"
@@ -69,6 +73,8 @@ We're also adding a new color to the color palette — Silver.
   ]}
 />
 
+### Aspect Ratio
+
 The Aspect Ratio is a great addition, especially for image elements.
 
 <Utility
@@ -87,6 +93,8 @@ The Aspect Ratio is a great addition, especially for image elements.
     },
   ]}
 />
+
+### Backdrop Filter
 
 You can now apply cool effects to your components thanks to the Backdrop Filter utilities.
 
@@ -119,6 +127,12 @@ You can now apply cool effects to your components thanks to the Backdrop Filter 
   ]}
 />
 
+### Border
+
+We're also going to be adding some new Border utilities.
+
+#### Border Collapse
+
 We're finally adding the Border Collapse utilities to create better tables in your site with Yumma CSS.
 
 <Utility
@@ -133,6 +147,8 @@ We're finally adding the Border Collapse utilities to create better tables in yo
     },
   ]}
 />
+
+#### Border Style
 
 The new Border Style utilities let you change how borders look on different elements.
 
@@ -157,6 +173,8 @@ The new Border Style utilities let you change how borders look on different elem
   ]}
 />
 
+### Caption Side
+
 We're also adding some handy features for tables, like Caption Side.
 
 <Utility
@@ -171,6 +189,8 @@ We're also adding some handy features for tables, like Caption Side.
     },
   ]}
 />
+
+### Font Style
 
 You can now change the Font Style of text elements.
 
@@ -187,6 +207,8 @@ You can now change the Font Style of text elements.
   ]}
 />
 
+### Gap
+
 The Gap utilities aren't necessarily new, but they are different in older versions. Gap was designed for responsive layouts, not for adding gaps between elements.
 
 <Utility
@@ -197,49 +219,48 @@ The Gap utilities aren't necessarily new, but they are different in older versio
   unit="rem"
 />
 
+### Grid
+
 If you're looking for more control over your grid layouts, this new update includes new utility classes to control Grid Column and Grid Row properties.
 
-<br />
-
 <Tabs>
-  <TabItem label='Grid Column'>
 
-##### Grid Column Span
+  <TabItem label="Column">
 
-<Utility
-  classPrefix="gc-s-"
-  excludeZero
-  propNames={["grid-column"]}
-  incrementName="span %i / span %i"
-  incrementValue={1}
-  range={16}
-/>
+    **Grid Column**
 
-##### Grid Column End
+    <Utility
+      classPrefix="gc-s-"
+      excludeZero
+      propNames={["grid-column"]}
+      incrementName="span %i / span %i"
+      incrementValue={1}
+      range={16}
+    />
 
-<Utility
-  classPrefix="gce-"
-  propNames={["grid-column-end"]}
-  incrementValue={1}
-  range={16}
-  unit=""
-/>
+    **Grid Column End**
 
-##### Grid Column Start
+    <Utility
+      classPrefix="gce-"
+      propNames={["grid-column-end"]}
+      incrementValue={1}
+      range={16}
+    />
 
-<Utility
-  classPrefix="gcs-"
-  propNames={["grid-column-start"]}
-  incrementValue={1}
-  range={16}
-  unit=""
-/>
+    **Grid Column Start**
+
+    <Utility
+      classPrefix="gcs-"
+      propNames={["grid-column-start"]}
+      incrementValue={1}
+      range={16}
+    />
 
   </TabItem>
 
-  <TabItem label='Grid Row'>
+  <TabItem label="Grid">
 
-    ##### Grid Row Span
+    **Grid Row Span**
 
     <Utility
       classPrefix="gr-s-"
@@ -250,32 +271,32 @@ If you're looking for more control over your grid layouts, this new update inclu
       range={16}
     />
 
-    ##### Grid Row End
+    **Grid Row End**
 
     <Utility
       classPrefix="gre-"
       propNames={["grid-row-end"]}
       incrementValue={1}
       range={16}
-      unit=""
     />
 
-    ##### Grid Row Start
+    **Grid Row Start**
 
     <Utility
       classPrefix="grs-"
       propNames={["grid-row-start"]}
       incrementValue={1}
       range={16}
-      unit=""
     />
 
   </TabItem>
 </Tabs>
 
+### Object
+
 We're also including the Object Fit and Object Position utility classes.
 
-##### Object Fit
+#### Object Fit
 
 <Utility
   data={[
@@ -300,7 +321,7 @@ We're also including the Object Fit and Object Position utility classes.
 ]}
 />
 
-##### Object Position
+#### Object Position
 
 <Utility
   data={[
@@ -343,9 +364,11 @@ We're also including the Object Fit and Object Position utility classes.
   ]}
 />
 
+### Outline
+
 On top of the customization utilities we've already talked about, Yumma CSS 2.0 also includes Outline Color, Outline Offset, Outline Style, and Outline Width utility classes.
 
-##### Outline Color
+#### Outline Color
 
 <Color
   classPrefix="oc-"
@@ -366,7 +389,7 @@ On top of the customization utilities we've already talked about, Yumma CSS 2.0 
   ]}
 />
 
-##### Outline Offset
+#### Outline Offset
 
 <Utility
   classPrefix="oo-"
@@ -376,7 +399,7 @@ On top of the customization utilities we've already talked about, Yumma CSS 2.0 
   unit="px"
 />
 
-##### Outline Style
+#### Outline Style
 
 <Utility
   data={[
@@ -399,7 +422,7 @@ On top of the customization utilities we've already talked about, Yumma CSS 2.0 
   ]}
 />
 
-##### Outline Width
+#### Outline Width
 
 <Utility
   classPrefix="ow-"
@@ -409,9 +432,11 @@ On top of the customization utilities we've already talked about, Yumma CSS 2.0 
   unit="px"
 />
 
+### Spacing
+
 We're also adding new Spacing utilities, similar to [Tailwind CSS](https://tailwindcss.com/docs/size). These utilities work a bit differently, in that they use a unique syntax. This means you don't need to specify `margin` and `padding` if they have the same value.
 
-##### Spacing X
+#### Spacing X
 
 <Utility
   classPrefix="s-x-"
@@ -421,7 +446,7 @@ We're also adding new Spacing utilities, similar to [Tailwind CSS](https://tailw
   unit="rem"
 />
 
-##### Spacing Y
+#### Spacing Y
 
 <Utility
   classPrefix="s-y-"
@@ -448,7 +473,7 @@ I have to mention the new table utilities and the Table Layout utility classes.
 
 We're also adding a bunch of new utility classes for text formatting to the table. These include things like Text Decoration Color, Text Decoration Style, and Text Decoration Thickness.
 
-##### Text Decoration Color
+### Text Decoration Color
 
 <Color
   classPrefix="tdc-"
@@ -469,7 +494,7 @@ We're also adding a bunch of new utility classes for text formatting to the tabl
   ]}
 />
 
-##### Text Decoration Style
+### Text Decoration Style
 
 <Utility
   data={[
@@ -492,7 +517,7 @@ We're also adding a bunch of new utility classes for text formatting to the tabl
   ]}
 />
 
-##### Text Decoration Thickness
+### Text Decoration Thickness
 
 <Utility
   data={[
@@ -527,11 +552,11 @@ We're also adding a bunch of new utility classes for text formatting to the tabl
   ]}
 />
 
-### Base styles
+## Base styles
 
 You can now use Yumma CSS without the default base styles. This could be really useful if you want to set specific rules in your theme.
 
-##### Standard
+#### Standard Core
 
 ```html
 <link
@@ -540,7 +565,7 @@ You can now use Yumma CSS without the default base styles. This could be really 
   crossorigin="anonymous" />
 ```
 
-##### Minified
+#### Minified Core
 
 ```html
 <link
@@ -549,7 +574,7 @@ You can now use Yumma CSS without the default base styles. This could be really 
   crossorigin="anonymous" />
 ```
 
-### Responsive breakpoints
+## Responsive breakpoints
 
 It took me a while, but I've finally added full media query support for every single utility class.
 
@@ -590,7 +615,7 @@ Yumma CSS is going to change how your browser handles breakpoints.
   </TabItem>
 </Tabs>
 
-### Container rules
+## Container rules
 
 The container utility has a fresh new look in this update. We've given it a new class name, `cnt`, and added a set of media query rules to make sure it responds well to different themes.
 
@@ -622,7 +647,7 @@ The container utility has a fresh new look in this update. We've given it a new 
 
 ---
 
-### Upgrade
+## Upgrade
 
 You can upgrade your projects by getting the latest version of `yummacss` from npm:
 
@@ -630,7 +655,7 @@ You can upgrade your projects by getting the latest version of `yummacss` from n
 npm i yummacss@latest
 ```
 
-### Community
+## Community
 
 Join the Yumma CSS community! Share your experiences and help Yumma CSS grow and be the best it can be.
 

@@ -130,11 +130,12 @@ const container = newContainer(
     ) : (
       <div>
         <iframe
+          class="previewIframe"
           loading="lazy"
           sandbox="allow-scripts allow-same-origin"
           srcdoc={container}
-          class="previewIframe"
           style={`height: ${useHeight};`}
+          title="Preview"
         />
         <div class="codeContainer">
           <Code code={newCode} lang="html" mark={useMarks} wrap={useWrap} />
