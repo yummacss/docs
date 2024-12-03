@@ -45,11 +45,11 @@ export default defineConfig({
         starlightCoolerCredit({
           credit: {
             title: {
-              en: "Yumma CSS v3",
+              en: "Yumma CSS v3.0",
             },
             href: "https://www.yummacss.com/docs/next",
             description: {
-              en: "What's new in Yumma CSS Next?",
+              en: "Take a look at what's coming in the next version of Yumma CSS.",
             },
           },
         }),

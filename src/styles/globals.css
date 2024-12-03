@@ -60,3 +60,7 @@ table {
 pre {
     background-color: #1f212a !important;
 }
+
+img[src*="houston_omg.png"] {
+    display: none;
+}
