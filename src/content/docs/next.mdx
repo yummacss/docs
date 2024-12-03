@@ -22,7 +22,7 @@ Up until recently, the only way to use Yumma CSS was to import the compiled CSS 
 
 We're really excited to introduce Yumma CSS CLI, an awesome new way to create production-ready and fully optimized Yumma CSS projects.
 
-### Dependency changes
+### Dependency Changes
 
 You don't need to use `yummacss` in production since you're not depending on the package dependency files anymore.
 
@@ -89,7 +89,7 @@ The new CLI system lets you compile and get rid of any unused utilities you're n
 
 </Steps>
 
-### Base style changes
+### Core Changes
 
 From now on, core files like `yumma-core.css` and `yumma-core.min.css` will be deleted from the `/dist` folder in favor of the `yummacss.config.js` config file.
 
@@ -100,7 +100,7 @@ From now on, core files like `yumma-core.css` and `yumma-core.min.css` will be d
         content: ["src/**/*.{html}"],
         output: "src/globals.css",
         capabilities: {
-            core: false, // Remove base styles
+            core: false, // Disable base styles
             minify: true, // Minifies CSS
         }
     };
@@ -110,30 +110,30 @@ From now on, core files like `yumma-core.css` and `yumma-core.min.css` will be d
   <TabItem icon="close" label="Previously">
 
     ```css title="src/globals.css"
-    /* Core Version */
+    /* Disable base styles */
     @import "https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@latest/dist/yumma-core.css";
 
-    /* Minified Core Version */
+    /* Disable base styles and minify CSS */
     @import "https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@latest/dist/yumma-core.min.css";
     ```
 
   </TabItem>
 </Tabs>
 
-### Performance boost
+### Performance Boost
 
 We completely overhauled the codebase to get better performance in build times and overall file size. We changing the way utilities and modifiers are generated, to eliminate any potential for duplicated or unnecessary data in the `/dist` folder.
 
-| Metric               | v2.1    | v3.0 | Improvement   |
-| -------------------- | ------- | ---- | ------------- |
-| Complete build       | 13.88 s | ???  | ???           |
-| File size (standard) | 3.21 MB | ???  | ???           |
-| File size (minified) | 2.48 MB | ???  | ???           |
-| Utilities coverage   | 107     | 150  | +43 (+40.19%) |
+| Metric               | v2.1    | v3.0 | Improvement |
+|----------------------|---------|------| ------------|
+| Complete build       | 13.88 s | ???  | ???         |
+| File size (standard) | 3.21 MB | ???  | ???         |
+| File size (minified) | 2.48 MB | ???  | ???         |
+| Utilities coverage   | 107     | 149  | +42         |
 
 ---
 
-## Syntax changes
+## Syntax Changes
 
 We're making Yumma CSS even more concise with the utility classes to keep everything minimal. Here are some of the new changes we've got planned:
 
@@ -323,7 +323,7 @@ We're making Yumma CSS even more concise with the utility classes to keep everyt
 
 ---
 
-## Color system
+## Color System
 
 The color system is getting some big changes. We've gone from `10%` shade modification to `14%`. This means that light colors are going to be even lighter and dark colors are going to be even darker.
 
@@ -370,7 +370,7 @@ The color system is getting some big changes. We've gone from `10%` shade modifi
   </TabItem>
 </Tabs>
 
-## All-new utilities
+## All New Utilities
 
 To make the Yumma CSS framework as complete as possible, we're adding support for more than 40 utility classes to the core of the framework.
 
@@ -417,3 +417,7 @@ To make the Yumma CSS framework as complete as possible, we're adding support fo
 - [ ] Transition Property
 - [ ] Vertical Align
 - [ ] Whitespace
+
+## Goodbye Inset
+
+We're removing the ins utility class from Yumma. It's been a great ride, and I'm sure it helped most of you easily center a div in the center of the screen. But to keep things modern and flexible, this concept doesn't fit in the framework, so we've decided to remove it.
