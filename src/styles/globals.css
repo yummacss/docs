@@ -61,6 +61,6 @@ pre {
     background-color: #1f212a !important;
 }
 
-img[src*="houston_omg.png"] {
+img[src*="houston_omg"] {
     display: none;
 }
