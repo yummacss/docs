@@ -16,13 +16,13 @@ This version is still a work in progress, as are the changes to this page. That 
 
 </Aside>
 
-### Yumma CSS CLI
+## Yumma CSS CLI
 
 Up until recently, the only way to use Yumma CSS was to import the compiled CSS into your main CSS file. As Yumma CSS is becoming more and more extensive, importing all its content at once might cause performance issues and slower loading times.
 
 We're really excited to introduce Yumma CSS CLI, an awesome new way to create production-ready and fully optimized Yumma CSS projects.
 
-#### Dependency changes
+### Dependency changes
 
 You don't need to use `yummacss` in production since you're not depending on the package dependency files anymore.
 
@@ -30,7 +30,7 @@ You don't need to use `yummacss` in production since you're not depending on the
 npm i yummacss@latest --save-dev
 ```
 
-#### Upgrade from v2.1
+### Upgrade from v2.1
 
 The new CLI system lets you compile and get rid of any unused utilities you're not using in your Yumma CSS project, which means smaller CSS files and better performance.
 
@@ -89,7 +89,7 @@ The new CLI system lets you compile and get rid of any unused utilities you're n
 
 </Steps>
 
-#### Base style changes
+### Base style changes
 
 From now on, core files like `yumma-core.css` and `yumma-core.min.css` will be deleted from the `/dist` folder in favor of the `yummacss.config.js` config file.
 
@@ -120,24 +120,24 @@ From now on, core files like `yumma-core.css` and `yumma-core.min.css` will be d
   </TabItem>
 </Tabs>
 
-#### Performance boost
+### Performance boost
 
 We completely overhauled the codebase to get better performance in build times and overall file size. We changing the way utilities and modifiers are generated, to eliminate any potential for duplicated or unnecessary data in the `/dist` folder.
 
-| Metric                   | v2.1     | v3.0     | Improvement    |
-|--------------------------|----------|----------|----------------|
-| Complete build           | 13.88 s  | ???      | ???            |
-| File size (standard)     | 3.21 MB  | ???      | ???            |
-| File size (minified)     | 2.48 MB  | ???      | ???            |
-| Utilities coverage       | 107      | 150      | +43 (+40.19%)  |
+| Metric               | v2.1    | v3.0 | Improvement   |
+| -------------------- | ------- | ---- | ------------- |
+| Complete build       | 13.88 s | ???  | ???           |
+| File size (standard) | 3.21 MB | ???  | ???           |
+| File size (minified) | 2.48 MB | ???  | ???           |
+| Utilities coverage   | 107     | 150  | +43 (+40.19%) |
 
 ---
 
-### Syntax changes
+## Syntax changes
 
 We're making Yumma CSS even more concise with the utility classes to keep everything minimal. Here are some of the new changes we've got planned:
 
-#### Dimension
+### Dimension
 
 **Dimension**
 
@@ -271,7 +271,7 @@ We're making Yumma CSS even more concise with the utility classes to keep everyt
   </TabItem>
 </Tabs>
 
-#### Spacing
+### Spacing
 
 **Spacing X**
 
@@ -323,7 +323,7 @@ We're making Yumma CSS even more concise with the utility classes to keep everyt
 
 ---
 
-### Color system
+## Color system
 
 The color system is getting some big changes. We've gone from `10%` shade modification to `14%`. This means that light colors are going to be even lighter and dark colors are going to be even darker.
 
