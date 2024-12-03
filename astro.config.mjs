@@ -45,7 +45,7 @@ export default defineConfig({
         starlightCoolerCredit({
           credit: {
             title: {
-              en: "Yumma CSS v3 — Next",
+              en: "Yumma CSS v3",
             },
             href: "https://www.yummacss.com/docs/next",
             description: {
