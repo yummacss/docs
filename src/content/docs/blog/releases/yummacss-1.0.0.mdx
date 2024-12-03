@@ -34,7 +34,9 @@ This is a major update that introduces groundbreaking features. Major releases f
 
 ---
 
-## Utilities expansion
+## Utilities Expansion
+
+### Align Items
 
 This update is mostly about flexbox classes, which were a big limitation of Yumma CSS before. I've added a set of utilities to make Yumma CSS even more flexible.
 
@@ -79,7 +81,11 @@ This update is mostly about flexbox classes, which were a big limitation of Yumm
   ]}
 />
 
+### Layout
+
 As the layouts of the applications change, we think it'd be good to add more control over the page. I've listed a few of them below:
+
+#### Display
 
 <Utility
   data={[
@@ -87,6 +93,13 @@ As the layouts of the applications change, we think it'd be good to add more con
       className: "d-fr",
       properties: ["display: flow-root;"],
     },
+  ]}
+/>
+
+#### Float
+
+<Utility
+  data={[
     {
       className: "f-is",
       properties: ["float: inline-start;"],
@@ -97,6 +110,8 @@ As the layouts of the applications change, we think it'd be good to add more con
     },
   ]}
 />
+
+### Text Align
 
 Yumma CSS v1.0 also introduces a whole new collection of advanced text formatting utilities for typographers.
 
@@ -119,7 +134,7 @@ Yumma CSS v1.0 also introduces a whole new collection of advanced text formattin
 
 ---
 
-## Viewport expansion
+## Viewport Expansion
 
 We're also going to add viewports for the Height and Width utilities, which will be a huge help with responsive designs. We can't wait to roll it out to the other utilities!
 
@@ -129,7 +144,7 @@ We're also going to add viewports for the Height and Width utilities, which will
 
 ---
 
-## New color
+## New Color
 
 We're pretty sure nobody builds websites in dark mode using gray, right? The new lead color is great for creating single-theme apps.
 
@@ -144,7 +159,7 @@ We're pretty sure nobody builds websites in dark mode using gray, right? The new
 
 ---
 
-## Syntax changes
+## Syntax Changes
 
 We're making some changes to the syntax for the Display utilities. Here's how it's going to work from now on.
 
