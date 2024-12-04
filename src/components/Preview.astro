@@ -3,7 +3,7 @@ import { Code, Tabs, TabItem } from "@astrojs/starlight/components";
 
 interface PreviewProps {
   data: string;
-  noScroll?: boolean;
+  useScroll?: boolean;
   useCenter?: boolean;
   useExternal?: string;
   useFrame?: "none" | "code" | "terminal" | "auto";
@@ -18,7 +18,7 @@ interface PreviewProps {
 
 const {
   data,
-  noScroll = false,
+  useScroll = false,
   useCenter = false,
   useExternal = "",
   useFrame = "none",
@@ -36,7 +36,7 @@ const newContainer = (
   flex: string,
   useCenter: boolean,
   usePadding: boolean,
-  noScroll: boolean,
+  useScroll: boolean,
   newCode: string
 ) => `
   <html>
@@ -48,9 +48,9 @@ const newContainer = (
           justify-content: ${useCenter ? "center" : "flex-start"}; 
           align-items: ${useCenter ? "center" : "flex-start"};
           ${usePadding ? "padding: 12px 14px;" : ""}
-          ${noScroll ? "overflow-y: hidden;" : ""}
+          ${useScroll ? "overflow-y: hidden;" : ""}
         }
-        ${noScroll ? "body { overflow-y: hidden; }" : ""}
+        ${useScroll ? "body { overflow-y: hidden; }" : ""}
 
         .area {
           background-color: #f5f6f8;
@@ -77,7 +77,7 @@ const container = newContainer(
   flexbox,
   useCenter,
   usePadding,
-  noScroll,
+  useScroll,
   newCode
 );
 ---
