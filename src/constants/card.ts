@@ -1,4 +1,4 @@
-export const regularCard: string = `
+export const card: string = `
 <div class="card">
   <div class="card-content">
     <h4 class="card-title">Heading</h4>
@@ -97,5 +97,53 @@ export const yummaCard: string = `
     <a class="fs-b lh-1 tc-pink tdl-u">Link to page</a>
   </div>
   <button class="mb-4 mt-6 h-12 rad-1 bg-pink px-6 fw-600 tc-white h:bg-d-pink-1">Button</button>
+</div>
+`;
+
+export const modern: string = `
+<div class="b-1 bg-d-lead-4 bs-xs d-f fd-c max-w-96 rad-3">
+  <div class="md:p-7 p-4">
+    <h3 class="fs-sm fw-700 tc-white">
+      Made with Gulp
+    </h3>
+    <p class="mt-2 tc-l-gray-6">
+      A toolkit to automate & enhance your workflow.
+    </p>
+    <button class="bg-white fw-600 mt-7 px-4 py-2 rad-1" href="https://gulpjs.com/">
+      Read docs
+    </a>
+  </div>
+</div>
+`;
+
+export const colorful: string = `
+<div class="b-1 bc-transparent bg-violet bs-xs d-f fd-c max-w-96 rad-3">
+  <div class="md:p-7 p-4">
+      <h3 class="fs-sm fw-700 tc-white">
+      Made with Gulp
+    </h3>
+    <p class="fw-600 mt-2 tc-l-silver-6">
+      A toolkit to automate & enhance your workflow.
+    </p>
+    <button class="bg-white fw-600 mt-7 px-4 py-2 rad-7 tc-violet" href="https://gulpjs.com/">
+      Read docs
+    </a>
+  </div>
+</div>
+`;
+
+export const minimalist: string = `
+<div class="b-1 bc-l-silver-6 bg-white bs-xs d-f fd-c max-w-96">
+  <div class="md:p-7 p-4">
+    <h3 class="fs-sm fw-700 tc-d-gray-4">
+      Made with Gulp
+    </h3>
+    <p class="mt-2 tc-gray">
+      A toolkit to automate & enhance your workflow.
+    </p>
+    <button class="b-1 bc-l-silver-6 bg-white fw-600 mt-7 px-4 py-2 tc-gray" href="https://gulpjs.com/">
+      Read docs
+    </a>
+  </div>
 </div>
 `;
