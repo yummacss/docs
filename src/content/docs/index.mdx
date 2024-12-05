@@ -42,52 +42,67 @@ hero:
 
 ## Build your own design system.
 
-Yumma provides a powerful set of utilities that greatly simplify the creation of a wide range of designs, from simple to complex.
+Yumma makes it easy to create designs, from simple to complex.
 
-<Tabs>
-  <TabItem icon="moon" label="Simple">
+<CardGrid stagger>
+  <Card icon="moon" title="Modern">
     <Preview
       data={modern}
       useCenter
       useFrame="terminal"
-      useHeight="260px"
+      useHeight="200px"
       usePadding
       useTabs
       useVersion="2.1.0"
       useWrap
     />
-  </TabItem>
-  <TabItem icon="sun" label="Colorful">
+  </Card>
+
+  <Card icon="sun" title="Colorful">
     <Preview
-      data={colorful}
+      data={vibrant}
       useCenter
       useFrame="terminal"
-      useHeight="260px"
+      useHeight="200px"
       usePadding
       useTabs
       useVersion="2.1.0"
       useWrap
     />
-  </TabItem>
-  <TabItem icon="bars" label="Abstract">
+  </Card>
+
+  <Card icon="bars" title="Minimalist">
     <Preview
       data={minimalist}
       useCenter
       useFrame="terminal"
-      useHeight="260px"
+      useHeight="200px"
       usePadding
       useTabs
       useVersion="2.1.0"
       useWrap
     />
-  </TabItem>
-</Tabs>
+  </Card>
+
+  <Card icon="star" title="Classic">
+    <Preview
+      data={classic}
+      useCenter
+      useFrame="terminal"
+      useHeight="200px"
+      usePadding
+      useTabs
+      useVersion="2.1.0"
+      useWrap
+    />
+  </Card>
+</CardGrid>
 
 ## Powerful ecosystem.
 
+We've got all the tools you need for your next project.
 
-
-<CardGrid>
+<CardGrid stagger>
   <Card title="Abbreviated syntax">
     Abbreviated naming convention syntax for better maintainability and
     scalability.
@@ -96,10 +111,10 @@ Yumma provides a powerful set of utilities that greatly simplify the creation of
 
   </Card>
 
-  <Card title="Modifiers selectors">
-    Spice up your page elements with some cool hover effects and more!
+  <Card title="Development resources">
+    Get started with Yumma Playground in no time—no setup required!
 
-    [Learn more](/docs/modifiers#media-query-modifiers)
+    [Open Playground](https://play.yummacss.com/)
 
   </Card>
   

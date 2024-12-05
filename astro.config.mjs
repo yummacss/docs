@@ -299,9 +299,10 @@ export default defineConfig({
           ],
           "/src/constants/card.ts": [
             "card",
-            "colorful",
+            "classic",
             "minimalist",
             "modern",
+            "vibrant",
             "yummaCard",
           ],
           "starlight-package-managers": ["PackageManagers "],
