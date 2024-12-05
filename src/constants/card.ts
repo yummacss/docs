@@ -110,13 +110,13 @@ export const modern: string = `
       A toolkit to automate & enhance your workflow.
     </p>
     <button class="bg-white fw-600 mt-7 px-4 py-2 rad-1" href="https://gulpjs.com/">
-      Read docs
+      Get started
     </a>
   </div>
 </div>
 `;
 
-export const colorful: string = `
+export const vibrant: string = `
 <div class="b-1 bc-transparent bg-violet bs-xs d-f fd-c max-w-96 rad-3">
   <div class="md:p-7 p-4">
       <h3 class="fs-sm fw-700 tc-white">
@@ -126,7 +126,7 @@ export const colorful: string = `
       A toolkit to automate & enhance your workflow.
     </p>
     <button class="bg-white fw-600 mt-7 px-4 py-2 rad-7 tc-violet" href="https://gulpjs.com/">
-      Read docs
+      Get started
     </a>
   </div>
 </div>
@@ -135,14 +135,30 @@ export const colorful: string = `
 export const minimalist: string = `
 <div class="b-1 bc-l-silver-6 bg-white bs-xs d-f fd-c max-w-96">
   <div class="md:p-7 p-4">
-    <h3 class="fs-sm fw-700 tc-d-gray-4">
+    <h3 class="ff-c fs-sm tc-d-gray-4">
       Made with Gulp
     </h3>
-    <p class="mt-2 tc-gray">
+    <p class="ff-c mt-2 tc-gray">
       A toolkit to automate & enhance your workflow.
     </p>
-    <button class="b-1 bc-l-silver-6 bg-white fw-600 mt-7 px-4 py-2 tc-gray" href="https://gulpjs.com/">
-      Read docs
+    <button class="ff-c b-1 bc-l-silver-6 bg-white mt-7 px-4 py-2 tc-gray" href="https://gulpjs.com/">
+      Get started
+    </a>
+  </div>
+</div>
+`;
+
+export const classic: string = `
+<div class="bg-white bs-xs d-f fd-c max-w-96 rad-3">
+  <div class="md:p-7 p-4">
+    <h3 class="fs-sm fw-700">
+      Made with Gulp
+    </h3>
+    <p class="mt-2 tc-d-lead-2">
+      A toolkit to automate & enhance your workflow.
+    </p>
+    <button class="bg-blue fw-600 mt-7 px-4 py-2 rad-1 tc-white" href="https://gulpjs.com/">
+      Get started
     </a>
   </div>
 </div>
