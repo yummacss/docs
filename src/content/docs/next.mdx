@@ -24,11 +24,19 @@ We're really excited to introduce Yumma CSS CLI, an awesome new way to create pr
 
 ### Dependency Changes
 
-You don't need to use `yummacss` in production since you're not depending on the package dependency files anymore.
+Don't include `yummacss` as a normal dependency if you're using the new command-line interface. We only need the CLI as a dev dependency since we're only using yummacss to compile our code to CSS.
 
 ```bash
 npm i yummacss@latest --save-dev
 ```
+
+The full set of utilities will be retained within the distribution folder for the purpose of facilitating the importation of the entire Yumma utilities suite, should this be required.
+
+<FileTree>
+	- dist
+		- yumma.css
+		- yumma.min.css
+</FileTree>
 
 ### Upgrade from v2.1
 
@@ -44,12 +52,6 @@ The new CLI system lets you compile and get rid of any unused utilities you're n
         - /* Minified Version */
         - @import "/node_modules/yummacss/dist/yumma.min.css";
         ```
-
-    			You can also install `yummacss` as a dev dependency, since you're not depending on the package directly.
-
-    			```bash
-    			npm install yummacss --save-dev
-    			```
 
     2. **Add the Yumma config file**
 
