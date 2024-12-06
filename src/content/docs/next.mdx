@@ -24,7 +24,7 @@ We're really excited to introduce Yumma CSS CLI, an awesome new way to create pr
 
 ### Dependency Changes
 
-Don't include `yummacss` as a normal dependency if you're using the new command-line interface. We only need the CLI as a dev dependency since we're only using yummacss to compile our code to CSS.
+If you're planning on using the command-line interface feature, we suggest installing `yummacss` as a dev dependency. The reason is simple: we're now compiling SCSS from the `yummacss` package to our project to get the minimal amount of CSS possible.
 
 ```bash
 npm i yummacss@latest --save-dev
