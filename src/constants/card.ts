@@ -101,7 +101,7 @@ export const yummaCard: string = `
 `;
 
 export const modern: string = `
-<div class="b-1 bg-d-lead-4 bs-xs d-f fd-c max-w-96 rad-3">
+<div class="bg-d-lead-4 bs-xs d-f fd-c max-w-96 rad-2">
   <div class="md:p-7 p-4">
     <h3 class="fs-sm fw-700 tc-white">
       Made with Gulp
@@ -117,7 +117,7 @@ export const modern: string = `
 `;
 
 export const vibrant: string = `
-<div class="b-1 bc-transparent bg-violet bs-xs d-f fd-c max-w-96 rad-3">
+<div class="bg-violet bs-xs d-f fd-c max-w-96 rad-3">
   <div class="md:p-7 p-4">
       <h3 class="fs-sm fw-700 tc-white">
       Made with Gulp
@@ -132,7 +132,7 @@ export const vibrant: string = `
 </div>
 `;
 
-export const minimalist: string = `
+export const elegant: string = `
 <div class="b-1 bc-l-silver-6 bg-white bs-xs d-f fd-c max-w-96">
   <div class="md:p-7 p-4">
     <h3 class="ff-c fs-sm tc-d-gray-4">
@@ -148,8 +148,8 @@ export const minimalist: string = `
 </div>
 `;
 
-export const classic: string = `
-<div class="bg-white bs-xs d-f fd-c max-w-96 rad-3">
+export const minimalist: string = `
+<div class="b-2 bb-5 bc-d-lead-2 bg-white br-5 bs-xs d-f fd-c max-w-96 rad-3">
   <div class="md:p-7 p-4">
     <h3 class="fs-sm fw-700">
       Made with Gulp
@@ -157,7 +157,7 @@ export const classic: string = `
     <p class="mt-2 tc-d-lead-2">
       A toolkit to automate & enhance your workflow.
     </p>
-    <button class="bg-blue fw-600 mt-7 px-4 py-2 rad-1 tc-white" href="https://gulpjs.com/">
+    <button class="bb-3 bc-d-lead-6 bg-d-lead-2 fw-600 mt-7 px-4 py-2 rad-1 tc-white" href="https://gulpjs.com/">
       Get started
     </a>
   </div>

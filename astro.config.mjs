@@ -299,8 +299,8 @@ export default defineConfig({
           ],
           "/src/constants/card.ts": [
             "card",
-            "classic",
             "minimalist",
+            "elegant",
             "modern",
             "vibrant",
             "yummaCard",
