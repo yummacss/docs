@@ -133,6 +133,138 @@ We completely overhauled the codebase to get better performance in build times a
 
 ---
 
+## Color System
+
+The color system is getting some big changes. We've gone from `10%` shade modification to `14%`. This means that light colors are going to be even lighter and dark colors are going to be even darker.
+
+<Tabs>
+  <TabItem icon="approve-check-circle" label="Now">
+    <Palette
+      percentage={14}
+      data={[
+        { name: "Red", color: "#d73d3d" },
+        { name: "Orange", color: "#e06814" },
+        { name: "Yellow", color: "#d3a107" },
+        { name: "Green", color: "#1fb155" },
+        { name: "Teal", color: "#12a695" },
+        { name: "Cyan", color: "#05a4bf" },
+        { name: "Blue", color: "#3575dd" },
+        { name: "Indigo", color: "#595cd9" },
+        { name: "Violet", color: "#7d53dd" },
+        { name: "Pink", color: "#d4418a" },
+        { name: "Lead", color: "#3f3f4e" },
+        { name: "Gray", color: "#606773" },
+        { name: "Silver", color: "#bfc2c7" },
+      ]}
+    />
+  </TabItem>
+  <TabItem icon="close" label="Previously">
+    <Palette
+      percentage={10}
+      data={[
+        { name: "Red", color: "#d73d3d" },
+        { name: "Orange", color: "#e06814" },
+        { name: "Yellow", color: "#d3a107" },
+        { name: "Green", color: "#1fb155" },
+        { name: "Teal", color: "#12a695" },
+        { name: "Cyan", color: "#05a4bf" },
+        { name: "Blue", color: "#3575dd" },
+        { name: "Indigo", color: "#595cd9" },
+        { name: "Violet", color: "#7d53dd" },
+        { name: "Pink", color: "#d4418a" },
+        { name: "Lead", color: "#3f3f4e" },
+        { name: "Gray", color: "#606773" },
+        { name: "Silver", color: "#bfc2c7" },
+      ]}
+    />
+  </TabItem>
+</Tabs>
+
+## All-new Utilities
+
+To make the Yumma CSS framework as complete as possible, we're adding support for over 40 utility classes to the core of the framework.
+
+**Backgrounds**
+
+- [x] Background Attachment
+- [x] Background Clip
+- [x] Background Origin
+- [x] Background Position
+- [x] Background Repeat
+- [x] Background Size
+
+**Borders**
+
+- [x] Border Spacing
+
+**Box Model**
+
+- [x] Margin Block End
+- [x] Margin Block Start
+- [x] Margin Inline End
+- [x] Margin Inline Start
+- [x] Padding Block End
+- [x] Padding Block Start
+- [x] Padding Inline End
+- [x] Padding Inline Start
+- [x] Place Content
+- [x] Place Items
+- [x] Place Self
+
+**Flexbox**
+
+- [x] Order
+
+**FX**
+
+- [x] Blur
+- [x] Box Decoration Break
+- [x] Grayscale
+
+**Interaction**
+
+- [ ] Scroll Behavior
+- [ ] Scroll Margin
+- [ ] Scroll Padding
+- [ ] Scroll Snap Align
+- [ ] Scroll Snap Stop
+- [ ] Scroll Snap Type
+
+**Layout**
+
+- [x] Clear
+- [ ] Direction (.dir-i-x, .dir-i-y)
+- [x] Isolation
+
+**SVG**
+
+- [x] Fill
+- [ ] Stroke
+- [ ] Stroke Width
+
+**Text**
+
+- [ ] Text Indent
+- [ ] Text Overflow
+- [ ] Text Transform
+- [ ] Text Underline Offset
+- [ ] Text Wrap
+- [ ] Transform Origin
+- [ ] Transition Delay
+- [ ] Transition Duration
+- [ ] Transition Property
+- [ ] Vertical Align
+- [ ] Whitespace
+
+**Typography**
+
+- [ ] Letter Spacing
+- [ ] List Style Position
+
+## Goodbye Inset
+
+We're removing the ins utility class from Yumma. It's been a great ride, and I'm sure it helped most of you easily center a div in the center of the screen. But to keep things modern and flexible, this concept doesn't fit in the framework, so we've decided to remove it.
+
 ## Syntax Changes
 
 We're making Yumma CSS even more concise with the utility classes to keep everything minimal. Here are some of the new changes we've got planned:
@@ -316,137 +448,3 @@ We're making Yumma CSS even more concise with the utility classes to keep everyt
     />
   </TabItem>
 </Tabs>
-
----
-
-## Color System
-
-The color system is getting some big changes. We've gone from `10%` shade modification to `14%`. This means that light colors are going to be even lighter and dark colors are going to be even darker.
-
-<Tabs>
-  <TabItem icon="approve-check-circle" label="Now">
-    <Palette
-      percentage={14}
-      data={[
-        { name: "Red", color: "#d73d3d" },
-        { name: "Orange", color: "#e06814" },
-        { name: "Yellow", color: "#d3a107" },
-        { name: "Green", color: "#1fb155" },
-        { name: "Teal", color: "#12a695" },
-        { name: "Cyan", color: "#05a4bf" },
-        { name: "Blue", color: "#3575dd" },
-        { name: "Indigo", color: "#595cd9" },
-        { name: "Violet", color: "#7d53dd" },
-        { name: "Pink", color: "#d4418a" },
-        { name: "Lead", color: "#3f3f4e" },
-        { name: "Gray", color: "#606773" },
-        { name: "Silver", color: "#bfc2c7" },
-      ]}
-    />
-  </TabItem>
-  <TabItem icon="close" label="Previously">
-    <Palette
-      percentage={10}
-      data={[
-        { name: "Red", color: "#d73d3d" },
-        { name: "Orange", color: "#e06814" },
-        { name: "Yellow", color: "#d3a107" },
-        { name: "Green", color: "#1fb155" },
-        { name: "Teal", color: "#12a695" },
-        { name: "Cyan", color: "#05a4bf" },
-        { name: "Blue", color: "#3575dd" },
-        { name: "Indigo", color: "#595cd9" },
-        { name: "Violet", color: "#7d53dd" },
-        { name: "Pink", color: "#d4418a" },
-        { name: "Lead", color: "#3f3f4e" },
-        { name: "Gray", color: "#606773" },
-        { name: "Silver", color: "#bfc2c7" },
-      ]}
-    />
-  </TabItem>
-</Tabs>
-
-## All-new Utilities
-
-To make the Yumma CSS framework as complete as possible, we're adding support for over 40 utility classes to the core of the framework.
-
-**Backgrounds**
-
-- [x] Background Attachment
-- [x] Background Clip
-- [x] Background Origin
-- [x] Background Position
-- [x] Background Repeat
-- [x] Background Size
-
-**Borders**
-
-- [x] Border Spacing
-
-**Box Model**
-
-- [x] Margin Block End
-- [x] Margin Block Start
-- [x] Margin Inline End
-- [x] Margin Inline Start
-- [x] Padding Block End
-- [x] Padding Block Start
-- [x] Padding Inline End
-- [x] Padding Inline Start
-- [x] Place Content
-- [x] Place Items
-- [x] Place Self
-
-**Flexbox**
-
-- [x] Order
-
-**FX**
-
-- [x] Blur
-- [x] Box Decoration Break
-- [x] Grayscale
-
-**Interaction**
-
-- [ ] Scroll Behavior
-- [ ] Scroll Margin
-- [ ] Scroll Padding
-- [ ] Scroll Snap Align
-- [ ] Scroll Snap Stop
-- [ ] Scroll Snap Type
-
-**Layout**
-
-- [x] Clear
-- [ ] Direction (.dir-i-x, .dir-i-y)
-- [x] Isolation
-
-**SVG**
-
-- [x] Fill
-- [ ] Stroke
-- [ ] Stroke Width
-
-**Text**
-
-- [ ] Text Indent
-- [ ] Text Overflow
-- [ ] Text Transform
-- [ ] Text Underline Offset
-- [ ] Text Wrap
-- [ ] Transform Origin
-- [ ] Transition Delay
-- [ ] Transition Duration
-- [ ] Transition Property
-- [ ] Vertical Align
-- [ ] Whitespace
-
-**Typography**
-
-- [ ] Letter Spacing
-- [ ] List Style Position
-
-## Goodbye Inset
-
-We're removing the ins utility class from Yumma. It's been a great ride, and I'm sure it helped most of you easily center a div in the center of the screen. But to keep things modern and flexible, this concept doesn't fit in the framework, so we've decided to remove it.
