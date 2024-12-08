@@ -31,7 +31,7 @@ export const card: string = `
   }
 
   .card-title {
-      font-size: 30.08px;
+      font-size: 1.5rem;
       font-weight: 600;
       margin-bottom: 0.5rem;
       color: #32323e;
