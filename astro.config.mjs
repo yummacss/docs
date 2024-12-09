@@ -87,6 +87,7 @@ export default defineConfig({
           },
         },
       ],
+      // prettier-ignore
       sidebar: [
         {
           label: "Getting Started",
@@ -94,65 +95,36 @@ export default defineConfig({
             { label: " Installation", link: "docs/installation" },
             { label: "Components", link: "/components" },
             { label: "Playground", link: "https://play.yummacss.com" },
-            {
-              label: "Walkthroughs",
-              link: "https://www.youtube.com/@yummacss",
-              badge: "New",
-            },
+            { label: "Walkthroughs", link: "https://www.youtube.com/@yummacss", badge: "New", },
           ],
         },
         // {
         //   badge: "New",
         //   label: "CLI",
-        //   items: [
-        //     { label: "Configuration", link: "docs/configuration" },
-        //     { label: "Content", link: "docs/content-configuration" },
-        //     { label: "Output", link: "docs/output-configuration" },
-        //     { label: "Capabilities", link: "docs/capabilities-configuration" },
-        //   ],
+        //   autogenerate: { directory: "/cli" },
         // },
         {
           label: "Concepts",
-          items: [
-            { label: "Utilities", link: "docs/utilities" },
-            { label: "Colors", link: "docs/colors" },
-            { label: "Modifiers", link: "docs/modifiers" },
-          ],
+          autogenerate: { directory: "core/borders-outlines/borders" },
         },
         {
           label: "Base Styles",
           items: [{ label: "Stylecent", link: "docs/stylecent" }],
         },
         {
-          label: "Backgrounds & Borders",
+          label: "Backgrounds",
+          autogenerate: { directory: "core/backgrounds" },
+        },
+        {
+          label: "Borders & Outlines",
           items: [
             {
-              label: "Backgrounds",
-              autogenerate: { directory: "core/backgrounds" },
+              label: "Borders",
+              autogenerate: { directory: "core/borders-outlines/borders" },
             },
             {
-              label: "Borders & Outlines",
-              items: [
-                {
-                  label: "Borders",
-                  items: [
-                    { label: "Border Collapse", link: "docs/border-collapse" },
-                    { label: "Border Color", link: "docs/border-color" },
-                    { label: "Border Radius", link: "docs/border-radius" },
-                    { label: "Border Style", link: "docs/border-style" },
-                    { label: "Border Width", link: "docs/border-width" },
-                  ],
-                },
-                {
-                  label: "Outlines",
-                  items: [
-                    { label: "Outline Color ", link: "docs/outline-color" },
-                    { label: "Outline Offset", link: "docs/outline-offset" },
-                    { label: "Outline Style", link: "docs/outline-style" },
-                    { label: "Outline Width", link: "docs/outline-width" },
-                  ],
-                },
-              ],
+              label: "Outlines",
+              autogenerate: { directory: "core/borders-outlines/outlines" },
             },
           ],
         },
@@ -165,51 +137,17 @@ export default defineConfig({
           items: [
             {
               label: "Flexbox",
-              items: [
-                { label: "Align Content", link: "docs/align-content" },
-                { label: "Align Items", link: "docs/align-items" },
-                { label: "Align Self", link: "docs/align-self" },
-                { label: "Flex Basis", link: "docs/flex-basis" },
-                { label: "Flex Direction", link: "docs/flex-direction" },
-                { label: "Flex Grow", link: "docs/flex-grow" },
-                { label: "Flex Shrink", link: "docs/flex-shrink" },
-                { label: "Flex Wrap", link: "docs/flex-wrap" },
-                { label: "Flex", link: "docs/flex" },
-                { label: "Justify Content", link: "docs/justify-content" },
-                { label: "Justify Items", link: "docs/justify-items" },
-                { label: "Justify Self", link: "docs/justify-self" },
-              ],
+              autogenerate: { directory: "core/flexbox-grid/flexbox" },
             },
             {
               label: "Grid",
-              items: [
-                { label: "Column Gap", link: "docs/column-gap" },
-                { label: "Gap", link: "docs/gap" },
-                { label: "Grid Auto Columns", link: "docs/grid-auto-columns" },
-                { label: "Grid Auto Flow", link: "docs/grid-auto-flow" },
-                { label: "Grid Auto Rows", link: "docs/grid-auto-rows" },
-                { label: "Grid Column", link: "docs/grid-column" },
-                { label: "Grid Row", link: "docs/grid-row" },
-                {
-                  label: "Grid Template Columns",
-                  link: "docs/grid-template-columns",
-                },
-                {
-                  label: "Grid Template Rows",
-                  link: "docs/grid-template-rows",
-                },
-                { label: "Row Gap", link: "docs/row-gap" },
-              ],
+              autogenerate: { directory: "core/flexbox-grid/grid" },
             },
           ],
         },
         {
           label: "FX",
-          items: [
-            { label: "Backdrop Blur", link: "docs/backdrop-blur" },
-            { label: "Box Shadow", link: "docs/box-shadow" },
-            { label: "Opacity", link: "docs/opacity" },
-          ],
+          autogenerate: { directory: "core/fx" },
         },
         {
           label: "Interactions",
@@ -221,49 +159,18 @@ export default defineConfig({
         },
         {
           label: "Tables",
-          items: [
-            { label: "Captions Side", link: "docs/caption-side" },
-            { label: "Table Layout", link: "docs/table-layout" },
-          ],
+          autogenerate: { directory: "core/tables" },
         },
         {
           label: "Typography",
           items: [
             {
               label: "Font",
-              items: [
-                { label: "Font Family", link: "docs/font-family" },
-                { label: "Font Size", link: "docs/font-size" },
-                { label: "Font Style", link: "docs/font-style" },
-                { label: "Font Weight", link: "docs/font-weight" },
-              ],
+              autogenerate: { directory: "core/typography/font" },
             },
             {
               label: "Text",
-              items: [
-                { label: "Line Height", link: "docs/line-height" },
-                { label: "List Style Type", link: "docs/list-style-type" },
-                { label: "Overflow Wrap", link: "docs/overflow-wrap" },
-                { label: "Text Align ", link: "docs/text-align" },
-                { label: "Text Color", link: "docs/text-color" },
-                {
-                  label: "Text Decoration Color",
-                  link: "docs/text-decoration-color",
-                },
-                {
-                  label: "Text Decoration Line",
-                  link: "docs/text-decoration-line",
-                },
-                {
-                  label: "Text Decoration Style",
-                  link: "docs/text-decoration-style",
-                },
-                {
-                  label: "Text Decoration Thickness",
-                  link: "docs/text-decoration-thickness",
-                },
-                { label: "Text Decoration", link: "docs/text-decoration" },
-              ],
+              autogenerate: { directory: "core/typography/text" },
             },
           ],
         },
