@@ -99,13 +99,13 @@ export default defineConfig({
           ],
         },
         // {
-        //   badge: "New",
-        //   label: "CLI",
-        //   autogenerate: { directory: "/cli" },
+          // badge: "New",
+          // label: "CLI",
+          // autogenerate: { directory: "/cli" },
         // },
         {
           label: "Concepts",
-          autogenerate: { directory: "core/borders-outlines/borders" },
+          autogenerate: { directory: "/concepts" },
         },
         {
           label: "Base Styles",
@@ -161,6 +161,10 @@ export default defineConfig({
           label: "Tables",
           autogenerate: { directory: "core/tables" },
         },
+        // {
+        //   label: "SVG",
+        //   autogenerate: { directory: "core/svg" },
+        // },
         {
           label: "Typography",
           items: [
