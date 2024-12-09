@@ -152,8 +152,8 @@ export default defineConfig({
           autogenerate: { directory: "core/effects" },
         },
         {
-          label: "Interactions",
-          autogenerate: { directory: "core/interactions" },
+          label: "Interactivity",
+          autogenerate: { directory: "core/interactivity" },
         },
         {
           label: "Layout",
