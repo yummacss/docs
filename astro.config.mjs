@@ -87,21 +87,23 @@ export default defineConfig({
           },
         },
       ],
-      // prettier-ignore
       sidebar: [
         {
           label: "Getting Started",
           items: [
             { label: "Installation", link: "docs/installation" },
             { label: "Components", link: "/components" },
-            { label: "Playground", link: "https://play.yummacss.com"},
-            { label: "Walkthroughs", link: "https://www.youtube.com/@yummacss"},
+            { label: "Playground", link: "https://play.yummacss.com" },
+            {
+              label: "Walkthroughs",
+              link: "https://www.youtube.com/@yummacss",
+            },
           ],
         },
         // {
-          // badge: "New",
-          // label: "CLI",
-          // autogenerate: { directory: "/cli" },
+        // badge: "New",
+        // label: "CLI",
+        // autogenerate: { directory: "/cli" },
         // },
         {
           label: "Concepts",
@@ -146,8 +148,8 @@ export default defineConfig({
           ],
         },
         {
-          label: "FX",
-          autogenerate: { directory: "core/fx" },
+          label: "Effects",
+          autogenerate: { directory: "core/effects" },
         },
         {
           label: "Interactions",
@@ -164,6 +166,23 @@ export default defineConfig({
         // {
         //   label: "SVG",
         //   autogenerate: { directory: "core/svg" },
+        // },
+        // {
+        //   label: "Transforms & Transitions",
+        //   items: [
+        //     {
+        //       label: "Transforms",
+        //       autogenerate: {
+        //         directory: "core/transforms-transitions/transforms",
+        //       },
+        //     },
+        //     {
+        //       label: "Transitions",
+        //       autogenerate: {
+        //         directory: "core/transforms-transitions/transitions",
+        //       },
+        //     },
+        //   ],
         // },
         {
           label: "Typography",
