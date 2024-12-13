@@ -94,6 +94,11 @@ export default defineConfig({
             { label: "Installation", link: "docs/installation" },
             { label: "Components", link: "/components" },
             { label: "Playground", link: "https://play.yummacss.com" },
+            {
+              label: "Resources",
+              link: "/resources",
+              badge: "New",
+            },
           ],
         },
         // {
