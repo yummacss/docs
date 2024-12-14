@@ -89,7 +89,7 @@ export default defineConfig({
       ],
       sidebar: [
         {
-          label: "Getting Started",
+          label: "Get Started",
           items: [
             { label: "Installation", link: "docs/installation" },
             { label: "Components", link: "/components" },
