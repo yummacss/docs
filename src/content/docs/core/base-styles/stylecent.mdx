@@ -7,15 +7,11 @@ description: Stylecent is a set of styles for Yumma CSS projects, meant for cons
 slug: docs/stylecent
 ---
 
+## Base Styles
+
 Stylecent is a set of styles for Yumma CSS projects, meant for consistent design across browsers.
 
-<Aside type="note">
-  Stylecent is totally optional if you're using **v2.0** or later. If you don't
-  need its all-opined reset rules, you can always use the [core
-  versions](/docs/installation#css-options).
-</Aside>
-
-## Universal selector
+### Universal selector
 
 Ensures consistent box sizing behavior across all elements.
 
@@ -35,7 +31,7 @@ Ensures consistent box sizing behavior across all elements.
 }
 ```
 
-## Typography
+### Typography
 
 Ensures that the default text elements are consistent in the `<body>`.
 
@@ -46,7 +42,7 @@ body {
 }
 ```
 
-## Media elements
+### Media elements
 
 Ensures `<img>`, `<video>`, and other media elements are responsive by default.
 
@@ -61,7 +57,7 @@ video {
 }
 ```
 
-## Form elements
+### Form elements
 
 Applies consistent font styles to form elements for better integration with the page.
 
@@ -76,7 +72,7 @@ textarea {
 }
 ```
 
-## Text wrapping
+### Text wrapping
 
 Ensures long text content wraps appropriately within elements.
 
@@ -94,7 +90,7 @@ p {
 }
 ```
 
-## Link decoration
+### Link decoration
 
 Removes default text decoration from links for cleaner appearance.
 
@@ -104,7 +100,7 @@ a {
 }
 ```
 
-## List normalization
+### List normalization
 
 Removes default padding and `list-style` from ordered and unordered lists.
 
@@ -116,7 +112,7 @@ ul {
 }
 ```
 
-## Horizontal rule
+### Horizontal rule
 
 Applies a subtle border to horizontal rules for visual separation.
 
@@ -126,4 +122,32 @@ hr {
   border: 0;
   margin: 1em 0;
 }
+```
+
+## Disabling Stylecent
+
+If you want to disable Stylecent completely and use Yumma CSS, you can modify your import as follows:
+
+### Standard
+
+Disabling Stylecent using standard CSS:
+
+```diff lang="css" title="/src/app.css"
+- /* Standard Version */
+- @import "https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@latest/dist/yumma.css";
+
++ /* Standard Core Version */
++ @import "https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@latest/dist/yumma-core.css";
+```
+
+### Minified
+
+Disabling Stylecent using minified CSS:
+
+```diff lang="css" title="/src/app.css"
+- /* Minified Version */
+- @import "https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@latest/dist/yumma.min.css";
+
++ /* Minified Core Version */
++ @import "https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@latest/dist/yumma-core.min.css";
 ```
