@@ -23,7 +23,7 @@ const {
   useExternal = "",
   useFrame = "none",
   useHeight = "300px",
-  useMarks: useMarks = [],
+  useMarks = [],
   usePadding = false,
   useTabs = false,
   useTitle = "",
@@ -51,13 +51,6 @@ const newContainer = (
           ${useScroll ? "overflow-y: hidden;" : ""}
         }
         ${useScroll ? "body { overflow-y: hidden; }" : ""}
-
-        .area {
-          background-color: #f5f6f8;
-          background-image: repeating-linear-gradient(45deg, #9bdbe5 0, #9bdbe5 1px, #f5f6f8 0, #f5f6f8 50%);
-          background-size: 10px 10px;
-          opacity: 0.8;
-        }
       </style>
     </head>
     <body>
@@ -83,19 +76,9 @@ const container = newContainer(
 ---
 
 <style>
-  .previewIframe {
-    background-color: #f5f6f8;
-    background-image: linear-gradient(
-        rgba(203, 206, 210, 0.16) 1px,
-        transparent 1px
-      ),
-      linear-gradient(
-        to right,
-        rgba(203, 206, 210, 0.16) 1px,
-        rgb(245, 246, 248) 1px
-      );
-    background-size: 20px 20px;
-    border: 1px solid #cbced2;
+  .preview {
+    background-color: light-dark(#f5f6f8, #1f212a);
+    border: 1px solid light-dark(#eceef2, #2e313f);
     overflow-y: auto;
     width: 100%;
   }
@@ -107,10 +90,10 @@ const container = newContainer(
       <Tabs>
         <TabItem icon="seti:video" label="Preview">
           <iframe
+            class="preview"
             loading="lazy"
             sandbox="allow-scripts allow-same-origin"
             srcdoc={container}
-            class="previewIframe"
             style={`height: ${useHeight};`}
           />
         </TabItem>
@@ -130,12 +113,11 @@ const container = newContainer(
     ) : (
       <div>
         <iframe
-          class="previewIframe"
+          class="preview"
           loading="lazy"
           sandbox="allow-scripts allow-same-origin"
           srcdoc={container}
           style={`height: ${useHeight};`}
-          title="Preview"
         />
         <div class="codeContainer">
           <Code code={newCode} lang="html" mark={useMarks} wrap={useWrap} />
