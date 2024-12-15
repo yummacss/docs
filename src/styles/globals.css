@@ -1,6 +1,7 @@
 @import "@fontsource-variable/plus-jakarta-sans";
 @import "/node_modules/yummacss/dist/yumma-core.min.css";
-@import "../styles/index.css";
+@import "../styles/landing.css";
+@import "../styles/preview.css";
 
 /* Dark mode colors. */
 :root {
