@@ -1,7 +1,7 @@
-@import "@fontsource-variable/plus-jakarta-sans";
-@import "/node_modules/yummacss/dist/yumma-core.min.css";
+@import "../styles/area.css";
+@import "../styles/elements.css";
 @import "../styles/landing.css";
-@import "../styles/preview.css";
+@import "/node_modules/yummacss/dist/yumma-core.min.css";
 
 /* Dark mode colors. */
 :root {
@@ -43,25 +43,4 @@
 
     --yma-bg-light: #f5f6f8;
     --yma-bg-lighter: #ffffff;
-}
-
-body {
-    font-family: 'Plus Jakarta Sans Variable', sans-serif;
-}
-
-strong {
-    font-weight: 600;
-}
-
-table {
-    width: 100%;
-    display: inline-table !important;
-}
-
-pre {
-    background-color: #1f212a !important;
-}
-
-img[src*="houston_omg"] {
-    display: none;
 }
