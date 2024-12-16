@@ -16,7 +16,6 @@ const theme = fs.readFileSync(
 const ariakeTheme = ExpressiveCodeTheme.fromJSONString(theme);
 
 export default defineConfig({
-  site: "https://www.yummacss.com/",
   integrations: [
     starlight({
       title: "Yumma CSS",
@@ -68,6 +67,7 @@ export default defineConfig({
       },
       social: {
         github: "https://github.com/yumma-lib/yumma-css",
+        discord: "https://discord.gg/yummacss",
       },
       customCss: ["/src/styles/globals.css"],
       head: [
