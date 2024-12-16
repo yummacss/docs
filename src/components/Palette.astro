@@ -32,6 +32,35 @@ const generateShades = (color: string): string[] => {
 };
 ---
 
+<div class="paletteContainer">
+  <div class="shadeNumbers">
+    <div></div>
+    {
+      Array.from({ length: 13 }, (_, i) => (
+        <div>{i === 6 ? "Base" : i < 6 ? i + 1 : i - 6}</div>
+      ))
+    }
+  </div>
+
+  {
+    data.map((colorItem) => {
+      const shades = generateShades(colorItem.color);
+      return (
+        <div class="colorRow">
+          <div class="colorName">{colorItem.name}</div>
+          {shades.map((shade, index) => (
+            <div
+              class="colorSwatch"
+              style={`background-color: ${shade}`}
+              title={index === 6 ? "Base Color" : `${colorItem.color}`}
+            />
+          ))}
+        </div>
+      );
+    })
+  }
+</div>
+
 <style>
   .paletteContainer {
     display: flex;
@@ -92,32 +121,3 @@ const generateShades = (color: string): string[] => {
     }
   }
 </style>
-
-<div class="paletteContainer">
-  <div class="shadeNumbers">
-    <div></div>
-    {
-      Array.from({ length: 13 }, (_, i) => (
-        <div>{i === 6 ? "Base" : i < 6 ? i + 1 : i - 6}</div>
-      ))
-    }
-  </div>
-
-  {
-    data.map((colorItem) => {
-      const shades = generateShades(colorItem.color);
-      return (
-        <div class="colorRow">
-          <div class="colorName">{colorItem.name}</div>
-          {shades.map((shade, index) => (
-            <div
-              class="colorSwatch"
-              style={`background-color: ${shade}`}
-              title={index === 6 ? "Base Color" : `${colorItem.color}`}
-            />
-          ))}
-        </div>
-      );
-    })
-  }
-</div>
