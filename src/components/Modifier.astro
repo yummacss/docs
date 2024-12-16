@@ -1,7 +1,7 @@
 ---
 import { Code } from "@astrojs/starlight/components";
 
-export interface ModifierProps {
+interface ModifierProps {
   baseUtil: string;
   prefixUtil: string;
   modifiers: {
@@ -10,7 +10,7 @@ export interface ModifierProps {
   };
 }
 
-const { baseUtil, modifiers, prefixUtil } = Astro.props;
+const { baseUtil, modifiers, prefixUtil } = Astro.props as ModifierProps;
 ---
 
 <section>
