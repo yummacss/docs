@@ -1,0 +1,22 @@
+@import "@fontsource-variable/plus-jakarta-sans";
+
+body {
+    font-family: 'Plus Jakarta Sans Variable', sans-serif;
+}
+
+strong {
+    font-weight: 600;
+}
+
+table {
+    width: 100%;
+    display: inline-table !important;
+}
+
+pre {
+    background-color: #1f212a !important;
+}
+
+img[src*="houston_omg"] {
+    display: none;
+}

@@ -1,5 +1,6 @@
 ---
 import { Code, Tabs, TabItem } from "@astrojs/starlight/components";
+import generateContainer from "../container";
 
 interface PreviewProps {
   data: string;
@@ -31,98 +32,67 @@ const {
   useWrap = false,
 } = Astro.props as PreviewProps;
 
-const newContainer = (
-  stylesheet: string,
-  flex: string,
-  useCenter: boolean,
-  usePadding: boolean,
-  useScroll: boolean,
-  newCode: string
-) => `
-  <html>
-    <head>
-      <link rel="stylesheet" href="${stylesheet}">
-      <style>
-        #preview-tab {
-          ${flex} 
-          justify-content: ${useCenter ? "center" : "flex-start"}; 
-          align-items: ${useCenter ? "center" : "flex-start"};
-          ${usePadding ? "padding: 12px 14px;" : ""}
-          ${useScroll ? "overflow-y: hidden;" : ""}
-        }
-        ${useScroll ? "body { overflow-y: hidden; }" : ""}
-      </style>
-    </head>
-    <body>
-      <div id="preview-tab">${newCode}</div>
-    </body>
-  </html>
-`;
-
 const stylesheet =
   useExternal ||
   `https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@${useVersion}/dist/yumma.css`;
 
-const flexbox = useCenter ? "display: flex;" : "";
-const newCode = data;
-const container = newContainer(
+const code = generateContainer({
+  data,
   stylesheet,
-  flexbox,
+  useScroll,
   useCenter,
   usePadding,
-  useScroll,
-  newCode
-);
+});
 ---
-
 <div>
-  {
-    useTabs ? (
-      <Tabs>
-        <TabItem icon="seti:video" label="Preview">
-          <iframe
-            class="preview"
-            loading="lazy"
-            sandbox="allow-scripts allow-same-origin"
-            srcdoc={container}
+  {useTabs ? (
+    <Tabs>
+      <TabItem icon="seti:video" label="Preview">
+        <div class="preview-container">
+          <div
+            class="preview not-content"
+            set:html={code}
             style={`height: ${useHeight};`}
           />
-        </TabItem>
-        <TabItem icon="seti:html" label="Code">
-          <div>
-            <Code
-              code={newCode}
-              frame={useFrame}
-              lang="html"
-              mark={useMarks}
-              title={useTitle}
-              wrap={useWrap}
-            />
-          </div>
-        </TabItem>
-      </Tabs>
-    ) : (
-      <div>
-        <iframe
-          class="preview"
-          loading="lazy"
-          sandbox="allow-scripts allow-same-origin"
-          srcdoc={container}
-          style={`height: ${useHeight};`}
-        />
-        <div class="codeContainer">
-          <Code code={newCode} lang="html" mark={useMarks} wrap={useWrap} />
         </div>
+      </TabItem>
+      <TabItem icon="seti:html" label="Code">
+        <div>
+          <Code
+            code={data}
+            frame={useFrame}
+            lang="html"
+            mark={useMarks}
+            title={useTitle}
+            wrap={useWrap}
+          />
+        </div>
+      </TabItem>
+    </Tabs>
+  ) : (
+    <div>
+      <div
+        class="preview"
+        set:html={code}
+        style={`height: ${useHeight};`}
+      />
+      <div class="code-container">
+        <Code
+          code={data}
+          lang="html"
+          mark={useMarks}
+          wrap={useWrap}
+        />
       </div>
-    )
-  }
+    </div>
+  )}
 </div>
 
 <style>
   .preview {
-    background-color: light-dark(#f5f6f8, #1f212a);
-    border: 1px solid light-dark(#eceef2, #2e313f);
+    background-color: var(--preview-bg, light-dark(#f5f6f8, #1f212a));
+    border: 1px solid var(--preview-border, light-dark(#eceef2, #2e313f));
     overflow-y: auto;
     width: 100%;
-  }
+}
 </style>
