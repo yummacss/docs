@@ -26,12 +26,22 @@ hero:
 
     [Learn more](/docs/utilities)
 
+    <Code code={abbreviatedSyntax} lang="html" frame="terminal" title="app.html" wrap={true} />
+
   </Card>
 
   <Card title="Tiny and Lightweight">
     Yumma is designed to help you achieve the smallest CSS bundle possible. It scans your utility classes and cleans up any unused ones in your CSS file.
 
     [Learn more](/docs/next#yumma-css-cli)
+
+    <FileTree>
+
+      - src
+        - app.css // 256 bytes
+        - app.js
+
+    </FileTree>
 
   </Card>
   
@@ -40,12 +50,39 @@ hero:
 
     [Learn more](/docs/modifiers#pseudo-modifiers)
 
+    <Tabs>
+      <TabItem label="sm">
+        <Code code={responsiveByDesignSmall} lang="html" frame="terminal" mark="sm:w-full" title="app.html" wrap={true} />
+      </TabItem>
+      <TabItem label="md">
+        <Code code={responsiveByDesignMedium} lang="html" frame="terminal" mark="md:w-full" title="app.html" wrap={true} />
+      </TabItem>
+      <TabItem label="lg">
+        <Code code={responsiveByDesignLarge} lang="html" frame="terminal" mark="lg:w-full" title="app.html" wrap={true} />
+      </TabItem>
+      <TabItem label="xl">
+        <Code code={responsiveByDesignXLarge} lang="html" frame="terminal" mark="xl:w-full" title="app.html" wrap={true} />
+      </TabItem>
+      <TabItem label="xxl">
+        <Code code={responsiveByDesignXXLarge} lang="html" frame="terminal" mark="xxl:w-full" title="app.html" wrap={true} />
+      </TabItem>
+    </Tabs>
+
   </Card>
   
   <Card title="UI Components">
     We've got the most amazing reusable components for Yumma CSS projects! They're super gorgeous, mobile-friendly, and super customizable.
 
     [Learn more](/components)
+
+    <Preview
+      data={uiComponents}
+      useCenter
+      useHeight="120px"
+      useMarks={["bc-cyan"]}
+      usePadding
+      useVersion="2.1.0"
+    />
 
   </Card>
 
