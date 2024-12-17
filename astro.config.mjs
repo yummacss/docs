@@ -118,7 +118,7 @@ export default defineConfig({
             "ShowcaseText",
             "ShowcaseYouTube",
           ],
-          "/src/constants/card.ts": [
+          "/src/constants/cards.ts": [
             "card",
             "minimalist",
             "elegant",
@@ -127,7 +127,17 @@ export default defineConfig({
             "yummaCard",
           ],
           "starlight-package-managers": ["PackageManagers "],
-          "/src/constants/guide": ["guide"],
+          "/src/constants/guides": ["guide"],
+          "/src/constants/landing-cards": [
+            "abbreviatedSyntax",
+            "responsiveByDesign",
+            "uiComponents",
+            "responsiveByDesignSmall",
+            "responsiveByDesignMedium",
+            "responsiveByDesignLarge",
+            "responsiveByDesignXLarge",
+            "responsiveByDesignXXLarge",
+          ],
         },
       ],
     }),
