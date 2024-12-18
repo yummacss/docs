@@ -4,6 +4,30 @@ export const abbreviatedSyntax: string = `
 </button>
 `;
 
+export const tinyAndLightweight: string = `
+.bg-cyan {
+    background-color: #05a4bf
+}
+
+.tc-white {
+    color: #fff
+}
+
+.rad-2 {
+    border-radius: .5rem
+}
+
+.px-5 {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem
+}
+
+.py-2 {
+    padding-bottom: .5rem;
+    padding-top: .5rem
+}
+`;
+
 export const responsiveByDesignSmall: string = `
 <button class="bg-pink sm:w-full ...">
     Button
@@ -37,4 +61,25 @@ export const responsiveByDesignXXLarge: string = `
 export const uiComponents: string = `
 import React from "react";
 import { Button, Footer. Navbar } from "yumma-ui";
+`;
+
+export const serverComponents: string = `
+import React from "react";
+import { Button, Footer, Navbar } from "yumma-ui";
+
+const App = () => {
+  return (
+    <div>
+      <Navbar />
+      <main>
+        <h1>Dashboard</h1>
+        <Button>Add user</Button>
+      </main>
+      <Footer />
+    </div>
+  );
+};
+
+export default App;
+
 `;
