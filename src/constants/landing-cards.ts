@@ -35,7 +35,6 @@ export const responsiveByDesignXXLarge: string = `
 `;
 
 export const uiComponents: string = `
-<button class="bg-pink px-5 py-2 rad-1 tc-white">
-    Button
-</button>
+import React from "react";
+import { Button, Footer. Navbar } from "yumma-ui";
 `;
