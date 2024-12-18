@@ -130,6 +130,7 @@ export default defineConfig({
           "/src/constants/guides": ["guide"],
           "/src/constants/landing-cards": [
             "abbreviatedSyntax",
+            "tinyAndLightweight",
             "responsiveByDesignLarge",
             "responsiveByDesignMedium",
             "responsiveByDesignSmall",
