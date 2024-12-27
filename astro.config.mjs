@@ -93,7 +93,6 @@ export default defineConfig({
     AutoImport({
       imports: [
         "/src/components/Color.astro",
-        "/src/components/Footer.astro",
         "/src/components/Hover.astro",
         "/src/components/Modifier.astro",
         "/src/components/Palette.astro",
