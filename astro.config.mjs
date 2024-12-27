@@ -27,10 +27,10 @@ export default defineConfig({
             shadowColor: "transparent",
           },
           textMarkers: {
-            addBackground: "hsla(127, 48%, 77%, 0.100)",
-            addHue: "hsl(127, 48%, 77%)",
             delBackground: "hsla(0, 48%, 77%, 0.100)",
             delHue: "hsl(0, 48%, 77%)",
+            insBackground: "hsla(127, 48%, 77%, 0.150)",
+            insHue: "hsl(127, 48%, 77%)",
             markBackground: "hsla(176, 73%, 77%, 0.100)",
             markHue: "hsl(176, 73%, 77%)",
           },
