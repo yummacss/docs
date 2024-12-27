@@ -6,10 +6,10 @@
 }
 
 [data-has-hero] header {
-    border-bottom: 1px solid transparent;
-    background-color: transparent;
     -webkit-backdrop-filter: blur(16px);
     backdrop-filter: blur(16px);
+    background-color: transparent;
+    border-bottom: 1px solid transparent;
 }
 
 [data-has-hero] .hero>img {
