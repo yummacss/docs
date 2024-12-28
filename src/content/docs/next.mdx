@@ -286,14 +286,40 @@ To make the Yumma CSS framework as complete as possible, we're adding support fo
 **Transitions**
 
 - [x] Transition Delay
-- [x] Transition Duration                                        
+- [x] Transition Duration
 - [x] Transition Property
 
-## Goodbye Inset
+## Removed utilities
 
-We're removing the ins utility class from Yumma. It's been a great ride, and we're sure most of you have used it to easily center a div in the middle of the screen. But to keep things modern and flexible, this concept doesn't fit into the framework, so we've decided to remove it.
+It's time to say goodbye to some of the old utilities in Yumma CSS. Here are some of the utilities we've removed:
 
-## Syntax Changes
+### `.ins{}`
+
+It's been a great ride, and we're sure most of you have used it to easily center a div in the middle of the screen, but this concept was not very useful in many case scenarios where you would typically need more customizability, so we've decided to remove it.
+
+<Tabs>
+  <TabItem icon="approve-check-circle" label="Now">
+    ```html title="app.html"
+    <div class="ai-c d-f jc-c">Centered</div>
+    ```
+  </TabItem>
+
+  <TabItem icon="close" label="Previously">
+    ```html title="app.html"
+    <div class="ins">Centered</div>
+    ```
+  </TabItem>
+</Tabs>
+
+### `.cnt{}`
+
+We are no longer supporting the "cnt" utility. We are making improvements to our modifiers to make them more flexible and easier to use.
+
+```diff lang="html" frame="code" title="app.html"
+- <div class="cnt">Container</div>
+```
+
+## Syntax changes
 
 We're making Yumma CSS even more concise with the utility classes to keep everything minimal. Here are some of the new changes we've got planned:
 
