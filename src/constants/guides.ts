@@ -70,7 +70,7 @@ export default function Home() {
     <link rel="stylesheet" href="app.css" />
   </head>
   <body>
-    <div class="h-1/1 ins">
+    <div class="ai-c d-f h-1/1 jc-c">
       <h1 class="fs-xxl fw-500 tc-pink">Yumma CSS + Node.js</h1>
     </div>
   </body>
