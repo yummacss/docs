@@ -55,6 +55,7 @@ export default defineConfig({
               en: "Take a look at what's coming in the next version of Yumma CSS.",
             },
           },
+          showImage: false,
         }),
         starlightBlog({
           authors: {
