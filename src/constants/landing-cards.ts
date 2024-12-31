@@ -1,5 +1,5 @@
 export const abbreviatedSyntax: string = `
-<button className="bg-black tc-white ...">
+<button className="bg-black tc-white">
     Button
 </button>
 `;
@@ -9,31 +9,31 @@ npx yummacss build
 `;
 
 export const responsiveByDesignSmall: string = `
-<div className="bg-black sm:w-full ...">
+<div className="bg-black sm:w-full">
     Button
 </div>
 `;
 
 export const responsiveByDesignMedium: string = `
-<div className="bg-black md:w-full ...">
+<div className="bg-black md:w-full">
     Button
 </div>
 `;
 
 export const responsiveByDesignLarge: string = `
-<div className="bg-black lg:w-full ...">
+<div className="bg-black lg:w-full">
     Button
 </div>
 `;
 
 export const responsiveByDesignXLarge: string = `
-<div className="bg-black xl:w-full ...">
+<div className="bg-black xl:w-full">
     Button
 </div>
 `;
 
 export const responsiveByDesignXXLarge: string = `
-<div className="bg-black xxl:w-full ...">
+<div className="bg-black xxl:w-full">
     Button
 </div>
 `;
@@ -61,5 +61,4 @@ const App = () => {
 };
 
 export default App;
-
 `;
