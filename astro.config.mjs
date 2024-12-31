@@ -62,7 +62,7 @@ export default defineConfig({
             Renildo: {
               name: "Renildo Pereira",
               picture: "https://avatars.githubusercontent.com/u/56491937?v=4",
-              title: "Maintainer",
+              title: "Creator",
               url: "https://x.com/rrenildoo",
             },
           },
