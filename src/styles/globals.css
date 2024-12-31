@@ -3,44 +3,36 @@
 @import "../styles/landing.css";
 @import "/node_modules/yummacss/dist/yumma-core.min.css";
 
-/* Dark mode colors. */
+/* For light mode */
+:root[data-theme='light'] {
+    --purple-hsl: 242, 85%, 65%;
+    --sl-color-accent-high: #282b61;
+    --sl-color-accent-low: #cfd5f6;
+    --sl-color-accent: #413cb8;
+    --sl-color-black: #ffffff;
+    --sl-color-gray-1: #21243f;
+    --sl-color-gray-2: #323652;
+    --sl-color-gray-3: #515674;
+    --sl-color-gray-4: #8389aa;
+    --sl-color-gray-5: #bdc1d3;
+    --sl-color-gray-6: #eaedfc;
+    --sl-color-gray-7: #f4f6fd;
+    --sl-color-white: #151724;
+}
+
+/* For dark mode */
 :root {
+    --overlay-blurple: hsla(var(--purple-hsl), 0.2);
+    --purple-hsl: 242, 50%, 50%;
+    --sl-color-accent-high: #bec6f2;
     --sl-color-accent-low: #1d2041;
     --sl-color-accent: #5456d2;
-    --sl-color-accent-high: #bec6f2;
-    --sl-color-white: #ffffff;
+    --sl-color-black: #151724;
     --sl-color-gray-1: #eaedfc;
     --sl-color-gray-2: #c4c7d9;
     --sl-color-gray-3: #9ba2c4;
     --sl-color-gray-4: #515674;
     --sl-color-gray-5: #323652;
     --sl-color-gray-6: #21243f;
-    --sl-color-black: #151724;
-
-    --purple-hsl: 242, 50%, 50%;
-    --overlay-blurple: hsla(var(--purple-hsl), 0.2);
-
-    --yma-bg-dark: #24272f;
-    --yma-bg-darker: #17181c;
-}
-
-/* Light mode colors. */
-:root[data-theme='light'] {
-    --sl-color-accent-low: #cfd5f6;
-        --sl-color-accent: #413cb8;
-        --sl-color-accent-high: #282b61;
-        --sl-color-white: #151724;
-        --sl-color-gray-1: #21243f;
-        --sl-color-gray-2: #323652;
-        --sl-color-gray-3: #515674;
-        --sl-color-gray-4: #8389aa;
-        --sl-color-gray-5: #bdc1d3;
-        --sl-color-gray-6: #eaedfc;
-        --sl-color-gray-7: #f4f6fd;
-        --sl-color-black: #ffffff;
-
-    --purple-hsl: 242, 85%, 65%;
-
-    --yma-bg-light: #f5f6f8;
-    --yma-bg-lighter: #ffffff;
+    --sl-color-white: #ffffff;
 }
