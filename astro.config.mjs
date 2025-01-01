@@ -3,6 +3,7 @@ import { ExpressiveCodeTheme } from "@astrojs/starlight/expressive-code";
 import { sidebar } from "./astro.sidebar";
 import AutoImport from "astro-auto-import";
 import fs from "node:fs";
+import liveCode from "astro-live-code";
 import starlight from "@astrojs/starlight";
 import starlightBlog from "starlight-blog";
 import starlightCoolerCredit from "starlight-cooler-credit";
@@ -145,6 +146,7 @@ export default defineConfig({
         },
       ],
     }),
+    liveCode(),
   ],
 
   output: "server",
