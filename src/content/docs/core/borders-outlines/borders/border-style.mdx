@@ -7,8 +7,6 @@ description: Controls the style of the borders of an element
 slug: docs/border-style
 ---
 
-import { borderStyle } from "@consts/border-style";
-
 Controls the style of the borders of an element.
 
 <Utility
@@ -28,14 +26,13 @@ Controls the style of the borders of an element.
   ]}
 />
 
-<Preview
-  data={borderStyle}
-  useCenter
-  useHeight="100px"
-  useMarks={["b-none", "b-d", "b-h", "b-s"]}
-  usePadding
-  useVersion="2.1.0"
-/>
+```html live mark="b-none" "b-d" "b-s" 
+<div class="d-g g-16 gtc-3">
+  <div class="ai-c b-2 b-none bc-indigo bg-white d-f dim-16 fw-700 jc-c tc-indigo">None</div>
+  <div class="ai-c b-2 b-d bc-indigo bg-white d-f dim-16 fw-700 jc-c tc-indigo">Dashed</div>
+  <div class="ai-c b-2 b-s bc-indigo bg-white d-f dim-16 fw-700 jc-c tc-indigo">Solid</div>
+</div>
+```
 
 ---
 

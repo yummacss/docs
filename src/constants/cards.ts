@@ -2,10 +2,7 @@ export const card: string = `
 <div class="card">
   <div class="card-content">
     <h4 class="card-title">Heading</h4>
-    <p class="card-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia velit fugit voluptates quod, placeat quam maxime earum voluptas provident, natus omnis saepe beatae vitae.</p>
-    <a class="card-link">Link to page</a>
-  </div>
-  <button class="card-button">Button</button>
+    <p class="card-description">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 </div>
 <style>
   .card {
@@ -93,7 +90,7 @@ export const yummaCard: string = `
 <div class="max-w-96 ovf-h rad-2 b-1 bc-l-silver-6 bg-white p-6 bs-xs">
   <div class="fg-1">
     <h4 class="mb-2 fs-sm fw-600 lh-1 tc-d-lead-2">Heading</h4>
-    <p class="mb-4 tc-l-lead-3 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia velit fugit voluptates quod, placeat quam maxime earum voluptas provident, natus omnis saepe beatae vitae.</p>
+    <p class="mb-4 tc-l-lead-3 ">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
     <a class="fs-b lh-1 tc-pink tdl-u">Link to page</a>
   </div>
   <button class="mb-4 mt-6 h-12 rad-1 bg-pink px-6 fw-600 tc-white h:bg-d-pink-1">Button</button>

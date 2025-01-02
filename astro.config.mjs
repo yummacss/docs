@@ -15,14 +15,14 @@ const theme = fs.readFileSync(
   "utf-8"
 );
 
-const ariakeTheme = ExpressiveCodeTheme.fromJSONString(theme);
+const yummaTheme = ExpressiveCodeTheme.fromJSONString(theme);
 
 export default defineConfig({
   integrations: [
     starlight({
       title: "Yumma CSS",
       expressiveCode: {
-        themes: [ariakeTheme],
+        themes: [yummaTheme],
         styleOverrides: {
           frames: {
             shadowColor: "transparent",
@@ -123,14 +123,6 @@ export default defineConfig({
             "ShowcaseText",
             "ShowcaseYouTube",
           ],
-          "/src/constants/cards.ts": [
-            "card",
-            "minimalist",
-            "elegant",
-            "modern",
-            "vibrant",
-            "yummaCard",
-          ],
           "starlight-package-managers": ["PackageManagers "],
           "/src/constants/guides": ["guide"],
           "/src/constants/landing-cards": [
@@ -146,9 +138,10 @@ export default defineConfig({
         },
       ],
     }),
-    liveCode(),
+    liveCode({
+      layout: "/src/components/Code.astro",
+    }),
   ],
-
   output: "server",
   adapter: vercel({
     webAnalytics: {

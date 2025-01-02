@@ -4,11 +4,7 @@ import generateContainer from "../container";
 
 interface PreviewProps {
   data: string;
-  useScroll?: boolean;
-  useCenter?: boolean;
-  useExternal?: string;
   useFrame?: "none" | "code" | "terminal" | "auto";
-  useHeight?: string;
   useMarks?: string[];
   usePadding?: boolean;
   useTabs?: boolean;
@@ -19,30 +15,17 @@ interface PreviewProps {
 
 const {
   data,
-  useScroll = false,
-  useCenter = false,
-  useExternal = "",
   useFrame = "none",
-  useHeight = "300px",
   useMarks = [],
-  usePadding = false,
   useTabs = false,
   useTitle = "",
-  useVersion = "",
+  useVersion = "latest",
   useWrap = false,
 } = Astro.props as PreviewProps;
 
-const stylesheet =
-  useExternal ||
-  `https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@${useVersion}/dist/yumma.css`;
+const stylesheet = `https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@${useVersion}/dist/yumma.css`;
 
-const code = generateContainer({
-  data,
-  stylesheet,
-  useScroll,
-  useCenter,
-  usePadding,
-});
+const code = generateContainer({ data, stylesheet });
 ---
 
 <div>
@@ -50,41 +33,37 @@ const code = generateContainer({
     useTabs ? (
       <Tabs>
         <TabItem icon="seti:video" label="Preview">
-          <div class="preview-container">
+          <div class="ai-c d-f jc-c preview w-full">
             <iframe
               class="preview"
               loading="lazy"
               sandbox="allow-scripts allow-same-origin"
               srcdoc={code}
-              style={`height: ${useHeight};`}
             />
           </div>
         </TabItem>
         <TabItem icon="seti:html" label="Code">
-          <div>
-            <Code
-              code={data}
-              frame={useFrame}
-              lang="html"
-              mark={useMarks}
-              title={useTitle}
-              wrap={useWrap}
-            />
-          </div>
+          <Code
+            code={data}
+            frame={useFrame}
+            lang="html"
+            mark={useMarks}
+            title={useTitle}
+            wrap={useWrap}
+          />
         </TabItem>
       </Tabs>
     ) : (
-      <div>
-        <iframe
-          class="preview"
-          loading="lazy"
-          sandbox="allow-scripts allow-same-origin"
-          srcdoc={code}
-          style={`height: ${useHeight};`}
-        />
+      <div class="d-f fd-c">
         <div>
-          <Code code={data} lang="html" mark={useMarks} wrap={useWrap} />
+          <iframe
+            class="ai-c d-f jc-c preview w-full"
+            loading="lazy"
+            sandbox="allow-scripts allow-same-origin"
+            srcdoc={code}
+          />
         </div>
+        <Code code={data} lang="html" mark={useMarks} wrap={useWrap} />
       </div>
     )
   }
@@ -92,9 +71,7 @@ const code = generateContainer({
 
 <style>
   .preview {
-    background-color: var(--preview-bg, light-dark(#f5f6f8, #1f212a));
-    border: 1px solid var(--preview-border, light-dark(#eceef2, #2e313f));
-    overflow-y: auto;
-    width: 100%;
+    background: light-dark(var(--sl-color-black), var(--sl-color-gray-6));
+    border: 1px solid light-dark(var(--sl-color-gray-6), var(--ec-brdCol));
   }
 </style>
