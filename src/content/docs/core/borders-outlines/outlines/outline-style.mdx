@@ -7,8 +7,6 @@ description: Controls the outline style of an element
 slug: docs/outline-style
 ---
 
-import { base } from "@consts/outline-style";
-
 Controls the outline style of an element.
 
 <Utility
@@ -28,14 +26,13 @@ Controls the outline style of an element.
   ]}
 />
 
-<Preview
-  data={base}
-  useCenter
-  useHeight="100px"
-  useMarks={["os-none", "os-d", "os-h", "os-s"]}
-  usePadding
-  useVersion="2.1.0"
-/>
+```html live "os-none" "os-d" "os-h" "os-s"
+<div class="d-g g-16 gtc-3">
+    <button class="b-1 bc-l-silver-6 bg-white fw-600 oc-indigo oo-1 os-none px-5 py-1 rad-1">Subscribe</button>
+    <button class="b-1 bc-l-silver-6 bg-white fw-600 oc-indigo oo-1 os-d px-5 py-1 rad-1">Subscribe</button>
+    <button class="b-1 bc-l-silver-6 bg-white fw-600 oc-indigo oo-1 os-s px-5 py-1 rad-1">Subscribe</button>
+</div>
+```
 
 ---
 
