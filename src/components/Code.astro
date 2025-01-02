@@ -1,0 +1,16 @@
+<div class="d-f fd-c">
+  <div class="ai-c container d-f jc-c p-10">
+    <div>
+      <slot name="example" />
+    </div>
+  </div>
+  <slot name="code" />
+</div>
+
+<style>
+  .container {
+    background: light-dark(var(--sl-color-black), var(--sl-color-gray-6));
+    border: 1px solid light-dark(var(--sl-color-gray-6), var(--ec-brdCol));
+    border-bottom: none;
+  }
+</style>
