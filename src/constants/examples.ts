@@ -43,22 +43,3 @@ import React from "react";
 import { Button, Footer, Navbar } from "yumma-ui";
 `;
 
-export const serverComponents: string = `
-import React from "react";
-import { Button, Footer, Navbar } from "yumma-ui";
-
-const App = () => {
-  return (
-    <div>
-      <Navbar />
-      <main>
-        <h1>Dashboard</h1>
-        <Button>Add user</Button>
-      </main>
-      <Footer />
-    </div>
-  );
-};
-
-export default App;
-`;
