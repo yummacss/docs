@@ -13,8 +13,16 @@ Controls background positioning relative to borders, padding, and content.
 <Utility
   data={[
     {
-      className: "ex-a",
-      properties: ["example: example;"],
+      className: "bo-bb",
+      properties: ["background-origin: border-box;"],
+    },
+    {
+      className: "bo-cb",
+      properties: ["background-origin: content-box;"],
+    },
+    {
+      className: "bo-pb",
+      properties: ["background-origin: padding-box;"],
     },
   ]}
 />
@@ -22,10 +30,10 @@ Controls background positioning relative to borders, padding, and content.
 ---
 
 <Modifier
-  baseUtil="e-"
-  prefixUtil="e"
+  baseUtil="bo-"
+  prefixUtil="bo"
   modifiers={{
-    hoverUtil: "e-",
-    responsiveUtil: "e-",
+    hoverUtil: "bo-bb",
+    responsiveUtil: "bo-bb",
   }}
 />
