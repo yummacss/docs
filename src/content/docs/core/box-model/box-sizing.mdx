@@ -33,27 +33,21 @@ Controls the calculation of the total size of an element.
 
 The height and width of an element only apply to its content.
 
-<Preview
-  data={contentBox}
-  useCenter
-  useHeight="200px"
-  useMarks={["bs-cb"]}
-  usePadding
-  useVersion="2.1.0"
-/>
+```html live "bs-cb"
+<div class="area dim-26 b-2 bc-indigo bs-cb p-8">
+  <div class="ai-c bg-indigo d-f dim-full fw-700 jc-c tc-white">Content</div>
+</div>
+```
 
 ## Border Box
 
 The height and width of the element are the same for all parts.
 
-<Preview
-  data={borderBox}
-  useCenter
-  useHeight="200px"
-  useMarks={["bs-bb"]}
-  usePadding
-  useVersion="2.1.0"
-/>
+```html live "bs-bb"
+<div class="area dim-26 b-2 bc-indigo bs-bb p-8">
+  <div class="ai-c bg-indigo d-f dim-full fw-700 jc-c tc-white">Box</div>
+</div>
+```
 
 ---
 
