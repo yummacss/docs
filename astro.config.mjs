@@ -125,7 +125,7 @@ export default defineConfig({
           ],
           "starlight-package-managers": ["PackageManagers "],
           "/src/constants/guides": ["guide"],
-          "/src/constants/landing-cards": [
+          "/src/constants/examples": [
             "abbreviatedSyntax",
             "tinyAndLightweight",
             "responsiveByDesignLarge",
@@ -139,7 +139,7 @@ export default defineConfig({
       ],
     }),
     liveCode({
-      layout: "/src/components/Code.astro",
+      layout: "/src/layouts/default.astro",
     }),
   ],
   output: "server",

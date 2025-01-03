@@ -66,109 +66,127 @@ Controls the positioning of rows in multi-row Flex and Grid containers.
 
 Each line will align itself along the baseline of the container.
 
-<Preview
-  data={baseline}
-  useHeight="300px"
-  useMarks={["ac-b"]}
-  usePadding
-  useVersion="2.1.0"
-/>
+```html live "ac-b" layout="/src/layouts/wide.astro"
+<div class="ac-b area d-g g-4 gtc-3 h-64 tc-white ta-c w-full">
+  <div class="ai-c bg-indigo d-f fw-700 jc-c p-4 rad-2">A</div>
+  <div class="ai-c bg-indigo d-f fw-700 jc-c p-4 rad-2">B</div>
+  <div class="ai-c bg-indigo d-f fw-700 jc-c p-4 rad-2">C</div>
+  <div class="ai-c bg-indigo d-f fw-700 jc-c p-4 rad-2">D</div>
+  <div class="ai-c bg-indigo d-f fw-700 jc-c p-4 rad-2">E</div>
+</div>
+```
 
 ## Center
 
 Each line will align itself in the center of the cross axis.
 
-<Preview
-  data={center}
-  useHeight="300px"
-  useMarks={["ac-c"]}
-  usePadding
-  useVersion="2.1.0"
-/>
+```html live "ac-c" layout="/src/layouts/wide.astro"
+<div class="ac-c area d-g g-4 gtc-3 h-64 tc-white ta-c w-full">
+  <div class="ai-c bg-indigo d-f fw-700 jc-c p-4 rad-2">A</div>
+  <div class="ai-c bg-indigo d-f fw-700 jc-c p-4 rad-2">B</div>
+  <div class="ai-c bg-indigo d-f fw-700 jc-c p-4 rad-2">C</div>
+  <div class="ai-c bg-indigo d-f fw-700 jc-c p-4 rad-2">D</div>
+  <div class="ai-c bg-indigo d-f fw-700 jc-c p-4 rad-2">E</div>
+</div>
+```
 
 ## Flex End
 
 Each line will fill the space it needs and move towards the end of the cross axis.
 
-<Preview
-  data={flexEnd}
-  useHeight="300px"
-  useMarks={["ac-fe"]}
-  usePadding
-  useVersion="2.1.0"
-/>
+```html live "ac-fe" layout="/src/layouts/wide.astro"
+<div class="ac-fe area d-g g-4 gtc-3 h-64 tc-white ta-c w-full">
+  <div class="ai-c bg-indigo d-f fw-700 jc-c p-4 rad-2">A</div>
+  <div class="ai-c bg-indigo d-f fw-700 jc-c p-4 rad-2">B</div>
+  <div class="ai-c bg-indigo d-f fw-700 jc-c p-4 rad-2">C</div>
+  <div class="ai-c bg-indigo d-f fw-700 jc-c p-4 rad-2">D</div>
+  <div class="ai-c bg-indigo d-f fw-700 jc-c p-4 rad-2">E</div>
+</div>
+```
 
 ## Flex Start
 
 Each line will fill the space it needs and move towards the start of the cross axis.
 
-<Preview
-  data={flexStart}
-  useHeight="300px"
-  useMarks={["ac-fs"]}
-  usePadding
-  useVersion="2.1.0"
-/>
+```html live "ac-fs" layout="/src/layouts/wide.astro"
+<div class="ac-fs area d-g g-4 gtc-3 h-64 tc-white ta-c w-full">
+  <div class="ai-c bg-indigo d-f fw-700 jc-c p-4 rad-2">A</div>
+  <div class="ai-c bg-indigo d-f fw-700 jc-c p-4 rad-2">B</div>
+  <div class="ai-c bg-indigo d-f fw-700 jc-c p-4 rad-2">C</div>
+  <div class="ai-c bg-indigo d-f fw-700 jc-c p-4 rad-2">D</div>
+  <div class="ai-c bg-indigo d-f fw-700 jc-c p-4 rad-2">E</div>
+</div>
+```
 
 ## Normal
 
 Each line will align in the default position along the cross axis.
 
-<Preview
-  data={normal}
-  useHeight="300px"
-  useMarks={["ac-n"]}
-  usePadding
-  useVersion="2.1.0"
-/>
+```html live "ac-n" layout="/src/layouts/wide.astro"
+<div class="ac-n area d-g g-4 gtc-3 h-64 tc-white ta-c w-full">
+  <div class="ai-c bg-indigo d-f fw-700 jc-c p-4 rad-2">A</div>
+  <div class="ai-c bg-indigo d-f fw-700 jc-c p-4 rad-2">B</div>
+  <div class="ai-c bg-indigo d-f fw-700 jc-c p-4 rad-2">C</div>
+  <div class="ai-c bg-indigo d-f fw-700 jc-c p-4 rad-2">D</div>
+  <div class="ai-c bg-indigo d-f fw-700 jc-c p-4 rad-2">E</div>
+</div>
+```
 
 ## Stretch
 
 Each line will take up as much space as it can in the remaining space.
 
-<Preview
-  data={stretch}
-  useHeight="300px"
-  useMarks={["ac-s"]}
-  usePadding
-  useVersion="2.1.0"
-/>
+```html live "ac-s" layout="/src/layouts/wide.astro"
+<div class="ac-s area d-g g-4 gtc-3 h-64 tc-white ta-c w-full">
+  <div class="ai-c bg-indigo d-f fw-700 jc-c p-4 rad-2">A</div>
+  <div class="ai-c bg-indigo d-f fw-700 jc-c p-4 rad-2">B</div>
+  <div class="ai-c bg-indigo d-f fw-700 jc-c p-4 rad-2">C</div>
+  <div class="ai-c bg-indigo d-f fw-700 jc-c p-4 rad-2">D</div>
+  <div class="ai-c bg-indigo d-f fw-700 jc-c p-4 rad-2">E</div>
+</div>
+```
 
 ## Space Around
 
 Each line fills the space it needs. The remaining space will be distributed equally around the lines.
 
-<Preview
-  data={spaceAround}
-  useHeight="300px"
-  useMarks={["ac-sa"]}
-  usePadding
-  useVersion="2.1.0"
-/>
+```html live "ac-sa" layout="/src/layouts/wide.astro"
+<div class="ac-sa area d-g g-4 gtc-3 h-64 tc-white ta-c w-full">
+  <div class="ai-c bg-indigo d-f fw-700 jc-c p-4 rad-2">A</div>
+  <div class="ai-c bg-indigo d-f fw-700 jc-c p-4 rad-2">B</div>
+  <div class="ai-c bg-indigo d-f fw-700 jc-c p-4 rad-2">C</div>
+  <div class="ai-c bg-indigo d-f fw-700 jc-c p-4 rad-2">D</div>
+  <div class="ai-c bg-indigo d-f fw-700 jc-c p-4 rad-2">E</div>
+</div>
+```
 
 ## Space Between
 
 Each line fills its space. The rest of the space will be between the lines.
 
-<Preview
-  data={spaceBetween}
-  useHeight="300px"
-  useMarks={["ac-sb"]}
-  usePadding
-  useVersion="2.1.0"
-/>
+```html live "ac-sb" layout="/src/layouts/wide.astro"
+<div class="ac-sb area d-g g-4 gtc-3 h-64 tc-white ta-c w-full">
+  <div class="ai-c bg-indigo d-f fw-700 jc-c p-4 rad-2">A</div>
+  <div class="ai-c bg-indigo d-f fw-700 jc-c p-4 rad-2">B</div>
+  <div class="ai-c bg-indigo d-f fw-700 jc-c p-4 rad-2">C</div>
+  <div class="ai-c bg-indigo d-f fw-700 jc-c p-4 rad-2">D</div>
+  <div class="ai-c bg-indigo d-f fw-700 jc-c p-4 rad-2">E</div>
+</div>
+```
 
 ## Space Evenly
 
 Each line fills its space, and the remaining space is distributed evenly between and around the lines.
 
-<Preview
-  data={spaceEvenly}
-  useHeight="300px"
-  useMarks={["ac-se"]}
-  usePadding
-  useVersion="2.1.0"
-/>
+```html live "ac-se" layout="/src/layouts/wide.astro"
+<div class="ac-se area d-g g-4 gtc-3 h-64 tc-white ta-c w-full">
+  <div class="ai-c bg-indigo d-f fw-700 jc-c p-4 rad-2">A</div>
+  <div class="ai-c bg-indigo d-f fw-700 jc-c p-4 rad-2">B</div>
+  <div class="ai-c bg-indigo d-f fw-700 jc-c p-4 rad-2">C</div>
+  <div class="ai-c bg-indigo d-f fw-700 jc-c p-4 rad-2">D</div>
+  <div class="ai-c bg-indigo d-f fw-700 jc-c p-4 rad-2">E</div>
+</div>
+```
 
 ---
 
