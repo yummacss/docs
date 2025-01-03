@@ -29,14 +29,14 @@ Controls the width of an element.
   unit="rem"
 />
 
-<Preview
-  data={base}
-  useCenter
-  useHeight="300px"
-  useMarks={["w-12", "w-20", "w-28", "w-36"]}
-  usePadding
-  useVersion="2.1.0"
-/>
+```html live "w-12" "w-20" "w-28" "w-36"
+<div class="s-y-8">
+  <div class="ai-c bg-indigo d-f fw-700 jc-c p-2 rad-1 tc-white w-12">3rem</div>
+  <div class="ai-c bg-indigo d-f fw-700 jc-c p-2 rad-1 tc-white w-20">5rem</div>
+  <div class="ai-c bg-indigo d-f fw-700 jc-c p-2 rad-1 tc-white w-28">7rem</div>
+  <div class="ai-c bg-indigo d-f fw-700 jc-c p-2 rad-1 tc-white w-36">9rem</div>
+</div>
+```
 
 ## Max Width
 
@@ -86,14 +86,12 @@ Controls the minimum width of an element.
 
 Percentage utilities let you change an element's height based on its container size.
 
-<Preview
-  data={widthPercentages}
-  useCenter
-  useHeight="200px"
-  useMarks={["w-full", "w-half"]}
-  usePadding
-  useVersion="2.1.0"
-/>
+```html live "w-full" "w-half"
+<div class="b-3 b-d bc-indigo p-2 rad-2 s-y-8 w-64">
+  <div class="ai-c bg-indigo d-f fw-700 jc-c p-2 rad-1 tc-white w-full">100%</div>
+  <div class="ai-c bg-indigo d-f fw-700 jc-c p-2 rad-1 tc-white w-half">50%</div>
+</div>
+``` 
 
 ---
 
