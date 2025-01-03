@@ -29,14 +29,14 @@ Controls the height of an element.
   unit="rem"
 />
 
-<Preview
-  data={base}
-  useCenter
-  useHeight="200px"
-  useMarks={["h-8", "h-16", "h-24", "h-32"]}
-  usePadding
-  useVersion="2.1.0"
-/>
+```html live "h-8" "h-16" "h-24" "h-32"
+<div class="d-g g-16 gtc-4">
+  <div class="ai-c bg-indigo d-f fw-700 h-8 jc-c p-2 rad-1 tc-white">2rem</div>
+  <div class="ai-c bg-indigo d-f fw-700 h-16 jc-c p-2 rad-1 tc-white">4rem</div>
+  <div class="ai-c bg-indigo d-f fw-700 h-24 jc-c p-2 rad-1 tc-white">6rem</div>
+  <div class="ai-c bg-indigo d-f fw-700 h-32 jc-c p-2 rad-1 tc-white">8rem</div>
+</div>
+```
 
 ## Max Height
 
@@ -86,14 +86,12 @@ Controls the minimum height of an element.
 
 Control the height percentage of an element.
 
-<Preview
-  data={heightPercentages}
-  useCenter
-  useHeight="300px"
-  useMarks={["h-full", "h-half"]}
-  usePadding
-  useVersion="2.1.0"
-/>
+```html live "h-full" "h-half"
+<div class="b-3 b-d bc-indigo d-g g-16 gtc-2 h-64 p-2 rad-2">
+  <div class="ai-c bg-indigo d-f fw-700 h-full jc-c p-2 rad-1 tc-white">100%</div>
+  <div class="ai-c bg-indigo d-f fw-700 h-half jc-c p-2 rad-1 tc-white">50%</div>
+</div>
+```
 
 ---
 
