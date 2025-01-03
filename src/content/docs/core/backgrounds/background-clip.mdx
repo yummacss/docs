@@ -13,8 +13,20 @@ Controls the box around the background of an element.
 <Utility
   data={[
     {
-      className: "ex-a",
-      properties: ["example: example;"],
+      className: "bc-bb",
+      properties: ["background-clip: border-box;"],
+    },
+    {
+      className: "bc-cb",
+      properties: ["background-clip: content-box;"],
+    },
+    {
+      className: "bc-pb",
+      properties: ["background-clip: padding-box;"],
+    },
+    {
+      className: "bc-t",
+      properties: ["background-clip: text;"],
     },
   ]}
 />
@@ -22,10 +34,10 @@ Controls the box around the background of an element.
 ---
 
 <Modifier
-  baseUtil="e-"
-  prefixUtil="e"
+  baseUtil="bc-bb"
+  prefixUtil="bc"
   modifiers={{
-    hoverUtil: "e-",
-    responsiveUtil: "e-",
+    hoverUtil: "bc-cb",
+    responsiveUtil: "bc-cb",
   }}
 />
