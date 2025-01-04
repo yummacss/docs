@@ -13,8 +13,40 @@ Controls the position of the background image of an element.
 <Utility
   data={[
     {
-      className: "ex-a",
-      properties: ["example: example;"],
+      className: "bp-b",
+      properties: ["background-position: bottom;"],
+    },
+    {
+      className: "bp-c",
+      properties: ["background-position: center;"],
+    },
+    {
+      className: "bp-l",
+      properties: ["background-position: left;"],
+    },
+    {
+      className: "bp-lb",
+      properties: ["background-position: left bottom;"],
+    },
+    {
+      className: "bp-lt",
+      properties: ["background-position: left top;"],
+    },
+    {
+      className: "bp-r",
+      properties: ["background-position: right;"],
+    },
+    {
+      className: "bp-rb",
+      properties: ["background-position: right bottom;"],
+    },
+    {
+      className: "bp-rt",
+      properties: ["background-position: right top;"],
+    },
+    {
+      className: "bp-t",
+      properties: ["background-position: top;"],
     },
   ]}
 />
@@ -22,10 +54,10 @@ Controls the position of the background image of an element.
 ---
 
 <Modifier
-  baseUtil="e-"
-  prefixUtil="e"
+  baseUtil="bp-l"
+  prefixUtil="bp"
   modifiers={{
-    hoverUtil: "e-",
-    responsiveUtil: "e-",
+    hoverUtil: "bp-r",
+    responsiveUtil: "bp-r",
   }}
 />
