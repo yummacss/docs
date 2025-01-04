@@ -13,8 +13,28 @@ Controls the repetition of the background image of an element.
 <Utility
   data={[
     {
-      className: "ex-a",
-      properties: ["example: example;"],
+      className: "br-nr",
+      properties: ["background-repeat: no-repeat;"],
+    },
+    {
+      className: "br-r",
+      properties: ["background-repeat: repeat;"],
+    },
+    {
+      className: "br-ro",
+      properties: ["background-repeat: round;"],
+    },
+    {
+      className: "br-rx",
+      properties: ["background-repeat: repeat-x;"],
+    },
+    {
+      className: "br-ry",
+      properties: ["background-repeat: repeat-y;"],
+    },
+    {
+      className: "br-s",
+      properties: ["background-repeat: space;"],
     },
   ]}
 />
@@ -22,10 +42,10 @@ Controls the repetition of the background image of an element.
 ---
 
 <Modifier
-  baseUtil="e-"
-  prefixUtil="e"
+  baseUtil="br-r"
+  prefixUtil="br"
   modifiers={{
-    hoverUtil: "e-",
-    responsiveUtil: "e-",
+    hoverUtil: "br-nr",
+    responsiveUtil: "br-nr",
   }}
 />
