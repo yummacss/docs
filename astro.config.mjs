@@ -94,7 +94,7 @@ export default defineConfig({
           },
         },
       ],
-      sidebar,
+      sidebar, // astro.sidebar.ts
     }),
     AutoImport({
       imports: [
