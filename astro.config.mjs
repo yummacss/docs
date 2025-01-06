@@ -98,6 +98,7 @@ export default defineConfig({
     }),
     AutoImport({
       imports: [
+        "/src/components/Class.astro",
         "/src/components/Color.astro",
         "/src/components/Hover.astro",
         "/src/components/Modifier.astro",

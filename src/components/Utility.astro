@@ -108,7 +108,7 @@ const codeData =
     <thead>
       <tr>
         <th class="fs-b fw-600">Class</th>
-        <th class="fs-b fw-600">Properties</th>
+        <th class="fs-b fw-600">Property</th>
       </tr>
     </thead>
     <tbody>
@@ -116,11 +116,11 @@ const codeData =
         codeData.map((classItem) => (
           <tr>
             <td class="ff-m fs-xs">
-              <p class="tc-cyan">{classItem.className}</p>
+              <p class="utility">{classItem.className}</p>
             </td>
             <td class="ff-b fs-xs">
               <code
-                class="tc-l-violet-2"
+                class="property"
                 style="background-color: transparent !important;">
                 {classItem.properties.join("\n")}
               </code>
@@ -131,3 +131,13 @@ const codeData =
     </tbody>
   </table>
 </div>
+
+<style>
+  .utility {
+    color: light-dark(var(--sl-color-accent), var(--sl-color-accent-high));
+  }
+
+  .property {
+    color: light-dark(var(--sl-color-white), var(--sl-color-accent-high));
+  }
+</style>

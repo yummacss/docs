@@ -1,0 +1,50 @@
+---
+export interface Props {
+  name: string;
+}
+
+let data = [];
+try {
+  const response = await fetch(
+    `https://api.yummacss.com/api/${Astro.props.name}`
+  );
+  data = await response.json();
+} catch (err) {
+  console.error("Failed to fetch data:", err);
+}
+---
+
+<div class="max-h-90 ovf-y-auto mb-5">
+  <table>
+    <thead>
+      <tr>
+        <th class="fs-b fw-600">Class</th>
+        <th class="fs-b fw-600">Properties</th>
+      </tr>
+    </thead>
+    <tbody>
+      {
+        data.length > 0 ? (
+          data.map((item: { className: string; properties: string[] }) => (
+            <tr>
+              <td class="ff-m fs-xs">
+                <p class="tc-cyan">{item.className}</p>
+              </td>
+              <td class="ff-b fs-xs">
+                <code
+                  class="tc-l-violet-2"
+                  style="background-color: transparent !important;">
+                  {item.properties.join(" ")}
+                </code>
+              </td>
+            </tr>
+          ))
+        ) : (
+          <tr>
+            <td colspan="2">No data found</td>
+          </tr>
+        )
+      }
+    </tbody>
+  </table>
+</div>
