@@ -34,22 +34,23 @@ Give your components and other page elements a boost with the Yumma CSS default 
 
 ## Using color shades
 
-To specify lighter or darker shade to a given color, you can use the `[class]-l-[color]-[shade]`
-selector to get a lighter color or `[class]-d-[color]-[shade]` selector to get a darker color:
+If you want to specify a lighter or darker shade of a given color, you can use the `[class]-l-[color]-[shade]` selector to get a lighter color or the `[class]-d-[color]-[shade]` selector to get a darker color in a range of 1 to 6, with the exception of neutral colors like black, white, and transparent.
 
-<Aside title="Using shades" type="note">
+### Light color
 
-The current color range is restricted to shades from 1 to 6 for both light and dark variants, with the exclusion of the base color.
+Use `[class]-l-*` like `bg-l-indigo-3` to get a lighter color.
 
-```html "bg-l-cyan-3" "bg-d-cyan-3"
-<!-- Light cyan -->
-<button class="bg-l-cyan-3 fw-600 px-5 py-1 rad-1 tc-white">Subscribe</button>
-
-<!-- Dark cyan -->
-<button class="bg-d-cyan-3 fw-600 px-5 py-1 rad-1 tc-white">Subscribe</button>
+```html live "bg-l-cyan-3"
+<button class="b-0 bg-l-cyan-3 fw-600 px-5 py-1 rad-1 tc-white">Subscribe</button>
 ```
 
-</Aside>
+### Dark color
+
+Use `[class]-d-*` like `bg-d-indigo-3` to get a darker color.
+
+```html live "bg-d-cyan-3"
+<button class="b-0 bg-d-cyan-3 fw-600 px-5 py-1 rad-1 tc-white">Subscribe</button>
+```
 
 ## Color utilities
 
