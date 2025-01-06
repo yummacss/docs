@@ -74,7 +74,6 @@ export default defineConfig({
       },
       social: {
         github: "https://github.com/yumma-lib/yumma-css",
-        discord: "https://discord.gg/yummacss",
       },
       customCss: ["/src/styles/globals.css"],
       head: [
