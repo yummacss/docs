@@ -116,7 +116,7 @@ The new CLI system lets you compile and get rid of any unused utilities you're n
 From now on, core files like `yumma-core.css` and `yumma-core.min.css` will be deleted from the `/dist` folder in favor of the `yummacss.config.js` config file.
 
 <Tabs>
-  <TabItem icon="approve-check-circle" label="Now">
+  <TabItem label="v3.0">
     ```js mark={4-7} title="yummacss.config.js"
     export const config = {
         content: ["src/**/*.{html}"],
@@ -129,7 +129,7 @@ From now on, core files like `yumma-core.css` and `yumma-core.min.css` will be d
     ```
 
   </TabItem>
-  <TabItem icon="close" label="Previously">
+  <TabItem label="v2.1">
 
     ```css title="src/globals.css"
     /* Disable base styles */
@@ -160,7 +160,7 @@ We completely overhauled the codebase to get better performance in build times a
 The colors are getting some big changes. We've gone from `10%` shade modification to `14%`. This means that light colors are going to be even lighter and dark colors are going to be even darker.
 
 <Tabs>
-  <TabItem icon="approve-check-circle" label="Now">
+  <TabItem label="v3.0">
     <Palette
       percentage={14}
       data={[
@@ -180,7 +180,7 @@ The colors are getting some big changes. We've gone from `10%` shade modificatio
       ]}
     />
   </TabItem>
-  <TabItem icon="close" label="Previously">
+  <TabItem label="v2.1">
     <Palette
       percentage={10}
       data={[
@@ -315,13 +315,13 @@ It's time to say goodbye to some of the old utilities in Yumma CSS. Here are som
 It's been a great ride, and we're sure most of you have used it to easily center a div in the middle of the screen, but this concept was not very useful in many case scenarios where you would typically need more customizability, so we've decided to remove it.
 
 <Tabs>
-  <TabItem icon="approve-check-circle" label="Now">
+  <TabItem label="v3.0">
     ```html title="app.html"
     <div class="ai-c d-f jc-c">Centered</div>
     ```
   </TabItem>
 
-  <TabItem icon="close" label="Previously">
+  <TabItem label="v2.1">
     ```html title="app.html"
     <div class="ins">Centered</div>
     ```
@@ -343,7 +343,7 @@ We're making Yumma CSS even more concise with the utility classes to keep everyt
 ### Dimension
 
 <Tabs>
-  <TabItem icon="approve-check-circle" label="Now">
+  <TabItem label="v3.0">
     <Utility
       additionalClasses={[
         { name: "1/1", value: "100dvh" },
@@ -363,7 +363,7 @@ We're making Yumma CSS even more concise with the utility classes to keep everyt
     />
 
   </TabItem>
-  <TabItem icon="close" label="Previously">
+  <TabItem label="v2.1">
     <Utility
       additionalClasses={[
         { name: "1/1", value: "100dvh" },
@@ -387,7 +387,7 @@ We're making Yumma CSS even more concise with the utility classes to keep everyt
 ### Max Dimension
 
 <Tabs>
-  <TabItem icon="approve-check-circle" label="Now">
+  <TabItem label="v3.0">
     <Utility
       additionalClasses={[
         { name: "1/1", value: "100dvh" },
@@ -407,7 +407,7 @@ We're making Yumma CSS even more concise with the utility classes to keep everyt
     />
 
   </TabItem>
-  <TabItem icon="close" label="Previously">
+  <TabItem label="v2.1">
     <Utility
       additionalClasses={[
         { name: "1/1", value: "100dvh" },
@@ -431,7 +431,7 @@ We're making Yumma CSS even more concise with the utility classes to keep everyt
 ### Min Dimension
 
 <Tabs>
-  <TabItem icon="approve-check-circle" label="Now">
+  <TabItem label="v3.0">
     <Utility
       additionalClasses={[
         { name: "1/1", value: "100dvh" },
@@ -451,7 +451,7 @@ We're making Yumma CSS even more concise with the utility classes to keep everyt
     />
 
   </TabItem>
-  <TabItem icon="close" label="Previously">
+  <TabItem label="v2.1">
     <Utility
       additionalClasses={[
         { name: "1/1", value: "100dvh" },
@@ -475,7 +475,7 @@ We're making Yumma CSS even more concise with the utility classes to keep everyt
 ### Spacing X
 
 <Tabs>
-  <TabItem icon="approve-check-circle" label="Now">
+  <TabItem label="v3.0">
     <Utility
       classPrefix="sx-"
       incrementValue={0.25}
@@ -483,9 +483,8 @@ We're making Yumma CSS even more concise with the utility classes to keep everyt
       range={100}
       unit="rem"
     />
-
   </TabItem>
-  <TabItem icon="close" label="Previously">
+  <TabItem label="v2.1">
     <Utility
       classPrefix="s-x-"
       incrementValue={0.25}
@@ -499,7 +498,7 @@ We're making Yumma CSS even more concise with the utility classes to keep everyt
 ### Spacing Y
 
 <Tabs>
-  <TabItem icon="approve-check-circle" label="Now">
+  <TabItem label="v3.0">
     <Utility
       classPrefix="sy-"
       incrementValue={0.25}
@@ -509,7 +508,7 @@ We're making Yumma CSS even more concise with the utility classes to keep everyt
     />
 
   </TabItem>
-  <TabItem icon="close" label="Previously">
+  <TabItem label="v2.1">
     <Utility
       classPrefix="s-y-"
       incrementValue={0.25}
