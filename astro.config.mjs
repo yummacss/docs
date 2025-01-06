@@ -123,7 +123,6 @@ export default defineConfig({
             "ShowcaseText",
             "ShowcaseYouTube",
           ],
-          "starlight-package-managers": ["PackageManagers "],
           "/src/constants/guides": ["guide"],
           "/src/constants/examples": [
             "abbreviatedSyntax",
