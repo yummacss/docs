@@ -28,11 +28,11 @@ try {
           data.map((item: { className: string; properties: string[] }) => (
             <tr>
               <td class="ff-m fs-xs">
-                <p class="tc-cyan">{item.className}</p>
+                <p class="utility">{item.className}</p>
               </td>
               <td class="ff-b fs-xs">
                 <code
-                  class="tc-l-violet-2"
+                  class="property"
                   style="background-color: transparent !important;">
                   {item.properties.join(" ")}
                 </code>
@@ -48,3 +48,13 @@ try {
     </tbody>
   </table>
 </div>
+
+<style>
+  .utility {
+    color: light-dark(var(--sl-color-accent), var(--sl-color-accent-high));
+  }
+
+  .property {
+    color: light-dark(var(--sl-color-white), var(--sl-color-accent-high));
+  }
+</style>
