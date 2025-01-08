@@ -345,27 +345,36 @@ We're making Yumma CSS even more concise with the utility classes to keep everyt
 
 ### Dimension
 
-In version 3, we've made the Dimension utility even more abbreviated to align with the purpose of the framework.
+In v3, we've made the Dimension utility even more abbreviated to align with the purpose of the framework.
 
-```diff lang="html"
+```diff lang="html" title="app.html"
 - <div class="dim-* ..."></div>
 + <div class="d-* ..."></div>
 ```
 
 This also applies to the Max and Min Dimension utilities.
 
-```diff lang="html"
+```diff lang="html" title="app.html"
 - <div class="max-dim-* min-dim-* ..."></div>
 + <div class="max-d-* min-d-* ..."></div>
 ```
 
 ### Spacing
 
-In v3 we've shortened the syntax for the Spacing utilities.
+In v3, we've shortened the syntax for the Spacing utilities.
 
-```diff lang="html"
+```diff lang="html" title="app.html"
 - <div class="s-x-* s-y-* ..."></div>
 + <div class="sx-* sy-* ..."></div>
+```
+
+### Direction
+
+In v3, we've also made changes to the way the Direction utilities are written. This includes changes to the Bottom, Left, Right, and Top variants.
+
+```diff lang="html" title="app.html"
+- <div class="dir-*-* dir-*-* ..."></div>
++ <div class="d-*-* d-*-* ..."></div>
 ```
 
 ## Removed utilities
@@ -376,24 +385,15 @@ It's time to say goodbye to some of the old utilities in Yumma CSS. Here are som
 
 It's been a great ride, and we're sure most of you have used it to easily center a div in the middle of the screen, but this concept was not very useful in many case scenarios where you would typically need more customizability, so we've decided to remove it.
 
-<Tabs>
-  <TabItem icon="approve-check-circle" label="v3">
-    ```html title="app.html"
-    <div class="ai-c d-f jc-c">Centered</div>
-    ```
-  </TabItem>
-
-  <TabItem icon="close" label="v2.1">
-    ```html title="app.html"
-    <div class="ins">Centered</div>
-    ```
-  </TabItem>
-</Tabs>
+```diff lang="html" title="app.html"
+- <div class="ins ..."></div>
++ <div class="ai-c d-f jc-c ..."></div>
+```
 
 ### `.cnt{}`
 
 We are no longer supporting the `cnt` utility. We are making improvements to our modifiers to make them more flexible and easier to use.
 
-```diff lang="html" frame="code" title="app.html"
+```diff lang="html" title="app.html"
 - <div class="cnt">Container</div>
 ```
