@@ -8,7 +8,7 @@ It looks like you're just as excited as we are about what's to come in the next 
 
 **This version is still a work in progress, as are the changes to this page, so some features might be updated, removed, or never included in the final version.**
 
-## New logotype, new design
+## New logotype, new logomark
 
 After putting in weeks of work and going through a bunch of trials, we finally refreshed the new logo and design of Yumma CSS — Special shout-out to [@heydut](https://github.com/heydut) for their help.
 
@@ -218,14 +218,14 @@ To make the Yumma CSS framework as complete as possible, we're adding support fo
 
 </details>
 
-<details>
+<details open>
   <summary>Borders</summary>
 
 - Border Spacing
 
 </details>
 
-<details>
+<details open>
   <summary>Box Model</summary>
 
 - Margin Block End
@@ -239,7 +239,7 @@ To make the Yumma CSS framework as complete as possible, we're adding support fo
 
 </details>
 
-<details>
+<details open>
   <summary>Effect</summary>
 
 - Blur
@@ -248,7 +248,7 @@ To make the Yumma CSS framework as complete as possible, we're adding support fo
 
 </details>
 
-<details>
+<details open>
   <summary>Flexbox</summary>
 
 - Order
@@ -258,7 +258,7 @@ To make the Yumma CSS framework as complete as possible, we're adding support fo
 
 </details>
 
-<details>
+<details open>
   <summary>Interactivity</summary>
 
 - Scroll Behavior
@@ -286,7 +286,7 @@ To make the Yumma CSS framework as complete as possible, we're adding support fo
 
 </details>
 
-<details>
+<details open>
   <summary>Layout</summary>
 
 - Clear
@@ -295,7 +295,7 @@ To make the Yumma CSS framework as complete as possible, we're adding support fo
 
 </details>
 
-<details>
+<details open>
   <summary>SVG</summary>
 
 - Fill
@@ -304,7 +304,7 @@ To make the Yumma CSS framework as complete as possible, we're adding support fo
 
 </details>
 
-<details>
+<details open>
   <summary>Text</summary>
 
 - Letter Spacing
@@ -319,7 +319,7 @@ To make the Yumma CSS framework as complete as possible, we're adding support fo
 
 </details>
 
-<details>
+<details open>
   <summary>Transforms</summary>
 
 - Rotate
@@ -330,7 +330,7 @@ To make the Yumma CSS framework as complete as possible, we're adding support fo
 
 </details>
 
-<details>
+<details open>
   <summary>Transitions</summary>
 
 - Transition Delay
@@ -375,179 +375,25 @@ We're making Yumma CSS even more concise with the utility classes to keep everyt
 
 ### Dimension
 
-<Tabs>
-  <TabItem icon="approve-check-circle" label="v3">
-    <Utility
-      additionalClasses={[
-        { name: "1/1", value: "100dvh" },
-        { name: "1/2", value: "50dvh" },
-        { name: "auto", value: "auto" },
-        { name: "fc", value: "fit-content" },
-        { name: "full", value: "100%" },
-        { name: "half", value: "50%" },
-        { name: "max", value: "max-content" },
-        { name: "min", value: "min-content" },
-      ]}
-      classPrefix="d-"
-      incrementValue={0.25}
-      propNames={["height", "width"]}
-      range={100}
-      unit="rem"
-    />
+In version 3, we've made the Dimension utility even more abbreviated to align with the purpose of the framework.
 
-  </TabItem>
-  <TabItem icon="close" label="v2.1">
-    <Utility
-      additionalClasses={[
-        { name: "1/1", value: "100dvh" },
-        { name: "1/2", value: "50dvh" },
-        { name: "auto", value: "auto" },
-        { name: "fc", value: "fit-content" },
-        { name: "full", value: "100%" },
-        { name: "half", value: "50%" },
-        { name: "max", value: "max-content" },
-        { name: "min", value: "min-content" },
-      ]}
-      classPrefix="dim-"
-      incrementValue={0.25}
-      propNames={["height", "width"]}
-      range={100}
-      unit="rem"
-    />
-  </TabItem>
-</Tabs>
+```diff lang="html"
+- <div class="dim-* ..."></div>
++ <div class="d-* ..."></div>
+```
 
-### Max Dimension
+This also applies to the Max and Min Dimension utilities.
 
-<Tabs>
-  <TabItem icon="approve-check-circle" label="v3">
-    <Utility
-      additionalClasses={[
-        { name: "1/1", value: "100dvh" },
-        { name: "1/2", value: "50dvh" },
-        { name: "auto", value: "auto" },
-        { name: "fc", value: "fit-content" },
-        { name: "full", value: "100%" },
-        { name: "half", value: "50%" },
-        { name: "max", value: "max-content" },
-        { name: "min", value: "min-content" },
-      ]}
-      classPrefix="max-d-"
-      incrementValue={0.25}
-      propNames={["max-height", "max-width"]}
-      range={100}
-      unit="rem"
-    />
+```diff lang="html"
+- <div class="max-dim-* min-dim-* ..."></div>
++ <div class="max-d-* min-d-* ..."></div>
+```
 
-  </TabItem>
-  <TabItem icon="close" label="v2.1">
-    <Utility
-      additionalClasses={[
-        { name: "1/1", value: "100dvh" },
-        { name: "1/2", value: "50dvh" },
-        { name: "auto", value: "auto" },
-        { name: "fc", value: "fit-content" },
-        { name: "full", value: "100%" },
-        { name: "half", value: "50%" },
-        { name: "max", value: "max-content" },
-        { name: "min", value: "min-content" },
-      ]}
-      classPrefix="max-dim-"
-      incrementValue={0.25}
-      propNames={["max-height", "max-width"]}
-      range={100}
-      unit="rem"
-    />
-  </TabItem>
-</Tabs>
+### Spacing
 
-### Min Dimension
+In v3 we've shortened the syntax for the Spacing utilities.
 
-<Tabs>
-  <TabItem icon="approve-check-circle" label="v3">
-    <Utility
-      additionalClasses={[
-        { name: "1/1", value: "100dvh" },
-        { name: "1/2", value: "50dvh" },
-        { name: "auto", value: "auto" },
-        { name: "fc", value: "fit-content" },
-        { name: "full", value: "100%" },
-        { name: "half", value: "50%" },
-        { name: "max", value: "max-content" },
-        { name: "min", value: "min-content" },
-      ]}
-      classPrefix="min-d-"
-      incrementValue={0.25}
-      propNames={["min-height", "min-width"]}
-      range={100}
-      unit="rem"
-    />
-
-  </TabItem>
-  <TabItem icon="close" label="v2.1">
-    <Utility
-      additionalClasses={[
-        { name: "1/1", value: "100dvh" },
-        { name: "1/2", value: "50dvh" },
-        { name: "auto", value: "auto" },
-        { name: "fc", value: "fit-content" },
-        { name: "full", value: "100%" },
-        { name: "half", value: "50%" },
-        { name: "max", value: "max-content" },
-        { name: "min", value: "min-content" },
-      ]}
-      classPrefix="min-dim-"
-      incrementValue={0.25}
-      propNames={["min-height", "min-width"]}
-      range={100}
-      unit="rem"
-    />
-  </TabItem>
-</Tabs>
-
-### Spacing X
-
-<Tabs>
-  <TabItem icon="approve-check-circle" label="v3">
-    <Utility
-      classPrefix="sx-"
-      incrementValue={0.25}
-      propNames={["margin-left", "margin-right"]}
-      range={100}
-      unit="rem"
-    />
-  </TabItem>
-  <TabItem icon="close" label="v2.1">
-    <Utility
-      classPrefix="s-x-"
-      incrementValue={0.25}
-      propNames={["margin-left", "margin-right"]}
-      range={100}
-      unit="rem"
-    />
-  </TabItem>
-</Tabs>
-
-### Spacing Y
-
-<Tabs>
-  <TabItem icon="approve-check-circle" label="v3">
-    <Utility
-      classPrefix="sy-"
-      incrementValue={0.25}
-      propNames={["margin-bottom", "margin-top"]}
-      range={100}
-      unit="rem"
-    />
-
-  </TabItem>
-  <TabItem icon="close" label="v2.1">
-    <Utility
-      classPrefix="s-y-"
-      incrementValue={0.25}
-      propNames={["margin-bottom", "margin-top"]}
-      range={100}
-      unit="rem"
-    />
-  </TabItem>
-</Tabs>
+```diff lang="html"
+- <div class="s-x-* s-y-* ..."></div>
++ <div class="sx-* sy-* ..."></div>
+```
