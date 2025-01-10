@@ -155,6 +155,167 @@ We completely overhauled the entire codebase to get better performance in build 
 
 ---
 
+## Stylecent changes
+
+We're making some changes to Stylecent in version 3 to make it more modern and consistent. These changes are turned on by default, but you can turn them off using the [`yummacss.config.js`](#core-changes) file.
+
+By default, all paddings will be removed.
+
+```scss mark={3} title="base/stylecent.scss"
+* {
+  margin: 0;
+  padding: 0;
+}
+```
+
+Font rendering is smoother, and a consistent system font is set as the default.
+
+```diff lang=scss mark={2-3} title="base/stylecent.scss"
+body {
+  -webkit-font-smoothing: antialiased;
+  font-family: vars.$yma-font-system;
+-  line-height: 1.5;
+}
+```
+
+Form elements now include padding and border-radius by default. Borders are added for form elements without class attributes.
+
+```scss mark={7-9,17} title="base/stylecent.scss"
+button,
+input,
+optgroup,
+select,
+textarea {
+  background-color: vars.$yma-color-transparent;
+  border-radius: 0.25rem;
+  font-family: inherit;
+  padding: 0.5rem;
+}
+
+button:not([class]),
+input:not([class]),
+optgroup:not([class]),
+select:not([class]),
+textarea:not([class]) {
+  border: 1px solid vars.$yma-color-silver;
+}
+```
+
+Interactive elements have clear outlines for accessibility.
+
+```scss mark={7-9,14} title="base/stylecent.scss"
+button,
+input,
+textarea,
+select,
+a,
+summary {
+  &:focus {
+    outline: 2px solid vars.$yma-color-black;
+    outline-offset: 2px;
+  }
+}
+
+textarea:not([rows]) {
+  min-height: 10em;
+}
+```
+
+Disabled elements are visually distinct with reduced opacity and a "not-allowed" cursor.
+
+```scss mark={5-6} title="base/stylecent.scss"
+button:disabled,
+input:disabled,
+select:disabled,
+textarea:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+```
+
+Headings adopt balanced text wrapping, consistent font sizes, and bold weights.
+
+```scss mark={7-9,13} title="base/stylecent.scss"
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 1rem;
+  font-weight: 600;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+```
+
+Small text and code elements are consistently scaled and inherited. Code elements will have consistent font family.
+
+```scss mark={3,7-8,15-16} title="base/stylecent.scss"
+b,
+strong {
+  font-weight: 700;
+}
+
+small {
+  font-size: 80%;
+  line-height: 1.4;
+}
+
+pre,
+code,
+kbd,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+```
+
+Default link styles are reset, with underline styling applied on hover for accessibility.
+
+```scss mark={2,7} title="base/stylecent.scss"
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+```
+
+Table headers are bold and sized consistently.
+
+```scss mark={2-3} title="base/stylecent.scss"
+th {
+  font-size: 1rem;
+  font-weight: 600;
+}
+```
+
+Horizontal rules, details, and summaries are updated for better spacing and display.
+
+```scss mark={3,8,12} title="base/stylecent.scss"
+hr {
+  border-top: 1px solid vars.$yma-color-silver;
+  height: 0;
+  margin: 1em 0;
+}
+
+details {
+  display: block;
+}
+
+summary {
+  display: list-item;
+}
+```
+
+---
+
 ## All-new utilities
 
 To make the Yumma CSS framework as complete as possible, we're adding support for over 60 utility classes to the core of the framework.
