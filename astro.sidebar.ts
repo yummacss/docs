@@ -81,23 +81,23 @@ export const sidebar = [
   //   label: "SVG",
   //   autogenerate: { directory: "core/svg" },
   // },
-  // {
-  //   label: "Transforms & Transitions",
-  //   items: [
-  //     {
-  //       label: "Transforms",
-  //       autogenerate: {
-  //         directory: "core/transforms-transitions/transforms",
-  //       },
-  //     },
-  //     {
-  //       label: "Transitions",
-  //       autogenerate: {
-  //         directory: "core/transforms-transitions/transitions",
-  //       },
-  //     },
-  //   ],
-  // },
+  {
+    label: "Transforms & Transitions",
+    items: [
+      {
+        label: "Transforms",
+        autogenerate: {
+          directory: "core/transforms-transitions/transforms",
+        },
+      },
+      {
+        label: "Transitions",
+        autogenerate: {
+          directory: "core/transforms-transitions/transitions",
+        },
+      },
+    ],
+  },
   {
     label: "Typography",
     items: [
