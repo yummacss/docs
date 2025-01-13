@@ -455,11 +455,13 @@ To make the Yumma CSS framework as complete as possible, we're adding support fo
 
 ## Color improvements
 
-The colors are getting some big changes. We've gone from `10%` shade modification to `14%`. This means that light colors are going to be even lighter and dark colors are going to be even darker.
+In v3, both the light (`l-`) and dark (`d-`) specifiers are being removed across all color utilities. As a result, the range used to determine a color's shade was also adjusted.
+
+Also, the color hue is increasing from `10%` shade modification to `14%`. This means that light colors will become lighter, and dark colors will become darker.
 
 <Tabs>
   <TabItem icon="approve-check-circle" label="v3">
-    <Palette
+    <Palette2
       percentage={14}
       data={[
         { name: "Red", color: "#d73d3d" },

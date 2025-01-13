@@ -102,6 +102,7 @@ export default defineConfig({
         "/src/components/Hover.astro",
         "/src/components/Modifier.astro",
         "/src/components/Palette.astro",
+        "/src/components/Palette2.astro",
         "/src/components/Utility.astro",
         {
           "@astrojs/starlight/components": [
