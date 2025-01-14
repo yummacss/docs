@@ -1,5 +1,4 @@
 ---
-// filepath: /c:/Users/Renildo/Desktop/Yumma CSS/website/yumma-css-docs/src/components/Palette2.astro
 import tinycolor from "tinycolor2";
 
 interface ColorItem {
@@ -23,13 +22,13 @@ const mixColors = (color1: string, color2: string, weight: number): string => {
 const generateShades = (color: string): string[] => {
   const shades: string[] = [];
   for (let i = 1; i <= 6; i++) {
-    shades.push(mixColors(color, "white", (7 - i) * percentage)); // Light shades (1–6)
+    shades.push(mixColors(color, "white", (7 - i) * percentage));
   }
 
-  shades.push(color); // Base color at position 7
+  shades.push(color);
 
   for (let i = 1; i <= 6; i++) {
-    shades.push(mixColors(color, "black", i * percentage)); // Dark shades (8–12)
+    shades.push(mixColors(color, "black", i * percentage));
   }
 
   return shades;
@@ -37,7 +36,6 @@ const generateShades = (color: string): string[] => {
 ---
 
 <div class="d-f fd-c">
-  <!-- Header Row with Numbers -->
   <div class="d-g fs-xs shadeNumbers ta-c">
     <div></div>
     {
@@ -47,7 +45,6 @@ const generateShades = (color: string): string[] => {
     }
   </div>
 
-  <!-- Colors Row -->
   {
     data.map((colorItem) => {
       const shades = generateShades(colorItem.color);
