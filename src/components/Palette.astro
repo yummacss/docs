@@ -37,7 +37,7 @@ const generateShades = (color: string): string[] => {
     <div></div>
     {
       Array.from({ length: 13 }, (_, i) => (
-        <div>{i === 6 ? "Base" : i < 6 ? i + 1 : i - 6}</div>
+        <div>{i === 6 ? "Base" : i < 6 ? 6 - i : i - 6}</div>
       ))
     }
   </div>
