@@ -1,12 +1,12 @@
 <svg width="800" height="450" xmlns="http://www.w3.org/2000/svg">
   <style>
     .bg {
-      fill: #f5f6f8;
+      fill: #f4f6fd;
     }
     
     @media (prefers-color-scheme: dark) {
       .bg {
-        fill: #131520;
+        fill: #21243f;
       }
     }
   </style>
