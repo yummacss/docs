@@ -22,6 +22,18 @@ Controls how Flex elements grow and shrink.
   range={8}
 />
 
+Use the `f-none` utility to prevent an item from growing or shrinking, keeping it at its default size. Pair it with `f-1` to show how flex-grow works when items share space, and `f-auto` to demonstrate flexible sizing with auto.
+
+```html live "f-none" "f-1" "f-auto" layout="/src/layouts/wide.astro"
+<div class="area tc-white">
+  <div class="d-f g-4 h-24 w-full">
+    <div class="ai-c bg-d-indigo-4 d-f f-none jc-c p-4 rad-2">A</div>
+    <div class="ai-c bg-indigo d-f f-1 jc-c p-4 rad-2">B</div>
+    <div class="ai-c bg-d-indigo-4 d-f f-auto jc-c p-4 rad-2">C</div>
+  </div>
+</div>
+```
+
 ---
 
 <Modifier
