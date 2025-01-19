@@ -30,6 +30,62 @@ Controls the direction of flex elements.
   ]}
 />
 
+## Column
+
+The main axis of the flex container is the same as the block axis.
+
+```html live "fd-c" layout="/src/layouts/wide.astro"
+<div class="ovf-auto p-8 p-r rad-2">
+  <div class="fd-c s-y-4 tc-white">
+    <div class="ai-c bg-indigo d-f jc-c p-4 rad-2">A</div>
+    <div class="ai-c bg-indigo d-f jc-c p-4 rad-2">B</div>
+    <div class="ai-c bg-indigo d-f jc-c p-4 rad-2">C</div>
+  </div>
+</div>
+```
+
+## Column Reverse
+
+It is like a `column`, but the main start and main end are opposite the direction of the content.
+
+```html live "fd-cr" layout="/src/layouts/wide.astro"
+<div class="ovf-auto p-8 p-r rad-2">
+  <div class="fd-cr s-y-4 tc-white">
+    <div class="ai-c bg-indigo d-f jc-c p-4 rad-2">A</div>
+    <div class="ai-c bg-indigo d-f jc-c p-4 rad-2">B</div>
+    <div class="ai-c bg-indigo d-f jc-c p-4 rad-2">C</div>
+  </div>
+</div>
+```
+
+## Row
+
+The main axis of the flex container is set to match the text direction.
+
+```html live "fd-r" layout="/src/layouts/wide.astro"
+<div class="ovf-auto p-8 p-r rad-3">
+  <div class="cg-4 d-f fd-r lh-4 tc-white">
+    <div class="ai-c bg-indigo d-f dim-14 jc-c rad-2">A</div>
+    <div class="ai-c bg-indigo d-f dim-14 jc-c rad-2">B</div>
+    <div class="ai-c bg-indigo d-f dim-14 jc-c rad-2">C</div>
+  </div>
+</div>
+```
+
+## Row Reverse
+
+It is similar to `row`, but the main start and end points are opposite the direction of the content.
+
+```html live "fd-rr" layout="/src/layouts/wide.astro"
+<div class="ovf-auto p-8 p-r rad-3">
+  <div class="cg-4 d-f fd-rr lh-4 tc-white">
+    <div class="ai-c bg-indigo d-f dim-14 jc-c rad-2">A</div>
+    <div class="ai-c bg-indigo d-f dim-14 jc-c rad-2">B</div>
+    <div class="ai-c bg-indigo d-f dim-14 jc-c rad-2">C</div>
+  </div>
+</div>
+```
+
 ---
 
 <Modifier
