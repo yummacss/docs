@@ -16,6 +16,19 @@ Controls the shrinkage of the flex items.
   range={8}
 />
 
+Controls how much the flex item should shrink relative to the rest of the items in the flex container when there isn't enough space.
+
+{/* prettier-ignore */}
+```html live "fs-0" "fs-1" "fs-2" layout="/src/layouts/wide.astro"
+<div class="ovf-auto p-8 p-r rad-3">
+  <div class="area d-f g-4 rad-2 tc-white">
+    <div class="ai-c bg-l-indigo-3 d-f dim-14 f-none jc-c p-4 rad-2">A</div>
+    <div class="ai-c bg-indigo bs-lg d-f fs-1 h-14 jc-c p-4 rad-2 w-64">B</div>
+    <div class="ai-c bg-l-indigo-3 d-f dim-14 f-none jc-c p-4 rad-2">C</div>
+  </div>
+</div>
+```
+
 ---
 
 <Modifier
