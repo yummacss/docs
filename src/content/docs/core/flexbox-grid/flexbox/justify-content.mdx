@@ -46,6 +46,104 @@ Controls the positioning of flex and grid elements on a container's main axis.
   ]}
 />
 
+## Center
+
+Aligns flex items at the center of the container.
+
+```html live "jc-c" layout="/src/layouts/wide.astro"
+<div class="area d-f g-4 jc-c">
+  <div class="ai-c bg-indigo d-f dim-14 jc-c p-4 rad-2 tc-white">A</div>
+  <div class="ai-c bg-indigo d-f dim-14 jc-c p-4 rad-2 tc-white">B</div>
+  <div class="ai-c bg-indigo d-f dim-14 jc-c p-4 rad-2 tc-white">C</div>
+</div>
+```
+
+## Flex End
+
+Aligns flex items to the end of the container.
+
+```html live layout="/src/layouts/wide.astro"
+<div class="area d-f g-4 jc-fe">
+  <div class="ai-c bg-indigo d-f dim-14 jc-c p-4 rad-2 tc-white">A</div>
+  <div class="ai-c bg-indigo d-f dim-14 jc-c p-4 rad-2 tc-white">B</div>
+  <div class="ai-c bg-indigo d-f dim-14 jc-c p-4 rad-2 tc-white">C</div>
+</div>
+```
+
+## Flex Start
+
+Aligns flex items to the start of the container.
+
+```html live layout="/src/layouts/wide.astro"
+<div class="area d-f g-4 jc-fs">
+  <div class="ai-c bg-indigo d-f dim-14 jc-c p-4 rad-2 tc-white">A</div>
+  <div class="ai-c bg-indigo d-f dim-14 jc-c p-4 rad-2 tc-white">B</div>
+  <div class="ai-c bg-indigo d-f dim-14 jc-c p-4 rad-2 tc-white">C</div>
+</div>
+```
+
+## Normal
+
+Resets the alignment to its default state.
+
+```html live layout="/src/layouts/wide.astro"
+<div class="area d-f g-4 jc-n">
+  <div class="ai-c bg-indigo d-f dim-14 jc-c p-4 rad-2 tc-white">A</div>
+  <div class="ai-c bg-indigo d-f dim-14 jc-c p-4 rad-2 tc-white">B</div>
+  <div class="ai-c bg-indigo d-f dim-14 jc-c p-4 rad-2 tc-white">C</div>
+</div>
+```
+
+## Stretch
+
+Stretches flex items across the container (default for some cases).
+
+```html live layout="/src/layouts/wide.astro"
+<div class="ovf-auto p-8 rad-2">
+  <div class="area d-g g-4 gaf-c jc-s rad-2 tc-white">
+    <div class="ai-c bg-indigo d-f h-14 jc-c rad-2">A</div>
+    <div class="ai-c bg-indigo d-f h-14 jc-c rad-2">B</div>
+    <div class="ai-c bg-indigo d-f h-14 jc-c rad-2">C</div>
+  </div>
+</div>
+```
+
+## Space Between
+
+Distributes flex items with space between them.
+
+```html live layout="/src/layouts/wide.astro"
+<div class="area d-f g-4 jc-sb">
+  <div class="ai-c bg-indigo d-f dim-14 jc-c p-4 rad-2 tc-white">A</div>
+  <div class="ai-c bg-indigo d-f dim-14 jc-c p-4 rad-2 tc-white">B</div>
+  <div class="ai-c bg-indigo d-f dim-14 jc-c p-4 rad-2 tc-white">C</div>
+</div>
+```
+
+## Space Around
+
+Distributes flex items with space around them.
+
+```html live layout="/src/layouts/wide.astro"
+<div class="area d-f g-4 jc-sa">
+  <div class="ai-c bg-indigo d-f dim-14 jc-c p-4 rad-2 tc-white">A</div>
+  <div class="ai-c bg-indigo d-f dim-14 jc-c p-4 rad-2 tc-white">B</div>
+  <div class="ai-c bg-indigo d-f dim-14 jc-c p-4 rad-2 tc-white">C</div>
+</div>
+```
+
+## Space Evenly
+
+Distributes flex items with equal space between, before, and after them.
+
+```html live layout="/src/layouts/wide.astro"
+<div class="area d-f g-4 gaf-c jc-se">
+  <div class="ai-c bg-indigo d-f dim-14 jc-c p-4 rad-2 tc-white">A</div>
+  <div class="ai-c bg-indigo d-f dim-14 jc-c p-4 rad-2 tc-white">B</div>
+  <div class="ai-c bg-indigo d-f dim-14 jc-c p-4 rad-2 tc-white">C</div>
+</div>
+```
+
 ---
 
 <Modifier
