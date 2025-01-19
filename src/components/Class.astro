@@ -19,7 +19,7 @@ try {
     <thead>
       <tr>
         <th class="fs-b fw-600">Class</th>
-        <th class="fs-b fw-600">Properties</th>
+        <th class="fs-b fw-600">Property</th>
       </tr>
     </thead>
     <tbody>
@@ -28,7 +28,7 @@ try {
           data.map((item: { className: string; properties: string[] }) => (
             <tr>
               <td class="ff-m fs-xs">
-                <p class="utility">{item.className}</p>
+                <p class="class">{item.className}</p>
               </td>
               <td class="ff-b fs-xs">
                 <code
@@ -50,7 +50,7 @@ try {
 </div>
 
 <style>
-  .utility {
+  .class {
     color: light-dark(var(--sl-color-accent), var(--sl-color-accent-high));
   }
 
