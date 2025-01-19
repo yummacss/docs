@@ -12,6 +12,15 @@ Controls the order of flex and grid items.
 
 <Class name="/order" />
 
+Aligns items in a flex or grid container according to their order value. Lower values are positioned first, and higher values are positioned last.
+
+```html live "or-f" "or-l" layout="/src/layouts/wide.astro"
+<div class="d-f jc-sb tc-white">
+  <div class="ai-c bg-indigo d-f dim-14 jc-c or-f rad-2">A</div>
+  <div class="ai-c bg-indigo d-f dim-14 jc-c rad-2">B</div>
+  <div class="ai-c bg-indigo d-f dim-14 jc-c or-l rad-2">C</div>
+</div>
+```
 ---
 
 <Modifier
