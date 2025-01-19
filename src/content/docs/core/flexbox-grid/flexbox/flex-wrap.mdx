@@ -26,6 +26,48 @@ Controls how flex items are wrapped.
   ]}
 />
 
+### No Wrap
+
+The flex items will stay in a single line, even if they overflow the container.
+
+```html live "fw-nw"
+<div class="ovf-auto p-8 p-r rad-3">
+  <div class="area d-f fw-nw g-4 max-w-30 rad-2 tc-white">
+    <div class="ai-c bg-indigo d-f jc-c p-4 rad-2">A</div>
+    <div class="ai-c bg-indigo d-f jc-c p-4 rad-2">B</div>
+    <div class="ai-c bg-indigo d-f jc-c p-4 rad-2">C</div>
+  </div>
+</div>
+```
+
+## Wrap
+
+The flex items will wrap onto multiple lines if there is not enough space in the container.
+
+```html live "fw-w"
+<div class="ovf-auto p-8 p-r rad-3">
+  <div class="area d-f fw-w g-4 max-w-30 rad-2 tc-white">
+    <div class="ai-c bg-indigo d-f jc-c p-4 rad-2">A</div>
+    <div class="ai-c bg-indigo d-f jc-c p-4 rad-2">B</div>
+    <div class="ai-c bg-indigo d-f jc-c p-4 rad-2">C</div>
+  </div>
+</div>
+```
+
+## Wrap Reverse
+
+The flex items will wrap onto multiple lines, but in reverse order.
+
+```html live "fw-wr"
+<div class="ovf-auto p-8 p-r rad-3">
+  <div class="area d-f fw-wr g-4 max-w-30 rad-2 tc-white">
+    <div class="ai-c bg-indigo d-f jc-c p-4 rad-2">A</div>
+    <div class="ai-c bg-indigo d-f jc-c p-4 rad-2">B</div>
+    <div class="ai-c bg-indigo d-f jc-c p-4 rad-2">C</div>
+  </div>
+</div>
+```
+
 ---
 
 <Modifier
