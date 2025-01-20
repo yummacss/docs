@@ -1,4 +1,4 @@
-.area {
+.stripes {
     background-image: repeating-linear-gradient(45deg, #7a7de1 0, #7a7de1 1px, light-dark(var(--sl-color-black), var(--sl-color-gray-6)) 0, light-dark(var(--sl-color-black), var(--sl-color-gray-6)) 50%);
     background-size: 10px 10px;
     opacity: 0.8;
