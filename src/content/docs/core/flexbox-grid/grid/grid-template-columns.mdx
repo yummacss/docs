@@ -18,6 +18,18 @@ Utilities to define the columns in a grid layout.
   range={16}
 />
 
+The `gtc-*` utilities define how many equal-width columns will be present in a grid container.
+
+```html live "gtc-3" layout="/src/layouts/wide.astro"
+<div class="d-g g-4 gtc-3 stripes ta-c tc-white">
+  <div class="bg-indigo p-4 rad-2">A</div>
+  <div class="bg-d-indigo-4 p-4 rad-2">B</div>
+  <div class="bg-d-indigo-4 p-4 rad-2">C</div>
+  <div class="bg-d-indigo-4 p-4 rad-2">D</div>
+  <div class="bg-d-indigo-4 p-4 rad-2">E</div>
+</div>
+```
+
 ---
 
 <Modifier
