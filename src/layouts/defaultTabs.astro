@@ -1,0 +1,26 @@
+---
+import { Tabs, TabItem } from "@astrojs/starlight/components";
+---
+
+<div class="not-content">
+  <Tabs>
+    <TabItem label="Preview">
+      <div class="ai-c container d-f jc-c p-10">
+        <div>
+          <slot name="example" />
+        </div>
+      </div>
+    </TabItem>
+    <TabItem label="Code">
+      <slot name="code" />
+    </TabItem>
+  </Tabs>
+</div>
+
+<style>
+  .container {
+    background: light-dark(var(--sl-color-black), var(--sl-color-gray-6));
+    border: 1px solid light-dark(var(--sl-color-gray-6), var(--ec-brdCol));
+    border-bottom: none;
+  }
+</style>
