@@ -10,7 +10,6 @@ export const sidebar = [
       {
         label: "Resources",
         link: "/resources",
-        badge: "New",
       },
     ],
   },
