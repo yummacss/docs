@@ -336,6 +336,7 @@ To make the Yumma CSS framework as complete as possible, we're adding support fo
   <summary>Borders</summary>
 
 - Border Spacing
+- Border Radius
 
 </details>
 
@@ -559,10 +560,32 @@ In v3, we've shortened the syntax for the Spacing utilities.
 
 In v3, we've also made changes to the way the Direction utilities are written. This includes changes to the Bottom, Left, Right, and Top variants.
 
-```diff lang="html" title="app.html"
-- <div class="dir-* dir-* ..."></div>
-+ <div class="d-* d-* ..."></div>
-```
+<Tabs>
+  <TabItem label="Bottom">
+    ```diff lang="html" title="app.html"
+    - <div class="dir-b-* ..."></div>
+    + <div class="bo-* ..."></div>
+    ```
+  </TabItem>
+  <TabItem label="Left">
+    ```diff lang="html" title="app.html"
+    - <div class="dir-l-* ..."></div>
+    + <div class="l-* ..."></div>
+    ```
+  </TabItem>
+  <TabItem label="Right">
+    ```diff lang="html" title="app.html"
+    - <div class="dir-r-* ..."></div>
+    + <div class="r-* ..."></div>
+    ```
+  </TabItem>
+  <TabItem label="Top">
+    ```diff lang="html" title="app.html"
+    - <div class="dir-t-* ..."></div>
+    + <div class="t-* ..."></div>
+    ```
+  </TabItem>
+</Tabs>
 
 ## Removed utilities
 
