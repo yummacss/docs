@@ -12,11 +12,39 @@ Controls all of the scroll margins of an element simultaneously.
 
 <Class name="/scroll-margin" />
 
-Sets the margins around an element, creating space between the element and its scrollable container.
-
 {/* prettier-ignore */}
-```html live layout="/src/layouts/wide.astro"
-<!-- TODO -->
+```html live "sm-6" layout="/src/layouts/wide.astro"
+<style>
+  @import url("https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@release/dist/yumma.css");
+</style>
+<div class="ovf-h p-r">
+  <div class="d-f g-6 ovf-x-auto p-6 sst-x-m">
+    <div class="fs-0 p-6 p-r sm-6 ssa-s">
+      <div class="i-0 p-a w-full zi-0">
+        <div class="d-full stripes"></div>
+      </div>
+      <img class="h-40 p-r rad-2 w-80 zi-10" src="https://picsum.photos/id/849/400/200" alt="Image 1" />
+    </div>
+    <div class="fs-0 p-6 p-r sm-6 ssa-s">
+      <div class="i-0 p-a w-full zi-0">
+        <div class="d-full stripes"></div>
+      </div>
+      <img class="h-40 p-r rad-2 w-80 zi-10" src="https://picsum.photos/id/866/400/200" alt="Image 2" />
+    </div>
+    <div class="fs-0 p-6 p-r sm-6 ssa-s">
+      <div class="i-0 p-a w-full zi-0">
+        <div class="d-full stripes"></div>
+      </div>
+      <img class="h-40 p-r rad-2 w-80 zi-10" src="https://picsum.photos/id/872/400/200" alt="Image 3" />
+    </div>
+    <div class="fs-0 p-6 p-r sm-6 ssa-s">
+      <div class="i-0 p-a w-full zi-0">
+        <div class="d-full stripes"></div>
+      </div>
+      <img class="h-40 p-r rad-2 w-80 zi-10" src="https://picsum.photos/id/875/400/200" alt="Image 4" />
+    </div>
+  </div>
+</div>
 ```
 
 ## Scroll Margin Bottom
@@ -26,8 +54,30 @@ Sets the margin on the bottom side of an element, creating space between the ele
 <Class name="/scroll-margin-bottom" />
 
 {/* prettier-ignore */}
-```html live layout="/src/layouts/wide.astro"
-<!-- TODO -->
+```html live "smb-6"
+<style>
+  @import url("https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@release/dist/yumma.css");
+</style>
+<div class="ovf-h p-r w-fc">
+  <div class="d-f fd-c g-6 h-96 ovf-y-auto p-6 sst-y-m">
+    <div class="fs-0 p-r pb-6 smb-6 ssa-s">
+      <img class="h-40 rad-2 w-80" src="https://picsum.photos/id/849/400/200" alt="Image 1" />
+      <div class="l-0 l-0 r-0 h-6 p-a stripes"></div>
+    </div>
+    <div class="fs-0 p-r pb-6 smb-6 ssa-s">
+      <img class="h-40 rad-2 w-80" src="https://picsum.photos/id/866/400/200" alt="Image 2" />
+      <div class="l-0 l-0 r-0 h-6 p-a stripes"></div>
+    </div>
+    <div class="fs-0 p-r pb-6 smb-6 ssa-s">
+      <img class="h-40 rad-2 w-80" src="https://picsum.photos/id/872/400/200" alt="Image 3" />
+      <div class="l-0 l-0 r-0 h-6 p-a stripes"></div>
+    </div>
+    <div class="fs-0 p-r pb-6 smb-6 ssa-s">
+      <img class="h-40 rad-2 w-80" src="https://picsum.photos/id/875/400/200" alt="Image 4" />
+      <div class="l-0 l-0 r-0 h-6 p-a stripes"></div>
+    </div>
+  </div>
+</div>
 ```
 
 ## Scroll Margin Left
@@ -38,6 +88,9 @@ Sets the margin on the left side of an element, creating space between the eleme
 
 {/* prettier-ignore */}
 ```html live "sml-6" layout="/src/layouts/wide.astro"
+<style>
+  @import url("https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@release/dist/yumma.css");
+</style>
 <div class="ovf-h p-r">
   <div class="d-f g-6 ovf-x-auto p-6 sst-x-m">
     <div class="fs-0 p-r pl-6 sml-6 ssa-s">
@@ -67,7 +120,10 @@ Sets the margin on the right side of an element, creating space between the elem
 <Class name="/scroll-margin-right" />
 
 {/* prettier-ignore */}
-```html live layout="/src/layouts/wide.astro"
+```html live "smr-6" layout="/src/layouts/wide.astro"
+<style>
+  @import url("https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@release/dist/yumma.css");
+</style>
 <!-- TODO -->
 ```
 
@@ -75,11 +131,33 @@ Sets the margin on the right side of an element, creating space between the elem
 
 Sets the margin on the top side of an element, creating space between the element and its scrollable container.
 
-<Class name="/scroll-margin-Top" />
+<Class name="/scroll-margin-top" />
 
 {/* prettier-ignore */}
-```html live layout="/src/layouts/wide.astro"
-<!-- TODO -->
+```html live "smt-6"
+<style>
+  @import url("https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@release/dist/yumma.css");
+</style>
+<div class="ovf-h p-r w-fc">
+  <div class="d-f fd-c g-6 h-96 ovf-y-auto p-6 sst-y-m">
+    <div class="fs-0 p-r pt-6 smt-6 ssa-s">
+      <div class="h-6 l-0 p-a r-0 stripes t-0"></div>
+      <img class="h-40 rad-2 w-80" src="https://picsum.photos/id/849/400/200" alt="Image 1" />
+    </div>
+    <div class="fs-0 p-r pt-6 smt-6 ssa-s">
+      <div class="h-6 l-0 p-a r-0 stripes t-0"></div>
+      <img class="h-40 rad-2 w-80" src="https://picsum.photos/id/866/400/200" alt="Image 2" />
+    </div>
+    <div class="fs-0 p-r pt-6 smt-6 ssa-s">
+      <div class="h-6 l-0 p-a r-0 stripes t-0"></div>
+      <img class="h-40 rad-2 w-80" src="https://picsum.photos/id/872/400/200" alt="Image 3" />
+    </div>
+    <div class="fs-0 p-r pt-6 smt-6 ssa-s">
+      <div class="h-6 l-0 p-a r-0 stripes t-0"></div>
+      <img class="h-40 rad-2 w-80" src="https://picsum.photos/id/875/400/200" alt="Image 4" />
+    </div>
+  </div>
+</div>
 ```
 
 ---
