@@ -25,16 +25,16 @@ try {
     <tbody>
       {
         data.length > 0 ? (
-          data.map((item: { className: string; properties: string[] }) => (
+          data.map((item: { util: string; prop: string[] }) => (
             <tr>
               <td class="ff-m fs-xs">
-                <p class="class">{item.className}</p>
+                <p class="class">{item.util}</p>
               </td>
               <td class="ff-b fs-xs">
                 <code
                   class="property"
                   style="background-color: transparent !important;">
-                  {item.properties.join(" ")}
+                  {item.prop.join(" ")}
                 </code>
               </td>
             </tr>
