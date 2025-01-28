@@ -116,7 +116,7 @@ The new CLI system lets you compile and get rid of any unused utilities you're n
 From now on, core files like `yumma-core.css` and `yumma-core.min.css` will be deleted from the `/dist` folder in favor of the `yummacss.config.js` config file.
 
 <Tabs>
-  <TabItem icon="approve-check-circle" label="v3">
+  <TabItem label="v3.0">
     ```js mark={4-7} title="yummacss.config.js"
     export const config = {
         content: ["src/**/*.{html}"],
@@ -129,7 +129,7 @@ From now on, core files like `yumma-core.css` and `yumma-core.min.css` will be d
     ```
 
   </TabItem>
-  <TabItem icon="close" label="v2.1">
+  <TabItem label="v2.1">
 
     ```css title="src/globals.css"
     /* Disable base styles */
@@ -485,7 +485,7 @@ To make this easier to understand, let's look at the `background-color` utility.
 Also, the color hue is increasing from `10%` shade modification to `14%`. This means that light colors will become lighter, and dark colors will become darker.
 
 <Tabs>
-  <TabItem icon="approve-check-circle" label="v3">
+  <TabItem label="v3.0">
     <Palette2
       percentage={14}
       data={[
@@ -505,7 +505,7 @@ Also, the color hue is increasing from `10%` shade modification to `14%`. This m
       ]}
     />
   </TabItem>
-  <TabItem icon="close" label="v2.1">
+  <TabItem label="v2.1">
     <Palette
       percentage={10}
       data={[
