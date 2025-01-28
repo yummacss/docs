@@ -46,7 +46,7 @@ const generateShades = (color: string): string[] => {
     data.map((colorItem) => {
       const shades = generateShades(colorItem.color);
       return (
-        <div class="ai-c colorRow d-g g-1 ">
+        <div class="ai-c colorRow d-g g-1">
           <div class="colorName">{colorItem.name}</div>
           {shades.map((shade, index) => (
             <div
