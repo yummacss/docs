@@ -1,6 +1,6 @@
-@import "../styles/stripes.css";
 @import "../styles/elements.css";
 @import "../styles/landing.css";
+@import "../styles/live.css";
 @import "/node_modules/yummacss/dist/yumma-core.min.css";
 
 /* For light mode */

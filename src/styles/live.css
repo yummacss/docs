@@ -1,3 +1,9 @@
+.container {
+  background: light-dark(var(--sl-color-gray-8), var(--sl-color-gray-6));
+  border: 1px solid light-dark(var(--sl-color-gray-6), var(--ec-brdCol));
+  border-bottom: none;
+}
+
 .stripes {
   background-image: repeating-linear-gradient(
     45deg,
