@@ -99,7 +99,7 @@ export default defineConfig({
       imports: [
         "/src/components/Class.astro",
         "/src/components/Color.astro",
-        "/src/components/Hover.astro",
+        "/src/components/Info.astro",
         "/src/components/Modifier.astro",
         "/src/components/Palette.astro",
         "/src/components/Palette2.astro",

@@ -1,0 +1,25 @@
+---
+import { icons, type IconName } from "../icons";
+
+interface InfoProps {
+  icon: IconName;
+}
+
+const { icon } = Astro.props as InfoProps;
+---
+
+<div class="ai-fs d-f g-2">
+  <span class="icon" set:html={icons[icon]} />
+  <span>
+    <slot />
+  </span>
+</div>
+
+<style>
+  .icon {
+    --icon-size: 1.5rem;
+    font-size: var(--icon-size);
+    margin-block: calc((var(--sl-line-height) * 1rem - var(--icon-size)) / 2);
+    color: var(--sl-color-gray-3);
+  }
+</style>
