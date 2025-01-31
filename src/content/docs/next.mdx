@@ -44,7 +44,7 @@ We're really excited to introduce Yumma CSS CLI, an awesome new way to create pr
 If you're planning on using the command-line interface feature, we suggest installing yummacss as a dev dependency since we're now dealing with SCSS compilation on the user side.
 
 ```bash
-npm i yummacss@latest --save-dev
+npm install yummacss@latest --save-dev
 ```
 
 The full set of utilities will be retained within the distribution folder for the purpose of facilitating the importation of the entire Yumma utilities suite, should this be required.
@@ -562,27 +562,23 @@ In v3, we've also made changes to the way the Direction utilities are written. T
 
 <Tabs>
   <TabItem label="Bottom">
-    ```diff lang="html" title="app.html"
-    - <div class="dir-b-* ..."></div>
-    + <div class="bo-* ..."></div>
+    ```diff lang="html" title="app.html" - <div class="dir-b-* ..."></div>+{" "}
+    <div class="bo-* ..."></div>
     ```
   </TabItem>
   <TabItem label="Left">
-    ```diff lang="html" title="app.html"
-    - <div class="dir-l-* ..."></div>
-    + <div class="l-* ..."></div>
+    ```diff lang="html" title="app.html" - <div class="dir-l-* ..."></div>+{" "}
+    <div class="l-* ..."></div>
     ```
   </TabItem>
   <TabItem label="Right">
-    ```diff lang="html" title="app.html"
-    - <div class="dir-r-* ..."></div>
-    + <div class="r-* ..."></div>
+    ```diff lang="html" title="app.html" - <div class="dir-r-* ..."></div>+{" "}
+    <div class="r-* ..."></div>
     ```
   </TabItem>
   <TabItem label="Top">
-    ```diff lang="html" title="app.html"
-    - <div class="dir-t-* ..."></div>
-    + <div class="t-* ..."></div>
+    ```diff lang="html" title="app.html" - <div class="dir-t-* ..."></div>+{" "}
+    <div class="t-* ..."></div>
     ```
   </TabItem>
 </Tabs>
