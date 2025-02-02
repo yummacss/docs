@@ -1,39 +1,60 @@
-@import "../styles/elements.css";
 @import "../styles/landing.css";
 @import "../styles/live.css";
+@import "@fontsource-variable/plus-jakarta-sans";
 @import "/node_modules/yummacss/dist/yumma-core.min.css";
 
-/* For light mode */
-:root[data-theme='light'] {
-    --purple-hsl: 242, 85%, 65%;
-    --sl-color-accent-high: #282b61;
-    --sl-color-accent-low: #cfd5f6;
-    --sl-color-accent: #413cb8;
-    --sl-color-black: #ffffff;
-    --sl-color-gray-1: #21243f;
-    --sl-color-gray-2: #323652;
-    --sl-color-gray-3: #515674;
-    --sl-color-gray-4: #8389aa;
-    --sl-color-gray-5: #bdc1d3;
-    --sl-color-gray-6: #eaedfc;
-    --sl-color-gray-7: #f4f6fd;
-    --sl-color-gray-8: #fcfcfe;
-    --sl-color-white: #151724;
+/* Light mode */
+:root[data-theme="light"] {
+  --purple-hsl: 242, 85%, 65%;
+  --sl-color-accent-high: #282b61;
+  --sl-color-accent-low: #cfd5f6;
+  --sl-color-accent: #413cb8;
+  --sl-color-black: #ffffff;
+  --sl-color-gray-1: #21243f;
+  --sl-color-gray-2: #323652;
+  --sl-color-gray-3: #515674;
+  --sl-color-gray-4: #8389aa;
+  --sl-color-gray-5: #bdc1d3;
+  --sl-color-gray-6: #eaedfc;
+  --sl-color-gray-7: #f4f6fd;
+  --sl-color-gray-8: #fcfcfe;
+  --sl-color-white: #151724;
 }
 
-/* For dark mode */
+/* Dark mode */
 :root {
-    --overlay-blurple: hsla(var(--purple-hsl), 0.2);
-    --purple-hsl: 242, 50%, 50%;
-    --sl-color-accent-high: #bec6f2;
-    --sl-color-accent-low: #1d2041;
-    --sl-color-accent: #5456d2;
-    --sl-color-black: #151724;
-    --sl-color-gray-1: #eaedfc;
-    --sl-color-gray-2: #c4c7d9;
-    --sl-color-gray-3: #9ba2c4;
-    --sl-color-gray-4: #515674;
-    --sl-color-gray-5: #323652;
-    --sl-color-gray-6: #21243f;
-    --sl-color-white: #ffffff;
+  --overlay-blurple: hsla(var(--purple-hsl), 0.2);
+  --purple-hsl: 242, 50%, 50%;
+  --sl-color-accent-high: #bec6f2;
+  --sl-color-accent-low: #1d2041;
+  --sl-color-accent: #5456d2;
+  --sl-color-black: #151724;
+  --sl-color-gray-1: #eaedfc;
+  --sl-color-gray-2: #c4c7d9;
+  --sl-color-gray-3: #9ba2c4;
+  --sl-color-gray-4: #515674;
+  --sl-color-gray-5: #323652;
+  --sl-color-gray-6: #21243f;
+  --sl-color-white: #ffffff;
+}
+
+body {
+  font-family: "Plus Jakarta Sans Variable", sans-serif;
+}
+
+img[src*="houston_omg"] {
+  display: none;
+}
+
+pre {
+  background-color: #21243f !important;
+}
+
+strong {
+  font-weight: 600 !important;
+}
+
+table {
+  width: 100%;
+  display: inline-table !important;
 }
