@@ -50,6 +50,14 @@ h2 {
   font-size: 1.625rem !important;
 }
 
+h3 {
+  font-size: 1.425rem !important;
+}
+
+h4 {
+  font-size: 1.225rem !important;
+}
+
 img[src*="houston_omg"] {
   display: none;
 }
