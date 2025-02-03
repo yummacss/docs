@@ -16,7 +16,7 @@
 
 ## Getting started
 
-Yumma CSS is a utility-first library that uses abbreviated naming conventions that follow regular CSS syntax — it’s a great way to scale and maintain your project with less code.
+Yumma CSS is a utility-first library that uses abbreviated naming conventions that follow regular CSS syntax — it's a great way to scale and maintain your project with less code.
 
 ## Installation
 
