@@ -12,9 +12,9 @@ Controls the box around the background of an element.
 
 <Class name="/background-clip" />
 
-## Box Box
+## Border Box
 
-The background goes beyond the border.
+This example sets the background to **border-box**. The background extends to the outer edge of the border (including the border itself).
 
 ```html live "bc-bb"
 <div class="b-3 b-d bc-bb bc-indigo-8 bg-indigo d-20 p-2 rad-1"></div>
@@ -22,7 +22,7 @@ The background goes beyond the border.
 
 ## Content Box
 
-The background goes all the way to the inside edge of the border.
+This example sets the background to **content-box**. The background is confined to the content area, excluding padding and borders.
 
 ```html live "bc-cb"
 <div class="b-3 b-d bc-cb bc-indigo-8 bg-indigo d-20 p-2 rad-1"></div>
@@ -30,10 +30,18 @@ The background goes all the way to the inside edge of the border.
 
 ## Padding Box
 
-The background goes all the way to the edge of the content box.
+This example sets the background to **padding-box**. The background extends to the outer edge of the padding, but does not include the border.
 
 ```html live "bc-pb"
 <div class="b-3 b-d bc-indigo-8 bc-pb bg-indigo d-20 p-2 rad-1"></div>
+```
+
+## Text
+
+This example sets the background to **text**. The background is clipped to the text itself, allowing for unique visual effects.
+
+```html live layout="/src/layouts/wide.astro"
+<p class="fw-600 ta-c">We're still working on this one!</p>
 ```
 
 ---
