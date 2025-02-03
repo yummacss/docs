@@ -38,8 +38,16 @@
   --sl-color-white: #ffffff;
 }
 
+#starlight__on-this-page {
+  font-size: 1.125rem !important;
+}
+
 body {
   font-family: "Plus Jakarta Sans Variable", sans-serif;
+}
+
+h2 {
+  font-size: 1.625rem !important;
 }
 
 img[src*="houston_omg"] {
