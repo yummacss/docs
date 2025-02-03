@@ -14,7 +14,7 @@ Controls whether the scroll container passes over possible snap positions.
 
 ## Always
 
-This example forces scrolling to stop at each snap point, preventing users from skipping past them.
+This example sets the scroll snap stop to **always**. The scroll will snap to the nearest snap point regardless of the scroll speed.
 
 ```html live "sss-a" layout="/src/layouts/wide.astro"
 <div class="ovf-h pb-4 p-r">
@@ -43,7 +43,7 @@ This example forces scrolling to stop at each snap point, preventing users from 
 
 ## Normal
 
-This example allows scrolling to skip snap points if the user scrolls fast enough.
+This example sets the scroll snap stop to **normal**. The scroll will snap to the nearest snap point only when the scroll speed is slow enough.
 
 ```html live "sss-n" layout="/src/layouts/wide.astro"
 <div class="ovf-h pb-4 p-r">
