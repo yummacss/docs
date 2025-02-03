@@ -12,6 +12,64 @@ Controls whether the scroll container passes over possible snap positions.
 
 <Class name="/scroll-snap-stop" />
 
+## Always
+
+This example forces scrolling to stop at each snap point, preventing users from skipping past them.
+
+```html live "sss-a" layout="/src/layouts/wide.astro"
+<div class="ovf-h pb-4 p-r">
+  <div class="d-f g-6 ovf-x-auto pb-4 sst-x-m">
+    <div class="fs-0 p-r ssa-c">
+      <div class="h-40 rad-1 stripes w-80"></div>
+    </div>
+    <div class="fs-0 p-r ssa-c sss-a">
+      <img class="h-40 rad-1 w-80" src="https://picsum.photos/id/849/400/200" />
+    </div>
+    <div class="fs-0 p-r ssa-c sss-a">
+      <img class="h-40 rad-1 w-80" src="https://picsum.photos/id/866/400/200" />
+    </div>
+    <div class="fs-0 p-r ssa-c sss-a">
+      <img class="h-40 rad-1 w-80" src="https://picsum.photos/id/872/400/200" />
+    </div>
+    <div class="fs-0 p-r ssa-c sss-a">
+      <img class="h-40 rad-1 w-80" src="https://picsum.photos/id/875/400/200" />
+    </div>
+    <div class="fs-0 p-r ssa-c sss-a">
+      <div class="h-40 rad-1 stripes w-80"></div>
+    </div>
+  </div>
+</div>
+```
+
+## Normal
+
+This example allows scrolling to skip snap points if the user scrolls fast enough.
+
+```html live "sss-n" layout="/src/layouts/wide.astro"
+<div class="ovf-h pb-4 p-r">
+  <div class="d-f g-6 ovf-x-auto pb-4 sst-x-m">
+    <div class="fs-0 p-r ssa-c">
+      <div class="h-40 rad-1 stripes w-80"></div>
+    </div>
+    <div class="fs-0 p-r ssa-c sss-n">
+      <img class="h-40 rad-1 w-80" src="https://picsum.photos/id/849/400/200" />
+    </div>
+    <div class="fs-0 p-r ssa-c sss-n">
+      <img class="h-40 rad-1 w-80" src="https://picsum.photos/id/866/400/200" />
+    </div>
+    <div class="fs-0 p-r ssa-c sss-n">
+      <img class="h-40 rad-1 w-80" src="https://picsum.photos/id/872/400/200" />
+    </div>
+    <div class="fs-0 p-r ssa-c sss-n">
+      <img class="h-40 rad-1 w-80" src="https://picsum.photos/id/875/400/200" />
+    </div>
+    <div class="fs-0 p-r ssa-c sss-n">
+      <div class="h-40 rad-1 stripes w-80"></div>
+    </div>
+  </div>
+</div>
+```
+
 ---
 
 <Modifier
