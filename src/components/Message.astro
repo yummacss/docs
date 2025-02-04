@@ -9,7 +9,7 @@ const { icon } = Astro.props as MessageProps;
 ---
 
 <div class="ai-fs d-f g-2">
-  <span set:html={icons[icon]} style="color: var(--sl-color-gray-3);" />
+  <span set:html={icons[icon]} style="color: light-dark(var(--sl-color-accent), var(--sl-color-gray-3));" />
   <span>
     <slot />
   </span>
