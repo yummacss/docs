@@ -12,8 +12,226 @@ Controls the strictness of snap points in a snap container.
 
 <Class name="/scroll-snap-type" />
 
-```html live layout="/src/layouts/wide.astro"
-<p class="fw-600 ta-c">We're still working on this example.</p>
+## Both Mandatory
+
+This example sets the scroll snap type to **both mandatory**. The scroll will snap in both directions (x and y) and will always snap to the nearest snap point.
+
+<Message icon="mouse">Try scrolling through the image container to see how it behaves.</Message>
+
+```html live "sst-b-m" layout="/src/layouts/wide.astro"
+<div class="ovf-h p-r">
+  <div class="d-f g-6 ovf-x-auto p-6 sst-b-m">
+    <div class="fs-0 p-6 p-r sm-6 ssa-s">
+      <div class="i-0 p-a w-full zi-0">
+        <div class="d-full stripes"></div>
+      </div>
+      <img class="h-40 p-r rad-1 w-80 zi-10" src="https://picsum.photos/id/849/400/200" />
+    </div>
+    <div class="fs-0 p-6 p-r sm-6 ssa-s">
+      <div class="i-0 p-a w-full zi-0">
+        <div class="d-full stripes"></div>
+      </div>
+      <img class="h-40 p-r rad-1 w-80 zi-10" src="https://picsum.photos/id/866/400/200" />
+    </div>
+    <div class="fs-0 p-6 p-r sm-6 ssa-s">
+      <div class="i-0 p-a w-full zi-0">
+        <div class="d-full stripes"></div>
+      </div>
+      <img class="h-40 p-r rad-1 w-80 zi-10" src="https://picsum.photos/id/872/400/200" />
+    </div>
+    <div class="fs-0 p-6 p-r sm-6 ssa-s">
+      <div class="i-0 p-a w-full zi-0">
+        <div class="d-full stripes"></div>
+      </div>
+      <img class="h-40 p-r rad-1 w-80 zi-10" src="https://picsum.photos/id/875/400/200" />
+    </div>
+  </div>
+</div>
+```
+
+## None
+
+This example sets the scroll snap type to **none**. No scroll snapping will occur.
+
+<Message icon="mouse">Try scrolling through the image container to see how it behaves.</Message>
+
+```html live "sst-none" layout="/src/layouts/wide.astro"
+<div class="ovf-h p-r">
+  <div class="d-f g-6 ovf-x-auto p-6 sst-none">
+    <div class="fs-0 p-6 p-r sm-6 ssa-none">
+      <div class="i-0 p-a w-full zi-0">
+        <div class="d-full stripes"></div>
+      </div>
+      <img class="h-40 p-r rad-1 w-80 zi-10" src="https://picsum.photos/id/849/400/200" />
+    </div>
+    <div class="fs-0 p-6 p-r sm-6 ssa-s">
+      <div class="i-0 p-a w-full zi-0">
+        <div class="d-full stripes"></div>
+      </div>
+      <img class="h-40 p-r rad-1 w-80 zi-10" src="https://picsum.photos/id/866/400/200" />
+    </div>
+    <div class="fs-0 p-6 p-r sm-6 ssa-s">
+      <div class="i-0 p-a w-full zi-0">
+        <div class="d-full stripes"></div>
+      </div>
+      <img class="h-40 p-r rad-1 w-80 zi-10" src="https://picsum.photos/id/872/400/200" />
+    </div>
+    <div class="fs-0 p-6 p-r sm-6 ssa-s">
+      <div class="i-0 p-a w-full zi-0">
+        <div class="d-full stripes"></div>
+      </div>
+      <img class="h-40 p-r rad-1 w-80 zi-10" src="https://picsum.photos/id/875/400/200" />
+    </div>
+  </div>
+</div>
+```
+
+## X Mandatory
+
+This example sets the scroll snap type to **x mandatory**. The scroll will snap in the horizontal direction and will always snap to the nearest snap point.
+
+<Message icon="mouse">Try scrolling through the image container to see how it behaves.</Message>
+
+```html live "sst-x-m" layout="/src/layouts/wide.astro"
+<div class="ovf-h p-r">
+  <div class="d-f g-6 ovf-x-auto p-6 sst-x-m">
+    <div class="fs-0 p-6 p-r sm-6 ssa-s">
+      <div class="i-0 p-a w-full zi-0">
+        <div class="d-full stripes"></div>
+      </div>
+      <img class="h-40 p-r rad-1 w-80 zi-10" src="https://picsum.photos/id/849/400/200" />
+    </div>
+    <div class="fs-0 p-6 p-r sm-6 ssa-s">
+      <div class="i-0 p-a w-full zi-0">
+        <div class="d-full stripes"></div>
+      </div>
+      <img class="h-40 p-r rad-1 w-80 zi-10" src="https://picsum.photos/id/866/400/200" />
+    </div>
+    <div class="fs-0 p-6 p-r sm-6 ssa-s">
+      <div class="i-0 p-a w-full zi-0">
+        <div class="d-full stripes"></div>
+      </div>
+      <img class="h-40 p-r rad-1 w-80 zi-10" src="https://picsum.photos/id/872/400/200" />
+    </div>
+    <div class="fs-0 p-6 p-r sm-6 ssa-s">
+      <div class="i-0 p-a w-full zi-0">
+        <div class="d-full stripes"></div>
+      </div>
+      <img class="h-40 p-r rad-1 w-80 zi-10" src="https://picsum.photos/id/875/400/200" />
+    </div>
+  </div>
+</div>
+```
+
+## X Proximity
+
+This example sets the scroll snap type to **x proximity**. The scroll will snap in the horizontal direction but only when the scroll speed is slow enough.
+
+<Message icon="mouse">Try scrolling through the image container to see how it behaves.</Message>
+
+```html live "sst-x-p" layout="/src/layouts/wide.astro"
+<div class="ovf-h p-r">
+  <div class="d-f g-6 ovf-x-auto p-6 sst-x-p">
+    <div class="fs-0 p-6 p-r sm-6 ssa-s">
+      <div class="i-0 p-a w-full zi-0">
+        <div class="d-full stripes"></div>
+      </div>
+      <img class="h-40 p-r rad-1 w-80 zi-10" src="https://picsum.photos/id/849/400/200" />
+    </div>
+    <div class="fs-0 p-6 p-r sm-6 ssa-s">
+      <div class="i-0 p-a w-full zi-0">
+        <div class="d-full stripes"></div>
+      </div>
+      <img class="h-40 p-r rad-1 w-80 zi-10" src="https://picsum.photos/id/866/400/200" />
+    </div>
+    <div class="fs-0 p-6 p-r sm-6 ssa-s">
+      <div class="i-0 p-a w-full zi-0">
+        <div class="d-full stripes"></div>
+      </div>
+      <img class="h-40 p-r rad-1 w-80 zi-10" src="https://picsum.photos/id/872/400/200" />
+    </div>
+    <div class="fs-0 p-6 p-r sm-6 ssa-s">
+      <div class="i-0 p-a w-full zi-0">
+        <div class="d-full stripes"></div>
+      </div>
+      <img class="h-40 p-r rad-1 w-80 zi-10" src="https://picsum.photos/id/875/400/200" />
+    </div>
+  </div>
+</div>
+```
+
+## Y Mandatory
+
+This example sets the scroll snap type to **y mandatory**. The scroll will snap in the vertical direction and will always snap to the nearest snap point.
+
+<Message icon="mouse">Try scrolling through the image container to see how it behaves.</Message>
+
+```html live "sst-y-m" layout="/src/layouts/wide.astro"
+<div class="ovf-h p-r">
+  <div class="d-f g-6 ovf-x-auto p-6 sst-y-m">
+    <div class="fs-0 p-6 p-r sm-6 ssa-s">
+      <div class="i-0 p-a w-full zi-0">
+        <div class="d-full stripes"></div>
+      </div>
+      <img class="h-40 p-r rad-1 w-80 zi-10" src="https://picsum.photos/id/849/400/200" />
+    </div>
+    <div class="fs-0 p-6 p-r sm-6 ssa-s">
+      <div class="i-0 p-a w-full zi-0">
+        <div class="d-full stripes"></div>
+      </div>
+      <img class="h-40 p-r rad-1 w-80 zi-10" src="https://picsum.photos/id/866/400/200" />
+    </div>
+    <div class="fs-0 p-6 p-r sm-6 ssa-s">
+      <div class="i-0 p-a w-full zi-0">
+        <div class="d-full stripes"></div>
+      </div>
+      <img class="h-40 p-r rad-1 w-80 zi-10" src="https://picsum.photos/id/872/400/200" />
+    </div>
+    <div class="fs-0 p-6 p-r sm-6 ssa-s">
+      <div class="i-0 p-a w-full zi-0">
+        <div class="d-full stripes"></div>
+      </div>
+      <img class="h-40 p-r rad-1 w-80 zi-10" src="https://picsum.photos/id/875/400/200" />
+    </div>
+  </div>
+</div>
+```
+
+## Y Proximity
+
+This example sets the scroll snap type to **y proximity**. The scroll will snap in the vertical direction but only when the scroll speed is slow enough.
+
+<Message icon="mouse">Try scrolling through the image container to see how it behaves.</Message>
+
+```html live "sst-y-p" layout="/src/layouts/wide.astro"
+<div class="ovf-h p-r">
+  <div class="d-f g-6 ovf-x-auto p-6 sst-y-p">
+    <div class="fs-0 p-6 p-r sm-6 ssa-s">
+      <div class="i-0 p-a w-full zi-0">
+        <div class="d-full stripes"></div>
+      </div>
+      <img class="h-40 p-r rad-1 w-80 zi-10" src="https://picsum.photos/id/849/400/200" />
+    </div>
+    <div class="fs-0 p-6 p-r sm-6 ssa-s">
+      <div class="i-0 p-a w-full zi-0">
+        <div class="d-full stripes"></div>
+      </div>
+      <img class="h-40 p-r rad-1 w-80 zi-10" src="https://picsum.photos/id/866/400/200" />
+    </div>
+    <div class="fs-0 p-6 p-r sm-6 ssa-s">
+      <div class="i-0 p-a w-full zi-0">
+        <div class="d-full stripes"></div>
+      </div>
+      <img class="h-40 p-r rad-1 w-80 zi-10" src="https://picsum.photos/id/872/400/200" />
+    </div>
+    <div class="fs-0 p-6 p-r sm-6 ssa-s">
+      <div class="i-0 p-a w-full zi-0">
+        <div class="d-full stripes"></div>
+      </div>
+      <img class="h-40 p-r rad-1 w-80 zi-10" src="https://picsum.photos/id/875/400/200" />
+    </div>
+  </div>
+</div>
 ```
 
 ---
