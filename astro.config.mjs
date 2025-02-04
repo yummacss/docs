@@ -10,10 +10,7 @@ import starlightCoolerCredit from "starlight-cooler-credit";
 import starlightLinksValidator from "starlight-links-validator";
 import vercel from "@astrojs/vercel/serverless";
 
-const theme = fs.readFileSync(
-  new URL(`./theme.jsonc`, import.meta.url),
-  "utf-8"
-);
+const theme = fs.readFileSync(new URL(`./theme.jsonc`, import.meta.url), "utf-8");
 
 const yummaTheme = ExpressiveCodeTheme.fromJSONString(theme);
 
@@ -99,7 +96,7 @@ export default defineConfig({
       imports: [
         "/src/components/Class.astro",
         "/src/components/Color.astro",
-        "/src/components/Info.astro",
+        "/src/components/Message.astro",
         "/src/components/Modifier.astro",
         "/src/components/Palette.astro",
         "/src/components/Palette2.astro",
@@ -118,11 +115,7 @@ export default defineConfig({
             "TabItem",
             "Tabs",
           ],
-          "starlight-showcases": [
-            "ShowcaseImage",
-            "ShowcaseText",
-            "ShowcaseYouTube",
-          ],
+          "starlight-showcases": ["ShowcaseImage", "ShowcaseText", "ShowcaseYouTube"],
           "/src/constants/guides": ["guide"],
           "/src/constants/examples": [
             "abbreviatedSyntax",
