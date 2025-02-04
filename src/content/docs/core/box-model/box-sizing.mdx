@@ -22,11 +22,6 @@ Controls the calculation of the total size of an element.
   ]}
 />
 
-<Aside type="note">
-  [Stylecent](/docs/stylecent) uses the `border-box` property by default for
-  elements, which is what the base styles are built on.
-</Aside>
-
 ## Content Box
 
 The height and width of an element only apply to its content.
@@ -40,6 +35,8 @@ The height and width of an element only apply to its content.
 ## Border Box
 
 The height and width of the element are the same for all parts.
+
+<Message icon="info">Stylecent uses the **border-box** rule by default. Learn more about our base styles.</Message>
 
 ```html live "bs-bb"
 <div class="stripes dim-26 b-2 bc-indigo bs-bb p-8">
