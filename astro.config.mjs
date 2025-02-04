@@ -134,6 +134,12 @@ export default defineConfig({
       layout: "/src/layouts/default.astro",
     }),
   ],
+
+  // v3 migration
+  redirects: {
+    "/direction": "/bottom-left-right-top",
+  },
+
   output: "server",
   adapter: vercel({
     webAnalytics: {
