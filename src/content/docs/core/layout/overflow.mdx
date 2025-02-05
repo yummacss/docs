@@ -34,6 +34,48 @@ Controls how an element behaves when content overflows.
   ]}
 />
 
+## Auto
+
+This example sets the overflow to **auto**. The element will add scrollbars if the content overflows the container.
+
+```html live "ovf-auto"
+<div class="dim-30 ovf-auto p-4 rad-2 stripes">
+  <div class="ai-c bg-indigo d-f h-64 jc-c rad-1 tc-white w-38">A</div>
+</div>
+```
+
+## Clip
+
+This example sets the overflow to **clip**. The content that overflows the container will be clipped and not visible.
+
+```html live
+<p class="fw-600 ta-c">We're still working on this one!</p>
+```
+
+## Hidden
+
+This example sets the overflow to **hidden**. The content that overflows the container will be hidden and not visible, without scrollbars.
+
+```html live
+<p class="fw-600 ta-c">We're still working on this one!</p>
+```
+
+## Scroll
+
+This example sets the overflow to **scroll**. The element will always show scrollbars, regardless of whether the content overflows.
+
+```html live
+<p class="fw-600 ta-c">We're still working on this one!</p>
+```
+
+## Visible
+
+This example sets the overflow to **visible**. The content will overflow the container and be visible outside of it.
+
+```html live
+<p class="fw-600 ta-c">We're still working on this one!</p>
+```
+
 ## Overflow X
 
 Controls how an element behaves when content overflows on the X-axis.
