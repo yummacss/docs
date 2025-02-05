@@ -135,6 +135,10 @@ export default defineConfig({
     }),
   ],
 
+  redirects: {
+    "/direction": "/bottom-left-right-left",
+  },
+
   output: "server",
   adapter: vercel({
     webAnalytics: {
