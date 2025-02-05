@@ -7,3 +7,42 @@ description: Controls the visibility of elements without changing a document's l
 slug: docs/visibility
 draft: true
 ---
+
+Controls the visibility of elements without changing a document's layout.
+
+<Class name="visibility" />
+
+## Collapse
+
+This example sets the visibility to **collapse**. The element will be hidden, and it will not take up any space in the layout.
+
+```html live "v-c" layout="/src/layouts/wide.astro"
+<p class="fw-600 ta-c">We're still working on this one!</p>
+```
+
+## Invisible
+
+This example sets the visibility to **invisible**. The element will be hidden, but it will still take up space in the layout.
+
+```html live "v-i" layout="/src/layouts/wide.astro"
+<p class="fw-600 ta-c">We're still working on this one!</p>
+```
+
+## Visible
+
+This example sets the visibility to **visible**. The element will be displayed and take up space in the layout.
+
+```html live "v-v" layout="/src/layouts/wide.astro"
+<p class="fw-600 ta-c">We're still working on this one!</p>
+```
+
+---
+
+<Modifier
+  utility="v-i"
+  prefixUtil="v"
+  modifiers={{
+    hoverUtil: "p-v",
+    responsiveUtil: "p-v",
+  }}
+/>
