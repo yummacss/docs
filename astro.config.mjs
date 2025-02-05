@@ -136,7 +136,7 @@ export default defineConfig({
   ],
 
   redirects: {
-    "/direction": "/bottom-left-right-left",
+    "/direction": "/bottom-left-right-top",
   },
 
   output: "server",
