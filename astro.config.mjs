@@ -134,6 +134,7 @@ export default defineConfig({
       layout: "/src/layouts/default.astro",
     }),
   ],
+  // prepare for v3
   redirects: {
     "/docs/direction": "/docs/bottom-left-right-top",
   },
