@@ -38,9 +38,11 @@ Controls how an element behaves when content overflows.
 
 This example sets the overflow to **auto**. The element will add scrollbars if the content overflows the container.
 
+<Message icon="mouse">Try scrolling through the container to see how the overflow behaves.</Message>
+
 ```html live "ovf-auto"
 <div class="dim-30 ovf-auto p-4 rad-2 stripes">
-  <div class="ai-c bg-indigo d-f h-64 jc-c rad-1 tc-white w-38">A</div>
+  <div class="ai-c bg-indigo d-f h-full jc-c rad-1 tc-white w-38">A</div>
 </div>
 ```
 
@@ -48,32 +50,40 @@ This example sets the overflow to **auto**. The element will add scrollbars if t
 
 This example sets the overflow to **clip**. The content that overflows the container will be clipped and not visible.
 
-```html live
-<p class="fw-600 ta-c">We're still working on this one!</p>
+```html live "ovf-c"
+<div class="dim-30 ovf-c p-4 rad-2 stripes">
+  <div class="ai-c bg-indigo d-f h-full jc-c rad-1 tc-white w-38">A</div>
+</div>
 ```
 
 ## Hidden
 
 This example sets the overflow to **hidden**. The content that overflows the container will be hidden and not visible, without scrollbars.
 
-```html live
-<p class="fw-600 ta-c">We're still working on this one!</p>
+```html live "ovf-h"
+<div class="dim-30 ovf-h p-4 rad-2 stripes">
+  <div class="ai-c bg-indigo d-f h-full jc-c rad-1 tc-white w-38">A</div>
+</div>
 ```
 
 ## Scroll
 
 This example sets the overflow to **scroll**. The element will always show scrollbars, regardless of whether the content overflows.
 
-```html live
-<p class="fw-600 ta-c">We're still working on this one!</p>
+```html live "ovf-s"
+<div class="dim-30 ovf-s p-4 rad-2 stripes">
+  <div class="ai-c bg-indigo d-f h-full jc-c rad-1 tc-white w-38">A</div>
+</div>
 ```
 
 ## Visible
 
 This example sets the overflow to **visible**. The content will overflow the container and be visible outside of it.
 
-```html live
-<p class="fw-600 ta-c">We're still working on this one!</p>
+```html live "ovf-v"
+<div class="dim-30 ovf-v p-4 rad-2 stripes">
+  <div class="ai-c bg-indigo d-f h-full jc-c rad-1 tc-white w-38">A</div>
+</div>
 ```
 
 ## Overflow X
