@@ -23,19 +23,60 @@ Controls the caption element orientation in a table.
 />
 
 ## Bottom
+
 This example sets the caption side to **bottom**. The caption will be displayed below the table.
 
 ```html live "cs-b" layout="/src/layouts/wide.astro"
-<p class="fw-600 ta-c">We're still working on this one!</p>
+<table class="b-1 bc-c bc-l-silver-3 w-full">
+  <caption class="cs-b fw-400 p-2">
+    Bottom Caption
+  </caption>
+  <thead class="ta-l">
+    <tr>
+      <th class="b-1 bc-l-silver-3 p-3">Name</th>
+      <th class="b-1 bc-l-silver-3 p-3">Age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="b-1 bc-l-silver-3 p-3">John</td>
+      <td class="b-1 bc-l-silver-3 p-3">24</td>
+    </tr>
+    <tr>
+      <td class="b-1 bc-l-silver-3 p-3">Sam</td>
+      <td class="b-1 bc-l-silver-3 p-3">23</td>
+    </tr>
+  </tbody>
+</table>
 ```
 
 ## Top
+
 This example sets the caption side to **top**. The caption will be displayed above the table.
 
 ```html live "cs-t" layout="/src/layouts/wide.astro"
-<p class="fw-600 ta-c">We're still working on this one!</p>
+<table class="b-1 bc-c bc-l-silver-3 w-full">
+  <caption class="cs-t fw-400 p-2">
+    Top Caption
+  </caption>
+  <thead class="ta-l">
+    <tr>
+      <th class="b-1 bc-l-silver-3 p-3">Name</th>
+      <th class="b-1 bc-l-silver-3 p-3">Age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="b-1 bc-l-silver-3 p-3">John</td>
+      <td class="b-1 bc-l-silver-3 p-3">24</td>
+    </tr>
+    <tr>
+      <td class="b-1 bc-l-silver-3 p-3">Sam</td>
+      <td class="b-1 bc-l-silver-3 p-3">23</td>
+    </tr>
+  </tbody>
+</table>
 ```
-
 
 ---
 
