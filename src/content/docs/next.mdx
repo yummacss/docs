@@ -543,6 +543,30 @@ In v3, new font stacks are being implemented, existing utilities are being refin
   </TabItem>
 </Tabs>
 
+### Border Bottom / Left/ Right/ Top Radius
+
+In v3, we're adding individual tools for Border Radius. This helps avoid duplication while maintaining design consistency.
+
+```diff lang="html" "rad-b-2"
+- <button class="b-1 bg-black rad-bl-2 rad-br-2 tc-white">Send</button>
++ <button class="b-1 bg-black rad-b-2 tc-white">Send</button>
+```
+
+```diff lang="html" "rad-l-2"
+- <button class="b-1 bg-black rad-bl-2 rad-tl-2 tc-white">Send</button>
++ <button class="b-1 bg-black rad-l-2 tc-white">Send</button>
+```
+
+```diff lang="html" "rad-r-2"
+- <button class="b-1 bg-black rad-br-2 rad-tr-2 tc-white">Send</button>
++ <button class="b-1 bg-black rad-r-2 tc-white">Send</button>
+```
+
+```diff lang="html" "rad-t-2"
+- <button class="b-1 bg-black rad-tl-2 rad-tr-2 tc-white">Send</button>
++ <button class="b-1 bg-black rad-t-2 tc-white">Send</button>
+```
+
 ## Color improvements
 
 In v3, both the light (`l-`) and dark (`d-`) specifiers are being removed across all color utilities. As a result, the range used to determine a color's shade was also adjusted.
