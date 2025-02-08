@@ -137,6 +137,7 @@ export default defineConfig({
   // prepare for v3
   redirects: {
     "/docs/direction": "/docs/bottom-left-right-top",
+    "/docs/utilities": "/docs/build-css"
   },
   output: "server",
   adapter: vercel({
