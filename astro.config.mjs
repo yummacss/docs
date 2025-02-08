@@ -8,7 +8,7 @@ import starlight from "@astrojs/starlight";
 import starlightBlog from "starlight-blog";
 import starlightCoolerCredit from "starlight-cooler-credit";
 import starlightLinksValidator from "starlight-links-validator";
-import vercel from "@astrojs/vercel/serverless";
+import vercel from "@astrojs/vercel";
 
 const theme = fs.readFileSync(new URL(`./theme.jsonc`, import.meta.url), "utf-8");
 
