@@ -168,7 +168,7 @@ By default, all paddings will be removed.
 }
 ```
 
-Font rendering is smoother, and a consistent system font is set as the default.
+Font rendering is smoother, and a consistent system font is set as the default. — [oshwcomeau.com](https://www.joshwcomeau.com/css/custom-css-reset/)
 
 ```diff lang=scss mark={2-3} title="base/stylecent.scss"
 body {
@@ -203,7 +203,7 @@ textarea:not([class]) {
 
 Interactive elements have clear outlines for accessibility.
 
-```scss mark={7-9,14} title="base/stylecent.scss"
+```scss mark={7-9} title="base/stylecent.scss"
 button,
 input,
 textarea,
@@ -215,7 +215,11 @@ summary {
     outline-offset: 2px;
   }
 }
+```
 
+In the absence of content, textareas will exhibit a default height. — [piccalil.li](https://piccalil.li/blog/a-more-modern-css-reset/)
+
+```scss mark={2} title="base/stylecent.scss"
 textarea:not([rows]) {
   min-height: 10em;
 }
@@ -228,12 +232,12 @@ button:disabled,
 input:disabled,
 select:disabled,
 textarea:disabled {
-  opacity: 0.5;
   cursor: not-allowed;
+  opacity: 0.5;
 }
 ```
 
-Headings adopt balanced text wrapping, consistent font sizes, and bold weights.
+Headings adopt balanced text wrapping, consistent font sizes, and bold weights. — [oshwcomeau.com](https://www.joshwcomeau.com/css/custom-css-reset/)
 
 ```scss mark={7-9,13} title="base/stylecent.scss"
 h1,
@@ -252,7 +256,7 @@ p {
 }
 ```
 
-Small text and code elements are consistently scaled and inherited. Code elements will have consistent font family.
+Small text and code elements are consistently scaled and inherited. Code elements will have consistent font family. — [modern-normalize](https://github.com/sindresorhus/modern-normalize/blob/main/modern-normalize.css#L64)
 
 ```scss mark={3,7-8,15-16} title="base/stylecent.scss"
 b,
@@ -296,7 +300,7 @@ th {
 }
 ```
 
-Horizontal rules, details, and summaries are updated for better spacing and display.
+Horizontal rules, details, and summaries are updated for better spacing and display. — [modern-normalize](https://github.com/sindresorhus/modern-normalize/blob/main/modern-normalize.css#L64)
 
 ```scss mark={3,8,12} title="base/stylecent.scss"
 hr {
@@ -455,7 +459,7 @@ To make the Yumma CSS framework as complete as possible, we're adding support fo
 
 </details>
 
-## Font Size
+### Font Size
 
 In v3, new `font-size` utilities are being incorporated, and the visual sequential incremental between values is being enhanced to rectify the previous exaggerated outputs.
 
