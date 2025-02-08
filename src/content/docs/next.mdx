@@ -547,22 +547,22 @@ In v3, new font stacks are being implemented, existing utilities are being refin
 
 In v3, we're adding individual tools for Border Radius. This helps avoid duplication while maintaining design consistency.
 
-```diff lang="html" "rad-b-2"
+```diff lang="html" "rad-b-2" title="app.html"
 - <button class="b-1 bg-black rad-bl-2 rad-br-2 tc-white">Send</button>
 + <button class="b-1 bg-black rad-b-2 tc-white">Send</button>
 ```
 
-```diff lang="html" "rad-l-2"
+```diff lang="html" "rad-l-2" title="app.html"
 - <button class="b-1 bg-black rad-bl-2 rad-tl-2 tc-white">Send</button>
 + <button class="b-1 bg-black rad-l-2 tc-white">Send</button>
 ```
 
-```diff lang="html" "rad-r-2"
+```diff lang="html" "rad-r-2" title="app.html"
 - <button class="b-1 bg-black rad-br-2 rad-tr-2 tc-white">Send</button>
 + <button class="b-1 bg-black rad-r-2 tc-white">Send</button>
 ```
 
-```diff lang="html" "rad-t-2"
+```diff lang="html" "rad-t-2" title="app.html"
 - <button class="b-1 bg-black rad-tl-2 rad-tr-2 tc-white">Send</button>
 + <button class="b-1 bg-black rad-t-2 tc-white">Send</button>
 ```
@@ -573,7 +573,7 @@ In v3, both the light (`l-`) and dark (`d-`) specifiers are being removed across
 
 To make this easier to understand, let's look at the `background-color` utility.
 
-```diff lang="html"
+```diff lang="html" title="app.html"
 - <button class="bg-l-indigo-6 h:bg-d-indigo-1">Hello</button>
 + <button class="bg-indigo-1 h:bg-indigo-7">Hello</button>
 ```
@@ -643,18 +643,27 @@ Also, the color hue is increasing from `10%` shade modification to `14%`. This m
 
 We're making Yumma CSS even more concise with the utility classes to keep everything minimal. Here are some of the new changes we've got planned:
 
+### Columns
+
+In v3, we're making the `columns` utilities even smaller than before.
+
+```diff lang="html" title="app.html" "c-*"
+- <div class="cols-* ..."></div>
++ <div class="c-* ..."></div>
+```
+
 ### Dimension
 
 In v3, we've made the Dimension utility even more abbreviated to align with the purpose of the framework.
 
-```diff lang="html" title="app.html"
+```diff lang="html" title="app.html" "d-*"
 - <div class="dim-* ..."></div>
 + <div class="d-* ..."></div>
 ```
 
 This also applies to the Max and Min Dimension utilities.
 
-```diff lang="html" title="app.html"
+```diff lang="html" title="app.html" "max-d-*" "min-d-*"
 - <div class="max-dim-* min-dim-* ..."></div>
 + <div class="max-d-* min-d-* ..."></div>
 ```
@@ -663,7 +672,7 @@ This also applies to the Max and Min Dimension utilities.
 
 In v3, we've shortened the syntax for the Spacing utilities.
 
-```diff lang="html" title="app.html"
+```diff lang="html" title="app.html" "sx-*" "sy-*"
 - <div class="s-x-* s-y-* ..."></div>
 + <div class="sx-* sy-* ..."></div>
 ```
@@ -675,25 +684,25 @@ In v3, we've also made changes to the way the Bottom / Left / Right / Top utilit
 {/* prettier-ignore */}
 <Tabs>
   <TabItem label="Bottom">
-    ```diff lang="html" "bo-* "
+    ```diff lang="html" title="app.html" "bo-* "
     - <div class="dir-b-* ..."></div>
     + <div class="bo-* ..."></div>
     ```
   </TabItem>
   <TabItem label="Left">
-    ```diff lang="html" "l-* "
+    ```diff lang="html"title="app.html" "l-* "
     - <div class="dir-l-* ..."></div>
     + <div class="l-* ..."></div>
     ```
   </TabItem>
   <TabItem label="Right">
-    ```diff lang="html" "r-* "
+    ```diff lang="html"title="app.html" "r-* "
     - <div class="dir-r-* ..."></div>
     + <div class="r-* ..."></div>
     ```
   </TabItem>
   <TabItem label="Top">
-    ```diff lang="html" "t-* "
+    ```diff lang="html"title="app.html" "t-* "
     - <div class="dir-t-* ..."></div>
     + <div class="t-* ..."></div>
     ```
