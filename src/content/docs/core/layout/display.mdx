@@ -105,11 +105,11 @@ This example sets the display to **grid**. The element will use the CSS Grid lay
 </div>
 ```
 
-{/* ## Inline
+{/\* ## Inline
 
 This example sets the display to **inline**. The element will only take up as much width as necessary, and it will not start a new line.
 
-```html live "d-i" layout="/src/layouts/wide.astro"
+````html live "d-i" layout="/src/layouts/wide.astro"
 <div class="p-4">
   <div class="d-i">
     <span class="bg-indigo p-4 rad-1 tc-white">A</span>
@@ -117,19 +117,15 @@ This example sets the display to **inline**. The element will only take up as mu
     <span class="bg-indigo p-4 rad-1 tc-white">C</span>
   </div>
 </div>
-``` */}
-
-## Inline Block
-
-This example sets the display to **inline-block**. The element will take up only as much width as necessary, but it can have width and height set, and it will not start a new line.
-
-```html live "d-ib" layout="/src/layouts/wide.astro"
+``` */} ## Inline Block This example sets the display to **inline-block**. The element will take up only as much width
+as necessary, but it can have width and height set, and it will not start a new line. ```html live "d-ib"
+layout="/src/layouts/wide.astro"
 <div class="stripes">
   <span class="bg-indigo d-ib p-4 rad-1 ta-c tc-white w-32">A</span>
   <span class="bg-indigo d-ib p-4 rad-1 ta-c tc-white w-32">B</span>
   <span class="bg-indigo d-ib p-4 rad-1 ta-c tc-white w-32">C</span>
 </div>
-```
+````
 
 ## Inline Flex
 
@@ -166,8 +162,6 @@ This example sets the display to **none**. The element will not be displayed at 
   <div class="bg-indigo p-4 rad-1 tc-white">C</div>
 </div>
 ```
-
----
 
 <Modifier
   utility="d-none"

@@ -1,5 +1,6 @@
 ---
 import { Code } from "@astrojs/starlight/components";
+import Message from "./Message.astro";
 
 interface ModifierProps {
   utility: string;
@@ -13,32 +14,38 @@ interface ModifierProps {
 const { utility: baseUtil, modifiers, prefixUtil } = Astro.props as ModifierProps;
 ---
 
+<hr class="py-6" />
+
 <section>
   {
     modifiers && modifiers.responsiveUtil && (
-      <>
-        <h3>Using responsive modifiers</h3>
-
+      <div>
+        <h3 class="mb-6">Using utilities conditionally</h3>
+        {/* <p>Find out how to use Yumma utilities on a case-by-case basis in the <a href="/modifiers">Modifiers</a> documentation.</p> */}
+        <Message icon="ratio">
+          <h4>Responsive breakpoints</h4>
+        </Message>
         <p>
-          Using responsive breakpoints like <code>sm:{prefixUtil}-*</code>,<code>md:{prefixUtil}-*</code>,{" "}
+          You can combine responsive breakpoints like <code>sm:{prefixUtil}-*</code>,<code>md:{prefixUtil}-*</code>,{" "}
           <code>lg:{prefixUtil}-*</code>, and <code>xxl:{prefixUtil}-*</code> allows targeting specific utilities in
           different viewports.
         </p>
-
         <Code
           code={`<div class="${baseUtil} md:${modifiers.responsiveUtil} ..."></div>`}
           lang="html"
           mark={`md:${modifiers.responsiveUtil}`}
         />
-      </>
+      </div>
     )
   }
 
-  <h3>Using hover modifiers</h3>
+  <Message icon="square_dashed_pointer">
+    <h4>Hover states</h4>
+  </Message>
 
   <p>
-    Using <code>:hover</code> modifiers such as <code>h:{prefixUtil}-*</code> allows you to override elements and change
-    their values when hovering over them.
+    Alternatively, you can apply <code>:hover</code> by using <code>h:{prefixUtil}-*</code> utility to override elements
+    and change their values when hovering over them.
   </p>
 
   <Code
