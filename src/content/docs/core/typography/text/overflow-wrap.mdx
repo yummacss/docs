@@ -22,6 +22,26 @@ Controls word wrapping.
   ]}
 />
 
+## Break Word
+
+This example sets the overflow wrap to **break-word**. The browser will break long words and wrap them onto the next line to prevent overflow.
+
+```html live "ow-bw" layout="/src/layouts/wide.astro"
+<div class="bg-l-indigo-6 p-4 rad-1 ow-bw">
+  <p class="bg-white fs-md p-4 rad-1 ta-c tc-lead">Pneumonoultramicroscopicsilicovolcanoconiosis</p>
+</div>
+```
+
+## Normal
+
+This example sets the overflow wrap to **normal**. The browser will only break lines at allowed break points, and long words will overflow the container if they cannot fit.
+
+```html live "ow-n" layout="/src/layouts/wide.astro"
+<div class="bg-l-indigo-6 p-4 rad-1">
+  <p class="bg-white fs-md p-4 rad-1 ta-c tc-lead ovf-auto ow-n">Pneumonoultramicroscopicsilicovolcanoconiosis</p>
+</div>
+```
+
 <Modifier
   utility="ow-n"
   prefixUtil="ow"
