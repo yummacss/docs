@@ -129,13 +129,13 @@ The new command-line interface (CLI) system lets you compile and get rid of any 
 
     5. **Compile the SCSS**
 
-        To compile the SCSS into CSS, just run npx yummacss build in your terminal to compile and scan all your configured styles.
+        To compile the SCSS into CSS, just run `npx yummacss build` in your terminal to compile and scan all your configured styles.
 
         ```bash title="Terminal"
         npx yummacss build
         ```
 
-        Whenever you run "npx yummacss build," the CLI will rescan the whole project to make sure you're always compiling what your project is using. This also gets rid of any useless utilities in your codebase.
+        Whenever you run `npx yummacss build`, the CLI will rescan the whole project to make sure you're always compiling what your project is using. This also purges of any useless utilities in your codebase.
 
         ```css title="globals.css" collapse={1-138, 178-228}
         /**
