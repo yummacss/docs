@@ -59,7 +59,7 @@ The full set of utilities will be retained within the distribution folder for th
 
 ### Upgrade from v2.1
 
-The new CLI system lets you compile and get rid of any unused utilities you're not using in your Yumma CSS project, which means smaller CSS files and better performance.
+The new command-line interface (CLI) system lets you compile and get rid of any unused utilities you're not using in your Yumma CSS project, which means smaller CSS files and better performance.
 
 <Steps>
 
@@ -127,15 +127,15 @@ The new CLI system lets you compile and get rid of any unused utilities you're n
         </html>
         ```
 
-    4. **Compile the SCSS**
+    5. **Compile the SCSS**
 
-        To compile the SCSS from to CSS, just run `npx yummacss build`. This command will only compile the used CSS that's been scanned in your project files each time you run the command. It'll also tree shake any unusable utilities in your code.
+        To compile the SCSS into CSS, just run npx yummacss build in your terminal to compile and scan all your configured styles.
 
         ```bash title="Terminal"
         npx yummacss build
         ```
 
-
+        Whenever you run "npx yummacss build," the CLI will rescan the whole project to make sure you're always compiling what your project is using. This also gets rid of any useless utilities in your codebase.
 
         ```css title="globals.css" collapse={1-138, 178-228}
         /**
