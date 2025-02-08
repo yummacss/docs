@@ -21,6 +21,10 @@ export default defineConfig({
       expressiveCode: {
         themes: [yummaTheme],
         styleOverrides: {
+          collapsibleSections: {
+            openBackgroundColorCollapsible: "hsla(231, 73%, 77%, 0.050)",
+            closedBackgroundColor: "hsla(231, 73%, 77%, 0.100)",
+          },
           frames: {
             shadowColor: "transparent",
           },
@@ -137,7 +141,7 @@ export default defineConfig({
   // prepare for v3
   redirects: {
     "/docs/direction": "/docs/bottom-left-right-top",
-    "/docs/utilities": "/docs/build-css"
+    "/docs/utilities": "/docs/build-css",
   },
   output: "server",
   adapter: vercel({
