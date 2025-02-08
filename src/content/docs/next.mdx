@@ -672,25 +672,30 @@ In v3, we've shortened the syntax for the Spacing utilities.
 
 In v3, we've also made changes to the way the Bottom / Left / Right / Top utilities are written. This includes changes to the Bottom, Left, Right, and Top variants.
 
+{/* prettier-ignore */}
 <Tabs>
   <TabItem label="Bottom">
-    ```diff lang="html" title="app.html" - <div class="dir-b-* ..."></div>
-    <div class="bo-* ..."></div>
+    ```diff lang="html" "bo-* "
+    - <div class="dir-b-* ..."></div>
+    + <div class="bo-* ..."></div>
     ```
   </TabItem>
   <TabItem label="Left">
-    ```diff lang="html" title="app.html" - <div class="dir-l-* ..."></div>
-    <div class="l-* ..."></div>
+    ```diff lang="html" "l-* "
+    - <div class="dir-l-* ..."></div>
+    + <div class="l-* ..."></div>
     ```
   </TabItem>
   <TabItem label="Right">
-    ```diff lang="html" title="app.html" - <div class="dir-r-* ..."></div>
-    <div class="r-* ..."></div>
+    ```diff lang="html" "r-* "
+    - <div class="dir-r-* ..."></div>
+    + <div class="r-* ..."></div>
     ```
   </TabItem>
   <TabItem label="Top">
-    ```diff lang="html" title="app.html" - <div class="dir-t-* ..."></div>
-    <div class="t-* ..."></div>
+    ```diff lang="html" "t-* "
+    - <div class="dir-t-* ..."></div>
+    + <div class="t-* ..."></div>
     ```
   </TabItem>
 </Tabs>
