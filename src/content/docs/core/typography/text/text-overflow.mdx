@@ -12,6 +12,30 @@ Controls how hidden text overflow content is displayed.
 
 <Class name="/text-overflow" />
 
+## Clip
+
+This example sets the text overflow to **clip**. The text will be clipped at the edge of the container without any indication that it has been cut off.
+
+```html live "to-c" layout="/src/layouts/wide.astro"
+<div class="bg-l-indigo-6 p-4 rad-1">
+  <div class="bg-white rad-2">
+    <p class="fs-sm ovf-h p-4 tc-lead to-c w-25 ws-nw">Pneumonoultramicroscopicsilicovolcanoconiosis</p>
+  </div>
+</div>
+```
+
+## Ellipsis
+
+This example sets the text overflow to **ellipsis**. The text will be truncated with an ellipsis (`...`) at the end to indicate that there is more content that is not visible.
+
+```html live "to-e" layout="/src/layouts/wide.astro"
+<div class="bg-l-indigo-6 p-4 rad-1">
+  <div class="bg-white rad-2">
+    <p class="fs-sm ovf-h p-4 tc-lead to-e w-25 ws-nw">Pneumonoultramicroscopicsilicovolcanoconiosis</p>
+  </div>
+</div>
+```
+
 <Modifier
   utility="to-c"
   prefixUtil="to"
