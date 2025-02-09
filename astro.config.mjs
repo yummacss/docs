@@ -70,6 +70,9 @@ export default defineConfig({
           },
         }),
       ],
+      components: {
+        PageTitle: "./src/components/PageTitle.astro",
+      },
       editLink: {
         baseUrl: "https://github.com/yumma-lib/yumma-css-docs/tree/release/",
       },
