@@ -12,6 +12,46 @@ Controls the capitalization and case of text content.
 
 <Class name="/text-transform" />
 
+## Capitalize
+
+This example sets the text transform to **capitalize**. The first letter of each word will be converted to uppercase.
+
+```html live "tt-c" layout="/src/layouts/wide.astro"
+<div class="bg-l-indigo-6 p-4 rad-1">
+  <p class="bg-white fs-sm p-4 rad-1 ta-c tc-lead tt-c">The quick brown fox jumps over the lazy dog.</p>
+</div>
+```
+
+## Lowercase
+
+This example sets the text transform to **lowercase**. All letters in the text will be converted to lowercase.
+
+```html live "tt-l" layout="/src/layouts/wide.astro"
+<div class="bg-l-indigo-6 p-4 rad-1">
+  <p class="bg-white fs-sm p-4 rad-1 ta-c tc-lead tt-l">The quick brown fox jumps over the lazy dog.</p>
+</div>
+```
+
+## None
+
+This example sets the text transform to **none**. The text will be displayed as it is, without any transformation applied.
+
+```html live "tt-none" layout="/src/layouts/wide.astro"
+<div class="bg-l-indigo-6 p-4 rad-1">
+  <p class="bg-white fs-sm p-4 rad-1 ta-c tc-lead tt-none">The quick brown fox jumps over the lazy dog.</p>
+</div>
+```
+
+## Uppercase
+
+This example sets the text transform to **uppercase**. All letters in the text will be converted to uppercase.
+
+```html live "tt-u" layout="/src/layouts/wide.astro"
+<div class="bg-l-indigo-6 p-4 rad-1">
+  <p class="bg-white fs-sm p-4 rad-1 ta-c tc-lead tt-u">The quick brown fox jumps over the lazy dog.</p>
+</div>
+```
+
 <Modifier
   utility="tt-none"
   prefixUtil="tt"
