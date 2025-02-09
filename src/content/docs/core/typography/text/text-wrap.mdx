@@ -10,6 +10,78 @@ draft: true
 
 <Class name="/text-wrap" />
 
+## Balance
+
+This example sets the text wrap to **balance**. The text will be wrapped in a way that balances the line lengths, creating a more visually appealing layout.
+
+```html live "tw-b" layout="/src/layouts/wide.astro"
+<div class="bg-l-indigo-6 p-4 rad-1">
+  <div class="bg-white d-g g-4 max-w-80 mx-auto p-4 rad-1">
+    <div class="fs-xl fw-600 tw-b">Five Night's at Freddy's - Night 1</div>
+    <p class="fs-sm tc-gray-7">
+      Uh, I wanted to record a message for you, to help you get settled in on your first night. Um, I actually worked in
+      that office before you, I’m finishing up my last week now as a matter of fact. So, I know it can be a bit
+      overwhelming, but I’m here to tell you there’s nothing to worry about, Uh, you’ll do fine. So, let’s just focus on
+      getting you through your first week, okay?
+    </p>
+  </div>
+</div>
+```
+
+## No Wrap
+
+This example sets the text wrap to **nowrap**. The text will not wrap to the next line, and it will overflow the container if it exceeds the width.
+
+```html live "tw-n" layout="/src/layouts/wide.astro"
+<div class="bg-l-indigo-6 p-4 rad-1">
+  <div class="bg-white d-g g-4 max-w-80 mx-auto p-4 rad-1">
+    <div class="fs-xl fw-600 tw-nw">Five Night's at Freddy's - Night 1</div>
+    <p class="fs-sm tc-gray-7">
+      Uh, I wanted to record a message for you, to help you get settled in on your first night. Um, I actually worked in
+      that office before you, I’m finishing up my last week now as a matter of fact. So, I know it can be a bit
+      overwhelming, but I’m here to tell you there’s nothing to worry about, Uh, you’ll do fine. So, let’s just focus on
+      getting you through your first week, okay?
+    </p>
+  </div>
+</div>
+```
+
+## Pretty
+
+This example sets the text wrap to **pretty**. The text will be wrapped in a way that maintains a visually pleasing appearance, often used for better readability.
+
+```html live "tw-p" layout="/src/layouts/wide.astro"
+<div class="bg-l-indigo-6 p-4 rad-1">
+  <div class="bg-white d-g g-4 max-w-80 mx-auto p-4 rad-1">
+    <div class="fs-xl fw-600 tw-p">Five Night's at Freddy's - Night 1</div>
+    <p class="fs-sm tc-gray-7">
+      Uh, I wanted to record a message for you, to help you get settled in on your first night. Um, I actually worked in
+      that office before you, I’m finishing up my last week now as a matter of fact. So, I know it can be a bit
+      overwhelming, but I’m here to tell you there’s nothing to worry about, Uh, you’ll do fine. So, let’s just focus on
+      getting you through your first week, okay?
+    </p>
+  </div>
+</div>
+```
+
+## Wrap
+
+This example sets the text wrap to **wrap**. The text will wrap to the next line when it reaches the end of the container.
+
+```html live "tw-w" layout="/src/layouts/wide.astro"
+<div class="bg-l-indigo-6 p-4 rad-1">
+  <div class="bg-white d-g g-4 max-w-80 mx-auto p-4 rad-1">
+    <div class="fs-xl fw-600 tw-w">Five Night's at Freddy's - Night 1</div>
+    <p class="fs-sm tc-gray-7">
+      Uh, I wanted to record a message for you, to help you get settled in on your first night. Um, I actually worked in
+      that office before you, I’m finishing up my last week now as a matter of fact. So, I know it can be a bit
+      overwhelming, but I’m here to tell you there’s nothing to worry about, Uh, you’ll do fine. So, let’s just focus on
+      getting you through your first week, okay?
+    </p>
+  </div>
+</div>
+```
+
 <Modifier
   utility="tw-nw"
   prefixUtil="tw"
