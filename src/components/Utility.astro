@@ -66,18 +66,14 @@ function generateClassData(
       return `${propertyName}: ${value};`;
     });
 
-    const className = incrementPrefix
-      ? `${classPrefix}${i * incrementPrefix}`
-      : `${classPrefix}${i * 1}`;
+    const className = incrementPrefix ? `${classPrefix}${i * incrementPrefix}` : `${classPrefix}${i * 1}`;
 
     data.push({ className, properties });
   }
 
   if (additionalClasses) {
     additionalClasses.forEach((additionalClass) => {
-      const properties = propNames.map(
-        (propertyName) => `${propertyName}: ${additionalClass.value};`
-      );
+      const properties = propNames.map((propertyName) => `${propertyName}: ${additionalClass.value};`);
       data.push({
         className: `${classPrefix}${additionalClass.name}`,
         properties,
@@ -116,12 +112,10 @@ const codeData =
         codeData.map((classItem) => (
           <tr>
             <td class="ff-m fs-xs">
-              <p class="utility">{classItem.className}</p>
+              <p class="cls">{classItem.className}</p>
             </td>
             <td class="ff-b fs-xs">
-              <code
-                class="property"
-                style="background-color: transparent !important;">
+              <code class="prop" style="background-color: transparent !important;">
                 {classItem.properties.join("\n")}
               </code>
             </td>
@@ -133,11 +127,11 @@ const codeData =
 </div>
 
 <style>
-  .utility {
+  .cls {
     color: light-dark(var(--sl-color-accent), var(--sl-color-accent-high));
   }
 
-  .property {
-    color: light-dark(var(--sl-color-white), var(--sl-color-accent-high));
+  .prop {
+    color: light-dark(var(--sl-color-gray-3), var(--sl-color-gray-8));
   }
 </style>

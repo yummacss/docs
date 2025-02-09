@@ -5,9 +5,7 @@ export interface Props {
 
 let data = [];
 try {
-  const response = await fetch(
-    `https://api.yummacss.com/api/${Astro.props.name}`
-  );
+  const response = await fetch(`https://api.yummacss.com/api/${Astro.props.name}`);
   data = await response.json();
 } catch (err) {
   console.error("Failed to fetch data:", err);
@@ -28,12 +26,10 @@ try {
           data.map((item: { util: string; prop: string[] }) => (
             <tr>
               <td class="ff-m fs-xs">
-                <p class="class">{item.util}</p>
+                <p class="cls">{item.util}</p>
               </td>
               <td class="ff-b fs-xs">
-                <code
-                  class="property"
-                  style="background-color: transparent !important;">
+                <code class="prop" style="background-color: transparent !important;">
                   {item.prop.join(" ")}
                 </code>
               </td>
@@ -50,11 +46,11 @@ try {
 </div>
 
 <style>
-  .class {
+  .cls {
     color: light-dark(var(--sl-color-accent), var(--sl-color-accent-high));
   }
 
-  .property {
-    color: light-dark(var(--sl-color-white), var(--sl-color-accent-high));
+  .prop {
+    color: light-dark(var(--sl-color-gray-3), var(--sl-color-gray-8));
   }
 </style>
