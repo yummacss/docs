@@ -7,8 +7,8 @@ import liveCode from "astro-live-code";
 import starlight from "@astrojs/starlight";
 import starlightBlog from "starlight-blog";
 import starlightCoolerCredit from "starlight-cooler-credit";
-import starlightLinksValidator from "starlight-links-validator";
 import starlightHeadingBadges from "starlight-heading-badges";
+import starlightLinksValidator from "starlight-links-validator";
 import vercel from "@astrojs/vercel";
 
 const theme = fs.readFileSync(new URL(`./theme.jsonc`, import.meta.url), "utf-8");
@@ -19,26 +19,6 @@ export default defineConfig({
   integrations: [
     starlight({
       title: "Yumma CSS",
-      expressiveCode: {
-        themes: [yummaTheme],
-        styleOverrides: {
-          collapsibleSections: {
-            openBackgroundColorCollapsible: "hsla(231, 73%, 77%, 0.050)",
-            closedBackgroundColor: "hsla(231, 73%, 77%, 0.100)",
-          },
-          frames: {
-            shadowColor: "transparent",
-          },
-          textMarkers: {
-            delBackground: "hsla(0, 48%, 77%, 0.100)",
-            delHue: "hsl(0, 48%, 77%)",
-            insBackground: "hsla(127, 48%, 77%, 0.150)",
-            insHue: "hsl(127, 48%, 77%)",
-            markBackground: "hsla(231, 73%, 77%, 0.100)",
-            markHue: "hsl(231, 73%, 77%)",
-          },
-        },
-      },
       favicon: "/favicon.ico",
       logo: {
         alt: "Yumma CSS Logo",
@@ -46,6 +26,13 @@ export default defineConfig({
         light: "/public/trademark/logo-light.png",
         replacesTitle: true,
       },
+
+      customCss: ["/src/styles/globals.css"],
+
+      components: {
+        PageTitle: "./src/components/PageTitle.astro",
+      },
+
       plugins: [
         starlightHeadingBadges(),
         starlightLinksValidator(),
@@ -72,35 +59,56 @@ export default defineConfig({
           },
         }),
       ],
-      components: {
-        PageTitle: "./src/components/PageTitle.astro",
+
+      expressiveCode: {
+        themes: [yummaTheme],
+        styleOverrides: {
+          collapsibleSections: {
+            openBackgroundColorCollapsible: "hsla(231, 73%, 77%, 0.050)",
+            closedBackgroundColor: "hsla(231, 73%, 77%, 0.100)",
+          },
+          frames: {
+            shadowColor: "transparent",
+          },
+          textMarkers: {
+            delBackground: "hsla(0, 48%, 77%, 0.100)",
+            delHue: "hsl(0, 48%, 77%)",
+            insBackground: "hsla(127, 48%, 77%, 0.150)",
+            insHue: "hsl(127, 48%, 77%)",
+            markBackground: "hsla(231, 73%, 77%, 0.100)",
+            markHue: "hsl(231, 73%, 77%)",
+          },
+        },
       },
+
       editLink: {
         baseUrl: "https://github.com/yumma-lib/yumma-css-docs/tree/release/",
       },
+
       social: {
         github: "https://github.com/yumma-lib/yumma-css",
       },
-      customCss: ["/src/styles/globals.css"],
+
       head: [
         {
           tag: "link",
           attrs: {
-            rel: "apple-touch-icon",
             href: "/apple-touch-icon.png",
+            rel: "apple-touch-icon",
             sizes: "180x180",
           },
         },
         {
           tag: "meta",
           attrs: {
-            property: "og:image",
             content: "/og.png",
+            property: "og:image",
           },
         },
       ],
       sidebar, // astro.sidebar.ts
     }),
+
     AutoImport({
       imports: [
         "/src/components/Class.astro",
@@ -128,17 +136,18 @@ export default defineConfig({
           "/src/constants/guides": ["guide"],
           "/src/constants/examples": [
             "abbreviatedSyntax",
-            "tinyAndLightweight",
             "responsiveByDesignLarge",
             "responsiveByDesignMedium",
             "responsiveByDesignSmall",
             "responsiveByDesignXLarge",
             "responsiveByDesignXXLarge",
+            "tinyAndLightweight",
             "uiComponents",
           ],
         },
       ],
     }),
+
     liveCode({
       layout: "/src/layouts/default.astro",
     }),
@@ -152,6 +161,7 @@ export default defineConfig({
     "/docs/direction": "/docs/bottom-left-right-top",
     "/docs/utilities": "/docs/build-css",
   },
+
   output: "server",
   adapter: vercel({
     webAnalytics: {
