@@ -21,6 +21,7 @@
     "sharp": "^0.33.5",
     "starlight-blog": "^0.16.1",
     "starlight-cooler-credit": "^0.2.3",
+    "starlight-heading-badges": "^0.4.0",
     "starlight-links-validator": "^0.14.2",
     "starlight-showcases": "^0.3.0",
     "tinycolor2": "^1.6.0",
