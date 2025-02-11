@@ -27,28 +27,18 @@ slug: docs/text-color
   ]}
 />
 
-## Indigo
+This example showcases three **text colors**: `light indigo 2`, `indigo`, and `dark indigo 2`. The texts will have a moderate light indigo shade, a rich indigo shade, and a deeper indigo shade, respectively.
 
-This example sets the text color to **tc-indigo**. The text will be displayed in indigo color.
+<Message icon="input_select">Try writing a sentence to see the caret color.</Message>
 
-```html live "tc-indigo" layout="/src/layouts/wide.astro"
-<p class="fw-600 ta-c tc-indigo">This text is indigo.</p>
-```
-
-## Light Indigo
-
-This example sets the text color to **tc-l-indigo-4**. The text will be displayed in a lighter shade of indigo.
-
-```html live "tc-l-indigo-4" layout="/src/layouts/wide.astro"
-<p class="fw-600 ta-c tc-l-indigo-4">This text is indigo-4.</p>
-```
-
-## Dark Indigo
-
-This example sets the text color to **tc-d-indigo-4**. The text will be displayed in a darker shade of indigo.
-
-```html live "tc-d-indigo-4" layout="/src/layouts/wide.astro"
-<p class="fw-600 ta-c tc-d-indigo-4">This text is indigo-8.</p>
+```html live "cc-indigo" layout="/src/layouts/wide.astro"
+<div class="bg-l-indigo-6 p-4 rad-1">
+  <div class="bg-white p-4 rad-1 s-y-4">
+    <p class="ta-c tc-l-indigo-4">The quick brown fox jumps over the lazy dog.</p>
+    <p class="ta-c tc-indigo">The quick brown fox jumps over the lazy dog.</p>
+    <p class="ta-c tc-d-indigo-2">The quick brown fox jumps over the lazy dog.</p>
+  </div>
+</div>
 ```
 
 <Modifier
