@@ -27,10 +27,14 @@ slug: docs/background-color
   propNames={["background-color"]}
 />
 
-This example sets the background color to **indigo**.
+This example showcases three **background colors**: `light indigo 2`, `indigo`, and `dark indigo 2`. The backgrounds will have a rich indigo shade, a moderate light indigo shade, and a deeper indigo shade, respectively.
 
-```html live "bg-indigo"
-<div class="bg-indigo dim-16 rad-1 tc-white"></div>
+```html live "bg-indigo" "bg-l-indigo-4" "bg-d-indigo-2"
+<div class="d-g g-16 gtc-1 sm:gtc-3">
+  <div class="bg-l-indigo-4 dim-16 rad-1"></div>
+  <div class="bg-indigo dim-16 rad-1"></div>
+  <div class="bg-d-indigo-2 dim-16 rad-1"></div>
+</div>
 ```
 
 <Modifier

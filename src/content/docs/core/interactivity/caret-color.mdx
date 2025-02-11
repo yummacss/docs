@@ -27,19 +27,20 @@ slug: docs/caret-color
   propNames={["caret-color"]}
 />
 
-Controls the color of the visible marker where the next character typed will be inserted.
+This example showcases the default browser **caret color** and a custom Indigo color. The custom caret will have a rich indigo shade.
 
 <Message icon="input_select">Try writing a sentence to see the caret color.</Message>
 
 ```html live "cc-indigo"
-<div class="d-f s-x-6">
-  <div class="d-f fd-c">
-    <label>Default</label>
-    <input class="mr-1" placeholder="Type something..." />
+<div class="d-g g-16 gtc-1 md:gtc-2">
+  <div>
+    <label class="fw-600">Default</label>
+    <input class="b-s p-1 rad-1" placeholder="Type something..." />
   </div>
-  <div class="d-f fd-c">
-    <label>Custom</label>
-    <input class="cc-indigo mr-1" placeholder="Type something..." />
+
+  <div>
+    <label class="fw-600">Custom</label>
+    <input class="b-s cc-indigo p-1 rad-1 " placeholder="Type something..." />
   </div>
 </div>
 ```
