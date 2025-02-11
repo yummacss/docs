@@ -9,93 +9,24 @@ draft: true
 
 <Class name="/background-position" />
 
-## Bottom
+## Combining utilities
 
-This example sets the background position to **bottom**. The background image will be aligned to the bottom of the element.
+This example showcases various **background position** styles: `top`, `bottom`, `left`, `right`, `center`, and their combinations such as `left top`, `left bottom`, `right top`, and `right bottom`. Each section demonstrates how the background image is positioned within the element, allowing you to see how different properties affect the placement of the image.
 
-```html live "bp-p"
-<div class="d-30 p-r rad-1 bs-lg">
-  <div class="bp-p d-full p-r rad-1" style="background-image:url(https://picsum.photos/id/870/300/300)"></div>
-</div>
-```
-
-## Center
-
-This example sets the background position to **center**. The background image will be centered within the element.
-
-```html live "bp-c"
-<div class="d-30 p-r rad-1 bs-lg">
-  <div class="bp-c d-full p-r rad-1" style="background-image:url(https://picsum.photos/id/870/300/300)"></div>
-</div>
-```
-
-## Left
-
-This example sets the background position to **left**. The background image will be aligned to the left side of the element.
-
-```html live "bp-l"
-<div class="d-30 p-r rad-1 bs-lg">
-  <div class="bp-l d-full p-r rad-1" style="background-image:url(https://picsum.photos/id/870/300/300)"></div>
-</div>
-```
-
-## Left Bottom
-
-This example sets the background position to **left bottom**. The background image will be aligned to the bottom left corner of the element.
-
-```html live "bp-lb"
-<div class="d-30 p-r rad-1 bs-lg">
-  <div class="bp-lb d-full p-r rad-1" style="background-image:url(https://picsum.photos/id/870/300/300)"></div>
-</div>
-```
-
-## Left Top
-
-This example sets the background position to **left top**. The background image will be aligned to the top left corner of the element.
-
-```html live "bp-lt"
-<div class="d-30 p-r rad-1 bs-lg">
-  <div class="bp-lt d-full p-r rad-1" style="background-image:url(https://picsum.photos/id/870/300/300)"></div>
-</div>
-```
-
-## Right
-
-This example sets the background position to **right**. The background image will be aligned to the right side of the element.
-
-```html live "bp-r"
-<div class="d-30 p-r rad-1 bs-lg">
-  <div class="bp-r d-full p-r rad-1" style="background-image:url(https://picsum.photos/id/870/300/300)"></div>
-</div>
-```
-
-## Right Bottom
-
-The background image will be positioned to the bottom right of the element.
-
-```html live "bp-rb"
-<div class="d-30 p-r rad-1 bs-lg">
-  <div class="bp-rb d-full p-r rad-1" style="background-image:url(https://picsum.photos/id/870/300/300)"></div>
-</div>
-```
-
-## Right Top
-
-This example sets the background position to **right top**. The background image will be aligned to the top right corner of the element.
-
-```html live "bp-rt"
-<div class="d-30 p-r rad-1 bs-lg">
-  <div class="bp-rt d-full p-r rad-1" style="background-image:url(https://picsum.photos/id/870/300/300)"></div>
-</div>
-```
-
-## Top
-
-This example sets the background position to **top**. The background image will be aligned to the top of the element.
-
-```html live "bp-t"
-<div class="d-30 p-r rad-1 bs-lg">
-  <div class="bp-t d-full p-r rad-1" style="background-image:url(https://picsum.photos/id/870/300/300)"></div>
+```html live "bp-lt" "bp-t" "bp-rt" "bp-l" "bp-c" "bp-r" "bp-lb" "bp-b" "bp-rb"
+<style>
+  @import url("https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@release/dist/yumma.css");
+</style>
+<div class="d-g g-1 gtc-3 p-r rad-1">
+  <div class="bp-lt d-24 p-r rad-1" style="background-image:url(https://picsum.photos/id/870/300/300)"></div>
+  <div class="bp-t d-24 p-r rad-1" style="background-image:url(https://picsum.photos/id/870/300/300)"></div>
+  <div class="bp-rt d-24 p-r rad-1" style="background-image:url(https://picsum.photos/id/870/300/300)"></div>
+  <div class="bp-l d-24 p-r rad-1" style="background-image:url(https://picsum.photos/id/870/300/300)"></div>
+  <div class="bp-c d-24 p-r rad-1" style="background-image:url(https://picsum.photos/id/870/300/300)"></div>
+  <div class="bp-r d-24 p-r rad-1" style="background-image:url(https://picsum.photos/id/870/300/300)"></div>
+  <div class="bp-lb d-24 p-r rad-1" style="background-image:url(https://picsum.photos/id/870/300/300)"></div>
+  <div class="bp-b d-24 p-r rad-1" style="background-image:url(https://picsum.photos/id/870/300/300)"></div>
+  <div class="bp-rb d-24 p-r rad-1" style="background-image:url(https://picsum.photos/id/870/300/300)"></div>
 </div>
 ```
 
