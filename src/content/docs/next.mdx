@@ -71,7 +71,7 @@ The new command-line interface (CLI) system lets you compile and get rid of any 
 
         To allow the CLI command to scan your project files and build the CSS base in the output path, add the content array and output string field.
 
-        ```js title="yummacss.config.js"
+        ```js title="yummacss.config.js" mark={2-3}
         export const config = {
             content: ["src/**/*.{html}"],
             output: "src/globals.css",
@@ -82,7 +82,7 @@ The new command-line interface (CLI) system lets you compile and get rid of any 
 
         Start using Yumma CSS utilities in your markup to generate CSS with the CLI.
 
-        ```html title="app.html" mark={11-16}
+        ```html mark={11-16}
         <!DOCTYPE html>
         <html lang="en">
 
@@ -660,22 +660,22 @@ In v3, new font stacks are being implemented, existing utilities are being refin
 
 In v3, we're adding individual tools for Border Radius. This helps avoid duplication while maintaining design consistency.
 
-```diff lang="html"" "rad-b-2" title="app.html"
+```diff lang="html" "rad-b-2"
 - <button class="b-1 bg-black rad-bl-2 rad-br-2 tc-white">Send</button>
 + <button class="b-1 bg-black rad-b-2 tc-white">Send</button>
 ```
 
-```diff lang="html"" "rad-l-2" title="app.html"
+```diff lang="html" "rad-l-2"
 - <button class="b-1 bg-black rad-bl-2 rad-tl-2 tc-white">Send</button>
 + <button class="b-1 bg-black rad-l-2 tc-white">Send</button>
 ```
 
-```diff lang="html"" "rad-r-2" title="app.html"
+```diff lang="html" "rad-r-2"
 - <button class="b-1 bg-black rad-br-2 rad-tr-2 tc-white">Send</button>
 + <button class="b-1 bg-black rad-r-2 tc-white">Send</button>
 ```
 
-```diff lang="html"" "rad-t-2" title="app.html"
+```diff lang="html" "rad-t-2"
 - <button class="b-1 bg-black rad-tl-2 rad-tr-2 tc-white">Send</button>
 + <button class="b-1 bg-black rad-t-2 tc-white">Send</button>
 ```
@@ -686,7 +686,7 @@ In v3, both the light (`l-`) and dark (`d-`) specifiers are being removed across
 
 To make this easier to understand, let's look at the `background-color` utility.
 
-```diff lang="html"" title="app.html"
+```diff lang="html"
 - <button class="bg-l-indigo-6 h:bg-d-indigo-1">Hello</button>
 + <button class="bg-indigo-1 h:bg-indigo-7">Hello</button>
 ```
@@ -760,7 +760,7 @@ We're making Yumma CSS even more concise with the utility classes to keep everyt
 
 In v3, we're making the `columns` utilities even smaller than before.
 
-```diff lang="html"" title="app.html" "c-*"
+```diff lang="html" "c-*"
 - <div class="cols-* ..."></div>
 + <div class="c-* ..."></div>
 ```
@@ -769,14 +769,14 @@ In v3, we're making the `columns` utilities even smaller than before.
 
 In v3, we've made the Dimension utility even more abbreviated to align with the purpose of the framework.
 
-```diff lang="html"" title="app.html" "d-*"
+```diff lang="html" "d-*"
 - <div class="dim-* ..."></div>
 + <div class="d-* ..."></div>
 ```
 
 This also applies to the Max and Min Dimension utilities.
 
-```diff lang="html"" title="app.html" "max-d-*" "min-d-*"
+```diff lang="html" "max-d-*" "min-d-*"
 - <div class="max-dim-* min-dim-* ..."></div>
 + <div class="max-d-* min-d-* ..."></div>
 ```
@@ -785,7 +785,7 @@ This also applies to the Max and Min Dimension utilities.
 
 In v3, we've shortened the syntax for the Spacing utilities.
 
-```diff lang="html"" title="app.html" "sx-*" "sy-*"
+```diff lang="html" "sx-*" "sy-*"
 - <div class="s-x-* s-y-* ..."></div>
 + <div class="sx-* sy-* ..."></div>
 ```
@@ -797,25 +797,25 @@ In v3, we've also made changes to the way the Bottom / Left / Right / Top utilit
 {/* prettier-ignore */}
 <Tabs>
   <TabItem label="Bottom">
-    ```diff lang="html"" title="app.html" "bo-* "
+    ```diff lang="html" "bo-* "
     - <div class="dir-b-* ..."></div>
     + <div class="bo-* ..."></div>
     ```
   </TabItem>
   <TabItem label="Left">
-    ```diff lang="html" "title="app.html" "l-* "
+    ```diff lang="html"  "l-* "
     - <div class="dir-l-* ..."></div>
     + <div class="l-* ..."></div>
     ```
   </TabItem>
   <TabItem label="Right">
-    ```diff lang="html" "title="app.html" "r-* "
+    ```diff lang="html"  "r-* "
     - <div class="dir-r-* ..."></div>
     + <div class="r-* ..."></div>
     ```
   </TabItem>
   <TabItem label="Top">
-    ```diff lang="html" "title="app.html" "t-* "
+    ```diff lang="html"  "t-* "
     - <div class="dir-t-* ..."></div>
     + <div class="t-* ..."></div>
     ```
@@ -830,7 +830,7 @@ It's time to say goodbye to some of the old utilities in Yumma CSS. Here are som
 
 It's been a great ride, and we're sure most of you have used it to easily center a div in the middle of the screen, but this concept was not very useful in many case scenarios where you would typically need more customizability, so we've decided to remove it.
 
-```diff lang="html"" title="app.html"
+```diff lang="html"
 - <div class="ins ..."></div>
 + <div class="ai-c d-f jc-c ..."></div>
 ```
@@ -839,7 +839,7 @@ It's been a great ride, and we're sure most of you have used it to easily center
 
 We are no longer supporting the `cnt` utility. We are making improvements to our modifiers to make them more flexible and easier to use.
 
-```diff lang="html"" title="app.html"
+```diff lang="html"
 - <div class="cnt">Container</div>
 ```
 
