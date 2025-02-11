@@ -5,7 +5,7 @@ export const sidebar = [
     label: "Get Started",
     items: [
       { label: "Installation", link: "docs/installation" },
-      { label: "Components", link: "/components" },
+      // { label: "Components", link: "/components" },
       { label: "Playground", link: "https://play.yummacss.com" },
       {
         label: "Resources",
@@ -81,18 +81,12 @@ export const sidebar = [
   //   autogenerate: { directory: "core/svg" },
   // },
   // {
-  //   label: "Transforms & Transitions",
+  //   label: "Transforms",
   //   items: [
   //     {
   //       label: "Transforms",
   //       autogenerate: {
-  //         directory: "core/transforms-transitions/transforms",
-  //       },
-  //     },
-  //     {
-  //       label: "Transitions",
-  //       autogenerate: {
-  //         directory: "core/transforms-transitions/transitions",
+  //         directory: "core/transforms",
   //       },
   //     },
   //   ],
