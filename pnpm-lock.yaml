@@ -23,9 +23,6 @@ importers:
       '@fontsource-variable/plus-jakarta-sans':
         specifier: ^5.1.1
         version: 5.1.1
-      '@fontsource/geist-sans':
-        specifier: ^5.1.0
-        version: 5.1.0
       '@types/tinycolor2':
         specifier: ^1.4.6
         version: 1.4.6
@@ -364,9 +361,6 @@ packages:
 
   '@fontsource-variable/plus-jakarta-sans@5.1.1':
     resolution: {integrity: sha512-89gGj8paLxMnlJWVbsWwTgI3T0VwncJmA2pf3nrOWTJK1RT+mQsE++3+BLTNLo7RpYvtuMbEFrsMsZXwGuL2zg==}
-
-  '@fontsource/geist-sans@5.1.0':
-    resolution: {integrity: sha512-4AI/UxIcZiYgK6/cTo4R9oM4VHHLcFdHVv7m2+M42VyY16hhKJADrGe4HPjTxvolmce2IZX/jc6sFJ+GkLB64w==}
 
   '@img/sharp-darwin-arm64@0.33.5':
     resolution: {integrity: sha512-UT4p+iz/2H4twwAoLCqfA9UH5pI6DggwKEGuaPy7nCVQ8ZsiY5PIcrRvD1DzuY3qYL07NtIQcWnBSY/heikIFQ==}
@@ -2928,8 +2922,6 @@ snapshots:
       '@expressive-code/core': 0.40.1
 
   '@fontsource-variable/plus-jakarta-sans@5.1.1': {}
-
-  '@fontsource/geist-sans@5.1.0': {}
 
   '@img/sharp-darwin-arm64@0.33.5':
     optionalDependencies:
