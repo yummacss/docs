@@ -1,52 +1,37 @@
 ---
 title: Yumma CSS v3.0 Beta
-description: Beta Documentation.
+description: Take a look at what's coming in the next version of Yumma CSS.
 slug: docs/next
 ---
 
 It looks like you're just as excited as we are about what's to come in the next version of Yumma CSS! We can't wait to show you what we've got in store. Get ready, because the next version of Yumma CSS is going to be amazing!
 
-<Aside type="caution" title="Work In Progress">
-  This version is a work in progress. Some features might be updated or left out of the final version.
-</Aside>
+This version is a work in progress and some features might be updated or left out of the final version.
 
-## Yumma CSS CLI
+## What's new in v3.0?
 
-Up until recently, the only way to use Yumma CSS was to import the compiled CSS into your main CSS file. As Yumma CSS is becoming more and more extensive, importing all its content at once might cause performance issues and slower loading times.
+We've completely rewritten the code base for Yumma CSS v3, both internally and externally, and we're excited to improve the way you work with CSS and how it's generated in your projects.
 
-We're really excited to introduce Yumma CSS CLI, an awesome new way to create production-ready and fully optimized Yumma CSS projects.
+We're planning to address some major performance issues and add and improve existing utilities in the framework, among other things.
 
-### Dependency changes
+### Hello Yumma CSS CLI!
 
-If you're planning on using the command-line interface feature, we suggest installing yummacss as a dev dependency since we're now dealing with SCSS compilation on the user side.
+Until recently, you had to import a lot of annoying CSS from Yumma CSS, which was a real pain.
 
-```bash
-npm install yummacss@latest --save-dev
-```
+With the new command-line interface (CLI), you'll never have to worry about shipping unused CSS to the browser.
 
-The full set of utilities will be retained within the distribution folder for the purpose of facilitating the importation of the entire Yumma utilities suite, should this be required.
-
-<FileTree>
-
-    - dist
-    	- yumma.css
-    	- yumma.min.css
-
-</FileTree>
-
-### Upgrade from v2.1
-
-The new command-line interface (CLI) system lets you compile and get rid of any unused utilities you're not using in your Yumma CSS project, which means smaller CSS files and better performance.
+We're talking production-ready, fully optimized, lightweight Yumma CSS projects.
 
 <Steps>
 
-    1. **Remove `@import` rules**
+    1. **Install Yumma CSS:**
 
-        The CLI works by compiling SCSS to CSS, so there's no need to import the Yumma CSS package dependency.
+        Before we get started, add `yummacss` to your project as dev dependency.
 
-        ```diff lang="css" title="src/globals.css"
-        - /* Minified Version */
-        - @import "/node_modules/yummacss/dist/yumma.min.css";
+        Learn more about dependency changes [here](#dependency-changes).
+
+        ```bash title="Terminal"
+        npm install yummacss@latest --save-dev
         ```
 
     2. **Add the Yumma config file**
@@ -69,12 +54,16 @@ The new command-line interface (CLI) system lets you compile and get rid of any 
 
     3. **Set up the config file**
 
-        To allow the CLI command to scan your project files and build the CSS base in the output path, add the content array and output string field.
+        To allow the CLI command to scan your project files and build the CSS base in the output path, add the source array and output string field.
 
-        ```js title="yummacss.config.js" mark={2-3}
+        ```js title="yummacss.config.js" mark={2-7}
         export const config = {
-            content: ["src/**/*.{html}"],
+            source: ["src/**/*.{html}"],
             output: "src/globals.css",
+            capabilities: {
+              core: false, // Optional
+              minify: false, // Optional
+            }
         };
         ```
 
@@ -82,7 +71,7 @@ The new command-line interface (CLI) system lets you compile and get rid of any 
 
         Start using Yumma CSS utilities in your markup to generate CSS with the CLI.
 
-        ```html mark={11-16}
+        ```html mark={7, 11-16}
         <!DOCTYPE html>
         <html lang="en">
 
@@ -112,148 +101,9 @@ The new command-line interface (CLI) system lets you compile and get rid of any 
         npx yummacss build
         ```
 
-        Whenever you run `npx yummacss build`, the CLI will rescan the whole project to make sure you're always compiling what your project is using. This also purges of any useless utilities in your codebase.
+        Whenever you run `npx yummacss build`, the CLI will create a new CSS file and scan project paths based on the `yummacss.config.js` to purge of any unused styles.
 
-        ```css title="globals.css" collapse={1-138, 178-228}
-        /**
-        * Yumma CSS v3.0.0 by Renildo Pereira | https://www.yummacss.com/
-        */
-        /** -- Box sizing --
-        * 1. Use a more intuitive box-sizing model to make the design consistent.
-        * 2. Remove default margin and padding.
-        * 3. Reset default border styles.
-        */
-        *,
-        *::before,
-        *::after {
-          box-sizing: border-box; /* 1 */
-          border: 0 solid; /* 3 */
-        }
-
-        * {
-          margin: 0; /* 2 */
-          padding: 0; /* 2 */
-        }
-
-        /** -- Document --
-        * 1. Improve font smoothing.
-        * 2. Set a default system font.
-        * 3. Add accessible line-height.
-        */
-        body {
-          -webkit-font-smoothing: antialiased; /* 1 */
-          font-family: system-ui, sans-serif; /* 2 */
-          line-height: 1.5; /* 3 */
-        }
-
-        /** -- Media Elements --
-        * 1. Ensure all media elements like images, videos, and canvases are block-level.
-        * 2. Limit their maximum width to the parent container.
-        */
-
-        /** -- Form Elements --
-        * 1. Reset background and border styles for form elements.
-        * 2. Use `inherit` to ensure font consistency within forms.
-        * 3. Add default padding for usability.
-        */
-        button {
-          background-color: transparent; /* 1 */
-          font-family: inherit; /* 2 */
-          padding: 0.5rem; /* 3 */
-        }
-
-        /**
-        * Add a default border to form elements that do not have a class attribute.
-        */
-        button:not([class]) {
-          border: 1px solid rgb(191, 194, 199); /* 1 */
-        }
-
-        /**
-        * Apply consistent focus styles to interactive elements.
-        */
-
-        button:focus {
-          outline: 2px solid black;
-          outline-offset: 2px;
-        }
-
-        /**
-        * Set a minimum height for textareas without a defined `rows` attribute.
-        */
-
-        /**
-        * Ensure the buttons have a pointer cursor.
-        */
-        button {
-          cursor: pointer;
-        }
-
-        /** Disabled States
-        * 1. Reduce opacity and set a "not-allowed" cursor for disabled elements.
-        */
-        button:disabled {
-          cursor: not-allowed; /* 1 */
-          opacity: 0.5; /* 1 */
-        }
-
-        /** -- Typography --
-        * 1. Avoid text overflows.
-        * 2. Improve line wrapping for headings.
-        * 3. Add a consistent font weight for bold text.
-        */
-        h1,
-        p {
-          overflow-wrap: break-word; /* 1 */
-        }
-
-        h1 {
-          font-size: 1rem; /* 3 */
-          font-weight: 600; /* 3 */
-          text-wrap: balance; /* 2 */
-        }
-
-        p {
-          text-wrap: pretty; /* 2 */
-        }
-
-        /**
-        * Add the correct font weight in Chrome, Edge, and Safari.
-        */
-
-        /**
-        * Add the correct font size in all browsers.
-        */
-
-        /**
-        * 1. Correct the inheritance and scaling of font size in all browsers.
-        * 2. Correct the odd `em` font sizing in all browsers.
-        */
-
-        /** -- Links --
-        * 1. Remove underline styling from links by default.
-        * 2. Restore underline styling on hover for accessibility.
-        * 3. Reset color to inherit from parent element.
-        */
-
-        /** -- Lists --
-        * Remove default list styling and padding.
-        */
-
-        /** -- Tables --
-        * 1. Add a consistent font weight for bold text.
-        */
-
-        /** -- Miscellaneous --
-        * 1. Add the correct height in Firefox.
-        * 2. Correct text decoration.
-        * 3. Add spacing around horizontal rules.
-        */
-
-        /**
-        * Ensure details and summary elements display correctly.
-        */
-
+        ```css title="globals.css" collapse={5-29, 43-89}
         .rad-1 {
           border-radius: 0.25rem;
         }
@@ -347,37 +197,6 @@ The new command-line interface (CLI) system lets you compile and get rid of any 
 
 </Steps>
 
-### Core changes
-
-From now on, core files like `yumma-core.css` and `yumma-core.min.css` will be deleted from the `/dist` folder in favor of the `yummacss.config.js` config file.
-
-<Tabs>
-  <TabItem label="v3.0">
-    ```js mark={4-7} title="yummacss.config.js"
-    export const config = {
-        content: ["src/**/*.{html}"],
-        output: "src/globals.css",
-        capabilities: {
-            core: false, // Disable base styles
-            minify: true, // Minifies CSS
-        }
-    };
-    ```
-
-  </TabItem>
-  <TabItem label="v2.1">
-
-    ```css title="src/globals.css"
-    /* Disable base styles */
-    @import "https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@latest/dist/yumma-core.css";
-
-    /* Disable base styles and minify CSS */
-    @import "https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@latest/dist/yumma-core.min.css";
-    ```
-
-  </TabItem>
-</Tabs>
-
 ### Build performance
 
 We completely overhauled the entire codebase to get better performance in build times and overall file size. We changing the way utilities and modifiers are generated, to eliminate any potential for duplicated or unnecessary data in the `/dist` folder.
@@ -389,11 +208,135 @@ We completely overhauled the entire codebase to get better performance in build 
 | File size (minified) | 2.48 MB | ???  | ???         |
 | Utilities coverage   | 111     | 163  | +52         |
 
+### All-new utilities
+
+To make the Yumma CSS framework as complete as possible, we're adding support for over 60 utility classes to the core of the framework.
+
+| Category      | Properties                                                                                                                                                                                                                |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Backgrounds   | Background Attachment, Background Clip, Background Origin, Background Position, Background Repeat, Background Size                                                                                                        |
+| Borders       | Border Spacing, Border Radius                                                                                                                                                                                             |
+| Box Model     | Margin: Block End, Block Start, Inline End, Inline Start; Padding: Block End, Block Start, Inline End, Inline Start                                                                                                       |
+| Effect        | Blur, Box Decoration Break, Grayscale                                                                                                                                                                                     |
+| Flexbox       | Order, Place, Place Content, Place Items, Place Self                                                                                                                                                                      |
+| Interactivity | Scroll Behavior, Scroll Margin: Bottom, Inline End, Inline Start, Left, Right, Top, X, Y; Scroll Padding: Bottom, Inline End, Inline Start, Left, Right, Top, X, Y; Scroll Snap Align, Scroll Snap Stop, Scroll Snap Type |
+| Layout        | Clear, Direction (Axis), Isolation, Visibility                                                                                                                                                                            |
+| SVG           | Fill, Stroke, Stroke Width                                                                                                                                                                                                |
+| Text          | Letter Spacing, List Style Position, Text Indent, Text Overflow, Text Transform, Text Underline Offset, Text Wrap, Vertical Align, Whitespace                                                                             |
+| Transforms    | Rotate, Scale, Skew, Transform Origin, Translate                                                                                                                                                                          |
+
+### New logo and design
+
+After putting in weeks of work and going through a bunch of trials, we finally refreshed the new logo and design of Yumma CSS — Special shout-out to [@heydut](https://github.com/heydut) for their help.
+
+<div class="ai-c d-f jc-c rad-4" style="background: light-dark(var(--sl-color-black), var(--sl-color-gray-6));">
+  <img
+    alt="Yumma CSS Mark"
+    class="light:sl-hidden max-h-full"
+    src="/trademark/logo-dark.png"
+    width="440"
+  />
+
+  <img
+    alt="Yumma CSS Mark"
+    class="dark:sl-hidden max-h-full"
+    src="/trademark/logo-light.png"
+    width="440"
+  />
+</div>
+
+This new logo shows the major changes to Yumma CSS 3.0 and how it will have a positive impact on future versions.
+We've switched from a Pink to an Indigo color.
+
+We also changed the shape of the logomark to resemble the flexibility that v3 is all about. Check out our brand [logotype guidelines here](/brand).
+
 ---
 
-## Stylecent changes
+## Upgrading to v3.0
 
-We're making some changes to Stylecent in version 3 to make it more modern and consistent. These changes are turned on by default, but you can turn them off using the [`yummacss.config.js`](#core-changes) file.
+<Steps>
+
+  1.  **Remove `@import` rules**
+
+      The CLI works by compiling SCSS to CSS, so there's no need to import the Yumma CSS package dependency.
+
+      ```diff lang="css" title="src/globals.css"
+      - /* Minified Version */
+      - @import "/node_modules/yummacss/dist/yumma.min.css";
+      ```
+
+  2. **Add the Yumma config file**
+
+      Create a `yummacss.config.js` file at the project root.
+
+      <FileTree>
+          - node_modules/
+          - public
+              - favicon.ico
+          - src
+              - globals.css
+              - app.html
+          - .gitignore
+          - package-lock.json
+          - package.json
+          - **yummacss.config.js**
+
+      </FileTree>
+
+    3. **Set up the config file**
+
+        Setup the `source` array and `output` string field.
+
+        ```js title="yummacss.config.js" mark={2-7}
+        export const config = {
+            source: ["src/**/*.{html}"],
+            output: "src/globals.css",
+            capabilities: {
+              core: false, // Optional
+              minify: false, // Optional
+            }
+        };
+        ```
+
+    4. **Compile the SCSS**
+
+        Run `npx yummacss build` in your terminal to compile to CSS.
+
+        ```bash title="Terminal"
+        npx yummacss build
+        ```
+
+</Steps>
+
+---
+
+## Changes in v3.0
+
+Like some of the past major updates, Yumma CSS v3 is changing its core framework structure. Just so you know, there are going to be a few breaking changes in the release, so it might be worth taking a look before you update.
+
+### Dependency changes
+
+Consider installing `yummacss` as a dev dependency when using the CLI feature since we're now dealing with SCSS compilation, so there's no need for you to ship extra content in your project.
+
+```bash
+npm install yummacss@latest --save-dev
+```
+
+The full set of utilities will be retained within the distribution folder for the purpose of facilitating the importation of the entire Yumma utilities suite, should this be required.
+
+<FileTree>
+
+    - dist
+    	- yumma.css
+    	- yumma.min.css
+
+</FileTree>
+
+---
+
+### Modernizing Stylecent
+
+We're making some changes to Stylecent in v3 to make it more modern and consistent. These changes are turned on by default, but you can turn them off using the [`yummacss.config.js`](#core-changes) file.
 
 By default, all paddings will be removed.
 
@@ -553,26 +496,40 @@ summary {
 }
 ```
 
+#### Disabling Stylecent
+
+From now on, core files like `yumma-core.css` and `yumma-core.min.css` will be deleted from the `/dist` folder in favor of the `yummacss.config.js` config file.
+
+<Tabs>
+  <TabItem label="v3.0">
+    ```js mark={4-7} title="yummacss.config.js"
+    export const config = {
+        source: ["src/**/*.{html}"],
+        output: "src/globals.css",
+        capabilities: {
+            core: false, // Disable base styles
+            minify: true, // Minifies CSS
+        }
+    };
+    ```
+
+  </TabItem>
+  <TabItem label="v2.1">
+
+    ```css title="src/globals.css"
+    /* Disable base styles */
+    @import "https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@latest/dist/yumma-core.css";
+
+    /* Disable base styles and minify CSS */
+    @import "https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@latest/dist/yumma-core.min.css";
+    ```
+
+  </TabItem>
+</Tabs>
+
 ---
 
-## All-new utilities
-
-To make the Yumma CSS framework as complete as possible, we're adding support for over 60 utility classes to the core of the framework.
-
-| Category      | Properties                                                                                                                                                                                                                |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Backgrounds   | Background Attachment, Background Clip, Background Origin, Background Position, Background Repeat, Background Size                                                                                                        |
-| Borders       | Border Spacing, Border Radius                                                                                                                                                                                             |
-| Box Model     | Margin: Block End, Block Start, Inline End, Inline Start; Padding: Block End, Block Start, Inline End, Inline Start                                                                                                       |
-| Effect        | Blur, Box Decoration Break, Grayscale                                                                                                                                                                                     |
-| Flexbox       | Order, Place, Place Content, Place Items, Place Self                                                                                                                                                                      |
-| Interactivity | Scroll Behavior, Scroll Margin: Bottom, Inline End, Inline Start, Left, Right, Top, X, Y; Scroll Padding: Bottom, Inline End, Inline Start, Left, Right, Top, X, Y; Scroll Snap Align, Scroll Snap Stop, Scroll Snap Type |
-| Layout        | Clear, Direction (Axis), Isolation, Visibility                                                                                                                                                                            |
-| SVG           | Fill, Stroke, Stroke Width                                                                                                                                                                                                |
-| Text          | Letter Spacing, List Style Position, Text Indent, Text Overflow, Text Transform, Text Underline Offset, Text Wrap, Vertical Align, Whitespace                                                                             |
-| Transforms    | Rotate, Scale, Skew, Transform Origin, Translate                                                                                                                                                                          |
-
-### Font Size
+### Font Size utilities
 
 In v3, new `font-size` utilities are being incorporated, and the visual sequential incremental between values is being enhanced to rectify the previous exaggerated outputs.
 
@@ -628,7 +585,7 @@ In v3, new `font-size` utilities are being incorporated, and the visual sequenti
   </TabItem>
 </Tabs>
 
-### Font Family
+### Font Family utilities
 
 In v3, new font stacks are being implemented, existing utilities are being refined, and additional fallback options are being incorporated for every `font-family` utility class. — https://modernfontstacks.com/
 
@@ -656,7 +613,7 @@ In v3, new font stacks are being implemented, existing utilities are being refin
   </TabItem>
 </Tabs>
 
-### Border Bottom / Left/ Right/ Top Radius
+### Border Bottom / Left/ Right/ Top Radius utilities
 
 In v3, we're adding individual tools for Border Radius. This helps avoid duplication while maintaining design consistency.
 
@@ -680,7 +637,7 @@ In v3, we're adding individual tools for Border Radius. This helps avoid duplica
 + <button class="b-1 bg-black rad-t-2 tc-white">Send</button>
 ```
 
-## Color improvements
+### Color utility changes
 
 In v3, both the light (`l-`) and dark (`d-`) specifiers are being removed across all color utilities. As a result, the range used to determine a color's shade was also adjusted.
 
@@ -751,6 +708,8 @@ Also, the color hue is increasing from `10%` shade modification to `14%`. This m
     />
   </TabItem>
 </Tabs>
+
+---
 
 ## Syntax changes
 
@@ -842,28 +801,3 @@ We are no longer supporting the `cnt` utility. We are making improvements to our
 ```diff lang="html"
 - <div class="cnt">Container</div>
 ```
-
-## New logotype, new logomark
-
-After putting in weeks of work and going through a bunch of trials, we finally refreshed the new logo and design of Yumma CSS — Special shout-out to [@heydut](https://github.com/heydut) for their help.
-
-<div class="ai-c d-f jc-c rad-4" style="background: light-dark(var(--sl-color-black), var(--sl-color-gray-6));">
-  <img
-    alt="Yumma CSS Mark"
-    class="light:sl-hidden max-h-full"
-    src="/trademark/logo-dark.png"
-    width="440"
-  />
-
-  <img
-    alt="Yumma CSS Mark"
-    class="dark:sl-hidden max-h-full"
-    src="/trademark/logo-light.png"
-    width="440"
-  />
-</div>
-
-This new logo shows the major changes to Yumma CSS 3.0 and how it will have a positive impact on future versions.
-We've switched from a Pink to an Indigo color.
-
-We also changed the shape of the logomark to resemble the flexibility that v3 is all about. Check out our brand [logotype guidelines here](/brand).
