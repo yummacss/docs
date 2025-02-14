@@ -197,17 +197,6 @@ We're talking production-ready, fully optimized, lightweight Yumma CSS projects.
 
 </Steps>
 
-### Build performance
-
-We completely overhauled the entire codebase to get better performance in build times and overall file size. We changing the way utilities and modifiers are generated, to eliminate any potential for duplicated or unnecessary data in the `/dist` folder.
-
-| Metric               | v2.1    | v3.0 | Improvement |
-| -------------------- | ------- | ---- | ----------- |
-| Complete build       | 13.88 s | ???  | ???         |
-| File size (standard) | 3.21 MB | ???  | ???         |
-| File size (minified) | 2.48 MB | ???  | ???         |
-| Utilities coverage   | 111     | 163  | +52         |
-
 ### All-new utilities
 
 To make the Yumma CSS framework as complete as possible, we're adding support for over 50 utility classes to the core of the framework.
@@ -225,30 +214,16 @@ To make the Yumma CSS framework as complete as possible, we're adding support fo
 | Text          | Letter Spacing, List Style Position, Text Indent, Text Overflow, Text Transform, Text Underline Offset, Text Wrap, Vertical Align, Whitespace                                                                             |
 | Transforms    | Rotate, Scale, Skew, Transform Origin, Translate                                                                                                                                                                          |
 
-### New logo and design
+### Build performance
 
-After putting in weeks of work and going through a bunch of trials, we finally refreshed the new logo and design of Yumma CSS — Special shout-out to [@heydut](https://github.com/heydut) for their help.
+We completely overhauled the entire codebase to get better performance in build times and overall file size. We changing the way utilities and modifiers are generated, to eliminate any potential for duplicated or unnecessary data in the `/dist` folder.
 
-<div class="ai-c d-f jc-c rad-4" style="background: light-dark(var(--sl-color-black), var(--sl-color-gray-6));">
-  <img
-    alt="Yumma CSS Mark"
-    class="light:sl-hidden max-h-full"
-    src="/trademark/logo-dark.png"
-    width="440"
-  />
-
-  <img
-    alt="Yumma CSS Mark"
-    class="dark:sl-hidden max-h-full"
-    src="/trademark/logo-light.png"
-    width="440"
-  />
-</div>
-
-This new logo shows the major changes to Yumma CSS 3.0 and how it will have a positive impact on future versions.
-We've switched from a Pink to an Indigo color.
-
-We also changed the shape of the logomark to resemble the flexibility that v3 is all about. Check out our brand [logotype guidelines here](/brand).
+| Metric               | v2.1    | v3.0 | Improvement |
+| -------------------- | ------- | ---- | ----------- |
+| Complete build       | 13.88 s | ???  | ???         |
+| File size (standard) | 3.21 MB | ???  | ???         |
+| File size (minified) | 2.48 MB | ???  | ???         |
+| Utilities coverage   | 111     | 163  | +52         |
 
 ### Upgrading to v3.0
 
