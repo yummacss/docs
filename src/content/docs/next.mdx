@@ -745,19 +745,19 @@ In v3, we've shortened the syntax for the Spacing utilities.
 + <div class="sx-* sy-* ..."></div>
 ```
 
-### `.ins{}` utility
+### Removed `.cnt{}` utility
+
+We are no longer supporting the `cnt` utility. We are making improvements to our modifiers to make them more flexible and easier to use.
+
+```diff lang="html"
+- <div class="cnt">Container</div>
+```
+
+### Removed `.ins{}` utility
 
 It's been a great ride, and we're sure most of you have used it to easily center a div in the middle of the screen, but this concept was not very useful in many case scenarios where you would typically need more customizability, so we've decided to remove it.
 
 ```diff lang="html"
 - <div class="ins ..."></div>
 + <div class="ai-c d-f jc-c ..."></div>
-```
-
-### `.cnt{}` utility
-
-We are no longer supporting the `cnt` utility. We are making improvements to our modifiers to make them more flexible and easier to use.
-
-```diff lang="html"
-- <div class="cnt">Container</div>
 ```
