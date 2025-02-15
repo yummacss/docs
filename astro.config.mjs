@@ -156,7 +156,7 @@ export default defineConfig({
   redirects: {
     // normalize
     "/docs": "/docs/installation",
-    "/docs/build-css/": "/docs/first-steps#just-use-css",
+    "/docs/build-css/": "/docs/first-steps#building-styles",
     "/docs/colors": "/docs/first-steps#applying-color-utilities",
     "/docs/modifiers/": "/docs/first-steps#applying-utilities-conditionally",
 
