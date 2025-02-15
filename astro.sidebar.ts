@@ -5,22 +5,11 @@ export const sidebar = [
     label: "Get Started",
     items: [
       { label: "Installation", link: "docs/installation" },
-      // { label: "Components", link: "/components" },
+      { label: "First Steps", link: "docs/first-steps" },
+      { label: "Configuration", link: "docs/configuration" },
       { label: "Playground", link: "https://play.yummacss.com" },
-      {
-        label: "Resources",
-        link: "/resources",
-      },
+      { label: "Resources", link: "/resources" },
     ],
-  },
-  // {
-  // badge: "New",
-  // label: "CLI",
-  // autogenerate: { directory: "/cli" },
-  // },
-  {
-    label: "Concepts",
-    autogenerate: { directory: "/concepts" },
   },
   {
     label: "Base Styles",

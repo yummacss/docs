@@ -1,0 +1,186 @@
+---
+title: First Steps
+banner:
+  content: Support Yumma CSS by <a href=https://www.yummacss.com/docs/next>starring us on GitHub</a>!
+description: A guide to getting started with Yumma CSS.
+slug: /docs/first-steps
+---
+
+## "Just use CSS"
+
+Staying consistent with Cascade CSS is a real challenge. The amount of work you have to put in is almost overwhelming, to the point where it's hard to imagine how you'd keep up with it over time.
+
+### Styling using cascade
+
+Here's an example of how you can style a button using Vanilla CSS:
+
+```html live
+<style>
+  .btn-indigo {
+    background-color: #595cd9;
+    border-radius: 0.25rem;
+    border-width: 0px;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    padding-bottom: 0.25rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    padding-top: 0.25rem;
+  }
+
+  .btn-indigo:hover {
+    background-color: #474aae;
+  }
+</style>
+
+<button class="btn-indigo">Subscribe</button>
+```
+
+### Styling using Yumma CSS
+
+Yumma CSS is a pretty abstract framework that's closely aligned with Vanilla CSS. It uses an abbreviated naming convention, which keeps your inline-classes nice and short.
+
+Plus, it makes it easier to maintain and scale without any guesswork.
+
+{/* prettier-ignore */}
+```html live
+<button class="bg-indigo rad-1 b-0 tc-white c-p fw-600 py-1 px-5 h:bg-d-indigo-2">
+  Subscribe
+</button>
+```
+
+Since each utility will have a specific style property, you can reuse it over and over again, making your design system consistent.
+
+#### Quick reference
+
+Here's a quick reference for the examples above.
+
+| Vanilla CSS                                | Yumma CSS |
+| ------------------------------------------ | --------- |
+| [background-color](/docs/background-color) | `bg-*`    |
+| [border-radius](/docs/border-radius)       | `rad-*`   |
+| [border-width](/docs/border-width)         | `b-*`     |
+| [color](/docs/color)                       | `tc-*`    |
+| [cursor](/docs/cursor)                     | `c-*`     |
+| [font-weight](/docs/font-weight)           | `fw-*`    |
+| [padding-bottom](/docs/padding-bottom)     | `pb-*`    |
+| [padding-left](/docs/padding-left)         | `pl-*`    |
+| [padding-right](/docs/padding-right)       | `pr-*`    |
+| [padding-top](/docs/padding-top)           | `pt-*`    |
+| [hover](/docs/hover)                       | `h:*`     |
+
+---
+
+## Applying utilities conditionally
+
+Utility modifiers are designed to enable the conditional styling of elements based on user activity, such as when a user hovers over a specific element.
+
+### Media modifiers
+
+Use responsive breakpoints such as `sm:*`, `md:*`, `lg:*`, `xl:*` and `xxl:*` to apply specific rules to different screen sizes. For example:
+
+```html "lg:gtc-4" "md:gtc-3" "sm:gtc-2"
+<div class="cnt mx-auto p-4">
+  <div class="d-g g-4 gtc-1 lg:gtc-4 md:gtc-3 sm:gtc-2">
+    <div>...</div>
+  </div>
+
+  <div class="d-g g-4 gtc-1 lg:gtc-4 md:gtc-3 sm:gtc-2">
+    <div>...</div>
+  </div>
+
+  <div class="d-g g-4 gtc-1 lg:gtc-4 md:gtc-3 sm:gtc-2">
+    <div>...</div>
+  </div>
+
+  <div class="d-g g-4 gtc-1 lg:gtc-4 md:gtc-3 sm:gtc-2">
+    <div>...</div>
+  </div>
+</div>
+```
+
+#### Breakpoints
+
+Here's how breakpoints are defined in Yumma CSS:
+
+```scss title="_breakpoints.scss"
+$yma-breakpoints: (
+  "sm": 640px,
+  "md": 768px,
+  "lg": 1024px,
+  "xl": 1280px,
+  "xxl": 1536px,
+);
+```
+
+### Hover modifiers
+
+You can use the `h:` modifiers in order to target the `:hover` function across the entirety of the Yumma CSS utility classes.
+
+To illustrate, when overriding an existing utility class conditionally, ensure to utilize the `h:*` modifier, followed by the designated class to be applied on hover.
+
+<Message icon="mouse">Try moving the mouse over the button to see how the background color changes.</Message>
+
+```html live "h:bg-d-indigo-2"
+<button class="b-0 bg-indigo fw-600 h:bg-d-indigo-2 px-5 py-1 rad-1 tc-white c-p">Subscribe</button>
+```
+
+---
+
+## Styling using colors
+
+Get a set of default colors from Yumma CSS right away. Use the light and dark shades of the utility class to get a specific color and customize your theme.
+
+### Customizing colors
+
+If you want to specify a lighter or darker shade of a given color, you can use the `[class]-l-[color]-[shade]` selector to get a lighter color or the `[class]-d-[color]-[shade]` selector to get a darker color in a range of 1 to 6, with the exception of neutral colors like black, white, and transparent.
+
+Use `[class]-l-*` to get a lighter color, and `[class]-d-*` to get a darker color.
+
+```html live "bg-l-indigo-3" "bg-d-indigo-3"
+<div class="d-g g-16 gtc-1 sm:gtc-2">
+  <button class="b-0 bg-l-indigo-3 fw-600 px-5 py-1 rad-1 tc-white">Subscribe</button>
+  <button class="b-0 bg-d-indigo-3 fw-600 px-5 py-1 rad-1 tc-white">Subscribe</button>
+</div>
+```
+
+Here's the full spectrum color for the color Indigo.
+
+<Palette data={[{ name: "Indigo", color: "#595cd9" }]} />
+
+### Color palette
+
+Here's a spectrum of all the Yumma CSS color classes for customizing your theme.
+
+<Palette
+  data={[
+    { name: "Red", color: "#d73d3d" },
+    { name: "Orange", color: "#e06814" },
+    { name: "Yellow", color: "#d3a107" },
+    { name: "Green", color: "#1fb155" },
+    { name: "Teal", color: "#12a695" },
+    { name: "Cyan", color: "#05a4bf" },
+    { name: "Blue", color: "#3575dd" },
+    { name: "Indigo", color: "#595cd9" },
+    { name: "Violet", color: "#7d53dd" },
+    { name: "Pink", color: "#d4418a" },
+    { name: "Lead", color: "#3f3f4e" },
+    { name: "Gray", color: "#606773" },
+    { name: "Silver", color: "#bfc2c7" },
+  ]}
+/>
+
+### Color utilities
+
+Here's a list of all the Yumma CSS color classes for customizing your theme.
+
+| Utility                                              | Description                                      |
+| ---------------------------------------------------- | ------------------------------------------------ |
+| [Accent Color](/docs/accent-color)                   | Controls form control accent color.              |
+| [Background Color](/docs/background-color)           | Controls the background color of an element.     |
+| [Border Color](/docs/border-color)                   | Controls the color of the borders of an element. |
+| [Caret Color](/docs/caret-color)                     | Controls the text input cursor color.            |
+| [Outline Color](docs/outline-color)                  | Controls the color of the outline of an element. |
+| [Text Color](/docs/text-color)                       | Controls the text color of an element.           |
+| [Text Decoration Color](/docs/text-decoration-color) | Controls the color of the text decoration.       |
