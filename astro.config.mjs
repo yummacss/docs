@@ -156,6 +156,7 @@ export default defineConfig({
   redirects: {
     // normalize
     "/docs": "/docs/installation",
+    "/docs/colors": "/first-steps#applying-color-utilities",
 
     // prepare for v3
     "/docs/direction": "/docs/bottom-left-right-top",
