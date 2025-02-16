@@ -18,6 +18,8 @@ slug: docs/border-radius
   unit="rem"
 />
 
+This example showcases various border radius values: **0.25rem**, **0.5rem**, and **0.75rem**. The element will have slightly rounded corners, moderately rounded corners, and more pronounced rounded corners, respectively.
+
 ```html live "rad-1" "rad-2" "rad-3" "rad-half"
 <div class="d-g g-16 gtc-1 sm:gtc-3">
   <div class="bg-indigo dim-16 rad-1"></div>
@@ -26,9 +28,29 @@ slug: docs/border-radius
 </div>
 ```
 
+## Bottom Left Radius
+
+This example sets the bottom left border radius to **0.5rem**. The element will have moderately rounded corners at the bottom left.
+
+<Utility
+  additionalClasses={[
+    { name: "full", value: "100%" },
+    { name: "half", value: "50%" },
+  ]}
+  classPrefix="rad-bl-"
+  incrementValue={0.25}
+  propNames={["border-bottom-left-radius"]}
+  range={8}
+  unit="rem"
+/>
+
+```html live "rad-bl-2"
+<div class="bg-indigo dim-16 rad-bl-2"></div>
+```
+
 ## Bottom Right Radius
 
-Controls the radius of the border of the bottom right of an element.
+This example sets the bottom right border radius to **0.5rem**. The element will have moderately rounded corners at the bottom right.
 
 <Utility
   additionalClasses={[
@@ -48,7 +70,7 @@ Controls the radius of the border of the bottom right of an element.
 
 ## Top Left Radius
 
-Controls the radius of the border of the top left of an element.
+This example sets the top left border radius to **0.5rem**. The element will have moderately rounded corners at the top left.
 
 <Utility
   additionalClasses={[
@@ -68,7 +90,7 @@ Controls the radius of the border of the top left of an element.
 
 ## Top Right Radius
 
-Controls the radius of the border of the top right of an element.
+This example sets the top right border radius to **0.5rem**. The element will have moderately rounded corners at the top right.
 
 <Utility
   additionalClasses={[
