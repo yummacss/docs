@@ -805,13 +805,22 @@ In v3, new font stacks are being implemented, existing utilities are being refin
   </TabItem>
 </Tabs>
 
-### Spacing utilities
+### Spacing X utilities
 
-In v3, we've shortened the syntax for the Spacing utilities.
+In v3, we've shortened the syntax for the Spacing X utilities.
 
-```diff lang="html" "sx-*" "sy-*"
-- <div class="s-x-* s-y-* ..."></div>
-+ <div class="sx-* sy-* ..."></div>
+```diff lang="html"
+- <div class="s-x-* ..."></div>
++ <div class="sx-*..."></div>
+```
+
+### Spacing Y utilities
+
+Also, in v3, we've shortened the syntax for the Spacing Y utilities.
+
+```diff lang="html"
+- <div class="s-y-* ..."></div>
++ <div class="sy-* ..."></div>
 ```
 
 ### Removed `.cnt{}` utility
