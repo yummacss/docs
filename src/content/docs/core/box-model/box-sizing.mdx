@@ -19,25 +19,26 @@ slug: docs/box-sizing
   ]}
 />
 
-## Content Box
-
-The height and width of an element only apply to its content.
-
-```html live "bs-cb"
-<div class="stripes dim-26 b-2 bc-indigo bs-cb p-8">
-  <div class="ai-c bg-indigo d-f dim-full jc-c tc-white">Content</div>
-</div>
-```
-
 ## Border Box
 
-The height and width of the element are the same for all parts.
+This example sets the box sizing to **border-box**. The element's width and height include padding and borders, making it easier to manage layout dimensions.
 
-<Message icon="info">Stylecent uses the **border-box** rule by default.</Message>
+
+<Message icon="star">Stylecent uses the **border-box** rule by default.</Message>
 
 ```html live "bs-bb"
 <div class="stripes dim-26 b-2 bc-indigo bs-bb p-8">
   <div class="ai-c bg-indigo d-f dim-full jc-c tc-white">Box</div>
+</div>
+```
+
+## Content Box
+
+This example sets the box sizing to **content-box**. The element's width and height do not include padding and borders, which can affect the overall size of the element.
+
+```html live "bs-cb"
+<div class="stripes dim-26 b-2 bc-indigo bs-cb p-8">
+  <div class="ai-c bg-indigo d-f dim-full jc-c tc-white">Content</div>
 </div>
 ```
 
