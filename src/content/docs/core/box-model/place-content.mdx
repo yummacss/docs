@@ -11,7 +11,7 @@ draft: true
 
 ## Baseline
 
-Aligns grid items to the baseline.
+This example sets the place content to **baseline**. The items will be aligned along the baseline of the container.
 
 ```html live "pc-b" layout="/src/layouts/wide.astro"
 <div class="stripes rad-1 tc-white">
@@ -26,7 +26,7 @@ Aligns grid items to the baseline.
 
 ## Center
 
-Aligns grid items to the center of the container.
+This example sets the place content to **center**. The items will be centered within the container.
 
 ```html live "pc-c" layout="/src/layouts/wide.astro"
 <div class="stripes rad-1 tc-white">
@@ -41,7 +41,7 @@ Aligns grid items to the center of the container.
 
 ## End
 
-Aligns grid items to the end of the container.
+This example sets the place content to **end**. The items will be aligned to the end of the container.
 
 ```html live "pc-e" layout="/src/layouts/wide.astro"
 <div class="stripes rad-1 tc-white">
@@ -54,9 +54,24 @@ Aligns grid items to the end of the container.
 </div>
 ```
 
+## Start
+
+This example sets the place content to **start**. The items will be aligned to the start of the container.
+
+```html live "pc-s" layout="/src/layouts/wide.astro"
+<div class="stripes rad-1 tc-white">
+  <div class="d-g g-4 gtc-2 h-50 pc-s">
+    <div class="ai-c bg-indigo d-14 d-f jc-c p-4 rad-1">A</div>
+    <div class="ai-c bg-indigo d-14 d-f jc-c p-4 rad-1">B</div>
+    <div class="ai-c bg-indigo d-14 d-f jc-c p-4 rad-1">C</div>
+    <div class="ai-c bg-indigo d-14 d-f jc-c p-4 rad-1">D</div>
+  </div>
+</div>
+```
+
 ## Space Around
 
-Distributes grid items evenly with space around them.
+This example sets the place content to **space-around**. The items will be evenly distributed in the container with space around them.
 
 ```html live "pc-sa" layout="/src/layouts/wide.astro"
 <div class="stripes rad-1 tc-white">
@@ -71,7 +86,7 @@ Distributes grid items evenly with space around them.
 
 ## Space Between
 
-Distributes grid items with space between them.
+This example sets the place content to **space-between**. The items will be evenly distributed in the container with the first item at the start and the last item at the end.
 
 ```html live "pc-sb" layout="/src/layouts/wide.astro"
 <div class="stripes rad-1 tc-white">
@@ -86,7 +101,7 @@ Distributes grid items with space between them.
 
 ## Space Evenly
 
-Distributes grid items with equal space around them.
+This example sets the place content to **space-evenly**. The items will be evenly distributed in the container with equal space around them.
 
 ```html live "pc-se" layout="/src/layouts/wide.astro"
 <div class="stripes rad-1 tc-white">
@@ -101,7 +116,7 @@ Distributes grid items with equal space around them.
 
 ## Stretch
 
-Aligns grid items to stretch to fill the container.
+This example sets the place content to **stretch**. The items will stretch to fill the container along the cross axis.
 
 ```html live "pc-st" layout="/src/layouts/wide.astro"
 <div class="stripes rad-1 tc-white">
