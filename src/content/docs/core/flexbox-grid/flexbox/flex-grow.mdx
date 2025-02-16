@@ -8,13 +8,17 @@ slug: docs/flex-grow
 
 <Utility classPrefix="fg-" incrementValue={1} propNames={["flex-grow"]} range={8} />
 
-Controls how much of the flex container's positive free space, if there is any, should be used for the flex item's main size.
+This example showcases various flex-grow values: **0**, **1**, **2**, and **3**.
+
+- The **fg-0** class sets the flex-grow property to **0**, preventing the item from growing.
+- The **fg-1** class sets the flex-grow property to **1**, allowing the item to grow and fill available space equally with other items.
+- The **fg-2** class sets the flex-grow property to **2**, allowing the item to grow twice as much as an item with a flex-grow value of **1**.
 
 ```html live "fg-0" "fg-1" "fg-2" layout="/src/layouts/wide.astro"
-<div class="d-f g-4 p-4">
-  <div class="bg-indigo fg-0 p-4 rad-1 tc-white">A</div>
-  <div class="bg-indigo fg-1 p-4 rad-1 tc-white">B</div>
-  <div class="bg-indigo fg-2 p-4 rad-1 tc-white">C</div>
+<div class="d-f g-4 tc-white">
+  <div class="bg-indigo fg-0 p-4 rad-1">A</div>
+  <div class="bg-indigo fg-1 p-4 rad-1">B</div>
+  <div class="bg-indigo fg-2 p-4 rad-1">C</div>
 </div>
 ```
 
