@@ -154,11 +154,12 @@ export default defineConfig({
   ],
 
   redirects: {
-    // normalize
+    // prevent broken links on the web
     "/docs": "/docs/installation",
-    "/docs/build-css/": "/docs/first-steps#building-styles",
+    "/docs/build-css": "/docs/first-steps#building-styles",
     "/docs/colors": "/docs/first-steps#applying-color-utilities",
-    "/docs/modifiers/": "/docs/first-steps#applying-utilities-conditionally",
+    "/docs/modifiers": "/docs/first-steps#applying-utilities-conditionally",
+    "/docs/spacing": "/docs/spacing-between",
 
     // prepare for v3
     "/docs/direction": "/docs/bottom-left-right-top",

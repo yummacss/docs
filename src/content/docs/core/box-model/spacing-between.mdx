@@ -1,9 +1,9 @@
 ---
-title: Spacing
+title: Spacing Between
 banner:
   content: Support Yumma CSS by <a href=https://www.yummacss.com/docs/next>starring us on GitHub</a>!
 description: Controls the spacing of child elements.
-slug: docs/spacing
+slug: docs/spacing-between
 ---
 
 ## Spacing X
@@ -12,8 +12,10 @@ Controls the left and right X-axis margins of child elements.
 
 <Utility classPrefix="s-x-" incrementValue={0.25} propNames={["margin-left", "margin-right"]} range={100} unit="rem" />
 
+This example sets the left and right margins of child elements to **2rem**. The left margin is calculated as `calc(2rem * (1 - 0))`, resulting in **2rem**, while the right margin is calculated as `calc(2rem * 0)`, resulting in **0**. This results in a uniform spacing of **2rem** between child elements.
+
 ```html live "s-x-8"
-<div class="stripes d-if fd-r s-x-8">
+<div class="d-if fd-r stripes s-x-8">
   <div class="ai-c bg-indigo d-f dim-16 jc-c rad-1 tc-white">A</div>
   <div class="ai-c bg-indigo d-f dim-16 jc-c rad-1 tc-white">B</div>
   <div class="ai-c bg-indigo d-f dim-16 jc-c rad-1 tc-white">C</div>
@@ -22,12 +24,14 @@ Controls the left and right X-axis margins of child elements.
 
 ## Spacing Y
 
-Controls the top and bottom Y-axis margins of child elements.
+Controls the bottom and top Y-axis margins of child elements.
 
-<Utility classPrefix="s-y-" incrementValue={0.25} propNames={["margin-top", "margin-bottom"]} range={100} unit="rem" />
+<Utility classPrefix="s-y-" incrementValue={0.25} propNames={["margin-bottom", "margin-top"]} range={100} unit="rem" />
+
+This example sets the bottom and top margins of child elements to **2rem**. The bottom margin is calculated as `calc(2rem * 0)`, resulting in **0**, while the top margin is calculated as `calc(2rem * (1 - 0))`, resulting in **2rem**. This creates a uniform spacing of **2rem** between child elements.
 
 ```html live "s-y-8"
-<div class="stripes d-if fd-c s-y-8">
+<div class="d-if fd-c stripes s-y-8">
   <div class="ai-c bg-indigo d-f dim-16 jc-c rad-1 tc-white">A</div>
   <div class="ai-c bg-indigo d-f dim-16 jc-c rad-1 tc-white">B</div>
   <div class="ai-c bg-indigo d-f dim-16 jc-c rad-1 tc-white">C</div>
