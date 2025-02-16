@@ -615,28 +615,40 @@ Finally, in v3, we're changing changing the `justify-content` utility prefix fro
 + <div class="jc-st ..."></div>
 ```
 
-### Border Radius utilities
+### Border Bottom Radius utilities
 
-In v3, we're adding individual tools for Border Radius. This helps avoid duplication while maintaining design consistency.
+In v3, we're adding new `border-radius` utilities starting with `rad-b-*`
 
 ```diff lang="html" "rad-b-2"
-- <button class="b-1 bg-black rad-bl-2 rad-br-2 tc-white">Send</button>
-+ <button class="b-1 bg-black rad-b-2 tc-white">Send</button>
+- <button class="b-1 bg-black rad-bl-2 rad-br-2 tc-white">Subscribe</button>
++ <button class="b-1 bg-black rad-b-2 tc-white">Subscribe</button>
 ```
+
+### Border Left Radius utilities
+
+Additionally, in v3, we're also adding `rad-l-*` to add left rounded edges only to an element.
 
 ```diff lang="html" "rad-l-2"
-- <button class="b-1 bg-black rad-bl-2 rad-tl-2 tc-white">Send</button>
-+ <button class="b-1 bg-black rad-l-2 tc-white">Send</button>
+- <button class="b-1 bg-black rad-bl-2 rad-tl-2 tc-white">Subscribe</button>
++ <button class="b-1 bg-black rad-l-2 tc-white">Subscribe</button>
 ```
+
+### Border Right Radius utilities
+
+Additionally, in v3, we're also adding `rad-r-*` to add right rounded edges only to an element.
 
 ```diff lang="html" "rad-r-2"
-- <button class="b-1 bg-black rad-br-2 rad-tr-2 tc-white">Send</button>
-+ <button class="b-1 bg-black rad-r-2 tc-white">Send</button>
+- <button class="b-1 bg-black rad-br-2 rad-tr-2 tc-white">Subscribe</button>
++ <button class="b-1 bg-black rad-r-2 tc-white">Subscribe</button>
 ```
 
+### Border Top Radius utilities
+
+Additionally, in v3, we're also adding `rad-t-*` to add top rounded edges only to an element.
+
 ```diff lang="html" "rad-t-2"
-- <button class="b-1 bg-black rad-tl-2 rad-tr-2 tc-white">Send</button>
-+ <button class="b-1 bg-black rad-t-2 tc-white">Send</button>
+- <button class="b-1 bg-black rad-tl-2 rad-tr-2 tc-white">Subscribe</button>
++ <button class="b-1 bg-black rad-t-2 tc-white">Subscribe</button>
 ```
 
 ### Bottom / Left / Right / Top utilities
