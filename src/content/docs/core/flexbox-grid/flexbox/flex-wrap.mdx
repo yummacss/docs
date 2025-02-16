@@ -25,11 +25,11 @@ slug: docs/flex-wrap
 
 ### No Wrap
 
-The flex items will stay in a single line, even if they overflow the container.
+This example sets the flex wrap to **nowrap**. The items will be displayed in a single line, and they will not wrap to the next line.
 
 ```html live "fw-nw"
-<div class="p-r">
-  <div class="stripes d-f fw-nw g-4 max-w-30 rad-1 tc-white">
+<div class="p-r tc-white">
+  <div class="d-f fw-nw g-4 max-w-30 rad-1 stripes">
     <div class="ai-c bg-indigo d-f jc-c p-4 rad-1">A</div>
     <div class="ai-c bg-indigo d-f jc-c p-4 rad-1">B</div>
     <div class="ai-c bg-indigo d-f jc-c p-4 rad-1">C</div>
@@ -37,13 +37,13 @@ The flex items will stay in a single line, even if they overflow the container.
 </div>
 ```
 
-## Wrap
+### Wrap
 
-The flex items will wrap onto multiple lines if there is not enough space in the container.
+This example sets the flex wrap to **wrap**. The items will wrap onto multiple lines if there is not enough space in the container.
 
 ```html live "fw-w"
-<div class="p-r">
-  <div class="stripes d-f fw-w g-4 max-w-30 rad-1 tc-white">
+<div class="p-r tc-white">
+  <div class="d-f fw-w g-4 max-w-30 rad-1 stripes">
     <div class="ai-c bg-indigo d-f jc-c p-4 rad-1">A</div>
     <div class="ai-c bg-indigo d-f jc-c p-4 rad-1">B</div>
     <div class="ai-c bg-indigo d-f jc-c p-4 rad-1">C</div>
@@ -51,13 +51,13 @@ The flex items will wrap onto multiple lines if there is not enough space in the
 </div>
 ```
 
-## Wrap Reverse
+### Wrap Reverse
 
-The flex items will wrap onto multiple lines, but in reverse order.
+This example sets the flex wrap to **wrap-reverse**. The items will wrap onto multiple lines, but the order of the lines will be reversed.
 
 ```html live "fw-wr"
-<div class="p-r">
-  <div class="stripes d-f fw-wr g-4 max-w-30 rad-1 tc-white">
+<div class="p-r tc-white">
+  <div class="d-f fw-wr g-4 max-w-30 rad-1 stripes">
     <div class="ai-c bg-indigo d-f jc-c p-4 rad-1">A</div>
     <div class="ai-c bg-indigo d-f jc-c p-4 rad-1">B</div>
     <div class="ai-c bg-indigo d-f jc-c p-4 rad-1">C</div>
