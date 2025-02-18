@@ -19,40 +19,41 @@ Allows a grid item to span a specific number of columns.
   range={16}
 />
 
-The `gc-s-*` utility can be used to define how many columns an element should span within a grid layout.
+This example sets the grid column to **span 2 / span 2**. The item will span across **2** columns, starting from its current position and occupying the next **2** columns in the grid.
 
 ```html live "gc-s-2" html live layout="/src/layouts/wide.astro"
 <div class="d-g g-4 gtc-3 stripes ta-c tc-white">
-  <div class="bg-d-indigo-4 gc-s-2 p-4 rad-1">A</div>
-  <div class="bg-indigo p-4 rad-1">B</div>
-  <div class="bg-indigo p-4 rad-1">C</div>
-  <div class="bg-d-indigo-4 gc-s-2 p-4 rad-1">D</div>
+  <div class="bg-indigo gc-s-2 p-4 rad-1">A</div>
+  <div class="bg-d-indigo-4 p-4 rad-1">B</div>
+  <div class="bg-d-indigo-4 p-4 rad-1">C</div>
+  <div class="bg-indigo gc-s-2 p-4 rad-1">D</div>
 </div>
 ```
 
 ## Grid Column End
 
-Specifies where a grid item should end within the column grid line.
+Controls where a grid item should end within the column grid line.
 
 <Utility classPrefix="gce-" excludeZero incrementValue={1} propNames={["grid-column-end"]} range={16} />
 
-The `gce-*` utility is used to define the ending column line for a grid item.
+This example sets the grid column end to **3**. The item will end at the third column line, effectively spanning from its
+starting position to the second column line.
 
 ```html live "gce-3" html live layout="/src/layouts/wide.astro"
 <div class="d-g g-4 gtc-4 stripes ta-c tc-white">
   <div class="bg-indigo gce-3 p-4 rad-1">A</div>
-  <div class="bg-d-indigo-4 p-4 rad-1">B</div>
-  <div class="bg-d-indigo-4 p-4 rad-1">C</div>
+  <div class="bg-indigo p-4 rad-1">B</div>
+  <div class="bg-indigo p-4 rad-1">C</div>
 </div>
 ```
 
 ## Grid Column Start
 
-Defines the starting grid line for a grid item within the column layout.
+Controls the starting grid line for a grid item within the column layout.
 
 <Utility classPrefix="gcs-" excludeZero incrementValue={1} propNames={["grid-column-start"]} range={16} />
 
-The `gcs-*` utility sets the column where the grid item should begin.
+This example sets the grid column start to **3**. The item will begin at the third column line, positioning it to start in the third column of the grid.
 
 ```html live "gcs-3" layout="/src/layouts/wide.astro"
 <div class="d-g g-4 gcs-3 gtc-4 stripes ta-c tc-white">
