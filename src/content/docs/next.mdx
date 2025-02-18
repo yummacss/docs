@@ -508,14 +508,14 @@ This improvement also eliminates redundant CSS and makes the framework more pred
 
 ### Simplified color utilities
 
-In v3, both the light (`l-`) and dark (`d-`) specifiers are being removed across all color utilities. As a result, the range used to determine a color's shade was also adjusted.
-
-To make this easier to understand, let's look at the `background-color` utility.
+In v3, both the light (`l-`) and dark (`d-`) characters are being removed across all color utilities. As a result, the range used to determine a color's shade was also adjusted.
 
 ```diff lang="html"
 - <button class="bg-l-indigo-6 h:bg-d-indigo-1">Hello</button>
 + <button class="bg-indigo-1 h:bg-indigo-7">Hello</button>
 ```
+
+See what the `bg-*` background utility looks like compared to v2.1
 
 | v3.0           | v2.1            | Length Difference |
 | -------------- | --------------- | ----------------- |
