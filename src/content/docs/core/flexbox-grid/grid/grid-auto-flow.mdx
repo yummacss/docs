@@ -33,7 +33,7 @@ slug: docs/grid-auto-flow
 
 ## Column
 
-Auto-places grid items in a column flow direction.
+This example sets the grid auto flow to **column**. The items will be placed in the grid by filling each column before moving to the next one.
 
 ```html live "gaf-c" layout="/src/layouts/wide.astro"
 <div class="p-r tc-white">
@@ -47,13 +47,13 @@ Auto-places grid items in a column flow direction.
 </div>
 ```
 
-## Column Dense
+## Dense
 
-Auto-places grid items with a dense packing algorithm to fill gaps.
+This example sets the grid auto flow to **dense**. The items will be placed in the grid in a way that fills in gaps as efficiently as possible.
 
-```html live "gaf-cd" layout="/src/layouts/wide.astro"
+```html live "gaf-d" layout="/src/layouts/wide.astro"
 <div class="p-r tc-white">
-  <div class="d-g g-4 gaf-cd stripes gtc-3 gtr-3 ta-c">
+  <div class="d-g g-4 gaf-d stripes gtc-3 gtr-3 ta-c">
     <div class="bg-d-indigo-4 gc-s-2 p-4 rad-1 ta-c">A</div>
     <div class="bg-d-indigo-4 gc-s-2 p-4 rad-1 ta-c">B</div>
     <div class="bg-indigo p-4 rad-1 ta-c">C</div>
@@ -63,35 +63,25 @@ Auto-places grid items with a dense packing algorithm to fill gaps.
 </div>
 ```
 
-## Dense
-
-Combines dense placement with a row flow direction.
-
-```html live "gaf-d" layout="/src/layouts/wide.astro"
-<div class="d-g gaf-d g-4 stripes tc-white">
-  <div class="bg-indigo p-4 rad-1 ta-c">A</div>
-  <div class="bg-indigo p-4 rad-1 ta-c">B</div>
-  <div class="bg-indigo p-4 rad-1 ta-c">C</div>
-  <div class="bg-indigo p-4 rad-1 ta-c">D</div>
-</div>
-```
-
 ## Row
 
-Auto-places grid items in a row flow direction.
+This example sets the grid auto flow to **row**. The items will be placed in the grid by filling each row before moving to the next one.
 
 ```html live "gaf-r" layout="/src/layouts/wide.astro"
-<div class="d-g gaf-r g-4 stripes tc-white">
-  <div class="bg-indigo p-4 rad-1 ta-c">A</div>
-  <div class="bg-indigo p-4 rad-1 ta-c">B</div>
-  <div class="bg-indigo p-4 rad-1 ta-c">C</div>
-  <div class="bg-indigo p-4 rad-1 ta-c">D</div>
+<div class="p-r tc-white">
+  <div class="d-g g-4 gaf-r stripes gtc-3 gtr-3 ta-c">
+    <div class="bg-d-indigo-4 gc-s-2 p-4 rad-1 ta-c">A</div>
+    <div class="bg-d-indigo-4 gc-s-2 p-4 rad-1 ta-c">B</div>
+    <div class="bg-indigo p-4 rad-1 ta-c">C</div>
+    <div class="bg-d-indigo-4 p-4 rad-1 ta-c">D</div>
+    <div class="bg-d-indigo-4 p-4 rad-1 ta-c">E</div>
+  </div>
 </div>
 ```
 
 ## Row Dense
 
-Combines dense placement with a row flow direction.
+This example sets the grid auto flow to **row dense**. The items will be placed in the grid by filling each row first, while also attempting to fill any gaps efficiently.
 
 ```html live "gaf-rd" layout="/src/layouts/wide.astro"
 <div class="d-g gaf-rd g-4 stripes tc-white">
