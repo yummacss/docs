@@ -19,50 +19,50 @@ Defines the row span of a grid item.
   range={16}
 />
 
-The `gr-s-*` utility specifies how many rows the grid item should span.
+This example sets the grid row to **span 2 / span 2**. The item will span across **2** rows, starting from its current position and occupying the next **2** rows in the grid.
 
 ```html live "gr-s-2" layout="/src/layouts/wide.astro"
 <div class="d-g g-4 gtc-3 h-75 stripes ta-c tc-white">
-  <div class="bg-indigo gr-s-2 p-4 rad-1">A</div>
-  <div class="bg-d-indigo-4 p-4 rad-1">B</div>
-  <div class="bg-d-indigo-4 p-4 rad-1">C</div>
-  <div class="bg-d-indigo-4 p-4 rad-1">D</div>
-  <div class="bg-d-indigo-4 p-4 rad-1">E</div>
+  <div class="ai-c bg-indigo gr-s-2 d-f jc-c p-4 rad-1">A</div>
+  <div class="ai-c bg-d-indigo-4 d-f jc-c p-4 rad-1">B</div>
+  <div class="ai-c bg-d-indigo-4 d-f jc-c p-4 rad-1">C</div>
+  <div class="ai-c bg-d-indigo-4 d-f jc-c p-4 rad-1">D</div>
+  <div class="ai-c bg-d-indigo-4 d-f jc-c p-4 rad-1">E</div>
 </div>
 ```
 
 ## Grid Row End
 
-Specifies where the grid item ends on the grid rows.
+Controls where the grid item ends on the grid rows.
 
 <Utility classPrefix="gre-" excludeZero incrementValue={1} propNames={["grid-row-end"]} range={16} />
 
-The `gre-*` utility determines the row line where the grid item should stop.
+This example sets the grid row end to **3**. The item will end at the first row line, effectively spanning from its starting position to the second row line.
 
 ```html live "gre-3" layout="/src/layouts/wide.astro"
 <div class="p-r">
   <div class="d-g g-4 gaf-c gtr-3 rad-1 stripes ta-c tc-white">
-    <div class="bg-indigo d-g gr-s-2 gre-3 p-4 rad-1">A</div>
-    <div class="bg-d-indigo-4 d-g gre-4 grs-1 p-4 rad-1">B</div>
-    <div class="bg-d-indigo-4 d-g gre-4 grs-1 p-4 rad-1">C</div>
+    <div class="ai-c bg-indigo d-f d-g gr-s-2 gre-3 jc-c p-4 rad-1">A</div>
+    <div class="ai-c bg-d-indigo-4 d-f d-g gre-4 grs-1 jc-c p-4 rad-1">B</div>
+    <div class="ai-c bg-d-indigo-4 d-f d-g gre-4 grs-1 jc-c p-4 rad-1">C</div>
   </div>
 </div>
 ```
 
 ## Grid Row Start
 
-Specifies where the grid item begins on the grid rows.
+Controls where the grid item begins on the grid rows.
 
 <Utility classPrefix="grs-" excludeZero incrementValue={1} propNames={["grid-row-start"]} range={16} />
 
-The `grs-*` utility defines the row line from which the grid item starts.
+This example sets the grid row start to **3**. The item will begin at the first row line, positioning it to start in the third row of the grid.
 
 ```html live "grs-2" layout="/src/layouts/wide.astro"
 <div class="p-r">
   <div class="d-g g-4 gaf-c gtr-3 rad-1 stripes ta-c tc-white">
-    <div class="bg-indigo d-g gr-s-2 grs-2 p-4 rad-1">A</div>
-    <div class="bg-d-indigo-4 d-g gre-4 grs-1 p-4 rad-1">B</div>
-    <div class="bg-d-indigo-4 d-g gre-4 grs-1 p-4 rad-1">C</div>
+    <div class="ai-c bg-indigo d-f d-g gr-s-2 grs-2 jc-c p-4 rad-1">A</div>
+    <div class="ai-c bg-d-indigo-4 d-f d-g gre-4 grs-1 jc-c p-4 rad-1">B</div>
+    <div class="ai-c bg-d-indigo-4 d-f d-g gre-4 grs-1 jc-c p-4 rad-1">C</div>
   </div>
 </div>
 ```
