@@ -15,7 +15,7 @@ slug: docs/grid-template-columns
   range={16}
 />
 
-The `gtc-*` utilities define how many equal-width columns will be present in a grid container.
+This example sets the grid template columns to **repeat(3, minmax(0, 1fr))**. The grid will have **3** columns, each with a minimum size of **0** and a maximum size of **1fr**, allowing them to grow and fill the available space equally.
 
 ```html live "gtc-3" layout="/src/layouts/wide.astro"
 <div class="d-g g-4 gtc-3 stripes ta-c tc-white">
