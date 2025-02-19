@@ -13,16 +13,22 @@ draft: true
 
 This example sets the field sizing to **fixed**. The **fs-f** class ensures that the field maintains a fixed size, regardless of the content within it.
 
-```html live layout="/src/layouts/wide.astro"
-<p class="fw-600 ta-c">We're still working on this one!</p>
+```html live "fs-c"
+<div class="d-f fd-c">
+  <label class="mb-2">Write a message:</label>
+  <textarea class="b-1 b-s fs-c max-h-50 max-w-100 r-none rad-1"></textarea>
+</div>
 ```
 
 ## Fixed
 
 This example sets the field sizing to **content**. The **fs-c** class allows the field to size itself based on the content, adjusting its size dynamically to fit the content inside.
 
-```html live layout="/src/layouts/wide.astro"
-<p class="fw-600 ta-c">We're still working on this one!</p>
+```html live "fs-f"
+<div class="d-f fd-c">
+  <label class="mb-2">Write a message:</label>
+  <textarea class="b-1 b-s fs-f max-h-50 max-w-100 r-none rad-1"></textarea>
+</div>
 ```
 
 <Modifier
