@@ -1,0 +1,35 @@
+---
+title: Field Sizing
+banner:
+  content: Support Yumma CSS by <a href=https://www.yummacss.com/docs/next>starring us on GitHub</a>!
+description: Controls the sizing of elements that have a default preferred size.
+slug: docs/field-sizing
+draft: true
+---
+
+<Class name="field-sizing" />
+
+## Content
+
+This example sets the field sizing to **fixed**. The **fs-f** class ensures that the field maintains a fixed size, regardless of the content within it.
+
+```html live layout="/src/layouts/wide.astro"
+<p class="fw-600 ta-c">We're still working on this one!</p>
+```
+
+## Fixed
+
+This example sets the field sizing to **content**. The **fs-c** class allows the field to size itself based on the content, adjusting its size dynamically to fit the content inside.
+
+```html live layout="/src/layouts/wide.astro"
+<p class="fw-600 ta-c">We're still working on this one!</p>
+```
+
+<Modifier
+  utility="fs-f"
+  prefixUtil="fs"
+  modifiers={{
+    hoverUtil: "fs-c",
+    responsiveUtil: "fs-c",
+  }}
+/>
