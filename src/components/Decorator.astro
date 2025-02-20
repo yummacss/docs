@@ -1,0 +1,16 @@
+---
+import { icons, type IconName } from "../icons";
+
+interface DecoratorProps {
+  name: IconName;
+}
+
+const { name } = Astro.props as DecoratorProps;
+---
+
+<div class="ai-fs d-f g-2">
+  <span class="h-fc mt-1 d-f ai-c" set:html={icons[name]} style="color: light-dark(var(--sl-color-accent), var(--sl-color-gray-3));" />
+  <span>
+    <slot />
+  </span>
+</div>

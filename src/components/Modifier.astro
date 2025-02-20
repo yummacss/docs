@@ -1,6 +1,6 @@
 ---
 import { Code } from "@astrojs/starlight/components";
-import Message from "./Message.astro";
+import Decorator from "./Decorator.astro";
 
 interface ModifierProps {
   utility: string;
@@ -26,9 +26,9 @@ const { utility: baseUtil, modifiers, prefixUtil } = Astro.props as ModifierProp
           factors, such as <a href="/docs/modifiers#hover-variants">hover states</a>. Learn more about{" "}
           <a href="/docs/modifiers">modifiers</a> in our documentation.
         </p>
-        <Message icon="ratio">
+        <Decorator name="ratio">
           <h4>Responsive breakpoints</h4>
-        </Message>
+        </Decorator>
         <p>
           You can combine responsive breakpoints like <code>sm:{prefixUtil}-*</code>,<code>md:{prefixUtil}-*</code>,{" "}
           <code>lg:{prefixUtil}-*</code>, and <code>xxl:{prefixUtil}-*</code> allows targeting specific utilities in
@@ -50,9 +50,9 @@ const { utility: baseUtil, modifiers, prefixUtil } = Astro.props as ModifierProp
     <a href="/docs/modifiers">modifiers</a> in our documentation.
   </p>
 
-  <Message icon="square_dashed_pointer">
+  <Decorator name="square_dashed_pointer">
     <h4>Hover states</h4>
-  </Message>
+  </Decorator>
 
   <p>
     Alternatively, you can apply <code>:hover</code> by using <code>h:{prefixUtil}-*</code> utility to override elements
