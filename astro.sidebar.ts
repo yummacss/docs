@@ -58,8 +58,8 @@ export const sidebar = [
     autogenerate: { directory: "core/interactivity" },
   },
   {
-    label: "Layout",
-    autogenerate: { directory: "core/layout" },
+    label: "Positioning",
+    autogenerate: { directory: "core/positioning" },
   },
   {
     label: "Tables",
