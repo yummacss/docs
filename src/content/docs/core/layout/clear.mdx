@@ -11,31 +11,31 @@ draft: true
 
 ## Both
 
-This example sets the clear property to **both**. The element will not allow any floating elements on either side.
+This example sets the clear property to **both**. The **cl-b** class ensures that the element is moved below any floating elements on both sides.
 
 ```html live "cl-b" layout="/src/layouts/wide.astro"
 <p class="fw-600 ta-c">We are currently working on this example.</p>
 ```
 
-## Inline Start
-
-This example sets the clear property to **inline-start**. The element will not allow any floating elements on the inline start side.
-
-```html live "cl-is" layout="/src/layouts/wide.astro"
-<p class="fw-600 ta-c">We are currently working on this example.</p>
-```
-
 ## Inline End
 
-This example sets the clear property to **inline-end**. The element will not allow any floating elements on the inline end side.
+This example sets the clear property to **inline-end**. The **cl-ie** class ensures that the element is moved below any floating elements on the inline end side, which is typically the right side in left-to-right layouts.
 
 ```html live "cl-ie" layout="/src/layouts/wide.astro"
 <p class="fw-600 ta-c">We are currently working on this example.</p>
 ```
 
+## Inline Start
+
+This example sets the clear property to **inline-start**. The **cl-is** class ensures that the element is moved below any floating elements on the inline start side, which is typically the left side in left-to-right layouts.
+
+```html live "cl-is" layout="/src/layouts/wide.astro"
+<p class="fw-600 ta-c">We are currently working on this example.</p>
+```
+
 ## Left
 
-This example sets the clear property to **left**. The element will not allow any floating elements on the left side.
+This example sets the clear property to **left**. The **cl-l** class ensures that the element is moved below any floating elements on the left side.
 
 ```html live "cl-l" layout="/src/layouts/wide.astro"
 <p class="fw-600 ta-c">We are currently working on this example.</p>
@@ -43,17 +43,25 @@ This example sets the clear property to **left**. The element will not allow any
 
 ## None
 
-This example sets the clear property to **none**. The element can have floating elements on both sides.
+This example sets the clear property to **none**. The **cl-none** class allows the element to be positioned normally without clearing any floating elements.
 
 ```html live "cl-none" layout="/src/layouts/wide.astro"
 <p class="fw-600 ta-c">We are currently working on this example.</p>
 ```
 
+## Right
+
+This example sets the clear property to **right**. The **cl-r** class ensures that the element is moved below any floating elements on the right side.
+
+```html live "cl-r" layout="/src/layouts/wide.astro"
+<p class="fw-600 ta-c">We are currently working on this example.</p>
+```
+
 <Modifier
-  utility="e-"
-  prefixUtil="e"
+  utility="cl-l"
+  prefixUtil="cl"
   modifiers={{
-    hoverUtil: "e-",
-    responsiveUtil: "e-",
+    hoverUtil: "cl-r",
+    responsiveUtil: "cl-r",
   }}
 />
