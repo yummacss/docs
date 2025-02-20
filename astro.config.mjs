@@ -113,7 +113,7 @@ export default defineConfig({
       imports: [
         "/src/components/Class.astro",
         "/src/components/Color.astro",
-        "/src/components/Message.astro",
+        "/src/components/Decorator.astro",
         "/src/components/Modifier.astro",
         "/src/components/Palette.astro",
         "/src/components/Palette2.astro",
