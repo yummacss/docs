@@ -13,48 +13,101 @@ draft: true
 
 This example sets the white space to **break-spaces**. The text will respect spaces and line breaks, allowing for wrapping at spaces.
 
+{/* prettier-ignore */}
 ```html live "ws-bs" layout="/src/layouts/wide.astro"
-<p class="fw-600 ta-c">We're working on this example.</p>
+<style>
+  @import url("https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@release/dist/yumma.css");
+</style>
+<div class="bg-l-indigo-6 p-4 rad-1">
+  <div class="p-4 bg-white rad-1">
+    <p class="ws-bs tc-lead">
+      The    quick    brown    fox    jumps    over    the    lazy    dog.    It    is    a    well-known    pangram,    one    that    has    gained    significant    popularity    and    has    been    utilized    by    many    people.    As    a    pangram,    it    contains    all    the    letters    of    the    alphabet,    meeting    the    criteria    for    such    a    composition.
+    </p>
+  </div>
+</div>
 ```
 
 ## Normal
 
 This example sets the white space to **normal**. The text will wrap normally, and multiple spaces will be collapsed into a single space.
 
+{/* prettier-ignore */}
 ```html live "ws-n" layout="/src/layouts/wide.astro"
-<p class="fw-600 ta-c">We're working on this example.</p>
+<div class="bg-l-indigo-6 p-4 rad-1">
+  <div class="p-4 bg-white rad-1">
+    <p class="ws-n tc-lead">
+      The    quick    brown    fox    jumps    over    the    lazy    dog.    It    is    a    well-known    pangram,    one    that    has    gained    significant    popularity    and    has    been    utilized    by    many    people.    As    a    pangram,    it    contains    all    the    letters    of    the    alphabet,    meeting    the    criteria    for    such    a    composition.
+    </p>
+  </div>
+</div>
 ```
 
 ## No Wrap
 
 This example sets the white space to **nowrap**. The text will not wrap to the next line, and it will overflow the container if it exceeds the width.
 
+{/* prettier-ignore */}
 ```html live "ws-nw" layout="/src/layouts/wide.astro"
-<p class="fw-600 ta-c">We're working on this example.</p>
+<div class="bg-l-indigo-6 p-4 rad-1">
+  <div class="p-4 bg-white rad-1 overflow-x-auto">
+    <p class="ws-nw tc-lead">
+      The quick brown fox jumps over the lazy dog. It is a well-known pangram, one that has gained significant popularity and has been utilized by many people. As a pangram, it contains all the letters of the alphabet, meeting the criteria for such a composition.
+    </p>
+  </div>
+</div>
 ```
 
 ## Pre
 
 This example sets the white space to **pre**. The text will be displayed as is, preserving spaces and line breaks.
 
+{/* prettier-ignore */}
 ```html live "ws-p" layout="/src/layouts/wide.astro"
-<p class="fw-600 ta-c">We're working on this example.</p>
+<div class="bg-l-indigo-6 p-4 rad-1">
+  <div class="p-4 bg-white rad-1">
+    <p class="ws-p tc-lead">
+The quick brown fox jumps over the lazy dog.
+It is a well-known pangram,
+    one that has gained significant popularity
+        and has been utilized by many people.
+As a pangram, it contains all the letters of the alphabet,
+    meeting the criteria for such a composition.</p>
+  </div>
+</div>
 ```
 
 ## Pre-Line
 
 This example sets the white space to **pre-line**. The text will preserve line breaks but collapse multiple spaces into a single space.
 
+{/* prettier-ignore */}
 ```html live "ws-pl" layout="/src/layouts/wide.astro"
-<p class="fw-600 ta-c">We're working on this example.</p>
+<div class="bg-l-indigo-6 p-4 rad-1">
+  <div class="p-4 bg-white rad-1">
+    <p class="ws-pl tc-lead">
+      The    quick    brown    fox    jumps    over    the    lazy    dog.
+      It    is    a    well-known    pangram,    one    that    has    gained
+      significant    popularity    and    has    been    utilized    by    many    people.
+      As    a    pangram,    it    contains    all    the    letters    of    the    alphabet,
+      meeting    the    criteria    for    such    a    composition.
+    </p>
+  </div>
+</div>
 ```
 
 ## Pre-Wrap
 
 This example sets the white space to **pre-wrap**. The text will preserve spaces and line breaks, and it will wrap when necessary.
 
+{/* prettier-ignore */}
 ```html live "ws-pw" layout="/src/layouts/wide.astro"
-<p class="fw-600 ta-c">We're working on this example.</p>
+<div class="bg-l-indigo-6 p-4 rad-1">
+  <div class="p-4 bg-white rad-1">
+    <p class="ws-pw tc-lead">
+      The    quick    brown    fox    jumps    over    the    lazy    dog.    It    is    a    well-known    pangram,    one    that    has    gained    significant    popularity    and    has    been    utilized    by    many    people.    As    a    pangram,    it    contains    all    the    letters    of    the    alphabet,    meeting    the    criteria    for    such    a    composition.
+    </p>
+  </div>
+</div>
 ```
 
 <Modifier
