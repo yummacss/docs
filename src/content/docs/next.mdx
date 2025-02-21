@@ -10,17 +10,15 @@ This version is a work in progress and some features might be updated or left ou
 
 ## What's new in v3.0?
 
-We've completely rewritten the code base for Yumma CSS v3, both internally and externally, and we're excited to improve the way you work with CSS and how it's generated in your projects.
+We've completely rewritten the code base for Yumma CSS v3, both internally and externally, and we're excited to improve the way you deal with CSS. We're making some big changes to keep improving Yumma and take it to the next level.
 
-We're planning to address some major performance issues and add and improve existing utilities in the framework, among other things.
+In v3, we're planning to address some major performance issues and add and improve existing utilities in the framework, among other things.
 
 ### Hello Yumma CSS CLI
 
 Until recently, you had to import a lot of annoying CSS from Yumma CSS, which was a real pain.
 
-With the new command-line interface (CLI), you'll never have to worry about shipping unused CSS to the browser.
-
-We're talking production-ready, fully optimized, lightweight Yumma CSS projects.
+With v3, you won't have to stress about shipping unused CSS to the browser. The new CLI will scan and get rid of them for you automatically.
 
 <Steps>
 
@@ -28,13 +26,13 @@ We're talking production-ready, fully optimized, lightweight Yumma CSS projects.
 
         Before we get started, add `yummacss` to your project as dev dependency.
 
-        Learn more about dependency changes [here](#dependency-changes).
+        Learn about dependency changes [here](#dependency-changes).
 
         ```bash title="Terminal"
         npm install yummacss@latest --save-dev
         ```
 
-    2. **Add the Yumma config file**
+    2. **Add the configuration file**
 
         Next, add the `yummacss.config.js` to the root level of your project.
 
@@ -54,7 +52,7 @@ We're talking production-ready, fully optimized, lightweight Yumma CSS projects.
 
     3. **Set up the config file**
 
-        To allow the CLI command to scan your project files and build the CSS base in the output path, add the source array and output string field.
+        To build the CSS from the source include the `source` array and the `styles` string options inside a config named object.
 
         ```js title="yummacss.config.js" mark={2-7}
         export const config = {
@@ -69,7 +67,7 @@ We're talking production-ready, fully optimized, lightweight Yumma CSS projects.
 
     4. **Write CSS**
 
-        Start using Yumma CSS utilities in your markup to generate CSS with the CLI.
+        Start using Yumma CSS utilities in your to generate CSS with the CLI.
 
         ```html mark={7, 11-16}
         <!DOCTYPE html>
@@ -95,7 +93,7 @@ We're talking production-ready, fully optimized, lightweight Yumma CSS projects.
 
     5. **Compile the SCSS**
 
-        To compile the SCSS into CSS, just run `npx yummacss build` in your terminal to compile and scan all your configured styles.
+        To compile the source into CSS, run `npx yummacss build` in your terminal.
 
         ```bash title="Terminal"
         npx yummacss build
