@@ -303,7 +303,7 @@ The full set of utilities will be retained within the distribution folder for th
 
 </FileTree>
 
-### Modernizing Stylecent
+### Stylecent changes
 
 We're making some changes to Stylecent in v3 to make it more modern and consistent. These changes are turned on by default, but you can turn them off using the [`yummacss.config.js`](#disabling-stylecent) file.
 
@@ -495,6 +495,18 @@ From now on, files like `yumma-core.css` and `yumma-core.min.css` will be delete
 
   </TabItem>
 </Tabs>
+
+### Breakpoint changes
+
+In v3, we are moving from pixel-based units to rem-based units. This change promotes better accessibility and scalability, as rem units respect the user's browser font size settings.
+
+| Breakpoint | v2.1   | v3.0             |
+| ---------- | ------ | ---------------- |
+| `sm`       | 640px  | 40rem _(640px)_  |
+| `md`       | 768px  | 48rem _(768px)_  |
+| `lg`       | 1024px | 64rem _(1024px)_ |
+| `xl`       | 1280px | 80rem _(1280px)_ |
+| `xxl`      | 1536px | 96rem _(1536px)_ |
 
 ### Fixed responsive utilities
 
