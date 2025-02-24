@@ -430,8 +430,7 @@ select,
 a,
 summary {
   &:focus {
-    outline: 2px solid vars.$yma-color-black;
-    outline-offset: 2px;
+    outline: 2px solid vars.$yma-color-transparent;
   }
 }
 ```
@@ -497,16 +496,12 @@ samp {
 }
 ```
 
-Default link styles are reset, with underline styling applied on hover for accessibility.
+Reset default link styles.
 
 ```scss mark={2,7} title="base/stylecent.scss"
 a {
   color: inherit;
   text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
 }
 ```
 
