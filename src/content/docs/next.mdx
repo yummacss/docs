@@ -303,6 +303,78 @@ The full set of utilities will be retained within the distribution folder for th
 
 </FileTree>
 
+### Color utility changes
+
+In v3, both the light (`l-`) and dark (`d-`) characters are being removed across all color utilities. As a result, the range used to determine a color's shade was also adjusted.
+
+```diff lang="html"
+- <button class="bg-l-indigo-6 h:bg-d-indigo-1">Hello</button>
++ <button class="bg-indigo-1 h:bg-indigo-7">Hello</button>
+```
+
+See what the `bg-*` background utility looks like compared to v2.1
+
+| v3.0           | v2.1            | Length Difference |
+| -------------- | --------------- | ----------------- |
+| `bg-indigo-1`  | `bg-l-indigo-6` | -2 characters     |
+| `bg-indigo-2`  | `bg-l-indigo-5` | -2 characters     |
+| `bg-indigo-3`  | `bg-l-indigo-4` | -2 characters     |
+| `bg-indigo-4`  | `bg-l-indigo-3` | -2 characters     |
+| `bg-indigo-5`  | `bg-l-indigo-2` | -2 characters     |
+| `bg-indigo-6`  | `bg-l-indigo-1` | -2 characters     |
+| `bg-indigo`    | `bg-indigo`     | -0 characters     |
+| `bg-indigo-7`  | `bg-d-indigo-1` | -2 character      |
+| `bg-indigo-8`  | `bg-d-indigo-2` | -2 character      |
+| `bg-indigo-9`  | `bg-d-indigo-3` | -2 character      |
+| `bg-indigo-10` | `bg-d-indigo-4` | -1 character      |
+| `bg-indigo-11` | `bg-d-indigo-5` | -1 character      |
+| `bg-indigo-12` | `bg-d-indigo-6` | -1 character      |
+
+Also, the color hue is increasing from `10%` shade modification to `14%`. This means that light colors will become lighter, and dark colors will become darker.
+
+<Tabs>
+  <TabItem label="v3.0">
+    <Palette2
+      percentage={14}
+      data={[
+        { name: "Red", color: "rgb(215, 61, 61)" },
+        { name: "Orange", color: "rgb(224, 104, 20)" },
+        { name: "Yellow", color: "rgb(211, 161, 7)" },
+        { name: "Green", color: "rgb(31, 177, 85)" },
+        { name: "Teal", color: "rgb(18, 166, 149)" },
+        { name: "Cyan", color: "rgb(5, 164, 191)" },
+        { name: "Blue", color: "rgb(53, 117, 221)" },
+        { name: "Indigo", color: "rgb(89, 92, 217)" },
+        { name: "Violet", color: "rgb(125, 83, 221)" },
+        { name: "Pink", color: "rgb(212, 65, 138)" },
+        { name: "Lead", color: "rgb(63, 63, 78)" },
+        { name: "Gray", color: "rgb(96, 103, 115)" },
+        { name: "Silver", color: "rgb(191, 194, 199)" },
+      ]}
+    />
+  </TabItem>
+  <TabItem label="v2.1">
+    <Palette
+      percentage={10}
+      data={[
+        { name: "Red", color: "#d73d3d" },
+        { name: "Orange", color: "#e06814" },
+        { name: "Yellow", color: "#d3a107" },
+        { name: "Green", color: "#1fb155" },
+        { name: "Teal", color: "#12a695" },
+        { name: "Cyan", color: "#05a4bf" },
+        { name: "Blue", color: "#3575dd" },
+        { name: "Indigo", color: "#595cd9" },
+        { name: "Violet", color: "#7d53dd" },
+        { name: "Pink", color: "#d4418a" },
+        { name: "Lead", color: "#3f3f4e" },
+        { name: "Gray", color: "#606773" },
+        { name: "Silver", color: "#bfc2c7" },
+      ]}
+    />
+  </TabItem>
+</Tabs>
+
 ### Stylecent changes
 
 We're making some changes to Stylecent in v3 to make it more modern and consistent. These changes are turned on by default, but you can turn them off using the [`yummacss.config.js`](#disabling-stylecent) file.
@@ -515,78 +587,6 @@ We're finally rolling out fixes for all the unexpected behaviors that popped up 
 We've grouped related responsive utilities together so they can override existing ones in the DOM like they were supposed to.
 
 This improvement also eliminates redundant CSS and makes the framework more predictable and easier to develop with.
-
-### Simplified color utilities
-
-In v3, both the light (`l-`) and dark (`d-`) characters are being removed across all color utilities. As a result, the range used to determine a color's shade was also adjusted.
-
-```diff lang="html"
-- <button class="bg-l-indigo-6 h:bg-d-indigo-1">Hello</button>
-+ <button class="bg-indigo-1 h:bg-indigo-7">Hello</button>
-```
-
-See what the `bg-*` background utility looks like compared to v2.1
-
-| v3.0           | v2.1            | Length Difference |
-| -------------- | --------------- | ----------------- |
-| `bg-indigo-1`  | `bg-l-indigo-6` | -2 characters     |
-| `bg-indigo-2`  | `bg-l-indigo-5` | -2 characters     |
-| `bg-indigo-3`  | `bg-l-indigo-4` | -2 characters     |
-| `bg-indigo-4`  | `bg-l-indigo-3` | -2 characters     |
-| `bg-indigo-5`  | `bg-l-indigo-2` | -2 characters     |
-| `bg-indigo-6`  | `bg-l-indigo-1` | -2 characters     |
-| `bg-indigo`    | `bg-indigo`     | -0 characters     |
-| `bg-indigo-7`  | `bg-d-indigo-1` | -2 character      |
-| `bg-indigo-8`  | `bg-d-indigo-2` | -2 character      |
-| `bg-indigo-9`  | `bg-d-indigo-3` | -2 character      |
-| `bg-indigo-10` | `bg-d-indigo-4` | -1 character      |
-| `bg-indigo-11` | `bg-d-indigo-5` | -1 character      |
-| `bg-indigo-12` | `bg-d-indigo-6` | -1 character      |
-
-Also, the color hue is increasing from `10%` shade modification to `14%`. This means that light colors will become lighter, and dark colors will become darker.
-
-<Tabs>
-  <TabItem label="v3.0">
-    <Palette2
-      percentage={14}
-      data={[
-        { name: "Red", color: "rgb(215, 61, 61)" },
-        { name: "Orange", color: "rgb(224, 104, 20)" },
-        { name: "Yellow", color: "rgb(211, 161, 7)" },
-        { name: "Green", color: "rgb(31, 177, 85)" },
-        { name: "Teal", color: "rgb(18, 166, 149)" },
-        { name: "Cyan", color: "rgb(5, 164, 191)" },
-        { name: "Blue", color: "rgb(53, 117, 221)" },
-        { name: "Indigo", color: "rgb(89, 92, 217)" },
-        { name: "Violet", color: "rgb(125, 83, 221)" },
-        { name: "Pink", color: "rgb(212, 65, 138)" },
-        { name: "Lead", color: "rgb(63, 63, 78)" },
-        { name: "Gray", color: "rgb(96, 103, 115)" },
-        { name: "Silver", color: "rgb(191, 194, 199)" },
-      ]}
-    />
-  </TabItem>
-  <TabItem label="v2.1">
-    <Palette
-      percentage={10}
-      data={[
-        { name: "Red", color: "#d73d3d" },
-        { name: "Orange", color: "#e06814" },
-        { name: "Yellow", color: "#d3a107" },
-        { name: "Green", color: "#1fb155" },
-        { name: "Teal", color: "#12a695" },
-        { name: "Cyan", color: "#05a4bf" },
-        { name: "Blue", color: "#3575dd" },
-        { name: "Indigo", color: "#595cd9" },
-        { name: "Violet", color: "#7d53dd" },
-        { name: "Pink", color: "#d4418a" },
-        { name: "Lead", color: "#3f3f4e" },
-        { name: "Gray", color: "#606773" },
-        { name: "Silver", color: "#bfc2c7" },
-      ]}
-    />
-  </TabItem>
-</Tabs>
 
 ### Align Content utilities
 
