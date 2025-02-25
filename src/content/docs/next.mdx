@@ -209,8 +209,8 @@ To make the Yumma CSS framework as complete as possible, we're adding support fo
 | Interactivity | Scroll Behavior, Scroll Margin: Bottom, Inline End, Inline Start, Left, Right, Top, X, Y; Scroll Padding: Bottom, Inline End, Inline Start, Left, Right, Top, X, Y; Scroll Snap Align, Scroll Snap Stop, Scroll Snap Type; Field Sizing |
 | Positioning   | Clear, Direction (Axis), Isolation, Visibility                                                                                                                                                                                          |
 | SVG           | Fill, Stroke, Stroke Width                                                                                                                                                                                                              |
-| Text          | Letter Spacing, List Style Position, Text Indent, Text Overflow, Text Transform, Text Underline Offset, Text Wrap, Whitespace                                                                                           |
-| Transforms    | Rotate, Scale, Skew, Transform Origin                                                                                                                                                                                        |
+| Text          | Letter Spacing, List Style Position, Text Indent, Text Overflow, Text Transform, Text Underline Offset, Text Wrap, Whitespace                                                                                                           |
+| Transforms    | Rotate, Scale, Skew, Transform Origin                                                                                                                                                                                                   |
 
 ### Build performance
 
@@ -836,33 +836,39 @@ Finally, in v3, we've shortened the `overflow-y` utility class.
 + <div class="o-y-auto ..."></div>
 ```
 
-### Spacing X utilities
+### Removed Spacing X utilities
 
-In v3, we've shortened the syntax for the Spacing X utilities.
+In v3 we've removed the **Spacing X** utilities. You can use the **Row Gap** utilities instead for almost all cases, and even combine the **Row Gap** utilities with other utilities like `d-f` or `d-if`.
 
-```diff lang="html"
-- <div class="s-x-* ..."></div>
-+ <div class="sx-*..."></div>
+```diff live lang="html" "cg-8"
+<div class="d-if fd-r stripes cg-8 tc-white">
+  <div class="ai-c bg-indigo d-f dim-16 jc-c rad-1">A</div>
+  <div class="ai-c bg-indigo d-f dim-16 jc-c rad-1">B</div>
+  <div class="ai-c bg-indigo d-f dim-16 jc-c rad-1">C</div>
+</div>
 ```
 
-### Spacing Y utilities
+### Removed Spacing Y utilities
 
-Also, in v3, we've shortened the syntax for the Spacing Y utilities.
+The same concept applies to the **Spacing Y** utilities. You should now use the **Column Gap** utilities instead. You can even combine the **Column Gap** utilities with other utilities like `d-f` or `d-if`.
 
-```diff lang="html"
-- <div class="s-y-* ..."></div>
-+ <div class="sy-* ..."></div>
-```
+```diff live lang="html" "rg-8"
+<div class="d-if fd-c stripes rg-8 tc-white">
+  <div class="ai-c bg-indigo d-f dim-16 jc-c rad-1">A</div>
+  <div class="ai-c bg-indigo d-f dim-16 jc-c rad-1">B</div>
+  <div class="ai-c bg-indigo d-f dim-16 jc-c rad-1">C</div>
+</div>
+```	
 
-### Removed `.cnt{}` utility
+### Removed Container utility
 
 We are no longer supporting the `cnt` utility. We are making improvements to our modifiers to make them more flexible and easier to use.
 
-```diff lang="html"
-- <div class="cnt">Container</div>
+```html del="cnt"
+<div class="cnt"></div>
 ```
 
-### Removed `.ins{}` utility
+### Removed Insert utility
 
 It's been a great ride, and we're sure most of you have used it to easily center a div in the middle of the screen, but this concept was not very useful in many case scenarios where you would typically need more customizability, so we've decided to remove it.
 
