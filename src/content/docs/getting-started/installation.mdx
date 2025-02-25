@@ -22,22 +22,39 @@ Install Yumma CSS and integrate it with your favorite frameworks, such as [React
 
           Add `yummacss` to your project.
 
-          <Code code="npm install yummacss@latest" lang="bash" frame="terminal" title="Installing dependencies..." />
+          ```bash title="Installing dependencies..." frame="terminal"
+          npm install yummacss@latest
+          ```
 
       2. **Include** `yummacss` **in your main CSS file:**
 
-          <Code code={inCSS} lang="css" mark={[2]} title="src/globals.css" />
+          ```css title="src/globals.css" mark={1}
+          @import "/node_modules/yummacss/dist/yumma.min.css";
+          ```
 
       3. **Done!**
 
           You're all set to start using Yumma CSS utility classes in your project.
 
-          <Code code={onPage} lang="html" mark={[6,9,10,11]} title="src/index.html" />
+          ```html title="src/index.html" mark={5,8-10}
+          <html>
+            <head>
+              <meta charset="UTF-8" />
+              <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+              <link rel="stylesheet" href="/src/globals.css" />
+            </head>
+            <body>
+              <div class="ai-c d-f h-1/1 jc-c">
+                <h1 class="fs-xxl fw-500 tc-pink">Yumma CSS 🤝 Node.js</h1>
+              </div>
+            </body>
+          </html>
+          ```
     </Steps>
 
   </TabItem>
 
-<TabItem label="Guides" icon="open-book">
+<TabItem label="Frameworks" icon="open-book">
   <ShowcaseText
     entries={[
       {
@@ -98,13 +115,28 @@ Install Yumma CSS and integrate it with your favorite frameworks, such as [React
     <Steps>
       1. **Add the CDN to your main CSS file**
 
-          <Code code={CSS} lang="css" mark={[2]} title="src/globals.css" wrap={true} />
+          ```css title="src/globals.css" mark={1}
+          @import url("https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@latest/dist/yumma.min.css";)
+          ```
 
       2. **Done!**
 
           You're all set to start using Yumma CSS utility classes in your project.
 
-          <Code code={Page} lang="html" mark={[6,9,10,11]} title="src/index.html" />
+          ```html title="src/index.html" mark={5,8-10}
+          <html>
+            <head>
+              <meta charset="UTF-8" />
+              <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+              <link rel="stylesheet" href="/src/globals.css" />
+            </head>
+            <body>
+              <div class="ai-c d-f h-1/1 jc-c">
+                <h1 class="fs-xxl fw-500 tc-pink">Yumma CSS 🤝 HTML</h1>
+              </div>
+            </body>
+          </html>
+          ```
     </Steps>
 
   </TabItem>

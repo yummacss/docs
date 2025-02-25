@@ -35,11 +35,7 @@ const generateShades = (color: string): string[] => {
 <div class="d-f fd-c">
   <div class="d-g fs-xs shadeNumbers ta-c">
     <div></div>
-    {
-      Array.from({ length: 13 }, (_, i) => (
-        <div>{i === 6 ? "Base" : i < 6 ? 6 - i : i - 6}</div>
-      ))
-    }
+    {Array.from({ length: 13 }, (_, i) => <div>{i === 6 ? "Base" : i < 6 ? 6 - i : i - 6}</div>)}
   </div>
 
   {
@@ -49,11 +45,7 @@ const generateShades = (color: string): string[] => {
         <div class="ai-c colorRow d-g g-1">
           <div class="colorName">{colorItem.name}</div>
           {shades.map((shade, index) => (
-            <div
-              class="colorSwatch h-10 w-full"
-              style={`background-color: ${shade}`}
-              title={`${colorItem.color}`}
-            />
+            <div class="colorSwatch h-10 w-full" style={`background-color: ${shade}`} title={`${colorItem.color}`} />
           ))}
         </div>
       );
@@ -63,11 +55,11 @@ const generateShades = (color: string): string[] => {
 
 <style>
   .shadeNumbers {
-    grid-template-columns: 40px repeat(13, 1fr);
+    grid-template-columns: repeat(14, 1fr);
   }
 
   .colorRow {
-    grid-template-columns: 40px repeat(13, 1fr);
+    grid-template-columns: repeat(14, 1fr);
   }
 
   .colorName {
@@ -90,8 +82,8 @@ const generateShades = (color: string): string[] => {
     }
 
     .colorRow {
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
       gap: 0.5rem;
     }
 
