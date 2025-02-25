@@ -6,53 +6,70 @@ description: Learn how to integrate Yumma CSS Angular.
 slug: docs/guides/angular
 ---
 
-<br />
-
-export const inCSS = guide.angular.inCSS;
-export const onPage = guide.angular.onPage;
-
 <Steps>
 
     1. **Install Yumma CSS:**
 
         Install the Yumma CSS Library using a package manager.
 
-        <Code code="npm install yummacss@latest" lang="bash" title="Installing dependencies..." />
+        ```bash title="Installing dependencies..." frame="terminal"
+        npm install yummacss@latest
+        ```
 
     2. **Include** `yummacss` **in your main CSS file:**
 
-        <Code code={inCSS} lang="css" mark={[2]} title="src/styles.css" />
+        ```css title="src/globals.css" mark={1}
+        @import "../node_modules/yummacss/dist/yumma.min.css";
+        ```
 
     3. **Start development server**
 
-        <Code code="npm start" lang="bash" title="Terminal" />
+        To see the changes, start the development server.
+
+        ```bash title="Starting development server..."
+        npm start
+        ```
 
     4. **Done!**
 
         You're all set to start using Yumma CSS utility classes in your project.
 
-        <Code code={onPage} lang="html" mark={[1, 2, 3]} title="src/app/app.component.html" />
+        ```html title="src/app/app.component.html" mark={1, 2, 3}
+        <div class="h-1/1 ins">
+            <h1 class="fs-xxl fw-500 tc-pink">Yumma CSS + Angular</h1>
+        </div>
+        ```
 
 </Steps>
 
----
-
-## Project example
+## Clone the Angular example
 
 If you're having trouble with Yumma CSS, clone this [Angular example](https://github.com/yumma-lib/angular-yummacss-example.git).
 
 <Steps>
 
-    1. **Cloning repository**
+    1. **Clone the repository**
 
-        <Code code="git clone https://github.com/yumma-lib/angular-yummacss-example.git" lang="bash" title="Cloning repository..." />
+        Make a clone of the repository on your local machine.
 
-    2. **Installing dependencies**
+        ```bash title="Cloning repository..."
+        git clone https://github.com/yumma-lib/angular-example.git
+        ```
 
-        <Code code="npm install" lang="bash" title="Installing dependencies..." />
+    2. **Install dependencies**
+
+        Install the dependencies using the following command.
+
+        ```bash title="Installing dependencies..."
+        npm install
+        ```
 
     3. **Start development server**
 
-        <Code code="npm start" lang="bash" title="Terminal" />
+        To see the changes, start the development server.
+
+        ```bash title="Starting development server..."
+        npm start
+        ```
 
 </Steps>
