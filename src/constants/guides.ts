@@ -41,7 +41,7 @@ import Layout from '../layouts/Layout.astro';
     </head>
     <body>
         <div class="h-1/1 ins">
-            <h1 class="fs-xxl fw-500 tc-pink">Yumma CSS + Static</h1>
+            <h1 class="fs-xxl fw-500 tc-pink">Yumma CSS 🤝 HTML</h1>
         </div>
     </body>
     </html>

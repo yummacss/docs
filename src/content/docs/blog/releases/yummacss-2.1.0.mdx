@@ -206,18 +206,18 @@ We've tweaked the base value for Border radius utility classes to give you more 
 
 <Tabs>
   <TabItem icon="approve-check-circle" label="Now">
-    In this context, the base value is `0.25rem`.
+    In this context, the sequence is always constant, starting from `1px` to `8px`.
     <Utility
       classPrefix="b-"
       propNames={["border-width"]}
-      incrementValue={0.25}
+      incrementValue={1}
       range={8}
-      unit="rem"
+      unit="px"
     />
   </TabItem>
 
   <TabItem icon="close" label="Previously">
-    In this context, the base value is `4px`.
+    In this context, the sequence is not constant, starting from `0px` to `14px`.
     <Utility
       data={[
         {
