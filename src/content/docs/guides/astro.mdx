@@ -11,50 +11,84 @@ slug: docs/guides/astro
 export const inCSS = guide.astro.inCSS;
 export const onPage = guide.astro.onPage;
 
+## Creating a new project
+
+To create a new Astro project, you need run the [Astro CLI Wizard](https://docs.astro.build/en/install-and-setup/#install-from-the-cli-wizard) in your terminal.
+
 <Steps>
 
     1. **Install Yumma CSS:**
 
         Install the Yumma CSS Library using a package manager.
 
-        <Code code="npm install yummacss@latest" lang="bash" title="Installing dependencies..." />
+        ```bash title="Installing dependencies..." frame="terminal"
+        npm install yummacss@latest
+        ```
 
     2. **Add** `yummacss` **in your `Layout.astro` file:**
 
-        <Code code={inCSS} lang="astro" title="layouts/Layout.astro" />
+        ```astro title="layouts/Layout.astro" mark={2}
+        <style is:global>
+            @import "/node_modules/yummacss/dist/yumma.min.css";
+        </style>
+        ```
 
     3. **Start development server**
 
         Start your application using `npm run dev`.
 
-        <Code code="npm run dev" lang="bash" title="Terminal" />
+        ```bash title="Starting development server..."
+        npm run dev
+        ```
 
     4. **Done!**
 
         You're all set to start using Yumma CSS utility classes in your project.
 
-        <Code code={onPage} lang="astro" mark={[6,7,8]} title="pages/index.astro" />
+        ```astro title="pages/index.astro" mark={6,7,8}
+        ---
+        import Layout from '../layouts/Layout.astro';
+        ---
+
+        <Layout title="Welcome to Astro.">
+            <div class="h-1/1 ins">
+                <h1 class="fs-xxl fw-500 tc-pink">Yumma CSS + Astro</h1>
+            </div>
+        </Layout>
+        ```
 
 </Steps>
 
 ---
 
-### Project example
+## Clone the repository
 
-If you're having trouble with Yumma CSS, clone this [Astro example](https://github.com/yumma-lib/astro-yummacss-example.git).
+If you're having trouble with Yumma CSS, clone this [Astro example](https://github.com/yumma-lib/astro-example.git).
 
 <Steps>
 
-    1. **Cloning repository**
+    1. **Clone the repository**
 
-        <Code code="git clone https://github.com/yumma-lib/astro-yummacss-example.git" lang="bash" title="Cloning repository..." />
+        Make a clone of the repository on your local machine.
 
-    2. **Installing dependencies**
+        ```bash title="Cloning repository..."
+        git clone https://github.com/yumma-lib/astro-example.git
+        ```
 
-        <Code code="npm install" lang="bash" title="Installing dependencies..." />
+    2. **Install dependencies**
+
+        Install the dependencies using the following command.
+
+        ```bash title="Installing dependencies..."
+        npm install
+        ```
 
     3. **Start development server**
 
-        <Code code="npm start" lang="bash" title="Terminal" />
+        To see the changes, start the development server.
+
+        ```bash title="Starting development server..."
+        npm start
+        ```
 
 </Steps>
