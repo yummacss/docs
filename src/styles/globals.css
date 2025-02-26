@@ -39,7 +39,7 @@
 }
 
 .sl-link-button {
-  border-radius: 0.25rem;
+  border-radius: 0.25rem !important;
 }
 
 #starlight__on-this-page {
