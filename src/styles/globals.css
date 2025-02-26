@@ -38,6 +38,10 @@
   --sl-color-white: #ffffff;
 }
 
+.sl-link-button {
+  border-radius: 0.25rem;
+}
+
 #starlight__on-this-page {
   font-size: 1.125rem !important;
 }
