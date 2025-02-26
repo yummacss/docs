@@ -1,0 +1,8 @@
+---
+import Landing from "./Landing.astro";
+
+const slug = Astro.props.entry.slug;
+const isLanding = slug === "";
+---
+
+{isLanding && <Landing />}
