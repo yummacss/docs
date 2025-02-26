@@ -6,8 +6,9 @@ description: Learn how to integrate Yumma CSS with Next js.
 slug: docs/guides/nextjs
 ---
 
-export const inCSS = guide.nextjs.inCSS;
-export const onPage = guide.nextjs.onPage;
+## Creating a new project
+
+To create a new Next.js project, you need run the [create next app](https://nextjs.org/docs/app/getting-started/installation) in your terminal.
 
 <Steps>
 
@@ -15,22 +16,36 @@ export const onPage = guide.nextjs.onPage;
 
         Install the Yumma CSS Library using a package manager.
 
-        <Code code="npm install yummacss@latest" lang="bash" title="Installing dependencies..." />
+        ```bash title="Installing dependencies..." frame="terminal"
+        npm install yummacss@latest
+        ```
 
     2. **Include** `yummacss` **in your main CSS file:**
 
-        <Code code={inCSS} lang="css" mark={[2]} title="app/globals.css" />
+        ```css title="app/globals.css" mark={1}
+        @import "yummacss/dist/yumma.min.css";
+        ```
 
     3. **Start development server**
 
         Start your application using `npm run dev`.
 
-        <Code code="npm run dev" lang="bash" title="Terminal" />
+        ```bash title="Starting development server..."
+        npm run dev
+        ```
 
     4. **Done!**
 
         You're all set to start using Yumma CSS utility classes in your project.
 
-        <Code code={onPage} lang="tsx" mark={[3,4,5]} title="app/page.tsx" />
+        ```tsx title="app/page.tsx" mark={3,4,5}
+        export default function Home() {
+            return (
+                <div className="h-1/1 ins">
+                    <h1 className="fs-xxl fw-500 tc-pink">Yumma CSS + Next.js</h1>
+                </div>
+            );
+        }
+        ```
 
 </Steps>
