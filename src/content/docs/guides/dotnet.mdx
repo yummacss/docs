@@ -6,63 +6,47 @@ description: Learn how to integrate Yumma CSS with Dotnet.
 slug: docs/guides/dotnet
 ---
 
-export const inCSS = guide.dotnet.inCSS;
-export const onPage = guide.dotnet.onPage;
-
 <Steps>
 
     1. **Navigate to your project:**
 
         Navigate to the solution your project:
 
-        <Code code="cd project-name\solution-name" lang="bash" title="Terminal" />
+        ```bash title="Terminal"
+        cd project-name\solution-name
+        ```
 
     2. **Install Yumma CSS:**
 
         Install the Yumma CSS Library using [LibMan](https://learn.microsoft.com/en-us/aspnet/core/client-side/libman/libman-cli?view=aspnetcore-8.0).
 
-        <Code code="libman install yummacss@latest --provider jsdelivr --destination lib/yummacss" lang="bash" title="Installing dependencies..." />
-
-        <Aside type="note" title="Install without LibMan">
-            You can also add `yummacss` to your project by right-clicking your project in **Solution Explorer** and selecting **Add** > **Client-Side Library**.
-        </Aside>
-
-        Once you've installed it, you should see the `yummacss` folder inside your `/lib` folder.
-
-        <FileTree>
-            - Properties/
-            - **wwwroot**
-                - css
-                    - site.css
-                - js
-                    - site.js
-                - lib/
-                    - **yummacss/** generates this
-                - favicon.ico
-            - Controllers
-                - HomeController.cs
-            - Models
-                - ErrorViewModel.cs
-            - Views
-                - Home/
-                - Shared/
-            - appsettings.json
-            - libman.json
-            - Program.cs
-        </FileTree>
+        ```bash title="Installing dependencies..."
+        libman install yummacss@latest --provider jsdelivr --destination lib/yummacss
+        ```
 
     3. **Include** `yummacss` **in your main CSS file:**
 
-        <Code code={inCSS} lang="css" mark={[2]} title="css/site.css" />
+        ```css title="css/site.css" mark={1}
+        @import "/lib/yummacss/dist/yumma.min.css";
+        ```
 
     4. **Start development server**
 
-        You can also press the `F5` key to access the development server.
+        You can also press the **F5** key to access the development server.
 
     5. **Done!**
 
         You're all set to start using Yumma CSS utility classes in your project.
 
-        <Code code={onPage} lang="html" mark={[1,2,3]} title="Home/Index.cshtml" />
+        ```html title="Home/Index.cshtml" mark={6-8}
+        @model IndexModel
+        @{
+            ViewData["Title"] = "Home page";
+        }
+
+        <div class="h-1/1 ins">
+            <h1 class="fs-xxl fw-500 tc-pink">Yumma CSS + .NET</h1>
+        </div>
+        ```
 
 </Steps>
