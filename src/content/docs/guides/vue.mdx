@@ -6,31 +6,40 @@ description: Learn how to integrate Yumma CSS with Vue.
 slug: docs/guides/vue
 ---
 
-export const inCSS = guide.vue.inCSS;
-export const onPage = guide.vue.onPage;
-
 <Steps>
 
     1. **Install Yumma CSS:**
 
         Install the Yumma CSS Library using a package manager.
 
-        <Code code="npm install yummacss@latest" lang="bash" title="Installing dependencies..." />
+        ```bash title="Installing dependencies..." frame="terminal"
+        npm install yummacss@latest
+        ```
 
     2. **Include** `yummacss` **in your main CSS file:**
 
-        <Code code={inCSS} lang="css" mark={[2]} title="src/main.css" />
+        ```css title="src/main.css" mark={1}
+        @import "/node_modules/yummacss/dist/yumma.min.css";
+        ```
 
     3. **Start development server**
 
         You can also run `npm start` to start your application.
 
-        <Code code="npm run dev" lang="bash" title="Terminal" />
+        ```bash title="Starting development server..."
+        npm run dev
+        ```
 
     4. **Done!**
 
         You're all set to start using Yumma CSS utility classes in your project.
 
-        <Code code={onPage} lang="vue" mark={[2,3,4]} title="App.vue" />
+        ```vue title="App.vue" mark={2,3,4}
+        <template>
+            <div class="h-1/1 ins">
+                <h1 class="fs-xxl fw-500 tc-pink">Yumma CSS + Vue</h1>
+            </div>
+        </template>
+        ```
 
 </Steps>
