@@ -15,22 +15,38 @@ export const onPage = guide.solidjs.onPage;
 
         Install the Yumma CSS Library using a package manager.
 
-        <Code code="npm install yummacss@latest" lang="bash" title="Installing dependencies..." />
+        ```bash title="Installing dependencies..." frame="terminal"
+        npm install yummacss@latest
+        ```
 
     2. **Include** `yummacss` **in your main CSS file:**
 
-        <Code code={inCSS} lang="css" mark={[2]} title="src/index.css" />
+        ```css title="src/index.css" mark={1}
+        @import "/node_modules/yummacss/dist/yumma.min.css";
+        ```
 
     3. **Start development server**
 
         You can also run `npm start` to start your application.
 
-        <Code code="npm run dev" lang="bash" title="Terminal" />
+        ```bash title="Starting development server..."
+        npm run dev
+        ```
 
     4. **Done!**
 
         You're all set to start using Yumma CSS utility classes in your project.
 
-        <Code code={onPage} lang="jsx" mark={[3,4,5]} title="src/App.jsx" />
+        ```jsx title="src/App.jsx" mark={3,4,5}
+        function App() {
+            return (
+                <div class="h-1/1 ins">
+                    <h1 class="fs-xxl fw-500 tc-pink">Yumma CSS + Solid.js</h1>
+                </div>
+            );
+        }
+
+        export default App;
+        ```
 
 </Steps>
