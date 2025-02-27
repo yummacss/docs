@@ -6,31 +6,46 @@ description: Learn how to integrate Yumma CSS with React.
 slug: docs/guides/react
 ---
 
-export const inCSS = guide.react.inCSS;
-export const onPage = guide.react.onPage;
-
 <Steps>
 
     1. **Install Yumma CSS:**
 
         Install the Yumma CSS Library using a package manager.
 
-        <Code code="npm install yummacss@latest" lang="bash" title="Installing dependencies..." />
+        ```bash title="Installing dependencies..." frame="terminal"
+        npm install yummacss@latest
+        ```
 
     2. **Include** `yummacss` **in your main CSS file:**
 
-        <Code code={inCSS} lang="css" mark={[2]} title="src/App.css" />
+        ```css title="src/App.css" mark={1}
+        @import "/node_modules/yummacss/dist/yumma.min.css";
+        ```
 
     3. **Start development server**
 
         Start your application using `npm run dev`.
 
-        <Code code="npm start" lang="bash" title="Terminal" />
+        ```bash title="Starting development server..."
+        npm run dev
+        ```
 
     4. **Done!**
 
         You're all set to start using Yumma CSS utility classes in your project.
 
-        <Code code={onPage} lang="js" mark={[5,6,7]} title="src/App.js" />
+        ```js title="src/App.js" mark={5,6,7}
+        import "./App.css";
+
+        function App() {
+            return (
+                <div class="h-1/1 ins">
+                    <h1 class="fs-xxl fw-500 tc-pink">Yumma CSS + React</h1>
+                </div>
+            );
+        }
+
+        export default App;
+        ```
 
 </Steps>
