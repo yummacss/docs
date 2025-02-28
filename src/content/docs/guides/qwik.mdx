@@ -1,0 +1,71 @@
+---
+title: Yumma CSS and Qwik.
+banner:
+  content: Support Yumma CSS by <a href=https://www.yummacss.com/docs/next>starring us on GitHub</a>!
+description: Setup Yumma CSS with Qwik.
+slug: docs/guides/qwik
+---
+
+## Creating a new project
+
+To create a new Qwik project, you need run the [Qwik CLI](https://qwik.dev/docs/getting-started/#create-an-app-using-the-cli) in your terminal.
+
+<Steps>
+    1. **Install Yumma CSS:**
+
+        Install the Yumma CSS Library using a package manager.
+
+        ```bash title="Installing dependencies..." frame="terminal"
+        npm install yummacss@latest
+        ```
+
+    2. **Include** `yummacss` **in your main CSS file:**
+
+        In this case, we're importing the minified version of Yumma CSS.
+
+        ```css title="src/global.css" mark={1}
+        @import "yummacss/dist/yumma.min.css";
+        ```
+
+    3. **Start development server**
+
+        You can also run `npm start` to start your application.
+
+        ```bash title="Starting development server..."
+        npm run dev
+        ```
+
+    4. **Done!**
+
+        You're all set to start using Yumma CSS utility classes in your project.
+
+        ```tsx title="src/routes/index.tsx" mark={5}
+        import { component$ } from "@builder.io/qwik";
+        import type { DocumentHead } from "@builder.io/qwik-city";
+
+        export default component$(() => {
+            return <h1 class="fs-sm fw-700 ta-c tc-indigo">Yumma CSS 🤝 Qwik</h1>;
+        });
+
+        export const head: DocumentHead = {
+            title: "Welcome to Qwik",
+            meta: [
+                {
+                    name: "description",
+                    content: "Qwik site description",
+                },
+            ],
+        };
+        ```
+
+</Steps>
+
+---
+
+## Clone this project
+
+You can clone the project from the [GitHub repository](https://github.com/yumma-lib/qwik-example).
+
+```bash title="Cloning the project..."
+git clone https://github.com/yumma-lib/qwik-example.git
+```
