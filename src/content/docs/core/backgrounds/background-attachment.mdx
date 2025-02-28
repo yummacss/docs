@@ -15,8 +15,22 @@ This example sets the background image to **fixed**. The image will not move whe
 
 <Decorator name="mouse">Try scrolling through the image to see how it behaves.</Decorator>
 
-```html live "ba-f" layout="/src/layouts/wide.astro"
-<p class="fw-600 ta-c">We're working on this example.</p>
+```html live "ba-f"
+<div class="b-1 bc-l-silver-4 bs-xs hf-c fs-i o-h rad-2 w-72">
+  <div class="mx-auto h-80 o-y-s ba-f bp-c" style="background-image: url('https://picsum.photos/600/400?image=106');">
+    <div class="mt-40">
+      <div class="bg-white d-g p-6 rg-3">
+        <p class="fs-lg fw-600 mb-3 tc-lead">Hi, Anne. It's finally springtime here on earth!</p>
+        <p class="tc-gray-7">I can't stand windy or cold days, so I'm excited for spring because I can finally spend time outside.</p>
+        <p class="tc-gray-7">I'll try to send you some pictures.</p>
+        <p class="tc-gray-7">and hug each other again.</p>
+        <p class="tc-gray-7">like we used to do one decade ago.</p>
+        <p class="tc-gray-7">tomorrow night.</p>
+        <small class="fs-sm mt-4 ta-r tc-gray-5">I love you, take care, Vigo</small>
+      </div>
+    </div>
+  </div>
+</div>
 ```
 
 ## Local
@@ -25,8 +39,10 @@ This example sets the background image to **local**. The image will scroll with 
 
 <Decorator name="mouse">Try scrolling through the image to see how it behaves.</Decorator>
 
-```html live "ba-l" layout="/src/layouts/wide.astro"
-<p class="fw-600 ta-c">We're working on this example.</p>
+```html live "ba-l"
+<div class="o-auto ai-c ba-l bp-c bs-c bs-lg d-f ff-c fs-i h-40 jc-c p-8 rad-2 ta-c tc-white w-84" style="background-image: url('https://picsum.photos/600/400?image=106');">
+  <h1 class="bf-b-md fs-xl fw-700 px-4 py-2 rad-2">Hi, Anne. It's finally springtime here on earth! I can't stand windy or cold days...</h1>
+</div>
 ```
 
 ## Scroll
@@ -35,8 +51,10 @@ This example sets the background image to **scroll**. The image will move with t
 
 <Decorator name="mouse">Try scrolling through the image to see how it behaves.</Decorator>
 
-```html live "ba-s" layout="/src/layouts/wide.astro"
-<p class="fw-600 ta-c">We're working on this example.</p>
+```html live "ba-s"
+<div class="o-auto ai-c ba-s bp-c bs-c bs-lg d-f ff-c fs-i h-40 jc-c p-8 rad-2 ta-c tc-white w-84" style="background-image: url('https://picsum.photos/600/400?image=106');">
+  <h1 class="bf-b-md fs-xl fw-700 px-4 py-2 rad-2">Hi, Anne. It's finally springtime here on earth! I can't stand windy or cold days...</h1>
+</div>
 ```
 
 <Modifier
