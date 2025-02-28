@@ -23,7 +23,7 @@ Yumma CSS is a utility-first library that uses abbreviated naming conventions th
 Here's how you can add `yummacss` into your project or framework. Check out [the docs](https://www.yummacss.com/docs/installation) for more info.
 
 ```bash
-npm install yummacss@latest
+pnpm add yummacss@latest
 ```
 
 ## Built with
