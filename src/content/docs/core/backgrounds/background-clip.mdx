@@ -37,8 +37,13 @@ This example sets the background to **padding-box**. The background extends to t
 
 This example sets the background to **text**. The background is clipped to the text itself, allowing for unique visual effects.
 
-```html live "bc-t" layout="/src/layouts/wide.astro"
-<p class="fw-600 ta-c">We're working on this example.</p>
+```html live "bc-t"
+<style>
+  @import url("https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@release/dist/yumma.css");
+</style>
+<div class="bc-t fs-3xl fw-700 ovf-h px-4 py-2 rad-2 tc-transparent" style="background-image: linear-gradient(132deg, #413cb8 0.00%, #7a77cd 100.00%);">
+  Hi, Anne. It's finally springtime
+</div>
 ```
 
 <Modifier
