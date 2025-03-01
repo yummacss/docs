@@ -3,48 +3,57 @@ title: Aspect Ratio
 banner:
   content: Support Yumma CSS by <a href=https://www.yummacss.com/docs/next>starring us on GitHub</a>!
 description: Controls the aspect ratio of an element.
-slug: docs/aspect-ratio
+slug: docs/ar-auto
 ---
 
 <Utility
   data={[
     {
       className: "ar-auto",
-      properties: ["aspect-ratio: auto;"],
+      properties: ["ar-auto: auto;"],
     },
     {
       className: "ar-l",
-      properties: ["aspect-ratio: 16/9;"],
+      properties: ["ar-auto: 16/9;"],
     },
     {
       className: "ar-s",
-      properties: ["aspect-ratio: 1/1;"],
+      properties: ["ar-auto: 1/1;"],
     },
   ]}
 />
 
 ## Auto
 
-This example sets the aspect ratio to **auto**. The **ar-auto** class allows the element to maintain its default aspect ratio based on its content.
+This example sets the aspect ratio to **auto**. The **ar-auto** utility allows the element to maintain its default aspect ratio based on its content.
 
-```html live "ar-auto" layout="/src/layouts/wide.astro"
-<p class="fw-600 ta-c">We're working on this example.</p>
+```html live "ar-auto"
+<style>
+  @import url("https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@release/dist/yumma.css");
+</style>
+<div class="ar-auto h-32 w-64">
+  <img class="d-full of-c rad-1" src="https://picsum.photos/600/400?image=38" />
+</div>
 ```
 
 ## Landscape
 
-This example sets the aspect ratio to **16/9**. The **ar-l** class enforces a widescreen aspect ratio.
+This example sets the aspect ratio to **16/9**. The **ar-l** utility enforces a widescreen aspect ratio.
 
-```html live "ar-l" layout="/src/layouts/wide.astro"
-<p class="fw-600 ta-c">We're working on this example.</p>
+```html live "ar-l"
+<div class="ar-l h-32 w-64">
+  <img class="d-full of-c rad-1" src="https://picsum.photos/600/400?image=38" />
+</div>
 ```
 
 ## Square
 
-This example sets the aspect ratio to **1/1**. The **ar-s** class enforces a square aspect ratio.
+This example sets the aspect ratio to **1/1**. The **ar-s** utility enforces a square aspect ratio.
 
-```html live "ar-s" layout="/src/layouts/wide.astro"
-<p class="fw-600 ta-c">We're working on this example.</p>
+```html live "ar-s"
+<div class="ar-s h-32 w-64">
+  <img class="d-full of-c rad-1" src="https://picsum.photos/600/400?image=38" />
+</div>
 ```
 
 <Modifier
