@@ -16,6 +16,7 @@ const theme = fs.readFileSync(new URL(`./midnight.jsonc`, import.meta.url), "utf
 const yummaTheme = ExpressiveCodeTheme.fromJSONString(theme);
 
 export default defineConfig({
+  site: "https://yummacss.com", // for sitemap.xml
   integrations: [
     starlight({
       title: "Yumma CSS",
@@ -107,7 +108,7 @@ export default defineConfig({
           },
         },
       ],
-      sidebar, // astro.sidebar.ts
+      sidebar, // from astro.sidebar.ts
     }),
 
     AutoImport({
@@ -120,19 +121,7 @@ export default defineConfig({
         "/src/components/Palette2.astro",
         "/src/components/Utility.astro",
         {
-          "@astrojs/starlight/components": [
-            "Aside",
-            "Card",
-            "CardGrid",
-            "Code",
-            "FileTree",
-            "Icon",
-            "LinkButton",
-            "LinkCard",
-            "Steps",
-            "TabItem",
-            "Tabs",
-          ],
+          "@astrojs/starlight/components": ["Aside", "Card", "CardGrid", "Code", "FileTree", "Icon", "LinkButton", "LinkCard", "Steps", "TabItem", "Tabs"],
           "starlight-showcases": ["ShowcaseImage", "ShowcaseText", "ShowcaseYouTube"],
           "/src/constants/guides": ["guide"],
           "/src/constants/examples": [
@@ -155,14 +144,12 @@ export default defineConfig({
   ],
 
   redirects: {
-    // prevent broken links on the web
+    // redirects from old URLs to new URLs
     "/docs": "/docs/installation",
     "/docs/build-css": "/docs/first-steps#building-styles",
     "/docs/colors": "/docs/first-steps#applying-color-utilities",
     "/docs/modifiers": "/docs/first-steps#applying-utilities-conditionally",
     "/docs/spacing": "/docs/spacing-between",
-
-    // prepare for v3
     "/docs/direction": "/docs/bottom-left-right-top",
     "/docs/utilities": "/docs/build-css",
   },
