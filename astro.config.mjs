@@ -122,17 +122,6 @@ export default defineConfig({
         {
           "@astrojs/starlight/components": ["Aside", "Card", "CardGrid", "Code", "FileTree", "Icon", "LinkButton", "LinkCard", "Steps", "TabItem", "Tabs"],
           "starlight-showcases": ["ShowcaseImage", "ShowcaseText", "ShowcaseYouTube"],
-          "/src/constants/guides": ["guide"],
-          "/src/constants/examples": [
-            "abbreviatedSyntax",
-            "responsiveByDesignLarge",
-            "responsiveByDesignMedium",
-            "responsiveByDesignSmall",
-            "responsiveByDesignXLarge",
-            "responsiveByDesignXXLarge",
-            "tinyAndLightweight",
-            "uiComponents",
-          ],
         },
       ],
     }),
