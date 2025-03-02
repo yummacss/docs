@@ -11,7 +11,7 @@ import starlightHeadingBadges from "starlight-heading-badges";
 import starlightLinksValidator from "starlight-links-validator";
 import vercel from "@astrojs/vercel";
 
-const theme = fs.readFileSync(new URL(`./theme.jsonc`, import.meta.url), "utf-8");
+const theme = fs.readFileSync(new URL(`./midnight.jsonc`, import.meta.url), "utf-8");
 
 const yummaTheme = ExpressiveCodeTheme.fromJSONString(theme);
 
