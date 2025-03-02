@@ -16,7 +16,6 @@ const theme = fs.readFileSync(new URL(`./midnight.jsonc`, import.meta.url), "utf
 const yummaTheme = ExpressiveCodeTheme.fromJSONString(theme);
 
 export default defineConfig({
-  site: "https://yummacss.com", // for sitemap.xml
   integrations: [
     starlight({
       title: "Yumma CSS",
