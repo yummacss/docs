@@ -14,7 +14,22 @@ draft: true
 This example sets the scroll behavior to **auto**. The **sb-auto** utility allows the default scrolling behavior, which is immediate and without any animation.
 
 ```html "sb-auto" layout="/src/layouts/wide.astro"
-<div class="sb-auto ...">...</div>
+<div class="o-y-s h-100 sb-auto">
+  <div class="bg-white bs-sm p-4 p-st t-0">
+    <a class="fw-600 mr-4 tc-indigo" href="#a">Section A</a>
+    <a class="fw-600 mr-4 tc-indigo" href="#b">Section A</a>
+    <a class="fw-600 tc-indigo" href="#c">Section B</a>
+  </div>
+  <div class="ai-c bg-silver-1 d-f h-100 jc-c" id="a">
+    <h2 class="fs-xl fw-700 tc-indigo">Section A</h2>
+  </div>
+  <div class="ai-c bg-silver-1 d-f h-100 jc-c" id="b">
+    <h2 class="fs-xl fw-700 tc-indigo">Section B</h2>
+  </div>
+  <div class="ai-c bg-silver-1 d-f h-100 jc-c" id="c">
+    <h2 class="fs-xl fw-700 tc-indigo">Section C</h2>
+  </div>
+</div>
 ```
 
 ## Smooth
@@ -22,7 +37,22 @@ This example sets the scroll behavior to **auto**. The **sb-auto** utility allow
 This example sets the scroll behavior to **smooth**. The **sb-s** utility enables a smooth scrolling effect, providing a gradual transition when scrolling to a different part of the page.
 
 ```html "sb-s" layout="/src/layouts/wide.astro"
-<div class="sb-s ...">...</div>
+<div class="o-y-s h-100 p-s sb-s">
+  <div class="bg-white bs-sm p-4 t-0">
+    <a class="fw-600 mr-4 tc-indigo" href="#a">Section A</a>
+    <a class="fw-600 mr-4 tc-indigo" href="#b">Section A</a>
+    <a class="fw-600 tc-indigo" href="#c">Section B</a>
+  </div>
+  <div class="ai-c bg-silver-1 d-f h-100 jc-c" id="a">
+    <h2 class="fs-xl fw-700 tc-indigo">Section A</h2>
+  </div>
+  <div class="ai-c bg-silver-1 d-f h-100 jc-c" id="b">
+    <h2 class="fs-xl fw-700 tc-indigo">Section B</h2>
+  </div>
+  <div class="ai-c bg-silver-1 d-f h-100 jc-c" id="c">
+    <h2 class="fs-xl fw-700 tc-indigo">Section C</h2>
+  </div>
+</div>
 ```
 
 <Modifier
