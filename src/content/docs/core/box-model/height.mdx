@@ -24,7 +24,11 @@ slug: docs/height
   unit="rem"
 />
 
-This example showcases various heights: **4rem**, **7rem**, and **12rem**. The element will be relatively small in size, slightly larger, and noticeably larger, respectively.
+This example showcases various height values: **4rem**, **7rem**, and **12rem**.
+
+- The **h-16** utility sets the height to **4rem**.
+- The **h-28** utility sets the height to **7rem**.
+- Finally, the **h-48** utility sets the height to **12rem**.
 
 ```html live "h-16" "h-28" "h-48"
 <div class="d-f cg-8">
@@ -56,6 +60,14 @@ Controls the maximum height of an element.
   unit="rem"
 />
 
+This example sets the maximum height of an element. The **max-h-64** utility sets the maximum height to **16rem**, ensuring that the element does not exceed this height regardless of the content inside.
+
+<Decorator name="scaling">Try changing the vertical size of the box to see how wide it can be at the maximum size.</Decorator>
+
+```html live "max-h-64"
+<div class="ai-c bg-indigo d-f jc-c max-h-64 min-h-16 ovf-auto p-6 r-v rad-1 tc-white h-32">64</div>
+```
+
 ## Min Height
 
 Controls the minimum height of an element.
@@ -77,6 +89,14 @@ Controls the minimum height of an element.
   range={100}
   unit="rem"
 />
+
+This example sets the minimum height of an element. The **min-h-32** utility sets the minimum height to **8rem**, ensuring that the element maintains at least this height even when the content is smaller.
+
+<Decorator name="scaling">Try changing the vertical size of the box to see how wide it can be at the maximum size.</Decorator>
+
+```html live "max-h-64"
+<div class="ai-c bg-indigo d-f jc-c max-h-64 min-h-16 ovf-auto p-6 r-v rad-1 tc-white h-32">32</div>
+```
 
 ## Using Percentages
 
