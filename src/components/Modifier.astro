@@ -22,46 +22,28 @@ const { utility: baseUtil, modifiers, prefixUtil } = Astro.props as ModifierProp
       <div>
         <h3>Utilizing utilities conditionally</h3>
         <p>
-          Override existing utilities based on the user's <a href="/docs/modifiers#breakpoints">screen size</a> or other
-          factors, such as <a href="/docs/modifiers#hover-variants">hover states</a>. Learn more about{" "}
-          <a href="/docs/modifiers">modifiers</a> in our documentation.
+          Learn how to override existing utilities based on the user's <a href="/docs/modifiers#breakpoints">screen size</a> or other factors, such as{" "}
+          <a href="/docs/modifiers#hover-variants">hover states</a>.
         </p>
         <Decorator name="ratio">
-          <h4>Responsive breakpoints</h4>
+          <b>Responsive breakpoints</b>
         </Decorator>
         <p>
-          You can combine responsive breakpoints like <code>sm:{prefixUtil}-*</code>,<code>md:{prefixUtil}-*</code>,{" "}
-          <code>lg:{prefixUtil}-*</code>, and <code>xxl:{prefixUtil}-*</code> allows targeting specific utilities in
-          different viewports.
+          You can combine responsive breakpoints like <code>sm:{prefixUtil}-*</code>,<code>md:{prefixUtil}-*</code>, <code>lg:{prefixUtil}-*</code>, and{" "}
+          <code>xxl:{prefixUtil}-*</code> allows targeting specific utilities in different viewports.
         </p>
-        <Code
-          code={`<div class="${baseUtil} md:${modifiers.responsiveUtil} ..."></div>`}
-          lang="html"
-          mark={`md:${modifiers.responsiveUtil}`}
-        />
+        <Code code={`<div class="${baseUtil} md:${modifiers.responsiveUtil} ..."></div>`} lang="html" mark={`md:${modifiers.responsiveUtil}`} />
       </div>
     )
   }
 
-  <h3>Utilizing utilities conditionally</h3>
-  <p>
-    Override existing utilities based on the user's <a href="/docs/modifiers#breakpoints">screen size</a> or other factors,
-    such as <a href="/docs/modifiers#hover-variants">hover states</a>. Learn more about{" "}
-    <a href="/docs/modifiers">modifiers</a> in our documentation.
-  </p>
-
   <Decorator name="square_dashed_pointer">
-    <h4>Hover states</h4>
+    <b>Hover states</b>
   </Decorator>
 
   <p>
-    Alternatively, you can apply <code>:hover</code> by using <code>h:{prefixUtil}-*</code> utility to override elements
-    and change their values when hovering over them.
+    Alternatively, you can apply <code>:hover</code> by using <code>h:{prefixUtil}-*</code> utility to override elements and change their values when hovering over them.
   </p>
 
-  <Code
-    code={`<div class="${baseUtil} h:${modifiers.hoverUtil} ..."></div>`}
-    lang="html"
-    mark={`h:${modifiers.hoverUtil}`}
-  />
+  <Code code={`<div class="${baseUtil} h:${modifiers.hoverUtil} ..."></div>`} lang="html" mark={`h:${modifiers.hoverUtil}`} />
 </section>
