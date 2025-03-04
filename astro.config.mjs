@@ -135,8 +135,9 @@ export default defineConfig({
     // redirects from old URLs to new URLs
     "/docs": "/docs/installation",
     "/docs/build-css": "/docs/first-steps#building-styles",
-    "/docs/colors": "/docs/first-steps#applying-color-utilities",
-    "/docs/modifiers": "/docs/first-steps#applying-utilities-conditionally",
+    "/docs/colors": "docs/first-steps#color-palette",
+    "/docs/colours": "docs/first-steps#color-palette",
+    "/docs/modifiers": "/docs/first-steps#breakpoints-modifiers",
     "/docs/spacing": "/docs/spacing-between",
     "/docs/direction": "/docs/bottom-left-right-top",
     "/docs/utilities": "/docs/build-css",
