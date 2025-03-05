@@ -14,7 +14,12 @@ draft: true
 This example sets the clear property to **both**. The **cl-b** utility ensures that the element is moved below any floating elements on both sides.
 
 ```html live "cl-b" layout="/src/layouts/wide.astro"
-<p class="fw-600 ta-c">We're working on this example.</p>
+<style>
+  @import url("https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@release/dist/yumma.css");
+</style>
+<div class="bg-indigo d-32 flo-l rad-1"></div>
+<div class="bg-indigo d-32 flo-r rad-1"></div>
+<div class="cl-b p-6 stripes"></div>
 ```
 
 ## Inline End
@@ -22,7 +27,8 @@ This example sets the clear property to **both**. The **cl-b** utility ensures t
 This example sets the clear property to **inline-end**. The **cl-ie** utility ensures that the element is moved below any floating elements on the inline end side, which is typically the right side in left-to-right layouts.
 
 ```html live "cl-ie" layout="/src/layouts/wide.astro"
-<p class="fw-600 ta-c">We're working on this example.</p>
+<div class="bg-indigo d-32 flo-r rad-1"></div>
+<div class="cl-ie p-6 stripes"></div>
 ```
 
 ## Inline Start
@@ -30,7 +36,8 @@ This example sets the clear property to **inline-end**. The **cl-ie** utility en
 This example sets the clear property to **inline-start**. The **cl-is** utility ensures that the element is moved below any floating elements on the inline start side, which is typically the left side in left-to-right layouts.
 
 ```html live "cl-is" layout="/src/layouts/wide.astro"
-<p class="fw-600 ta-c">We're working on this example.</p>
+<div class="bg-indigo d-32 flo-l rad-1"></div>
+<div class="cl-is p-6 stripes"></div>
 ```
 
 ## Left
@@ -38,7 +45,8 @@ This example sets the clear property to **inline-start**. The **cl-is** utility 
 This example sets the clear property to **left**. The **cl-l** utility ensures that the element is moved below any floating elements on the left side.
 
 ```html live "cl-l" layout="/src/layouts/wide.astro"
-<p class="fw-600 ta-c">We're working on this example.</p>
+<div class="bg-indigo d-32 flo-l rad-1"></div>
+<div class="cl-l p-6 stripes"></div>
 ```
 
 ## None
@@ -46,7 +54,8 @@ This example sets the clear property to **left**. The **cl-l** utility ensures t
 This example sets the clear property to **none**. The **cl-none** utility allows the element to be positioned normally without clearing any floating elements.
 
 ```html live "cl-none" layout="/src/layouts/wide.astro"
-<p class="fw-600 ta-c">We're working on this example.</p>
+<div class="bg-indigo d-32 flo-l rad-1"></div>
+<div class="cl-none p-6 stripes"></div>
 ```
 
 ## Right
@@ -54,7 +63,8 @@ This example sets the clear property to **none**. The **cl-none** utility allows
 This example sets the clear property to **right**. The **cl-r** utility ensures that the element is moved below any floating elements on the right side.
 
 ```html live "cl-r" layout="/src/layouts/wide.astro"
-<p class="fw-600 ta-c">We're working on this example.</p>
+<div class="bg-indigo d-32 flo-r rad-1"></div>
+<div class="cl-r p-6 stripes"></div>
 ```
 
 <Modifier
