@@ -141,10 +141,10 @@ Use responsive breakpoints such as `sm:*`, `md:*`, `lg:*`, `xl:*` and `xxl:*` to
 <Decorator name="panel_left_close">Try changing the size of the preview area to see how the text changes.</Decorator>
 
 ```html live "sm:d-b" "md:d-b" "lg:d-b" "xl:d-b" "xxl:d-b" layout="/src/layouts/wide.astro"
-<div class="bg-l-indigo-6 p-4 rad-1 tc-lead">
-  <p class="bg-white d-b p-4 rad-1 sm:d-none ta-c">This is a small screen.</p>
-  <p class="bg-white d-none md:d-none p-4 rad-1 sm:d-b ta-c">This is a medium screen.</p>
-  <p class="bg-white d-none lg:d-none md:d-b p-4 rad-1 ta-c">This is a large screen.</p>
+<div class="bg-l-indigo-6 p-4 rad-1 ta-c tc-lead">
+  <p class="bg-white d-b p-4 rad-1 sm:d-none">This is a small screen.</p>
+  <p class="bg-white d-none md:d-none p-4 rad-1 sm:d-b">This is a medium screen.</p>
+  <p class="bg-white d-none lg:d-none md:d-b p-4 rad-1">This is a large screen.</p>
   <p class="bg-white d-none lg:d-b p-4 rad-1 ta-c xl:d-none">This is an extra large screen.</p>
   <p class="bg-white d-none p-4 rad-1 ta-c xxl:d-b">This is double extra large screen.</p>
 </div>
