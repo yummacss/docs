@@ -5,10 +5,10 @@ export const sidebar = [
     label: "Get Started",
     items: [
       { label: "Installation", link: "docs/installation" },
-      { label: "First Steps", link: "docs/first-steps" },
+      { label: "First Steps", link: "docs/first-steps", badge: "New" },
       // { label: "Configuration", link: "docs/configuration" },
       { label: "Playground", link: "https://play.yummacss.com" },
-      { label: "Resources", link: "/resources" },
+      { label: "Resources", link: "/resources", badge: "New" },
     ],
   },
   {
