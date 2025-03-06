@@ -9,8 +9,41 @@ draft: true
 
 <Class name="/transform" />
 
-```html live layout="/src/layouts/wide.astro"
-<p class="fw-600 ta-c">We're working on this example.</p>
+This example applies a **skew transformation** to the element. The **skew-12** utility skews the element by **12 degrees** along the X-axis, creating a slanted effect.
+
+```html live "t-sk-12"
+<style>
+  @import url("https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@release/dist/yumma.css");
+</style>
+<div class="d-g g-16 gtc-1 sm:gtc-3">
+  <div class="ai-c bg-indigo d-20 d-f jc-c rad-1 tc-white t-sk-12">A</div>
+  <div class="ai-c bg-indigo d-20 d-f jc-c rad-1 tc-white t-sk-12">B</div>
+  <div class="ai-c bg-indigo d-20 d-f jc-c rad-1 tc-white t-sk-12">B</div>
+</div>
+```
+
+## Skew X
+
+This example applies a **skew transformation** along the X-axis. The **skew-x-12** utility skews the element by **12 degrees** horizontally, creating a slanted effect along the X-axis.
+
+```html live "t-skx-12"
+<div class="d-g g-16 gtc-1 sm:gtc-3">
+  <div class="ai-c bg-indigo d-20 d-f jc-c rad-1 tc-white t-skx-12">A</div>
+  <div class="ai-c bg-indigo d-20 d-f jc-c rad-1 tc-white t-skx-12">B</div>
+  <div class="ai-c bg-indigo d-20 d-f jc-c rad-1 tc-white t-skx-12">B</div>
+</div>
+```
+
+## Skew Y
+
+This example applies a **skew transformation** along the Y-axis. The **skew-y-12** utility skews the element by **12 degrees** vertically, creating a slanted effect along the Y-axis.
+
+```html live "t-sky-12"
+<div class="d-g g-16 gtc-1 sm:gtc-3">
+  <div class="ai-c bg-indigo d-20 d-f jc-c rad-1 tc-white t-sky-12">A</div>
+  <div class="ai-c bg-indigo d-20 d-f jc-c rad-1 tc-white t-sky-12">B</div>
+  <div class="ai-c bg-indigo d-20 d-f jc-c rad-1 tc-white t-sky-12">B</div>
+</div>
 ```
 
 <Modifier
