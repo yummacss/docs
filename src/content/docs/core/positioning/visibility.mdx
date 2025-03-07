@@ -14,15 +14,43 @@ draft: true
 This example sets the visibility to **collapse**. The element will be hidden, and it will not take up any space in the layout.
 
 ```html live "v-c" layout="/src/layouts/wide.astro"
-<p class="fw-600 ta-c">We're working on this example.</p>
+<style>
+  @import url("https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@e72854a/dist/yumma.css");
+</style>
+<table class="bc-c ta-c w-full">
+  <thead>
+    <tr>
+      <th class="b-1 p-2">H1</th>
+      <th class="b-1 p-2">H2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="b-1 p-2">A</td>
+      <td class="b-1 p-2">B</td>
+    </tr>
+    <tr class="v-c">
+      <td class="b-1 p-2">C</td>
+      <td class="b-1 p-2">D</td>
+    </tr>
+    <tr>
+      <td class="b-1 p-2">E</td>
+      <td class="b-1 p-2">F</td>
+    </tr>
+  </tbody>
+</table>
 ```
 
-## Invisible
+## Hidden
 
-This example sets the visibility to **invisible**. The element will be hidden, but it will still take up space in the layout.
+This example sets the visibility to **hidden**. The element will be hidden, but it will still take up space in the layout.
 
-```html live "v-i" layout="/src/layouts/wide.astro"
-<p class="fw-600 ta-c">We're working on this example.</p>
+```html live "v-h" layout="/src/layouts/wide.astro"
+<div class="d-g g-4 gtc-1 sm:gtc-3">
+  <div class="ai-c bg-indigo d-f jc-c p-6 rad-1 tc-white v-h">A</div>
+  <div class="ai-c bg-indigo d-f jc-c p-6 rad-1 tc-white">B</div>
+  <div class="ai-c bg-indigo d-f jc-c p-6 rad-1 tc-white">C</div>
+</div>
 ```
 
 ## Visible
@@ -30,7 +58,11 @@ This example sets the visibility to **invisible**. The element will be hidden, b
 This example sets the visibility to **visible**. The element will be displayed and take up space in the layout.
 
 ```html live "v-v" layout="/src/layouts/wide.astro"
-<p class="fw-600 ta-c">We're working on this example.</p>
+<div class="d-g g-4 gtc-1 sm:gtc-3">
+  <div class="ai-c bg-indigo d-f jc-c p-6 rad-1 tc-white v-v">A</div>
+  <div class="ai-c bg-indigo d-f jc-c p-6 rad-1 tc-white">B</div>
+  <div class="ai-c bg-indigo d-f jc-c p-6 rad-1 tc-white">C</div>
+</div>
 ```
 
 <Modifier
