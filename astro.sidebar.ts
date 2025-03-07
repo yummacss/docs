@@ -71,14 +71,7 @@ export const sidebar = [
   // },
   // {
   //   label: "Transforms",
-  //   items: [
-  //     {
-  //       label: "Transforms",
-  //       autogenerate: {
-  //         directory: "core/transforms",
-  //       },
-  //     },
-  //   ],
+  //   autogenerate: { directory: "core/transforms" },
   // },
   {
     label: "Typography",
