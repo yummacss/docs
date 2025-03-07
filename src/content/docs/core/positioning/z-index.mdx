@@ -6,19 +6,18 @@ description: Controls the element's stack order.
 slug: docs/z-index
 ---
 
-<Utility
-  additionalClasses={[{ name: "auto", value: "auto" }]}
-  classPrefix="zi-"
-  incrementPrefix={10}
-  incrementValue={10}
-  propNames={["z-index"]}
-  range={9}
-/>
+<Utility additionalClasses={[{ name: "auto", value: "auto" }]} classPrefix="zi-" incrementPrefix={10} incrementValue={10} propNames={["z-index"]} range={9} />
 
-This example sets the z-index to **10**. The element will be positioned above elements with a lower z-index value.
+This example showcases various z-index utilities:
 
-```html live "zi-10" layout="/src/layouts/wide.astro"
-<p class="fw-600 ta-c">We're working on this example.</p>
+- The **zi-10** utility sets the z-index to **10**, positioning the element above elements with a lower z-index value.
+- The **zi-20** utility sets the z-index to **20**, positioning the element even higher in the stacking context.
+
+```html live "zi-10" "zi-20"
+<div class="p-8 p-r">
+  <div class="bg-l-indigo-4 dim-16 dir-l-0 dir-t-0 p-a rad-1 zi-10"></div>
+  <div class="bg-d-indigo-2 dim-16 dir-l-16 dir-t-16 p-a rad-1 zi-20"></div>
+</div>
 ```
 
 <Modifier
