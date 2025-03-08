@@ -4,6 +4,7 @@ import { sidebar } from "./astro.sidebar";
 import AutoImport from "astro-auto-import";
 import fs from "node:fs";
 import liveCode from "astro-live-code";
+import sitemap from "@astrojs/sitemap";
 import starlight from "@astrojs/starlight";
 import starlightBlog from "starlight-blog";
 import starlightCoolerCredit from "starlight-cooler-credit";
@@ -12,10 +13,10 @@ import starlightLinksValidator from "starlight-links-validator";
 import vercel from "@astrojs/vercel";
 
 const theme = fs.readFileSync(new URL(`./midnight.jsonc`, import.meta.url), "utf-8");
-
 const yummaTheme = ExpressiveCodeTheme.fromJSONString(theme);
 
 export default defineConfig({
+  site: "https://www.yummacss.com", // for sitemap.xml
   integrations: [
     starlight({
       title: "Yumma CSS",
@@ -26,14 +27,11 @@ export default defineConfig({
         light: "/public/trademark/logo-light.png",
         replacesTitle: true,
       },
-
       customCss: ["/src/styles/globals.css"],
-
       components: {
         // Hero: "./src/components/Hero.astro",
         PageTitle: "./src/components/PageTitle.astro",
       },
-
       plugins: [
         starlightHeadingBadges(),
         starlightLinksValidator(),
@@ -60,7 +58,6 @@ export default defineConfig({
           },
         }),
       ],
-
       expressiveCode: {
         themes: [yummaTheme],
         styleOverrides: {
@@ -81,16 +78,29 @@ export default defineConfig({
           },
         },
       },
-
       editLink: {
         baseUrl: "https://github.com/yumma-lib/yumma-css-docs/tree/release/",
       },
-
       social: {
         github: "https://github.com/yumma-lib/yumma-css",
       },
-
       head: [
+        {
+          tag: "link",
+          attrs: {
+            href: "/favicon.ico",
+            rel: "icon",
+            type: "image/x-icon",
+          },
+        },
+        {
+          tag: "link",
+          attrs: {
+            href: "/favicon.png",
+            rel: "icon",
+            type: "image/png",
+          },
+        },
         {
           tag: "link",
           attrs: {
@@ -132,7 +142,6 @@ export default defineConfig({
   ],
 
   redirects: {
-    // redirects from old URLs to new URLs
     "/docs": "/docs/installation",
     "/docs/build-css": "/docs/first-steps#building-styles",
     "/docs/colors": "/docs/first-steps#color-palette",
