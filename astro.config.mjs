@@ -1,19 +1,7 @@
 import { defineConfig } from "astro/config";
-import { ExpressiveCodeTheme } from "@astrojs/starlight/expressive-code";
-import { sidebar } from "./astro.sidebar";
-import AutoImport from "astro-auto-import";
-import fs from "node:fs";
-import liveCode from "astro-live-code";
-import sitemap from "@astrojs/sitemap";
 import starlight from "@astrojs/starlight";
-import starlightBlog from "starlight-blog";
-import starlightCoolerCredit from "starlight-cooler-credit";
-import starlightHeadingBadges from "starlight-heading-badges";
-import starlightLinksValidator from "starlight-links-validator";
-import vercel from "@astrojs/vercel";
 
-const theme = fs.readFileSync(new URL(`./midnight.jsonc`, import.meta.url), "utf-8");
-const yummaTheme = ExpressiveCodeTheme.fromJSONString(theme);
+import * as config from "./astro.imports.js";
 
 export default defineConfig({
   site: "https://www.yummacss.com", // for sitemap.xml
@@ -33,9 +21,9 @@ export default defineConfig({
         PageTitle: "./src/components/PageTitle.astro",
       },
       plugins: [
-        starlightHeadingBadges(),
-        starlightLinksValidator(),
-        starlightCoolerCredit({
+        config.starlightHeadingBadges(),
+        config.starlightLinksValidator(),
+        config.starlightCoolerCredit({
           credit: {
             title: {
               en: "Yumma CSS v3.0",
@@ -47,7 +35,7 @@ export default defineConfig({
           },
           showImage: false,
         }),
-        starlightBlog({
+        config.starlightBlog({
           authors: {
             Renildo: {
               name: "Renildo Pereira",
@@ -59,7 +47,7 @@ export default defineConfig({
         }),
       ],
       expressiveCode: {
-        themes: [yummaTheme],
+        themes: [config.midnightTheme],
         styleOverrides: {
           collapsibleSections: {
             openBackgroundColorCollapsible: "hsla(231, 73%, 77%, 0.050)",
@@ -117,10 +105,10 @@ export default defineConfig({
           },
         },
       ],
-      sidebar, // from astro.sidebar.ts
+      sidebar: config.sidebar, // from astro.sidebar.ts
     }),
 
-    AutoImport({
+    config.AutoImport({
       imports: [
         "/src/components/Class.astro",
         "/src/components/Color.astro",
@@ -136,7 +124,7 @@ export default defineConfig({
       ],
     }),
 
-    liveCode({
+    config.liveCode({
       layout: "/src/layouts/default.astro",
     }),
   ],
@@ -153,7 +141,7 @@ export default defineConfig({
   },
 
   output: "server",
-  adapter: vercel({
+  adapter: config.vercel({
     webAnalytics: {
       enabled: true,
     },
