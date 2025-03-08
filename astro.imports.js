@@ -13,7 +13,7 @@ const midnight = fs.readFileSync(new URL(`./midnight.jsonc`, import.meta.url), "
 const midnightTheme = ExpressiveCodeTheme.fromJSONString(midnight);
 
 // prettier-ignore
-export {
+export default {
     sidebar,
     AutoImport,
     liveCode,
