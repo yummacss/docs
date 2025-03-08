@@ -1,7 +1,7 @@
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 
-import * as config from "./astro.imports.js";
+import config from "./astro.imports.js";
 
 export default defineConfig({
   site: "https://www.yummacss.com", // for sitemap.xml
