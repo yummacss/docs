@@ -6,14 +6,7 @@ description: Utilities to specify the rows in a grid layout.
 slug: docs/grid-template-rows
 ---
 
-<Utility
-  classPrefix="gtr-"
-  excludeZero
-  incrementName="repeat(%i, minmax(0, 1fr))"
-  incrementValue={1}
-  propNames={["grid-template-rows"]}
-  range={16}
-/>
+<Utility classPrefix="gtr-" excludeZero incrementName="repeat(%i, minmax(0, 1fr))" incrementValue={1} propNames={["grid-template-rows"]} range={16} />
 
 This example sets the grid template rows to **repeat(3, minmax(0, 1fr))**. The grid will have **3** rows, each with a minimum size of **0** and a maximum size of **1fr**, allowing them to grow and fill the available space equally.
 
@@ -31,6 +24,10 @@ This example sets the grid template rows to **repeat(3, minmax(0, 1fr))**. The g
   </div>
 </div>
 ```
+
+---
+
+## Conditional styles
 
 <Modifier
   utility="gtr-1"
