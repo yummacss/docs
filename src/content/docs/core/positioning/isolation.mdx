@@ -13,16 +13,16 @@ draft: true
 
 This example sets the isolation to **auto**. The element will use the default isolation behavior, allowing overlapping elements to blend together.
 
-```html live "i-auto" layout="/src/layouts/wide.astro"
-<p class="fw-600 ta-c">We're working on this example.</p>
+```html "i-auto"
+<div class="i-auto ..."></div>
 ```
 
 ## Isolate
 
 This example sets the isolation to **isolate**. The element will create a new stacking context, preventing overlapping elements from blending with the background.
 
-```html live "i-i" layout="/src/layouts/wide.astro"
-<p class="fw-600 ta-c">We're working on this example.</p>
+```html "i-i"
+<div class="i-i ..."></div>
 ```
 
 <Modifier
