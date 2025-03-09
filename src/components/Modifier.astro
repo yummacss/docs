@@ -14,19 +14,16 @@ interface ModifierProps {
 const { utility: baseUtil, modifiers, prefixUtil } = Astro.props as ModifierProps;
 ---
 
-<hr class="mb-12 pt-6" />
-
 <section>
   {
     modifiers && modifiers.responsiveUtil && (
       <div>
-        <h3>Utilizing utilities conditionally</h3>
         <p>
           Learn how to override existing utilities based on the user's <a href="/docs/first-steps#breakpoint-modifiers">screen size</a> or other factors, such as{" "}
           <a href="/docs/first-steps#hover-modifiers">hover states</a>.
         </p>
         <Decorator name="ratio">
-          <b>Responsive breakpoints</b>
+          <b>Media modifiers</b>
         </Decorator>
         <p>
           You can combine responsive breakpoints like <code>sm:{prefixUtil}-*</code>,<code>md:{prefixUtil}-*</code>, <code>lg:{prefixUtil}-*</code>, and{" "}
@@ -38,7 +35,7 @@ const { utility: baseUtil, modifiers, prefixUtil } = Astro.props as ModifierProp
   }
 
   <Decorator name="square_dashed_pointer">
-    <b>Hover states</b>
+    <b>Hover modifiers</b>
   </Decorator>
 
   <p>

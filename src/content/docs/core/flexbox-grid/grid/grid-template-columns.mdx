@@ -6,14 +6,7 @@ description: Utilities to define the columns in a grid layout.
 slug: docs/grid-template-columns
 ---
 
-<Utility
-  classPrefix="gtc-"
-  excludeZero
-  incrementName="repeat(%i, minmax(0, 1fr))"
-  incrementValue={1}
-  propNames={["grid-template-columns"]}
-  range={16}
-/>
+<Utility classPrefix="gtc-" excludeZero incrementName="repeat(%i, minmax(0, 1fr))" incrementValue={1} propNames={["grid-template-columns"]} range={16} />
 
 This example sets the grid template columns to **repeat(3, minmax(0, 1fr))**. The grid will have **3** columns, each with a minimum size of **0** and a maximum size of **1fr**, allowing them to grow and fill the available space equally.
 
@@ -26,6 +19,10 @@ This example sets the grid template columns to **repeat(3, minmax(0, 1fr))**. Th
   <div class="bg-indigo p-4 rad-1">E</div>
 </div>
 ```
+
+---
+
+## Conditional styles
 
 <Modifier
   utility="gtc-1"
