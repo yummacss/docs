@@ -1,6 +1,5 @@
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
-
 import config from "./astro.imports.js";
 
 export default defineConfig({
