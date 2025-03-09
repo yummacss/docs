@@ -6,8 +6,8 @@ interface ModifierProps {
   utility: string;
   prefixUtil: string;
   modifiers: {
-    hoverUtil: string;
-    responsiveUtil?: string;
+    hoverMod: string;
+    responsiveMod?: string;
   };
 }
 
@@ -20,7 +20,7 @@ const { utility: baseUtil, modifiers, prefixUtil } = Astro.props as ModifierProp
     <a href="/docs/first-steps#hover-modifiers">hover states</a>.
   </p>
   {
-    modifiers && modifiers.responsiveUtil && (
+    modifiers && modifiers.responsiveMod && (
       <div>
         <Decorator name="ratio">
           <b>Media modifiers</b>
@@ -29,7 +29,7 @@ const { utility: baseUtil, modifiers, prefixUtil } = Astro.props as ModifierProp
           You can combine responsive breakpoints like <code>sm:{prefixUtil}-*</code>,<code>md:{prefixUtil}-*</code>, <code>lg:{prefixUtil}-*</code>, and{" "}
           <code>xxl:{prefixUtil}-*</code> allows targeting specific utilities in different viewports.
         </p>
-        <Code code={`<div class="${baseUtil} md:${modifiers.responsiveUtil} ..."></div>`} lang="html" mark={`md:${modifiers.responsiveUtil}`} />
+        <Code code={`<div class="${baseUtil} md:${modifiers.responsiveMod} ..."></div>`} lang="html" mark={`md:${modifiers.responsiveMod}`} />
       </div>
     )
   }
@@ -42,5 +42,5 @@ const { utility: baseUtil, modifiers, prefixUtil } = Astro.props as ModifierProp
     Alternatively, you can apply <code>:hover</code> by using <code>h:{prefixUtil}-*</code> utility to override elements and change their values when hovering over them.
   </p>
 
-  <Code code={`<div class="${baseUtil} h:${modifiers.hoverUtil} ..."></div>`} lang="html" mark={`h:${modifiers.hoverUtil}`} />
+  <Code code={`<div class="${baseUtil} h:${modifiers.hoverMod} ..."></div>`} lang="html" mark={`h:${modifiers.hoverMod}`} />
 </section>
