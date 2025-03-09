@@ -15,13 +15,13 @@ const { utility: baseUtil, modifiers, prefixUtil } = Astro.props as ModifierProp
 ---
 
 <section>
+  <p>
+    Learn how to override existing utilities based on the user's <a href="/docs/first-steps#breakpoint-modifiers">screen size</a> or other factors, such as{" "}
+    <a href="/docs/first-steps#hover-modifiers">hover states</a>.
+  </p>
   {
     modifiers && modifiers.responsiveUtil && (
       <div>
-        <p>
-          Learn how to override existing utilities based on the user's <a href="/docs/first-steps#breakpoint-modifiers">screen size</a> or other factors, such as{" "}
-          <a href="/docs/first-steps#hover-modifiers">hover states</a>.
-        </p>
         <Decorator name="ratio">
           <b>Media modifiers</b>
         </Decorator>
