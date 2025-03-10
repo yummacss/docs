@@ -23,46 +23,42 @@ slug: docs/table-layout
 
 This example sets the table layout to **auto**. The browser will determine the column widths based on the content.
 
-```html "tl-auto"
-<div class="w-64">
-  <table class="b-1 bc-c bc-l-silver-3 tl-auto w-full">
-    <thead>
-      <tr>
-        <th class="b-1 bc-l-silver-3 p-3">Column A</th>
-        <th class="b-1 bc-l-silver-3 p-3">Column B</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="b-1 bc-l-silver-3 p-3">Short</td>
-        <td class="b-1 bc-l-silver-3 p-3">This is a much longer piece of content</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+```html live "tl-auto" layout="/src/layouts/wide.astro"
+<table class="b-1 b-s bc-c bc-l-silver-3 tl-auto w-full">
+  <thead>
+    <tr>
+      <th class="b-1 b-s bc-l-silver-3 p-3">H1</th>
+      <th class="b-1 b-s bc-l-silver-3 p-3">H2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="b-1 b-s bc-l-silver-3 p-3">Short</td>
+      <td class="b-1 b-s bc-l-silver-3 p-3">This is a much longer piece of content</td>
+    </tr>
+  </tbody>
+</table>
 ```
 
 ## Fixed
 
 This example sets the table layout to **fixed**. The column widths are set by the width of the table and the first row.
 
-```html "tl-f"
-<div class="w-64">
-  <table class="b-1 bc-c bc-l-silver-3 tl-f w-full">
-    <thead>
-      <tr>
-        <th class="b-1 bc-l-silver-3 p-3">Column A</th>
-        <th class="b-1 bc-l-silver-3 p-3">Column B</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="b-1 bc-l-silver-3 p-3">Short</td>
-        <td class="b-1 bc-l-silver-3 p-3">This is a much longer piece of content</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+```html live "tl-f" layout="/src/layouts/wide.astro"
+<table class="b-1 b-s bc-c bc-l-silver-3 tl-f w-full">
+  <thead>
+    <tr>
+      <th class="b-1 b-s bc-l-silver-3 p-3">H1</th>
+      <th class="b-1 b-s bc-l-silver-3 p-3">H2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="b-1 b-s bc-l-silver-3 p-3">Short</td>
+      <td class="b-1 b-s bc-l-silver-3 p-3">This is a much longer piece of content</td>
+    </tr>
+  </tbody>
+</table>
 ```
 
 ## Conditional styles
