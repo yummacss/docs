@@ -52,16 +52,16 @@ With v3, you won't have to stress about shipping unused CSS to the browser. The 
 
     3. **Set up the config file**
 
-        To build the CSS from the source include the `content` array and the `styles` string options inside a config named object.
+        To build the CSS from the source include the `source` array and the `styles` string options inside a config named object.
 
         ```js title="yummacss.config.js" mark={2-7}
-        export const config = {
-            content: ["src/**/*.{html}"],
-            output: "src/globals.css",
-            capabilities: {
-              reset: false, // Optional
-              minify: false, // Optional
-            }
+        module.exports = {
+          source: ["./src/**/*.html"],
+          output: "./src/globals.css",
+          buildOptions: {
+            reset: false,
+            minify: false,
+          },
         };
         ```
 
@@ -256,15 +256,15 @@ We completely overhauled the entire codebase to get better performance in build 
 
 3.  **Set up the config file**
 
-    Setup the `content` array and `output` string field.
+    Setup the `source` array and `output` string field.
 
     ```js title="yummacss.config.js" mark={2-7}
-    export const config = {
-      content: ["src/**/*.{html}"],
-      output: "src/globals.css",
-      capabilities: {
-        reset: true, // Optional
-        minify: true, // Optional
+    module.exports = {
+      source: ["./src/**/*.html"],
+      output: "./src/globals.css",
+      buildOptions: {
+        reset: true,
+        minify: true,
       },
     };
     ```
@@ -539,13 +539,13 @@ From now on, files like `yumma-core.css` and `yumma-core.min.css` will be delete
 <Tabs>
   <TabItem label="v3.0">
     ```js mark={4-7} title="yummacss.config.js"
-    export const config = {
-        content: ["src/**/*.{html}"],
-        output: "src/globals.css",
-        capabilities: {
-            reset: false, // Disable base styles
-            minify: true, // Minifies CSS
-        }
+    module.exports = {
+      source: ["./src/**/*.html"],
+      output: "./src/globals.css",
+      buildOptions: {
+        reset: false, // Disable reset styles
+        minify: false, // Disable styles minification
+      },
     };
     ```
 
