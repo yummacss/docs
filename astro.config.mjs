@@ -3,7 +3,6 @@ import starlight from "@astrojs/starlight";
 import config from "./astro.imports.js";
 
 export default defineConfig({
-  site: "https://www.yummacss.com", // for sitemap.xml
   integrations: [
     starlight({
       title: "Yumma CSS",
