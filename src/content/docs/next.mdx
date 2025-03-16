@@ -69,7 +69,7 @@ With v3, you won't have to stress about shipping unused CSS to the browser. The 
 
         Start using Yumma CSS utilities in your to generate CSS with the CLI.
 
-        ```html mark={7, 11-16}
+        ```html mark={7, 11-16} title="page.html"
         <!DOCTYPE html>
         <html lang="en">
 
@@ -233,7 +233,7 @@ We completely overhauled the entire codebase to get better performance in build 
 
     The CLI works by compiling SCSS to CSS, so there's no need to import the Yumma CSS package dependency.
 
-    ```diff lang="css" title="src/globals.css"
+    ```diff lang="css" title="src/globals.css" title="page.html"
     - @import "/node_modules/yummacss/dist/yumma.min.css";
     ```
 
@@ -309,7 +309,7 @@ The full set of utilities will be retained within the distribution folder for th
 
 In v3, both the light (`l-`) and dark (`d-`) characters are being removed across all color utilities. As a result, the range used to determine a color's shade was also adjusted.
 
-```diff lang="html"
+```diff lang="html" title="page.html"
 - <button class="bg-l-indigo-6 h:bg-d-indigo-1">Hello</button>
 + <button class="bg-indigo-1 h:bg-indigo-7">Hello</button>
 ```
@@ -392,7 +392,7 @@ By default, all paddings will be removed.
 
 Font rendering is smoother, and a consistent system font is set as the default. — [oshwcomeau.com](https://www.joshwcomeau.com/css/custom-css-reset/)
 
-```diff lang=scss mark={2-3} title="base/stylecent.scss"
+```diff lang=scss mark={2-3} title="base/stylecent.scss" title="page.html"
 body {
   -webkit-font-smoothing: antialiased;
   font-family: vars.$yma-font-system;
@@ -589,7 +589,7 @@ This improvement also eliminates redundant CSS and makes the framework more pred
 
 In v3, we're changing the `align-content` utility prefix from `ac-s` to `ac-st` to match with other utilities like `ji-st` and `js-st`.
 
-```diff lang="html"
+```diff lang="html" title="page.html"
 - <div class="ac-s ..."></div>
 + <div class="ac-st ..."></div>
 ```
@@ -598,7 +598,7 @@ In v3, we're changing the `align-content` utility prefix from `ac-s` to `ac-st` 
 
 Additionally, in v3, we're changing changing the `align-items` utility prefix from `ai-s` to `ai-st`.
 
-```diff lang="html"
+```diff lang="html" title="page.html"
 - <div class="ai-s ..."></div>
 + <div class="ai-st ..."></div>
 ```
@@ -607,7 +607,7 @@ Additionally, in v3, we're changing changing the `align-items` utility prefix fr
 
 Additionally, in v3, we're changing `align-self` utility prefix from `as-s` to `as-st` to match with other utilities like `ji-st` and `js-st`.
 
-```diff lang="html"
+```diff lang="html" title="page.html"
 - <div class="as-s ..."></div>
 + <div class="as-st ..."></div>
 ```
@@ -616,7 +616,7 @@ Additionally, in v3, we're changing `align-self` utility prefix from `as-s` to `
 
 Finally, in v3, we're changing changing the `justify-content` utility prefix from `jc-s` to `jc-st` to match with other utilities like `ji-st` and `js-st`.
 
-```diff lang="html"
+```diff lang="html" title="page.html"
 - <div class="jc-s ..."></div>
 + <div class="jc-st ..."></div>
 ```
@@ -625,7 +625,7 @@ Finally, in v3, we're changing changing the `justify-content` utility prefix fro
 
 In v3, we're adding new `border-radius` utilities starting with `rad-b-*`
 
-```diff lang="html" "rad-b-2"
+```diff lang="html" "rad-b-2" title="page.html"
 - <button class="b-1 bg-black rad-bl-2 rad-br-2 tc-white">Subscribe</button>
 + <button class="b-1 bg-black rad-b-2 tc-white">Subscribe</button>
 ```
@@ -634,7 +634,7 @@ In v3, we're adding new `border-radius` utilities starting with `rad-b-*`
 
 Additionally, in v3, we're also adding `rad-l-*` to add left rounded edges only to an element.
 
-```diff lang="html" "rad-l-2"
+```diff lang="html" "rad-l-2" title="page.html"
 - <button class="b-1 bg-black rad-bl-2 rad-tl-2 tc-white">Subscribe</button>
 + <button class="b-1 bg-black rad-l-2 tc-white">Subscribe</button>
 ```
@@ -643,7 +643,7 @@ Additionally, in v3, we're also adding `rad-l-*` to add left rounded edges only 
 
 Additionally, in v3, we're also adding `rad-r-*` to add right rounded edges only to an element.
 
-```diff lang="html" "rad-r-2"
+```diff lang="html" "rad-r-2" title="page.html"
 - <button class="b-1 bg-black rad-br-2 rad-tr-2 tc-white">Subscribe</button>
 + <button class="b-1 bg-black rad-r-2 tc-white">Subscribe</button>
 ```
@@ -652,7 +652,7 @@ Additionally, in v3, we're also adding `rad-r-*` to add right rounded edges only
 
 Finally, in v3, we're also adding `rad-t-*` to add top rounded edges only to an element.
 
-```diff lang="html" "rad-t-2"
+```diff lang="html" "rad-t-2" title="page.html"
 - <button class="b-1 bg-black rad-tl-2 rad-tr-2 tc-white">Subscribe</button>
 + <button class="b-1 bg-black rad-t-2 tc-white">Subscribe</button>
 ```
@@ -664,25 +664,25 @@ In v3, we've also made changes to the way the Bottom / Left / Right / Top utilit
 {/* prettier-ignore */}
 <Tabs>
   <TabItem label="Bottom">
-    ```diff lang="html" "bo-* "
+    ```diff lang="html" "bo-* " title="page.html"
     - <div class="dir-b-* ..."></div>
     + <div class="bo-* ..."></div>
     ```
   </TabItem>
   <TabItem label="Left">
-    ```diff lang="html"  "l-* "
+    ```diff lang="html"  "l-* " title="page.html"
     - <div class="dir-l-* ..."></div>
     + <div class="l-* ..."></div>
     ```
   </TabItem>
   <TabItem label="Right">
-    ```diff lang="html"  "r-* "
+    ```diff lang="html"  "r-* " title="page.html"
     - <div class="dir-r-* ..."></div>
     + <div class="r-* ..."></div>
     ```
   </TabItem>
   <TabItem label="Top">
-    ```diff lang="html"  "t-* "
+    ```diff lang="html"  "t-* " title="page.html"
     - <div class="dir-t-* ..."></div>
     + <div class="t-* ..."></div>
     ```
@@ -693,7 +693,7 @@ In v3, we've also made changes to the way the Bottom / Left / Right / Top utilit
 
 In v3, we're making the `columns` utilities even smaller than before.
 
-```diff lang="html" "c-*"
+```diff lang="html" "c-*" title="page.html"
 - <div class="cols-* ..."></div>
 + <div class="c-* ..."></div>
 ```
@@ -702,7 +702,7 @@ In v3, we're making the `columns` utilities even smaller than before.
 
 In v3, we've made the Dimension utility even more abbreviated to align with the purpose of the framework.
 
-```diff lang="html" "d-*"
+```diff lang="html" "d-*" title="page.html"
 - <div class="dim-* ..."></div>
 + <div class="d-* ..."></div>
 ```
@@ -713,7 +713,7 @@ Additionally, in v3, we're changing the Max Dimension utility syntax.
 
 This also applies to the Max and Min Dimension utilities.
 
-```diff lang="html"
+```diff lang="html" title="page.html"
 - <div class="max-dim-* ..."></div>
 + <div class="max-d-* ..."></div>
 ```
@@ -722,7 +722,7 @@ This also applies to the Max and Min Dimension utilities.
 
 Finally, in v3, we're changing the Min Dimension utility syntax.
 
-```diff lang="html"
+```diff lang="html" title="page.html"
 - <div class="min-dim-* ..."></div>
 + <div class="min-dim-* ..."></div>
 ```
@@ -815,7 +815,7 @@ In v3, new font stacks are being implemented, existing utilities are being refin
 
 In v3, we've completely reworked the `overflow` utility class syntax.
 
-```diff lang="html"
+```diff lang="html" title="page.html"
 - <div class="ovf-* ..."></div>
 + <div class="o-* ..."></div>
 ```
@@ -824,7 +824,7 @@ In v3, we've completely reworked the `overflow` utility class syntax.
 
 Additionally, in v3, we've shortened the `overflow-x` utility class.
 
-```diff lang="html"
+```diff lang="html" title="page.html"
 - <div class="ovf-x-* ..."></div>
 + <div class="o-x-* ..."></div>
 ```
@@ -833,7 +833,7 @@ Additionally, in v3, we've shortened the `overflow-x` utility class.
 
 Finally, in v3, we've shortened the `overflow-y` utility class.
 
-```diff lang="html"
+```diff lang="html" title="page.html"
 - <div class="ovf-y-* ..."></div>
 + <div class="o-y-*..."></div>
 ```
@@ -842,7 +842,7 @@ Finally, in v3, we've shortened the `overflow-y` utility class.
 
 In v3 we're reworking the float utilities by shortening the syntax.
 
-```diff lang="html"
+```diff lang="html" title="page.html"
 - <div class="flo-* ..."></div>
 + <div class="fl-* ..."></div>
 ```
@@ -851,7 +851,7 @@ In v3 we're reworking the float utilities by shortening the syntax.
 
 We are no longer supporting the `cnt` utility. We are making improvements to our modifiers to make them more flexible and easier to use.
 
-```html del="cnt"
+```html del="cnt" title="page.html"
 <div class="cnt"></div>
 ```
 
@@ -859,7 +859,7 @@ We are no longer supporting the `cnt` utility. We are making improvements to our
 
 It's been a great ride, and we're sure most of you have used it to easily center a div in the middle of the screen, but this concept was not very useful in many case scenarios where you would typically need more customizability, so we've decided to remove it.
 
-```diff lang="html"
+```diff lang="html" title="page.html"
 - <div class="ins ..."></div>
 + <div class="ai-c d-f jc-c ..."></div>
 ```
@@ -868,7 +868,7 @@ It's been a great ride, and we're sure most of you have used it to easily center
 
 In v3 we've removed the **Spacing X** utilities. You can use the **Row Gap** utilities instead for almost all cases, and even combine the **Row Gap** utilities with other utilities like `d-f` or `d-if`.
 
-```live "cg-8"
+```live "cg-8" title="page.html"
 <div class="d-if fd-r stripes cg-8 tc-white">
   <div class="ai-c bg-indigo d-f dim-16 jc-c rad-1">A</div>
   <div class="ai-c bg-indigo d-f dim-16 jc-c rad-1">B</div>
@@ -880,10 +880,20 @@ In v3 we've removed the **Spacing X** utilities. You can use the **Row Gap** uti
 
 The same concept applies to the **Spacing Y** utilities. You should now use the **Column Gap** utilities instead. You can even combine the **Column Gap** utilities with other utilities like `d-f` or `d-if`.
 
-```live "rg-8"
+```live "rg-8" title="page.html"
 <div class="d-if fd-c stripes rg-8 tc-white">
   <div class="ai-c bg-indigo d-f dim-16 jc-c rad-1">A</div>
   <div class="ai-c bg-indigo d-f dim-16 jc-c rad-1">B</div>
   <div class="ai-c bg-indigo d-f dim-16 jc-c rad-1">C</div>
 </div>
 ```
+
+### Removed `*-1/2` utilities
+
+In v3, we're removing `h-1/2` from **Height** utilities, `w-1/2` from **Width** utilities, and `d-1/2` from **Dimension** utilities.
+
+```diff lang="html" title="page.html"
+- <div class="h-1/2 ...">A</div>
+- <div class="w-1/2 ...">A</div>
+- <div class="d-1/2 ...">A</div>
+``` 
