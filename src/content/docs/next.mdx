@@ -847,6 +847,19 @@ In v3 we're reworking the float utilities by shortening the syntax.
 + <div class="fl-* ..."></div>
 ```
 
+### Dimension, Height and Width utilities
+
+In v3, we're renaming all `*-1/1` utilities, including the **Height**, **Width**, and **Dimension** utilities to `*-dvh`.
+
+```diff lang="html" title="page.html"
+- <div class="h-1/1 ...">A</div>
+- <div class="w-1/1 ...">A</div>
+- <div class="d-1/1 ...">A</div>
++ <div class="h-dvh ...">A</div>
++ <div class="w-dvh ...">A</div>
++ <div class="d-dvh ...">A</div>
+```
+
 ### Removed Container utility
 
 We are no longer supporting the `cnt` utility. We are making improvements to our modifiers to make them more flexible and easier to use.
@@ -896,4 +909,4 @@ In v3, we're removing `h-1/2` from **Height** utilities, `w-1/2` from **Width** 
 - <div class="h-1/2 ...">A</div>
 - <div class="w-1/2 ...">A</div>
 - <div class="d-1/2 ...">A</div>
-``` 
+```
