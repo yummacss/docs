@@ -847,6 +847,23 @@ In v3 we're reworking the float utilities by shortening the syntax.
 + <div class="fl-* ..."></div>
 ```
 
+### Removed Container utility
+
+We are no longer supporting the `cnt` utility. We are making improvements to our modifiers to make them more flexible and easier to use.
+
+```html del="cnt"
+<div class="cnt"></div>
+```
+
+### Removed Insert utility
+
+It's been a great ride, and we're sure most of you have used it to easily center a div in the middle of the screen, but this concept was not very useful in many case scenarios where you would typically need more customizability, so we've decided to remove it.
+
+```diff lang="html"
+- <div class="ins ..."></div>
++ <div class="ai-c d-f jc-c ..."></div>
+```
+
 ### Removed Spacing X utilities
 
 In v3 we've removed the **Spacing X** utilities. You can use the **Row Gap** utilities instead for almost all cases, and even combine the **Row Gap** utilities with other utilities like `d-f` or `d-if`.
@@ -869,21 +886,4 @@ The same concept applies to the **Spacing Y** utilities. You should now use the 
   <div class="ai-c bg-indigo d-f dim-16 jc-c rad-1">B</div>
   <div class="ai-c bg-indigo d-f dim-16 jc-c rad-1">C</div>
 </div>
-```
-
-### Removed Container utility
-
-We are no longer supporting the `cnt` utility. We are making improvements to our modifiers to make them more flexible and easier to use.
-
-```html del="cnt"
-<div class="cnt"></div>
-```
-
-### Removed Insert utility
-
-It's been a great ride, and we're sure most of you have used it to easily center a div in the middle of the screen, but this concept was not very useful in many case scenarios where you would typically need more customizability, so we've decided to remove it.
-
-```diff lang="html"
-- <div class="ins ..."></div>
-+ <div class="ai-c d-f jc-c ..."></div>
 ```
