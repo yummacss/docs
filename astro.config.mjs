@@ -112,8 +112,8 @@ export default defineConfig({
         "/src/components/Color.astro",
         "/src/components/Decorator.astro",
         "/src/components/Modifier.astro",
-        "/src/components/Palette.astro",
         "/src/components/Palette2.astro",
+        "/src/components/Palette3.astro",
         "/src/components/Utility.astro",
         {
           "@astrojs/starlight/components": ["Aside", "Card", "CardGrid", "Code", "FileTree", "Icon", "LinkButton", "LinkCard", "Steps", "TabItem", "Tabs"],

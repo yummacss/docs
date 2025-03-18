@@ -19,11 +19,12 @@ const mixColors = (color1: string, color2: string, weight: number): string => {
 
 const generateShades = (color: string): string[] => {
   const shades: string[] = [];
-  for (let i = 6; i >= 1; i--) {
-    shades.push(mixColors(color, "white", i * percentage));
+  for (let i = 1; i <= 6; i++) {
+    shades.push(mixColors(color, "white", (7 - i) * percentage));
   }
 
   shades.push(color);
+
   for (let i = 1; i <= 6; i++) {
     shades.push(mixColors(color, "black", i * percentage));
   }
@@ -35,7 +36,7 @@ const generateShades = (color: string): string[] => {
 <div class="d-f fd-c">
   <div class="d-g fs-xs shadeNumbers ta-c">
     <div></div>
-    {Array.from({ length: 13 }, (_, i) => <div>{i === 6 ? "Base" : i < 6 ? 6 - i : i - 6}</div>)}
+    {Array.from({ length: 13 }, (_, i) => <div>{i === 6 ? "Base" : i < 6 ? i + 1 : i}</div>)}
   </div>
 
   {
@@ -55,11 +56,11 @@ const generateShades = (color: string): string[] => {
 
 <style>
   .shadeNumbers {
-    grid-template-columns: repeat(14, 1fr);
+    grid-template-columns: 40px repeat(13, 1fr);
   }
 
   .colorRow {
-    grid-template-columns: repeat(14, 1fr);
+    grid-template-columns: 40px repeat(13, 1fr);
   }
 
   .colorName {
@@ -82,8 +83,8 @@ const generateShades = (color: string): string[] => {
     }
 
     .colorRow {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      display: flex;
+      flex-direction: column;
       gap: 0.5rem;
     }
 
