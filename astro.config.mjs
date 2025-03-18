@@ -34,6 +34,7 @@ export default defineConfig({
           showImage: false,
         }),
         config.starlightBlog({
+          recentPostCount: 3,
           authors: {
             Renildo: {
               name: "Renildo Pereira",
