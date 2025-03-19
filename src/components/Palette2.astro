@@ -55,11 +55,11 @@ const generateShades = (color: string): string[] => {
 
 <style>
   .shadeNumbers {
-    grid-template-columns: repeat(14, 1fr);
+    grid-template-columns: 40px repeat(13, 1fr);
   }
 
   .colorRow {
-    grid-template-columns: repeat(14, 1fr);
+    grid-template-columns: 40px repeat(13, 1fr);
   }
 
   .colorName {
@@ -82,8 +82,8 @@ const generateShades = (color: string): string[] => {
     }
 
     .colorRow {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      display: flex;
+      flex-direction: column;
       gap: 0.5rem;
     }
 

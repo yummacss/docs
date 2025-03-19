@@ -11,7 +11,7 @@ interface PaletteProps {
   percentage?: number;
 }
 
-const { data, percentage = 10 } = Astro.props as PaletteProps;
+const { data, percentage = 14 } = Astro.props as PaletteProps;
 
 const mixColors = (color1: string, color2: string, weight: number): string => {
   return tinycolor.mix(color1, color2, weight).toHexString();
