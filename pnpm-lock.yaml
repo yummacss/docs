@@ -47,9 +47,6 @@ importers:
       starlight-cooler-credit:
         specifier: ^0.2.3
         version: 0.2.3(@astrojs/starlight@0.31.1(astro@5.2.3(@types/node@18.19.74)(rollup@4.34.1)(typescript@5.7.3)(yaml@2.7.0)))
-      starlight-heading-badges:
-        specifier: ^0.4.0
-        version: 0.4.0(@astrojs/starlight@0.31.1(astro@5.2.3(@types/node@18.19.74)(rollup@4.34.1)(typescript@5.7.3)(yaml@2.7.0)))
       starlight-links-validator:
         specifier: ^0.14.2
         version: 0.14.2(@astrojs/starlight@0.31.1(astro@5.2.3(@types/node@18.19.74)(rollup@4.34.1)(typescript@5.7.3)(yaml@2.7.0)))
@@ -2100,12 +2097,6 @@ packages:
     engines: {node: ^18.17.1 || ^20.3.0 || >=21.0.0}
     peerDependencies:
       '@astrojs/starlight': '>=0.30'
-
-  starlight-heading-badges@0.4.0:
-    resolution: {integrity: sha512-qHxbZcqaz+01y/XKuA5xfbTncUl5Vo0/kY0f+Wi+xvuJ8MUDefZHhL2io3KdoR0ekRDn8COtj/hwE+zL+QcEGA==}
-    engines: {node: '>=18'}
-    peerDependencies:
-      '@astrojs/starlight': '>=0.30.0'
 
   starlight-links-validator@0.14.2:
     resolution: {integrity: sha512-OsPngajtW4kB/oxiW3Kt1Fd+rY3opdIWbD/n5pGQMzil03QujT6rAeHEBR4tXRdjQW4HnFZYIy/ANhBu4kUNfQ==}
@@ -5254,15 +5245,6 @@ snapshots:
     dependencies:
       '@astrojs/starlight': 0.31.1(astro@5.2.3(@types/node@18.19.74)(rollup@4.34.1)(typescript@5.7.3)(yaml@2.7.0))
       change-case: 5.4.4
-
-  starlight-heading-badges@0.4.0(@astrojs/starlight@0.31.1(astro@5.2.3(@types/node@18.19.74)(rollup@4.34.1)(typescript@5.7.3)(yaml@2.7.0))):
-    dependencies:
-      '@astrojs/markdown-remark': 6.1.0
-      '@astrojs/starlight': 0.31.1(astro@5.2.3(@types/node@18.19.74)(rollup@4.34.1)(typescript@5.7.3)(yaml@2.7.0))
-      github-slugger: 2.0.0
-      unist-util-visit: 5.0.0
-    transitivePeerDependencies:
-      - supports-color
 
   starlight-links-validator@0.14.2(@astrojs/starlight@0.31.1(astro@5.2.3(@types/node@18.19.74)(rollup@4.34.1)(typescript@5.7.3)(yaml@2.7.0))):
     dependencies:
