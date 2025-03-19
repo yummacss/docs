@@ -5,7 +5,6 @@ import fs from "node:fs";
 import liveCode from "astro-live-code";
 import starlightBlog from "starlight-blog";
 import starlightCoolerCredit from "starlight-cooler-credit";
-import starlightHeadingBadges from "starlight-heading-badges";
 import starlightLinksValidator from "starlight-links-validator";
 import vercel from "@astrojs/vercel";
 
@@ -19,7 +18,6 @@ export default {
     liveCode,
     starlightBlog,
     starlightCoolerCredit,
-    starlightHeadingBadges,
     starlightLinksValidator,
     vercel,
     midnightTheme,
