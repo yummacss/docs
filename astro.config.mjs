@@ -19,7 +19,6 @@ export default defineConfig({
         PageTitle: "./src/components/PageTitle.astro",
       },
       plugins: [
-        config.starlightHeadingBadges(),
         config.starlightLinksValidator(),
         config.starlightCoolerCredit({
           credit: {
