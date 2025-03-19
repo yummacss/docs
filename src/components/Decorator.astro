@@ -8,7 +8,7 @@ interface DecoratorProps {
 const { icon: name } = Astro.props as DecoratorProps;
 ---
 
-<div class="ai-fs d-f g-2">
+<div class="d-f g-2">
   <span class="ai-c bs-sm d-f h-fc icon mt-1 fs-0 p-1" set:html={icons[name]} />
   <span>
     <slot />
