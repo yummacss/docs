@@ -22,7 +22,7 @@ With v3, you won't have to stress about shipping unused CSS to the browser. The 
 
 <Steps>
 
-    1. **Install Yumma CSS:**
+    1. **Install Yumma CSS**
 
         Add `yummacss` to your project as dev dependency.
 
@@ -216,14 +216,14 @@ To make the Yumma CSS framework as complete as possible, we're adding support fo
 
 We completely overhauled the entire codebase to get better performance in build times and overall file size. We changing the way utilities and modifiers are generated, to eliminate any potential for duplicated or unnecessary data in the `/dist` folder.
 
-<Decorator icon="info_circled">We've run our build process three times in a row and the results are as follows:</Decorator>
+<Decorator icon="info">We've run our build process three times in a row and the results are as follows:</Decorator>
 
-| Metric               | v2.1    | v3.0 | Improvement |
-| -------------------- | ------- | ---- | ----------- |
-| Complete build       | 13.88 s | ???  | ???         |
-| File size (standard) | 3.21 MB | ???  | ???         |
-| File size (minified) | 2.48 MB | ???  | ???         |
-| Utilities coverage   | 111     | 170  | +59         |
+| Metric               | v2.1    | v3.0    | Improvement               |
+| -------------------- | ------- | ------- | ------------------------- |
+| Complete build       | 13.88 s | 3.96 s  | 🔥 -9.92 s (71% faster)   |
+| File size (standard) | 3.21 MB | 2.53 MB | 🔽 -0.68 MB (21% smaller) |
+| File size (minified) | 2.48 MB | 1.89 MB | 🔽 -0.59 MB (24% smaller) |
+| Utilities coverage   | 111     | 167     | ➕ +56                    |
 
 ### Upgrading to v3.0
 
