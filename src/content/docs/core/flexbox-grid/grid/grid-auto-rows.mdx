@@ -1,38 +1,23 @@
 ---
 title: Grid Auto Rows
 banner:
-  content: Sunsetting  <a href=https://www.yummacss.com/blog/sunsetting-intellisense>Yumma CSS Intellisense</a> extension 👋
+  content: <a href=https://www.yummacss.com/blog/yummacss-3.0>Yumma CSS v3.0 is finally live</a> 🎉
 description: Controls the size of grid lines created implicitly.
 slug: docs/grid-auto-rows
 ---
 
-<Utility
-  data={[
-    {
-      className: "gar-min",
-      properties: ["grid-auto-rows: min-content;"],
-    },
-    {
-      className: "gar-max",
-      properties: ["grid-auto-rows: max-content;"],
-    },
-    {
-      className: "gar-auto",
-      properties: ["grid-auto-rows: auto;"],
-    },
-  ]}
-/>
+<Class name="grid-auto-rows" />
 
 ## Min Content
 
 This example sets the grid auto rows to **min-content**. The rows will size themselves to the smallest possible height that does not cause overflow.
 
-```html live "gar-min" layout="/src/layouts/wide.astro"
-<div class="ovf-auto rad-1">
+```html live "gar-min" layout="/src/layouts/inline.astro"
+<div class="rad-1">
   <div class="d-g gar-min gtc-min g-4">
     <div class="ai-c bg-indigo d-f jc-c p-4 rad-1 tc-white">Pneumonoultramicroscopicsilicovolcanoconiosis</div>
-    <div class="ai-c bg-d-indigo-4 d-f jc-c p-4 rad-1 tc-white">B</div>
-    <div class="ai-c bg-d-indigo-4 d-f jc-c p-4 rad-1 tc-white">C</div>
+    <div class="ai-c bg-indigo-8 d-f jc-c p-4 rad-1 tc-white">B</div>
+    <div class="ai-c bg-indigo-8 d-f jc-c p-4 rad-1 tc-white">C</div>
   </div>
 </div>
 ```
@@ -41,12 +26,12 @@ This example sets the grid auto rows to **min-content**. The rows will size them
 
 This example sets the grid auto rows to **max-content**. The rows will size themselves to the largest possible height based on their content.
 
-```html live "gar-max" layout="/src/layouts/wide.astro"
-<div class="ovf-auto rad-1">
+```html live "gar-max" layout="/src/layouts/inline.astro"
+<div class="o-auto rad-1">
   <div class="d-g gar-max gtc-max g-4">
     <div class="ai-c bg-indigo d-f jc-c p-4 rad-1 tc-white">Pneumonoultramicroscopicsilicovolcanoconiosis</div>
-    <div class="ai-c bg-d-indigo-4 d-f jc-c p-4 rad-1 tc-white">B</div>
-    <div class="ai-c bg-d-indigo-4 d-f jc-c p-4 rad-1 tc-white">C</div>
+    <div class="ai-c bg-indigo-8 d-f jc-c p-4 rad-1 tc-white">B</div>
+    <div class="ai-c bg-indigo-8 d-f jc-c p-4 rad-1 tc-white">C</div>
   </div>
 </div>
 ```
@@ -55,12 +40,12 @@ This example sets the grid auto rows to **max-content**. The rows will size them
 
 This example sets the grid auto rows to **auto**. The rows will size themselves based on the content and available space in the grid container.
 
-```html live "gar-auto" layout="/src/layouts/wide.astro"
-<div class="ovf-auto rad-1">
+```html live "gar-auto" layout="/src/layouts/inline.astro"
+<div class="o-auto rad-1">
   <div class="d-g gar-auto gtc-auto g-4">
     <div class="ai-c bg-indigo d-f jc-c p-4 rad-1 tc-white">Pneumonoultramicroscopicsilicovolcanoconiosis</div>
-    <div class="ai-c bg-d-indigo-4 d-f jc-c p-4 rad-1 tc-white">B</div>
-    <div class="ai-c bg-d-indigo-4 d-f jc-c p-4 rad-1 tc-white">C</div>
+    <div class="ai-c bg-indigo-8 d-f jc-c p-4 rad-1 tc-white">B</div>
+    <div class="ai-c bg-indigo-8 d-f jc-c p-4 rad-1 tc-white">C</div>
   </div>
 </div>
 ```

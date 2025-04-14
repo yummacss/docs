@@ -45,7 +45,7 @@ const generateShades = (color: string): string[] => {
         <div class="ai-c colorRow d-g g-1">
           <div class="colorName">{colorItem.name}</div>
           {shades.map((shade) => (
-            <div class="colorSwatch h-10 w-full" style={`background-color: ${shade}`}} />
+            <div class="colorSwatch h-10 w-full" style={`background-color: ${shade}`} title={shade} onclick={`navigator.clipboard.writeText('${shade}')`} />
           ))}
         </div>
       );
@@ -73,7 +73,7 @@ const generateShades = (color: string): string[] => {
   }
 
   .colorSwatch:hover {
-    border-color: light-dark(#202020, transparent);
+    border-color: light-dark(#202020, #fafafa);
   }
 
   @media (max-width: 768px) {

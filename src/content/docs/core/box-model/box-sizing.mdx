@@ -1,23 +1,12 @@
 ---
 title: Box Sizing
 banner:
-  content: Sunsetting  <a href=https://www.yummacss.com/blog/sunsetting-intellisense>Yumma CSS Intellisense</a> extension 👋
+  content: <a href=https://www.yummacss.com/blog/yummacss-3.0>Yumma CSS v3.0 is finally live</a> 🎉
 description: Controls the calculation of the total size of an element.
 slug: docs/box-sizing
 ---
 
-<Utility
-  data={[
-    {
-      className: "bs-bb",
-      properties: ["box-sizing: border-box;"],
-    },
-    {
-      className: "bs-cb",
-      properties: ["box-sizing: content-box;"],
-    },
-  ]}
-/>
+<Class name="box-sizing" />
 
 ## Border Box
 
@@ -26,8 +15,8 @@ This example sets the box sizing to **border-box**. The element's width and heig
 <Decorator icon="heart">Stylecent uses the **border-box** rule by default. Learn reset styles in the [Stylecent docs](/docs/stylecent).</Decorator>
 
 ```html live "bs-bb"
-<div class="dim-26 b-2 bc-indigo bs-bb p-8 stripes">
-  <div class="ai-c bg-indigo d-f dim-full jc-c tc-white">Box</div>
+<div class="d-26 bs-bb p-8 stripes">
+  <div class="ai-c bg-indigo d-f d-full jc-c tc-white">Box</div>
 </div>
 ```
 
@@ -36,8 +25,8 @@ This example sets the box sizing to **border-box**. The element's width and heig
 This example sets the box sizing to **content-box**. The element's width and height do not include padding and borders.
 
 ```html live "bs-cb"
-<div class="dim-26 b-2 bc-indigo bs-cb p-8 stripes">
-  <div class="ai-c bg-indigo d-f dim-full jc-c tc-white">Content</div>
+<div class="d-26 bs-cb p-8 stripes">
+  <div class="ai-c bg-indigo d-f d-full jc-c tc-white">Content</div>
 </div>
 ```
 

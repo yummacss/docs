@@ -1,22 +1,21 @@
 ---
 title: Text Overflow
 banner:
-  content: Sunsetting  <a href=https://www.yummacss.com/blog/sunsetting-intellisense>Yumma CSS Intellisense</a> extension 👋
+  content: <a href=https://www.yummacss.com/blog/yummacss-3.0>Yumma CSS v3.0 is finally live</a> 🎉
 description: Controls how hidden text overflow content is displayed.
 slug: docs/text-overflow
-draft: true
 ---
 
-<Class name="/text-overflow" />
+<Class name="text-overflow" />
 
 ## Clip
 
 This example sets the text overflow to **clip**. The text will be clipped at the edge of the container without any indication that it has been cut off.
 
-```html live "to-c" layout="/src/layouts/wide.astro"
-<div class="bg-l-indigo-6 p-4 rad-1">
+```html live "to-c" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
   <div class="bg-white rad-1">
-    <p class="fs-sm ovf-h p-4 tc-lead to-c w-25 ws-nw">Pneumonoultramicroscopicsilicovolcanoconiosis</p>
+    <p class="fs-lg o-h p-4 tc-lead to-c w-25 ws-nw">Pneumonoultramicroscopicsilicovolcanoconiosis</p>
   </div>
 </div>
 ```
@@ -25,10 +24,10 @@ This example sets the text overflow to **clip**. The text will be clipped at the
 
 This example sets the text overflow to **ellipsis**. The text will be truncated with an ellipsis (`...`) at the end to indicate that there is more content that is not visible.
 
-```html live "to-e" layout="/src/layouts/wide.astro"
-<div class="bg-l-indigo-6 p-4 rad-1">
+```html live "to-e" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
   <div class="bg-white rad-1">
-    <p class="fs-sm ovf-h p-4 tc-lead to-e w-25 ws-nw">Pneumonoultramicroscopicsilicovolcanoconiosis</p>
+    <p class="fs-lg o-h p-4 tc-lead to-e w-25 ws-nw">Pneumonoultramicroscopicsilicovolcanoconiosis</p>
   </div>
 </div>
 ```

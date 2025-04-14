@@ -1,31 +1,20 @@
 ---
 title: Font Style
 banner:
-  content: Sunsetting  <a href=https://www.yummacss.com/blog/sunsetting-intellisense>Yumma CSS Intellisense</a> extension 👋
+  content: <a href=https://www.yummacss.com/blog/yummacss-3.0>Yumma CSS v3.0 is finally live</a> 🎉
 description: Controls the font style of an element.
 slug: docs/font-style
 ---
 
-<Utility
-  data={[
-    {
-      className: "fs-i",
-      properties: ["font-style: italic;"],
-    },
-    {
-      className: "fs-n",
-      properties: ["font-style: normal;"],
-    },
-  ]}
-/>
+<Class name="font-style" />
 
 ## Italic
 
 This example sets the font style to **italic**. The text will be displayed in an italicized format.
 
-```html live "fs-i" layout="/src/layouts/wide.astro"
-<div class="bg-l-indigo-6 p-4 rad-1">
-  <p class="bg-white fs-sm fs-i p-4 rad-1 ta-c tc-lead">The quick brown fox jumps over the lazy dog.</p>
+```html live "fs-i" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <p class="bg-white fs-lg fs-i p-4 rad-1 ta-c tc-lead">Sphinx of black quartz, judge my vow.</p>
 </div>
 ```
 
@@ -33,9 +22,9 @@ This example sets the font style to **italic**. The text will be displayed in an
 
 This example sets the font style to **normal**. The text will be displayed in a standard format without any italicization.
 
-```html live "fs-n" layout="/src/layouts/wide.astro"
-<div class="bg-l-indigo-6 p-4 rad-1">
-  <p class="bg-white fs-sm fs-n p-4 rad-1 ta-c tc-lead">The quick brown fox jumps over the lazy dog.</p>
+```html live "fs-n" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <p class="bg-white fs-lg fs-n p-4 rad-1 ta-c tc-lead">Sphinx of black quartz, judge my vow.</p>
 </div>
 ```
 

@@ -1,31 +1,12 @@
 ---
 title: User Select
 banner:
-  content: Sunsetting  <a href=https://www.yummacss.com/blog/sunsetting-intellisense>Yumma CSS Intellisense</a> extension 👋
+  content: <a href=https://www.yummacss.com/blog/yummacss-3.0>Yumma CSS v3.0 is finally live</a> 🎉
 description: Controls the ability of the user to select text in an element.
 slug: docs/user-select
 ---
 
-<Utility
-  data={[
-    {
-      className: "us-a",
-      properties: ["user-select: all;"],
-    },
-    {
-      className: "us-auto",
-      properties: ["user-select: auto;"],
-    },
-    {
-      className: "us-none",
-      properties: ["user-select: none;"],
-    },
-    {
-      className: "us-t",
-      properties: ["user-select: text;"],
-    },
-  ]}
-/>
+<Class name="user-select" />
 
 ## All
 
@@ -33,9 +14,9 @@ This example sets the user select to **all**. The **us-a** utility allows the us
 
 <Decorator icon="cursor_text">Try selecting the sentence to see how the text highlighting works.</Decorator>
 
-```html live "us-a" layout="/src/layouts/wide.astro"
-<div class="bg-l-indigo-6 p-4 rad-1">
-  <p class="bg-white fs-sm p-4 rad-1 ta-c tc-lead us-a">The quick brown fox jumps over the lazy dog.</p>
+```html live "us-a" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <p class="bg-white fs-sm p-4 rad-1 ta-c tc-lead us-a">Sphinx of black quartz, judge my vow.</p>
 </div>
 ```
 
@@ -45,9 +26,9 @@ This example sets the user select to **auto**. The **us-auto** utility allows th
 
 <Decorator icon="cursor_text">Try selecting the sentence to see how the text highlighting works.</Decorator>
 
-```html live "us-auto" layout="/src/layouts/wide.astro"
-<div class="bg-l-indigo-6 p-4 rad-1">
-  <p class="bg-white fs-sm p-4 rad-1 ta-c tc-lead us-auto">The quick brown fox jumps over the lazy dog.</p>
+```html live "us-auto" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <p class="bg-white fs-sm p-4 rad-1 ta-c tc-lead us-auto">Sphinx of black quartz, judge my vow.</p>
 </div>
 ```
 
@@ -57,9 +38,9 @@ This example sets the user select to **none**. The **us-none** utility prevents 
 
 <Decorator icon="cursor_text">Try selecting the sentence to see how the text highlighting works.</Decorator>
 
-```html live "us-none" layout="/src/layouts/wide.astro"
-<div class="bg-l-indigo-6 p-4 rad-1">
-  <p class="bg-white fs-sm p-4 rad-1 ta-c tc-lead tc-lead us-none">The quick brown fox jumps over the lazy dog.</p>
+```html live "us-none" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <p class="bg-white fs-sm p-4 rad-1 ta-c tc-lead tc-lead us-none">Sphinx of black quartz, judge my vow.</p>
 </div>
 ```
 
@@ -69,9 +50,9 @@ This example sets the user select to **text**. The **us-t** utility allows the u
 
 <Decorator icon="cursor_text">Try selecting the sentence to see how the text highlighting works.</Decorator>
 
-```html live "us-t" layout="/src/layouts/wide.astro"
-<div class="bg-l-indigo-6 p-4 rad-1">
-  <p class="bg-white fs-sm p-4 rad-1 ta-c tc-lead us-t">The quick brown fox jumps over the lazy dog.</p>
+```html live "us-t" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <p class="bg-white fs-sm p-4 rad-1 ta-c tc-lead us-t">Sphinx of black quartz, judge my vow.</p>
 </div>
 ```
 

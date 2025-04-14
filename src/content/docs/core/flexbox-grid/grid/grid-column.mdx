@@ -1,7 +1,7 @@
 ---
 title: Grid Column
 banner:
-  content: Sunsetting  <a href=https://www.yummacss.com/blog/sunsetting-intellisense>Yumma CSS Intellisense</a> extension 👋
+  content: <a href=https://www.yummacss.com/blog/yummacss-3.0>Yumma CSS v3.0 is finally live</a> 🎉
 description: Controls the size and position of elements across columns.
 slug: docs/grid-column
 ---
@@ -10,15 +10,15 @@ slug: docs/grid-column
 
 Allows a grid item to span a specific number of columns.
 
-<Utility classPrefix="gc-s-" excludeZero incrementName="span %i / span %i" incrementValue={1} propNames={["grid-column"]} range={16} />
+<Class name="grid-column-span" />
 
 This example sets the grid column to **span 2 / span 2**. The item will span across **2** columns, starting from its current position and occupying the next **2** columns in the grid.
 
-```html live "gc-s-2" html live layout="/src/layouts/wide.astro"
+```html live "gc-s-2" html live layout="/src/layouts/inline.astro"
 <div class="d-g g-4 gtc-3 stripes ta-c tc-white">
   <div class="bg-indigo gc-s-2 p-4 rad-1">A</div>
-  <div class="bg-d-indigo-4 p-4 rad-1">B</div>
-  <div class="bg-d-indigo-4 p-4 rad-1">C</div>
+  <div class="bg-indigo-8 p-4 rad-1">B</div>
+  <div class="bg-indigo-8 p-4 rad-1">C</div>
   <div class="bg-indigo gc-s-2 p-4 rad-1">D</div>
 </div>
 ```
@@ -27,12 +27,12 @@ This example sets the grid column to **span 2 / span 2**. The item will span acr
 
 Controls where a grid item should end within the column grid line.
 
-<Utility classPrefix="gce-" excludeZero incrementValue={1} propNames={["grid-column-end"]} range={16} />
+<Class name="grid-column-end" />
 
 This example sets the grid column end to **3**. The item will end at the third column line, effectively spanning from its
 starting position to the second column line.
 
-```html live "gce-3" html live layout="/src/layouts/wide.astro"
+```html live "gce-3" html live layout="/src/layouts/inline.astro"
 <div class="d-g g-4 gtc-4 stripes ta-c tc-white">
   <div class="bg-indigo gce-3 p-4 rad-1">A</div>
   <div class="bg-indigo p-4 rad-1">B</div>
@@ -44,11 +44,11 @@ starting position to the second column line.
 
 Controls the starting grid line for a grid item within the column layout.
 
-<Utility classPrefix="gcs-" excludeZero incrementValue={1} propNames={["grid-column-start"]} range={16} />
+<Class name="grid-column-start" />
 
 This example sets the grid column start to **3**. The item will begin at the third column line, positioning it to start in the third column of the grid.
 
-```html live "gcs-3" layout="/src/layouts/wide.astro"
+```html live "gcs-3" layout="/src/layouts/inline.astro"
 <div class="d-g g-4 gcs-3 gtc-4 stripes ta-c tc-white">
   <div class="bg-indigo p-4 rad-1">A</div>
   <div class="bg-indigo p-4 rad-1">B</div>

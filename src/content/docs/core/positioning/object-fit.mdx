@@ -1,33 +1,12 @@
 ---
 title: Object Fit
 banner:
-  content: Sunsetting  <a href=https://www.yummacss.com/blog/sunsetting-intellisense>Yumma CSS Intellisense</a> extension 👋
+  content: <a href=https://www.yummacss.com/blog/yummacss-3.0>Yumma CSS v3.0 is finally live</a> 🎉
 description: Controls how to resize the content of a replaced element.
 slug: docs/object-fit
 ---
 
-<Utility
-  data={[
-    {
-      className: "of-c",
-      properties: ["object-fit: cover;"],
-    },
-    {
-      className: "of-f",
-      properties: ["object-fit: fill;"],
-    },
-
-    {
-      className: "of-none",
-      properties: ["object-fit: none;"],
-    },
-    {
-      className: "of-sd",
-      properties: ["object-fit: scale-down;"],
-    },
-
-]}
-/>
+<Class name="object-fit" />
 
 ## Cover
 
@@ -35,7 +14,7 @@ This example sets the object fit to **cover**. The content will scale to cover t
 
 ```html live "of-c"
 <div class="h-40 stripes w-80">
-  <img class="dim-full of-c rad-1" src="https://picsum.photos/400/300?image=10" />
+  <img class="d-full of-c rad-1" src="https://picsum.photos/400/300?image=10" />
 </div>
 ```
 
@@ -45,7 +24,7 @@ This example sets the object fit to **fill**. The content will stretch to fill t
 
 ```html live "of-f"
 <div class="h-40 stripes w-80">
-  <img class="dim-full of-f rad-1" src="https://picsum.photos/400/300?image=10" />
+  <img class="d-full of-f rad-1" src="https://picsum.photos/400/300?image=10" />
 </div>
 ```
 
@@ -55,7 +34,7 @@ This example sets the object fit to **none**. The content will not be resized to
 
 ```html live "of-none"
 <div class="h-40 stripes w-80">
-  <img class="dim-full of-none rad-1" src="https://picsum.photos/400/300?image=10" />
+  <img class="d-full of-none rad-1" src="https://picsum.photos/400/300?image=10" />
 </div>
 ```
 
@@ -65,7 +44,7 @@ This example sets the object fit to **scale-down**. The content will be sized as
 
 ```html live "of-sd"
 <div class="h-40 stripes w-80">
-  <img class="dim-full of-sd" src="https://picsum.photos/400/300?image=10" />
+  <img class="d-full of-sd" src="https://picsum.photos/400/300?image=10" />
 </div>
 ```
 

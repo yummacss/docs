@@ -1,23 +1,22 @@
 ---
 title: White Space
 banner:
-  content: Sunsetting  <a href=https://www.yummacss.com/blog/sunsetting-intellisense>Yumma CSS Intellisense</a> extension 👋
+  content: <a href=https://www.yummacss.com/blog/yummacss-3.0>Yumma CSS v3.0 is finally live</a> 🎉
 description: Controls how white space is handled within an element.
 slug: docs/white-space
-draft: true
 ---
 
-<Class name="/white-space" />
+<Class name="white-space" />
 
 ## Break Spaces
 
 This example sets the white space to **break-spaces**. The text will respect spaces and line breaks, allowing for wrapping at spaces.
 
 {/* prettier-ignore */}
-```html live "ws-bs" layout="/src/layouts/wide.astro"
-<div class="bg-l-indigo-6 p-4 rad-1">
+```html live "ws-bs" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
   <div class="p-4 bg-white rad-1">
-    <p class="ws-bs tc-lead">
+    <p class="tc-lead fs-lg ws-bs">
       The    quick    brown    fox    jumps    over    the    lazy    dog.    It    is    a    well-known    pangram,    one    that    has    gained    significant    popularity    and    has    been    utilized    by    many    people.    As    a    pangram,    it    contains    all    the    letters    of    the    alphabet,    meeting    the    criteria    for    such    a    composition.
     </p>
   </div>
@@ -29,10 +28,10 @@ This example sets the white space to **break-spaces**. The text will respect spa
 This example sets the white space to **normal**. The text will wrap normally, and multiple spaces will be collapsed into a single space.
 
 {/* prettier-ignore */}
-```html live "ws-n" layout="/src/layouts/wide.astro"
-<div class="bg-l-indigo-6 p-4 rad-1">
+```html live "ws-n" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
   <div class="p-4 bg-white rad-1">
-    <p class="ws-n tc-lead">
+    <p class="tc-lead fs-lg ws-n">
       The    quick    brown    fox    jumps    over    the    lazy    dog.    It    is    a    well-known    pangram,    one    that    has    gained    significant    popularity    and    has    been    utilized    by    many    people.    As    a    pangram,    it    contains    all    the    letters    of    the    alphabet,    meeting    the    criteria    for    such    a    composition.
     </p>
   </div>
@@ -44,11 +43,11 @@ This example sets the white space to **normal**. The text will wrap normally, an
 This example sets the white space to **nowrap**. The text will not wrap to the next line, and it will overflow the container if it exceeds the width.
 
 {/* prettier-ignore */}
-```html live "ws-nw" layout="/src/layouts/wide.astro"
-<div class="bg-l-indigo-6 p-4 rad-1">
+```html live "ws-nw" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
   <div class="p-4 bg-white rad-1 o-x-auto">
-    <p class="ws-nw tc-lead">
-      The quick brown fox jumps over the lazy dog. It is a well-known pangram, one that has gained significant popularity and has been utilized by many people. As a pangram, it contains all the letters of the alphabet, meeting the criteria for such a composition.
+    <p class="tc-lead fs-lg ws-nw">
+      Sphinx of black quartz, judge my vow. It is a well-known pangram, one that has gained significant popularity and has been utilized by many people. As a pangram, it contains all the letters of the alphabet, meeting the criteria for such a composition.
     </p>
   </div>
 </div>
@@ -59,11 +58,11 @@ This example sets the white space to **nowrap**. The text will not wrap to the n
 This example sets the white space to **pre**. The text will be displayed as is, preserving spaces and line breaks.
 
 {/* prettier-ignore */}
-```html live "ws-p" layout="/src/layouts/wide.astro"
-<div class="bg-l-indigo-6 p-4 rad-1">
+```html live "ws-p" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
   <div class="p-4 bg-white rad-1">
-    <p class="ws-p tc-lead">
-The quick brown fox jumps over the lazy dog.
+    <p class="tc-lead fs-lg ws-p">
+Sphinx of black quartz, judge my vow.
 It is a well-known pangram,
     one that has gained significant popularity
         and has been utilized by many people.
@@ -78,10 +77,10 @@ As a pangram, it contains all the letters of the alphabet,
 This example sets the white space to **pre-line**. The text will preserve line breaks but collapse multiple spaces into a single space.
 
 {/* prettier-ignore */}
-```html live "ws-pl" layout="/src/layouts/wide.astro"
-<div class="bg-l-indigo-6 p-4 rad-1">
+```html live "ws-pl" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
   <div class="p-4 bg-white rad-1">
-    <p class="ws-pl tc-lead">
+    <p class="tc-lead fs-lg ws-pl">
       The    quick    brown    fox    jumps    over    the    lazy    dog.
       It    is    a    well-known    pangram,    one    that    has    gained
       significant    popularity    and    has    been    utilized    by    many    people.
@@ -97,10 +96,10 @@ This example sets the white space to **pre-line**. The text will preserve line b
 This example sets the white space to **pre-wrap**. The text will preserve spaces and line breaks, and it will wrap when necessary.
 
 {/* prettier-ignore */}
-```html live "ws-pw" layout="/src/layouts/wide.astro"
-<div class="bg-l-indigo-6 p-4 rad-1">
+```html live "ws-pw" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
   <div class="p-4 bg-white rad-1">
-    <p class="ws-pw tc-lead">
+    <p class="tc-lead fs-lg ws-pw">
       The    quick    brown    fox    jumps    over    the    lazy    dog.    It    is    a    well-known    pangram,    one    that    has    gained    significant    popularity    and    has    been    utilized    by    many    people.    As    a    pangram,    it    contains    all    the    letters    of    the    alphabet,    meeting    the    criteria    for    such    a    composition.
     </p>
   </div>

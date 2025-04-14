@@ -1,44 +1,25 @@
 ---
 title: Text Decoration Color
 banner:
-  content: Sunsetting  <a href=https://www.yummacss.com/blog/sunsetting-intellisense>Yumma CSS Intellisense</a> extension 👋
+  content: <a href=https://www.yummacss.com/blog/yummacss-3.0>Yumma CSS v3.0 is finally live</a> 🎉
 description: Controls the color of the text decoration.
 slug: docs/text-decoration-color
 ---
 
-<Color
-  classPrefix="tdc-"
-  propNames={["text-decoration-color"]}
-  data={[
-    { color: "red", value: "#d73d3d" },
-    { color: "orange", value: "#e06814" },
-    { color: "yellow", value: "#d3a107" },
-    { color: "green", value: "#1fb155" },
-    { color: "teal", value: "#12a695" },
-    { color: "cyan", value: "#05a4bf" },
-    { color: "blue", value: "#3575dd" },
-    { color: "indigo", value: "#595cd9" },
-    { color: "violet", value: "#7d53dd" },
-    { color: "pink", value: "#d4418a" },
-    { color: "gray", value: "#606773" },
-    { color: "lead", value: "#3f3f4e" },
-    { color: "silver", value: "#bfc2c7" },
-  ]}
-/>
+<Class name="text-decoration-color" />
 
-This example showcases various text decoration colors using the **indigo** color palette:
+This example showcases various text decoration colors using the **teal**, **red**, and **yellow** colors:
 
-- The **tdc-l-indigo-4** utility applies a lighter indigo shade.
-- The **tdc-indigo** utility applies the base indigo shade.
-- The **tdc-d-indigo-2** utility applies a darker indigo shade.
+- The **tdc-teal** utility applies the base teal shade.
+- The **tdc-red** utility applies the base red shade.
+- The **tdc-yellow** utility applies the base yellow shade.
 
-```html live "tdc-yellow" "tdc-red" "tdc-teal" layout="/src/layouts/wide.astro"
-<div class="bg-l-indigo-6 p-4 rad-1">
+```html live "tdc-yellow" "tdc-red" "tdc-teal" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
   <div class="bg-white p-4 rad-1 ta-j tc-lead">
-    The <span class="h:bg-l-yellow-6 tdc-yellow tdl-u tdt-2">quicks</span> brown fox jumps over the lazy dog, and the dog barks loudly.
-    <span class="h:bg-l-teal-6 tdc-teal tdl-u tdt-2">However</span>, the fox doesn't seem to mind. It continues to run
-    <span class="h:bg-l-teal-6 tdc-teal tdl-u tdt-2">swiftly</span>, while the dog chases after it. In the end, the fox
-    <span class="h:bg-l-red-6 tdc-red tdl-u tdt-2">realises</span> that it can be friends with the dog, despite their differences.
+    The <span class="h:bg-yellow-1 tdc-yellow tdl-u tdt-2">quicks</span> brown fox jumps over the lazy dog, and the dog barks loudly.
+    <span class="h:bg-teal-1 tdc-teal tdl-u tdt-2">However</span>, the fox doesn't seem to mind. It continues to run <span class="h:bg-teal-1 tdc-teal tdl-u tdt-2">swiftly</span>,
+    while the dog chases after it. In the end, the fox <span class="h:bg-red-1 tdc-red tdl-u tdt-2">realises</span> that it can be friends with the dog, despite their differences.
   </div>
 </div>
 ```

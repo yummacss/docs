@@ -1,35 +1,20 @@
 ---
 title: Font Family
 banner:
-  content: Sunsetting  <a href=https://www.yummacss.com/blog/sunsetting-intellisense>Yumma CSS Intellisense</a> extension 👋
+  content: <a href=https://www.yummacss.com/blog/yummacss-3.0>Yumma CSS v3.0 is finally live</a> 🎉
 description: Controls the font family of an element.
 slug: docs/font-family
 ---
 
-<Utility
-  data={[
-    {
-      className: "ff-c",
-      properties: ["font-family: Charter, Cambria, serif;"],
-    },
-    {
-      className: "ff-m",
-      properties: ["font-family: ui-monospace, Consolas, monospace;"],
-    },
-    {
-      className: "ff-s",
-      properties: ["font-family: system-ui, sans-serif;"],
-    },
-  ]}
-/>
+<Class name="font-family" />
 
 ## Charter
 
 This example sets the font family to **Charter**. If Charter is not available, it will fall back to **Cambria**, and then to a generic **serif** font.
 
-```html live "ff-c" layout="/src/layouts/wide.astro"
-<div class="bg-l-indigo-6 p-4 rad-1">
-  <p class="bg-white ff-c fs-sm p-4 rad-1 ta-c tc-lead">The quick brown fox jumps over the lazy dog.</p>
+```html live "ff-c" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <p class="bg-white ff-c fs-lg p-4 rad-1 ta-c tc-lead">Sphinx of black quartz, judge my vow.</p>
 </div>
 ```
 
@@ -37,9 +22,9 @@ This example sets the font family to **Charter**. If Charter is not available, i
 
 This example sets the font family to **ui-monospace**. If ui-monospace is not available, it will fall back to **Consolas**, and then to a generic **monospace** font.
 
-```html live "ff-m" layout="/src/layouts/wide.astro"
-<div class="bg-l-indigo-6 p-4 rad-1">
-  <p class="bg-white ff-m fs-sm p-4 rad-1 ta-c tc-lead">The quick brown fox jumps over the lazy dog.</p>
+```html live "ff-m" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <p class="bg-white ff-m fs-lg p-4 rad-1 ta-c tc-lead">Sphinx of black quartz, judge my vow.</p>
 </div>
 ```
 
@@ -47,9 +32,9 @@ This example sets the font family to **ui-monospace**. If ui-monospace is not av
 
 This example sets the font family to **system-ui**. If system-ui is not available, it will fall back to a generic **sans-serif** font.
 
-```html live "ff-s" layout="/src/layouts/wide.astro"
-<div class="bg-l-indigo-6 p-4 rad-1">
-  <p class="bg-white ff-s fs-sm p-4 rad-1 ta-c tc-lead">The quick brown fox jumps over the lazy dog.</p>
+```html live "ff-s" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <p class="bg-white ff-s fs-lg p-4 rad-1 ta-c tc-lead">Sphinx of black quartz, judge my vow.</p>
 </div>
 ```
 

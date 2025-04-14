@@ -35,36 +35,24 @@ const generateShades = (color: string) => {
   return { lightShades, baseColor, darkShades };
 };
 
-function generateClassData(
-  classPrefix: string,
-  propNames: string[],
-  data: ColorClass[]
-) {
+function generateClassData(classPrefix: string, propNames: string[], data: ColorClass[]) {
   return data.flatMap((colorClass) => {
-    const { lightShades, baseColor, darkShades } = generateShades(
-      colorClass.value
-    );
+    const { lightShades, baseColor, darkShades } = generateShades(colorClass.value);
 
     return [
       ...lightShades.map((shade, i) => ({
         classTitle: `${classPrefix}l-${colorClass.color}-${6 - i}`,
-        properties: propNames.map(
-          (propertyName) => `${propertyName}: ${shade};`
-        ),
+        properties: propNames.map((propertyName) => `${propertyName}: ${shade};`),
         colorValue: shade,
       })),
       {
         classTitle: `${classPrefix}${colorClass.color}`,
-        properties: propNames.map(
-          (propertyName) => `${propertyName}: ${baseColor};`
-        ),
+        properties: propNames.map((propertyName) => `${propertyName}: ${baseColor};`),
         colorValue: baseColor,
       },
       ...darkShades.map((shade, i) => ({
         classTitle: `${classPrefix}d-${colorClass.color}-${i + 1}`,
-        properties: propNames.map(
-          (propertyName) => `${propertyName}: ${shade};`
-        ),
+        properties: propNames.map((propertyName) => `${propertyName}: ${shade};`),
         colorValue: shade,
       })),
     ];
@@ -74,7 +62,7 @@ function generateClassData(
 const colorData = generateClassData(classPrefix, propNames, data);
 ---
 
-<div class="max-h-90 ovf-y-auto mb-5">
+<div class="max-h-90 o-y-auto mb-5">
   <table class="w-full" style="display: inline-table !important;">
     <thead>
       <tr>
@@ -87,14 +75,10 @@ const colorData = generateClassData(classPrefix, propNames, data);
         colorData.map((classItem) => (
           <tr>
             <td class="fs-xs">
-              <p class="utility">{classItem.classTitle}</p>
+              <p class="tc-primary">{classItem.classTitle}</p>
             </td>
             <td class="fs-xs">
-              <code
-                class="property"
-                style="background-color: transparent !important;">
-                {classItem.properties.join("\n")}
-              </code>
+              <code style="background-color: transparent !important;">{classItem.properties.join("\n")}</code>
             </td>
           </tr>
         ))
@@ -102,13 +86,3 @@ const colorData = generateClassData(classPrefix, propNames, data);
     </tbody>
   </table>
 </div>
-
-<style>
-  .utility {
-    color: light-dark(var(--sl-color-accent), var(--sl-color-accent-high));
-  }
-
-  .property {
-    color: light-dark(var(--sl-color-white), var(--sl-color-accent-high));
-  }
-</style>

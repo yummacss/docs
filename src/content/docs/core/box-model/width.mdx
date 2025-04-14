@@ -1,28 +1,12 @@
 ---
 title: Width
 banner:
-  content: Sunsetting  <a href=https://www.yummacss.com/blog/sunsetting-intellisense>Yumma CSS Intellisense</a> extension 👋
+  content: <a href=https://www.yummacss.com/blog/yummacss-3.0>Yumma CSS v3.0 is finally live</a> 🎉
 description: Controls the width of an element.
 slug: docs/width
 ---
 
-<Utility
-  additionalClasses={[
-    { name: "1/1", value: "100dvh" },
-    { name: "1/2", value: "50dvh" },
-    { name: "auto", value: "auto" },
-    { name: "fc", value: "fit-content" },
-    { name: "full", value: "100%" },
-    { name: "half", value: "50%" },
-    { name: "max", value: "max-content" },
-    { name: "min", value: "min-content" },
-  ]}
-  classPrefix="w-"
-  incrementValue={0.25}
-  propNames={["width"]}
-  range={100}
-  unit="rem"
-/>
+<Class name="width" />
 
 This example showcases various width values: **4rem**, **7rem**, and **12rem**.
 
@@ -42,60 +26,28 @@ This example showcases various width values: **4rem**, **7rem**, and **12rem**.
 
 Controls the maximum width of an element.
 
-<Utility
-  additionalClasses={[
-    { name: "1/1", value: "100dvh" },
-    { name: "1/2", value: "50dvh" },
-    { name: "auto", value: "auto" },
-    { name: "fc", value: "fit-content" },
-    { name: "full", value: "100%" },
-    { name: "half", value: "50%" },
-    { name: "max", value: "max-content" },
-    { name: "min", value: "min-content" },
-  ]}
-  classPrefix="max-w-"
-  incrementValue={0.25}
-  propNames={["max-width"]}
-  range={100}
-  unit="rem"
-/>
+<Class name="max-width" />
 
 This example sets the maximum width of an element. The **max-w-64** utility sets the maximum width to **16rem**, ensuring that the element does not exceed this width regardless of the content inside.
 
 <Decorator icon="size">Try changing the horizontal size of the box to see how wide it can be at the maximum size.</Decorator>
 
 ```html live "max-w-64"
-<div class="ai-c bg-indigo d-f jc-c max-w-64 min-w-16 ovf-auto p-6 r-h rad-1 tc-white w-32">64</div>
+<div class="ai-c bg-indigo d-f jc-c max-w-64 min-w-16 o-auto p-6 r-h rad-1 tc-white w-32">64</div>
 ```
 
 ## Min Width
 
 Controls the minimum width of an element.
 
-<Utility
-  additionalClasses={[
-    { name: "1/1", value: "100dvh" },
-    { name: "1/2", value: "50dvh" },
-    { name: "auto", value: "auto" },
-    { name: "fc", value: "fit-content" },
-    { name: "full", value: "100%" },
-    { name: "half", value: "50%" },
-    { name: "max", value: "max-content" },
-    { name: "min", value: "min-content" },
-  ]}
-  classPrefix="min-w-"
-  incrementValue={0.25}
-  propNames={["min-width"]}
-  range={100}
-  unit="rem"
-/>
+<Class name="min-width" />
 
 This example sets the minimum width of an element. The **min-w-16** utility sets the minimum width to **4rem**, ensuring that the element maintains at least this width even when the content is smaller.
 
 <Decorator icon="size">Try changing the horizontal size of the box to see how wide it can be at the minimum size.</Decorator>
 
 ```html live "min-w-16"
-<div class="ai-c bg-indigo d-f jc-c max-w-64 min-w-16 ovf-auto p-6 r-h rad-1 tc-white w-32">32</div>
+<div class="ai-c bg-indigo d-f jc-c max-w-64 min-w-16 o-auto p-6 r-h rad-1 tc-white w-32">32</div>
 ```
 
 ## Using percentages

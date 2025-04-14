@@ -1,24 +1,23 @@
 ---
 title: List Style Position
 banner:
-  content: Sunsetting  <a href=https://www.yummacss.com/blog/sunsetting-intellisense>Yumma CSS Intellisense</a> extension 👋
+  content: <a href=https://www.yummacss.com/blog/yummacss-3.0>Yumma CSS v3.0 is finally live</a> 🎉
 description: Controls how bullets and numbers are positioned in lists.
 slug: docs/list-style-position
-draft: true
 ---
 
-<Class name="/list-style-position" />
+<Class name="list-style-position" />
 
 ## Inside
 
 This example sets the list style position to **inside**. The list item markers will be placed inside the list item's content area, affecting the text alignment.
 
-```html live "lsp-i" layout="/src/layouts/wide.astro"
-<div class="bg-l-indigo-6 p-4 rad-1">
+```html live "lsp-i" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
   <ul class="bg-white lsp-i lst-d p-4 pl-6 rad-1">
-    <li>Apples</li>
-    <li>Bananas</li>
-    <li>Cherries</li>
+    <li class="tc-lead">Butter 🧈</li>
+    <li class="tc-lead">Egg 🥚</li>
+    <li class="tc-lead">Milk 🥛</li>
   </ul>
 </div>
 ```
@@ -27,12 +26,12 @@ This example sets the list style position to **inside**. The list item markers w
 
 This example sets the list style position to **outside**. The list item markers will be placed outside the list item's content area, allowing the text to align normally.
 
-```html live "lsp-o" layout="/src/layouts/wide.astro"
-<div class="bg-l-indigo-6 p-4 rad-1">
+```html live "lsp-o" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
   <ul class="bg-white lsp-o lst-d p-4 pl-6 rad-1">
-    <li>Apples</li>
-    <li>Banana</li>
-    <li>Cherries</li>
+    <li>Butter 🧈</li>
+    <li>Egg 🥚</li>
+    <li>Milk 🥛</li>
   </ul>
 </div>
 ```

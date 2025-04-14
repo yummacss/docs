@@ -1,23 +1,12 @@
 ---
 title: Flex Basis
 banner:
-  content: Sunsetting  <a href=https://www.yummacss.com/blog/sunsetting-intellisense>Yumma CSS Intellisense</a> extension 👋
+  content: <a href=https://www.yummacss.com/blog/yummacss-3.0>Yumma CSS v3.0 is finally live</a> 🎉
 description: Controls the initial size of flex elements.
 slug: docs/flex-basis
 ---
 
-<Utility
-  additionalClasses={[
-    { name: "auto", value: "auto" },
-    { name: "full", value: "100%" },
-    { name: "half", value: "50%" },
-  ]}
-  classPrefix="fb-"
-  incrementValue={0.25}
-  propNames={["flex-basis"]}
-  range={100}
-  unit="rem"
-/>
+<Class name="flex-basis" />
 
 This example showcases various flex-basis values: **0rem**, **12.5rem**, and **100%**.
 
@@ -25,7 +14,7 @@ This example showcases various flex-basis values: **0rem**, **12.5rem**, and **1
 - The **fb-50** utility sets the flex-basis property to **12.5rem**, giving the item a base size of **12.5rem**.
 - Finally, **fb-full** utility sets the flex-basis property to **100%**, allowing the item to take up the full width of its container.
 
-```html live "fb-0" "fb-50" "fb-auto" "fb-full" layout="/src/layouts/wide.astro"
+```html live "fb-0" "fb-50" "fb-auto" "fb-full" layout="/src/layouts/inline.astro"
 <div class="stripes tc-white">
   <div class="d-f g-4 h-24 w-full">
     <div class="ai-c bg-indigo d-f fb-0 jc-c p-4 rad-1">A</div>

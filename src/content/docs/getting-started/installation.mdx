@@ -1,8 +1,8 @@
 ---
 title: Get started with Yumma CSS
 banner:
-  content: Sunsetting  <a href=https://www.yummacss.com/blog/sunsetting-intellisense>Yumma CSS Intellisense</a> extension 👋
-description: Yumma CSS provides a set of utility classes and components to help you ship and build applications faster, whether you're designing static pages or dynamic components.
+  content: <a href=https://www.yummacss.com/blog/yummacss-3.0>Yumma CSS v3.0 is finally live</a> 🎉
+description: Yumma CSS works by scanning your project files to generate and clean up any unused styles, keeping your code as small as possible — no bloat at all!
 slug: docs/installation
 ---
 
@@ -11,40 +11,49 @@ slug: docs/installation
 Install Yumma CSS and integrate it with your favorite frameworks, such as [React](/docs/guides/react), [Next.js](/docs/guides/nextjs) or [Astro](/docs/guides/astro), in a matter of seconds.
 
 <Tabs>
-  <TabItem label="Node.js" icon="forward-slash">
+  <TabItem label="Yumma CLI" icon="forward-slash">
     <Steps>
-      1. **Install Yumma CSS:**
+      1. **Install Yumma CSS**
 
           Add `yummacss` to your project.
 
-          ```bash title="Installing dependencies..." frame="terminal"
-          npm install yummacss@latest
+          <PackageManagers pkg="yummacss" args="--save-dev" title="Installing dependencies..." />
+
+      2. **Configure your source paths**
+
+          Include the paths to all source files in [`yumma.config.js`](/docs/configuration#configuration-options) file.
+
+          <Decorator icon="info">Use [glob patterns](https://code.visualstudio.com/docs/editor/glob-patterns#_glob-pattern-syntax) to include subfolders and specific file types.</Decorator>
+
+          ```js title="yumma.config.js" mark={2-3}
+          module.exports = {
+            source: ["./src/**/*.html"],
+            output: "./src/styles.css",
+          };
           ```
 
-      2. **Include** `yummacss` **in your main CSS file:**
+      3. **Writing styles**
 
-          In this case, we're importing the minified version of Yumma CSS.
+          Run the `watch` command to generate styles in your CSS file.
 
-          ```css title="src/globals.css" mark={1}
-          @import "/node_modules/yummacss/dist/yumma.min.css";
-          ```
+          <PackageManagers type="exec" pkg="yummacss" args="watch" title="Building styles..." />
 
-      3. **Done!**
+        4. **Done!**
 
-          You're all set to start using Yumma CSS utility classes in your project.
+            You’re all set to start using Yumma CSS utility classes in your project.
 
-          ```html title="src/index.html" mark={5,8}
-          <html>
-            <head>
-              <meta charset="UTF-8" />
-              <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-              <link rel="stylesheet" href="/src/globals.css" />
-            </head>
-            <body>
-              <h1 class="fs-sm fw-700 ta-c tc-indigo">Yumma CSS 🤝 Node.js</h1>
-            </body>
-          </html>
-          ```
+            ```html title="src/index.html" mark={5,8}
+            <html>
+              <head>
+                <meta charset="UTF-8" />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <link rel="stylesheet" href="/src/styles.css" />
+              </head>
+              <body>
+                <h1 class="fs-sm fw-700 ta-c tc-indigo">Yumma CSS 🤝 Node.js</h1>
+              </body>
+            </html>
+            ```
     </Steps>
 
   </TabItem>
@@ -110,7 +119,7 @@ Install Yumma CSS and integrate it with your favorite frameworks, such as [React
     <Steps>
       1. **Add the CDN to your main CSS file**
 
-          ```css title="src/globals.css" mark={1}
+          ```css title="src/styles.css" mark={1}
           @import url("https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@latest/dist/yumma.min.css";)
           ```
 
@@ -123,7 +132,7 @@ Install Yumma CSS and integrate it with your favorite frameworks, such as [React
             <head>
               <meta charset="UTF-8" />
               <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-              <link rel="stylesheet" href="/src/globals.css" />
+              <link rel="stylesheet" href="/src/styles.css" />
             </head>
             <body>
               <h1 class="fs-sm fw-700 ta-c tc-indigo">Yumma CSS 🤝 HTML</h1>
@@ -146,12 +155,12 @@ Learn about Yumma CSS, and see how it works differently from other CSS framework
     {
       description: "Learn how to build styles using Yumma CSS.",
       href: "/docs/first-steps#building-styles",
-      title: "Building styles",
+      title: "Writing styles",
     },
     {
       description: "Learn how customize your design system.",
       href: "/docs/first-steps#styling-using-colors",
-      title: "Styling using colors",
+      title: "Building themes",
     },
     {
       description: "Learn how to use and apply conditional styles.",

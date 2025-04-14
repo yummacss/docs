@@ -1,42 +1,24 @@
 ---
 title: Background Color
 banner:
-  content: Sunsetting  <a href=https://www.yummacss.com/blog/sunsetting-intellisense>Yumma CSS Intellisense</a> extension 👋
+  content: <a href=https://www.yummacss.com/blog/yummacss-3.0>Yumma CSS v3.0 is finally live</a> 🎉
 description: Controls the background color of an element.
 slug: docs/background-color
 ---
 
-<Color
-  classPrefix="bg-"
-  data={[
-    { color: "red", value: "#d73d3d" },
-    { color: "orange", value: "#e06814" },
-    { color: "yellow", value: "#d3a107" },
-    { color: "green", value: "#1fb155" },
-    { color: "teal", value: "#12a695" },
-    { color: "cyan", value: "#05a4bf" },
-    { color: "blue", value: "#3575dd" },
-    { color: "indigo", value: "#595cd9" },
-    { color: "violet", value: "#7d53dd" },
-    { color: "pink", value: "#d4418a" },
-    { color: "gray", value: "#606773" },
-    { color: "lead", value: "#3f3f4e" },
-    { color: "silver", value: "#bfc2c7" },
-  ]}
-  propNames={["background-color"]}
-/>
+<Class name="background-color" />
 
 This example showcases various background colors using the **indigo** color palette:
 
-- The **bg-l-indigo-4** utility applies a lighter indigo shade.
+- The **bg-indigo-3** utility applies a lighter indigo shade.
 - The **bg-indigo** utility applies the base indigo shade.
-- The **bg-d-indigo-2** utility applies a darker indigo shade.
+- The **bg-indigo-8** utility applies a darker indigo shade.
 
-```html live "bg-indigo" "bg-l-indigo-4" "bg-d-indigo-2"
+```html live "bg-indigo" "bg-indigo-3" "bg-indigo-8"
 <div class="d-g g-16 gtc-1 sm:gtc-3">
-  <div class="bg-l-indigo-4 dim-16 rad-1"></div>
-  <div class="bg-indigo dim-16 rad-1"></div>
-  <div class="bg-d-indigo-2 dim-16 rad-1"></div>
+  <div class="bg-indigo-3 d-16 rad-1"></div>
+  <div class="bg-indigo d-16 rad-1"></div>
+  <div class="bg-indigo-8 d-16 rad-1"></div>
 </div>
 ```
 

@@ -1,7 +1,7 @@
 ---
 title: Grid Row
 banner:
-  content: Sunsetting  <a href=https://www.yummacss.com/blog/sunsetting-intellisense>Yumma CSS Intellisense</a> extension 👋
+  content: <a href=https://www.yummacss.com/blog/yummacss-3.0>Yumma CSS v3.0 is finally live</a> 🎉
 description: Controls the size and position of elements across rows.
 slug: docs/grid-row
 ---
@@ -10,17 +10,17 @@ slug: docs/grid-row
 
 Controls the row span of a grid item.
 
-<Utility classPrefix="gr-s-" excludeZero incrementName="span %i / span %i" incrementValue={1} propNames={["grid-row"]} range={16} />
+<Class name="grid-row-span" />
 
 This example sets the grid row to **span 2 / span 2**. The item will span across **2** rows, starting from its current position and occupying the next **2** rows in the grid.
 
-```html live "gr-s-2" layout="/src/layouts/wide.astro"
+```html live "gr-s-2" layout="/src/layouts/inline.astro"
 <div class="d-g g-4 gtc-3 h-75 stripes ta-c tc-white">
   <div class="ai-c bg-indigo gr-s-2 d-f jc-c p-4 rad-1">A</div>
-  <div class="ai-c bg-d-indigo-4 d-f jc-c p-4 rad-1">B</div>
-  <div class="ai-c bg-d-indigo-4 d-f jc-c p-4 rad-1">C</div>
-  <div class="ai-c bg-d-indigo-4 d-f jc-c p-4 rad-1">D</div>
-  <div class="ai-c bg-d-indigo-4 d-f jc-c p-4 rad-1">E</div>
+  <div class="ai-c bg-indigo-8 d-f jc-c p-4 rad-1">B</div>
+  <div class="ai-c bg-indigo-8 d-f jc-c p-4 rad-1">C</div>
+  <div class="ai-c bg-indigo-8 d-f jc-c p-4 rad-1">D</div>
+  <div class="ai-c bg-indigo-8 d-f jc-c p-4 rad-1">E</div>
 </div>
 ```
 
@@ -28,16 +28,16 @@ This example sets the grid row to **span 2 / span 2**. The item will span across
 
 Controls where the grid item ends on the grid rows.
 
-<Utility classPrefix="gre-" excludeZero incrementValue={1} propNames={["grid-row-end"]} range={16} />
+<Class name="grid-row-end" />
 
 This example sets the grid row end to **3**. The item will end at the first row line, effectively spanning from its starting position to the second row line.
 
-```html live "gre-3" layout="/src/layouts/wide.astro"
+```html live "gre-3" layout="/src/layouts/inline.astro"
 <div class="p-r">
   <div class="d-g g-4 gaf-c gtr-3 rad-1 stripes ta-c tc-white">
     <div class="ai-c bg-indigo d-f d-g gr-s-2 gre-3 jc-c p-4 rad-1">A</div>
-    <div class="ai-c bg-d-indigo-4 d-f d-g gre-4 grs-1 jc-c p-4 rad-1">B</div>
-    <div class="ai-c bg-d-indigo-4 d-f d-g gre-4 grs-1 jc-c p-4 rad-1">C</div>
+    <div class="ai-c bg-indigo-8 d-f d-g gre-4 grs-1 jc-c p-4 rad-1">B</div>
+    <div class="ai-c bg-indigo-8 d-f d-g gre-4 grs-1 jc-c p-4 rad-1">C</div>
   </div>
 </div>
 ```
@@ -46,16 +46,16 @@ This example sets the grid row end to **3**. The item will end at the first row 
 
 Controls where the grid item begins on the grid rows.
 
-<Utility classPrefix="grs-" excludeZero incrementValue={1} propNames={["grid-row-start"]} range={16} />
+<Class name="grid-row-start" />
 
 This example sets the grid row start to **3**. The item will begin at the first row line, positioning it to start in the third row of the grid.
 
-```html live "grs-2" layout="/src/layouts/wide.astro"
+```html live "grs-2" layout="/src/layouts/inline.astro"
 <div class="p-r">
   <div class="d-g g-4 gaf-c gtr-3 rad-1 stripes ta-c tc-white">
     <div class="ai-c bg-indigo d-f d-g gr-s-2 grs-2 jc-c p-4 rad-1">A</div>
-    <div class="ai-c bg-d-indigo-4 d-f d-g gre-4 grs-1 jc-c p-4 rad-1">B</div>
-    <div class="ai-c bg-d-indigo-4 d-f d-g gre-4 grs-1 jc-c p-4 rad-1">C</div>
+    <div class="ai-c bg-indigo-8 d-f d-g gre-4 grs-1 jc-c p-4 rad-1">B</div>
+    <div class="ai-c bg-indigo-8 d-f d-g gre-4 grs-1 jc-c p-4 rad-1">C</div>
   </div>
 </div>
 ```

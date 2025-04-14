@@ -1,111 +1,115 @@
 ---
 title: Border Radius
 banner:
-  content: Sunsetting  <a href=https://www.yummacss.com/blog/sunsetting-intellisense>Yumma CSS Intellisense</a> extension 👋
+  content: <a href=https://www.yummacss.com/blog/yummacss-3.0>Yumma CSS v3.0 is finally live</a> 🎉
 description: Controls the radius of the borders of an element.
 slug: docs/border-radius
 ---
 
-<Utility
-  additionalClasses={[
-    { name: "full", value: "100%" },
-    { name: "half", value: "50%" },
-  ]}
-  classPrefix="rad-"
-  incrementValue={0.25}
-  propNames={["border-radius"]}
-  range={8}
-  unit="rem"
-/>
+<Class name="border-radius" />
 
-This example showcases various border radius values: **0.25rem**, **0.5rem**, and **0.75rem**. The element will have slightly rounded corners, moderately rounded corners, and more pronounced rounded corners, respectively.
+This example sets the border radius to **0.5rem**. The element will have moderately rounded corners at the bottom.
 
-```html live "rad-1" "rad-2" "rad-3" "rad-half"
-<div class="d-g g-16 gtc-1 sm:gtc-3">
-  <div class="bg-indigo dim-16 rad-1"></div>
-  <div class="bg-indigo dim-16 rad-2"></div>
-  <div class="bg-indigo dim-16 rad-3"></div>
-</div>
+```html live "rad-2"
+<div class="bg-indigo d-16 rad-2"></div>
+```
+
+## Bottom Radius
+
+Controls the radius of the bottom borders of an element.
+
+<Class name="border-bottom-radius" />
+
+This example sets the bottom border radius to **0.5rem**. The element will have moderately rounded corners at the bottom.
+
+```html live "rad-b-2"
+<div class="bg-indigo d-16 rad-b-2"></div>
 ```
 
 ## Bottom Left Radius
 
+Controls the radius of the bottom left border of an element.
+
+<Class name="border-bottom-left-radius" />
+
 This example sets the bottom left border radius to **0.5rem**. The element will have moderately rounded corners at the bottom left.
 
-<Utility
-  additionalClasses={[
-    { name: "full", value: "100%" },
-    { name: "half", value: "50%" },
-  ]}
-  classPrefix="rad-bl-"
-  incrementValue={0.25}
-  propNames={["border-bottom-left-radius"]}
-  range={8}
-  unit="rem"
-/>
-
 ```html live "rad-bl-2"
-<div class="bg-indigo dim-16 rad-bl-2"></div>
+<div class="bg-indigo d-16 rad-bl-2"></div>
 ```
 
 ## Bottom Right Radius
 
 This example sets the bottom right border radius to **0.5rem**. The element will have moderately rounded corners at the bottom right.
 
-<Utility
-  additionalClasses={[
-    { name: "full", value: "100%" },
-    { name: "half", value: "50%" },
-  ]}
-  classPrefix="rad-br-"
-  incrementValue={0.25}
-  propNames={["border-bottom-right-radius"]}
-  range={8}
-  unit="rem"
-/>
+<Class name="border-bottom-right-radius" />
 
 ```html live "rad-br-2"
-<div class="bg-indigo dim-16 rad-br-2"></div>
+<div class="bg-indigo d-16 rad-br-2"></div>
+```
+
+## Left Radius
+
+This example sets the left border radius to **0.5rem**. The element will have moderately rounded corners at the left.
+
+<Class name="border-left-radius" />
+
+```html live "rad-l-2"
+<div class="bg-indigo d-16 rad-l-2"></div>
+```
+
+## Right Radius
+
+This example sets the right border radius to **0.5rem**. The element will have moderately rounded corners at the right.
+
+<Class name="border-right-radius" />
+
+```html live "rad-r-2"
+<div class="bg-indigo d-16 rad-r-2"></div>
 ```
 
 ## Top Left Radius
 
 This example sets the top left border radius to **0.5rem**. The element will have moderately rounded corners at the top left.
 
-<Utility
-  additionalClasses={[
-    { name: "full", value: "100%" },
-    { name: "half", value: "50%" },
-  ]}
-  classPrefix="rad-tl-"
-  incrementValue={0.25}
-  propNames={["border-top-left-radius"]}
-  range={8}
-  unit="rem"
-/>
+<Class name="border-top-left-radius" />
 
 ```html live "rad-tl-2"
-<div class="bg-indigo dim-16 rad-tl-2"></div>
+<div class="bg-indigo d-16 rad-tl-2"></div>
 ```
 
 ## Top Right Radius
 
 This example sets the top right border radius to **0.5rem**. The element will have moderately rounded corners at the top right.
 
-<Utility
-  additionalClasses={[
-    { name: "full", value: "100%" },
-    { name: "half", value: "50%" },
-  ]}
-  classPrefix="rad-tr-"
-  incrementValue={0.25}
-  propNames={["border-top-right-radius"]}
-  range={8}
-  unit="rem"
-/>
+<Class name="border-top-right-radius" />
 
 ```html live "rad-tr-2"
-<div class="bg-indigo dim-16 rad-tr-2"></div>
+<div class="bg-indigo d-16 rad-tr-2"></div>
+```
+
+## Top Radius
+
+This example sets the top border radius to **0.5rem**. The element will have moderately rounded corners at the top.
+
+<Class name="border-top-radius" />
+
+```html live "rad-t-2"
+<div class="bg-indigo d-16 rad-t-2"></div>
+```
+
+## Using Percentages
+
+This example showcases various border-radius utilities:
+
+- The **rad-full** utility sets the border radius to **100%**, creating a fully rounded element (e.g., a perfect circle for square elements).
+- The **rad-half** utility sets the border radius to **50%**, creating a circular or pill-shaped element depending on the aspect ratio.
+
+```html live "rad-100" "rad-50"
+<div class="d-g g-8 gtc-1 sm:gtc-2">
+  <div class="ai-c bg-indigo d-16 d-f jc-c rad-full tc-white">100%</div>
+  <div class="ai-c bg-indigo d-16 d-f jc-c rad-half tc-white">50%</div>
+</div>
 ```
 
 ## Conditional styles

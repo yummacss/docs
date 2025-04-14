@@ -1,0 +1,8 @@
+---
+import Hero from "./Hero.astro";
+
+const slug = Astro.props.entry.slug;
+const isIndex = slug === "";
+---
+
+{isIndex && <Hero />}

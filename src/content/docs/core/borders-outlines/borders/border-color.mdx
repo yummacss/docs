@@ -1,42 +1,24 @@
 ---
 title: Border Color
 banner:
-  content: Sunsetting  <a href=https://www.yummacss.com/blog/sunsetting-intellisense>Yumma CSS Intellisense</a> extension 👋
+  content: <a href=https://www.yummacss.com/blog/yummacss-3.0>Yumma CSS v3.0 is finally live</a> 🎉
 description: Controls the color of the borders of an element.
 slug: docs/border-color
 ---
 
-<Color
-  classPrefix="bc-"
-  data={[
-    { color: "red", value: "#d73d3d" },
-    { color: "orange", value: "#e06814" },
-    { color: "yellow", value: "#d3a107" },
-    { color: "green", value: "#1fb155" },
-    { color: "teal", value: "#12a695" },
-    { color: "cyan", value: "#05a4bf" },
-    { color: "blue", value: "#3575dd" },
-    { color: "indigo", value: "#595cd9" },
-    { color: "violet", value: "#7d53dd" },
-    { color: "pink", value: "#d4418a" },
-    { color: "gray", value: "#606773" },
-    { color: "lead", value: "#3f3f4e" },
-    { color: "silver", value: "#bfc2c7" },
-  ]}
-  propNames={["border-color"]}
-/>
+<Class name="border-color" />
 
 This example showcases various border colors using the **indigo** color palette:
 
-- The **bc-l-indigo-4** utility applies a lighter indigo shade.
+- The **bc-indigo-3** utility applies a lighter indigo shade.
 - The **bc-indigo** utility applies the base indigo shade.
-- The **bc-d-indigo-2** utility applies a darker indigo shade.
+- The **bc-indigo-8** utility applies a darker indigo shade.
 
-```html live "bc-indigo" "bc-l-indigo-4" "bc-d-indigo-2"
+```html live "bc-indigo" "bc-indigo-3" "bc-indigo-8"
 <div class="d-g g-16 gtc-1 sm:gtc-3">
-  <div class="b-2 b-s bc-l-indigo-4 dim-16 rad-1"></div>
-  <div class="b-2 b-s bc-indigo dim-16 rad-1"></div>
-  <div class="b-2 b-s bc-d-indigo-2 dim-16 rad-1"></div>
+  <div class="b-2 bc-indigo-3 d-16"></div>
+  <div class="b-2 bc-indigo d-16"></div>
+  <div class="b-2 bc-indigo-8 d-16"></div>
 </div>
 ```
 
@@ -44,37 +26,19 @@ This example showcases various border colors using the **indigo** color palette:
 
 Controls the color of the bottom border of an element.
 
-<Color
-  classPrefix="bc-b-"
-  data={[
-    { color: "red", value: "#d73d3d" },
-    { color: "orange", value: "#e06814" },
-    { color: "yellow", value: "#d3a107" },
-    { color: "green", value: "#1fb155" },
-    { color: "teal", value: "#12a695" },
-    { color: "cyan", value: "#05a4bf" },
-    { color: "blue", value: "#3575dd" },
-    { color: "indigo", value: "#595cd9" },
-    { color: "violet", value: "#7d53dd" },
-    { color: "pink", value: "#d4418a" },
-    { color: "gray", value: "#606773" },
-    { color: "lead", value: "#3f3f4e" },
-    { color: "silver", value: "#bfc2c7" },
-  ]}
-  propNames={["border-bottom-color"]}
-/>
+<Class name="border-bottom-color" />
 
 This example showcases various border bottom colors using the **indigo** color palette:
 
-- The **bc-l-indigo-4** utility applies a lighter indigo shade.
+- The **bc-indigo-3** utility applies a lighter indigo shade.
 - The **bc-indigo** utility applies the base indigo shade.
-- The **bc-d-indigo-2** utility applies a darker indigo shade.
+- The **bc-indigo-8** utility applies a darker indigo shade.
 
-```html live "bc-b-indigo" "bc-b-l-indigo-4" "bc-b-d-indigo-2"
+```html live "bc-b-indigo" "bc-b-indigo-3" "bc-b-indigo-8"
 <div class="d-g g-16 gtc-1 sm:gtc-3">
-  <div class="b-2 b-s bc-b-l-indigo-4 dim-16 rad-1"></div>
-  <div class="b-2 b-s bc-b-indigo dim-16 rad-1"></div>
-  <div class="b-2 b-s bc-b-d-indigo-2 dim-16 rad-1"></div>
+  <div class="b-2 bc-b-indigo-3 d-16"></div>
+  <div class="b-2 bc-b-indigo d-16"></div>
+  <div class="b-2 bc-b-indigo-8 d-16"></div>
 </div>
 ```
 
@@ -82,37 +46,19 @@ This example showcases various border bottom colors using the **indigo** color p
 
 Controls the color of the left border of an element.
 
-<Color
-  classPrefix="bc-l-"
-  data={[
-    { color: "red", value: "#d73d3d" },
-    { color: "orange", value: "#e06814" },
-    { color: "yellow", value: "#d3a107" },
-    { color: "green", value: "#1fb155" },
-    { color: "teal", value: "#12a695" },
-    { color: "cyan", value: "#05a4bf" },
-    { color: "blue", value: "#3575dd" },
-    { color: "indigo", value: "#595cd9" },
-    { color: "violet", value: "#7d53dd" },
-    { color: "pink", value: "#d4418a" },
-    { color: "gray", value: "#606773" },
-    { color: "lead", value: "#3f3f4e" },
-    { color: "silver", value: "#bfc2c7" },
-  ]}
-  propNames={["border-left-color"]}
-/>
+<Class name="border-left-color" />
 
 This example showcases various border left colors using the **indigo** color palette:
 
-- The **bc-l-indigo-4** utility applies a lighter indigo shade.
+- The **bc-indigo-3** utility applies a lighter indigo shade.
 - The **bc-indigo** utility applies the base indigo shade.
-- The **bc-d-indigo-2** utility applies a darker indigo shade.
+- The **bc-indigo-8** utility applies a darker indigo shade.
 
-```html live "bc-l-indigo" "bc-l-l-indigo-4" "bc-l-d-indigo-2"
+```html live "bc-indigo-3" "bc-indigo" "bc-indigo-8"
 <div class="d-g g-16 gtc-1 sm:gtc-3">
-  <div class="b-2 b-s bc-l-l-indigo-4 dim-16 rad-1"></div>
-  <div class="b-2 b-s bc-l-indigo dim-16 rad-1"></div>
-  <div class="b-2 b-s bc-l-d-indigo-2 dim-16 rad-1"></div>
+  <div class="b-2 bc-indigo-3 d-16"></div>
+  <div class="b-2 bc-indigo d-16"></div>
+  <div class="b-2 bc-indigo-8 d-16"></div>
 </div>
 ```
 
@@ -120,37 +66,19 @@ This example showcases various border left colors using the **indigo** color pal
 
 Controls the color of the right border of an element.
 
-<Color
-  classPrefix="bc-r-"
-  data={[
-    { color: "red", value: "#d73d3d" },
-    { color: "orange", value: "#e06814" },
-    { color: "yellow", value: "#d3a107" },
-    { color: "green", value: "#1fb155" },
-    { color: "teal", value: "#12a695" },
-    { color: "cyan", value: "#05a4bf" },
-    { color: "blue", value: "#3575dd" },
-    { color: "indigo", value: "#595cd9" },
-    { color: "violet", value: "#7d53dd" },
-    { color: "pink", value: "#d4418a" },
-    { color: "gray", value: "#606773" },
-    { color: "lead", value: "#3f3f4e" },
-    { color: "silver", value: "#bfc2c7" },
-  ]}
-  propNames={["border-right-color"]}
-/>
+Class name="border-right-color" />
 
 This example showcases various border right colors using the **indigo** color palette:
 
-- The **bc-l-indigo-4** utility applies a lighter indigo shade.
+- The **bc-indigo-3** utility applies a lighter indigo shade.
 - The **bc-indigo** utility applies the base indigo shade.
-- The **bc-d-indigo-2** utility applies a darker indigo shade.
+- The **bc-indigo-8** utility applies a darker indigo shade.
 
-```html live "bc-r-indigo" "bc-r-l-indigo-4" "bc-r-d-indigo-2"
+```html live "bc-r-indigo" "bc-r-indigo-3" "bc-r-indigo-8"
 <div class="d-g g-16 gtc-1 sm:gtc-3">
-  <div class="b-2 b-s bc-r-l-indigo-4 dim-16 rad-1"></div>
-  <div class="b-2 b-s bc-r-indigo dim-16 rad-1"></div>
-  <div class="b-2 b-s bc-r-d-indigo-2 dim-16 rad-1"></div>
+  <div class="b-2 bc-r-indigo-3 d-16"></div>
+  <div class="b-2 bc-r-indigo d-16"></div>
+  <div class="b-2 bc-r-indigo-8 d-16"></div>
 </div>
 ```
 
@@ -158,37 +86,19 @@ This example showcases various border right colors using the **indigo** color pa
 
 Controls the color of the top border of an element.
 
-<Color
-  classPrefix="bc-t-"
-  data={[
-    { color: "red", value: "#d73d3d" },
-    { color: "orange", value: "#e06814" },
-    { color: "yellow", value: "#d3a107" },
-    { color: "green", value: "#1fb155" },
-    { color: "teal", value: "#12a695" },
-    { color: "cyan", value: "#05a4bf" },
-    { color: "blue", value: "#3575dd" },
-    { color: "indigo", value: "#595cd9" },
-    { color: "violet", value: "#7d53dd" },
-    { color: "pink", value: "#d4418a" },
-    { color: "gray", value: "#606773" },
-    { color: "lead", value: "#3f3f4e" },
-    { color: "silver", value: "#bfc2c7" },
-  ]}
-  propNames={["border-top-color"]}
-/>
+<Class name="border-top-color" />
 
 This example showcases various border top colors using the **indigo** color palette:
 
-- The **bc-l-indigo-4** utility applies a lighter indigo shade.
+- The **bc-indigo-3** utility applies a lighter indigo shade.
 - The **bc-indigo** utility applies the base indigo shade.
-- The **bc-d-indigo-2** utility applies a darker indigo shade.
+- The **bc-indigo-8** utility applies a darker indigo shade.
 
-```html live "bc-t-indigo" "bc-t-l-indigo-4" "bc-t-d-indigo-2"
+```html live "bc-t-indigo" "bc-t-indigo-3" "bc-t-indigo-8"
 <div class="d-g g-16 gtc-1 sm:gtc-3">
-  <div class="b-2 b-s bc-t-l-indigo-4 dim-16 rad-1"></div>
-  <div class="b-2 b-s bc-t-indigo dim-16 rad-1"></div>
-  <div class="b-2 b-s bc-t-d-indigo-2 dim-16 rad-1"></div>
+  <div class="b-2 bc-t-indigo-3 d-16"></div>
+  <div class="b-2 bc-t-indigo d-16"></div>
+  <div class="b-2 bc-t-indigo-8 d-16"></div>
 </div>
 ```
 

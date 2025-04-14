@@ -1,45 +1,22 @@
 ---
 title: Justify Self
 banner:
-  content: Sunsetting  <a href=https://www.yummacss.com/blog/sunsetting-intellisense>Yumma CSS Intellisense</a> extension 👋
+  content: <a href=https://www.yummacss.com/blog/yummacss-3.0>Yumma CSS v3.0 is finally live</a> 🎉
 description: Controls the alignment of a single grid element relative to its inline axis.
 slug: docs/justify-self
 ---
 
-<Utility
-  data={[
-    {
-      className: "js-auto",
-      properties: ["justify-self: auto;"],
-    },
-    {
-      className: "js-c",
-      properties: ["justify-self: center;"],
-    },
-    {
-      className: "",
-      properties: ["justify-self: end;"],
-    },
-    {
-      className: "js-s",
-      properties: ["justify-self: start;"],
-    },
-    {
-      className: "js-st",
-      properties: ["justify-self: stretch;"],
-    },
-  ]}
-/>
+<Class name="justify-self" />
 
 ## Auto
 
 This example sets the justify self to **auto**. The item will use the default alignment based on the container's alignment properties.
 
-```html live "js-auto" layout="/src/layouts/wide.astro"
+```html live "js-auto" layout="/src/layouts/inline.astro"
 <div class="d-g g-4 gtc-3 stripes tc-white">
-  <div class="ai-c bg-indigo d-f dim-14 jc-c rad-1">A</div>
-  <div class="ai-c bg-d-indigo-4 d-f dim-14 js-auto rad-1">B</div>
-  <div class="ai-c bg-indigo d-f dim-14 jc-c rad-1">C</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c rad-1">A</div>
+  <div class="ai-c bg-indigo-8 d-f d-14 js-auto rad-1">B</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c rad-1">C</div>
 </div>
 ```
 
@@ -47,11 +24,11 @@ This example sets the justify self to **auto**. The item will use the default al
 
 This example sets the justify self to **center**. The item will be centered within its grid area along the inline axis.
 
-```html live "js-c" layout="/src/layouts/wide.astro"
+```html live "js-c" layout="/src/layouts/inline.astro"
 <div class="d-g g-4 gtc-3 stripes tc-white">
-  <div class="ai-c bg-indigo d-f dim-14 jc-c rad-1">A</div>
-  <div class="ai-c bg-d-indigo-4 d-f dim-14 js-c rad-1">B</div>
-  <div class="ai-c bg-indigo d-f dim-14 jc-c rad-1">C</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c rad-1">A</div>
+  <div class="ai-c bg-indigo-8 d-f d-14 js-c rad-1">B</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c rad-1">C</div>
 </div>
 ```
 
@@ -59,11 +36,11 @@ This example sets the justify self to **center**. The item will be centered with
 
 This example sets the justify self to **end**. The item will be aligned to the end of its grid area along the inline axis.
 
-```html live "js-e" layout="/src/layouts/wide.astro"
+```html live "js-e" layout="/src/layouts/inline.astro"
 <div class="d-g g-4 gtc-3 stripes tc-white">
-  <div class="ai-c bg-indigo d-f dim-14 jc-c rad-1">A</div>
-  <div class="ai-c bg-d-indigo-4 d-f dim-14 js-e rad-1">B</div>
-  <div class="ai-c bg-indigo d-f dim-14 jc-c rad-1">C</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c rad-1">A</div>
+  <div class="ai-c bg-indigo-8 d-f d-14 js-e rad-1">B</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c rad-1">C</div>
 </div>
 ```
 
@@ -71,11 +48,11 @@ This example sets the justify self to **end**. The item will be aligned to the e
 
 This example sets the justify self to **start**. The item will be aligned to the start of its grid area along the inline axis.
 
-```html live "js-s" layout="/src/layouts/wide.astro"
+```html live "js-s" layout="/src/layouts/inline.astro"
 <div class="d-g g-4 gtc-3 stripes tc-white">
-  <div class="ai-c bg-indigo d-f dim-14 jc-c rad-1">A</div>
-  <div class="ai-c bg-d-indigo-4 d-f dim-14 js-s rad-1">B</div>
-  <div class="ai-c bg-indigo d-f dim-14 jc-c rad-1">C</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c rad-1">A</div>
+  <div class="ai-c bg-indigo-8 d-f d-14 js-s rad-1">B</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c rad-1">C</div>
 </div>
 ```
 
@@ -83,11 +60,11 @@ This example sets the justify self to **start**. The item will be aligned to the
 
 This example sets the justify self to **stretch**. The item will stretch to fill its grid area along the inline axis.
 
-```html live "js-st" layout="/src/layouts/wide.astro"
+```html live "js-st" layout="/src/layouts/inline.astro"
 <div class="d-g g-4 gtc-3 stripes tc-white">
-  <div class="ai-c bg-indigo d-f dim-14 jc-c rad-1">A</div>
-  <div class="ai-c bg-d-indigo-4 d-f dim-14 js-st rad-1 ta-c">B</div>
-  <div class="ai-c bg-indigo d-f dim-14 jc-c rad-1">C</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c rad-1">A</div>
+  <div class="ai-c bg-indigo-8 d-f d-14 js-st rad-1 ta-c">B</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c rad-1">C</div>
 </div>
 ```
 

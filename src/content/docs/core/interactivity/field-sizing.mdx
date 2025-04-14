@@ -1,11 +1,14 @@
 ---
 title: Field Sizing
 banner:
-  content: Sunsetting  <a href=https://www.yummacss.com/blog/sunsetting-intellisense>Yumma CSS Intellisense</a> extension 👋
+  content: <a href=https://www.yummacss.com/blog/yummacss-3.0>Yumma CSS v3.0 is finally live</a> 🎉
 description: Controls the sizing of elements that have a default preferred size.
 slug: docs/field-sizing
-draft: true
 ---
+
+:::caution
+Unfortunately, the `field-sizing` feature isn't compatible with most of the major browsers like Firefox and Safari.
+:::
 
 <Class name="field-sizing" />
 
@@ -16,7 +19,7 @@ This example sets the field sizing to **fixed**. The **fs-f** utility ensures th
 ```html live "fs-c"
 <div class="d-f fd-c">
   <label class="mb-2">Write a message:</label>
-  <textarea class="b-1 b-s fs-c max-h-50 max-w-100 r-none rad-1"></textarea>
+  <textarea class="b-2 fs-c max-h-50 max-w-100 r-none rad-1"></textarea>
 </div>
 ```
 
@@ -27,7 +30,7 @@ This example sets the field sizing to **content**. The **fs-c** utility allows t
 ```html live "fs-f"
 <div class="d-f fd-c">
   <label class="mb-2">Write a message:</label>
-  <textarea class="b-1 b-s fs-f max-h-50 max-w-100 r-none rad-1"></textarea>
+  <textarea class="b-2 fs-f max-h-50 max-w-100 r-none rad-1"></textarea>
 </div>
 ```
 

@@ -1,42 +1,23 @@
 ---
 title: Justify Items
 banner:
-  content: Sunsetting  <a href=https://www.yummacss.com/blog/sunsetting-intellisense>Yumma CSS Intellisense</a> extension 👋
+  content: <a href=https://www.yummacss.com/blog/yummacss-3.0>Yumma CSS v3.0 is finally live</a> 🎉
 description: Controls the alignment of grid elements relative to their inline axis.
 slug: docs/justify-items
 ---
 
-<Utility
-  data={[
-    {
-      className: "ji-c",
-      properties: ["justify-items: center;"],
-    },
-    {
-      className: "ji-e",
-      properties: ["justify-items: end;"],
-    },
-    {
-      className: "ji-s",
-      properties: ["justify-items: start;"],
-    },
-    {
-      className: "ji-st",
-      properties: ["justify-items: stretch;"],
-    },
-  ]}
-/>
+<Class name="justify-items" />
 
 ## Center
 
 This example sets the justify items to **center**. The items will be centered within their grid area along the inline axis.
 
-```html live "ji-c" layout="/src/layouts/wide.astro"
+```html live "ji-c" layout="/src/layouts/inline.astro"
 <div class="p-r tc-white">
   <div class="d-g g-4 gtc-3 ji-c stripes">
-    <div class="ai-c bg-indigo d-f dim-14 jc-c rad-1">A</div>
-    <div class="ai-c bg-indigo d-f dim-14 jc-c rad-1">B</div>
-    <div class="ai-c bg-indigo d-f dim-14 jc-c rad-1">C</div>
+    <div class="ai-c bg-indigo d-f d-14 jc-c rad-1">A</div>
+    <div class="ai-c bg-indigo d-f d-14 jc-c rad-1">B</div>
+    <div class="ai-c bg-indigo d-f d-14 jc-c rad-1">C</div>
   </div>
 </div>
 ```
@@ -45,12 +26,12 @@ This example sets the justify items to **center**. The items will be centered wi
 
 This example sets the justify items to **end**. The items will be aligned to the end of their grid area along the inline axis.
 
-```html live "ji-e" layout="/src/layouts/wide.astro"
+```html live "ji-e" layout="/src/layouts/inline.astro"
 <div class="p-r tc-white">
   <div class="d-g g-4 gtc-3 ji-e stripes">
-    <div class="ai-c bg-indigo d-f dim-14 jc-c rad-1">A</div>
-    <div class="ai-c bg-indigo d-f dim-14 jc-c rad-1">B</div>
-    <div class="ai-c bg-indigo d-f dim-14 jc-c rad-1">C</div>
+    <div class="ai-c bg-indigo d-f d-14 jc-c rad-1">A</div>
+    <div class="ai-c bg-indigo d-f d-14 jc-c rad-1">B</div>
+    <div class="ai-c bg-indigo d-f d-14 jc-c rad-1">C</div>
   </div>
 </div>
 ```
@@ -59,12 +40,12 @@ This example sets the justify items to **end**. The items will be aligned to the
 
 This example sets the justify items to **start**. The items will be aligned to the start of their grid area along the inline axis.
 
-```html live "ji-s" layout="/src/layouts/wide.astro"
+```html live "ji-s" layout="/src/layouts/inline.astro"
 <div class="p-r tc-white">
   <div class="d-g g-4 gtc-3 ji-s stripes">
-    <div class="ai-c bg-indigo d-f dim-14 jc-c rad-1">A</div>
-    <div class="ai-c bg-indigo d-f dim-14 jc-c rad-1">B</div>
-    <div class="ai-c bg-indigo d-f dim-14 jc-c rad-1">C</div>
+    <div class="ai-c bg-indigo d-f d-14 jc-c rad-1">A</div>
+    <div class="ai-c bg-indigo d-f d-14 jc-c rad-1">B</div>
+    <div class="ai-c bg-indigo d-f d-14 jc-c rad-1">C</div>
   </div>
 </div>
 ```
@@ -73,7 +54,7 @@ This example sets the justify items to **start**. The items will be aligned to t
 
 This example sets the justify items to **stretch**. The items will stretch to fill their grid area along the inline axis.
 
-```html live "ji-st" layout="/src/layouts/wide.astro"
+```html live "ji-st" layout="/src/layouts/inline.astro"
 <div class="p-r tc-white">
   <div class="d-g g-4 gtc-3 ji-st stripes">
     <div class="ai-c bg-indigo d-f h-14 jc-c rad-1">A</div>

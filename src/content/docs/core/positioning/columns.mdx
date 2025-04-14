@@ -1,17 +1,17 @@
 ---
 title: Columns
 banner:
-  content: Sunsetting  <a href=https://www.yummacss.com/blog/sunsetting-intellisense>Yumma CSS Intellisense</a> extension 👋
+  content: <a href=https://www.yummacss.com/blog/yummacss-3.0>Yumma CSS v3.0 is finally live</a> 🎉
 description: Controls how many columns are in an element.
 slug: docs/columns
 ---
 
-<Utility classPrefix="cols-" excludeZero propNames={["columns"]} incrementValue={1} range={16} />
+<Class name="columns" />
 
-This example sets the columns to **4**. The **cols-4** utility divides the content into **4** equal columns.
+This example sets the columns to **4**. The **c-4** utility divides the content into **4** equal columns.
 
-```html live "cols-4" layout="/src/layouts/wide.astro"
-<div class="cols-4">
+```html live "c-4" layout="/src/layouts/inline.astro"
+<div class="c-4">
   <p class="bg-indigo rad-1 ta-c tc-white p-4">A</p>
   <p class="bg-indigo rad-1 ta-c tc-white p-4">B</p>
   <p class="bg-indigo rad-1 ta-c tc-white p-4">C</p>
@@ -22,10 +22,10 @@ This example sets the columns to **4**. The **cols-4** utility divides the conte
 ## Conditional styles
 
 <Modifier
-  utility="cols-1"
-  prefixUtil="cols"
+  utility="c-1"
+  prefixUtil="c"
   modifiers={{
-    hoverMod: "cols-2",
-    responsiveMod: "cols-2",
+    hoverMod: "c-2",
+    responsiveMod: "c-2",
   }}
 />

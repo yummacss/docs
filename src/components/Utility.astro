@@ -23,19 +23,7 @@ interface UtilityProps {
   round?: number;
 }
 
-const {
-  additionalClasses,
-  classPrefix,
-  data,
-  incrementName,
-  incrementValue,
-  incrementPrefix,
-  propNames,
-  range,
-  unit,
-  excludeZero,
-  round,
-} = Astro.props as UtilityProps;
+const { additionalClasses, classPrefix, data, incrementName, incrementValue, incrementPrefix, propNames, range, unit, excludeZero, round } = Astro.props as UtilityProps;
 
 function generateClassData(
   classPrefix: string,
@@ -53,11 +41,7 @@ function generateClassData(
 
   for (let i = startIndex; i <= range; i++) {
     const properties = propNames.map((propertyName) => {
-      let value = incrementName
-        ? incrementName.replace(/%i/g, `${i * incrementValue}`)
-        : unit
-          ? `${i * incrementValue}${unit}`
-          : `${i * incrementValue}`;
+      let value = incrementName ? incrementName.replace(/%i/g, `${i * incrementValue}`) : unit ? `${i * incrementValue}${unit}` : `${i * incrementValue}`;
 
       if (round !== undefined) {
         value = parseFloat(value).toFixed(round);
@@ -84,22 +68,10 @@ function generateClassData(
   return data;
 }
 
-const codeData =
-  data ||
-  generateClassData(
-    classPrefix,
-    propNames,
-    range,
-    incrementValue,
-    incrementPrefix,
-    unit,
-    additionalClasses,
-    excludeZero,
-    round
-  );
+const codeData = data || generateClassData(classPrefix, propNames, range, incrementValue, incrementPrefix, unit, additionalClasses, excludeZero, round);
 ---
 
-<div class="max-h-90 ovf-y-auto mb-5">
+<div class="max-h-90 o-y-auto mb-5">
   <table>
     <thead>
       <tr>
@@ -111,13 +83,11 @@ const codeData =
       {
         codeData.map((classItem) => (
           <tr>
-            <td class="ff-m fs-xs">
-              <p class="cls">{classItem.className}</p>
+            <td class="fs-xs">
+              <p class="tc-primary">{classItem.className}</p>
             </td>
-            <td class="ff-b fs-xs">
-              <code class="prop" style="background-color: transparent !important;">
-                {classItem.properties.join("\n")}
-              </code>
+            <td class="fs-xs">
+              <code style="background-color: transparent !important;">{classItem.properties.join("\n")}</code>
             </td>
           </tr>
         ))

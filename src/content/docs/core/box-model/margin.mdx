@@ -1,18 +1,18 @@
 ---
 title: Margin
 banner:
-  content: Sunsetting  <a href=https://www.yummacss.com/blog/sunsetting-intellisense>Yumma CSS Intellisense</a> extension 👋
+  content: <a href=https://www.yummacss.com/blog/yummacss-3.0>Yumma CSS v3.0 is finally live</a> 🎉
 description: Controls the margin of an element.
 slug: docs/margin
 ---
 
-<Utility additionalClasses={[{ name: "auto", value: "auto" }]} classPrefix="m-" incrementValue={0.25} propNames={["margin"]} range={100} unit="rem" />
+<Class name="margin" />
 
 This example sets the margin to **2rem**. The element will have a uniform margin around it.
 
 ```html live "m-8"
 <div class="d-f fd-r rad-1 stripes">
-  <div class="ai-c bg-indigo d-f dim-16 jc-c m-8 rad-1 tc-white">8</div>
+  <div class="ai-c bg-indigo d-f d-16 jc-c m-8 rad-1 tc-white">8</div>
 </div>
 ```
 
@@ -20,13 +20,13 @@ This example sets the margin to **2rem**. The element will have a uniform margin
 
 Controls the bottom margin of an element.
 
-<Utility additionalClasses={[{ name: "auto", value: "auto" }]} classPrefix="mb-" incrementValue={0.25} propNames={["margin-bottom"]} range={100} unit="rem" />
+<Class name="margin-bottom" />
 
 This example sets the bottom margin to **2rem**. The element will have space below it.
 
 ```html live "mb-8"
 <div class="d-f fd-r rad-1 stripes">
-  <div class="ai-c bg-indigo d-f dim-16 jc-c mb-8 rad-1 t-8 tc-white">8</div>
+  <div class="ai-c bg-indigo d-f d-16 jc-c mb-8 rad-1 t-8 tc-white">8</div>
 </div>
 ```
 
@@ -34,13 +34,13 @@ This example sets the bottom margin to **2rem**. The element will have space bel
 
 Controls the left margin of an element.
 
-<Utility additionalClasses={[{ name: "auto", value: "auto" }]} classPrefix="ml-" incrementValue={0.25} propNames={["margin-left"]} range={100} unit="rem" />
+<Class name="margin-left" />
 
 This example sets the left margin to **2rem**. The element will have space to its left.
 
 ```html live "ml-8"
 <div class="rad-1 stripes">
-  <div class="ai-c bg-indigo d-f dim-16 jc-c ml-8 rad-1 tc-white">8</div>
+  <div class="ai-c bg-indigo d-f d-16 jc-c ml-8 rad-1 tc-white">8</div>
 </div>
 ```
 
@@ -48,13 +48,13 @@ This example sets the left margin to **2rem**. The element will have space to it
 
 Controls the right margin of an element.
 
-<Utility additionalClasses={[{ name: "auto", value: "auto" }]} classPrefix="mr-" incrementValue={0.25} propNames={["margin-right"]} range={100} unit="rem" />
+<Class name="margin-right" />
 
 This example sets the right margin to **2rem**. The element will have space to its right.
 
 ```html live "mr-8"
 <div class="rad-1 stripes">
-  <div class="ai-c bg-indigo d-f dim-16 jc-c mr-8 rad-1 tc-white">8</div>
+  <div class="ai-c bg-indigo d-f d-16 jc-c mr-8 rad-1 tc-white">8</div>
 </div>
 ```
 
@@ -62,13 +62,69 @@ This example sets the right margin to **2rem**. The element will have space to i
 
 Controls the top margin of an element.
 
-<Utility additionalClasses={[{ name: "auto", value: "auto" }]} classPrefix="mt-" incrementValue={0.25} propNames={["margin-top"]} range={100} unit="rem" />
+<Class name="margin-top" />
 
 This example sets the top margin to **2rem**. The element will have space above it.
 
 ```html live "mt-8"
 <div class="d-f fd-r rad-1 stripes">
-  <div class="ai-c bg-indigo d-f dim-16 jc-c mt-8 rad-1 t-8 tc-white">8</div>
+  <div class="ai-c bg-indigo d-f d-16 jc-c mt-8 rad-1 t-8 tc-white">8</div>
+</div>
+```
+
+## Margin Block End
+
+Controls the margin block end of an element.
+
+<Class name="margin-block-end" />
+
+This example sets the margin block end to **2rem**. The element will have space below it.
+
+```html live "mbe-8"
+<div class="d-f fd-r rad-1 stripes">
+  <div class="ai-c bg-indigo d-f d-16 jc-c mbe-8 rad-1 t-8 tc-white">8</div>
+</div>
+```
+
+## Margin Block Start
+
+Controls the margin block start of an element.
+
+<Class name="margin-block-start" />
+
+This example sets the margin block start to **2rem**. The element will have space above it.
+
+```html live "mbs-8"
+<div class="d-f fd-r rad-1 stripes">
+  <div class="ai-c bg-indigo d-f d-16 jc-c mbs-8 rad-1 t-8 tc-white">8</div>
+</div>
+```
+
+## Margin Inline End
+
+Controls the margin inline end of an element.
+
+<Class name="margin-inline-end" />
+
+This example sets the margin inline end to **2rem**. The element will have space to its right.
+
+```html live "mie-8"
+<div class="rad-1 stripes">
+  <div class="ai-c bg-indigo d-f d-16 jc-c mie-8 rad-1 tc-white">8</div>
+</div>
+```
+
+## Margin Inline Start
+
+Controls the margin inline start of an element.
+
+<Class name="margin-inline-start" />
+
+This example sets the margin inline start to **2rem**. The element will have space to its left.
+
+```html live "mis-8"
+<div class="rad-1 stripes">
+  <div class="ai-c bg-indigo d-f d-16 jc-c mis-8 rad-1 tc-white">8</div>
 </div>
 ```
 
@@ -76,13 +132,13 @@ This example sets the top margin to **2rem**. The element will have space above 
 
 Controls the left and right margins of an element at once.
 
-<Utility classPrefix="mx-" incrementValue={0.25} propNames={["margin-left", "margin-right"]} range={100} unit="rem" />
+<Class name="margin-x" />
 
 This example sets the left and right margins to **2rem**. The element will have uniform space on both sides.
 
 ```html live "mx-8"
 <div class="rad-1 stripes">
-  <div class="ai-c bg-indigo d-f dim-16 jc-c mx-8 rad-1 tc-white">8</div>
+  <div class="ai-c bg-indigo d-f d-16 jc-c mx-8 rad-1 tc-white">8</div>
 </div>
 ```
 
@@ -90,13 +146,13 @@ This example sets the left and right margins to **2rem**. The element will have 
 
 Controls the bottom and top margins of an element at once.
 
-<Utility classPrefix="my-" incrementValue={0.25} propNames={["margin-bottom", "margin-top"]} range={100} unit="rem" />
+<Class name="margin-y" />
 
 This example sets the bottom and top margins to **2rem**. The element will have uniform space above and below it.
 
 ```html live "my-8"
 <div class="d-f fd-r rad-1 stripes">
-  <div class="ai-c bg-indigo d-f dim-16 jc-c my-8 rad-1 tc-white">8</div>
+  <div class="ai-c bg-indigo d-f d-16 jc-c my-8 rad-1 tc-white">8</div>
 </div>
 ```
 

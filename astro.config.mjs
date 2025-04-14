@@ -13,25 +13,19 @@ export default defineConfig({
         light: "/public/trademark/logo-light.png",
         replacesTitle: true,
       },
-      customCss: ["/src/styles/globals.css"],
+
+      // prettier-ignore
+      customCss: [
+    "@fontsource-variable/outfit",
+    "/src/styles/custom.css",
+    "/src/styles/yumma.css",
+  ],
       components: {
-        // Hero: "./src/components/Hero.astro",
-        PageTitle: "./src/components/PageTitle.astro",
+        Hero: "./src/components/ui/Index.astro",
+        PageTitle: "./src/components/ui/PageTitle.astro",
       },
       plugins: [
         config.starlightLinksValidator(),
-        config.starlightCoolerCredit({
-          credit: {
-            title: {
-              en: "Yumma CSS v3.0",
-            },
-            href: "https://www.yummacss.com/docs/next",
-            description: {
-              en: "Take a look at what's coming in the next version of Yumma CSS.",
-            },
-          },
-          showImage: false,
-        }),
         config.starlightBlog({
           recentPostCount: 3,
           authors: {
@@ -105,11 +99,10 @@ export default defineConfig({
       ],
       sidebar: config.sidebar, // from astro.sidebar.ts
     }),
-
     config.AutoImport({
       imports: [
         "/src/components/Class.astro",
-        "/src/components/Color.astro",
+        "/src/components/Color2.astro",
         "/src/components/Decorator.astro",
         "/src/components/Modifier.astro",
         "/src/components/Palette2.astro",
@@ -117,17 +110,18 @@ export default defineConfig({
         "/src/components/Utility.astro",
         {
           "@astrojs/starlight/components": ["Aside", "Card", "CardGrid", "Code", "FileTree", "Icon", "LinkButton", "LinkCard", "Steps", "TabItem", "Tabs"],
+          "starlight-package-managers": ["PackageManagers"],
           "starlight-showcases": ["ShowcaseImage", "ShowcaseText", "ShowcaseYouTube"],
         },
       ],
     }),
-
     config.liveCode({
       layout: "/src/layouts/default.astro",
     }),
   ],
 
   redirects: {
+    // Docs redirects
     "/docs": "/docs/installation",
     "/docs/build-css": "/docs/first-steps#building-styles",
     "/docs/colors": "/docs/first-steps#color-palette",
@@ -136,6 +130,17 @@ export default defineConfig({
     "/docs/spacing": "/docs/spacing-between",
     "/docs/direction": "/docs/bottom-left-right-top",
     "/docs/utilities": "/docs/build-css",
+    "/docs/next": "/blog/yummacss-3.0",
+
+    // Blog redirects
+    "/blog/v3": "/blog/yummacss-3.0",
+    "/blog/v2": "/blog/yummacss-2.1",
+    "/blog/v1": "/blog/yummacss-1.1",
+    "/blog/v0": "/blog/yummacss-0.1",
+  },
+
+  devToolbar: {
+    enabled: false,
   },
 
   output: "server",
