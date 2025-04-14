@@ -37,8 +37,20 @@
   --hero-pattern-image: url("/image/dark-pattern.png");
 }
 
-/* Theme */
+@media (min-width: 50rem) {
+  div:has(> site-search) {
+    justify-content: center;
+  }
+}
 
+@media (min-width: 72rem) {
+  div:has(> site-search) {
+    max-width: calc(var(--sl-content-width));
+  }
+}
+
+
+/* Custom */
 *,
 *::before,
 *::after {
