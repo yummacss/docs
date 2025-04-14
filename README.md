@@ -9,7 +9,7 @@
 </div>
 
 <p align="center">
-  A CSS framework with abbreviated styles.
+  The CSS framework with abbreviated styles for modern design systems — no bloat!
   <br>
   <a href="https://yummacss.com"><strong>Read the documentation ↝</strong></a>
 </p>
@@ -26,6 +26,7 @@ Join the Yumma CSS community! Share your experiences and help Yumma CSS grow and
 
 - [Gulp](https://gulpjs.com/) — A toolkit to automate & enhance your workflow.
 - [SCSS](https://sass-lang.com/documentation/syntax/) — CSS with superpowers.
+- [Typescript](https://www.typescriptlang.org/) — A superset of JavaScript.
 
 ## Licensing
 
