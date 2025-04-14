@@ -26,9 +26,6 @@ importers:
       '@fontsource-variable/outfit':
         specifier: ^5.2.5
         version: 5.2.5
-      '@fontsource-variable/plus-jakarta-sans':
-        specifier: ^5.1.1
-        version: 5.1.1
       astro:
         specifier: ^5.2.3
         version: 5.2.3(@types/node@18.19.74)(lightningcss@1.29.3)(rollup@4.34.1)(sass-embedded@1.86.0)(typescript@5.7.3)(yaml@2.7.0)
@@ -370,9 +367,6 @@ packages:
 
   '@fontsource-variable/outfit@5.2.5':
     resolution: {integrity: sha512-MejrIp6Cbmd3u5AZtsot8kmhZiyQM5CATsdcBB2hktYIrv5CVekRSUmFDXL4FpF7K70IvFp2ZMfImm5VhnVf7Q==}
-
-  '@fontsource-variable/plus-jakarta-sans@5.1.1':
-    resolution: {integrity: sha512-89gGj8paLxMnlJWVbsWwTgI3T0VwncJmA2pf3nrOWTJK1RT+mQsE++3+BLTNLo7RpYvtuMbEFrsMsZXwGuL2zg==}
 
   '@img/sharp-darwin-arm64@0.33.5':
     resolution: {integrity: sha512-UT4p+iz/2H4twwAoLCqfA9UH5pI6DggwKEGuaPy7nCVQ8ZsiY5PIcrRvD1DzuY3qYL07NtIQcWnBSY/heikIFQ==}
@@ -3262,8 +3256,6 @@ snapshots:
       '@expressive-code/core': 0.40.1
 
   '@fontsource-variable/outfit@5.2.5': {}
-
-  '@fontsource-variable/plus-jakarta-sans@5.1.1': {}
 
   '@img/sharp-darwin-arm64@0.33.5':
     optionalDependencies:
