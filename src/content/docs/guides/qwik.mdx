@@ -1,7 +1,7 @@
 ---
 title: Yumma CSS and Qwik
 banner:
-  content: Sunsetting  <a href=https://www.yummacss.com/blog/sunsetting-intellisense>Yumma CSS Intellisense</a> extension 👋
+  content: <a href=https://www.yummacss.com/blog/yummacss-3.0>Yumma CSS v3.0 is finally live</a> 🎉
 description: Setup Yumma CSS with Qwik.
 slug: docs/guides/qwik
 ---
@@ -11,13 +11,11 @@ slug: docs/guides/qwik
 To create a new Qwik project, you need run the [Qwik CLI](https://qwik.dev/docs/getting-started/#create-an-app-using-the-cli) in your terminal.
 
 <Steps>
-    1. **Install Yumma CSS:**
+    1. **Install Yumma CSS**
 
         Install the Yumma CSS Library using a package manager.
 
-        ```bash title="Installing dependencies..." frame="terminal"
-        npm install yummacss@latest
-        ```
+        <PackageManagers pkg="yummacss" args="--save-dev" title="Installing dependencies..." />
 
     2. **Include** `yummacss` **in your main CSS file:**
 
@@ -31,9 +29,7 @@ To create a new Qwik project, you need run the [Qwik CLI](https://qwik.dev/docs/
 
         You can also run `npm start` to start your application.
 
-        ```bash title="Starting development server..."
-        npm run dev
-        ```
+        <PackageManagers type="run" args="dev" title="Starting development server..." />
 
     4. **Done!**
 

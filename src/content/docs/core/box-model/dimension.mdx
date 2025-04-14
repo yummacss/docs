@@ -1,36 +1,20 @@
 ---
 title: Dimension
 banner:
-  content: Sunsetting  <a href=https://www.yummacss.com/blog/sunsetting-intellisense>Yumma CSS Intellisense</a> extension 👋
+  content: <a href=https://www.yummacss.com/blog/yummacss-3.0>Yumma CSS v3.0 is finally live</a> 🎉
 description: Controls the height and width of an element simultaneously.
 slug: docs/dimension
 ---
 
-<Utility
-  additionalClasses={[
-    { name: "1/1", value: "100dvh" },
-    { name: "1/2", value: "50dvh" },
-    { name: "auto", value: "auto" },
-    { name: "fc", value: "fit-content" },
-    { name: "full", value: "100%" },
-    { name: "half", value: "50%" },
-    { name: "max", value: "max-content" },
-    { name: "min", value: "min-content" },
-  ]}
-  classPrefix="dim-"
-  incrementValue={0.25}
-  propNames={["height", "width"]}
-  range={100}
-  unit="rem"
-/>
+<Class name="dimension" />
 
 This example showcases various dimensions: **4rem**, **5rem**, and **6rem**. The element will be relatively small in size, will be slightly larger and noticeably larger, respectively.
 
-```html live "dim-16" "dim-20" "dim-24"
+```html live "d-16" "d-20" "d-24"
 <div class="d-g g-16 gtc-1 sm:gtc-3">
-  <div class="ai-c bg-indigo d-f dim-16 jc-c rad-1 tc-white">16</div>
-  <div class="ai-c bg-indigo d-f dim-20 jc-c rad-1 tc-white">20</div>
-  <div class="ai-c bg-indigo d-f dim-24 jc-c rad-1 tc-white">24</div>
+  <div class="ai-c bg-indigo d-f d-16 jc-c rad-1 tc-white">16</div>
+  <div class="ai-c bg-indigo d-f d-20 jc-c rad-1 tc-white">20</div>
+  <div class="ai-c bg-indigo d-f d-24 jc-c rad-1 tc-white">24</div>
 </div>
 ```
 
@@ -38,67 +22,37 @@ This example showcases various dimensions: **4rem**, **5rem**, and **6rem**. The
 
 Controls the maximum height and max width of an element at once.
 
-<Utility
-  additionalClasses={[
-    { name: "1/1", value: "100dvh" },
-    { name: "1/2", value: "50dvh" },
-    { name: "auto", value: "auto" },
-    { name: "fc", value: "fit-content" },
-    { name: "full", value: "100%" },
-    { name: "half", value: "50%" },
-    { name: "max", value: "max-content" },
-    { name: "min", value: "min-content" },
-  ]}
-  classPrefix="max-dim-"
-  incrementValue={0.25}
-  propNames={["max-height", "max-width"]}
-  range={100}
-  unit="rem"
-/>
+<Class name="max-dimension" />
 
-This example sets the maximum height and width of an element to **16rem**. The **max-dim-64** utility ensures the element does not exceed a size of 16rem in both height and width.
+This example sets the maximum height and width of an element to **16rem**. The **max-d-64** utility ensures the element does not exceed a size of 16rem in both height and width.
 
 <Decorator icon="size">Try changing the vertical size of the box to see how wide it can be at the maximum size.</Decorator>
 
-```html "max-dim-64"
-<div class="ovf-auto ai-c bg-indigo dim-16 d-f jc-c max-dim-64 min-dim-32 p-6 r-b rad-1 tc-white">64</div>
+```html live "max-d-64"
+<div class="o-auto ai-c bg-indigo d-16 d-f jc-c max-d-64 min-d-32 p-6 r-b rad-1 tc-white">64</div>
 ```
 
 ## Min Dimension
 
 Controls the minimum height and min width of an element at once.
 
-<Utility
-  additionalClasses={[
-    { name: "1/1", value: "100dvh" },
-    { name: "1/2", value: "50dvh" },
-    { name: "auto", value: "auto" },
-    { name: "fc", value: "fit-content" },
-    { name: "full", value: "100%" },
-    { name: "half", value: "50%" },
-    { name: "max", value: "max-content" },
-    { name: "min", value: "min-content" },
-  ]}
-  classPrefix="min-dim-"
-  incrementValue={0.25}
-  propNames={["min-height", "min-width"]}
-  range={100}
-  unit="rem"
-/>
+<Class name="min-dimension" />
 
-This example sets the minimum height and width of an element to **16rem**. The **min-dim-64** utility ensures the element does not shrink below a size of 16rem in both height and width.
+This example sets the minimum height and width of an element to **16rem**. The **min-d-64** utility ensures the element does not shrink below a size of 16rem in both height and width.
 
 <Decorator icon="size">Try changing the vertical size of the box to see how wide it can be at the maximum size.</Decorator>
 
-```html "min-dim-32"
-<div class="ovf-auto ai-c bg-indigo dim-16 d-f jc-c max-dim-64 min-dim-32 p-6 r-b rad-1 tc-white">32</div>
+```html live "min-d-32"
+<div class="o-auto ai-c bg-indigo d-16 d-f jc-c max-d-64 min-d-32 p-6 r-b rad-1 tc-white">32</div>
 ```
 
+## Conditional styles
+
 <Modifier
-  utility="dim-1"
-  prefixUtil="dim"
+  utility="d-1"
+  prefixUtil="d"
   modifiers={{
-    hoverMod: "dim-2",
-    responsiveMod: "dim-2",
+    hoverMod: "d-2",
+    responsiveMod: "d-2",
   }}
 />

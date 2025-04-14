@@ -1,12 +1,47 @@
 ---
-title: Yumma CSS v3.0 Beta
-description: Take a look at what's coming in the next version of Yumma CSS.
-slug: docs/next
+authors: Renildo
+cover:
+  alt: Yumma CSS 3.0
+  image: ./covers/yummacss-3.0.0.png
+date: 2025-04-02
+excerpt: After almost six months of hard work it's finally here — Yumma CSS v3.0 🎉
+pagefind: false
+slug: blog/yummacss-3.0
+tags: ["release"]
+title: Yumma CSS 3.0 - All-new CLI, utilities, and more
 ---
 
-It looks like you're just as excited as we are about what's to come in the next version of Yumma CSS! We can't wait to show you what we've got in store. Get ready, because the next version of Yumma CSS is going to be amazing!
+After almost six months of hard work, we're super excited to share all of the new features, improvements, and fixes that we think you're going to love.
 
-This version is a work in progress and some features might be updated or left out of the final version.
+This is the biggest release of Yumma CSS, and we can't wait for you to try it out!
+
+<ShowcaseYouTube
+  entries={[
+    {
+      href: "https://youtu.be/eqTIFRGqp9o",
+      title: "What's new in Yumma CSS v3.0?",
+    },
+  ]}
+/>
+
+You may also want to take a look at some of the [release notes](https://github.com/yumma-lib/yumma-css/releases/tag/v3.0.0) but, anyway, these are the most noticeable shifts:
+
+- [All-new CLI](#all-new-cli): A new CLI tool to compile SCSS to CSS.
+- [All-new utilities](#all-new-utilities): Over 50 new utility classes.
+- [Build performance](#build-performance): Faster build times and smaller file sizes.
+- [Upgrading to v3.0](#upgrading-to-v30): Steps to upgrade to Yumma CSS v3.0.
+- [Changes in v3.0](#changes-in-v30): Changes to the core framework structure.
+- [Dependency changes](#dependency-changes): Changes to the dependency structure.
+- [Color utility changes](#color-utility-changes): Changes to the color utility classes.
+- [Utility changes](#align-content-utilities): Changes to the utility classes.
+- [Stylecent changes](#stylecent-changes): Changes to the Stylecent utility classes.
+- [Breakpoint changes](#breakpoint-changes): Changes to the breakpoint classes.
+- [Fixed responsive utilities](#fixed-responsive-utilities): Changes to the responsive utility classes.
+- [Removed utilities](#removed-container-utility): Removed utility classes.
+
+This is a major update that introduces groundbreaking features. Major releases follow [semantic versioning](https://docs.npmjs.com/about-semantic-versioning) conventions. In other words, you probably need refactoring after upgrading.
+
+---
 
 ## What's new in v3.0?
 
@@ -14,7 +49,7 @@ We've completely rewritten the code base for Yumma CSS v3, both internally and e
 
 In v3, we're planning to address some major performance issues and add and improve existing utilities in the framework, among other things.
 
-### Hello Yumma CSS CLI
+### All-new CLI
 
 Until recently, you had to import a lot of annoying CSS from Yumma CSS, which was a real pain.
 
@@ -26,15 +61,13 @@ With v3, you won't have to stress about shipping unused CSS to the browser. The 
 
         Add `yummacss` to your project as dev dependency.
 
-        Learn about dependency changes [here](#dependency-changes).
+        <Decorator icon="info">Learn more about [dependency changes](#dependency-changes).</Decorator>
 
-        ```bash title="Terminal"
-        npm install yummacss@latest --save-dev
-        ```
+        <PackageManagers pkg="yummacss" args="--save-dev" title="Terminal" />
 
     2. **Add the configuration file**
 
-        Next, add the `yummacss.config.js` to the root level of your project.
+        Next, add the `yummacss.config.js` to the root level of your project or run `npx yummacss init` to create it for you.
 
         <FileTree>
             - node_modules/
@@ -42,7 +75,7 @@ With v3, you won't have to stress about shipping unused CSS to the browser. The 
                 - favicon.ico
             - src
                 - globals.css
-                - app.html
+                - index.html
             - .gitignore
             - package-lock.json
             - package.json
@@ -52,14 +85,14 @@ With v3, you won't have to stress about shipping unused CSS to the browser. The 
 
     3. **Set up the config file**
 
-        To build the CSS from the source include the `source` array and the `styles` string options inside a config named object.
+        To generate styles using the CLI, just set up the `source` array with the path to your template files and set the `output` string with the path to the CSS file you want to generate.
 
-        ```js title="yummacss.config.js" mark={2-7}
+        ```js title="yummacss.config.js" mark={2-3}
         module.exports = {
           source: ["./src/**/*.html"],
           output: "./src/globals.css",
           buildOptions: {
-            reset: false,
+            reset: true,
             minify: false,
           },
         };
@@ -69,7 +102,7 @@ With v3, you won't have to stress about shipping unused CSS to the browser. The 
 
         Start using Yumma CSS utilities in your to generate CSS with the CLI.
 
-        ```html mark={7, 11-16} title="page.html"
+        ```html mark={7, 11-16} title="index.html"
         <!DOCTYPE html>
         <html lang="en">
 
@@ -93,21 +126,19 @@ With v3, you won't have to stress about shipping unused CSS to the browser. The 
 
     5. **Compile the SCSS**
 
-        To compile the source into CSS, run `npx yummacss build` in your terminal.
+        To compile the source into CSS, ou can run the following command:
 
-        ```bash title="Terminal"
-        npx yummacss build
-        ```
+        <PackageManagers type="exec" pkg="yummacss" args="build" title="Building styles..." />
 
-        Whenever you run `npx yummacss build`, the CLI will create a new CSS file and scan project paths based on the `yummacss.config.js` to purge of any unused styles.
+        When you run the `build` command the CLI will create a new CSS file and scan project paths based on the `yummacss.config.js` to purge of any unused styles.
 
-        ```css title="globals.css" collapse={5-29, 43-89}
+        ```css title="globals.css"
         .rad-1 {
-          border-radius: 0.25rem;
+          border-radius: .25rem;
         }
 
         .rad-2 {
-          border-radius: 0.5rem;
+          border-radius: .5rem;
         }
 
         .b-1 {
@@ -128,69 +159,11 @@ With v3, you won't have to stress about shipping unused CSS to the browser. The 
         }
 
         .py-1 {
-          padding-bottom: 0.25rem;
-          padding-top: 0.25rem;
+          padding-bottom: .25rem;
+          padding-top: .25rem;
         }
 
-        .bg-indigo {
-          background-color: rgb(89, 92, 217);
-        }
-
-        .h\:bg-indigo-7:hover {
-          background-color: rgb(76.54, 79.12, 186.62);
-        }
-
-        .bg-white {
-          background-color: white;
-        }
-
-        .bc-silver-2 {
-          border-color: rgb(235.8, 236.7, 238.2);
-        }
-
-        .bc-silver-2 {
-          border-bottom-color: rgb(235.8, 236.7, 238.2);
-        }
-
-        .bc-silver-2 {
-          border-left-color: rgb(235.8, 236.7, 238.2);
-        }
-
-        .bc-silver-2 {
-          border-right-color: rgb(235.8, 236.7, 238.2);
-        }
-
-        .bc-silver-2 {
-          border-top-color: rgb(235.8, 236.7, 238.2);
-        }
-
-        .tc-indigo {
-          color: rgb(89, 92, 217);
-        }
-
-        .tc-gray-7 {
-          color: rgb(82.56, 88.58, 98.9);
-        }
-
-        .tc-white {
-          color: white;
-        }
-
-        .bs-sm {
-          box-shadow: 1px 3px 5px -2px rgba(0, 0, 0, 0.1);
-        }
-
-        .fs-sm {
-          font-size: 0.875rem;
-        }
-
-        .fs-lg {
-          font-size: 1.125rem;
-        }
-
-        .fw-600 {
-          font-weight: 600;
-        }
+        /* etc */
         ```
 
 </Steps>
@@ -199,18 +172,18 @@ With v3, you won't have to stress about shipping unused CSS to the browser. The 
 
 To make the Yumma CSS framework as complete as possible, we're adding support for over 50 utility classes to the core of the framework.
 
-| Category      | Properties                                                                                                                                                                                                                              |
-| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Backgrounds   | Background Attachment, Background Clip, Background Origin, Background Position, Background Repeat, Background Size                                                                                                                      |
-| Borders       | Border Spacing, Border Bottom/Left/Right/Top Radius                                                                                                                                                                                     |
-| Box Model     | Margin: Block End, Block Start, Inline End, Inline Start; Padding: Block End, Block Start, Inline End, Inline Start                                                                                                                     |
-| Effect        | Blur and Grayscale                                                                                                                                                                                                                      |
-| Flexbox       | Order, Place, Place Content, Place Items, Place Self                                                                                                                                                                                    |
-| Interactivity | Scroll Behavior, Scroll Margin: Bottom, Inline End, Inline Start, Left, Right, Top, X, Y; Scroll Padding: Bottom, Inline End, Inline Start, Left, Right, Top, X, Y; Scroll Snap Align, Scroll Snap Stop, Scroll Snap Type; Field Sizing |
-| Positioning   | Clear, Direction (Axis), Isolation, Visibility                                                                                                                                                                                          |
-| SVG           | Fill, Stroke, Stroke Width                                                                                                                                                                                                              |
-| Text          | Letter Spacing, List Style Position, Text Indent, Text Overflow, Text Transform, Text Underline Offset, Text Wrap, Whitespace                                                                                                           |
-| Transforms    | Rotate, Scale, Skew, Transform Origin                                                                                                                                                                                                   |
+| Category      | Properties                                                                                                                                                                                                                                                                                                                     |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Backgrounds   | [Background Attachment](/docs/background-attachment), [Background Clip](/docs/background-clip), [Background Origin](/docs/background-origin), [Background Position](/docs/background-position), [Background Repeat](/docs/background-repeat), [Background Size](/docs/background-size)                                         |
+| Borders       | [Border Spacing](/docs/border-spacing), [Border Bottom/Left/Right/Top Radius](/docs/border-radius)                                                                                                                                                                                                                             |
+| Box Model     | [Margin LTR/RTL](/docs/margin#margin-block-end), [Padding LTR/RTL](/docs/padding#padding-block-end)                                                                                                                                                                                                                            |
+| Effect        | [Blur](/docs/blur), [Grayscale](/docs/grayscale)                                                                                                                                                                                                                                                                               |
+| Flexbox       | [Order](/docs/order), [Place Content](/docs/place-content), [Place Items](/docs/place-items), [Place Self](/docs/place-self)                                                                                                                                                                                                   |
+| Interactivity | [Scroll Behavior](/docs/scroll-behavior), [Scroll Margin](/docs/scroll-margin) [Scroll Padding](/docs/scroll-padding) [Scroll Snap Align](/docs/scroll-snap-align), [Scroll Snap Stop](/docs/scroll-snap-stop), [Scroll Snap Type](/docs/scroll-snap-type) [Field Sizing](/docs/field-sizing)                                  |
+| Positioning   | [Clear](/docs/clear), [Bottom/Left/Right/Top (Axis)](/docs/bottom-left-right-top), [Isolation](/docs/isolation), [Visibility](/docs/visibility)                                                                                                                                                                                |
+| SVG           | [Fill](/docs/fill), [Stroke](/docs/stroke), [Stroke Width](/docs/stroke-width)                                                                                                                                                                                                                                                 |
+| Text          | [Letter Spacing](/docs/letter-spacing), [List Style Position](/docs/list-style-position), [Text Indent](/docs/text-indent), [Text Overflow](/docs/text-overflow), [Text Transform](/docs/text-transform), [Text Underline Offset](/docs/text-underline-offset), [Text Wrap](/docs/text-wrap), [White Space](/docs/white-space) |
+| Transforms    | [Rotate](/docs/rotate), [Scale](/docs/scale), [Skew](/docs/skew), [Transform Origin](/docs/transform-origin)                                                                                                                                                                                                                   |
 
 ### Build performance
 
@@ -225,13 +198,15 @@ We completely overhauled the entire codebase to get better performance in build 
 
 ### Upgrading to v3.0
 
+If you're using Yumma CSS v2 or older, the process of upgrading to v3 using the Yumma CLI is honestly super easy.
+
 <Steps>
 
 1.  **Remove `@import` rules**
 
     The CLI works by compiling SCSS to CSS, so there's no need to import the Yumma CSS package dependency.
 
-    ```diff lang="css" title="src/globals.css" title="page.html"
+    ```diff lang="css" title="src/globals.css"
     - @import "/node_modules/yummacss/dist/yumma.min.css";
     ```
 
@@ -246,7 +221,7 @@ We completely overhauled the entire codebase to get better performance in build 
       - favicon.ico
     - src
       - globals.css
-      - app.html
+      - index.html
     - .gitignore
     - package-lock.json
     - package.json
@@ -273,9 +248,7 @@ We completely overhauled the entire codebase to get better performance in build 
 
     Run `npx yummacss build` in your terminal to compile to CSS.
 
-    ```bash title="Terminal"
-    npx yummacss build
-    ```
+    <PackageManagers type="exec" pkg="yummacss" args="build" title="Building styles..." />
 
 </Steps>
 
@@ -289,9 +262,7 @@ Like some of the past major updates, Yumma CSS v3 is changing its core framework
 
 Consider installing `yummacss` as a dev dependency when using the CLI feature since we're now dealing with SCSS compilation, so there's no need for you to ship extra content in your project.
 
-```bash
-npm install yummacss@latest --save-dev
-```
+<PackageManagers pkg="yummacss" args="--save-dev" title="Terminal" />
 
 The full set of utilities will be retained within the distribution folder for the purpose of facilitating the importation of the entire Yumma utilities suite, should this be required.
 
@@ -307,10 +278,12 @@ The full set of utilities will be retained within the distribution folder for th
 
 In v3, both the light (`l-`) and dark (`d-`) characters are being removed across all color utilities. As a result, the range used to determine a color's shade was also adjusted.
 
-```diff lang="html" title="page.html"
+<div class="p-4">
+```diff lang="html" title="index.html"
 - <button class="bg-l-indigo-6 h:bg-d-indigo-1">Hello</button>
 + <button class="bg-indigo-1 h:bg-indigo-7">Hello</button>
 ```
+</div>
 
 See what the `bg-*` background utility looks like compared to v2.1
 
@@ -354,7 +327,6 @@ Also, the color hue is increasing from `10%` shade modification to `14%`. This m
   </TabItem>
   <TabItem label="v2.1">
     <Palette2
-      percentage={10}
       data={[
         { name: "Red", color: "#d73d3d" },
         { name: "Orange", color: "#e06814" },
@@ -389,7 +361,7 @@ By default, all paddings will be removed.
 
 Font rendering is smoother, and a consistent system font is set as the default. — [oshwcomeau.com](https://www.joshwcomeau.com/css/custom-css-reset/)
 
-```diff lang=scss mark={2-3} title="base/stylecent.scss" title="page.html"
+```diff lang=scss mark={2-3} title="base/stylecent.scss"
 body {
   -webkit-font-smoothing: antialiased;
   font-family: vars.$yma-font-system;
@@ -586,7 +558,7 @@ This improvement also eliminates redundant CSS and makes the framework more pred
 
 In v3, we're changing the `align-content` utility prefix from `ac-s` to `ac-st` to match with other utilities like `ji-st` and `js-st`.
 
-```diff lang="html" title="page.html"
+```diff lang="html" title="index.html"
 - <div class="ac-s ..."></div>
 + <div class="ac-st ..."></div>
 ```
@@ -595,7 +567,7 @@ In v3, we're changing the `align-content` utility prefix from `ac-s` to `ac-st` 
 
 Additionally, in v3, we're changing changing the `align-items` utility prefix from `ai-s` to `ai-st`.
 
-```diff lang="html" title="page.html"
+```diff lang="html" title="index.html"
 - <div class="ai-s ..."></div>
 + <div class="ai-st ..."></div>
 ```
@@ -604,7 +576,7 @@ Additionally, in v3, we're changing changing the `align-items` utility prefix fr
 
 Additionally, in v3, we're changing `align-self` utility prefix from `as-s` to `as-st` to match with other utilities like `ji-st` and `js-st`.
 
-```diff lang="html" title="page.html"
+```diff lang="html" title="index.html"
 - <div class="as-s ..."></div>
 + <div class="as-st ..."></div>
 ```
@@ -613,7 +585,7 @@ Additionally, in v3, we're changing `align-self` utility prefix from `as-s` to `
 
 Finally, in v3, we're changing changing the `justify-content` utility prefix from `jc-s` to `jc-st` to match with other utilities like `ji-st` and `js-st`.
 
-```diff lang="html" title="page.html"
+```diff lang="html" title="index.html"
 - <div class="jc-s ..."></div>
 + <div class="jc-st ..."></div>
 ```
@@ -622,7 +594,7 @@ Finally, in v3, we're changing changing the `justify-content` utility prefix fro
 
 In v3, we're adding new `border-radius` utilities starting with `rad-b-*`
 
-```diff lang="html" "rad-b-2" title="page.html"
+```diff lang="html" "rad-b-2" title="index.html"
 - <button class="b-1 bg-black rad-bl-2 rad-br-2 tc-white">Subscribe</button>
 + <button class="b-1 bg-black rad-b-2 tc-white">Subscribe</button>
 ```
@@ -631,7 +603,7 @@ In v3, we're adding new `border-radius` utilities starting with `rad-b-*`
 
 Additionally, in v3, we're also adding `rad-l-*` to add left rounded edges only to an element.
 
-```diff lang="html" "rad-l-2" title="page.html"
+```diff lang="html" "rad-l-2" title="index.html"
 - <button class="b-1 bg-black rad-bl-2 rad-tl-2 tc-white">Subscribe</button>
 + <button class="b-1 bg-black rad-l-2 tc-white">Subscribe</button>
 ```
@@ -640,7 +612,7 @@ Additionally, in v3, we're also adding `rad-l-*` to add left rounded edges only 
 
 Additionally, in v3, we're also adding `rad-r-*` to add right rounded edges only to an element.
 
-```diff lang="html" "rad-r-2" title="page.html"
+```diff lang="html" "rad-r-2" title="index.html"
 - <button class="b-1 bg-black rad-br-2 rad-tr-2 tc-white">Subscribe</button>
 + <button class="b-1 bg-black rad-r-2 tc-white">Subscribe</button>
 ```
@@ -649,7 +621,7 @@ Additionally, in v3, we're also adding `rad-r-*` to add right rounded edges only
 
 Finally, in v3, we're also adding `rad-t-*` to add top rounded edges only to an element.
 
-```diff lang="html" "rad-t-2" title="page.html"
+```diff lang="html" "rad-t-2" title="index.html"
 - <button class="b-1 bg-black rad-tl-2 rad-tr-2 tc-white">Subscribe</button>
 + <button class="b-1 bg-black rad-t-2 tc-white">Subscribe</button>
 ```
@@ -661,25 +633,25 @@ In v3, we've also made changes to the way the Bottom / Left / Right / Top utilit
 {/* prettier-ignore */}
 <Tabs>
   <TabItem label="Bottom">
-    ```diff lang="html" "bo-* " title="page.html"
+    ```diff lang="html" "bo-* " title="index.html"
     - <div class="dir-b-* ..."></div>
     + <div class="bo-* ..."></div>
     ```
   </TabItem>
   <TabItem label="Left">
-    ```diff lang="html"  "l-* " title="page.html"
+    ```diff lang="html"  "l-* " title="index.html"
     - <div class="dir-l-* ..."></div>
     + <div class="l-* ..."></div>
     ```
   </TabItem>
   <TabItem label="Right">
-    ```diff lang="html"  "r-* " title="page.html"
+    ```diff lang="html"  "r-* " title="index.html"
     - <div class="dir-r-* ..."></div>
     + <div class="r-* ..."></div>
     ```
   </TabItem>
   <TabItem label="Top">
-    ```diff lang="html"  "t-* " title="page.html"
+    ```diff lang="html"  "t-* " title="index.html"
     - <div class="dir-t-* ..."></div>
     + <div class="t-* ..."></div>
     ```
@@ -690,7 +662,7 @@ In v3, we've also made changes to the way the Bottom / Left / Right / Top utilit
 
 In v3, we're making the `columns` utilities even smaller than before.
 
-```diff lang="html" "c-*" title="page.html"
+```diff lang="html" "c-*" title="index.html"
 - <div class="cols-* ..."></div>
 + <div class="c-* ..."></div>
 ```
@@ -699,7 +671,7 @@ In v3, we're making the `columns` utilities even smaller than before.
 
 In v3, we've made the Dimension utility even more abbreviated to align with the purpose of the framework.
 
-```diff lang="html" "d-*" title="page.html"
+```diff lang="html" "d-*" title="index.html"
 - <div class="dim-* ..."></div>
 + <div class="d-* ..."></div>
 ```
@@ -710,7 +682,7 @@ Additionally, in v3, we're changing the Max Dimension utility syntax.
 
 This also applies to the Max and Min Dimension utilities.
 
-```diff lang="html" title="page.html"
+```diff lang="html" title="index.html"
 - <div class="max-dim-* ..."></div>
 + <div class="max-d-* ..."></div>
 ```
@@ -719,9 +691,9 @@ This also applies to the Max and Min Dimension utilities.
 
 Finally, in v3, we're changing the Min Dimension utility syntax.
 
-```diff lang="html" title="page.html"
+```diff lang="html" title="index.html"
 - <div class="min-dim-* ..."></div>
-+ <div class="min-dim-* ..."></div>
++ <div class="min-d-* ..."></div>
 ```
 
 ### Font Size utilities
@@ -733,50 +705,7 @@ In v3, new `font-size` utilities are being incorporated, and the visual sequenti
     <Class name="font-size" />
   </TabItem>
   <TabItem label="v2.1">
-    <Utility
-      data={[
-        {
-          className: "fs-xs",
-          properties: ["font-size: 0.75rem;"],
-        },
-        {
-          className: "fs-b",
-          properties: ["font-size: 1rem;"],
-        },
-        {
-          className: "fs-sm",
-          properties: ["font-size: 1.5rem;"],
-        },
-        {
-          className: "fs-md",
-          properties: ["font-size: 2.25rem;"],
-        },
-        {
-          className: "fs-lg",
-          properties: ["font-size: 3rem;"],
-        },
-        {
-          className: "fs-xl",
-          properties: ["font-size: 3.75rem;"],
-        },
-        {
-          className: "fs-xxl",
-          properties: ["font-size: 4.5rem;"],
-        },
-        {
-          className: "fs-3xl",
-          properties: ["font-size: 5.25rem;"],
-        },
-        {
-          className: "fs-6xl",
-          properties: ["font-size: 6rem;"],
-        },
-        {
-          className: "fs-9xl",
-          properties: ["font-size: 6.75rem;"],
-        },
-      ]}
-    />
+    <Class name="font-size" />
   </TabItem>
 </Tabs>
 
@@ -812,7 +741,7 @@ In v3, new font stacks are being implemented, existing utilities are being refin
 
 In v3, we've completely reworked the `overflow` utility class syntax.
 
-```diff lang="html" title="page.html"
+```diff lang="html" title="index.html"
 - <div class="ovf-* ..."></div>
 + <div class="o-* ..."></div>
 ```
@@ -821,7 +750,7 @@ In v3, we've completely reworked the `overflow` utility class syntax.
 
 Additionally, in v3, we've shortened the `overflow-x` utility class.
 
-```diff lang="html" title="page.html"
+```diff lang="html" title="index.html"
 - <div class="ovf-x-* ..."></div>
 + <div class="o-x-* ..."></div>
 ```
@@ -830,7 +759,7 @@ Additionally, in v3, we've shortened the `overflow-x` utility class.
 
 Finally, in v3, we've shortened the `overflow-y` utility class.
 
-```diff lang="html" title="page.html"
+```diff lang="html" title="index.html"
 - <div class="ovf-y-* ..."></div>
 + <div class="o-y-*..."></div>
 ```
@@ -839,7 +768,7 @@ Finally, in v3, we've shortened the `overflow-y` utility class.
 
 In v3 we're reworking the float utilities by shortening the syntax.
 
-```diff lang="html" title="page.html"
+```diff lang="html" title="index.html"
 - <div class="flo-* ..."></div>
 + <div class="fl-* ..."></div>
 ```
@@ -848,7 +777,7 @@ In v3 we're reworking the float utilities by shortening the syntax.
 
 In v3, we're renaming all `*-1/1` utilities, including the **Height**, **Width**, and **Dimension** utilities to `*-dvh`.
 
-```diff lang="html" title="page.html"
+```diff lang="html" title="index.html"
 - <div class="h-1/1 ...">A</div>
 - <div class="w-1/1 ...">A</div>
 - <div class="d-1/1 ...">A</div>
@@ -861,7 +790,7 @@ In v3, we're renaming all `*-1/1` utilities, including the **Height**, **Width**
 
 We are no longer supporting the `cnt` utility. We are making improvements to our modifiers to make them more flexible and easier to use.
 
-```html del="cnt" title="page.html"
+```html del="cnt" title="index.html"
 <div class="cnt"></div>
 ```
 
@@ -869,7 +798,7 @@ We are no longer supporting the `cnt` utility. We are making improvements to our
 
 It's been a great ride, and we're sure most of you have used it to easily center a div in the middle of the screen, but this concept was not very useful in many case scenarios where you would typically need more customizability, so we've decided to remove it.
 
-```diff lang="html" title="page.html"
+```diff lang="html" title="index.html"
 - <div class="ins ..."></div>
 + <div class="ai-c d-f jc-c ..."></div>
 ```
@@ -878,11 +807,11 @@ It's been a great ride, and we're sure most of you have used it to easily center
 
 In v3 we've removed the **Spacing X** utilities. You can use the **Row Gap** utilities instead for almost all cases, and even combine the **Row Gap** utilities with other utilities like `d-f` or `d-if`.
 
-```live "cg-8" title="page.html"
+```html live "cg-8" title="index.html"
 <div class="d-if fd-r cg-8 stripes tc-white">
-  <div class="ai-c bg-indigo d-f dim-16 jc-c rad-1">A</div>
-  <div class="ai-c bg-indigo d-f dim-16 jc-c rad-1">B</div>
-  <div class="ai-c bg-indigo d-f dim-16 jc-c rad-1">C</div>
+  <div class="ai-c bg-indigo d-f d-16 jc-c rad-1">A</div>
+  <div class="ai-c bg-indigo d-f d-16 jc-c rad-1">B</div>
+  <div class="ai-c bg-indigo d-f d-16 jc-c rad-1">C</div>
 </div>
 ```
 
@@ -890,11 +819,11 @@ In v3 we've removed the **Spacing X** utilities. You can use the **Row Gap** uti
 
 The same concept applies to the **Spacing Y** utilities. You should now use the **Column Gap** utilities instead. You can even combine the **Column Gap** utilities with other utilities like `d-f` or `d-if`.
 
-```live "rg-8" title="page.html"
+```html live "rg-8" title="index.html"
 <div class="d-if fd-c cg-8 stripes tc-white">
-  <div class="ai-c bg-indigo d-f dim-16 jc-c rad-1">A</div>
-  <div class="ai-c bg-indigo d-f dim-16 jc-c rad-1">B</div>
-  <div class="ai-c bg-indigo d-f dim-16 jc-c rad-1">C</div>
+  <div class="ai-c bg-indigo d-f d-16 jc-c rad-1">A</div>
+  <div class="ai-c bg-indigo d-f d-16 jc-c rad-1">B</div>
+  <div class="ai-c bg-indigo d-f d-16 jc-c rad-1">C</div>
 </div>
 ```
 
@@ -902,8 +831,45 @@ The same concept applies to the **Spacing Y** utilities. You should now use the 
 
 In v3, we're removing `h-1/2` from **Height** utilities, `w-1/2` from **Width** utilities, and `d-1/2` from **Dimension** utilities.
 
-```diff lang="html" title="page.html"
+```diff lang="html" title="index.html"
 - <div class="h-1/2 ...">A</div>
 - <div class="w-1/2 ...">A</div>
 - <div class="d-1/2 ...">A</div>
 ```
+
+---
+
+## Upgrade
+
+You can upgrade your projects by getting the latest version of `yummacss` from npm:
+
+<PackageManagers pkg="yummacss@latest" title="Terminal" />
+
+## Community
+
+Join the Yumma CSS community! Share your experiences and help Yumma CSS grow and be the best it can be.
+
+<ShowcaseText
+  entries={[
+    {
+      description: "If you experience any problems, please notify us at GitHub.",
+      href: "https://github.com/yumma-lib/yumma-css/issues",
+      title: "GitHub",
+    },
+    {
+      description: "Join our Discord for discussion, sharing, and learning.",
+      href: "https://discord.gg/2MUw2g6FCn",
+      title: "Discord",
+    },
+    {
+      description: "Please follow us on Twitter to receive the latest updates.",
+      href: "https://twitter.com/yummacss",
+      title: "Twitter",
+    },
+    {
+      description: "For the latest updates, check out our YouTube walkthroughs.",
+      href: "https://youtube.com/@yummacss",
+      title: "YouTube",
+    },
+  ]}
+/>

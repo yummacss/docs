@@ -1,77 +1,143 @@
 ---
 title: Stylecent
 banner:
-  content: Sunsetting  <a href=https://www.yummacss.com/blog/sunsetting-intellisense>Yumma CSS Intellisense</a> extension 👋
+  content: <a href=https://www.yummacss.com/blog/yummacss-3.0>Yumma CSS v3.0 is finally live</a> 🎉
 description: Stylecent is an optional set of styles for Yumma CSS projects, meant for consistent and modern appearance across browsers.
 slug: docs/stylecent
 ---
 
-## Universal selector
+## Box sizing
 
-Ensures consistent box sizing behavior across all elements.
+1.  Use a more intuitive box-sizing model to make the design consistent.
+2.  Remove default margin and padding.
+3.  Reset default border styles.
 
-```scss
+```scss title="_stylecent.scss"
 *,
 *::before,
 *::after {
-  border-style: solid;
-  border-width: 0;
-  box-sizing: border-box;
+  box-sizing: border-box; /* 1 */
+  border: 0 solid; /* 3 */
 }
 
 * {
-  color: inherit;
-  font-family: $yma-font-system;
-  margin: 0;
+  margin: 0; /* 2 */
+  padding: 0; /* 2 */
 }
 ```
 
-## Typography
+## Document
 
-Ensures that the default text elements are consistent in the `<body>`.
+1. Improve font smoothing.
+2. Set a default system font.
+3. Add accessible line-height.
 
-```scss
+```scss title="_stylecent.scss"
 body {
-  font-family: inherit;
-  line-height: 1.5;
+  -webkit-font-smoothing: antialiased; /* 1 */
+  font-family: vars.$yma-font-system; /* 2 */
+  line-height: 1.5; /* 3 */
 }
 ```
 
-## Media elements
+## Media Elements
 
-Ensures `<img>`, `<video>`, and other media elements are responsive by default.
+- 1.  Ensure all media elements like images, videos, and canvases are block-level.
+- 2.  Limit their maximum width to the parent container.
 
-```scss
+```scss title="_stylecent.scss"
 canvas,
 img,
 picture,
 svg,
 video {
-  display: block;
-  max-width: 100%;
+  display: block; /* 1 */
+  max-width: 100%; /* 2 */
 }
 ```
 
-## Form elements
+## Form Elements
 
-Applies consistent font styles to form elements for better integration with the page.
+- 1.  Reset background and border styles for form elements.
+- 2.  Use `inherit` to ensure font consistency within forms.
+- 3.  Add default padding for usability.
 
-```scss
+```scss title="_stylecent.scss"
 button,
 input,
 optgroup,
 select,
 textarea {
-  background-color: transparent;
-  font: inherit;
+  background-color: vars.$yma-color-transparent; /* 1 */
+  font-family: inherit; /* 2 */
+  padding: 0.5rem; /* 3 */
 }
 ```
 
-## Text wrapping
+Add a default border to form elements that do not have a class attribute.
 
-Ensures long text content wraps appropriately within elements.
+```scss title="_stylecent.scss"
+button:not([class]),
+input:not([class]),
+optgroup:not([class]),
+select:not([class]),
+textarea:not([class]) {
+  border: 1px solid vars.$yma-color-silver; /* 1 */
+}
+```
 
-```scss
+Apply consistent focus styles to interactive elements.
+
+```scss title="_stylecent.scss"
+a,
+button,
+input,
+select,
+summary,
+textarea {
+  &:focus {
+    outline: 2px solid vars.$yma-color-transparent;
+  }
+}
+```
+
+Set a minimum height for textareas without a defined `rows` attribute.
+
+```scss title="_stylecent.scss"
+textarea:not([rows]) {
+  min-height: 10em;
+}
+```
+
+Ensure the buttons have a pointer cursor.
+
+```scss title="_stylecent.scss"
+button {
+  cursor: pointer;
+}
+```
+
+Disabled States
+
+1. Reduce opacity and set a "not-allowed" cursor for disabled elements.
+
+```scss title="_stylecent.scss"
+button:disabled,
+input:disabled,
+select:disabled,
+textarea:disabled {
+  cursor: not-allowed; /* 1 */
+  opacity: 0.5; /* 1 */
+}
+```
+
+## Typography
+
+- 1.  Avoid text overflows.
+- 2.  Improve line wrapping for headings.
+- 3.  Add a consistent font weight for bold text.
+
+```scss title="_stylecent.scss"
 h1,
 h2,
 h3,
@@ -79,27 +145,71 @@ h4,
 h5,
 h6,
 p {
-  font-size: inherit;
-  font-weight: inherit;
-  overflow-wrap: break-word;
+  overflow-wrap: break-word; /* 1 */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 1rem; /* 3 */
+  font-weight: 600; /* 3 */
+  text-wrap: balance; /* 2 */
+}
+
+p {
+  text-wrap: pretty; /* 2 */
 }
 ```
 
-## Link decoration
+Add the correct font weight in Chrome, Edge, and Safari.
 
-Removes default text decoration from links for cleaner appearance.
+```scss title="_stylecent.scss"
+b,
+strong {
+  font-weight: 700;
+}
+```
 
-```scss
+Add the correct font size in all browsers.
+
+```scss title="_stylecent.scss"
+small {
+  font-size: 80%;
+  line-height: 1.5;
+}
+```
+
+1. Correct the inheritance and scaling of font size in all browsers.
+2. Correct the odd `em` font sizing in all browsers.
+
+```scss title="_stylecent.scss"
+pre,
+code,
+kbd,
+samp {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+```
+
+1. Remove underline styling from links by default.
+2. Reset color to inherit from parent element.
+
+```scss title="_stylecent.scss"
 a {
-  text-decoration: none;
+  color: inherit; /* 3 */
+  text-decoration: none; /* 1 */
 }
 ```
 
-## List normalization
+## Lists
 
-Removes default padding and `list-style` from ordered and unordered lists.
+Remove default list styling and padding.
 
-```scss
+```scss title="_stylecent.scss"
 ol,
 ul {
   list-style: none;
@@ -107,37 +217,51 @@ ul {
 }
 ```
 
-## Horizontal rule
+## Tables
 
-Applies a subtle border to horizontal rules for visual separation.
+1. Add a consistent font weight for bold text.
 
-```scss
-hr {
-  border-top: $yma-colors-transparent;
-  border: 0;
-  margin: 1em 0;
+```scss title="_stylecent.scss"
+th {
+  font-size: 1rem; /* 1 */
+  font-weight: 600; /* 1 */
 }
 ```
 
-## Disabling Stylecent
+## Miscellaneous
 
-If you want to disable Stylecent completely and use Yumma CSS, you can modify your import in your Yumma project.
+1. Add the correct height in Firefox.
+2. Correct text decoration.
+3. Add spacing around horizontal rules.
 
-| Relative Import            | Base Styles |
-| -------------------------- | ----------- |
-| `\dist\yumma.css`          | Yes         |
-| `\dist\yumma.min.css`      | Yes         |
-| `\dist\yumma-core.css`     | No          |
-| `\dist\yumma-core.min.css` | No          |
+```scss title="_stylecent.scss"
+hr {
+  border-top: 1px solid vars.$yma-color-silver; /* 2 */
+  height: 0; /* 1 */
+  margin: 1em 0; /* 3 */
+}
+```
+
+Ensure details and summary elements display correctly.
+
+```scss title="_stylecent.scss"
+details {
+  display: block;
+}
+
+summary {
+  display: list-item;
+}
+```
 
 ### Disabling Stylecent
 
-To disable Stylecent using standard import, you can delete the `-core` from the import.
+To disable Stylecent completely, simply add the [`buildOptions.reset`](/docs/configuration#buildoptionsreset) option and set it to `false` in your `yumma.config.js` file.
 
-```css title="src/globals.css" del="-core"
-/* Standard */
-@import url("https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@latest/dist/yumma-core.css");
-
-/* Minified */
-@import url("https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@latest/dist/yumma-core.min.css");
+```js title="yumma.config.js"
+export default {
+  buildOptions: {
+    reset: false, // default: true
+  },
+};
 ```

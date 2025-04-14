@@ -1,35 +1,20 @@
 ---
 title: Border Style
 banner:
-  content: Sunsetting  <a href=https://www.yummacss.com/blog/sunsetting-intellisense>Yumma CSS Intellisense</a> extension 👋
+  content: <a href=https://www.yummacss.com/blog/yummacss-3.0>Yumma CSS v3.0 is finally live</a> 🎉
 description: Controls the style of the borders of an element.
 slug: docs/border-style
 ---
 
-<Utility
-  data={[
-    {
-      className: "b-none",
-      properties: ["border-style: none;"],
-    },
-    {
-      className: "b-d",
-      properties: ["border-style: dashed;"],
-    },
-    {
-      className: "b-s",
-      properties: ["border-style: solid;"],
-    },
-  ]}
-/>
+<Class name="border-style" />
 
 This example showcases various border styles: **none**, **dashed**, and **solid**. The element will have no border, a dashed border, and a solid border, respectively.
 
 ```html live "b-none" "b-d" "b-s"
 <div class="d-g g-16 gtc-1 sm:gtc-3">
-  <div class="ai-c b-2 b-none bc-indigo d-f dim-16 jc-c tc-indigo">A</div>
-  <div class="ai-c b-2 b-d bc-indigo d-f dim-16 jc-c tc-indigo">B</div>
-  <div class="ai-c b-2 b-s bc-indigo d-f dim-16 jc-c tc-indigo">C</div>
+  <div class="ai-c b-2 b-none bc-indigo bg-white d-f d-16 jc-c tc-indigo">A</div>
+  <div class="ai-c b-2 b-d bc-indigo bg-white d-f d-16 jc-c tc-indigo">B</div>
+  <div class="ai-c b-2 b-s bc-indigo bg-white d-f d-16 jc-c tc-indigo">C</div>
 </div>
 ```
 

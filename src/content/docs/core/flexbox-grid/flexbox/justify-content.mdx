@@ -1,57 +1,22 @@
 ---
 title: Justify Content
 banner:
-  content: Sunsetting  <a href=https://www.yummacss.com/blog/sunsetting-intellisense>Yumma CSS Intellisense</a> extension 👋
+  content: <a href=https://www.yummacss.com/blog/yummacss-3.0>Yumma CSS v3.0 is finally live</a> 🎉
 description: Controls the positioning of flex and grid elements on a container's main axis.
 slug: docs/justify-content
 ---
 
-<Utility
-  data={[
-    {
-      className: "jc-c",
-      properties: ["justify-content: center;"],
-    },
-    {
-      className: "jc-fe",
-      properties: ["justify-content: flex-end;"],
-    },
-    {
-      className: "jc-fs",
-      properties: ["justify-content: flex-start;"],
-    },
-    {
-      className: "jc-n",
-      properties: ["justify-content: normal;"],
-    },
-    {
-      className: "jc-s",
-      properties: ["justify-content: stretch;"],
-    },
-    {
-      className: "jc-sb",
-      properties: ["justify-content: space-between;"],
-    },
-    {
-      className: "jc-sa",
-      properties: ["justify-content: space-around;"],
-    },
-    {
-      className: "jc-se",
-      properties: ["justify-content: space-evenly;"],
-    },
-  ]}
-/>
+<Class name="justify-content" />
 
 ## Center
 
 This example sets the justify content to **center**. The items will be centered within the container along the main axis.
 
-```html live "jc-c" layout="/src/layouts/wide.astro"
+```html live "jc-c" layout="/src/layouts/inline.astro"
 <div class="d-f g-4 jc-c stripes tc-white">
-  <div class="ai-c bg-indigo d-f dim-14 jc-c p-4 rad-1">A</div>
-  <div class="ai-c bg-indigo d-f dim-14 jc-c p-4 rad-1">B</div>
-  <div class="ai-c bg-indigo d-f dim-14 jc-c p-4 rad-1">C</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">A</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">B</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">C</div>
 </div>
 ```
 
@@ -59,11 +24,11 @@ This example sets the justify content to **center**. The items will be centered 
 
 This example sets the justify content to **flex-end**. The items will be aligned to the end of the container along the main axis.
 
-```html live "jc-fe" layout="/src/layouts/wide.astro"
+```html live "jc-fe" layout="/src/layouts/inline.astro"
 <div class="d-f g-4 jc-fe stripes tc-white">
-  <div class="ai-c bg-indigo d-f dim-14 jc-c p-4 rad-1">A</div>
-  <div class="ai-c bg-indigo d-f dim-14 jc-c p-4 rad-1">B</div>
-  <div class="ai-c bg-indigo d-f dim-14 jc-c p-4 rad-1">C</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">A</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">B</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">C</div>
 </div>
 ```
 
@@ -71,11 +36,11 @@ This example sets the justify content to **flex-end**. The items will be aligned
 
 This example sets the justify content to **flex-start**. The items will be aligned to the start of the container along the main axis.
 
-```html live "jc-fs" layout="/src/layouts/wide.astro"
+```html live "jc-fs" layout="/src/layouts/inline.astro"
 <div class="d-f g-4 jc-fs stripes tc-white">
-  <div class="ai-c bg-indigo d-f dim-14 jc-c p-4 rad-1">A</div>
-  <div class="ai-c bg-indigo d-f dim-14 jc-c p-4 rad-1">B</div>
-  <div class="ai-c bg-indigo d-f dim-14 jc-c p-4 rad-1">C</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">A</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">B</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">C</div>
 </div>
 ```
 
@@ -83,11 +48,11 @@ This example sets the justify content to **flex-start**. The items will be align
 
 This example sets the justify content to **normal**. The items will be aligned according to the default alignment of the container.
 
-```html live "jc-n" layout="/src/layouts/wide.astro"
+```html live "jc-n" layout="/src/layouts/inline.astro"
 <div class="d-f g-4 jc-n stripes tc-white">
-  <div class="ai-c bg-indigo d-f dim-14 jc-c p-4 rad-1">A</div>
-  <div class="ai-c bg-indigo d-f dim-14 jc-c p-4 rad-1">B</div>
-  <div class="ai-c bg-indigo d-f dim-14 jc-c p-4 rad-1">C</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">A</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">B</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">C</div>
 </div>
 ```
 
@@ -95,9 +60,9 @@ This example sets the justify content to **normal**. The items will be aligned a
 
 This example sets the justify content to **stretch**. The items will stretch to fill the available space along the main axis.
 
-```html live "jc-s" layout="/src/layouts/wide.astro"
-<div class="ovf-auto rad-1 tc-white">
-  <div class="d-g g-4 gaf-c jc-s rstripes ad-1">
+```html live "jc-s" layout="/src/layouts/inline.astro"
+<div class="rad-1 tc-white">
+  <div class="d-g g-4 gaf-c jc-s stripes ad-1">
     <div class="ai-c bg-indigo d-f h-14 jc-c rad-1">A</div>
     <div class="ai-c bg-indigo d-f h-14 jc-c rad-1">B</div>
     <div class="ai-c bg-indigo d-f h-14 jc-c rad-1">C</div>
@@ -109,11 +74,11 @@ This example sets the justify content to **stretch**. The items will stretch to 
 
 This example sets the justify content to **space-between**. The items will be evenly distributed in the container, with the first item at the start and the last item at the end.
 
-```html live "jc-sb" layout="/src/layouts/wide.astro"
+```html live "jc-sb" layout="/src/layouts/inline.astro"
 <div class="d-f g-4 jc-sb stripes tc-white">
-  <div class="ai-c bg-indigo d-f dim-14 jc-c p-4 rad-1">A</div>
-  <div class="ai-c bg-indigo d-f dim-14 jc-c p-4 rad-1">B</div>
-  <div class="ai-c bg-indigo d-f dim-14 jc-c p-4 rad-1">C</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">A</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">B</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">C</div>
 </div>
 ```
 
@@ -121,11 +86,11 @@ This example sets the justify content to **space-between**. The items will be ev
 
 This example sets the justify content to **space-around**. The items will be evenly distributed in the container with space around them.
 
-```html live "jc-sa" layout="/src/layouts/wide.astro"
+```html live "jc-sa" layout="/src/layouts/inline.astro"
 <div class="d-f g-4 jc-sa stripes tc-white">
-  <div class="ai-c bg-indigo d-f dim-14 jc-c p-4 rad-1">A</div>
-  <div class="ai-c bg-indigo d-f dim-14 jc-c p-4 rad-1">B</div>
-  <div class="ai-c bg-indigo d-f dim-14 jc-c p-4 rad-1">C</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">A</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">B</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">C</div>
 </div>
 ```
 
@@ -133,11 +98,11 @@ This example sets the justify content to **space-around**. The items will be eve
 
 This example sets the justify content to **space-evenly**. The items will be evenly distributed in the container with equal space around them.
 
-```html live "jc-se" layout="/src/layouts/wide.astro"
+```html live "jc-se" layout="/src/layouts/inline.astro"
 <div class="d-f g-4 gaf-c jc-se stripes tc-white">
-  <div class="ai-c bg-indigo d-f dim-14 jc-c p-4 rad-1">A</div>
-  <div class="ai-c bg-indigo d-f dim-14 jc-c p-4 rad-1">B</div>
-  <div class="ai-c bg-indigo d-f dim-14 jc-c p-4 rad-1">C</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">A</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">B</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">C</div>
 </div>
 ```
 

@@ -1,24 +1,23 @@
 ---
 title: Order
 banner:
-  content: Sunsetting  <a href=https://www.yummacss.com/blog/sunsetting-intellisense>Yumma CSS Intellisense</a> extension 👋
+  content: <a href=https://www.yummacss.com/blog/yummacss-3.0>Yumma CSS v3.0 is finally live</a> 🎉
 description: Controls the order of flex and grid items.
 slug: docs/order
-draft: true
 ---
 
-<Class name="/order" />
+<Class name="order" />
 
 This example showcases various order values: **-9999** and **9999**.
 
 - The **or-l** utility sets the order property to **-9999**, placing the item at the beginning of the flex container.
 - The **or-f** utility sets the order property to **9999**, placing the item at the end of the flex container.
 
-```html live "or-f" "or-l" layout="/src/layouts/wide.astro"
+```html live "or-f" "or-l" layout="/src/layouts/inline.astro"
 <div class="d-f jc-sb tc-white">
-  <div class="ai-c bg-indigo d-f dim-14 jc-c or-f rad-1">A</div>
-  <div class="ai-c bg-indigo d-f dim-14 jc-c rad-1">B</div>
-  <div class="ai-c bg-indigo d-f dim-14 jc-c or-l rad-1">C</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c or-f rad-1">A</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c rad-1">B</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c or-l rad-1">C</div>
 </div>
 ```
 

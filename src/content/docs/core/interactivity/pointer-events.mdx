@@ -1,36 +1,25 @@
 ---
 title: Pointer Events
 banner:
-  content: Sunsetting  <a href=https://www.yummacss.com/blog/sunsetting-intellisense>Yumma CSS Intellisense</a> extension 👋
+  content: <a href=https://www.yummacss.com/blog/yummacss-3.0>Yumma CSS v3.0 is finally live</a> 🎉
 description: Controls how an item responds to pointer events.
 slug: docs/pointer-events
 ---
 
-<Utility
-  data={[
-    {
-      className: "pe-auto",
-      properties: ["pointer-events: auto;"],
-    },
-    {
-      className: "pe-none",
-      properties: ["pointer-events: none;"],
-    },
-  ]}
-/>
+<Class name="pointer-events" />
 
 ## Auto
 
 This example sets the pointer events to **auto**. The element can receive pointer events as normal.
 
-<Decorator icon="cursor_arrow_pointer_click">Try clicking the search emoji to see how the input reacts.</Decorator>
+<Decorator icon="cursor_arrow">Try clicking the search emoji to see how the input reacts.</Decorator>
 
 ```html live "pe-auto"
 <div>
-  <label class="d-b fw-600 mb-1 tc-d-lead-3">Auto</label>
+  <label class="d-b fw-600 mb-1">Auto</label>
   <div class="p-r">
-    <input class="b-2 b-s pl-10 pr-4 py-2 rad-1 w-full" placeholder="Type something..." />
-    <div class="ai-c d-f dir-b-0 dir-l-0 dir-t-0 p-a pe-auto pl-3">🔎</div>
+    <input class="b-2 pl-10 pr-4 py-2 rad-1 w-full" placeholder="Type something..." />
+    <div class="ai-c d-f bo-0 l-0 t-0 p-a pe-auto pl-3">🔎</div>
   </div>
 </div>
 ```
@@ -39,14 +28,14 @@ This example sets the pointer events to **auto**. The element can receive pointe
 
 This example sets the pointer events to **none**. The element won't receive any pointer events, meaning you can't click on it.
 
-<Decorator icon="cursor_arrow_pointer_click">Try clicking the search emoji to see how the input reacts.</Decorator>
+<Decorator icon="cursor_arrow">Try clicking the search emoji to see how the input reacts.</Decorator>
 
 ```html live "pe-none"
 <div>
-  <label class="d-b fw-600 mb-1 tc-d-lead-3">None</label>
+  <label class="d-b fw-600 mb-1">None</label>
   <div class="p-r">
-    <input class="b-2 b-s pl-10 pr-4 py-2 rad-1 w-full" placeholder="Type something..." />
-    <div class="ai-c d-f dir-b-0 dir-l-0 dir-t-0 p-a pe-none pl-3">🔎</div>
+    <input class="b-2 pl-10 pr-4 py-2 rad-1 w-full" placeholder="Type something..." />
+    <div class="ai-c d-f bo-0 l-0 t-0 p-a pe-none pl-3">🔎</div>
   </div>
 </div>
 ```

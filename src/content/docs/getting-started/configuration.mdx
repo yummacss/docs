@@ -1,8 +1,121 @@
 ---
 title: Configuration
 banner:
-  content: Sunsetting  <a href=https://www.yummacss.com/blog/sunsetting-intellisense>Yumma CSS Intellisense</a> extension 👋
+  content: <a href=https://www.yummacss.com/blog/yummacss-3.0>Yumma CSS v3.0 is finally live</a> 🎉
 description: Set up your Yumma CSS project with the CLI.
 slug: /docs/configuration
-draft: true
 ---
+
+## Initializing configuration file
+
+To create a new `yumma.config.js` file in your project, run the following command:
+
+<PackageManagers type="exec" pkg="yummacss" args="init" title="Terminal" />
+
+This command will create a new `yumma.config.js` file in the root of your project using [ESM](https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/).
+
+<Decorator icon="info">If you're using export default, make sure `"type": "module"` is set in your `package.json`.</Decorator>
+
+```js title="yumma.config.js"
+export default {
+  source: [""],
+  output: "",
+};
+```
+
+### Using CommonJS
+
+If your project does not use [ESM](https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/), you can use [CommonJS](https://nodejs.org/api/modules.html#modules-commonjs-modules) instead:
+
+```js title="yumma.config.cjs"
+module.exports = {
+  source: [""],
+  output: "",
+};
+```
+
+## Configuration options
+
+The `yumma.config.js` file contains several options that you can use to configure the Yumma CSS CLI.
+
+```js title="yumma.config.js"
+export default {
+  source: [""],
+  output: "",
+  buildOptions: {
+    reset: true, // default: true
+    minify: false, // default: false
+  },
+};
+```
+
+### `source`
+
+The source array is collection of paths for your project files. This lets the CLI find the Yumma CSS utilities.
+
+<Decorator icon="info">Use [glob patterns](https://code.visualstudio.com/docs/editor/glob-patterns#_glob-pattern-syntax) to include subfolders and specific file types.</Decorator>
+
+```js title="yumma.config.js" {2}
+export default {
+  source: ["./src/**/*.html"],
+};
+```
+
+### `output`
+
+The output option is a string that tells where the compiled CSS files should be saved.
+
+```js title="yumma.config.js"
+export default {
+  output: "./src/styles.css",
+};
+```
+
+### `buildOptions.reset`
+
+The reset option is a boolean that determines whether the inclusion of the [Stylecent reset system](/docs/stylecent). By default, the reset system is included.
+
+<Decorator icon="info">This is an optional feature.</Decorator>
+
+```js title="yumma.config.js"
+export default {
+  buildOptions: {
+    reset: true, // default: true
+  },
+};
+```
+
+### `buildOptions.minify`
+
+The minify option is a boolean that determines whether the compiled CSS files should be minified. By default, the files are not minified.
+
+<Decorator icon="info">This is an optional feature.</Decorator>
+
+```js title="yumma.config.js"
+export default {
+  buildOptions: {
+    minify: true, // default: false
+  },
+};
+```
+
+## Building and watching
+
+The Yumma CSS CLI provides several commands to help you work with your Yumma CSS files.
+
+<Decorator icon="info">
+  Make sure you have a [`yumma.config.js`](/docs/configuration#initializing-configuration-file) file set up before running these commands. If you haven't, run `npx yummacss init`
+  first.
+</Decorator>
+
+### Build
+
+The `build` command will compile your Yumma CSS files once.
+
+<PackageManagers type="exec" pkg="yummacss" args="build" title="Building styles..." />
+
+### Watch
+
+The `watch` command will watch for changes in your Yumma CSS files and recompile them automatically.
+
+<PackageManagers type="exec" pkg="yummacss" args="watch" title="Building styles..." />

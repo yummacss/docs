@@ -1,28 +1,12 @@
 ---
 title: Height
 banner:
-  content: Sunsetting  <a href=https://www.yummacss.com/blog/sunsetting-intellisense>Yumma CSS Intellisense</a> extension 👋
+  content: <a href=https://www.yummacss.com/blog/yummacss-3.0>Yumma CSS v3.0 is finally live</a> 🎉
 description: Controls the height of an element.
 slug: docs/height
 ---
 
-<Utility
-  additionalClasses={[
-    { name: "1/1", value: "100dvh" },
-    { name: "1/2", value: "50dvh" },
-    { name: "auto", value: "auto" },
-    { name: "fc", value: "fit-content" },
-    { name: "full", value: "100%" },
-    { name: "half", value: "50%" },
-    { name: "max", value: "max-content" },
-    { name: "min", value: "min-content" },
-  ]}
-  classPrefix="h-"
-  incrementValue={0.25}
-  propNames={["height"]}
-  range={100}
-  unit="rem"
-/>
+<Class name="height" />
 
 This example showcases various height values: **4rem**, **7rem**, and **12rem**.
 
@@ -42,65 +26,36 @@ This example showcases various height values: **4rem**, **7rem**, and **12rem**.
 
 Controls the maximum height of an element.
 
-<Utility
-  additionalClasses={[
-    { name: "1/1", value: "100dvh" },
-    { name: "1/2", value: "50dvh" },
-    { name: "auto", value: "auto" },
-    { name: "fc", value: "fit-content" },
-    { name: "full", value: "100%" },
-    { name: "half", value: "50%" },
-    { name: "max", value: "max-content" },
-    { name: "min", value: "min-content" },
-  ]}
-  classPrefix="max-h-"
-  incrementValue={0.25}
-  propNames={["max-height"]}
-  range={100}
-  unit="rem"
-/>
+<Class name="max-height" />
 
 This example sets the maximum height of an element. The **max-h-64** utility sets the maximum height to **16rem**, ensuring that the element does not exceed this height regardless of the content inside.
 
 <Decorator icon="size">Try changing the vertical size of the box to see how wide it can be at the maximum size.</Decorator>
 
 ```html live "max-h-64"
-<div class="ai-c bg-indigo d-f jc-c max-h-64 min-h-16 ovf-auto p-6 r-v rad-1 tc-white h-32">64</div>
+<div class="ai-c bg-indigo d-f jc-c max-h-64 min-h-16 o-auto p-6 r-v rad-1 tc-white h-32">64</div>
 ```
 
 ## Min Height
 
 Controls the minimum height of an element.
 
-<Utility
-  additionalClasses={[
-    { name: "1/1", value: "100dvh" },
-    { name: "1/2", value: "50dvh" },
-    { name: "auto", value: "auto" },
-    { name: "fc", value: "fit-content" },
-    { name: "full", value: "100%" },
-    { name: "half", value: "50%" },
-    { name: "max", value: "max-content" },
-    { name: "min", value: "min-content" },
-  ]}
-  classPrefix="min-h-"
-  incrementValue={0.25}
-  propNames={["min-height"]}
-  range={100}
-  unit="rem"
-/>
+<Class name="min-height" />
 
 This example sets the minimum height of an element. The **min-h-32** utility sets the minimum height to **8rem**, ensuring that the element maintains at least this height even when the content is smaller.
 
 <Decorator icon="size">Try changing the vertical size of the box to see how wide it can be at the maximum size.</Decorator>
 
 ```html live "max-h-64"
-<div class="ai-c bg-indigo d-f jc-c max-h-64 min-h-16 ovf-auto p-6 r-v rad-1 tc-white h-32">32</div>
+<div class="ai-c bg-indigo d-f jc-c max-h-64 min-h-16 o-auto p-6 r-v rad-1 tc-white h-32">32</div>
 ```
 
 ## Using Percentages
 
-This example showcases various heights: **100%** and **50%**. The element will take the full height of its container and half the height of its container, respectively.
+This example showcases various height values: **100%** and **50%**.
+
+- The **h-full** utility sets the height to **100%**, allowing the element to take up the full height of its container.
+- The **h-half** utility sets the height to **50%**, allowing the element to occupy half the height of its container.
 
 ```html live "h-full" "h-half"
 <div class="b-3 b-d bc-indigo d-f h-64 p-2 rad-1 cg-8">

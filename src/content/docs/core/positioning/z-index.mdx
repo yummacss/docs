@@ -1,12 +1,12 @@
 ---
 title: Z-Index
 banner:
-  content: Sunsetting  <a href=https://www.yummacss.com/blog/sunsetting-intellisense>Yumma CSS Intellisense</a> extension 👋
+  content: <a href=https://www.yummacss.com/blog/yummacss-3.0>Yumma CSS v3.0 is finally live</a> 🎉
 description: Controls the element's stack order.
 slug: docs/z-index
 ---
 
-<Utility additionalClasses={[{ name: "auto", value: "auto" }]} classPrefix="zi-" incrementPrefix={10} incrementValue={10} propNames={["z-index"]} range={9} />
+<Class name="z-index" />
 
 This example showcases various z-index utilities:
 
@@ -14,9 +14,13 @@ This example showcases various z-index utilities:
 - The **zi-20** utility sets the z-index to **20**, positioning the element even higher in the stacking context.
 
 ```html live "zi-10" "zi-20"
-<div class="p-8 p-r">
-  <div class="bg-l-indigo-4 dim-16 dir-l-0 dir-t-0 p-a rad-1 zi-10"></div>
-  <div class="bg-d-indigo-2 dim-16 dir-l-16 dir-t-16 p-a rad-1 zi-20"></div>
+<div class="p-r">
+  <div class="ai-c bg-indigo d-30 d-f jc-c p-r rad-1 zi-10">
+    <p class="tc-white">A</p>
+  </div>
+  <div class="ai-c bg-indigo-8 d-15 d-f jc-c l-0 p-a rad-1 t-0 zi-20">
+    <p class="tc-white">B</p>
+  </div>
 </div>
 ```
 

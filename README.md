@@ -9,24 +9,18 @@
 </div>
 
 <p align="center">
-  A CSS framework with an abbreviated styles.
+  A CSS framework with abbreviated styles.
   <br>
   <a href="https://yummacss.com"><strong>Read the documentation ↝</strong></a>
 </p>
 
-## Getting started
+## Community
 
-1. Add `yummacss` to your project.
+Join the Yumma CSS community! Share your experiences and help Yumma CSS grow and be the best it can be.
 
-```bash
-npm install yummacss@latest
-```
-
-2. Include `yummacss` in your main CSS file:
-
-```css
-@import "/node_modules/yummacss/dist/yumma.min.css";
-```
+- Follow [@yummacss on X (Twitter)](https://x.com/yummacss)
+- Subscribe to [@yummacss on YouTube](https://www.youtube.com/@yummacss)
+- Join discussions on [`#yummacss` Discord](https://discord.gg/Zd2y6yVqgK)
 
 ## Built with
 

@@ -1,43 +1,20 @@
 ---
 title: Position
 banner:
-  content: Sunsetting  <a href=https://www.yummacss.com/blog/sunsetting-intellisense>Yumma CSS Intellisense</a> extension 👋
+  content: <a href=https://www.yummacss.com/blog/yummacss-3.0>Yumma CSS v3.0 is finally live</a> 🎉
 description: Controls the positioning of elements.
 slug: docs/position
 ---
 
-<Utility
-  data={[
-    {
-      className: "p-a",
-      properties: ["position: absolute;"],
-    },
-    {
-      className: "p-f",
-      properties: ["position: fixed;"],
-    },
-    {
-      className: "p-r",
-      properties: ["position: relative;"],
-    },
-    {
-      className: "p-s",
-      properties: ["position: static;"],
-    },
-    {
-      className: "p-st",
-      properties: ["position: sticky;"],
-    },
-  ]}
-/>
+<Class name="position" />
 
 ## Absolute
 
 This example sets the position to **absolute**. The element is positioned relative to its nearest positioned ancestor (not static), allowing for precise placement.
 
-```html live "p-a" layout="/src/layouts/wide.astro"
-<div class="bg-l-indigo-5 h-32 p-4 p-r tc-white">
-  <div class="bg-indigo dir-l-4 dir-t-4 p-4 p-a">Absolute Position</div>
+```html live "p-a" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-2 h-32 p-4 p-r tc-white">
+  <div class="bg-indigo l-4 t-4 p-4 p-a">Absolute Position</div>
 </div>
 ```
 
@@ -45,10 +22,10 @@ This example sets the position to **absolute**. The element is positioned relati
 
 This example sets the position to **fixed**. The element is positioned relative to the viewport, meaning it stays in the same place even when the page is scrolled.
 
-```html "p-f" layout="/src/layouts/wide.astro"
+```html "p-f" layout="/src/layouts/inline.astro"
 <div class="tc-white">
-  <div class="bg-indigo dir-r-4 dir-t-4 p-4 p-f">Fixed Position</div>
-  <div class="bg-d-indigo-3 h-1/1 p-4">Scroll down to see the fixed element.</div>
+  <div class="bg-indigo r-4 t-4 p-4 p-f">Fixed Position</div>
+  <div class="bg-indigo-8 h-s p-4">Scroll down to see the fixed element.</div>
 </div>
 ```
 
@@ -56,10 +33,10 @@ This example sets the position to **fixed**. The element is positioned relative 
 
 This example sets the position to **relative**. The element is positioned relative to its normal position, allowing for adjustments without affecting the layout of surrounding elements.
 
-```html live "p-r" layout="/src/layouts/wide.astro"
+```html live "p-r" layout="/src/layouts/inline.astro"
 <div class="tc-white">
-  <div class="bg-indigo dir-l-4 dir-t-4 p-4 p-r">Relative Position</div>
-  <div class="bg-l-indigo-5 p-4">Another Element</div>
+  <div class="bg-indigo l-4 t-4 p-4 p-r">Relative Position</div>
+  <div class="bg-indigo-2 p-4">Another Element</div>
 </div>
 ```
 
@@ -67,10 +44,10 @@ This example sets the position to **relative**. The element is positioned relati
 
 This example sets the position to **static**. The element is positioned according to the normal flow of the document, and top, right, bottom, and left properties have no effect.
 
-```html live "p-s" layout="/src/layouts/wide.astro"
+```html live "p-s" layout="/src/layouts/inline.astro"
 <div class="tc-white">
   <div class="bg-indigo p-4 p-s">Static Position</div>
-  <div class="bg-l-indigo-5 p-4">Another Element</div>
+  <div class="bg-indigo-2 p-4">Another Element</div>
 </div>
 ```
 
@@ -80,10 +57,10 @@ This example sets the position to **sticky**. The element is treated as relative
 
 <Decorator icon="cursor_arrow">Try scrolling through the container to see how the sticky position works.</Decorator>
 
-```html live "p-st" layout="/src/layouts/wide.astro"
-<div class="b-1 h-64 ovf-y-s tc-white">
-  <div class="bg-indigo dir-t-0 p-4 p-st">Sticky Position</div>
-  <div class="bg-l-indigo-5 h-96 p-4">Scroll down to see the sticky behavior.</div>
+```html live "p-st" layout="/src/layouts/inline.astro"
+<div class="bo-1 h-64 o-y-s tc-white">
+  <div class="bg-indigo t-0 p-4 p-st">Sticky Position</div>
+  <div class="bg-indigo-2 h-96 p-4">Scroll down to see the sticky behavior.</div>
 </div>
 ```
 

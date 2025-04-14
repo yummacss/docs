@@ -1,35 +1,20 @@
 ---
 title: Outline Style
 banner:
-  content: Sunsetting  <a href=https://www.yummacss.com/blog/sunsetting-intellisense>Yumma CSS Intellisense</a> extension 👋
+  content: <a href=https://www.yummacss.com/blog/yummacss-3.0>Yumma CSS v3.0 is finally live</a> 🎉
 description: Controls the outline style of an element.
 slug: docs/outline-style
 ---
 
-<Utility
-  data={[
-    {
-      className: "os-none",
-      properties: ["outline-style: none;"],
-    },
-    {
-      className: "os-d",
-      properties: ["outline-style: dashed;"],
-    },
-    {
-      className: "os-s",
-      properties: ["outline-style: solid;"],
-    },
-  ]}
-/>
+<Class name="outline-style" />
 
 This example showcases various outline styles: **none**, **dashed**, and **solid**. The element will have no outline, a dashed outline, and a solid outline, respectively.
 
 ```html live "os-none" "os-d" "os-s"
 <div class="d-g g-16 gtc-1 sm:gtc-3">
-  <div class="b-1 b-s bc-gray dim-16 oc-indigo oo-1 os-none rad-1"></div>
-  <div class="b-1 b-s bc-gray dim-16 oc-indigo oo-1 os-d rad-1"></div>
-  <div class="b-1 b-s bc-gray dim-16 oc-indigo oo-1 os-s rad-1"></div>
+  <div class="b-1 bc-indigo d-16 oc-indigo oo-1 os-none rad-1"></div>
+  <div class="b-1 bc-indigo d-16 oc-indigo oo-1 os-d rad-1"></div>
+  <div class="b-1 bc-indigo d-16 oc-indigo oo-1 os-s rad-1"></div>
 </div>
 ```
 

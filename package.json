@@ -1,20 +1,20 @@
 {
   "author": "Renildo Pereira",
-  "description": "A CSS framework with an abbreviated styles.",
+  "description": "A CSS framework with abbreviated styles.",
   "homepage": "https://yummacss.com",
   "license": "MIT",
   "name": "yumma-css-docs",
   "private": true,
   "type": "module",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "dependencies": {
     "@astrojs/check": "^0.9.4",
     "@astrojs/sitemap": "^3.2.1",
     "@astrojs/starlight": "^0.31.1",
     "@astrojs/vercel": "^8.0.5",
     "@expressive-code/plugin-collapsible-sections": "^0.40.1",
+    "@fontsource-variable/outfit": "^5.2.5",
     "@fontsource-variable/plus-jakarta-sans": "^5.1.1",
-    "@types/tinycolor2": "^1.4.6",
     "astro": "^5.2.3",
     "astro-auto-import": "^0.4.4",
     "astro-live-code": "^0.0.5",
@@ -22,13 +22,15 @@
     "starlight-blog": "^0.16.1",
     "starlight-cooler-credit": "^0.2.3",
     "starlight-links-validator": "^0.14.2",
+    "starlight-package-managers": "^0.10.0",
     "starlight-showcases": "^0.3.0",
     "tinycolor2": "^1.6.0",
     "typescript": "^5.7.3",
-    "yummacss": "^2.1.0"
+    "yummacss": "v3.0.0"
   },
   "devDependencies": {
-    "@types/js-beautify": "^1.14.3"
+    "@types/js-beautify": "^1.14.3",
+    "@types/tinycolor2": "^1.4.6"
   },
   "keywords": [
     "css-framework",

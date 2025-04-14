@@ -1,50 +1,23 @@
 ---
 title: Align Self
 banner:
-  content: Sunsetting  <a href=https://www.yummacss.com/blog/sunsetting-intellisense>Yumma CSS Intellisense</a> extension 👋
+  content: <a href=https://www.yummacss.com/blog/yummacss-3.0>Yumma CSS v3.0 is finally live</a> 🎉
 description: Controls the positioning of a single flex or grid element along the transverse axis of its container.
 slug: docs/align-self
 ---
 
-<Utility
-  data={[
-    {
-      className: "as-auto",
-      properties: ["align-self: auto;"],
-    },
-    {
-      className: "as-b",
-      properties: ["align-self: baseline;"],
-    },
-    {
-      className: "as-c",
-      properties: ["align-self: center;"],
-    },
-    {
-      className: "as-fe",
-      properties: ["align-self: flex-end;"],
-    },
-    {
-      className: "as-fs",
-      properties: ["align-self: flex-start;"],
-    },
-    {
-      className: "as-s",
-      properties: ["align-self: stretch;"],
-    },
-  ]}
-/>
+<Class name="align-self" />
 
 ## Auto
 
 This example sets the align self to **auto**. The item will use the default alignment based on the container's alignment properties.
 
-```html live "as-auto" layout="/src/layouts/wide.astro"
+```html live "as-auto" layout="/src/layouts/inline.astro"
 <div class="tc-white">
   <div class="d-f g-4 h-24 rad-1 stripes w-full">
-    <div class="ai-c bg-d-indigo-4 d-f f-1 jc-c p-4 rad-1">A</div>
+    <div class="ai-c bg-indigo-8 d-f f-1 jc-c p-4 rad-1">A</div>
     <div class="ai-c as-auto bg-indigo d-f f-1 jc-c p-4 rad-1">B</div>
-    <div class="ai-c bg-d-indigo-4 d-f f-1 jc-c p-4 rad-1">C</div>
+    <div class="ai-c bg-indigo-8 d-f f-1 jc-c p-4 rad-1">C</div>
   </div>
 </div>
 ```
@@ -53,12 +26,12 @@ This example sets the align self to **auto**. The item will use the default alig
 
 This example sets the align self to **baseline**. The item will be aligned along the baseline of the container.
 
-```html live "as-b" layout="/src/layouts/wide.astro"
+```html live "as-b" layout="/src/layouts/inline.astro"
 <div class="tc-white">
   <div class="d-f g-4 h-24 rad-1 stripes w-full">
-    <div class="ai-c bg-d-indigo-4 d-f f-1 jc-c p-4 rad-1">A</div>
+    <div class="ai-c bg-indigo-8 d-f f-1 jc-c p-4 rad-1">A</div>
     <div class="ai-c as-b bg-indigo d-f f-1 jc-c p-4 rad-1">B</div>
-    <div class="ai-c bg-d-indigo-4 d-f f-1 jc-c p-4 rad-1">C</div>
+    <div class="ai-c bg-indigo-8 d-f f-1 jc-c p-4 rad-1">C</div>
   </div>
 </div>
 ```
@@ -67,12 +40,12 @@ This example sets the align self to **baseline**. The item will be aligned along
 
 This example sets the align self to **center**. The item will be centered within its container.
 
-```html live "as-c" layout="/src/layouts/wide.astro"
+```html live "as-c" layout="/src/layouts/inline.astro"
 <div class="tc-white">
   <div class="d-f g-4 h-24 rad-1 stripes w-full">
-    <div class="ai-c bg-d-indigo-4 d-f f-1 jc-c p-4 rad-1">A</div>
+    <div class="ai-c bg-indigo-8 d-f f-1 jc-c p-4 rad-1">A</div>
     <div class="ai-c as-c bg-indigo d-f f-1 jc-c p-4 rad-1">B</div>
-    <div class="ai-c bg-d-indigo-4 d-f f-1 jc-c p-4 rad-1">C</div>
+    <div class="ai-c bg-indigo-8 d-f f-1 jc-c p-4 rad-1">C</div>
   </div>
 </div>
 ```
@@ -81,12 +54,12 @@ This example sets the align self to **center**. The item will be centered within
 
 This example sets the align self to **flex-end**. The item will be aligned to the end of its container.
 
-```html live "as-fe" layout="/src/layouts/wide.astro"
+```html live "as-fe" layout="/src/layouts/inline.astro"
 <div class="tc-white">
   <div class="d-f g-4 h-24 rad-1 stripes w-full">
-    <div class="ai-c bg-d-indigo-4 d-f f-1 jc-c p-4 rad-1">A</div>
+    <div class="ai-c bg-indigo-8 d-f f-1 jc-c p-4 rad-1">A</div>
     <div class="ai-c as-fe bg-indigo d-f f-1 jc-c p-4 rad-1">B</div>
-    <div class="ai-c bg-d-indigo-4 d-f f-1 jc-c p-4 rad-1">C</div>
+    <div class="ai-c bg-indigo-8 d-f f-1 jc-c p-4 rad-1">C</div>
   </div>
 </div>
 ```
@@ -95,12 +68,12 @@ This example sets the align self to **flex-end**. The item will be aligned to th
 
 This example sets the align self to **flex-start**. The item will be aligned to the start of its container.
 
-```html live "as-fs" layout="/src/layouts/wide.astro"
+```html live "as-fs" layout="/src/layouts/inline.astro"
 <div class="tc-white">
   <div class="d-f g-4 h-24 rad-1 stripes w-full">
-    <div class="ai-c bg-d-indigo-4 d-f f-1 jc-c p-4 rad-1">A</div>
+    <div class="ai-c bg-indigo-8 d-f f-1 jc-c p-4 rad-1">A</div>
     <div class="ai-c as-fs bg-indigo d-f f-1 jc-c p-4 rad-1">B</div>
-    <div class="ai-c bg-d-indigo-4 d-f f-1 jc-c p-4 rad-1">C</div>
+    <div class="ai-c bg-indigo-8 d-f f-1 jc-c p-4 rad-1">C</div>
   </div>
 </div>
 ```
@@ -109,12 +82,12 @@ This example sets the align self to **flex-start**. The item will be aligned to 
 
 This example sets the align self to **stretch**. The item will stretch to fill its container along the cross axis.
 
-```html live "as-s" layout="/src/layouts/wide.astro"
+```html live "as-s" layout="/src/layouts/inline.astro"
 <div class="tc-white">
   <div class="d-f g-4 h-24 rad-1 stripes w-full">
-    <div class="ai-c bg-d-indigo-4 d-f f-1 jc-c p-4 rad-1">A</div>
+    <div class="ai-c bg-indigo-8 d-f f-1 jc-c p-4 rad-1">A</div>
     <div class="ai-c as-s bg-indigo d-f f-1 jc-c p-4 rad-1">B</div>
-    <div class="ai-c bg-d-indigo-4 d-f f-1 jc-c p-4 rad-1">C</div>
+    <div class="ai-c bg-indigo-8 d-f f-1 jc-c p-4 rad-1">C</div>
   </div>
 </div>
 ```

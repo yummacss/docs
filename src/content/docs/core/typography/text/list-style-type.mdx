@@ -1,38 +1,23 @@
 ---
 title: List Style Type
 banner:
-  content: Sunsetting  <a href=https://www.yummacss.com/blog/sunsetting-intellisense>Yumma CSS Intellisense</a> extension 👋
+  content: <a href=https://www.yummacss.com/blog/yummacss-3.0>Yumma CSS v3.0 is finally live</a> 🎉
 description: Controls the style of a list.
 slug: docs/list-style-type
 ---
 
-<Utility
-  data={[
-    {
-      className: "lst-c",
-      properties: ["list-style-type: circle;"],
-    },
-    {
-      className: "lst-d",
-      properties: ["list-style-type: disc;"],
-    },
-    {
-      className: "lst-s",
-      properties: ["list-style-type: square;"],
-    },
-  ]}
-/>
+<Class name="list-style-type" />
 
 ## Circle
 
 This example sets the list style type to **circle**. The list items will be marked with hollow circles.
 
-```html live "lst-c" layout="/src/layouts/wide.astro"
-<div class="bg-l-indigo-6 p-4 rad-1">
+```html live "lst-c" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
   <ul class="bg-white lsp-o lst-c p-4 pl-6 rad-1">
-    <li class="tc-lead">Apples</li>
-    <li class="tc-lead">Bananas</li>
-    <li class="tc-lead">Cherries</li>
+    <li class="tc-lead">Butter 🧈</li>
+    <li class="tc-lead">Egg 🥚</li>
+    <li class="tc-lead">Milk 🥛</li>
   </ul>
 </div>
 ```
@@ -41,12 +26,12 @@ This example sets the list style type to **circle**. The list items will be mark
 
 This example sets the list style type to **disc**. The list items will be marked with solid circles, which is the default style for unordered lists.
 
-```html live "lst-d" layout="/src/layouts/wide.astro"
-<div class="bg-l-indigo-6 p-4 rad-1">
+```html live "lst-d" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
   <ul class="bg-white lsp-o lst-d p-4 pl-6 rad-1">
-    <li class="tc-lead">Apples</li>
-    <li class="tc-lead">Bananas</li>
-    <li class="tc-lead">Cherries</li>
+    <li class="tc-lead">Butter 🧈</li>
+    <li class="tc-lead">Egg 🥚</li>
+    <li class="tc-lead">Milk 🥛</li>
   </ul>
 </div>
 ```
@@ -55,12 +40,12 @@ This example sets the list style type to **disc**. The list items will be marked
 
 This example sets the list style type to **square**. The list items will be marked with solid squares, providing a different visual style for the list.
 
-```html live "lst-s" layout="/src/layouts/wide.astro"
-<div class="bg-l-indigo-6 p-4 rad-1">
+```html live "lst-s" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
   <ul class="bg-white lsp-o lst-s p-4 pl-6 rad-1">
-    <li class="tc-lead">Apples</li>
-    <li class="tc-lead">Bananas</li>
-    <li class="tc-lead">Cherries</li>
+    <li class="tc-lead">Butter 🧈</li>
+    <li class="tc-lead">Egg 🥚</li>
+    <li class="tc-lead">Milk 🥛</li>
   </ul>
 </div>
 ```

@@ -1,42 +1,24 @@
 ---
 title: Outline Color
 banner:
-  content: Sunsetting  <a href=https://www.yummacss.com/blog/sunsetting-intellisense>Yumma CSS Intellisense</a> extension 👋
+  content: <a href=https://www.yummacss.com/blog/yummacss-3.0>Yumma CSS v3.0 is finally live</a> 🎉
 description: Controls the color of the outline of an element.
 slug: docs/outline-color
 ---
 
-<Color
-  classPrefix="oc-"
-  data={[
-    { color: "red", value: "#d73d3d" },
-    { color: "orange", value: "#e06814" },
-    { color: "yellow", value: "#d3a107" },
-    { color: "green", value: "#1fb155" },
-    { color: "teal", value: "#12a695" },
-    { color: "cyan", value: "#05a4bf" },
-    { color: "blue", value: "#3575dd" },
-    { color: "indigo", value: "#595cd9" },
-    { color: "violet", value: "#7d53dd" },
-    { color: "pink", value: "#d4418a" },
-    { color: "gray", value: "#606773" },
-    { color: "lead", value: "#3f3f4e" },
-    { color: "silver", value: "#bfc2c7" },
-  ]}
-  propNames={["outline-color"]}
-/>
+<Class name="outline-color" />
 
 This example showcases various outline colors using the **indigo** color palette:
 
-- The **oc-l-indigo-4** utility applies a lighter indigo shade.
+- The **oc-indigo-3** utility applies a lighter indigo shade.
 - The **oc-indigo** utility applies the base indigo shade.
-- The **oc-d-indigo-2** utility applies a darker indigo shade.
+- The **oc-indigo-8** utility applies a darker indigo shade.
 
-```html live "oc-indigo" "oc-l-indigo-4" "oc-d-indigo-2"
+```html live "oc-indigo" "oc-indigo-3" "oc-indigo-8"
 <div class="d-g g-16 gtc-1 sm:gtc-3">
-  <div class="b-1 b-s bc-gray dim-16 oc-l-indigo-4 oo-1 os-s rad-1"></div>
-  <div class="b-1 b-s bc-gray dim-16 oc-indigo oo-1 os-s rad-1"></div>
-  <div class="b-1 b-s bc-gray dim-16 oc-d-indigo-2 oo-1 os-s rad-1"></div>
+  <div class="b-1 bc-indigo d-16 oc-indigo-3 oo-1 os-s rad-1"></div>
+  <div class="b-1 bc-indigo d-16 oc-indigo oo-1 os-s rad-1"></div>
+  <div class="b-1 bc-indigo d-16 oc-indigo-8 oo-1 os-s rad-1"></div>
 </div>
 ```
 

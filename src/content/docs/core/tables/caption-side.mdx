@@ -1,38 +1,27 @@
 ---
 title: Caption Side
 banner:
-  content: Sunsetting  <a href=https://www.yummacss.com/blog/sunsetting-intellisense>Yumma CSS Intellisense</a> extension 👋
+  content: <a href=https://www.yummacss.com/blog/yummacss-3.0>Yumma CSS v3.0 is finally live</a> 🎉
 description: Controls the caption element orientation in a table.
 slug: docs/caption-side
 ---
 
-<Utility
-  data={[
-    {
-      className: "cs-b",
-      properties: ["caption-side: bottom;"],
-    },
-    {
-      className: "cs-t",
-      properties: ["caption-side: top;"],
-    },
-  ]}
-/>
+<Class name="caption-side" />
 
 ## Bottom
 
 This example sets the caption side to **bottom**. The caption will be displayed below the table.
 
-```html live "cs-b" layout="/src/layouts/wide.astro"
-<table class="b-1 b-s bc-c bc-l-silver-3 ta-c w-full">
-  <caption class="cs-b fw-500 p-2">
+```html live "cs-b" layout="/src/layouts/inline.astro"
+<table class="b-1 bc-c bc-indigo ta-c w-full">
+  <caption class="cs-b p-2">
     Bottom Caption
   </caption>
   <tbody>
     <tr>
-      <td class="b-1 b-s bc-l-silver-3 p-3">A</td>
-      <td class="b-1 b-s bc-l-silver-3 p-3">B</td>
-      <td class="b-1 b-s bc-l-silver-3 p-3">C</td>
+      <td class="b-1 bc-indigo p-3 tc-indigo">A</td>
+      <td class="b-1 bc-indigo p-3 tc-indigo">B</td>
+      <td class="b-1 bc-indigo p-3 tc-indigo">C</td>
     </tr>
   </tbody>
 </table>
@@ -42,16 +31,16 @@ This example sets the caption side to **bottom**. The caption will be displayed 
 
 This example sets the caption side to **top**. The caption will be displayed above the table.
 
-```html live "cs-t" layout="/src/layouts/wide.astro"
-<table class="b-1 b-s bc-c bc-l-silver-3 ta-c w-full">
-  <caption class="cs-t fw-500 p-2">
+```html live "cs-t" layout="/src/layouts/inline.astro"
+<table class="b-1 bc-c bc-indigo ta-c w-full">
+  <caption class="cs-t p-2">
     Top Caption
   </caption>
   <tbody>
     <tr>
-      <td class="b-1 b-s bc-l-silver-3 p-3">A</td>
-      <td class="b-1 b-s bc-l-silver-3 p-3">B</td>
-      <td class="b-1 b-s bc-l-silver-3 p-3">C</td>
+      <td class="b-1 bc-indigo p-3 tc-indigo">A</td>
+      <td class="b-1 bc-indigo p-3 tc-indigo">B</td>
+      <td class="b-1 bc-indigo p-3 tc-indigo">C</td>
     </tr>
   </tbody>
 </table>

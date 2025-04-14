@@ -1,21 +1,21 @@
 ---
 title: Background Repeat
 banner:
-  content: Sunsetting  <a href=https://www.yummacss.com/blog/sunsetting-intellisense>Yumma CSS Intellisense</a> extension 👋
+  content: <a href=https://www.yummacss.com/blog/yummacss-3.0>Yumma CSS v3.0 is finally live</a> 🎉
 description: Controls the repetition of the background image of an element.
 slug: docs/background-repeat
-draft: true
 ---
 
-<Class name="/background-repeat" />
+<Class name="background-repeat" />
 
 ## No Repeat
 
 This example sets the background repeat to **no-repeat**. The background image will not be repeated.
 
-```html live "br-nr"
-<div class="p-4 p-r rad-1 bs-lg">
-  <div class="br-nr bp-c d-full p-r rad-1" style="background-image:url(https://picsum.photos/300?image=870)"></div>
+{/* prettier-ignore */}
+```html live "br-nr" layout="/src/layouts/inline.astro"
+<div class="br-nr bp-c h-s" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWJvbWIiPjxjaXJjbGUgY3g9IjExIiBjeT0iMTMiIHI9IjkiLz48cGF0aCBkPSJNMTQuMzUgNC42NSAxNi4zIDIuN2EyLjQxIDIuNDEgMCAwIDEgMy40IDBsMS42IDEuNmEyLjQgMi40IDAgMCAxIDAgMy40bC0xLjk1IDEuOTUiLz48cGF0aCBkPSJtMjIgMi0xLjUgMS41Ii8+PC9zdmc+');">
+  <div class="p-10"></div>
 </div>
 ```
 
@@ -23,9 +23,10 @@ This example sets the background repeat to **no-repeat**. The background image w
 
 This example sets the background repeat to **repeat**. The background image will be repeated both horizontally and vertically.
 
-```html live "br-r"
-<div class="p-4 p-r rad-1 bs-lg">
-  <div class="br-r bp-c d-full p-r rad-1" style="background-image:url(https://picsum.photos/300?image=870)"></div>
+{/* prettier-ignore */}
+```html live "br-r" layout="/src/layouts/inline.astro"
+<div class="br-r bp-c h-s" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWJvbWIiPjxjaXJjbGUgY3g9IjExIiBjeT0iMTMiIHI9IjkiLz48cGF0aCBkPSJNMTQuMzUgNC42NSAxNi4zIDIuN2EyLjQxIDIuNDEgMCAwIDEgMy40IDBsMS42IDEuNmEyLjQgMi40IDAgMCAxIDAgMy40bC0xLjk1IDEuOTUiLz48cGF0aCBkPSJtMjIgMi0xLjUgMS41Ii8+PC9zdmc+');">
+  <div class="p-10"></div>
 </div>
 ```
 
@@ -33,9 +34,10 @@ This example sets the background repeat to **repeat**. The background image will
 
 This example sets the background repeat to **round**. The background image will be repeated and resized to fit the area.
 
-```html live "br-ro"
-<div class="p-4 p-r rad-1 bs-lg">
-  <div class="br-ro bp-c d-full p-r rad-1" style="background-image:url(https://picsum.photos/300?image=870)"></div>
+{/* prettier-ignore */}
+```html live "br-ro" layout="/src/layouts/inline.astro"
+<div class="br-ro bp-c h-s" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWJvbWIiPjxjaXJjbGUgY3g9IjExIiBjeT0iMTMiIHI9IjkiLz48cGF0aCBkPSJNMTQuMzUgNC42NSAxNi4zIDIuN2EyLjQxIDIuNDEgMCAwIDEgMy40IDBsMS42IDEuNmEyLjQgMi40IDAgMCAxIDAgMy40bC0xLjk1IDEuOTUiLz48cGF0aCBkPSJtMjIgMi0xLjUgMS41Ii8+PC9zdmc+');">
+  <div class="p-10"></div>
 </div>
 ```
 
@@ -43,9 +45,10 @@ This example sets the background repeat to **round**. The background image will 
 
 This example sets the background repeat to **repeat-x**. The background image will be repeated horizontally only.
 
-```html live "br-rx"
-<div class="p-4 p-r rad-1 bs-lg">
-  <div class="br-rx bp-c d-full p-r rad-1" style="background-image:url(https://picsum.photos/300?image=870)"></div>
+{/* prettier-ignore */}
+```html live "br-rx" layout="/src/layouts/inline.astro"
+<div class="br-rx bp-c h-s" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWJvbWIiPjxjaXJjbGUgY3g9IjExIiBjeT0iMTMiIHI9IjkiLz48cGF0aCBkPSJNMTQuMzUgNC42NSAxNi4zIDIuN2EyLjQxIDIuNDEgMCAwIDEgMy40IDBsMS42IDEuNmEyLjQgMi40IDAgMCAxIDAgMy40bC0xLjk1IDEuOTUiLz48cGF0aCBkPSJtMjIgMi0xLjUgMS41Ii8+PC9zdmc+');">
+  <div class="p-10"></div>
 </div>
 ```
 
@@ -53,9 +56,10 @@ This example sets the background repeat to **repeat-x**. The background image wi
 
 This example sets the background repeat to **repeat-y**. The background image will be repeated vertically only.
 
-```html live "br-ry"
-<div class="p-4 p-r rad-1 bs-lg">
-  <div class="br-ry bp-c d-full p-r rad-1" style="background-image:url(https://picsum.photos/300?image=870)"></div>
+{/* prettier-ignore */}
+```html live "br-ry" layout="/src/layouts/inline.astro"
+<div class="br-ry bp-c h-s" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWJvbWIiPjxjaXJjbGUgY3g9IjExIiBjeT0iMTMiIHI9IjkiLz48cGF0aCBkPSJNMTQuMzUgNC42NSAxNi4zIDIuN2EyLjQxIDIuNDEgMCAwIDEgMy40IDBsMS42IDEuNmEyLjQgMi40IDAgMCAxIDAgMy40bC0xLjk1IDEuOTUiLz48cGF0aCBkPSJtMjIgMi0xLjUgMS41Ii8+PC9zdmc+');">
+  <div class="p-10"></div>
 </div>
 ```
 
@@ -63,9 +67,10 @@ This example sets the background repeat to **repeat-y**. The background image wi
 
 The background image will repeat, leaving space between each image.
 
-```html live "br-s"
-<div class="p-4 p-r rad-1 bs-lg">
-  <div class="br-s bp-c d-full p-r rad-1" style="background-image:url(https://picsum.photos/300?image=870)"></div>
+{/* prettier-ignore */}
+```html live "br-s" layout="/src/layouts/inline.astro"
+<div class="br-s bp-c h-s" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWJvbWIiPjxjaXJjbGUgY3g9IjExIiBjeT0iMTMiIHI9IjkiLz48cGF0aCBkPSJNMTQuMzUgNC42NSAxNi4zIDIuN2EyLjQxIDIuNDEgMCAwIDEgMy40IDBsMS42IDEuNmEyLjQgMi40IDAgMCAxIDAgMy40bC0xLjk1IDEuOTUiLz48cGF0aCBkPSJtMjIgMi0xLjUgMS41Ii8+PC9zdmc+');">
+  <div class="p-10"></div>
 </div>
 ```
 

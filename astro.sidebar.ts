@@ -5,9 +5,9 @@ export const sidebar = [
     label: "Get Started",
     items: [
       { label: "Installation", link: "docs/installation" },
-      { label: "First Steps", link: "docs/first-steps", badge: "New" },
-      // { label: "Configuration", link: "docs/configuration" },
       { label: "Playground", link: "https://play.yummacss.com" },
+      { label: "First Steps", link: "docs/first-steps", badge: "New" },
+      { label: "Configuration", link: "docs/configuration", badge: "New" },
       { label: "Resources", link: "/resources", badge: "New" },
     ],
   },
@@ -65,14 +65,14 @@ export const sidebar = [
     label: "Tables",
     autogenerate: { directory: "core/tables" },
   },
-  // {
-  //   label: "SVG",
-  //   autogenerate: { directory: "core/svg" },
-  // },
-  // {
-  //   label: "Transforms",
-  //   autogenerate: { directory: "core/transforms" },
-  // },
+  {
+    label: "SVG",
+    autogenerate: { directory: "core/svg" },
+  },
+  {
+    label: "Transforms",
+    autogenerate: { directory: "core/transforms" },
+  },
   {
     label: "Typography",
     items: [

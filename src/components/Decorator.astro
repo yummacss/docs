@@ -1,5 +1,5 @@
 ---
-import { icons, type IconName } from "../icons";
+import { icons, type IconName } from "./ui/icons/icons";
 
 interface DecoratorProps {
   icon: IconName;
@@ -9,16 +9,16 @@ const { icon: name } = Astro.props as DecoratorProps;
 ---
 
 <div class="d-f g-2">
-  <span class="ai-c bs-sm d-f h-fc icon mt-1 fs-0 p-1" set:html={icons[name]} />
+  <span class="ai-c bs-sm decorator-icon d-f h-fc mt-1 fs-0 p-1" set:html={icons[name]} />
   <span>
     <slot />
   </span>
 </div>
 
 <style>
-  .icon {
+  .decorator-icon {
     background-color: light-dark(var(--sl-color-gray-7), var(--sl-color-gray-6));
-    border-radius: 0.25rem;
+    border-radius: 0.2rem;
     border: solid 1px light-dark(var(--sl-color-accent), var(--sl-color-accent-high));
     color: light-dark(var(--sl-color-accent), var(--sl-color-accent-high));
   }

@@ -1,7 +1,7 @@
 ---
 title: Yumma CSS and Angular
 banner:
-  content: Sunsetting  <a href=https://www.yummacss.com/blog/sunsetting-intellisense>Yumma CSS Intellisense</a> extension 👋
+  content: <a href=https://www.yummacss.com/blog/yummacss-3.0>Yumma CSS v3.0 is finally live</a> 🎉
 description: Setup Yumma CSS with Angular.
 slug: docs/guides/angular
 ---
@@ -12,13 +12,11 @@ To create a new Angular project, you need to have the [Angular CLI](https://angu
 
 <Steps>
 
-    1. **Install Yumma CSS:**
+    1. **Install Yumma CSS**
 
         Install the Yumma CSS Library using a package manager.
 
-        ```bash title="Installing dependencies..." frame="terminal"
-        npm install yummacss@latest
-        ```
+        <PackageManagers pkg="yummacss" args="--save-dev" title="Installing dependencies..." />
 
     2. **Include** `yummacss` **in your main CSS file:**
 
@@ -32,9 +30,7 @@ To create a new Angular project, you need to have the [Angular CLI](https://angu
 
         To see the changes, start the development server.
 
-        ```bash title="Starting development server..."
-        npm run start
-        ```
+        <PackageManagers type="run" args="start" title="Starting development server..." />
 
     4. **Done!**
 

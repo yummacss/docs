@@ -1,31 +1,20 @@
 ---
 title: Overflow Wrap
 banner:
-  content: Sunsetting  <a href=https://www.yummacss.com/blog/sunsetting-intellisense>Yumma CSS Intellisense</a> extension 👋
+  content: <a href=https://www.yummacss.com/blog/yummacss-3.0>Yumma CSS v3.0 is finally live</a> 🎉
 description: Controls word wrapping
 slug: docs/overflow-wrap
 ---
 
-<Utility
-  data={[
-    {
-      className: "ow-bw",
-      properties: ["overflow-wrap: break-word;"],
-    },
-    {
-      className: "ow-n",
-      properties: ["overflow-wrap: normal;"],
-    },
-  ]}
-/>
+<Class name="overflow-wrap" />
 
 ## Break Word
 
 This example sets the overflow wrap to **break-word**. The browser will break long words and wrap them onto the next line to prevent overflow.
 
-```html live "ow-bw" layout="/src/layouts/wide.astro"
-<div class="bg-l-indigo-6 p-4 rad-1 ow-bw">
-  <p class="bg-white fs-md p-4 rad-1 ta-c tc-lead">Pneumonoultramicroscopicsilicovolcanoconiosis</p>
+```html live "ow-bw" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1 ow-bw">
+  <p class="bg-white fs-lg p-4 rad-1 ta-c tc-lead">Pneumonoultramicroscopicsilicovolcanoconiosis</p>
 </div>
 ```
 
@@ -33,9 +22,9 @@ This example sets the overflow wrap to **break-word**. The browser will break lo
 
 This example sets the overflow wrap to **normal**. The browser will only break lines at allowed break points, and long words will overflow the container if they cannot fit.
 
-```html live "ow-n" layout="/src/layouts/wide.astro"
-<div class="bg-l-indigo-6 p-4 rad-1">
-  <p class="bg-white fs-md p-4 rad-1 ta-c tc-lead ovf-auto ow-n">Pneumonoultramicroscopicsilicovolcanoconiosis</p>
+```html live "ow-n" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <p class="bg-white fs-lg p-4 rad-1 ta-c tc-lead o-auto ow-n">Pneumonoultramicroscopicsilicovolcanoconiosis</p>
 </div>
 ```
 

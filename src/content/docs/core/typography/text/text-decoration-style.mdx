@@ -1,39 +1,20 @@
 ---
 title: Text Decoration Style
 banner:
-  content: Sunsetting  <a href=https://www.yummacss.com/blog/sunsetting-intellisense>Yumma CSS Intellisense</a> extension 👋
+  content: <a href=https://www.yummacss.com/blog/yummacss-3.0>Yumma CSS v3.0 is finally live</a> 🎉
 description: Controls the style of text decoration.
 slug: docs/text-decoration-style
 ---
 
-<Utility
-  data={[
-    {
-      className: "tds-d",
-      properties: ["text-decoration-style: dashed;"],
-    },
-    {
-      className: "tds-h",
-      properties: ["text-decoration-style: hidden;"],
-    },
-    {
-      className: "tds-none",
-      properties: ["text-decoration-style: none;"],
-    },
-    {
-      className: "tds-s",
-      properties: ["text-decoration-style: solid;"],
-    },
-  ]}
-/>
+<Class name="text-decoration-style" />
 
 ## Dashed
 
 This example sets the text decoration style to **dashed**. The text will be displayed with a dashed line for its decoration.
 
-```html live "tds-d" layout="/src/layouts/wide.astro"
-<div class="bg-l-indigo-6 p-4 rad-1">
-  <p class="bg-white fs-sm p-4 rad-1 ta-c tc-lead tdl-u tds-d">The quick brown fox jumps over the lazy dog.</p>
+```html live "tds-d" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <p class="bg-white fs-lg p-4 rad-1 ta-c tc-lead tdl-u tds-d">Sphinx of black quartz, judge my vow.</p>
 </div>
 ```
 
@@ -41,9 +22,19 @@ This example sets the text decoration style to **dashed**. The text will be disp
 
 This example sets the text decoration style to **solid**. The text will be displayed with a solid line for its decoration.
 
-```html live "tds-s" layout="/src/layouts/wide.astro"
-<div class="bg-l-indigo-6 p-4 rad-1">
-  <p class="bg-white fs-sm p-4 rad-1 ta-c tc-lead tdl-u tds-s">The quick brown fox jumps over the lazy dog.</p>
+```html live "tds-s" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <p class="bg-white fs-lg p-4 rad-1 ta-c tc-lead tdl-u tds-s">Sphinx of black quartz, judge my vow.</p>
+</div>
+```
+
+## Wavy
+
+This example sets the text decoration style to **wavy**. The text will be displayed with a wavy line for its decoration.
+
+```html live "tds-w" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <p class="bg-white fs-lg p-4 rad-1 ta-c tc-lead tdl-u tds-w">Sphinx of black quartz, judge my vow.</p>
 </div>
 ```
 

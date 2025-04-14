@@ -1,7 +1,7 @@
 ---
 title: First Steps
 banner:
-  content: Sunsetting  <a href=https://www.yummacss.com/blog/sunsetting-intellisense>Yumma CSS Intellisense</a> extension 👋
+  content: <a href=https://www.yummacss.com/blog/yummacss-3.0>Yumma CSS v3.0 is finally live</a> 🎉
 description: A guide to getting started with Yumma CSS.
 next: false
 slug: /docs/first-steps
@@ -17,7 +17,7 @@ Here's an example of how you can style a button element using the cascade:
 
 ```html live
 <style>
-  .btn-indigo {
+  .button {
     background-color: #595cd9;
     border-radius: 0.25rem;
     border-width: 0px;
@@ -30,12 +30,12 @@ Here's an example of how you can style a button element using the cascade:
     padding-top: 0.25rem;
   }
 
-  .btn-indigo:hover {
-    background-color: #474aae;
+  .button:hover {
+    background-color: #40429c;
   }
 </style>
 
-<button class="btn-indigo">Subscribe</button>
+<button class="button">Subscribe</button>
 ```
 
 ### Styling using Yumma CSS
@@ -46,7 +46,7 @@ Plus, it makes it easier to maintain and scale without any guesswork.
 
 {/* prettier-ignore */}
 ```html live
-<button class="bg-indigo rad-1 b-0 tc-white c-p fw-600 py-1 px-5 h:bg-d-indigo-2">
+<button class="bg-indigo rad-1 b-0 tc-white c-p fw-600 py-1 px-5 h:bg-indigo-8">
   Subscribe
 </button>
 ```
@@ -57,17 +57,17 @@ Since each utility will have a specific style property, you can reuse it over an
 
 Here's a quick reference for the examples above.
 
-| Vanilla CSS                                           | Yumma CSS |
-| ----------------------------------------------------- | --------- |
-| [background-color](/docs/background-color)            | `bg-*`    |
-| [border-radius](/docs/border-radius)                  | `rad-*`   |
-| [border-width](/docs/border-width)                    | `b-*`     |
-| [color](/docs/text-color)                             | `tc-*`    |
-| [cursor](/docs/cursor)                                | `c-*`     |
-| [font-weight](/docs/font-weight)                      | `fw-*`    |
-| [padding-y](/docs/padding#padding-y) — (bottom & top) | `py-*`    |
-| [padding-x](/docs/padding#padding-x) — (left & right) | `px-*`    |
-| [hover](/docs/first-steps#hover-modifiers)            | `h:*`     |
+| Property                                              | Utility |
+| ----------------------------------------------------- | ------- |
+| [background-color](/docs/background-color)            | `bg-*`  |
+| [border-radius](/docs/border-radius)                  | `rad-*` |
+| [border-width](/docs/border-width)                    | `b-*`   |
+| [color](/docs/text-color)                             | `tc-*`  |
+| [cursor](/docs/cursor)                                | `c-*`   |
+| [font-weight](/docs/font-weight)                      | `fw-*`  |
+| [padding-y](/docs/padding#padding-y) — (bottom & top) | `py-*`  |
+| [padding-x](/docs/padding#padding-x) — (left & right) | `px-*`  |
+| [hover](/docs/first-steps#hover-modifiers)            | `h:*`   |
 
 ---
 
@@ -75,42 +75,42 @@ Here's a quick reference for the examples above.
 
 Get a set of default colors from Yumma CSS right away. Use the light and dark shades of the utility class to get a specific color and customize your theme.
 
-### Customizing colors
+### Color shading
 
-If you want to specify a lighter or darker shade of a given color, you can use the `[class]-l-[color]-[shade]` selector to get a lighter color or the `[class]-d-[color]-[shade]` selector to get a darker color in a range of 1 to 6, with the exception of neutral colors like black, white, and transparent.
+For instance, if you want a lighter shade, use values from 1 to 6, and for a darker one, use 7 to 12.
 
-Use `[class]-l-*` to get a lighter color, and `[class]-d-*` to get a darker color.
+<Decorator icon="color_wheel">There aren't any shades for colors like `black`, `white`, or `transparent`.</Decorator>
 
-```html live "bg-l-indigo-3" "bg-d-indigo-3"
-<div class="d-g g-16 gtc-1 sm:d-b">
-  <button class="b-0 bg-l-indigo-3 fw-600 px-5 py-1 rad-1 tc-white">Subscribe</button>
-  <button class="b-0 bg-d-indigo-3 fw-600 px-5 py-1 rad-1 tc-white">Subscribe</button>
+```html live "bg-indigo-4" "bg-indigo-9"
+<div class="d-g cg-4 gtc-2">
+  <button class="b-0 bg-indigo-4 fw-600 px-5 py-1 rad-1 tc-black">Subscribe</button>
+  <button class="b-0 bg-indigo-9 fw-600 px-5 py-1 rad-1 tc-white">Subscribe</button>
 </div>
 ```
 
 Here's the full spectrum color for the color Indigo.
 
-<Palette2 data={[{ name: "Indigo", color: "#595cd9" }]} />
+<Palette3 data={[{ name: "Indigo", color: "rgb(89, 92, 217)" }]} />
 
 ### Color palette
 
-Here's a spectrum of all the Yumma CSS color classes for customizing your theme.
+Here's a range of all the default colors from the Yumma CSS theme.
 
-<Palette2
+<Palette3
   data={[
-    { name: "Red", color: "#d73d3d" },
-    { name: "Orange", color: "#e06814" },
-    { name: "Yellow", color: "#d3a107" },
-    { name: "Green", color: "#1fb155" },
-    { name: "Teal", color: "#12a695" },
-    { name: "Cyan", color: "#05a4bf" },
-    { name: "Blue", color: "#3575dd" },
-    { name: "Indigo", color: "#595cd9" },
-    { name: "Violet", color: "#7d53dd" },
-    { name: "Pink", color: "#d4418a" },
-    { name: "Lead", color: "#3f3f4e" },
-    { name: "Gray", color: "#606773" },
-    { name: "Silver", color: "#bfc2c7" },
+    { name: "Red", color: "rgb(215, 61, 61)" },
+    { name: "Orange", color: "rgb(224, 104, 20)" },
+    { name: "Yellow", color: "rgb(211, 161, 7)" },
+    { name: "Green", color: "rgb(31, 177, 85)" },
+    { name: "Teal", color: "rgb(18, 166, 149)" },
+    { name: "Cyan", color: "rgb(5, 164, 191)" },
+    { name: "Blue", color: "rgb(53, 117, 221)" },
+    { name: "Indigo", color: "rgb(89, 92, 217)" },
+    { name: "Violet", color: "rgb(125, 83, 221)" },
+    { name: "Pink", color: "rgb(212, 65, 138)" },
+    { name: "Lead", color: "rgb(63, 63, 78)" },
+    { name: "Gray", color: "rgb(96, 103, 115)" },
+    { name: "Silver", color: "rgb(191, 194, 199)" },
   ]}
 />
 
@@ -124,7 +124,9 @@ Here's a list of all the Yumma CSS color classes for customizing your theme.
 | [Background Color](/docs/background-color)           | Controls the background color of an element.     |
 | [Border Color](/docs/border-color)                   | Controls the color of the borders of an element. |
 | [Caret Color](/docs/caret-color)                     | Controls the text input cursor color.            |
+| [Fill Color](/docs/fill)                             | Controls the filling of SVG elements.            |
 | [Outline Color](/docs/outline-color)                 | Controls the color of the outline of an element. |
+| [Stroke Color](/docs/stroke)                         | Controls the color of SVG elements.              |
 | [Text Color](/docs/text-color)                       | Controls the text color of an element.           |
 | [Text Decoration Color](/docs/text-decoration-color) | Controls the color of the text decoration.       |
 
@@ -140,8 +142,8 @@ Use responsive breakpoints such as `sm:*`, `md:*`, `lg:*`, `xl:*` and `xxl:*` to
 
 <Decorator icon="width">Try changing the size of the preview area to see how the text changes.</Decorator>
 
-```html live "sm:d-b" "md:d-b" "lg:d-b" "xl:d-b" "xxl:d-b" layout="/src/layouts/wide.astro"
-<div class="bg-l-indigo-6 p-4 rad-1 ta-c tc-lead">
+```html live "sm:d-b" "md:d-b" "lg:d-b" "xl:d-b" "xxl:d-b" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1 ta-c tc-lead">
   <p class="bg-white d-b p-4 rad-1 sm:d-none">This is a small screen.</p>
   <p class="bg-white d-none md:d-none p-4 rad-1 sm:d-b">This is a medium screen.</p>
   <p class="bg-white d-none lg:d-none md:d-b p-4 rad-1">This is a large screen.</p>
@@ -170,6 +172,6 @@ To illustrate, when overriding an existing utility class conditionally, ensure t
 
 <Decorator icon="cursor_arrow">Try moving the mouse over the button to see how the background color changes.</Decorator>
 
-```html live "h:bg-d-indigo-2"
-<button class="b-0 bg-indigo fw-600 h:bg-d-indigo-2 px-5 py-1 rad-1 tc-white c-p">Subscribe</button>
+```html live "h:bg-indigo-8"
+<button class="b-0 bg-indigo fw-600 h:bg-indigo-8 px-5 py-1 rad-1 tc-white c-p">Subscribe</button>
 ```

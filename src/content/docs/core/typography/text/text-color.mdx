@@ -1,45 +1,25 @@
 ---
 title: Text Color
 banner:
-  content: Sunsetting  <a href=https://www.yummacss.com/blog/sunsetting-intellisense>Yumma CSS Intellisense</a> extension 👋
+  content: <a href=https://www.yummacss.com/blog/yummacss-3.0>Yumma CSS v3.0 is finally live</a> 🎉
 description: Controls the text color of an element.
 slug: docs/text-color
 ---
 
-<Color
-  classPrefix="tc-"
-  propNames={["color"]}
-  data={[
-    { color: "red", value: "#d73d3d" },
-    { color: "orange", value: "#e06814" },
-    { color: "yellow", value: "#d3a107" },
-    { color: "green", value: "#1fb155" },
-    { color: "teal", value: "#12a695" },
-    { color: "cyan", value: "#05a4bf" },
-    { color: "blue", value: "#3575dd" },
-    { color: "indigo", value: "#595cd9" },
-    { color: "violet", value: "#7d53dd" },
-    { color: "pink", value: "#d4418a" },
-    { color: "gray", value: "#606773" },
-    { color: "lead", value: "#3f3f4e" },
-    { color: "silver", value: "#bfc2c7" },
-  ]}
-/>
+<Class name="text-color" />
 
 This example showcases various text colors using the **indigo** color palette:
 
-- The **tc-l-indigo-4** utility applies a lighter indigo shade.
+- The **tc-indigo-3** utility applies a lighter indigo shade.
 - The **tc-indigo** utility applies the base indigo shade.
-- The **tc-d-indigo-2** utility applies a darker indigo shade.
+- The **tc-indigo-8** utility applies a darker indigo shade.
 
-<Decorator icon="input">Try writing a sentence to see the caret color.</Decorator>
-
-```html live "tc-l-indigo-4" "tc-indigo" "tc-d-indigo-2" layout="/src/layouts/wide.astro"
-<div class="bg-l-indigo-6 p-4 rad-1">
+```html live "tc-indigo-3" "tc-indigo" "tc-indigo-8" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
   <div class="bg-white d-g p-4 rad-1 rg-4">
-    <p class="ta-c tc-l-indigo-4">The quick brown fox jumps over the lazy dog.</p>
-    <p class="ta-c tc-indigo">The quick brown fox jumps over the lazy dog.</p>
-    <p class="ta-c tc-d-indigo-2">The quick brown fox jumps over the lazy dog.</p>
+    <p class="ta-c tc-indigo-3">Sphinx of black quartz, judge my vow.</p>
+    <p class="ta-c tc-indigo">Sphinx of black quartz, judge my vow.</p>
+    <p class="ta-c tc-indigo-8">Sphinx of black quartz, judge my vow.</p>
   </div>
 </div>
 ```

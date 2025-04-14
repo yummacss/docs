@@ -1,39 +1,12 @@
 ---
 title: Box Shadow
 banner:
-  content: Sunsetting  <a href=https://www.yummacss.com/blog/sunsetting-intellisense>Yumma CSS Intellisense</a> extension 👋
+  content: <a href=https://www.yummacss.com/blog/yummacss-3.0>Yumma CSS v3.0 is finally live</a> 🎉
 description: Controls the box shadow of an element.
 slug: docs/box-shadow
 ---
 
-<Utility
-  data={[
-    {
-      className: "bs-none",
-      properties: ["box-shadow: none;"],
-    },
-    {
-      className: "bs-xs",
-      properties: ["box-shadow: 1px 3px 5px -3px rgba(0,0,0,0.1);"],
-    },
-    {
-      className: "bs-sm",
-      properties: ["box-shadow: 1px 3px 5px -2px rgba(0,0,0,0.1);"],
-    },
-    {
-      className: "bs-md",
-      properties: ["box-shadow: 1px 3px 5px -1px rgba(0,0,0,0.1);"],
-    },
-    {
-      className: "bs-lg",
-      properties: ["box-shadow: 1px 3px 5px 1px rgba(0,0,0,0.1);"],
-    },
-    {
-      className: "bs-xl",
-      properties: ["box-shadow: 1px 3px 5px 2px rgba(0,0,0,0.1);"],
-    },
-  ]}
-/>
+<Class name="box-shadow" />
 
 This example showcases various box-shadow values: **xs**, **sm**, **md**, and **lg**.
 
@@ -47,10 +20,10 @@ This example showcases various box-shadow values: **xs**, **sm**, **md**, and **
 
 ```html live "bs-xs" "bs-sm" "bs-md" "bs-lg" layout="/src/layouts/lightOnly.astro"
 <div class="d-g g-16 gtc-1 sm:gtc-4">
-  <div class="ai-c bg-white bs-xs d-f dim-18 jc-c rad-1">xs</div>
-  <div class="ai-c bg-white bs-sm d-f dim-18 jc-c rad-1">sm</div>
-  <div class="ai-c bg-white bs-md d-f dim-18 jc-c rad-1">md</div>
-  <div class="ai-c bg-white bs-lg d-f dim-18 jc-c rad-1">lg</div>
+  <div class="ai-c bg-white bs-xs d-f d-18 jc-c rad-1">xs</div>
+  <div class="ai-c bg-white bs-sm d-f d-18 jc-c rad-1">sm</div>
+  <div class="ai-c bg-white bs-md d-f d-18 jc-c rad-1">md</div>
+  <div class="ai-c bg-white bs-lg d-f d-18 jc-c rad-1">lg</div>
 </div>
 ```
 

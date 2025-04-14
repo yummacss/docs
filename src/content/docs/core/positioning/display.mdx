@@ -1,65 +1,18 @@
 ---
 title: Display
 banner:
-  content: Sunsetting  <a href=https://www.yummacss.com/blog/sunsetting-intellisense>Yumma CSS Intellisense</a> extension 👋
+  content: <a href=https://www.yummacss.com/blog/yummacss-3.0>Yumma CSS v3.0 is finally live</a> 🎉
 description: Controls the display box type of an element.
 slug: docs/display
 ---
 
-<Utility
-  data={[
-    {
-      className: "d-b",
-      properties: ["display: block;"],
-    },
-    {
-      className: "d-f",
-      properties: ["display: flex;"],
-    },
-    {
-      className: "d-fr",
-      properties: ["display: flow-root;"],
-    },
-    {
-      className: "d-g",
-      properties: ["display: grid;"],
-    },
-    {
-      className: "d-i",
-      properties: ["display: inline;"],
-    },
-    {
-      className: "d-ib",
-      properties: ["display: inline-block;"],
-    },
-    {
-      className: "d-if",
-      properties: ["display: inline-flex;"],
-    },
-    {
-      className: "d-ig",
-      properties: ["display: inline-grid;"],
-    },
-    {
-      className: "d-it",
-      properties: ["display: inline-table;"],
-    },
-    {
-      className: "d-t",
-      properties: ["display: table;"],
-    },
-    {
-      className: "d-none",
-      properties: ["display: none;"],
-    },
-  ]}
-/>
+<Class name="display" />
 
 ## Block
 
 This example sets the display to **block**. The **d-b** utility makes the element a block-level element, causing it to take up the full width available and start on a new line.
 
-```html live "d-b" layout="/src/layouts/wide.astro"
+```html live "d-b" layout="/src/layouts/inline.astro"
 <div class="d-b ta-c tc-white">
   <div class="bg-indigo mt-4 p-4 rad-1">A</div>
   <div class="bg-indigo mt-4 p-4 rad-1">B</div>
@@ -71,11 +24,11 @@ This example sets the display to **block**. The **d-b** utility makes the elemen
 
 This example sets the display to **flex**. The **d-f** utility makes the element a flex container, enabling the use of flexbox layout properties for its children.
 
-```html live "d-f" layout="/src/layouts/wide.astro"
+```html live "d-f" layout="/src/layouts/inline.astro"
 <div class="d-f g-4 ta-c tc-white">
-  <div class="ai-c bg-indigo d-b d-g dim-14 jc-c p-4 rad-1">A</div>
-  <div class="ai-c bg-indigo d-b d-g dim-14 jc-c p-4 rad-1">B</div>
-  <div class="ai-c bg-indigo d-b d-g dim-14 jc-c p-4 rad-1">C</div>
+  <div class="ai-c bg-indigo d-b d-g d-14 jc-c p-4 rad-1">A</div>
+  <div class="ai-c bg-indigo d-b d-g d-14 jc-c p-4 rad-1">B</div>
+  <div class="ai-c bg-indigo d-b d-g d-14 jc-c p-4 rad-1">C</div>
 </div>
 ```
 
@@ -83,9 +36,9 @@ This example sets the display to **flex**. The **d-f** utility makes the element
 
 This example sets the display to **flow-root**. The **d-fr** utility creates a new block formatting context, allowing for better control of floated children.
 
-```html live "d-fr" layout="/src/layouts/wide.astro"
+```html live "d-fr" layout="/src/layouts/inline.astro"
 <div class="d-fr ta-c tc-white">
-  <div class="ai-c bg-indigo d-f dim-18 flo-l jc-c p-a rad-1 zi-10">A</div>
+  <div class="ai-c bg-indigo d-f d-18 flo-l jc-c p-a rad-1 zi-10">A</div>
   <div class="h-18"></div>
 </div>
 ```
@@ -94,7 +47,7 @@ This example sets the display to **flow-root**. The **d-fr** utility creates a n
 
 This example sets the display to **grid**. The **d-g** utility makes the element a grid container, enabling the use of grid layout properties for its children.
 
-```html live "d-g" layout="/src/layouts/wide.astro"
+```html live "d-g" layout="/src/layouts/inline.astro"
 <div class="d-g g-4 gtc-2 ta-c tc-white">
   <div class="bg-indigo p-4 rad-1">A</div>
   <div class="bg-indigo p-4 rad-1">B</div>
@@ -106,17 +59,17 @@ This example sets the display to **grid**. The **d-g** utility makes the element
 
 This example sets the display to **inline**. The **d-i** utility makes the element an inline element, allowing it to sit within a line of text without breaking the flow.
 
-```html live "d-i" layout="/src/layouts/wide.astro"
-<div class="bg-indigo d-i p-4 rad-1">A</div>
-<div class="bg-indigo d-i p-4 rad-1">B</div>
-<div class="bg-indigo d-i p-4 rad-1">C</div>
+```html live "d-i" layout="/src/layouts/inline.astro"
+<div class="bg-indigo d-i p-4 rad-1 tc-white">A</div>
+<div class="bg-indigo d-i p-4 rad-1 tc-white">B</div>
+<div class="bg-indigo d-i p-4 rad-1 tc-white">C</div>
 ```
 
 ## Inline Flex
 
 This example sets the display to **inline-flex**. The **d-if** utility makes the element an inline flex container, allowing it to sit within a line of text while enabling flexbox layout properties for its children.
 
-```html live "d-if" layout="/src/layouts/wide.astro"
+```html live "d-if" layout="/src/layouts/inline.astro"
 <div class="d-if g-4 ta-c tc-white">
   <div class="bg-indigo d-ib p-4 rad-1 w-32">A</div>
   <div class="bg-indigo d-ib p-4 rad-1 w-32">B</div>
@@ -128,7 +81,7 @@ This example sets the display to **inline-flex**. The **d-if** utility makes the
 
 This example sets the display to **inline-block**. The **d-ib** utility makes the element an inline-block element, allowing it to sit within a line of text while also respecting width and height properties.
 
-```html live "d-ib" layout="/src/layouts/wide.astro"
+```html live "d-ib" layout="/src/layouts/inline.astro"
 <div class="ta-c tc-white">
   <span class="bg-indigo d-ib ml-4 p-4 rad-1 w-32">A</span>
   <span class="bg-indigo d-ib ml-4 p-4 rad-1 w-32">B</span>
@@ -152,23 +105,23 @@ This example sets the display to **inline-grid**. The **d-ig** utility makes the
 
 This example sets the display to **inline-table**. The **d-it** utility makes the element an inline table, allowing it to sit within a line of text while behaving like a table element.
 
-```html live "d-it" layout="/src/layouts/wide.astro"
-<p class="fw-600 ta-c">We're working on this example.</p>
+```html "d-it" layout="/src/layouts/inline.astro"
+<div class="d-it ..."></div>
 ```
 
 ## Table
 
 This example sets the display to **table**. The **d-t** utility makes the element a block-level table, allowing it to contain table rows and cells.
 
-```html live "d-t" layout="/src/layouts/wide.astro"
-<p class="fw-600 ta-c">We're working on this example.</p>
+```html "d-t" layout="/src/layouts/inline.astro"
+<div class="d-t ..."></div>
 ```
 
 ## None
 
 This example sets the display to **none**. The **d-none** utility hides the element, preventing it from being displayed in the layout.
 
-```html live "d-none" layout="/src/layouts/wide.astro"
+```html live "d-none" layout="/src/layouts/inline.astro"
 <div class="d-g rg-4 ta-c tc-white">
   <div class="bg-indigo d-none p-4 rad-1">A</div>
   <div class="bg-indigo p-4 rad-1">B</div>

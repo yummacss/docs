@@ -5,10 +5,10 @@ const { title, description } = Astro.props.entry.data;
 ---
 
 <Fragment>
-  <h1 id="_top">{title}</h1>
+  <h1 style="color: light-dark(var(--sl-color-text), var(--sl-color-white));" id="_top">{title}</h1>
   {
     description && (
-      <p class="description lh-4 mt-2" style="color: var(--sl-color-text);">
+      <p class="lh-4 mt-2" style="color: var(--sl-color-text);">
         {description}
       </p>
     )

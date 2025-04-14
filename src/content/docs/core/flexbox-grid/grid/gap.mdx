@@ -1,23 +1,22 @@
 ---
 title: Gap
 banner:
-  content: Sunsetting  <a href=https://www.yummacss.com/blog/sunsetting-intellisense>Yumma CSS Intellisense</a> extension 👋
+  content: <a href=https://www.yummacss.com/blog/yummacss-3.0>Yumma CSS v3.0 is finally live</a> 🎉
 description: Controls gaps between grid and flexbox elements.
 slug: docs/gap
 ---
 
-<Utility classPrefix="g-" incrementValue={0.25} propNames={["gap"]} range={16} unit="rem" />
+<Class name="gap" />
 
 This example sets the gap to **2.5rem**. The element will have uniform spacing of **2.5rem** between its rows and columns.
 
-```html live "g-10" layout="/src/layouts/wide.astro"
+```html live "g-10" layout="/src/layouts/inline.astro"
 <div class="g-10 d-g gtc-3 stripes tc-white">
   <div class="ai-c bg-indigo d-f jc-c p-4 rad-1">A</div>
   <div class="ai-c bg-indigo d-f jc-c p-4 rad-1">B</div>
   <div class="ai-c bg-indigo d-f jc-c p-4 rad-1">C</div>
   <div class="ai-c bg-indigo d-f jc-c p-4 rad-1">D</div>
   <div class="ai-c bg-indigo d-f jc-c p-4 rad-1">E</div>
-  <div class="ai-c bg-indigo d-f jc-c p-4 rad-1">F</div>
 </div>
 ```
 

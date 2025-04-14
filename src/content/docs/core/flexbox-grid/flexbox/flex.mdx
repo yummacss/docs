@@ -1,23 +1,12 @@
 ---
 title: Flex
 banner:
-  content: Sunsetting  <a href=https://www.yummacss.com/blog/sunsetting-intellisense>Yumma CSS Intellisense</a> extension 👋
+  content: <a href=https://www.yummacss.com/blog/yummacss-3.0>Yumma CSS v3.0 is finally live</a> 🎉
 description: Controls how flex elements grow and shrink.
 slug: docs/flex
 ---
 
-<Utility
-  additionalClasses={[
-    { name: "auto", value: "1 1 auto" },
-    { name: "none", value: "none" },
-  ]}
-  classPrefix="f-"
-  excludeZero
-  incrementName="%i %i 0%"
-  incrementValue={1}
-  propNames={["flex"]}
-  range={8}
-/>
+<Class name="flex" />
 
 This example showcases various flex values: **none**, **1 1 0%**, and **1 1 auto**.
 
@@ -25,7 +14,7 @@ This example showcases various flex values: **none**, **1 1 0%**, and **1 1 auto
 - The **f-1** utility sets the flex property to **1 1 0%**, allowing the item to grow and shrink equally with a base size of **0**.
 - Finally, **f-auto** utility sets the flex property to **1 1 auto**, allowing the item to grow and shrink with a base size determined by its content.
 
-```html live "f-none" "f-1" "f-auto" layout="/src/layouts/wide.astro"
+```html live "f-none" "f-1" "f-auto" layout="/src/layouts/inline.astro"
 <div class="stripes tc-white">
   <div class="d-f g-4 h-24 w-full">
     <div class="ai-c bg-indigo d-f f-none jc-c p-4 rad-1">A</div>

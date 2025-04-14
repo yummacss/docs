@@ -1,8 +1,3 @@
-@import "../styles/landing.css";
-@import "../styles/live.css";
-@import "@fontsource-variable/plus-jakarta-sans";
-@import "/node_modules/yummacss/dist/yumma-core.min.css";
-
 /* Light mode */
 :root[data-theme="light"] {
   --purple-hsl: 242, 85%, 65%;
@@ -19,6 +14,8 @@
   --sl-color-gray-7: #f4f6fd;
   --sl-color-gray-8: #fcfcfe;
   --sl-color-white: #151724;
+
+  --hero-pattern-image: url("/image/light-pattern.png");
 }
 
 /* Dark mode */
@@ -36,6 +33,24 @@
   --sl-color-gray-5: #323652;
   --sl-color-gray-6: #21243f;
   --sl-color-white: #ffffff;
+
+  --hero-pattern-image: url("/image/dark-pattern.png");
+}
+
+/* Theme */
+
+*,
+*::before,
+*::after {
+  border: 0 solid;
+}
+
+.bg-primary {
+  background-color: light-dark(var(--sl-color-accent), var(--sl-color-accent-high));
+}
+
+.tc-primary {
+  color: light-dark(var(--sl-color-accent), var(--sl-color-accent-high));
 }
 
 .sl-link-button {
@@ -47,7 +62,7 @@
 }
 
 body {
-  font-family: "Plus Jakarta Sans Variable", sans-serif;
+  font-family: "Outfit Variable", sans-serif;
 }
 
 h2 {
@@ -77,4 +92,24 @@ strong {
 table {
   width: 100%;
   display: inline-table !important;
+}
+
+/* Code Blocks */
+
+.container {
+  background: light-dark(var(--sl-color-gray-8), var(--sl-color-gray-6));
+  border-bottom: none;
+  border: 1px solid light-dark(var(--sl-color-gray-6), var(--ec-brdCol));
+  overflow-x: auto;
+}
+
+.stripes {
+  background-image: repeating-linear-gradient(
+    45deg,
+    light-dark(var(--sl-color-gray-5), var(--sl-color-gray-5)) 0,
+    #bdc1d3 1px,
+    light-dark(var(--sl-color-black), var(--sl-color-gray-6)) 0,
+    light-dark(var(--sl-color-black), var(--sl-color-gray-6)) 50%
+  );
+  background-size: 10px 10px;
 }

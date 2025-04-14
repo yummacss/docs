@@ -1,7 +1,7 @@
 ---
 title: Bottom / Left / Right / Top
 banner:
-  content: Sunsetting  <a href=https://www.yummacss.com/blog/sunsetting-intellisense>Yumma CSS Intellisense</a> extension 👋
+  content: <a href=https://www.yummacss.com/blog/yummacss-3.0>Yumma CSS v3.0 is finally live</a> 🎉
 description: Controls placement of positioned elements.
 slug: docs/bottom-left-right-top
 ---
@@ -10,12 +10,12 @@ slug: docs/bottom-left-right-top
 
 Controls the bottom placement of positioned elements.
 
-<Utility additionalClasses={[{ name: "none", value: "none" }]} classPrefix="dir-b-" incrementValue={0.25} propNames={["bottom"]} range={16} />
+<Class name="bottom" />
 
-```html live "dir-b-0"
-<div class="d-18 p-r sm:dim-32 tc-white">
-  <div class="dir-i-0 p-a rad-1 stripes"></div>
-  <div class="ai-c bg-indigo d-f dir-b-0 dir-l-0 dir-r-0 h-16 jc-c p-4 p-a rad-1">A</div>
+```html live "bo-0"
+<div class="p-r d-18 rad-2 sm:d-32 tc-white">
+  <div class="p-a i-0 stripes rad-2 bo-1"></div>
+  <div class="p-a bo-0 l-0 d-f d-16 ai-c jc-c rad-2 bg-indigo p-4">A</div>
 </div>
 ```
 
@@ -23,12 +23,38 @@ Controls the bottom placement of positioned elements.
 
 Controls the placement of positioned elements in all directions.
 
-<Utility additionalClasses={[{ name: "none", value: "none" }]} classPrefix="dir-i-" incrementValue={0.25} propNames={["inset"]} range={16} />
+<Class name="inset" />
 
-```html live "dir-i-0"
-<div class="d-18 p-r sm:dim-32 tc-white">
-  <div class="bg-indigo-1 dir-i-0 p-a rad-1"></div>
-  <div class="ai-c bg-indigo d-f dim-32 dir-b-0 dir-r-0 jc-c p-4 p-a rad-1">A</div>
+```html live "i-0"
+<div class="p-r d-18 rad-2 sm:d-32 tc-white">
+  <div class="p-a i-0 stripes rad-2 bo-1"></div>
+  <div class="p-a i-0 d-f ai-c jc-c rad-2 bg-indigo p-4">A</div>
+</div>
+```
+
+## Inset X
+
+Controls the placement of positioned elements in the horizontal direction.
+
+<Class name="inset-x" />
+
+```html live "ix-0"
+<div class="p-r d-18 rad-2 sm:d-32 tc-white">
+  <div class="p-a i-0 stripes rad-2 bo-1"></div>
+  <div class="p-a t-0 ix-0 d-f h-16 ai-c jc-c rad-2 bg-indigo p-4">A</div>
+</div>
+```
+
+## Inset Y
+
+Controls the placement of positioned elements in the vertical direction.
+
+<Class name="inset-y" />
+
+```html live "iy-0"
+<div class="p-r d-18 rad-2 sm:d-32 tc-white">
+  <div class="p-a i-0 stripes rad-2 bo-1"></div>
+  <div class="p-a iy-0 l-0 d-f w-16 ai-c jc-c rad-2 bg-indigo p-4">A</div>
 </div>
 ```
 
@@ -36,12 +62,12 @@ Controls the placement of positioned elements in all directions.
 
 Controls the **left** placement of positioned elements.
 
-<Utility additionalClasses={[{ name: "none", value: "none" }]} classPrefix="dir-l-" incrementValue={0.25} propNames={["left"]} range={16} />
+<Class name="left" />
 
-```html live "dir-l-0"
-<div class="d-18 p-r rad-1 sm:dim-32 tc-white">
-  <div class="dir-i-0 p-a rad-1 stripes"></div>
-  <div class="ai-c bg-indigo d-f dir-b-0 dir-l-0 dir-t-0 jc-c p-4 p-a rad-1 w-16">A</div>
+```html live "l-0"
+<div class="p-r d-18 rad-2 sm:d-32 tc-white">
+  <div class="p-a i-0 stripes rad-2 bo-1"></div>
+  <div class="p-a t-0 l-0 d-f d-16 ai-c jc-c rad-2 bg-indigo p-4">A</div>
 </div>
 ```
 
@@ -49,12 +75,12 @@ Controls the **left** placement of positioned elements.
 
 Controls the **right** placement of positioned elements.
 
-<Utility additionalClasses={[{ name: "none", value: "none" }]} classPrefix="dir-r-" incrementValue={0.25} propNames={["right"]} range={16} />
+<Class name="right" />
 
-```html live "dir-r-0"
-<div class="d-18 p-r rad-1 sm:dim-32 tc-white">
-  <div class="dir-i-0 p-a rad-1 stripes"></div>
-  <div class="ai-c bg-indigo d-f dir-b-0 dir-r-0 dir-t-0 jc-c p-4 p-a rad-1 w-16">A</div>
+```html live "r-0"
+<div class="p-r d-18 rad-2 sm:d-32 tc-white">
+  <div class="p-a i-0 stripes rad-2 bo-1"></div>
+  <div class="p-a bo-0 r-0 d-f d-16 ai-c jc-c rad-2 bg-indigo p-4">A</div>
 </div>
 ```
 
@@ -62,22 +88,22 @@ Controls the **right** placement of positioned elements.
 
 Controls the **top** placement of positioned elements.
 
-<Utility additionalClasses={[{ name: "none", value: "none" }]} classPrefix="dir-t-" incrementValue={0.25} propNames={["top"]} range={16} />
+<Class name="top" />
 
-```html live "dir-t-0"
-<div class="d-18 p-r sm:dim-32 tc-white">
-  <div class="dir-i-0 p-a rad-1 stripes"></div>
-  <div class="ai-c bg-indigo d-f dir-l-0 dir-r-0 dir-t-0 h-16 jc-c p-4 p-a rad-1">A</div>
+```html live "t-0"
+<div class="p-r d-18 rad-2 sm:d-32 tc-white">
+  <div class="p-a i-0 stripes rad-2 bo-1"></div>
+  <div class="p-a t-0 r-0 d-f d-16 ai-c jc-c rad-2 bg-indigo p-4">A</div>
 </div>
 ```
 
 ## Conditional styles
 
 <Modifier
-  utility="dir-1"
-  prefixUtil="dir"
+  utility="l-0"
+  prefixUtil="l"
   modifiers={{
-    hoverMod: "dir-2",
-    responsiveMod: "dir-2",
+    hoverMod: "r-0",
+    responsiveMod: "r-0",
   }}
 />

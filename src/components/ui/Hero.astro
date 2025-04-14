@@ -1,0 +1,70 @@
+---
+import ArrowRight from "./icons/ArrowRight.astro";
+import Copy from "./icons/Copy.astro";
+---
+
+<div class="p-r d-f fd-c ai-c jc-c o-h">
+  <div class="mx-auto w-full max-w-320 px-4 py-10 sm:px-6 lg:px-8 d-f fd-c ai-c jc-c" style="max-width: 80rem;">
+    <div class="mx-auto ta-c" style="max-width: 42rem;">
+      <div class="d-f fd-c ai-c jc-c">
+        <img class="d-28 my-4" src="https://www.yummacss.com/_astro/logo.wODc3qtE_Z1Ylpkm.webp" alt="Yumma CSS Logo" />
+        <h1 class="d-b fs-4xl fw-700 md:fs-5xl lg:fs-6xl ta-c lh-2" style="color: light-dark(#34357e, #e0e7ff);">
+          Build your next design system
+          <span class="tc-indigo" style="color: light-dark(#595cd9, #7073de);"> faster</span>
+        </h1>
+      </div>
+    </div>
+    <div class="mx-auto mt-5 ta-c" style="max-width: 42rem;">
+      <p class="fs-lg" style="color: light-dark(#34357e, #e0e7ff);">
+        Yumma CSS works by scanning your project files to generate and clean up any unused styles, keeping your code as small as possible — no bloat at all!
+      </p>
+
+      <div class="mt-8 d-f g-3 jc-c">
+        <a class="h-12 g-2 rad-2 bg-indigo-6 tc-white h:bg-indigo-7 px-4 py-3 d-if ai-c tdl-none" href="/docs/installation">
+          Get started
+          <ArrowRight class="d-4" />
+        </a>
+
+        <button
+          class="h-12 g-2 rad-2 b-1 bc-indigo-3 pl-3 pr-2 fs-sm tc-indigo-8 h:bg-indigo-1 h:tc-indigo-10 d-if ai-c c-p"
+          style="background-color: light-dark(#fff, #21243f); border-color: light-dark(#b6b7ee, #323652); color: light-dark(#34357e, #c7d2fe);">
+          $ npm i yummacss
+          <span class="d-f d-7 ai-c jc-c rad-1 tc-indigo-6" style="color: light-dark(#34357e, #c7d2fe); background-color: light-dark(#c7d2fe, #34358f);">
+            <Copy class="d-4" />
+          </span>
+        </button>
+      </div>
+
+      <div class="mt-5 d-f fd-c ai-c g-2 sm:fd-r sm:g-3 jc-c">
+        <span class="fs-sm tc-indigo-6" style="color: light-dark(#7073de, #e0e7ff);">Current version:</span>
+        <span class="fs-sm fw-700" style="color: light-dark(#34358f, #c7d2fe);">v3.0</span>
+        <span class="d-none tc-indigo-4 sm:d-b">|</span>
+        <a class="d-if ai-c cg-1 fs-sm fw-500 tdt-2 h:tdl-u" style="color: light-dark(#7073de, #c7d2fe);" href="/blog/yummacss-3.0">
+          What's new in v3.0?
+          <ArrowRight class="d-4" />
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style is:global>
+  [data-has-hero] .page {
+    background-image: var(--hero-pattern-image);
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  [data-has-hero] header {
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+    background-color: transparent;
+    border-bottom: 1px solid transparent;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    [data-has-hero] .page {
+      background-image: url("/image/dark-pattern.png");
+    }
+  }
+</style>

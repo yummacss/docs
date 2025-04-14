@@ -1,47 +1,20 @@
 ---
 title: Line Height
 banner:
-  content: Sunsetting  <a href=https://www.yummacss.com/blog/sunsetting-intellisense>Yumma CSS Intellisense</a> extension 👋
+  content: <a href=https://www.yummacss.com/blog/yummacss-3.0>Yumma CSS v3.0 is finally live</a> 🎉
 description: Controls the line height of an element.
 slug: docs/line-height
 ---
 
-<Utility
-  data={[
-    {
-      className: "lh-1",
-      properties: ["line-height: 1;"],
-    },
-    {
-      className: "lh-2",
-      properties: ["line-height: 1.25;"],
-    },
-    {
-      className: "lh-3",
-      properties: ["line-height: 1.375;"],
-    },
-    {
-      className: "lh-4",
-      properties: ["line-height: 1.5;"],
-    },
-    {
-      className: "lh-5",
-      properties: ["line-height: 1.625;"],
-    },
-    {
-      className: "lh-6",
-      properties: ["line-height: 2;"],
-    },
-  ]}
-/>
+<Class name="line-height" />
 
 ## 1
 
 This example sets the line height to **1**. The line height is equal to the font size, resulting in single spacing between lines.
 
-```html live "lh-1" layout="/src/layouts/wide.astro"
-<div class="bg-l-indigo-6 p-4 rad-1">
-  <p class="bg-white fs-sm lh-1 p-4 rad-1 ta-c tc-lead">The pike eats the owl and then lazes in the sun under the water. Who would eat a big pike?</p>
+```html live "lh-1" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <p class="bg-white fs-lg lh-1 p-4 rad-1 ta-c tc-lead">The pike eats the owl and then lazes in the sun under the water. Who would eat a big pike?</p>
 </div>
 ```
 
@@ -49,9 +22,9 @@ This example sets the line height to **1**. The line height is equal to the font
 
 This example sets the line height to **1.25**. The line height is 1.25 times the font size, providing a bit of extra space between lines for improved readability.
 
-```html live "lh-2" layout="/src/layouts/wide.astro"
-<div class="bg-l-indigo-6 p-4 rad-1">
-  <p class="bg-white fs-sm lh-2 p-4 rad-1 ta-c tc-lead">The pike eats the owl and then lazes in the sun under the water. Who would eat a big pike?</p>
+```html live "lh-2" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <p class="bg-white fs-lg lh-2 p-4 rad-1 ta-c tc-lead">The pike eats the owl and then lazes in the sun under the water. Who would eat a big pike?</p>
 </div>
 ```
 
@@ -59,9 +32,9 @@ This example sets the line height to **1.25**. The line height is 1.25 times the
 
 This example sets the line height to **1.375**. The line height is 1.375 times the font size, offering a comfortable amount of spacing between lines.
 
-```html live "lh-3" layout="/src/layouts/wide.astro"
-<div class="bg-l-indigo-6 p-4 rad-1">
-  <p class="bg-white fs-sm lh-3 p-4 rad-1 ta-c tc-lead">The pike eats the owl and then lazes in the sun under the water. Who would eat a big pike?</p>
+```html live "lh-3" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <p class="bg-white fs-lg lh-3 p-4 rad-1 ta-c tc-lead">The pike eats the owl and then lazes in the sun under the water. Who would eat a big pike?</p>
 </div>
 ```
 
@@ -69,9 +42,9 @@ This example sets the line height to **1.375**. The line height is 1.375 times t
 
 This example sets the line height to **1.5**. The line height is 1.5 times the font size, which is commonly used for body text to enhance readability.
 
-```html live "lh-4" layout="/src/layouts/wide.astro"
-<div class="bg-l-indigo-6 p-4 rad-1">
-  <p class="bg-white fs-sm lh-4 p-4 rad-1 ta-c tc-lead">The pike eats the owl and then lazes in the sun under the water. Who would eat a big pike?</p>
+```html live "lh-4" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <p class="bg-white fs-lg lh-4 p-4 rad-1 ta-c tc-lead">The pike eats the owl and then lazes in the sun under the water. Who would eat a big pike?</p>
 </div>
 ```
 
@@ -79,9 +52,9 @@ This example sets the line height to **1.5**. The line height is 1.5 times the f
 
 This example sets the line height to **1.625**. The line height is 1.625 times the font size, providing a more spacious feel for the text.
 
-```html live "lh-5" layout="/src/layouts/wide.astro"
-<div class="bg-l-indigo-6 p-4 rad-1">
-  <p class="bg-white fs-sm lh-5 p-4 rad-1 ta-c tc-lead">The pike eats the owl and then lazes in the sun under the water. Who would eat a big pike?</p>
+```html live "lh-5" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <p class="bg-white fs-lg lh-5 p-4 rad-1 ta-c tc-lead">The pike eats the owl and then lazes in the sun under the water. Who would eat a big pike?</p>
 </div>
 ```
 
@@ -89,9 +62,9 @@ This example sets the line height to **1.625**. The line height is 1.625 times t
 
 This example sets the line height to **2**. The line height is double the font size, creating a very open and airy layout for the text.
 
-```html live "lh-6" layout="/src/layouts/wide.astro"
-<div class="bg-l-indigo-6 p-4 rad-1">
-  <p class="bg-white fs-sm lh-6 p-4 rad-1 ta-c tc-lead">The pike eats the owl and then lazes in the sun under the water. Who would eat a big pike?</p>
+```html live "lh-6" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <p class="bg-white fs-lg lh-6 p-4 rad-1 ta-c tc-lead">The pike eats the owl and then lazes in the sun under the water. Who would eat a big pike?</p>
 </div>
 ```
 

@@ -1,37 +1,18 @@
 ---
 title: Flex Direction
 banner:
-  content: Sunsetting  <a href=https://www.yummacss.com/blog/sunsetting-intellisense>Yumma CSS Intellisense</a> extension 👋
+  content: <a href=https://www.yummacss.com/blog/yummacss-3.0>Yumma CSS v3.0 is finally live</a> 🎉
 description: Controls the direction of flex elements.
 slug: docs/flex-direction
 ---
 
-<Utility
-  data={[
-    {
-      className: "fd-c",
-      properties: ["flex-direction: column;"],
-    },
-    {
-      className: "fd-cr",
-      properties: ["flex-direction: column-reverse;"],
-    },
-    {
-      className: "fd-r",
-      properties: ["flex-direction: row;"],
-    },
-    {
-      className: "fd-rr",
-      properties: ["flex-direction: row-reverse;"],
-    },
-  ]}
-/>
+<Class name="flex-direction" />
 
 ## Column
 
 This example sets the flex direction to **column**. The items will be arranged vertically in a single column.
 
-```html live "fd-c" layout="/src/layouts/wide.astro"
+```html live "fd-c" layout="/src/layouts/inline.astro"
 <div class="d-f fd-c rg-4 tc-white">
   <div class="bg-indigo ta-c p-4 rad-1">A</div>
   <div class="bg-indigo ta-c p-4 rad-1">B</div>
@@ -43,7 +24,7 @@ This example sets the flex direction to **column**. The items will be arranged v
 
 This example sets the flex direction to **column-reverse**. The items will be arranged vertically in a single column, but in reverse order.
 
-```html live "fd-cr" layout="/src/layouts/wide.astro"
+```html live "fd-cr" layout="/src/layouts/inline.astro"
 <div class="d-f fd-cr rg-4 tc-white">
   <div class="bg-indigo ta-c p-4 rad-1">A</div>
   <div class="bg-indigo ta-c p-4 rad-1">B</div>
@@ -55,11 +36,11 @@ This example sets the flex direction to **column-reverse**. The items will be ar
 
 This example sets the flex direction to **row**. The items will be arranged horizontally in a single row.
 
-```html live "fd-r" layout="/src/layouts/wide.astro"
+```html live "fd-r" layout="/src/layouts/inline.astro"
 <div class="d-f fd-r cg-4 tc-white">
-  <div class="dim-16 bg-indigo ta-c p-4 rad-1">A</div>
-  <div class="dim-16 bg-indigo ta-c p-4 rad-1">B</div>
-  <div class="dim-16 bg-indigo ta-c p-4 rad-1">C</div>
+  <div class="d-16 bg-indigo ta-c p-4 rad-1">A</div>
+  <div class="d-16 bg-indigo ta-c p-4 rad-1">B</div>
+  <div class="d-16 bg-indigo ta-c p-4 rad-1">C</div>
 </div>
 ```
 
@@ -67,11 +48,11 @@ This example sets the flex direction to **row**. The items will be arranged hori
 
 This example sets the flex direction to **row-reverse**. The items will be arranged horizontally in a single row, but in reverse order.
 
-```html live "fd-rr" layout="/src/layouts/wide.astro"
+```html live "fd-rr" layout="/src/layouts/inline.astro"
 <div class="d-f fd-rr cg-4 tc-white">
-  <div class="dim-16 bg-indigo ta-c p-4 rad-1">A</div>
-  <div class="dim-16 bg-indigo ta-c p-4 rad-1">B</div>
-  <div class="dim-16 bg-indigo ta-c p-4 rad-1">C</div>
+  <div class="d-16 bg-indigo ta-c p-4 rad-1">A</div>
+  <div class="d-16 bg-indigo ta-c p-4 rad-1">B</div>
+  <div class="d-16 bg-indigo ta-c p-4 rad-1">C</div>
 </div>
 ```
 
