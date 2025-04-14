@@ -25,12 +25,12 @@
     "starlight-package-managers": "^0.10.0",
     "starlight-showcases": "^0.3.0",
     "tinycolor2": "^1.6.0",
-    "typescript": "^5.7.3",
-    "yummacss": "v3.0.0"
+    "typescript": "^5.7.3"
   },
   "devDependencies": {
     "@types/js-beautify": "^1.14.3",
-    "@types/tinycolor2": "^1.4.6"
+    "@types/tinycolor2": "^1.4.6",
+    "yummacss": "^3.0.0"
   },
   "keywords": [
     "css-framework",

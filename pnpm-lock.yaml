@@ -62,9 +62,6 @@ importers:
       typescript:
         specifier: ^5.7.3
         version: 5.7.3
-      yummacss:
-        specifier: v3.0.0
-        version: 3.0.0
     devDependencies:
       '@types/js-beautify':
         specifier: ^1.14.3
@@ -72,6 +69,9 @@ importers:
       '@types/tinycolor2':
         specifier: ^1.4.6
         version: 1.4.6
+      yummacss:
+        specifier: ^3.0.0
+        version: 3.0.0
 
 packages:
 
