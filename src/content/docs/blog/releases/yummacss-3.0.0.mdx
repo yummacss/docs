@@ -15,14 +15,14 @@ After almost six months of hard work, we're super excited to share all of the ne
 
 This is the biggest release of Yumma CSS, and we can't wait for you to try it out!
 
-<ShowcaseYouTube
-  entries={[
-    {
-      href: "https://youtu.be/eqTIFRGqp9o",
-      title: "What's new in Yumma CSS v3.0?",
-    },
-  ]}
-/>
+<iframe
+  allowfullscreen
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  class="ar-16/9 rad-1 w-full"
+  frameborder="0"
+  referrerpolicy="strict-origin-when-cross-origin"
+  src="https://www.youtube-nocookie.com/embed/eqTIFRGqp9o?si=XoT9rd2OwI0GPyHu"
+  title="What's new in Yumma CSS v3.0?"></iframe>
 
 You may also want to take a look at some of the [release notes](https://github.com/yumma-lib/yumma-css/releases/tag/v3.0.0) but, anyway, these are the most noticeable shifts:
 
@@ -279,10 +279,8 @@ The full set of utilities will be retained within the distribution folder for th
 In v3, both the light (`l-`) and dark (`d-`) characters are being removed across all color utilities. As a result, the range used to determine a color's shade was also adjusted.
 
 <div class="p-4">
-```diff lang="html" title="index.html"
-- <button class="bg-l-indigo-6 h:bg-d-indigo-1">Hello</button>
-+ <button class="bg-indigo-1 h:bg-indigo-7">Hello</button>
-```
+  ```diff lang="html" title="index.html" - <button class="bg-l-indigo-6 h:bg-d-indigo-1">Hello</button>+ <button class="bg-indigo-1 h:bg-indigo-7">Hello</button>
+  ```
 </div>
 
 See what the `bg-*` background utility looks like compared to v2.1
