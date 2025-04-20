@@ -921,7 +921,7 @@
   background-color: #40429c;
 }
 
-.bg-indigo-9 {
+.bg-indigo-9, .h\:bg-indigo-9:hover {
   background-color: #34357e;
 }
 
