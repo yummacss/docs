@@ -47,7 +47,7 @@ const generateShades = (color: string): string[] => {
       const shades = generateShades(colorItem.color);
       return (
         <div class="d-g g-1 ai-c md:gtc-14 md:f-none d-f fd-c md:d-g">
-          <div class="fs-sm ws-nw md:fs-sm ta-c fs-md">{colorItem.name}</div>
+          <div class="fs-sm ws-nw md:wm-htb md:fs-sm ta-c fs-md ws-n">{colorItem.name}</div>
           {shades.map((shade) => (
             <div class="h-12 md:h-10 w-full" style={{ backgroundColor: shade }} onclick={`navigator.clipboard.writeText('${shade}')`} />
           ))}
@@ -56,3 +56,16 @@ const generateShades = (color: string): string[] => {
     })
   }
 </div>
+
+<!-- TODO - yummacss@v3.1 -->
+<style>
+  @media (width >= 48rem) {
+    .md\:wm-htb {
+      writing-mode: vertical-lr;
+    }
+  }
+
+  .wm-htb {
+    writing-mode: horizontal-tb;
+  }
+</style>
