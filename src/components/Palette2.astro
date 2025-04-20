@@ -33,7 +33,7 @@ const generateShades = (color: string): string[] => {
 ---
 
 <div class="d-f fd-c">
-  <div class="d-g fs-xs shadeNumbers ta-c">
+  <div class="d-none md:d-g fs-xs ta-c gtc-14">
     <div></div>
     {Array.from({ length: 13 }, (_, i) => <div>{i === 6 ? "Base" : i < 6 ? 6 - i : i - 6}</div>)}
   </div>
@@ -42,60 +42,13 @@ const generateShades = (color: string): string[] => {
     data.map((colorItem) => {
       const shades = generateShades(colorItem.color);
       return (
-        <div class="ai-c colorRow d-g g-1">
-          <div class="colorName">{colorItem.name}</div>
+        <div class="d-g g-1 ai-c md:gtc-14 md:f-none d-f fd-c md:d-g">
+          <div class="fs-sm ws-nw md:fs-sm ta-c fs-md ws-n">{colorItem.name}</div>
           {shades.map((shade) => (
-            <div class="colorSwatch h-10 w-full" style={`background-color: ${shade}`} title={shade} onclick={`navigator.clipboard.writeText('${shade}')`} />
+            <div class="h-12 md:h-10 w-full" style={{ backgroundColor: shade }} title={shade} onclick={`navigator.clipboard.writeText('${shade}')`} />
           ))}
         </div>
       );
     })
   }
 </div>
-
-<style>
-  .shadeNumbers {
-    grid-template-columns: 40px repeat(13, 1fr);
-  }
-
-  .colorRow {
-    grid-template-columns: 40px repeat(13, 1fr);
-  }
-
-  .colorName {
-    writing-mode: vertical-lr;
-    font-size: 0.875rem;
-    white-space: nowrap;
-  }
-
-  .colorSwatch {
-    border: 2px solid transparent;
-  }
-
-  .colorSwatch:hover {
-    border-color: light-dark(#202020, #fafafa);
-  }
-
-  @media (max-width: 768px) {
-    .shadeNumbers {
-      display: none;
-    }
-
-    .colorRow {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    .colorName {
-      writing-mode: horizontal-tb;
-      text-align: center;
-      font-size: 1rem;
-    }
-
-    .colorSwatch {
-      width: 100%;
-      height: 50px;
-    }
-  }
-</style>
