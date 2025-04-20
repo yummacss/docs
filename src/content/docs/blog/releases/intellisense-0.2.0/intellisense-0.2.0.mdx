@@ -1,13 +1,13 @@
 ---
 authors: Renildo
-date: 2024-12-08
-excerpt: We've got a quick update for you today on the Yumma CSS Play website. It's a small but really useful quality-of-life improvement.
+date: 2024-11-04
+excerpt: We're excited to announce the release of Yumma CSS Intellisense v0.2.0! You'll now be able to use hover providers for media queries and pseudo classes.
 pagefind: false
-slug: blog/playground-0.1.0
-title: Yumma CSS Play 0.1.0
+slug: blog/intellisense-0.2.0
+title: Yumma CSS Intellisense 0.2.0
 ---
 
-We've got a quick update for you today on the Yumma CSS Play website. It's a small but really useful quality-of-life improvement.
+We're excited to announce the release of Yumma CSS Intellisense v0.2.0! You'll now be able to use hover providers for media queries and pseudo classes.
 
 <iframe
   allowfullscreen
@@ -15,24 +15,29 @@ We've got a quick update for you today on the Yumma CSS Play website. It's a sma
   class="ar-16/9 rad-1 w-full"
   frameborder="0"
   referrerpolicy="strict-origin-when-cross-origin"
-  src="https://www.youtube.com/embed/IoFSJtqo9No?si=0WlpscTmqMmvPtf0"
-  title="What's new in Yumma CSS Play 0.1.0?"></iframe>
+  src="https://www.youtube.com/embed/n0tSAaHZTiw?si=AwWogjY861eJCqlt"
+  title="What's new in Yumma CSS Intellisense 0.2.0?"></iframe>
 
-You may also want to take a look at some of the [release notes](https://github.com/yumma-lib/yumma-css-play/releases/tag/v0.1.0) but, anyway, these are the most noticeable shifts:
+You may also want to take a look at some of the [release notes](https://github.com/yumma-lib/yumma-css-intellisense/releases/tag/v0.2.0) but, anyway, these are the most noticeable shifts:
 
-- [Utility Completions](#utility-completions): Access helpful completions while typing.
+- [Media Queries](#media-queries): Add hover provider support to `sm:*`, `md:*`, `lg:*` and `xxl:*` variants
+- [Pseudo Classes](#pseudo-classes): Add hover provider support to `h:*` variants
 
 This is an incremental update that may contain bug fixes. Minor releases follow [semantic versioning](https://docs.npmjs.com/about-semantic-versioning) conventions. In other words, this should be an easy update for you.
 
 ---
 
-- **Utility Completions:** Access helpful completions while typing.
+## Media queries
 
-## Utility Completions
+If you hover over a media query utility variant, you'll see the utility class properties.
 
-As you type, you'll see suggestions for CSS properties.
+![Yumma CSS Intellisense - Media Query Hover](yummacss-intellisense-breakpoint-hover.png)
 
-![Yumma CSS Play - Utility Completions](../guides/images/yummacss-playground.png)
+## Pseudo classes
+
+The same goes for pseudo class utility variants like `h:*`.
+
+![Yumma CSS Intellisense - Pseudo Class Hover](yummacss-intellisense-pseudo-hover.png)
 
 ## Community
 
