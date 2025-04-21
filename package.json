@@ -41,7 +41,7 @@
   ],
   "scripts": {
     "astro": "astro",
-    "build": "astro check && astro build",
+    "build": "astro check && astro build && yummacss build",
     "dev": "astro dev",
     "preview": "astro preview",
     "start": "astro dev"
