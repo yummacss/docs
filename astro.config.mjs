@@ -68,23 +68,7 @@ export default defineConfig({
         {
           tag: "link",
           attrs: {
-            href: "/favicon-16x16.png",
-            rel: "icon",
-            sizes: "16x16",
-          },
-        },
-        {
-          tag: "link",
-          attrs: {
-            href: "/favicon-32x32.png",
-            rel: "icon",
-            sizes: "32x32",
-          },
-        },
-        {
-          tag: "link",
-          attrs: {
-            href: "/apple-touch-icon.png",
+            href: "/favicon/apple-touch-icon.png",
             rel: "apple-touch-icon",
             sizes: "180x180",
           },
@@ -92,7 +76,16 @@ export default defineConfig({
         {
           tag: "link",
           attrs: {
-            href: "/android-chrome-192x192.png",
+            rel: "icon",
+            href: "/favicon/favicon-96x96.png",
+            sizes: "96x96",
+            type: "icon",
+          },
+        },
+        {
+          tag: "link",
+          attrs: {
+            href: "/favicon/web-app-manifest-192x192.png",
             rel: "icon",
             sizes: "192x192",
           },
@@ -100,7 +93,7 @@ export default defineConfig({
         {
           tag: "link",
           attrs: {
-            href: "/android-chrome-512x512.png",
+            href: "/favicon/web-app-manifest-512x512.png",
             rel: "icon",
             sizes: "512x512",
           },
