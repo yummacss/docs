@@ -65,12 +65,19 @@ export default defineConfig({
         github: "https://github.com/yumma-lib/yumma-css",
       },
       head: [
+        // {
+        //   tag: "link",
+        //   attrs: {
+        //     rel: "icon",
+        //     href: "/favicon.ico",
+        //   },
+        // },
         {
           tag: "link",
           attrs: {
-            href: "/favicon/apple-touch-icon.png",
-            rel: "apple-touch-icon",
-            sizes: "180x180",
+            rel: "icon",
+            type: "image/svg+xml",
+            href: "/favicon/favicon.svg",
           },
         },
         {
@@ -79,23 +86,47 @@ export default defineConfig({
             rel: "icon",
             href: "/favicon/favicon-96x96.png",
             sizes: "96x96",
-            type: "icon",
+            type: "image/png",
           },
         },
         {
           tag: "link",
           attrs: {
+            rel: "icon",
             href: "/favicon/web-app-manifest-192x192.png",
-            rel: "icon",
             sizes: "192x192",
+            type: "image/png",
           },
         },
         {
           tag: "link",
           attrs: {
-            href: "/favicon/web-app-manifest-512x512.png",
             rel: "icon",
+            href: "/favicon/web-app-manifest-512x512.png",
             sizes: "512x512",
+            type: "image/png",
+          },
+        },
+        {
+          tag: "link",
+          attrs: {
+            rel: "apple-touch-icon",
+            href: "/favicon/apple-touch-icon.png",
+            sizes: "180x180",
+          },
+        },
+        {
+          tag: "link",
+          attrs: {
+            rel: "manifest",
+            href: "/favicon/site.webmanifest",
+          },
+        },
+        {
+          tag: "meta",
+          attrs: {
+            name: "theme-color",
+            content: "#ffffff",
           },
         },
         {
