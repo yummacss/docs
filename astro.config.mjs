@@ -68,73 +68,9 @@ export default defineConfig({
         {
           tag: "link",
           attrs: {
-            rel: "icon",
-            href: "/favicon.ico",
-          },
-        },
-        {
-          tag: "link",
-          attrs: {
-            rel: "icon",
-            type: "image/png",
-            sizes: "16x16",
-            href: "/favicon/favicon-16x16.png",
-          },
-        },
-        {
-          tag: "link",
-          attrs: {
-            rel: "icon",
-            type: "image/png",
-            sizes: "32x32",
-            href: "/favicon/favicon-32x32.png",
-          },
-        },
-        {
-          tag: "link",
-          attrs: {
             rel: "apple-touch-icon",
             sizes: "180x180",
             href: "/favicon/apple-touch-icon.png",
-          },
-        },
-        {
-          tag: "link",
-          attrs: {
-            rel: "icon",
-            type: "image/png",
-            sizes: "192x192",
-            href: "/favicon/android-chrome-192x192.png",
-          },
-        },
-        {
-          tag: "link",
-          attrs: {
-            rel: "icon",
-            type: "image/png",
-            sizes: "512x512",
-            href: "/favicon/android-chrome-512x512.png",
-          },
-        },
-        {
-          tag: "link",
-          attrs: {
-            rel: "manifest",
-            href: "/favicon/site.webmanifest",
-          },
-        },
-        {
-          tag: "meta",
-          attrs: {
-            name: "apple-mobile-web-app-title",
-            content: "Yumma CSS",
-          },
-        },
-        {
-          tag: "meta",
-          attrs: {
-            name: "theme-color",
-            content: "#ffffff",
           },
         },
         {
