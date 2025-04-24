@@ -15,7 +15,7 @@
   --sl-color-gray-8: #fcfcfe;
   --sl-color-white: #151724;
 
-  --hero-pattern-image: url("/public/images/light-pattern.png");
+  --hero-pattern-image: url("/images/light-pattern.png");
 }
 
 /* Dark mode */
@@ -34,7 +34,7 @@
   --sl-color-gray-6: #21243f;
   --sl-color-white: #ffffff;
 
-  --hero-pattern-image: url("/public/images/dark-pattern.png");
+  --hero-pattern-image: url("/images/dark-pattern.png");
 }
 
 @media (min-width: 50rem) {
