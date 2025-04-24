@@ -1,9 +1,9 @@
 <div align="center">
   <a href="https://yummacss.com" target="_blank" target="_blank" rel="noopener noreferrer">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://www.yummacss.com/trademark/logo-dark.png">
-      <source media="(prefers-color-scheme: light)" srcset="https://www.yummacss.com/trademark/logo-light.png">
-      <img alt="Yumma CSS" src="https://www.yummacss.com/trademark/logo-light.png" width="220" style="max-width: 100%;">
+      <source media="(prefers-color-scheme: dark)" srcset="https://yummacss.com/assets/dark-logotype.png">
+      <source media="(prefers-color-scheme: light)" srcset="https://yummacss.com/assets/light-logotype.png">
+      <img alt="Yumma CSS" src="https://yummacss.com/assets/light-logotype.png" width="220" style="max-width: 100%;">
     </picture>
   </a>
 </div>
@@ -19,14 +19,14 @@
 Join the Yumma CSS community! Share your experiences and help Yumma CSS grow and be the best it can be.
 
 - Follow [@yummacss on X (Twitter)](https://x.com/yummacss)
-- Subscribe to [@yummacss on YouTube](https://www.youtube.com/@yummacss)
+- Subscribe to [@yummacss on YouTube](https://youtube.com/@yummacss)
 - Join discussions on [`#yummacss` Discord](https://discord.gg/Zd2y6yVqgK)
 
 ## Built with
 
 - [Gulp](https://gulpjs.com/) — A toolkit to automate & enhance your workflow.
 - [SCSS](https://sass-lang.com/documentation/syntax/) — CSS with superpowers.
-- [Typescript](https://www.typescriptlang.org/) — A superset of JavaScript.
+- [Typescript](https://typescriptlang.org/) — A superset of JavaScript.
 
 ## Licensing
 
