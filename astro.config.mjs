@@ -110,11 +110,11 @@ export default defineConfig({
     "/docs/build-css": "/docs/first-steps#building-styles",
     "/docs/colors": "/docs/first-steps#color-palette",
     "/docs/colours": "/docs/first-steps#color-palette",
-    "/docs/modifiers": "/docs/first-steps#breakpoints-modifiers",
-    "/docs/spacing": "/docs/spacing-between",
     "/docs/direction": "/docs/bottom-left-right-top",
-    "/docs/utilities": "/docs/build-css",
+    "/docs/modifiers": "/docs/first-steps#breakpoints-modifiers",
     "/docs/next": "/blog/yummacss-3.0",
+    "/docs/utilities": "/docs/build-css",
+    "/ui": "/docs/components",
 
     // Blog redirects
     "/blog/v3": "/blog/yummacss-3.0",
