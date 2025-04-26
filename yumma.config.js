@@ -8,6 +8,6 @@ export default {
   output: "./src/styles/yumma.css",
   buildOptions: {
     reset: false,
-    minify: false,
+    minify: true,
   },
 };
