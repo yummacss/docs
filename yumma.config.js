@@ -8,6 +8,6 @@ export default {
   output: "./src/styles/yumma.css",
   buildOptions: {
     reset: false,
-    minify: true,
+    minify: process.env.VERCEL_ENV === "production",
   },
 };
