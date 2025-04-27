@@ -114,7 +114,7 @@ export default defineConfig({
     "/docs/modifiers": "/docs/first-steps#breakpoints-modifiers",
     "/docs/next": "/blog/yummacss-3.0",
     "/docs/utilities": "/docs/build-css",
-    "/ui": "/docs/components",
+    "/ui": "/components",
 
     // Blog redirects
     "/blog/v3": "/blog/yummacss-3.0",
