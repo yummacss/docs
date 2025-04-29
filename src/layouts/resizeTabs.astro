@@ -1,11 +1,12 @@
 ---
 import { Tabs, TabItem } from "@astrojs/starlight/components";
+import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
 ---
 
 <div class="not-content">
   <Tabs>
     <TabItem label="Preview">
-      <div class="container p-10">
+      <div class="ai-c container d-f jc-c p-10">
         <div>
           <slot name="example" />
         </div>
