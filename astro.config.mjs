@@ -14,13 +14,9 @@ export default defineConfig({
         replacesTitle: true,
       },
 
-      // prettier-ignore
-      customCss: [
-    "@fontsource-variable/outfit",
-    "/src/styles/custom.css",
-    "/src/styles/yumma.css",
-  ],
+      customCss: ["@fontsource-variable/outfit", "/src/styles/custom.css", "/src/styles/yumma.css"],
       components: {
+        Banner: "./src/components/ui/Banner.astro",
         Hero: "./src/components/ui/Index.astro",
         PageTitle: "./src/components/ui/PageTitle.astro",
       },
