@@ -8,9 +8,13 @@ slug: docs/stylecent
 
 ## Box sizing
 
-1.  Use a more intuitive box-sizing model to make the design consistent.
-2.  Remove default margin and padding.
-3.  Reset default border styles.
+Apply a modern box model and remove browser defaults to simplify layout consistency.
+
+<Steps>
+  1. **Use a more intuitive box-sizing model to make the design consistent.**
+  2. **Remove default margin and padding.**
+  3. **Reset default border styles.**
+</Steps>
 
 ```scss title="_stylecent.scss"
 *,
@@ -28,9 +32,13 @@ slug: docs/stylecent
 
 ## Document
 
-1. Improve font smoothing.
-2. Set a default system font.
-3. Add accessible line-height.
+Improve font rendering and readability with base styles for the `<body>`.
+
+<Steps>
+  1. **Improve font smoothing.**
+  2. **Set a default system font.**
+  3. **Add accessible line-height.**
+</Steps>
 
 ```scss title="_stylecent.scss"
 body {
@@ -42,8 +50,12 @@ body {
 
 ## Media Elements
 
-- 1.  Ensure all media elements like images, videos, and canvases are block-level.
-- 2.  Limit their maximum width to the parent container.
+Ensure responsive images and videos behave predictably in all layouts.
+
+<Steps>
+  1. **Ensure all media elements like images, videos, and canvases are block-level.**
+  2. **Limit their maximum width to the parent container.**
+</Steps>
 
 ```scss title="_stylecent.scss"
 canvas,
@@ -58,9 +70,13 @@ video {
 
 ## Form Elements
 
-- 1.  Reset background and border styles for form elements.
-- 2.  Use `inherit` to ensure font consistency within forms.
-- 3.  Add default padding for usability.
+Normalize form controls for visual consistency and better accessibility.
+
+<Steps>
+  1. **Reset background and border styles for form elements.**
+  2. **Use `inherit` to ensure font consistency within forms.**
+  3. **Add default padding for usability.**
+</Steps>
 
 ```scss title="_stylecent.scss"
 button,
@@ -119,7 +135,9 @@ button {
 
 Disabled States
 
-1. Reduce opacity and set a "not-allowed" cursor for disabled elements.
+<Steps>
+  1. **Reduce opacity and set a "not-allowed" cursor for disabled elements.**
+</Steps>
 
 ```scss title="_stylecent.scss"
 button:disabled,
@@ -133,9 +151,13 @@ textarea:disabled {
 
 ## Typography
 
-- 1.  Avoid text overflows.
-- 2.  Improve line wrapping for headings.
-- 3.  Add a consistent font weight for bold text.
+Enhance text rendering, wrapping, and default font behavior across browsers.
+
+<Steps>
+  1. **Avoid text overflows.**
+  2. **Improve line wrapping for headings.**
+  3. **Add a consistent font weight for bold text.**
+</Steps>
 
 ```scss title="_stylecent.scss"
 h1,
@@ -182,8 +204,10 @@ small {
 }
 ```
 
-1. Correct the inheritance and scaling of font size in all browsers.
-2. Correct the odd `em` font sizing in all browsers.
+<Steps>
+  1. **Correct the inheritance and scaling of font size in all browsers.**
+  2. **Correct the odd `em` font sizing in all browsers.**
+</Steps>
 
 ```scss title="_stylecent.scss"
 pre,
@@ -195,8 +219,8 @@ samp {
 }
 ```
 
-1. Remove underline styling from links by default.
-2. Reset color to inherit from parent element.
+1. **Remove underline styling from links by default.**
+2. **Reset color to inherit from parent element.**
 
 ```scss title="_stylecent.scss"
 a {
@@ -207,7 +231,7 @@ a {
 
 ## Lists
 
-Remove default list styling and padding.
+Remove default list styles for a cleaner and more customizable base.
 
 ```scss title="_stylecent.scss"
 ol,
@@ -219,7 +243,11 @@ ul {
 
 ## Tables
 
-1. Add a consistent font weight for bold text.
+Standardize table header styling for better readability.
+
+<Steps>
+  1. **Add a consistent font weight for bold text.**
+</Steps>
 
 ```scss title="_stylecent.scss"
 th {
@@ -230,9 +258,13 @@ th {
 
 ## Miscellaneous
 
-1. Add the correct height in Firefox.
-2. Correct text decoration.
-3. Add spacing around horizontal rules.
+Fix minor browser quirks and improve default styles for common elements.
+
+<Steps>
+  1. **Add the correct height in Firefox.**
+  2. **Correct text decoration.**
+  3. **Add spacing around horizontal rules.**
+</Steps>
 
 ```scss title="_stylecent.scss"
 hr {
