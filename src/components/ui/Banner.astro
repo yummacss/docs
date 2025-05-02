@@ -15,21 +15,6 @@ const { banner } = Astro.props.entry.data;
 }
 
 <style>
-  @layer starlight.core {
-    .sl-banner {
-      --__sl-banner-text: var(--sl-color-banner-text, var(--sl-color-text-invert));
-      padding: var(--sl-nav-pad-y) var(--sl-nav-pad-x);
-      background-color: var(--sl-color-banner-bg, var(--sl-color-bg-accent));
-      color: var(--__sl-banner-text);
-      line-height: var(--sl-line-height-headings);
-      text-align: center;
-      text-wrap: balance;
-      box-shadow: var(--sl-shadow-sm);
-    }
-    .sl-banner :global(a) {
-      color: var(--__sl-banner-text);
-    }
-
     body {
       background-color: #151724;
     }
@@ -38,7 +23,7 @@ const { banner } = Astro.props.entry.data;
       z-index: -1;
     }
 
-    @keyframes fd-moving-banner {
+    @keyframes moving-banner {
       0% {
         background-position: 0% 0;
       }
@@ -50,7 +35,7 @@ const { banner } = Astro.props.entry.data;
     #rainbow.rainbow {
       mask-image: linear-gradient(to bottom, white, transparent), radial-gradient(circle at top center, white, transparent);
       mask-composite: intersect;
-      animation: fd-moving-banner 16s linear infinite;
+      animation: moving-banner 16s linear infinite;
       --start: rgba(243, 10, 138);
       --mid: rgba(208, 175, 97);
       --end: rgba(2, 163, 232);
