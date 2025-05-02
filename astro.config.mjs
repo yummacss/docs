@@ -77,7 +77,7 @@ export default defineConfig({
           },
         },
       ],
-      sidebar: config.sidebar, // from astro.sidebar.ts
+      sidebar: config.sidebar,
     }),
     config.AutoImport({
       imports: [
