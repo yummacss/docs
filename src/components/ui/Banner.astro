@@ -7,7 +7,9 @@ const { banner } = Astro.props.entry.data;
     <div class="p-st t-0 zi-0 d-f fd-r ai-c jc-c px-4 ta-c fs-sm fw-500 h-12">
       <div class="rainbow p-a i-0 n:zi-1" id="rainbow" />
       <div class="p-a i-0 n:zi-1" />
-      <p class="tc-white">Yumma CSS v3.0 is finally live 🎉</p>
+      <a href="/blog/v3" class="td-none" style="color: var(--sl-color-text);">
+        {banner.content}
+      </a>
     </div>
   )
 }
