@@ -284,6 +284,11 @@
   height: 1.75rem;
 }
 
+.d-12 {
+  width: 3rem;
+  height: 3rem;
+}
+
 .d-14 {
   width: 3.5rem;
   height: 3.5rem;
@@ -785,6 +790,10 @@
 
 .w-10 {
   width: 2.5rem;
+}
+
+.w-12 {
+  width: 3rem;
 }
 
 .w-16 {
