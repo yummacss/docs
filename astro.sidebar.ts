@@ -5,10 +5,9 @@ export const sidebar = [
     label: "Get Started",
     items: [
       { label: "Installation", link: "docs/installation" },
-      { label: "Playground", link: "https://play.yummacss.com" },
       { label: "First Steps", link: "docs/first-steps" },
-      { label: "Configuration", link: "docs/configuration" },
       { label: "Resources", link: "/resources" },
+      { label: "Playground", link: "https://play.yummacss.com" },
     ],
   },
   {
@@ -86,4 +85,4 @@ export const sidebar = [
       },
     ],
   },
-] satisfies StarlightUserConfig["sidebar"];
+];
