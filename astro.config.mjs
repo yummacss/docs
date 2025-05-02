@@ -101,7 +101,11 @@ export default defineConfig({
   ],
 
   redirects: {
-    // Docs redirects
+    "/blog/v0": "/blog/yummacss-0.1",
+    "/blog/v1": "/blog/yummacss-1.1",
+    "/blog/v2": "/blog/yummacss-2.1",
+    "/blog/v3": "/blog/yummacss-3.0",
+
     "/docs": "/docs/installation",
     "/docs/build-css": "/docs/first-steps#building-styles",
     "/docs/colors": "/docs/first-steps#color-palette",
@@ -111,12 +115,6 @@ export default defineConfig({
     "/docs/next": "/blog/yummacss-3.0",
     "/docs/utilities": "/docs/build-css",
     "/ui": "/components",
-
-    // Blog redirects
-    "/blog/v3": "/blog/yummacss-3.0",
-    "/blog/v2": "/blog/yummacss-2.1",
-    "/blog/v1": "/blog/yummacss-1.1",
-    "/blog/v0": "/blog/yummacss-0.1",
   },
 
   devToolbar: {
