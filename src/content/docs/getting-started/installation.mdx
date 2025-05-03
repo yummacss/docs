@@ -12,115 +12,82 @@ Install Yumma CSS and integrate it with your favorite frameworks, such as [React
 
 <Tabs>
   <TabItem label="Yumma CLI" icon="forward-slash">
-    <Steps>
-      1. **Install Yumma CSS**
 
-          Add `yummacss` to your project.
-
-          <PackageManagers pkg="yummacss -D" title="Installing dependencies..." />
-
-          <br />
-
-      2. **Set up configuration**
-
-          Include the paths to all source files in [`yumma.config.js`](/docs/first-steps#configuration-options) file.
-
-          ```js title="yumma.config.js" mark={2-3}
-          module.exports = {
-            source: ["./src/**/*.html"],
-            output: "./src/styles.css",
-          };
-          ```
-
-      3. **Build styles**
-
-          Run the `watch` command to generate styles in your CSS file.
-
-          <PackageManagers type="exec" pkg="yummacss" args="watch" title="Building styles..." />
-    </Steps>
+    <ShowcaseText
+      entries={[
+        {
+          title: "Angular",
+          description: "A scalable web app framework.",
+          href: "guides/angular",
+        },
+        {
+          title: "Astro",
+          description: "Modern static site builder.",
+          href: "guides/astro",
+        },
+        {
+          title: "Next.js",
+          description: "An advanced React framework.",
+          href: "guides/nextjs",
+        },
+        {
+          title: "Nuxt.js",
+          description: "Powerful framework for Vue.js apps.",
+          href: "guides/nuxtjs",
+        },
+        {
+          title: "Qwik",
+          description: "Instantly-interactive web apps.",
+          href: "guides/qwik",
+        },
+        {
+          title: "Preact",
+          description: "Lightweight React alternative.",
+          href: "guides/preact",
+        },
+        {
+          title: "React",
+          description: "Library for interactive UIs.",
+          href: "guides/react",
+        },
+        {
+          title: "Solid.js",
+          description: "High-performance reactive UI.",
+          href: "guides/solidjs",
+        },
+        {
+          title: "Svelte",
+          description: "Compiles to optimized JavaScript.",
+          href: "guides/svelte",
+        },
+        {
+          title: "Vue",
+          description: "Progressive UI framework.",
+          href: "guides/vue",
+        },
+      ]}
+    />
 
   </TabItem>
 
-<TabItem label="Guides" icon="open-book">
-  <ShowcaseText
-    entries={[
-      {
-        title: "Angular",
-        description: "A scalable web app framework.",
-        href: "guides/angular",
-      },
-      {
-        title: "Astro",
-        description: "Modern static site builder.",
-        href: "guides/astro",
-      },
-      {
-        title: "Next.js",
-        description: "An advanced React framework.",
-        href: "guides/nextjs",
-      },
-      {
-        title: "Nuxt.js",
-        description: "Powerful framework for Vue.js apps.",
-        href: "guides/nuxtjs",
-      },
-      {
-        title: "Qwik",
-        description: "Instantly-interactive web apps.",
-        href: "guides/qwik",
-      },
-      {
-        title: "Preact",
-        description: "Lightweight React alternative.",
-        href: "guides/preact",
-      },
-      {
-        title: "React",
-        description: "Library for interactive UIs.",
-        href: "guides/react",
-      },
-      {
-        title: "Solid.js",
-        description: "High-performance reactive UI.",
-        href: "guides/solidjs",
-      },
-      {
-        title: "Svelte",
-        description: "Compiles to optimized JavaScript.",
-        href: "guides/svelte",
-      },
-      {
-        title: "Vue",
-        description: "Progressive UI framework.",
-        href: "guides/vue",
-      },
-    ]}
-  />
-</TabItem>
-
-  <TabItem label="CDN" icon="rocket">
+  <TabItem label="Test CDN" icon="rocket">
     <Steps>
       1. **Add the CDN to your main CSS file**
 
           ```css title="src/styles.css" mark={1}
-          @import url("https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@latest/dist/yumma.min.css");
+          @import url("https://unpkg.com/yummacss@v3/dist/yumma.min.css");
           ```
 
       2. **Done!**
 
           You're all set to start using Yumma CSS utility classes in your project.
 
-          ```html title="src/index.html" mark={5,8}
-          <html>
-            <head>
-              <meta charset="UTF-8" />
-              <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-              <link rel="stylesheet" href="/src/styles.css" />
-            </head>
-            <body>
-              <h1 class="fs-sm fw-700 ta-c tc-indigo">Yumma CSS 🤝 HTML</h1>
-            </body>
-          </html>
+          ```html title="src/index.html" mark={4}
+          <head>
+            <meta charset="UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <link rel="stylesheet" href="/src/styles.css" />
+          </head>
           ```
     </Steps>
 
