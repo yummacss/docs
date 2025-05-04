@@ -16,6 +16,7 @@
   --sl-color-white: #151724;
 
   --hero-pattern-image: url("/images/light-pattern.png");
+  --framework-card: linear-gradient(180deg, #ffffff 0%, #fcfcfe 100%);
 }
 
 /* Dark mode */
@@ -35,6 +36,7 @@
   --sl-color-white: #ffffff;
 
   --hero-pattern-image: url("/images/dark-pattern.png");
+  --framework-card: linear-gradient(180deg, #21243f 0%, #1a1d32 100%);
 }
 
 @media (min-width: 50rem) {

@@ -84,6 +84,7 @@ export default defineConfig({
         "/src/components/Class.astro",
         "/src/components/Color2.astro",
         "/src/components/Decorator.astro",
+        "/src/components/CardGroup.astro",
         "/src/components/Modifier.astro",
         "/src/components/Palette2.astro",
         "/src/components/Palette3.astro",
@@ -114,7 +115,7 @@ export default defineConfig({
     "/docs/modifiers": "/docs/first-steps#breakpoints-modifiers",
     "/docs/next": "/blog/yummacss-3.0",
     "/docs/utilities": "/docs/build-css",
-    
+
     "/ui": "/components",
   },
 
