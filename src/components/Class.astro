@@ -4,9 +4,20 @@ export interface Props {
 }
 
 let data = [];
+
 try {
-  const response = await fetch(`https://api.yummacss.com/api/styles/${Astro.props.name}`);
-  data = await response.json();
+  if (!Astro.props.name || typeof Astro.props.name !== "string") {
+    throw new Error("Invalid or missing 'name' property");
+  }
+
+  const url = encodeURIComponent(Astro.props.name);
+  const res = await fetch(`https://get.yummacss.com/api/${url}`);
+
+  if (!res.ok) {
+    throw new Error(`API responded with status ${res.status}`);
+  }
+
+  data = await res.json();
 } catch (err) {
   console.error("Failed to fetch data:", err);
 }
@@ -29,15 +40,13 @@ try {
                 <p class="fs-sm">{item.utility}</p>
               </td>
               <td>
-                <code class="prop" style="background-color: transparent !important;">
-                  {item.property.join(" ")}
-                </code>
+                <code>{item.property.join(" ")}</code>
               </td>
             </tr>
           ))
         ) : (
           <tr>
-            <td colspan="2">No data found</td>
+            <td colspan="2">No class found</td>
           </tr>
         )
       }
