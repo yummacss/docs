@@ -284,9 +284,9 @@
   height: 1.75rem;
 }
 
-.d-10 {
-  width: 2.5rem;
-  height: 2.5rem;
+.d-8 {
+  width: 2rem;
+  height: 2rem;
 }
 
 .d-12 {
@@ -572,6 +572,10 @@
 
 .mr-1 {
   margin-right: .25rem;
+}
+
+.mr-2 {
+  margin-right: .5rem;
 }
 
 .mr-8 {
