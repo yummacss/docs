@@ -7,52 +7,61 @@ next: false
 slug: /docs/first-steps
 ---
 
-## Initializing configuration file
+## Get started with Yumma CLI
 
-To create a new `yumma.config.js` file in your project, run the following command:
+Yumma CLI scans and compiles your template files into a single CSS file while eliminating dead styles, making your content load faster.
 
 <PackageManagers type="exec" pkg="yummacss" args="init" title="Installing dependencies..." />
 
-This command will create a new `yumma.config.js` file in the root of your project using [ESM](https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/).
+<Tabs>
+  <TabItem label="ES Modules">
+    For `esm` use the following configuration:
 
-<Decorator icon="info">If you're using export default, make sure `"type": "module"` is set in your `package.json`.</Decorator>
+    ```js title="yumma.config.js"
+    export default {
+      source: ["..."],
+      output: "...",
+      buildOptions: {
+        reset: true,
+        minify: false,
+      },
+    };
+    ```
 
-```js title="yumma.config.js"
-export default {
-  source: [""],
-  output: "",
-};
-```
+    Add the following to your `package.json` file:
 
-### Using CommonJS
+    ```json title="package.json"
+    {
+      "type": "module"
+    }
+    ```
 
-If your project does not use [ESM](https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/), you can use [CommonJS](https://nodejs.org/api/modules.html#modules-commonjs-modules) instead:
+  </TabItem>
 
-```js title="yumma.config.cjs"
-module.exports = {
-  source: [""],
-  output: "",
-};
-```
+  <TabItem label="CJS">
+    For `cjs` use the following configuration:
 
-## Configuration options
+    ```js title="yumma.config.js"
+    module.exports = {
+      source: ["..."],
+      output: "...",
+      buildOptions: {
+        reset: true,
+        minify: false,
+      },
+    };
+    ```
 
-The `yumma.config.js` file contains several options that you can use to configure the Yumma CSS CLI.
+  </TabItem>
+</Tabs>
 
-```js title="yumma.config.js"
-export default {
-  source: [""],
-  output: "",
-  buildOptions: {
-    reset: true, // default: true
-    minify: false, // default: false
-  },
-};
-```
+## Set up configuration file
+
+Suit your project needs by creating a `yumma.config.js` configuration file where you can set up the following options:
 
 ### `source`
 
-The source array is collection of paths for your project files. This lets the CLI find the Yumma CSS utilities.
+A collection of paths for your template files, such as `.js`, `.tsx`, or `.html` files. This is where the CLI will look for utility classes to include in the final CSS file.
 
 <Decorator icon="info">Use [glob patterns](https://code.visualstudio.com/docs/editor/glob-patterns#_glob-pattern-syntax) to include subfolders and specific file types.</Decorator>
 
@@ -64,7 +73,7 @@ export default {
 
 ### `output`
 
-The output option is a string that tells where the compiled CSS files should be saved.
+A string that specifies the output path for the compiled CSS file. This is where the CLI will save the final CSS file after processing your template files.
 
 ```js title="yumma.config.js"
 export default {
@@ -74,11 +83,9 @@ export default {
 
 ### `buildOptions.reset`
 
-The reset option is a boolean that determines whether the inclusion of the [Stylecent reset system](/docs/stylecent). By default, the reset system is included.
+A boolean that determines whether the inclusion of the [Stylecent reset system](/docs/stylecent).
 
-<Decorator icon="info">This is an optional feature.</Decorator>
-
-```js title="yumma.config.js"
+```js title="yumma.config.js" mark={3}
 export default {
   buildOptions: {
     reset: true, // default: true
@@ -88,11 +95,9 @@ export default {
 
 ### `buildOptions.minify`
 
-The minify option is a boolean that determines whether the compiled CSS files should be minified. By default, the files are not minified.
+A boolean that determines whether the compiled CSS files should or not be minified. This is useful for production builds where you want to reduce the file size for faster loading times.
 
-<Decorator icon="info">This is an optional feature.</Decorator>
-
-```js title="yumma.config.js"
+```js title="yumma.config.js" mark={3}
 export default {
   buildOptions: {
     minify: true, // default: false
@@ -100,32 +105,31 @@ export default {
 };
 ```
 
-## Building and watching
+## Building styles
 
 The Yumma CSS CLI provides several commands to help you work with your Yumma CSS files.
 
 <Decorator icon="info">
-  Make sure you have a [`yumma.config.js`](/docs/first-steps#initializing-configuration-file) file set up before running these commands. If you haven't, run `npx yummacss init`
-  first.
+  Make sure you have a [`yumma.config.js`](/docs/first-steps#get-started-with-yumma-cli) file set up before running these commands. If you haven't, run `npx yummacss init` first.
 </Decorator>
 
-### Build
+### Build command
 
 The `build` command will compile your Yumma CSS files once.
 
 <PackageManagers type="exec" pkg="yummacss" args="build" title="Terminal" />
 
-### Watch
+### Watch command
 
 The `watch` command will watch for changes in your Yumma CSS files and recompile them automatically.
 
 <PackageManagers type="exec" pkg="yummacss" args="watch" title="Terminal" />
 
-## Building styles
+## Styling pages
 
-Staying consistent with the cascade system is a real challenge. The amount of work you have to put in is almost overwhelming, to the point where it's hard to imagine how you'd keep up with it over time.
+Yumma CSS is a utility-first CSS framework that allows you to style your pages using utility classes. This means you can apply styles directly in your HTML, making it easy to create responsive designs without writing custom CSS.
 
-### Styling using cascade
+### Styling with cascade
 
 Here's an example of how you can style a button element using the cascade:
 
@@ -152,7 +156,7 @@ Here's an example of how you can style a button element using the cascade:
 <button class="button">Subscribe</button>
 ```
 
-### Styling using Yumma CSS
+### Styling with Yumma CSS
 
 Yumma CSS is a pretty abstract framework that's closely aligned with Vanilla CSS. It uses an abbreviated naming convention, which keeps your inline-classes nice and short.
 
@@ -185,15 +189,11 @@ Here's a quick reference for the examples above.
 
 ---
 
-## Styling using colors
+## Color System
 
-Get a set of default colors from Yumma CSS right away. Use the light and dark shades of the utility class to get a specific color and customize your theme.
+Yumma CSS comes with a built-in color system that allows you to easily customize the colors of your elements.
 
-### Color shading
-
-For instance, if you want a lighter shade, use values from 1 to 6, and for a darker one, use 7 to 12.
-
-<Decorator icon="color_wheel">There aren't any shades for colors like `black`, `white`, or `transparent`.</Decorator>
+Here's an example of how to use the color system to style a button:
 
 ```html live "bg-indigo-4" "bg-indigo-9"
 <div class="d-g cg-4 gtc-2">
@@ -201,10 +201,6 @@ For instance, if you want a lighter shade, use values from 1 to 6, and for a dar
   <button class="b-0 bg-indigo-9 fw-600 px-5 py-1 rad-1 tc-white">Subscribe</button>
 </div>
 ```
-
-Here's the full spectrum color for the color Indigo.
-
-<Palette3 data={[{ name: "Indigo", color: "rgb(89, 92, 217)" }]} />
 
 ### Color palette
 
@@ -227,22 +223,6 @@ Here's a range of all the default colors from the Yumma CSS theme.
     { name: "Silver", color: "rgb(191, 194, 199)" },
   ]}
 />
-
-### Color utilities
-
-Here's a list of all the Yumma CSS color classes for customizing your theme.
-
-| Utility                                              | Description                                      |
-| ---------------------------------------------------- | ------------------------------------------------ |
-| [Accent Color](/docs/accent-color)                   | Controls form control accent color.              |
-| [Background Color](/docs/background-color)           | Controls the background color of an element.     |
-| [Border Color](/docs/border-color)                   | Controls the color of the borders of an element. |
-| [Caret Color](/docs/caret-color)                     | Controls the text input cursor color.            |
-| [Fill Color](/docs/fill)                             | Controls the filling of SVG elements.            |
-| [Outline Color](/docs/outline-color)                 | Controls the color of the outline of an element. |
-| [Stroke Color](/docs/stroke)                         | Controls the color of SVG elements.              |
-| [Text Color](/docs/text-color)                       | Controls the text color of an element.           |
-| [Text Decoration Color](/docs/text-decoration-color) | Controls the color of the text decoration.       |
 
 ---
 
@@ -288,4 +268,8 @@ To illustrate, when overriding an existing utility class conditionally, ensure t
 
 ```html live "h:bg-indigo-8"
 <button class="b-0 bg-indigo fw-600 h:bg-indigo-8 px-5 py-1 rad-1 tc-white c-p">Subscribe</button>
+```
+
+```
+
 ```
