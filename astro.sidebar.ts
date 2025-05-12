@@ -1,5 +1,3 @@
-import type { StarlightUserConfig } from "@astrojs/starlight/types";
-
 export const sidebar = [
   {
     label: "Get Started",
