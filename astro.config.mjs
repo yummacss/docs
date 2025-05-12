@@ -84,7 +84,7 @@ export default defineConfig({
         "/src/components/Class.astro",
         "/src/components/Color2.astro",
         "/src/components/Decorator.astro",
-        "/src/components/CardGroup.astro",
+        "/src/components/GuideCards.astro",
         "/src/components/Modifier.astro",
         "/src/components/Palette2.astro",
         "/src/components/Palette3.astro",
