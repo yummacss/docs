@@ -10,8 +10,8 @@ try {
     throw new Error("Invalid or missing 'name' property");
   }
 
-  const url = encodeURIComponent(Astro.props.name);
-  const res = await fetch(`https://get.yummacss.com/api/${url}`);
+  const slug = encodeURIComponent(Astro.props.name);
+  const res = await fetch(`https://get.yummacss.com/api/${slug}`);
 
   if (!res.ok) {
     throw new Error(`API responded with status ${res.status}`);
