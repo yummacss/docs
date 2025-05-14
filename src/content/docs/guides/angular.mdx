@@ -16,30 +16,45 @@ To create a new Angular project, you need to have the [Angular CLI](https://angu
 
         Install `yummacss` using a package manager.
 
-        <PackageManagers pkg="yummacss" title="Installing dependencies..." />
+        <PackageManagers pkg="yummacss -D" title="Installing dependencies..." />
 
         <br />
 
-    2. **Include** `yummacss` **in your main CSS file:**
+    2. **Initialize configuration**
 
-        In this case, we're importing the minified version of Yumma CSS.
+            Create a configuration file in your project.
 
-        ```css title="src/globals.css" mark={1}
-        @import "../node_modules/yummacss/dist/yumma.min.css";
+            <PackageManagers pkg="yummacss init" title="Terminal" type="dlx" />
+
+    3. **Set up configuration**
+
+        Specify the locations of all your project files in the config file.
+
+        ```js title="yumma.config.js" mark={2-3}
+        export default {
+            source: ["./src/**/*.{html,ts}"],
+            output: "./src/styles.css",
+            buildOptions: {
+                reset: true,
+                minify: false,
+            }
+        };
         ```
 
-    3. **Start development server**
+    4. **Build styles**
 
-        To see the changes, start the development server.
+        You can now start generating your CSS with the [`build`](/docs/first-steps#build-command) or [`watch`](/docs/first-steps#watch-command) command.
 
-        <PackageManagers type="run" args="start" title="Starting development server..." />
+        <PackageManagers pkg="yummacss build" title="Terminal" type="dlx" />
 
-    4. **Done!**
+    5. **Done!**
 
         You're all set to start using Yumma CSS utility classes in your project.
 
         ```html title="src/app/app.component.html" mark={1}
         <h1 class="fs-sm fw-700 ta-c tc-indigo">Yumma CSS 🤝 Angular</h1>
+
+        <router-outlet />
         ```
 
 </Steps>
