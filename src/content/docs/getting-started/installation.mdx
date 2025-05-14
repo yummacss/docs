@@ -34,12 +34,16 @@ How to install Yumma CSS in your project.
 
           ```js title="yumma.config.js" mark={2-3}
           export default {
-            source: ["./src/**/*.{ts,tsx}"], // Template files to scan for classes
-            output: "./src/styles.css", // Output CSS file after build
+            source: ["./src/**/*.{ts,tsx}"],
+            output: "./src/styles.css",
+            buildOptions: {
+              reset: true,
+              minify: false,
+            }
           };
           ```
 
-      4. **Done!**
+      4. **Build styles**
 
           You can now start generating your CSS with the [`build`](/docs/first-steps#build-command) or [`watch`](/docs/first-steps#watch-command) command.
 
