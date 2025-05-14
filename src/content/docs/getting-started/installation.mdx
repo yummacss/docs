@@ -30,12 +30,12 @@ How to install Yumma CSS in your project.
 
       3. **Set up configuration**
 
-          Add the following configuration to your `yumma.config.js` file.
+          Specify the locations of all your project files in the config file.
 
           ```js title="yumma.config.js" mark={2-3}
           export default {
-            source: ["./src/**/*.html"],
-            output: "./src/styles.css",
+            source: ["./src/**/*.html"], // Template files to scan for classes
+            output: "./src/styles.css", // Output CSS file after build
           };
           ```
 
