@@ -18,21 +18,32 @@ To create a new Next.js project, you need run the [create next app command](http
 
         <PackageManagers pkg="yummacss" title="Installing dependencies..." />
 
-    2. **Include** `yummacss` **in your main CSS file:**
+    2. **Initialize configuration**
 
-        In this case, we're importing the minified version of Yumma CSS.
+            Create a configuration file in your project.
 
-        ```css title="app/globals.css" mark={1}
-        @import "yummacss/dist/yumma.min.css";
+            <PackageManagers pkg="yummacss init" title="Terminal" type="dlx" />
+
+    3. **Set up configuration**
+
+        Specify the locations of all your project files in the config file.
+
+        ```js title="yumma.config.js" mark={2-3}
+        module.exports = {
+            source: ["./app/**/*.{ts,tsx}"],
+            output: "./app/globals.css",
+            buildOptions: {
+                reset: true,
+                minify: false,
+            }
+        };
         ```
 
-    3. **Start development server**
+    4. **Build styles**
 
-        Start your application using `npm run dev`.
+        You can now start generating your CSS with the [`build`](/docs/first-steps#build-command) or [`watch`](/docs/first-steps#watch-command) command.
 
-        <PackageManagers type="run" args="dev" title="Starting development server..." />
-
-        <br />
+        <PackageManagers pkg="yummacss build" title="Terminal" type="dlx" />
 
     4. **Done!**
 
@@ -41,7 +52,9 @@ To create a new Next.js project, you need run the [create next app command](http
         ```tsx title="app/page.tsx" mark={3}
         export default function Home() {
             return (
-                <h1 className="fs-sm fw-700 ta-c tc-indigo">Yumma CSS 🤝 Next.js</h1>
+                <div className="bg-indigo-12 d-g h-dvh pi-c tc-white">
+                    <h1 className="fs-3xl fw-500">Yumma CSS ⚙️ Next.js</h1>
+                </div>
             );
         }
         ```
