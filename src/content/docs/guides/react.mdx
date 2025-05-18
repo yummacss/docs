@@ -20,27 +20,44 @@ To create a new React project, you need run the [React command](https://react.de
 
         <br />
 
-    2. **Include** `yummacss` **in your main CSS file:**
+    2. **Initialize configuration**
 
-        In this case, we're importing the minified version of Yumma CSS.
+            Create a configuration file in your project.
 
-        ```css title="src/index.css" mark={1}
-        @import "yummacss/dist/yumma.min.css";
+            <PackageManagers pkg="yummacss init" title="Terminal" type="dlx" />
+
+    3. **Set up configuration**
+
+        Specify the locations of all your project files in the config file.
+
+        ```js title="yumma.config.js" mark={2-3}
+        export default {
+            source: ["./src/**/*.{ts,tsx}"],
+            output: "./src/index.css",
+            buildOptions: {
+                reset: true,
+                minify: false,
+            }
+        };
         ```
 
-    3. **Start development server**
+    4. **Build styles**
 
-        Start your application using `npm run dev`.
+        You can now start generating your CSS with the [`build`](/docs/first-steps#build-command) or [`watch`](/docs/first-steps#watch-command) command.
 
-        <PackageManagers type="run" args="dev" title="Starting development server..." />
+        <PackageManagers pkg="yummacss build" title="Terminal" type="dlx" />
 
-    4. **Done!**
+    5. **Done!**
 
         You're all set to start using Yumma CSS utility classes in your project.
 
-        ```tsx title="App.tsx" mark={2}
+        ```tsx title="App.tsx" mark={3-5}
         function App() {
-            return <h1 className="fs-sm fw-700 ta-c tc-indigo">Yumma CSS 🤝 React</h1>;
+            return (
+                <div className="bg-indigo-12 d-g h-dvh pi-c tc-white">
+                    <h1 className="fs-3xl fw-500">Yumma CSS ⚙️ React</h1>
+                </div>
+            );
         }
 
         export default App;
