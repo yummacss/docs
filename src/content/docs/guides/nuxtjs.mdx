@@ -20,40 +20,42 @@ To create a new Nuxt.js project, you need run the [Nuxt.js command](https://nuxt
 
         <br />
 
-    2. **Include** `yummacss` **in your main CSS file:**
+    2. **Initialize configuration**
 
-        In this case, we're importing the minified version of Yumma CSS.
+            Create a configuration file in your project.
 
-        Create a new `assets/global.css` file.
+            <PackageManagers pkg="yummacss init" title="Terminal" type="dlx" />
 
-        ```css title="assets/global.css" mark={1}
-        @import "yummacss/dist/yumma.min.css";
+    3. **Set up configuration**
+
+        Specify the locations of all your project files in the config file.
+
+        ```js title="yumma.config.js" mark={2-3}
+        export default {
+            source: ["./app.vue"],
+            output: "./assets/global.css",
+            buildOptions: {
+                reset: true,
+                minify: false,
+            }
+        };
         ```
 
-    3. **Import the CSS file**
+    4. **Build styles**
 
-        Add the new CSS file to `nuxt.config.ts`.
+        You can now start generating your CSS with the [`build`](/docs/first-steps#build-command) or [`watch`](/docs/first-steps#watch-command) command.
 
-        ```ts title="nuxt.config.ts" mark={4}
-        export default defineNuxtConfig({
-            compatibilityDate: "2024-04-03",
-            devtools: { enabled: true },
-            css: ["/assets/global.css"],
-        });
-        ```
-    4. **Start development server**
+        <PackageManagers pkg="yummacss build" title="Terminal" type="dlx" />
 
-        Start your application using `npm run dev`.
-
-        <PackageManagers type="run" args="dev" title="Starting development server..." />
-
-    4. **Done!**
+    5. **Done!**
 
         You're all set to start using Yumma CSS utility classes in your project.
 
-        ```html title="app.vue" mark={2}
+        ```html title="app.vue" mark={2-4}
         <template>
-            <h1 class="fs-sm fw-700 ta-c tc-indigo">Yumma CSS 🤝 Nuxt.js</h1>
+            <div class="bg-indigo-12 d-g h-dvh pi-c tc-white">
+                <h1 class="fs-3xl fw-500">Yumma CSS ⚙️ Nuxt.js</h1>
+            </div>
         </template>
         ```
 
