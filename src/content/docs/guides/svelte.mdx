@@ -20,33 +20,32 @@ To create a new Svelte project, you need run the [Svelte command](https://svelte
 
         <br />
 
-    2. **Include** `yummacss` **in your main CSS file:**
+    2. **Initialize configuration**
 
-        In this case, we're importing the minified version of Yumma CSS.
+            Create a configuration file in your project.
 
-        Create a new `/src/global.css` file
+            <PackageManagers pkg="yummacss init" title="Terminal" type="dlx" />
 
-        ```css title="src/global.css" mark={1}
-        @import "/node_modules/yummacss/dist/yumma.min.css";
+    3. **Set up configuration**
+
+        Specify the locations of all your project files in the config file.
+
+        ```js title="yumma.config.js" mark={2-3}
+        export default {
+            source: ["./src/**/*.svelte"],
+            output: "./src/global.css",
+            buildOptions: {
+                reset: true,
+                minify: false,
+            }
+        };
         ```
 
-    3. **Import the CSS file**
+    4. **Build styles**
 
-        Create a `/src/routes/+layout.svelte` file
+        You can now start generating your CSS with the [`build`](/docs/first-steps#build-command) or [`watch`](/docs/first-steps#watch-command) command.
 
-        ```svelte title="routes/+layout.svelte" mark={2}
-        <script>
-            import "../global.css";
-        </script>
-
-        <slot />
-        ```
-
-    4. **Start development server**
-
-        Start your application using `npm run dev`.
-
-        <PackageManagers type="run" args="dev" title="Starting development server..." />
+        <PackageManagers pkg="yummacss build" title="Terminal" type="dlx" />
 
     5. **Done!**
 
