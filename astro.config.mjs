@@ -111,6 +111,8 @@ export default defineConfig({
     "/docs/build-css": "/docs/first-steps#building-styles",
     "/docs/colors": "/docs/first-steps#color-palette",
     "/docs/colours": "/docs/first-steps#color-palette",
+    "docs/configuration": "/docs/first-steps#get-started-with-yumma-cli",
+    "docs/cli": "/docs/first-steps#get-started-with-yumma-cli",
     "/docs/direction": "/docs/bottom-left-right-top",
     "/docs/modifiers": "/docs/first-steps#breakpoints-modifiers",
     "/docs/next": "/blog/yummacss-3.0",
