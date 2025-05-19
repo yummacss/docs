@@ -1,0 +1,360 @@
+---
+title: Upgrade Guide
+description: Learn how to move your project from Yumma CSS v2 to v3.
+slug: docs/upgrade-guide
+---
+
+Yumma CSS v3 is a major update with a long list of new features, along with some breaking changes that you'll need to know about when upgrading from v2 to v3. We did our best to make all the changes as user-friendly and logical as possible.
+
+That said, this guide should help you understand the changes and how to adapt your project accordingly.
+
+## With Yumma CLI
+
+If you are using Yumma CLI, the process is simple. Heres how to upgrade your project:
+
+<Steps>
+
+    1. **Update Yumma CSS**
+
+        Remove the old `yummacss` package.
+
+        <PackageManagers pkg="yummacss" type="remove" title="Terminal" />
+
+        Install `yummacss` as a dev dependency.
+
+        <PackageManagers pkg="yummacss -D" title="Installing dependencies..." />
+
+        <br />
+
+    2. **Initialize configuration**
+
+            Create a configuration file in your project.
+
+            <PackageManagers pkg="yummacss init" title="Terminal" type="dlx" />
+
+    3. **Delete old imports**
+
+        Remove the old `@import` statements from your CSS files.
+
+        ```css title="styles.css" del={1-2}
+        @import "yummacss/dist/yumma.min.css";
+        @import "yummacss/dist/yumma.css";
+        ```
+
+    4. **Set up configuration**
+
+        Specify the locations of all your project files in the config file.
+
+        ```js title="yumma.config.js" mark={2-3}
+        module.exports = {
+            source: ["./src/**/*.html"],
+            output: "./src/styles.css",
+            buildOptions: {
+                reset: true,
+                minify: false,
+            }
+        };
+        ```
+
+    5. **Build styles**
+
+        You can now start generating your CSS with the [`build`](/docs/first-steps#build-command) or [`watch`](/docs/first-steps#watch-command) command.
+
+        <PackageManagers pkg="yummacss build" title="Terminal" type="dlx" />
+
+</Steps>
+
+## Dependency changes
+
+With Yumma CSS v3 you no longer need to install `yummacss` as a standard dependency. Instead, you can install it as a dev dependency. This is because Yumma CSS is now a CLI tool that generates CSS files based on your configuration.
+
+<PackageManagers pkg="yummacss -D" title="Terminal" />
+
+## Renamed utilities
+
+Here are the utilities that have been renamed in v3:
+
+| Property               | v2      | v3     |
+| ---------------------- | ------- | ------ |
+| `*: stretch;`          | \*-s    | \*-st  |
+| `bottom: *;`           | dir-b   | bo-\*  |
+| `inset: *;`            | dir-i   | i-\*   |
+| `left: *;`             | dir-l   | l-\*   |
+| `right: *;`            | dir-r   | r-\*   |
+| `top: *;`              | dir-t   | t-\*   |
+| `columns: *;`          | cols-\* | c-\*   |
+| `height: *; width: *;` | dim-\*  | d-\*   |
+| `font-size: 1rem;`     | fs-b    | fs-md  |
+| `overflow: *;`         | ovf-\*  | o-\*   |
+| `float: *;`            | flo-\*  | fl-\*  |
+| `*: 100dvh;`           | \*-1/1  | \*-dvh |
+
+### Updated Align and Justify utilities
+
+With Yumma CSS v3, the `align` and `justify` utilities will have the `stretch` utility suffix updated from `-s` to `-st`.
+
+```diff lang="html" title="index.html"
+- <div class="ai-s">...</div>
+- <div class="jc-s">...</div>
++ <div class="ai-st">...</div>
++ <div class="jc-st">...</div>
+```
+
+### Updated Bottom / Inset / Left / Right / Top utilities
+
+The `bottom`, `inset`, `left`, `right`, and `top` utilities will have the `dir-` prefix removed.
+
+```diff lang="html" title="index.html"
+- <div class="dir-b">...</div>
+- <div class="dir-i">...</div>
+- <div class="dir-l">...</div>
+- <div class="dir-r">...</div>
+- <div class="dir-t">...</div>
++ <div class="bo-">...</div>
++ <div class="i-">...</div>
++ <div class="l-">...</div>
++ <div class="r-">...</div>
++ <div class="t-">...</div>
+```
+
+### Updated Columns utilities
+
+The `columns` utility have been shortened from `cols-*` to `c-*`.
+
+```diff lang="html" title="index.html"
+- <div class="cols-2">...</div>
++ <div class="c-2">...</div>
+```
+
+### Updated Dimension utilities
+
+The `height` and `width` utilities have been shortened from `dim-*` to `d-*`.
+
+```diff lang="html" title="index.html"
+- <div class="dim-1/2">...</div>
++ <div class="d-1/2">...</div>
+```
+
+### Updated Font Size utilities
+
+The `font-size` utilities have been renamed from `fs-b` to `fs-md`.
+
+```diff lang="html" title="index.html"
+- <div class="fs-b">...</div>
++ <div class="fs-md">...</div>
+```
+
+### Updated Overflow utilities
+
+The `overflow` utilities have been shortened from `ovf-*` to `o-*`.
+
+```diff lang="html" title="index.html"
+- <div class="ovf">...</div>
++ <div class="o">...</div>
+```
+
+### Updated Float utilities
+
+The `float` utilities have been shortened from `flo-*` to `fl-*`.
+
+```diff lang="html" title="index.html"
+- <div class="flo-l">...</div>
++ <div class="fl-l">...</div>
+```
+
+### Updated 100dvh utilities
+
+The `100dvh` utility values such as `height`, `width` and utilities like dimension have been renamed from `*-1/1` to `*-dvh`.
+
+```diff lang="html" title="index.html"
+- <div class="h-1/1">...</div>
++ <div class="h-dvh">...</div>
+```
+
+## Stylecent changes
+
+We're making some changes to Stylecent in v3 to make it more modern and consistent. These changes are turned on by default, but you can turn them off using the [`yummacss.config.js`](#disabling-stylecent) file.
+
+By default, all paddings will be removed.
+
+```scss mark={3} title="base/stylecent.scss"
+* {
+  margin: 0;
+  padding: 0;
+}
+```
+
+Font rendering is smoother, and a consistent system font is set as the default. — [oshwcomeau.com](https://joshwcomeau.com/css/custom-css-reset/)
+
+```diff lang=scss mark={2-3} title="base/stylecent.scss"
+body {
+  -webkit-font-smoothing: antialiased;
+  font-family: vars.$yma-font-system;
+-  line-height: 1.5;
+}
+```
+
+Form elements now include padding by default. Borders are added for form elements without class attributes.
+
+```scss mark={7-9,17} title="base/stylecent.scss"
+button,
+input,
+optgroup,
+select,
+textarea {
+  background-color: vars.$yma-color-transparent;
+  font-family: inherit;
+  padding: 0.5rem;
+}
+
+button:not([class]),
+input:not([class]),
+optgroup:not([class]),
+select:not([class]),
+textarea:not([class]) {
+  border: 1px solid vars.$yma-color-silver;
+}
+```
+
+Interactive elements have clear outlines for accessibility.
+
+```scss mark={7-9} title="base/stylecent.scss"
+button,
+input,
+textarea,
+select,
+a,
+summary {
+  &:focus {
+    outline: 2px solid vars.$yma-color-transparent;
+  }
+}
+```
+
+In the absence of content, textareas will exhibit a default height. — [piccalil.li](https://piccalil.li/blog/a-more-modern-css-reset/)
+
+```scss mark={2} title="base/stylecent.scss"
+textarea:not([rows]) {
+  min-height: 10em;
+}
+```
+
+Disabled elements are visually distinct with reduced opacity and a "not-allowed" cursor.
+
+```scss mark={5-6} title="base/stylecent.scss"
+button:disabled,
+input:disabled,
+select:disabled,
+textarea:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+```
+
+Headings adopt balanced text wrapping, consistent font sizes, and bold weights. — [oshwcomeau.com](https://joshwcomeau.com/css/custom-css-reset/)
+
+```scss mark={7-9,13} title="base/stylecent.scss"
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 1rem;
+  font-weight: 600;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+```
+
+Small text and code elements are consistently scaled and inherited. Code elements will have consistent font family. — [modern-normalize](https://github.com/sindresorhus/modern-normalize/blob/main/modern-normalize.css#L64)
+
+```scss mark={3,7-8,15-16} title="base/stylecent.scss"
+b,
+strong {
+  font-weight: 700;
+}
+
+small {
+  font-size: 80%;
+  line-height: 1.4;
+}
+
+pre,
+code,
+kbd,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+```
+
+Reset default link styles.
+
+```scss mark={2,7} title="base/stylecent.scss"
+a {
+  color: inherit;
+  text-decoration: none;
+}
+```
+
+Table headers are bold and sized consistently.
+
+```scss mark={2-3} title="base/stylecent.scss"
+th {
+  font-size: 1rem;
+  font-weight: 600;
+}
+```
+
+Horizontal rules, details, and summaries are updated for better spacing and display. — [modern-normalize](https://github.com/sindresorhus/modern-normalize/blob/main/modern-normalize.css#L64)
+
+```scss mark={3,8,12} title="base/stylecent.scss"
+hr {
+  border-top: 1px solid vars.$yma-color-silver;
+  height: 0;
+  margin: 1em 0;
+}
+
+details {
+  display: block;
+}
+
+summary {
+  display: list-item;
+}
+```
+
+#### Disabling Stylecent
+
+From now on, files like `yumma-core.css` and `yumma-core.min.css` will be deleted from the `/dist` folder in favor of the `yummacss.config.js` config file.
+
+<Tabs>
+  <TabItem label="v3.0">
+    ```js mark={4-7} title="yummacss.config.js"
+    module.exports = {
+      source: ["./src/**/*.html"],
+      output: "./src/globals.css",
+      buildOptions: {
+        reset: false, // Disable reset styles
+        minify: false, // Disable styles minification
+      },
+    };
+    ```
+
+  </TabItem>
+  <TabItem label="v2.1">
+
+    ```css title="src/globals.css"
+    /* Disable base styles */
+    @import "https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@latest/dist/yumma-core.css";
+
+    /* Disable base styles and minify CSS */
+    @import "https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@latest/dist/yumma-core.min.css";
+    ```
+
+  </TabItem>
+</Tabs>
