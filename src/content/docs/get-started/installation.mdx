@@ -8,76 +8,45 @@ slug: docs/installation
 
 ## Installation
 
-How to install Yumma CSS in your project.
+How to install Yumma CSS in your project:
 
-<Tabs>
-  <TabItem label="Yumma CLI" icon="forward-slash">
+<Steps>
+  1. **Install Yumma CSS**
 
-        <Steps>
-      1. **Install Yumma CSS**
+      Add `yummacss` to your project.
 
-          Add `yummacss` to your project.
+      <PackageManagers pkg="yummacss -D" title="Installing dependencies..." />
 
-          <PackageManagers pkg="yummacss -D" title="Installing dependencies..." />
+      <br />
 
-          <br />
+  2. **Initialize configuration**
 
-      2. **Initialize configuration**
+      Create a configuration file in your project.
 
-          Create a configuration file in your project.
+      <PackageManagers pkg="yummacss init" title="Terminal" type="dlx" />
 
-          <PackageManagers pkg="yummacss init" title="Terminal" type="dlx" />
+  3. **Set up configuration**
 
-      3. **Set up configuration**
+      Specify the locations of all your project files in the config file.
 
-          Specify the locations of all your project files in the config file.
+      ```js title="yumma.config.js" mark={2-3}
+      export default {
+        source: ["./src/**/*.{ts,tsx}"],
+        output: "./src/styles.css",
+        buildOptions: {
+          reset: true,
+          minify: false,
+        }
+      };
+      ```
 
-          ```js title="yumma.config.js" mark={2-3}
-          export default {
-            source: ["./src/**/*.{ts,tsx}"],
-            output: "./src/styles.css",
-            buildOptions: {
-              reset: true,
-              minify: false,
-            }
-          };
-          ```
+  4. **Build styles**
 
-      4. **Build styles**
+      You can now start generating your CSS with the [`build`](/docs/first-steps#build-command) or [`watch`](/docs/first-steps#watch-command) command.
 
-          You can now start generating your CSS with the [`build`](/docs/first-steps#build-command) or [`watch`](/docs/first-steps#watch-command) command.
+      <PackageManagers pkg="yummacss build" title="Terminal" type="dlx" />
 
-          <PackageManagers pkg="yummacss build" title="Terminal" type="dlx" />
-
-    </Steps>
-
-  </TabItem>
-
-  <TabItem label="Test CDN" icon="rocket">
-    Quickly prototype and test your designs without having to set up a build process.
-
-    <Steps>
-      1. **Add the CDN to your main CSS file**
-
-          ```css title="styles.css" mark={1}
-          @import url("https://unpkg.com/yummacss@v3/dist/yumma.min.css");
-          ```
-
-      2. **Done!**
-
-          You're all set to start using Yumma CSS utility classes in your project.
-
-          ```html title="index.html" mark={4}
-          <head>
-            <meta charset="UTF-8" />
-            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            <link rel="stylesheet" href="/src/styles.css" />
-          </head>
-          ```
-    </Steps>
-
-  </TabItem>
-</Tabs>
+</Steps>
 
 ## Framework Guides
 
