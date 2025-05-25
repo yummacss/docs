@@ -16,9 +16,9 @@ export default defineConfig({
 
       customCss: ["@fontsource-variable/outfit", "/src/styles/custom.css", "/src/styles/yumma.css"],
       components: {
-        Banner: "./src/components/ui/Banner.astro",
-        Hero: "./src/components/ui/Index.astro",
-        PageTitle: "./src/components/ui/PageTitle.astro",
+        Banner: "./src/components/starlight/Banner.astro",
+        Hero: "./src/components/starlight/Index.astro",
+        PageTitle: "./src/components/starlight/PageTitle.astro",
       },
       plugins: [
         config.starlightLinksValidator(),
@@ -82,13 +82,13 @@ export default defineConfig({
     config.AutoImport({
       imports: [
         "/src/components/Class.astro",
-        "/src/components/Color2.astro",
         "/src/components/Decorator.astro",
-        "/src/components/GuideCards.astro",
+        "/src/components/Guide.astro",
+        "/src/components/legacy/LegacyClass.astro",
+        "/src/components/legacy/LegacyColor.astro",
+        "/src/components/legacy/LegacyPalette.astro",
         "/src/components/Modifier.astro",
-        "/src/components/Palette2.astro",
-        "/src/components/Palette3.astro",
-        "/src/components/Utility.astro",
+        "/src/components/Palette.astro",
         {
           "@astrojs/starlight/components": ["Aside", "Card", "CardGrid", "Code", "FileTree", "Icon", "LinkButton", "LinkCard", "Steps", "TabItem", "Tabs"],
           "starlight-package-managers": ["PackageManagers"],

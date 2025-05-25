@@ -9,7 +9,7 @@ excerpt: Yes, it's happening again! We're excited to announce the release of Yum
 pagefind: false
 slug: blog/yummacss-2.0
 tags: ["release"]
-title: Yumma CSS 2.0 - New utilities, changes and more
+title: Yumma CSS 2.0
 ---
 
 Yes, it's happening again! We're excited to announce the release of Yumma CSS v2.0.0! This new update is full of new features, big improvements, a redesigned source code, and of course, some important fixes.
@@ -42,7 +42,7 @@ As part of our standard procedure for each new grand release, we implement a ran
 
 This latest release is no exception, as it introduces the Accent Color utilities.
 
-<Color2
+<LegacyColor
   classPrefix="ac-"
   propNames={["accent-color"]}
   data={[
@@ -64,7 +64,7 @@ This latest release is no exception, as it introduces the Accent Color utilities
 
 We're also adding a new color to the color palette — Silver.
 
-<Palette2
+<LegacyPalette
   data={[
     {
       name: "Silver",
@@ -77,7 +77,7 @@ We're also adding a new color to the color palette — Silver.
 
 The Aspect Ratio is a great addition, especially for image elements.
 
-<Utility
+<LegacyClass
   data={[
     {
       className: "ar-s",
@@ -98,7 +98,7 @@ The Aspect Ratio is a great addition, especially for image elements.
 
 You can now apply cool effects to your components thanks to the Backdrop Filter utilities.
 
-<Utility
+<LegacyClass
   data={[
     {
       className: "bf-b-none",
@@ -135,7 +135,7 @@ We're also going to be adding some new Border utilities.
 
 We're finally adding the Border Collapse utilities to create better tables in your site with Yumma CSS.
 
-<Utility
+<LegacyClass
   data={[
     {
       className: "bc-c",
@@ -152,7 +152,7 @@ We're finally adding the Border Collapse utilities to create better tables in yo
 
 The new Border Style utilities let you change how borders look on different elements.
 
-<Utility
+<LegacyClass
   data={[
     {
       className: "b-none",
@@ -177,7 +177,7 @@ The new Border Style utilities let you change how borders look on different elem
 
 We're also adding some handy features for tables, like Caption Side.
 
-<Utility
+<LegacyClass
   data={[
     {
       className: "cs-b",
@@ -194,7 +194,7 @@ We're also adding some handy features for tables, like Caption Side.
 
 You can now change the Font Style of text elements.
 
-<Utility
+<LegacyClass
   data={[
     {
       className: "fs-i",
@@ -211,7 +211,7 @@ You can now change the Font Style of text elements.
 
 The Gap utilities aren't necessarily new, but they are different in older versions. Gap was designed for responsive layouts, not for adding gaps between elements.
 
-<Utility classPrefix="g-" propNames={["gap"]} incrementValue={0.25} range={16} unit="rem" />
+<LegacyClass classPrefix="g-" propNames={["gap"]} incrementValue={0.25} range={16} unit="rem" />
 
 ### Grid
 
@@ -223,7 +223,7 @@ If you're looking for more control over your grid layouts, this new update inclu
 
     **Grid Column**
 
-    <Utility
+    <LegacyClass
       classPrefix="gc-s-"
       excludeZero
       propNames={["grid-column"]}
@@ -234,7 +234,7 @@ If you're looking for more control over your grid layouts, this new update inclu
 
     **Grid Column End**
 
-    <Utility
+    <LegacyClass
       classPrefix="gce-"
       propNames={["grid-column-end"]}
       incrementValue={1}
@@ -243,7 +243,7 @@ If you're looking for more control over your grid layouts, this new update inclu
 
     **Grid Column Start**
 
-    <Utility
+    <LegacyClass
       classPrefix="gcs-"
       propNames={["grid-column-start"]}
       incrementValue={1}
@@ -256,7 +256,7 @@ If you're looking for more control over your grid layouts, this new update inclu
 
     **Grid Row Span**
 
-    <Utility
+    <LegacyClass
       classPrefix="gr-s-"
       excludeZero
       propNames={["grid-row"]}
@@ -267,7 +267,7 @@ If you're looking for more control over your grid layouts, this new update inclu
 
     **Grid Row End**
 
-    <Utility
+    <LegacyClass
       classPrefix="gre-"
       propNames={["grid-row-end"]}
       incrementValue={1}
@@ -276,7 +276,7 @@ If you're looking for more control over your grid layouts, this new update inclu
 
     **Grid Row Start**
 
-    <Utility
+    <LegacyClass
       classPrefix="grs-"
       propNames={["grid-row-start"]}
       incrementValue={1}
@@ -292,7 +292,7 @@ We're also including the Object Fit and Object Position utility classes.
 
 #### Object Fit
 
-<Utility
+<LegacyClass
   data={[
     {
       className: "of-c",
@@ -317,7 +317,7 @@ We're also including the Object Fit and Object Position utility classes.
 
 #### Object Position
 
-<Utility
+<LegacyClass
   data={[
     {
       className: "op-b",
@@ -364,7 +364,7 @@ On top of the customization utilities we've already talked about, Yumma CSS 2.0 
 
 #### Outline Color
 
-<Color2
+<LegacyColor
   classPrefix="oc-"
   propNames={["outline-color"]}
   data={[
@@ -385,11 +385,11 @@ On top of the customization utilities we've already talked about, Yumma CSS 2.0 
 
 #### Outline Offset
 
-<Utility classPrefix="oo-" propNames={["outline-offset"]} incrementValue={4} range={4} unit="px" />
+<LegacyClass classPrefix="oo-" propNames={["outline-offset"]} incrementValue={4} range={4} unit="px" />
 
 #### Outline Style
 
-<Utility
+<LegacyClass
   data={[
     {
       className: "os-none",
@@ -412,7 +412,7 @@ On top of the customization utilities we've already talked about, Yumma CSS 2.0 
 
 #### Outline Width
 
-<Utility classPrefix="ow-" propNames={["outline-width"]} incrementValue={4} range={4} unit="px" />
+<LegacyClass classPrefix="ow-" propNames={["outline-width"]} incrementValue={4} range={4} unit="px" />
 
 ### Spacing
 
@@ -420,15 +420,15 @@ We're also adding new Spacing utilities. These utilities work a bit differently,
 
 #### Spacing X
 
-<Utility classPrefix="s-x-" propNames={["margin-left", "margin-right"]} range={100} incrementValue={0.25} unit="rem" />
+<LegacyClass classPrefix="s-x-" propNames={["margin-left", "margin-right"]} range={100} incrementValue={0.25} unit="rem" />
 
 #### Spacing Y
 
-<Utility classPrefix="s-y-" propNames={["margin-top", "margin-bottom"]} range={100} incrementValue={0.25} unit="rem" />
+<LegacyClass classPrefix="s-y-" propNames={["margin-top", "margin-bottom"]} range={100} incrementValue={0.25} unit="rem" />
 
 I have to mention the new table utilities and the Table Layout utility classes.
 
-<Utility
+<LegacyClass
   data={[
     {
       className: "tl-auto",
@@ -445,7 +445,7 @@ We're also adding a bunch of new utility classes for text formatting to the tabl
 
 ### Text Decoration Color
 
-<Color2
+<LegacyColor
   classPrefix="tdc-"
   propNames={["outline-color"]}
   data={[
@@ -466,7 +466,7 @@ We're also adding a bunch of new utility classes for text formatting to the tabl
 
 ### Text Decoration Style
 
-<Utility
+<LegacyClass
   data={[
     {
       className: "tds-none",
@@ -489,7 +489,7 @@ We're also adding a bunch of new utility classes for text formatting to the tabl
 
 ### Text Decoration Thickness
 
-<Utility
+<LegacyClass
   data={[
     {
       className: "tdt-auto",
@@ -556,7 +556,7 @@ Yumma CSS is going to change how your browser handles breakpoints.
 
 <Tabs>
   <TabItem icon="approve-check-circle" label="Now">
-    <Utility
+    <LegacyClass
       data={[
         { className: "sm", properties: ["min-width: 640px;"] },
         { className: "md", properties: ["min-width: 768px;"] },
@@ -567,7 +567,7 @@ Yumma CSS is going to change how your browser handles breakpoints.
     />
   </TabItem>
   <TabItem icon="close" label="Previously">
-    <Utility
+    <LegacyClass
       data={[
         { className: "xs", properties: ["min-width: 0;"] },
         { className: "sm", properties: ["min-width: 480px;"] },
