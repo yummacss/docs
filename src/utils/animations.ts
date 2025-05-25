@@ -21,7 +21,8 @@ export const scrollReveal = (elements: NodeListOf<Element>) => {
         scrollTrigger: {
           trigger: element,
           start: "top bottom-=100",
-          toggleActions: "play none none reverse",
+          toggleActions: "play none none none",
+          once: true,
         },
       }
     );
