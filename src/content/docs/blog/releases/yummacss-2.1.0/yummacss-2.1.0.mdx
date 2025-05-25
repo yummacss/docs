@@ -44,7 +44,7 @@ In this new update, We've made a few changes to the utilities in Yumma CSS. You 
 
 New `baseline` property for `ac-*` utility.
 
-<Utility
+<LegacyClass
   data={[
     {
       className: "ac-b",
@@ -57,7 +57,7 @@ New `baseline` property for `ac-*` utility.
 
 New `baseline` property for `ai-*` utility.
 
-<Utility
+<LegacyClass
   data={[
     {
       className: "ai-b",
@@ -70,7 +70,7 @@ New `baseline` property for `ai-*` utility.
 
 We've also added several new variants for the Cursor (`c-*`) utility classes.
 
-<Utility
+<LegacyClass
   data={[
     {
       className: "c-cr",
@@ -142,7 +142,7 @@ We've tweaked the base value for Border radius utility classes to give you more 
 <Tabs>
   <TabItem icon="approve-check-circle" label="Now">
     In this context, the base value is `0.25rem`.
-    <Utility
+    <LegacyClass
       classPrefix="rad-"
       propNames={["border-radius"]}
       incrementValue={0.25}
@@ -157,7 +157,7 @@ We've tweaked the base value for Border radius utility classes to give you more 
 
   <TabItem icon="close" label="Previously">
     In this context, the base value is `4px`.
-    <Utility
+    <LegacyClass
       classPrefix="rad-"
       propNames={["border-radius"]}
       incrementValue={4}
@@ -176,7 +176,7 @@ We've tweaked the base value for Border radius utility classes to give you more 
 <Tabs>
   <TabItem icon="approve-check-circle" label="Now">
     In this context, the `f-1` for example is a shorthand to `flex: 1 1 0%;`
-    <Utility
+    <LegacyClass
       classPrefix="f-"
       excludeZero
       propNames={["flex"]}
@@ -192,7 +192,7 @@ We've tweaked the base value for Border radius utility classes to give you more 
 
   <TabItem icon="close" label="Previously">
     In this context, the `f-1` for example is a shorthand to `flex: 1 1 0;`
-    <Utility
+    <LegacyClass
       classPrefix="f-"
       excludeZero
       propNames={["flex"]}
@@ -208,7 +208,7 @@ We've tweaked the base value for Border radius utility classes to give you more 
 <Tabs>
   <TabItem icon="approve-check-circle" label="Now">
     In this context, the sequence is always constant, starting from `1px` to `8px`.
-    <Utility
+    <LegacyClass
       classPrefix="b-"
       propNames={["border-width"]}
       incrementValue={1}
@@ -219,7 +219,7 @@ We've tweaked the base value for Border radius utility classes to give you more 
 
   <TabItem icon="close" label="Previously">
     In this context, the sequence is not constant, starting from `0px` to `14px`.
-    <Utility
+    <LegacyClass
       data={[
         {
           className: "b-0",
@@ -267,7 +267,7 @@ We've tweaked the base value for Border radius utility classes to give you more 
 <Tabs>
   <TabItem icon="approve-check-circle" label="Now">
     In this context, the base value is `0.25rem`.
-    <Utility
+    <LegacyClass
       classPrefix="oo-"
       propNames={["outline-offset"]}
       incrementValue={1}
@@ -278,7 +278,7 @@ We've tweaked the base value for Border radius utility classes to give you more 
 
   <TabItem icon="close" label="Previously">
     In this context, the base value is `4px`.
-    <Utility
+    <LegacyClass
       classPrefix="oo-"
       propNames={["outline-offset"]}
       incrementValue={4}
@@ -293,7 +293,7 @@ We've tweaked the base value for Border radius utility classes to give you more 
 <Tabs>
   <TabItem icon="approve-check-circle" label="Now">
     In this context, the base value is `0.25rem`.
-    <Utility
+    <LegacyClass
       classPrefix="ow-"
       propNames={["outline-width"]}
       incrementValue={1}
@@ -304,7 +304,7 @@ We've tweaked the base value for Border radius utility classes to give you more 
 
   <TabItem icon="close" label="Previously">
     In this context, the base value is `4px`.
-    <Utility
+    <LegacyClass
       classPrefix="ow-"
       propNames={["outline-width"]}
       incrementValue={4}
@@ -347,7 +347,7 @@ Finally, We've updated the font size utilities and changed the base value. We've
 <Tabs>
   <TabItem icon="approve-check-circle" label="Now">
     In this context, the base value is `0.75rem`.
-    <Utility
+    <LegacyClass
       data={[
         {
           className: "fs-xs",
@@ -395,7 +395,7 @@ Finally, We've updated the font size utilities and changed the base value. We've
 
   <TabItem icon="close" label="Previously">
     In this context, the base value is `16px`.
-    <Utility
+    <LegacyClass
       data={[
         {
           className: "fs-xs",
