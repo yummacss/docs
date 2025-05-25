@@ -15,7 +15,8 @@
   --sl-color-gray-8: #fcfcfe;
   --sl-color-white: #151724;
 
-  --hero-pattern-image: url("/images/light-pattern.png");
+  --hero-mesh: url("assets/mesh-light.png");
+  --mesh-boxes: url("assets/boxes-dark.png");
   --framework-card: linear-gradient(180deg, #ffffff 0%, #fcfcfe 100%);
 }
 
@@ -35,7 +36,8 @@
   --sl-color-gray-6: #21243f;
   --sl-color-white: #ffffff;
 
-  --hero-pattern-image: url("/images/dark-pattern.png");
+  --hero-mesh: url("assets/mesh-dark.png");
+  --mesh-boxes: url("assets/boxes-dark.png");
   --framework-card: linear-gradient(180deg, #21243f 0%, #1a1d32 100%);
 }
 
@@ -51,7 +53,6 @@
   }
 }
 
-
 /* Custom */
 *,
 *::before,
@@ -59,16 +60,16 @@
   border: 0 solid;
 }
 
-.bg-primary {
-  background-color: light-dark(var(--sl-color-accent), var(--sl-color-accent-high));
-}
-
-.tc-primary {
+.tc-accent {
   color: light-dark(var(--sl-color-accent), var(--sl-color-accent-high));
 }
 
 .sl-link-button {
   border-radius: 0.25rem !important;
+}
+
+.header {
+  --sl-color-bg-nav: light-dark(var(--sl-color-black), var(--sl-color-gray-6));
 }
 
 #starlight__on-this-page {
@@ -118,12 +119,10 @@ table {
 }
 
 .stripes {
-  background-image: repeating-linear-gradient(
-    45deg,
-    light-dark(var(--sl-color-gray-5), var(--sl-color-gray-5)) 0,
-    #bdc1d3 1px,
-    light-dark(var(--sl-color-black), var(--sl-color-gray-6)) 0,
-    light-dark(var(--sl-color-black), var(--sl-color-gray-6)) 50%
-  );
+  background-image: repeating-linear-gradient(45deg,
+      light-dark(var(--sl-color-gray-5), var(--sl-color-gray-5)) 0,
+      #bdc1d3 1px,
+      light-dark(var(--sl-color-black), var(--sl-color-gray-6)) 0,
+      light-dark(var(--sl-color-black), var(--sl-color-gray-6)) 50%);
   background-size: 10px 10px;
 }

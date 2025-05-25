@@ -1,5 +1,5 @@
 ---
-import { frameworkIcons } from "../components/ui/icons/icons.ts";
+import { frameworkIcons } from "../icons/icons.ts";
 
 type FrameworkIconName = keyof typeof frameworkIcons;
 
@@ -13,7 +13,7 @@ type Entry = {
 const { entries = [] } = Astro.props as { entries: Entry[] };
 ---
 
-<div class="d-g g-4 gtc-1 sm:gtc-3">
+<div class="d-g g-4 gtc-2 sm:gtc-3">
   {
     entries.map((entry) => (
       <a href={entry.href} class="bg-card p-4 td-none" style="color: light-dark(var(--sl-color-gray-3), var(--sl-color-gray-3));">
