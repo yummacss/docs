@@ -1,0 +1,54 @@
+---
+interface Props {
+  href: string;
+  text: string;
+  variant: "primary" | "secondary";
+}
+
+const { href, variant, text } = Astro.props;
+
+let classes = "fs-sm md:fs-lg md:px-6 md:py-3 px-4 py-2 rad-2 sm:fs-md sm:px-5 sm:py-2 tc-white td-none ";
+
+classes += variant === "primary" ? "a" : "b";
+---
+
+<a href={href} class={classes}>
+  {text}
+</a>
+
+<style>
+  a {
+    transition:
+      box-shadow 0.4s ease,
+      border-color 0.4s ease;
+  }
+
+  .a {
+    animation: button-rainbow 6s linear infinite;
+    background-image: linear-gradient(90deg, #403bb5, #3f3f9e, #6d6dd0, #5450be, #4b4caf);
+    background-size: 300% 100%;
+    border: 1px solid #4b4caf;
+  }
+
+  .a:hover {
+    box-shadow: 0 0 16px #4b4caf80;
+    border: 1px solid #4b4caf;
+  }
+
+  .b {
+    background: linear-gradient(to bottom, #21243f, #1e2039);
+    border: 1px solid transparent;
+  }
+
+  @keyframes button-rainbow {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+</style>

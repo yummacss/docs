@@ -1,0 +1,124 @@
+---
+import { Code } from "@astrojs/starlight/components";
+import { css, tsx } from "../../constants/snippets";
+import ButtonLink from "./ButtonLink.astro";
+import CrumpledPaper from "./CrumpledPaper.astro";
+import RulerSquare from "./RulerSquare.astro";
+---
+
+<section class="o-h bp-c bs-c max-w-xl mt-16 mx-auto p-r px-8 py-20 rad-4" style="background-image: var(--hero-mesh);">
+  <div class="max-w-224">
+    <h1 class="fs-5xl fw-400 lg:fs-8xl lh-1 md:fs-7xl sm:fs-6xl">
+      <span class="d-b tc-head-1">Style more,</span>
+      <span class="tc-head-2">type even less</span>
+    </h1>
+    <p class="fs-lg lh-1 max-w-md md:fs-2xl mt-6 pt-6 sm:fs-xl sm:pt-8">
+      A CSS framework for the web with abbreviated styles for whatever you build. Scan, build, and purge — simple as that.
+    </p>
+    <div class="d-f fw-w g-4 mt-8 sm:mt-10">
+      <ButtonLink href="/docs/installation" variant="primary" text="Get started" />
+      <ButtonLink href="/docs/installation" variant="secondary" text="Try the CLI" />
+    </div>
+  </div>
+</section>
+
+<section class="mt-32 px-4 ta-c">
+  <div class="fs-4xl md:fs-6xl sm:fs-4xl tc-head-1">“Why not just use vanilla CSS?”</div>
+  <p class="fs-lg lh-2 max-w-md md:fs-2xl mx-auto sm:fs-xl">
+    CSS files are rarely well maintained. I've seen many things like lots of dead CSS, bad naming conventions, redundant classes, use of old syntax, and the list goes on.
+  </p>
+</section>
+
+<section class="g-24 max-w-xl mt-32 mx-auto px-8">
+  <div class="d-f fd-c g-12 md:ai-c md:fd-r">
+    <div class="f-1 g-8">
+      <div class="ai-c d-f h-10 jc-c mb-4 md:h-16 md:w-16 rad-1 sm:h-12 sm:w-12 w-10 gr-midnight">
+        <RulerSquare class="d-4 sm:d-6 tc-accent" />
+      </div>
+      <div class="max-w-100">
+        <div class="fs-3xl lg:fs-5xl lh-1 md:fs-4xl tc-head-1">Abbreviated utility classes</div>
+        <p class="fs-lg md:fs-2xl mt-2 sm:fs-xl">
+          Yumma CSS uses an abbreviated naming for its utilities such as
+          <span class="tc-indigo-5">d-g</span>, <span class="tc-indigo-5">gtc-2</span> and <span class="tc-indigo-5">g-4</span>.
+        </p>
+      </div>
+    </div>
+
+    <div class="f-1 p-r">
+      <img src="assets/boxes-light.png" alt="Template tab" class="dark:sl-hidden h-full of-c w-full" />
+      <img src="assets/boxes-dark.png" alt="Template tab" class="light:sl-hidden h-full of-c w-full" />
+      <div class="ai-c d-f i-0 jc-c p-a">
+        <Code code={tsx} lang="tsx" mark={["d-g", "gtc-2", "g-4"]} title="items.tsx" wrap={true} />
+      </div>
+    </div>
+  </div>
+
+  <div class="d-f fd-c g-12 md:ai-c md:fd-r mt-8">
+    <div class="f-1 md:or-1 or-2 p-r">
+      <img src="assets/boxes-light.png" alt="Styles tab" class="dark:sl-hidden h-full of-c w-full" />
+      <img src="assets/boxes-dark.png" alt="Styles tab" class="light:sl-hidden h-full of-c w-full" />
+      <div class="ai-c d-f i-0 jc-c p-a">
+        <Code code={css} lang="css" title="globals.css" wrap={true} />
+      </div>
+    </div>
+
+    <div class="f-1 g-8 md:or-2 or-1">
+      <div class="ai-c d-f h-10 jc-c mb-4 md:h-16 md:w-16 rad-1 sm:h-12 sm:w-12 w-10 gr-midnight">
+        <CrumpledPaper class="d-4 sm:d-6 tc-accent" />
+      </div>
+      <div class="max-w-100">
+        <div class="fs-3xl lg:fs-5xl lh-1 md:fs-4xl tc-head-1">Ship what your project needs</div>
+        <p class="fs-lg md:fs-2xl mt-2 sm:fs-xl">With Yumma CLI, you'll never have to worry about unused CSS again!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="g-6 max-w-lg mt-32 mx-auto px-8 py-20 rad-4 ta-c gr-midnight">
+  <div class="fs-3xl md:fs-6xl sm:fs-4xl tc-head-1">Ready to give it a try?</div>
+  <p class="fs-md md:fs-2xl sm:fs-lg mb-8">We can't wait to see what you're going to build with Yumma CSS!</p>
+  <ButtonLink href="/docs/installation" variant="primary" text="Get started" />
+</section>
+
+<style is:global>
+  [data-has-hero] header {
+    background-color: var(--sl-color-black);
+    border-bottom: 1px solid transparent;
+  }
+
+  [data-has-hero] .sl-container {
+    max-width: none;
+  }
+
+  .max-w-224 {
+    max-width: 56rem;
+  }
+
+  .max-w-md {
+    max-width: 48rem;
+  }
+
+  .max-w-lg {
+    max-width: 64rem;
+  }
+
+  .max-w-xl {
+    max-width: 80rem;
+  }
+
+  .tc-head-1 {
+    color: light-dark(var(--sl-color-gray-2), var(--sl-color-white));
+  }
+
+  .tc-head-2 {
+    background: linear-gradient(to right, light-dark(var(--sl-color-gray-1), var(--sl-color-white)), light-dark(var(--sl-color-accent), var(--sl-color-gray-2)));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .gr-midnight {
+    background: linear-gradient(to bottom, light-dark(#eaedfc, #21243f), light-dark(#fdfdff, #151724));
+    border: 1px solid light-dark(#eaedfc, #31365e);
+  }
+</style>
