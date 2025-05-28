@@ -112,17 +112,16 @@ table {
 /* Code Blocks */
 
 .container {
-  background: light-dark(var(--sl-color-gray-8), var(--sl-color-gray-6));
+  background: var(--sl-color-black);
   border-bottom: none;
   border: 1px solid light-dark(var(--sl-color-gray-6), var(--ec-brdCol));
   overflow-x: auto;
 }
 
-.stripes {
-  background-image: repeating-linear-gradient(45deg,
-      light-dark(var(--sl-color-gray-5), var(--sl-color-gray-5)) 0,
-      #bdc1d3 1px,
-      light-dark(var(--sl-color-black), var(--sl-color-gray-6)) 0,
-      light-dark(var(--sl-color-black), var(--sl-color-gray-6)) 50%);
-  background-size: 10px 10px;
+#area {
+  background-color: light-dark(var(--sl-color-gray-8), var(--sl-color-gray-6));
+  opacity: 0.8;
+  background-image: repeating-linear-gradient(45deg, light-dark(#d3d5e3, #31365e) 25%, transparent 25%, transparent 75%, light-dark(#d3d5e3, #31365e) 75%, light-dark(#d3d5e3, #31365e)), repeating-linear-gradient(45deg, light-dark(#d3d5e3, #31365e) 25%, var(--sl-color-black) 25%, var(--sl-color-black) 75%, light-dark(#d3d5e3, #31365e) 75%, light-dark(#d3d5e3, #31365e));
+  background-position: 0 0, 8px 8px;
+  background-size: 16px 16px;
 }
