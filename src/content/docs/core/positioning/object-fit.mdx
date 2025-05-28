@@ -13,7 +13,7 @@ slug: docs/object-fit
 This example sets the object fit to **cover**. The content will scale to cover the entire container while maintaining its aspect ratio, potentially cropping the content.
 
 ```html live "of-c"
-<div class="h-40 stripes w-80">
+<div class="h-40 w-80" id="area">
   <img class="d-full of-c rad-1" src="https://picsum.photos/400/300?image=10" />
 </div>
 ```
@@ -23,7 +23,7 @@ This example sets the object fit to **cover**. The content will scale to cover t
 This example sets the object fit to **fill**. The content will stretch to fill the entire container, disregarding its aspect ratio.
 
 ```html live "of-f"
-<div class="h-40 stripes w-80">
+<div class="h-40 w-80" id="area">
   <img class="d-full of-f rad-1" src="https://picsum.photos/400/300?image=10" />
 </div>
 ```
@@ -33,7 +33,7 @@ This example sets the object fit to **fill**. The content will stretch to fill t
 This example sets the object fit to **none**. The content will not be resized to fit the container, and it will retain its original size.
 
 ```html live "of-none"
-<div class="h-40 stripes w-80">
+<div class="h-40 w-80" id="area">
   <img class="d-full of-none rad-1" src="https://picsum.photos/400/300?image=10" />
 </div>
 ```
@@ -43,7 +43,7 @@ This example sets the object fit to **none**. The content will not be resized to
 This example sets the object fit to **scale-down**. The content will be sized as if `none` or `contain`, whichever results in a smaller size.
 
 ```html live "of-sd"
-<div class="h-40 stripes w-80">
+<div class="h-40 w-80" id="area">
   <img class="d-full of-sd" src="https://picsum.photos/400/300?image=10" />
 </div>
 ```
