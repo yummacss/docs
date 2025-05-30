@@ -8,6 +8,22 @@ slug: docs/grid-auto-rows
 
 <Class name="grid-auto-rows" />
 
+## Auto
+
+> Initial value
+
+This example sets the grid auto rows to **auto**. The rows will size themselves based on the content and available space in the grid container.
+
+```html live "gar-auto" layout="/src/layouts/inline.astro"
+<div class="o-auto rad-1">
+  <div class="d-g gar-auto gtc-auto g-4">
+    <div class="ai-c bg-indigo d-f jc-c p-4 rad-1 tc-white">Pneumonoultramicroscopicsilicovolcanoconiosis</div>
+    <div class="ai-c bg-indigo-8 d-f jc-c p-4 rad-1 tc-white">B</div>
+    <div class="ai-c bg-indigo-8 d-f jc-c p-4 rad-1 tc-white">C</div>
+  </div>
+</div>
+```
+
 ## Min Content
 
 This example sets the grid auto rows to **min-content**. The rows will size themselves to the smallest possible height that does not cause overflow.
@@ -29,20 +45,6 @@ This example sets the grid auto rows to **max-content**. The rows will size them
 ```html live "gar-max" layout="/src/layouts/inline.astro"
 <div class="o-auto rad-1">
   <div class="d-g gar-max gtc-max g-4">
-    <div class="ai-c bg-indigo d-f jc-c p-4 rad-1 tc-white">Pneumonoultramicroscopicsilicovolcanoconiosis</div>
-    <div class="ai-c bg-indigo-8 d-f jc-c p-4 rad-1 tc-white">B</div>
-    <div class="ai-c bg-indigo-8 d-f jc-c p-4 rad-1 tc-white">C</div>
-  </div>
-</div>
-```
-
-## Auto
-
-This example sets the grid auto rows to **auto**. The rows will size themselves based on the content and available space in the grid container.
-
-```html live "gar-auto" layout="/src/layouts/inline.astro"
-<div class="o-auto rad-1">
-  <div class="d-g gar-auto gtc-auto g-4">
     <div class="ai-c bg-indigo d-f jc-c p-4 rad-1 tc-white">Pneumonoultramicroscopicsilicovolcanoconiosis</div>
     <div class="ai-c bg-indigo-8 d-f jc-c p-4 rad-1 tc-white">B</div>
     <div class="ai-c bg-indigo-8 d-f jc-c p-4 rad-1 tc-white">C</div>
