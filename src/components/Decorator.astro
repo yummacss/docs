@@ -1,11 +1,11 @@
 ---
 import { icons, type IconName } from "@constants/icons";
 
-interface DecoratorProps {
+interface Props {
   icon: IconName;
 }
 
-const { icon: name } = Astro.props as DecoratorProps;
+const { icon: name } = Astro.props as Props;
 ---
 
 <div class="d-f g-2">

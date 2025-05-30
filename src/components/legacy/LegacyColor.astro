@@ -6,13 +6,13 @@ interface ColorClass {
   value: string;
 }
 
-interface ColorProps {
+interface Props {
   classPrefix: string;
   propNames: string[];
   data: ColorClass[];
 }
 
-const { classPrefix, propNames, data } = Astro.props as ColorProps;
+const { classPrefix, propNames, data } = Astro.props as Props;
 
 const mixColors = (color1: string, color2: string, weight: number): string => {
   return tinycolor.mix(color1, color2, weight).toHexString();

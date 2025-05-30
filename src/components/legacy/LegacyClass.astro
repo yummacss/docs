@@ -9,7 +9,7 @@ interface AdditionalClass {
   value: string;
 }
 
-interface UtilityProps {
+interface Props {
   additionalClasses?: AdditionalClass[];
   classPrefix: string;
   data?: ClassItem[];
@@ -23,7 +23,7 @@ interface UtilityProps {
   round?: number;
 }
 
-const { additionalClasses, classPrefix, data, incrementName, incrementValue, incrementPrefix, propNames, range, unit, excludeZero, round } = Astro.props as UtilityProps;
+const { additionalClasses, classPrefix, data, incrementName, incrementValue, incrementPrefix, propNames, range, unit, excludeZero, round } = Astro.props as Props;
 
 function generateClassData(
   classPrefix: string,

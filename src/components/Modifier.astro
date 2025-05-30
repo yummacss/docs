@@ -2,7 +2,7 @@
 import { Code } from "@astrojs/starlight/components";
 import Decorator from "./Decorator.astro";
 
-interface ModifierProps {
+interface Props {
   utility: string;
   prefixUtil: string;
   modifiers: {
@@ -11,7 +11,7 @@ interface ModifierProps {
   };
 }
 
-const { utility: baseUtil, modifiers, prefixUtil } = Astro.props as ModifierProps;
+const { utility: baseUtil, modifiers, prefixUtil } = Astro.props as Props;
 ---
 
 <section>
