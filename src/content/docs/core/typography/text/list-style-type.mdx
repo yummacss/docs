@@ -54,11 +54,12 @@ This example sets the list style type to **square**. The list items will be mark
 
 ## Conditional styles
 
-<Modifier
-  utility="lst-d"
-  prefixUtil="lst"
-  modifiers={{
-    hoverMod: "lst-s",
-    responsiveMod: "lst-s",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="lst-d" mediaModifier="lst-s" prefixClass="lst">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="lst-d" hoverModifier="lst-s" prefixClass="lst">
+  ### Hover modifier
+</HoverModifier>

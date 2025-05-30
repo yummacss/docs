@@ -74,11 +74,12 @@ This example sets the text wrap to **wrap**. The text will wrap to the next line
 
 ## Conditional styles
 
-<Modifier
-  utility="tw-nw"
-  prefixUtil="tw"
-  modifiers={{
-    hoverMod: "tw-w",
-    responsiveMod: "tw-w",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="tw-nw" mediaModifier="tw-w" prefixClass="tw">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="tw-nw" hoverModifier="tw-w" prefixClass="tw">
+  ### Hover modifier
+</HoverModifier>

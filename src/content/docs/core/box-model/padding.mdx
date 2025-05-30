@@ -180,11 +180,12 @@ This example sets the bottom and top to **2rem**. The element will have uniform 
 
 ## Conditional styles
 
-<Modifier
-  utility="p-1"
-  prefixUtil="p"
-  modifiers={{
-    hoverMod: "p-2",
-    responsiveMod: "p-2",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="p-1" mediaModifier="p-2" prefixClass="p">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="p-1" hoverModifier="p-2" prefixClass="p">
+  ### Hover modifier
+</HoverModifier>

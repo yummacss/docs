@@ -40,11 +40,12 @@ This example sets the background size to **contain**. The background image will 
 
 ## Conditional styles
 
-<Modifier
-  utility="bs-auto"
-  prefixUtil="bs"
-  modifiers={{
-    hoverMod: "bs-c",
-    responsiveMod: "bs-c",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="bs-auto" mediaModifier="bs-c" prefixClass="bs">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="bs-auto" hoverModifier="bs-c" prefixClass="bs">
+  ### Hover modifier
+</HoverModifier>

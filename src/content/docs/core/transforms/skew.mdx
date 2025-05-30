@@ -83,11 +83,12 @@ This example showcases various skew transformations along the Y-axis:
 
 ## Conditional styles
 
-<Modifier
-  utility="t-sk-10"
-  prefixUtil="t-sk"
-  modifiers={{
-    hoverMod: "t-sk-20",
-    responsiveMod: "t-sk-20",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="t-sk-10" mediaModifier="t-sk-20" prefixClass="t-sk">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="t-sk-10" hoverModifier="t-sk-20" prefixClass="t-sk">
+  ### Hover modifier
+</HoverModifier>

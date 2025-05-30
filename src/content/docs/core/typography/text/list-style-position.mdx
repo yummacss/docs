@@ -38,11 +38,12 @@ This example sets the list style position to **outside**. The list item markers 
 
 ## Conditional styles
 
-<Modifier
-  utility="lsp-o"
-  prefixUtil="lsp"
-  modifiers={{
-    hoverMod: "lsp-i",
-    responsiveMod: "lsp-i",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="lsp-o" mediaModifier="lsp-i" prefixClass="lsp">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="lsp-o" hoverModifier="lsp-i" prefixClass="lsp">
+  ### Hover modifier
+</HoverModifier>

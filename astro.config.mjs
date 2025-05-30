@@ -84,10 +84,11 @@ export default defineConfig({
         "/src/components/Class.astro",
         "/src/components/Decorator.astro",
         "/src/components/Guide.astro",
+        "/src/components/HoverModifier.astro",
         "/src/components/legacy/LegacyClass.astro",
         "/src/components/legacy/LegacyColor.astro",
         "/src/components/legacy/LegacyPalette.astro",
-        "/src/components/Modifier.astro",
+        "/src/components/MediaModifier.astro",
         "/src/components/Palette.astro",
         {
           "@astrojs/starlight/components": ["Aside", "Card", "CardGrid", "Code", "FileTree", "Icon", "LinkButton", "LinkCard", "Steps", "TabItem", "Tabs"],

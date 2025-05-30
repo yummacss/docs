@@ -24,11 +24,12 @@ This example showcases various `outline-offset` values:
 
 ## Conditional styles
 
-<Modifier
-  utility="oo-1"
-  prefixUtil="oo"
-  modifiers={{
-    hoverMod: "oo-2",
-    responsiveMod: "oo-2",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="oo-1" mediaModifier="oo-2" prefixClass="oo">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="oo-1" hoverModifier="oo-2" prefixClass="oo">
+  ### Hover modifier
+</HoverModifier>

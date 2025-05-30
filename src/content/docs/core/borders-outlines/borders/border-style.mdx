@@ -24,11 +24,12 @@ This example showcases various `border-style` utilities:
 
 ## Conditional styles
 
-<Modifier
-  utility="b-h"
-  prefixUtil="b"
-  modifiers={{
-    hoverMod: "b-s",
-    responsiveMod: "b-s",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="b-h" mediaModifier="b-s" prefixClass="b">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="b-h" hoverModifier="b-s" prefixClass="b">
+  ### Hover modifier
+</HoverModifier>

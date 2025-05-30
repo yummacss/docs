@@ -72,11 +72,12 @@ This example sets the scroll snap stop to **normal**. The **sss-n** utility allo
 
 ## Conditional styles
 
-<Modifier
-  utility="sns-a"
-  prefixUtil="sns"
-  modifiers={{
-    hoverMod: "sns-n",
-    responsiveMod: "sns-n",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="sns-a" mediaModifier="sns-n" prefixClass="sns">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="sns-a" hoverModifier="sns-n" prefixClass="sns">
+  ### Hover modifier
+</HoverModifier>

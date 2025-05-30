@@ -62,11 +62,12 @@ This example sets the cursor to **progress**, indicating that the application is
 
 ## Conditional styles
 
-<Modifier
-  utility="c-p"
-  prefixUtil="c"
-  modifiers={{
-    hoverMod: "c-wait",
-    responsiveMod: "c-wait",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="c-p" mediaModifier="c-wait" prefixClass="c">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="c-p" hoverModifier="c-wait" prefixClass="c">
+  ### Hover modifier
+</HoverModifier>

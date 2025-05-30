@@ -30,11 +30,12 @@ This example sets the font style to **normal**. The text will be displayed in a 
 
 ## Conditional styles
 
-<Modifier
-  utility="fs-n"
-  prefixUtil="fs"
-  modifiers={{
-    hoverMod: "fs-i",
-    responsiveMod: "fs-i",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="fs-n" mediaModifier="fs-i" prefixClass="fs">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="fs-n" hoverModifier="fs-i" prefixClass="fs">
+  ### Hover modifier
+</HoverModifier>

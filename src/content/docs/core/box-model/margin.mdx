@@ -158,11 +158,12 @@ This example sets the bottom and top margins to **2rem**. The element will have 
 
 ## Conditional styles
 
-<Modifier
-  utility="m-1"
-  prefixUtil="m"
-  modifiers={{
-    hoverMod: "m-2",
-    responsiveMod: "m-2",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="m-1" mediaModifier="m-2" prefixClass="m">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="m-1" hoverModifier="m-2" prefixClass="m">
+  ### Hover modifier
+</HoverModifier>

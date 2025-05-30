@@ -108,11 +108,12 @@ This example sets the justify content to **space-evenly**. The items will be eve
 
 ## Conditional styles
 
-<Modifier
-  utility="jc-fs"
-  prefixUtil="jc"
-  modifiers={{
-    hoverMod: "jc-fe",
-    responsiveMod: "jc-fe",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="jc-fs" mediaModifier="jc-fe" prefixClass="jc">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="jc-fs" hoverModifier="jc-fe" prefixClass="jc">
+  ### Hover modifier
+</HoverModifier>

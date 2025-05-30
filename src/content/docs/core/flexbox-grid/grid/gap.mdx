@@ -22,11 +22,12 @@ This example sets the gap to **2.5rem**. The element will have uniform spacing o
 
 ## Conditional styles
 
-<Modifier
-  utility="g-1"
-  prefixUtil="g"
-  modifiers={{
-    hoverMod: "g-2",
-    responsiveMod: "g-2",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="g-1" mediaModifier="g-2" prefixClass="g">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="g-1" hoverModifier="g-2" prefixClass="g">
+  ### Hover modifier
+</HoverModifier>

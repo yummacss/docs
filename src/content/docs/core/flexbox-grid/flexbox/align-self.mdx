@@ -94,11 +94,12 @@ This example sets the align self to **stretch**. The item will stretch to fill i
 
 ## Conditional styles
 
-<Modifier
-  utility="as-s"
-  prefixUtil="as"
-  modifiers={{
-    hoverMod: "as-e",
-    responsiveMod: "as-e",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="as-s" mediaModifier="as-e" prefixClass="as">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="as-s" hoverModifier="as-e" prefixClass="as">
+  ### Hover modifier
+</HoverModifier>

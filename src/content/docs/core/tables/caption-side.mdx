@@ -48,11 +48,12 @@ This example sets the caption side to **top**. The caption will be displayed abo
 
 ## Conditional styles
 
-<Modifier
-  utility="cs-b"
-  prefixUtil="cs"
-  modifiers={{
-    hoverMod: "cs-t",
-    responsiveMod: "cs-t",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="cs-b" mediaModifier="cs-t" prefixClass="cs">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="cs-b" hoverModifier="cs-t" prefixClass="cs">
+  ### Hover modifier
+</HoverModifier>

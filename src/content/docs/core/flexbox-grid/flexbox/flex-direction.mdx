@@ -58,11 +58,12 @@ This example sets the flex direction to **row-reverse**. The items will be arran
 
 ## Conditional styles
 
-<Modifier
-  utility="fd-c"
-  prefixUtil="fd"
-  modifiers={{
-    hoverMod: "fd-r",
-    responsiveMod: "fd-r",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="fd-c" mediaModifier="fd-r" prefixClass="fd">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="fd-c" hoverModifier="fd-r" prefixClass="fd">
+  ### Hover modifier
+</HoverModifier>

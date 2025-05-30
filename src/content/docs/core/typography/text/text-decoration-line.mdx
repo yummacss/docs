@@ -50,11 +50,12 @@ This example sets the text decoration line to **overline**. The text will be dis
 
 ## Conditional styles
 
-<Modifier
-  utility="tdl-none"
-  prefixUtil="tdl"
-  modifiers={{
-    responsiveMod: "tdl-u",
-    hoverMod: "tdl-u",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="tdl-none" mediaModifier="tdl-u" prefixClass="tdl">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="tdl-none" hoverModifier="tdl-u" prefixClass="tdl">
+  ### Hover modifier
+</HoverModifier>

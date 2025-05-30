@@ -62,11 +62,12 @@ This example sets the resize property to **vertical**. The **r-v** utility allow
 
 ## Conditional styles
 
-<Modifier
-  utility="r-none"
-  prefixUtil="r"
-  modifiers={{
-    hoverMod: "r-h",
-    responsiveMod: "r-h",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="r-none" mediaModifier="r-h" prefixClass="r">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="r-none" hoverModifier="r-h" prefixClass="r">
+  ### Hover modifier
+</HoverModifier>

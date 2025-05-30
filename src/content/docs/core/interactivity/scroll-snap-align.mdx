@@ -103,11 +103,12 @@ This example sets the scroll snap align to **start**. The **ssa-s** utility ensu
 
 ## Conditional styles
 
-<Modifier
-  utility="ssa-s"
-  prefixUtil="ssa"
-  modifiers={{
-    hoverMod: "ssa-e",
-    responsiveMod: "ssa-e",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="ssa-s" mediaModifier="ssa-e" prefixClass="ssa">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="ssa-s" hoverModifier="ssa-e" prefixClass="ssa">
+  ### Hover modifier
+</HoverModifier>

@@ -31,11 +31,12 @@ This example showcases various `stroke-color` utilities using the **indigo** col
 
 ## Conditional styles
 
-<Modifier
-  utility="s-lead"
-  prefixUtil="s"
-  modifiers={{
-    hoverMod: "s-indigo",
-    responsiveMod: "s-indigo",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="s-lead" mediaModifier="s-indigo" prefixClass="s">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="s-lead" hoverModifier="s-indigo" prefixClass="s">
+  ### Hover modifier
+</HoverModifier>

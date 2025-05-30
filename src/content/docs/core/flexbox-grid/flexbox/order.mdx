@@ -23,11 +23,12 @@ This example showcases various `order` utilities:
 
 ## Conditional styles
 
-<Modifier
-  utility="or-f"
-  prefixUtil="or"
-  modifiers={{
-    hoverMod: "or-l",
-    responsiveMod: "or-l",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="or-f" mediaModifier="or-l" prefixClass="or">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="or-f" hoverModifier="or-l" prefixClass="or">
+  ### Hover modifier
+</HoverModifier>

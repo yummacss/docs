@@ -50,11 +50,12 @@ This example sets the text transform to **uppercase**. All letters in the text w
 
 ## Conditional styles
 
-<Modifier
-  utility="tt-none"
-  prefixUtil="tt"
-  modifiers={{
-    hoverMod: "tt-c",
-    responsiveMod: "tt-c",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="tt-none" mediaModifier="tt-c" prefixClass="tt">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="tt-none" hoverModifier="tt-c" prefixClass="tt">
+  ### Hover modifier
+</HoverModifier>

@@ -26,11 +26,12 @@ This example sets the appearance to **none**. The **a-none** utility removes all
 
 ## Conditional styles
 
-<Modifier
-  utility="a-none"
-  prefixUtil="a"
-  modifiers={{
-    hoverMod: "a-auto",
-    responsiveMod: "a-auto",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="a-none" mediaModifier="a-auto" prefixClass="a">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="a-none" hoverModifier="a-auto" prefixClass="a">
+  ### Hover modifier
+</HoverModifier>

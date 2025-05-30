@@ -98,11 +98,12 @@ This example sets the white space to **pre-wrap**. The text will preserve spaces
 
 ## Conditional styles
 
-<Modifier
-  utility="ws-n"
-  prefixUtil="ws"
-  modifiers={{
-    hoverMod: "ws-pw",
-    responsiveMod: "ws-pw",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="ws-n" mediaModifier="ws-pw" prefixClass="ws">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="ws-n" hoverModifier="ws-pw" prefixClass="ws">
+  ### Hover modifier
+</HoverModifier>

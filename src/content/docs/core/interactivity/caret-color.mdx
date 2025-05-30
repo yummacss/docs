@@ -10,8 +10,7 @@ slug: docs/caret-color
 
 This example showcases default and custom caret color utilities. The custom `caret-color` will have an **indigo** color from the default color palette.
 
-```html live "cc-indigo"
-
+````html live "cc-indigo"
 <Decorator icon="cursor_text">Try writing a sentence to see the caret color.</Decorator>
 
 ```html live "cc-indigo"
@@ -26,14 +25,12 @@ This example showcases default and custom caret color utilities. The custom `car
     <input class="b-1 bc-silver cc-indigo p-1 rad-1 " placeholder="Type something..." />
   </div>
 </div>
-```
+````
 
 ## Conditional styles
 
-<Modifier
-  utility="cc-lead"
-  prefixUtil="cc"
-  modifiers={{
-    hoverMod: "cc-indigo",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<HoverModifier class="cc-lead" hoverModifier="cc-indigo" prefixClass="cc">
+  ### Hover modifier
+</HoverModifier>

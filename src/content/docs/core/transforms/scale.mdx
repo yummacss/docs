@@ -83,11 +83,12 @@ This example showcases various vertical scaling transformations:
 
 ## Conditional styles
 
-<Modifier
-  utility="t-s-10"
-  prefixUtil="t-s"
-  modifiers={{
-    hoverMod: "t-s-20",
-    responsiveMod: "t-s-20",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="t-s-10" mediaModifier="t-s-20" prefixClass="t-s">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="t-s-10" hoverModifier="t-s-20" prefixClass="t-s">
+  ### Hover modifier
+</HoverModifier>

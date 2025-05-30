@@ -32,11 +32,12 @@ This example sets the box sizing to **content-box**. The element's width and hei
 
 ## Conditional styles
 
-<Modifier
-  utility="bs-cb"
-  prefixUtil="bs"
-  modifiers={{
-    hoverMod: "bs-bb",
-    responsiveMod: "bs-bb",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="bs-cb" mediaModifier="bs-bb" prefixClass="bs">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="bs-cb" hoverModifier="bs-bb" prefixClass="bs">
+  ### Hover modifier
+</HoverModifier>

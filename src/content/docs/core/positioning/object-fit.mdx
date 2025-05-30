@@ -50,11 +50,12 @@ This example sets the object fit to **scale-down**. The content will be sized as
 
 ## Conditional styles
 
-<Modifier
-  utility="of-c"
-  prefixUtil="of"
-  modifiers={{
-    hoverMod: "of-sd",
-    responsiveMod: "of-sd",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="of-c" mediaModifier="of-sd" prefixClass="of">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="of-c" hoverModifier="of-sd" prefixClass="of">
+  ### Hover modifier
+</HoverModifier>

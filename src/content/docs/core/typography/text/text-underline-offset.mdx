@@ -70,11 +70,12 @@ This example sets the text underline offset to **auto**. The browser will determ
 
 ## Conditional styles
 
-<Modifier
-  utility="tuo-1"
-  prefixUtil="tuo"
-  modifiers={{
-    hoverMod: "tuo-2",
-    responsiveMod: "tuo-2",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="tuo-1" mediaModifier="tuo-2" prefixClass="tuo">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="tuo-1" hoverModifier="tuo-2" prefixClass="tuo">
+  ### Hover modifier
+</HoverModifier>

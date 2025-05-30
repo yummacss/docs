@@ -26,11 +26,12 @@ This example showcases various `opacity` utilities:
 
 ## Conditional styles
 
-<Modifier
-  utility="o-10"
-  prefixUtil="o"
-  modifiers={{
-    hoverMod: "o-20",
-    responsiveMod: "o-20",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="o-10" mediaModifier="o-20" prefixClass="o">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="o-10" hoverModifier="o-20" prefixClass="o">
+  ### Hover modifier
+</HoverModifier>

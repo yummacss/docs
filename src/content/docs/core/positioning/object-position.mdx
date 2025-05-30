@@ -32,11 +32,12 @@ This example showcases various `object-position` utilities:
 
 ## Conditional styles
 
-<Modifier
-  utility="op-l"
-  prefixUtil="op"
-  modifiers={{
-    hoverMod: "op-r",
-    responsiveMod: "op-r",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="op-l" mediaModifier="op-r" prefixClass="op">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="op-l" hoverModifier="op-r" prefixClass="op">
+  ### Hover modifier
+</HoverModifier>
