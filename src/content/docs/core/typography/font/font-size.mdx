@@ -140,11 +140,12 @@ This example sets the font size to **8rem**. This size is typically used for the
 
 ## Conditional styles
 
-<Modifier
-  utility="fs-md"
-  prefixUtil="fs"
-  modifiers={{
-    hoverMod: "fs-lg",
-    responsiveMod: "fs-lg",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="fs-md" mediaModifier="fs-lg" prefixClass="fs">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="fs-md" hoverModifier="fs-lg" prefixClass="fs">
+  ### Hover modifier
+</HoverModifier>

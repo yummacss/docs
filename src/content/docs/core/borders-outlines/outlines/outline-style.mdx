@@ -24,11 +24,12 @@ This example showcases various `outline-style` utilities:
 
 ## Conditional styles
 
-<Modifier
-  utility="os-h"
-  prefixUtil="os"
-  modifiers={{
-    hoverMod: "os-s",
-    responsiveMod: "os-s",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="os-h" mediaModifier="os-s" prefixClass="os">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="os-h" hoverModifier="os-s" prefixClass="os">
+  ### Hover modifier
+</HoverModifier>

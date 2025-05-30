@@ -58,11 +58,12 @@ This example sets the grid column start to **3**. The item will begin at the thi
 
 ## Conditional styles
 
-<Modifier
-  utility="gc-1"
-  prefixUtil="gc"
-  modifiers={{
-    hoverMod: "gc-2",
-    responsiveMod: "gc-2",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="gc-1" mediaModifier="gc-2" prefixClass="gc">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="gc-1" hoverModifier="gc-2" prefixClass="gc">
+  ### Hover modifier
+</HoverModifier>

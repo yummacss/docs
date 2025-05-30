@@ -52,11 +52,12 @@ This example sets the table layout to **fixed**. The column widths are set by th
 
 ## Conditional styles
 
-<Modifier
-  utility="tl-f"
-  prefixUtil="tl"
-  modifiers={{
-    hoverMod: "tl-a",
-    responsiveMod: "tl-a",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="tl-f" mediaModifier="tl-a" prefixClass="tl">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="tl-f" hoverModifier="tl-a" prefixClass="tl">
+  ### Hover modifier
+</HoverModifier>

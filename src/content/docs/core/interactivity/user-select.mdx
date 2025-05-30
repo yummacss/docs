@@ -58,11 +58,12 @@ This example sets the user select to **text**. The **us-t** utility allows the u
 
 ## Conditional styles
 
-<Modifier
-  utility="us-none"
-  prefixUtil="us"
-  modifiers={{
-    hoverMod: "us-auto",
-    responsiveMod: "us-auto",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="us-none" mediaModifier="us-auto" prefixClass="us">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="us-none" hoverModifier="us-auto" prefixClass="us">
+  ### Hover modifier
+</HoverModifier>

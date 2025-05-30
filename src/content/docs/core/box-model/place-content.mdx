@@ -130,11 +130,12 @@ This example sets the place content to **stretch**. The items will stretch to fi
 
 ## Conditional styles
 
-<Modifier
-  utility="pc-s"
-  prefixUtil="pc"
-  modifiers={{
-    hoverMod: "pc-e",
-    responsiveMod: "pc-e",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="pc-s" mediaModifier="pc-e" prefixClass="pc">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="pc-s" hoverModifier="pc-e" prefixClass="pc">
+  ### Hover modifier
+</HoverModifier>

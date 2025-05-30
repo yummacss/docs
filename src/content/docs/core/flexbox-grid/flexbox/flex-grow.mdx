@@ -24,11 +24,12 @@ This example showcases various `flex-grow` utilities:
 
 ## Conditional styles
 
-<Modifier
-  utility="fg-1"
-  prefixUtil="fg"
-  modifiers={{
-    hoverMod: "fg-2",
-    responsiveMod: "fg-2",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="fg-1" mediaModifier="fg-2" prefixClass="fg">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="fg-1" hoverModifier="fg-2" prefixClass="fg">
+  ### Hover modifier
+</HoverModifier>

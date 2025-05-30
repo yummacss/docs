@@ -44,11 +44,12 @@ This example sets the border collapse to **separate**. The borders of the table 
 
 ## Conditional styles
 
-<Modifier
-  utility="bs-s"
-  prefixUtil="bs"
-  modifiers={{
-    hoverMod: "bc-c",
-    responsiveMod: "bc-c",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="bs-s" mediaModifier="bc-c" prefixClass="bs">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="bs-s" hoverModifier="bc-c" prefixClass="bs">
+  ### Hover modifier
+</HoverModifier>

@@ -60,11 +60,12 @@ This example sets the text indent to **0.75rem**. The text will be indented more
 
 ## Conditional styles
 
-<Modifier
-  utility="ti-1"
-  prefixUtil="ti"
-  modifiers={{
-    hoverMod: "ti-2",
-    responsiveMod: "ti-2",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="ti-1" mediaModifier="ti-2" prefixClass="ti">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="ti-1" hoverModifier="ti-2" prefixClass="ti">
+  ### Hover modifier
+</HoverModifier>

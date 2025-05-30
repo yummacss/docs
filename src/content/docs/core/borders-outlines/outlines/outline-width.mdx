@@ -24,11 +24,12 @@ This example showcases various `outline-width` utilities:
 
 ## Conditional styles
 
-<Modifier
-  utility="ow-1"
-  prefixUtil="ow"
-  modifiers={{
-    hoverMod: "ow-2",
-    responsiveMod: "ow-2",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="ow-1" mediaModifier="ow-2" prefixClass="ow">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="ow-1" hoverModifier="ow-2" prefixClass="ow">
+  ### Hover modifier
+</HoverModifier>

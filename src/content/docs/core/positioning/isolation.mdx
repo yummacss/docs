@@ -26,11 +26,12 @@ This example sets the isolation to **isolate**. The element will create a new st
 
 ## Conditional styles
 
-<Modifier
-  utility="i-auto"
-  prefixUtil="i"
-  modifiers={{
-    hoverMod: "i-i",
-    responsiveMod: "i-i",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="i-auto" mediaModifier="i-i" prefixClass="i">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="i-auto" hoverModifier="i-i" prefixClass="i">
+  ### Hover modifier
+</HoverModifier>

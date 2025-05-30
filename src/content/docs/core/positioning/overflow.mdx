@@ -178,11 +178,12 @@ This example sets the vertical overflow behavior to **visible**. The **o-y-v** u
 
 ## Conditional styles
 
-<Modifier
-  utility="o-h"
-  prefixUtil="o"
-  modifiers={{
-    hoverMod: "o-auto",
-    responsiveMod: "o-auto",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="o-h" mediaModifier="o-auto" prefixClass="o">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="o-h" hoverModifier="o-auto" prefixClass="o">
+  ### Hover modifier
+</HoverModifier>

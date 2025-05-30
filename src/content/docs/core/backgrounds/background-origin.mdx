@@ -34,11 +34,12 @@ This example sets the background origin to **padding-box**. The background posit
 
 ## Conditional styles
 
-<Modifier
-  utility="bo-cb"
-  prefixUtil="bo"
-  modifiers={{
-    hoverMod: "bo-bb",
-    responsiveMod: "bo-bb",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="bo-cb" mediaModifier="bo-bb" prefixClass="bo">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="bo-cb" hoverModifier="bo-bb" prefixClass="bo">
+  ### Hover modifier
+</HoverModifier>

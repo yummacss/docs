@@ -52,11 +52,12 @@ This example sets the minimum height and width of an element to **16rem**. The *
 
 ## Conditional styles
 
-<Modifier
-  utility="d-1"
-  prefixUtil="d"
-  modifiers={{
-    hoverMod: "d-2",
-    responsiveMod: "d-2",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="d-1" mediaModifier="d-2" prefixClass="d">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="d-1" hoverModifier="d-2" prefixClass="d">
+  ### Hover modifier
+</HoverModifier>

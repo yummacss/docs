@@ -26,11 +26,12 @@ This example showcases various `flex-basis` utilities:
 
 ## Conditional styles
 
-<Modifier
-  utility="fb-1"
-  prefixUtil="fb"
-  modifiers={{
-    hoverMod: "fb-2",
-    responsiveMod: "fb-2",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="fb-1" mediaModifier="fb-2" prefixClass="fb">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="fb-1" hoverModifier="fb-2" prefixClass="fb">
+  ### Hover modifier
+</HoverModifier>

@@ -217,11 +217,12 @@ This example sets the transform origin to **top right**. The **t-o-tr** utility 
 
 ## Conditional styles
 
-<Modifier
-  utility="t-o-l"
-  prefixUtil="t-o"
-  modifiers={{
-    hoverMod: "t-o-r",
-    responsiveMod: "t-o-r",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="t-o-l" mediaModifier="t-o-r" prefixClass="t-o">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="t-o-l" hoverModifier="t-o-r" prefixClass="t-o">
+  ### Hover modifier
+</HoverModifier>

@@ -65,11 +65,12 @@ This example sets the clear property to **right**. The **cl-r** utility ensures 
 
 ## Conditional styles
 
-<Modifier
-  utility="cl-l"
-  prefixUtil="cl"
-  modifiers={{
-    hoverMod: "cl-r",
-    responsiveMod: "cl-r",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="cl-l" mediaModifier="cl-r" prefixClass="cl">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="cl-l" hoverModifier="cl-r" prefixClass="cl">
+  ### Hover modifier
+</HoverModifier>

@@ -1,0 +1,23 @@
+---
+import { Code } from "@astrojs/starlight/components";
+import Decorator from "./Decorator.astro";
+
+interface Props {
+  class: string;
+  classPrefix: string;
+  mediaModifier: string;
+}
+
+const { class: baseClass, classPrefix, mediaModifier } = Astro.props as Props;
+---
+
+<section>
+  <Decorator icon="ruler_square">
+    <slot />
+  </Decorator>
+  <p>
+    You can combine responsive breakpoints like <code>sm:{classPrefix}-*</code>,<code>md:{classPrefix}-*</code>, <code>lg:{classPrefix}-*</code>, and{" "}
+    <code>xxl:{classPrefix}-*</code> allows targeting specific utilities in different viewports.
+  </p>
+  <Code code={`<div class="${baseClass} md:${mediaModifier} ..."></div>`} lang="html" mark={`md:${mediaModifier}`} />
+</section>

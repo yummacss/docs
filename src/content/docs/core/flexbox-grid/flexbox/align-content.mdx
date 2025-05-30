@@ -136,11 +136,12 @@ This example sets the align content to **space-evenly**. The items will be evenl
 
 ## Conditional styles
 
-<Modifier
-  utility="ac-s"
-  prefixUtil="ac"
-  modifiers={{
-    hoverMod: "ac-e",
-    responsiveMod: "ac-e",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="ac-s" mediaModifier="ac-e" prefixClass="ac">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="ac-s" hoverModifier="ac-e" prefixClass="ac">
+  ### Hover modifier
+</HoverModifier>

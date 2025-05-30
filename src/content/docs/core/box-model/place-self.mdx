@@ -80,11 +80,12 @@ This example sets the place self to **stretch**. The item will stretch to fill i
 
 ## Conditional styles
 
-<Modifier
-  utility="ps-s"
-  prefixUtil="ps"
-  modifiers={{
-    hoverMod: "ps-e",
-    responsiveMod: "ps-e",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="ps-s" mediaModifier="ps-e" prefixClass="ps">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="ps-s" hoverModifier="ps-e" prefixClass="ps">
+  ### Hover modifier
+</HoverModifier>

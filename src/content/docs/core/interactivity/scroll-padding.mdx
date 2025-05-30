@@ -177,11 +177,12 @@ This example sets the scroll padding top to **1.5rem**. The element will have a 
 
 ## Conditional styles
 
-<Modifier
-  utility="sp-1"
-  prefixUtil="sp"
-  modifiers={{
-    hoverMod: "sp-2",
-    responsiveMod: "sp-2",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="sp-1" mediaModifier="sp-2" prefixClass="sp">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="sp-1" hoverModifier="sp-2" prefixClass="sp">
+  ### Hover modifier
+</HoverModifier>

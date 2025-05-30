@@ -33,11 +33,12 @@ This example showcases various `blur()` utilities:
 
 ## Conditional styles
 
-<Modifier
-  utility="bf-b-none"
-  prefixUtil="bf-b"
-  modifiers={{
-    hoverMod: "bf-b-sm",
-    responsiveMod: "bf-b-sm",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="bf-b-none" mediaModifier="bf-b-sm" prefixClass="bf-b">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="bf-b-none" hoverModifier="bf-b-sm" prefixClass="bf-b">
+  ### Hover modifier
+</HoverModifier>

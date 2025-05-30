@@ -26,11 +26,12 @@ This example showcases various `z-index` utilities:
 
 ## Conditional styles
 
-<Modifier
-  utility="zi-10"
-  prefixUtil="zi"
-  modifiers={{
-    hoverMod: "zi-20",
-    responsiveMod: "zi-20",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="zi-10" mediaModifier="zi-20" prefixClass="zi">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="zi-10" hoverModifier="zi-20" prefixClass="zi">
+  ### Hover modifier
+</HoverModifier>

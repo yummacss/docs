@@ -90,11 +90,12 @@ This example sets the aspect ratio to **9/16**. The **ar-9/16** utility enforces
 
 ## Conditional styles
 
-<Modifier
-  utility="ar-1/1"
-  prefixUtil="ar"
-  modifiers={{
-    hoverMod: "ar-16/9",
-    responsiveMod: "ar-16/9",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="ar-1/1" mediaModifier="ar-16/9" prefixClass="ar">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="ar-1/1" hoverModifier="ar-16/9" prefixClass="ar">
+  ### Hover modifier
+</HoverModifier>

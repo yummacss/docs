@@ -46,11 +46,12 @@ This example sets the grid auto columns to **auto**. The columns will size thems
 
 ## Conditional styles
 
-<Modifier
-  utility="gac-min"
-  prefixUtil="gac"
-  modifiers={{
-    hoverMod: "gac-auto",
-    responsiveMod: "gac-auto",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="gac-min" mediaModifier="gac-auto" prefixClass="gac">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="gac-min" hoverModifier="gac-auto" prefixClass="gac">
+  ### Hover modifier
+</HoverModifier>

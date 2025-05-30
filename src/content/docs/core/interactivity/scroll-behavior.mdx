@@ -26,11 +26,12 @@ This example sets the scroll behavior to **smooth**. The **sb-s** utility enable
 
 ## Conditional styles
 
-<Modifier
-  utility="sb-auto"
-  prefixUtil="sb"
-  modifiers={{
-    hoverMod: "sb-s",
-    responsiveMod: "sb-s",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="sb-auto" mediaModifier="sb-s" prefixClass="sb">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="sb-auto" hoverModifier="sb-s" prefixClass="sb">
+  ### Hover modifier
+</HoverModifier>

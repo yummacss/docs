@@ -60,11 +60,12 @@ This example sets the text decoration thickness to **4px**. The text will have a
 
 ## Conditional styles
 
-<Modifier
-  utility="tdt-1"
-  prefixUtil="tdt"
-  modifiers={{
-    responsiveMod: "tdt-2",
-    hoverMod: "tdt-2",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="tdt-1" mediaModifier="tdt-2" prefixClass="tdt">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="tdt-1" hoverModifier="tdt-2" prefixClass="tdt">
+  ### Hover modifier
+</HoverModifier>

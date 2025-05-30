@@ -30,11 +30,12 @@ This example sets the overflow wrap to **normal**. The browser will only break l
 
 ## Conditional styles
 
-<Modifier
-  utility="ow-n"
-  prefixUtil="ow"
-  modifiers={{
-    hoverMod: "ow-bw",
-    responsiveMod: "ow-bw",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="ow-n" mediaModifier="ow-bw" prefixClass="ow">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="ow-n" hoverModifier="ow-bw" prefixClass="ow">
+  ### Hover modifier
+</HoverModifier>

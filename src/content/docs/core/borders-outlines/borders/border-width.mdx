@@ -73,11 +73,12 @@ This example sets the top border width to **3px**. The element will have a thick
 
 ## Conditional styles
 
-<Modifier
-  utility="b-1"
-  prefixUtil="b"
-  modifiers={{
-    hoverMod: "b-2",
-    responsiveMod: "b-2",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="b-1" mediaModifier="b-2" prefixClass="b">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="b-1" hoverModifier="b-2" prefixClass="b">
+  ### Hover modifier
+</HoverModifier>

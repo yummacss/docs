@@ -33,11 +33,12 @@ This example showcases various `rotate()` utilities:
 
 ## Conditional styles
 
-<Modifier
-  utility="t-r-0"
-  prefixUtil="t-r"
-  modifiers={{
-    hoverMod: "t-r-5",
-    responsiveMod: "t-r-5",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="t-r-0" mediaModifier="t-r-5" prefixClass="t-r">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="t-r-0" hoverModifier="t-r-5" prefixClass="t-r">
+  ### Hover modifier
+</HoverModifier>

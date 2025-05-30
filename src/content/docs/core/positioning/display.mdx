@@ -131,11 +131,12 @@ This example sets the display to **none**. The **d-none** utility hides the elem
 
 ## Conditional styles
 
-<Modifier
-  utility="d-none"
-  prefixUtil="d"
-  modifiers={{
-    hoverMod: "d-b",
-    responsiveMod: "d-b",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="d-none" mediaModifier="d-b" prefixClass="d">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="d-none" hoverModifier="d-b" prefixClass="d">
+  ### Hover modifier
+</HoverModifier>

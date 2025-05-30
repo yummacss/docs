@@ -70,11 +70,12 @@ This example sets the letter spacing to **0.1em**. The letters will be significa
 
 ## Conditional styles
 
-<Modifier
-  utility="ls-1"
-  prefixUtil="ls"
-  modifiers={{
-    hoverMod: "ls-2",
-    responsiveMod: "ls-2",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="ls-1" mediaModifier="ls-2" prefixClass="ls">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="ls-1" hoverModifier="ls-2" prefixClass="ls">
+  ### Hover modifier
+</HoverModifier>

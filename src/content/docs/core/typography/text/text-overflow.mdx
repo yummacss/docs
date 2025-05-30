@@ -34,11 +34,12 @@ This example sets the text overflow to **ellipsis**. The text will be truncated 
 
 ## Conditional styles
 
-<Modifier
-  utility="to-c"
-  prefixUtil="to"
-  modifiers={{
-    hoverMod: "to-e",
-    responsiveMod: "to-e",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="to-c" mediaModifier="to-e" prefixClass="to">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="to-c" hoverModifier="to-e" prefixClass="to">
+  ### Hover modifier
+</HoverModifier>

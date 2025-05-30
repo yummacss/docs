@@ -60,11 +60,12 @@ This example sets the float property to **right**. The element will float to the
 
 ## Conditional styles
 
-<Modifier
-  utility="fl-l"
-  prefixUtil="fl"
-  modifiers={{
-    hoverMod: "fl-r",
-    responsiveMod: "fl-r",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="fl-l" mediaModifier="fl-r" prefixClass="fl">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="fl-l" hoverModifier="fl-r" prefixClass="fl">
+  ### Hover modifier
+</HoverModifier>

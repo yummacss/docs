@@ -20,11 +20,12 @@ This example sets the row gap to **0.75rem**. The element will have a uniform sp
 
 ## Conditional styles
 
-<Modifier
-  utility="rg-1"
-  prefixUtil="rg"
-  modifiers={{
-    hoverMod: "rg-2",
-    responsiveMod: "rg-2",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="rg-1" mediaModifier="rg-2" prefixClass="rg">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="rg-1" hoverModifier="rg-2" prefixClass="rg">
+  ### Hover modifier
+</HoverModifier>

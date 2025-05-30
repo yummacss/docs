@@ -44,11 +44,12 @@ This example sets the background to **text**. The background is clipped to the t
 
 ## Conditional styles
 
-<Modifier
-  utility="bc-cb"
-  prefixUtil="bc"
-  modifiers={{
-    hoverMod: "bc-bb",
-    responsiveMod: "bc-bb",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="bc-cb" mediaModifier="bc-bb" prefixClass="bc">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="bc-cb" hoverModifier="bc-bb" prefixClass="bc">
+  ### Hover modifier
+</HoverModifier>

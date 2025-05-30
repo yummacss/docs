@@ -52,11 +52,12 @@ This example sets the flex wrap to **wrap-reverse**. The items will wrap onto mu
 
 ## Conditional styles
 
-<Modifier
-  utility="fw-wr"
-  prefixUtil="fw"
-  modifiers={{
-    hoverMod: "fw-w",
-    responsiveMod: "fw-w",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="fw-wr" mediaModifier="fw-w" prefixClass="fw">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="fw-wr" hoverModifier="fw-w" prefixClass="fw">
+  ### Hover modifier
+</HoverModifier>

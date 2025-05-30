@@ -160,11 +160,12 @@ This example sets the scroll snap type to **y proximity**. The **sst-y-p** utili
 
 ## Conditional styles
 
-<Modifier
-  utility="sst-none"
-  prefixUtil="sst"
-  modifiers={{
-    hoverMod: "sst-b-m",
-    responsiveMod: "sst-b-m",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="sst-none" mediaModifier="sst-b-m" prefixClass="sst">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="sst-none" hoverModifier="sst-b-m" prefixClass="sst">
+  ### Hover modifier
+</HoverModifier>

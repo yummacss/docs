@@ -32,11 +32,12 @@ This example showcases various `background-position` utilities:
 
 ## Conditional styles
 
-<Modifier
-  utility="bp-l"
-  prefixUtil="bp"
-  modifiers={{
-    hoverMod: "bp-r",
-    responsiveMod: "bp-r",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="bp-l" mediaModifier="bp-r" prefixClass="bp">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="bp-l" hoverModifier="bp-r" prefixClass="bp">
+  ### Hover modifier
+</HoverModifier>

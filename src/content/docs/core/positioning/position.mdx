@@ -66,11 +66,12 @@ This example sets the position to **sticky**. The element is treated as relative
 
 ## Conditional styles
 
-<Modifier
-  utility="p-a"
-  prefixUtil="p"
-  modifiers={{
-    hoverMod: "p-s",
-    responsiveMod: "p-s",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="p-a" mediaModifier="p-s" prefixClass="p">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="p-a" hoverModifier="p-s" prefixClass="p">
+  ### Hover modifier
+</HoverModifier>

@@ -99,11 +99,12 @@ Controls the **top** placement of positioned elements.
 
 ## Conditional styles
 
-<Modifier
-  utility="l-0"
-  prefixUtil="l"
-  modifiers={{
-    hoverMod: "r-0",
-    responsiveMod: "r-0",
-  }}
-/>
+Learn how to override existing utilities based on the user's [screen size](/docs/first-steps#breakpoint-modifiers) or other factors, such as [hover states](/docs/first-steps#hover-modifiers).
+
+<MediaModifier class="l-0" mediaModifier="r-0" prefixClass="l">
+  ### Media modifier
+</MediaModifier>
+
+<HoverModifier class="l-0" hoverModifier="r-0" prefixClass="l">
+  ### Hover modifier
+</HoverModifier>
