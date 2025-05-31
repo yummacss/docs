@@ -1,6 +1,6 @@
 ---
 import { Code } from "@astrojs/starlight/components";
-import Decorator from "./Decorator.astro";
+import Note from "./Note.astro";
 
 interface Props {
   class: string;
@@ -12,9 +12,9 @@ const { class: baseClass, classPrefix, hoverModifier } = Astro.props as Props;
 ---
 
 <section>
-  <Decorator icon="cursor_arrow">
+  <Note icon="cursor_arrow">
     <slot />
-  </Decorator>
+  </Note>
 
   <p>
     Alternatively, you can apply <code>:hover</code> by using <code>h:{classPrefix}-*</code> utility to override elements and change their values when hovering over them.
