@@ -8,6 +8,18 @@ slug: docs/text-underline-offset
 
 <Class name="text-underline-offset" />
 
+## Auto
+
+> Initial value
+
+This example sets the text underline offset to **auto**. The browser will determine the appropriate offset for the underline based on the font and styling.
+
+```html live "tuo-auto" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <p class="bg-white fs-lg p-4 rad-1 ta-c tc-lead td-u tuo-auto">Sphinx of black quartz, judge my vow.</p>
+</div>
+```
+
 ## 0
 
 This example sets the text underline offset to **0px**. The underline will be positioned directly under the text with no additional offset.
@@ -55,16 +67,6 @@ This example sets the text underline offset to **8px**. The underline will be po
 ```html live "tuo-8" layout="/src/layouts/inline.astro"
 <div class="bg-indigo-1 p-4 rad-1">
   <p class="bg-white fs-lg p-4 rad-1 ta-c tc-lead td-u tuo-8">Sphinx of black quartz, judge my vow.</p>
-</div>
-```
-
-## Auto
-
-This example sets the text underline offset to **auto**. The browser will determine the appropriate offset for the underline based on the font and styling.
-
-```html live "tuo-auto" layout="/src/layouts/inline.astro"
-<div class="bg-indigo-1 p-4 rad-1">
-  <p class="bg-white fs-lg p-4 rad-1 ta-c tc-lead td-u tuo-auto">Sphinx of black quartz, judge my vow.</p>
 </div>
 ```
 
