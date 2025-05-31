@@ -82,7 +82,7 @@ export default defineConfig({
     config.AutoImport({
       imports: [
         "/src/components/Class.astro",
-        "/src/components/Decorator.astro",
+        "/src/components/Note.astro",
         "/src/components/Guide.astro",
         "/src/components/HoverModifier.astro",
         "/src/components/legacy/LegacyClass.astro",

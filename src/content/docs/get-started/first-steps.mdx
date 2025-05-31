@@ -63,7 +63,7 @@ Suit your project needs by creating a `yumma.config.js` configuration file where
 
 A collection of paths for your template files, such as `.js`, `.tsx`, or `.html` files. This is where the CLI will look for utility classes to include in the final CSS file.
 
-<Decorator icon="info">Use [glob patterns](https://code.visualstudio.com/docs/editor/glob-patterns#_glob-pattern-syntax) to include subfolders and specific file types.</Decorator>
+<Note icon="info">Use [glob patterns](https://code.visualstudio.com/docs/editor/glob-patterns#_glob-pattern-syntax) to include subfolders and specific file types.</Note>
 
 ```js title="yumma.config.js" {2}
 export default {
@@ -109,9 +109,9 @@ export default {
 
 The Yumma CSS CLI provides several commands to help you work with your Yumma CSS files.
 
-<Decorator icon="info">
+<Note icon="info">
   Make sure you have a [`yumma.config.js`](/docs/first-steps#get-started-with-yumma-cli) file set up before running these commands. If you haven't, run `npx yummacss init` first.
-</Decorator>
+</Note>
 
 ### Build command
 
@@ -234,7 +234,7 @@ Yumma CSS provides a set of modifiers that allow you to apply styles conditional
 
 Use responsive breakpoints such as `sm:*`, `md:*`, `lg:*`, `xl:*` and `xxl:*` to apply specific rules to different screen sizes. For example:
 
-<Decorator icon="width">Try changing the size of the preview area to see how the text changes.</Decorator>
+<Note icon="width">Try changing the size of the preview area to see how the text changes.</Note>
 
 ```html live "sm:d-b" "md:d-b" "lg:d-b" "xl:d-b" "xxl:d-b" layout="/src/layouts/inline.astro"
 <div class="bg-indigo-1 p-4 rad-1 ta-c tc-lead">
@@ -264,7 +264,7 @@ You can use the `h:` modifiers in order to target the `:hover` function across t
 
 To illustrate, when overriding an existing utility class conditionally, ensure to utilize the `h:*` modifier, followed by the designated class to be applied on hover.
 
-<Decorator icon="cursor_arrow">Try moving the mouse over the button to see how the background color changes.</Decorator>
+<Note icon="cursor_arrow">Try moving the mouse over the button to see how the background color changes.</Note>
 
 ```html live "h:bg-indigo-8"
 <button class="b-0 bg-indigo fw-600 h:bg-indigo-8 px-5 py-1 rad-1 tc-white c-p">Subscribe</button>
