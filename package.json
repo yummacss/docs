@@ -39,13 +39,14 @@
     "framework",
     "responsive-design",
     "responsive",
+    "yumma",
     "yummacss"
   ],
   "scripts": {
-    "astro": "astro",
-    "build": "astro check && astro build && yummacss build",
     "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build && yummacss build",
     "preview": "astro preview",
-    "start": "astro dev"
+    "astro": "astro"
   }
 }

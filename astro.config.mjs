@@ -1,3 +1,4 @@
+// @ts-check
 import { defineConfig } from "astro/config";
 import config from "./astro.imports.js";
 import starlight from "@astrojs/starlight";
