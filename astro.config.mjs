@@ -18,6 +18,10 @@ export default defineConfig({
         replacesTitle: true,
       },
 
+      markdown: {
+        headingLinks: false,
+      },
+
       customCss: ["@fontsource-variable/outfit", "/src/styles/custom.css", "/src/styles/yumma.css"],
       components: {
         Banner: "./src/components/starlight/Banner.astro",
