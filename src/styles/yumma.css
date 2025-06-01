@@ -370,6 +370,10 @@
   min-height: 16rem;
 }
 
+.h-auto {
+  height: auto;
+}
+
 .h-dvh {
   height: 100dvh;
 }
@@ -528,6 +532,10 @@
 
 .m-2 {
   margin: .5rem;
+}
+
+.m-4 {
+  margin: 1rem;
 }
 
 .m-8 {
@@ -1036,6 +1044,10 @@
 
 .bc-lead {
   border-color: #3f3f4e;
+}
+
+.bc-black {
+  border-color: #000;
 }
 
 .bc-b-indigo {
@@ -1848,6 +1860,10 @@
   appearance: none;
 }
 
+.c-auto {
+  cursor: auto;
+}
+
 .c-cr {
   cursor: col-resize;
 }
@@ -2242,7 +2258,7 @@
   display: inline-table;
 }
 
-.d-none {
+.d-none, .h\:d-none:hover {
   display: none;
 }
 

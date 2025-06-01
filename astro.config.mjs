@@ -1,6 +1,9 @@
 import { defineConfig } from "astro/config";
-import starlight from "@astrojs/starlight";
 import config from "./astro.imports.js";
+import starlight from "@astrojs/starlight";
+
+import starlightBlog from "starlight-blog";
+import starlightLinksValidator from "starlight-links-validator";
 
 export default defineConfig({
   integrations: [
@@ -20,9 +23,10 @@ export default defineConfig({
         Hero: "./src/components/starlight/Index.astro",
         PageTitle: "./src/components/starlight/PageTitle.astro",
       },
+
       plugins: [
-        config.starlightLinksValidator(),
-        config.starlightBlog({
+        starlightLinksValidator(),
+        starlightBlog({
           recentPostCount: 3,
           authors: {
             Renildo: {
@@ -34,6 +38,7 @@ export default defineConfig({
           },
         }),
       ],
+
       expressiveCode: {
         themes: [config.midnightTheme],
         styleOverrides: {
@@ -54,12 +59,13 @@ export default defineConfig({
           },
         },
       },
+
       editLink: {
         baseUrl: "https://github.com/yumma-lib/yumma-css-docs/tree/release/",
       },
-      social: {
-        github: "https://github.com/yumma-lib/yumma-css",
-      },
+
+      social: [{ icon: "github", label: "GitHub", href: "https://github.com/yumma-lib/yumma-css" }],
+
       head: [
         {
           tag: "link",
@@ -77,18 +83,20 @@ export default defineConfig({
           },
         },
       ],
+
       sidebar: config.sidebar,
     }),
+
     config.AutoImport({
       imports: [
         "/src/components/Class.astro",
-        "/src/components/Note.astro",
         "/src/components/Guide.astro",
         "/src/components/HoverModifier.astro",
         "/src/components/legacy/LegacyClass.astro",
         "/src/components/legacy/LegacyColor.astro",
         "/src/components/legacy/LegacyPalette.astro",
         "/src/components/MediaModifier.astro",
+        "/src/components/Note.astro",
         "/src/components/Palette.astro",
         {
           "@astrojs/starlight/components": ["Aside", "Card", "CardGrid", "Code", "FileTree", "Icon", "LinkButton", "LinkCard", "Steps", "TabItem", "Tabs"],
@@ -97,17 +105,20 @@ export default defineConfig({
         },
       ],
     }),
+
     config.liveCode({
       layout: "/src/layouts/default.astro",
     }),
   ],
 
   redirects: {
+    // blog related
     "/blog/v0": "/blog/yummacss-0.1",
     "/blog/v1": "/blog/yummacss-1.1",
     "/blog/v2": "/blog/yummacss-2.1",
     "/blog/v3": "/blog/yummacss-3.0",
 
+    // docs related
     "/docs": "/docs/installation",
     "/docs/build-css": "/docs/first-steps#building-styles",
     "/docs/colors": "/docs/first-steps#color-palette",
@@ -120,6 +131,7 @@ export default defineConfig({
     "/docs/setup": "/docs/first-steps",
     "/docs/utilities": "/docs/build-css",
 
+    // ui related
     "/ui": "/components",
   },
 

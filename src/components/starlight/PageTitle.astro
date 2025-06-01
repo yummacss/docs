@@ -1,7 +1,5 @@
 ---
-import type { Props } from "@astrojs/starlight/props";
-
-const { title, description } = Astro.props.entry.data;
+const { title, description } = Astro.locals.starlightRoute.entry.data;
 ---
 
 <Fragment>
