@@ -21,7 +21,7 @@
 }
 
 /* Dark mode */
-:root {
+:root[data-theme="dark"] {
   --overlay-blurple: hsla(var(--purple-hsl), 0.2);
   --purple-hsl: 242, 50%, 50%;
   --sl-color-accent-high: #bec6f2;
