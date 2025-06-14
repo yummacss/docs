@@ -8,29 +8,32 @@
   "type": "module",
   "version": "0.0.0",
   "dependencies": {
+    "@fontsource-variable/outfit": "^5.2.5",
+    "gsap": "^3.13.0",
+    "react-resizable-panels": "^3.0.2",
+    "sharp": "^0.34.2",
+    "tinycolor2": "^1.6.0"
+  },
+  "devDependencies": {
     "@astrojs/check": "^0.9.4",
     "@astrojs/sitemap": "^3.4.1",
     "@astrojs/starlight": "^0.34.4",
     "@astrojs/vercel": "^8.1.5",
     "@expressive-code/plugin-collapsible-sections": "^0.41.2",
-    "@fontsource-variable/outfit": "^5.2.5",
+    "@types/js-beautify": "^1.14.3",
+    "@types/node": "^24.0.1",
+    "@types/tinycolor2": "^1.4.6",
+    "astro": "^5.9.3",
     "astro-auto-import": "^0.4.4",
     "astro-live-code": "^0.0.6",
-    "astro": "^5.9.3",
-    "gsap": "^3.13.0",
-    "react-resizable-panels": "^3.0.2",
-    "sharp": "^0.34.2",
+    "concurrently": "^9.1.2",
+    "expressive-code-twoslash": "^0.5.3",
     "starlight-blog": "^0.23.2",
     "starlight-cooler-credit": "^0.4.0",
     "starlight-links-validator": "^0.16.0",
     "starlight-package-managers": "^0.11.0",
     "starlight-showcases": "^0.3.0",
-    "tinycolor2": "^1.6.0",
-    "typescript": "^5.8.3"
-  },
-  "devDependencies": {
-    "@types/js-beautify": "^1.14.3",
-    "@types/tinycolor2": "^1.4.6",
+    "typescript": "^5.8.3",
     "yummacss": "^3.0.0"
   },
   "keywords": [
@@ -43,7 +46,7 @@
     "yummacss"
   ],
   "scripts": {
-    "dev": "astro dev",
+    "dev": "concurrently \"astro dev\" \"yummacss watch\"",
     "start": "astro dev",
     "build": "astro build && yummacss build",
     "preview": "astro preview",
