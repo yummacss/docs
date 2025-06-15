@@ -1,28 +1,25 @@
 ---
 export interface Props {
   name: string;
-  data?: Array<{ utility: string; property: string[] }>;
 }
 
-let data = Astro.props.data ?? [];
+let data = [];
 
-if (!import.meta.env.PROD && (!data || data.length === 0)) {
-  try {
-    if (!Astro.props.name || typeof Astro.props.name !== "string") {
-      throw new Error("Invalid or missing 'name' property");
-    }
-
-    const slug = encodeURIComponent(Astro.props.name);
-    const res = await fetch(`https://get.yummacss.com/api/${slug}`);
-
-    if (!res.ok) {
-      throw new Error(`API responded with status ${res.status}`);
-    }
-
-    data = await res.json();
-  } catch (err) {
-    console.error("Failed to fetch data:", err);
+try {
+  if (!Astro.props.name || typeof Astro.props.name !== "string") {
+    throw new Error("Invalid or missing 'name' property");
   }
+
+  const slug = encodeURIComponent(Astro.props.name);
+  const res = await fetch(`https://get.yummacss.com/api/${slug}`);
+
+  if (!res.ok) {
+    throw new Error(`API responded with status ${res.status}`);
+  }
+
+  data = await res.json();
+} catch (err) {
+  console.error("Failed to fetch data:", err);
 }
 ---
 
@@ -36,8 +33,8 @@ if (!import.meta.env.PROD && (!data || data.length === 0)) {
     </thead>
     <tbody>
       {
-        data && data.length > 0 ? (
-          data.map((item) => (
+        data.length > 0 ? (
+          data.map((item: { utility: string; property: string[] }) => (
             <tr>
               <td>
                 <p class="fs-sm">{item.utility}</p>
