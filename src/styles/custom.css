@@ -15,8 +15,8 @@
   --sl-color-gray-8: #fcfcfe;
   --sl-color-white: #151724;
 
-  --hero-mesh: url("assets/mesh-light.png");
-  --mesh-boxes: url("assets/boxes-dark.png");
+  --hero-mesh: url("/assets/mesh-light.png");
+  --mesh-boxes: url("/assets/boxes-dark.png");
   --framework-card: linear-gradient(180deg, #ffffff 0%, #fcfcfe 100%);
 }
 
@@ -36,8 +36,8 @@
   --sl-color-gray-6: #21243f;
   --sl-color-white: #ffffff;
 
-  --hero-mesh: url("assets/mesh-dark.png");
-  --mesh-boxes: url("assets/boxes-dark.png");
+  --hero-mesh: url("/assets/mesh-dark.png");
+  --mesh-boxes: url("/assets/boxes-dark.png");
   --framework-card: linear-gradient(180deg, #21243f 0%, #1a1d32 100%);
 }
 
