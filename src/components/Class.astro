@@ -4,6 +4,7 @@ export interface Props {
 }
 
 let data = [];
+let errorMsg = "";
 
 try {
   if (!Astro.props.name || typeof Astro.props.name !== "string") {
@@ -19,6 +20,7 @@ try {
 
   data = await res.json();
 } catch (err) {
+  errorMsg = err instanceof Error ? err.message : String(err);
   console.error("Failed to fetch data:", err);
 }
 ---
@@ -46,7 +48,7 @@ try {
           ))
         ) : (
           <tr>
-            <td colspan="2">Something went wrong</td>
+            <td colspan="2">{errorMsg}</td>
           </tr>
         )
       }
