@@ -14,9 +14,9 @@
     "@astrojs/vercel": "^8.1.4",
     "@expressive-code/plugin-collapsible-sections": "^0.41.2",
     "@fontsource-variable/outfit": "^5.2.5",
+    "astro": "^5.8.1",
     "astro-auto-import": "^0.4.4",
     "astro-live-code": "^0.0.6",
-    "astro": "^5.8.1",
     "expressive-code-twoslash": "^0.5.3",
     "gsap": "^3.13.0",
     "react-resizable-panels": "^3.0.2",
@@ -31,6 +31,7 @@
   "devDependencies": {
     "@types/js-beautify": "^1.14.3",
     "@types/tinycolor2": "^1.4.6",
+    "concurrently": "^9.1.2",
     "typescript": "^5.8.3",
     "yummacss": "^3.0.0"
   },
