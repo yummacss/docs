@@ -26,6 +26,7 @@
     "astro-auto-import": "^0.4.4",
     "astro-live-code": "^0.0.6",
     "astro": "^5.9.3",
+    "concurrently": "^9.1.2",
     "expressive-code-twoslash": "^0.5.3",
     "starlight-blog": "^0.23.2",
     "starlight-cooler-credit": "^0.4.0",
