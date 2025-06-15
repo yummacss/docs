@@ -15,7 +15,7 @@ try {
   const res = await fetch(`https://get.yummacss.com/api/${slug}`);
 
   if (!res.ok) {
-    throw new Error(`API responded with status ${res.status}`);
+    throw new Error(`Error: ${res.status}`);
   }
 
   data = await res.json();
