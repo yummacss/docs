@@ -1,19 +1,21 @@
 # build
-dist/
-
-# dependencies
-node_modules/
-
-# generated types
 .astro/
+/dist/
+
+# deps
+node_modules/
 
 # logs
 npm-debug.log*
 
-# tree
+# project files
 project-hierarchy.txt
 
-# vs code
+# editor config
 .vscode/
 
+# deployment
 .vercel
+
+# environment variables
+.env
