@@ -8,9 +8,36 @@ importers:
 
   .:
     dependencies:
+      '@astrojs/check':
+        specifier: ^0.9.4
+        version: 0.9.4(typescript@5.8.3)
+      '@astrojs/sitemap':
+        specifier: ^3.4.0
+        version: 3.4.1
+      '@astrojs/starlight':
+        specifier: ^0.34.3
+        version: 0.34.4(astro@5.9.3(@types/node@24.0.1)(lightningcss@1.30.1)(rollup@4.41.1)(sass-embedded@1.89.1)(typescript@5.8.3)(yaml@2.8.0))
+      '@astrojs/vercel':
+        specifier: ^8.1.4
+        version: 8.1.5(astro@5.9.3(@types/node@24.0.1)(lightningcss@1.30.1)(rollup@4.41.1)(sass-embedded@1.89.1)(typescript@5.8.3)(yaml@2.8.0))(react@19.1.0)(rollup@4.41.1)
+      '@expressive-code/plugin-collapsible-sections':
+        specifier: ^0.41.2
+        version: 0.41.2
       '@fontsource-variable/outfit':
         specifier: ^5.2.5
         version: 5.2.5
+      astro:
+        specifier: ^5.8.1
+        version: 5.9.3(@types/node@24.0.1)(lightningcss@1.30.1)(rollup@4.41.1)(sass-embedded@1.89.1)(typescript@5.8.3)(yaml@2.8.0)
+      astro-auto-import:
+        specifier: ^0.4.4
+        version: 0.4.4(astro@5.9.3(@types/node@24.0.1)(lightningcss@1.30.1)(rollup@4.41.1)(sass-embedded@1.89.1)(typescript@5.8.3)(yaml@2.8.0))
+      astro-live-code:
+        specifier: ^0.0.6
+        version: 0.0.6
+      expressive-code-twoslash:
+        specifier: ^0.5.3
+        version: 0.5.3(@expressive-code/core@0.41.2)(expressive-code@0.41.2)(typescript@5.8.3)
       gsap:
         specifier: ^3.13.0
         version: 3.13.0
@@ -20,49 +47,6 @@ importers:
       sharp:
         specifier: ^0.34.2
         version: 0.34.2
-      tinycolor2:
-        specifier: ^1.6.0
-        version: 1.6.0
-    devDependencies:
-      '@astrojs/check':
-        specifier: ^0.9.4
-        version: 0.9.4(typescript@5.8.3)
-      '@astrojs/sitemap':
-        specifier: ^3.4.1
-        version: 3.4.1
-      '@astrojs/starlight':
-        specifier: ^0.34.4
-        version: 0.34.4(astro@5.9.3(@types/node@24.0.1)(lightningcss@1.30.1)(rollup@4.41.1)(sass-embedded@1.89.1)(typescript@5.8.3)(yaml@2.8.0))
-      '@astrojs/vercel':
-        specifier: ^8.1.5
-        version: 8.1.5(astro@5.9.3(@types/node@24.0.1)(lightningcss@1.30.1)(rollup@4.41.1)(sass-embedded@1.89.1)(typescript@5.8.3)(yaml@2.8.0))(react@19.1.0)(rollup@4.41.1)
-      '@expressive-code/plugin-collapsible-sections':
-        specifier: ^0.41.2
-        version: 0.41.2
-      '@types/js-beautify':
-        specifier: ^1.14.3
-        version: 1.14.3
-      '@types/node':
-        specifier: ^24.0.1
-        version: 24.0.1
-      '@types/tinycolor2':
-        specifier: ^1.4.6
-        version: 1.4.6
-      astro:
-        specifier: ^5.9.3
-        version: 5.9.3(@types/node@24.0.1)(lightningcss@1.30.1)(rollup@4.41.1)(sass-embedded@1.89.1)(typescript@5.8.3)(yaml@2.8.0)
-      astro-auto-import:
-        specifier: ^0.4.4
-        version: 0.4.4(astro@5.9.3(@types/node@24.0.1)(lightningcss@1.30.1)(rollup@4.41.1)(sass-embedded@1.89.1)(typescript@5.8.3)(yaml@2.8.0))
-      astro-live-code:
-        specifier: ^0.0.6
-        version: 0.0.6
-      concurrently:
-        specifier: ^9.1.2
-        version: 9.1.2
-      expressive-code-twoslash:
-        specifier: ^0.5.3
-        version: 0.5.3(@expressive-code/core@0.41.2)(expressive-code@0.41.2)(typescript@5.8.3)
       starlight-blog:
         specifier: ^0.23.2
         version: 0.23.2(@astrojs/starlight@0.34.4(astro@5.9.3(@types/node@24.0.1)(lightningcss@1.30.1)(rollup@4.41.1)(sass-embedded@1.89.1)(typescript@5.8.3)(yaml@2.8.0)))(astro@5.9.3(@types/node@24.0.1)(lightningcss@1.30.1)(rollup@4.41.1)(sass-embedded@1.89.1)(typescript@5.8.3)(yaml@2.8.0))
@@ -78,9 +62,19 @@ importers:
       starlight-showcases:
         specifier: ^0.3.0
         version: 0.3.0(@astrojs/starlight@0.34.4(astro@5.9.3(@types/node@24.0.1)(lightningcss@1.30.1)(rollup@4.41.1)(sass-embedded@1.89.1)(typescript@5.8.3)(yaml@2.8.0)))(astro@5.9.3(@types/node@24.0.1)(lightningcss@1.30.1)(rollup@4.41.1)(sass-embedded@1.89.1)(typescript@5.8.3)(yaml@2.8.0))
+      tinycolor2:
+        specifier: ^1.6.0
+        version: 1.6.0
       typescript:
         specifier: ^5.8.3
         version: 5.8.3
+    devDependencies:
+      '@types/js-beautify':
+        specifier: ^1.14.3
+        version: 1.14.3
+      '@types/tinycolor2':
+        specifier: ^1.4.6
+        version: 1.4.6
       yummacss:
         specifier: ^3.0.0
         version: 3.0.0
@@ -1088,10 +1082,6 @@ packages:
   ccount@2.0.1:
     resolution: {integrity: sha512-eyrF0jiFpY+3drT6383f1qhkbGsLSifNAjA61IUjZjmLCWjItY6LB9ft9YhoDgwfmclB2zhu51Lc7+95b8NRAg==}
 
-  chalk@4.1.2:
-    resolution: {integrity: sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==}
-    engines: {node: '>=10'}
-
   chalk@5.4.1:
     resolution: {integrity: sha512-zgVZuo2WcZgfUEmsn6eO3kINexW8RAE4maiQ8QNs8CtpPCSyMiYsULR3HQYkm3w8FIA3SberyMJMSldGsW+U3w==}
     engines: {node: ^12.17.0 || ^14.13 || >=16.0.0}
@@ -1180,11 +1170,6 @@ packages:
 
   common-ancestor-path@1.0.1:
     resolution: {integrity: sha512-L3sHRo1pXXEqX8VU28kfgUY+YGsk09hPqZiZmLacNib6XNTCM8ubYeT7ryXQw8asB1sKgcU5lkB7ONug08aB8w==}
-
-  concurrently@9.1.2:
-    resolution: {integrity: sha512-H9MWcoPsYddwbOGM6difjVwVZHl63nwMEwDJG/L7VGtuaJhb12h2caPG2tVPWs7emuYix252iGfqOyrz1GczTQ==}
-    engines: {node: '>=18'}
-    hasBin: true
 
   consola@3.4.2:
     resolution: {integrity: sha512-5IKcdX0nnYavi6G7TtOhwkYzyjfJlatbjMjuLSfE2kYT5pMDOilZ4OvMhi637CcDICTmz3wARPoyhqyX1Y+XvA==}
@@ -2453,10 +2438,6 @@ packages:
     resolution: {integrity: sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==}
     engines: {node: '>=8'}
 
-  shell-quote@1.8.3:
-    resolution: {integrity: sha512-ObmnIF4hXNg1BqhnHmgbDETF8dLPCggZWBjkQfhZpbszZnYur5DUljTcCHii5LC3J5E0yeO/1LIMyH+UvHQgyw==}
-    engines: {node: '>= 0.4'}
-
   shiki@3.4.2:
     resolution: {integrity: sha512-wuxzZzQG8kvZndD7nustrNFIKYJ1jJoWIPaBpVe2+KHSvtzMi4SBjOxrigs8qeqce/l3U0cwiC+VAkLKSunHQQ==}
 
@@ -2567,10 +2548,6 @@ packages:
   style-to-object@1.0.8:
     resolution: {integrity: sha512-xT47I/Eo0rwJmaXC4oilDGDWLohVhR6o/xAQcPQN8q6QBuZVL8qMYL85kLmST5cPjAorwvqIA4qXTRQoYHaL6g==}
 
-  supports-color@7.2.0:
-    resolution: {integrity: sha512-qpCAvRl9stuOHveKsn7HncJRvv501qIacKzQlO/+Lwxc9+0q2wLyv4Dfvt80/DPn2pqOBsJdDiogXGR9+OvwRw==}
-    engines: {node: '>=8'}
-
   supports-color@8.1.1:
     resolution: {integrity: sha512-MpUEN2OodtUzxvKQl72cUF7RQ5EiHsGvSsVG0ia9c5RbWGL2CI4C7EpPS8UTBIplnlzZiNuV56w+FuNxy3ty2Q==}
     engines: {node: '>=10'}
@@ -2606,10 +2583,6 @@ packages:
 
   tr46@0.0.3:
     resolution: {integrity: sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==}
-
-  tree-kill@1.2.2:
-    resolution: {integrity: sha512-L0Orpi8qGpRG//Nd+H90vFB+3iHnue1zSSGmNOOCh1GLJ7rUKVwV2HvijphGQS2UmhUZewS9VgvxYIdgr+fG1A==}
-    hasBin: true
 
   trim-lines@3.0.1:
     resolution: {integrity: sha512-kRj8B+YHZCc9kQYdWfJB2/oUl9rA99qbowYYBtr4ui4mZyAQ2JpvVBd/6U2YloATfqBhBTSMhTpgBHtU0Mf3Rg==}
@@ -4137,11 +4110,6 @@ snapshots:
 
   ccount@2.0.1: {}
 
-  chalk@4.1.2:
-    dependencies:
-      ansi-styles: 4.3.0
-      supports-color: 7.2.0
-
   chalk@5.4.1: {}
 
   change-case@5.4.4: {}
@@ -4207,16 +4175,6 @@ snapshots:
   commander@13.1.0: {}
 
   common-ancestor-path@1.0.1: {}
-
-  concurrently@9.1.2:
-    dependencies:
-      chalk: 4.1.2
-      lodash: 4.17.21
-      rxjs: 7.8.2
-      shell-quote: 1.8.3
-      supports-color: 8.1.1
-      tree-kill: 1.2.2
-      yargs: 17.7.2
 
   consola@3.4.2: {}
 
@@ -5993,8 +5951,6 @@ snapshots:
 
   shebang-regex@3.0.0: {}
 
-  shell-quote@1.8.3: {}
-
   shiki@3.4.2:
     dependencies:
       '@shikijs/core': 3.4.2
@@ -6128,10 +6084,6 @@ snapshots:
     dependencies:
       inline-style-parser: 0.2.4
 
-  supports-color@7.2.0:
-    dependencies:
-      has-flag: 4.0.0
-
   supports-color@8.1.1:
     dependencies:
       has-flag: 4.0.0
@@ -6167,8 +6119,6 @@ snapshots:
       is-number: 7.0.0
 
   tr46@0.0.3: {}
-
-  tree-kill@1.2.2: {}
 
   trim-lines@3.0.1: {}
 
