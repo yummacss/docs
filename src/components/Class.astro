@@ -15,7 +15,7 @@ try {
   const res = await fetch(`https://get.yummacss.com/api/${slug}`);
 
   if (!res.ok) {
-    throw new Error(`Error: ${res.status}`);
+    throw new Error(`The API responded with: ${res.status}`);
   }
 
   data = await res.json();
@@ -48,7 +48,7 @@ try {
           ))
         ) : (
           <tr>
-            <td colspan="2">{errorMsg}</td>
+            <td colspan="2" title={errorMsg}>Something went wrong.</td>
           </tr>
         )
       }
