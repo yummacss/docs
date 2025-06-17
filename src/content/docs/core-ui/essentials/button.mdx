@@ -1,0 +1,88 @@
+---
+title: Button
+description: An interactive element used to trigger user actions.
+slug: docs/essentials/button
+draft: true
+---
+
+## Example
+
+A basic implementation of the Button component with default styling.
+
+```tsx
+import { Button } from "yumma-ui";
+
+const Example = () => {
+  return <Button variant="base">Example</Button>;
+};
+
+export default Example;
+```
+
+## Usage
+
+```tsx
+import { Button } from "yumma-ui";
+```
+
+## API
+
+The Button component can be adapted to suit specific requirements by utilising the internal API of Yumma UI, thereby enabling the modification of its visual appearance and operational characteristics.
+
+### Variant
+
+> Default value is `base`
+
+The `variant` property allows you to choose from different pre-defined styles that match your design system.
+
+```tsx title="page.tsx"
+import { Button } from "yumma-ui";
+
+<div className="...">
+  <Button variant="base">Example</Button>
+  <Button variant="destructive">Example</Button>
+  <Button variant="ghost">Example</Button>
+  <Button variant="link">Example</Button>
+  <Button variant="outline">Example</Button>
+</div>;
+```
+
+### Size
+
+> Default value is `md`
+
+The `size` property allows you to choose from different pre-defined sizes that match your design system.
+
+```tsx title="page.tsx"
+import { Button } from "yumma-ui";
+
+<div className="...">
+  <Button size="sm">Example</Button>
+  <Button size="md">Example</Button>
+  <Button size="lg">Example</Button>
+</div>;
+```
+
+## Custom styling
+
+The Button component exposes a simple API to control its look and behavior through props.
+
+```tsx
+import { Button } from "yumma-ui";
+
+<Button className="ai-c b-1 bc-indigo-7 bg-indigo d-if px-5 py-3 rad-1 tc-white">Example</Button>;
+```
+
+## Extending functionality
+
+The Button component is fully extendable. It supports all native HTML `<button>` attributes through its props:
+
+```tsx
+import { Button, type ButtonProps } from "yumma-ui";
+
+const Example = (props: ButtonProps) => {
+  return <Button {...props}>Example</Button>;
+};
+
+export default Example;
+```

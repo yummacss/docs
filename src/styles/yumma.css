@@ -778,6 +778,11 @@
   padding-bottom: .5rem;
 }
 
+.py-3 {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+}
+
 .py-6 {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
@@ -1028,6 +1033,10 @@
 
 .bc-indigo-4 {
   border-color: #9fa0e9;
+}
+
+.bc-indigo-7 {
+  border-color: #4d4fbb;
 }
 
 .bc-indigo-8 {
