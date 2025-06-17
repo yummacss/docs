@@ -5,7 +5,7 @@ slug: docs/essentials/button
 draft: true
 ---
 
-## Example
+## Examples
 
 A basic implementation of the Button component with default styling.
 
@@ -13,7 +13,11 @@ A basic implementation of the Button component with default styling.
 import { Button } from "yumma-ui";
 
 const Example = () => {
-  return <Button variant="base">Example</Button>;
+  return (
+    <Button variant="base" size="md">
+      Example
+    </Button>
+  );
 };
 
 export default Example;
@@ -29,38 +33,24 @@ import { Button } from "yumma-ui";
 
 The Button component can be adapted to suit specific requirements by utilising the internal API of Yumma UI, thereby enabling the modification of its visual appearance and operational characteristics.
 
-### Variant
+### `variant`
 
 > Default value is `base`
 
 The `variant` property allows you to choose from different pre-defined styles that match your design system.
 
-```tsx title="page.tsx"
-import { Button } from "yumma-ui";
-
-<div className="...">
-  <Button variant="base">Example</Button>
-  <Button variant="destructive">Example</Button>
-  <Button variant="ghost">Example</Button>
-  <Button variant="link">Example</Button>
-  <Button variant="outline">Example</Button>
-</div>;
+```ts
+(property) variant?: "link" | "destructive" | "base" | "ghost" | "outlined" | null | undefined
 ```
 
-### Size
+### `size`
 
 > Default value is `md`
 
 The `size` property allows you to choose from different pre-defined sizes that match your design system.
 
-```tsx title="page.tsx"
-import { Button } from "yumma-ui";
-
-<div className="...">
-  <Button size="sm">Example</Button>
-  <Button size="md">Example</Button>
-  <Button size="lg">Example</Button>
-</div>;
+```ts
+(property) size?: "md" | "sm" | "lg" | null | undefined
 ```
 
 ## Custom styling
@@ -73,15 +63,15 @@ import { Button } from "yumma-ui";
 <Button className="ai-c b-1 bc-indigo-7 bg-indigo d-if px-5 py-3 rad-1 tc-white">Example</Button>;
 ```
 
-## Extending functionality
+## Extend properties
 
 The Button component is fully extendable. It supports all native HTML `<button>` attributes through its props:
 
-```tsx
-import { Button, type ButtonProps } from "yumma-ui";
+```tsx "onClick={() => alert("It works!")}"
+import { Button } from "yumma-ui";
 
-const Example = (props: ButtonProps) => {
-  return <Button {...props}>Example</Button>;
+const Example = () => {
+  return <Button onClick={() => alert("It works!")}>Example</Button>;
 };
 
 export default Example;
