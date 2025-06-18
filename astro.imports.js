@@ -8,7 +8,7 @@ import starlightCoolerCredit from "starlight-cooler-credit";
 import starlightLinksValidator from "starlight-links-validator";
 import vercel from "@astrojs/vercel";
 
-const midnight = fs.readFileSync(new URL(`./midnight.jsonc`, import.meta.url), "utf-8");
+const midnight = fs.readFileSync(new URL(`./midnight.json`, import.meta.url), "utf-8");
 const midnightTheme = ExpressiveCodeTheme.fromJSONString(midnight);
 
 // prettier-ignore
