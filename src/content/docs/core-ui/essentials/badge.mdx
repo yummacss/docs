@@ -4,3 +4,75 @@ description: A component that displays a small piece of information or status in
 slug: docs/essentials/badge
 draft: true
 ---
+
+## Examples
+
+A basic implementation of the Badge component with default styling.
+
+```tsx
+import { Badge } from "yumma-ui";
+
+const Example = () => {
+  return (
+    <Badge variant="base" size="xs">
+      Example
+    </Badge>
+  );
+};
+
+export default Example;
+```
+
+## Usage
+
+```tsx
+import { Badge } from "yumma-ui";
+```
+
+## API
+
+The Badge component can be adapted to suit specific requirements by utilising the internal API of Yumma UI, thereby enabling the modification of its visual appearance and operational characteristics.
+
+### `variant`
+
+> Default value is `base`
+
+The `variant` property allows you to choose from different pre-defined styles that match your design system.
+
+```ts
+(property) variant?: "base" | "outline" | null | undefined
+```
+
+### `size`
+
+> Default value is `xs`
+
+The `size` property allows you to choose from different pre-defined sizes that match your design system.
+
+```ts
+(property) size?: "lg" | "xs" | "sm" | "md" | null | undefined
+```
+
+## Custom styling
+
+The Badge component exposes a simple API to control its look and behavior through props.
+
+```tsx
+import { Badge } from "yumma-ui";
+
+<Badge className="...">Example</Badge>;
+```
+
+## Extend properties
+
+The Badge component is fully extendable. It supports all native HTML `<badge>` attributes through its props:
+
+```tsx "onClick={() => alert("Badge clicked!")}"
+import { Badge } from "yumma-ui";
+
+const Example = () => {
+  return <Badge onClick={() => alert("Badge clicked!")}>Example</Badge>;
+};
+
+export default Example;
+```
