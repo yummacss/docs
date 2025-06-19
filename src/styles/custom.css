@@ -60,6 +60,10 @@
   overflow-x: auto;
 }
 
+.border-reset * {
+  border: 0 solid;
+}
+
 .tc-accent {
   color: light-dark(var(--sl-color-accent), var(--sl-color-accent-high));
 }
