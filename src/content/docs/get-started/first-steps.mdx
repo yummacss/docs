@@ -10,7 +10,7 @@ slug: docs/first-steps
 
 Yumma CLI scans and compiles your template files into a single CSS file while eliminating dead styles, making your content load faster.
 
-<PackageManagers type="exec" pkg="yummacss" args="init" title="Terminal" />
+<PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} type="exec" pkg="yummacss" args="init" title="Terminal" />
 
 <Tabs>
   <TabItem label="ES Modules">
@@ -116,13 +116,13 @@ The Yumma CSS CLI provides several commands to help you work with your Yumma CSS
 
 The `build` command will compile your Yumma CSS files once.
 
-<PackageManagers type="exec" pkg="yummacss" args="build" title="Terminal" />
+<PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} type="exec" pkg="yummacss" args="build" title="Terminal" />
 
 ### Watch command
 
 The `watch` command will watch for changes in your Yumma CSS files and recompile them automatically.
 
-<PackageManagers type="exec" pkg="yummacss" args="watch" title="Terminal" />
+<PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} type="exec" pkg="yummacss" args="watch" title="Terminal" />
 
 ## Styling pages
 
