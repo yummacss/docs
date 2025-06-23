@@ -93,7 +93,7 @@ export default defineConfig({
     sidebar: config.sidebar,
   }), config.AutoImport({
     imports: [
-      "/src/components/Class.tsx",
+      "/src/components/Class.astro",
       "/src/components/HoverModifier.astro",
       "/src/components/legacy/LegacyClass.astro",
       "/src/components/legacy/LegacyColor.astro",
