@@ -4,7 +4,6 @@ export const sidebar = [
     items: [
       { label: "Installation", link: "docs/installation" },
       { label: "First Steps", link: "docs/first-steps" },
-      { label: "Color System", link: "docs/first-steps#color-system" },
       { label: "Upgrade Guide", link: "docs/upgrade-guide" },
       { label: "Playground", link: "https://play.yummacss.com" },
     ],

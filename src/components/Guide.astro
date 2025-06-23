@@ -18,7 +18,7 @@ const { entries = [] } = Astro.props as { entries: Entry[] };
     entries.map((entry) => (
       <a href={entry.href} class="bg-card p-4 td-none" style="color: light-dark(var(--sl-color-gray-3), var(--sl-color-gray-3));">
         {entry.icon && <div class="mr-2 d-8" set:html={frameworkIcons[entry.icon]} />}
-        <h2 class="fs-xxl mt-2">{entry.title}</h2>
+        <h2 class="fs-xxl mt-8">{entry.title}</h2>
       </a>
     ))
   }
