@@ -17,7 +17,7 @@
 
   --hero-mesh: url("/assets/mesh-light.png");
   --mesh-boxes: url("/assets/boxes-dark.png");
-  --framework-card: linear-gradient(180deg, #ffffff 0%, #fcfcfe 100%);
+  --framework-card: var(--sl-color-gray-8);
 }
 
 /* Dark mode */
@@ -38,7 +38,7 @@
 
   --hero-mesh: url("/assets/mesh-dark.png");
   --mesh-boxes: url("/assets/boxes-dark.png");
-  --framework-card: linear-gradient(180deg, #21243f 0%, #1a1d32 100%);
+  --framework-card: var(--sl-color-gray-6);
 }
 
 @media (min-width: 50rem) {
@@ -111,7 +111,7 @@ table {
 
 #area {
   background-color: light-dark(var(--sl-color-gray-8), var(--sl-color-gray-6));
-  
+
   background-image: repeating-linear-gradient(45deg, light-dark(#d3d5e3, #31365e) 25%, transparent 25%, transparent 75%, light-dark(#d3d5e3, #31365e) 75%, light-dark(#d3d5e3, #31365e)), repeating-linear-gradient(45deg, light-dark(#d3d5e3, #31365e) 25%, var(--sl-color-black) 25%, var(--sl-color-black) 75%, light-dark(#d3d5e3, #31365e) 75%, light-dark(#d3d5e3, #31365e));
   background-position: 0 0, 8px 8px;
   background-size: 16px 16px;
