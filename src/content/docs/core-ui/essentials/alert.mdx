@@ -4,3 +4,72 @@ description: A component that displays important messages and notifications to u
 slug: docs/essentials/alert
 draft: true
 ---
+
+## Examples
+
+A basic implementation of the Alert component with default styling.
+
+```tsx
+import { Alert } from "yumma-ui";
+import { InfoCircledIcon } from "@radix-ui/react-icons";
+
+const Example = () => {
+  return (
+    <Alert variant="base">
+      <InfoCircledIcon />
+      <AlertContent>
+        <AlertTitle>Information</AlertTitle>
+        <AlertDescription>
+          This is an informational message to help guide users through the interface.
+        </AlertDescription>
+      </AlertContent>
+    </Alert>
+  );
+};
+
+export default Example;
+```
+
+## Usage
+
+```tsx
+import { Alert } from "yumma-ui";
+```
+
+## API reference
+
+The Alert component can be adapted to suit specific requirements by utilizing the internal API of Yumma UI, thereby enabling the modification of its visual appearance and operational characteristics.
+
+### `variant`
+
+> Default value is `base`
+
+The `variant` property allows you to choose from different pre-defined styles that match your design system.
+
+```ts
+(property) variant?: "base" | "error" | "info" | "success" | "warning" | null | undefined
+```
+
+## Custom styling
+
+The Alert component exposes a simple API to control its look and behavior through props.
+
+```tsx
+import { Alert } from "yumma-ui";
+
+<Alert className="ai-c b-1 bc-indigo-7 bg-indigo d-if px-5 py-3 rad-1 tc-white">Example</Alert>;
+```
+
+## Extend properties
+
+The Alert component is fully extendable. It supports all native HTML `<alert>` attributes through its props:
+
+```tsx "onClick={() => alert("Alert clicked!")}"
+import { Alert } from "yumma-ui";
+
+const Example = () => {
+  return <Alert onClick={() => alert("Alert clicked!")}>Example</Alert>;
+};
+
+export default Example;
+```
