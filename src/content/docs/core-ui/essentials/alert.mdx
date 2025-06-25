@@ -52,11 +52,11 @@ The `variant` property allows you to choose from different pre-defined styles th
 
 The Alert component is composed of several sub-components that work together to create a structured alert message.
 
-| Component          | Description                                                       | Props                                      |
-| ------------------ | ----------------------------------------------------------------- | ------------------------------------------ |
-| `AlertContent`     | A container that wraps the alert's title and description content. | Extends all native HTML `<div>` attributes |
-| `AlertTitle`       | Displays the main heading or title of the alert message.          | Extends all native HTML `<h5>` attributes  |
-| `AlertDescription` | Contains the detailed message or description text of the alert.   | Extends all native HTML `<div>` attributes |
+| Component          | Description                                                     | Props                                      |
+| ------------------ | --------------------------------------------------------------- | ------------------------------------------ |
+| `AlertContent`     | Wraps the alert's title and description content.                | Extends all native HTML `<div>` attributes |
+| `AlertTitle`       | Displays the main heading or title of the alert message.        | Extends all native HTML `<h3>` attributes  |
+| `AlertDescription` | Contains the detailed message or description text of the alert. | Extends all native HTML `<div>` attributes |
 
 ## Custom styling
 
@@ -65,7 +65,7 @@ The Alert component exposes a simple API to control its look and behavior throug
 ```tsx
 import { Alert } from "yumma-ui";
 
-<Alert className="ai-c b-1 bc-indigo-7 bg-indigo d-if px-5 py-3 rad-1 tc-white">Example</Alert>;
+<Alert className="...">Example</Alert>;
 ```
 
 ## Extend properties
