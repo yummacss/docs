@@ -12,7 +12,7 @@ A basic implementation of the Button component with default styling.
 ```tsx
 import { Button } from "yumma-ui";
 
-const Example = () => {
+const App = () => {
   return (
     <Button variant="base" size="md">
       Example
@@ -20,7 +20,7 @@ const Example = () => {
   );
 };
 
-export default Example;
+export default App;
 ```
 
 ## Usage
@@ -70,9 +70,9 @@ The Button component is fully extendable. It supports all native HTML `<button>`
 ```tsx "onClick={() => alert("Button clicked!")}"
 import { Button } from "yumma-ui";
 
-const Example = () => {
+const App = () => {
   return <Button onClick={() => alert("Button clicked!")}>Example</Button>;
 };
 
-export default Example;
+export default App;
 ```
