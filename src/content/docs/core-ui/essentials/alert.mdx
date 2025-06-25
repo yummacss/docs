@@ -19,9 +19,7 @@ const Example = () => {
       <InfoCircledIcon />
       <AlertContent>
         <AlertTitle>Information</AlertTitle>
-        <AlertDescription>
-          This is an informational message to help guide users through the interface.
-        </AlertDescription>
+        <AlertDescription>This is an informational message to help guide users through the interface.</AlertDescription>
       </AlertContent>
     </Alert>
   );
@@ -49,6 +47,16 @@ The `variant` property allows you to choose from different pre-defined styles th
 ```ts
 (property) variant?: "base" | "error" | "info" | "success" | "warning" | null | undefined
 ```
+
+## Sub-components
+
+The Alert component is composed of several sub-components that work together to create a structured alert message.
+
+| Component          | Description                                                       | Props                                      |
+| ------------------ | ----------------------------------------------------------------- | ------------------------------------------ |
+| `AlertContent`     | A container that wraps the alert's title and description content. | Extends all native HTML `<div>` attributes |
+| `AlertTitle`       | Displays the main heading or title of the alert message.          | Extends all native HTML `<h5>` attributes  |
+| `AlertDescription` | Contains the detailed message or description text of the alert.   | Extends all native HTML `<div>` attributes |
 
 ## Custom styling
 
