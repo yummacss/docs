@@ -12,7 +12,7 @@ A basic implementation of the Badge component with default styling.
 ```tsx
 import { Badge } from "yumma-ui";
 
-const Example = () => {
+const App = () => {
   return (
     <Badge variant="base" size="xs">
       Example
@@ -20,7 +20,7 @@ const Example = () => {
   );
 };
 
-export default Example;
+export default App;
 ```
 
 ## Usage
@@ -70,9 +70,9 @@ The Badge component is fully extendable. It supports all native HTML `<badge>` a
 ```tsx "onClick={() => alert("Badge clicked!")}"
 import { Badge } from "yumma-ui";
 
-const Example = () => {
+const App = () => {
   return <Badge onClick={() => alert("Badge clicked!")}>Example</Badge>;
 };
 
-export default Example;
+export default App;
 ```

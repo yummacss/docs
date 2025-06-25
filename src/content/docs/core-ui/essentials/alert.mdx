@@ -13,7 +13,7 @@ A basic implementation of the Alert component with default styling.
 import { Alert } from "yumma-ui";
 import { InfoCircledIcon } from "@radix-ui/react-icons";
 
-const Example = () => {
+const App = () => {
   return (
     <Alert variant="base">
       <InfoCircledIcon />
@@ -25,7 +25,7 @@ const Example = () => {
   );
 };
 
-export default Example;
+export default App;
 ```
 
 ## Usage
@@ -75,9 +75,9 @@ The Alert component is fully extendable. It supports all native HTML `<alert>` a
 ```tsx "onClick={() => alert("Alert clicked!")}"
 import { Alert } from "yumma-ui";
 
-const Example = () => {
+const App = () => {
   return <Alert onClick={() => alert("Alert clicked!")}>Example</Alert>;
 };
 
-export default Example;
+export default App;
 ```
