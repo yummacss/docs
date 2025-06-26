@@ -4,3 +4,69 @@ description: A container component that groups related content and actions.
 slug: docs/essentials/card
 draft: true
 ---
+
+## Examples
+
+A basic implementation of the Card component with default styling.
+
+```tsx
+import { Card, CardContent, CardTitle, CardDescription } from "yumma-ui";
+import { InfoCircledIcon } from "@radix-ui/react-icons";
+
+const App = () => {
+  return (
+    <Card variant="base">
+      <CardContent>
+        <CardTitle>Information</CardTitle>
+        <CardDescription>This is an informational message to help guide users through the interface.</CardDescription>
+      </CardContent>
+    </Card>
+  );
+};
+
+export default App;
+```
+
+## Usage
+
+```tsx
+import { Card, CardTitle, CardDescription } from "yumma-ui";
+```
+
+## API reference
+
+The Card component can be adapted to suit specific requirements by utilizing the internal API of Yumma UI, thereby enabling the modification of its visual appearance and operational characteristics.
+
+### `variant`
+
+> Default value is `base`
+
+The `variant` property allows you to choose from different pre-defined styles that match your design system.
+
+```ts
+(property) variant?: "base" | "elevated" | null | undefined
+```
+
+## Custom styling
+
+The Card component exposes a simple API to control its look and behavior through props.
+
+```tsx
+import { Card } from "yumma-ui";
+
+<Card className="...">Example</Card>;
+```
+
+## Extend properties
+
+The Card component is fully extendable. It supports all native HTML `<card>` attributes through its props:
+
+```tsx "onClick={() => card("Card clicked!")}"
+import { Card } from "yumma-ui";
+
+const App = () => {
+  return <Card onClick={() => card("Card clicked!")}>Example</Card>;
+};
+
+export default App;
+```
