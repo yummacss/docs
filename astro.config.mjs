@@ -5,6 +5,7 @@ import starlight from "@astrojs/starlight";
 
 import starlightBlog from "starlight-blog";
 import starlightLinksValidator from "starlight-links-validator";
+import starlightSidebarTopics from "starlight-sidebar-topics";
 
 import react from "@astrojs/react";
 
@@ -33,6 +34,9 @@ export default defineConfig({
 
       plugins: [
         starlightLinksValidator(),
+        starlightSidebarTopics(config.sidebar, {
+          exclude: ["/blog", "/blog/**/*", "/brand"],
+        }),
         starlightBlog({
           recentPostCount: 3,
           authors: {
@@ -90,8 +94,6 @@ export default defineConfig({
           },
         },
       ],
-
-      sidebar: config.sidebar,
     }),
     config.AutoImport({
       imports: [
