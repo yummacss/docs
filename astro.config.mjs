@@ -35,7 +35,7 @@ export default defineConfig({
       plugins: [
         starlightLinksValidator(),
         starlightSidebarTopics(config.sidebar, {
-          exclude: ["/blog", "/blog/**/*", "/docs/guides", "/docs/guides/**/*", "/brand"],
+          exclude: ["/blog", "/blog/**/*", "/brand", "/docs/guides", "/docs/guides/**/*"],
         }),
         starlightBlog({
           recentPostCount: 3,
