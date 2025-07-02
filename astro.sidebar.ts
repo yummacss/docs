@@ -53,12 +53,6 @@ export const sidebar = [
     ],
   },
   {
-    label: "Setup guides",
-    link: "docs/guides/angular",
-    icon: "setting",
-    items: [{ label: "Framework guides", autogenerate: { directory: "setup-guides" } }],
-  },
-  {
     label: "Playground",
     link: "https://play.yummacss.com",
     icon: "seti:html",
