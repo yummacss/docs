@@ -7,8 +7,6 @@ import starlightBlog from "starlight-blog";
 import starlightLinksValidator from "starlight-links-validator";
 import starlightSidebarTopics from "starlight-sidebar-topics";
 
-import react from "@astrojs/react";
-
 export default defineConfig({
   integrations: [
     starlight({
@@ -115,7 +113,6 @@ export default defineConfig({
     config.liveCode({
       layout: "/src/layouts/default.astro",
     }),
-    react(),
   ],
 
   redirects: {
@@ -139,7 +136,8 @@ export default defineConfig({
     "docs/configuration": "/docs/first-steps#get-started-with-yumma-cli",
 
     // ui related
-    "/ui": "/components",
+    "/components": "/ui/installation/",
+    "/ui": "/ui/installation/",
   },
 
   devToolbar: {
