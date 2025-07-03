@@ -47,9 +47,9 @@ export const sidebar = [
       { label: "Get Started", autogenerate: { directory: "core-ui/get-started" } },
       { label: "Essentials", autogenerate: { directory: "core-ui/essentials" } },
       { label: "Forms", autogenerate: { directory: "core-ui/forms" } },
-      { label: "List  & Tables", autogenerate: { directory: "core-ui/list-tables" } },
+      { label: "Lists & Tables", autogenerate: { directory: "core-ui/lists-tables" } },
       { label: "Navigation", autogenerate: { directory: "core-ui/navigation" } },
-      { label: "Sections", autogenerate: { directory: "core-ui/sections" } },
+      { label: "Page Sections", autogenerate: { directory: "core-ui/page-sections" } },
     ],
   },
   {
