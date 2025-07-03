@@ -9,7 +9,7 @@ draft: true
 
 A basic implementation of the Button component with default styling.
 
-```tsx
+```tsx showLineNumbers
 import { Button } from "yumma-ui";
 
 const App = () => {
@@ -25,11 +25,11 @@ export default App;
 
 ## Usage
 
-```tsx
+```tsx showLineNumbers
 import { Button } from "yumma-ui";
 ```
 
-```tsx
+```tsx showLineNumbers
 <Button>Login</Button>
 ```
 
@@ -61,7 +61,7 @@ The `size` property allows you to choose from different pre-defined sizes that m
 
 The Button component exposes a simple API to control its look and behavior through props.
 
-```tsx 'className="..."'
+```tsx showLineNumbers 'className="..."'
 import { Button } from "yumma-ui";
 
 <Button className="...">Login</Button>;
@@ -71,7 +71,7 @@ import { Button } from "yumma-ui";
 
 The Button component is fully extendable. It supports all native HTML `<button>` attributes through its props:
 
-```tsx "onClick={() => alert("Button clicked!")}"
+```tsx showLineNumbers "onClick={() => alert("Button clicked!")}"
 import { Button } from "yumma-ui";
 
 const App = () => {
