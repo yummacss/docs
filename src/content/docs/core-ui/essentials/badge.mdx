@@ -15,7 +15,7 @@ import { Badge } from "yumma-ui";
 const App = () => {
   return (
     <Badge variant="base" size="xs">
-      Example
+      New
     </Badge>
   );
 };
@@ -28,6 +28,10 @@ export default App;
 ```tsx
 import { Badge } from "yumma-ui";
 ```
+
+```tsx
+<Badge>New</Badge>
+```	
 
 ## API reference
 
@@ -60,7 +64,7 @@ The Badge component exposes a simple API to control its look and behavior throug
 ```tsx
 import { Badge } from "yumma-ui";
 
-<Badge className="...">Example</Badge>;
+<Badge className="...">New</Badge>;
 ```
 
 ## Extend properties
@@ -71,7 +75,7 @@ The Badge component is fully extendable. It supports all native HTML `<span>` at
 import { Badge } from "yumma-ui";
 
 const App = () => {
-  return <Badge onClick={() => alert("Badge clicked!")}>Example</Badge>;
+  return <Badge onClick={() => alert("Badge clicked!")}>New</Badge>;
 };
 
 export default App;
