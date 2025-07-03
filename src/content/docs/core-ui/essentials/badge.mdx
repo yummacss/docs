@@ -75,7 +75,7 @@ The Badge component is fully extendable. It supports all native HTML `<span>` at
 import { Badge } from "yumma-ui";
 
 const App = () => {
-  return <Badge onClick={() => alert("Badge clicked!")}>New</Badge>;
+  return <Badge onClick={() => alert("Badge clicked!")} {...props}>New</Badge>;
 };
 
 export default App;
