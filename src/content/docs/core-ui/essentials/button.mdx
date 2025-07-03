@@ -15,7 +15,7 @@ import { Button } from "yumma-ui";
 const App = () => {
   return (
     <Button variant="base" size="md">
-      Example
+      Login
     </Button>
   );
 };
@@ -27,6 +27,10 @@ export default App;
 
 ```tsx
 import { Button } from "yumma-ui";
+```
+
+```tsx
+<Button>Login</Button>
 ```
 
 ## API reference
@@ -60,7 +64,7 @@ The Button component exposes a simple API to control its look and behavior throu
 ```tsx
 import { Button } from "yumma-ui";
 
-<Button className="...">Example</Button>;
+<Button className="...">Login</Button>;
 ```
 
 ## Extend properties
@@ -71,7 +75,7 @@ The Button component is fully extendable. It supports all native HTML `<button>`
 import { Button } from "yumma-ui";
 
 const App = () => {
-  return <Button onClick={() => alert("Button clicked!")}>Example</Button>;
+  return <Button onClick={() => alert("Button clicked!")}>Login</Button>;
 };
 
 export default App;
