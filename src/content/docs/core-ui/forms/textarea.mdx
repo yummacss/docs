@@ -4,3 +4,65 @@ description: A form control that allows users to enter and edit multiple lines o
 slug: docs/forms/textarea
 draft: true
 ---
+
+## Examples
+
+A basic implementation of the Textarea component with default styling.
+
+```tsx
+import { Textarea } from "yumma-ui";
+
+const App = () => {
+  return <Textarea name="message" rows={4} placeholder="Enter your message..." variant="base" />;
+};
+
+export default App;
+```
+
+## Usage
+
+```tsx
+import { Textarea } from "yumma-ui";
+```
+
+```tsx
+<Textarea />
+```
+
+## API reference
+
+The Textarea component can be adapted to suit specific requirements by utilizing the internal API of Yumma UI, thereby enabling the modification of its visual appearance and operational characteristics.
+
+### `variant`
+
+> Default value is `base`
+
+The `variant` property allows you to choose from different pre-defined styles that match your design system.
+
+```ts
+(property) variant?: "base" | "error" | null | undefined
+```
+
+## Custom styling
+
+The Textarea component exposes a simple API to control its look and behavior through props.
+
+```tsx 'className="..."'
+import { Textarea } from "yumma-ui";
+
+<Textarea className="..." />;
+```
+
+## Extend properties
+
+The Textarea component is fully extendable. It supports all native HTML `<textarea>` attributes through its props:
+
+```tsx 'name="..."' 'onChange={handleChange}' 'rows={4}' "rows={4}"
+import { Textarea } from "yumma-ui";
+
+const App = () => {
+  return <Textarea name="..." onChange={handleChange} rows={4} {...props} />;
+};
+
+export default App;
+```
