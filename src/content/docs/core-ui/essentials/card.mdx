@@ -9,7 +9,7 @@ draft: true
 
 A basic implementation of the Card component with default styling.
 
-```tsx
+```tsx showLineNumbers
 import { Card, CardContent, CardTitle, CardDescription } from "yumma-ui";
 
 const App = () => {
@@ -28,11 +28,11 @@ export default App;
 
 ## Usage
 
-```tsx
+```tsx showLineNumbers
 import { Card, CardTitle, CardDescription } from "yumma-ui";
 ```
 
-```tsx
+```tsx showLineNumbers
 <Card>
   <CardContent>
     <CardTitle>Reset Password</CardTitle>
@@ -59,7 +59,7 @@ The `variant` property allows you to choose from different pre-defined styles th
 
 The Card component exposes a simple API to control its look and behavior through props.
 
-```tsx 'className="..."'
+```tsx showLineNumbers 'className="..."'
 import { Card } from "yumma-ui";
 
 <Card className="...">
@@ -74,7 +74,7 @@ import { Card } from "yumma-ui";
 
 The Card component is fully extendable. It supports all native HTML `<div>` attributes through its props:
 
-```tsx "onClick={() => card("Card clicked!")}"
+```tsx showLineNumbers "onClick={() => card("Card clicked!")}"
 import { Card } from "yumma-ui";
 
 const App = () => {
