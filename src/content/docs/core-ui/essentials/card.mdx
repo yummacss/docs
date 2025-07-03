@@ -79,7 +79,7 @@ import { Card } from "yumma-ui";
 
 const App = () => {
   return (
-    <Card onClick={() => card("Card clicked!")}>
+    <Card onClick={() => card("Card clicked!")} {...props}>
       <CardContent>
         <CardTitle>Reset Password</CardTitle>
         <CardDescription>Enter your email to reset your password.</CardDescription>
