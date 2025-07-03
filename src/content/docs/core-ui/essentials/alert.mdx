@@ -9,7 +9,7 @@ draft: true
 
 A basic implementation of the Alert component with default styling.
 
-```tsx
+```tsx showLineNumbers
 import { Alert, AlertContent, AlertTitle, AlertDescription } from "yumma-ui";
 import { InfoCircledIcon } from "@radix-ui/react-icons";
 
@@ -30,11 +30,11 @@ export default App;
 
 ## Usage
 
-```tsx
+```tsx showLineNumbers
 import { Alert, AlertContent, AlertTitle, AlertDescription } from "yumma-ui";
 ```
 
-```tsx
+```tsx showLineNumbers
 <Alert>
   <InfoCircledIcon />
   <AlertContent>
@@ -62,7 +62,7 @@ The `variant` property allows you to choose from different pre-defined styles th
 
 The Alert component exposes a simple API to control its look and behavior through props.
 
-```tsx 'className="..."'
+```tsx showLineNumbers 'className="..."'
 import { Alert } from "yumma-ui";
 
 <Alert className="...">Example</Alert>;
@@ -72,7 +72,7 @@ import { Alert } from "yumma-ui";
 
 The Alert component is fully extendable. It supports all native HTML `<div>` attributes through its props:
 
-```tsx "onClick={() => alert("Alert clicked!")}"
+```tsx showLineNumbers "onClick={() => alert("Alert clicked!")}"
 import { Alert } from "yumma-ui";
 
 const App = () => {
