@@ -4,3 +4,65 @@ description: A form control that allows users to enter and edit text data.
 slug: docs/forms/input
 draft: true
 ---
+
+## Examples
+
+A basic implementation of the Input component with default styling.
+
+```tsx
+import { Input } from "yumma-ui";
+
+const App = () => {
+  return <Input variant="base" type="email" placeholder="john@example.com" />;
+};
+
+export default App;
+```
+
+## Usage
+
+```tsx
+import { Input } from "yumma-ui";
+```
+
+```tsx
+<Input />
+```
+
+## API reference
+
+The Input component can be adapted to suit specific requirements by utilizing the internal API of Yumma UI, thereby enabling the modification of its visual appearance and operational characteristics.
+
+### `variant`
+
+> Default value is `base`
+
+The `variant` property allows you to choose from different pre-defined styles that match your design system.
+
+```ts
+(property) variant?: "base" | "error" | null | undefined
+```
+
+## Custom styling
+
+The Input component exposes a simple API to control its look and behavior through props.
+
+```tsx 'className="..."'
+import { Input } from "yumma-ui";
+
+<Input className="..." />;
+```
+
+## Extend properties
+
+The Input component is fully extendable. It supports all native HTML `<input>` attributes through its props:
+
+```tsx 'placeholder="..."' 'type="..."'
+import { Input } from "yumma-ui";
+
+const App = () => {
+  return <Input placeholder="..." type="..." {...props} />;
+};
+
+export default App;
+```
