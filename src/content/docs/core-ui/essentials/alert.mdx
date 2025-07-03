@@ -76,7 +76,7 @@ The Alert component is fully extendable. It supports all native HTML `<div>` att
 import { Alert } from "yumma-ui";
 
 const App = () => {
-  return <Alert onClick={() => alert("Alert clicked!")}>Example</Alert>;
+  return <Alert onClick={() => alert("Alert clicked!")} {...props}>Example</Alert>;
 };
 
 export default App;
