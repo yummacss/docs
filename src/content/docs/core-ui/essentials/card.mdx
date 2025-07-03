@@ -11,14 +11,13 @@ A basic implementation of the Card component with default styling.
 
 ```tsx
 import { Card, CardContent, CardTitle, CardDescription } from "yumma-ui";
-import { InfoCircledIcon } from "@radix-ui/react-icons";
 
 const App = () => {
   return (
     <Card variant="base">
       <CardContent>
-        <CardTitle>Information</CardTitle>
-        <CardDescription>This is an informational message to help guide users through the interface.</CardDescription>
+        <CardTitle>Reset Password</CardTitle>
+        <CardDescription>Enter your email to reset your password.</CardDescription>
       </CardContent>
     </Card>
   );
@@ -31,6 +30,15 @@ export default App;
 
 ```tsx
 import { Card, CardTitle, CardDescription } from "yumma-ui";
+```
+
+```tsx
+<Card>
+  <CardContent>
+    <CardTitle>Reset Password</CardTitle>
+    <CardDescription>Enter your email to reset your password.</CardDescription>
+  </CardContent>
+</Card>
 ```
 
 ## API reference
@@ -51,10 +59,15 @@ The `variant` property allows you to choose from different pre-defined styles th
 
 The Card component exposes a simple API to control its look and behavior through props.
 
-```tsx
+```tsx 'className="..."'
 import { Card } from "yumma-ui";
 
-<Card className="...">Example</Card>;
+<Card className="...">
+  <CardContent>
+    <CardTitle>Reset Password</CardTitle>
+    <CardDescription>Enter your email to reset your password.</CardDescription>
+  </CardContent>
+</Card>;
 ```
 
 ## Extend properties
@@ -65,7 +78,14 @@ The Card component is fully extendable. It supports all native HTML `<card>` att
 import { Card } from "yumma-ui";
 
 const App = () => {
-  return <Card onClick={() => card("Card clicked!")}>Example</Card>;
+  return (
+    <Card onClick={() => card("Card clicked!")}>
+      <CardContent>
+        <CardTitle>Reset Password</CardTitle>
+        <CardDescription>Enter your email to reset your password.</CardDescription>
+      </CardContent>
+    </Card>
+  );
 };
 
 export default App;
