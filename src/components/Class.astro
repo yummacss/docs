@@ -1,0 +1,120 @@
+---
+import {
+  getBackgroundUtils,
+  getBorderUtils,
+  getBoxModelUtils,
+  getColorUtils,
+  getEffectUtils,
+  getFlexboxUtils,
+  getFontUtils,
+  getGridUtils,
+  getInteractivityUtils,
+  getOutlineUtils,
+  getPositioningUtils,
+  getSvgUtils,
+  getTableUtils,
+  getTextUtils,
+  getTransformUtils,
+  type UtilityMap,
+} from "yumma-css-api";
+
+type Category =
+  | "background"
+  | "border"
+  | "boxModel"
+  | "color"
+  | "effect"
+  | "flexbox"
+  | "font"
+  | "grid"
+  | "interactivity"
+  | "outline"
+  | "positioning"
+  | "svg"
+  | "table"
+  | "text"
+  | "transform";
+
+export interface Props {
+  category: Category;
+  name: string;
+}
+
+const categoryGetters: Record<Category, () => UtilityMap> = {
+  background: getBackgroundUtils,
+  border: getBorderUtils,
+  boxModel: getBoxModelUtils,
+  color: getColorUtils,
+  effect: getEffectUtils,
+  flexbox: getFlexboxUtils,
+  font: getFontUtils,
+  grid: getGridUtils,
+  interactivity: getInteractivityUtils,
+  outline: getOutlineUtils,
+  positioning: getPositioningUtils,
+  svg: getSvgUtils,
+  table: getTableUtils,
+  text: getTextUtils,
+  transform: getTransformUtils,
+};
+
+let utilityVariants: Array<{ prefix: string; property: string; value: string }> = [];
+
+try {
+  if (!Astro.props.category || !Astro.props.name) throw new Error("Missing props");
+  const getter = categoryGetters[Astro.props.category];
+  if (!getter) throw new Error(`Unknown category: ${Astro.props.category}`);
+  const utils = getter();
+  const util = utils[Astro.props.name];
+
+  if (util) {
+    Object.entries(util.values).forEach(([suffix, cssValue]) => {
+      const fullPrefix = suffix === "" ? util.prefix : `${util.prefix}-${suffix}`;
+      const cssProperty = util.properties[0];
+
+      utilityVariants.push({
+        prefix: fullPrefix,
+        property: cssProperty,
+        value: cssValue,
+      });
+    });
+  }
+} catch (err) {
+  console.error("Failed to get utility:", err);
+}
+---
+
+<div class="max-h-90 o-y-auto mb-5">
+  <table>
+    <thead>
+      <tr>
+        <th class="fs-b fw-600">Utility</th>
+        <th class="fs-b fw-600">Properties</th>
+      </tr>
+    </thead>
+    <tbody>
+      {
+        utilityVariants.length > 0 ? (
+          utilityVariants.map((variant) => (
+            <tr>
+              <td>
+                <p class="fs-sm">{variant.prefix}</p>
+              </td>
+              <td>
+                <code>
+                  {variant.property}: {variant.value};
+                </code>
+              </td>
+            </tr>
+          ))
+        ) : (
+          <tr>
+            <td colspan="2">
+              Something's gone wrong. Please <a href="https://github.com/yumma-lib/yumma-css-docs/issues">report this issue</a>.
+            </td>
+          </tr>
+        )
+      }
+    </tbody>
+  </table>
+</div>
