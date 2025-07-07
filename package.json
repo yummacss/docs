@@ -10,7 +10,6 @@
   "dependencies": {
     "@astrojs/check": "^0.9.4",
     "@astrojs/sitemap": "^3.4.0",
-    "@astrojs/solid-js": "^5.1.0",
     "@astrojs/starlight": "^0.34.3",
     "@astrojs/vercel": "^8.1.4",
     "@expressive-code/plugin-collapsible-sections": "^0.41.2",
@@ -21,7 +20,6 @@
     "astro-live-code": "^0.0.6",
     "gsap": "^3.13.0",
     "sharp": "^0.34.2",
-    "solid-js": "^1.9.7",
     "starlight-blog": "^0.23.2",
     "starlight-cooler-credit": "^0.4.0",
     "starlight-links-validator": "^0.16.0",
@@ -43,7 +41,6 @@
     "framework",
     "responsive-design",
     "responsive",
-    "yumma",
     "yummacss"
   ],
   "scripts": {
