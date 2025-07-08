@@ -1,4 +1,4 @@
-# [@yummacss](https://www.yummacss.com)
+# [@yummacss/docs](https://www.yummacss.com)
 
 A CSS framework for the web with abbreviated styles.
 
