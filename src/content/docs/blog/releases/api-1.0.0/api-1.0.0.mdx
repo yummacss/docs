@@ -1,0 +1,119 @@
+---
+authors: Renildo
+cover:
+  alt: Yumma CSS 0.1
+  image: cover.png
+date: 2025-07-11
+description: Today, we are introducing Yumma CSS API, a TypeScript/JavaScript library designed to meet a variety of development needs.
+excerpt: Today, we are introducing Yumma CSS API, a TypeScript/JavaScript library designed to meet a variety of development needs.
+pagefind: false
+slug: blog/api-1.0.0
+title: Introducing Yumma CSS API
+draft: true
+---
+
+Today, we are introducing [@yummacss/api](https://www.npmjs.com/package/@yummacss/api), a TypeScript/JavaScript library designed to meet a variety of development needs. It provides access to all base Yumma CSS class definitions in a programmatic manner, simplifying the integration process.
+
+## Why Yumma CSS API?
+
+Instead of manually searching for utilities or maintaining your own lists, you can now access the entire Yumma CSS utility set through simple, type-safe functions. This makes it easy to:
+
+- [x] Generate documentation
+- [x] Build custom apps, plugins or extensions
+- [x] Integrate with frameworks
+- [x] Analyze or extend your design system
+
+## Getting started
+
+Yumma CSS API is a powerful TypeScript/JavaScript utility library that provides programmatic access to Yumma CSS class definitions.
+
+### Installing
+
+<PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} pkg="@yummacss/api" title="Terminal" />
+
+## Usage examples
+
+Get all utilities at once:
+
+```ts
+import { getAllUtils } from "@yummacss/api";
+
+const all = getAllUtils();
+```
+
+Get only background utilities:
+
+```ts
+import { getBackgroundUtils } from "@yummacss/api";
+
+const backgrounds = getBackgroundUtils();
+```
+
+Access a specific utility from a category:
+
+```ts
+import { getBoxModelUtils } from "@yummacss/api";
+
+const boxModel = getBoxModelUtils();
+const margin = boxModel["margin"];
+```
+
+## Available API
+
+Import utility group functions individually:
+
+```ts
+import {
+  getAllUtils,
+  getBackgroundUtils,
+  getBorderUtils,
+  getBoxModelUtils,
+  getColorUtils,
+  getEffectUtils,
+  getFlexboxUtils,
+  getFontUtils,
+  getGridUtils,
+  getInteractivityUtils,
+  getOutlineUtils,
+  getPositioningUtils,
+  getSvgUtils,
+  getTableUtils,
+  getTextUtils,
+  getTransformUtils,
+} from "@yummacss/api";
+```
+
+For advanced use cases use these types:
+
+```ts
+import type { UtilityMap, UtilityItem } from "@yummacss/api";
+```
+
+## Community
+
+Join the Yumma CSS community! Share your experiences and help Yumma CSS grow and be the best it can be.
+
+<ShowcaseText
+  entries={[
+    {
+      description: "If you experience any problems, please notify us at GitHub.",
+      href: "https://github.com/yumma-lib/yumma-css/issues",
+      title: "GitHub",
+    },
+    {
+      description: "Join our Discord for discussion, sharing, and learning.",
+      href: "https://discord.gg/2MUw2g6FCn",
+      title: "Discord",
+    },
+    {
+      description: "Please follow us on Twitter to receive the latest updates.",
+      href: "https://twitter.com/yummacss",
+      title: "Twitter",
+    },
+    {
+      description: "For the latest updates, check out our YouTube walkthroughs.",
+      href: "https://youtube.com/@yummacss",
+      title: "YouTube",
+    },
+  ]}
+/>
