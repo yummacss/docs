@@ -15,9 +15,10 @@
     "@expressive-code/plugin-collapsible-sections": "^0.41.2",
     "@expressive-code/plugin-line-numbers": "^0.41.2",
     "@fontsource-variable/outfit": "^5.2.5",
-    "astro": "^5.8.1",
+    "@yummacss/api": "^1.0.0",
     "astro-auto-import": "^0.4.4",
     "astro-live-code": "^0.0.6",
+    "astro": "^5.8.1",
     "gsap": "^3.13.0",
     "sharp": "^0.34.2",
     "starlight-blog": "^0.23.2",
@@ -33,7 +34,6 @@
     "@types/tinycolor2": "^1.4.6",
     "concurrently": "^9.1.2",
     "typescript": "^5.8.3",
-    "@yummacss/api": "^1.0.0",
     "yummacss": "^3.0.0"
   },
   "keywords": [
