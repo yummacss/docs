@@ -29,6 +29,9 @@ importers:
       '@fontsource-variable/outfit':
         specifier: ^5.2.5
         version: 5.2.5
+      '@yummacss/api':
+        specifier: ^1.0.0
+        version: 1.0.0
       astro:
         specifier: ^5.8.1
         version: 5.9.3(@types/node@24.0.1)(lightningcss@1.30.1)(rollup@4.41.1)(sass-embedded@1.89.1)(typescript@5.8.3)(yaml@2.8.0)
@@ -932,6 +935,9 @@ packages:
 
   '@vscode/l10n@0.0.18':
     resolution: {integrity: sha512-KYSIHVmslkaCDyw013pphY+d7x1qV8IZupYfeIfzNA+nsaWHbn5uPuQRvdRFsa9zFzGeudPuoGoZ1Op4jrJXIQ==}
+
+  '@yummacss/api@1.0.0':
+    resolution: {integrity: sha512-lisnMcjtD07LED34Ush5x56vRrPDA41EUtpRtME2UMqPSMnZFbMrt740qSCRNrdmlvPSMHB4k0mQz7LpcP1RLQ==}
 
   abbrev@3.0.1:
     resolution: {integrity: sha512-AO2ac6pjRB3SJmGJo+v5/aK6Omggp6fsLrs6wN9bd35ulu4cCwaAU9+7ZhXjeqHVkaHThLuzH0nZr0YpCDhygg==}
@@ -3865,6 +3871,11 @@ snapshots:
       vscode-uri: 3.1.0
 
   '@vscode/l10n@0.0.18': {}
+
+  '@yummacss/api@1.0.0':
+    dependencies:
+      '@types/tinycolor2': 1.4.6
+      tinycolor2: 1.6.0
 
   abbrev@3.0.1: {}
 
