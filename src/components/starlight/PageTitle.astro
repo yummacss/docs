@@ -1,11 +1,12 @@
 ---
 const { title, description } = Astro.locals.starlightRoute.entry.data;
+const slug = Astro.locals.starlightRoute.entry.slug;
 ---
 
 <Fragment>
   <h1 style="color: light-dark(var(--sl-color-text), var(--sl-color-white));" id="_top">{title}</h1>
   {
-    description && (
+    description && !slug.startsWith("blog") && (
       <p class="lh-4 mt-2" style="color: var(--sl-color-text);">
         {description}
       </p>
