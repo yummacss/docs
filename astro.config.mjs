@@ -82,7 +82,7 @@ export default defineConfig({
           attrs: {
             rel: "apple-touch-icon",
             sizes: "180x180",
-            href: "/favicon/apple-touch-icon.png",
+            href: "/apple-icon.png",
           },
         },
         {
