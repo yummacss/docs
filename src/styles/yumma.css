@@ -338,11 +338,6 @@
   height: 8rem;
 }
 
-.d-36 {
-  width: 9rem;
-  height: 9rem;
-}
-
 @media (width >= 40rem) {
   .sm\:d-6 {
     width: 1.5rem;
