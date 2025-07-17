@@ -2,18 +2,6 @@
   "name": "yumma-css-docs",
   "version": "0.0.0",
   "description": "A CSS framework for the web with abbreviated styles.",
-  "keywords": [
-    "css-framework",
-    "css",
-    "design-system",
-    "framework",
-    "gulp",
-    "lightningcss",
-    "responsive-design",
-    "responsive",
-    "scss",
-    "yummacss"
-  ],
   "homepage": "https://yummacss.com",
   "license": "MIT",
   "author": "Renildo Pereira",
