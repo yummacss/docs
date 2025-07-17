@@ -50,8 +50,5 @@
     "build": "astro build && yummacss build",
     "preview": "astro preview",
     "astro": "astro"
-  },
-  "engines": {
-    "node": "22.x"
   }
 }
