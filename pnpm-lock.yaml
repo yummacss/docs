@@ -82,8 +82,8 @@ importers:
         specifier: ^5.8.3
         version: 5.8.3
       yummacss:
-        specifier: ^3.0.0
-        version: 3.0.0
+        specifier: ^3.0.1
+        version: 3.0.1
 
 packages:
 
@@ -3004,8 +3004,8 @@ packages:
     resolution: {integrity: sha512-GQHQqAopRhwU8Kt1DDM8NjibDXHC8eoh1erhGAJPEyveY9qqVeXvVikNKrDz69sHowPMorbPUrH/mx8c50eiBQ==}
     engines: {node: '>=18'}
 
-  yummacss@3.0.0:
-    resolution: {integrity: sha512-X7LvWef0tF9fweSbCf2OxOyzmeYOfcobdQTRkXsx1w0rRBbWYMw8BOp7Eiy8ZxCoO1d1oKddarUtFgIO0R/KxA==}
+  yummacss@3.0.1:
+    resolution: {integrity: sha512-TcgWsiSYVWqgGTq4qsxVBCIRecmmeymxPVwLazK0hID6VYz+9p7twHCwgi4tGlEyx0+OTgc2SxMQNvmdnnhELw==}
     hasBin: true
 
   zod-to-json-schema@3.24.5:
@@ -6482,7 +6482,7 @@ snapshots:
 
   yoctocolors@2.1.1: {}
 
-  yummacss@3.0.0:
+  yummacss@3.0.1:
     dependencies:
       chokidar: 4.0.3
       commander: 13.1.0
