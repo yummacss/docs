@@ -4,16 +4,9 @@ import { css, tsx } from "@/constants/snippets";
 import ButtonLink from "@/components/ButtonLink.astro";
 import CrumpledPaper from "@/icons/CrumpledPaper.astro";
 import RulerSquare from "@/icons/RulerSquare.astro";
-import { Image } from "astro:assets";
-
-import boxesLight from "~/boxes-light.png";
-import boxesDark from "~/boxes-dark.png";
 ---
 
 <style is:global>
-  body {
-    background-color: #151825;
-  }
   [data-has-hero] header {
     background-color: var(--sl-color-black);
     border-bottom: 1px solid transparent;
@@ -96,8 +89,8 @@ import boxesDark from "~/boxes-dark.png";
       </div>
 
       <div class="f-1 p-r">
-        <Image src={boxesLight} alt="Light mesh boxes" class="dark:sl-hidden d-full of-c" />
-        <Image src={boxesDark} alt="Dark mesh boxes" class="d-full light:sl-hidden of-c" />
+        <img src="assets/boxes-light.png" alt="Light boxes" class="dark:sl-hidden d-full of-c" />
+        <img src="assets/boxes-dark.png" alt="Dark boxes" class="d-full light:sl-hidden of-c" />
         <div class="ai-c d-f i-0 jc-c p-a">
           <Code class="v-h" code={tsx} lang="tsx" mark={["d-g", "gtc-2", "g-4"]} title="items.tsx" wrap={true} />
         </div>
@@ -106,8 +99,8 @@ import boxesDark from "~/boxes-dark.png";
 
     <div class="d-f fd-c g-12 md:ai-c md:fd-r mt-8">
       <div class="f-1 md:or-1 or-2 p-r">
-        <Image src={boxesLight} alt="Light mesh boxes" class="dark:sl-hidden d-full of-c" />
-        <Image src={boxesDark} alt="Dark mesh Boxes" class="d-full light:sl-hidden of-c" />
+        <img src="assets/boxes-light.png" alt="Light boxes" class="dark:sl-hidden d-full of-c" />
+        <img src="assets/boxes-dark.png" alt="Dark Boxes" class="d-full light:sl-hidden of-c" />
         <div class="ai-c d-f i-0 jc-c p-a">
           <Code class="v-h" code={css} lang="css" title="globals.css" wrap={true} />
         </div>
