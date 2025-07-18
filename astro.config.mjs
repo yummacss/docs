@@ -105,9 +105,9 @@ export default defineConfig({
         "/src/components/Palette.astro",
         "src/components/Class.astro",
         {
-          "@astrojs/starlight/components": ["Aside", "Card", "CardGrid", "Code", "FileTree", "Icon", "LinkButton", "LinkCard", "Steps", "TabItem", "Tabs"],
+          "@astrojs/starlight/components": ["Card", "FileTree", "Steps", "TabItem", "Tabs"],
           "starlight-package-managers": ["PackageManagers"],
-          "starlight-showcases": ["ShowcaseImage", "ShowcaseText", "ShowcaseYouTube"],
+          "starlight-showcases": ["ShowcaseYouTube"],
         },
       ],
     }),
