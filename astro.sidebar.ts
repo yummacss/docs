@@ -45,11 +45,7 @@ export const sidebar = [
     badge: "SOON",
     items: [
       { label: "Get Started", autogenerate: { directory: "core-ui/get-started" } },
-      { label: "Essentials", autogenerate: { directory: "core-ui/essentials" } },
-      { label: "Forms", autogenerate: { directory: "core-ui/forms" } },
-      { label: "Lists & Tables", autogenerate: { directory: "core-ui/lists-tables" } },
-      { label: "Navigation", autogenerate: { directory: "core-ui/navigation" } },
-      { label: "Page Sections", autogenerate: { directory: "core-ui/page-sections" } },
+      { label: "Components", autogenerate: { directory: "core-ui/components" } },
     ],
   },
   {

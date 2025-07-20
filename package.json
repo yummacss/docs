@@ -16,14 +16,14 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
-    "@astrojs/sitemap": "^3.4.0",
-    "@astrojs/starlight": "^0.34.3",
-    "@astrojs/vercel": "^8.1.4",
+    "@astrojs/sitemap": "3.4.1",
+    "@astrojs/starlight": "^0.35.1",
+    "@astrojs/vercel": "^8.2.2",
     "@expressive-code/plugin-collapsible-sections": "^0.41.2",
     "@expressive-code/plugin-line-numbers": "^0.41.2",
     "@fontsource-variable/outfit": "^5.2.5",
     "@yummacss/api": "^1.0.0",
-    "astro": "^5.8.1",
+    "astro": "^5.12.0",
     "astro-auto-import": "^0.4.4",
     "astro-live-code": "^0.0.6",
     "gsap": "^3.13.0",
@@ -41,7 +41,7 @@
     "@types/tinycolor2": "^1.4.6",
     "concurrently": "^9.1.2",
     "typescript": "^5.8.3",
-    "yummacss": "^3.0.1"
+    "yummacss": "^3.0.2"
   },
   "engines": {
     "node": "22.x"
