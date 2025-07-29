@@ -21,15 +21,15 @@ const generateShades = (color: string): string[] => {
   for (let i = 1; i <= 6; i++) {
     const weight = (7 - i) * percentage;
     const mixedColor = tinycolor.mix(color, "white", weight);
-    shades.push(mixedColor.toRgbString());
+    shades.push(mixedColor.toHexString());
   }
 
-  shades.push(tinycolor(color).toRgbString());
+  shades.push(tinycolor(color).toHexString());
 
   for (let i = 1; i <= 6; i++) {
     const weight = i * percentage;
     const mixedColor = tinycolor.mix(color, "black", weight);
-    shades.push(mixedColor.toRgbString());
+    shades.push(mixedColor.toHexString());
   }
 
   return shades;
@@ -49,7 +49,7 @@ const generateShades = (color: string): string[] => {
         <div class="d-g g-1 ai-c md:gtc-14 md:f-none d-f fd-c md:d-g">
           <div class="fs-sm ws-nw md:wm-htb md:fs-sm ta-c fs-md ws-n">{colorItem.name}</div>
           {shades.map((shade) => (
-            <div class="h-12 md:h-10 w-full" style={{ backgroundColor: shade }} onclick={`navigator.clipboard.writeText('${shade}')`} />
+            <div class="h-12 md:h-10 w-full rad-1" style={{ backgroundColor: shade }} onclick={`navigator.clipboard.writeText('${shade}')`} />
           ))}
         </div>
       );
@@ -57,7 +57,7 @@ const generateShades = (color: string): string[] => {
   }
 </div>
 
-<!-- TODO - yummacss@v3.1 -->
+<!-- TODO - yummacss@v3.2 -->
 <style>
   @media (width >= 48rem) {
     .md\:wm-htb {

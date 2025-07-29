@@ -41,7 +41,7 @@
     "@types/tinycolor2": "^1.4.6",
     "concurrently": "^9.1.2",
     "typescript": "^5.8.3",
-    "yummacss": "^3.0.2"
+    "yummacss": "^3.1.0"
   },
   "engines": {
     "node": "22.x"
