@@ -166,7 +166,7 @@ Here's a quick reference for the examples above.
 | [font-weight](/docs/font-weight)                      | `fw-*`  |
 | [padding-y](/docs/padding#padding-y) — (bottom & top) | `py-*`  |
 | [padding-x](/docs/padding#padding-x) — (left & right) | `px-*`  |
-| [hover](/docs/first-steps#hover-modifiers)            | `h:*`   |
+| [hover](/docs/first-steps#pseudo-modifiers)            | `h:*`   |
 
 ---
 
@@ -261,14 +261,46 @@ Here's a reference for the breakpoints used in Yumma CSS.
 | xl          | 80rem (_1280px_) |
 | xxl         | 96rem (_1536px_) |
 
+## Pseudo-modifiers
+
+Yumma CSS provides pseudo-class modifiers that allow you to apply styles based on user interactions and element states. These modifiers work across all utility classes in the framework.
+
 ### Hover modifiers
 
 You can use the `h:` modifiers in order to target the `:hover` function across the entirety of the Yumma CSS utility classes.
 
-To illustrate, when overriding an existing utility class conditionally, ensure to utilize the `h:*` modifier, followed by the designated class to be applied on hover.
-
 <Note icon="cursor_arrow">Try moving the mouse over the button to see how the background color changes.</Note>
 
 ```html live "h:bg-indigo-8"
-<button class="b-0 bg-indigo fw-600 h:bg-indigo-8 px-5 py-1 rad-1 tc-white c-p">Subscribe</button>
+<button class="bg-indigo h:bg-indigo-7 px-3 py-1 rad-1 tc-white c-p">Hover me!</button>
 ```
+
+### Focus modifiers
+
+Use the `f:` modifiers to target the `:focus` state across all Yumma CSS utility classes. This is particularly useful for creating accessible form elements and interactive components.
+
+<Note icon="cursor_arrow">Try clicking on the input field to see how the border color and outline change.</Note>
+
+```html live "f:oc-indigo-5 f:oo-2 f:os-s f:ow-2"
+<button class="bg-indigo f:oc-indigo-5 f:oo-2 f:os-s f:ow-2 h:bg-indigo-7 px-3 py-1 rad-1 tc-white">Focus me!</button>
+```
+
+### Active modifiers
+
+The `a:` modifiers allow you to target the `:active` state, which is triggered when an element is being actively pressed or clicked. Perfect for creating responsive button interactions.
+
+<Note icon="cursor_arrow">Try clicking and holding the button to see the active state.</Note>
+
+```html live "a:bg-indigo-9"
+<button class="bg-indigo h:bg-indigo-7 a:bg-indigo-9 px-3 py-1 rad-1 tc-white">Press me!</button>
+```
+
+##### Pseudo-modifiers reference
+
+Here's a reference for the pseudo-modifiers available in Yumma CSS.
+
+| Pseudo-class | Prefix | Description                                      |
+| ------------ | -------- | ---------------------------------------------- |
+| `:hover`     | `h:*`    | Applied when the element is hovered            |
+| `:focus`     | `f:*`    | Applied when the element receives focus        |
+| `:active`    | `a:*`    | Applied when the element is being pressed      |

@@ -729,6 +729,11 @@
   }
 }
 
+.px-3 {
+  padding-left: .75rem;
+  padding-right: .75rem;
+}
+
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -981,7 +986,7 @@
   background-color: #40429c;
 }
 
-.bg-indigo-9 {
+.bg-indigo-9, .a\:bg-indigo-9:active {
   background-color: #34357e;
 }
 
@@ -1159,6 +1164,10 @@
 
 .oc-indigo-3 {
   outline-color: #b6b7ee;
+}
+
+.f\:oc-indigo-5:focus {
+  outline-color: #878ae4;
 }
 
 .oc-indigo-8 {
@@ -2503,7 +2512,7 @@
   outline-offset: 1px;
 }
 
-.oo-2 {
+.oo-2, .f\:oo-2:focus {
   outline-offset: 2px;
 }
 
@@ -2519,7 +2528,7 @@
   outline-style: dashed;
 }
 
-.os-s {
+.os-s, .f\:os-s:focus {
   outline-style: solid;
 }
 
@@ -2527,7 +2536,7 @@
   outline-width: 1px;
 }
 
-.ow-2 {
+.ow-2, .f\:ow-2:focus {
   outline-width: 2px;
 }
 
