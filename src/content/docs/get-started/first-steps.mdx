@@ -265,14 +265,14 @@ Here's a reference for the breakpoints used in Yumma CSS.
 
 Yumma CSS provides pseudo-class modifiers that allow you to apply styles based on user interactions and element states. These modifiers work across all utility classes in the framework.
 
-### Hover modifiers
+### Active modifiers
 
-You can use the `h:` modifiers in order to target the `:hover` function across the entirety of the Yumma CSS utility classes.
+The `a:` modifiers allow you to target the `:active` state, which is triggered when an element is being actively pressed or clicked. Perfect for creating responsive button interactions.
 
-<Note icon="cursor_arrow">Try moving the mouse over the button to see how the background color changes.</Note>
+<Note icon="cursor_arrow">Try clicking and holding the button to see the active state.</Note>
 
-```html live "h:bg-indigo-8"
-<button class="bg-indigo h:bg-indigo-7 px-3 py-1 rad-1 tc-white c-p">Hover me!</button>
+```html live "a:bg-indigo-9"
+<button class="bg-indigo h:bg-indigo-7 a:bg-indigo-9 px-3 py-1 rad-1 tc-white">Press me!</button>
 ```
 
 ### Focus modifiers
@@ -285,14 +285,14 @@ Use the `f:` modifiers to target the `:focus` state across all Yumma CSS utility
 <button class="bg-indigo f:oc-indigo-5 f:oo-2 f:os-s f:ow-2 h:bg-indigo-7 px-3 py-1 rad-1 tc-white">Focus me!</button>
 ```
 
-### Active modifiers
+### Hover modifiers
 
-The `a:` modifiers allow you to target the `:active` state, which is triggered when an element is being actively pressed or clicked. Perfect for creating responsive button interactions.
+You can use the `h:` modifiers in order to target the `:hover` function across the entirety of the Yumma CSS utility classes.
 
-<Note icon="cursor_arrow">Try clicking and holding the button to see the active state.</Note>
+<Note icon="cursor_arrow">Try moving the mouse over the button to see how the background color changes.</Note>
 
-```html live "a:bg-indigo-9"
-<button class="bg-indigo h:bg-indigo-7 a:bg-indigo-9 px-3 py-1 rad-1 tc-white">Press me!</button>
+```html live "h:bg-indigo-8"
+<button class="bg-indigo h:bg-indigo-7 px-3 py-1 rad-1 tc-white c-p">Hover me!</button>
 ```
 
 ##### Pseudo-modifiers reference
