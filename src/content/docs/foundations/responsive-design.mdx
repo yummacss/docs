@@ -1,0 +1,56 @@
+---
+title: Responsive Design
+banner:
+  content: N/A
+description: Learn how to use responsive design in Yumma CSS.
+slug: docs/foundations/responsive-design
+---
+
+## Breakpoints
+
+By default, all base utility classes can be used with responsive variants, making it easier to create responsive designs.
+
+You can use breakpoints variants such as `sm:*`, `md:*`, `lg:*`, `xl:*` and `xxl:*` to apply specific rules to different screen sizes. For example:
+
+<Note icon="width">Try resizing your browser window to see how the card changes.</Note>
+
+```html live "sm:d-b" "md:d-b" "lg:d-b" "xl:d-b" "xxl:d-b" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1 ta-c tc-lead">
+  <p class="bg-white d-b p-4 rad-1 sm:d-none">This is a small screen.</p>
+  <p class="bg-white d-none md:d-none p-4 rad-1 sm:d-b">This is a medium screen.</p>
+  <p class="bg-white d-none lg:d-none md:d-b p-4 rad-1">This is a large screen.</p>
+  <p class="bg-white d-none lg:d-b p-4 rad-1 ta-c xl:d-none">This is an extra large screen.</p>
+  <p class="bg-white d-none p-4 rad-1 ta-c xxl:d-b">This is double extra large screen.</p>
+</div>
+```
+
+## Mobile-first approach
+
+Like other frameworks, like Tailwind, Yumma CSS uses a mobile-first approach. In other words, the default styles are applied to small screens, and you can use breakpoints to override them for larger screens.
+
+<Note icon="cross">
+    Don't use breakpoints to apply styles only to mobile devices.
+</Note>
+
+```html del={1}
+<h1 class="sm:ta-c ...">Library</h1>
+```
+
+<Note icon="check">
+    Instead, use them to apply styles to small screens, and then override them for larger screens.
+</Note>
+
+```html ins={1}
+<h1 class="ta-c sm:ta-l ...">Library</h1>
+```
+
+
+Here's a reference for all the breakpoints available in Yumma CSS:
+
+| Designation | Minimum width    |
+| ----------- | ---------------- |
+| sm          | 40rem (_640px_)  |
+| md          | 48rem (_768px_)  |
+| lg          | 64rem (_1024px_) |
+| xl          | 80rem (_1280px_) |
+| xxl         | 96rem (_1536px_) |

@@ -4,8 +4,13 @@ export const sidebar = [
     link: "docs/installation",
     icon: "open-book",
     items: [
-      { label: "Get started", items: ["docs/installation", "docs/first-steps", "docs/upgrade-guide"] },
+      { label: "Get started", items: ["docs/installation", "docs/upgrade-guide"] },
       { label: "Base styles", autogenerate: { directory: "core/base-styles" } },
+
+      // Foundations
+      { label: "Foundations", autogenerate: { directory: "/foundations" } },
+
+      // Core utilities
       { label: "Backgrounds", autogenerate: { directory: "core/backgrounds" } },
       {
         label: "Borders & Outlines",

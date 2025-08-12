@@ -1,0 +1,122 @@
+---
+title: Styling Elements
+banner:
+  content: N/A
+description: Learn how to style elements using Yumma CSS.
+slug: docs/foundations/styling-elements
+---
+
+## Applying utility classes
+
+Apply utility classes to your HTML elements to style them. You can apply multiple classes to a single element.
+
+{/* prettier-ignore */}
+```html live
+<button class="bg-indigo rad-1 b-0 tc-white c-p fw-600 py-1 px-5 h:bg-indigo-8">
+  Subscribe
+</button>
+```
+
+Here's a quick reference for the examples above.
+
+<div class="o-x-auto max-h-90">
+| Property                                              | Utility |
+| ----------------------------------------------------- | ------- |
+| [background-color](/docs/background-color)            | `bg-*`  |
+| [border-radius](/docs/border-radius)                  | `rad-*` |
+| [border-width](/docs/border-width)                    | `b-*`   |
+| [color](/docs/text-color)                             | `tc-*`  |
+| [cursor](/docs/cursor)                                | `c-*`   |
+| [font-weight](/docs/font-weight)                      | `fw-*`  |
+| [hover](/docs/first-steps#pseudo-modifiers)           | `h:*`   |
+| [padding-x](/docs/padding#padding-x) — (left & right) | `px-*`  |
+| [padding-y](/docs/padding#padding-y) — (bottom & top) | `py-*`  |
+</div>
+
+## Combining utility classes
+
+You can combine utility classes to create complex styles.
+
+```html live
+<div class="bg-white bs-lg d-f fd-c g-4 max-w-80 p-5">
+  <div class="p-r">
+    <span class="bg-black fs-xs fw-700 l-2 p-a px-2 py-1 t-2 tc-white">New</span>
+    <img class="h-40 of-c w-full" src="https://images.unsplash.com/photo-1628855567353-0bbe097bac15" alt="Sneaker" />
+  </div>
+
+  <h3 class="fs-md fw-600 tc-black">Sneakers</h3>
+
+  <p class="fs-sm tc-lead">
+    Comfortable and stylish, these sneakers are perfect for any occasion.
+  </p>
+
+  <div class="ai-c d-f jc-sb mt-auto">
+    <span class="fs-lg fw-700 tc-black">$59.99</span>
+    <button class="bg-black f:oc-black f:oo-2 f:os-s f:ow-2 fw-500 px-4 py-2 tc-white">
+      Add to Cart
+    </button>
+  </div>
+</div>
+```
+
+Here's a quick reference for the examples above.
+
+<div class="o-x-auto max-h-90">
+| Property                                              | Utility |
+| ----------------------------------------------------- | ------- |
+| [border-radius](/docs/border-radius)                  | `rad-*` |
+| [box-shadow](/docs/box-shadow)                        | `bs-*`  |
+| [display](/docs/display)                              | `d-*`   | 
+| [flex-direction](/docs/flexbox-grid/flexbox/flex-direction) | `fd-*` |
+| [focus:](/docs/first-steps#focus-modifiers)             | `f:*`   |
+| [font-size](/docs/font-size)                          | `fs-*`  |
+| [font-weight](/docs/font-weight)                      | `fw-*`  |
+| [gap](/docs/flexbox-grid/flexbox/gap)                 | `g-*`   |
+| [height](/docs/height-width#height)                   | `h-*`   |
+| [left](/docs/positioning/bottom-left-right-top)       | `l-*`   |
+| [margin-top](/docs/margin#margin-top)                 | `mt-*`  |
+| [max-width](/docs/width#max-width)                    | `max-w-*` |
+| [object-fit](/docs/object-fit)                         | `of-*`  |]
+| [outline-offset](/docs/borders-outlines/outlines/outline-offset) | `oo-*` |
+| [outline-style](/docs/borders-outlines/outlines/outline-style) | `os-*` |
+| [outline-width](/docs/borders-outlines/outlines/outline-width) | `ow-*` |
+| [overflow](/docs/overflow)                            | `o-*`  |
+| [padding-x](/docs/padding#padding-x) — (left & right) | `px-*`  |
+| [padding-y](/docs/padding#padding-y) — (top & bottom)  | `py-*`  |
+| [padding](/docs/padding)                             | `p-*`   |
+| [position](/docs/positioning/position)                | `p-*`   |
+| [text-color](/docs/text-color)                        | `tc-*`  |
+| [top](/docs/positioning/bottom-left-right-top)        | `t-*`   |
+| [width](/docs/height-width#width)                     | `w-*`   |
+</div>
+
+## Why not vanilla CSS?
+
+If you're still not convinced about utility classes, here are a few reasons why you might want to consider them.
+
+- **No reusability** - inline styles can't be reused across components
+- **No consistency** - inline styles make it hard to maintain a consistent design system
+- **No organization** - inline styles can quickly become a mess
+- **No theming** - inline styles make it hard to switch between different themes
+
+With Yumma CSS every utility class will feel familiar to you since it's pretty much just an abbreviated version of the property it represents. For example, `d-f` is for `display: flex;`, `o-auto` is for `overflow: auto;`, and so on.
+
+## Why use utility classes?
+
+Utility classes solve many of the problems that come with traditional CSS approaches, especially when working on larger projects. Here's why they make such a difference.
+
+If your building projects with vanilla CSS chances are you're probably familiar with some of the issues below.
+
+- **Invalid and outdated syntax** - deprecated properties, old vendor prefixes, browser hacks
+- **Redundant styles** - duplicate rules, specificity wars, unused selectors
+- **Refactoring risks** - cleanup efforts, refactoring difficulties, global scope issues
+- **Naming conventions** - inconsistent class names across different developers and time periods
+- **Performance issues** - big bundle sizes, bloated CSS files, visual regressions
+
+Utility classes solve these problems by taking a completely different approach to styling.
+
+- **Predictable and consistent** - each utility does one thing reliably
+- **Composable and flexible** - combine utilities to create complex styles
+- **Faster development** - no context switching, immediate feedback, reusable patterns
+
+One of the biggest time-savers with utility classes is that you don't have to come up with names for everything. Instead of spending time thinking about whether to call something `.card-header`, `.product-title`, or `.section-heading`, you just use the utilities you need.

@@ -8,7 +8,8 @@ node_modules/
 # logs
 npm-debug.log*
 
-# project files
+# testing
+coverage/
 project-hierarchy.txt
 
 # editor config

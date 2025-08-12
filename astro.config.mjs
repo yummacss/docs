@@ -125,16 +125,15 @@ export default defineConfig({
 
     // docs related
     "/docs": "/docs/installation",
-    "/docs/build-css": "/docs/first-steps#building-styles",
-    "/docs/colors": "/docs/first-steps#color-palette",
-    "/docs/colours": "/docs/first-steps#color-palette",
+    "/docs/build-css": "/docs/foundations#cli-commands",
+    "/docs/colours": "/docs/foundations/colors",
     "/docs/direction": "/docs/bottom-left-right-top",
-    "/docs/modifiers": "/docs/first-steps#breakpoints-modifiers",
+    "/docs/modifiers": "/docs/foundations/responsive-design",
     "/docs/next": "/blog/yummacss-3.0",
-    "/docs/setup": "/docs/first-steps",
+    "/docs/setup": "/docs/foundations",
     "/docs/utilities": "/docs/build-css",
-    "docs/cli": "/docs/first-steps#get-started-with-yumma-cli",
-    "docs/configuration": "/docs/first-steps#get-started-with-yumma-cli",
+    "docs/cli": "/docs/foundations/cli-setup",
+    "docs/configuration": "/docs/foundations/configuration",
 
     // ui related
     "/components": "/ui/installation/",

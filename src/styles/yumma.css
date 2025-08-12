@@ -593,6 +593,10 @@
   margin-right: 2rem;
 }
 
+.mt-auto {
+  margin-top: auto;
+}
+
 .mt-1 {
   margin-top: .25rem;
 }
@@ -637,6 +641,11 @@
   margin-right: 2rem;
 }
 
+.my-2 {
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+}
+
 .my-4 {
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -661,6 +670,10 @@
 
 .p-4 {
   padding: 1rem;
+}
+
+.p-5 {
+  padding: 1.25rem;
 }
 
 .p-6 {
@@ -727,6 +740,11 @@
   .sm\:pt-8 {
     padding-top: 2rem;
   }
+}
+
+.px-2 {
+  padding-left: .5rem;
+  padding-right: .5rem;
 }
 
 .px-3 {
@@ -1176,6 +1194,10 @@
 
 .oc-lead {
   outline-color: #3f3f4e;
+}
+
+.f\:oc-black:focus {
+  outline-color: #000;
 }
 
 .s-indigo {
@@ -2214,6 +2236,10 @@
   left: 0;
 }
 
+.l-2 {
+  left: .5rem;
+}
+
 .l-4 {
   left: 1rem;
 }
@@ -2228,6 +2254,10 @@
 
 .t-0 {
   top: 0;
+}
+
+.t-2 {
+  top: .5rem;
 }
 
 .t-4 {
@@ -2976,6 +3006,16 @@
 
 .ta-s {
   text-align: start;
+}
+
+@media (width >= 40rem) {
+  .sm\:ta-c {
+    text-align: center;
+  }
+
+  .sm\:ta-l {
+    text-align: left;
+  }
 }
 
 .tdl-lt {
