@@ -16,7 +16,7 @@ export const sidebar = [
           { label: "Variants", link: "docs/foundations/variants" },
           { label: "Responsive design", link: "docs/foundations/responsive-design" },
           { label: "Colors", link: "docs/foundations/colors" },
-        ]
+        ],
       },
 
       // Core utilities
