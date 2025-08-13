@@ -8,11 +8,16 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"astro dev\" \"yummacss watch\"",
-    "start": "astro dev",
+    "astro": "astro",
     "build": "astro build && yummacss build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "check": "astro check",
+    "dev": "concurrently \"astro dev\" \"yummacss watch\"",
+    "format:blog": "prettier --write src/content/docs/blog/**/*.{md,mdx}",
+    "format:core-ui": "prettier --write src/content/docs/core-ui/**/*.{md,mdx}",
+    "format:docs": "prettier --write src/content/docs/core/**/*.{md,mdx}",
+    "format:guides": "prettier --write src/content/docs/guides/**/*.{md,mdx}",
+    "format": "prettier --write .",
+    "preview": "astro preview"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
@@ -40,6 +45,7 @@
     "@types/js-beautify": "^1.14.3",
     "@types/tinycolor2": "^1.4.6",
     "concurrently": "^9.1.2",
+    "prettier": "^3.6.2",
     "typescript": "^5.8.3",
     "yummacss": "^3.1.0"
   },
