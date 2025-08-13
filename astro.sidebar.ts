@@ -8,7 +8,16 @@ export const sidebar = [
       { label: "Base styles", autogenerate: { directory: "core/base-styles" } },
 
       // Foundations
-      { label: "Foundations", autogenerate: { directory: "/foundations" } },
+      {
+        label: "Foundations",
+        items: [
+          { label: "Configuration", link: "docs/foundations/config" },
+          { label: "Styling elements", link: "docs/foundations/styling-elements" },
+          { label: "Variants", link: "docs/foundations/variants" },
+          { label: "Responsive design", link: "docs/foundations/responsive-design" },
+          { label: "Colors", link: "docs/foundations/colors" },
+        ]
+      },
 
       // Core utilities
       { label: "Backgrounds", autogenerate: { directory: "core/backgrounds" } },

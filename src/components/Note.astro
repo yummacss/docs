@@ -8,11 +8,9 @@ interface Props {
 const { icon: name } = Astro.props as Props;
 ---
 
-<div class="d-f g-2">
-  <span class="ai-c bs-sm decorator-icon d-f h-fc mt-1 fs-0 p-1" set:html={icons[name]} />
-  <span>
-    <slot />
-  </span>
+<div class="ai-c d-f g-2">
+  <span class="ai-c bs-sm decorator-icon d-f h-fc fs-0 p-1" set:html={icons[name]} />
+  <span class="ai-c d-f"><slot /></span>
 </div>
 
 <style>

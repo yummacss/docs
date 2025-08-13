@@ -96,11 +96,11 @@ export default defineConfig({
     }),
     config.AutoImport({
       imports: [
-        "/src/components/HoverModifier.astro",
+        "/src/components/BreakpointVariant.astro",
+        "/src/components/HoverVariant.astro",
         "/src/components/legacy/LegacyClass.astro",
         "/src/components/legacy/LegacyColor.astro",
         "/src/components/legacy/LegacyPalette.astro",
-        "/src/components/MediaModifier.astro",
         "/src/components/Note.astro",
         "/src/components/Palette.astro",
         "src/components/Class.astro",
@@ -128,15 +128,13 @@ export default defineConfig({
     "/docs/build-css": "/docs/foundations#cli-commands",
     "/docs/colours": "/docs/foundations/colors",
     "/docs/direction": "/docs/bottom-left-right-top",
-    "/docs/modifiers": "/docs/foundations/responsive-design",
-    "/docs/next": "/blog/yummacss-3.0",
-    "/docs/setup": "/docs/foundations",
-    "/docs/utilities": "/docs/build-css",
-    "docs/cli": "/docs/foundations/cli-setup",
-    "docs/configuration": "/docs/foundations/configuration",
+    "docs/cli": "/docs/foundations/configuration",
+    "docs/configuration": "/docs/foundations/config",
 
     // ui related
     "/components": "/ui/installation/",
+    "/core-ui": "/ui/installation/",
+    "/ui-library": "/ui/installation/",
     "/ui": "/ui/installation/",
   },
 
