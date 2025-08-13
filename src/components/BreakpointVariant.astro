@@ -5,10 +5,10 @@ import Note from "./Note.astro";
 interface Props {
   class: string;
   classPrefix: string;
-  mediaModifier: string;
+  variant: string;
 }
 
-const { class: baseClass, classPrefix, mediaModifier } = Astro.props as Props;
+const { class: baseClass, classPrefix, variant } = Astro.props as Props;
 ---
 
 <section>
@@ -19,5 +19,5 @@ const { class: baseClass, classPrefix, mediaModifier } = Astro.props as Props;
     You can combine responsive breakpoints like <code>sm:{classPrefix}-*</code>,<code>md:{classPrefix}-*</code>, <code>lg:{classPrefix}-*</code>, and{" "}
     <code>xxl:{classPrefix}-*</code> allows targeting specific utilities in different viewports.
   </p>
-  <Code code={`<div class="${baseClass} md:${mediaModifier} ..."></div>`} lang="html" mark={`md:${mediaModifier}`} />
+  <Code code={`<div class="${baseClass} md:${variant} ..."></div>`} lang="html" mark={`md:${variant}`} />
 </section>

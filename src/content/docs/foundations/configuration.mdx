@@ -1,9 +1,9 @@
 ---
-title: CLI Setup
+title: Configuration
 banner:
   content: N/A
 description: Learn how to set up the Yumma CSS CLI.
-slug: docs/foundations/cli-setup
+slug: docs/foundations/config
 ---
 
 ## Installing the CLI
@@ -154,16 +154,16 @@ h1 {
 The Yumma CSS CLI provides several commands to help you work with your Yumma CSS files.
 
 <Note icon="info">
-  Make sure you have a [`yumma.config.js`](/docs/first-steps#get-started-with-yumma-cli) file set up before running these commands. If you haven't, run `npx yummacss init` first.
+  Make sure you have a [`yumma.config.js`](/docs/foundations/config) file set up before running these commands. If you haven't, run `npx yummacss init` first.
 </Note>
 
-### Build command
+### Build
 
 The `build` command will compile your Yumma CSS files once.
 
 <PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} type="exec" pkg="yummacss" args="build" title="Terminal" />
 
-### Watch command
+### Watch
 
 The `watch` command will watch for changes in your Yumma CSS files and recompile them automatically.
 
