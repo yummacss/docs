@@ -1,6 +1,6 @@
 ---
 import tinycolor from "tinycolor2";
-
+import { Tooltips } from "astro-tooltips";
 interface ColorItem {
   name: string;
   color: string;
@@ -34,10 +34,27 @@ const generateShades = (color: string): string[] => {
 
   return shades;
 };
+
+const getBorderStyle = (color: string): string => {
+  const tc = tinycolor(color);
+  const lc = tc.getLuminance();
+
+  if (lc > 0.9) {
+    return "border: 1px solid rgba(0, 0, 0, 0.1);";
+  }
+
+  if (lc < 0.1) {
+    return "border: 1px solid light-dark(rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));";
+  }
+
+  return "";
+};
 ---
 
+<Tooltips interactive={false} delay={[1, 100]} />
+
 <div class="d-f fd-c">
-  <div class="d-none md:d-g fs-xs ta-c gtc-14">
+  <div class="d-none lg:d-g fs-xs ta-c gtc-14">
     <div></div>
     {Array.from({ length: 13 }, (_, i) => <div>{i === 6 ? "Base" : i < 6 ? i + 1 : i}</div>)}
   </div>
@@ -46,26 +63,24 @@ const generateShades = (color: string): string[] => {
     data.map((colorItem) => {
       const shades = generateShades(colorItem.color);
       return (
-        <div class="d-g g-1 ai-c md:gtc-14 md:f-none d-f fd-c md:d-g">
-          <div class="fs-sm ws-nw md:wm-vtb md:fs-sm ta-c fs-md ws-n">{colorItem.name}</div>
-          {shades.map((shade) => (
-            <div class="h-12 md:h-10 w-full rad-1" style={{ backgroundColor: shade }} onclick={`navigator.clipboard.writeText('${shade}')`} />
-          ))}
+        <div class="d-f fd-c g-1 ai-c md:fd-r md:ai-c">
+          <p class="fs-sm ws-nw ta-c fw-500 min-w-fc md:min-w-16 jc-c d-f ai-c mr-2">{colorItem.name}</p>
+          <div class="d-g g-1 w-full gtc-2 sm:gtc-4 md:gtc-6 lg:gtc-13 f-1 not-content">
+            {shades.map((shade) => (
+              <div
+                class="h-12 w-full rad-1 c-p md:h-10"
+                style={`background-color: ${shade}; ${getBorderStyle(shade)}`}
+                onclick={`navigator.clipboard.writeText('${shade}')`}
+                title={`${shade}`}
+                data-tooltip-placement="top"
+                data-tooltip-interactive="true"
+                role="button"
+                tabindex="0"
+              />
+            ))}
+          </div>
         </div>
       );
     })
   }
 </div>
-
-<!-- TODO - yummacss@v3.2 -->
-<style>
-  @media (width >= 48rem) {
-    .md\:wm-vtb {
-      writing-mode: vertical-lr;
-    }
-  }
-
-  .wm-htb {
-    writing-mode: horizontal-tb;
-  }
-</style>

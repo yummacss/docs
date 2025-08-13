@@ -109,6 +109,7 @@ table {
   display: inline-table !important;
 }
 
+/* code blocks */
 #area {
   background-color: light-dark(var(--sl-color-gray-8), var(--sl-color-gray-6));
 
