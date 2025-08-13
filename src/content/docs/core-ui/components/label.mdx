@@ -13,7 +13,11 @@ A basic implementation of the Label component with default styling.
 import { Label } from "yumma-ui";
 
 const App = () => {
-  return <Label variant="base" size="sm" htmlFor="email">Email</Label>;
+  return (
+    <Label variant="base" size="sm" htmlFor="email">
+      Email
+    </Label>
+  );
 };
 
 export default App;
@@ -71,7 +75,11 @@ The Label component is fully extendable. It supports all native HTML `<label>` a
 import { Label } from "yumma-ui";
 
 const App = () => {
-  return <Label htmlFor="..." {...props}>Email</Label>;
+  return (
+    <Label htmlFor="..." {...props}>
+      Email
+    </Label>
+  );
 };
 
 export default App;

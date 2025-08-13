@@ -28,22 +28,17 @@ You can use breakpoints variants such as `sm:*`, `md:*`, `lg:*`, `xl:*` and `xxl
 
 Like other frameworks, like Tailwind, Yumma CSS uses a mobile-first approach. In other words, the default styles are applied to small screens, and you can use breakpoints to override them for larger screens.
 
-<Note icon="cross">
-    Don't use breakpoints to apply styles only to mobile devices.
-</Note>
+<Note icon="cross">Don't use breakpoints to apply styles only to mobile devices.</Note>
 
 ```html del={1}
 <h1 class="sm:ta-c ...">Library</h1>
 ```
 
-<Note icon="check">
-    Instead, use them to apply styles to small screens, and then override them for larger screens.
-</Note>
+<Note icon="check">Instead, use them to apply styles to small screens, and then override them for larger screens.</Note>
 
 ```html ins={1}
 <h1 class="ta-c sm:ta-l ...">Library</h1>
 ```
-
 
 Here's a reference for all the breakpoints available in Yumma CSS:
 

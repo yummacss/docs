@@ -75,7 +75,11 @@ The Button component is fully extendable. It supports all native HTML `<button>`
 import { Button } from "yumma-ui";
 
 const App = () => {
-  return <Button onClick={() => alert("Button clicked!")} {...props}>Login</Button>;
+  return (
+    <Button onClick={() => alert("Button clicked!")} {...props}>
+      Login
+    </Button>
+  );
 };
 
 export default App;
