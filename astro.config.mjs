@@ -14,8 +14,8 @@ export default defineConfig({
       favicon: "/favicon.ico",
       logo: {
         alt: "Yumma CSS Logo",
-        dark: "/public/trademark/logo-dark.png",
-        light: "/public/trademark/logo-light.png",
+        dark: "/src/assets/trademark/logo-dark.png",
+        light: "/src/assets/trademark/logo-light.png",
         replacesTitle: true,
       },
 
@@ -33,7 +33,7 @@ export default defineConfig({
       plugins: [
         starlightLinksValidator(),
         starlightSidebarTopics(config.sidebar, {
-          exclude: ["/blog", "/blog/**/*", "/brand", "/docs/guides", "/docs/guides/**/*"],
+          exclude: ["/blog", "/blog/**/*", "/docs/guides", "/docs/guides/**/*"],
         }),
         starlightBlog({
           recentPostCount: 6,
