@@ -1,5 +1,4 @@
 export default {
-  // prettier-ignore
   source: [
     "./src/content/docs/**/*.{md,mdx}",
     "./src/components/**/*.astro",

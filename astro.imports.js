@@ -11,14 +11,13 @@ import { sidebar } from "./astro.sidebar";
 const theme = fs.readFileSync(new URL(`./src/theme.json`, import.meta.url), "utf-8");
 const midnightTheme = ExpressiveCodeTheme.fromJSONString(theme);
 
-// prettier-ignore
 export default {
-    sidebar,
-    AutoImport,
-    liveCode,
-    starlightBlog,
-    starlightCoolerCredit,
-    starlightLinksValidator,
-    vercel,
-    midnightTheme,
- };
+  sidebar,
+  AutoImport,
+  liveCode,
+  starlightBlog,
+  starlightCoolerCredit,
+  starlightLinksValidator,
+  vercel,
+  midnightTheme,
+};
