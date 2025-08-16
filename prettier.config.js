@@ -6,4 +6,5 @@ export default {
   printWidth: 180,
   bracketSameLine: true,
   bracketSpacing: true,
+  plugins: ["prettier-plugin-organize-imports"],
 };
