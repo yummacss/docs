@@ -1,7 +1,7 @@
 // @ts-check
+import starlight from "@astrojs/starlight";
 import { defineConfig } from "astro/config";
 import config from "./astro.imports.js";
-import starlight from "@astrojs/starlight";
 
 import starlightBlog from "starlight-blog";
 import starlightLinksValidator from "starlight-links-validator";
