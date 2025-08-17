@@ -1,9 +1,5 @@
 export default {
-  source: [
-    "./src/content/docs/**/*.{md,mdx}",
-    "./src/components/**/*.astro",
-    "./src/layouts/**/*.astro"
-  ],
+  source: ["./src/content/docs/**/*.{md,mdx}", "./src/components/**/*.astro", "./src/layouts/**/*.astro"],
   output: "./src/styles/yumma.css",
   buildOptions: {
     reset: false,
