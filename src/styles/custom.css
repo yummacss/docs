@@ -35,7 +35,7 @@
   --sl-color-gray-6: #21243f;
   --sl-color-white: #ffffff;
 
-  --hero-mesh: url("https: //github.com/yumma-lib/yumma-css-docs/blob/release/src/assets/mesh-dark.png?raw=true");
+  --hero-mesh: url("https://github.com/yumma-lib/yumma-css-docs/blob/release/src/assets/mesh-dark.png?raw=true");
   --framework-card: var(--sl-color-gray-6);
 }
 
