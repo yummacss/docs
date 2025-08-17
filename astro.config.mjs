@@ -11,6 +11,8 @@ export default defineConfig({
   integrations: [
     starlight({
       title: "Yumma CSS",
+      description: "A CSS framework for the web with abbreviated utilities.",
+      titleDelimiter: " - ",
       favicon: "/favicon.ico",
       logo: {
         alt: "Yumma CSS Logo",
