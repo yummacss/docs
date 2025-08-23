@@ -18,7 +18,7 @@
     "format:guides": "prettier --write src/content/docs/guides/**/*.{md,mdx}",
     "format": "prettier --write .",
     "preview": "astro preview",
-    "release": "pnpm up yummacss @yummacss/api"
+    "release": "pnpm up yummacss @yummacss/api --latest"
   },
   "packageManager": "pnpm@10.14.0",
   "dependencies": {
