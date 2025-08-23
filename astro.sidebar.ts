@@ -52,7 +52,7 @@ export const sidebar = [
   },
   {
     label: "Components",
-    link: "https://github.com/yumma-lib/yumma-ui",
+    link: "/docs/ui/installation",
     
     items: [
       { label: "Get Started", autogenerate: { directory: "core-ui/get-started" } },
