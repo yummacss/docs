@@ -86,7 +86,7 @@ If you're still using the legacy CSS import approach, here's how to migrate to t
 
    If you haven't already, install Yumma CSS as a development dependency.
 
-   <PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} pkg="yummacss -D" title="Terminal" />
+   <PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} icons={false} pkg="yummacss -D" title="Terminal" />
 
 3. **Create configuration file**
 
@@ -109,7 +109,7 @@ If you're still using the legacy CSS import approach, here's how to migrate to t
 
    Run the build command to generate your CSS file.
 
-   <PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} type="exec" pkg="yummacss" args="build" title="Terminal" />
+   <PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} icons={false} pkg="yummacss" type="exec" args="build" title="Terminal" />
 
 5. **Update your build process**
 
@@ -121,7 +121,7 @@ If you're still using the legacy CSS import approach, here's how to migrate to t
 
 You can also use the `yummacss watch` command to automatically rebuild your CSS when you make changes to your source files.
 
-<PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} type="exec" pkg="yummacss" args="watch" title="Terminal" />
+<PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} icons={false} pkg="yummacss" type="exec" args="watch" title="Terminal" />
 
 ---
 
@@ -129,6 +129,6 @@ You can also use the `yummacss watch` command to automatically rebuild your CSS 
 
 You can upgrade your projects by getting the latest version of `yummacss` from npm:
 
-<PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} pkg="yummacss@latest" title="Terminal" />
+<PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} icons={false} pkg="yummacss@latest" title="Terminal" />
 
 If you're using the CLI approach (recommended), the upgrade process is seamless. Just run your build command after updating, and you'll automatically get access to the new `:focus` and `:active` variants across all your utilities.

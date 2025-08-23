@@ -1,0 +1,134 @@
+---
+authors: Renildo
+cover:
+  alt: Yumma CSS 3.2
+  image: cover.png
+date: 2025-08-19
+description: Today, we are releasing Yumma CSS 3.2. This update introduces box model, border radius, and color utilities, along with size values from the breakpoint system.
+tableOfContents:
+  maxHeadingLevel: 4
+pagefind: false
+slug: blog/yummacss-3.2
+tags: ["release"]
+title: Yumma CSS 3.2
+draft: true
+---
+
+Today, we are releasing Yumma CSS 3.2. This update introduces box model, border radius, and color utilities, along with size values from the breakpoint system.
+
+{/* excerpt */}
+
+You may also want to take a look at some of the [release notes](https://github.com/yumma-lib/yumma-css/releases/tag/v3.2.0) but, anyway, these are the most noticeable shifts:
+
+- [Even more new utilities](#new-box-model-utilities): New utilities for dimensions, height, width, padding, margin, and border radius.
+- [New size utility values](#new-size-breakpoint-based-values): New utilities for dimensions, height, width, padding, margin, and border radius.
+- [New border radius utilities](#new-border-radius-utilities): New utilities for border radius.
+- [Renaming lead to slate](#renaming-lead-to-slate): Renaming the lead color utilities to slate.
+- [New currentColor color utilities](#new-currentcolor-utilities): New utilities for the color.
+- [CLI improvements](#cli-improvements): Improved messaging for the CLI.
+
+This is an incremental update that may contain breaking changes. Minor releases follow [semantic versioning](https://docs.npmjs.com/about-semantic-versioning) conventions. In other words, a migration is necessary to continue using the framework.
+
+---
+
+## Even more new utilities
+
+New values have just arrived for the box model and border radius utilities.
+
+### New Box Model utilities
+
+Use `px` to set the height and width of an element to `1px`. Applies to `max` and `min` utilities as well.
+
+```html frame="terminal"
+<div class="d-px ..."></div>
+<div class="h-px ..."></div>
+<div class="w-px ..."></div>
+```
+
+Use `px` to set the padding of an element to `1px`. Applies to all logical and physical margin and padding utilities.
+
+```html frame="terminal"
+<div class="m-px"></div>
+<div class="p-px"></div>
+```
+
+We're also adding viewport-percentage length units utilities:
+
+- Use the `*-dvw` unit to apply `100dvw` to an element.
+- Use the `*-vh` unit to apply `100vh` to an element.
+- Use the `*-vw` unit to apply `100vw` to an element.
+
+Use the `dvw` unit to represent viewport-percentage length unit based on the large viewport size.
+
+```html frame="terminal"
+<div class="d-dvw ..."></div>
+<div class="h-vh ..."></div>
+<div class="w-vw ..."></div>
+```
+
+### New size utility values
+
+Using the 0-100 range scale has its limitations with utilities like Dimension, Height, and Width. That's why we're adding size value options directly from our breakpoint system, with no special rules.
+
+| Class   | Value   |
+| ------- | ------- |
+| `*-sm`  | `40rem` |
+| `*-md`  | `48rem` |
+| `*-lg`  | `48rem` |
+| `*-xl`  | `48rem` |
+| `*-xxl` | `48rem` |
+
+---
+
+### New Border Radius utilities
+
+Now you can use the `9` in the `rad-*` utilities. This will apply a `border-radius` of `9999px` to an element for perfectly rounded corners.
+
+```html "rad-9" live
+<button class="bg-indigo rad-9 b-0 tc-white c-p fw-600 py-1 px-5 h:bg-indigo-8">Subscribe</button>
+```
+
+---
+
+### Renaming lead to slate
+
+We're renaming the `lead` color utility to `slate`. This is a more accurate representation of the color and its intended use.
+
+You can easily find and replace all instances of `-lead` with `-slate` with your editor's find and replace feature.
+
+```diff lang="html" title="index.html"
+- <div class="bg-lead ..."></div>
++ <div class="bg-slate ..."></div>
+```
+
+---
+
+### New currentColor utilities
+
+All color utilities now support the `currentColor` value. This is super useful for creating themeable UI components.
+
+Use `*-current` to apply the `currentColor` value to a utility. This will make the child element color inherit the color of its parent element.
+
+```html "f-current" live
+<div class="tc-blue">
+  <svg class="h-10 w-10 f-current" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="8" cy="8" r="8" />
+  </svg>
+</div>
+```
+
+---
+
+## CLI improvements
+
+In this release we made some small messaging improvements to the CLI. You can now expect different errors related to the `init` and `build` commands.
+
+If you're still getting issues after upgrading, please [open an issue](https://github.com/yumma-lib/yumma-css/issues/new) and we'll be happy to help.
+
+---
+
+## Upgrade
+
+You can upgrade your projects by getting the latest version of `yummacss` from npm:
+
+<PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} icons={false} pkg="yummacss@latest" title="Terminal" />

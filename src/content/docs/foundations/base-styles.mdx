@@ -1,9 +1,9 @@
 ---
-title: Stylecent
+title: Base Styles
 banner:
   content: N/A
-description: Stylecent is an optional set of styles for Yumma CSS projects, meant for consistent and modern appearance across browsers.
-slug: docs/stylecent
+description: Accessible and modern set of base styles for Yumma CSS projects.
+slug: docs/foundations/base-styles
 ---
 
 ## Box sizing
@@ -17,7 +17,7 @@ Apply a modern box model and remove browser defaults to simplify layout consiste
   3. **Reset default `border` styles.**
 </Steps>
 
-```scss title="_stylecent.scss"
+```scss title="_base.scss"
 *,
 *::before,
 *::after {
@@ -42,7 +42,7 @@ Improve `font` rendering and readability with base styles for the `<body>`.
   3. **Add accessible `line-height`.**
 </Steps>
 
-```scss title="_stylecent.scss"
+```scss title="_base.scss"
 body {
   -webkit-font-smoothing: antialiased; /* 1 */
   font-family: vars.$yma-font-system; /* 2 */
@@ -60,7 +60,7 @@ Ensure responsive images and videos behave predictably in all layouts.
   2. **Limit their maximum width to the parent container.**
 </Steps>
 
-```scss title="_stylecent.scss"
+```scss title="_base.scss"
 canvas,
 img,
 picture,
@@ -82,7 +82,7 @@ Normalize form controls for visual consistency and better accessibility.
   3. **Add default padding for usability.**
 </Steps>
 
-```scss title="_stylecent.scss"
+```scss title="_base.scss"
 button,
 input,
 optgroup,
@@ -96,7 +96,7 @@ textarea {
 
 Add a default border to form elements that do not have a class attribute.
 
-```scss title="_stylecent.scss"
+```scss title="_base.scss"
 button:not([class]),
 input:not([class]),
 optgroup:not([class]),
@@ -108,7 +108,7 @@ textarea:not([class]) {
 
 Apply consistent focus styles to interactive elements.
 
-```scss title="_stylecent.scss"
+```scss title="_base.scss"
 a,
 button,
 input,
@@ -123,7 +123,7 @@ textarea {
 
 Set a minimum height for textareas without a defined `rows` attribute.
 
-```scss title="_stylecent.scss"
+```scss title="_base.scss"
 textarea:not([rows]) {
   min-height: 10em;
 }
@@ -131,7 +131,7 @@ textarea:not([rows]) {
 
 Ensure the buttons have a pointer cursor.
 
-```scss title="_stylecent.scss"
+```scss title="_base.scss"
 button {
   cursor: pointer;
 }
@@ -144,7 +144,7 @@ Disabled States
   1. **Reduce opacity and set a "not-allowed" cursor for disabled elements.**
 </Steps>
 
-```scss title="_stylecent.scss"
+```scss title="_base.scss"
 button:disabled,
 input:disabled,
 select:disabled,
@@ -165,7 +165,7 @@ Improve text rendering, wrapping, and default font behavior across browsers.
   3. **Add a consistent font weight for bold text.**
 </Steps>
 
-```scss title="_stylecent.scss"
+```scss title="_base.scss"
 h1,
 h2,
 h3,
@@ -194,7 +194,7 @@ p {
 
 Add the correct font weight in Chrome, Edge, and Safari.
 
-```scss title="_stylecent.scss"
+```scss title="_base.scss"
 b,
 strong {
   font-weight: 700;
@@ -203,7 +203,7 @@ strong {
 
 Add the correct font size in all browsers.
 
-```scss title="_stylecent.scss"
+```scss title="_base.scss"
 small {
   font-size: 80%;
   line-height: 1.5;
@@ -216,7 +216,7 @@ small {
   2. **Correct the odd `em` font sizing in all browsers.**
 </Steps>
 
-```scss title="_stylecent.scss"
+```scss title="_base.scss"
 pre,
 code,
 kbd,
@@ -229,7 +229,7 @@ samp {
 1. **Remove underline styling from links by default.**
 2. **Reset color to inherit from parent element.**
 
-```scss title="_stylecent.scss"
+```scss title="_base.scss"
 a {
   color: inherit; /* 3 */
   text-decoration: none; /* 1 */
@@ -240,7 +240,7 @@ a {
 
 Remove default list styles for a cleaner and more customizable base.
 
-```scss title="_stylecent.scss"
+```scss title="_base.scss"
 ol,
 ul {
   list-style: none;
@@ -257,7 +257,7 @@ Standardize table header styling for better readability.
   1. **Add a consistent font weight for bold text.**
 </Steps>
 
-```scss title="_stylecent.scss"
+```scss title="_base.scss"
 th {
   font-size: 1rem; /* 1 */
   font-weight: 600; /* 1 */
@@ -275,7 +275,7 @@ Fix minor browser quirks and improve default styles for common elements.
   3. **Add spacing around horizontal rules.**
 </Steps>
 
-```scss title="_stylecent.scss"
+```scss title="_base.scss"
 hr {
   border-top: 1px solid vars.$yma-color-silver; /* 2 */
   height: 0; /* 1 */
@@ -285,7 +285,7 @@ hr {
 
 Ensure details and summary elements display correctly.
 
-```scss title="_stylecent.scss"
+```scss title="_base.scss"
 details {
   display: block;
 }
@@ -295,6 +295,14 @@ summary {
 }
 ```
 
-### Disabling Stylecent
+### Disabling base styles
 
-To disable specific styles, you can use the [`buildOptions.reset`](/docs/foundations/config/#reset) option and set it to `false` in your configuration file.
+Use the `buildOptions.reset` option in the `yummacss.config.js` file to disable base styles.
+
+```js title="yummacss.config.js"
+module.exports = {
+  buildOptions: {
+    reset: false,
+  },
+};
+```
