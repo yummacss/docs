@@ -130,6 +130,10 @@
   border-radius: 1rem;
 }
 
+.rad-9 {
+  border-radius: 9999px;
+}
+
 .rad-full {
   border-radius: 100%;
 }
@@ -258,9 +262,19 @@
   box-sizing: content-box;
 }
 
+.d-dvw {
+  width: 100dvw;
+  height: 100dvw;
+}
+
 .d-full {
   width: 100%;
   height: 100%;
+}
+
+.d-px {
+  width: 1px;
+  height: 1px;
 }
 
 .d-1 {
@@ -276,11 +290,6 @@
 .d-4 {
   width: 1rem;
   height: 1rem;
-}
-
-.d-8 {
-  width: 2rem;
-  height: 2rem;
 }
 
 .d-12 {
@@ -383,6 +392,14 @@
 
 .h-half {
   height: 50%;
+}
+
+.h-px {
+  height: 1px;
+}
+
+.h-vh {
+  height: 100vh;
 }
 
 .h-1 {
@@ -517,6 +534,10 @@
   margin: auto;
 }
 
+.m-px {
+  margin: 1px;
+}
+
 .m-1 {
   margin: .25rem;
 }
@@ -646,6 +667,10 @@
 .my-8 {
   margin-top: 2rem;
   margin-bottom: 2rem;
+}
+
+.p-px {
+  padding: 1px;
 }
 
 .p-1 {
@@ -824,6 +849,14 @@
   width: 50%;
 }
 
+.w-px {
+  width: 1px;
+}
+
+.w-vw {
+  width: 100vw;
+}
+
 .w-1 {
   width: .25rem;
 }
@@ -904,6 +937,18 @@
   }
 }
 
+.max-w-md {
+  max-width: 48rem;
+}
+
+.max-w-lg {
+  max-width: 64rem;
+}
+
+.max-w-xl {
+  max-width: 80rem;
+}
+
 .max-w-30 {
   max-width: 7.5rem;
 }
@@ -946,7 +991,7 @@
   accent-color: #40429c;
 }
 
-.ac-lead {
+.ac-slate {
   accent-color: #3f3f4e;
 }
 
@@ -1022,12 +1067,12 @@
   background-color: #0e0f23;
 }
 
-.bg-silver-1 {
-  background-color: #f5f5f6;
+.bg-slate {
+  background-color: #3f3f4e;
 }
 
-.bg-lead {
-  background-color: #3f3f4e;
+.bg-silver-1 {
+  background-color: #f5f5f6;
 }
 
 .bg-black {
@@ -1058,16 +1103,16 @@
   border-color: #40429c;
 }
 
+.bc-slate {
+  border-color: #3f3f4e;
+}
+
 .bc-silver {
   border-color: #bfc2c7;
 }
 
 .bc-silver-2 {
   border-color: #ecedee;
-}
-
-.bc-lead {
-  border-color: #3f3f4e;
 }
 
 .bc-black {
@@ -1114,12 +1159,16 @@
   caret-color: #595cd9;
 }
 
-.cc-lead {
+.cc-slate {
   caret-color: #3f3f4e;
 }
 
 .tc-red {
   color: #d73d3d;
+}
+
+.tc-blue {
+  color: #3575dd;
 }
 
 .tc-indigo {
@@ -1138,16 +1187,16 @@
   color: #40429c;
 }
 
-.tc-silver-8 {
-  color: #8a8c8f;
+.tc-slate {
+  color: #3f3f4e;
 }
 
 .tc-gray-7 {
   color: #535963;
 }
 
-.tc-lead {
-  color: #3f3f4e;
+.tc-silver-8 {
+  color: #8a8c8f;
 }
 
 .tc-black {
@@ -1174,8 +1223,12 @@
   fill: #40429c;
 }
 
-.f-lead {
+.f-slate {
   fill: #3f3f4e;
+}
+
+.f-current {
+  fill: currentColor;
 }
 
 .oc-indigo {
@@ -1194,7 +1247,7 @@
   outline-color: #40429c;
 }
 
-.oc-lead {
+.oc-slate {
   outline-color: #3f3f4e;
 }
 
@@ -1214,12 +1267,12 @@
   stroke: #40429c;
 }
 
-.s-silver-5 {
-  stroke: #d1d3d7;
+.s-slate {
+  stroke: #3f3f4e;
 }
 
-.s-lead {
-  stroke: #3f3f4e;
+.s-silver-5 {
+  stroke: #d1d3d7;
 }
 
 .tdc-red {
@@ -1234,7 +1287,7 @@
   text-decoration-color: #12a695;
 }
 
-.tdc-lead {
+.tdc-slate {
   text-decoration-color: #3f3f4e;
 }
 

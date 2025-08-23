@@ -2,19 +2,17 @@ export const sidebar = [
   {
     label: "Documentation",
     link: "docs/installation",
-    icon: "open-book",
     items: [
       { label: "Get started", items: ["docs/installation", "docs/upgrade-guide"] },
-      { label: "Base styles", autogenerate: { directory: "core/base-styles" } },
-
       // Foundations
       {
         label: "Foundations",
         items: [
           { label: "Configuration", link: "docs/foundations/config" },
-          { label: "Styling elements", link: "docs/foundations/styling-elements" },
+          { label: "Styling Elements", link: "docs/foundations/styling-elements" },
           { label: "Variants", link: "docs/foundations/variants" },
-          { label: "Responsive design", link: "docs/foundations/responsive-design" },
+          { label: "Responsive Design", link: "docs/foundations/responsive-design" },
+          { label: "Base Styles", link: "docs/foundations/base-styles" },
           { label: "Colors", link: "docs/foundations/colors" },
         ],
       },
@@ -54,9 +52,8 @@ export const sidebar = [
   },
   {
     label: "Components",
-    link: "ui/installation",
-    icon: "puzzle",
-    badge: "SOON",
+    link: "https://github.com/yumma-lib/yumma-ui",
+    
     items: [
       { label: "Get Started", autogenerate: { directory: "core-ui/get-started" } },
       { label: "Components", autogenerate: { directory: "core-ui/components" } },
@@ -65,6 +62,5 @@ export const sidebar = [
   {
     label: "Playground",
     link: "https://play.yummacss.com",
-    icon: "seti:html",
   },
 ];

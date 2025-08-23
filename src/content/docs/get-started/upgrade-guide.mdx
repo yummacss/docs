@@ -20,11 +20,11 @@ If you are using Yumma CLI, the process is simple. Heres how to upgrade your pro
 
         Remove the old `yummacss` package.
 
-        <PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} pkg="yummacss" type="remove" title="Terminal" />
+        <PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} icons={false} pkg="yummacss" type="remove" title="Terminal" />
 
         Install `yummacss` as a dev dependency.
 
-        <PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} pkg="yummacss -D" title="Terminal" />
+        <PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} icons={false} pkg="yummacss -D" title="Terminal" />
 
         <br />
 
@@ -32,7 +32,7 @@ If you are using Yumma CLI, the process is simple. Heres how to upgrade your pro
 
             Create a configuration file in your project.
 
-            <PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} pkg="yummacss init" title="Terminal" type="dlx" />
+            <PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} icons={false} pkg="yummacss init" title="Terminal" type="dlx" />
 
     3. **Delete old imports**
 
@@ -62,7 +62,7 @@ If you are using Yumma CLI, the process is simple. Heres how to upgrade your pro
 
         You can now start generating your CSS with the [`build`](/docs/foundations/config/#build) or [`watch`](/docs/foundations/config/#watch) command.
 
-        <PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} pkg="yummacss build" title="Terminal" type="dlx" />
+        <PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} icons={false} pkg="yummacss build" title="Terminal" type="dlx" />
 
 </Steps>
 
@@ -70,7 +70,7 @@ If you are using Yumma CLI, the process is simple. Heres how to upgrade your pro
 
 With Yumma CSS v3 you no longer need to install `yummacss` as a standard dependency. Instead, you can install it as a dev dependency. This is because Yumma CSS is now a CLI tool that generates CSS files based on your configuration.
 
-<PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} pkg="yummacss -D" title="Terminal" />
+<PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} icons={false} pkg="yummacss -D" title="Terminal" />
 
 ## Renamed utilities and variants
 

@@ -10,13 +10,13 @@ slug: docs/foundations/config
 
 Yumma CSS comes with the Yumma CLI, a powerful tool that's a breeze to set up and takes no time or effort for production-ready projects.
 
-<PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} pkg="yummacss -D" title="Terminal" />
+<PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} icons={false} pkg="yummacss -D" title="Terminal" />
 
 ## Creating your configuration file
 
 To start using the CLI, you need to create a configuration file in your project.
 
-<PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} pkg="yummacss init" title="Terminal" type="dlx" />
+<PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} icons={false} pkg="yummacss init" title="Terminal" type="dlx" />
 
 This will create a complete `yumma.config.js` file at the root of your project shown below.
 
@@ -87,7 +87,7 @@ module.exports = {
 
 ### Reset
 
-A boolean that determines whether the inclusion of the [Stylecent reset system](/docs/stylecent).
+A boolean that determines whether the inclusion of the [Stylecent reset system](/docs/foundations/base-styles).
 
 ```js title="yumma.config.js" mark={3}
 module.exports = {
@@ -161,10 +161,10 @@ The Yumma CSS CLI provides several commands to help you work with your Yumma CSS
 
 The `build` command will compile your Yumma CSS files once.
 
-<PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} type="exec" pkg="yummacss" args="build" title="Terminal" />
+<PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} icons={false} pkg="yummacss" type="exec" args="build" title="Terminal" />
 
 ### Watch
 
 The `watch` command will watch for changes in your Yumma CSS files and recompile them automatically.
 
-<PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} type="exec" pkg="yummacss" args="watch" title="Terminal" />
+<PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} icons={false} pkg="yummacss" type="exec" args="watch" title="Terminal" />

@@ -65,7 +65,7 @@ With v3, you won't have to stress about shipping unused CSS to the browser. The 
 
         <Note icon="info">Learn more about [dependency changes](#dependency-changes).</Note>
 
-        <PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} pkg="yummacss -D" title="Terminal" />
+        <PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} icons={false} pkg="yummacss -D" title="Terminal" />
 
     2. **Add the configuration file**
 
@@ -131,7 +131,7 @@ With v3, you won't have to stress about shipping unused CSS to the browser. The 
 
         To compile the source into CSS, ou can run the following command:
 
-        <PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} type="exec" pkg="yummacss" args="build" title="Terminal" />
+        <PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} icons={false} pkg="yummacss" type="exec" args="build" title="Terminal" />
 
         When you run the `build` command the CLI will create a new CSS file and scan project paths based on the `yummacss.config.js` to purge of any unused styles.
 
@@ -251,7 +251,7 @@ If you're using Yumma CSS v2 or older, the process of upgrading to v3 using the 
 
     Run `npx yummacss build` in your terminal to compile to CSS.
 
-    <PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} type="exec" pkg="yummacss" args="build" title="Terminal" />
+    <PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} icons={false} pkg="yummacss" type="exec" args="build" title="Terminal" />
 
 </Steps>
 
@@ -265,7 +265,7 @@ Like some of the past major updates, Yumma CSS v3 is changing its core framework
 
 With Yumma CSS v3 you no longer need to install `yummacss` as a standard dependency. Instead, you can install it as a dev dependency. This is because Yumma CSS is now a CLI tool that generates CSS files based on your configuration.
 
-<PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} pkg="yummacss -D" title="Terminal" />
+<PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} icons={false} pkg="yummacss -D" title="Terminal" />
 
 The full set of utilities will be retained within the distribution folder for the purpose of facilitating the importation of the entire Yumma utilities suite, should this be required.
 
@@ -848,4 +848,4 @@ In v3, we're removing `h-1/2` from **Height** utilities, `w-1/2` from **Width** 
 
 You can upgrade your projects by getting the latest version of `yummacss` from npm:
 
-<PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} pkg="yummacss@latest" title="Terminal" />
+<PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} icons={false} pkg="yummacss@latest" title="Terminal" />
