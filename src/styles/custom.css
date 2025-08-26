@@ -1,3 +1,13 @@
+:root {
+  --img-clivia: url("/src/assets/img/clivia.jpg");
+  --img-coast: url("/src/assets/img/coast.jpg");
+  --img-frangipani: url("/src/assets/img/frangipani.jpg");
+  --img-lighthouse: url("/src/assets/img/lighthouse.jpg");
+  --img-mountain: url("/src/assets/img/mountain.jpg");
+  --img-sea: url("/src/assets/img/sea.jpg");
+  --img-shoes: url("/src/assets/img/shoes.jpg");
+}
+
 /* Light mode */
 :root[data-theme="light"] {
   --purple-hsl: 242, 85%, 65%;
@@ -16,7 +26,7 @@
   --sl-color-white: #151724;
 
   --hero-mesh: url("../assets/mesh-light.png");
-  --framework-card: var(--sl-color-gray-8);
+  --boxes-light: url("../assets/boxes-light.png");
 }
 
 /* Dark mode */
@@ -36,7 +46,7 @@
   --sl-color-white: #ffffff;
 
   --hero-mesh: url("../assets/mesh-dark.png");
-  --framework-card: var(--sl-color-gray-6);
+  --boxes-dark: url("../assets/boxes-dark.png");
 }
 
 @media (min-width: 50rem) {
