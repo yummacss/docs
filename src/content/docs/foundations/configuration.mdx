@@ -21,21 +21,6 @@ To start using the CLI, you need to create a configuration file in your project.
 This will create a complete `yumma.config.js` file at the root of your project shown below.
 
 ```js title="yumma.config.js"
-export default {
-  source: [""],
-  output: "",
-  buildOptions: {
-    reset: true,
-    minify: false,
-  },
-};
-```
-
-### Using ES modules
-
-If you are using ESM modules, you need to use the `module.exports` syntax instead of `export default`.
-
-```js title="yumma.config.js"
 module.exports = {
   source: [""],
   output: "",
@@ -46,28 +31,11 @@ module.exports = {
 };
 ```
 
-### Using CommonJS
-
-If you are using CommonJS modules, you need to use the `export default` syntax instead of `module.exports`.
-
-```js title="yumma.config.js"
-export default {
-  source: [""],
-  output: "",
-  buildOptions: {
-    reset: true,
-    minify: false,
-  },
-};
-```
-
-## Configuration options
-
-### Source
+### source
 
 A collection of paths for your template files, such as `.js`, `.tsx`, or `.html` files. This is where the CLI will look for utility classes to include in the final CSS file.
 
-<Note icon="info">Use [glob patterns](https://code.visualstudio.com/docs/editor/glob-patterns#_glob-pattern-syntax) to include subfolders and specific file types.</Note>
+<Note icon="info">Use glob patterns to include subfolders and specific file types.</Note>
 
 ```js title="yumma.config.js" mark={2}
 module.exports = {
@@ -75,7 +43,7 @@ module.exports = {
 };
 ```
 
-### Output
+### output
 
 A string that specifies the output path for the compiled CSS file. This is where the CLI will save the final CSS file after processing your template files.
 
@@ -85,7 +53,7 @@ module.exports = {
 };
 ```
 
-### Reset
+### reset
 
 A boolean that determines whether the inclusion of the [Stylecent reset system](/docs/foundations/base-styles).
 
@@ -97,7 +65,7 @@ module.exports = {
 };
 ```
 
-### Minify
+### minify
 
 A boolean that determines whether the compiled CSS files should or not be minified. This is useful for production builds where you want to reduce the file size for faster loading times.
 

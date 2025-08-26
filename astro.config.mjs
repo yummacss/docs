@@ -132,6 +132,7 @@ export default defineConfig({
     "/docs/direction": "/docs/bottom-left-right-top",
     "docs/cli": "/docs/foundations/configuration",
     "docs/configuration": "/docs/foundations/config",
+    "docs/text-color": "/docs/color",
 
     // ui related
     "/components": "/ui/installation/",
@@ -144,10 +145,10 @@ export default defineConfig({
     enabled: false,
   },
 
-  output: "server",
-  adapter: config.vercel({
-    webAnalytics: {
-      enabled: true,
-    },
-  }),
+  // output: "server",
+  // adapter: config.vercel({
+  //   webAnalytics: {
+  //     enabled: true,
+  //   },
+  // }),
 });
