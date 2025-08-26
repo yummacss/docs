@@ -53,7 +53,7 @@ export const sidebar = [
   {
     label: "Components",
     link: "/docs/ui/installation",
-    
+
     items: [
       { label: "Get Started", autogenerate: { directory: "core-ui/get-started" } },
       { label: "Components", autogenerate: { directory: "core-ui/components" } },

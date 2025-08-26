@@ -52,7 +52,7 @@
     "starlight-links-validator": "^0.16.0",
     "typescript": "^5.9.2",
     "yummacss": "^3.2.0"
-      },
+  },
   "engines": {
     "node": "22.x"
   }
