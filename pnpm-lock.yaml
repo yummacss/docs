@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@astrojs/check':
-        specifier: ^0.9.4
-        version: 0.9.4(prettier@3.6.2)(typescript@5.9.2)
       '@astrojs/sitemap':
         specifier: 3.4.2
         version: 3.4.2
@@ -47,18 +44,9 @@ importers:
       gsap:
         specifier: ^3.13.0
         version: 3.13.0
-      sharp:
-        specifier: ^0.34.3
-        version: 0.34.3
       starlight-blog:
         specifier: ^0.23.2
         version: 0.23.2(@astrojs/starlight@0.35.2(astro@5.13.3(@types/node@24.3.0)(@vercel/functions@2.2.12)(lightningcss@1.30.1)(rollup@4.48.0)(sass-embedded@1.90.0)(sass@1.90.0)(typescript@5.9.2)(yaml@2.8.1)))(astro@5.13.3(@types/node@24.3.0)(@vercel/functions@2.2.12)(lightningcss@1.30.1)(rollup@4.48.0)(sass-embedded@1.90.0)(sass@1.90.0)(typescript@5.9.2)(yaml@2.8.1))
-      starlight-cooler-credit:
-        specifier: ^0.4.0
-        version: 0.4.0(@astrojs/starlight@0.35.2(astro@5.13.3(@types/node@24.3.0)(@vercel/functions@2.2.12)(lightningcss@1.30.1)(rollup@4.48.0)(sass-embedded@1.90.0)(sass@1.90.0)(typescript@5.9.2)(yaml@2.8.1)))
-      starlight-links-validator:
-        specifier: ^0.16.0
-        version: 0.16.0(@astrojs/starlight@0.35.2(astro@5.13.3(@types/node@24.3.0)(@vercel/functions@2.2.12)(lightningcss@1.30.1)(rollup@4.48.0)(sass-embedded@1.90.0)(sass@1.90.0)(typescript@5.9.2)(yaml@2.8.1)))
       starlight-package-managers:
         specifier: ^0.11.0
         version: 0.11.0(@astrojs/starlight@0.35.2(astro@5.13.3(@types/node@24.3.0)(@vercel/functions@2.2.12)(lightningcss@1.30.1)(rollup@4.48.0)(sass-embedded@1.90.0)(sass@1.90.0)(typescript@5.9.2)(yaml@2.8.1)))
@@ -72,6 +60,9 @@ importers:
         specifier: ^1.6.0
         version: 1.6.0
     devDependencies:
+      '@astrojs/check':
+        specifier: ^0.9.4
+        version: 0.9.4(prettier@3.6.2)(typescript@5.9.2)
       '@types/js-beautify':
         specifier: ^1.14.3
         version: 1.14.3
@@ -87,6 +78,15 @@ importers:
       prettier-plugin-organize-imports:
         specifier: ^4.2.0
         version: 4.2.0(prettier@3.6.2)(typescript@5.9.2)
+      sharp:
+        specifier: ^0.34.3
+        version: 0.34.3
+      starlight-cooler-credit:
+        specifier: ^0.4.0
+        version: 0.4.0(@astrojs/starlight@0.35.2(astro@5.13.3(@types/node@24.3.0)(@vercel/functions@2.2.12)(lightningcss@1.30.1)(rollup@4.48.0)(sass-embedded@1.90.0)(sass@1.90.0)(typescript@5.9.2)(yaml@2.8.1)))
+      starlight-links-validator:
+        specifier: ^0.16.0
+        version: 0.16.0(@astrojs/starlight@0.35.2(astro@5.13.3(@types/node@24.3.0)(@vercel/functions@2.2.12)(lightningcss@1.30.1)(rollup@4.48.0)(sass-embedded@1.90.0)(sass@1.90.0)(typescript@5.9.2)(yaml@2.8.1)))
       typescript:
         specifier: ^5.9.2
         version: 5.9.2
