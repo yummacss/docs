@@ -1,11 +1,11 @@
 :root {
-  --img-clivia: url("/src/assets/img/clivia.jpg");
-  --img-coast: url("/src/assets/img/coast.jpg");
-  --img-frangipani: url("/src/assets/img/frangipani.jpg");
-  --img-lighthouse: url("/src/assets/img/lighthouse.jpg");
-  --img-mountain: url("/src/assets/img/mountain.jpg");
-  --img-sea: url("/src/assets/img/sea.jpg");
-  --img-shoes: url("/src/assets/img/shoes.jpg");
+  --img-clivia: url("/img/clivia.jpg");
+  --img-coast: url("/img/coast.jpg");
+  --img-frangipani: url("/img/frangipani.jpg");
+  --img-lighthouse: url("/img/lighthouse.jpg");
+  --img-mountain: url("/img/mountain.jpg");
+  --img-sea: url("/img/sea.jpg");
+  --img-shoes: url("/img/shoes.jpg");
 }
 
 /* Light mode */
@@ -127,14 +127,12 @@ table {
 
   background-image:
     repeating-linear-gradient(45deg, light-dark(#d3d5e3, #31365e) 25%, transparent 25%, transparent 75%, light-dark(#d3d5e3, #31365e) 75%, light-dark(#d3d5e3, #31365e)),
-    repeating-linear-gradient(
-      45deg,
+    repeating-linear-gradient(45deg,
       light-dark(#d3d5e3, #31365e) 25%,
       var(--sl-color-black) 25%,
       var(--sl-color-black) 75%,
       light-dark(#d3d5e3, #31365e) 75%,
-      light-dark(#d3d5e3, #31365e)
-    );
+      light-dark(#d3d5e3, #31365e));
   background-position:
     0 0,
     8px 8px;
