@@ -145,10 +145,10 @@ export default defineConfig({
     enabled: false,
   },
 
-  // output: "server",
-  // adapter: config.vercel({
-  //   webAnalytics: {
-  //     enabled: true,
-  //   },
-  // }),
+  output: "server",
+  adapter: config.vercel({
+    webAnalytics: {
+      enabled: true,
+    },
+  }),
 });

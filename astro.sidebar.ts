@@ -8,12 +8,12 @@ export const sidebar = [
       {
         label: "Foundations",
         items: [
-          { label: "Configuration", link: "docs/foundations/config" },
           { label: "Styling Elements", link: "docs/foundations/styling-elements" },
-          { label: "Variants", link: "docs/foundations/variants" },
+          { label: "Configuration", link: "docs/foundations/config" },
+          { label: "Conditional Styles", link: "docs/foundations/variants" },
           { label: "Responsive Design", link: "docs/foundations/responsive-design" },
-          { label: "Base Styles", link: "docs/foundations/base-styles" },
           { label: "Colors", link: "docs/foundations/colors" },
+          { label: "Base Styles", link: "docs/foundations/base-styles" },
         ],
       },
 
