@@ -115,12 +115,14 @@ table {
 
   background-image:
     repeating-linear-gradient(45deg, light-dark(#d3d5e3, #31365e) 25%, transparent 25%, transparent 75%, light-dark(#d3d5e3, #31365e) 75%, light-dark(#d3d5e3, #31365e)),
-    repeating-linear-gradient(45deg,
+    repeating-linear-gradient(
+      45deg,
       light-dark(#d3d5e3, #31365e) 25%,
       var(--sl-color-black) 25%,
       var(--sl-color-black) 75%,
       light-dark(#d3d5e3, #31365e) 75%,
-      light-dark(#d3d5e3, #31365e));
+      light-dark(#d3d5e3, #31365e)
+    );
   background-position:
     0 0,
     8px 8px;
