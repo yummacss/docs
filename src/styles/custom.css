@@ -13,8 +13,7 @@
   --sl-color-gray-7: #f4f6fd;
   --sl-color-gray-8: #fcfcfe;
   --sl-color-white: #151724;
-
-  --hero-mesh: url("/src/assets/mesh-light.png");
+  --hero-mesh: url("../assets/mesh-light.png");
 }
 
 :root[data-theme="dark"] {
@@ -31,8 +30,7 @@
   --sl-color-gray-5: #323652;
   --sl-color-gray-6: #21243f;
   --sl-color-white: #ffffff;
-
-  --hero-mesh: url("/src/assets/mesh-dark.png");
+  --hero-mesh: url("../assets/mesh-dark.png");
 }
 
 @media (min-width: 50rem) {
