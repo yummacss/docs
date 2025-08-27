@@ -1,13 +1,3 @@
-:root {
-  --img-clivia: url("/img/clivia.jpg");
-  --img-coast: url("/img/coast.jpg");
-  --img-frangipani: url("/img/frangipani.jpg");
-  --img-lighthouse: url("/img/lighthouse.jpg");
-  --img-mountain: url("/img/mountain.jpg");
-  --img-sea: url("/img/sea.jpg");
-  --img-shoes: url("/img/shoes.jpg");
-}
-
 /* Light mode */
 :root[data-theme="light"] {
   --purple-hsl: 242, 85%, 65%;
@@ -26,7 +16,6 @@
   --sl-color-white: #151724;
 
   --hero-mesh: url("../assets/mesh-light.png");
-  --boxes-light: url("../assets/boxes-light.png");
 }
 
 /* Dark mode */
@@ -46,7 +35,6 @@
   --sl-color-white: #ffffff;
 
   --hero-mesh: url("../assets/mesh-dark.png");
-  --boxes-dark: url("../assets/boxes-dark.png");
 }
 
 @media (min-width: 50rem) {
