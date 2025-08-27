@@ -8,4 +8,4 @@ pnpm-lock.yaml
 *.tsbuildinfo
 coverage/
 
-yumma.css
+output.css
