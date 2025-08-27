@@ -1,4 +1,3 @@
-/* Light mode */
 :root[data-theme="light"] {
   --purple-hsl: 242, 85%, 65%;
   --sl-color-accent-high: #282b61;
@@ -18,7 +17,6 @@
   --hero-mesh: url("/src/assets/mesh-light.png");
 }
 
-/* Dark mode */
 :root[data-theme="dark"] {
   --overlay-blurple: hsla(var(--purple-hsl), 0.2);
   --purple-hsl: 242, 50%, 50%;
