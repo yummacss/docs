@@ -9,6 +9,7 @@
   "type": "module",
   "scripts": {
     "astro": "astro",
+    "build:css": "yummacss build",
     "build": "astro build && yummacss build",
     "check": "astro check",
     "dev": "concurrently \"astro dev\" \"yummacss watch\"",
