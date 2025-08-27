@@ -15,7 +15,7 @@
   --sl-color-gray-8: #fcfcfe;
   --sl-color-white: #151724;
 
-  --hero-mesh: url("../assets/mesh-light.png");
+  --hero-mesh: url("/src/assets/mesh-light.png");
 }
 
 /* Dark mode */
@@ -34,7 +34,7 @@
   --sl-color-gray-6: #21243f;
   --sl-color-white: #ffffff;
 
-  --hero-mesh: url("../assets/mesh-dark.png");
+  --hero-mesh: url("/src/assets/mesh-dark.png");
 }
 
 @media (min-width: 50rem) {
