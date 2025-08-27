@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import { Picture } from "astro:assets";
 import { Code } from "@astrojs/starlight/components";
 import { css, tsx } from "@/constants/snippets";
 import ButtonLink from "@/components/ButtonLink.astro";
@@ -35,7 +35,7 @@ import boxesDark from "@/assets/boxes-dark.png";
 </style>
 
 <main>
-  <section class="o-h bp-c bs-c max-w-xl mx-auto p-r px-8 py-20 rad-4 v-h" style="background-image: var(--hero-mesh);">
+  <section class="o-h bp-c bs-c max-w-xl mx-auto p-r px-8 py-20 rad-4 v-h" style="background-Picture: var(--hero-mesh);">
     <div class="max-w-224">
       <h1 class="fs-5xl fw-400 lg:fs-8xl lh-1 md:fs-7xl sm:fs-6xl">
         <span class="d-b" style="color: light-dark(var(--sl-color-gray-2), var(--sl-color-white));">Style more,</span>
@@ -74,8 +74,8 @@ import boxesDark from "@/assets/boxes-dark.png";
       </div>
 
       <div class="f-1 p-r">
-        <Image class="dark:sl-hidden d-full of-c" src={boxesLight} alt="Light mesh boxes" />
-        <Image class="light:sl-hidden d-full of-c" src={boxesDark} alt="Dark mesh boxes" />
+        <Picture class="dark:sl-hidden d-full of-c" src={boxesLight} formats={["jpg"]} alt="Light mesh boxes" />
+        <Picture class="light:sl-hidden d-full of-c" src={boxesDark} formats={["jpg"]} alt="Dark mesh boxes" />
         <div class="ai-c d-f i-0 jc-c p-a">
           <Code class="v-h" code={tsx} lang="tsx" mark={["d-g", "gtc-2", "g-4"]} title="items.tsx" wrap={true} />
         </div>
@@ -84,8 +84,8 @@ import boxesDark from "@/assets/boxes-dark.png";
 
     <div class="d-f fd-c g-12 md:ai-c md:fd-r mt-8">
       <div class="f-1 md:or-1 or-2 p-r">
-        <Image class="dark:sl-hidden d-full of-c" src={boxesLight} alt="Light mesh boxes" />
-        <Image class="light:sl-hidden d-full of-c" src={boxesDark} alt="Dark mesh boxes" />
+        <Picture class="dark:sl-hidden d-full of-c" src={boxesLight} formats={["jpg"]} alt="Light mesh boxes" />
+        <Picture class="light:sl-hidden d-full of-c" src={boxesDark} formats={["jpg"]} alt="Dark mesh boxes" />
         <div class="ai-c d-f i-0 jc-c p-a">
           <Code class="v-h" code={css} lang="css" title="globals.css" wrap={true} />
         </div>
