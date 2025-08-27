@@ -40,7 +40,7 @@ export interface Props {
   name: string;
 }
 
-const categoryGetters: Record<Category, () => UtilityMap> = {
+const catGetters: Record<Category, () => UtilityMap> = {
   background: getBackgroundUtils,
   border: getBorderUtils,
   boxModel: getBoxModelUtils,
@@ -58,24 +58,24 @@ const categoryGetters: Record<Category, () => UtilityMap> = {
   transform: getTransformUtils,
 };
 
-let utilityVariants: Array<{ prefix: string; property: string; value: string }> = [];
+let v: Array<{ prefix: string; property: string; value: string }> = [];
 
 try {
   if (!Astro.props.category || !Astro.props.name) throw new Error("Missing props");
-  const getter = categoryGetters[Astro.props.category];
+  const getter = catGetters[Astro.props.category];
   if (!getter) throw new Error(`Unknown category: ${Astro.props.category}`);
   const utils = getter();
   const util = utils[Astro.props.name];
 
   if (util) {
-    Object.entries(util.values).forEach(([suffix, cssValue]) => {
-      const fullPrefix = suffix === "" ? util.prefix : `${util.prefix}-${suffix}`;
-      const cssProperty = util.properties[0];
+    Object.entries(util.values).forEach(([suffix, value]) => {
+      const prefix = suffix === "" ? util.prefix : `${util.prefix}-${suffix}`;
+      const property = util.properties[0];
 
-      utilityVariants.push({
-        prefix: fullPrefix,
-        property: cssProperty,
-        value: cssValue,
+      v.push({
+        prefix,
+        property,
+        value,
       });
     });
   }
@@ -88,14 +88,14 @@ try {
   <table>
     <thead>
       <tr>
-        <th class="fs-b fw-600">Utility</th>
-        <th class="fs-b fw-600">Properties</th>
+        <th class="fs-b fw-600">Class</th>
+        <th class="fs-b fw-600">Style</th>
       </tr>
     </thead>
     <tbody>
       {
-        utilityVariants.length > 0 ? (
-          utilityVariants.map((variant) => (
+        v.length > 0 ? (
+          v.map((variant) => (
             <tr>
               <td>
                 <p class="fs-sm">{variant.prefix}</p>
