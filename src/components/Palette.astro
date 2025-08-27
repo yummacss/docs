@@ -35,7 +35,7 @@ const generateShades = (color: string): string[] => {
   return shades;
 };
 
-const getBorderStyle = (color: string): string => {
+const borderColor = (color: string): string => {
   const tc = tinycolor(color);
   const lc = tc.getLuminance();
 
@@ -69,7 +69,7 @@ const getBorderStyle = (color: string): string => {
             {shades.map((shade) => (
               <div
                 class="h-12 w-full rad-1 c-p md:h-10"
-                style={`background-color: ${shade}; ${getBorderStyle(shade)}`}
+                style={`background-color: ${shade}; ${borderColor(shade)}`}
                 onclick={`navigator.clipboard.writeText('${shade}')`}
                 title={`${shade}`}
                 data-tooltip-placement="top"
