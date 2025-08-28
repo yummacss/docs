@@ -1044,15 +1044,7 @@
   background-color: #9fa0e9;
 }
 
-.bg-indigo-5 {
-  background-color: #878ae4;
-}
-
-.bg-indigo-6 {
-  background-color: #7073de;
-}
-
-.bg-indigo-7, .h\:bg-indigo-7:hover {
+.h\:bg-indigo-7:hover {
   background-color: #4d4fbb;
 }
 
@@ -1062,14 +1054,6 @@
 
 .bg-indigo-9, .a\:bg-indigo-9:active {
   background-color: #34357e;
-}
-
-.bg-indigo-10 {
-  background-color: #27285f;
-}
-
-.bg-indigo-11 {
-  background-color: #1b1c41;
 }
 
 .bg-indigo-12 {

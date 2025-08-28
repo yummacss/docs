@@ -89,6 +89,38 @@ Here are the utilities that have been renamed in v3:
 | `overflow: *;`         | ovf-\*  | o-\*  |
 | `float: *;`            | flo-\*  | fl-\* |
 
+## Color utility changes
+
+In v3, both the light (`l-`) and dark (`d-`) characters are being removed across all color utilities. As a result, the range used to determine a color's shade was also adjusted.
+
+In v3, both the light (`l-`) and dark (`d-`) characters are being removed across all color utilities. As a result, the range used to determine a color's shade was also adjusted.
+
+{/* prettier-ignore */}
+<div class="p-4">
+  ```diff lang="html" title="index.html" 
+  - <button class="bg-l-indigo-6 h:bg-d-indigo-1">Hello</button>
+  + <button class="bg-indigo-1 h:bg-indigo-7">Hello</button>
+  ```
+</div>
+
+Also, the color hue is increasing from `10%` shade modification to `14%`. This means that light colors will become lighter, and dark colors will become darker.
+
+| v3.0          | v2.1           | Difference    |
+| ------------- | -------------- | ------------- |
+| `*-indigo-1`  | \*-l-indigo-6` | -2 characters |
+| `*-indigo-2`  | \*-l-indigo-5` | -2 characters |
+| `*-indigo-3`  | \*-l-indigo-4` | -2 characters |
+| `*-indigo-4`  | \*-l-indigo-3` | -2 characters |
+| `*-indigo-5`  | \*-l-indigo-2` | -2 characters |
+| `*-indigo-6`  | \*-l-indigo-1` | -2 characters |
+| `*-indigo`    | \*-indigo`     | -0 characters |
+| `*-indigo-7`  | \*-d-indigo-1` | -2 character  |
+| `*-indigo-8`  | \*-d-indigo-2` | -2 character  |
+| `*-indigo-9`  | \*-d-indigo-3` | -2 character  |
+| `*-indigo-10` | \*-d-indigo-4` | -1 character  |
+| `*-indigo-11` | \*-d-indigo-5` | -1 character  |
+| `*-indigo-12` | \*-d-indigo-6` | -1 character  |
+
 ### Updated Align and Justify utilities
 
 With Yumma CSS v3, the `align` and `justify` utilities will have the `stretch` utility suffix updated from `-s` to `-st`.

@@ -1,0 +1,222 @@
+---
+title: Extending Yumma CSS
+banner:
+  content: N/A
+description: Learn to access definitions via JavaScript or TypeScript with Yumma CSS API.
+slug: docs/extending
+---
+
+:::note[Before you install...]
+You don't need to use the Yumma CSS API to use Yumma CSS. In fact, Yumma CSS API does not come as part of the Yumma CSS core framework.
+:::
+
+## Installation
+
+Install the Yumma CSS API package using your preferred package manager:
+
+<PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} icons={false} pkg="@yummacss/api" title="Terminal" />
+
+## Examples
+
+Yumma CSS API provides programmatic access to Yumma CSS class definitions, for creating anything from apps, plugins, extensions, scripts and more.
+
+### Getting All Definitions
+
+Retrieve all available definitions at once.
+
+```js title="index.js"
+import { getAllUtils } from "@yummacss/api";
+
+const all = getAllUtils();
+```
+
+### Getting Category Definitions
+
+Retrieve all definitions for a specific category.
+
+```js title="index.js"
+import { getBackgroundUtils } from "@yummacss/api";
+
+const backgrounds = getBackgroundUtils();
+```
+
+### Getting Specific Definitions
+
+Retrieve a specific definition from a category.
+
+```js title="index.js"
+import { getBoxModelUtils } from "@yummacss/api";
+
+const boxModel = getBoxModelUtils();
+const margin = boxModel["margin"];
+```
+
+## Using Typescript
+
+Using Typescript? You might need to import the following types:
+
+```ts title="index.ts"
+import type { UtilityMap, UtilityItem } from "@yummacss/api";
+```
+
+## Available API
+
+These are the available functions:
+
+### `getAllUtils()`
+
+Returns all available Yumma CSS utilities as a single object.
+
+**type:** `UtilityMap`
+
+### `getBackgroundUtils()`
+
+Returns all utility related to backgrounds.
+
+**type:** `UtilityMap`
+
+### `getBorderUtils()`
+
+Returns all utility related to borders.
+
+**type:** `UtilityMap`
+
+### `getBoxModelUtils()`
+
+Returns all utility related to the box model.
+
+**type:** `UtilityMap`
+
+### `getColorUtils()`
+
+Returns all utility related to colors.
+
+**type:** `UtilityMap`
+
+### `getEffectUtils()`
+
+Returns all utility related to effects.
+
+**type:** `UtilityMap`
+
+### `getFlexboxUtils()`
+
+Returns all utility related to flexbox.
+
+**type:** `UtilityMap`
+
+### `getFontUtils()`
+
+Returns all utility related to fonts.
+
+**type:** `UtilityMap`
+
+### `getGridUtils()`
+
+Returns all utility related to CSS Grid.
+
+**type:** `UtilityMap`
+
+### `getInteractivityUtils()`
+
+Returns all utility related to interactivity.
+
+**type:** `UtilityMap`
+
+### `getOutlineUtils()`
+
+Returns all utility related to outlines.
+
+**type:** `UtilityMap`
+
+### `getPositioningUtils()`
+
+Returns all utility related to positioning.
+
+**type:** `UtilityMap`
+
+### `getSvgUtils()`
+
+Returns all utility related to SVG.
+
+**type:** `UtilityMap`
+
+### `getTableUtils()`
+
+Returns all utility related to tables.
+
+**type:** `UtilityMap`
+
+### `getTextUtils()`
+
+Returns all utility related to text.
+
+**type:** `UtilityMap`
+
+### `getTransformUtils()`
+
+Returns all utility related to transforms.
+
+**type:** `UtilityMap`
+
+## Available Interfaces
+
+These are the types used by the API:
+
+### `UtilityItem`
+
+Represents a single utility definition:
+
+```ts title="utility-item.ts"
+export interface UtilityItem = {
+  prefix: string;
+  properties: string[];
+  slug: string;
+  values: { [key: string]: string };
+};
+```
+
+### `UtilityMap`
+
+Represents a collection of utility classes:
+
+```ts title="utility-item.ts"
+export interface UtilityMap = {
+  [key: string]: UtilityItem;
+};
+```
+
+### `ColorUtilityItem`
+
+Represents a color utility definition:
+
+```ts title="color-item.ts"
+export interface ColorUtilityItem {
+  prefix: string;
+  properties: string[];
+  slug: string;
+  values: { [key: string]: string };
+}
+```
+
+### `ColorUtilityMap`
+
+Represents a collection of color utility classes:
+
+```ts title="color-item.ts"
+export interface ColorUtilityMap {
+  [key: string]: ColorUtilityItem;
+}
+```
+
+### `ApiResponse`
+
+Represents the response from the API:
+
+```ts title="response.ts"
+export interface ApiResponse {
+  slug: string;
+  utility: string;
+  property: string[];
+}
+```
