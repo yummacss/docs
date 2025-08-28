@@ -72,6 +72,12 @@
   --sl-color-bg-sidebar: var(--sl-color-black);
 }
 
+.starlight-aside--note {
+  --sl-color-asides-text-accent: light-dark(var(--sl-color-accent), var(--sl-color-white));
+  --sl-color-asides-border: light-dark(var(--sl-color-accent), var(--sl-color-accent-high));
+  background-color: var(--sl-color-gray-6);
+}
+
 body {
   font-family: "Outfit Variable", sans-serif;
 }

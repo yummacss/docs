@@ -3,7 +3,7 @@ export const sidebar = [
     label: "Documentation",
     link: "docs/installation",
     items: [
-      { label: "Get started", items: ["docs/installation", "docs/upgrade-guide"] },
+      { label: "Get started", items: ["docs/installation", "docs/upgrade-guide", "docs/extending"] },
       // Foundations
       {
         label: "Foundations",
@@ -17,7 +17,7 @@ export const sidebar = [
         ],
       },
 
-      // Core utilities
+      // Core
       { label: "Backgrounds", autogenerate: { directory: "core/backgrounds" } },
       {
         label: "Borders & Outlines",
