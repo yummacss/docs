@@ -3,7 +3,7 @@ export const sidebar = [
     label: "Documentation",
     link: "docs/installation",
     items: [
-      { label: "Get started", items: ["docs/installation", "docs/upgrade-guide", "docs/extending"] },
+      { label: "Get started", items: ["docs/installation", "docs/upgrade-guide", "docs/dev-api"] },
       // Foundations
       {
         label: "Foundations",
