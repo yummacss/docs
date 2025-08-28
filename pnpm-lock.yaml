@@ -47,6 +47,12 @@ importers:
       starlight-blog:
         specifier: ^0.23.2
         version: 0.23.2(@astrojs/starlight@0.35.2(astro@5.13.3(@types/node@24.3.0)(@vercel/functions@2.2.12)(lightningcss@1.30.1)(rollup@4.48.0)(sass-embedded@1.90.0)(sass@1.90.0)(typescript@5.9.2)(yaml@2.8.1)))(astro@5.13.3(@types/node@24.3.0)(@vercel/functions@2.2.12)(lightningcss@1.30.1)(rollup@4.48.0)(sass-embedded@1.90.0)(sass@1.90.0)(typescript@5.9.2)(yaml@2.8.1))
+      starlight-cooler-credit:
+        specifier: ^0.4.0
+        version: 0.4.0(@astrojs/starlight@0.35.2(astro@5.13.3(@types/node@24.3.0)(@vercel/functions@2.2.12)(lightningcss@1.30.1)(rollup@4.48.0)(sass-embedded@1.90.0)(sass@1.90.0)(typescript@5.9.2)(yaml@2.8.1)))
+      starlight-links-validator:
+        specifier: ^0.16.0
+        version: 0.16.0(@astrojs/starlight@0.35.2(astro@5.13.3(@types/node@24.3.0)(@vercel/functions@2.2.12)(lightningcss@1.30.1)(rollup@4.48.0)(sass-embedded@1.90.0)(sass@1.90.0)(typescript@5.9.2)(yaml@2.8.1)))
       starlight-package-managers:
         specifier: ^0.11.0
         version: 0.11.0(@astrojs/starlight@0.35.2(astro@5.13.3(@types/node@24.3.0)(@vercel/functions@2.2.12)(lightningcss@1.30.1)(rollup@4.48.0)(sass-embedded@1.90.0)(sass@1.90.0)(typescript@5.9.2)(yaml@2.8.1)))
@@ -81,12 +87,6 @@ importers:
       sharp:
         specifier: ^0.34.3
         version: 0.34.3
-      starlight-cooler-credit:
-        specifier: ^0.4.0
-        version: 0.4.0(@astrojs/starlight@0.35.2(astro@5.13.3(@types/node@24.3.0)(@vercel/functions@2.2.12)(lightningcss@1.30.1)(rollup@4.48.0)(sass-embedded@1.90.0)(sass@1.90.0)(typescript@5.9.2)(yaml@2.8.1)))
-      starlight-links-validator:
-        specifier: ^0.16.0
-        version: 0.16.0(@astrojs/starlight@0.35.2(astro@5.13.3(@types/node@24.3.0)(@vercel/functions@2.2.12)(lightningcss@1.30.1)(rollup@4.48.0)(sass-embedded@1.90.0)(sass@1.90.0)(typescript@5.9.2)(yaml@2.8.1)))
       typescript:
         specifier: ^5.9.2
         version: 5.9.2
