@@ -33,7 +33,7 @@
     "astro-auto-import": "^0.4.4",
     "astro-live-code": "^0.0.6",
     "astro-tooltips": "^0.6.2",
-    "astro": "^5.13.3",
+    "astro": "^5.13.5",
     "gsap": "^3.13.0",
     "starlight-blog": "^0.23.2",
     "starlight-cooler-credit": "^0.4.0",
