@@ -33,20 +33,25 @@ Apply a modern box model and remove browser defaults to simplify layout consiste
 
 ## Document
 
-Improve `font` rendering and readability with base styles for the `<body>`.
+Set a default system font, improve font smoothing, and add accessible line-height.
 
 {/* prettier-ignore */}
 <Steps>
-  1. **Improve `font` smoothing.**
-  2. **Set a default system font.**
-  3. **Add accessible `line-height`.**
+  1. **Set a default system font.**
+  2. **Improve `font` smoothing.**
+  3. **Inherit font styles from parent elements.**
+  4. **Add accessible `line-height`.**
 </Steps>
 
 ```scss title="_base.scss"
+html {
+  font-family: vars.$yma-font-system; /* 1 */
+}
+
 body {
-  -webkit-font-smoothing: antialiased; /* 1 */
-  font-family: vars.$yma-font-system; /* 2 */
-  line-height: 1.5; /* 3 */
+  -webkit-font-smoothing: antialiased; /* 2 */
+  font-family: inherit; /* 3 */
+  line-height: 1.5; /* 4 */
 }
 ```
 
