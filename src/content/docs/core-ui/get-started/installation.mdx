@@ -1,0 +1,38 @@
+---
+title: Installation
+description: A quick guide to get started with Yumma UI.
+slug: docs/ui/installation
+draft: true
+---
+
+## Installing Yumma UI
+
+:::note[Quick note]
+Yumma UI works a lot better with [Yumma CSS](https://yummacss.com) but it's not required.
+:::
+
+<Steps>
+    1. **Install Yumma UI**
+
+        <PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} icons={false} pkg="yumma-ui -D" title="Terminal" />
+
+        <br />
+
+    2. **Import styles**
+
+        Import the Yumma UI styles in your project.
+
+        ```js title="main.ts" mark={2}
+        import "./globals.css";
+        import "@yummacss/ui/styles.css";
+        ```
+
+</Steps>
+
+### Why Yumma UI?
+
+Yumma UI uses [Yumma CSS](https://yummacss.com) as its styling language and [Base UI](https://baseui.com/) under the hood. It gives you a set of reusable components that you can use to build your UIs super quickly. It's lightweight, accessible, and super customizable.
+
+## Next steps
+
+After installing Yumma UI, you can start browsing the [components](/docs/ui/components) section to learn more about the available components.
