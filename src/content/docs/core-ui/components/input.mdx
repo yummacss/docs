@@ -10,7 +10,7 @@ draft: true
 A basic implementation of the Input component with default styling.
 
 ```tsx showLineNumbers
-import { Input } from "yumma-ui";
+import { Input } from "@yummacss/ui";
 
 const App = () => {
   return <Input variant="base" type="email" placeholder="john@example.com" />;
@@ -22,7 +22,7 @@ export default App;
 ## Usage
 
 ```tsx showLineNumbers
-import { Input } from "yumma-ui";
+import { Input } from "@yummacss/ui";
 ```
 
 ```tsx showLineNumbers
@@ -48,7 +48,7 @@ The `variant` property allows you to choose from different pre-defined styles th
 The Input component exposes a simple API to control its look and behavior through props.
 
 ```tsx showLineNumbers 'className="..."'
-import { Input } from "yumma-ui";
+import { Input } from "@yummacss/ui";
 
 <Input className="..." />;
 ```
@@ -58,7 +58,7 @@ import { Input } from "yumma-ui";
 The Input component is fully extendable. It supports all native HTML `<input>` attributes through its props:
 
 ```tsx showLineNumbers 'placeholder="..."' 'type="..."'
-import { Input } from "yumma-ui";
+import { Input } from "@yummacss/ui";
 
 const App = () => {
   return <Input placeholder="..." type="..." {...props} />;

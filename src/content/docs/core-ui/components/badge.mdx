@@ -10,7 +10,7 @@ draft: true
 A basic implementation of the Badge component with default styling.
 
 ```tsx showLineNumbers
-import { Badge } from "yumma-ui";
+import { Badge } from "@yummacss/ui";
 
 const App = () => {
   return (
@@ -26,7 +26,7 @@ export default App;
 ## Usage
 
 ```tsx showLineNumbers
-import { Badge } from "yumma-ui";
+import { Badge } from "@yummacss/ui";
 ```
 
 ```tsx showLineNumbers
@@ -62,7 +62,7 @@ The `size` property allows you to choose from different pre-defined sizes that m
 The Badge component exposes a simple API to control its look and behavior through props.
 
 ```tsx showLineNumbers 'className="..."'
-import { Badge } from "yumma-ui";
+import { Badge } from "@yummacss/ui";
 
 <Badge className="...">New</Badge>;
 ```
@@ -72,7 +72,7 @@ import { Badge } from "yumma-ui";
 The Badge component is fully extendable. It supports all native HTML `<span>` attributes through its props:
 
 ```tsx showLineNumbers "onClick={() => alert("Badge clicked!")}"
-import { Badge } from "yumma-ui";
+import { Badge } from "@yummacss/ui";
 
 const App = () => {
   return (
