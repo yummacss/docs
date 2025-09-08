@@ -44,8 +44,8 @@ export default defineConfig({
             Renildo: {
               name: "Renildo Pereira",
               picture: "https://avatars.githubusercontent.com/u/56491937?v=4",
-              title: "@rrenildopereiraa",
-              url: "https://github.com/rrenildopereiraa",
+              title: "@rrenildoo",
+              url: "https://x.com/rrenildoo",
             },
           },
         }),
