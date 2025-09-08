@@ -10,7 +10,7 @@ draft: true
 A basic implementation of the Tabs component with default styling.
 
 ```tsx showLineNumbers collapse={18-23, 25-31}
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "yumma-ui";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@yummacss/ui";
 import { LaptopIcon, MobileIcon } from "@radix-ui/react-icons";
 
 const App = () => {
@@ -50,7 +50,7 @@ export default App;
 ## Usage
 
 ```tsx showLineNumbers
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "yumma-ui";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@yummacss/ui";
 ```
 
 ```tsx showLineNumbers collapse={13-25}
@@ -111,7 +111,7 @@ The `value` property property specifies the unique value that identifies the tab
 The Tabs component exposes a simple API to control its look and behavior through props.
 
 ```tsx showLineNumbers 'className="..."'
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "yumma-ui";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@yummacss/ui";
 
 <Tabs className="...">
   <TabsList className="...">
@@ -136,7 +136,7 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "yumma-ui";
 The Tabs component is fully extendable. It supports all native HTML `<div>` attributes through its props:
 
 ```tsx showLineNumbers "onClick={() => alert("Desktop tab clicked!")}" wrap
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "yumma-ui";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@yummacss/ui";
 
 const App = () => {
   return (
