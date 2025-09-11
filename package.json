@@ -52,7 +52,7 @@
     "prettier-plugin-organize-imports": "^4.2.0",
     "sharp": "^0.34.3",
     "typescript": "^5.9.2",
-    "yummacss": "^3.2.1"
+    "yummacss": "^3.2.2"
   },
   "engines": {
     "node": "22.x"
