@@ -29,7 +29,7 @@ To create a new Angular project, you need to have the [Angular CLI](https://angu
         Specify the locations of all your project files in the config file.
 
         ```js title="yumma.config.mjs" mark={2-3}
-        module.exports = {
+        export default = {
             source: ["./src/**/*.{html,ts}"],
             output: "./src/styles.css",
             buildOptions: {
@@ -58,13 +58,3 @@ To create a new Angular project, you need to have the [Angular CLI](https://angu
         ```
 
 </Steps>
-
----
-
-## Clone this project
-
-Skip the guide steps entirely with our Angular starter.
-
-```bash title="Cloning the project..."
-git clone https://github.com/yumma-lib/with-angular.git
-```
