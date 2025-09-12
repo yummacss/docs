@@ -68,7 +68,7 @@ With v3, you won't have to stress about shipping unused CSS to the browser. The 
 
     2. **Add the configuration file**
 
-        Next, add the `yummacss.config.js` to the root level of your project or run `npx yummacss init` to create it for you.
+        Next, add the `yumma.config.js` to the root level of your project or run `npx yummacss init` to create it for you.
 
         <FileTree>
 
@@ -81,7 +81,7 @@ With v3, you won't have to stress about shipping unused CSS to the browser. The 
             - .gitignore
             - package-lock.json
             - package.json
-            - **yummacss.config.js**
+            - **yumma.config.js**
 
         </FileTree>
 
@@ -89,7 +89,7 @@ With v3, you won't have to stress about shipping unused CSS to the browser. The 
 
         To generate styles using the CLI, just set up the `source` array with the path to your template files and set the `output` string with the path to the CSS file you want to generate.
 
-        ```js title="yummacss.config.js" mark={2-3}
+        ```js title="yumma.config.js" mark={2-3}
         module.exports = {
           source: ["./src/**/*.html"],
           output: "./src/globals.css",
@@ -132,7 +132,7 @@ With v3, you won't have to stress about shipping unused CSS to the browser. The 
 
         <PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} icons={false} pkg="yummacss" type="exec" args="build" title="Terminal" />
 
-        When you run the `build` command the CLI will create a new CSS file and scan project paths based on the `yummacss.config.js` to purge of any unused styles.
+        When you run the `build` command the CLI will create a new CSS file and scan project paths based on the `yumma.config.js` to purge of any unused styles.
 
         ```css title="globals.css"
         .rad-1 {
@@ -214,7 +214,7 @@ If you're using Yumma CSS v2 or older, the process of upgrading to v3 using the 
 
 2.  **Add the Yumma config file**
 
-    Create a `yummacss.config.js` file at the project root.
+    Create a `yumma.config.js` file at the project root.
 
     <FileTree>
 
@@ -227,7 +227,7 @@ If you're using Yumma CSS v2 or older, the process of upgrading to v3 using the 
         - .gitignore
         - package-lock.json
         - package.json
-        - **yummacss.config.js**
+        - **yumma.config.js**
 
     </FileTree>
 
@@ -235,7 +235,7 @@ If you're using Yumma CSS v2 or older, the process of upgrading to v3 using the 
 
     Setup the `source` array and `output` string field.
 
-    ```js title="yummacss.config.js" mark={2-7}
+    ```js title="yumma.config.js" mark={2-7}
     module.exports = {
       source: ["./src/**/*.html"],
       output: "./src/globals.css",
@@ -351,7 +351,7 @@ Here's a quick reference using `background-color`
 
 ### Stylecent changes
 
-We're making some changes to Stylecent in v3 to make it more modern and consistent. These changes are turned on by default, but you can turn them off using the [`yummacss.config.js`](#disabling-stylecent) file.
+We're making some changes to Stylecent in v3 to make it more modern and consistent. These changes are turned on by default, but you can turn them off using the [`yumma.config.js`](#disabling-stylecent) file.
 
 By default, all paddings will be removed.
 
@@ -508,11 +508,11 @@ summary {
 
 #### Disabling Stylecent
 
-From now on, files like `yumma-core.css` and `yumma-core.min.css` will be deleted from the `/dist` folder in favor of the `yummacss.config.js` config file.
+From now on, files like `yumma-core.css` and `yumma-core.min.css` will be deleted from the `/dist` folder in favor of the `yumma.config.js` config file.
 
 <Tabs>
   <TabItem label="v3.0">
-    ```js mark={4-7} title="yummacss.config.js"
+    ```js mark={4-7} title="yumma.config.js"
     module.exports = {
       source: ["./src/**/*.html"],
       output: "./src/globals.css",

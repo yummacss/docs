@@ -47,8 +47,8 @@ If you are using Yumma CLI, the process is simple. Heres how to upgrade your pro
 
         Specify the locations of all your project files in the config file.
 
-        ```js title="yumma.config.js" mark={2-3}
-        module.exports = {
+        ```js title="yumma.config.mjs" mark={2-3}
+        export default {
             source: ["./src/**/*.html"],
             output: "./src/styles.css",
             buildOptions: {
@@ -205,7 +205,7 @@ The `100dvh` utility values such as `height`, `width` and utilities like dimensi
 
 ## Stylecent changes
 
-We're making some changes to Stylecent in v3 to make it more modern and consistent. These changes are turned on by default, but you can turn them off using the [`yummacss.config.js`](#disabling-stylecent) file.
+We're making some changes to Stylecent in v3 to make it more modern and consistent. These changes are turned on by default, but you can turn them off using the [`yummacss.config.mjs`](#disabling-stylecent) file.
 
 By default, all paddings will be removed.
 
@@ -362,12 +362,12 @@ summary {
 
 #### Disabling Stylecent
 
-From now on, files like `yumma-core.css` and `yumma-core.min.css` will be deleted from the `/dist` folder in favor of the `yummacss.config.js` config file.
+From now on, files like `yumma-core.css` and `yumma-core.min.css` will be deleted from the `/dist` folder in favor of the `yummacss.config.mjs` config file.
 
 <Tabs>
   <TabItem label="v3.0">
-    ```js mark={4-7} title="yummacss.config.js"
-    module.exports = {
+    ```js mark={4-7} title="yummacss.config.mjs"
+    export default {
       source: ["./src/**/*.html"],
       output: "./src/globals.css",
       buildOptions: {

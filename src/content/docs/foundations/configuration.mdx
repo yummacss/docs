@@ -18,10 +18,10 @@ To start using the CLI, you need to create a configuration file in your project.
 
 <PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} icons={false} pkg="yummacss init" title="Terminal" type="dlx" />
 
-This will create a complete `yumma.config.js` file at the root of your project shown below.
+This will create a complete `yumma.config.mjs` file at the root of your project shown below.
 
-```js title="yumma.config.js"
-module.exports = {
+```js title="yumma.config.mjs"
+export default {
   source: [""],
   output: "",
   buildOptions: {
@@ -37,8 +37,8 @@ A collection of paths for your template files, such as `.js`, `.tsx`, or `.html`
 
 <Note icon="info">Use glob patterns to include subfolders and specific file types.</Note>
 
-```js title="yumma.config.js" mark={2}
-module.exports = {
+```js title="yumma.config.mjs" mark={2}
+export default {
   source: ["./src/**/*.html"],
 };
 ```
@@ -47,8 +47,8 @@ module.exports = {
 
 A string that specifies the output path for the compiled CSS file. This is where the CLI will save the final CSS file after processing your template files.
 
-```js title="yumma.config.js" mark={2}
-module.exports = {
+```js title="yumma.config.mjs" mark={2}
+export default {
   output: "./src/styles.css",
 };
 ```
@@ -57,8 +57,8 @@ module.exports = {
 
 A boolean that determines whether the inclusion of the [Stylecent reset system](/docs/foundations/base-styles).
 
-```js title="yumma.config.js" mark={3}
-module.exports = {
+```js title="yumma.config.mjs" mark={3}
+export default {
   buildOptions: {
     reset: true, // default: true
   },
@@ -69,8 +69,8 @@ module.exports = {
 
 A boolean that determines whether the compiled CSS files should or not be minified. This is useful for production builds where you want to reduce the file size for faster loading times.
 
-```js title="yumma.config.js" mark={3}
-module.exports = {
+```js title="yumma.config.mjs" mark={3}
+export default {
   buildOptions: {
     minify: true, // default: false
   },
@@ -122,7 +122,7 @@ h1 {
 The Yumma CSS CLI provides several commands to help you work with your Yumma CSS files.
 
 <Note icon="info">
-  Make sure you have a [`yumma.config.js`](/docs/foundations/config) file set up before running these commands. If you haven't, run `npx yummacss init` first.
+  Make sure you have a [`yumma.config.mjs`](/docs/foundations/config) file set up before running these commands. If you haven't, run `npx yummacss init` first.
 </Note>
 
 ### Build
