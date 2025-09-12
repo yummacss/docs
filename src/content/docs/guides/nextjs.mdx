@@ -27,7 +27,7 @@ To create a new Next.js project, you need run the [create next app command](http
         Specify the locations of all your project files in the config file.
 
         ```js title="yumma.config.mjs" mark={2-3}
-        module.exports = {
+        export default = {
             source: ["./app/**/*.{ts,tsx}"],
             output: "./app/globals.css",
             buildOptions: {
@@ -58,13 +58,3 @@ To create a new Next.js project, you need run the [create next app command](http
         ```
 
 </Steps>
-
----
-
-## Clone this project
-
-Skip the guide steps entirely with our Next.js starter.
-
-```bash title="Cloning the project..."
-git clone https://github.com/yumma-lib/with-nextjs.git
-```
