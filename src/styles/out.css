@@ -262,6 +262,11 @@
   box-sizing: content-box;
 }
 
+.d-dvh {
+  width: 100dvh;
+  height: 100dvh;
+}
+
 .d-dvw {
   width: 100dvw;
   height: 100dvw;
@@ -1062,6 +1067,14 @@
 
 .bg-slate {
   background-color: #3f3f4e;
+}
+
+.bg-slate-1 {
+  background-color: #e0e0e3;
+}
+
+.h\:bg-slate-7:hover {
+  background-color: #363643;
 }
 
 .bg-silver-1 {

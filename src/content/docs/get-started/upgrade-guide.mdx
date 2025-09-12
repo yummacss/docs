@@ -8,9 +8,7 @@ slug: docs/upgrade-guide
 
 Yumma CSS v3 is a major update with a long list of new features, along with some breaking changes that you'll need to know about when upgrading from v2 to v3. We did our best to make all the changes as user-friendly and logical as possible.
 
-That said, this guide should help you understand the changes and how to adapt your project accordingly.
-
-## With Yumma CLI
+## All-new CLI
 
 If you are using Yumma CLI, the process is simple. Heres how to upgrade your project:
 
@@ -72,7 +70,7 @@ With Yumma CSS v3 you no longer need to install `yummacss` as a standard depende
 
 <PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} icons={false} pkg="yummacss -D" title="Terminal" />
 
-## Renamed utilities and variants
+## Utility changes
 
 Here are the utilities that have been renamed in v3:
 
@@ -89,17 +87,17 @@ Here are the utilities that have been renamed in v3:
 | `overflow: *;`         | ovf-\*  | o-\*  |
 | `float: *;`            | flo-\*  | fl-\* |
 
-## Color utility changes
+### Color utility changes
 
 In v3, both the light (`l-`) and dark (`d-`) characters are being removed across all color utilities. As a result, the range used to determine a color's shade was also adjusted.
 
-In v3, both the light (`l-`) and dark (`d-`) characters are being removed across all color utilities. As a result, the range used to determine a color's shade was also adjusted.
+
 
 {/* prettier-ignore */}
 <div class="p-4">
   ```diff lang="html" title="index.html" 
-  - <button class="bg-l-indigo-6 h:bg-d-indigo-1">Hello</button>
-  + <button class="bg-indigo-1 h:bg-indigo-7">Hello</button>
+  - <button class="bg-l-lead-6 h:bg-d-lead-1">Hello</button>
+  + <button class="bg-slate-1 h:bg-slate-7">Hello</button>
   ```
 </div>
 
@@ -121,7 +119,7 @@ Also, the color hue is increasing from `10%` shade modification to `14%`. This m
 | `*-indigo-11` | \*-d-indigo-5` | -1 character  |
 | `*-indigo-12` | \*-d-indigo-6` | -1 character  |
 
-### Updated Align and Justify utilities
+### Align and Justify utility changes
 
 With Yumma CSS v3, the `align` and `justify` utilities will have the `stretch` utility suffix updated from `-s` to `-st`.
 
@@ -132,7 +130,7 @@ With Yumma CSS v3, the `align` and `justify` utilities will have the `stretch` u
 + <div class="jc-st">...</div>
 ```
 
-### Updated Bottom / Inset / Left / Right / Top utilities
+### Bottom / Inset / Left / Right / Top utility changes
 
 The `bottom`, `inset`, `left`, `right`, and `top` utilities will have the `dir-` prefix removed.
 
@@ -149,7 +147,7 @@ The `bottom`, `inset`, `left`, `right`, and `top` utilities will have the `dir-`
 + <div class="t-">...</div>
 ```
 
-### Updated Columns utilities
+### Columns utility changes
 
 The `columns` utility have been shortened from `cols-*` to `c-*`.
 
@@ -158,7 +156,7 @@ The `columns` utility have been shortened from `cols-*` to `c-*`.
 + <div class="c-2">...</div>
 ```
 
-### Updated Dimension utilities
+### Dimension utility changes
 
 The `height` and `width` utilities have been shortened from `dim-*` to `d-*`.
 
@@ -167,7 +165,7 @@ The `height` and `width` utilities have been shortened from `dim-*` to `d-*`.
 + <div class="d-1/2">...</div>
 ```
 
-### Updated Font Size utilities
+### Font Size utility changes
 
 The `font-size` utilities have been renamed from `fs-b` to `fs-md`.
 
@@ -176,7 +174,7 @@ The `font-size` utilities have been renamed from `fs-b` to `fs-md`.
 + <div class="fs-md">...</div>
 ```
 
-### Updated Overflow utilities
+### Overflow utility changes
 
 The `overflow` utilities have been shortened from `ovf-*` to `o-*`.
 
@@ -185,7 +183,7 @@ The `overflow` utilities have been shortened from `ovf-*` to `o-*`.
 + <div class="o">...</div>
 ```
 
-### Updated Float utilities
+### Float utility changes
 
 The `float` utilities have been shortened from `flo-*` to `fl-*`.
 
@@ -194,18 +192,25 @@ The `float` utilities have been shortened from `flo-*` to `fl-*`.
 + <div class="fl-l">...</div>
 ```
 
-### Updated 100dvh utilities
+### Dynamic viewport utility changes
 
 The `100dvh` utility values such as `height`, `width` and utilities like dimension have been renamed from `*-1/1` to `*-dvh`.
 
 ```diff lang="html" title="index.html"
-- <div class="h-1/1">...</div>
-+ <div class="h-dvh">...</div>
+- <div class="h-1/1 w-1/1">...</div>
++ <div class="h-dvh w-1/1">...</div>
 ```
 
-## Stylecent changes
+This also applies to the Dimension utilities.
 
-We're making some changes to Stylecent in v3 to make it more modern and consistent. These changes are turned on by default, but you can turn them off using the [`yummacss.config.mjs`](#disabling-stylecent) file.
+```diff lang="html" title="index.html"
+- <div class="d-1/1">...</div>
++ <div class="d-dvh">...</div>
+```
+
+## Base style changes
+
+We're making some changes to Stylecent (base styles) in v3 to make it more modern and consistent. These changes are turned on by default, but you can turn them off using the [`yummacss.config.mjs`](#disabling-stylecent) file.
 
 By default, all paddings will be removed.
 
