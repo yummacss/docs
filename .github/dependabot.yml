@@ -1,0 +1,13 @@
+version: 2
+updates:
+  - package-ecosystem: "pnpm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    allow:
+      - dependency-name: "yummacss"
+      - dependency-name: "@yummacss/api"
+    commit-message:
+      prefix: "pnpm"
+      include: "scope"
+    open-pull-requests-limit: 5
