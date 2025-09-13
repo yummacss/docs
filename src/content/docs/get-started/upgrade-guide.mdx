@@ -10,7 +10,7 @@ Yumma CSS v3 is a major update with a long list of new features, along with some
 
 ## Working with the CLI
 
-If you are using Yumma CLI, the process is simple. Heres how to upgrade your project:
+In v3, we've replaced the old `@import` and introduced a new CLI tool to work with Yumma CSS. Here's how to set it up:
 
 <Steps>
 
@@ -74,30 +74,32 @@ With Yumma CSS v3 you no longer need to install `yummacss` as a standard depende
 
 Here are the utilities that have been renamed in v3:
 
-| Style                  | v2      | v3    |
-| ---------------------- | ------- | ----- |
-| `bottom: *;`           | dir-b   | bo-\* |
-| `inset: *;`            | dir-i   | i-\*  |
-| `left: *;`             | dir-l   | l-\*  |
-| `right: *;`            | dir-r   | r-\*  |
-| `top: *;`              | dir-t   | t-\*  |
-| `columns: *;`          | cols-\* | c-\*  |
-| `height: *; width: *;` | dim-\*  | d-\*  |
-| `font-size: 1rem;`     | fs-b    | fs-md |
-| `overflow: *;`         | ovf-\*  | o-\*  |
-| `float: *;`            | flo-\*  | fl-\* |
+| Style               | v2      | v3     |
+| ------------------- | ------- | ------ |
+| `bottom`            | dir-b   | bo-\*  |
+| `inset`             | dir-i   | i-\*   |
+| `left`              | dir-l   | l-\*   |
+| `right`             | dir-r   | r-\*   |
+| `top`               | dir-t   | t-\*   |
+| `columns`           | cols-\* | c-\*   |
+| `height` & `width`  | dim-\*  | d-\*   |
+| `font-size: 1rem;`  | fs-b    | fs-md  |
+| `overflow`          | ovf-\*  | o-\*   |
+| `float`             | flo-\*  | fl-\*  |
+| `height` / `width`  | \*-1/1  | \*-dvh |
+| _Any color utility_ | lead    | slate  |
+
+| `*-lead`
 
 ### Color utility changes
 
-In v3, both the light (`l-`) and dark (`d-`) characters are being removed across all color utilities. As a result, the range used to determine a color's shade was also adjusted.
-
-
+In v3, both the light (`l-`) and dark (`d-`) characters are being removed across all color utilities. We are also renaming the `lead` color to `slate`.
 
 {/* prettier-ignore */}
 <div class="p-4">
-  ```html mark={1} del={2} title="index.html" 
-  <button class="bg-l-lead-6 h:bg-d-lead-1">Hello</button>
+  ```html del={1} ins={2} title="index.html" 
   <button class="bg-slate-1 h:bg-slate-7">Hello</button>
+  <button class="bg-l-lead-6 h:bg-d-lead-1">Hello</button>
   ```
 </div>
 
