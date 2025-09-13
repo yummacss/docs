@@ -262,11 +262,6 @@
   box-sizing: content-box;
 }
 
-.d-auto {
-  width: auto;
-  height: auto;
-}
-
 .d-dvh {
   width: 100dvh;
   height: 100dvh;
