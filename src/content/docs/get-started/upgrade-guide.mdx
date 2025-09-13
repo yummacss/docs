@@ -95,9 +95,9 @@ In v3, both the light (`l-`) and dark (`d-`) characters are being removed across
 
 {/* prettier-ignore */}
 <div class="p-4">
-  ```diff lang="html" title="index.html" 
-  - <button class="bg-l-lead-6 h:bg-d-lead-1">Hello</button>
-  + <button class="bg-slate-1 h:bg-slate-7">Hello</button>
+  ```html mark={1} del={2} title="index.html" 
+  <button class="bg-l-lead-6 h:bg-d-lead-1">Hello</button>
+  <button class="bg-slate-1 h:bg-slate-7">Hello</button>
   ```
 </div>
 
@@ -123,89 +123,86 @@ Also, the color hue is increasing from `10%` shade modification to `14%`. This m
 
 With Yumma CSS v3, the `align` and `justify` utilities will have the `stretch` utility suffix updated from `-s` to `-st`.
 
-```diff lang="html" title="index.html"
-- <div class="ai-s">...</div>
-- <div class="jc-s">...</div>
-+ <div class="ai-st">...</div>
-+ <div class="jc-st">...</div>
+```html del={1-2} ins={3-4} title="index.html"
+<div class="ai-st">...</div>
+<div class="jc-st">...</div>
+<div class="ai-s">...</div>
+<div class="jc-s">...</div>
 ```
 
 ### Bottom / Inset / Left / Right / Top utility changes
 
 The `bottom`, `inset`, `left`, `right`, and `top` utilities will have the `dir-` prefix removed.
 
-```diff lang="html" title="index.html"
-- <div class="dir-b">...</div>
-- <div class="dir-i">...</div>
-- <div class="dir-l">...</div>
-- <div class="dir-r">...</div>
-- <div class="dir-t">...</div>
-+ <div class="bo-">...</div>
-+ <div class="i-">...</div>
-+ <div class="l-">...</div>
-+ <div class="r-">...</div>
-+ <div class="t-">...</div>
+```html del={6-10} ins={1-5} title="index.html"
+<div class="dir-b">...</div>
+<div class="dir-i">...</div>
+<div class="dir-l">...</div>
+<div class="dir-r">...</div>
+<div class="dir-t">...</div>
+<div class="bo-">...</div>
+<div class="i-">...</div>
+<div class="l-">...</div>
+<div class="r-">...</div>
+<div class="t-">...</div>
 ```
 
 ### Columns utility changes
 
 The `columns` utility have been shortened from `cols-*` to `c-*`.
 
-```diff lang="html" title="index.html"
-- <div class="cols-2">...</div>
-+ <div class="c-2">...</div>
+```html del={1} ins={2} title="index.html"
+<div class="cols-2">...</div>
+<div class="c-2">...</div>
 ```
 
 ### Dimension utility changes
 
 The `height` and `width` utilities have been shortened from `dim-*` to `d-*`.
 
-```diff lang="html" title="index.html"
-- <div class="dim-1/2">...</div>
-+ <div class="d-1/2">...</div>
+```html del={1} ins={2} title="index.html"
+<div class="dim-auto">...</div>
+<div class="d-auto">...</div>
 ```
 
 ### Font Size utility changes
 
 The `font-size` utilities have been renamed from `fs-b` to `fs-md`.
 
-```diff lang="html" title="index.html"
-- <div class="fs-b">...</div>
-+ <div class="fs-md">...</div>
+```html del={1} ins={2}  title="index.html"
+<div class="fs-b">...</div>
+<div class="fs-md">...</div>
 ```
 
 ### Overflow utility changes
 
 The `overflow` utilities have been shortened from `ovf-*` to `o-*`.
 
-```diff lang="html" title="index.html"
-- <div class="ovf">...</div>
-+ <div class="o">...</div>
+```html del={1} ins={2} title="index.html"
+<div class="ovf">...</div>
+<div class="o">...</div>
 ```
 
 ### Float utility changes
 
 The `float` utilities have been shortened from `flo-*` to `fl-*`.
 
-```diff lang="html" title="index.html"
-- <div class="flo-l">...</div>
-+ <div class="fl-l">...</div>
+```html del={1} ins={2} title="index.html"
+<div class="flo-l">...</div>
+<div class="fl-l">...</div>
 ```
 
 ### Dynamic viewport utility changes
 
-The `100dvh` utility values such as `height`, `width` and utilities like dimension have been renamed from `*-1/1` to `*-dvh`.
+The `*-1/1` utility values have been renamed from `*-1/1` to `*-dvh`.
 
-```diff lang="html" title="index.html"
-- <div class="h-1/1 w-1/1">...</div>
-+ <div class="h-dvh w-1/1">...</div>
-```
-
-This also applies to the Dimension utilities.
-
-```diff lang="html" title="index.html"
-- <div class="d-1/1">...</div>
-+ <div class="d-dvh">...</div>
+```html del={1-3} ins={4-6} title="index.html"
+<div class="h-1/1">...</div>
+<div class="w-1/1">...</div>
+<div class="d-1/1">...</div>
+<div class="h-dvh">...</div>
+<div class="w-dvw">...</div>
+<div class="d-dvh">...</div>
 ```
 
 ## Base style changes
@@ -223,11 +220,17 @@ By default, all paddings will be removed.
 
 Font rendering is smoother, and a consistent system font is set as the default. — [oshwcomeau.com](https://joshwcomeau.com/css/custom-css-reset/)
 
-```diff lang=scss mark={2-3} title="base/stylecent.scss"
+```scss mark={2} title="base/stylecent.scss"
+html {
+  font-family: vars.$yma-font-system;
+}
+```
+
+```scss ins={2-3} del={4} title="base/stylecent.scss"
 body {
   -webkit-font-smoothing: antialiased;
   font-family: vars.$yma-font-system;
--  line-height: 1.5;
+  line-height: 1.5;
 }
 ```
 
@@ -367,31 +370,15 @@ summary {
 
 #### Disabling Stylecent
 
-From now on, files like `yumma-core.css` and `yumma-core.min.css` will be deleted from the `/dist` folder in favor of the `yummacss.config.mjs` config file.
+To disable the base styles generation you can set `buildOptions.reset` to `false` in the `yummacss.config.mjs` file.
 
-<Tabs>
-  <TabItem label="v3.0">
-    ```js mark={4-7} title="yummacss.config.mjs"
-    export default {
-      source: ["./src/**/*.html"],
-      output: "./src/globals.css",
-      buildOptions: {
-        reset: false, // Disable reset styles
-        minify: false, // Disable styles minification
-      },
-    };
-    ```
-
-  </TabItem>
-  <TabItem label="v2.1">
-
-    ```css title="src/globals.css"
-    /* Disable base styles */
-    @import "https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@latest/dist/yumma-core.css";
-
-    /* Disable base styles and minify CSS */
-    @import "https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@latest/dist/yumma-core.min.css";
-    ```
-
-  </TabItem>
-</Tabs>
+```js mark={5} title="yummacss.config.mjs"
+export default {
+  source: ["./src/**/*.html"],
+  output: "./src/out.css",
+  buildOptions: {
+    reset: false, // disables base styles
+    minify: false,
+  },
+};
+```
