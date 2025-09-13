@@ -208,8 +208,8 @@ If you're using Yumma CSS v2 or older, the process of upgrading to v3 using the 
 
     The CLI works by compiling SCSS to CSS, so there's no need to import the Yumma CSS package dependency.
 
-    ```diff lang="css" title="globals.css"
-    - @import "/node_modules/yummacss/dist/yumma.min.css";
+    ```css title="globals.css" del={1}
+    @import "/node_modules/yummacss/dist/yumma.min.css";
     ```
 
 2.  **Add the Yumma config file**
@@ -282,9 +282,9 @@ In v3, both the light (`l-`) and dark (`d-`) characters are being removed across
 
 {/* prettier-ignore */}
 <div class="p-4">
-  ```diff lang="html" title="index.html" 
-  - <button class="bg-l-indigo-6 h:bg-d-indigo-1">Button</button>
-  + <button class="bg-indigo-1 h:bg-indigo-7">Button</button>
+  ```html title="index.html" del={1} ins={2}
+  <button class="bg-l-indigo-6 h:bg-d-indigo-1">Button</button>
+  <button class="bg-indigo-1 h:bg-indigo-7">Button</button>
   ```
 </div>
 
@@ -551,128 +551,107 @@ This improvement also eliminates redundant CSS and makes the framework more pred
 
 In v3, we're changing the `align-content` utility prefix from `ac-s` to `ac-st` to match with other utilities like `ji-st` and `js-st`.
 
-```diff lang="html" title="index.html"
-- <div class="ac-s ..."></div>
-+ <div class="ac-st ..."></div>
+```html title="index.html" del={1} ins={2}
+<div class="ac-s ..."></div>
+<div class="ac-st ..."></div>
 ```
 
 ### Align Items utilities
 
 Additionally, in v3, we're changing changing the `align-items` utility prefix from `ai-s` to `ai-st`.
 
-```diff lang="html" title="index.html"
-- <div class="ai-s ..."></div>
-+ <div class="ai-st ..."></div>
+```html title="index.html" del={1} ins={2}
+<div class="ai-s ..."></div>
+<div class="ai-st ..."></div>
 ```
 
 ### Align Self utilities
 
 Additionally, in v3, we're changing `align-self` utility prefix from `as-s` to `as-st` to match with other utilities like `ji-st` and `js-st`.
 
-```diff lang="html" title="index.html"
-- <div class="as-s ..."></div>
-+ <div class="as-st ..."></div>
+```html title="index.html" del={1} ins={2}
+<div class="as-s ..."></div>
+<div class="as-st ..."></div>
 ```
 
 ### Justify Content utilities
 
 Finally, in v3, we're changing changing the `justify-content` utility prefix from `jc-s` to `jc-st` to match with other utilities like `ji-st` and `js-st`.
 
-```diff lang="html" title="index.html"
-- <div class="jc-s ..."></div>
-+ <div class="jc-st ..."></div>
+```html title="index.html" del={1} ins={2}
+<div class="jc-s ..."></div>
+<div class="jc-st ..."></div>
 ```
 
 ### Border Bottom Radius utilities
 
 In v3, we're adding new `border-radius` utilities starting with `rad-b-*`
 
-```diff lang="html" "rad-b-2" title="index.html"
-- <button class="b-1 bg-black rad-bl-2 rad-br-2 tc-white">Subscribe</button>
-+ <button class="b-1 bg-black rad-b-2 tc-white">Subscribe</button>
+```html title="index.html" del={1} ins={2}
+<button class="b-1 bg-black rad-bl-2 rad-br-2 tc-white">Subscribe</button>
+<button class="b-1 bg-black rad-b-2 tc-white">Subscribe</button>
 ```
 
 ### Border Left Radius utilities
 
 Additionally, in v3, we're also adding `rad-l-*` to add left rounded edges only to an element.
 
-```diff lang="html" "rad-l-2" title="index.html"
-- <button class="b-1 bg-black rad-bl-2 rad-tl-2 tc-white">Subscribe</button>
-+ <button class="b-1 bg-black rad-l-2 tc-white">Subscribe</button>
+```html title="index.html" del={1} ins={2}
+<button class="b-1 bg-black rad-bl-2 rad-tl-2 tc-white">Subscribe</button>
+<button class="b-1 bg-black rad-l-2 tc-white">Subscribe</button>
 ```
 
 ### Border Right Radius utilities
 
 Additionally, in v3, we're also adding `rad-r-*` to add right rounded edges only to an element.
 
-```diff lang="html" "rad-r-2" title="index.html"
-- <button class="b-1 bg-black rad-br-2 rad-tr-2 tc-white">Subscribe</button>
-+ <button class="b-1 bg-black rad-r-2 tc-white">Subscribe</button>
+```html title="index.html" del={1} ins={2}
+<button class="b-1 bg-black rad-br-2 rad-tr-2 tc-white">Subscribe</button>
+<button class="b-1 bg-black rad-r-2 tc-white">Subscribe</button>
 ```
 
 ### Border Top Radius utilities
 
 Finally, in v3, we're also adding `rad-t-*` to add top rounded edges only to an element.
 
-```diff lang="html" "rad-t-2" title="index.html"
-- <button class="b-1 bg-black rad-tl-2 rad-tr-2 tc-white">Subscribe</button>
-+ <button class="b-1 bg-black rad-t-2 tc-white">Subscribe</button>
+```html title="index.html" del={1} ins={2}
+<button class="b-1 bg-black rad-tl-2 rad-tr-2 tc-white">Subscribe</button>
+<button class="b-1 bg-black rad-t-2 tc-white">Subscribe</button>
 ```
 
 ### Bottom/ Inset / Left / Right / Top utilities
 
 In v3, we've also made changes to the way the Bottom / Left / Right / Top utilities are written. This includes changes to the Bottom, Left, Right, and Top variants.
 
-{/* prettier-ignore */}
-<Tabs>
-  <TabItem label="Bottom">
-    ```diff lang="html" title="index.html"
-    - <div class="dir-b-* ..."></div>
-    + <div class="bo-* ..."></div>
-    ```
-  </TabItem>
-  <TabItem label="Inset">
-    ```diff lang="html" title="index.html"
-    - <div class="dir-i-* ..."></div>
-    + <div class="i-* ..."></div>
-    ```
-  </TabItem>
-  <TabItem label="Left">
-    ```diff lang="html" title="index.html"
-    - <div class="dir-l-* ..."></div>
-    + <div class="l-* ..."></div>
-    ```
-  </TabItem>
-  <TabItem label="Right">
-    ```diff lang="html" title="index.html"
-    - <div class="dir-r-* ..."></div>
-    + <div class="r-* ..."></div>
-    ```
-  </TabItem>
-  <TabItem label="Top">
-    ```diff lang="html" title="index.html"
-    - <div class="dir-t-* ..."></div>
-    + <div class="t-* ..."></div>
-    ```
-  </TabItem>
-</Tabs>
+```html del={1-5} ins={6-10} title="index.html"
+<div class="dir-b">...</div>
+<div class="dir-i">...</div>
+<div class="dir-l">...</div>
+<div class="dir-r">...</div>
+<div class="dir-t">...</div>
+<div class="bo-">...</div>
+<div class="i-">...</div>
+<div class="l-">...</div>
+<div class="r-">...</div>
+<div class="t-">...</div>
+```
 
 ### Columns utilities
 
 In v3, we're making the `columns` utilities even smaller than before.
 
-```diff lang="html" title="index.html"
-- <div class="cols-* ..."></div>
-+ <div class="c-* ..."></div>
+```html title="index.html" del={1} ins={2}
+<div class="cols-* ..."></div>
+<div class="c-* ..."></div>
 ```
 
 ### Dimension utilities
 
 In v3, we've made the Dimension utility even more abbreviated to align with the purpose of the framework.
 
-```diff lang="html" title="index.html"
-- <div class="dim-* ..."></div>
-+ <div class="d-* ..."></div>
+```html title="index.html" del={1} ins={2}
+<div class="dim-* ..."></div>
+<div class="d-* ..."></div>
 ```
 
 ### Max Dimension utilities
@@ -681,18 +660,18 @@ Additionally, in v3, we're changing the Max Dimension utility syntax.
 
 This also applies to the Max and Min Dimension utilities.
 
-```diff lang="html" title="index.html"
-- <div class="max-dim-* ..."></div>
-+ <div class="max-d-* ..."></div>
+```html title="index.html" del={1} ins={2}
+<div class="max-dim-* ..."></div>
+<div class="max-d-* ..."></div>
 ```
 
 ### Min Dimension utilities
 
 Finally, in v3, we're changing the Min Dimension utility syntax.
 
-```diff lang="html" title="index.html"
-- <div class="min-dim-* ..."></div>
-+ <div class="min-d-* ..."></div>
+```html title="index.html" del={1} ins={2}
+<div class="min-dim-* ..."></div>
+<div class="min-d-* ..."></div>
 ```
 
 ### Font Size utilities
@@ -740,44 +719,44 @@ In v3, new font stacks are being implemented, existing utilities are being refin
 
 In v3, we've completely reworked the `overflow` utility class syntax.
 
-```diff lang="html" title="index.html"
-- <div class="ovf-* ..."></div>
-+ <div class="o-* ..."></div>
+```html title="index.html" del={1} ins={2}
+<div class="ovf-* ..."></div>
+<div class="o-* ..."></div>
 ```
 
 ### Overflow X utilities
 
 Additionally, in v3, we've shortened the `overflow-x` utility class.
 
-```diff lang="html" title="index.html"
-- <div class="ovf-x-* ..."></div>
-+ <div class="o-x-* ..."></div>
+```html title="index.html" del={1} ins={2}
+<div class="ovf-x-* ..."></div>
+<div class="o-x-* ..."></div>
 ```
 
 ### Overflow Y utilities
 
 Finally, in v3, we've shortened the `overflow-y` utility class.
 
-```diff lang="html" title="index.html"
-- <div class="ovf-y-* ..."></div>
-+ <div class="o-y-*..."></div>
+```html title="index.html" del={1} ins={2}
+<div class="ovf-y-* ..."></div>
+<div class="o-y-*..."></div>
 ```
 
 ### Float utilities
 
 In v3 we're reworking the float utilities by shortening the syntax.
 
-```diff lang="html" title="index.html"
-- <div class="flo-* ..."></div>
-+ <div class="fl-* ..."></div>
+```html title="index.html" del={1} ins={2}
+<div class="flo-* ..."></div>
+<div class="fl-* ..."></div>
 ```
 
 ### Dimension, Height and Width utilities
 
 In v3, we're renaming all `*-1/1` utilities, including the **Height**, **Width**, and **Dimension** utilities to `*-dvh`.
 
-```diff lang="html" title="index.html"
-- <div class="*-1/1 ...">A</div>
+```html title="index.html" del={1}
+<div class="*-1/1 ...">A</div>
 ```
 
 ### Removed Container utility
@@ -792,9 +771,9 @@ We are no longer supporting the `cnt` utility. We are making improvements to our
 
 It's been a great ride, and we're sure most of you have used it to easily center a div in the middle of the screen, but this concept was not very useful in many case scenarios where you would typically need more customizability, so we've decided to remove it.
 
-```diff lang="html" title="index.html"
-- <div class="ins ..."></div>
-+ <div class="ai-c d-f jc-c ..."></div>
+```html title="index.html" del={1} ins={2}
+<div class="ins ..."></div>
+<div class="ai-c d-f jc-c ..."></div>
 ```
 
 ### Removed Spacing X utilities
@@ -825,16 +804,8 @@ The same concept applies to the **Spacing Y** utilities. You should now use the 
 
 In v3, we're removing `h-1/2` from **Height** utilities, `w-1/2` from **Width** utilities, and `d-1/2` from **Dimension** utilities.
 
-```diff lang="html" title="index.html"
-- <div class="h-1/2 ...">A</div>
-- <div class="w-1/2 ...">A</div>
-- <div class="d-1/2 ...">A</div>
+```html title="index.html" del={1-3}
+<div class="h-1/2 ...">A</div>
+<div class="w-1/2 ...">A</div>
+<div class="d-1/2 ...">A</div>
 ```
-
----
-
-## Upgrade
-
-You can upgrade your projects by getting the latest version of `yummacss` from npm:
-
-<PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} icons={false} pkg="yummacss@latest" title="Terminal" />
