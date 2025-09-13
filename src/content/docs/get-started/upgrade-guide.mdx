@@ -209,11 +209,11 @@ The `*-1/1` utility values have been renamed from `*-1/1` to `*-dvh`.
 
 ## Base style changes
 
-We're making some changes to Stylecent (base styles) in v3 to make it more modern and consistent. These changes are turned on by default, but you can turn them off using the [`yummacss.config.mjs`](#disabling-stylecent) file.
+We're making some changes to base styles of Yumma CSS in v3 to make it more modern and consistent. These changes are turned on by default, but you can turn them off using the [`yummacss.config.mjs`](#disabling-base-styles) file.
 
 By default, all paddings will be removed.
 
-```scss mark={3} title="base/stylecent.scss"
+```scss mark={3} title="_base.scss"
 * {
   margin: 0;
   padding: 0;
@@ -222,13 +222,13 @@ By default, all paddings will be removed.
 
 Font rendering is smoother, and a consistent system font is set as the default. — [oshwcomeau.com](https://joshwcomeau.com/css/custom-css-reset/)
 
-```scss mark={2} title="base/stylecent.scss"
+```scss mark={2} title="_base.scss"
 html {
   font-family: vars.$yma-font-system;
 }
 ```
 
-```scss ins={2-3} del={4} title="base/stylecent.scss"
+```scss ins={2-3} del={4} title="_base.scss"
 body {
   -webkit-font-smoothing: antialiased;
   font-family: vars.$yma-font-system;
@@ -238,7 +238,7 @@ body {
 
 Form elements now include padding by default. Borders are added for form elements without class attributes.
 
-```scss mark={6-8,16} title="base/stylecent.scss"
+```scss mark={6-8,16} title="_base.scss"
 button,
 input,
 optgroup,
@@ -260,7 +260,7 @@ textarea:not([class]) {
 
 Interactive elements have clear outlines for accessibility.
 
-```scss mark={7-9} title="base/stylecent.scss"
+```scss mark={7-9} title="_base.scss"
 button,
 input,
 textarea,
@@ -275,7 +275,7 @@ summary {
 
 In the absence of content, textareas will exhibit a default height. — [piccalil.li](https://piccalil.li/blog/a-more-modern-css-reset/)
 
-```scss mark={2} title="base/stylecent.scss"
+```scss mark={2} title="_base.scss"
 textarea:not([rows]) {
   min-height: 10em;
 }
@@ -283,7 +283,7 @@ textarea:not([rows]) {
 
 Disabled elements are visually distinct with reduced opacity and a "not-allowed" cursor.
 
-```scss mark={5-6} title="base/stylecent.scss"
+```scss mark={5-6} title="_base.scss"
 button:disabled,
 input:disabled,
 select:disabled,
@@ -295,7 +295,7 @@ textarea:disabled {
 
 Headings adopt balanced text wrapping, consistent font sizes, and bold weights. — [oshwcomeau.com](https://joshwcomeau.com/css/custom-css-reset/)
 
-```scss mark={7-9,13} title="base/stylecent.scss"
+```scss mark={7-9,13} title="_base.scss"
 h1,
 h2,
 h3,
@@ -314,7 +314,7 @@ p {
 
 Small text and code elements are consistently scaled and inherited. Code elements will have consistent font family. — [modern-normalize](https://github.com/sindresorhus/modern-normalize/blob/main/modern-normalize.css#L64)
 
-```scss mark={3,7-8,15-16} title="base/stylecent.scss"
+```scss mark={3,7-8,15-16} title="_base.scss"
 b,
 strong {
   font-weight: 700;
@@ -336,7 +336,7 @@ samp {
 
 Reset default link styles.
 
-```scss mark={2,7} title="base/stylecent.scss"
+```scss mark={2,7} title="_base.scss"
 a {
   color: inherit;
   text-decoration: none;
@@ -345,7 +345,7 @@ a {
 
 Table headers are bold and sized consistently.
 
-```scss mark={2-3} title="base/stylecent.scss"
+```scss mark={2-3} title="_base.scss"
 th {
   font-size: 1rem;
   font-weight: 600;
@@ -354,7 +354,7 @@ th {
 
 Horizontal rules, details, and summaries are updated for better spacing and display. — [modern-normalize](https://github.com/sindresorhus/modern-normalize/blob/main/modern-normalize.css#L64)
 
-```scss mark={3,8,12} title="base/stylecent.scss"
+```scss mark={3,8,12} title="_base.scss"
 hr {
   border-top: 1px solid vars.$yma-color-silver;
   height: 0;
@@ -370,7 +370,7 @@ summary {
 }
 ```
 
-#### Disabling Stylecent
+#### Disabling base styles
 
 To disable the base styles generation you can set `buildOptions.reset` to `false` in the `yummacss.config.mjs` file.
 
