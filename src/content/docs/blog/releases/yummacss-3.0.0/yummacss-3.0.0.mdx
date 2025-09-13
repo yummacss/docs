@@ -280,7 +280,6 @@ The full set of utilities will be retained within the distribution folder for th
 
 In v3, both the light (`l-`) and dark (`d-`) characters are being removed across all color utilities. As a result, the range used to determine a color's shade was also adjusted.
 
-{/* prettier-ignore */}
 <div class="p-4">
   ```html title="index.html" del={1} ins={2}
   <button class="bg-l-indigo-6 h:bg-d-indigo-1">Button</button>
@@ -588,8 +587,7 @@ Finally, in v3, we're changing changing the `justify-content` utility prefix fro
 In v3, we're adding new `border-radius` utilities starting with `rad-b-*`
 
 ```html title="index.html" del={1} ins={2}
-<button class="b-1 bg-black rad-bl-2 rad-br-2 tc-white">Subscribe</button>
-<button class="b-1 bg-black rad-b-2 tc-white">Subscribe</button>
+<button class="b-1 bg-black rad-bl-2 rad-br-2 tc-white">Subscribe</button> <button class="b-1 bg-black rad-b-2 tc-white">Subscribe</button>
 ```
 
 ### Border Left Radius utilities
@@ -597,8 +595,7 @@ In v3, we're adding new `border-radius` utilities starting with `rad-b-*`
 Additionally, in v3, we're also adding `rad-l-*` to add left rounded edges only to an element.
 
 ```html title="index.html" del={1} ins={2}
-<button class="b-1 bg-black rad-bl-2 rad-tl-2 tc-white">Subscribe</button>
-<button class="b-1 bg-black rad-l-2 tc-white">Subscribe</button>
+<button class="b-1 bg-black rad-bl-2 rad-tl-2 tc-white">Subscribe</button> <button class="b-1 bg-black rad-l-2 tc-white">Subscribe</button>
 ```
 
 ### Border Right Radius utilities
@@ -606,8 +603,7 @@ Additionally, in v3, we're also adding `rad-l-*` to add left rounded edges only 
 Additionally, in v3, we're also adding `rad-r-*` to add right rounded edges only to an element.
 
 ```html title="index.html" del={1} ins={2}
-<button class="b-1 bg-black rad-br-2 rad-tr-2 tc-white">Subscribe</button>
-<button class="b-1 bg-black rad-r-2 tc-white">Subscribe</button>
+<button class="b-1 bg-black rad-br-2 rad-tr-2 tc-white">Subscribe</button> <button class="b-1 bg-black rad-r-2 tc-white">Subscribe</button>
 ```
 
 ### Border Top Radius utilities
@@ -615,8 +611,7 @@ Additionally, in v3, we're also adding `rad-r-*` to add right rounded edges only
 Finally, in v3, we're also adding `rad-t-*` to add top rounded edges only to an element.
 
 ```html title="index.html" del={1} ins={2}
-<button class="b-1 bg-black rad-tl-2 rad-tr-2 tc-white">Subscribe</button>
-<button class="b-1 bg-black rad-t-2 tc-white">Subscribe</button>
+<button class="b-1 bg-black rad-tl-2 rad-tr-2 tc-white">Subscribe</button> <button class="b-1 bg-black rad-t-2 tc-white">Subscribe</button>
 ```
 
 ### Bottom/ Inset / Left / Right / Top utilities
