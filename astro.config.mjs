@@ -25,7 +25,7 @@ export default defineConfig({
         headingLinks: false,
       },
 
-      customCss: ["@fontsource-variable/outfit", "/src/styles/custom.css", "/src/styles/out.css"],
+      customCss: ["/src/styles/custom.css", "/src/styles/out.css", "@fontsource-variable/outfit"],
       components: {
         Banner: "./src/components/starlight/Banner.astro",
         Hero: "./src/components/starlight/Index.astro",
