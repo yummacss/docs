@@ -51,15 +51,7 @@ const boxModel = getBoxModelUtils();
 const margin = boxModel["margin"];
 ```
 
-## Using Typescript
-
-Using Typescript? You might need to import the following types:
-
-```ts title="index.ts"
-import type { UtilityMap, UtilityItem } from "@yummacss/api";
-```
-
-## Available API
+## Available functions
 
 These are the available functions:
 
@@ -67,156 +59,149 @@ These are the available functions:
 
 Returns all available Yumma CSS utilities as a single object.
 
-**type:** `UtilityMap`
+**type:** `Utilities`
 
 ### `getBackgroundUtils()`
 
 Returns all utility related to backgrounds.
 
-**type:** `UtilityMap`
+**type:** `Utilities`
 
 ### `getBorderUtils()`
 
 Returns all utility related to borders.
 
-**type:** `UtilityMap`
+**type:** `Utilities`
 
 ### `getBoxModelUtils()`
 
 Returns all utility related to the box model.
 
-**type:** `UtilityMap`
+**type:** `Utilities`
 
 ### `getColorUtils()`
 
 Returns all utility related to colors.
 
-**type:** `UtilityMap`
+**type:** `Utilities`
 
 ### `getEffectUtils()`
 
 Returns all utility related to effects.
 
-**type:** `UtilityMap`
+**type:** `Utilities`
 
 ### `getFlexboxUtils()`
 
 Returns all utility related to flexbox.
 
-**type:** `UtilityMap`
+**type:** `Utilities`
 
 ### `getFontUtils()`
 
 Returns all utility related to fonts.
 
-**type:** `UtilityMap`
+**type:** `Utilities`
 
 ### `getGridUtils()`
 
 Returns all utility related to CSS Grid.
 
-**type:** `UtilityMap`
+**type:** `Utilities`
 
 ### `getInteractivityUtils()`
 
 Returns all utility related to interactivity.
 
-**type:** `UtilityMap`
+**type:** `Utilities`
 
 ### `getOutlineUtils()`
 
 Returns all utility related to outlines.
 
-**type:** `UtilityMap`
+**type:** `Utilities`
 
 ### `getPositioningUtils()`
 
 Returns all utility related to positioning.
 
-**type:** `UtilityMap`
+**type:** `Utilities`
 
 ### `getSvgUtils()`
 
 Returns all utility related to SVG.
 
-**type:** `UtilityMap`
+**type:** `Utilities`
 
 ### `getTableUtils()`
 
 Returns all utility related to tables.
 
-**type:** `UtilityMap`
+**type:** `Utilities`
 
 ### `getTextUtils()`
 
 Returns all utility related to text.
 
-**type:** `UtilityMap`
+**type:** `Utilities`
 
 ### `getTransformUtils()`
 
 Returns all utility related to transforms.
 
-**type:** `UtilityMap`
+**type:** `Utilities`
 
-## Available Interfaces
+## Using Typescript
 
-These are the types used by the API:
+Using Typescript? You might need to import the following types:
 
-### `UtilityItem`
-
-Represents a single utility definition:
-
-```ts title="utility-item.ts"
-export interface UtilityItem = {
-  prefix: string;
-  properties: string[];
-  slug: string;
-  values: { [key: string]: string };
-};
+```ts title="index.ts"
+import type { Utilities, Colors } from "@yummacss/api"; // returns a map of utilities
+import type { Color, Utility } from "@yummacss/api"; // returns a single object
 ```
 
-### `UtilityMap`
+### Utilities
 
 Represents a collection of utility classes:
 
-```ts title="utility-item.ts"
-export interface UtilityMap = {
-  [key: string]: UtilityItem;
+```ts title="utility.ts"
+export interface Utilities = {
+  [key: string]: Utility;
 };
 ```
 
-### `ColorUtilityItem`
+### Utility
 
-Represents a color utility definition:
+Represents a single utility definition:
 
-```ts title="color-item.ts"
-export interface ColorUtilityItem {
+```ts title="utility.ts"
+export interface Utility = {
   prefix: string;
   properties: string[];
   slug: string;
   values: { [key: string]: string };
-}
+};
 ```
 
-### `ColorUtilityMap`
+### Colors
 
 Represents a collection of color utility classes:
 
-```ts title="color-item.ts"
-export interface ColorUtilityMap {
-  [key: string]: ColorUtilityItem;
+```ts title="color.ts"
+export interface Colors {
+  [key: string]: Color;
 }
 ```
 
-### `ApiResponse`
+### Color
 
-Represents the response from the API:
+Represents a color utility definition:
 
-```ts title="response.ts"
-export interface ApiResponse {
+```ts title="color.ts"
+export interface Color {
+  prefix: string;
+  properties: string[];
   slug: string;
-  utility: string;
-  property: string[];
+  values: { [key: string]: string };
 }
 ```
