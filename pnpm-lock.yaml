@@ -24,8 +24,8 @@ importers:
         specifier: ^0.41.3
         version: 0.41.3
       '@fontsource-variable/outfit':
-        specifier: ^5.2.6
-        version: 5.2.6
+        specifier: ^5.2.7
+        version: 5.2.7
       '@yummacss/api':
         specifier: ^1.4.0
         version: 1.4.0
@@ -404,8 +404,8 @@ packages:
   '@expressive-code/plugin-text-markers@0.41.3':
     resolution: {integrity: sha512-SN8tkIzDpA0HLAscEYD2IVrfLiid6qEdE9QLlGVSxO1KEw7qYvjpbNBQjUjMr5/jvTJ7ys6zysU2vLPHE0sb2g==}
 
-  '@fontsource-variable/outfit@5.2.6':
-    resolution: {integrity: sha512-0wNlmsinE4taUgmRySxld13//NtnGwN58mBegexyhYuFqiQG/4Ho+5CCkiFxXijnojmCiaBaKkYt72LDwZHiKg==}
+  '@fontsource-variable/outfit@5.2.7':
+    resolution: {integrity: sha512-2CQGRCafcNmWwg9kJGH3x4sNb1WWjEgeBvFTKjacmDANnmU95N2n+DOeSiCQ/8ZblZRMuaBRTVaMOrxK66oydQ==}
 
   '@img/sharp-darwin-arm64@0.34.3':
     resolution: {integrity: sha512-ryFMfvxxpQRsgZJqBd4wsttYQbCxsJksrv9Lw/v798JcQ8+w84mBWuXwl+TT0WJ/WrYOLaYpwQXi3sA9nTIaIg==}
@@ -3533,7 +3533,7 @@ snapshots:
     dependencies:
       '@expressive-code/core': 0.41.3
 
-  '@fontsource-variable/outfit@5.2.6': {}
+  '@fontsource-variable/outfit@5.2.7': {}
 
   '@img/sharp-darwin-arm64@0.34.3':
     optionalDependencies:
