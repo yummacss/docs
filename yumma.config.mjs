@@ -1,5 +1,5 @@
 export default {
-  source: ["./src/content/docs/**/*.{md,mdx}", "./src/components/**/*.astro", "./src/layouts/**/*.astro"],
+  source: ["./src/**/*.{md,mdx}", "./src/content/docs/get-started/framework-guides.mdx", "./src/components/**/*.astro", "./src/layouts/**/*.astro"],
   output: "./src/styles/out.css",
   buildOptions: {
     reset: false,

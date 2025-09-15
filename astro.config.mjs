@@ -107,7 +107,7 @@ export default defineConfig({
         "/src/components/Palette.astro",
         "src/components/Class.astro",
         {
-          "@astrojs/starlight/components": ["Card", "FileTree", "Steps", "TabItem", "Tabs"],
+          "@astrojs/starlight/components": ["Card", "LinkCard", "CardGrid", "FileTree", "Steps", "TabItem", "Tabs"],
           "starlight-package-managers": ["PackageManagers"],
           "starlight-showcases": ["ShowcaseYouTube"],
         },
@@ -133,6 +133,7 @@ export default defineConfig({
     "docs/cli": "/docs/foundations/configuration",
     "docs/configuration": "/docs/foundations/config",
     "docs/text-color": "/docs/color",
+    "docs/installation#framework-guides": "/docs/framework-guides",
 
     // ui related
     "/components": "/ui/installation/",
