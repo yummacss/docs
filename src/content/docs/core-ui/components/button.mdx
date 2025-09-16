@@ -5,22 +5,22 @@ slug: docs/ui/button
 draft: true
 ---
 
-## Examples
+## Example
 
-A basic implementation of the Button component with default styling.
+An interactive element used to trigger user actions.
 
 ```tsx showLineNumbers
 import { Button } from "@yummacss/ui";
+```
 
-const App = () => {
+```tsx showLineNumbers startLineNumber=3
+export default function Page() {
   return (
     <Button variant="base" size="md">
       Login
     </Button>
   );
 };
-
-export default App;
 ```
 
 ## Usage
@@ -35,13 +35,9 @@ import { Button } from "@yummacss/ui";
 
 ## API reference
 
-The Button component can be adapted to suit specific requirements by utilizing the internal API of Yumma UI, thereby enabling the modification of its visual appearance and operational characteristics.
-
 ### `variant`
 
 > Default value is `base`
-
-The `variant` property allows you to choose from different pre-defined styles that match your design system.
 
 ```ts
 (property) variant?: "link" | "destructive" | "base" | "ghost" | "outlined" | null | undefined
@@ -51,36 +47,30 @@ The `variant` property allows you to choose from different pre-defined styles th
 
 > Default value is `md`
 
-The `size` property allows you to choose from different pre-defined sizes that match your design system.
-
 ```ts
 (property) size?: "sm" | "md" | "lg" | null | undefined
 ```
 
 ## Custom styling
 
-The Button component exposes a simple API to control its look and behavior through props.
+Apply custom styles to the `<Button>` component.
 
 ```tsx showLineNumbers 'className="..."'
 import { Button } from "@yummacss/ui";
 
-<Button className="...">Login</Button>;
+<Button className="...">
+  ...
+</Button>
 ```
 
 ## Extend properties
 
-The Button component is fully extendable. It supports all native HTML `<button>` attributes through its props:
+Extend the `<Button>` component with the native `<button>` HTML attributes.
 
 ```tsx showLineNumbers "onClick={() => alert("Button clicked!")}"
 import { Button } from "@yummacss/ui";
 
-const App = () => {
-  return (
-    <Button onClick={() => alert("Button clicked!")} {...props}>
-      Login
-    </Button>
-  );
-};
-
-export default App;
+<Button {...props}>
+  ...
+</Button>
 ```

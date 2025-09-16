@@ -1,0 +1,55 @@
+---
+title: Checkbox
+description: A form control that allows users to select one or more options from a set.
+slug: docs/ui/checkbox
+draft: true
+---
+
+## Example
+
+A form control that allows users to select one or more options from a set.
+
+```tsx showLineNumbers
+import { Checkbox } from "@yummacss/ui";
+```
+
+```tsx showLineNumbers startLineNumber=2
+import { CheckIcon } from "@radix-ui/react-icons";
+
+export default function Page() {
+    return (
+        <div className="d-if ai-c cg-2">
+            <Checkbox defaultChecked>
+                <CheckboxIndicator>
+                    <CheckIcon />
+                </CheckboxIndicator>
+            </Checkbox>
+            <span className="fs-sm">Remember me</span>
+        </div>
+    );
+};
+```
+
+## Custom styling
+
+Apply custom styles to the `<Checkbox>` component.
+
+```tsx showLineNumbers 'className="..."'
+import { Checkbox } from "@yummacss/ui";
+
+<Checkbox className="...">
+    ...
+</Checkbox>
+```
+
+## Extend properties
+
+Extend the `<Checkbox>` component with the Base UI API.
+
+```tsx showLineNumbers "{...props}"
+import { Checkbox } from "@yummacss/ui";
+
+<Checkbox {...props}>
+    ...
+</Checkbox>
+```

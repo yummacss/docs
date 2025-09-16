@@ -5,14 +5,14 @@ slug: docs/ui/textarea
 draft: true
 ---
 
-## Examples
+## Example
 
 A basic implementation of the Textarea component with default styling.
 
 ```tsx showLineNumbers
 import { Textarea } from "@yummacss/ui";
 
-const App = () => {
+const ExampleTextarea = () => {
   return <Textarea name="message" rows={4} placeholder="Enter your message..." variant="base" />;
 };
 
@@ -31,13 +31,9 @@ import { Textarea } from "@yummacss/ui";
 
 ## API reference
 
-The Textarea component can be adapted to suit specific requirements by utilizing the internal API of Yumma UI, thereby enabling the modification of its visual appearance and operational characteristics.
-
 ### `variant`
 
 > Default value is `base`
-
-The `variant` property allows you to choose from different pre-defined styles that match your design system.
 
 ```ts
 (property) variant?: "base" | "error" | null | undefined
@@ -45,24 +41,20 @@ The `variant` property allows you to choose from different pre-defined styles th
 
 ## Custom styling
 
-The Textarea component exposes a simple API to control its look and behavior through props.
+Apply custom styles to the `<Textarea>` component.
 
 ```tsx showLineNumbers 'className="..."'
 import { Textarea } from "@yummacss/ui";
 
-<Textarea className="..." />;
+<Textarea className="..." />
 ```
 
 ## Extend properties
 
-The Textarea component is fully extendable. It supports all native HTML `<textarea>` attributes through its props:
+Extend the `<Textarea>` component with the native `<textarea>` HTML attributes.
 
-```tsx showLineNumbers 'name="..."' 'onChange={handleChange}' 'rows={4}' "rows={4}"
+```tsx showLineNumbers "{...props}"
 import { Textarea } from "@yummacss/ui";
 
-const App = () => {
-  return <Textarea name="..." onChange={handleChange} rows={4} {...props} />;
-};
-
-export default App;
+<Textarea {...props} />
 ```

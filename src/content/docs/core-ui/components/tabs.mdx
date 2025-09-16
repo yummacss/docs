@@ -5,81 +5,30 @@ slug: docs/ui/tabs
 draft: true
 ---
 
-## Examples
+## Example
 
 A basic implementation of the Tabs component with default styling.
-
-```tsx showLineNumbers collapse={18-23, 25-31}
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@yummacss/ui";
-import { LaptopIcon, MobileIcon } from "@radix-ui/react-icons";
-
-const App = () => {
-  return (
-    <Tabs defaultValue="desktop" className="w-96">
-      <TabsList>
-        <TabsTrigger value="desktop">
-          <LaptopIcon />
-          Desktop
-        </TabsTrigger>
-        <TabsTrigger value="mobile">
-          <MobileIcon />
-          Mobile
-        </TabsTrigger>
-      </TabsList>
-
-      <TabsContent value="desktop">
-        <div className="p-4 bg-silver-1 rad-2">
-          <h3 className="fw-600 mb-2">Desktop View</h3>
-          <p className="tc-silver-8">This is the desktop version of the content. It's optimized for larger screens and provides a full-featured experience.</p>
-        </div>
-      </TabsContent>
-
-      <TabsContent value="mobile">
-        <div className="p-4 bg-silver-1 rad-2">
-          <h3 className="fw-600 mb-2">Mobile View</h3>
-          <p className="tc-silver-8">This is the mobile version of the content. It's optimized for smaller screens and touch interactions.</p>
-        </div>
-      </TabsContent>
-    </Tabs>
-  );
-};
-
-export default App;
-```
-
-## Usage
 
 ```tsx showLineNumbers
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@yummacss/ui";
 ```
 
-```tsx showLineNumbers collapse={13-25}
-<Tabs defaultValue="desktop" className="w-96">
-  <TabsList>
-    <TabsTrigger value="desktop">
-      <LaptopIcon />
-      Desktop
-    </TabsTrigger>
-    <TabsTrigger value="mobile">
-      <MobileIcon />
-      Mobile
-    </TabsTrigger>
-  </TabsList>
+```tsx showLineNumbers startLineNumber=3
+export default function Page() {
+  return (
+    <Tabs defaultValue="account">
+      <TabsList>
+        <TabsTab value="account">Home</TabsTab>
+        <TabsTab value="password">About</TabsTab>
+        <TabsTab value="contact">Contact</TabsTab>
+      </TabsList>
 
-  <TabsContent value="desktop">
-    <div className="p-4 bg-silver-1 rad-2">
-      <h3 className="fw-600 mb-2">Desktop View</h3>
-      <p className="tc-silver-8">This is the desktop version of the content. It's optimized for larger screens and provides a full-featured experience.</p>
-    </div>
-  </TabsContent>
-
-  <TabsContent value="mobile">
-    <div className="p-4 bg-silver-1 rad-2">
-      <h3 className="fw-600 mb-2">Mobile View</h3>
-      <p className="tc-silver-8">This is the mobile version of the content. It's optimized for smaller screens and touch interactions.</p>
-    </div>
-  </TabsContent>
-</Tabs>
+      <TabsContent value="account">Home</TabsContent>
+      <TabsContent value="password">About</TabsContent>
+      <TabsContent value="contact">Contact</TabsContent>
+    </Tabs>
+  );
+};
 ```
 
 ## API reference
@@ -90,72 +39,42 @@ The Tabs component can be adapted to suit specific requirements by utilizing the
 
 > Optional
 
-The `defaultValue` property sets which tab is initially active when the TabsTrigger component mounts, before any user interaction.
+Learn more about the `defaultValue` API in the [Base UI documentation](https://base-ui.com/react/components/tabs#api-reference)
 
 ```ts
-(property) TabsProps.defaultValue?: string | undefined
+(property) defaultValue?: any
 ```
 
 ### `value`
 
 > Required
 
-The `value` property property specifies the unique value that identifies the tab or tab content. This is used to control which tab is active in the TabsTrigger and TabsContent components.
+Learn more about the `value` API in the [Base UI documentation](https://base-ui.com/react/components/tabs#api-reference)
 
 ```ts
-(property) TabsTriggerProps.value: string
+(property) value?: any
 ```
 
 ## Custom styling
 
-The Tabs component exposes a simple API to control its look and behavior through props.
+Apply custom styles to the `<Tabs>` component.
 
 ```tsx showLineNumbers 'className="..."'
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@yummacss/ui";
 
 <Tabs className="...">
-  <TabsList className="...">
-    <TabsTrigger value="desktop" className="...">
-      Desktop
-    </TabsTrigger>
-    <TabsTrigger value="mobile">Mobile</TabsTrigger>
-  </TabsList>
-
-  <TabsContent value="desktop" className="...">
-    <h3>Desktop View</h3>
-  </TabsContent>
-
-  <TabsContent value="mobile">
-    <h3>Mobile View</h3>
-  </TabsContent>
-</Tabs>;
+  ...
+</Tabs>
 ```
 
 ## Extend properties
 
-The Tabs component is fully extendable. It supports all native HTML `<div>` attributes through its props:
+Extend the `<Tabs>` component with the Base UI API.
 
-```tsx showLineNumbers "onClick={() => alert("Desktop tab clicked!")}" wrap
+```tsx showLineNumbers "{...props}"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@yummacss/ui";
 
-const App = () => {
-  return (
-    <Tabs {...props}>
-      <TabsList>
-        <TabsTrigger value="desktop" onClick={() => alert("Desktop tab clicked!")}>
-          Desktop
-        </TabsTrigger>
-        <TabsTrigger value="mobile" {...props}>
-          Mobile
-        </TabsTrigger>
-      </TabsList>
-      <TabsContent value="desktop">...</TabsContent>
-      <TabsContent value="mobile" {...props}>
-        ...
-      </TabsContent>
-    </Tabs>
-  );
-};
-
-export default App;
+<Tabs {...props}>
+  ...
+</Tabs>
 ```
