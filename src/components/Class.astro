@@ -15,7 +15,7 @@ import {
   getTableUtils,
   getTextUtils,
   getTransformUtils,
-  type UtilityMap,
+  type Utilities,
 } from "@yummacss/api";
 
 type Category =
@@ -40,7 +40,7 @@ export interface Props {
   name: string;
 }
 
-const catGetters: Record<Category, () => UtilityMap> = {
+const catGetters: Record<Category, () => Utilities> = {
   background: getBackgroundUtils,
   border: getBorderUtils,
   boxModel: getBoxModelUtils,
