@@ -1,0 +1,63 @@
+---
+title: Alert Dialog
+description: A component that displays important dialogs to users.
+slug: docs/ui/alert-dialog
+draft: true
+---
+
+## Example
+
+A component that displays important dialogs to users.
+
+```tsx showLineNumbers
+import { AlertDialog, AlertDialogClose, AlertDialogDescription, AlertDialogPopup, AlertDialogTitle, AlertDialogTrigger } from "@yummacss/ui";
+```
+
+```tsx showLineNumbers startLineNumber=3
+export default function Page() {
+  return (
+    <AlertDialog>
+      <AlertDialogTrigger className="fw-600">
+        Remove item
+      </AlertDialogTrigger>
+      <AlertDialogPopup size="md" className="bs-none">
+          <AlertDialogTitle>
+              Are you sure?
+          </AlertDialogTitle>
+          <AlertDialogDescription>
+              This action cannot be undone.
+          </AlertDialogDescription>
+          <hr className="b-px bc-silver-3" />
+          <div className="d-f jc-fe g-2">
+            <Button>Confirm</Button>
+            <AlertDialogClose>Cancel</AlertDialogClose>
+          </div>
+      </AlertDialogPopup>
+  </AlertDialog>
+  );
+};
+```
+
+## Custom styling
+
+Apply custom styles to the `<AlertDialog>` component.
+
+```tsx showLineNumbers 'className="..."'
+import { AlertDialog } from "@yummacss/ui";
+
+<AlertDialog className="...">
+  ...
+</AlertDialog>
+```
+
+## Extend properties
+
+Extend the `<AlertDialog>` component with the Base UI API.
+
+```tsx showLineNumbers "{...props}"
+import { AlertDialog } from "@yummacss/ui";
+
+<AlertDialog {...props}>
+  ...
+</AlertDialog>
+```

@@ -5,14 +5,16 @@ slug: docs/ui/card
 draft: true
 ---
 
-## Examples
+## Example
 
-A basic implementation of the Card component with default styling.
+A container component that groups related content and actions.
 
 ```tsx showLineNumbers
 import { Card, CardContent, CardTitle, CardDescription } from "@yummacss/ui";
+```
 
-const App = () => {
+```tsx showLineNumbers startLineNumber=3
+export default function Page() {
   return (
     <Card variant="base">
       <CardContent>
@@ -22,71 +24,26 @@ const App = () => {
     </Card>
   );
 };
-
-export default App;
-```
-
-## Usage
-
-```tsx showLineNumbers
-import { Card, CardTitle, CardDescription } from "@yummacss/ui";
-```
-
-```tsx showLineNumbers
-<Card>
-  <CardContent>
-    <CardTitle>Reset Password</CardTitle>
-    <CardDescription>Enter your email to reset your password.</CardDescription>
-  </CardContent>
-</Card>
-```
-
-## API reference
-
-The Card component can be adapted to suit specific requirements by utilizing the internal API of Yumma UI, thereby enabling the modification of its visual appearance and operational characteristics.
-
-### `variant`
-
-> Default value is `base`
-
-The `variant` property allows you to choose from different pre-defined styles that match your design system.
-
-```ts
-(property) variant?: "base" | "elevated" | null | undefined
 ```
 
 ## Custom styling
 
-The Card component exposes a simple API to control its look and behavior through props.
+Apply custom styles to the `<Card>` component.
 
 ```tsx showLineNumbers 'className="..."'
 import { Card } from "@yummacss/ui";
 
-<Card className="...">
-  <CardContent className="...">
-    <CardTitle className="...">Reset Password</CardTitle>
-    <CardDescription className="...">Enter your email to reset your password.</CardDescription>
-  </CardContent>
-</Card>;
+<Card className="...">...</Card>;
 ```
 
 ## Extend properties
 
-The Card component is fully extendable. It supports all native HTML `<div>` attributes through its props:
+Extend the `<Card>` component with native `<div>` HTML attributes.
 
-```tsx showLineNumbers "onClick={() => card("Card clicked!")}"
+```tsx showLineNumbers "{...props}"
 import { Card } from "@yummacss/ui";
 
-const App = () => {
-  return (
-    <Card onClick={() => card("Card clicked!")} {...props}>
-      <CardContent>
-        <CardTitle>Reset Password</CardTitle>
-        <CardDescription>Enter your email to reset your password.</CardDescription>
-      </CardContent>
-    </Card>
-  );
-};
-
-export default App;
+<Card {...props}>
+  ...
+</Card>
 ```

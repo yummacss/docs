@@ -5,53 +5,35 @@ slug: docs/ui/alert
 draft: true
 ---
 
-## Examples
+## Example
 
-A basic implementation of the Alert component with default styling.
+A component that displays important messages and notifications to users.
 
 ```tsx showLineNumbers
 import { Alert, AlertContent, AlertTitle, AlertDescription } from "@yummacss/ui";
+```
+
+```tsx showLineNumbers startLineNumber=2
 import { InfoCircledIcon } from "@radix-ui/react-icons";
 
-const App = () => {
+export default function Page() {
   return (
     <Alert variant="base">
-      <InfoCircledIcon />
       <AlertContent>
-        <AlertTitle>Information</AlertTitle>
-        <AlertDescription>This is an informational message to help guide users through the interface.</AlertDescription>
+        <InfoCircledIcon />
+        <AlertTitle>Update available</AlertTitle>
+        <AlertDescription>A new version of Yumma UI is available.</AlertDescription>
       </AlertContent>
     </Alert>
   );
 };
-
-export default App;
-```
-
-## Usage
-
-```tsx showLineNumbers
-import { Alert, AlertContent, AlertTitle, AlertDescription } from "@yummacss/ui";
-```
-
-```tsx showLineNumbers
-<Alert>
-  <AlertContent>
-    <AlertTitle>Information</AlertTitle>
-    <AlertDescription>This is an informational message to help guide users through the interface.</AlertDescription>
-  </AlertContent>
-</Alert>
 ```
 
 ## API reference
 
-The Alert component can be adapted to suit specific requirements by utilizing the internal API of Yumma UI, thereby enabling the modification of its visual appearance and operational characteristics.
-
 ### `variant`
 
 > Default value is `base`
-
-The `variant` property allows you to choose from different pre-defined styles that match your design system.
 
 ```ts
 (property) variant?: "base" | "error" | "info" | "success" | "warning" | null | undefined
@@ -59,28 +41,24 @@ The `variant` property allows you to choose from different pre-defined styles th
 
 ## Custom styling
 
-The Alert component exposes a simple API to control its look and behavior through props.
+Apply custom styles to the `<Alert>` component.
 
 ```tsx showLineNumbers 'className="..."'
 import { Alert } from "@yummacss/ui";
 
-<Alert className="...">Example</Alert>;
+<Alert className="...">
+  ...
+</Alert>
 ```
 
 ## Extend properties
 
-The Alert component is fully extendable. It supports all native HTML `<div>` attributes through its props:
+Extend the `<Alert>` component with the native `<div>` HTML attributes.
 
-```tsx showLineNumbers "onClick={() => alert("Alert clicked!")}"
+```tsx showLineNumbers "{...props}"
 import { Alert } from "@yummacss/ui";
 
-const App = () => {
-  return (
-    <Alert onClick={() => alert("Alert clicked!")} {...props}>
-      Example
-    </Alert>
-  );
-};
-
-export default App;
+<Alert {...props}>
+  ...
+</Alert>
 ```

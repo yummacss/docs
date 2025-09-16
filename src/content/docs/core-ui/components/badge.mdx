@@ -5,82 +5,60 @@ slug: docs/ui/badge
 draft: true
 ---
 
-## Examples
+## Example
 
-A basic implementation of the Badge component with default styling.
+A component that displays a small piece of information or status indicator.
 
 ```tsx showLineNumbers
 import { Badge } from "@yummacss/ui";
+```
 
-const App = () => {
+```tsx showLineNumbers startLineNumber=3
+export default function Page() {
   return (
-    <Badge variant="base" size="xs">
-      New
-    </Badge>
+    <Badge variant="base" size="xs">New</Badge>
   );
 };
-
-export default App;
-```
-
-## Usage
-
-```tsx showLineNumbers
-import { Badge } from "@yummacss/ui";
-```
-
-```tsx showLineNumbers
-<Badge>New</Badge>
 ```
 
 ## API reference
-
-The Badge component can be adapted to suit specific requirements by utilizing the internal API of Yumma UI, thereby enabling the modification of its visual appearance and operational characteristics.
 
 ### `variant`
 
 > Default value is `base`
 
-The `variant` property allows you to choose from different pre-defined styles that match your design system.
-
 ```ts
-(property) variant?: "base" | "outline" | null | undefined
+(property) variant?: "destructive" | "base" | "outline" | null | undefined
 ```
 
 ### `size`
 
 > Default value is `xs`
 
-The `size` property allows you to choose from different pre-defined sizes that match your design system.
-
 ```ts
-(property) size?: "lg" | "xs" | "sm" | "md" | null | undefined
+(property) size?: "xs" | "sm" | "md" | "lg" | null | undefined
 ```
 
 ## Custom styling
 
-The Badge component exposes a simple API to control its look and behavior through props.
+Apply custom styles to the `<Badge>` component.
 
 ```tsx showLineNumbers 'className="..."'
 import { Badge } from "@yummacss/ui";
 
-<Badge className="...">New</Badge>;
+<Badge className="...">
+  ...
+</Badge>
 ```
 
 ## Extend properties
 
-The Badge component is fully extendable. It supports all native HTML `<span>` attributes through its props:
+Extend the `<Badge>` component with the native `<span>` HTML attributes.
 
-```tsx showLineNumbers "onClick={() => alert("Badge clicked!")}"
+```tsx showLineNumbers "{...props}"
 import { Badge } from "@yummacss/ui";
 
-const App = () => {
-  return (
-    <Badge onClick={() => alert("Badge clicked!")} {...props}>
-      New
-    </Badge>
-  );
-};
-
-export default App;
+<Badge {...props}>
+  ...
+</Badge>
 ```
