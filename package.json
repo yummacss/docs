@@ -23,7 +23,7 @@
   },
   "packageManager": "pnpm@10.15.1",
   "dependencies": {
-    "@astrojs/sitemap": "3.4.2",
+    "@astrojs/sitemap": "3.6.0",
     "@astrojs/starlight": "^0.35.2",
     "@astrojs/vercel": "^8.2.6",
     "@expressive-code/plugin-collapsible-sections": "^0.41.3",
