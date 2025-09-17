@@ -28,7 +28,7 @@
     "@astrojs/vercel": "^8.2.6",
     "@expressive-code/plugin-collapsible-sections": "^0.41.3",
     "@expressive-code/plugin-line-numbers": "^0.41.3",
-    "@fontsource-variable/outfit": "^5.2.6",
+    "@fontsource-variable/outfit": "^5.2.8",
     "@yummacss/api": "^1.4.0",
     "astro": "^5.13.7",
     "astro-auto-import": "^0.4.4",
