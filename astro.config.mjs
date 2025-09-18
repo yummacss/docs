@@ -136,10 +136,11 @@ export default defineConfig({
     "docs/installation#framework-guides": "/docs/framework-guides",
 
     // ui related
-    "/components": "/ui/installation/",
-    "/core-ui": "/ui/installation/",
-    "/ui-library": "/ui/installation/",
-    "/ui": "/ui/installation/",
+    "/components": "/docs/ui/installation/",
+    "/core-ui": "/docs/ui/installation/",
+    "/ui-library": "/docs/ui/installation/",
+    "/ui": "/docs/ui/installation/",
+    "/ui/components": "/docs/ui/installation/",
   },
 
   devToolbar: {
