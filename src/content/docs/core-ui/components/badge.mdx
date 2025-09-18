@@ -8,14 +8,11 @@ slug: docs/ui/badge
 
 A component that displays a small piece of information or status indicator.
 
-```tsx showLineNumbers
+```tsx mark={1}
 import { Badge } from "@yummacss/ui";
-```
-
-```tsx showLineNumbers startLineNumber=3
 export default function Page() {
   return (
-    <Badge variant="base" size="xs">New</Badge>
+    <Badge variant="outline" size="xs">New</Badge>
   );
 };
 ```
@@ -42,7 +39,7 @@ export default function Page() {
 
 Apply custom styles to the `<Badge>` component.
 
-```tsx showLineNumbers 'className="..."'
+```tsx 'className="..."'
 import { Badge } from "@yummacss/ui";
 
 <Badge className="...">
@@ -54,7 +51,7 @@ import { Badge } from "@yummacss/ui";
 
 Extend the `<Badge>` component with the native `<span>` HTML attributes.
 
-```tsx showLineNumbers "{...props}"
+```tsx "{...props}"
 import { Badge } from "@yummacss/ui";
 
 <Badge {...props}>

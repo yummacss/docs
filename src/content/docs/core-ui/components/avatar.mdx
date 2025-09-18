@@ -8,15 +8,12 @@ slug: docs/ui/avatar
 
 A component that displays a user's profile picture or initials.
 
-```tsx showLineNumbers
+```tsx mark={1}
 import { Avatar, AvatarFallback, AvatarImage } from "@yummacss/ui";
-```
-
-```tsx showLineNumbers startLineNumber=3
 export default function Page() {
   return (
-    <Avatar>
-      <AvatarImage src="https://images.unsplash.com/photo-1542206395-9feb3edaa68d" alt="Seline Collins" />
+    <Avatar className="b-1">
+      <AvatarImage src="https://avatars.githubusercontent.com/u/56491937?v=4" alt="Seline Collins" />
       <AvatarFallback>SC</AvatarFallback>
     </Avatar>
   );
@@ -45,7 +42,7 @@ export default function Page() {
 
 Apply custom styles to the `<Avatar>` component.
 
-```tsx showLineNumbers 'className="..."'
+```tsx 'className="..."'
 import { Avatar } from "@yummacss/ui";
 
 <Avatar className="...">
@@ -57,7 +54,7 @@ import { Avatar } from "@yummacss/ui";
 
 Extend the `<Avatar>` component with the Base UI API.
 
-```tsx showLineNumbers "{...props}"
+```tsx "{...props}"
 import { Avatar } from "@yummacss/ui";
 
 <Avatar {...props}>

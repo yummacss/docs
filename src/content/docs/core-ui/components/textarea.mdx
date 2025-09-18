@@ -8,23 +8,21 @@ slug: docs/ui/textarea
 
 A basic implementation of the Textarea component with default styling.
 
-```tsx showLineNumbers
+```tsx mark={1}
 import { Textarea } from "@yummacss/ui";
 
-const ExampleTextarea = () => {
+export default function Page() {
   return <Textarea name="message" rows={4} placeholder="Enter your message..." variant="base" />;
 };
-
-export default App;
 ```
 
 ## Usage
 
-```tsx showLineNumbers
+```tsx
 import { Textarea } from "@yummacss/ui";
 ```
 
-```tsx showLineNumbers
+```tsx
 <Textarea />
 ```
 
@@ -42,7 +40,7 @@ import { Textarea } from "@yummacss/ui";
 
 Apply custom styles to the `<Textarea>` component.
 
-```tsx showLineNumbers 'className="..."'
+```tsx 'className="..."'
 import { Textarea } from "@yummacss/ui";
 
 <Textarea className="..." />
@@ -52,7 +50,7 @@ import { Textarea } from "@yummacss/ui";
 
 Extend the `<Textarea>` component with the native `<textarea>` HTML attributes.
 
-```tsx showLineNumbers "{...props}"
+```tsx "{...props}"
 import { Textarea } from "@yummacss/ui";
 
 <Textarea {...props} />

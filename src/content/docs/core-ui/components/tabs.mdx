@@ -8,11 +8,8 @@ slug: docs/ui/tabs
 
 A basic implementation of the Tabs component with default styling.
 
-```tsx showLineNumbers
+```tsx mark={1}
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@yummacss/ui";
-```
-
-```tsx showLineNumbers startLineNumber=3
 export default function Page() {
   return (
     <Tabs defaultValue="account">
@@ -58,7 +55,7 @@ Learn more about the `value` API in the [Base UI documentation](https://base-ui.
 
 Apply custom styles to the `<Tabs>` component.
 
-```tsx showLineNumbers 'className="..."'
+```tsx 'className="..."'
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@yummacss/ui";
 
 <Tabs className="...">
@@ -70,7 +67,7 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@yummacss/ui";
 
 Extend the `<Tabs>` component with the Base UI API.
 
-```tsx showLineNumbers "{...props}"
+```tsx "{...props}"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@yummacss/ui";
 
 <Tabs {...props}>

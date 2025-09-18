@@ -8,18 +8,13 @@ slug: docs/ui/card
 
 A container component that groups related content and actions.
 
-```tsx showLineNumbers
-import { Card, CardContent, CardTitle, CardDescription } from "@yummacss/ui";
-```
-
-```tsx showLineNumbers startLineNumber=3
+```tsx mark={1}
+import { Card, CardTitle, CardDescription } from "@yummacss/ui";
 export default function Page() {
   return (
-    <Card variant="base">
-      <CardContent>
-        <CardTitle>Reset Password</CardTitle>
-        <CardDescription>Enter your email to reset your password.</CardDescription>
-      </CardContent>
+    <Card>
+      <CardTitle>Card Title</CardTitle>
+      <CardDescription>Card Description</CardDescription>
     </Card>
   );
 };
@@ -29,7 +24,7 @@ export default function Page() {
 
 Apply custom styles to the `<Card>` component.
 
-```tsx showLineNumbers 'className="..."'
+```tsx 'className="..."'
 import { Card } from "@yummacss/ui";
 
 <Card className="...">...</Card>;
@@ -39,7 +34,7 @@ import { Card } from "@yummacss/ui";
 
 Extend the `<Card>` component with native `<div>` HTML attributes.
 
-```tsx showLineNumbers "{...props}"
+```tsx "{...props}"
 import { Card } from "@yummacss/ui";
 
 <Card {...props}>

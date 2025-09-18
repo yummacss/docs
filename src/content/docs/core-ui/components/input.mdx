@@ -8,11 +8,8 @@ slug: docs/ui/input
 
 A basic implementation of the Input component with default styling.
 
-```tsx showLineNumbers
+```tsx mark={1}
 import { Input } from "@yummacss/ui";
-```
-
-```tsx showLineNumbers startLineNumber=3
 export default function Page() {
   return <Input variant="base" type="email" placeholder="john@example.com" />;
 };
@@ -34,7 +31,7 @@ The Input component can be adapted to suit specific requirements by utilizing th
 
 Apply custom styles to the `<Input>` component.
 
-```tsx showLineNumbers 'className="..."'
+```tsx 'className="..."'
 import { Input } from "@yummacss/ui";
 
 <Input className="..." />
@@ -44,7 +41,7 @@ import { Input } from "@yummacss/ui";
 
 Extend the Input component with the Base UI API.
 
-```tsx showLineNumbers "{...props}"
+```tsx "{...props}"
 import { Input } from "@yummacss/ui";
 
 <Input {...props} />
