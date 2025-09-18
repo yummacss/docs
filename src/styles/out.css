@@ -1089,6 +1089,10 @@
   background-color: #fff;
 }
 
+.bg-transparent {
+  background-color: #0000;
+}
+
 .bc-red {
   border-color: #d73d3d;
 }

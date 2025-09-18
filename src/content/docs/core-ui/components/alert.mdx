@@ -8,16 +8,13 @@ slug: docs/ui/alert
 
 A component that displays important messages and notifications to users.
 
-```tsx showLineNumbers
+```tsx mark={1}
 import { Alert, AlertContent, AlertTitle, AlertDescription } from "@yummacss/ui";
-```
-
-```tsx showLineNumbers startLineNumber=2
-import { InfoCircledIcon } from "@radix-ui/react-icons";
+import { InfoCircledIcon } from "@radix-ui/react-icons";  
 
 export default function Page() {
   return (
-    <Alert variant="base">
+    <Alert variant="info">
       <AlertContent>
         <InfoCircledIcon />
         <AlertTitle>Update available</AlertTitle>
@@ -42,7 +39,7 @@ export default function Page() {
 
 Apply custom styles to the `<Alert>` component.
 
-```tsx showLineNumbers 'className="..."'
+```tsx 'className="..."'
 import { Alert } from "@yummacss/ui";
 
 <Alert className="...">
@@ -54,7 +51,7 @@ import { Alert } from "@yummacss/ui";
 
 Extend the `<Alert>` component with the native `<div>` HTML attributes.
 
-```tsx showLineNumbers "{...props}"
+```tsx "{...props}"
 import { Alert } from "@yummacss/ui";
 
 <Alert {...props}>

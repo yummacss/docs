@@ -8,11 +8,8 @@ slug: docs/ui/button
 
 An interactive element used to trigger user actions.
 
-```tsx showLineNumbers
+```tsx mark={1}
 import { Button } from "@yummacss/ui";
-```
-
-```tsx showLineNumbers startLineNumber=3
 export default function Page() {
   return (
     <Button variant="base" size="md">
@@ -24,11 +21,11 @@ export default function Page() {
 
 ## Usage
 
-```tsx showLineNumbers
+```tsx
 import { Button } from "@yummacss/ui";
 ```
 
-```tsx showLineNumbers
+```tsx
 <Button>Login</Button>
 ```
 
@@ -54,7 +51,7 @@ import { Button } from "@yummacss/ui";
 
 Apply custom styles to the `<Button>` component.
 
-```tsx showLineNumbers 'className="..."'
+```tsx 'className="..."'
 import { Button } from "@yummacss/ui";
 
 <Button className="...">
@@ -66,7 +63,7 @@ import { Button } from "@yummacss/ui";
 
 Extend the `<Button>` component with the native `<button>` HTML attributes.
 
-```tsx showLineNumbers "onClick={() => alert("Button clicked!")}"
+```tsx "onClick={() => alert("Button clicked!")}"
 import { Button } from "@yummacss/ui";
 
 <Button {...props}>
