@@ -24,7 +24,7 @@
   "packageManager": "pnpm@10.15.1",
   "dependencies": {
     "@astrojs/sitemap": "3.4.2",
-    "@astrojs/starlight": "^0.35.2",
+    "@astrojs/starlight": "^0.36.0",
     "@astrojs/vercel": "^8.2.6",
     "@expressive-code/plugin-collapsible-sections": "^0.41.3",
     "@expressive-code/plugin-line-numbers": "^0.41.3",
