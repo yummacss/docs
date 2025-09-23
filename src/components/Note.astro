@@ -1,5 +1,5 @@
 ---
-import { icons, type IconName } from "@/constants/icons";
+import { docIcons, type IconName } from "@/constants/icons";
 
 interface Props {
   icon: IconName;
@@ -9,7 +9,7 @@ const { icon: name } = Astro.props as Props;
 ---
 
 <div class="ai-c d-f g-2">
-  <span class="ai-c bs-sm decorator-icon d-f h-fc fs-0 p-1" set:html={icons[name]} />
+  <span class="ai-c bs-sm decorator-icon d-f h-fc fs-0 p-1" set:html={docIcons[name]} />
   <span class="ai-c d-f"><slot /></span>
 </div>
 
