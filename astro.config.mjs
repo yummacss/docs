@@ -130,10 +130,12 @@ export default defineConfig({
     "/docs/build-css": "/docs/foundations#cli-commands",
     "/docs/colours": "/docs/foundations/colors",
     "/docs/direction": "/docs/bottom-left-right-top",
+    "/docs/foundations/responsive-design": "/docs/foundations/media-queries",
+    "/docs/foundations/variants": "/docs/foundations/pseudo-classes",
     "docs/cli": "/docs/foundations/configuration",
     "docs/configuration": "/docs/foundations/config",
-    "docs/text-color": "/docs/color",
     "docs/installation#framework-guides": "/docs/framework-guides",
+    "docs/text-color": "/docs/color",
 
     // ui related
     "/components": "/docs/ui/installation/",

@@ -25,9 +25,9 @@ Yumma CSS API provides programmatic access to Yumma CSS class definitions, for c
 Retrieve all available definitions at once.
 
 ```js title="index.js"
-import { getAllUtils } from "@yummacss/api";
+import { coreUtils } from "@yummacss/api";
 
-const all = getAllUtils();
+const all = coreUtils();
 ```
 
 ### Getting Category Definitions
@@ -35,9 +35,9 @@ const all = getAllUtils();
 Retrieve all definitions for a specific category.
 
 ```js title="index.js"
-import { getBackgroundUtils } from "@yummacss/api";
+import { backgroundUtils } from "@yummacss/api";
 
-const backgrounds = getBackgroundUtils();
+console.log(backgroundUtils());
 ```
 
 ### Getting Specific Definitions
@@ -45,107 +45,109 @@ const backgrounds = getBackgroundUtils();
 Retrieve a specific definition from a category.
 
 ```js title="index.js"
-import { getBoxModelUtils } from "@yummacss/api";
+import { boxModelUtils } from "@yummacss/api";
 
-const boxModel = getBoxModelUtils();
+const boxModel = boxModelUtils();
 const margin = boxModel["margin"];
+
+console.log(margin);
 ```
 
 ## Available Functions
 
 These are the available functions:
 
-### `getAllUtils()`
+### `coreUtils()`
 
 Returns all available Yumma CSS utilities as a single object.
 
 **type:** `Utilities`
 
-### `getBackgroundUtils()`
+### `backgroundUtils()`
 
 Returns all utility related to backgrounds.
 
 **type:** `Utilities`
 
-### `getBorderUtils()`
+### `borderUtils()`
 
 Returns all utility related to borders.
 
 **type:** `Utilities`
 
-### `getBoxModelUtils()`
+### `boxModelUtils()`
 
 Returns all utility related to the box model.
 
 **type:** `Utilities`
 
-### `getColorUtils()`
+### `colorUtils()`
 
 Returns all utility related to colors.
 
 **type:** `Utilities`
 
-### `getEffectUtils()`
+### `effectUtils()`
 
 Returns all utility related to effects.
 
 **type:** `Utilities`
 
-### `getFlexboxUtils()`
+### `flexboxUtils()`
 
 Returns all utility related to flexbox.
 
 **type:** `Utilities`
 
-### `getFontUtils()`
+### `fontUtils()`
 
 Returns all utility related to fonts.
 
 **type:** `Utilities`
 
-### `getGridUtils()`
+### `gridUtils()`
 
 Returns all utility related to CSS Grid.
 
 **type:** `Utilities`
 
-### `getInteractivityUtils()`
+### `interactivityUtils()`
 
 Returns all utility related to interactivity.
 
 **type:** `Utilities`
 
-### `getOutlineUtils()`
+### `outlineUtils()`
 
 Returns all utility related to outlines.
 
 **type:** `Utilities`
 
-### `getPositioningUtils()`
+### `positioningUtils()`
 
 Returns all utility related to positioning.
 
 **type:** `Utilities`
 
-### `getSvgUtils()`
+### `svgUtils()`
 
 Returns all utility related to SVG.
 
 **type:** `Utilities`
 
-### `getTableUtils()`
+### `tableUtils()`
 
 Returns all utility related to tables.
 
 **type:** `Utilities`
 
-### `getTextUtils()`
+### `textUtils()`
 
 Returns all utility related to text.
 
 **type:** `Utilities`
 
-### `getTransformUtils()`
+### `transformUtils()`
 
 Returns all utility related to transforms.
 
