@@ -10,8 +10,8 @@ export const sidebar = [
         items: [
           { label: "Styling Elements", link: "docs/foundations/styling-elements" },
           { label: "Configuration", link: "docs/foundations/config" },
-          { label: "Conditional Styles", link: "docs/foundations/variants" },
-          { label: "Responsive Design", link: "docs/foundations/responsive-design" },
+          { label: "Pseudo-classes", link: "docs/foundations/pseudo-classes" },
+          { label: "Media Queries", link: "docs/foundations/media-queries" },
           { label: "Colors", link: "docs/foundations/colors" },
           { label: "Base Styles", link: "docs/foundations/base-styles" },
         ],
