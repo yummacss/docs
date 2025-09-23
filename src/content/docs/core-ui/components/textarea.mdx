@@ -13,7 +13,7 @@ import { Textarea } from "@yummacss/ui";
 
 export default function Page() {
   return <Textarea name="message" rows={4} placeholder="Enter your message..." variant="base" />;
-};
+}
 ```
 
 ## Usage
@@ -43,7 +43,7 @@ Apply custom styles to the `<Textarea>` component.
 ```tsx 'className="..."'
 import { Textarea } from "@yummacss/ui";
 
-<Textarea className="..." />
+<Textarea className="..." />;
 ```
 
 ## Extend properties
@@ -53,5 +53,5 @@ Extend the `<Textarea>` component with the native `<textarea>` HTML attributes.
 ```tsx "{...props}"
 import { Textarea } from "@yummacss/ui";
 
-<Textarea {...props} />
+<Textarea {...props} />;
 ```

@@ -23,7 +23,6 @@ Initialize configuration
 npx yummacss init
 ```
 
-
 ## Documentation
 
 Head over to the [Yumma CSS docs](https://www.yummacss.com) to learn more.

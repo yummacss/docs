@@ -17,7 +17,7 @@ export default function Page() {
       Login
     </Button>
   );
-};
+}
 ```
 
 ## Usage
@@ -55,9 +55,7 @@ Apply custom styles to the `<Button>` component.
 ```tsx 'className="..."'
 import { Button } from "@yummacss/ui";
 
-<Button className="...">
-  ...
-</Button>
+<Button className="...">...</Button>;
 ```
 
 ## Extend properties
@@ -67,7 +65,5 @@ Extend the `<Button>` component with the native `<button>` HTML attributes.
 ```tsx "onClick={() => alert("Button clicked!")}"
 import { Button } from "@yummacss/ui";
 
-<Button {...props}>
-  ...
-</Button>
+<Button {...props}>...</Button>;
 ```
