@@ -15,24 +15,18 @@ import { Button } from "@yummacss/ui";
 export default function Page() {
   return (
     <AlertDialog>
-      <AlertDialogTrigger className="bg-transparent c-p tc-red fw-600">
-        Remove item
-      </AlertDialogTrigger>
+      <AlertDialogTrigger className="bg-transparent c-p tc-red fw-600">Remove item</AlertDialogTrigger>
       <AlertDialogPopup size="md" className="bs-none">
-          <AlertDialogTitle>
-              Are you sure?
-          </AlertDialogTitle>
-          <AlertDialogDescription>
-              This action cannot be undone.
-          </AlertDialogDescription>
-          <hr className="b-px bc-silver-3" />
-          <div className="d-f jc-fe g-2">
-            <AlertDialogClose>Cancel</AlertDialogClose>
-          </div>
+        <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+        <AlertDialogDescription>This action cannot be undone.</AlertDialogDescription>
+        <hr className="b-px bc-silver-3" />
+        <div className="d-f jc-fe g-2">
+          <AlertDialogClose>Cancel</AlertDialogClose>
+        </div>
       </AlertDialogPopup>
-  </AlertDialog>
+    </AlertDialog>
   );
-};
+}
 ```
 
 ## Custom styling
@@ -42,9 +36,7 @@ Apply custom styles to the `<AlertDialog>` component.
 ```tsx 'className="..."'
 import { AlertDialog } from "@yummacss/ui";
 
-<AlertDialog className="...">
-  ...
-</AlertDialog>
+<AlertDialog className="...">...</AlertDialog>;
 ```
 
 ## Extend properties
@@ -54,7 +46,5 @@ Extend the `<AlertDialog>` component with the Base UI API.
 ```tsx "{...props}"
 import { AlertDialog } from "@yummacss/ui";
 
-<AlertDialog {...props}>
-  ...
-</AlertDialog>
+<AlertDialog {...props}>...</AlertDialog>;
 ```

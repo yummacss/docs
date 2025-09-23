@@ -10,7 +10,7 @@ A component that displays important messages and notifications to users.
 
 ```tsx mark={1}
 import { Alert, AlertContent, AlertTitle, AlertDescription } from "@yummacss/ui";
-import { InfoCircledIcon } from "@radix-ui/react-icons";  
+import { InfoCircledIcon } from "@radix-ui/react-icons";
 
 export default function Page() {
   return (
@@ -22,7 +22,7 @@ export default function Page() {
       </AlertContent>
     </Alert>
   );
-};
+}
 ```
 
 ## API reference
@@ -42,9 +42,7 @@ Apply custom styles to the `<Alert>` component.
 ```tsx 'className="..."'
 import { Alert } from "@yummacss/ui";
 
-<Alert className="...">
-  ...
-</Alert>
+<Alert className="...">...</Alert>;
 ```
 
 ## Extend properties
@@ -54,7 +52,5 @@ Extend the `<Alert>` component with the native `<div>` HTML attributes.
 ```tsx "{...props}"
 import { Alert } from "@yummacss/ui";
 
-<Alert {...props}>
-  ...
-</Alert>
+<Alert {...props}>...</Alert>;
 ```

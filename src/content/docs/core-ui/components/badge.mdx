@@ -13,9 +13,11 @@ import { Badge } from "@yummacss/ui";
 
 export default function Page() {
   return (
-    <Badge variant="outline" size="xs">New</Badge>
+    <Badge variant="outline" size="xs">
+      New
+    </Badge>
   );
-};
+}
 ```
 
 ## API reference
@@ -43,9 +45,7 @@ Apply custom styles to the `<Badge>` component.
 ```tsx 'className="..."'
 import { Badge } from "@yummacss/ui";
 
-<Badge className="...">
-  ...
-</Badge>
+<Badge className="...">...</Badge>;
 ```
 
 ## Extend properties
@@ -55,7 +55,5 @@ Extend the `<Badge>` component with the native `<span>` HTML attributes.
 ```tsx "{...props}"
 import { Badge } from "@yummacss/ui";
 
-<Badge {...props}>
-  ...
-</Badge>
+<Badge {...props}>...</Badge>;
 ```

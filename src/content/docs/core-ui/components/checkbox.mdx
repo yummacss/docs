@@ -13,17 +13,17 @@ import { Checkbox } from "@yummacss/ui";
 import { CheckIcon } from "@radix-ui/react-icons";
 
 export default function Page() {
-    return (
-        <div className="d-if ai-c cg-2">
-            <Checkbox defaultChecked>
-                <CheckboxIndicator>
-                    <CheckIcon />
-                </CheckboxIndicator>
-            </Checkbox>
-            <span className="fs-sm">Remember me</span>
-        </div>
-    );
-};
+  return (
+    <div className="d-if ai-c cg-2">
+      <Checkbox defaultChecked>
+        <CheckboxIndicator>
+          <CheckIcon />
+        </CheckboxIndicator>
+      </Checkbox>
+      <span className="fs-sm">Remember me</span>
+    </div>
+  );
+}
 ```
 
 ## Custom styling
@@ -33,9 +33,7 @@ Apply custom styles to the `<Checkbox>` component.
 ```tsx 'className="..."'
 import { Checkbox } from "@yummacss/ui";
 
-<Checkbox className="...">
-    ...
-</Checkbox>
+<Checkbox className="...">...</Checkbox>;
 ```
 
 ## Extend properties
@@ -45,7 +43,5 @@ Extend the `<Checkbox>` component with the Base UI API.
 ```tsx "{...props}"
 import { Checkbox } from "@yummacss/ui";
 
-<Checkbox {...props}>
-    ...
-</Checkbox>
+<Checkbox {...props}>...</Checkbox>;
 ```

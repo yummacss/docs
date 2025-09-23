@@ -62,5 +62,5 @@ export const sidebar = [
   {
     label: "Playground",
     link: "https://play.yummacss.com",
-  }
+  },
 ];
