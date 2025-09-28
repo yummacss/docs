@@ -647,6 +647,10 @@
   margin-top: 8rem;
 }
 
+.mt-48 {
+  margin-top: 12rem;
+}
+
 @media (width >= 40rem) {
   .sm\:mt-10 {
     margin-top: 2.5rem;
@@ -957,10 +961,6 @@
 
 .max-w-md {
   max-width: 48rem;
-}
-
-.max-w-lg {
-  max-width: 64rem;
 }
 
 .max-w-xl {
