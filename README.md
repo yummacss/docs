@@ -29,7 +29,7 @@ Head over to the [Yumma CSS docs](https://www.yummacss.com) to learn more.
 
 ## Built with
 
-- [sass-embedded](https://www.npmjs.com/package/sass-embedded)
+- [@yummacss/api](https://www.npmjs.com/package/@yummacss/api)
 - [lightningcss](https://www.npmjs.com/package/lightningcss)
 - [typescript](https://www.npmjs.com/package/typescript)
 
