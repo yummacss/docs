@@ -18,7 +18,7 @@ Apply a modern box model and remove browser defaults to simplify layout consiste
 
 </Steps>
 
-```scss title="_base.scss"
+```css
 *,
 *::before,
 *::after {
@@ -45,9 +45,9 @@ Set a default system font, improve font smoothing, and add accessible line-heigh
 
 </Steps>
 
-```scss title="_base.scss"
+```css
 html {
-  font-family: vars.$yma-font-system; /* 1 */
+  font-family: system-ui, sans-serif; /* 1 */
 }
 
 body {
@@ -68,7 +68,7 @@ Ensure responsive images and videos behave predictably in all layouts.
 
 </Steps>
 
-```scss title="_base.scss"
+```css
 canvas,
 img,
 picture,
@@ -91,13 +91,13 @@ Normalize form controls for visual consistency and better accessibility.
 
 </Steps>
 
-```scss title="_base.scss"
+```css
 button,
 input,
 optgroup,
 select,
 textarea {
-  background-color: vars.$yma-color-transparent; /* 1 */
+  background-color: transparent; /* 1 */
   font-family: inherit; /* 2 */
   padding: 0.5rem; /* 3 */
 }
@@ -105,19 +105,19 @@ textarea {
 
 Add a default border to form elements that do not have a class attribute.
 
-```scss title="_base.scss"
+```css
 button:not([class]),
 input:not([class]),
 optgroup:not([class]),
 select:not([class]),
 textarea:not([class]) {
-  border: 1px solid vars.$yma-color-silver; /* 1 */
+  border: 1px solid #f5f5f6; /* 1 */
 }
 ```
 
 Apply consistent focus styles to interactive elements.
 
-```scss title="_base.scss"
+```css
 a,
 button,
 input,
@@ -125,14 +125,14 @@ select,
 summary,
 textarea {
   &:focus {
-    outline: 2px solid vars.$yma-color-transparent;
+    outline: 2px solid transparent;
   }
 }
 ```
 
 Set a minimum height for textareas without a defined `rows` attribute.
 
-```scss title="_base.scss"
+```css
 textarea:not([rows]) {
   min-height: 10em;
 }
@@ -140,7 +140,7 @@ textarea:not([rows]) {
 
 Ensure the buttons have a pointer cursor.
 
-```scss title="_base.scss"
+```css
 button {
   cursor: pointer;
 }
@@ -154,7 +154,7 @@ Disabled States
 
 </Steps>
 
-```scss title="_base.scss"
+```css
 button:disabled,
 input:disabled,
 select:disabled,
@@ -176,7 +176,7 @@ Improve text rendering, wrapping, and default font behavior across browsers.
 
 </Steps>
 
-```scss title="_base.scss"
+```css
 h1,
 h2,
 h3,
@@ -205,7 +205,7 @@ p {
 
 Add the correct font weight in Chrome, Edge, and Safari.
 
-```scss title="_base.scss"
+```css
 b,
 strong {
   font-weight: 700;
@@ -214,7 +214,7 @@ strong {
 
 Add the correct font size in all browsers.
 
-```scss title="_base.scss"
+```css
 small {
   font-size: 80%;
   line-height: 1.5;
@@ -228,12 +228,12 @@ small {
 
 </Steps>
 
-```scss title="_base.scss"
+```css
 pre,
 code,
 kbd,
 samp {
-  font-family: monospace, monospace; /* 1 */
+  font-family: monospace; /* 1 */
   font-size: 1em; /* 2 */
 }
 ```
@@ -241,7 +241,7 @@ samp {
 1. **Remove underline styling from links by default.**
 2. **Reset color to inherit from parent element.**
 
-```scss title="_base.scss"
+```css
 a {
   color: inherit; /* 3 */
   text-decoration: none; /* 1 */
@@ -252,7 +252,7 @@ a {
 
 Remove default list styles for a cleaner and more customizable base.
 
-```scss title="_base.scss"
+```css
 ol,
 ul {
   list-style: none;
@@ -270,7 +270,7 @@ Standardize table header styling for better readability.
 
 </Steps>
 
-```scss title="_base.scss"
+```css
 th {
   font-size: 1rem; /* 1 */
   font-weight: 600; /* 1 */
@@ -289,9 +289,9 @@ Fix minor browser quirks and improve default styles for common elements.
 
 </Steps>
 
-```scss title="_base.scss"
+```css
 hr {
-  border-top: 1px solid vars.$yma-color-silver; /* 2 */
+  border-top: 1px solid #f5f5f6; /* 2 */
   height: 0; /* 1 */
   margin: 1em 0; /* 3 */
 }
@@ -299,7 +299,7 @@ hr {
 
 Ensure details and summary elements display correctly.
 
-```scss title="_base.scss"
+```css
 details {
   display: block;
 }
@@ -311,9 +311,9 @@ summary {
 
 ### Disabling base styles
 
-Use the `buildOptions.reset` option in the `yumma.config.js` file to disable base styles.
+Use the `buildOptions.reset` option in the `yumma.config.mjs` file to disable base styles.
 
-```js title="yumma.config.js"
+```js title="yumma.config.mjs"
 export default = {
   buildOptions: {
     reset: false,

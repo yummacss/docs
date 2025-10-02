@@ -27,8 +27,8 @@ importers:
         specifier: ^5.2.6
         version: 5.2.6
       '@yummacss/api':
-        specifier: ^1.6.0
-        version: 1.6.0
+        specifier: ^1.6.1
+        version: 1.6.1
       astro:
         specifier: ^5.13.7
         version: 5.13.7(@types/node@24.3.3)(@vercel/functions@2.2.12)(lightningcss@1.30.2)(rollup@4.50.1)(sass-embedded@1.93.2)(sass@1.93.2)(typescript@5.9.2)(yaml@2.8.1)
@@ -91,8 +91,8 @@ importers:
         specifier: ^5.9.2
         version: 5.9.2
       yummacss:
-        specifier: ^3.4.0
-        version: 3.4.0
+        specifier: ^3.4.1
+        version: 3.4.1
 
 packages:
 
@@ -958,8 +958,8 @@ packages:
   '@vscode/l10n@0.0.18':
     resolution: {integrity: sha512-KYSIHVmslkaCDyw013pphY+d7x1qV8IZupYfeIfzNA+nsaWHbn5uPuQRvdRFsa9zFzGeudPuoGoZ1Op4jrJXIQ==}
 
-  '@yummacss/api@1.6.0':
-    resolution: {integrity: sha512-oha+4fOt9XYDcD3nUBLjHnrrUUEkVnh4Jk7LaO1xa+/uSM1Sf7VymhPzTPzVa44dZaCr8xrhECqrdVhW1QWN6Q==}
+  '@yummacss/api@1.6.1':
+    resolution: {integrity: sha512-sS4dF8iGg0AlJ1SIAg/VlsAsqPB6ghUlvv7uyvSOpPaUZ5zzfeXMh0Wjy8jnc8tu/UUmsInWiTAJaLT3Y3R8FQ==}
 
   abbrev@3.0.1:
     resolution: {integrity: sha512-AO2ac6pjRB3SJmGJo+v5/aK6Omggp6fsLrs6wN9bd35ulu4cCwaAU9+7ZhXjeqHVkaHThLuzH0nZr0YpCDhygg==}
@@ -3105,8 +3105,8 @@ packages:
     resolution: {integrity: sha512-CzhO+pFNo8ajLM2d2IW/R93ipy99LWjtwblvC1RsoSUMZgyLbYFr221TnSNT7GjGdYui6P459mw9JH/g/zW2ug==}
     engines: {node: '>=18'}
 
-  yummacss@3.4.0:
-    resolution: {integrity: sha512-KZ1+gRbpWW6vz+FjuSaA3ULKNcPKLcluX2Q4utwFDqtk6PY/aYt9C8X2bR6hYEcceVeBk7HTnNcjltfUqR4UdA==}
+  yummacss@3.4.1:
+    resolution: {integrity: sha512-6G8vS+k8uBgCY0fNGhB9oOVxGZdbzt8BNgPCIrmJfIrkcshIWXRQ/I1diEyYgboUV0PGSxRHJDVQ4AJGpG3ggw==}
     hasBin: true
 
   zod-to-json-schema@3.24.6:
@@ -4033,7 +4033,7 @@ snapshots:
 
   '@vscode/l10n@0.0.18': {}
 
-  '@yummacss/api@1.6.0':
+  '@yummacss/api@1.6.1':
     dependencies:
       tinycolor2: 1.6.0
 
@@ -6698,9 +6698,9 @@ snapshots:
 
   yoctocolors@2.1.2: {}
 
-  yummacss@3.4.0:
+  yummacss@3.4.1:
     dependencies:
-      '@yummacss/api': 1.6.0
+      '@yummacss/api': 1.6.1
       chokidar: 4.0.3
       commander: 14.0.1
       globby: 14.1.0
