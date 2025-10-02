@@ -2,23 +2,17 @@
 title: Developer API
 banner:
   content: N/A
-description: Yumma CSS definitions for Javascript apps.
+description: Type definitions for Yumma CSS projects.
 slug: docs/dev-api
 ---
 
-:::note[Before you install...]
-You don't need to use the Yumma CSS API to use Yumma CSS. In fact, Yumma CSS API does not come as part of the Yumma CSS core framework.
-:::
+Yumma CSS API provides programmatic access to Yumma CSS class definitions, for creating anything from apps, plugins, extensions, scripts and more. 
 
 ## Installation
 
 Install the Yumma CSS API package using your preferred package manager:
 
 <PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} icons={false} pkg="@yummacss/api" title="Terminal" />
-
-## Examples
-
-Yumma CSS API provides programmatic access to Yumma CSS class definitions, for creating anything from apps, plugins, extensions, scripts and more.
 
 ### Getting All Definitions
 
@@ -158,52 +152,61 @@ Returns all utility related to transforms.
 Using Typescript? You might need to import the following types:
 
 ```ts title="index.ts"
-import type { Utilities, Colors } from "@yummacss/api"; // returns a map of utilities
-import type { Color, Utility } from "@yummacss/api"; // returns a single object
+import type { Utilities, Colors } from "@yummacss/api";
+import type { Color, Utility } from "@yummacss/api";
 ```
 
-### Utilities
+### Utility interface
 
-Represents a collection of utility classes:
-
-```ts title="utility.ts"
-export interface Utilities = {
-  [key: string]: Utility;
-};
-```
-
-### Utility
-
-Represents a single utility definition:
+Represents a Yumma CSS utility.
 
 ```ts title="utility.ts"
-export interface Utility = {
+import { Variants } from "./variant";
+
+export interface Utility {
   prefix: string;
   properties: string[];
   slug: string;
   values: { [key: string]: string };
-};
+  variants?: Variants;
+}
+
+export interface Utilities {
+  [key: string]: Utility;
+}
 ```
 
-### Colors
+### Color interface
 
-Represents a collection of color utility classes:
+Represents a Yumma CSS color.
 
 ```ts title="color.ts"
+import { Utility } from "./utility";
+
+export interface Color extends Utility {}
+
 export interface Colors {
   [key: string]: Color;
 }
 ```
 
-### Color
+### Variant interface
 
-Represents a color utility definition:
+Represents a Yumma CSS variant.
 
-```ts title="color.ts"
-export interface Color {
+```ts title="variant.ts"
+export interface PseudoClass {
   prefix: string;
-  properties: string[];
-  slug: string;
-  values: { [key: string]: string };
+  value: string;
+}
+
+export interface MediaQuery {
+  prefix: string;
+  value: string;
+}
+
+export interface Variants {
+  pseudoClasses?: PseudoClass[];
+  mediaQueries?: MediaQuery[];
 }
 ```

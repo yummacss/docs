@@ -1029,7 +1029,7 @@
   background-color: #d9f1ee;
 }
 
-.h\:bg-blue:hover {
+.bg-blue, .h\:bg-blue:hover {
   background-color: #3575dd;
 }
 
