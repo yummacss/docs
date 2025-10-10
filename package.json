@@ -16,7 +16,6 @@
     "lint:blog": "biome check --write src/content/docs/blog/**/*.{md,mdx}",
     "lint:core-ui": "biome check --write src/content/docs/core-ui/**/*.{md,mdx}",
     "lint:docs": "biome check --write src/content/docs/core/**/*.{md,mdx}",
-    "lint:articles": "biome check --write src/content/docs/articles/**/*.{md,mdx}",
     "lint": "biome check --write .",
     "preview": "astro preview",
     "release": "pnpm up yummacss @yummacss/api --latest"

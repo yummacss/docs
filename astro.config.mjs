@@ -38,7 +38,7 @@ export default defineConfig({
           exclude: ["/blog", "/blog/**/*", "/docs/guides", "/docs/guides/**/*"],
         }),
         starlightBlog({
-          recentPostCount: 6,
+          recentPostCount: 35,
           postCount: 7,
           authors: {
             Renildo: {
