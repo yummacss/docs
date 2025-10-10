@@ -27,8 +27,8 @@ importers:
         specifier: ^5.2.6
         version: 5.2.6
       '@yummacss/api':
-        specifier: ^1.6.2
-        version: 1.6.2
+        specifier: ^1.7.0
+        version: 1.7.0
       astro:
         specifier: ^5.14.3
         version: 5.14.3(@types/node@24.3.3)(@vercel/functions@2.2.13)(lightningcss@1.30.2)(rollup@4.50.1)(sass-embedded@1.93.2)(sass@1.93.2)(typescript@5.9.2)(yaml@2.8.1)
@@ -1024,8 +1024,8 @@ packages:
   '@vscode/l10n@0.0.18':
     resolution: {integrity: sha512-KYSIHVmslkaCDyw013pphY+d7x1qV8IZupYfeIfzNA+nsaWHbn5uPuQRvdRFsa9zFzGeudPuoGoZ1Op4jrJXIQ==}
 
-  '@yummacss/api@1.6.2':
-    resolution: {integrity: sha512-EetcFIb8irIt+ko5nC2IQmZP8auW+LHBR6KkYZ1oWlbA5NmHligiSSn2W5bumhWYi90QS3BmKRbYHBGqx3luDA==}
+  '@yummacss/api@1.7.0':
+    resolution: {integrity: sha512-XMeO9uw5ZWUAHQF6t/avosMFdBQaXW0r9WHK/Sz4ba4zvRnJXUf7WwW+7gP8+tMRaIbEG44LN7kzra1O3Fe3dw==}
 
   abbrev@3.0.1:
     resolution: {integrity: sha512-AO2ac6pjRB3SJmGJo+v5/aK6Omggp6fsLrs6wN9bd35ulu4cCwaAU9+7ZhXjeqHVkaHThLuzH0nZr0YpCDhygg==}
@@ -4120,7 +4120,7 @@ snapshots:
 
   '@vscode/l10n@0.0.18': {}
 
-  '@yummacss/api@1.6.2':
+  '@yummacss/api@1.7.0':
     dependencies:
       tinycolor2: 1.6.0
 
@@ -6773,7 +6773,7 @@ snapshots:
 
   yummacss@3.4.3:
     dependencies:
-      '@yummacss/api': 1.6.2
+      '@yummacss/api': 1.7.0
       chokidar: 4.0.3
       commander: 14.0.1
       globby: 14.1.0
