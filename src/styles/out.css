@@ -214,10 +214,6 @@
   background-clip: border-box;
 }
 
-.bc-black {
-  border-color: #000;
-}
-
 .bc-c {
   border-collapse: collapse;
 }
@@ -1345,10 +1341,6 @@
   height: 24rem;
 }
 
-.h-auto {
-  height: auto;
-}
-
 .h-dvh {
   height: 100dvh;
 }
@@ -1399,10 +1391,6 @@
 
 .h\:bg-yellow-1:hover {
   background-color: #f8f0d7;
-}
-
-.h\:d-none:hover {
-  display: none;
 }
 
 .i-0 {
@@ -1581,10 +1569,6 @@
 
 .m-2 {
   margin: .5rem;
-}
-
-.m-4 {
-  margin: 1rem;
 }
 
 .m-8 {
