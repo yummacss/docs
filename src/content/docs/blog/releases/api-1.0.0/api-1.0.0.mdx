@@ -16,7 +16,7 @@ Today, we are introducing [@yummacss/api](https://www.npmjs.com/package/@yummacs
 
 ## Why Yumma CSS API?
 
-It fuels both the Yumma CSS documentation and playground by providing the necessary data and utilities in a 300 KB package.
+It fuels both all Yumma CSS documentation, playground, and now Yumma CSS CLI by providing the necessary data and utilities.
 
 Instead of manually searching for utilities or maintaining your own lists, you can now access the entire Yumma CSS utility set through simple, type-safe functions. This makes it easy to:
 
@@ -38,15 +38,15 @@ Yumma CSS API is a powerful TypeScript/JavaScript utility library that provides 
 Get all utilities at once:
 
 ```ts
-import { getAllUtils } from "@yummacss/api";
+import { coreUtils } from "@yummacss/api";
 
-const all = getAllUtils();
+const all = coreUtils();
 ```
 
 Get only background utilities:
 
 ```ts
-import { getBackgroundUtils } from "@yummacss/api";
+import { backgroundUtils } from "@yummacss/api";
 
 const backgrounds = getBackgroundUtils();
 ```
@@ -54,7 +54,7 @@ const backgrounds = getBackgroundUtils();
 Access a specific utility from a category:
 
 ```ts
-import { getBoxModelUtils } from "@yummacss/api";
+import { boxModelUtils } from "@yummacss/api";
 
 const boxModel = getBoxModelUtils();
 const margin = boxModel["margin"];
@@ -66,27 +66,23 @@ Import utility group functions individually:
 
 ```ts
 import {
-  getAllUtils,
-  getBackgroundUtils,
-  getBorderUtils,
-  getBoxModelUtils,
-  getColorUtils,
-  getEffectUtils,
-  getFlexboxUtils,
-  getFontUtils,
-  getGridUtils,
-  getInteractivityUtils,
-  getOutlineUtils,
-  getPositioningUtils,
-  getSvgUtils,
-  getTableUtils,
-  getTextUtils,
-  getTransformUtils,
+  allUtils,
+  backgroundUtils,
+  borderUtils,
+  boxModelUtils,
+  colorUtils,
+  effectUtils,
+  flexboxUtils,
+  fontUtils,
+  gridUtils,
+  interactivityUtils,
+  outlineUtils,
+  positioningUtils,
+  svgUtils,
+  tableUtils,
+  textUtils,
+  transformUtils,
 } from "@yummacss/api";
 ```
 
-For advanced use cases, use these types:
-
-```ts
-import type { UtilityMap, UtilityItem } from "@yummacss/api";
-```
+Learn more in the[ developer API documentation](/docs/dev-api).
