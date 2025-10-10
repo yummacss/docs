@@ -9,10 +9,10 @@
   "type": "module",
   "scripts": {
     "astro": "astro",
-    "build:css": "yummacss build",
-    "build": "astro build && yummacss build",
+    "build:css": "yummacss b",
+    "build": "astro build && yummacss b",
     "check": "astro check",
-    "dev": "concurrently \"astro dev\" \"yummacss watch\"",
+    "dev": "concurrently \"astro dev\" \"yummacss w\"",
     "lint:blog": "biome check --write src/content/docs/blog/**/*.{md,mdx}",
     "lint:core-ui": "biome check --write src/content/docs/core-ui/**/*.{md,mdx}",
     "lint:docs": "biome check --write src/content/docs/core/**/*.{md,mdx}",
