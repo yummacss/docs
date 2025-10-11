@@ -36,14 +36,14 @@ const generateShades = (color: string): string[] => {
 };
 
 const borderColor = (color: string): string => {
-  const tc = tinycolor(color);
-  const lc = tc.getLuminance();
+  const textColor = tinycolor(color);
+  const luminanceColor = textColor.getLuminance();
 
-  if (lc > 0.9) {
+  if (luminanceColor > 0.9) {
     return "border: 1px solid rgba(0, 0, 0, 0.1);";
   }
 
-  if (lc < 0.1) {
+  if (luminanceColor < 0.1) {
     return "border: 1px solid light-dark(rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));";
   }
 
