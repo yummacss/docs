@@ -109,7 +109,6 @@ export default defineConfig({
         {
           "@astrojs/starlight/components": ["Card", "CardGrid", "Code", "FileTree", "LinkCard", "Steps", "TabItem", "Tabs"],
           "starlight-package-managers": ["PackageManagers"],
-          "starlight-showcases": ["ShowcaseYouTube"],
         },
       ],
     }),
