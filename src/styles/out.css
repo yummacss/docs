@@ -338,6 +338,10 @@
   background-color: #b6b7ee;
 }
 
+.bg-indigo-3\/50 {
+  background-color: #b6b7ee80;
+}
+
 .bg-indigo-4 {
   background-color: #9fa0e9;
 }
@@ -346,8 +350,20 @@
   background-color: #40429c;
 }
 
+.bg-indigo-8\/20 {
+  background-color: #40429c33;
+}
+
 .bg-indigo-9 {
   background-color: #34357e;
+}
+
+.bg-indigo\/10 {
+  background-color: #595cd91a;
+}
+
+.bg-indigo\/25 {
+  background-color: #595cd940;
 }
 
 .bg-red-2 {

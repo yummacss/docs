@@ -1,0 +1,50 @@
+---
+authors: Renildo
+cover:
+  alt: Yumma CSS 3.4.0
+  image: "cover.png"
+date: 2025-10-12
+description: Opacity variants for color utilities and small improvements to the CLI it's everything Yumma CSS 3.5 is all about.
+pagefind: false
+slug: blog/yummacss-3.5
+tags: ["release"]
+title: Yumma CSS 3.5
+---
+
+Opacity variants for color utilities and small improvements to the CLI it's everything Yumma CSS 3.5 is all about.
+
+{/* excerpt */}
+
+You may also want to take a look at some of the [release notes](https://github.com/yumma-lib/yumma-css/releases/tag/v3.4.0) but, anyway, these are the most noticeable shifts:
+
+- [Opacity variants](#opacity-variants): New opacity variants for color utilities.
+- [First-party engine](#cli-improvements): Improvements to extraction and styles generation.
+
+This is an incremental update that may contain breaking changes. Minor releases follow [semantic versioning](https://docs.npmjs.com/about-semantic-versioning) conventions. In other words, a migration is necessary to continue using the framework.
+
+---
+
+## Opacity variants
+
+Now you can use opacity variants for all color utilities. This is super useful for targeting opacity to different utilities.
+
+```html del={1} ins={2}
+<button class="bg-indigo o-10 ...">Login</button>
+<button class="bg-indigo/10 ...">Login</button>
+```
+
+---
+
+## First-party engine
+
+We've been making a lot of internal changes to the CLI to improve not also performance but also bundle size. We've moved the extraction and generation logic to our first-party engine, [@yummacss/nitro](https://www.npmjs.com/package/@yummacss/nitro).
+
+This change will allow us to extend Yumma CSS to feature projects like [Yumma CSS Play](https://play.yummacss.com) and more. Now of course this is a very specific change, but it's a big one for us internally.
+
+---
+
+## Upgrade
+
+You can upgrade your projects by getting the latest version of `yummacss` from npm:
+
+<PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} icons={false} pkg="yummacss@latest" title="Terminal" />

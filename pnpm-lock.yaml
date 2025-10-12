@@ -27,8 +27,8 @@ importers:
         specifier: ^5.2.6
         version: 5.2.6
       '@yummacss/api':
-        specifier: ^1.6.2
-        version: 1.6.2
+        specifier: ^1.7.2
+        version: 1.7.2
       astro:
         specifier: ^5.14.3
         version: 5.14.3(@types/node@24.3.3)(@vercel/functions@2.2.13)(lightningcss@1.30.2)(rollup@4.50.1)(sass-embedded@1.93.2)(sass@1.93.2)(typescript@5.9.2)(yaml@2.8.1)
@@ -85,8 +85,8 @@ importers:
         specifier: ^5.9.2
         version: 5.9.2
       yummacss:
-        specifier: ^3.4.3
-        version: 3.4.3
+        specifier: ^3.5.0
+        version: 3.5.0
 
 packages:
 
@@ -868,8 +868,8 @@ packages:
   '@shikijs/vscode-textmate@10.0.2':
     resolution: {integrity: sha512-83yeghZ2xxin3Nj8z1NMd/NCuca+gsYXswywDy5bHvwlWL8tpTQmzGeUuHd9FC3E/SBEMvzJRwWEOz5gGes9Qg==}
 
-  '@sindresorhus/merge-streams@2.3.0':
-    resolution: {integrity: sha512-LtoMMhxAlorcGhmFYI+LhPgbPZCkgP6ra1YL604EeF6U98pLlQ3iWIGMdWSC+vWmPBWBNgmDBAhnAobLROJmwg==}
+  '@sindresorhus/merge-streams@4.0.0':
+    resolution: {integrity: sha512-tlqY9xq5ukxTUZBmoOp+m61cqwQD5pHJtFY3Mn8CA8ps6yghLH/Hw8UPdqg4OLmFW3IFlcXnQNmo/dh8HzXYIQ==}
     engines: {node: '>=18'}
 
   '@swc/helpers@0.5.17':
@@ -1008,8 +1008,11 @@ packages:
   '@vscode/l10n@0.0.18':
     resolution: {integrity: sha512-KYSIHVmslkaCDyw013pphY+d7x1qV8IZupYfeIfzNA+nsaWHbn5uPuQRvdRFsa9zFzGeudPuoGoZ1Op4jrJXIQ==}
 
-  '@yummacss/api@1.6.2':
-    resolution: {integrity: sha512-EetcFIb8irIt+ko5nC2IQmZP8auW+LHBR6KkYZ1oWlbA5NmHligiSSn2W5bumhWYi90QS3BmKRbYHBGqx3luDA==}
+  '@yummacss/api@1.7.2':
+    resolution: {integrity: sha512-mx53stYJ6WfVIgaq2ppOMkLpHyQ4UT2VvsAdBsgPVJ1sldrsiQtTYsQTBj2L5b3moYOBmaRLLVe0T+meSIfR6w==}
+
+  '@yummacss/nitro@0.1.0':
+    resolution: {integrity: sha512-iDFX/ujiLknnO84WQc9RFtd6vAA+pvIfwmB26rsVT/2SvzJ5bAXjAvtntYw4NGKTWcgdkFU4DTbTgp41f0zi2Q==}
 
   abbrev@3.0.1:
     resolution: {integrity: sha512-AO2ac6pjRB3SJmGJo+v5/aK6Omggp6fsLrs6wN9bd35ulu4cCwaAU9+7ZhXjeqHVkaHThLuzH0nZr0YpCDhygg==}
@@ -1324,6 +1327,10 @@ packages:
     resolution: {integrity: sha512-ecqj/sy1jcK1uWrwpR67UhYrIFQ+5WlGxth34WquCbamhFA6hkkwiu37o6J5xCHdo1oixJRfVRw+ywV+Hq/0Aw==}
     engines: {node: '>=8'}
 
+  detect-libc@2.1.2:
+    resolution: {integrity: sha512-Btj2BOOO83o3WyH59e8MgXsxEQVcarkUOpEYrubB0urwnN10yQ364rsiByU11nZlqWYZm05i/of7io4mzihBtQ==}
+    engines: {node: '>=8'}
+
   deterministic-object-hash@2.0.2:
     resolution: {integrity: sha512-KxektNH63SrbfUyDiwXqRb1rLwKt33AmMv+5Nhsw1kqZ13SJBRTgZHtGbE+hH3a1mVW1cz+4pqSWVPAtLVXTzQ==}
     engines: {node: '>=18'}
@@ -1512,9 +1519,9 @@ packages:
     resolution: {integrity: sha512-7Bv8RF0k6xjo7d4A/PxYLbUCfb6c+Vpd2/mB2yRDlew7Jb5hEXiCD9ibfO7wpk8i4sevK6DFny9h7EYbM3/sHg==}
     hasBin: true
 
-  globby@14.1.0:
-    resolution: {integrity: sha512-0Ia46fDOaT7k4og1PDW4YbodWWr3scS2vAr2lTbsplOt2WkKp0vQbkI9wKis/T5LV/dqPjO3bpS/z6GTJB82LA==}
-    engines: {node: '>=18'}
+  globby@15.0.0:
+    resolution: {integrity: sha512-oB4vkQGqlMl682wL1IlWd02tXCbquGWM4voPEI85QmNKCaw8zGTm1f1rubFgkg3Eli2PtKlFgrnmUqasbQWlkw==}
+    engines: {node: '>=20'}
 
   graceful-fs@4.2.11:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
@@ -3094,8 +3101,8 @@ packages:
     resolution: {integrity: sha512-CzhO+pFNo8ajLM2d2IW/R93ipy99LWjtwblvC1RsoSUMZgyLbYFr221TnSNT7GjGdYui6P459mw9JH/g/zW2ug==}
     engines: {node: '>=18'}
 
-  yummacss@3.4.3:
-    resolution: {integrity: sha512-AzZTBg0uhqB0j528QvxhmAIoRoUrT0hZxkxRjtgi4UkQvxdxttAHiD9jy2wpRXjVxiN8v/4jgC9EaIowTPf3lQ==}
+  yummacss@3.5.0:
+    resolution: {integrity: sha512-Zez54yocMGhIbnmMXox8jRKfZcmvF7U0sg/WWxJKLI9cEtiq2tpiAqru1DwrE+hUf6Iv1+hukNyEb/D1Uk5+TA==}
     hasBin: true
 
   zod-to-json-schema@3.24.6:
@@ -3112,8 +3119,8 @@ packages:
   zod@3.25.76:
     resolution: {integrity: sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==}
 
-  zod@4.1.11:
-    resolution: {integrity: sha512-WPsqwxITS2tzx1bzhIKsEs19ABD5vmCVa4xBo2tq/SrV4RNZtfws1EnCWQXM6yh8bD08a1idvkB5MZSBiZsjwg==}
+  zod@4.1.12:
+    resolution: {integrity: sha512-JInaHOamG8pt5+Ey8kGmdcAcg3OL9reK8ltczgHTAwNhMys/6ThXHityHxVV2p3fkw/c+MAvBHFVYHFZDmjMCQ==}
 
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
@@ -3896,7 +3903,7 @@ snapshots:
 
   '@shikijs/vscode-textmate@10.0.2': {}
 
-  '@sindresorhus/merge-streams@2.3.0': {}
+  '@sindresorhus/merge-streams@4.0.0': {}
 
   '@swc/helpers@0.5.17':
     dependencies:
@@ -4049,9 +4056,15 @@ snapshots:
 
   '@vscode/l10n@0.0.18': {}
 
-  '@yummacss/api@1.6.2':
+  '@yummacss/api@1.7.2':
     dependencies:
       tinycolor2: 1.6.0
+
+  '@yummacss/nitro@0.1.0':
+    dependencies:
+      '@yummacss/api': 1.7.2
+      globby: 15.0.0
+      zod: 4.1.12
 
   abbrev@3.0.1: {}
 
@@ -4424,6 +4437,8 @@ snapshots:
 
   detect-libc@2.1.1: {}
 
+  detect-libc@2.1.2: {}
+
   deterministic-object-hash@2.0.2:
     dependencies:
       base-64: 1.0.0
@@ -4639,9 +4654,9 @@ snapshots:
       package-json-from-dist: 1.0.1
       path-scurry: 1.11.1
 
-  globby@14.1.0:
+  globby@15.0.0:
     dependencies:
-      '@sindresorhus/merge-streams': 2.3.0
+      '@sindresorhus/merge-streams': 4.0.0
       fast-glob: 3.3.3
       ignore: 7.0.5
       path-type: 6.0.0
@@ -5003,7 +5018,7 @@ snapshots:
 
   lightningcss@1.30.2:
     dependencies:
-      detect-libc: 2.1.1
+      detect-libc: 2.1.2
     optionalDependencies:
       lightningcss-android-arm64: 1.30.2
       lightningcss-darwin-arm64: 1.30.2
@@ -6643,16 +6658,15 @@ snapshots:
 
   yoctocolors@2.1.2: {}
 
-  yummacss@3.4.3:
+  yummacss@3.5.0:
     dependencies:
-      '@yummacss/api': 1.6.2
+      '@yummacss/nitro': 0.1.0
       chokidar: 4.0.3
       commander: 14.0.1
-      globby: 14.1.0
+      globby: 15.0.0
       lightningcss: 1.30.2
       ora: 8.2.0
       stringify-object: 6.0.0
-      zod: 4.1.11
 
   zod-to-json-schema@3.24.6(zod@3.25.76):
     dependencies:
@@ -6665,6 +6679,6 @@ snapshots:
 
   zod@3.25.76: {}
 
-  zod@4.1.11: {}
+  zod@4.1.12: {}
 
   zwitch@2.0.4: {}
