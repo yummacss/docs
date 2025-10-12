@@ -8,6 +8,19 @@ slug: docs/position
 
 <Class category="positioning" name="position" />
 
+## Static
+
+> Initial value
+
+The element is positioned according to the normal flow of the document, and top, right, bottom, and left properties have no effect.
+
+```html live "p-s" layout="/src/layouts/inline.astro"
+<div class="tc-white">
+  <div class="bg-indigo p-4 p-s">Static Position</div>
+  <div class="bg-indigo-2 p-4">Another Element</div>
+</div>
+```
+
 ## Absolute
 
 The element is positioned relative to its nearest positioned ancestor (not static), allowing for precise placement.
@@ -36,19 +49,6 @@ The element is positioned relative to its normal position, allowing for adjustme
 ```html live "p-r" layout="/src/layouts/inline.astro"
 <div class="tc-white">
   <div class="bg-indigo l-4 t-4 p-4 p-r">Relative Position</div>
-  <div class="bg-indigo-2 p-4">Another Element</div>
-</div>
-```
-
-## Static
-
-> Initial value
-
-The element is positioned according to the normal flow of the document, and top, right, bottom, and left properties have no effect.
-
-```html live "p-s" layout="/src/layouts/inline.astro"
-<div class="tc-white">
-  <div class="bg-indigo p-4 p-s">Static Position</div>
   <div class="bg-indigo-2 p-4">Another Element</div>
 </div>
 ```

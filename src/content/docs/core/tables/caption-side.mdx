@@ -8,14 +8,16 @@ slug: docs/caption-side
 
 <Class category="table" name="caption-side" />
 
-## Bottom
+## Top
 
-The caption will be displayed below the table.
+> Initial value
 
-```html live "cs-b" layout="/src/layouts/inline.astro"
+The caption will be displayed above the table.
+
+```html live "cs-t" layout="/src/layouts/inline.astro"
 <table class="b-1 bc-c bc-indigo ta-c w-full">
-  <caption class="cs-b p-2">
-    Bottom Caption
+  <caption class="cs-t p-2">
+    Top Caption
   </caption>
   <tbody>
     <tr>
@@ -27,16 +29,14 @@ The caption will be displayed below the table.
 </table>
 ```
 
-## Top
+## Bottom
 
-> Initial value
+The caption will be displayed below the table.
 
-The caption will be displayed above the table.
-
-```html live "cs-t" layout="/src/layouts/inline.astro"
+```html live "cs-b" layout="/src/layouts/inline.astro"
 <table class="b-1 bc-c bc-indigo ta-c w-full">
-  <caption class="cs-t p-2">
-    Top Caption
+  <caption class="cs-b p-2">
+    Bottom Caption
   </caption>
   <tbody>
     <tr>

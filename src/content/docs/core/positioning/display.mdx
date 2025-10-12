@@ -8,6 +8,18 @@ slug: docs/display
 
 <Class category="positioning" name="display" />
 
+## Inline
+
+> Initial value
+
+Makes the element an inline element, allowing it to sit within a line of text without breaking the flow.
+
+```html live "d-i" layout="/src/layouts/inline.astro"
+<div class="bg-indigo d-i p-4 rad-1 tc-white">A</div>
+<div class="bg-indigo d-i p-4 rad-1 tc-white">B</div>
+<div class="bg-indigo d-i p-4 rad-1 tc-white">C</div>
+```
+
 ## Block
 
 Makes the element a block-level element, causing it to take up the full width available and start on a new line.
@@ -53,18 +65,6 @@ Makes the element a grid container, enabling the use of grid layout properties f
   <div class="bg-indigo p-4 rad-1">B</div>
   <div class="bg-indigo p-4 rad-1">C</div>
 </div>
-```
-
-## Inline
-
-> Initial value
-
-Makes the element an inline element, allowing it to sit within a line of text without breaking the flow.
-
-```html live "d-i" layout="/src/layouts/inline.astro"
-<div class="bg-indigo d-i p-4 rad-1 tc-white">A</div>
-<div class="bg-indigo d-i p-4 rad-1 tc-white">B</div>
-<div class="bg-indigo d-i p-4 rad-1 tc-white">C</div>
 ```
 
 ## Inline Flex

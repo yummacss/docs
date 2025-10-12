@@ -8,6 +8,18 @@ slug: docs/text-transform
 
 <Class category="text" name="text-transform" />
 
+## None
+
+> Initial value
+
+The text will be displayed as it is, without any transformation applied.
+
+```html live "tt-none" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <p class="bg-white fs-lg p-4 rad-1 ta-c tc-slate tt-none">Sphinx of black quartz, judge my vow.</p>
+</div>
+```
+
 ## Capitalize
 
 The first letter of each word will be converted to uppercase.
@@ -25,18 +37,6 @@ All letters in the text will be converted to lowercase.
 ```html live "tt-l" layout="/src/layouts/inline.astro"
 <div class="bg-indigo-1 p-4 rad-1">
   <p class="bg-white fs-lg p-4 rad-1 ta-c tc-slate tt-l">Sphinx of black quartz, judge my vow.</p>
-</div>
-```
-
-## None
-
-> Initial value
-
-The text will be displayed as it is, without any transformation applied.
-
-```html live "tt-none" layout="/src/layouts/inline.astro"
-<div class="bg-indigo-1 p-4 rad-1">
-  <p class="bg-white fs-lg p-4 rad-1 ta-c tc-slate tt-none">Sphinx of black quartz, judge my vow.</p>
 </div>
 ```
 

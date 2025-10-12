@@ -8,16 +8,18 @@ slug: docs/scroll-snap-type
 
 <Class category="interactivity" name="scroll-snap-type" />
 
-## Both Mandatory
+## None
 
-Enables snapping in both horizontal and vertical directions, requiring the scroll to stop at defined snap points.
+> Initial value
+
+Disables any snapping behavior, allowing for free scrolling without restrictions.
 
 <Note icon="cursor_arrow">Try scrolling through the image container to see how it behaves.</Note>
 
-```html live "sst-b-m" layout="/src/layouts/inline.astro"
+```html live "sst-none" layout="/src/layouts/inline.astro"
 <div class="o-h p-r">
-  <div class="d-f g-6 o-x-s p-6 sst-b-m">
-    <div class="fs-0 p-6 p-r sm-6 ssa-s">
+  <div class="d-f g-6 o-x-s p-6 sst-none">
+    <div class="fs-0 p-6 p-r sm-6 ssa-none">
       <img class="h-40 p-r rad-1 w-80 zi-10" src="/img/coast.jpg" />
     </div>
     <div class="fs-0 p-6 p-r sm-6 ssa-s">
@@ -33,18 +35,16 @@ Enables snapping in both horizontal and vertical directions, requiring the scrol
 </div>
 ```
 
-## None
+## Both Mandatory
 
-> Initial value
-
-Disables any snapping behavior, allowing for free scrolling without restrictions.
+Enables snapping in both horizontal and vertical directions, requiring the scroll to stop at defined snap points.
 
 <Note icon="cursor_arrow">Try scrolling through the image container to see how it behaves.</Note>
 
-```html live "sst-none" layout="/src/layouts/inline.astro"
+```html live "sst-b-m" layout="/src/layouts/inline.astro"
 <div class="o-h p-r">
-  <div class="d-f g-6 o-x-s p-6 sst-none">
-    <div class="fs-0 p-6 p-r sm-6 ssa-none">
+  <div class="d-f g-6 o-x-s p-6 sst-b-m">
+    <div class="fs-0 p-6 p-r sm-6 ssa-s">
       <img class="h-40 p-r rad-1 w-80 zi-10" src="/img/coast.jpg" />
     </div>
     <div class="fs-0 p-6 p-r sm-6 ssa-s">

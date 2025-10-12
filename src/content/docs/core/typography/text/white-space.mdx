@@ -8,19 +8,6 @@ slug: docs/white-space
 
 <Class category="text" name="white-space" />
 
-## Break Spaces
-
-The text will respect spaces and line breaks, allowing for wrapping at spaces.
-
-{/* biome-ignore */}
-```html live "ws-bs" layout="/src/layouts/inline.astro"
-<div class="bg-indigo-1 p-4 rad-1">
-  <div class="p-4 bg-white rad-1">
-    <p class="tc-slate fs-lg ws-bs">Hi,    Anne.    It's    finally    springtime    here    on    Earth!    I    can't    stand    windy    or    cold    days,    so    I'm    very    excited    for    the    spring.    There    are    so    many    beautiful,    colorful    trees    where    I    live.    I'll    try    to    send    you    some    pictures    I    took    with    the    camera    you    gave    me    for    my    birthday.    I've    been    a    little    under    the    weather    lately,    but    I'll    bounce    back    in    no    time    so    we    can    meet    up    and    hug    each    other    again.</p>
-  </div>
-</div>
-```
-
 ## Normal
 
 > Initial value
@@ -32,6 +19,19 @@ The text will wrap normally, and multiple spaces will be collapsed into a single
 <div class="bg-indigo-1 p-4 rad-1">
   <div class="p-4 bg-white rad-1">
     <p class="tc-slate fs-lg ws-n">Hi,    Anne.    It's    finally    springtime    here    on    Earth!    I    can't    stand    windy    or    cold    days,    so    I'm    very    excited    for    the    spring.    There    are    so    many    beautiful,    colorful    trees    where    I    live.    I'll    try    to    send    you    some    pictures    I    took    with    the    camera    you    gave    me    for    my    birthday.    I've    been    a    little    under    the    weather    lately,    but    I'll    bounce    back    in    no    time    so    we    can    meet    up    and    hug    each    other    again.</p>
+  </div>
+</div>
+```
+
+## Break Spaces
+
+The text will respect spaces and line breaks, allowing for wrapping at spaces.
+
+{/* biome-ignore */}
+```html live "ws-bs" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <div class="p-4 bg-white rad-1">
+    <p class="tc-slate fs-lg ws-bs">Hi,    Anne.    It's    finally    springtime    here    on    Earth!    I    can't    stand    windy    or    cold    days,    so    I'm    very    excited    for    the    spring.    There    are    so    many    beautiful,    colorful    trees    where    I    live.    I'll    try    to    send    you    some    pictures    I    took    with    the    camera    you    gave    me    for    my    birthday.    I've    been    a    little    under    the    weather    lately,    but    I'll    bounce    back    in    no    time    so    we    can    meet    up    and    hug    each    other    again.</p>
   </div>
 </div>
 ```

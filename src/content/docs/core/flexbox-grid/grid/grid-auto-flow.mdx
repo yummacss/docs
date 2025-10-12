@@ -8,6 +8,22 @@ slug: docs/grid-auto-flow
 
 <Class category="grid" name="grid-auto-flow" />
 
+## Row
+
+> Initial value
+
+The items will be placed in the grid by filling each row before moving to the next one.
+
+```html live "gaf-r" layout="/src/layouts/inline.astro"
+<div class="d-g g-4 gaf-r gtc-3 gtr-3 ta-c tc-white" id="area">
+  <div class="bg-indigo-8 gc-s-2 p-4 rad-1 tc-indigo-5">A</div>
+  <div class="bg-indigo-8 gc-s-2 p-4 rad-1 tc-indigo-5">B</div>
+  <div class="bg-indigo p-4 rad-1">C</div>
+  <div class="bg-indigo-8 p-4 rad-1 tc-indigo-5">D</div>
+  <div class="bg-indigo-8 p-4 rad-1 tc-indigo-5">E</div>
+</div>
+```
+
 ## Column
 
 The items will be placed in the grid by filling each column before moving to the next one.
@@ -28,22 +44,6 @@ The items will be placed in the grid in a way that fills in gaps as efficiently 
 
 ```html live "gaf-d" layout="/src/layouts/inline.astro"
 <div class="d-g g-4 gaf-d gtc-3 gtr-3 ta-c tc-white" id="area">
-  <div class="bg-indigo-8 gc-s-2 p-4 rad-1 tc-indigo-5">A</div>
-  <div class="bg-indigo-8 gc-s-2 p-4 rad-1 tc-indigo-5">B</div>
-  <div class="bg-indigo p-4 rad-1">C</div>
-  <div class="bg-indigo-8 p-4 rad-1 tc-indigo-5">D</div>
-  <div class="bg-indigo-8 p-4 rad-1 tc-indigo-5">E</div>
-</div>
-```
-
-## Row
-
-> Initial value
-
-The items will be placed in the grid by filling each row before moving to the next one.
-
-```html live "gaf-r" layout="/src/layouts/inline.astro"
-<div class="d-g g-4 gaf-r gtc-3 gtr-3 ta-c tc-white" id="area">
   <div class="bg-indigo-8 gc-s-2 p-4 rad-1 tc-indigo-5">A</div>
   <div class="bg-indigo-8 gc-s-2 p-4 rad-1 tc-indigo-5">B</div>
   <div class="bg-indigo p-4 rad-1">C</div>

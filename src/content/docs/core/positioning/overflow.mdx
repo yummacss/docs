@@ -8,6 +8,18 @@ slug: docs/overflow
 
 <Class category="positioning" name="overflow" />
 
+## Visible
+
+> Initial value
+
+The content will overflow the container and be visible outside of it.
+
+```html live "o-v" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-2 h-32 o-v p-4">
+  <div class="bg-indigo h-64 p-4 tc-white">This content overflows the container and is fully visible.</div>
+</div>
+```
+
 ## Auto
 
 The element will add scrollbars if the content overflows the container.
@@ -47,18 +59,6 @@ The element will always show scrollbars, regardless of whether the content overf
 ```html live "o-s" layout="/src/layouts/inline.astro"
 <div class="bg-indigo-2 h-32 o-s p-4">
   <div class="bg-indigo h-64 p-4 tc-white">This content overflows the container, and scrollbars are always visible.</div>
-</div>
-```
-
-## Visible
-
-> Initial value
-
-The content will overflow the container and be visible outside of it.
-
-```html live "o-v" layout="/src/layouts/inline.astro"
-<div class="bg-indigo-2 h-32 o-v p-4">
-  <div class="bg-indigo h-64 p-4 tc-white">This content overflows the container and is fully visible.</div>
 </div>
 ```
 

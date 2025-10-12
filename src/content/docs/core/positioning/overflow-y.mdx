@@ -8,6 +8,18 @@ slug: docs/overflow-y
 
 <Class category="positioning" name="overflow-y" />
 
+## Visible
+
+> Initial value
+
+Ensures that any content overflowing vertically remains visible outside the container.
+
+```html live "o-y-v"
+<div class="bg-indigo-2 h-32 o-y-v p-4 w-64">
+  <div class="bg-indigo h-64 p-4 tc-white w-full">This content overflows the container and is fully visible vertically.</div>
+</div>
+```
+
 ## Auto
 
 Allows the content to scroll vertically if it overflows the container, while hiding the scrollbar when not needed.
@@ -45,18 +57,6 @@ Enables a vertical scrollbar for the container, allowing users to scroll through
 ```html live "o-y-s"
 <div class="bg-indigo-2 h-32 o-y-s p-4 w-64">
   <div class="bg-indigo h-64 p-4 tc-white w-full">This content overflows the container, and a vertical scrollbar is always visible.</div>
-</div>
-```
-
-## Visible
-
-> Initial value
-
-Ensures that any content overflowing vertically remains visible outside the container.
-
-```html live "o-y-v"
-<div class="bg-indigo-2 h-32 o-y-v p-4 w-64">
-  <div class="bg-indigo h-64 p-4 tc-white w-full">This content overflows the container and is fully visible vertically.</div>
 </div>
 ```
 
