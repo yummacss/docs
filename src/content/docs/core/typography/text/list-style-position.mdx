@@ -8,20 +8,6 @@ slug: docs/list-style-position
 
 <Class category="text" name="list-style-position" />
 
-## Inside
-
-The list item markers will be placed inside the list item's content area, affecting the text alignment.
-
-```html live "lsp-i" layout="/src/layouts/inline.astro"
-<div class="bg-indigo-1 p-4 rad-1">
-  <ul class="bg-white lsp-i lst-d p-4 pl-6 rad-1">
-    <li class="tc-slate">Butter 🧈</li>
-    <li class="tc-slate">Egg 🥚</li>
-    <li class="tc-slate">Milk 🥛</li>
-  </ul>
-</div>
-```
-
 ## Outside
 
 > Initial value
@@ -31,6 +17,20 @@ The list item markers will be placed outside the list item's content area, allow
 ```html live "lsp-o" layout="/src/layouts/inline.astro"
 <div class="bg-indigo-1 p-4 rad-1">
   <ul class="bg-white lsp-o lst-d p-4 pl-6 rad-1">
+    <li class="tc-slate">Butter 🧈</li>
+    <li class="tc-slate">Egg 🥚</li>
+    <li class="tc-slate">Milk 🥛</li>
+  </ul>
+</div>
+```
+
+## Inside
+
+The list item markers will be placed inside the list item's content area, affecting the text alignment.
+
+```html live "lsp-i" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <ul class="bg-white lsp-i lst-d p-4 pl-6 rad-1">
     <li class="tc-slate">Butter 🧈</li>
     <li class="tc-slate">Egg 🥚</li>
     <li class="tc-slate">Milk 🥛</li>

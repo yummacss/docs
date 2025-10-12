@@ -8,6 +8,18 @@ slug: docs/float
 
 <Class category="positioning" name="float" />
 
+## None
+
+> Initial value
+
+The element will not float, and it will be displayed in the normal flow of the document.
+
+```html live "fl-none" layout="/src/layouts/inline.astro"
+<div class="h-14 p-r tc-white" id="area">
+  <div class="ai-c bg-indigo d-f d-14 fl-none jc-c rad-1">A</div>
+</div>
+```
+
 ## Inline End
 
 The element will float to the end of the inline direction, which is typically the right side in left-to-right languages.
@@ -35,18 +47,6 @@ The element will float to the left side of its container, allowing text and inli
 ```html live "fl-l" layout="/src/layouts/inline.astro"
 <div class="h-14 p-r tc-white" id="area">
   <div class="ai-c bg-indigo d-f d-14 fl-l jc-c rad-1">A</div>
-</div>
-```
-
-## None
-
-> Initial value
-
-The element will not float, and it will be displayed in the normal flow of the document.
-
-```html live "fl-none" layout="/src/layouts/inline.astro"
-<div class="h-14 p-r tc-white" id="area">
-  <div class="ai-c bg-indigo d-f d-14 fl-none jc-c rad-1">A</div>
 </div>
 ```
 

@@ -554,10 +554,6 @@
   columns: 4;
 }
 
-.c-auto {
-  cursor: auto;
-}
-
 .c-cr {
   cursor: col-resize;
 }

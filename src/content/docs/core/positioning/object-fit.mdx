@@ -8,16 +8,6 @@ slug: docs/object-fit
 
 <Class category="positioning" name="object-fit" />
 
-## Cover
-
-The content will scale to cover the entire container while maintaining its aspect ratio, potentially cropping the content.
-
-```html live "of-c"
-<div class="h-40 w-80" id="area">
-  <img class="d-full of-c rad-1" src="/img/coast.jpg" />
-</div>
-```
-
 ## Fill
 
 > Initial value
@@ -27,6 +17,16 @@ The content will stretch to fill the entire container, disregarding its aspect r
 ```html live "of-f"
 <div class="h-40 w-80" id="area">
   <img class="d-full of-f rad-1" src="/img/coast.jpg" />
+</div>
+```
+
+## Cover
+
+The content will scale to cover the entire container while maintaining its aspect ratio, potentially cropping the content.
+
+```html live "of-c"
+<div class="h-40 w-80" id="area">
+  <img class="d-full of-c rad-1" src="/img/coast.jpg" />
 </div>
 ```
 

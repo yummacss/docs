@@ -8,6 +8,17 @@ slug: docs/clear
 
 <Class category="positioning" name="clear" />
 
+## None
+
+> Initial value
+
+Allows the element to be positioned normally without clearing any floating elements.
+
+```html live "cl-none" layout="/src/layouts/inline.astro"
+<div class="bg-indigo d-32 fl-l rad-1"></div>
+<div class="cl-none p-6" id="area"></div>
+```
+
 ## Both
 
 Ensures that the element is moved below any floating elements on both sides.
@@ -43,17 +54,6 @@ Ensures that the element is moved below any floating elements on the left side.
 ```html live "cl-l" layout="/src/layouts/inline.astro"
 <div class="bg-indigo d-32 fl-l rad-1"></div>
 <div class="cl-l p-6" id="area"></div>
-```
-
-## None
-
-> Initial value
-
-Allows the element to be positioned normally without clearing any floating elements.
-
-```html live "cl-none" layout="/src/layouts/inline.astro"
-<div class="bg-indigo d-32 fl-l rad-1"></div>
-<div class="cl-none p-6" id="area"></div>
 ```
 
 ## Right

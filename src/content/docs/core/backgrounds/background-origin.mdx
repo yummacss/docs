@@ -8,6 +8,16 @@ slug: docs/background-origin
 
 <Class category="background" name="background-origin" />
 
+## Padding Box
+
+> Initial value
+
+The background positioning area extends to the outer edge of the padding, but does not include the border.
+
+```html live "bo-pb"
+<div class="b-3 b-d bc-pb bo-pb bc-indigo-4 bg-indigo d-20 p-2 rad-1"></div>
+```
+
 ## Border Box
 
 The background positioning area includes the border area.
@@ -22,16 +32,6 @@ The background positioning area is confined to the content area, excluding paddi
 
 ```html live "bo-cb"
 <div class="b-3 b-d bc-cb bo-cb bc-indigo-4 bg-indigo d-20 p-2 rad-1"></div>
-```
-
-## Padding Box
-
-> Initial value
-
-The background positioning area extends to the outer edge of the padding, but does not include the border.
-
-```html live "bo-pb"
-<div class="b-3 b-d bc-pb bo-pb bc-indigo-4 bg-indigo d-20 p-2 rad-1"></div>
 ```
 
 ## Conditional styles

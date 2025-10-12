@@ -8,6 +8,18 @@ slug: docs/overflow-x
 
 <Class category="positioning" name="overflow-x" />
 
+## Visible
+
+> Initial value
+
+Ensures that any content overflowing horizontally remains visible outside the container.
+
+```html live "o-x-v"
+<div class="bg-indigo-2 h-32 o-x-v p-4 w-64">
+  <div class="bg-indigo p-4 tc-white w-96">This content overflows the container and is fully visible horizontally.</div>
+</div>
+```
+
 ## Auto
 
 Allows the content to scroll horizontally if it overflows the container, while hiding the scrollbar when not needed.
@@ -45,18 +57,6 @@ Enables a horizontal scrollbar for the container, allowing users to scroll throu
 ```html live "o-x-s"
 <div class="bg-indigo-2 h-32 o-x-s p-4 w-64">
   <div class="bg-indigo p-4 tc-white w-96">This content overflows the container, and a horizontal scrollbar is always visible.</div>
-</div>
-```
-
-## Visible
-
-> Initial value
-
-Ensures that any content overflowing horizontally remains visible outside the container.
-
-```html live "o-x-v"
-<div class="bg-indigo-2 h-32 o-x-v p-4 w-64">
-  <div class="bg-indigo p-4 tc-white w-96">This content overflows the container and is fully visible horizontally.</div>
 </div>
 ```
 
