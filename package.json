@@ -28,7 +28,7 @@
     "@expressive-code/plugin-collapsible-sections": "^0.41.3",
     "@expressive-code/plugin-line-numbers": "^0.41.3",
     "@fontsource-variable/outfit": "^5.2.6",
-    "@yummacss/api": "^1.6.2",
+    "@yummacss/api": "^1.7.2",
     "astro": "^5.14.3",
     "astro-auto-import": "^0.4.4",
     "astro-live-code": "^0.0.6",
@@ -49,7 +49,7 @@
     "concurrently": "^9.2.1",
     "sharp": "^0.34.3",
     "typescript": "^5.9.2",
-    "yummacss": "^3.4.3"
+    "yummacss": "^3.5.0"
   },
   "engines": {
     "node": "22.x"
