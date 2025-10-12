@@ -1,36 +1,35 @@
-# [@yummacss](https://www.npmjs.com/package/yummacss)
+# [yummacss](https://www.npmjs.com/package/yummacss)
 
-A CSS framework for the web with abbreviated styles.
+A CLI-first CSS framework for the web with abbreviated styles.
 
 [![NPM Version](https://img.shields.io/npm/v/yummacss?style=plastic&label=yummacss&labelColor=eaedfc&color=413cb8)](https://www.npmjs.com/package/yummacss)
 [![NPM Downloads](https://img.shields.io/npm/d18m/yummacss?style=plastic&label=downloads&labelColor=eaedfc&color=413cb8)](https://www.npmjs.com/package/yummacss)
 
-## Getting started
+## Installing
 
-Yumma CSS is a CLI-first CSS framework packed with a set of non-opinionated, atomic utility classes designed to minimize and scale your codebase.
+Install `yummacss` as a dev dependency and initialize configuration
 
-### Using the CLI
-
-Install `yummacss` as a dev dependency
-
-```
+```bash
 npm i yummacss -D
-```
-
-Initialize configuration
-
-```
 npx yummacss init
+```
+
+Build styles
+
+```
+npx yummacss build
 ```
 
 ## Documentation
 
-Head over to the [Yumma CSS docs](https://www.yummacss.com) to learn more.
+Learn more at [yummacss.com](https://yummacss.com)
 
 ## Built with
 
-- [@yummacss/api](https://www.npmjs.com/package/@yummacss/api)
+- [@yummacss/nitro](https://www.npmjs.com/package/@yummacss/nitro)
+- [biome](https://www.npmjs.com/package/@biomejs/biome)
 - [lightningcss](https://www.npmjs.com/package/lightningcss)
+- [tsdown](https://www.npmjs.com/package/tsdown)
 - [typescript](https://www.npmjs.com/package/typescript)
 
 ## License
