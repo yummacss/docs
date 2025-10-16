@@ -1,50 +1,52 @@
 ---
-import tinycolor from "tinycolor2";
+/** biome-ignore-all lint/correctness/noUnusedImports: Imports are used in the component */
+/** biome-ignore-all lint/correctness/noUnusedVariables: Variables are used in the component */
 import { Tooltips } from "astro-tooltips";
+import tinycolor from "tinycolor2";
 
 interface ColorItem {
-  name: string;
-  color: string;
+	name: string;
+	color: string;
 }
 
 interface Props {
-  data: ColorItem[];
-  percentage?: number;
+	data: ColorItem[];
+	percentage?: number;
 }
 
 const { data, percentage = 10 } = Astro.props as Props;
 
 const mixColors = (color1: string, color2: string, weight: number): string => {
-  return tinycolor.mix(color1, color2, weight).toHexString();
+	return tinycolor.mix(color1, color2, weight).toHexString();
 };
 
 const generateShades = (color: string): string[] => {
-  const shades: string[] = [];
-  for (let i = 6; i >= 1; i--) {
-    shades.push(mixColors(color, "white", i * percentage));
-  }
+	const shades: string[] = [];
+	for (let i = 6; i >= 1; i--) {
+		shades.push(mixColors(color, "white", i * percentage));
+	}
 
-  shades.push(color);
-  for (let i = 1; i <= 6; i++) {
-    shades.push(mixColors(color, "black", i * percentage));
-  }
+	shades.push(color);
+	for (let i = 1; i <= 6; i++) {
+		shades.push(mixColors(color, "black", i * percentage));
+	}
 
-  return shades;
+	return shades;
 };
 
 const getBorderStyle = (color: string): string => {
-  const tc = tinycolor(color);
-  const lc = tc.getLuminance();
+	const tc = tinycolor(color);
+	const lc = tc.getLuminance();
 
-  if (lc > 0.9) {
-    return "border: 1px solid rgba(0, 0, 0, 0.1);";
-  }
+	if (lc > 0.9) {
+		return "border: 1px solid rgba(0, 0, 0, 0.1);";
+	}
 
-  if (lc < 0.1) {
-    return "border: 1px solid light-dark(rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));";
-  }
+	if (lc < 0.1) {
+		return "border: 1px solid light-dark(rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));";
+	}
 
-  return "";
+	return "";
 };
 ---
 

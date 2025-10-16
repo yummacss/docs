@@ -1,7 +1,8 @@
 ---
+/** biome-ignore-all lint/correctness/noUnusedVariables: Variables are used in the component */
 export interface Props {
-  class?: string;
-  size?: string | number;
+	class?: string;
+	size?: string | number;
 }
 
 const { class: className = "", size = "1em" } = Astro.props;
