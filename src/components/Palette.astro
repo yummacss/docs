@@ -1,13 +1,16 @@
 ---
-import tinycolor from "tinycolor2";
+/** biome-ignore-all lint/correctness/noUnusedImports: Imports are used in the component */
+/** biome-ignore-all lint/correctness/noUnusedVariables: Variables are used in the component */
 import { Tooltips } from "astro-tooltips";
+import tinycolor from "tinycolor2";
+
 interface ColorItem {
-  name: string;
-  color: string;
+	name: string;
+	color: string;
 }
 
 interface Props {
-  data: ColorItem[];
+	data: ColorItem[];
 }
 
 const { data } = Astro.props as Props;
@@ -15,38 +18,38 @@ const { data } = Astro.props as Props;
 const percentage = 14;
 
 const generateShades = (color: string): string[] => {
-  const shades: string[] = [];
+	const shades: string[] = [];
 
-  for (let i = 1; i <= 6; i++) {
-    const weight = (7 - i) * percentage;
-    const mixedColor = tinycolor.mix(color, "white", weight);
-    shades.push(mixedColor.toHexString());
-  }
+	for (let i = 1; i <= 6; i++) {
+		const weight = (7 - i) * percentage;
+		const mixedColor = tinycolor.mix(color, "white", weight);
+		shades.push(mixedColor.toHexString());
+	}
 
-  shades.push(tinycolor(color).toHexString());
+	shades.push(tinycolor(color).toHexString());
 
-  for (let i = 1; i <= 6; i++) {
-    const weight = i * percentage;
-    const mixedColor = tinycolor.mix(color, "black", weight);
-    shades.push(mixedColor.toHexString());
-  }
+	for (let i = 1; i <= 6; i++) {
+		const weight = i * percentage;
+		const mixedColor = tinycolor.mix(color, "black", weight);
+		shades.push(mixedColor.toHexString());
+	}
 
-  return shades;
+	return shades;
 };
 
 const borderColor = (color: string): string => {
-  const textColor = tinycolor(color);
-  const luminanceColor = textColor.getLuminance();
+	const textColor = tinycolor(color);
+	const luminanceColor = textColor.getLuminance();
 
-  if (luminanceColor > 0.9) {
-    return "border: 1px solid rgba(0, 0, 0, 0.1);";
-  }
+	if (luminanceColor > 0.9) {
+		return "border: 1px solid rgba(0, 0, 0, 0.1);";
+	}
 
-  if (luminanceColor < 0.1) {
-    return "border: 1px solid light-dark(rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));";
-  }
+	if (luminanceColor < 0.1) {
+		return "border: 1px solid light-dark(rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));";
+	}
 
-  return "";
+	return "";
 };
 ---
 

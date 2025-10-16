@@ -1,11 +1,13 @@
 ---
+/** biome-ignore-all lint/correctness/noUnusedImports: Imports are used in the component */
+/** biome-ignore-all lint/correctness/noUnusedVariables: Variables are used in the component */
 import { Code } from "@astrojs/starlight/components";
 import Note from "./Note.astro";
 
 interface Props {
-  class: string;
-  classPrefix: string;
-  variant: string;
+	class: string;
+	classPrefix: string;
+	variant: string;
 }
 
 const { class: baseClass, classPrefix, variant } = Astro.props as Props;
@@ -17,7 +19,8 @@ const { class: baseClass, classPrefix, variant } = Astro.props as Props;
   </Note>
 
   <p>
-    Alternatively, you can apply <code>:hover</code> by using <code>h:{classPrefix}-*</code> utility to override elements and change their values when hovering over them.
+    Alternatively, you can apply <code>:hover</code> by using <code>h:{classPrefix}-*</code> utility to override elements and change their values when hovering over
+    them.
   </p>
 
   <Code code={`<div class="${baseClass} h:${variant} ..."></div>`} lang="html" mark={`h:${variant}`} />

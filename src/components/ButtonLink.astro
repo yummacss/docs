@@ -1,19 +1,21 @@
 ---
+/** biome-ignore-all lint/correctness/noUnusedVariables: Props are used in the component */
 interface Props {
-  class?: string;
-  href: string;
-  text: string;
-  variant: "primary" | "secondary";
+	class?: string;
+	href: string;
+	text: string;
+	variant: "primary" | "secondary";
 }
 
 const { href, variant, text, class: className } = Astro.props;
 
-let classes = "fs-sm md:fs-lg md:px-6 md:py-3 px-4 py-2 rad-2 sm:fs-md sm:px-5 sm:py-2 tc-white td-none ";
+let classes =
+	"fs-sm md:fs-lg md:px-6 md:py-3 px-4 py-2 rad-2 sm:fs-md sm:px-5 sm:py-2 tc-white td-none ";
 
 classes += variant === "primary" ? "btn-primary" : "btn-secondary";
 
 if (className) {
-  classes += ` ${className}`;
+	classes += ` ${className}`;
 }
 ---
 

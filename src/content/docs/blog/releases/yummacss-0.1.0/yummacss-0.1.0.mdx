@@ -17,7 +17,7 @@ Nothing beats a good update. This one's not as abundant, but there are some pret
 
 You may also want to take a look at some of the [release notes](https://github.com/yumma-lib/yumma-css/releases/tag/v0.1.0) but, anyway, these are the most noticeable shifts:
 
-- [Box Model utilities](#box-model-utilities): Additions and improvements for Height, Margin, Padding, and Width utility classes.
+- [Box Model Utilities](#box-model-utilities): Additions and improvements for Height, Margin, Padding, and Width utility classes.
 
 This is an incremental update that may contain bug fixes. Minor releases follow [semantic versioning](https://docs.npmjs.com/about-semantic-versioning) conventions. In other words, this should be an easy update for you.
 
@@ -27,58 +27,12 @@ This is an incremental update that may contain bug fixes. Minor releases follow 
 
 Previous versions of Yumma CSS had some inconsistencies with the Height, Margin, Padding, and Width utilities. Version 0.1.0 addresses these inconsistencies and also fixes unexpected results and makes the range linear, starting from 0-100.
 
-<Tabs>
-  <TabItem label="Height">
-    The scale ranges from 0 to 100, with a base value of `0.25rem`.
-  
-    <LegacyClass
-      classPrefix="h-"
-      propNames={["height"]}
-      range={100}
-      incrementValue={0.25}
-      unit="rem"
-    />
-  </TabItem>
-
-<TabItem label="Padding">
-  The scale ranges from 0 to 100, with a base value of `0.25rem`.
-
-  <LegacyClass
-    classPrefix="p-"
-    propNames={["padding"]}
-    range={100}
-    incrementValue={0.75}
-    unit="rem"
-  />
-</TabItem>
-
-{" "}
-
-<TabItem label="Margin">
-  The scale ranges from 0 to 100, with a base value of `0.25rem`.
-
-  <LegacyClass
-    classPrefix="m-"
-    propNames={["margin"]}
-    range={100}
-    incrementValue={0.75}
-    unit="rem"
-  />
-</TabItem>
-
-  <TabItem label="Width">
-    The scale ranges from 0 to 100, with a base value of `0.25rem`.
-
-    <LegacyClass
-      classPrefix="w-"
-      propNames={["width"]}
-      range={100}
-      incrementValue={0.25}
-      unit="rem"
-    />
-
-  </TabItem>
-</Tabs>
+```html title="index.html"
+<div class="h-{0-100}">...</div>
+<div class="p-{0-100}">...</div>
+<div class="m-{0-100}">...</div>
+<div class="w-{0-100}">...</div>
+```
 
 ---
 

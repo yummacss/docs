@@ -3,6 +3,9 @@ import { pluginLineNumbers } from "@expressive-code/plugin-line-numbers";
 
 /** @type {import('@astrojs/starlight/expressive-code').StarlightExpressiveCodeOptions} */
 export default {
-  plugins: [pluginCollapsibleSections(), pluginLineNumbers()],
-  defaultProps: { collapseStyle: "collapsible-start", showLineNumbers: false },
+	plugins: [pluginCollapsibleSections(), pluginLineNumbers()],
+	defaultProps: {
+		collapseStyle: "collapsible-start",
+		showLineNumbers: false,
+	},
 };

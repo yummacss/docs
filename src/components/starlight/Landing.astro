@@ -1,12 +1,13 @@
 ---
+/** biome-ignore-all lint/correctness/noUnusedImports: Imports are used in the component */
 import { Picture } from "astro:assets";
 import { Code } from "@astrojs/starlight/components";
-import { css, tsx } from "@/constants/snippets";
+import boxesDark from "@/assets/boxes-dark.png";
+import boxesLight from "@/assets/boxes-light.png";
 import ButtonLink from "@/components/ButtonLink.astro";
+import { css, tsx } from "@/constants/snippets";
 import CrumpledPaper from "@/icons/CrumpledPaper.astro";
 import RulerSquare from "@/icons/RulerSquare.astro";
-import boxesLight from "@/assets/boxes-light.png";
-import boxesDark from "@/assets/boxes-dark.png";
 ---
 
 <style is:global>

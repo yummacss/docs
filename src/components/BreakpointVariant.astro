@@ -1,11 +1,13 @@
 ---
+/** biome-ignore-all lint/correctness/noUnusedImports: Imports are used in the component */
+/** biome-ignore-all lint/correctness/noUnusedVariables: Variables are used in the component */
 import { Code } from "@astrojs/starlight/components";
 import Note from "./Note.astro";
 
 interface Props {
-  class: string;
-  classPrefix: string;
-  variant: string;
+	class: string;
+	classPrefix: string;
+	variant: string;
 }
 
 const { class: baseClass, classPrefix, variant } = Astro.props as Props;
@@ -17,7 +19,7 @@ const { class: baseClass, classPrefix, variant } = Astro.props as Props;
   </Note>
   <p>
     You can combine responsive breakpoints like <code>sm:{classPrefix}-*</code>,<code>md:{classPrefix}-*</code>, <code>lg:{classPrefix}-*</code>, and{" "}
-    <code>xxl:{classPrefix}-*</code> allows targeting specific utilities in different viewports.
+    <code>xxl:{classPrefix}-*</code> to allow targeting specific utilities in different viewports.
   </p>
   <Code code={`<div class="${baseClass} md:${variant} ..."></div>`} lang="html" mark={`md:${variant}`} />
 </section>

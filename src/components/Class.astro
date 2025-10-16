@@ -1,86 +1,87 @@
 ---
 import {
-  backgroundUtils,
-  borderUtils,
-  boxModelUtils,
-  colorUtils,
-  effectUtils,
-  flexboxUtils,
-  fontUtils,
-  gridUtils,
-  interactivityUtils,
-  outlineUtils,
-  positioningUtils,
-  svgUtils,
-  tableUtils,
-  textUtils,
-  transformUtils,
-  type Utilities,
+	backgroundUtils,
+	borderUtils,
+	boxModelUtils,
+	colorUtils,
+	effectUtils,
+	flexboxUtils,
+	fontUtils,
+	gridUtils,
+	interactivityUtils,
+	outlineUtils,
+	positioningUtils,
+	svgUtils,
+	tableUtils,
+	textUtils,
+	transformUtils,
+	type Utilities,
 } from "@yummacss/api";
 
 type Category =
-  | "background"
-  | "border"
-  | "boxModel"
-  | "color"
-  | "effect"
-  | "flexbox"
-  | "font"
-  | "grid"
-  | "interactivity"
-  | "outline"
-  | "positioning"
-  | "svg"
-  | "table"
-  | "text"
-  | "transform";
+	| "background"
+	| "border"
+	| "boxModel"
+	| "color"
+	| "effect"
+	| "flexbox"
+	| "font"
+	| "grid"
+	| "interactivity"
+	| "outline"
+	| "positioning"
+	| "svg"
+	| "table"
+	| "text"
+	| "transform";
 
 export interface Props {
-  category: Category;
-  name: string;
+	category: Category;
+	name: string;
 }
 
 const catGetters: Record<Category, () => Utilities> = {
-  background: backgroundUtils,
-  border: borderUtils,
-  boxModel: boxModelUtils,
-  color: colorUtils,
-  effect: effectUtils,
-  flexbox: flexboxUtils,
-  font: fontUtils,
-  grid: gridUtils,
-  interactivity: interactivityUtils,
-  outline: outlineUtils,
-  positioning: positioningUtils,
-  svg: svgUtils,
-  table: tableUtils,
-  text: textUtils,
-  transform: transformUtils,
+	background: backgroundUtils,
+	border: borderUtils,
+	boxModel: boxModelUtils,
+	color: colorUtils,
+	effect: effectUtils,
+	flexbox: flexboxUtils,
+	font: fontUtils,
+	grid: gridUtils,
+	interactivity: interactivityUtils,
+	outline: outlineUtils,
+	positioning: positioningUtils,
+	svg: svgUtils,
+	table: tableUtils,
+	text: textUtils,
+	transform: transformUtils,
 };
 
-let v: Array<{ prefix: string; property: string; value: string }> = [];
+const v: Array<{ prefix: string; property: string; value: string }> = [];
 
 try {
-  if (!Astro.props.category || !Astro.props.name) throw new Error("Missing props");
-  const getter = catGetters[Astro.props.category];
-  if (!getter) throw new Error(`Unknown category: ${Astro.props.category}`);
-  const utils = getter();
-  const util = utils[Astro.props.name];
+	if (!Astro.props.category || !Astro.props.name)
+		throw new Error("Missing props");
+	const getter = catGetters[Astro.props.category];
+	if (!getter) throw new Error(`Unknown category: ${Astro.props.category}`);
+	const utils = getter();
+	const util = utils[Astro.props.name];
 
-  if (util) {
-    Object.entries(util.values).forEach(([suffix, value]) => {
-      const prefix = suffix === "" ? util.prefix : `${util.prefix}-${suffix}`;
-      const property = util.properties[0];
+	if (util) {
+		Object.entries(util.values).forEach(([suffix, value]) => {
+			const prefix = suffix === "" ? util.prefix : `${util.prefix}-${suffix}`;
+			const property = util.properties[0];
 
-      v.push({
-        prefix,
-        property,
-        value,
-      });
-    });
-  }
+			v.push({
+				prefix,
+				property,
+				value,
+			});
+		});
+	}
 } catch (err) {
-  console.error("Failed to get utility:", err);
+	console.error("Failed to get utility:", err);
 }
 ---
 

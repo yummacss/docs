@@ -1,8 +1,10 @@
 ---
-import { icons, type IconName } from "@/constants/icons";
+/** biome-ignore-all lint/correctness/noUnusedImports: Imports are used in the component */
+/** biome-ignore-all lint/correctness/noUnusedVariables: Variables are used in the component */
+import { type IconName, icons } from "@/constants/icons";
 
 interface Props {
-  icon: IconName;
+	icon: IconName;
 }
 
 const { icon: name } = Astro.props as Props;
