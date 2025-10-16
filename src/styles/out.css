@@ -1353,6 +1353,10 @@
   height: 24rem;
 }
 
+.h-auto {
+  height: auto;
+}
+
 .h-dvh {
   height: 100dvh;
 }
@@ -2970,6 +2974,10 @@
 
 .w-96 {
   width: 24rem;
+}
+
+.w-auto {
+  width: auto;
 }
 
 .w-dvw {
