@@ -15,24 +15,17 @@ This update isn't going to introduce any major new features. It's more about syn
 
 {/* excerpt */}
 
-You may also want to take a look at some of the [release notes](https://github.com/yumma-lib/yumma-css/releases/tag/v1.1.0) but, anyway these are the most noticeable shifts:
-
-- [Button Transition](#button-transition): New button component animations.
-- [Font Sizes](#font-sizes): New variant for font sizes.
-- [New Dimension](#new-dimension-utilities): New utilities for setting height and width simultaneously.
-- [Utility Syntax Changes](#utility-syntax-changes): Changing syntax for Box Shadow, Column and List Style Type utilities.
-
-This is an incremental update that may contain bug fixes. Minor releases follow [semantic versioning](https://docs.npmjs.com/about-semantic-versioning) conventions. In other words, this should be an easy update for you.
+**This update shouldn't be difficult to upgrade, but you may want to check out the [release notes](https://github.com/yumma-lib/yumma-css/releases/tag/v1.1.0).**
 
 ---
 
-## Button Transition
+## Button transition
 
 The `btn-*` component has been around for a while, and we thought it could use a refresh with Yumma v1.1. So, to make the button components a bit more fancy, you'll now have transitions for button components with Yumma CSS v1.1.
 
 ---
 
-## Font Sizes
+## Font sizes
 
 We're going to add a new class for font sizes in Yumma CSS 1.1. It'll be a variant for the utility, specifically for the `fs-xs` size.
 
@@ -47,131 +40,50 @@ We're going to add a new class for font sizes in Yumma CSS 1.1. It'll be a varia
 
 ---
 
-## New Dimension Utilities
+## Dimension utilities
 
 We're looking forward to showing you what we think is one of the coolest new additions. The new `dim-*` utility is here to replace Height and Width.
 
-<Tabs>
-  <TabItem icon="approve-check-circle" label="Now">
-    ```html
-    <div class="dim-5 ...">5</div>
-    <div class="dim-10 ...">10</div>
-    <div class="dim-20 ...">20</div>
-    ```
-  </TabItem>
-  <TabItem icon="close" label="Previously">
-    ```html
-    <div class="h-5 w-5 w-5 ...">5</div>
-    <div class="h-10 h-10 w-10 ...">10</div>
-    <div class="h-20 h-20 w-20 ...">20</div>
-    ```
-  </TabItem>
-</Tabs>
+```html title="index.html" del={1} ins={2}
+<div class="h-12 h-12"></div>
+<div class="dim-12"></div>
+```
 
 ---
 
-## Utility Syntax Changes
+## Utility changes
 
 This update will bring a few increments and small changes to the syntax of some of the utilities, and here's the list:
 
-Starting with the breakpoints, Yumma CSS v1.1 changes the way you use your breakpoints for the better, no more nonsense class names.
-
-```diff
-$breakpoints: (
--    "xsm": 0,
-+    "xs": 0,
-    "sm": 480px,
-    "md": 720px,
-    "lg": 960px,
--    "xlg": 1200px
-+    "xl": 1200px
-);
+```scss del={1,2} ins={3,4}
+"xsm": 0,
+"xlg": 1200px
+"xs": 0,
+"xl": 1200px
 ```
 
-Similar to the breakpoint change mentioned above, we thought it would make a lot of sense to take the same approach with the Box Shadow and Font Sizes utilities. Let's look at the difference:
+### Box Shadow
 
-#### Box Shadow
+```html title="index.html" del={1,2} ins={3,4}
+<div class="bs-xsm"></div>
+<div class="bs-xlg"></div>
+<div class="bs-xs"></div>
+<div class="bs-xl"></div>
+```
 
-<Tabs>
-  <TabItem icon="approve-check-circle" label="Now">
-    <LegacyClass
-      data={[
-        {
-          className: "bs-xs",
-          properties: ["box-shadow: 1px 3px 5px -3px rgba(0,0,0,0.1);"],
-        },
-        {
-          className: "bs-xl",
-          properties: ["box-shadow: 1px 3px 5px 2px rgba(0,0,0,0.1);"],
-        },
-      ]}
-    />
-  </TabItem>
-  <TabItem icon="close" label="Previously">
-    <LegacyClass
-      data={[
-        {
-          className: "bs-xsm",
-          properties: ["box-shadow: 1px 3px 5px -3px rgba(0,0,0,0.1);"],
-        },
-        {
-          className: "bs-xlg",
-          properties: ["box-shadow: 1px 3px 5px 2px rgba(0,0,0,0.1);"],
-        },
-      ]}
-    />
-  </TabItem>
-</Tabs>
+### Font Sizes
 
-#### Font Sizes
+```html title="index.html" del={1} ins={2}
+<div class="fs-xlg"></div>
+<div class="fs-xl"></div>
+```
 
-<Tabs>
-  <TabItem icon="approve-check-circle" label="Now">
-    <LegacyClass
-      data={[
-        {
-          className: "fs-xl",
-          properties: ["font-size: 3rem;"],
-        },
-      ]}
-    />
-  </TabItem>
-  <TabItem icon="close" label="Previously">
-    <LegacyClass
-      data={[
-        {
-          className: "fs-xlg",
-          properties: ["font-size: 3rem;"],
-        },
-      ]}
-    />
-  </TabItem>
-</Tabs>
+### Columns
 
-Last but not least, Yumma CSS v1.1 will include a small change to the syntax of the Columns utility.
-
-<Tabs>
-  <TabItem icon="approve-check-circle" label="Now">
-    <LegacyClass
-      data={[
-        {
-          className: "cols-*",
-          properties: ["columns: *;"],
-        },
-      ]}
-    />
-  </TabItem>
-  <TabItem icon="close" label="Previously">
-    <LegacyClass
-      data={[
-        {
-          className: "col-*",
-          properties: ["columns: *;"],
-        },
-      ]}
-    />
-  </TabItem>
-</Tabs>
+```html title="index.html" del={1} ins={2}
+<div class="col-2"></div>
+<div class="cols-2"></div>
+```
 
 ---
 
