@@ -33,22 +33,15 @@ We've got another new one coming your way! This new version is going to give you
   </iframe>
 </div>
 
-You might also want to check out the [release notes](https://github.com/yumma-lib/yumma-css/releases/tag/v2.1.0). Anyway, these are the most noticeable changes:
-
-- [All-new utilities](#all-new-utilities): New variant additions and improvements
-- [Base Style](#base-styles): Base styles changes
-
-This is an incremental update that may contain bug fixes. Minor releases follow [semantic versioning](https://docs.npmjs.com/about-semantic-versioning) conventions. In other words, this should be an easy update for you.
+**This update shouldn't be difficult to upgrade, but you may want to check out the [release notes](https://github.com/yumma-lib/yumma-css/releases/tag/v1.1.0).**
 
 ---
 
 ## All-new utilities
 
-In this new update, we've made a few changes to the utilities in Yumma CSS. You can now have more control over the layout and add more properties to a certain utility class.
+We're adding a few more utility classes to Yumma CSS v2.1.0. Here are a few of the most notable ones:
 
 ### Align Content
-
-New `baseline` for `ac-*` variant.
 
 <LegacyClass
   data={[
@@ -61,8 +54,6 @@ New `baseline` for `ac-*` variant.
 
 ### Align Items
 
-New `baseline` for `ai-*` variant.
-
 <LegacyClass
   data={[
     {
@@ -73,8 +64,6 @@ New `baseline` for `ai-*` variant.
 />
 
 ### Cursor
-
-We've also added several new variants for the Cursor (`c-*`) utility classes.
 
 <LegacyClass
   data={[
@@ -142,8 +131,6 @@ We've also added several new variants for the Cursor (`c-*`) utility classes.
 />
 
 ### Border Radius
-
-We've tweaked the base value for Border radius utility classes to give you more precise options and better overall layout control.
 
 <Tabs>
   <TabItem icon="approve-check-circle" label="Now">
@@ -320,11 +307,13 @@ We've tweaked the base value for Border radius utility classes to give you more 
   </TabItem>
 </Tabs>
 
-## Base Styles
+---
 
-New `cursor: pointer` default rule to `<button>` element.
+## Base styles
 
-```scss mark={1-3} title="_base.scss"
+So buttons can act more like buttons.
+
+```scss mark={2} title="_base.scss"
 button {
   cursor: pointer;
 }
@@ -346,9 +335,11 @@ p {
 }
 ```
 
+---
+
 ### Font Size
 
-Finally, We've updated the font size utilities and changed the base value. We've also added a base utility: `fs-b`, and a `fs-9xl` variant.
+We added a base utility: `fs-b`, and a `fs-9xl` utility variant.
 
 <Tabs>
   <TabItem icon="approve-check-circle" label="Now">
