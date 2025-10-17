@@ -2964,6 +2964,10 @@
   width: auto;
 }
 
+.w-dvh {
+  width: 100dvh;
+}
+
 .w-dvw {
   width: 100dvw;
 }
