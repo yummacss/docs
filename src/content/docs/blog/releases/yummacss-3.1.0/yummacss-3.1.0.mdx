@@ -15,13 +15,7 @@ Today, we're excited to bring you Yumma CSS v3.1.0! This update adds support for
 
 {/* excerpt */}
 
-You may also want to take a look at some of the [release notes](https://github.com/yumma-lib/yumma-css/releases/tag/v3.1.0) but, anyway, these are the most noticeable shifts:
-
-- [New pseudo-class variants](#new-pseudo-class-variants): New `:focus` and `:active` support for all base utilities
-- [Legacy CSS files removed](#legacy-css-files-removed): Better performance with CLI-only approach
-- [Migration guide](#migration-guide): Simple steps to upgrade your project
-
-This is an incremental update that may contain breaking changes. Minor releases follow [semantic versioning](https://docs.npmjs.com/about-semantic-versioning) conventions. In other words, a migration is necessary to continue using the framework.
+**This update shouldn't be difficult to upgrade, but you may want to check out the [release notes](https://github.com/yumma-lib/yumma-css/releases/tag/v3.1.0) before upgrading.**
 
 ---
 
@@ -51,77 +45,11 @@ The `a:` prefix allows you to style elements when they are being pressed or clic
 
 As part of our ongoing efforts to improve performance and optimize Yumma CSS, we have completely removed the legacy CSS files, `yumma.css` and `yumma.min.css`, from the distribution directory.
 
-### Why this change?
+### What does this mean?
 
-This change brings several benefits:
+If you're already using the Yumma CSS CLI ([introduced in v3.0](/blog/yummacss-3.0)), this change should not feel like a breaking change. However, if you're still importing CSS files directly, you will need to migrate.
 
-- **Better performance**: No more shipping unused CSS to the browser
-- **Smaller bundle sizes**: Only the utilities you actually use are compiled
-- **Consistency**: Aligns with the modern CLI-first approach introduced in v3.0
-
-### What this means
-
-If you're already using the Yumma CLI (introduced in v3.0), this change should not feel like a breaking change. However, if you're still importing CSS files directly, you will need to migrate.
-
-The CLI automatically scans your project and generates only the necessary CSS, resulting in faster builds and smaller final CSS files.
-
----
-
-## Migration guide
-
-If you're still using the legacy CSS import approach, here's how to migrate to the CLI-based workflow:
-
-<Steps>
-
-1. **Remove CSS imports**
-
-   Delete any direct imports of Yumma CSS files from your stylesheets.
-
-   ```diff lang="css" title="globals.css"
-   - @import "/node_modules/yummacss/dist/yumma.css";
-   - @import "/node_modules/yummacss/dist/yumma.min.css";
-   ```
-
-2. **Install Yumma CSS as `devDependency`**
-
-   If you haven't already, install Yumma CSS as a development dependency.
-
-   <PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} icons={false} pkg="yummacss -D" title="Terminal" />
-
-3. **Create configuration file**
-
-   Add a `yumma.config.js` file to your project root if you don't have one already.
-
-   Learn more about how to set up the configuration file [here](/docs/foundations/config/#creating-your-configuration-file).
-
-   ```js title="yumma.config.js"
-   export default {
-     source: ["./src/**/*.html", "./src/**/*.js", "./src/**/*.jsx"],
-     output: "./src/globals.css",
-     buildOptions: {
-       reset: true,
-       minify: false,
-     },
-   };
-   ```
-
-4. **Build your CSS**
-
-   Run the build command to generate your CSS file.
-
-   <PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} icons={false} pkg="yummacss" type="exec" args="build" title="Terminal" />
-
-5. **Update your build process**
-
-   Make sure to run `yummacss build` as part of your development and production build processes.
-
-</Steps>
-
-### Watching for changes
-
-You can also use the `yummacss watch` command to automatically rebuild your CSS when you make changes to your source files.
-
-<PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} icons={false} pkg="yummacss" type="exec" args="watch" title="Terminal" />
+Learn more about how to migrate to the CLI-based workflow [here](#migration-guide).
 
 ---
 
@@ -130,5 +58,3 @@ You can also use the `yummacss watch` command to automatically rebuild your CSS 
 You can upgrade your projects by getting the latest version of `yummacss` from npm:
 
 <PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} icons={false} pkg="yummacss@latest" title="Terminal" />
-
-If you're using the CLI approach (recommended), the upgrade process is seamless. Just run your build command after updating, and you'll automatically get access to the new `:focus` and `:active` variants across all your utilities.
