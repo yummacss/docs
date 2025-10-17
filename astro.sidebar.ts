@@ -8,7 +8,7 @@ export const sidebar = [
 				items: [
 					"docs/installation",
 					"docs/framework-guides",
-					"docs/upgrade-guide",
+					"docs/migration-guide",
 					"docs/dev-api",
 				],
 			},
