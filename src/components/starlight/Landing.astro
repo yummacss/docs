@@ -25,7 +25,11 @@ import RulerSquare from "@/icons/RulerSquare.astro";
   }
 
   .tc-landing {
-    background: linear-gradient(to right, light-dark(var(--sl-color-gray-1), var(--sl-color-white)), light-dark(var(--sl-color-accent), var(--sl-color-gray-2)));
+    background: linear-gradient(
+      to right,
+      light-dark(var(--sl-color-gray-1), var(--sl-color-white)),
+      light-dark(var(--sl-color-accent), var(--sl-color-gray-2))
+    );
     -webkit-background-clip: text;
   }
 
@@ -53,7 +57,9 @@ import RulerSquare from "@/icons/RulerSquare.astro";
   </section>
 
   <section class="mt-16 px-4 ta-c">
-    <div id="reveal" class="fs-4xl lh-1 md:fs-6xl sm:fs-4xl" style="color: light-dark(var(--sl-color-gray-2), var(--sl-color-white));">"Why not just use vanilla CSS?"</div>
+    <div id="reveal" class="fs-4xl lh-1 md:fs-6xl sm:fs-4xl" style="color: light-dark(var(--sl-color-gray-2), var(--sl-color-white));">
+      "Why not just use vanilla CSS?"
+    </div>
     <p id="reveal" class="fs-lg lh-2 max-w-md md:fs-2xl mx-auto my-8 sm:fs-xl">
       A lot of the time, CSS files are not well maintained. From bad naming conventions to redundant classes and old syntax, there's a lot to be said.
     </p>
@@ -66,7 +72,7 @@ import RulerSquare from "@/icons/RulerSquare.astro";
           <RulerSquare class="d-4 sm:d-6 tc-accent" />
         </div>
         <div class="max-w-100">
-          <div class="fs-3xl lg:fs-5xl lh-1 md:fs-4xl v-h" style="color: light-dark(var(--sl-color-gray-2), var(--sl-color-white));">Abbreviated utility classes</div>
+          <div class="fs-3xl lg:fs-5xl lh-1 md:fs-4xl v-h" style="color: light-dark(var(--sl-color-gray-2), var(--sl-color-white));">Abbreviated utilities</div>
           <p class="fs-lg lh-2 md:fs-2xl my-4 sm:fs-xl v-h">
             Yumma CSS uses an abbreviated naming for its utilities such as
             <span class="tc-indigo-5">d-g</span>, <span class="tc-indigo-5">gtc-2</span> and <span class="tc-indigo-5">g-4</span>
@@ -97,7 +103,9 @@ import RulerSquare from "@/icons/RulerSquare.astro";
           <CrumpledPaper class="d-4 sm:d-6 tc-accent" />
         </div>
         <div class="max-w-100">
-          <div class="fs-3xl lg:fs-5xl lh-1 md:fs-4xl v-h" style="color: light-dark(var(--sl-color-gray-2), var(--sl-color-white));">Ship what your project needs</div>
+          <div class="fs-3xl lg:fs-5xl lh-1 md:fs-4xl v-h" style="color: light-dark(var(--sl-color-gray-2), var(--sl-color-white));">
+            Ship what your project needs
+          </div>
           <p class="fs-lg lh-2 md:fs-2xl my-4 sm:fs-xl v-h">With Yumma CLI, you'll never have to worry about unused CSS again!</p>
         </div>
       </div>
