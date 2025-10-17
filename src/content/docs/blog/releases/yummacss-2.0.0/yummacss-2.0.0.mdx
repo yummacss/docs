@@ -23,24 +23,15 @@ Yes, it's happening again! We're excited to announce the release of Yumma CSS v2
   referrerpolicy="strict-origin-when-cross-origin"
   src="https://youtube.com/embed/fNqHGnfsJQI?si=qp3qz3b9c0RohZaM"></iframe>
 
-You might also want to check out the [release notes](https://github.com/yumma-lib/yumma-css/releases/tag/v2.0.0). Anyway, these are the most noticeable changes:
-
-- [All-new Utilities](#all-new-utilities): Silver color, Gap, Spacing, and much more
-- [Base Styles](#base-styles): Base styles are now optional
-- [Responsive Breakpoints](#responsive-breakpoints): Media query utilities support extended
-- [Container Rules](#container-rules): New container utility rules
-
-This is a major update that introduces groundbreaking features. Major releases follow [semantic versioning](https://docs.npmjs.com/about-semantic-versioning) conventions. In other words, you probably need refactoring after upgrading.
+**This update might break your codebase, we highly suggest you checking out the [release notes](https://github.com/yumma-lib/yumma-css/releases/tag/v2.0.0) before upgrading.**
 
 ---
 
-## All new utilities
+## All-new utilities
 
-As part of our standard procedure for each new grand release, we implement a range of new customization utilities.
+We will continue to push more, and more utilities to Yumma CSS. This latest release is no exception.
 
 ### Accent Color
-
-This latest release is no exception, as it introduces the Accent Color utilities.
 
 <LegacyColor
   classPrefix="ac-"
@@ -62,7 +53,7 @@ This latest release is no exception, as it introduces the Accent Color utilities
   ]}
 />
 
-We're also adding a new color to the color palette — Silver.
+### New Silver color option
 
 <LegacyPalette
   data={[
@@ -74,8 +65,6 @@ We're also adding a new color to the color palette — Silver.
 />
 
 ### Aspect Ratio
-
-The Aspect Ratio is a great addition, especially for image elements.
 
 <LegacyClass
   data={[
@@ -95,8 +84,6 @@ The Aspect Ratio is a great addition, especially for image elements.
 />
 
 ### Backdrop Filter
-
-You can now apply cool effects to your components thanks to the Backdrop Filter utilities.
 
 <LegacyClass
   data={[
@@ -127,13 +114,7 @@ You can now apply cool effects to your components thanks to the Backdrop Filter 
   ]}
 />
 
-### Border
-
-We're also going to be adding some new Border utilities.
-
-#### Border Collapse
-
-We're finally adding the Border Collapse utilities to create better tables in your site with Yumma CSS.
+### Border Collapse
 
 <LegacyClass
   data={[
@@ -148,9 +129,7 @@ We're finally adding the Border Collapse utilities to create better tables in yo
   ]}
 />
 
-#### Border Style
-
-The new Border Style utilities let you change how borders look on different elements.
+### Border Style
 
 <LegacyClass
   data={[
@@ -175,8 +154,6 @@ The new Border Style utilities let you change how borders look on different elem
 
 ### Caption Side
 
-We're also adding some handy features for tables, like Caption Side.
-
 <LegacyClass
   data={[
     {
@@ -192,8 +169,6 @@ We're also adding some handy features for tables, like Caption Side.
 
 ### Font Style
 
-You can now change the Font Style of text elements.
-
 <LegacyClass
   data={[
     {
@@ -207,90 +182,20 @@ You can now change the Font Style of text elements.
   ]}
 />
 
-### Gap
+### Gap (Reworked)
 
-The Gap utilities aren't necessarily new, but they are different in older versions. Gap was designed for responsive layouts, not for adding gaps between elements.
+We've completely reworked the Gap utilities. They now work as expected, and you can use them to add gaps between elements.
 
 <LegacyClass classPrefix="g-" propNames={["gap"]} incrementValue={0.25} range={16} unit="rem" />
 
 ### Grid
 
-If you're looking for more control over your grid layouts, this new update includes new utility classes to control Grid Column and Grid Row properties.
+```html "gc-s-* gce-* gcs-*" "gr-s-* gre-* grs-*" title="index.html"
+<div class="gc-s-* gce-* gcs-*">...</div>
+<div class="gr-s-* gre-* grs-*">...</div>
+```
 
-<Tabs>
-
-  <TabItem label="Column">
-
-    **Grid Column**
-
-    <LegacyClass
-      classPrefix="gc-s-"
-      excludeZero
-      propNames={["grid-column"]}
-      incrementName="span %i / span %i"
-      incrementValue={1}
-      range={16}
-    />
-
-    **Grid Column End**
-
-    <LegacyClass
-      classPrefix="gce-"
-      propNames={["grid-column-end"]}
-      incrementValue={1}
-      range={16}
-    />
-
-    **Grid Column Start**
-
-    <LegacyClass
-      classPrefix="gcs-"
-      propNames={["grid-column-start"]}
-      incrementValue={1}
-      range={16}
-    />
-
-  </TabItem>
-
-  <TabItem label="Grid">
-
-    **Grid Row Span**
-
-    <LegacyClass
-      classPrefix="gr-s-"
-      excludeZero
-      propNames={["grid-row"]}
-      incrementName="span %i / span %i"
-      incrementValue={1}
-      range={16}
-    />
-
-    **Grid Row End**
-
-    <LegacyClass
-      classPrefix="gre-"
-      propNames={["grid-row-end"]}
-      incrementValue={1}
-      range={16}
-    />
-
-    **Grid Row Start**
-
-    <LegacyClass
-      classPrefix="grs-"
-      propNames={["grid-row-start"]}
-      incrementValue={1}
-      range={16}
-    />
-
-  </TabItem>
-</Tabs>
-
-### Object
-
-We're also including the Object Fit and Object Position utility classes.
-
-#### Object Fit
+### Object Fit
 
 <LegacyClass
   data={[
@@ -315,7 +220,7 @@ We're also including the Object Fit and Object Position utility classes.
 ]}
 />
 
-#### Object Position
+### Object Position
 
 <LegacyClass
   data={[
@@ -358,11 +263,7 @@ We're also including the Object Fit and Object Position utility classes.
   ]}
 />
 
-### Outline
-
-On top of the customization utilities we've already talked about, Yumma CSS 2.0 also includes Outline Color, Outline Offset, Outline Style, and Outline Width utility classes.
-
-#### Outline Color
+### Outline Color
 
 <LegacyColor
   classPrefix="oc-"
@@ -383,11 +284,11 @@ On top of the customization utilities we've already talked about, Yumma CSS 2.0 
   ]}
 />
 
-#### Outline Offset
+### Outline Offset
 
 <LegacyClass classPrefix="oo-" propNames={["outline-offset"]} incrementValue={4} range={4} unit="px" />
 
-#### Outline Style
+### Outline Style
 
 <LegacyClass
   data={[
@@ -410,23 +311,19 @@ On top of the customization utilities we've already talked about, Yumma CSS 2.0 
   ]}
 />
 
-#### Outline Width
+### Outline Width
 
 <LegacyClass classPrefix="ow-" propNames={["outline-width"]} incrementValue={4} range={4} unit="px" />
 
-### Spacing
-
-We're also adding new Spacing utilities. These utilities work a bit differently, in that they use a unique syntax. This means you don't need to specify `margin` or `padding` if they have the same value.
-
-#### Spacing X
+### Spacing X
 
 <LegacyClass classPrefix="s-x-" propNames={["margin-left", "margin-right"]} range={100} incrementValue={0.25} unit="rem" />
 
-#### Spacing Y
+### Spacing Y
 
 <LegacyClass classPrefix="s-y-" propNames={["margin-top", "margin-bottom"]} range={100} incrementValue={0.25} unit="rem" />
 
-I have to mention the new table utilities and the Table Layout utility classes.
+### Table Layout
 
 <LegacyClass
   data={[
@@ -440,8 +337,6 @@ I have to mention the new table utilities and the Table Layout utility classes.
     },
   ]}
 />
-
-We're also adding a bunch of new utility classes for text formatting to the table. These include things like Text Decoration Color, Text Decoration Style, and Text Decoration Thickness.
 
 ### Text Decoration Color
 
@@ -524,23 +419,23 @@ We're also adding a bunch of new utility classes for text formatting to the tabl
 
 ## Base styles
 
-You can now use Yumma CSS without the default base styles. This could be really useful if you want to set specific rules in your theme.
+Don't like the default base styles? You can now disable them in the by importing the `yumma-core.css` file instead of the `yumma.css` file.
 
-#### Standard Core
+#### Standard CSS
 
 ```html
 <link href="https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@2.0.0/dist/yumma-core.css" rel="stylesheet" crossorigin="anonymous" />
 ```
 
-#### Minified Core
+#### Minified CSS
 
 ```html
 <link href="https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@2.0.0/dist/yumma-core.min.css" rel="stylesheet" crossorigin="anonymous" />
 ```
 
-## Responsive breakpoints
+## Media queries
 
-It took us a while, but We've finally added full media query support for every single utility class.
+You know how to use media queries, right? They're now everywhere in Yumma CSS. Literally everywhere!
 
 ```html "sm:gtc-2" "md:gtc-3" "lg:gtc-4"
 <div class="cnt mx-auto p-4">
@@ -552,7 +447,9 @@ It took us a while, but We've finally added full media query support for every s
 </div>
 ```
 
-Yumma CSS is going to change how your browser handles breakpoints.
+### Breakpoints changes
+
+We've made a few changes to the breakpoint system in Yumma CSS v2.0. We've removed the `xs` breakpoint and changed the values for the other breakpoints.
 
 <Tabs>
   <TabItem icon="approve-check-circle" label="Now">
@@ -581,7 +478,7 @@ Yumma CSS is going to change how your browser handles breakpoints.
 
 ## Container rules
 
-The container utility has a fresh new look in this update. We've given it a new class name, `cnt`, and added a set of media query rules to make sure it responds well to different themes.
+We've given it a new class name, `cnt`, and added a set of media query rules to make sure it responds to different screen sizes.
 
 <Tabs>
   <TabItem icon="approve-check-circle" label="Now">
