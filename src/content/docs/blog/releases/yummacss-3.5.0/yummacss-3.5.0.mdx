@@ -15,12 +15,15 @@ Opacity variants for color utilities and small improvements to the CLI it's ever
 
 {/* excerpt */}
 
-You may also want to take a look at some of the [release notes](https://github.com/yumma-lib/yumma-css/releases/tag/v3.5.0) but, anyway, these are the most noticeable shifts:
+**This update shouldn't be difficult to upgrade, but you may want to check out the [release notes](https://github.com/yumma-lib/yumma-css/releases/tag/v3.5.0) before upgrading.**
 
-- [Opacity variants](#opacity-variants): New opacity variants for color utilities.
-- [First-party engine](#first-party-engine): Extending the CLI with a first-party engine.
+---
 
-This is an incremental update that may contain breaking changes. Minor releases follow [semantic versioning](https://docs.npmjs.com/about-semantic-versioning) conventions. In other words, a migration is necessary to continue using the framework.
+## First-party engine
+
+That's right, we decided to create our own first-party engine for Yumma CSS. This shouldn't have any impact on your projects, but it's a big deal for us internally.
+
+This change will allow us to extend Yumma CSS to feature projects like [Yumma CSS Play](https://play.yummacss.com) and more. Now of course this is a very specific change, but it's a big one for us internally.
 
 ---
 
@@ -28,18 +31,14 @@ This is an incremental update that may contain breaking changes. Minor releases 
 
 Now you can use opacity variants for all color utilities. This is super useful for targeting opacity to different utilities.
 
-```html del={1} ins={2}
-<button class="bg-indigo o-10 ...">Login</button>
-<button class="bg-indigo/10 ...">Login</button>
+```html live "bg-indigo/5" "bg-indigo/10" "bg-indigo/25" "bg-indigo/50"
+<div class="d-g g-1 gtc-4">
+  <div class="bg-indigo/5 d-16 rad-1"></div>
+  <div class="bg-indigo/10 d-16 rad-1"></div>
+  <div class="bg-indigo/25 d-16 rad-1"></div>
+  <div class="bg-indigo/50 d-16 rad-1"></div>
+</div>
 ```
-
----
-
-## First-party engine
-
-We've been making a lot of internal changes to the CLI to improve not also performance but also bundle size. We've moved the extraction and generation logic to our first-party engine, [@yummacss/nitro](https://www.npmjs.com/package/@yummacss/nitro).
-
-This change will allow us to extend Yumma CSS to feature projects like [Yumma CSS Play](https://play.yummacss.com) and more. Now of course this is a very specific change, but it's a big one for us internally.
 
 ---
 
