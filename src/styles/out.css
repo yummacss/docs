@@ -234,8 +234,24 @@
   border-color: #9fa0e9;
 }
 
+.bc-indigo-6\/10 {
+  border-color: #7073de1a;
+}
+
+.bc-indigo-7\/10 {
+  border-color: #4d4fbb1a;
+}
+
 .bc-indigo-8 {
   border-color: #40429c;
+}
+
+.bc-indigo-8\/10 {
+  border-color: #40429c1a;
+}
+
+.bc-indigo-9\/10 {
+  border-color: #34357e1a;
 }
 
 .bc-pb {
