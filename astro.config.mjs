@@ -141,7 +141,7 @@ export default defineConfig({
 		"/blog/v0": "/blog/yummacss-0.1",
 		"/blog/v1": "/blog/yummacss-1.1",
 		"/blog/v2": "/blog/yummacss-2.1",
-		"/blog/v3": "/blog/yummacss-3.0",
+		"/blog/v3": "/blog/yummacss-3.5",
 
 		// docs related
 		"/docs": "/docs/installation",
