@@ -150,6 +150,7 @@ export default defineConfig({
 		"/docs/direction": "/docs/bottom-left-right-top",
 		"/docs/foundations/responsive-design": "/docs/foundations/media-queries",
 		"/docs/foundations/variants": "/docs/foundations/pseudo-classes",
+		"docs/bottom-left-right-top": "/docs/top-right-bottom-left",
 		"docs/cli": "/docs/foundations/configuration",
 		"docs/configuration": "/docs/foundations/config",
 		"docs/installation#framework-guides": "/docs/framework-guides",
