@@ -147,7 +147,7 @@ export default defineConfig({
 		"/docs": "/docs/installation",
 		"/docs/build-css": "/docs/foundations#cli-commands",
 		"/docs/colours": "/docs/foundations/colors",
-		"/docs/direction": "/docs/bottom-left-right-top",
+		"/docs/direction": "/docs/top-right-bottom-left",
 		"/docs/foundations/responsive-design": "/docs/foundations/media-queries",
 		"/docs/foundations/variants": "/docs/foundations/pseudo-classes",
 		"docs/bottom-left-right-top": "/docs/top-right-bottom-left",
