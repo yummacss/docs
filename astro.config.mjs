@@ -155,6 +155,7 @@ export default defineConfig({
 		"docs/configuration": "/docs/foundations/config",
 		"docs/installation#framework-guides": "/docs/framework-guides",
 		"docs/text-color": "/docs/color",
+		"docs/upgrade-guide": "/docs/migration-guide",
 
 		// ui related
 		"/components": "/docs/ui/installation/",
