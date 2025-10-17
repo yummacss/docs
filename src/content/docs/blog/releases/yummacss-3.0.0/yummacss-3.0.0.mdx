@@ -25,28 +25,13 @@ This is the biggest release of Yumma CSS, and we can't wait for you to try it ou
   referrerpolicy="strict-origin-when-cross-origin"
   src="https://youtube.com/embed/eqTIFRGqp9o?si=gSU63wW18MpoPjzl"></iframe>
 
-You may also want to take a look at some of the [release notes](https://github.com/yumma-lib/yumma-css/releases/tag/v3.0.0) but, anyway, these are the most noticeable shifts:
-
-- [All-new CLI](#all-new-cli): A new CLI tool to compile SCSS to CSS.
-- [New utilities and variants](#new-utilities-and-variants): Over 50 new utility classes.
-- [Build performance](#build-performance): Faster build times and smaller file sizes.
-- [Upgrading to v3.0](#upgrading-to-v30): Steps to upgrade to Yumma CSS v3.0.
-- [Changes in v3.0](#changes-in-v30): Changes to the core framework structure.
-- [Dependency changes](#dependency-changes): Changes to the dependency structure.
-- [Color utility changes](#color-utility-changes): Changes to the color utility classes.
-- [Utility changes](#align-content-utilities): Changes to the utility classes.
-- [Stylecent changes](#stylecent-changes): Changes to the Stylecent (base styles) utility classes.
-- [Breakpoint changes](#breakpoint-changes): Changes to the breakpoint classes.
-- [Fixed responsive utilities](#fixed-responsive-utilities): Changes to the responsive utility classes.
-- [Removed utilities](#removed-container-utility): Removed utility classes.
-
-This is a major update that introduces groundbreaking features. Major releases follow [semantic versioning](https://docs.npmjs.com/about-semantic-versioning) conventions. In other words, you probably need refactoring after upgrading.
+**This update might break your codebase, we highly suggest you checking out the [release notes](https://github.com/yumma-lib/yumma-css/releases/tag/v3.0.0) before upgrading.**
 
 ---
 
 ## What's new in v3.0?
 
-We've completely rewritten the code base for Yumma CSS v3, both internally and externally, and we're excited to improve the way you deal with CSS. We're making some big changes to keep improving Yumma and take it to the next level.
+We've completely rewritten the code base for Yumma CSS v3, both internally and externally, and we're excited to improve the way you deal with CSS.
 
 In v3, we're planning to address some major performance issues and add and improve existing utilities in the framework, among other things.
 
@@ -189,7 +174,7 @@ To make the Yumma CSS framework as complete as possible, we're adding support fo
 
 ### Build performance
 
-We completely overhauled the entire codebase to get better performance in build times and overall file size. We changing the way utilities and modifiers are generated, to eliminate any potential for duplicated or unnecessary data in the `/dist` folder.
+We completely overhauled the entire codebase to get better performance in build times and overall file size. We changing the way all utilities are generated, to eliminate any potential for duplicated or unnecessary data in the `/dist` folder.
 
 | Metric               | v2.1    | v3.0    | Improvement            |
 | -------------------- | ------- | ------- | ---------------------- |
@@ -348,9 +333,9 @@ Here's a quick reference using `background-color`
   </TabItem>
 </Tabs>
 
-### Stylecent changes
+### Base style changes
 
-We're making some changes to Stylecent (base styles) in v3 to make it more modern and consistent. These changes are turned on by default, but you can turn them off using the [`yumma.config.js`](#disabling-stylecent) file.
+We're making some changes to the base styles in v3 to make it more modern and consistent. These changes are turned on by default, but you can turn them off using the [`yumma.config.js`](#disabling-stylecent) file.
 
 By default, all paddings will be removed.
 
@@ -538,85 +523,71 @@ In v3, we are moving from pixel-based units to rem-based units. This change prom
 | 1280px | 80rem _(1280px)_ | `xl`       |
 | 1536px | 96rem _(1536px)_ | `xxl`      |
 
-### Fixed responsive utilities
+### Fixed media query utilities
 
-We're finally rolling out fixes for all the unexpected behaviors that popped up when using responsive utilities in Yumma CSS v3.
+We're finally rolling out fixes for all the unexpected behaviors that popped up when using media query utilities in Yumma CSS v3.
 
-We've grouped related responsive utilities together so they can override existing ones in the DOM like they were supposed to.
+We've grouped related media query utilities together so they can override existing ones in the DOM like they were supposed to.
 
 This improvement also eliminates redundant CSS and makes the framework more predictable and easier to develop with.
 
-### Align Content utilities
-
-In v3, we're changing the `align-content` utility prefix from `ac-s` to `ac-st` to match with other utilities like `ji-st` and `js-st`.
+### Align Content
 
 ```html title="index.html" del={1} ins={2}
 <div class="ac-s ..."></div>
 <div class="ac-st ..."></div>
 ```
 
-### Align Items utilities
-
-Additionally, in v3, we're changing changing the `align-items` utility prefix from `ai-s` to `ai-st`.
+### Align Items
 
 ```html title="index.html" del={1} ins={2}
 <div class="ai-s ..."></div>
 <div class="ai-st ..."></div>
 ```
 
-### Align Self utilities
-
-Additionally, in v3, we're changing `align-self` utility prefix from `as-s` to `as-st` to match with other utilities like `ji-st` and `js-st`.
+### Align Self
 
 ```html title="index.html" del={1} ins={2}
 <div class="as-s ..."></div>
 <div class="as-st ..."></div>
 ```
 
-### Justify Content utilities
-
-Finally, in v3, we're changing changing the `justify-content` utility prefix from `jc-s` to `jc-st` to match with other utilities like `ji-st` and `js-st`.
+### Justify Content
 
 ```html title="index.html" del={1} ins={2}
 <div class="jc-s ..."></div>
 <div class="jc-st ..."></div>
 ```
 
-### Border Bottom Radius utilities
-
-In v3, we're adding new `border-radius` utilities starting with `rad-b-*`
+### Border Bottom Radius
 
 ```html title="index.html" del={1} ins={2}
-<button class="b-1 bg-black rad-bl-2 rad-br-2 tc-white">Subscribe</button> <button class="b-1 bg-black rad-b-2 tc-white">Subscribe</button>
+<button class="b-1 bg-black rad-bl-2 rad-br-2 tc-white">Subscribe</button>
+<button class="b-1 bg-black rad-b-2 tc-white">Subscribe</button>
 ```
 
-### Border Left Radius utilities
-
-Additionally, in v3, we're also adding `rad-l-*` to add left rounded edges only to an element.
+### Border Left Radius
 
 ```html title="index.html" del={1} ins={2}
-<button class="b-1 bg-black rad-bl-2 rad-tl-2 tc-white">Subscribe</button> <button class="b-1 bg-black rad-l-2 tc-white">Subscribe</button>
+<button class="b-1 bg-black rad-bl-2 rad-tl-2 tc-white">Subscribe</button>
+<button class="b-1 bg-black rad-l-2 tc-white">Subscribe</button>
 ```
 
-### Border Right Radius utilities
-
-Additionally, in v3, we're also adding `rad-r-*` to add right rounded edges only to an element.
+### Border Right Radius
 
 ```html title="index.html" del={1} ins={2}
-<button class="b-1 bg-black rad-br-2 rad-tr-2 tc-white">Subscribe</button> <button class="b-1 bg-black rad-r-2 tc-white">Subscribe</button>
+<button class="b-1 bg-black rad-br-2 rad-tr-2 tc-white">Subscribe</button>
+<button class="b-1 bg-black rad-r-2 tc-white">Subscribe</button>
 ```
 
-### Border Top Radius utilities
-
-Finally, in v3, we're also adding `rad-t-*` to add top rounded edges only to an element.
+### Border Top Radius
 
 ```html title="index.html" del={1} ins={2}
-<button class="b-1 bg-black rad-tl-2 rad-tr-2 tc-white">Subscribe</button> <button class="b-1 bg-black rad-t-2 tc-white">Subscribe</button>
+<button class="b-1 bg-black rad-tl-2 rad-tr-2 tc-white">Subscribe</button>
+<button class="b-1 bg-black rad-t-2 tc-white">Subscribe</button>
 ```
 
-### Bottom/ Inset / Left / Right / Top utilities
-
-In v3, we've also made changes to the way the Bottom / Left / Right / Top utilities are written. This includes changes to the Bottom, Left, Right, and Top variants.
+### Top / Right / Bottom / Left
 
 ```html del={1-5} ins={6-10} title="index.html"
 <div class="dir-b">...</div>
@@ -631,47 +602,35 @@ In v3, we've also made changes to the way the Bottom / Left / Right / Top utilit
 <div class="t-">...</div>
 ```
 
-### Columns utilities
-
-In v3, we're making the `columns` utilities even smaller than before.
+### Columns
 
 ```html title="index.html" del={1} ins={2}
 <div class="cols-* ..."></div>
 <div class="c-* ..."></div>
 ```
 
-### Dimension utilities
-
-In v3, we've made the Dimension utility even more abbreviated to align with the purpose of the framework.
+### Dimension
 
 ```html title="index.html" del={1} ins={2}
 <div class="dim-* ..."></div>
 <div class="d-* ..."></div>
 ```
 
-### Max Dimension utilities
-
-Additionally, in v3, we're changing the Max Dimension utility syntax.
-
-This also applies to the Max and Min Dimension utilities.
+### Max Dimension
 
 ```html title="index.html" del={1} ins={2}
 <div class="max-dim-* ..."></div>
 <div class="max-d-* ..."></div>
 ```
 
-### Min Dimension utilities
-
-Finally, in v3, we're changing the Min Dimension utility syntax.
+### Min Dimension
 
 ```html title="index.html" del={1} ins={2}
 <div class="min-dim-* ..."></div>
 <div class="min-d-* ..."></div>
 ```
 
-### Font Size utilities
-
-In v3, new `font-size` utilities are being incorporated, and the visual sequential incremental between values is being enhanced to rectify the previous exaggerated outputs.
+### Font Size
 
 <Tabs>
   <TabItem label="v3.0">
@@ -682,9 +641,7 @@ In v3, new `font-size` utilities are being incorporated, and the visual sequenti
   </TabItem>
 </Tabs>
 
-### Font Family utilities
-
-In v3, new font stacks are being implemented, existing utilities are being refined, and additional fallback options are being incorporated for every `font-family` utility class. — https://modernfontstacks.com/
+### Font Family
 
 <Tabs>
   <TabItem label="v3.0">
@@ -710,61 +667,52 @@ In v3, new font stacks are being implemented, existing utilities are being refin
   </TabItem>
 </Tabs>
 
-### Overflow utilities
-
-In v3, we've completely reworked the `overflow` utility class syntax.
+### Overflow
 
 ```html title="index.html" del={1} ins={2}
 <div class="ovf-* ..."></div>
 <div class="o-* ..."></div>
 ```
 
-### Overflow X utilities
-
-Additionally, in v3, we've shortened the `overflow-x` utility class.
+### Overflow X
 
 ```html title="index.html" del={1} ins={2}
 <div class="ovf-x-* ..."></div>
 <div class="o-x-* ..."></div>
 ```
 
-### Overflow Y utilities
-
-Finally, in v3, we've shortened the `overflow-y` utility class.
+### Overflow Y
 
 ```html title="index.html" del={1} ins={2}
 <div class="ovf-y-* ..."></div>
 <div class="o-y-*..."></div>
 ```
 
-### Float utilities
-
-In v3 we're reworking the float utilities by shortening the syntax.
+### Float
 
 ```html title="index.html" del={1} ins={2}
 <div class="flo-* ..."></div>
 <div class="fl-* ..."></div>
 ```
 
-### Dimension, Height and Width utilities
+### Dimension, Height and Width
 
-In v3, we're renaming all `*-1/1` utilities, including the **Height**, **Width**, and **Dimension** utilities to `*-dvh`.
-
-```html title="index.html" del={1}
-<div class="*-1/1 ...">A</div>
+```html title="index.html" del={1-3} ins={4-6}
+<div class="d-1/1 ..."></div>
+<div class="h-1/1 ..."></div>
+<div class="w-1/1 ..."></div>
+<div class="d-dvh ..."></div>
+<div class="h-dvh ..."></div>
+<div class="w-dvh ..."></div>
 ```
 
 ### Removed Container utility
-
-We are no longer supporting the `cnt` utility. We are making improvements to our modifiers to make them more flexible and easier to use.
 
 ```html del="cnt" title="index.html"
 <div class="cnt"></div>
 ```
 
 ### Removed Insert utility
-
-It's been a great ride, and we're sure most of you have used it to easily center a div in the middle of the screen, but this concept was not very useful in many case scenarios where you would typically need more customizability, so we've decided to remove it.
 
 ```html title="index.html" del={1} ins={2}
 <div class="ins ..."></div>
@@ -773,7 +721,7 @@ It's been a great ride, and we're sure most of you have used it to easily center
 
 ### Removed Spacing X utilities
 
-In v3 we've removed the **Spacing X** utilities. You can use the **Row Gap** utilities instead for almost all cases, and even combine the **Row Gap** utilities with other utilities like `d-f` or `d-if`.
+You can use the **Row Gap** utilities instead for almost all cases, and even combine the **Row Gap** utilities with other utilities like `d-f` (`display: flex`) or `d-if` (`display: inline-flex`).
 
 ```html live "cg-8" title="index.html"
 <div class="d-if fd-r cg-8 tc-white" id="area">
@@ -785,7 +733,7 @@ In v3 we've removed the **Spacing X** utilities. You can use the **Row Gap** uti
 
 ### Removed Spacing Y utilities
 
-The same concept applies to the **Spacing Y** utilities. You should now use the **Column Gap** utilities instead. You can even combine the **Column Gap** utilities with other utilities like `d-f` or `d-if`.
+The same idea applies to the **Column Gap** utilities by the way.
 
 ```html live "rg-8" title="index.html"
 <div class="d-if fd-c rg-8 tc-white" id="area">
@@ -795,12 +743,12 @@ The same concept applies to the **Spacing Y** utilities. You should now use the 
 </div>
 ```
 
-### Removed `*-1/2` utilities
+### Removed `*-1/2` property values
 
-In v3, we're removing `h-1/2` from **Height** utilities, `w-1/2` from **Width** utilities, and `d-1/2` from **Dimension** utilities.
+Turns out it wasn't very useful at all.
 
 ```html title="index.html" del={1-3}
-<div class="h-1/2 ...">A</div>
-<div class="w-1/2 ...">A</div>
-<div class="d-1/2 ...">A</div>
+<div class="h-1/2 ..."></div>
+<div class="w-1/2 ..."></div>
+<div class="d-1/2 ..."></div>
 ```
