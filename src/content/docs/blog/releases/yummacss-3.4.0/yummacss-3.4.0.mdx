@@ -15,16 +15,7 @@ Today we're releasing Yumma CSS 3.4 — a complete rework of the core framework 
 
 {/* excerpt */}
 
-You may also want to take a look at some of the [release notes](https://github.com/yumma-lib/yumma-css/releases/tag/v3.4.0) but, anyway, these are the most noticeable shifts:
-
-- [No more SCSS](#no-more-scss): Why are we dropping SCSS?
-- [CLI changes](#cli-changes): A complete rewrite of the CLI for better performance.
-- [API changes](#api-changes): Changes to the API and its usage.
-- [Base style changes](#base-style-changes): No more tree shaking when using base styles.
-- [Color breakpoints support](#color-breakpoints-support): New support for breakpoints in color utilities.
-- [NPM support](#npm-support): Improvements for npm compatibility and other fixes.
-
-This is an incremental update that may contain breaking changes. Minor releases follow [semantic versioning](https://docs.npmjs.com/about-semantic-versioning) conventions. In other words, a migration is necessary to continue using the framework.
+**This update shouldn't be difficult to upgrade, but you may want to check out the [release notes](https://github.com/yumma-lib/yumma-css/releases/tag/v3.4.0) before upgrading.**
 
 ---
 
@@ -66,9 +57,9 @@ This change should avoid unnecessary CSS generation and improve build times even
 }
 ```
 
-### Instant build times
+### Faster builds & rebuilds
 
-We've been chasing this for a long time, and it's finally here. Thanks to the [@yummacss/api](https://github.com/yumma-lib/yumma-css-api) integration and the token extraction process, we can now execute build and rebuild tasks instantaneously — even with large projects.
+Since we the data is already structured inside `@yummacss/api` and doesn't need to be compiled, the only task left for the CLI is to extract the tokens from the `source` files and generate the final CSS file.
 
 ```bash title="Terminal" frame="terminal" {1}
 pnpm yummacss w
@@ -87,12 +78,20 @@ Try it out yourself by running `pnpm yummacss watch` or `npx yummacss watch` in 
 
 ## API changes
 
-With the migration to `@yummacss/api` we had to make some changes to the API's codebase. You can now expect the following changes:
+We updated our Library API in order to allow Yumma CSS to generate all of its utilities including variants. Your projects should continue to function as expected.
 
-- Add pseudo-class variants to all functions.
-- Add media query variants to all functions.
+- Added support for pseudo-class for all utility definitions.
+- Added support for media query for all utility definitions
 
-The new variants shouldn't feel like a breaking change, since the `variants?` interface is optional. Your projects should continue to function as expected.
+---
+
+## Color breakpoints support
+
+Pretty self explanatory, but now you can use breakpoints with color utilities.
+
+```html title="index.html"
+<div class="bg-white md:bg-silver-1">...</div>
+```
 
 ---
 
@@ -113,17 +112,7 @@ export default {
 
 ---
 
-## Color breakpoints support
-
-Pretty self explanatory, but now you can use breakpoints with color utilities.
-
-```html title="index.html"
-<div class="bg-white md:bg-silver-1">...</div>
-```
-
----
-
-## NPM support
+## NPM hot fix
 
 We had a bug that was preventing users from running the Yumma CSS CLI when using `npm` as a package manager. This issue should now be fixed.
 
