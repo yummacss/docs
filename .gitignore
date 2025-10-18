@@ -21,3 +21,6 @@ project-hierarchy.txt
 # environment variables
 .env
 .vercel
+
+# next
+beta/
