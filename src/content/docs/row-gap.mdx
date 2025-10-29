@@ -1,0 +1,28 @@
+export const frontmatter = {
+  title: "Row Gap",
+  description: "Controls the gap between rows in a grid layout.",
+};
+
+<ApiTable category="grid" name="row-gap" />
+
+The element will have a uniform spacing of **0.75rem** between its rows.
+
+```html live "rg-10" layout="/src/layouts/inline.astro"
+<div class="rg-10 d-g gtr-3 tc-white" id="area">
+  <div class="bg-indigo p-4 rad-1 ta-c">A</div>
+  <div class="bg-indigo p-4 rad-1 ta-c">B</div>
+  <div class="bg-indigo p-4 rad-1 ta-c">C</div>
+</div>
+```
+
+## Using utility variants
+
+Learn how to override existing utilities based on the user's [screen size](/docs/foundations/media-queries) or other factors, such as [hover states](/docs/foundations/pseudo-classes).
+
+### Using media queries
+
+<MediaVariant class="rg-1" variant="rg-2" classPrefix="rg" />
+
+### Using hover states
+
+<HoverVariant class="rg-1" variant="rg-2" classPrefix="rg" />

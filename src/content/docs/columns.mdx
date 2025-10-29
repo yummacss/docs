@@ -1,0 +1,29 @@
+export const frontmatter = {
+  title: "Columns",
+  description: "Controls how many columns are in an element.",
+};
+
+<ApiTable category="positioning" name="columns" />
+
+Divides the content into **4** equal columns.
+
+```html live "c-4" layout="/src/layouts/inline.astro"
+<div class="c-4">
+  <p class="bg-indigo rad-1 ta-c tc-white p-4">A</p>
+  <p class="bg-indigo rad-1 ta-c tc-white p-4">B</p>
+  <p class="bg-indigo rad-1 ta-c tc-white p-4">C</p>
+  <p class="bg-indigo rad-1 ta-c tc-white p-4">D</p>
+</div>
+```
+
+## Using utility variants
+
+Learn how to override existing utilities based on the user's [screen size](/docs/foundations/media-queries) or other factors, such as [hover states](/docs/foundations/pseudo-classes).
+
+### Using media queries
+
+<MediaVariant class="c-1" variant="c-2" classPrefix="c" />
+
+### Using hover states
+
+<HoverVariant class="c-1" variant="c-2" classPrefix="c" />

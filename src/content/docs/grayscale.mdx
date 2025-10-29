@@ -1,0 +1,38 @@
+export const frontmatter = {
+  title: "Grayscale",
+  description: "Applies a grayscale filter to an element.",
+};
+
+<ApiTable category="effect" name="grayscale" />
+
+This example showcases various `grayscale()` filter utilities:
+
+- The **f-g-0** grayscale utility sets the filter property to **grayscale(0%)**, meaning no grayscale is applied, and the colors remain unchanged.
+- The **f-g-50** grayscale utility sets the filter property to **grayscale(50%)**, applying a moderate grayscale effect, resulting in a mix of color and gray.
+- Finally, **f-g-100** grayscale utility sets the filter property to **grayscale(100%)**, completely removing all color and rendering the element in shades of gray.
+
+```html live "f-g-0" "f-g-50" "f-g-100"
+<div class="d-g g-16 gtc-1 sm:gtc-3">
+  <div class="d-32 p-r rad-1">
+    <img class="d-full f-g-0 of-c rad-1" src="/img/sea.jpg" />
+  </div>
+  <div class="d-32 p-r rad-1">
+    <img class="d-full f-g-50 of-c rad-1" src="/img/sea.jpg" />
+  </div>
+  <div class="d-32 p-r rad-1">
+    <img class="d-full f-g-100 of-c rad-1" src="/img/sea.jpg" />
+  </div>
+</div>
+```
+
+## Using utility variants
+
+Learn how to override existing utilities based on the user's [screen size](/docs/foundations/media-queries) or other factors, such as [hover states](/docs/foundations/pseudo-classes).
+
+### Using media queries
+
+<MediaVariant class="f-g-0" variant="f-g-100" classPrefix="f-g" />
+
+### Using hover states
+
+<HoverVariant class="f-g-0" variant="f-g-100" classPrefix="f-g" />

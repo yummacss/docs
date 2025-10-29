@@ -1,0 +1,40 @@
+export const frontmatter = {
+  title: "Object Position",
+  description: "Controls how to position the container's content.",
+};
+
+<ApiTable category="positioning" name="object-position" />
+
+This example showcases various `object-position` utilities:
+
+- The **bottom** object position utility aligns the object to the bottom edge of the container.
+- The **center** object position utility centers the object within the container.
+- The **left** object position utility aligns the object to the left edge of the container.
+- The **right** object position utility aligns the object to the right edge of the container.
+- The **top** object position utility aligns the object to the top edge of the container.
+
+```html live "op-lt" "op-t" "op-rt" "op-l" "op-c" "op-r" "op-lb" "op-b" "op-rb"
+<div class="d-g g-1 gtc-3">
+  <img class="d-24 of-none op-lt rad-1" src="/img/lighthouse.jpg" />
+  <img class="d-24 of-none op-t rad-1" src="/img/lighthouse.jpg" />
+  <img class="d-24 of-none op-rt rad-1" src="/img/lighthouse.jpg" />
+  <img class="d-24 of-none op-l rad-1" src="/img/lighthouse.jpg" />
+  <img class="d-24 of-none op-c rad-1" src="/img/lighthouse.jpg" />
+  <img class="d-24 of-none op-r rad-1" src="/img/lighthouse.jpg" />
+  <img class="d-24 of-none op-lb rad-1" src="/img/lighthouse.jpg" />
+  <img class="d-24 of-none op-b rad-1" src="/img/lighthouse.jpg" />
+  <img class="d-24 of-none op-rb rad-1" src="/img/lighthouse.jpg" />
+</div>
+```
+
+## Using utility variants
+
+Learn how to override existing utilities based on the user's [screen size](/docs/foundations/media-queries) or other factors, such as [hover states](/docs/foundations/pseudo-classes).
+
+### Using media queries
+
+<MediaVariant class="op-l" variant="op-r" classPrefix="op" />
+
+### Using hover states
+
+<HoverVariant class="op-l" variant="op-r" classPrefix="op" />

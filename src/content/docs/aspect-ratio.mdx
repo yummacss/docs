@@ -1,0 +1,100 @@
+export const frontmatter = {
+  title: "Aspect Ratio",
+  description: "Controls the aspect ratio of an element.",
+};
+
+<ApiTable category="positioning" name="aspect-ratio" />
+
+## Auto
+
+> Initial value
+
+Allows the element to maintain its default aspect ratio based on its content.
+
+```html live "ar-auto"
+<div class="ar-auto h-32">
+  <img class="d-full of-c rad-1" src="/img/frangipani.jpg" />
+</div>
+```
+
+## 1/1
+
+Enforces a square aspect ratio.
+
+```html live "ar-1/1"
+<div class="ar-1/1 h-32">
+  <img class="d-full of-c rad-1" src="/img/frangipani.jpg" />
+</div>
+```
+
+## 1/2
+
+Enforces a vertical aspect ratio.
+
+```html live "ar-1/2"
+<div class="ar-1/2 h-32">
+  <img class="d-full of-c rad-1" src="/img/frangipani.jpg" />
+</div>
+```
+
+## 16/9
+
+Enforces a widescreen aspect ratio.
+
+```html live "ar-16/9"
+<div class="ar-16/9 h-32">
+  <img class="d-full of-c rad-1" src="/img/frangipani.jpg" />
+</div>
+```
+
+## 2/1
+
+Enforces a horizontal aspect ratio.
+
+```html live "ar-2/1"
+<div class="ar-2/1 h-32">
+  <img class="d-full of-c rad-1" src="/img/frangipani.jpg" />
+</div>
+```
+
+## 2/3
+
+Enforces a vertical aspect ratio.
+
+```html live "ar-2/3"
+<div class="ar-2/3 h-32">
+  <img class="d-full of-c rad-1" src="/img/frangipani.jpg" />
+</div>
+```
+
+## 3/2
+
+Enforces a horizontal aspect ratio.
+
+```html live "ar-3/2"
+<div class="ar-3/2 h-32">
+  <img class="d-full of-c rad-1" src="/img/frangipani.jpg" />
+</div>
+```
+
+## 9/16
+
+Enforces a vertical aspect ratio.
+
+```html live "ar-9/16"
+<div class="ar-9/16 h-32">
+  <img class="d-full of-c rad-1" src="/img/frangipani.jpg" />
+</div>
+```
+
+## Using utility variants
+
+Learn how to override existing utilities based on the user's [screen size](/docs/foundations/media-queries) or other factors, such as [hover states](/docs/foundations/pseudo-classes).
+
+### Using media queries
+
+<MediaVariant class="ar-1/1" variant="ar-16/9" classPrefix="ar" />
+
+### Using hover states
+
+<HoverVariant class="ar-1/1" variant="ar-16/9" classPrefix="ar" />

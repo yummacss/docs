@@ -1,0 +1,124 @@
+export const frontmatter = {
+  authors: ["Renildo"],
+  cover: "cover.png",
+  date: "2025-10-02",
+  description: "Today we're releasing Yumma CSS 3.4 - a complete rework of the core framework with a focus on performance, a rewritten CLI, base style changes, quality-of-life improvements, and much more.",
+  title: "Yumma CSS 3.4",
+};
+
+**This update shouldn't be difficult to upgrade, but you may want to check out the [release notes](https://github.com/yumma-lib/yumma-css/releases/tag/v3.4.0) before upgrading.**
+
+---
+
+## No more SCSS
+
+On November 16, 2024, we [launched Yumma CSS API](/blog/api-1.0.0), an accessible way to retrieve all base Yumma CSS class definitions trough Javascript and Typescript functions. We mostly used it in our documentation site, and then in our [playground](https://play.yummacss.com) site for code completions.
+
+With the release of the new CLI in Yumma CSS v3, SCSS compilation become the main activity of the entire framework. It used `sass-embedded` to compile SCSS to CSS and `purgecss` to remove styles that aren't being used. These tasks took a long time to finish, especially with larger projects.
+
+So, in Yumma CSS v3.4, we decided to migrate from `sass-embedded` to `@yummacss/api` for CSS generation. This drastically improves build times and overall performance while also reducing the bundle size of the framework.
+
+---
+
+## CLI changes
+
+This release includes a bunch of changes to the CLI's overall logic and performance. Here are the most noticeable ones:
+
+### Token extraction
+
+The new token extraction process in Yumma CSS v3.4 will allow the CLI to look for class tokens in your `source` files defined in your `yumma.config.mjs` file and generate a CSS file accordingly.
+
+This change should avoid unnecessary CSS generation and improve build times even further.
+
+```html title="index.html" "d-f ai-c jc-c"
+<div class="d-f ai-c jc-c">bg-blue</div>
+```
+
+```css title="styles.css"
+.d-f {
+  display: flex;
+}
+
+.ai-c {
+  align-items: center;
+}
+
+.jc-c {
+  justify-content: center;
+}
+```
+
+### Faster builds & rebuilds
+
+Since we the data is already structured inside `@yummacss/api` and doesn't need to be compiled, the only task left for the CLI is to extract the tokens from the `source` files and generate the final CSS file.
+
+```bash title="Terminal" frame="terminal" {1}
+pnpm yummacss w
+√ Build done in 11ms. (./src/out.css)
+i Watching...
+√ Build done in 4ms. (./src/out.css)
+√ Build done in 4ms. (./src/out.css)
+√ Build done in 2ms. (./src/out.css)
+√ Build done in 3ms. (./src/out.css)
+√ Build done in 3ms. (./src/out.css)
+```
+
+Try it out yourself by running `pnpm yummacss watch` or `npx yummacss watch` in your terminal.
+
+---
+
+## API changes
+
+We updated our Library API in order to allow Yumma CSS to generate all of its utilities including variants. Your projects should continue to function as expected.
+
+- Added support for pseudo-class for all utility definitions.
+- Added support for media query for all utility definitions
+
+---
+
+## Color breakpoints support
+
+Pretty self explanatory, but now you can use breakpoints with color utilities.
+
+```html title="index.html"
+<div class="bg-white md:bg-silver-1">...</div>
+```
+
+---
+
+## Base style changes
+
+Without `purgecss` you should NOT expect tree shaking when using `buildOptions.reset`. This means that all base styles will be included in the final CSS file.
+
+```js title="yumma.config.mjs" mark={5}
+export default {
+  source: ["./src/**/*.html"],
+  output: "./src/out.css",
+  buildOptions: {
+    reset: true,
+    minify: false,
+  },
+};
+```
+
+---
+
+## NPM hot fix
+
+We had a bug that was preventing users from running the Yumma CSS CLI when using `npm` as a package manager. This issue should now be fixed.
+
+```bash title="Terminal" frame="terminal"
+npm install yummacss -D
+npx yummacss init
+npx yummacss build
+```
+
+---
+
+## Upgrade
+
+You can get the latest version of Yumma CSS from npm:
+
+```bash
+pnpm up yummacss
+```

@@ -1,0 +1,54 @@
+export const frontmatter = {
+  title: "Background Size",
+  description: "Controls the size of the background image of an element.",
+};
+
+<ApiTable category="background" name="background-size" />
+
+## Auto
+
+> Initial value
+
+The background image retains its original size.
+
+```html live "bs-auto"
+<div class="d-30 rad-1">
+  <div class="bs-auto bp-c h-30 rad-1" style="background-image:url(/img/lighthouse.jpg)"></div>
+</div>
+```
+
+## Cover
+
+The background image will cover the entire element.
+
+```html live "bs-c"
+<div class="d-30 rad-1">
+  <div class="bs-c bp-c h-30 rad-1" style="background-image:url(/img/lighthouse.jpg)"></div>
+</div>
+```
+
+## Contain
+
+The background image will be scaled to fit within the element.
+
+```html live "bs-co"
+<div class="d-30 rad-1">
+  <div class="bs-co bp-c h-30 rad-1" style="background-image:url(/img/lighthouse.jpg)"></div>
+</div>
+```
+
+## Using utility variants
+
+Learn how to override existing utilities based on the user's [screen size](/docs/foundations/media-queries) or other factors, such as [hover states](/docs/foundations/pseudo-classes).
+
+### Using media queries
+
+<MediaVariant class="bs-auto" variant="bs-c" classPrefix="bs">
+  ### Breakpoint variant
+</MediaVariant>
+
+### Using hover states
+
+<HoverVariant class="bs-auto" variant="bs-c" classPrefix="bs">
+  ### Hover variant
+</HoverVariant>

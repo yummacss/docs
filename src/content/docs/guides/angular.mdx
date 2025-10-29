@@ -1,60 +1,59 @@
----
-title: Angular with Yumma CSS
-banner:
-  content: N/A
-description: Integrate Yumma CSS into Angular applications.
-slug: docs/guides/angular
----
+export const frontmatter = {
+    title: "Angular with Yumma CSS",
+    description: "Integrate Yumma CSS into Angular applications.",
+};
 
 ## Creating a new project
 
 To create a new Angular project, you need to have the [Angular CLI](https://angular.dev/installation#install-angular-cli) installed on your machine.
 
-<Steps>
+<Stepper>
+  <Step title="Install Yumma CSS">
+    ```bash
+    pnpm add yummacss -D
+    ```
+  </Step>
 
-    1. **Install Yumma CSS**
+  <Step title="Initialize configuration">
+    Create a configuration file in your project.
 
-        <PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} icons={false} pkg="yummacss -D" title="Terminal" />
+    ```bash
+    pnpm yummacss init
+    ```
+  </Step>
 
-        <br />
+  <Step title="Set up configuration">
+    Specify the locations of all your project files in the config file.
 
-    2. **Initialize configuration**
+    ```js title="yumma.config.mjs" mark={2-3}
+    export default = {
+      source: ["./src/**/*.{html,ts}"],
+      output: "./src/styles.css",
+      buildOptions: {
+        reset: true,
+        minify: false,
+      }
+    };
+    ```
+  </Step>
 
-            Create a configuration file in your project.
+  <Step title="Build styles">
+    You can now start generating your CSS with the [`build`](/docs/foundations/config/#build) or [`watch`](/docs/foundations/config/#watch) command.
 
-            <PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} icons={false} pkg="yummacss init" title="Terminal" type="dlx" />
+    ```bash
+    pnpm yummacss build
+    ```
+  </Step>
 
-    3. **Set up configuration**
+  <Step title="Done!">
+    You're all set to start using Yumma CSS utilities in your project.
 
-        Specify the locations of all your project files in the config file.
+    ```html title="app.component.html" mark={1-3}
+    <div class="bg-indigo-12 d-g h-dvh pi-c tc-white">
+      <h1 class="fs-3xl fw-500">Yumma CSS ⚙️ Angular</h1>
+    </div>
 
-        ```js title="yumma.config.mjs" mark={2-3}
-        export default = {
-            source: ["./src/**/*.{html,ts}"],
-            output: "./src/styles.css",
-            buildOptions: {
-                reset: true,
-                minify: false,
-            }
-        };
-        ```
-
-    4. **Build styles**
-
-        You can now start generating your CSS with the [`build`](/docs/foundations/config/#build) or [`watch`](/docs/foundations/config/#watch) command.
-
-        <PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} icons={false} pkg="yummacss build" title="Terminal" type="dlx" />
-
-    5. **Done!**
-
-        You're all set to start using Yumma CSS utilities in your project.
-
-        ```html title="app.component.html" mark={1-3}
-        <div class="bg-indigo-12 d-g h-dvh pi-c tc-white">
-            <h1 class="fs-3xl fw-500">Yumma CSS ⚙️ Angular</h1>
-        </div>
-
-        <router-outlet />
-        ```
-
-</Steps>
+    <router-outlet />
+    ```
+  </Step>
+</Stepper>

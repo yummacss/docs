@@ -1,0 +1,58 @@
+export const frontmatter = {
+  title: "Caption Side",
+  description: "Controls the caption element orientation in a table.",
+};
+
+<ApiTable category="table" name="caption-side" />
+
+## Top
+
+> Initial value
+
+The caption will be displayed above the table.
+
+```html live "cs-t" layout="/src/layouts/inline.astro"
+<table class="b-1 bc-c bc-indigo ta-c w-full">
+  <caption class="cs-t p-2">
+    Top Caption
+  </caption>
+  <tbody>
+    <tr>
+      <td class="b-1 bc-indigo p-3 tc-indigo">A</td>
+      <td class="b-1 bc-indigo p-3 tc-indigo">B</td>
+      <td class="b-1 bc-indigo p-3 tc-indigo">C</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+## Bottom
+
+The caption will be displayed below the table.
+
+```html live "cs-b" layout="/src/layouts/inline.astro"
+<table class="b-1 bc-c bc-indigo ta-c w-full">
+  <caption class="cs-b p-2">
+    Bottom Caption
+  </caption>
+  <tbody>
+    <tr>
+      <td class="b-1 bc-indigo p-3 tc-indigo">A</td>
+      <td class="b-1 bc-indigo p-3 tc-indigo">B</td>
+      <td class="b-1 bc-indigo p-3 tc-indigo">C</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+## Using utility variants
+
+Learn how to override existing utilities based on the user's [screen size](/docs/foundations/media-queries) or other factors, such as [hover states](/docs/foundations/pseudo-classes).
+
+### Using media queries
+
+<MediaVariant class="cs-b" variant="cs-t" classPrefix="cs" />
+
+### Using hover states
+
+<HoverVariant class="cs-b" variant="cs-t" classPrefix="cs" />

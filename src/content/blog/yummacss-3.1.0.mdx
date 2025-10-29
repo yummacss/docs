@@ -1,0 +1,53 @@
+export const frontmatter = {
+  authors: ["Renildo"],
+  cover: "cover.png",
+  date: "2025-07-29",
+  description: "Today, we're excited to bring you Yumma CSS v3.1.0! This update adds support for new pseudo-class variants and eliminates legacy CSS files, reducing the framework's size and improving performance as it grows.",
+  title: "Yumma CSS 3.1"
+};
+
+**This update shouldn't be difficult to upgrade, but you may want to check out the [release notes](https://github.com/yumma-lib/yumma-css/releases/tag/v3.1.0) before upgrading.**
+
+---
+
+## New pseudo-class variants
+
+We're expanding the framework's interactivity capabilities by adding support for two essential pseudo-class variants that are compatible with all the framework's base utilities.
+
+### Focus variants
+
+You can now apply styles to elements that receive focus using the `f:` prefix. This is extremely useful for making form elements and buttons more accessible and interactive.
+
+```html "f:oc-indigo-5 f:oo-2 f:os-s f:ow-2" live
+<button class="bg-indigo f:oc-indigo-5 f:oo-2 f:os-s f:ow-2 h:bg-indigo-7 px-4 py-2 rad-1 tc-white">Focus me!</button>
+```
+
+### Active variants
+
+The `a:` prefix allows you to style elements when they are being pressed or clicked. It's perfect for creating responsive button interactions and touch feedback.
+
+```html "a:bg-indigo-9" live
+<button class="bg-indigo h:bg-indigo-7 a:bg-indigo-9 px-4 py-2 rad-1 tc-white">Press me!</button>
+```
+
+---
+
+## Legacy CSS files removed
+
+As part of our ongoing efforts to improve performance and optimize Yumma CSS, we have completely removed the legacy CSS files, `yumma.css` and `yumma.min.css`, from the distribution directory.
+
+### What does this mean?
+
+If you're already using the Yumma CSS CLI ([introduced in v3.0](/blog/yummacss-3.0)), this change should not feel like a breaking change. However, if you're still importing CSS files directly, you will need to migrate.
+
+Learn more about how to migrate to the CLI-based workflow [here](/docs/migration-guide).
+
+---
+
+## Upgrade
+
+You can get the latest version of Yumma CSS from npm:
+
+```bash
+pnpm up yummacss
+```

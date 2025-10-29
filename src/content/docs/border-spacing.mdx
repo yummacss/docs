@@ -1,0 +1,33 @@
+export const frontmatter = {
+  title: "Border Spacing",
+  description: "Controls the distance between table borders.",
+};
+
+<ApiTable category="border" name="border-spacing" />
+
+The space between the borders of adjacent table cells will be increased.
+
+```html live "bs-4" layout="/src/layouts/inline.astro"
+<table class="b-1 bc-indigo bs-4 w-full">
+  <tr>
+    <td class="b-1 bc-indigo p-4 ta-c tc-indigo">A</td>
+    <td class="b-1 bc-indigo p-4 ta-c tc-indigo">B</td>
+  </tr>
+  <tr>
+    <td class="b-1 bc-indigo p-4 ta-c tc-indigo">C</td>
+    <td class="b-1 bc-indigo p-4 ta-c tc-indigo">D</td>
+  </tr>
+</table>
+```
+
+## Using utility variants
+
+Learn how to override existing utilities based on the user's [screen size](/docs/foundations/media-queries) or other factors, such as [hover states](/docs/foundations/pseudo-classes).
+
+### Using media queries
+
+<MediaVariant class="bs-1" variant="bs-2" classPrefix="bs" />
+
+### Using hover states
+
+<HoverVariant class="bs-1" variant="bs-2" classPrefix="bs" />

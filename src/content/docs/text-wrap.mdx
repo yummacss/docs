@@ -1,0 +1,84 @@
+export const frontmatter = {
+  title: "Text Wrap",
+  description: "Controls how text is wrapped within an element.",
+};
+
+<ApiTable category="text" name="text-wrap" />
+
+## Wrap
+
+> Initial value
+
+The text will wrap to the next line when it reaches the end of the container.
+
+```html live "tw-w" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <div class="bg-white d-g g-4 max-w-80 mx-auto p-4 rad-1">
+    <div class="fs-xl fw-600 tc-slate tw-w">Letters to Anne (Springtime'23 message)</div>
+    <p class="fs-sm tc-gray-7">
+      Hi, Anne. It's finally springtime here on Earth! I can't stand windy or cold days, so I'm very excited for the spring. There are so many beautiful, colorful trees where I
+      live.
+    </p>
+  </div>
+</div>
+```
+
+## Balance
+
+The text will be wrapped in a way that balances the line lengths, creating a more visually appealing layout.
+
+```html live "tw-b" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <div class="bg-white d-g g-4 max-w-80 mx-auto p-4 rad-1">
+    <div class="fs-xl fw-600 tc-slate tw-b">Letters to Anne (Springtime'23 message)</div>
+    <p class="fs-sm tc-gray-7">
+      Hi, Anne. It's finally springtime here on Earth! I can't stand windy or cold days, so I'm very excited for the spring. There are so many beautiful, colorful trees where I
+      live.
+    </p>
+  </div>
+</div>
+```
+
+## No Wrap
+
+The text will not wrap to the next line, and it will overflow the container if it exceeds the width.
+
+```html live "tw-nw" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <div class="bg-white d-g g-4 max-w-80 mx-auto p-4 rad-1">
+    <div class="fs-xl fw-600 tc-slate tw-nw">Letters to Anne (Springtime'23 message)</div>
+    <p class="fs-sm tc-gray-7">
+      Hi, Anne. It's finally springtime here on Earth! I can't stand windy or cold days, so I'm very excited for the spring. There are so many beautiful, colorful trees where I
+      live.
+    </p>
+  </div>
+</div>
+```
+
+## Pretty
+
+The text will be wrapped in a way that maintains a visually pleasing appearance, often used for better readability.
+
+```html live "tw-p" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <div class="bg-white d-g g-4 max-w-80 mx-auto p-4 rad-1">
+    <div class="fs-xl fw-600 tc-slate tw-p">Letters to Anne (Springtime'23 message)</div>
+    <p class="fs-sm tc-gray-7">
+      Hi, Anne. It's finally springtime here on Earth! I can't stand windy or cold days, so I'm very excited for the spring. There are so many beautiful, colorful trees where I
+      live.
+    </p>
+  </div>
+</div>
+```
+
+## Using utility variants
+
+Learn how to override existing utilities based on the user's [screen size](/docs/foundations/media-queries) or other factors, such as [hover states](/docs/foundations/pseudo-classes).
+
+### Using media queries
+
+<MediaVariant class="tw-nw" variant="tw-w" classPrefix="tw" />
+
+### Using hover states
+
+<HoverVariant class="tw-nw" variant="tw-w" classPrefix="tw" />

@@ -1,0 +1,31 @@
+export const frontmatter = {
+  title: "Order",
+  description: "Controls the order of flex and grid items.",
+};
+
+<ApiTable category="flexbox" name="order" />
+
+This example showcases various `order` utilities:
+
+- The **or-l** order utility sets the order property to **-9999**, placing the item at the beginning of the flex container.
+- The **or-f** order utility sets the order property to **9999**, placing the item at the end of the flex container.
+
+```html live "or-f" "or-l" layout="/src/layouts/inline.astro"
+<div class="d-f jc-sb tc-white">
+  <div class="ai-c bg-indigo d-f d-14 jc-c or-f rad-1">A</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c rad-1">B</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c or-l rad-1">C</div>
+</div>
+```
+
+## Using utility variants
+
+Learn how to override existing utilities based on the user's [screen size](/docs/foundations/media-queries) or other factors, such as [hover states](/docs/foundations/pseudo-classes).
+
+### Using media queries
+
+<MediaVariant class="or-f" variant="or-l" classPrefix="or" />
+
+### Using hover states
+
+<HoverVariant class="or-f" variant="or-l" classPrefix="or" />

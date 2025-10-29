@@ -1,0 +1,68 @@
+export const frontmatter = {
+  title: "Flex Direction",
+  description: "Controls the direction of flex elements.",
+};
+
+<ApiTable category="flexbox" name="flex-direction" />
+
+## Row
+
+> Initial value
+
+The items will be arranged horizontally in a single row.
+
+```html live "fd-r" layout="/src/layouts/inline.astro"
+<div class="d-f fd-r cg-4 tc-white">
+  <div class="d-16 bg-indigo ta-c p-4 rad-1">A</div>
+  <div class="d-16 bg-indigo ta-c p-4 rad-1">B</div>
+  <div class="d-16 bg-indigo ta-c p-4 rad-1">C</div>
+</div>
+```
+
+## Column
+
+The items will be arranged vertically in a single column.
+
+```html live "fd-c" layout="/src/layouts/inline.astro"
+<div class="d-f fd-c rg-4 tc-white">
+  <div class="bg-indigo ta-c p-4 rad-1">A</div>
+  <div class="bg-indigo ta-c p-4 rad-1">B</div>
+  <div class="bg-indigo ta-c p-4 rad-1">C</div>
+</div>
+```
+
+## Column Reverse
+
+The items will be arranged vertically in a single column, but in reverse order.
+
+```html live "fd-cr" layout="/src/layouts/inline.astro"
+<div class="d-f fd-cr rg-4 tc-white">
+  <div class="bg-indigo ta-c p-4 rad-1">A</div>
+  <div class="bg-indigo ta-c p-4 rad-1">B</div>
+  <div class="bg-indigo ta-c p-4 rad-1">C</div>
+</div>
+```
+
+## Row Reverse
+
+The items will be arranged horizontally in a single row, but in reverse order.
+
+```html live "fd-rr" layout="/src/layouts/inline.astro"
+<div class="d-f fd-rr cg-4 tc-white">
+  <div class="d-16 bg-indigo ta-c p-4 rad-1">A</div>
+  <div class="d-16 bg-indigo ta-c p-4 rad-1">B</div>
+  <div class="d-16 bg-indigo ta-c p-4 rad-1">C</div>
+</div>
+```
+
+## Using utility variants
+
+Learn how to override existing utilities based on the user's [screen size](/docs/foundations/media-queries) or other factors, such as [hover states](/docs/foundations/pseudo-classes).
+
+### Using media queries
+
+<MediaVariant class="fd-c" variant="fd-r" classPrefix="fd" />
+
+### Using hover states
+
+<HoverVariant class="fd-c" variant="fd-r" classPrefix="fd" />

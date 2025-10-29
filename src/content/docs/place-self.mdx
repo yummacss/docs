@@ -1,0 +1,88 @@
+export const frontmatter = {
+  title: "Place Self",
+  description: "Controls how single items are justified and aligned simultaneously.",
+};
+
+<ApiTable category="grid" name="place-self" />
+
+## Auto
+
+The item will use the default alignment based on the container's alignment properties.
+
+```html live "ps-auto" layout="/src/layouts/inline.astro"
+<div id="area">
+  <div class="d-g g-4 gtc-3 pi-st">
+    <div class="ai-c bg-indigo-9 d-f jc-c p-8 rad-1 tc-indigo-5">A</div>
+    <div class="ai-c bg-indigo d-f jc-c p-8 ps-auto rad-1 tc-white">B</div>
+    <div class="ai-c bg-indigo-9 d-f jc-c p-8 rad-1 tc-indigo-5">C</div>
+  </div>
+</div>
+```
+
+## Center
+
+The item will be centered within its grid area.
+
+```html live "ps-c" layout="/src/layouts/inline.astro"
+<div id="area">
+  <div class="d-g g-4 gtc-3 pi-st">
+    <div class="ai-c bg-indigo-9 d-f jc-c p-8 rad-1 tc-indigo-5">A</div>
+    <div class="ai-c bg-indigo d-f jc-c p-8 ps-c rad-1 tc-white">B</div>
+    <div class="ai-c bg-indigo-9 d-f jc-c p-8 rad-1 tc-indigo-5">C</div>
+  </div>
+</div>
+```
+
+## End
+
+The item will be aligned to the end of its grid area.
+
+```html live "ps-e" layout="/src/layouts/inline.astro"
+<div id="area">
+  <div class="d-g g-4 gtc-3 pi-st">
+    <div class="ai-c bg-indigo-9 d-f jc-c p-8 rad-1 tc-indigo-5">A</div>
+    <div class="ai-c bg-indigo d-f jc-c p-8 ps-e rad-1 tc-white">B</div>
+    <div class="ai-c bg-indigo-9 d-f jc-c p-8 rad-1 tc-indigo-5">C</div>
+  </div>
+</div>
+```
+
+## Start
+
+The item will be aligned to the start of its grid area.
+
+```html live "ps-s" layout="/src/layouts/inline.astro"
+<div id="area">
+  <div class="d-g g-4 gtc-3 pi-st">
+    <div class="ai-c bg-indigo-9 d-f jc-c p-8 rad-1 tc-indigo-5">A</div>
+    <div class="ai-c bg-indigo d-f jc-c p-8 ps-s rad-1 tc-white">B</div>
+    <div class="ai-c bg-indigo-9 d-f jc-c p-8 rad-1 tc-indigo-5">C</div>
+  </div>
+</div>
+```
+
+## Stretch
+
+The item will stretch to fill its grid area along the cross axis.
+
+```html live "ps-st" layout="/src/layouts/inline.astro"
+<div id="area">
+  <div class="d-g g-4 gtc-3 pi-st">
+    <div class="ai-c bg-indigo-9 d-f jc-c p-8 rad-1 tc-indigo-5">A</div>
+    <div class="ai-c bg-indigo d-f jc-c p-8 ps-st rad-1 tc-white">B</div>
+    <div class="ai-c bg-indigo-9 d-f jc-c p-8 rad-1 tc-indigo-5">C</div>
+  </div>
+</div>
+```
+
+## Using utility variants
+
+Learn how to override existing utilities based on the user's [screen size](/docs/foundations/media-queries) or other factors, such as [hover states](/docs/foundations/pseudo-classes).
+
+### Using media queries
+
+<MediaVariant class="ps-s" variant="ps-e" classPrefix="ps" />
+
+### Using hover states
+
+<HoverVariant class="ps-s" variant="ps-e" classPrefix="ps" />

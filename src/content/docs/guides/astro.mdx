@@ -1,64 +1,63 @@
----
-title: Astro with Yumma CSS
-banner:
-  content: N/A
-description: Integrate Yumma CSS into Astro applications.
-slug: docs/guides/astro
----
+export const frontmatter = {
+    title: "Astro with Yumma CSS",
+    description: "Integrate Yumma CSS into Astro applications.",
+};
 
 ## Creating a new project
 
-To create a new Astro project, you need run the [Astro CLI Wizard](https://docs.astro.build/en/install-and-setup/#install-from-the-cli-wizard) in your terminal.
+To create a new Astro project, you need run the [Astro command](https://docs.astro.build/en/install-and-setup/) in your terminal.
 
-<Steps>
+<Stepper>
+  <Step title="Install Yumma CSS">
+    ```bash
+    pnpm add yummacss -D
+    ```
+  </Step>
 
-    1. **Install Yumma CSS**
+  <Step title="Initialize configuration">
+    Create a configuration file in your project.
 
-        <PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} icons={false} pkg="yummacss -D" title="Terminal" />
+    ```bash
+    pnpm yummacss init
+    ```
+  </Step>
 
-        <br />
+  <Step title="Set up configuration">
+    Specify the locations of all your project files in the config file.
 
-    2. **Initialize configuration**
+    ```js title="yumma.config.mjs" mark={2-3}
+    export default {
+      source: ["./src/**/*.{astro,ts,tsx}"],
+      output: "./src/styles/global.css",
+      buildOptions: {
+        reset: true,
+        minify: false,
+      }
+    };
+    ```
+  </Step>
 
-            Create a configuration file in your project.
+  <Step title="Build styles">
+    You can now start generating your CSS with the [`build`](/docs/foundations/config/#build) or [`watch`](/docs/foundations/config/#watch) command.
 
-            <PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} icons={false} pkg="yummacss init" title="Terminal" type="dlx" />
+    ```bash
+    pnpm yummacss build
+    ```
+  </Step>
 
-    3. **Set up configuration**
+  <Step title="Done!">
+    You're all set to start using Yumma CSS utilities in your project.
 
-        Specify the locations of all your project files in the config file.
+    ```astro title="pages/index.astro" mark={3-5}
+    ---
+    import Layout from '../layouts/Layout.astro';
+    ---
 
-        ```js title="yumma.config.mjs" mark={2-3}
-        export default {
-            source: ["./src/**/*.{html,astro}"],
-            output: "./src/styles.css",
-            buildOptions: {
-                reset: true,
-                minify: false,
-            }
-        };
-        ```
-
-    4. **Build styles**
-
-        You can now start generating your CSS with the [`build`](/docs/foundations/config/#build) or [`watch`](/docs/foundations/config/#watch) command.
-
-        <PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} icons={false} pkg="yummacss build" title="Terminal" type="dlx" />
-
-    5. **Done!**
-
-        You're all set to start using Yumma CSS utilities in your project.
-
-        ```astro title="pages/index.astro" mark={6-8}
-        ---
-        import Layout from '../layouts/Layout.astro';
-        ---
-
-        <Layout title="Welcome to Astro.">
-            <div class="bg-indigo-12 d-g h-dvh pi-c tc-white">
-                <h1 class="fs-3xl fw-500">Yumma CSS ⚙️ Astro</h1>
-            </div>
-        </Layout>
-        ```
-
-</Steps>
+    <Layout title="Welcome to Astro.">
+      <div class="bg-indigo-12 d-g h-dvh pi-c tc-white">
+        <h1 class="fs-3xl fw-500">Yumma CSS ⚙️ Astro</h1>
+      </div>
+    </Layout>
+    ```
+  </Step>
+</Stepper>

@@ -1,0 +1,58 @@
+export const frontmatter = {
+  title: "Text Decoration Line",
+  description: "Controls the text decoration line of an element.",
+};
+
+<ApiTable category="text" name="text-decoration-line" />
+
+## Line Through
+
+The text will be displayed with a line through it, indicating that it is struck out.
+
+```html live "tdl-lt" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <p class="bg-white fs-lg p-4 rad-1 ta-c tc-slate tdl-lt">Sphinx of black quartz, judge my vow.</p>
+</div>
+```
+
+## None
+
+The text will be displayed without any decoration lines.
+
+```html live "tdl-none" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <p class="bg-white fs-lg p-4 rad-1 ta-c tc-slate tdl-none">Sphinx of black quartz, judge my vow.</p>
+</div>
+```
+
+## Underline
+
+The text will be displayed with an underline, emphasizing the content.
+
+```html live "tdl-u" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <p class="bg-white fs-lg p-4 rad-1 ta-c tc-slate tdl-u">Sphinx of black quartz, judge my vow.</p>
+</div>
+```
+
+## Overline
+
+The text will be displayed with a line above it.
+
+```html live "tdl-o" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <p class="bg-white fs-lg p-4 rad-1 ta-c tc-slate tdl-o">Sphinx of black quartz, judge my vow.</p>
+</div>
+```
+
+## Using utility variants
+
+Learn how to override existing utilities based on the user's [screen size](/docs/foundations/media-queries) or other factors, such as [hover states](/docs/foundations/pseudo-classes).
+
+### Using media queries
+
+<MediaVariant class="tdl-none" variant="tdl-u" classPrefix="tdl" />
+
+### Using hover states
+
+<HoverVariant class="tdl-none" variant="tdl-u" classPrefix="tdl" />

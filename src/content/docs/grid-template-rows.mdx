@@ -1,0 +1,35 @@
+export const frontmatter = {
+  title: "Grid Template Rows",
+  description: "Utilities to specify the rows in a grid layout.",
+};
+
+<ApiTable category="grid" name="grid-template-rows" />
+
+The grid will have **3** rows, each with a minimum size of **0** and a maximum size of `1fr`, allowing them to grow and fill the available space equally.
+
+```html live "gtr-3" layout="/src/layouts/inline.astro"
+<div class="o-auto p-r">
+  <div class="d-g g-4 gaf-c gtr-3 ta-c tc-white" id="area">
+    <div class="bg-indigo p-4 rad-1">A</div>
+    <div class="bg-indigo p-4 rad-1">B</div>
+    <div class="bg-indigo p-4 rad-1">C</div>
+    <div class="bg-indigo p-4 rad-1">D</div>
+    <div class="bg-indigo p-4 rad-1">E</div>
+    <div class="bg-indigo p-4 rad-1">F</div>
+    <div class="bg-indigo p-4 rad-1">G</div>
+    <div class="bg-indigo p-4 rad-1">H</div>
+  </div>
+</div>
+```
+
+## Using utility variants
+
+Learn how to override existing utilities based on the user's [screen size](/docs/foundations/media-queries) or other factors, such as [hover states](/docs/foundations/pseudo-classes).
+
+### Using media queries
+
+<MediaVariant class="gtr-1" variant="gtr-2" classPrefix="gtr" />
+
+### Using hover states
+
+<HoverVariant class="gtr-1" variant="gtr-2" classPrefix="gtr" />

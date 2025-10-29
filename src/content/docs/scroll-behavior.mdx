@@ -1,0 +1,36 @@
+export const frontmatter = {
+  title: "Scroll Behavior",
+  description: "Controls the scroll behavior of an element.",
+};
+
+<ApiTable category="interactivity" name="scroll-behavior" />
+
+## Auto
+
+> Initial value
+
+Allows the default scrolling behavior, which is immediate and without any animation.
+
+```html "sb-auto" layout="/src/layouts/inline.astro"
+<div class="sb-auto ..."></div>
+```
+
+## Smooth
+
+Enables a smooth scrolling effect, providing a gradual transition when scrolling to a different part of the page.
+
+```html "sb-s" layout="/src/layouts/inline.astro"
+<div class="sb-s ..."></div>
+```
+
+## Using utility variants
+
+Learn how to override existing utilities based on the user's [screen size](/docs/foundations/media-queries) or other factors, such as [hover states](/docs/foundations/pseudo-classes).
+
+### Using media queries
+
+<MediaVariant class="sb-auto" variant="sb-s" classPrefix="sb" />
+
+### Using hover states
+
+<HoverVariant class="sb-auto" variant="sb-s" classPrefix="sb" />

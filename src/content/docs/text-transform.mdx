@@ -1,0 +1,60 @@
+export const frontmatter = {
+  title: "Text Transform",
+  description: "Controls the capitalization and case of text content.",
+};
+
+<ApiTable category="text" name="text-transform" />
+
+## None
+
+> Initial value
+
+The text will be displayed as it is, without any transformation applied.
+
+```html live "tt-none" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <p class="bg-white fs-lg p-4 rad-1 ta-c tc-slate tt-none">Sphinx of black quartz, judge my vow.</p>
+</div>
+```
+
+## Capitalize
+
+The first letter of each word will be converted to uppercase.
+
+```html live "tt-c" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <p class="bg-white fs-lg p-4 rad-1 ta-c tc-slate tt-c">Sphinx of black quartz, judge my vow.</p>
+</div>
+```
+
+## Lowercase
+
+All letters in the text will be converted to lowercase.
+
+```html live "tt-l" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <p class="bg-white fs-lg p-4 rad-1 ta-c tc-slate tt-l">Sphinx of black quartz, judge my vow.</p>
+</div>
+```
+
+## Uppercase
+
+All letters in the text will be converted to uppercase.
+
+```html live "tt-u" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <p class="bg-white fs-lg p-4 rad-1 ta-c tc-slate tt-u">Sphinx of black quartz, judge my vow.</p>
+</div>
+```
+
+## Using utility variants
+
+Learn how to override existing utilities based on the user's [screen size](/docs/foundations/media-queries) or other factors, such as [hover states](/docs/foundations/pseudo-classes).
+
+### Using media queries
+
+<MediaVariant class="tt-none" variant="tt-c" classPrefix="tt" />
+
+### Using hover states
+
+<HoverVariant class="tt-none" variant="tt-c" classPrefix="tt" />

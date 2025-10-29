@@ -1,63 +1,63 @@
----
-title: Qwik with Yumma CSS
-banner:
-  content: N/A
-description: Integrate Yumma CSS into Qwik applications.
-slug: docs/guides/qwik
----
+export const frontmatter = {
+    title: "Qwik with Yumma CSS",
+    description: "Integrate Yumma CSS into Qwik applications.",
+};
 
 ## Creating a new project
 
 To create a new Qwik project, you need run the [Qwik CLI](https://qwik.dev/docs/getting-started/#create-an-app-using-the-cli) in your terminal.
 
-<Steps>
-    1. **Install Yumma CSS**
+<Stepper>
+  <Step title="Install Yumma CSS">
+    ```bash
+    pnpm add yummacss -D
+    ```
+  </Step>
 
-        <PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} icons={false} pkg="yummacss -D" title="Terminal" />
+  <Step title="Initialize configuration">
+    Create a configuration file in your project.
 
-        <br />
+    ```bash
+    pnpm yummacss init
+    ```
+  </Step>
 
-    2. **Initialize configuration**
+  <Step title="Set up configuration">
+    Specify the locations of all your project files in the config file.
 
-            Create a configuration file in your project.
+    ```js title="yumma.config.mjs" mark={2-3}
+    export default {
+      source: ["./src/**/*.{ts,tsx}"],
+      output: "./src/global.css",
+      buildOptions: {
+        reset: true,
+        minify: false,
+      }
+    };
+    ```
+  </Step>
 
-            <PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} icons={false} pkg="yummacss init" title="Terminal" type="dlx" />
+  <Step title="Build styles">
+    You can now start generating your CSS with the [`build`](/docs/foundations/config/#build) or [`watch`](/docs/foundations/config/#watch) command.
 
-    3. **Set up configuration**
+    ```bash
+    pnpm yummacss build
+    ```
+  </Step>
 
-        Specify the locations of all your project files in the config file.
+  <Step title="Done!">
+    You're all set to start using Yumma CSS utilities in your project.
 
-        ```js title="yumma.config.mjs" mark={2-3}
-        export default {
-            source: ["./src/**/*.{ts,tsx}"],
-            output: "./src/global.css",
-            buildOptions: {
-                reset: true,
-                minify: false,
-            }
-        };
-        ```
+    ```tsx title="routes/index.tsx" mark={5-7}
+    import { component$ } from "@builder.io/qwik";
 
-    4. **Build styles**
-
-        You can now start generating your CSS with the [`build`](/docs/foundations/config/#build) or [`watch`](/docs/foundations/config/#watch) command.
-
-        <PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} icons={false} pkg="yummacss build" title="Terminal" type="dlx" />
-
-    5. **Done!**
-
-        You're all set to start using Yumma CSS utilities in your project.
-
-        ```tsx title="routes/index.tsx" mark={5-7}
-        import { component$ } from "@builder.io/qwik";
-
-        export default component$(() => {
-            return (
-                <div class="bg-indigo-12 d-g h-dvh pi-c tc-white">
-                    <h1 class="fs-3xl fw-500">Yumma CSS ⚙️ Qwik</h1>
-                </div>
-            );
-        });
-        ```
-
-</Steps>
+    export default component$(() => {
+      return (
+        <div class="bg-indigo-12 d-g h-dvh pi-c tc-white">
+          <h1 class="fs-3xl fw-500">Yumma CSS ⚙️ Qwik</h1>
+        </div>
+      );
+    });
+    ```
+  </Step>
+</Stepper>

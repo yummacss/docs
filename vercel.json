@@ -1,4 +1,0 @@
-{
-	"buildCommand": "astro check && astro build && yummacss build",
-	"installCommand": "pnpm install"
-}

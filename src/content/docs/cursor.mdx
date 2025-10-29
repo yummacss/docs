@@ -1,0 +1,86 @@
+export const frontmatter = {
+  title: "Cursor",
+  description: "Controls the cursor style when hovering over an element.",
+};
+
+<ApiTable category="interactivity" name="cursor" />
+
+## Disc
+
+> Initial value
+
+The list items will be marked with solid circles, which is the default style for unordered lists.
+
+```html live "lst-d" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <ul class="bg-white lsp-o lst-d p-4 pl-6 rad-1">
+    <li class="tc-slate">Butter 🧈</li>
+    <li class="tc-slate">Egg 🥚</li>
+    <li class="tc-slate">Milk 🥛</li>
+  </ul>
+</div>
+```
+
+## Progress
+
+Indicates that a task is in progress.
+
+<Note icon="cursor_arrow">Try hovering over the buttons to see how the cursor transforms with your mouse.</Note>
+
+{/* biome-ignore */}
+```html live "c-pr"
+<button class="c-pr b-2 bc-indigo bg-indigo-2 d-g fw-600 pi-c px-8 py-1 rad-1 rad-2 tc-indigo">
+  Wait
+</button>
+```
+
+## Help
+
+Indicates that the element provides helpful information.
+
+<Note icon="cursor_arrow">Try hovering over the buttons to see how the cursor transforms with your mouse.</Note>
+
+{/* biome-ignore */}
+```html live "c-h"
+<button class="c-h b-2 bc-indigo bg-indigo-2 d-g fw-600 pi-c px-8 py-1 rad-1 rad-2 tc-indigo">
+  Help
+</button>
+```
+
+## Not Allowed
+
+Indicates that the requested action cannot be performed.
+
+<Note icon="cursor_arrow">Try hovering over the buttons to see how the cursor transforms with your mouse.</Note>
+
+{/* biome-ignore */}
+```html live "c-na"
+<button class="c-na b-2 bc-red bg-red-2 d-g fw-600 pi-c px-8 py-1 rad-1 rad-2 tc-red">
+  Stop
+</button>
+```
+
+## Pointer
+
+Indicates that the element is a interactive element that can be activated.
+
+<Note icon="cursor_arrow">Try hovering over the buttons to see how the cursor transforms with your mouse.</Note>
+
+{/* biome-ignore */}
+```html live "c-p"
+<button class="c-p b-2 bc-indigo bg-indigo-2 d-g fw-600 pi-c px-8 py-1 rad-1 rad-2 tc-indigo">
+  Buy
+</button>
+```
+
+## Using utility variants
+
+Learn how to override existing utilities based on the user's [screen size](/docs/foundations/media-queries) or other factors, such as [hover states](/docs/foundations/pseudo-classes).
+
+### Using media queries
+
+<MediaVariant class="c-p" variant="c-wait" classPrefix="c" />
+
+### Using hover states
+
+<HoverVariant class="c-p" variant="c-wait" classPrefix="c" />

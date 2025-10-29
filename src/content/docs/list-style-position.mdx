@@ -1,0 +1,48 @@
+export const frontmatter = {
+  title: "List Style Position",
+  description: "Controls how bullets and numbers are positioned in lists.",
+};
+
+<ApiTable category="text" name="list-style-position" />
+
+## Outside
+
+> Initial value
+
+The list item markers will be placed outside the list item's content area, allowing the text to align normally.
+
+```html live "lsp-o" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <ul class="bg-white lsp-o lst-d p-4 pl-6 rad-1">
+    <li class="tc-slate">Butter 🧈</li>
+    <li class="tc-slate">Egg 🥚</li>
+    <li class="tc-slate">Milk 🥛</li>
+  </ul>
+</div>
+```
+
+## Inside
+
+The list item markers will be placed inside the list item's content area, affecting the text alignment.
+
+```html live "lsp-i" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <ul class="bg-white lsp-i lst-d p-4 pl-6 rad-1">
+    <li class="tc-slate">Butter 🧈</li>
+    <li class="tc-slate">Egg 🥚</li>
+    <li class="tc-slate">Milk 🥛</li>
+  </ul>
+</div>
+```
+
+## Using utility variants
+
+Learn how to override existing utilities based on the user's [screen size](/docs/foundations/media-queries) or other factors, such as [hover states](/docs/foundations/pseudo-classes).
+
+### Using media queries
+
+<MediaVariant class="lsp-o" variant="lsp-i" classPrefix="lsp" />
+
+### Using hover states
+
+<HoverVariant class="lsp-o" variant="lsp-i" classPrefix="lsp" />

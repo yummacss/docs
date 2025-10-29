@@ -1,0 +1,68 @@
+export const frontmatter = {
+  title: "User Select",
+  description: "Controls the ability of the user to select text in an element.",
+};
+
+<ApiTable category="interactivity" name="user-select" />
+
+## Auto
+
+> Initial value
+
+Allows the browser to determine the default selection behavior based on the element's content.
+
+<Note icon="cursor_text">Try selecting the sentence to see how the text highlighting works.</Note>
+
+```html live "us-auto" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <p class="bg-white fs-sm p-4 rad-1 ta-c tc-slate us-auto">Sphinx of black quartz, judge my vow.</p>
+</div>
+```
+
+## All
+
+Allows the user to select all text within the element when clicked or dragged over.
+
+<Note icon="cursor_text">Try selecting the sentence to see how the text highlighting works.</Note>
+
+```html live "us-a" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <p class="bg-white fs-sm p-4 rad-1 ta-c tc-slate us-a">Sphinx of black quartz, judge my vow.</p>
+</div>
+```
+
+## None
+
+Prevents the user from selecting any text within the element.
+
+<Note icon="cursor_text">Try selecting the sentence to see how the text highlighting works.</Note>
+
+```html live "us-none" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <p class="bg-white fs-sm p-4 rad-1 ta-c tc-slate tc-slate us-none">Sphinx of black quartz, judge my vow.</p>
+</div>
+```
+
+## Text
+
+Allows the user to select text within the element, enabling text selection while preventing selection of other elements.
+
+<Note icon="cursor_text">Try selecting the sentence to see how the text highlighting works.</Note>
+
+```html live "us-t" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <p class="bg-white fs-sm p-4 rad-1 ta-c tc-slate us-t">Sphinx of black quartz, judge my vow.</p>
+</div>
+```
+
+## Using utility variants
+
+Learn how to override existing utilities based on the user's [screen size](/docs/foundations/media-queries) or other factors, such as [hover states](/docs/foundations/pseudo-classes).
+
+### Using media queries
+
+<MediaVariant class="us-none" variant="us-auto" classPrefix="us" />
+
+### Using hover states
+
+<HoverVariant class="us-none" variant="us-auto" classPrefix="us" />

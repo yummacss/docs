@@ -1,0 +1,72 @@
+export const frontmatter = {
+  title: "Resize",
+  description: "Controls the way an item can be resized.",
+};
+
+<ApiTable category="interactivity" name="resize" />
+
+## None
+
+> Initial value
+
+Prevents the element from being resized by the user.
+
+<Note icon="size">Try resizing the text area to see how it changes in size.</Note>
+
+```html live "r-none"
+<div class="d-f fd-c">
+  <label class="mb-2">Write a message:</label>
+  <textarea class="b-1 rad-1 r-none" rows="4"></textarea>
+</div>
+```
+
+## Both
+
+Allows the element to be resized both horizontally and vertically.
+
+<Note icon="size">Try resizing the text area to see how it changes in size.</Note>
+
+```html live "r-b"
+<div class="d-f fd-c">
+  <label class="mb-2">Write a message:</label>
+  <textarea class="b-1 max-h-50 max-w-100 rad-1 r-b" rows="4"></textarea>
+</div>
+```
+
+## Horizontal
+
+Allows the element to be resized only in the horizontal direction.
+
+<Note icon="size">Try resizing the text area to see how it changes in size.</Note>
+
+```html live "r-h"
+<div class="d-f fd-c">
+  <label class="mb-2">Write a message:</label>
+  <textarea class="b-1 max-w-100 rad-1 r-h" rows="4"></textarea>
+</div>
+```
+
+## Vertical
+
+Allows the element to be resized only in the vertical direction.
+
+<Note icon="size">Try resizing the text area to see how it changes in size.</Note>
+
+```html live "r-v"
+<div class="d-f fd-c">
+  <label class="mb-2">Write a message:</label>
+  <textarea class="b-1 max-h-50 rad-1 r-v" rows="4"></textarea>
+</div>
+```
+
+## Using utility variants
+
+Learn how to override existing utilities based on the user's [screen size](/docs/foundations/media-queries) or other factors, such as [hover states](/docs/foundations/pseudo-classes).
+
+### Using media queries
+
+<MediaVariant class="r-none" variant="r-h" classPrefix="r" />
+
+### Using hover states
+
+<HoverVariant class="r-none" variant="r-h" classPrefix="r" />

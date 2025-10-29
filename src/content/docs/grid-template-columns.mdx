@@ -1,0 +1,30 @@
+export const frontmatter = {
+  title: "Grid Template Columns",
+  description: "Utilities to define the columns in a grid layout.",
+};
+
+<ApiTable category="grid" name="grid-template-columns" />
+
+The grid will have **3** columns, each with a minimum size of **0** and a maximum size of `1fr`, allowing them to grow and fill the available space equally.
+
+```html live "gtc-3" layout="/src/layouts/inline.astro"
+<div class="d-g g-4 gtc-3 ta-c tc-white" id="area">
+  <div class="bg-indigo p-4 rad-1">A</div>
+  <div class="bg-indigo p-4 rad-1">B</div>
+  <div class="bg-indigo p-4 rad-1">C</div>
+  <div class="bg-indigo p-4 rad-1">D</div>
+  <div class="bg-indigo p-4 rad-1">E</div>
+</div>
+```
+
+## Using utility variants
+
+Learn how to override existing utilities based on the user's [screen size](/docs/foundations/media-queries) or other factors, such as [hover states](/docs/foundations/pseudo-classes).
+
+### Using media queries
+
+<MediaVariant class="gtc-1" variant="gtc-2" classPrefix="gtc" />
+
+### Using hover states
+
+<HoverVariant class="gtc-1" variant="gtc-2" classPrefix="gtc" />

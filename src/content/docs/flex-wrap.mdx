@@ -1,0 +1,62 @@
+export const frontmatter = {
+  title: "Flex Wrap",
+  description: "Controls how flex items are wrapped.",
+};
+
+<ApiTable category="flexbox" name="flex-wrap" />
+
+### No Wrap
+
+> Initial value
+
+The items will be displayed in a single line, and they will not wrap to the next line.
+
+```html live "fw-nw"
+<div class="p-r tc-white">
+  <div class="d-f fw-nw g-4 max-w-30" id="area">
+    <div class="ai-c bg-indigo d-f jc-c p-4 rad-1">A</div>
+    <div class="ai-c bg-indigo d-f jc-c p-4 rad-1">B</div>
+    <div class="ai-c bg-indigo d-f jc-c p-4 rad-1">C</div>
+  </div>
+</div>
+```
+
+### Wrap
+
+The items will wrap onto multiple lines if there is not enough space in the container.
+
+```html live "fw-w"
+<div class="p-r tc-white">
+  <div class="d-f fw-w g-4 max-w-30" id="area">
+    <div class="ai-c bg-indigo d-f jc-c p-4 rad-1">A</div>
+    <div class="ai-c bg-indigo d-f jc-c p-4 rad-1">B</div>
+    <div class="ai-c bg-indigo d-f jc-c p-4 rad-1">C</div>
+  </div>
+</div>
+```
+
+### Wrap Reverse
+
+The items will wrap onto multiple lines, but the order of the lines will be reversed.
+
+```html live "fw-wr"
+<div class="p-r tc-white">
+  <div class="d-f fw-wr g-4 max-w-30" id="area">
+    <div class="ai-c bg-indigo d-f jc-c p-4 rad-1">A</div>
+    <div class="ai-c bg-indigo d-f jc-c p-4 rad-1">B</div>
+    <div class="ai-c bg-indigo d-f jc-c p-4 rad-1">C</div>
+  </div>
+</div>
+```
+
+## Using utility variants
+
+Learn how to override existing utilities based on the user's [screen size](/docs/foundations/media-queries) or other factors, such as [hover states](/docs/foundations/pseudo-classes).
+
+### Using media queries
+
+<MediaVariant class="fw-wr" variant="fw-w" classPrefix="fw" />
+
+### Using hover states
+
+<HoverVariant class="fw-wr" variant="fw-w" classPrefix="fw" />

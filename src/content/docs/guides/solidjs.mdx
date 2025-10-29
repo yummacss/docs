@@ -1,64 +1,63 @@
----
-title: Solid.js with Yumma CSS
-banner:
-  content: N/A
-description: Integrate Yumma CSS into Solid.js applications.
-slug: docs/guides/solidjs
----
+export const frontmatter = {
+    title: "Solid.js with Yumma CSS",
+    description: "Integrate Yumma CSS into Solid.js applications.",
+};
 
 ## Creating a new project
 
 To create a new Solid.js project, you need run the [Solid.js command](https://docs.solidjs.com/quick-start#for-typescript-projects) in your terminal.
 
-<Steps>
+<Stepper>
+  <Step title="Install Yumma CSS">
+    ```bash
+    pnpm add yummacss -D
+    ```
+  </Step>
 
-    1. **Install Yumma CSS**
+  <Step title="Initialize configuration">
+    Create a configuration file in your project.
 
-        <PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} icons={false} pkg="yummacss -D" title="Terminal" />
+    ```bash
+    pnpm yummacss init
+    ```
+  </Step>
 
-        <br />
+  <Step title="Set up configuration">
+    Specify the locations of all your project files in the config file.
 
-    2. **Initialize configuration**
+    ```js title="yumma.config.mjs" mark={2-3}
+    export default = {
+      source: ["./src/**/*.{js,jsx}"],
+      output: "./src/index.css",
+      buildOptions: {
+        reset: true,
+        minify: false,
+      }
+    };
+    ```
+  </Step>
 
-            Create a configuration file in your project.
+  <Step title="Build styles">
+    You can now start generating your CSS with the [`build`](/docs/foundations/config/#build) or [`watch`](/docs/foundations/config/#watch) command.
 
-            <PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} icons={false} pkg="yummacss init" title="Terminal" type="dlx" />
+    ```bash
+    pnpm yummacss build
+    ```
+  </Step>
 
-    3. **Set up configuration**
+  <Step title="Done!">
+    You're all set to start using Yumma CSS utilities in your project.
 
-        Specify the locations of all your project files in the config file.
+    ```jsx title="App.jsx" mark={3-5}
+    function App() {
+      return (
+        <div class="bg-indigo-12 d-g h-dvh pi-c tc-white">
+          <h1 class="fs-3xl fw-500">Yumma CSS ⚙️ Solid.js</h1>
+        </div>
+      );
+    }
 
-        ```js title="yumma.config.mjs" mark={2-3}
-        export default = {
-            source: ["./src/**/*.{js,jsx}"],
-            output: "./src/index.css",
-            buildOptions: {
-                reset: true,
-                minify: false,
-            }
-        };
-        ```
-
-    4. **Build styles**
-
-        You can now start generating your CSS with the [`build`](/docs/foundations/config/#build) or [`watch`](/docs/foundations/config/#watch) command.
-
-        <PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} icons={false} pkg="yummacss build" title="Terminal" type="dlx" />
-
-    5. **Done!**
-
-        You're all set to start using Yumma CSS utilities in your project.
-
-        ```jsx title="App.jsx" mark={3-5}
-        function App() {
-            return (
-                <div class="bg-indigo-12 d-g h-dvh pi-c tc-white">
-                    <h1 class="fs-3xl fw-500">Yumma CSS ⚙️ Solid.js</h1>
-                </div>
-            );
-        }
-
-        export default App;
-        ```
-
-</Steps>
+    export default App;
+    ```
+  </Step>
+</Stepper>

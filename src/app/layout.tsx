@@ -1,0 +1,40 @@
+import "@/styles/globals.css";
+import type { Metadata } from "next";
+
+const description =
+  "A CLI-first CSS framework for the web with abbreviated styles.";
+
+export const metadata: Metadata = {
+  title: {
+    default: "Yumma CSS - Style more, type even less",
+    template: "%s | Yumma CSS",
+  },
+  description,
+  icons: {
+    apple: "/apple-touch-icon.png",
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+  },
+  metadataBase: new URL("https://yummacss.com"),
+  alternates: {
+    canonical: "/",
+    languages: {
+      "en-US": "/en-US",
+    },
+  },
+  openGraph: {
+    images: "/og.png",
+  },
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <body style={{ backgroundColor: "#151724" }}>{children}</body>
+    </html>
+  );
+}

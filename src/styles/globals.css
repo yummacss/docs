@@ -1,0 +1,25 @@
+@import "./out.css";
+@import "./custom.css";
+@import "@yummacss/ui/styles.css";
+@import "@fontsource/esteban";
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Esteban", serif;
+}
+
+p {
+    font-family: sans-serif;
+}
+
+.\~sm-xxl {
+    max-width: clamp(40rem, 80vw, 96rem);
+}
+
+table code {
+    background-color: #31365e;
+}
