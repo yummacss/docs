@@ -117,8 +117,13 @@ You can check the [release notes](https://github.com/yumma-lib/yumma-css/release
 
 In the past, the colors weren't as rich as we wanted them to be, which was a bit of a limitation because colors with less contrast can go unnoticed in many scenarios.
 
-<Tabs>
-  <TabItem icon="approve-check-circle" label="Now">
+<Tabs defaultValue="v1.2">
+  <TabsList>
+    <TabsTab className="tc-white b-1 rad-0" style={{backgroundColor: '#21243f', borderColor: '#31365e' }} value="v3">v3</TabsTab>
+    <TabsTab className="tc-white b-1 rad-0" style={{backgroundColor: '#21243f', borderColor: '#31365e' }} value="v2">v2</TabsTab>
+  </TabsList>
+
+  <TabsPanel value="v1.1">
     <LegacyPalette
       data={[
         { "name": "Red", "color": "#d73d3d" },
@@ -135,8 +140,9 @@ In the past, the colors weren't as rich as we wanted them to be, which was a bit
         { "name": "Lead", "color": "#3f3f4e" },
       ]}
     />
-  </TabItem>
-  <TabItem icon="close" label="Previously">
+  </TabsPanel>
+
+  <TabsPanel value="v2">
     <LegacyPalette
       data={[
         { "name": "Red", "color": "#f26d50" },
@@ -153,7 +159,7 @@ In the past, the colors weren't as rich as we wanted them to be, which was a bit
         { "name": "Lead", "color": "#3f3f4e" }
       ]}
     />
-  </TabItem>
+  </TabsPanel>
 </Tabs>
 
 ### New transparent color variant
