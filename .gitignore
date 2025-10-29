@@ -1,26 +1,43 @@
-# build
-.astro/
-/dist/
-
-# deps
+# dependencies
 node_modules/
 
-# logs
+# production
+build/
+dist/
+
+# next.js
+.next/
+
+# misc
+.DS_Store
+*.pem
+.npmrc
+
+# debug
 npm-debug.log*
+pnpm-debug.log*
+
+# env files
+.env*
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# IDE
+.vscode/
+.zed/
+.idea/
+*.swp
+*.swo
+
+# OS
+Thumbs.db
 
 # testing
-coverage/
 project-hierarchy.txt
+coverage/
+*.tgz
 
-# editor config
-.vscode/
-
-# deployment
-.vercel
-
-# environment variables
-.env
-.vercel
-
-# next
-beta/
+# vercel
+.vercel/

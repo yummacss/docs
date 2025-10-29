@@ -1,58 +1,57 @@
----
-title: Svelte with Yumma CSS
-banner:
-  content: N/A
-description: Integrate Yumma CSS into Svelte applications.
-slug: docs/guides/svelte
----
+export const frontmatter = {
+    title: "Svelte with Yumma CSS",
+    description: "Integrate Yumma CSS into Svelte applications.",
+};
 
 ## Creating a new project
 
 To create a new Svelte project, you need run the [Svelte command](https://svelte.dev/docs/cli/sv-create) in your terminal.
 
-<Steps>
+<Stepper>
+  <Step title="Install Yumma CSS">
+    ```bash
+    pnpm add yummacss -D
+    ```
+  </Step>
 
-    1. **Install Yumma CSS**
+  <Step title="Initialize configuration">
+    Create a configuration file in your project.
 
-        <PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} icons={false} pkg="yummacss -D" title="Terminal" />
+    ```bash
+    pnpm yummacss init
+    ```
+  </Step>
 
-        <br />
+  <Step title="Set up configuration">
+    Specify the locations of all your project files in the config file.
 
-    2. **Initialize configuration**
+    ```js title="yumma.config.mjs" mark={2-3}
+    export default {
+      source: ["./src/**/*.svelte"],
+      output: "./src/global.css",
+      buildOptions: {
+        reset: true,
+        minify: false,
+      }
+    };
+    ```
+  </Step>
 
-            Create a configuration file in your project.
+  <Step title="Build styles">
+    You can now start generating your CSS with the [`build`](/docs/foundations/config/#build) or [`watch`](/docs/foundations/config/#watch) command.
 
-            <PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} icons={false} pkg="yummacss init" title="Terminal" type="dlx" />
+    ```bash
+    pnpm yummacss build
+    ```
+  </Step>
 
-    3. **Set up configuration**
+  <Step title="Done!">
+    You're all set to start using Yumma CSS utilities in your project.
 
-        Specify the locations of all your project files in the config file.
-
-        ```js title="yumma.config.mjs" mark={2-3}
-        export default {
-            source: ["./src/**/*.svelte"],
-            output: "./src/global.css",
-            buildOptions: {
-                reset: true,
-                minify: false,
-            }
-        };
-        ```
-
-    4. **Build styles**
-
-        You can now start generating your CSS with the [`build`](/docs/foundations/config/#build) or [`watch`](/docs/foundations/config/#watch) command.
-
-        <PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} icons={false} pkg="yummacss build" title="Terminal" type="dlx" />
-
-    5. **Done!**
-
-        You're all set to start using Yumma CSS utilities in your project.
-
-        ```svelte title="routes/+page.svelte" mark={1}
-        <div class="bg-indigo-12 d-g h-dvh pi-c tc-white">
-            <h1 class="fs-3xl fw-500">Yumma CSS ⚙️ Svelte</h1>
-        </div>
-        ```
-
-</Steps>
+    ```svelte title="routes/+page.svelte" mark={1}
+    <div class="bg-indigo-12 d-g h-dvh pi-c tc-white">
+      <h1 class="fs-3xl fw-500">Yumma CSS ⚙️ Svelte</h1>
+    </div>
+    ```
+  </Step>
+</Stepper>

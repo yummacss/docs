@@ -1,0 +1,27 @@
+export const frontmatter = {
+  title: "Accent Color",
+  description: "Controls form control accent color.",
+};
+
+<ApiTable category="color" name="accent-color" />
+
+This example showcases the default browser accent color and a custom **indigo** color from the default color palette.
+
+```html live "ac-indigo-8"
+<div class="d-g g-8 gtc-1 sm:gtc-2">
+  <label><input class="mr-1" type="checkbox" checked />Default </label>
+  <label><input class="ac-indigo-2 mr-1" type="checkbox" checked />Custom</label>
+</div>
+```
+
+## Using utility variants
+
+Learn how to override existing utilities based on the user's [screen size](/docs/foundations/media-queries) or other factors, such as [hover states](/docs/foundations/pseudo-classes).
+
+### Using media queries
+
+<MediaVariant class="ac-slate" variant="ac-indigo" classPrefix="ac" />
+
+### Using hover states
+
+<HoverVariant class="ac-slate" variant="ac-indigo" classPrefix="ac" />

@@ -1,0 +1,34 @@
+export const frontmatter = {
+  title: "Flex",
+  description: "Controls how flex elements grow and shrink.",
+};
+
+<ApiTable category="flexbox" name="flex" />
+
+This example showcases various `flex` utilities:
+
+- The **f-none** flex utility sets the flex property to **none**, preventing the item from growing or shrinking.
+- The **f-1** flex utility sets the flex property to **1 1 0%**, allowing the item to grow and shrink equally with a base size of **0**.
+- Finally, **f-auto** flex utility sets the flex property to **1 1 auto**, allowing the item to grow and shrink with a base size determined by its content.
+
+```html live "f-none" "f-1" "f-auto" layout="/src/layouts/inline.astro"
+<div class="tc-white" id="area">
+  <div class="d-f g-4 h-24 w-full">
+    <div class="ai-c bg-indigo d-f f-none jc-c p-4 rad-1">A</div>
+    <div class="ai-c bg-indigo d-f f-1 jc-c p-4 rad-1">B</div>
+    <div class="ai-c bg-indigo d-f f-auto jc-c p-4 rad-1">C</div>
+  </div>
+</div>
+```
+
+## Using utility variants
+
+Learn how to override existing utilities based on the user's [screen size](/docs/foundations/media-queries) or other factors, such as [hover states](/docs/foundations/pseudo-classes).
+
+### Using media queries
+
+<MediaVariant class="f-1" variant="f-2" classPrefix="f" />
+
+### Using hover states
+
+<HoverVariant class="f-1" variant="f-2" classPrefix="f" />

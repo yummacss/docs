@@ -1,0 +1,42 @@
+export const frontmatter = {
+  title: "Field Sizing",
+  description: "Controls the sizing of elements that have a default preferred size.",
+};
+
+<ApiTable category="interactivity" name="field-sizing" />
+
+## Fixed
+
+> Initial value
+
+Allows the field to size itself based on the content, adjusting its size dynamically to fit the content inside.
+
+```html live "fs-f"
+<div class="d-f fd-c">
+  <label class="mb-2">Write a message:</label>
+  <textarea class="b-2 fs-f max-h-50 max-w-100 r-none rad-1"></textarea>
+</div>
+```
+
+## Content
+
+Ensures that the field maintains a fixed size, regardless of the content within it.
+
+```html live "fs-c"
+<div class="d-f fd-c">
+  <label class="mb-2">Write a message:</label>
+  <textarea class="b-2 fs-c max-h-50 max-w-100 r-none rad-1"></textarea>
+</div>
+```
+
+## Using utility variants
+
+Learn how to override existing utilities based on the user's [screen size](/docs/foundations/media-queries) or other factors, such as [hover states](/docs/foundations/pseudo-classes).
+
+### Using media queries
+
+<MediaVariant class="fs-f" variant="fs-c" classPrefix="fs" />
+
+### Using hover states
+
+<HoverVariant class="fs-f" variant="fs-c" classPrefix="fs" />

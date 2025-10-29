@@ -1,0 +1,34 @@
+export const frontmatter = {
+  title: "Blur",
+  description: "Applies a blur filter to an element.",
+};
+
+<ApiTable category="effect" name="blur" />
+
+This example showcases various `blur` utilities:
+
+- The **f-b-none** blur utility sets the `filter` to **blur(0px)**.
+- The **f-b-xs** blur utility sets the `filter` to **blur(4px)**.
+
+```html live "f-b-none" "f-b-xs"
+<div class="d-g g-16 gtc-2">
+  <div class="d-32 p-r rad-1">
+    <img class="d-full f-b-none of-c rad-1" src="/img/mountain.jpg" />
+  </div>
+  <div class="d-32 p-r rad-1">
+    <img class="d-full f-b-xs of-c rad-1" src="/img/mountain.jpg" />
+  </div>
+</div>
+```
+
+## Using utility variants
+
+Learn how to override existing utilities based on the user's [screen size](/docs/foundations/media-queries) or other factors, such as [hover states](/docs/foundations/pseudo-classes).
+
+### Using media queries
+
+<MediaVariant class="f-b-none" variant="f-b-md" classPrefix="f-b" />
+
+### Using hover states
+
+<HoverVariant class="f-b-none" variant="f-b-md" classPrefix="f-b" />

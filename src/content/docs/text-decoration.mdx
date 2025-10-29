@@ -1,0 +1,38 @@
+export const frontmatter = {
+  title: "Text Decoration",
+  description: "Controls the text decoration of an element.",
+};
+
+<ApiTable category="text" name="text-decoration" />
+
+## None
+
+The text will be displayed without any decoration.
+
+```html live "td-none" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <p class="bg-white fs-lg p-4 rad-1 ta-c tc-slate td-none">Sphinx of black quartz, judge my vow.</p>
+</div>
+```
+
+## Underline
+
+The text will be displayed with an underline.
+
+```html live "td-u" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <p class="bg-white fs-lg p-4 rad-1 ta-c tc-slate td-u">Sphinx of black quartz, judge my vow.</p>
+</div>
+```
+
+## Using utility variants
+
+Learn how to override existing utilities based on the user's [screen size](/docs/foundations/media-queries) or other factors, such as [hover states](/docs/foundations/pseudo-classes).
+
+### Using media queries
+
+<MediaVariant class="td-none" variant="td-u" classPrefix="td" />
+
+### Using hover states
+
+<HoverVariant class="td-none" variant="td-u" classPrefix="td" />

@@ -1,0 +1,118 @@
+export const frontmatter = {
+  title: "Justify Content",
+  description: "Controls the positioning of flex and grid elements on a container's main axis.",
+};
+
+<ApiTable category="flexbox" name="justify-content" />
+
+## Normal
+
+> Initial value
+
+The items will be aligned according to the default alignment of the container.
+
+```html live "jc-n" layout="/src/layouts/inline.astro"
+<div class="d-f g-4 jc-n tc-white" id="area">
+  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">A</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">B</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">C</div>
+</div>
+```
+
+## Center
+
+The items will be centered within the container along the main axis.
+
+```html live "jc-c" layout="/src/layouts/inline.astro"
+<div class="d-f g-4 jc-c tc-white" id="area">
+  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">A</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">B</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">C</div>
+</div>
+```
+
+## Flex End
+
+The items will be aligned to the end of the container along the main axis.
+
+```html live "jc-fe" layout="/src/layouts/inline.astro"
+<div class="d-f g-4 jc-fe tc-white" id="area">
+  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">A</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">B</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">C</div>
+</div>
+```
+
+## Flex Start
+
+The items will be aligned to the start of the container along the main axis.
+
+```html live "jc-fs" layout="/src/layouts/inline.astro"
+<div class="d-f g-4 jc-fs tc-white" id="area">
+  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">A</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">B</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">C</div>
+</div>
+```
+
+## Stretch
+
+The items will stretch to fill the available space along the main axis.
+
+```html live "jc-s" layout="/src/layouts/inline.astro"
+<div class="rad-1 tc-white">
+  <div class="d-g g-4 gaf-c jc-s" id="area">
+    <div class="ai-c bg-indigo d-f h-14 jc-c rad-1">A</div>
+    <div class="ai-c bg-indigo d-f h-14 jc-c rad-1">B</div>
+    <div class="ai-c bg-indigo d-f h-14 jc-c rad-1">C</div>
+  </div>
+</div>
+```
+
+## Space Between
+
+The items will be evenly distributed in the container, with the first item at the start and the last item at the end.
+
+```html live "jc-sb" layout="/src/layouts/inline.astro"
+<div class="d-f g-4 jc-sb tc-white" id="area">
+  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">A</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">B</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">C</div>
+</div>
+```
+
+## Space Around
+
+The items will be evenly distributed in the container with space around them.
+
+```html live "jc-sa" layout="/src/layouts/inline.astro"
+<div class="d-f g-4 jc-sa tc-white" id="area">
+  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">A</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">B</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">C</div>
+</div>
+```
+
+## Space Evenly
+
+The items will be evenly distributed in the container with equal space around them.
+
+```html live "jc-se" layout="/src/layouts/inline.astro"
+<div class="d-f g-4 gaf-c jc-se tc-white" id="area">
+  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">A</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">B</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">C</div>
+</div>
+```
+
+## Using utility variants
+
+Learn how to override existing utilities based on the user's [screen size](/docs/foundations/media-queries) or other factors, such as [hover states](/docs/foundations/pseudo-classes).
+
+### Using media queries
+
+<MediaVariant class="jc-fs" variant="jc-fe" classPrefix="jc" />
+
+### Using hover states
+
+<HoverVariant class="jc-fs" variant="jc-fe" classPrefix="jc" />

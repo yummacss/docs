@@ -1,0 +1,50 @@
+export const frontmatter = {
+  title: "Font Family",
+  description: "Controls the font family of an element.",
+};
+
+<ApiTable category="font" name="font-family" />
+
+## Charter
+
+If Charter is not available, it will fall back to `Cambria`, and then to a generic `serif` font.
+
+```html live "ff-c" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <p class="bg-white ff-c fs-lg p-4 rad-1 ta-c tc-slate">Sphinx of black quartz, judge my vow.</p>
+</div>
+```
+
+## UI Monospace
+
+If ui-monospace is not available, it will fall back to `Consolas`, and then to a generic `monospace` font.
+
+```html live "ff-m" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <p class="bg-white ff-m fs-lg p-4 rad-1 ta-c tc-slate">Sphinx of black quartz, judge my vow.</p>
+</div>
+```
+
+## System UI
+
+If system-ui is not available, it will fall back to a generic `sans-serif` font.
+
+<Note icon="heart">Yumma CSS uses the **fontSystem** as a default font family. Learn more about it in the [docs](/docs/foundations/base-styles#document).</Note>
+
+```html live "ff-s" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <p class="bg-white ff-s fs-lg p-4 rad-1 ta-c tc-slate">Sphinx of black quartz, judge my vow.</p>
+</div>
+```
+
+## Using utility variants
+
+Learn how to override existing utilities based on the user's [screen size](/docs/foundations/media-queries) or other factors, such as [hover states](/docs/foundations/pseudo-classes).
+
+### Using media queries
+
+<MediaVariant class="ff-s" variant="ff-m" classPrefix="ff" />
+
+### Using hover states
+
+<HoverVariant class="ff-s" variant="ff-m" classPrefix="ff" />

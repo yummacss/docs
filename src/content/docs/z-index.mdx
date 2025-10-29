@@ -1,0 +1,34 @@
+export const frontmatter = {
+  title: "Z-Index",
+  description: "Controls the element's stack order.",
+};
+
+<ApiTable category="positioning" name="z-index" />
+
+This example showcases various `z-index` utilities:
+
+- The **zi-10** z index utility sets the z-index to **10**, positioning the element above elements with a lower z-index value.
+- The **zi-20** z index utility sets the z-index to **20**, positioning the element even higher in the stacking context.
+
+```html live "zi-10" "zi-20"
+<div class="p-r">
+  <div class="ai-c bg-indigo d-30 d-f jc-c p-r rad-1 zi-10">
+    <p class="tc-white">A</p>
+  </div>
+  <div class="ai-c bg-indigo-8 d-15 d-f jc-c l-0 p-a rad-1 t-0 zi-20">
+    <p class="tc-white">B</p>
+  </div>
+</div>
+```
+
+## Using utility variants
+
+Learn how to override existing utilities based on the user's [screen size](/docs/foundations/media-queries) or other factors, such as [hover states](/docs/foundations/pseudo-classes).
+
+### Using media queries
+
+<MediaVariant class="zi-10" variant="zi-20" classPrefix="zi" />
+
+### Using hover states
+
+<HoverVariant class="zi-10" variant="zi-20" classPrefix="zi" />

@@ -1,0 +1,32 @@
+export const frontmatter = {
+  title: "Outline Offset",
+  description: "Controls the offset of an element's outline.",
+};
+
+<ApiTable category="outline" name="outline-offset" />
+
+This example showcases various `outline-offset` values:
+
+- The `1px` outline offset utility places the outline 1 pixel away from the border of the element.
+- The `2px` outline offset utility places the outline 2 pixels away from the border of the element.
+- The `3px` outline offset utility places the outline 3 pixels away from the border of the element.
+
+```html live "oo-1" "oo-2" "oo-3"
+<div class="d-g g-16 gtc-1 sm:gtc-3">
+  <div class="b-1 bc-indigo d-16 oc-indigo oo-1 os-s rad-1"></div>
+  <div class="b-1 bc-indigo d-16 oc-indigo oo-2 os-s rad-1"></div>
+  <div class="b-1 bc-indigo d-16 oc-indigo oo-3 os-s rad-1"></div>
+</div>
+```
+
+## Using utility variants
+
+Learn how to override existing utilities based on the user's [screen size](/docs/foundations/media-queries) or other factors, such as [hover states](/docs/foundations/pseudo-classes).
+
+### Using media queries
+
+<MediaVariant class="oo-1" variant="oo-2" classPrefix="oo" />
+
+### Using hover states
+
+<HoverVariant class="oo-1" variant="oo-2" classPrefix="oo" />

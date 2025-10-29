@@ -1,0 +1,66 @@
+export const frontmatter = {
+  title: "Grid Column",
+  description: "Controls the size and position of elements across columns.",
+};
+
+## Grid Column Span
+
+Allows a grid item to span a specific number of columns.
+
+<ApiTable category="grid" name="grid-column" />
+
+The item will span across **2** columns, starting from its current position and occupying the next **2** columns in the grid.
+
+```html live "gc-s-2" html live layout="/src/layouts/inline.astro"
+<div class="d-g g-4 gtc-3 ta-c" id="area">
+  <div class="bg-indigo gc-s-2 p-4 rad-1 tc-white">A</div>
+  <div class="bg-indigo-8 p-4 rad-1 tc-indigo-5">B</div>
+  <div class="bg-indigo-8 p-4 rad-1 tc-indigo-5">C</div>
+  <div class="bg-indigo gc-s-2 p-4 rad-1 tc-white">D</div>
+</div>
+```
+
+## Grid Column End
+
+Controls where a grid item should end within the column grid line.
+
+<ApiTable category="grid" name="grid-column-end" />
+
+The item will end at the third column line, effectively spanning from its
+starting position to the second column line.
+
+```html live "gce-3" html live layout="/src/layouts/inline.astro"
+<div class="d-g g-4 gtc-4 ta-c tc-white" id="area">
+  <div class="bg-indigo gce-3 p-4 rad-1">A</div>
+  <div class="bg-indigo p-4 rad-1">B</div>
+  <div class="bg-indigo p-4 rad-1">C</div>
+</div>
+```
+
+## Grid Column Start
+
+Controls the starting grid line for a grid item within the column layout.
+
+<ApiTable category="grid" name="grid-column-start" />
+
+The item will begin at the third column line, positioning it to start in the third column of the grid.
+
+```html live "gcs-3" layout="/src/layouts/inline.astro"
+<div class="d-g g-4 gcs-3 gtc-4 ta-c tc-white" id="area">
+  <div class="bg-indigo p-4 rad-1">A</div>
+  <div class="bg-indigo p-4 rad-1">B</div>
+  <div class="bg-indigo p-4 rad-1">C</div>
+</div>
+```
+
+## Using utility variants
+
+Learn how to override existing utilities based on the user's [screen size](/docs/foundations/media-queries) or other factors, such as [hover states](/docs/foundations/pseudo-classes).
+
+### Using media queries
+
+<MediaVariant class="gc-1" variant="gc-2" classPrefix="gc" />
+
+### Using hover states
+
+<HoverVariant class="gc-1" variant="gc-2" classPrefix="gc" />

@@ -1,0 +1,162 @@
+export const frontmatter = {
+  authors: ["Renildo"],
+  cover: "cover.png",
+  date: "2024-01-03",
+  description: "After a few months of development, we're ready to release the first major version. In this release, we're focusing on implementing a few utilities and, more importantly, on improving the overall experience of using Yumma CSS.",
+  title: "Yumma CSS 1.0"
+};
+
+**This update might break your codebase, we highly suggest you checking out the [release notes](https://github.com/yumma-lib/yumma-css/releases/tag/v0.1.0) before upgrading.**
+
+---
+
+## All-new utilities
+
+We're always looking for ways to improve Yumma CSS. In this release, we're adding a few new utilities to cover more of the CSS specs.
+
+### Align Items
+
+<LegacyTable
+  data={[
+    {
+      className: "ai-fs",
+      properties: ["align-items: flex-start;"],
+    },
+    {
+      className: "ai-fe",
+      properties: ["align-items: flex-end;"],
+    },
+    {
+      className: "jc-e",
+      properties: ["justify-content: end;"],
+    },
+    {
+      className: "jc-fs",
+      properties: ["justify-content: flex-start;"],
+    },
+    {
+      className: "jc-fe",
+      properties: ["justify-content: flex-end;"],
+    },
+    {
+      className: "jc-l",
+      properties: ["justify-content: left;"],
+    },
+    {
+      className: "jc-r",
+      properties: ["justify-content: right;"],
+    },
+    {
+      className: "jc-n",
+      properties: ["justify-content: normal;"],
+    },
+    {
+      className: "jc-s",
+      properties: ["justify-content: stretch;"],
+    },
+  ]}
+/>
+
+### Display
+
+<LegacyTable
+  data={[
+    {
+      className: "d-fr",
+      properties: ["display: flow-root;"],
+    },
+  ]}
+/>
+
+### Float
+
+<LegacyTable
+  data={[
+    {
+      className: "f-is",
+      properties: ["float: inline-start;"],
+    },
+    {
+      className: "f-ie",
+      properties: ["float: inline-end;"],
+    },
+  ]}
+/>
+
+### Text Align
+
+Yumma CSS v1.0 also introduces a whole new collection of advanced text formatting utilities for typographers.
+
+<LegacyTable
+  data={[
+    {
+      className: "ta-ja",
+      properties: ["text-align: justify-all;"],
+    },
+    {
+      className: "ta-mp",
+      properties: ["text-align: match-parent;"],
+    },
+    {
+      className: "tdl-o",
+      properties: ["text-decoration-line: overline;"],
+    },
+  ]}
+/>
+
+## ...and more
+
+There are a lot more utilities in this release, but we're not going to list them all here. You can check the [release notes](https://github.com/yumma-lib/yumma-css/releases/tag/v1.0.0) though.
+
+---
+
+## Viewport expansion
+
+We're also going to add viewports for the **Height** and **Width** utilities, which will be a huge help with responsive designs. We can't wait to roll it out to the other utilities!
+
+```html "md:h-auto" "md:w-auto" title="index.html"
+<div class="... h-10 md:h-auto md:w-auto w-10">...</div>
+```
+
+---
+
+## New Lead color option
+
+We're pretty sure nobody builds websites in dark mode using gray, right? The new lead color is great for creating single-theme apps.
+
+<LegacyPalette
+  data={[
+    {
+      name: "Lead",
+      color: "#3f3f4e",
+    },
+  ]}
+/>
+
+---
+
+## Syntax changes
+
+We're making some changes to the syntax for the **Display** utilities. Here's how it's going to work from now on.
+
+```html del={1} ins={2} title="index.html"
+<div class="dis-*"></div>
+<div class="d-*"></div>
+```
+
+We're also going to tweak the syntax for the hover state utilities. Basically, we're going to move them to the start of the utility `h:*` to make the code easier to understand.
+
+```html del={1} ins={2} title="index.html"
+<div class="bg-h-blue"></div>
+<div class="h:bg-blue"></div>
+```
+
+---
+
+## Upgrade
+
+You can get the latest version of Yumma CSS from npm:
+
+```bash
+pnpm up yummacss
+```

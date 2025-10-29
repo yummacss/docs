@@ -1,0 +1,40 @@
+export const frontmatter = {
+  title: "Font Style",
+  description: "Controls the font style of an element.",
+};
+
+<ApiTable category="font" name="font-style" />
+
+## Normal
+
+> Initial value
+
+The text will be displayed in a standard format without any italicization.
+
+```html live "fs-n" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <p class="bg-white fs-lg fs-n p-4 rad-1 ta-c tc-slate">Sphinx of black quartz, judge my vow.</p>
+</div>
+```
+
+## Italic
+
+The text will be displayed in an italicized format.
+
+```html live "fs-i" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <p class="bg-white fs-lg fs-i p-4 rad-1 ta-c tc-slate">Sphinx of black quartz, judge my vow.</p>
+</div>
+```
+
+## Using utility variants
+
+Learn how to override existing utilities based on the user's [screen size](/docs/foundations/media-queries) or other factors, such as [hover states](/docs/foundations/pseudo-classes).
+
+### Using media queries
+
+<MediaVariant class="fs-n" variant="fs-i" classPrefix="fs" />
+
+### Using hover states
+
+<HoverVariant class="fs-n" variant="fs-i" classPrefix="fs" />

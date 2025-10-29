@@ -1,0 +1,70 @@
+export const frontmatter = {
+  title: "Text Indent",
+  description: "Controls the indentation, or the space before a line of block text.",
+};
+
+<ApiTable category="text" name="text-indent" />
+
+## 0
+
+> Initial value
+
+The text will have no indentation at the start of the paragraph.
+
+```html live "ti-0" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <p class="bg-white fs-lg p-4 rad-1 tc-slate ti-0">Sphinx of black quartz, judge my vow.</p>
+</div>
+```
+
+## 1
+
+The text will be indented slightly at the start of the paragraph.
+
+```html live "ti-1" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <p class="bg-white fs-lg p-4 rad-1 tc-slate ti-1">Sphinx of black quartz, judge my vow.</p>
+</div>
+```
+
+## 2
+
+The text will be indented a small amount at the start of the paragraph.
+
+```html live "ti-2" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <p class="bg-white fs-lg p-4 rad-1 tc-slate ti-2">Sphinx of black quartz, judge my vow.</p>
+</div>
+```
+
+## 3
+
+The text will be indented moderately at the start of the paragraph.
+
+```html live "ti-3" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <p class="bg-white fs-lg p-4 rad-1 tc-slate ti-3">Sphinx of black quartz, judge my vow.</p>
+</div>
+```
+
+## 4
+
+The text will be indented more significantly at the start of the paragraph.
+
+```html live "ti-4" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <p class="bg-white fs-lg p-4 rad-1 tc-slate ti-4">Sphinx of black quartz, judge my vow.</p>
+</div>
+```
+
+## Using utility variants
+
+Learn how to override existing utilities based on the user's [screen size](/docs/foundations/media-queries) or other factors, such as [hover states](/docs/foundations/pseudo-classes).
+
+### Using media queries
+
+<MediaVariant class="ti-1" variant="ti-2" classPrefix="ti" />
+
+### Using hover states
+
+<HoverVariant class="ti-1" variant="ti-2" classPrefix="ti" />

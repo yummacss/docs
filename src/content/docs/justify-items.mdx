@@ -1,0 +1,74 @@
+export const frontmatter = {
+  title: "Justify Items",
+  description: "Controls the alignment of grid elements relative to their inline axis.",
+};
+
+<ApiTable category="flexbox" name="justify-items" />
+
+## Center
+
+The items will be centered within their grid area along the inline axis.
+
+```html live "ji-c" layout="/src/layouts/inline.astro"
+<div class="p-r tc-white">
+  <div class="d-g g-4 gtc-3 ji-c" id="area">
+    <div class="ai-c bg-indigo d-f d-14 jc-c rad-1">A</div>
+    <div class="ai-c bg-indigo d-f d-14 jc-c rad-1">B</div>
+    <div class="ai-c bg-indigo d-f d-14 jc-c rad-1">C</div>
+  </div>
+</div>
+```
+
+## End
+
+The items will be aligned to the end of their grid area along the inline axis.
+
+```html live "ji-e" layout="/src/layouts/inline.astro"
+<div class="p-r tc-white">
+  <div class="d-g g-4 gtc-3 ji-e" id="area">
+    <div class="ai-c bg-indigo d-f d-14 jc-c rad-1">A</div>
+    <div class="ai-c bg-indigo d-f d-14 jc-c rad-1">B</div>
+    <div class="ai-c bg-indigo d-f d-14 jc-c rad-1">C</div>
+  </div>
+</div>
+```
+
+## Start
+
+The items will be aligned to the start of their grid area along the inline axis.
+
+```html live "ji-s" layout="/src/layouts/inline.astro"
+<div class="p-r tc-white">
+  <div class="d-g g-4 gtc-3 ji-s" id="area">
+    <div class="ai-c bg-indigo d-f d-14 jc-c rad-1">A</div>
+    <div class="ai-c bg-indigo d-f d-14 jc-c rad-1">B</div>
+    <div class="ai-c bg-indigo d-f d-14 jc-c rad-1">C</div>
+  </div>
+</div>
+```
+
+## Stretch
+
+The items will stretch to fill their grid area along the inline axis.
+
+```html live "ji-st" layout="/src/layouts/inline.astro"
+<div class="p-r tc-white">
+  <div class="d-g g-4 gtc-3 ji-st" id="area">
+    <div class="ai-c bg-indigo d-f h-14 jc-c rad-1">A</div>
+    <div class="ai-c bg-indigo d-f h-14 jc-c rad-1">B</div>
+    <div class="ai-c bg-indigo d-f h-14 jc-c rad-1">C</div>
+  </div>
+</div>
+```
+
+## Using utility variants
+
+Learn how to override existing utilities based on the user's [screen size](/docs/foundations/media-queries) or other factors, such as [hover states](/docs/foundations/pseudo-classes).
+
+### Using media queries
+
+<MediaVariant class="ji-s" variant="ji-e" classPrefix="ji" />
+
+### Using hover states
+
+<HoverVariant class="ji-s" variant="ji-e" classPrefix="ji" />

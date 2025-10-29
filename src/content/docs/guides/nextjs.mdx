@@ -1,58 +1,61 @@
----
-title: Next.js with Yumma CSS
-banner:
-  content: N/A
-description: Integrate Yumma CSS into Next.js applications.
-slug: docs/guides/nextjs
----
+export const frontmatter = {
+    title: "Next.js with Yumma CSS",
+    description: "Integrate Yumma CSS into Next.js applications.",
+};
 
 ## Creating a new project
 
 To create a new Next.js project, you need run the [create next app command](https://nextjs.org/docs/app/getting-started/installation) in your terminal.
 
-<Steps>
+<Stepper>
+  <Step title="Install Yumma CSS">
+    ```bash
+    pnpm add yummacss -D
+    ```
+  </Step>
 
-    1. **Install Yumma CSS**
+  <Step title="Initialize configuration">
+    Create a configuration file in your project.
 
-        <PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} icons={false} pkg="yummacss -D" title="Terminal" />
+    ```bash
+    pnpm yummacss init
+    ```
+  </Step>
 
-    2. **Initialize configuration**
+  <Step title="Set up configuration">
+    Specify the locations of all your project files in the config file.
 
-            Create a configuration file in your project.
+    ```js title="yumma.config.mjs" mark={2-3}
+    export default = {
+      source: ["./app/**/*.{ts,tsx}"],
+      output: "./app/globals.css",
+      buildOptions: {
+        reset: true,
+        minify: false,
+      }
+    };
+    ```
+  </Step>
 
-            <PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} icons={false} pkg="yummacss init" title="Terminal" type="dlx" />
+  <Step title="Build styles">
+    You can now start generating your CSS with the [`build`](/docs/foundations/config/#build) or [`watch`](/docs/foundations/config/#watch) command.
 
-    3. **Set up configuration**
+    ```bash
+    pnpm yummacss build
+    ```
+  </Step>
 
-        Specify the locations of all your project files in the config file.
+  <Step title="Done!">
+    You're all set to start using Yumma CSS utilities in your project.
 
-        ```js title="yumma.config.mjs" mark={2-3}
-        export default = {
-            source: ["./app/**/*.{ts,tsx}"],
-            output: "./app/globals.css",
-            buildOptions: {
-                reset: true,
-                minify: false,
-            }
-        };
-        ```
-
-    4. **Build styles**
-
-        You can now start generating your CSS with the [`build`](/docs/foundations/config/#build) or [`watch`](/docs/foundations/config/#watch) command.
-
-        <PackageManagers pkgManagers={["pnpm", "npm", "yarn"]} icons={false} pkg="yummacss build" title="Terminal" type="dlx" />
-
-    5. **Done!**
-
-        You're all set to start using Yumma CSS utilities in your project.
-
-        ```tsx title="page.tsx" mark={3-5}
-        export default function Home() {
-            return (
-                c
-            );
-        }
-        ```
-
-</Steps>
+    ```tsx title="page.tsx" mark={3-5}
+    export default function Home() {
+      return (
+        <div className="d-f ai-c jc-c h-screen">
+          <h1 className="fs-4xl fw-700">Hello, Yumma CSS!</h1>
+        </div>
+      );
+    }
+    ```
+  </Step>
+</Stepper>

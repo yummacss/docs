@@ -1,0 +1,62 @@
+export const frontmatter = {
+  title: "Table Layout",
+  description: "Controls the table cell layout algorithm.",
+};
+
+<ApiTable category="table" name="table-layout" />
+
+## Auto
+
+> Initial value
+
+The browser will determine the column widths based on the content.
+
+```html live "tl-auto" layout="/src/layouts/inline.astro"
+<table class="b-1  bc-c tc-indigo tl-auto w-full">
+  <thead>
+    <tr>
+      <th class="b-1 bc-indigo bg-indigo-2 p-3">Title</th>
+      <th class="b-1 bc-indigo bg-indigo-2 p-3">Opening Line</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="b-1 bc-indigo p-3">Letters to Anne</td>
+      <td class="b-1 bc-indigo p-3">It's finally springtime here on earth!</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+## Fixed
+
+The column widths are set by the width of the table and the first row.
+
+```html live "tl-f" layout="/src/layouts/inline.astro"
+<table class="b-1  bc-c tc-indigo tl-f w-full">
+  <thead>
+    <tr>
+      <th class="b-1 bc-indigo bg-indigo-2 p-3">Title</th>
+      <th class="b-1 bc-indigo bg-indigo-2 p-3">Opening Line</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="b-1 bc-indigo p-3">Letters to Anne</td>
+      <td class="b-1 bc-indigo p-3">It's finally springtime here on earth!</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+## Using utility variants
+
+Learn how to override existing utilities based on the user's [screen size](/docs/foundations/media-queries) or other factors, such as [hover states](/docs/foundations/pseudo-classes).
+
+### Using media queries
+
+<MediaVariant class="tl-f" variant="tl-a" classPrefix="tl" />
+
+### Using hover states
+
+<HoverVariant class="tl-f" variant="tl-a" classPrefix="tl" />

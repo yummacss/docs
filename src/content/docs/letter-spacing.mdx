@@ -1,0 +1,78 @@
+export const frontmatter = {
+  title: "Letter Spacing",
+  description: "Controls how the letters are spaced on an element.",
+};
+
+<ApiTable category="text" name="letter-spacing" />
+
+## 0
+
+The letters will be spaced normally.
+
+```html live "ls-0" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <p class="bg-white fs-lg ls-0 p-4 rad-1 ta-c tc-slate">Sphinx of black quartz, judge my vow.</p>
+</div>
+```
+
+## 1
+
+The letters will be slightly closer together than normal.
+
+```html live "ls-1" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <p class="bg-white fs-lg ls-1 p-4 rad-1 ta-c tc-slate">Sphinx of black quartz, judge my vow.</p>
+</div>
+```
+
+## 2
+
+The letters will be slightly closer together.
+
+```html live "ls-2" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <p class="bg-white fs-lg ls-2 p-4 rad-1 ta-c tc-slate">Sphinx of black quartz, judge my vow.</p>
+</div>
+```
+
+## 3
+
+The letters will be slightly more spaced apart.
+
+```html live "ls-3" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <p class="bg-white fs-lg ls-3 p-4 rad-1 ta-c tc-slate">Sphinx of black quartz, judge my vow.</p>
+</div>
+```
+
+## 4
+
+The letters will be spaced further apart.
+
+```html live "ls-4" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <p class="bg-white fs-lg ls-4 p-4 rad-1 ta-c tc-slate">Sphinx of black quartz, judge my vow.</p>
+</div>
+```
+
+## 5
+
+The letters will be significantly spaced apart.
+
+```html live "ls-5" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <p class="bg-white fs-lg ls-5 p-4 rad-1 ta-c tc-slate">Sphinx of black quartz, judge my vow.</p>
+</div>
+```
+
+## Using utility variants
+
+Learn how to override existing utilities based on the user's [screen size](/docs/foundations/media-queries) or other factors, such as [hover states](/docs/foundations/pseudo-classes).
+
+### Using media queries
+
+<MediaVariant class="ls-1" variant="ls-2" classPrefix="ls" />
+
+### Using hover states
+
+<HoverVariant class="ls-1" variant="ls-2" classPrefix="ls" />

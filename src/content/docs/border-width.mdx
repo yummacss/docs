@@ -1,0 +1,81 @@
+export const frontmatter = {
+  title: "Border Width",
+  description: "Controls the width of the borders of an element.",
+};
+
+<ApiTable category="border" name="border-width" />
+
+This example showcases various `border-width` utilities:
+
+- The `1px` border width utility creates a thin border.
+- The `2px` border width utility creates a medium border.
+- The `3px` border width utility creates a thick border.
+- The `4px` border width utility creates an extra thick border.
+
+```html live "b-1" "b-2" "b-3" "b-4"
+<div class="d-g g-16 gtc-1 sm:gtc-3">
+  <div class="ai-c b-1 bc-indigo b-s d-f d-16 jc-c tc-indigo">A</div>
+  <div class="ai-c b-2 bc-indigo b-s d-f d-16 jc-c tc-indigo">B</div>
+  <div class="ai-c b-3 bc-indigo b-s d-f d-16 jc-c tc-indigo">C</div>
+</div>
+```
+
+## Border Bottom Width
+
+Controls the width of the bottom border of an element.
+
+<ApiTable category="border" name="border-bottom-width" />
+
+The element will have a thick bottom border.
+
+```html live "bb-3"
+<div class="ai-c bb-3 bc-indigo d-f d-16 jc-c tc-indigo">A</div>
+```
+
+## Border Left Width
+
+Controls the width of the left border of an element.
+
+<ApiTable category="border" name="border-left-width" />
+
+The element will have a thick left border.
+
+```html live "bl-3"
+<div class="ai-c bl-3 bc-indigo d-f d-16 jc-c tc-indigo">A</div>
+```
+
+## Border Right Width
+
+Controls the width of the right border of an element.
+
+<ApiTable category="border" name="border-right-width" />
+
+The element will have a thick right border.
+
+```html live "br-3"
+<div class="ai-c br-3 bc-indigo d-f d-16 jc-c tc-indigo">A</div>
+```
+
+## Border Top Width
+
+Controls the width of the top border of an element.
+
+<ApiTable category="border" name="border-top-width" />
+
+The element will have a thick top border.
+
+```html live "bt-3"
+<div class="ai-c bt-3 bc-indigo d-f d-16 jc-c tc-indigo">A</div>
+```
+
+## Using utility variants
+
+Learn how to override existing utilities based on the user's [screen size](/docs/foundations/media-queries) or other factors, such as [hover states](/docs/foundations/pseudo-classes).
+
+### Using media queries
+
+<MediaVariant class="b-1" variant="b-2" classPrefix="b" />
+
+### Using hover states
+
+<HoverVariant class="b-1" variant="b-2" classPrefix="b" />

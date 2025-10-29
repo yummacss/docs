@@ -1,0 +1,74 @@
+export const frontmatter = {
+  title: "Width",
+  description: "Controls the width of an element.",
+};
+
+<ApiTable category="boxModel" name="width" />
+
+This example showcases various `width` utilities:
+
+- The **w-16** width utility sets the width to `4rem`.
+- The **w-28** width utility sets the width to `7rem`.
+- Finally, **w-48** width utility sets the width to `12rem`.
+
+```html live "w-16" "w-28" "w-48"
+<div class="d-g rg-8">
+  <div class="bg-indigo p-1 rad-1 ta-c tc-white w-16">16</div>
+  <div class="bg-indigo p-1 rad-1 ta-c tc-white w-28">28</div>
+  <div class="bg-indigo p-1 rad-1 ta-c tc-white w-48">48</div>
+</div>
+```
+
+## Max Width
+
+Controls the maximum width of an element.
+
+<ApiTable category="boxModel" name="max-width" />
+
+The **max-w-64** utility sets the maximum width to **16rem**, ensuring that the element does not exceed this width regardless of the content inside.
+
+<Note icon="size">Try changing the horizontal size of the box to see how wide it can be at the maximum size.</Note>
+
+```html live "max-w-64"
+<div class="ai-c bg-indigo d-f jc-c max-w-64 min-w-16 o-auto p-6 r-h rad-1 tc-white w-32">64</div>
+```
+
+## Min Width
+
+Controls the minimum width of an element.
+
+<ApiTable category="boxModel" name="min-width" />
+
+The **min-w-16** utility sets the minimum width to `4rem`, ensuring that the element maintains at least this width even when the content is smaller.
+
+<Note icon="size">Try changing the horizontal size of the box to see how wide it can be at the minimum size.</Note>
+
+```html live "min-w-16"
+<div class="ai-c bg-indigo d-f jc-c max-w-64 min-w-16 o-auto p-6 r-h rad-1 tc-white w-32">32</div>
+```
+
+## Using percentages
+
+This example showcases various width values: `100%` and `50%`.
+
+- The **w-full** utility sets the width to `100%`, allowing the element to take up the full width of its container.
+- The **w-half** utility sets the width to `50%`, allowing the element to occupy half the width of its container.
+
+```html live "w-full" "w-half"
+<div class="b-3 b-d bc-indigo d-g p-2 rad-1 rg-8 w-64">
+  <div class="bg-indigo p-2 rad-1 ta-c tc-white w-full">100%</div>
+  <div class="bg-indigo p-2 rad-1 ta-c tc-white w-half">50%</div>
+</div>
+```
+
+## Using utility variants
+
+Learn how to override existing utilities based on the user's [screen size](/docs/foundations/media-queries) or other factors, such as [hover states](/docs/foundations/pseudo-classes).
+
+### Using media queries
+
+<MediaVariant class="w-1" variant="w-2" classPrefix="w" />
+
+### Using hover states
+
+<HoverVariant class="w-1" variant="w-2" classPrefix="w" />

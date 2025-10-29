@@ -1,0 +1,865 @@
+export const frontmatter = {
+  authors: ["Renildo"],
+  cover: "cover.png",
+  date: "2025-04-14",
+  description: "After almost six months of hard work it's finally here - Yumma CSS v3 🎉",
+  title: "Yumma CSS 3.0"
+};
+
+**This update might break your codebase, we highly suggest you checking out the [release notes](https://github.com/yumma-lib/yumma-css/releases/tag/v3.0) before upgrading.**
+
+---
+
+## What's new in v3.0?
+
+We've completely rewritten the code base for Yumma CSS v3, both internally and externally, and we're excited to improve the way you deal with CSS.
+
+In v3, we're planning to address some major performance issues and add and improve existing utilities in the framework, among other things.
+
+### All-new CLI
+
+Until recently, you had to import a lot of annoying CSS from Yumma CSS, which was a real pain.
+
+With v3, you won't have to stress about shipping unused CSS to the browser. The new CLI will scan and get rid of them for you automatically.
+
+<Stepper>
+  <Step title="Install Yumma CSS">
+    Add `yummacss` to your project as dev dependency.
+
+    <Note icon="info">Learn more about [dependency changes](#dependency-changes).</Note>
+
+    ```bash
+    pnpm add yummacss -D
+    ```
+  </Step>
+
+  <Step title="Add the configuration file">
+    Next, add the `yumma.config.js` to the root level of your project or run `npx yummacss init` to create it for you.
+
+    ```
+      - node_modules/
+      - public
+        - favicon.ico
+      - src
+        - out.css
+        - index.html
+      - .gitignore
+      - package-lock.json
+      - package.json
+      - **yumma.config.js**
+    ```
+  </Step>
+
+  <Step title="Set up the config file">
+    To generate styles using the CLI, just set up the `source` array with the path to your template files and set the `output` string with the path to the CSS file you want to generate.
+
+    ```js title="yumma.config.js" mark={2-3}
+    module.exports = {
+      source: ["./src/**/*.html"],
+      output: "./src/out.css",
+      buildOptions: {
+        reset: true,
+        minify: false,
+      },
+    };
+    ```
+  </Step>
+
+  <Step title="Write CSS">
+    Start using Yumma CSS utilities in your to generate CSS with the CLI.
+
+    ```html mark={7, 11-16} title="index.html"
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/src/out.css" />
+    </head>
+
+    <body>
+      <div class="b-1 bc-silver-2 bg-white rad-2 bs-sm p-4">
+          <h1 class="fw-600 tc-indigo fs-lg">Hello 👋, name's Renildo.</h1>
+          <p class="tc-gray-7">I'm Founder/CEO at Yumma CSS!</p>
+
+          <button class="bg-indigo fs-sm h:bg-indigo-7 mt-6 px-4 py-1 rad-1 tc-white">GitHub</button>
+      </div>
+    </body>
+
+    </html>
+    ```
+  </Step>
+
+  <Step title="Compile the SCSS">
+    To compile the source into CSS, ou can run the following command:
+
+    ```bash
+    pnpm yummacss build
+    ```
+
+    When you run the `build` command the CLI will create a new CSS file and scan project paths based on the `yumma.config.js` to purge of any unused styles.
+
+    ```css title="out.css"
+    .rad-1 {
+      border-radius: .25rem;
+    }
+
+    .rad-2 {
+      border-radius: .5rem;
+    }
+
+    .b-1 {
+      border-width: 1px;
+    }
+
+    .mt-6 {
+      margin-top: 1.5rem;
+    }
+
+    .p-4 {
+      padding: 1rem;
+    }
+
+    .px-4 {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    .py-1 {
+      padding-bottom: .25rem;
+      padding-top: .25rem;
+    }
+
+    /* etc */
+    ```
+  </Step>
+</Stepper>
+
+---
+
+### New utilities and variants
+
+To make the Yumma CSS framework as complete as possible, we're adding support for over 50 utilities to the core of the framework.
+
+- Added **Background Attachment** utilities.
+- Added **Background Clip** utilities.
+- Added **Background Origin** utilities.
+- Added **Background Position** utilities.
+- Added **Background Repeat** utilities.
+- Added **Background Size** utilities.
+- Added **Blur** utilities.
+- Added **Border Spacing** utilities.
+- Added **Bottom Radius** utilities.
+- Added **Top/Right/Bottom/Left (Axis)** utilities.
+- Added **Clear** utilities.
+- Added **Field Sizing** utilities.
+- Added **Fill** utilities.
+- Added **Font Family** fallbacks.
+- Added **Grayscale** utilities.
+- Added **Isolation** utilities.
+- Added **Left Radius** utilities.
+- Added **Letter Spacing** utilities.
+- Added **List Style Position** utilities.
+- Added **Margin Block End** utilities.
+- Added **Margin Block Start** utilities.
+- Added **Margin Inline End** utilities.
+- Added **Margin Inline Start** utilities.
+- Added **Order** utilities.
+- Added **Padding Block End** utilities.
+- Added **Padding Block Start** utilities.
+- Added **Padding Inline End** utilities.
+- Added **Padding Inline Start** utilities.
+- Added **Place Content** utilities.
+- Added **Place Items** utilities.
+- Added **Place Self** utilities.
+- Added **Right Radius** utilities.
+- Added **Rotate** utilities.
+- Added **Scale** utilities.
+- Added **Scroll Behavior** utilities.
+- Added **Scroll Margin Bottom** utilities.
+- Added **Scroll Margin Inline End** utilities.
+- Added **Scroll Margin Inline Start** utilities.
+- Added **Scroll Margin Left** utilities.
+- Added **Scroll Margin Right** utilities.
+- Added **Scroll Margin Top** utilities.
+- Added **Scroll Margin X** utilities.
+- Added **Scroll Margin Y** utilities.
+- Added **Scroll Margin** utilities.
+- Added **Scroll Snap Align** utilities.
+- Added **Scroll Snap Stop** utilities.
+- Added **Scroll Snap Type** utilities.
+- Added **Skew** utilities.
+- Added **Stroke Width** utilities.
+- Added **Stroke** utilities.
+- Added **Text Indent** utilities.
+- Added **Text Overflow** utilities.
+- Added **Text Transform** utilities.
+- Added **Text Underline Offset** utilities.
+- Added **Text Wrap** utilities.
+- Added **Top Radius** utilities.
+- Added **Transform Origin** utilities.
+- Added **Visibility** utilities.
+- Added **White Space** utilities.
+
+#### ...and more
+
+You can check the [release notes](https://github.com/yumma-lib/yumma-css/releases/tag/v3.0) for the full list of new utilities.
+
+---
+
+### Build performance
+
+We completely overhauled the entire codebase to get better performance in build times and overall file size. We changing the way all utilities are generated, to eliminate any potential for duplicated or unnecessary data in the `/dist` folder.
+
+| Metric               | v2      | v3      | Improvement            |
+| -------------------- | ------- | ------- | ---------------------- |
+| Complete build       | 13.88 s | 3.96 s  | -9.92 s (71% faster)   |
+| File size (standard) | 3.21 MB | 2.53 MB | -0.68 MB (21% smaller) |
+| File size (minified) | 2.48 MB | 1.89 MB | -0.59 MB (24% smaller) |
+| Utilities coverage   | 111     | 167     | +56                    |
+
+---
+
+### Upgrading to v3.0
+
+If you're using Yumma CSS v2 or older, the process of upgrading to v3 using the Yumma CLI is honestly super easy.
+
+<Stepper>
+  <Step title="Remove @import rules">
+    The CLI works by compiling SCSS to CSS, so there's no need to import the Yumma CSS package dependency.
+
+    ```css title="globals.css" del={1}
+    @import "/node_modules/yummacss/dist/yumma.min.css";
+    ```
+  </Step>
+
+  <Step title="Add the Yumma config file">
+    Create a `yumma.config.js` file at the project root.
+
+    ```
+    ├── node_modules/
+    ├── public/
+    │   └── favicon.ico
+    ├── src/
+    │   ├── globals.css
+    │   └── index.html
+    ├── .gitignore
+    ├── package-lock.json
+    ├── package.json
+    └── yumma.config.js <-
+    ```
+  </Step>
+
+  <Step title="Set up the config file">
+    Setup the `source` array and `output` string field.
+
+    ```js title="yumma.config.js" mark={2-7}
+    module.exports = {
+      source: ["./src/**/*.html"],
+      output: "./src/globals.css",
+      buildOptions: {
+        reset: true,
+        minify: true,
+      },
+    };
+    ```
+  </Step>
+
+  <Step title="Compile the SCSS">
+    Run `npx yummacss build` in your terminal to compile to CSS.
+
+    ```bash
+    pnpm yummacss build
+    ```
+  </Step>
+</Stepper>
+
+---
+
+## Changes in v3
+
+Like some of the past major updates, Yumma CSS v3 is changing its core framework structure. Just so you know, there are going to be a few breaking changes in the release, so it might be worth taking a look before you update.
+
+### Dependency changes
+
+With Yumma CSS v3 you no longer need to install `yummacss` as a standard dependency. Instead, you can install it as a dev dependency. This is because Yumma CSS is now a CLI tool that generates CSS files based on your configuration.
+
+```bash
+pnpm add yummacss -D
+```
+
+The full set of utilities will be retained within the distribution folder for the purpose of facilitating the importation of the entire Yumma utilities suite, should this be required.
+
+```
+- dist
+ 	- yumma.css
+ 	- yumma.min.css
+```
+
+---
+
+### Color utility changes
+
+In v3, both the light (`l-`) and dark (`d-`) characters are being removed across all color utilities. As a result, the range used to determine a color's shade was also adjusted.
+
+<div className="p-4">
+  ```html title="index.html" del={1} ins={2}
+  <button class="bg-l-indigo-6 h:bg-d-indigo-1">Button</button>
+  <button class="bg-indigo-1 h:bg-indigo-7">Button</button>
+  ```
+</div>
+
+Also, the color hue is increasing from `10%` shade modification to `14%`. This means that light colors will become lighter, and dark colors will become darker.
+
+Here's a quick reference using `background-color`
+
+| v2           | v3          | Difference    |
+| ------------ | ----------- | ------------- |
+| *-l-indigo-6 | *-indigo-1  | -2 characters |
+| *-l-indigo-5 | *-indigo-2  | -2 characters |
+| *-l-indigo-4 | *-indigo-3  | -2 characters |
+| *-l-indigo-3 | *-indigo-4  | -2 characters |
+| *-l-indigo-2 | *-indigo-5  | -2 characters |
+| *-l-indigo-1 | *-indigo-6  | -2 characters |
+| *-indigo     | *-indigo    | -0 characters |
+| *-d-indigo-1 | *-indigo-7  | -2 character  |
+| *-d-indigo-2 | *-indigo-8  | -2 character  |
+| *-d-indigo-3 | *-indigo-9  | -2 character  |
+| *-d-indigo-4 | *-indigo-10 | -1 character  |
+| *-d-indigo-5 | *-indigo-11 | -1 character  |
+| *-d-indigo-6 | *-indigo-12 | -1 character  |
+
+<Tabs defaultValue="v3">
+  <TabsList>
+    <TabsTab className="tc-white b-1 rad-0" style={{backgroundColor: '#21243f', borderColor: '#31365e' }} value="v3">v3</TabsTab>
+    <TabsTab className="tc-white b-1 rad-0" style={{backgroundColor: '#21243f', borderColor: '#31365e' }} value="v2">v2</TabsTab>
+  </TabsList>
+
+  <TabsPanel value="v3">
+    <Palette
+      data={[
+        { name: "Red", color: "rgb(215, 61, 61)" },
+        { name: "Orange", color: "rgb(224, 104, 20)" },
+        { name: "Yellow", color: "rgb(211, 161, 7)" },
+        { name: "Green", color: "rgb(31, 177, 85)" },
+        { name: "Teal", color: "rgb(18, 166, 149)" },
+        { name: "Cyan", color: "rgb(5, 164, 191)" },
+        { name: "Blue", color: "rgb(53, 117, 221)" },
+        { name: "Indigo", color: "rgb(89, 92, 217)" },
+        { name: "Violet", color: "rgb(125, 83, 221)" },
+        { name: "Pink", color: "rgb(212, 65, 138)" },
+        { name: "Lead", color: "rgb(63, 63, 78)" },
+        { name: "Gray", color: "rgb(96, 103, 115)" },
+        { name: "Silver", color: "rgb(191, 194, 199)" },
+      ]}
+    />
+  </TabsPanel>
+
+  <TabsPanel value="v2">
+    <LegacyPalette
+      data={[
+        { name: "Red", color: "#d73d3d" },
+        { name: "Orange", color: "#e06814" },
+        { name: "Yellow", color: "#d3a107" },
+        { name: "Green", color: "#1fb155" },
+        { name: "Teal", color: "#12a695" },
+        { name: "Cyan", color: "#05a4bf" },
+        { name: "Blue", color: "#3575dd" },
+        { name: "Indigo", color: "#595cd9" },
+        { name: "Violet", color: "#7d53dd" },
+        { name: "Pink", color: "#d4418a" },
+        { name: "Lead", color: "#3f3f4e" },
+        { name: "Gray", color: "#606773" },
+        { name: "Silver", color: "#bfc2c7" },
+      ]}
+    />
+  </TabsPanel>
+</Tabs>
+
+---
+
+### Base style changes
+
+We're making some changes to the base styles in v3 to make it more modern and consistent. These changes are turned on by default, but you can turn them off using the [`yumma.config.js`](#disabling-stylecent) file.
+
+By default, all paddings will be removed.
+
+```scss mark={3} title="base/stylecent.scss"
+* {
+  margin: 0;
+  padding: 0;
+}
+```
+
+Font family is set in the `<html>` tag element. - [oshwcomeau.com](https://joshwcomeau.com/css/custom-css-reset)
+
+```scss mark={2} title="base/stylecent.scss"
+html {
+  font-family: vars.$yma-font-system;
+}
+```
+
+Font rendering is smoother, and a consistent system font is set as the default. - [oshwcomeau.com](https://joshwcomeau.com/css/custom-css-reset)
+
+```scss ins={2-3} del={4} title="base/stylecent.scss"
+body {
+  -webkit-font-smoothing: antialiased;
+  font-family: vars.$yma-font-system;
+  line-height: 1.5;
+}
+```
+
+Form elements now include padding by default. Borders are added for form elements without class attributes.
+
+```scss mark={6-8,16} title="base/stylecent.scss"
+button,
+input,
+optgroup,
+select,
+textarea {
+  background-color: vars.$yma-color-transparent;
+  font-family: inherit;
+  padding: 0.5rem;
+}
+
+button:not([class]),
+input:not([class]),
+optgroup:not([class]),
+select:not([class]),
+textarea:not([class]) {
+  border: 1px solid vars.$yma-color-silver;
+}
+```
+
+Interactive elements have clear outlines for accessibility.
+
+```scss mark={7-9} title="base/stylecent.scss"
+button,
+input,
+textarea,
+select,
+a,
+summary {
+  &:focus {
+    outline: 2px solid vars.$yma-color-transparent;
+  }
+}
+```
+
+In the absence of content, textareas will exhibit a default height. - [piccalil.li](https://piccalil.li/blog/a-more-modern-css-reset)
+
+```scss mark={2} title="base/stylecent.scss"
+textarea:not([rows]) {
+  min-height: 10em;
+}
+```
+
+Disabled elements are visually distinct with reduced opacity and a "not-allowed" cursor.
+
+```scss mark={5-6} title="base/stylecent.scss"
+button:disabled,
+input:disabled,
+select:disabled,
+textarea:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+```
+
+Headings adopt balanced text wrapping, consistent font sizes, and bold weights. - [oshwcomeau.com](https://joshwcomeau.com/css/custom-css-reset)
+
+```scss mark={7-9,13} title="base/stylecent.scss"
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 1rem;
+  font-weight: 600;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+```
+
+Small text and code elements are consistently scaled and inherited. Code elements will have consistent font family. - [modern-normalize](https://github.com/sindresorhus/modern-normalize/blob/main/modern-normalize.css#L64)
+
+```scss mark={3,7-8,15-16} title="base/stylecent.scss"
+b,
+strong {
+  font-weight: 700;
+}
+
+small {
+  font-size: 80%;
+  line-height: 1.4;
+}
+
+pre,
+code,
+kbd,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+```
+
+Reset default link styles.
+
+```scss mark={2,7} title="base/stylecent.scss"
+a {
+  color: inherit;
+  text-decoration: none;
+}
+```
+
+Table headers are bold and sized consistently.
+
+```scss mark={2-3} title="base/stylecent.scss"
+th {
+  font-size: 1rem;
+  font-weight: 600;
+}
+```
+
+Horizontal rules, details, and summaries are updated for better spacing and display. - [modern-normalize](https://github.com/sindresorhus/modern-normalize/blob/main/modern-normalize.css#L64)
+
+```scss mark={3,8,12} title="base/stylecent.scss"
+hr {
+  border-top: 1px solid vars.$yma-color-silver;
+  height: 0;
+  margin: 1em 0;
+}
+
+details {
+  display: block;
+}
+
+summary {
+  display: list-item;
+}
+```
+
+---
+
+#### Disabling base styles
+
+To disable the base styles generation you can set `buildOptions.reset` to `false` in the `yummacss.config.mjs` file.
+
+```js mark={5} title="yummacss.config.mjs"
+export default {
+  source: ["./src/**/*.html"],
+  output: "./src/out.css",
+  buildOptions: {
+    reset: false, // disables base styles
+    minify: false,
+  },
+};
+```
+
+---
+
+### Breakpoint changes
+
+In v3, we are moving from pixel-based units to rem-based units. This change promotes better accessibility and scalability, as rem units respect the user's browser font size settings.
+
+| v2     | v3               | Breakpoint |
+| ------ | ---------------- | ---------- |
+| 640px  | 40rem _(640px)_  | sm         |
+| 768px  | 48rem _(768px)_  | md         |
+| 1024px | 64rem _(1024px)_ | lg         |
+| 1280px | 80rem _(1280px)_ | xl         |
+| 1536px | 96rem _(1536px)_ | xxl        |
+
+---
+
+### Fixed media query utilities
+
+We've grouped related media query utilities together so they can override existing ones in the DOM like they were supposed to. This improvement also eliminates redundant CSS classes and reduces the overall file size.
+
+---
+
+### Utility syntax changes
+
+We're renaming several utilities to align with our default naming convention.
+
+### Align Content
+
+```html title="index.html" del={1} ins={2}
+<div class="ac-s ..."></div>
+<div class="ac-st ..."></div>
+```
+
+### Align Items
+
+```html title="index.html" del={1} ins={2}
+<div class="ai-s ..."></div>
+<div class="ai-st ..."></div>
+```
+
+### Align Self
+
+```html title="index.html" del={1} ins={2}
+<div class="as-s ..."></div>
+<div class="as-st ..."></div>
+```
+
+### Justify Content
+
+```html title="index.html" del={1} ins={2}
+<div class="jc-s ..."></div>
+<div class="jc-st ..."></div>
+```
+
+### Border Bottom Radius
+
+```html title="index.html" del={1} ins={2}
+<button class="b-1 bg-black rad-bl-2 rad-br-2 tc-white">Subscribe</button>
+<button class="b-1 bg-black rad-b-2 tc-white">Subscribe</button>
+```
+
+### Border Left Radius
+
+```html title="index.html" del={1} ins={2}
+<button class="b-1 bg-black rad-bl-2 rad-tl-2 tc-white">Subscribe</button>
+<button class="b-1 bg-black rad-l-2 tc-white">Subscribe</button>
+```
+
+### Border Right Radius
+
+```html title="index.html" del={1} ins={2}
+<button class="b-1 bg-black rad-br-2 rad-tr-2 tc-white">Subscribe</button>
+<button class="b-1 bg-black rad-r-2 tc-white">Subscribe</button>
+```
+
+### Border Top Radius
+
+```html title="index.html" del={1} ins={2}
+<button class="b-1 bg-black rad-tl-2 rad-tr-2 tc-white">Subscribe</button>
+<button class="b-1 bg-black rad-t-2 tc-white">Subscribe</button>
+```
+
+### Top / Right / Bottom / Left
+
+```html del={1-5} ins={6-10} title="index.html"
+<div class="dir-b">...</div>
+<div class="dir-i">...</div>
+<div class="dir-l">...</div>
+<div class="dir-r">...</div>
+<div class="dir-t">...</div>
+<div class="bo-">...</div>
+<div class="i-">...</div>
+<div class="l-">...</div>
+<div class="r-">...</div>
+<div class="t-">...</div>
+```
+
+### Columns
+
+```html title="index.html" del={1} ins={2}
+<div class="cols-* ..."></div>
+<div class="c-* ..."></div>
+```
+
+### Dimension
+
+```html title="index.html" del={1} ins={2}
+<div class="dim-* ..."></div>
+<div class="d-* ..."></div>
+```
+
+### Max Dimension
+
+```html title="index.html" del={1} ins={2}
+<div class="max-dim-* ..."></div>
+<div class="max-d-* ..."></div>
+```
+
+### Min Dimension
+
+```html title="index.html" del={1} ins={2}
+<div class="min-dim-* ..."></div>
+<div class="min-d-* ..."></div>
+```
+
+### Font Size
+
+<Tabs defaultValue="v3">
+  <TabsList>
+    <TabsTab className="tc-white b-1 rad-0" style={{backgroundColor: '#21243f', borderColor: '#31365e' }} value="v3">v3</TabsTab>
+    <TabsTab className="tc-white b-1 rad-0" style={{backgroundColor: '#21243f', borderColor: '#31365e' }} value="v2">v2</TabsTab>
+  </TabsList>
+
+  <TabsPanel value="v3">
+    <ApiTable category="font" name="font-size" />
+  </TabsPanel>
+
+  <TabsPanel value="v2">
+  <LegacyTable
+        data={[
+        {
+            className: "fs-xs",
+            properties: ["font-size: 0.75rem"],
+        },
+        {
+            className: "fs-b",
+            properties: ["font-size: 1rem"],
+        },
+        {
+            className: "fs-sm",
+            properties: ["font-size: 1.5rem"],
+        },
+        {
+            className: "fs-md",
+            properties: ["font-size: 2.25rem"],
+        },
+        {
+            className: "fs-lg",
+            properties: ["font-size: 3rem"],
+        },
+        {
+            className: "fs-xl",
+            properties: ["font-size: 3.75rem"],
+        },
+        {
+            className: "fs-xxl",
+            properties: ["font-size: 4.5rem"],
+        },
+        {
+            className: "fs-3xl",
+            properties: ["font-size: 5.25rem"],
+        },
+        {
+            className: "fs-6xl",
+            properties: ["font-size: 6rem"],
+        },
+        {
+            className: "fs-9xl",
+            properties: ["font-size: 6.75rem"],
+        },
+        ]}
+    />
+  </TabsPanel>
+</Tabs>
+
+### Font Family
+
+<Tabs defaultValue="v3">
+  <TabsList>
+    <TabsTab className="tc-white b-1 rad-0" style={{backgroundColor: '#21243f', borderColor: '#31365e' }} value="v3">v3</TabsTab>
+    <TabsTab className="tc-white b-1 rad-0" style={{backgroundColor: '#21243f', borderColor: '#31365e' }} value="v2">v2</TabsTab>
+  </TabsList>
+
+  <TabsPanel value="v3">
+    <ApiTable category="font" name="font-family" />
+  </TabsPanel>
+
+  <TabsPanel value="v2">
+  <LegacyTable
+      data={[
+        {
+          className: "ff-c",
+          properties: ["font-family: Charter, Cambria, serif;"],
+        },
+        {
+          className: "ff-m",
+          properties: ["font-family: ui-monospace, Consolas, monospace;"],
+        },
+        {
+          className: "ff-s",
+          properties: ["font-family: system-ui, sans-serif;"],
+        },
+      ]}
+    />
+  </TabsPanel>
+</Tabs>
+
+### Overflow
+
+```html title="index.html" del={1} ins={2}
+<div class="ovf-* ..."></div>
+<div class="o-* ..."></div>
+```
+
+### Overflow X
+
+```html title="index.html" del={1} ins={2}
+<div class="ovf-x-* ..."></div>
+<div class="o-x-* ..."></div>
+```
+
+### Overflow Y
+
+```html title="index.html" del={1} ins={2}
+<div class="ovf-y-* ..."></div>
+<div class="o-y-*..."></div>
+```
+
+### Float
+
+```html title="index.html" del={1} ins={2}
+<div class="flo-* ..."></div>
+<div class="fl-* ..."></div>
+```
+
+### Dimension, Height and Width
+
+```html title="index.html" del={1-3} ins={4-6}
+<div class="d-1/1 ..."></div>
+<div class="h-1/1 ..."></div>
+<div class="w-1/1 ..."></div>
+<div class="d-dvh ..."></div>
+<div class="h-dvh ..."></div>
+<div class="w-dvh ..."></div>
+```
+
+### Removed Container utility
+
+```html del="cnt" title="index.html"
+<div class="cnt"></div>
+```
+
+### Removed Insert utility
+
+```html title="index.html" del={1} ins={2}
+<div class="ins ..."></div>
+<div class="ai-c d-f jc-c ..."></div>
+```
+
+### Removed Spacing X utilities
+
+You can use the **Row Gap** utilities instead for almost all cases, and even combine the **Row Gap** utilities with other utilities like `d-f` (`display: flex`) or `d-if` (`display: inline-flex`).
+
+```html live "cg-8" title="index.html"
+<div class="d-if fd-r cg-8 tc-white" id="area">
+  <div class="ai-c bg-indigo d-f d-16 jc-c rad-1">A</div>
+  <div class="ai-c bg-indigo d-f d-16 jc-c rad-1">B</div>
+  <div class="ai-c bg-indigo d-f d-16 jc-c rad-1">C</div>
+</div>
+```
+
+### Removed Spacing Y utilities
+
+The same idea applies to the **Column Gap** utilities by the way.
+
+```html live "rg-8" title="index.html"
+<div class="d-if fd-c rg-8 tc-white" id="area">
+  <div class="ai-c bg-indigo d-f d-16 jc-c rad-1">A</div>
+  <div class="ai-c bg-indigo d-f d-16 jc-c rad-1">B</div>
+  <div class="ai-c bg-indigo d-f d-16 jc-c rad-1">C</div>
+</div>
+```
+
+### Removed `*-1/2` property values
+
+Turns out it wasn't very useful at all.
+
+```html title="index.html" del={1-3}
+<div class="h-1/2 ..."></div>
+<div class="w-1/2 ..."></div>
+<div class="d-1/2 ..."></div>
+```

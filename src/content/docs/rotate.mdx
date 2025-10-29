@@ -1,0 +1,41 @@
+export const frontmatter = {
+  title: "Rotate",
+  description: "Controls an element's rotation around a fixed point on a 2D plane without deforming it.",
+};
+
+<ApiTable category="transform" name="rotate" />
+
+This example showcases various `rotate()` utilities:
+
+- The **t-r-15** rotate utility rotates an element by **15 degrees**.
+- The **t-r-30** rotate utility rotates an element by **30 degrees**.
+- The **t-r-60** rotate utility rotates an element by **60 degrees**.
+
+```html live "t-r-15" "t-r-30" "t-r-60"
+<div class="d-g g-16 gtc-1 sm:gtc-3">
+  <div class="my-4 p-r">
+    <img class="d-18 d-ib rad-1 t-r-15" src="/img/clivia.jpg" />
+    <img class="o-20 d-18 d-ib l-0 p-a rad-1" src="/img/clivia.jpg" />
+  </div>
+  <div class="my-4 p-r">
+    <img class="d-18 d-ib rad-1 t-r-30" src="/img/clivia.jpg" />
+    <img class="o-20 d-18 d-ib l-0 p-a rad-1" src="/img/clivia.jpg" />
+  </div>
+  <div class="my-4 p-r">
+    <img class="d-18 d-ib rad-1 t-r-60" src="/img/clivia.jpg" />
+    <img class="o-20 d-18 d-ib l-0 p-a rad-1" src="/img/clivia.jpg" />
+  </div>
+</div>
+```
+
+## Using utility variants
+
+Learn how to override existing utilities based on the user's [screen size](/docs/foundations/media-queries) or other factors, such as [hover states](/docs/foundations/pseudo-classes).
+
+### Using media queries
+
+<MediaVariant class="t-r-0" variant="t-r-5" classPrefix="t-r" />
+
+### Using hover states
+
+<HoverVariant class="t-r-0" variant="t-r-5" classPrefix="t-r" />

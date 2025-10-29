@@ -1,0 +1,47 @@
+export const frontmatter = {
+  authors: ["Renildo"],
+  cover: "cover.png",
+  date: "2025-09-11",
+  description: "Rolling out Yumma CSS 3.3. This update is all about making some quality-of-life improvements to the configuration file, as well as a new configuration file format.",
+  title: "Yumma CSS 3.3",
+};
+
+**This update shouldn't be difficult to upgrade, but you may want to check out the [release notes](https://github.com/yumma-lib/yumma-css/releases/tag/v3.3.0) before upgrading.**
+
+---
+
+## Using MJS configuration file
+
+We're dropping support for the `.js` file extension and going with the `.mjs` extension instead. This means you won't need to add `type="module"` to your `package.json` file anymore. We had to make this change to get rid of the module detection process from the CLI.
+
+```diff
+- yumma.config.js
++ yumma.config.mjs
+```
+
+---
+
+## Configuration file generation
+
+Oh, and we fixed the JSON syntax when generating the configuration file. The `init` command should now generate valid config properties from now on.
+
+```js title="yumma.config.mjs"
+export default {
+  source: [""],
+  output: "",
+  buildOptions: {
+    reset: true,
+    minify: false,
+  },
+};
+```
+
+---
+
+## Upgrade
+
+You can get the latest version of Yumma CSS from npm:
+
+```bash
+pnpm up yummacss
+```

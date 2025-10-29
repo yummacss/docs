@@ -1,0 +1,44 @@
+export const frontmatter = {
+  title: "Text Overflow",
+  description: "Controls how hidden text overflow content is displayed.",
+};
+
+<ApiTable category="text" name="text-overflow" />
+
+## Clip
+
+> Initial value
+
+The text will be clipped at the edge of the container without any indication that it has been cut off.
+
+```html live "to-c" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <div class="bg-white rad-1">
+    <p class="fs-lg o-h p-4 tc-slate to-c w-25 ws-nw">Pneumonoultramicroscopicsilicovolcanoconiosis</p>
+  </div>
+</div>
+```
+
+## Ellipsis
+
+The text will be truncated with an ellipsis at the end to indicate that there is more content that is not visible.
+
+```html live "to-e" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1">
+  <div class="bg-white rad-1">
+    <p class="fs-lg o-h p-4 tc-slate to-e w-25 ws-nw">Pneumonoultramicroscopicsilicovolcanoconiosis</p>
+  </div>
+</div>
+```
+
+## Using utility variants
+
+Learn how to override existing utilities based on the user's [screen size](/docs/foundations/media-queries) or other factors, such as [hover states](/docs/foundations/pseudo-classes).
+
+### Using media queries
+
+<MediaVariant class="to-c" variant="to-e" classPrefix="to" />
+
+### Using hover states
+
+<HoverVariant class="to-c" variant="to-e" classPrefix="to" />

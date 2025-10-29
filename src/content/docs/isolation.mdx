@@ -1,0 +1,36 @@
+export const frontmatter = {
+  title: "Isolation",
+  description: "Controls whether an element must create a new stacking context.",
+};
+
+<ApiTable category="positioning" name="isolation" />
+
+## Auto
+
+> Initial value
+
+The element will use the default isolation behavior, allowing overlapping elements to blend together.
+
+```html "i-auto"
+<div class="i-auto ..."></div>
+```
+
+## Isolate
+
+The element will create a new stacking context, preventing overlapping elements from blending with the background.
+
+```html "i-i"
+<div class="i-i ..."></div>
+```
+
+## Using utility variants
+
+Learn how to override existing utilities based on the user's [screen size](/docs/foundations/media-queries) or other factors, such as [hover states](/docs/foundations/pseudo-classes).
+
+### Using media queries
+
+<MediaVariant class="i-auto" variant="i-i" classPrefix="i" />
+
+### Using hover states
+
+<HoverVariant class="i-auto" variant="i-i" classPrefix="i" />

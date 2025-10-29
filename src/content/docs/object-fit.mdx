@@ -1,0 +1,60 @@
+export const frontmatter = {
+  title: "Object Fit",
+  description: "Controls how to resize the content of a replaced element.",
+};
+
+<ApiTable category="positioning" name="object-fit" />
+
+## Fill
+
+> Initial value
+
+The content will stretch to fill the entire container, disregarding its aspect ratio.
+
+```html live "of-f"
+<div class="h-40 w-80" id="area">
+  <img class="d-full of-f rad-1" src="/img/coast.jpg" />
+</div>
+```
+
+## Cover
+
+The content will scale to cover the entire container while maintaining its aspect ratio, potentially cropping the content.
+
+```html live "of-c"
+<div class="h-40 w-80" id="area">
+  <img class="d-full of-c rad-1" src="/img/coast.jpg" />
+</div>
+```
+
+## None
+
+The content will not be resized to fit the container, and it will retain its original size.
+
+```html live "of-none"
+<div class="h-40 w-80" id="area">
+  <img class="d-full of-none rad-1" src="/img/coast.jpg" />
+</div>
+```
+
+## Scale Down
+
+The content will be sized as if `none` or `contain`, whichever results in a smaller size.
+
+```html live "of-sd"
+<div class="h-40 w-80" id="area">
+  <img class="d-full of-sd" src="/img/coast.jpg" />
+</div>
+```
+
+## Using utility variants
+
+Learn how to override existing utilities based on the user's [screen size](/docs/foundations/media-queries) or other factors, such as [hover states](/docs/foundations/pseudo-classes).
+
+### Using media queries
+
+<MediaVariant class="of-c" variant="of-sd" classPrefix="of" />
+
+### Using hover states
+
+<HoverVariant class="of-c" variant="of-sd" classPrefix="of" />

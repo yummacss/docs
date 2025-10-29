@@ -1,0 +1,42 @@
+export const frontmatter = {
+  authors: ["Renildo"],
+  cover: "cover.png",
+  date: "2025-10-12",
+  description: "Opacity variants for color utilities and small improvements to the CLI it's everything Yumma CSS 3.5 is all about.",
+  title: "Yumma CSS 3.5"
+};
+
+**This update shouldn't be difficult to upgrade, but you may want to check out the [release notes](https://github.com/yumma-lib/yumma-css/releases/tag/v3.5.0) before upgrading.**
+
+---
+
+## First-party engine
+
+That's right, we decided to create our own first-party engine for Yumma CSS. This shouldn't have any impact on your projects, but it's a big deal for us internally.
+
+This change will allow us to extend Yumma CSS to feature projects like [Yumma CSS Play](https://play.yummacss.com) and more. Now of course this is a very specific change, but it's a big one for us internally.
+
+---
+
+## Opacity color variants
+
+You can now use color utility variants to specifically apply opacity to single utilities.
+
+```html live "bg-indigo/5" "bg-indigo/10" "bg-indigo/25" "bg-indigo/50" "bc-indigo-6/10" "bc-indigo-7/10" "bc-indigo-8/10" "bc-indigo-9/10"
+<div class="d-g g-4 gtc-4">
+  <div class="bg-indigo/5 b-1 bc-indigo-6/10 d-16 rad-1"></div>
+  <div class="bg-indigo/10 b-1 bc-indigo-7/10 d-16 rad-1"></div>
+  <div class="bg-indigo/25 b-1 bc-indigo-8/10 d-16 rad-1"></div>
+  <div class="bg-indigo/50 b-1 bc-indigo-9/10 d-16 rad-1"></div>
+</div>
+```
+
+---
+
+## Upgrade
+
+You can get the latest version of Yumma CSS from npm:
+
+```bash
+pnpm up yummacss
+```
