@@ -1,6 +1,5 @@
 "use client";
 
-import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 interface TocItem {
@@ -10,21 +9,20 @@ interface TocItem {
 }
 
 export default function TableOfContents() {
-  const pathname = usePathname();
   const [headings, setHeadings] = useState<TocItem[]>([]);
   const [activeId, setActiveId] = useState<string>("");
 
   useEffect(() => {
-    // Get all h2 and h3 headings from the main content, excluding frontmatter
+    // getting all h2 and h3 headings from the main content, excluding frontmatter
     const elements = Array.from(
       document.querySelectorAll("article h2, article h3, main h2, main h3"),
     ).filter((element) => {
-      // Exclude headings that are inside the frontmatter container
+      // we exclude headings that are inside the frontmatter
       return !element.closest("[data-frontmatter]");
     });
 
     const items: TocItem[] = elements
-      .filter((element) => element.id) // Only include headings with IDs
+      .filter((element) => element.id) // only include headings with IDs
       .map((element) => ({
         id: element.id,
         text: element.textContent || "",
@@ -35,7 +33,7 @@ export default function TableOfContents() {
 
     if (items.length === 0) return;
 
-    // Intersection Observer for active heading
+    // intersection Observer for active heading
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -52,7 +50,7 @@ export default function TableOfContents() {
     });
 
     return () => observer.disconnect();
-  }, [pathname]);
+  }, []);
 
   if (headings.length === 0) {
     return null;

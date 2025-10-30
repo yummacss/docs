@@ -9,17 +9,17 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Esteban", serif;
+  font-family: "Esteban", serif;
 }
 
 p {
-    font-family: sans-serif;
+  font-family: sans-serif;
 }
 
 .\~sm-xxl {
-    max-width: clamp(40rem, 80vw, 96rem);
+  max-width: clamp(40rem, 80vw, 96rem);
 }
 
 table code {
-    background-color: #31365e;
+  background-color: #31365e;
 }

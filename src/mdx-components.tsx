@@ -11,7 +11,7 @@ import Note from "@/components/note";
 import Palette from "@/components/palette";
 import Stepper, { Step } from "@/components/stepper";
 
-// Helper function to generate IDs from heading text
+// generate IDs from heading text
 function generateId(children: React.ReactNode): string {
   const text =
     typeof children === "string"
@@ -154,21 +154,21 @@ const components: MDXComponents = {
       {...props}
     />
   ),
-  // Custom components for MDX
+  // docs components
   ApiTable,
   HoverVariant,
-  MediaVariant,
-  Palette,
   LegacyColor,
   LegacyPalette,
   LegacyTable,
+  MediaVariant,
   Note,
-  Stepper,
+  Palette,
   Step,
+  Stepper,
   Tabs,
   TabsList,
-  TabsTab,
   TabsPanel,
+  TabsTab,
 };
 
 export function useMDXComponents(): MDXComponents {
