@@ -103,10 +103,7 @@ export default function LegacyColor({
                 className="px-4 py-2 b-1 tc-white/80"
                 style={{ borderColor: "#31365e" }}
               >
-                <code
-                  className="px-2 py-1"
-                  style={{ backgroundColor: "#31365e" }}
-                >
+                <code className="px-2 py-1" style={{ color: "#85b1e0" }}>
                   {classItem.classTitle}
                 </code>
               </td>

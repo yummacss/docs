@@ -38,6 +38,9 @@ importers:
       next-mdx-remote-client:
         specifier: ^2.1.7
         version: 2.1.7(@types/react@19.2.2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(unified@11.0.5)
+      ogl:
+        specifier: ^1.0.11
+        version: 1.0.11
       react:
         specifier: 19.1.0
         version: 19.1.0
@@ -1144,6 +1147,9 @@ packages:
 
   nth-check@2.1.1:
     resolution: {integrity: sha512-lqjrjmaOoAnWfMmBPL+XNnynZh2+swxiX3WUE0s4yEHI6m+AwrK2UZOimIRl3X/4QctVqS8AiZjFqyOGrMXb/w==}
+
+  ogl@1.0.11:
+    resolution: {integrity: sha512-kUpC154AFfxi16pmZUK4jk3J+8zxwTWGPo03EoYA8QPbzikHoaC82n6pNTbd+oEaJonaE8aPWBlX7ad9zrqLsA==}
 
   onetime@7.0.0:
     resolution: {integrity: sha512-VXJjc87FScF88uafS3JllDgvAm+c/Slfz06lorj2uAY34rlUu0Nt+v8wreiImcrgAjjIHp1rXpTDlLOGw29WwQ==}
@@ -2826,6 +2832,8 @@ snapshots:
   nth-check@2.1.1:
     dependencies:
       boolbase: 1.0.0
+
+  ogl@1.0.11: {}
 
   onetime@7.0.0:
     dependencies:
