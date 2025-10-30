@@ -15,7 +15,7 @@
     "release": "pnpm up yummacss @yummacss/api --latest",
     "start": "next start"
   },
-  "packageManager": "pnpm@10.18.0",
+  "packageManager": "pnpm@10.20.0",
   "dependencies": {
     "@fontsource/esteban": "^5.2.7",
     "@mdx-js/loader": "^3.1.1",
@@ -27,6 +27,7 @@
     "@yummacss/ui": "^0.1.2",
     "next": "15.5.6",
     "next-mdx-remote-client": "^2.1.7",
+    "ogl": "^1.0.11",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "rehype-expressive-code": "^0.41.3",

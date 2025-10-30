@@ -94,18 +94,18 @@ export default function ApiTable({ category, name }: ApiTableProps) {
 
   return (
     <div className="max-h-90 o-y-auto mb-6">
-      <table className="w-full bc-c" style={{ backgroundColor: "#21243fa6" }}>
+      <table className="w-full bc-c">
         <thead>
           <tr>
             <th
               className="fs-md fw-600 px-4 py-2 ta-l b-1 tc-white"
-              style={{ borderColor: "#31365e" }}
+              style={{ borderColor: "#31365e80" }}
             >
               Class
             </th>
             <th
               className="fs-md fw-600 px-4 py-2 ta-l b-1 tc-white"
-              style={{ borderColor: "#31365e" }}
+              style={{ borderColor: "#31365e80" }}
             >
               Style
             </th>
@@ -117,20 +117,17 @@ export default function ApiTable({ category, name }: ApiTableProps) {
               <tr key={`${variant.prefix}-${index}`}>
                 <td
                   className="px-4 py-2 b-1 tc-white/80"
-                  style={{ borderColor: "#31365e" }}
+                  style={{ borderColor: "#31365e80" }}
                 >
-                  <code
-                    className="px-2 py-1"
-                    style={{ backgroundColor: "#31365e" }}
-                  >
+                  <code className="fs-xs" style={{ color: "#dda2f6" }}>
                     {variant.prefix}
                   </code>
                 </td>
                 <td
                   className="px-4 py-2 b-1 tc-white/80"
-                  style={{ borderColor: "#31365e" }}
+                  style={{ borderColor: "#31365e80" }}
                 >
-                  <code className="fs-sm">
+                  <code className="fs-xs" style={{ color: "#bec6f2" }}>
                     {variant.property}: {variant.value}
                   </code>
                 </td>
@@ -141,7 +138,7 @@ export default function ApiTable({ category, name }: ApiTableProps) {
               <td
                 colSpan={2}
                 className="px-4 py-2 b-1 tc-white/80 ta-c"
-                style={{ borderColor: "#31365e" }}
+                style={{ borderColor: "#31365e80" }}
               >
                 Something's gone wrong. Please{" "}
                 <a

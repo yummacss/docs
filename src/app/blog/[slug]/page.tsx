@@ -1,11 +1,11 @@
-import TableOfContents from "@/components/toc";
-import { getAuthor } from "@/utils/authors";
-import { formatDate, getAllBlogSlugs } from "@/utils/blog";
 import { ArrowLeftIcon } from "@radix-ui/react-icons";
 import { Avatar, AvatarFallback, AvatarImage } from "@yummacss/ui";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import TableOfContents from "@/components/toc";
+import { getAuthor } from "@/utils/authors";
+import { formatDate, getAllBlogSlugs } from "@/utils/blog";
 
 export async function generateMetadata({
   params,

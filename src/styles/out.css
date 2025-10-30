@@ -1,6 +1,4 @@
-*,
-:before,
-:after {
+*, :before, :after {
   box-sizing: border-box;
   border: 0 solid;
 }
@@ -20,39 +18,22 @@ body {
   line-height: 1.5;
 }
 
-canvas,
-img,
-picture,
-svg,
-video {
+canvas, img, picture, svg, video {
   max-width: 100%;
   display: block;
 }
 
-button,
-input,
-optgroup,
-select,
-textarea {
+button, input, optgroup, select, textarea {
   background-color: #0000;
-  padding: 0.5rem;
+  padding: .5rem;
   font-family: inherit;
 }
 
-button:not([class]),
-input:not([class]),
-optgroup:not([class]),
-select:not([class]),
-textarea:not([class]) {
+button:not([class]), input:not([class]), optgroup:not([class]), select:not([class]), textarea:not([class]) {
   border: 1px solid #bfc2c7;
 }
 
-a,
-button,
-input,
-select,
-summary,
-textarea {
+a, button, input, select, summary, textarea {
   &:focus {
     outline: 2px solid #0000;
   }
@@ -66,30 +47,16 @@ button {
   cursor: pointer;
 }
 
-button:disabled,
-input:disabled,
-select:disabled,
-textarea:disabled {
+button:disabled, input:disabled, select:disabled, textarea:disabled {
   cursor: not-allowed;
-  opacity: 0.5;
+  opacity: .5;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
+h1, h2, h3, h4, h5, h6, p {
   overflow-wrap: break-word;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   text-wrap: balance;
   font-size: 1rem;
   font-weight: 600;
@@ -99,8 +66,7 @@ p {
   text-wrap: pretty;
 }
 
-b,
-strong {
+b, strong {
   font-weight: 700;
 }
 
@@ -109,10 +75,7 @@ small {
   line-height: 1.4;
 }
 
-pre,
-code,
-kbd,
-samp {
+pre, code, kbd, samp {
   font-family: monospace;
   font-size: 1em;
 }
@@ -122,8 +85,7 @@ a {
   text-decoration: none;
 }
 
-ol,
-ul {
+ol, ul {
   padding: 0;
   list-style: none;
 }
@@ -157,10 +119,6 @@ summary {
 
 .b-1 {
   border-width: 1px;
-}
-
-.ba-f {
-  background-attachment: fixed;
 }
 
 .bb-1 {
@@ -227,16 +185,8 @@ summary {
   border-left-width: 2px;
 }
 
-.bp-c {
-  background-position: center;
-}
-
 .br-1 {
   border-right-width: 1px;
-}
-
-.bs-c {
-  background-size: cover;
 }
 
 .bt-1 {
@@ -245,6 +195,10 @@ summary {
 
 .c-p {
   cursor: pointer;
+}
+
+.d-b {
+  display: block;
 }
 
 .d-f {
@@ -292,7 +246,7 @@ summary {
 }
 
 .fs-sm {
-  font-size: 0.875rem;
+  font-size: .875rem;
 }
 
 .fs-xl {
@@ -300,7 +254,7 @@ summary {
 }
 
 .fs-xs {
-  font-size: 0.75rem;
+  font-size: .75rem;
 }
 
 .fs-xxl {
@@ -324,7 +278,7 @@ summary {
 }
 
 .g-1 {
-  gap: 0.25rem;
+  gap: .25rem;
 }
 
 .g-12 {
@@ -332,11 +286,11 @@ summary {
 }
 
 .g-2 {
-  gap: 0.5rem;
+  gap: .5rem;
 }
 
 .g-3 {
-  gap: 0.75rem;
+  gap: .75rem;
 }
 
 .g-4 {
@@ -368,7 +322,7 @@ summary {
 }
 
 .h-3 {
-  height: 0.75rem;
+  height: .75rem;
 }
 
 .h-4 {
@@ -419,6 +373,10 @@ summary {
   justify-content: space-between;
 }
 
+.l-0 {
+  left: 0;
+}
+
 .lh-1 {
   line-height: 1;
 }
@@ -428,11 +386,11 @@ summary {
 }
 
 .ls-4 {
-  letter-spacing: 0.05em;
+  letter-spacing: .05em;
 }
 
 .ls-5 {
-  letter-spacing: 0.1em;
+  letter-spacing: .1em;
 }
 
 .m-0 {
@@ -452,11 +410,11 @@ summary {
 }
 
 .mb-2 {
-  margin-bottom: 0.5rem;
+  margin-bottom: .5rem;
 }
 
 .mb-3 {
-  margin-bottom: 0.75rem;
+  margin-bottom: .75rem;
 }
 
 .mb-4 {
@@ -492,7 +450,7 @@ summary {
 }
 
 .mr-2 {
-  margin-right: 0.5rem;
+  margin-right: .5rem;
 }
 
 .mr-5 {
@@ -530,13 +488,13 @@ summary {
 }
 
 .my-2 {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-top: .5rem;
+  margin-bottom: .5rem;
 }
 
 .my-3 {
-  margin-top: 0.75rem;
-  margin-bottom: 0.75rem;
+  margin-top: .75rem;
+  margin-bottom: .75rem;
 }
 
 .my-4 {
@@ -576,7 +534,7 @@ summary {
 }
 
 .p-1 {
-  padding: 0.25rem;
+  padding: .25rem;
 }
 
 .p-a {
@@ -600,7 +558,7 @@ summary {
 }
 
 .pl-2 {
-  padding-left: 0.5rem;
+  padding-left: .5rem;
 }
 
 .pr-6 {
@@ -616,8 +574,8 @@ summary {
 }
 
 .px-2 {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  padding-left: .5rem;
+  padding-right: .5rem;
 }
 
 .px-4 {
@@ -636,18 +594,18 @@ summary {
 }
 
 .py-1 {
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
+  padding-top: .25rem;
+  padding-bottom: .25rem;
 }
 
 .py-2 {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
 }
 
 .py-3 {
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
+  padding-top: .75rem;
+  padding-bottom: .75rem;
 }
 
 .py-4 {
@@ -661,11 +619,11 @@ summary {
 }
 
 .rad-1 {
-  border-radius: 0.25rem;
+  border-radius: .25rem;
 }
 
 .rad-2 {
-  border-radius: 0.5rem;
+  border-radius: .5rem;
 }
 
 .rad-9 {
@@ -737,7 +695,7 @@ summary {
 }
 
 .w-3 {
-  width: 0.75rem;
+  width: .75rem;
 }
 
 .w-4 {
@@ -762,6 +720,10 @@ summary {
 
 .ws-nw {
   white-space: nowrap;
+}
+
+.zi-0 {
+  z-index: 0;
 }
 
 .zi-10 {

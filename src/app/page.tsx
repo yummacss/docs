@@ -6,18 +6,21 @@ import {
   SwitchIcon,
 } from "@radix-ui/react-icons";
 import Link from "next/link";
+import DarkVeil from "@/components/dark-veil";
 import Navbar from "@/components/navbar";
 
 export default function Home() {
   return (
-    <div
-      className="min-h-vh tc-white bs-c bp-c ba-f"
-      style={{ backgroundImage: "url('/assets/fractal.png')" }}
-    >
-      <Navbar variant="transparent" />
+    <div className="min-h-vh tc-white p-r">
+      <div className="p-a t-0 l-0 w-full h-full zi-0">
+        <DarkVeil />
+      </div>
+      <div className="p-r zi-1">
+        <Navbar variant="transparent" />
+      </div>
 
       <div
-        className="~sm-xxl w-full mx-auto px-6 d-f ai-fe pb-12"
+        className="~sm-xxl w-full mx-auto px-6 d-f ai-fe pb-12 p-r zi-1"
         style={{
           minHeight: "calc(100vh - 120px)",
         }}
