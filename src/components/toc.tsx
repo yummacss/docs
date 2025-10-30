@@ -14,12 +14,11 @@ export default function TableOfContents() {
   const [headings, setHeadings] = useState<TocItem[]>([]);
   const [activeId, setActiveId] = useState<string>("");
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: pathname changes trigger toc refresh
   useEffect(() => {
-    // get all h2 and h3 headings from the main content
     const elements = Array.from(
       document.querySelectorAll("article h2, article h3, main h2, main h3"),
     ).filter((element) => {
-      // ...excluding headings that are inside the frontmatter
       return !element.closest("[data-frontmatter]");
     });
 
@@ -51,7 +50,7 @@ export default function TableOfContents() {
     });
 
     return () => observer.disconnect();
-  }, []);
+  }, [pathname]);
 
   if (headings.length === 0) {
     return null;
