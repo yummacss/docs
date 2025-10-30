@@ -1,11 +1,11 @@
+import TableOfContents from "@/components/toc";
+import { getAuthor } from "@/utils/authors";
+import { formatDate, getAllBlogSlugs } from "@/utils/blog";
 import { ArrowLeftIcon } from "@radix-ui/react-icons";
 import { Avatar, AvatarFallback, AvatarImage } from "@yummacss/ui";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import TableOfContents from "@/components/toc";
-import { getAuthor } from "@/utils/authors";
-import { formatDate, getAllBlogSlugs } from "@/utils/blog";
 
 export async function generateMetadata({
   params,
@@ -36,7 +36,7 @@ export default async function BlogPostPage({
     ? getAuthor(frontmatter.authors)
     : undefined;
 
-  // Helper function to get initials from author name
+  // get initials from author name
   const getInitials = (name: string) => {
     return name
       .split(" ")
@@ -48,9 +48,7 @@ export default async function BlogPostPage({
   return (
     <div className="py-8">
       <div className="d-g gtc-1 lg:gtc-12 g-8">
-        {/* Blog Content */}
         <article className="lg:gc-s-8">
-          {/* Blog Header */}
           <header className="mb-12">
             <div className="d-f ai-c g-2 fs-sm tc-white/50 mb-4">
               <Link href="/blog" className="h:tc-white">
@@ -68,7 +66,6 @@ export default async function BlogPostPage({
               {frontmatter?.description}
             </p>
 
-            {/* Author Info */}
             {author && (
               <div className="d-f ai-c g-4 fs-sm tc-white/70">
                 <div className="d-f ai-c g-2">
@@ -89,7 +86,6 @@ export default async function BlogPostPage({
             )}
           </header>
 
-          {/* Featured Image */}
           {frontmatter?.cover && (
             <div className="mb-12 o-h b-1 bc-white/10">
               <Image
@@ -102,15 +98,12 @@ export default async function BlogPostPage({
             </div>
           )}
 
-          {/* Blog Content */}
           <div className="max-w-none">
             <Content />
           </div>
 
-          {/* Blog Footer */}
           <footer className="mt-16 pt-8 bt-1 bc-white/10">
             <div className="d-f fd-c g-8">
-              {/* Tags/Categories could go here */}
               <div className="d-f ai-c jc-sb">
                 <div className="d-f ai-c g-2">
                   <Link
@@ -126,7 +119,6 @@ export default async function BlogPostPage({
           </footer>
         </article>
 
-        {/* Table of Contents */}
         <TableOfContents />
       </div>
     </div>

@@ -38,7 +38,7 @@ export default function Sidebar() {
             <h3 className="fs-md fw-400 tt-c ls-5">{section.title}</h3>
             <ul className="d-f ml-4 fd-c g-2">
               {section.items.map((item) => {
-                // Item with children (nested structure)
+                // item with children (nested structure)
                 if (hasChildren(item)) {
                   return (
                     <li key={item.title} className="d-f fd-c g-2">
@@ -68,7 +68,7 @@ export default function Sidebar() {
                   );
                 }
 
-                // Item with items (recursive structure)
+                // item with items (recursive structure)
                 if (hasItems(item)) {
                   return (
                     <li key={item.title} className="d-f fd-c g-2">
@@ -133,7 +133,7 @@ export default function Sidebar() {
                   );
                 }
 
-                // Simple item with slug
+                // simple item with slug
                 if (item.slug) {
                   const href = `/docs/${item.slug}`;
                   const isActive = pathname === href;

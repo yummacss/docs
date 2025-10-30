@@ -11,17 +11,23 @@ interface StepProps {
   title?: string;
 }
 
+// interface for injected props
+interface InjectedStepProps {
+  stepNumber?: number;
+  isLast?: boolean;
+}
+
 export function Stepper({ children }: StepperProps) {
   const childArray = React.Children.toArray(children);
 
   return (
     <ol className="p-r ml-4 bl-1" style={{ borderColor: "#31365e" }}>
       {childArray.map((child, i) => {
-        if (React.isValidElement(child)) {
+        if (React.isValidElement<StepProps & InjectedStepProps>(child)) {
           return React.cloneElement(child, {
             stepNumber: i + 1,
             isLast: i === childArray.length - 1,
-          } as any);
+          });
         }
         return child;
       })}
@@ -34,7 +40,7 @@ export function Step({
   title,
   stepNumber,
   isLast,
-}: StepProps & { stepNumber?: number; isLast?: boolean }) {
+}: StepProps & InjectedStepProps) {
   return (
     <li className={isLast ? "ml-8" : "mb-10 ml-8"}>
       <div

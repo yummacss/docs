@@ -1,7 +1,7 @@
+import { formatDate, getAllBlogPosts, groupPostsByYear } from "@/utils/blog";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { formatDate, getAllBlogPosts, groupPostsByYear } from "@/utils/blog";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -15,7 +15,6 @@ export default async function BlogPage() {
 
   return (
     <div className="pb-16">
-      {/* Blog Header */}
       <div className="mx-auto my-16" style={{ maxWidth: "64rem" }}>
         <h1 className="fs-5xl fw-400 mb-6 tc-white">Blog</h1>
         <p className="fs-lg tc-white/70" style={{ maxWidth: "48rem" }}>
@@ -23,7 +22,6 @@ export default async function BlogPage() {
         </p>
       </div>
 
-      {/* Blog Posts by Year */}
       <div className="mx-auto" style={{ maxWidth: "64rem" }}>
         {years.map((year, yearIndex) => (
           <div key={year}>
