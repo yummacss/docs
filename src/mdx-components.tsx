@@ -105,7 +105,7 @@ const components: MDXComponents = {
     <div className="o-x-auto my-6">
       <table
         className="w-full bc-c"
-        style={{ backgroundColor: "#21243fa6" }}
+        style={{ backgroundColor: "transparent" }}
         {...props}
       >
         {children}
