@@ -430,17 +430,17 @@ You know how to use media queries, right? They're now everywhere in Yumma CSS. L
 </div>
 ```
 
-### Breakpoints changes
+## Breakpoints changes
 
 We've made a few changes to the breakpoint system in Yumma CSS v2.0. We've removed the `xs` breakpoint and changed the values for the other breakpoints.
 
-<Tabs defaultValue="now">
-  <TabsList>
-    <TabsTab className="tc-white b-1 rad-0" style={{backgroundColor: '#21243f', borderColor: '#31365e' }} value="now">Now</TabsTab>
-    <TabsTab className="tc-white b-1 rad-0" style={{backgroundColor: '#21243f', borderColor: '#31365e' }} value="previously">Previously</TabsTab>
-  </TabsList>
+<Tabs defaultValue="v2">
+    <TabsList className="b-1" style={{borderColor: '#31365e'}}>
+        <TabsTab className="tc-white b-1 rad-2" style={{backgroundColor: '#21243f', borderColor: '#31365e' }} value="v2">v2</TabsTab>
+        <TabsTab className="tc-white b-1 rad-2" style={{backgroundColor: '#21243f', borderColor: '#31365e' }} value="v1.2">v1.2</TabsTab>
+    </TabsList>
 
-  <TabsPanel value="now">
+  <TabsPanel value="v2">
     <LegacyTable
       data={[
         { className: "sm", properties: ["min-width: 640px;"] },
@@ -452,7 +452,7 @@ We've made a few changes to the breakpoint system in Yumma CSS v2.0. We've remov
     />
   </TabsPanel>
 
-  <TabsPanel value="previously">
+  <TabsPanel value="v1.2">
     <LegacyTable
       data={[
         { className: "xs", properties: ["min-width: 0;"] },
@@ -469,13 +469,13 @@ We've made a few changes to the breakpoint system in Yumma CSS v2.0. We've remov
 
 We've given it a new class name, `cnt`, and added a set of media query rules to make sure it responds to different screen sizes.
 
-<Tabs defaultValue="now">
-  <TabsList>
-    <TabsTab className="tc-white b-1 rad-0" style={{backgroundColor: '#21243f', borderColor: '#31365e' }} value="now">Now</TabsTab>
-    <TabsTab className="tc-white b-1 rad-0" style={{backgroundColor: '#21243f', borderColor: '#31365e' }} value="previously">Previously</TabsTab>
-  </TabsList>
+<Tabs defaultValue="v2">
+    <TabsList className="b-1" style={{borderColor: '#31365e'}}>
+        <TabsTab className="tc-white b-1 rad-2" style={{backgroundColor: '#21243f', borderColor: '#31365e' }} value="v2">v2</TabsTab>
+        <TabsTab className="tc-white b-1 rad-2" style={{backgroundColor: '#21243f', borderColor: '#31365e' }} value="v1.2">v1.2</TabsTab>
+    </TabsList>
 
-  <TabsPanel value="now">
+  <TabsPanel value="v2">
     ```scss
     .cnt {
       width: 100%;
@@ -488,7 +488,7 @@ We've given it a new class name, `cnt`, and added a set of media query rules to 
     ```
   </TabsPanel>
 
-  <TabsPanel value="previously">
+  <TabsPanel value="v1.2">
     ```scss
     .cnn {
       width: 100%;

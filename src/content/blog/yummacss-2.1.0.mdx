@@ -1,6 +1,6 @@
 export const frontmatter = {
   authors: ["Renildo"],
-  cover: "cover.png",
+  cover: "yummacss-2.1.0.png",
   date: "2024-10-11",
   description: "We've got another new one coming your way! This new version is going to give you a lot more control over Border, Outline, and other utilities. It'll also improve the default rules in the base styles, along with a few other things.",
   title: "Yumma CSS 2.1"
@@ -105,13 +105,13 @@ We're adding a few more utilities to Yumma CSS v2.1.0. Here are a few of the mos
 
 ### Border Radius
 
-<Tabs defaultValue="now">
-  <TabsList>
-    <TabsTab value="now">Now</TabsTab>
-    <TabsTab value="previously">Previously</TabsTab>
-  </TabsList>
+<Tabs defaultValue="v2.1">
+    <TabsList className="b-1" style={{borderColor: '#31365e'}}>
+        <TabsTab className="tc-white b-1 rad-2" style={{backgroundColor: '#21243f', borderColor: '#31365e' }} value="v2.1">v2.1</TabsTab>
+        <TabsTab className="tc-white b-1 rad-2" style={{backgroundColor: '#21243f', borderColor: '#31365e' }} value="v2">v2</TabsTab>
+    </TabsList>
 
-  <TabsPanel value="now">
+  <TabsPanel value="v2.1">
     In this context, the base value is `0.25rem`.
     <LegacyTable
       classPrefix="rad-"
@@ -126,7 +126,7 @@ We're adding a few more utilities to Yumma CSS v2.1.0. Here are a few of the mos
     />
   </TabsPanel>
 
-  <TabsPanel value="previously">
+  <TabsPanel value="v2">
     In this context, the base value is `4px`.
     <LegacyTable
       classPrefix="rad-"
@@ -144,13 +144,13 @@ We're adding a few more utilities to Yumma CSS v2.1.0. Here are a few of the mos
 
 ### Flex
 
-<Tabs defaultValue="now">
-  <TabsList>
-    <TabsTab value="now">Now</TabsTab>
-    <TabsTab value="previously">Previously</TabsTab>
-  </TabsList>
+<Tabs defaultValue="v2.1">
+    <TabsList className="b-1" style={{borderColor: '#31365e'}}>
+        <TabsTab className="tc-white b-1 rad-2" style={{backgroundColor: '#21243f', borderColor: '#31365e' }} value="v2.1">v2.1</TabsTab>
+        <TabsTab className="tc-white b-1 rad-2" style={{backgroundColor: '#21243f', borderColor: '#31365e' }} value="v2">v2</TabsTab>
+    </TabsList>
 
-  <TabsPanel value="now">
+  <TabsPanel value="v2.1">
     In this context, the `f-1` for example is a shorthand to `flex: 1 1 0%;`
     <LegacyTable
       classPrefix="f-"
@@ -166,7 +166,7 @@ We're adding a few more utilities to Yumma CSS v2.1.0. Here are a few of the mos
     />
   </TabsPanel>
 
-  <TabsPanel value="previously">
+  <TabsPanel value="v2">
     In this context, the `f-1` for example is a shorthand to `flex: 1 1 0;`
     <LegacyTable
       classPrefix="f-"
@@ -181,13 +181,13 @@ We're adding a few more utilities to Yumma CSS v2.1.0. Here are a few of the mos
 
 ### Border Width
 
-<Tabs defaultValue="now">
-  <TabsList>
-    <TabsTab value="now">Now</TabsTab>
-    <TabsTab value="previously">Previously</TabsTab>
-  </TabsList>
+<Tabs defaultValue="v2.1">
+    <TabsList className="b-1" style={{borderColor: '#31365e'}}>
+        <TabsTab className="tc-white b-1 rad-2" style={{backgroundColor: '#21243f', borderColor: '#31365e' }} value="v2.1">v2.1</TabsTab>
+        <TabsTab className="tc-white b-1 rad-2" style={{backgroundColor: '#21243f', borderColor: '#31365e' }} value="v2">v2</TabsTab>
+    </TabsList>
 
-  <TabsPanel value="now">
+  <TabsPanel value="v2.1">
     In this context, the sequence is always constant, starting from `1px` to `8px`.
     <LegacyTable
       classPrefix="b-"
@@ -198,7 +198,7 @@ We're adding a few more utilities to Yumma CSS v2.1.0. Here are a few of the mos
     />
   </TabsPanel>
 
-  <TabsPanel value="previously">
+  <TabsPanel value="v2">
     In this context, the sequence is not constant, starting from `0px` to `14px`.
     <LegacyTable
       data={[
@@ -245,13 +245,13 @@ We're adding a few more utilities to Yumma CSS v2.1.0. Here are a few of the mos
 
 ### Outline Offset
 
-<Tabs defaultValue="now">
-  <TabsList>
-    <TabsTab value="now">Now</TabsTab>
-    <TabsTab value="previously">Previously</TabsTab>
-  </TabsList>
+<Tabs defaultValue="v2.1">
+    <TabsList className="b-1" style={{borderColor: '#31365e'}}>
+        <TabsTab className="tc-white b-1 rad-2" style={{backgroundColor: '#21243f', borderColor: '#31365e' }} value="v2.1">v2.1</TabsTab>
+        <TabsTab className="tc-white b-1 rad-2" style={{backgroundColor: '#21243f', borderColor: '#31365e' }} value="v2">v2</TabsTab>
+    </TabsList>
 
-  <TabsPanel value="now">
+  <TabsPanel value="v2.1">
     In this context, the base value is `0.25rem`.
     <LegacyTable
       classPrefix="oo-"
@@ -262,7 +262,7 @@ We're adding a few more utilities to Yumma CSS v2.1.0. Here are a few of the mos
     />
   </TabsPanel>
 
-  <TabsPanel value="previously">
+  <TabsPanel value="v2">
     In this context, the base value is `4px`.
     <LegacyTable
       classPrefix="oo-"
@@ -276,13 +276,13 @@ We're adding a few more utilities to Yumma CSS v2.1.0. Here are a few of the mos
 
 ### Outline Width
 
-<Tabs defaultValue="now">
-  <TabsList>
-    <TabsTab value="now">Now</TabsTab>
-    <TabsTab value="previously">Previously</TabsTab>
-  </TabsList>
+<Tabs defaultValue="v2.1">
+    <TabsList className="b-1" style={{borderColor: '#31365e'}}>
+        <TabsTab className="tc-white b-1 rad-2" style={{backgroundColor: '#21243f', borderColor: '#31365e' }} value="v2.1">v2.1</TabsTab>
+        <TabsTab className="tc-white b-1 rad-2" style={{backgroundColor: '#21243f', borderColor: '#31365e' }} value="v2">v2</TabsTab>
+    </TabsList>
 
-  <TabsPanel value="now">
+  <TabsPanel value="v2.1">
     In this context, the base value is `0.25rem`.
     <LegacyTable
       classPrefix="ow-"
@@ -293,7 +293,7 @@ We're adding a few more utilities to Yumma CSS v2.1.0. Here are a few of the mos
     />
   </TabsPanel>
 
-  <TabsPanel value="previously">
+  <TabsPanel value="v2">
     In this context, the base value is `4px`.
     <LegacyTable
       classPrefix="ow-"
@@ -345,7 +345,7 @@ We added a base utility: `fs-b`, and a `fs-9xl` utility variant.
     <TabsTab value="previously">Previously</TabsTab>
   </TabsList>
 
-  <TabsPanel value="now">
+  <TabsPanel value="v2.1">
     In this context, the base value is `0.75rem`.
     <LegacyTable
       data={[
@@ -393,7 +393,7 @@ We added a base utility: `fs-b`, and a `fs-9xl` utility variant.
     />
   </TabsPanel>
 
-  <TabsPanel value="previously">
+  <TabsPanel value="v2">
     In this context, the base value is `16px`.
     <LegacyTable
       data={[

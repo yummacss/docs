@@ -7,12 +7,8 @@ export interface BlogPostMeta {
   authors: string;
 }
 
-// List of all blog post slugs
-// This should match the MDX files in src/content/blog/
+// list of all blog post slugs present in `src/content/blog/` directory
 const blogSlugs = [
-  "api-1.0.0",
-  "playground-0.0.1",
-  "ui-0.1.0",
   "yummacss-0.1.0",
   "yummacss-1.0.0",
   "yummacss-1.1.0",
@@ -20,10 +16,12 @@ const blogSlugs = [
   "yummacss-2.0.0",
   "yummacss-2.1.0",
   "yummacss-3.0.0",
+  "api-1.0.0",
   "yummacss-3.1.0",
   "yummacss-3.2.0",
   "yummacss-3.3.0",
   "yummacss-3.4.0",
+  "ui-0.1.0",
   "yummacss-3.5.0",
 ];
 
@@ -54,7 +52,7 @@ export async function getAllBlogPosts(): Promise<BlogPostMeta[]> {
     }
   }
 
-  // Sort by date, newest first
+  // sort by date, newest first
   return posts.sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
   );

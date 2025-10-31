@@ -48,12 +48,23 @@ export default async function BlogPage() {
                       <div className="lg:w-64 lg:fs-0">
                         <div className="bg-white/10 rad-2 o-h bc-white/5 b-1">
                           <Image
-                            src={`/blog/${post.slug}/${post.cover}`}
+                            src={`/blog/${post.slug}.png`}
                             alt={post.title}
-                            width={256}
-                            height={144}
+                            width={1200}
+                            height={
+                              post.slug.startsWith("playground-0.0.1-")
+                                ? 675
+                                : 630
+                            }
                             className="w-full h-auto of-c"
-                            style={{ aspectRatio: "16/9" }}
+                            style={{
+                              aspectRatio: post.slug.startsWith(
+                                "playground-0.0.1-",
+                              )
+                                ? "16/9"
+                                : "1200/630",
+                            }}
+                            quality={100}
                           />
                         </div>
                       </div>

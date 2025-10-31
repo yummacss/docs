@@ -89,11 +89,12 @@ export default async function BlogPostPage({
           {frontmatter?.cover && (
             <div className="mb-12 o-h b-1 bc-white/10">
               <Image
-                src={`/blog/${slug}/${frontmatter.cover}`}
+                src={`/blog/${slug}.png`}
                 alt={frontmatter.title || "Blog cover"}
-                width={800}
-                height={450}
+                width={1200}
+                height={slug.startsWith("playground-0.0.1-") ? 675 : 630}
                 className="w-full h-auto"
+                quality={100}
               />
             </div>
           )}
