@@ -19,7 +19,7 @@ export default function TableOfContents() {
     const elements = Array.from(
       document.querySelectorAll("article h2, article h3, main h2, main h3"),
     ).filter((element) => {
-      return !element.closest("[data-frontmatter]");
+      return !element.closest("[data-meta]");
     });
 
     const items: TocItem[] = elements
@@ -67,7 +67,7 @@ export default function TableOfContents() {
         }}
       >
         <div className="px-8">
-          <h3 className="fs-sm fw-400 tt-u mb-3 tc-white">On this page</h3>
+          <h3 className="fs-md fw-400 tt-c mb-3 tc-white">On this page</h3>
           <ul className="d-f fd-c ml-4 g-2 fs-sm">
             {headings.map((heading) => {
               const isActive = activeId === heading.id;

@@ -51,19 +51,8 @@ export default async function BlogPage() {
                             src={`/blog/${post.slug}.png`}
                             alt={post.title}
                             width={1200}
-                            height={
-                              post.slug.startsWith("playground-0.0.1-")
-                                ? 675
-                                : 630
-                            }
+                            height={675}
                             className="w-full h-auto of-c"
-                            style={{
-                              aspectRatio: post.slug.startsWith(
-                                "playground-0.0.1-",
-                              )
-                                ? "16/9"
-                                : "1200/630",
-                            }}
                             quality={100}
                           />
                         </div>
@@ -79,6 +68,7 @@ export default async function BlogPage() {
             )}
           </div>
         ))}
+        <div className="b-1 bc-red w-full"></div>
       </div>
     </div>
   );

@@ -9,11 +9,11 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const module = await import(`@/content/docs/${slug}.mdx`);
-  const frontmatter = module.frontmatter;
+  const meta = module.meta;
 
   return {
-    title: frontmatter?.title || "Documentation",
-    description: frontmatter?.description || "",
+    title: meta?.title || "Documentation",
+    description: meta?.description || "",
   };
 }
 
@@ -25,16 +25,16 @@ export default async function Page({
   const { slug } = await params;
   const module = await import(`@/content/docs/${slug}.mdx`);
   const Content = module.default;
-  const frontmatter = module.frontmatter;
+  const meta = module.meta;
 
   return (
     <>
       <Banner />
-      {frontmatter && (
-        <div className="mb-8" data-frontmatter>
-          <h1 className="fs-4xl fw-400 mb-6 tc-white">{frontmatter.title}</h1>
-          {frontmatter.description && (
-            <p className="fs-lg tc-white/70">{frontmatter.description}</p>
+      {meta && (
+        <div className="mb-8" data-meta>
+          <h1 className="fs-4xl fw-400 mb-6 tc-white">{meta.title}</h1>
+          {meta.description && (
+            <p className="fs-lg tc-white/70">{meta.description}</p>
           )}
         </div>
       )}

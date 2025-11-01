@@ -14,11 +14,11 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const module = await import(`@/content/blog/${slug}.mdx`);
-  const frontmatter = module.frontmatter;
+  const meta = module.meta;
 
   return {
-    title: frontmatter?.title || "Blog Post",
-    description: frontmatter?.description || "",
+    title: meta?.title || "Blog Post",
+    description: meta?.description || "",
   };
 }
 
@@ -30,11 +30,9 @@ export default async function BlogPostPage({
   const { slug } = await params;
   const module = await import(`@/content/blog/${slug}.mdx`);
   const Content = module.default;
-  const frontmatter = module.frontmatter;
+  const meta = module.meta;
 
-  const author = frontmatter?.authors
-    ? getAuthor(frontmatter.authors)
-    : undefined;
+  const author = meta?.authors ? getAuthor(meta.authors) : undefined;
 
   // get initials from author name
   const getInitials = (name: string) => {
@@ -55,16 +53,14 @@ export default async function BlogPostPage({
                 Blog
               </Link>
               <span>/</span>
-              <span>{formatDate(frontmatter?.date || "")}</span>
+              <span>{formatDate(meta?.date || "")}</span>
             </div>
 
             <h1 className="fs-4xl lg:fs-5xl fw-400 mb-6 tc-white">
-              {frontmatter?.title}
+              {meta?.title}
             </h1>
 
-            <p className="fs-lg tc-white/70 mb-6 lh-5">
-              {frontmatter?.description}
-            </p>
+            <p className="fs-lg tc-white/70 mb-6 lh-5">{meta?.description}</p>
 
             {author && (
               <div className="d-f ai-c g-4 fs-sm tc-white/70">
@@ -86,11 +82,11 @@ export default async function BlogPostPage({
             )}
           </header>
 
-          {frontmatter?.cover && (
+          {meta?.cover && (
             <div className="mb-12 o-h b-1 bc-white/10">
               <Image
                 src={`/blog/${slug}.png`}
-                alt={frontmatter.title || "Blog cover"}
+                alt={meta.title || "Blog cover"}
                 width={1200}
                 height={slug.startsWith("playground-0.0.1-") ? 675 : 630}
                 className="w-full h-auto"

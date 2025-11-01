@@ -1,0 +1,68 @@
+export const meta = {
+   title: "Button",
+   description: "An interactive element used to trigger user actions.",
+};
+
+## Example
+
+An interactive element used to trigger user actions.
+
+```tsx mark={1}
+import { Button } from "@yummacss/ui";
+
+export default function Page() {
+  return (
+    <Button variant="base" size="md">
+      Login
+    </Button>
+  );
+}
+```
+
+## Usage
+
+```tsx
+import { Button } from "@yummacss/ui";
+```
+
+```tsx
+<Button>Login</Button>
+```
+
+## API reference
+
+### `variant`
+
+> Default value is `base`
+
+```ts
+(property) variant?: "link" | "destructive" | "base" | "ghost" | "outlined" | null | undefined
+```
+
+### `size`
+
+> Default value is `md`
+
+```ts
+(property) size?: "sm" | "md" | "lg" | null | undefined
+```
+
+## Custom styling
+
+Apply custom styles to the `<Button>` component.
+
+```tsx 'className="..."'
+import { Button } from "@yummacss/ui";
+
+<Button className="...">...</Button>;
+```
+
+## Extend properties
+
+Extend the `<Button>` component with the native `<button>` HTML attributes.
+
+```tsx "onClick={() => alert("Button clicked!")}"
+import { Button } from "@yummacss/ui";
+
+<Button {...props}>...</Button>;
+```

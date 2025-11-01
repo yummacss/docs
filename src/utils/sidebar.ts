@@ -25,7 +25,7 @@ export interface SidebarConfigSection {
 
 export type SidebarConfig = SidebarConfigSection[];
 
-// Utility function to extract all slugs from the sidebar config
+// extract all slugs from the sidebar config
 export function getAllSlugs(): string[] {
   const slugs: string[] = [];
 
@@ -68,10 +68,6 @@ export const sidebarConfig: SidebarConfig = [
       { title: "Pseudo Classes", slug: "pseudo-classes" },
       { title: "Base Styles", slug: "base-styles" },
     ],
-  },
-  {
-    title: "API Reference",
-    items: [{ title: "API Reference", slug: "api-reference" }],
   },
   {
     title: "Background",

@@ -1,0 +1,58 @@
+export const meta = {
+   title: "Badge",
+   description: "A component that displays a small piece of information or status indicator.",
+};
+
+## Example
+
+A component that displays a small piece of information or status indicator.
+
+```tsx mark={1}
+import { Badge } from "@yummacss/ui";
+
+export default function Page() {
+  return (
+    <Badge variant="outline" size="xs">
+      New
+    </Badge>
+  );
+}
+```
+
+## API reference
+
+### `variant`
+
+> Default value is `base`
+
+```ts
+(property) variant?: "destructive" | "base" | "outline" | null | undefined
+```
+
+### `size`
+
+> Default value is `xs`
+
+```ts
+(property) size?: "xs" | "sm" | "md" | "lg" | null | undefined
+```
+
+## Custom styling
+
+Apply custom styles to the `<Badge>` component.
+
+```tsx 'className="..."'
+import { Badge } from "@yummacss/ui";
+
+<Badge className="...">...</Badge>;
+```
+
+## Extend properties
+
+Extend the `<Badge>` component with the native `<span>` HTML attributes.
+
+```tsx "{...props}"
+import { Badge } from "@yummacss/ui";
+
+<Badge {...props}>...</Badge>;
+```

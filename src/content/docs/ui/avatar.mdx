@@ -1,0 +1,59 @@
+export const meta = {
+   title: "Avatar",
+   description: "A component that displays a user's profile picture or initials.",
+};
+
+## Example
+
+A component that displays a user's profile picture or initials.
+
+```tsx mark={1}
+import { Avatar, AvatarFallback, AvatarImage } from "@yummacss/ui";
+
+export default function Page() {
+  return (
+    <Avatar className="b-1">
+      <AvatarImage src="https://images.unsplash.com/photo-1542206395-9feb3edaa68d" alt="Seline Collins" />
+      <AvatarFallback>SC</AvatarFallback>
+    </Avatar>
+  );
+}
+```
+
+## API reference
+
+### `size`
+
+> Default value is `md`
+
+```ts
+(property) size?: "sm" | "md" | "lg" | null | undefined
+```
+
+### `shape`
+
+> Default value is `circle`
+
+```ts
+(property) shape?: "circle" | "square" | null | undefined
+```
+
+## Custom styling
+
+Apply custom styles to the `<Avatar>` component.
+
+```tsx 'className="..."'
+import { Avatar } from "@yummacss/ui";
+
+<Avatar className="...">...</Avatar>;
+```
+
+## Extend properties
+
+Extend the `<Avatar>` component with the Base UI API.
+
+```tsx "{...props}"
+import { Avatar } from "@yummacss/ui";
+
+<Avatar {...props}>...</Avatar>;
+```
