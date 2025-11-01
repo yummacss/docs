@@ -1,12 +1,12 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import type {
   SidebarConfigItem,
   SidebarConfigSimpleItem,
 } from "@/utils/sidebar";
 import { sidebarConfig } from "@/utils/sidebar";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 function hasChildren(
   item: SidebarConfigItem,
@@ -24,7 +24,7 @@ export default function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="lg:gc-s-3">
+    <aside className="d-none lg:d-b lg:gc-s-3">
       <div
         className="p-st d-f fd-c g-8 o-y-auto pt-8"
         style={{
