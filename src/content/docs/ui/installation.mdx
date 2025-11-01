@@ -1,0 +1,39 @@
+export const meta = {
+   title: "Installation",
+   description: "A quick guide to get started with Yumma UI.",
+};
+
+### Why Yumma UI?
+
+Yumma UI is a set of accessible and mature React components built on top of Yumma CSS and [Base UI](https://baseui.com) that you can use to build your UIs super quickly. It's super minimalist, lightweight, and super customizable.
+
+## Installing Yumma UI
+
+<Steps>
+    <Step title="Install Yumma UI">
+        ```bash
+        pnpm add @yummacss/ui
+        ```
+    </Step>
+
+    <Step title="Import styles">
+        Import the Yumma UI styles in your project.
+
+        ```js title="main.ts" mark={1}
+        import "@yummacss/ui/styles.css";
+        import "./globals.css";
+        ```
+    </Step>
+
+    <Step title="Start using Yumma UI!">
+        Start using Yumma UI components in your project.
+
+        ```js title="App.tsx" mark={1}
+        import { Button } from "@yummacss/ui";
+
+        function App() {
+            return <Button>Click me</Button>;
+        }
+        ```
+    </Step>
+</Steps>

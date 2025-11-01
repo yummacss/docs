@@ -1,0 +1,48 @@
+export const meta = {
+   title: "Input",
+   description: "A form control that allows users to enter and edit text data.",
+};
+
+## Example
+
+A basic implementation of the Input component with default styling.
+
+```tsx mark={1}
+import { Input } from "@yummacss/ui";
+
+export default function Page() {
+  return <Input variant="base" type="email" placeholder="john@example.com" />;
+}
+```
+
+## API reference
+
+The Input component can be adapted to suit specific requirements by utilizing the internal API of Yumma UI, thereby enabling the modification of its visual appearance and operational characteristics.
+
+### `variant`
+
+> Default value is `base`
+
+```ts
+(property) variant?: "base" | "error" | null | undefined
+```
+
+## Custom styling
+
+Apply custom styles to the `<Input>` component.
+
+```tsx 'className="..."'
+import { Input } from "@yummacss/ui";
+
+<Input className="..." />;
+```
+
+## Extend properties
+
+Extend the Input component with the Base UI API.
+
+```tsx "{...props}"
+import { Input } from "@yummacss/ui";
+
+<Input {...props} />;
+```

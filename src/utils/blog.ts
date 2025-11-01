@@ -35,16 +35,16 @@ export async function getAllBlogPosts(): Promise<BlogPostMeta[]> {
   for (const slug of blogSlugs) {
     try {
       const module = await import(`@/content/blog/${slug}.mdx`);
-      const frontmatter = module.frontmatter;
+      const meta = module.meta;
 
-      if (frontmatter) {
+      if (meta) {
         posts.push({
           slug,
-          title: frontmatter.title || slug,
-          description: frontmatter.description || "",
-          date: frontmatter.date || "",
-          cover: frontmatter.cover,
-          authors: frontmatter.authors || "",
+          title: meta.title || slug,
+          description: meta.description || "",
+          date: meta.date || "",
+          cover: meta.cover,
+          authors: meta.authors || "",
         });
       }
     } catch (error) {

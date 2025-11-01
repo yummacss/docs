@@ -26,13 +26,13 @@ export default function Sidebar() {
   return (
     <aside className="lg:gc-s-3">
       <div
-        className="p-st d-f fd-c g-8 o-y-auto"
+        className="p-st d-f fd-c g-8 o-y-auto pt-8"
         style={{
           top: "6rem",
           maxHeight: "calc(100vh - 6rem)",
-          paddingTop: "2rem",
         }}
       >
+        {/* TODO: Sidebar icons */}
         {sidebarConfig.map((section) => (
           <div key={section.title} className="d-f fd-c g-4">
             <h3 className="fs-md fw-400 tt-c ls-5">{section.title}</h3>

@@ -42,12 +42,11 @@ export default function Note({ icon, children }: NoteProps) {
   return (
     <div className="ai-c d-f g-2 mb-4">
       <span
-        className="ai-c d-f h-fc fs-0 p-1 rad-1 b-1"
+        className="ai-c d-f fs-0 p-1 b-1"
         style={{
-          backgroundColor: "rgba(190, 198, 242, 0.1)",
-          borderColor: "rgba(190, 198, 242, 0.3)",
-          color: "#bec6f2",
-          flexShrink: 0,
+          backgroundColor: "#21243f",
+          borderColor: "#31365e",
+          color: "#9aa6ef",
         }}
       >
         <IconComponent />
