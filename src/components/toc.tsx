@@ -57,7 +57,7 @@ export default function TableOfContents() {
   }
 
   return (
-    <aside className="lg:gc-s-3 bl-1 bc-white/5">
+    <aside className="d-none lg:d-b lg:gc-s-3 bl-1 bc-white/5">
       <div
         className="p-st o-y-auto"
         style={{

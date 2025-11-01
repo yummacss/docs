@@ -25,21 +25,24 @@ export default function Navbar({ variant = "default" }: NavbarProps) {
               />
             </Link>
           </div>
-          <div className="d-none md:d-f ai-c g-8">
+          <div className="d-f ai-c g-8">
             <Link
               href="/docs/installation"
-              className="fs-sm tc-white/80 h:tc-white"
+              className="d-none md:d-b fs-sm tc-white/80 h:tc-white"
             >
               Docs
             </Link>
-            <Link href="/blog" className="fs-sm tc-white/80 h:tc-white">
+            <Link
+              href="/blog"
+              className="d-none md:d-b fs-sm tc-white/80 h:tc-white"
+            >
               Blog
             </Link>
             <Link
               href="https://play.yummacss.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="fs-sm tc-white/80 h:tc-white"
+              className="d-none md:d-b fs-sm tc-white/80 h:tc-white"
             >
               Playground
             </Link>
@@ -47,17 +50,17 @@ export default function Navbar({ variant = "default" }: NavbarProps) {
               href="https://github.com/yumma-lib/yumma-css"
               target="_blank"
               rel="noopener noreferrer"
-              className="fs-sm tc-white/80 h:tc-white"
+              className="d-none md:d-b fs-sm tc-white/80 h:tc-white"
             >
               GitHub
             </Link>
 
             <button
               type="button"
-              className="d-f ai-c g-2 px-4 py-2 bg-white/5 bf-b-sm rad-9 fs-sm h:bg-white/10 tc-white b-1 bc-white/10"
+              className="d-f ai-c g-2 md:px-4 md:py-2 bg-white/5 bf-b-sm rad-9 fs-sm h:bg-white/10 tc-white b-1 bc-white/10"
             >
-              <MagnifyingGlassIcon className="w-4 h-4" />
-              Ctrl K
+              <MagnifyingGlassIcon className="w-5 h-5 md:w-4 md:h-4" />
+              <span className="d-none md:d-b">Ctrl K</span>
             </button>
           </div>
         </nav>

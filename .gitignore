@@ -41,3 +41,6 @@ coverage/
 
 # vercel
 .vercel/
+
+# other
+CONTEXT.md
