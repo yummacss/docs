@@ -6,7 +6,7 @@ export default function BlogLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-vh bg-[#151724] tc-white">
+    <div className="min-h-dvh tc-white" style={{ backgroundColor: "#151724" }}>
       <Navbar />
       <main
         className="mx-auto px-6"

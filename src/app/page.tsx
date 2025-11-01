@@ -11,7 +11,7 @@ import Navbar from "@/components/navbar";
 
 export default function Home() {
   return (
-    <div className="min-h-vh tc-white p-r">
+    <div className="min-h-dvh tc-white p-r">
       <div className="p-a t-0 l-0 w-full h-full zi-0">
         <DarkVeil />
       </div>
