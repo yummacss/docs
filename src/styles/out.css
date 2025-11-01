@@ -1888,8 +1888,8 @@ summary {
   min-height: 4rem;
 }
 
-.min-h-vh {
-  min-height: 100vh;
+.min-h-dvh {
+  min-height: 100dvh;
 }
 
 .min-w-16 {
