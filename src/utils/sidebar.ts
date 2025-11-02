@@ -50,6 +50,52 @@ export function getAllSlugs(): string[] {
   return slugs;
 }
 
+// find the current page info from pathname
+export function findCurrentPageInfo(pathname: string): {
+  sectionTitle: string;
+  pageTitle: string;
+} | null {
+  // Remove /docs/ prefix and get the slug
+  const slug = pathname.replace(/^\/docs\//, "");
+
+  function searchInItems(
+    items: SidebarConfigItem[],
+    sectionTitle: string,
+  ): { sectionTitle: string; pageTitle: string } | null {
+    for (const item of items) {
+      // Check if this item has the slug
+      if (item.slug === slug) {
+        return { sectionTitle, pageTitle: item.title };
+      }
+
+      // Check in children
+      if ("children" in item && Array.isArray(item.children)) {
+        for (const child of item.children) {
+          if (child.slug === slug) {
+            return { sectionTitle, pageTitle: child.title };
+          }
+        }
+      }
+
+      // Check in items recursively
+      if ("items" in item && Array.isArray(item.items)) {
+        const result = searchInItems(item.items, sectionTitle);
+        if (result) return result;
+      }
+    }
+
+    return null;
+  }
+
+  // Search through all sections
+  for (const section of sidebarConfig) {
+    const result = searchInItems(section.items, section.title);
+    if (result) return result;
+  }
+
+  return null;
+}
+
 export const sidebarConfig: SidebarConfig = [
   {
     title: "Getting Started",

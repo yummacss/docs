@@ -1,3 +1,4 @@
+import MobileBreadcrumb from "@/components/mobile-breadcrumb";
 import Navbar from "@/components/navbar";
 import Sidebar from "@/components/sidebar";
 import TableOfContents from "@/components/toc";
@@ -10,6 +11,7 @@ export default function DocsLayout({
   return (
     <div className="min-h-dvh tc-white">
       <Navbar />
+      <MobileBreadcrumb />
 
       <main className="~sm-xxl mx-auto px-6">
         <div className="d-g gtc-1 lg:gtc-12 g-8">
