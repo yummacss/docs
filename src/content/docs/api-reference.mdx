@@ -1,6 +1,6 @@
 export const meta = {
   title: "API Reference",
-  description: "Yumma CSS API reference.",
+  description: "Learn how to integrate the Yumma CSS core utilities into your project.",
 };
 
 Yumma CSS API provides programmatic access to Yumma CSS class definitions, for creating anything from apps, plugins, extensions, scripts and more.
@@ -160,18 +160,18 @@ import type { Color, Utility } from "@yummacss/api";
 Represents a Yumma CSS utility.
 
 ```ts title="utility.ts"
-import { Variants } from "./variant";
+import type { Variants } from "./variant";
 
 export interface Utility {
-  prefix: string;
-  properties: string[];
-  slug: string;
-  values: { [key: string]: string };
-  variants?: Variants;
+	prefix: string;
+	properties: string[];
+	slug: string;
+	values: { [key: string]: string };
+	variants?: Variants;
 }
 
 export interface Utilities {
-  [key: string]: Utility;
+	[key: string]: Utility;
 }
 ```
 
@@ -195,17 +195,26 @@ Represents a Yumma CSS variant.
 
 ```ts title="variant.ts"
 export interface PseudoClass {
-  prefix: string;
-  value: string;
+	prefix: string;
+	value: string;
 }
 
 export interface MediaQuery {
-  prefix: string;
-  value: string;
+	prefix: string;
+	value: string;
+}
+
+export interface Opacity {
+	prefix: string;
+	value: string;
 }
 
 export interface Variants {
-  pseudoClasses?: PseudoClass[];
-  mediaQueries?: MediaQuery[];
+	pseudoClasses?: PseudoClass[];
+	mediaQueries?: MediaQuery[];
+	opacity?: Opacity[];
 }
+
 ```
+
+<br />
