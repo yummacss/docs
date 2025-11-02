@@ -2273,6 +2273,10 @@ summary {
   padding-bottom: 1.5rem;
 }
 
+.pb-8 {
+  padding-bottom: 2rem;
+}
+
 .pbe-6 {
   padding-block-end: 1.5rem;
 }
