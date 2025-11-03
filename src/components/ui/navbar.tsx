@@ -12,7 +12,7 @@ export default function Navbar({ variant = "default" }: NavbarProps) {
 
   return (
     <header className={`p-st t-0 zi-10 bb-1 ${blurEffect}`}>
-      <div className="~sm-xxl mx-auto px-6 py-4">
+      <div className="~sm-xxl mx-auto px-6 py-2 sm:py-4">
         <nav className="d-f ai-c jc-sb">
           <div className="d-f ai-c g-2">
             <Link href="/">
