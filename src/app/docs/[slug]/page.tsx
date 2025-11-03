@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Banner from "@/components/banner";
+import Banner from "@/components/ui/banner";
 import { getAllSlugs } from "@/utils/sidebar";
 
 export async function generateMetadata({

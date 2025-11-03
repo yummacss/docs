@@ -1,4 +1,4 @@
-import Navbar from "@/components/navbar";
+import Navbar from "@/components/ui/navbar";
 
 export default function BlogLayout({
   children,

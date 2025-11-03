@@ -1,11 +1,11 @@
+import TableOfContents from "@/components/ui/toc";
+import { getAuthor } from "@/utils/authors";
+import { formatDate, getAllBlogSlugs } from "@/utils/blog";
 import { ArrowLeftIcon } from "@radix-ui/react-icons";
 import { Avatar, AvatarFallback, AvatarImage } from "@yummacss/ui";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import TableOfContents from "@/components/toc";
-import { getAuthor } from "@/utils/authors";
-import { formatDate, getAllBlogSlugs } from "@/utils/blog";
 
 export async function generateMetadata({
   params,
@@ -65,18 +65,21 @@ export default async function BlogPostPage({
             {author && (
               <div className="d-f ai-c g-4 fs-sm tc-white/70">
                 <div className="d-f ai-c g-2">
-                  <Avatar className="b-1 bc-white/10">
-                    <AvatarImage src={author.avatar} alt={author.name} />
-                    <AvatarFallback>{getInitials(author.name)}</AvatarFallback>
-                  </Avatar>
-                  <a
+                  <Image
+                  className="rad-9"
+                    src={author.avatar}
+                    alt={author.name}
+                    width={32}
+                    height={32}
+                  />
+                  <Link
                     href={author.url}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="tc-white/70 h:tc-white"
                   >
                     {author.name}
-                  </a>
+                  </Link>
                 </div>
               </div>
             )}
