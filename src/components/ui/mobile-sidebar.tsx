@@ -1,13 +1,13 @@
 "use client";
 
+import { Cross1Icon } from "@radix-ui/react-icons";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import type {
   SidebarConfigItem,
   SidebarConfigSimpleItem,
 } from "@/utils/sidebar";
 import { sidebarConfig } from "@/utils/sidebar";
-import { Cross1Icon } from "@radix-ui/react-icons";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 
 function hasChildren(
   item: SidebarConfigItem,

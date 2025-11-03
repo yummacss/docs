@@ -1,6 +1,6 @@
+import type { MetadataRoute } from "next";
 import { getAllBlogSlugs } from "@/utils/blog";
 import { getAllSlugs } from "@/utils/sidebar";
-import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://yummacss.com";
