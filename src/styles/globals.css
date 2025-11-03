@@ -9,21 +9,21 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Esteban", serif;
+  font-family: "Esteban", serif;
 }
 
 p {
-    font-family: sans-serif;
+  font-family: sans-serif;
 }
 
 .\~sm-xxl {
-    max-width: clamp(40rem, 80vw, 96rem);
+  max-width: clamp(40rem, 80vw, 96rem);
 }
 
 .bg-docs {
-    background-color: #21243f;
+  background-color: #21243f;
 }
 
 .bc-docs-1 {
-    border-color: #21243f;
+  border-color: #21243f;
 }

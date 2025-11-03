@@ -1,11 +1,10 @@
-import TableOfContents from "@/components/ui/toc";
-import { getAuthor } from "@/utils/authors";
-import { formatDate, getAllBlogSlugs } from "@/utils/blog";
 import { ArrowLeftIcon } from "@radix-ui/react-icons";
-import { Avatar, AvatarFallback, AvatarImage } from "@yummacss/ui";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import TableOfContents from "@/components/ui/toc";
+import { getAuthor } from "@/utils/authors";
+import { formatDate, getAllBlogSlugs } from "@/utils/blog";
 
 export async function generateMetadata({
   params,
@@ -34,15 +33,6 @@ export default async function BlogPostPage({
 
   const author = meta?.authors ? getAuthor(meta.authors) : undefined;
 
-  // get initials from author name
-  const getInitials = (name: string) => {
-    return name
-      .split(" ")
-      .map((part) => part[0])
-      .join("")
-      .toUpperCase();
-  };
-
   return (
     <div className="py-8">
       <div className="d-g gtc-1 lg:gtc-12 g-8">
@@ -66,7 +56,7 @@ export default async function BlogPostPage({
               <div className="d-f ai-c g-4 fs-sm tc-white/70">
                 <div className="d-f ai-c g-2">
                   <Image
-                  className="rad-9"
+                    className="rad-9"
                     src={author.avatar}
                     alt={author.name}
                     width={32}
