@@ -1,3 +1,5 @@
+import DarkVeil from "@/components/dark-veil";
+import Navbar from "@/components/ui/navbar";
 import {
   GlobeIcon,
   LightningBoltIcon,
@@ -6,8 +8,6 @@ import {
   SwitchIcon,
 } from "@radix-ui/react-icons";
 import Link from "next/link";
-import DarkVeil from "@/components/dark-veil";
-import Navbar from "@/components/navbar";
 
 export default function Home() {
   return (
