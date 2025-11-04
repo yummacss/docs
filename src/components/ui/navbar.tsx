@@ -1,18 +1,29 @@
 import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
+import { cva, type VariantProps } from "class-variance-authority";
+import { clsx } from "clsx";
 import Image from "next/image";
 import Link from "next/link";
 
-interface NavbarProps {
-  variant?: "default" | "transparent";
+const navbarVariants = cva("p-st t-0 zi-10 bb-1", {
+  variants: {
+    variant: {
+      default: "bf-b-md bc-white/5",
+      transparent: "bc-transparent",
+    },
+  },
+  defaultVariants: {
+    variant: "default",
+  },
+});
+
+interface NavbarProps extends VariantProps<typeof navbarVariants> {
+  className?: string;
 }
 
-export default function Navbar({ variant = "default" }: NavbarProps) {
-  const blurEffect =
-    variant === "default" ? "bf-b-md bc-white/5" : "bc-transparent";
-
+export default function Navbar({ variant, className }: NavbarProps) {
   return (
-    <header className={`p-st t-0 zi-10 bb-1 ${blurEffect}`}>
-      <div className="~sm-xxl mx-auto px-6 py-2 sm:py-4">
+    <header className={clsx(navbarVariants({ variant }), className)}>
+      <div className="~sm-xxl mx-auto px-6 py-2">
         <nav className="d-f ai-c jc-sb">
           <div className="d-f ai-c g-2">
             <Link href="/">

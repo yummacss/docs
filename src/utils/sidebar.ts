@@ -116,10 +116,6 @@ export const sidebarConfig: SidebarConfig = [
     ],
   },
   {
-    title: "API Reference",
-    items: [{ title: "API Reference", slug: "api-reference" }],
-  },
-  {
     title: "Background",
     items: [
       { title: "Background Attachment", slug: "background-attachment" },

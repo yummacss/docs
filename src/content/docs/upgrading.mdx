@@ -94,7 +94,7 @@ Here are the utilities that have been renamed in v3:
 
 In v3, both the light (`l-`) and dark (`d-`) characters are being removed across all color utilities. We are also renaming the `lead` color to `slate`.
 
-<div class="p-4">
+<div className="p-4">
   ```html del={1} ins={2} title="index.html"
   <button class="bg-l-lead-6 h:bg-d-lead-1">Button</button>
   <button class="bg-slate-1 h:bg-slate-7">Button</button>
@@ -225,6 +225,8 @@ html {
   font-family: system-ui, sans-serif;
 }
 ```
+
+Form elements now include padding by default. Borders are added for form elements without class attributes.
 
 ```css ins={2-3} del={4} title="base.ts"
 body {

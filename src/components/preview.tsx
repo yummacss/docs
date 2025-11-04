@@ -1,0 +1,34 @@
+import { cva, type VariantProps } from "class-variance-authority";
+import { clsx } from "clsx";
+
+const previewVariants = cva("p-4 bt-1 br-1 bl-1", {
+  variants: {
+    variant: {
+      centered: "d-f ai-c jc-c",
+      inline: "d-f fd-c",
+    },
+  },
+  defaultVariants: {
+    variant: "centered",
+  },
+});
+
+interface PreviewProps extends VariantProps<typeof previewVariants> {
+  children: React.ReactNode;
+  className?: string;
+}
+
+export default function Preview({
+  children,
+  variant,
+  className,
+}: PreviewProps) {
+  return (
+    <div
+      className={clsx(previewVariants({ variant }), className)}
+      style={{ borderColor: "#31365e" }}
+    >
+      {children}
+    </div>
+  );
+}

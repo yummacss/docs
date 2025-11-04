@@ -30,9 +30,9 @@ export default function MobileBreadcrumb() {
     <>
       <div
         className="p-st t-18 zi-10 d-b lg:d-none bb-1 bc-white/5"
-        style={{ backgroundColor: "#151724", top: "4.5rem" }}
+        style={{ backgroundColor: "#151724", top: "2.5rem" }}
       >
-        <div className="~sm-xxl mx-auto px-6 py-4">
+        <div className="~sm-xxl mx-auto px-4 py-2">
           <div className="d-f ai-c g-3">
             <button
               type="button"
