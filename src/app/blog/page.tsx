@@ -1,7 +1,7 @@
+import { formatDate, getAllBlogPosts, groupPostsByYear } from "@/utils/blog";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { formatDate, getAllBlogPosts, groupPostsByYear } from "@/utils/blog";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -68,7 +68,6 @@ export default async function BlogPage() {
             )}
           </div>
         ))}
-        <div className="b-1 bc-red w-full"></div>
       </div>
     </div>
   );
