@@ -128,7 +128,8 @@ export default function ApiTable({ category, name }: ApiTableProps) {
                   style={{ borderColor: "#31365e80" }}
                 >
                   <code className="fs-xs" style={{ color: "#bec6f2" }}>
-                    {variant.property}: {variant.value}
+                    {/** biome-ignore lint/suspicious/noSuspiciousSemicolonInJsx: semicolons are needed in this context */}
+                    {variant.property}: {variant.value};
                   </code>
                 </td>
               </tr>
