@@ -3344,11 +3344,6 @@ summary {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
-  .sm\:py-4 {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
-
   .sm\:ta-c {
     text-align: center;
   }
