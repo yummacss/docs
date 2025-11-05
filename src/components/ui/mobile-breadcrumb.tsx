@@ -11,7 +11,7 @@ export default function MobileBreadcrumb() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const pageInfo = findCurrentPageInfo(pathname);
 
-  // Prevent body scroll when sidebar is open
+  // prevent body scroll when sidebar is open
   useEffect(() => {
     if (isSidebarOpen) {
       document.body.style.overflow = "hidden";
