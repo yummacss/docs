@@ -47,6 +47,9 @@ export function getAllSlugs(): string[] {
     extractSlugs(section.items);
   }
 
+  // we need to add api-reference manually since it's not in the sidebar config
+  slugs.push("api-reference");
+
   return slugs;
 }
 
@@ -55,7 +58,7 @@ export function findCurrentPageInfo(pathname: string): {
   sectionTitle: string;
   pageTitle: string;
 } | null {
-  // Remove /docs/ prefix and get the slug
+  // remove /docs/ prefix and get the slug
   const slug = pathname.replace(/^\/docs\//, "");
 
   function searchInItems(
@@ -63,12 +66,12 @@ export function findCurrentPageInfo(pathname: string): {
     sectionTitle: string,
   ): { sectionTitle: string; pageTitle: string } | null {
     for (const item of items) {
-      // Check if this item has the slug
+      // check if this item has the slug
       if (item.slug === slug) {
         return { sectionTitle, pageTitle: item.title };
       }
 
-      // Check in children
+      // check in children
       if ("children" in item && Array.isArray(item.children)) {
         for (const child of item.children) {
           if (child.slug === slug) {
@@ -77,7 +80,7 @@ export function findCurrentPageInfo(pathname: string): {
         }
       }
 
-      // Check in items recursively
+      // check in items recursively
       if ("items" in item && Array.isArray(item.items)) {
         const result = searchInItems(item.items, sectionTitle);
         if (result) return result;
@@ -87,7 +90,7 @@ export function findCurrentPageInfo(pathname: string): {
     return null;
   }
 
-  // Search through all sections
+  // search through all sections
   for (const section of sidebarConfig) {
     const result = searchInItems(section.items, section.title);
     if (result) return result;
