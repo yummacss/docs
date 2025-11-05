@@ -59,8 +59,8 @@ export default function Home() {
                   href="https://play.yummacss.com"
                   className="px-6 py-3 fw-600 tc-white fs-md d-f ai-c g-2"
                 >
-                  <MixIcon className="w-5 h-5" />
-                  Playground
+                  <SwitchIcon className="w-5 h-5" />
+                  Components
                 </Link>
               </div>
 

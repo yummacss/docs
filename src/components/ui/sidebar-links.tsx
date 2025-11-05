@@ -20,6 +20,7 @@ export default function SidebarLinks({ onLinkClick }: SidebarLinksProps) {
   const isDocsActive =
     pathname.startsWith("/docs") && pathname !== "/docs/api-reference";
   const isApiReferenceActive = pathname === "/docs/api-reference";
+  const isUIActive = pathname.startsWith("/ui");
 
   return (
     <div className="d-g g-2 w-fc h-fc">
@@ -56,13 +57,19 @@ export default function SidebarLinks({ onLinkClick }: SidebarLinksProps) {
         </span>
       </Link>
       <Link
-        href="/ui/installation"
+        href="/ui/introduction"
         onClick={onLinkClick}
         rel="noopener noreferrer"
-        className="d-if ai-c g-4 team"
+        className={`d-if ai-c g-4 ${isUIActive ? "" : "team"}`}
       >
-        <SwitchIcon className="tc-white/50 @h:tc-white" />
-        <span className="fs-md tc-white/70 @h:tc-white">Yumma UI</span>
+        <SwitchIcon
+          className={isUIActive ? "tc-white" : "tc-white/50 @h:tc-white"}
+        />
+        <span
+          className={`fs-md ${isUIActive ? "tc-white" : "tc-white/70 @h:tc-white"}`}
+        >
+          Yumma UI
+        </span>
       </Link>
       <Link
         href="https://play.yummacss.com"

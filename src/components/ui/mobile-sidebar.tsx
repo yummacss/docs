@@ -1,34 +1,52 @@
 "use client";
 
-import { Cross1Icon } from "@radix-ui/react-icons";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import type {
   SidebarConfigItem,
   SidebarConfigSimpleItem,
 } from "@/utils/sidebar";
 import { sidebarConfig } from "@/utils/sidebar";
+import type {
+  UISidebarConfigItem,
+  UISidebarConfigSimpleItem,
+} from "@/utils/ui-sidebar";
+import { uiSidebarConfig } from "@/utils/ui-sidebar";
+import { Cross1Icon } from "@radix-ui/react-icons";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import SidebarLinks from "./sidebar-links";
 
-function hasChildren(
-  item: SidebarConfigItem,
-): item is SidebarConfigItem & { children: SidebarConfigSimpleItem[] } {
+function hasChildren(item: SidebarConfigItem | UISidebarConfigItem): item is (
+  | SidebarConfigItem
+  | UISidebarConfigItem
+) & {
+  children: (SidebarConfigSimpleItem | UISidebarConfigSimpleItem)[];
+} {
   return "children" in item && Array.isArray(item.children);
 }
 
-function hasItems(
-  item: SidebarConfigItem,
-): item is SidebarConfigItem & { items: SidebarConfigItem[] } {
+function hasItems(item: SidebarConfigItem | UISidebarConfigItem): item is (
+  | SidebarConfigItem
+  | UISidebarConfigItem
+) & {
+  items: (SidebarConfigItem | UISidebarConfigItem)[];
+} {
   return "items" in item && Array.isArray(item.items);
 }
 
 interface MobileSidebarProps {
   isOpen: boolean;
   onClose: () => void;
+  routeType: "docs" | "ui";
 }
 
-export default function MobileSidebar({ isOpen, onClose }: MobileSidebarProps) {
+export default function MobileSidebar({
+  isOpen,
+  onClose,
+  routeType,
+}: MobileSidebarProps) {
   const pathname = usePathname();
+  const config = routeType === "ui" ? uiSidebarConfig : sidebarConfig;
+  const baseRoute = routeType === "ui" ? "/ui" : "/docs";
 
   if (!isOpen) return null;
 
@@ -59,7 +77,7 @@ export default function MobileSidebar({ isOpen, onClose }: MobileSidebarProps) {
           <div className="d-f fd-c g-8">
             <SidebarLinks onLinkClick={onClose} />
 
-            {sidebarConfig.map((section) => (
+            {config.map((section) => (
               <div key={section.title} className="d-f fd-c g-4">
                 <h3 className="fs-md fw-400 tt-c ls-5">{section.title}</h3>
                 <ul className="d-f ml-4 fd-c g-2">
@@ -72,8 +90,13 @@ export default function MobileSidebar({ isOpen, onClose }: MobileSidebarProps) {
                             {item.title}
                           </span>
                           <ul className="d-f ml-4 fd-c g-1">
-                            {item.children.map((child) => {
-                              const href = `/docs/${child.slug}`;
+                            {(
+                              item.children as (
+                                | SidebarConfigSimpleItem
+                                | UISidebarConfigSimpleItem
+                              )[]
+                            ).map((child) => {
+                              const href = `${baseRoute}/${child.slug}`;
                               const isActive = pathname === href;
 
                               return (
@@ -81,11 +104,10 @@ export default function MobileSidebar({ isOpen, onClose }: MobileSidebarProps) {
                                   <Link
                                     href={href}
                                     onClick={onClose}
-                                    className={`d-f ai-c g-3 fs-md ${
-                                      isActive
+                                    className={`d-f ai-c g-3 fs-md ${isActive
                                         ? "tc-white"
                                         : "tc-white/70 h:tc-white"
-                                    }`}
+                                      }`}
                                   >
                                     {child.title}
                                   </Link>
@@ -105,7 +127,12 @@ export default function MobileSidebar({ isOpen, onClose }: MobileSidebarProps) {
                             {item.title}
                           </span>
                           <ul className="d-f ml-4 fd-c g-1">
-                            {item.items.map((subItem) => {
+                            {(
+                              item.items as (
+                                | SidebarConfigItem
+                                | UISidebarConfigItem
+                              )[]
+                            ).map((subItem) => {
                               if (hasChildren(subItem)) {
                                 return (
                                   <li
@@ -116,8 +143,13 @@ export default function MobileSidebar({ isOpen, onClose }: MobileSidebarProps) {
                                       {subItem.title}
                                     </span>
                                     <ul className="d-f ml-4 fd-c g-1">
-                                      {subItem.children.map((child) => {
-                                        const href = `/docs/${child.slug}`;
+                                      {(
+                                        subItem.children as (
+                                          | SidebarConfigSimpleItem
+                                          | UISidebarConfigSimpleItem
+                                        )[]
+                                      ).map((child) => {
+                                        const href = `${baseRoute}/${child.slug}`;
                                         const isActive = pathname === href;
 
                                         return (
@@ -125,11 +157,10 @@ export default function MobileSidebar({ isOpen, onClose }: MobileSidebarProps) {
                                             <Link
                                               href={href}
                                               onClick={onClose}
-                                              className={`d-f ai-c g-3 fs-md ${
-                                                isActive
+                                              className={`d-f ai-c g-3 fs-md ${isActive
                                                   ? "tc-white"
                                                   : "tc-white/70 h:tc-white"
-                                              }`}
+                                                }`}
                                             >
                                               {child.title}
                                             </Link>
@@ -142,7 +173,7 @@ export default function MobileSidebar({ isOpen, onClose }: MobileSidebarProps) {
                               }
 
                               if (subItem.slug) {
-                                const href = `/docs/${subItem.slug}`;
+                                const href = `${baseRoute}/${subItem.slug}`;
                                 const isActive = pathname === href;
 
                                 return (
@@ -150,11 +181,10 @@ export default function MobileSidebar({ isOpen, onClose }: MobileSidebarProps) {
                                     <Link
                                       href={href}
                                       onClick={onClose}
-                                      className={`d-f ai-c g-3 fs-md ${
-                                        isActive
+                                      className={`d-f ai-c g-3 fs-md ${isActive
                                           ? "tc-white"
                                           : "tc-white/70 h:tc-white"
-                                      }`}
+                                        }`}
                                     >
                                       {subItem.title}
                                     </Link>
@@ -171,7 +201,7 @@ export default function MobileSidebar({ isOpen, onClose }: MobileSidebarProps) {
 
                     // simple item with slug
                     if (item.slug) {
-                      const href = `/docs/${item.slug}`;
+                      const href = `${baseRoute}/${item.slug}`;
                       const isActive = pathname === href;
 
                       return (
@@ -179,9 +209,8 @@ export default function MobileSidebar({ isOpen, onClose }: MobileSidebarProps) {
                           <Link
                             href={href}
                             onClick={onClose}
-                            className={`d-f ai-c g-3 ${
-                              isActive ? "tc-white" : "tc-white/70 h:tc-white"
-                            }`}
+                            className={`d-f ai-c g-3 ${isActive ? "tc-white" : "tc-white/70 h:tc-white"
+                              }`}
                           >
                             {item.title}
                           </Link>
