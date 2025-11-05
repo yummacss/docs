@@ -30,9 +30,7 @@ export default function SidebarLinks({ onLinkClick }: SidebarLinksProps) {
         className={`d-if ai-c g-4 ${isDocsActive ? "" : "team"}`}
       >
         <FileTextIcon
-          className={
-            isDocsActive ? "tc-white" : "tc-white/50 @h:tc-white"
-          }
+          className={isDocsActive ? "tc-white" : "tc-white/50 @h:tc-white"}
         />
         <span
           className={`fs-md ${isDocsActive ? "tc-white" : "tc-white/70 @h:tc-white"}`}

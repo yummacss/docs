@@ -1,7 +1,6 @@
 import {
   GlobeIcon,
   LightningBoltIcon,
-  MixIcon,
   StarFilledIcon,
   SwitchIcon,
 } from "@radix-ui/react-icons";
