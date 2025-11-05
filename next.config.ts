@@ -1,5 +1,5 @@
-import fs from "node:fs";
 import createMDX from "@next/mdx";
+import fs from "node:fs";
 import rehypeExpressiveCode, {
   ExpressiveCodeTheme,
 } from "rehype-expressive-code";
@@ -43,6 +43,124 @@ const rehypeExpressiveCodeOptions = {
 const nextConfig = {
   reactStrictMode: true,
   pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
+  async redirects() {
+    return [
+      // Blog redirects
+      {
+        source: "/blog/v0",
+        destination: "/blog/yummacss-0.1",
+        permanent: true,
+      },
+      {
+        source: "/blog/v1",
+        destination: "/blog/yummacss-1.1",
+        permanent: true,
+      },
+      {
+        source: "/blog/v2",
+        destination: "/blog/yummacss-2.1",
+        permanent: true,
+      },
+      {
+        source: "/blog/v3",
+        destination: "/blog/yummacss-3.0",
+        permanent: true,
+      },
+      // UI Component redirects
+      {
+        source: "/components",
+        destination: "/ui/installation",
+        permanent: true,
+      },
+      {
+        source: "/ui",
+        destination: "/ui/installation",
+        permanent: true,
+      },
+      // Docs redirects
+      {
+        source: "/docs/colours",
+        destination: "/docs/colors",
+        permanent: true,
+      },
+      {
+        source: "/docs/bottom-left-right-top",
+        destination: "/docs/top-right-bottom-left",
+        permanent: true,
+      },
+      {
+        source: "/docs/cli",
+        destination: "/docs/configuration",
+        permanent: true,
+      },
+      {
+        source: "/docs/config",
+        destination: "/docs/configuration",
+        permanent: true,
+      },
+      {
+        source: "/docs/migration-guide",
+        destination: "/docs/upgrading",
+        permanent: true,
+      },
+      {
+        source: "/docs/text-color",
+        destination: "/docs/color",
+        permanent: true,
+      },
+      {
+        source: "/docs/guides/react",
+        destination: "/docs/installation",
+        permanent: true,
+      },
+      // Framework guides
+      {
+        source: "/docs/guides/nextjs",
+        destination: "/docs/installation",
+        permanent: true,
+      },
+      {
+        source: "/docs/guides/preact",
+        destination: "/docs/installation",
+        permanent: true,
+      },
+      {
+        source: "/docs/guides/vue",
+        destination: "/docs/installation",
+        permanent: true,
+      },
+      {
+        source: "/docs/guides/nuxtjs",
+        destination: "/docs/installation",
+        permanent: true,
+      },
+      {
+        source: "/docs/guides/angular",
+        destination: "/docs/installation",
+        permanent: true,
+      },
+      {
+        source: "/docs/guides/astro",
+        destination: "/docs/installation",
+        permanent: true,
+      },
+      {
+        source: "/docs/guides/qwik",
+        destination: "/docs/installation",
+        permanent: true,
+      },
+      {
+        source: "/docs/guides/solid",
+        destination: "/docs/installation",
+        permanent: true,
+      },
+      {
+        source: "/docs/guides/svelte",
+        destination: "/docs/installation",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 const withMDX = createMDX({

@@ -1,13 +1,14 @@
 "use client";
 
-import { Cross1Icon } from "@radix-ui/react-icons";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import type {
   SidebarConfigItem,
   SidebarConfigSimpleItem,
 } from "@/utils/sidebar";
 import { sidebarConfig } from "@/utils/sidebar";
+import { Cross1Icon } from "@radix-ui/react-icons";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import SidebarLinks from "./sidebar-links";
 
 function hasChildren(
   item: SidebarConfigItem,
@@ -56,6 +57,8 @@ export default function MobileSidebar({ isOpen, onClose }: MobileSidebarProps) {
         {/* Sidebar content */}
         <div className="f-1 o-y-auto px-6 pb-8">
           <div className="d-f fd-c g-8">
+            <SidebarLinks onLinkClick={onClose} />
+
             {sidebarConfig.map((section) => (
               <div key={section.title} className="d-f fd-c g-4">
                 <h3 className="fs-md fw-400 tt-c ls-5">{section.title}</h3>
@@ -78,11 +81,10 @@ export default function MobileSidebar({ isOpen, onClose }: MobileSidebarProps) {
                                   <Link
                                     href={href}
                                     onClick={onClose}
-                                    className={`d-f ai-c g-3 fs-md ${
-                                      isActive
+                                    className={`d-f ai-c g-3 fs-md ${isActive
                                         ? "tc-white"
                                         : "tc-white/70 h:tc-white"
-                                    }`}
+                                      }`}
                                   >
                                     {child.title}
                                   </Link>
@@ -122,11 +124,10 @@ export default function MobileSidebar({ isOpen, onClose }: MobileSidebarProps) {
                                             <Link
                                               href={href}
                                               onClick={onClose}
-                                              className={`d-f ai-c g-3 fs-md ${
-                                                isActive
+                                              className={`d-f ai-c g-3 fs-md ${isActive
                                                   ? "tc-white"
                                                   : "tc-white/70 h:tc-white"
-                                              }`}
+                                                }`}
                                             >
                                               {child.title}
                                             </Link>
@@ -147,11 +148,10 @@ export default function MobileSidebar({ isOpen, onClose }: MobileSidebarProps) {
                                     <Link
                                       href={href}
                                       onClick={onClose}
-                                      className={`d-f ai-c g-3 fs-md ${
-                                        isActive
+                                      className={`d-f ai-c g-3 fs-md ${isActive
                                           ? "tc-white"
                                           : "tc-white/70 h:tc-white"
-                                      }`}
+                                        }`}
                                     >
                                       {subItem.title}
                                     </Link>
@@ -176,9 +176,8 @@ export default function MobileSidebar({ isOpen, onClose }: MobileSidebarProps) {
                           <Link
                             href={href}
                             onClick={onClose}
-                            className={`d-f ai-c g-3 ${
-                              isActive ? "tc-white" : "tc-white/70 h:tc-white"
-                            }`}
+                            className={`d-f ai-c g-3 ${isActive ? "tc-white" : "tc-white/70 h:tc-white"
+                              }`}
                           >
                             {item.title}
                           </Link>
