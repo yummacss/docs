@@ -1,9 +1,9 @@
 "use client";
 
 import {
-  CubeIcon,
   FileTextIcon,
   GlobeIcon,
+  MixIcon,
   SwitchIcon,
 } from "@radix-ui/react-icons";
 import Link from "next/link";
@@ -57,7 +57,7 @@ export default function SidebarLinks({ onLinkClick }: SidebarLinksProps) {
         </Link>
       </div>
       <div className="d-if ai-c g-4">
-        <CubeIcon className="tc-white/50" />
+        <MixIcon className="tc-white/50" />
         <Link
           className="fs-md tc-white/70 h:tc-white"
           href="https://play.yummacss.com"
