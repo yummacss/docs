@@ -56,7 +56,7 @@ export default function Home() {
                   Get started
                 </Link>
                 <Link
-                  href="https://play.yummacss.com"
+                  href="/ui/introduction"
                   className="px-6 py-3 fw-600 tc-white fs-md d-f ai-c g-2"
                 >
                   <SwitchIcon className="w-5 h-5" />
