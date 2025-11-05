@@ -16,14 +16,16 @@ p {
   font-family: sans-serif;
 }
 
+/* Custom */
+
 .\~sm-xxl {
   max-width: clamp(40rem, 80vw, 96rem);
 }
 
-.bg-docs {
-  background-color: #21243f;
-}
-
-.bc-docs-1 {
-  border-color: #21243f;
+.\@h\:tc-white {
+  &:is(:where(.team):hover *) {
+    @media (hover: hover) {
+      color: white;
+    }
+  }
 }
