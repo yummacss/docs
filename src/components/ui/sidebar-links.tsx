@@ -23,51 +23,57 @@ export default function SidebarLinks({ onLinkClick }: SidebarLinksProps) {
 
   return (
     <div className="d-g g-2 w-fc h-fc">
-      <div className="d-if ai-c g-4">
-        <FileTextIcon className={isDocsActive ? "tc-white" : "tc-white/50"} />
-        <Link
-          className={`fs-md ${isDocsActive ? "tc-white" : "tc-white/70 h:tc-white"}`}
-          href="/docs/installation"
-          onClick={onLinkClick}
+      <Link
+        href="/docs/installation"
+        onClick={onLinkClick}
+        className={`d-if ai-c g-4 ${isDocsActive ? "" : "team"}`}
+      >
+        <FileTextIcon
+          className={
+            isDocsActive ? "tc-white" : "tc-white/50 @h:tc-white"
+          }
+        />
+        <span
+          className={`fs-md ${isDocsActive ? "tc-white" : "tc-white/70 @h:tc-white"}`}
         >
           Documentation
-        </Link>
-      </div>
-      <div className="d-if ai-c g-4">
+        </span>
+      </Link>
+      <Link
+        href="/docs/api-reference"
+        onClick={onLinkClick}
+        className={`d-if ai-c g-4 ${isApiReferenceActive ? "" : "team"}`}
+      >
         <GlobeIcon
-          className={isApiReferenceActive ? "tc-white" : "tc-white/50"}
+          className={
+            isApiReferenceActive ? "tc-white" : "tc-white/50 @h:tc-white"
+          }
         />
-        <Link
-          className={`fs-md ${isApiReferenceActive ? "tc-white" : "tc-white/70 h:tc-white"}`}
-          href="/docs/api-reference"
-          onClick={onLinkClick}
+        <span
+          className={`fs-md ${isApiReferenceActive ? "tc-white" : "tc-white/70 @h:tc-white"}`}
         >
           API Reference
-        </Link>
-      </div>
-      <div className="d-if ai-c g-4">
-        <SwitchIcon className="tc-white/50" />
-        <Link
-          className="fs-md tc-white/70 h:tc-white"
-          href="/ui/installation"
-          onClick={onLinkClick}
-          rel="noopener noreferrer"
-        >
-          Yumma UI
-        </Link>
-      </div>
-      <div className="d-if ai-c g-4">
-        <MixIcon className="tc-white/50" />
-        <Link
-          className="fs-md tc-white/70 h:tc-white"
-          href="https://play.yummacss.com"
-          onClick={onLinkClick}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Playground
-        </Link>
-      </div>
+        </span>
+      </Link>
+      <Link
+        href="/ui/installation"
+        onClick={onLinkClick}
+        rel="noopener noreferrer"
+        className="d-if ai-c g-4 team"
+      >
+        <SwitchIcon className="tc-white/50 @h:tc-white" />
+        <span className="fs-md tc-white/70 @h:tc-white">Yumma UI</span>
+      </Link>
+      <Link
+        href="https://play.yummacss.com"
+        onClick={onLinkClick}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="d-if ai-c g-4 team"
+      >
+        <MixIcon className="tc-white/50 @h:tc-white" />
+        <span className="fs-md tc-white/70 @h:tc-white">Playground</span>
+      </Link>
     </div>
   );
 }
