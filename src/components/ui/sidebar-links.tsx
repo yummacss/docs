@@ -51,7 +51,6 @@ export default function SidebarLinks({ onLinkClick }: SidebarLinksProps) {
           className="fs-md tc-white/70 h:tc-white"
           href="/ui/installation"
           onClick={onLinkClick}
-          target="_blank"
           rel="noopener noreferrer"
         >
           Yumma UI
