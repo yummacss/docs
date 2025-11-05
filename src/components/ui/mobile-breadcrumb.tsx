@@ -1,10 +1,10 @@
 "use client";
 
-import { findCurrentPageInfo } from "@/utils/sidebar";
-import { findCurrentUIPageInfo } from "@/utils/ui-sidebar";
 import { CaretRightIcon, HamburgerMenuIcon } from "@radix-ui/react-icons";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { findCurrentPageInfo } from "@/utils/sidebar";
+import { findCurrentUIPageInfo } from "@/utils/ui-sidebar";
 import MobileSidebar from "./mobile-sidebar";
 
 export default function MobileBreadcrumb() {
