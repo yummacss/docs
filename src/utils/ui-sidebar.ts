@@ -1,0 +1,155 @@
+export interface UISidebarConfigItemBase {
+  title: string;
+  slug?: string;
+}
+
+export interface UISidebarConfigItemWithChildren
+  extends UISidebarConfigItemBase {
+  children: UISidebarConfigSimpleItem[];
+}
+
+export interface UISidebarConfigSimpleItem extends UISidebarConfigItemBase {}
+
+export type UISidebarConfigItem =
+  | UISidebarConfigSimpleItem
+  | UISidebarConfigItemWithChildren
+  | UISidebarConfigItemWithItems;
+
+export interface UISidebarConfigItemWithItems extends UISidebarConfigItemBase {
+  items: UISidebarConfigItem[];
+}
+
+export interface UISidebarConfigSection {
+  title: string;
+  items: UISidebarConfigItem[];
+}
+
+export type UISidebarConfig = UISidebarConfigSection[];
+
+export const uiSidebarConfig: UISidebarConfig = [
+  {
+    title: "Getting Started",
+    items: [
+      {
+        title: "Introduction",
+        slug: "introduction",
+      },
+    ],
+  },
+  {
+    title: "Components",
+    items: [
+      {
+        title: "Alert",
+        slug: "alert",
+      },
+      {
+        title: "Alert Dialog",
+        slug: "alert-dialog",
+      },
+      {
+        title: "Avatar",
+        slug: "avatar",
+      },
+      {
+        title: "Badge",
+        slug: "badge",
+      },
+      {
+        title: "Button",
+        slug: "button",
+      },
+      {
+        title: "Card",
+        slug: "card",
+      },
+      {
+        title: "Checkbox",
+        slug: "checkbox",
+      },
+      {
+        title: "Input",
+        slug: "input",
+      },
+      {
+        title: "Tabs",
+        slug: "tabs",
+      },
+      {
+        title: "Textarea",
+        slug: "textarea",
+      },
+    ],
+  },
+];
+
+// extract all slugs from the UI sidebar config
+export function getAllUISlugs(): string[] {
+  const slugs: string[] = [];
+
+  function extractSlugs(items: UISidebarConfigItem[]) {
+    for (const item of items) {
+      if (item.slug) {
+        slugs.push(item.slug);
+      }
+      if ("children" in item && Array.isArray(item.children)) {
+        extractSlugs(item.children);
+      }
+      if ("items" in item && Array.isArray(item.items)) {
+        extractSlugs(item.items);
+      }
+    }
+  }
+
+  for (const section of uiSidebarConfig) {
+    extractSlugs(section.items);
+  }
+
+  return slugs;
+}
+
+// find the current page info from pathname
+export function findCurrentUIPageInfo(pathname: string): {
+  sectionTitle: string;
+  pageTitle: string;
+} | null {
+  // remove /ui/ prefix and get the slug
+  const slug = pathname.replace(/^\/ui\//, "");
+
+  function searchInItems(
+    items: UISidebarConfigItem[],
+    sectionTitle: string,
+  ): { sectionTitle: string; pageTitle: string } | null {
+    for (const item of items) {
+      // check if this item has the slug
+      if (item.slug === slug) {
+        return { sectionTitle, pageTitle: item.title };
+      }
+
+      // check in children
+      if ("children" in item && Array.isArray(item.children)) {
+        for (const child of item.children) {
+          if (child.slug === slug) {
+            return { sectionTitle, pageTitle: child.title };
+          }
+        }
+      }
+
+      // check in items recursively
+      if ("items" in item && Array.isArray(item.items)) {
+        const result = searchInItems(item.items, sectionTitle);
+        if (result) return result;
+      }
+    }
+
+    return null;
+  }
+
+  // search through all sections
+  for (const section of uiSidebarConfig) {
+    const result = searchInItems(section.items, section.title);
+    if (result) return result;
+  }
+
+  return null;
+}

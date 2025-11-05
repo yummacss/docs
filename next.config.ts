@@ -69,12 +69,12 @@ const nextConfig = {
       // UI Component redirects
       {
         source: "/components",
-        destination: "/ui/installation",
+        destination: "/ui/introduction",
         permanent: true,
       },
       {
         source: "/ui",
-        destination: "/ui/installation",
+        destination: "/ui/introduction",
         permanent: true,
       },
       // Docs redirects

@@ -1,6 +1,3 @@
-import { Tabs, TabsList, TabsPanel, TabsTab } from "@yummacss/ui";
-import type { MDXComponents } from "mdx/types";
-import Image from "next/image";
 import ApiTable from "@/components/api-table";
 import HoverVariant from "@/components/hover-variant";
 import LegacyColor from "@/components/legacy/legacy-color";
@@ -10,6 +7,9 @@ import MediaVariant from "@/components/media-variant";
 import Note from "@/components/note";
 import Palette from "@/components/palette";
 import Stepper, { Step } from "@/components/stepper";
+import { Tabs, TabsList, TabsPanel, TabsTab } from "@yummacss/ui";
+import type { MDXComponents } from "mdx/types";
+import Image from "next/image";
 import Preview from "./components/preview";
 
 // generate IDs from heading text
@@ -167,6 +167,7 @@ const components: MDXComponents = {
   Preview,
   Step,
   Stepper,
+  Steps: Stepper, // Alias for Stepper
   Tabs,
   TabsList,
   TabsPanel,
