@@ -10,14 +10,10 @@ A component that displays a user's profile picture or initials.
 ```tsx mark={1}
 import { Avatar, AvatarFallback, AvatarImage } from "@yummacss/ui";
 
-export default function Page() {
-  return (
-    <Avatar className="b-1">
-      <AvatarImage src="https://images.unsplash.com/photo-1542206395-9feb3edaa68d" alt="Seline Collins" />
-      <AvatarFallback>SC</AvatarFallback>
-    </Avatar>
-  );
-}
+<Avatar className="b-1">
+  <AvatarImage src="https://images.unsplash.com/photo-1542206395-9feb3edaa68d" alt="Seline Collins" />
+  <AvatarFallback>SC</AvatarFallback>
+</Avatar>
 ```
 
 ## API reference

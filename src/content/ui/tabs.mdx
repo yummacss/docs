@@ -10,21 +10,17 @@ A basic implementation of the Tabs component with default styling.
 ```tsx mark={1}
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@yummacss/ui";
 
-export default function Page() {
-  return (
-    <Tabs defaultValue="account">
-      <TabsList>
-        <TabsTab value="account">Home</TabsTab>
-        <TabsTab value="password">About</TabsTab>
-        <TabsTab value="contact">Contact</TabsTab>
-      </TabsList>
+<Tabs defaultValue="account">
+  <TabsList>
+    <TabsTab value="account">Home</TabsTab>
+    <TabsTab value="password">About</TabsTab>
+    <TabsTab value="contact">Contact</TabsTab>
+  </TabsList>
 
-      <TabsContent value="account">Home</TabsContent>
-      <TabsContent value="password">About</TabsContent>
-      <TabsContent value="contact">Contact</TabsContent>
-    </Tabs>
-  );
-}
+  <TabsContent value="account">Home</TabsContent>
+  <TabsContent value="password">About</TabsContent>
+  <TabsContent value="contact">Contact</TabsContent>
+</Tabs>
 ```
 
 ## API reference

@@ -3,27 +3,9 @@ export const meta = {
   description: "Learn how to make responsive layouts with Yumma CSS.",
 };
 
-## Media Queries
-
-By default, all base utilities can be used with responsive variants, making it easier to create responsive designs.
-
-You can use breakpoints variants such as `sm:*`, `md:*`, `lg:*`, `xl:*` and `xxl:*` to apply specific rules to different screen sizes. For example:
-
-<Note icon="width">Try resizing your browser window to see how the card changes.</Note>
-
-```html live "sm:d-b" "md:d-b" "lg:d-b" "xl:d-b" "xxl:d-b" layout="/src/layouts/inline.astro"
-<div class="bg-indigo-1 p-4 rad-1 ta-c tc-slate">
-  <p class="bg-white d-b p-4 rad-1 sm:d-none">This is a small screen.</p>
-  <p class="bg-white d-none md:d-none p-4 rad-1 sm:d-b">This is a medium screen.</p>
-  <p class="bg-white d-none lg:d-none md:d-b p-4 rad-1">This is a large screen.</p>
-  <p class="bg-white d-none lg:d-b p-4 rad-1 ta-c xl:d-none">This is an extra large screen.</p>
-  <p class="bg-white d-none p-4 rad-1 ta-c xxl:d-b">This is double extra large screen.</p>
-</div>
-```
-
 ## Mobile-first approach
 
-Like other frameworks, such as Tailwind, Yumma CSS takes a mobile-first approach. It applies the default styles to small screens and allows you to use breakpoints to override them for larger screens.
+By default, all base utilities can be used with responsive variants. You can use breakpoints variants such as `sm:*`, `md:*`, `lg:*`, `xl:*` and `xxl:*` to apply specific rules to different screen sizes. For example:
 
 > Don't use breakpoints to apply styles to mobile devices. Use them to style small screens, then override for larger screens.
 
@@ -41,3 +23,19 @@ Here's a reference for all the breakpoints available in Yumma CSS:
 | lg     | `@media (width >= 64rem) // 1024px` |
 | xl     | `@media (width >= 80rem) // 1280px` |
 | xxl    | `@media (width >= 96rem) // 1536px` |
+
+## Example
+
+<Note icon="width">Try resizing your browser window to see how the card changes.</Note>
+
+```html live "sm:d-b" "md:d-b" "lg:d-b" "xl:d-b" "xxl:d-b" layout="/src/layouts/inline.astro"
+<div class="bg-indigo-1 p-4 rad-1 ta-c tc-slate">
+  <p class="bg-white d-b p-4 rad-1 sm:d-none">This is a small screen.</p>
+  <p class="bg-white d-none md:d-none p-4 rad-1 sm:d-b">This is a medium screen.</p>
+  <p class="bg-white d-none lg:d-none md:d-b p-4 rad-1">This is a large screen.</p>
+  <p class="bg-white d-none lg:d-b p-4 rad-1 ta-c xl:d-none">This is an extra large screen.</p>
+  <p class="bg-white d-none p-4 rad-1 ta-c xxl:d-b">This is double extra large screen.</p>
+</div>
+```
+
+<br />
