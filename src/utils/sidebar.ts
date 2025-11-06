@@ -61,6 +61,11 @@ export function findCurrentPageInfo(pathname: string): {
   // remove /docs/ prefix and get the slug
   const slug = pathname.replace(/^\/docs\//, "");
 
+  // special case for api-reference (not in sidebar config)
+  if (slug === "api-reference") {
+    return { sectionTitle: "Installation", pageTitle: "API Reference" };
+  }
+
   function searchInItems(
     items: SidebarConfigItem[],
     sectionTitle: string,

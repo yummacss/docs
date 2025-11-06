@@ -1,8 +1,5 @@
 "use client";
 
-import { Cross1Icon } from "@radix-ui/react-icons";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import type {
   SidebarConfigItem,
   SidebarConfigSimpleItem,
@@ -13,6 +10,9 @@ import type {
   UISidebarConfigSimpleItem,
 } from "@/utils/ui-sidebar";
 import { uiSidebarConfig } from "@/utils/ui-sidebar";
+import { Cross1Icon } from "@radix-ui/react-icons";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import SidebarLinks from "./sidebar-links";
 
 function hasChildren(item: SidebarConfigItem | UISidebarConfigItem): item is (
@@ -55,12 +55,11 @@ export default function MobileSidebar({
       className="p-f t-0 l-0 w-full zi-20 lg:d-none bt-1 bc-white/5"
       style={{
         backgroundColor: "#151724",
-        top: "72px", // Below navbar
-        height: "calc(100vh - 72px)",
+        top: "56px", // below navbar
+        height: "calc(100vh - 56px)",
       }}
     >
       <div className="p-r h-full d-f fd-c">
-        {/* Close button */}
         <div className="d-f jc-fe px-6 py-4">
           <button
             type="button"
@@ -72,7 +71,6 @@ export default function MobileSidebar({
           </button>
         </div>
 
-        {/* Sidebar content */}
         <div className="f-1 o-y-auto px-6 pb-8">
           <div className="d-f fd-c g-8">
             <SidebarLinks onLinkClick={onClose} />
@@ -104,11 +102,10 @@ export default function MobileSidebar({
                                   <Link
                                     href={href}
                                     onClick={onClose}
-                                    className={`d-f ai-c g-3 fs-md ${
-                                      isActive
+                                    className={`d-f ai-c g-3 fs-md ${isActive
                                         ? "tc-white"
                                         : "tc-white/70 h:tc-white"
-                                    }`}
+                                      }`}
                                   >
                                     {child.title}
                                   </Link>
@@ -158,11 +155,10 @@ export default function MobileSidebar({
                                             <Link
                                               href={href}
                                               onClick={onClose}
-                                              className={`d-f ai-c g-3 fs-md ${
-                                                isActive
+                                              className={`d-f ai-c g-3 fs-md ${isActive
                                                   ? "tc-white"
                                                   : "tc-white/70 h:tc-white"
-                                              }`}
+                                                }`}
                                             >
                                               {child.title}
                                             </Link>
@@ -183,11 +179,10 @@ export default function MobileSidebar({
                                     <Link
                                       href={href}
                                       onClick={onClose}
-                                      className={`d-f ai-c g-3 fs-md ${
-                                        isActive
+                                      className={`d-f ai-c g-3 fs-md ${isActive
                                           ? "tc-white"
                                           : "tc-white/70 h:tc-white"
-                                      }`}
+                                        }`}
                                     >
                                       {subItem.title}
                                     </Link>
@@ -212,9 +207,8 @@ export default function MobileSidebar({
                           <Link
                             href={href}
                             onClick={onClose}
-                            className={`d-f ai-c g-3 ${
-                              isActive ? "tc-white" : "tc-white/70 h:tc-white"
-                            }`}
+                            className={`d-f ai-c g-3 ${isActive ? "tc-white" : "tc-white/70 h:tc-white"
+                              }`}
                           >
                             {item.title}
                           </Link>

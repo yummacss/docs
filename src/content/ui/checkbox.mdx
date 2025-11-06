@@ -11,18 +11,14 @@ A form control that allows users to select one or more options from a set.
 import { Checkbox } from "@yummacss/ui";
 import { CheckIcon } from "@radix-ui/react-icons";
 
-export default function Page() {
-  return (
-    <div className="d-if ai-c cg-2">
-      <Checkbox defaultChecked>
-        <CheckboxIndicator>
-          <CheckIcon />
-        </CheckboxIndicator>
-      </Checkbox>
-      <span className="fs-sm">Remember me</span>
-    </div>
-  );
-}
+<div className="d-if ai-c cg-2">
+  <Checkbox defaultChecked>
+    <CheckboxIndicator>
+      <CheckIcon />
+    </CheckboxIndicator>
+  </Checkbox>
+  <span className="fs-sm">Remember me</span>
+</div>
 ```
 
 ## Custom styling
