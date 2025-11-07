@@ -161,7 +161,7 @@ export const sidebarConfig: SidebarConfig = [
     title: "Box Model",
     items: [
       { title: "Box Sizing", slug: "box-sizing" },
-      { title: "Dimension", slug: "dimension" },
+      { title: "Dimension", slug: "dimensions" },
       { title: "Height", slug: "height" },
       { title: "Margin", slug: "margin" },
       { title: "Padding", slug: "padding" },
