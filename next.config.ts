@@ -7,7 +7,7 @@ import remarkGfm from "remark-gfm";
 
 // Load your saved theme JSONC file here and create a theme from it
 const jsoncString = fs.readFileSync(
-  new URL(`./src/utils/theme.json`, import.meta.url),
+  new URL(`./src/theme.json`, import.meta.url),
   "utf-8",
 );
 const eclipsa = ExpressiveCodeTheme.fromJSONString(jsoncString);
