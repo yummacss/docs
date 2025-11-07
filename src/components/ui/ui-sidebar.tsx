@@ -1,12 +1,12 @@
 "use client";
 
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import type {
   UISidebarConfigItem,
   UISidebarConfigSimpleItem,
 } from "@/utils/ui-sidebar";
 import { uiSidebarConfig } from "@/utils/ui-sidebar";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import SidebarLinks from "./sidebar-links";
 
 function hasChildren(
@@ -54,10 +54,11 @@ export default function UISidebar() {
                             <li key={child.slug}>
                               <Link
                                 href={href}
-                                className={`d-f ai-c g-3 fs-md ${isActive
+                                className={`d-f ai-c g-3 fs-md ${
+                                  isActive
                                     ? "tc-white"
                                     : "tc-white/70 h:tc-white"
-                                  }`}
+                                }`}
                               >
                                 {child.title}
                               </Link>
@@ -91,10 +92,11 @@ export default function UISidebar() {
                                       <li key={child.slug}>
                                         <Link
                                           href={href}
-                                          className={`d-f ai-c g-3 fs-md ${isActive
+                                          className={`d-f ai-c g-3 fs-md ${
+                                            isActive
                                               ? "tc-white"
                                               : "tc-white/70 h:tc-white"
-                                            }`}
+                                          }`}
                                         >
                                           {child.title}
                                         </Link>
@@ -114,10 +116,11 @@ export default function UISidebar() {
                               <li key={subItem.slug}>
                                 <Link
                                   href={href}
-                                  className={`d-f ai-c g-3 fs-md ${isActive
+                                  className={`d-f ai-c g-3 fs-md ${
+                                    isActive
                                       ? "tc-white"
                                       : "tc-white/70 h:tc-white"
-                                    }`}
+                                  }`}
                                 >
                                   {subItem.title}
                                 </Link>
@@ -141,8 +144,9 @@ export default function UISidebar() {
                     <li key={item.slug}>
                       <Link
                         href={href}
-                        className={`d-f ai-c g-3 ${isActive ? "tc-white" : "tc-white/70 h:tc-white"
-                          }`}
+                        className={`d-f ai-c g-3 ${
+                          isActive ? "tc-white" : "tc-white/70 h:tc-white"
+                        }`}
                       >
                         {item.title}
                       </Link>
