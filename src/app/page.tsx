@@ -27,7 +27,7 @@ export default function Home() {
         <div className="w-full" style={{ maxWidth: "72rem" }}>
           <div className="d-g lg:gtc-2 g-12 ai-fe">
             <div>
-              <a
+              <Link
                 href="https://github.com/yumma-lib/yumma-css"
                 className="text-white"
               >
@@ -37,7 +37,7 @@ export default function Home() {
                   </span>
                   <span className="fs-xs fw-500 ls-4">Star us on GitHub</span>
                 </div>
-              </a>
+              </Link>
 
               <h1 className="fs-5xl md:fs-6xl fw-400 mb-6 lh-1 tw-w">
                 Style more, type even less
