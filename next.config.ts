@@ -114,11 +114,6 @@ const nextConfig = {
         permanent: true,
       },
       {
-        source: "/docs/dimension",
-        destination: "/docs/dimensions",
-        permanent: true,
-      },
-      {
         source: "/docs/guides/react",
         destination: "/docs/installation",
         permanent: true,
