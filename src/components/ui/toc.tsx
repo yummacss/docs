@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -57,7 +58,7 @@ export default function TableOfContents() {
   }
 
   return (
-    <aside className="d-none lg:d-b lg:gc-s-3 bl-1 bc-white/5 pt-8">
+    <aside className="d-none lg:d-b lg:gc-s-3 bl-1 bc-white/5">
       <div
         className="p-st o-y-auto"
         style={{
@@ -76,12 +77,12 @@ export default function TableOfContents() {
                   key={heading.id}
                   className={heading.level === 3 ? "ml-4" : ""}
                 >
-                  <a
+                  <Link
                     href={`#${heading.id}`}
                     className={isActive ? "tc-white" : "tc-white/70 h:tc-white"}
                   >
                     {heading.text}
-                  </a>
+                  </Link>
                 </li>
               );
             })}

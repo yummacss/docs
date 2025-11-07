@@ -18,6 +18,7 @@ import {
   transformUtils,
   type Utilities,
 } from "@yummacss/api";
+import Link from "next/link";
 
 type Category =
   | "background"
@@ -142,12 +143,12 @@ export default function ApiTable({ category, name }: ApiTableProps) {
                 style={{ borderColor: "#31365e80" }}
               >
                 Something's gone wrong. Please{" "}
-                <a
+                <Link
                   href="https://github.com/yumma-lib/yumma-css-docs/issues"
                   className="tc-blue-5 h:td-u"
                 >
                   report this issue
-                </a>
+                </Link>
                 .
               </td>
             </tr>
