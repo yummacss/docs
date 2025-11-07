@@ -27,7 +27,7 @@ export default function Sidebar() {
   return (
     <aside className="d-none lg:d-b lg:gc-s-3">
       <div
-        className="p-st d-f fd-c g-8 o-y-auto pt-8"
+        className="p-st d-f fd-c g-8 o-y-auto"
         style={{
           top: "6rem",
           maxHeight: "calc(100vh - 6rem)",
