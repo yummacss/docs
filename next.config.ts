@@ -112,7 +112,7 @@ const nextConfig = {
         source: "/docs/dimension",
         destination: "/docs/dimensions",
         permanent: true,
-      }
+      },
       {
         source: "/docs/dev-api",
         destination: "/docs/api-reference",
