@@ -26,7 +26,7 @@ Learn more at [yummacss.com](https://yummacss.com)
 
 ## Built with
 
-- [@yummacss/nitro](https://www.npmjs.com/package/@yummacss/nitro)
+- [yummacss](https://www.npmjs.com/package/yummacss)
 - [lightningcss](https://www.npmjs.com/package/lightningcss)
 - [typescript](https://www.npmjs.com/package/typescript)
 
