@@ -109,6 +109,11 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: "/docs/dimension",
+        destination: "/docs/dimensions",
+        permanent: true,
+      }
+      {
         source: "/docs/dev-api",
         destination: "/docs/api-reference",
         permanent: true,
