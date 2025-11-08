@@ -21,7 +21,6 @@
     "@mdx-js/loader": "^3.1.1",
     "@mdx-js/react": "^3.1.1",
     "@next/mdx": "^16.0.0",
-    "@oramacloud/react-client": "^2.1.4",
     "@radix-ui/react-icons": "^1.3.2",
     "@types/mdx": "^2.0.13",
     "@vercel/analytics": "^1.5.0",
