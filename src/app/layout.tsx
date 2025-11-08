@@ -1,5 +1,6 @@
 import "@/styles/globals.css";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 
 const description =
@@ -38,6 +39,7 @@ export default function RootLayout({
       <body style={{ backgroundColor: "#151724" }}>
         {children}
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
