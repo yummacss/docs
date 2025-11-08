@@ -2,16 +2,17 @@
 
 import { CaretRightIcon, HamburgerMenuIcon } from "@radix-ui/react-icons";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { findCurrentPageInfo } from "@/utils/sidebar";
 import { findCurrentUIPageInfo } from "@/utils/ui-sidebar";
-import MobileSidebar from "./mobile-sidebar";
+
+const MobileSidebar = lazy(() => import("./mobile-sidebar"));
 
 export default function MobileBreadcrumb() {
   const pathname = usePathname();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  // Determine which sidebar config to use based on pathname
+
   const isUIRoute = pathname.startsWith("/ui");
   const pageInfo = isUIRoute
     ? findCurrentUIPageInfo(pathname)
@@ -58,11 +59,15 @@ export default function MobileBreadcrumb() {
         </div>
       </div>
 
-      <MobileSidebar
-        isOpen={isSidebarOpen}
-        onClose={() => setIsSidebarOpen(false)}
-        routeType={isUIRoute ? "ui" : "docs"}
-      />
+      {isSidebarOpen && (
+        <Suspense fallback={null}>
+          <MobileSidebar
+            isOpen={isSidebarOpen}
+            onClose={() => setIsSidebarOpen(false)}
+            routeType={isUIRoute ? "ui" : "docs"}
+          />
+        </Suspense>
+      )}
     </>
   );
 }
