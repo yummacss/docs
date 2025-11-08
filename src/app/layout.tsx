@@ -1,4 +1,5 @@
 import "@/styles/globals.css";
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 
 const description =
@@ -33,8 +34,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body style={{ backgroundColor: "#151724" }}>{children}</body>
+    <html lang="en">
+      <body style={{ backgroundColor: "#151724" }}>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
