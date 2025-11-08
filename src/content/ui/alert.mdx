@@ -3,9 +3,22 @@ export const meta = {
    description: "A component that displays important messages and notifications to users.",
 };
 
+import { Alert, AlertContent, AlertTitle, AlertDescription } from "@yummacss/ui";
+import { InfoCircledIcon } from "@radix-ui/react-icons";
+
 ## Example
 
 A component that displays important messages and notifications to users.
+
+<Preview resize>
+    <Alert variant="info">
+        <AlertContent>
+            <InfoCircledIcon />
+            <AlertTitle>Update available</AlertTitle>
+            <AlertDescription>A new version of Yumma UI is available.</AlertDescription>
+        </AlertContent>
+    </Alert>
+</Preview>
 
 ```tsx mark={1}
 import { Alert, AlertContent, AlertTitle, AlertDescription } from "@yummacss/ui";
