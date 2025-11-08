@@ -3,9 +3,15 @@ export const meta = {
    description: "A form control that allows users to enter and edit multiple lines of text.",
 };
 
+import { Textarea } from "@yummacss/ui";
+
 ## Example
 
 A basic implementation of the Textarea component with default styling.
+
+<Preview className="bg-white">
+    <Textarea name="message" rows={4} placeholder="Enter your message..." variant="base" />
+</Preview>
 
 ```tsx mark={1}
 import { Textarea } from "@yummacss/ui";

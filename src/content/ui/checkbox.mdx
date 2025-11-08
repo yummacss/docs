@@ -3,12 +3,26 @@ export const meta = {
    description: "A form control that allows users to select one or more options from a set.",
 };
 
+import { Checkbox, CheckboxIndicator } from "@yummacss/ui";
+import { CheckIcon } from "@radix-ui/react-icons";
+
 ## Example
 
 A form control that allows users to select one or more options from a set.
 
+<Preview className="bg-white">
+    <div className="d-if ai-c cg-2">
+      <Checkbox defaultChecked>
+        <CheckboxIndicator>
+          <CheckIcon />
+        </CheckboxIndicator>
+      </Checkbox>
+      <span className="fs-sm">Remember me</span>
+    </div>
+</Preview>
+
 ```tsx mark={1}
-import { Checkbox } from "@yummacss/ui";
+import { Checkbox, CheckboxIndicator } from "@yummacss/ui";
 import { CheckIcon } from "@radix-ui/react-icons";
 
 <div className="d-if ai-c cg-2">
