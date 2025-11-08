@@ -12,7 +12,6 @@ export default function MobileBreadcrumb() {
   const pathname = usePathname();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-
   const isUIRoute = pathname.startsWith("/ui");
   const pageInfo = isUIRoute
     ? findCurrentUIPageInfo(pathname)
