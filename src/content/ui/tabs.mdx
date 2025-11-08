@@ -3,9 +3,21 @@ export const meta = {
    description: "A navigation component that organizes content into separate sections accessible through tab headers.",
 };
 
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@yummacss/ui";
+
 ## Example
 
 A basic implementation of the Tabs component with default styling.
+
+<Preview className="bg-white">
+    <Tabs defaultValue="account">
+      <TabsList>
+        <TabsTab value="account">Home</TabsTab>
+        <TabsTab value="password">About</TabsTab>
+        <TabsTab value="contact">Contact</TabsTab>
+      </TabsList>
+    </Tabs>
+</Preview>
 
 ```tsx mark={1}
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@yummacss/ui";

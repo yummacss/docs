@@ -3,9 +3,18 @@ export const meta = {
    description: "A container component that groups related content and actions.",
 };
 
+import { Card, CardTitle, CardDescription } from "@yummacss/ui";
+
 ## Example
 
 A container component that groups related content and actions.
+
+<Preview className="bg-white">
+    <Card>
+        <CardTitle>Card Title</CardTitle>
+        <CardDescription>Card Description</CardDescription>
+    </Card>
+</Preview>
 
 ```tsx mark={1}
 import { Card, CardTitle, CardDescription } from "@yummacss/ui";
