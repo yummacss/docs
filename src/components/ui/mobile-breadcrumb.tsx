@@ -35,7 +35,7 @@ export default function MobileBreadcrumb() {
   return (
     <>
       <div
-        className="p-st t-18 zi-10 d-b lg:d-none bb-1 bc-white/5"
+        className="t-18 zi-10 d-b lg:d-none bb-1 bc-white/5"
         style={{ backgroundColor: "#151724", top: "3.5rem" }}
       >
         <div className="~sm-xxl mx-auto px-4 py-2">
