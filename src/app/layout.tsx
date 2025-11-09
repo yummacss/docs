@@ -18,12 +18,6 @@ export const metadata: Metadata = {
     shortcut: "/favicon.ico",
   },
   metadataBase: new URL("https://yummacss.com"),
-  alternates: {
-    canonical: "/",
-    languages: {
-      "en-US": "/en-US",
-    },
-  },
   openGraph: {
     images: "/og.png",
   },
