@@ -28,7 +28,7 @@ export default function Navbar({ variant, className }: NavbarProps) {
           <div className="d-f ai-c g-2">
             <Link href="/">
               <Image
-                src="/logo.png"
+                src="/logotype.png"
                 width={240}
                 height={80}
                 alt="Yumma CSS"
