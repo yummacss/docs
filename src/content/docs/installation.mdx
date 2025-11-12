@@ -7,6 +7,10 @@ export const meta = {
 
 Here's a very quick and easy way to get started with Yumma CSS.
 
+### With package managers
+
+Yumma CSS is available as a package on [npm](https://www.npmjs.com/package/yummacss). You can install it using your favorite package manager:
+
 <Stepper>
   <Step title="Install Yumma CSS">
     ```bash title="Terminal"
@@ -45,3 +49,26 @@ Here's a very quick and easy way to get started with Yumma CSS.
     ```
   </Step>
 </Stepper>
+
+### With CDN
+
+Yumma CSS is also available as a CDN. You can import it directly in your HTML file.
+
+```html title="index.html" {7, 10-12}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@yummacss/runtime@0.1.0/dist/index.iife.js"></script>
+</head>
+
+<body class="bg-black">
+    <h1 class="tc-white">Hello World</h1>
+</body>
+
+</html>
+```
+
+<br />
