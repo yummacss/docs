@@ -1,6 +1,7 @@
 import {
   GlobeIcon,
   LightningBoltIcon,
+  MixIcon,
   StarFilledIcon,
   SwitchIcon,
 } from "@radix-ui/react-icons";
@@ -58,8 +59,8 @@ export default function Home() {
                   href="/ui/introduction"
                   className="px-6 py-3 fw-600 tc-white fs-md d-f ai-c g-2"
                 >
-                  <SwitchIcon className="w-5 h-5" />
-                  Components
+                  <MixIcon className="w-5 h-5" />
+                  Playground
                 </Link>
               </div>
 
