@@ -54,21 +54,35 @@ Yumma CSS is available as a package on [npm](https://www.npmjs.com/package/yumma
 
 Yumma CSS is also available as a CDN. You can import it directly in your HTML file.
 
-```html title="index.html" {7, 10-12}
-<!DOCTYPE html>
-<html lang="en">
+<Stepper>
+  <Step title="Import Yumma CSS">
+    ```html title="index.html" {4}
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.jsdelivr.net/npm/@yummacss/runtime@0.1.0/dist/index.iife.js"></script>
+    </head>
+    ```
+  </Step>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/@yummacss/runtime@0.1.0/dist/index.iife.js"></script>
-</head>
+  <Step title="Start using Yumma CSS">
+    ```html title="index.html" {7, 10-12}
+    <!DOCTYPE html>
+    <html lang="en">
 
-<body class="bg-black">
-    <h1 class="tc-white">Hello World</h1>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.jsdelivr.net/npm/@yummacss/runtime@0.1.0/dist/index.iife.js"></script>
+    </head>
 
-</html>
-```
+    <body class="bg-black">
+        <h1 class="tc-white">Hello World</h1>
+    </body>
+
+    </html>
+    ```
+  </Step>
+</Stepper>
 
 <br />
