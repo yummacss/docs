@@ -3,24 +3,12 @@ export const meta = {
    description: "A navigation component that organizes content into separate sections accessible through tab headers.",
 };
 
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@yummacss/ui";
-
 ## Example
 
 A basic implementation of the Tabs component with default styling.
 
-<Preview className="bg-white">
-    <Tabs defaultValue="account">
-      <TabsList>
-        <TabsTab value="account">Home</TabsTab>
-        <TabsTab value="password">About</TabsTab>
-        <TabsTab value="contact">Contact</TabsTab>
-      </TabsList>
-    </Tabs>
-</Preview>
-
 ```tsx mark={1}
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@yummacss/ui";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@yummacss/react";
 
 <Tabs defaultValue="account">
   <TabsList>
@@ -64,7 +52,7 @@ Learn more about the `value` API in the [Base UI documentation](https://base-ui.
 Apply custom styles to the `<Tabs>` component.
 
 ```tsx 'className="..."'
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@yummacss/ui";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@yummacss/react";
 
 <Tabs className="...">...</Tabs>;
 ```
@@ -74,7 +62,7 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@yummacss/ui";
 Extend the `<Tabs>` component with the Base UI API.
 
 ```tsx "{...props}"
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@yummacss/ui";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@yummacss/react";
 
 <Tabs {...props}>...</Tabs>;
 ```
