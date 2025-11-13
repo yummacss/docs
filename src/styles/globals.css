@@ -9,23 +9,23 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Esteban", serif;
+    font-family: "Esteban", serif;
 }
 
 p {
-  font-family: sans-serif;
+    font-family: sans-serif;
 }
 
 /* Custom */
 
 .\~sm-xxl {
-  max-width: clamp(40rem, 80vw, 96rem);
+    max-width: clamp(40rem, 80vw, 96rem);
 }
 
 .\@h\:tc-white {
-  &:is(:where(.team):hover *) {
-    @media (hover: hover) {
-      color: white;
+    &:is(:where(.team):hover *) {
+        @media (hover: hover) {
+            color: white;
+        }
     }
-  }
 }
