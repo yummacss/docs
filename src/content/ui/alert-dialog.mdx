@@ -12,13 +12,14 @@ import { AlertDialog, AlertDialogClose, AlertDialogDescription, AlertDialogPopup
 import { Button } from "@yummacss/react";
 
 <AlertDialog>
-  <AlertDialogTrigger">Remove item</AlertDialogTrigger>
+  <AlertDialogTrigger">Discard draft</AlertDialogTrigger>
   <AlertDialogPopup>
-    <AlertDialogTitle>Are you sure?</AlertDialogTitle>
-    <AlertDialogDescription>This action cannot be undone.</AlertDialogDescription>
+    <AlertDialogTitle>Discard draft?</AlertDialogTitle>
+    <AlertDialogDescription>You can't undo this action.</AlertDialogDescription>
     <hr className="b-px bc-silver-3" />
     <div className="d-f jc-fe g-2">
       <AlertDialogClose>Cancel</AlertDialogClose>
+      <AlertDialogClose>Discard</AlertDialogClose>
     </div>
   </AlertDialogPopup>
 </AlertDialog>
