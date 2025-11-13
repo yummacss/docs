@@ -3,21 +3,12 @@ export const meta = {
   description: "A component that displays a user's profile picture or initials.",
 };
 
-import { Avatar, AvatarFallback, AvatarImage } from "@yummacss/ui";
-
 ## Example
 
 A component that displays a user's profile picture or initials.
 
-<Preview className="bg-white">
-  <Avatar className="b-1">
-    <AvatarImage src="https://images.unsplash.com/photo-1542206395-9feb3edaa68d" alt="Seline Collins" />
-    <AvatarFallback>SC</AvatarFallback>
-  </Avatar>
-</Preview>
-
 ```tsx mark={1}
-import { Avatar, AvatarFallback, AvatarImage } from "@yummacss/ui";
+import { Avatar, AvatarFallback, AvatarImage } from "@yummacss/react";
 
 <Avatar className="b-1">
   <AvatarImage src="https://images.unsplash.com/photo-1542206395-9feb3edaa68d" alt="Seline Collins" />
@@ -48,7 +39,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@yummacss/ui";
 Apply custom styles to the `<Avatar>` component.
 
 ```tsx 'className="..."'
-import { Avatar } from "@yummacss/ui";
+import { Avatar } from "@yummacss/react";
 
 <Avatar className="...">...</Avatar>;
 ```
@@ -58,7 +49,7 @@ import { Avatar } from "@yummacss/ui";
 Extend the `<Avatar>` component with the Base UI API.
 
 ```tsx "{...props}"
-import { Avatar } from "@yummacss/ui";
+import { Avatar } from "@yummacss/react";
 
 <Avatar {...props}>...</Avatar>;
 ```
