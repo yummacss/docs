@@ -3,18 +3,12 @@ export const meta = {
    description: "A component that displays a small piece of information or status indicator.",
 };
 
-import { Badge } from "@yummacss/ui";
-
 ## Example
 
 A component that displays a small piece of information or status indicator.
 
-<Preview className="bg-white">
-    <Badge variant="outline" size="xs">New</Badge>
-</Preview>
-
 ```tsx mark={1}
-import { Badge } from "@yummacss/ui";
+import { Badge } from "@yummacss/react";
 
 <Badge variant="outline" size="xs">New</Badge>
 ```
@@ -42,7 +36,7 @@ import { Badge } from "@yummacss/ui";
 Apply custom styles to the `<Badge>` component.
 
 ```tsx 'className="..."'
-import { Badge } from "@yummacss/ui";
+import { Badge } from "@yummacss/react";
 
 <Badge className="...">...</Badge>;
 ```
@@ -52,7 +46,7 @@ import { Badge } from "@yummacss/ui";
 Extend the `<Badge>` component with the native `<span>` HTML attributes.
 
 ```tsx "{...props}"
-import { Badge } from "@yummacss/ui";
+import { Badge } from "@yummacss/react";
 
 <Badge {...props}>...</Badge>;
 ```
