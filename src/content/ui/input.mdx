@@ -3,18 +3,12 @@ export const meta = {
    description: "A form control that allows users to enter and edit text data.",
 };
 
-import { Input } from "@yummacss/ui";
-
 ## Example
 
 A basic implementation of the Input component with default styling.
 
-<Preview className="bg-white">
-    <Input variant="base" type="email" placeholder="john@example.com" />
-</Preview>
-
 ```tsx mark={1}
-import { Input } from "@yummacss/ui";
+import { Input } from "@yummacss/react";
 
 <Input variant="base" type="email" placeholder="john@example.com" />
 ```
@@ -27,7 +21,7 @@ The Input component can be adapted to suit specific requirements by utilizing th
 
 > Default value is `base`
 
-```ts
+```ts '"base"'
 (property) variant?: "base" | "error" | null | undefined
 ```
 
@@ -36,7 +30,7 @@ The Input component can be adapted to suit specific requirements by utilizing th
 Apply custom styles to the `<Input>` component.
 
 ```tsx 'className="..."'
-import { Input } from "@yummacss/ui";
+import { Input } from "@yummacss/react";
 
 <Input className="..." />;
 ```
@@ -46,7 +40,7 @@ import { Input } from "@yummacss/ui";
 Extend the Input component with the Base UI API.
 
 ```tsx "{...props}"
-import { Input } from "@yummacss/ui";
+import { Input } from "@yummacss/react";
 
 <Input {...props} />;
 ```
