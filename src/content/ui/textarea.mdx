@@ -3,18 +3,12 @@ export const meta = {
    description: "A form control that allows users to enter and edit multiple lines of text.",
 };
 
-import { Textarea } from "@yummacss/ui";
-
 ## Example
 
 A basic implementation of the Textarea component with default styling.
 
-<Preview className="bg-white">
-    <Textarea name="message" rows={4} placeholder="Enter your message..." variant="base" />
-</Preview>
-
 ```tsx mark={1}
-import { Textarea } from "@yummacss/ui";
+import { Textarea } from "@yummacss/react";
 
 <Textarea name="message" rows={4} placeholder="Enter your message..." variant="base" />
 ```
@@ -25,7 +19,7 @@ import { Textarea } from "@yummacss/ui";
 
 > Default value is `base`
 
-```ts
+```ts '"base"'
 (property) variant?: "base" | "error" | null | undefined
 ```
 
@@ -34,7 +28,7 @@ import { Textarea } from "@yummacss/ui";
 Apply custom styles to the `<Textarea>` component.
 
 ```tsx 'className="..."'
-import { Textarea } from "@yummacss/ui";
+import { Textarea } from "@yummacss/react";
 
 <Textarea className="..." />;
 ```
@@ -44,7 +38,7 @@ import { Textarea } from "@yummacss/ui";
 Extend the `<Textarea>` component with the native `<textarea>` HTML attributes.
 
 ```tsx "{...props}"
-import { Textarea } from "@yummacss/ui";
+import { Textarea } from "@yummacss/react";
 
 <Textarea {...props} />;
 ```
