@@ -3,28 +3,15 @@ export const meta = {
    description: "A component that displays important messages and notifications to users.",
 };
 
-import { Alert, AlertContent, AlertTitle, AlertDescription } from "@yummacss/ui";
-import { InfoCircledIcon } from "@radix-ui/react-icons";
-
 ## Example
 
 A component that displays important messages and notifications to users.
 
-<Preview className="bg-white" resize>
-    <Alert variant="info">
-        <AlertContent>
-            <InfoCircledIcon />
-            <AlertTitle>Update available</AlertTitle>
-            <AlertDescription>A new version of Yumma UI is available.</AlertDescription>
-        </AlertContent>
-    </Alert>
-</Preview>
-
 ```tsx mark={1}
-import { Alert, AlertContent, AlertTitle, AlertDescription } from "@yummacss/ui";
+import { Alert, AlertContent, AlertTitle, AlertDescription } from "@yummacss/react";
 import { InfoCircledIcon } from "@radix-ui/react-icons";
 
-<Alert variant="info">
+<Alert>
   <AlertContent>
     <InfoCircledIcon />
     <AlertTitle>Update available</AlertTitle>
@@ -48,7 +35,7 @@ import { InfoCircledIcon } from "@radix-ui/react-icons";
 Apply custom styles to the `<Alert>` component.
 
 ```tsx 'className="..."'
-import { Alert } from "@yummacss/ui";
+import { Alert } from "@yummacss/react";
 
 <Alert className="...">...</Alert>;
 ```
@@ -58,7 +45,7 @@ import { Alert } from "@yummacss/ui";
 Extend the `<Alert>` component with the native `<div>` HTML attributes.
 
 ```tsx "{...props}"
-import { Alert } from "@yummacss/ui";
+import { Alert } from "@yummacss/react";
 
 <Alert {...props}>...</Alert>;
 ```
