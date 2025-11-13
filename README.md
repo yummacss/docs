@@ -1,4 +1,4 @@
-# [yummacss](https://www.npmjs.com/package/yummacss)
+# [@yummacss/docs](https://www.npmjs.com/package/yummacss)
 
 A CLI-first CSS framework for the web with abbreviated styles.
 
@@ -27,6 +27,9 @@ Learn more at [yummacss.com](https://yummacss.com)
 ## Built with
 
 - [yummacss](https://www.npmjs.com/package/yummacss)
+- [@yummacss/api](https://www.npmjs.com/package/@yummacss/api)
+- [@yummacss/react](https://www.npmjs.com/package/@yummacss/react)
+- [next](https://www.npmjs.com/package/next)
 - [lightningcss](https://www.npmjs.com/package/lightningcss)
 - [typescript](https://www.npmjs.com/package/typescript)
 
