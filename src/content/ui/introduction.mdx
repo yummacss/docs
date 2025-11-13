@@ -5,14 +5,14 @@ export const meta = {
 
 ## Why Yumma UI?
 
-Yumma UI is a set of accessible and mature React components built on top of Yumma CSS and [Base UI](https://baseui.com) that you can use to build your UIs super quickly. It's super minimalist, lightweight, and super customizable.
+Yumma UI is a set of accessible and mature React components built on top of Yumma CSS and [Base UI](https://baseui.com) and UI Blocks that you can use to build your UIs super quickly. It's super minimalist, lightweight, and super customizable.
 
-## Installing Yumma UI
+## Setting up Yumma UI for React
 
 <Steps>
     <Step title="Install Yumma UI">
         ```bash title="Terminal"
-        pnpm add @yummacss/ui
+        pnpm add @yummacss/react
         ```
     </Step>
 
@@ -20,7 +20,7 @@ Yumma UI is a set of accessible and mature React components built on top of Yumm
         Import the Yumma UI styles in your project.
 
         ```js title="main.ts" mark={1}
-        import "@yummacss/ui/styles.css";
+        import "@yummacss/react/styles.css";
         import "./globals.css";
         ```
     </Step>
@@ -29,7 +29,7 @@ Yumma UI is a set of accessible and mature React components built on top of Yumm
         Start using Yumma UI components in your project.
 
         ```js title="App.tsx" mark={1}
-        import { Button } from "@yummacss/ui";
+        import { Button } from "@yummacss/react";
 
         function App() {
             return <Button>Click me</Button>;
