@@ -3,21 +3,12 @@ export const meta = {
    description: "A container component that groups related content and actions.",
 };
 
-import { Card, CardTitle, CardDescription } from "@yummacss/ui";
-
 ## Example
 
 A container component that groups related content and actions.
 
-<Preview className="bg-white">
-    <Card>
-        <CardTitle>Card Title</CardTitle>
-        <CardDescription>Card Description</CardDescription>
-    </Card>
-</Preview>
-
 ```tsx mark={1}
-import { Card, CardTitle, CardDescription } from "@yummacss/ui";
+import { Card, CardTitle, CardDescription } from "@yummacss/react";
 
 <Card>
   <CardTitle>Card Title</CardTitle>
@@ -30,7 +21,7 @@ import { Card, CardTitle, CardDescription } from "@yummacss/ui";
 Apply custom styles to the `<Card>` component.
 
 ```tsx 'className="..."'
-import { Card } from "@yummacss/ui";
+import { Card } from "@yummacss/react";
 
 <Card className="...">...</Card>;
 ```
@@ -40,7 +31,7 @@ import { Card } from "@yummacss/ui";
 Extend the `<Card>` component with native `<div>` HTML attributes.
 
 ```tsx "{...props}"
-import { Card } from "@yummacss/ui";
+import { Card } from "@yummacss/react";
 
 <Card {...props}>...</Card>;
 ```
