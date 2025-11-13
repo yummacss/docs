@@ -697,10 +697,6 @@ summary {
   box-shadow: 1px 3px 5px -1px #0000001a;
 }
 
-.bs-none {
-  box-shadow: none;
-}
-
 .bs-sm {
   box-shadow: 1px 3px 5px -2px #0000001a;
 }
