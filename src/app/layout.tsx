@@ -30,9 +30,6 @@ export default function RootLayout({
 }>) {
   return (
     <html suppressHydrationWarning lang="en">
-      <head>
-        <meta name="algolia-site-verification" content="6703FF32492BC524" />
-      </head>
       <body style={{ backgroundColor: "#151724" }}>
         {children}
         <Analytics />
