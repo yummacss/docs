@@ -3,18 +3,12 @@ export const meta = {
    description: "An interactive element used to trigger user actions.",
 };
 
-import { Button } from "@yummacss/ui";
-
 ## Example
 
 An interactive element used to trigger user actions.
 
-<Preview className="bg-white">
-    <Button variant="base" size="md">Login</Button>
-</Preview>
-
 ```tsx mark={1}
-import { Button } from "@yummacss/ui";
+import { Button } from "@yummacss/react";
 
 <Button variant="base" size="md">Login</Button>
 ```
@@ -25,7 +19,7 @@ import { Button } from "@yummacss/ui";
 
 > Default value is `base`
 
-```ts
+```ts '"base"'
 (property) variant?: "link" | "destructive" | "base" | "ghost" | "outlined" | null | undefined
 ```
 
@@ -33,7 +27,7 @@ import { Button } from "@yummacss/ui";
 
 > Default value is `md`
 
-```ts
+```ts '"md"'
 (property) size?: "sm" | "md" | "lg" | null | undefined
 ```
 
@@ -42,7 +36,7 @@ import { Button } from "@yummacss/ui";
 Apply custom styles to the `<Button>` component.
 
 ```tsx 'className="..."'
-import { Button } from "@yummacss/ui";
+import { Button } from "@yummacss/react";
 
 <Button className="...">...</Button>;
 ```
@@ -52,7 +46,7 @@ import { Button } from "@yummacss/ui";
 Extend the `<Button>` component with the native `<button>` HTML attributes.
 
 ```tsx "onClick={() => alert("Button clicked!")}"
-import { Button } from "@yummacss/ui";
+import { Button } from "@yummacss/react";
 
 <Button {...props}>...</Button>;
 ```
