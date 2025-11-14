@@ -1807,6 +1807,10 @@ summary {
   max-height: 16rem;
 }
 
+.max-h-80 {
+  max-height: 20rem;
+}
+
 .max-h-90 {
   max-height: 22.5rem;
 }
@@ -3232,10 +3236,6 @@ summary {
 
 .w-80 {
   width: 20rem;
-}
-
-.w-84 {
-  width: 21rem;
 }
 
 .w-96 {
