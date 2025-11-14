@@ -389,10 +389,6 @@ summary {
   border-right-color: #40429c;
 }
 
-.bc-red {
-  border-color: #d73d3d;
-}
-
 .bc-s {
   border-collapse: separate;
 }
@@ -481,6 +477,10 @@ summary {
   background-color: #1f448033;
 }
 
+.bg-gray {
+  background-color: #606773;
+}
+
 .bg-green {
   background-color: #1fb155;
 }
@@ -543,10 +543,6 @@ summary {
 
 .bg-red {
   background-color: #d73d3d;
-}
-
-.bg-red-2 {
-  background-color: #f3c5c5;
 }
 
 .bg-red-3\/50 {
@@ -2976,10 +2972,6 @@ summary {
 
 .tc-indigo-8 {
   color: #40429c;
-}
-
-.tc-red {
-  color: #d73d3d;
 }
 
 .tc-slate {
