@@ -11,11 +11,20 @@ export const meta = {
 
 The background image will be repeated both horizontally and vertically.
 
-```html live "br-r" layout="/src/layouts/inlineLightOnly.astro"
-<div
-  class="br-r bp-c h-s"
-  style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWJvbWIiPjxjaXJjbGUgY3g9IjExIiBjeT0iMTMiIHI9IjkiLz48cGF0aCBkPSJNMTQuMzUgNC42NSAxNi4zIDIuN2EyLjQxIDIuNDEgMCAwIDEgMy40IDBsMS42IDEuNmEyLjQgMi40IDAgMCAxIDAgMy40bC0xLjk1IDEuOTUiLz48cGF0aCBkPSJtMjIgMi0xLjUgMS41Ii8+PC9zdmc+');"
->
+<Preview className="bg-white">
+  <div
+    className="br-r bp-c h-s"
+    style={{
+      backgroundImage:
+        "url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWJvbWIiPjxjaXJjbGUgY3g9IjExIiBjeT0iMTMiIHI9IjkiLz48cGF0aCBkPSJNMTQuMzUgNC42NSAxNi4zIDIuN2EyLjQxIDIuNDEgMCAwIDEgMy40IDBsMS42IDEuNmEyLjQgMi40IDAgMCAxIDAgMy40bC0xLjk1IDEuOTUiLz48cGF0aCBkPSJtMjIgMi0xLjUgMS41Ii8+PC9zdmc+')",
+    }}
+  >
+    <div className="p-10"></div>
+  </div>
+</Preview>
+
+```html "br-r" layout="/src/layouts/inlineLightOnly.astro"
+<div class="br-r bp-c h-s" style="background-image: url('...');">
   <div class="p-10"></div>
 </div>
 ```
@@ -24,11 +33,20 @@ The background image will be repeated both horizontally and vertically.
 
 The background image will not be repeated.
 
-```html live "br-nr" layout="/src/layouts/inlineLightOnly.astro"
-<div
-  class="br-nr bp-c h-s"
-  style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWJvbWIiPjxjaXJjbGUgY3g9IjExIiBjeT0iMTMiIHI9IjkiLz48cGF0aCBkPSJNMTQuMzUgNC42NSAxNi4zIDIuN2EyLjQxIDIuNDEgMCAwIDEgMy40IDBsMS42IDEuNmEyLjQgMi40IDAgMCAxIDAgMy40bC0xLjk1IDEuOTUiLz48cGF0aCBkPSJtMjIgMi0xLjUgMS41Ii8+PC9zdmc+');"
->
+<Preview className="bg-white">
+  <div
+    className="br-nr bp-c h-s"
+    style={{
+      backgroundImage:
+        "url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWJvbWIiPjxjaXJjbGUgY3g9IjExIiBjeT0iMTMiIHI9IjkiLz48cGF0aCBkPSJNMTQuMzUgNC42NSAxNi4zIDIuN2EyLjQxIDIuNDEgMCAwIDEgMy40IDBsMS42IDEuNmEyLjQgMi40IDAgMCAxIDAgMy40bC0xLjk1IDEuOTUiLz48cGF0aCBkPSJtMjIgMi0xLjUgMS41Ii8+PC9zdmc+')",
+    }}
+  >
+    <div className="p-10"></div>
+  </div>
+</Preview>
+
+```html "br-nr" layout="/src/layouts/inlineLightOnly.astro"
+<div class="br-nr bp-c h-s" style="background-image: url('...');">
   <div class="p-10"></div>
 </div>
 ```
@@ -37,11 +55,20 @@ The background image will not be repeated.
 
 The background image will be repeated and resized to fit the area.
 
-```html live "br-ro" layout="/src/layouts/inlineLightOnly.astro"
-<div
-  class="br-ro bp-c h-s"
-  style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWJvbWIiPjxjaXJjbGUgY3g9IjExIiBjeT0iMTMiIHI9IjkiLz48cGF0aCBkPSJNMTQuMzUgNC42NSAxNi4zIDIuN2EyLjQxIDIuNDEgMCAwIDEgMy40IDBsMS42IDEuNmEyLjQgMi40IDAgMCAxIDAgMy40bC0xLjk1IDEuOTUiLz48cGF0aCBkPSJtMjIgMi0xLjUgMS41Ii8+PC9zdmc+');"
->
+<Preview className="bg-white">
+  <div
+    className="br-ro bp-c h-s"
+    style={{
+      backgroundImage:
+        "url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWJvbWIiPjxjaXJjbGUgY3g9IjExIiBjeT0iMTMiIHI9IjkiLz48cGF0aCBkPSJNMTQuMzUgNC42NSAxNi4zIDIuN2EyLjQxIDIuNDEgMCAwIDEgMy40IDBsMS42IDEuNmEyLjQgMi40IDAgMCAxIDAgMy40bC0xLjk1IDEuOTUiLz48cGF0aCBkPSJtMjIgMi0xLjUgMS41Ii8+PC9zdmc+')",
+    }}
+  >
+    <div className="p-10"></div>
+  </div>
+</Preview>
+
+```html "br-ro" layout="/src/layouts/inlineLightOnly.astro"
+<div class="br-ro bp-c h-s" style="background-image: url('...');">
   <div class="p-10"></div>
 </div>
 ```
@@ -50,11 +77,20 @@ The background image will be repeated and resized to fit the area.
 
 The background image will be repeated horizontally only.
 
-```html live "br-rx" layout="/src/layouts/inlineLightOnly.astro"
-<div
-  class="br-rx bp-c h-s"
-  style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWJvbWIiPjxjaXJjbGUgY3g9IjExIiBjeT0iMTMiIHI9IjkiLz48cGF0aCBkPSJNMTQuMzUgNC42NSAxNi4zIDIuN2EyLjQxIDIuNDEgMCAwIDEgMy40IDBsMS42IDEuNmEyLjQgMi40IDAgMCAxIDAgMy40bC0xLjk1IDEuOTUiLz48cGF0aCBkPSJtMjIgMi0xLjUgMS41Ii8+PC9zdmc+');"
->
+<Preview className="bg-white">
+  <div
+    className="br-rx bp-c h-s"
+    style={{
+      backgroundImage:
+        "url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWJvbWIiPjxjaXJjbGUgY3g9IjExIiBjeT0iMTMiIHI9IjkiLz48cGF0aCBkPSJNMTQuMzUgNC42NSAxNi4zIDIuN2EyLjQxIDIuNDEgMCAwIDEgMy40IDBsMS42IDEuNmEyLjQgMi40IDAgMCAxIDAgMy40bC0xLjk1IDEuOTUiLz48cGF0aCBkPSJtMjIgMi0xLjUgMS41Ii8+PC9zdmc+')",
+    }}
+  >
+    <div className="p-10"></div>
+  </div>
+</Preview>
+
+```html "br-rx" layout="/src/layouts/inlineLightOnly.astro"
+<div class="br-rx bp-c h-s" style="background-image: url('...');">
   <div class="p-10"></div>
 </div>
 ```
@@ -63,11 +99,20 @@ The background image will be repeated horizontally only.
 
 The background image will be repeated vertically only.
 
-```html live "br-ry" layout="/src/layouts/inlineLightOnly.astro"
-<div
-  class="br-ry bp-c h-s"
-  style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWJvbWIiPjxjaXJjbGUgY3g9IjExIiBjeT0iMTMiIHI9IjkiLz48cGF0aCBkPSJNMTQuMzUgNC42NSAxNi4zIDIuN2EyLjQxIDIuNDEgMCAwIDEgMy40IDBsMS42IDEuNmEyLjQgMi40IDAgMCAxIDAgMy40bC0xLjk1IDEuOTUiLz48cGF0aCBkPSJtMjIgMi0xLjUgMS41Ii8+PC9zdmc+');"
->
+<Preview className="bg-white">
+  <div
+    className="br-ry bp-c h-s"
+    style={{
+      backgroundImage:
+        "url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWJvbWIiPjxjaXJjbGUgY3g9IjExIiBjeT0iMTMiIHI9IjkiLz48cGF0aCBkPSJNMTQuMzUgNC42NSAxNi4zIDIuN2EyLjQxIDIuNDEgMCAwIDEgMy40IDBsMS42IDEuNmEyLjQgMi40IDAgMCAxIDAgMy40bC0xLjk1IDEuOTUiLz48cGF0aCBkPSJtMjIgMi0xLjUgMS41Ii8+PC9zdmc+')",
+    }}
+  >
+    <div className="p-10"></div>
+  </div>
+</Preview>
+
+```html "br-ry" layout="/src/layouts/inlineLightOnly.astro"
+<div class="br-ry bp-c h-s" style="background-image: url('...');">
   <div class="p-10"></div>
 </div>
 ```
@@ -76,11 +121,20 @@ The background image will be repeated vertically only.
 
 The background image will be repeated and spaced evenly.
 
-```html live "br-s" layout="/src/layouts/inlineLightOnly.astro"
-<div
-  class="br-s bp-c h-s"
-  style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWJvbWIiPjxjaXJjbGUgY3g9IjExIiBjeT0iMTMiIHI9IjkiLz48cGF0aCBkPSJNMTQuMzUgNC42NSAxNi4zIDIuN2EyLjQxIDIuNDEgMCAwIDEgMy40IDBsMS42IDEuNmEyLjQgMi40IDAgMCAxIDAgMy40bC0xLjk1IDEuOTUiLz48cGF0aCBkPSJtMjIgMi0xLjUgMS41Ii8+PC9zdmc+');"
->
+<Preview className="bg-white">
+  <div
+    className="br-s bp-c h-s"
+    style={{
+      backgroundImage:
+        "url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWJvbWIiPjxjaXJjbGUgY3g9IjExIiBjeT0iMTMiIHI9IjkiLz48cGF0aCBkPSJNMTQuMzUgNC42NSAxNi4zIDIuN2EyLjQxIDIuNDEgMCAwIDEgMy40IDBsMS42IDEuNmEyLjQgMi40IDAgMCAxIDAgMy40bC0xLjk1IDEuOTUiLz48cGF0aCBkPSJtMjIgMi0xLjUgMS41Ii8+PC9zdmc+')",
+    }}
+  >
+    <div className="p-10"></div>
+  </div>
+</Preview>
+
+```html "br-s" layout="/src/layouts/inlineLightOnly.astro"
+<div class="br-s bp-c h-s" style="background-image: url('...');">
   <div class="p-10"></div>
 </div>
 ```
