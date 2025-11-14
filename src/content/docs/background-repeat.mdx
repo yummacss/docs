@@ -11,9 +11,11 @@ export const meta = {
 
 The background image will be repeated both horizontally and vertically.
 
-{/* biome-ignore */}
 ```html live "br-r" layout="/src/layouts/inlineLightOnly.astro"
-<div class="br-r bp-c h-s" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWJvbWIiPjxjaXJjbGUgY3g9IjExIiBjeT0iMTMiIHI9IjkiLz48cGF0aCBkPSJNMTQuMzUgNC42NSAxNi4zIDIuN2EyLjQxIDIuNDEgMCAwIDEgMy40IDBsMS42IDEuNmEyLjQgMi40IDAgMCAxIDAgMy40bC0xLjk1IDEuOTUiLz48cGF0aCBkPSJtMjIgMi0xLjUgMS41Ii8+PC9zdmc+');">
+<div
+  class="br-r bp-c h-s"
+  style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWJvbWIiPjxjaXJjbGUgY3g9IjExIiBjeT0iMTMiIHI9IjkiLz48cGF0aCBkPSJNMTQuMzUgNC42NSAxNi4zIDIuN2EyLjQxIDIuNDEgMCAwIDEgMy40IDBsMS42IDEuNmEyLjQgMi40IDAgMCAxIDAgMy40bC0xLjk1IDEuOTUiLz48cGF0aCBkPSJtMjIgMi0xLjUgMS41Ii8+PC9zdmc+');"
+>
   <div class="p-10"></div>
 </div>
 ```
@@ -22,9 +24,11 @@ The background image will be repeated both horizontally and vertically.
 
 The background image will not be repeated.
 
-{/* biome-ignore */}
 ```html live "br-nr" layout="/src/layouts/inlineLightOnly.astro"
-<div class="br-nr bp-c h-s" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWJvbWIiPjxjaXJjbGUgY3g9IjExIiBjeT0iMTMiIHI9IjkiLz48cGF0aCBkPSJNMTQuMzUgNC42NSAxNi4zIDIuN2EyLjQxIDIuNDEgMCAwIDEgMy40IDBsMS42IDEuNmEyLjQgMi40IDAgMCAxIDAgMy40bC0xLjk1IDEuOTUiLz48cGF0aCBkPSJtMjIgMi0xLjUgMS41Ii8+PC9zdmc+');">
+<div
+  class="br-nr bp-c h-s"
+  style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWJvbWIiPjxjaXJjbGUgY3g9IjExIiBjeT0iMTMiIHI9IjkiLz48cGF0aCBkPSJNMTQuMzUgNC42NSAxNi4zIDIuN2EyLjQxIDIuNDEgMCAwIDEgMy40IDBsMS42IDEuNmEyLjQgMi40IDAgMCAxIDAgMy40bC0xLjk1IDEuOTUiLz48cGF0aCBkPSJtMjIgMi0xLjUgMS41Ii8+PC9zdmc+');"
+>
   <div class="p-10"></div>
 </div>
 ```
@@ -33,9 +37,11 @@ The background image will not be repeated.
 
 The background image will be repeated and resized to fit the area.
 
-{/* biome-ignore */}
 ```html live "br-ro" layout="/src/layouts/inlineLightOnly.astro"
-<div class="br-ro bp-c h-s" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWJvbWIiPjxjaXJjbGUgY3g9IjExIiBjeT0iMTMiIHI9IjkiLz48cGF0aCBkPSJNMTQuMzUgNC42NSAxNi4zIDIuN2EyLjQxIDIuNDEgMCAwIDEgMy40IDBsMS42IDEuNmEyLjQgMi40IDAgMCAxIDAgMy40bC0xLjk1IDEuOTUiLz48cGF0aCBkPSJtMjIgMi0xLjUgMS41Ii8+PC9zdmc+');">
+<div
+  class="br-ro bp-c h-s"
+  style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWJvbWIiPjxjaXJjbGUgY3g9IjExIiBjeT0iMTMiIHI9IjkiLz48cGF0aCBkPSJNMTQuMzUgNC42NSAxNi4zIDIuN2EyLjQxIDIuNDEgMCAwIDEgMy40IDBsMS42IDEuNmEyLjQgMi40IDAgMCAxIDAgMy40bC0xLjk1IDEuOTUiLz48cGF0aCBkPSJtMjIgMi0xLjUgMS41Ii8+PC9zdmc+');"
+>
   <div class="p-10"></div>
 </div>
 ```
@@ -44,9 +50,11 @@ The background image will be repeated and resized to fit the area.
 
 The background image will be repeated horizontally only.
 
-{/* biome-ignore */}
 ```html live "br-rx" layout="/src/layouts/inlineLightOnly.astro"
-<div class="br-rx bp-c h-s" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWJvbWIiPjxjaXJjbGUgY3g9IjExIiBjeT0iMTMiIHI9IjkiLz48cGF0aCBkPSJNMTQuMzUgNC42NSAxNi4zIDIuN2EyLjQxIDIuNDEgMCAwIDEgMy40IDBsMS42IDEuNmEyLjQgMi40IDAgMCAxIDAgMy40bC0xLjk1IDEuOTUiLz48cGF0aCBkPSJtMjIgMi0xLjUgMS41Ii8+PC9zdmc+');">
+<div
+  class="br-rx bp-c h-s"
+  style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWJvbWIiPjxjaXJjbGUgY3g9IjExIiBjeT0iMTMiIHI9IjkiLz48cGF0aCBkPSJNMTQuMzUgNC42NSAxNi4zIDIuN2EyLjQxIDIuNDEgMCAwIDEgMy40IDBsMS42IDEuNmEyLjQgMi40IDAgMCAxIDAgMy40bC0xLjk1IDEuOTUiLz48cGF0aCBkPSJtMjIgMi0xLjUgMS41Ii8+PC9zdmc+');"
+>
   <div class="p-10"></div>
 </div>
 ```
@@ -55,9 +63,11 @@ The background image will be repeated horizontally only.
 
 The background image will be repeated vertically only.
 
-{/* biome-ignore */}
 ```html live "br-ry" layout="/src/layouts/inlineLightOnly.astro"
-<div class="br-ry bp-c h-s" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWJvbWIiPjxjaXJjbGUgY3g9IjExIiBjeT0iMTMiIHI9IjkiLz48cGF0aCBkPSJNMTQuMzUgNC42NSAxNi4zIDIuN2EyLjQxIDIuNDEgMCAwIDEgMy40IDBsMS42IDEuNmEyLjQgMi40IDAgMCAxIDAgMy40bC0xLjk1IDEuOTUiLz48cGF0aCBkPSJtMjIgMi0xLjUgMS41Ii8+PC9zdmc+');">
+<div
+  class="br-ry bp-c h-s"
+  style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWJvbWIiPjxjaXJjbGUgY3g9IjExIiBjeT0iMTMiIHI9IjkiLz48cGF0aCBkPSJNMTQuMzUgNC42NSAxNi4zIDIuN2EyLjQxIDIuNDEgMCAwIDEgMy40IDBsMS42IDEuNmEyLjQgMi40IDAgMCAxIDAgMy40bC0xLjk1IDEuOTUiLz48cGF0aCBkPSJtMjIgMi0xLjUgMS41Ii8+PC9zdmc+');"
+>
   <div class="p-10"></div>
 </div>
 ```
@@ -66,9 +76,11 @@ The background image will be repeated vertically only.
 
 The background image will be repeated and spaced evenly.
 
-{/* biome-ignore */}
 ```html live "br-s" layout="/src/layouts/inlineLightOnly.astro"
-<div class="br-s bp-c h-s" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWJvbWIiPjxjaXJjbGUgY3g9IjExIiBjeT0iMTMiIHI9IjkiLz48cGF0aCBkPSJNMTQuMzUgNC42NSAxNi4zIDIuN2EyLjQxIDIuNDEgMCAwIDEgMy40IDBsMS42IDEuNmEyLjQgMi40IDAgMCAxIDAgMy40bC0xLjk1IDEuOTUiLz48cGF0aCBkPSJtMjIgMi0xLjUgMS41Ii8+PC9zdmc+');">
+<div
+  class="br-s bp-c h-s"
+  style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWJvbWIiPjxjaXJjbGUgY3g9IjExIiBjeT0iMTMiIHI9IjkiLz48cGF0aCBkPSJNMTQuMzUgNC42NSAxNi4zIDIuN2EyLjQxIDIuNDEgMCAwIDEgMy40IDBsMS42IDEuNmEyLjQgMi40IDAgMCAxIDAgMy40bC0xLjk1IDEuOTUiLz48cGF0aCBkPSJtMjIgMi0xLjUgMS41Ii8+PC9zdmc+');"
+>
   <div class="p-10"></div>
 </div>
 ```
