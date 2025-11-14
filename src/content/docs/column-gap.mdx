@@ -7,11 +7,19 @@ export const meta = {
 
 The element will have a uniform spacing of `2.5rem` between its columns.
 
-```html live "cg-10" layout="/src/layouts/inline.astro"
-<div class="cg-10 d-g gtc-3 tc-white" id="area">
-  <div class="ai-c bg-indigo d-f jc-c p-4 rad-1">A</div>
-  <div class="ai-c bg-indigo d-f jc-c p-4 rad-1">B</div>
-  <div class="ai-c bg-indigo d-f jc-c p-4 rad-1">C</div>
+<Preview>
+  <div className="cg-10 d-g gtc-3 tc-white" id="area">
+    <div className="ai-c bg-indigo d-f jc-c d-16">A</div>
+    <div className="ai-c bg-indigo d-f jc-c d-16">B</div>
+    <div className="ai-c bg-indigo d-f jc-c d-16">C</div>
+  </div>
+</Preview>
+
+```html "cg-10"
+<div class="cg-10 d-g gtc-3 tc-white">
+  <div class="ai-c bg-indigo d-f jc-c d-16">A</div>
+  <div class="ai-c bg-indigo d-f jc-c d-16">B</div>
+  <div class="ai-c bg-indigo d-f jc-c d-16">C</div>
 </div>
 ```
 
