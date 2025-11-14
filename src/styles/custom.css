@@ -39,25 +39,9 @@
 }
 
 #area {
-  background-color: light-dark(var(--sl-color-gray-8), var(--sl-color-gray-6));
-
-  background-image:
-    repeating-linear-gradient(45deg,
-      light-dark(#d3d5e3, #31365e) 25%,
-      transparent 25%,
-      transparent 75%,
-      light-dark(#d3d5e3, #31365e) 75%,
-      light-dark(#d3d5e3, #31365e)),
-    repeating-linear-gradient(45deg,
-      light-dark(#d3d5e3, #31365e) 25%,
-      var(--sl-color-black) 25%,
-      var(--sl-color-black) 75%,
-      light-dark(#d3d5e3, #31365e) 75%,
-      light-dark(#d3d5e3, #31365e));
-  background-position:
-    0 0,
-    8px 8px;
-  background-size: 16px 16px;
+  background-color: #151724;
+  background-size: 10px 10px;
+  background-image: repeating-linear-gradient(45deg, #31365e 0, #31365e 1px, #151724 0, #151724 50%);
 }
 
 /* Scrollbar styling for sidebar and TOC */
