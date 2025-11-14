@@ -309,6 +309,10 @@ summary {
   border-bottom-width: 1px;
 }
 
+.bb-2 {
+  border-bottom-width: 2px;
+}
+
 .bb-3 {
   border-bottom-width: 3px;
 }
@@ -711,6 +715,10 @@ summary {
 
 .bt-1 {
   border-top-width: 1px;
+}
+
+.bt-2 {
+  border-top-width: 2px;
 }
 
 .bt-3 {
