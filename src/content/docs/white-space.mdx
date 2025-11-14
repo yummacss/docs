@@ -11,11 +11,14 @@ export const meta = {
 
 The text will wrap normally, and multiple spaces will be collapsed into a single space.
 
-{/* biome-ignore */}
 ```html live "ws-n" layout="/src/layouts/inline.astro"
 <div class="bg-indigo-1 p-4 rad-1">
   <div class="p-4 bg-white rad-1">
-    <p class="tc-slate fs-lg ws-n">Hi,    Anne.    It's    finally    springtime    here    on    Earth!    I    can't    stand    windy    or    cold    days,    so    I'm    very    excited    for    the    spring.    There    are    so    many    beautiful,    colorful    trees    where    I    live.    I'll    try    to    send    you    some    pictures    I    took    with    the    camera    you    gave    me    for    my    birthday.    I've    been    a    little    under    the    weather    lately,    but    I'll    bounce    back    in    no    time    so    we    can    meet    up    and    hug    each    other    again.</p>
+    <p class="tc-slate fs-lg ws-n">
+      Hi, Anne. It's finally springtime here on Earth! I can't stand windy or cold days, so I'm very excited for the spring. There are so many beautiful,
+      colorful trees where I live. I'll try to send you some pictures I took with the camera you gave me for my birthday. I've been a little under the weather
+      lately, but I'll bounce back in no time so we can meet up and hug each other again.
+    </p>
   </div>
 </div>
 ```
@@ -24,11 +27,14 @@ The text will wrap normally, and multiple spaces will be collapsed into a single
 
 The text will respect spaces and line breaks, allowing for wrapping at spaces.
 
-{/* biome-ignore */}
 ```html live "ws-bs" layout="/src/layouts/inline.astro"
 <div class="bg-indigo-1 p-4 rad-1">
   <div class="p-4 bg-white rad-1">
-    <p class="tc-slate fs-lg ws-bs">Hi,    Anne.    It's    finally    springtime    here    on    Earth!    I    can't    stand    windy    or    cold    days,    so    I'm    very    excited    for    the    spring.    There    are    so    many    beautiful,    colorful    trees    where    I    live.    I'll    try    to    send    you    some    pictures    I    took    with    the    camera    you    gave    me    for    my    birthday.    I've    been    a    little    under    the    weather    lately,    but    I'll    bounce    back    in    no    time    so    we    can    meet    up    and    hug    each    other    again.</p>
+    <p class="tc-slate fs-lg ws-bs">
+      Hi, Anne. It's finally springtime here on Earth! I can't stand windy or cold days, so I'm very excited for the spring. There are so many beautiful,
+      colorful trees where I live. I'll try to send you some pictures I took with the camera you gave me for my birthday. I've been a little under the weather
+      lately, but I'll bounce back in no time so we can meet up and hug each other again.
+    </p>
   </div>
 </div>
 ```
@@ -37,11 +43,14 @@ The text will respect spaces and line breaks, allowing for wrapping at spaces.
 
 The text will not wrap to the next line, and it will overflow the container if it exceeds the width.
 
-{/* biome-ignore */}
 ```html live "ws-nw" layout="/src/layouts/inline.astro"
 <div class="bg-indigo-1 p-4 rad-1">
   <div class="p-4 bg-white rad-1 o-x-auto">
-    <p class="tc-slate fs-lg ws-nw">Hi,    Anne.    It's    finally    springtime    here    on    Earth!    I    can't    stand    windy    or    cold    days,    so    I'm    very    excited    for    the    spring.    There    are    so    many    beautiful,    colorful    trees    where    I    live.    I'll    try    to    send    you    some    pictures    I    took    with    the    camera    you    gave    me    for    my    birthday.    I've    been    a    little    under    the    weather    lately,    but    I'll    bounce    back    in    no    time    so    we    can    meet    up    and    hug    each    other    again.</p>
+    <p class="tc-slate fs-lg ws-nw">
+      Hi, Anne. It's finally springtime here on Earth! I can't stand windy or cold days, so I'm very excited for the spring. There are so many beautiful,
+      colorful trees where I live. I'll try to send you some pictures I took with the camera you gave me for my birthday. I've been a little under the weather
+      lately, but I'll bounce back in no time so we can meet up and hug each other again.
+    </p>
   </div>
 </div>
 ```
@@ -50,16 +59,13 @@ The text will not wrap to the next line, and it will overflow the container if i
 
 The text will be displayed as is, preserving spaces and line breaks.
 
-{/* biome-ignore */}
 ```html live "ws-p" layout="/src/layouts/inline.astro"
 <div class="bg-indigo-1 p-4 rad-1">
   <div class="p-4 bg-white rad-1">
-    <p class="tc-slate fs-lg ws-p">Hi,    Anne.    It's    finally    springtime    here    on    Earth!
-It    is    a    well-known    pangram,
-    I    can't    stand    windy    or    cold    days,
-        so    I'm    very    excited    for    the    spring.
-There    are    so    many    beautiful,    colorful    trees    where    I    live.
-    I'll    try    to    send    you    some    pictures    I    took    with    the    camera    you    gave    me    for    my    birthday.
+    <p class="tc-slate fs-lg ws-p">
+      Hi, Anne. It's finally springtime here on Earth! It is a well-known pangram, I can't stand windy or cold days, so I'm very excited for the spring. There
+      are so many beautiful, colorful trees where I live. I'll try to send you some pictures I took with the camera you gave me for my birthday.
+    </p>
   </div>
 </div>
 ```
@@ -68,15 +74,13 @@ There    are    so    many    beautiful,    colorful    trees    where    I    l
 
 The text will preserve line breaks but collapse multiple spaces into a single space.
 
-{/* biome-ignore */}
 ```html live "ws-pl" layout="/src/layouts/inline.astro"
 <div class="bg-indigo-1 p-4 rad-1">
   <div class="p-4 bg-white rad-1">
-    <p class="tc-slate fs-lg ws-pl">Hi,    Anne.    It's    finally    springtime    here    on    Earth!
-      I    can't    stand    windy    or    cold    days,    so    I'm    very
-      excited    for    the    spring.    There    are    so    many    beautiful,    colorful    trees    where    I    live.
-      I'll    try    to    send    you    some    pictures    I    took    with    the    camera    you    gave    me    for    my    birthday.
-      I've    been    a    little    under    the    weather    lately,    but    I'll    bounce    back    in    no    time    so    we    can    meet    up    and    hug    each    other    again.
+    <p class="tc-slate fs-lg ws-pl">
+      Hi, Anne. It's finally springtime here on Earth! I can't stand windy or cold days, so I'm very excited for the spring. There are so many beautiful,
+      colorful trees where I live. I'll try to send you some pictures I took with the camera you gave me for my birthday. I've been a little under the weather
+      lately, but I'll bounce back in no time so we can meet up and hug each other again.
     </p>
   </div>
 </div>
@@ -86,11 +90,14 @@ The text will preserve line breaks but collapse multiple spaces into a single sp
 
 The text will preserve spaces and line breaks, and it will wrap when necessary.
 
-{/* biome-ignore */}
 ```html live "ws-pw" layout="/src/layouts/inline.astro"
 <div class="bg-indigo-1 p-4 rad-1">
   <div class="p-4 bg-white rad-1">
-    <p class="tc-slate fs-lg ws-pw">Hi,    Anne.    It's    finally    springtime    here    on    Earth!    I    can't    stand    windy    or    cold    days,    so    I'm    very    excited    for    the    spring.    There    are    so    many    beautiful,    colorful    trees    where    I    live.    I'll    try    to    send    you    some    pictures    I    took    with    the    camera    you    gave    me    for    my    birthday.    I've    been    a    little    under    the    weather    lately,    but    I'll    bounce    back    in    no    time    so    we    can    meet    up    and    hug    each    other    again.</p>
+    <p class="tc-slate fs-lg ws-pw">
+      Hi, Anne. It's finally springtime here on Earth! I can't stand windy or cold days, so I'm very excited for the spring. There are so many beautiful,
+      colorful trees where I live. I'll try to send you some pictures I took with the camera you gave me for my birthday. I've been a little under the weather
+      lately, but I'll bounce back in no time so we can meet up and hug each other again.
+    </p>
   </div>
 </div>
 ```
