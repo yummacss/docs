@@ -834,7 +834,15 @@ We're renaming several utilities to align with our default naming convention.
 
 You can use the **Row Gap** utilities instead for almost all cases, and even combine the **Row Gap** utilities with other utilities like `d-f` (`display: flex`) or `d-if` (`display: inline-flex`).
 
-```html live "cg-8" title="index.html"
+<Preview>
+  <div className="d-if fd-r cg-8 tc-white" id="area">
+    <div className="ai-c bg-indigo d-f d-16 jc-c rad-1">A</div>
+    <div className="ai-c bg-indigo d-f d-16 jc-c rad-1">B</div>
+    <div className="ai-c bg-indigo d-f d-16 jc-c rad-1">C</div>
+  </div>
+</Preview>
+
+```html "cg-8"
 <div class="d-if fd-r cg-8 tc-white" id="area">
   <div class="ai-c bg-indigo d-f d-16 jc-c rad-1">A</div>
   <div class="ai-c bg-indigo d-f d-16 jc-c rad-1">B</div>
@@ -846,7 +854,15 @@ You can use the **Row Gap** utilities instead for almost all cases, and even com
 
 The same idea applies to the **Column Gap** utilities by the way.
 
-```html live "rg-8" title="index.html"
+<Preview>
+  <div className="d-if fd-c rg-8 tc-white" id="area">
+    <div className="ai-c bg-indigo d-f d-16 jc-c rad-1">A</div>
+    <div className="ai-c bg-indigo d-f d-16 jc-c rad-1">B</div>
+    <div className="ai-c bg-indigo d-f d-16 jc-c rad-1">C</div>
+  </div>
+</Preview>
+
+```html "rg-8"
 <div class="d-if fd-c rg-8 tc-white" id="area">
   <div class="ai-c bg-indigo d-f d-16 jc-c rad-1">A</div>
   <div class="ai-c bg-indigo d-f d-16 jc-c rad-1">B</div>

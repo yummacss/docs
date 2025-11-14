@@ -20,24 +20,44 @@
   --end: #595cd9;
   --via: #12a695;
   animation-direction: reverse;
-  background-image: repeating-linear-gradient(
-    60deg,
-    var(--end),
-    var(--start) 2%,
-    var(--start) 5%,
-    transparent 8%,
-    transparent 14%,
-    var(--via) 18%,
-    var(--via) 22%,
-    var(--mid) 28%,
-    var(--mid) 30%,
-    var(--via) 34%,
-    var(--via) 36%,
-    transparent,
-    var(--end) calc(50% - 12px)
-  );
+  background-image: repeating-linear-gradient(60deg,
+      var(--end),
+      var(--start) 2%,
+      var(--start) 5%,
+      transparent 8%,
+      transparent 14%,
+      var(--via) 18%,
+      var(--via) 22%,
+      var(--mid) 28%,
+      var(--mid) 30%,
+      var(--via) 34%,
+      var(--via) 36%,
+      transparent,
+      var(--end) calc(50% - 12px));
   background-size: 200% 100%;
   mix-blend-mode: difference;
+}
+
+#area {
+  background-color: light-dark(var(--sl-color-gray-8), var(--sl-color-gray-6));
+
+  background-image:
+    repeating-linear-gradient(45deg,
+      light-dark(#d3d5e3, #31365e) 25%,
+      transparent 25%,
+      transparent 75%,
+      light-dark(#d3d5e3, #31365e) 75%,
+      light-dark(#d3d5e3, #31365e)),
+    repeating-linear-gradient(45deg,
+      light-dark(#d3d5e3, #31365e) 25%,
+      var(--sl-color-black) 25%,
+      var(--sl-color-black) 75%,
+      light-dark(#d3d5e3, #31365e) 75%,
+      light-dark(#d3d5e3, #31365e));
+  background-position:
+    0 0,
+    8px 8px;
+  background-size: 16px 16px;
 }
 
 /* Scrollbar styling for sidebar and TOC */
