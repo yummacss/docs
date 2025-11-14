@@ -1,3 +1,5 @@
+import { london } from '@/constants/data.ts';
+
 export const meta = {
   title: "Background Attachment",
   description: "Controls how the background responds to scrolling.",
@@ -13,9 +15,13 @@ The image will move with the content of the page.
 
 <Note icon="cursor_arrow">Try scrolling through the image to see how it behaves.</Note>
 
-```html live "ba-s"
-<div class="o-auto ai-c ba-s bp-c bs-c d-f ff-c fs-i h-40 jc-c p-8 rad-2 ta-c tc-white w-84" style="background-image: url(/img/frangipani.jpg);">
-  <h1 class="bf-b-md fs-xl fw-700 px-4 py-2 rad-2">Hi, Anne. It's finally springtime here on earth! I can't stand windy or cold days...</h1>
+<Preview>
+    <div className="o-auto ba-s bs-c ff-c fs-xxl fw-700 max-h-80 p-5 ta-c" style={{backgroundImage: 'url(/img/sea.jpg)'}}>{london}</div>
+</Preview>
+
+```html "ba-s"
+<div class="o-auto ba-s bs-c ff-c fs-xxl fw-700 max-h-80 p-5 ta-c" style="background-image: url(/img/sea.jpg);">
+  London. Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall.
 </div>
 ```
 
@@ -23,11 +29,15 @@ The image will move with the content of the page.
 
 The image will not move when the content is scrolled.
 
-<Note icon="cursor_arrow">Try scrolling through the image to see how it behaves.</Note>
+<Note icon="cursor_arrow">Try scrolling the page to see how it behaves.</Note>
+
+<Preview>
+    <div className="o-auto ba-f bs-c ff-c fs-xxl fw-700 max-h-80 p-5 ta-c" style={{backgroundImage: 'url(/img/sea.jpg)'}}>{london}</div>
+</Preview>
 
 ```html "ba-f"
-<div class="o-auto ai-c ba-f d-f ff-c fs-i h-40 jc-c p-8 rad-2 ta-c tc-white w-84" style="background-image: url(/img/frangipani.jpg);">
-  <h1 class="bf-b-md fs-xl fw-700 px-4 py-2 rad-2">Hi, Anne. It's finally springtime here on earth! I can't stand windy or cold days...</h1>
+<div class="o-auto ba-f bs-c ff-c fs-xxl fw-700 max-h-80 p-5 ta-c" style="background-image: url(/img/sea.jpg);">
+  London. Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall.
 </div>
 ```
 
@@ -37,9 +47,13 @@ The image will scroll with the content of the element.
 
 <Note icon="cursor_arrow">Try scrolling through the image to see how it behaves.</Note>
 
-```html live "ba-l"
-<div class="o-auto ai-c ba-l bp-c bs-c d-f ff-c fs-i h-40 jc-c p-8 rad-2 ta-c tc-white w-84" style="background-image: url(/img/frangipani.jpg);">
-  <h1 class="bf-b-md fs-xl fw-700 px-4 py-2 rad-2">Hi, Anne. It's finally springtime here on earth! I can't stand windy or cold days...</h1>
+<Preview>
+    <div className="o-auto ba-l bs-c ff-c fs-xxl fw-700 max-h-80 p-5 ta-c" style={{backgroundImage: 'url(/img/sea.jpg)'}}>{london}</div>
+</Preview>
+
+```html "ba-l"
+<div class="o-auto ba-s bs-c ff-c fs-xxl fw-700 max-h-80 p-5 ta-c" style="background-image: url(/img/sea.jpg);">
+  London. Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall.
 </div>
 ```
 
