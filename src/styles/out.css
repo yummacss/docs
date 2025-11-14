@@ -477,6 +477,18 @@ summary {
   background-color: #3575dd;
 }
 
+.bg-blue-9\/20 {
+  background-color: #1f448033;
+}
+
+.bg-green {
+  background-color: #1fb155;
+}
+
+.bg-green\/25 {
+  background-color: #1fb15540;
+}
+
 .bg-indigo {
   background-color: #595cd9;
 }
@@ -497,20 +509,20 @@ summary {
   background-color: #b6b7ee80;
 }
 
-.bg-indigo-4 {
-  background-color: #9fa0e9;
+.bg-indigo-6 {
+  background-color: #7073de;
 }
 
 .bg-indigo-8 {
   background-color: #40429c;
 }
 
-.bg-indigo-8\/20 {
-  background-color: #40429c33;
-}
-
 .bg-indigo-9 {
   background-color: #34357e;
+}
+
+.bg-indigo-9\/20 {
+  background-color: #34357e33;
 }
 
 .bg-indigo\/10 {
@@ -529,8 +541,16 @@ summary {
   background-color: #595cd980;
 }
 
+.bg-red {
+  background-color: #d73d3d;
+}
+
 .bg-red-2 {
   background-color: #f3c5c5;
+}
+
+.bg-red-3\/50 {
+  background-color: #edaaaa80;
 }
 
 .bg-silver-1 {
