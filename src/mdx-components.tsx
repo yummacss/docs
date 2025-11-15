@@ -145,6 +145,11 @@ const components: MDXComponents = {
       {children}
     </code>
   ),
+  strong: ({ children, ...props }) => (
+    <strong className="fw-600" {...props}>
+      {children}
+    </strong>
+  ),
   img: ({ src, alt, ...props }) => (
     <Image
       src={src}
