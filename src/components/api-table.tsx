@@ -142,14 +142,7 @@ export default function ApiTable({ category, name }: ApiTableProps) {
                 className="px-4 py-2 b-1 tc-white/80 ta-c"
                 style={{ borderColor: "#31365e80" }}
               >
-                Something's gone wrong. Please{" "}
-                <Link
-                  href="https://github.com/yumma-lib/yumma-css-docs/issues"
-                  className="tc-blue-5 h:td-u"
-                >
-                  report this issue
-                </Link>
-                .
+                Something went wrong while fetching the data.
               </td>
             </tr>
           )}
