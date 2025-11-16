@@ -7,8 +7,12 @@ export const meta = {
 
 Apply utilities to your HTML elements to style them. You can apply multiple classes to a single element.
 
+<Preview>
+  <button className="bg-indigo rad-1 b-0 tc-white c-p fw-600 py-2 px-5 h:bg-indigo-8">Get Started</button>
+</Preview>
+
 ```html live
-<button class="bg-indigo rad-1 b-0 tc-white c-p fw-600 py-1 px-5 h:bg-indigo-8">Subscribe</button>
+<button class="bg-indigo rad-1 b-0 tc-white c-p fw-600 py-1 px-5 h:bg-indigo-8">Get Started</button>
 ```
 
 Here's a quick reference for the examples above.
@@ -33,14 +37,32 @@ Here's a quick reference for the examples above.
 
 You can combine utilities to create complex styles.
 
-```html live
+<Preview>
+  <div className="bg-white bs-lg d-f fd-c g-4 h-100 max-w-80 p-5">
+    <div className="p-r">
+      <span className="bg-black/70 fs-xs fw-700 l-2 p-a px-2 py-px rad-9 t-2 tc-white us-none">New</span>
+      <img className="h-40 of-c w-full" src="/img/shoes.jpg" />
+    </div>
+
+    <div className="fs-xl fw-600 tc-black">Sneakers</div>
+
+    <p className="fs-sm tc-slate">Comfortable and stylish, these sneakers are perfect for any occasion.</p>
+
+    <div className="ai-c d-f jc-sb mt-auto">
+      <span className="fs-lg fw-700 tc-black">$59.99</span>
+      <button className="bg-black f:oc-black f:oo-2 f:os-s f:ow-2 fw-500 px-4 py-2 tc-white">Add to Cart</button>
+    </div>
+  </div>
+</Preview>
+
+```html
 <div class="bg-white bs-lg d-f fd-c g-4 h-100 max-w-80 p-5">
   <div class="p-r">
-    <span class="bg-black fs-xs fw-700 l-2 p-a px-2 py-px rad-9 t-2 tc-white us-none">New</span>
+    <span class="bg-black/70 fs-xs fw-700 l-2 p-a px-2 py-px rad-9 t-2 tc-white us-none">New</span>
     <img class="h-40 of-c w-full" src="/img/shoes.jpg" />
   </div>
 
-  <h3 class="fs-md fw-600 tc-black">Sneakers</h3>
+  <div class="fs-xl fw-600 tc-black">Sneakers</div>
 
   <p class="fs-sm tc-slate">Comfortable and stylish, these sneakers are perfect for any occasion.</p>
 
