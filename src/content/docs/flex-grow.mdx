@@ -11,11 +11,19 @@ This example showcases various `flex-grow` utilities:
 - The **fg-1** flex grow utility sets the flex-grow property to **1**, allowing the item to grow and fill available space equally with other items.
 - Finally, **fg-2** flex grow utility sets the flex-grow property to **2**, allowing the item to grow twice as much as an item with a flex-grow value of **1**.
 
-```html live "fg-0" "fg-1" "fg-2" layout="/src/layouts/inline.astro"
+<Preview variant="inline">
+  <div className="d-f g-4 tc-white">
+    <div className="bg-indigo fg-0 p-4 d-f ai-c jc-c">A</div>
+    <div className="bg-indigo fg-1 p-4 d-f ai-c jc-c">B</div>
+    <div className="bg-indigo fg-2 p-4 d-f ai-c jc-c">C</div>
+  </div>
+</Preview>
+
+```html "fg-0" "fg-1" "fg-2"
 <div class="d-f g-4 tc-white">
-  <div class="bg-indigo fg-0 p-4 rad-1">A</div>
-  <div class="bg-indigo fg-1 p-4 rad-1">B</div>
-  <div class="bg-indigo fg-2 p-4 rad-1">C</div>
+  <div class="bg-indigo fg-0 p-4 d-f ai-c jc-c">A</div>
+  <div class="bg-indigo fg-1 p-4 d-f ai-c jc-c">B</div>
+  <div class="bg-indigo fg-2 p-4 d-f ai-c jc-c">C</div>
 </div>
 ```
 
