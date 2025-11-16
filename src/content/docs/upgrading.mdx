@@ -9,7 +9,7 @@ Yumma CSS v3 is a major update with a long list of new features, along with some
 
 In v3, we've replaced the old `@import` and introduced a new CLI tool to work with Yumma CSS. Here's how to set it up:
 
-1. **Update Yumma CSS**
+1.  **Update Yumma CSS**
 
     Remove the old `yummacss` package.
 
@@ -19,7 +19,7 @@ In v3, we've replaced the old `@import` and introduced a new CLI tool to work wi
 
     <br />
 
-2. **Initialize configuration**
+2.  **Initialize configuration**
 
         Create a configuration file in your project.
 
@@ -27,7 +27,7 @@ In v3, we've replaced the old `@import` and introduced a new CLI tool to work wi
         pnpm yummacss init
         ```
 
-3. **Delete old imports**
+3.  **Delete old imports**
 
     Remove the old `@import` statements from your CSS files.
 
@@ -36,30 +36,28 @@ In v3, we've replaced the old `@import` and introduced a new CLI tool to work wi
     @import "yummacss/dist/yumma.css";
     ```
 
-4. **Set up configuration**
+4.  **Set up configuration**
 
     Specify the locations of all your project files in the config file.
 
     ```js title="yumma.config.mjs" mark={2-3}
     export default {
-        source: ["./src/**/*.html"],
-        output: "./src/styles.css",
-        buildOptions: {
-            reset: true,
-            minify: false,
-        }
+      source: ["./src/**/*.html"],
+      output: "./src/styles.css",
+      buildOptions: {
+        reset: true,
+        minify: false,
+      },
     };
     ```
 
-5. **Build styles**
+5.  **Build styles**
 
-    You can now start generating your CSS with the [`build`](/docs/foundations/config/#build) or [`watch`](/docs/foundations/config/#watch) command.
+    You can now start generating your CSS with the [`build`](/docs/configuration/#build) or [`watch`](/docs/configuration/#watch) command.
 
     ```bash title="Terminal"
     pnpm yummacss build
     ```
-
-
 
 ## Dependency changes
 
