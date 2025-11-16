@@ -29,6 +29,7 @@ const rehypeExpressiveCodeOptions = {
       shadowColor: "transparent",
     },
     textMarkers: {
+      inlineMarkerBorderRadius: "0rem",
       delBackground: "hsla(0, 48%, 77%, 0.100)",
       delHue: "hsl(0, 48%, 77%)",
       insBackground: "hsla(127, 48%, 77%, 0.150)",
