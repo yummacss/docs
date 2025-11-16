@@ -11,17 +11,23 @@ export const meta = {
 
 The items will be placed in the grid by filling each row before moving to the next one.
 
-<Preview>
-  WIP
+<Preview variant="inline">
+  <div class="d-g g-4 gaf-r gtc-3 gtr-3 ta-c tc-white" id="area">
+    <div class="bg-indigo-8 gc-s-2 p-4 tc-indigo-5">A</div>
+    <div class="bg-indigo-8 gc-s-2 p-4 tc-indigo-5">B</div>
+    <div class="bg-indigo p-4">C</div>
+    <div class="bg-indigo-8 p-4 tc-indigo-5">D</div>
+    <div class="bg-indigo-8 p-4 tc-indigo-5">E</div>
+  </div>
 </Preview>
 
-```html "gaf-r" layout="/src/layouts/inline.astro"
-<div class="d-g g-4 gaf-r gtc-3 gtr-3 ta-c tc-white" id="area">
-  <div class="bg-indigo-8 gc-s-2 p-4 rad-1 tc-indigo-5">A</div>
-  <div class="bg-indigo-8 gc-s-2 p-4 rad-1 tc-indigo-5">B</div>
-  <div class="bg-indigo p-4 rad-1">C</div>
-  <div class="bg-indigo-8 p-4 rad-1 tc-indigo-5">D</div>
-  <div class="bg-indigo-8 p-4 rad-1 tc-indigo-5">E</div>
+```html "gaf-r"
+<div class="d-g g-4 gaf-r gtc-3 gtr-3 ta-c tc-white">
+  <div class="bg-indigo-8 gc-s-2 p-4 tc-indigo-5">A</div>
+  <div class="bg-indigo-8 gc-s-2 p-4 tc-indigo-5">B</div>
+  <div class="bg-indigo p-4">C</div>
+  <div class="bg-indigo-8 p-4 tc-indigo-5">D</div>
+  <div class="bg-indigo-8 p-4 tc-indigo-5">E</div>
 </div>
 ```
 
@@ -29,17 +35,23 @@ The items will be placed in the grid by filling each row before moving to the ne
 
 The items will be placed in the grid by filling each column before moving to the next one.
 
-<Preview>
-  WIP
+<Preview variant="inline">
+  <div class="d-g g-4 gaf-c gtc-3 gtr-3 ta-c" id="area">
+    <div class="bg-indigo-8 gc-s-2 p-4 tc-indigo-5">A</div>
+    <div class="bg-indigo-8 gc-s-2 p-4 tc-indigo-5">B</div>
+    <div class="bg-indigo p-4 tc-white">C</div>
+    <div class="bg-indigo-8 p-4 tc-indigo-5">D</div>
+    <div class="bg-indigo-8 p-4 tc-indigo-5">E</div>
+  </div>
 </Preview>
 
-```html "gaf-c" layout="/src/layouts/inline.astro"
-<div class="d-g g-4 gaf-c gtc-3 gtr-3 ta-c" id="area">
-  <div class="bg-indigo-8 gc-s-2 p-4 rad-1 tc-indigo-5">A</div>
-  <div class="bg-indigo-8 gc-s-2 p-4 rad-1 tc-indigo-5">B</div>
-  <div class="bg-indigo p-4 rad-1 tc-white">C</div>
-  <div class="bg-indigo-8 p-4 rad-1 tc-indigo-5">D</div>
-  <div class="bg-indigo-8 p-4 rad-1 tc-indigo-5">E</div>
+```html "gaf-c"
+<div class="d-g g-4 gaf-c gtc-3 gtr-3 ta-c">
+  <div class="bg-indigo-8 gc-s-2 p-4 tc-indigo-5">A</div>
+  <div class="bg-indigo-8 gc-s-2 p-4 tc-indigo-5">B</div>
+  <div class="bg-indigo p-4 tc-white">C</div>
+  <div class="bg-indigo-8 p-4 tc-indigo-5">D</div>
+  <div class="bg-indigo-8 p-4 tc-indigo-5">E</div>
 </div>
 ```
 
@@ -47,17 +59,23 @@ The items will be placed in the grid by filling each column before moving to the
 
 The items will be placed in the grid in a way that fills in gaps as efficiently as possible.
 
-<Preview>
-  WIP
+<Preview variant="inline">
+  <div class="d-g g-4 gaf-d gtc-3 gtr-3 ta-c tc-white" id="area">
+    <div class="bg-indigo-8 gc-s-2 p-4 tc-indigo-5">A</div>
+    <div class="bg-indigo-8 gc-s-2 p-4 tc-indigo-5">B</div>
+    <div class="bg-indigo p-4">C</div>
+    <div class="bg-indigo-8 p-4 tc-indigo-5">D</div>
+    <div class="bg-indigo-8 p-4 tc-indigo-5">E</div>
+  </div>
 </Preview>
 
-```html "gaf-d" layout="/src/layouts/inline.astro"
-<div class="d-g g-4 gaf-d gtc-3 gtr-3 ta-c tc-white" id="area">
-  <div class="bg-indigo-8 gc-s-2 p-4 rad-1 tc-indigo-5">A</div>
-  <div class="bg-indigo-8 gc-s-2 p-4 rad-1 tc-indigo-5">B</div>
-  <div class="bg-indigo p-4 rad-1">C</div>
-  <div class="bg-indigo-8 p-4 rad-1 tc-indigo-5">D</div>
-  <div class="bg-indigo-8 p-4 rad-1 tc-indigo-5">E</div>
+```html "gaf-d"
+<div class="d-g g-4 gaf-d gtc-3 gtr-3 ta-c tc-white">
+  <div class="bg-indigo-8 gc-s-2 p-4 tc-indigo-5">A</div>
+  <div class="bg-indigo-8 gc-s-2 p-4 tc-indigo-5">B</div>
+  <div class="bg-indigo p-4">C</div>
+  <div class="bg-indigo-8 p-4 tc-indigo-5">D</div>
+  <div class="bg-indigo-8 p-4 tc-indigo-5">E</div>
 </div>
 ```
 
@@ -65,16 +83,21 @@ The items will be placed in the grid in a way that fills in gaps as efficiently 
 
 The items will be placed in the grid by filling each row first, while also attempting to fill any gaps efficiently.
 
-<Preview>
-  WIP
+<Preview variant="inline">
+  <div class="d-g gaf-rd g-4 ta-c tc-white" id="area">
+    <div class="bg-indigo p-4">A</div>
+    <div class="bg-indigo p-4">B</div>
+    <div class="bg-indigo p-4">C</div>
+    <div class="bg-indigo p-4">D</div>
+  </div>
 </Preview>
 
-```html "gaf-rd" layout="/src/layouts/inline.astro"
-<div class="d-g gaf-rd g-4 ta-c tc-white tc-white" id="area">
-  <div class="bg-indigo p-4 rad-1">A</div>
-  <div class="bg-indigo p-4 rad-1">B</div>
-  <div class="bg-indigo p-4 rad-1">C</div>
-  <div class="bg-indigo p-4 rad-1">D</div>
+```html "gaf-rd"
+<div class="d-g gaf-rd g-4 ta-c tc-white">
+  <div class="bg-indigo p-4">A</div>
+  <div class="bg-indigo p-4">B</div>
+  <div class="bg-indigo p-4">C</div>
+  <div class="bg-indigo p-4">D</div>
 </div>
 ```
 
