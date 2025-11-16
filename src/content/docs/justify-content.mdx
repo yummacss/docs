@@ -11,15 +11,19 @@ export const meta = {
 
 The items will be aligned according to the default alignment of the container.
 
-<Preview>
-  WIP
+<Preview variant="inline">
+    <div className="d-f g-4 jc-n tc-white" id="area">
+      <div className="ai-c bg-indigo d-f d-14 jc-c d-16">A</div>
+      <div className="ai-c bg-indigo d-f d-14 jc-c d-16">B</div>
+      <div className="ai-c bg-indigo d-f d-14 jc-c d-16">C</div>
+    </div>
 </Preview>
 
-```html "jc-n" layout="/src/layouts/inline.astro"
-<div class="d-f g-4 jc-n tc-white" id="area">
-  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">A</div>
-  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">B</div>
-  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">C</div>
+```html "jc-n"
+<div class="d-f g-4 jc-n tc-white">
+  <div class="ai-c bg-indigo d-f d-14 jc-c d-16">A</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c d-16">B</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c d-16">C</div>
 </div>
 ```
 
@@ -27,15 +31,19 @@ The items will be aligned according to the default alignment of the container.
 
 The items will be centered within the container along the main axis.
 
-<Preview>
-  WIP
+<Preview variant="inline">
+    <div className="d-f g-4 jc-c tc-white" id="area">
+      <div className="ai-c bg-indigo d-f d-14 jc-c d-16">A</div>
+      <div className="ai-c bg-indigo d-f d-14 jc-c d-16">B</div>
+      <div className="ai-c bg-indigo d-f d-14 jc-c d-16">C</div>
+    </div>
 </Preview>
 
-```html "jc-c" layout="/src/layouts/inline.astro"
-<div class="d-f g-4 jc-c tc-white" id="area">
-  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">A</div>
-  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">B</div>
-  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">C</div>
+```html "jc-c"
+<div class="d-f g-4 jc-c tc-white">
+  <div class="ai-c bg-indigo d-f d-14 jc-c d-16">A</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c d-16">B</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c d-16">C</div>
 </div>
 ```
 
@@ -43,15 +51,19 @@ The items will be centered within the container along the main axis.
 
 The items will be aligned to the end of the container along the main axis.
 
-<Preview>
-  WIP
+<Preview variant="inline">
+    <div className="d-f g-4 jc-fe tc-white" id="area">
+      <div className="ai-c bg-indigo d-f d-14 jc-c d-16">A</div>
+      <div className="ai-c bg-indigo d-f d-14 jc-c d-16">B</div>
+      <div className="ai-c bg-indigo d-f d-14 jc-c d-16">C</div>
+    </div>
 </Preview>
 
-```html "jc-fe" layout="/src/layouts/inline.astro"
-<div class="d-f g-4 jc-fe tc-white" id="area">
-  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">A</div>
-  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">B</div>
-  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">C</div>
+```html "jc-fe"
+<div class="d-f g-4 jc-fe tc-white">
+  <div class="ai-c bg-indigo d-f d-14 jc-c d-16">A</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c d-16">B</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c d-16">C</div>
 </div>
 ```
 
@@ -59,15 +71,19 @@ The items will be aligned to the end of the container along the main axis.
 
 The items will be aligned to the start of the container along the main axis.
 
-<Preview>
-  WIP
+<Preview variant="inline">
+    <div className="d-f g-4 jc-fs tc-white" id="area">
+      <div className="ai-c bg-indigo d-f d-14 jc-c d-16">A</div>
+      <div className="ai-c bg-indigo d-f d-14 jc-c d-16">B</div>
+      <div className="ai-c bg-indigo d-f d-14 jc-c d-16">C</div>
+    </div>
 </Preview>
 
-```html "jc-fs" layout="/src/layouts/inline.astro"
-<div class="d-f g-4 jc-fs tc-white" id="area">
-  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">A</div>
-  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">B</div>
-  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">C</div>
+```html "jc-fs"
+<div class="d-f g-4 jc-fs tc-white">
+  <div class="ai-c bg-indigo d-f d-14 jc-c d-16">A</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c d-16">B</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c d-16">C</div>
 </div>
 ```
 
@@ -75,16 +91,22 @@ The items will be aligned to the start of the container along the main axis.
 
 The items will stretch to fill the available space along the main axis.
 
-<Preview>
-  WIP
+<Preview variant="inline">
+    <div className="rad-1 tc-white" id="area">
+      <div className="d-g g-4 gaf-c jc-s">
+          <div className="ai-c bg-indigo d-f h-14 jc-c">A</div>
+          <div className="ai-c bg-indigo d-f h-14 jc-c">B</div>
+          <div className="ai-c bg-indigo d-f h-14 jc-c">C</div>
+      </div>
+    </div>
 </Preview>
 
-```html "jc-s" layout="/src/layouts/inline.astro"
+```html "jc-s"
 <div class="rad-1 tc-white">
-  <div class="d-g g-4 gaf-c jc-s" id="area">
-    <div class="ai-c bg-indigo d-f h-14 jc-c rad-1">A</div>
-    <div class="ai-c bg-indigo d-f h-14 jc-c rad-1">B</div>
-    <div class="ai-c bg-indigo d-f h-14 jc-c rad-1">C</div>
+  <div class="d-g g-4 gaf-c jc-s">
+    <div class="ai-c bg-indigo d-f h-14 jc-c">A</div>
+    <div class="ai-c bg-indigo d-f h-14 jc-c">B</div>
+    <div class="ai-c bg-indigo d-f h-14 jc-c">C</div>
   </div>
 </div>
 ```
@@ -93,15 +115,19 @@ The items will stretch to fill the available space along the main axis.
 
 The items will be evenly distributed in the container, with the first item at the start and the last item at the end.
 
-<Preview>
-  WIP
+<Preview variant="inline">
+    <div className="d-f g-4 jc-sb tc-white" id="area">
+      <div className="ai-c bg-indigo d-f d-14 jc-c d-16">A</div>
+      <div className="ai-c bg-indigo d-f d-14 jc-c d-16">B</div>
+      <div className="ai-c bg-indigo d-f d-14 jc-c d-16">C</div>
+    </div>
 </Preview>
 
-```html "jc-sb" layout="/src/layouts/inline.astro"
-<div class="d-f g-4 jc-sb tc-white" id="area">
-  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">A</div>
-  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">B</div>
-  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">C</div>
+```html "jc-sb"
+<div class="d-f g-4 jc-sb tc-white">
+  <div class="ai-c bg-indigo d-f d-14 jc-c d-16">A</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c d-16">B</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c d-16">C</div>
 </div>
 ```
 
@@ -109,15 +135,19 @@ The items will be evenly distributed in the container, with the first item at th
 
 The items will be evenly distributed in the container with space around them.
 
-<Preview>
-  WIP
+<Preview variant="inline">
+    <div className="d-f g-4 jc-sa tc-white" id="area">
+      <div className="ai-c bg-indigo d-f d-14 jc-c d-16">A</div>
+      <div className="ai-c bg-indigo d-f d-14 jc-c d-16">B</div>
+      <div className="ai-c bg-indigo d-f d-14 jc-c d-16">C</div>
+    </div>
 </Preview>
 
-```html "jc-sa" layout="/src/layouts/inline.astro"
-<div class="d-f g-4 jc-sa tc-white" id="area">
-  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">A</div>
-  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">B</div>
-  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">C</div>
+```html "jc-sa"
+<div class="d-f g-4 jc-sa tc-white">
+  <div class="ai-c bg-indigo d-f d-14 jc-c d-16">A</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c d-16">B</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c d-16">C</div>
 </div>
 ```
 
@@ -125,15 +155,19 @@ The items will be evenly distributed in the container with space around them.
 
 The items will be evenly distributed in the container with equal space around them.
 
-<Preview>
-  WIP
+<Preview variant="inline">
+    <div className="d-f g-4 gaf-c jc-se tc-white" id="area">
+      <div className="ai-c bg-indigo d-f d-14 jc-c d-16">A</div>
+      <div className="ai-c bg-indigo d-f d-14 jc-c d-16">B</div>
+      <div className="ai-c bg-indigo d-f d-14 jc-c d-16">C</div>
+    </div>
 </Preview>
 
-```html "jc-se" layout="/src/layouts/inline.astro"
-<div class="d-f g-4 gaf-c jc-se tc-white" id="area">
-  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">A</div>
-  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">B</div>
-  <div class="ai-c bg-indigo d-f d-14 jc-c p-4 rad-1">C</div>
+```html "jc-se"
+<div class="d-f g-4 gaf-c jc-se tc-white">
+  <div class="ai-c bg-indigo d-f d-14 jc-c d-16">A</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c d-16">B</div>
+  <div class="ai-c bg-indigo d-f d-14 jc-c d-16">C</div>
 </div>
 ```
 
