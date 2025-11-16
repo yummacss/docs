@@ -11,16 +11,21 @@ Allows a grid item to span a specific number of columns.
 
 The item will span across **2** columns, starting from its current position and occupying the next **2** columns in the grid.
 
-<Preview>
-  WIP
+<Preview variant="inline">
+    <div className="d-g g-4 gtc-3 ta-c">
+      <div className="bg-indigo gc-s-2 p-4 tc-white">A</div>
+      <div className="bg-indigo-8 p-4 tc-indigo-5">B</div>
+      <div className="bg-indigo-8 p-4 tc-indigo-5">C</div>
+      <div className="bg-indigo gc-s-2 p-4 tc-white">D</div>
+    </div>
 </Preview>
 
-```html "gc-s-2" layout="/src/layouts/inline.astro"
-<div class="d-g g-4 gtc-3 ta-c" id="area">
-  <div class="bg-indigo gc-s-2 p-4 rad-1 tc-white">A</div>
-  <div class="bg-indigo-8 p-4 rad-1 tc-indigo-5">B</div>
-  <div class="bg-indigo-8 p-4 rad-1 tc-indigo-5">C</div>
-  <div class="bg-indigo gc-s-2 p-4 rad-1 tc-white">D</div>
+```html "gc-s-2"
+<div class="d-g g-4 gtc-3 ta-c">
+  <div class="bg-indigo gc-s-2 p-4 tc-white">A</div>
+  <div class="bg-indigo-8 p-4 tc-indigo-5">B</div>
+  <div class="bg-indigo-8 p-4 tc-indigo-5">C</div>
+  <div class="bg-indigo gc-s-2 p-4 tc-white">D</div>
 </div>
 ```
 
@@ -33,15 +38,19 @@ Controls where a grid item should end within the column grid line.
 The item will end at the third column line, effectively spanning from its
 starting position to the second column line.
 
-<Preview>
-  WIP
+<Preview variant="inline">
+    <div className="d-g g-4 gtc-4 ta-c tc-white" id="area">
+      <div className="bg-indigo gce-3 p-4">A</div>
+      <div className="bg-indigo p-4">B</div>
+      <div className="bg-indigo p-4">C</div>
+    </div>
 </Preview>
 
-```html "gce-3" layout="/src/layouts/inline.astro"
-<div class="d-g g-4 gtc-4 ta-c tc-white" id="area">
-  <div class="bg-indigo gce-3 p-4 rad-1">A</div>
-  <div class="bg-indigo p-4 rad-1">B</div>
-  <div class="bg-indigo p-4 rad-1">C</div>
+```html "gce-3"
+<div class="d-g g-4 gtc-4 ta-c tc-white">
+  <div class="bg-indigo gce-3 p-4">A</div>
+  <div class="bg-indigo p-4">B</div>
+  <div class="bg-indigo p-4">C</div>
 </div>
 ```
 
@@ -53,15 +62,19 @@ Controls the starting grid line for a grid item within the column layout.
 
 The item will begin at the third column line, positioning it to start in the third column of the grid.
 
-<Preview>
-  WIP
+<Preview variant="inline">
+    <div className="d-g g-4 gcs-3 gtc-4 ta-c tc-white" id="area">
+      <div className="bg-indigo p-4">A</div>
+      <div className="bg-indigo p-4">B</div>
+      <div className="bg-indigo p-4">C</div>
+    </div>
 </Preview>
 
-```html "gcs-3" layout="/src/layouts/inline.astro"
-<div class="d-g g-4 gcs-3 gtc-4 ta-c tc-white" id="area">
-  <div class="bg-indigo p-4 rad-1">A</div>
-  <div class="bg-indigo p-4 rad-1">B</div>
-  <div class="bg-indigo p-4 rad-1">C</div>
+```html "gcs-3"
+<div class="d-g g-4 gcs-3 gtc-4 ta-c tc-white">
+  <div class="bg-indigo p-4">A</div>
+  <div class="bg-indigo p-4">B</div>
+  <div class="bg-indigo p-4">C</div>
 </div>
 ```
 
