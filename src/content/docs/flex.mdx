@@ -11,16 +11,22 @@ This example showcases various `flex` utilities:
 - The **f-1** flex utility sets the flex property to **1 1 0%**, allowing the item to grow and shrink equally with a base size of **0**.
 - Finally, **f-auto** flex utility sets the flex property to **1 1 auto**, allowing the item to grow and shrink with a base size determined by its content.
 
-<Preview>
-  WIP
+<Preview variant="inline">
+  <div className="tc-white" id="area">
+    <div className="d-f g-4 h-24 w-full">
+      <div className="ai-c bg-indigo d-f f-none jc-c p-4">A</div>
+      <div className="ai-c bg-indigo d-f f-1 jc-c p-4">B</div>
+      <div className="ai-c bg-indigo d-f f-auto jc-c p-4">C</div>
+    </div>
+  </div>
 </Preview>
 
-```html "f-none" "f-1" "f-auto" layout="/src/layouts/inline.astro"
-<div class="tc-white" id="area">
+```html "f-none" "f-1" "f-auto"
+<div class="tc-white">
   <div class="d-f g-4 h-24 w-full">
-    <div class="ai-c bg-indigo d-f f-none jc-c p-4 rad-1">A</div>
-    <div class="ai-c bg-indigo d-f f-1 jc-c p-4 rad-1">B</div>
-    <div class="ai-c bg-indigo d-f f-auto jc-c p-4 rad-1">C</div>
+    <div class="ai-c bg-indigo d-f f-none jc-c p-4">A</div>
+    <div class="ai-c bg-indigo d-f f-1 jc-c p-4">B</div>
+    <div class="ai-c bg-indigo d-f f-auto jc-c p-4">C</div>
   </div>
 </div>
 ```
