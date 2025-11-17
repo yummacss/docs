@@ -11,18 +11,20 @@ export const meta = {
 
 The list items will be marked with solid circles, which is the default style for unordered lists.
 
-<Preview>
-  WIP
+<Preview className="bg-white">
+  <ul className="lsp-o lst-d">
+    <li className="tc-slate">Butter 🧈</li>
+    <li className="tc-slate">Egg 🥚</li>
+    <li className="tc-slate">Milk 🥛</li>
+  </ul>
 </Preview>
 
-```html "lst-d" layout="/src/layouts/inline.astro"
-<div class="bg-indigo-1 p-4 rad-1">
-  <ul class="bg-white lsp-o lst-d p-4 pl-6 rad-1">
-    <li class="tc-slate">Butter 🧈</li>
-    <li class="tc-slate">Egg 🥚</li>
-    <li class="tc-slate">Milk 🥛</li>
-  </ul>
-</div>
+```html "lst-d"
+<ul class="lsp-o lst-d">
+  <li class="tc-slate">Butter 🧈</li>
+  <li class="tc-slate">Egg 🥚</li>
+  <li class="tc-slate">Milk 🥛</li>
+</ul>
 ```
 
 This example showcases various `list-style-types` utilities:
@@ -31,36 +33,40 @@ This example showcases various `list-style-types` utilities:
 - The **disc** style marks list items with solid circles (default for unordered lists).
 - The **square** style marks list items with solid squares.
 
-<Preview>
-  WIP
+<Preview className="bg-white">
+  <ul className="lsp-o lst-c">
+    <li className="tc-slate">Butter 🧈</li>
+    <li className="tc-slate">Egg 🥚</li>
+    <li className="tc-slate">Milk 🥛</li>
+  </ul>
 </Preview>
 
-```html "lst-c" layout="/src/layouts/inline.astro"
-<div class="bg-indigo-1 p-4 rad-1">
-  <ul class="bg-white lsp-o lst-c p-4 pl-6 rad-1">
-    <li class="tc-slate">Butter 🧈</li>
-    <li class="tc-slate">Egg 🥚</li>
-    <li class="tc-slate">Milk 🥛</li>
-  </ul>
-</div>
+```html "lst-c"
+<ul class="lsp-o lst-c">
+  <li class="tc-slate">Butter 🧈</li>
+  <li class="tc-slate">Egg 🥚</li>
+  <li class="tc-slate">Milk 🥛</li>
+</ul>
 ```
 
 ## Square
 
 The list items will be marked with solid squares, providing a different visual style for the list.
 
-<Preview>
-  WIP
+<Preview className="bg-white">
+  <ul className="lsp-o lst-s">
+    <li className="tc-slate">Butter 🧈</li>
+    <li className="tc-slate">Egg 🥚</li>
+    <li className="tc-slate">Milk 🥛</li>
+  </ul>
 </Preview>
 
-```html "lst-s" layout="/src/layouts/inline.astro"
-<div class="bg-indigo-1 p-4 rad-1">
-  <ul class="bg-white lsp-o lst-s p-4 pl-6 rad-1">
-    <li class="tc-slate">Butter 🧈</li>
-    <li class="tc-slate">Egg 🥚</li>
-    <li class="tc-slate">Milk 🥛</li>
-  </ul>
-</div>
+```html "lst-s"
+<ul class="lsp-o lst-s">
+  <li class="tc-slate">Butter 🧈</li>
+  <li class="tc-slate">Egg 🥚</li>
+  <li class="tc-slate">Milk 🥛</li>
+</ul>
 ```
 
 ## Using utility variants
