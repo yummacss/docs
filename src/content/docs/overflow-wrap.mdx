@@ -11,28 +11,24 @@ export const meta = {
 
 The browser will only break lines at allowed break points, and long words will overflow the container if they cannot fit.
 
-<Preview>
-  WIP
+<Preview className="bg-white">
+  <p className="fs-lg ta-c max-d-80 p-4 tc-slate o-auto ow-n">The longest word entered in most standard English dictionaries is Pneumonoultramicroscopicsilicovolcanoconiosis with 45 letters.</p>
 </Preview>
 
 ```html "ow-n" layout="/src/layouts/inline.astro"
-<div class="bg-indigo-1 p-4 rad-1">
-  <p class="bg-white fs-lg p-4 rad-1 ta-c tc-slate o-auto ow-n">Pneumonoultramicroscopicsilicovolcanoconiosis</p>
-</div>
+<p class="fs-lg ta-c max-d-80 p-4 tc-slate o-auto ow-n">The longest word entered in most standard English dictionaries is Pneumonoultramicroscopicsilicovolcanoconiosis with 45 letters.</p>
 ```
 
 ## Break Word
 
 The browser will break long words and wrap them onto the next line to prevent overflow.
 
-<Preview>
-  WIP
+<Preview className="bg-white">
+  <p className="fs-lg ta-c max-d-80 p-4 tc-slate ow-bw">The longest word entered in most standard English dictionaries is Pneumonoultramicroscopicsilicovolcanoconiosis with 45 letters.</p>
 </Preview>
 
 ```html "ow-bw" layout="/src/layouts/inline.astro"
-<div class="bg-indigo-1 p-4 rad-1 ow-bw">
-  <p class="bg-white fs-lg p-4 rad-1 ta-c tc-slate">Pneumonoultramicroscopicsilicovolcanoconiosis</p>
-</div>
+<p class="fs-lg ta-c max-d-80 p-4 tc-slate ow-bw">The longest word entered in most standard English dictionaries is Pneumonoultramicroscopicsilicovolcanoconiosis with 45 letters.</p>
 ```
 
 ## Using utility variants
