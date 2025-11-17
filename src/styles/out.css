@@ -1827,6 +1827,11 @@ summary {
   max-height: 16rem;
 }
 
+.max-d-80 {
+  max-width: 20rem;
+  max-height: 20rem;
+}
+
 .max-h-50 {
   max-height: 12.5rem;
 }
