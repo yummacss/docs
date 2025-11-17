@@ -22,6 +22,7 @@ p {
   max-width: clamp(40rem, 80vw, 96rem);
 }
 
+/* For the sidebar icon links */
 .\@h\:tc-white {
   &:is(:where(.team):hover *) {
     @media (hover: hover) {

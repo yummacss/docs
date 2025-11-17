@@ -11,6 +11,9 @@ importers:
       '@fontsource/esteban':
         specifier: ^5.2.7
         version: 5.2.7
+      '@mdn/browser-compat-data':
+        specifier: ^7.1.22
+        version: 7.1.22
       '@mdx-js/loader':
         specifier: ^3.1.1
         version: 3.1.1
@@ -350,6 +353,9 @@ packages:
     engines: {node: ^18.17.0 || ^20.3.0 || >=21.0.0}
     cpu: [x64]
     os: [win32]
+
+  '@mdn/browser-compat-data@7.1.22':
+    resolution: {integrity: sha512-pvfjbTDEYTDNKl9u3KbRzeNmU7PrcsFiGzIUbcB9JPq1LziTMs6YpE2x3Gf+2gHOPQzdO/KQ8hAr1Kkkzpklrg==}
 
   '@mdx-js/loader@3.1.1':
     resolution: {integrity: sha512-0TTacJyZ9mDmY+VefuthVshaNIyCGZHJG2fMnGaDttCt8HmjUF7SizlHJpaCDoGnN635nK1wpzfpx/Xx5S4WnQ==}
@@ -1812,6 +1818,8 @@ snapshots:
 
   '@img/sharp-win32-x64@0.34.4':
     optional: true
+
+  '@mdn/browser-compat-data@7.1.22': {}
 
   '@mdx-js/loader@3.1.1':
     dependencies:
