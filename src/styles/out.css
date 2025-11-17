@@ -2959,6 +2959,10 @@ summary {
   color: #535963;
 }
 
+.tc-green {
+  color: #1fb155;
+}
+
 .tc-indigo {
   color: #595cd9;
 }
@@ -2973,6 +2977,10 @@ summary {
 
 .tc-indigo-8 {
   color: #40429c;
+}
+
+.tc-orange {
+  color: #e06814;
 }
 
 .tc-slate {
@@ -3406,6 +3414,10 @@ summary {
 
   .md\:gtc-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .md\:gtc-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .md\:gtc-6 {
