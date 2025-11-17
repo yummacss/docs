@@ -11,36 +11,40 @@ export const meta = {
 
 The list item markers will be placed outside the list item's content area, allowing the text to align normally.
 
-<Preview>
-  WIP
+<Preview className="bg-white">
+  <ul className="lsp-o lst-d">
+    <li className="tc-slate">Butter 🧈</li>
+    <li className="tc-slate">Egg 🥚</li>
+    <li className="tc-slate">Milk 🥛</li>
+  </ul>
 </Preview>
 
-```html "lsp-o" layout="/src/layouts/inline.astro"
-<div class="bg-indigo-1 p-4 rad-1">
-  <ul class="bg-white lsp-o lst-d p-4 pl-6 rad-1">
-    <li class="tc-slate">Butter 🧈</li>
-    <li class="tc-slate">Egg 🥚</li>
-    <li class="tc-slate">Milk 🥛</li>
-  </ul>
-</div>
+```html "lsp-o"
+<ul class="lsp-o lst-d">
+  <li class="tc-slate">Butter 🧈</li>
+  <li class="tc-slate">Egg 🥚</li>
+  <li class="tc-slate">Milk 🥛</li>
+</ul>
 ```
 
 ## Inside
 
 The list item markers will be placed inside the list item's content area, affecting the text alignment.
 
-<Preview>
-  WIP
+<Preview className="bg-white">
+  <ul className="lsp-i lst-d">
+    <li className="tc-slate">Butter 🧈</li>
+    <li className="tc-slate">Egg 🥚</li>
+    <li className="tc-slate">Milk 🥛</li>
+  </ul>
 </Preview>
 
-```html "lsp-i" layout="/src/layouts/inline.astro"
-<div class="bg-indigo-1 p-4 rad-1">
-  <ul class="bg-white lsp-i lst-d p-4 pl-6 rad-1">
-    <li class="tc-slate">Butter 🧈</li>
-    <li class="tc-slate">Egg 🥚</li>
-    <li class="tc-slate">Milk 🥛</li>
-  </ul>
-</div>
+```html "lsp-i"
+<ul class="lsp-i lst-d">
+  <li class="tc-slate">Butter 🧈</li>
+  <li class="tc-slate">Egg 🥚</li>
+  <li class="tc-slate">Milk 🥛</li>
+</ul>
 ```
 
 ## Using utility variants
