@@ -1,72 +1,95 @@
 import bcd from "@mdn/browser-compat-data";
-import { CheckCircledIcon, ExclamationTriangleIcon } from "@radix-ui/react-icons";
+import {
+  CheckCircledIcon,
+  ExclamationTriangleIcon,
+  CrossCircledIcon,
+} from "@radix-ui/react-icons";
 
 interface BaselineProps {
-  /**
-   * The BCD path to the feature (e.g., "css.properties.accent-color")
-   */
+  /** Example: "css.properties.accent-color" */
   path: string;
 }
 
-interface BrowserSupport {
-  name: string;
-  supported: boolean;
-  version?: string;
-}
-
 export default function Baseline({ path }: BaselineProps) {
-  // Navigate through the BCD object using the path
-  const pathParts = path.split(".");
+  // Resolve feature from dot path
+  const parts = path.split(".");
   let feature: any = bcd;
 
-  for (const part of pathParts) {
+  for (const part of parts) {
     feature = feature?.[part];
-    if (!feature) {
-      return null; // Feature not found
-    }
+    if (!feature) return null;
   }
 
-  // Extract browser support data
-  const support = feature.__compat?.support;
-  if (!support) {
-    return null; // No support data available
-  }
+  const compat = feature.__compat;
+  if (!compat) return null;
 
-  const browsers: BrowserSupport[] = [
-    {
-      name: "Chrome",
-      supported: !!support.chrome?.version_added,
-      version: support.chrome?.version_added,
-    },
-    {
-      name: "Edge",
-      supported: !!support.edge?.version_added,
-      version: support.edge?.version_added,
-    },
-    {
-      name: "Firefox",
-      supported: !!support.firefox?.version_added,
-      version: support.firefox?.version_added,
-    },
-    {
-      name: "Safari",
-      supported: !!support.safari?.version_added,
-      version: support.safari?.version_added,
-    },
-  ];
+  // ----------- REAL MDN BASELINE INFORMATION -----------
+  const baseline = compat.status?.baseline ?? "false"; 
+  // Values: "high" | "low" | "false"
 
+  const isHigh = baseline === "high";
+  const isLow = baseline === "low";
+  const isNone = baseline === "false";
+
+  // Status definitions (mirroring MDN)
+  const statusLabel = isHigh
+    ? "Baseline: Widely available"
+    : isLow
+    ? "Baseline: Limited availability"
+    : "Not Baseline";
+
+  const statusColor = isHigh
+    ? "tc-green"
+    : isLow
+    ? "tc-orange"
+    : "tc-red";
+
+  const StatusIcon = isHigh
+    ? CheckCircledIcon
+    : isLow
+    ? ExclamationTriangleIcon
+    : CrossCircledIcon;
+
+  // ----------- BROWSER SUPPORT (optional, not baseline logic) -----------
+  const support = compat.support || {};
+
+  const browsers = [
+    { key: "chrome", name: "Chrome", icon: CheckCircledIcon },
+    { key: "edge", name: "Edge", icon: CheckCircledIcon },
+    { key: "firefox", name: "Firefox", icon: CheckCircledIcon },
+    { key: "safari", name: "Safari", icon: CheckCircledIcon },
+  ].map((b) => {
+    const entry = support[b.key];
+    const version =
+      Array.isArray(entry) ? entry[0]?.version_added : entry?.version_added;
+
+    return {
+      ...b,
+      supported: typeof version === "string",
+      version: typeof version === "string" ? version : undefined,
+    };
+  });
+
+  // ----------- RENDER -----------
   return (
-    <div className="mb-6 p-4 b-1" style={{ backgroundColor: "#1a1d2e", borderColor: "#232741" }}>
-      <h3 className="fs-lg fw-500 mb-3 tc-white">Browser Support</h3>
+    <div
+      className="mb-6 p-4 rd-2"
+      style={{ backgroundColor: "#1a1d2e", border: "1px solid #232741" }}
+    >
+      <div className="d-f ai-c g-2 mb-4">
+        <StatusIcon className={statusColor} />
+        <h3 className="fs-lg fw-500 tc-white">{statusLabel}</h3>
+      </div>
+
       <div className="d-g g-4 gtc-1 sm:gtc-2 md:gtc-4">
         {browsers.map((browser) => (
-          <div key={browser.name} className="d-f ai-c g-2">
-            <div className={browser.supported ? "tc-green" : "tc-orange"}>
-              {browser.supported ? <CheckCircledIcon /> : <ExclamationTriangleIcon />}
+          <div key={browser.key} className="d-f ai-c g-2">
+            <div className={browser.supported ? "tc-green" : "tc-red"}>
+              {browser.supported ? <CheckCircledIcon /> : <CrossCircledIcon />}
             </div>
             <span className="tc-white/80">
               {browser.name}
-              {browser.supported && browser.version && ` ${browser.version}+`}
+              {browser.version ? ` ${browser.version}+` : " —"}
             </span>
           </div>
         ))}
@@ -74,4 +97,3 @@ export default function Baseline({ path }: BaselineProps) {
     </div>
   );
 }
-
