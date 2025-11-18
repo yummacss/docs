@@ -117,6 +117,10 @@ summary {
   appearance: none;
 }
 
+.a\:bg-indigo-7:active {
+  background-color: #4d4fbb;
+}
+
 .a\:bg-indigo-9:active {
   background-color: #34357e;
 }
