@@ -341,6 +341,10 @@ summary {
   background-clip: content-box;
 }
 
+.bc-gray-2 {
+  border-color: #cfd1d5;
+}
+
 .bc-indigo {
   border-color: #595cd9;
 }
