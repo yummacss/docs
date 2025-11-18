@@ -333,6 +333,10 @@ summary {
   background-clip: border-box;
 }
 
+.bc-black {
+  border-color: #000;
+}
+
 .bc-c {
   border-collapse: collapse;
 }
@@ -2981,6 +2985,10 @@ summary {
 
 .tc-orange {
   color: #e06814;
+}
+
+.tc-red {
+  color: #d73d3d;
 }
 
 .tc-slate {
