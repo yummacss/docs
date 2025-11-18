@@ -11,8 +11,10 @@ export const meta = {
 
 The content will overflow the container and be visible outside of it.
 
-<Preview>
-  WIP
+<Preview className="bg-white o-auto">
+  <div className="b-1 bc-slate b-d h-32 o-v p-2 w-64">
+    <div className="h-64 tc-slate w-full">Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall. Implacable November weather. As much mud in the streets as if the waters had but newly retired from the face of the earth.</div>
+  </div>
 </Preview>
 
 ```html "o-v" layout="/src/layouts/inline.astro"
@@ -27,8 +29,10 @@ The element will add scrollbars if the content overflows the container.
 
 <Note icon="cursor_arrow">Try scrolling through the container to see how the overflow behaves.</Note>
 
-<Preview>
-  WIP
+<Preview className="bg-white o-auto">
+  <div className="b-1 bc-slate b-d h-32 o-auto p-2 w-64">
+    <div className="h-64 tc-slate w-full">Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall. Implacable November weather. As much mud in the streets as if the waters had but newly retired from the face of the earth.</div>
+  </div>
 </Preview>
 
 ```html "o-auto" layout="/src/layouts/inline.astro"
@@ -41,8 +45,10 @@ The element will add scrollbars if the content overflows the container.
 
 The content that overflows the container will be clipped and not visible.
 
-<Preview>
-  WIP
+<Preview className="bg-white o-auto">
+  <div className="b-1 bc-slate b-d h-32 o-c p-2 w-64">
+    <div className="h-64 tc-slate w-full">Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall. Implacable November weather. As much mud in the streets as if the waters had but newly retired from the face of the earth.</div>
+  </div>
 </Preview>
 
 ```html "o-c" layout="/src/layouts/inline.astro"
@@ -55,8 +61,10 @@ The content that overflows the container will be clipped and not visible.
 
 The content that overflows the container will be hidden and not visible, without scrollbars.
 
-<Preview>
-  WIP
+<Preview className="bg-white o-auto">
+  <div className="b-1 bc-slate b-d h-32 o-h p-2 w-64">
+    <div className="h-64 tc-slate w-full">Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall. Implacable November weather. As much mud in the streets as if the waters had but newly retired from the face of the earth.</div>
+  </div>
 </Preview>
 
 ```html "o-h" layout="/src/layouts/inline.astro"
@@ -69,8 +77,10 @@ The content that overflows the container will be hidden and not visible, without
 
 The element will always show scrollbars, regardless of whether the content overflows.
 
-<Preview>
-  WIP
+<Preview className="bg-white o-auto">
+  <div className="b-1 bc-slate b-d h-32 o-s p-2 w-64">
+    <div className="h-64 tc-slate w-full">Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall. Implacable November weather. As much mud in the streets as if the waters had but newly retired from the face of the earth.</div>
+  </div>
 </Preview>
 
 ```html "o-s" layout="/src/layouts/inline.astro"
