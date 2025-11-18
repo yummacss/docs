@@ -333,10 +333,6 @@ summary {
   background-clip: border-box;
 }
 
-.bc-black {
-  border-color: #000;
-}
-
 .bc-c {
   border-collapse: collapse;
 }
