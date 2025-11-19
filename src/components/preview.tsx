@@ -9,7 +9,6 @@ const previewVariants = cva("p-4 bt-1 br-1 bl-1", {
     variant: {
       centered: "d-f ai-c jc-c",
       inline: "d-f fd-c",
-      
     },
   },
   defaultVariants: {

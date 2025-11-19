@@ -1,8 +1,8 @@
 import bcd from "@mdn/browser-compat-data";
 import {
   CheckCircledIcon,
-  ExclamationTriangleIcon,
   CrossCircledIcon,
+  ExclamationTriangleIcon,
 } from "@radix-ui/react-icons";
 
 interface BaselineProps {
@@ -11,7 +11,7 @@ interface BaselineProps {
 }
 
 export default function Baseline({ path }: BaselineProps) {
-  // Resolve feature from dot path
+  // resolve feature from dot path
   const parts = path.split(".");
   let feature: any = bcd;
 
@@ -23,34 +23,25 @@ export default function Baseline({ path }: BaselineProps) {
   const compat = feature.__compat;
   if (!compat) return null;
 
-  // ----------- REAL MDN BASELINE INFORMATION -----------
-  const baseline = compat.status?.baseline ?? "false"; 
-  // Values: "high" | "low" | "false"
+  const baseline = compat.status?.baseline ?? "false";
 
   const isHigh = baseline === "high";
   const isLow = baseline === "low";
-  const isNone = baseline === "false";
 
-  // Status definitions (mirroring MDN)
   const statusLabel = isHigh
     ? "Baseline: Widely available"
     : isLow
-    ? "Baseline: Limited availability"
-    : "Not Baseline";
+      ? "Baseline: Limited availability"
+      : "Not Baseline";
 
-  const statusColor = isHigh
-    ? "tc-green"
-    : isLow
-    ? "tc-orange"
-    : "tc-red";
+  const statusColor = isHigh ? "tc-green" : isLow ? "tc-orange" : "tc-red";
 
   const StatusIcon = isHigh
     ? CheckCircledIcon
     : isLow
-    ? ExclamationTriangleIcon
-    : CrossCircledIcon;
+      ? ExclamationTriangleIcon
+      : CrossCircledIcon;
 
-  // ----------- BROWSER SUPPORT (optional, not baseline logic) -----------
   const support = compat.support || {};
 
   const browsers = [
@@ -60,8 +51,9 @@ export default function Baseline({ path }: BaselineProps) {
     { key: "safari", name: "Safari", icon: CheckCircledIcon },
   ].map((b) => {
     const entry = support[b.key];
-    const version =
-      Array.isArray(entry) ? entry[0]?.version_added : entry?.version_added;
+    const version = Array.isArray(entry)
+      ? entry[0]?.version_added
+      : entry?.version_added;
 
     return {
       ...b,
@@ -70,7 +62,6 @@ export default function Baseline({ path }: BaselineProps) {
     };
   });
 
-  // ----------- RENDER -----------
   return (
     <div
       className="mb-6 p-4 rd-2"
