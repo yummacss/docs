@@ -1,11 +1,16 @@
-import createMDX from "@next/mdx";
 import fs from "node:fs";
-import rehypeExpressiveCode, { ExpressiveCodeTheme } from "rehype-expressive-code";
+import createMDX from "@next/mdx";
+import rehypeExpressiveCode, {
+  ExpressiveCodeTheme,
+} from "rehype-expressive-code";
 import remarkGfm from "remark-gfm";
 import { redirects } from "./redirects";
 
 // Load your saved theme JSONC file here and create a theme from it
-const jsoncString = fs.readFileSync(new URL(`./src/theme.json`, import.meta.url), "utf-8");
+const jsoncString = fs.readFileSync(
+  new URL(`./src/themes/eclipsa.json`, import.meta.url),
+  "utf-8",
+);
 const eclipsa = ExpressiveCodeTheme.fromJSONString(jsoncString);
 
 /** @type {import('rehype-expressive-code').RehypeExpressiveCodeOptions} */

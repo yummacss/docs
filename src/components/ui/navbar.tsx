@@ -1,8 +1,12 @@
+"use client";
+
 import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
 import { cva, type VariantProps } from "class-variance-authority";
 import { clsx } from "clsx";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { Search } from "./search";
 
 const navbarVariants = cva("p-st t-0 zi-10 bb-1", {
   variants: {
@@ -21,61 +25,80 @@ interface NavbarProps extends VariantProps<typeof navbarVariants> {
 }
 
 export default function Navbar({ variant, className }: NavbarProps) {
-  return (
-    <header className={clsx(navbarVariants({ variant }), className)}>
-      <div className="~sm-xxl mx-auto px-6 py-2">
-        <nav className="d-f ai-c jc-sb">
-          <div className="d-f ai-c g-2">
-            <Link href="/">
-              <Image
-                src="/logotype.png"
-                width={240}
-                height={80}
-                alt="Yumma CSS"
-                className="h-10 w-auto of-c"
-              />
-            </Link>
-          </div>
-          <div className="d-f ai-c g-8">
-            <Link
-              href="/docs/installation"
-              className="d-none md:d-b fs-sm tc-white/80 h:tc-white"
-            >
-              Docs
-            </Link>
-            <Link
-              href="/blog"
-              className="d-none md:d-b fs-sm tc-white/80 h:tc-white"
-            >
-              Blog
-            </Link>
-            <Link
-              href="https://play.yummacss.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="d-none md:d-b fs-sm tc-white/80 h:tc-white"
-            >
-              Playground
-            </Link>
-            <Link
-              href="https://github.com/yumma-lib/yumma-css"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="d-none md:d-b fs-sm tc-white/80 h:tc-white"
-            >
-              GitHub
-            </Link>
+  const [searchOpen, setSearchOpen] = useState(false);
 
-            <button
-              type="button"
-              className="d-f ai-c g-2 md:px-4 md:py-2 bg-white/5 bf-b-sm fs-sm h:bg-white/10 tc-white b-1 bc-white/10"
-            >
-              <MagnifyingGlassIcon className="w-5 h-5 md:w-4 md:h-4" />
-              <span className="d-none md:d-b">Ctrl K</span>
-            </button>
-          </div>
-        </nav>
-      </div>
-    </header>
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.ctrlKey || e.metaKey) && e.key === "k") {
+        e.preventDefault();
+        setSearchOpen(true);
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
+  return (
+    <>
+      <header className={clsx(navbarVariants({ variant }), className)}>
+        <div className="~sm-xxl mx-auto px-6 py-2">
+          <nav className="d-f ai-c jc-sb">
+            <div className="d-f ai-c g-2">
+              <Link href="/">
+                <Image
+                  src="/logotype.png"
+                  width={240}
+                  height={80}
+                  alt="Yumma CSS"
+                  className="h-10 w-auto of-c"
+                />
+              </Link>
+            </div>
+            <div className="d-f ai-c g-8">
+              <Link
+                href="/docs/installation"
+                className="d-none md:d-b fs-sm tc-white/80 h:tc-white"
+              >
+                Docs
+              </Link>
+              <Link
+                href="/blog"
+                className="d-none md:d-b fs-sm tc-white/80 h:tc-white"
+              >
+                Blog
+              </Link>
+              <Link
+                href="https://play.yummacss.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="d-none md:d-b fs-sm tc-white/80 h:tc-white"
+              >
+                Playground
+              </Link>
+              <Link
+                href="https://github.com/yumma-lib/yumma-css"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="d-none md:d-b fs-sm tc-white/80 h:tc-white"
+              >
+                GitHub
+              </Link>
+
+              <button
+                type="button"
+                onClick={() => setSearchOpen(true)}
+                className="d-f ai-c g-2 md:px-4 md:py-2 bg-white/5 bf-b-sm fs-sm h:bg-white/10 tc-white b-1 bc-white/10"
+              >
+                <MagnifyingGlassIcon className="w-5 h-5 md:w-4 md:h-4" />
+                <span className="d-none md:d-b">Ctrl K</span>
+              </button>
+            </div>
+          </nav>
+        </div>
+      </header>
+
+      <Search open={searchOpen} onClose={() => setSearchOpen(false)} />
+    </>
   );
 }

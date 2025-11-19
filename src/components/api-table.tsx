@@ -18,7 +18,6 @@ import {
   transformUtils,
   type Utilities,
 } from "@yummacss/api";
-import Link from "next/link";
 
 type Category =
   | "background"
