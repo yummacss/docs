@@ -3,10 +3,14 @@
 import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
 import { cva, type VariantProps } from "class-variance-authority";
 import { clsx } from "clsx";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Search } from "./search";
+
+const Search = dynamic(() => import("./search").then((mod) => mod.Search), {
+  ssr: false,
+});
 
 const navbarVariants = cva("p-st t-0 zi-10 bb-1", {
   variants: {
