@@ -68,16 +68,21 @@ export const redirects = [
     permanent: true,
   },
   {
+    source: "/resources",
+    destination: "/docs/installation",
+    permanent: true,
+  },
+  {
     source: "/docs/dev-api",
     destination: "/docs/api-reference",
     permanent: true,
   },
+  // Framework guides
   {
     source: "/docs/guides/react",
     destination: "/docs/installation",
     permanent: true,
   },
-  // Framework guides
   {
     source: "/docs/guides/nextjs",
     destination: "/docs/installation",
