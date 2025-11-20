@@ -4,6 +4,7 @@ import {
   ExclamationTriangleIcon,
   HeartIcon,
   InfoCircledIcon,
+  QuestionMarkCircledIcon,
   RulerSquareIcon,
   SizeIcon,
   WidthIcon,
@@ -11,14 +12,15 @@ import {
 import type { ReactNode } from "react";
 
 type IconName =
-  | "ruler_square"
   | "cursor_arrow"
-  | "info"
-  | "warning"
-  | "size"
-  | "width"
+  | "cursor_text"
   | "heart"
-  | "cursor_text";
+  | "info"
+  | "question_mark_circled"
+  | "ruler_square"
+  | "size"
+  | "warning"
+  | "width";
 
 interface NoteProps {
   icon: IconName;
@@ -26,21 +28,22 @@ interface NoteProps {
 }
 
 const iconComponents: Record<IconName, React.ComponentType> = {
-  ruler_square: RulerSquareIcon,
   cursor_arrow: CursorArrowIcon,
-  info: InfoCircledIcon,
-  warning: ExclamationTriangleIcon,
-  size: SizeIcon,
-  width: WidthIcon,
-  heart: HeartIcon,
   cursor_text: CursorTextIcon,
+  heart: HeartIcon,
+  info: InfoCircledIcon,
+  question_mark_circled: QuestionMarkCircledIcon,
+  ruler_square: RulerSquareIcon,
+  size: SizeIcon,
+  warning: ExclamationTriangleIcon,
+  width: WidthIcon,
 };
 
 export default function Note({ icon, children }: NoteProps) {
   const IconComponent = iconComponents[icon];
 
   return (
-    <div className="ai-c d-f g-2 mb-4">
+    <div className="ai-c d-f g-2">
       <span
         className="ai-c d-f fs-0 p-1 b-1"
         style={{
