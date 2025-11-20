@@ -1,3 +1,5 @@
+import { london } from "@/constants/data";
+
 export const meta = {
   title: "Text Align",
   description: "Controls the alignment of text.",
@@ -11,18 +13,15 @@ export const meta = {
 
 The text will be aligned to the start of the container, which is typically side-to-right languages.
 
-<Preview>
-  WIP
+<Preview variant="inline" className="bg-white">
+  <div className="fs-md ta-s tc-slate">
+    {london}
+  </div>
 </Preview>
 
-```html "ta-s" layout="/src/layouts/inline.astro"
-<div class="bg-indigo-1 p-4 rad-1">
-  <p class="bg-white fs-md p-4 rad-1 ta-s tc-slate">
-    Hi, Anne. It's finally springtime here on Earth! I can't stand windy or cold days, so I'm very excited for the spring. There are so many beautiful, colorful trees where I live.
-    I'll try to send you some pictures I took with the camera you gave me for my birthday. I've been a little under the weather lately, but I'll bounce back in no time so we can
-    meet up and hug each other again. I can't wait to go to the grocery store with you like we did a decade ago. I hope you feel the same way and are as excited as much as I am to
-    see you tomorrow night. I love you, and take care. - Vigo
-  </p>
+```html "ta-s"
+<div class="fs-md ta-s tc-slate">
+  Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall...
 </div>
 ```
 
@@ -30,18 +29,15 @@ The text will be aligned to the start of the container, which is typically side-
 
 The text will be centered within its container.
 
-<Preview>
-  WIP
+<Preview variant="inline" className="bg-white">
+  <div className="fs-md ta-c tc-slate">
+    {london}
+  </div>
 </Preview>
 
-```html "ta-c" layout="/src/layouts/inline.astro"
-<div class="bg-indigo-1 p-4 rad-1">
-  <p class="bg-white fs-md p-4 rad-1 ta-c tc-slate">
-    Hi, Anne. It's finally springtime here on Earth! I can't stand windy or cold days, so I'm very excited for the spring. There are so many beautiful, colorful trees where I live.
-    I'll try to send you some pictures I took with the camera you gave me for my birthday. I've been a little under the weather lately, but I'll bounce back in no time so we can
-    meet up and hug each other again. I can't wait to go to the grocery store with you like we did a decade ago. I hope you feel the same way and are as excited as much as I am to
-    see you tomorrow night. I love you, and take care. - Vigo
-  </p>
+```html "ta-c"
+<div class="fs-md ta-c tc-slate">
+  Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall...
 </div>
 ```
 
@@ -49,18 +45,15 @@ The text will be centered within its container.
 
 The text will be aligned to the end of the container, which is typically the right side-to-right languages.
 
-<Preview>
-  WIP
+<Preview variant="inline" className="bg-white">
+  <div className="fs-md ta-e tc-slate">
+    {london}
+  </div>
 </Preview>
 
-```html "ta-e" layout="/src/layouts/inline.astro"
-<div class="bg-indigo-1 p-4 rad-1">
-  <p class="bg-white fs-md p-4 rad-1 ta-e tc-slate">
-    Hi, Anne. It's finally springtime here on Earth! I can't stand windy or cold days, so I'm very excited for the spring. There are so many beautiful, colorful trees where I live.
-    I'll try to send you some pictures I took with the camera you gave me for my birthday. I've been a little under the weather lately, but I'll bounce back in no time so we can
-    meet up and hug each other again. I can't wait to go to the grocery store with you like we did a decade ago. I hope you feel the same way and are as excited as much as I am to
-    see you tomorrow night. I love you, and take care. - Vigo
-  </p>
+```html "ta-e"
+<div class="fs-md ta-e tc-slate">
+  Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall...
 </div>
 ```
 
@@ -68,18 +61,15 @@ The text will be aligned to the end of the container, which is typically the rig
 
 The text will be stretched to align with both and right edges of the container, creating a clean look.
 
-<Preview>
-  WIP
+<Preview variant="inline" className="bg-white">
+  <div className="fs-md ta-j tc-slate">
+    {london}
+  </div>
 </Preview>
 
-```html "ta-j" layout="/src/layouts/inline.astro"
-<div class="bg-indigo-1 p-4 rad-1">
-  <p class="bg-white fs-md p-4 rad-1 ta-j tc-slate">
-    Hi, Anne. It's finally springtime here on Earth! I can't stand windy or cold days, so I'm very excited for the spring. There are so many beautiful, colorful trees where I live.
-    I'll try to send you some pictures I took with the camera you gave me for my birthday. I've been a little under the weather lately, but I'll bounce back in no time so we can
-    meet up and hug each other again. I can't wait to go to the grocery store with you like we did a decade ago. I hope you feel the same way and are as excited as much as I am to
-    see you tomorrow night. I love you, and take care. - Vigo
-  </p>
+```html "ta-j"
+<div class="fs-md ta-j tc-slate">
+  Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall...
 </div>
 ```
 
@@ -87,35 +77,31 @@ The text will be stretched to align with both and right edges of the container, 
 
 The text will be justified, including the last line, which will also stretch to fill the width of the container.
 
-<Preview>
-  WIP
+<Preview variant="inline" className="bg-white">
+  <div className="fs-md ta-ja tc-slate">
+    {london}
+  </div>
 </Preview>
 
-```html "ta-ja" layout="/src/layouts/inline.astro"
-<div class="bg-indigo-1 p-4 rad-1">
-  <p class="bg-white fs-md p-4 rad-1 ta-ja tc-slate">
-    Hi, Anne. It's finally springtime here on Earth! I can't stand windy or cold days, so I'm very excited for the spring. There are so many beautiful, colorful trees where I live.
-    I'll try to send you some pictures I took with the camera you gave me for my birthday. I've been a little under the weather lately, but I'll bounce back in no time so we can
-    meet up and hug each other again. I can't wait to go to the grocery store with you like we did a decade ago. I hope you feel the same way and are as excited as much as I am to
-    see you tomorrow night. I love you, and take care. - Vigo
-  </p>
+```html "ta-ja"
+<div class="fs-md ta-ja tc-slate">
+  Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall...
 </div>
 ```
 
+## Left
+
 The text will be aligned to side of the container, which is the default alignment in most cases.
 
-<Preview>
-  WIP
+<Preview variant="inline" className="bg-white">
+  <div className="fs-md ta-l tc-slate">
+    {london}
+  </div>
 </Preview>
 
-```html "ta-l" layout="/src/layouts/inline.astro"
-<div class="bg-indigo-1 p-4 rad-1">
-  <p class="bg-white fs-md p-4 rad-1 ta-l tc-slate">
-    Hi, Anne. It's finally springtime here on Earth! I can't stand windy or cold days, so I'm very excited for the spring. There are so many beautiful, colorful trees where I live.
-    I'll try to send you some pictures I took with the camera you gave me for my birthday. I've been a little under the weather lately, but I'll bounce back in no time so we can
-    meet up and hug each other again. I can't wait to go to the grocery store with you like we did a decade ago. I hope you feel the same way and are as excited as much as I am to
-    see you tomorrow night. I love you, and take care. - Vigo
-  </p>
+```html "ta-l"
+<div class="fs-md ta-l tc-slate">
+  Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall...
 </div>
 ```
 
@@ -123,18 +109,19 @@ The text will be aligned to side of the container, which is the default alignmen
 
 The text will inherit the text alignment from its parent element.
 
-<Preview>
-  WIP
+<Preview variant="inline" className="bg-white">
+  <div className="ta-r">
+    <div className="fs-md ta-mp tc-slate">
+      {london}
+    </div>
+  </div>
 </Preview>
 
-```html "ta-mp" "ta-j" layout="/src/layouts/inline.astro"
-<div class="bg-indigo-1 p-4 rad-1 ta-j">
-  <p class="bg-white fs-md p-4 rad-1 ta-mp tc-slate">
-    Hi, Anne. It's finally springtime here on Earth! I can't stand windy or cold days, so I'm very excited for the spring. There are so many beautiful, colorful trees where I live.
-    I'll try to send you some pictures I took with the camera you gave me for my birthday. I've been a little under the weather lately, but I'll bounce back in no time so we can
-    meet up and hug each other again. I can't wait to go to the grocery store with you like we did a decade ago. I hope you feel the same way and are as excited as much as I am to
-    see you tomorrow night. I love you, and take care. - Vigo
-  </p>
+```html "ta-mp" "ta-r"
+<div class="ta-r">
+  <div class="fs-md ta-mp tc-slate">
+    Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall...
+  </div>
 </div>
 ```
 
@@ -142,18 +129,15 @@ The text will inherit the text alignment from its parent element.
 
 The text will be aligned to the right side of the container.
 
-<Preview>
-  WIP
+<Preview variant="inline" className="bg-white">
+  <div className="fs-md ta-r tc-slate">
+    {london}
+  </div>
 </Preview>
 
-```html "ta-r" layout="/src/layouts/inline.astro"
-<div class="bg-indigo-1 p-4 rad-1">
-  <p class="bg-white fs-md p-4 rad-1 ta-r tc-slate">
-    Hi, Anne. It's finally springtime here on Earth! I can't stand windy or cold days, so I'm very excited for the spring. There are so many beautiful, colorful trees where I live.
-    I'll try to send you some pictures I took with the camera you gave me for my birthday. I've been a little under the weather lately, but I'll bounce back in no time so we can
-    meet up and hug each other again. I can't wait to go to the grocery store with you like we did a decade ago. I hope you feel the same way and are as excited as much as I am to
-    see you tomorrow night. I love you, and take care. - Vigo
-  </p>
+```html "ta-r"
+<div class="fs-md ta-r tc-slate">
+  Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall...
 </div>
 ```
 
