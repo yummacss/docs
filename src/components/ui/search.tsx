@@ -25,6 +25,7 @@ export function Search({ open, onClose }: SearchProps) {
       disableChat={true}
       colorScheme="dark"
       themeConfig={oramaTheme}
+      linksTarget="_self"
     />
   );
 }
