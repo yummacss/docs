@@ -12,14 +12,18 @@ export const meta = {
 The element will be displayed and take up space in the layout.
 
 <Preview>
-  WIP
+  <div className="d-g g-4 gtc-1 sm:gtc-3">
+    <div className="ai-c bg-indigo d-f jc-c d-16 tc-white v-v">A</div>
+    <div className="ai-c bg-indigo d-f jc-c d-16 tc-white">B</div>
+    <div className="ai-c bg-indigo d-f jc-c d-16 tc-white">C</div>
+  </div>
 </Preview>
 
-```html "v-v" layout="/src/layouts/inline.astro"
+```html "v-v"
 <div class="d-g g-4 gtc-1 sm:gtc-3">
-  <div class="ai-c bg-indigo d-f jc-c p-6 rad-1 tc-white v-v">A</div>
-  <div class="ai-c bg-indigo d-f jc-c p-6 rad-1 tc-white">B</div>
-  <div class="ai-c bg-indigo d-f jc-c p-6 rad-1 tc-white">C</div>
+  <div class="ai-c bg-indigo d-f jc-c d-16 tc-white v-v">A</div>
+  <div class="ai-c bg-indigo d-f jc-c d-16 tc-white">B</div>
+  <div class="ai-c bg-indigo d-f jc-c d-16 tc-white">C</div>
 </div>
 ```
 
@@ -27,30 +31,51 @@ The element will be displayed and take up space in the layout.
 
 The element will be hidden, and it will not take up any space in the layout.
 
-<Preview>
-  WIP
+<Preview className="bg-white">
+  <table className="b-1 b-d bc-c tc-slate w-full">
+    <thead>
+      <tr>
+        <th className="b-1 b-d bg-silver-2 bc-slate p-3 ta-c">H1</th>
+        <th className="b-1 b-d bg-silver-2 bc-slate p-3 ta-c">H2</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td className="b-1 b-d bc-slate p-3 ta-c">A</td>
+        <td className="b-1 b-d bc-slate p-3 ta-c">B</td>
+      </tr>
+      <tr className="v-c">
+        <td className="b-1 b-d bc-slate p-3 ta-c">C</td>
+        <td className="b-1 b-d bc-slate p-3 ta-c">D</td>
+      </tr>
+      <tr>
+        <td className="b-1 b-d bc-slate p-3 ta-c">E</td>
+        <td className="b-1 b-d bc-slate p-3 ta-c">F</td>
+      </tr>
+    </tbody>
+  </table>
 </Preview>
 
-```html "v-c" layout="/src/layouts/inline.astro"
-<table class="bc-c ta-c tc-indigo w-full">
+```html "v-c"
+<table class="b-1 b-d bc-c tc-slate w-full">
   <thead>
     <tr>
-      <th class="b-1 bc-indigo bg-indigo-1 p-2">H1</th>
-      <th class="b-1 bc-indigo bg-indigo-1 p-2">H2</th>
+      <th class="b-1 b-d bc-slate p-3 ta-c">H1</th>
+      <th class="b-1 b-d bc-slate p-3 ta-c">H2</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td class="b-1 bc-indigo p-2">A</td>
-      <td class="b-1 bc-indigo p-2">B</td>
+      <td class="b-1 b-d bc-slate p-3 ta-c">A</td>
+      <td class="b-1 b-d bc-slate p-3 ta-c">B</td>
     </tr>
     <tr class="v-c">
-      <td class="b-1 bc-indigo p-2">C</td>
-      <td class="b-1 bc-indigo p-2">D</td>
+      <td class="b-1 b-d bc-slate p-3 ta-c">C</td>
+      <td class="b-1 b-d bc-slate p-3 ta-c">D</td>
     </tr>
     <tr>
-      <td class="b-1 bc-indigo p-2">E</td>
-      <td class="b-1 bc-indigo p-2">F</td>
+      <td class="b-1 b-d bc-slate p-3 ta-c">E</td>
+      <td class="b-1 b-d bc-slate p-3 ta-c">F</td>
     </tr>
   </tbody>
 </table>
@@ -61,14 +86,18 @@ The element will be hidden, and it will not take up any space in the layout.
 The element will be hidden, but it will still take up space in the layout.
 
 <Preview>
-  WIP
+  <div className="d-g g-4 gtc-1 sm:gtc-3">
+    <div className="ai-c bg-indigo d-f jc-c d-16 tc-white v-h">A</div>
+    <div className="ai-c bg-indigo d-f jc-c d-16 tc-white">B</div>
+    <div className="ai-c bg-indigo d-f jc-c d-16 tc-white">C</div>
+  </div>
 </Preview>
 
-```html "v-h" layout="/src/layouts/inline.astro"
+```html "v-h"
 <div class="d-g g-4 gtc-1 sm:gtc-3">
-  <div class="ai-c bg-indigo d-f jc-c p-6 rad-1 tc-white v-h">A</div>
-  <div class="ai-c bg-indigo d-f jc-c p-6 rad-1 tc-white">B</div>
-  <div class="ai-c bg-indigo d-f jc-c p-6 rad-1 tc-white">C</div>
+  <div class="ai-c bg-indigo d-f jc-c d-16 tc-white v-h">A</div>
+  <div class="ai-c bg-indigo d-f jc-c d-16 tc-white">B</div>
+  <div class="ai-c bg-indigo d-f jc-c d-16 tc-white">C</div>
 </div>
 ```
 
