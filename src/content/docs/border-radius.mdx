@@ -3,6 +3,8 @@ export const meta = {
   description: "Controls the radius of the borders of an element.",
 };
 
+<Baseline path="css.properties.border-radius" />
+
 <ApiTable category="border" name="border-radius" />
 
 Applies a radius of `0.5rem` to all corners of an element.
@@ -18,6 +20,8 @@ Applies a radius of `0.5rem` to all corners of an element.
 ## Bottom Radius
 
 Applies a radius of `0.5rem` to the **bottom** border of an element.
+
+<Baseline path="css.properties.border-bottom-radius" />
 
 <ApiTable category="border" name="border-bottom-radius" />
 
@@ -35,6 +39,8 @@ Applies a radius of `0.5rem` to the bottom border of an element.
 
 Applies a radius of `0.5rem` to the **bottom left** corner of an element.
 
+<Baseline path="css.properties.border-bottom-left-radius" />
+
 <ApiTable category="border" name="border-bottom-left-radius" />
 
 <Preview>
@@ -48,6 +54,8 @@ Applies a radius of `0.5rem` to the **bottom left** corner of an element.
 ## Bottom Right Radius
 
 Applies a radius of `0.5rem` to the **bottom right** corner of an element.
+
+<Baseline path="css.properties.border-bottom-right-radius" />
 
 <ApiTable category="border" name="border-bottom-right-radius" />
 
@@ -63,6 +71,8 @@ Applies a radius of `0.5rem` to the **bottom right** corner of an element.
 
 Applies a radius of `0.5rem` to the **left** border of an element.
 
+<Baseline path="css.properties.border-left-radius" />
+
 <ApiTable category="border" name="border-left-radius" />
 
 <Preview>
@@ -76,6 +86,8 @@ Applies a radius of `0.5rem` to the **left** border of an element.
 ## Right Radius
 
 Applies a radius of `0.5rem` to the **right border** of an element.
+
+<Baseline path="css.properties.border-right-radius" />
 
 <ApiTable category="border" name="border-right-radius" />
 
@@ -92,6 +104,8 @@ Applies a radius of `0.5rem` to the **right border** of an element.
 
 Applies a radius of `0.5rem` to the **top** border of an element.
 
+<Baseline path="css.properties.border-top-radius" />
+
 <ApiTable category="border" name="border-top-radius" />
 
 <Preview>
@@ -106,6 +120,8 @@ Applies a radius of `0.5rem` to the **top** border of an element.
 
 Applies a radius of `0.5rem` to the **top left** corner of an element.
 
+<Baseline path="css.properties.border-top-left-radius" />
+
 <ApiTable category="border" name="border-top-left-radius" />
 
 <Preview>
@@ -119,6 +135,8 @@ Applies a radius of `0.5rem` to the **top left** corner of an element.
 ## Top Right Radius
 
 Applies a radius of `0.5rem` to the **top right** corner of an element.
+
+<Baseline path="css.properties.border-top-right-radius" />
 
 <ApiTable category="border" name="border-top-right-radius" />
 
@@ -136,6 +154,13 @@ This example showcases various `border-radius` utilities:
 
 - The **rad-full** utility applies a `border-radius` of **100%** to an element.
 - The **rad-half** utility applies a `border-radius` of **50%** to an element.
+
+<Preview>
+  <div className="d-g g-8 gtc-1 sm:gtc-2">
+    <div className="ai-c bg-indigo d-16 d-f jc-c rad-full tc-white">100%</div>
+    <div className="ai-c bg-indigo d-16 d-f jc-c rad-half tc-white">50%</div>
+  </div>
+</Preview>
 
 ```html "rad-full" "rad-half"
 <div class="d-g g-8 gtc-1 sm:gtc-2">
