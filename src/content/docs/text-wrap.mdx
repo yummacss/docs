@@ -1,3 +1,5 @@
+import { london } from "@/constants/data";
+
 export const meta = {
   title: "Text Wrap",
   description: "Controls how text is wrapped within an element.",
@@ -11,18 +13,18 @@ export const meta = {
 
 The text will wrap to the next line when it reaches the end of the container.
 
-<Preview>
-  WIP
+<Preview className="bg-white">
+  <div className="d-g g-4 max-w-64 mx-auto">
+    <div className="fs-xl fw-600 tc-slate tw-w">Bleak House by Charles Dickens</div>
+    <div className="fs-sm tc-gray-7">{london}</div>
+  </div>
 </Preview>
 
-```html "tw-w" layout="/src/layouts/inline.astro"
-<div class="bg-indigo-1 p-4 rad-1">
-  <div class="bg-white d-g g-4 max-w-80 mx-auto p-4 rad-1">
-    <div class="fs-xl fw-600 tc-slate tw-w">Letters to Anne (Springtime'23 message)</div>
-    <p class="fs-sm tc-gray-7">
-      Hi, Anne. It's finally springtime here on Earth! I can't stand windy or cold days, so I'm very excited for the spring. There are so many beautiful, colorful trees where I
-      live.
-    </p>
+```html "tw-w"
+<div class="d-g g-4 max-w-64 mx-auto">
+  <div class="fs-xl fw-600 tc-slate tw-w">Bleak House by Charles Dickens</div>
+  <div class="fs-sm tc-gray-7">
+    London. Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall...
   </div>
 </div>
 ```
@@ -31,18 +33,18 @@ The text will wrap to the next line when it reaches the end of the container.
 
 The text will be wrapped in a way that balances the line lengths, creating a more visually appealing layout.
 
-<Preview>
-  WIP
+<Preview className="bg-white">
+  <div className="d-g g-4 max-w-64 mx-auto">
+    <div className="fs-xl fw-600 tc-slate tw-b">Bleak House by Charles Dickens</div>
+    <div className="fs-sm tc-gray-7">{london}</div>
+  </div>
 </Preview>
 
-```html "tw-b" layout="/src/layouts/inline.astro"
-<div class="bg-indigo-1 p-4 rad-1">
-  <div class="bg-white d-g g-4 max-w-80 mx-auto p-4 rad-1">
-    <div class="fs-xl fw-600 tc-slate tw-b">Letters to Anne (Springtime'23 message)</div>
-    <p class="fs-sm tc-gray-7">
-      Hi, Anne. It's finally springtime here on Earth! I can't stand windy or cold days, so I'm very excited for the spring. There are so many beautiful, colorful trees where I
-      live.
-    </p>
+```html "tw-b"
+<div class="d-g g-4 max-w-64 mx-auto">
+  <div class="fs-xl fw-600 tc-slate tw-b">Bleak House by Charles Dickens</div>
+  <div class="fs-sm tc-gray-7">
+    London. Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall...
   </div>
 </div>
 ```
@@ -51,18 +53,18 @@ The text will be wrapped in a way that balances the line lengths, creating a mor
 
 The text will not wrap to the next line, and it will overflow the container if it exceeds the width.
 
-<Preview>
-  WIP
+<Preview className="bg-white">
+  <div className="d-g g-4 max-w-64 mx-auto">
+    <div className="fs-xl fw-600 tc-slate tw-nw">Bleak House by Charles Dickens</div>
+    <div className="fs-sm tc-gray-7">{london}</div>
+  </div>
 </Preview>
 
-```html "tw-nw" layout="/src/layouts/inline.astro"
-<div class="bg-indigo-1 p-4 rad-1">
-  <div class="bg-white d-g g-4 max-w-80 mx-auto p-4 rad-1">
-    <div class="fs-xl fw-600 tc-slate tw-nw">Letters to Anne (Springtime'23 message)</div>
-    <p class="fs-sm tc-gray-7">
-      Hi, Anne. It's finally springtime here on Earth! I can't stand windy or cold days, so I'm very excited for the spring. There are so many beautiful, colorful trees where I
-      live.
-    </p>
+```html "tw-nw"
+<div class="d-g g-4 max-w-64 mx-auto">
+  <div class="fs-xl fw-600 tc-slate tw-nw">Bleak House by Charles Dickens</div>
+  <div class="fs-sm tc-gray-7">
+    London. Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall...
   </div>
 </div>
 ```
@@ -71,18 +73,18 @@ The text will not wrap to the next line, and it will overflow the container if i
 
 The text will be wrapped in a way that maintains a visually pleasing appearance, often used for better readability.
 
-<Preview>
-  WIP
+<Preview className="bg-white">
+  <div className="d-g g-4 max-w-64 mx-auto">
+    <div className="fs-xl fw-600 tc-slate tw-p">Bleak House by Charles Dickens</div>
+    <div className="fs-sm tc-gray-7">{london}</div>
+  </div>
 </Preview>
 
-```html "tw-p" layout="/src/layouts/inline.astro"
-<div class="bg-indigo-1 p-4 rad-1">
-  <div class="bg-white d-g g-4 max-w-80 mx-auto p-4 rad-1">
-    <div class="fs-xl fw-600 tc-slate tw-p">Letters to Anne (Springtime'23 message)</div>
-    <p class="fs-sm tc-gray-7">
-      Hi, Anne. It's finally springtime here on Earth! I can't stand windy or cold days, so I'm very excited for the spring. There are so many beautiful, colorful trees where I
-      live.
-    </p>
+```html "tw-p"
+<div class="d-g g-4 max-w-64 mx-auto">
+  <div class="fs-xl fw-600 tc-slate tw-p">Bleak House by Charles Dickens</div>
+  <div class="fs-sm tc-gray-7">
+    London. Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall...
   </div>
 </div>
 ```
