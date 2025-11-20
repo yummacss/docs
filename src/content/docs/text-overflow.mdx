@@ -11,32 +11,24 @@ export const meta = {
 
 The text will be clipped at the edge of the container without any indication that it has been cut off.
 
-<Preview>
-  WIP
+<Preview className="bg-white">
+  <p className="fs-lg o-h p-4 tc-slate to-c w-35 ws-nw">Pneumonoultramicroscopicsilicovolcanoconiosis</p>
 </Preview>
 
-```html "to-c" layout="/src/layouts/inline.astro"
-<div class="bg-indigo-1 p-4 rad-1">
-  <div class="bg-white rad-1">
-    <p class="fs-lg o-h p-4 tc-slate to-c w-25 ws-nw">Pneumonoultramicroscopicsilicovolcanoconiosis</p>
-  </div>
-</div>
+```html "to-c"
+<p class="fs-lg o-h p-4 tc-slate to-c w-35 ws-nw">Pneumonoultramicroscopicsilicovolcanoconiosis</p>
 ```
 
 ## Ellipsis
 
 The text will be truncated with an ellipsis at the end to indicate that there is more content that is not visible.
 
-<Preview>
-  WIP
+<Preview className="bg-white">
+  <p className="fs-lg o-h p-4 tc-slate to-e w-35 ws-nw">Pneumonoultramicroscopicsilicovolcanoconiosis</p>
 </Preview>
 
-```html "to-e" layout="/src/layouts/inline.astro"
-<div class="bg-indigo-1 p-4 rad-1">
-  <div class="bg-white rad-1">
-    <p class="fs-lg o-h p-4 tc-slate to-e w-25 ws-nw">Pneumonoultramicroscopicsilicovolcanoconiosis</p>
-  </div>
-</div>
+```html "to-e"
+<p class="fs-lg o-h p-4 tc-slate to-e w-35 ws-nw">Pneumonoultramicroscopicsilicovolcanoconiosis</p>
 ```
 
 ## Using utility variants

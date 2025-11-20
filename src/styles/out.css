@@ -3231,10 +3231,6 @@ summary {
   width: .5rem;
 }
 
-.w-25 {
-  width: 6.25rem;
-}
-
 .w-28 {
   width: 7rem;
 }
@@ -3249,6 +3245,10 @@ summary {
 
 .w-32 {
   width: 8rem;
+}
+
+.w-35 {
+  width: 8.75rem;
 }
 
 .w-4 {
