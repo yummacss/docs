@@ -11,22 +11,35 @@ export const meta = {
 
 The browser will determine the column widths based on the content.
 
-<Preview>
-  WIP
+<Preview className="bg-white">
+  <table className="b-1 b-d bc-c tc-slate tl-auto w-full">
+    <thead>
+      <tr>
+        <th className="b-1 b-d bc-slate p-3 ta-c">Full Name</th>
+        <th className="b-1 b-d bc-slate p-3 ta-c">Phone Number</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td className="b-1 b-d bc-slate p-3 ta-c">John Doe</td>
+        <td className="b-1 b-d bc-slate p-3 ta-c">+1 (555) 123-4567</td>
+      </tr>
+    </tbody>
+  </table>
 </Preview>
 
-```html "tl-auto" layout="/src/layouts/inline.astro"
-<table class="b-1  bc-c tc-indigo tl-auto w-full">
+```html "tl-auto"
+<table class="b-1 b-d bc-c tc-slate tl-auto w-full">
   <thead>
     <tr>
-      <th class="b-1 bc-indigo bg-indigo-2 p-3">Title</th>
-      <th class="b-1 bc-indigo bg-indigo-2 p-3">Opening Line</th>
+      <th class="b-1 b-d bc-slate p-3 ta-c">Full Name</th>
+      <th class="b-1 b-d bc-slate p-3 ta-c">Phone Number</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td class="b-1 bc-indigo p-3">Letters to Anne</td>
-      <td class="b-1 bc-indigo p-3">It's finally springtime here on earth!</td>
+      <td class="b-1 b-d bc-slate p-3 ta-c">John Doe</td>
+      <td class="b-1 b-d bc-slate p-3 ta-c">+1 (555) 123-4567</td>
     </tr>
   </tbody>
 </table>
@@ -36,22 +49,35 @@ The browser will determine the column widths based on the content.
 
 The column widths are set by the width of the table and the first row.
 
-<Preview>
-  WIP
+<Preview className="bg-white">
+  <table className="tc-slate tl-f w-full">
+    <thead>
+      <tr>
+        <th className="b-1 b-d bc-slate p-3 ta-c">Full Name</th>
+        <th className="b-1 b-d bc-slate p-3 ta-c">Phone Number</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td className="b-1 b-d bc-slate p-3 ta-c">John Doe</td>
+        <td className="b-1 b-d bc-slate p-3 ta-c">+1 (555) 123-4567</td>
+      </tr>
+    </tbody>
+  </table>
 </Preview>
 
-```html "tl-f" layout="/src/layouts/inline.astro"
-<table class="b-1  bc-c tc-indigo tl-f w-full">
+```html "tl-f"
+<table class="b-1 b-d bc-c tc-slate tl-f w-full">
   <thead>
     <tr>
-      <th class="b-1 bc-indigo bg-indigo-2 p-3">Title</th>
-      <th class="b-1 bc-indigo bg-indigo-2 p-3">Opening Line</th>
+      <th class="b-1 b-d bc-slate p-3 ta-c">Full Name</th>
+      <th class="b-1 b-d bc-slate p-3 ta-c">Phone Number</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td class="b-1 bc-indigo p-3">Letters to Anne</td>
-      <td class="b-1 bc-indigo p-3">It's finally springtime here on earth!</td>
+      <td class="b-1 b-d bc-slate p-3 ta-c">John Doe</td>
+      <td class="b-1 b-d bc-slate p-3 ta-c">+1 (555) 123-4567</td>
     </tr>
   </tbody>
 </table>
