@@ -11,16 +11,23 @@ This example showcases various `z-index` utilities:
 - The **zi-20** z index utility sets the z-index to **20**, positioning the element even higher in the stacking context.
 
 <Preview>
-  WIP
+  <div className="p-r">
+    <div className="ai-c bg-indigo d-30 d-f jc-c p-r zi-10">
+      <div className="tc-white">A</div>
+    </div>
+    <div className="ai-c bg-indigo-8 d-15 d-f jc-c l-0 p-a t-0 zi-20">
+      <div className="tc-white">B</div>
+    </div>
+  </div>
 </Preview>
 
 ```html "zi-10" "zi-20"
 <div class="p-r">
-  <div class="ai-c bg-indigo d-30 d-f jc-c p-r rad-1 zi-10">
-    <p class="tc-white">A</p>
+  <div class="ai-c bg-indigo d-30 d-f jc-c p-r zi-10">
+    <div class="tc-white">A</div>
   </div>
-  <div class="ai-c bg-indigo-8 d-15 d-f jc-c l-0 p-a rad-1 t-0 zi-20">
-    <p class="tc-white">B</p>
+  <div class="ai-c bg-indigo-8 d-15 d-f jc-c l-0 p-a t-0 zi-20">
+    <div class="tc-white">B</div>
   </div>
 </div>
 ```
