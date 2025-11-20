@@ -12,14 +12,18 @@ This example showcases various `width` utilities:
 - Finally, **w-48** width utility sets the width to `12rem`.
 
 <Preview>
-  WIP
+  <div className="d-g rg-8">
+    <div className="bg-indigo p-1 ta-c tc-white w-16">16</div>
+    <div className="bg-indigo p-1 ta-c tc-white w-28">28</div>
+    <div className="bg-indigo p-1 ta-c tc-white w-48">48</div>
+  </div>
 </Preview>
 
 ```html "w-16" "w-28" "w-48"
 <div class="d-g rg-8">
-  <div class="bg-indigo p-1 rad-1 ta-c tc-white w-16">16</div>
-  <div class="bg-indigo p-1 rad-1 ta-c tc-white w-28">28</div>
-  <div class="bg-indigo p-1 rad-1 ta-c tc-white w-48">48</div>
+  <div class="bg-indigo p-1 ta-c tc-white w-16">16</div>
+  <div class="bg-indigo p-1 ta-c tc-white w-28">28</div>
+  <div class="bg-indigo p-1 ta-c tc-white w-48">48</div>
 </div>
 ```
 
@@ -34,11 +38,11 @@ The **max-w-64** utility sets the maximum width to **16rem**, ensuring that the 
 <Note icon="size">Try changing the horizontal size of the box to see how wide it can be at the maximum size.</Note>
 
 <Preview>
-  WIP
+  <div className="ai-c bg-indigo d-f jc-c max-w-64 min-w-16 o-auto p-6 r-h tc-white w-32">64</div>
 </Preview>
 
 ```html "max-w-64"
-<div class="ai-c bg-indigo d-f jc-c max-w-64 min-w-16 o-auto p-6 r-h rad-1 tc-white w-32">64</div>
+<div class="ai-c bg-indigo d-f jc-c max-w-64 min-w-16 o-auto p-6 r-h tc-white w-32">64</div>
 ```
 
 ## Min Width
@@ -52,11 +56,11 @@ The **min-w-16** utility sets the minimum width to `4rem`, ensuring that the ele
 <Note icon="size">Try changing the horizontal size of the box to see how wide it can be at the minimum size.</Note>
 
 <Preview>
-  WIP
+  <div className="ai-c bg-indigo d-f jc-c max-w-64 min-w-16 o-auto p-6 r-h tc-white w-32">32</div>
 </Preview>
 
 ```html "min-w-16"
-<div class="ai-c bg-indigo d-f jc-c max-w-64 min-w-16 o-auto p-6 r-h rad-1 tc-white w-32">32</div>
+<div class="ai-c bg-indigo d-f jc-c max-w-64 min-w-16 o-auto p-6 r-h tc-white w-32">32</div>
 ```
 
 ## Using percentages
@@ -67,13 +71,16 @@ This example showcases various width values: `100%` and `50%`.
 - The **w-half** utility sets the width to `50%`, allowing the element to occupy half the width of its container.
 
 <Preview>
-  WIP
+  <div className="b-3 b-d bc-indigo d-g p-2 rg-8 w-64">
+    <div className="bg-indigo p-2 ta-c tc-white w-full">100%</div>
+    <div className="bg-indigo p-2 ta-c tc-white w-half">50%</div>
+  </div>
 </Preview>
 
 ```html "w-full" "w-half"
-<div class="b-3 b-d bc-indigo d-g p-2 rad-1 rg-8 w-64">
-  <div class="bg-indigo p-2 rad-1 ta-c tc-white w-full">100%</div>
-  <div class="bg-indigo p-2 rad-1 ta-c tc-white w-half">50%</div>
+<div class="b-3 b-d bc-indigo d-g p-2 rg-8 w-64">
+  <div class="bg-indigo p-2 ta-c tc-white w-full">100%</div>
+  <div class="bg-indigo p-2 ta-c tc-white w-half">50%</div>
 </div>
 ```
 
