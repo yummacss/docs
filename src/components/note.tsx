@@ -43,7 +43,7 @@ export default function Note({ icon, children }: NoteProps) {
   const IconComponent = iconComponents[icon];
 
   return (
-    <div className="ai-c d-f g-2">
+    <div className="ai-c d-f g-2 mb-4">
       <span
         className="ai-c d-f fs-0 p-1 b-1"
         style={{
