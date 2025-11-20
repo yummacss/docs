@@ -3,22 +3,24 @@ export const meta = {
   description: "Controls the text input cursor color.",
 };
 
+<Baseline path="css.properties.caret-color" />
+
 <ApiTable category="color" name="caret-color" />
 
 The custom caret-color will have an **indigo** color from the default color palette.
 
-<Note icon="cursor_text">Try writing a sentence to see the caret color.</Note>
+<Note icon="cursor_text">Look at the color of the cursor when typing.</Note>
 
-<Preview>
-  <div class="d-g g-16 gtc-1 sm:gtc-2">
-    <div class="d-g">
-      <label class="fw-600">Default</label>
-      <input class="b-1 bc-silver p-1 tc-white" placeholder="Type something..." />
+<Preview className="bg-white">
+  <div className="d-g g-16 gtc-1 sm:gtc-2">
+    <div className="d-g">
+      <label className="tc-slate fw-600">Default</label>
+      <input className="b-1 bc-slate p-1 tc-slate" placeholder="Type something..." />
     </div>
 
     <div class="d-g">
-      <label class="fw-600">Custom</label>
-      <input class="b-1 bc-silver cc-indigo p-1 tc-white" placeholder="Type something..." />
+      <label class="tc-slate fw-600">Custom</label>
+      <input class="b-1 bc-slate cc-indigo p-1 tc-slate" placeholder="Type something..." />
     </div>
   </div>
 </Preview>
@@ -26,13 +28,13 @@ The custom caret-color will have an **indigo** color from the default color pale
 ```html "cc-indigo"
 <div class="d-g g-16 gtc-1 sm:gtc-2">
   <div class="d-g">
-    <label class="fw-600">Default</label>
-    <input class="b-1 bc-silver p-1 tc-white" placeholder="Type something..." />
+    <label class="tc-slate fw-600">Default</label>
+    <input class="b-1 bc-slate p-1 tc-slate" placeholder="Type something..." />
   </div>
 
   <div class="d-g">
-    <label class="fw-600">Custom</label>
-    <input class="b-1 bc-silver cc-indigo p-1 tc-white" placeholder="Type something..." />
+    <label class="tc-slate fw-600">Custom</label>
+    <input class="b-1 bc-slate cc-indigo p-1 tc-slate" placeholder="Type something..." />
   </div>
 </div>
 ```
