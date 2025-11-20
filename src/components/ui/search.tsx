@@ -13,8 +13,8 @@ export function Search({ open, onClose }: SearchProps) {
     <OramaSearchBox
       open={open}
       index={{
-        endpoint: process.env.NEXT_PUBLIC_ORAMA_ENDPOINT!,
-        api_key: process.env.NEXT_PUBLIC_ORAMA_API_KEY!,
+        endpoint: process.env.NEXT_PUBLIC_ORAMA_ENDPOINT ?? "",
+        api_key: process.env.NEXT_PUBLIC_ORAMA_API_KEY ?? "",
       }}
       onModalClosed={onClose}
       facetProperty="category"
