@@ -1612,20 +1612,20 @@ summary {
   background-color: #40429c;
 }
 
-.h\:bg-red-1:hover {
-  background-color: #f9e0e0;
+.h\:bg-red-11:hover {
+  background-color: #411212;
 }
 
 .h\:bg-slate-7:hover {
   background-color: #363643;
 }
 
-.h\:bg-teal-1:hover {
-  background-color: #d9f1ee;
+.h\:bg-teal-11:hover {
+  background-color: #05322d;
 }
 
-.h\:bg-yellow-1:hover {
-  background-color: #f8f0d7;
+.h\:bg-yellow-11:hover {
+  background-color: #3f3002;
 }
 
 .h\:tc-white:hover {
