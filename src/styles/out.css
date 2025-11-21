@@ -2983,10 +2983,6 @@ summary {
   color: #40429c;
 }
 
-.tc-orange {
-  color: #e06814;
-}
-
 .tc-red {
   color: #d73d3d;
 }
@@ -3017,6 +3013,10 @@ summary {
 
 .tc-white\/80 {
   color: #fffc;
+}
+
+.tc-yellow {
+  color: #d3a107;
 }
 
 .td-none {

@@ -1,5 +1,5 @@
-import fs from "node:fs";
 import createMDX from "@next/mdx";
+import fs from "node:fs";
 import rehypeExpressiveCode, {
   ExpressiveCodeTheme,
 } from "rehype-expressive-code";
