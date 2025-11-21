@@ -11,9 +11,6 @@ importers:
       '@fontsource/esteban':
         specifier: ^5.2.7
         version: 5.2.7
-      '@mdn/browser-compat-data':
-        specifier: ^7.1.22
-        version: 7.1.22
       '@mdx-js/loader':
         specifier: ^3.1.1
         version: 3.1.1
@@ -74,6 +71,9 @@ importers:
       tinycolor2:
         specifier: ^1.6.0
         version: 1.6.0
+      web-features:
+        specifier: ^3.9.2
+        version: 3.9.2
     devDependencies:
       '@biomejs/biome':
         specifier: 2.2.0
@@ -367,9 +367,6 @@ packages:
 
   '@lit/reactive-element@2.1.1':
     resolution: {integrity: sha512-N+dm5PAYdQ8e6UlywyyrgI2t++wFGXfHx+dSJ1oBrg6FAxUj40jId++EaRm80MKX5JnlH1sBsyZ5h0bcZKemCg==}
-
-  '@mdn/browser-compat-data@7.1.22':
-    resolution: {integrity: sha512-pvfjbTDEYTDNKl9u3KbRzeNmU7PrcsFiGzIUbcB9JPq1LziTMs6YpE2x3Gf+2gHOPQzdO/KQ8hAr1Kkkzpklrg==}
 
   '@mdx-js/loader@3.1.1':
     resolution: {integrity: sha512-0TTacJyZ9mDmY+VefuthVshaNIyCGZHJG2fMnGaDttCt8HmjUF7SizlHJpaCDoGnN635nK1wpzfpx/Xx5S4WnQ==}
@@ -1861,6 +1858,9 @@ packages:
   vfile@6.0.3:
     resolution: {integrity: sha512-KzIbH/9tXat2u30jf+smMwFCsno4wHVdNmzFyL+T/L3UGqqk6JKfVqOFOZEpZSHADH1k40ab6NUIXZq422ov3Q==}
 
+  web-features@3.9.2:
+    resolution: {integrity: sha512-f3gfIAaxdSfsM0/3gycITqiriZEPIcfcjs25FC7qRhUGUMM5JNcIAivJz7mP1RwHKO6Fg0c4/GsW6pkhdfCCUA==}
+
   wrap-ansi@7.0.0:
     resolution: {integrity: sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q==}
     engines: {node: '>=10'}
@@ -2121,8 +2121,6 @@ snapshots:
   '@lit/reactive-element@2.1.1':
     dependencies:
       '@lit-labs/ssr-dom-shim': 1.4.0
-
-  '@mdn/browser-compat-data@7.1.22': {}
 
   '@mdx-js/loader@3.1.1':
     dependencies:
@@ -4016,6 +4014,8 @@ snapshots:
     dependencies:
       '@types/unist': 3.0.3
       vfile-message: 4.0.3
+
+  web-features@3.9.2: {}
 
   wrap-ansi@7.0.0:
     dependencies:

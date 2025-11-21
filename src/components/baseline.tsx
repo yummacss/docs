@@ -1,9 +1,28 @@
-import bcd from "@mdn/browser-compat-data";
 import {
   CheckCircledIcon,
   CrossCircledIcon,
   ExclamationTriangleIcon,
 } from "@radix-ui/react-icons";
+import data from "web-features/data.json";
+
+interface FeatureStatus {
+  baseline: false | "low" | "high";
+  support: {
+    chrome?: string;
+    edge?: string;
+    firefox?: string;
+    safari?: string;
+  };
+}
+
+interface FeatureData {
+  compat_features?: string[];
+  status?: FeatureStatus;
+}
+
+const { features } = data as {
+  features: Record<string, FeatureData>;
+};
 
 interface BaselineProps {
   /** Example: "css.properties.accent-color" */
@@ -11,54 +30,59 @@ interface BaselineProps {
 }
 
 export default function Baseline({ path }: BaselineProps) {
-  // resolve feature from dot path
-  const parts = path.split(".");
-  let feature: any = bcd;
+  // Find feature that contains this BCD key
+  const matchingFeature = Object.entries(features).find(([, feature]) => {
+    // Type guard: only FeatureData has compat_features
+    if ("compat_features" in feature) {
+      return feature.compat_features?.includes(path);
+    }
+    return false;
+  });
 
-  for (const part of parts) {
-    feature = feature?.[part];
-    if (!feature) return null;
-  }
+  if (!matchingFeature) return null;
 
-  const compat = feature.__compat;
-  if (!compat) return null;
+  const [, feature] = matchingFeature;
 
-  const baseline = compat.status?.baseline ?? "false";
+  // Type guard: only FeatureData has status
+  if (!("status" in feature)) return null;
 
+  const status = feature.status;
+  if (!status) return null;
+
+  const baseline = status.baseline;
   const isHigh = baseline === "high";
   const isLow = baseline === "low";
 
   const statusLabel = isHigh
-    ? "Baseline: Widely available"
+    ? "Widely available"
     : isLow
-      ? "Baseline: Limited availability"
-      : "Not Baseline";
+      ? "Newly available"
+      : "Limited availability";
 
-  const statusColor = isHigh ? "tc-green" : isLow ? "tc-orange" : "tc-red";
-
-  const StatusIcon = isHigh
-    ? CheckCircledIcon
+  const statusDescription = isHigh
+    ? "This feature is well established and works across many devices and browser versions."
     : isLow
-      ? ExclamationTriangleIcon
-      : CrossCircledIcon;
+      ? "This feature works across the latest devices and browser versions. This feature might not work in older devices or browsers."
+      : "This feature does not work in some of the most widely-used browsers.";
 
-  const support = compat.support || {};
+  const statusColor = isHigh ? "tc-green" : isLow ? "tc-indigo" : "tc-yellow";
+
+  const StatusIcon = isHigh ? CheckCircledIcon : ExclamationTriangleIcon;
+
+  const support = status.support || {};
 
   const browsers = [
-    { key: "chrome", name: "Chrome", icon: CheckCircledIcon },
-    { key: "edge", name: "Edge", icon: CheckCircledIcon },
-    { key: "firefox", name: "Firefox", icon: CheckCircledIcon },
-    { key: "safari", name: "Safari", icon: CheckCircledIcon },
+    { key: "chrome", name: "Chrome" },
+    { key: "edge", name: "Edge" },
+    { key: "firefox", name: "Firefox" },
+    { key: "safari", name: "Safari" },
   ].map((b) => {
-    const entry = support[b.key];
-    const version = Array.isArray(entry)
-      ? entry[0]?.version_added
-      : entry?.version_added;
+    const version = support[b.key as keyof typeof support];
 
     return {
       ...b,
-      supported: typeof version === "string",
-      version: typeof version === "string" ? version : undefined,
+      supported: !!version,
+      version: version,
     };
   });
 
@@ -67,9 +91,12 @@ export default function Baseline({ path }: BaselineProps) {
       className="mb-6 p-4 rd-2"
       style={{ backgroundColor: "#1a1d2e", border: "1px solid #232741" }}
     >
-      <div className="d-f ai-c g-2 mb-4">
-        <StatusIcon className={statusColor} />
-        <h3 className="fs-lg fw-500 tc-white">{statusLabel}</h3>
+      <div className="mb-4">
+        <div className="d-f ai-c g-2 mb-2">
+          <StatusIcon className={statusColor} />
+          <h3 className="fs-lg fw-500 tc-white">{statusLabel}</h3>
+        </div>
+        <p className="tc-white/70">{statusDescription}</p>
       </div>
 
       <div className="d-g g-4 gtc-1 sm:gtc-2 md:gtc-4">
@@ -78,10 +105,7 @@ export default function Baseline({ path }: BaselineProps) {
             <div className={browser.supported ? "tc-green" : "tc-red"}>
               {browser.supported ? <CheckCircledIcon /> : <CrossCircledIcon />}
             </div>
-            <span className="tc-white/80">
-              {browser.name}
-              {browser.version ? ` ${browser.version}+` : " —"}
-            </span>
+            <span className="tc-white/80">{browser.name}</span>
           </div>
         ))}
       </div>
