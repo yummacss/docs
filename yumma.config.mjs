@@ -1,8 +1,8 @@
 export default {
   source: [
     "./src/**/*.{ts,tsx}",
-    "./src/mdx-components.tsx",
     "./src/content/**/*.{md,mdx}",
+    "./src/mdx-components.tsx",
   ],
   output: "./src/styles/out.css",
   buildOptions: {
