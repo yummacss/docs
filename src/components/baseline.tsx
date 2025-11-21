@@ -1,5 +1,6 @@
 import {
   CheckCircledIcon,
+  CheckIcon,
   CrossCircledIcon,
   ExclamationTriangleIcon,
 } from "@radix-ui/react-icons";
@@ -67,7 +68,11 @@ export default function Baseline({ path }: BaselineProps) {
 
   const statusColor = isHigh ? "tc-green" : isLow ? "tc-indigo" : "tc-yellow";
 
-  const StatusIcon = isHigh ? CheckCircledIcon : ExclamationTriangleIcon;
+  const StatusIcon = isHigh
+    ? CheckCircledIcon
+    : isLow
+      ? CheckIcon
+      : ExclamationTriangleIcon;
 
   const support = status.support || {};
 
