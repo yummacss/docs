@@ -64,7 +64,7 @@ export default function MobileSidebar({
           <button
             type="button"
             onClick={onClose}
-            className="d-f ai-c jc-c w-10 h-10 tc-white/70 h:tc-white h:bg-white/10 rad-1"
+            className="d-f ai-c jc-c w-10 h-10 tc-white/70 h:tc-white h:bg-white/10"
             aria-label="Close sidebar"
           >
             <Cross1Icon className="w-5 h-5" />

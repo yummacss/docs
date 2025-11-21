@@ -98,7 +98,7 @@ export default async function BlogPostPage({
                 <div className="d-f ai-c g-2">
                   <Link
                     href="/blog"
-                    className="d-if ai-c g-2 px-4 py-2 rad-1 fs-sm tc-white/70 h:tc-white h:bg-white/20"
+                    className="d-if ai-c g-2 px-4 py-2 fs-sm tc-white/70 h:tc-white h:bg-white/20"
                   >
                     <ArrowLeftIcon />
                     Back to Blog
