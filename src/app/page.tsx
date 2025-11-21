@@ -65,15 +65,15 @@ export default function Home() {
               </div>
 
               <div className="d-f fw-w g-3 bt-1 bc-white/10 pt-6">
-                <div className="px-4 py-2 bg-white/10 bf-b-md rad-1 fs-xs d-f ai-c g-2 b-1 bc-white/5 tt-u">
+                <div className="px-4 py-2 bg-white/10 bf-b-md fs-xs d-f ai-c g-2 b-1 bc-white/5 tt-u">
                   <GlobeIcon className="w-4 h-4" />
                   Dedicated API
                 </div>
-                <div className="px-4 py-2 bg-white/10 bf-b-md rad-1 fs-xs d-f ai-c g-2 b-1 bc-white/5 tt-u">
+                <div className="px-4 py-2 bg-white/10 bf-b-md fs-xs d-f ai-c g-2 b-1 bc-white/5 tt-u">
                   <LightningBoltIcon className="w-4 h-4" />
                   CLI-First
                 </div>
-                <div className="px-4 py-2 bg-white/10 bf-b-sm rad-1 fs-xs d-f ai-c g-2 b-1 bc-white/5 tt-u">
+                <div className="px-4 py-2 bg-white/10 bf-b-sm fs-xs d-f ai-c g-2 b-1 bc-white/5 tt-u">
                   <SwitchIcon className="w-4 h-4" />
                   UI Components
                 </div>
