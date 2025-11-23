@@ -21,7 +21,7 @@ const blogSlugs = [
   "yummacss-3.2.0",
   "yummacss-3.3.0",
   "yummacss-3.4.0",
-  "ui-0.1.0",
+  // "ui-for-react-0.1.0", unlisted
   "yummacss-3.5.0",
 ];
 
