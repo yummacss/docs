@@ -81,7 +81,7 @@ export default async function BlogPostPage({
                 src={`/blog/${slug}.png`}
                 alt={meta.title || "Blog cover"}
                 width={1200}
-                height={slug.startsWith("playground-0.0.1-") ? 675 : 630}
+                height={630}
                 className="w-full h-auto"
                 quality={100}
               />
