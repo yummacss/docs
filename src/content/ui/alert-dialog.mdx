@@ -1,44 +1,10 @@
 export const meta = {
    title: "Alert Dialog",
-   description: "A component that displays important dialogs to users.",
+   description: "Shows confirmations that require user acknowledgment or action.",
 };
 
-## Example
+## Examples
 
-A component that displays important dialog to users.
-
-```tsx mark={1}
-import { AlertDialog, AlertDialogClose, AlertDialogDescription, AlertDialogPopup, AlertDialogTitle, AlertDialogTrigger } from "@yummacss/react";
-import { Button } from "@yummacss/react";
-
-<AlertDialog>
-  <AlertDialogTrigger">Discard draft</AlertDialogTrigger>
-  <AlertDialogPopup>
-    <AlertDialogTitle>Discard draft?</AlertDialogTitle>
-    <AlertDialogDescription>You can't undo this action.</AlertDialogDescription>
-    <hr className="b-px bc-silver-3" />
-    <div className="d-f jc-fe g-2">
-      <AlertDialogClose>Cancel</AlertDialogClose>
-      <AlertDialogClose>Discard</AlertDialogClose>
-    </div>
-  </AlertDialogPopup>
-</AlertDialog>
+```html
+// Coming soon...
 ```
-
-## Custom styling
-
-Apply custom styles to the `<AlertDialog>` component.
-
-```tsx 'className="..."'
-<AlertDialog className="...">...</AlertDialog>;
-```
-
-## Extend properties
-
-Extend the `<AlertDialog>` component with the Base UI API.
-
-```tsx "{...props}"
-<AlertDialog {...props}>...</AlertDialog>;
-```
-
-<br />

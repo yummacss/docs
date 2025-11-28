@@ -405,10 +405,6 @@ summary {
   border-color: #ecedee;
 }
 
-.bc-silver-3 {
-  border-color: #e3e4e6;
-}
-
 .bc-slate {
   border-color: #3f3f4e;
 }
@@ -2001,6 +1997,11 @@ summary {
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
+}
+
+.my-10 {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
 }
 
 .my-16 {

@@ -1,66 +1,10 @@
 export const meta = {
    title: "Tabs",
-   description: "A navigation component that organizes content into separate sections accessible through tab headers.",
+   description: "Organizes content into separate panels accessible through labeled tabs.",
 };
 
-## Example
+## Examples
 
-A basic implementation of the Tabs component with default styling.
-
-```tsx mark={1}
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@yummacss/react";
-
-<Tabs defaultValue="account">
-  <TabsList>
-    <TabsTab value="account">Overview</TabsTab>
-    <TabsTab value="password">Projects</TabsTab>
-    <TabsTab value="contact">Account</TabsTab>
-  </TabsList>
-
-  <TabsContent value="account">...️</TabsContent>
-  <TabsContent value="password">...</TabsContent>
-  <TabsContent value="contact">...</TabsContent>
-</Tabs>
+```html
+// Coming soon...
 ```
-
-## API reference
-
-The Tabs component can be adapted to suit specific requirements by utilizing the internal API of Yumma UI, thereby enabling the modification of its visual appearance and operational characteristics.
-
-### `defaultValue`
-
-> Optional
-
-Learn more about the `defaultValue` API in the [Base UI documentation](https://base-ui.com/react/components/tabs#api-reference)
-
-```ts
-(property) defaultValue?: any
-```
-
-### `value`
-
-> Required
-
-Learn more about the `value` API in the [Base UI documentation](https://base-ui.com/react/components/tabs#api-reference)
-
-```ts
-(property) value?: any
-```
-
-## Custom styling
-
-Apply custom styles to the `<Tabs>` component.
-
-```tsx 'className="..."'
-<Tabs className="...">...</Tabs>;
-```
-
-## Extend properties
-
-Extend the `<Tabs>` component with the Base UI API.
-
-```tsx "{...props}"
-<Tabs {...props}>...</Tabs>;
-```
-
-<br />

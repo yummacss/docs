@@ -3,8 +3,7 @@ export interface UISidebarConfigItemBase {
   slug?: string;
 }
 
-export interface UISidebarConfigItemWithChildren
-  extends UISidebarConfigItemBase {
+export interface UISidebarConfigItemWithChildren extends UISidebarConfigItemBase {
   children: UISidebarConfigSimpleItem[];
 }
 
@@ -39,46 +38,52 @@ export const uiSidebarConfig: UISidebarConfig = [
   {
     title: "Components",
     items: [
-      {
-        title: "Alert",
-        slug: "alert",
-      },
-      {
-        title: "Alert Dialog",
-        slug: "alert-dialog",
-      },
-      {
-        title: "Avatar",
-        slug: "avatar",
-      },
-      {
-        title: "Badge",
-        slug: "badge",
-      },
-      {
-        title: "Button",
-        slug: "button",
-      },
-      {
-        title: "Card",
-        slug: "card",
-      },
-      {
-        title: "Checkbox",
-        slug: "checkbox",
-      },
-      {
-        title: "Input",
-        slug: "input",
-      },
-      {
-        title: "Tabs",
-        slug: "tabs",
-      },
-      {
-        title: "Textarea",
-        slug: "textarea",
-      },
+      { title: "Accordion", slug: "accordion" },
+      { title: "Alert Dialog", slug: "alert-dialog" },
+      { title: "Alert", slug: "alert" },
+      { title: "Auth Form", slug: "auth-form" },
+      { title: "Avatar", slug: "avatar" },
+      { title: "Badge", slug: "badge" },
+      { title: "Banner", slug: "banner" },
+      { title: "Blog Section", slug: "blog-section" },
+      { title: "Breadcrumb", slug: "breadcrumb" },
+      { title: "Button", slug: "button" },
+      { title: "Button Group", slug: "button-group" },
+      { title: "Card Group", slug: "card-group" },
+      { title: "Card List", slug: "card-list" },
+      { title: "Card", slug: "card" },
+      { title: "Carousel", slug: "carousel" },
+      { title: "Checkbox", slug: "checkbox" },
+      { title: "Comparison List", slug: "comparison-list" },
+      { title: "Contact Section", slug: "contact-section" },
+      { title: "CTA Section", slug: "cta-section" },
+      { title: "Date Picker", slug: "date-picker" },
+      { title: "Dropdown", slug: "dropdown" },
+      { title: "Feature Section", slug: "feature-section" },
+      { title: "Footer", slug: "footer" },
+      { title: "Header Section", slug: "header-section" },
+      { title: "Hero Section", slug: "hero-section" },
+      { title: "Input", slug: "input" },
+      { title: "Logo Cloud Section", slug: "logo-cloud-section" },
+      { title: "Modal", slug: "modal" },
+      { title: "Navbar", slug: "navbar" },
+      { title: "Newsletter Section", slug: "newsletter-section" },
+      { title: "Offcanvas", slug: "offcanvas" },
+      { title: "Pagination", slug: "pagination" },
+      { title: "Pricing Section", slug: "pricing-section" },
+      { title: "Progress Bar", slug: "progress-bar" },
+      { title: "Radio Button", slug: "radio-button" },
+      { title: "Sidebar", slug: "sidebar" },
+      { title: "Slider", slug: "slider" },
+      { title: "Stacked List", slug: "stacked-list" },
+      { title: "Statistics Section", slug: "statistics-section" },
+      { title: "Switch", slug: "switch" },
+      { title: "Table", slug: "table" },
+      { title: "Tabs", slug: "tabs" },
+      { title: "Team Section", slug: "team-section" },
+      { title: "Testimonial Section", slug: "testimonial-section" },
+      { title: "Textarea", slug: "textarea" },
+      { title: "Timeline", slug: "timeline" },
     ],
   },
 ];

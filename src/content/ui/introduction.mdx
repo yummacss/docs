@@ -1,39 +1,23 @@
+import Link from 'next/link';
+import { uiSidebarConfig } from '../../utils/ui-sidebar';
+
 export const meta = {
    title: "Introduction",
-   description: "Yumma UI is a set of accessible and mature React components built on top of Yumma CSS and Base UI.",
+   description: "A set of beautiful Yumma CSS components that you can simply copy and paste into your application.",
 };
 
 ## Why Yumma UI?
 
-Yumma UI is a set of accessible and mature React components built on top of Yumma CSS and [Base UI](https://baseui.com) and UI Blocks that you can use to build your UIs super quickly. It's super minimalist, lightweight, and super customizable.
+With Yumma UI, you will get access to dozens of free UI blocks, accessible HTML components for whatever you're building. They are the perfect starting point for your next idea, while giving you the freedom of customization.
 
-## Setting up Yumma UI for React
+## Components
 
-<Steps>
-    <Step title="Install Yumma UI">
-        ```bash title="Terminal"
-        pnpm add @yummacss/react
-        ```
-    </Step>
+A list of all available components:
 
-    <Step title="Import styles">
-        Import the Yumma UI styles in your project.
-
-        ```js title="main.ts" mark={1}
-        import "@yummacss/react/styles.css";
-        import "./globals.css";
-        ```
-    </Step>
-
-    <Step title="Start using Yumma UI!">
-        Start using Yumma UI components in your project.
-
-        ```js title="App.tsx" mark={1}
-        import { Button } from "@yummacss/react";
-
-        function App() {
-            return <Button>Click me</Button>;
-        }
-        ```
-    </Step>
-</Steps>
+<div className="d-g gtc-1 sm:gtc-3 rg-8 my-10">
+  {uiSidebarConfig[1].items.map(item => (
+    <div key={item.slug}>
+      <Link className="h:td-u" href={`/ui/${item.slug}`}>{item.title}</Link>
+    </div>
+  ))}
+</div>
