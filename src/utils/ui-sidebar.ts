@@ -3,7 +3,8 @@ export interface UISidebarConfigItemBase {
   slug?: string;
 }
 
-export interface UISidebarConfigItemWithChildren extends UISidebarConfigItemBase {
+export interface UISidebarConfigItemWithChildren
+  extends UISidebarConfigItemBase {
   children: UISidebarConfigSimpleItem[];
 }
 
