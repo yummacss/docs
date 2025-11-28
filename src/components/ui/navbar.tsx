@@ -73,12 +73,12 @@ export default function Navbar({ variant, className }: NavbarProps) {
                 Blog
               </Link>
               <Link
-                href="https://play.yummacss.com"
+                href="/ui/introduction"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="d-none md:d-b fs-sm tc-white/80 h:tc-white"
               >
-                Playground
+                Components
               </Link>
               <Link
                 href="https://github.com/yumma-lib/yumma-css"
