@@ -1,7 +1,6 @@
-@import "./out.css";
-@import "./custom.css";
-@import "@yummacss/ui/styles.css";
 @import "@fontsource/esteban";
+@import "./custom.css";
+@import "./out.css";
 
 h1,
 h2,

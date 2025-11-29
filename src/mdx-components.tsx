@@ -1,17 +1,17 @@
-import { Tabs, TabsList, TabsPanel, TabsTab } from "@yummacss/ui";
 import type { MDXComponents } from "mdx/types";
 import Image from "next/image";
-import ApiTable from "@/components/api-table";
-import Baseline from "@/components/baseline";
-import HoverVariant from "@/components/hover-variant";
+import ApiTable from "@/components/ApiTable";
+import Baseline from "@/components/Baseline";
+import HoverVariant from "@/components/HoverVariant";
 import LegacyColor from "@/components/legacy/legacy-color";
 import LegacyPalette from "@/components/legacy/legacy-palette";
 import LegacyTable from "@/components/legacy/legacy-table";
-import MediaVariant from "@/components/media-variant";
-import Note from "@/components/note";
-import Palette from "@/components/palette";
-import Stepper, { Step } from "@/components/stepper";
-import Preview from "./components/preview";
+import MediaVariant from "@/components/MediaVariant";
+import Note from "@/components/Note";
+import Palette from "@/components/Palette";
+import Stepper, { Step } from "@/components/Stepper";
+import { Tabs, TabsList, TabsPanel, TabsTab } from "@/components/Tabs";
+import Preview from "./components/Preview";
 
 // generate IDs from heading text
 function generateId(children: React.ReactNode): string {
@@ -155,7 +155,7 @@ const components: MDXComponents = {
     <Image
       src={src}
       alt={alt || ""}
-      className="w-full h-auto rad-2 my-4"
+      className="w-full h-auto my-4"
       width={800}
       height={400}
       {...props}

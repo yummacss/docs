@@ -1,0 +1,128 @@
+import { Tabs as BaseTabs } from "@base-ui-components/react/tabs";
+import type * as React from "react";
+
+interface TabsProps extends React.ComponentProps<typeof BaseTabs.Root> {
+  defaultValue?: string;
+  children: React.ReactNode;
+  className?: string;
+  style?: React.CSSProperties;
+}
+
+export function Tabs({
+  children,
+  defaultValue,
+  className = "",
+  style,
+  ...props
+}: TabsProps) {
+  return (
+    <BaseTabs.Root
+      defaultValue={defaultValue}
+      className={`b-1 ${className}`}
+      style={{ borderColor: "#31365e", ...style }}
+      {...props}
+    >
+      {children}
+    </BaseTabs.Root>
+  );
+}
+
+interface TabsListProps extends React.ComponentProps<typeof BaseTabs.List> {
+  children: React.ReactNode;
+  className?: string;
+  style?: React.CSSProperties;
+}
+
+export function TabsList({
+  children,
+  className = "",
+  style,
+  ...props
+}: TabsListProps) {
+  return (
+    <BaseTabs.List
+      className={`d-f p-r zi-0 px-1 cg-1 ${className}`}
+      style={{
+        borderBottom: "1px solid #31365e",
+        ...style,
+      }}
+      {...props}
+    >
+      {children}
+      <BaseTabs.Indicator
+        className="p-a l-0 t-half h-6"
+        style={{
+          zIndex: -1,
+          translate: "var(--active-tab-left) -50%",
+          width: "var(--active-tab-width)",
+          backgroundColor: "#21243f",
+          border: "1px solid #31365e",
+          transitionProperty: "translate, width",
+          transitionDuration: "200ms",
+          transitionTimingFunction: "ease-in-out",
+        }}
+      />
+    </BaseTabs.List>
+  );
+}
+
+interface TabsTabProps extends React.ComponentProps<typeof BaseTabs.Tab> {
+  children: React.ReactNode;
+  value: string;
+  className?: string;
+  style?: React.CSSProperties;
+}
+
+export function TabsTab({
+  children,
+  value,
+  className = "",
+  style,
+  ...props
+}: TabsTabProps) {
+  return (
+    <BaseTabs.Tab
+      value={value}
+      className={`d-f ai-c jc-c b-0 m-0 px-2 py-0 fs-sm fw-500 us-none ws-nw h-8 a-none ${className}`}
+      style={{
+        outline: 0,
+        background: "none",
+        color: "#989ec2",
+        fontFamily: "inherit",
+        ...style,
+      }}
+      {...props}
+    >
+      {children}
+    </BaseTabs.Tab>
+  );
+}
+
+interface TabsPanelProps extends React.ComponentProps<typeof BaseTabs.Panel> {
+  children: React.ReactNode;
+  value: string;
+  className?: string;
+  style?: React.CSSProperties;
+}
+
+export function TabsPanel({
+  children,
+  value,
+  className = "",
+  style,
+  ...props
+}: TabsPanelProps) {
+  return (
+    <BaseTabs.Panel
+      value={value}
+      className={`p-r p-4 ${className}`}
+      style={{
+        outline: 0,
+        ...style,
+      }}
+      {...props}
+    >
+      {children}
+    </BaseTabs.Panel>
+  );
+}

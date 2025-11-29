@@ -2443,6 +2443,11 @@ summary {
   padding-top: 2rem;
 }
 
+.px-1 {
+  padding-left: .25rem;
+  padding-right: .25rem;
+}
+
 .px-2 {
   padding-left: .5rem;
   padding-right: .5rem;
@@ -2471,6 +2476,11 @@ summary {
 .px-8 {
   padding-left: 2rem;
   padding-right: 2rem;
+}
+
+.py-0 {
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 .py-1 {
@@ -2542,10 +2552,6 @@ summary {
 
 .r-v {
   resize: vertical;
-}
-
-.rad-0 {
-  border-radius: 0;
 }
 
 .rad-1 {
@@ -2782,6 +2788,10 @@ summary {
 
 .t-8 {
   top: 2rem;
+}
+
+.t-half {
+  top: 50%;
 }
 
 .t-o-b {
