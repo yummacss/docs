@@ -13,7 +13,7 @@ import type {
   UISidebarConfigSimpleItem,
 } from "@/utils/ui-sidebar";
 import { uiSidebarConfig } from "@/utils/ui-sidebar";
-import SidebarLinks from "./sidebar-links";
+import SidebarLinks from "./SidebarLinks";
 
 function hasChildren(item: SidebarConfigItem | UISidebarConfigItem): item is (
   | SidebarConfigItem

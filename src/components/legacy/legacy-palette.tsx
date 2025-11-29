@@ -64,7 +64,8 @@ export default function LegacyPalette({
         <div />
         {Array.from({ length: 13 }, (_, i) => {
           const label = i === 6 ? "Base" : i < 6 ? 6 - i : i - 6;
-          return <div key={`header-${label}`}>{label}</div>;
+          const position = i === 6 ? "base" : i < 6 ? "lighter" : "darker";
+          return <div key={`${position}-${label}`}>{label}</div>;
         })}
       </div>
 

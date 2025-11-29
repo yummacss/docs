@@ -2,7 +2,7 @@ import { ArrowLeftIcon } from "@radix-ui/react-icons";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import TableOfContents from "@/components/ui/toc";
+import TableOfContents from "@/components/ui/TableOfContents";
 import { getAuthor } from "@/utils/authors";
 import { formatDate, getAllBlogSlugs } from "@/utils/blog";
 

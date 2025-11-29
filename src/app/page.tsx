@@ -6,8 +6,8 @@ import {
   SwitchIcon,
 } from "@radix-ui/react-icons";
 import Link from "next/link";
-import DarkVeil from "@/components/dark-veil";
-import Navbar from "@/components/ui/navbar";
+import DarkVeil from "@/components/DarkVeil";
+import Navbar from "@/components/ui/Navbar";
 
 export default function Home() {
   return (

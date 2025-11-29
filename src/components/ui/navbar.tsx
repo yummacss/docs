@@ -8,7 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-const Search = dynamic(() => import("./search").then((mod) => mod.Search), {
+const Search = dynamic(() => import("./Search").then((mod) => mod.Search), {
   ssr: false,
 });
 

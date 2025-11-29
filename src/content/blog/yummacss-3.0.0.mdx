@@ -2,7 +2,7 @@ export const meta = {
   authors: ["Renildo"],
   cover: "~",
   date: "2025-04-14",
-  description: "After almost six months of hard work it's finally here - Yumma CSS v3 🎉",
+  description: "After almost six months of hard work it's finally here - Yumma CSS v3.0 🎉",
   title: "Yumma CSS 3.0"
 };
 
@@ -12,15 +12,15 @@ export const meta = {
 
 ## What's new in v3.0?
 
-We've completely rewritten the code base for Yumma CSS v3, both internally and externally, and we're excited to improve the way you deal with CSS.
+We've completely rewritten the code base for Yumma CSS v3.0, both internally and externally, and we're excited to improve the way you deal with CSS.
 
-In v3, we're planning to address some major performance issues and add and improve existing utilities in the framework, among other things.
+In v3.0, we're planning to address some major performance issues and add and improve existing utilities in the framework, among other things.
 
 ### All-new CLI
 
 Until recently, you had to import a lot of annoying CSS from Yumma CSS, which was a real pain.
 
-With v3, you won't have to stress about shipping unused CSS to the browser. The new CLI will scan and get rid of them for you automatically.
+With v3.0, you won't have to stress about shipping unused CSS to the browser. The new CLI will scan and get rid of them for you automatically.
 
 <Stepper>
   <Step title="Install Yumma CSS">
@@ -212,7 +212,7 @@ You can check the [release notes](https://github.com/yumma-lib/yumma-css/release
 
 We completely overhauled the entire codebase to get better performance in build times and overall file size. We changing the way all utilities are generated, to eliminate any potential for duplicated or unnecessary data in the `/dist` folder.
 
-| Metric               | v2      | v3      | Improvement            |
+| Metric               | v2      | v3.0      | Improvement            |
 | -------------------- | ------- | ------- | ---------------------- |
 | Complete build       | 13.88 s | 3.96 s  | -9.92 s (71% faster)   |
 | File size (standard) | 3.21 MB | 2.53 MB | -0.68 MB (21% smaller) |
@@ -223,7 +223,7 @@ We completely overhauled the entire codebase to get better performance in build 
 
 ### Upgrading to v3.0
 
-If you're using Yumma CSS v2 or older, the process of upgrading to v3 using the Yumma CLI is honestly super easy.
+If you're using Yumma CSS v2 or older, the process of upgrading to v3.0 using the Yumma CLI is honestly super easy.
 
 <Stepper>
   <Step title="Remove @import rules">
@@ -277,13 +277,13 @@ If you're using Yumma CSS v2 or older, the process of upgrading to v3 using the 
 
 ---
 
-## Changes in v3
+## Changes in v3.0
 
-Like some of the past major updates, Yumma CSS v3 is changing its core framework structure. Just so you know, there are going to be a few breaking changes in the release, so it might be worth taking a look before you update.
+Like some of the past major updates, Yumma CSS v3.0 is changing its core framework structure. Just so you know, there are going to be a few breaking changes in the release, so it might be worth taking a look before you update.
 
 ### Dependency changes
 
-With Yumma CSS v3 you no longer need to install `yummacss` as a standard dependency. Instead, you can install it as a dev dependency. This is because Yumma CSS is now a CLI tool that generates CSS files based on your configuration.
+With Yumma CSS v3.0 you no longer need to install `yummacss` as a standard dependency. Instead, you can install it as a dev dependency. This is because Yumma CSS is now a CLI tool that generates CSS files based on your configuration.
 
 ```bash
 pnpm add yummacss -D
@@ -301,7 +301,7 @@ The full set of utilities will be retained within the distribution folder for th
 
 ### Color utility changes
 
-In v3, both the light (`l-`) and dark (`d-`) characters are being removed across all color utilities. As a result, the range used to determine a color's shade was also adjusted.
+In v3.0, both the light (`l-`) and dark (`d-`) characters are being removed across all color utilities. As a result, the range used to determine a color's shade was also adjusted.
 
 <div className="p-4">
   ```html title="index.html" del={1} ins={2}
@@ -314,7 +314,7 @@ Also, the color hue is increasing from `10%` shade modification to `14%`. This m
 
 Here's a quick reference using `background-color`
 
-| v2           | v3          | Difference    |
+| v2           | v3.0          | Difference    |
 | ------------ | ----------- | ------------- |
 | *-l-indigo-6 | *-indigo-1  | -2 characters |
 | *-l-indigo-5 | *-indigo-2  | -2 characters |
@@ -330,13 +330,13 @@ Here's a quick reference using `background-color`
 | *-d-indigo-5 | *-indigo-11 | -1 character  |
 | *-d-indigo-6 | *-indigo-12 | -1 character  |
 
-<Tabs defaultValue="v3">
-  <TabsList className="b-1" style={{borderColor: '#31365e'}}>
-    <TabsTab className="tc-white b-1 rad-2" style={{backgroundColor: '#21243f', borderColor: '#31365e' }} value="v3">v3</TabsTab>
-    <TabsTab className="tc-white b-1 rad-2" style={{backgroundColor: '#21243f', borderColor: '#31365e' }} value="v2">v2</TabsTab>
+<Tabs defaultValue="v3.0">
+  <TabsList>
+    <TabsTab value="v3.0">v3.0</TabsTab>
+    <TabsTab value="v2.0">v2.0</TabsTab>
   </TabsList>
 
-  <TabsPanel value="v3">
+  <TabsPanel value="v3.0">
     <Palette
       data={[
         { name: "Red", color: "rgb(215, 61, 61)" },
@@ -356,7 +356,7 @@ Here's a quick reference using `background-color`
     />
   </TabsPanel>
 
-  <TabsPanel value="v2">
+  <TabsPanel value="v2.0">
     <LegacyPalette
       data={[
         { name: "Red", color: "#d73d3d" },
@@ -381,7 +381,7 @@ Here's a quick reference using `background-color`
 
 ### Base style changes
 
-We're making some changes to the base styles in v3 to make it more modern and consistent. These changes are turned on by default, but you can turn them off using the config file.
+We're making some changes to the base styles in v3.0 to make it more modern and consistent. These changes are turned on by default, but you can turn them off using the config file.
 
 By default, all paddings will be removed.
 
@@ -565,9 +565,9 @@ export default {
 
 ### Breakpoint changes
 
-In v3, we are moving from pixel-based units to rem-based units. This change promotes better accessibility and scalability, as rem units respect the user's browser font size settings.
+In v3.0, we are moving from pixel-based units to rem-based units. This change promotes better accessibility and scalability, as rem units respect the user's browser font size settings.
 
-| v2     | v3               | Breakpoint |
+| v2     | v3.0               | Breakpoint |
 | ------ | ---------------- | ---------- |
 | 640px  | 40rem _(640px)_  | sm         |
 | 768px  | 48rem _(768px)_  | md         |
@@ -688,17 +688,17 @@ We're renaming several utilities to align with our default naming convention.
 
 ### Font Size
 
-<Tabs defaultValue="v3">
-    <TabsList className="b-1" style={{borderColor: '#31365e'}}>
-        <TabsTab className="tc-white b-1 rad-2" style={{backgroundColor: '#21243f', borderColor: '#31365e' }} value="v3">v3</TabsTab>
-        <TabsTab className="tc-white b-1 rad-2" style={{backgroundColor: '#21243f', borderColor: '#31365e' }} value="v2">v2</TabsTab>
+<Tabs defaultValue="v3.0">
+    <TabsList>
+        <TabsTab value="v3.0">v3.0</TabsTab>
+        <TabsTab value="v2.0">v2.0</TabsTab>
     </TabsList>
 
-  <TabsPanel value="v3">
+  <TabsPanel value="v3.0">
     <ApiTable category="font" name="font-size" />
   </TabsPanel>
 
-  <TabsPanel value="v2">
+  <TabsPanel value="v2.0">
   <LegacyTable
         data={[
         {
@@ -748,17 +748,17 @@ We're renaming several utilities to align with our default naming convention.
 
 ### Font Family
 
-<Tabs defaultValue="v3">
-    <TabsList className="b-1" style={{borderColor: '#31365e'}}>
-        <TabsTab className="tc-white b-1 rad-2" style={{backgroundColor: '#21243f', borderColor: '#31365e' }} value="v3">v3</TabsTab>
-        <TabsTab className="tc-white b-1 rad-2" style={{backgroundColor: '#21243f', borderColor: '#31365e' }} value="v2">v2</TabsTab>
+<Tabs defaultValue="v3.0">
+    <TabsList>
+        <TabsTab value="v3.0">v3.0</TabsTab>
+        <TabsTab value="v2.0">v2.0</TabsTab>
     </TabsList>
 
-  <TabsPanel value="v3">
+  <TabsPanel value="v3.0">
     <ApiTable category="font" name="font-family" />
   </TabsPanel>
 
-  <TabsPanel value="v2">
+  <TabsPanel value="v2.0">
   <LegacyTable
       data={[
         {

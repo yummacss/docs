@@ -7,7 +7,7 @@ import type {
   SidebarConfigSimpleItem,
 } from "@/utils/sidebar";
 import { sidebarConfig } from "@/utils/sidebar";
-import SidebarLinks from "./sidebar-links";
+import SidebarLinks from "./SidebarLinks";
 
 function hasChildren(
   item: SidebarConfigItem,
