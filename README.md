@@ -16,7 +16,7 @@ npx yummacss init
 
 Build styles
 
-```
+```bash
 npx yummacss build
 ```
 
