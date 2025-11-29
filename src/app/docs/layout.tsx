@@ -1,6 +1,6 @@
 import MobileBreadcrumb from "@/components/ui/MobileBreadcrumb";
 import Navbar from "@/components/ui/Navbar";
-import Sidebar from "@/components/ui/sidebar";
+import Sidebar from "@/components/ui/Sidebar";
 import TableOfContents from "@/components/ui/TableOfContents";
 
 export default function DocsLayout({
