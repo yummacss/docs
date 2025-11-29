@@ -8,7 +8,7 @@ export const meta = {
 Yumma CSS comes with the Yumma CLI, a powerful tool that's a breeze to set up and takes no time or effort for production-ready projects.
 
 ```bash title="Terminal"
-pnpm add yummacss -D
+npm install yummacss -D
 ```
 
 ## Creating your configuration file
@@ -16,7 +16,7 @@ pnpm add yummacss -D
 To start using the CLI, you need to create a configuration file in your project.
 
 ```bash title="Terminal"
-pnpm yummacss init
+npx yummacss init
 ```
 
 This will create a complete `yumma.config.mjs` file at the root of your project shown below.
@@ -131,7 +131,7 @@ The Yumma CSS CLI provides several commands to help you work with your Yumma CSS
 The `build` command will compile your Yumma CSS files once.
 
 ```bash
-pnpm yummacss build
+npx yummacss build
 ```
 
 ### Watch
@@ -139,5 +139,5 @@ pnpm yummacss build
 The `watch` command will watch for changes in your Yumma CSS files and recompile them automatically.
 
 ```bash
-pnpm yummacss watch
+npx yummacss watch
 ```
