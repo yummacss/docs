@@ -29,7 +29,7 @@ With v3.0, you won't have to stress about shipping unused CSS to the browser. Th
     <Note icon="info">Learn more about [dependency changes](#dependency-changes).</Note>
 
     ```bash
-    pnpm add yummacss -D
+    npm install yummacss -D
     ```
   </Step>
 
@@ -95,7 +95,7 @@ With v3.0, you won't have to stress about shipping unused CSS to the browser. Th
     To compile the source into CSS, ou can run the following command:
 
     ```bash
-    pnpm yummacss build
+    npx yummacss build
     ```
 
     When you run the `build` command the CLI will create a new CSS file and scan project paths based on the `yumma.config.js` to purge of any unused styles.
@@ -270,7 +270,7 @@ If you're using Yumma CSS v2 or older, the process of upgrading to v3.0 using th
     Run `npx yummacss build` in your terminal to compile to CSS.
 
     ```bash
-    pnpm yummacss build
+    npx yummacss build
     ```
   </Step>
 </Stepper>
@@ -286,7 +286,7 @@ Like some of the past major updates, Yumma CSS v3.0 is changing its core framewo
 With Yumma CSS v3.0 you no longer need to install `yummacss` as a standard dependency. Instead, you can install it as a dev dependency. This is because Yumma CSS is now a CLI tool that generates CSS files based on your configuration.
 
 ```bash
-pnpm add yummacss -D
+npm install yummacss -D
 ```
 
 The full set of utilities will be retained within the distribution folder for the purpose of facilitating the importation of the entire Yumma utilities suite, should this be required.

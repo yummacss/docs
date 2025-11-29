@@ -55,7 +55,7 @@ This change should avoid unnecessary CSS generation and improve build times even
 Since we the data is already structured inside `@yummacss/api` and doesn't need to be compiled, the only task left for the CLI is to extract the tokens from the `source` files and generate the final CSS file.
 
 ```bash title="Terminal" frame="terminal" {1}
-pnpm yummacss w
+npx yummacss watch
 √ Build done in 11ms. (./src/out.css)
 i Watching...
 √ Build done in 4ms. (./src/out.css)
@@ -65,7 +65,7 @@ i Watching...
 √ Build done in 3ms. (./src/out.css)
 ```
 
-Try it out yourself by running `pnpm yummacss watch` or `npx yummacss watch` in your terminal.
+Try it out yourself by running `npx yummacss watch` or `npx yummacss watch` in your terminal.
 
 ---
 
@@ -122,5 +122,5 @@ npx yummacss build
 You can get the latest version of Yumma CSS from npm:
 
 ```bash
-pnpm up yummacss
+npm install yummacss@latest
 ```
