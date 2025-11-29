@@ -74,8 +74,6 @@ export default function Navbar({ variant, className }: NavbarProps) {
               </Link>
               <Link
                 href="/ui/introduction"
-                target="_blank"
-                rel="noopener noreferrer"
                 className="d-none md:d-b fs-sm tc-white/80 h:tc-white"
               >
                 Components
