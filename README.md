@@ -11,27 +11,18 @@ Install `yummacss` as a dev dependency and initialize configuration
 
 ```bash
 npm install yummacss -D
-npx yummacss init
+npx yummacss i
 ```
 
 Build styles
 
 ```
-npx yummacss build
+npx yummacss b
 ```
 
 ## Documentation
 
 Learn more at [yummacss.com](https://yummacss.com)
-
-## Built with
-
-- [yummacss](https://www.npmjs.com/package/yummacss)
-- [@yummacss/api](https://www.npmjs.com/package/@yummacss/api)
-- [@yummacss/react](https://www.npmjs.com/package/@yummacss/react)
-- [next](https://www.npmjs.com/package/next)
-- [lightningcss](https://www.npmjs.com/package/lightningcss)
-- [typescript](https://www.npmjs.com/package/typescript)
 
 ## License
 
