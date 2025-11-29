@@ -972,6 +972,11 @@ summary {
   height: 16rem;
 }
 
+.d-8 {
+  width: 2rem;
+  height: 2rem;
+}
+
 .d-b {
   display: block;
 }
