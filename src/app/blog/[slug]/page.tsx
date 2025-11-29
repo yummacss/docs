@@ -1,10 +1,11 @@
+import { Avatar } from "@/components/Avatar";
+import TableOfContents from "@/components/ui/TableOfContents";
+import { getAuthor } from "@/utils/authors";
+import { formatDate, getAllBlogSlugs } from "@/utils/blog";
 import { ArrowLeftIcon } from "@radix-ui/react-icons";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import TableOfContents from "@/components/ui/TableOfContents";
-import { getAuthor } from "@/utils/authors";
-import { formatDate, getAllBlogSlugs } from "@/utils/blog";
 
 export async function generateMetadata({
   params,
@@ -53,15 +54,9 @@ export default async function BlogPostPage({
             <p className="fs-lg tc-white/70 mb-6 lh-5">{meta?.description}</p>
 
             {author && (
-              <div className="d-f ai-c g-4 fs-sm tc-white/70">
+              <div className="d-f ai-c g-4 fs-lg tc-white/70">
                 <div className="d-f ai-c g-2">
-                  <Image
-                    className="rad-9"
-                    src={author.avatar}
-                    alt={author.name}
-                    width={32}
-                    height={32}
-                  />
+                  <Avatar src={author.avatar} alt={author.name} />
                   <Link
                     href={author.url}
                     target="_blank"
