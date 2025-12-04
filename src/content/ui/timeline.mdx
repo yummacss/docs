@@ -1,10 +1,168 @@
 export const meta = {
    title: "Timeline",
-   description: "Presents events, milestones, or processes in chronological order along a visual line.",
+   description: "Displays a list of events in chronological order.",
 };
 
-## Examples
+## Basic example
+
+<Preview className="bg-white">
+   <div className="d-f fd-c g-4">
+      <div className="d-f g-4">
+         <div className="d-f fd-c ai-c">
+            <div className="w-3 h-3 rad-9 bg-slate-8 fs-0"></div>
+            <div className="w-px h-full bg-silver-2 my-1"></div>
+         </div>
+         <div className="pb-4">
+            <p className="fs-sm fw-500 tc-slate-8 mb-1 fw-600">Account Created</p>
+            <p className="fs-xs tc-silver-10 mb-2">October 10, 2024</p>
+            <p className="fs-sm tc-silver-12 lh-4">The user account was successfully created and verified.</p>
+         </div>
+      </div>
+      <div className="d-f g-4">
+         <div className="d-f fd-c ai-c">
+            <div className="w-3 h-3 rad-9 bg-slate-8 fs-0"></div>
+            <div className="w-px h-full bg-silver-2 my-1"></div>
+         </div>
+         <div className="pb-4">
+            <p className="fs-sm fw-500 tc-slate-8 mb-1 fw-600">Subscription Started</p>
+            <p className="fs-xs tc-silver-10 mb-2">October 12, 2024</p>
+            <p className="fs-sm tc-silver-12 lh-4">The Pro plan subscription has been activated.</p>
+         </div>
+      </div>
+      <div className="d-f g-4">
+         <div className="d-f fd-c ai-c">
+            <div className="w-3 h-3 rad-9 bg-slate-8 fs-0"></div>
+         </div>
+         <div>
+            <p className="fs-sm fw-500 tc-slate-8 mb-1 fw-600">Payment Received</p>
+            <p className="fs-xs tc-silver-10 mb-2">October 14, 2024</p>
+            <p className="fs-sm tc-silver-12 lh-4">Monthly payment of $29.00 was successfully processed.</p>
+         </div>
+      </div>
+   </div>
+</Preview>
 
 ```html
-// Coming soon...
+<div class="d-f fd-c g-4">
+   <div class="d-f g-4">
+      <div class="d-f fd-c ai-c">
+         <div class="w-3 h-3 rad-9 bg-slate-8 fs-0"></div>
+         <div class="w-px h-full bg-silver-2 my-1"></div>
+      </div>
+      <div class="pb-4">
+         <p class="fs-sm fw-500 tc-slate-8 mb-1 fw-600">Account Created</p>
+         <p class="fs-xs tc-silver-10 mb-2">October 10, 2024</p>
+         <p class="fs-sm tc-silver-12 lh-4">The user account was successfully created and verified.</p>
+      </div>
+   </div>
+   <div class="d-f g-4">
+      <div class="d-f fd-c ai-c">
+         <div class="w-3 h-3 rad-9 bg-slate-8 fs-0"></div>
+         <div class="w-px h-full bg-silver-2 my-1"></div>
+      </div>
+      <div class="pb-4">
+         <p class="fs-sm fw-500 tc-slate-8 mb-1 fw-600">Subscription Started</p>
+         <p class="fs-xs tc-silver-10 mb-2">October 12, 2024</p>
+         <p class="fs-sm tc-silver-12 lh-4">The Pro plan subscription has been activated.</p>
+      </div>
+   </div>
+   <div class="d-f g-4">
+      <div class="d-f fd-c ai-c">
+         <div class="w-3 h-3 rad-9 bg-slate-8 fs-0"></div>
+      </div>
+      <div>
+         <p class="fs-sm fw-500 tc-slate-8 mb-1 fw-600">Payment Received</p>
+         <p class="fs-xs tc-silver-10 mb-2">October 14, 2024</p>
+         <p class="fs-sm tc-silver-12 lh-4">Monthly payment of $29.00 was successfully processed.</p>
+      </div>
+   </div>
+</div>
+```
+
+## With Icons
+
+<Preview className="bg-white">
+   <div className="d-f fd-c g-4">
+      <div className="d-f g-4">
+         <div className="d-f fd-c ai-c">
+            <div className="d-f ai-c jc-c w-8 h-8 rad-9 bg-silver-2 tc-black fs-0">
+               <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+            </div>
+            <div className="w-px h-full bg-silver-2 my-1"></div>
+         </div>
+         <div className="pb-4">
+            <p className="fs-sm fw-500 tc-slate-8 mb-1 fw-600">Profile Updated</p>
+            <p className="fs-xs tc-silver-10 mb-2">November 01, 2024</p>
+            <p className="fs-sm tc-silver-12 lh-4">User updated their profile picture and bio information.</p>
+         </div>
+      </div>
+      <div className="d-f g-4">
+         <div className="d-f fd-c ai-c">
+            <div className="d-f ai-c jc-c w-8 h-8 rad-9 bg-silver-2 tc-black fs-0">
+               <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </div>
+            <div className="w-px h-full bg-silver-2 my-1"></div>
+         </div>
+         <div className="pb-4">
+            <p className="fs-sm fw-500 tc-slate-8 mb-1 fw-600">New Message</p>
+            <p className="fs-xs tc-silver-10 mb-2">November 03, 2024</p>
+            <p className="fs-sm tc-silver-12 lh-4">You received a new message from the support team regarding your ticket.</p>
+         </div>
+      </div>
+      <div className="d-f g-4">
+         <div className="d-f fd-c ai-c">
+            <div className="d-f ai-c jc-c w-8 h-8 rad-9 bg-silver-2 tc-black fs-0">
+               <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+         </div>
+         <div className="pt-1">
+            <p className="fs-sm fw-500 tc-slate-8 mb-1 fw-600">Location Added</p>
+            <p className="fs-xs tc-silver-10 mb-2">November 05, 2024</p>
+            <p className="fs-sm tc-silver-12 lh-4">A new shipping address was added to your account.</p>
+         </div>
+      </div>
+   </div>
+</Preview>
+
+```html
+<div class="d-f fd-c g-4">
+   <div class="d-f g-4">
+      <div class="d-f fd-c ai-c">
+         <div class="d-f ai-c jc-c w-8 h-8 rad-9 bg-silver-2 tc-black fs-0">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+         </div>
+         <div class="w-px h-full bg-silver-2 my-1"></div>
+      </div>
+      <div class="pb-4">
+         <p class="fs-sm fw-500 tc-slate-8 mb-1 fw-600">Profile Updated</p>
+         <p class="fs-xs tc-silver-10 mb-2">November 01, 2024</p>
+         <p class="fs-sm tc-silver-12 lh-4">User updated their profile picture and bio information.</p>
+      </div>
+   </div>
+   <div class="d-f g-4">
+      <div class="d-f fd-c ai-c">
+         <div class="d-f ai-c jc-c w-8 h-8 rad-9 bg-silver-2 tc-black fs-0">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+         </div>
+         <div class="w-px h-full bg-silver-2 my-1"></div>
+      </div>
+      <div class="pb-4">
+         <p class="fs-sm fw-500 tc-slate-8 mb-1 fw-600">New Message</p>
+         <p class="fs-xs tc-silver-10 mb-2">November 03, 2024</p>
+         <p class="fs-sm tc-silver-12 lh-4">You received a new message from the support team regarding your ticket.</p>
+      </div>
+   </div>
+   <div class="d-f g-4">
+      <div class="d-f fd-c ai-c">
+         <div class="d-f ai-c jc-c w-8 h-8 rad-9 bg-silver-2 tc-black fs-0">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+         </div>
+      </div>
+      <div class="pt-1">
+         <p class="fs-sm fw-500 tc-slate-8 mb-1 fw-600">Location Added</p>
+         <p class="fs-xs tc-silver-10 mb-2">November 05, 2024</p>
+         <p class="fs-sm tc-silver-12 lh-4">A new shipping address was added to your account.</p>
+      </div>
+   </div>
+</div>
 ```

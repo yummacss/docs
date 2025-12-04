@@ -28,7 +28,7 @@ export default async function Page({
   const meta = module.meta;
 
   return (
-    <>
+    <div className="mb-16">
       <Banner />
       {meta && (
         <div className="mb-8" data-meta>
@@ -39,7 +39,7 @@ export default async function Page({
         </div>
       )}
       <Content />
-    </>
+    </div>
   );
 }
 

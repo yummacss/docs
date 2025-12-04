@@ -1,0 +1,45 @@
+export const meta = {
+  title: "Using AI with Yumma CSS",
+  description: "How to accurately generate Yumma CSS code with AI.",
+};
+
+AI models often guess Yumma CSS syntax, mix it with other frameworks, or invent non-existent class names when you ask AI models to build UIs with Yumma CSS.
+This happens because most models have little or no training data about Yumma CSS, so they fall back to "looks like Tailwind" or "looks like Bootstrap" patterns instead of the actual API.
+
+## Giving models proper context
+
+To make AI tools reliably use Yumma CSS, you need to give them an explicit description of the framework.
+For that, we're providing a basic [CONTEXT.md](https://gist.githubusercontent.com/rrenildopereiraa/1e9086fbad5693b35e3aeb89c370d242/raw/04c87729b92c783ea49965e8aa124bfeada210c5/CONTEXT.md) file that explains the syntax, available utilities, and usage patterns in a model‑friendly way.
+
+[Preview CONTEXT.md](https://gist.githubusercontent.com/rrenildopereiraa/1e9086fbad5693b35e3aeb89c370d242/raw/04c87729b92c783ea49965e8aa124bfeada210c5/CONTEXT.md)
+
+## How to use CONTEXT.md with LLMs?
+
+When using an AI assistant, start by pasting [CONTEXT.md](https://gist.githubusercontent.com/rrenildopereiraa/1e9086fbad5693b35e3aeb89c370d242/raw/04c87729b92c783ea49965e8aa124bfeada210c5/CONTEXT.md) or uploading it as a reference/document if the tool supports it.
+Then ask the model to follow Yumma CSS exactly, and to avoid inventing utilities or mixing in other frameworks.
+
+You can use this approach with:
+
+- [ChatGPT](https://chatgpt.com/)
+- [Claude Sonnet](https://claude.ai/)
+- [Gemini](https://gemini.google.com/)
+- [Copilot](https://copilot.com/)
+- [Grok](https://grok.com/)
+- [DeepSeek](https://deepseek.com/)
+
+## Using external AI coding tools
+
+You can also use external tools to help you generate Yumma CSS code such as:
+
+- [v0](https://v0.dev/)
+- [Bolt](https://bolt.new/)
+- [Lovable](https://lovable.dev/)
+- [T3 Chat](https://t3.chat/)
+
+## Good practices when coding with AI
+
+Always skim the generated Yumma CSS classes and remove anything that doesn't exist in the docs.
+
+Save good prompts (e.g. "You are a Yumma CSS expert…") and reuse them so you get consistent results across sessions.
+
+Prefer short, focused requests (one component at a time) instead of "build my whole app," which makes hallucinations more likely.

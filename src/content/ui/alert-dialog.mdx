@@ -3,8 +3,56 @@ export const meta = {
    description: "Shows confirmations that require user acknowledgment or action.",
 };
 
-## Examples
+## Basic example
+
+<Preview className="bg-white">
+   <button popoverTarget="my-popover" className="bg-black tc-white px-4 py-2 rad-1 fs-sm fw-500 h:bg-slate-10 f:oc-silver-4 f:os-s f:ow-2">Close account</button>
+   <div id="my-popover" popover="auto" className="b-1 bc-silver-2 rad-1 p-6 bg-white max-w-sm m-auto">
+      <h3 className="ff-s fs-lg fw-600 tc-black mb-2">Are you sure?</h3>
+      <p className="fs-sm tc-silver-10 mb-6">This action cannot be undone. This will permanently delete your account and remove your data from our servers.</p>
+      <div className="d-f jc-fe g-3">
+         <button popoverTarget="my-popover" popoverTargetAction="hide" className="bg-white tc-black b-1 bc-silver-4 px-3 py-2 rad-1 fs-sm fw-500 h:bg-silver-1 f:oc-silver-1 f:os-s f:ow-2">Cancel</button>
+         <button className="bg-black tc-white px-3 py-2 rad-1 fs-sm fw-500 h:bg-slate-10 f:oc-silver-4 f:os-s f:ow-2">Continue</button>
+      </div>
+   </div>
+</Preview>
 
 ```html
-// Coming soon...
+<button popovertarget="my-popover" class="bg-black tc-white px-4 py-2 rad-1 fs-sm fw-500 h:bg-slate-10 f:oc-silver-4 f:os-s f:ow-2">Close account</button>
+
+<div id="my-popover" popover="auto" class="b-1 bc-silver-2 rad-1 p-6 bg-white max-w-sm m-auto">
+   <h3 class="ff-s fs-lg fw-600 tc-black mb-2">Are you sure?</h3>
+   <p class="fs-sm tc-silver-10 mb-6">This action cannot be undone. This will permanently delete your account and remove your data from our servers.</p>
+   <div class="d-f jc-fe g-3">
+      <button popovertarget="my-popover" popovertargetaction="hide" class="bg-white tc-black b-1 bc-silver-4 px-3 py-2 rad-1 fs-sm fw-500 h:bg-silver-1 f:oc-silver-1 f:os-s f:ow-2">Cancel</button>
+      <button class="bg-black tc-white px-3 py-2 rad-1 fs-sm fw-500 h:bg-slate-10 f:oc-silver-4 f:os-s f:ow-2">Continue</button>
+   </div>
+</div>
+```
+
+## Destructive
+
+<Preview className="bg-white">
+   <button popoverTarget="destructive-popover" className="bg-red tc-white px-4 py-2 rad-1 fs-sm fw-500 h:bg-red-7 f:oc-red-2 f:os-s f:ow-2">Close account</button>
+   <div id="destructive-popover" popover="auto" className="b-1 bc-silver-2 rad-1 p-6 bg-white max-w-sm m-auto">
+      <h3 className="ff-s fs-lg fw-600 tc-black mb-2">Close account</h3>
+      <p className="fs-sm tc-silver-10 mb-6">Are you sure you want to close your account? This action is irreversible.</p>
+      <div className="d-f jc-fe g-3">
+         <button popoverTarget="destructive-popover" popoverTargetAction="hide" className="bg-white tc-black b-1 bc-silver-4 px-3 py-2 rad-1 fs-sm fw-500 h:bg-silver-1 f:oc-silver-1 f:os-s f:ow-2">Cancel</button>
+         <button className="bg-red tc-white px-3 py-2 rad-1 fs-sm fw-500 h:bg-red-7 f:oc-red-2 f:os-s f:ow-2">Yes, I'm sure</button>
+      </div>
+   </div>
+</Preview>
+
+```html
+<button popovertarget="destructive-popover" class="bg-red tc-white px-4 py-2 rad-1 fs-sm fw-500 h:bg-red-7 f:oc-red-2 f:os-s f:ow-2">Close account</button>
+
+<div id="destructive-popover" popover="auto" class="b-1 bc-silver-2 rad-1 p-6 bg-white max-w-sm m-auto">
+   <h3 class="ff-s fs-lg fw-600 tc-black mb-2">Close account</h3>
+   <p class="fs-sm tc-silver-10 mb-6">Are you sure you want to close your account? This action is irreversible.</p>
+   <div class="d-f jc-fe g-3">
+      <button popovertarget="destructive-popover" popovertargetaction="hide" class="bg-white tc-black b-1 bc-silver-4 px-3 py-2 rad-1 fs-sm fw-500 h:bg-silver-1 f:oc-silver-1 f:os-s f:ow-2">Cancel</button>
+      <button class="bg-red tc-white px-3 py-2 rad-1 fs-sm fw-500 h:bg-red-7 f:oc-red-2 f:os-s f:ow-2">Yes, I'm sure</button>
+   </div>
+</div>
 ```
