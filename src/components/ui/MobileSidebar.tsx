@@ -10,7 +10,7 @@ import type {
   UISidebarConfigSimpleItem,
 } from "@/utils/ui-sidebar";
 import { uiSidebarConfig } from "@/utils/ui-sidebar";
-import { Cross1Icon } from "@radix-ui/react-icons";
+import { X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import SidebarLinks from "./SidebarLinks";
@@ -67,7 +67,7 @@ export default function MobileSidebar({
             className="d-f ai-c jc-c w-10 h-10 tc-white/70 h:tc-white h:bg-white/10"
             aria-label="Close sidebar"
           >
-            <Cross1Icon className="w-5 h-5" />
+            <X className="w-5 h-5" />
           </button>
         </div>
 

@@ -1,11 +1,6 @@
 "use client";
 
-import {
-  FileTextIcon,
-  GlobeIcon,
-  MixIcon,
-  SwitchIcon,
-} from "@radix-ui/react-icons";
+import { BookSearch, GlobeIcon, Shapes, ToggleRight } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -29,8 +24,8 @@ export default function SidebarLinks({ onLinkClick }: SidebarLinksProps) {
         onClick={onLinkClick}
         className={`d-if ai-c g-4 ${isDocsActive ? "" : "team"}`}
       >
-        <FileTextIcon
-          className={isDocsActive ? "tc-white" : "tc-white/50 @h:tc-white"}
+        <BookSearch
+          className={`d-4 ${isDocsActive ? "tc-white" : "tc-white/50 @h:tc-white"}`}
         />
         <span
           className={`fs-md ${isDocsActive ? "tc-white" : "tc-white/70 @h:tc-white"}`}
@@ -44,9 +39,7 @@ export default function SidebarLinks({ onLinkClick }: SidebarLinksProps) {
         className={`d-if ai-c g-4 ${isApiReferenceActive ? "" : "team"}`}
       >
         <GlobeIcon
-          className={
-            isApiReferenceActive ? "tc-white" : "tc-white/50 @h:tc-white"
-          }
+          className={`d-4 ${isApiReferenceActive ? "tc-white" : "tc-white/50 @h:tc-white"}`}
         />
         <span
           className={`fs-md ${isApiReferenceActive ? "tc-white" : "tc-white/70 @h:tc-white"}`}
@@ -55,13 +48,13 @@ export default function SidebarLinks({ onLinkClick }: SidebarLinksProps) {
         </span>
       </Link>
       <Link
-        href="/ui/introduction"
+        href="/ui"
         onClick={onLinkClick}
         rel="noopener noreferrer"
         className={`d-if ai-c g-4 ${isUIActive ? "" : "team"}`}
       >
-        <SwitchIcon
-          className={isUIActive ? "tc-white" : "tc-white/50 @h:tc-white"}
+        <ToggleRight
+          className={`d-4 ${isUIActive ? "tc-white" : "tc-white/50 @h:tc-white"}`}
         />
         <span
           className={`fs-md ${isUIActive ? "tc-white" : "tc-white/70 @h:tc-white"}`}
@@ -76,7 +69,7 @@ export default function SidebarLinks({ onLinkClick }: SidebarLinksProps) {
         rel="noopener noreferrer"
         className="d-if ai-c g-4 team"
       >
-        <MixIcon className="tc-white/50 @h:tc-white" />
+        <Shapes className={`d-4 tc-white/50 @h:tc-white`} />
         <span className="fs-md tc-white/70 @h:tc-white">Playground</span>
       </Link>
     </div>

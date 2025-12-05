@@ -441,6 +441,10 @@ summary {
   border-color: #ecedee;
 }
 
+.bc-silver-3 {
+  border-color: #e3e4e6;
+}
+
 .bc-silver-4 {
   border-color: #dadcdf;
 }
@@ -1277,24 +1281,48 @@ summary {
   outline-color: #000;
 }
 
+.f\:oc-blue-4:focus {
+  outline-color: #8aafeb;
+}
+
+.f\:oc-green-4:focus {
+  outline-color: #7dd29c;
+}
+
+.f\:oc-indigo-4:focus {
+  outline-color: #9fa0e9;
+}
+
 .f\:oc-indigo-5:focus {
   outline-color: #878ae4;
+}
+
+.f\:oc-orange-4:focus {
+  outline-color: #eda777;
 }
 
 .f\:oc-red-2:focus {
   outline-color: #f3c5c5;
 }
 
+.f\:oc-red-4:focus {
+  outline-color: #e88e8e;
+}
+
 .f\:oc-silver-1:focus {
   outline-color: #f5f5f6;
 }
 
-.f\:oc-silver-12:focus {
-  outline-color: #1f1f20;
-}
-
 .f\:oc-silver-4:focus {
   outline-color: #dadcdf;
+}
+
+.f\:oc-violet-4:focus {
+  outline-color: #b49beb;
+}
+
+.f\:oc-yellow-4:focus {
+  outline-color: #e5c86f;
 }
 
 .f\:oo-2:focus {
@@ -1821,20 +1849,12 @@ summary {
   background-color: #f5f5f6;
 }
 
-.h\:bg-silver-12:hover {
-  background-color: #1f1f20;
-}
-
 .h\:bg-silver-2:hover {
   background-color: #ecedee;
 }
 
 .h\:bg-slate-10:hover {
   background-color: #1c1c22;
-}
-
-.h\:bg-slate-12:hover {
-  background-color: #0a0a0c;
 }
 
 .h\:bg-slate-7:hover {
@@ -3329,6 +3349,10 @@ summary {
 
 .tc-blue-10 {
   color: #173361;
+}
+
+.tc-blue-8 {
+  color: #26549f;
 }
 
 .tc-gray-7 {

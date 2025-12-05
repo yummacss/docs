@@ -1,7 +1,5 @@
 "use client";
 
-import { cva, type VariantProps } from "class-variance-authority";
-import { clsx } from "clsx";
 import { Search } from "lucide-react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
@@ -15,23 +13,7 @@ const OramaSearch = dynamic(
   },
 );
 
-const navbarVariants = cva("p-st t-0 zi-10 bb-1", {
-  variants: {
-    variant: {
-      default: "bf-b-md bc-white/5",
-      transparent: "bc-transparent",
-    },
-  },
-  defaultVariants: {
-    variant: "default",
-  },
-});
-
-interface NavbarProps extends VariantProps<typeof navbarVariants> {
-  className?: string;
-}
-
-export default function Navbar({ variant, className }: NavbarProps) {
+export default function UINavbar() {
   const [searchOpen, setSearchOpen] = useState(false);
 
   useEffect(() => {
@@ -48,52 +30,50 @@ export default function Navbar({ variant, className }: NavbarProps) {
 
   return (
     <>
-      <header className={clsx(navbarVariants({ variant }), className)}>
+      <header className="p-st t-0 zi-10 bb-1 bc-silver-3 bg-white">
         <div className="~sm-xxl mx-auto px-6 py-2">
           <nav className="d-f ai-c jc-sb">
             <div className="d-f ai-c g-2">
-              <Link href="/">
+              <Link href="/ui">
                 <Image
-                  src="/logotype.png"
+                  src="/ui-logotype.png"
                   width={240}
                   height={80}
-                  alt="Yumma CSS"
+                  alt="Yumma UI"
                   className="h-10 w-auto of-c"
                 />
               </Link>
             </div>
             <div className="d-f ai-c g-8">
               <Link
-                href="/docs/installation"
-                className="d-none md:d-b fs-sm tc-white/80 h:tc-white"
+                href="/docs"
+                className="d-none md:d-b fs-sm tc-slate-10 h:tc-black"
               >
                 Docs
               </Link>
               <Link
                 href="/blog"
-                className="d-none md:d-b fs-sm tc-white/80 h:tc-white"
+                className="d-none md:d-b fs-sm tc-slate-10 h:tc-black"
               >
                 Blog
               </Link>
               <Link
                 href="/ui"
-                className="d-none md:d-b fs-sm tc-white/80 h:tc-white"
+                className="d-none md:d-b fs-sm tc-slate-10 h:tc-black"
               >
                 Components
               </Link>
               <Link
-                href="https://github.com/yumma-lib/yumma-css"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="d-none md:d-b fs-sm tc-white/80 h:tc-white"
+                href="/ui/intrduction"
+                className="d-none md:d-b fs-sm tc-slate-10 h:tc-black"
               >
-                GitHub
+                Templates
               </Link>
 
               <button
                 type="button"
                 onClick={() => setSearchOpen(true)}
-                className="d-f ai-c g-2 md:px-4 md:py-2 bg-white/5 bf-b-sm fs-sm h:bg-white/10 tc-white b-1 bc-white/10"
+                className="d-f ai-c g-2 md:px-4 md:py-2 rad-0 fs-sm bg-white tc-slate-8 b-1 bc-silver-4 h:bg-silver-1 f:oc-silver-1 f:os-s f:ow-2"
               >
                 <Search className="w-5 h-5 md:w-4 md:h-4" />
                 <span className="d-none md:d-b">Ctrl K</span>

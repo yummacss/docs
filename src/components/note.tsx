@@ -1,14 +1,14 @@
 import {
-  CursorArrowIcon,
-  CursorTextIcon,
-  ExclamationTriangleIcon,
-  HeartIcon,
-  InfoCircledIcon,
-  QuestionMarkCircledIcon,
-  RulerSquareIcon,
-  SizeIcon,
-  WidthIcon,
-} from "@radix-ui/react-icons";
+  Mouse,
+  TextCursorInput,
+  TriangleAlert,
+  Heart,
+  Info,
+  CircleQuestionMark,
+  AtSign,
+  Scaling,
+  RulerDimensionLine,
+} from "lucide-react";
 import type { ReactNode } from "react";
 
 type IconName =
@@ -28,15 +28,15 @@ interface NoteProps {
 }
 
 const iconComponents: Record<IconName, React.ComponentType> = {
-  cursor_arrow: CursorArrowIcon,
-  cursor_text: CursorTextIcon,
-  heart: HeartIcon,
-  info: InfoCircledIcon,
-  question_mark_circled: QuestionMarkCircledIcon,
-  ruler_square: RulerSquareIcon,
-  size: SizeIcon,
-  warning: ExclamationTriangleIcon,
-  width: WidthIcon,
+  cursor_arrow: Mouse,
+  cursor_text: TextCursorInput,
+  heart: Heart,
+  info: Info,
+  question_mark_circled: CircleQuestionMark,
+  ruler_square: AtSign,
+  size: Scaling,
+  warning: TriangleAlert,
+  width: RulerDimensionLine,
 };
 
 export default function Note({ icon, children }: NoteProps) {

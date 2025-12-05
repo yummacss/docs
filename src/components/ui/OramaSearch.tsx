@@ -8,7 +8,7 @@ interface SearchProps {
   onClose: () => void;
 }
 
-export function Search({ open, onClose }: SearchProps) {
+export function OramaSearch({ open, onClose }: SearchProps) {
   return (
     <OramaSearchBox
       open={open}
