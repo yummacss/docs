@@ -1,6 +1,4 @@
-*,
-:before,
-:after {
+*, :before, :after {
   box-sizing: border-box;
   border: 0 solid;
 }
@@ -20,39 +18,22 @@ body {
   line-height: 1.5;
 }
 
-canvas,
-img,
-picture,
-svg,
-video {
+canvas, img, picture, svg, video {
   max-width: 100%;
   display: block;
 }
 
-button,
-input,
-optgroup,
-select,
-textarea {
+button, input, optgroup, select, textarea {
   background-color: #0000;
-  padding: 0.5rem;
+  padding: .5rem;
   font-family: inherit;
 }
 
-button:not([class]),
-input:not([class]),
-optgroup:not([class]),
-select:not([class]),
-textarea:not([class]) {
+button:not([class]), input:not([class]), optgroup:not([class]), select:not([class]), textarea:not([class]) {
   border: 1px solid #bfc2c7;
 }
 
-a,
-button,
-input,
-select,
-summary,
-textarea {
+a, button, input, select, summary, textarea {
   &:focus {
     outline: 2px solid #0000;
   }
@@ -66,30 +47,16 @@ button {
   cursor: pointer;
 }
 
-button:disabled,
-input:disabled,
-select:disabled,
-textarea:disabled {
+button:disabled, input:disabled, select:disabled, textarea:disabled {
   cursor: not-allowed;
-  opacity: 0.5;
+  opacity: .5;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
+h1, h2, h3, h4, h5, h6, p {
   overflow-wrap: break-word;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   text-wrap: balance;
   font-size: 1rem;
   font-weight: 600;
@@ -99,8 +66,7 @@ p {
   text-wrap: pretty;
 }
 
-b,
-strong {
+b, strong {
   font-weight: 700;
 }
 
@@ -109,10 +75,7 @@ small {
   line-height: 1.4;
 }
 
-pre,
-code,
-kbd,
-samp {
+pre, code, kbd, samp {
   font-family: monospace;
   font-size: 1em;
 }
@@ -122,8 +85,7 @@ a {
   text-decoration: none;
 }
 
-ol,
-ul {
+ol, ul {
   padding: 0;
   list-style: none;
 }
@@ -792,7 +754,7 @@ summary {
 }
 
 .bo-1 {
-  bottom: 0.25rem;
+  bottom: .25rem;
 }
 
 .bo-bb {
@@ -880,15 +842,15 @@ summary {
 }
 
 .bs-1 {
-  border-spacing: 0.25rem;
+  border-spacing: .25rem;
 }
 
 .bs-2 {
-  border-spacing: 0.5rem;
+  border-spacing: .5rem;
 }
 
 .bs-3 {
-  border-spacing: 0.75rem;
+  border-spacing: .75rem;
 }
 
 .bs-4 {
@@ -1044,7 +1006,7 @@ summary {
 }
 
 .cg-1 {
-  column-gap: 0.25rem;
+  column-gap: .25rem;
 }
 
 .cg-10 {
@@ -1052,7 +1014,7 @@ summary {
 }
 
 .cg-2 {
-  column-gap: 0.5rem;
+  column-gap: .5rem;
 }
 
 .cg-4 {
@@ -1096,8 +1058,8 @@ summary {
 }
 
 .d-1 {
-  width: 0.25rem;
-  height: 0.25rem;
+  width: .25rem;
+  height: .25rem;
 }
 
 .d-10 {
@@ -1131,8 +1093,8 @@ summary {
 }
 
 .d-2 {
-  width: 0.5rem;
-  height: 0.5rem;
+  width: .5rem;
+  height: .5rem;
 }
 
 .d-20 {
@@ -1156,8 +1118,8 @@ summary {
 }
 
 .d-3 {
-  width: 0.75rem;
-  height: 0.75rem;
+  width: .75rem;
+  height: .75rem;
 }
 
 .d-30 {
@@ -1380,11 +1342,11 @@ summary {
 }
 
 .fb-1 {
-  flex-basis: 0.25rem;
+  flex-basis: .25rem;
 }
 
 .fb-2 {
-  flex-basis: 0.5rem;
+  flex-basis: .5rem;
 }
 
 .fb-50 {
@@ -1416,19 +1378,11 @@ summary {
 }
 
 .ff-c {
-  font-family:
-    Charter,
-    Bitstream Charter,
-    Sitka Text,
-    Cambria,
-    serif;
+  font-family: Charter, Bitstream Charter, Sitka Text, Cambria, serif;
 }
 
 .ff-m {
-  font-family:
-    Nimbus Mono PS,
-    Courier New,
-    monospace;
+  font-family: Nimbus Mono PS, Courier New, monospace;
 }
 
 .ff-s {
@@ -1532,7 +1486,7 @@ summary {
 }
 
 .fs-sm {
-  font-size: 0.875rem;
+  font-size: .875rem;
 }
 
 .fs-xl {
@@ -1540,7 +1494,7 @@ summary {
 }
 
 .fs-xs {
-  font-size: 0.75rem;
+  font-size: .75rem;
 }
 
 .fs-xxl {
@@ -1600,7 +1554,7 @@ summary {
 }
 
 .g-1 {
-  gap: 0.25rem;
+  gap: .25rem;
 }
 
 .g-10 {
@@ -1620,11 +1574,11 @@ summary {
 }
 
 .g-2 {
-  gap: 0.5rem;
+  gap: .5rem;
 }
 
 .g-3 {
-  gap: 0.75rem;
+  gap: .75rem;
 }
 
 .g-4 {
@@ -1748,7 +1702,7 @@ summary {
 }
 
 .h-1 {
-  height: 0.25rem;
+  height: .25rem;
 }
 
 .h-10 {
@@ -1772,7 +1726,7 @@ summary {
 }
 
 .h-2 {
-  height: 0.5rem;
+  height: .5rem;
 }
 
 .h-24 {
@@ -1784,7 +1738,7 @@ summary {
 }
 
 .h-3 {
-  height: 0.75rem;
+  height: .75rem;
 }
 
 .h-30 {
@@ -2038,11 +1992,11 @@ summary {
 }
 
 .l-2 {
-  left: 0.5rem;
+  left: .5rem;
 }
 
 .l-3 {
-  left: 0.75rem;
+  left: .75rem;
 }
 
 .l-4 {
@@ -2078,23 +2032,23 @@ summary {
 }
 
 .ls-1 {
-  letter-spacing: -0.05em;
+  letter-spacing: -.05em;
 }
 
 .ls-2 {
-  letter-spacing: -0.025em;
+  letter-spacing: -.025em;
 }
 
 .ls-3 {
-  letter-spacing: 0.025em;
+  letter-spacing: .025em;
 }
 
 .ls-4 {
-  letter-spacing: 0.05em;
+  letter-spacing: .05em;
 }
 
 .ls-5 {
-  letter-spacing: 0.1em;
+  letter-spacing: .1em;
 }
 
 .lsp-i {
@@ -2122,11 +2076,11 @@ summary {
 }
 
 .m-1 {
-  margin: 0.25rem;
+  margin: .25rem;
 }
 
 .m-2 {
-  margin: 0.5rem;
+  margin: .5rem;
 }
 
 .m-8 {
@@ -2200,7 +2154,7 @@ summary {
 }
 
 .mb-1 {
-  margin-bottom: 0.25rem;
+  margin-bottom: .25rem;
 }
 
 .mb-10 {
@@ -2216,11 +2170,11 @@ summary {
 }
 
 .mb-2 {
-  margin-bottom: 0.5rem;
+  margin-bottom: .5rem;
 }
 
 .mb-3 {
-  margin-bottom: 0.75rem;
+  margin-bottom: .75rem;
 }
 
 .mb-4 {
@@ -2289,7 +2243,7 @@ summary {
 }
 
 .ml-2 {
-  margin-left: 0.5rem;
+  margin-left: .5rem;
 }
 
 .ml-4 {
@@ -2305,11 +2259,11 @@ summary {
 }
 
 .mr-1 {
-  margin-right: 0.25rem;
+  margin-right: .25rem;
 }
 
 .mr-2 {
-  margin-right: 0.5rem;
+  margin-right: .5rem;
 }
 
 .mr-5 {
@@ -2321,7 +2275,7 @@ summary {
 }
 
 .mt-1 {
-  margin-top: 0.25rem;
+  margin-top: .25rem;
 }
 
 .mt-12 {
@@ -2333,7 +2287,7 @@ summary {
 }
 
 .mt-3 {
-  margin-top: 0.75rem;
+  margin-top: .75rem;
 }
 
 .mt-4 {
@@ -2353,8 +2307,8 @@ summary {
 }
 
 .mx-2 {
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
+  margin-left: .5rem;
+  margin-right: .5rem;
 }
 
 .mx-8 {
@@ -2368,8 +2322,8 @@ summary {
 }
 
 .my-1 {
-  margin-top: 0.25rem;
-  margin-bottom: 0.25rem;
+  margin-top: .25rem;
+  margin-bottom: .25rem;
 }
 
 .my-10 {
@@ -2383,13 +2337,13 @@ summary {
 }
 
 .my-2 {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-top: .5rem;
+  margin-bottom: .5rem;
 }
 
 .my-3 {
-  margin-top: 0.75rem;
-  margin-bottom: 0.75rem;
+  margin-top: .75rem;
+  margin-bottom: .75rem;
 }
 
 .my-4 {
@@ -2413,7 +2367,7 @@ summary {
 }
 
 .o-10 {
-  opacity: 0.1;
+  opacity: .1;
 }
 
 .o-100 {
@@ -2421,15 +2375,15 @@ summary {
 }
 
 .o-20 {
-  opacity: 0.2;
+  opacity: .2;
 }
 
 .o-50 {
-  opacity: 0.5;
+  opacity: .5;
 }
 
 .o-70 {
-  opacity: 0.7;
+  opacity: .7;
 }
 
 .o-auto {
@@ -2617,7 +2571,7 @@ summary {
 }
 
 .p-1 {
-  padding: 0.25rem;
+  padding: .25rem;
 }
 
 .p-10 {
@@ -2625,11 +2579,11 @@ summary {
 }
 
 .p-2 {
-  padding: 0.5rem;
+  padding: .5rem;
 }
 
 .p-3 {
-  padding: 0.75rem;
+  padding: .75rem;
 }
 
 .p-4 {
@@ -2773,11 +2727,11 @@ summary {
 }
 
 .pl-2 {
-  padding-left: 0.5rem;
+  padding-left: .5rem;
 }
 
 .pl-3 {
-  padding-left: 0.75rem;
+  padding-left: .75rem;
 }
 
 .pl-6 {
@@ -2789,7 +2743,7 @@ summary {
 }
 
 .pr-3 {
-  padding-right: 0.75rem;
+  padding-right: .75rem;
 }
 
 .pr-4 {
@@ -2821,7 +2775,7 @@ summary {
 }
 
 .pt-1 {
-  padding-top: 0.25rem;
+  padding-top: .25rem;
 }
 
 .pt-6 {
@@ -2833,18 +2787,18 @@ summary {
 }
 
 .px-1 {
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
+  padding-left: .25rem;
+  padding-right: .25rem;
 }
 
 .px-2 {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  padding-left: .5rem;
+  padding-right: .5rem;
 }
 
 .px-3 {
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
+  padding-left: .75rem;
+  padding-right: .75rem;
 }
 
 .px-4 {
@@ -2873,8 +2827,8 @@ summary {
 }
 
 .py-1 {
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
+  padding-top: .25rem;
+  padding-bottom: .25rem;
 }
 
 .py-12 {
@@ -2888,13 +2842,13 @@ summary {
 }
 
 .py-2 {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
 }
 
 .py-3 {
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
+  padding-top: .75rem;
+  padding-bottom: .75rem;
 }
 
 .py-4 {
@@ -2926,7 +2880,7 @@ summary {
 }
 
 .r-2 {
-  right: 0.5rem;
+  right: .5rem;
 }
 
 .r-4 {
@@ -2958,11 +2912,11 @@ summary {
 }
 
 .rad-1 {
-  border-radius: 0.25rem;
+  border-radius: .25rem;
 }
 
 .rad-2 {
-  border-radius: 0.5rem;
+  border-radius: .5rem;
 }
 
 .rad-9 {
@@ -2970,21 +2924,21 @@ summary {
 }
 
 .rad-b-1 {
-  border-bottom-right-radius: 0.25rem;
-  border-bottom-left-radius: 0.25rem;
+  border-bottom-right-radius: .25rem;
+  border-bottom-left-radius: .25rem;
 }
 
 .rad-b-2 {
-  border-bottom-right-radius: 0.5rem;
-  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: .5rem;
+  border-bottom-left-radius: .5rem;
 }
 
 .rad-bl-2 {
-  border-bottom-left-radius: 0.5rem;
+  border-bottom-left-radius: .5rem;
 }
 
 .rad-br-2 {
-  border-bottom-right-radius: 0.5rem;
+  border-bottom-right-radius: .5rem;
 }
 
 .rad-full {
@@ -2996,45 +2950,45 @@ summary {
 }
 
 .rad-l-1 {
-  border-top-left-radius: 0.25rem;
-  border-bottom-left-radius: 0.25rem;
+  border-top-left-radius: .25rem;
+  border-bottom-left-radius: .25rem;
 }
 
 .rad-l-2 {
-  border-top-left-radius: 0.5rem;
-  border-bottom-left-radius: 0.5rem;
+  border-top-left-radius: .5rem;
+  border-bottom-left-radius: .5rem;
 }
 
 .rad-r-1 {
-  border-top-right-radius: 0.25rem;
-  border-bottom-right-radius: 0.25rem;
+  border-top-right-radius: .25rem;
+  border-bottom-right-radius: .25rem;
 }
 
 .rad-r-2 {
-  border-top-right-radius: 0.5rem;
-  border-bottom-right-radius: 0.5rem;
+  border-top-right-radius: .5rem;
+  border-bottom-right-radius: .5rem;
 }
 
 .rad-t-1 {
-  border-top-left-radius: 0.25rem;
-  border-top-right-radius: 0.25rem;
+  border-top-left-radius: .25rem;
+  border-top-right-radius: .25rem;
 }
 
 .rad-t-2 {
-  border-top-left-radius: 0.5rem;
-  border-top-right-radius: 0.5rem;
+  border-top-left-radius: .5rem;
+  border-top-right-radius: .5rem;
 }
 
 .rad-tl-2 {
-  border-top-left-radius: 0.5rem;
+  border-top-left-radius: .5rem;
 }
 
 .rad-tr-2 {
-  border-top-right-radius: 0.5rem;
+  border-top-right-radius: .5rem;
 }
 
 .rg-1 {
-  row-gap: 0.25rem;
+  row-gap: .25rem;
 }
 
 .rg-10 {
@@ -3042,7 +2996,7 @@ summary {
 }
 
 .rg-2 {
-  row-gap: 0.5rem;
+  row-gap: .5rem;
 }
 
 .rg-4 {
@@ -3078,11 +3032,11 @@ summary {
 }
 
 .sm-1 {
-  scroll-margin: 0.25rem;
+  scroll-margin: .25rem;
 }
 
 .sm-2 {
-  scroll-margin: 0.5rem;
+  scroll-margin: .5rem;
 }
 
 .sm-6 {
@@ -3106,11 +3060,11 @@ summary {
 }
 
 .sp-1 {
-  scroll-padding: 0.25rem;
+  scroll-padding: .25rem;
 }
 
 .sp-2 {
-  scroll-padding: 0.5rem;
+  scroll-padding: .5rem;
 }
 
 .sp-6 {
@@ -3186,15 +3140,15 @@ summary {
 }
 
 .sw-2 {
-  stroke-width: 0.2px;
+  stroke-width: .2px;
 }
 
 .sw-4 {
-  stroke-width: 0.4px;
+  stroke-width: .4px;
 }
 
 .sw-6 {
-  stroke-width: 0.6px;
+  stroke-width: .6px;
 }
 
 .t-0 {
@@ -3202,7 +3156,7 @@ summary {
 }
 
 .t-2 {
-  top: 0.5rem;
+  top: .5rem;
 }
 
 .t-4 {
@@ -3278,19 +3232,19 @@ summary {
 }
 
 .t-s-10 {
-  transform: scale(0.1);
+  transform: scale(.1);
 }
 
 .t-s-70 {
-  transform: scale(0.7);
+  transform: scale(.7);
 }
 
 .t-s-80 {
-  transform: scale(0.8);
+  transform: scale(.8);
 }
 
 .t-s-90 {
-  transform: scale(0.9);
+  transform: scale(.9);
 }
 
 .t-sk-12 {
@@ -3634,15 +3588,15 @@ summary {
 }
 
 .ti-2 {
-  text-indent: 0.25rem;
+  text-indent: .25rem;
 }
 
 .ti-3 {
-  text-indent: 0.5rem;
+  text-indent: .5rem;
 }
 
 .ti-4 {
-  text-indent: 0.75rem;
+  text-indent: .75rem;
 }
 
 .tl-a {
@@ -3738,7 +3692,7 @@ summary {
 }
 
 .w-1 {
-  width: 0.25rem;
+  width: .25rem;
 }
 
 .w-10 {
@@ -3754,7 +3708,7 @@ summary {
 }
 
 .w-2 {
-  width: 0.5rem;
+  width: .5rem;
 }
 
 .w-22 {
@@ -3766,7 +3720,7 @@ summary {
 }
 
 .w-3 {
-  width: 0.75rem;
+  width: .75rem;
 }
 
 .w-30 {
@@ -4020,8 +3974,8 @@ summary {
   }
 
   .md\:py-2 {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
   }
 
   .md\:w-4 {
