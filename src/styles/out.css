@@ -453,10 +453,6 @@ summary {
   border-color: #1c1c22;
 }
 
-.bc-slate-4 {
-  border-color: #909098;
-}
-
 .bc-slate-8 {
   border-color: #2d2d38;
 }
@@ -691,6 +687,10 @@ summary {
 
 .bg-slate-8 {
   background-color: #2d2d38;
+}
+
+.bg-slate-9 {
+  background-color: #25252d;
 }
 
 .bg-transparent {
@@ -2198,16 +2198,16 @@ summary {
   min-width: 4rem;
 }
 
-.min-w-32 {
-  min-width: 8rem;
-}
-
 .min-w-40 {
   min-width: 10rem;
 }
 
 .min-w-44 {
   min-width: 11rem;
+}
+
+.min-w-48 {
+  min-width: 12rem;
 }
 
 .min-w-64 {
@@ -3401,6 +3401,10 @@ summary {
 
 .tc-silver-8 {
   color: #8a8c8f;
+}
+
+.tc-silver-9 {
+  color: #6f7173;
 }
 
 .tc-slate {
