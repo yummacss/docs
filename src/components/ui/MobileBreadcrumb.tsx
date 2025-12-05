@@ -1,10 +1,10 @@
 "use client";
 
-import { CaretRightIcon, HamburgerMenuIcon } from "@radix-ui/react-icons";
-import { usePathname } from "next/navigation";
-import { lazy, Suspense, useEffect, useState } from "react";
 import { findCurrentPageInfo } from "@/utils/sidebar";
 import { findCurrentUIPageInfo } from "@/utils/ui-sidebar";
+import { ChevronRight, Menu } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { lazy, Suspense, useEffect, useState } from "react";
 
 const MobileSidebar = lazy(() => import("./MobileSidebar"));
 
@@ -46,12 +46,12 @@ export default function MobileBreadcrumb() {
               className="d-f ai-c jc-c tc-white/70 h:tc-white"
               aria-label="Open sidebar"
             >
-              <HamburgerMenuIcon className="w-5 h-5" />
+              <Menu className="w-5 h-5" />
             </button>
 
             <div className="d-f ai-c g-2 fs-sm tc-white/70">
               <span>{pageInfo.sectionTitle}</span>
-              <CaretRightIcon className="w-4 h-4" />
+              <ChevronRight className="w-4 h-4" />
               <span className="tc-white">{pageInfo.pageTitle}</span>
             </div>
           </div>

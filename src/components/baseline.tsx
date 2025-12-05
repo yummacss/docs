@@ -1,9 +1,9 @@
 import {
-  CheckCircledIcon,
-  CheckIcon,
-  CrossCircledIcon,
-  ExclamationTriangleIcon,
-} from "@radix-ui/react-icons";
+  CircleCheck,
+  CircleCheckBig,
+  CircleMinus,
+  TriangleAlert,
+} from "lucide-react";
 import data from "web-features/data.json";
 
 interface FeatureStatus {
@@ -69,10 +69,10 @@ export default function Baseline({ path }: BaselineProps) {
   const statusColor = isHigh ? "tc-green" : isLow ? "tc-indigo" : "tc-yellow";
 
   const StatusIcon = isHigh
-    ? CheckCircledIcon
+    ? CircleCheckBig
     : isLow
-      ? CheckIcon
-      : ExclamationTriangleIcon;
+      ? CircleCheck
+      : TriangleAlert;
 
   const support = status.support || {};
 
@@ -108,7 +108,7 @@ export default function Baseline({ path }: BaselineProps) {
         {browsers.map((browser) => (
           <div key={browser.key} className="d-f ai-c g-2">
             <div className={browser.supported ? "tc-green" : "tc-red"}>
-              {browser.supported ? <CheckCircledIcon /> : <CrossCircledIcon />}
+              {browser.supported ? <CircleCheckBig /> : <CircleMinus />}
             </div>
             <span className="tc-white/80">{browser.name}</span>
           </div>

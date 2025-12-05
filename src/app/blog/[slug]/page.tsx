@@ -1,11 +1,11 @@
-import { ArrowLeftIcon } from "@radix-ui/react-icons";
-import type { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
 import { Avatar } from "@/components/Avatar";
 import TableOfContents from "@/components/ui/TableOfContents";
 import { getAuthor } from "@/utils/authors";
 import { formatDate, getAllBlogSlugs } from "@/utils/blog";
+import { ArrowLeft } from "lucide-react";
+import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
 
 export async function generateMetadata({
   params,
@@ -95,7 +95,7 @@ export default async function BlogPostPage({
                     href="/blog"
                     className="d-if ai-c g-2 px-4 py-2 fs-sm tc-white/70 h:tc-white h:bg-white/20"
                   >
-                    <ArrowLeftIcon />
+                    <ArrowLeft />
                     Back to Blog
                   </Link>
                 </div>

@@ -26,11 +26,6 @@ export const redirects = [
     destination: "/ui/introduction",
     permanent: true,
   },
-  {
-    source: "/ui",
-    destination: "/ui/introduction",
-    permanent: true,
-  },
   // Docs redirects
   {
     source: "/docs/colours",
