@@ -1,7 +1,7 @@
+import { CircleGauge, Component, Globe, Lightbulb, Star } from "lucide-react";
+import Link from "next/link";
 import DarkVeil from "@/components/DarkVeil";
 import Navbar from "@/components/ui/Navbar";
-import { CircleGauge, Globe, Lightbulb, Component, Star } from "lucide-react";
-import Link from "next/link";
 
 export default function Home() {
   return (

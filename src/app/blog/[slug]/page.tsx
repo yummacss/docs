@@ -1,11 +1,11 @@
-import { Avatar } from "@/components/Avatar";
-import TableOfContents from "@/components/ui/TableOfContents";
-import { getAuthor } from "@/utils/authors";
-import { formatDate, getAllBlogSlugs } from "@/utils/blog";
 import { ArrowLeft } from "lucide-react";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { Avatar } from "@/components/Avatar";
+import TableOfContents from "@/components/ui/TableOfContents";
+import { getAuthor } from "@/utils/authors";
+import { formatDate, getAllBlogSlugs } from "@/utils/blog";
 
 export async function generateMetadata({
   params,
