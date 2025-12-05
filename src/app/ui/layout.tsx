@@ -5,7 +5,7 @@ import UISidebar from "@/components/ui/UiSidebar";
 
 export default function UILayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-dvh tc-white">
+    <div className="min-h-dvh">
       <Navbar />
       <MobileBreadcrumb />
 

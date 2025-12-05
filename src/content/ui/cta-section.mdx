@@ -2,3 +2,81 @@ export const meta = {
    title: "CTA Section",
    description: "Encourages user action.",
 };
+
+## Basic example
+
+<Preview variant="noPadding" className="bg-white">
+   <div className="py-6 px-6 d-f ai-c jc-sb fw-w g-4">
+      <h2 className="ff-s fs-3xl fw-600 tc-slate-10 m-0">Ready to get started?</h2>
+      <div className="d-f g-3">
+         <button className="px-4 py-2 rad-0 fs-sm fw-600 bg-slate-8 tc-white h:bg-slate-10 f:oc-silver-4 f:os-s f:ow-2">Get started</button>
+         <button className="px-4 py-2 rad-0 fs-sm fw-600 bg-white tc-slate-8 b-1 bc-silver-4 h:bg-silver-1 f:oc-silver-1 f:os-s f:ow-2">Learn more</button>
+      </div>
+   </div>
+</Preview>
+
+```html
+<div class="py-6 px-6 d-f ai-c jc-sb fw-w g-4">
+   <h2 class="ff-s fs-3xl fw-600 tc-slate-10 m-0">Ready to get started?</h2>
+   <div class="d-f g-3">
+      <button class="px-4 py-2 rad-0 fs-sm fw-600 bg-slate-8 tc-white h:bg-slate-10 f:oc-silver-4 f:os-s f:ow-2">Get started</button>
+      <button class="px-4 py-2 rad-0 fs-sm fw-600 bg-white tc-slate-8 b-1 bc-silver-4 h:bg-silver-1 f:oc-silver-1 f:os-s f:ow-2">Learn more</button>
+   </div>
+</div>
+```
+
+## With background
+
+<Preview variant="noPadding" className="bg-white">
+   <div className="py-6 px-6 d-f ai-c jc-sb fw-w g-4 bg-indigo-8">
+      <h2 className="ff-s fs-3xl fw-600 tc-white m-0">Start for free today!</h2>
+      <div className="d-f g-3">
+         <button className="px-4 py-2 rad-0 fs-sm fw-600 bg-white tc-indigo-8 h:bg-silver-2">Start free trial</button>
+         <button className="px-4 py-2 rad-0 fs-sm fw-600 bg-transparent tc-white b-1 bc-white/30 h:bg-white/10 f:oc-white/30 f:os-s f:ow-2">Pricings</button>
+      </div>
+   </div>
+</Preview>
+
+```html
+<div class="py-6 px-6 d-f ai-c jc-sb fw-w g-4 bg-indigo-8">
+   <h2 class="ff-s fs-3xl fw-600 tc-white m-0">Start for free today!</h2>
+   <div class="d-f g-3">
+      <button class="px-4 py-2 rad-0 fs-sm fw-600 bg-white tc-indigo-8 h:bg-silver-2">Start free trial</button>
+      <button class="px-4 py-2 rad-0 fs-sm fw-600 bg-transparent tc-white b-1 bc-white/30 h:bg-white/10 f:oc-white/30 f:os-s f:ow-2">Pricings</button>
+   </div>
+</div>
+```
+
+## With icons
+
+<Preview variant="noPadding" className="bg-white">
+   <div className="py-6 px-6 d-f ai-c jc-sb fw-w g-4">
+      <h2 className="ff-s fs-3xl fw-600 tc-slate-10 m-0">Ready to get started?</h2>
+      <div className="d-f g-3">
+         <button className="d-f ai-c g-2 px-4 py-2 rad-0 fs-sm fw-600 bg-slate-8 tc-white h:bg-slate-10 f:oc-silver-4 f:os-s f:ow-2">
+            <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            <span>Get started</span>
+         </button>
+         <button className="d-f ai-c g-2 px-4 py-2 rad-0 fs-sm fw-600 bg-white tc-slate-8 b-1 bc-silver-4 h:bg-silver-1 f:oc-silver-1 f:os-s f:ow-2">
+            <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+            <span>Download</span>
+         </button>
+      </div>
+   </div>
+</Preview>
+
+```html
+<div class="py-6 px-6 d-f ai-c jc-sb fw-w g-4">
+   <h2 class="ff-s fs-3xl fw-600 tc-slate-10 m-0">Ready to get started?</h2>
+   <div class="d-f g-3">
+      <button class="d-f ai-c g-2 px-4 py-2 rad-0 fs-sm fw-600 bg-slate-8 tc-white h:bg-slate-10 f:oc-silver-4 f:os-s f:ow-2">
+         <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+         <span>Get started</span>
+      </button>
+      <button class="d-f ai-c g-2 px-4 py-2 rad-0 fs-sm fw-600 bg-white tc-slate-8 b-1 bc-silver-4 h:bg-silver-1 f:oc-silver-1 f:os-s f:ow-2">
+         <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+         <span>Download</span>
+      </button>
+   </div>
+</div>
+```
