@@ -1,8 +1,8 @@
 "use client";
 
-import UINavbar from "@/components/ui/UINavbar";
 import Link from "next/link";
 import { SiHtml5, SiNextdotjs, SiReact } from "react-icons/si";
+import UINavbar from "@/components/ui/UINavbar";
 
 export default function UIPage() {
   return (

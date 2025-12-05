@@ -1,10 +1,10 @@
 "use client";
 
-import { findCurrentPageInfo } from "@/utils/sidebar";
-import { findCurrentUIPageInfo } from "@/utils/ui-sidebar";
 import { ChevronRight, Menu } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { lazy, Suspense, useEffect, useState } from "react";
+import { findCurrentPageInfo } from "@/utils/sidebar";
+import { findCurrentUIPageInfo } from "@/utils/ui-sidebar";
 
 const MobileSidebar = lazy(() => import("./MobileSidebar"));
 
