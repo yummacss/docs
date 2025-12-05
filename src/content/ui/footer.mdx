@@ -2,3 +2,117 @@ export const meta = {
    title: "Footer",
    description: "Provides site-wide links at the bottom of pages.",
 };
+
+## Basic example
+
+<Preview variant="noPadding" className="bg-white">
+   <footer className="py-6 px-6 bt-1 bc-silver-4">
+      <div className="d-f jc-sb ai-c fw-w g-4">
+         <p className="fs-sm tc-silver-10 m-0">© 2024 Company. All rights reserved.</p>
+         <div className="d-f g-6">
+            <a href="#" className="fs-sm tc-silver-10 td-none h:tc-slate-8">Privacy</a>
+            <a href="#" className="fs-sm tc-silver-10 td-none h:tc-slate-8">Terms</a>
+            <a href="#" className="fs-sm tc-silver-10 td-none h:tc-slate-8">Contact</a>
+         </div>
+      </div>
+   </footer>
+</Preview>
+
+```html
+<footer class="py-6 px-6 bt-1 bc-silver-4">
+   <div class="d-f jc-sb ai-c fw-w g-4">
+      <p class="fs-sm tc-silver-10 m-0">© 2024 Company. All rights reserved.</p>
+      <div class="d-f g-6">
+         <a href="#" class="fs-sm tc-silver-10 td-none h:tc-slate-8">Privacy</a>
+         <a href="#" class="fs-sm tc-silver-10 td-none h:tc-slate-8">Terms</a>
+         <a href="#" class="fs-sm tc-silver-10 td-none h:tc-slate-8">Contact</a>
+      </div>
+   </div>
+</footer>
+```
+
+## With columns
+
+<Preview variant="noPadding" className="bg-white">
+   <footer className="py-12 px-6 bt-1 bc-silver-4">
+      <div className="d-f fw-w g-12 mb-10">
+         <div className="f-1 min-w-32">
+            <h4 className="ff-s fs-sm fw-600 tc-slate-10 mb-4">Product</h4>
+            <ul className="d-f fd-c g-3 p-0">
+               <li><a href="#" className="fs-sm tc-silver-10 td-none h:tc-slate-8">Features</a></li>
+               <li><a href="#" className="fs-sm tc-silver-10 td-none h:tc-slate-8">Pricing</a></li>
+               <li><a href="#" className="fs-sm tc-silver-10 td-none h:tc-slate-8">Changelog</a></li>
+            </ul>
+         </div>
+         <div className="f-1 min-w-32">
+            <h4 className="ff-s fs-sm fw-600 tc-slate-10 mb-4">Company</h4>
+            <ul className="d-f fd-c g-3 p-0">
+               <li><a href="#" className="fs-sm tc-silver-10 td-none h:tc-slate-8">About</a></li>
+               <li><a href="#" className="fs-sm tc-silver-10 td-none h:tc-slate-8">Blog</a></li>
+               <li><a href="#" className="fs-sm tc-silver-10 td-none h:tc-slate-8">Careers</a></li>
+            </ul>
+         </div>
+         <div className="f-1 min-w-32">
+            <h4 className="ff-s fs-sm fw-600 tc-slate-10 mb-4">Support</h4>
+            <ul className="d-f fd-c g-3 p-0">
+               <li><a href="#" className="fs-sm tc-silver-10 td-none h:tc-slate-8">Help Center</a></li>
+               <li><a href="#" className="fs-sm tc-silver-10 td-none h:tc-slate-8">Contact</a></li>
+               <li><a href="#" className="fs-sm tc-silver-10 td-none h:tc-slate-8">Status</a></li>
+            </ul>
+         </div>
+         <div className="f-1 min-w-32">
+            <h4 className="ff-s fs-sm fw-600 tc-slate-10 mb-4">Legal</h4>
+            <ul className="d-f fd-c g-3 p-0">
+               <li><a href="#" className="fs-sm tc-silver-10 td-none h:tc-slate-8">Privacy</a></li>
+               <li><a href="#" className="fs-sm tc-silver-10 td-none h:tc-slate-8">Terms</a></li>
+               <li><a href="#" className="fs-sm tc-silver-10 td-none h:tc-slate-8">Cookies</a></li>
+            </ul>
+         </div>
+      </div>
+      <div className="bt-1 bc-silver-4 pt-6">
+         <p className="fs-sm tc-silver-10 m-0">© 2024 Company. All rights reserved.</p>
+      </div>
+   </footer>
+</Preview>
+
+```html
+<footer class="py-12 px-6 bt-1 bc-silver-4">
+   <div class="d-f fw-w g-12 mb-10">
+      <div class="f-1 min-w-32">
+         <h4 class="ff-s fs-sm fw-600 tc-slate-10 mb-4">Product</h4>
+         <ul class="d-f fd-c g-3 p-0">
+            <li><a href="#" class="fs-sm tc-silver-10 td-none h:tc-slate-8">Features</a></li>
+            <li><a href="#" class="fs-sm tc-silver-10 td-none h:tc-slate-8">Pricing</a></li>
+            <li><a href="#" class="fs-sm tc-silver-10 td-none h:tc-slate-8">Changelog</a></li>
+         </ul>
+      </div>
+      <div class="f-1 min-w-32">
+         <h4 class="ff-s fs-sm fw-600 tc-slate-10 mb-4">Company</h4>
+         <ul class="d-f fd-c g-3 p-0">
+            <li><a href="#" class="fs-sm tc-silver-10 td-none h:tc-slate-8">About</a></li>
+            <li><a href="#" class="fs-sm tc-silver-10 td-none h:tc-slate-8">Blog</a></li>
+            <li><a href="#" class="fs-sm tc-silver-10 td-none h:tc-slate-8">Careers</a></li>
+         </ul>
+      </div>
+      <div class="f-1 min-w-32">
+         <h4 class="ff-s fs-sm fw-600 tc-slate-10 mb-4">Support</h4>
+         <ul class="d-f fd-c g-3 p-0">
+            <li><a href="#" class="fs-sm tc-silver-10 td-none h:tc-slate-8">Help Center</a></li>
+            <li><a href="#" class="fs-sm tc-silver-10 td-none h:tc-slate-8">Contact</a></li>
+            <li><a href="#" class="fs-sm tc-silver-10 td-none h:tc-slate-8">Status</a></li>
+         </ul>
+      </div>
+      <div class="f-1 min-w-32">
+         <h4 class="ff-s fs-sm fw-600 tc-slate-10 mb-4">Legal</h4>
+         <ul class="d-f fd-c g-3 p-0">
+            <li><a href="#" class="fs-sm tc-silver-10 td-none h:tc-slate-8">Privacy</a></li>
+            <li><a href="#" class="fs-sm tc-silver-10 td-none h:tc-slate-8">Terms</a></li>
+            <li><a href="#" class="fs-sm tc-silver-10 td-none h:tc-slate-8">Cookies</a></li>
+         </ul>
+      </div>
+   </div>
+   <div class="bt-1 bc-silver-4 pt-6">
+      <p class="fs-sm tc-silver-10 m-0">© 2024 Company. All rights reserved.</p>
+   </div>
+</footer>
+```

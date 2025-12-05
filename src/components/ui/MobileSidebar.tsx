@@ -1,8 +1,5 @@
 "use client";
 
-import { Cross1Icon } from "@radix-ui/react-icons";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import type {
   SidebarConfigItem,
   SidebarConfigSimpleItem,
@@ -13,6 +10,9 @@ import type {
   UISidebarConfigSimpleItem,
 } from "@/utils/ui-sidebar";
 import { uiSidebarConfig } from "@/utils/ui-sidebar";
+import { Cross1Icon } from "@radix-ui/react-icons";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import SidebarLinks from "./SidebarLinks";
 
 function hasChildren(item: SidebarConfigItem | UISidebarConfigItem): item is (
@@ -77,7 +77,9 @@ export default function MobileSidebar({
 
             {config.map((section) => (
               <div key={section.title} className="d-f fd-c g-4">
-                <h3 className="fs-md fw-400 tt-c ls-5">{section.title}</h3>
+                <h3 className="fs-md fw-400 tt-c ls-5 tc-white">
+                  {section.title}
+                </h3>
                 <ul className="d-f ml-4 fd-c g-2">
                   {section.items.map((item) => {
                     // item with children (nested structure)

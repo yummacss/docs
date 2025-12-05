@@ -1,12 +1,12 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import type {
   SidebarConfigItem,
   SidebarConfigSimpleItem,
 } from "@/utils/sidebar";
 import { sidebarConfig } from "@/utils/sidebar";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import SidebarLinks from "./SidebarLinks";
 
 function hasChildren(
@@ -37,7 +37,7 @@ export default function Sidebar() {
 
         {sidebarConfig.map((section) => (
           <div key={section.title} className="d-f fd-c g-4">
-            <h3 className="fs-md fw-400 tt-c ls-5">{section.title}</h3>
+            <h3 className="fs-md fw-400 tt-c ls-5 tc-white">{section.title}</h3>
             <ul className="d-f ml-4 fd-c g-2">
               {section.items.map((item) => {
                 // item with children (nested structure)
