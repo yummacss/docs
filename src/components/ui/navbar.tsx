@@ -64,7 +64,7 @@ export default function Navbar({ variant, className }: NavbarProps) {
             </div>
             <div className="d-f ai-c g-8">
               <Link
-                href="/docs/installation"
+                href="/docs"
                 className="d-none md:d-b fs-sm tc-white/80 h:tc-white"
               >
                 Docs
@@ -76,7 +76,7 @@ export default function Navbar({ variant, className }: NavbarProps) {
                 Blog
               </Link>
               <Link
-                href="/ui/introduction"
+                href="/ui"
                 className="d-none md:d-b fs-sm tc-white/80 h:tc-white"
               >
                 Components
