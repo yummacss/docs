@@ -1,8 +1,13 @@
-"use client";
-
+import type { Metadata } from "next";
 import Link from "next/link";
 import { SiHtml5, SiNextdotjs, SiReact } from "react-icons/si";
 import UINavbar from "@/components/ui/UINavbar";
+
+export const metadata: Metadata = {
+  title: {
+    absolute: "Yumma UI - Beautiful UI components built with Yumma CSS.",
+  },
+};
 
 export default function UIPage() {
   return (
