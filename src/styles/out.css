@@ -1281,12 +1281,24 @@ summary {
   outline-color: #000;
 }
 
+.f\:oc-blue-2:focus {
+  outline-color: #c2d6f5;
+}
+
 .f\:oc-blue-4:focus {
   outline-color: #8aafeb;
 }
 
+.f\:oc-green-2:focus {
+  outline-color: #bce8cc;
+}
+
 .f\:oc-green-4:focus {
   outline-color: #7dd29c;
+}
+
+.f\:oc-indigo-2:focus {
+  outline-color: #cdcef4;
 }
 
 .f\:oc-indigo-4:focus {
@@ -1295,6 +1307,10 @@ summary {
 
 .f\:oc-indigo-5:focus {
   outline-color: #878ae4;
+}
+
+.f\:oc-orange-2:focus {
+  outline-color: #f6d2b9;
 }
 
 .f\:oc-orange-4:focus {
@@ -1317,8 +1333,16 @@ summary {
   outline-color: #dadcdf;
 }
 
+.f\:oc-violet-2:focus {
+  outline-color: #d8cbf5;
+}
+
 .f\:oc-violet-4:focus {
   outline-color: #b49beb;
+}
+
+.f\:oc-yellow-2:focus {
+  outline-color: #f2e3b5;
 }
 
 .f\:oc-yellow-4:focus {
@@ -1825,12 +1849,24 @@ summary {
   background-color: #3575dd;
 }
 
+.h\:bg-blue-7:hover {
+  background-color: #2e65be;
+}
+
+.h\:bg-green-7:hover {
+  background-color: #1b9849;
+}
+
 .h\:bg-indigo-7:hover {
   background-color: #4d4fbb;
 }
 
 .h\:bg-indigo-8:hover {
   background-color: #40429c;
+}
+
+.h\:bg-orange-7:hover {
+  background-color: #c15911;
 }
 
 .h\:bg-red-1:hover {
@@ -1865,12 +1901,20 @@ summary {
   background-color: #05322d;
 }
 
+.h\:bg-violet-7:hover {
+  background-color: #6c47be;
+}
+
 .h\:bg-white:hover {
   background-color: #fff;
 }
 
 .h\:bg-yellow-11:hover {
   background-color: #3f3002;
+}
+
+.h\:bg-yellow-7:hover {
+  background-color: #b58a06;
 }
 
 .h\:o-100:hover {
