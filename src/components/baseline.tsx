@@ -98,7 +98,7 @@ export default function Baseline({ path }: BaselineProps) {
     >
       <div className="mb-4">
         <div className="d-f ai-c g-2 mb-2">
-          <StatusIcon className={statusColor} />
+          <StatusIcon className={`d-4 ${statusColor}`} />
           <h3 className="fs-lg fw-500 tc-white">{statusLabel}</h3>
         </div>
         <p className="tc-white/70">{statusDescription}</p>
@@ -108,7 +108,7 @@ export default function Baseline({ path }: BaselineProps) {
         {browsers.map((browser) => (
           <div key={browser.key} className="d-f ai-c g-2">
             <div className={browser.supported ? "tc-green" : "tc-red"}>
-              {browser.supported ? <CircleCheckBig /> : <CircleMinus />}
+              {browser.supported ? <CircleCheckBig className="d-4" /> : <CircleMinus className="d-4" />}
             </div>
             <span className="tc-white/80">{browser.name}</span>
           </div>
