@@ -48,7 +48,7 @@ export default function SidebarLinks({ onLinkClick }: SidebarLinksProps) {
         </span>
       </Link>
       <Link
-        href="/ui/introduction"
+        href="/ui"
         onClick={onLinkClick}
         rel="noopener noreferrer"
         className={`d-if ai-c g-4 ${isUIActive ? "" : "team"}`}
