@@ -1,3 +1,6 @@
+
+import Image from "next/image";
+
 export const meta = {
   authors: ["Renildo"],
   cover: "~",
@@ -60,12 +63,12 @@ We just built this landing page using stock components from Yumma UI and it took
             </div>
 
             <div className="ai-c d-none g-3 md:d-f">
-               <a href="#" className="bg-black fs-sm h:bg-silver-1 px-4 py-2 rad-9 fw-600 tc-white td-none f:oc-silver-1 f:os-s f:ow-2">Sign in</a>
+               <a href="#" className="bg-black fs-sm h:bg-silver-1 px-4 py-2 rad-1 fw-600 tc-white td-none f:oc-silver-1 f:os-s f:ow-2">Sign in</a>
             </div>
 
             <input type="checkbox" id="nav-toggle" className="d-none" />
             <label htmlFor="nav-toggle"
-               className="d-f ai-c jc-c c-p rad-9 px-2 py-2 bg-slate-8 h:bg-slate-10 tc-white h:bg-silver-2 d-f md:d-none">
+               className="d-f ai-c jc-c c-p rad-1 px-2 py-2 bg-slate-8 h:bg-slate-10 tc-white h:bg-silver-2 d-f md:d-none">
                <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 tc-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
             </label>
          </div>
@@ -77,8 +80,8 @@ We just built this landing page using stock components from Yumma UI and it took
             <h1 className="ff-s fs-5xl fw-600 tc-slate-10 mb-4 lh-1">Build beautiful products faster</h1>
             <p className="fs-lg tc-silver-10 mb-8 m-0 lh-4">The modern platform for teams to design, develop, and ship stunning experiences without the complexity.</p>
             <div className="d-f jc-c g-3">
-                <button className="px-5 py-3 rad-9 fs-md fw-600 bg-slate-8 tc-white h:bg-slate-10 f:oc-silver-4 f:os-s f:ow-2">Get started</button>
-                <button className="ai-c d-f jc-c g-2 px-5 py-3 rad-9 fs-md fw-600 bg-white tc-slate-8">
+                <button className="px-5 py-3 rad-1 fs-md fw-600 bg-slate-8 tc-white h:bg-slate-10 f:oc-silver-4 f:os-s f:ow-2">Get started</button>
+                <button className="ai-c d-f jc-c g-2 px-5 py-3 rad-1 fs-md fw-600 bg-white tc-slate-8">
                     <span>Learn more</span>
                     <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                 </button>
@@ -233,8 +236,8 @@ We just built this landing page using stock components from Yumma UI and it took
           <h1 class="ff-s fs-5xl fw-600 tc-slate-10 mb-4 lh-1">Build beautiful products faster</h1>
           <p class="fs-lg tc-silver-10 mb-8 m-0 lh-4">The modern platform for teams to design, develop, and ship stunning experiences without the complexity.</p>
           <div class="d-f jc-c g-3">
-             <button class="px-5 py-3 rad-9 fs-md fw-600 bg-slate-8 tc-white h:bg-slate-10 f:oc-silver-4 f:os-s f:ow-2">Get started</button>
-             <button class="ai-c d-f jc-c g-2 px-5 py-3 rad-9 fs-md fw-600 bg-white tc-slate-8 h:bg-silver-1">
+             <button class="px-5 py-3 rad-1 fs-md fw-600 bg-slate-8 tc-white h:bg-slate-10 f:oc-silver-4 f:os-s f:ow-2">Get started</button>
+             <button class="ai-c d-f jc-c g-2 px-5 py-3 rad-1 fs-md fw-600 bg-white tc-slate-8 h:bg-silver-1">
                 <span>Learn more</span>
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
              </button>
@@ -312,7 +315,7 @@ We just built this landing page using stock components from Yumma UI and it took
              <div class="mb-6">
                 <div class="d-f ai-c jc-sb mb-1">
                    <h3 class="ff-s fs-lg fw-600 tc-slate-10 m-0">Premium</h3>
-                   <span class="bg-slate-8 tc-white px-2 py-1 rad-9 fs-xs fw-500">Popular</span>
+                   <span class="bg-slate-8 tc-white px-2 py-1 rad-1 fs-xs fw-500">Popular</span>
                 </div>
                 <p class="fs-sm tc-silver-10 m-0">For growing teams and businesses</p>
              </div>
@@ -361,144 +364,6 @@ We just built this landing page using stock components from Yumma UI and it took
 ## Make it yours
 
 You don't have to use Yumma UI as-is. It's built on top of Yumma CSS, so you can easily customize it to match your brand identity.
-
-<Preview className="bg-white">
-   <div className="max-w-7xl mx-auto o-x-auto">
-      
-      <div className="d-g gtc-7 b-1 b-d bc-slate-4 min-w-md">
-         
-         <div className="br-1 bb-1 b-d bc-slate-4 bg-white p-1 fw-600 fs-xs md:fs-sm tc-slate-7">
-         Buttons
-         </div>
-         <div className="br-1 bb-1 b-d bc-slate-4 bg-white" style={{ background: "repeating-linear-gradient( -45deg, #0000001a, #0000001a 2px, #ffffff 2px, #ffffff 10px )" }}></div>
-         <div className="br-1 bb-1 b-d bc-slate-4 bg-white" style={{ background: "repeating-linear-gradient( -45deg, #0000001a, #0000001a 2px, #ffffff 2px, #ffffff 10px )" }}></div>
-         <div className="br-1 bb-1 b-d bc-slate-4 bg-white" style={{ background: "repeating-linear-gradient( -45deg, #0000001a, #0000001a 2px, #ffffff 2px, #ffffff 10px )" }}></div>
-         <div className="br-1 bb-1 b-d bc-slate-4 bg-white" style={{ background: "repeating-linear-gradient( -45deg, #0000001a, #0000001a 2px, #ffffff 2px, #ffffff 10px )" }}></div>
-         <div className="br-1 bb-1 b-d bc-slate-4 bg-white" style={{ background: "repeating-linear-gradient( -45deg, #0000001a, #0000001a 2px, #ffffff 2px, #ffffff 10px )" }}></div>
-         <div className="bb-1 b-d bc-slate-4 bg-white" style={{ background: "repeating-linear-gradient( -45deg, #0000001a, #0000001a 2px, #ffffff 2px, #ffffff 10px )" }}></div>
-         
-         <div className="br-1 bb-1 b-d bc-slate-4 p-2 md:p-4 d-f ai-c jc-c">
-         <button className="bg-red h:bg-red-7 tc-white fw-600 py-1 md:py-2 px-3 md:px-6 fs-xs md:fs-sm">Button</button>
-         </div>
-         <div className="br-1 bb-1 b-d bc-slate-4 p-2 md:p-4 d-f ai-c jc-c">
-         <button className="bg-orange h:bg-orange-7 tc-white fw-600 py-1 md:py-2 px-3 md:px-6 fs-xs md:fs-sm">Button</button>
-         </div>
-         <div className="br-1 bb-1 b-d bc-slate-4 p-2 md:p-4 d-f ai-c jc-c">
-         <button className="bg-yellow h:bg-yellow-7 tc-white fw-600 py-1 md:py-2 px-3 md:px-6 fs-xs md:fs-sm">Button</button>
-         </div>
-         <div className="br-1 bb-1 b-d bc-slate-4 p-2 md:p-4 d-f ai-c jc-c">
-         <button className="bg-green h:bg-green-7 tc-white fw-600 py-1 md:py-2 px-3 md:px-6 fs-xs md:fs-sm">Button</button>
-         </div>
-         <div className="br-1 bb-1 b-d bc-slate-4 p-2 md:p-4 d-f ai-c jc-c">
-         <button className="bg-blue h:bg-blue-7 tc-white fw-600 py-1 md:py-2 px-3 md:px-6 fs-xs md:fs-sm">Button</button>
-         </div>
-         <div className="br-1 bb-1 b-d bc-slate-4 p-2 md:p-4 d-f ai-c jc-c">
-         <button className="bg-indigo h:bg-indigo-7 tc-white fw-600 py-1 md:py-2 px-3 md:px-6 fs-xs md:fs-sm">Button</button>
-         </div>
-         <div className="bb-1 b-d bc-slate-4 p-2 md:p-4 d-f ai-c jc-c">
-         <button className="bg-violet h:bg-violet-7 tc-white fw-600 py-1 md:py-2 px-3 md:px-6 fs-xs md:fs-sm">Button</button>
-         </div>
-
-         <div className="br-1 bb-1 b-d bc-slate-4 bg-white p-1 fw-600 fs-xs md:fs-sm tc-slate-7">
-         Badges
-         </div>
-         <div className="br-1 bb-1 b-d bc-slate-4 bg-white" style={{ background: "repeating-linear-gradient( -45deg, #0000001a, #0000001a 2px, #ffffff 2px, #ffffff 10px )" }}></div>
-         <div className="br-1 bb-1 b-d bc-slate-4 bg-white" style={{ background: "repeating-linear-gradient( -45deg, #0000001a, #0000001a 2px, #ffffff 2px, #ffffff 10px )" }}></div>
-         <div className="br-1 bb-1 b-d bc-slate-4 bg-white" style={{ background: "repeating-linear-gradient( -45deg, #0000001a, #0000001a 2px, #ffffff 2px, #ffffff 10px )" }}></div>
-         <div className="br-1 bb-1 b-d bc-slate-4 bg-white" style={{ background: "repeating-linear-gradient( -45deg, #0000001a, #0000001a 2px, #ffffff 2px, #ffffff 10px )" }}></div>
-         <div className="br-1 bb-1 b-d bc-slate-4 bg-white" style={{ background: "repeating-linear-gradient( -45deg, #0000001a, #0000001a 2px, #ffffff 2px, #ffffff 10px )" }}></div>
-         <div className="bb-1 b-d bc-slate-4 bg-white" style={{ background: "repeating-linear-gradient( -45deg, #0000001a, #0000001a 2px, #ffffff 2px, #ffffff 10px )" }}></div>
-         
-         <div className="br-1 bb-1 b-d bc-slate-4 p-2 md:p-4 d-f ai-c jc-c">
-         <span className="bg-red-1 tc-red b-1 bc-red fw-600 py-0.5 px-2 rad-9 fs-xs">99+</span>
-         </div>
-         <div className="br-1 bb-1 b-d bc-slate-4 p-2 md:p-4 d-f ai-c jc-c">
-         <span className="bg-orange-1 tc-orange b-1 bc-orange fw-600 py-0.5 px-2 rad-9 fs-xs">99+</span>
-         </div>
-         <div className="br-1 bb-1 b-d bc-slate-4 p-2 md:p-4 d-f ai-c jc-c">
-         <span className="bg-yellow-1 tc-yellow b-1 bc-yellow fw-600 py-0.5 px-2 rad-9 fs-xs">99+</span>
-         </div>
-         <div className="br-1 bb-1 b-d bc-slate-4 p-2 md:p-4 d-f ai-c jc-c">
-         <span className="bg-green-1 tc-green b-1 bc-green fw-600 py-0.5 px-2 rad-9 fs-xs">99+</span>
-         </div>
-         <div className="br-1 bb-1 b-d bc-slate-4 p-2 md:p-4 d-f ai-c jc-c">
-         <span className="bg-blue-1 tc-blue b-1 bc-blue fw-600 py-0.5 px-2 rad-9 fs-xs">99+</span>
-         </div>
-         <div className="br-1 bb-1 b-d bc-slate-4 p-2 md:p-4 d-f ai-c jc-c">
-         <span className="bg-indigo-1 tc-indigo b-1 bc-indigo fw-600 py-0.5 px-2 rad-9 fs-xs">99+</span>
-         </div>
-         <div className="bb-1 b-d bc-slate-4 p-2 md:p-4 d-f ai-c jc-c">
-         <span className="bg-violet-1 tc-violet b-1 bc-violet fw-600 py-0.5 px-2 rad-9 fs-xs">99+</span>
-         </div>
-
-         <div className="br-1 bb-1 b-d bc-slate-4 bg-white p-1 fw-600 fs-xs md:fs-sm tc-slate-7">
-         Typography
-         </div>
-         <div className="br-1 bb-1 b-d bc-slate-4 bg-white" style={{ background: "repeating-linear-gradient( -45deg, #0000001a, #0000001a 2px, #ffffff 2px, #ffffff 10px )" }}></div>
-         <div className="br-1 bb-1 b-d bc-slate-4 bg-white" style={{ background: "repeating-linear-gradient( -45deg, #0000001a, #0000001a 2px, #ffffff 2px, #ffffff 10px )" }}></div>
-         <div className="br-1 bb-1 b-d bc-slate-4 bg-white" style={{ background: "repeating-linear-gradient( -45deg, #0000001a, #0000001a 2px, #ffffff 2px, #ffffff 10px )" }}></div>
-         <div className="br-1 bb-1 b-d bc-slate-4 bg-white" style={{ background: "repeating-linear-gradient( -45deg, #0000001a, #0000001a 2px, #ffffff 2px, #ffffff 10px )" }}></div>
-         <div className="br-1 bb-1 b-d bc-slate-4 bg-white" style={{ background: "repeating-linear-gradient( -45deg, #0000001a, #0000001a 2px, #ffffff 2px, #ffffff 10px )" }}></div>
-         <div className="bb-1 b-d bc-slate-4 bg-white" style={{ background: "repeating-linear-gradient( -45deg, #0000001a, #0000001a 2px, #ffffff 2px, #ffffff 10px )" }}></div>
-         
-         <div className="br-1 bb-1 b-d bc-slate-4 p-2 md:p-4 d-f ai-c jc-c">
-         <span className="ff-c fs-xs">Aa</span>
-         </div>
-         <div className="br-1 bb-1 b-d bc-slate-4 p-2 md:p-4 d-f ai-c jc-c">
-         <span className="ff-c fs-sm">Aa</span>
-         </div>
-         <div className="br-1 bb-1 b-d bc-slate-4 p-2 md:p-4 d-f ai-c jc-c">
-         <span className="ff-c fs-md">Aa</span>
-         </div>
-         <div className="br-1 bb-1 b-d bc-slate-4 p-2 md:p-4 d-f ai-c jc-c">
-         <span className="ff-c fs-lg">Aa</span>
-         </div>
-         <div className="br-1 bb-1 b-d bc-slate-4 p-2 md:p-4 d-f ai-c jc-c">
-         <span className="ff-c fs-xl">Aa</span>
-         </div>
-         <div className="br-1 bb-1 b-d bc-slate-4 p-2 md:p-4 d-f ai-c jc-c">
-         <span className="ff-c fs-xxl">Aa</span>
-         </div>
-         <div className="bb-1 b-d bc-slate-4 p-2 md:p-4 d-f ai-c jc-c">
-         <span className="ff-c fs-3xl">Aa</span>
-         </div>
-
-         <div className="br-1 bb-1 b-d bc-slate-4 bg-white p-1 fw-600 fs-xs md:fs-sm tc-slate-7">
-         Checkboxes
-         </div>
-         <div className="br-1 bb-1 b-d bc-slate-4 bg-white" style={{ background: "repeating-linear-gradient( -45deg, #0000001a, #0000001a 2px, #ffffff 2px, #ffffff 10px )" }}></div>
-         <div className="br-1 bb-1 b-d bc-slate-4 bg-white" style={{ background: "repeating-linear-gradient( -45deg, #0000001a, #0000001a 2px, #ffffff 2px, #ffffff 10px )" }}></div>
-         <div className="br-1 bb-1 b-d bc-slate-4 bg-white" style={{ background: "repeating-linear-gradient( -45deg, #0000001a, #0000001a 2px, #ffffff 2px, #ffffff 10px )" }}></div>
-         <div className="br-1 bb-1 b-d bc-slate-4 bg-white" style={{ background: "repeating-linear-gradient( -45deg, #0000001a, #0000001a 2px, #ffffff 2px, #ffffff 10px )" }}></div>
-         <div className="br-1 bb-1 b-d bc-slate-4 bg-white" style={{ background: "repeating-linear-gradient( -45deg, #0000001a, #0000001a 2px, #ffffff 2px, #ffffff 10px )" }}></div>
-         <div className="bb-1 b-d bc-slate-4 bg-white" style={{ background: "repeating-linear-gradient( -45deg, #0000001a, #0000001a 2px, #ffffff 2px, #ffffff 10px )" }}></div>
-         
-         <div className="br-1 b-d bc-slate-4 p-2 md:p-4 d-f ai-c jc-c">
-         <input type="checkbox" defaultChecked className="w-5 h-5 ac-red c-p" />
-         </div>
-         <div className="br-1 b-d bc-slate-4 p-2 md:p-4 d-f ai-c jc-c">
-         <input type="checkbox" defaultChecked className="w-5 h-5 ac-orange c-p" />
-         </div>
-         <div className="br-1 b-d bc-slate-4 p-2 md:p-4 d-f ai-c jc-c">
-         <input type="checkbox" defaultChecked className="w-5 h-5 ac-yellow c-p" />
-         </div>
-         <div className="br-1 b-d bc-slate-4 p-2 md:p-4 d-f ai-c jc-c">
-         <input type="checkbox" defaultChecked className="w-5 h-5 ac-green c-p" />
-         </div>
-         <div className="br-1 b-d bc-slate-4 p-2 md:p-4 d-f ai-c jc-c">
-         <input type="checkbox" defaultChecked className="w-5 h-5 ac-blue c-p" />
-         </div>
-         <div className="br-1 b-d bc-slate-4 p-2 md:p-4 d-f ai-c jc-c">
-         <input type="checkbox" defaultChecked className="w-5 h-5 ac-indigo c-p" />
-         </div>
-         <div className="p-2 md:p-4 d-f ai-c jc-c">
-         <input type="checkbox" defaultChecked className="w-5 h-5 ac-violet c-p" />
-         </div>
-
-      </div>
-
-   </div>
-</Preview>
 
 ## Start building with Yumma UI
 
