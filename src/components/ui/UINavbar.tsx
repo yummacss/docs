@@ -63,6 +63,14 @@ export default function UINavbar() {
               >
                 Components
               </Link>
+              <Link
+                href="https://github.com/yumma-lib/yumma-css"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="d-none md:d-b fs-sm tc-slate-10 h:tc-black"
+              >
+                GitHub
+              </Link>
 
               <button
                 type="button"
