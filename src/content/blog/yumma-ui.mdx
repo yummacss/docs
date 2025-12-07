@@ -10,6 +10,10 @@ export const meta = {
 
 Building polished UIs with utility CSS can still mean wiring the same buttons, alerts, and layouts from scratch over and over. Yumma UI gives you production-ready blocks so you can start from a real interface instead of an empty file.
 
+- **No design system lock-in** – Pure HTML + Yumma CSS classes you control completely
+- **Instant prototypes** – Drop a full landing page or pricing page in seconds
+- **Developer-first** – No React wrappers, no build steps, just working code
+
 ## Get Started
 
 Getting started with Yumma UI is easy. You just need to have Yumma CSS installed in your project.
@@ -42,7 +46,7 @@ With Yumma UI, you can copy paste and adapt any of the components to match your 
   <TabsPanel value="preview">
     <Preview variant="noPadding" className="bg-white">
       
-{/* Navbar */}
+      {/* Navbar */}
       <nav className="bb-1 bc-silver-2 bg-white px-6 py-4">
         <div className="ai-c d-f jc-sb max-w-xl mx-auto">
             <div className="d-f ai-c g-6">
@@ -66,7 +70,7 @@ With Yumma UI, you can copy paste and adapt any of the components to match your 
         </div>
       </nav>
 
-{/* Hero */}
+      {/* Hero */}
       <div className="py-16 px-6 ta-c">
         <div className="max-w-sm m-auto">
             <h1 className="ff-s fs-5xl fw-600 tc-slate-10 mb-4 lh-1">Build beautiful products faster</h1>
@@ -81,7 +85,7 @@ With Yumma UI, you can copy paste and adapt any of the components to match your 
         </div>
       </div>
 
-{/* Statistics */}
+      {/* Statistics */}
       <div className="w-full px-4 py-12">
         <div className="d-g gtc-1 sm:gtc-2 lg:gtc-4 g-8 ta-c">
             <div className="d-f fd-c g-2">
@@ -115,7 +119,7 @@ With Yumma UI, you can copy paste and adapt any of the components to match your 
          </div>
       </div>
 
-{/* Pricing */}
+      {/* Pricing */}
       <div className="py-12 px-6">
          <div className="ta-c mb-10">
             <h2 className="ff-s fs-3xl fw-600 tc-slate-10 mb-2">Simple, transparent pricing</h2>
@@ -182,7 +186,7 @@ With Yumma UI, you can copy paste and adapt any of the components to match your 
          </div>
       </div>
 
-{/* Footer */}
+      {/* Footer */}
       <footer className="py-6 px-6 bt-1 bc-silver-4">
          <div className="d-f jc-sb ai-c fw-w g-4">
             <p className="fs-sm tc-silver-10 m-0">© 2025 3Portals. All rights reserved.</p>
@@ -353,27 +357,67 @@ With Yumma UI, you can copy paste and adapt any of the components to match your 
   </TabsPanel>
 </Tabs>
 
-## Design System
+## Make it yours
 
-Yumma UI is built on top of the Yumma CSS default theme, which includes a comprehensive color palette.
+You don't have to use Yumma UI as-is. It's built on top of Yumma CSS, so you can easily customize it to match your brand identity.
 
-<Palette
-  data={[
-    { name: "Red", color: "rgb(215, 61, 61)" },
-    { name: "Orange", color: "rgb(224, 104, 20)" },
-    { name: "Yellow", color: "rgb(211, 161, 7)" },
-    { name: "slate", color: "rgb(31, 177, 85)" },
-    { name: "Teal", color: "rgb(18, 166, 149)" },
-    { name: "Cyan", color: "rgb(5, 164, 191)" },
-    { name: "Blue", color: "rgb(53, 117, 221)" },
-    { name: "Indigo", color: "rgb(89, 92, 217)" },
-    { name: "Violet", color: "rgb(125, 83, 221)" },
-    { name: "Pink", color: "rgb(212, 65, 138)" },
-    { name: "Slate", color: "rgb(63, 63, 78)" },
-    { name: "Gray", color: "rgb(96, 103, 115)" },
-    { name: "Silver", color: "rgb(191, 194, 199)" },
-  ]}
-/>
+<Preview className="bg-white">
+   <p className="fs-xs tc-slate-10 mb-2 fw-600">Buttons</p>
+   <div className="d-g gtc-1 sm:gtc-4 md:gtc-7 b-1 bc-slate-8">
+       <button className="g-2 px-3 py-2 fs-md fw-500 bg-red tc-white h:bg-red-7 f:oc-red-2 f:os-s f:ow-2 rad-0 md:br-1 bc-slate-8">Red</button>
+       <button className="g-2 px-3 py-2 fs-md fw-500 bg-orange tc-white h:bg-orange-7 f:oc-orange-2 f:os-s f:ow-2 rad-0 md:br-1 bc-slate-8">Orange</button>
+       <button className="g-2 px-3 py-2 fs-md fw-500 bg-yellow tc-white h:bg-yellow-7 f:oc-yellow-2 f:os-s f:ow-2 rad-0 md:br-1 bc-slate-8">Yellow</button>
+       <button className="g-2 px-3 py-2 fs-md fw-500 bg-green tc-white h:bg-green-7 f:oc-green-2 f:os-s f:ow-2 rad-0 md:br-1 bc-slate-8">Green</button>
+       <button className="g-2 px-3 py-2 fs-md fw-500 bg-blue tc-white h:bg-blue-7 f:oc-blue-2 f:os-s f:ow-2 rad-0 md:br-1 bc-slate-8">Blue</button>
+       <button className="g-2 px-3 py-2 fs-md fw-500 bg-indigo tc-white h:bg-indigo-7 f:oc-indigo-2 f:os-s f:ow-2 rad-0 md:br-1 bc-slate-8">Indigo</button>
+       <button className="g-2 px-3 py-2 fs-md fw-500 bg-violet tc-white h:bg-violet-7 f:oc-violet-2 f:os-s f:ow-2 rad-0">Violet</button>
+   </div>
+
+   <p className="fs-xs tc-slate-10 mb-2 mt-8 fw-600">Badges</p>
+   <div className="d-g gtc-1 sm:gtc-4 md:gtc-7 b-1 bc-slate-8">
+      <span className="d-f ai-c jc-c g-1 bg-red-1 tc-red-10 px-2 py-4 fs-xs fw-600 rad-0 md:br-1 bc-slate-8">
+         <span className="d-2 rad-9 bg-red"></span>
+         <p>Red</p>
+      </span>
+      <span className="d-f ai-c jc-c g-1 bg-orange-1 tc-orange-10 px-2 py-4 fs-xs fw-600 rad-0 md:br-1 bc-slate-8">
+         <span className="d-2 rad-9 bg-orange"></span>
+         <p>Orange</p>
+      </span>
+      <span className="d-f ai-c jc-c g-1 bg-yellow-1 tc-yellow-10 px-2 py-4 fs-xs fw-600 rad-0 md:br-1 bc-slate-8">
+         <span className="d-2 rad-9 bg-yellow"></span>
+         <p>Yellow</p>
+      </span>
+      <span className="d-f ai-c jc-c g-1 bg-green-1 tc-green-10 px-2 py-4 fs-xs fw-600 rad-0 md:br-1 bc-slate-8">
+         <span className="d-2 rad-9 bg-green"></span>
+         <p>Green</p>
+      </span>
+      <span className="d-f ai-c jc-c g-1 bg-blue-1 tc-blue-10 px-2 py-4 fs-xs fw-600 rad-0 md:br-1 bc-slate-8">
+         <span className="d-2 rad-9 bg-blue"></span>
+         <p>Blue</p>
+      </span>
+      <span className="d-f ai-c jc-c g-1 bg-indigo-1 tc-indigo-10 px-2 py-4 fs-xs fw-600 rad-0 md:br-1 bc-slate-8">
+         <span className="d-2 rad-9 bg-indigo"></span>
+         <p>Indigo</p>
+      </span>
+      <span className="d-f ai-c jc-c g-1 bg-violet-1 tc-violet-10 px-2 py-4 fs-xs fw-600 rad-0">
+         <span className="d-2 rad-9 bg-violet"></span>
+         <p>Violet</p>
+      </span>
+   </div>
+
+   <p className="fs-xs tc-slate-10 mb-2 mt-8 fw-600">Typography</p>
+   <div className="d-f fd-c ai-s w-full b-1 bc-slate-8">
+      <div className="bb-1 bc-slate-8 p-4">
+         <p className="ff-c fs-4xl m-0 tc-slate">Heading 1</p>
+      </div>
+      <div className="bb-1 bc-slate-8 p-4">
+         <p className="ff-c fs-2xl m-0 tc-slate">Heading 2</p>
+      </div>
+      <div className="p-4">
+         <p className="ff-c fs-lg m-0 tc-slate">Body text</p>
+      </div>
+   </div>
+</Preview>
 
 ## Start building with Yumma UI
 
