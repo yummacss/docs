@@ -9,7 +9,7 @@ const description =
 export const metadata: Metadata = {
   title: {
     default: "Yumma CSS - Style more, type even less",
-    template: "%s | Yumma CSS",
+    template: "%s - Yumma CSS",
   },
   description,
   icons: {
