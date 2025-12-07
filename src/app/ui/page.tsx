@@ -1,7 +1,8 @@
+import UINavbar from "@/components/ui/UINavbar";
+import { BookSearch } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SiHtml5, SiNextdotjs, SiReact } from "react-icons/si";
-import UINavbar from "@/components/ui/UINavbar";
 
 export const metadata: Metadata = {
   title: {
@@ -41,10 +42,12 @@ export default function UIPage() {
                   Get started
                 </Link>
                 <Link
-                  href="/ui/templates"
-                  className="ai-c d-f jc-c g-2 px-3 py-2 rad-9 fs-md fw-600 bg-white tc-slate-8 h:bg-silver-1 f:oc-silver-1 f:os-s f:ow-2"
+                  href="/"
+                  className="px-6 py-3 fw-600 tc-slate-8 fs-md d-f ai-c g-2"
                 >
-                  Buy templates
+                  
+                  <BookSearch className="w-5 h-5" />
+                  Documentation
                 </Link>
               </div>
 
