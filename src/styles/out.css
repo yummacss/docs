@@ -129,10 +129,6 @@ summary {
   align-content: baseline;
 }
 
-.ac-blue {
-  accent-color: #3575dd;
-}
-
 .ac-c {
   align-content: center;
 }
@@ -145,10 +141,6 @@ summary {
   align-content: flex-start;
 }
 
-.ac-green {
-  accent-color: #1fb155;
-}
-
 .ac-indigo {
   accent-color: #595cd9;
 }
@@ -159,14 +151,6 @@ summary {
 
 .ac-n {
   align-content: normal;
-}
-
-.ac-orange {
-  accent-color: #e06814;
-}
-
-.ac-red {
-  accent-color: #d73d3d;
 }
 
 .ac-sa {
@@ -187,14 +171,6 @@ summary {
 
 .ac-st {
   align-content: stretch;
-}
-
-.ac-violet {
-  accent-color: #7d53dd;
-}
-
-.ac-yellow {
-  accent-color: #d3a107;
 }
 
 .ai-b {
@@ -365,10 +341,6 @@ summary {
   background-clip: border-box;
 }
 
-.bc-blue {
-  border-color: #3575dd;
-}
-
 .bc-blue-2 {
   border-color: #c2d6f5;
 }
@@ -387,10 +359,6 @@ summary {
 
 .bc-gray-2 {
   border-color: #cfd1d5;
-}
-
-.bc-green {
-  border-color: #1fb155;
 }
 
 .bc-green-2 {
@@ -433,10 +401,6 @@ summary {
   border-color: #34357e1a;
 }
 
-.bc-orange {
-  border-color: #e06814;
-}
-
 .bc-orange-4 {
   border-color: #eda777;
 }
@@ -455,10 +419,6 @@ summary {
 
 .bc-r-indigo-8 {
   border-right-color: #40429c;
-}
-
-.bc-red {
-  border-color: #d73d3d;
 }
 
 .bc-red-2 {
@@ -493,10 +453,6 @@ summary {
   border-color: #3f3f4e;
 }
 
-.bc-slate-4 {
-  border-color: #909098;
-}
-
 .bc-slate-8 {
   border-color: #2d2d38;
 }
@@ -521,10 +477,6 @@ summary {
   border-color: #0000;
 }
 
-.bc-violet {
-  border-color: #7d53dd;
-}
-
 .bc-violet-4 {
   border-color: #b49beb;
 }
@@ -547,10 +499,6 @@ summary {
 
 .bc-white\/5 {
   border-color: #ffffff0d;
-}
-
-.bc-yellow {
-  border-color: #d3a107;
 }
 
 .bc-yellow-2 {
@@ -1737,10 +1685,6 @@ summary {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
-.gtc-7 {
-  grid-template-columns: repeat(7, minmax(0, 1fr));
-}
-
 .gtr-1 {
   grid-template-rows: repeat(1, minmax(0, 1fr));
 }
@@ -1877,24 +1821,12 @@ summary {
   background-color: #3575dd;
 }
 
-.h\:bg-blue-7:hover {
-  background-color: #2e65be;
-}
-
-.h\:bg-green-7:hover {
-  background-color: #1b9849;
-}
-
 .h\:bg-indigo-7:hover {
   background-color: #4d4fbb;
 }
 
 .h\:bg-indigo-8:hover {
   background-color: #40429c;
-}
-
-.h\:bg-orange-7:hover {
-  background-color: #c15911;
 }
 
 .h\:bg-red-1:hover {
@@ -1929,20 +1861,12 @@ summary {
   background-color: #05322d;
 }
 
-.h\:bg-violet-7:hover {
-  background-color: #6c47be;
-}
-
 .h\:bg-white:hover {
   background-color: #fff;
 }
 
 .h\:bg-yellow-11:hover {
   background-color: #3f3002;
-}
-
-.h\:bg-yellow-7:hover {
-  background-color: #b58a06;
 }
 
 .h\:o-100:hover {
@@ -2308,10 +2232,6 @@ summary {
 
 .min-w-fc {
   min-width: fit-content;
-}
-
-.min-w-md {
-  min-width: 48rem;
 }
 
 .mis-8 {
@@ -3539,10 +3459,6 @@ summary {
   color: #0000;
 }
 
-.tc-violet {
-  color: #7d53dd;
-}
-
 .tc-violet-10 {
   color: #372561;
 }
@@ -4008,10 +3924,6 @@ summary {
     font-size: 3.75rem;
   }
 
-  .md\:fs-sm {
-    font-size: .875rem;
-  }
-
   .md\:gtc-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -4048,18 +3960,9 @@ summary {
     min-width: 4rem;
   }
 
-  .md\:p-4 {
-    padding: 1rem;
-  }
-
   .md\:px-4 {
     padding-left: 1rem;
     padding-right: 1rem;
-  }
-
-  .md\:px-6 {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
   }
 
   .md\:py-2 {
