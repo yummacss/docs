@@ -63,12 +63,6 @@ export default function UINavbar() {
               >
                 Components
               </Link>
-              <Link
-                href="/ui"
-                className="d-none md:d-b fs-sm tc-slate-10 h:tc-black"
-              >
-                Templates
-              </Link>
 
               <button
                 type="button"
