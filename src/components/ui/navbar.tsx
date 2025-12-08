@@ -6,7 +6,8 @@ import { Search } from "lucide-react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+import { type ReactNode, useEffect, useState } from "react";
 
 const OramaSearch = dynamic(
   () => import("./orama-search").then((mod) => mod.OramaSearch),
@@ -29,10 +30,13 @@ const navbarVariants = cva("p-st t-0 zi-10 bb-1", {
 
 interface NavbarProps extends VariantProps<typeof navbarVariants> {
   className?: string;
+  links?: ReactNode;
 }
 
-export default function Navbar({ variant, className }: NavbarProps) {
+export default function Navbar({ variant, className, links }: NavbarProps) {
   const [searchOpen, setSearchOpen] = useState(false);
+  const pathname = usePathname();
+  const isUI = pathname?.startsWith("/ui");
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -52,9 +56,9 @@ export default function Navbar({ variant, className }: NavbarProps) {
         <div className="~sm-xxl mx-auto px-6 py-2">
           <nav className="d-f ai-c jc-sb">
             <div className="d-f ai-c g-2">
-              <Link href="/">
+              <Link href={isUI ? "/ui" : "/"}>
                 <Image
-                  src="/logotype.png"
+                  src={isUI ? "/ui-logotype.png" : "/logotype.png"}
                   width={240}
                   height={80}
                   alt="Yumma CSS"
@@ -63,32 +67,38 @@ export default function Navbar({ variant, className }: NavbarProps) {
               </Link>
             </div>
             <div className="d-f ai-c g-8">
-              <Link
-                href="/docs"
-                className="d-none md:d-b fs-sm tc-white/80 h:tc-white"
-              >
-                Docs
-              </Link>
-              <Link
-                href="/blog"
-                className="d-none md:d-b fs-sm tc-white/80 h:tc-white"
-              >
-                Blog
-              </Link>
-              <Link
-                href="/ui"
-                className="d-none md:d-b fs-sm tc-white/80 h:tc-white"
-              >
-                Components
-              </Link>
-              <Link
-                href="https://github.com/yumma-lib/yumma-css"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="d-none md:d-b fs-sm tc-white/80 h:tc-white"
-              >
-                GitHub
-              </Link>
+              {links ? (
+                links
+              ) : (
+                <>
+                  <Link
+                    href="/docs"
+                    className="d-none md:d-b fs-sm tc-white/80 h:tc-white"
+                  >
+                    Docs
+                  </Link>
+                  <Link
+                    href="/blog"
+                    className="d-none md:d-b fs-sm tc-white/80 h:tc-white"
+                  >
+                    Blog
+                  </Link>
+                  <Link
+                    href="/ui"
+                    className="d-none md:d-b fs-sm tc-white/80 h:tc-white"
+                  >
+                    Components
+                  </Link>
+                  <Link
+                    href="https://github.com/yumma-lib/yumma-css"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="d-none md:d-b fs-sm tc-white/80 h:tc-white"
+                  >
+                    GitHub
+                  </Link>
+                </>
+              )}
 
               <button
                 type="button"

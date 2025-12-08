@@ -1,8 +1,9 @@
+import Silk from "@/components/silk";
+import Navbar from "@/components/ui/navbar";
 import { BookSearch } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SiHtml5, SiNextdotjs, SiReact } from "react-icons/si";
-import UINavbar from "@/components/ui/ui-navbar";
 
 export const metadata: Metadata = {
   title: {
@@ -12,9 +13,12 @@ export const metadata: Metadata = {
 
 export default function UIPage() {
   return (
-    <div className="min-h-dvh bg-white tc-slate-10 p-r o-h">
+    <div className="min-h-dvh bg-black tc-white p-r o-h">
+      <div className="p-a t-0 l-0 w-full h-full zi-0">
+        <Silk />
+      </div>
       <div className="p-r zi-1">
-        <UINavbar />
+        <Navbar variant="transparent" />
       </div>
 
       <div
@@ -29,7 +33,7 @@ export default function UIPage() {
               <h1 className="fs-5xl md:fs-6xl fw-400 mb-6 lh-1">
                 Beautiful UI components built with Yumma CSS.
               </h1>
-              <p className="fs-lg tc-silver-10 mb-8 lh-5">
+              <p className="fs-lg tc-white/70 mb-8 lh-5">
                 Browse our collection of over a hundred free, modern, and
                 beautiful UI components, each designed purely with Yumma CSS.
               </p>
@@ -37,13 +41,13 @@ export default function UIPage() {
               <div className="d-f fw-w g-4 mb-12">
                 <Link
                   href="/ui/introduction"
-                  className="bg-slate-8 px-6 py-3 tc-white fs-md fw-600 rad-9 h:bg-slate-10 f:oc-silver-4 f:os-s f:ow-2"
+                  className="bg-white px-6 py-3 tc-black fs-md fw-600 rad-9 f:oc-silver-4 f:os-s f:ow-2"
                 >
                   Get started
                 </Link>
                 <Link
                   href="/"
-                  className="px-6 py-3 fw-600 tc-slate-8 fs-md d-f ai-c g-2"
+                  className="px-6 py-3 fw-600 tc-white fs-md d-f ai-c g-2"
                 >
                   <BookSearch className="w-5 h-5" />
                   Documentation
@@ -51,17 +55,17 @@ export default function UIPage() {
               </div>
 
               <div className="d-f ai-c g-3">
-                <span className="fs-sm tc-silver-8">Works with:</span>
+                <span className="fs-sm tc-white/60">Works with:</span>
                 <div className="d-f ai-c g-4">
-                  <div className="d-f ai-c g-2 tc-silver-10">
+                  <div className="d-f ai-c g-2 tc-white/80">
                     <SiHtml5 className="w-5 h-5" />
                     <span className="fs-sm fw-500">HTML</span>
                   </div>
-                  <div className="d-f ai-c g-2 tc-silver-10">
+                  <div className="d-f ai-c g-2 tc-white/80">
                     <SiReact className="w-5 h-5" />
                     <span className="fs-sm fw-500">React</span>
                   </div>
-                  <div className="d-f ai-c g-2 tc-silver-10">
+                  <div className="d-f ai-c g-2 tc-white/80">
                     <SiNextdotjs className="w-5 h-5" />
                     <span className="fs-sm fw-500">Next.js</span>
                   </div>

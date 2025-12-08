@@ -441,10 +441,6 @@ summary {
   border-color: #ecedee;
 }
 
-.bc-silver-3 {
-  border-color: #e3e4e6;
-}
-
 .bc-silver-4 {
   border-color: #dadcdf;
 }
@@ -3473,6 +3469,10 @@ summary {
 
 .tc-white\/50 {
   color: #ffffff80;
+}
+
+.tc-white\/60 {
+  color: #fff9;
 }
 
 .tc-white\/70 {
