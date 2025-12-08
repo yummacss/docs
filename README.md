@@ -1,28 +1,13 @@
-# [@yummacss](www.yummacss.com)
+# [yummacss.com/docs](www.yummacss.com)
 
-A CLI-first CSS framework for the web with abbreviated styles.
+The Yumma CSS documentation site.
 
-[![NPM Version](https://img.shields.io/npm/v/yummacss?style=plastic&label=yummacss&labelColor=eaedfc&color=413cb8)](https://www.npmjs.com/package/yummacss)
-[![NPM Downloads](https://img.shields.io/npm/d18m/yummacss?style=plastic&label=downloads&labelColor=eaedfc&color=413cb8)](https://www.npmjs.com/package/yummacss)
-
-## Installing
-
-Install `yummacss` as a dev dependency and initialize configuration
+## Running locally
 
 ```bash
-npm install yummacss -D
-npx yummacss init
+npm install
+npm run dev
 ```
-
-Build styles
-
-```bash
-npx yummacss build
-```
-
-## Documentation
-
-Learn more at [yummacss.com](https://yummacss.com)
 
 ## License
 
