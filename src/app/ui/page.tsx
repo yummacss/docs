@@ -1,9 +1,9 @@
-import Silk from "@/components/silk";
-import Navbar from "@/components/ui/navbar";
 import { BookSearch } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SiHtml5, SiNextdotjs, SiReact } from "react-icons/si";
+import Silk from "@/components/silk";
+import Navbar from "@/components/ui/navbar";
 
 export const metadata: Metadata = {
   title: {
