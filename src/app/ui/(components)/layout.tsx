@@ -1,7 +1,7 @@
-import MobileBreadcrumb from "@/components/ui/MobileBreadcrumb";
-import Navbar from "@/components/ui/Navbar";
-import TableOfContents from "@/components/ui/TableOfContents";
-import UISidebar from "@/components/ui/UiSidebar";
+import MobileBreadcrumb from "@/components/ui/mobile-breadcrumb";
+import Navbar from "@/components/ui/navbar";
+import TableOfContents from "@/components/ui/table-of-contents";
+import UISidebar from "@/components/ui/ui-sidebar";
 
 export default function UILayout({ children }: { children: React.ReactNode }) {
   return (

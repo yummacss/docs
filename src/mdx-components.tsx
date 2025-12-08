@@ -1,17 +1,17 @@
-import ApiTable from "@/components/ApiTable";
-import Baseline from "@/components/Baseline";
-import HoverVariant from "@/components/HoverVariant";
-import LegacyColor from "@/components/legacy/LegacyColor";
-import LegacyPalette from "@/components/legacy/LegacyPalette";
-import LegacyTable from "@/components/legacy/LegacyTable";
-import MediaVariant from "@/components/MediaVariant";
-import Note from "@/components/Note";
-import Palette from "@/components/Palette";
-import Stepper, { Step } from "@/components/Stepper";
-import { Tabs, TabsList, TabsPanel, TabsTab } from "@/components/Tabs";
 import type { MDXComponents } from "mdx/types";
 import Image from "next/image";
-import Preview from "./components/Preview";
+import ApiTable from "@/components/api-table";
+import Baseline from "@/components/baseline";
+import HoverVariant from "@/components/hover-variant";
+import LegacyColor from "@/components/legacy/legacy-color";
+import LegacyPalette from "@/components/legacy/legacy-palette";
+import LegacyTable from "@/components/legacy/legacy-table";
+import MediaVariant from "@/components/media-variant";
+import Note from "@/components/note";
+import Palette from "@/components/palette";
+import Stepper, { Step } from "@/components/stepper";
+import { Tabs, TabsList, TabsPanel, TabsTab } from "@/components/tabs";
+import Preview from "./components/preview";
 
 // generate IDs from heading text
 function generateId(children: React.ReactNode): string {
@@ -245,7 +245,7 @@ const components: MDXComponents = {
   TabsList,
   TabsPanel,
   TabsTab,
-};
+} satisfies MDXComponents;
 
 export function useMDXComponents(): MDXComponents {
   return components;

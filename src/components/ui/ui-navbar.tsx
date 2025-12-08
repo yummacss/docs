@@ -7,7 +7,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const OramaSearch = dynamic(
-  () => import("./OramaSearch").then((mod) => mod.OramaSearch),
+  () => import("./orama-search").then((mod) => mod.OramaSearch),
   {
     ssr: false,
   },

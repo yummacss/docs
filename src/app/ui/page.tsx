@@ -2,7 +2,7 @@ import { BookSearch } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SiHtml5, SiNextdotjs, SiReact } from "react-icons/si";
-import UINavbar from "@/components/ui/UINavbar";
+import UINavbar from "@/components/ui/ui-navbar";
 
 export const metadata: Metadata = {
   title: {

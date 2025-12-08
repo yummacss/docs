@@ -6,7 +6,7 @@ import { lazy, Suspense, useEffect, useState } from "react";
 import { findCurrentPageInfo } from "@/utils/sidebar";
 import { findCurrentUIPageInfo } from "@/utils/ui-sidebar";
 
-const MobileSidebar = lazy(() => import("./MobileSidebar"));
+const MobileSidebar = lazy(() => import("./mobile-sidebar"));
 
 export default function MobileBreadcrumb() {
   const pathname = usePathname();
