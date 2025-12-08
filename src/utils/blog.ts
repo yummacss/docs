@@ -34,7 +34,7 @@ export async function getAllBlogPosts(): Promise<BlogPostMeta[]> {
 
   for (const slug of blogSlugs) {
     try {
-      const module = await import(`@/content/blog/${slug}.mdx`);
+      const module = await import(`../content/blog/${slug}.mdx`);
       const meta = module.meta;
 
       if (meta) {

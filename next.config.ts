@@ -1,23 +1,11 @@
-import fs from "node:fs";
 import createMDX from "@next/mdx";
-import rehypeExpressiveCode, {
-  ExpressiveCodeTheme,
-} from "rehype-expressive-code";
-import remarkGfm from "remark-gfm";
 import { redirects } from "./redirects";
-
-// Load your saved theme JSONC file here and create a theme from it
-const jsoncString = fs.readFileSync(
-  new URL(`./src/themes/eclipsa.json`, import.meta.url),
-  "utf-8",
-);
-const eclipsa = ExpressiveCodeTheme.fromJSONString(jsoncString);
+import eclipsaTheme from "./src/themes/eclipsa.json";
 
 /** @type {import('rehype-expressive-code').RehypeExpressiveCodeOptions} */
 const rehypeExpressiveCodeOptions = {
-  // Pass the theme to the `themes` option
-  // (consider adding a dark and light theme for accessibility)
-  themes: [eclipsa],
+  // Pass the theme as a plain object
+  themes: [eclipsaTheme],
   borderRadius: "0rem",
   styleOverrides: {
     borderRadius: "0rem",
@@ -51,13 +39,13 @@ const nextConfig = {
 };
 
 const withMDX = createMDX({
-  extension: /\.mdx?$/,
   options: {
-    remarkPlugins: [remarkGfm],
+    // Pass plugin names as strings for Turbopack compatibility
+    remarkPlugins: ["remark-gfm"],
     rehypePlugins: [
       // The nested array structure is required to pass options
       // to a rehype plugin
-      [rehypeExpressiveCode, rehypeExpressiveCodeOptions],
+      ["rehype-expressive-code", rehypeExpressiveCodeOptions],
     ],
   },
 });
