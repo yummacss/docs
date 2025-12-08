@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description,
   metadataBase: new URL("https://yummacss.com/ui"),
   openGraph: {
-    images: "/og.png",
+    images: "/ui-og.png",
   },
 };
 
