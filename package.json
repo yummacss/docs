@@ -48,10 +48,10 @@
     "@types/node": "^24.10.1",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
+    "@types/three": "^0.181.0",
     "@types/tinycolor2": "^1.4.6",
     "concurrently": "^9.2.1",
     "remark-code-preview": "^1.2.6",
-    "three": "^0.167.1",
     "typescript": "^5.9.3",
     "yummacss": "^3.5.0"
   }
