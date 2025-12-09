@@ -41,7 +41,7 @@ export default function UIPage() {
               <div className="d-f fw-w g-4 mb-12">
                 <Link
                   href="/ui/introduction"
-                  className="bg-white px-6 py-3 tc-black fs-md fw-600 rad-9 f:oc-silver-4 f:os-s f:ow-2"
+                  className="bg-white px-6 py-3 tc-black fs-md fw-600 rad-9"
                 >
                   Get started
                 </Link>
