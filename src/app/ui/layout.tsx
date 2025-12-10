@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     template: "%s | Yumma UI",
   },
   description,
-  metadataBase: new URL("https://yummacss.com/ui"),
+  metadataBase: new URL("https://yummacss.com"),
   openGraph: {
     images: "/ui-og.png",
   },
