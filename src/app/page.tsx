@@ -34,7 +34,7 @@ export default function Home() {
                 </div>
               </Link>
 
-              <h1 className="fs-5xl md:fs-6xl fw-400 mb-6 lh-1 tw-w">
+              <h1 className="fs-5xl md:fs-6xl fw-400 mb-6 lh-1">
                 Style more, type even less
               </h1>
               <p className="fs-lg tc-white/70 mb-8 lh-5">
