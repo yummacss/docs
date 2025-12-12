@@ -31,7 +31,7 @@
     "clsx": "^2.1.1",
     "gsap": "^3.14.1",
     "lucide-react": "^0.556.0",
-    "next": "16.0.8",
+    "next": "16.0.9",
     "next-mdx-remote-client": "^2.1.7",
     "ogl": "^1.0.11",
     "react": "19.2.1",
