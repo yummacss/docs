@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 
-const description =
-  "A CLI-first CSS framework for the web with abbreviated styles.";
+const description = "Beautiful UI components built with Yumma CSS.";
 
 export const metadata: Metadata = {
   title: {
