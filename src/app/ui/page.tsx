@@ -43,7 +43,7 @@ export default function UIPage() {
                   href="/ui/introduction"
                   className="bg-white px-6 py-3 tc-black fs-md fw-600 rad-9"
                 >
-                  Explore
+                  Browse now
                 </Link>
                 <Link
                   href="/"
