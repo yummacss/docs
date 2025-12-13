@@ -15,7 +15,7 @@
     "release": "pnpm up yummacss @yummacss/api --latest",
     "start": "next start"
   },
-  "packageManager": "pnpm@10.24.0",
+  "packageManager": "pnpm@10.25.0",
   "dependencies": {
     "@base-ui-components/react": "1.0.0-rc.0",
     "@fontsource/esteban": "^5.2.7",
