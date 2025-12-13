@@ -40,8 +40,6 @@ export const uiSidebarConfig: UISidebarConfig = [
     title: "Components",
     items: [
       { title: "Accordion", slug: "accordion" },
-      { title: "Alert Dialog", slug: "alert-dialog" },
-      { title: "Alert", slug: "alert" },
       { title: "Auth Form", slug: "auth-form" },
       { title: "Avatar", slug: "avatar" },
       { title: "Badge", slug: "badge" },
