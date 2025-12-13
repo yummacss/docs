@@ -1245,32 +1245,12 @@ summary {
   outline-color: #000;
 }
 
-.f\:oc-blue-4:focus {
-  outline-color: #8aafeb;
-}
-
-.f\:oc-green-4:focus {
-  outline-color: #7dd29c;
-}
-
-.f\:oc-indigo-4:focus {
-  outline-color: #9fa0e9;
-}
-
 .f\:oc-indigo-5:focus {
   outline-color: #878ae4;
 }
 
-.f\:oc-orange-4:focus {
-  outline-color: #eda777;
-}
-
 .f\:oc-red-2:focus {
   outline-color: #f3c5c5;
-}
-
-.f\:oc-red-4:focus {
-  outline-color: #e88e8e;
 }
 
 .f\:oc-silver-1:focus {
@@ -1279,14 +1259,6 @@ summary {
 
 .f\:oc-silver-4:focus {
   outline-color: #dadcdf;
-}
-
-.f\:oc-violet-4:focus {
-  outline-color: #b49beb;
-}
-
-.f\:oc-yellow-4:focus {
-  outline-color: #e5c86f;
 }
 
 .f\:oo-2:focus {
@@ -2887,9 +2859,9 @@ summary {
   border-radius: 9999px;
 }
 
-.rad-b-1 {
-  border-bottom-right-radius: .25rem;
-  border-bottom-left-radius: .25rem;
+.rad-b-0 {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 .rad-b-2 {
