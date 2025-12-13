@@ -54,7 +54,6 @@ export const uiSidebarConfig: UISidebarConfig = [
       { title: "Comparison List", slug: "comparison-list" },
       { title: "Contact Section", slug: "contact-section" },
       { title: "CTA Section", slug: "cta-section" },
-      { title: "Dialog", slug: "dialog" },
       { title: "Dropdown", slug: "dropdown" },
       { title: "Feature Section", slug: "feature-section" },
       { title: "Footer", slug: "footer" },
