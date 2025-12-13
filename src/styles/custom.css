@@ -20,22 +20,20 @@
   --end: #595cd9;
   --via: #12a695;
   animation-direction: reverse;
-  background-image: repeating-linear-gradient(
-    60deg,
-    var(--end),
-    var(--start) 2%,
-    var(--start) 5%,
-    transparent 8%,
-    transparent 14%,
-    var(--via) 18%,
-    var(--via) 22%,
-    var(--mid) 28%,
-    var(--mid) 30%,
-    var(--via) 34%,
-    var(--via) 36%,
-    transparent,
-    var(--end) calc(50% - 12px)
-  );
+  background-image: repeating-linear-gradient(60deg,
+      var(--end),
+      var(--start) 2%,
+      var(--start) 5%,
+      transparent 8%,
+      transparent 14%,
+      var(--via) 18%,
+      var(--via) 22%,
+      var(--mid) 28%,
+      var(--mid) 30%,
+      var(--via) 34%,
+      var(--via) 36%,
+      transparent,
+      var(--end) calc(50% - 12px));
   background-size: 200% 100%;
   mix-blend-mode: difference;
 }
@@ -43,13 +41,11 @@
 #area {
   background-color: #151724;
   background-size: 10px 10px;
-  background-image: repeating-linear-gradient(
-    45deg,
-    #31365e 0,
-    #31365e 1px,
-    #151724 0,
-    #151724 50%
-  );
+  background-image: repeating-linear-gradient(45deg,
+      #31365e 0,
+      #31365e 1px,
+      #151724 0,
+      #151724 50%);
 }
 
 /* Scrollbar styling for sidebar and TOC */
@@ -74,4 +70,43 @@ aside::-webkit-scrollbar-thumb:hover {
 aside {
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
+}
+
+/* Preview isolation - resets MDX component styles for examples */
+.w {
+  /* Use display: contents so wrapper doesn't affect layout */
+  display: contents;
+}
+
+/* Reset all common elements inside preview-isolation to browser defaults */
+/* This removes MDX-applied styles so only out.css utility classes apply */
+.preview-isolation :where(h1),
+.preview-isolation :where(h2),
+.preview-isolation :where(h3),
+.preview-isolation :where(h4),
+.preview-isolation :where(h5),
+.preview-isolation :where(h6),
+.preview-isolation :where(p),
+.preview-isolation :where(a),
+.preview-isolation :where(ul),
+.preview-isolation :where(ol),
+.preview-isolation :where(li),
+.preview-isolation :where(blockquote),
+.preview-isolation :where(table),
+.preview-isolation :where(thead),
+.preview-isolation :where(tbody),
+.preview-isolation :where(th),
+.preview-isolation :where(td),
+.preview-isolation :where(code),
+.preview-isolation :where(strong),
+.preview-isolation :where(hr),
+.preview-isolation :where(img),
+.preview-isolation :where(span),
+.preview-isolation :where(div),
+.preview-isolation :where(button),
+.preview-isolation :where(input),
+.preview-isolation :where(textarea),
+.preview-isolation :where(select),
+.preview-isolation :where(label) {
+  all: revert;
 }
