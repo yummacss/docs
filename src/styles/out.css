@@ -657,6 +657,10 @@ summary {
   background-color: #e0e0e3;
 }
 
+.bg-slate-4 {
+  background-color: #909098;
+}
+
 .bg-slate-8 {
   background-color: #2d2d38;
 }
@@ -2885,9 +2889,9 @@ summary {
   border-radius: 50%;
 }
 
-.rad-l-1 {
-  border-top-left-radius: .25rem;
-  border-bottom-left-radius: .25rem;
+.rad-l-0 {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 .rad-l-2 {
@@ -2895,9 +2899,9 @@ summary {
   border-bottom-left-radius: .5rem;
 }
 
-.rad-r-1 {
-  border-top-right-radius: .25rem;
-  border-bottom-right-radius: .25rem;
+.rad-r-0 {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 .rad-r-2 {
