@@ -187,7 +187,16 @@ const components: MDXComponents = {
     props.className ? (
       <img src={src} alt={alt || ""} {...props} />
     ) : (
-      <Image src={src as string} alt={alt || ""} className="w-full h-auto my-4" quality={100} width={800} height={400} {...props} />
+      <Image
+        src={src as string}
+        alt={alt || ""}
+        className="w-full h-auto my-4"
+        quality={100}
+        width={1920}
+        height={1080}
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+        {...props}
+      />
     ),
   div: ({ children, ...props }) => <div {...props}>{children}</div>,
   // docs components
