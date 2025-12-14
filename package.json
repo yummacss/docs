@@ -11,7 +11,7 @@
     "build:css": "yummacss b",
     "build": "next build",
     "dev": "concurrently \"next dev\" \"yummacss w\"",
-    "lint": "biome check --write .",
+    "lint": "biome check --write",
     "release": "pnpm up yummacss @yummacss/api --latest",
     "start": "next start"
   },

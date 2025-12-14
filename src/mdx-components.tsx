@@ -1,5 +1,3 @@
-import type { MDXComponents } from "mdx/types";
-import Image from "next/image";
 import ApiTable from "@/components/api-table";
 import Baseline from "@/components/baseline";
 import HoverVariant from "@/components/hover-variant";
@@ -11,16 +9,13 @@ import Note from "@/components/note";
 import Palette from "@/components/palette";
 import Stepper, { Step } from "@/components/stepper";
 import { Tabs, TabsList, TabsPanel, TabsTab } from "@/components/tabs";
+import type { MDXComponents } from "mdx/types";
+import Image from "next/image";
 import Preview from "./components/preview";
 
 // generate IDs from heading text
 function generateId(children: React.ReactNode): string {
-  const text =
-    typeof children === "string"
-      ? children
-      : Array.isArray(children)
-        ? children.join("")
-        : "";
+  const text = typeof children === "string" ? children : Array.isArray(children) ? children.join("") : "";
 
   return text
     .toLowerCase()
@@ -133,30 +128,17 @@ const components: MDXComponents = {
     props.className ? (
       <blockquote {...props}>{children}</blockquote>
     ) : (
-      <blockquote
-        className="bl-2 pl-2"
-        style={{ borderColor: "#9aa6ef" }}
-        {...props}
-      >
+      <blockquote className="bl-2 pl-2" style={{ borderColor: "#9aa6ef" }} {...props}>
         {children}
       </blockquote>
     ),
-  hr: ({ ...props }) =>
-    props.className ? (
-      <hr {...props} />
-    ) : (
-      <hr className="my-8 bc-white/5" {...props} />
-    ),
+  hr: ({ ...props }) => (props.className ? <hr {...props} /> : <hr className="my-8 bc-white/5" {...props} />),
   table: ({ children, ...props }) =>
     props.className ? (
       <table {...props}>{children}</table>
     ) : (
       <div className="o-x-auto my-6">
-        <table
-          className="w-full bc-c"
-          style={{ backgroundColor: "transparent" }}
-          {...props}
-        >
+        <table className="w-full bc-c" style={{ backgroundColor: "transparent" }} {...props}>
           {children}
         </table>
       </div>
@@ -173,11 +155,7 @@ const components: MDXComponents = {
     props.className ? (
       <th {...props}>{children}</th>
     ) : (
-      <th
-        className="px-4 py-2 ta-l b-1 tc-white fw-500"
-        style={{ borderColor: "#31365e" }}
-        {...props}
-      >
+      <th className="px-4 py-2 ta-l b-1 tc-white fw-500" style={{ borderColor: "#31365e" }} {...props}>
         {children}
       </th>
     ),
@@ -185,11 +163,7 @@ const components: MDXComponents = {
     props.className ? (
       <td {...props}>{children}</td>
     ) : (
-      <td
-        className="px-4 py-2 b-1 tc-white/80"
-        style={{ borderColor: "#31365e" }}
-        {...props}
-      >
+      <td className="px-4 py-2 b-1 tc-white/80" style={{ borderColor: "#31365e" }} {...props}>
         {children}
       </td>
     ),
@@ -197,11 +171,7 @@ const components: MDXComponents = {
     props.className ? (
       <code {...props}>{children}</code>
     ) : (
-      <code
-        className="px-2 py-1"
-        style={{ backgroundColor: "#21243f" }}
-        {...props}
-      >
+      <code className="px-2 py-1" style={{ backgroundColor: "#21243f" }} {...props}>
         {children}
       </code>
     ),
@@ -215,6 +185,7 @@ const components: MDXComponents = {
     ),
   img: ({ src, alt, ...props }) =>
     props.className ? (
+      // biome-ignore lint/performance/noImgElement: i know what i'm doing
       <img src={src} alt={alt || ""} {...props} />
     ) : (
       <Image
