@@ -1,33 +1,22 @@
 "use client";
 
-import { X } from "lucide-react";
+import type { SidebarConfigItem, SidebarConfigSimpleItem } from "@/utils/sidebar";
+import { sidebarConfig } from "@/utils/sidebar";
+import type { UISidebarConfigItem, UISidebarConfigSimpleItem } from "@/utils/ui-sidebar";
+import { uiSidebarConfig } from "@/utils/ui-sidebar";
+import { Cancel01Icon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import type {
-  SidebarConfigItem,
-  SidebarConfigSimpleItem,
-} from "@/utils/sidebar";
-import { sidebarConfig } from "@/utils/sidebar";
-import type {
-  UISidebarConfigItem,
-  UISidebarConfigSimpleItem,
-} from "@/utils/ui-sidebar";
-import { uiSidebarConfig } from "@/utils/ui-sidebar";
 import SidebarLinks from "./sidebar-links";
 
-function hasChildren(item: SidebarConfigItem | UISidebarConfigItem): item is (
-  | SidebarConfigItem
-  | UISidebarConfigItem
-) & {
+function hasChildren(item: SidebarConfigItem | UISidebarConfigItem): item is (SidebarConfigItem | UISidebarConfigItem) & {
   children: (SidebarConfigSimpleItem | UISidebarConfigSimpleItem)[];
 } {
   return "children" in item && Array.isArray(item.children);
 }
 
-function hasItems(item: SidebarConfigItem | UISidebarConfigItem): item is (
-  | SidebarConfigItem
-  | UISidebarConfigItem
-) & {
+function hasItems(item: SidebarConfigItem | UISidebarConfigItem): item is (SidebarConfigItem | UISidebarConfigItem) & {
   items: (SidebarConfigItem | UISidebarConfigItem)[];
 } {
   return "items" in item && Array.isArray(item.items);
@@ -39,11 +28,7 @@ interface MobileSidebarProps {
   routeType: "docs" | "ui";
 }
 
-export default function MobileSidebar({
-  isOpen,
-  onClose,
-  routeType,
-}: MobileSidebarProps) {
+export default function MobileSidebar({ isOpen, onClose, routeType }: MobileSidebarProps) {
   const pathname = usePathname();
   const config = routeType === "ui" ? uiSidebarConfig : sidebarConfig;
   const baseRoute = routeType === "ui" ? "/ui" : "/docs";
@@ -61,13 +46,8 @@ export default function MobileSidebar({
     >
       <div className="p-r h-full d-f fd-c">
         <div className="d-f jc-fe px-6 py-4">
-          <button
-            type="button"
-            onClick={onClose}
-            className="d-f ai-c jc-c w-10 h-10 tc-white/70 h:tc-white h:bg-white/10"
-            aria-label="Close sidebar"
-          >
-            <X className="w-5 h-5" />
+          <button type="button" onClick={onClose} className="d-f ai-c jc-c w-10 h-10 tc-white/70 h:tc-white h:bg-white/10" aria-label="Close sidebar">
+            <HugeiconsIcon icon={Cancel01Icon} className="w-5 h-5" />
           </button>
         </div>
 
@@ -77,39 +57,22 @@ export default function MobileSidebar({
 
             {config.map((section) => (
               <div key={section.title} className="d-f fd-c g-4">
-                <h3 className="fs-md fw-400 tt-c ls-5 tc-white">
-                  {section.title}
-                </h3>
+                <h3 className="fs-md fw-400 tt-c ls-5 tc-white">{section.title}</h3>
                 <ul className="d-f ml-4 fd-c g-2">
                   {section.items.map((item) => {
                     // item with children (nested structure)
                     if (hasChildren(item)) {
                       return (
                         <li key={item.title} className="d-f fd-c g-2">
-                          <span className="fs-md tc-white/50">
-                            {item.title}
-                          </span>
+                          <span className="fs-md tc-white/50">{item.title}</span>
                           <ul className="d-f ml-4 fd-c g-1">
-                            {(
-                              item.children as (
-                                | SidebarConfigSimpleItem
-                                | UISidebarConfigSimpleItem
-                              )[]
-                            ).map((child) => {
+                            {(item.children as (SidebarConfigSimpleItem | UISidebarConfigSimpleItem)[]).map((child) => {
                               const href = `${baseRoute}/${child.slug}`;
                               const isActive = pathname === href;
 
                               return (
                                 <li key={child.slug}>
-                                  <Link
-                                    href={href}
-                                    onClick={onClose}
-                                    className={`d-f ai-c g-3 fs-md ${
-                                      isActive
-                                        ? "tc-white"
-                                        : "tc-white/70 h:tc-white"
-                                    }`}
-                                  >
+                                  <Link href={href} onClick={onClose} className={`d-f ai-c g-3 fs-md ${isActive ? "tc-white" : "tc-white/70 h:tc-white"}`}>
                                     {child.title}
                                   </Link>
                                 </li>
@@ -124,32 +87,15 @@ export default function MobileSidebar({
                     if (hasItems(item)) {
                       return (
                         <li key={item.title} className="d-f fd-c g-2">
-                          <span className="fs-md tc-white/50">
-                            {item.title}
-                          </span>
+                          <span className="fs-md tc-white/50">{item.title}</span>
                           <ul className="d-f ml-4 fd-c g-1">
-                            {(
-                              item.items as (
-                                | SidebarConfigItem
-                                | UISidebarConfigItem
-                              )[]
-                            ).map((subItem) => {
+                            {(item.items as (SidebarConfigItem | UISidebarConfigItem)[]).map((subItem) => {
                               if (hasChildren(subItem)) {
                                 return (
-                                  <li
-                                    key={subItem.title}
-                                    className="d-f fd-c g-2"
-                                  >
-                                    <span className="fs-md tc-white/40">
-                                      {subItem.title}
-                                    </span>
+                                  <li key={subItem.title} className="d-f fd-c g-2">
+                                    <span className="fs-md tc-white/40">{subItem.title}</span>
                                     <ul className="d-f ml-4 fd-c g-1">
-                                      {(
-                                        subItem.children as (
-                                          | SidebarConfigSimpleItem
-                                          | UISidebarConfigSimpleItem
-                                        )[]
-                                      ).map((child) => {
+                                      {(subItem.children as (SidebarConfigSimpleItem | UISidebarConfigSimpleItem)[]).map((child) => {
                                         const href = `${baseRoute}/${child.slug}`;
                                         const isActive = pathname === href;
 
@@ -158,11 +104,7 @@ export default function MobileSidebar({
                                             <Link
                                               href={href}
                                               onClick={onClose}
-                                              className={`d-f ai-c g-3 fs-md ${
-                                                isActive
-                                                  ? "tc-white"
-                                                  : "tc-white/70 h:tc-white"
-                                              }`}
+                                              className={`d-f ai-c g-3 fs-md ${isActive ? "tc-white" : "tc-white/70 h:tc-white"}`}
                                             >
                                               {child.title}
                                             </Link>
@@ -180,15 +122,7 @@ export default function MobileSidebar({
 
                                 return (
                                   <li key={subItem.slug}>
-                                    <Link
-                                      href={href}
-                                      onClick={onClose}
-                                      className={`d-f ai-c g-3 fs-md ${
-                                        isActive
-                                          ? "tc-white"
-                                          : "tc-white/70 h:tc-white"
-                                      }`}
-                                    >
+                                    <Link href={href} onClick={onClose} className={`d-f ai-c g-3 fs-md ${isActive ? "tc-white" : "tc-white/70 h:tc-white"}`}>
                                       {subItem.title}
                                     </Link>
                                   </li>
@@ -209,13 +143,7 @@ export default function MobileSidebar({
 
                       return (
                         <li key={item.slug}>
-                          <Link
-                            href={href}
-                            onClick={onClose}
-                            className={`d-f ai-c g-3 ${
-                              isActive ? "tc-white" : "tc-white/70 h:tc-white"
-                            }`}
-                          >
+                          <Link href={href} onClick={onClose} className={`d-f ai-c g-3 ${isActive ? "tc-white" : "tc-white/70 h:tc-white"}`}>
                             {item.title}
                           </Link>
                         </li>

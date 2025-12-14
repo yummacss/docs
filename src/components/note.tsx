@@ -1,46 +1,38 @@
 import {
-  AtSign,
-  CircleQuestionMark,
-  Heart,
-  Info,
-  Mouse,
-  RulerDimensionLine,
-  Scaling,
-  TextCursorInput,
-  TriangleAlert,
-} from "lucide-react";
+  Alert02Icon,
+  AlertCircleIcon,
+  ArrowExpand01Icon,
+  AtIcon,
+  HeartCheckIcon,
+  HelpCircleIcon,
+  Mouse14Icon,
+  RulerIcon,
+  TypeCursorIcon,
+} from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 import type { ReactNode } from "react";
 
-type IconName =
-  | "cursor_arrow"
-  | "cursor_text"
-  | "heart"
-  | "info"
-  | "question_mark_circled"
-  | "ruler_square"
-  | "size"
-  | "warning"
-  | "width";
+type IconName = "cursor_arrow" | "cursor_text" | "heart" | "info" | "question_mark_circled" | "ruler_square" | "size" | "warning" | "width";
 
 interface NoteProps {
   icon: IconName;
   children: ReactNode;
 }
 
-const iconComponents: Record<IconName, React.ComponentType> = {
-  cursor_arrow: Mouse,
-  cursor_text: TextCursorInput,
-  heart: Heart,
-  info: Info,
-  question_mark_circled: CircleQuestionMark,
-  ruler_square: AtSign,
-  size: Scaling,
-  warning: TriangleAlert,
-  width: RulerDimensionLine,
+const iconData: Record<IconName, any> = {
+  cursor_arrow: Mouse14Icon,
+  cursor_text: TypeCursorIcon,
+  heart: HeartCheckIcon,
+  info: AlertCircleIcon,
+  question_mark_circled: HelpCircleIcon,
+  ruler_square: AtIcon,
+  size: ArrowExpand01Icon,
+  warning: Alert02Icon,
+  width: RulerIcon,
 };
 
 export default function Note({ icon, children }: NoteProps) {
-  const IconComponent = iconComponents[icon];
+  const iconDataForIcon = iconData[icon];
 
   return (
     <div className="ai-c d-f g-2 mb-4">
@@ -52,7 +44,7 @@ export default function Note({ icon, children }: NoteProps) {
           color: "#9aa6ef",
         }}
       >
-        <IconComponent />
+        <HugeiconsIcon icon={iconDataForIcon} />
       </span>
       <span className="tc-white/80">{children}</span>
     </div>

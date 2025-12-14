@@ -1,6 +1,8 @@
 "use client";
 
-import { ChevronRight, Menu } from "lucide-react";
+import { ArrowRight01Icon, Menu09Icon, MenuIcon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
+
 import { usePathname } from "next/navigation";
 import { lazy, Suspense, useEffect, useState } from "react";
 import { findCurrentPageInfo } from "@/utils/sidebar";
@@ -46,12 +48,12 @@ export default function MobileBreadcrumb() {
               className="d-f ai-c jc-c tc-white/70 h:tc-white"
               aria-label="Open sidebar"
             >
-              <Menu className="w-5 h-5" />
+              <HugeiconsIcon icon={MenuIcon} size={20} />
             </button>
 
             <div className="d-f ai-c g-2 fs-sm tc-white/70">
               <span>{pageInfo.sectionTitle}</span>
-              <ChevronRight className="w-4 h-4" />
+              <HugeiconsIcon icon={ArrowRight01Icon} size={20} />
               <span className="tc-white">{pageInfo.pageTitle}</span>
             </div>
           </div>

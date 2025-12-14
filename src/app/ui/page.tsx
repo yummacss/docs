@@ -1,4 +1,5 @@
-import { BookSearch } from "lucide-react";
+import { BookOpen02Icon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SiHtml5, SiNextdotjs, SiReact } from "react-icons/si";
@@ -30,26 +31,17 @@ export default function UIPage() {
         <div className="w-full" style={{ maxWidth: "72rem" }}>
           <div className="d-g lg:gtc-2 g-12 ai-c">
             <div>
-              <h1 className="fs-5xl md:fs-6xl fw-400 mb-6 lh-1">
-                Beautiful UI components built with Yumma CSS.
-              </h1>
+              <h1 className="fs-5xl md:fs-6xl fw-400 mb-6 lh-1">Beautiful UI components built with Yumma CSS.</h1>
               <p className="fs-lg tc-white/70 mb-8 lh-5">
-                Browse our collection of over a hundred free, modern, and
-                beautiful UI components, each designed purely with Yumma CSS.
+                Browse our collection of over a hundred free, modern, and beautiful UI components, each designed purely with Yumma CSS.
               </p>
 
               <div className="d-f fw-w g-4 mb-12">
-                <Link
-                  href="/ui/introduction"
-                  className="bg-white px-6 py-3 tc-black fs-md fw-600 rad-9"
-                >
+                <Link href="/ui/introduction" className="bg-white px-6 py-3 tc-black fs-md fw-600 rad-9">
                   Browse now
                 </Link>
-                <Link
-                  href="/"
-                  className="px-6 py-3 fw-600 tc-white fs-md d-f ai-c g-2"
-                >
-                  <BookSearch className="w-5 h-5" />
+                <Link href="/" className="px-6 py-3 fw-600 tc-white fs-md d-f ai-c g-2">
+                  <HugeiconsIcon icon={BookOpen02Icon} className="w-5 h-5" />
                   Documentation
                 </Link>
               </div>
