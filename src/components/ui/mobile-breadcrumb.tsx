@@ -1,10 +1,6 @@
 "use client";
 
-import {
-  ArrowRight01Icon,
-  Menu09Icon,
-  MenuIcon,
-} from "@hugeicons/core-free-icons";
+import { ArrowRight01Icon, MenuIcon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 
 import { usePathname } from "next/navigation";
