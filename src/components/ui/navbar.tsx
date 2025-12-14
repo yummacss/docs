@@ -2,7 +2,9 @@
 
 import { cva, type VariantProps } from "class-variance-authority";
 import { clsx } from "clsx";
-import { Search } from "lucide-react";
+import { Search02Icon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
+
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
@@ -84,7 +86,7 @@ export default function Navbar({ variant, className, links }: NavbarProps) {
                     Blog
                   </Link>
                   <Link
-                    href="/ui"
+                    href="/ui/introduction"
                     className="d-none md:d-b fs-sm tc-white/80 h:tc-white"
                   >
                     Components
@@ -105,7 +107,7 @@ export default function Navbar({ variant, className, links }: NavbarProps) {
                 onClick={() => setSearchOpen(true)}
                 className="d-f ai-c g-2 md:px-4 md:py-2 bg-white/5 bf-b-sm fs-sm h:bg-white/10 tc-white b-1 bc-white/10"
               >
-                <Search className="w-5 h-5 md:w-4 md:h-4" />
+                <HugeiconsIcon icon={Search02Icon} size={15} />
                 <span className="d-none md:d-b">Ctrl K</span>
               </button>
             </div>

@@ -1,7 +1,8 @@
-import { CircleGauge, Component, Globe, Lightbulb, Star } from "lucide-react";
-import Link from "next/link";
 import DarkVeil from "@/components/dark-veil";
 import Navbar from "@/components/ui/navbar";
+import { ComputerTerminal02Icon, Globe02Icon, LayerIcon, StarIcon, Timer02Icon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -22,53 +23,41 @@ export default function Home() {
         <div className="w-full" style={{ maxWidth: "72rem" }}>
           <div className="d-g lg:gtc-2 g-12 ai-fe">
             <div>
-              <Link
-                href="https://github.com/yumma-lib/yumma-css"
-                className="tc-white"
-              >
+              <Link href="https://github.com/yumma-lib/yumma-css" className="tc-white">
                 <div className="d-if ai-c g-2 px-4 py-2 bf-b-md b-1 bg-white/5 bc-white/10 rad-9 mb-8">
                   <span className="w-3 h-3 rad-9">
-                    <Star className="w-3 h-3" fill="white" />
+                    <HugeiconsIcon icon={StarIcon} className="w-3 h-3" fill="white" />
                   </span>
                   <span className="fs-xs fw-500 ls-4">Star us on GitHub</span>
                 </div>
               </Link>
 
-              <h1 className="fs-5xl md:fs-6xl fw-400 mb-6 lh-1">
-                Style more, type even less
-              </h1>
+              <h1 className="fs-5xl md:fs-6xl fw-400 mb-6 lh-1">Style more, type even less</h1>
               <p className="fs-lg tc-white/70 mb-8 lh-5">
-                A CLI-first CSS framework for the web with abbreviated and
-                optimized styles for simple and scalable design systems.
+                A CLI-first CSS framework for the web with abbreviated and optimized styles for simple and scalable design systems.
               </p>
 
               <div className="d-f fw-w g-4 mb-12">
-                <Link
-                  href="/docs/installation"
-                  className="bg-white px-6 py-3 tc-black fs-md fw-600 rad-9"
-                >
+                <Link href="/docs/installation" className="bg-white px-6 py-3 tc-black fs-md fw-600 rad-9">
                   Get started
                 </Link>
-                <Link
-                  href="/ui"
-                  className="px-6 py-3 fw-600 tc-white fs-md d-f ai-c g-2"
-                >
-                  <Component className="w-5 h-5" />
+                <Link href="/ui" className="px-6 py-3 fw-600 tc-white fs-md d-f ai-c g-2">
+                  <HugeiconsIcon icon={LayerIcon} className="w-5 h-5" />
                   Components
                 </Link>
               </div>
 
               <div className="d-f fw-w g-3 bt-1 bc-white/10 pt-6">
                 <div className="px-4 py-2 bg-white/10 bf-b-md fs-xs d-f ai-c g-2 b-1 bc-white/5 tt-u">
-                  <Globe className="w-4 h-4" />
+                  <HugeiconsIcon icon={Globe02Icon} className="w-4 h-4" />
                   Dedicated API
                 </div>
                 <div className="px-4 py-2 bg-white/10 bf-b-md fs-xs d-f ai-c g-2 b-1 bc-white/5 tt-u">
-                  <Lightbulb className="w-4 h-4" />
+                  <HugeiconsIcon icon={ComputerTerminal02Icon} className="w-4 h-4" />
                   CLI-First
                 </div>
                 <div className="px-4 py-2 bg-white/10 bf-b-sm fs-xs d-f ai-c g-2 b-1 bc-white/5 tt-u">
-                  <CircleGauge className="w-4 h-4" />
+                  <HugeiconsIcon icon={Timer02Icon} className="w-4 h-4" />
                   Blazing Fast
                 </div>
               </div>
