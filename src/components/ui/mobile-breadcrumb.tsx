@@ -53,7 +53,7 @@ export default function MobileBreadcrumb() {
 
             <div className="d-f ai-c g-2 fs-sm tc-white/70">
               <span>{pageInfo.sectionTitle}</span>
-              <HugeiconsIcon icon={ArrowRight01Icon} size={20} />
+              <HugeiconsIcon icon={ArrowRight01Icon} size={15} />
               <span className="tc-white">{pageInfo.pageTitle}</span>
             </div>
           </div>
