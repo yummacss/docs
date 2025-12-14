@@ -12,7 +12,16 @@ import {
 import { HugeiconsIcon } from "@hugeicons/react";
 import type { ReactNode } from "react";
 
-type IconName = "cursor_arrow" | "cursor_text" | "heart" | "info" | "question_mark_circled" | "ruler_square" | "size" | "warning" | "width";
+type IconName =
+  | "cursor_arrow"
+  | "cursor_text"
+  | "heart"
+  | "info"
+  | "question_mark_circled"
+  | "ruler_square"
+  | "size"
+  | "warning"
+  | "width";
 
 interface NoteProps {
   icon: IconName;

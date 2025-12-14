@@ -1,9 +1,9 @@
 "use client";
 
-import { cva, type VariantProps } from "class-variance-authority";
-import { clsx } from "clsx";
 import { Search02Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
+import { cva, type VariantProps } from "class-variance-authority";
+import { clsx } from "clsx";
 
 import dynamic from "next/dynamic";
 import Image from "next/image";

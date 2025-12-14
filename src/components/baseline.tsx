@@ -1,4 +1,9 @@
-import { CheckmarkBadge03Icon, ThumbsDownIcon, ThumbsUpDownIcon, ThumbsUpIcon } from "@hugeicons/core-free-icons";
+import {
+  CheckmarkBadge03Icon,
+  ThumbsDownIcon,
+  ThumbsUpDownIcon,
+  ThumbsUpIcon,
+} from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import data from "web-features/data.json";
 
@@ -50,17 +55,25 @@ export default function Baseline({ path }: BaselineProps) {
   const isHigh = baseline === "high";
   const isLow = baseline === "low";
 
-  const statusLabel = isHigh ? "Widely available" : isLow ? "Newly available" : "Limited availability";
+  const statusLabel = isHigh
+    ? "Widely available"
+    : isLow
+      ? "Newly available"
+      : "Limited availability";
 
   const statusDescription = isHigh
     ? "This feature is well established and works across many devices and browser versions."
     : isLow
-    ? "This feature works across the latest devices and browser versions. This feature might not work in older devices or browsers."
-    : "This feature does not work in some of the most widely-used browsers.";
+      ? "This feature works across the latest devices and browser versions. This feature might not work in older devices or browsers."
+      : "This feature does not work in some of the most widely-used browsers.";
 
   const statusColor = isHigh ? "tc-green" : isLow ? "tc-green" : "tc-yellow";
 
-  const statusIconData = isHigh ? ThumbsUpIcon : isLow ? CheckmarkBadge03Icon : ThumbsUpDownIcon;
+  const statusIconData = isHigh
+    ? ThumbsUpIcon
+    : isLow
+      ? CheckmarkBadge03Icon
+      : ThumbsUpDownIcon;
 
   const support = status.support || {};
 
@@ -80,10 +93,17 @@ export default function Baseline({ path }: BaselineProps) {
   });
 
   return (
-    <div className="mb-6 p-4 rd-2" style={{ backgroundColor: "#1a1d2e", border: "1px solid #232741" }}>
+    <div
+      className="mb-6 p-4 rd-2"
+      style={{ backgroundColor: "#1a1d2e", border: "1px solid #232741" }}
+    >
       <div className="mb-4">
         <div className="d-f ai-c g-2 mb-2">
-          <HugeiconsIcon icon={statusIconData} size={20} className={statusColor} />
+          <HugeiconsIcon
+            icon={statusIconData}
+            size={20}
+            className={statusColor}
+          />
           <h3 className="fs-lg fw-500 tc-white">{statusLabel}</h3>
         </div>
         <p className="tc-white/70">{statusDescription}</p>
@@ -93,7 +113,11 @@ export default function Baseline({ path }: BaselineProps) {
         {browsers.map((browser) => (
           <div key={browser.key} className="d-f ai-c g-2">
             <div className={browser.supported ? "tc-green" : "tc-red"}>
-              {browser.supported ? <HugeiconsIcon icon={ThumbsUpIcon} size={20} /> : <HugeiconsIcon icon={ThumbsDownIcon} size={20} />}
+              {browser.supported ? (
+                <HugeiconsIcon icon={ThumbsUpIcon} size={20} />
+              ) : (
+                <HugeiconsIcon icon={ThumbsDownIcon} size={20} />
+              )}
             </div>
             <span className="tc-white/80">{browser.name}</span>
           </div>
