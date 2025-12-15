@@ -3,7 +3,7 @@
 import { cva, type VariantProps } from "class-variance-authority";
 import { clsx } from "clsx";
 
-const previewVariants = cva("bt-1 br-1 bl-1 tc-reset", {
+const previewVariants = cva("bt-1 br-1 bl-1", {
   variants: {
     variant: {
       centered: "d-f ai-c jc-c p-4",
