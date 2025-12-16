@@ -8,25 +8,36 @@ import eclipsaTheme from "./src/themes/eclipsa.json";
 const rehypeExpressiveCodeOptions = {
   // Pass the theme as a plain object
   themes: [eclipsaTheme],
-  borderRadius: "0rem",
+  borderRadius: "0",
   // Plugins must be at the root level, not inside styleOverrides
   plugins: [pluginCollapsibleSections(), pluginLineNumbers()],
   defaultProps: {
+    // Change the default style of collapsible sections
+    collapseStyle: "collapsible-start",
     // Disable line numbers by default
     showLineNumbers: false,
   },
   styleOverrides: {
-    borderRadius: "0rem",
+    borderRadius: "0",
     collapsibleSections: {
-      openBackgroundColorCollapsible: "hsla(231, 73%, 77%, 0.050)",
       closedBackgroundColor: "hsla(231, 73%, 77%, 0.100)",
+      openBackgroundColorCollapsible: "hsla(231, 73%, 77%, 0.050)",
     },
     frames: {
-      borderRadius: "0rem",
+      borderRadius: "0",
+      inlineButtonBackground: "#ffffff",
+      inlineButtonBackgroundActiveOpacity: "0.3",
+      inlineButtonBackgroundHoverOrFocusOpacity: "0.2",
+      inlineButtonBackgroundIdleOpacity: "0",
+      inlineButtonBorder: "#ffffff",
+      inlineButtonBorderOpacity: "0.4",
+      inlineButtonForeground: "#ffffff",
       shadowColor: "transparent",
+      tooltipSuccessBackground: "#31365e",
+      tooltipSuccessForeground: "white",
     },
     textMarkers: {
-      inlineMarkerBorderRadius: "0rem",
+      inlineMarkerBorderRadius: "0",
       delBackground: "hsla(0, 48%, 77%, 0.100)",
       delHue: "hsl(0, 48%, 77%)",
       insBackground: "hsla(127, 48%, 77%, 0.150)",

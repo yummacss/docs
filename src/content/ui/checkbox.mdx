@@ -1,86 +1,96 @@
 export const meta = {
-   title: "Checkbox",
-   description: "A toggle for binary choices.",
+  title: "Checkbox",
+  description: "A toggle for binary choices.",
 };
 
 ## Basic Checkbox
 
 <Preview className="bg-white">
-   <div className="d-f ai-c g-2">
-      <input type="checkbox" id="checkbox-basic" className="d-4 ac-slate" />
-      <label htmlFor="checkbox-basic" className="fs-sm tc-slate">Accept terms and conditions</label>
-   </div>
+  <div className="d-f ai-c g-2">
+    <input type="checkbox" id="checkbox-basic" className="d-4 ac-slate" />
+    <label htmlFor="checkbox-basic" className="fs-sm tc-slate">
+      Accept terms and conditions
+    </label>
+  </div>
 </Preview>
 
-```html
+```html showLineNumbers
 <div class="d-f ai-c g-2">
-   <input type="checkbox" id="checkbox-basic" class="d-4 ac-slate" />
-   <label for="checkbox-basic" class="fs-sm tc-slate">Accept terms and conditions</label>
+  <input type="checkbox" id="checkbox-basic" class="d-4 ac-slate" />
+  <label for="checkbox-basic" class="fs-sm tc-slate">Accept terms and conditions</label>
 </div>
 ```
 
 ## Checked
 
 <Preview className="bg-white">
-   <div className="d-f ai-c g-2">
-      <input type="checkbox" id="checkbox-checked" className="d-4 ac-slate" defaultChecked />
-      <label htmlFor="checkbox-checked" className="fs-sm tc-slate">Email notifications</label>
-   </div>
+  <div className="d-f ai-c g-2">
+    <input type="checkbox" id="checkbox-checked" className="d-4 ac-slate" defaultChecked />
+    <label htmlFor="checkbox-checked" className="fs-sm tc-slate">
+      Email notifications
+    </label>
+  </div>
 </Preview>
 
-```html
+```html showLineNumbers
 <div class="d-f ai-c g-2">
-   <input type="checkbox" id="checkbox-checked" class="d-4 ac-slate" checked />
-   <label for="checkbox-checked" class="fs-sm tc-slate">Email notifications</label>
+  <input type="checkbox" id="checkbox-checked" class="d-4 ac-slate" checked />
+  <label for="checkbox-checked" class="fs-sm tc-slate">Email notifications</label>
 </div>
 ```
 
 ## Disabled
 
 <Preview className="bg-white">
-   <div className="d-f fd-c g-3">
-      <div className="d-f ai-c g-2">
-         <input type="checkbox" id="checkbox-disabled" className="d-4 ac-slate" disabled />
-         <label htmlFor="checkbox-disabled" className="fs-sm tc-slate-6">Disabled unchecked</label>
-      </div>
-      <div className="d-f ai-c g-2">
-         <input type="checkbox" id="checkbox-disabled-checked" className="d-4 ac-slate" disabled defaultChecked />
-         <label htmlFor="checkbox-disabled-checked" className="fs-sm tc-slate-6">Disabled checked</label>
-      </div>
-   </div>
+  <div className="d-f fd-c g-3">
+    <div className="d-f ai-c g-2">
+      <input type="checkbox" id="checkbox-disabled" className="d-4 ac-slate" disabled />
+      <label htmlFor="checkbox-disabled" className="fs-sm tc-slate-6">
+        Disabled unchecked
+      </label>
+    </div>
+    <div className="d-f ai-c g-2">
+      <input type="checkbox" id="checkbox-disabled-checked" className="d-4 ac-slate" disabled defaultChecked />
+      <label htmlFor="checkbox-disabled-checked" className="fs-sm tc-slate-6">
+        Disabled checked
+      </label>
+    </div>
+  </div>
 </Preview>
 
-```html
+```html showLineNumbers
 <div class="d-f fd-c g-3">
-   <div class="d-f ai-c g-2">
-      <input type="checkbox" id="checkbox-disabled" class="d-4 ac-slate" disabled />
-      <label for="checkbox-disabled" class="fs-sm tc-slate-6">Disabled unchecked</label>
-   </div>
-   <div class="d-f ai-c g-2">
-      <input type="checkbox" id="checkbox-disabled-checked" class="d-4 ac-slate" disabled checked />
-      <label for="checkbox-disabled-checked" class="fs-sm tc-slate-6">Disabled checked</label>
-   </div>
+  <div class="d-f ai-c g-2">
+    <input type="checkbox" id="checkbox-disabled" class="d-4 ac-slate" disabled />
+    <label for="checkbox-disabled" class="fs-sm tc-slate-6">Disabled unchecked</label>
+  </div>
+  <div class="d-f ai-c g-2">
+    <input type="checkbox" id="checkbox-disabled-checked" class="d-4 ac-slate" disabled checked />
+    <label for="checkbox-disabled-checked" class="fs-sm tc-slate-6">Disabled checked</label>
+  </div>
 </div>
 ```
 
 ## Descriptive
 
 <Preview className="bg-white">
-   <div className="d-f as-fs g-2">
-      <input type="checkbox" id="checkbox-desc" className="d-4 ac-slate mt-1" defaultChecked />
-      <div>
-         <label htmlFor="checkbox-desc" className="fs-sm fw-600 tc-slate d-b">Marketing emails</label>
-         <p className="fs-sm tc-slate-6 m-0">Receive emails about new products and features.</p>
-      </div>
-   </div>
+  <div className="d-f as-fs g-2">
+    <input type="checkbox" id="checkbox-desc" className="d-4 ac-slate mt-1" defaultChecked />
+    <div>
+      <label htmlFor="checkbox-desc" className="fs-sm fw-600 tc-slate d-b">
+        Marketing emails
+      </label>
+      <p className="fs-sm tc-slate-6 m-0">Receive emails about new products and features.</p>
+    </div>
+  </div>
 </Preview>
 
-```html
+```html showLineNumbers
 <div class="d-f as-fs g-2">
-   <input type="checkbox" id="checkbox-desc" class="d-4 ac-slate mt-1" checked />
-   <div>
-      <label for="checkbox-desc" class="fs-sm fw-600 tc-slate d-b">Marketing emails</label>
-      <p class="fs-sm tc-slate-6 m-0">Receive emails about new products and features.</p>
-   </div>
+  <input type="checkbox" id="checkbox-desc" class="d-4 ac-slate mt-1" checked />
+  <div>
+    <label for="checkbox-desc" class="fs-sm fw-600 tc-slate d-b">Marketing emails</label>
+    <p class="fs-sm tc-slate-6 m-0">Receive emails about new products and features.</p>
+  </div>
 </div>
 ```
