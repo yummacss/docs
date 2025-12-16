@@ -9,7 +9,7 @@ const rehypeExpressiveCodeOptions = {
   borderRadius: "0",
   defaultProps: {
     // Disable line numbers by default
-    showLineNumbers: false,
+   ```html: false,
   },
   styleOverrides: {
     borderRadius: "0",
