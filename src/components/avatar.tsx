@@ -1,4 +1,4 @@
-import { Avatar as BaseAvatar } from "@base-ui-components/react/avatar";
+import { Avatar as BaseAvatar } from "@base-ui/react/avatar";
 import type * as React from "react";
 
 interface AvatarProps {
@@ -9,13 +9,7 @@ interface AvatarProps {
   style?: React.CSSProperties;
 }
 
-export function Avatar({
-  src,
-  alt,
-  fallback,
-  className = "",
-  style,
-}: AvatarProps) {
+export function Avatar({ src, alt, fallback, className = "", style }: AvatarProps) {
   const initials =
     fallback ||
     alt
@@ -35,9 +29,7 @@ export function Avatar({
       }}
     >
       <BaseAvatar.Image src={src} alt={alt} className="of-c h-full w-full" />
-      <BaseAvatar.Fallback className="d-f jc-c ai-c h-full w-full fs-md">
-        {initials}
-      </BaseAvatar.Fallback>
+      <BaseAvatar.Fallback className="d-f jc-c ai-c h-full w-full fs-md">{initials}</BaseAvatar.Fallback>
     </BaseAvatar.Root>
   );
 }

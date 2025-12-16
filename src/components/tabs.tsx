@@ -1,4 +1,4 @@
-import { Tabs as BaseTabs } from "@base-ui-components/react/tabs";
+import { Tabs as BaseTabs } from "@base-ui/react/tabs";
 import type * as React from "react";
 
 interface TabsProps extends React.ComponentProps<typeof BaseTabs.Root> {
@@ -8,20 +8,9 @@ interface TabsProps extends React.ComponentProps<typeof BaseTabs.Root> {
   style?: React.CSSProperties;
 }
 
-export function Tabs({
-  children,
-  defaultValue,
-  className = "",
-  style,
-  ...props
-}: TabsProps) {
+export function Tabs({ children, defaultValue, className = "", style, ...props }: TabsProps) {
   return (
-    <BaseTabs.Root
-      defaultValue={defaultValue}
-      className={`b-1 ${className}`}
-      style={{ borderColor: "#31365e", ...style }}
-      {...props}
-    >
+    <BaseTabs.Root defaultValue={defaultValue} className={`b-1 ${className}`} style={{ borderColor: "#31365e", ...style }} {...props}>
       {children}
     </BaseTabs.Root>
   );
@@ -33,12 +22,7 @@ interface TabsListProps extends React.ComponentProps<typeof BaseTabs.List> {
   style?: React.CSSProperties;
 }
 
-export function TabsList({
-  children,
-  className = "",
-  style,
-  ...props
-}: TabsListProps) {
+export function TabsList({ children, className = "", style, ...props }: TabsListProps) {
   return (
     <BaseTabs.List
       className={`d-f p-r zi-0 px-1 cg-1 ${className}`}
@@ -73,13 +57,7 @@ interface TabsTabProps extends React.ComponentProps<typeof BaseTabs.Tab> {
   style?: React.CSSProperties;
 }
 
-export function TabsTab({
-  children,
-  value,
-  className = "",
-  style,
-  ...props
-}: TabsTabProps) {
+export function TabsTab({ children, value, className = "", style, ...props }: TabsTabProps) {
   return (
     <BaseTabs.Tab
       value={value}
@@ -105,13 +83,7 @@ interface TabsPanelProps extends React.ComponentProps<typeof BaseTabs.Panel> {
   style?: React.CSSProperties;
 }
 
-export function TabsPanel({
-  children,
-  value,
-  className = "",
-  style,
-  ...props
-}: TabsPanelProps) {
+export function TabsPanel({ children, value, className = "", style, ...props }: TabsPanelProps) {
   return (
     <BaseTabs.Panel
       value={value}
