@@ -1,6 +1,7 @@
 "use client";
 
-import { cva, type VariantProps } from "class-variance-authority";
+import { registry } from "@/registry";
+import { type VariantProps, cva } from "class-variance-authority";
 import { clsx } from "clsx";
 
 const previewVariants = cva("bt-1 br-1 bl-1", {
@@ -17,21 +18,28 @@ const previewVariants = cva("bt-1 br-1 bl-1", {
 });
 
 interface PreviewProps extends VariantProps<typeof previewVariants> {
-  children: React.ReactNode;
+  /** Registry ID for isolated preview (recommended for UI components) */
+  id?: string;
+  /** Direct children (for simple inline demos, subject to MDX styling) */
+  children?: React.ReactNode;
   className?: string;
 }
 
-export default function Preview({
-  children,
-  variant,
-  className,
-}: PreviewProps) {
+export default function Preview({ id, children, variant, className }: PreviewProps) {
+  // If id is provided, render from registry (isolated from MDX)
+  const RegistryComponent = id ? registry[id] : null;
+
+  if (id && !RegistryComponent) {
+    return (
+      <div className={clsx(previewVariants({ variant }), className)} style={{ borderColor: "#31365e", color: "#f87171" }}>
+        Preview not found: "{id}"
+      </div>
+    );
+  }
+
   return (
-    <div
-      className={clsx(previewVariants({ variant }), className)}
-      style={{ borderColor: "#31365e" }}
-    >
-      {children}
+    <div className={clsx(previewVariants({ variant }), className)} style={{ borderColor: "#31365e" }}>
+      {RegistryComponent ? <RegistryComponent /> : children}
     </div>
   );
 }
