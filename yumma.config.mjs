@@ -1,6 +1,7 @@
 export default {
   source: [
     "./src/**/*.{ts,tsx}",
+    "./src/registry/**/*.{ts,tsx}",
     "./src/content/**/*.{md,mdx}",
     "./src/mdx-components.tsx",
   ],

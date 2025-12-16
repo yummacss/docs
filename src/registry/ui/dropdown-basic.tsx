@@ -1,0 +1,30 @@
+export default function DropdownBasic() {
+  return (
+    <div className="d-ib">
+      <button type="button" className="d-f ai-c g-2 px-4 py-2 rad-0 fs-sm fw-600 bg-white tc-slate-8 b-1 bc-silver-4 h:bg-silver-1 f:oc-silver-1 f:os-s f:ow-2">
+        <span>Options</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-4 h-4"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          aria-hidden="true"
+        >
+          <path d="m6 9 6 6 6-6" />
+        </svg>
+      </button>
+      <div className="mt-1 p-1 bg-white b-1 bc-silver-4 rad-0 bs-3 min-w-40">
+        <button type="button" className="d-b w-full ta-l px-3 py-2 rad-0 fs-sm tc-slate-8 bg-transparent b-0 h:bg-silver-1 cu-p">Edit</button>
+        <button type="button" className="d-b w-full ta-l px-3 py-2 rad-0 fs-sm tc-slate-8 bg-transparent b-0 h:bg-silver-1 cu-p">Duplicate</button>
+        <button type="button" className="d-b w-full ta-l px-3 py-2 rad-0 fs-sm tc-slate-8 bg-transparent b-0 h:bg-silver-1 cu-p">Archive</button>
+        <hr className="my-1 b-0 bt-1 bc-silver-4" />
+        <button type="button" className="d-b w-full ta-l px-3 py-2 rad-0 fs-sm tc-red bg-transparent b-0 h:bg-red-1 cu-p">Delete</button>
+      </div>
+    </div>
+  );
+}
+

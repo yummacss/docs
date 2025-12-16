@@ -5,13 +5,7 @@ export const meta = {
 
 ## Basic Textarea
 
-<Preview className="bg-white o-auto">
-  <textarea
-    placeholder="Write your message..."
-    rows="4"
-    className="b-1 bc-silver-4 tc-black px-3 py-2 rad-0 fs-md f:oc-silver-1 f:os-s f:ow-2 w-full"
-  ></textarea>
-</Preview>
+<Preview id="textarea-basic" className="bg-white o-auto" />
 
 ```html
 <textarea placeholder="Write your message..." rows="4" class="b-1 bc-silver-4 tc-black px-3 py-2 rad-0 fs-md f:oc-silver-1 f:os-s f:ow-2 w-full"></textarea>
@@ -19,19 +13,7 @@ export const meta = {
 
 ## Label
 
-<Preview className="bg-white o-auto">
-  <div className="d-f fd-c g-2 w-full">
-    <label htmlFor="message" className="tc-silver-12 fw-600">
-      Message
-    </label>
-    <textarea
-      id="message"
-      placeholder="Write your message..."
-      rows="4"
-      className="b-1 bc-silver-4 tc-black px-3 py-2 rad-0 fs-md f:oc-silver-1 f:os-s f:ow-2 w-full"
-    ></textarea>
-  </div>
-</Preview>
+<Preview id="textarea-label" className="bg-white o-auto" />
 
 ```html
 <div class="d-f fd-c g-2 w-full">
@@ -47,20 +29,7 @@ export const meta = {
 
 ## Descriptive
 
-<Preview className="bg-white o-auto">
-  <div className="d-f fd-c g-2 w-full">
-    <label htmlFor="bio" className="tc-silver-12 fw-600">
-      Bio
-    </label>
-    <textarea
-      id="bio"
-      placeholder="Tell us about yourself..."
-      rows="4"
-      className="b-1 bc-silver-4 tc-black px-3 py-2 rad-0 fs-md f:oc-silver-1 f:os-s f:ow-2 w-full"
-    ></textarea>
-    <p className="fs-xs tc-silver-10">Write a short biography to display on your profile.</p>
-  </div>
-</Preview>
+<Preview id="textarea-descriptive" className="bg-white o-auto" />
 
 ```html
 <div class="d-f fd-c g-2 w-full">
@@ -77,20 +46,7 @@ export const meta = {
 
 ## Disabled
 
-<Preview className="bg-white o-auto">
-  <div className="d-f fd-c g-2 w-full">
-    <label htmlFor="disabled-message" className="tc-slate-12 fw-600">
-      Message
-    </label>
-    <textarea
-      id="disabled-message"
-      disabled
-      placeholder="This textarea is disabled"
-      rows="4"
-      className="b-1 bc-silver-4 tc-black px-3 py-2 rad-0 fs-md f:oc-silver-1 f:os-s f:ow-2 w-full"
-    ></textarea>
-  </div>
-</Preview>
+<Preview id="textarea-disabled" className="bg-white o-auto" />
 
 ```html
 <div class="d-f fd-c g-2 w-full">
@@ -107,20 +63,7 @@ export const meta = {
 
 ## Error
 
-<Preview className="bg-white o-auto">
-  <div className="d-f fd-c g-1 w-full">
-    <label htmlFor="error-message" className="tc-slate-12 fw-600">
-      Message
-    </label>
-    <textarea
-      id="error-message"
-      placeholder="Write your message..."
-      rows="4"
-      className="bg-red-1/15 px-3 py-2 rad-0 fs-md bc-red-6 b-1 f:oc-red-2 f:os-s f:ow-2 w-full"
-    ></textarea>
-    <span className="tc-red fs-xs">Message cannot be empty.</span>
-  </div>
-</Preview>
+<Preview id="textarea-error" className="bg-white o-auto" />
 
 ```html
 <div class="d-f fd-c g-1 w-full">
