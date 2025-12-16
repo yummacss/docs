@@ -70,64 +70,142 @@ export const meta = {
   </div>
 </Preview>
 
-```html showLineNumbers
-<div class="d-f fd-c">
-  <details class="b-1 bc-silver-2 bb-none">
-    <summary class="p-4 c-p d-f jc-sb ai-c lst-none fw-600 rad-0">
-      <b class="tc-slate">Is Yumma CSS free?</b>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="fs-lg tc-slate-8 h-4 w-4"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <path d="m6 9 6 6 6-6" />
-      </svg>
-    </summary>
-    <div class="px-4 pb-4 tc-slate fs-sm lh-4">Yes, Yumma CSS is completely free and open-source. You can use it in personal and commercial projects.</div>
-  </details>
-  <details class="b-1 bt-0 bc-silver-2">
-    <summary class="p-4 c-p d-f jc-sb ai-c lst-none fw-600 rad-0">
-      <b class="tc-slate">Can I use it with React?</b>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="fs-lg tc-slate-8 h-4 w-4"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <path d="m6 9 6 6 6-6" />
-      </svg>
-    </summary>
-    <div class="px-4 pb-4 tc-slate fs-sm lh-4">Absolutely! Yumma CSS is framework-agnostic and works perfectly with React, Vue, Svelte, and vanilla HTML.</div>
-  </details>
-  <details open class="b-1 bt-0 bc-silver-2 rad-b-0">
-    <summary class="p-4 c-p d-f jc-sb ai-c lst-none fw-600 rad-0">
-      <b class="tc-slate">Is Yumma UI mobile friendly?</b>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="fs-lg tc-slate-8 h-4 w-4"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <path d="m6 9 6 6 6-6" />
-      </svg>
-    </summary>
-    <div class="px-4 pb-4 tc-slate fs-sm lh-4">Yes, Yumma UI is mobile-friendly and works great on all devices.</div>
-  </details>
-</div>
-```
+<Tabs defaultValue="HTML">
+    <TabsList>
+        <TabsTab value="HTML">HTML</TabsTab>
+        <TabsTab value="JSX">JSX</TabsTab>
+    </TabsList>
+
+<TabsPanel value="HTML">
+  ```html showLineNumbers
+  <div class="d-f fd-c">
+    <details class="b-1 bc-silver-2 bb-none">
+      <summary class="p-4 c-p d-f jc-sb ai-c lst-none fw-600 rad-0">
+        <b class="tc-slate">Is Yumma CSS free?</b>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="fs-lg tc-slate-8 h-4 w-4"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="m6 9 6 6 6-6" />
+        </svg>
+      </summary>
+      <div class="px-4 pb-4 tc-slate fs-sm lh-4">Yes, Yumma CSS is completely free and open-source. You can use it in personal and commercial projects.</div>
+    </details>
+    <details class="b-1 bt-0 bc-silver-2">
+      <summary class="p-4 c-p d-f jc-sb ai-c lst-none fw-600 rad-0">
+        <b class="tc-slate">Can I use it with React?</b>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="fs-lg tc-slate-8 h-4 w-4"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="m6 9 6 6 6-6" />
+        </svg>
+      </summary>
+      <div class="px-4 pb-4 tc-slate fs-sm lh-4">
+        Absolutely! Yumma CSS is framework-agnostic and works perfectly with React, Vue, Svelte, and vanilla HTML.
+      </div>
+    </details>
+    <details open class="b-1 bt-0 bc-silver-2 rad-b-0">
+      <summary class="p-4 c-p d-f jc-sb ai-c lst-none fw-600 rad-0">
+        <b class="tc-slate">Is Yumma UI mobile friendly?</b>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="fs-lg tc-slate-8 h-4 w-4"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="m6 9 6 6 6-6" />
+        </svg>
+      </summary>
+      <div class="px-4 pb-4 tc-slate fs-sm lh-4">Yes, Yumma UI is mobile-friendly and works great on all devices.</div>
+    </details>
+  </div>
+  ```
+</TabsPanel>
+
+  <TabsPanel value="JSX">
+    ```jsx showLineNumbers
+      <div className="d-f fd-c">
+        <details className="b-1 bc-silver-2 bb-none">
+          <summary className="p-4 c-p d-f jc-sb ai-c lst-none fw-600 rad-0">
+            <h4 className="ff-s tc-slate">Is Yumma CSS free?</h4>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="fs-lg tc-slate-8 h-4 w-4"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="m6 9 6 6 6-6" />
+            </svg>
+          </summary>
+          <div className="px-4 pb-4 tc-slate fs-sm lh-4">
+            <p className="tc-slate-6">Yes, Yumma CSS is completely free and open-source. You can use it in personal and commercial projects.</p>
+          </div>
+        </details>
+        <details className="b-1 bt-0 bc-silver-2">
+          <summary className="p-4 c-p d-f jc-sb ai-c lst-none fw-600 rad-0">
+            <h4 className="ff-s tc-slate">Can I use it with React?</h4>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="fs-lg tc-slate-8 h-4 w-4"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="m6 9 6 6 6-6" />
+            </svg>
+          </summary>
+          <div className="px-4 pb-4 tc-slate fs-sm lh-4">
+            <p className="tc-slate-6">Absolutely! Yumma CSS is framework-agnostic and works perfectly with React, Vue, Svelte, and vanilla HTML.</p>
+          </div>
+        </details>
+        <details open className="b-1 bt-0 bc-silver-2 rad-b-0">
+          <summary className="p-4 c-p d-f jc-sb ai-c lst-none fw-600 rad-0">
+            <h4 className="ff-s tc-slate">Is Yumma UI mobile friendly?</h4>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="fs-lg tc-slate-8 h-4 w-4"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="m6 9 6 6 6-6" />
+            </svg>
+          </summary>
+          <div className="px-4 pb-4 tc-slate fs-sm lh-4">
+            <p className="tc-slate-6">Yes, Yumma UI is be fully responsive and works great on all devices.</p>
+          </div>
+        </details>
+    </div>
+    ```
+  </TabsPanel>
+</Tabs>
 
 ## Separated
 
