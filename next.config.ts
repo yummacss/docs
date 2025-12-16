@@ -1,3 +1,5 @@
+import { pluginCollapsibleSections } from "@expressive-code/plugin-collapsible-sections";
+import { pluginLineNumbers } from "@expressive-code/plugin-line-numbers";
 import createMDX from "@next/mdx";
 import { redirects } from "./redirects";
 import eclipsaTheme from "./src/themes/eclipsa.json";
@@ -7,6 +9,12 @@ const rehypeExpressiveCodeOptions = {
   // Pass the theme as a plain object
   themes: [eclipsaTheme],
   borderRadius: "0rem",
+  // Plugins must be at the root level, not inside styleOverrides
+  plugins: [pluginCollapsibleSections(), pluginLineNumbers()],
+  defaultProps: {
+    // Disable line numbers by default
+    showLineNumbers: false,
+  },
   styleOverrides: {
     borderRadius: "0rem",
     collapsibleSections: {
