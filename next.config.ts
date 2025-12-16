@@ -7,16 +7,8 @@ const rehypeExpressiveCodeOptions = {
   // Pass the theme as a plain object
   themes: [eclipsaTheme],
   borderRadius: "0",
-  defaultProps: {
-    // Disable line numbers by default
-   ```html: false,
-  },
   styleOverrides: {
     borderRadius: "0",
-    collapsibleSections: {
-      openBackgroundColorCollapsible: "hsla(231, 73%, 77%, 0.050)",
-      closedBackgroundColor: "hsla(231, 73%, 77%, 0.100)",
-    },
     frames: {
       borderRadius: "0",
       shadowColor: "transparent",
