@@ -1,8 +1,8 @@
 "use client";
 
 import {
-  CubeIcon,
   BookIcon,
+  CubeIcon,
   GlobeSimpleIcon,
   StackSimpleIcon,
 } from "@phosphor-icons/react/dist/ssr";
