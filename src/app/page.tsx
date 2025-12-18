@@ -59,22 +59,22 @@ export default function Home() {
                   href="/ui"
                   className="px-6 py-3 fw-600 tc-white fs-md d-f ai-c g-2"
                 >
-                  <StackSimpleIcon className="w-5 h-5" />
+                  <StackSimpleIcon size={20} />
                   Components
                 </Link>
               </div>
 
               <div className="d-f fw-w g-3 bt-1 bc-white/10 pt-6">
                 <div className="px-4 py-2 bg-white/10 bf-b-md fs-xs d-f ai-c g-2 b-1 bc-white/5 tt-u">
-                  <GlobeSimpleIcon className="w-4 h-4" />
+                  <GlobeSimpleIcon size={15} />
                   Dedicated API
                 </div>
                 <div className="px-4 py-2 bg-white/10 bf-b-md fs-xs d-f ai-c g-2 b-1 bc-white/5 tt-u">
-                  <TerminalIcon className="w-4 h-4" />
+                  <TerminalIcon size={15} />
                   CLI-First
                 </div>
                 <div className="px-4 py-2 bg-white/10 bf-b-sm fs-xs d-f ai-c g-2 b-1 bc-white/5 tt-u">
-                  <LightningIcon className="w-4 h-4" />
+                  <LightningIcon size={15} />
                   Blazing Fast
                 </div>
               </div>

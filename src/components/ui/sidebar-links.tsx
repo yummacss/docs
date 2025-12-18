@@ -30,7 +30,9 @@ export default function SidebarLinks({ onLinkClick }: SidebarLinksProps) {
         className={`d-if ai-c g-4 ${isDocsActive ? "" : "team"}`}
       >
         <FilesIcon
-          className={`d-4 ${isDocsActive ? "tc-white" : "tc-white/50 @h:tc-white"}`}
+          className={`${isDocsActive ? "tc-white" : "tc-white/50 @h:tc-white"}`}
+          size={20}
+          weight="duotone"
         />
         <span
           className={`fs-md ${isDocsActive ? "tc-white" : "tc-white/70 @h:tc-white"}`}
@@ -45,7 +47,9 @@ export default function SidebarLinks({ onLinkClick }: SidebarLinksProps) {
         className={`d-if ai-c g-4 ${isUIActive ? "" : "team"}`}
       >
         <StackSimpleIcon
-          className={`d-4 ${isUIActive ? "tc-white" : "tc-white/50 @h:tc-white"}`}
+          className={`${isUIActive ? "tc-white" : "tc-white/50 @h:tc-white"}`}
+          size={20}
+          weight="duotone"
         />
         <span
           className={`fs-md ${isUIActive ? "tc-white" : "tc-white/70 @h:tc-white"}`}
@@ -59,7 +63,9 @@ export default function SidebarLinks({ onLinkClick }: SidebarLinksProps) {
         className={`d-if ai-c g-4 ${isApiReferenceActive ? "" : "team"}`}
       >
         <GlobeSimpleIcon
-          className={`d-4 ${isApiReferenceActive ? "tc-white" : "tc-white/50 @h:tc-white"}`}
+          className={`${isApiReferenceActive ? "tc-white" : "tc-white/50 @h:tc-white"}`}
+          size={20}
+          weight="duotone"
         />
         <span
           className={`fs-md ${isApiReferenceActive ? "tc-white" : "tc-white/70 @h:tc-white"}`}
@@ -74,7 +80,11 @@ export default function SidebarLinks({ onLinkClick }: SidebarLinksProps) {
         rel="noopener noreferrer"
         className="d-if ai-c g-4 team"
       >
-        <CubeIcon className={`d-4 tc-white/50 @h:tc-white`} />
+        <CubeIcon
+          className={`tc-white/50 @h:tc-white`}
+          size={20}
+          weight="duotone"
+        />
         <span className="fs-md tc-white/70 @h:tc-white">Playground</span>
       </Link>
     </div>

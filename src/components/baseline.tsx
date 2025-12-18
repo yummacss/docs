@@ -95,7 +95,7 @@ export default function Baseline({ path }: BaselineProps) {
     >
       <div className="mb-4">
         <div className="d-f ai-c g-2 mb-2">
-          <StatusIcon size={20} className={statusColor} />
+          <StatusIcon className={statusColor} size={20} />
           <h3 className="fs-lg fw-500 tc-white">{statusLabel}</h3>
         </div>
         <p className="tc-white/70">{statusDescription}</p>
