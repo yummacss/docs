@@ -9,7 +9,7 @@ export default function UILayout({ children }: { children: React.ReactNode }) {
       <Navbar />
       <MobileBreadcrumb />
 
-      <main className="~sm-xxl mx-auto px-6 pt-26 lg:pt-14">
+      <main className="~sm-xxl mx-auto px-6">
         <div className="d-g gtc-1 lg:gtc-12 g-8">
           <UISidebar />
 
