@@ -24,7 +24,7 @@ export default function SidebarLinks({ onLinkClick }: SidebarLinksProps) {
       </Link>
       <Link href="/blog" onClick={onLinkClick} className="d-if ai-c g-4 team">
         <NewspaperClippingIcon className="tc-white/50 @h:tc-white" size={20} weight="duotone" />
-        <span className="fs-md tc-white/70 @h:tc-white">Blog</span>
+        <span className="fs-md tc-white/70 @h:tc-white">Blog Articles</span>
       </Link>
       <Link href="/ui/introduction" onClick={onLinkClick} rel="noopener noreferrer" className={`d-if ai-c g-4 ${isUIActive ? "" : "team"}`}>
         <StackSimpleIcon className={`${isUIActive ? "tc-white" : "tc-white/50 @h:tc-white"}`} size={20} weight="duotone" />
