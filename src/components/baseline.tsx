@@ -1,10 +1,4 @@
-import {
-  CheckIcon,
-  ChecksIcon,
-  ThumbsDownIcon,
-  ThumbsUpIcon,
-  XIcon,
-} from "@phosphor-icons/react/dist/ssr";
+import { ChecksIcon, SealCheckIcon, ThumbsDownIcon, ThumbsUpIcon, WarningIcon } from "@phosphor-icons/react/dist/ssr";
 import data from "web-features/data.json";
 
 interface FeatureStatus {
@@ -55,21 +49,17 @@ export default function Baseline({ path }: BaselineProps) {
   const isHigh = baseline === "high";
   const isLow = baseline === "low";
 
-  const statusLabel = isHigh
-    ? "Widely available"
-    : isLow
-      ? "Newly available"
-      : "Limited availability";
+  const statusLabel = isHigh ? "Widely available" : isLow ? "Newly available" : "Limited availability";
 
   const statusDescription = isHigh
     ? "This feature is well established and works across many devices and browser versions."
     : isLow
-      ? "This feature works across the latest devices and browser versions. This feature might not work in older devices or browsers."
-      : "This feature does not work in some of the most widely-used browsers.";
+    ? "This feature works across the latest devices and browser versions. This feature might not work in older devices or browsers."
+    : "This feature does not work in some of the most widely-used browsers.";
 
   const statusColor = isHigh ? "tc-green" : isLow ? "tc-green" : "tc-yellow";
 
-  const StatusIcon = isHigh ? CheckIcon : isLow ? ChecksIcon : XIcon;
+  const StatusIcon = isHigh ? SealCheckIcon : isLow ? ChecksIcon : WarningIcon;
 
   const support = status.support || {};
 
@@ -89,13 +79,10 @@ export default function Baseline({ path }: BaselineProps) {
   });
 
   return (
-    <div
-      className="mb-6 p-4 rd-2"
-      style={{ backgroundColor: "#1a1d2e", border: "1px solid #232741" }}
-    >
+    <div className="mb-6 p-4 rd-2" style={{ backgroundColor: "#1a1d2e", border: "1px solid #232741" }}>
       <div className="mb-4">
         <div className="d-f ai-c g-2 mb-2">
-          <StatusIcon className={statusColor} size={20} />
+          <StatusIcon className={statusColor} size={20} weight="duotone" />
           <h3 className="fs-lg fw-500 tc-white">{statusLabel}</h3>
         </div>
         <p className="tc-white/70">{statusDescription}</p>
@@ -104,13 +91,7 @@ export default function Baseline({ path }: BaselineProps) {
       <div className="d-g g-4 gtc-1 sm:gtc-2 md:gtc-4">
         {browsers.map((browser) => (
           <div key={browser.key} className="d-f ai-c g-2">
-            <div className={browser.supported ? "tc-green" : "tc-red"}>
-              {browser.supported ? (
-                <ThumbsUpIcon size={20} />
-              ) : (
-                <ThumbsDownIcon size={20} />
-              )}
-            </div>
+            <div className={browser.supported ? "tc-green" : "tc-red"}>{browser.supported ? <ThumbsUpIcon size={20} weight="duotone" /> : <ThumbsDownIcon size={20} />}</div>
             <span className="tc-white/80">{browser.name}</span>
           </div>
         ))}

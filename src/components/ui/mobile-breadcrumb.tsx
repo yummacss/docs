@@ -39,14 +39,14 @@ export default function MobileBreadcrumb() {
         style={{ backgroundColor: "#151724", top: "3.5rem" }}
       >
         <div className="~sm-xxl mx-auto px-4 py-2">
-          <div className="d-f ai-c g-3">
+          <div className="d-f ai-c g-4">
             <button
               type="button"
               onClick={() => setIsSidebarOpen(true)}
               className="d-f ai-c jc-c tc-white/70 h:tc-white"
               aria-label="Open sidebar"
             >
-              <ListIcon size={20} />
+              <ListIcon size={15} />
             </button>
 
             <div className="d-f ai-c g-2 fs-sm tc-white/70">

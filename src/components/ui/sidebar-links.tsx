@@ -2,7 +2,7 @@
 
 import {
   CubeIcon,
-  FilesIcon,
+  BookIcon,
   GlobeSimpleIcon,
   StackSimpleIcon,
 } from "@phosphor-icons/react/dist/ssr";
@@ -29,7 +29,7 @@ export default function SidebarLinks({ onLinkClick }: SidebarLinksProps) {
         onClick={onLinkClick}
         className={`d-if ai-c g-4 ${isDocsActive ? "" : "team"}`}
       >
-        <FilesIcon
+        <BookIcon
           className={`${isDocsActive ? "tc-white" : "tc-white/50 @h:tc-white"}`}
           size={20}
           weight="duotone"
