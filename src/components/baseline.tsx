@@ -1,10 +1,10 @@
 import {
-  CheckmarkBadge03Icon,
+  CheckIcon,
+  ChecksIcon,
   ThumbsDownIcon,
-  ThumbsUpDownIcon,
   ThumbsUpIcon,
-} from "@hugeicons/core-free-icons";
-import { HugeiconsIcon } from "@hugeicons/react";
+  XIcon,
+} from "@phosphor-icons/react/dist/ssr";
 import data from "web-features/data.json";
 
 interface FeatureStatus {
@@ -69,11 +69,7 @@ export default function Baseline({ path }: BaselineProps) {
 
   const statusColor = isHigh ? "tc-green" : isLow ? "tc-green" : "tc-yellow";
 
-  const statusIconData = isHigh
-    ? ThumbsUpIcon
-    : isLow
-      ? CheckmarkBadge03Icon
-      : ThumbsUpDownIcon;
+  const StatusIcon = isHigh ? CheckIcon : isLow ? ChecksIcon : XIcon;
 
   const support = status.support || {};
 
@@ -99,11 +95,7 @@ export default function Baseline({ path }: BaselineProps) {
     >
       <div className="mb-4">
         <div className="d-f ai-c g-2 mb-2">
-          <HugeiconsIcon
-            icon={statusIconData}
-            size={20}
-            className={statusColor}
-          />
+          <StatusIcon size={20} className={statusColor} />
           <h3 className="fs-lg fw-500 tc-white">{statusLabel}</h3>
         </div>
         <p className="tc-white/70">{statusDescription}</p>
@@ -114,9 +106,9 @@ export default function Baseline({ path }: BaselineProps) {
           <div key={browser.key} className="d-f ai-c g-2">
             <div className={browser.supported ? "tc-green" : "tc-red"}>
               {browser.supported ? (
-                <HugeiconsIcon icon={ThumbsUpIcon} size={20} />
+                <ThumbsUpIcon size={20} />
               ) : (
-                <HugeiconsIcon icon={ThumbsDownIcon} size={20} />
+                <ThumbsDownIcon size={20} />
               )}
             </div>
             <span className="tc-white/80">{browser.name}</span>

@@ -1,7 +1,10 @@
 export default function ButtonGroupIcons() {
   return (
     <div className="d-f">
-      <button type="button" className="d-f ai-c jc-c px-3 py-2 rad-l-0 fs-sm fw-600 bg-white tc-slate b-1 bc-silver-4 h:bg-silver-1">
+      <button
+        type="button"
+        className="d-f ai-c jc-c px-3 py-2 rad-l-0 fs-sm fw-600 bg-white tc-slate b-1 bc-silver-4 h:bg-silver-1"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="w-4 h-4"
@@ -16,7 +19,10 @@ export default function ButtonGroupIcons() {
           <path d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3" />
         </svg>
       </button>
-      <button type="button" className="d-f ai-c jc-c px-3 py-2 fs-sm fw-600 bg-white tc-slate b-1 bl-0 bc-silver-4 h:bg-silver-1">
+      <button
+        type="button"
+        className="d-f ai-c jc-c px-3 py-2 fs-sm fw-600 bg-white tc-slate b-1 bl-0 bc-silver-4 h:bg-silver-1"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="w-4 h-4"
@@ -33,7 +39,10 @@ export default function ButtonGroupIcons() {
           <line x1="12" x2="12" y1="15" y2="3" />
         </svg>
       </button>
-      <button type="button" className="d-f ai-c jc-c px-3 py-2 rad-r-0 fs-sm fw-600 bg-white tc-slate b-1 bl-0 bc-silver-4 h:bg-silver-1">
+      <button
+        type="button"
+        className="d-f ai-c jc-c px-3 py-2 rad-r-0 fs-sm fw-600 bg-white tc-slate b-1 bl-0 bc-silver-4 h:bg-silver-1"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="w-4 h-4"
@@ -53,4 +62,3 @@ export default function ButtonGroupIcons() {
     </div>
   );
 }
-

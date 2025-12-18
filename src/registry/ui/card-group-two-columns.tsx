@@ -20,7 +20,9 @@ export default function CardGroupTwoColumns() {
             </svg>
           </div>
           <h3 className="ff-s fs-md fw-600 tc-slate mb-2">Analytics</h3>
-          <p className="fs-sm tc-slate-6 m-0">Track your metrics and monitor performance in real-time.</p>
+          <p className="fs-sm tc-slate-6 m-0">
+            Track your metrics and monitor performance in real-time.
+          </p>
         </div>
         <div className="p-6 b-1 bc-silver-4 rad-0">
           <div className="d-f ai-c jc-c d-10 rad-9 bg-silver-1 tc-slate mb-4">
@@ -44,7 +46,9 @@ export default function CardGroupTwoColumns() {
             </svg>
           </div>
           <h3 className="ff-s fs-md fw-600 tc-slate mb-2">Automation</h3>
-          <p className="fs-sm tc-slate-6 m-0">Automate workflows and save time on repetitive tasks.</p>
+          <p className="fs-sm tc-slate-6 m-0">
+            Automate workflows and save time on repetitive tasks.
+          </p>
         </div>
         <div className="p-6 b-1 bc-silver-4 rad-0">
           <div className="d-f ai-c jc-c d-10 rad-9 bg-silver-1 tc-slate mb-4">
@@ -64,7 +68,9 @@ export default function CardGroupTwoColumns() {
             </svg>
           </div>
           <h3 className="ff-s fs-md fw-600 tc-slate mb-2">Integrations</h3>
-          <p className="fs-sm tc-slate-6 m-0">Connect with your favorite tools and services.</p>
+          <p className="fs-sm tc-slate-6 m-0">
+            Connect with your favorite tools and services.
+          </p>
         </div>
         <div className="p-6 b-1 bc-silver-4 rad-0">
           <div className="d-f ai-c jc-c d-10 rad-9 bg-silver-1 tc-slate mb-4">
@@ -86,10 +92,11 @@ export default function CardGroupTwoColumns() {
             </svg>
           </div>
           <h3 className="ff-s fs-md fw-600 tc-slate mb-2">Collaboration</h3>
-          <p className="fs-sm tc-slate-6 m-0">Work together with your team in real-time.</p>
+          <p className="fs-sm tc-slate-6 m-0">
+            Work together with your team in real-time.
+          </p>
         </div>
       </div>
     </div>
   );
 }
-

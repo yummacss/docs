@@ -51,4 +51,3 @@ export default function BreadcrumbCollapsed() {
     </nav>
   );
 }
-

@@ -1,8 +1,6 @@
 "use client";
 
-import { ArrowRight01Icon, Menu09Icon } from "@hugeicons/core-free-icons";
-import { HugeiconsIcon } from "@hugeicons/react";
-
+import { CaretRightIcon, ListIcon } from "@phosphor-icons/react";
 import { usePathname } from "next/navigation";
 import { lazy, Suspense, useEffect, useState } from "react";
 import { findCurrentPageInfo } from "@/utils/sidebar";
@@ -48,12 +46,12 @@ export default function MobileBreadcrumb() {
               className="d-f ai-c jc-c tc-white/70 h:tc-white"
               aria-label="Open sidebar"
             >
-              <HugeiconsIcon icon={Menu09Icon} size={20} />
+              <ListIcon size={20} />
             </button>
 
             <div className="d-f ai-c g-2 fs-sm tc-white/70">
               <span>{pageInfo.sectionTitle}</span>
-              <HugeiconsIcon icon={ArrowRight01Icon} size={15} />
+              <CaretRightIcon size={15} />
               <span className="tc-white">{pageInfo.pageTitle}</span>
             </div>
           </div>

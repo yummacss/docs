@@ -1,7 +1,6 @@
 "use client";
 
-import { Cancel01Icon } from "@hugeicons/core-free-icons";
-import { HugeiconsIcon } from "@hugeicons/react";
+import { XIcon } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type {
@@ -68,7 +67,7 @@ export default function MobileSidebar({
             className="d-f ai-c jc-c w-10 h-10 tc-white/70 h:tc-white h:bg-white/10"
             aria-label="Close sidebar"
           >
-            <HugeiconsIcon icon={Cancel01Icon} className="w-5 h-5" />
+            <XIcon size={20} />
           </button>
         </div>
 
