@@ -3796,6 +3796,10 @@ summary {
     display: none;
   }
 
+  .sm\:g-2 {
+    gap: .5rem;
+  }
+
   .sm\:gtc-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }

@@ -35,6 +35,7 @@ export default function Navbar({ variant, className, links }: NavbarProps) {
   const [searchOpen, setSearchOpen] = useState(false);
   const pathname = usePathname();
   const isUI = pathname?.startsWith("/ui");
+  const isLandingPage = pathname === "/" || pathname === "/ui";
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -50,7 +51,7 @@ export default function Navbar({ variant, className, links }: NavbarProps) {
 
   return (
     <>
-      <header className={clsx(navbarVariants({ variant }), className)} style={{ backgroundColor: "#151724" }}>
+      <header className={clsx(navbarVariants({ variant }), className)} style={{ backgroundColor: isLandingPage ? "transparent" : "#151724" }}>
         <div className="~sm-xxl mx-auto px-6 py-2">
           <nav className="d-f ai-c jc-sb">
             <div className="d-f ai-c g-2">
