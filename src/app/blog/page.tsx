@@ -14,9 +14,9 @@ export default async function BlogPage() {
   const years = Array.from(postsByYear.keys()).sort((a, b) => b - a);
 
   return (
-    <div className="pb-16">
+    <div className="py-16">
       <div className="mx-auto my-16" style={{ maxWidth: "64rem" }}>
-        <h1 className="fs-5xl fw-400 mb-6 tc-white">Blog</h1>
+        <h1 className="fs-5xl fw-400 mt-6 tc-white">Blog articles</h1>
         <p className="fs-lg tc-white/70" style={{ maxWidth: "48rem" }}>
           The latest updates and articles from Yumma CSS.
         </p>
