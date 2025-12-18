@@ -14,7 +14,7 @@ const OramaSearch = dynamic(() => import("./orama-search").then((mod) => mod.Ora
   ssr: false,
 });
 
-const navbarVariants = cva("p-st t-0 zi-10 bb-1", {
+const navbarVariants = cva("p-f l-0 r-0 t-0 zi-10 bb-1", {
   variants: {
     variant: {
       default: "lg:bf-b-md bc-white/5",

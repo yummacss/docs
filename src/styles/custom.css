@@ -71,13 +71,3 @@ aside {
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
 }
-
-/* Fix iOS sticky navbar momentum scrolling issue */
-header[class*="p-st"] {
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  will-change: transform;
-  position: -webkit-sticky;
-}
