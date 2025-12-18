@@ -1,7 +1,6 @@
 "use client";
 
-import { Search02Icon } from "@hugeicons/core-free-icons";
-import { HugeiconsIcon } from "@hugeicons/react";
+import { MagnifyingGlassIcon } from "@phosphor-icons/react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { clsx } from "clsx";
 
@@ -107,7 +106,7 @@ export default function Navbar({ variant, className, links }: NavbarProps) {
                 onClick={() => setSearchOpen(true)}
                 className="d-f ai-c g-2 md:px-4 md:py-2 bg-white/5 bf-b-sm fs-sm h:bg-white/10 tc-white b-1 bc-white/10"
               >
-                <HugeiconsIcon icon={Search02Icon} size={15} />
+                <MagnifyingGlassIcon size={15} />
                 <span className="d-none md:d-b">Ctrl K</span>
               </button>
             </div>

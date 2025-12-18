@@ -1,12 +1,11 @@
 "use client";
 
 import {
-  BookOpen02Icon,
-  GeometricShapes01Icon,
-  Globe02Icon,
-  LayerIcon,
-} from "@hugeicons/core-free-icons";
-import { HugeiconsIcon } from "@hugeicons/react";
+  CubeIcon,
+  FilesIcon,
+  GlobeSimpleIcon,
+  StackSimpleIcon,
+} from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -30,8 +29,7 @@ export default function SidebarLinks({ onLinkClick }: SidebarLinksProps) {
         onClick={onLinkClick}
         className={`d-if ai-c g-4 ${isDocsActive ? "" : "team"}`}
       >
-        <HugeiconsIcon
-          icon={BookOpen02Icon}
+        <FilesIcon
           className={`d-4 ${isDocsActive ? "tc-white" : "tc-white/50 @h:tc-white"}`}
         />
         <span
@@ -46,8 +44,7 @@ export default function SidebarLinks({ onLinkClick }: SidebarLinksProps) {
         rel="noopener noreferrer"
         className={`d-if ai-c g-4 ${isUIActive ? "" : "team"}`}
       >
-        <HugeiconsIcon
-          icon={LayerIcon}
+        <StackSimpleIcon
           className={`d-4 ${isUIActive ? "tc-white" : "tc-white/50 @h:tc-white"}`}
         />
         <span
@@ -61,8 +58,7 @@ export default function SidebarLinks({ onLinkClick }: SidebarLinksProps) {
         onClick={onLinkClick}
         className={`d-if ai-c g-4 ${isApiReferenceActive ? "" : "team"}`}
       >
-        <HugeiconsIcon
-          icon={Globe02Icon}
+        <GlobeSimpleIcon
           className={`d-4 ${isApiReferenceActive ? "tc-white" : "tc-white/50 @h:tc-white"}`}
         />
         <span
@@ -78,10 +74,7 @@ export default function SidebarLinks({ onLinkClick }: SidebarLinksProps) {
         rel="noopener noreferrer"
         className="d-if ai-c g-4 team"
       >
-        <HugeiconsIcon
-          icon={GeometricShapes01Icon}
-          className={`d-4 tc-white/50 @h:tc-white`}
-        />
+        <CubeIcon className={`d-4 tc-white/50 @h:tc-white`} />
         <span className="fs-md tc-white/70 @h:tc-white">Playground</span>
       </Link>
     </div>

@@ -1,5 +1,4 @@
-import { ArrowLeft01Icon } from "@hugeicons/core-free-icons";
-import { HugeiconsIcon } from "@hugeicons/react";
+import { CaretLeftIcon } from "@phosphor-icons/react/dist/ssr";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -96,7 +95,7 @@ export default async function BlogPostPage({
                     href="/blog"
                     className="d-if ai-c g-2 px-4 py-2 fs-sm tc-white/70 h:tc-white h:bg-white/20"
                   >
-                    <HugeiconsIcon icon={ArrowLeft01Icon} />
+                    <CaretLeftIcon />
                     Back to Blog
                   </Link>
                 </div>

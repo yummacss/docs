@@ -7,7 +7,10 @@ export default function BannerLink() {
           Shop now
         </a>
       </div>
-      <button type="button" className="bg-transparent b-none tc-white o-50 h:o-100">
+      <button
+        type="button"
+        className="bg-transparent b-none tc-white o-50 h:o-100"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="w-4 h-4"
@@ -26,4 +29,3 @@ export default function BannerLink() {
     </div>
   );
 }
-

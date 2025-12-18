@@ -13,6 +13,7 @@ const rehypeExpressiveCodeOptions = {
       borderRadius: "0",
       shadowColor: "transparent",
       tooltipSuccessBackground: "#31365e",
+      // TODO: change copy icon color
     },
     textMarkers: {
       inlineMarkerBorderRadius: "0",

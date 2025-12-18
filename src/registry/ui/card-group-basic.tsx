@@ -19,7 +19,9 @@ export default function CardGroupBasic() {
             </svg>
           </div>
           <h3 className="ff-s fs-md fw-600 tc-slate mb-2">Fast performance</h3>
-          <p className="fs-sm tc-slate-6 m-0">Optimized for speed and efficiency.</p>
+          <p className="fs-sm tc-slate-6 m-0">
+            Optimized for speed and efficiency.
+          </p>
         </div>
         <div className="p-6 b-1 bc-silver-4 rad-0">
           <div className="d-f ai-c jc-c d-10 rad-9 bg-silver-1 tc-slate mb-4">
@@ -58,11 +60,12 @@ export default function CardGroupBasic() {
               <circle cx="12" cy="12" r="3" />
             </svg>
           </div>
-          <h3 className="ff-s fs-md fw-600 tc-slate mb-2">Fully customizable</h3>
+          <h3 className="ff-s fs-md fw-600 tc-slate mb-2">
+            Fully customizable
+          </h3>
           <p className="fs-sm tc-slate-6 m-0">Adapt to your needs easily.</p>
         </div>
       </div>
     </div>
   );
 }
-

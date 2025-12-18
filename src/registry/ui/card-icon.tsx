@@ -18,8 +18,9 @@ export default function CardIcon() {
         </svg>
       </div>
       <h3 className="ff-s fs-lg fw-600 tc-slate mb-2">Settings</h3>
-      <p className="fs-sm tc-slate-6 m-0">Manage your account settings and preferences.</p>
+      <p className="fs-sm tc-slate-6 m-0">
+        Manage your account settings and preferences.
+      </p>
     </div>
   );
 }
-

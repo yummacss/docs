@@ -14,12 +14,6 @@ importers:
       '@fontsource/esteban':
         specifier: ^5.2.7
         version: 5.2.7
-      '@hugeicons/core-free-icons':
-        specifier: ^3.0.0
-        version: 3.0.0
-      '@hugeicons/react':
-        specifier: ^1.1.2
-        version: 1.1.2(react@19.2.3)
       '@mdx-js/loader':
         specifier: ^3.1.1
         version: 3.1.1
@@ -32,6 +26,9 @@ importers:
       '@orama/react-components':
         specifier: ^0.8.1
         version: 0.8.1(@stencil/core@4.30.0)(@types/react@19.2.7)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+      '@phosphor-icons/react':
+        specifier: ^2.1.10
+        version: 2.1.10(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@react-three/fiber':
         specifier: ^9.4.2
         version: 9.4.2(@types/react@19.2.7)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(three@0.182.0)
@@ -248,14 +245,6 @@ packages:
 
   '@fontsource/esteban@5.2.7':
     resolution: {integrity: sha512-DK5agQrfHNNEIbHBeBRTpV5NsBcezSb6EPok8hvhCd9HZJ5U3EHRM9EWV13lHhFMzdu72LTBzpXURI08ccCzrA==}
-
-  '@hugeicons/core-free-icons@3.0.0':
-    resolution: {integrity: sha512-ujB8fh7dVj506bvOcZwTLS/r8T/Ev6rCLvgpdwKPHAFdBuNTbyuppTFX7n1vWnmqvJzh//giN9dqjHjyu1o+5w==}
-
-  '@hugeicons/react@1.1.2':
-    resolution: {integrity: sha512-lkwpRbGAEs6OK5qc2mrTJTA4WfhBhn5shrtq5zlmj6JDdAAMmsD97ASCRLrLbw0VT/Nb+Rk8SAUiemIXshyg/g==}
-    peerDependencies:
-      react: '>=16.0.0'
 
   '@img/colour@1.0.0':
     resolution: {integrity: sha512-A5P/LfWGFSl6nsckYtjw9da+19jB8hkJ6ACTGcDfEJ0aE+l2n2El7dsVM7UVHZQ9s2lmYMWlrS21YLy2IR1LUw==}
@@ -531,6 +520,13 @@ packages:
 
   '@oramacloud/client@2.1.4':
     resolution: {integrity: sha512-uNPFs4wq/iOPbggCwTkVNbIr64Vfd7ZS/h+cricXVnzXWocjDTfJ3wLL4lr0qiSu41g8z+eCAGBqJ30RO2O4AA==}
+
+  '@phosphor-icons/react@2.1.10':
+    resolution: {integrity: sha512-vt8Tvq8GLjheAZZYa+YG/pW7HDbov8El/MANW8pOAz4eGxrwhnbfrQZq0Cp4q8zBEu8NIhHdnr+r8thnfRSNYA==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: '>= 16.8'
+      react-dom: '>= 16.8'
 
   '@phosphor-icons/webcomponents@2.1.5':
     resolution: {integrity: sha512-JcvQkZxvcX2jK+QCclm8+e8HXqtdFW9xV4/kk2aL9Y3dJA2oQVt+pzbv1orkumz3rfx4K9mn9fDoMr1He1yr7Q==}
@@ -2173,12 +2169,6 @@ snapshots:
 
   '@fontsource/esteban@5.2.7': {}
 
-  '@hugeicons/core-free-icons@3.0.0': {}
-
-  '@hugeicons/react@1.1.2(react@19.2.3)':
-    dependencies:
-      react: 19.2.3
-
   '@img/colour@1.0.0':
     optional: true
 
@@ -2435,6 +2425,11 @@ snapshots:
       '@orama/cuid2': 2.2.3
       '@orama/orama': 3.1.17
       lodash: 4.17.21
+
+  '@phosphor-icons/react@2.1.10(react-dom@19.2.3(react@19.2.3))(react@19.2.3)':
+    dependencies:
+      react: 19.2.3
+      react-dom: 19.2.3(react@19.2.3)
 
   '@phosphor-icons/webcomponents@2.1.5':
     dependencies:

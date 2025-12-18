@@ -1,15 +1,11 @@
 import {
-  Alert02Icon,
-  AlertCircleIcon,
-  ArrowExpand01Icon,
-  AtIcon,
-  HeartCheckIcon,
-  HelpCircleIcon,
-  Mouse14Icon,
+  CursorTextIcon,
+  HeartStraightIcon,
+  InfoIcon,
+  MouseScrollIcon,
+  ResizeIcon,
   RulerIcon,
-  TypeCursorIcon,
-} from "@hugeicons/core-free-icons";
-import { HugeiconsIcon } from "@hugeicons/react";
+} from "@phosphor-icons/react/dist/ssr";
 import type { ReactNode } from "react";
 
 type IconName =
@@ -17,10 +13,7 @@ type IconName =
   | "cursor_text"
   | "heart"
   | "info"
-  | "question_mark_circled"
-  | "ruler_square"
   | "size"
-  | "warning"
   | "width";
 
 interface NoteProps {
@@ -29,19 +22,16 @@ interface NoteProps {
 }
 
 const iconData: Record<IconName, any> = {
-  cursor_arrow: Mouse14Icon,
-  cursor_text: TypeCursorIcon,
-  heart: HeartCheckIcon,
-  info: AlertCircleIcon,
-  question_mark_circled: HelpCircleIcon,
-  ruler_square: AtIcon,
-  size: ArrowExpand01Icon,
-  warning: Alert02Icon,
+  cursor_arrow: MouseScrollIcon,
+  cursor_text: CursorTextIcon,
+  heart: HeartStraightIcon,
+  info: InfoIcon,
+  size: ResizeIcon,
   width: RulerIcon,
 };
 
 export default function Note({ icon, children }: NoteProps) {
-  const iconDataForIcon = iconData[icon];
+  const Icon = iconData[icon];
 
   return (
     <div className="ai-c d-f g-2 mb-4">
@@ -53,7 +43,7 @@ export default function Note({ icon, children }: NoteProps) {
           color: "#9aa6ef",
         }}
       >
-        <HugeiconsIcon icon={iconDataForIcon} />
+        <Icon size={20} />
       </span>
       <span className="tc-white/80">{children}</span>
     </div>

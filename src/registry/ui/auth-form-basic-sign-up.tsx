@@ -2,8 +2,12 @@ export default function AuthFormBasicSignUp() {
   return (
     <div className="p-8 b-1 bc-silver-4 rad-0">
       <div className="max-w-sm">
-        <h2 className="ff-s fs-xxl fw-600 tc-slate-9 mb-2">Create an account</h2>
-        <p className="fs-sm tc-slate-6 mb-6">Enter your credentials to sign up to your account.</p>
+        <h2 className="ff-s fs-xxl fw-600 tc-slate-9 mb-2">
+          Create an account
+        </h2>
+        <p className="fs-sm tc-slate-6 mb-6">
+          Enter your credentials to sign up to your account.
+        </p>
         <form className="d-f fd-c g-4">
           <div className="d-f fd-c g-1">
             <label htmlFor="name" className="fs-sm fw-600 tc-slate-9">
@@ -55,4 +59,3 @@ export default function AuthFormBasicSignUp() {
     </div>
   );
 }
-
