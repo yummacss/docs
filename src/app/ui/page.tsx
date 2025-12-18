@@ -49,7 +49,7 @@ export default function UIPage() {
                   href="/"
                   className="px-6 py-3 fw-600 tc-white fs-md d-f ai-c g-2"
                 >
-                  <BookIcon className="w-5 h-5" />
+                  <BookIcon size={20} weight="duotone" />
                   Documentation
                 </Link>
               </div>
@@ -58,15 +58,15 @@ export default function UIPage() {
                 <span className="fs-sm tc-white/60">Works with:</span>
                 <div className="d-f ai-c g-4">
                   <div className="d-f ai-c g-2 tc-white/80">
-                    <SiHtml5 className="w-5 h-5" />
+                    <SiHtml5 size={20} />
                     <span className="fs-sm fw-500">HTML</span>
                   </div>
                   <div className="d-f ai-c g-2 tc-white/80">
-                    <SiReact className="w-5 h-5" />
+                    <SiReact size={20} />
                     <span className="fs-sm fw-500">React</span>
                   </div>
                   <div className="d-f ai-c g-2 tc-white/80">
-                    <SiNextdotjs className="w-5 h-5" />
+                    <SiNextdotjs size={20} />
                     <span className="fs-sm fw-500">Next.js</span>
                   </div>
                 </div>

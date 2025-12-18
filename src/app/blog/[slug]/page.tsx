@@ -1,17 +1,12 @@
-import { CaretLeftIcon } from "@phosphor-icons/react/dist/ssr";
-import type { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
 import { Avatar } from "@/components/avatar";
 import TableOfContents from "@/components/ui/table-of-contents";
 import { getAuthor } from "@/utils/authors";
 import { formatDate, getAllBlogSlugs } from "@/utils/blog";
+import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const module = await import(`@/content/blog/${slug}.mdx`);
   const meta = module.meta;
@@ -22,11 +17,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function BlogPostPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
+export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const module = await import(`@/content/blog/${slug}.mdx`);
   const Content = module.default;
@@ -47,9 +38,7 @@ export default async function BlogPostPage({
               <span>{formatDate(meta?.date || "")}</span>
             </div>
 
-            <h1 className="fs-4xl lg:fs-5xl fw-400 mb-6 tc-white">
-              {meta?.title}
-            </h1>
+            <h1 className="fs-4xl lg:fs-5xl fw-400 mb-6 tc-white">{meta?.title}</h1>
 
             <p className="fs-lg tc-white/70 mb-6 lh-5">{meta?.description}</p>
 
@@ -57,12 +46,7 @@ export default async function BlogPostPage({
               <div className="d-f ai-c g-4 fs-lg tc-white/70">
                 <div className="d-f ai-c g-2">
                   <Avatar src={author.avatar} alt={author.name} />
-                  <Link
-                    href={author.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="tc-white/70 h:tc-white"
-                  >
+                  <Link href={author.url} target="_blank" rel="noopener noreferrer" className="tc-white/70 h:tc-white">
                     {author.name}
                   </Link>
                 </div>
@@ -72,36 +56,13 @@ export default async function BlogPostPage({
 
           {meta?.cover && (
             <div className="mb-12 o-h b-1 bc-white/10">
-              <Image
-                src={`/blog/${slug}.png`}
-                alt={meta.title || "Blog cover"}
-                width={1200}
-                height={630}
-                className="w-full h-auto"
-                quality={100}
-              />
+              <Image src={`/blog/${slug}.png`} alt={meta.title || "Blog cover"} width={1200} height={630} className="w-full h-auto" quality={100} />
             </div>
           )}
 
           <div className="max-w-none">
             <Content />
           </div>
-
-          <footer className="mt-16 pt-8 bt-1 bc-white/10">
-            <div className="d-f fd-c g-8">
-              <div className="d-f ai-c jc-sb">
-                <div className="d-f ai-c g-2">
-                  <Link
-                    href="/blog"
-                    className="d-if ai-c g-2 px-4 py-2 fs-sm tc-white/70 h:tc-white h:bg-white/20"
-                  >
-                    <CaretLeftIcon />
-                    Back to Blog
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </footer>
         </article>
 
         <TableOfContents />
