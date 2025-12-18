@@ -20,22 +20,20 @@
   --end: #595cd9;
   --via: #12a695;
   animation-direction: reverse;
-  background-image: repeating-linear-gradient(
-    60deg,
-    var(--end),
-    var(--start) 2%,
-    var(--start) 5%,
-    transparent 8%,
-    transparent 14%,
-    var(--via) 18%,
-    var(--via) 22%,
-    var(--mid) 28%,
-    var(--mid) 30%,
-    var(--via) 34%,
-    var(--via) 36%,
-    transparent,
-    var(--end) calc(50% - 12px)
-  );
+  background-image: repeating-linear-gradient(60deg,
+      var(--end),
+      var(--start) 2%,
+      var(--start) 5%,
+      transparent 8%,
+      transparent 14%,
+      var(--via) 18%,
+      var(--via) 22%,
+      var(--mid) 28%,
+      var(--mid) 30%,
+      var(--via) 34%,
+      var(--via) 36%,
+      transparent,
+      var(--end) calc(50% - 12px));
   background-size: 200% 100%;
   mix-blend-mode: difference;
 }
@@ -43,13 +41,11 @@
 #area {
   background-color: #151724;
   background-size: 10px 10px;
-  background-image: repeating-linear-gradient(
-    45deg,
-    #31365e 0,
-    #31365e 1px,
-    #151724 0,
-    #151724 50%
-  );
+  background-image: repeating-linear-gradient(45deg,
+      #31365e 0,
+      #31365e 1px,
+      #151724 0,
+      #151724 50%);
 }
 
 /* Scrollbar styling for sidebar and TOC */
@@ -74,4 +70,14 @@ aside::-webkit-scrollbar-thumb:hover {
 aside {
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
+}
+
+/* Fix iOS sticky navbar momentum scrolling issue */
+header[class*="p-st"] {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  will-change: transform;
+  position: -webkit-sticky;
 }
