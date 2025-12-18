@@ -1,10 +1,10 @@
-# [yummacss.com/docs](www.yummacss.com)
+# Yumma CSS Docs
 
-The Yumma CSS documentation site.
+Welcome to the Yumma CSS documentation. Here you will find detailed information about the framework's features, components, and usage.
 
-## Running locally
+To preview the docs locally you will need to have Node.js installed on your machine.
 
-```bash
+```
 npm install
 npm run dev
 ```

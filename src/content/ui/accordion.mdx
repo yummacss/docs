@@ -8,120 +8,61 @@ export const meta = {
 <Preview id="accordion-basic" variant="inline" className="bg-white" />
 
 ```html
-<div class="d-f fd-c" role="presentation">
-  <div class="b-1 bc-silver-2">
-    <h3 class="m-0">
-      <button
-        id="accordion-basic-q1-button"
-        class="p-4 c-p d-f jc-sb ai-c lst-none fw-600 rad-0 w-100 ta-l f:oc-silver-4 f:os-s f:ow-2"
-        aria-expanded="true"
-        aria-controls="accordion-basic-q1-panel"
-        type="button"
+<div class="d-f fd-c">
+  <details class="b-1 bc-silver-2 bb-none">
+    <summary class="p-4 c-p d-f jc-sb ai-c lst-none fw-600 rad-0">
+      <b class="tc-slate">Is Yumma CSS free?</b>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="fs-lg tc-slate-8 h-4 w-4"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
       >
-        <span class="ff-s tc-slate">Is Yumma CSS free?</span>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="fs-lg tc-slate-8 h-4 w-4 ml-auto"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          aria-hidden="true"
-          focusable="false"
-        >
-          <title>Expand</title>
-          <path d="m6 9 6 6 6-6" />
-        </svg>
-      </button>
-    </h3>
-    <section
-      id="accordion-basic-q1-panel"
-      aria-labelledby="accordion-basic-q1-button"
-      class="px-4 pb-4 tc-slate fs-sm lh-4"
-    >
-      <p class="tc-slate-6">
-        Yes, Yumma CSS is completely free and open-source. You can use it in personal and commercial projects.
-      </p>
-    </section>
-  </div>
-  <div class="b-1 bt-0 bc-silver-2">
-    <h3 class="m-0">
-      <button
-        id="accordion-basic-q2-button"
-        class="p-4 c-p d-f jc-sb ai-c lst-none fw-600 rad-0 w-100 ta-l f:oc-silver-4 f:os-s f:ow-2"
-        aria-expanded="false"
-        aria-controls="accordion-basic-q2-panel"
-        type="button"
+        <path d="m6 9 6 6 6-6" />
+      </svg>
+    </summary>
+    <div class="px-4 pb-4 tc-slate fs-sm lh-4">Yes, Yumma CSS is completely free and open-source. You can use it in personal and commercial projects.</div>
+  </details>
+  <details class="b-1 bt-0 bc-silver-2">
+    <summary class="p-4 c-p d-f jc-sb ai-c lst-none fw-600 rad-0">
+      <b class="tc-slate">Can I use it with React?</b>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="fs-lg tc-slate-8 h-4 w-4"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
       >
-        <span class="ff-s tc-slate">Can I use it with React?</span>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="fs-lg tc-slate-8 h-4 w-4 ml-auto"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          aria-hidden="true"
-          focusable="false"
-        >
-          <title>Expand</title>
-          <path d="m6 9 6 6 6-6" />
-        </svg>
-      </button>
-    </h3>
-    <section
-      id="accordion-basic-q2-panel"
-      aria-labelledby="accordion-basic-q2-button"
-      class="px-4 pb-4 tc-slate fs-sm lh-4"
-      hidden
-    >
-      <p class="tc-slate-6">
-        Absolutely! Yumma CSS is framework-agnostic and works perfectly with React, Vue, Svelte, and vanilla HTML.
-      </p>
-    </section>
-  </div>
-  <div class="b-1 bt-0 bc-silver-2 rad-b-0">
-    <h3 class="m-0">
-      <button
-        id="accordion-basic-q3-button"
-        class="p-4 c-p d-f jc-sb ai-c lst-none fw-600 rad-0 w-100 ta-l f:oc-silver-4 f:os-s f:ow-2"
-        aria-expanded="false"
-        aria-controls="accordion-basic-q3-panel"
-        type="button"
+        <path d="m6 9 6 6 6-6" />
+      </svg>
+    </summary>
+    <div class="px-4 pb-4 tc-slate fs-sm lh-4">Absolutely! Yumma CSS is framework-agnostic and works perfectly with React, Vue, Svelte, and vanilla HTML.</div>
+  </details>
+  <details open class="b-1 bt-0 bc-silver-2 rad-b-0">
+    <summary class="p-4 c-p d-f jc-sb ai-c lst-none fw-600 rad-0">
+      <b class="tc-slate">Is Yumma UI mobile friendly?</b>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="fs-lg tc-slate-8 h-4 w-4"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
       >
-        <span class="ff-s tc-slate">Is Yumma UI mobile friendly?</span>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="fs-lg tc-slate-8 h-4 w-4 ml-auto"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          aria-hidden="true"
-          focusable="false"
-        >
-          <title>Expand</title>
-          <path d="m6 9 6 6 6-6" />
-        </svg>
-      </button>
-    </h3>
-    <section
-      id="accordion-basic-q3-panel"
-      aria-labelledby="accordion-basic-q3-button"
-      class="px-4 pb-4 tc-slate fs-sm lh-4"
-      hidden
-    >
-      <p class="tc-slate-6">
-        Yes, Yumma UI is mobile-friendly and works great on all devices.
-      </p>
-    </section>
-  </div>
+        <path d="m6 9 6 6 6-6" />
+      </svg>
+    </summary>
+    <div class="px-4 pb-4 tc-slate fs-sm lh-4">Yes, Yumma UI is mobile-friendly and works great on all devices.</div>
+  </details>
 </div>
 ```
 
@@ -130,82 +71,43 @@ export const meta = {
 <Preview id="accordion-separated" variant="inline" className="bg-white" />
 
 ```html
-<div class="d-f fd-c g-2" role="presentation">
-  <div class="b-1 bc-silver-2">
-    <h3 class="m-0">
-      <button
-        id="accordion-separated-q1-button"
-        class="p-4 c-p d-f jc-sb ai-c lst-none fw-600 rad-0 w-100 ta-l"
-        aria-expanded="true"
-        aria-controls="accordion-separated-q1-panel"
-        type="button"
+<div class="d-f fd-c g-2">
+  <details class="b-1 bc-silver-2">
+    <summary class="p-4 c-p d-f jc-sb ai-c lst-none fw-600 rad-0">
+      <b class="tc-slate">Is Yumma CSS free?</b>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="fs-lg tc-slate-8 h-4 w-4"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
       >
-        <span class="ff-s tc-slate">Is Yumma CSS free?</span>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="fs-lg tc-slate-8 h-4 w-4 ml-auto"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          aria-hidden="true"
-          focusable="false"
-        >
-          <title>Expand</title>
-          <path d="m6 9 6 6 6-6" />
-        </svg>
-      </button>
-    </h3>
-    <section
-      id="accordion-separated-q1-panel"
-      aria-labelledby="accordion-separated-q1-button"
-      class="px-4 pb-4 tc-slate fs-sm lh-4"
-    >
-      <p class="tc-slate-6">
-        Yes, Yumma CSS is completely free and open-source. You can use it in personal and commercial projects.
-      </p>
-    </section>
-  </div>
-  <div class="b-1 bc-silver-2">
-    <h3 class="m-0">
-      <button
-        id="accordion-separated-q2-button"
-        class="p-4 c-p d-f jc-sb ai-c lst-none fw-600 rad-0 w-100 ta-l"
-        aria-expanded="false"
-        aria-controls="accordion-separated-q2-panel"
-        type="button"
+        <path d="m6 9 6 6 6-6" />
+      </svg>
+    </summary>
+    <div class="px-4 pb-4 tc-slate fs-sm lh-4">Yes, Yumma CSS is completely free and open-source. You can use it in personal and commercial projects.</div>
+  </details>
+  <details open class="b-1 bc-silver-2">
+    <summary class="p-4 c-p d-f jc-sb ai-c lst-none fw-600 rad-0">
+      <b class="tc-slate">Can I use it with React?</b>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="fs-lg tc-slate-8 h-4 w-4"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
       >
-        <span class="ff-s tc-slate">Can I use it with React?</span>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="fs-lg tc-slate-8 h-4 w-4 ml-auto"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          aria-hidden="true"
-          focusable="false"
-        >
-          <title>Expand</title>
-          <path d="m6 9 6 6 6-6" />
-        </svg>
-      </button>
-    </h3>
-    <section
-      id="accordion-separated-q2-panel"
-      aria-labelledby="accordion-separated-q2-button"
-      class="px-4 pb-4 tc-slate fs-sm lh-4"
-      hidden
-    >
-      <p class="tc-slate-6">
-        Absolutely! Yumma CSS is framework-agnostic and works perfectly with React, Vue, Svelte, and vanilla HTML.
-      </p>
-    </section>
-  </div>
+        <path d="m6 9 6 6 6-6" />
+      </svg>
+    </summary>
+    <div class="px-4 pb-4 tc-slate fs-sm lh-4">Absolutely! Yumma CSS is framework-agnostic and works perfectly with React, Vue, Svelte, and vanilla HTML.</div>
+  </details>
 </div>
 ```
 
@@ -214,120 +116,61 @@ export const meta = {
 <Preview id="accordion-ghost" variant="inline" className="bg-white" />
 
 ```html
-<div class="d-f fd-c" role="presentation">
-  <div class="bb-1 bc-silver-2">
-    <h3 class="m-0">
-      <button
-        id="accordion-ghost-q1-button"
-        class="p-4 c-p d-f jc-sb ai-c lst-none fw-600 rad-0 w-100 ta-l"
-        aria-expanded="true"
-        aria-controls="accordion-ghost-q1-panel"
-        type="button"
+<div class="d-f fd-c">
+  <details class="bb-1 bc-silver-2">
+    <summary class="p-4 c-p d-f jc-sb ai-c lst-none fw-600 rad-0">
+      <b class="tc-slate">Is Yumma CSS free?</b>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="fs-lg tc-slate-8 h-4 w-4"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
       >
-        <span class="ff-s tc-slate">Is Yumma CSS free?</span>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="fs-lg tc-slate-8 h-4 w-4 ml-auto"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          aria-hidden="true"
-          focusable="false"
-        >
-          <title>Expand</title>
-          <path d="m6 9 6 6 6-6" />
-        </svg>
-      </button>
-    </h3>
-    <section
-      id="accordion-ghost-q1-panel"
-      aria-labelledby="accordion-ghost-q1-button"
-      class="px-4 pb-4 tc-slate fs-sm lh-4"
-    >
-      <p class="tc-slate-6">
-        Yes, Yumma CSS is completely free and open-source. You can use it in personal and commercial projects.
-      </p>
-    </section>
-  </div>
-  <div class="bb-1 bc-silver-2">
-    <h3 class="m-0">
-      <button
-        id="accordion-ghost-q2-button"
-        class="p-4 c-p d-f jc-sb ai-c lst-none fw-600 rad-0 w-100 ta-l"
-        aria-expanded="false"
-        aria-controls="accordion-ghost-q2-panel"
-        type="button"
+        <path d="m6 9 6 6 6-6" />
+      </svg>
+    </summary>
+    <div class="px-4 pb-4 tc-slate fs-sm lh-4">Yes, Yumma CSS is completely free and open-source. You can use it in personal and commercial projects.</div>
+  </details>
+  <details class="bb-1 bc-silver-2">
+    <summary class="p-4 c-p d-f jc-sb ai-c lst-none fw-600 rad-0">
+      <b class="tc-slate">Can I use it with React?</b>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="fs-lg tc-slate-8 h-4 w-4"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
       >
-        <span class="ff-s tc-slate">Can I use it with React?</span>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="fs-lg tc-slate-8 h-4 w-4 ml-auto"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          aria-hidden="true"
-          focusable="false"
-        >
-          <title>Expand</title>
-          <path d="m6 9 6 6 6-6" />
-        </svg>
-      </button>
-    </h3>
-    <section
-      id="accordion-ghost-q2-panel"
-      aria-labelledby="accordion-ghost-q2-button"
-      class="px-4 pb-4 tc-slate fs-sm lh-4"
-      hidden
-    >
-      <p class="tc-slate-6">
-        Absolutely! Yumma CSS is framework-agnostic and works perfectly with React, Vue, Svelte, and vanilla HTML.
-      </p>
-    </section>
-  </div>
-  <div class="bb-1 bc-silver-2">
-    <h3 class="m-0">
-      <button
-        id="accordion-ghost-q3-button"
-        class="p-4 c-p d-f jc-sb ai-c lst-none fw-600 rad-0 w-100 ta-l"
-        aria-expanded="false"
-        aria-controls="accordion-ghost-q3-panel"
-        type="button"
+        <path d="m6 9 6 6 6-6" />
+      </svg>
+    </summary>
+    <div class="px-4 pb-4 tc-slate fs-sm lh-4">Absolutely! Yumma CSS is framework-agnostic and works perfectly with React, Vue, Svelte, and vanilla HTML.</div>
+  </details>
+  <details open class="bb-1 bc-silver-2">
+    <summary class="p-4 c-p d-f jc-sb ai-c lst-none fw-600 rad-0">
+      <b class="tc-slate">Is Yumma UI mobile friendly?</b>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="fs-lg tc-slate-8 h-4 w-4"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
       >
-        <span class="ff-s tc-slate">Is Yumma UI mobile friendly?</span>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="fs-lg tc-slate-8 h-4 w-4 ml-auto"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          aria-hidden="true"
-          focusable="false"
-        >
-          <title>Expand</title>
-          <path d="m6 9 6 6 6-6" />
-        </svg>
-      </button>
-    </h3>
-    <section
-      id="accordion-ghost-q3-panel"
-      aria-labelledby="accordion-ghost-q3-button"
-      class="px-4 pb-4 tc-slate fs-sm lh-4"
-      hidden
-    >
-      <p class="tc-slate-6">
-        Yes, Yumma UI is mobile-friendly and works great on all devices.
-      </p>
-    </section>
-  </div>
+        <path d="m6 9 6 6 6-6" />
+      </svg>
+    </summary>
+    <div class="px-4 pb-4 tc-slate fs-sm lh-4">Yes, Yumma UI is mobile-friendly and works great on all devices.</div>
+  </details>
 </div>
 ```
 
@@ -336,173 +179,108 @@ export const meta = {
 <Preview id="accordion-icons" variant="inline" className="bg-white" />
 
 ```html
-<div class="d-f fd-c g-2" role="presentation">
-  <div class="b-1 bc-silver-2">
-    <h3 class="m-0">
-      <button
-        id="accordion-icons-q1-button"
-        class="p-4 c-p d-f jc-sb ai-c lst-none fw-600 rad-0 w-100 ta-l"
-        aria-expanded="true"
-        aria-controls="accordion-icons-q1-panel"
-        type="button"
-      >
-        <span class="d-f ai-c g-2">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="w-4 h-4 tc-slate-8"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            aria-hidden="true"
-            focusable="false"
-          >
-            <circle cx="12" cy="12" r="10" />
-            <path d="M12 16v-4" />
-            <path d="M12 8h.01" />
-          </svg>
-          <span class="ff-s tc-slate">Is Yumma CSS free?</span>
-        </span>
+<div class="d-f fd-c g-2">
+  <details class="b-1 bc-silver-2">
+    <summary class="p-4 c-p d-f jc-sb ai-c lst-none fw-600 rad-0">
+      <div class="d-f ai-c g-2">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class="fs-lg tc-slate-8 h-4 w-4 ml-auto"
+          class="w-4 h-4 tc-slate-8"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
           stroke-width="2"
           stroke-linecap="round"
           stroke-linejoin="round"
-          aria-hidden="true"
-          focusable="false"
         >
-          <title>Expand</title>
-          <path d="m6 9 6 6 6-6" />
+          <circle cx="12" cy="12" r="10" />
+          <path d="M12 16v-4" />
+          <path d="M12 8h.01" />
         </svg>
-      </button>
-    </h3>
-    <section
-      id="accordion-icons-q1-panel"
-      aria-labelledby="accordion-icons-q1-button"
-      class="px-4 pb-4 tc-slate fs-sm lh-4"
-    >
-      <p class="tc-slate-6">
-        Yes, Yumma CSS is completely free and open-source. You can use it in personal and commercial projects.
-      </p>
-    </section>
-  </div>
-  <div class="b-1 bc-silver-2">
-    <h3 class="m-0">
-      <button
-        id="accordion-icons-q2-button"
-        class="p-4 c-p d-f jc-sb ai-c lst-none fw-600 rad-0 w-100 ta-l"
-        aria-expanded="false"
-        aria-controls="accordion-icons-q2-panel"
-        type="button"
+        <b class="tc-slate">Is Yumma CSS free?</b>
+      </div>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="fs-lg tc-slate-8 h-4 w-4"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
       >
-        <span class="d-f ai-c g-2">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="w-4 h-4 tc-slate-8"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            aria-hidden="true"
-            focusable="false"
-          >
-            <circle cx="12" cy="12" r="10" />
-            <path d="M12 16v-4" />
-            <path d="M12 8h.01" />
-          </svg>
-          <span class="ff-s tc-slate">Can I use it with React?</span>
-        </span>
+        <path d="m6 9 6 6 6-6" />
+      </svg>
+    </summary>
+    <div class="px-4 pb-4 tc-slate fs-sm lh-4">Yes, Yumma CSS is completely free and open-source. You can use it in personal and commercial projects.</div>
+  </details>
+  <details class="b-1 bc-silver-2">
+    <summary class="p-4 c-p d-f jc-sb ai-c lst-none fw-600 rad-0">
+      <div class="d-f ai-c g-2">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class="fs-lg tc-slate-8 h-4 w-4 ml-auto"
+          class="w-4 h-4 tc-slate-8"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
           stroke-width="2"
           stroke-linecap="round"
           stroke-linejoin="round"
-          aria-hidden="true"
-          focusable="false"
         >
-          <title>Expand</title>
-          <path d="m6 9 6 6 6-6" />
+          <circle cx="12" cy="12" r="10" />
+          <path d="M12 16v-4" />
+          <path d="M12 8h.01" />
         </svg>
-      </button>
-    </h3>
-    <section
-      id="accordion-icons-q2-panel"
-      aria-labelledby="accordion-icons-q2-button"
-      class="px-4 pb-4 tc-slate fs-sm lh-4"
-      hidden
-    >
-      <p class="tc-slate-6">
-        Absolutely! Yumma CSS is framework-agnostic and works perfectly with React, Vue, Svelte, and vanilla HTML.
-      </p>
-    </section>
-  </div>
-  <div class="b-1 bc-silver-2">
-    <h3 class="m-0">
-      <button
-        id="accordion-icons-q3-button"
-        class="p-4 c-p d-f jc-sb ai-c lst-none fw-600 rad-0 w-100 ta-l"
-        aria-expanded="false"
-        aria-controls="accordion-icons-q3-panel"
-        type="button"
+        <b class="tc-slate">Can I use it with React?</b>
+      </div>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="fs-lg tc-slate-8 h-4 w-4"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
       >
-        <span class="d-f ai-c g-2">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="w-4 h-4 tc-slate-8"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            aria-hidden="true"
-            focusable="false"
-          >
-            <circle cx="12" cy="12" r="10" />
-            <path d="M12 16v-4" />
-            <path d="M12 8h.01" />
-          </svg>
-          <span class="ff-s tc-slate">Is Yumma UI mobile friendly?</span>
-        </span>
+        <path d="m6 9 6 6 6-6" />
+      </svg>
+    </summary>
+    <div class="px-4 pb-4 tc-slate fs-sm lh-4">Absolutely! Yumma CSS is framework-agnostic and works perfectly with React, Vue, Svelte, and vanilla HTML.</div>
+  </details>
+  <details open class="b-1 bc-silver-2">
+    <summary class="p-4 c-p d-f jc-sb ai-c lst-none fw-600 rad-0">
+      <div class="d-f ai-c g-2">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class="fs-lg tc-slate-8 h-4 w-4 ml-auto"
+          class="w-4 h-4 tc-slate-8"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
           stroke-width="2"
           stroke-linecap="round"
           stroke-linejoin="round"
-          aria-hidden="true"
-          focusable="false"
         >
-          <title>Expand</title>
-          <path d="m6 9 6 6 6-6" />
+          <circle cx="12" cy="12" r="10" />
+          <path d="M12 16v-4" />
+          <path d="M12 8h.01" />
         </svg>
-      </button>
-    </h3>
-    <section
-      id="accordion-icons-q3-panel"
-      aria-labelledby="accordion-icons-q3-button"
-      class="px-4 pb-4 tc-slate fs-sm lh-4"
-      hidden
-    >
-      <p class="tc-slate-6">
-        Yes, Yumma UI is mobile-friendly and works great on all devices.
-      </p>
-    </section>
-  </div>
+        <b class="tc-slate">Is Yumma UI mobile friendly?</b>
+      </div>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="fs-lg tc-slate-8 h-4 w-4"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="m6 9 6 6 6-6" />
+      </svg>
+    </summary>
+    <div class="px-4 pb-4 tc-slate fs-sm lh-4">Yes, Yumma UI is mobile-friendly and works great on all devices.</div>
+  </details>
 </div>
 ```

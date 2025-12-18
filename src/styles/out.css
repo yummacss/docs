@@ -2202,10 +2202,6 @@ summary {
   margin-left: 2rem;
 }
 
-.ml-auto {
-  margin-left: auto;
-}
-
 .mr-1 {
   margin-right: .25rem;
 }
@@ -3632,10 +3628,6 @@ summary {
 
 .w-10 {
   width: 2.5rem;
-}
-
-.w-100 {
-  width: 25rem;
 }
 
 .w-12 {
