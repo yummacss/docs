@@ -10,17 +10,14 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { type ReactNode, useEffect, useState } from "react";
 
-const OramaSearch = dynamic(
-  () => import("./orama-search").then((mod) => mod.OramaSearch),
-  {
-    ssr: false,
-  },
-);
+const OramaSearch = dynamic(() => import("./orama-search").then((mod) => mod.OramaSearch), {
+  ssr: false,
+});
 
 const navbarVariants = cva("p-st t-0 zi-10 bb-1", {
   variants: {
     variant: {
-      default: "bf-b-md bc-white/5",
+      default: "lg:bf-b-md bc-white/5",
       transparent: "bc-transparent",
     },
   },
@@ -53,18 +50,12 @@ export default function Navbar({ variant, className, links }: NavbarProps) {
 
   return (
     <>
-      <header className={clsx(navbarVariants({ variant }), className)}>
+      <header className={clsx(navbarVariants({ variant }), className)} style={{ backgroundColor: "#151724" }}>
         <div className="~sm-xxl mx-auto px-6 py-2">
           <nav className="d-f ai-c jc-sb">
             <div className="d-f ai-c g-2">
               <Link href={isUI ? "/ui" : "/"}>
-                <Image
-                  src={isUI ? "/ui-logotype.png" : "/logotype.png"}
-                  width={240}
-                  height={80}
-                  alt="Yumma CSS"
-                  className="h-10 w-auto of-c"
-                />
+                <Image src={isUI ? "/ui-logotype.png" : "/logotype.png"} width={240} height={80} alt="Yumma CSS" className="h-10 w-auto of-c" />
               </Link>
             </div>
             <div className="d-f ai-c g-8">
@@ -72,22 +63,13 @@ export default function Navbar({ variant, className, links }: NavbarProps) {
                 links
               ) : (
                 <>
-                  <Link
-                    href="/docs"
-                    className="d-none md:d-b fs-sm tc-white/80 h:tc-white"
-                  >
+                  <Link href="/docs" className="d-none md:d-b fs-sm tc-white/80 h:tc-white">
                     Docs
                   </Link>
-                  <Link
-                    href="/blog"
-                    className="d-none md:d-b fs-sm tc-white/80 h:tc-white"
-                  >
+                  <Link href="/blog" className="d-none md:d-b fs-sm tc-white/80 h:tc-white">
                     Blog
                   </Link>
-                  <Link
-                    href="/ui/introduction"
-                    className="d-none md:d-b fs-sm tc-white/80 h:tc-white"
-                  >
+                  <Link href="/ui/introduction" className="d-none md:d-b fs-sm tc-white/80 h:tc-white">
                     Components
                   </Link>
                   <Link
