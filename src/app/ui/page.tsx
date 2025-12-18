@@ -1,5 +1,4 @@
-import { BookOpen02Icon } from "@hugeicons/core-free-icons";
-import { HugeiconsIcon } from "@hugeicons/react";
+import { BookIcon } from "@phosphor-icons/react/dist/ssr";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SiHtml5, SiNextdotjs, SiReact } from "react-icons/si";
@@ -50,7 +49,7 @@ export default function UIPage() {
                   href="/"
                   className="px-6 py-3 fw-600 tc-white fs-md d-f ai-c g-2"
                 >
-                  <HugeiconsIcon icon={BookOpen02Icon} className="w-5 h-5" />
+                  <BookIcon className="w-5 h-5" />
                   Documentation
                 </Link>
               </div>
