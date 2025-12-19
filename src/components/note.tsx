@@ -1,5 +1,11 @@
 import {
+  ArrowsHorizontalIcon,
+  ArrowsVerticalIcon,
+  CursorClickIcon,
+  CursorIcon,
   CursorTextIcon,
+  HandPointingIcon,
+  HandSwipeRightIcon,
   HeartStraightIcon,
   InfoIcon,
   MouseScrollIcon,
@@ -9,10 +15,16 @@ import {
 import type { ReactNode } from "react";
 
 type IconName =
-  | "cursor_arrow"
+  | "arrows_horizontal"
+  | "arrows_vertical"
+  | "cursor_click"
   | "cursor_text"
+  | "cursor"
+  | "hand_pointing"
+  | "hand_swipe_right"
   | "heart"
   | "info"
+  | "mouse_scroll"
   | "size"
   | "width";
 
@@ -22,10 +34,16 @@ interface NoteProps {
 }
 
 const iconData: Record<IconName, any> = {
-  cursor_arrow: MouseScrollIcon,
+  arrows_horizontal: ArrowsHorizontalIcon,
+  arrows_vertical: ArrowsVerticalIcon,
+  cursor_click: CursorClickIcon,
   cursor_text: CursorTextIcon,
+  cursor: CursorIcon,
+  hand_pointing: HandPointingIcon,
+  hand_swipe_right: HandSwipeRightIcon,
   heart: HeartStraightIcon,
   info: InfoIcon,
+  mouse_scroll: MouseScrollIcon,
   size: ResizeIcon,
   width: RulerIcon,
 };
