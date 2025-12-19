@@ -6,32 +6,38 @@ export default function BreadcrumbChevrons() {
       </a>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="w-4 h-4 mx-2"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        className="w-3 h-3 mx-2"
+        viewBox="0 0 256 256"
         aria-hidden="true"
       >
-        <path d="m9 18 6-6-6-6" />
+        <rect width="256" height="256" fill="none" />
+        <polyline
+          points="96 48 176 128 96 208"
+          fill="none"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="16"
+        />
       </svg>
       <a href="/" className="h:tc-black td-none">
         Profile
       </a>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="w-4 h-4 mx-2"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        className="w-3 h-3 mx-2"
+        viewBox="0 0 256 256"
         aria-hidden="true"
       >
-        <path d="m9 18 6-6-6-6" />
+        <rect width="256" height="256" fill="none" />
+        <polyline
+          points="96 48 176 128 96 208"
+          fill="none"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="16"
+        />
       </svg>
       <span className="tc-black fw-600">Security</span>
     </nav>
