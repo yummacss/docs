@@ -1,0 +1,44 @@
+export const meta = {
+  title: "Agents to work with Yumma CSS",
+  description: "Making agents to work properly with Yumma CSS.",
+};
+
+Agents often guess Yumma CSS syntax, mix it with other frameworks, or invent non-existent class names when you ask AI models to build UIs with Yumma CSS.
+This happens because most models have little or no training data about Yumma CSS, so they fall back to "looks like Tailwind" or "looks like Bootstrap" patterns instead of the actual API.
+
+## Giving models proper context
+
+To make agents to work properly with Yumma CSS, you need to give them an explicit description of the framework.
+For that, we're providing a basic [CONTEXT.md](https://gist.githubusercontent.com/rrenildopereiraa/1e9086fbad5693b35e3aeb89c370d242/raw/04c87729b92c783ea49965e8aa124bfeada210c5/CONTEXT.md) file that explains the syntax, available utilities, and usage patterns in a model‑friendly way.
+
+[Preview CONTEXT.md](https://gist.githubusercontent.com/rrenildopereiraa/1e9086fbad5693b35e3aeb89c370d242/raw/04c87729b92c783ea49965e8aa124bfeada210c5/CONTEXT.md)
+
+## Using the CONTEXT.md file
+
+When using an agent, start by uploading [CONTEXT.md](https://gist.githubusercontent.com/rrenildopereiraa/1e9086fbad5693b35e3aeb89c370d242/raw/04c87729b92c783ea49965e8aa124bfeada210c5/CONTEXT.md) as a reference/document if the tool supports it.
+
+You can use this approach with:
+
+- [ChatGPT](https://chatgpt.com/)
+- [Claude Sonnet](https://claude.ai/)
+- [Gemini](https://gemini.google.com/)
+- [Copilot](https://copilot.com/)
+- [Grok](https://grok.com/)
+- [DeepSeek](https://deepseek.com/)
+
+## Using external services 
+
+You can also use external services to help you generate Yumma CSS code such as:
+
+- [v0](https://v0.dev/)
+- [Bolt](https://bolt.new/)
+- [Lovable](https://lovable.dev/)
+- [T3 Chat](https://t3.chat/)
+
+## Following good practices
+
+Even if the agent is using the CONTEXT.md file, it's important to follow some good practices to avoid hallucinations.
+
+- Always analyze the generated Yumma CSS classes and remove anything that doesn't exist in the docs.
+- Prefer short, focused requests (one component at a time) instead of "build my whole app," which makes hallucinations more likely.
+- Remember to use the CONTEXT.md file as a reference/document if the tool supports it.

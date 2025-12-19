@@ -110,8 +110,8 @@ export const sidebarConfig: SidebarConfig = [
     items: [
       { title: "Installation", slug: "installation" },
       { title: "Configuration", slug: "configuration" },
-      { title: "Using AI", slug: "using-ai" },
       { title: "Upgrading", slug: "upgrading" },
+      { title: "agents.md", slug: "agents" },
     ],
   },
   {
