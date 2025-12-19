@@ -51,8 +51,8 @@ export default function CardListBasic() {
           </svg>
         </div>
         <div className="f-1">
-          <h4 className="ff-s fs-sm fw-600 tc-slate mb-1">Roadmap.txt</h4>
-          <p className="fs-xs tc-slate-6 m-0">2.4 MB</p>
+          <h4 className="ff-s fs-sm fw-600 tc-slate mb-1">2024-roadmap.txt</h4>
+          <p className="fs-xs tc-slate-6 m-0">12 KB</p>
         </div>
       </div>
       <div className="d-f ai-c g-4 p-4 b-1 bc-silver-4 rad-0">
@@ -91,8 +91,8 @@ export default function CardListBasic() {
           </svg>
         </div>
         <div className="f-1">
-          <h4 className="ff-s fs-sm fw-600 tc-slate mb-1">Image.png</h4>
-          <p className="fs-xs tc-slate-6 m-0">1.2 MB</p>
+          <h4 className="ff-s fs-sm fw-600 tc-slate mb-1">beach-sunset.jpg</h4>
+          <p className="fs-xs tc-slate-6 m-0">2.1 MB</p>
         </div>
       </div>
       <div className="d-f ai-c g-4 p-4 b-1 bc-silver-4 rad-0">
@@ -161,8 +161,10 @@ export default function CardListBasic() {
           </svg>
         </div>
         <div className="f-1">
-          <h4 className="ff-s fs-sm fw-600 tc-slate mb-1">Report.xlsx</h4>
-          <p className="fs-xs tc-slate-6 m-0">856 KB</p>
+          <h4 className="ff-s fs-sm fw-600 tc-slate mb-1">
+            monthly-report.xlsx
+          </h4>
+          <p className="fs-xs tc-slate-6 m-0">45 KB</p>
         </div>
       </div>
     </div>
