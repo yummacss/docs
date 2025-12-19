@@ -12,16 +12,29 @@ export default function CtaSectionIcons() {
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="w-4 h-4"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
+            viewBox="0 0 256 256"
             aria-hidden="true"
           >
-            <path d="M5 12h14" />
-            <path d="m12 5 7 7-7 7" />
+            <rect width="256" height="256" fill="none" />
+            <line
+              x1="40"
+              y1="128"
+              x2="216"
+              y2="128"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="16"
+            />
+            <polyline
+              points="144 56 216 128 144 200"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="16"
+            />
           </svg>
           <span>Get started</span>
         </button>
@@ -32,17 +45,37 @@ export default function CtaSectionIcons() {
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="w-4 h-4"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
+            viewBox="0 0 256 256"
             aria-hidden="true"
           >
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-            <polyline points="7 10 12 15 17 10" />
-            <line x1="12" x2="12" y1="15" y2="3" />
+            <rect width="256" height="256" fill="none" />
+            <line
+              x1="128"
+              y1="144"
+              x2="128"
+              y2="32"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="16"
+            />
+            <polyline
+              points="216 144 216 208 40 208 40 144"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="16"
+            />
+            <polyline
+              points="168 104 128 144 88 104"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="16"
+            />
           </svg>
           <span>Download</span>
         </button>
