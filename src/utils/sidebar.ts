@@ -115,7 +115,7 @@ export const sidebarConfig: SidebarConfig = [
     ],
   },
   {
-    title: "Foundations",
+    title: "Foundation",
     items: [
       { title: "Styling Elements", slug: "styling-elements" },
       { title: "Colors", slug: "colors" },
