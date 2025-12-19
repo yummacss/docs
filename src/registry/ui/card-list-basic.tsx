@@ -5,7 +5,7 @@ export default function CardListBasic() {
         <div className="d-f ai-c jc-c d-10 rad-9 bg-silver-1 tc-slate">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="w-5 h-5"
+            className="w-6 h-6"
             viewBox="0 0 256 256"
             aria-hidden="true"
           >
@@ -51,7 +51,7 @@ export default function CardListBasic() {
           </svg>
         </div>
         <div className="f-1">
-          <h4 className="ff-s fs-sm fw-600 tc-slate mb-1">Document.pdf</h4>
+          <h4 className="ff-s fs-sm fw-600 tc-slate mb-1">Roadmap.txt</h4>
           <p className="fs-xs tc-slate-6 m-0">2.4 MB</p>
         </div>
       </div>
@@ -59,7 +59,7 @@ export default function CardListBasic() {
         <div className="d-f ai-c jc-c d-10 rad-9 bg-silver-1 tc-slate">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="w-5 h-5"
+            className="w-6 h-6"
             viewBox="0 0 256 256"
             aria-hidden="true"
           >
@@ -99,7 +99,7 @@ export default function CardListBasic() {
         <div className="d-f ai-c jc-c d-10 rad-9 bg-silver-1 tc-slate">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="w-5 h-5"
+            className="w-6 h-6"
             viewBox="0 0 256 256"
             aria-hidden="true"
           >
