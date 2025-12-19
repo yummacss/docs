@@ -1,3 +1,21 @@
+import type { Icon } from "@phosphor-icons/react";
+import {
+  ArrowClockwiseIcon,
+  BookOpenTextIcon,
+  CursorClickIcon,
+  FileSvgIcon,
+  FrameCornersIcon,
+  GridNineIcon,
+  ImageIcon,
+  LegoIcon,
+  SelectionAllIcon,
+  SelectionBackgroundIcon,
+  SubtractIcon,
+  SwatchesIcon,
+  TableIcon,
+  TextAaIcon,
+} from "@phosphor-icons/react/dist/ssr";
+
 export interface SidebarConfigItemBase {
   title: string;
   slug?: string;
@@ -110,12 +128,12 @@ export const sidebarConfig: SidebarConfig = [
     items: [
       { title: "Installation", slug: "installation" },
       { title: "Configuration", slug: "configuration" },
+      { title: "Agents", slug: "agents" },
       { title: "Upgrading", slug: "upgrading" },
-      { title: "agents.md", slug: "agents" },
     ],
   },
   {
-    title: "Foundation",
+    title: "Foundations",
     items: [
       { title: "Styling Elements", slug: "styling-elements" },
       { title: "Colors", slug: "colors" },
