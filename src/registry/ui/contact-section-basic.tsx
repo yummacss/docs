@@ -42,8 +42,18 @@ export default function ContactSectionBasic() {
               aria-hidden="true"
             >
               <rect width="256" height="256" fill="none" />
+              <circle
+                cx="128"
+                cy="128"
+                r="40"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="16"
+              />
               <path
-                d="M164.39,145.34a8,8,0,0,1,7.59-.69l47.16,21.13a8,8,0,0,1,4.8,8.3A48.33,48.33,0,0,1,176,216,136,136,0,0,1,40,80,48.33,48.33,0,0,1,81.92,32.06a8,8,0,0,1,8.3,4.8l21.13,47.2a8,8,0,0,1-.66,7.53L89.32,117a7.93,7.93,0,0,0-.54,7.81c8.27,16.93,25.77,34.22,42.75,42.41a7.92,7.92,0,0,0,7.83-.59Z"
+                d="M184,208c-15.21,10.11-36.37,16-56,16a96,96,0,1,1,96-96c0,22.09-8,40-28,40s-28-17.91-28-40V88"
                 fill="none"
                 stroke="currentColor"
                 strokeLinecap="round"
@@ -52,8 +62,8 @@ export default function ContactSectionBasic() {
               />
             </svg>
           </div>
-          <h3 className="ff-s fs-md fw-600 tc-slate-10 mb-1">Phone</h3>
-          <p className="fs-sm tc-silver-10 m-0">+1 (555) 000-0000</p>
+          <h3 className="ff-s fs-md fw-600 tc-slate-10 mb-1">Email</h3>
+          <p className="fs-sm tc-silver-10 m-0">company@example.com</p>
         </div>
         <div className="p-6 b-1 bc-silver-4 rad-0">
           <div className="d-f ai-c jc-c d-10 rad-9 bg-silver-1 tc-slate mb-4">
