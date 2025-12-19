@@ -7,15 +7,18 @@ export default function ComparisonListBasic() {
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-4 h-4"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+              viewBox="0 0 256 256"
               aria-hidden="true"
             >
-              <path d="M20 6 9 17l-5-5" />
+              <rect width="256" height="256" fill="none" />
+              <polyline
+                points="40 144 96 200 224 72"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="16"
+              />
             </svg>
           </div>
           <span className="fs-sm tc-slate">Unlimited projects</span>
@@ -25,15 +28,18 @@ export default function ComparisonListBasic() {
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-4 h-4"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+              viewBox="0 0 256 256"
               aria-hidden="true"
             >
-              <path d="M20 6 9 17l-5-5" />
+              <rect width="256" height="256" fill="none" />
+              <polyline
+                points="40 144 96 200 224 72"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="16"
+              />
             </svg>
           </div>
           <span className="fs-sm tc-slate">Priority support</span>
@@ -43,15 +49,18 @@ export default function ComparisonListBasic() {
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-4 h-4"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+              viewBox="0 0 256 256"
               aria-hidden="true"
             >
-              <path d="M20 6 9 17l-5-5" />
+              <rect width="256" height="256" fill="none" />
+              <polyline
+                points="40 144 96 200 224 72"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="16"
+              />
             </svg>
           </div>
           <span className="fs-sm tc-slate">Custom integrations</span>
@@ -61,16 +70,30 @@ export default function ComparisonListBasic() {
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-4 h-4"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+              viewBox="0 0 256 256"
               aria-hidden="true"
             >
-              <path d="M18 6 6 18" />
-              <path d="m6 6 12 12" />
+              <rect width="256" height="256" fill="none" />
+              <line
+                x1="200"
+                y1="56"
+                x2="56"
+                y2="200"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="16"
+              />
+              <line
+                x1="200"
+                y1="200"
+                x2="56"
+                y2="56"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="16"
+              />
             </svg>
           </div>
           <span className="fs-sm tc-slate-6">Dedicated account manager</span>
