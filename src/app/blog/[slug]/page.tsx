@@ -77,7 +77,6 @@ export default async function BlogPostPage({
                 width={1200}
                 height={630}
                 className="w-full h-auto"
-                quality={100}
               />
             </div>
           )}

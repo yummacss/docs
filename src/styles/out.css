@@ -2718,6 +2718,10 @@ summary {
   padding-top: 3.5rem;
 }
 
+.pt-16 {
+  padding-top: 4rem;
+}
+
 .pt-26 {
   padding-top: 6.5rem;
 }
@@ -3814,6 +3818,14 @@ summary {
 
   .sm\:gtc-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .sm\:pt-16 {
+    padding-top: 4rem;
+  }
+
+  .sm\:rad-0 {
+    border-radius: 0;
   }
 
   .sm\:ta-c {

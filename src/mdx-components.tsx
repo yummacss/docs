@@ -1,5 +1,3 @@
-import type { MDXComponents } from "mdx/types";
-import Image from "next/image";
 import ApiTable from "@/components/api-table";
 import Baseline from "@/components/baseline";
 import HoverVariant from "@/components/hover-variant";
@@ -11,6 +9,8 @@ import Note from "@/components/note";
 import Palette from "@/components/palette";
 import Stepper, { Step } from "@/components/stepper";
 import { Tabs, TabsList, TabsPanel, TabsTab } from "@/components/tabs";
+import type { MDXComponents } from "mdx/types";
+import Image from "next/image";
 import Preview from "./components/preview";
 
 // generate IDs from heading text
@@ -213,22 +213,18 @@ const components: MDXComponents = {
         {children}
       </strong>
     ),
-  img: ({ src, alt, ...props }) =>
-    props.className ? (
-      // biome-ignore lint/performance/noImgElement: i know what i'm doing
-      <img src={src} alt={alt || ""} {...props} />
-    ) : (
-      <Image
-        src={src as string}
-        alt={alt || ""}
-        className="w-full h-auto my-4"
-        quality={100}
-        width={1920}
-        height={1080}
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
-        {...props}
-      />
-    ),
+  img: ({ src, alt, className, ...props }) => (
+    <Image
+      src={src as string}
+      alt={alt || ""}
+      className={className || "w-full h-auto my-4"}
+      quality={100}
+      width={1920}
+      height={1080}
+      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+      {...props}
+    />
+  ),
   div: ({ children, ...props }) => <div {...props}>{children}</div>,
   // docs components
   ApiTable,
