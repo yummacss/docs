@@ -7,16 +7,34 @@ export default function CardGroupTwoColumns() {
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-5 h-5"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+              viewBox="0 0 256 256"
               aria-hidden="true"
             >
-              <path d="M3 3v16a2 2 0 0 0 2 2h16" />
-              <path d="m19 9-5 5-4-4-3 3" />
+              <rect width="256" height="256" fill="none" />
+              <polyline
+                points="224 208 32 208 32 48"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="16"
+              />
+              <polyline
+                points="200 72 128 144 96 112 32 176"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="16"
+              />
+              <polyline
+                points="200 112 200 72 160 72"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="16"
+              />
             </svg>
           </div>
           <h3 className="ff-s fs-md fw-600 tc-slate mb-2">Analytics</h3>
@@ -29,20 +47,69 @@ export default function CardGroupTwoColumns() {
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-5 h-5"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+              viewBox="0 0 256 256"
               aria-hidden="true"
             >
-              <path d="M12 8V4H8" />
-              <rect width="16" height="12" x="4" y="8" rx="2" />
-              <path d="M2 14h2" />
-              <path d="M20 14h2" />
-              <path d="M15 13v2" />
-              <path d="M9 13v2" />
+              <rect width="256" height="256" fill="none" />
+              <rect
+                x="32"
+                y="56"
+                width="192"
+                height="160"
+                rx="24"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="16"
+              />
+              <rect
+                x="72"
+                y="144"
+                width="112"
+                height="40"
+                rx="20"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="16"
+              />
+              <line
+                x1="148"
+                y1="144"
+                x2="148"
+                y2="184"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="16"
+              />
+              <line
+                x1="108"
+                y1="144"
+                x2="108"
+                y2="184"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="16"
+              />
+              <line
+                x1="128"
+                y1="56"
+                x2="128"
+                y2="16"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="16"
+              />
+              <circle cx="84" cy="108" r="12" />
+              <circle cx="172" cy="108" r="12" />
             </svg>
           </div>
           <h3 className="ff-s fs-md fw-600 tc-slate mb-2">Automation</h3>
@@ -55,16 +122,26 @@ export default function CardGroupTwoColumns() {
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-5 h-5"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+              viewBox="0 0 256 256"
               aria-hidden="true"
             >
-              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
-              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+              <rect width="256" height="256" fill="none" />
+              <path
+                d="M141.38,64.68l11-11a46.62,46.62,0,0,1,65.94,0h0a46.62,46.62,0,0,1,0,65.94L193.94,144,183.6,154.34a46.63,46.63,0,0,1-66-.05h0A46.48,46.48,0,0,1,104,120.06"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="16"
+              />
+              <path
+                d="M114.62,191.32l-11,11a46.63,46.63,0,0,1-66-.05h0a46.63,46.63,0,0,1,.06-65.89L72.4,101.66a46.62,46.62,0,0,1,65.94,0h0A46.45,46.45,0,0,1,152,135.94"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="16"
+              />
             </svg>
           </div>
           <h3 className="ff-s fs-md fw-600 tc-slate mb-2">Integrations</h3>
@@ -77,18 +154,44 @@ export default function CardGroupTwoColumns() {
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-5 h-5"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+              viewBox="0 0 256 256"
               aria-hidden="true"
             >
-              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-              <circle cx="9" cy="7" r="4" />
-              <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              <rect width="256" height="256" fill="none" />
+              <circle
+                cx="84"
+                cy="108"
+                r="52"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="16"
+              />
+              <path
+                d="M10.23,200a88,88,0,0,1,147.54,0"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="16"
+              />
+              <path
+                d="M172,160a87.93,87.93,0,0,1,73.77,40"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="16"
+              />
+              <path
+                d="M152.69,59.7A52,52,0,1,1,172,160"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="16"
+              />
             </svg>
           </div>
           <h3 className="ff-s fs-md fw-600 tc-slate mb-2">Collaboration</h3>
