@@ -14,7 +14,7 @@ export default async function BlogPage() {
   const years = Array.from(postsByYear.keys()).sort((a, b) => b - a);
 
   return (
-    <div className="py-10 sm:py-16">
+    <div className="pt-14 sm:pt-16">
       <div className="mx-auto my-16" style={{ maxWidth: "64rem" }}>
         <h1 className="fs-5xl fw-400 mt-6 tc-white">Blog articles</h1>
         <p className="fs-lg tc-white/70" style={{ maxWidth: "48rem" }}>
@@ -53,7 +53,6 @@ export default async function BlogPage() {
                             width={1200}
                             height={675}
                             className="w-full h-auto of-c"
-                            quality={100}
                           />
                         </div>
                       </div>
