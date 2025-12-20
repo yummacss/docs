@@ -36,7 +36,7 @@ export default function UIPage() {
                     <SealCheckIcon className="w-3 h-3" weight="fill" />
                   </span>
                   <span className="fs-xs fw-500 ls-4">
-                    We now use APG patterns!
+                    We are APG patterns compliant
                   </span>
                 </div>
               </Link>
