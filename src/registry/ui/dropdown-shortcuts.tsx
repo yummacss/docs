@@ -1,4 +1,4 @@
-export default function DropdownWithShortcuts() {
+export default function DropdownShortcuts() {
     return (
         <div className="d-ib">
             <button
@@ -80,7 +80,7 @@ export default function DropdownWithShortcuts() {
                             <span className="fs-xs tc-slate-5">Create a new document</span>
                         </div>
                     </div>
-                    <div className="d-f ai-c g-1 p-1 bg-silver-1 rad-0 tc-slate-5">
+                    <div className="d-f ai-c g-1 p-1 bg-silver-1 b-1 bc-silver-4 rad-0 tc-slate-5">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             className="w-3 h-3"
@@ -174,7 +174,7 @@ export default function DropdownWithShortcuts() {
                             <span className="fs-xs tc-slate-5">Copy to clipboard</span>
                         </div>
                     </div>
-                    <div className="d-f ai-c g-1 p-1 bg-silver-1 rad-0 tc-slate-5">
+                    <div className="d-f ai-c g-1 p-1 bg-silver-1 b-1 bc-silver-4 rad-0 tc-slate-5">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             className="w-3 h-3"
@@ -268,7 +268,7 @@ export default function DropdownWithShortcuts() {
                             <span className="fs-xs tc-slate-5">Modify file content</span>
                         </div>
                     </div>
-                    <div className="d-f ai-c g-1 p-1 bg-silver-1 rad-0 tc-slate-5">
+                    <div className="d-f ai-c g-1 p-1 bg-silver-1 b-1 bc-silver-4 rad-0 tc-slate-5">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             className="w-3 h-3"
@@ -382,7 +382,7 @@ export default function DropdownWithShortcuts() {
                             <span className="fs-xs tc-slate-5">Move to trash</span>
                         </div>
                     </div>
-                    <div className="d-f ai-c g-1 p-1 bg-silver-1 rad-0 tc-slate-5">
+                    <div className="d-f ai-c g-1 p-1 bg-silver-1 b-1 bc-silver-4 rad-0 tc-slate-5">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             className="w-3 h-3"
