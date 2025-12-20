@@ -78,7 +78,6 @@ import PricingSectionBasic from "./ui/pricing-section-basic";
 import StatisticsSectionBasic from "./ui/statistics-section-basic";
 import StatisticsSectionIcons from "./ui/statistics-section-icons";
 import TableBasic from "./ui/table-basic";
-import TableIcons from "./ui/table-icons";
 import TabsBasic from "./ui/tabs-basic";
 import TabsIcons from "./ui/tabs-icons";
 import TeamSectionGrid from "./ui/team-section-grid";
@@ -203,7 +202,6 @@ export const registry: Record<string, ComponentType> = {
   "statistics-section-icons": StatisticsSectionIcons,
   // Table
   "table-basic": TableBasic,
-  "table-icons": TableIcons,
   // Tabs
   "tabs-basic": TabsBasic,
   "tabs-icons": TabsIcons,
