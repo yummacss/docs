@@ -1,12 +1,30 @@
+"use client";
+
+import { useState } from "react";
+
 export default function PaginationEllipsis() {
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = 10;
+
+  const handlePageChange = (page: number, e: React.MouseEvent) => {
+    e.preventDefault();
+    if (page >= 1 && page <= totalPages) {
+      setCurrentPage(page);
+    }
+  };
+
+  const pages = [1, 2, "...", 9, 10];
+
   return (
     <nav aria-label="Pagination" className="d-f ai-c g-1">
       <ul className="d-f ai-c g-1 ls-none p-0 m-0">
         <li>
-          <a
-            href="/"
+          <button
+            type="button"
+            onClick={(e) => handlePageChange(currentPage - 1, e)}
             aria-label="Go to previous page"
-            className="d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 tc-slate-8 h:bg-silver-1"
+            className={`d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 tc-slate-8 h:bg-silver-1 b-0 c-p ${currentPage === 1 ? "o-05 pe-none" : ""
+              }`}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -24,60 +42,49 @@ export default function PaginationEllipsis() {
                 strokeWidth="16"
               />
             </svg>
-          </a>
+          </button>
         </li>
+        {pages.map((page) => (
+          <li key={page}>
+            {typeof page === "number" ? (
+              <button
+                type="button"
+                onClick={(e) => handlePageChange(page, e)}
+                aria-current={currentPage === page ? "page" : undefined}
+                className={`d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 b-0 c-p ${currentPage === page
+                  ? "bg-slate-8 tc-white"
+                  : "tc-slate-8 h:bg-silver-1 bg-transparent"
+                  }`}
+              >
+                {page}
+              </button>
+            ) : (
+              <span
+                className="d-f ai-c jc-c d-9 fs-sm tc-silver-10"
+                aria-hidden="true"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-4 h-4"
+                  viewBox="0 0 256 256"
+                >
+                  <title>Ellipsis</title>
+                  <rect width="256" height="256" fill="none" />
+                  <circle cx="128" cy="128" r="12" fill="currentColor" />
+                  <circle cx="196" cy="128" r="12" fill="currentColor" />
+                  <circle cx="60" cy="128" r="12" fill="currentColor" />
+                </svg>
+              </span>
+            )}
+          </li>
+        ))}
         <li>
-          <a
-            href="/"
-            aria-current="page"
-            className="d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 bg-slate-8 tc-white"
-          >
-            1
-          </a>
-        </li>
-        <li>
-          <a
-            href="/"
-            className="d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 tc-slate-8 h:bg-silver-1"
-          >
-            2
-          </a>
-        </li>
-        <li>
-          <span className="d-f ai-c jc-c d-9 fs-sm tc-silver-10" aria-hidden="true">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-4 h-4"
-              viewBox="0 0 256 256"
-            >
-              <rect width="256" height="256" fill="none" />
-              <circle cx="128" cy="128" r="12" fill="currentColor" />
-              <circle cx="196" cy="128" r="12" fill="currentColor" />
-              <circle cx="60" cy="128" r="12" fill="currentColor" />
-            </svg>
-          </span>
-        </li>
-        <li>
-          <a
-            href="/"
-            className="d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 tc-slate-8 h:bg-silver-1"
-          >
-            9
-          </a>
-        </li>
-        <li>
-          <a
-            href="/"
-            className="d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 tc-slate-8 h:bg-silver-1"
-          >
-            10
-          </a>
-        </li>
-        <li>
-          <a
-            href="/"
+          <button
+            type="button"
+            onClick={(e) => handlePageChange(currentPage + 1, e)}
             aria-label="Go to next page"
-            className="d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 tc-slate-8 h:bg-silver-1"
+            className={`d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 tc-slate-8 h:bg-silver-1 b-0 c-p ${currentPage === totalPages ? "o-05 pe-none" : ""
+              }`}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -95,7 +102,7 @@ export default function PaginationEllipsis() {
                 strokeWidth="16"
               />
             </svg>
-          </a>
+          </button>
         </li>
       </ul>
     </nav>
