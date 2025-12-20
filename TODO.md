@@ -4,7 +4,7 @@
 
 - [x] Dropdown
 
-- [ ] Pagination
+- [x] Pagination
 
 - [ ] Navbar
 
