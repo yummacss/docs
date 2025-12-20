@@ -2867,11 +2867,6 @@ summary {
   border-radius: 9999px;
 }
 
-.rad-b-0 {
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
 .rad-b-2 {
   border-bottom-right-radius: .5rem;
   border-bottom-left-radius: .5rem;
