@@ -23,17 +23,30 @@ export default function HeroSectionBasic() {
             <span>Learn more</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="w-4 h-4"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+              className="w-5 h-5"
+              viewBox="0 0 256 256"
               aria-hidden="true"
             >
-              <path d="M5 12h14" />
-              <path d="m12 5 7 7-7 7" />
+              <rect width="256" height="256" fill="none" />
+              <line
+                x1="40"
+                y1="128"
+                x2="216"
+                y2="128"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="16"
+              />
+              <polyline
+                points="144 56 216 128 144 200"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="16"
+              />
             </svg>
           </button>
         </div>
