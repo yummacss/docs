@@ -39,7 +39,7 @@ export default function AccordionSeparated() {
               aria-expanded={expanded === index}
               aria-controls={`accordion-panel-${index}`}
               onClick={() => toggle(index)}
-              className="p-4 c-p d-f jc-sb ai-c w-full b-1 bc-silver-2 fw-600 rad-0 bg-white h:bg-silver-1 f:oc-silver-1 f:os-s f:ow-2"
+              className="p-4 c-p d-f jc-sb ai-c w-full b-1 bc-silver-4 fw-600 rad-0 bg-white h:bg-silver-1 f:oc-silver-1 f:os-s f:ow-2"
             >
               <span className="ff-s tc-slate fs-md">{item.title}</span>
               <svg
@@ -70,7 +70,7 @@ export default function AccordionSeparated() {
             id={`accordion-panel-${index}`}
             aria-labelledby={`accordion-button-${index}`}
             hidden={expanded !== index}
-            className={`p-4 bg-white tc-slate fs-sm lh-4 b-1 bc-silver-2 bt-0 ${expanded === index ? "d-b" : "d-n"
+            className={`p-4 bg-white tc-slate fs-sm lh-4 b-1 bc-silver-4 bt-0 ${expanded === index ? "d-b" : "d-none"
               }`}
           >
             <p className="tc-slate-6 m-0">{item.content}</p>
