@@ -8,9 +8,56 @@ export const meta = {
 <Preview id="tabs-basic" className="bg-white" />
 
 ```html
-<div class="bg-silver-1 p-1 rad-0 d-if b-1 bc-silver-4">
-  <button class="fw-500 tc-black bg-white px-4 py-2 rad-0 b-1 bc-silver-4 sh-sm">For you</button>
-  <button class="fw-500 tc-silver-10 px-4 py-2 h:tc-black tr-c">Following</button>
+<div class="d-f fd-c g-4 w-full">
+  <div
+    role="tablist"
+    aria-label="Content Categories"
+    class="bg-silver-1 p-1 rad-0 d-if b-1 bc-silver-4"
+  >
+    <button
+      type="button"
+      role="tab"
+      id="tab-for-you"
+      aria-selected="true"
+      aria-controls="panel-for-you"
+      tabindex="0"
+      class="fw-500 tc-black bg-white px-4 py-2 rad-0 b-1 bc-silver-4 sh-sm"
+    >
+      For you
+    </button>
+    <button
+      type="button"
+      role="tab"
+      id="tab-following"
+      aria-selected="false"
+      aria-controls="panel-following"
+      tabindex="-1"
+      class="fw-500 tc-silver-10 px-4 py-2 h:tc-black tr-c"
+    >
+      Following
+    </button>
+  </div>
+
+  <div
+    role="tabpanel"
+    id="panel-for-you"
+    aria-labelledby="tab-for-you"
+    tabindex="0"
+    class="p-4 b-1 bc-silver-2 bg-white rad-0 tc-slate fs-sm d-b"
+  >
+    <p class="m-0">Content for the 'For you' tab. This section shows personalized recommendations based on your activity.</p>
+  </div>
+
+  <div
+    role="tabpanel"
+    id="panel-following"
+    aria-labelledby="tab-following"
+    hidden
+    tabindex="0"
+    class="p-4 b-1 bc-silver-2 bg-white rad-0 tc-slate fs-sm d-n"
+  >
+    <p class="m-0">Content for the 'Following' tab. Stay updated with the latest posts from people you follow.</p>
+  </div>
 </div>
 ```
 
@@ -19,110 +66,71 @@ export const meta = {
 <Preview id="tabs-icons" className="bg-white" />
 
 ```html
-<div class="bg-silver-1 p-1 rad-0 d-if b-1 bc-silver-4">
-  <button class="d-f ai-c g-2 fw-500 tc-black bg-white px-4 py-2 rad-0 b-1 bc-silver-4 sh-sm">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      class="w-5 h-5"
-      viewBox="0 0 256 256"
+<div class="d-f fd-c g-4 w-full">
+  <div
+    role="tablist"
+    aria-label="View Modes"
+    class="bg-silver-1 p-1 rad-0 d-if b-1 bc-silver-4"
+  >
+    <button
+      type="button"
+      role="tab"
+      id="tab-grid"
+      aria-selected="true"
+      aria-controls="panel-grid"
+      tabindex="0"
+      class="d-f ai-c g-2 fw-500 tc-black bg-white px-4 py-2 rad-0 b-1 bc-silver-4 sh-sm"
     >
-      <rect width="256" height="256" fill="none" />
-      <rect
-        x="48"
-        y="48"
-        width="64"
-        height="64"
-        rx="8"
-        fill="none"
-        stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="16"
-      />
-      <rect
-        x="144"
-        y="48"
-        width="64"
-        height="64"
-        rx="8"
-        fill="none"
-        stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="16"
-      />
-      <rect
-        x="48"
-        y="144"
-        width="64"
-        height="64"
-        rx="8"
-        fill="none"
-        stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="16"
-      />
-      <rect
-        x="144"
-        y="144"
-        width="64"
-        height="64"
-        rx="8"
-        fill="none"
-        stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="16"
-      />
-    </svg>
-    <span>Grid</span>
-  </button>
-  <button class="d-f ai-c g-2 fw-500 tc-silver-10 px-4 py-2 h:tc-black tr-c">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      class="w-5 h-5"
-      viewBox="0 0 256 256"
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 256 256" aria-hidden="true">
+        <rect width="256" height="256" fill="none" />
+        <rect x="48" y="48" width="64" height="64" rx="8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
+        <rect x="144" y="48" width="64" height="64" rx="8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
+        <rect x="48" y="144" width="64" height="64" rx="8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
+        <rect x="144" y="144" width="64" height="64" rx="8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
+      </svg>
+      <span>Grid</span>
+    </button>
+    <button
+      type="button"
+      role="tab"
+      id="tab-list"
+      aria-selected="false"
+      aria-controls="panel-list"
+      tabindex="-1"
+      class="d-f ai-c g-2 fw-500 tc-silver-10 px-4 py-2 h:tc-black tr-c"
     >
-      <rect width="256" height="256" fill="none" />
-      <line
-        x1="88"
-        y1="64"
-        x2="216"
-        y2="64"
-        fill="none"
-        stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="16"
-      />
-      <line
-        x1="88"
-        y1="128"
-        x2="216"
-        y2="128"
-        fill="none"
-        stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="16"
-      />
-      <line
-        x1="88"
-        y1="192"
-        x2="216"
-        y2="192"
-        fill="none"
-        stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="16"
-      />
-      <circle cx="44" cy="64" r="12" fill="currentColor" />
-      <circle cx="44" cy="128" r="12" fill="currentColor" />
-      <circle cx="44" cy="192" r="12" fill="currentColor" />
-    </svg>
-    <span>List</span>
-  </button>
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 256 256" aria-hidden="true">
+        <rect width="256" height="256" fill="none" />
+        <line x1="88" y1="64" x2="216" y2="64" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
+        <line x1="88" y1="128" x2="216" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
+        <line x1="88" y1="192" x2="216" y2="192" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
+        <circle cx="44" cy="64" r="12" fill="currentColor" />
+        <circle cx="44" cy="128" r="12" fill="currentColor" />
+        <circle cx="44" cy="192" r="12" fill="currentColor" />
+      </svg>
+      <span>List</span>
+    </button>
+  </div>
+
+  <div
+    role="tabpanel"
+    id="panel-grid"
+    aria-labelledby="tab-grid"
+    tabindex="0"
+    class="p-4 b-1 bc-silver-2 bg-white rad-0 tc-slate fs-sm d-b"
+  >
+    <p class="m-0">Grid view content. Optimized for visual browsing of large collections.</p>
+  </div>
+
+  <div
+    role="tabpanel"
+    id="panel-list"
+    aria-labelledby="tab-list"
+    hidden
+    tabindex="0"
+    class="p-4 b-1 bc-silver-2 bg-white rad-0 tc-slate fs-sm d-n"
+  >
+    <p class="m-0">List view content. Optimized for scanning detailed information quickly.</p>
+  </div>
 </div>
 ```
