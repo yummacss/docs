@@ -6,17 +6,49 @@ export default function NewsletterSectionCentered() {
           <div className="d-f ai-c jc-c d-12 rad-9 bg-slate-8 tc-white">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="w-5 h-5"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+              className="w-6 h-6"
+              viewBox="0 0 256 256"
               aria-hidden="true"
             >
-              <rect width="20" height="16" x="2" y="4" rx="2" />
-              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+              <rect width="256" height="256" fill="none" />
+              <line
+                x1="96"
+                y1="112"
+                x2="176"
+                y2="112"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="16"
+              />
+              <line
+                x1="96"
+                y1="144"
+                x2="176"
+                y2="144"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="16"
+              />
+              <path
+                d="M32,200a16,16,0,0,0,16-16V64a8,8,0,0,1,8-8H216a8,8,0,0,1,8,8V184a16,16,0,0,1-16,16Z"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="16"
+              />
+              <path
+                d="M32,200a16,16,0,0,1-16-16V88"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="16"
+              />
             </svg>
           </div>
         </div>
