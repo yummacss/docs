@@ -26,7 +26,7 @@ export default function DropdownIcons() {
       <div className="mt-1 p-1 bg-white b-1 bc-silver-4 rad-0 bs-3 min-w-44">
         <button
           type="button"
-          className="d-f ai-c g-2 w-full ta-l px-3 py-2 rad-0 fs-sm tc-slate-8 bg-transparent b-0 h:bg-silver-1 cu-p"
+          className="d-f ai-c g-2 w-full ta-l px-3 py-2 rad-0 fs-sm tc-slate-8 bg-transparent b-0 h:bg-silver-1 c-p"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -36,7 +36,15 @@ export default function DropdownIcons() {
           >
             <rect width="256" height="256" fill="none" />
             <path
-              d="M92.69,216H48a8,8,0,0,1-8-8V163.31a8,8,0,0,1,2.34-5.65L165.66,34.34a8,8,0,0,1,11.31,0L221.66,79a8,8,0,0,1,0,11.31L98.34,213.66A8,8,0,0,1,92.69,216Z"
+              d="M200,224H56a8,8,0,0,1-8-8V40a8,8,0,0,1,8-8h96l56,56V216A8,8,0,0,1,200,224Z"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="16"
+            />
+            <polyline
+              points="152 32 152 88 208 88"
               fill="none"
               stroke="currentColor"
               strokeLinecap="round"
@@ -44,10 +52,21 @@ export default function DropdownIcons() {
               strokeWidth="16"
             />
             <line
-              x1="136"
-              y1="64"
-              x2="192"
-              y2="120"
+              x1="104"
+              y1="152"
+              x2="152"
+              y2="152"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="16"
+            />
+            <line
+              x1="128"
+              y1="128"
+              x2="128"
+              y2="176"
               fill="none"
               stroke="currentColor"
               strokeLinecap="round"
@@ -55,11 +74,11 @@ export default function DropdownIcons() {
               strokeWidth="16"
             />
           </svg>
-          <span>Edit</span>
+          <span>New file</span>
         </button>
         <button
           type="button"
-          className="d-f ai-c g-2 w-full ta-l px-3 py-2 rad-0 fs-sm tc-slate-8 bg-transparent b-0 h:bg-silver-1 cu-p"
+          className="d-f ai-c g-2 w-full ta-l px-3 py-2 rad-0 fs-sm tc-slate-8 bg-transparent b-0 h:bg-silver-1 c-p"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -88,11 +107,11 @@ export default function DropdownIcons() {
               strokeWidth="16"
             />
           </svg>
-          <span>Copy</span>
+          <span>Copy link</span>
         </button>
         <button
           type="button"
-          className="d-f ai-c g-2 w-full ta-l px-3 py-2 rad-0 fs-sm tc-slate-8 bg-transparent b-0 h:bg-silver-1 cu-p"
+          className="d-f ai-c g-2 w-full ta-l px-3 py-2 rad-0 fs-sm tc-slate-8 bg-transparent b-0 h:bg-silver-1 c-p"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -101,20 +120,8 @@ export default function DropdownIcons() {
             aria-hidden="true"
           >
             <rect width="256" height="256" fill="none" />
-            <rect
-              x="24"
-              y="56"
-              width="208"
-              height="40"
-              rx="8"
-              fill="none"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="16"
-            />
             <path
-              d="M216,96v96a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V96"
+              d="M92.69,216H48a8,8,0,0,1-8-8V163.31a8,8,0,0,1,2.34-5.65L165.66,34.34a8,8,0,0,1,11.31,0L221.66,79a8,8,0,0,1,0,11.31L98.34,213.66A8,8,0,0,1,92.69,216Z"
               fill="none"
               stroke="currentColor"
               strokeLinecap="round"
@@ -122,10 +129,7 @@ export default function DropdownIcons() {
               strokeWidth="16"
             />
             <line
-              x1="104"
-              y1="136"
-              x2="152"
-              y2="136"
+              x1="136" y1="64" x2="192" y2="120"
               fill="none"
               stroke="currentColor"
               strokeLinecap="round"
@@ -133,12 +137,12 @@ export default function DropdownIcons() {
               strokeWidth="16"
             />
           </svg>
-          <span>Archive</span>
+          <span>Edit file</span>
         </button>
         <hr className="my-1 b-0 bt-1 bc-silver-4" />
         <button
           type="button"
-          className="d-f ai-c g-2 w-full ta-l px-3 py-2 rad-0 fs-sm tc-red bg-transparent b-0 h:bg-red-1 cu-p"
+          className="d-f ai-c g-2 w-full ta-l px-3 py-2 rad-0 fs-sm tc-red bg-transparent b-0 h:bg-red-1 c-p"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -197,7 +201,7 @@ export default function DropdownIcons() {
               strokeWidth="16"
             />
           </svg>
-          <span>Delete</span>
+          <span>Delete file</span>
         </button>
       </div>
     </div>
