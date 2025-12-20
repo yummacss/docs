@@ -1,8 +1,8 @@
 export default function TextareaError() {
   return (
     <div className="d-f fd-c g-1 w-full">
-      <label htmlFor="error-message" className="tc-slate-12 fw-600">
-        Message
+      <label htmlFor="error-message" className="fw-600 tc-slate-9">
+        Message <span className="tc-slate-9 us-none">*</span>
       </label>
       <textarea
         id="error-message"

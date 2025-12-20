@@ -1,8 +1,8 @@
 export default function InputError() {
   return (
     <div className="d-f fd-c g-1">
-      <label htmlFor="error-input" className="fw-600 tc-red">
-        Phone number <span className="tc-red us-none">*</span>
+      <label htmlFor="error-input" className="fw-600 tc-slate-9">
+        Phone number <span className="tc-slate-9 us-none">*</span>
       </label>
       <input
         id="error-input"
