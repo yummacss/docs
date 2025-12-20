@@ -26,15 +26,18 @@ export default function PricingSectionBasic() {
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="w-4 h-4 tc-green"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
+                viewBox="0 0 256 256"
                 aria-hidden="true"
               >
-                <path d="M20 6 9 17l-5-5" />
+                <rect width="256" height="256" fill="none" />
+                <polyline
+                  points="40 144 96 200 224 72"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="16"
+                />
               </svg>
               <span className="fs-sm tc-slate-8">Up to 3 projects</span>
             </li>
@@ -42,15 +45,18 @@ export default function PricingSectionBasic() {
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="w-4 h-4 tc-green"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
+                viewBox="0 0 256 256"
                 aria-hidden="true"
               >
-                <path d="M20 6 9 17l-5-5" />
+                <rect width="256" height="256" fill="none" />
+                <polyline
+                  points="40 144 96 200 224 72"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="16"
+                />
               </svg>
               <span className="fs-sm tc-slate-8">Basic analytics</span>
             </li>
@@ -58,15 +64,18 @@ export default function PricingSectionBasic() {
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="w-4 h-4 tc-green"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
+                viewBox="0 0 256 256"
                 aria-hidden="true"
               >
-                <path d="M20 6 9 17l-5-5" />
+                <rect width="256" height="256" fill="none" />
+                <polyline
+                  points="40 144 96 200 224 72"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="16"
+                />
               </svg>
               <span className="fs-sm tc-slate-8">Community support</span>
             </li>
@@ -99,15 +108,18 @@ export default function PricingSectionBasic() {
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="w-4 h-4 tc-green"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
+                viewBox="0 0 256 256"
                 aria-hidden="true"
               >
-                <path d="M20 6 9 17l-5-5" />
+                <rect width="256" height="256" fill="none" />
+                <polyline
+                  points="40 144 96 200 224 72"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="16"
+                />
               </svg>
               <span className="fs-sm tc-slate-8">Unlimited projects</span>
             </li>
@@ -115,15 +127,18 @@ export default function PricingSectionBasic() {
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="w-4 h-4 tc-green"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
+                viewBox="0 0 256 256"
                 aria-hidden="true"
               >
-                <path d="M20 6 9 17l-5-5" />
+                <rect width="256" height="256" fill="none" />
+                <polyline
+                  points="40 144 96 200 224 72"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="16"
+                />
               </svg>
               <span className="fs-sm tc-slate-8">Advanced analytics</span>
             </li>
@@ -131,15 +146,18 @@ export default function PricingSectionBasic() {
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="w-4 h-4 tc-green"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
+                viewBox="0 0 256 256"
                 aria-hidden="true"
               >
-                <path d="M20 6 9 17l-5-5" />
+                <rect width="256" height="256" fill="none" />
+                <polyline
+                  points="40 144 96 200 224 72"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="16"
+                />
               </svg>
               <span className="fs-sm tc-slate-8">Priority support</span>
             </li>
@@ -147,15 +165,18 @@ export default function PricingSectionBasic() {
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="w-4 h-4 tc-green"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
+                viewBox="0 0 256 256"
                 aria-hidden="true"
               >
-                <path d="M20 6 9 17l-5-5" />
+                <rect width="256" height="256" fill="none" />
+                <polyline
+                  points="40 144 96 200 224 72"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="16"
+                />
               </svg>
               <span className="fs-sm tc-slate-8">Custom integrations</span>
             </li>
