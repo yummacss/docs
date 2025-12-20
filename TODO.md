@@ -6,7 +6,7 @@
 
 - [x] Pagination
 
-- [ ] Navbar
+- [x] Navbar
 
 - [ ] Table (don't implement sorting)
 
