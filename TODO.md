@@ -8,7 +8,7 @@
 
 - [x] Navbar
 
-- [ ] Table (don't implement sorting)
+- [x] Table (don't implement sorting)
 
 - [ ] Checkbox
 
