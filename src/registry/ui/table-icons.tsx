@@ -50,15 +50,38 @@ export default function TableIcons() {
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="w-4 h-4"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
+                  viewBox="0 0 256 256"
+                  aria-hidden="true"
                 >
-                  <title>Options</title>
-                  <path d="M15 18l-6-6 6-6" />
+                  <title>Update</title>
+                  <rect width="256" height="256" fill="none" />
+                  <polygon
+                    points="128 160 96 160 96 128 192 32 224 64 128 160"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="16"
+                  />
+                  <line
+                    x1="168"
+                    y1="56"
+                    x2="200"
+                    y2="88"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="16"
+                  />
+                  <path
+                    d="M216,128v80a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V48a8,8,0,0,1,8-8h80"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="16"
+                  />
                 </svg>
               </a>
             </td>
@@ -93,15 +116,38 @@ export default function TableIcons() {
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="w-4 h-4"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
+                  viewBox="0 0 256 256"
+                  aria-hidden="true"
                 >
-                  <title>Options</title>
-                  <path d="M15 18l-6-6 6-6" />
+                  <title>Update</title>
+                  <rect width="256" height="256" fill="none" />
+                  <polygon
+                    points="128 160 96 160 96 128 192 32 224 64 128 160"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="16"
+                  />
+                  <line
+                    x1="168"
+                    y1="56"
+                    x2="200"
+                    y2="88"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="16"
+                  />
+                  <path
+                    d="M216,128v80a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V48a8,8,0,0,1,8-8h80"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="16"
+                  />
                 </svg>
               </a>
             </td>
@@ -136,15 +182,38 @@ export default function TableIcons() {
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="w-4 h-4"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
+                  viewBox="0 0 256 256"
+                  aria-hidden="true"
                 >
-                  <title>Options</title>
-                  <path d="M15 18l-6-6 6-6" />
+                  <title>Update</title>
+                  <rect width="256" height="256" fill="none" />
+                  <polygon
+                    points="128 160 96 160 96 128 192 32 224 64 128 160"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="16"
+                  />
+                  <line
+                    x1="168"
+                    y1="56"
+                    x2="200"
+                    y2="88"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="16"
+                  />
+                  <path
+                    d="M216,128v80a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V48a8,8,0,0,1,8-8h80"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="16"
+                  />
                 </svg>
               </a>
             </td>
