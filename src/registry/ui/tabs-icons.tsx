@@ -184,7 +184,7 @@ export default function TabsIcons() {
           aria-labelledby={`tab-${tab.id}`}
           hidden={activeTab !== index}
           tabIndex={0}
-          className={`p-4 b-1 bc-silver-2 bg-white rad-0 tc-slate fs-sm ${activeTab === index ? "d-b" : "d-n"
+          className={`p-4 b-1 bc-silver-2 bg-white rad-0 tc-slate fs-sm ${activeTab === index ? "d-b" : "d-none"
             } f:oc-silver-1 f:os-s f:ow-2`}
         >
           <p className="m-0">{tab.content}</p>

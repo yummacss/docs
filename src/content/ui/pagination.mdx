@@ -8,40 +8,64 @@ export const meta = {
 <Preview id="pagination-basic" className="bg-white" />
 
 ```html
-<nav class="d-f ai-c g-1">
-  <a href="#" class="d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 tc-slate-8 h:bg-silver-1">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      class="w-4 h-4"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-      <path d="m15 18-6-6 6-6" />
-    </svg>
-  </a>
-  <a href="#" class="d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 bg-slate-8 tc-white">1</a>
-  <a href="#" class="d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 tc-slate-8 h:bg-silver-1">2</a>
-  <a href="#" class="d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 tc-slate-8 h:bg-silver-1">3</a>
-  <a href="#" class="d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 tc-slate-8 h:bg-silver-1">4</a>
-  <a href="#" class="d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 tc-slate-8 h:bg-silver-1">5</a>
-  <a href="#" class="d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 tc-slate-8 h:bg-silver-1">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      class="w-4 h-4"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-      <path d="m9 18 6-6-6-6" />
-    </svg>
-  </a>
+<nav aria-label="Pagination" class="d-f ai-c g-1">
+  <ul class="d-f ai-c g-1 ls-none p-0 m-0">
+    <li>
+      <a href="#" aria-label="Go to previous page" class="d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 tc-slate-8 h:bg-silver-1">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-4 h-4"
+          viewBox="0 0 256 256"
+          aria-hidden="true"
+        >
+          <rect width="256" height="256" fill="none" />
+          <polyline
+            points="160 208 80 128 160 48"
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="16"
+          />
+        </svg>
+      </a>
+    </li>
+    <li>
+      <a href="#" aria-current="page" class="d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 bg-slate-8 tc-white">1</a>
+    </li>
+    <li>
+      <a href="#" class="d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 tc-slate-8 h:bg-silver-1">2</a>
+    </li>
+    <li>
+      <a href="#" class="d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 tc-slate-8 h:bg-silver-1">3</a>
+    </li>
+    <li>
+      <a href="#" class="d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 tc-slate-8 h:bg-silver-1">4</a>
+    </li>
+    <li>
+      <a href="#" class="d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 tc-slate-8 h:bg-silver-1">5</a>
+    </li>
+    <li>
+      <a href="#" aria-label="Go to next page" class="d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 tc-slate-8 h:bg-silver-1">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-4 h-4"
+          viewBox="0 0 256 256"
+          aria-hidden="true"
+        >
+          <rect width="256" height="256" fill="none" />
+          <polyline
+            points="96 48 176 128 96 208"
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="16"
+          />
+        </svg>
+      </a>
+    </li>
+  </ul>
 </nav>
 ```
 
@@ -50,40 +74,64 @@ export const meta = {
 <Preview id="pagination-outline" className="bg-white" />
 
 ```html
-<nav class="d-f ai-c g-1">
-  <a href="#" class="d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 tc-slate-8 b-1 bc-silver-4 h:bg-silver-1">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      class="w-4 h-4"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-      <path d="m15 18-6-6 6-6" />
-    </svg>
-  </a>
-  <a href="#" class="d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 bg-slate-8 tc-white b-1 bc-slate-8">1</a>
-  <a href="#" class="d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 tc-slate-8 b-1 bc-silver-4 h:bg-silver-1">2</a>
-  <a href="#" class="d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 tc-slate-8 b-1 bc-silver-4 h:bg-silver-1">3</a>
-  <a href="#" class="d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 tc-slate-8 b-1 bc-silver-4 h:bg-silver-1">4</a>
-  <a href="#" class="d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 tc-slate-8 b-1 bc-silver-4 h:bg-silver-1">5</a>
-  <a href="#" class="d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 tc-slate-8 b-1 bc-silver-4 h:bg-silver-1">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      class="w-4 h-4"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-      <path d="m9 18 6-6-6-6" />
-    </svg>
-  </a>
+<nav aria-label="Pagination" class="d-f ai-c g-1">
+  <ul class="d-f ai-c g-1 ls-none p-0 m-0">
+    <li>
+      <a href="#" aria-label="Go to previous page" class="d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 tc-slate-8 b-1 bc-silver-4 h:bg-silver-1">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-4 h-4"
+          viewBox="0 0 256 256"
+          aria-hidden="true"
+        >
+          <rect width="256" height="256" fill="none" />
+          <polyline
+            points="160 208 80 128 160 48"
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="16"
+          />
+        </svg>
+      </a>
+    </li>
+    <li>
+      <a href="#" aria-current="page" class="d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 bg-slate-8 tc-white b-1 bc-slate-8">1</a>
+    </li>
+    <li>
+      <a href="#" class="d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 tc-slate-8 b-1 bc-silver-4 h:bg-silver-1">2</a>
+    </li>
+    <li>
+      <a href="#" class="d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 tc-slate-8 b-1 bc-silver-4 h:bg-silver-1">3</a>
+    </li>
+    <li>
+      <a href="#" class="d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 tc-slate-8 b-1 bc-silver-4 h:bg-silver-1">4</a>
+    </li>
+    <li>
+      <a href="#" class="d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 tc-slate-8 b-1 bc-silver-4 h:bg-silver-1">5</a>
+    </li>
+    <li>
+      <a href="#" aria-label="Go to next page" class="d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 tc-slate-8 b-1 bc-silver-4 h:bg-silver-1">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-4 h-4"
+          viewBox="0 0 256 256"
+          aria-hidden="true"
+        >
+          <rect width="256" height="256" fill="none" />
+          <polyline
+            points="96 48 176 128 96 208"
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="16"
+          />
+        </svg>
+      </a>
+    </li>
+  </ul>
 </nav>
 ```
 
@@ -92,50 +140,74 @@ export const meta = {
 <Preview id="pagination-ellipsis" className="bg-white" />
 
 ```html
-<nav class="d-f ai-c g-1">
-  <a href="#" class="d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 tc-slate-8 h:bg-silver-1">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      class="w-4 h-4"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-      <path d="m15 18-6-6 6-6" />
-    </svg>
-  </a>
-  <a href="#" class="d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 bg-slate-8 tc-white">1</a>
-  <a href="#" class="d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 tc-slate-8 h:bg-silver-1">2</a>
-  <span class="d-f ai-c jc-c d-9 fs-sm tc-silver-10">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      class="w-4 h-4"
-      viewBox="0 0 256 256"
-    >
-      <rect width="256" height="256" fill="none" />
-      <circle cx="128" cy="128" r="12" fill="currentColor" />
-      <circle cx="196" cy="128" r="12" fill="currentColor" />
-      <circle cx="60" cy="128" r="12" fill="currentColor" />
-    </svg>
-  </span>
-  <a href="#" class="d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 tc-slate-8 h:bg-silver-1">9</a>
-  <a href="#" class="d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 tc-slate-8 h:bg-silver-1">10</a>
-  <a href="#" class="d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 tc-slate-8 h:bg-silver-1">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      class="w-4 h-4"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-      <path d="m9 18 6-6-6-6" />
-    </svg>
-  </a>
+<nav aria-label="Pagination" class="d-f ai-c g-1">
+  <ul class="d-f ai-c g-1 ls-none p-0 m-0">
+    <li>
+      <a href="#" aria-label="Go to previous page" class="d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 tc-slate-8 h:bg-silver-1">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-4 h-4"
+          viewBox="0 0 256 256"
+          aria-hidden="true"
+        >
+          <rect width="256" height="256" fill="none" />
+          <polyline
+            points="160 208 80 128 160 48"
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="16"
+          />
+        </svg>
+      </a>
+    </li>
+    <li>
+      <a href="#" aria-current="page" class="d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 bg-slate-8 tc-white">1</a>
+    </li>
+    <li>
+      <a href="#" class="d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 tc-slate-8 h:bg-silver-1">2</a>
+    </li>
+    <li>
+      <span class="d-f ai-c jc-c d-9 fs-sm tc-silver-10" aria-hidden="true">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-4 h-4"
+          viewBox="0 0 256 256"
+        >
+          <rect width="256" height="256" fill="none" />
+          <circle cx="128" cy="128" r="12" fill="currentColor" />
+          <circle cx="196" cy="128" r="12" fill="currentColor" />
+          <circle cx="60" cy="128" r="12" fill="currentColor" />
+        </svg>
+      </span>
+    </li>
+    <li>
+      <a href="#" class="d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 tc-slate-8 h:bg-silver-1">9</a>
+    </li>
+    <li>
+      <a href="#" class="d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 tc-slate-8 h:bg-silver-1">10</a>
+    </li>
+    <li>
+      <a href="#" aria-label="Go to next page" class="d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 tc-slate-8 h:bg-silver-1">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-4 h-4"
+          viewBox="0 0 256 256"
+          aria-hidden="true"
+        >
+          <rect width="256" height="256" fill="none" />
+          <polyline
+            points="96 48 176 128 96 208"
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="16"
+          />
+        </svg>
+      </a>
+    </li>
+  </ul>
 </nav>
 ```
