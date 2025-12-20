@@ -1729,6 +1729,10 @@ summary {
   height: 2rem;
 }
 
+.h-80 {
+  height: 20rem;
+}
+
 .h-90 {
   height: 22.5rem;
 }
@@ -2728,6 +2732,10 @@ summary {
 
 .pt-26 {
   padding-top: 6.5rem;
+}
+
+.pt-4 {
+  padding-top: 1rem;
 }
 
 .pt-6 {
