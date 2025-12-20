@@ -5,11 +5,17 @@ export const meta = {
 
 ## Basic Dropdown
 
-<Preview id="dropdown-basic" className="bg-white" />
+<Preview id="dropdown-basic" className="bg-white h-100" />
 
 ```html
-<div class="d-ib">
-  <button class="d-f ai-c g-2 px-4 py-2 rad-0 fs-sm fw-600 bg-white tc-slate-8 b-1 bc-silver-4 h:bg-silver-1 f:oc-silver-1 f:os-s f:ow-2">
+<div class="d-ib p-r">
+  <button
+    id="dropdown-button"
+    aria-haspopup="menu"
+    aria-expanded="true"
+    aria-controls="dropdown-menu"
+    class="d-f ai-c g-2 px-4 py-2 rad-0 fs-sm fw-600 bg-white tc-slate-8 b-1 bc-silver-4 h:bg-silver-1 f:oc-silver-1 f:os-s f:ow-2"
+  >
     <span>Actions</span>
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -24,23 +30,34 @@ export const meta = {
       <path d="m6 9 6 6 6-6" />
     </svg>
   </button>
-  <div class="mt-1 p-1 bg-white b-1 bc-silver-4 rad-0 bs-3 min-w-40">
-    <button class="d-b w-full ta-l px-3 py-2 rad-0 fs-sm tc-slate-8 bg-transparent b-0 h:bg-silver-1 c-p">New file</button>
-    <button class="d-b w-full ta-l px-3 py-2 rad-0 fs-sm tc-slate-8 bg-transparent b-0 h:bg-silver-1 c-p">Copy link</button>
-    <button class="d-b w-full ta-l px-3 py-2 rad-0 fs-sm tc-slate-8 bg-transparent b-0 h:bg-silver-1 c-p">Edit file</button>
+  <div
+    id="dropdown-menu"
+    role="menu"
+    aria-labelledby="dropdown-button"
+    class="p-a mt-1 p-1 bg-white b-1 bc-silver-4 rad-0 bs-3 min-w-40 z-10"
+  >
+    <button role="menuitem" tabindex="-1" class="d-b w-full ta-l px-3 py-2 rad-0 fs-sm tc-slate-8 bg-transparent b-0 h:bg-silver-1 c-p">New file</button>
+    <button role="menuitem" tabindex="-1" class="d-b w-full ta-l px-3 py-2 rad-0 fs-sm tc-slate-8 bg-transparent b-0 h:bg-silver-1 c-p">Copy link</button>
+    <button role="menuitem" tabindex="-1" class="d-b w-full ta-l px-3 py-2 rad-0 fs-sm tc-slate-8 bg-transparent b-0 h:bg-silver-1 c-p">Edit file</button>
     <hr class="my-1 b-0 bt-1 bc-silver-4" />
-    <button class="d-b w-full ta-l px-3 py-2 rad-0 fs-sm tc-red bg-transparent b-0 h:bg-red-1 c-p">Delete file</button>
+    <button role="menuitem" tabindex="-1" class="d-b w-full ta-l px-3 py-2 rad-0 fs-sm tc-red bg-transparent b-0 h:bg-red-1 c-p">Delete file</button>
   </div>
 </div>
 ```
 
 ## Icons
 
-<Preview id="dropdown-icons" className="bg-white" />
+<Preview id="dropdown-icons" className="bg-white h-100" />
 
 ```html
-<div class="d-ib">
-  <button class="d-f ai-c g-2 px-4 py-2 rad-0 fs-sm fw-600 bg-white tc-slate-8 b-1 bc-silver-4 h:bg-silver-1 f:oc-silver-1 f:os-s f:ow-2">
+<div class="d-ib p-r">
+  <button
+    id="dropdown-button"
+    aria-haspopup="menu"
+    aria-expanded="true"
+    aria-controls="dropdown-menu"
+    class="d-f ai-c g-2 px-4 py-2 rad-0 fs-sm fw-600 bg-white tc-slate-8 b-1 bc-silver-4 h:bg-silver-1 f:oc-silver-1 f:os-s f:ow-2"
+  >
     <span>Actions</span>
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -55,8 +72,13 @@ export const meta = {
       <path d="m6 9 6 6 6-6" />
     </svg>
   </button>
-  <div class="mt-1 p-1 bg-white b-1 bc-silver-4 rad-0 bs-3 min-w-44">
-    <button class="d-f ai-c g-2 w-full ta-l px-3 py-2 rad-0 fs-sm tc-slate-8 bg-transparent b-0 h:bg-silver-1 c-p">
+  <div
+    id="dropdown-menu"
+    role="menu"
+    aria-labelledby="dropdown-button"
+    class="p-a mt-1 p-1 bg-white b-1 bc-silver-4 rad-0 bs-3 min-w-44 z-10"
+  >
+    <button role="menuitem" tabindex="-1" class="d-f ai-c g-2 w-full ta-l px-3 py-2 rad-0 fs-sm tc-slate-8 bg-transparent b-0 h:bg-silver-1 c-p">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         class="w-4 h-4 tc-silver-10"
@@ -105,7 +127,7 @@ export const meta = {
       </svg>
       <span>New file</span>
     </button>
-    <button class="d-f ai-c g-2 w-full ta-l px-3 py-2 rad-0 fs-sm tc-slate-8 bg-transparent b-0 h:bg-silver-1 c-p">
+    <button role="menuitem" tabindex="-1" class="d-f ai-c g-2 w-full ta-l px-3 py-2 rad-0 fs-sm tc-slate-8 bg-transparent b-0 h:bg-silver-1 c-p">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         class="w-4 h-4 tc-silver-10"
@@ -135,7 +157,7 @@ export const meta = {
       </svg>
       <span>Copy link</span>
     </button>
-    <button class="d-f ai-c g-2 w-full ta-l px-3 py-2 rad-0 fs-sm tc-slate-8 bg-transparent b-0 h:bg-silver-1 c-p">
+    <button role="menuitem" tabindex="-1" class="d-f ai-c g-2 w-full ta-l px-3 py-2 rad-0 fs-sm tc-slate-8 bg-transparent b-0 h:bg-silver-1 c-p">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         class="w-4 h-4 tc-silver-10"
@@ -166,7 +188,7 @@ export const meta = {
       <span>Edit file</span>
     </button>
     <hr class="my-1 b-0 bt-1 bc-silver-4" />
-    <button class="d-f ai-c g-2 w-full ta-l px-3 py-2 rad-0 fs-sm tc-red bg-transparent b-0 h:bg-red-1 c-p">
+    <button role="menuitem" tabindex="-1" class="d-f ai-c g-2 w-full ta-l px-3 py-2 rad-0 fs-sm tc-red bg-transparent b-0 h:bg-red-1 c-p">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         class="w-4 h-4"
@@ -234,11 +256,17 @@ export const meta = {
 
 Display dropdown items with descriptions and keyboard shortcuts.
 
-<Preview id="dropdown-shortcuts" className="bg-white" />
+<Preview id="dropdown-shortcuts" className="bg-white h-100" />
 
 ```html
-<div class="d-ib">
-  <button class="d-f ai-c g-2 px-4 py-2 rad-0 fs-sm fw-600 bg-white tc-slate-8 b-1 bc-silver-4 h:bg-silver-1 f:oc-silver-1 f:os-s f:ow-2">
+<div class="d-ib p-r">
+  <button
+    id="dropdown-button"
+    aria-haspopup="menu"
+    aria-expanded="true"
+    aria-controls="dropdown-menu"
+    class="d-f ai-c g-2 px-4 py-2 rad-0 fs-sm fw-600 bg-white tc-slate-8 b-1 bc-silver-4 h:bg-silver-1 f:oc-silver-1 f:os-s f:ow-2"
+  >
     <span>Actions</span>
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -257,8 +285,13 @@ Display dropdown items with descriptions and keyboard shortcuts.
       />
     </svg>
   </button>
-  <div class="mt-1 p-1 bg-white b-1 bc-silver-4 rad-0 bs-3 min-w-64">
-    <button class="d-f ai-c jc-sb w-full ta-l px-3 py-2 rad-0 fs-sm tc-slate-8 bg-transparent b-0 h:bg-silver-1 c-p">
+  <div
+    id="dropdown-menu"
+    role="menu"
+    aria-labelledby="dropdown-button"
+    class="p-a mt-1 p-1 bg-white b-1 bc-silver-4 rad-0 bs-3 min-w-64 z-10"
+  >
+    <button role="menuitem" tabindex="-1" class="d-f ai-c jc-sb w-full ta-l px-3 py-2 rad-0 fs-sm tc-slate-8 bg-transparent b-0 h:bg-silver-1 c-p">
       <div class="d-f ai-c g-3">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -311,12 +344,11 @@ Display dropdown items with descriptions and keyboard shortcuts.
           <span class="fs-xs tc-slate-5">Create a new document</span>
         </div>
       </div>
-      <div class="d-f ai-c g-1 p-1 bg-silver-1 b-1 bc-silver-4 rad-0 tc-slate-5">
+      <div class="d-f ai-c g-1 p-1 bg-silver-1 b-1 bc-silver-4 rad-0 tc-slate-5" aria-hidden="true">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="w-3 h-3"
           viewBox="0 0 256 256"
-          aria-hidden="true"
         >
           <rect width="256" height="256" fill="none" />
           <path
@@ -368,7 +400,7 @@ Display dropdown items with descriptions and keyboard shortcuts.
         <span class="fs-xs">N</span>
       </div>
     </button>
-    <button class="d-f ai-c jc-sb w-full ta-l px-3 py-2 rad-0 fs-sm tc-slate-8 bg-transparent b-0 h:bg-silver-1 c-p">
+    <button role="menuitem" tabindex="-1" class="d-f ai-c jc-sb w-full ta-l px-3 py-2 rad-0 fs-sm tc-slate-8 bg-transparent b-0 h:bg-silver-1 c-p">
       <div class="d-f ai-c g-3">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -402,12 +434,11 @@ Display dropdown items with descriptions and keyboard shortcuts.
           <span class="fs-xs tc-slate-5">Copy to clipboard</span>
         </div>
       </div>
-      <div class="d-f ai-c g-1 p-1 bg-silver-1 b-1 bc-silver-4 rad-0 tc-slate-5">
+      <div class="d-f ai-c g-1 p-1 bg-silver-1 b-1 bc-silver-4 rad-0 tc-slate-5" aria-hidden="true">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="w-3 h-3"
           viewBox="0 0 256 256"
-          aria-hidden="true"
         >
           <rect width="256" height="256" fill="none" />
           <path
@@ -459,7 +490,7 @@ Display dropdown items with descriptions and keyboard shortcuts.
         <span class="fs-xs">C</span>
       </div>
     </button>
-    <button class="d-f ai-c jc-sb w-full ta-l px-3 py-2 rad-0 fs-sm tc-slate-8 bg-transparent b-0 h:bg-silver-1 c-p">
+    <button role="menuitem" tabindex="-1" class="d-f ai-c jc-sb w-full ta-l px-3 py-2 rad-0 fs-sm tc-slate-8 bg-transparent b-0 h:bg-silver-1 c-p">
       <div class="d-f ai-c g-3">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -493,12 +524,11 @@ Display dropdown items with descriptions and keyboard shortcuts.
           <span class="fs-xs tc-slate-5">Modify file content</span>
         </div>
       </div>
-      <div class="d-f ai-c g-1 p-1 bg-silver-1 b-1 bc-silver-4 rad-0 tc-slate-5">
+      <div class="d-f ai-c g-1 p-1 bg-silver-1 b-1 bc-silver-4 rad-0 tc-slate-5" aria-hidden="true">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="w-3 h-3"
           viewBox="0 0 256 256"
-          aria-hidden="true"
         >
           <rect width="256" height="256" fill="none" />
           <path
@@ -536,10 +566,8 @@ Display dropdown items with descriptions and keyboard shortcuts.
             stroke-width="16"
           />
           <rect
-            x="104"
-            y="104"
-            width="48"
-            height="48"
+            x="104" y="104"
+            width="48" height="48"
             fill="none"
             stroke="currentColor"
             stroke-linecap="round"
@@ -551,7 +579,7 @@ Display dropdown items with descriptions and keyboard shortcuts.
       </div>
     </button>
     <hr class="my-1 b-0 bt-1 bc-silver-4" />
-    <button class="d-f ai-c jc-sb w-full ta-l px-3 py-2 rad-0 fs-sm tc-red bg-transparent b-0 h:bg-red-1 c-p">
+    <button role="menuitem" tabindex="-1" class="d-f ai-c jc-sb w-full ta-l px-3 py-2 rad-0 fs-sm tc-red bg-transparent b-0 h:bg-red-1 c-p">
       <div class="d-f ai-c g-3">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -561,10 +589,7 @@ Display dropdown items with descriptions and keyboard shortcuts.
         >
           <rect width="256" height="256" fill="none" />
           <line
-            x1="216"
-            y1="56"
-            x2="40"
-            y2="56"
+            x1="216" y1="56" x2="40" y2="56"
             fill="none"
             stroke="currentColor"
             stroke-linecap="round"
@@ -572,10 +597,7 @@ Display dropdown items with descriptions and keyboard shortcuts.
             stroke-width="16"
           />
           <line
-            x1="104"
-            y1="104"
-            x2="104"
-            y2="168"
+            x1="104" y1="104" x2="104" y2="168"
             fill="none"
             stroke="currentColor"
             stroke-linecap="round"
@@ -583,8 +605,7 @@ Display dropdown items with descriptions and keyboard shortcuts.
             stroke-width="16"
           />
           <line
-            x1="152" y1="104"
-            x2="152" y2="168"
+            x1="152" y1="104" x2="152" y2="168"
             fill="none"
             stroke="currentColor"
             stroke-linecap="round"
@@ -613,12 +634,11 @@ Display dropdown items with descriptions and keyboard shortcuts.
           <span class="fs-xs tc-slate-5">Move to trash</span>
         </div>
       </div>
-      <div class="d-f ai-c g-1 p-1 bg-silver-1 b-1 bc-silver-4 rad-0 tc-slate-5">
+      <div class="d-f ai-c g-1 p-1 bg-silver-1 b-1 bc-silver-4 rad-0 tc-slate-5" aria-hidden="true">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="w-3 h-3"
           viewBox="0 0 256 256"
-          aria-hidden="true"
         >
           <rect width="256" height="256" fill="none" />
           <path
@@ -656,10 +676,8 @@ Display dropdown items with descriptions and keyboard shortcuts.
             stroke-width="16"
           />
           <rect
-            x="104"
-            y="104"
-            width="48"
-            height="48"
+            x="104" y="104"
+            width="48" height="48"
             fill="none"
             stroke="currentColor"
             stroke-linecap="round"
@@ -671,7 +689,6 @@ Display dropdown items with descriptions and keyboard shortcuts.
           xmlns="http://www.w3.org/2000/svg"
           class="w-3 h-3"
           viewBox="0 0 256 256"
-          aria-hidden="true"
         >
           <rect width="256" height="256" fill="none" />
           <path
