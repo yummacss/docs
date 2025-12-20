@@ -6,17 +6,45 @@ export default function TimelineIcons() {
           <div className="d-f ai-c jc-c w-8 h-8 rad-9 bg-silver-2 tc-black fs-0">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="w-4 h-4"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+              className="w-5 h-5"
+              viewBox="0 0 256 256"
               aria-hidden="true"
             >
-              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-              <path d="m9 11 3 3L22 4" />
+              <rect width="256" height="256" fill="none" />
+              <circle
+                cx="128"
+                cy="120"
+                r="40"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="16"
+              />
+              <path
+                d="M63.8,199.37a72,72,0,0,1,128.4,0"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="16"
+              />
+              <path
+                d="M222.67,112A95.92,95.92,0,1,1,144,33.33"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="16"
+              />
+              <polyline
+                points="184 56 200 72 232 40"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="16"
+              />
             </svg>
           </div>
           <div className="w-px h-full bg-silver-2 my-1"></div>
@@ -34,17 +62,27 @@ export default function TimelineIcons() {
           <div className="d-f ai-c jc-c w-8 h-8 rad-9 bg-silver-2 tc-black fs-0">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="w-4 h-4"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+              className="w-5 h-5"
+              viewBox="0 0 256 256"
               aria-hidden="true"
             >
-              <rect width="20" height="16" x="2" y="4" rx="2" />
-              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+              <rect width="256" height="256" fill="none" />
+              <path
+                d="M32.5,138A72,72,0,1,1,62,167.5l-27.76,8.16a8,8,0,0,1-9.93-9.93Z"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="16"
+              />
+              <path
+                d="M163.94,80.11A72,72,0,0,1,223.5,186l8.16,27.76a8,8,0,0,1-9.93,9.93L194,215.5A72.05,72.05,0,0,1,92.06,175.89"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="16"
+              />
             </svg>
           </div>
           <div className="w-px h-full bg-silver-2 my-1"></div>
@@ -63,17 +101,41 @@ export default function TimelineIcons() {
           <div className="d-f ai-c jc-c w-8 h-8 rad-9 bg-silver-2 tc-black fs-0">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="w-4 h-4"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+              className="w-5 h-5"
+              viewBox="0 0 256 256"
               aria-hidden="true"
             >
-              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
-              <circle cx="12" cy="10" r="3" />
+              <rect width="256" height="256" fill="none" />
+              <path
+                d="M208,104c0,72-80,128-80,128S48,176,48,104a80,80,0,0,1,160,0Z"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="16"
+              />
+              <line
+                x1="128"
+                y1="72"
+                x2="128"
+                y2="136"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="16"
+              />
+              <line
+                x1="96"
+                y1="104"
+                x2="160"
+                y2="104"
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="16"
+              />
             </svg>
           </div>
         </div>
