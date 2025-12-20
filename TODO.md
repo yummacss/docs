@@ -1,6 +1,6 @@
 - [x] Accordion
 
-- [ ] Tabs
+- [x] Tabs
 
 - [ ] Dropdown
 
