@@ -8,7 +8,7 @@
 
 - [ ] Navbar
 
-- [ ] Table (sorting depois)
+- [ ] Table (don't implement sorting)
 
 - [ ] Checkbox
 
