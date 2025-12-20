@@ -7,19 +7,59 @@ export default function TabsIcons() {
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="w-4 h-4"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
+          className="w-5 h-5"
+          viewBox="0 0 256 256"
           aria-hidden="true"
         >
-          <rect width="7" height="7" x="3" y="3" rx="1" />
-          <rect width="7" height="7" x="14" y="3" rx="1" />
-          <rect width="7" height="7" x="14" y="14" rx="1" />
-          <rect width="7" height="7" x="3" y="14" rx="1" />
+          <rect width="256" height="256" fill="none" />
+          <rect
+            x="48"
+            y="48"
+            width="64"
+            height="64"
+            rx="8"
+            fill="none"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="16"
+          />
+          <rect
+            x="144"
+            y="48"
+            width="64"
+            height="64"
+            rx="8"
+            fill="none"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="16"
+          />
+          <rect
+            x="48"
+            y="144"
+            width="64"
+            height="64"
+            rx="8"
+            fill="none"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="16"
+          />
+          <rect
+            x="144"
+            y="144"
+            width="64"
+            height="64"
+            rx="8"
+            fill="none"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="16"
+          />
         </svg>
         <span>Grid</span>
       </button>
@@ -29,21 +69,47 @@ export default function TabsIcons() {
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="w-4 h-4"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
+          className="w-5 h-5"
+          viewBox="0 0 256 256"
           aria-hidden="true"
         >
-          <line x1="8" x2="21" y1="6" y2="6" />
-          <line x1="8" x2="21" y1="12" y2="12" />
-          <line x1="8" x2="21" y1="18" y2="18" />
-          <line x1="3" x2="3.01" y1="6" y2="6" />
-          <line x1="3" x2="3.01" y1="12" y2="12" />
-          <line x1="3" x2="3.01" y1="18" y2="18" />
+          <rect width="256" height="256" fill="none" />
+          <line
+            x1="88"
+            y1="64"
+            x2="216"
+            y2="64"
+            fill="none"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="16"
+          />
+          <line
+            x1="88"
+            y1="128"
+            x2="216"
+            y2="128"
+            fill="none"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="16"
+          />
+          <line
+            x1="88"
+            y1="192"
+            x2="216"
+            y2="192"
+            fill="none"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="16"
+          />
+          <circle cx="44" cy="64" r="12" fill="currentColor" />
+          <circle cx="44" cy="128" r="12" fill="currentColor" />
+          <circle cx="44" cy="192" r="12" fill="currentColor" />
         </svg>
         <span>List</span>
       </button>
