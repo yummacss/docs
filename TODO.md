@@ -2,7 +2,7 @@
 
 - [x] Tabs
 
-- [ ] Dropdown
+- [x] Dropdown
 
 - [ ] Pagination
 
