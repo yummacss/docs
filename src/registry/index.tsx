@@ -49,7 +49,7 @@ import CtaSectionColored from "./ui/cta-section-colored";
 import CtaSectionIcons from "./ui/cta-section-icons";
 import DropdownBasic from "./ui/dropdown-basic";
 import DropdownIcons from "./ui/dropdown-icons";
-import DropdownWithShortcuts from "./ui/dropdown-with-shortcuts";
+import DropdownShortcuts from "./ui/dropdown-shortcuts";
 import FeatureSectionBasic from "./ui/feature-section-basic";
 import FeatureSectionCentered from "./ui/feature-section-centered";
 import FooterBasic from "./ui/footer-basic";
@@ -156,7 +156,7 @@ export const registry: Record<string, ComponentType> = {
   // Dropdown
   "dropdown-basic": DropdownBasic,
   "dropdown-icons": DropdownIcons,
-  "dropdown-with-shortcuts": DropdownWithShortcuts,
+  "dropdown-shortcuts": DropdownShortcuts,
   // Feature Section
   "feature-section-basic": FeatureSectionBasic,
   "feature-section-centered": FeatureSectionCentered,
