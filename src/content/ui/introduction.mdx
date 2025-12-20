@@ -1,14 +1,16 @@
-import Link from "next/link";
 import { uiSidebarConfig } from "@/utils/ui-sidebar";
+import Link from "next/link";
 
 export const meta = {
    title: "Introduction",
-   description: "A set of beautiful UI components designed with Yumma CSS that you can simply copy and paste into your application.",
+   description: "Yumma UI is a set of beautiful UI components designed with Yumma CSS.",
 };
 
 ## Why Yumma UI?
 
-With Yumma UI, you will get access to dozens of free UI blocks, accessible HTML components for whatever you're building. They are the perfect starting point for your next idea, while giving you the freedom of customization.
+With Yumma UI, you will get access to dozens of free production-ready components and blocks for whatever you're building. 
+
+All of our components follows [APG patterns](https://www.w3.org/WAI/ARIA/apg/patterns/) which means they are accessible and keyboard navigable.
 
 ## Components
 
@@ -16,6 +18,20 @@ A list of all available components:
 
 <div className="d-g gtc-1 sm:gtc-3 rg-8 my-10">
   {uiSidebarConfig[1].items.map(item => (
+    <div key={item.slug}>
+      <Link className="h:td-u tc-white" href={`/ui/${item.slug}`}>{item.title}</Link>
+    </div>
+  ))}
+</div>
+
+---
+
+## Blocks
+
+A list of all available blocks:
+
+<div className="d-g gtc-1 sm:gtc-3 rg-8 my-10">
+  {uiSidebarConfig[2].items.map(item => (
     <div key={item.slug}>
       <Link className="h:td-u tc-white" href={`/ui/${item.slug}`}>{item.title}</Link>
     </div>
