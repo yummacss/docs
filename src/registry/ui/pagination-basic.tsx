@@ -1,12 +1,28 @@
+"use client";
+
+import { useState } from "react";
+
 export default function PaginationBasic() {
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = 5;
+
+  const handlePageChange = (page: number, e: React.MouseEvent) => {
+    e.preventDefault();
+    if (page >= 1 && page <= totalPages) {
+      setCurrentPage(page);
+    }
+  };
+
   return (
     <nav aria-label="Pagination" className="d-f ai-c g-1">
       <ul className="d-f ai-c g-1 ls-none p-0 m-0">
         <li>
-          <a
-            href="/"
+          <button
+            type="button"
+            onClick={(e) => handlePageChange(currentPage - 1, e)}
             aria-label="Go to previous page"
-            className="d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 tc-slate-8 h:bg-silver-1"
+            className={`d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 tc-slate-8 h:bg-silver-1 b-0 c-p ${currentPage === 1 ? "o-05 pe-none" : ""
+              }`}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -24,54 +40,30 @@ export default function PaginationBasic() {
                 strokeWidth="16"
               />
             </svg>
-          </a>
+          </button>
         </li>
+        {[1, 2, 3, 4, 5].map((page) => (
+          <li key={page}>
+            <button
+              type="button"
+              onClick={(e) => handlePageChange(page, e)}
+              aria-current={currentPage === page ? "page" : undefined}
+              className={`d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 b-0 c-p ${currentPage === page
+                  ? "bg-slate-8 tc-white"
+                  : "tc-slate-8 h:bg-silver-1 bg-transparent"
+                }`}
+            >
+              {page}
+            </button>
+          </li>
+        ))}
         <li>
-          <a
-            href="/"
-            aria-current="page"
-            className="d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 bg-slate-8 tc-white"
-          >
-            1
-          </a>
-        </li>
-        <li>
-          <a
-            href="/"
-            className="d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 tc-slate-8 h:bg-silver-1"
-          >
-            2
-          </a>
-        </li>
-        <li>
-          <a
-            href="/"
-            className="d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 tc-slate-8 h:bg-silver-1"
-          >
-            3
-          </a>
-        </li>
-        <li>
-          <a
-            href="/"
-            className="d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 tc-slate-8 h:bg-silver-1"
-          >
-            4
-          </a>
-        </li>
-        <li>
-          <a
-            href="/"
-            className="d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 tc-slate-8 h:bg-silver-1"
-          >
-            5
-          </a>
-        </li>
-        <li>
-          <a
-            href="/"
+          <button
+            type="button"
+            onClick={(e) => handlePageChange(currentPage + 1, e)}
             aria-label="Go to next page"
-            className="d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 tc-slate-8 h:bg-silver-1"
+            className={`d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 tc-slate-8 h:bg-silver-1 b-0 c-p ${currentPage === totalPages ? "o-05 pe-none" : ""
+              }`}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -89,7 +81,7 @@ export default function PaginationBasic() {
                 strokeWidth="16"
               />
             </svg>
-          </a>
+          </button>
         </li>
       </ul>
     </nav>
