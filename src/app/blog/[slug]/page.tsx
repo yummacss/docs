@@ -38,7 +38,7 @@ export default async function BlogPostPage({
       <div className="d-g gtc-1 lg:gtc-12 g-8">
         <article className="lg:gc-s-8">
           <header className="mb-12">
-            <div className="d-f ai-c g-2 fs-sm tc-white/50 mb-4">
+            <div className="d-f ai-c g-2 fs-sm tc-white/50 mb-4 mt-16">
               <Link href="/blog" className="h:tc-white">
                 Blog
               </Link>
