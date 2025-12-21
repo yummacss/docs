@@ -109,7 +109,7 @@ const components: MDXComponents = {
     props.className ? (
       <ul {...props}>{children}</ul>
     ) : (
-      <ul className="my-6 ml-6" style={{ listStyle: "disc" }} {...props}>
+      <ul className="my-6 ml-6 lst-d" {...props}>
         {children}
       </ul>
     ),
@@ -117,7 +117,7 @@ const components: MDXComponents = {
     props.className ? (
       <ol {...props}>{children}</ol>
     ) : (
-      <ol className="my-6 ml-6" style={{ listStyle: "decimal" }} {...props}>
+      <ol className="my-6 ml-6 lst-d" {...props}>
         {children}
       </ol>
     ),
@@ -152,11 +152,7 @@ const components: MDXComponents = {
       <table {...props}>{children}</table>
     ) : (
       <div className="o-x-auto my-6">
-        <table
-          className="w-full bc-c"
-          style={{ backgroundColor: "transparent" }}
-          {...props}
-        >
+        <table className="w-full bc-c bg-transparent" {...props}>
           {children}
         </table>
       </div>
