@@ -20,7 +20,7 @@ export default function Home() {
       </div>
 
       <div
-        className="~sm-xxl w-full mx-auto px-6 d-f ai-fe pb-12 p-r zi-1"
+        className="~sm-xxl w-full mx-auto px-6 d-f ai-fe p-r zi-1"
         style={{
           minHeight: "calc(100vh - 120px)",
         }}
@@ -40,7 +40,7 @@ export default function Home() {
                 </div>
               </Link>
 
-              <h1 className="fs-5xl md:fs-6xl fw-400 mb-6 lh-1">
+              <h1 className="fs-5xl md:fs-6xl fw-400 mb-6 lh-2">
                 Style more, type even less
               </h1>
               <p className="fs-lg tc-white/70 mb-8 lh-5">

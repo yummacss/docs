@@ -22,7 +22,7 @@ export default function UIPage() {
       </div>
 
       <div
-        className="~sm-xxl w-full mx-auto px-6 d-f ai-fe pb-12 p-r zi-1"
+        className="~sm-xxl w-full mx-auto px-6 d-f ai-fe p-r zi-1"
         style={{
           minHeight: "calc(100vh - 120px)",
         }}
@@ -44,12 +44,12 @@ export default function UIPage() {
                   </span>
                 </div>
               </Link>
-              <h1 className="fs-5xl md:fs-6xl fw-400 mb-6 lh-1">
-                Build clean, production-ready interfaces faster.
+              <h1 className="fs-5xl md:fs-6xl fw-400 mb-6 lh-2">
+                Ship more, build even less
               </h1>
               <p className="fs-lg tc-white/70 mb-8 lh-5">
-                Production-ready components for landing pages, dashboards and
-                SaaS apps that are fully customizable and framework-friendly.
+                Ready-to-use UI components and sections that are fully
+                customizable and work with any framework.
               </p>
 
               <div className="d-f fw-w g-4 mb-12">
