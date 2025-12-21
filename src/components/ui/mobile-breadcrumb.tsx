@@ -1,10 +1,10 @@
 "use client";
 
-import { findCurrentPageInfo } from "@/utils/sidebar";
-import { findCurrentUIPageInfo } from "@/utils/ui-sidebar";
 import { CaretRightIcon, ListIcon, XIcon } from "@phosphor-icons/react";
 import { usePathname } from "next/navigation";
 import { lazy, Suspense, useEffect, useState } from "react";
+import { findCurrentPageInfo } from "@/utils/sidebar";
+import { findCurrentUIPageInfo } from "@/utils/ui-sidebar";
 
 const MobileSidebar = lazy(() => import("./mobile-sidebar"));
 
@@ -13,7 +13,9 @@ export default function MobileBreadcrumb() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const isUIRoute = pathname.startsWith("/ui");
-  const pageInfo = isUIRoute ? findCurrentUIPageInfo(pathname) : findCurrentPageInfo(pathname);
+  const pageInfo = isUIRoute
+    ? findCurrentUIPageInfo(pathname)
+    : findCurrentPageInfo(pathname);
 
   // prevent body scroll when sidebar is open
   useEffect(() => {
@@ -32,7 +34,10 @@ export default function MobileBreadcrumb() {
 
   return (
     <>
-      <div className={`p-f l-0 r-0 zi-10 d-b lg:d-none bt-1 ${isSidebarOpen ? "" : "bb-1"} bc-white/5`} style={{ backgroundColor: "#151724", top: "3.5rem" }}>
+      <div
+        className={`p-f l-0 r-0 zi-10 d-b lg:d-none bt-1 ${isSidebarOpen ? "" : "bb-1"} bc-white/5`}
+        style={{ backgroundColor: "#151724", top: "3.5rem" }}
+      >
         <div className="~sm-xxl mx-auto px-4 py-2">
           <div className="d-f ai-c g-4">
             <button
@@ -55,7 +60,11 @@ export default function MobileBreadcrumb() {
 
       {isSidebarOpen && (
         <Suspense fallback={null}>
-          <MobileSidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} routeType={isUIRoute ? "ui" : "docs"} />
+          <MobileSidebar
+            isOpen={isSidebarOpen}
+            onClose={() => setIsSidebarOpen(false)}
+            routeType={isUIRoute ? "ui" : "docs"}
+          />
         </Suspense>
       )}
     </>

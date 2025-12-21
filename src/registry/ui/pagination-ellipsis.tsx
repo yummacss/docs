@@ -23,8 +23,9 @@ export default function PaginationEllipsis() {
             type="button"
             onClick={(e) => handlePageChange(currentPage - 1, e)}
             aria-label="Go to previous page"
-            className={`d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 tc-slate-8 h:bg-silver-1 b-0 c-p ${currentPage === 1 ? "o-05 pe-none" : ""
-              }`}
+            className={`d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 tc-slate-8 h:bg-silver-1 b-0 c-p ${
+              currentPage === 1 ? "o-05 pe-none" : ""
+            }`}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -51,10 +52,11 @@ export default function PaginationEllipsis() {
                 type="button"
                 onClick={(e) => handlePageChange(page, e)}
                 aria-current={currentPage === page ? "page" : undefined}
-                className={`d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 b-0 c-p ${currentPage === page
-                  ? "bg-slate-8 tc-white"
-                  : "tc-slate-8 h:bg-silver-1 bg-transparent"
-                  }`}
+                className={`d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 b-0 c-p ${
+                  currentPage === page
+                    ? "bg-slate-8 tc-white"
+                    : "tc-slate-8 h:bg-silver-1 bg-transparent"
+                }`}
               >
                 {page}
               </button>
@@ -83,8 +85,9 @@ export default function PaginationEllipsis() {
             type="button"
             onClick={(e) => handlePageChange(currentPage + 1, e)}
             aria-label="Go to next page"
-            className={`d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 tc-slate-8 h:bg-silver-1 b-0 c-p ${currentPage === totalPages ? "o-05 pe-none" : ""
-              }`}
+            className={`d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 tc-slate-8 h:bg-silver-1 b-0 c-p ${
+              currentPage === totalPages ? "o-05 pe-none" : ""
+            }`}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
