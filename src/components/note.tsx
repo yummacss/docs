@@ -1,3 +1,4 @@
+import type { Icon } from "@phosphor-icons/react";
 import {
   ArrowsHorizontalIcon,
   ArrowsVerticalIcon,
@@ -33,7 +34,7 @@ interface NoteProps {
   children: ReactNode;
 }
 
-const iconData: Record<IconName, any> = {
+const iconData: Record<IconName, Icon> = {
   arrows_horizontal: ArrowsHorizontalIcon,
   arrows_vertical: ArrowsVerticalIcon,
   cursor_click: CursorClickIcon,
