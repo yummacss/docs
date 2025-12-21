@@ -1,5 +1,3 @@
-
-
 export default function TextareaLabel() {
   return (
     <div className="d-f fd-c g-2 w-full">
