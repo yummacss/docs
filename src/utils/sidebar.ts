@@ -1,21 +1,3 @@
-import type { Icon } from "@phosphor-icons/react";
-import {
-  ArrowClockwiseIcon,
-  BookOpenTextIcon,
-  CursorClickIcon,
-  FileSvgIcon,
-  FrameCornersIcon,
-  GridNineIcon,
-  ImageIcon,
-  LegoIcon,
-  SelectionAllIcon,
-  SelectionBackgroundIcon,
-  SubtractIcon,
-  SwatchesIcon,
-  TableIcon,
-  TextAaIcon,
-} from "@phosphor-icons/react/dist/ssr";
-
 export interface SidebarConfigItemBase {
   title: string;
   slug?: string;

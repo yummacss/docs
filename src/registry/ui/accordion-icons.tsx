@@ -106,8 +106,9 @@ export default function AccordionIcons() {
             id={`accordion-panel-${index}`}
             aria-labelledby={`accordion-button-${index}`}
             hidden={expanded !== index}
-            className={`p-4 bg-white tc-slate fs-sm lh-4 b-1 bc-silver-2 bt-0 ${expanded === index ? "d-b" : "d-none"
-              }`}
+            className={`p-4 bg-white tc-slate fs-sm lh-4 b-1 bc-silver-2 bt-0 ${
+              expanded === index ? "d-b" : "d-none"
+            }`}
           >
             <p className="tc-slate-6 m-0">{item.content}</p>
           </section>

@@ -60,10 +60,11 @@ export default function TabsBasic() {
             tabIndex={activeTab === index ? 0 : -1}
             onClick={() => setActiveTab(index)}
             onKeyDown={(e) => handleKeyDown(e, index)}
-            className={`fw-500 px-4 py-2 rad-0 tr-c f:oc-silver-1 f:os-s f:ow-2 ${activeTab === index
-              ? "tc-black bg-white b-1 bc-silver-4 sh-sm"
-              : "tc-silver-10 b-0 h:tc-black"
-              }`}
+            className={`fw-500 px-4 py-2 rad-0 tr-c f:oc-silver-1 f:os-s f:ow-2 ${
+              activeTab === index
+                ? "tc-black bg-white b-1 bc-silver-4 sh-sm"
+                : "tc-silver-10 b-0 h:tc-black"
+            }`}
           >
             {tab.label}
           </button>
@@ -78,9 +79,9 @@ export default function TabsBasic() {
           id={`panel-${tab.id}`}
           aria-labelledby={`tab-${tab.id}`}
           hidden={activeTab !== index}
-          tabIndex={0}
-          className={`p-4 b-1 bc-silver-4 bg-white rad-0 tc-slate fs-sm ${activeTab === index ? "d-b" : "d-none"
-            } f:oc-silver-1 f:os-s f:ow-2`}
+          className={`p-4 b-1 bc-silver-4 bg-white rad-0 tc-slate fs-sm ${
+            activeTab === index ? "d-b" : "d-none"
+          } f:oc-silver-1 f:os-s f:ow-2`}
         >
           <p className="m-0">{tab.content}</p>
         </div>

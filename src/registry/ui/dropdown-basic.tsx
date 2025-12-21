@@ -134,8 +134,9 @@ export default function DropdownBasic() {
                 type="button"
                 role="menuitem"
                 tabIndex={-1}
-                className={`d-b w-full ta-l px-3 py-2 rad-0 fs-sm b-0 c-p tr-c ${index === 3 ? "tc-red h:bg-red-1" : "tc-slate-8 h:bg-silver-1"
-                  } ${activeIndex === index ? (index === 3 ? "bg-red-1" : "bg-silver-1") : "bg-transparent"}`}
+                className={`d-b w-full ta-l px-3 py-2 rad-0 fs-sm b-0 c-p tr-c ${
+                  index === 3 ? "tc-red h:bg-red-1" : "tc-slate-8 h:bg-silver-1"
+                } ${activeIndex === index ? (index === 3 ? "bg-red-1" : "bg-silver-1") : "bg-transparent"}`}
                 onClick={() => {
                   console.log(`Selected: ${item}`);
                   setIsOpen(false);
