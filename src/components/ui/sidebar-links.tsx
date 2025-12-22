@@ -31,23 +31,23 @@ export default function SidebarLinks({ onLinkClick }: SidebarLinksProps) {
         className={`d-if ai-c g-4 ${isDocsActive ? "" : "team"}`}
       >
         <BookIcon
-          className={`${isDocsActive ? "tc-white" : "tc-white/50 @h:tc-white"}`}
+          className={`${isDocsActive ? "tc-white" : "tc-white/50 t:tc-white"}`}
           size={20}
           weight="duotone"
         />
         <span
-          className={`fs-md ${isDocsActive ? "tc-white" : "tc-white/70 @h:tc-white"}`}
+          className={`fs-md ${isDocsActive ? "tc-white" : "tc-white/70 t:tc-white"}`}
         >
           Documentation
         </span>
       </Link>
       <Link href="/blog" onClick={onLinkClick} className="d-if ai-c g-4 team">
         <NewspaperClippingIcon
-          className="tc-white/50 @h:tc-white"
+          className="tc-white/50 t:tc-white"
           size={20}
           weight="duotone"
         />
-        <span className="fs-md tc-white/70 @h:tc-white">Blog Articles</span>
+        <span className="fs-md tc-white/70 t:tc-white">Blog Articles</span>
       </Link>
       <Link
         href="/ui/introduction"
@@ -56,12 +56,12 @@ export default function SidebarLinks({ onLinkClick }: SidebarLinksProps) {
         className={`d-if ai-c g-4 ${isUIActive ? "" : "team"}`}
       >
         <StackSimpleIcon
-          className={`${isUIActive ? "tc-white" : "tc-white/50 @h:tc-white"}`}
+          className={`${isUIActive ? "tc-white" : "tc-white/50 t:tc-white"}`}
           size={20}
           weight="duotone"
         />
         <span
-          className={`fs-md ${isUIActive ? "tc-white" : "tc-white/70 @h:tc-white"}`}
+          className={`fs-md ${isUIActive ? "tc-white" : "tc-white/70 t:tc-white"}`}
         >
           Components
         </span>
@@ -72,12 +72,12 @@ export default function SidebarLinks({ onLinkClick }: SidebarLinksProps) {
         className={`d-if ai-c g-4 ${isApiReferenceActive ? "" : "team"}`}
       >
         <GlobeSimpleIcon
-          className={`${isApiReferenceActive ? "tc-white" : "tc-white/50 @h:tc-white"}`}
+          className={`${isApiReferenceActive ? "tc-white" : "tc-white/50 t:tc-white"}`}
           size={20}
           weight="duotone"
         />
         <span
-          className={`fs-md ${isApiReferenceActive ? "tc-white" : "tc-white/70 @h:tc-white"}`}
+          className={`fs-md ${isApiReferenceActive ? "tc-white" : "tc-white/70 t:tc-white"}`}
         >
           API Reference
         </span>
@@ -90,11 +90,11 @@ export default function SidebarLinks({ onLinkClick }: SidebarLinksProps) {
         className="d-if ai-c g-4 team"
       >
         <CubeIcon
-          className={`tc-white/50 @h:tc-white`}
+          className={`tc-white/50 t:tc-white`}
           size={20}
           weight="duotone"
         />
-        <span className="fs-md tc-white/70 @h:tc-white">Playground</span>
+        <span className="fs-md tc-white/70 t:tc-white">Playground</span>
       </Link>
     </div>
   );
