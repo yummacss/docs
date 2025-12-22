@@ -8,8 +8,8 @@ export const meta = {
 <Preview id="accordion-basic" variant="inline" className="bg-white" />
 
 ```html
-<div class="d-f fd-c">
-  <div class="d-f fd-c w-full">
+<div class="d-f fd-c g-2">
+  <div class="d-f fd-c w-full p-0">
     <h4 class="m-0">
       <button
         type="button"
@@ -28,79 +28,13 @@ export const meta = {
       <p class="tc-slate-6 m-0">Yes, Yumma CSS is completely free and open-source. You can use it in personal and commercial projects.</p>
     </section>
   </div>
-  <div class="d-f fd-c w-full">
+  <div class="d-f fd-c w-full p-0">
     <h4 class="m-0">
       <button
         type="button"
         id="accordion-button-2"
-        aria-expanded="false"
+        aria-expanded="true"
         aria-controls="accordion-panel-2"
-        class="p-4 c-p d-f jc-sb ai-c w-full b-1 bc-silver-4 bt-0 fw-600 rad-0 bg-white h:bg-silver-1 f:oc-silver-1 f:os-s f:ow-2"
-      >
-        <span class="ff-s tc-slate fs-md">Can I use it with React?</span>
-        <svg xmlns="http://www.w3.org/2000/svg" class="tc-slate-8 h-4 w-4" viewBox="0 0 256 256" aria-hidden="true">
-          <path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z" fill="currentColor" />
-        </svg>
-      </button>
-    </h4>
-    <section id="accordion-panel-2" aria-labelledby="accordion-button-2" class="p-4 bg-white tc-slate fs-sm lh-4 b-1 bc-silver-4 bt-0 d-none">
-      <p class="tc-slate-6 m-0">Absolutely! Yumma CSS is framework-agnostic and works perfectly with React, Vue, Svelte, and vanilla HTML.</p>
-    </section>
-  </div>
-  <div class="d-f fd-c w-full">
-    <h4 class="m-0">
-      <button
-        type="button"
-        id="accordion-button-3"
-        aria-expanded="true"
-        aria-controls="accordion-panel-3"
-        class="p-4 c-p d-f jc-sb ai-c w-full b-1 bc-silver-4 bt-0 fw-600 rad-0 bg-white h:bg-silver-1 f:oc-silver-1 f:os-s f:ow-2"
-      >
-        <span class="ff-s tc-slate fs-md">Is Yumma UI mobile friendly?</span>
-        <svg xmlns="http://www.w3.org/2000/svg" class="tc-slate-8 h-4 w-4" viewBox="0 0 256 256" aria-hidden="true">
-          <polyline points="48 160 128 80 208 160" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
-        </svg>
-      </button>
-    </h4>
-    <section id="accordion-panel-3" aria-labelledby="accordion-button-3" class="p-4 bg-white tc-slate fs-sm lh-4 b-1 bc-silver-4 bt-0 d-b">
-      <p class="tc-slate-6 m-0">Yes, Yumma UI is mobile-friendly and works great on all devices.</p>
-    </section>
-  </div>
-</div>
-```
-
-## Separated
-
-<Preview id="accordion-separated" variant="inline" className="bg-white" />
-
-```html
-<div class="d-f fd-c g-2">
-  <div class="d-f fd-c w-full p-0">
-    <h4 class="m-0">
-      <button
-        type="button"
-        id="accordion-button-sep-1"
-        aria-expanded="false"
-        aria-controls="accordion-panel-sep-1"
-        class="p-4 c-p d-f jc-sb ai-c w-full b-1 bc-silver-4 fw-600 rad-0 bg-white h:bg-silver-1 f:oc-silver-1 f:os-s f:ow-2"
-      >
-        <span class="ff-s tc-slate fs-md">Is Yumma CSS free?</span>
-        <svg xmlns="http://www.w3.org/2000/svg" class="tc-slate-8 h-4 w-4" viewBox="0 0 256 256" aria-hidden="true">
-          <path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z" fill="currentColor" />
-        </svg>
-      </button>
-    </h4>
-    <section id="accordion-panel-sep-1" aria-labelledby="accordion-button-sep-1" class="p-4 bg-white tc-slate fs-sm lh-4 b-1 bc-silver-4 bt-0 d-none">
-      <p class="tc-slate-6 m-0">Yes, Yumma CSS is completely free and open-source. You can use it in personal and commercial projects.</p>
-    </section>
-  </div>
-  <div class="d-f fd-c w-full p-0">
-    <h4 class="m-0">
-      <button
-        type="button"
-        id="accordion-button-sep-2"
-        aria-expanded="true"
-        aria-controls="accordion-panel-sep-2"
         class="p-4 c-p d-f jc-sb ai-c w-full b-1 bc-silver-4 fw-600 rad-0 bg-white h:bg-silver-1 f:oc-silver-1 f:os-s f:ow-2"
       >
         <span class="ff-s tc-slate fs-md">Can I use it with React?</span>
@@ -109,12 +43,13 @@ export const meta = {
         </svg>
       </button>
     </h4>
-    <section id="accordion-panel-sep-2" aria-labelledby="accordion-button-sep-2" class="p-4 bg-white tc-slate fs-sm lh-4 b-1 bc-silver-4 bt-0 d-b">
+    <section id="accordion-panel-2" aria-labelledby="accordion-button-2" class="p-4 bg-white tc-slate fs-sm lh-4 b-1 bc-silver-4 bt-0 d-b">
       <p class="tc-slate-6 m-0">Absolutely! Yumma CSS is framework-agnostic and works perfectly with React, Vue, Svelte, and vanilla HTML.</p>
     </section>
   </div>
 </div>
 ```
+
 
 ## Ghost
 

@@ -4,7 +4,6 @@ import type { ComponentType } from "react";
 import AccordionBasic from "./ui/accordion-basic";
 import AccordionGhost from "./ui/accordion-ghost";
 import AccordionIcons from "./ui/accordion-icons";
-import AccordionSeparated from "./ui/accordion-separated";
 import AuthFormBasicSignIn from "./ui/auth-form-basic-sign-in";
 import AuthFormBasicSignUp from "./ui/auth-form-basic-sign-up";
 import AvatarCircle from "./ui/avatar-circle";
@@ -95,7 +94,6 @@ import TimelineIcons from "./ui/timeline-icons";
 export const registry: Record<string, ComponentType> = {
   // Accordion
   "accordion-basic": AccordionBasic,
-  "accordion-separated": AccordionSeparated,
   "accordion-ghost": AccordionGhost,
   "accordion-icons": AccordionIcons,
   // Auth Form
