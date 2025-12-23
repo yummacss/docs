@@ -341,6 +341,10 @@ summary {
   background-clip: border-box;
 }
 
+.bc-black {
+  border-color: #000;
+}
+
 .bc-blue-4 {
   border-color: #8aafeb;
 }
@@ -513,8 +517,16 @@ summary {
   backdrop-filter: blur(8px);
 }
 
+.bf-b-xs {
+  backdrop-filter: blur(4px);
+}
+
 .bg-black {
   background-color: #000;
+}
+
+.bg-black\/10 {
+  background-color: #0000001a;
 }
 
 .bg-black\/50 {
@@ -1669,6 +1681,10 @@ summary {
   height: .5rem;
 }
 
+.h-20 {
+  height: 5rem;
+}
+
 .h-24 {
   height: 6rem;
 }
@@ -2190,6 +2206,10 @@ summary {
   min-width: fit-content;
 }
 
+.min-w-max {
+  min-width: max-content;
+}
+
 .mis-8 {
   margin-inline-start: 2rem;
 }
@@ -2576,6 +2596,10 @@ summary {
 
 .p-st {
   position: sticky;
+}
+
+.pb-2 {
+  padding-bottom: .5rem;
 }
 
 .pb-4 {
@@ -3365,6 +3389,10 @@ summary {
   color: #1f1f20;
 }
 
+.tc-silver-4 {
+  color: #dadcdf;
+}
+
 .tc-silver-8 {
   color: #8a8c8f;
 }
@@ -3745,6 +3773,10 @@ summary {
   width: 64rem;
 }
 
+.w-max {
+  width: max-content;
+}
+
 .w-md {
   width: 48rem;
 }
@@ -3801,6 +3833,11 @@ summary {
   .sm\:d-32 {
     width: 8rem;
     height: 8rem;
+  }
+
+  .sm\:d-6 {
+    width: 1.5rem;
+    height: 1.5rem;
   }
 
   .sm\:d-b {
@@ -3932,10 +3969,6 @@ summary {
 @media (width >= 64rem) {
   .lg\:d-b {
     display: block;
-  }
-
-  .lg\:d-g {
-    display: grid;
   }
 
   .lg\:d-none {
