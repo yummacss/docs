@@ -1,9 +1,9 @@
 "use client";
 
-import EditOnGitHub from "@/components/ui/edit-on-github";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import EditPage from "@/components/ui/edit-page";
 
 interface TocItem {
   id: string;
@@ -89,7 +89,7 @@ export default function TableOfContents() {
               );
             })}
           </ul>
-          {!isBlogPost && <EditOnGitHub />}
+          {!isBlogPost && <EditPage />}
         </div>
       </div>
     </aside>
