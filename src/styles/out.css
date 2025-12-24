@@ -141,14 +141,6 @@ summary {
   align-content: flex-start;
 }
 
-.ac-indigo {
-  accent-color: #595cd9;
-}
-
-.ac-indigo-2 {
-  accent-color: #cdcef4;
-}
-
 .ac-n {
   align-content: normal;
 }
@@ -163,6 +155,14 @@ summary {
 
 .ac-se {
   align-content: space-evenly;
+}
+
+.ac-silver {
+  accent-color: #bfc2c7;
+}
+
+.ac-silver-2 {
+  accent-color: #ecedee;
 }
 
 .ac-slate {
@@ -351,6 +351,10 @@ summary {
 
 .bc-cb {
   background-clip: content-box;
+}
+
+.bc-gray {
+  border-color: #606773;
 }
 
 .bc-gray-2 {
@@ -1229,20 +1233,20 @@ summary {
   filter: grayscale(50%);
 }
 
-.f-indigo {
-  fill: #595cd9;
-}
-
-.f-indigo-4 {
-  fill: #9fa0e9;
-}
-
-.f-indigo-8 {
-  fill: #40429c;
-}
-
 .f-none {
   flex: none;
+}
+
+.f-silver {
+  fill: #bfc2c7;
+}
+
+.f-silver-4 {
+  fill: #dadcdf;
+}
+
+.f-silver-8 {
+  fill: #8a8c8f;
 }
 
 .f-slate {
@@ -2063,6 +2067,10 @@ summary {
 .max-d-80 {
   max-width: 20rem;
   max-height: 20rem;
+}
+
+.max-h-100 {
+  max-height: 25rem;
 }
 
 .max-h-50 {
@@ -2965,16 +2973,16 @@ summary {
   row-gap: 2rem;
 }
 
-.s-indigo {
-  stroke: #595cd9;
+.s-silver {
+  stroke: #bfc2c7;
 }
 
-.s-indigo-4 {
-  stroke: #9fa0e9;
+.s-silver-4 {
+  stroke: #dadcdf;
 }
 
-.s-indigo-8 {
-  stroke: #40429c;
+.s-silver-8 {
+  stroke: #8a8c8f;
 }
 
 .s-slate {
@@ -3317,6 +3325,10 @@ summary {
   color: #26549f;
 }
 
+.tc-gray {
+  color: #606773;
+}
+
 .tc-gray-7 {
   color: #535963;
 }
@@ -3335,10 +3347,6 @@ summary {
 
 .tc-indigo-10 {
   color: #27285f;
-}
-
-.tc-indigo-3 {
-  color: #b6b7ee;
 }
 
 .tc-indigo-5 {
@@ -3365,6 +3373,10 @@ summary {
   color: #5f1b1b;
 }
 
+.tc-silver {
+  color: #bfc2c7;
+}
+
 .tc-silver-10 {
   color: #545558;
 }
@@ -3375,6 +3387,10 @@ summary {
 
 .tc-silver-12 {
   color: #1f1f20;
+}
+
+.tc-silver-3 {
+  color: #e3e4e6;
 }
 
 .tc-silver-8 {
