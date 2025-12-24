@@ -63,7 +63,7 @@ export default function Navbar({ variant, className, links }: NavbarProps) {
             <div className="d-f ai-c g-2">
               <Link href={isUI ? "/ui" : "/"}>
                 <Image
-                  src={isUI ? "/ui-logotype.svg" : "/logotype.svg"}
+                  src={isUI ? "/ui-logotype.png" : "/logotype.png"}
                   width={240}
                   height={80}
                   alt="Yumma CSS"
