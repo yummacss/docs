@@ -2218,6 +2218,10 @@ summary {
   margin-left: 2rem;
 }
 
+.ml-auto {
+  margin-left: auto;
+}
+
 .mr-1 {
   margin-right: .25rem;
 }
@@ -2748,6 +2752,10 @@ summary {
 
 .pt-6 {
   padding-top: 1.5rem;
+}
+
+.pt-8 {
+  padding-top: 2rem;
 }
 
 .px-1 {
@@ -3819,6 +3827,10 @@ summary {
     display: none;
   }
 
+  .sm\:fd-r {
+    flex-direction: row;
+  }
+
   .sm\:g-2 {
     gap: .5rem;
   }
@@ -3837,10 +3849,6 @@ summary {
 
   .sm\:pt-16 {
     padding-top: 4rem;
-  }
-
-  .sm\:rad-0 {
-    border-radius: 0;
   }
 
   .sm\:ta-c {
@@ -3920,16 +3928,6 @@ summary {
 
   .md\:min-w-16 {
     min-width: 4rem;
-  }
-
-  .md\:px-4 {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-
-  .md\:py-2 {
-    padding-top: .5rem;
-    padding-bottom: .5rem;
   }
 
   .md\:w-auto {
