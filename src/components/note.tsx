@@ -9,6 +9,8 @@ import {
   HandSwipeRightIcon,
   HeartStraightIcon,
   InfoIcon,
+  MouseLeftClickIcon,
+  MouseRightClickIcon,
   MouseScrollIcon,
   ResizeIcon,
   RulerIcon,
@@ -25,6 +27,8 @@ type IconName =
   | "hand_swipe_right"
   | "heart"
   | "info"
+  | "mouse_left_click"
+  | "mouse_right_click"
   | "mouse_scroll"
   | "size"
   | "width";
@@ -44,6 +48,8 @@ const iconData: Record<IconName, Icon> = {
   hand_swipe_right: HandSwipeRightIcon,
   heart: HeartStraightIcon,
   info: InfoIcon,
+  mouse_left_click: MouseLeftClickIcon,
+  mouse_right_click: MouseRightClickIcon,
   mouse_scroll: MouseScrollIcon,
   size: ResizeIcon,
   width: RulerIcon,
@@ -62,7 +68,7 @@ export default function Note({ icon, children }: NoteProps) {
           color: "#9aa6ef",
         }}
       >
-        <Icon size={20} weight="duotone" />
+        <Icon size={24} weight="duotone" />
       </span>
       <span className="tc-white/80">{children}</span>
     </div>
