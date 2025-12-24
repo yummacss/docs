@@ -4,7 +4,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { clsx } from "clsx";
 import { registry } from "@/registry";
 
-const previewVariants = cva("bt-1 br-1 bl-1", {
+const previewVariants = cva("bg-white bt-1 br-1 bl-1", {
   variants: {
     variant: {
       centered: "d-f ai-c jc-c p-4",
