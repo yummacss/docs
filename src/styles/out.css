@@ -533,6 +533,10 @@ summary {
   background-color: #dfe9fa;
 }
 
+.bg-blue-9 {
+  background-color: #1f4480;
+}
+
 .bg-blue-9\/20 {
   background-color: #1f448033;
 }
@@ -547,6 +551,10 @@ summary {
 
 .bg-green-1\/50 {
   background-color: #dbf3e480;
+}
+
+.bg-green-6 {
+  background-color: #3ebc6d;
 }
 
 .bg-green\/25 {
@@ -571,10 +579,6 @@ summary {
 
 .bg-indigo-3\/50 {
   background-color: #b6b7ee80;
-}
-
-.bg-indigo-6 {
-  background-color: #7073de;
 }
 
 .bg-indigo-8 {
@@ -627,6 +631,10 @@ summary {
 
 .bg-red-1\/50 {
   background-color: #f9e0e080;
+}
+
+.bg-red-3 {
+  background-color: #edaaaa;
 }
 
 .bg-red-3\/50 {
