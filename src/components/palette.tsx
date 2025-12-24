@@ -165,7 +165,7 @@ function ColorSwatch({
       <Tooltip.Portal>
         <Tooltip.Positioner sideOffset={10}>
           <Tooltip.Popup
-            className="d-f fd-c px-2 py-1 rad-1 tc-white fs-xs"
+            className="d-f fd-c px-2 py-1 tc-white fs-xs"
             style={{
               backgroundColor: "#1e2039",
               border: "1px solid #31365e",
