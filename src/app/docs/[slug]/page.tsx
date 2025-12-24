@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Banner from "@/components/ui/banner";
+import Navigator from "@/components/ui/navigator";
 import { getAllSlugs } from "@/utils/sidebar";
+import { getDocsNavigation } from "@/utils/navigator";
 
 export async function generateMetadata({
   params,
@@ -26,6 +28,7 @@ export default async function Page({
   const module = await import(`@/content/docs/${slug}.mdx`);
   const Content = module.default;
   const meta = module.meta;
+  const navigation = getDocsNavigation(slug);
 
   return (
     <div className="mb-16">
@@ -39,6 +42,11 @@ export default async function Page({
         </div>
       )}
       <Content />
+      <Navigator
+        previous={navigation.previous}
+        next={navigation.next}
+        basePath="/docs"
+      />
     </div>
   );
 }

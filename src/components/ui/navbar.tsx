@@ -35,10 +35,10 @@ interface NavbarProps extends VariantProps<typeof navbarVariants> {
 }
 
 export default function Navbar({ variant, className, links }: NavbarProps) {
-  const [searchOpen, setSearchOpen] = useState(false);
   const pathname = usePathname();
   const isUI = pathname?.startsWith("/ui");
   const isLandingPage = pathname === "/" || pathname === "/ui";
+  const [searchOpen, setSearchOpen] = useState(false);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -108,7 +108,7 @@ export default function Navbar({ variant, className, links }: NavbarProps) {
               <button
                 type="button"
                 onClick={() => setSearchOpen(true)}
-                className="d-f ai-c g-2 md:px-4 md:py-2 bg-white/5 bf-b-sm fs-sm h:bg-white/10 tc-white b-1 bc-white/10 rad-9 sm:rad-0"
+                className="d-f ai-c g-2 md:px-4 md:py-2 bg-white/5 bf-b-sm fs-sm h:bg-white/10 tc-white b-1 bc-white/10 rad-0 sm:rad-0"
               >
                 <MagnifyingGlassIcon size={15} weight="duotone" />
                 <span className="d-none md:d-b">Ctrl K</span>

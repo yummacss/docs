@@ -1,5 +1,6 @@
 "use client";
 
+import EditOnGitHub from "@/components/ui/edit-on-github";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -14,6 +15,7 @@ export default function TableOfContents() {
   const pathname = usePathname();
   const [headings, setHeadings] = useState<TocItem[]>([]);
   const [activeId, setActiveId] = useState<string>("");
+  const isBlogPost = pathname?.startsWith("/blog");
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: pathname changes trigger toc refresh
   useEffect(() => {
@@ -87,6 +89,7 @@ export default function TableOfContents() {
               );
             })}
           </ul>
+          {!isBlogPost && <EditOnGitHub />}
         </div>
       </div>
     </aside>
