@@ -1,7 +1,9 @@
-import { sidebarConfig, type SidebarConfigItem } from "./sidebar";
-import { uiSidebarConfig, type UISidebarConfigItem } from "./ui-sidebar";
+import { type SidebarConfigItem, sidebarConfig } from "./sidebar";
+import { type UISidebarConfigItem, uiSidebarConfig } from "./ui-sidebar";
 
-function flattenSidebarItems(items: SidebarConfigItem[]): Array<{ slug: string; title: string }> {
+function flattenSidebarItems(
+  items: SidebarConfigItem[],
+): Array<{ slug: string; title: string }> {
   const result: Array<{ slug: string; title: string }> = [];
 
   for (const item of items) {
@@ -23,7 +25,9 @@ function flattenSidebarItems(items: SidebarConfigItem[]): Array<{ slug: string; 
   return result;
 }
 
-function flattenUISidebarItems(items: UISidebarConfigItem[]): Array<{ slug: string; title: string }> {
+function flattenUISidebarItems(
+  items: UISidebarConfigItem[],
+): Array<{ slug: string; title: string }> {
   const result: Array<{ slug: string; title: string }> = [];
 
   for (const item of items) {
@@ -66,7 +70,8 @@ export function getDocsNavigation(slug: string): {
 
   return {
     previous: currentIndex > 0 ? allPages[currentIndex - 1] : null,
-    next: currentIndex < allPages.length - 1 ? allPages[currentIndex + 1] : null,
+    next:
+      currentIndex < allPages.length - 1 ? allPages[currentIndex + 1] : null,
   };
 }
 
@@ -88,7 +93,7 @@ export function getUINavigation(slug: string): {
 
   return {
     previous: currentIndex > 0 ? allPages[currentIndex - 1] : null,
-    next: currentIndex < allPages.length - 1 ? allPages[currentIndex + 1] : null,
+    next:
+      currentIndex < allPages.length - 1 ? allPages[currentIndex + 1] : null,
   };
 }
-

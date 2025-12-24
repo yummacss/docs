@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Banner from "@/components/ui/banner";
 import Navigator from "@/components/ui/navigator";
-import { getAllSlugs } from "@/utils/sidebar";
 import { getDocsNavigation } from "@/utils/navigator";
+import { getAllSlugs } from "@/utils/sidebar";
 
 export async function generateMetadata({
   params,
