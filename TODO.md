@@ -12,4 +12,4 @@
 
 - [x] Checkbox
 
-- [ ] Input / Textarea
+- [x] Input / Textarea

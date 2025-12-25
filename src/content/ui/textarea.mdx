@@ -8,7 +8,7 @@ export const meta = {
 <Preview id="textarea-basic" className="bg-white o-auto" />
 
 ```html
-<textarea placeholder="Write your message..." rows="4" class="b-1 bc-silver-4 tc-black px-3 py-2 rad-0 fs-md f:oc-silver-1 f:os-s f:ow-2 w-full"></textarea>
+<textarea placeholder="Write your message..." rows="4" class="b-1 bc-silver-4 tc-black px-3 py-2 rad-0 fs-md f:oc-silver-1 f:os-s f:ow-2 w-full" aria-label="Message"></textarea>
 ```
 
 ## Label
@@ -39,8 +39,9 @@ export const meta = {
     placeholder="Tell us about yourself..."
     rows="4"
     class="b-1 bc-silver-4 tc-black px-3 py-2 rad-0 fs-md f:oc-silver-1 f:os-s f:ow-2 w-full"
+    aria-describedby="bio-description"
   ></textarea>
-  <p class="fs-xs tc-silver-10">Write a short biography to display on your profile.</p>
+  <p id="bio-description" class="fs-xs tc-silver-10">Write a short biography to display on your profile.</p>
 </div>
 ```
 
@@ -50,7 +51,7 @@ export const meta = {
 
 ```html
 <div class="d-f fd-c g-2 w-full">
-  <label for="disabled-message" class="tc-slate-12 fw-600">Message</label>
+  <label for="disabled-message" class="tc-silver-12 fw-600">Message</label>
   <textarea
     id="disabled-message"
     disabled
@@ -67,13 +68,28 @@ export const meta = {
 
 ```html
 <div class="d-f fd-c g-1 w-full">
-  <label for="error-message" class="fw-600 tc-slate-9">Message <span class="tc-slate-9 us-none">*</span></label>
+  <label for="error-message" class="fw-600 tc-silver-12">Message <span class="tc-slate-9 us-none">*</span></label>
   <textarea
     id="error-message"
     placeholder="Write your message..."
     rows="4"
     class="bg-red-1/15 px-3 py-2 rad-0 fs-md bc-red-6 b-1 f:oc-red-2 f:os-s f:ow-2 w-full"
+    aria-describedby="error-message-text"
+    aria-invalid="true"
   ></textarea>
-  <span class="tc-red fs-xs">Message cannot be empty.</span>
+  <span id="error-message-text" class="tc-red fs-xs">Message cannot be empty.</span>
 </div>
+
+## Accessibility
+
+The textarea component follows standard HTML accessibility practices.
+
+### Roles, States, and Properties
+
+| Property | Description |
+| --- | --- |
+| `aria-label` | Provides an accessible name when a visible label is not present. |
+| `aria-describedby` | References elements that provide additional information or error messages. |
+| `aria-invalid` | Indicates that the value entered in the field does not conform to the required format. |
+| `disabled` | Prevents user interaction and indicates the field is not currently editable. |
 ```

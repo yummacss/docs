@@ -8,7 +8,7 @@ export const meta = {
 <Preview id="input-basic" />
 
 ```html
-<input id="email" type="email" placeholder="you@examlpe.com" class="b-1 bc-silver-4 tc-black px-3 py-2 rad-0 fs-md f:oc-silver-1 f:os-s f:ow-2" />
+<input id="email" type="email" placeholder="you@examlpe.com" class="b-1 bc-silver-4 tc-black px-3 py-2 rad-0 fs-md f:oc-silver-1 f:os-s f:ow-2" aria-label="Email address" />
 ```
 
 ## Icon
@@ -18,7 +18,7 @@ export const meta = {
 ```html
 <div class="d-f fd-c g-2">
   <div class="p-r w-full">
-    <input id="search" type="text" placeholder="Search..." class="b-1 bc-silver-4 tc-black pl-9 pr-3 py-2 rad-0 fs-md f:oc-silver-1 f:os-s f:ow-2 w-full" />
+    <input id="search" type="text" placeholder="Search..." class="b-1 bc-silver-4 tc-black pl-9 pr-3 py-2 rad-0 fs-md f:oc-silver-1 f:os-s f:ow-2 w-full" aria-label="Search" />
     <svg
       xmlns="http://www.w3.org/2000/svg"
       class="p-a l-3 t-0 bo-0 m-auto fs-lg tc-silver-12 h-4 w-4"
@@ -53,8 +53,8 @@ export const meta = {
 
 ```html
 <div class="d-f fd-c g-2">
-  <label class="fw-600 tc-slate-9">Email</label>
-  <input disabled type="text" placeholder="A disabled input" class="b-1 bc-silver-4 tc-black px-3 py-2 rad-0 fs-md f:oc-silver-1 f:os-s f:ow-2" />
+  <label for="disabled-input" class="fw-600 tc-silver-12">Email</label>
+  <input id="disabled-input" disabled type="text" placeholder="A disabled input" class="b-1 bc-silver-4 tc-black px-3 py-2 rad-0 fs-md f:oc-silver-1 f:os-s f:ow-2" />
 </div>
 ```
 
@@ -64,8 +64,21 @@ export const meta = {
 
 ```html
 <div class="d-f fd-c g-1">
-  <label for="error-input" class="fw-600 tc-slate-9">Phone number <span class="tc-slate-9 us-none">*</span></label>
-  <input id="error-input" type="tel" placeholder="(123) 456-7890" class="bg-red-1/15 tc-red px-3 py-2 rad-0 fs-md bc-red-6 b-1 f:oc-red-2 f:os-s f:ow-2" />
-  <span class="tc-red fs-sm">Invalid phone number.</span>
+  <label for="error-input" class="fw-600 tc-silver-12">Phone number <span class="tc-slate-9 us-none">*</span></label>
+  <input id="error-input" type="tel" placeholder="(123) 456-7890" class="bg-red-1/15 tc-red px-3 py-2 rad-0 fs-md bc-red-6 b-1 f:oc-red-2 f:os-s f:ow-2" aria-describedby="error-input-message" aria-invalid="true" />
+  <span id="error-input-message" class="tc-red fs-sm">Invalid phone number.</span>
 </div>
+
+## Accessibility
+
+The input component follows standard HTML accessibility practices.
+
+### Roles, States, and Properties
+
+| Property | Description |
+| --- | --- |
+| `aria-label` | Provides an accessible name when a visible label is not present. |
+| `aria-describedby` | References elements that provide additional information or error messages. |
+| `aria-invalid` | Indicates that the value entered in the field does not conform to the required format. |
+| `disabled` | Prevents user interaction and indicates the field is not currently editable. |
 ```
