@@ -4,7 +4,7 @@ export default function AvatarIndicator() {
       <div className="d-10 rad-9 o-h">
         <img
           src="/img/people/rayhan-zua.jpg"
-          alt="Avatar"
+          alt="Rayhan Zua"
           className="w-full h-full of-c"
         />
       </div>
