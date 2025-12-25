@@ -1,6 +1,6 @@
 export default function HeaderSectionBasic() {
   return (
-    <div className="py-12 px-6">
+    <header className="py-12 px-6">
       <div className="max-w-lg">
         <h2 className="ff-s fs-3xl fw-600 tc-slate-10 mb-2">Our features</h2>
         <p className="fs-md tc-silver-10 m-0">
@@ -8,6 +8,6 @@ export default function HeaderSectionBasic() {
           confidence.
         </p>
       </div>
-    </div>
+    </header>
   );
 }
