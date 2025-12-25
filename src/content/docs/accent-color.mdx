@@ -11,15 +11,15 @@ This example showcases the default browser accent color and a custom **silver** 
 
 <Preview>
   <div className="d-g g-8 gtc-1 sm:gtc-2">
-    <label><input className="mr-1" type="checkbox" checked={true} readOnly />Default </label>
-    <label><input className="ac-silver-2 mr-1" type="checkbox" checked={true} readOnly />Custom</label>
+    <label class="tc-slate"><input className="mr-1" type="checkbox" checked={true} readOnly />Default </label>
+    <label class="tc-slate"><input className="ac-silver-2 mr-1" type="checkbox" checked={true} readOnly />Custom</label>
   </div>
 </Preview>
 
 ```html "ac-silver-8"
 <div class="d-g g-8 gtc-1 sm:gtc-2">
-  <label><input class="mr-1" type="checkbox" checked />Default </label>
-  <label><input class="ac-silver-2 mr-1" type="checkbox" checked />Custom</label>
+  <label class="tc-slate"><input class="mr-1" type="checkbox" checked />Default </label>
+  <label class="tc-slate"><input class="ac-silver-2 mr-1" type="checkbox" checked />Custom</label>
 </div>
 ```
 
@@ -34,3 +34,7 @@ Learn how to override existing utilities based on the user's [screen size](/docs
 ### Targeting hover states
 
 <HoverVariant class="ac-slate" variant="ac-silver" classPrefix="ac" />
+
+### Targeting with opacity
+
+<OpacityVariant classPrefix="ac" />
