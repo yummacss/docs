@@ -1,6 +1,6 @@
 export default function HeaderSectionLabel() {
   return (
-    <div className="py-12 px-6 ta-c">
+    <header className="py-12 px-6 ta-c">
       <div className="max-w-lg m-auto">
         <span className="fs-xs fw-600 tc-indigo tt-u ls-4 mb-3 d-ib">
           Features
@@ -12,6 +12,6 @@ export default function HeaderSectionLabel() {
           Discover the capabilities that help you work smarter and faster.
         </p>
       </div>
-    </div>
+    </header>
   );
 }
