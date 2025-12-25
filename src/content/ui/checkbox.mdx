@@ -106,20 +106,24 @@ Use `aria-describedby` to associate additional information with a checkbox.
 
 ## Accessibility
 
+
 The checkbox component follows the [WAI-ARIA Checkbox Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/).
 
 ### Keyboard Interaction
+
 
 | Key | Action |
 | --- | --- |
 | `Space` | Changes the state of the checkbox. |
 
-### Roles and States
+### Roles, States, and Properties
 
 | Property | Description |
 | --- | --- |
-| `role="checkbox"` | Indicated if the element is a checkbox (Implicit for `input[type="checkbox"]`). |
-| `aria-checked` | Set to `true`, `false`, or `mixed` depending on the checkbox state. |
+| `role="checkbox"` | Identifies the element as a checkbox (Implicit for `input[type="checkbox"]`). |
+| `aria-checked` | Indicates whether the checkbox is `true`, `false`, or `mixed`. |
 | `role="group"` | Identifies a set of checkboxes as a logical group (Implicit using `fieldset`). |
 | `aria-labelledby` | References the label for the group (Implicit using `legend`). |
-| `aria-describedby` | References additional descriptive text for the checkbox. |
+| `aria-describedby` | References additional descriptive text or instructions. |
+| `aria-invalid` | Indicates that the checkbox value is invalid. |
+| `disabled` | Indicates that the checkbox is currently non-interactive. |

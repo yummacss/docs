@@ -1,10 +1,11 @@
 export default function InputDisabled() {
   return (
     <div className="d-f fd-c g-2">
-      <label htmlFor="email" className="fw-600 tc-slate-9">
+      <label htmlFor="disabled-input" className="fw-600 tc-silver-12">
         Email
       </label>
       <input
+        id="disabled-input"
         disabled
         type="text"
         placeholder="A disabled input"

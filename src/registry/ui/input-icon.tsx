@@ -7,6 +7,7 @@ export default function InputIcon() {
           type="text"
           placeholder="Search..."
           className="b-1 bc-silver-4 tc-black pl-9 pr-3 py-2 rad-0 fs-md f:oc-silver-1 f:os-s f:ow-2 w-full"
+          aria-label="Search"
         />
         <svg
           xmlns="http://www.w3.org/2000/svg"

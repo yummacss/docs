@@ -105,3 +105,23 @@ export const meta = {
   </table>
 </div>
 ```
+
+## Accessibility
+
+The table component follows standard HTML table accessibility practices.
+
+### Keyboard Interaction
+
+| Key | Action |
+| --- | --- |
+| `Tab` | Moves focus to interactive elements within the table (e.g., links, buttons). |
+| `Enter` / `Space` | Activates the focused interactive element. |
+
+### Roles, States, and Properties
+
+| Property | Description |
+| --- | --- |
+| `aria-label` | Provides an accessible name for the table (e.g., "User directory"). |
+| `scope="col"` | Identifies the cell as a header for a column. |
+| `scope="row"` | Identifies the cell as a header for a row. |
+| `aria-hidden="true"` | Hides decorative icons from screen readers. |

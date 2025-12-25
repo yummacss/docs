@@ -211,3 +211,24 @@ export const meta = {
   </ul>
 </nav>
 ```
+
+## Accessibility
+
+The pagination component follows the [WAI-ARIA Pagination Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/). Note: While WAI-ARIA classifies pagination under breadcrumbs, it serves a distinct navigation purpose.
+
+### Keyboard Interaction
+
+| Key | Action |
+| --- | --- |
+| `Tab` | Moves focus to the first focusable link in the pagination. |
+| `Enter` / `Space` | Activates the focused link. |
+
+### Roles, States, and Properties
+
+| Property | Description |
+| --- | --- |
+| `nav` | Identifies the element as a navigation landmark. |
+| `aria-label` | Provides an accessible name for the navigation landmark (e.g., "Pagination"). |
+| `aria-current="page"` | Identifies the link that represents the current page. |
+| `aria-label` (Links) | Provides descriptive names for icon-only links (e.g., "Go to next page"). |
+| `ul` / `li` | Provides a semantic list structure for navigation links. |

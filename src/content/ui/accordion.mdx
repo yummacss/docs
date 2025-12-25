@@ -197,3 +197,27 @@ export const meta = {
   </div>
 </div>
 ```
+
+## Accessibility
+
+The accordion component follows the [WAI-ARIA Accordion Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/accordion/).
+
+### Keyboard Interaction
+
+| Key | Action |
+| --- | --- |
+| `Enter` / `Space` | Toggles the expanded state of the focused accordion header. |
+| `Tab` | Moves focus to the next focusable element. |
+| `Down Arrow` | Moves focus to the next accordion header. |
+| `Up Arrow` | Moves focus to the previous accordion header. |
+| `Home` | Moves focus to the first accordion header. |
+| `End` | Moves focus to the last accordion header. |
+
+### Roles, States, and Properties
+
+| Property | Description |
+| --- | --- |
+| `aria-expanded` | Indicates whether the accordion panel is currently expanded or collapsed. |
+| `aria-controls` | References the ID of the panel that the header controls. |
+| `aria-labelledby` | References the ID of the header that labels the panel. |
+| `role="region"` | Identifies the panel content as a landmark region. |
