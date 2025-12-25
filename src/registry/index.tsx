@@ -39,6 +39,8 @@ import CheckboxBasic from "./ui/checkbox-basic";
 import CheckboxChecked from "./ui/checkbox-checked";
 import CheckboxDescriptive from "./ui/checkbox-descriptive";
 import CheckboxDisabled from "./ui/checkbox-disabled";
+import CheckboxGroup from "./ui/checkbox-group";
+import CheckboxMixed from "./ui/checkbox-mixed";
 import ComparisonListBasic from "./ui/comparison-list-basic";
 import ComparisonListSideBySide from "./ui/comparison-list-side-by-side";
 import ContactSectionBasic from "./ui/contact-section-basic";
@@ -140,6 +142,8 @@ export const registry: Record<string, ComponentType> = {
   "checkbox-checked": CheckboxChecked,
   "checkbox-disabled": CheckboxDisabled,
   "checkbox-descriptive": CheckboxDescriptive,
+  "checkbox-group": CheckboxGroup,
+  "checkbox-mixed": CheckboxMixed,
   // Comparison List
   "comparison-list-basic": ComparisonListBasic,
   "comparison-list-side-by-side": ComparisonListSideBySide,
