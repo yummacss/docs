@@ -10,6 +10,6 @@
 
 - [x] Table (don't implement sorting)
 
-- [ ] Checkbox
+- [x] Checkbox
 
 - [ ] Input / Textarea
