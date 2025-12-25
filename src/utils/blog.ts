@@ -23,6 +23,9 @@ const blogSlugs = [
   "yummacss-3.4.0",
   "yummacss-3.5.0",
   "hello-yumma-ui",
+  // not ready yet
+  // "yummacss-3.6.0",
+  // "yummacss-4.0.0",
 ];
 
 export function getAllBlogSlugs(): string[] {
