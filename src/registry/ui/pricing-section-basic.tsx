@@ -18,7 +18,7 @@ export default function PricingSectionBasic() {
             </p>
           </div>
           <div className="mb-6">
-            <span className="fs-4xl fw-700 tc-slate-10">€0</span>
+            <span className="fs-4xl fw-600 tc-slate-10">€0</span>
             <span className="fs-sm tc-silver-10">/month</span>
           </div>
           <ul className="d-f fd-c g-3 mb-6 p-0">
@@ -87,20 +87,20 @@ export default function PricingSectionBasic() {
             Get started
           </button>
         </div>
-        <div className="w-72 b-2 bc-slate-8 rad-0 p-6 d-f fd-c">
+        <div className="p-r w-72 b-2 bc-slate-8 rad-0 p-6 d-f fd-c">
+          <div className="p-a t-0 l-0 r-0 h-0 d-f jc-c ai-c">
+            <span className="bg-slate-9 tc-white px-2 py-1 rad-0 fs-xs fw-500">
+              Popular
+            </span>
+          </div>
           <div className="mb-6">
-            <div className="d-f ai-c jc-sb mb-1">
-              <h3 className="ff-s fs-lg fw-600 tc-slate-10 m-0">Premium</h3>
-              <span className="bg-slate-9 tc-white px-2 py-1 rad-0 fs-xs fw-500">
-                Popular
-              </span>
-            </div>
+            <h3 className="ff-s fs-lg fw-600 tc-slate-10 m-0">Premium</h3>
             <p className="fs-sm tc-silver-10 m-0">
               For growing teams and businesses
             </p>
           </div>
           <div className="mb-6">
-            <span className="fs-4xl fw-700 tc-slate-10">€59</span>
+            <span className="fs-4xl fw-600 tc-slate-10">€59</span>
             <span className="fs-sm tc-silver-10">/month</span>
           </div>
           <ul className="d-f fd-c g-3 mb-6 p-0">
