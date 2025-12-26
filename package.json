@@ -15,13 +15,13 @@
     "release": "pnpm up yummacss @yummacss/api --latest",
     "start": "next start"
   },
-  "packageManager": "pnpm@10.25.0",
+  "packageManager": "pnpm@10.26.2",
   "dependencies": {
     "@base-ui/react": "^1.0.0",
     "@fontsource/esteban": "^5.2.7",
     "@mdx-js/loader": "^3.1.1",
     "@mdx-js/react": "^3.1.1",
-    "@next/mdx": "^16.0.10",
+    "@next/mdx": "^16.1.1",
     "@orama/react-components": "^0.8.1",
     "@phosphor-icons/react": "^2.1.10",
     "@react-three/fiber": "^9.4.2",
@@ -31,22 +31,22 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "gsap": "^3.14.2",
-    "next": "16.0.10",
+    "next": "16.1.1",
     "next-mdx-remote-client": "^2.1.7",
     "ogl": "^1.0.11",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-icons": "^5.5.0",
-    "rehype-expressive-code": "^0.41.4",
+    "rehype-expressive-code": "^0.41.5",
     "remark-gfm": "^4.0.1",
     "three": "^0.182.0",
     "tinycolor2": "^1.6.0",
-    "web-features": "^3.11.1"
+    "web-features": "^3.12.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.3.9",
+    "@biomejs/biome": "2.3.10",
     "@types/mdx": "^2.0.13",
-    "@types/node": "^25.0.2",
+    "@types/node": "^25.0.3",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
     "@types/three": "^0.182.0",
@@ -54,6 +54,6 @@
     "concurrently": "^9.2.1",
     "remark-code-preview": "^1.2.6",
     "typescript": "^5.9.3",
-    "yummacss": "^3.5.0"
+    "yummacss": "^3.6.0"
   }
 }
