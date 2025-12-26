@@ -1,6 +1,6 @@
 export default function LogoSectionHeading() {
   return (
-    <div className="py-12 px-6 ta-c">
+    <section className="py-12 px-6 ta-c">
       <h2 className="ff-s fs-xxl fw-600 tc-slate-10 mb-2">
         Backed by the best
       </h2>
@@ -162,6 +162,6 @@ export default function LogoSectionHeading() {
           </g>
         </svg>
       </div>
-    </div>
+    </section>
   );
 }

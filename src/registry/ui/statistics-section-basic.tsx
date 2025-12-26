@@ -1,6 +1,6 @@
 export default function StatisticsSectionBasic() {
   return (
-    <div className="w-full px-4 py-12">
+    <section className="w-full px-4 py-12">
       <div className="d-g gtc-1 sm:gtc-2 lg:gtc-4 g-8 ta-c">
         <div className="d-f fd-c g-2">
           <span className="fs-4xl fw-700 tc-black">150k</span>
@@ -19,6 +19,6 @@ export default function StatisticsSectionBasic() {
           <span className="fs-md tc-silver-10">Support Available</span>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

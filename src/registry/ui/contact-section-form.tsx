@@ -1,6 +1,6 @@
 export default function ContactSectionForm() {
   return (
-    <div className="py-12 px-6">
+    <section className="py-12 px-6">
       <div className="d-f fw-w g-12">
         <div className="f-1 min-w-64">
           <h2 className="ff-s fs-3xl fw-600 tc-slate-10 mb-2">Contact us</h2>
@@ -168,6 +168,6 @@ export default function ContactSectionForm() {
           </form>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

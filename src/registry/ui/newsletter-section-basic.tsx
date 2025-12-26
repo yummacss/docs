@@ -1,6 +1,6 @@
 export default function NewsletterSectionBasic() {
   return (
-    <div className="py-12 px-6">
+    <section className="py-12 px-6">
       <div className="max-w-md m-auto">
         <h2 className="ff-s fs-xxl fw-600 tc-slate-10 mb-2">
           Stay in the loop
@@ -22,6 +22,6 @@ export default function NewsletterSectionBasic() {
           </button>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

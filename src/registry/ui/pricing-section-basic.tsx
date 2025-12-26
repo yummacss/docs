@@ -1,6 +1,6 @@
 export default function PricingSectionBasic() {
   return (
-    <div className="py-12 px-6">
+    <section className="py-12 px-6">
       <div className="ta-c mb-10">
         <h2 className="ff-s fs-3xl fw-600 tc-slate-10 mb-2">
           Simple, transparent pricing
@@ -189,6 +189,6 @@ export default function PricingSectionBasic() {
           </button>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

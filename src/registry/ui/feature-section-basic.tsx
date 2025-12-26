@@ -1,6 +1,6 @@
 export default function FeatureSectionBasic() {
   return (
-    <div className="py-12 px-6">
+    <section className="py-12 px-6">
       <div className="d-g gtc-3 g-8">
         <div className="d-f fd-c">
           <div className="d-f ai-c jc-c d-10 rad-9 bg-silver-2 tc-silver-9 mb-4">
@@ -222,6 +222,6 @@ export default function FeatureSectionBasic() {
           </p>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
