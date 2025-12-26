@@ -385,8 +385,16 @@ summary {
   border-color: #7073de1a;
 }
 
+.bc-indigo-6\/25 {
+  border-color: #7073de40;
+}
+
 .bc-indigo-7\/10 {
   border-color: #4d4fbb1a;
+}
+
+.bc-indigo-7\/25 {
+  border-color: #4d4fbb40;
 }
 
 .bc-indigo-8 {
@@ -583,6 +591,10 @@ summary {
 
 .bg-indigo-3\/50 {
   background-color: #b6b7ee80;
+}
+
+.bg-indigo-6\/25 {
+  background-color: #7073de40;
 }
 
 .bg-indigo-8 {
