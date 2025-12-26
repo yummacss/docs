@@ -1,6 +1,6 @@
 export default function HeroSectionBasic() {
   return (
-    <div className="py-16 px-6 ta-c">
+    <section className="py-16 px-6 ta-c">
       <div className="max-w-sm m-auto">
         <h1 className="ff-s fs-5xl fw-600 tc-slate-10 mb-4 lh-1">
           Build beautiful products faster
@@ -51,6 +51,6 @@ export default function HeroSectionBasic() {
           </button>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

@@ -1,6 +1,6 @@
 export default function ContactSectionBasic() {
   return (
-    <div className="py-12 px-6">
+    <section className="py-12 px-6">
       <h2 className="ff-s fs-3xl fw-600 tc-slate-10 mb-6">Contact us</h2>
       <div className="d-g gtc-1 sm:gtc-3 g-6">
         <div className="p-6 b-1 bc-silver-4 rad-0">
@@ -108,6 +108,6 @@ export default function ContactSectionBasic() {
           <p className="fs-sm tc-silver-10 m-0">123 Main St, City</p>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

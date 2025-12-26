@@ -1,6 +1,6 @@
 export default function StatisticsSectionIcons() {
   return (
-    <div className="w-full px-4 py-12">
+    <section className="w-full px-4 py-12">
       <div className="d-g gtc-1 sm:gtc-2 lg:gtc-4 g-8">
         <div className="d-f fd-c ai-c g-4 ta-c">
           <div className="d-f ai-c jc-c w-12 h-12 rad-full bg-silver-1 tc-black">
@@ -302,6 +302,6 @@ export default function StatisticsSectionIcons() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

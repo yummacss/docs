@@ -1,6 +1,6 @@
 export default function TeamSectionGrid() {
   return (
-    <div className="py-12">
+    <section className="py-12">
       <div className="ta-c mb-12">
         <h2 className="ff-s fs-3xl fw-600 tc-black mb-4">The Team</h2>
         <p className="fs-lg tc-silver-10 max-w-sm m-auto">
@@ -62,6 +62,6 @@ export default function TeamSectionGrid() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

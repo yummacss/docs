@@ -1,6 +1,6 @@
 export default function NewsletterSectionCentered() {
   return (
-    <div className="py-12 px-6 ta-c">
+    <section className="py-12 px-6 ta-c">
       <div className="max-w-md m-auto">
         <div className="d-f jc-c mb-4">
           <div className="d-f ai-c jc-c d-12 rad-9 bg-slate-8 tc-white">
@@ -75,6 +75,6 @@ export default function NewsletterSectionCentered() {
           We respect your privacy. Unsubscribe at any time.
         </p>
       </div>
-    </div>
+    </section>
   );
 }

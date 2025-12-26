@@ -1,6 +1,6 @@
 export default function LogoSectionBasic() {
   return (
-    <div className="py-12 px-6">
+    <section className="py-12 px-6">
       <p className="fs-sm tc-silver-10 ta-c mb-8 m-0">
         Trusted by leading companies worldwide
       </p>
@@ -159,6 +159,6 @@ export default function LogoSectionBasic() {
           </g>
         </svg>
       </div>
-    </div>
+    </section>
   );
 }

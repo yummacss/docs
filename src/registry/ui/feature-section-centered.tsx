@@ -1,6 +1,6 @@
 export default function FeatureSectionCentered() {
   return (
-    <div className="py-12 px-6">
+    <section className="py-12 px-6">
       <div className="d-g gtc-3 g-8 ta-c">
         <div className="d-f fd-c ai-c">
           <div className="d-f ai-c jc-c d-12 rad-9 bg-silver-2 tc-silver-9 mb-4">
@@ -221,6 +221,6 @@ export default function FeatureSectionCentered() {
           </p>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

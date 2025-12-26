@@ -1,6 +1,6 @@
 export default function HeroSectionBadgeOnTop() {
   return (
-    <div className="py-16 px-6 ta-c">
+    <section className="py-16 px-6 ta-c">
       <div className="max-w-sm m-auto">
         <div className="d-f jc-c mb-4">
           <span className="d-f ai-c g-2 bg-indigo-1 tc-indigo-8 px-3 py-1 rad-9 fs-xs fw-600">
@@ -89,6 +89,6 @@ export default function HeroSectionBadgeOnTop() {
           </button>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
