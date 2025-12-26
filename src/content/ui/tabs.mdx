@@ -141,21 +141,22 @@ The tabs component follows the [WAI-ARIA Tabs Pattern](https://www.w3.org/WAI/AR
 
 ### Keyboard Interaction
 
-| Key | Action |
-| --- | --- |
-| `Tab` | Moves focus to the active tab. When focus is on the tab list, it moves to the next focusable element outside the list. |
-| `Left Arrow` / `Right Arrow` | Moves focus between tabs and automatically activates the focused tab. |
-| `Home` | Moves focus to the first tab and activates it. |
-| `End` | Moves focus to the last tab and activates it. |
+| Key                          | Action                                                                                                                 |
+|------------------------------|------------------------------------------------------------------------------------------------------------------------|
+| `Tab`                        | Moves focus to the active tab. When focus is on the tab list, it moves to the next focusable element outside the list. |
+| `Left Arrow` / `Right Arrow` | Moves focus between tabs and automatically activates the focused tab.                                                  |
+| `Home`                       | Moves focus to the first tab and activates it.                                                                         |
+| `End`                        | Moves focus to the last tab and activates it.                                                                          |
 
 ### Roles, States, and Properties
 
-| Property | Description |
-| --- | --- |
-| `role="tablist"` | Identifies the element as a container for a set of tabs. |
-| `role="tab"` | Identifies the element as a tab. |
+| Property          | Description                                                                 |
+|-------------------|-----------------------------------------------------------------------------|
+| `role="tablist"`  | Identifies the element as a container for a set of tabs.                    |
+| `role="tab"`      | Identifies the element as a tab.                                            |
 | `role="tabpanel"` | Identifies the element as a panel containing content associated with a tab. |
-| `aria-selected` | Indicates whether the tab is currently selected. |
-| `aria-controls` | References the ID of the tabpanel that the tab controls. |
-| `aria-labelledby` | References the ID of the tab that labels the tabpanel. |
-| `tabindex` | Ensures that the active tab and tabpanel are focusable. |
+| `aria-selected`   | Indicates whether the tab is currently selected.                            |
+| `aria-controls`   | References the ID of the tabpanel that the tab controls.                    |
+| `aria-labelledby` | References the ID of the tab that labels the tabpanel.                      |
+| `tabindex`        | Ensures that the active tab and tabpanel are focusable.                     |
+
