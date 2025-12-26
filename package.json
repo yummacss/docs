@@ -54,6 +54,6 @@
     "concurrently": "^9.2.1",
     "remark-code-preview": "^1.2.6",
     "typescript": "^5.9.3",
-    "yummacss": "^3.6.0"
+    "yummacss": "^3.6.1"
   }
 }

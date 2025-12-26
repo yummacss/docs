@@ -115,8 +115,8 @@ importers:
         specifier: ^5.9.3
         version: 5.9.3
       yummacss:
-        specifier: ^3.6.0
-        version: 3.6.0
+        specifier: ^3.6.1
+        version: 3.6.1
 
 packages:
 
@@ -787,8 +787,8 @@ packages:
   '@yummacss/api@1.7.2':
     resolution: {integrity: sha512-mx53stYJ6WfVIgaq2ppOMkLpHyQ4UT2VvsAdBsgPVJ1sldrsiQtTYsQTBj2L5b3moYOBmaRLLVe0T+meSIfR6w==}
 
-  '@yummacss/nitro@0.3.0':
-    resolution: {integrity: sha512-IokQJ3e1B92F4p6hJI+/vOZSeHHwG6DA+1lJvZ8Yumuakw1fbiLnYaMIOoz0ROrwkUgyqGkVjgXCTXaIA3Yrig==}
+  '@yummacss/nitro@0.3.1':
+    resolution: {integrity: sha512-plUXPFh0QR4A7cPPi6A3B1nyKogKVJaOeuEPuUPisLrT50hwqb7sL4hGCCvEd/qO6+AZOdxn8kqYb+iTch4/yg==}
 
   acorn-jsx@5.3.2:
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
@@ -2009,8 +2009,8 @@ packages:
     resolution: {integrity: sha512-CzhO+pFNo8ajLM2d2IW/R93ipy99LWjtwblvC1RsoSUMZgyLbYFr221TnSNT7GjGdYui6P459mw9JH/g/zW2ug==}
     engines: {node: '>=18'}
 
-  yummacss@3.6.0:
-    resolution: {integrity: sha512-3CnikoID/UFYX+cWEaA4vU+EVRvKRo+M2lei4vv5GbYooOEKBsdRd1gvzHoOKH6C6U32jz+VOVT3jFsZkZvVyA==}
+  yummacss@3.6.1:
+    resolution: {integrity: sha512-Tj9SoH9jU3pKrvK5KHcmnWzpFVQQrVtAfBNm90Hzq+8VBRF1gFg6suyTUTxda5JYkdsbj/GP4tHG45nfxwCstQ==}
     hasBin: true
 
   zod-to-json-schema@3.24.5:
@@ -2672,7 +2672,7 @@ snapshots:
     dependencies:
       tinycolor2: 1.6.0
 
-  '@yummacss/nitro@0.3.0':
+  '@yummacss/nitro@0.3.1':
     dependencies:
       '@yummacss/api': 1.7.2
       globby: 16.1.0
@@ -4280,9 +4280,9 @@ snapshots:
 
   yoctocolors@2.1.2: {}
 
-  yummacss@3.6.0:
+  yummacss@3.6.1:
     dependencies:
-      '@yummacss/nitro': 0.3.0
+      '@yummacss/nitro': 0.3.1
       chokidar: 5.0.0
       commander: 14.0.2
       globby: 16.1.0
