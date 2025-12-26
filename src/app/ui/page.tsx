@@ -64,7 +64,7 @@ export default function UIPage() {
                   className="px-6 py-3 fw-600 tc-white fs-md d-f ai-c g-2"
                 >
                   <BookIcon size={20} weight="duotone" />
-                  Installation
+                  Documentation
                 </Link>
               </div>
 
