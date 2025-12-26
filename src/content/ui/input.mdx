@@ -68,6 +68,7 @@ export const meta = {
   <input id="error-input" type="tel" placeholder="(123) 456-7890" class="bg-red-1/15 tc-red px-3 py-2 rad-0 fs-md bc-red-6 b-1 f:oc-red-2 f:os-s f:ow-2" aria-describedby="error-input-message" aria-invalid="true" />
   <span id="error-input-message" class="tc-red fs-sm">Invalid phone number.</span>
 </div>
+```
 
 ## Accessibility
 
@@ -75,10 +76,11 @@ The input component follows standard HTML accessibility practices.
 
 ### Roles, States, and Properties
 
-| Property | Description |
-| --- | --- |
-| `aria-label` | Provides an accessible name when a visible label is not present. |
-| `aria-describedby` | References elements that provide additional information or error messages. |
-| `aria-invalid` | Indicates that the value entered in the field does not conform to the required format. |
-| `disabled` | Prevents user interaction and indicates the field is not currently editable. |
-```
+| Property           | Description                                                                            |
+|--------------------|----------------------------------------------------------------------------------------|
+| `aria-label`       | Provides an accessible name when a visible label is not present.                       |
+| `aria-describedby` | References elements that provide additional information or error messages.             |
+| `aria-invalid`     | Indicates that the value entered in the field does not conform to the required format. |
+| `disabled`         | Prevents user interaction and indicates the field is not currently editable.           |
+
+
