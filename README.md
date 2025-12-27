@@ -1,13 +1,28 @@
-# Yumma CSS Docs
+# [@yummacss](www.yummacss.com)
 
-Welcome to the Yumma CSS documentation. Here you will find detailed information about the framework's features, components, and usage.
+A CLI-first CSS framework for the web with abbreviated styles.
 
-To preview the docs locally you will need to have Node.js installed on your machine.
+[![NPM Version](https://img.shields.io/npm/v/yummacss?style=flat-square&label=yummacss&labelColor=151724&color=31365e)](https://www.npmjs.com/package/yummacss)
+[![NPM Downloads](https://img.shields.io/npm/d18m/yummacss?style=flat-square&label=downloads&labelColor=151724&color=31365e)](https://www.npmjs.com/package/yummacss)
 
+## Installing
+
+Install `yummacss` as a dev dependency and initialize configuration
+
+```bash
+npm install yummacss -D
+npx yummacss init
 ```
-npm install
-npm run dev
+
+Build styles
+
+```bash
+npx yummacss build
 ```
+
+## Documentation
+
+Learn more at [yummacss.com](https://yummacss.com)
 
 ## License
 
