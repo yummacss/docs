@@ -3,7 +3,7 @@ export default function ComparisonListBasic() {
     <div className="max-w-sm">
       <div className="d-f fd-c g-3">
         <div className="d-f ai-c g-3">
-          <div className="d-f ai-c jc-c d-6 rad-9 bg-green-1 tc-green">
+          <div className="d-f ai-c jc-c d-6 br-pill bg-green-1 c-green">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-4 h-4"
@@ -21,10 +21,10 @@ export default function ComparisonListBasic() {
               />
             </svg>
           </div>
-          <span className="fs-sm tc-slate">Unlimited projects</span>
+          <span className="fs-sm c-slate">Unlimited projects</span>
         </div>
         <div className="d-f ai-c g-3">
-          <div className="d-f ai-c jc-c d-6 rad-9 bg-green-1 tc-green">
+          <div className="d-f ai-c jc-c d-6 br-pill bg-green-1 c-green">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-4 h-4"
@@ -42,10 +42,10 @@ export default function ComparisonListBasic() {
               />
             </svg>
           </div>
-          <span className="fs-sm tc-slate">Priority support</span>
+          <span className="fs-sm c-slate">Priority support</span>
         </div>
         <div className="d-f ai-c g-3">
-          <div className="d-f ai-c jc-c d-6 rad-9 bg-green-1 tc-green">
+          <div className="d-f ai-c jc-c d-6 br-pill bg-green-1 c-green">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-4 h-4"
@@ -63,10 +63,10 @@ export default function ComparisonListBasic() {
               />
             </svg>
           </div>
-          <span className="fs-sm tc-slate">Custom integrations</span>
+          <span className="fs-sm c-slate">Custom integrations</span>
         </div>
         <div className="d-f ai-c g-3">
-          <div className="d-f ai-c jc-c d-6 rad-9 bg-red-1 tc-red">
+          <div className="d-f ai-c jc-c d-6 br-pill bg-red-1 c-red">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-4 h-4"
@@ -96,7 +96,7 @@ export default function ComparisonListBasic() {
               />
             </svg>
           </div>
-          <span className="fs-sm tc-slate-6">Dedicated account manager</span>
+          <span className="fs-sm c-slate-6">Dedicated account manager</span>
         </div>
       </div>
     </div>

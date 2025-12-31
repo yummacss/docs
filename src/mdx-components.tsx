@@ -37,7 +37,7 @@ const components: MDXComponents = {
         {children}
       </h1>
     ) : (
-      <h1 id={id} className="fs-4xl fw-400 mb-4 lh-1 tc-white" {...props}>
+      <h1 id={id} className="fs-4xl fw-400 mb-4 lh-1 c-white" {...props}>
         {children}
       </h1>
     );
@@ -49,7 +49,7 @@ const components: MDXComponents = {
         {children}
       </h2>
     ) : (
-      <h2 id={id} className="fs-xxl fw-400 mt-12 mb-4 lh-1 tc-white" {...props}>
+      <h2 id={id} className="fs-xxl fw-400 mt-12 mb-4 lh-1 c-white" {...props}>
         {children}
       </h2>
     );
@@ -61,7 +61,7 @@ const components: MDXComponents = {
         {children}
       </h3>
     ) : (
-      <h3 id={id} className="fs-xl fw-400 mt-8 mb-4 lh-1 tc-white" {...props}>
+      <h3 id={id} className="fs-xl fw-400 mt-8 mb-4 lh-1 c-white" {...props}>
         {children}
       </h3>
     );
@@ -70,7 +70,7 @@ const components: MDXComponents = {
     props.className ? (
       <h4 {...props}>{children}</h4>
     ) : (
-      <h4 className="fs-lg fw-500 mt-6 my-3 lh-1 tc-white" {...props}>
+      <h4 className="fs-lg fw-500 mt-6 my-3 lh-1 c-white" {...props}>
         {children}
       </h4>
     ),
@@ -78,7 +78,7 @@ const components: MDXComponents = {
     props.className ? (
       <h5 {...props}>{children}</h5>
     ) : (
-      <h5 className="fs-md fw-500 mt-4 my-3 lh-1 tc-white" {...props}>
+      <h5 className="fs-md fw-500 mt-4 my-3 lh-1 c-white" {...props}>
         {children}
       </h5>
     ),
@@ -86,7 +86,7 @@ const components: MDXComponents = {
     props.className ? (
       <h6 {...props}>{children}</h6>
     ) : (
-      <h6 className="fs-sm fw-500 mt-4 my-2 lh-1 tc-white" {...props}>
+      <h6 className="fs-sm fw-500 mt-4 my-2 lh-1 c-white" {...props}>
         {children}
       </h6>
     ),
@@ -94,7 +94,7 @@ const components: MDXComponents = {
     props.className ? (
       <p {...props}>{children}</p>
     ) : (
-      <p className="my-4 tc-white/80" {...props}>
+      <p className="my-4 c-white/80" {...props}>
         {children}
       </p>
     ),
@@ -126,7 +126,7 @@ const components: MDXComponents = {
     props.className ? (
       <li {...props}>{children}</li>
     ) : (
-      <li className="my-2 tc-white/80" {...props}>
+      <li className="my-2 c-white/80" {...props}>
         {children}
       </li>
     ),
@@ -171,7 +171,7 @@ const components: MDXComponents = {
       <th {...props}>{children}</th>
     ) : (
       <th
-        className="px-4 py-2 ta-l b-1 tc-white fw-500"
+        className="px-4 py-2 ta-l bw-1 c-white fw-500"
         style={{ borderColor: "#31365e" }}
         {...props}
       >
@@ -183,7 +183,7 @@ const components: MDXComponents = {
       <td {...props}>{children}</td>
     ) : (
       <td
-        className="px-4 py-2 b-1 tc-white/80"
+        className="px-4 py-2 bw-1 c-white/80"
         style={{ borderColor: "#31365e" }}
         {...props}
       >

@@ -32,7 +32,7 @@ export const uiSidebarConfig: UISidebarConfig = [
     items: [
       {
         title: "Introduction",
-        slug: "introduction",
+        slug: "components",
       },
     ],
   },
@@ -77,6 +77,13 @@ export const uiSidebarConfig: UISidebarConfig = [
       { title: "Team Section", slug: "team-section" },
       { title: "Testimonial Section", slug: "testimonial-section" },
       { title: "Timeline", slug: "timeline" },
+    ],
+  },
+  {
+    title: "Templates",
+    items: [
+      { title: "Browse Templates", slug: "templates" },
+      { title: "Neutra", slug: "templates/neutra" },
     ],
   },
 ];

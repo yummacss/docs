@@ -9,10 +9,10 @@ export default function CheckboxDescriptive() {
         defaultChecked
       />
       <div>
-        <label htmlFor="checkbox-desc" className="fs-sm fw-600 tc-slate d-b">
+        <label htmlFor="checkbox-desc" className="fs-sm fw-600 c-slate d-b">
           Marketing emails
         </label>
-        <p id="checkbox-desc-help" className="fs-sm tc-silver-10 m-0">
+        <p id="checkbox-desc-help" className="fs-sm c-silver-10 m-0">
           Receive emails about new products and features.
         </p>
       </div>

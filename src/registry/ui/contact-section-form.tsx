@@ -3,13 +3,13 @@ export default function ContactSectionForm() {
     <section className="py-12 px-6">
       <div className="d-f fw-w g-12">
         <div className="f-1 min-w-64">
-          <h2 className="ff-s fs-3xl fw-600 tc-slate-10 mb-2">Contact us</h2>
-          <p className="fs-md tc-silver-10 mb-6 m-0">
+          <h2 className="ff-s fs-3xl fw-600 c-slate-10 mb-2">Contact us</h2>
+          <p className="fs-md c-silver-10 mb-6 m-0">
             We'd love to hear from you. Reach out anytime.
           </p>
           <div className="d-f fd-c g-4">
             <div className="d-f ai-c g-3">
-              <div className="d-f ai-c jc-c d-10 rad-9 b-1 bc-silver-4 tc-slate-9">
+              <div className="d-f ai-c jc-c d-10 br-pill bw-1 bc-silver-4 c-slate-9">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="w-5 h-5"
@@ -36,14 +36,14 @@ export default function ContactSectionForm() {
                 </svg>
               </div>
               <div>
-                <p className="fs-sm fw-600 tc-slate-9 m-0">Live Chat</p>
-                <p className="fs-sm tc-silver-10 m-0">
+                <p className="fs-sm fw-600 c-slate-9 m-0">Live Chat</p>
+                <p className="fs-sm c-silver-10 m-0">
                   Chat with us in real-time
                 </p>
               </div>
             </div>
             <div className="d-f ai-c g-3">
-              <div className="d-f ai-c jc-c d-10 rad-9 b-1 bc-silver-4 tc-slate-9">
+              <div className="d-f ai-c jc-c d-10 br-pill bw-1 bc-silver-4 c-slate-9">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="w-5 h-5"
@@ -72,12 +72,12 @@ export default function ContactSectionForm() {
                 </svg>
               </div>
               <div>
-                <p className="fs-sm fw-600 tc-slate-9 m-0">Email</p>
-                <p className="fs-sm tc-silver-10 m-0">company@example.com</p>
+                <p className="fs-sm fw-600 c-slate-9 m-0">Email</p>
+                <p className="fs-sm c-silver-10 m-0">company@example.com</p>
               </div>
             </div>
             <div className="d-f ai-c g-3">
-              <div className="d-f ai-c jc-c d-10 rad-9 b-1 bc-silver-4 tc-slate-9">
+              <div className="d-f ai-c jc-c d-10 br-pill bw-1 bc-silver-4 c-slate-9">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="w-5 h-5"
@@ -116,8 +116,8 @@ export default function ContactSectionForm() {
                 </svg>
               </div>
               <div>
-                <p className="fs-sm fw-600 tc-slate-9 m-0">Address</p>
-                <p className="fs-sm tc-silver-10 m-0">
+                <p className="fs-sm fw-600 c-slate-9 m-0">Address</p>
+                <p className="fs-sm c-silver-10 m-0">
                   123 Main St, City, Country
                 </p>
               </div>
@@ -127,41 +127,41 @@ export default function ContactSectionForm() {
         <div className="f-1 min-w-64">
           <form className="d-f fd-c g-4">
             <div className="d-f fd-c g-1">
-              <label htmlFor="name" className="fs-sm fw-600 tc-slate-9">
+              <label htmlFor="name" className="fs-sm fw-600 c-slate-9">
                 Name
               </label>
               <input
                 id="name"
                 type="text"
                 placeholder="Your name"
-                className="w-full px-3 py-2 b-1 bc-silver-4 rad-0 fs-sm tc-black f:oc-silver-1 f:os-s f:ow-2"
+                className="w-full px-3 py-2 bw-1 bc-silver-4 br-0 fs-sm c-black f:oc-silver-1 f:os-s f:ow-2"
               />
             </div>
             <div className="d-f fd-c g-1">
-              <label htmlFor="email" className="fs-sm fw-600 tc-slate-9">
+              <label htmlFor="email" className="fs-sm fw-600 c-slate-9">
                 Email
               </label>
               <input
                 id="email"
                 type="email"
                 placeholder="you@example.com"
-                className="w-full px-3 py-2 b-1 bc-silver-4 rad-0 fs-sm tc-black f:oc-silver-1 f:os-s f:ow-2"
+                className="w-full px-3 py-2 bw-1 bc-silver-4 br-0 fs-sm c-black f:oc-silver-1 f:os-s f:ow-2"
               />
             </div>
             <div className="d-f fd-c g-1">
-              <label htmlFor="message" className="fs-sm fw-600 tc-slate-9">
+              <label htmlFor="message" className="fs-sm fw-600 c-slate-9">
                 Message
               </label>
               <textarea
                 id="message"
                 placeholder="Your message"
                 rows={4}
-                className="w-full px-3 py-2 b-1 bc-silver-4 rad-0 fs-sm tc-black f:oc-silver-1 f:os-s f:ow-2 rz-n"
+                className="w-full px-3 py-2 bw-1 bc-silver-4 br-0 fs-sm c-black f:oc-silver-1 f:os-s f:ow-2 rz-n"
               ></textarea>
             </div>
             <button
               type="submit"
-              className="px-4 py-2 rad-0 fs-sm fw-600 bg-slate-8 tc-white h:bg-slate-10 f:oc-silver-4 f:os-s f:ow-2"
+              className="px-4 py-2 br-0 fs-sm fw-600 bg-slate-8 c-white h:bg-slate-10 f:oc-silver-4 f:os-s f:ow-2"
             >
               Send message
             </button>

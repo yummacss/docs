@@ -1,8 +1,8 @@
 export default function CardListBasic() {
   return (
     <div className="d-f fd-c g-4 max-w-md">
-      <div className="d-f ai-c g-4 p-4 b-1 bc-silver-4 rad-0">
-        <div className="d-f ai-c jc-c d-10 rad-9 bg-silver-1 tc-slate">
+      <div className="d-f ai-c g-4 p-4 bw-1 bc-silver-4 br-0">
+        <div className="d-f ai-c jc-c d-10 br-pill bg-silver-1 c-slate">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="w-6 h-6"
@@ -51,12 +51,12 @@ export default function CardListBasic() {
           </svg>
         </div>
         <div className="f-1">
-          <h4 className="ff-s fs-sm fw-600 tc-slate mb-1">2024-roadmap.txt</h4>
-          <p className="fs-xs tc-slate-6 m-0">12 KB</p>
+          <h4 className="ff-s fs-sm fw-600 c-slate mb-1">2024-roadmap.txt</h4>
+          <p className="fs-xs c-slate-6 m-0">12 KB</p>
         </div>
       </div>
-      <div className="d-f ai-c g-4 p-4 b-1 bc-silver-4 rad-0">
-        <div className="d-f ai-c jc-c d-10 rad-9 bg-silver-1 tc-slate">
+      <div className="d-f ai-c g-4 p-4 bw-1 bc-silver-4 br-0">
+        <div className="d-f ai-c jc-c d-10 br-pill bg-silver-1 c-slate">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="w-6 h-6"
@@ -91,12 +91,12 @@ export default function CardListBasic() {
           </svg>
         </div>
         <div className="f-1">
-          <h4 className="ff-s fs-sm fw-600 tc-slate mb-1">beach-sunset.jpg</h4>
-          <p className="fs-xs tc-slate-6 m-0">2.1 MB</p>
+          <h4 className="ff-s fs-sm fw-600 c-slate mb-1">beach-sunset.jpg</h4>
+          <p className="fs-xs c-slate-6 m-0">2.1 MB</p>
         </div>
       </div>
-      <div className="d-f ai-c g-4 p-4 b-1 bc-silver-4 rad-0">
-        <div className="d-f ai-c jc-c d-10 rad-9 bg-silver-1 tc-slate">
+      <div className="d-f ai-c g-4 p-4 bw-1 bc-silver-4 br-0">
+        <div className="d-f ai-c jc-c d-10 br-pill bg-silver-1 c-slate">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="w-6 h-6"
@@ -161,10 +161,10 @@ export default function CardListBasic() {
           </svg>
         </div>
         <div className="f-1">
-          <h4 className="ff-s fs-sm fw-600 tc-slate mb-1">
+          <h4 className="ff-s fs-sm fw-600 c-slate mb-1">
             monthly-report.xlsx
           </h4>
-          <p className="fs-xs tc-slate-6 m-0">45 KB</p>
+          <p className="fs-xs c-slate-6 m-0">45 KB</p>
         </div>
       </div>
     </div>

@@ -1,22 +1,22 @@
 export default function BannerAction() {
   return (
-    <div className="bg-white b-1 bc-silver-2 px-4 py-3 d-f ai-c jc-sb fs-sm fw-500">
+    <div className="bg-white bw-1 bc-silver-2 px-4 py-3 d-f ai-c jc-sb fs-sm fw-500">
       <div className="d-f ai-c g-3">
-        <span className="d-f ai-c jc-c bg-black tc-white rad-9 px-2 py-1 fs-xs fw-700">
+        <span className="d-f ai-c jc-c bg-black c-white br-pill px-2 py-1 fs-xs fw-700">
           New
         </span>
-        <span className="tc-slate-9">We just released a new update!</span>
+        <span className="c-slate-9">We just released a new update!</span>
       </div>
       <div className="d-f ai-c g-4">
         <button
           type="button"
-          className="bg-black tc-white px-3 py-1 rad-0 fs-xs fw-600 h:bg-slate-10 f:oc-silver-4 f:os-s f:ow-2"
+          className="bg-black c-white px-3 py-1 br-0 fs-xs fw-600 h:bg-slate-10 f:oc-silver-4 f:os-s f:ow-2"
         >
           Check it out
         </button>
         <button
           type="button"
-          className="bg-transparent b-none tc-silver-8 h:tc-black"
+          className="bg-transparent bs-none c-silver-8 h:c-black"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

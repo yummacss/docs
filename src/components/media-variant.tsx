@@ -5,7 +5,7 @@ interface MediaVariantProps {
 export default function MediaVariant({ classPrefix }: MediaVariantProps) {
   return (
     <div className="mb-6">
-      <p className="mb-4 tc-white/80">
+      <p className="mb-4 c-white/80">
         You can combine responsive breakpoints like{" "}
         <code
           className="fs-sm px-2 py-1"

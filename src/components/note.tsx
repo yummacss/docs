@@ -61,7 +61,7 @@ export default function Note({ icon, children }: NoteProps) {
   return (
     <div className="ai-c d-f g-2 mb-4">
       <span
-        className="ai-c d-f fs-0 p-1 b-1"
+        className="ai-c d-f fs-0 p-1 bw-1"
         style={{
           backgroundColor: "#21243f",
           borderColor: "#31365e",
@@ -70,7 +70,7 @@ export default function Note({ icon, children }: NoteProps) {
       >
         <Icon size={24} weight="duotone" />
       </span>
-      <span className="tc-white/80">{children}</span>
+      <span className="c-white/80">{children}</span>
     </div>
   );
 }

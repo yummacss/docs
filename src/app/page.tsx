@@ -11,7 +11,7 @@ import Navbar from "@/components/ui/navbar";
 
 export default function Home() {
   return (
-    <div className="min-h-dvh bg-black tc-white p-r">
+    <div className="min-h-dvh bg-black c-white p-r">
       <div className="p-a t-0 l-0 w-full h-full zi-0">
         <DarkVeil />
       </div>
@@ -29,11 +29,11 @@ export default function Home() {
           <div className="d-g lg:gtc-2 g-12 ai-fe">
             <div>
               <Link
-                href="https://github.com/yumma-lib/yumma-css"
-                className="tc-white"
+                href="https://github.com/yumma-css/yumma-css"
+                className="c-white"
               >
-                <div className="d-if ai-c g-2 px-4 py-2 bf-b-md b-1 bg-white/5 bc-white/10 rad-9 mb-8">
-                  <span className="w-3 h-3 rad-9">
+                <div className="d-if ai-c g-2 px-4 py-2 bf-b-md bw-1 bg-white/5 bc-white/10 br-pill mb-8">
+                  <span className="w-3 h-3 br-pill">
                     <StarIcon className="w-3 h-3" weight="fill" />
                   </span>
                   <span className="fs-xs fw-500 ls-4">Star us on GitHub</span>
@@ -43,7 +43,7 @@ export default function Home() {
               <h1 className="fs-5xl md:fs-6xl fw-400 mb-6 lh-2">
                 Style more, type even less
               </h1>
-              <p className="fs-lg tc-white/70 mb-8 lh-5">
+              <p className="fs-lg c-white/70 mb-8 lh-5">
                 A CLI-first CSS framework for the web with abbreviated and
                 optimized styles for simple and scalable design systems.
               </p>
@@ -51,29 +51,29 @@ export default function Home() {
               <div className="d-f fw-w g-4 mb-12">
                 <Link
                   href="/docs/installation"
-                  className="bg-white px-6 py-3 tc-black fs-md fw-600 rad-9"
+                  className="bg-white px-6 py-3 c-black fs-md fw-600 br-pill"
                 >
                   Get started
                 </Link>
                 <Link
                   href="/ui"
-                  className="px-6 py-3 fw-600 tc-white fs-md d-f ai-c g-2"
+                  className="px-6 py-3 fw-600 c-white fs-md d-f ai-c g-2"
                 >
                   <StackSimpleIcon size={20} weight="duotone" />
                   Components
                 </Link>
               </div>
 
-              <div className="d-f fw-w g-3 bt-1 bc-white/10 pt-6">
-                <div className="px-4 py-2 bg-white/10 bf-b-md fs-xs d-f ai-c g-2 b-1 bc-white/5 tt-u">
+              <div className="d-f fw-w g-3 btw-1 bc-white/10 pt-6">
+                <div className="px-4 py-2 bg-white/10 bf-b-md fs-xs d-f ai-c g-2 bw-1 bc-white/5 tt-u">
                   <GlobeSimpleIcon size={15} weight="duotone" />
                   Dedicated API
                 </div>
-                <div className="px-4 py-2 bg-white/10 bf-b-md fs-xs d-f ai-c g-2 b-1 bc-white/5 tt-u">
+                <div className="px-4 py-2 bg-white/10 bf-b-md fs-xs d-f ai-c g-2 bw-1 bc-white/5 tt-u">
                   <TerminalIcon size={15} />
                   CLI-First
                 </div>
-                <div className="px-4 py-2 bg-white/10 bf-b-sm fs-xs d-f ai-c g-2 b-1 bc-white/5 tt-u">
+                <div className="px-4 py-2 bg-white/10 bf-b-sm fs-xs d-f ai-c g-2 bw-1 bc-white/5 tt-u">
                   <LightningIcon size={15} weight="duotone" />
                   Blazing Fast
                 </div>

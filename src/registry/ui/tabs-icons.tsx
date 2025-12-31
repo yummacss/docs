@@ -151,7 +151,7 @@ export default function TabsIcons() {
         role="tablist"
         aria-label="View Modes"
         ref={tabListRef}
-        className="bg-silver-1 p-1 rad-0 d-if b-1 bc-silver-4"
+        className="bg-silver-1 p-1 br-0 d-if bw-1 bc-silver-4"
       >
         {tabs.map((tab, index) => (
           <button
@@ -164,10 +164,10 @@ export default function TabsIcons() {
             tabIndex={activeTab === index ? 0 : -1}
             onClick={() => setActiveTab(index)}
             onKeyDown={(e) => handleKeyDown(e, index)}
-            className={`d-f ai-c g-2 fw-500 px-4 py-2 rad-0 tr-c f:oc-silver-1 f:os-s f:ow-2 ${
+            className={`d-f ai-c g-2 fw-500 px-4 py-2 br-0 tr-c f:oc-silver-1 f:os-s f:ow-2 ${
               activeTab === index
-                ? "tc-black bg-white b-1 bc-silver-4 sh-sm"
-                : "tc-silver-10 b-0 h:tc-black"
+                ? "c-black bg-white bw-1 bc-silver-4 sh-sm"
+                : "c-silver-10 bw-0 h:c-black"
             }`}
           >
             {tab.icon}
@@ -184,7 +184,7 @@ export default function TabsIcons() {
           id={`panel-${tab.id}`}
           aria-labelledby={`tab-${tab.id}`}
           hidden={activeTab !== index}
-          className={`p-4 b-1 bc-silver-2 bg-white rad-0 tc-slate fs-sm ${
+          className={`p-4 bw-1 bc-silver-2 bg-white br-0 c-slate fs-sm ${
             activeTab === index ? "d-b" : "d-none"
           } f:oc-silver-1 f:os-s f:ow-2`}
         >

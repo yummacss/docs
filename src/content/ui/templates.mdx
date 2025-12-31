@@ -1,0 +1,105 @@
+import { licenses, templates } from "@/utils/templates";
+import { CheckIcon } from "@phosphor-icons/react/dist/ssr";
+import Image from "next/image";
+import Link from "next/link";
+import { SiNextdotjs, SiReact } from "react-icons/si";
+
+export const meta = {
+  title: "Templates",
+  description: "Production-ready templates built with Yumma CSS.",
+};
+
+## Browse Templates
+
+Explore our collection of professionally designed templates. Each template is fully customizable and built with modern best practices.
+
+<div className="d-f fd-c g-6 my-8">
+  {templates.map((template) => (
+    <Link
+      key={template.slug}
+      href={`/ui/templates/${template.slug}`}
+      className="d-f fd-r bw-1 bc-white/10 br-0 o-h h:bg-white/5 c-white"
+      style={{ backgroundColor: "rgba(255,255,255,0.02)" }}
+    >
+      <div
+        className="w-64 fs-0 p-r ar-16/9"
+        style={{ backgroundColor: "rgba(255,255,255,0.03)" }}
+      >
+        {template.screenshots[0] ? (
+          <Image
+            src={template.screenshots[0]}
+            alt={`${template.name} preview`}
+            fill
+            className="of-c"
+          />
+        ) : (
+          <span className="p-a i-0 d-f ai-c jc-c fs-sm c-white/30">Preview</span>
+        )}
+      </div>
+      <div className="p-6 f-1 d-f fd-c">
+        <div className="d-f jc-sb ai-fs mb-2">
+          <h3 className="fs-lg fw-500 c-white">{template.name}</h3>
+          <span className="fs-lg fw-600 c-white">€{template.price}</span>
+        </div>
+        <p className="fs-sm c-white/60 mb-4">{template.tagline}</p>
+        <div className="d-f g-3 mt-auto">
+          {template.frameworks.map((fw) => (
+            <div key={fw.name} className="d-if ai-c g-1 fs-xs c-white/50">
+              {fw.name === "Next.js" && <SiNextdotjs size={12} />}
+              {fw.name === "React" && <SiReact size={12} />}
+              <span>{fw.name}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </Link>
+  ))}
+</div>
+
+---
+
+## Licensing
+
+Choose the license that fits your needs. Both include lifetime updates.
+
+<div className="d-g gtc-1 md:gtc-2 g-6 my-8">
+  {licenses.map((license) => {
+    const displayName = license.name === "Personal" ? "Personal" : "Commercial";
+    const description = license.name === "Personal"
+      ? "For individual or single-project use."
+      : "For freelancers and unlimited client work.";
+
+    return (
+      <div
+        key={license.name}
+        className="bw-1 bc-white/10 br-0 p-6 d-f fd-c"
+        style={{ backgroundColor: "rgba(255,255,255,0.02)" }}
+      >
+        <h3 className="fs-lg fw-500 mb-3 c-white">{displayName}</h3>
+        <div className="mb-3">
+          <span className="fs-4xl fw-600 c-white">€{license.price}</span>
+          <span className="fs-md c-white/60">/ one time</span>
+        </div>
+        <p className="fs-sm c-white/50 mb-4">{description}</p>
+        <div className="btw-1 bc-white/10 pt-4 mb-4">
+          <ul className="d-f fd-c g-2">
+            {license.features.map((feature) => (
+              <li key={feature} className="d-f ai-c g-2 fs-sm c-white/70">
+                <CheckIcon className="c-white w-4 h-4" weight="bold" />
+                {feature}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="mt-auto">
+          <Link
+            href="#"
+            className="d-f ai-c jc-c bg-white c-black px-4 py-2 br-0 fw-600 fs-sm h:bg-white/90 w-full"
+          >
+            Get Started
+          </Link>
+        </div>
+      </div>
+    );
+  })}
+</div>

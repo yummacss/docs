@@ -15,7 +15,7 @@
     "release": "pnpm up yummacss @yummacss/api --latest",
     "start": "next start"
   },
-  "packageManager": "pnpm@10.26.2",
+  "packageManager": "pnpm@10.27.0",
   "dependencies": {
     "@base-ui/react": "^1.0.0",
     "@fontsource/esteban": "^5.2.7",
@@ -24,10 +24,11 @@
     "@next/mdx": "^16.1.1",
     "@orama/react-components": "^0.8.1",
     "@phosphor-icons/react": "^2.1.10",
-    "@react-three/fiber": "^9.4.2",
+    "@react-symbols/icons": "^1.3.0",
+    "@react-three/fiber": "^9.5.0",
     "@vercel/analytics": "^1.6.1",
     "@vercel/speed-insights": "^1.3.1",
-    "@yummacss/api": "^1.7.2",
+    "@yummacss/api": "^1.8.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "gsap": "^3.14.2",
@@ -54,6 +55,6 @@
     "concurrently": "^9.2.1",
     "remark-code-preview": "^1.2.6",
     "typescript": "^5.9.3",
-    "yummacss": "^3.6.1"
+    "yummacss": "^3.7.0"
   }
 }

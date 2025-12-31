@@ -1,0 +1,188 @@
+export const meta = {
+  authors: ["Renildo"],
+  cover: "~",
+  date: "2025-12-31",
+  description: "Is 2025 almost over? Before that happens we have to release Yumma CSS 3.7!",
+  title: "Yumma CSS 3.7"
+};
+
+**This update might change existing features, make sure you check out the check out the [release notes](https://github.com/yumma-css/yumma-css/releases/tag/v3.7.0) before upgrading.**
+
+---
+
+## New utility variants
+
+We added `px` to all `border` and `gap` utilities.
+
+### Border utilities
+
+<Preview>
+  <table className="bw-1 bc-silver-4 bs-px w-full">
+    <tbody>
+      <tr>
+        <td className="bw-1 bc-silver-4 p-4 ta-c c-slate">A</td>
+        <td className="bw-1 bc-silver-4 p-4 ta-c c-slate">B</td>
+      </tr>
+      <tr>
+        <td className="bw-1 bc-silver-4 p-4 ta-c c-slate">C</td>
+        <td className="bw-1 bc-silver-4 p-4 ta-c c-slate">D</td>
+      </tr>
+    </tbody>
+  </table>
+</Preview>
+
+```html "bs-px"
+<table class="bw-1 bc-silver-4 bs-px w-full">
+  <tbody>
+    <tr>
+      <td class="bw-1 bc-silver-4 p-4 ta-c c-slate">A</td>
+      <td class="bw-1 bc-silver-4 p-4 ta-c c-slate">B</td>
+    </tr>
+    <tr>
+      <td class="bw-1 bc-silver-4 p-4 ta-c c-slate">C</td>
+      <td class="bw-1 bc-silver-4 p-4 ta-c c-slate">D</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+### Gap utilities
+
+<Preview>
+  <div className="g-px d-g gtc-3 c-white">
+    <div className="ai-c bg-indigo d-f jc-c d-14">A</div>
+    <div className="ai-c bg-indigo d-f jc-c d-14">B</div>
+    <div className="ai-c bg-indigo d-f jc-c d-14">C</div>
+    <div className="ai-c bg-indigo d-f jc-c d-14">D</div>
+    <div className="ai-c bg-indigo d-f jc-c d-14">E</div>
+  </div>
+</Preview>
+
+```html "g-px"
+<div class="g-px d-g gtc-3 c-white">
+  <div class="ai-c bg-indigo d-f jc-c p-4">A</div>
+  <div class="ai-c bg-indigo d-f jc-c p-4">B</div>
+  <div class="ai-c bg-indigo d-f jc-c p-4">C</div>
+  <div class="ai-c bg-indigo d-f jc-c p-4">D</div>
+  <div class="ai-c bg-indigo d-f jc-c p-4">E</div>
+</div>
+```
+
+### Height and Width utilities
+
+The new `stretch` property is a part of the CSS spec and while it is not supported in all browsers, we added the utilities to Yumma CSS.
+
+```html "w-s"
+<div class="w-s h-s bg-indigo"></div>
+```
+
+This also valid for `dimension` utilities.
+
+```html "d-s"
+<div class="d-s bg-indigo"></div>
+```
+
+## All-new utilities
+
+Before the new year we wanted to add a couple of new utilities to Yumma CSS.
+
+These are all well supported in all major browsers.
+
+### Tab Size utilities
+
+<ApiTable category="text" name="tab-size" />
+
+### Vertical Align utilities
+
+<ApiTable category="text" name="vertical-align" />
+
+### Writing Mode utilities
+
+<ApiTable category="text" name="writing-mode" />
+
+### Extend Top/Right/Bottom/Left utilities
+
+I don't know if you will ever even use this, but now `top`, `right`, `bottom`, `left` and `inset` utilities now ranges from 0-100.
+
+```html "t-100" "i-100" "r-100"
+<div class="p-r d-18 sm:d-32 c-white">
+  <div class="p-a i-100 b-1"></div>
+  <div class="p-a t-100 r-100 d-f d-12 ai-c jc-c bg-indigo p-4">A</div>
+</div>
+```
+
+## Renamed utilities
+
+This update it's pretty much destructive as it contains quite a few breaking changes. We renamed some of existing utilities to truly make this a true abbreviation convention.
+
+
+{/* Renamed 9 to pill in all border-radius utilities.
+Renamed b-* utilities to bw-* (border-width).
+Renamed b-* variants (e.g., bt, br) to bw-* equivalents (e.g. btw, brw).
+Renamed b utility to bs (border-style).
+Renamed bo-* utilities to b-* (bottom).
+Renamed rad-* utilities to br-* (border-radius).
+Renamed tc-* utilities to c-* (color). */}
+
+### Border Radius utilities
+
+```html del={1} ins={2} title="index.html"
+<div class="rad-9">...</div>
+<div class="br-pill">...</div>
+```
+
+### Border Width
+
+```html del={1} ins={2} title="index.html"
+<div class="b-*">...</div>
+<div class="bw-*">...</div>
+```
+
+### Border Top Width
+
+```html del={1} ins={2} title="index.html"
+<div class="bt-*">...</div>
+<div class="btw-*">...</div>
+```
+
+### Border Right Width
+
+```html del={1} ins={2} title="index.html"
+<div class="br-*">...</div>
+<div class="brw-*">...</div>
+```
+
+### Border Left Width
+
+```html del={1} ins={2} title="index.html"
+<div class="bl-*">...</div>
+<div class="blw-*">...</div>
+```
+
+### Border Bottom Width
+
+```html del={1} ins={2} title="index.html"
+<div class="bb-*">...</div>
+<div class="bbw-*">...</div>
+```
+
+### Color utilities
+ 
+```html del={1} ins={2} title="index.html"
+<div class="tc-{color}">...</div>
+<div class="c-{color}">...</div>
+```
+
+## Oh, and...
+
+Happy new year!
+
+---
+
+## Upgrade
+
+You can get the latest version of Yumma CSS from npm:
+
+```bash
+npm install yummacss@latest
+```

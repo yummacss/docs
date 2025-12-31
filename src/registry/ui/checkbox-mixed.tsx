@@ -26,7 +26,7 @@ export default function CheckboxMixed() {
           // The aria-checked="mixed" attribute is used specifically for tri-state checkboxes.
           aria-checked={isMixed ? "mixed" : allChecked}
         />
-        <label htmlFor="parent-checkbox" className="fs-sm fw-600 tc-slate">
+        <label htmlFor="parent-checkbox" className="fs-sm fw-600 c-slate">
           Install Options
         </label>
       </div>
@@ -39,7 +39,7 @@ export default function CheckboxMixed() {
             checked={checked[0]}
             onChange={(e) => setChecked([e.target.checked, checked[1]])}
           />
-          <label htmlFor="child-1" className="fs-sm tc-slate">
+          <label htmlFor="child-1" className="fs-sm c-slate">
             Documentation
           </label>
         </div>
@@ -51,7 +51,7 @@ export default function CheckboxMixed() {
             checked={checked[1]}
             onChange={(e) => setChecked([checked[0], e.target.checked])}
           />
-          <label htmlFor="child-2" className="fs-sm tc-slate">
+          <label htmlFor="child-2" className="fs-sm c-slate">
             Source Code
           </label>
         </div>

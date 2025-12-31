@@ -5,6 +5,7 @@ import {
   CubeIcon,
   GlobeSimpleIcon,
   NewspaperClippingIcon,
+  SparkleIcon,
   StackSimpleIcon,
 } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
@@ -21,7 +22,8 @@ export default function SidebarLinks({ onLinkClick }: SidebarLinksProps) {
   const isDocsActive =
     pathname.startsWith("/docs") && pathname !== "/docs/api-reference";
   const isApiReferenceActive = pathname === "/docs/api-reference";
-  const isUIActive = pathname.startsWith("/ui");
+  const isComponentsActive =
+    pathname.startsWith("/ui") && !pathname.startsWith("/ui/templates");
 
   return (
     <div className="d-g g-3 sm:g-2 w-fc h-fc">
@@ -31,53 +33,68 @@ export default function SidebarLinks({ onLinkClick }: SidebarLinksProps) {
         className={`d-if ai-c g-4 ${isDocsActive ? "" : "team"}`}
       >
         <BookIcon
-          className={`${isDocsActive ? "tc-white" : "tc-white/50 t:tc-white"}`}
+          className={`${isDocsActive ? "c-white" : "c-white/50 t:c-white"}`}
           size={20}
           weight="duotone"
         />
         <span
-          className={`fs-md ${isDocsActive ? "tc-white" : "tc-white/70 t:tc-white"}`}
+          className={`fs-md ${isDocsActive ? "c-white" : "c-white/70 t:c-white"}`}
         >
           Documentation
         </span>
       </Link>
       <Link href="/blog" onClick={onLinkClick} className="d-if ai-c g-4 team">
         <NewspaperClippingIcon
-          className="tc-white/50 t:tc-white"
+          className="c-white/50 t:c-white"
           size={20}
           weight="duotone"
         />
-        <span className="fs-md tc-white/70 t:tc-white">Blog Articles</span>
+        <span className="fs-md c-white/70 t:c-white">Blog Articles</span>
       </Link>
       <Link
-        href="/ui/introduction"
+        href="/ui/components"
         onClick={onLinkClick}
-        rel="noopener noreferrer"
-        className={`d-if ai-c g-4 ${isUIActive ? "" : "team"}`}
+        className={`d-if ai-c g-4 ${isComponentsActive ? "" : "team"}`}
       >
         <StackSimpleIcon
-          className={`${isUIActive ? "tc-white" : "tc-white/50 t:tc-white"}`}
+          className={`${isComponentsActive ? "c-white" : "c-white/50 t:c-white"}`}
           size={20}
           weight="duotone"
         />
         <span
-          className={`fs-md ${isUIActive ? "tc-white" : "tc-white/70 t:tc-white"}`}
+          className={`fs-md ${isComponentsActive ? "c-white" : "c-white/70 t:c-white"}`}
         >
           Components
         </span>
       </Link>
+      {/* <Link
+        href="/ui/templates"
+        onClick={onLinkClick}
+        className={`d-if ai-c g-4 ${isTemplatesActive ? "" : "team"}`}
+      >
+        <SparkleIcon
+          className={`${isTemplatesActive ? "c-white" : "c-white/50 t:c-white"}`}
+          size={20}
+          weight="duotone"
+        />
+        <span
+          className={`fs-md ${isTemplatesActive ? "c-white" : "c-white/70 t:c-white"}`}
+        >
+          Templates
+        </span>
+      </Link> */}
       <Link
         href="/docs/api-reference"
         onClick={onLinkClick}
         className={`d-if ai-c g-4 ${isApiReferenceActive ? "" : "team"}`}
       >
         <GlobeSimpleIcon
-          className={`${isApiReferenceActive ? "tc-white" : "tc-white/50 t:tc-white"}`}
+          className={`${isApiReferenceActive ? "c-white" : "c-white/50 t:c-white"}`}
           size={20}
           weight="duotone"
         />
         <span
-          className={`fs-md ${isApiReferenceActive ? "tc-white" : "tc-white/70 t:tc-white"}`}
+          className={`fs-md ${isApiReferenceActive ? "c-white" : "c-white/70 t:c-white"}`}
         >
           API Reference
         </span>
@@ -90,11 +107,11 @@ export default function SidebarLinks({ onLinkClick }: SidebarLinksProps) {
         className="d-if ai-c g-4 team"
       >
         <CubeIcon
-          className={`tc-white/50 t:tc-white`}
+          className={`c-white/50 t:c-white`}
           size={20}
           weight="duotone"
         />
-        <span className="fs-md tc-white/70 t:tc-white">Playground</span>
+        <span className="fs-md c-white/70 t:c-white">Playground</span>
       </Link>
     </div>
   );

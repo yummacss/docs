@@ -24,8 +24,8 @@ const blogSlugs = [
   "yummacss-3.5.0",
   "hello-yumma-ui",
   "yummacss-3.6.0",
+  "yummacss-3.7.0",
   // not ready yet
-  // "yummacss-3.7.0",
   // "yummacss-4.0.0",
 ];
 

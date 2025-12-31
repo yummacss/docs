@@ -35,7 +35,7 @@ export default function MobileBreadcrumb() {
   return (
     <>
       <div
-        className={`p-f l-0 r-0 zi-10 d-b lg:d-none bt-1 ${isSidebarOpen ? "" : "bb-1"} bc-white/5`}
+        className={`p-f l-0 r-0 zi-10 d-b lg:d-none btw-1 ${isSidebarOpen ? "" : "bbw-1"} bc-white/5`}
         style={{ backgroundColor: "#151724", top: "3.5rem" }}
       >
         <div className="~sm-xxl mx-auto px-4 py-2">
@@ -43,16 +43,16 @@ export default function MobileBreadcrumb() {
             <button
               type="button"
               onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-              className="d-f ai-c jc-c tc-white/70 h:tc-white"
+              className="d-f ai-c jc-c c-white/70 h:c-white"
               aria-label={isSidebarOpen ? "Close sidebar" : "Open sidebar"}
             >
               {isSidebarOpen ? <XIcon size={15} /> : <ListIcon size={15} />}
             </button>
 
-            <div className="d-f ai-c g-2 fs-sm tc-white/70">
+            <div className="d-f ai-c g-2 fs-sm c-white/70">
               <span>{pageInfo.sectionTitle}</span>
               <CaretRightIcon size={10} />
-              <span className="tc-white">{pageInfo.pageTitle}</span>
+              <span className="c-white">{pageInfo.pageTitle}</span>
             </div>
           </div>
         </div>

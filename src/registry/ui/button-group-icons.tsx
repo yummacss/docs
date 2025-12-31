@@ -1,11 +1,11 @@
 export default function ButtonGroupIcons() {
   return (
     <div className="d-f fd-c g-2">
-      <p className="fs-xs tc-slate-5 fw-600">Alignment</p>
+      <p className="fs-xs c-slate-5 fw-600">Alignment</p>
       <div className="d-f">
         <button
           type="button"
-          className="d-f ai-c jc-c px-3 py-2 rad-l-0 fs-sm fw-600 bg-white tc-slate b-1 bc-silver-4 h:bg-silver-1"
+          className="d-f ai-c jc-c px-3 py-2 rad-l-0 fs-sm fw-600 bg-white c-slate bw-1 bc-silver-4 h:bg-silver-1"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -19,7 +19,7 @@ export default function ButtonGroupIcons() {
         </button>
         <button
           type="button"
-          className="d-f ai-c jc-c px-3 py-2 fs-sm fw-600 bg-white tc-slate b-1 bl-0 bc-silver-4 h:bg-silver-1"
+          className="d-f ai-c jc-c px-3 py-2 fs-sm fw-600 bg-white c-slate bw-1 bl-0 bc-silver-4 h:bg-silver-1"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -33,7 +33,7 @@ export default function ButtonGroupIcons() {
         </button>
         <button
           type="button"
-          className="d-f ai-c jc-c px-3 py-2 rad-r-0 fs-sm fw-600 bg-white tc-slate b-1 bl-0 bc-silver-4 h:bg-silver-1"
+          className="d-f ai-c jc-c px-3 py-2 rad-r-0 fs-sm fw-600 bg-white c-slate bw-1 bl-0 bc-silver-4 h:bg-silver-1"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

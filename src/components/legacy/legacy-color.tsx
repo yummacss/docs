@@ -83,13 +83,13 @@ export default function LegacyColor({
         <thead>
           <tr>
             <th
-              className="fs-md fw-600 px-4 py-2 ta-l b-1 tc-white"
+              className="fs-md fw-600 px-4 py-2 ta-l bw-1 c-white"
               style={{ borderColor: "#31365e80" }}
             >
               Class
             </th>
             <th
-              className="fs-md fw-600 px-4 py-2 ta-l b-1 tc-white"
+              className="fs-md fw-600 px-4 py-2 ta-l bw-1 c-white"
               style={{ borderColor: "#31365e80" }}
             >
               Styles
@@ -100,7 +100,7 @@ export default function LegacyColor({
           {colorData.map((classItem, index) => (
             <tr key={`${classItem.classTitle}-${index}`}>
               <td
-                className="px-4 py-2 b-1 tc-white/80"
+                className="px-4 py-2 bw-1 c-white/80"
                 style={{ borderColor: "#31365e80" }}
               >
                 <code className="fs-xs" style={{ color: "#dda2f6" }}>
@@ -108,7 +108,7 @@ export default function LegacyColor({
                 </code>
               </td>
               <td
-                className="px-4 py-2 b-1 tc-white/80"
+                className="px-4 py-2 bw-1 c-white/80"
                 style={{ borderColor: "#31365e80" }}
               >
                 <code className="fs-xs" style={{ color: "#bec6f2" }}>

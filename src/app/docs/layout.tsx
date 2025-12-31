@@ -9,7 +9,7 @@ export default function DocsLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-dvh tc-white">
+    <div className="min-h-dvh c-white">
       <Navbar />
       <MobileBreadcrumb />
 

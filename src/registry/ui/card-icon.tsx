@@ -1,7 +1,7 @@
 export default function CardIcon() {
   return (
-    <div className="max-w-sm p-6 b-1 bc-silver-4 rad-0">
-      <div className="d-f ai-c jc-c d-10 rad-9 bg-silver-1 tc-slate mb-4">
+    <div className="max-w-sm p-6 bw-1 bc-silver-4 br-0">
+      <div className="d-f ai-c jc-c d-10 br-pill bg-silver-1 c-slate mb-4">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="w-6 h-6"
@@ -113,8 +113,8 @@ export default function CardIcon() {
           />
         </svg>
       </div>
-      <h3 className="ff-s fs-lg fw-600 tc-slate mb-2">Account Settings</h3>
-      <p className="fs-sm tc-slate-6 m-0">
+      <h3 className="ff-s fs-lg fw-600 c-slate mb-2">Account Settings</h3>
+      <p className="fs-sm c-slate-6 m-0">
         Manage your account settings and preferences.
       </p>
     </div>

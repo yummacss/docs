@@ -21,7 +21,7 @@ export function Stepper({ children }: StepperProps) {
   const childArray = React.Children.toArray(children);
 
   return (
-    <ol className="p-r ml-4 bl-1" style={{ borderColor: "#31365e" }}>
+    <ol className="p-r ml-4 blw-1" style={{ borderColor: "#31365e" }}>
       {childArray.map((child, i) => {
         if (React.isValidElement<StepProps & InjectedStepProps>(child)) {
           return React.cloneElement(child, {
@@ -44,19 +44,19 @@ export function Step({
   return (
     <li className={isLast ? "ml-8" : "mb-10 ml-8"}>
       <div
-        className="p-a d-f h-8 w-8 ai-c jc-c b-1 rad-9"
+        className="p-a d-f h-8 w-8 ai-c jc-c bw-1 br-pill"
         style={{
           borderColor: "#323652",
           backgroundColor: "#21243f",
           left: "-1rem",
         }}
       >
-        <span className="fs-sm fw-500 tc-white fw-600">{stepNumber}</span>
+        <span className="fs-sm fw-500 c-white fw-600">{stepNumber}</span>
       </div>
       <div className="mb-2 d-f ai-c">
-        <h3 className="fw-500 tc-white">{title}</h3>
+        <h3 className="fw-500 c-white">{title}</h3>
       </div>
-      <div className="tc-white/80 my-5">{children}</div>
+      <div className="c-white/80 my-5">{children}</div>
     </li>
   );
 }

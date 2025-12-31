@@ -94,7 +94,7 @@ export default function LegacyPalette({
                   aria-label={`Copy ${shade}`}
                 >
                   {copiedColor === shade && (
-                    <span className="p-a i-0 d-f ai-c jc-c w-full h-full bg-black/50 tc-white fs-xs fw-500">
+                    <span className="p-a i-0 d-f ai-c jc-c w-full h-full bg-black/50 c-white fs-xs fw-500">
                       Copied!
                     </span>
                   )}

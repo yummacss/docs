@@ -7,7 +7,7 @@ export default function CheckboxChecked() {
         className="d-4 ac-slate"
         defaultChecked
       />
-      <label htmlFor="checkbox-checked" className="fs-sm tc-slate">
+      <label htmlFor="checkbox-checked" className="fs-sm c-slate">
         Email notifications
       </label>
     </div>

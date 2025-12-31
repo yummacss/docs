@@ -14,16 +14,16 @@ export const meta = {
 The element is positioned according to the normal flow of the document, and top, right, bottom, and left properties have no effect.
 
 <Preview variant="inline">
-  <div className="tc-white">
+  <div className="c-white">
     <div className="bg-indigo p-4 p-s">Static Position</div>
-    <div className="bg-indigo-2 p-4 tc-slate">Another Element</div>
+    <div className="bg-indigo-2 p-4 c-slate">Another Element</div>
   </div>
 </Preview>
 
 ```html "p-s"
-<div class="tc-white">
+<div class="c-white">
   <div class="bg-indigo p-4 p-s">Static Position</div>
-  <div class="bg-indigo-2 p-4 tc-slate">Another Element</div>
+  <div class="bg-indigo-2 p-4 c-slate">Another Element</div>
 </div>
 ```
 
@@ -32,13 +32,13 @@ The element is positioned according to the normal flow of the document, and top,
 The element is positioned relative to its nearest positioned ancestor (not static), allowing for precise placement.
 
 <Preview variant="inline">
-  <div className="bg-indigo-2 h-32 p-4 p-r tc-white">
+  <div className="bg-indigo-2 h-32 p-4 p-r c-white">
     <div className="bg-indigo l-4 t-4 p-4 p-a">Absolute Position</div>
   </div>
 </Preview>
 
 ```html "p-a"
-<div class="bg-indigo-2 h-32 p-4 p-r tc-white">
+<div class="bg-indigo-2 h-32 p-4 p-r c-white">
   <div class="bg-indigo l-4 t-4 p-4 p-a">Absolute Position</div>
 </div>
 ```
@@ -48,9 +48,9 @@ The element is positioned relative to its nearest positioned ancestor (not stati
 The element is positioned relative to the viewport, meaning it stays in the same place even when the page is scrolled.
 
 ```html "p-f"
-<div class="tc-white">
+<div class="c-white">
   <div class="bg-indigo r-4 t-4 p-4 p-f">Fixed Position</div>
-  <div class="bg-indigo-2 h-s p-4 tc-white">Scroll down to see the fixed element.</div>
+  <div class="bg-indigo-2 h-s p-4 c-white">Scroll down to see the fixed element.</div>
 </div>
 ```
 
@@ -59,16 +59,16 @@ The element is positioned relative to the viewport, meaning it stays in the same
 The element is positioned relative to its normal position, allowing for adjustments without affecting the layout of surrounding elements.
 
 <Preview variant="inline">
-  <div className="tc-white">
+  <div className="c-white">
     <div className="bg-indigo l-4 t-4 p-4 p-r">Relative Position</div>
-    <div className="bg-indigo-2 p-4 tc-slate">Another Element</div>
+    <div className="bg-indigo-2 p-4 c-slate">Another Element</div>
   </div>
 </Preview>
 
 ```html "p-r"
-<div class="tc-white">
+<div class="c-white">
   <div class="bg-indigo l-4 t-4 p-4 p-r">Relative Position</div>
-  <div class="bg-indigo-2 p-4 tc-slate">Another Element</div>
+  <div class="bg-indigo-2 p-4 c-slate">Another Element</div>
 </div>
 ```
 
@@ -79,16 +79,16 @@ The element is treated as relative until it crosses a specified threshold, at wh
 <Note icon="mouse_scroll">Try scrolling through the container to see how the sticky position works.</Note>
 
 <Preview variant="inline">
-  <div className="bo-1 h-64 o-y-s tc-white">
+  <div className="bo-1 h-64 o-y-s c-white">
     <div className="bg-indigo t-0 p-4 p-st">Sticky Position</div>
-    <div className="bg-indigo-2 h-96 p-4 tc-slate">Scroll down to see the sticky behavior.</div>
+    <div className="bg-indigo-2 h-96 p-4 c-slate">Scroll down to see the sticky behavior.</div>
   </div>
 </Preview>
 
 ```html "p-st"
-<div class="bo-1 h-64 o-y-s tc-white">
+<div class="bo-1 h-64 o-y-s c-white">
   <div class="bg-indigo t-0 p-4 p-st">Sticky Position</div>
-  <div class="bg-indigo-2 h-96 p-4 tc-slate">Scroll down to see the sticky behavior.</div>
+  <div class="bg-indigo-2 h-96 p-4 c-slate">Scroll down to see the sticky behavior.</div>
 </div>
 ```
 
