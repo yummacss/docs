@@ -17,7 +17,7 @@ const OramaSearch = dynamic(
   },
 );
 
-const navbarVariants = cva("p-f l-0 r-0 t-0 zi-10 bb-1", {
+const navbarVariants = cva("p-f l-0 r-0 t-0 zi-10 bbw-1", {
   variants: {
     variant: {
       default: "lg:bf-b-md bc-white/5",
@@ -78,27 +78,27 @@ export default function Navbar({ variant, className, links }: NavbarProps) {
                 <>
                   <Link
                     href="/docs"
-                    className="d-none md:d-b fs-sm tc-white/80 h:tc-white"
+                    className="d-none md:d-b fs-sm c-white/80 h:c-white"
                   >
                     Docs
                   </Link>
                   <Link
                     href="/blog"
-                    className="d-none md:d-b fs-sm tc-white/80 h:tc-white"
+                    className="d-none md:d-b fs-sm c-white/80 h:c-white"
                   >
                     Blog
                   </Link>
                   <Link
                     href="/ui/introduction"
-                    className="d-none md:d-b fs-sm tc-white/80 h:tc-white"
+                    className="d-none md:d-b fs-sm c-white/80 h:c-white"
                   >
                     Components
                   </Link>
                   <Link
-                    href="https://github.com/yumma-lib/yumma-css"
+                    href="https://github.com/yumma-css/yumma-css"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="d-none md:d-b fs-sm tc-white/80 h:tc-white"
+                    className="d-none md:d-b fs-sm c-white/80 h:c-white"
                   >
                     GitHub
                   </Link>
@@ -108,7 +108,7 @@ export default function Navbar({ variant, className, links }: NavbarProps) {
               <button
                 type="button"
                 onClick={() => setSearchOpen(true)}
-                className="d-f ai-c g-2 md:px-4 md:py-2 bg-white/5 bf-b-sm fs-sm h:bg-white/10 tc-white b-1 bc-white/10 rad-0 sm:rad-0"
+                className="d-f ai-c g-2 md:px-4 md:py-2 bg-white/5 bf-b-sm fs-sm h:bg-white/10 c-white bw-1 bc-white/10 br-0 sm:br-0"
               >
                 <MagnifyingGlassIcon size={15} weight="duotone" />
                 <span className="d-none md:d-b">Ctrl K</span>

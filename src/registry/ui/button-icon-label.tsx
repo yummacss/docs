@@ -2,7 +2,7 @@ export default function ButtonIconLabel() {
   return (
     <button
       type="button"
-      className="ai-c d-f jc-c g-2 px-3 py-2 rad-0 fs-sm fw-600 lh-1 bg-slate-8 tc-white f:oc-silver-4 f:os-s f:ow-2"
+      className="ai-c d-f jc-c g-2 px-3 py-2 br-0 fs-sm fw-600 lh-1 bg-slate-8 c-white f:oc-silver-4 f:os-s f:ow-2"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

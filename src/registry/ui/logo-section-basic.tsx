@@ -1,14 +1,14 @@
 export default function LogoSectionBasic() {
   return (
     <section className="py-12 px-6">
-      <p className="fs-sm tc-silver-10 ta-c mb-8 m-0">
+      <p className="fs-sm c-silver-10 ta-c mb-8 m-0">
         Trusted by leading companies worldwide
       </p>
       <div className="d-f fw-w jc-c ai-c g-10">
         <svg
           fill="none"
           viewBox="0 0 152 48"
-          className="h-6 tc-silver-8"
+          className="h-6 c-silver-8"
           xmlns="http://www.w3.org/2000/svg"
           aria-hidden="true"
         >
@@ -55,7 +55,7 @@ export default function LogoSectionBasic() {
         <svg
           fill="none"
           viewBox="0 0 188 48"
-          className="h-6 tc-silver-8"
+          className="h-6 c-silver-8"
           xmlns="http://www.w3.org/2000/svg"
           aria-hidden="true"
         >
@@ -82,7 +82,7 @@ export default function LogoSectionBasic() {
         <svg
           fill="none"
           viewBox="0 0 149 48"
-          className="h-6 tc-silver-8"
+          className="h-6 c-silver-8"
           xmlns="http://www.w3.org/2000/svg"
           aria-hidden="true"
         >
@@ -101,7 +101,7 @@ export default function LogoSectionBasic() {
         <svg
           fill="none"
           viewBox="0 0 212 48"
-          className="h-6 tc-silver-8"
+          className="h-6 c-silver-8"
           xmlns="http://www.w3.org/2000/svg"
           aria-hidden="true"
         >
@@ -129,7 +129,7 @@ export default function LogoSectionBasic() {
         <svg
           fill="none"
           viewBox="0 0 234 48"
-          className="h-6 tc-silver-8"
+          className="h-6 c-silver-8"
           xmlns="http://www.w3.org/2000/svg"
           aria-hidden="true"
         >

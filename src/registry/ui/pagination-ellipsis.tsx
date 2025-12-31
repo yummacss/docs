@@ -23,7 +23,7 @@ export default function PaginationEllipsis() {
             type="button"
             onClick={(e) => handlePageChange(currentPage - 1, e)}
             aria-label="Go to previous page"
-            className={`d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 tc-slate-8 h:bg-silver-1 b-0 c-p ${
+            className={`d-f ai-c jc-c d-9 br-pill fs-sm fw-500 c-slate-8 h:bg-silver-1 bw-0 c-p ${
               currentPage === 1 ? "o-05 pe-none" : ""
             }`}
           >
@@ -52,17 +52,17 @@ export default function PaginationEllipsis() {
                 type="button"
                 onClick={(e) => handlePageChange(page, e)}
                 aria-current={currentPage === page ? "page" : undefined}
-                className={`d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 b-0 c-p ${
+                className={`d-f ai-c jc-c d-9 br-pill fs-sm fw-500 bw-0 c-p ${
                   currentPage === page
-                    ? "bg-slate-8 tc-white"
-                    : "tc-slate-8 h:bg-silver-1 bg-transparent"
+                    ? "bg-slate-8 c-white"
+                    : "c-slate-8 h:bg-silver-1 bg-transparent"
                 }`}
               >
                 {page}
               </button>
             ) : (
               <span
-                className="d-f ai-c jc-c d-9 fs-sm tc-silver-10"
+                className="d-f ai-c jc-c d-9 fs-sm c-silver-10"
                 aria-hidden="true"
               >
                 <svg
@@ -85,7 +85,7 @@ export default function PaginationEllipsis() {
             type="button"
             onClick={(e) => handlePageChange(currentPage + 1, e)}
             aria-label="Go to next page"
-            className={`d-f ai-c jc-c d-9 rad-9 fs-sm fw-500 tc-slate-8 h:bg-silver-1 b-0 c-p ${
+            className={`d-f ai-c jc-c d-9 br-pill fs-sm fw-500 c-slate-8 h:bg-silver-1 bw-0 c-p ${
               currentPage === totalPages ? "o-05 pe-none" : ""
             }`}
           >

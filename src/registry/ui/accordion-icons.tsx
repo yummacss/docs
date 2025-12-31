@@ -16,7 +16,7 @@ export default function AccordionIcons() {
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="w-4 h-4 tc-slate-8"
+          className="w-4 h-4 c-slate-8"
           viewBox="0 0 256 256"
           fill="currentColor"
           aria-hidden="true"
@@ -33,7 +33,7 @@ export default function AccordionIcons() {
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="w-4 h-4 tc-slate-8"
+          className="w-4 h-4 c-slate-8"
           viewBox="0 0 256 256"
           fill="currentColor"
           aria-hidden="true"
@@ -50,7 +50,7 @@ export default function AccordionIcons() {
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="w-4 h-4 tc-slate-8"
+          className="w-4 h-4 c-slate-8"
           viewBox="0 0 256 256"
           fill="currentColor"
           aria-hidden="true"
@@ -72,15 +72,15 @@ export default function AccordionIcons() {
               aria-expanded={expanded === index}
               aria-controls={`accordion-panel-${index}`}
               onClick={() => toggle(index)}
-              className="p-4 c-p d-f jc-sb ai-c w-full b-1 bc-silver-2 fw-600 rad-0 bg-white h:bg-silver-1 f:oc-silver-1 f:os-s f:ow-2"
+              className="p-4 c-p d-f jc-sb ai-c w-full bw-1 bc-silver-2 fw-600 br-0 bg-white h:bg-silver-1 f:oc-silver-1 f:os-s f:ow-2"
             >
               <div className="d-f ai-c g-2">
                 {item.icon}
-                <span className="ff-s tc-slate fs-md">{item.title}</span>
+                <span className="ff-s c-slate fs-md">{item.title}</span>
               </div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="tc-slate-8 h-4 w-4"
+                className="c-slate-8 h-4 w-4"
                 viewBox="0 0 256 256"
                 aria-hidden="true"
               >
@@ -106,11 +106,11 @@ export default function AccordionIcons() {
             id={`accordion-panel-${index}`}
             aria-labelledby={`accordion-button-${index}`}
             hidden={expanded !== index}
-            className={`p-4 bg-white tc-slate fs-sm lh-4 b-1 bc-silver-2 bt-0 ${
+            className={`p-4 bg-white c-slate fs-sm lh-4 bw-1 bc-silver-2 bt-0 ${
               expanded === index ? "d-b" : "d-none"
             }`}
           >
-            <p className="tc-slate-6 m-0">{item.content}</p>
+            <p className="c-slate-6 m-0">{item.content}</p>
           </section>
         </div>
       ))}

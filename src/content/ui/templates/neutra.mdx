@@ -1,0 +1,138 @@
+import { getTemplateBySlug } from "@/utils/templates";
+import { CheckIcon } from "@phosphor-icons/react/dist/ssr";
+import { YummaCSS } from "@react-symbols/icons";
+import Image from "next/image";
+import Link from "next/link";
+import { SiNextdotjs, SiPnpm, SiReact, SiTypescript } from "react-icons/si";
+
+export const meta = {
+  title: "Neutra",
+  description: "Simple yet modern landing page template.",
+};
+
+export const template = getTemplateBySlug("neutra");
+
+A clean, minimal landing page template with a navbar, rating section, call-to-action, and logo section. Perfect for SaaS products, apps, or any modern web project.
+
+<div className="d-f g-4 mb-8">
+  {template.frameworks.map((fw) => (
+    <div key={fw.name} className="d-if ai-c g-2 fs-sm c-white/70">
+      {fw.name === "Next.js" && <SiNextdotjs size={18} />}
+      {fw.name === "React" && <SiReact size={18} />}
+      <span>{fw.name} {fw.version}</span>
+    </div>
+  ))}
+</div>
+
+---
+
+## Screenshots
+
+Available in neutral and colorful versions.
+
+### Neutral Version
+
+<div className="d-g gtc-2 g-3 md:gtc-3 mb-8">
+  <div
+    className="p-r gc-s-2 ar-16/9 o-h bw-1 bs-d bc-white/10 md:gc-s-2 md:gr-s-2 br-0 bg-black/10"
+  >
+    {template.screenshots[0] ? (
+      <Image src={template.screenshots[0]} alt="Main Preview" fill className="of-c" />
+    ) : (
+      <span className="p-a i-0 d-f ai-c jc-c fs-md c-white/30">Main Preview</span>
+    )}
+  </div>
+  <div
+    className="p-r ar-3/2 o-h bw-1 bs-d bc-white/10 br-0 bg-black/10"
+  >
+    <span className="p-a i-0 d-f ai-c jc-c fs-sm c-white/30">Screenshot 1</span>
+  </div>
+  <div
+    className="p-r ar-3/2 o-h bw-1 bs-d bc-white/10 br-0 bg-black/10"
+  >
+    <span className="p-a i-0 d-f ai-c jc-c fs-sm c-white/30">Screenshot 2</span>
+  </div>
+</div>
+
+### Colorful Version
+
+<div className="d-g gtc-2 g-3 md:gtc-3 mb-8">
+  <div
+    className="p-r gc-s-2 ar-16/9 o-h bw-1 bs-d bc-white/10 md:gc-s-2 md:gr-s-2 br-0 bg-black/10"
+  >
+    {template.screenshots[1] ? (
+      <Image src={template.screenshots[1]} alt="Colorful Main Preview" fill className="of-c" />
+    ) : (
+      <span className="p-a i-0 d-f ai-c jc-c fs-md c-white/30">Main Preview</span>
+    )}
+  </div>
+  <div
+    className="p-r ar-3/2 o-h bw-1 bs-d bc-white/10 br-0 bg-black/10"
+  >
+    <span className="p-a i-0 d-f ai-c jc-c fs-sm c-white/30">Screenshot 1</span>
+  </div>
+  <div
+    className="p-r ar-3/2 o-h bw-1 bs-d bc-white/10 br-0 bg-black/10"
+  >
+    <span className="p-a i-0 d-f ai-c jc-c fs-sm c-white/30">Screenshot 2</span>
+  </div>
+</div>
+
+---
+
+## Features
+
+What makes this template special.
+
+<div className="d-g gtc-1 md:gtc-2 g-4 my-8">
+  {template.features.map((feature) => (
+    <div
+      key={feature.title}
+      className="p-4 bw-1 bc-white/10 bs-d br-0 bg-black/10"
+    >
+      <div className="d-f ai-c g-2 mb-2">
+        <CheckIcon className="c-white" size={16} weight="bold" />
+        <h3 className="fs-md fw-500 c-white">{feature.title}</h3>
+      </div>
+      <p className="fs-sm c-white/60">{feature.description}</p>
+    </div>
+  ))}
+</div>
+
+---
+
+## Built with
+
+Here are the technologies used to build {template.name}.
+
+<div className="d-g gtc-2 md:gtc-3 g-4 my-8">
+  <div
+    className="p-4 bw-1 bc-white/10 bs-d br-0 d-f ai-c jc-c g-2 bg-black/10"
+  >
+    <SiNextdotjs size={20} fill="white" />
+    <span className="fs-sm c-white">Next.js 16</span>
+  </div>
+  <div
+    className="p-4 bw-1 bc-white/10 bs-d br-0 d-f ai-c jc-c g-2 bg-black/10"
+  >
+    <SiReact size={20} fill="white" />
+    <span className="fs-sm c-white">React 19</span>
+  </div>
+  <div
+    className="p-4 bw-1 bc-white/10 bs-d br-0 d-f ai-c jc-c g-2 bg-black/10"
+  >
+    <YummaCSS width={20} height={20} />
+    <span className="fs-sm c-white">Yumma CSS 3</span>
+  </div>
+  {/* pnpm */}
+  <div className="p-4 bw-1 bc-white/10 bs-d br-0 d-f ai-c jc-c g-2 bg-black/10">
+    <SiPnpm size={20} fill="white" />
+    <span className="fs-sm c-white">pnpm 10</span>
+  </div>
+  <div
+    className="p-4 bw-1 bc-white/10 bs-d br-0 d-f ai-c jc-c g-2 bg-black/10"
+  >
+    <SiTypescript size={20} fill="white" />
+    <span className="fs-sm c-white">TypeScript 5</span>
+  </div>
+</div>

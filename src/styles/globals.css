@@ -19,7 +19,7 @@ p {
 }
 
 @media (hover: hover) {
-  .t\:tc-white:is(:where(.team):hover *) {
+  .t\:c-white:is(:where(.team):hover *) {
     color: white;
   }
 }

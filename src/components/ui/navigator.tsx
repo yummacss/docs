@@ -17,16 +17,16 @@ export default function Navigator({
   }
 
   return (
-    <nav className="d-f fd-c sm:fd-r g-4 mt-16 pt-8 bt-1 bc-white/5">
+    <nav className="d-f fd-c sm:fd-r g-4 mt-16 pt-8 btw-1 bc-white/5">
       {previous ? (
         <Link
           href={`${basePath}/${previous.slug}`}
-          className="d-f ai-c g-2 f-1 p-4 rad-1 bc-white/5 b-s h:bg-white/5"
+          className="d-f ai-c g-2 f-1 p-4 br-0 bc-white/5 bs-s"
         >
-          <CaretLeftIcon size={20} className="tc-white/70" />
+          <CaretLeftIcon size={20} className="c-white/70" />
           <div className="d-f fd-c">
-            <span className="fs-sm tc-white/70">Previous</span>
-            <span className="tc-white h:tc-white/90">{previous.title}</span>
+            <span className="fs-sm c-white/70">Previous</span>
+            <span className="c-white h:c-white/90">{previous.title}</span>
           </div>
         </Link>
       ) : (
@@ -35,13 +35,13 @@ export default function Navigator({
       {next ? (
         <Link
           href={`${basePath}/${next.slug}`}
-          className="d-f ai-c jc-fe g-2 f-1 p-4 rad-1 bc-white/5 b-s h:bg-white/5"
+          className="d-f ai-c jc-fe g-2 f-1 p-4 br-0 bc-white/5 bs-s"
         >
           <div className="d-f fd-c ta-r">
-            <span className="fs-sm tc-white/70">Next</span>
-            <span className="tc-white h:tc-white/90">{next.title}</span>
+            <span className="fs-sm c-white/70">Next</span>
+            <span className="c-white h:c-white/90">{next.title}</span>
           </div>
-          <CaretRightIcon size={20} className="tc-white/70" />
+          <CaretRightIcon size={20} className="c-white/70" />
         </Link>
       ) : (
         <div className="f-1" />

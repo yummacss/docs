@@ -2,12 +2,12 @@ export default function ComparisonListSideBySide() {
   return (
     <div className="d-g gtc-2 g-8">
       <div>
-        <h3 className="ff-s fs-md fw-600 tc-slate mb-4">Included</h3>
+        <h3 className="ff-s fs-md fw-600 c-slate mb-4">Included</h3>
         <div className="d-f fd-c g-3">
           <div className="d-f ai-c g-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="w-4 h-4 tc-green"
+              className="w-4 h-4 c-green"
               viewBox="0 0 256 256"
               aria-hidden="true"
             >
@@ -21,12 +21,12 @@ export default function ComparisonListSideBySide() {
                 strokeWidth="16"
               />
             </svg>
-            <span className="fs-sm tc-slate">Unlimited bandwidth</span>
+            <span className="fs-sm c-slate">Unlimited bandwidth</span>
           </div>
           <div className="d-f ai-c g-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="w-4 h-4 tc-green"
+              className="w-4 h-4 c-green"
               viewBox="0 0 256 256"
               aria-hidden="true"
             >
@@ -40,12 +40,12 @@ export default function ComparisonListSideBySide() {
                 strokeWidth="16"
               />
             </svg>
-            <span className="fs-sm tc-slate">SSL certificate</span>
+            <span className="fs-sm c-slate">SSL certificate</span>
           </div>
           <div className="d-f ai-c g-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="w-4 h-4 tc-green"
+              className="w-4 h-4 c-green"
               viewBox="0 0 256 256"
               aria-hidden="true"
             >
@@ -59,17 +59,17 @@ export default function ComparisonListSideBySide() {
                 strokeWidth="16"
               />
             </svg>
-            <span className="fs-sm tc-slate">24/7 monitoring</span>
+            <span className="fs-sm c-slate">24/7 monitoring</span>
           </div>
         </div>
       </div>
       <div>
-        <h3 className="ff-s fs-md fw-600 tc-slate mb-4">Not included</h3>
+        <h3 className="ff-s fs-md fw-600 c-slate mb-4">Not included</h3>
         <div className="d-f fd-c g-3">
           <div className="d-f ai-c g-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="w-4 h-4 tc-red"
+              className="w-4 h-4 c-red"
               viewBox="0 0 256 256"
               aria-hidden="true"
             >
@@ -95,12 +95,12 @@ export default function ComparisonListSideBySide() {
                 strokeWidth="16"
               />
             </svg>
-            <span className="fs-sm tc-slate-6">Custom domain</span>
+            <span className="fs-sm c-slate-6">Custom domain</span>
           </div>
           <div className="d-f ai-c g-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="w-4 h-4 tc-red"
+              className="w-4 h-4 c-red"
               viewBox="0 0 256 256"
               aria-hidden="true"
             >
@@ -126,12 +126,12 @@ export default function ComparisonListSideBySide() {
                 strokeWidth="16"
               />
             </svg>
-            <span className="fs-sm tc-slate-6">Priority support</span>
+            <span className="fs-sm c-slate-6">Priority support</span>
           </div>
           <div className="d-f ai-c g-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="w-4 h-4 tc-red"
+              className="w-4 h-4 c-red"
               viewBox="0 0 256 256"
               aria-hidden="true"
             >
@@ -157,7 +157,7 @@ export default function ComparisonListSideBySide() {
                 strokeWidth="16"
               />
             </svg>
-            <span className="fs-sm tc-slate-6">API access</span>
+            <span className="fs-sm c-slate-6">API access</span>
           </div>
         </div>
       </div>

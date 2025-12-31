@@ -97,7 +97,7 @@ export default function DropdownBasic() {
         aria-controls="dropdown-menu"
         onClick={toggleMenu}
         onKeyDown={handleKeyDown}
-        className="d-f ai-c g-2 px-4 py-2 rad-0 fs-sm fw-600 bg-white tc-slate-8 b-1 bc-silver-4 h:bg-silver-1 f:oc-silver-1 f:os-s f:ow-2"
+        className="d-f ai-c g-2 px-4 py-2 br-0 fs-sm fw-600 bg-white c-slate-8 bw-1 bc-silver-4 h:bg-silver-1 f:oc-silver-1 f:os-s f:ow-2"
       >
         <span>Actions</span>
         <svg
@@ -125,17 +125,17 @@ export default function DropdownBasic() {
           role="menu"
           aria-labelledby="dropdown-button"
           onKeyDown={handleKeyDown}
-          className="p-a mt-1 p-1 bg-white b-1 bc-silver-4 rad-0 bs-3 min-w-40 z-10"
+          className="p-a mt-1 p-1 bg-white bw-1 bc-silver-4 br-0 bs-3 min-w-40 z-10"
         >
           {items.map((item, index) => (
             <div key={item}>
-              {index === 3 && <hr className="my-1 b-0 bt-1 bc-silver-4" />}
+              {index === 3 && <hr className="my-1 bw-0 btw-1 bc-silver-4" />}
               <button
                 type="button"
                 role="menuitem"
                 tabIndex={-1}
-                className={`d-b w-full ta-l px-3 py-2 rad-0 fs-sm b-0 c-p tr-c ${
-                  index === 3 ? "tc-red h:bg-red-1" : "tc-slate-8 h:bg-silver-1"
+                className={`d-b w-full ta-l px-3 py-2 br-0 fs-sm bw-0 c-p tr-c ${
+                  index === 3 ? "c-red h:bg-red-1" : "c-slate-8 h:bg-silver-1"
                 } ${activeIndex === index ? (index === 3 ? "bg-red-1" : "bg-silver-1") : "bg-transparent"}`}
                 onClick={() => {
                   console.log(`Selected: ${item}`);

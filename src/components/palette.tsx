@@ -73,7 +73,7 @@ export default function Palette({ data }: PaletteProps) {
           {SHADE_LABELS.map((label) => (
             <div
               key={`header-${label}`}
-              className="d-f ai-c jc-c tc-white fs-xs"
+              className="d-f ai-c jc-c c-white fs-xs"
             >
               {label}
             </div>
@@ -88,7 +88,7 @@ export default function Palette({ data }: PaletteProps) {
             key={colorItem.name}
             className="d-f fd-c g-1 ai-c md:fd-r md:ai-c"
           >
-            <p className="ws-nw ta-c min-w-fc md:min-w-16 d-f ai-c mr-2 tc-white">
+            <p className="ws-nw ta-c min-w-fc md:min-w-16 d-f ai-c mr-2 c-white">
               {colorItem.name}
             </p>
             <div className="d-g g-1 my-2 w-full gtc-2 sm:gtc-4 md:gtc-6 lg:gtc-13 f-1">
@@ -165,7 +165,7 @@ function ColorSwatch({
       <Tooltip.Portal>
         <Tooltip.Positioner sideOffset={10}>
           <Tooltip.Popup
-            className="d-f fd-c px-2 py-1 tc-white fs-xs"
+            className="d-f fd-c px-2 py-1 c-white fs-xs"
             style={{
               backgroundColor: "#1e2039",
               border: "1px solid #31365e",

@@ -23,7 +23,12 @@ export const redirects = [
   // UI Component redirects
   {
     source: "/components",
-    destination: "/ui/introduction",
+    destination: "/ui/components",
+    permanent: true,
+  },
+  {
+    source: "/ui/introduction",
+    destination: "/ui/components",
     permanent: true,
   },
   // Docs redirects

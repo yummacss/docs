@@ -51,7 +51,7 @@ export default function MobileSidebar({
 
   return (
     <div
-      className="p-f t-0 l-0 w-full zi-20 lg:d-none bt-1 bc-white/5"
+      className="p-f t-0 l-0 w-full zi-20 lg:d-none btw-1 bc-white/5"
       style={{
         backgroundColor: "#151724",
         top: "104px", // below navbar (56px) + breadcrumb (~48px)
@@ -65,7 +65,7 @@ export default function MobileSidebar({
 
             {config.map((section) => (
               <div key={section.title} className="d-f fd-c g-4">
-                <h3 className="fs-md fw-400 tt-c ls-5 tc-white">
+                <h3 className="fs-md fw-400 tt-c ls-5 c-white">
                   {section.title}
                 </h3>
                 <ul className="d-f ml-4 fd-c g-2">
@@ -74,9 +74,7 @@ export default function MobileSidebar({
                     if (hasChildren(item)) {
                       return (
                         <li key={item.title} className="d-f fd-c g-2">
-                          <span className="fs-md tc-white/50">
-                            {item.title}
-                          </span>
+                          <span className="fs-md c-white/50">{item.title}</span>
                           <ul className="d-f ml-4 fd-c g-1">
                             {(
                               item.children as (
@@ -92,7 +90,7 @@ export default function MobileSidebar({
                                   <Link
                                     href={href}
                                     onClick={onClose}
-                                    className={`d-f ai-c g-3 fs-md ${isActive ? "tc-white" : "tc-white/70 h:tc-white"}`}
+                                    className={`d-f ai-c g-3 fs-md ${isActive ? "c-white" : "c-white/70 h:c-white"}`}
                                   >
                                     {child.title}
                                   </Link>
@@ -108,9 +106,7 @@ export default function MobileSidebar({
                     if (hasItems(item)) {
                       return (
                         <li key={item.title} className="d-f fd-c g-2">
-                          <span className="fs-md tc-white/50">
-                            {item.title}
-                          </span>
+                          <span className="fs-md c-white/50">{item.title}</span>
                           <ul className="d-f ml-4 fd-c g-1">
                             {(
                               item.items as (
@@ -124,7 +120,7 @@ export default function MobileSidebar({
                                     key={subItem.title}
                                     className="d-f fd-c g-2"
                                   >
-                                    <span className="fs-md tc-white/40">
+                                    <span className="fs-md c-white/40">
                                       {subItem.title}
                                     </span>
                                     <ul className="d-f ml-4 fd-c g-1">
@@ -142,7 +138,7 @@ export default function MobileSidebar({
                                             <Link
                                               href={href}
                                               onClick={onClose}
-                                              className={`d-f ai-c g-3 fs-md ${isActive ? "tc-white" : "tc-white/70 h:tc-white"}`}
+                                              className={`d-f ai-c g-3 fs-md ${isActive ? "c-white" : "c-white/70 h:c-white"}`}
                                             >
                                               {child.title}
                                             </Link>
@@ -163,7 +159,7 @@ export default function MobileSidebar({
                                     <Link
                                       href={href}
                                       onClick={onClose}
-                                      className={`d-f ai-c g-3 fs-md ${isActive ? "tc-white" : "tc-white/70 h:tc-white"}`}
+                                      className={`d-f ai-c g-3 fs-md ${isActive ? "c-white" : "c-white/70 h:c-white"}`}
                                     >
                                       {subItem.title}
                                     </Link>
@@ -188,7 +184,7 @@ export default function MobileSidebar({
                           <Link
                             href={href}
                             onClick={onClose}
-                            className={`d-f ai-c g-3 ${isActive ? "tc-white" : "tc-white/70 h:tc-white"}`}
+                            className={`d-f ai-c g-3 ${isActive ? "c-white" : "c-white/70 h:c-white"}`}
                           >
                             {item.title}
                           </Link>

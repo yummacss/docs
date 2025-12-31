@@ -38,7 +38,7 @@ export default async function BlogPostPage({
       <div className="d-g gtc-1 lg:gtc-12 g-8">
         <article className="lg:gc-s-8">
           <header className="mb-12">
-            <div className="d-f ai-c g-2 fs-sm tc-white/50 mb-4 mt-16">
+            <div className="d-f ai-c g-2 fs-sm c-white/50 mb-4 mt-16">
               <Link href="/blog" className="h:tc-white">
                 Blog
               </Link>
@@ -46,16 +46,20 @@ export default async function BlogPostPage({
               <span>{formatDate(meta?.date || "")}</span>
             </div>
 
-            <h1 className="fs-4xl lg:fs-5xl fw-400 mb-6 tc-white">
+            <h1 className="fs-4xl lg:fs-5xl fw-400 mb-6 c-white">
               {meta?.title}
             </h1>
 
-            <p className="fs-lg tc-white/70 mb-6 lh-5">{meta?.description}</p>
+            <p className="fs-lg c-white/70 mb-6 lh-5">{meta?.description}</p>
 
             {author && (
-              <div className="d-f ai-c g-4 fs-lg tc-white/70">
+              <div className="d-f ai-c g-4 fs-lg c-white/70">
                 <div className="d-f ai-c g-2">
-                  <Avatar src={author.avatar} alt={author.name} />
+                  <Avatar
+                    className="br-pill"
+                    src={author.avatar}
+                    alt={author.name}
+                  />
                   <Link
                     href={author.url}
                     target="_blank"

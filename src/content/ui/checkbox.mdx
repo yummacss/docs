@@ -10,7 +10,7 @@ export const meta = {
 ```html
 <div class="d-f ai-c g-2">
   <input type="checkbox" id="checkbox-basic" class="d-4 ac-slate" />
-  <label for="checkbox-basic" class="fs-sm tc-slate">Accept terms and conditions</label>
+  <label for="checkbox-basic" class="fs-sm c-slate">Accept terms and conditions</label>
 </div>
 ```
 
@@ -21,7 +21,7 @@ export const meta = {
 ```html
 <div class="d-f ai-c g-2">
   <input type="checkbox" id="checkbox-checked" class="d-4 ac-slate" checked />
-  <label for="checkbox-checked" class="fs-sm tc-slate">Email notifications</label>
+  <label for="checkbox-checked" class="fs-sm c-slate">Email notifications</label>
 </div>
 ```
 
@@ -33,11 +33,11 @@ export const meta = {
 <div class="d-f fd-c g-3">
   <div class="d-f ai-c g-2">
     <input type="checkbox" id="checkbox-disabled" class="d-4 ac-slate" disabled />
-    <label for="checkbox-disabled" class="fs-sm tc-slate-6">Disabled unchecked</label>
+    <label for="checkbox-disabled" class="fs-sm c-slate-6">Disabled unchecked</label>
   </div>
   <div class="d-f ai-c g-2">
     <input type="checkbox" id="checkbox-disabled-checked" class="d-4 ac-slate" disabled checked />
-    <label for="checkbox-disabled-checked" class="fs-sm tc-slate-6">Disabled checked</label>
+    <label for="checkbox-disabled-checked" class="fs-sm c-slate-6">Disabled checked</label>
   </div>
 </div>
 ```
@@ -51,17 +51,17 @@ The tri-state checkbox allowing an additional third state known as partially che
 ```html
 <div class="d-f ai-c g-2">
   <input type="checkbox" id="parent-checkbox" class="d-4 ac-slate" aria-checked="mixed" />
-  <label for="parent-checkbox" class="fs-sm fw-600 tc-slate">Install Options</label>
+  <label for="parent-checkbox" class="fs-sm fw-600 c-slate">Install Options</label>
 </div>
 
 <div class="d-f fd-c g-2 ml-5">
   <div class="d-f ai-c g-2">
     <input type="checkbox" id="child-1" class="d-4 ac-slate" checked />
-    <label for="child-1" class="fs-sm tc-slate">Documentation</label>
+    <label for="child-1" class="fs-sm c-slate">Documentation</label>
   </div>
   <div class="d-f ai-c g-2">
     <input type="checkbox" id="child-2" class="d-4 ac-slate" />
-    <label for="child-2" class="fs-sm tc-slate">Source Code</label>
+    <label for="child-2" class="fs-sm c-slate">Source Code</label>
   </div>
 </div>
 ```
@@ -74,15 +74,15 @@ Use `fieldset` and `legend` to group multiple checkboxes logically.
 
 ```html
 <fieldset class="bo-0 p-0 m-0 d-f fd-c g-3">
-  <legend class="fs-sm fw-600 tc-slate p-0">Notification Preferences</legend>
+  <legend class="fs-sm fw-600 c-slate p-0">Notification Preferences</legend>
   <div class="d-f fd-c g-2">
     <div class="d-f ai-c g-2">
       <input type="checkbox" id="email" class="d-4 ac-slate" />
-      <label for="email" class="fs-sm tc-slate">Email</label>
+      <label for="email" class="fs-sm c-slate">Email</label>
     </div>
     <div class="d-f ai-c g-2">
       <input type="checkbox" id="sms" class="d-4 ac-slate" />
-      <label for="sms" class="fs-sm tc-slate">SMS</label>
+      <label for="sms" class="fs-sm c-slate">SMS</label>
     </div>
   </div>
 </fieldset>
@@ -98,8 +98,8 @@ Use `aria-describedby` to associate additional information with a checkbox.
 <div class="d-f as-fs g-2">
   <input type="checkbox" id="checkbox-desc" class="d-4 ac-slate mt-1" aria-describedby="checkbox-desc-help" checked />
   <div>
-    <label for="checkbox-desc" class="fs-sm fw-600 tc-slate d-b">Marketing emails</label>
-    <p id="checkbox-desc-help" class="fs-sm tc-silver-10 m-0">Receive emails about new products and features.</p>
+    <label for="checkbox-desc" class="fs-sm fw-600 c-slate d-b">Marketing emails</label>
+    <p id="checkbox-desc-help" class="fs-sm c-silver-10 m-0">Receive emails about new products and features.</p>
   </div>
 </div>
 ```

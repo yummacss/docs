@@ -110,13 +110,13 @@ export default function LegacyTable({
         <thead>
           <tr>
             <th
-              className="fs-md fw-600 px-4 py-2 ta-l b-1 tc-white"
+              className="fs-md fw-600 px-4 py-2 ta-l bw-1 c-white"
               style={{ borderColor: "#31365e80" }}
             >
               Class
             </th>
             <th
-              className="fs-md fw-600 px-4 py-2 ta-l b-1 tc-white"
+              className="fs-md fw-600 px-4 py-2 ta-l bw-1 c-white"
               style={{ borderColor: "#31365e80" }}
             >
               Style
@@ -127,7 +127,7 @@ export default function LegacyTable({
           {codeData.map((classItem, index) => (
             <tr key={`${classItem.className}-${index}`}>
               <td
-                className="px-4 py-2 b-1 tc-white/80"
+                className="px-4 py-2 bw-1 c-white/80"
                 style={{ borderColor: "#31365e80" }}
               >
                 <code className="fs-xs" style={{ color: "#dda2f6" }}>
@@ -135,7 +135,7 @@ export default function LegacyTable({
                 </code>
               </td>
               <td
-                className="px-4 py-2 b-1 tc-white/80"
+                className="px-4 py-2 bw-1 c-white/80"
                 style={{ borderColor: "#31365e80" }}
               >
                 <code className="fs-xs" style={{ color: "#bec6f2" }}>

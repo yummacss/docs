@@ -60,7 +60,7 @@ export default function TableOfContents() {
   }
 
   return (
-    <aside className="d-none lg:d-b lg:gc-s-3 bl-1 bc-white/5">
+    <aside className="d-none lg:d-b lg:gc-s-3 blw-1 bc-white/5">
       <div
         className="p-st o-y-auto"
         style={{
@@ -69,7 +69,7 @@ export default function TableOfContents() {
         }}
       >
         <div className="px-8">
-          <h3 className="fs-md fw-400 tt-c mb-3 tc-white">On this page</h3>
+          <h3 className="fs-md fw-400 tt-c mb-3 c-white">On this page</h3>
           <ul className="d-f fd-c ml-4 g-2 fs-sm">
             {headings.map((heading) => {
               const isActive = activeId === heading.id;
@@ -81,7 +81,7 @@ export default function TableOfContents() {
                 >
                   <Link
                     href={`#${heading.id}`}
-                    className={isActive ? "tc-white" : "tc-white/70 h:tc-white"}
+                    className={isActive ? "c-white" : "c-white/70 h:c-white"}
                   >
                     {heading.text}
                   </Link>

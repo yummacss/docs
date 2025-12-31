@@ -2,23 +2,23 @@ export default function HeroSectionBasic() {
   return (
     <section className="py-16 px-6 ta-c">
       <div className="max-w-sm m-auto">
-        <h1 className="ff-s fs-5xl fw-600 tc-slate-10 mb-4 lh-1">
+        <h1 className="ff-s fs-5xl fw-600 c-slate-10 mb-4 lh-1">
           Build beautiful products faster
         </h1>
-        <p className="fs-lg tc-silver-10 mb-8 m-0 lh-4">
+        <p className="fs-lg c-silver-10 mb-8 m-0 lh-4">
           The modern platform for teams to design, develop, and ship stunning
           experiences without the complexity.
         </p>
         <div className="d-f jc-c g-3">
           <button
             type="button"
-            className="px-5 py-3 rad-9 fs-md fw-600 bg-slate-8 tc-white h:bg-slate-10 f:oc-silver-4 f:os-s f:ow-2"
+            className="px-5 py-3 br-pill fs-md fw-600 bg-slate-8 c-white h:bg-slate-10 f:oc-silver-4 f:os-s f:ow-2"
           >
             Get started
           </button>
           <button
             type="button"
-            className="ai-c d-f jc-c g-2 px-5 py-3 rad-9 fs-md fw-600 bg-white tc-slate-8 h:bg-silver-1"
+            className="ai-c d-f jc-c g-2 px-5 py-3 br-pill fs-md fw-600 bg-white c-slate-8 h:bg-silver-1"
           >
             <span>Learn more</span>
             <svg

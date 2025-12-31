@@ -15,7 +15,7 @@ export default function DropdownShortcuts() {
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="w-4 h-4 tc-silver-10"
+          className="w-4 h-4 c-silver-10"
           viewBox="0 0 256 256"
           aria-hidden="true"
         >
@@ -69,7 +69,7 @@ export default function DropdownShortcuts() {
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="w-4 h-4 tc-silver-10"
+          className="w-4 h-4 c-silver-10"
           viewBox="0 0 256 256"
           aria-hidden="true"
         >
@@ -104,7 +104,7 @@ export default function DropdownShortcuts() {
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="w-4 h-4 tc-silver-10"
+          className="w-4 h-4 c-silver-10"
           viewBox="0 0 256 256"
           aria-hidden="true"
         >
@@ -287,7 +287,7 @@ export default function DropdownShortcuts() {
         aria-controls="dropdown-shortcuts-menu"
         onClick={toggleMenu}
         onKeyDown={handleKeyDown}
-        className="d-f ai-c g-2 px-4 py-2 rad-0 fs-sm fw-600 bg-white tc-slate-8 b-1 bc-silver-4 h:bg-silver-1 f:oc-silver-1 f:os-s f:ow-2"
+        className="d-f ai-c g-2 px-4 py-2 br-0 fs-sm fw-600 bg-white c-slate-8 bw-1 bc-silver-4 h:bg-silver-1 f:oc-silver-1 f:os-s f:ow-2"
       >
         <span>Actions</span>
         <svg
@@ -315,19 +315,19 @@ export default function DropdownShortcuts() {
           role="menu"
           aria-labelledby="dropdown-shortcuts-button"
           onKeyDown={handleKeyDown}
-          className="p-a mt-1 p-1 bg-white b-1 bc-silver-4 rad-0 bs-3 min-w-64 z-10"
+          className="p-a mt-1 p-1 bg-white bw-1 bc-silver-4 br-0 bs-3 min-w-64 z-10"
         >
           {items.map((item, index) => (
             <div key={item.id}>
-              {index === 3 && <hr className="my-1 b-0 bt-1 bc-silver-4" />}
+              {index === 3 && <hr className="my-1 bw-0 btw-1 bc-silver-4" />}
               <button
                 type="button"
                 role="menuitem"
                 tabIndex={-1}
-                className={`d-f ai-c jc-sb w-full ta-l px-3 py-2 rad-0 fs-sm b-0 c-p tr-c ${
+                className={`d-f ai-c jc-sb w-full ta-l px-3 py-2 br-0 fs-sm bw-0 c-p tr-c ${
                   item.isDestructive
-                    ? "tc-red h:bg-red-1"
-                    : "tc-slate-8 h:bg-silver-1"
+                    ? "c-red h:bg-red-1"
+                    : "c-slate-8 h:bg-silver-1"
                 } ${activeIndex === index ? (item.isDestructive ? "bg-red-1" : "bg-silver-1") : "bg-transparent"}`}
                 onClick={() => {
                   console.log(`Executed: ${item.label}`);
@@ -339,10 +339,10 @@ export default function DropdownShortcuts() {
                   {item.icon}
                   <div className="d-f fd-c">
                     <span className="fw-600">{item.label}</span>
-                    <span className="fs-xs tc-slate-5">{item.description}</span>
+                    <span className="fs-xs c-slate-5">{item.description}</span>
                   </div>
                 </div>
-                <div className="d-f ai-c g-1 p-1 bg-silver-1 b-1 bc-silver-4 rad-0 tc-slate-5">
+                <div className="d-f ai-c g-1 p-1 bg-silver-1 bw-1 bc-silver-4 br-0 c-slate-5">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="w-3 h-3"

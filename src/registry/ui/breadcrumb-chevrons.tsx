@@ -1,7 +1,7 @@
 export default function BreadcrumbChevrons() {
   return (
-    <nav className="d-f ai-c b-1 bc-silver-4 p-3 rad-0 fs-sm tc-silver-10">
-      <a href="/" className="h:tc-black td-none">
+    <nav className="d-f ai-c bw-1 bc-silver-4 p-3 br-0 fs-sm c-silver-10">
+      <a href="/" className="h:c-black td-none">
         Dashboard
       </a>
       <svg
@@ -20,7 +20,7 @@ export default function BreadcrumbChevrons() {
           strokeWidth="16"
         />
       </svg>
-      <a href="/" className="h:tc-black td-none">
+      <a href="/" className="h:c-black td-none">
         Profile
       </a>
       <svg
@@ -39,7 +39,7 @@ export default function BreadcrumbChevrons() {
           strokeWidth="16"
         />
       </svg>
-      <span className="tc-black fw-600">Security</span>
+      <span className="c-black fw-600">Security</span>
     </nav>
   );
 }

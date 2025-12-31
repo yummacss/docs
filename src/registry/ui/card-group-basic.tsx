@@ -2,8 +2,8 @@ export default function CardGroupBasic() {
   return (
     <div className="p-6">
       <div className="d-g gtc-1 sm:gtc-3 g-6">
-        <div className="p-6 b-1 bc-silver-4 rad-0">
-          <div className="d-f ai-c jc-c d-10 rad-9 bg-silver-1 tc-slate mb-4">
+        <div className="p-6 bw-1 bc-silver-4 br-0">
+          <div className="d-f ai-c jc-c d-10 br-pill bg-silver-1 c-slate mb-4">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-5 h-5"
@@ -21,13 +21,13 @@ export default function CardGroupBasic() {
               />
             </svg>
           </div>
-          <h3 className="ff-s fs-md fw-600 tc-slate mb-2">Fast performance</h3>
-          <p className="fs-sm tc-slate-6 m-0">
+          <h3 className="ff-s fs-md fw-600 c-slate mb-2">Fast performance</h3>
+          <p className="fs-sm c-slate-6 m-0">
             Optimized for speed and efficiency.
           </p>
         </div>
-        <div className="p-6 b-1 bc-silver-4 rad-0">
-          <div className="d-f ai-c jc-c d-10 rad-9 bg-silver-1 tc-slate mb-4">
+        <div className="p-6 bw-1 bc-silver-4 br-0">
+          <div className="d-f ai-c jc-c d-10 br-pill bg-silver-1 c-slate mb-4">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-5 h-5"
@@ -78,11 +78,11 @@ export default function CardGroupBasic() {
               />
             </svg>
           </div>
-          <h3 className="ff-s fs-md fw-600 tc-slate mb-2">Secure by default</h3>
-          <p className="fs-sm tc-slate-6 m-0">Built with security in mind.</p>
+          <h3 className="ff-s fs-md fw-600 c-slate mb-2">Secure by default</h3>
+          <p className="fs-sm c-slate-6 m-0">Built with security in mind.</p>
         </div>
-        <div className="p-6 b-1 bc-silver-4 rad-0">
-          <div className="d-f ai-c jc-c d-10 rad-9 bg-silver-1 tc-slate mb-4">
+        <div className="p-6 bw-1 bc-silver-4 br-0">
+          <div className="d-f ai-c jc-c d-10 br-pill bg-silver-1 c-slate mb-4">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-5 h-5"
@@ -234,10 +234,8 @@ export default function CardGroupBasic() {
               />
             </svg>
           </div>
-          <h3 className="ff-s fs-md fw-600 tc-slate mb-2">
-            Fully customizable
-          </h3>
-          <p className="fs-sm tc-slate-6 m-0">Adapt to your needs easily.</p>
+          <h3 className="ff-s fs-md fw-600 c-slate mb-2">Fully customizable</h3>
+          <p className="fs-sm c-slate-6 m-0">Adapt to your needs easily.</p>
         </div>
       </div>
     </div>

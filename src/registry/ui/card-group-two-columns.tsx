@@ -2,8 +2,8 @@ export default function CardGroupTwoColumns() {
   return (
     <div className="p-6">
       <div className="d-g gtc-1 sm:gtc-2 g-6">
-        <div className="p-6 b-1 bc-silver-4 rad-0">
-          <div className="d-f ai-c jc-c d-10 rad-9 bg-silver-1 tc-slate mb-4">
+        <div className="p-6 bw-1 bc-silver-4 br-0">
+          <div className="d-f ai-c jc-c d-10 br-pill bg-silver-1 c-slate mb-4">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-5 h-5"
@@ -37,13 +37,13 @@ export default function CardGroupTwoColumns() {
               />
             </svg>
           </div>
-          <h3 className="ff-s fs-md fw-600 tc-slate mb-2">Analytics</h3>
-          <p className="fs-sm tc-slate-6 m-0">
+          <h3 className="ff-s fs-md fw-600 c-slate mb-2">Analytics</h3>
+          <p className="fs-sm c-slate-6 m-0">
             Track your metrics and monitor performance in real-time.
           </p>
         </div>
-        <div className="p-6 b-1 bc-silver-4 rad-0">
-          <div className="d-f ai-c jc-c d-10 rad-9 bg-silver-1 tc-slate mb-4">
+        <div className="p-6 bw-1 bc-silver-4 br-0">
+          <div className="d-f ai-c jc-c d-10 br-pill bg-silver-1 c-slate mb-4">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-5 h-5"
@@ -112,13 +112,13 @@ export default function CardGroupTwoColumns() {
               <circle cx="172" cy="108" r="12" />
             </svg>
           </div>
-          <h3 className="ff-s fs-md fw-600 tc-slate mb-2">Automation</h3>
-          <p className="fs-sm tc-slate-6 m-0">
+          <h3 className="ff-s fs-md fw-600 c-slate mb-2">Automation</h3>
+          <p className="fs-sm c-slate-6 m-0">
             Automate workflows and save time on repetitive tasks.
           </p>
         </div>
-        <div className="p-6 b-1 bc-silver-4 rad-0">
-          <div className="d-f ai-c jc-c d-10 rad-9 bg-silver-1 tc-slate mb-4">
+        <div className="p-6 bw-1 bc-silver-4 br-0">
+          <div className="d-f ai-c jc-c d-10 br-pill bg-silver-1 c-slate mb-4">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-5 h-5"
@@ -144,13 +144,13 @@ export default function CardGroupTwoColumns() {
               />
             </svg>
           </div>
-          <h3 className="ff-s fs-md fw-600 tc-slate mb-2">Integrations</h3>
-          <p className="fs-sm tc-slate-6 m-0">
+          <h3 className="ff-s fs-md fw-600 c-slate mb-2">Integrations</h3>
+          <p className="fs-sm c-slate-6 m-0">
             Connect with your favorite tools and services.
           </p>
         </div>
-        <div className="p-6 b-1 bc-silver-4 rad-0">
-          <div className="d-f ai-c jc-c d-10 rad-9 bg-silver-1 tc-slate mb-4">
+        <div className="p-6 bw-1 bc-silver-4 br-0">
+          <div className="d-f ai-c jc-c d-10 br-pill bg-silver-1 c-slate mb-4">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-5 h-5"
@@ -194,8 +194,8 @@ export default function CardGroupTwoColumns() {
               />
             </svg>
           </div>
-          <h3 className="ff-s fs-md fw-600 tc-slate mb-2">Collaboration</h3>
-          <p className="fs-sm tc-slate-6 m-0">
+          <h3 className="ff-s fs-md fw-600 c-slate mb-2">Collaboration</h3>
+          <p className="fs-sm c-slate-6 m-0">
             Work together with your team in real-time.
           </p>
         </div>

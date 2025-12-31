@@ -8,7 +8,7 @@ export default function CheckboxDisabled() {
           className="d-4 ac-slate"
           disabled
         />
-        <label htmlFor="checkbox-disabled" className="fs-sm tc-slate-6">
+        <label htmlFor="checkbox-disabled" className="fs-sm c-slate-6">
           Disabled unchecked
         </label>
       </div>
@@ -20,7 +20,7 @@ export default function CheckboxDisabled() {
           disabled
           defaultChecked
         />
-        <label htmlFor="checkbox-disabled-checked" className="fs-sm tc-slate-6">
+        <label htmlFor="checkbox-disabled-checked" className="fs-sm c-slate-6">
           Disabled checked
         </label>
       </div>

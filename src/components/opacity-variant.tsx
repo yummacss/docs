@@ -5,7 +5,7 @@ interface OpacityVariantProps {
 export default function OpacityVariant({ classPrefix }: OpacityVariantProps) {
   return (
     <div className="mb-6">
-      <p className="mb-4 tc-white/80">
+      <p className="mb-4 c-white/80">
         You can also control the opacity of colors using opacity modifiers with{" "}
         <code
           className="fs-sm px-2 py-1"

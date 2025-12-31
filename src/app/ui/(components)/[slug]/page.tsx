@@ -35,9 +35,9 @@ export default async function Page({
       <Banner />
       {meta && (
         <div className="mb-8" data-meta>
-          <h1 className="fs-4xl fw-400 mb-6 tc-white">{meta.title}</h1>
+          <h1 className="fs-4xl fw-400 mb-6 c-white">{meta.title}</h1>
           {meta.description && (
-            <p className="fs-lg tc-white/70">{meta.description}</p>
+            <p className="fs-lg c-white/70">{meta.description}</p>
           )}
         </div>
       )}

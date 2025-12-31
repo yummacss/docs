@@ -5,7 +5,7 @@ interface HoverVariantProps {
 export default function HoverVariant({ classPrefix }: HoverVariantProps) {
   return (
     <div className="mb-6">
-      <p className="mb-4 tc-white/80">
+      <p className="mb-4 c-white/80">
         Alternatively, you can apply{" "}
         <code
           className="fs-sm px-2 py-1"

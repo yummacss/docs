@@ -3,7 +3,7 @@ export default function TimelineIcons() {
     <div className="d-f fd-c g-4">
       <div className="d-f g-4">
         <div className="d-f fd-c ai-c">
-          <div className="d-f ai-c jc-c w-8 h-8 rad-9 bg-silver-2 tc-black fs-0">
+          <div className="d-f ai-c jc-c w-8 h-8 br-pill bg-silver-2 c-black fs-0">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-5 h-5"
@@ -50,16 +50,16 @@ export default function TimelineIcons() {
           <div className="w-px h-full bg-silver-2 my-1"></div>
         </div>
         <div className="pb-4">
-          <p className="fs-sm fw-500 tc-slate-8 mb-1 fw-600">Profile Updated</p>
-          <p className="fs-xs tc-silver-10 mb-2">November 01, 2024</p>
-          <p className="fs-sm tc-silver-12 lh-4">
+          <p className="fs-sm fw-500 c-slate-8 mb-1 fw-600">Profile Updated</p>
+          <p className="fs-xs c-silver-10 mb-2">November 01, 2024</p>
+          <p className="fs-sm c-silver-12 lh-4">
             User updated their profile picture and bio information.
           </p>
         </div>
       </div>
       <div className="d-f g-4">
         <div className="d-f fd-c ai-c">
-          <div className="d-f ai-c jc-c w-8 h-8 rad-9 bg-silver-2 tc-black fs-0">
+          <div className="d-f ai-c jc-c w-8 h-8 br-pill bg-silver-2 c-black fs-0">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-5 h-5"
@@ -88,9 +88,9 @@ export default function TimelineIcons() {
           <div className="w-px h-full bg-silver-2 my-1"></div>
         </div>
         <div className="pb-4">
-          <p className="fs-sm fw-500 tc-slate-8 mb-1 fw-600">New Message</p>
-          <p className="fs-xs tc-silver-10 mb-2">November 03, 2024</p>
-          <p className="fs-sm tc-silver-12 lh-4">
+          <p className="fs-sm fw-500 c-slate-8 mb-1 fw-600">New Message</p>
+          <p className="fs-xs c-silver-10 mb-2">November 03, 2024</p>
+          <p className="fs-sm c-silver-12 lh-4">
             You received a new message from the support team regarding your
             ticket.
           </p>
@@ -98,7 +98,7 @@ export default function TimelineIcons() {
       </div>
       <div className="d-f g-4">
         <div className="d-f fd-c ai-c">
-          <div className="d-f ai-c jc-c w-8 h-8 rad-9 bg-silver-2 tc-black fs-0">
+          <div className="d-f ai-c jc-c w-8 h-8 br-pill bg-silver-2 c-black fs-0">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-5 h-5"
@@ -140,9 +140,9 @@ export default function TimelineIcons() {
           </div>
         </div>
         <div className="pt-1">
-          <p className="fs-sm fw-500 tc-slate-8 mb-1 fw-600">Location Added</p>
-          <p className="fs-xs tc-silver-10 mb-2">November 05, 2024</p>
-          <p className="fs-sm tc-silver-12 lh-4">
+          <p className="fs-sm fw-500 c-slate-8 mb-1 fw-600">Location Added</p>
+          <p className="fs-xs c-silver-10 mb-2">November 05, 2024</p>
+          <p className="fs-sm c-silver-12 lh-4">
             A new shipping address was added to your account.
           </p>
         </div>
