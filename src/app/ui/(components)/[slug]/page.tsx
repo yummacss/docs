@@ -10,11 +10,13 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const module = await import(`@/content/ui/${slug}.mdx`);
+  // Decode URL-encoded slugs (e.g., templates%2Fneutra -> templates/neutra)
+  const decodedSlug = decodeURIComponent(slug);
+  const module = await import(`@/content/ui/${decodedSlug}.mdx`);
   const meta = module.meta;
 
   return {
-    title: meta?.title || "UI Documentation",
+    title: meta?.title || "Yumma UI Documentation",
     description: meta?.description || "",
   };
 }
@@ -25,7 +27,9 @@ export default async function Page({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const module = await import(`@/content/ui/${slug}.mdx`);
+  // Decode URL-encoded slugs (e.g., templates%2Fneutra -> templates/neutra)
+  const decodedSlug = decodeURIComponent(slug);
+  const module = await import(`@/content/ui/${decodedSlug}.mdx`);
   const Content = module.default;
   const meta = module.meta;
   const navigation = getUINavigation(slug);
