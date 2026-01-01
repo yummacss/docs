@@ -14,7 +14,7 @@ export async function generateMetadata({
   const meta = module.meta;
 
   return {
-    title: meta?.title || "Documentation",
+    title: meta?.title || "Yumma CSS Documentation",
     description: meta?.description || "",
   };
 }
