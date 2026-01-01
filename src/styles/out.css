@@ -3659,6 +3659,18 @@ summary {
   text-overflow: ellipsis;
 }
 
+.ts-2 {
+  tab-size: 2;
+}
+
+.ts-4 {
+  tab-size: 4;
+}
+
+.ts-8 {
+  tab-size: 8;
+}
+
 .tt-c {
   text-transform: capitalize;
 }
@@ -3733,6 +3745,30 @@ summary {
 
 .v-v {
   visibility: visible;
+}
+
+.va-b {
+  vertical-align: bottom;
+}
+
+.va-ba {
+  vertical-align: baseline;
+}
+
+.va-m {
+  vertical-align: middle;
+}
+
+.va-s {
+  vertical-align: sub;
+}
+
+.va-su {
+  vertical-align: super;
+}
+
+.va-t {
+  vertical-align: top;
 }
 
 .w-1 {
@@ -3845,6 +3881,26 @@ summary {
 
 .w-vw {
   width: 100vw;
+}
+
+.wm-htb {
+  writing-mode: horizontal-tb;
+}
+
+.wm-slr {
+  writing-mode: sideways-lr;
+}
+
+.wm-srl {
+  writing-mode: sideways-rl;
+}
+
+.wm-vlr {
+  writing-mode: vertical-lr;
+}
+
+.wm-vrl {
+  writing-mode: vertical-rl;
 }
 
 .ws-bs {

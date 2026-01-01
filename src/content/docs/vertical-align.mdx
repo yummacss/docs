@@ -1,0 +1,128 @@
+export const meta = {
+  title: "Vertical Align",
+  description: "Controls the vertical alignment of an inline or table-cell box.",
+};
+
+<Baseline path="css.properties.vertical-align" />
+
+<ApiTable category="text" name="vertical-align" />
+
+## Baseline
+
+Aligns the baseline of the element with the baseline of its parent.
+
+<Preview>
+  <div className="fs-md c-slate">
+    <span className="va-ba bw-1 bc-silver-4 p-1">Baseline</span>
+    <span className="fs-xl">Text</span>
+  </div>
+</Preview>
+
+```html "va-ba"
+<div class="fs-md c-slate">
+    <span class="va-ba bw-1 bc-silver-4 p-1">Baseline</span>
+    <span class="fs-xl">Text</span>
+</div>
+```
+
+## Middle
+
+Aligns the middle of the element with the baseline plus half the x-height of the parent.
+
+<Preview>
+  <div className="fs-md c-slate">
+    <span className="va-m bw-1 bc-silver-4 p-1">Middle</span>
+    <span className="fs-xl">Text</span>
+  </div>
+</Preview>
+
+```html "va-m"
+<div class="fs-md c-slate">
+    <span class="va-m bw-1 bc-silver-4 p-1">Middle</span>
+    <span class="fs-xl">Text</span>
+</div>
+```
+
+## Top
+
+Aligns the top of the element with the top of the tallest element on the line.
+
+<Preview>
+  <div className="fs-md c-slate">
+    <span className="va-t bw-1 bc-silver-4 p-1">Top</span>
+    <span className="fs-xl">Text</span>
+  </div>
+</Preview>
+
+```html "va-t"
+<div class="fs-md c-slate">
+    <span class="va-t bw-1 bc-silver-4 p-1">Top</span>
+    <span class="fs-xl">Text</span>
+</div>
+```
+
+## Bottom
+
+Aligns the bottom of the element with the lowest element on the line.
+
+<Preview>
+  <div className="fs-md c-slate">
+    <span className="va-b bw-1 bc-silver-4 p-1">Bottom</span>
+    <span className="fs-xl">Text</span>
+  </div>
+</Preview>
+
+```html "va-b"
+<div class="fs-md c-slate">
+    <span class="va-b bw-1 bc-silver-4 p-1">Bottom</span>
+    <span class="fs-xl">Text</span>
+</div>
+```
+
+## Sub
+
+Aligns the baseline of the element with the subscript-baseline of its parent.
+
+<Preview>
+  <div className="fs-md c-slate">
+    <span className="va-s bw-1 bc-silver-4 p-1">Sub</span>
+    <span className="fs-xl">Text</span>
+  </div>
+</Preview>
+
+```html "va-s"
+<div class="fs-md c-slate">
+    <span class="va-s bw-1 bc-silver-4 p-1">Sub</span>
+    <span class="fs-xl">Text</span>
+</div>
+```
+
+## Super
+
+Aligns the baseline of the element with the superscript-baseline of its parent.
+
+<Preview>
+  <div className="fs-md c-slate">
+    <span className="va-su bw-1 bc-silver-4 p-1">Super</span>
+    <span className="fs-xl">Text</span>
+  </div>
+</Preview>
+
+```html "va-su"
+<div class="fs-md c-slate">
+    <span class="va-su bw-1 bc-silver-4 p-1">Super</span>
+    <span class="fs-xl">Text</span>
+</div>
+```
+
+## Using utility variants
+
+Learn how to override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+
+### Targeting different viewports
+
+<MediaVariant class="va-ba" variant="va-m" classPrefix="va" />
+
+### Targeting hover states
+
+<HoverVariant class="va-ba" variant="va-m" classPrefix="va" />

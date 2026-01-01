@@ -1,0 +1,100 @@
+export const meta = {
+  title: "Writing Mode",
+  description: "Sets whether lines of text are laid out horizontally or vertically.",
+};
+
+<Baseline path="css.properties.writing-mode" />
+
+<ApiTable category="text" name="writing-mode" />
+
+## Horizontal Top to Bottom
+
+Lines of text are laid out horizontally, read from top to bottom. This is the default writing mode.
+
+<Preview>
+  <div className="fs-md wm-htb c-slate">
+    <p>Sphinx of black quartz, judge my vow.</p>
+  </div>
+</Preview>
+
+```html "wm-htb"
+<div class="fs-md wm-htb c-slate">
+    <p>Sphinx of black quartz, judge my vow.</p>
+</div>
+```
+
+## Vertical Right to Left
+
+Lines of text are laid out vertically, read from right to left.
+
+<Preview>
+  <div className="fs-md wm-vrl c-slate h-32">
+    <p>Sphinx of black quartz, judge my vow.</p>
+  </div>
+</Preview>
+
+```html "wm-vrl"
+<div class="fs-md wm-vrl c-slate h-32">
+  <p>Sphinx of black quartz, judge my vow.</p>
+</div>
+```
+
+## Vertical Left to Right
+
+Lines of text are laid out vertically, read from left to right.
+
+<Preview>
+  <div className="fs-md wm-vlr c-slate h-32">
+    <p>Sphinx of black quartz, judge my vow.</p>
+  </div>
+</Preview>
+
+```html "wm-vlr"
+<div class="fs-md wm-vlr c-slate h-32">
+  <p>Sphinx of black quartz, judge my vow.</p>
+</div>
+```
+
+## Sideways Right to Left
+
+Lines of text are laid out vertically, with characters rotated sideways, read from right to left.
+
+<Preview>
+  <div className="fs-md wm-srl c-slate h-32">
+    <p>Sphinx of black quartz, judge my vow.</p>
+  </div>
+</Preview>
+
+```html "wm-srl"
+<div class="fs-md wm-srl c-slate h-32">
+  <p>Sphinx of black quartz, judge my vow.</p>
+</div>
+```
+
+## Sideways Left to Right
+
+Lines of text are laid out vertically, with characters rotated sideways, read from left to right.
+
+<Preview>
+  <div className="fs-md wm-slr c-slate h-32">
+    <p>Sphinx of black quartz, judge my vow.</p>
+  </div>
+</Preview>
+
+```html "wm-slr"
+<div class="fs-md wm-slr c-slate h-32">
+  <p>Sphinx of black quartz, judge my vow.</p>
+</div>
+```
+
+## Using utility variants
+
+Learn how to override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+
+### Targeting different viewports
+
+<MediaVariant class="wm-htb" variant="wm-vrl" classPrefix="wm" />
+
+### Targeting hover states
+
+<HoverVariant class="wm-htb" variant="wm-vrl" classPrefix="wm" />
