@@ -118,8 +118,8 @@ importers:
         specifier: ^5.9.3
         version: 5.9.3
       yummacss:
-        specifier: ^3.7.0
-        version: 3.7.0
+        specifier: ^3.7.1
+        version: 3.7.1
 
 packages:
 
@@ -791,8 +791,8 @@ packages:
   '@yummacss/api@1.8.0':
     resolution: {integrity: sha512-25TGiA95QrqZAaICuxpmHD6e896THz26qjXPl6IXLDhqJGx+UU269Ks8gcE5eqdbWqEN99/Us18optaEWvNfDA==}
 
-  '@yummacss/nitro@0.4.0':
-    resolution: {integrity: sha512-sHloX2C+5IASA1n7L/5DKvuXjBf0MjPL+HQ0jLNHXOtOlT5s3zV09Pewqu8WFRz4yrp2K5empp/GFcTQUMZBiA==}
+  '@yummacss/nitro@0.5.0':
+    resolution: {integrity: sha512-ZqbPWEaH3V+ZO3ulIFHG1eUTn5CHfPz5QrZ0+0A0tity0cOUTLjMJBoe+QWzXzg8e4LJpBGd9gKByaTXJXfsAw==}
 
   acorn-jsx@5.3.2:
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
@@ -2004,8 +2004,8 @@ packages:
     resolution: {integrity: sha512-CzhO+pFNo8ajLM2d2IW/R93ipy99LWjtwblvC1RsoSUMZgyLbYFr221TnSNT7GjGdYui6P459mw9JH/g/zW2ug==}
     engines: {node: '>=18'}
 
-  yummacss@3.7.0:
-    resolution: {integrity: sha512-hDirK5QURMYiNUo5k3CA+uOLunEDd0YSQmRwh7h4Rn2ALhen8/YzawS1e/s1geOjzL9l/LTJXlXsYBfNjy29yw==}
+  yummacss@3.7.1:
+    resolution: {integrity: sha512-8i5awVkaJwatpApH2cVfUN7pwh8pwzMbNhD24XPoBtQMC+EAtLm6V5YM3JWtODlYWo487bZJ7POMrdM5163m3w==}
     hasBin: true
 
   zod-to-json-schema@3.24.5:
@@ -2016,8 +2016,8 @@ packages:
   zod@3.24.3:
     resolution: {integrity: sha512-HhY1oqzWCQWuUqvBFnsyrtZRhyPeR7SUGv+C4+MsisMuVfSPx8HpwWqH8tRahSlt6M3PiFAcoeFhZAqIXTxoSg==}
 
-  zod@4.3.2:
-    resolution: {integrity: sha512-b8L8yn4rIVfiXyHAmnr52/ZEpDumlT0bmxiq3Ws1ybrinhflGpt12Hvv54kYnEsGPRs6o/Ka3/ppA2OWY21IVg==}
+  zod@4.3.4:
+    resolution: {integrity: sha512-Zw/uYiiyF6pUT1qmKbZziChgNPRu+ZRneAsMUDU6IwmXdWt5JwcUfy2bvLOCUtz5UniaN/Zx5aFttZYbYc7O/A==}
 
   zustand@5.0.9:
     resolution: {integrity: sha512-ALBtUj0AfjJt3uNRQoL1tL2tMvj6Gp/6e39dnfT6uzpelGru8v1tPOGBzayOWbPJvujM8JojDk3E1LxeFisBNg==}
@@ -2666,11 +2666,11 @@ snapshots:
     dependencies:
       tinycolor2: 1.6.0
 
-  '@yummacss/nitro@0.4.0':
+  '@yummacss/nitro@0.5.0':
     dependencies:
       '@yummacss/api': 1.8.0
       globby: 16.1.0
-      zod: 4.3.2
+      zod: 4.3.4
 
   acorn-jsx@5.3.2(acorn@8.15.0):
     dependencies:
@@ -4267,9 +4267,9 @@ snapshots:
 
   yoctocolors@2.1.2: {}
 
-  yummacss@3.7.0:
+  yummacss@3.7.1:
     dependencies:
-      '@yummacss/nitro': 0.4.0
+      '@yummacss/nitro': 0.5.0
       chokidar: 5.0.0
       commander: 14.0.2
       globby: 16.1.0
@@ -4283,7 +4283,7 @@ snapshots:
 
   zod@3.24.3: {}
 
-  zod@4.3.2: {}
+  zod@4.3.4: {}
 
   zustand@5.0.9(@types/react@19.2.7)(react@19.2.3)(use-sync-external-store@1.6.0(react@19.2.3)):
     optionalDependencies:
