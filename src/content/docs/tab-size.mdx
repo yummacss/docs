@@ -1,0 +1,68 @@
+export const meta = {
+  title: "Tab Size",
+  description: "Controls the width of tab characters.",
+};
+
+<Baseline path="css.properties.tab-size" />
+
+<ApiTable category="text" name="tab-size" />
+
+## Tab Size 2
+
+The tab size will be set to 2, which is a common indentation size for code.
+
+<Preview variant="inline">
+    <section className="bg-black">
+        <pre className="fs-md ts-2">This text is indented with a tab character.</pre>
+    </section>
+</Preview>
+
+```html "ts-2"
+<section class="bg-black">
+    <pre class="fs-md ts-2">This text is indented with a tab character.</pre>
+</section>
+```
+
+## Tab Size 4
+
+The tab size will be set to 4, providing more space between tab stops.
+
+<Preview variant="inline">
+    <section className="bg-black">
+        <pre className="fs-md ts-4">This text is indented with a tab character.</pre>
+    </section>
+</Preview>
+
+```html "ts-4"
+<section class="bg-black">
+    <pre class="fs-md ts-4">This text is indented with a tab character</pre>
+</section>
+```
+
+## Tab Size 8
+
+The default browser tab size is typically 8.
+
+<Preview variant="inline">
+    <section className="bg-black">
+        <pre className="fs-md ts-8">This text is indented with a tab character.</pre>
+    </section>
+</Preview>
+
+```html "ts-8"
+<section class="bg-black">
+    <pre class="fs-md ts-8">This text is indented with a tab character.</pre>
+</section>
+```
+
+## Using utility variants
+
+Learn how to override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+
+### Targeting different viewports
+
+<MediaVariant class="ts-2" variant="ts-4" classPrefix="ts" />
+
+### Targeting hover states
+
+<HoverVariant class="ts-2" variant="ts-4" classPrefix="ts" />
