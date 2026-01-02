@@ -115,15 +115,6 @@ I don't know if you will ever even use this, but now `top`, `right`, `bottom`, `
 
 This update it's pretty much destructive as it contains quite a few breaking changes. We renamed some of existing utilities to truly make this a true abbreviation convention.
 
-
-{/* Renamed 9 to pill in all border-radius utilities.
-Renamed b-* utilities to bw-* (border-width).
-Renamed b-* variants (e.g., bt, br) to bw-* equivalents (e.g. btw, brw).
-Renamed b utility to bs (border-style).
-Renamed bo-* utilities to b-* (bottom).
-Renamed rad-* utilities to br-* (border-radius).
-Renamed tc-* utilities to c-* (color). */}
-
 ### Border Radius utilities
 
 ```html del={1} ins={2} title="index.html"
@@ -164,6 +155,13 @@ Renamed tc-* utilities to c-* (color). */}
 ```html del={1} ins={2} title="index.html"
 <div class="bb-*">...</div>
 <div class="bbw-*">...</div>
+```
+
+### Border Style
+
+```html del={1} ins={2} title="index.html"
+<div class="b-*">...</div>
+<div class="bs-*">...</div>
 ```
 
 ### Color utilities
