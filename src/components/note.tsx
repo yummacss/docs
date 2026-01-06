@@ -68,7 +68,7 @@ export default function Note({ icon, children }: NoteProps) {
           color: "#9aa6ef",
         }}
       >
-        <Icon size={24} weight="duotone" />
+        <Icon size={20} weight="duotone" />
       </span>
       <span className="c-white/80">{children}</span>
     </div>

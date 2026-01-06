@@ -18,7 +18,7 @@ export function Tabs({
   return (
     <BaseTabs.Root
       defaultValue={defaultValue}
-      className={`b-1 ${className}`}
+      className={`bw-1 ${className}`}
       style={{ borderColor: "#31365e", ...style }}
       {...props}
     >

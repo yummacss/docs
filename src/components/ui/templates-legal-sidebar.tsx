@@ -13,7 +13,7 @@ export default function TemplatesLegalSidebar() {
         }}
       >
         <div className="px-8">
-          <h3 className="fs-md fw-400 tt-c mb-4 c-white">Legal</h3>
+          <h3 className="fs-md fw-400 tt-c mb-4 c-white">Useful Links</h3>
           <ul className="d-f fd-c g-3 fs-sm">
             <li>
               <Link href="#" className="c-white/70 h:c-white">
@@ -27,12 +27,7 @@ export default function TemplatesLegalSidebar() {
             </li>
             <li>
               <Link href="#" className="c-white/70 h:c-white">
-                License Agreement
-              </Link>
-            </li>
-            <li>
-              <Link href="#" className="c-white/70 h:c-white">
-                Refund Policy
+                Report Bug
               </Link>
             </li>
           </ul>

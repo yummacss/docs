@@ -1,11 +1,6 @@
-export interface TemplateFeature {
+export interface TemplatePage {
+  path: string;
   title: string;
-  description: string;
-}
-
-export interface TemplateBadge {
-  label: string;
-  variant: "default" | "success" | "warning";
 }
 
 export interface TemplateFramework {
@@ -23,9 +18,9 @@ export interface Template {
   templateVersion: string;
   frameworks: TemplateFramework[];
   stack: string[];
-  yummacssVersion: string;
-  features: TemplateFeature[];
-  badges: TemplateBadge[];
+  version: string;
+  pages: TemplatePage[];
+  pageCount: number;
   previewUrl: string;
   purchaseUrl: string;
   screenshots: string[];
@@ -80,41 +75,26 @@ export const templates: Template[] = [
       { name: "React", version: "19" },
     ],
     stack: ["Next.js 16", "React 19", "Yumma CSS 3", "Phosphor Icons"],
-    yummacssVersion: "3.6.2",
-    features: [
-      {
-        title: "Responsive Navbar",
-        description: "Mobile-friendly navigation with smooth animations",
-      },
-      {
-        title: "Rating Section",
-        description: "Showcase social proof with star ratings",
-      },
-      {
-        title: "Call-to-Action",
-        description: "Eye-catching CTA section to convert visitors",
-      },
-      {
-        title: "Logo Section",
-        description: "Display trusted brands and partners",
-      },
-      {
-        title: "Dark & Light Variants",
-        description: "Includes both colorful and grayscale versions",
-      },
-      {
-        title: "Fully Customizable",
-        description: "Easy to modify colors, content, and layout",
-      },
-    ],
-    badges: [
-      { label: "SEO", variant: "default" },
-      { label: "WCAG-AA", variant: "success" },
-      { label: "SSR-ready", variant: "default" },
+    version: "3.7.0",
+    pageCount: 8,
+    pages: [
+      { path: "/src/app/page.tsx", title: "Home" },
+      { path: "/src/app/about/page.tsx", title: "About" },
+      { path: "/src/app/services/page.tsx", title: "Services" },
+      { path: "/src/app/work/page.tsx", title: "Work" },
+      { path: "/src/app/portfolio/page.tsx", title: "Portfolio" },
+      { path: "/src/app/pricing/page.tsx", title: "Pricing" },
+      { path: "/src/app/process/page.tsx", title: "Process" },
+      { path: "/src/app/not-found.tsx", title: "404 page" },
     ],
     previewUrl: "#",
     purchaseUrl: "#",
-    screenshots: ["/templates/neutra-01.png", "/templates/neutra-02.png"],
+    screenshots: [
+      "/img/templates/neutra/home.png",
+      "/img/templates/neutra/pricing.png",
+      "/img/templates/neutra/process.png",
+      "/img/templates/neutra/work.png",
+    ],
   },
 ];
 
