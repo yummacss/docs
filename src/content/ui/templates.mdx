@@ -6,57 +6,10 @@ import { SiNextdotjs, SiReact } from "react-icons/si";
 
 export const meta = {
   title: "Templates",
-  description: "Production-ready templates built with Yumma CSS.",
+  description: "Explore our collection of professionally designed templates. Each template is fully customizable and built with modern best practices.",
 };
 
-## Browse Templates
-
-Explore our collection of professionally designed templates. Each template is fully customizable and built with modern best practices.
-
-<div className="d-f fd-c g-6 my-8">
-  {templates.map((template) => (
-    <Link
-      key={template.slug}
-      href={`/ui/templates/${template.slug}`}
-      className="d-f fd-r bw-1 bc-white/10 br-0 o-h h:bg-white/5 c-white"
-      style={{ backgroundColor: "rgba(255,255,255,0.02)" }}
-    >
-      <div
-        className="w-64 fs-0 p-r ar-16/9"
-        style={{ backgroundColor: "rgba(255,255,255,0.03)" }}
-      >
-        {template.screenshots[0] ? (
-          <Image
-            src={template.screenshots[0]}
-            alt={`${template.name} preview`}
-            fill
-            className="of-c"
-          />
-        ) : (
-          <span className="p-a i-0 d-f ai-c jc-c fs-sm c-white/30">Preview</span>
-        )}
-      </div>
-      <div className="p-6 f-1 d-f fd-c">
-        <div className="d-f jc-sb ai-fs mb-2">
-          <h3 className="fs-lg fw-500 c-white">{template.name}</h3>
-          <span className="fs-lg fw-600 c-white">€{template.price}</span>
-        </div>
-        <p className="fs-sm c-white/60 mb-4">{template.tagline}</p>
-        <div className="d-f g-3 mt-auto">
-          {template.frameworks.map((fw) => (
-            <div key={fw.name} className="d-if ai-c g-1 fs-xs c-white/50">
-              {fw.name === "Next.js" && <SiNextdotjs size={12} />}
-              {fw.name === "React" && <SiReact size={12} />}
-              <span>{fw.name}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </Link>
-  ))}
-</div>
-
----
+{/* TODO: Add browse templates with filters */}
 
 ## Licensing
 

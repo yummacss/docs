@@ -1,5 +1,10 @@
 "use client";
 
+import {
+  FileCssIcon,
+  FileIcon,
+  HashIcon,
+} from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { getTemplateBySlug } from "@/utils/templates";
@@ -30,7 +35,7 @@ export default function TemplateDetailsSidebar() {
           {/* Price */}
           <div className="mb-6">
             <span className="fs-3xl fw-600 c-white">€{template.price}</span>
-            <span className="fs-sm c-white/60 ml-1">/ one-time</span>
+            <span className="fs-sm c-white/60 ml-1">/ one-time purchase</span>
           </div>
 
           {/* CTAs */}
@@ -45,47 +50,34 @@ export default function TemplateDetailsSidebar() {
             <Link
               href={template.previewUrl}
               target="_blank"
-              className="d-f ai-c jc-c bw-1 bc-white/20 bg-black/20 px-4 py-3 br-0 fw-500 fs-sm h:bg-black/20 c-white"
+              className="d-f ai-c jc-c bw-1 bc-white/10 px-4 py-3 br-0 fw-500 fs-sm h:bc-white/15 c-white"
             >
               Live Preview
             </Link>
           </div>
 
-          {/* Yumma CSS & Version - inline */}
-          <div className="d-g gtc-2 g-4 mb-6 pb-6 bbw-1 bc-white/10">
-            <div>
-              <p className="fs-xs c-white/50 mb-1">Yumma CSS</p>
-              <p className="fs-sm c-white">{template.yummacssVersion}</p>
+          {/* Yumma CSS, Pages & Version - inline with duotone icons */}
+          <div className="d-f g-6 mb-6 pb-6 bbw-1 bc-white/10">
+            <div className="d-f ai-c g-2">
+              <FileCssIcon size={16} className="c-white" weight="duotone" />
+              <div>
+                <p className="fs-xs fw-500 c-white">Yumma CSS</p>
+                <p className="fs-sm c-white/60">{template.version}</p>
+              </div>
             </div>
-            <div>
-              <p className="fs-xs c-white/50 mb-1">Version</p>
-              <p className="fs-sm c-white">{template.templateVersion}</p>
+            <div className="d-f ai-c g-2">
+              <FileIcon size={16} className="c-white" weight="duotone" />
+              <div>
+                <p className="fs-xs fw-500 c-white">Pages</p>
+                <p className="fs-sm c-white/60">{template.pageCount}</p>
+              </div>
             </div>
-          </div>
-
-          {/* What's included */}
-          <div className="mb-6">
-            <h4 className="fs-sm fw-500 c-white mb-3">What's included</h4>
-            <ul className="d-f fd-c g-2 fs-xs c-white/70">
-              <li>• Full source code</li>
-              <li>• Neutral & colorful versions</li>
-              <li>• Lifetime updates</li>
-              <li>• Discord support</li>
-            </ul>
-          </div>
-
-          {/* Badges */}
-          <div>
-            <h4 className="fs-sm fw-500 c-white mb-3">Features</h4>
-            <div className="d-f fw-w g-2">
-              {template.badges.map((badge) => (
-                <span
-                  key={badge.label}
-                  className="px-2 py-1 bg-white/10 br-0 fs-xs c-white/70"
-                >
-                  {badge.label}
-                </span>
-              ))}
+            <div className="d-f ai-c g-2">
+              <HashIcon size={16} className="c-white" weight="duotone" />
+              <div>
+                <p className="fs-xs fw-500 c-white">Version</p>
+                <p className="fs-sm c-white/60">{template.templateVersion}</p>
+              </div>
             </div>
           </div>
         </div>

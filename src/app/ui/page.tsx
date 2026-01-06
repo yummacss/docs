@@ -62,13 +62,13 @@ export default function UIPage() {
                 >
                   Explore UI
                 </Link>
-                {/* <Link
+                <Link
                   href="/ui/templates"
                   className="px-6 py-3 fw-600 c-white fs-md d-f ai-c g-2"
                 >
                   <ArrowUpRightIcon size={20} />
                   Browse templates
-                </Link> */}
+                </Link>
               </div>
 
               <div className="d-f fw-w g-3 btw-1 bc-white/10 pt-6">

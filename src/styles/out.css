@@ -369,32 +369,8 @@ summary {
   border-color: #9fa0e9;
 }
 
-.bc-indigo-6\/10 {
-  border-color: #7073de1a;
-}
-
-.bc-indigo-6\/25 {
-  border-color: #7073de40;
-}
-
-.bc-indigo-7\/10 {
-  border-color: #4d4fbb1a;
-}
-
-.bc-indigo-7\/25 {
-  border-color: #4d4fbb40;
-}
-
 .bc-indigo-8 {
   border-color: #40429c;
-}
-
-.bc-indigo-8\/10 {
-  border-color: #40429c1a;
-}
-
-.bc-indigo-9\/10 {
-  border-color: #34357e1a;
 }
 
 .bc-orange-4 {
@@ -527,10 +503,6 @@ summary {
 
 .bg-black\/10 {
   background-color: #0000001a;
-}
-
-.bg-black\/20 {
-  background-color: #0003;
 }
 
 .bg-black\/50 {
@@ -1179,10 +1151,6 @@ summary {
 
 .c-white {
   color: #fff;
-}
-
-.c-white\/30 {
-  color: #ffffff4d;
 }
 
 .c-white\/40 {
@@ -2033,8 +2001,8 @@ summary {
   height: 100vh;
 }
 
-.h\:bg-black\/20:hover {
-  background-color: #0003;
+.h\:bc-white\/15:hover {
+  border-color: #ffffff26;
 }
 
 .h\:bg-blue:hover {
@@ -2103,10 +2071,6 @@ summary {
 
 .h\:bg-white\/10:hover {
   background-color: #ffffff1a;
-}
-
-.h\:bg-white\/5:hover {
-  background-color: #ffffff0d;
 }
 
 .h\:bg-white\/90:hover {
@@ -4026,14 +3990,6 @@ summary {
 
   .md\:fs-6xl {
     font-size: 3.75rem;
-  }
-
-  .md\:gc-s-2 {
-    grid-column: span 2 / span 2;
-  }
-
-  .md\:gr-s-2 {
-    grid-row: span 2 / span 2;
   }
 
   .md\:gtc-2 {
