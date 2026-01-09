@@ -1,13 +1,9 @@
 "use client";
 
-import {
-  FileCssIcon,
-  FileIcon,
-  HashIcon,
-} from "@phosphor-icons/react/dist/ssr";
+import { getPageIcon, getTemplateBySlug } from "@/utils/templates";
+import { ArrowSquareOutIcon } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { getTemplateBySlug } from "@/utils/templates";
 
 export default function TemplateDetailsSidebar() {
   const pathname = usePathname();
@@ -21,16 +17,26 @@ export default function TemplateDetailsSidebar() {
   return (
     <aside className="d-none lg:d-b lg:gc-s-3 blw-1 bc-white/5">
       <div
-        className="p-st o-y-auto"
+        className="p-st t-24 o-y-auto"
         style={{
-          top: "6rem",
           maxHeight: "calc(100vh - 6rem)",
         }}
       >
         <div className="px-8">
-          <h3 className="fs-md fw-400 tt-c mb-4 c-white">
-            About {template.name}
-          </h3>
+          <div className="d-f ai-c jc-sb mb-1">
+            <h3 className="fs-md fw-400 tt-c c-white m-0">
+              About {template.name}
+            </h3>
+            <Link
+              href={template.previewUrl}
+              target="_blank"
+              className="d-f ai-c g-1 fs-xs c-white/50 h:c-white"
+            >
+              <span>Preview</span>
+              <ArrowSquareOutIcon size={14} weight="bold" />
+            </Link>
+          </div>
+          <p className="fs-sm c-white/50 m-0 mb-6">{template.tagline}</p>
 
           {/* Price */}
           <div className="mb-6">
@@ -45,40 +51,35 @@ export default function TemplateDetailsSidebar() {
               target="_blank"
               className="d-f ai-c jc-c bg-white c-black px-4 py-3 br-0 fw-600 fs-sm h:bg-white/90"
             >
-              Get template
+              Get template €{template.price}
             </Link>
             <Link
-              href={template.previewUrl}
-              target="_blank"
-              className="d-f ai-c jc-c bw-1 bc-white/10 px-4 py-3 br-0 fw-500 fs-sm h:bc-white/15 c-white"
+              href="#"
+              className="d-f ai-c jc-c bg-transparent c-white px-4 py-3 br-0 fw-600 fs-sm rainbow-border"
             >
-              Live Preview
+              Get everything €49
             </Link>
           </div>
 
-          {/* Yumma CSS, Pages & Version - inline with duotone icons */}
-          <div className="d-f g-6 mb-6 pb-6 bbw-1 bc-white/10">
-            <div className="d-f ai-c g-2">
-              <FileCssIcon size={16} className="c-white" weight="duotone" />
-              <div>
-                <p className="fs-xs fw-500 c-white">Yumma CSS</p>
-                <p className="fs-sm c-white/60">{template.version}</p>
-              </div>
-            </div>
-            <div className="d-f ai-c g-2">
-              <FileIcon size={16} className="c-white" weight="duotone" />
-              <div>
-                <p className="fs-xs fw-500 c-white">Pages</p>
-                <p className="fs-sm c-white/60">{template.pageCount}</p>
-              </div>
-            </div>
-            <div className="d-f ai-c g-2">
-              <HashIcon size={16} className="c-white" weight="duotone" />
-              <div>
-                <p className="fs-xs fw-500 c-white">Version</p>
-                <p className="fs-sm c-white/60">{template.templateVersion}</p>
-              </div>
-            </div>
+          {/* Divider */}
+          <div className="bbw-1 bc-white/10 mb-6" />
+
+          {/* Pages Section */}
+          <div className="mb-6">
+            <h4 className="fs-sm fw-500 c-white mb-3">
+              Pages ({template.pages.length})
+            </h4>
+            <ul className="d-f fd-c g-2 us-none">
+              {template.pages.map((page) => {
+                const PageIcon = getPageIcon(page.title);
+                return (
+                  <li key={page.path} className="d-f ai-c g-2 fs-sm c-white/70">
+                    <PageIcon size={20} weight="duotone" />
+                    <span>{page.title}</span>
+                  </li>
+                );
+              })}
+            </ul>
           </div>
         </div>
       </div>

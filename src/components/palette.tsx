@@ -167,7 +167,7 @@ function ColorSwatch({
           <Tooltip.Popup
             className="d-f fd-c px-2 py-1 c-white fs-xs"
             style={{
-              backgroundColor: "#1e2039",
+              backgroundColor: "#21243f",
               border: "1px solid #31365e",
               transformOrigin: "bottom center",
               transition: !showCopied

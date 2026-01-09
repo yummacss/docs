@@ -1,56 +1,65 @@
-import { licenses, templates } from "@/utils/templates";
-import { CheckIcon } from "@phosphor-icons/react/dist/ssr";
+import { templates } from "@/utils/templates";
 import Image from "next/image";
 import Link from "next/link";
-import { SiNextdotjs, SiReact } from "react-icons/si";
 
 export const meta = {
   title: "Templates",
   description: "Explore our collection of professionally designed templates. Each template is fully customizable and built with modern best practices.",
 };
 
-{/* TODO: Add browse templates with filters */}
+Yumma UI is a growing collection of premium Next.js templates.
+We're launching with Neutra, a minimal design agency template, with more coming soon.
 
-## Licensing
-
-Choose the license that fits your needs. Both include lifetime updates.
-
-<div className="d-g gtc-1 md:gtc-2 g-6 my-8">
-  {licenses.map((license) => {
-    const displayName = license.name === "Personal" ? "Personal" : "Commercial";
-    const description = license.name === "Personal"
-      ? "For individual or single-project use."
-      : "For freelancers and unlimited client work.";
-
+<div className="d-f fd-c g-16 my-8">
+  {templates.map((template) => {
+    const isAvailable = template.status === "available";
+    
     return (
-      <div
-        key={license.name}
-        className="bw-1 bc-white/10 br-0 p-6 d-f fd-c"
-        style={{ backgroundColor: "rgba(255,255,255,0.02)" }}
-      >
-        <h3 className="fs-lg fw-500 mb-3 c-white">{displayName}</h3>
-        <div className="mb-3">
-          <span className="fs-4xl fw-600 c-white">€{license.price}</span>
-          <span className="fs-md c-white/60">/ one time</span>
+      <div key={template.slug} className="d-f fd-c lg:fd-r g-8">
+        {/* Left - Info */}
+        <div className="f-s-0" style={{ width: "100%", maxWidth: "280px" }}>
+          {isAvailable ? (
+            <Link href={`/ui/templates/${template.slug}`} className="fs-lg fw-600 c-white mb-1 d-b">
+              {template.name}
+            </Link>
+          ) : (
+            <span className="fs-lg fw-600 c-white/50 mb-1 d-b">{template.name}</span>
+          )}
+          <p className="fs-sm c-white/50 m-0 mb-3">{template.tagline}</p>
+          <p className="fs-sm c-white/60 m-0 mb-4 lh-4">{template.description}</p>
+          <p className="fs-sm c-white/50 m-0">
+            {isAvailable ? (
+              <>
+                <span className="c-white fw-500">€{template.price}</span>
+                {" / or get "}
+                <Link href="/ui/license" className="c-white h:td-u">Commercial</Link>
+              </>
+            ) : (
+              <span className="c-white/40">Coming soon</span>
+            )}
+          </p>
         </div>
-        <p className="fs-sm c-white/50 mb-4">{description}</p>
-        <div className="btw-1 bc-white/10 pt-4 mb-4">
-          <ul className="d-f fd-c g-2">
-            {license.features.map((feature) => (
-              <li key={feature} className="d-f ai-c g-2 fs-sm c-white/70">
-                <CheckIcon className="c-white w-4 h-4" weight="bold" />
-                {feature}
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="mt-auto">
-          <Link
-            href="#"
-            className="d-f ai-c jc-c bg-white c-black px-4 py-2 br-0 fw-600 fs-sm h:bg-white/90 w-full"
-          >
-            Get Started
-          </Link>
+
+        {/* Right - Screenshot */}
+        <div className="f-1">
+          {isAvailable ? (
+            <Link
+              href={`/ui/templates/${template.slug}`}
+              className="p-r ar-16/9 o-h br-0 bg-white/5 d-b h:o-90 tr-a"
+            >
+              <Image
+                src={template.cover}
+                alt={`${template.name} preview`}
+                fill
+                className="of-c"
+                unoptimized
+              />
+            </Link>
+          ) : (
+            <div className="p-r ar-16/9 o-h br-0 bg-white/5 d-f ai-c jc-c">
+              <span className="fs-sm c-white/30">Preview coming soon</span>
+            </div>
+          )}
         </div>
       </div>
     );

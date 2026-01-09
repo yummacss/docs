@@ -75,25 +75,45 @@ export function getDocsNavigation(slug: string): {
   };
 }
 
+/**
+ * Get navigation for UI pages - section-aware to not cross section boundaries
+ * Templates section should not show prev/next from Components/Blocks sections
+ */
 export function getUINavigation(slug: string): {
   previous: { slug: string; title: string } | null;
   next: { slug: string; title: string } | null;
 } {
-  const allPages: Array<{ slug: string; title: string }> = [];
+  // Find which section the current slug belongs to
+  let currentSectionPages: Array<{ slug: string; title: string }> = [];
 
   for (const section of uiSidebarConfig) {
-    allPages.push(...flattenUISidebarItems(section.items));
+    const sectionPages = flattenUISidebarItems(section.items);
+    const isInSection = sectionPages.some((page) => page.slug === slug);
+
+    if (isInSection) {
+      currentSectionPages = sectionPages;
+      break;
+    }
   }
 
-  const currentIndex = allPages.findIndex((page) => page.slug === slug);
+  // If slug not found in any section
+  if (currentSectionPages.length === 0) {
+    return { previous: null, next: null };
+  }
+
+  const currentIndex = currentSectionPages.findIndex(
+    (page) => page.slug === slug,
+  );
 
   if (currentIndex === -1) {
     return { previous: null, next: null };
   }
 
   return {
-    previous: currentIndex > 0 ? allPages[currentIndex - 1] : null,
+    previous: currentIndex > 0 ? currentSectionPages[currentIndex - 1] : null,
     next:
-      currentIndex < allPages.length - 1 ? allPages[currentIndex + 1] : null,
+      currentIndex < currentSectionPages.length - 1
+        ? currentSectionPages[currentIndex + 1]
+        : null,
   };
 }

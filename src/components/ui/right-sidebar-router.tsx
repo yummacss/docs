@@ -5,7 +5,7 @@ import TableOfContents from "@/components/ui/table-of-contents";
 import TemplateDetailsSidebar from "@/components/ui/template-details-sidebar";
 import TemplatesLegalSidebar from "@/components/ui/templates-legal-sidebar";
 
-export default function ConditionalRightSidebar() {
+export default function RightSidebarRouter() {
   const pathname = usePathname();
   const isTemplatesListing = pathname === "/ui/templates";
   const isTemplateDetail =

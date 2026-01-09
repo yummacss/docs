@@ -1,12 +1,12 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import type {
   UISidebarConfigItem,
   UISidebarConfigSimpleItem,
 } from "@/utils/ui-sidebar";
 import { uiSidebarConfig } from "@/utils/ui-sidebar";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import SidebarLinks from "./sidebar-links";
 
 function hasChildren(
@@ -24,18 +24,29 @@ function hasItems(
 export default function UISidebar() {
   const pathname = usePathname();
 
+  // Determine if we're on a templates-related page
+  const isTemplatesPage =
+    pathname?.startsWith("/ui/templates") ||
+    pathname === "/ui/license" ||
+    pathname === "/ui/privacy" ||
+    pathname === "/ui/terms";
+
+  // Filter out Templates section when on component pages
+  const filteredConfig = isTemplatesPage
+    ? uiSidebarConfig
+    : uiSidebarConfig.filter((section) => section.title !== "Templates");
+
   return (
     <aside className="d-none lg:d-b lg:gc-s-3">
       <div
-        className="p-st d-f fd-c g-8 o-y-auto"
+        className="p-st t-24 d-f fd-c g-8 o-y-auto"
         style={{
-          top: "6rem",
           maxHeight: "calc(100vh - 6rem)",
         }}
       >
         <SidebarLinks />
 
-        {uiSidebarConfig.map((section) => (
+        {filteredConfig.map((section) => (
           <div key={section.title} className="d-f fd-c g-4">
             <h3 className="fs-md fw-400 tt-c ls-5 c-white">{section.title}</h3>
             <ul className="d-f ml-4 fd-c g-2">
