@@ -62,9 +62,8 @@ export default function TableOfContents() {
   return (
     <aside className="d-none lg:d-b lg:gc-s-3 blw-1 bc-white/5">
       <div
-        className="p-st o-y-auto"
+        className="p-st t-24 o-y-auto"
         style={{
-          top: "6rem",
           maxHeight: "calc(100vh - 6rem)",
         }}
       >

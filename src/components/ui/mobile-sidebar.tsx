@@ -51,11 +51,10 @@ export default function MobileSidebar({
 
   return (
     <div
-      className="p-f t-0 l-0 w-full zi-20 lg:d-none btw-1 bc-white/5"
+      className="p-f t-26 l-0 w-full zi-20 lg:d-none btw-1 bc-white/5"
       style={{
         backgroundColor: "#151724",
-        top: "104px", // below navbar (56px) + breadcrumb (~48px)
-        height: "calc(100vh - 104px)",
+        height: "calc(100vh - 6.5rem)",
       }}
     >
       <div className="p-r h-full d-f fd-c">

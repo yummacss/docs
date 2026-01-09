@@ -41,14 +41,18 @@ const sidebarLinks: SidebarLink[] = [
     icon: StackSimpleIcon,
     badge: "New",
     isActive: (pathname) =>
-      pathname.startsWith("/ui") && !pathname.startsWith("/ui/templates"),
+      pathname.startsWith("/ui") &&
+      !pathname.startsWith("/ui/templates") &&
+      !["/ui/license", "/ui/privacy", "/ui/terms"].includes(pathname),
   },
   {
     title: "Templates",
     href: "/ui/templates",
     icon: SparkleIcon,
     badge: "New",
-    isActive: (pathname) => pathname.startsWith("/ui/templates"),
+    isActive: (pathname) =>
+      pathname.startsWith("/ui/templates") ||
+      ["/ui/license", "/ui/privacy", "/ui/terms"].includes(pathname),
   },
   {
     title: "API Reference",

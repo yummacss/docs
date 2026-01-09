@@ -1,8 +1,8 @@
-import type { Metadata } from "next";
 import Banner from "@/components/ui/banner";
-import Navigator from "@/components/ui/navigator";
-import { getDocsNavigation } from "@/utils/navigator";
+import Pagination from "@/components/ui/pagination";
+import { getDocsNavigation } from "@/utils/pagination";
 import { getAllSlugs } from "@/utils/sidebar";
+import type { Metadata } from "next";
 
 export async function generateMetadata({
   params,
@@ -42,7 +42,7 @@ export default async function Page({
         </div>
       )}
       <Content />
-      <Navigator
+      <Pagination
         previous={navigation.previous}
         next={navigation.next}
         basePath="/docs"

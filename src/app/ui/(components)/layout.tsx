@@ -1,7 +1,7 @@
-import ConditionalLeftSidebar from "@/components/ui/conditional-left-sidebar";
-import ConditionalRightSidebar from "@/components/ui/conditional-right-sidebar";
+import LeftSidebarRouter from "@/components/ui/left-sidebar-router";
 import MobileBreadcrumb from "@/components/ui/mobile-breadcrumb";
 import Navbar from "@/components/ui/navbar";
+import RightSidebarRouter from "@/components/ui/right-sidebar-router";
 
 export default function UILayout({ children }: { children: React.ReactNode }) {
   return (
@@ -11,13 +11,13 @@ export default function UILayout({ children }: { children: React.ReactNode }) {
 
       <main className="~sm-xxl mx-auto px-6">
         <div className="d-g gtc-1 lg:gtc-12 g-8">
-          <ConditionalLeftSidebar />
+          <LeftSidebarRouter />
 
           <div className="lg:gc-s-6 pt-26 lg:pt-14">
             <article className="max-w-none">{children}</article>
           </div>
 
-          <ConditionalRightSidebar />
+          <RightSidebarRouter />
         </div>
       </main>
     </div>

@@ -1153,6 +1153,10 @@ summary {
   color: #fff;
 }
 
+.c-white\/30 {
+  color: #ffffff4d;
+}
+
 .c-white\/40 {
   color: #fff6;
 }
@@ -2001,10 +2005,6 @@ summary {
   height: 100vh;
 }
 
-.h\:bc-white\/15:hover {
-  border-color: #ffffff26;
-}
-
 .h\:bg-blue:hover {
   background-color: #3575dd;
 }
@@ -2073,6 +2073,10 @@ summary {
   background-color: #ffffff1a;
 }
 
+.h\:bg-white\/5:hover {
+  background-color: #ffffff0d;
+}
+
 .h\:bg-white\/90:hover {
   background-color: #ffffffe6;
 }
@@ -2103,6 +2107,10 @@ summary {
 
 .h\:o-100:hover {
   opacity: 1;
+}
+
+.h\:o-90:hover {
+  opacity: .9;
 }
 
 .h\:td-u:hover {
@@ -3315,8 +3323,20 @@ summary {
   top: 25rem;
 }
 
+.t-14 {
+  top: 3.5rem;
+}
+
 .t-2 {
   top: .5rem;
+}
+
+.t-24 {
+  top: 6rem;
+}
+
+.t-26 {
+  top: 6.5rem;
 }
 
 .t-4 {

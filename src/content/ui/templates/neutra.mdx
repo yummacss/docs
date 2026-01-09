@@ -1,8 +1,15 @@
-import { getTemplateBySlug } from "@/utils/templates";
-import { CheckIcon } from "@phosphor-icons/react/dist/ssr";
-import { YummaCSS } from "@react-symbols/icons";
+import {
+    Accordion,
+    AccordionItem,
+    AccordionPanel,
+    AccordionTrigger,
+} from "@/components/accordion";
+import TemplateFeatures from "@/components/ui/template-features";
+import TemplateStack from "@/components/ui/template-stack";
+import { getTemplateBySlug, getTemplateStack, templateFeatures } from "@/utils/templates";
 import Image from "next/image";
-import { SiNextdotjs, SiPnpm, SiReact, SiTypescript } from "react-icons/si";
+import Link from "next/link";
+import { SiNextdotjs, SiReact } from "react-icons/si";
 
 export const meta = {
   title: "Neutra",
@@ -10,6 +17,7 @@ export const meta = {
 };
 
 export const template = getTemplateBySlug("neutra");
+export const stack = getTemplateStack("neutra");
 
 <div className="d-f g-4 mb-8">
   {template.frameworks.map((fw) => (
@@ -33,51 +41,19 @@ Preview of the template pages.
       key={screenshot}
       className="p-r ar-16/9 o-h bw-1 bs-d bc-white/10 br-0 bg-black/10"
     >
-      <Image src={screenshot} alt={`Screenshot ${index + 1}`} fill className="of-c" />
+      <Image src={screenshot} alt={`Screenshot ${index + 1}`} fill className="of-c" unoptimized />
     </div>
   ))}
 </div>
 
 ---
 
-## Pages
+## Features
 
-This template includes {template.pageCount} pages.
+Everything that makes this template special.
 
-<div className="d-g gtc-2 md:gtc-4 g-4 my-8">
-  {template.pages.map((page) => (
-    <div
-      key={page.path}
-      className="p-4 bw-1 bc-white/10 bs-d br-0 d-f ai-c jc-c bg-black/10"
-    >
-      <span className="fs-sm c-white">{page.title}</span>
-    </div>
-  ))}
-</div>
-
----
-
-## What's included
-
-Everything you need to get started.
-
-<div className="d-g gtc-1 md:gtc-2 g-4 my-8">
-  <div className="d-f ai-c g-3">
-    <CheckIcon size={16} className="c-white" weight="bold" />
-    <span className="fs-sm c-white/70">Full source code</span>
-  </div>
-  <div className="d-f ai-c g-3">
-    <CheckIcon size={16} className="c-white" weight="bold" />
-    <span className="fs-sm c-white/70">Neutral & colorful versions</span>
-  </div>
-  <div className="d-f ai-c g-3">
-    <CheckIcon size={16} className="c-white" weight="bold" />
-    <span className="fs-sm c-white/70">Lifetime updates</span>
-  </div>
-  <div className="d-f ai-c g-3">
-    <CheckIcon size={16} className="c-white" weight="bold" />
-    <span className="fs-sm c-white/70">Discord support</span>
-  </div>
+<div className="my-8">
+  <TemplateFeatures features={templateFeatures} />
 </div>
 
 ---
@@ -86,34 +62,77 @@ Everything you need to get started.
 
 Here are the technologies used to build {template.name}.
 
-<div className="d-g gtc-2 md:gtc-3 g-4 my-8">
-  <div
-    className="p-4 bw-1 bc-white/10 bs-d br-0 d-f ai-c jc-c g-2 bg-black/10"
-  >
-    <SiNextdotjs size={20} fill="white" />
-    <span className="fs-sm c-white">Next.js 16</span>
-  </div>
-  <div
-    className="p-4 bw-1 bc-white/10 bs-d br-0 d-f ai-c jc-c g-2 bg-black/10"
-  >
-    <SiReact size={20} fill="white" />
-    <span className="fs-sm c-white">React 19</span>
-  </div>
-  <div
-    className="p-4 bw-1 bc-white/10 bs-d br-0 d-f ai-c jc-c g-2 bg-black/10"
-  >
-    <YummaCSS width={20} height={20} />
-    <span className="fs-sm c-white">Yumma CSS 3</span>
-  </div>
-  {/* pnpm */}
-  <div className="p-4 bw-1 bc-white/10 bs-d br-0 d-f ai-c jc-c g-2 bg-black/10">
-    <SiPnpm size={20} fill="white" />
-    <span className="fs-sm c-white">pnpm 10</span>
-  </div>
-  <div
-    className="p-4 bw-1 bc-white/10 bs-d br-0 d-f ai-c jc-c g-2 bg-black/10"
-  >
-    <SiTypescript size={20} fill="white" />
-    <span className="fs-sm c-white">TypeScript 5</span>
-  </div>
+<div className="my-8">
+  <TemplateStack stack={stack} />
+</div>
+
+---
+
+## Good to know
+
+<div className="my-8">
+  <Accordion>
+    <AccordionItem value="what-included">
+      <AccordionTrigger>What's included in the template?</AccordionTrigger>
+      <AccordionPanel>
+        Each template includes the complete source code, all pages shown in the preview, responsive design, and any components used. You'll get everything you need to launch your project. You can find more info about licensing <Link href="/ui/license" className="c-white h:td-u">here</Link>.
+      </AccordionPanel>
+    </AccordionItem>
+
+    <AccordionItem value="license-difference">
+      <AccordionTrigger>What's the difference between Personal and Commercial?</AccordionTrigger>
+      <AccordionPanel>
+        The Personal license allows one end product. The Commercial license allows unlimited end products for you or your clients. You can find more info about licensing <Link href="/ui/license" className="c-white h:td-u">here</Link>.
+      </AccordionPanel>
+    </AccordionItem>
+
+    <AccordionItem value="get-everything">
+      <AccordionTrigger>What does "Get everything" include?</AccordionTrigger>
+      <AccordionPanel>
+        It includes access to this template and all future Yumma UI templates released under the same license, at no additional cost.
+      </AccordionPanel>
+    </AccordionItem>
+
+    <AccordionItem value="open-source">
+      <AccordionTrigger>Can I use the template in open source projects?</AccordionTrigger>
+      <AccordionPanel>
+        Yes, as long as the template is part of a larger project and not redistributed as a template, starter, or UI kit on its own.
+      </AccordionPanel>
+    </AccordionItem>
+
+    <AccordionItem value="refunds">
+      <AccordionTrigger>Do you offer refunds?</AccordionTrigger>
+      <AccordionPanel>
+        Due to the nature of digital products, all sales are final. However, we may consider refunds in exceptional cases such as duplicate purchases or technical access issues. Please contact us if you have any problems.
+      </AccordionPanel>
+    </AccordionItem>
+
+    <AccordionItem value="updates">
+      <AccordionTrigger>Are updates included?</AccordionTrigger>
+      <AccordionPanel>
+        Yes! Both licenses include lifetime updates. You'll receive all future improvements, bug fixes, and new features for the template you purchased.
+      </AccordionPanel>
+    </AccordionItem>
+
+    <AccordionItem value="team-usage">
+      <AccordionTrigger>Can my team use the template?</AccordionTrigger>
+      <AccordionPanel>
+        Team members directly involved in the project can access the template files. However, the template should not be shared as a general-purpose library or redistributed internally. For enterprise licensing, please contact us.
+      </AccordionPanel>
+    </AccordionItem>
+
+    <AccordionItem value="payment-methods">
+      <AccordionTrigger>What payment methods do you accept?</AccordionTrigger>
+      <AccordionPanel>
+        We process payments securely through Polar, which accepts major credit cards and other payment methods. Your payment details are handled securely by Polar — we never see your card information.
+      </AccordionPanel>
+    </AccordionItem>
+
+    <AccordionItem value="support">
+      <AccordionTrigger>How do I get support?</AccordionTrigger>
+      <AccordionPanel>
+        Support is provided via our Discord community and public resources.
+      </AccordionPanel>
+    </AccordionItem>
+  </Accordion>
 </div>
