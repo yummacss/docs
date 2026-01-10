@@ -82,7 +82,6 @@ export const uiSidebarConfig: UISidebarConfig = [
   {
     title: "Templates",
     items: [
-      { title: "Browse Templates", slug: "templates" },
       { title: "Neutra", slug: "templates/neutra" },
       { title: "License", slug: "license" },
       { title: "Privacy", slug: "privacy" },

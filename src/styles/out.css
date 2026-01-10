@@ -2365,6 +2365,10 @@ summary {
   max-width: 16rem;
 }
 
+.max-w-70 {
+  max-width: 17.5rem;
+}
+
 .max-w-80 {
   max-width: 20rem;
 }

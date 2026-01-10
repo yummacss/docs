@@ -55,7 +55,7 @@ export default function TemplateDetailsSidebar() {
             </Link>
             <Link
               href="#"
-              className="d-f ai-c jc-c bg-transparent c-white px-4 py-3 br-0 fw-600 fs-sm rainbow-border"
+              className="d-f ai-c jc-c bg-transparent c-white px-4 py-3 br-0 fw-600 fs-sm bw-1 bc-white"
             >
               Get everything €49
             </Link>

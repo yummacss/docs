@@ -51,35 +51,6 @@ p {
   animation: rainbow 16s linear infinite reverse;
 }
 
-.rainbow-border {
-  --start: #2d2f3a;
-  --mid: #413db8;
-  --end: #2d2f3a;
-  --via: #413db8;
-  position: relative;
-  border-width: 0;
-}
-
-.rainbow-border::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  padding: 1px;
-  background: linear-gradient(90deg,
-      var(--start),
-      var(--via),
-      var(--mid),
-      var(--end),
-      var(--start));
-  background-size: 200% 100%;
-  animation: rainbow 8s linear infinite;
-  mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  mask-composite: exclude;
-  pointer-events: none;
-}
-
 @keyframes rainbow {
   0% {
     background-position: 0 0;
