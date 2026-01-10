@@ -7,7 +7,6 @@ import {
   PhoneIcon,
 } from "@phosphor-icons/react/dist/ssr";
 import { templates } from "./templates";
-import type { TemplateSupport } from "./types";
 
 // Page Icon Mapping
 
@@ -34,9 +33,9 @@ export function getPageIcon(title: string): Icon {
 
 // Template Support Resources
 
-export const templateSupportResources: TemplateSupport[] = [
+export const templateSupportResources = [
   { title: "Discord", url: "https://discord.gg/yummacss" },
-  { title: "Refund Policy", url: "/legal/refund-policy" },
+  { title: "Refund Policy", url: "/ui/license#refund-policy" },
   {
     title: "Report Template",
     url: "https://github.com/yumma-css/yumma-css-docs/issues/new",

@@ -68,7 +68,7 @@ export function AccordionTrigger({
   return (
     <BaseAccordion.Header className="m-0">
       <BaseAccordion.Trigger
-        className={`d-f ai-c jc-sb w-full g-4 py-3 px-4 bw-0 m-0 ta-l c-white fw-500 fs-sm c-p h:bg-white/5 ${className}`}
+        className={`d-f ai-c jc-sb w-full g-4 py-3 px-4 bw-0 m-0 ta-l c-white fw-500 fs-sm c-p h:bg-white/5 us-none ${className}`}
         style={{
           background: "none",
           fontFamily: "inherit",

@@ -67,7 +67,7 @@ export default function Navbar({ variant, className, links }: NavbarProps) {
                   width={240}
                   height={80}
                   alt="Yumma CSS"
-                  className="h-10 w-auto of-c"
+                  className="h-10 w-auto of-c us-none"
                 />
               </Link>
             </div>
@@ -111,7 +111,7 @@ export default function Navbar({ variant, className, links }: NavbarProps) {
                 className="d-f ai-c g-2 md:px-4 md:py-2 bg-white/5 bf-b-sm fs-sm h:bg-white/10 c-white bw-1 bc-white/10 br-0 sm:br-0"
               >
                 <MagnifyingGlassIcon size={15} weight="duotone" />
-                <span className="d-none md:d-b">Ctrl K</span>
+                <span className="d-none md:d-b us-none">Ctrl K</span>
               </button>
             </div>
           </nav>

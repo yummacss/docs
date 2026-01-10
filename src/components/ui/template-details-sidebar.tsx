@@ -49,13 +49,13 @@ export default function TemplateDetailsSidebar() {
             <Link
               href={template.purchaseUrl}
               target="_blank"
-              className="d-f ai-c jc-c bg-white c-black px-4 py-3 br-0 fw-600 fs-sm h:bg-white/90"
+              className="d-f ai-c jc-c bg-white c-black px-4 py-3 br-0 fw-600 fs-sm h:bg-white/90 us-none"
             >
               Get template €{template.price}
             </Link>
             <Link
               href="#"
-              className="d-f ai-c jc-c bg-transparent c-white px-4 py-3 br-0 fw-600 fs-sm bw-1 bc-white"
+              className="d-f ai-c jc-c bg-transparent c-white px-4 py-3 br-0 fw-600 fs-sm bw-1 bc-white us-none"
             >
               Get everything €49
             </Link>

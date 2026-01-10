@@ -53,12 +53,12 @@ export default function TemplateFAQ() {
 
         <AccordionItem value="license-difference">
           <AccordionTrigger>
-            What's the difference between Personal and Commercial?
+            What's the difference between the license options?
           </AccordionTrigger>
           <AccordionPanel>
-            The Personal license allows one end product. The Commercial license
-            allows unlimited end products for you or your clients. You can find
-            more info about licensing{" "}
+            Single Project allows use in one project (personal or client).
+            Unlimited Projects allows unlimited client and commercial usage. You
+            can find more info about licensing{" "}
             <Link href="/ui/license" className="c-white h:td-u">
               here
             </Link>
