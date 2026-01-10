@@ -1,32 +1,33 @@
-import {
-    Accordion,
-    AccordionItem,
-    AccordionPanel,
-    AccordionTrigger,
-} from "@/components/accordion";
+import TemplateFAQ from "@/components/ui/template-faq";
 import TemplateFeatures from "@/components/ui/template-features";
 import TemplateStack from "@/components/ui/template-stack";
-import { getTemplateBySlug, getTemplateStack, templateFeatures } from "@/utils/templates";
+import { getTemplateBySlug, templateFeatures } from "@/utils/templates";
 import Image from "next/image";
-import Link from "next/link";
 import { SiNextdotjs, SiReact } from "react-icons/si";
 
 export const meta = {
   title: "Neutra",
-  description: "A clean, minimal landing page template with a navbar, rating section, call-to-action, and logo section. Perfect for SaaS products, apps, or any modern web project.",
+  description: "This template is designed for agencies and studios, and it showcases a minimal grayscale theme.",
 };
 
 export const template = getTemplateBySlug("neutra");
-export const stack = getTemplateStack("neutra");
+
+export const hasNextjs = template.stack.some(item => item.toLowerCase().includes("next.js"));
+export const hasReact = template.stack.some(item => item.toLowerCase().includes("react"));
 
 <div className="d-f g-4 mb-8">
-  {template.frameworks.map((fw) => (
-    <div key={fw.name} className="d-if ai-c g-2 fs-sm c-white/70">
-      {fw.name === "Next.js" && <SiNextdotjs size={18} />}
-      {fw.name === "React" && <SiReact size={18} />}
-      <span>{fw.name} {fw.version}</span>
+  {hasNextjs && (
+    <div className="d-if ai-c g-2 fs-sm c-white/70">
+      <SiNextdotjs size={20} />
+      <span>{template.stack.find(item => item.toLowerCase().includes("next.js"))}</span>
     </div>
-  ))}
+  )}
+  {hasReact && (
+    <div className="d-if ai-c g-2 fs-sm c-white/70">
+      <SiReact size={20} />
+      <span>{template.stack.find(item => item.toLowerCase().includes("react"))}</span>
+    </div>
+  )}
 </div>
 
 ---
@@ -63,76 +64,11 @@ Everything that makes this template special.
 Here are the technologies used to build {template.name}.
 
 <div className="my-8">
-  <TemplateStack stack={stack} />
+  <TemplateStack stack={template.stack} />
 </div>
 
 ---
 
-## Good to know
+## Frequently Asked Questions
 
-<div className="my-8">
-  <Accordion>
-    <AccordionItem value="what-included">
-      <AccordionTrigger>What's included in the template?</AccordionTrigger>
-      <AccordionPanel>
-        Each template includes the complete source code, all pages shown in the preview, responsive design, and any components used. You'll get everything you need to launch your project. You can find more info about licensing <Link href="/ui/license" className="c-white h:td-u">here</Link>.
-      </AccordionPanel>
-    </AccordionItem>
-
-    <AccordionItem value="license-difference">
-      <AccordionTrigger>What's the difference between Personal and Commercial?</AccordionTrigger>
-      <AccordionPanel>
-        The Personal license allows one end product. The Commercial license allows unlimited end products for you or your clients. You can find more info about licensing <Link href="/ui/license" className="c-white h:td-u">here</Link>.
-      </AccordionPanel>
-    </AccordionItem>
-
-    <AccordionItem value="get-everything">
-      <AccordionTrigger>What does "Get everything" include?</AccordionTrigger>
-      <AccordionPanel>
-        It includes access to this template and all future Yumma UI templates released under the same license, at no additional cost.
-      </AccordionPanel>
-    </AccordionItem>
-
-    <AccordionItem value="open-source">
-      <AccordionTrigger>Can I use the template in open source projects?</AccordionTrigger>
-      <AccordionPanel>
-        Yes, as long as the template is part of a larger project and not redistributed as a template, starter, or UI kit on its own.
-      </AccordionPanel>
-    </AccordionItem>
-
-    <AccordionItem value="refunds">
-      <AccordionTrigger>Do you offer refunds?</AccordionTrigger>
-      <AccordionPanel>
-        Due to the nature of digital products, all sales are final. However, we may consider refunds in exceptional cases such as duplicate purchases or technical access issues. Please contact us if you have any problems.
-      </AccordionPanel>
-    </AccordionItem>
-
-    <AccordionItem value="updates">
-      <AccordionTrigger>Are updates included?</AccordionTrigger>
-      <AccordionPanel>
-        Yes! Both licenses include lifetime updates. You'll receive all future improvements, bug fixes, and new features for the template you purchased.
-      </AccordionPanel>
-    </AccordionItem>
-
-    <AccordionItem value="team-usage">
-      <AccordionTrigger>Can my team use the template?</AccordionTrigger>
-      <AccordionPanel>
-        Team members directly involved in the project can access the template files. However, the template should not be shared as a general-purpose library or redistributed internally. For enterprise licensing, please contact us.
-      </AccordionPanel>
-    </AccordionItem>
-
-    <AccordionItem value="payment-methods">
-      <AccordionTrigger>What payment methods do you accept?</AccordionTrigger>
-      <AccordionPanel>
-        We process payments securely through Polar, which accepts major credit cards and other payment methods. Your payment details are handled securely by Polar — we never see your card information.
-      </AccordionPanel>
-    </AccordionItem>
-
-    <AccordionItem value="support">
-      <AccordionTrigger>How do I get support?</AccordionTrigger>
-      <AccordionPanel>
-        Support is provided via our Discord community and public resources.
-      </AccordionPanel>
-    </AccordionItem>
-  </Accordion>
-</div>
+<TemplateFAQ />

@@ -13,24 +13,11 @@ export interface TemplateFeature {
   description: string;
 }
 
-// Template Stack
-
-export interface TemplateStackItem {
-  id: string;
-  title: string;
-  version: string;
-}
-
-// Template Page & Framework
+// Template Page
 
 export interface TemplatePage {
   path: string;
   title: string;
-}
-
-export interface TemplateFramework {
-  name: string;
-  version?: string;
 }
 
 // Template Status
@@ -45,12 +32,8 @@ export interface Template {
   tagline: string;
   description: string;
   price: number;
-  currency: string;
   status: TemplateStatus;
-  templateVersion: string;
-  frameworks: TemplateFramework[];
   stack: string[];
-  version: string;
   pages: TemplatePage[];
   previewUrl: string;
   purchaseUrl: string;

@@ -4,11 +4,8 @@ import Link from "next/link";
 
 export const meta = {
   title: "Templates",
-  description: "Explore our collection of professionally designed templates. Each template is fully customizable and built with modern best practices.",
+  description: "A growing collection of Next.js templates. Each template is fully customizable and built with modern best practices.",
 };
-
-Yumma UI is a growing collection of premium Next.js templates.
-We're launching with Neutra, a minimal design agency template, with more coming soon.
 
 <div className="d-f fd-c g-16 my-8">
   {templates.map((template) => {
@@ -17,7 +14,7 @@ We're launching with Neutra, a minimal design agency template, with more coming 
     return (
       <div key={template.slug} className="d-f fd-c lg:fd-r g-8">
         {/* Left - Info */}
-        <div className="f-s-0" style={{ width: "100%", maxWidth: "280px" }}>
+        <div className="f-s-0 w-full max-w-70">
           {isAvailable ? (
             <Link href={`/ui/templates/${template.slug}`} className="fs-lg fw-600 c-white mb-1 d-b">
               {template.name}
@@ -31,8 +28,8 @@ We're launching with Neutra, a minimal design agency template, with more coming 
             {isAvailable ? (
               <>
                 <span className="c-white fw-500">€{template.price}</span>
-                {" / or get "}
-                <Link href="/ui/license" className="c-white h:td-u">Commercial</Link>
+                {" / included in "}
+                <Link href="/ui/license" className="c-white h:td-u">Commercial</Link> plan.
               </>
             ) : (
               <span className="c-white/40">Coming soon</span>
