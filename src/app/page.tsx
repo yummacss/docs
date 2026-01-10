@@ -1,7 +1,7 @@
 import {
   GlobeSimpleIcon,
   LightningIcon,
-  StackSimpleIcon,
+  SparkleIcon,
   StarIcon,
   TerminalIcon,
 } from "@phosphor-icons/react/dist/ssr";
@@ -51,29 +51,29 @@ export default function Home() {
               <div className="d-f fw-w g-4 mb-12">
                 <Link
                   href="/docs/installation"
-                  className="bg-white px-6 py-3 c-black fs-md fw-600 br-pill"
+                  className="bg-white px-6 py-3 c-black fs-md fw-600 br-pill us-none"
                 >
                   Get started
                 </Link>
                 <Link
                   href="/ui"
-                  className="px-6 py-3 fw-600 c-white fs-md d-f ai-c g-2"
+                  className="px-6 py-3 fw-600 c-white fs-md d-f ai-c g-2 us-none"
                 >
-                  <StackSimpleIcon size={20} weight="duotone" />
-                  Components
+                  <SparkleIcon size={20} weight="duotone" />
+                  Yumma UI
                 </Link>
               </div>
 
               <div className="d-f fw-w g-3 btw-1 bc-white/10 pt-6">
-                <div className="px-4 py-2 bg-white/10 bf-b-md fs-xs d-f ai-c g-2 bw-1 bc-white/5 tt-u">
+                <div className="px-4 py-2 bg-white/10 bf-b-md fs-xs d-f ai-c g-2 bw-1 bc-white/5 tt-u us-none">
                   <GlobeSimpleIcon size={15} weight="duotone" />
                   Dedicated API
                 </div>
-                <div className="px-4 py-2 bg-white/10 bf-b-md fs-xs d-f ai-c g-2 bw-1 bc-white/5 tt-u">
+                <div className="px-4 py-2 bg-white/10 bf-b-md fs-xs d-f ai-c g-2 bw-1 bc-white/5 tt-u us-none">
                   <TerminalIcon size={15} />
                   CLI-First
                 </div>
-                <div className="px-4 py-2 bg-white/10 bf-b-sm fs-xs d-f ai-c g-2 bw-1 bc-white/5 tt-u">
+                <div className="px-4 py-2 bg-white/10 bf-b-md fs-xs d-f ai-c g-2 bw-1 bc-white/5 tt-u us-none">
                   <LightningIcon size={15} weight="duotone" />
                   Blazing Fast
                 </div>

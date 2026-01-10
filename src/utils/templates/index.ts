@@ -17,5 +17,4 @@ export type {
   TemplateFeature,
   TemplatePage,
   TemplateStatus,
-  TemplateSupport,
 } from "./types";

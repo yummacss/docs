@@ -1,10 +1,3 @@
-// Template Support Resources
-
-export interface TemplateSupport {
-  title: string;
-  url: string;
-}
-
 // Template Features
 
 export interface TemplateFeature {
