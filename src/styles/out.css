@@ -541,10 +541,6 @@ summary {
   background-color: #dbf3e480;
 }
 
-.bg-green-5\/20 {
-  background-color: #5ec78533;
-}
-
 .bg-green-6 {
   background-color: #3ebc6d;
 }
@@ -1003,10 +999,6 @@ summary {
 
 .c-green-10 {
   color: #0e4e25;
-}
-
-.c-green-5 {
-  color: #5ec785;
 }
 
 .c-h {
@@ -2011,10 +2003,6 @@ summary {
 
 .h-vh {
   height: 100vh;
-}
-
-.h\:bc-white\/20:hover {
-  border-color: #fff3;
 }
 
 .h\:bg-blue:hover {

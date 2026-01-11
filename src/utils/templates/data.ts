@@ -51,3 +51,13 @@ export function getTemplateBySlug(slug: string) {
 export function getAllTemplateSlugs(): string[] {
   return templates.map((t) => t.slug);
 }
+
+export function getSingleProjectUrl(slug: string): string {
+  const template = getTemplateBySlug(slug);
+  return template?.checkout.singleProject || "#";
+}
+
+export function getUnlimitedProjectsUrl(slug: string): string {
+  const template = getTemplateBySlug(slug);
+  return template?.checkout.unlimitedProjects || "#";
+}

@@ -2,7 +2,9 @@
 export {
   getAllTemplateSlugs,
   getPageIcon,
+  getSingleProjectUrl,
   getTemplateBySlug,
+  getUnlimitedProjectsUrl,
   pageIconMap,
   templateSupportResources,
 } from "./data";
@@ -14,6 +16,7 @@ export { templateFeatures } from "./features";
 export { templates } from "./templates";
 export type {
   Template,
+  TemplateCheckout,
   TemplateFeature,
   TemplatePage,
   TemplateStatus,

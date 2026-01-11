@@ -78,6 +78,7 @@ export default async function BlogPostPage({
               <Image
                 src={`/blog/${slug}.png`}
                 alt={meta.title || "Blog cover"}
+                unoptimized
                 width={1200}
                 height={630}
                 className="w-full h-auto"

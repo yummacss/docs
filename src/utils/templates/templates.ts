@@ -1,6 +1,7 @@
 import type { Template } from "./types";
 
 export const templates: Template[] = [
+  // Neutra
   {
     slug: "neutra",
     name: "Neutra",
@@ -26,8 +27,13 @@ export const templates: Template[] = [
       { path: "/src/app/process/page.tsx", title: "Process" },
       { path: "/src/app/not-found.tsx", title: "404 page" },
     ],
-    previewUrl: "#",
-    purchaseUrl: "#",
+    previewUrl: "https://neutra.yummacss.com/",
+    checkout: {
+      singleProject:
+        "https://buy.polar.sh/polar_cl_vifOKopon4Wv2anD7DYHgSb06M8w21lmd9GE20FDHeX",
+      unlimitedProjects:
+        "https://buy.polar.sh/polar_cl_RVRnQr7jX38Jdgj7JSL0ko4uv5VQ9e9mjdk6B3Jz19H",
+    },
     cover: "/img/templates/neutra/preview.png",
     screenshots: [
       "/img/templates/neutra/home.png",
@@ -36,9 +42,10 @@ export const templates: Template[] = [
       "/img/templates/neutra/work.png",
     ],
   },
+  // Blueprint
   {
-    slug: "ariake",
-    name: "Ariake",
+    slug: "Blueprint",
+    name: "Blueprint",
     tagline: "Developer Portfolio",
     description:
       "A dark, code-focused portfolio template for developers and engineers.",
@@ -53,13 +60,17 @@ export const templates: Template[] = [
     ],
     pages: [],
     previewUrl: "#",
-    purchaseUrl: "#",
+    checkout: {
+      singleProject: "#",
+      unlimitedProjects: "#",
+    },
     cover: "/img/templates/placeholder.png",
     screenshots: [],
   },
+  // Solar
   {
-    slug: "lumiar",
-    name: "Lumiar",
+    slug: "Solar",
+    name: "Solar",
     tagline: "SaaS Landing",
     description:
       "A bright, conversion-focused landing page for SaaS products and startups.",
@@ -74,13 +85,17 @@ export const templates: Template[] = [
     ],
     pages: [],
     previewUrl: "#",
-    purchaseUrl: "#",
+    checkout: {
+      singleProject: "#",
+      unlimitedProjects: "#",
+    },
     cover: "/img/templates/placeholder.png",
     screenshots: [],
   },
+  // Aria
   {
-    slug: "oriental",
-    name: "Oriental",
+    slug: "Aria",
+    name: "Aria",
     tagline: "Documentation",
     description:
       "A clean documentation template for open source projects and developer tools.",
@@ -95,7 +110,10 @@ export const templates: Template[] = [
     ],
     pages: [],
     previewUrl: "#",
-    purchaseUrl: "#",
+    checkout: {
+      singleProject: "#",
+      unlimitedProjects: "#",
+    },
     cover: "/img/templates/placeholder.png",
     screenshots: [],
   },
