@@ -47,14 +47,13 @@ export default function TemplateDetailsSidebar() {
           {/* CTAs */}
           <div className="d-f fd-c g-2 mb-6">
             <Link
-              href={template.purchaseUrl}
-              target="_blank"
+              href={template.checkout.singleProject}
               className="d-f ai-c jc-c bg-white c-black px-4 py-3 br-0 fw-600 fs-sm h:bg-white/90 us-none"
             >
               Get template €{template.price}
             </Link>
             <Link
-              href="#"
+              href={template.checkout.unlimitedProjects}
               className="d-f ai-c jc-c bg-transparent c-white px-4 py-3 br-0 fw-600 fs-sm bw-1 bc-white us-none"
             >
               Get everything €49

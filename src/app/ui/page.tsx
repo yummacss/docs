@@ -1,12 +1,9 @@
-import {
-  ArrowUpRightIcon,
-  SparkleIcon,
-} from "@phosphor-icons/react/dist/ssr";
+import Silk from "@/components/silk";
+import Navbar from "@/components/ui/navbar";
+import { ArrowUpRightIcon, SparkleIcon } from "@phosphor-icons/react/dist/ssr";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SiHtml5, SiNextdotjs, SiReact } from "react-icons/si";
-import Silk from "@/components/silk";
-import Navbar from "@/components/ui/navbar";
 
 export const metadata: Metadata = {
   title: {
@@ -51,8 +48,8 @@ export default function UIPage() {
                 Ship more, build even less
               </h1>
               <p className="fs-lg c-white/70 mb-8 lh-5">
-                Ready-to-use UI components and sections that are fully
-                customizable and work with any framework.
+                Beautiful components, sections, and templates. Fully
+                customizable and framework-agnostic.
               </p>
 
               <div className="d-f fw-w g-4 mb-12">

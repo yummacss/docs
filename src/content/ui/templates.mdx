@@ -28,8 +28,8 @@ export const meta = {
             {isAvailable ? (
               <>
                 <span className="c-white fw-500">€{template.price}</span>
-                {" / included in "}
-                <Link href="/ui/license" className="c-white h:td-u">Unlimited Projects</Link>
+                {" / also included in "}
+                <Link href={`/ui/templates/${template.slug}`} className="c-white h:td-u">Unlimited Projects</Link>.
               </>
             ) : (
               <span className="c-white/40">Coming soon</span>
@@ -53,7 +53,7 @@ export const meta = {
               />
             </Link>
           ) : (
-            <div className="p-r ar-16/9 o-h br-0 bg-white/5 d-f ai-c jc-c">
+            <div className="p-r ar-16/9 o-h br-0 bg-white/5 d-f ai-c jc-c us-none">
               <span className="fs-sm c-white/30">Preview coming soon</span>
             </div>
           )}

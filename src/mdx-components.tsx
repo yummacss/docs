@@ -1,5 +1,3 @@
-import type { MDXComponents } from "mdx/types";
-import Image from "next/image";
 import ApiTable from "@/components/api-table";
 import Baseline from "@/components/baseline";
 import HoverVariant from "@/components/hover-variant";
@@ -12,6 +10,8 @@ import OpacityVariant from "@/components/opacity-variant";
 import Palette from "@/components/palette";
 import Stepper, { Step } from "@/components/stepper";
 import { Tabs, TabsList, TabsPanel, TabsTab } from "@/components/tabs";
+import type { MDXComponents } from "mdx/types";
+import Image from "next/image";
 import Preview from "./components/preview";
 
 // generate IDs from heading text
@@ -25,6 +25,7 @@ function generateId(children: React.ReactNode): string {
 
   return text
     .toLowerCase()
+    .replace(/['']/g, "") // strip apostrophes first
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-|-$/g, "");
 }
@@ -215,7 +216,7 @@ const components: MDXComponents = {
       src={src as string}
       alt={alt || ""}
       className={className || "w-full h-auto my-4"}
-      quality={100}
+      unoptimized
       width={1920}
       height={1080}
       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
@@ -231,8 +232,8 @@ const components: MDXComponents = {
   LegacyPalette,
   LegacyTable,
   MediaVariant,
-  OpacityVariant,
   Note,
+  OpacityVariant,
   Palette,
   Preview,
   Step,

@@ -48,6 +48,7 @@ export default async function BlogPage() {
                           <Image
                             src={`/blog/${post.slug}.png`}
                             alt={post.title}
+                            unoptimized
                             width={1200}
                             height={675}
                             className="w-full h-auto of-c"

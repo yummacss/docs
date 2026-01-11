@@ -114,7 +114,6 @@ export function getAllUISlugs(): string[] {
 
   // we need to add templates manually since it's not in the ui-sidebar config
   slugs.push("templates");
-  slugs.push("thank-you");
 
   return slugs;
 }
