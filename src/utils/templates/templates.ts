@@ -30,9 +30,9 @@ export const templates: Template[] = [
     previewUrl: "https://neutra.yummacss.com/",
     checkout: {
       singleProject:
-        "https://buy.polar.sh/polar_cl_vifOKopon4Wv2anD7DYHgSb06M8w21lmd9GE20FDHeX",
+        "#",
       unlimitedProjects:
-        "https://buy.polar.sh/polar_cl_RVRnQr7jX38Jdgj7JSL0ko4uv5VQ9e9mjdk6B3Jz19H",
+        "#",
     },
     cover: "/img/templates/neutra/preview.png",
     screenshots: [
