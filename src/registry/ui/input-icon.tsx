@@ -11,7 +11,7 @@ export default function InputIcon() {
         />
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="p-a l-3 t-0 bo-0 m-auto fs-lg c-silver-12 h-4 w-4"
+          className="p-a l-3 t-0 b-0 m-auto fs-lg c-silver-12 h-4 w-4"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
