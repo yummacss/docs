@@ -5,7 +5,7 @@ export const templateFeatures: TemplateFeature[] = [
     id: "accessibility",
     title: "Accessibility",
     description:
-      "This template follows the best practices for accessibility and WCAG AA compliance.",
+      "Headless, accessible Base UI components styled with Yumma CSS.",
   },
   {
     id: "seo",

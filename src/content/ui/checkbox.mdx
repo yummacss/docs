@@ -3,126 +3,45 @@ export const meta = {
   description: "A toggle for binary choices.",
 };
 
-## Basic Checkbox
+## React
+
+### Basic
 
 <Preview id="checkbox-basic" />
 
-```html
-<div class="d-f ai-c g-2">
-  <input type="checkbox" id="checkbox-basic" class="d-4 ac-slate" />
-  <label for="checkbox-basic" class="fs-sm c-slate">Accept terms and conditions</label>
-</div>
+```tsx
+import { Checkbox } from "@base-ui/react/checkbox";
+import { CheckIcon } from "@phosphor-icons/react";
+
+export default function CheckboxBasic() {
+  return (
+    <label className="d-f ai-c g-2 fs-sm c-slate">
+      <Checkbox.Root defaultChecked className="d-f ai-c jc-c d-5 br-0 bw-1 bc-silver-4 bg-white">
+        <Checkbox.Indicator className="d-f c-black">
+          <CheckIcon size={12} weight="bold" />
+        </Checkbox.Indicator>
+      </Checkbox.Root>
+      Enable notifications
+    </label>
+  );
+}
 ```
 
-## Checked
+## HTML
 
-<Preview id="checkbox-checked" />
-
-```html
-<div class="d-f ai-c g-2">
-  <input type="checkbox" id="checkbox-checked" class="d-4 ac-slate" checked />
-  <label for="checkbox-checked" class="fs-sm c-slate">Email notifications</label>
-</div>
-```
-
-## Disabled
-
-<Preview id="checkbox-disabled" />
+### Basic Example
 
 ```html
-<div class="d-f fd-c g-3">
-  <div class="d-f ai-c g-2">
-    <input type="checkbox" id="checkbox-disabled" class="d-4 ac-slate" disabled />
-    <label for="checkbox-disabled" class="fs-sm c-slate-6">Disabled unchecked</label>
-  </div>
-  <div class="d-f ai-c g-2">
-    <input type="checkbox" id="checkbox-disabled-checked" class="d-4 ac-slate" disabled checked />
-    <label for="checkbox-disabled-checked" class="fs-sm c-slate-6">Disabled checked</label>
-  </div>
-</div>
+<label class="d-f ai-c g-2 fs-sm c-slate">
+  <input type="checkbox" class="d-4 ac-slate" />
+  Enable notifications
+</label>
 ```
 
-## Mixed
+## Documentation
 
-The tri-state checkbox allowing an additional third state known as partially checked.
+For more information, check the [Base UI Checkbox documentation](https://base-ui.com/react/components/checkbox).
 
-<Preview id="checkbox-mixed" />
+## API Reference
 
-```html
-<div class="d-f ai-c g-2">
-  <input type="checkbox" id="parent-checkbox" class="d-4 ac-slate" aria-checked="mixed" />
-  <label for="parent-checkbox" class="fs-sm fw-600 c-slate">Install Options</label>
-</div>
-
-<div class="d-f fd-c g-2 ml-5">
-  <div class="d-f ai-c g-2">
-    <input type="checkbox" id="child-1" class="d-4 ac-slate" checked />
-    <label for="child-1" class="fs-sm c-slate">Documentation</label>
-  </div>
-  <div class="d-f ai-c g-2">
-    <input type="checkbox" id="child-2" class="d-4 ac-slate" />
-    <label for="child-2" class="fs-sm c-slate">Source Code</label>
-  </div>
-</div>
-```
-
-## Group
-
-Use `fieldset` and `legend` to group multiple checkboxes logically.
-
-<Preview id="checkbox-group" />
-
-```html
-<fieldset class="bo-0 p-0 m-0 d-f fd-c g-3">
-  <legend class="fs-sm fw-600 c-slate p-0">Notification Preferences</legend>
-  <div class="d-f fd-c g-2">
-    <div class="d-f ai-c g-2">
-      <input type="checkbox" id="email" class="d-4 ac-slate" />
-      <label for="email" class="fs-sm c-slate">Email</label>
-    </div>
-    <div class="d-f ai-c g-2">
-      <input type="checkbox" id="sms" class="d-4 ac-slate" />
-      <label for="sms" class="fs-sm c-slate">SMS</label>
-    </div>
-  </div>
-</fieldset>
-```
-
-## Descriptive
-
-Use `aria-describedby` to associate additional information with a checkbox.
-
-<Preview id="checkbox-descriptive" />
-
-```html
-<div class="d-f as-fs g-2">
-  <input type="checkbox" id="checkbox-desc" class="d-4 ac-slate mt-1" aria-describedby="checkbox-desc-help" checked />
-  <div>
-    <label for="checkbox-desc" class="fs-sm fw-600 c-slate d-b">Marketing emails</label>
-    <p id="checkbox-desc-help" class="fs-sm c-silver-10 m-0">Receive emails about new products and features.</p>
-  </div>
-</div>
-```
-
-## Accessibility
-
-The checkbox component follows the [WAI-ARIA Checkbox Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/).
-
-### Keyboard Interaction
-
-| Key     | Action                             |
-|---------|------------------------------------|
-| `Space` | Changes the state of the checkbox. |
-
-### Roles, States, and Properties
-
-| Property           | Description                                                                    |
-|--------------------|--------------------------------------------------------------------------------|
-| `role="checkbox"`  | Identifies the element as a checkbox (Implicit for `input[type="checkbox"]`).  |
-| `aria-checked`     | Indicates whether the checkbox is `true`, `false`, or `mixed`.                 |
-| `role="group"`     | Identifies a set of checkboxes as a logical group (Implicit using `fieldset`). |
-| `aria-labelledby`  | References the label for the group (Implicit using `legend`).                  |
-| `aria-describedby` | References additional descriptive text or instructions.                        |
-| `aria-invalid`     | Indicates that the checkbox value is invalid.                                  |
-| `disabled`         | Indicates that the checkbox is currently non-interactive.                      |
-
+For detailed API reference, see the [Base UI Checkbox API Reference](https://base-ui.com/react/components/checkbox#api-reference).

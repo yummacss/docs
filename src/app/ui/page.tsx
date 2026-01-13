@@ -1,9 +1,9 @@
-import Silk from "@/components/silk";
-import Navbar from "@/components/ui/navbar";
 import { ArrowUpRightIcon, SparkleIcon } from "@phosphor-icons/react/dist/ssr";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SiHtml5, SiNextdotjs, SiReact } from "react-icons/si";
+import Silk from "@/components/silk";
+import Navbar from "@/components/ui/navbar";
 
 export const metadata: Metadata = {
   title: {
@@ -31,7 +31,7 @@ export default function UIPage() {
           <div className="d-g lg:gtc-2 g-12 ai-fe">
             <div>
               <Link
-                href="https://www.w3.org/WAI/ARIA/apg/patterns/"
+                href="/blog/introducing-templates"
                 target="_blank"
                 className="c-white"
               >

@@ -1,10 +1,10 @@
+import Link from "next/link";
 import {
   Accordion,
   AccordionItem,
   AccordionPanel,
   AccordionTrigger,
 } from "@/components/accordion";
-import Link from "next/link";
 
 export default function TemplateFAQ() {
   return (

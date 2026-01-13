@@ -1,91 +1,60 @@
-import { useRef, useState } from "react";
+import { Tabs } from "@base-ui/react/tabs";
+import {
+  ProjectorScreenChartIcon,
+  ShapesIcon,
+  UserCircleIcon,
+} from "@phosphor-icons/react";
 
 export default function TabsBasic() {
-  const [activeTab, setActiveTab] = useState(0);
-  const tabListRef = useRef<HTMLDivElement>(null);
-
-  const tabs = [
-    {
-      id: "for-you",
-      label: "For you",
-      content:
-        "Content for the 'For you' tab. This section shows personalized recommendations based on your activity.",
-    },
-    {
-      id: "following",
-      label: "Following",
-      content:
-        "Content for the 'Following' tab. Stay updated with the latest posts from people you follow.",
-    },
-  ];
-
-  const handleKeyDown = (e: React.KeyboardEvent, index: number) => {
-    let newIndex = index;
-    if (e.key === "ArrowRight") {
-      newIndex = (index + 1) % tabs.length;
-    } else if (e.key === "ArrowLeft") {
-      newIndex = (index - 1 + tabs.length) % tabs.length;
-    } else if (e.key === "Home") {
-      newIndex = 0;
-    } else if (e.key === "End") {
-      newIndex = tabs.length - 1;
-    } else {
-      return;
-    }
-
-    e.preventDefault();
-    setActiveTab(newIndex);
-    const tabButtons =
-      tabListRef.current?.querySelectorAll<HTMLButtonElement>('[role="tab"]');
-    tabButtons?.[newIndex]?.focus();
-  };
-
   return (
-    <div className="d-f fd-c g-4 w-full">
-      {/* Tab List */}
-      <div
-        role="tablist"
-        aria-label="Content Categories"
-        ref={tabListRef}
-        className="bg-silver-1 p-1 br-0 d-if bw-1 bc-silver-4"
-      >
-        {tabs.map((tab, index) => (
-          <button
-            key={tab.id}
-            type="button"
-            role="tab"
-            id={`tab-${tab.id}`}
-            aria-selected={activeTab === index}
-            aria-controls={`panel-${tab.id}`}
-            tabIndex={activeTab === index ? 0 : -1}
-            onClick={() => setActiveTab(index)}
-            onKeyDown={(e) => handleKeyDown(e, index)}
-            className={`fw-500 px-4 py-2 br-0 tr-c f:oc-silver-1 f:os-s f:ow-2 ${
-              activeTab === index
-                ? "c-black bg-white bw-1 bc-silver-4 sh-sm"
-                : "c-silver-10 bw-0 h:c-black"
-            }`}
-          >
-            {tab.label}
-          </button>
-        ))}
-      </div>
-
-      {/* Tab Panels */}
-      {tabs.map((tab, index) => (
-        <div
-          key={tab.id}
-          role="tabpanel"
-          id={`panel-${tab.id}`}
-          aria-labelledby={`tab-${tab.id}`}
-          hidden={activeTab !== index}
-          className={`p-4 bw-1 bc-silver-4 bg-white br-0 c-slate fs-sm ${
-            activeTab === index ? "d-b" : "d-none"
-          } f:oc-silver-1 f:os-s f:ow-2`}
+    <Tabs.Root className="bw-1 bc-silver-4 br-0" defaultValue="overview">
+      <Tabs.List className="p-r d-f g-1 px-1 bbw-1 bc-silver-4">
+        <Tabs.Tab
+          className="d-f ai-c jc-c h-8 px-3 fs-sm fw-500 bw-0 bg-transparent us-none tabs-tab"
+          value="overview"
         >
-          <p className="m-0">{tab.content}</p>
-        </div>
-      ))}
-    </div>
+          Overview
+        </Tabs.Tab>
+        <Tabs.Tab
+          className="d-f ai-c jc-c h-8 px-3 fs-sm fw-500 bw-0 bg-transparent us-none tabs-tab"
+          value="projects"
+        >
+          Projects
+        </Tabs.Tab>
+        <Tabs.Tab
+          className="d-f ai-c jc-c h-8 px-3 fs-sm fw-500 bw-0 bg-transparent us-none tabs-tab"
+          value="account"
+        >
+          Account
+        </Tabs.Tab>
+        <Tabs.Indicator className="p-a t-half l-0 zi-n1 h-6 br-0 bg-silver-1 tabs-indicator" />
+      </Tabs.List>
+      <Tabs.Panel className="d-f ai-c jc-c h-32" value="overview">
+        <ShapesIcon size={40} className="c-silver-4" />
+      </Tabs.Panel>
+      <Tabs.Panel className="d-f ai-c jc-c h-32" value="projects">
+        <ProjectorScreenChartIcon size={40} className="c-silver-4" />
+      </Tabs.Panel>
+      <Tabs.Panel className="d-f ai-c jc-c h-32" value="account">
+        <UserCircleIcon size={40} className="c-silver-4" />
+      </Tabs.Panel>
+      <style>{`
+        .tabs-tab {
+          color: #71717a;
+          outline: none;
+        }
+        .tabs-tab:hover {
+          color: #18181b;
+        }
+        .tabs-tab[data-active] {
+          color: #18181b;
+        }
+        .tabs-indicator {
+          width: var(--active-tab-width);
+          transform: translateX(var(--active-tab-left)) translateY(-50%);
+          transition: transform 200ms ease-in-out, width 200ms ease-in-out;
+        }
+      `}</style>
+    </Tabs.Root>
   );
 }

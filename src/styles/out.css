@@ -329,10 +329,6 @@ summary {
   background-clip: border-box;
 }
 
-.bc-blue-4 {
-  border-color: #8aafeb;
-}
-
 .bc-c {
   border-collapse: collapse;
 }
@@ -347,10 +343,6 @@ summary {
 
 .bc-gray-2 {
   border-color: #cfd1d5;
-}
-
-.bc-green-2 {
-  border-color: #bce8cc;
 }
 
 .bc-green-4 {
@@ -373,10 +365,6 @@ summary {
   border-color: #40429c;
 }
 
-.bc-orange-4 {
-  border-color: #eda777;
-}
-
 .bc-pb {
   background-clip: padding-box;
 }
@@ -391,18 +379,6 @@ summary {
 
 .bc-r-indigo-8 {
   border-right-color: #40429c;
-}
-
-.bc-red-2 {
-  border-color: #f3c5c5;
-}
-
-.bc-red-4 {
-  border-color: #e88e8e;
-}
-
-.bc-red-6 {
-  border-color: #dd5858;
 }
 
 .bc-s {
@@ -445,10 +421,6 @@ summary {
   border-color: #0000;
 }
 
-.bc-violet-4 {
-  border-color: #b49beb;
-}
-
 .bc-white {
   border-color: #fff;
 }
@@ -467,10 +439,6 @@ summary {
 
 .bc-white\/5 {
   border-color: #ffffff0d;
-}
-
-.bc-yellow-4 {
-  border-color: #e5c86f;
 }
 
 .bf-b-lg {
@@ -537,10 +505,6 @@ summary {
   background-color: #dbf3e4;
 }
 
-.bg-green-1\/50 {
-  background-color: #dbf3e480;
-}
-
 .bg-green-6 {
   background-color: #3ebc6d;
 }
@@ -601,28 +565,12 @@ summary {
   background-color: #595cd980;
 }
 
-.bg-orange {
-  background-color: #e06814;
-}
-
-.bg-orange-1 {
-  background-color: #fae7d9;
-}
-
 .bg-red {
   background-color: #d73d3d;
 }
 
 .bg-red-1 {
   background-color: #f9e0e0;
-}
-
-.bg-red-1\/15 {
-  background-color: #f9e0e026;
-}
-
-.bg-red-1\/50 {
-  background-color: #f9e0e080;
 }
 
 .bg-red-3 {
@@ -645,8 +593,8 @@ summary {
   background-color: #ecedee;
 }
 
-.bg-silver-8 {
-  background-color: #8a8c8f;
+.bg-silver-4 {
+  background-color: #dadcdf;
 }
 
 .bg-slate {
@@ -655,10 +603,6 @@ summary {
 
 .bg-slate-1 {
   background-color: #e0e0e3;
-}
-
-.bg-slate-4 {
-  background-color: #909098;
 }
 
 .bg-slate-8 {
@@ -673,14 +617,6 @@ summary {
   background-color: #0000;
 }
 
-.bg-violet {
-  background-color: #7d53dd;
-}
-
-.bg-violet-1 {
-  background-color: #eae3fa;
-}
-
 .bg-white {
   background-color: #fff;
 }
@@ -691,14 +627,6 @@ summary {
 
 .bg-white\/5 {
   background-color: #ffffff0d;
-}
-
-.bg-yellow {
-  background-color: #d3a107;
-}
-
-.bg-yellow-1 {
-  background-color: #f8f0d7;
 }
 
 .blw-1 {
@@ -969,10 +897,6 @@ summary {
   color: #000;
 }
 
-.c-blue-10 {
-  color: #173361;
-}
-
 .c-blue-8 {
   color: #26549f;
 }
@@ -997,20 +921,12 @@ summary {
   color: #1fb155;
 }
 
-.c-green-10 {
-  color: #0e4e25;
-}
-
 .c-h {
   cursor: help;
 }
 
 .c-indigo {
   color: #595cd9;
-}
-
-.c-indigo-10 {
-  color: #27285f;
 }
 
 .c-indigo-5 {
@@ -1049,10 +965,6 @@ summary {
   color: #e06814;
 }
 
-.c-orange-10 {
-  color: #632e09;
-}
-
 .c-p {
   cursor: pointer;
 }
@@ -1063,10 +975,6 @@ summary {
 
 .c-red {
   color: #d73d3d;
-}
-
-.c-red-10 {
-  color: #5f1b1b;
 }
 
 .c-rs {
@@ -1085,16 +993,16 @@ summary {
   color: #545558;
 }
 
-.c-silver-11 {
-  color: #393a3c;
-}
-
 .c-silver-12 {
   color: #1f1f20;
 }
 
 .c-silver-3 {
   color: #e3e4e6;
+}
+
+.c-silver-4 {
+  color: #dadcdf;
 }
 
 .c-silver-8 {
@@ -1111,10 +1019,6 @@ summary {
 
 .c-slate-10 {
   color: #1c1c22;
-}
-
-.c-slate-5 {
-  color: #757580;
 }
 
 .c-slate-6 {
@@ -1143,10 +1047,6 @@ summary {
 
 .c-transparent {
   color: #0000;
-}
-
-.c-violet-10 {
-  color: #372561;
 }
 
 .c-white {
@@ -1179,10 +1079,6 @@ summary {
 
 .c-wr {
   cursor: w-resize;
-}
-
-.c-yellow-10 {
-  color: #5d4703;
 }
 
 .c-zi {
@@ -1333,6 +1229,11 @@ summary {
   height: 1rem;
 }
 
+.d-5 {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
 .d-6 {
   width: 1.5rem;
   height: 1.5rem;
@@ -1341,11 +1242,6 @@ summary {
 .d-8 {
   width: 2rem;
   height: 2rem;
-}
-
-.d-9 {
-  width: 2.25rem;
-  height: 2.25rem;
 }
 
 .d-b {
@@ -1499,6 +1395,10 @@ summary {
 
 .f\:oc-silver-4:focus {
   outline-color: #dadcdf;
+}
+
+.f\:oc-slate-4:focus {
+  outline-color: #909098;
 }
 
 .f\:oc-white\/30:focus {
@@ -1949,10 +1849,6 @@ summary {
   height: 1.5rem;
 }
 
-.h-60 {
-  height: 15rem;
-}
-
 .h-64 {
   height: 16rem;
 }
@@ -1963,10 +1859,6 @@ summary {
 
 .h-8 {
   height: 2rem;
-}
-
-.h-80 {
-  height: 20rem;
 }
 
 .h-96 {
@@ -2029,10 +1921,6 @@ summary {
   background-color: #595cd940;
 }
 
-.h\:bg-red-1:hover {
-  background-color: #f9e0e0;
-}
-
 .h\:bg-red-11:hover {
   background-color: #411212;
 }
@@ -2063,10 +1951,6 @@ summary {
 
 .h\:bg-teal-11:hover {
   background-color: #05322d;
-}
-
-.h\:bg-white:hover {
-  background-color: #fff;
 }
 
 .h\:bg-white\/10:hover {
@@ -2103,10 +1987,6 @@ summary {
 
 .h\:c-white\/90:hover {
   color: #ffffffe6;
-}
-
-.h\:o-100:hover {
-  opacity: 1;
 }
 
 .h\:o-90:hover {
@@ -2219,12 +2099,12 @@ summary {
   left: .5rem;
 }
 
-.l-3 {
-  left: .75rem;
-}
-
 .l-4 {
   left: 1rem;
+}
+
+.l-half {
+  left: 50%;
 }
 
 .lh-1 {
@@ -2462,10 +2342,6 @@ summary {
   min-width: 10rem;
 }
 
-.min-w-44 {
-  min-width: 11rem;
-}
-
 .min-w-48 {
   min-width: 12rem;
 }
@@ -2494,10 +2370,6 @@ summary {
   margin-left: 1rem;
 }
 
-.ml-5 {
-  margin-left: 1.25rem;
-}
-
 .ml-6 {
   margin-left: 1.5rem;
 }
@@ -2522,16 +2394,16 @@ summary {
   margin-right: 2rem;
 }
 
-.mt-1 {
-  margin-top: .25rem;
-}
-
 .mt-12 {
   margin-top: 3rem;
 }
 
 .mt-16 {
   margin-top: 4rem;
+}
+
+.mt-2 {
+  margin-top: .5rem;
 }
 
 .mt-3 {
@@ -2554,9 +2426,9 @@ summary {
   margin-top: auto;
 }
 
-.mx-2 {
-  margin-left: .5rem;
-  margin-right: .5rem;
+.mx-4 {
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 .mx-8 {
@@ -2974,16 +2846,12 @@ summary {
   padding-left: .75rem;
 }
 
+.pl-4 {
+  padding-left: 1rem;
+}
+
 .pl-6 {
   padding-left: 1.5rem;
-}
-
-.pl-9 {
-  padding-left: 2.25rem;
-}
-
-.pr-3 {
-  padding-right: .75rem;
 }
 
 .pr-4 {
@@ -2992,6 +2860,10 @@ summary {
 
 .pr-6 {
   padding-right: 1.5rem;
+}
+
+.pr-8 {
+  padding-right: 2rem;
 }
 
 .ps-auto {
@@ -3927,6 +3799,10 @@ summary {
   z-index: 20;
 }
 
+.zi-50 {
+  z-index: 50;
+}
+
 @media (width >= 40rem) {
   .sm\:br-0 {
     border-radius: 0;
@@ -4030,10 +3906,6 @@ summary {
 
   .md\:gtc-6 {
     grid-template-columns: repeat(6, minmax(0, 1fr));
-  }
-
-  .md\:gtc-7 {
-    grid-template-columns: repeat(7, minmax(0, 1fr));
   }
 
   .md\:h-10 {

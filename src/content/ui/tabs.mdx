@@ -1,162 +1,88 @@
 export const meta = {
   title: "Tabs",
-  description: "Organize content into separate views where only one view can be visible at a time.",
+  description: "A component for toggling between related panels on the same page.",
 };
 
-## Basic Tabs
+## React
 
-<Preview id="tabs-basic" />
+### Basic
+
+<Preview id="tabs-basic" variant="inlineCentered" className="bg-white" />
+
+```tsx
+import { Tabs } from "@base-ui/react/tabs";
+import { ShapesIcon, ProjectorScreenChartIcon, UserCircleIcon } from "@phosphor-icons/react";
+
+export default function TabsBasic() {
+  return (
+    <Tabs.Root className="bw-1 bc-silver-4 br-0" defaultValue="overview">
+      <Tabs.List className="p-r d-f g-1 px-1 bbw-1 bc-silver-4">
+        <Tabs.Tab
+          className="d-f ai-c jc-c h-8 px-3 fs-sm fw-500 bw-0 bg-transparent us-none"
+          value="overview"
+        >
+          Overview
+        </Tabs.Tab>
+        <Tabs.Tab
+          className="d-f ai-c jc-c h-8 px-3 fs-sm fw-500 bw-0 bg-transparent us-none"
+          value="projects"
+        >
+          Projects
+        </Tabs.Tab>
+        <Tabs.Tab
+          className="d-f ai-c jc-c h-8 px-3 fs-sm fw-500 bw-0 bg-transparent us-none"
+          value="account"
+        >
+          Account
+        </Tabs.Tab>
+        <Tabs.Indicator className="p-a t-half l-0 zi-n1 h-6 br-0 bg-silver-1" />
+      </Tabs.List>
+      <Tabs.Panel className="d-f ai-c jc-c h-32" value="overview">
+        <ShapesIcon size={40} className="c-silver-4" />
+      </Tabs.Panel>
+      <Tabs.Panel className="d-f ai-c jc-c h-32" value="projects">
+        <ProjectorScreenChartIcon size={40} className="c-silver-4" />
+      </Tabs.Panel>
+      <Tabs.Panel className="d-f ai-c jc-c h-32" value="account">
+        <UserCircleIcon size={40} className="c-silver-4" />
+      </Tabs.Panel>
+    </Tabs.Root>
+  );
+}
+```
+
+## HTML
+
+### Basic Example
 
 ```html
-<div class="d-f fd-c g-4 w-full">
-  <div
-    role="tablist"
-    aria-label="Content Categories"
-    class="bg-silver-1 p-1 br-0 d-if bw-1 bc-silver-4"
-  >
-    <button
-      type="button"
-      role="tab"
-      id="tab-for-you"
-      aria-selected="true"
-      aria-controls="panel-for-you"
-      tabindex="0"
-      class="fw-500 c-black bg-white px-4 py-2 br-0 bw-1 bc-silver-4 sh-sm"
-    >
-      For you
+<div class="bw-1 bc-silver-4 br-0">
+  <div role="tablist" class="d-f g-1 px-1 bbw-1 bc-silver-4">
+    <button role="tab" aria-selected="true" class="d-f ai-c jc-c h-8 px-3 fs-sm fw-500 c-black bw-0 bg-silver-1 br-0">
+      Overview
     </button>
-    <button
-      type="button"
-      role="tab"
-      id="tab-following"
-      aria-selected="false"
-      aria-controls="panel-following"
-      tabindex="-1"
-      class="fw-500 c-silver-10 px-4 py-2 h:c-black tr-c"
-    >
-      Following
+    <button role="tab" aria-selected="false" class="d-f ai-c jc-c h-8 px-3 fs-sm fw-500 c-slate-6 bw-0 bg-transparent h:c-black">
+      Projects
+    </button>
+    <button role="tab" aria-selected="false" class="d-f ai-c jc-c h-8 px-3 fs-sm fw-500 c-slate-6 bw-0 bg-transparent h:c-black">
+      Account
     </button>
   </div>
-
-  <div
-    role="tabpanel"
-    id="panel-for-you"
-    aria-labelledby="tab-for-you"
-    tabindex="0"
-    class="p-4 bw-1 bc-silver-2 bg-white br-0 c-slate fs-sm d-b"
-  >
-    <p class="m-0">Content for the 'For you' tab. This section shows personalized recommendations based on your activity.</p>
-  </div>
-
-  <div
-    role="tabpanel"
-    id="panel-following"
-    aria-labelledby="tab-following"
-    hidden
-    tabindex="0"
-    class="p-4 bw-1 bc-silver-2 bg-white br-0 c-slate fs-sm d-none"
-  >
-    <p class="m-0">Content for the 'Following' tab. Stay updated with the latest posts from people you follow.</p>
+  <div role="tabpanel" class="d-f ai-c jc-c h-32">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 c-silver-4" viewBox="0 0 256 256">
+      <rect width="256" height="256" fill="none"/>
+      <polygon points="64 64 24 184 104 184 64 64" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+      <circle cx="156" cy="76" r="44" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+      <rect x="136" y="152" width="88" height="56" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
+    </svg>
   </div>
 </div>
 ```
 
-## Icons
+## Documentation
 
-<Preview id="tabs-icons" />
+For more information, check the [Base UI Tabs documentation](https://base-ui.com/react/components/tabs).
 
-```html
-<div class="d-f fd-c g-4 w-full">
-  <div
-    role="tablist"
-    aria-label="View Modes"
-    class="bg-silver-1 p-1 br-0 d-if bw-1 bc-silver-4"
-  >
-    <button
-      type="button"
-      role="tab"
-      id="tab-grid"
-      aria-selected="true"
-      aria-controls="panel-grid"
-      tabindex="0"
-      class="d-f ai-c g-2 fw-500 c-black bg-white px-4 py-2 br-0 bw-1 bc-silver-4 sh-sm"
-    >
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 256 256" aria-hidden="true">
-        <rect width="256" height="256" fill="none" />
-        <rect x="48" y="48" width="64" height="64" rx="8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
-        <rect x="144" y="48" width="64" height="64" rx="8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
-        <rect x="48" y="144" width="64" height="64" rx="8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
-        <rect x="144" y="144" width="64" height="64" rx="8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
-      </svg>
-      <span>Grid</span>
-    </button>
-    <button
-      type="button"
-      role="tab"
-      id="tab-list"
-      aria-selected="false"
-      aria-controls="panel-list"
-      tabindex="-1"
-      class="d-f ai-c g-2 fw-500 c-silver-10 px-4 py-2 h:c-black tr-c"
-    >
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 256 256" aria-hidden="true">
-        <rect width="256" height="256" fill="none" />
-        <line x1="88" y1="64" x2="216" y2="64" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
-        <line x1="88" y1="128" x2="216" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
-        <line x1="88" y1="192" x2="216" y2="192" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
-        <circle cx="44" cy="64" r="12" fill="currentColor" />
-        <circle cx="44" cy="128" r="12" fill="currentColor" />
-        <circle cx="44" cy="192" r="12" fill="currentColor" />
-      </svg>
-      <span>List</span>
-    </button>
-  </div>
+## API Reference
 
-  <div
-    role="tabpanel"
-    id="panel-grid"
-    aria-labelledby="tab-grid"
-    tabindex="0"
-    class="p-4 bw-1 bc-silver-2 bg-white br-0 c-slate fs-sm d-b"
-  >
-    <p class="m-0">Grid view content. Optimized for visual browsing of large collections.</p>
-  </div>
-
-  <div
-    role="tabpanel"
-    id="panel-list"
-    aria-labelledby="tab-list"
-    hidden
-    tabindex="0"
-    class="p-4 bw-1 bc-silver-2 bg-white br-0 c-slate fs-sm d-none"
-  >
-    <p class="m-0">List view content. Optimized for scanning detailed information quickly.</p>
-  </div>
-</div>
-```
-
-## Accessibility
-
-The tabs component follows the [WAI-ARIA Tabs Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/tabs/).
-
-### Keyboard Interaction
-
-| Key                          | Action                                                                                                                 |
-|------------------------------|------------------------------------------------------------------------------------------------------------------------|
-| `Tab`                        | Moves focus to the active tab. When focus is on the tab list, it moves to the next focusable element outside the list. |
-| `Left Arrow` / `Right Arrow` | Moves focus between tabs and automatically activates the focused tab.                                                  |
-| `Home`                       | Moves focus to the first tab and activates it.                                                                         |
-| `End`                        | Moves focus to the last tab and activates it.                                                                          |
-
-### Roles, States, and Properties
-
-| Property          | Description                                                                 |
-|-------------------|-----------------------------------------------------------------------------|
-| `role="tablist"`  | Identifies the element as a container for a set of tabs.                    |
-| `role="tab"`      | Identifies the element as a tab.                                            |
-| `role="tabpanel"` | Identifies the element as a panel containing content associated with a tab. |
-| `aria-selected`   | Indicates whether the tab is currently selected.                            |
-| `aria-controls`   | References the ID of the tabpanel that the tab controls.                    |
-| `aria-labelledby` | References the ID of the tab that labels the tabpanel.                      |
-| `tabindex`        | Ensures that the active tab and tabpanel are focusable.                     |
-
+For detailed API reference, see the [Base UI Tabs API Reference](https://base-ui.com/react/components/tabs#api-reference).
