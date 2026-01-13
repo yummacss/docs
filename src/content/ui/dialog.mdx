@@ -1,0 +1,69 @@
+export const meta = {
+  title: "Dialog",
+  description: "A popup that opens on top of the entire page.",
+};
+
+## React
+
+### Basic
+
+<Preview id="dialog-basic" variant="inlineCentered" className="bg-white" />
+
+```tsx
+import { Dialog } from "@base-ui/react/dialog";
+
+export default function DialogBasic() {
+  return (
+    <Dialog.Root>
+      <Dialog.Trigger className="bg-slate-8 c-white px-4 py-2 br-0 fs-sm fw-500 h:bg-slate-10">
+        View notifications
+      </Dialog.Trigger>
+      <Dialog.Portal>
+        <Dialog.Backdrop className="p-f zi-50 t-0 l-0 r-0 b-0 bg-black/50" />
+        <Dialog.Popup className="p-f zi-50 t-half l-half bw-1 bc-silver-4 br-0 p-6 bg-white w-96">
+          <Dialog.Title className="ff-s fs-lg fw-600 c-black mb-2">
+            Notifications
+          </Dialog.Title>
+          <Dialog.Description className="fs-sm c-slate-6 mb-6">
+            You are all caught up. Good job!
+          </Dialog.Description>
+          <div className="d-f jc-fe g-3">
+            <Dialog.Close className="bg-white c-black bw-1 bc-silver-4 px-3 py-2 br-0 fs-sm fw-500 h:bg-silver-1">
+              Close
+            </Dialog.Close>
+          </div>
+        </Dialog.Popup>
+      </Dialog.Portal>
+    </Dialog.Root>
+  );
+}
+```
+
+## HTML
+
+### Basic Example
+
+```html
+<button aria-haspopup="dialog" class="bg-slate-8 c-white px-4 py-2 br-0 fs-sm fw-500 h:bg-slate-10">
+  View notifications
+</button>
+
+<!-- Dialog overlay -->
+<div class="p-f zi-50 t-0 l-0 w-full h-full d-f ai-c jc-c bg-black/50">
+  <div role="dialog" aria-modal="true" class="bw-1 bc-silver-4 br-0 p-6 bg-white w-96">
+    <h3 class="ff-s fs-lg fw-600 c-black mb-2">Notifications</h3>
+    <p class="fs-sm c-slate-6 mb-6">You are all caught up. Good job!</p>
+    <div class="d-f jc-fe g-3">
+      <button class="bg-white c-black bw-1 bc-silver-4 px-3 py-2 br-0 fs-sm fw-500 h:bg-silver-1">Close</button>
+    </div>
+  </div>
+</div>
+```
+
+## Documentation
+
+For more information, check the [Base UI Dialog documentation](https://base-ui.com/react/components/dialog).
+
+## API Reference
+
+For detailed API reference, see the [Base UI Dialog API Reference](https://base-ui.com/react/components/dialog#api-reference).

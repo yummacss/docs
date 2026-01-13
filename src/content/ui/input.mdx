@@ -1,86 +1,45 @@
 export const meta = {
   title: "Input",
-  description: "Collects single-line text input from users through form fields.",
+  description: "A native input element for text entry.",
 };
 
-## Basic Input
+## React
 
-<Preview id="input-basic" />
+### Basic
 
-```html
-<input id="email" type="email" placeholder="you@examlpe.com" class="bw-1 bc-silver-4 c-black px-3 py-2 br-0 fs-md f:oc-silver-1 f:os-s f:ow-2" aria-label="Email address" />
+<Preview id="input-basic" variant="inlineCentered" className="bg-white" />
+
+```tsx
+import { Input } from "@base-ui/react/input";
+
+export default function InputBasic() {
+  return (
+    <Input
+      placeholder="Name"
+      className="bw-1 bc-silver-4 c-black px-4 py-2 br-0 fs-md w-64 f:oc-slate-4 f:os-s f:ow-2"
+      aria-label="Name"
+    />
+  );
+}
 ```
 
-## Icon
+## HTML
 
-<Preview id="input-icon" />
-
-```html
-<div class="d-f fd-c g-2">
-  <div class="p-r w-full">
-    <input id="search" type="text" placeholder="Search..." class="bw-1 bc-silver-4 c-black pl-9 pr-3 py-2 br-0 fs-md f:oc-silver-1 f:os-s f:ow-2 w-full" aria-label="Search" />
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      class="p-a l-3 t-0 b-0 m-auto fs-lg c-silver-12 h-4 w-4"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-      <path d="m21 21-4.34-4.34" />
-      <circle cx="11" cy="11" r="8" />
-    </svg>
-  </div>
-</div>
-```
-
-## Label
-
-<Preview id="input-label" />
+### Basic Example
 
 ```html
-<div class="d-f fd-c g-2">
-  <label for="email" class="c-silver-12 fw-600">Email</label>
-  <input id="email" type="email" placeholder="you@examlpe.com" class="bw-1 bc-silver-4 c-black px-3 py-2 br-0 fs-md f:oc-silver-1 f:os-s f:ow-2" />
-</div>
+<input
+  type="text"
+  placeholder="Name"
+  class="bw-1 bc-silver-4 c-black px-4 py-2 br-0 fs-md w-64 f:oc-slate-4 f:os-s f:ow-2"
+  aria-label="Name"
+/>
 ```
 
-## Disabled
+## Documentation
 
-<Preview id="input-disabled" />
+For more information, check the [Base UI Input documentation](https://base-ui.com/react/components/input).
 
-```html
-<div class="d-f fd-c g-2">
-  <label for="disabled-input" class="fw-600 c-silver-12">Email</label>
-  <input id="disabled-input" disabled type="text" placeholder="A disabled input" class="bw-1 bc-silver-4 c-black px-3 py-2 br-0 fs-md f:oc-silver-1 f:os-s f:ow-2" />
-</div>
-```
+## API Reference
 
-## Error
-
-<Preview id="input-error" />
-
-```html
-<div class="d-f fd-c g-1">
-  <label for="error-input" class="fw-600 c-silver-12">Phone number <span class="c-slate-9 us-none">*</span></label>
-  <input id="error-input" type="tel" placeholder="(123) 456-7890" class="bg-red-1/15 c-red px-3 py-2 br-0 fs-md bc-red-6 bw-1 f:oc-red-2 f:os-s f:ow-2" aria-describedby="error-input-message" aria-invalid="true" />
-  <span id="error-input-message" class="c-red fs-sm">Invalid phone number.</span>
-</div>
-```
-
-## Accessibility
-
-The input component follows standard HTML accessibility practices.
-
-### Roles, States, and Properties
-
-| Property           | Description                                                                            |
-|--------------------|----------------------------------------------------------------------------------------|
-| `aria-label`       | Provides an accessible name when a visible label is not present.                       |
-| `aria-describedby` | References elements that provide additional information or error messages.             |
-| `aria-invalid`     | Indicates that the value entered in the field does not conform to the required format. |
-| `disabled`         | Prevents user interaction and indicates the field is not currently editable.           |
-
-
+For detailed API reference, see the [Base UI Input API Reference](https://base-ui.com/react/components/input#api-reference).

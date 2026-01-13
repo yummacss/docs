@@ -3,94 +3,87 @@ export const meta = {
   description: "Enables user interactions through clickable elements.",
 };
 
-## Primary
+## React
 
-<Preview id="button-primary" />
+### Basic
 
-```html
-<button class="g-2 px-3 py-2 br-0 fs-md fw-600 lh-1 bg-slate-8 c-white h:bg-slate-10 f:oc-silver-4 f:os-s f:ow-2">Sign in</button>
+<Preview id="button-basic" />
+
+```tsx
+import { Button } from "@base-ui/react/button";
+
+export default function ButtonBasic() {
+  return (
+    <Button className="g-2 px-3 py-2 br-0 fs-md fw-600 lh-1 bg-slate-8 c-white h:bg-slate-10 f:oc-silver-4 f:os-s f:ow-2">
+      Submit
+    </Button>
+  );
+}
 ```
 
-## Outline
+### Outline
 
 <Preview id="button-outline" />
 
-```html
-<button class="g-2 px-3 py-2 br-0 fs-md fw-600 lh-1 bg-white c-slate-8 bw-1 bc-silver-4 h:bg-silver-1 f:oc-silver-1 f:os-s f:ow-2">Sign in</button>
+```tsx
+import { Button } from "@base-ui/react/button";
+
+export default function ButtonOutline() {
+  return (
+    <Button className="g-2 px-3 py-2 br-0 fs-md fw-600 lh-1 bg-white c-slate-8 bw-1 bc-silver-4 h:bg-silver-1 f:oc-silver-1 f:os-s f:ow-2">
+      Submit
+    </Button>
+  );
+}
 ```
 
-## Ghost
-
-<Preview id="button-ghost" />
-
-```html
-<button class="g-2 px-3 py-2 br-0 fs-md fw-600 lh-1 bg-transparent c-slate-8 h:bg-silver-1">Sign in</button>
-```
-
-## Pill
-
-<Preview id="button-pill" />
-
-```html
-<button class="g-2 px-3 py-2 br-pill fs-sm fw-600 lh-1 bg-slate-8 c-white f:oc-silver-4 f:os-s f:ow-2">Sign in</button>
-```
-
-## Disabled
-
-<Preview id="button-disabled" />
-
-```html
-<button disabled class="g-2 px-3 py-2 br-0 fs-md fw-600 lh-1 bg-slate-8 c-white f:oc-silver-4 f:os-s f:ow-2">Update</button>
-```
-
-## Destructive
+### Destructive
 
 <Preview id="button-destructive" />
 
-```html
-<button class="g-2 px-3 py-2 br-0 fs-md fw-600 lh-1 bg-red c-white h:bg-red-7 f:oc-red-2 f:os-s f:ow-2">Delete</button>
+```tsx
+import { Button } from "@base-ui/react/button";
+import { TrashIcon } from "@phosphor-icons/react";
+
+export default function ButtonDestructive() {
+  return (
+    <Button className="ai-c d-f jc-c g-2 px-3 py-2 br-0 fs-md fw-600 lh-1 bg-red c-white h:bg-red-7 f:oc-red-2 f:os-s f:ow-2">
+      <TrashIcon size={16} aria-hidden="true" />
+      <span>Delete</span>
+    </Button>
+  );
+}
 ```
 
-## Icon and Label
+## HTML
 
-<Preview id="button-icon-label" />
+### Basic Example
 
 ```html
-<button class="ai-c d-f jc-c g-2 px-3 py-2 br-0 fs-sm fw-600 lh-1 bg-slate-8 c-white f:oc-silver-4 f:os-s f:ow-2">
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    class="w-4 h-4"
-    viewBox="0 0 256 256"
-  >
-    <rect width="256" height="256" fill="none" />
-    <path
-      d="M176,104h24a8,8,0,0,1,8,8v96a8,8,0,0,1-8,8H56a8,8,0,0,1-8-8V112a8,8,0,0,1,8-8H80"
-      fill="none"
-      stroke="currentColor"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="16"
-    />
-    <polyline
-      points="88 64 128 24 168 64"
-      fill="none"
-      stroke="currentColor"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="16"
-    />
-    <line
-      x1="128"
-      y1="24"
-      x2="128"
-      y2="136"
-      fill="none"
-      stroke="currentColor"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="16"
-    />
+<button class="g-2 px-3 py-2 br-0 fs-md fw-600 lh-1 bg-slate-8 c-white h:bg-slate-10 f:oc-silver-4 f:os-s f:ow-2">Submit</button>
+```
+
+### Outline Example
+
+```html
+<button class="g-2 px-3 py-2 br-0 fs-md fw-600 lh-1 bg-white c-slate-8 bw-1 bc-silver-4 h:bg-silver-1 f:oc-silver-1 f:os-s f:ow-2">Submit</button>
+```
+
+### Destructive Example
+
+```html
+<button class="ai-c d-f jc-c g-2 px-3 py-2 br-0 fs-md fw-600 lh-1 bg-red c-white h:bg-red-7 f:oc-red-2 f:os-s f:ow-2">
+  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
+    <path d="M216,48H176V40a24,24,0,0,0-24-24H104A24,24,0,0,0,80,40v8H40a8,8,0,0,0,0,16h8V208a16,16,0,0,0,16,16H192a16,16,0,0,0,16-16V64h8a8,8,0,0,0,0-16ZM96,40a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96Zm96,168H64V64H192ZM112,104v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Zm48,0v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Z" />
   </svg>
-  <span>Share</span>
+  <span>Delete</span>
 </button>
 ```
+
+## Documentation
+
+For more information, check the [Base UI Button documentation](https://base-ui.com/react/components/button).
+
+## API Reference
+
+For detailed API reference, see the [Base UI Button API Reference](https://base-ui.com/react/components/button#api-reference).

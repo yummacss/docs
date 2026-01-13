@@ -3,48 +3,145 @@ export const meta = {
   description: "Displays user profile images or initials in a circular or rounded container.",
 };
 
-## Circle
+## React
+
+### Circle
 
 <Preview id="avatar-circle" />
 
+```tsx
+import { Avatar } from "@base-ui/react/avatar";
+
+export default function AvatarCircle() {
+  return (
+    <Avatar.Root className="d-if d-10 ai-c jc-c br-pill o-h bg-silver-2">
+      <Avatar.Image
+        src="/img/people/rayhan-zua.jpg"
+        alt="Rayhan Zua"
+        className="w-full h-full of-c"
+      />
+      <Avatar.Fallback className="d-f ai-c jc-c w-full h-full fs-md fw-600 c-slate-8">
+        RZ
+      </Avatar.Fallback>
+    </Avatar.Root>
+  );
+}
+```
+
+### Initials
+
+<Preview id="avatar-initials" />
+
+```tsx
+import { Avatar } from "@base-ui/react/avatar";
+
+export default function AvatarInitials() {
+  return (
+    <Avatar.Root className="d-if d-10 ai-c jc-c br-pill o-h bg-blue-1">
+      <Avatar.Fallback className="d-f ai-c jc-c w-full h-full fs-md fw-600 c-blue-8">
+        RZ
+      </Avatar.Fallback>
+    </Avatar.Root>
+  );
+}
+```
+
+### With Indicator
+
+<Preview id="avatar-indicator" />
+
+```tsx
+import { Avatar } from "@base-ui/react/avatar";
+
+export default function AvatarIndicator() {
+  return (
+    <div className="p-r d-10">
+      <Avatar.Root className="d-if d-10 ai-c jc-c br-pill o-h bg-silver-2">
+        <Avatar.Image
+          src="/img/people/rayhan-zua.jpg"
+          alt="Rayhan Zua"
+          className="w-full h-full of-c"
+        />
+        <Avatar.Fallback className="d-f ai-c jc-c w-full h-full fs-md fw-600 c-slate-8">
+          RZ
+        </Avatar.Fallback>
+      </Avatar.Root>
+      <div className="p-a r-0 b-0 d-3 br-pill bg-green bw-2 bc-white" />
+    </div>
+  );
+}
+```
+
+### With Label
+
+<Preview id="avatar-label" />
+
+```tsx
+import { Avatar } from "@base-ui/react/avatar";
+
+export default function AvatarLabel() {
+  return (
+    <div className="d-f ai-c g-2">
+      <Avatar.Root className="d-if d-10 ai-c jc-c br-pill o-h bg-silver-2">
+        <Avatar.Image
+          src="/img/people/rayhan-zua.jpg"
+          alt="Rayhan Zua"
+          className="w-full h-full of-c"
+        />
+        <Avatar.Fallback className="d-f ai-c jc-c w-full h-full fs-md fw-600 c-slate-8">
+          RZ
+        </Avatar.Fallback>
+      </Avatar.Root>
+      <div className="fs-sm fw-600 c-slate-9">@rayhanzua</div>
+    </div>
+  );
+}
+```
+
+## HTML
+
+### Circle Example
+
 ```html
-<div class="d-10 br-pill o-h">
+<div class="d-if d-10 ai-c jc-c br-pill o-h bg-silver-2">
   <img src="/img/people/rayhan-zua.jpg" alt="Rayhan Zua" class="w-full h-full of-c" />
 </div>
 ```
 
-## Initials
-
-<Preview id="avatar-initials" />
+### Initials Example
 
 ```html
-<div class="d-10 br-pill bg-blue-1 d-f ai-c jc-c">
-  <p class="fs-md fw-600 c-blue-8">RZ</p>
+<div class="d-if d-10 ai-c jc-c br-pill o-h bg-blue-1">
+  <span class="fs-md fw-600 c-blue-8">RZ</span>
 </div>
 ```
 
-## Indicator
-
-<Preview id="avatar-indicator" />
+### Indicator Example
 
 ```html
 <div class="p-r d-10">
-  <div class="d-10 br-pill o-h">
+  <div class="d-if d-10 ai-c jc-c br-pill o-h bg-silver-2">
     <img src="/img/people/rayhan-zua.jpg" alt="Rayhan Zua" class="w-full h-full of-c" />
   </div>
-  <div class="p-a r-0 bo-0 d-3 br-pill bg-green bw-2 bc-white"></div>
+  <div class="p-a r-0 b-0 d-3 br-pill bg-green bw-2 bc-white"></div>
 </div>
 ```
 
-## Label
-
-<Preview id="avatar-label" />
+### Label Example
 
 ```html
 <div class="d-f ai-c g-2">
-  <div class="d-10 br-pill o-h">
+  <div class="d-if d-10 ai-c jc-c br-pill o-h bg-silver-2">
     <img src="/img/people/rayhan-zua.jpg" alt="Rayhan Zua" class="w-full h-full of-c" />
   </div>
   <div class="fs-sm fw-600 c-slate-9">@rayhanzua</div>
 </div>
 ```
+
+## Documentation
+
+For more information, check the [Base UI Avatar documentation](https://base-ui.com/react/components/avatar).
+
+## API Reference
+
+For detailed API reference, see the [Base UI Avatar API Reference](https://base-ui.com/react/components/avatar#api-reference).

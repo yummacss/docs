@@ -3,223 +3,107 @@ export const meta = {
   description: "Displays collapsible content sections that expand and collapse on user interaction.",
 };
 
-## Basic Accordion
+## React
+
+### Basic
 
 <Preview id="accordion-basic" variant="inline" />
 
-```html
-<div class="d-f fd-c g-2">
-  <div class="d-f fd-c w-full p-0">
-    <h4 class="m-0">
-      <button
-        type="button"
-        id="accordion-button-1"
-        aria-expanded="false"
-        aria-controls="accordion-panel-1"
-        class="p-4 c-p d-f jc-sb ai-c w-full bw-1 bc-silver-4 fw-600 br-0 bg-white h:bg-silver-1 f:oc-silver-1 f:os-s f:ow-2"
-      >
-        <span class="ff-s c-slate fs-md">Is Yumma CSS free?</span>
-        <svg xmlns="http://www.w3.org/2000/svg" class="c-slate-8 h-4 w-4" viewBox="0 0 256 256" aria-hidden="true">
-          <path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z" fill="currentColor" />
-        </svg>
-      </button>
-    </h4>
-    <section id="accordion-panel-1" aria-labelledby="accordion-button-1" class="p-4 bg-white c-slate fs-sm lh-4 bw-1 bc-silver-4 bt-0 d-none">
-      <p class="c-slate-6 m-0">Yes, Yumma CSS is completely free and open-source. You can use it in 
-         and commercial projects.</p>
-    </section>
-  </div>
-  <div class="d-f fd-c w-full p-0">
-    <h4 class="m-0">
-      <button
-        type="button"
-        id="accordion-button-2"
-        aria-expanded="true"
-        aria-controls="accordion-panel-2"
-        class="p-4 c-p d-f jc-sb ai-c w-full bw-1 bc-silver-4 fw-600 br-0 bg-white h:bg-silver-1 f:oc-silver-1 f:os-s f:ow-2"
-      >
-        <span class="ff-s c-slate fs-md">Can I use it with React?</span>
-        <svg xmlns="http://www.w3.org/2000/svg" class="c-slate-8 h-4 w-4" viewBox="0 0 256 256" aria-hidden="true">
-          <polyline points="48 160 128 80 208 160" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
-        </svg>
-      </button>
-    </h4>
-    <section id="accordion-panel-2" aria-labelledby="accordion-button-2" class="p-4 bg-white c-slate fs-sm lh-4 bw-1 bc-silver-4 bt-0 d-b">
-      <p class="c-slate-6 m-0">Absolutely! Yumma CSS is framework-agnostic and works perfectly with React, Vue, Svelte, and vanilla HTML.</p>
-    </section>
-  </div>
-</div>
+```tsx
+import { Accordion } from "@base-ui/react/accordion";
+import { CaretDownIcon } from "@phosphor-icons/react";
+
+const items = [
+  { value: "what-is", title: "What is Yumma UI?", content: "Yumma UI is a library of high-quality unstyled React components for design systems and web apps." },
+  { value: "get-started", title: "How do I get started?", content: "Head to the \"Introduction\" guide in the docs. If you've used unstyled libraries before, you'll feel at home." },
+  { value: "use-project", title: "Can I use it for my project?", content: "Of course! Yumma UI is free and open source." },
+];
+
+export default function AccordionBasic() {
+  return (
+    <Accordion.Root className="d-f fd-c g-2" defaultValue={["get-started"]}>
+      {items.map((item) => (
+        <Accordion.Item key={item.value} value={item.value}>
+          <Accordion.Header className="m-0">
+            <Accordion.Trigger className="p-4 c-p d-f jc-sb ai-c w-full bw-1 bc-silver-4 fw-600 br-0 bg-white h:bg-silver-1">
+              <span className="ff-s c-slate fs-md">{item.title}</span>
+              <CaretDownIcon size={16} className="c-slate-8" aria-hidden="true" />
+            </Accordion.Trigger>
+          </Accordion.Header>
+          <Accordion.Panel className="of-h c-slate fs-sm lh-4 brw-1 bbw-1 blw-1 bc-silver-4 bg-white">
+            <div className="p-4">
+              <p className="c-slate-6 m-0">{item.content}</p>
+            </div>
+          </Accordion.Panel>
+        </Accordion.Item>
+      ))}
+    </Accordion.Root>
+  );
+}
 ```
 
-
-## Ghost
-
-<Preview id="accordion-ghost" variant="inline" />
-
-```html
-<div class="d-f fd-c">
-  <div class="d-f fd-c w-full p-0">
-    <h4 class="m-0">
-      <button
-        type="button"
-        id="accordion-button-ghost-1"
-        aria-expanded="false"
-        aria-controls="accordion-panel-ghost-1"
-        class="p-4 c-p d-f jc-sb ai-c w-full bbw-1 bc-silver-4 fw-600 br-0 bg-transparent h:bg-silver-1 f:oc-silver-1 f:os-s f:ow-2 bw-0"
-      >
-        <span class="ff-s c-slate fs-md">Is Yumma CSS free?</span>
-        <svg xmlns="http://www.w3.org/2000/svg" class="c-slate-8 h-4 w-4" viewBox="0 0 256 256" aria-hidden="true">
-          <path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z" fill="currentColor" />
-        </svg>
-      </button>
-    </h4>
-    <section id="accordion-panel-ghost-1" aria-labelledby="accordion-button-ghost-1" class="p-4 bg-transparent c-slate fs-sm lh-4 bbw-1 bc-silver-4 d-none">
-      <p class="c-slate-6 m-0">Yes, Yumma CSS is completely free and open-source. You can use it in personal and commercial projects.</p>
-    </section>
-  </div>
-  <div class="d-f fd-c w-full p-0">
-    <h4 class="m-0">
-      <button
-        type="button"
-        id="accordion-button-ghost-2"
-        aria-expanded="false"
-        aria-controls="accordion-panel-ghost-2"
-        class="p-4 c-p d-f jc-sb ai-c w-full bbw-1 bc-silver-4 fw-600 br-0 bg-transparent h:bg-silver-1 f:oc-silver-1 f:os-s f:ow-2 bw-0"
-      >
-        <span class="ff-s c-slate fs-md">Can I use it with React?</span>
-        <svg xmlns="http://www.w3.org/2000/svg" class="c-slate-8 h-4 w-4" viewBox="0 0 256 256" aria-hidden="true">
-          <path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z" fill="currentColor" />
-        </svg>
-      </button>
-    </h4>
-    <section id="accordion-panel-ghost-2" aria-labelledby="accordion-button-ghost-2" class="p-4 bg-transparent c-slate fs-sm lh-4 bbw-1 bc-silver-4 d-none">
-      <p class="c-slate-6 m-0">Absolutely! Yumma CSS is framework-agnostic and works perfectly with React, Vue, Svelte, and vanilla HTML.</p>
-    </section>
-  </div>
-  <div class="d-f fd-c w-full p-0">
-    <h4 class="m-0">
-      <button
-        type="button"
-        id="accordion-button-ghost-3"
-        aria-expanded="true"
-        aria-controls="accordion-panel-ghost-3"
-        class="p-4 c-p d-f jc-sb ai-c w-full bbw-1 bc-silver-4 fw-600 br-0 bg-transparent h:bg-silver-1 f:oc-silver-1 f:os-s f:ow-2 bw-0"
-      >
-        <span class="ff-s c-slate fs-md">Is Yumma UI mobile friendly?</span>
-        <svg xmlns="http://www.w3.org/2000/svg" class="c-slate-8 h-4 w-4" viewBox="0 0 256 256" aria-hidden="true">
-          <polyline points="48 160 128 80 208 160" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
-        </svg>
-      </button>
-    </h4>
-    <section id="accordion-panel-ghost-3" aria-labelledby="accordion-button-ghost-3" class="p-4 bg-transparent c-slate fs-sm lh-4 bbw-1 bc-silver-4 d-b">
-      <p class="c-slate-6 m-0">Yes, Yumma UI is mobile-friendly and works great on all devices.</p>
-    </section>
-  </div>
-</div>
-```
-
-## Icons
+### With Icons
 
 <Preview id="accordion-icons" variant="inline" />
 
+```tsx
+import { Accordion } from "@base-ui/react/accordion";
+import { CaretDownIcon, InfoIcon } from "@phosphor-icons/react";
+
+export default function AccordionIcons() {
+  return (
+    <Accordion.Root className="d-f fd-c g-2" defaultValue={["what-is"]}>
+      <Accordion.Item value="what-is">
+        <Accordion.Header className="m-0">
+          <Accordion.Trigger className="p-4 c-p d-f jc-sb ai-c w-full bw-1 bc-silver-4 fw-600 br-0 bg-white h:bg-silver-1">
+            <div className="d-f ai-c g-2">
+              <InfoIcon size={16} className="c-slate-8" aria-hidden="true" />
+              <span className="ff-s c-slate fs-md">What is Yumma UI?</span>
+            </div>
+            <CaretDownIcon size={16} className="c-slate-8" aria-hidden="true" />
+          </Accordion.Trigger>
+        </Accordion.Header>
+        <Accordion.Panel className="of-h c-slate fs-sm lh-4 brw-1 bbw-1 blw-1 bc-silver-4 bg-white">
+          <div className="p-4">
+            <p className="c-slate-6 m-0">Yumma UI is a library of high-quality unstyled React components...</p>
+          </div>
+        </Accordion.Panel>
+      </Accordion.Item>
+    </Accordion.Root>
+  );
+}
+```
+
+## HTML
+
+### Basic Example
+
 ```html
 <div class="d-f fd-c g-2">
   <div class="d-f fd-c w-full p-0">
     <h4 class="m-0">
       <button
         type="button"
-        id="accordion-button-icon-1"
-        aria-expanded="false"
-        aria-controls="accordion-panel-icon-1"
-        class="p-4 c-p d-f jc-sb ai-c w-full bw-1 bc-silver-4 fw-600 br-0 bg-white h:bg-silver-1 f:oc-silver-1 f:os-s f:ow-2"
-      >
-        <div class="d-f ai-c g-2">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 c-slate-8" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
-            <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,144,176ZM112,84a12,12,0,1,1,12,12A12,12,0,0,1,112,84Z" />
-          </svg>
-          <span class="ff-s c-slate fs-md">Is Yumma CSS free?</span>
-        </div>
-        <svg xmlns="http://www.w3.org/2000/svg" class="c-slate-8 h-4 w-4" viewBox="0 0 256 256" aria-hidden="true">
-          <path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z" fill="currentColor" />
-        </svg>
-      </button>
-    </h4>
-    <section id="accordion-panel-icon-1" aria-labelledby="accordion-button-icon-1" class="p-4 bg-white c-slate fs-sm lh-4 bw-1 bc-silver-4 bt-0 d-none">
-      <p class="c-slate-6 m-0">Yes, Yumma CSS is completely free and open-source. You can use it in personal and commercial projects.</p>
-    </section>
-  </div>
-  <div class="d-f fd-c w-full p-0">
-    <h4 class="m-0">
-      <button
-        type="button"
-        id="accordion-button-icon-2"
-        aria-expanded="false"
-        aria-controls="accordion-panel-icon-2"
-        class="p-4 c-p d-f jc-sb ai-c w-full bw-1 bc-silver-4 fw-600 br-0 bg-white h:bg-silver-1 f:oc-silver-1 f:os-s f:ow-2"
-      >
-        <div class="d-f ai-c g-2">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 c-slate-8" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
-            <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,144,176ZM112,84a12,12,0,1,1,12,12A12,12,0,0,1,112,84Z" />
-          </svg>
-          <span class="ff-s c-slate fs-md">Can I use it with React?</span>
-        </div>
-        <svg xmlns="http://www.w3.org/2000/svg" class="c-slate-8 h-4 w-4" viewBox="0 0 256 256" aria-hidden="true">
-          <path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z" fill="currentColor" />
-        </svg>
-      </button>
-    </h4>
-    <section id="accordion-panel-icon-2" aria-labelledby="accordion-button-icon-2" class="p-4 bg-white c-slate fs-sm lh-4 bw-1 bc-silver-4 bt-0 d-none">
-      <p class="c-slate-6 m-0">Absolutely! Yumma CSS is framework-agnostic and works perfectly with React, Vue, Svelte, and vanilla HTML.</p>
-    </section>
-  </div>
-  <div class="d-f fd-c w-full p-0">
-    <h4 class="m-0">
-      <button
-        type="button"
-        id="accordion-button-icon-3"
         aria-expanded="true"
-        aria-controls="accordion-panel-icon-3"
-        class="p-4 c-p d-f jc-sb ai-c w-full bw-1 bc-silver-4 fw-600 br-0 bg-white h:bg-silver-1 f:oc-silver-1 f:os-s f:ow-2"
+        class="p-4 c-p d-f jc-sb ai-c w-full bw-1 bc-silver-4 fw-600 br-0 bg-white h:bg-silver-1"
       >
-        <div class="d-f ai-c g-2">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 c-slate-8" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
-            <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,144,176ZM112,84a12,12,0,1,1,12,12A12,12,0,0,1,112,84Z" />
-          </svg>
-          <span class="ff-s c-slate fs-md">Is Yumma UI mobile friendly?</span>
-        </div>
+        <span class="ff-s c-slate fs-md">What is Yumma UI?</span>
         <svg xmlns="http://www.w3.org/2000/svg" class="c-slate-8 h-4 w-4" viewBox="0 0 256 256" aria-hidden="true">
-          <polyline points="48 160 128 80 208 160" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
+          <path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z" fill="currentColor" />
         </svg>
       </button>
     </h4>
-    <section id="accordion-panel-icon-3" aria-labelledby="accordion-button-icon-3" class="p-4 bg-white c-slate fs-sm lh-4 bw-1 bc-silver-4 bt-0 d-b">
-      <p class="c-slate-6 m-0">Yes, Yumma UI is mobile-friendly and works great on all devices.</p>
+    <section class="p-4 bg-white c-slate fs-sm lh-4 brw-1 bbw-1 blw-1 bc-silver-4">
+      <p class="c-slate-6 m-0">Yumma UI is a library of high-quality unstyled React components...</p>
     </section>
   </div>
 </div>
 ```
 
-## Accessibility
+## Documentation
 
-The accordion component follows the [WAI-ARIA Accordion Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/accordion/).
+For more information, check the [Base UI Accordion documentation](https://base-ui.com/react/components/accordion).
 
-### Keyboard Interaction
+## API Reference
 
-| Key               | Action                                                      |
-|-------------------|-------------------------------------------------------------|
-| `Enter` / `Space` | Toggles the expanded state of the focused accordion header. |
-| `Tab`             | Moves focus to the next focusable element.                  |
-| `Down Arrow`      | Moves focus to the next accordion header.                   |
-| `Up Arrow`        | Moves focus to the previous accordion header.               |
-| `Home`            | Moves focus to the first accordion header.                  |
-| `End`             | Moves focus to the last accordion header.                   |
-
-### Roles, States, and Properties
-
-| Property          | Description                                                               |
-|-------------------|---------------------------------------------------------------------------|
-| `aria-expanded`   | Indicates whether the accordion panel is currently expanded or collapsed. |
-| `aria-controls`   | References the ID of the panel that the header controls.                  |
-| `aria-labelledby` | References the ID of the header that labels the panel.                    |
-| `role="region"`   | Identifies the panel content as a landmark region.                        |
-
+For detailed API reference, see the [Base UI Accordion API Reference](https://base-ui.com/react/components/accordion#api-reference).

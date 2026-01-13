@@ -1,9 +1,9 @@
 "use client";
 
-import { getPageIcon, getTemplateBySlug } from "@/utils/templates";
 import { ArrowSquareOutIcon } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { getPageIcon, getTemplateBySlug } from "@/utils/templates";
 
 export default function TemplateDetailsSidebar() {
   const pathname = usePathname();

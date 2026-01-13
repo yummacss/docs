@@ -1,3 +1,5 @@
+import type { MDXComponents } from "mdx/types";
+import Image from "next/image";
 import ApiTable from "@/components/api-table";
 import Baseline from "@/components/baseline";
 import HoverVariant from "@/components/hover-variant";
@@ -10,8 +12,6 @@ import OpacityVariant from "@/components/opacity-variant";
 import Palette from "@/components/palette";
 import Stepper, { Step } from "@/components/stepper";
 import { Tabs, TabsList, TabsPanel, TabsTab } from "@/components/tabs";
-import type { MDXComponents } from "mdx/types";
-import Image from "next/image";
 import Preview from "./components/preview";
 
 // generate IDs from heading text

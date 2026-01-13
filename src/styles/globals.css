@@ -33,20 +33,22 @@ p {
     linear-gradient(#fff, #0000), radial-gradient(circle at 50% 0, #fff, #0000);
   mask-composite: intersect;
   mix-blend-mode: difference;
-  background-image: repeating-linear-gradient(60deg,
-      var(--end),
-      var(--start) 2%,
-      var(--start) 5%,
-      #0000 8%,
-      #0000 14%,
-      var(--via) 18%,
-      var(--via) 22%,
-      var(--mid) 28%,
-      var(--mid) 30%,
-      var(--via) 34%,
-      var(--via) 36%,
-      #0000,
-      var(--end) calc(50% - 12px));
+  background-image: repeating-linear-gradient(
+    60deg,
+    var(--end),
+    var(--start) 2%,
+    var(--start) 5%,
+    #0000 8%,
+    #0000 14%,
+    var(--via) 18%,
+    var(--via) 22%,
+    var(--mid) 28%,
+    var(--mid) 30%,
+    var(--via) 34%,
+    var(--via) 36%,
+    #0000,
+    var(--end) calc(50% - 12px)
+  );
   background-size: 200% 100%;
   animation: rainbow 16s linear infinite reverse;
 }
@@ -64,20 +66,24 @@ p {
 #area {
   background-color: #fff;
   background-size: 10px 10px;
-  background-image: repeating-linear-gradient(45deg,
-      #31365e 0,
-      #31365e 1px,
-      #fff 0,
-      #fff 50%);
+  background-image: repeating-linear-gradient(
+    45deg,
+    #31365e 0,
+    #31365e 1px,
+    #fff 0,
+    #fff 50%
+  );
 }
 
 #line {
   background-color: #ffffff;
   opacity: 0.8;
   background-size: 22px 22px;
-  background-image: repeating-linear-gradient(0deg,
-      #000000,
-      #000000 1.1px,
-      #ffffff 1.1px,
-      #ffffff);
+  background-image: repeating-linear-gradient(
+    0deg,
+    #000000,
+    #000000 1.1px,
+    #ffffff 1.1px,
+    #ffffff
+  );
 }
