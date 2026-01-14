@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import SidebarLinks from "@/components/ui/sidebar-links";
 import { templates } from "@/utils/templates";
-import SidebarLinks from "./sidebar-links";
 
 export default function TemplatesSidebar() {
   const pathname = usePathname();
