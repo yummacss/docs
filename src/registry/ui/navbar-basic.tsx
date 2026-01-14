@@ -29,7 +29,7 @@ export default function NavbarBasic() {
             Brand
           </a>
           {/* Desktop Menu */}
-          <ul className="d-none md:d-f g-6 ls-none p-0 m-0">
+          <ul className="d-none md:d-f g-6 p-0 m-0">
             <li>
               <a href="/" className="fs-sm h:c-black c-slate-7 td-none">
                 Product
@@ -124,7 +124,7 @@ export default function NavbarBasic() {
         id="mobile-menu"
         className={`md:d-none mt-4 ${isOpen ? "d-b" : "d-none"}`}
       >
-        <ul className="d-f fd-c g-4 ls-none p-0 m-0">
+        <ul className="d-f fd-c g-4 p-0 m-0">
           <li>
             <a href="/" className="d-b fs-sm h:c-black c-slate-7 td-none py-2">
               Product

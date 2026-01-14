@@ -1,0 +1,106 @@
+export const meta = {
+  title: "Navigation Menu",
+  description: "A collection of links and menus for website navigation.",
+};
+
+## React
+
+### Basic
+
+<Preview id="navigation-menu-basic" />
+
+```tsx
+"use client";
+
+import { NavigationMenu } from "@base-ui/react/navigation-menu";
+import { CaretDownIcon } from "@phosphor-icons/react";
+
+export default function ExampleNavigationMenu() {
+  return (
+    <NavigationMenu.Root className="min-w-max br-1 bw-1 bc-silver-4 bg-silver-1 p-1 c-slate">
+      <NavigationMenu.List className="p-r d-f m-0 p-0">
+        <NavigationMenu.Item>
+          <NavigationMenu.Trigger className="d-f ai-c jc-c g-1 h-10 px-3 m-0 ow-0 bw-0 br-1 bg-transparent fs-md fw-500 c-slate us-none td-n">
+            Overview
+            <NavigationMenu.Icon>
+              <CaretDownIcon size={10} />
+            </NavigationMenu.Icon>
+          </NavigationMenu.Trigger>
+          <NavigationMenu.Content className="p-6 h-full bg-silver-1">
+            <ul className="d-g m-0 p-0" style={{ gridTemplateColumns: "12rem 12rem" }}>
+              <li>
+                <NavigationMenu.Link href="#introduction" className="d-b p-2 br-1 td-n c-inherit h:bg-silver-2">
+                  <h3 className="m-0 mb-1 fs-md fw-500 ff-s">Introduction</h3>
+                  <p className="m-0 fs-sm c-slate-6">Get started with Yumma UI components.</p>
+                </NavigationMenu.Link>
+              </li>
+              <li>
+                <NavigationMenu.Link href="#accessibility" className="d-b p-2 br-1 td-n c-inherit h:bg-silver-2">
+                  <h3 className="m-0 mb-1 fs-md fw-500 ff-s">Accessibility</h3>
+                  <p className="m-0 fs-sm c-slate-6">Learn how we build accessible components.</p>
+                </NavigationMenu.Link>
+              </li>
+            </ul>
+          </NavigationMenu.Content>
+        </NavigationMenu.Item>
+
+        <NavigationMenu.Item>
+          <NavigationMenu.Link href="https://github.com" className="d-f ai-c jc-c h-10 px-3 br-1 bg-transparent fs-md fw-500 c-slate us-none td-n">
+            GitHub
+          </NavigationMenu.Link>
+        </NavigationMenu.Item>
+      </NavigationMenu.List>
+
+      <NavigationMenu.Portal>
+        <NavigationMenu.Positioner sideOffset={10}>
+          <NavigationMenu.Popup className="p-r br-1 bg-silver-1 c-slate bs-md bw-1 bc-silver-4">
+            <NavigationMenu.Viewport className="p-r w-full h-full o-h" />
+          </NavigationMenu.Popup>
+        </NavigationMenu.Positioner>
+      </NavigationMenu.Portal>
+    </NavigationMenu.Root>
+  );
+}
+```
+
+## HTML
+
+### Basic Example
+
+```html
+<nav class="p-r min-w-max br-1 bw-1 bc-silver-4 bg-silver-1 p-1 c-slate">
+  <ul class="p-r d-f m-0 p-0">
+    <li>
+      <button class="d-f ai-c jc-c g-1 h-10 px-3 m-0 br-1 bg-silver-2 fs-md fw-500 c-slate us-none">
+        Overview ▼
+      </button>
+    </li>
+    <li>
+      <a href="https://github.com" class="d-f ai-c jc-c h-10 px-3 br-1 bg-transparent fs-md fw-500 c-slate us-none td-n">
+        GitHub
+      </a>
+    </li>
+  </ul>
+  <!-- Overview menu (shown as open) -->
+  <div class="p-a t-full l-0 mt-2 br-1 bg-silver-1 c-slate bs-md bw-1 bc-silver-4 p-6">
+    <div class="d-g" style="grid-template-columns: 12rem 12rem;">
+      <a href="#introduction" class="d-b p-2 br-1 td-n c-inherit h:bg-silver-2">
+        <h3 class="m-0 mb-1 fs-md fw-500 ff-s">Introduction</h3>
+        <p class="m-0 fs-sm c-slate-6">Get started with Yumma UI components.</p>
+      </a>
+      <a href="#accessibility" class="d-b p-2 br-1 td-n c-inherit h:bg-silver-2">
+        <h3 class="m-0 mb-1 fs-md fw-500 ff-s">Accessibility</h3>
+        <p class="m-0 fs-sm c-slate-6">Learn how we build accessible components.</p>
+      </a>
+    </div>
+  </div>
+</nav>
+```
+
+## Documentation
+
+For more information, check the [Base UI Navigation Menu documentation](https://base-ui.com/react/components/navigation-menu).
+
+## API Reference
+
+For detailed API reference, see the [Base UI Navigation Menu API Reference](https://base-ui.com/react/components/navigation-menu#api-reference).

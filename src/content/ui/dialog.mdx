@@ -12,23 +12,23 @@ export const meta = {
 ```tsx
 import { Dialog } from "@base-ui/react/dialog";
 
-export default function DialogBasic() {
+export default function ExampleDialog() {
   return (
     <Dialog.Root>
-      <Dialog.Trigger className="bg-slate-8 c-white px-4 py-2 br-0 fs-sm fw-500 h:bg-slate-10">
+      <Dialog.Trigger className="d-f h-10 ai-c jc-c px-4 bw-1 bc-silver-4 br-1 bg-silver-1 fs-md fw-500 c-slate us-none h:bg-silver-2 fv:os-s fv:ow-2 fv:oo--1 fv:oc-blue-8">
         View notifications
       </Dialog.Trigger>
       <Dialog.Portal>
-        <Dialog.Backdrop className="p-f zi-50 t-0 l-0 r-0 b-0 bg-black/50" />
-        <Dialog.Popup className="p-f zi-50 t-half l-half bw-1 bc-silver-4 br-0 p-6 bg-white w-96">
-          <Dialog.Title className="ff-s fs-lg fw-600 c-black mb-2">
+        <Dialog.Backdrop className="p-f zi-50 t-0 l-0 r-0 b-0 bg-black" />
+        <Dialog.Popup className="p-f zi-50 t-half l-half bw-1 bc-silver-4 br-2 p-6 bg-silver-1 c-slate w-96">
+          <Dialog.Title className="fs-lg fw-500 c-slate mb-1">
             Notifications
           </Dialog.Title>
-          <Dialog.Description className="fs-sm c-slate-6 mb-6">
+          <Dialog.Description className="fs-md c-slate-6 mb-6">
             You are all caught up. Good job!
           </Dialog.Description>
-          <div className="d-f jc-fe g-3">
-            <Dialog.Close className="bg-white c-black bw-1 bc-silver-4 px-3 py-2 br-0 fs-sm fw-500 h:bg-silver-1">
+          <div className="d-f jc-fe g-4">
+            <Dialog.Close className="d-f h-10 ai-c jc-c px-4 bw-1 bc-silver-4 br-1 bg-silver-1 fs-md fw-500 c-slate us-none h:bg-silver-2 fv:os-s fv:ow-2 fv:oo--1 fv:oc-blue-8">
               Close
             </Dialog.Close>
           </div>
@@ -44,17 +44,17 @@ export default function DialogBasic() {
 ### Basic Example
 
 ```html
-<button aria-haspopup="dialog" class="bg-slate-8 c-white px-4 py-2 br-0 fs-sm fw-500 h:bg-slate-10">
+<button aria-haspopup="dialog" class="d-f h-10 ai-c jc-c px-4 bw-1 bc-silver-4 br-1 bg-silver-1 fs-md fw-500 c-slate us-none h:bg-silver-2">
   View notifications
 </button>
 
 <!-- Dialog overlay -->
-<div class="p-f zi-50 t-0 l-0 w-full h-full d-f ai-c jc-c bg-black/50">
-  <div role="dialog" aria-modal="true" class="bw-1 bc-silver-4 br-0 p-6 bg-white w-96">
-    <h3 class="ff-s fs-lg fw-600 c-black mb-2">Notifications</h3>
-    <p class="fs-sm c-slate-6 mb-6">You are all caught up. Good job!</p>
-    <div class="d-f jc-fe g-3">
-      <button class="bg-white c-black bw-1 bc-silver-4 px-3 py-2 br-0 fs-sm fw-500 h:bg-silver-1">Close</button>
+<div class="p-f zi-50 t-0 l-0 w-full h-full d-f ai-c jc-c bg-black/20">
+  <div role="dialog" aria-modal="true" class="bw-1 bc-silver-4 br-2 p-6 bg-silver-1 c-slate w-96">
+    <h3 class="fs-lg fw-500 c-slate mb-1">Notifications</h3>
+    <p class="fs-md c-slate-6 mb-6">You are all caught up. Good job!</p>
+    <div class="d-f jc-fe g-4">
+      <button class="d-f h-10 ai-c jc-c px-4 bw-1 bc-silver-4 br-1 bg-silver-1 fs-md fw-500 c-slate us-none h:bg-silver-2">Close</button>
     </div>
   </div>
 </div>

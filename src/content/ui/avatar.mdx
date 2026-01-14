@@ -1,98 +1,33 @@
 export const meta = {
   title: "Avatar",
-  description: "Displays user profile images or initials in a circular or rounded container.",
+  description: "An easily stylable avatar component.",
 };
 
 ## React
 
-### Circle
+### Basic
 
-<Preview id="avatar-circle" />
-
-```tsx
-import { Avatar } from "@base-ui/react/avatar";
-
-export default function AvatarCircle() {
-  return (
-    <Avatar.Root className="d-if d-10 ai-c jc-c br-pill o-h bg-silver-2">
-      <Avatar.Image
-        src="/img/people/rayhan-zua.jpg"
-        alt="Rayhan Zua"
-        className="w-full h-full of-c"
-      />
-      <Avatar.Fallback className="d-f ai-c jc-c w-full h-full fs-md fw-600 c-slate-8">
-        RZ
-      </Avatar.Fallback>
-    </Avatar.Root>
-  );
-}
-```
-
-### Initials
-
-<Preview id="avatar-initials" />
+<Preview id="avatar-basic" />
 
 ```tsx
 import { Avatar } from "@base-ui/react/avatar";
 
-export default function AvatarInitials() {
+export default function ExampleAvatar() {
   return (
-    <Avatar.Root className="d-if d-10 ai-c jc-c br-pill o-h bg-blue-1">
-      <Avatar.Fallback className="d-f ai-c jc-c w-full h-full fs-md fw-600 c-blue-8">
-        RZ
-      </Avatar.Fallback>
-    </Avatar.Root>
-  );
-}
-```
-
-### With Indicator
-
-<Preview id="avatar-indicator" />
-
-```tsx
-import { Avatar } from "@base-ui/react/avatar";
-
-export default function AvatarIndicator() {
-  return (
-    <div className="p-r d-10">
-      <Avatar.Root className="d-if d-10 ai-c jc-c br-pill o-h bg-silver-2">
+    <div className="d-f g-5">
+      <Avatar.Root className="d-if d-12 ai-c jc-c br-pill o-h bg-silver-1 us-none">
         <Avatar.Image
           src="/img/people/rayhan-zua.jpg"
           alt="Rayhan Zua"
-          className="w-full h-full of-c"
+          className="d-full of-c"
         />
-        <Avatar.Fallback className="d-f ai-c jc-c w-full h-full fs-md fw-600 c-slate-8">
+        <Avatar.Fallback className="d-f ai-c jc-c d-full fs-md fw-500 c-slate">
           RZ
         </Avatar.Fallback>
       </Avatar.Root>
-      <div className="p-a r-0 b-0 d-3 br-pill bg-green bw-2 bc-white" />
-    </div>
-  );
-}
-```
-
-### With Label
-
-<Preview id="avatar-label" />
-
-```tsx
-import { Avatar } from "@base-ui/react/avatar";
-
-export default function AvatarLabel() {
-  return (
-    <div className="d-f ai-c g-2">
-      <Avatar.Root className="d-if d-10 ai-c jc-c br-pill o-h bg-silver-2">
-        <Avatar.Image
-          src="/img/people/rayhan-zua.jpg"
-          alt="Rayhan Zua"
-          className="w-full h-full of-c"
-        />
-        <Avatar.Fallback className="d-f ai-c jc-c w-full h-full fs-md fw-600 c-slate-8">
-          RZ
-        </Avatar.Fallback>
+      <Avatar.Root className="d-if d-12 ai-c jc-c br-pill o-h bg-silver-1 us-none">
+        RZ
       </Avatar.Root>
-      <div className="fs-sm fw-600 c-slate-9">@rayhanzua</div>
     </div>
   );
 }
@@ -100,41 +35,16 @@ export default function AvatarLabel() {
 
 ## HTML
 
-### Circle Example
+### Basic Example
 
 ```html
-<div class="d-if d-10 ai-c jc-c br-pill o-h bg-silver-2">
-  <img src="/img/people/rayhan-zua.jpg" alt="Rayhan Zua" class="w-full h-full of-c" />
-</div>
-```
-
-### Initials Example
-
-```html
-<div class="d-if d-10 ai-c jc-c br-pill o-h bg-blue-1">
-  <span class="fs-md fw-600 c-blue-8">RZ</span>
-</div>
-```
-
-### Indicator Example
-
-```html
-<div class="p-r d-10">
-  <div class="d-if d-10 ai-c jc-c br-pill o-h bg-silver-2">
-    <img src="/img/people/rayhan-zua.jpg" alt="Rayhan Zua" class="w-full h-full of-c" />
+<div class="d-f g-5">
+  <div class="d-if d-12 ai-c jc-c br-pill o-h bg-silver-1 us-none">
+    <img src="/img/people/rayhan-zua.jpg" alt="Rayhan Zua" class="d-full of-c" />
   </div>
-  <div class="p-a r-0 b-0 d-3 br-pill bg-green bw-2 bc-white"></div>
-</div>
-```
-
-### Label Example
-
-```html
-<div class="d-f ai-c g-2">
-  <div class="d-if d-10 ai-c jc-c br-pill o-h bg-silver-2">
-    <img src="/img/people/rayhan-zua.jpg" alt="Rayhan Zua" class="w-full h-full of-c" />
+  <div class="d-if d-12 ai-c jc-c br-pill o-h bg-silver-1 us-none">
+    RZ
   </div>
-  <div class="fs-sm fw-600 c-slate-9">@rayhanzua</div>
 </div>
 ```
 

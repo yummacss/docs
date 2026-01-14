@@ -1,0 +1,63 @@
+export const meta = {
+  title: "Toggle",
+  description: "A two-state button that can be on or off.",
+};
+
+## React
+
+### Basic
+
+<Preview id="toggle-basic" />
+
+```tsx
+"use client";
+
+import { Toggle } from "@base-ui/react/toggle";
+import { Heart } from "@phosphor-icons/react";
+import * as React from "react";
+
+export default function ExampleToggle() {
+  const [pressed, setPressed] = React.useState(false);
+
+  return (
+    <div className="d-f g-px br-1 bw-1 bc-silver-4 bg-silver-1 p-px">
+      <Toggle
+        aria-label="Favorite"
+        pressed={pressed}
+        onPressedChange={setPressed}
+        className="d-f d-8 ai-c jc-c br-1 c-slate-6 us-none h:bg-silver-2 a:bg-silver-3"
+      >
+        <Heart size={20} weight={pressed ? "fill" : "regular"} />
+      </Toggle>
+    </div>
+  );
+}
+```
+
+## HTML
+
+### Basic Example
+
+```html
+<!-- Toggle (not pressed) -->
+<div class="d-f g-px br-1 bw-1 bc-silver-4 bg-silver-1 p-px">
+  <button class="d-f d-8 ai-c jc-c br-1 bg-transparent b-0 c-slate-6 us-none h:bg-silver-2">
+    ♡
+  </button>
+</div>
+
+<!-- Toggle (pressed) -->
+<div class="d-f g-px br-1 bw-1 bc-silver-4 bg-silver-1 p-px">
+  <button class="d-f d-8 ai-c jc-c br-1 bg-transparent b-0 c-slate us-none h:bg-silver-2">
+    ♥
+  </button>
+</div>
+```
+
+## Documentation
+
+For more information, check the [Base UI Toggle documentation](https://base-ui.com/react/components/toggle).
+
+## API Reference
+
+For detailed API reference, see the [Base UI Toggle API Reference](https://base-ui.com/react/components/toggle#api-reference).

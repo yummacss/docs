@@ -1,0 +1,104 @@
+export const meta = {
+  title: "Checkbox Group",
+  description: "Provides shared state to a series of checkboxes.",
+};
+
+## React
+
+### Basic
+
+<Preview id="checkbox-group-basic" />
+
+```tsx
+"use client";
+
+import { Checkbox } from "@base-ui/react/checkbox";
+import { CheckboxGroup } from "@base-ui/react/checkbox-group";
+import { CheckIcon } from "@phosphor-icons/react";
+import { useId } from "react";
+
+export default function ExampleCheckboxGroup() {
+  const id = useId();
+
+  return (
+    <CheckboxGroup
+      aria-labelledby={id}
+      defaultValue={["fuji-apple"]}
+      className="d-f fd-c ai-fs g-1 c-slate"
+    >
+      <div className="fw-500" id={id}>
+        Apples
+      </div>
+
+      <label className="d-f ai-c g-2">
+        <Checkbox.Root
+          name="apple"
+          value="fuji-apple"
+          className="d-f ai-c jc-c d-5 br-1 fv:os-s fv:ow-2 fv:oo-2 fv:oc-blue-8 checkbox-group-root"
+        >
+          <Checkbox.Indicator className="d-f c-silver-1">
+            <CheckIcon size={12} weight="bold" />
+          </Checkbox.Indicator>
+        </Checkbox.Root>
+        Fuji
+      </label>
+
+      <label className="d-f ai-c g-2">
+        <Checkbox.Root
+          name="apple"
+          value="gala-apple"
+          className="d-f ai-c jc-c d-5 br-1 fv:os-s fv:ow-2 fv:oo-2 fv:oc-blue-8 checkbox-group-root"
+        >
+          <Checkbox.Indicator className="d-f c-silver-1">
+            <CheckIcon size={12} weight="bold" />
+          </Checkbox.Indicator>
+        </Checkbox.Root>
+        Gala
+      </label>
+
+      <label className="d-f ai-c g-2">
+        <Checkbox.Root
+          name="apple"
+          value="granny-smith-apple"
+          className="d-f ai-c jc-c d-5 br-1 fv:os-s fv:ow-2 fv:oo-2 fv:oc-blue-8 checkbox-group-root"
+        >
+          <Checkbox.Indicator className="d-f c-silver-1">
+            <CheckIcon size={12} weight="bold" />
+          </Checkbox.Indicator>
+        </Checkbox.Root>
+        Granny Smith
+      </label>
+    </CheckboxGroup>
+  );
+}
+```
+
+## HTML
+
+### Basic Example
+
+```html
+<fieldset class="d-f fd-c ai-fs g-1 c-slate bw-0">
+  <legend class="fw-500">Apples</legend>
+  <label class="d-f ai-c g-2">
+    <input type="checkbox" name="apple" value="fuji-apple" class="d-5 ac-slate" checked />
+    Fuji
+  </label>
+  <label class="d-f ai-c g-2">
+    <input type="checkbox" name="apple" value="gala-apple" class="d-5 ac-slate" />
+    Gala
+  </label>
+  <label class="d-f ai-c g-2">
+    <input type="checkbox" name="apple" value="granny-smith-apple" class="d-5 ac-slate" />
+    Granny Smith
+  </label>
+</fieldset>
+```
+
+## Documentation
+
+For more information, check the [Base UI Checkbox Group documentation](https://base-ui.com/react/components/checkbox-group).
+
+## API Reference
+
+For detailed API reference, see the [Base UI Checkbox Group API Reference](https://base-ui.com/react/components/checkbox-group#api-reference).

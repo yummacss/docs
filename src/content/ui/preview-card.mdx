@@ -1,0 +1,87 @@
+export const meta = {
+  title: "Preview Card",
+  description: "A popup that appears when a link is hovered, showing a preview for sighted users.",
+};
+
+## React
+
+### Basic
+
+<Preview id="preview-card-basic" />
+
+```tsx
+"use client";
+
+import { PreviewCard } from "@base-ui/react/preview-card";
+
+export default function ExamplePreviewCard() {
+  return (
+    <PreviewCard.Root>
+      <p className="max-w-64 fs-md c-slate">
+        The principles of good{" "}
+        <PreviewCard.Trigger
+          className="c-blue-8 td-n h:td-u"
+          href="https://en.wikipedia.org/wiki/Typography"
+        >
+          typography
+        </PreviewCard.Trigger>{" "}
+        remain into the digital age.
+      </p>
+
+      <PreviewCard.Portal>
+        <PreviewCard.Positioner sideOffset={8}>
+          <PreviewCard.Popup className="d-f fd-c g-2 w-60 p-2 br-1 bg-white bs-md bw-1 bc-silver-4">
+            <img
+              width="448"
+              height="300"
+              className="d-b w-full br-1"
+              src="https://images.unsplash.com/photo-1619615391095-dfa29e1672ef?q=80&w=448&h=300"
+              alt="Station Hofplein signage in Rotterdam, Netherlands"
+            />
+            <p className="fs-sm c-slate m-0">
+              <strong className="ff-s">Typography</strong> is the art and science of arranging type
+              to make written language clear, visually appealing, and effective in communication.
+            </p>
+          </PreviewCard.Popup>
+        </PreviewCard.Positioner>
+      </PreviewCard.Portal>
+    </PreviewCard.Root>
+  );
+}
+```
+
+## HTML
+
+### Basic Example
+
+```html
+<div class="p-r">
+  <p class="max-w-64 fs-md c-slate">
+    The principles of good
+    <a href="https://en.wikipedia.org/wiki/Typography" class="c-blue-8 td-n h:td-u">typography</a>
+    remain into the digital age.
+  </p>
+  <!-- Preview Card (shown as open) -->
+  <div class="p-a t-full l-0 mt-2 d-f fd-c g-2 w-60 p-2 br-1 bg-white bs-md bw-1 bc-silver-4">
+    <img
+      width="448"
+      height="300"
+      class="d-b w-full br-1"
+      src="https://images.unsplash.com/photo-1619615391095-dfa29e1672ef?q=80&w=448&h=300"
+      alt="Station Hofplein signage in Rotterdam, Netherlands"
+    />
+    <p class="fs-sm c-slate m-0">
+      <strong class="ff-s">Typography</strong> is the art and science of arranging type
+      to make written language clear, visually appealing, and effective in communication.
+    </p>
+  </div>
+</div>
+```
+
+## Documentation
+
+For more information, check the [Base UI Preview Card documentation](https://base-ui.com/react/components/preview-card).
+
+## API Reference
+
+For detailed API reference, see the [Base UI Preview Card API Reference](https://base-ui.com/react/components/preview-card#api-reference).

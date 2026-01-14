@@ -1,0 +1,114 @@
+export const meta = {
+  title: "Toolbar",
+  description: "A container for grouping a set of buttons and controls.",
+};
+
+## React
+
+### Basic
+
+<Preview id="toolbar-basic" />
+
+```tsx
+import { Toolbar } from "@base-ui/react/toolbar";
+import { Toggle } from "@base-ui/react/toggle";
+import { ToggleGroup } from "@base-ui/react/toggle-group";
+import {
+  TextAlignLeft,
+  TextAlignCenter,
+  TextAlignRight,
+  TextBolder,
+  TextItalic,
+  TextUnderline,
+} from "@phosphor-icons/react";
+
+export default function ExampleToolbar() {
+  return (
+    <Toolbar.Root className="d-f ai-c g-1 br-1 bw-1 bc-silver-4 bg-silver-1 p-1">
+      <ToggleGroup className="d-f g-1" aria-label="Text alignment">
+        <Toolbar.Button
+          render={<Toggle />}
+          aria-label="Align left"
+          value="align-left"
+          className="d-f d-8 ai-c jc-c br-1 c-slate-6 us-none h:bg-silver-2"
+        >
+          <TextAlignLeft size={16} />
+        </Toolbar.Button>
+        <Toolbar.Button
+          render={<Toggle />}
+          aria-label="Align center"
+          value="align-center"
+          className="d-f d-8 ai-c jc-c br-1 c-slate-6 us-none h:bg-silver-2"
+        >
+          <TextAlignCenter size={16} />
+        </Toolbar.Button>
+        <Toolbar.Button
+          render={<Toggle />}
+          aria-label="Align right"
+          value="align-right"
+          className="d-f d-8 ai-c jc-c br-1 c-slate-6 us-none h:bg-silver-2"
+        >
+          <TextAlignRight size={16} />
+        </Toolbar.Button>
+      </ToggleGroup>
+
+      <Toolbar.Separator className="w-px h-4 mx-1 bg-silver-4" />
+
+      <ToggleGroup className="d-f g-1" aria-label="Text formatting" multiple>
+        <Toolbar.Button
+          render={<Toggle />}
+          aria-label="Bold"
+          value="bold"
+          className="d-f d-8 ai-c jc-c br-1 c-slate-6 us-none h:bg-silver-2"
+        >
+          <TextBolder size={16} />
+        </Toolbar.Button>
+        <Toolbar.Button
+          render={<Toggle />}
+          aria-label="Italic"
+          value="italic"
+          className="d-f d-8 ai-c jc-c br-1 c-slate-6 us-none h:bg-silver-2"
+        >
+          <TextItalic size={16} />
+        </Toolbar.Button>
+        <Toolbar.Button
+          render={<Toggle />}
+          aria-label="Underline"
+          value="underline"
+          className="d-f d-8 ai-c jc-c br-1 c-slate-6 us-none h:bg-silver-2"
+        >
+          <TextUnderline size={16} />
+        </Toolbar.Button>
+      </ToggleGroup>
+    </Toolbar.Root>
+  );
+}
+```
+
+## HTML
+
+### Basic Example
+
+```html
+<div class="d-f ai-c g-1 br-1 bw-1 bc-silver-4 bg-silver-1 p-1" role="toolbar">
+  <div class="d-f g-1" role="group">
+    <button class="d-f d-8 ai-c jc-c br-1 bg-silver-2 b-0 c-slate us-none">≡</button>
+    <button class="d-f d-8 ai-c jc-c br-1 bg-transparent b-0 c-slate-6 us-none h:bg-silver-2">≡</button>
+    <button class="d-f d-8 ai-c jc-c br-1 bg-transparent b-0 c-slate-6 us-none h:bg-silver-2">≡</button>
+  </div>
+  <div class="w-px h-4 mx-1 bg-silver-4"></div>
+  <div class="d-f g-1" role="group">
+    <button class="d-f d-8 ai-c jc-c br-1 bg-transparent b-0 c-slate-6 us-none h:bg-silver-2">B</button>
+    <button class="d-f d-8 ai-c jc-c br-1 bg-transparent b-0 c-slate-6 us-none h:bg-silver-2">I</button>
+    <button class="d-f d-8 ai-c jc-c br-1 bg-transparent b-0 c-slate-6 us-none h:bg-silver-2">U</button>
+  </div>
+</div>
+```
+
+## Documentation
+
+For more information, check the [Base UI Toolbar documentation](https://base-ui.com/react/components/toolbar).
+
+## API Reference
+
+For detailed API reference, see the [Base UI Toolbar API Reference](https://base-ui.com/react/components/toolbar#api-reference).

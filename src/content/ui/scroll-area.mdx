@@ -1,0 +1,69 @@
+export const meta = {
+  title: "Scroll Area",
+  description: "A native scroll container with custom scrollbars.",
+};
+
+## React
+
+### Basic
+
+<Preview id="scroll-area-basic" />
+
+```tsx
+import { ScrollArea } from "@base-ui/react/scroll-area";
+
+export default function ExampleScrollArea() {
+  return (
+    <ScrollArea.Root className="h-36 w-96 max-w-full">
+      <ScrollArea.Viewport className="h-full br-1 bw-1 bc-silver-4">
+        <div className="d-f fd-c g-4 py-3 pr-6 pl-4 fs-sm c-slate">
+          <p className="m-0">
+            Vernacular architecture is building done outside any academic
+            tradition, and without professional guidance. It is not a
+            particular architectural movement or style, but rather a broad
+            category, encompassing a wide range and variety of building types.
+          </p>
+          <p className="m-0">
+            This type of architecture usually serves immediate, local needs, is
+            constrained by the materials available in its particular region and
+            reflects local traditions and cultural practices.
+          </p>
+        </div>
+      </ScrollArea.Viewport>
+      <ScrollArea.Scrollbar>
+        <ScrollArea.Thumb />
+      </ScrollArea.Scrollbar>
+    </ScrollArea.Root>
+  );
+}
+```
+
+## HTML
+
+### Basic Example
+
+```html
+<div class="h-36 w-96 max-w-full o-a br-1 bw-1 bc-silver-4">
+  <div class="d-f fd-c g-4 py-3 pr-6 pl-4 fs-sm c-slate">
+    <p class="m-0">
+      Vernacular architecture is building done outside any academic
+      tradition, and without professional guidance. It is not a
+      particular architectural movement or style, but rather a broad
+      category, encompassing a wide range and variety of building types.
+    </p>
+    <p class="m-0">
+      This type of architecture usually serves immediate, local needs, is
+      constrained by the materials available in its particular region and
+      reflects local traditions and cultural practices.
+    </p>
+  </div>
+</div>
+```
+
+## Documentation
+
+For more information, check the [Base UI Scroll Area documentation](https://base-ui.com/react/components/scroll-area).
+
+## API Reference
+
+For detailed API reference, see the [Base UI Scroll Area API Reference](https://base-ui.com/react/components/scroll-area#api-reference).
