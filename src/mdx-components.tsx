@@ -10,9 +10,11 @@ import MediaVariant from "@/components/media-variant";
 import Note from "@/components/note";
 import OpacityVariant from "@/components/opacity-variant";
 import Palette from "@/components/palette";
+import Preview from "@/components/preview";
 import Stepper, { Step } from "@/components/stepper";
 import { Tabs, TabsList, TabsPanel, TabsTab } from "@/components/tabs";
-import Preview from "./components/preview";
+import TemplateFAQ from "@/components/ui/templates/faq";
+import TemplatesList from "@/components/ui/templates/list";
 
 // generate IDs from heading text
 function generateId(children: React.ReactNode): string {
@@ -31,6 +33,27 @@ function generateId(children: React.ReactNode): string {
 }
 
 const components: MDXComponents = {
+  // docs components
+  ApiTable,
+  Baseline,
+  HoverVariant,
+  LegacyColor,
+  LegacyPalette,
+  LegacyTable,
+  MediaVariant,
+  Note,
+  OpacityVariant,
+  Palette,
+  Preview,
+  Step,
+  Stepper,
+  Steps: Stepper, // Alias for Stepper
+  Tabs,
+  TabsList,
+  TabsPanel,
+  TabsTab,
+  TemplateFAQ,
+  TemplatesList,
   h1: ({ children, ...props }) => {
     const id = props.id || generateId(children);
     return props.className ? (
@@ -224,25 +247,6 @@ const components: MDXComponents = {
     />
   ),
   div: ({ children, ...props }) => <div {...props}>{children}</div>,
-  // docs components
-  ApiTable,
-  Baseline,
-  HoverVariant,
-  LegacyColor,
-  LegacyPalette,
-  LegacyTable,
-  MediaVariant,
-  Note,
-  OpacityVariant,
-  Palette,
-  Preview,
-  Step,
-  Stepper,
-  Steps: Stepper, // Alias for Stepper
-  Tabs,
-  TabsList,
-  TabsPanel,
-  TabsTab,
 } satisfies MDXComponents;
 
 export function useMDXComponents(): MDXComponents {

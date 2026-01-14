@@ -1,3 +1,4 @@
+/** biome-ignore-all lint/performance/noImgElement: This is a React demo not a Next.js demo */
 export default function TeamSectionGrid() {
   return (
     <section className="py-12">

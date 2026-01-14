@@ -13,10 +13,6 @@ export interface TemplatePage {
   title: string;
 }
 
-// Template Status
-
-export type TemplateStatus = "available" | "coming-soon";
-
 // Template Checkout URLs per license type
 
 export interface TemplateCheckout {
@@ -32,7 +28,6 @@ export interface Template {
   tagline: string;
   description: string;
   price: number;
-  status: TemplateStatus;
   stack: string[];
   pages: TemplatePage[];
   previewUrl: string;

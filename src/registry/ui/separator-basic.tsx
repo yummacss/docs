@@ -1,3 +1,4 @@
+/** biome-ignore-all lint/a11y/useValidAnchor: This is just a demo */
 import { Separator } from "@base-ui/react/separator";
 
 export default function ExampleSeparator() {

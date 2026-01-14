@@ -2,8 +2,8 @@
 
 import { usePathname } from "next/navigation";
 import TableOfContents from "@/components/ui/table-of-contents";
-import TemplateDetailsSidebar from "@/components/ui/template-details-sidebar";
-import TemplatesLegalSidebar from "@/components/ui/templates-legal-sidebar";
+import TemplateDetailsSidebar from "@/components/ui/templates/details-sidebar";
+import TemplatesLegalSidebar from "@/components/ui/templates/legal-sidebar";
 
 export default function RightSidebarRouter() {
   const pathname = usePathname();
