@@ -9,7 +9,6 @@ export const templates: Template[] = [
     description:
       "This template is designed for agencies and studios, and it showcases a minimal grayscale theme.",
     price: 19,
-    status: "available",
     stack: [
       "Next.js 16.1",
       "React 19.2",
@@ -41,80 +40,5 @@ export const templates: Template[] = [
       "/img/templates/neutra/process.png",
       "/img/templates/neutra/work.png",
     ],
-  },
-  // Blueprint
-  {
-    slug: "Blueprint",
-    name: "Blueprint",
-    tagline: "Developer Portfolio",
-    description:
-      "A dark, code-focused portfolio template for developers and engineers.",
-    price: 19,
-    status: "coming-soon",
-    stack: [
-      "Next.js 16.1",
-      "React 19.2",
-      "Yumma CSS 3.7",
-      "pnpm 10.27",
-      "TypeScript 5.0",
-    ],
-    pages: [],
-    previewUrl: "#",
-    checkout: {
-      singleProject: "#",
-      unlimitedProjects: "#",
-    },
-    cover: "/img/templates/placeholder.png",
-    screenshots: [],
-  },
-  // Solar
-  {
-    slug: "Solar",
-    name: "Solar",
-    tagline: "SaaS Landing",
-    description:
-      "A bright, conversion-focused landing page for SaaS products and startups.",
-    price: 19,
-    status: "coming-soon",
-    stack: [
-      "Next.js 16.1",
-      "React 19.2",
-      "Yumma CSS 3.7",
-      "pnpm 10.27",
-      "TypeScript 5.0",
-    ],
-    pages: [],
-    previewUrl: "#",
-    checkout: {
-      singleProject: "#",
-      unlimitedProjects: "#",
-    },
-    cover: "/img/templates/placeholder.png",
-    screenshots: [],
-  },
-  // Aria
-  {
-    slug: "Aria",
-    name: "Aria",
-    tagline: "Documentation",
-    description:
-      "A clean documentation template for open source projects and developer tools.",
-    price: 19,
-    status: "coming-soon",
-    stack: [
-      "Next.js 16.1",
-      "React 19.2",
-      "Yumma CSS 3.7",
-      "pnpm 10.27",
-      "TypeScript 5.0",
-    ],
-    pages: [],
-    previewUrl: "#",
-    checkout: {
-      singleProject: "#",
-      unlimitedProjects: "#",
-    },
-    cover: "/img/templates/placeholder.png",
-    screenshots: [],
   },
 ];

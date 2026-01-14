@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import TemplatesSidebar from "@/components/ui/templates-sidebar";
+import TemplatesSidebar from "@/components/ui/templates/sidebar";
 import UISidebar from "@/components/ui/ui-sidebar";
 
 export default function LeftSidebarRouter() {

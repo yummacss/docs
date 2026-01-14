@@ -8,6 +8,7 @@ export default function TestimonialSectionBasic() {
         </p>
       </blockquote>
       <div className="d-12 br-pill o-h mb-2">
+        {/** biome-ignore lint/performance/noImgElement: This is just a demo */}
         <img
           src="/img/people/phoenix-baker.jpg"
           alt="Phoenix Baker"

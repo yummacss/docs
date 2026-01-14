@@ -1,8 +1,8 @@
 "use client";
 
-import { registry } from "@/registry";
 import { cva, type VariantProps } from "class-variance-authority";
 import { clsx } from "clsx";
+import { registry } from "@/registry";
 
 const previewVariants = cva("bg-white btw-1 brw-1 blw-1", {
   variants: {

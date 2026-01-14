@@ -1,5 +1,9 @@
 import { Tooltip } from "@base-ui/react/tooltip";
-import { TextBIcon, TextItalicIcon, TextUnderlineIcon } from "@phosphor-icons/react";
+import {
+  TextBIcon,
+  TextItalicIcon,
+  TextUnderlineIcon,
+} from "@phosphor-icons/react";
 
 export default function ExampleTooltip() {
   return (
