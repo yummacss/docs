@@ -12,7 +12,7 @@ const rehypeExpressiveCodeOptions = {
     frames: {
       borderRadius: "0",
       shadowColor: "transparent",
-      tooltipSuccessBackground: "#31365e",
+      tooltipSuccessBackground: "hsla(233, 32%, 28%, 1.00)",
       // TODO: change copy icon color
     },
     textMarkers: {
