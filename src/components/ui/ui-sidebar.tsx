@@ -1,12 +1,12 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import type {
   UISidebarConfigItem,
   UISidebarConfigSimpleItem,
 } from "@/utils/ui-sidebar";
 import { uiSidebarConfig } from "@/utils/ui-sidebar";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import SidebarLinks from "./sidebar-links";
 
 function hasChildren(
@@ -31,10 +31,12 @@ export default function UISidebar() {
     pathname === "/ui/privacy" ||
     pathname === "/ui/terms";
 
-  // Filter out Templates section when on component pages
+  // Filter out Templates and Legal sections when on component pages
   const filteredConfig = isTemplatesPage
     ? uiSidebarConfig
-    : uiSidebarConfig.filter((section) => section.title !== "Templates");
+    : uiSidebarConfig.filter(
+        (section) => section.title !== "Templates" && section.title !== "Legal",
+      );
 
   return (
     <aside className="d-none lg:d-b lg:gc-s-3">

@@ -5,9 +5,9 @@ import {
   UserCircleIcon,
 } from "@phosphor-icons/react";
 
-export default function TabsBasic() {
+export default function ExampleTabs() {
   return (
-    <Tabs.Root className="bw-1 bc-silver-4 br-0" defaultValue="overview">
+    <Tabs.Root className="bw-1 bc-silver-4 br-1" defaultValue="overview">
       <Tabs.List className="p-r d-f g-1 px-1 bbw-1 bc-silver-4">
         <Tabs.Tab
           className="d-f ai-c jc-c h-8 px-3 fs-sm fw-500 bw-0 bg-transparent us-none tabs-tab"
@@ -27,7 +27,7 @@ export default function TabsBasic() {
         >
           Account
         </Tabs.Tab>
-        <Tabs.Indicator className="p-a t-half l-0 zi-n1 h-6 br-0 bg-silver-1 tabs-indicator" />
+        <Tabs.Indicator className="p-a t-half l-0 zi-n1 h-6 br-1 bg-silver-1 tabs-indicator" />
       </Tabs.List>
       <Tabs.Panel className="d-f ai-c jc-c h-32" value="overview">
         <ShapesIcon size={40} className="c-silver-4" />
@@ -40,14 +40,14 @@ export default function TabsBasic() {
       </Tabs.Panel>
       <style>{`
         .tabs-tab {
-          color: #71717a;
+          color: var(--slate-6);
           outline: none;
         }
         .tabs-tab:hover {
-          color: #18181b;
+          color: var(--slate);
         }
         .tabs-tab[data-active] {
-          color: #18181b;
+          color: var(--slate);
         }
         .tabs-indicator {
           width: var(--active-tab-width);

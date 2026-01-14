@@ -13,37 +13,37 @@ export const meta = {
 import { Menu } from "@base-ui/react/menu";
 import { CaretDownIcon, CaretRightIcon } from "@phosphor-icons/react";
 
-export default function MenuBasic() {
+export default function ExampleMenu() {
   return (
     <Menu.Root>
-      <Menu.Trigger className="d-f ai-c g-2 px-4 py-2 br-0 fs-sm fw-500 bg-slate-8 c-white h:bg-slate-10">
-        Song <CaretDownIcon size={14} className="ml-1" />
+      <Menu.Trigger className="d-f h-10 ai-c jc-c g-2 px-4 bw-1 bc-silver-4 br-1 bg-silver-1 fs-md fw-500 c-slate us-none h:bg-silver-2 fv:os-s fv:ow-2 fv:oo--1 fv:oc-blue-8">
+        Song <CaretDownIcon size={10} className="mr--1" />
       </Menu.Trigger>
       <Menu.Portal>
-        <Menu.Positioner className="ol-n" sideOffset={8}>
-          <Menu.Popup className="br-0 bg-white py-1 bw-1 bc-silver-4 bs-3 c-slate-8">
-            <Menu.Item className="d-f c-d py-2 pr-8 pl-4 fs-sm ol-n us-n h:bg-silver-1">
+        <Menu.Positioner className="ow-0" sideOffset={8}>
+          <Menu.Popup className="br-1 bg-white py-1 bw-1 bc-silver-4 bs-md c-slate">
+            <Menu.Item className="d-f c-d py-2 pr-8 pl-4 fs-sm us-none ow-0">
               Add to Library
             </Menu.Item>
 
             <Menu.SubmenuRoot>
-              <Menu.SubmenuTrigger className="d-f ai-c jc-sb g-4 c-d py-2 pr-4 pl-4 fs-sm ol-n us-n h:bg-silver-1 w-full">
-                Add to Playlist <CaretRightIcon size={12} />
+              <Menu.SubmenuTrigger className="d-f ai-c jc-sb g-4 c-d py-2 pr-4 pl-4 fs-sm us-none ow-0 w-full">
+                Add to Playlist <CaretRightIcon size={10} />
               </Menu.SubmenuTrigger>
               <Menu.Portal>
-                <Menu.Positioner className="ol-n" sideOffset={4} alignOffset={-4}>
-                  <Menu.Popup className="br-0 bg-white py-1 bw-1 bc-silver-4 bs-3 c-slate-8">
-                    <Menu.Item className="d-f c-d py-2 pr-8 pl-4 fs-sm ol-n us-n h:bg-silver-1">
+                <Menu.Positioner className="ow-0" sideOffset={-4} alignOffset={-4}>
+                  <Menu.Popup className="br-1 bg-white py-1 bw-1 bc-silver-4 bs-md c-slate">
+                    <Menu.Item className="d-f c-d py-2 pr-8 pl-4 fs-sm us-none ow-0">
                       Get Up!
                     </Menu.Item>
-                    <Menu.Item className="d-f c-d py-2 pr-8 pl-4 fs-sm ol-n us-n h:bg-silver-1">
+                    <Menu.Item className="d-f c-d py-2 pr-8 pl-4 fs-sm us-none ow-0">
                       Inside Out
                     </Menu.Item>
-                    <Menu.Item className="d-f c-d py-2 pr-8 pl-4 fs-sm ol-n us-n h:bg-silver-1">
+                    <Menu.Item className="d-f c-d py-2 pr-8 pl-4 fs-sm us-none ow-0">
                       Night Beats
                     </Menu.Item>
-                    <Menu.Separator className="mx-4 my-1 h-px bg-silver-4" />
-                    <Menu.Item className="d-f c-d py-2 pr-8 pl-4 fs-sm ol-n us-n h:bg-silver-1">
+                    <Menu.Separator className="mx-4 my-2 h-px bg-silver-4" />
+                    <Menu.Item className="d-f c-d py-2 pr-8 pl-4 fs-sm us-none ow-0">
                       New playlist…
                     </Menu.Item>
                   </Menu.Popup>
@@ -51,18 +51,18 @@ export default function MenuBasic() {
               </Menu.Portal>
             </Menu.SubmenuRoot>
 
-            <Menu.Separator className="mx-4 my-1 h-px bg-silver-4" />
-            <Menu.Item className="d-f c-d py-2 pr-8 pl-4 fs-sm ol-n us-n h:bg-silver-1">
+            <Menu.Separator className="mx-4 my-2 h-px bg-silver-4" />
+            <Menu.Item className="d-f c-d py-2 pr-8 pl-4 fs-sm us-none ow-0">
               Play Next
             </Menu.Item>
-            <Menu.Item className="d-f c-d py-2 pr-8 pl-4 fs-sm ol-n us-n h:bg-silver-1">
+            <Menu.Item className="d-f c-d py-2 pr-8 pl-4 fs-sm us-none ow-0">
               Play Last
             </Menu.Item>
-            <Menu.Separator className="mx-4 my-1 h-px bg-silver-4" />
-            <Menu.Item className="d-f c-d py-2 pr-8 pl-4 fs-sm ol-n us-n h:bg-silver-1">
+            <Menu.Separator className="mx-4 my-2 h-px bg-silver-4" />
+            <Menu.Item className="d-f c-d py-2 pr-8 pl-4 fs-sm us-none ow-0">
               Favorite
             </Menu.Item>
-            <Menu.Item className="d-f c-d py-2 pr-8 pl-4 fs-sm ol-n us-n h:bg-silver-1">
+            <Menu.Item className="d-f c-d py-2 pr-8 pl-4 fs-sm us-none ow-0">
               Share
             </Menu.Item>
           </Menu.Popup>
@@ -83,27 +83,21 @@ export default function MenuBasic() {
     id="menu-button"
     aria-haspopup="menu"
     aria-expanded="false"
-    class="d-f ai-c g-2 px-4 py-2 br-0 fs-sm fw-500 bg-slate-8 c-white h:bg-slate-10"
+    class="d-f h-10 ai-c jc-c g-2 px-4 bw-1 bc-silver-4 br-1 bg-silver-1 fs-md fw-500 c-slate us-none h:bg-silver-2"
   >
-    <span>Song</span>
-    <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" viewBox="0 0 256 256">
-      <polyline points="208 96 128 176 48 96" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" />
-    </svg>
+    Song ▼
   </button>
-  <div role="menu" class="p-a mt-2 py-1 bg-white bw-1 bc-silver-4 br-0 bs-3 min-w-40 z-10">
-    <button role="menuitem" class="d-b w-full ta-l py-2 pr-8 pl-4 fs-sm c-slate-8 bg-transparent bw-0 h:bg-silver-1 c-p">Add to Library</button>
-    <button role="menuitem" aria-haspopup="menu" class="d-f ai-c jc-sb w-full ta-l py-2 pr-4 pl-4 fs-sm c-slate-8 bg-transparent bw-0 h:bg-silver-1 c-p">
-      Add to Playlist
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" viewBox="0 0 256 256">
-        <polyline points="96 48 176 128 96 208" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" />
-      </svg>
+  <div role="menu" class="p-a mt-2 py-1 bg-white bw-1 bc-silver-4 br-1 bs-md min-w-40 zi-10">
+    <button role="menuitem" class="d-b w-full ta-l py-2 pr-8 pl-4 fs-sm c-slate bg-transparent bw-0 h:bg-silver-2">Add to Library</button>
+    <button role="menuitem" class="d-f ai-c jc-sb w-full ta-l py-2 pr-4 pl-4 fs-sm c-slate bg-transparent bw-0 h:bg-silver-2">
+      Add to Playlist →
     </button>
-    <hr class="mx-4 my-1 bw-0 btw-1 bc-silver-4" />
-    <button role="menuitem" class="d-b w-full ta-l py-2 pr-8 pl-4 fs-sm c-slate-8 bg-transparent bw-0 h:bg-silver-1 c-p">Play Next</button>
-    <button role="menuitem" class="d-b w-full ta-l py-2 pr-8 pl-4 fs-sm c-slate-8 bg-transparent bw-0 h:bg-silver-1 c-p">Play Last</button>
-    <hr class="mx-4 my-1 bw-0 btw-1 bc-silver-4" />
-    <button role="menuitem" class="d-b w-full ta-l py-2 pr-8 pl-4 fs-sm c-slate-8 bg-transparent bw-0 h:bg-silver-1 c-p">Favorite</button>
-    <button role="menuitem" class="d-b w-full ta-l py-2 pr-8 pl-4 fs-sm c-slate-8 bg-transparent bw-0 h:bg-silver-1 c-p">Share</button>
+    <hr class="mx-4 my-2 bw-0 btw-1 bc-silver-4" />
+    <button role="menuitem" class="d-b w-full ta-l py-2 pr-8 pl-4 fs-sm c-slate bg-transparent bw-0 h:bg-silver-2">Play Next</button>
+    <button role="menuitem" class="d-b w-full ta-l py-2 pr-8 pl-4 fs-sm c-slate bg-transparent bw-0 h:bg-silver-2">Play Last</button>
+    <hr class="mx-4 my-2 bw-0 btw-1 bc-silver-4" />
+    <button role="menuitem" class="d-b w-full ta-l py-2 pr-8 pl-4 fs-sm c-slate bg-transparent bw-0 h:bg-silver-2">Favorite</button>
+    <button role="menuitem" class="d-b w-full ta-l py-2 pr-8 pl-4 fs-sm c-slate bg-transparent bw-0 h:bg-silver-2">Share</button>
   </div>
 </div>
 ```

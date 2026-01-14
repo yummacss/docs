@@ -1,0 +1,62 @@
+export const meta = {
+  title: "Popover",
+  description: "An accessible popup anchored to a button.",
+};
+
+## React
+
+### Basic
+
+<Preview id="popover-basic" />
+
+```tsx
+"use client";
+
+import { Popover } from "@base-ui/react/popover";
+import { BellIcon } from "@phosphor-icons/react";
+
+export default function ExamplePopover() {
+  return (
+    <Popover.Root>
+      <Popover.Trigger className="d-f ai-c jc-c d-10 br-1 bw-1 bc-silver-4 bg-silver-1 c-slate us-none h:bg-silver-2 fv:os-s fv:ow-2 fv:oo--1 fv:oc-blue-8">
+        <BellIcon size={20} aria-label="Notifications" />
+      </Popover.Trigger>
+      <Popover.Portal>
+        <Popover.Positioner sideOffset={8}>
+          <Popover.Popup className="br-1 bg-white px-6 py-4 c-slate bs-md bw-1 bc-silver-4">
+            <Popover.Title className="fs-md fw-500 ff-s">Notifications</Popover.Title>
+            <Popover.Description className="fs-md c-slate-6">
+              You are all caught up. Good job!
+            </Popover.Description>
+          </Popover.Popup>
+        </Popover.Positioner>
+      </Popover.Portal>
+    </Popover.Root>
+  );
+}
+```
+
+## HTML
+
+### Basic Example
+
+```html
+<div class="p-r">
+  <button class="d-f ai-c jc-c d-10 br-1 bw-1 bc-silver-4 bg-silver-1 c-slate us-none h:bg-silver-2">
+    🔔
+  </button>
+  <!-- Popover (shown as open) -->
+  <div class="p-a t-full l-0 mt-2 br-1 bg-white px-6 py-4 c-slate bs-md bw-1 bc-silver-4">
+    <h3 class="fs-md fw-500 ff-s">Notifications</h3>
+    <p class="fs-md c-slate-6">You are all caught up. Good job!</p>
+  </div>
+</div>
+```
+
+## Documentation
+
+For more information, check the [Base UI Popover documentation](https://base-ui.com/react/components/popover).
+
+## API Reference
+
+For detailed API reference, see the [Base UI Popover API Reference](https://base-ui.com/react/components/popover#api-reference).

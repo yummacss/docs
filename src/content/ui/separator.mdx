@@ -1,0 +1,64 @@
+export const meta = {
+  title: "Separator",
+  description: "A separator element accessible to screen readers.",
+};
+
+## React
+
+### Basic
+
+<Preview id="separator-basic" />
+
+```tsx
+import { Separator } from "@base-ui/react/separator";
+
+export default function ExampleSeparator() {
+  return (
+    <div className="d-f g-4 ws-nw">
+      <a href="#" className="fs-sm c-slate td-n h:td-u">Home</a>
+      <a href="#" className="fs-sm c-slate td-n h:td-u">Pricing</a>
+      <a href="#" className="fs-sm c-slate td-n h:td-u">Blog</a>
+      <a href="#" className="fs-sm c-slate td-n h:td-u">Support</a>
+
+      <Separator orientation="vertical" className="w-px bg-silver-4" />
+
+      <a href="#" className="fs-sm c-slate td-n h:td-u">Log in</a>
+      <a href="#" className="fs-sm c-slate td-n h:td-u">Sign up</a>
+    </div>
+  );
+}
+```
+
+## HTML
+
+### Basic Example
+
+```html
+<!-- Vertical Separator -->
+<div class="d-f g-4 ws-nw">
+  <a href="#" class="fs-sm c-slate td-n h:td-u">Home</a>
+  <a href="#" class="fs-sm c-slate td-n h:td-u">Pricing</a>
+  <a href="#" class="fs-sm c-slate td-n h:td-u">Blog</a>
+  <a href="#" class="fs-sm c-slate td-n h:td-u">Support</a>
+  
+  <div role="separator" class="w-px bg-silver-4"></div>
+  
+  <a href="#" class="fs-sm c-slate td-n h:td-u">Log in</a>
+  <a href="#" class="fs-sm c-slate td-n h:td-u">Sign up</a>
+</div>
+
+<!-- Horizontal Separator -->
+<div class="d-f fd-c g-4">
+  <p class="fs-sm c-slate m-0">Content above</p>
+  <div role="separator" class="h-px w-full bg-silver-4"></div>
+  <p class="fs-sm c-slate m-0">Content below</p>
+</div>
+```
+
+## Documentation
+
+For more information, check the [Base UI Separator documentation](https://base-ui.com/react/components/separator).
+
+## API Reference
+
+For detailed API reference, see the [Base UI Separator API Reference](https://base-ui.com/react/components/separator#api-reference).

@@ -1,6 +1,6 @@
 export const meta = {
   title: "Checkbox",
-  description: "A toggle for binary choices.",
+  description: "An easily stylable checkbox component.",
 };
 
 ## React
@@ -13,11 +13,14 @@ export const meta = {
 import { Checkbox } from "@base-ui/react/checkbox";
 import { CheckIcon } from "@phosphor-icons/react";
 
-export default function CheckboxBasic() {
+export default function ExampleCheckbox() {
   return (
-    <label className="d-f ai-c g-2 fs-sm c-slate">
-      <Checkbox.Root defaultChecked className="d-f ai-c jc-c d-5 br-0 bw-1 bc-silver-4 bg-white">
-        <Checkbox.Indicator className="d-f c-black">
+    <label className="d-f ai-c g-2 fs-md c-slate">
+      <Checkbox.Root
+        defaultChecked
+        className="d-f ai-c jc-c d-5 br-1 fv:os-s fv:ow-2 fv:oo-2 fv:oc-blue-8 checkbox-root"
+      >
+        <Checkbox.Indicator className="d-f c-silver-1">
           <CheckIcon size={12} weight="bold" />
         </Checkbox.Indicator>
       </Checkbox.Root>
@@ -32,8 +35,8 @@ export default function CheckboxBasic() {
 ### Basic Example
 
 ```html
-<label class="d-f ai-c g-2 fs-sm c-slate">
-  <input type="checkbox" class="d-4 ac-slate" />
+<label class="d-f ai-c g-2 fs-md c-slate">
+  <input type="checkbox" checked class="d-5 ac-slate" />
   Enable notifications
 </label>
 ```

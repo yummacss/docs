@@ -1,0 +1,165 @@
+export const meta = {
+  title: "Menubar",
+  description: "A horizontal menu bar with multiple dropdown menus.",
+};
+
+## React
+
+### Basic
+
+<Preview id="menubar-basic" />
+
+```tsx
+"use client";
+
+import { Menubar } from "@base-ui/react/menubar";
+import { Menu } from "@base-ui/react/menu";
+import { CaretRightIcon } from "@phosphor-icons/react";
+
+export default function ExampleMenubar() {
+  return (
+    <Menubar className="d-f br-1 bw-1 bc-silver-4 bg-silver-1 p-1">
+      <Menu.Root>
+        <Menu.Trigger className="h-8 br-1 px-3 fs-sm fw-500 c-slate-6 ow-0 us-none fv:bg-silver-2">
+          File
+        </Menu.Trigger>
+        <Menu.Portal>
+          <Menu.Positioner className="ow-0" sideOffset={6}>
+            <Menu.Popup className="br-1 bg-white c-slate py-1 bs-md bw-1 bc-silver-4">
+              <Menu.Item className="d-f ai-c jc-sb g-4 px-4 py-2 fs-sm c-d us-none ow-0">
+                New
+              </Menu.Item>
+              <Menu.Item className="d-f ai-c jc-sb g-4 px-4 py-2 fs-sm c-d us-none ow-0">
+                Open
+              </Menu.Item>
+              <Menu.Item className="d-f ai-c jc-sb g-4 px-4 py-2 fs-sm c-d us-none ow-0">
+                Save
+              </Menu.Item>
+
+              <Menu.SubmenuRoot>
+                <Menu.SubmenuTrigger className="d-f w-full ai-c jc-sb g-4 px-4 py-2 fs-sm c-d us-none ow-0">
+                  Export
+                  <CaretRightIcon size={10} />
+                </Menu.SubmenuTrigger>
+                <Menu.Portal>
+                  <Menu.Positioner className="ow-0">
+                    <Menu.Popup className="br-1 bg-white c-slate py-1 bs-md bw-1 bc-silver-4">
+                      <Menu.Item className="d-f ai-c jc-sb g-4 px-4 py-2 fs-sm c-d us-none ow-0">
+                        PDF
+                      </Menu.Item>
+                      <Menu.Item className="d-f ai-c jc-sb g-4 px-4 py-2 fs-sm c-d us-none ow-0">
+                        PNG
+                      </Menu.Item>
+                      <Menu.Item className="d-f ai-c jc-sb g-4 px-4 py-2 fs-sm c-d us-none ow-0">
+                        SVG
+                      </Menu.Item>
+                    </Menu.Popup>
+                  </Menu.Positioner>
+                </Menu.Portal>
+              </Menu.SubmenuRoot>
+
+              <Menu.Separator className="mx-4 my-2 h-px bg-silver-4" />
+              <Menu.Item className="d-f ai-c jc-sb g-4 px-4 py-2 fs-sm c-d us-none ow-0">
+                Print
+              </Menu.Item>
+            </Menu.Popup>
+          </Menu.Positioner>
+        </Menu.Portal>
+      </Menu.Root>
+
+      <Menu.Root>
+        <Menu.Trigger className="h-8 br-1 px-3 fs-sm fw-500 c-slate-6 ow-0 us-none fv:bg-silver-2">
+          Edit
+        </Menu.Trigger>
+        <Menu.Portal>
+          <Menu.Positioner className="ow-0" sideOffset={6}>
+            <Menu.Popup className="br-1 bg-white c-slate py-1 bs-md bw-1 bc-silver-4">
+              <Menu.Item className="d-f ai-c jc-sb g-4 px-4 py-2 fs-sm c-d us-none ow-0">
+                Cut
+              </Menu.Item>
+              <Menu.Item className="d-f ai-c jc-sb g-4 px-4 py-2 fs-sm c-d us-none ow-0">
+                Copy
+              </Menu.Item>
+              <Menu.Item className="d-f ai-c jc-sb g-4 px-4 py-2 fs-sm c-d us-none ow-0">
+                Paste
+              </Menu.Item>
+            </Menu.Popup>
+          </Menu.Positioner>
+        </Menu.Portal>
+      </Menu.Root>
+
+      <Menu.Root>
+        <Menu.Trigger className="h-8 br-1 px-3 fs-sm fw-500 c-slate-6 ow-0 us-none fv:bg-silver-2">
+          View
+        </Menu.Trigger>
+        <Menu.Portal>
+          <Menu.Positioner className="ow-0" sideOffset={6}>
+            <Menu.Popup className="br-1 bg-white c-slate py-1 bs-md bw-1 bc-silver-4">
+              <Menu.Item className="d-f ai-c jc-sb g-4 px-4 py-2 fs-sm c-d us-none ow-0">
+                Zoom In
+              </Menu.Item>
+              <Menu.Item className="d-f ai-c jc-sb g-4 px-4 py-2 fs-sm c-d us-none ow-0">
+                Zoom Out
+              </Menu.Item>
+
+              <Menu.SubmenuRoot>
+                <Menu.SubmenuTrigger className="d-f w-full ai-c jc-sb g-4 px-4 py-2 fs-sm c-d us-none ow-0">
+                  Layout
+                  <CaretRightIcon size={10} />
+                </Menu.SubmenuTrigger>
+                <Menu.Portal>
+                  <Menu.Positioner className="ow-0">
+                    <Menu.Popup className="br-1 bg-white c-slate py-1 bs-md bw-1 bc-silver-4">
+                      <Menu.Item className="d-f ai-c jc-sb g-4 px-4 py-2 fs-sm c-d us-none ow-0">
+                        Single Page
+                      </Menu.Item>
+                      <Menu.Item className="d-f ai-c jc-sb g-4 px-4 py-2 fs-sm c-d us-none ow-0">
+                        Two Pages
+                      </Menu.Item>
+                      <Menu.Item className="d-f ai-c jc-sb g-4 px-4 py-2 fs-sm c-d us-none ow-0">
+                        Continuous
+                      </Menu.Item>
+                    </Menu.Popup>
+                  </Menu.Positioner>
+                </Menu.Portal>
+              </Menu.SubmenuRoot>
+
+              <Menu.Separator className="mx-4 my-2 h-px bg-silver-4" />
+              <Menu.Item className="d-f ai-c jc-sb g-4 px-4 py-2 fs-sm c-d us-none ow-0">
+                Full Screen
+              </Menu.Item>
+            </Menu.Popup>
+          </Menu.Positioner>
+        </Menu.Portal>
+      </Menu.Root>
+
+      <Menu.Root disabled>
+        <Menu.Trigger className="h-8 br-1 px-3 fs-sm fw-500 c-slate-6 ow-0 us-none fv:bg-silver-2">
+          Help
+        </Menu.Trigger>
+      </Menu.Root>
+    </Menubar>
+  );
+}
+```
+
+## HTML
+
+### Basic Example
+
+```html
+<div class="d-f br-1 bw-1 bc-silver-4 bg-silver-1 p-1" role="menubar">
+  <button class="h-8 br-1 px-3 fs-sm fw-500 c-slate-6 ow-0 us-none fv:bg-silver-2">File</button>
+  <button class="h-8 br-1 px-3 fs-sm fw-500 c-slate-6 ow-0 us-none fv:bg-silver-2">Edit</button>
+  <button class="h-8 br-1 px-3 fs-sm fw-500 c-slate-6 ow-0 us-none fv:bg-silver-2">View</button>
+  <button class="h-8 br-1 px-3 fs-sm fw-500 c-slate-6 ow-0 us-none o-50" disabled>Help</button>
+</div>
+```
+
+## Documentation
+
+For more information, check the [Base UI Menubar documentation](https://base-ui.com/react/components/menubar).
+
+## API Reference
+
+For detailed API reference, see the [Base UI Menubar API Reference](https://base-ui.com/react/components/menubar#api-reference).

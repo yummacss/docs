@@ -1,0 +1,101 @@
+export const meta = {
+  title: "Toast",
+  description: "Generates toast notifications.",
+};
+
+## React
+
+### Basic
+
+<Preview id="toast-basic" />
+
+```tsx
+"use client";
+
+import { Toast } from "@base-ui/react/toast";
+import { XIcon } from "@phosphor-icons/react";
+import * as React from "react";
+
+export default function ExampleToast() {
+  return (
+    <Toast.Provider>
+      <ToastButton />
+      <Toast.Portal>
+        <Toast.Viewport className="p-f zi-10 t-auto r-4 b-4 m-auto d-f w-64">
+          <ToastList />
+        </Toast.Viewport>
+      </Toast.Portal>
+    </Toast.Provider>
+  );
+}
+
+function ToastButton() {
+  const toastManager = Toast.useToastManager();
+  const [count, setCount] = React.useState(0);
+
+  function createToast() {
+    setCount((prev) => prev + 1);
+    toastManager.add({
+      title: `Toast ${count + 1} created`,
+      description: "This is a toast notification.",
+    });
+  }
+
+  return (
+    <button
+      type="button"
+      className="d-f h-10 ai-c jc-c br-1 bw-1 bc-silver-4 bg-silver-1 px-4 fw-500 c-slate us-none h:bg-silver-2 fv:os-s fv:ow-2 fv:oo--1 fv:oc-blue-8"
+      onClick={createToast}
+    >
+      Create toast
+    </button>
+  );
+}
+
+function ToastList() {
+  const { toasts } = Toast.useToastManager();
+  return toasts.map((toast) => (
+    <Toast.Root
+      key={toast.id}
+      toast={toast}
+      className="p-a r-0 b-0 l-auto w-full br-1 bw-1 bc-silver-4 bg-white bs-md p-4 us-none"
+    >
+      <Toast.Content className="o-h">
+        <Toast.Title className="fs-md lh-5 fw-500" />
+        <Toast.Description className="fs-sm lh-5 c-slate-6" />
+        <Toast.Close
+          className="p-a t-2 r-2 d-f h-5 w-5 ai-c jc-c br-1 b-0 bg-transparent c-slate-6 h:bg-silver-1 h:c-slate"
+          aria-label="Close"
+        >
+          <XIcon size={16} />
+        </Toast.Close>
+      </Toast.Content>
+    </Toast.Root>
+  ));
+}
+```
+
+## HTML
+
+### Basic Example
+
+```html
+<!-- Toast notification -->
+<div class="p-f r-4 b-4 w-64 zi-10">
+  <div class="p-r br-1 bw-1 bc-silver-4 bg-white bs-md p-4">
+    <h3 class="fs-md lh-5 fw-500 m-0">Toast created</h3>
+    <p class="fs-sm lh-5 c-slate-6 m-0">This is a toast notification.</p>
+    <button class="p-a t-2 r-2 d-f h-5 w-5 ai-c jc-c br-1 b-0 bg-transparent c-slate-6 h:bg-silver-1 h:c-slate" aria-label="Close">
+      ×
+    </button>
+  </div>
+</div>
+```
+
+## Documentation
+
+For more information, check the [Base UI Toast documentation](https://base-ui.com/react/components/toast).
+
+## API Reference
+
+For detailed API reference, see the [Base UI Toast API Reference](https://base-ui.com/react/components/toast#api-reference).

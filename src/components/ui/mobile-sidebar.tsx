@@ -1,7 +1,5 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import type {
   SidebarConfigItem,
   SidebarConfigSimpleItem,
@@ -12,6 +10,8 @@ import type {
   UISidebarConfigSimpleItem,
 } from "@/utils/ui-sidebar";
 import { uiSidebarConfig } from "@/utils/ui-sidebar";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import SidebarLinks from "./sidebar-links";
 
 function hasChildren(item: SidebarConfigItem | UISidebarConfigItem): item is (
@@ -44,8 +44,28 @@ export default function MobileSidebar({
   routeType,
 }: MobileSidebarProps) {
   const pathname = usePathname();
-  const config = routeType === "ui" ? uiSidebarConfig : sidebarConfig;
+  const fullConfig = routeType === "ui" ? uiSidebarConfig : sidebarConfig;
   const baseRoute = routeType === "ui" ? "/ui" : "/docs";
+
+  // Filter sections based on route
+  const isTemplatesRoute = pathname?.startsWith("/ui/templates");
+  const isComponentsRoute =
+    routeType === "ui" &&
+    !isTemplatesRoute &&
+    !pathname?.startsWith("/ui/license") &&
+    !pathname?.startsWith("/ui/privacy") &&
+    !pathname?.startsWith("/ui/terms");
+
+  let config = fullConfig;
+  if (isTemplatesRoute) {
+    // Templates routes: only show Templates section
+    config = fullConfig.filter((section) => section.title === "Templates");
+  } else if (isComponentsRoute) {
+    // Components routes: exclude Templates and Legal sections
+    config = fullConfig.filter(
+      (section) => section.title !== "Templates" && section.title !== "Legal",
+    );
+  }
 
   if (!isOpen) return null;
 

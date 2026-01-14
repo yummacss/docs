@@ -1,0 +1,81 @@
+export const meta = {
+  title: "Fieldset",
+  description: "A native fieldset element with an easily stylable legend.",
+};
+
+## React
+
+### Basic
+
+<Preview id="fieldset-basic" />
+
+```tsx
+import { Field } from "@base-ui/react/field";
+import { Fieldset } from "@base-ui/react/fieldset";
+
+export default function ExampleFieldset() {
+  return (
+    <Fieldset.Root className="d-f fd-c g-4 w-full max-w-64 bw-0 m-0 p-0">
+      <Fieldset.Legend className="bbw-1 bc-silver-4 pb-3 fs-lg fw-500 c-slate">
+        Billing details
+      </Fieldset.Legend>
+
+      <Field.Root className="d-f fd-c ai-fs g-1">
+        <Field.Label className="fs-sm fw-500 c-slate">Company</Field.Label>
+        <Field.Control
+          placeholder="Enter company name"
+          className="h-10 w-full br-1 bw-1 bc-silver-4 pl-4 fs-md c-slate bg-white f:os-s f:ow-2 f:oo--1 f:oc-blue-8"
+        />
+      </Field.Root>
+
+      <Field.Root className="d-f fd-c ai-fs g-1">
+        <Field.Label className="fs-sm fw-500 c-slate">Tax ID</Field.Label>
+        <Field.Control
+          placeholder="Enter fiscal number"
+          className="h-10 w-full br-1 bw-1 bc-silver-4 pl-4 fs-md c-slate bg-white f:os-s f:ow-2 f:oo--1 f:oc-blue-8"
+        />
+      </Field.Root>
+    </Fieldset.Root>
+  );
+}
+```
+
+## HTML
+
+### Basic Example
+
+```html
+<fieldset class="d-f fd-c g-4 w-full max-w-64 bw-0 m-0 p-0">
+  <legend class="bbw-1 bc-silver-4 pb-3 fs-lg fw-500 c-slate">
+    Billing details
+  </legend>
+
+  <div class="d-f fd-c ai-fs g-1">
+    <label class="fs-sm fw-500 c-slate" for="company-input">Company</label>
+    <input
+      id="company-input"
+      type="text"
+      placeholder="Enter company name"
+      class="h-10 w-full br-1 bw-1 bc-silver-4 pl-4 fs-md c-slate bg-white f:os-s f:ow-2 f:oo--1 f:oc-blue-8"
+    />
+  </div>
+
+  <div class="d-f fd-c ai-fs g-1">
+    <label class="fs-sm fw-500 c-slate" for="tax-input">Tax ID</label>
+    <input
+      id="tax-input"
+      type="text"
+      placeholder="Enter fiscal number"
+      class="h-10 w-full br-1 bw-1 bc-silver-4 pl-4 fs-md c-slate bg-white f:os-s f:ow-2 f:oo--1 f:oc-blue-8"
+    />
+  </div>
+</fieldset>
+```
+
+## Documentation
+
+For more information, check the [Base UI Fieldset documentation](https://base-ui.com/react/components/fieldset).
+
+## API Reference
+
+For detailed API reference, see the [Base UI Fieldset API Reference](https://base-ui.com/react/components/fieldset#api-reference).

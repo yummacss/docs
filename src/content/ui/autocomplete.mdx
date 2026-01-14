@@ -1,0 +1,100 @@
+export const meta = {
+  title: "Autocomplete",
+  description: "An input that suggests options as you type.",
+};
+
+## React
+
+### Basic
+
+<Preview id="autocomplete-basic" />
+
+```tsx
+"use client";
+import { Autocomplete } from "@base-ui/react/autocomplete";
+
+export default function ExampleAutocomplete() {
+  return (
+    <Autocomplete.Root items={tags}>
+      <label className="d-f fd-c g-1 fs-sm fw-500 c-slate">
+        Search tags
+        <Autocomplete.Input
+          placeholder="e.g. feature"
+          className="h-10 w-64 pl-4 br-1 bw-1 bc-silver-4 fs-md c-slate bg-white f:os-s f:ow-2 f:oo--1 f:oc-blue-8"
+        />
+      </label>
+
+      <Autocomplete.Portal>
+        <Autocomplete.Positioner className="ow-0" sideOffset={4}>
+          <Autocomplete.Popup className="w-64 max-h-72 br-1 bg-white bw-1 bc-silver-4 bs-lg c-slate">
+            <Autocomplete.Empty className="p-4 fs-sm c-slate-6">
+              No tags found.
+            </Autocomplete.Empty>
+            <Autocomplete.List className="ow-0 o-y-auto py-2">
+              {(tag: Tag) => (
+                <Autocomplete.Item
+                  key={tag.id}
+                  className="d-f ai-c py-2 pr-8 pl-4 fs-md c-d us-none"
+                  value={tag}
+                >
+                  {tag.value}
+                </Autocomplete.Item>
+              )}
+            </Autocomplete.List>
+          </Autocomplete.Popup>
+        </Autocomplete.Positioner>
+      </Autocomplete.Portal>
+    </Autocomplete.Root>
+  );
+}
+
+interface Tag {
+  id: string;
+  value: string;
+}
+
+const tags: Tag[] = [
+  { id: "t1", value: "feature" },
+  { id: "t2", value: "fix" },
+  { id: "t3", value: "bug" },
+  { id: "t4", value: "docs" },
+  { id: "t5", value: "internal" },
+  { id: "t6", value: "mobile" },
+  { id: "c-accordion", value: "component: accordion" },
+  { id: "c-alert-dialog", value: "component: alert dialog" },
+];
+```
+
+## HTML
+
+### Basic Example
+
+```html
+<div class="d-ib p-r">
+  <label class="d-f fd-c g-1 fs-sm fw-500 c-slate">
+    Search tags
+    <input
+      type="text"
+      placeholder="e.g. feature"
+      role="combobox"
+      aria-autocomplete="list"
+      aria-expanded="false"
+      class="h-10 w-64 pl-4 br-1 bw-1 bc-silver-4 fs-md c-slate bg-white f:os-s f:ow-2 f:oo--1 f:oc-blue-8"
+    />
+  </label>
+  <div role="listbox" class="p-a mt-1 w-64 max-h-72 br-1 bg-white bw-1 bc-silver-4 bs-lg c-slate py-2">
+    <div role="option" class="d-f ai-c py-2 pr-8 pl-4 fs-md c-p">feature</div>
+    <div role="option" class="d-f ai-c py-2 pr-8 pl-4 fs-md c-p">fix</div>
+    <div role="option" class="d-f ai-c py-2 pr-8 pl-4 fs-md c-p">bug</div>
+    <div role="option" class="d-f ai-c py-2 pr-8 pl-4 fs-md c-p">docs</div>
+  </div>
+</div>
+```
+
+## Documentation
+
+For more information, check the [Base UI Autocomplete documentation](https://base-ui.com/react/components/autocomplete).
+
+## API Reference
+
+For detailed API reference, see the [Base UI Autocomplete API Reference](https://base-ui.com/react/components/autocomplete#api-reference).

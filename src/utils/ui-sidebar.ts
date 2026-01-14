@@ -41,13 +41,39 @@ export const uiSidebarConfig: UISidebarConfig = [
     items: [
       { title: "Accordion", slug: "accordion" },
       { title: "Alert Dialog", slug: "alert-dialog" },
+      { title: "Autocomplete", slug: "autocomplete" },
       { title: "Avatar", slug: "avatar" },
       { title: "Button", slug: "button" },
       { title: "Checkbox", slug: "checkbox" },
+      { title: "Checkbox Group", slug: "checkbox-group" },
+      { title: "Collapsible", slug: "collapsible" },
+      { title: "Combobox", slug: "combobox" },
+      { title: "Context Menu", slug: "context-menu" },
       { title: "Dialog", slug: "dialog" },
-      { title: "Menu", slug: "menu" },
+      { title: "Field", slug: "field" },
+      { title: "Fieldset", slug: "fieldset" },
+      { title: "Form", slug: "form" },
       { title: "Input", slug: "input" },
+      { title: "Menu", slug: "menu" },
+      { title: "Menubar", slug: "menubar" },
+      { title: "Meter", slug: "meter" },
+      { title: "Navigation Menu", slug: "navigation-menu" },
+      { title: "Number Field", slug: "number-field" },
+      { title: "Popover", slug: "popover" },
+      { title: "Preview Card", slug: "preview-card" },
+      { title: "Progress", slug: "progress" },
+      { title: "Radio", slug: "radio" },
+      { title: "Scroll Area", slug: "scroll-area" },
+      { title: "Select", slug: "select" },
+      { title: "Separator", slug: "separator" },
+      { title: "Slider", slug: "slider" },
+      { title: "Switch", slug: "switch" },
       { title: "Tabs", slug: "tabs" },
+      { title: "Toast", slug: "toast" },
+      { title: "Toggle", slug: "toggle" },
+      { title: "Toggle Group", slug: "toggle-group" },
+      { title: "Toolbar", slug: "toolbar" },
+      { title: "Tooltip", slug: "tooltip" },
     ],
   },
   {
@@ -74,7 +100,16 @@ export const uiSidebarConfig: UISidebarConfig = [
   {
     title: "Templates",
     items: [
+      { title: "Browse Templates", slug: "templates" },
       { title: "Neutra", slug: "templates/neutra" },
+      { title: "Blueprint", slug: "templates/Blueprint" },
+      { title: "Solar", slug: "templates/Solar" },
+      { title: "Aria", slug: "templates/Aria" },
+    ],
+  },
+  {
+    title: "Legal",
+    items: [
       { title: "License", slug: "license" },
       { title: "Privacy", slug: "privacy" },
       { title: "Terms", slug: "terms" },
@@ -103,9 +138,6 @@ export function getAllUISlugs(): string[] {
   for (const section of uiSidebarConfig) {
     extractSlugs(section.items);
   }
-
-  // we need to add templates manually since it's not in the ui-sidebar config
-  slugs.push("templates");
 
   return slugs;
 }

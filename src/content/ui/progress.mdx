@@ -1,0 +1,63 @@
+export const meta = {
+  title: "Progress",
+  description: "Displays the status of a task that takes a long time.",
+};
+
+## React
+
+### Basic
+
+<Preview id="progress-basic" />
+
+```tsx
+"use client";
+
+import * as React from "react";
+import { Progress } from "@base-ui/react/progress";
+
+export default function ExampleProgress() {
+  const [value, setValue] = React.useState(20);
+
+  // Simulate changes
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setValue((current) =>
+        Math.min(100, Math.round(current + Math.random() * 25))
+      );
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <Progress.Root className="d-g gtc-2 rg-2 w-48" value={value}>
+      <Progress.Label className="fs-sm fw-500 c-slate">Export data</Progress.Label>
+      <Progress.Value className="m-0 fs-sm c-slate ta-r gcs-2" />
+      <Progress.Track className="o-h bg-silver-2 h-1">
+        <Progress.Indicator className="d-b bg-slate-6 h-full" />
+      </Progress.Track>
+    </Progress.Root>
+  );
+}
+```
+
+## HTML
+
+### Basic Example
+
+```html
+<div class="d-g gtc-2 rg-2 w-48">
+  <span class="fs-sm fw-500 c-slate">Export data</span>
+  <span class="m-0 fs-sm c-slate ta-r gcs-2">45%</span>
+  <div class="o-h bg-silver-2 h-1" style="grid-column: 1 / 3;">
+    <div class="d-b bg-slate-6 h-full" style="width: 45%;"></div>
+  </div>
+</div>
+```
+
+## Documentation
+
+For more information, check the [Base UI Progress documentation](https://base-ui.com/react/components/progress).
+
+## API Reference
+
+For detailed API reference, see the [Base UI Progress API Reference](https://base-ui.com/react/components/progress#api-reference).

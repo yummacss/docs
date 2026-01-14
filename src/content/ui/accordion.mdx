@@ -1,77 +1,46 @@
 export const meta = {
   title: "Accordion",
-  description: "Displays collapsible content sections that expand and collapse on user interaction.",
+  description: "A set of collapsible panels with headings.",
 };
 
 ## React
 
 ### Basic
 
-<Preview id="accordion-basic" variant="inline" />
+<Preview id="accordion-basic" />
 
 ```tsx
 import { Accordion } from "@base-ui/react/accordion";
-import { CaretDownIcon } from "@phosphor-icons/react";
+import { PlusIcon } from "@phosphor-icons/react";
 
-const items = [
-  { value: "what-is", title: "What is Yumma UI?", content: "Yumma UI is a library of high-quality unstyled React components for design systems and web apps." },
-  { value: "get-started", title: "How do I get started?", content: "Head to the \"Introduction\" guide in the docs. If you've used unstyled libraries before, you'll feel at home." },
-  { value: "use-project", title: "Can I use it for my project?", content: "Of course! Yumma UI is free and open source." },
-];
-
-export default function AccordionBasic() {
+export default function ExampleAccordion() {
   return (
-    <Accordion.Root className="d-f fd-c g-2" defaultValue={["get-started"]}>
+    <Accordion.Root
+      className="d-f fd-c jc-c w-96 c-slate"
+      defaultValue={["get-started"]}
+    >
       {items.map((item) => (
-        <Accordion.Item key={item.value} value={item.value}>
+        <Accordion.Item key={item.value} value={item.value} className="bbw-1 bc-silver-4">
           <Accordion.Header className="m-0">
-            <Accordion.Trigger className="p-4 c-p d-f jc-sb ai-c w-full bw-1 bc-silver-4 fw-600 br-0 bg-white h:bg-silver-1">
-              <span className="ff-s c-slate fs-md">{item.title}</span>
-              <CaretDownIcon size={16} className="c-slate-8" aria-hidden="true" />
+            <Accordion.Trigger className="d-f w-full ai-b jc-sb g-4 p-r bg-silver-1 py-2 pr-1 pl-3 ta-l fw-500 h:bg-silver-2 fv:zi-1 fv:os-s fv:ow-2 fv:oc-blue-8 c-p b-0">
+              {item.title}
+              <PlusIcon size={12} className="mr-2 c-slate fs-0" aria-hidden="true" />
             </Accordion.Trigger>
           </Accordion.Header>
-          <Accordion.Panel className="of-h c-slate fs-sm lh-4 brw-1 bbw-1 blw-1 bc-silver-4 bg-white">
-            <div className="p-4">
-              <p className="c-slate-6 m-0">{item.content}</p>
-            </div>
+          <Accordion.Panel className="o-h fs-md c-slate-6">
+            <div className="p-3">{item.content}</div>
           </Accordion.Panel>
         </Accordion.Item>
       ))}
     </Accordion.Root>
   );
 }
-```
 
-### With Icons
-
-<Preview id="accordion-icons" variant="inline" />
-
-```tsx
-import { Accordion } from "@base-ui/react/accordion";
-import { CaretDownIcon, InfoIcon } from "@phosphor-icons/react";
-
-export default function AccordionIcons() {
-  return (
-    <Accordion.Root className="d-f fd-c g-2" defaultValue={["what-is"]}>
-      <Accordion.Item value="what-is">
-        <Accordion.Header className="m-0">
-          <Accordion.Trigger className="p-4 c-p d-f jc-sb ai-c w-full bw-1 bc-silver-4 fw-600 br-0 bg-white h:bg-silver-1">
-            <div className="d-f ai-c g-2">
-              <InfoIcon size={16} className="c-slate-8" aria-hidden="true" />
-              <span className="ff-s c-slate fs-md">What is Yumma UI?</span>
-            </div>
-            <CaretDownIcon size={16} className="c-slate-8" aria-hidden="true" />
-          </Accordion.Trigger>
-        </Accordion.Header>
-        <Accordion.Panel className="of-h c-slate fs-sm lh-4 brw-1 bbw-1 blw-1 bc-silver-4 bg-white">
-          <div className="p-4">
-            <p className="c-slate-6 m-0">Yumma UI is a library of high-quality unstyled React components...</p>
-          </div>
-        </Accordion.Panel>
-      </Accordion.Item>
-    </Accordion.Root>
-  );
-}
+const items = [
+  { value: "what-is", title: "What is Yumma UI?", content: "Yumma UI is a library of high-quality unstyled React components for design systems and web apps." },
+  { value: "get-started", title: "How do I get started?", content: "Head to the \"Introduction\" guide in the docs. If you've used unstyled libraries before, you'll feel at home." },
+  { value: "use-project", title: "Can I use it for my project?", content: "Of course! Yumma UI is free and open source." },
+];
 ```
 
 ## HTML
@@ -79,22 +48,18 @@ export default function AccordionIcons() {
 ### Basic Example
 
 ```html
-<div class="d-f fd-c g-2">
-  <div class="d-f fd-c w-full p-0">
+<div class="d-f fd-c jc-c w-96 c-slate">
+  <div class="bbw-1 bc-silver-4">
     <h4 class="m-0">
-      <button
-        type="button"
-        aria-expanded="true"
-        class="p-4 c-p d-f jc-sb ai-c w-full bw-1 bc-silver-4 fw-600 br-0 bg-white h:bg-silver-1"
-      >
-        <span class="ff-s c-slate fs-md">What is Yumma UI?</span>
-        <svg xmlns="http://www.w3.org/2000/svg" class="c-slate-8 h-4 w-4" viewBox="0 0 256 256" aria-hidden="true">
-          <path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z" fill="currentColor" />
+      <button type="button" aria-expanded="true" class="d-f w-full ai-b jc-sb g-4 p-r bg-silver-1 py-2 pr-1 pl-3 ta-l fw-500 h:bg-silver-2 fv:zi-1 fv:os-s fv:ow-2 fv:oc-blue-8 c-p b-0">
+        What is Yumma UI?
+        <svg xmlns="http://www.w3.org/2000/svg" class="c-slate mr-2" width="12" height="12" viewBox="0 0 256 256" aria-hidden="true">
+          <path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z" fill="currentColor" />
         </svg>
       </button>
     </h4>
-    <section class="p-4 bg-white c-slate fs-sm lh-4 brw-1 bbw-1 blw-1 bc-silver-4">
-      <p class="c-slate-6 m-0">Yumma UI is a library of high-quality unstyled React components...</p>
+    <section class="o-h fs-md c-slate-6">
+      <div class="p-3">Yumma UI is a library of high-quality unstyled React components...</div>
     </section>
   </div>
 </div>

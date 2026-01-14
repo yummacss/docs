@@ -1,0 +1,50 @@
+export const meta = {
+  title: "Slider",
+  description: "An easily stylable range input.",
+};
+
+## React
+
+### Basic
+
+<Preview id="slider-basic" />
+
+```tsx
+import { Slider } from "@base-ui/react/slider";
+
+export default function ExampleSlider() {
+  return (
+    <Slider.Root defaultValue={25}>
+      <Slider.Control className="d-f ai-c w-56 py-3 us-none">
+        <Slider.Track className="h-1 w-full bg-silver-2">
+          <Slider.Indicator className="bg-slate-6" />
+          <Slider.Thumb className="d-4 br-full bg-white bw-1 bc-silver-4 us-none" />
+        </Slider.Track>
+      </Slider.Control>
+    </Slider.Root>
+  );
+}
+```
+
+## HTML
+
+### Basic Example
+
+```html
+<div class="w-56 py-3">
+  <div class="p-r h-1 w-full bg-silver-2" style="border-radius: 0.25rem;">
+    <!-- Indicator (25% filled) -->
+    <div class="p-a t-0 l-0 h-full bg-slate-6" style="width: 25%; border-radius: 0.25rem;"></div>
+    <!-- Thumb -->
+    <div class="p-a t-50 d-4 br-full bg-white bw-1 bc-silver-4" style="left: 25%; transform: translate(-50%, -50%);"></div>
+  </div>
+</div>
+```
+
+## Documentation
+
+For more information, check the [Base UI Slider documentation](https://base-ui.com/react/components/slider).
+
+## API Reference
+
+For detailed API reference, see the [Base UI Slider API Reference](https://base-ui.com/react/components/slider#api-reference).
