@@ -203,6 +203,51 @@ The `*-1/1` utility values have been renamed from `*-1/1` to `*-dvh`.
 <div class="d-dvh">...</div>
 ```
 
+### Border Width utilities
+
+The border width utilities have been renamed from `b-*` to `bw-*`:
+
+```html del={1} ins={2} title="index.html"
+<div class="b-*">...</div>
+<div class="bw-*">...</div>
+```
+
+This also applies to directional border width utilities:
+
+| Old Class | New Class |
+| --------- | --------- |
+| `bt-*`    | `btw-*`   |
+| `br-*`    | `brw-*`   |
+| `bb-*`    | `bbw-*`   |
+| `bl-*`    | `blw-*`   |
+
+### Border Style utilities
+
+The border style utilities have been renamed from `b-*` to `bs-*`:
+
+```html del={1} ins={2} title="index.html"
+<div class="b-solid">...</div>
+<div class="bs-solid">...</div>
+```
+
+### Border Radius utilities
+
+The `rad-9` utility has been renamed to `br-pill`:
+
+```html del={1} ins={2} title="index.html"
+<div class="rad-9">...</div>
+<div class="br-pill">...</div>
+```
+
+### Color utilities
+
+The text color utility prefix has been shortened from `tc-` to `c-`:
+
+```html del={1} ins={2} title="index.html"
+<div class="tc-slate">...</div>
+<div class="c-slate">...</div>
+```
+
 ## Base style changes
 
 We're making some changes to base styles of Yumma CSS in v3 to make it more modern and consistent. These changes are turned on by default, but you can turn them off using the [`yummacss.config.mjs`](#disabling-base-styles) file.
