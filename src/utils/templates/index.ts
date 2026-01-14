@@ -19,5 +19,4 @@ export type {
   TemplateCheckout,
   TemplateFeature,
   TemplatePage,
-  TemplateStatus,
 } from "./types";
