@@ -4,18 +4,18 @@ import { CaretRightIcon } from "@phosphor-icons/react";
 export default function ExampleContextMenu() {
   return (
     <ContextMenu.Root>
-      <ContextMenu.Trigger className="d-f ai-c jc-c h-48 w-60 br-1 bw-1 bc-silver-4 c-slate us-none">
+      <ContextMenu.Trigger className="d-f ai-c jc-c h-48 w-60 bw-1 bc-silver-4 br-1 c-slate us-none">
         Right click here
       </ContextMenu.Trigger>
       <ContextMenu.Portal>
         <ContextMenu.Positioner className="ow-0">
-          <ContextMenu.Popup className="br-1 bg-white c-slate py-1 bs-md bw-1 bc-silver-4 context-menu-popup">
-            <ContextMenu.Item className="d-f py-2 pr-8 pl-4 fs-sm us-none c-d ow-0 context-menu-item">
+          <ContextMenu.Popup className="bw-1 bc-silver-4 br-1 bg-white bs-md py-1 c-slate context-menu-popup">
+            <ContextMenu.Item className="d-f py-2 pr-8 pl-4 fs-sm ow-0 us-none c-d context-menu-item">
               Add to Library
             </ContextMenu.Item>
 
             <ContextMenu.SubmenuRoot>
-              <ContextMenu.SubmenuTrigger className="d-f ai-c jc-sb g-4 py-2 pr-4 pl-4 fs-sm us-none c-d ow-0 context-menu-item">
+              <ContextMenu.SubmenuTrigger className="d-f ai-c jc-sb g-4 py-2 pr-4 pl-4 fs-sm ow-0 us-none c-d context-menu-item">
                 Add to Playlist <CaretRightIcon size={10} />
               </ContextMenu.SubmenuTrigger>
               <ContextMenu.Portal>
@@ -24,18 +24,18 @@ export default function ExampleContextMenu() {
                   alignOffset={-4}
                   sideOffset={-4}
                 >
-                  <ContextMenu.Popup className="br-1 bg-white c-slate py-1 bs-md bw-1 bc-silver-4 context-menu-submenu">
-                    <ContextMenu.Item className="d-f py-2 pr-8 pl-4 fs-sm us-none c-d ow-0 context-menu-item">
+                  <ContextMenu.Popup className="bw-1 bc-silver-4 br-1 bg-white bs-md py-1 c-slate context-menu-submenu">
+                    <ContextMenu.Item className="d-f py-2 pr-8 pl-4 fs-sm ow-0 us-none c-d context-menu-item">
                       Get Up!
                     </ContextMenu.Item>
-                    <ContextMenu.Item className="d-f py-2 pr-8 pl-4 fs-sm us-none c-d ow-0 context-menu-item">
+                    <ContextMenu.Item className="d-f py-2 pr-8 pl-4 fs-sm ow-0 us-none c-d context-menu-item">
                       Inside Out
                     </ContextMenu.Item>
-                    <ContextMenu.Item className="d-f py-2 pr-8 pl-4 fs-sm us-none c-d ow-0 context-menu-item">
+                    <ContextMenu.Item className="d-f py-2 pr-8 pl-4 fs-sm ow-0 us-none c-d context-menu-item">
                       Night Beats
                     </ContextMenu.Item>
                     <ContextMenu.Separator className="mx-4 my-1-5 h-px bg-silver-4" />
-                    <ContextMenu.Item className="d-f py-2 pr-8 pl-4 fs-sm us-none c-d ow-0 context-menu-item">
+                    <ContextMenu.Item className="d-f py-2 pr-8 pl-4 fs-sm ow-0 us-none c-d context-menu-item">
                       New playlist…
                     </ContextMenu.Item>
                   </ContextMenu.Popup>
@@ -44,17 +44,17 @@ export default function ExampleContextMenu() {
             </ContextMenu.SubmenuRoot>
 
             <ContextMenu.Separator className="mx-4 my-1-5 h-px bg-silver-4" />
-            <ContextMenu.Item className="d-f py-2 pr-8 pl-4 fs-sm us-none c-d ow-0 context-menu-item">
+            <ContextMenu.Item className="d-f py-2 pr-8 pl-4 fs-sm ow-0 us-none c-d context-menu-item">
               Play Next
             </ContextMenu.Item>
-            <ContextMenu.Item className="d-f py-2 pr-8 pl-4 fs-sm us-none c-d ow-0 context-menu-item">
+            <ContextMenu.Item className="d-f py-2 pr-8 pl-4 fs-sm ow-0 us-none c-d context-menu-item">
               Play Last
             </ContextMenu.Item>
             <ContextMenu.Separator className="mx-4 my-1-5 h-px bg-silver-4" />
-            <ContextMenu.Item className="d-f py-2 pr-8 pl-4 fs-sm us-none c-d ow-0 context-menu-item">
+            <ContextMenu.Item className="d-f py-2 pr-8 pl-4 fs-sm ow-0 us-none c-d context-menu-item">
               Favorite
             </ContextMenu.Item>
-            <ContextMenu.Item className="d-f py-2 pr-8 pl-4 fs-sm us-none c-d ow-0 context-menu-item">
+            <ContextMenu.Item className="d-f py-2 pr-8 pl-4 fs-sm ow-0 us-none c-d context-menu-item">
               Share
             </ContextMenu.Item>
           </ContextMenu.Popup>

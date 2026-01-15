@@ -8,12 +8,12 @@ export default function ExampleToggle() {
   const [pressed, setPressed] = React.useState(false);
 
   return (
-    <div className="d-f g-px br-1 bw-1 bc-silver-4 bg-silver-1 p-px">
+    <div className="d-f bw-1 bc-silver-4 br-1 bg-silver-1 g-px p-px">
       <Toggle
         aria-label="Favorite"
         pressed={pressed}
         onPressedChange={setPressed}
-        className="d-f d-8 ai-c jc-c br-1 c-slate-6 us-none h:bg-silver-2 a:bg-silver-3 toggle-button"
+        className="d-f ai-c jc-c d-8 br-1 c-slate-6 us-none h:bg-silver-2 a:bg-silver-3 toggle-button"
       >
         <HeartIcon size={20} weight={pressed ? "fill" : "regular"} />
       </Toggle>

@@ -15,9 +15,9 @@ export default function ExampleCombobox() {
           <Combobox.Input
             placeholder="e.g. Apple"
             id={id}
-            className="h-10 w-64 br-1 bw-1 bc-silver-4 pl-4 fs-md c-slate bg-white f:os-s f:ow-2 f:oo--1 f:oc-blue-8"
+            className="h-10 w-64 bw-1 bc-silver-4 br-1 bg-white pl-4 fs-md c-slate f:os-s f:ow-2 f:oo--1 f:oc-blue-8"
           />
-          <div className="p-a r-2 b-0 d-f ai-c jc-c h-10 c-slate-6">
+          <div className="p-a d-f ai-c jc-c r-2 b-0 h-10 c-slate-6">
             <Combobox.Clear
               className="d-f ai-c jc-c d-6 h-10 br-1 bg-transparent p-0 combobox-clear"
               aria-label="Clear selection"
@@ -36,16 +36,16 @@ export default function ExampleCombobox() {
 
       <Combobox.Portal>
         <Combobox.Positioner className="ow-0" sideOffset={4}>
-          <Combobox.Popup className="br-1 bg-white c-slate bs-lg bw-1 bc-silver-4 combobox-popup">
+          <Combobox.Popup className="bw-1 bc-silver-4 br-1 bg-white bs-lg c-slate combobox-popup">
             <Combobox.Empty className="p-4 fs-sm c-slate-6">
               No fruits found.
             </Combobox.Empty>
-            <Combobox.List className="ow-0 o-y-auto py-2 combobox-list">
+            <Combobox.List className="o-y-auto ow-0 py-2 combobox-list">
               {(item: string) => (
                 <Combobox.Item
                   key={item}
                   value={item}
-                  className="d-g ai-c g-2 py-2 pr-8 pl-4 fs-md us-none c-d ow-0 combobox-item"
+                  className="d-g ai-c g-2 py-2 pr-8 pl-4 fs-md ow-0 us-none c-d combobox-item"
                 >
                   <Combobox.ItemIndicator className="combobox-indicator">
                     <CheckIcon size={12} weight="bold" />

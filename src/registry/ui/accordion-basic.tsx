@@ -4,7 +4,7 @@ import { PlusIcon } from "@phosphor-icons/react";
 export default function ExampleAccordion() {
   return (
     <Accordion.Root
-      className="d-f fd-c jc-c w-96 c-slate"
+      className="d-f w-96 fd-c jc-c c-slate"
       defaultValue={["get-started"]}
     >
       {items.map((item) => (
@@ -14,7 +14,7 @@ export default function ExampleAccordion() {
           className="bbw-1 bc-silver-4"
         >
           <Accordion.Header className="m-0">
-            <Accordion.Trigger className="d-f w-full ai-b jc-sb g-4 p-r bg-silver-1 py-2 pr-1 pl-3 ta-l fw-500 h:bg-silver-2 fv:zi-1 fv:os-s fv:ow-2 fv:oc-blue-8 c-p b-0">
+            <Accordion.Trigger className="p-r d-f w-full ai-b jc-sb g-4 bg-silver-1 py-2 pr-1 pl-3 ta-l fw-500 h:bg-silver-2 fv:zi-1 fv:os-s fv:ow-2 fv:oc-blue-8 c-p b-0">
               {item.title}
               <PlusIcon
                 size={12}

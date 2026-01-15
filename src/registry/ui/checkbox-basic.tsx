@@ -7,7 +7,7 @@ export default function ExampleCheckbox() {
     <label className="d-f ai-c g-2 fs-md c-slate">
       <Checkbox.Root
         defaultChecked
-        className="d-f ai-c jc-c d-5 br-1 fv:os-s fv:ow-2 fv:oo-2 fv:oc-blue-8 checkbox-root"
+        className="d-f d-5 ai-c jc-c br-1 fv:os-s fv:ow-2 fv:oo-2 fv:oc-blue-8 checkbox-root"
       >
         <Checkbox.Indicator className="d-f c-silver-1">
           <CheckIcon size={12} weight="bold" />

@@ -10,7 +10,7 @@ export default function ExampleRadio() {
     <RadioGroup
       aria-labelledby={id}
       defaultValue="fuji-apple"
-      className="d-f fd-c ai-fs g-1 c-slate"
+      className="d-f fd-c g-1 ai-fs c-slate"
     >
       <div className="fw-500" id={id}>
         Best apple
@@ -20,7 +20,7 @@ export default function ExampleRadio() {
       <label className="d-f ai-c g-2">
         <Radio.Root
           value="fuji-apple"
-          className="d-f w-5 h-5 ai-c jc-c br-full ow-0 p-0 m-0 bw-0 radio-root"
+          className="d-f ai-c jc-c w-5 h-5 br-full bw-0 bg-transparent p-0 m-0 ow-0 radio-root"
         >
           <Radio.Indicator className="d-f ai-c jc-c radio-indicator" />
         </Radio.Root>
@@ -31,7 +31,7 @@ export default function ExampleRadio() {
       <label className="d-f ai-c g-2">
         <Radio.Root
           value="gala-apple"
-          className="d-f w-5 h-5 ai-c jc-c br-full ow-0 p-0 m-0 bw-0 radio-root"
+          className="d-f ai-c jc-c w-5 h-5 br-full bw-0 bg-transparent p-0 m-0 ow-0 radio-root"
         >
           <Radio.Indicator className="d-f ai-c jc-c radio-indicator" />
         </Radio.Root>
@@ -42,7 +42,7 @@ export default function ExampleRadio() {
       <label className="d-f ai-c g-2">
         <Radio.Root
           value="granny-smith-apple"
-          className="d-f w-5 h-5 ai-c jc-c br-full ow-0 p-0 m-0 bw-0 radio-root"
+          className="d-f ai-c jc-c w-5 h-5 br-full bw-0 bg-transparent p-0 m-0 ow-0 radio-root"
         >
           <Radio.Indicator className="d-f ai-c jc-c radio-indicator" />
         </Radio.Root>

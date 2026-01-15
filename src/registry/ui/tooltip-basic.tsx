@@ -10,12 +10,12 @@ export default function ExampleTooltip() {
     <Tooltip.Provider>
       <div className="d-f bw-1 bc-silver-4 br-1 bg-silver-1 p-1">
         <Tooltip.Root>
-          <Tooltip.Trigger className="d-f d-8 ai-c jc-c br-1 b-0 bg-transparent c-slate us-none h:bg-silver-2 tooltip-trigger">
+          <Tooltip.Trigger className="d-f ai-c jc-c d-8 b-0 br-1 bg-transparent c-slate us-none h:bg-silver-2 tooltip-trigger">
             <TextBIcon size={16} aria-label="Bold" />
           </Tooltip.Trigger>
           <Tooltip.Portal>
             <Tooltip.Positioner sideOffset={10}>
-              <Tooltip.Popup className="d-f fd-c px-2 py-1 br-1 fs-sm bg-white tooltip-popup">
+              <Tooltip.Popup className="d-f fd-c br-1 bg-white px-2 py-1 fs-sm tooltip-popup">
                 Bold
               </Tooltip.Popup>
             </Tooltip.Positioner>
@@ -23,12 +23,12 @@ export default function ExampleTooltip() {
         </Tooltip.Root>
 
         <Tooltip.Root>
-          <Tooltip.Trigger className="d-f d-8 ai-c jc-c br-1 b-0 bg-transparent c-slate us-none h:bg-silver-2 tooltip-trigger">
+          <Tooltip.Trigger className="d-f ai-c jc-c d-8 b-0 br-1 bg-transparent c-slate us-none h:bg-silver-2 tooltip-trigger">
             <TextItalicIcon size={16} aria-label="Italic" />
           </Tooltip.Trigger>
           <Tooltip.Portal>
             <Tooltip.Positioner sideOffset={10}>
-              <Tooltip.Popup className="d-f fd-c px-2 py-1 br-1 fs-sm bg-white tooltip-popup">
+              <Tooltip.Popup className="d-f fd-c br-1 bg-white px-2 py-1 fs-sm tooltip-popup">
                 Italic
               </Tooltip.Popup>
             </Tooltip.Positioner>
@@ -36,12 +36,12 @@ export default function ExampleTooltip() {
         </Tooltip.Root>
 
         <Tooltip.Root>
-          <Tooltip.Trigger className="d-f d-8 ai-c jc-c br-1 b-0 bg-transparent c-slate us-none h:bg-silver-2 tooltip-trigger">
+          <Tooltip.Trigger className="d-f ai-c jc-c d-8 b-0 br-1 bg-transparent c-slate us-none h:bg-silver-2 tooltip-trigger">
             <TextUnderlineIcon size={16} aria-label="Underline" />
           </Tooltip.Trigger>
           <Tooltip.Portal>
             <Tooltip.Positioner sideOffset={10}>
-              <Tooltip.Popup className="d-f fd-c px-2 py-1 br-1 fs-sm bg-white tooltip-popup">
+              <Tooltip.Popup className="d-f fd-c br-1 bg-white px-2 py-1 fs-sm tooltip-popup">
                 Underline
               </Tooltip.Popup>
             </Tooltip.Positioner>
