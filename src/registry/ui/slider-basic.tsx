@@ -6,7 +6,7 @@ export default function ExampleSlider() {
       <Slider.Control className="d-f ai-c w-56 py-3 us-none slider-control">
         <Slider.Track className="h-1 w-full bg-silver-2 slider-track">
           <Slider.Indicator className="bg-slate-6 slider-indicator" />
-          <Slider.Thumb className="d-4 br-full bg-white bw-1 bc-silver-4 us-none slider-thumb" />
+          <Slider.Thumb className="d-4 bw-1 bc-silver-4 br-full bg-white us-none slider-thumb" />
         </Slider.Track>
       </Slider.Control>
 

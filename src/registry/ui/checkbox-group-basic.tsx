@@ -12,7 +12,7 @@ export default function ExampleCheckboxGroup() {
     <CheckboxGroup
       aria-labelledby={id}
       defaultValue={["fuji-apple"]}
-      className="d-f fd-c ai-fs g-1 c-slate"
+      className="d-f fd-c g-1 ai-fs c-slate"
     >
       <div className="fw-500" id={id}>
         Apples
@@ -23,7 +23,7 @@ export default function ExampleCheckboxGroup() {
         <Checkbox.Root
           name="apple"
           value="fuji-apple"
-          className="d-f ai-c jc-c d-5 br-1 fv:os-s fv:ow-2 fv:oo-2 fv:oc-blue-8 checkbox-group-root"
+          className="d-f d-5 ai-c jc-c br-1 fv:os-s fv:ow-2 fv:oo-2 fv:oc-blue-8 checkbox-group-root"
         >
           <Checkbox.Indicator className="d-f c-silver-1">
             <CheckIcon size={12} weight="bold" />
@@ -37,7 +37,7 @@ export default function ExampleCheckboxGroup() {
         <Checkbox.Root
           name="apple"
           value="gala-apple"
-          className="d-f ai-c jc-c d-5 br-1 fv:os-s fv:ow-2 fv:oo-2 fv:oc-blue-8 checkbox-group-root"
+          className="d-f d-5 ai-c jc-c br-1 fv:os-s fv:ow-2 fv:oo-2 fv:oc-blue-8 checkbox-group-root"
         >
           <Checkbox.Indicator className="d-f c-silver-1">
             <CheckIcon size={12} weight="bold" />
@@ -51,7 +51,7 @@ export default function ExampleCheckboxGroup() {
         <Checkbox.Root
           name="apple"
           value="granny-smith-apple"
-          className="d-f ai-c jc-c d-5 br-1 fv:os-s fv:ow-2 fv:oo-2 fv:oc-blue-8 checkbox-group-root"
+          className="d-f d-5 ai-c jc-c br-1 fv:os-s fv:ow-2 fv:oo-2 fv:oc-blue-8 checkbox-group-root"
         >
           <Checkbox.Indicator className="d-f c-silver-1">
             <CheckIcon size={12} weight="bold" />

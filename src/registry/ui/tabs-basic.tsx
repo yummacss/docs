@@ -8,21 +8,21 @@ import {
 export default function ExampleTabs() {
   return (
     <Tabs.Root className="bw-1 bc-silver-4 br-1" defaultValue="overview">
-      <Tabs.List className="p-r d-f g-1 px-1 bbw-1 bc-silver-4">
+      <Tabs.List className="p-r d-f g-1 bbw-1 bc-silver-4 px-1">
         <Tabs.Tab
-          className="d-f ai-c jc-c h-8 px-3 fs-sm fw-500 bw-0 bg-transparent us-none tabs-tab"
+          className="d-f ai-c jc-c h-8 bw-0 bg-transparent px-3 fs-sm fw-500 us-none tabs-tab"
           value="overview"
         >
           Overview
         </Tabs.Tab>
         <Tabs.Tab
-          className="d-f ai-c jc-c h-8 px-3 fs-sm fw-500 bw-0 bg-transparent us-none tabs-tab"
+          className="d-f ai-c jc-c h-8 bw-0 bg-transparent px-3 fs-sm fw-500 us-none tabs-tab"
           value="projects"
         >
           Projects
         </Tabs.Tab>
         <Tabs.Tab
-          className="d-f ai-c jc-c h-8 px-3 fs-sm fw-500 bw-0 bg-transparent us-none tabs-tab"
+          className="d-f ai-c jc-c h-8 bw-0 bg-transparent px-3 fs-sm fw-500 us-none tabs-tab"
           value="account"
         >
           Account

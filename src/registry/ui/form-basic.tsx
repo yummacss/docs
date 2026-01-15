@@ -35,14 +35,14 @@ export default function ExampleForm() {
           defaultValue="https://example.com"
           placeholder="https://example.com"
           pattern="https?://.*"
-          className="h-10 w-full br-1 bw-1 bc-silver-4 pl-4 fs-md c-slate bg-white f:os-s f:ow-2 f:oo--1 f:oc-blue-8"
+          className="h-10 w-full bw-1 bc-silver-4 br-1 bg-white pl-4 fs-md c-slate f:os-s f:ow-2 f:oo--1 f:oc-blue-8"
         />
         <Field.Error className="fs-sm c-red-8" />
       </Field.Root>
       <button
         disabled={loading}
         type="submit"
-        className="d-f h-10 ai-c jc-c px-4 m-0 bw-1 bc-silver-4 br-1 bg-silver-1 fs-md fw-500 c-slate us-none h:bg-silver-2 fv:os-s fv:ow-2 fv:oo--1 fv:oc-blue-8"
+        className="d-f ai-c jc-c h-10 bw-1 bc-silver-4 br-1 bg-silver-1 px-4 m-0 fs-md fw-500 c-slate us-none h:bg-silver-2 fv:os-s fv:ow-2 fv:oo--1 fv:oc-blue-8"
       >
         {loading ? "Submitting..." : "Submit"}
       </button>

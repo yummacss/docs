@@ -6,7 +6,7 @@ import { CaretUpDownIcon, CheckIcon } from "@phosphor-icons/react";
 export default function ExampleSelect() {
   return (
     <Select.Root defaultValue={null}>
-      <Select.Trigger className="d-f h-10 min-w-36 ai-c jc-sb g-3 br-1 px-3 bw-1 bc-silver-4 bg-white c-slate us-none h:bg-silver-1 fv:os-s fv:ow-2 fv:oo--1 fv:oc-blue-8 select-trigger">
+      <Select.Trigger className="d-f ai-c jc-sb h-10 min-w-36 g-3 bw-1 bc-silver-4 br-1 bg-white px-3 c-slate us-none h:bg-silver-1 fv:os-s fv:ow-2 fv:oo--1 fv:oc-blue-8 select-trigger">
         <Select.Value>
           {(value) =>
             value
@@ -20,7 +20,7 @@ export default function ExampleSelect() {
       </Select.Trigger>
       <Select.Portal>
         <Select.Positioner sideOffset={8} className="ow-0 us-none zi-10">
-          <Select.Popup className="br-1 bg-white c-slate bs-md bw-1 bc-silver-4 select-popup">
+          <Select.Popup className="bw-1 bc-silver-4 br-1 bg-white bs-md c-slate select-popup">
             <Select.List className="p-r py-1 o-a">
               {fonts.map(({ label, value }) => (
                 <Select.Item

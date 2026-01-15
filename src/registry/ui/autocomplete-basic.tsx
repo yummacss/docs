@@ -9,21 +9,21 @@ export default function ExampleAutocomplete() {
         Search tags
         <Autocomplete.Input
           placeholder="e.g. feature"
-          className="h-10 w-64 pl-4 br-1 bw-1 bc-silver-4 fs-md c-slate bg-white f:os-s f:ow-2 f:oo--1 f:oc-blue-8"
+          className="h-10 w-64 bw-1 bc-silver-4 br-1 bg-white pl-4 fs-md c-slate f:os-s f:ow-2 f:oo--1 f:oc-blue-8"
         />
       </label>
 
       <Autocomplete.Portal>
         <Autocomplete.Positioner className="ow-0" sideOffset={4}>
-          <Autocomplete.Popup className="w-64 max-h-72 br-1 bg-white bw-1 bc-silver-4 bs-lg c-slate autocomplete-popup">
+          <Autocomplete.Popup className="w-64 max-h-72 bw-1 bc-silver-4 br-1 bg-white bs-lg c-slate autocomplete-popup">
             <Autocomplete.Empty className="p-4 fs-sm c-slate-6">
               No tags found.
             </Autocomplete.Empty>
-            <Autocomplete.List className="ow-0 o-y-auto py-2">
+            <Autocomplete.List className="o-y-auto ow-0 py-2">
               {(tag: Tag) => (
                 <Autocomplete.Item
                   key={tag.id}
-                  className="d-f ai-c py-2 pr-8 pl-4 fs-md c-d us-none autocomplete-item"
+                  className="d-f ai-c py-2 pr-8 pl-4 fs-md us-none c-d autocomplete-item"
                   value={tag}
                 >
                   {tag.value}
