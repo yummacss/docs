@@ -3,107 +3,133 @@ export const meta = {
   description: "Encourages user action.",
 };
 
-## Basic Example
+## React
+
+### Basic
 
 <Preview id="cta-section-basic" variant="noPadding" />
+
+```tsx
+import { Button } from "@base-ui/react/button";
+
+export default function CtaSectionBasic() {
+  return (
+    <div className="py-6 px-6 d-f ai-c jc-sb fw-w g-4">
+      <h2 className="ff-s fs-3xl fw-600 c-slate-10 m-0">
+        Ready to get started?
+      </h2>
+      <div className="d-f g-3">
+        <Button className="d-f h-10 ai-c jc-c bw-1 bc-silver-4 br-1 bg-silver-1 px-4 fs-sm fw-500 c-slate us-none h:bg-silver-2 fv:os-s fv:ow-2 fv:oo--1 fv:oc-blue-8">
+          Get started
+        </Button>
+        <Button className="d-f h-10 ai-c jc-c bw-1 bc-silver-4 br-1 bg-white px-4 fs-sm fw-500 c-slate us-none h:bg-silver-1 fv:os-s fv:ow-2 fv:oo--1 fv:oc-blue-8">
+          Learn more
+        </Button>
+      </div>
+    </div>
+  );
+}
+```
+
+### Colored
+
+<Preview id="cta-section-colored" variant="noPadding" />
+
+```tsx
+import { Button } from "@base-ui/react/button";
+
+export default function CtaSectionColored() {
+  return (
+    <div className="py-6 px-6 d-f ai-c jc-sb fw-w g-4 bg-indigo-8">
+      <h2 className="ff-s fs-3xl fw-600 c-white m-0">Start for free today!</h2>
+      <div className="d-f g-3">
+        <Button className="d-f h-10 ai-c jc-c br-1 bg-white px-4 fs-sm fw-500 c-indigo-8 us-none h:bg-silver-2 fv:os-s fv:ow-2 fv:oo--1 fv:oc-white">
+          Start free trial
+        </Button>
+        <Button className="d-f h-10 ai-c jc-c bw-1 bc-white/30 br-1 bg-transparent px-4 fs-sm fw-500 c-white us-none h:bg-white/10 fv:os-s fv:ow-2 fv:oo--1 fv:oc-white/30">
+          Pricings
+        </Button>
+      </div>
+    </div>
+  );
+}
+```
+
+### Icons
+
+<Preview id="cta-section-icons" variant="noPadding" />
+
+```tsx
+import { ArrowRightIcon, DownloadIcon } from "@phosphor-icons/react";
+import { Button } from "@base-ui/react/button";
+
+export default function CtaSectionIcons() {
+  return (
+    <div className="py-6 px-6 d-f ai-c jc-sb fw-w g-4">
+      <h2 className="ff-s fs-3xl fw-600 c-slate-10 m-0">
+        Ready to get started?
+      </h2>
+      <div className="d-f g-3">
+        <Button className="d-f h-10 ai-c jc-c g-2 bw-1 bc-silver-4 br-1 bg-silver-1 px-4 fs-sm fw-500 c-slate us-none h:bg-silver-2 fv:os-s fv:ow-2 fv:oo--1 fv:oc-blue-8">
+          <ArrowRightIcon size={16} />
+          <span>Get started</span>
+        </Button>
+        <Button className="d-f h-10 ai-c jc-c g-2 bw-1 bc-silver-4 br-1 bg-white px-4 fs-sm fw-500 c-slate us-none h:bg-silver-1 fv:os-s fv:ow-2 fv:oo--1 fv:oc-blue-8">
+          <DownloadIcon size={16} />
+          <span>Download</span>
+        </Button>
+      </div>
+    </div>
+  );
+}
+```
+
+## HTML
+
+### Basic Example
 
 ```html
 <div class="py-6 px-6 d-f ai-c jc-sb fw-w g-4">
   <h2 class="ff-s fs-3xl fw-600 c-slate-10 m-0">Ready to get started?</h2>
   <div class="d-f g-3">
-    <button class="px-4 py-2 br-0 fs-sm fw-600 bg-slate-8 c-white h:bg-slate-10 f:oc-silver-4 f:os-s f:ow-2">Get started</button>
-    <button class="px-4 py-2 br-0 fs-sm fw-600 bg-white c-slate-8 bw-1 bc-silver-4 h:bg-silver-1 f:oc-silver-1 f:os-s f:ow-2">Learn more</button>
+    <button class="d-f h-10 ai-c jc-c bw-1 bc-silver-4 br-1 bg-silver-1 px-4 fs-sm fw-500 c-slate us-none h:bg-silver-2 fv:os-s fv:ow-2 fv:oo--1 fv:oc-blue-8">Get started</button>
+    <button class="d-f h-10 ai-c jc-c bw-1 bc-silver-4 br-1 bg-white px-4 fs-sm fw-500 c-slate us-none h:bg-silver-1 fv:os-s fv:ow-2 fv:oo--1 fv:oc-blue-8">Learn more</button>
   </div>
 </div>
 ```
 
-## Colored
-
-<Preview id="cta-section-colored" variant="noPadding" />
+### Colored Example
 
 ```html
 <div class="py-6 px-6 d-f ai-c jc-sb fw-w g-4 bg-indigo-8">
   <h2 class="ff-s fs-3xl fw-600 c-white m-0">Start for free today!</h2>
   <div class="d-f g-3">
-    <button class="px-4 py-2 br-0 fs-sm fw-600 bg-white c-indigo-8 h:bg-silver-2">Start free trial</button>
-    <button class="px-4 py-2 br-0 fs-sm fw-600 bg-transparent c-white bw-1 bc-white/30 h:bg-white/10 f:oc-white/30 f:os-s f:ow-2">Pricings</button>
+    <button class="d-f h-10 ai-c jc-c br-1 bg-white px-4 fs-sm fw-500 c-indigo-8 us-none h:bg-silver-2 fv:os-s fv:ow-2 fv:oo--1 fv:oc-white">Start free trial</button>
+    <button class="d-f h-10 ai-c jc-c bw-1 bc-white/30 br-1 bg-transparent px-4 fs-sm fw-500 c-white us-none h:bg-white/10 fv:os-s fv:ow-2 fv:oo--1 fv:oc-white/30">Pricings</button>
   </div>
 </div>
 ```
 
-## Icons
-
-<Preview id="cta-section-icons" variant="noPadding" />
+### Icons Example
 
 ```html
 <div class="py-6 px-6 d-f ai-c jc-sb fw-w g-4">
   <h2 class="ff-s fs-3xl fw-600 c-slate-10 m-0">Ready to get started?</h2>
   <div class="d-f g-3">
-    <button class="d-f ai-c g-2 px-4 py-2 br-0 fs-sm fw-600 bg-slate-8 c-white h:bg-slate-10 f:oc-silver-4 f:os-s f:ow-2">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="w-4 h-4"
-        viewBox="0 0 256 256"
-        aria-hidden="true"
-      >
+    <button class="d-f h-10 ai-c jc-c g-2 bw-1 bc-silver-4 br-1 bg-silver-1 px-4 fs-sm fw-500 c-slate us-none h:bg-silver-2 fv:os-s fv:ow-2 fv:oo--1 fv:oc-blue-8">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 256 256" aria-hidden="true">
         <rect width="256" height="256" fill="none" />
-        <line
-          x1="40"
-          y1="128"
-          x2="216"
-          y2="128"
-          fill="none"
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="16"
-        />
-        <polyline
-          points="144 56 216 128 144 200"
-          fill="none"
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="16"
-        />
+        <line x1="40" y1="128" x2="216" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
+        <polyline points="144 56 216 128 144 200" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
       </svg>
       <span>Get started</span>
     </button>
-    <button class="d-f ai-c g-2 px-4 py-2 br-0 fs-sm fw-600 bg-white c-slate-8 bw-1 bc-silver-4 h:bg-silver-1 f:oc-silver-1 f:os-s f:ow-2">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="w-4 h-4"
-        viewBox="0 0 256 256"
-        aria-hidden="true"
-      >
+    <button class="d-f h-10 ai-c jc-c g-2 bw-1 bc-silver-4 br-1 bg-white px-4 fs-sm fw-500 c-slate us-none h:bg-silver-1 fv:os-s fv:ow-2 fv:oo--1 fv:oc-blue-8">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 256 256" aria-hidden="true">
         <rect width="256" height="256" fill="none" />
-        <line
-          x1="128"
-          y1="144"
-          x2="128"
-          y2="32"
-          fill="none"
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="16"
-        />
-        <polyline
-          points="216 144 216 208 40 208 40 144"
-          fill="none"
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="16"
-        />
-        <polyline
-          points="168 104 128 144 88 104"
-          fill="none"
-          stroke="currentColor"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="16"
-        />
+        <line x1="128" y1="144" x2="128" y2="32" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
+        <polyline points="216 144 216 208 40 208 40 144" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
+        <polyline points="168 104 128 144 88 104" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
       </svg>
       <span>Download</span>
     </button>

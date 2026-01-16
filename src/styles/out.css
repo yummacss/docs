@@ -621,10 +621,6 @@ summary {
   background-color: #2d2d38;
 }
 
-.bg-slate-9 {
-  background-color: #25252d;
-}
-
 .bg-transparent {
   background-color: #0000;
 }
@@ -1435,14 +1431,6 @@ summary {
   outline-color: #f5f5f6;
 }
 
-.f\:oc-silver-4:focus {
-  outline-color: #dadcdf;
-}
-
-.f\:oc-white\/30:focus {
-  outline-color: #ffffff4d;
-}
-
 .f\:oo-2:focus {
   outline-offset: 2px;
 }
@@ -1997,10 +1985,6 @@ summary {
 
 .h\:bg-silver-2:hover {
   background-color: #ecedee;
-}
-
-.h\:bg-slate-10:hover {
-  background-color: #1c1c22;
 }
 
 .h\:bg-slate-7:hover {

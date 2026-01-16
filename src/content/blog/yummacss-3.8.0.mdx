@@ -1,0 +1,43 @@
+export const meta = {
+  authors: ["Renildo"],
+  cover: "~",
+  date: "2026-01-15",
+  description: "Yumma CSS is now a monorepo! We've put the API, Nitro and Runtime into the main repository, this should make development much more coordinated.",
+  title: "Yumma CSS 3.8"
+};
+
+**This should be a very easy update to install. Check out the [release notes](https://github.com/yummacss/yummacss/releases/tag/v3.8.0) for more information.**
+
+---
+
+## The Monorepo Transition
+
+We've officially transitioned the Yumma CSS ecosystem into a monorepo! This means that `api`, `nitro` (the engine behind Yumma CSS), and `runtime` are now all living under the main [yummacss](https://github.com/yummacss/yummacss) repository.
+
+I've wanted to do this for a long time. Bringing everything under one roof makes the development process much more efficient and ensures everything stays in sync.
+
+### Public Archives
+
+Following this change, the repositories dedicated to the API, Nitro, and Runtime have been archived. You can still view them, but all future development will take place within the [main monorepo](https://github.com/yummacss/yummacss).
+
+## Version Synchronization
+
+We've synchronized the versions of all core packages to match the main Yumma CSS version as part of this transition.
+
+- `@yummacss/api@1.8.0` -> `@yummacss/api@3.8.0`
+- `@yummacss/nitro@0.5.0` -> `@yummacss/nitro@3.8.0`
+- `@yummacss/runtime@0.3.0` -> `@yummacss/runtime@3.8.0`
+
+## No API Changes
+
+This update is purely an internal structural change. There are no new functionalities, bug fixes, or changes to how you use Yumma CSS or its subpackages. Everything works exactly as it did before!
+
+---
+
+## Upgrade
+
+You can get the latest version of Yumma CSS from npm:
+
+```bash
+npm install yummacss@latest
+```

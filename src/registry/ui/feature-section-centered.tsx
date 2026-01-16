@@ -1,25 +1,16 @@
+import {
+  GaugeIcon,
+  LightningIcon,
+  ShieldCheckIcon,
+} from "@phosphor-icons/react";
+
 export default function FeatureSectionCentered() {
   return (
     <section className="py-12 px-6">
       <div className="d-g gtc-3 g-8 ta-c">
         <div className="d-f fd-c ai-c">
           <div className="d-f ai-c jc-c d-12 br-pill bg-silver-2 c-silver-9 mb-4">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-6 h-6"
-              viewBox="0 0 256 256"
-              aria-hidden="true"
-            >
-              <rect width="256" height="256" fill="none" />
-              <polygon
-                points="160 16 144 96 208 120 96 240 112 160 48 136 160 16"
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="16"
-              />
-            </svg>
+            <LightningIcon size={24} />
           </div>
           <h3 className="ff-s fs-lg fw-600 c-slate-10 mb-2">Lightning fast</h3>
           <p className="fs-sm c-silver-10 m-0">
@@ -28,30 +19,7 @@ export default function FeatureSectionCentered() {
         </div>
         <div className="d-f fd-c ai-c">
           <div className="d-f ai-c jc-c d-12 br-pill bg-silver-2 c-silver-9 mb-4">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-6 h-6"
-              viewBox="0 0 256 256"
-              aria-hidden="true"
-            >
-              <rect width="256" height="256" fill="none" />
-              <path
-                d="M216,112V56a8,8,0,0,0-8-8H48a8,8,0,0,0-8,8v56c0,96,88,120,88,120S216,208,216,112Z"
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="16"
-              />
-              <polyline
-                points="88 136 112 160 168 104"
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="16"
-              />
-            </svg>
+            <ShieldCheckIcon size={24} />
           </div>
           <h3 className="ff-s fs-lg fw-600 c-slate-10 mb-2">
             Secure by default
@@ -62,156 +30,7 @@ export default function FeatureSectionCentered() {
         </div>
         <div className="d-f fd-c ai-c">
           <div className="d-f ai-c jc-c d-12 br-pill bg-silver-2 c-silver-9 mb-4">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-6 h-6"
-              viewBox="0 0 256 256"
-              aria-hidden="true"
-            >
-              <rect width="256" height="256" fill="none" />
-              <circle
-                cx="128"
-                cy="128"
-                r="80"
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="16"
-              />
-              <line
-                x1="128"
-                y1="128"
-                x2="232"
-                y2="128"
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="16"
-              />
-              <line
-                x1="128"
-                y1="128"
-                x2="76"
-                y2="37.93"
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="16"
-              />
-              <line
-                x1="128"
-                y1="128"
-                x2="76"
-                y2="218.07"
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="16"
-              />
-              <line
-                x1="128"
-                y1="48"
-                x2="128"
-                y2="24"
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="16"
-              />
-              <line
-                x1="58.72"
-                y1="88"
-                x2="37.93"
-                y2="76"
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="16"
-              />
-              <line
-                x1="48"
-                y1="128"
-                x2="24"
-                y2="128"
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="16"
-              />
-              <line
-                x1="58.72"
-                y1="168"
-                x2="37.93"
-                y2="180"
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="16"
-              />
-              <line
-                x1="128"
-                y1="208"
-                x2="128"
-                y2="232"
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="16"
-              />
-              <line
-                x1="168"
-                y1="197.28"
-                x2="180"
-                y2="218.07"
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="16"
-              />
-              <line
-                x1="197.28"
-                y1="168"
-                x2="218.07"
-                y2="180"
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="16"
-              />
-              <line
-                x1="197.28"
-                y1="88"
-                x2="218.07"
-                y2="76"
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="16"
-              />
-              <line
-                x1="168"
-                y1="58.72"
-                x2="180"
-                y2="37.93"
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="16"
-              />
-            </svg>
+            <GaugeIcon size={24} />
           </div>
           <h3 className="ff-s fs-lg fw-600 c-slate-10 mb-2">
             Fully customizable

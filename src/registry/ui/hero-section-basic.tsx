@@ -1,3 +1,6 @@
+import { Button } from "@base-ui/react/button";
+import { ArrowRightIcon } from "@phosphor-icons/react";
+
 export default function HeroSectionBasic() {
   return (
     <section className="py-16 px-6 ta-c">
@@ -10,45 +13,13 @@ export default function HeroSectionBasic() {
           experiences without the complexity.
         </p>
         <div className="d-f jc-c g-3">
-          <button
-            type="button"
-            className="px-5 py-3 br-pill fs-md fw-600 bg-slate-8 c-white h:bg-slate-10 f:oc-silver-4 f:os-s f:ow-2"
-          >
+          <Button className="d-f h-12 ai-c jc-c bw-1 bc-silver-4 br-pill bg-silver-1 px-5 fs-md fw-500 c-slate us-none h:bg-silver-2 fv:os-s fv:ow-2 fv:oo--1 fv:oc-blue-8">
             Get started
-          </button>
-          <button
-            type="button"
-            className="ai-c d-f jc-c g-2 px-5 py-3 br-pill fs-md fw-600 bg-white c-slate-8 h:bg-silver-1"
-          >
+          </Button>
+          <Button className="d-f h-12 ai-c jc-c g-2 bw-1 bc-silver-4 br-pill bg-white px-5 fs-md fw-500 c-slate us-none h:bg-silver-1 fv:os-s fv:ow-2 fv:oo--1 fv:oc-blue-8">
             <span>Learn more</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-5 h-5"
-              viewBox="0 0 256 256"
-              aria-hidden="true"
-            >
-              <rect width="256" height="256" fill="none" />
-              <line
-                x1="40"
-                y1="128"
-                x2="216"
-                y2="128"
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="16"
-              />
-              <polyline
-                points="144 56 216 128 144 200"
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="16"
-              />
-            </svg>
-          </button>
+            <ArrowRightIcon size={20} />
+          </Button>
         </div>
       </div>
     </section>
