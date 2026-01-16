@@ -51,7 +51,7 @@ export default async function BlogPage() {
                             unoptimized
                             width={1200}
                             height={675}
-                            className="w-full h-auto of-c"
+                            className="w-full h-auto of-c us-none"
                           />
                         </div>
                       </div>

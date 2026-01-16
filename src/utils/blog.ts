@@ -26,6 +26,7 @@ const blogSlugs = [
   "yummacss-3.6.0",
   "yummacss-3.7.0",
   "introducing-templates",
+  "yummacss-3.8.0",
 ];
 
 export function getAllBlogSlugs(): string[] {

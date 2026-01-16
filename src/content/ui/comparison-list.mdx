@@ -3,105 +3,138 @@ export const meta = {
   description: "Displays features or products side-by-side.",
 };
 
-## Basic Example
+## React
+
+### Basic
 
 <Preview id="comparison-list-basic" />
+
+```tsx
+import { CheckIcon, XIcon } from "@phosphor-icons/react";
+
+export default function ComparisonListBasic() {
+  return (
+    <div className="max-w-sm">
+      <div className="d-f fd-c g-3">
+        <div className="d-f ai-c g-3">
+          <div className="d-f ai-c jc-c d-6 br-pill bg-green-1 c-green">
+            <CheckIcon size={16} weight="bold" />
+          </div>
+          <span className="fs-sm c-slate">Unlimited projects</span>
+        </div>
+        <div className="d-f ai-c g-3">
+          <div className="d-f ai-c jc-c d-6 br-pill bg-green-1 c-green">
+            <CheckIcon size={16} weight="bold" />
+          </div>
+          <span className="fs-sm c-slate">Priority support</span>
+        </div>
+        <div className="d-f ai-c g-3">
+          <div className="d-f ai-c jc-c d-6 br-pill bg-green-1 c-green">
+            <CheckIcon size={16} weight="bold" />
+          </div>
+          <span className="fs-sm c-slate">Custom integrations</span>
+        </div>
+        <div className="d-f ai-c g-3">
+          <div className="d-f ai-c jc-c d-6 br-pill bg-red-1 c-red">
+            <XIcon size={16} weight="bold" />
+          </div>
+          <span className="fs-sm c-slate-6">Dedicated account manager</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+```
+
+### Side by Side
+
+<Preview id="comparison-list-side-by-side" />
+
+```tsx
+import { CheckIcon, XIcon } from "@phosphor-icons/react";
+
+export default function ComparisonListSideBySide() {
+  return (
+    <div className="d-g gtc-2 g-8">
+      <div>
+        <h3 className="ff-s fs-md fw-600 c-slate mb-4">Included</h3>
+        <div className="d-f fd-c g-3">
+          <div className="d-f ai-c g-2">
+            <CheckIcon size={16} weight="bold" className="c-green" />
+            <span className="fs-sm c-slate">Unlimited bandwidth</span>
+          </div>
+          <div className="d-f ai-c g-2">
+            <CheckIcon size={16} weight="bold" className="c-green" />
+            <span className="fs-sm c-slate">SSL certificate</span>
+          </div>
+          <div className="d-f ai-c g-2">
+            <CheckIcon size={16} weight="bold" className="c-green" />
+            <span className="fs-sm c-slate">24/7 monitoring</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h3 className="ff-s fs-md fw-600 c-slate mb-4">Not included</h3>
+        <div className="d-f fd-c g-3">
+          <div className="d-f ai-c g-2">
+            <XIcon size={16} weight="bold" className="c-red" />
+            <span className="fs-sm c-slate-6">Custom domain</span>
+          </div>
+          <div className="d-f ai-c g-2">
+            <XIcon size={16} weight="bold" className="c-red" />
+            <span className="fs-sm c-slate-6">Priority support</span>
+          </div>
+          <div className="d-f ai-c g-2">
+            <XIcon size={16} weight="bold" className="c-red" />
+            <span className="fs-sm c-slate-6">API access</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+```
+
+## HTML
+
+### Basic Example
 
 ```html
 <div class="max-w-sm">
   <div class="d-f fd-c g-3">
     <div class="d-f ai-c g-3">
       <div class="d-f ai-c jc-c d-6 br-pill bg-green-1 c-green">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="w-4 h-4"
-          viewBox="0 0 256 256"
-          aria-hidden="true"
-        >
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 256 256" aria-hidden="true">
           <rect width="256" height="256" fill="none" />
-          <polyline
-            points="40 144 96 200 224 72"
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="16"
-          />
+          <polyline points="40 144 96 200 224 72" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
         </svg>
       </div>
       <span class="fs-sm c-slate">Unlimited projects</span>
     </div>
     <div class="d-f ai-c g-3">
       <div class="d-f ai-c jc-c d-6 br-pill bg-green-1 c-green">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="w-4 h-4"
-          viewBox="0 0 256 256"
-          aria-hidden="true"
-        >
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 256 256" aria-hidden="true">
           <rect width="256" height="256" fill="none" />
-          <polyline
-            points="40 144 96 200 224 72"
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="16"
-          />
+          <polyline points="40 144 96 200 224 72" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
         </svg>
       </div>
       <span class="fs-sm c-slate">Priority support</span>
     </div>
     <div class="d-f ai-c g-3">
       <div class="d-f ai-c jc-c d-6 br-pill bg-green-1 c-green">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="w-4 h-4"
-          viewBox="0 0 256 256"
-          aria-hidden="true"
-        >
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 256 256" aria-hidden="true">
           <rect width="256" height="256" fill="none" />
-          <polyline
-            points="40 144 96 200 224 72"
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="16"
-          />
+          <polyline points="40 144 96 200 224 72" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
         </svg>
       </div>
       <span class="fs-sm c-slate">Custom integrations</span>
     </div>
     <div class="d-f ai-c g-3">
       <div class="d-f ai-c jc-c d-6 br-pill bg-red-1 c-red">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="w-4 h-4"
-          viewBox="0 0 256 256"
-          aria-hidden="true"
-        >
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 256 256" aria-hidden="true">
           <rect width="256" height="256" fill="none" />
-          <line
-            x1="200"
-            y1="56"
-            x2="56"
-            y2="200"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="16"
-          />
-          <line
-            x1="200"
-            y1="200"
-            x2="56"
-            y2="56"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="16"
-          />
+          <line x1="200" y1="56" x2="56" y2="200" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
+          <line x1="200" y1="200" x2="56" y2="56" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
         </svg>
       </div>
       <span class="fs-sm c-slate-6">Dedicated account manager</span>
@@ -110,9 +143,7 @@ export const meta = {
 </div>
 ```
 
-## Side by Side
-
-<Preview id="comparison-list-side-by-side" />
+### Side by Side Example
 
 ```html
 <div class="d-g gtc-2 g-8">
@@ -120,59 +151,23 @@ export const meta = {
     <h3 class="ff-s fs-md fw-600 c-slate mb-4">Included</h3>
     <div class="d-f fd-c g-3">
       <div class="d-f ai-c g-2">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="w-4 h-4 c-green"
-          viewBox="0 0 256 256"
-          aria-hidden="true"
-        >
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 c-green" viewBox="0 0 256 256" aria-hidden="true">
           <rect width="256" height="256" fill="none" />
-          <polyline
-            points="40 144 96 200 224 72"
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="16"
-          />
+          <polyline points="40 144 96 200 224 72" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
         </svg>
         <span class="fs-sm c-slate">Unlimited bandwidth</span>
       </div>
       <div class="d-f ai-c g-2">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="w-4 h-4 c-green"
-          viewBox="0 0 256 256"
-          aria-hidden="true"
-        >
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 c-green" viewBox="0 0 256 256" aria-hidden="true">
           <rect width="256" height="256" fill="none" />
-          <polyline
-            points="40 144 96 200 224 72"
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="16"
-          />
+          <polyline points="40 144 96 200 224 72" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
         </svg>
         <span class="fs-sm c-slate">SSL certificate</span>
       </div>
       <div class="d-f ai-c g-2">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="w-4 h-4 c-green"
-          viewBox="0 0 256 256"
-          aria-hidden="true"
-        >
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 c-green" viewBox="0 0 256 256" aria-hidden="true">
           <rect width="256" height="256" fill="none" />
-          <polyline
-            points="40 144 96 200 224 72"
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="16"
-          />
+          <polyline points="40 144 96 200 224 72" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
         </svg>
         <span class="fs-sm c-slate">24/7 monitoring</span>
       </div>
@@ -182,95 +177,26 @@ export const meta = {
     <h3 class="ff-s fs-md fw-600 c-slate mb-4">Not included</h3>
     <div class="d-f fd-c g-3">
       <div class="d-f ai-c g-2">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="w-4 h-4 c-red"
-          viewBox="0 0 256 256"
-          aria-hidden="true"
-        >
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 c-red" viewBox="0 0 256 256" aria-hidden="true">
           <rect width="256" height="256" fill="none" />
-          <line
-            x1="200"
-            y1="56"
-            x2="56"
-            y2="200"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="16"
-          />
-          <line
-            x1="200"
-            y1="200"
-            x2="56"
-            y2="56"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="16"
-          />
+          <line x1="200" y1="56" x2="56" y2="200" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
+          <line x1="200" y1="200" x2="56" y2="56" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
         </svg>
         <span class="fs-sm c-slate-6">Custom domain</span>
       </div>
       <div class="d-f ai-c g-2">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="w-4 h-4 c-red"
-          viewBox="0 0 256 256"
-          aria-hidden="true"
-        >
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 c-red" viewBox="0 0 256 256" aria-hidden="true">
           <rect width="256" height="256" fill="none" />
-          <line
-            x1="200"
-            y1="56"
-            x2="56"
-            y2="200"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="16"
-          />
-          <line
-            x1="200"
-            y1="200"
-            x2="56"
-            y2="56"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="16"
-          />
+          <line x1="200" y1="56" x2="56" y2="200" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
+          <line x1="200" y1="200" x2="56" y2="56" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
         </svg>
         <span class="fs-sm c-slate-6">Priority support</span>
       </div>
       <div class="d-f ai-c g-2">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="w-4 h-4 c-red"
-          viewBox="0 0 256 256"
-          aria-hidden="true"
-        >
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 c-red" viewBox="0 0 256 256" aria-hidden="true">
           <rect width="256" height="256" fill="none" />
-          <line
-            x1="200"
-            y1="56"
-            x2="56"
-            y2="200"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="16"
-          />
-          <line
-            x1="200"
-            y1="200"
-            x2="56"
-            y2="56"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="16"
-          />
+          <line x1="200" y1="56" x2="56" y2="200" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
+          <line x1="200" y1="200" x2="56" y2="56" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
         </svg>
         <span class="fs-sm c-slate-6">API access</span>
       </div>

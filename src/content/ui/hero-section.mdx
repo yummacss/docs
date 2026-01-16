@@ -1,11 +1,86 @@
 export const meta = {
   title: "Hero Section",
-  description: "Impactful first impression with large visuals, headlines, and primary calls-to-action.",
+  description: "A prominent section for introducing your product or service.",
 };
 
-## Basic Example
+## React
+
+### Basic
 
 <Preview id="hero-section-basic" variant="noPadding" />
+
+```tsx
+import { ArrowRightIcon } from "@phosphor-icons/react";
+import { Button } from "@base-ui/react/button";
+
+export default function HeroSectionBasic() {
+  return (
+    <section className="py-16 px-6 ta-c">
+      <div className="max-w-sm m-auto">
+        <h1 className="ff-s fs-5xl fw-600 c-slate-10 mb-4 lh-1">
+          Build beautiful products faster
+        </h1>
+        <p className="fs-lg c-silver-10 mb-8 m-0 lh-4">
+          The modern platform for teams to design, develop, and ship stunning
+          experiences without the complexity.
+        </p>
+        <div className="d-f jc-c g-3">
+          <Button className="d-f h-12 ai-c jc-c bw-1 bc-silver-4 br-pill bg-silver-1 px-5 fs-md fw-500 c-slate us-none h:bg-silver-2 fv:os-s fv:ow-2 fv:oo--1 fv:oc-blue-8">
+            Get started
+          </Button>
+          <Button className="d-f h-12 ai-c jc-c g-2 bw-1 bc-silver-4 br-pill bg-white px-5 fs-md fw-500 c-slate us-none h:bg-silver-1 fv:os-s fv:ow-2 fv:oo--1 fv:oc-blue-8">
+            <span>Learn more</span>
+            <ArrowRightIcon size={20} />
+          </Button>
+        </div>
+      </div>
+    </section>
+  );
+}
+```
+
+### Badge on Top
+
+<Preview id="hero-section-badge-on-top" variant="noPadding" />
+
+```tsx
+import { SparkleIcon } from "@phosphor-icons/react";
+import { Button } from "@base-ui/react/button";
+
+export default function HeroSectionBadgeOnTop() {
+  return (
+    <section className="py-16 px-6 ta-c">
+      <div className="max-w-sm m-auto">
+        <div className="d-f jc-c mb-4">
+          <span className="d-f ai-c g-2 bg-indigo-1 c-indigo-8 px-3 py-1 br-pill fs-xs fw-600">
+            <SparkleIcon size={16} weight="fill" />
+            <span>New features available</span>
+          </span>
+        </div>
+        <h1 className="ff-s fs-5xl fw-600 c-slate-10 mb-4 lh-1">
+          The future of work starts here
+        </h1>
+        <p className="fs-lg c-silver-10 mb-8 m-0 lh-4">
+          Empower your team with tools that simplify collaboration and boost
+          productivity across every project.
+        </p>
+        <div className="d-f jc-c g-3">
+          <Button className="d-f h-12 ai-c jc-c bw-1 bc-silver-4 br-pill bg-silver-1 px-5 fs-md fw-500 c-slate us-none h:bg-silver-2 fv:os-s fv:ow-2 fv:oo--1 fv:oc-blue-8">
+            Start free trial
+          </Button>
+          <Button className="d-f h-12 ai-c jc-c bw-1 bc-silver-4 br-pill bg-white px-5 fs-md fw-500 c-slate us-none h:bg-silver-1 fv:os-s fv:ow-2 fv:oo--1 fv:oc-blue-8">
+            View demo
+          </Button>
+        </div>
+      </div>
+    </section>
+  );
+}
+```
+
+## HTML
+
+### Basic Example
 
 ```html
 <section class="py-16 px-6 ta-c">
@@ -13,34 +88,13 @@ export const meta = {
     <h1 class="ff-s fs-5xl fw-600 c-slate-10 mb-4 lh-1">Build beautiful products faster</h1>
     <p class="fs-lg c-silver-10 mb-8 m-0 lh-4">The modern platform for teams to design, develop, and ship stunning experiences without the complexity.</p>
     <div class="d-f jc-c g-3">
-      <button class="px-5 py-3 br-pill fs-md fw-600 bg-slate-8 c-white h:bg-slate-10 f:oc-silver-4 f:os-s f:ow-2">Get started</button>
-      <button class="ai-c d-f jc-c g-2 px-5 py-3 br-pill fs-md fw-600 bg-white c-slate-8 h:bg-silver-1">
+      <button class="d-f h-12 ai-c jc-c bw-1 bc-silver-4 br-pill bg-silver-1 px-5 fs-md fw-500 c-slate us-none h:bg-silver-2 fv:os-s fv:ow-2 fv:oo--1 fv:oc-blue-8">Get started</button>
+      <button class="d-f h-12 ai-c jc-c g-2 bw-1 bc-silver-4 br-pill bg-white px-5 fs-md fw-500 c-slate us-none h:bg-silver-1 fv:os-s fv:ow-2 fv:oo--1 fv:oc-blue-8">
         <span>Learn more</span>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="w-5 h-5"
-          viewBox="0 0 256 256"
-        >
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 256 256" aria-hidden="true">
           <rect width="256" height="256" fill="none" />
-          <line
-            x1="40"
-            y1="128"
-            x2="216"
-            y2="128"
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="16"
-          />
-          <polyline
-            points="144 56 216 128 144 200"
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="16"
-          />
+          <line x1="40" y1="128" x2="216" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
+          <polyline points="144 56 216 128 144 200" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
         </svg>
       </button>
     </div>
@@ -48,73 +102,16 @@ export const meta = {
 </section>
 ```
 
-## Badge on Top
-
-<Preview id="hero-section-badge-on-top" variant="noPadding" />
+### Badge on Top Example
 
 ```html
 <section class="py-16 px-6 ta-c">
   <div class="max-w-sm m-auto">
     <div class="d-f jc-c mb-4">
       <span class="d-f ai-c g-2 bg-indigo-1 c-indigo-8 px-3 py-1 br-pill fs-xs fw-600">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="w-4 h-4"
-          viewBox="0 0 256 256"
-        >
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 256 256" aria-hidden="true">
           <rect width="256" height="256" fill="none" />
-          <line
-            x1="208"
-            y1="120"
-            x2="208"
-            y2="72"
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="16"
-          />
-          <line
-            x1="232"
-            y1="96"
-            x2="184"
-            y2="96"
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="16"
-          />
-          <line
-            x1="160"
-            y1="32"
-            x2="160"
-            y2="64"
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="16"
-          />
-          <line
-            x1="176"
-            y1="48"
-            x2="144"
-            y2="48"
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="16"
-          />
-          <path
-            d="M210.69,158.18A96.78,96.78,0,0,1,192,160,96.08,96.08,0,0,1,97.82,45.31,88,88,0,1,0,210.69,158.18Z"
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="16"
-          />
+          <path d="M138.7,175.5l-19.2,52.1a8,8,0,0,1-15,0L85.3,175.5a8.1,8.1,0,0,0-4.8-4.8L28.4,151.5a8,8,0,0,1,0-15l52.1-19.2a8.1,8.1,0,0,0,4.8-4.8l19.2-52.1a8,8,0,0,1,15,0l19.2,52.1a8.1,8.1,0,0,0,4.8,4.8l52.1,19.2a8,8,0,0,1,0,15l-52.1,19.2A8.1,8.1,0,0,0,138.7,175.5Z" fill="currentColor" />
         </svg>
         <span>New features available</span>
       </span>
@@ -122,8 +119,8 @@ export const meta = {
     <h1 class="ff-s fs-5xl fw-600 c-slate-10 mb-4 lh-1">The future of work starts here</h1>
     <p class="fs-lg c-silver-10 mb-8 m-0 lh-4">Empower your team with tools that simplify collaboration and boost productivity across every project.</p>
     <div class="d-f jc-c g-3">
-      <button class="px-5 py-3 br-pill fs-md fw-600 bg-slate-8 c-white h:bg-slate-10 f:oc-silver-4 f:os-s f:ow-2">Start free trial</button>
-      <button class="px-5 py-3 br-pill fs-md fw-600 bg-white c-slate-8 h:bg-silver-1">View demo</button>
+      <button class="d-f h-12 ai-c jc-c bw-1 bc-silver-4 br-pill bg-silver-1 px-5 fs-md fw-500 c-slate us-none h:bg-silver-2 fv:os-s fv:ow-2 fv:oo--1 fv:oc-blue-8">Start free trial</button>
+      <button class="d-f h-12 ai-c jc-c bw-1 bc-silver-4 br-pill bg-white px-5 fs-md fw-500 c-slate us-none h:bg-silver-1 fv:os-s fv:ow-2 fv:oo--1 fv:oc-blue-8">View demo</button>
     </div>
   </div>
 </section>
