@@ -33,12 +33,12 @@ export const templates: Template[] = [
       unlimitedProjects:
         "https://buy.polar.sh/polar_cl_3kF8VHSAUJrzs7ZQaI2dol1esGp8ubOyVKTVW1DnCY9",
     },
-    cover: "/img/templates/neutra/preview.png",
+    cover: "/templates/neutra/preview.png",
     screenshots: [
-      "/img/templates/neutra/home.png",
-      "/img/templates/neutra/pricing.png",
-      "/img/templates/neutra/process.png",
-      "/img/templates/neutra/work.png",
+      "/templates/neutra/home.png",
+      "/templates/neutra/pricing.png",
+      "/templates/neutra/process.png",
+      "/templates/neutra/work.png",
     ],
   },
 ];

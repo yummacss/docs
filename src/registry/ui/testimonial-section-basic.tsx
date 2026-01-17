@@ -12,13 +12,13 @@ export default function TestimonialSectionBasic() {
       <div className="d-12 br-pill o-h mb-2">
         {/** biome-ignore lint/performance/noImgElement: This is just a demo */}
         <img
-          src="/img/people/phoenix-baker.jpg"
-          alt="Phoenix Baker"
+          src="https://untitledui.com/images/avatars/jordan-burgess"
+          alt="Jordan Burgess"
           className="w-full h-full of-c"
         />
       </div>
-      <div className="fs-md fw-500 c-black fs-n mb-1">Phoenix Baker</div>
-      <div className="fs-sm c-silver-10 mb-4">Engineering Manager</div>
+      <div className="fs-md fw-500 c-black fs-n mb-1">Jordan Burgess</div>
+      <div className="fs-sm c-silver-10 mb-4">Chief Technology Officer</div>
       <div className="d-f ai-c g-1 c-orange">
         <StarIcon size={20} weight="fill" />
         <StarIcon size={20} weight="fill" />
