@@ -1,51 +1,16 @@
+import {
+  ChatsIcon,
+  MapPinPlusIcon,
+  UserCheckIcon,
+} from "@phosphor-icons/react";
+
 export default function TimelineIcons() {
   return (
     <div className="d-f fd-c g-4">
       <div className="d-f g-4">
         <div className="d-f fd-c ai-c">
           <div className="d-f ai-c jc-c w-8 h-8 br-pill bg-silver-2 c-black fs-0">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-5 h-5"
-              viewBox="0 0 256 256"
-              aria-hidden="true"
-            >
-              <rect width="256" height="256" fill="none" />
-              <circle
-                cx="128"
-                cy="120"
-                r="40"
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="16"
-              />
-              <path
-                d="M63.8,199.37a72,72,0,0,1,128.4,0"
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="16"
-              />
-              <path
-                d="M222.67,112A95.92,95.92,0,1,1,144,33.33"
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="16"
-              />
-              <polyline
-                points="184 56 200 72 232 40"
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="16"
-              />
-            </svg>
+            <UserCheckIcon size={20} />
           </div>
           <div className="w-px h-full bg-silver-2 my-1"></div>
         </div>
@@ -60,30 +25,7 @@ export default function TimelineIcons() {
       <div className="d-f g-4">
         <div className="d-f fd-c ai-c">
           <div className="d-f ai-c jc-c w-8 h-8 br-pill bg-silver-2 c-black fs-0">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-5 h-5"
-              viewBox="0 0 256 256"
-              aria-hidden="true"
-            >
-              <rect width="256" height="256" fill="none" />
-              <path
-                d="M32.5,138A72,72,0,1,1,62,167.5l-27.76,8.16a8,8,0,0,1-9.93-9.93Z"
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="16"
-              />
-              <path
-                d="M163.94,80.11A72,72,0,0,1,223.5,186l8.16,27.76a8,8,0,0,1-9.93,9.93L194,215.5A72.05,72.05,0,0,1,92.06,175.89"
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="16"
-              />
-            </svg>
+            <ChatsIcon size={20} />
           </div>
           <div className="w-px h-full bg-silver-2 my-1"></div>
         </div>
@@ -99,44 +41,7 @@ export default function TimelineIcons() {
       <div className="d-f g-4">
         <div className="d-f fd-c ai-c">
           <div className="d-f ai-c jc-c w-8 h-8 br-pill bg-silver-2 c-black fs-0">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-5 h-5"
-              viewBox="0 0 256 256"
-              aria-hidden="true"
-            >
-              <rect width="256" height="256" fill="none" />
-              <path
-                d="M208,104c0,72-80,128-80,128S48,176,48,104a80,80,0,0,1,160,0Z"
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="16"
-              />
-              <line
-                x1="128"
-                y1="72"
-                x2="128"
-                y2="136"
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="16"
-              />
-              <line
-                x1="96"
-                y1="104"
-                x2="160"
-                y2="104"
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="16"
-              />
-            </svg>
+            <MapPinPlusIcon size={20} />
           </div>
         </div>
         <div className="pt-1">

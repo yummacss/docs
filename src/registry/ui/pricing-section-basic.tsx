@@ -26,15 +26,15 @@ export default function PricingSectionBasic() {
           </div>
           <ul className="d-f fd-c g-3 mb-6 p-0">
             <li className="d-f ai-c g-2">
-              <CheckIcon size={16} weight="fill" className="c-green" />
+              <CheckIcon size={16} className="c-green" />
               <span className="fs-sm c-slate-8">Up to 3 projects</span>
             </li>
             <li className="d-f ai-c g-2">
-              <CheckIcon size={16} weight="fill" className="c-green" />
+              <CheckIcon size={16} className="c-green" />
               <span className="fs-sm c-slate-8">Basic analytics</span>
             </li>
             <li className="d-f ai-c g-2">
-              <CheckIcon size={16} weight="fill" className="c-green" />
+              <CheckIcon size={16} className="c-green" />
               <span className="fs-sm c-slate-8">Community support</span>
             </li>
           </ul>
@@ -60,19 +60,19 @@ export default function PricingSectionBasic() {
           </div>
           <ul className="d-f fd-c g-3 mb-6 p-0">
             <li className="d-f ai-c g-2">
-              <CheckIcon size={16} weight="fill" className="c-green" />
+              <CheckIcon size={16} className="c-green" />
               <span className="fs-sm c-slate-8">Unlimited projects</span>
             </li>
             <li className="d-f ai-c g-2">
-              <CheckIcon size={16} weight="fill" className="c-green" />
+              <CheckIcon size={16} className="c-green" />
               <span className="fs-sm c-slate-8">Advanced analytics</span>
             </li>
             <li className="d-f ai-c g-2">
-              <CheckIcon size={16} weight="fill" className="c-green" />
+              <CheckIcon size={16} className="c-green" />
               <span className="fs-sm c-slate-8">Priority support</span>
             </li>
             <li className="d-f ai-c g-2">
-              <CheckIcon size={16} weight="fill" className="c-green" />
+              <CheckIcon size={16} className="c-green" />
               <span className="fs-sm c-slate-8">Custom integrations</span>
             </li>
           </ul>
