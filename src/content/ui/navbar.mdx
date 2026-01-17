@@ -3,9 +3,103 @@ export const meta = {
   description: "Provides primary site navigation with links to main sections and pages.",
 };
 
-## Basic Example
+## React
+
+### Basic
 
 <Preview id="navbar-basic" variant="noPadding" />
+
+```tsx
+import { Collapsible } from "@base-ui/react/collapsible";
+import { ListIcon, XIcon } from "@phosphor-icons/react";
+import { useState } from "react";
+
+export default function NavbarBasic() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <nav aria-label="Main navigation" className="bbw-1 bc-silver-4 bg-white px-6 py-4">
+      <div className="ai-c d-f jc-sb max-w-xl mx-auto">
+        <div className="d-f ai-c g-6">
+          <a href="/" className="fs-xl fw-600 c-black td-none">Brand</a>
+          <ul className="d-none md:d-f g-6 p-0 m-0">
+            <li><a href="/" className="fs-sm h:c-black c-slate-7 td-none">Product</a></li>
+            <li><a href="/" className="fs-sm h:c-black c-slate-7 td-none">Resources</a></li>
+            <li><a href="/" className="fs-sm h:c-black c-slate-7 td-none">Pricing</a></li>
+          </ul>
+        </div>
+        <div className="d-none md:d-b">
+          <a href="/" className="bw-1 bc-silver-4 fs-sm h:bg-silver-1 px-4 py-2 br-1 c-black td-none fv:os-s fv:ow-2 fv:oc-blue-8">Sign in</a>
+        </div>
+        <Collapsible.Root open={isOpen} onOpenChange={setIsOpen} className="md:d-none">
+          <Collapsible.Trigger className="d-f ai-c jc-c c-p br-1 px-2 py-2 bw-1 bc-silver-4 bg-white h:bg-silver-2 fv:os-s fv:ow-2 fv:oc-blue-8">
+            {isOpen ? <XIcon size={20} className="c-black" /> : <ListIcon size={20} className="c-black" />}
+          </Collapsible.Trigger>
+          <Collapsible.Panel className="p-a l-0 r-0 mt-4 px-6">
+            <ul className="d-f fd-c g-4 p-0 m-0">
+              <li><a href="/" className="d-b fs-sm h:c-black c-slate-7 td-none py-2">Product</a></li>
+              <li><a href="/" className="d-b fs-sm h:c-black c-slate-7 td-none py-2">Resources</a></li>
+              <li><a href="/" className="d-b fs-sm h:c-black c-slate-7 td-none py-2">Pricing</a></li>
+              <li className="btw-1 bc-silver-4 pt-4">
+                <a href="/" className="d-b fs-sm h:c-black c-slate-7 td-none py-2">Sign in</a>
+              </li>
+            </ul>
+          </Collapsible.Panel>
+        </Collapsible.Root>
+      </div>
+    </nav>
+  );
+}
+```
+
+### Center Aligned Links
+
+<Preview id="navbar-center-aligned-links" variant="noPadding" />
+
+```tsx
+import { Collapsible } from "@base-ui/react/collapsible";
+import { ListIcon, XIcon } from "@phosphor-icons/react";
+import { useState } from "react";
+
+export default function NavbarCenterAlignedLinks() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <nav aria-label="Main navigation" className="bbw-1 bc-silver-4 bg-white px-6 py-4">
+      <div className="ai-c d-f jc-sb max-w-xl mx-auto">
+        <a href="/" className="fs-xl fw-600 c-black td-none">Brand</a>
+        <ul className="ai-c d-none md:d-f g-6 p-0 m-0">
+          <li><a href="/" className="fs-sm h:c-black c-slate-7 td-none">Product</a></li>
+          <li><a href="/" className="fs-sm h:c-black c-slate-7 td-none">Resources</a></li>
+          <li><a href="/" className="fs-sm h:c-black c-slate-7 td-none">Pricing</a></li>
+        </ul>
+        <div className="ai-c d-none g-3 md:d-f">
+          <a href="/" className="bw-1 bc-silver-4 fs-sm h:bg-silver-1 px-4 py-2 br-1 c-black td-none fv:os-s fv:ow-2 fv:oc-blue-8">Sign in</a>
+        </div>
+        <Collapsible.Root open={isOpen} onOpenChange={setIsOpen} className="md:d-none">
+          <Collapsible.Trigger className="d-f ai-c jc-c c-p br-1 px-2 py-2 bw-1 bc-silver-4 bg-white h:bg-silver-2 fv:os-s fv:ow-2 fv:oc-blue-8">
+            {isOpen ? <XIcon size={20} className="c-black" /> : <ListIcon size={20} className="c-black" />}
+          </Collapsible.Trigger>
+          <Collapsible.Panel className="p-a l-0 r-0 mt-4 px-6">
+            <ul className="d-f fd-c g-4 p-0 m-0">
+              <li><a href="/" className="d-b fs-sm h:c-black c-slate-7 td-none py-2">Product</a></li>
+              <li><a href="/" className="d-b fs-sm h:c-black c-slate-7 td-none py-2">Resources</a></li>
+              <li><a href="/" className="d-b fs-sm h:c-black c-slate-7 td-none py-2">Pricing</a></li>
+              <li className="btw-1 bc-silver-4 pt-4">
+                <a href="/" className="d-b fs-sm h:c-black c-slate-7 td-none py-2">Sign in</a>
+              </li>
+            </ul>
+          </Collapsible.Panel>
+        </Collapsible.Root>
+      </div>
+    </nav>
+  );
+}
+```
+
+## HTML
+
+### Basic Example
 
 ```html
 <nav aria-label="Main navigation" class="bbw-1 bc-silver-4 bg-white px-6 py-4">
@@ -13,35 +107,16 @@ export const meta = {
     <div class="d-f ai-c g-6">
       <a href="#" class="fs-xl fw-600 c-black td-none">Brand</a>
       <ul class="d-none md:d-f g-6 p-0 m-0">
-        <li>
-          <a href="#" class="fs-sm h:c-black c-slate-7 td-none">Product</a>
-        </li>
-        <li>
-          <a href="#" class="fs-sm h:c-black c-slate-7 td-none">Resources</a>
-        </li>
-        <li>
-          <a href="#" class="fs-sm h:c-black c-slate-7 td-none">Pricing</a>
-        </li>
+        <li><a href="#" class="fs-sm h:c-black c-slate-7 td-none">Product</a></li>
+        <li><a href="#" class="fs-sm h:c-black c-slate-7 td-none">Resources</a></li>
+        <li><a href="#" class="fs-sm h:c-black c-slate-7 td-none">Pricing</a></li>
       </ul>
     </div>
-
     <div class="d-none md:d-block">
-      <a href="#" class="bw-1 bc-silver-4 fs-sm h:bg-silver-1 px-4 py-2 br-0 c-black td-none f:oc-silver-1 f:os-s f:ow-2">Sign in</a>
+      <a href="#" class="bw-1 bc-silver-4 fs-sm h:bg-silver-1 px-4 py-2 br-1 c-black td-none fv:os-s fv:ow-2 fv:oc-blue-8">Sign in</a>
     </div>
-
-    <button
-      type="button"
-      aria-expanded="false"
-      aria-controls="mobile-menu"
-      aria-label="Open main menu"
-      class="d-f ai-c jc-c c-p br-0 px-2 py-2 bw-1 bc-silver-4 bg-white h:bg-silver-2 d-f md:d-none f:oc-silver-1 f:os-s f:ow-2"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="w-5 h-5 c-black"
-        viewBox="0 0 256 256"
-        aria-hidden="true"
-      >
+    <button type="button" class="d-f ai-c jc-c c-p br-1 px-2 py-2 bw-1 bc-silver-4 bg-white h:bg-silver-2 d-f md:d-none fv:os-s fv:ow-2 fv:oc-blue-8">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 c-black" viewBox="0 0 256 256" aria-hidden="true">
         <rect width="256" height="256" fill="none" />
         <line x1="40" y1="128" x2="216" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
         <line x1="40" y1="64" x2="216" y2="64" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
@@ -49,65 +124,25 @@ export const meta = {
       </svg>
     </button>
   </div>
-
-  <!-- Mobile Menu Content (Hidden by default) -->
-  <div id="mobile-menu" class="d-none md:d-none mt-4">
-    <ul class="d-f fd-c g-4 p-0 m-0">
-      <li>
-        <a href="#" class="d-block fs-sm h:c-black c-slate-7 td-none py-2">Product</a>
-      </li>
-      <li>
-        <a href="#" class="d-block fs-sm h:c-black c-slate-7 td-none py-2">Resources</a>
-      </li>
-      <li>
-        <a href="#" class="d-block fs-sm h:c-black c-slate-7 td-none py-2">Pricing</a>
-      </li>
-      <li class="btw-1 bc-silver-4 pt-4">
-        <a href="#" class="d-block fs-sm h:c-black c-slate-7 td-none py-2">Sign in</a>
-      </li>
-    </ul>
-  </div>
 </nav>
 ```
 
-## Center Aligned Links
-
-<Preview id="navbar-center-aligned-links" variant="noPadding" />
+### Center Aligned Links Example
 
 ```html
 <nav aria-label="Main navigation" class="bbw-1 bc-silver-4 bg-white px-6 py-4">
   <div class="ai-c d-f jc-sb max-w-xl mx-auto">
     <a href="#" class="fs-xl fw-600 c-black td-none">Brand</a>
-
     <ul class="ai-c d-none md:d-f g-6 p-0 m-0">
-      <li>
-        <a href="#" class="fs-sm h:c-black c-slate-7 td-none">Product</a>
-      </li>
-      <li>
-        <a href="#" class="fs-sm h:c-black c-slate-7 td-none">Resources</a>
-      </li>
-      <li>
-        <a href="#" class="fs-sm h:c-black c-slate-7 td-none">Pricing</a>
-      </li>
+      <li><a href="#" class="fs-sm h:c-black c-slate-7 td-none">Product</a></li>
+      <li><a href="#" class="fs-sm h:c-black c-slate-7 td-none">Resources</a></li>
+      <li><a href="#" class="fs-sm h:c-black c-slate-7 td-none">Pricing</a></li>
     </ul>
-
     <div class="ai-c d-none g-3 md:d-f">
-      <a href="#" class="bw-1 bc-silver-4 fs-sm h:bg-silver-1 px-4 py-2 br-0 c-black td-none f:oc-silver-1 f:os-s f:ow-2">Sign in</a>
+      <a href="#" class="bw-1 bc-silver-4 fs-sm h:bg-silver-1 px-4 py-2 br-1 c-black td-none fv:os-s fv:ow-2 fv:oc-blue-8">Sign in</a>
     </div>
-
-    <button
-      type="button"
-      aria-expanded="false"
-      aria-controls="mobile-menu-center"
-      aria-label="Open main menu"
-      class="d-f ai-c jc-c c-p br-0 px-2 py-2 bw-1 bc-silver-4 bg-white h:bg-silver-2 d-f md:d-none f:oc-silver-1 f:os-s f:ow-2"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="w-5 h-5 c-black"
-        viewBox="0 0 256 256"
-        aria-hidden="true"
-      >
+    <button type="button" class="d-f ai-c jc-c c-p br-1 px-2 py-2 bw-1 bc-silver-4 bg-white h:bg-silver-2 d-f md:d-none fv:os-s fv:ow-2 fv:oc-blue-8">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 c-black" viewBox="0 0 256 256" aria-hidden="true">
         <rect width="256" height="256" fill="none" />
         <line x1="40" y1="128" x2="216" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
         <line x1="40" y1="64" x2="216" y2="64" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
@@ -115,48 +150,6 @@ export const meta = {
       </svg>
     </button>
   </div>
-
-  <!-- Mobile Menu Content (Hidden by default) -->
-  <div id="mobile-menu-center" class="d-none md:d-none mt-4">
-    <ul class="d-f fd-c g-4 p-0 m-0">
-      <li>
-        <a href="#" class="d-block fs-sm h:c-black c-slate-7 td-none py-2">Product</a>
-      </li>
-      <li>
-        <a href="#" class="d-block fs-sm h:c-black c-slate-7 td-none py-2">Resources</a>
-      </li>
-      <li>
-        <a href="#" class="d-block fs-sm h:c-black c-slate-7 td-none py-2">Pricing</a>
-      </li>
-      <li class="btw-1 bc-silver-4 pt-4">
-        <a href="#" class="d-block fs-sm h:c-black c-slate-7 td-none py-2">Sign in</a>
-      </li>
-    </ul>
-  </div>
 </nav>
 ```
-
-## Accessibility
-
-The navbar component follows standard navigation landmark practices and the [Disclosure Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/) for the mobile menu.
-
-### Keyboard Interaction
-
-| Key               | Action                                                           |
-|-------------------|------------------------------------------------------------------|
-| `Tab`             | Moves focus through navigation links and the mobile menu toggle. |
-| `Enter` / `Space` | Activates focused links or toggles the mobile menu.              |
-| `Escape`          | Closes the mobile menu if it is currently open.                  |
-
-
-### Roles, States, and Properties
-
-| Property             | Description                                                      |
-|----------------------|------------------------------------------------------------------|
-| `nav`                | Identifies the element as a navigation landmark.                 |
-| `aria-label`         | Provides an accessible label for the navigation landmark.        |
-| `aria-expanded`      | Indicates if the mobile menu (disclosure) is currently expanded. |
-| `aria-controls`      | References the ID of the mobile menu content.                    |
-| `aria-hidden="true"` | Hides decorative icons from screen readers.                      |
-| `ul` / `li`          | Provides a semantic list structure for navigation items.         |
 
