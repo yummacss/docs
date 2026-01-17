@@ -46,6 +46,4 @@ coverage/
 .vercel
 
 # development
-BASE-UI-DOCS
-MISSING.md
-COLORS.md
+TEMPORARY/

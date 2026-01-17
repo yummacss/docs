@@ -1419,6 +1419,10 @@ summary {
   outline-color: #dbf3e4;
 }
 
+.f\:oc-indigo-4:focus {
+  outline-color: #9fa0e9;
+}
+
 .f\:oc-indigo-5:focus {
   outline-color: #878ae4;
 }
