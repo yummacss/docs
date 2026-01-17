@@ -1,3 +1,5 @@
+import { StarIcon } from "@phosphor-icons/react";
+
 export default function TestimonialSectionBasic() {
   return (
     <section className="py-12 px-6 ta-c max-w-3xl m-auto d-f fd-c ai-c">
@@ -18,61 +20,11 @@ export default function TestimonialSectionBasic() {
       <div className="fs-md fw-500 c-black fs-n mb-1">Phoenix Baker</div>
       <div className="fs-sm c-silver-10 mb-4">Engineering Manager</div>
       <div className="d-f ai-c g-1 c-orange">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-5 h-5"
-          viewBox="0 0 256 256"
-          fill="currentColor"
-          stroke="none"
-          aria-hidden="true"
-        >
-          <rect width="256" height="256" fill="none" />
-          <path d="M234.29,114.85l-45,38.83L203,211.75a16.4,16.4,0,0,1-24.5,17.82L128,198.49,77.47,229.57A16.4,16.4,0,0,1,53,211.75l13.76-58.07-45-38.83A16.46,16.46,0,0,1,31.08,86l59-4.76,22.76-55.08a16.36,16.36,0,0,1,30.27,0l22.75,55.08,59,4.76a16.46,16.46,0,0,1,9.37,28.86Z" />
-        </svg>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-5 h-5"
-          viewBox="0 0 256 256"
-          fill="currentColor"
-          stroke="none"
-          aria-hidden="true"
-        >
-          <rect width="256" height="256" fill="none" />
-          <path d="M234.29,114.85l-45,38.83L203,211.75a16.4,16.4,0,0,1-24.5,17.82L128,198.49,77.47,229.57A16.4,16.4,0,0,1,53,211.75l13.76-58.07-45-38.83A16.46,16.46,0,0,1,31.08,86l59-4.76,22.76-55.08a16.36,16.36,0,0,1,30.27,0l22.75,55.08,59,4.76a16.46,16.46,0,0,1,9.37,28.86Z" />
-        </svg>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-5 h-5"
-          viewBox="0 0 256 256"
-          fill="currentColor"
-          stroke="none"
-          aria-hidden="true"
-        >
-          <rect width="256" height="256" fill="none" />
-          <path d="M234.29,114.85l-45,38.83L203,211.75a16.4,16.4,0,0,1-24.5,17.82L128,198.49,77.47,229.57A16.4,16.4,0,0,1,53,211.75l13.76-58.07-45-38.83A16.46,16.46,0,0,1,31.08,86l59-4.76,22.76-55.08a16.36,16.36,0,0,1,30.27,0l22.75,55.08,59,4.76a16.46,16.46,0,0,1,9.37,28.86Z" />
-        </svg>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-5 h-5"
-          viewBox="0 0 256 256"
-          fill="currentColor"
-          stroke="none"
-          aria-hidden="true"
-        >
-          <rect width="256" height="256" fill="none" />
-          <path d="M234.29,114.85l-45,38.83L203,211.75a16.4,16.4,0,0,1-24.5,17.82L128,198.49,77.47,229.57A16.4,16.4,0,0,1,53,211.75l13.76-58.07-45-38.83A16.46,16.46,0,0,1,31.08,86l59-4.76,22.76-55.08a16.36,16.36,0,0,1,30.27,0l22.75,55.08,59,4.76a16.46,16.46,0,0,1,9.37,28.86Z" />
-        </svg>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-5 h-5"
-          viewBox="0 0 256 256"
-          fill="currentColor"
-          stroke="none"
-          aria-hidden="true"
-        >
-          <rect width="256" height="256" fill="none" />
-          <path d="M234.29,114.85l-45,38.83L203,211.75a16.4,16.4,0,0,1-24.5,17.82L128,198.49,77.47,229.57A16.4,16.4,0,0,1,53,211.75l13.76-58.07-45-38.83A16.46,16.46,0,0,1,31.08,86l59-4.76,22.76-55.08a16.36,16.36,0,0,1,30.27,0l22.75,55.08,59,4.76a16.46,16.46,0,0,1,9.37,28.86Z" />
-        </svg>
+        <StarIcon size={20} weight="fill" />
+        <StarIcon size={20} weight="fill" />
+        <StarIcon size={20} weight="fill" />
+        <StarIcon size={20} weight="fill" />
+        <StarIcon size={20} weight="fill" />
       </div>
     </section>
   );
