@@ -32,7 +32,6 @@ export default function UIPage() {
             <div>
               <Link
                 href="/blog/introducing-templates"
-                target="_blank"
                 className="c-white"
               >
                 <div className="d-if ai-c g-2 px-4 py-2 bf-b-md bw-1 bg-white/5 bc-white/10 br-pill mb-8">
