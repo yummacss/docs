@@ -1,10 +1,10 @@
-import Link from "next/link";
 import {
   Accordion,
   AccordionItem,
   AccordionPanel,
   AccordionTrigger,
 } from "@/components/accordion";
+import Link from "next/link";
 
 export default function TemplateFAQ() {
   return (
@@ -24,25 +24,10 @@ export default function TemplateFAQ() {
           </AccordionPanel>
         </AccordionItem>
 
-        <AccordionItem value="get-everything">
-          <AccordionTrigger>
-            What does "Get everything" really mean?
-          </AccordionTrigger>
-          <AccordionPanel>
-            It means that every time we release a new template, you'll get
-            access to it for free with no additional cost. You can find more
-            info about licensing{" "}
-            <Link href="/ui/license" className="c-white h:td-u">
-              here
-            </Link>
-            .
-          </AccordionPanel>
-        </AccordionItem>
-
         <AccordionItem value="updates">
           <AccordionTrigger>Are updates included?</AccordionTrigger>
           <AccordionPanel>
-            Yes! All licenses include lifetime updates. You'll receive all
+            Yes! All purchases include lifetime updates. You'll receive all
             future improvements, bug fixes, and new features for the template
             you purchased.
           </AccordionPanel>
@@ -51,18 +36,10 @@ export default function TemplateFAQ() {
         {/* Licensing */}
         <p className="fs-xs c-white/40 tt-u ls-8 mb-2 mt-6">Licensing</p>
 
-        <AccordionItem value="license-difference">
-          <AccordionTrigger>
-            What's the difference between the license options?
-          </AccordionTrigger>
+        <AccordionItem value="license-info">
+          <AccordionTrigger>What can I do with my purchase?</AccordionTrigger>
           <AccordionPanel>
-            Single Project allows use in one project (personal or client).
-            Unlimited Projects allows unlimited client and commercial usage. You
-            can find more info about licensing{" "}
-            <Link href="/ui/license" className="c-white h:td-u">
-              here
-            </Link>
-            .
+            Use it for any personal or commercial project. No limits.
           </AccordionPanel>
         </AccordionItem>
 
@@ -74,20 +51,6 @@ export default function TemplateFAQ() {
             Yes, as long as the template is part of a larger project and not
             redistributed as a template, starter, or UI kit on its own. You can
             find more info about licensing{" "}
-            <Link href="/ui/license" className="c-white h:td-u">
-              here
-            </Link>
-            .
-          </AccordionPanel>
-        </AccordionItem>
-
-        <AccordionItem value="team-usage">
-          <AccordionTrigger>Can my team use the template?</AccordionTrigger>
-          <AccordionPanel>
-            Team members directly involved in the project can access the
-            template files. However, the template should not be shared as a
-            general-purpose library or redistributed internally. You can find
-            more info about licensing{" "}
             <Link href="/ui/license" className="c-white h:td-u">
               here
             </Link>

@@ -13,13 +13,6 @@ export interface TemplatePage {
   title: string;
 }
 
-// Template Checkout URLs per license type
-
-export interface TemplateCheckout {
-  singleProject: string;
-  unlimitedProjects: string;
-}
-
 // Template Interface
 
 export interface Template {
@@ -31,7 +24,7 @@ export interface Template {
   stack: string[];
   pages: TemplatePage[];
   previewUrl: string;
-  checkout: TemplateCheckout;
+  checkoutUrl: string;
   cover: string;
   screenshots: string[];
 }
