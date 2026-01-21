@@ -1,6 +1,6 @@
-import { templates } from "@/utils/templates";
 import Image from "next/image";
 import Link from "next/link";
+import { templates } from "@/utils/templates";
 
 export default function TemplatesList() {
   return (
