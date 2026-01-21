@@ -1,10 +1,9 @@
 // Data & Helpers
 export {
   getAllTemplateSlugs,
+  getCheckoutUrl,
   getPageIcon,
-  getSingleProjectUrl,
   getTemplateBySlug,
-  getUnlimitedProjectsUrl,
   pageIconMap,
   templateSupportResources,
 } from "./data";
@@ -14,9 +13,4 @@ export { templateFeatures } from "./features";
 
 // Templates Data
 export { templates } from "./templates";
-export type {
-  Template,
-  TemplateCheckout,
-  TemplateFeature,
-  TemplatePage,
-} from "./types";
+export type { Template, TemplateFeature, TemplatePage } from "./types";

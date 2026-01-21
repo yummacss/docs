@@ -1,9 +1,9 @@
 "use client";
 
+import { getPageIcon, getTemplateBySlug } from "@/utils/templates";
 import { ArrowSquareOutIcon } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { getPageIcon, getTemplateBySlug } from "@/utils/templates";
 
 export default function TemplateDetailsSidebar() {
   const pathname = usePathname();
@@ -23,18 +23,10 @@ export default function TemplateDetailsSidebar() {
         }}
       >
         <div className="px-8">
-          <div className="d-f ai-c jc-sb mb-1">
+          <div className="mb-1">
             <h3 className="fs-md fw-400 tt-c c-white m-0">
               About {template.name}
             </h3>
-            <Link
-              href={template.previewUrl}
-              target="_blank"
-              className="d-f ai-c g-1 fs-xs c-white/50 h:c-white"
-            >
-              <span>Preview</span>
-              <ArrowSquareOutIcon size={14} weight="bold" />
-            </Link>
           </div>
           <p className="fs-sm c-white/50 m-0 mb-6">{template.tagline}</p>
 
@@ -47,16 +39,18 @@ export default function TemplateDetailsSidebar() {
           {/* CTAs */}
           <div className="d-f fd-c g-2 mb-6">
             <Link
-              href={template.checkout.singleProject}
-              className="d-f ai-c jc-c bg-white c-black px-4 py-3 br-0 fw-600 fs-sm h:bg-white/90 us-none"
+              href={template.checkoutUrl}
+              className="d-f ai-c jc-c bg-white c-black px-4 py-3 fw-600 fs-sm h:bg-white/90 us-none"
             >
               Get template €{template.price}
             </Link>
             <Link
-              href={template.checkout.unlimitedProjects}
-              className="d-f ai-c jc-c bg-transparent c-white px-4 py-3 br-0 fw-600 fs-sm bw-1 bc-white us-none"
+              href={template.previewUrl}
+              target="_blank"
+              className="d-f ai-c jc-c g-2 bg-transparent c-white px-4 py-3 fw-500 fs-sm bw-1 bc-white/20 h:bg-white/5 us-none"
             >
-              Get everything €49
+              <span>Live preview</span>
+              <ArrowSquareOutIcon size={16} weight="bold" />
             </Link>
           </div>
 

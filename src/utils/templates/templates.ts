@@ -8,7 +8,7 @@ export const templates: Template[] = [
     tagline: "Design Agency",
     description:
       "This template is designed for agencies and studios, and it showcases a minimal grayscale theme.",
-    price: 19,
+    price: 6,
     stack: [
       "Next.js 16.1",
       "React 19.2",
@@ -27,12 +27,8 @@ export const templates: Template[] = [
       { path: "/src/app/not-found.tsx", title: "404 page" },
     ],
     previewUrl: "https://neutra.yummacss.com/",
-    checkout: {
-      singleProject:
-        "https://buy.polar.sh/polar_cl_ix7aUTxqMXOmYG2DT38aC1XS5bEWzjN5mteDs02H30E",
-      unlimitedProjects:
-        "https://buy.polar.sh/polar_cl_3kF8VHSAUJrzs7ZQaI2dol1esGp8ubOyVKTVW1DnCY9",
-    },
+    checkoutUrl:
+      "https://buy.polar.sh/polar_cl_ix7aUTxqMXOmYG2DT38aC1XS5bEWzjN5mteDs02H30E",
     cover: "/templates/neutra/preview.png",
     screenshots: [
       "/templates/neutra/home.png",

@@ -1,6 +1,6 @@
+import { templates } from "@/utils/templates";
 import Image from "next/image";
 import Link from "next/link";
-import { templates } from "@/utils/templates";
 
 export default function TemplatesList() {
   return (
@@ -21,14 +21,7 @@ export default function TemplatesList() {
             </p>
             <p className="fs-sm c-white/50 m-0">
               <span className="c-white fw-500">€{template.price}</span>
-              {" / also included in "}
-              <Link
-                href={`/ui/templates/${template.slug}`}
-                className="c-white h:td-u"
-              >
-                Unlimited Projects
-              </Link>
-              .
+              {" / one-time purchase"}
             </p>
           </div>
 
