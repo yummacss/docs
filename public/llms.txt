@@ -1,0 +1,173 @@
+# Yumma CSS
+This is the documentation for the `yummacss` package.
+It is a CLI-first CSS framework with abbreviated, intuitive class names.
+
+## Getting Started
+
+- [Installation](https://yummacss.com/docs/installation): Yumma CSS a CLI-first CSS framework for the web with abbreviated styles.
+- [Configuration](https://yummacss.com/docs/configuration): Setting your first Yumma CSS project.
+- [Upgrading](https://yummacss.com/docs/upgrading): Learn how to upgrade your project from Yumma CSS v2 to v3.
+
+## Foundations
+
+- [Styling Elements](https://yummacss.com/docs/styling-elements): Learn how to style elements in Yumma CSS.
+- [Colors](https://yummacss.com/docs/colors): Learn how to use colors in Yumma CSS.
+- [Media Queries](https://yummacss.com/docs/media-queries): Learn how to make responsive layouts with Yumma CSS.
+- [Pseudo Classes](https://yummacss.com/docs/pseudo-classes): Learn how to use pseudo-classes in Yumma CSS.
+- [Base Styles](https://yummacss.com/docs/base-styles): Accessible and modern set of base styles for Yumma CSS projects.
+
+## Background
+
+- [Background Attachment](https://yummacss.com/docs/background-attachment): Controls how the background responds to scrolling.
+- [Background Clip](https://yummacss.com/docs/background-clip): Controls the box around the background of an element.
+- [Background Origin](https://yummacss.com/docs/background-origin): Controls background positioning relative to borders, padding, and content.
+- [Background Position](https://yummacss.com/docs/background-position): Controls the position of the background image of an element.
+- [Background Repeat](https://yummacss.com/docs/background-repeat): Controls the repetition of the background image of an element.
+- [Background Size](https://yummacss.com/docs/background-size): Controls the size of the background image of an element.
+
+## Border & Outline
+
+- [Border Collapse](https://yummacss.com/docs/border-collapse): Controls the collapsing or separation of table borders.
+- [Border Radius](https://yummacss.com/docs/border-radius): Controls the radius of the borders of an element.
+- [Border Spacing](https://yummacss.com/docs/border-spacing): Controls the distance between table borders.
+- [Border Style](https://yummacss.com/docs/border-style): Controls the style of the borders of an element.
+- [Border Width](https://yummacss.com/docs/border-width): Controls the width of the borders of an element.
+- [Outline Offset](https://yummacss.com/docs/outline-offset): Controls the offset of an element
+- [Outline Style](https://yummacss.com/docs/outline-style): Controls the outline style of an element.
+- [Outline Width](https://yummacss.com/docs/outline-width): Controls the width of the outline of an element.
+
+## Box Model
+
+- [Box Sizing](https://yummacss.com/docs/box-sizing): Controls the calculation of the total size of an element.
+- [Dimensions](https://yummacss.com/docs/dimensions): Controls the height and width of an element simultaneously.
+- [Height](https://yummacss.com/docs/height): Controls the height of an element.
+- [Margin](https://yummacss.com/docs/margin): Controls the margin of an element.
+- [Padding](https://yummacss.com/docs/padding): Controls the padding of an element.
+- [Width](https://yummacss.com/docs/width): Controls the width of an element.
+
+## Colors
+
+- [Accent Color](https://yummacss.com/docs/accent-color): Controls form control accent color.
+- [Background Color](https://yummacss.com/docs/background-color): Controls the background color of an element.
+- [Border Color](https://yummacss.com/docs/border-color): Controls the color of the borders of an element.
+- [Caret Color](https://yummacss.com/docs/caret-color): Controls the text input cursor color.
+- [Color](https://yummacss.com/docs/color): Controls the text color of an element.
+- [Fill](https://yummacss.com/docs/fill): Controls the filling of SVG elements.
+- [Outline Color](https://yummacss.com/docs/outline-color): Controls the color of the outline of an element.
+- [Stroke](https://yummacss.com/docs/stroke): Controls the color of SVG elements.
+- [Text Decoration Color](https://yummacss.com/docs/text-decoration-color): Controls the color of the text decoration.
+
+## Flexbox & Grid
+
+- [Align Content](https://yummacss.com/docs/align-content): Controls the positioning of rows in multi-row Flex and Grid containers.
+- [Align Items](https://yummacss.com/docs/align-items): Controls flex and grid positioning along a container
+- [Align Self](https://yummacss.com/docs/align-self): Controls the positioning of a single flex or grid element along the transverse axis of its container.
+- [Flex](https://yummacss.com/docs/flex): Controls how flex elements grow and shrink.
+- [Flex Basis](https://yummacss.com/docs/flex-basis): Controls the initial size of flex elements.
+- [Flex Direction](https://yummacss.com/docs/flex-direction): Controls the direction of flex elements.
+- [Flex Grow](https://yummacss.com/docs/flex-grow): Controls the growth of flex elements.
+- [Flex Shrink](https://yummacss.com/docs/flex-shrink): Controls the shrinkage of the flex items.
+- [Flex Wrap](https://yummacss.com/docs/flex-wrap): Controls how flex items are wrapped.
+- [Justify Content](https://yummacss.com/docs/justify-content): Controls the positioning of flex and grid elements on a container
+- [Justify Items](https://yummacss.com/docs/justify-items): Controls the alignment of grid elements relative to their inline axis.
+- [Justify Self](https://yummacss.com/docs/justify-self): Controls the alignment of a single grid element relative to its inline axis.
+- [Order](https://yummacss.com/docs/order): Controls the order of flex and grid items.
+- [Column Gap](https://yummacss.com/docs/column-gap): Controls the spacing between columns in a grid layout.
+- [Gap](https://yummacss.com/docs/gap): Controls gaps between grid and flexbox elements.
+- [Grid Auto Columns](https://yummacss.com/docs/grid-auto-columns): Controls the size of grid columns created implicitly.
+- [Grid Auto Flow](https://yummacss.com/docs/grid-auto-flow): Controls the automatic placement of grid elements.
+- [Grid Auto Rows](https://yummacss.com/docs/grid-auto-rows): Controls the size of grid lines created implicitly.
+- [Grid Column](https://yummacss.com/docs/grid-column): Controls the size and position of elements across columns.
+- [Grid Row](https://yummacss.com/docs/grid-row): Controls the size and position of elements across rows.
+- [Grid Template Columns](https://yummacss.com/docs/grid-template-columns): Utilities to define the columns in a grid layout.
+- [Grid Template Rows](https://yummacss.com/docs/grid-template-rows): Utilities to specify the rows in a grid layout.
+- [Place Content](https://yummacss.com/docs/place-content): Control how content is justified and aligned simultaneously.
+- [Place Items](https://yummacss.com/docs/place-items): Control how items are justified and aligned simultaneously.
+- [Place Self](https://yummacss.com/docs/place-self): Controls how single items are justified and aligned simultaneously.
+- [Row Gap](https://yummacss.com/docs/row-gap): Controls the gap between rows in a grid layout.
+
+## Effects
+
+- [Backdrop Blur](https://yummacss.com/docs/backdrop-blur): Applies background blur filters to an element.
+- [Blur](https://yummacss.com/docs/blur): Applies a blur filter to an element.
+- [Box Shadow](https://yummacss.com/docs/box-shadow): Controls the box shadow of an element.
+- [Grayscale](https://yummacss.com/docs/grayscale): Applies a grayscale filter to an element.
+- [Opacity](https://yummacss.com/docs/opacity): Controls the opacity of an element.
+
+## Interactivity
+
+- [Appearance](https://yummacss.com/docs/appearance): Utilities to disable the styling of the original form controls.
+- [Cursor](https://yummacss.com/docs/cursor): Controls the cursor style when hovering over an element.
+- [Field Sizing](https://yummacss.com/docs/field-sizing): Controls the sizing of elements that have a default preferred size.
+- [Pointer Events](https://yummacss.com/docs/pointer-events): Controls how an item responds to pointer events.
+- [Resize](https://yummacss.com/docs/resize): Controls the way an item can be resized.
+- [Scroll Behavior](https://yummacss.com/docs/scroll-behavior): Controls the scroll behavior of an element.
+- [Scroll Margin](https://yummacss.com/docs/scroll-margin): Controls all of the scroll margins of an element simultaneously.
+- [Scroll Padding](https://yummacss.com/docs/scroll-padding): Controls all of the scroll paddings of an element simultaneously.
+- [Scroll Snap Align](https://yummacss.com/docs/scroll-snap-align): Controls where the scroll snaps to align with an element.
+- [Scroll Snap Stop](https://yummacss.com/docs/scroll-snap-stop): Controls whether the scroll container passes over possible snap positions.
+- [Scroll Snap Type](https://yummacss.com/docs/scroll-snap-type): Controls the strictness of snap points in a snap container.
+- [User Select](https://yummacss.com/docs/user-select): Controls the ability of the user to select text in an element.
+
+## Positioning
+
+- [Aspect Ratio](https://yummacss.com/docs/aspect-ratio): Controls the aspect ratio of an element.
+- [Clear](https://yummacss.com/docs/clear): Controls moving elements under floating elements.
+- [Columns](https://yummacss.com/docs/columns): Controls how many columns are in an element.
+- [Display](https://yummacss.com/docs/display): Controls the display box type of an element.
+- [Float](https://yummacss.com/docs/float): Controls the content wrapping around an element.
+- [Isolation](https://yummacss.com/docs/isolation): Controls whether an element must create a new stacking context.
+- [Object Fit](https://yummacss.com/docs/object-fit): Controls how to resize the content of a replaced element.
+- [Object Position](https://yummacss.com/docs/object-position): Controls how to position the container
+- [Overflow](https://yummacss.com/docs/overflow): Controls how an element behaves when content overflows.
+- [Overflow X](https://yummacss.com/docs/overflow-x): Controls how an element behaves when content overflows on the X-axis.
+- [Overflow Y](https://yummacss.com/docs/overflow-y): Controls how an element behaves when content overflows on the Y-axis.
+- [Position](https://yummacss.com/docs/position): Controls the positioning of elements.
+- [Top / Right / Bottom / Left](https://yummacss.com/docs/top-right-bottom-left): Controls placement of positioned elements.
+- [Visibility](https://yummacss.com/docs/visibility): Controls the visibility of an element without affecting the layout.
+- [Z-Index](https://yummacss.com/docs/z-index): Controls the element
+
+## Table
+
+- [Caption Side](https://yummacss.com/docs/caption-side): Controls the caption element orientation in a table.
+- [Table Layout](https://yummacss.com/docs/table-layout): Controls the table cell layout algorithm.
+
+## SVG
+
+- [Stroke Width](https://yummacss.com/docs/stroke-width): Controls the width of a stroke in SVG shapes.
+
+## Transform
+
+- [Rotate](https://yummacss.com/docs/rotate): Controls an element
+- [Scale](https://yummacss.com/docs/scale): Controls how an element changes size on a 2D plane.
+- [Skew](https://yummacss.com/docs/skew): Controls how an element on the 2D plane is transformed.
+- [Transform Origin](https://yummacss.com/docs/transform-origin): Controls to specify where an element should start transforming.
+
+## Typography
+
+- [Font Family](https://yummacss.com/docs/font-family): Controls the font family of an element.
+- [Font Size](https://yummacss.com/docs/font-size): Controls the font size of an element.
+- [Font Style](https://yummacss.com/docs/font-style): Controls the font style of an element.
+- [Font Weight](https://yummacss.com/docs/font-weight): Controls the font weight of an element.
+- [Letter Spacing](https://yummacss.com/docs/letter-spacing): Controls how the letters are spaced on an element.
+- [Line Height](https://yummacss.com/docs/line-height): Controls the line height of an element.
+- [List Style Position](https://yummacss.com/docs/list-style-position): Controls how bullets and numbers are positioned in lists.
+- [List Style Type](https://yummacss.com/docs/list-style-type): Controls the style of a list.
+- [Overflow Wrap](https://yummacss.com/docs/overflow-wrap): Controls word wrapping
+- [Tab Size](https://yummacss.com/docs/tab-size): Controls the width of tab characters.
+- [Text Align](https://yummacss.com/docs/text-align): Controls the alignment of text.
+- [Text Decoration Line](https://yummacss.com/docs/text-decoration-line): Controls the text decoration line of an element.
+- [Text Decoration Style](https://yummacss.com/docs/text-decoration-style): Controls the style of text decoration.
+- [Text Decoration Thickness](https://yummacss.com/docs/text-decoration-thickness): Controls the thickness of text decorations.
+- [Text Decoration](https://yummacss.com/docs/text-decoration): Controls the text decoration of an element.
+- [Text Indent](https://yummacss.com/docs/text-indent): Controls the indentation, or the space before a line of block text.
+- [Text Overflow](https://yummacss.com/docs/text-overflow): Controls how hidden text overflow content is displayed.
+- [Text Transform](https://yummacss.com/docs/text-transform): Controls the capitalization and case of text content.
+- [Text Underline Offset](https://yummacss.com/docs/text-underline-offset): Controls offsets of an underline text decoration line.
+- [Text Wrap](https://yummacss.com/docs/text-wrap): Controls how text is wrapped within an element.
+- [Vertical Align](https://yummacss.com/docs/vertical-align): Controls the vertical alignment of an inline or table-cell box.
+- [White Space](https://yummacss.com/docs/white-space): Controls how white space is handled within an element.
+- [Writing Mode](https://yummacss.com/docs/writing-mode): Sets whether lines of text are laid out horizontally or vertically.
+
+## Full Reference
+- [Full Reference](https://raw.githubusercontent.com/yumma-lib/yumma-css-docs/main/AGENTS.md): Comprehensive reference with examples and common patterns for AI systems.

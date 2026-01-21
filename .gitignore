@@ -46,4 +46,4 @@ coverage/
 .vercel
 
 # development
-TEMPORARY/
+DEV/
