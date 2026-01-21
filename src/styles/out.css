@@ -2396,6 +2396,10 @@ summary {
   min-height: fit-content;
 }
 
+.min-w-0 {
+  min-width: 0;
+}
+
 .min-w-16 {
   min-width: 4rem;
 }
@@ -3314,6 +3318,10 @@ summary {
   top: .5rem;
 }
 
+.t-20 {
+  top: 5rem;
+}
+
 .t-24 {
   top: 6rem;
 }
@@ -3684,6 +3692,10 @@ summary {
 
 .tw-b {
   text-wrap: balance;
+}
+
+.tw-n {
+  text-wrap: nowrap;
 }
 
 .tw-p {

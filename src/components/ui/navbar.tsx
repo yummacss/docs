@@ -4,18 +4,11 @@ import { MagnifyingGlassIcon } from "@phosphor-icons/react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { clsx } from "clsx";
 
-import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { type ReactNode, useEffect, useState } from "react";
-
-const OramaSearch = dynamic(
-  () => import("./orama-search").then((mod) => mod.OramaSearch),
-  {
-    ssr: false,
-  },
-);
+import { SearchDialog } from "./search-dialog";
 
 const navbarVariants = cva("p-f l-0 r-0 t-0 zi-10 bbw-1", {
   variants: {
@@ -118,7 +111,7 @@ export default function Navbar({ variant, className, links }: NavbarProps) {
         </div>
       </header>
 
-      <OramaSearch open={searchOpen} onClose={() => setSearchOpen(false)} />
+      <SearchDialog open={searchOpen} onClose={() => setSearchOpen(false)} />
     </>
   );
 }
