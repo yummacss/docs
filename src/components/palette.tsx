@@ -1,9 +1,9 @@
 "use client";
 
-import { generateShades, getBorderColor, SHADE_LABELS } from "@/utils/colors";
 import { Tooltip } from "@base-ui/react";
 import { useState } from "react";
 import tinycolor from "tinycolor2";
+import { generateShades, getBorderColor, SHADE_LABELS } from "@/utils/colors";
 
 interface ColorItem {
   name: string;

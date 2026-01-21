@@ -1,12 +1,5 @@
 "use client";
 
-import { getBorderColor } from "@/utils/colors";
-import {
-  CATEGORY_LABELS,
-  filterSearchResults,
-  groupByCategory,
-  type SearchItem,
-} from "@/utils/search-data";
 import { Dialog } from "@base-ui/react/dialog";
 import {
   ArrowElbowDownLeftIcon,
@@ -16,6 +9,13 @@ import {
 } from "@phosphor-icons/react";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { getBorderColor } from "@/utils/colors";
+import {
+  CATEGORY_LABELS,
+  filterSearchResults,
+  groupByCategory,
+  type SearchItem,
+} from "@/utils/search-data";
 
 interface SearchDialogProps {
   open: boolean;
