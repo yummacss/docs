@@ -1,5 +1,6 @@
 "use client";
 
+import { generateShades, getBorderColor, SHADE_LABELS } from "@/utils/colors";
 import { Tooltip } from "@base-ui/react";
 import { useState } from "react";
 import tinycolor from "tinycolor2";
@@ -12,57 +13,6 @@ interface ColorItem {
 interface PaletteProps {
   data: ColorItem[];
 }
-
-const SHADE_LABELS = [
-  "1",
-  "2",
-  "3",
-  "4",
-  "5",
-  "6",
-  "Base",
-  "7",
-  "8",
-  "9",
-  "10",
-  "11",
-  "12",
-];
-
-const generateShades = (color: string): string[] => {
-  const percentage = 14;
-  const shades: string[] = [];
-
-  for (let i = 1; i <= 6; i++) {
-    const weight = (7 - i) * percentage;
-    const mixedColor = tinycolor.mix(color, "white", weight);
-    shades.push(mixedColor.toHexString());
-  }
-
-  shades.push(tinycolor(color).toHexString());
-
-  for (let i = 1; i <= 6; i++) {
-    const weight = i * percentage;
-    const mixedColor = tinycolor.mix(color, "black", weight);
-    shades.push(mixedColor.toHexString());
-  }
-
-  return shades;
-};
-
-const getBorderColor = (color: string): string => {
-  const luminance = tinycolor(color).getLuminance();
-
-  if (luminance > 0.9) {
-    return "1px solid rgba(0, 0, 0, 0.1)";
-  }
-
-  if (luminance < 0.1) {
-    return "1px solid rgba(255, 255, 255, 0.1)";
-  }
-
-  return "none";
-};
 
 export default function Palette({ data }: PaletteProps) {
   return (
