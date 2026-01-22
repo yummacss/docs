@@ -157,18 +157,39 @@ export const DEFAULT_ITEMS: SearchItem[] = [
   { title: "Base Styles", path: "/docs/base-styles", category: "docs" },
 ];
 
-// Helper to filter search results
+// Helper to filter search results (prioritizes items starting with query)
 export function filterSearchResults(query: string): SearchItem[] {
   if (!query.trim()) {
     return DEFAULT_ITEMS;
   }
 
   const lowerQuery = query.toLowerCase();
-  return SEARCH_DATA.filter(
+
+  // Filter matching items
+  const matches = SEARCH_DATA.filter(
     (item) =>
       item.title.toLowerCase().includes(lowerQuery) ||
       item.description?.toLowerCase().includes(lowerQuery),
   );
+
+  // Separate colors from other items to preserve shade order
+  const colors = matches.filter((item) => item.category === "colors");
+  const others = matches.filter((item) => item.category !== "colors");
+
+  // Sort non-colors: items starting with query first, then alphabetically
+  others.sort((a, b) => {
+    const aTitle = a.title.toLowerCase();
+    const bTitle = b.title.toLowerCase();
+    const aStartsWith = aTitle.startsWith(lowerQuery);
+    const bStartsWith = bTitle.startsWith(lowerQuery);
+
+    if (aStartsWith && !bStartsWith) return -1;
+    if (!aStartsWith && bStartsWith) return 1;
+    return aTitle.localeCompare(bTitle);
+  });
+
+  // Colors keep their original order (lightest → base → darkest)
+  return [...others, ...colors];
 }
 
 // Group results by category
