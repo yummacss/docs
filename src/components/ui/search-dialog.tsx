@@ -3,8 +3,8 @@
 import { Dialog } from "@base-ui/react/dialog";
 import {
   ArrowElbowDownLeftIcon,
-  CircleDashedIcon,
-  CircleIcon,
+  DiamondIcon,
+  DiamondsFourIcon,
   MagnifyingGlassIcon,
 } from "@phosphor-icons/react";
 import { useRouter } from "next/navigation";
@@ -111,9 +111,9 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
   // Get category icon
   const getCategoryIcon = (category: string) => {
     if (category === "docs") {
-      return <CircleIcon size={14} className="c-white" />;
+      return <DiamondIcon size={14} className="c-white" />;
     }
-    return <CircleDashedIcon size={14} className="c-white" />;
+    return <DiamondsFourIcon size={14} className="c-white" />;
   };
 
   // Track global index for keyboard nav
@@ -134,8 +134,8 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
         <Dialog.Popup
           className="p-f zi-50 t-20 l-half w-full o-h"
           style={{
-            backgroundColor: "#1a1d2e",
-            border: "1px solid rgba(255, 255, 255, 0.1)",
+            backgroundColor: "#21243f",
+            border: "1px solid #31365e",
             transform: open
               ? "translateX(-50%) scale(1)"
               : "translateX(-50%) scale(0.95)",
@@ -149,7 +149,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
           {/* Search Input */}
           <div
             className="d-f ai-c g-3 px-4 py-3"
-            style={{ borderBottom: "1px solid rgba(255, 255, 255, 0.1)" }}
+            style={{ borderBottom: "1px solid #31365e" }}
           >
             <MagnifyingGlassIcon size={18} className="c-white/50" />
             <input
@@ -197,7 +197,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                         className="d-f ai-c g-3 w-full px-3 py-2 ta-l b-0 c-p"
                         style={{
                           backgroundColor: isSelected
-                            ? "#151724"
+                            ? "#363955"
                             : "transparent",
                         }}
                       >
@@ -252,7 +252,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
           {/* Footer */}
           <div
             className="d-f ai-c jc-sb px-4 py-2 fs-xs c-white/40"
-            style={{ borderTop: "1px solid rgba(255, 255, 255, 0.1)" }}
+            style={{ borderTop: "1px solid #31365e" }}
           >
             <div className="d-f ai-c g-4">
               <span className="d-f ai-c g-1">
