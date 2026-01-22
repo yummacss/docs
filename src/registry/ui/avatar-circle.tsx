@@ -4,7 +4,7 @@ export default function ExampleAvatarCircle() {
   return (
     <Avatar.Root className="d-if d-12 ai-c jc-c br-pill o-h bg-silver-1 us-none">
       <Avatar.Image
-        src="https://untitledui.com/images/avatars/jordan-burgess"
+        src="https://images.unsplash.com/photo-1543610892-0b1f7e6d8ac1?w=128&h=128&dpr=2&q=80"
         alt="Jordan Burgess"
         className="d-full of-c"
       />
