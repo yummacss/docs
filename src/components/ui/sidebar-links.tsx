@@ -17,6 +17,7 @@ interface SidebarLink {
   href: string;
   icon: Icon;
   badge?: string;
+  isNew?: boolean;
   external?: boolean;
   isActive?: (pathname: string) => boolean;
 }
@@ -32,6 +33,7 @@ const sidebarLinks: SidebarLink[] = [
   {
     title: "Core Package",
     href: "/docs/core-package",
+    isNew: true,
     icon: AtomIcon,
     isActive: (pathname) => pathname === "/docs/core-package",
   },
@@ -45,7 +47,7 @@ const sidebarLinks: SidebarLink[] = [
     title: "Components",
     href: "/ui/components",
     icon: StackSimpleIcon,
-    badge: "New",
+    isNew: true,
     isActive: (pathname) =>
       pathname.startsWith("/ui") &&
       !pathname.startsWith("/ui/templates") &&
@@ -55,7 +57,7 @@ const sidebarLinks: SidebarLink[] = [
     title: "Templates",
     href: "/ui/templates",
     icon: SparkleIcon,
-    badge: "New",
+    isNew: true,
     isActive: (pathname) =>
       pathname.startsWith("/ui/templates") ||
       ["/ui/license", "/ui/privacy", "/ui/terms"].includes(pathname),
@@ -102,9 +104,9 @@ export default function SidebarLinks({ onLinkClick }: SidebarLinksProps) {
             >
               {link.title}
             </span>
-            {link.badge && (
+            {(link.isNew || link.badge) && (
               <span className="fs-xs px-2 py-1 bg-white/10 rad-2 c-white/70">
-                {link.badge}
+                {link.isNew ? "New" : link.badge}
               </span>
             )}
           </Link>
