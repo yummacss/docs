@@ -1,6 +1,6 @@
 {
   "name": "yumma-css-docs",
-  "version": "3.8.1",
+  "version": "3.9.0",
   "description": "A CLI-first CSS framework for the web with abbreviated styles.",
   "homepage": "https://yummacss.com",
   "license": "MIT",
@@ -8,13 +8,13 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build:css": "yummacss b",
+    "build:css": "yummacss build",
     "build": "next build",
-    "dev": "pnpm release && concurrently \"next dev\" \"yummacss w\"",
+    "dev": "concurrently \"next dev\" \"yummacss watch\"",
     "generate:llms": "tsx scripts/generate-llms-txt.ts",
     "lint": "biome check --write",
-    "release": "pnpm up yummacss @yummacss/api --latest",
-    "start": "next start"
+    "start": "next start",
+    "update-yummacss": "pnpm up yummacss @yummacss/core --latest"
   },
   "packageManager": "pnpm@10.27.0",
   "dependencies": {
@@ -28,7 +28,7 @@
     "@react-three/fiber": "^9.5.0",
     "@vercel/analytics": "^1.6.1",
     "@vercel/speed-insights": "^1.3.1",
-    "@yummacss/api": "^3.8.1",
+    "@yummacss/core": "^3.9.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "gsap": "^3.14.2",
@@ -56,6 +56,6 @@
     "remark-code-preview": "^1.2.6",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3",
-    "yummacss": "^3.8.1"
+    "yummacss": "^3.9.0"
   }
 }

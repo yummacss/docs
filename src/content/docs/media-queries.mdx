@@ -43,3 +43,27 @@ Here's a reference for all the breakpoints available in Yumma CSS:
 <p class="c-slate d-none lg:d-b p-4 ta-c xl:d-none">This is an extra large screen.</p>
 <p class="c-slate d-none p-4 ta-c xxl:d-b">This is double extra large screen.</p>
 ```
+
+## Touch devices
+
+The `pc:*` variant targets devices with a coarse pointer (typically touch screens). This lets you apply larger tap targets and touch-friendly spacing on mobile devices.
+
+<Note icon="hand_tap">This variant activates on touch-enabled devices with coarse pointer input.</Note>
+
+<Preview>
+  <button className="p-4 pc:p-6 bg-indigo c-white">
+    Larger padding on touch devices
+  </button>
+</Preview>
+
+```html "pc:p-6"
+<button type="button" class="p-4 pc:p-6 bg-indigo c-white">
+  Larger padding on touch devices
+</button>
+```
+
+Here's a complete reference of all touch devices media query variant:
+
+| Prefix | Media Query                           | Description      |
+| ------ | ------------------------------------- | ---------------- |
+| `pc:`  | `@media (pointer: coarse)`            | Touch devices    |

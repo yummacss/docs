@@ -82,6 +82,11 @@ export const redirects = [
     destination: "/docs/styling-elements",
     permanent: true,
   },
+  {
+    source: "/docs/api-reference",
+    destination: "/docs/core-package",
+    permanent: true,
+  },
   // Framework guides
   {
     source: "/docs/guides/react",

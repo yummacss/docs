@@ -1,18 +1,18 @@
 export const meta = {
-  title: "API Reference",
-  description: "Learn how to integrate the Yumma CSS core utilities into your project.",
+  title: "Core Package",
+  description: "Core utility definitions for Yumma CSS projects.",
 };
 
-## What is Yumma CSS API?
+## What is Yumma CSS Core?
 
 It's an open-source library written in TypeScript that gives you access to all the Yumma CSS class definitions through simple functions. It's the same library that powers Yumma CSS, this documentation, and our playground.
 
-## Installing the API
+## Installing the Core Package
 
-Install the Yumma CSS API package using your preferred package manager:
+Install the Yumma CSS Core package using your preferred package manager:
 
 ```bash title="Terminal"
-npm install @yummacss/api
+npm install @yummacss/core
 ```
 
 ### Getting all definitions
@@ -20,9 +20,9 @@ npm install @yummacss/api
 Retrieve all available definitions at once.
 
 ```js title="index.js"
-import { coreUtils } from "@yummacss/api";
+import { coreUtilities } from "@yummacss/core";
 
-const all = coreUtils();
+const all = coreUtilities();
 ```
 
 ### Getting category definitions
@@ -30,9 +30,9 @@ const all = coreUtils();
 Retrieve all definitions for a specific category.
 
 ```js title="index.js"
-import { backgroundUtils } from "@yummacss/api";
+import { backgroundUtilities } from "@yummacss/core";
 
-console.log(backgroundUtils());
+console.log(backgroundUtilities());
 ```
 
 ### Getting specific definitions
@@ -40,9 +40,9 @@ console.log(backgroundUtils());
 Retrieve a specific definition from a category.
 
 ```js title="index.js"
-import { boxModelUtils } from "@yummacss/api";
+import { boxModelUtilities } from "@yummacss/core";
 
-const boxModel = boxModelUtils();
+const boxModel = boxModelUtilities();
 const margin = boxModel["margin"];
 
 console.log(margin);
@@ -52,97 +52,97 @@ console.log(margin);
 
 These are the available functions:
 
-### `coreUtils()`
+### Core Utilities
 
 Returns all available Yumma CSS utilities as a single object.
 
 **type:** `Utilities`
 
-### `backgroundUtils()`
+### Background Utilities
 
 Returns all utility related to backgrounds.
 
 **type:** `Utilities`
 
-### `borderUtils()`
+### Border Utilities
 
 Returns all utility related to borders.
 
 **type:** `Utilities`
 
-### `boxModelUtils()`
+### Box Model Utilities
 
 Returns all utility related to the box model.
 
 **type:** `Utilities`
 
-### `colorUtils()`
+### Color Utilities
 
 Returns all utility related to colors.
 
 **type:** `Utilities`
 
-### `effectUtils()`
+### Effect Utilities
 
 Returns all utility related to effects.
 
 **type:** `Utilities`
 
-### `flexboxUtils()`
+### Flexbox Utilities
 
 Returns all utility related to flexbox.
 
 **type:** `Utilities`
 
-### `fontUtils()`
+### Font Utilities
 
 Returns all utility related to fonts.
 
 **type:** `Utilities`
 
-### `gridUtils()`
+### Grid Utilities
 
 Returns all utility related to CSS Grid.
 
 **type:** `Utilities`
 
-### `interactivityUtils()`
+### Interactivity Utilities
 
 Returns all utility related to interactivity.
 
 **type:** `Utilities`
 
-### `outlineUtils()`
+### Outline Utilities
 
 Returns all utility related to outlines.
 
 **type:** `Utilities`
 
-### `positioningUtils()`
+### Positioning Utilities
 
 Returns all utility related to positioning.
 
 **type:** `Utilities`
 
-### `svgUtils()`
+### Svg Utilities
 
 Returns all utility related to SVG.
 
 **type:** `Utilities`
 
-### `tableUtils()`
+### Table Utilities
 
 Returns all utility related to tables.
 
 **type:** `Utilities`
 
-### `textUtils()`
+### Text Utilities
 
 Returns all utility related to text.
 
 **type:** `Utilities`
 
-### `transformUtils()`
+### Transform Utilities
 
 Returns all utility related to transforms.
 
@@ -153,8 +153,8 @@ Returns all utility related to transforms.
 Using Typescript? You might need to import the following types:
 
 ```ts title="index.ts"
-import type { Utilities, Colors } from "@yummacss/api";
-import type { Color, Utility } from "@yummacss/api";
+import type { Utilities, Colors } from "@yummacss/core";
+import type { Utility, Color } from "@yummacss/core";
 ```
 
 ### Utility interface
@@ -162,7 +162,7 @@ import type { Color, Utility } from "@yummacss/api";
 Represents a Yumma CSS utility.
 
 ```ts title="utility.ts"
-import type { Variants } from "./variant";
+import type { Variants } from "./variants";
 
 export interface Utility {
 	prefix: string;
@@ -182,12 +182,12 @@ export interface Utilities {
 Represents a Yumma CSS utility color.
 
 ```ts title="color.ts"
-import { Utility } from "./utility";
+import type { Utility } from "./utility";
 
 export interface Color extends Utility {}
 
 export interface Colors {
-  [key: string]: Color;
+	[key: string]: Color;
 }
 ```
 
@@ -195,8 +195,13 @@ export interface Colors {
 
 Represents a Yumma CSS utility variant.
 
-```ts title="variant.ts"
+```ts title="variants.ts"
 export interface PseudoClass {
+	prefix: string;
+	value: string;
+}
+
+export interface PseudoElement {
 	prefix: string;
 	value: string;
 }
@@ -213,6 +218,7 @@ export interface Opacity {
 
 export interface Variants {
 	pseudoClasses?: PseudoClass[];
+	pseudoElements?: PseudoElement[];
 	mediaQueries?: MediaQuery[];
 	opacity?: Opacity[];
 }
