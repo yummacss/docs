@@ -47,8 +47,8 @@ export function getAllSlugs(): string[] {
     extractSlugs(section.items);
   }
 
-  // we need to add api-reference manually since it's not in the sidebar config
-  slugs.push("api-reference");
+  // we need to add core-package manually since it's not in the sidebar config
+  slugs.push("core-package");
 
   return slugs;
 }
@@ -61,9 +61,9 @@ export function findCurrentPageInfo(pathname: string): {
   // remove /docs/ prefix and get the slug
   const slug = pathname.replace(/^\/docs\//, "");
 
-  // special case for api-reference (not in sidebar config)
-  if (slug === "api-reference") {
-    return { sectionTitle: "Installation", pageTitle: "API Reference" };
+  // special case for core-package (not in sidebar config)
+  if (slug === "core-package") {
+    return { sectionTitle: "Installation", pageTitle: "Core Library" };
   }
 
   function searchInItems(
@@ -119,7 +119,9 @@ export const sidebarConfig: SidebarConfig = [
       { title: "Styling Elements", slug: "styling-elements" },
       { title: "Colors", slug: "colors" },
       { title: "Media Queries", slug: "media-queries" },
+      { title: "Negative Values", slug: "negative-values" },
       { title: "Pseudo Classes", slug: "pseudo-classes" },
+      { title: "Pseudo Elements", slug: "pseudo-elements" },
       { title: "Base Styles", slug: "base-styles" },
     ],
   },
@@ -247,6 +249,7 @@ export const sidebarConfig: SidebarConfig = [
       { title: "Scroll Snap Align", slug: "scroll-snap-align" },
       { title: "Scroll Snap Stop", slug: "scroll-snap-stop" },
       { title: "Scroll Snap Type", slug: "scroll-snap-type" },
+      { title: "Touch Action", slug: "touch-action" },
       { title: "User Select", slug: "user-select" },
     ],
   },
@@ -291,6 +294,8 @@ export const sidebarConfig: SidebarConfig = [
       { title: "Scale", slug: "scale" },
       { title: "Skew", slug: "skew" },
       { title: "Transform Origin", slug: "transform-origin" },
+      { title: "Translate X", slug: "translate-x" },
+      { title: "Translate Y", slug: "translate-y" },
     ],
   },
   {

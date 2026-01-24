@@ -38,9 +38,9 @@ importers:
       '@vercel/speed-insights':
         specifier: ^1.3.1
         version: 1.3.1(next@16.1.1(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(react@19.2.3)
-      '@yummacss/api':
-        specifier: ^3.8.1
-        version: 3.8.1
+      '@yummacss/core':
+        specifier: ^3.9.0
+        version: 3.9.0
       class-variance-authority:
         specifier: ^0.7.1
         version: 0.7.1
@@ -118,8 +118,8 @@ importers:
         specifier: ^5.9.3
         version: 5.9.3
       yummacss:
-        specifier: ^3.8.1
-        version: 3.8.1
+        specifier: ^3.9.0
+        version: 3.9.0
 
 packages:
 
@@ -812,11 +812,11 @@ packages:
   '@webgpu/types@0.1.68':
     resolution: {integrity: sha512-3ab1B59Ojb6RwjOspYLsTpCzbNB3ZaamIAxBMmvnNkiDoLTZUOBXZ9p5nAYVEkQlDdf6qAZWi1pqj9+ypiqznA==}
 
-  '@yummacss/api@3.8.1':
-    resolution: {integrity: sha512-77DNOhFwWQI0c0VKxunkrfNSXL90/mNFei93mR9W+UgiUy3L+IfbTKt1aXqmVueuvkEapF8N4TCOVlG9fqHpYA==}
+  '@yummacss/core@3.9.0':
+    resolution: {integrity: sha512-YkhpYaRFKd+O4MMQUHClt3pSDpW+1UmF4R1iLIGi9LYFOcUDmJwU8vask+AtzqqDhewRF2zKYoNGq0yZkYpx6A==}
 
-  '@yummacss/nitro@3.8.1':
-    resolution: {integrity: sha512-ii/ZSecA9GJrRkEEn7xOdCvViVZgKWWvrB0RNF2QWFommB6KVBGGNoimN8LG362FrN3rpMDQkpP6yb3g4Jy+sA==}
+  '@yummacss/nitro@3.9.0':
+    resolution: {integrity: sha512-mu6I+1t0JnuEllR36cYGCiuaqmsNa41BieadTpBFN/YrbyhCOXAS7tW/FSDxmq2CLG6HewffsH3hWwtwUkcmkw==}
 
   acorn-jsx@5.3.2:
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
@@ -1908,12 +1908,12 @@ packages:
     resolution: {integrity: sha512-CzhO+pFNo8ajLM2d2IW/R93ipy99LWjtwblvC1RsoSUMZgyLbYFr221TnSNT7GjGdYui6P459mw9JH/g/zW2ug==}
     engines: {node: '>=18'}
 
-  yummacss@3.8.1:
-    resolution: {integrity: sha512-lOLuGCbSGtuA8KW0NrjxweFIl0waHm/tj9KujQUhvfqBoCGOwpVy/u5MG2jQxMdLr3lE+Wued4lbJlnu+T0bYw==}
+  yummacss@3.9.0:
+    resolution: {integrity: sha512-lhqQqF4pO1Eq0oeQFjkph9opMAO/ZHCi4ZMVBpxqodT1/ThK/6rO/s9nP3fkryEmn0hlXVZoq8tndNIKsfxeFQ==}
     hasBin: true
 
-  zod@4.3.5:
-    resolution: {integrity: sha512-k7Nwx6vuWx1IJ9Bjuf4Zt1PEllcwe7cls3VNzm4CQ1/hgtFUK2bRNG3rvnpPUhFjmqJKAKtjV576KnUkHocg/g==}
+  zod@4.3.6:
+    resolution: {integrity: sha512-rftlrkhHZOcjDwkGlnUtZZkvaPHCsDATp4pGpuOOMDaTdDDXF91wuVDJoWoPsKX/3YPQ5fHuF3STjcYyKr+Qhg==}
 
   zustand@5.0.9:
     resolution: {integrity: sha512-ALBtUj0AfjJt3uNRQoL1tL2tMvj6Gp/6e39dnfT6uzpelGru8v1tPOGBzayOWbPJvujM8JojDk3E1LxeFisBNg==}
@@ -2467,15 +2467,15 @@ snapshots:
 
   '@webgpu/types@0.1.68': {}
 
-  '@yummacss/api@3.8.1':
+  '@yummacss/core@3.9.0':
     dependencies:
       tinycolor2: 1.6.0
 
-  '@yummacss/nitro@3.8.1':
+  '@yummacss/nitro@3.9.0':
     dependencies:
-      '@yummacss/api': 3.8.1
+      '@yummacss/core': 3.9.0
       globby: 16.1.0
-      zod: 4.3.5
+      zod: 4.3.6
 
   acorn-jsx@5.3.2(acorn@8.15.0):
     dependencies:
@@ -3964,9 +3964,9 @@ snapshots:
 
   yoctocolors@2.1.2: {}
 
-  yummacss@3.8.1:
+  yummacss@3.9.0:
     dependencies:
-      '@yummacss/nitro': 3.8.1
+      '@yummacss/nitro': 3.9.0
       chokidar: 5.0.0
       commander: 14.0.2
       globby: 16.1.0
@@ -3974,7 +3974,7 @@ snapshots:
       ora: 9.1.0
       stringify-object: 6.0.0
 
-  zod@4.3.5: {}
+  zod@4.3.6: {}
 
   zustand@5.0.9(@types/react@19.2.7)(react@19.2.3)(use-sync-external-store@1.6.0(react@19.2.3)):
     optionalDependencies:

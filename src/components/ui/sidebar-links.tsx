@@ -2,9 +2,9 @@
 
 import type { Icon } from "@phosphor-icons/react";
 import {
+  AtomIcon,
   BookIcon,
-  CubeIcon,
-  GlobeSimpleIcon,
+  FlaskIcon,
   NewspaperClippingIcon,
   SparkleIcon,
   StackSimpleIcon,
@@ -27,7 +27,13 @@ const sidebarLinks: SidebarLink[] = [
     href: "/docs/installation",
     icon: BookIcon,
     isActive: (pathname) =>
-      pathname.startsWith("/docs") && pathname !== "/docs/api-reference",
+      pathname.startsWith("/docs") && pathname !== "/docs/core-package",
+  },
+  {
+    title: "Core Package",
+    href: "/docs/core-package",
+    icon: AtomIcon,
+    isActive: (pathname) => pathname === "/docs/core-package",
   },
   {
     title: "Blog Articles",
@@ -55,15 +61,9 @@ const sidebarLinks: SidebarLink[] = [
       ["/ui/license", "/ui/privacy", "/ui/terms"].includes(pathname),
   },
   {
-    title: "API Reference",
-    href: "/docs/api-reference",
-    icon: GlobeSimpleIcon,
-    isActive: (pathname) => pathname === "/docs/api-reference",
-  },
-  {
     title: "Playground",
     href: "https://play.yummacss.com",
-    icon: CubeIcon,
+    icon: FlaskIcon,
     external: true,
   },
 ];

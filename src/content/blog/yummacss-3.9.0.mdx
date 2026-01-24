@@ -1,0 +1,258 @@
+export const meta = {
+  authors: ["Renildo"],
+  cover: "~",
+  date: "2026-01-22",
+  description: "Yumma CSS 3.9 brings powerful new pseudo-class and pseudo-element variants, expanded utilities, and support for negative values.",
+  title: "Yumma CSS 3.9"
+};
+
+**This update might change existing features, make sure you check out the [release notes](https://github.com/yummacss/yummacss/releases/tag/v3.9.0) before upgrading.**
+
+---
+
+## Breaking changes
+
+To avoid naming collisions and improve consistency, we've renamed two utility prefixes:
+
+### Box Shadow
+
+```html del={1} ins={2} title="index.html"
+<div class="bs-*">...</div>
+<div class="bsh-*">...</div>
+```
+
+### Isolation
+
+```html del={1} ins={2} title="index.html"
+<div class="i-*">...</div>
+<div class="is-*">...</div>
+```
+
+### API is now called Core
+
+We've renamed the `@yummacss/api` package to `@yummacss/core`. The name "core" better represents the package as the foundation of Yumma CSS, while avoiding potential confusion with other types of APIs.
+
+```bash del={1} ins={2} title="Terminal"
+npm remove @yummacss/api
+npm install @yummacss/core
+```
+
+All imports should be updated to use the new package name:
+
+```js del={1-2} ins={4-5} title="index.js"
+import { coreUtilities } from "@yummacss/api";
+import type { Utilities } from "@yummacss/api";
+
+import { coreUtilities } from "@yummacss/core";
+import type { Utilities } from "@yummacss/core";
+```
+
+---
+
+## New pseudo-variants
+
+This release introduces highly requested pseudo-class and pseudo-element variants that give you even more control over your styling.
+
+### Pseudo-elements
+
+You can now style `::before`, `::after`, `::selection`, and `::placeholder` elements directly using the new variants.
+
+The `s::*` variant lets you customize text selection styling:
+
+<Preview>
+  <p className="s::bg-indigo s::c-white">Select this text to see custom selection colors!</p>
+</Preview>
+
+```html "s::bg-indigo" "s::c-white"
+<p class="s::bg-indigo s::c-white">Select this text to see custom selection colors!</p>
+```
+
+And the `p::*` variant styles placeholder text in form inputs:
+
+<Preview>
+  <input className="p::c-silver p::fs-i bw-1 bc-silver br-1 p-3 w-full" placeholder="Enter your email..." />
+</Preview>
+
+```html "p::c-silver" "p::fs-i"
+<input class="p::c-silver p::fs-i" placeholder="Enter your email..." />
+```
+
+### Pseudo-classes
+
+We've added `fv:*` for `:focus-visible` and `fw:*` for `:focus-within`, giving you more precise control over focus states.
+
+<Preview>
+  <button className="fv:ow-2 fv:oc-indigo p-4 bg-indigo c-white br-2">
+    Focus with keyboard
+  </button>
+</Preview>
+
+```html "fv:ow-2" "fv:oc-indigo"
+<button class="fv:ow-2 fv:oc-indigo p-4 bg-indigo c-white br-2">
+  Focus with keyboard
+</button>
+```
+
+The `fw:*` variant is perfect for form containers:
+
+<Preview>
+  <div className="fw:bc-indigo bw-2 bc-silver p-4 br-2">
+    <input className="p-2 br-1 bw-1 bc-silver" placeholder="Focus me" />
+  </div>
+</Preview>
+
+```html "fw:bc-indigo"
+<div class="fw:bc-indigo bw-2 bc-silver p-4 br-2">
+  <input class="p-2 br-1" placeholder="Focus me" />
+</div>
+```
+
+## Touch device support
+
+The new `pc:*` media query variant targets devices with coarse pointer input (touch screens).
+
+<Preview>
+  <button className="p-4 pc:p-6 bg-indigo c-white br-2">
+    Larger padding on touch devices
+  </button>
+</Preview>
+
+```html "pc:p-6"
+<button class="p-4 pc:p-6 bg-indigo c-white br-2">
+  Larger padding on touch devices
+</button>
+```
+
+## Extended cursor utilities
+
+We've added 11 new cursor values to help you create more intuitive interactions:
+
+<UtilityTable category="interaction" name="cursor" />
+
+<Preview>
+  <div className="cr-grab h:cr-grabbing d-18 bg-indigo br-2"></div>
+</Preview>
+
+```html "cr-grab" "h:cr-grabbing"
+<div class="cr-grab h:cr-grabbing d-18 bg-indigo br-2"></div>
+```
+
+## Touch action utilities
+
+Control how touch gestures behave with the new `ta-*` utilities that support all 9 `touch-action` values.
+
+<UtilityTable category="interaction" name="touch-action" />
+
+```html "ta-pan-y"
+<div class="ta-pan-y h-64 ov-s">
+  <div class="h-128">Vertical scrolling only</div>
+</div>
+```
+
+## Transform enhancements
+
+### Extended rotation range
+
+The `t-r-*` utility now supports rotation from 0 to 360 degrees in steps of 5, giving you much more flexibility.
+
+<Preview>
+  <div className="d-f g-4">
+    <div className="t-r-45 d-12 bg-indigo br-2"></div>
+    <div className="t-r-180 d-12 bg-indigo br-2"></div>
+    <div className="t-r-270 d-12 bg-indigo br-2"></div>
+  </div>
+</Preview>
+
+```html "t-r-45" "t-r-180" "t-r-270"
+<div class="d-f g-4">
+  <div class="t-r-45 d-12 bg-indigo br-2"></div>
+  <div class="t-r-180 d-12 bg-indigo br-2"></div>
+  <div class="t-r-270 d-12 bg-indigo br-2"></div>
+</div>
+```
+
+### Translate utilities
+
+New `t-tx-*` and `t-ty-*` utilities make centering elements easier with `half` and `full` values.
+
+<Preview>
+  <div className="p-r h-32">
+    <div className="p-a l-50 t-50 t-tx-half t-ty-half bg-indigo p-4 br-2 c-white">
+      Perfectly centered
+    </div>
+  </div>
+</Preview>
+
+```html "t-tx-half" "t-ty-half"
+<div class="p-r h-32">
+  <div class="p-a l-50 t-50 t-tx-half t-ty-half bg-indigo p-4 br-2 c-white">
+    Perfectly centered
+  </div>
+</div>
+```
+
+## Positioning with auto
+
+You can now use `auto` with `b-*`, `i-*`, `ix-*`, `iy-*`, `l-*`, `r-*`, and `t-*` utilities.
+
+```html "l-a" "r-a"
+<div class="p-r">
+  <div class="p-a l-a r-a d-12 bg-indigo"></div>
+</div>
+```
+
+## Negative value support
+
+One of the most requested features is here! You can now use negative values with the `--` syntax.
+
+<Preview>
+  <div className="d-f ai-c g-4">
+    <div className="d-12 bg-indigo br-2"></div>
+    <div className="d-12 bg-indigo br-2 m--4"></div>
+    <div className="d-12 bg-indigo br-2"></div>
+  </div>
+</Preview>
+
+```html "m--4"
+<div class="d-f ai-c g-4">
+  <div class="d-12 bg-indigo br-2"></div>
+  <div class="d-12 bg-indigo br-2 m--4"></div>
+  <div class="d-12 bg-indigo br-2"></div>
+</div>
+```
+
+This works with any utility that accepts numeric values like margins, positioning, and transforms.
+
+## Improved margin and padding
+
+Under the hood, we've updated `mx-*`, `my-*`, `px-*`, and `py-*` utilities to use logical properties (`margin-inline`, `margin-block`, `padding-inline`, `padding-block`). This provides better support for international layouts and different writing modes, with no behavior changes for standard left-to-right layouts.
+
+```css del={1-4, 6-9} ins={11-13, 15-17} title="yumma.css"
+.mx-4 {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.mx-4 {
+  margin-inline: 1rem;
+}
+
+.py-4 {
+  padding-block: 1rem;
+}
+```
+
+---
+
+## Upgrade
+
+You can get the latest version of Yumma CSS from npm:
+
+```bash
+pnpm install yummacss@latest
+```

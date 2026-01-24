@@ -1,0 +1,95 @@
+export const meta = {
+  title: "Negative Values",
+  description: "Learn how to use negative values with Yumma CSS utilities.",
+};
+
+Yumma CSS supports negative values using the `--` syntax, allowing you to apply negative numeric values to utilities like margins, positioning, and transforms.
+
+## How it works
+
+To use a negative value, simply add `--` before the numeric value. For example:
+
+- `m-4` applies `margin: 1rem`
+- `m--4` applies `margin: -1rem`
+
+The negative syntax works by doubling the dash: one dash for the utility prefix, and another dash to indicate a negative value.
+
+```html "m--4"
+<div class="m--4">Negative margin</div>
+```
+
+## Negative margins
+
+Negative margins are useful for overlapping elements or creating unique layouts.
+
+<Preview>
+  <div className="d-f ai-c g-4">
+    <div className="d-14 bg-indigo"></div>
+    <div className="d-14 bg-indigo m--4"></div>
+    <div className="d-14 bg-indigo"></div>
+  </div>
+</Preview>
+
+```html "m--4"
+<div class="d-f ai-c g-4">
+  <div class="d-14 bg-indigo"></div>
+  <div class="d-14 bg-indigo m--4"></div>
+  <div class="d-14 bg-indigo"></div>
+</div>
+```
+
+You can also use directional negative margins:
+
+<Preview>
+  <div className="d-f g-4">
+    <div className="d-14 bg-indigo mt--2"></div>
+    <div className="d-14 bg-indigo mr--2"></div>
+    <div className="d-14 bg-indigo mb--2"></div>
+    <div className="d-14 bg-indigo ml--2"></div>
+  </div>
+</Preview>
+
+```html "mt--2" "mr--2" "mb--2" "ml--2"
+<div class="d-f g-4">
+  <div class="d-14 bg-indigo mt--2"></div>
+  <div class="d-14 bg-indigo mr--2"></div>
+  <div class="d-14 bg-indigo mb--2"></div>
+  <div class="d-14 bg-indigo ml--2"></div>
+</div>
+```
+
+## Negative positioning
+
+Use negative values with positioning utilities to offset elements beyond their container.
+
+<Preview>
+  <div className="p-r h-32 bg-silver/10">
+    <div className="p-a t--4 l--4 d-14 bg-indigo"></div>
+  </div>
+</Preview>
+
+```html "t--4" "l--4"
+<div class="p-r h-32 bg-silver/10">
+  <div class="p-a t--4 l--4 d-14 bg-indigo"></div>
+</div>
+```
+
+## Negative transforms
+
+Negative translate values are useful for positioning elements relative to themselves.
+
+<Preview>
+  <div className="p-r h-32">
+    <div className="p-a l-50 t-50 t-tx--half t-ty--half bg-indigo p-4 c-white">
+      Centered
+    </div>
+  </div>
+</Preview>
+
+```html "t-tx--half" "t-ty--half"
+<div class="p-r h-32">
+  <div class="p-a l-50 t-50 t-tx--half t-ty--half bg-indigo p-4 c-white">
+    Centered
+  </div>
+</div>
+```

@@ -1,0 +1,139 @@
+export const meta = {
+  title: "Touch Action",
+  description: "Controls how touch gestures are handled by an element.",
+};
+
+<Baseline path="css.properties.touch-action" />
+
+<UtilityTable category="interaction" name="touch-action" />
+
+The `ta-*` utilities control how touch gestures behave on an element. This is particularly useful for creating custom touch interactions or preventing certain default behaviors on touch devices.
+
+## Auto
+
+Use `ta-auto` to enable all default touch behaviors:
+
+```html "ta-auto"
+<div class="ta-auto">Full touch support</div>
+```
+
+## None
+
+Use `ta-none` to disable all touch interactions:
+
+```html "ta-none"
+<div class="ta-none">Touch disabled</div>
+```
+
+## Pan X
+
+Use `ta-px` to allow only horizontal panning:
+
+<Preview>
+  <div className="ta-px h-32 w-full ov-s">
+    <div className="w-128 bg-indigo/10 p-4 br-1">
+      Scroll horizontally only
+    </div>
+  </div>
+</Preview>
+
+```html "ta-px"
+<div class="ta-px h-32 w-full ov-s">
+  <div class="w-128 bg-indigo/10 p-4 br-1">
+    Scroll horizontally only
+  </div>
+</div>
+```
+
+## Pan Y
+
+Use `ta-py` to allow only vertical panning:
+
+<Preview>
+  <div className="ta-py h-32 w-full ov-s">
+    <div className="h-64 bg-indigo/10 p-4 br-1">
+      Scroll vertically only
+    </div>
+  </div>
+</Preview>
+
+```html "ta-py"
+<div class="ta-py h-32 w-full ov-s">
+  <div class="h-64 bg-indigo/10 p-4 br-1">
+    Scroll vertically only
+  </div>
+</div>
+```
+
+## Directional panning
+
+Control panning direction with more granular utilities:
+
+- `ta-pl` - Allow panning only to the left
+- `ta-pr` - Allow panning only to the right
+- `ta-pu` - Allow panning only upward
+- `ta-pd` - Allow panning only downward
+
+```html "ta-pr"
+<div class="ta-pr ov-s">
+  Swipe right only
+</div>
+```
+
+## Pinch Zoom
+
+Use `ta-pz` to enable pinch-to-zoom gestures:
+
+```html "ta-pz"
+<div class="ta-pz">
+  Pinch to zoom
+</div>
+```
+
+## Manipulation
+
+Use `ta-m` to enable panning and pinch zooming, but disable double-tap-to-zoom:
+
+```html "ta-m"
+<div class="ta-m">
+  Pan and pinch, no double-tap zoom
+</div>
+```
+
+## Common use cases
+
+### Custom scroll containers
+
+```html "ta-py"
+<div class="ta-py h-64 ov-s">
+  <div class="h-128">
+    <!-- Vertical scrolling content -->
+  </div>
+</div>
+```
+
+### Horizontal carousels
+
+```html "ta-px"
+<div class="ta-px ov-s">
+  <div class="d-f g-4 w-128">
+    <!-- Horizontal carousel items -->
+  </div>
+</div>
+```
+
+### Prevent scroll interference
+
+```html "ta-none"
+<canvas class="ta-none">
+  <!-- Canvas for drawing, disable touch scrolling -->
+</canvas>
+```
+
+## Using utility variants
+
+Learn how to override existing utilities based on the user's [screen size](/docs/media-queries).
+
+### Targeting different viewports
+
+<MediaVariant classPrefix="ta" />

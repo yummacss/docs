@@ -17,7 +17,7 @@ import {
   textUtils,
   transformUtils,
   type Utilities,
-} from "@yummacss/api";
+} from "@yummacss/core";
 
 type Category =
   | "background"

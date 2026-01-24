@@ -7,8 +7,10 @@ import {
   CursorTextIcon,
   HandPointingIcon,
   HandSwipeRightIcon,
+  HandTapIcon,
   HeartStraightIcon,
   InfoIcon,
+  KeyboardIcon,
   MouseLeftClickIcon,
   MouseRightClickIcon,
   MouseScrollIcon,
@@ -25,8 +27,10 @@ type IconName =
   | "cursor"
   | "hand_pointing"
   | "hand_swipe_right"
+  | "hand_tap"
   | "heart"
   | "info"
+  | "keyboard"
   | "mouse_left_click"
   | "mouse_right_click"
   | "mouse_scroll"
@@ -46,8 +50,10 @@ const iconData: Record<IconName, Icon> = {
   cursor: CursorIcon,
   hand_pointing: HandPointingIcon,
   hand_swipe_right: HandSwipeRightIcon,
+  hand_tap: HandTapIcon,
   heart: HeartStraightIcon,
   info: InfoIcon,
+  keyboard: KeyboardIcon,
   mouse_left_click: MouseLeftClickIcon,
   mouse_right_click: MouseRightClickIcon,
   mouse_scroll: MouseScrollIcon,
@@ -68,7 +74,7 @@ export default function Note({ icon, children }: NoteProps) {
           color: "#9aa6ef",
         }}
       >
-        <Icon size={20} weight="duotone" />
+        <Icon size={20} weight="light" />
       </span>
       <span className="c-white/80">{children}</span>
     </div>

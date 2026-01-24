@@ -1,12 +1,12 @@
 import type { MDXComponents } from "mdx/types";
 import Image from "next/image";
-import ApiTable from "@/components/api-table";
 import Baseline from "@/components/baseline";
 import HoverVariant from "@/components/hover-variant";
 import LegacyColor from "@/components/legacy/legacy-color";
 import LegacyPalette from "@/components/legacy/legacy-palette";
 import LegacyTable from "@/components/legacy/legacy-table";
 import MediaVariant from "@/components/media-variant";
+import NegativeValues from "@/components/negative-values";
 import Note from "@/components/note";
 import OpacityVariant from "@/components/opacity-variant";
 import Palette from "@/components/palette";
@@ -15,6 +15,7 @@ import Stepper, { Step } from "@/components/stepper";
 import { Tabs, TabsList, TabsPanel, TabsTab } from "@/components/tabs";
 import TemplateFAQ from "@/components/ui/templates/faq";
 import TemplatesList from "@/components/ui/templates/list";
+import UtilityTable from "@/components/utility-table";
 
 // generate IDs from heading text
 function generateId(children: React.ReactNode): string {
@@ -34,13 +35,14 @@ function generateId(children: React.ReactNode): string {
 
 const components: MDXComponents = {
   // docs components
-  ApiTable,
+  UtilityTable,
   Baseline,
   HoverVariant,
   LegacyColor,
   LegacyPalette,
   LegacyTable,
   MediaVariant,
+  NegativeValues,
   Note,
   OpacityVariant,
   Palette,
@@ -186,7 +188,7 @@ const components: MDXComponents = {
     props.className ? (
       <thead {...props}>{children}</thead>
     ) : (
-      <thead className="bg-white/5" {...props}>
+      <thead style={{ backgroundColor: "#1a1d2e" }} {...props}>
         {children}
       </thead>
     ),
