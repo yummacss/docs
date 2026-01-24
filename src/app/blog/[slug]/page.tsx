@@ -15,9 +15,27 @@ export async function generateMetadata({
   const module = await import(`@/content/blog/${slug}.mdx`);
   const meta = module.meta;
 
+  const image = meta?.cover ? `/blog/${slug}.png` : "/og.png";
+
   return {
     title: meta?.title || "Blog Post",
     description: meta?.description || "",
+    openGraph: {
+      images: [
+        {
+          url: image,
+          width: 1200,
+          height: 630,
+          alt: meta?.title || "Yumma CSS Blog",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: meta?.title,
+      description: meta?.description,
+      images: [image],
+    },
   };
 }
 
