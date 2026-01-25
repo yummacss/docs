@@ -38,7 +38,7 @@ export const templateSupportResources = [
   { title: "Refund Policy", url: "/ui/license#refund-policy" },
   {
     title: "Report Template",
-    url: "https://github.com/yumma-css/yumma-css-docs/issues/new",
+    url: "https://github.com/yummacss/yummacss-docs/issues/new",
   },
 ];
 

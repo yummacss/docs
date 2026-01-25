@@ -13,7 +13,7 @@ export default function DocsLayout({
       <Navbar />
       <MobileBreadcrumb />
 
-      <main className="~sm-xxl mx-auto px-6">
+      <main className="sm-xxl mx-auto px-6">
         <div className="d-g gtc-1 lg:gtc-12 g-8">
           <Sidebar />
 

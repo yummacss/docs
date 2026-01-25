@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 
 export default function EditPage() {
   const pathname = usePathname();
-  const url = `https://github.com/yumma-css/yumma-css-docs/blob/release/src/content${pathname.replace(/\/$/, "")}.mdx`;
+  const url = `https://github.com/yummacss/yummacss-docs/blob/release/src/content${pathname.replace(/\/$/, "")}.mdx`;
 
   return (
     <div className="mt-8 pt-8 btw-1 bc-white/5">

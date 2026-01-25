@@ -21,6 +21,7 @@ Yumma CSS is a **utility-first CSS framework** that uses short, intuitive, abbre
 
 ```
 [variant:][prefix]-[value]
+[pseudo-element]::[prefix]-[value]
 ```
 
 **Examples:**
@@ -29,6 +30,8 @@ Yumma CSS is a **utility-first CSS framework** that uses short, intuitive, abbre
 - `bg-blue` -> `background-color: #3575dd`
 - `md:d-f` -> `display: flex` at medium breakpoint
 - `h:bg-blue-8` -> darker blue background on hover
+- `a::bg-red` -> red background on `::after` element
+- `m--4` -> `margin: -1rem` (negative utility)
 
 ### Numeric Scale System
 
@@ -58,8 +61,8 @@ Numbers multiply a base value of **0.25rem**:
 
 **Examples:**
 - `mt-4` -> `margin-top: 1rem`
-- `px-2` -> `padding-left: 0.5rem; padding-right: 0.5rem`
-- `my-8` -> `margin-top: 2rem; margin-bottom: 2rem`
+- `px-2` -> `padding-inline: 0.5rem` (Logical Property)
+- `my-8` -> `margin-block: 2rem` (Logical Property)
 
 ---
 
@@ -116,38 +119,38 @@ Numbers multiply a base value of **0.25rem**:
 
 ### Padding
 
-| Pattern       | Description               |
-| ------------- | ------------------------- |
-| `p-[0-100]`   | All sides                 |
-| `p-px`        | 1px all sides             |
-| `pt-[0-100]`  | Top                       |
-| `pr-[0-100]`  | Right                     |
-| `pb-[0-100]`  | Bottom                    |
-| `pl-[0-100]`  | Left                      |
-| `px-[0-100]`  | Horizontal (left + right) |
-| `py-[0-100]`  | Vertical (top + bottom)   |
-| `pbs-[0-100]` | `padding-block-start`     |
-| `pbe-[0-100]` | `padding-block-end`       |
-| `pis-[0-100]` | `padding-inline-start`    |
-| `pie-[0-100]` | `padding-inline-end`      |
+| Pattern       | Description                |
+| ------------- | -------------------------- |
+| `p-[0-100]`   | All sides                  |
+| `p-px`        | 1px all sides              |
+| `pt-[0-100]`  | Top                        |
+| `pr-[0-100]`  | Right                      |
+| `pb-[0-100]`  | Bottom                     |
+| `pl-[0-100]`  | Left                       |
+| `px-[0-100]`  | `padding-inline` (Logical) |
+| `py-[0-100]`  | `padding-block` (Logical)  |
+| `pbs-[0-100]` | `padding-block-start`      |
+| `pbe-[0-100]` | `padding-block-end`        |
+| `pis-[0-100]` | `padding-inline-start`     |
+| `pie-[0-100]` | `padding-inline-end`       |
 
 ### Margin
 
-| Pattern       | Description           |
-| ------------- | --------------------- |
-| `m-[0-100]`   | All sides             |
-| `m-px`        | 1px all sides         |
-| `m-auto`      | auto (for centering)  |
-| `mt-[0-100]`  | Top                   |
-| `mr-[0-100]`  | Right                 |
-| `mb-[0-100]`  | Bottom                |
-| `ml-[0-100]`  | Left                  |
-| `mx-[0-100]`  | Horizontal            |
-| `my-[0-100]`  | Vertical              |
-| `mbs-[0-100]` | `margin-block-start`  |
-| `mbe-[0-100]` | `margin-block-end`    |
-| `mis-[0-100]` | `margin-inline-start` |
-| `mie-[0-100]` | `margin-inline-end`   |
+| Pattern       | Description               |
+| ------------- | ------------------------- |
+| `m-[0-100]`   | All sides                 |
+| `m-px`        | 1px all sides             |
+| `m-auto`      | auto (for centering)      |
+| `mt-[0-100]`  | Top                       |
+| `mr-[0-100]`  | Right                     |
+| `mb-[0-100]`  | Bottom                    |
+| `ml-[0-100]`  | Left                      |
+| `mx-[0-100]`  | `margin-inline` (Logical) |
+| `my-[0-100]`  | `margin-block` (Logical)  |
+| `mbs-[0-100]` | `margin-block-start`      |
+| `mbe-[0-100]` | `margin-block-end`        |
+| `mis-[0-100]` | `margin-inline-start`     |
+| `mie-[0-100]` | `margin-inline-end`       |
 
 ### Box Sizing
 
@@ -340,6 +343,7 @@ Numbers multiply a base value of **0.25rem**:
 **Special values:**
 - `t-full`, `r-full`, `b-full`, `l-full`, `i-full` -> 100%
 - `t-half`, `r-half`, `b-half`, `l-half`, `i-half` -> 50%
+- `t-auto`, `r-auto`, `b-auto`, `l-auto`, `i-auto` -> `auto`
 
 ### Z-Index
 
@@ -408,8 +412,8 @@ Numbers multiply a base value of **0.25rem**:
 | Class      | CSS                  |
 | ---------- | -------------------- |
 | `c-[1-16]` | `columns`            |
-| `i-auto`   | `isolation: auto`    |
-| `i-i`      | `isolation: isolate` |
+| `is-auto`  | `isolation: auto`    |
+| `is-i`     | `isolation: isolate` |
 
 ---
 
@@ -743,14 +747,14 @@ Example: `o-50` -> `opacity: 0.5`
 
 ### Box Shadow
 
-| Class     | Description |
-| --------- | ----------- |
-| `bs-none` | No shadow   |
-| `bs-xs`   | Extra small |
-| `bs-sm`   | Small       |
-| `bs-md`   | Medium      |
-| `bs-lg`   | Large       |
-| `bs-xl`   | Extra large |
+| Class      | Description |
+| ---------- | ----------- |
+| `bsh-none` | No shadow   |
+| `bsh-xs`   | Extra small |
+| `bsh-sm`   | Small       |
+| `bsh-md`   | Medium      |
+| `bsh-lg`   | Large       |
+| `bsh-xl`   | Extra large |
 
 ### Blur (Filter)
 
@@ -784,7 +788,7 @@ Example: `o-50` -> `opacity: 0.5`
 
 ### Rotate
 
-`t-r-[0-100]` (in steps of 5) -> `transform: rotate(Xdeg)`
+`t-r-[0-360]` (in steps of 5) -> `transform: rotate(Xdeg)`
 
 Example: `t-r-45` -> `transform: rotate(45deg)`
 
@@ -795,6 +799,10 @@ Example: `t-r-45` -> `transform: rotate(45deg)`
 | `t-s-[0-100]`  | Scale (steps of 10) |
 | `t-sx-[0-100]` | Scale X             |
 | `t-sy-[0-100]` | Scale Y             |
+| `t-tx-[0-100]` | Translate X in rem  |
+| `t-ty-[0-100]` | Translate Y in rem  |
+
+**Translate specials:** `t-tx-half` (50%), `t-tx-full` (100%), `t-ty-half`, `t-ty-full`
 
 Example: `t-s-50` -> `transform: scale(50%)`
 
@@ -822,20 +830,45 @@ Example: `t-s-50` -> `transform: scale(50%)`
 
 ### Cursor
 
-| Class    | CSS                   |
-| -------- | --------------------- |
-| `c-auto` | `cursor: auto`        |
-| `c-d`    | `cursor: default`     |
-| `c-p`    | `cursor: pointer`     |
-| `c-w`    | `cursor: wait`        |
-| `c-t`    | `cursor: text`        |
-| `c-m`    | `cursor: move`        |
-| `c-na`   | `cursor: not-allowed` |
-| `c-none` | `cursor: none`        |
-| `c-h`    | `cursor: help`        |
-| `c-pr`   | `cursor: progress`    |
-| `c-zi`   | `cursor: zoom-in`     |
-| `c-zo`   | `cursor: zoom-out`    |
+| Class    | CSS                     |
+| -------- | ----------------------- |
+| `c-auto` | `cursor: auto`          |
+| `c-d`    | `cursor: default`       |
+| `c-p`    | `cursor: pointer`       |
+| `c-w`    | `cursor: wait`          |
+| `c-t`    | `cursor: text`          |
+| `c-m`    | `cursor: move`          |
+| `c-na`   | `cursor: not-allowed`   |
+| `c-none` | `cursor: none`          |
+| `c-h`    | `cursor: help`          |
+| `c-pr`   | `cursor: progress`      |
+| `c-zi`   | `cursor: zoom-in`       |
+| `c-zo`   | `cursor: zoom-out`      |
+| `c-cm`   | `cursor: context-menu`  |
+| `c-cl`   | `cursor: cell`          |
+| `c-vt`   | `cursor: vertical-text` |
+| `c-al`   | `cursor: alias`         |
+| `c-co`   | `cursor: copy`          |
+| `c-g`    | `cursor: grab`          |
+| `c-gr`   | `cursor: grabbing`      |
+| `c-as`   | `cursor: all-scroll`    |
+| `c-er`   | `cursor: ew-resize`     |
+| `c-nr`   | `cursor: ns-resize`     |
+| `c-cr`   | `cursor: col-resize`    |
+
+### Touch Action
+
+| Class     | CSS                        |
+| --------- | -------------------------- |
+| `ta-auto` | `touch-action: auto`       |
+| `ta-none` | `touch-action: none`       |
+| `ta-px`   | `touch-action: pan-x`      |
+| `ta-py`   | `touch-action: pan-y`      |
+| `ta-pl`   | `touch-action: pan-left`   |
+| `ta-pr`   | `touch-action: pan-right`  |
+| `ta-pt`   | `touch-action: pan-up`     |
+| `ta-pb`   | `touch-action: pan-down`   |
+| `ta-p`    | `touch-action: pinch-zoom` |
 
 ### Pointer Events
 
@@ -946,13 +979,14 @@ Example: `t-s-50` -> `transform: scale(50%)`
 
 ### Breakpoints
 
-| Prefix | Media Query               | Pixels |
-| ------ | ------------------------- | ------ |
-| `sm:`  | `@media (width >= 40rem)` | 640px  |
-| `md:`  | `@media (width >= 48rem)` | 768px  |
-| `lg:`  | `@media (width >= 64rem)` | 1024px |
-| `xl:`  | `@media (width >= 80rem)` | 1280px |
-| `xxl:` | `@media (width >= 96rem)` | 1536px |
+| Prefix | Media Query                | Pixels |
+| ------ | -------------------------- | ------ |
+| `pc:`  | `@media (pointer: coarse)` | Touch  |
+| `sm:`  | `@media (width >= 40rem)`  | 640px  |
+| `md:`  | `@media (width >= 48rem)`  | 768px  |
+| `lg:`  | `@media (width >= 64rem)`  | 1024px |
+| `xl:`  | `@media (width >= 80rem)`  | 1280px |
+| `xxl:` | `@media (width >= 96rem)`  | 1536px |
 
 **Usage:**
 ```html
@@ -970,11 +1004,33 @@ Example: `t-s-50` -> `transform: scale(50%)`
 
 ## Pseudo-Class Variants
 
-| Prefix | Pseudo-class |
-| ------ | ------------ |
-| `h:`   | `:hover`     |
-| `f:`   | `:focus`     |
-| `a:`   | `:active`    |
+| Prefix | Pseudo-class     |
+| ------ | ---------------- |
+| `h:`   | `:hover`         |
+| `f:`   | `:focus`         |
+| `fv:`  | `:focus-visible` |
+| `fw:`  | `:focus-within`  |
+| `a:`   | `:active`        |
+
+---
+
+## Pseudo-Element Variants
+
+| Prefix | Pseudo-element  |
+| ------ | --------------- |
+| `a::`  | `::after`       |
+| `b::`  | `::before`      |
+| `p::`  | `::placeholder` |
+| `s::`  | `::selection`   |
+
+**Usage:**
+```html
+<!-- Content before element -->
+<div class="b::c-red">Required</div>
+
+<!-- Selection color -->
+<div class="s::bg-blue s::c-white">Selectable text</div>
+```
 
 **Usage:**
 ```html
@@ -1090,6 +1146,8 @@ Some prefixes are used for multiple properties. **Context determines meaning:**
 | ------ | ------------------------------ | ------------------------ |
 | `bw-`  | Border width (`bw-2`)          | —                        |
 | `bs-`  | Border spacing (`bs-2`)        | Border style (`bs-s`)    |
+| `bsh-` | Box shadow (`bsh-md`)          | —                        |
+| `is-`  | Isolation (`is-i`)             | —                        |
 | `o-`   | Opacity (`o-50`)               | Overflow (`o-h`)         |
 | `p-`   | Padding (`p-4`)                | Position (`p-a`)         |
 | `c-`   | Text color (`c-blue`)          | Cursor (`c-p`)           |
@@ -1097,15 +1155,16 @@ Some prefixes are used for multiple properties. **Context determines meaning:**
 
 ### Common Mistakes to Avoid
 
-| ❌ Wrong         | ✅ Correct   | Reason                      |
-| --------------- | ----------- | --------------------------- |
-| `gap-4`         | `g-4`       | Gap uses abbreviated prefix |
-| `jc-center`     | `jc-c`      | Use abbreviated values      |
-| `flex-col`      | `fd-c`      | Flex-direction: column      |
-| `bg-blue-500`   | `bg-blue-5` | Must include color name     |
-| `md-d-f`        | `md:d-f`    | Use colon separator         |
-| `hover:bg-blue` | `h:bg-blue` | Abbreviated hover prefix    |
-| `text-red`      | `c-red`     | Text color uses `c-` prefix |
+| ❌ Wrong         | ✅ Correct   | Reason                       |
+| --------------- | ----------- | ---------------------------- |
+| `gap-4`         | `g-4`       | Gap uses abbreviated prefix  |
+| `jc-center`     | `jc-c`      | Use abbreviated values       |
+| `flex-col`      | `fd-c`      | Flex-direction: column       |
+| `bg-blue-500`   | `bg-blue-5` | Must include color name      |
+| `md-d-f`        | `md:d-f`    | Use colon separator          |
+| `hover:bg-blue` | `h:bg-blue` | Abbreviated hover prefix     |
+| `text-red`      | `c-red`     | Text color uses `c-` prefix  |
+| `m-negative-1`  | `m--1`      | Use double dash for negative |
 
 ---
 

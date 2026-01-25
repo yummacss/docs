@@ -20,7 +20,7 @@ export default function Home() {
       </div>
 
       <div
-        className="~sm-xxl w-full mx-auto px-6 d-f ai-fe p-r zi-1"
+        className="sm-xxl w-full mx-auto px-6 d-f ai-fe p-r zi-1"
         style={{
           minHeight: "calc(100vh - 120px)",
         }}
@@ -29,7 +29,7 @@ export default function Home() {
           <div className="d-g lg:gtc-2 g-12 ai-fe">
             <div>
               <Link
-                href="https://github.com/yumma-css/yumma-css"
+                href="https://github.com/yummacss/yummacss"
                 className="c-white"
               >
                 <div className="d-if ai-c g-2 px-4 py-2 bf-b-md bw-1 bg-white/5 bc-white/10 br-pill mb-8">

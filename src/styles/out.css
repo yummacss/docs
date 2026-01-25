@@ -369,6 +369,10 @@ summary {
   border-color: #595cd9;
 }
 
+.bc-indigo-2\/50 {
+  border-color: #cdcef480;
+}
+
 .bc-indigo-3 {
   border-color: #b6b7ee;
 }
@@ -619,10 +623,6 @@ summary {
 
 .bg-silver-4 {
   background-color: #dadcdf;
-}
-
-.bg-silver\/10 {
-  background-color: #bfc2c71a;
 }
 
 .bg-slate {
@@ -2201,10 +2201,6 @@ summary {
   justify-self: stretch;
 }
 
-.l--4 {
-  left: -1rem;
-}
-
 .l-0 {
   left: 0;
 }
@@ -2313,10 +2309,6 @@ summary {
   margin: .5rem;
 }
 
-.m-4 {
-  margin: 1rem;
-}
-
 .m-8 {
   margin: 2rem;
 }
@@ -2409,10 +2401,6 @@ summary {
 
 .max-w-xl {
   max-width: 80rem;
-}
-
-.mb--2 {
-  margin-bottom: -.5rem;
 }
 
 .mb-1 {
@@ -2552,10 +2540,6 @@ summary {
   margin-right: -.25rem;
 }
 
-.mr--2 {
-  margin-right: -.5rem;
-}
-
 .mr-1 {
   margin-right: .25rem;
 }
@@ -2574,10 +2558,6 @@ summary {
 
 .mr-8 {
   margin-right: 2rem;
-}
-
-.mt--2 {
-  margin-top: -.5rem;
 }
 
 .mt-1 {
@@ -3392,10 +3372,6 @@ summary {
   stroke-width: .6px;
 }
 
-.t--4 {
-  top: -1rem;
-}
-
 .t-0 {
   top: 0;
 }
@@ -3600,11 +3576,11 @@ summary {
   transform: scaleY(90%);
 }
 
-.t-tx--half, .t-tx-half {
+.t-tx-half {
   transform: translateX(50%);
 }
 
-.t-ty--half, .t-ty-half {
+.t-ty-half {
   transform: translateY(50%);
 }
 

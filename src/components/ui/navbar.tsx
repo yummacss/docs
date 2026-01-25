@@ -51,7 +51,7 @@ export default function Navbar({ variant, className, links }: NavbarProps) {
         className={clsx(navbarVariants({ variant }), className)}
         style={{ backgroundColor: isLandingPage ? "transparent" : "#151724" }}
       >
-        <div className="~sm-xxl mx-auto px-6 py-2">
+        <div className="sm-xxl mx-auto px-6 py-2">
           <nav className="d-f ai-c jc-sb">
             <div className="d-f ai-c g-2">
               <Link href={isUI ? "/ui" : "/"}>
@@ -88,7 +88,7 @@ export default function Navbar({ variant, className, links }: NavbarProps) {
                     Components
                   </Link>
                   <Link
-                    href="https://github.com/yumma-css/yumma-css"
+                    href="https://github.com/yummacss/yummacss"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="d-none md:d-b fs-sm c-white/80 h:c-white"

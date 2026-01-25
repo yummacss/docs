@@ -22,7 +22,7 @@ export default function UIPage() {
       </div>
 
       <div
-        className="~sm-xxl w-full mx-auto px-6 d-f ai-fe p-r zi-1"
+        className="sm-xxl w-full mx-auto px-6 d-f ai-fe p-r zi-1"
         style={{
           minHeight: "calc(100vh - 120px)",
         }}
