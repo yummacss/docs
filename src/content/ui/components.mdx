@@ -14,15 +14,51 @@ Our React components are powered by [Base UI](https://base-ui.com) for accessibl
 
 ---
 
-## Installation
+## Getting Started
 
 Yumma UI is built on Yumma CSS, so you'll want to make sure you've got the latest version of Yumma CSS installed.
 
-Don't know how to install Yumma CSS? Check out the [installation](/docs/installation) page.
+<Stepper>
+  <Step title="Install Yumma CSS">
+    ```bash title="Terminal"
+    npm install yummacss -D
+    ```
+  </Step>
 
-```bash title="Terminal"
-npm install yummacss@latest -D
-```
+  <Step title="Initialize configuration">
+    Create a configuration file in your project.
+
+    ```bash title="Terminal"
+    npx yummacss init
+    ```
+
+  </Step>
+
+  <Step title="Set up configuration">
+    Specify the locations of all your project files in the config file.
+
+    ```js title="yumma.config.mjs" mark={2-3}
+    export default {
+      source: ["./src/**/*.{ts,tsx}"],
+      output: "./src/styles.css",
+      buildOptions: {
+        reset: true,
+        minify: false,
+      },
+    };
+    ```
+
+  </Step>
+
+  <Step title="Development mode">
+    You're all set! Start typing Yumma CSS classes, and watch the magic happening in our CSS file.
+
+    ```bash title="Terminal"
+    npx yummacss watch
+    ```
+
+  </Step>
+</Stepper>
 
 ---
 
