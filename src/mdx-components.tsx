@@ -161,8 +161,8 @@ const components: MDXComponents = {
       <blockquote {...props}>{children}</blockquote>
     ) : (
       <blockquote
-        className="bl-2 pl-2"
-        style={{ borderColor: "#9aa6ef" }}
+        className="blw-2 pl-2"
+        style={{ borderColor: "#31365e" }}
         {...props}
       >
         {children}
