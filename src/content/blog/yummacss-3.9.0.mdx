@@ -37,16 +37,6 @@ npm remove @yummacss/api
 npm install @yummacss/core
 ```
 
-All imports should be updated to use the new package name:
-
-```js del={1-2} ins={4-5} title="index.js"
-import { coreUtilities } from "@yummacss/api";
-import type { Utilities } from "@yummacss/api";
-
-import { coreUtilities } from "@yummacss/core";
-import type { Utilities } from "@yummacss/core";
-```
-
 ---
 
 ## New pseudo-variants
@@ -60,21 +50,21 @@ You can now style `::before`, `::after`, `::selection`, and `::placeholder` elem
 The `s::*` variant lets you customize text selection styling:
 
 <Preview>
-  <p className="s::bg-indigo s::c-white">Select this text to see custom selection colors!</p>
+  <p className="s::bg-indigo-4 s::c-white c-black">Select this text to see custom selection colors!</p>
 </Preview>
 
 ```html "s::bg-indigo" "s::c-white"
-<p class="s::bg-indigo s::c-white">Select this text to see custom selection colors!</p>
+<p class="s::bg-indigo-4 s::c-white c-black">Select this text to see custom selection colors!</p>
 ```
 
 And the `p::*` variant styles placeholder text in form inputs:
 
 <Preview>
-  <input className="p::c-silver p::fs-i bw-1 bc-silver br-1 p-3 w-full" placeholder="Enter your email..." />
+  <input className="p::c-red-4 p::fs-i bw-1 bc-red-4 br-0 p-3 w-full" placeholder="I said, enter your email!" />
 </Preview>
 
-```html "p::c-silver" "p::fs-i"
-<input class="p::c-silver p::fs-i" placeholder="Enter your email..." />
+```html "p::c-red-4" "p::fs-i"
+<input class="p::c-red-4 p::fs-i bw-1 bc-red-4 br-0 p-3 w-full" placeholder="I said, enter your email!" />
 ```
 
 ### Pseudo-classes
@@ -82,13 +72,13 @@ And the `p::*` variant styles placeholder text in form inputs:
 We've added `fv:*` for `:focus-visible` and `fw:*` for `:focus-within`, giving you more precise control over focus states.
 
 <Preview>
-  <button className="fv:ow-2 fv:oc-indigo p-4 bg-indigo c-white br-2">
+  <button className="fv:ow-2 fv:oc-indigo p-px bg-indigo c-white br-0">
     Focus with keyboard
   </button>
 </Preview>
 
 ```html "fv:ow-2" "fv:oc-indigo"
-<button class="fv:ow-2 fv:oc-indigo p-4 bg-indigo c-white br-2">
+<button class="fv:ow-2 fv:oc-indigo p-px bg-indigo c-white br-0">
   Focus with keyboard
 </button>
 ```
@@ -96,14 +86,14 @@ We've added `fv:*` for `:focus-visible` and `fw:*` for `:focus-within`, giving y
 The `fw:*` variant is perfect for form containers:
 
 <Preview>
-  <div className="fw:bc-indigo bw-2 bc-silver p-4 br-2">
-    <input className="p-2 br-1 bw-1 bc-silver" placeholder="Focus me" />
+  <div className="fw:bc-indigo bw-2 bc-silver p-px br-0">
+    <input className="p-2 br-0 bw-1 bc-silver" placeholder="Focus me" />
   </div>
 </Preview>
 
 ```html "fw:bc-indigo"
-<div class="fw:bc-indigo bw-2 bc-silver p-4 br-2">
-  <input class="p-2 br-1" placeholder="Focus me" />
+<div class="fw:bc-indigo bw-2 bc-silver p-px br-0">
+  <input class="p-2 br-0" placeholder="Focus me" />
 </div>
 ```
 
@@ -112,13 +102,13 @@ The `fw:*` variant is perfect for form containers:
 The new `pc:*` media query variant targets devices with coarse pointer input (touch screens).
 
 <Preview>
-  <button className="p-4 pc:p-6 bg-indigo c-white br-2">
+  <button className="p-px pc:p-6 bg-indigo c-white br-0">
     Larger padding on touch devices
   </button>
 </Preview>
 
 ```html "pc:p-6"
-<button class="p-4 pc:p-6 bg-indigo c-white br-2">
+<button class="p-px pc:p-6 bg-indigo c-white br-0">
   Larger padding on touch devices
 </button>
 ```
@@ -127,27 +117,13 @@ The new `pc:*` media query variant targets devices with coarse pointer input (to
 
 We've added 11 new cursor values to help you create more intuitive interactions:
 
-<UtilityTable category="interaction" name="cursor" />
-
-<Preview>
-  <div className="cr-grab h:cr-grabbing d-18 bg-indigo br-2"></div>
-</Preview>
-
-```html "cr-grab" "h:cr-grabbing"
-<div class="cr-grab h:cr-grabbing d-18 bg-indigo br-2"></div>
-```
+<UtilityTable category="interactivity" name="cursor" />
 
 ## Touch action utilities
 
 Control how touch gestures behave with the new `ta-*` utilities that support all 9 `touch-action` values.
 
-<UtilityTable category="interaction" name="touch-action" />
-
-```html "ta-pan-y"
-<div class="ta-pan-y h-64 ov-s">
-  <div class="h-128">Vertical scrolling only</div>
-</div>
-```
+<UtilityTable category="interactivity" name="touch-action" />
 
 ## Transform enhancements
 
@@ -155,49 +131,31 @@ Control how touch gestures behave with the new `ta-*` utilities that support all
 
 The `t-r-*` utility now supports rotation from 0 to 360 degrees in steps of 5, giving you much more flexibility.
 
-<Preview>
-  <div className="d-f g-4">
-    <div className="t-r-45 d-12 bg-indigo br-2"></div>
-    <div className="t-r-180 d-12 bg-indigo br-2"></div>
-    <div className="t-r-270 d-12 bg-indigo br-2"></div>
-  </div>
-</Preview>
-
-```html "t-r-45" "t-r-180" "t-r-270"
-<div class="d-f g-4">
-  <div class="t-r-45 d-12 bg-indigo br-2"></div>
-  <div class="t-r-180 d-12 bg-indigo br-2"></div>
-  <div class="t-r-270 d-12 bg-indigo br-2"></div>
-</div>
-```
+<UtilityTable category="transform" name="rotate" />
 
 ### Translate utilities
 
 New `t-tx-*` and `t-ty-*` utilities make centering elements easier with `half` and `full` values.
 
-<Preview>
-  <div className="p-r h-32">
-    <div className="p-a l-50 t-50 t-tx-half t-ty-half bg-indigo p-4 br-2 c-white">
-      Perfectly centered
-    </div>
-  </div>
-</Preview>
+<UtilityTable category="transform" name="translate-x" />
 
-```html "t-tx-half" "t-ty-half"
-<div class="p-r h-32">
-  <div class="p-a l-50 t-50 t-tx-half t-ty-half bg-indigo p-4 br-2 c-white">
-    Perfectly centered
-  </div>
-</div>
-```
+Translate utilities are also available for `y` axis.
+
+<UtilityTable category="transform" name="translate-y" />
 
 ## Positioning with auto
 
 You can now use `auto` with `b-*`, `i-*`, `ix-*`, `iy-*`, `l-*`, `r-*`, and `t-*` utilities.
 
-```html "l-a" "r-a"
+<Preview>
+  <div className="p-r">
+    <div className="p-auto l-auto r-auto d-14 bg-indigo"></div>
+  </div>
+</Preview>
+
+```html "l-auto" "r-auto"
 <div class="p-r">
-  <div class="p-a l-a r-a d-12 bg-indigo"></div>
+  <div class="p-auto l-auto r-auto d-14 bg-indigo"></div>
 </div>
 ```
 
@@ -206,18 +164,22 @@ You can now use `auto` with `b-*`, `i-*`, `ix-*`, `iy-*`, `l-*`, `r-*`, and `t-*
 One of the most requested features is here! You can now use negative values with the `--` syntax.
 
 <Preview>
-  <div className="d-f ai-c g-4">
-    <div className="d-12 bg-indigo br-2"></div>
-    <div className="d-12 bg-indigo br-2 m--4"></div>
-    <div className="d-12 bg-indigo br-2"></div>
+  <div className="c-white d-f fs-sm jc-c">
+    <div className="ml--2 ai-c bg-indigo br-pill d-14 d-f jc-c bw-2 bc-indigo-2/50">A</div>
+    <div className="ml--2 ai-c bg-indigo br-pill d-14 d-f jc-c bw-2 bc-indigo-2/50">B</div>
+    <div className="ml--2 ai-c bg-indigo br-pill d-14 d-f jc-c bw-2 bc-indigo-2/50">C</div>
+    <div className="ml--2 ai-c bg-indigo br-pill d-14 d-f jc-c bw-2 bc-indigo-2/50">D</div>
+    <div className="ml--2 ai-c bg-indigo br-pill d-14 d-f jc-c bw-2 bc-indigo-2/50">E</div>
   </div>
 </Preview>
 
-```html "m--4"
-<div class="d-f ai-c g-4">
-  <div class="d-12 bg-indigo br-2"></div>
-  <div class="d-12 bg-indigo br-2 m--4"></div>
-  <div class="d-12 bg-indigo br-2"></div>
+```html "ml--2"
+<div class="c-white d-f fs-sm jc-c">
+  <div class="ml--2 ai-c bg-indigo br-pill d-14 d-f jc-c bw-2 bc-indigo-2/50">A</div>
+  <div class="ml--2 ai-c bg-indigo br-pill d-14 d-f jc-c bw-2 bc-indigo-2/50">B</div>
+  <div class="ml--2 ai-c bg-indigo br-pill d-14 d-f jc-c bw-2 bc-indigo-2/50">C</div>
+  <div class="ml--2 ai-c bg-indigo br-pill d-14 d-f jc-c bw-2 bc-indigo-2/50">D</div>
+  <div class="ml--2 ai-c bg-indigo br-pill d-14 d-f jc-c bw-2 bc-indigo-2/50">E</div>
 </div>
 ```
 
@@ -227,7 +189,7 @@ This works with any utility that accepts numeric values like margins, positionin
 
 Under the hood, we've updated `mx-*`, `my-*`, `px-*`, and `py-*` utilities to use logical properties (`margin-inline`, `margin-block`, `padding-inline`, `padding-block`). This provides better support for international layouts and different writing modes, with no behavior changes for standard left-to-right layouts.
 
-```css del={1-4, 6-9} ins={11-13, 15-17} title="yumma.css"
+```css del={1-4, 6-9} ins={11-13, 15-17} title="out.css"
 .mx-4 {
   margin-left: 1rem;
   margin-right: 1rem;
