@@ -61,11 +61,11 @@ export function getBorderColor(color: string): string {
   const luminance = tinycolor(color).getLuminance();
 
   if (luminance > 0.9) {
-    return "1px solid rgba(0, 0, 0, 0.1)";
+    return "1px solid rgba(0, 0, 0, 0.25)";
   }
 
   if (luminance < 0.1) {
-    return "1px solid rgba(255, 255, 255, 0.1)";
+    return "1px solid rgba(255, 255, 255, 0.25)";
   }
 
   return "none";

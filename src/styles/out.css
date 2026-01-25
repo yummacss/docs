@@ -505,10 +505,6 @@ summary {
   background-color: #0003;
 }
 
-.bg-black\/50 {
-  background-color: #00000080;
-}
-
 .bg-black\/70 {
   background-color: #000000b3;
 }
@@ -1857,10 +1853,6 @@ summary {
 
 .gtc-1 {
   grid-template-columns: repeat(1, minmax(0, 1fr));
-}
-
-.gtc-14 {
-  grid-template-columns: repeat(14, minmax(0, 1fr));
 }
 
 .gtc-2 {
@@ -4135,10 +4127,6 @@ summary {
     display: flex;
   }
 
-  .md\:d-g {
-    display: grid;
-  }
-
   .md\:d-none {
     display: none;
   }
@@ -4165,10 +4153,6 @@ summary {
 
   .md\:gtc-6 {
     grid-template-columns: repeat(6, minmax(0, 1fr));
-  }
-
-  .md\:h-10 {
-    height: 2.5rem;
   }
 
   .md\:h-auto {
