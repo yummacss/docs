@@ -82,10 +82,16 @@ export default function Navbar({ variant, className, links }: NavbarProps) {
                     Blog
                   </Link>
                   <Link
-                    href="/ui/introduction"
+                    href="/ui/components#components"
                     className="d-none md:d-b fs-sm c-white/80 h:c-white"
                   >
-                    Components
+                    UI Blocks
+                  </Link>
+                  <Link
+                    href="/ui/templates"
+                    className="d-none md:d-b fs-sm c-white/80 h:c-white"
+                  >
+                    Templates
                   </Link>
                   <Link
                     href="https://github.com/yummacss/yummacss"
