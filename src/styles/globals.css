@@ -24,7 +24,7 @@ p {
   font-family: sans-serif;
 }
 
-.\~sm-xxl {
+.sm-xxl {
   max-width: clamp(40rem, 80vw, 96rem);
 }
 
