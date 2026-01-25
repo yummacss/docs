@@ -14,6 +14,15 @@ export const meta = {
 
 To avoid naming collisions and improve consistency, we've renamed two utility prefixes:
 
+### API is now called Core
+
+We've renamed the `@yummacss/api` package to `@yummacss/core`. The name "core" better represents the package as the foundation of Yumma CSS, while avoiding potential confusion with other types of APIs.
+
+```bash del={1} ins={2} title="Terminal"
+npm remove @yummacss/api
+npm install @yummacss/core
+```
+
 ### Box Shadow
 
 ```html del={1} ins={2} title="index.html"
@@ -26,15 +35,6 @@ To avoid naming collisions and improve consistency, we've renamed two utility pr
 ```html del={1} ins={2} title="index.html"
 <div class="i-*">...</div>
 <div class="is-*">...</div>
-```
-
-### API is now called Core
-
-We've renamed the `@yummacss/api` package to `@yummacss/core`. The name "core" better represents the package as the foundation of Yumma CSS, while avoiding potential confusion with other types of APIs.
-
-```bash del={1} ins={2} title="Terminal"
-npm remove @yummacss/api
-npm install @yummacss/core
 ```
 
 ---
