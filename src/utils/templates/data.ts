@@ -1,10 +1,14 @@
 import type { Icon } from "@phosphor-icons/react";
 import {
   ArticleIcon,
-  FileIcon,
+  BuildingOfficeIcon,
+  FileDashedIcon,
   HouseIcon,
+  LinkBreakIcon,
+  PackageIcon,
   PasswordIcon,
   PhoneIcon,
+  UserCircleDashedIcon,
 } from "@phosphor-icons/react/dist/ssr";
 import { templates } from "./templates";
 
@@ -12,14 +16,14 @@ import { templates } from "./templates";
 
 export const pageIconMap: Record<string, Icon> = {
   Home: HouseIcon,
-  "404": FileIcon,
-  "404 page": FileIcon,
-  About: FileIcon,
-  Services: FileIcon,
-  Work: FileIcon,
-  Portfolio: FileIcon,
-  Pricing: FileIcon,
-  Process: FileIcon,
+  "404": LinkBreakIcon,
+  "404 page": LinkBreakIcon,
+  About: UserCircleDashedIcon,
+  Services: PackageIcon,
+  Work: BuildingOfficeIcon,
+  Portfolio: FileDashedIcon,
+  Pricing: FileDashedIcon,
+  Process: FileDashedIcon,
   Blog: ArticleIcon,
   Article: ArticleIcon,
   Contact: PhoneIcon,
@@ -28,7 +32,7 @@ export const pageIconMap: Record<string, Icon> = {
 };
 
 export function getPageIcon(title: string): Icon {
-  return pageIconMap[title] || FileIcon;
+  return pageIconMap[title] || FileDashedIcon;
 }
 
 // Template Support Resources
