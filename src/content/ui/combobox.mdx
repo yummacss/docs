@@ -29,13 +29,19 @@ export default function ExampleCombobox() {
           <Combobox.Input
             placeholder="e.g. Apple"
             id={id}
-            className="h-10 w-64 br-1 bw-1 bc-silver-4 pl-4 fs-md c-slate-12 bg-white f:os-s f:ow-2 f:oo--1 f:oc-blue-8"
+            className="h-10 w-64 bw-1 bc-silver-4 br-1 bg-white pl-4 fs-sm c-slate-12 f:os-s f:ow-2 f:oo--1 f:oc-blue-8"
           />
-          <div className="p-a r-2 b-0 d-f ai-c jc-c h-10 c-silver-9">
-            <Combobox.Clear className="d-f ai-c jc-c d-6 h-10 br-1 bg-transparent p-0" aria-label="Clear selection">
+          <div className="p-a d-f ai-c jc-c r-2 b-0 h-10 c-silver-9">
+            <Combobox.Clear
+              className="d-f ai-c jc-c d-6 h-10 br-1 bg-transparent p-0"
+              aria-label="Clear selection"
+            >
               <XIcon size={16} />
             </Combobox.Clear>
-            <Combobox.Trigger className="d-f ai-c jc-c d-6 h-10 br-1 bg-transparent p-0" aria-label="Open popup">
+            <Combobox.Trigger
+              className="d-f ai-c jc-c d-6 h-10 br-1 bg-transparent p-0"
+              aria-label="Open popup"
+            >
               <CaretDownIcon size={16} />
             </Combobox.Trigger>
           </div>
@@ -44,16 +50,16 @@ export default function ExampleCombobox() {
 
       <Combobox.Portal>
         <Combobox.Positioner className="ow-0" sideOffset={4}>
-          <Combobox.Popup className="br-1 bg-white c-slate-12 bs-lg bw-1 bc-silver-4 o-h">
-            <Combobox.Empty className="p-4 fs-sm c-silver-9 combobox-empty">
+          <Combobox.Popup className="bw-1 bc-silver-4 br-1 bg-white bs-lg c-slate-12 o-h">
+            <Combobox.Empty className="p-4 fs-sm c-silver-9">
               No fruits found.
             </Combobox.Empty>
-            <Combobox.List className="ow-0 o-y-auto py-2">
+            <Combobox.List className="o-y-auto ow-0 py-2">
               {(item: string) => (
                 <Combobox.Item
                   key={item}
                   value={item}
-                  className="d-g ai-c g-2 py-2 pr-8 pl-4 fs-md us-none c-d ow-0"
+                  className="d-g ai-c g-2 py-2 pr-8 pl-4 fs-sm ow-0 us-none c-d"
                 >
                   <Combobox.ItemIndicator>
                     <CheckIcon size={12} weight="bold" />
@@ -96,7 +102,7 @@ A vanilla HTML and CSS implementation.
 ```html
 <div class="d-f fd-c g-1 fs-sm fw-500 c-slate-12 p-r">
   <label for="fruit-select">Choose a fruit</label>
-  <select id="fruit-select" class="h-10 w-64 br-1 bw-1 bc-silver-4 px-3 fs-md c-slate-12 bg-white">
+  <select id="fruit-select" class="h-10 w-64 br-1 bw-1 bc-silver-4 px-3 fs-sm c-slate-12 bg-white">
     <option value="">Select a fruit...</option>
     <option value="apple">Apple</option>
     <option value="banana">Banana</option>

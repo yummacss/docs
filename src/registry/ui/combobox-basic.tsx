@@ -45,7 +45,7 @@ export default function ExampleCombobox() {
                 <Combobox.Item
                   key={item}
                   value={item}
-                  className="d-g ai-c g-2 py-2 pr-8 pl-4 fs-md ow-0 us-none c-d combobox-item"
+                  className="d-g ai-c g-2 py-2 pr-8 pl-4 fs-sm ow-0 us-none c-d combobox-item"
                 >
                   <Combobox.ItemIndicator className="combobox-indicator">
                     <CheckIcon size={12} weight="bold" />
@@ -96,8 +96,8 @@ export default function ExampleCombobox() {
           content: '';
           position: absolute;
           z-index: -1;
-          inset-block: 0;
-          inset-inline: 0.5rem;
+          inset-block: 0.125rem;
+          inset-inline: 0.25rem;
           border-radius: 0.25rem;
           background-color: #0a0a0c;
         }

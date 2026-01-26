@@ -22,7 +22,7 @@ export default function ExampleAutocomplete() {
         Search tags
         <Autocomplete.Input
           placeholder="e.g. feature"
-          className="h-10 w-64 md:w-80 pl-4 br-1 bw-1 bc-silver-4 fs-md c-slate bg-white fv:os-s fv:ow-2 fv:oo--1 fv:oc-blue-8 b-0"
+          className="h-10 w-64 md:w-80 pl-4 br-1 bw-1 bc-silver-4 fs-sm c-slate bg-white fv:os-s fv:ow-2 fv:oo--1 fv:oc-blue-8 b-0"
         />
       </label>
 
@@ -36,7 +36,7 @@ export default function ExampleAutocomplete() {
               {(tag: Tag) => (
                 <Autocomplete.Item
                   key={tag.id}
-                  className="d-f ai-c py-2 pr-8 pl-4 fs-md c-d us-none"
+                  className="d-f ai-c py-2 pr-8 pl-4 fs-sm c-d us-none"
                   value={tag}
                 >
                   {tag.value}
@@ -98,33 +98,5 @@ const tags: Tag[] = [
   { id: "c-toolbar", value: "component: toolbar" },
   { id: "c-tooltip", value: "component: tooltip" },
 ];
-```
-
-## HTML
-
-A vanilla HTML and CSS implementation.
-
-### Basic Example
-
-```html
-<div class="d-ib p-r">
-  <label class="d-f fd-c g-1 fs-sm fw-500 c-slate">
-    Search tags
-    <input
-      type="text"
-      placeholder="e.g. feature"
-      role="combobox"
-      aria-autocomplete="list"
-      aria-expanded="false"
-      class="h-10 w-64 md:w-80 pl-4 br-1 bw-1 bc-silver-4 fs-md c-slate bg-white fv:os-s fv:ow-2 fv:oo--1 fv:oc-blue-8 b-0"
-    />
-  </label>
-  <div role="listbox" class="p-a mt-1 w-full max-h-72 br-1 bg-white bw-1 bc-silver-4 bs-lg c-slate py-2 o-y-auto o-h">
-    <div role="option" class="d-f ai-c py-2 pr-8 pl-4 fs-md c-p">feature</div>
-    <div role="option" class="d-f ai-c py-2 pr-8 pl-4 fs-md c-p">fix</div>
-    <div role="option" class="d-f ai-c py-2 pr-8 pl-4 fs-md c-p">bug</div>
-    <div role="option" class="d-f ai-c py-2 pr-8 pl-4 fs-md c-p">docs</div>
-  </div>
-</div>
 ```
 
