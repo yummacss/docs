@@ -13,54 +13,33 @@ An interactive component powered by Base UI and styled with Yumma CSS.
 
 ```tsx
 import { ContextMenu } from "@base-ui/react/context-menu";
-import { CaretRightIcon } from "@phosphor-icons/react";
+import { ContextMenu } from "@base-ui/react/context-menu";
 
 export default function ExampleContextMenu() {
   return (
     <ContextMenu.Root>
-      <ContextMenu.Trigger className="d-f ai-c jc-c h-48 w-60 br-1 bw-1 bc-silver-4 c-slate us-none">
+      <ContextMenu.Trigger className="d-f ai-c jc-c h-48 w-60 br-1 bw-1 bc-silver-4 c-slate-12 us-none">
         Right click here
       </ContextMenu.Trigger>
       <ContextMenu.Portal>
         <ContextMenu.Positioner className="ow-0">
-          <ContextMenu.Popup className="br-1 bg-white c-slate py-1 bs-md bw-1 bc-silver-4">
+          <ContextMenu.Popup className="br-1 bg-white c-slate-12 py-1 bs-md bw-1 bc-silver-4">
             <ContextMenu.Item className="d-f py-2 pr-8 pl-4 fs-sm us-none c-d ow-0">
               Add to Library
             </ContextMenu.Item>
 
-            <ContextMenu.SubmenuRoot>
-              <ContextMenu.SubmenuTrigger className="d-f ai-c jc-sb g-4 py-2 pr-4 pl-4 fs-sm us-none c-d ow-0">
-                Add to Playlist <CaretRightIcon size={10} />
-              </ContextMenu.SubmenuTrigger>
-              <ContextMenu.Portal>
-                <ContextMenu.Positioner className="ow-0" alignOffset={-4} sideOffset={-4}>
-                  <ContextMenu.Popup className="br-1 bg-white c-slate py-1 bs-md bw-1 bc-silver-4">
-                    <ContextMenu.Item className="d-f py-2 pr-8 pl-4 fs-sm us-none c-d ow-0">
-                      Get Up!
-                    </ContextMenu.Item>
-                    <ContextMenu.Item className="d-f py-2 pr-8 pl-4 fs-sm us-none c-d ow-0">
-                      Inside Out
-                    </ContextMenu.Item>
-                    <ContextMenu.Item className="d-f py-2 pr-8 pl-4 fs-sm us-none c-d ow-0">
-                      Night Beats
-                    </ContextMenu.Item>
-                    <ContextMenu.Separator className="mx-4 my-1-5 h-px bg-silver-4" />
-                    <ContextMenu.Item className="d-f py-2 pr-8 pl-4 fs-sm us-none c-d ow-0">
-                      New playlist…
-                    </ContextMenu.Item>
-                  </ContextMenu.Popup>
-                </ContextMenu.Positioner>
-              </ContextMenu.Portal>
-            </ContextMenu.SubmenuRoot>
+            <ContextMenu.Item className="d-f py-2 pr-8 pl-4 fs-sm us-none c-d ow-0">
+              Add to Playlist
+            </ContextMenu.Item>
 
-            <ContextMenu.Separator className="mx-4 my-1-5 h-px bg-silver-4" />
+            <ContextMenu.Separator className="mx-4 my-1 h-px bg-silver-4" />
             <ContextMenu.Item className="d-f py-2 pr-8 pl-4 fs-sm us-none c-d ow-0">
               Play Next
             </ContextMenu.Item>
             <ContextMenu.Item className="d-f py-2 pr-8 pl-4 fs-sm us-none c-d ow-0">
               Play Last
             </ContextMenu.Item>
-            <ContextMenu.Separator className="mx-4 my-1-5 h-px bg-silver-4" />
+            <ContextMenu.Separator className="mx-4 my-1 h-px bg-silver-4" />
             <ContextMenu.Item className="d-f py-2 pr-8 pl-4 fs-sm us-none c-d ow-0">
               Favorite
             </ContextMenu.Item>
@@ -83,20 +62,19 @@ A vanilla HTML and CSS implementation.
 
 ```html
 <div class="p-r">
-  <div class="d-f ai-c jc-c h-48 w-60 br-1 bw-1 bc-silver-4 c-slate us-none">
+  <div class="d-f ai-c jc-c h-48 w-60 br-1 bw-1 bc-silver-4 c-slate-12 us-none">
     Right click here
   </div>
   <!-- Context menu would appear on right click -->
-  <div class="p-a br-1 bg-white c-slate py-1 bs-md bw-1 bc-silver-4">
+  <div class="p-a br-1 bg-white c-slate-12 py-1 bs-md bw-1 bc-silver-4">
     <div class="d-f py-2 pr-8 pl-4 fs-sm c-d">Add to Library</div>
-    <div class="d-f ai-c jc-sb py-2 pr-4 pl-4 fs-sm c-d">Add to Playlist →</div>
-    <div class="mx-4 my-1-5 h-px bg-silver-4"></div>
+    <div class="d-f py-2 pr-8 pl-4 fs-sm c-d">Add to Playlist</div>
+    <div class="mx-4 my-1 h-px bg-silver-4"></div>
     <div class="d-f py-2 pr-8 pl-4 fs-sm c-d">Play Next</div>
     <div class="d-f py-2 pr-8 pl-4 fs-sm c-d">Play Last</div>
-    <div class="mx-4 my-1-5 h-px bg-silver-4"></div>
+    <div class="mx-4 my-1 h-px bg-silver-4"></div>
     <div class="d-f py-2 pr-8 pl-4 fs-sm c-d">Favorite</div>
     <div class="d-f py-2 pr-8 pl-4 fs-sm c-d">Share</div>
   </div>
 </div>
 ```
-

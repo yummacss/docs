@@ -23,7 +23,7 @@ export default function ExampleAutocomplete() {
               {(tag: Tag) => (
                 <Autocomplete.Item
                   key={tag.id}
-                  className="d-f ai-c py-2 pr-8 pl-4 fs-md us-none c-d c-p autocomplete-item"
+                  className="d-f ai-c py-2 pr-8 pl-4 fs-sm us-none c-d c-p autocomplete-item"
                   value={tag}
                 >
                   {tag.value}
@@ -55,8 +55,8 @@ export default function ExampleAutocomplete() {
           content: '';
           position: absolute;
           z-index: -1;
-          inset-block: 0;
-          inset-inline: 0.5rem;
+          inset-block: 0.125rem;
+          inset-inline: 0.25rem;
           border-radius: 0.25rem;
           background-color: #0a0a0c;
         }
