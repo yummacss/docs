@@ -18,7 +18,7 @@ export default function ExampleAccordion() {
               {item.title}
               <PlusIcon
                 size={12}
-                className="mr-2 c-slate fs-0 accordion-icon"
+                className="mr-2 c-slate-12 fs-0 accordion-icon"
                 aria-hidden="true"
               />
             </Accordion.Trigger>

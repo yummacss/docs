@@ -1071,6 +1071,10 @@ summary {
   color: #1c1c22;
 }
 
+.c-slate-12 {
+  color: #0a0a0c;
+}
+
 .c-slate-6 {
   color: #5a5a67;
 }
@@ -2548,6 +2552,10 @@ summary {
   margin-right: 2rem;
 }
 
+.mt--1 {
+  margin-top: -.25rem;
+}
+
 .mt-1 {
   margin-top: .25rem;
 }
@@ -2914,6 +2922,10 @@ summary {
 
 .p\:\:fs-i::placeholder {
   font-style: italic;
+}
+
+.pb-12 {
+  padding-bottom: 3rem;
 }
 
 .pb-3 {
