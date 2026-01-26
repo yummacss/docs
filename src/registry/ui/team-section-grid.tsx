@@ -3,7 +3,7 @@ export default function TeamSectionGrid() {
   return (
     <section className="py-12">
       <div className="ta-c mb-12">
-        <h2 className="ff-s fs-3xl fw-600 c-black mb-4">The Team</h2>
+        <h2 className="fs-3xl fw-600 c-black mb-4">The Team</h2>
         <p className="fs-lg c-silver-10 max-w-sm m-auto">
           Meet the people behind the magic. We are a diverse team of passionate
           individuals.

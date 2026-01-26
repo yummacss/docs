@@ -1,7 +1,7 @@
 export default function LogoSectionHeading() {
   return (
     <section className="py-12 px-6 ta-c">
-      <h2 className="ff-s fs-xxl fw-600 c-slate-10 mb-2">Backed by the best</h2>
+      <h2 className="fs-xxl fw-600 c-slate-10 mb-2">Backed by the best</h2>
       <p className="fs-sm c-silver-10 mb-10 m-0">
         We partner with industry leaders to deliver exceptional results
       </p>

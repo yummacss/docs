@@ -16,10 +16,11 @@
     "start": "next start",
     "update-yummacss": "pnpm up yummacss @yummacss/core --latest"
   },
-  "packageManager": "pnpm@10.27.0",
+  "packageManager": "pnpm@10.28.2",
   "dependencies": {
     "@base-ui/react": "^1.0.0",
     "@fontsource/esteban": "^5.2.7",
+    "@fontsource/ia-writer-quattro": "^5.2.5",
     "@mdx-js/loader": "^3.1.1",
     "@mdx-js/react": "^3.1.1",
     "@next/mdx": "^16.1.1",

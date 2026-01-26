@@ -109,7 +109,7 @@ function ToastList() {
       className="br-1 bw-1 bc-silver-4 bg-white bs-md p-4 toast-root"
     >
       <Toast.Content className="toast-content">
-        <Toast.Title className="ff-s fs-md lh-5 fw-500" />
+        <Toast.Title className="fs-md lh-5 fw-500" />
         <Toast.Description className="fs-sm lh-5 c-slate-6" />
         <Toast.Close
           className="p-a t-2 r-2 d-f h-8 w-8 ai-c jc-c br-1 b-0 bg-transparent c-slate-6 h:bg-silver-1 h:c-slate"

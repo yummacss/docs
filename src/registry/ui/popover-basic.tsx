@@ -12,7 +12,7 @@ export default function ExamplePopover() {
       <Popover.Portal>
         <Popover.Positioner sideOffset={8}>
           <Popover.Popup className="bw-1 bc-silver-4 br-1 bg-white bs-md px-6 py-4 c-slate popover-popup">
-            <Popover.Title className="fs-md fw-500 ff-s">
+            <Popover.Title className="fs-md fw-500">
               Notifications
             </Popover.Title>
             <Popover.Description className="fs-md c-slate-6">

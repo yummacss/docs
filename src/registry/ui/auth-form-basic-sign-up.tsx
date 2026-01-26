@@ -4,7 +4,7 @@ import { Field } from "@base-ui/react/field";
 export default function AuthFormBasicSignUp() {
   return (
     <div className="w-full max-w-96 bw-1 bc-silver-4 br-1 bs-xs p-8">
-      <h2 className="ff-s fs-xxl fw-600 c-slate-9 mb-2">Create an account</h2>
+      <h2 className="fs-xxl fw-600 c-slate-9 mb-2">Create an account</h2>
       <p className="fs-sm c-slate-6 mb-6">
         Enter your credentials to sign up to your account.
       </p>

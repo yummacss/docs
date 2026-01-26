@@ -15,7 +15,7 @@ export default function FooterColumnsWithLogo() {
           </p>
         </div>
         <div className="f-1 min-w-16">
-          <h4 className="ff-s fs-sm fw-600 c-slate-10 mb-4">Product</h4>
+          <h4 className="fs-sm fw-600 c-slate-10 mb-4">Product</h4>
           <ul className="d-f fd-c g-3 p-0">
             <li>
               <a href="/" className="fs-sm c-silver-10 td-none h:c-slate-8">
@@ -35,7 +35,7 @@ export default function FooterColumnsWithLogo() {
           </ul>
         </div>
         <div className="f-1 min-w-16">
-          <h4 className="ff-s fs-sm fw-600 c-slate-10 mb-4">3Portals</h4>
+          <h4 className="fs-sm fw-600 c-slate-10 mb-4">3Portals</h4>
           <ul className="d-f fd-c g-3 p-0">
             <li>
               <a href="/" className="fs-sm c-silver-10 td-none h:c-slate-8">
@@ -55,7 +55,7 @@ export default function FooterColumnsWithLogo() {
           </ul>
         </div>
         <div className="f-1 min-w-16">
-          <h4 className="ff-s fs-sm fw-600 c-slate-10 mb-4">Support</h4>
+          <h4 className="fs-sm fw-600 c-slate-10 mb-4">Support</h4>
           <ul className="d-f fd-c g-3 p-0">
             <li>
               <a href="/" className="fs-sm c-silver-10 td-none h:c-slate-8">

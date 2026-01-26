@@ -11,7 +11,7 @@ export default function HeroSectionBadgeOnTop() {
             <span>New features available</span>
           </span>
         </div>
-        <h1 className="ff-s fs-5xl fw-600 c-slate-10 mb-4 lh-1">
+        <h1 className="fs-5xl fw-600 c-slate-10 mb-4 lh-1">
           The future of work starts here
         </h1>
         <p className="fs-lg c-silver-10 mb-8 m-0 lh-4">
