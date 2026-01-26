@@ -23,15 +23,15 @@ export default function ExampleCombobox() {
 
   return (
     <Combobox.Root items={fruits}>
-      <div className="d-f fd-c g-1 fs-sm fw-500 c-slate p-r">
+      <div className="d-f fd-c g-1 fs-sm fw-500 c-slate-12 p-r">
         <label htmlFor={id}>Choose a fruit</label>
         <div className="p-r">
           <Combobox.Input
             placeholder="e.g. Apple"
             id={id}
-            className="h-10 w-64 br-1 bw-1 bc-silver-4 pl-4 fs-md c-slate bg-white f:os-s f:ow-2 f:oo--1 f:oc-blue-8"
+            className="h-10 w-64 br-1 bw-1 bc-silver-4 pl-4 fs-md c-slate-12 bg-white f:os-s f:ow-2 f:oo--1 f:oc-blue-8"
           />
-          <div className="p-a r-2 b-0 d-f ai-c jc-c h-10 c-slate-6">
+          <div className="p-a r-2 b-0 d-f ai-c jc-c h-10 c-silver-9">
             <Combobox.Clear className="d-f ai-c jc-c d-6 h-10 br-1 bg-transparent p-0" aria-label="Clear selection">
               <XIcon size={16} />
             </Combobox.Clear>
@@ -44,8 +44,8 @@ export default function ExampleCombobox() {
 
       <Combobox.Portal>
         <Combobox.Positioner className="ow-0" sideOffset={4}>
-          <Combobox.Popup className="br-1 bg-white c-slate bs-lg bw-1 bc-silver-4">
-            <Combobox.Empty className="p-4 fs-sm c-slate-6">
+          <Combobox.Popup className="br-1 bg-white c-slate-12 bs-lg bw-1 bc-silver-4 o-h">
+            <Combobox.Empty className="p-4 fs-sm c-silver-9 combobox-empty">
               No fruits found.
             </Combobox.Empty>
             <Combobox.List className="ow-0 o-y-auto py-2">
@@ -94,9 +94,9 @@ A vanilla HTML and CSS implementation.
 ### Basic Example
 
 ```html
-<div class="d-f fd-c g-1 fs-sm fw-500 c-slate p-r">
+<div class="d-f fd-c g-1 fs-sm fw-500 c-slate-12 p-r">
   <label for="fruit-select">Choose a fruit</label>
-  <select id="fruit-select" class="h-10 w-64 br-1 bw-1 bc-silver-4 px-3 fs-md c-slate bg-white">
+  <select id="fruit-select" class="h-10 w-64 br-1 bw-1 bc-silver-4 px-3 fs-md c-slate-12 bg-white">
     <option value="">Select a fruit...</option>
     <option value="apple">Apple</option>
     <option value="banana">Banana</option>
@@ -110,10 +110,3 @@ A vanilla HTML and CSS implementation.
 </div>
 ```
 
-## Documentation
-
-For more information, check the [Base UI Combobox documentation](https://base-ui.com/react/components/combobox).
-
-## API Reference
-
-For detailed API reference, see the [Base UI Combobox API Reference](https://base-ui.com/react/components/combobox#api-reference).

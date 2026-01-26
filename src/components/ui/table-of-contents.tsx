@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import EditPage from "@/components/ui/edit-page";
+import ExternalLinks from "@/components/ui/external-links";
 
 interface TocItem {
   id: string;
@@ -68,9 +69,7 @@ export default function TableOfContents() {
         }}
       >
         <div className="px-8 pb-12">
-          <h3 className="fs-md fw-400 tt-c mb-3 c-white">
-            On this page
-          </h3>
+          <h3 className="fs-md fw-400 tt-c mb-3 c-white">On this page</h3>
           <ul className="d-f fd-c g-2 fs-sm">
             {headings.map((heading) => {
               const isActive = activeId === heading.id;
@@ -90,7 +89,12 @@ export default function TableOfContents() {
               );
             })}
           </ul>
-          {!isBlogPost && <EditPage />}
+          {!isBlogPost && (
+            <div className="mt-8 pt-8 btw-1 bc-white/5 d-f fd-c g-3">
+              <EditPage />
+              <ExternalLinks />
+            </div>
+          )}
         </div>
       </div>
     </aside>

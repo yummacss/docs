@@ -9,15 +9,15 @@ export default function ExampleCombobox() {
 
   return (
     <Combobox.Root items={fruits}>
-      <div className="d-f fd-c g-1 fs-sm fw-500 c-slate p-r">
+      <div className="d-f fd-c g-1 fs-sm fw-500 c-slate-12 p-r">
         <label htmlFor={id}>Choose a fruit</label>
         <div className="p-r combobox-input-wrapper">
           <Combobox.Input
             placeholder="e.g. Apple"
             id={id}
-            className="h-10 w-64 bw-1 bc-silver-4 br-1 bg-white pl-4 fs-md c-slate f:os-s f:ow-2 f:oo--1 f:oc-blue-8"
+            className="h-10 w-64 bw-1 bc-silver-4 br-1 bg-white pl-4 fs-md c-slate-12 f:os-s f:ow-2 f:oo--1 f:oc-blue-8"
           />
-          <div className="p-a d-f ai-c jc-c r-2 b-0 h-10 c-slate-6">
+          <div className="p-a d-f ai-c jc-c r-2 b-0 h-10 c-silver-9">
             <Combobox.Clear
               className="d-f ai-c jc-c d-6 h-10 br-1 bg-transparent p-0 combobox-clear"
               aria-label="Clear selection"
@@ -36,8 +36,8 @@ export default function ExampleCombobox() {
 
       <Combobox.Portal>
         <Combobox.Positioner className="ow-0" sideOffset={4}>
-          <Combobox.Popup className="bw-1 bc-silver-4 br-1 bg-white bs-lg c-slate combobox-popup">
-            <Combobox.Empty className="p-4 fs-sm c-slate-6">
+          <Combobox.Popup className="bw-1 bc-silver-4 br-1 bg-white bs-lg c-slate-12 o-h combobox-popup">
+            <Combobox.Empty className="p-4 fs-sm c-silver-9 combobox-empty">
               No fruits found.
             </Combobox.Empty>
             <Combobox.List className="o-y-auto ow-0 py-2 combobox-list">
@@ -74,6 +74,9 @@ export default function ExampleCombobox() {
           opacity: 0;
           transform: scale(0.95);
         }
+        .combobox-empty:empty {
+          display: none;
+        }
         .combobox-list {
           max-height: min(23rem, var(--available-height));
           overscroll-behavior: contain;
@@ -87,7 +90,7 @@ export default function ExampleCombobox() {
         .combobox-item[data-highlighted] {
           position: relative;
           z-index: 0;
-          color: var(--silver-1);
+          color: #f8f9fa;
         }
         .combobox-item[data-highlighted]::before {
           content: '';
@@ -96,7 +99,7 @@ export default function ExampleCombobox() {
           inset-block: 0;
           inset-inline: 0.5rem;
           border-radius: 0.25rem;
-          background-color: var(--slate);
+          background-color: #0a0a0c;
         }
         .combobox-indicator {
           grid-column-start: 1;
