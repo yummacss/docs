@@ -1,4 +1,4 @@
-import { ArrowUpRightIcon, SparkleIcon } from "@phosphor-icons/react/dist/ssr";
+import { MagnifyingGlassIcon, SparkleIcon } from "@phosphor-icons/react/dist/ssr";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SiHtml5, SiNextdotjs, SiReact } from "react-icons/si";
@@ -59,7 +59,7 @@ export default function UIPage() {
                   href="/ui/templates"
                   className="px-6 py-3 fw-600 c-white fs-md d-f ai-c g-2 us-none"
                 >
-                  <ArrowUpRightIcon size={20} />
+                  <MagnifyingGlassIcon size={20} />
                   Browse templates
                 </Link>
               </div>
