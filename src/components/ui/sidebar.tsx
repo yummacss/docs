@@ -39,7 +39,7 @@ export default function Sidebar() {
             <h3 className="fs-md fw-400 tt-c ls-5 c-white">
               {section.title}
             </h3>
-            <ul className="d-f ml-4 fd-c g-2">
+            <ul className="d-f fd-c g-2">
               {section.items.map((item) => {
                 // item with children (nested structure)
                 if (hasChildren(item)) {
