@@ -24,9 +24,11 @@ body {
   font-family: "iA Writer Quattro", sans-serif;
 }
 
-/* Reset font for component previews */
+/* Reset font for component previews and portalled elements */
 [data-preview],
-[data-preview] * {
+[data-preview] *,
+[class*="-popup"],
+[class*="-popup"] * {
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
 }
 
@@ -85,15 +87,4 @@ body {
       #31365e 1px,
       #fff 0,
       #fff 50%);
-}
-
-#line {
-  background-color: #ffffff;
-  opacity: 0.8;
-  background-size: 22px 22px;
-  background-image: repeating-linear-gradient(0deg,
-      #000000,
-      #000000 1.1px,
-      #ffffff 1.1px,
-      #ffffff);
 }
