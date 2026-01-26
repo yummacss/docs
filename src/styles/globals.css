@@ -27,7 +27,7 @@ body {
 /* Reset font for component previews */
 [data-preview],
 [data-preview] * {
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif !important;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
 }
 
 .sm-xxl {
