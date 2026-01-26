@@ -1427,10 +1427,6 @@ summary {
   fill: #3f3f4e;
 }
 
-.f\:oc-black:focus {
-  outline-color: #000;
-}
-
 .f\:oc-blue-8:focus {
   outline-color: #26549f;
 }
@@ -1637,6 +1633,10 @@ summary {
 
 .fv\:bg-silver-2:focus-visible {
   background-color: #ecedee;
+}
+
+.fv\:oc-black:focus-visible {
+  outline-color: #000;
 }
 
 .fv\:oc-blue-8:focus-visible {
@@ -2199,6 +2199,10 @@ summary {
 
 .js-st {
   justify-self: stretch;
+}
+
+.l--3 {
+  left: -.75rem;
 }
 
 .l-0 {

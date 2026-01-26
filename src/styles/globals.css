@@ -1,4 +1,5 @@
 @import "@fontsource/esteban";
+@import "@fontsource/ia-writer-quattro";
 @import "./out.css";
 
 h1,
@@ -19,22 +20,19 @@ article h6 {
   font-family: "Esteban", serif;
 }
 
+body {
+  font-family: "iA Writer Quattro", sans-serif;
+}
+
 /* Reset font for component previews */
 [data-preview] h1,
 [data-preview] h2,
 [data-preview] h3,
 [data-preview] h4,
 [data-preview] h5,
-[data-preview] h6 {
+[data-preview] h6,
+[data-preview] p {
   font-family: system-ui, sans-serif;
-}
-
-.ff-docs {
-  font-family: "Esteban", serif;
-}
-
-p {
-  font-family: sans-serif;
 }
 
 .sm-xxl {

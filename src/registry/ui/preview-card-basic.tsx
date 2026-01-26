@@ -28,7 +28,7 @@ export default function ExamplePreviewCard() {
               alt="Station Hofplein signage in Rotterdam, Netherlands"
             />
             <p className="fs-sm c-slate m-0">
-              <strong className="ff-s">Typography</strong> is the art and
+              <strong>Typography</strong> is the art and
               science of arranging type to make written language clear, visually
               appealing, and effective in communication.
             </p>

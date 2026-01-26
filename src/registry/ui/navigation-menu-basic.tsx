@@ -22,7 +22,7 @@ export default function ExampleNavigationMenu() {
                     href={item.href}
                     className="d-b p-2 br-1 td-n c-inherit h:bg-silver-2"
                   >
-                    <h3 className="m-0 mb-1 fs-md fw-500 ff-s">{item.title}</h3>
+                    <h3 className="m-0 mb-1 fs-md fw-500">{item.title}</h3>
                     <p className="m-0 fs-sm c-slate-6">{item.description}</p>
                   </NavigationMenu.Link>
                 </li>
@@ -46,7 +46,7 @@ export default function ExampleNavigationMenu() {
                     href={item.href}
                     className="d-b p-2 br-1 td-n c-inherit h:bg-silver-2"
                   >
-                    <h3 className="m-0 mb-1 fs-md fw-500 ff-s">{item.title}</h3>
+                    <h3 className="m-0 mb-1 fs-md fw-500">{item.title}</h3>
                     <p className="m-0 fs-sm c-slate-6">{item.description}</p>
                   </NavigationMenu.Link>
                 </li>

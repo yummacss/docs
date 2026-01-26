@@ -42,7 +42,7 @@ export default function TemplateFeatures({
         return (
           <AccordionItem key={feature.id}>
             <AccordionTrigger>
-              <span className="d-f ai-c g-2 ff-s">
+              <span className="d-f ai-c g-2">
                 <FeatureIcon size={18} weight="duotone" />
                 {feature.title}
               </span>

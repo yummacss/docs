@@ -5,7 +5,7 @@ export default function HeroSectionBasic() {
   return (
     <section className="py-16 px-6 ta-c">
       <div className="max-w-sm m-auto">
-        <h1 className="ff-s fs-5xl fw-600 c-slate-10 mb-4 lh-1">
+        <h1 className="fs-5xl fw-600 c-slate-10 mb-4 lh-1">
           Build beautiful products faster
         </h1>
         <p className="fs-lg c-silver-10 mb-8 m-0 lh-4">

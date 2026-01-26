@@ -7,7 +7,7 @@ export default function ContactSectionForm() {
     <section className="py-12 px-6">
       <div className="d-f fw-w g-12">
         <div className="f-1 min-w-64">
-          <h2 className="ff-s fs-3xl fw-600 c-slate-10 mb-2">Contact us</h2>
+          <h2 className="fs-3xl fw-600 c-slate-10 mb-2">Contact us</h2>
           <p className="fs-md c-silver-10 mb-6 m-0">
             We'd love to hear from you. Reach out anytime.
           </p>

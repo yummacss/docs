@@ -4,7 +4,7 @@ export default function ComparisonListSideBySide() {
   return (
     <div className="d-g gtc-2 g-8">
       <div>
-        <h3 className="ff-s fs-md fw-600 c-slate mb-4">Included</h3>
+        <h3 className="fs-md fw-600 c-slate mb-4">Included</h3>
         <div className="d-f fd-c g-3">
           <div className="d-f ai-c g-2">
             <CheckIcon size={16} weight="bold" className="c-green" />
@@ -21,7 +21,7 @@ export default function ComparisonListSideBySide() {
         </div>
       </div>
       <div>
-        <h3 className="ff-s fs-md fw-600 c-slate mb-4">Not included</h3>
+        <h3 className="fs-md fw-600 c-slate mb-4">Not included</h3>
         <div className="d-f fd-c g-3">
           <div className="d-f ai-c g-2">
             <XIcon size={16} weight="bold" className="c-red" />

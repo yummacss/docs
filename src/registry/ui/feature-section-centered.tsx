@@ -12,7 +12,7 @@ export default function FeatureSectionCentered() {
           <div className="d-f ai-c jc-c d-12 br-pill bg-silver-2 c-silver-9 mb-4">
             <LightningIcon size={24} />
           </div>
-          <h3 className="ff-s fs-lg fw-600 c-slate-10 mb-2">Lightning fast</h3>
+          <h3 className="fs-lg fw-600 c-slate-10 mb-2">Lightning fast</h3>
           <p className="fs-sm c-silver-10 m-0">
             Optimized for speed with instant loading times.
           </p>
@@ -21,9 +21,7 @@ export default function FeatureSectionCentered() {
           <div className="d-f ai-c jc-c d-12 br-pill bg-silver-2 c-silver-9 mb-4">
             <ShieldCheckIcon size={24} />
           </div>
-          <h3 className="ff-s fs-lg fw-600 c-slate-10 mb-2">
-            Secure by default
-          </h3>
+          <h3 className="fs-lg fw-600 c-slate-10 mb-2">Secure by default</h3>
           <p className="fs-sm c-silver-10 m-0">
             Enterprise-grade security built in.
           </p>
@@ -32,9 +30,7 @@ export default function FeatureSectionCentered() {
           <div className="d-f ai-c jc-c d-12 br-pill bg-silver-2 c-silver-9 mb-4">
             <GaugeIcon size={24} />
           </div>
-          <h3 className="ff-s fs-lg fw-600 c-slate-10 mb-2">
-            Fully customizable
-          </h3>
+          <h3 className="fs-lg fw-600 c-slate-10 mb-2">Fully customizable</h3>
           <p className="fs-sm c-silver-10 m-0">
             Adapt every aspect to your needs.
           </p>

@@ -5,7 +5,7 @@ export default function PricingSectionBasic() {
   return (
     <section className="py-12 px-6">
       <div className="ta-c mb-10">
-        <h2 className="ff-s fs-3xl fw-600 c-slate-10 mb-2">
+        <h2 className="fs-3xl fw-600 c-slate-10 mb-2">
           Simple, transparent pricing
         </h2>
         <p className="fs-md c-silver-10 m-0">
@@ -15,7 +15,7 @@ export default function PricingSectionBasic() {
       <div className="d-f fw-w jc-c g-6">
         <div className="w-72 bw-1 bc-silver-4 br-1 bs-xs p-6 d-f fd-c">
           <div className="mb-6">
-            <h3 className="ff-s fs-lg fw-600 c-slate-10 mb-1">Free</h3>
+            <h3 className="fs-lg fw-600 c-slate-10 mb-1">Free</h3>
             <p className="fs-sm c-silver-10 m-0">
               For individuals getting started
             </p>
@@ -49,7 +49,7 @@ export default function PricingSectionBasic() {
             </span>
           </div>
           <div className="mb-6">
-            <h3 className="ff-s fs-lg fw-600 c-slate-10 m-0">Premium</h3>
+            <h3 className="fs-lg fw-600 c-slate-10 m-0">Premium</h3>
             <p className="fs-sm c-silver-10 m-0">
               For growing teams and businesses
             </p>

@@ -5,7 +5,7 @@ export default function NewsletterSectionBasic() {
   return (
     <section className="py-12 px-6">
       <div className="max-w-md m-auto">
-        <h2 className="ff-s fs-xxl fw-600 c-slate-10 mb-2">Stay in the loop</h2>
+        <h2 className="fs-xxl fw-600 c-slate-10 mb-2">Stay in the loop</h2>
         <p className="fs-sm c-silver-10 mb-6 m-0">
           Get the latest updates and news delivered to your inbox.
         </p>

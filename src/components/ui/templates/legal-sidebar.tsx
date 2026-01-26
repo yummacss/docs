@@ -12,7 +12,7 @@ export default function TemplatesLegalSidebar() {
         }}
       >
         <div className="px-8 pb-12">
-          <h3 className="fs-md fw-400 tt-c mb-4 c-white ff-docs">
+          <h3 className="fs-md fw-400 tt-c mb-4 c-white">
             Useful Links
           </h3>
           <ul className="d-f fd-c ml-4 g-3 fs-sm">

@@ -30,7 +30,7 @@ export default function AccordionIcons() {
             <Accordion.Trigger className="d-f w-full ai-c jc-sb bw-1 bc-silver-4 br-0 bg-white p-4 fw-600 h:bg-silver-1 fv:os-s fv:ow-2 fv:oc-blue-8 c-p">
               <div className="d-f ai-c g-2">
                 <InfoIcon size={16} className="c-slate-8" aria-hidden="true" />
-                <span className="fs-md c-slate ff-s">{item.title}</span>
+                <span className="fs-md c-slate">{item.title}</span>
               </div>
               <CaretDownIcon
                 size={16}

@@ -5,7 +5,7 @@ export default function HeaderSectionLabel() {
         <span className="fs-xs fw-600 c-indigo tt-u ls-4 mb-3 d-ib">
           Features
         </span>
-        <h2 className="ff-s fs-3xl fw-600 c-slate-10 mb-2">
+        <h2 className="fs-3xl fw-600 c-slate-10 mb-2">
           Powerful tools for modern teams
         </h2>
         <p className="fs-md c-silver-10 m-0">

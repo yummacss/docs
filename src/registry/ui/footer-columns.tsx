@@ -3,7 +3,7 @@ export default function FooterColumns() {
     <footer className="py-12 px-6 btw-1 bc-silver-4">
       <div className="d-f fw-w g-12 mb-10">
         <div className="f-1 min-w-16">
-          <h4 className="ff-s fs-sm fw-600 c-slate-10 mb-4">Product</h4>
+          <h4 className="fs-sm fw-600 c-slate-10 mb-4">Product</h4>
           <ul className="d-f fd-c g-3 p-0">
             <li>
               <a href="/" className="fs-sm c-silver-10 td-none h:c-slate-8">
@@ -23,7 +23,7 @@ export default function FooterColumns() {
           </ul>
         </div>
         <div className="f-1 min-w-16">
-          <h4 className="ff-s fs-sm fw-600 c-slate-10 mb-4">3Portals</h4>
+          <h4 className="fs-sm fw-600 c-slate-10 mb-4">3Portals</h4>
           <ul className="d-f fd-c g-3 p-0">
             <li>
               <a href="/" className="fs-sm c-silver-10 td-none h:c-slate-8">
@@ -43,7 +43,7 @@ export default function FooterColumns() {
           </ul>
         </div>
         <div className="f-1 min-w-16">
-          <h4 className="ff-s fs-sm fw-600 c-slate-10 mb-4">Support</h4>
+          <h4 className="fs-sm fw-600 c-slate-10 mb-4">Support</h4>
           <ul className="d-f fd-c g-3 p-0">
             <li>
               <a href="/" className="fs-sm c-silver-10 td-none h:c-slate-8">
@@ -63,7 +63,7 @@ export default function FooterColumns() {
           </ul>
         </div>
         <div className="f-1 min-w-16">
-          <h4 className="ff-s fs-sm fw-600 c-slate-10 mb-4">Legal</h4>
+          <h4 className="fs-sm fw-600 c-slate-10 mb-4">Legal</h4>
           <ul className="d-f fd-c g-3 p-0">
             <li>
               <a href="/" className="fs-sm c-silver-10 td-none h:c-slate-8">

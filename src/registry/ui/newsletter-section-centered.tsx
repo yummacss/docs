@@ -11,7 +11,7 @@ export default function NewsletterSectionCentered() {
             <NewspaperIcon size={24} />
           </div>
         </div>
-        <h2 className="ff-s fs-xxl fw-600 c-slate-10 mb-2">
+        <h2 className="fs-xxl fw-600 c-slate-10 mb-2">
           Subscribe to our newsletter
         </h2>
         <p className="fs-sm c-silver-10 mb-6 m-0">

@@ -24,7 +24,7 @@ export default function TemplateDetailsSidebar() {
       >
         <div className="px-8 pb-12">
           <div className="mb-1">
-            <h3 className="fs-md fw-400 tt-c c-white m-0 ff-docs">
+            <h3 className="fs-md fw-400 tt-c c-white m-0">
               About {template.name}
             </h3>
           </div>
@@ -59,7 +59,7 @@ export default function TemplateDetailsSidebar() {
 
           {/* Pages Section */}
           <div className="mb-6">
-            <h4 className="fs-sm fw-500 c-white mb-3 ff-docs">
+            <h4 className="fs-sm fw-500 c-white mb-3">
               Pages ({template.pages.length})
             </h4>
             <ul className="d-f fd-c g-2 us-none">

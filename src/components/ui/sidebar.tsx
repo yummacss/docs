@@ -36,7 +36,7 @@ export default function Sidebar() {
 
         {sidebarConfig.map((section) => (
           <div key={section.title} className="d-f fd-c g-4">
-            <h3 className="fs-md fw-400 tt-c ls-5 c-white ff-docs">
+            <h3 className="fs-md fw-400 tt-c ls-5 c-white">
               {section.title}
             </h3>
             <ul className="d-f ml-4 fd-c g-2">
@@ -45,7 +45,7 @@ export default function Sidebar() {
                 if (hasChildren(item)) {
                   return (
                     <li key={item.title} className="d-f fd-c g-2">
-                      <span className="fs-md c-white/50 ff-docs">
+                      <span className="fs-md c-white/50">
                         {item.title}
                       </span>
                       <ul className="d-f ml-4 fd-c g-1">
@@ -75,7 +75,7 @@ export default function Sidebar() {
                 if (hasItems(item)) {
                   return (
                     <li key={item.title} className="d-f fd-c g-2">
-                      <span className="fs-md c-white/50 ff-docs">
+                      <span className="fs-md c-white/50">
                         {item.title}
                       </span>
                       <ul className="d-f ml-4 fd-c g-1">
@@ -83,7 +83,7 @@ export default function Sidebar() {
                           if (hasChildren(subItem)) {
                             return (
                               <li key={subItem.title} className="d-f fd-c g-2">
-                                <span className="fs-md c-white/40 ff-docs">
+                                <span className="fs-md c-white/40">
                                   {subItem.title}
                                 </span>
                                 <ul className="d-f ml-4 fd-c g-1">

@@ -77,7 +77,7 @@ export function AccordionTrigger({
         }}
         {...props}
       >
-        <span className="f-1 ff-s fs-md fw-600">{children}</span>
+        <span className="f-1 fs-md fw-600">{children}</span>
         <PlusIcon
           size={16}
           weight="bold"
