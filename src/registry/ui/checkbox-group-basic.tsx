@@ -12,7 +12,7 @@ export default function ExampleCheckboxGroup() {
     <CheckboxGroup
       aria-labelledby={id}
       defaultValue={["fuji-apple"]}
-      className="d-f fd-c g-1 ai-fs c-slate"
+      className="d-f fd-c g-1 ai-fs c-slate-12"
     >
       <div className="fw-500" id={id}>
         Apples
@@ -62,11 +62,11 @@ export default function ExampleCheckboxGroup() {
 
       <style>{`
         .checkbox-group-root[data-unchecked] {
-          border: 1px solid var(--silver-4);
+          border: 1px solid #dadcdf;
           background-color: transparent;
         }
         .checkbox-group-root[data-checked] {
-          background-color: var(--slate);
+          background-color: #0a0a0c;
         }
       `}</style>
     </CheckboxGroup>
