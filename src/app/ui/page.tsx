@@ -40,10 +40,7 @@ export default function UIPage() {
                   </span>
                 </div>
               </Link>
-              <h1
-                className="fs-5xl md:fs-6xl fw-400 mb-6 lh-2"
-                style={{ fontFamily: "Esteban, serif" }}
-              >
+              <h1 className="fs-5xl md:fs-6xl fw-400 mb-6 lh-2 ff-e">
                 Ship more, build even less
               </h1>
               <p className="fs-lg c-white/70 mb-8 lh-5">
