@@ -56,9 +56,7 @@ export default function TemplateStack({ stack }: TemplateStackProps) {
             key={item}
             className="p-4 bw-1 bc-white/10 bs-d br-0 d-f ai-c jc-c g-2 bg-black/10"
           >
-            {StackIcon && (
-              <StackIcon width={24} height={24} />
-            )}
+            {StackIcon && <StackIcon width={24} height={24} />}
             <span className="fs-sm c-white">{item}</span>
           </div>
         );
