@@ -40,10 +40,7 @@ export default function Home() {
                 </div>
               </Link>
 
-              <h1
-                className="fs-5xl md:fs-6xl fw-400 mb-6 lh-2"
-                style={{ fontFamily: "Esteban, serif" }}
-              >
+              <h1 className="fs-5xl md:fs-6xl fw-400 mb-6 lh-2 ff-e">
                 Style more, type even less
               </h1>
               <p className="fs-lg c-white/70 mb-8 lh-5">
@@ -68,15 +65,15 @@ export default function Home() {
               </div>
 
               <div className="d-f fw-w g-3 btw-1 bc-white/10 pt-6">
-                <div className="px-4 py-2 bg-white/10 bf-b-md fs-xs d-f ai-c g-2 bw-1 bc-white/5 tt-u us-none">
+                <div className="px-4 py-2 bg-white/5 bf-b-md fs-xs d-f ai-c g-2 bw-1 bc-white/10 tt-u us-none">
                   <GlobeSimpleIcon size={15} weight="duotone" />
-                  Dedicated API
+                  Dedicated Library
                 </div>
-                <div className="px-4 py-2 bg-white/10 bf-b-md fs-xs d-f ai-c g-2 bw-1 bc-white/5 tt-u us-none">
+                <div className="px-4 py-2 bg-white/5 bf-b-md fs-xs d-f ai-c g-2 bw-1 bc-white/10 tt-u us-none">
                   <TerminalIcon size={15} />
                   CLI-First
                 </div>
-                <div className="px-4 py-2 bg-white/10 bf-b-md fs-xs d-f ai-c g-2 bw-1 bc-white/5 tt-u us-none">
+                <div className="px-4 py-2 bg-white/5 bf-b-md fs-xs d-f ai-c g-2 bw-1 bc-white/10 tt-u us-none">
                   <LightningIcon size={15} weight="duotone" />
                   Blazing Fast
                 </div>
