@@ -15,13 +15,13 @@ export const templateFeatures: TemplateFeature[] = [
   {
     id: "responsive",
     title: "Responsive Design",
-    description:
-      "This template uses Yumma CSS for full responsiveness.",
+    description: "This template uses Yumma CSS for full responsiveness.",
   },
   {
     id: "animations",
     title: "Animations",
-    description: "This template uses Framer Motion and Yumma CSS for smooth animations.",
+    description:
+      "This template uses Framer Motion and Yumma CSS for smooth animations.",
   },
   {
     id: "performance",

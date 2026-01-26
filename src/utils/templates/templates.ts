@@ -9,13 +9,7 @@ export const templates: Template[] = [
     description:
       "This template is designed for agencies and studios, and it showcases a minimal grayscale theme.",
     price: 6,
-    stack: [
-      "Next.js 16",
-      "React 19",
-      "Yumma CSS 3",
-      "pnpm 10",
-      "TypeScript 5",
-    ],
+    stack: ["Next.js 16", "React 19", "Yumma CSS 3", "pnpm 10", "TypeScript 5"],
     pages: [
       { path: "/src/app/page.tsx", title: "Home" },
       { path: "/src/app/about/page.tsx", title: "About" },
