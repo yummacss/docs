@@ -25,14 +25,9 @@ body {
 }
 
 /* Reset font for component previews */
-[data-preview] h1,
-[data-preview] h2,
-[data-preview] h3,
-[data-preview] h4,
-[data-preview] h5,
-[data-preview] h6,
-[data-preview] p {
-  font-family: system-ui, sans-serif;
+[data-preview],
+[data-preview] * {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif !important;
 }
 
 .sm-xxl {
