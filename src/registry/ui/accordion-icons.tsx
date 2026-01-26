@@ -1,4 +1,4 @@
-import { Accordion } from "@base-ui/react/accordion";
+  import { Accordion } from "@base-ui/react/accordion";
 import { CaretDownIcon, InfoIcon } from "@phosphor-icons/react";
 
 const items = [
@@ -27,7 +27,7 @@ export default function AccordionIcons() {
       {items.map((item) => (
         <Accordion.Item key={item.value} value={item.value}>
           <Accordion.Header className="m-0">
-            <Accordion.Trigger className="d-f w-full ai-c jc-sb bw-1 bc-silver-4 br-0 bg-white p-4 fw-600 h:bg-silver-1 f:os-s f:ow-2 f:oc-silver-1 c-p">
+            <Accordion.Trigger className="d-f w-full ai-c jc-sb bw-1 bc-silver-4 br-0 bg-white p-4 fw-600 h:bg-silver-1 fv:os-s fv:ow-2 fv:oc-blue-8 c-p">
               <div className="d-f ai-c g-2">
                 <InfoIcon size={16} className="c-slate-8" aria-hidden="true" />
                 <span className="fs-md c-slate ff-s">{item.title}</span>

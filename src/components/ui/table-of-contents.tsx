@@ -67,8 +67,10 @@ export default function TableOfContents() {
           maxHeight: "calc(100vh - 6rem)",
         }}
       >
-        <div className="px-8">
-          <h3 className="fs-md fw-400 tt-c mb-3 c-white">On this page</h3>
+        <div className="px-8 pb-12">
+          <h3 className="fs-md fw-400 tt-c mb-3 c-white ff-docs">
+            On this page
+          </h3>
           <ul className="d-f fd-c ml-4 g-2 fs-sm">
             {headings.map((heading) => {
               const isActive = activeId === heading.id;
