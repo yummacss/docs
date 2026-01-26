@@ -4183,6 +4183,10 @@ summary {
     padding-block: .5rem;
   }
 
+  .md\:w-80 {
+    width: 20rem;
+  }
+
   .md\:w-auto {
     width: auto;
   }
