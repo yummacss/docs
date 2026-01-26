@@ -42,7 +42,7 @@ export default function TemplateDetailsSidebar() {
               href={template.checkoutUrl}
               className="d-f ai-c jc-c bg-white c-black px-4 py-3 fw-600 fs-sm h:bg-white/90 us-none"
             >
-              Get template €{template.price}
+              Get template
             </Link>
             <Link
               href={template.previewUrl}
