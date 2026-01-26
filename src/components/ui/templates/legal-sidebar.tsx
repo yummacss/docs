@@ -15,7 +15,7 @@ export default function TemplatesLegalSidebar() {
           <h3 className="fs-md fw-400 tt-c mb-4 c-white">
             Useful Links
           </h3>
-          <ul className="d-f fd-c ml-4 g-3 fs-sm">
+          <ul className="d-f fd-c g-3 fs-sm">
             <li>
               <Link href="/ui/license" className="c-white/70 h:c-white">
                 License

@@ -20,7 +20,7 @@ export default function TemplatesSidebar() {
 
         <div className="d-f fd-c g-4">
           <h3 className="fs-md fw-400 tt-c ls-5 c-white">Templates</h3>
-          <ul className="d-f ml-4 fd-c g-2">
+          <ul className="d-f fd-c g-2">
             <li>
               <Link
                 href="/ui/templates"
