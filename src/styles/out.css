@@ -1023,6 +1023,10 @@ summary {
   color: #9b2c2c;
 }
 
+.c-red-9 {
+  color: #7d2323;
+}
+
 .c-rs {
   cursor: row-resize;
 }
@@ -1069,6 +1073,10 @@ summary {
 
 .c-slate-10 {
   color: #1c1c22;
+}
+
+.c-slate-11 {
+  color: #131317;
 }
 
 .c-slate-12 {
@@ -3958,6 +3966,10 @@ summary {
 
 .w-80 {
   width: 20rem;
+}
+
+.w-92 {
+  width: 23rem;
 }
 
 .w-96 {
