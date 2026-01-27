@@ -1,29 +1,35 @@
-# [@yummacss](www.yummacss.com)
+# Yumma CSS
+
+Official documentation website for Yumma CSS.
 
 A CLI-first CSS framework for the web with abbreviated styles.
 
-[![NPM Version](https://img.shields.io/npm/v/yummacss?style=flat&label=yummacss&labelColor=f7f7f7&color=cb3837)](https://www.npmjs.com/package/yummacss)
-[![NPM Downloads](https://img.shields.io/npm/d18m/yummacss?style=flat&label=downloads&labelColor=f7f7f7&color=cb3837)](https://www.npmjs.com/package/yummacss)
-
-## Installing
-
-Install `yummacss` as a dev dependency and initialize configuration
-
-```bash
-npm install yummacss -D
-npx yummacss init
-```
-
-Build styles
-
-```bash
-npx yummacss build
-```
+---
 
 ## Documentation
 
-Learn more at [yummacss.com](https://yummacss.com)
+To get started, check out the [Yumma CSS documentation](https://yummacss.com/docs/installation).
+
+## Development
+
+To start the docs site in development mode, from the project root, run:
+```bash
+pnpm install
+pnpm dev
+```
+
+This runs both Next.js dev server and Yumma CSS in watch mode.
+
+## Build
+```bash
+pnpm build
+```
+
+## Community
+
+- **GitHub** For issues and contributions, visit our [repository](https://github.com/yummacss/yummacss).
+- **X** Follow [@yummacss](https://x.com/yummacss) for updates and announcements.
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the terms of the [MIT license](LICENSE).
