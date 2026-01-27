@@ -3,64 +3,8 @@ import Link from "next/link";
 
 export const meta = {
    title: "Introduction",
-   description: "Yumma UI is a set of beautiful UI components designed with Yumma CSS.",
+   description: "A set of simple UI components styled with Yumma CSS and Base UI for accessibility, keyboard navigation, and focus management.",
 };
-
-## Why Yumma UI?
-
-With Yumma UI, you will get access to dozens of free production-ready components and blocks for whatever you're building. 
-
-Our React components are powered by [Base UI](https://base-ui.com) for accessible behavior, keyboard navigation, and focus management. HTML examples are dependency-free.
-
----
-
-## Getting Started
-
-Yumma UI is built on Yumma CSS, so you'll want to make sure you've got the latest version of Yumma CSS installed.
-
-<Stepper>
-  <Step title="Install Yumma CSS">
-    ```bash title="Terminal"
-    npm install yummacss -D
-    ```
-  </Step>
-
-  <Step title="Initialize configuration">
-    Create a configuration file in your project.
-
-    ```bash title="Terminal"
-    npx yummacss init
-    ```
-
-  </Step>
-
-  <Step title="Set up configuration">
-    Specify the locations of all your project files in the config file.
-
-    ```js title="yumma.config.mjs" mark={2-3}
-    export default {
-      source: ["./src/**/*.{ts,tsx}"],
-      output: "./src/styles.css",
-      buildOptions: {
-        reset: true,
-        minify: false,
-      },
-    };
-    ```
-
-  </Step>
-
-  <Step title="Development mode">
-    You're all set! Start typing Yumma CSS classes, and watch the magic happening in our CSS file.
-
-    ```bash title="Terminal"
-    npx yummacss watch
-    ```
-
-  </Step>
-</Stepper>
-
----
 
 ## Components
 

@@ -82,10 +82,10 @@ export default function Navbar({ variant, className, links }: NavbarProps) {
                     Blog
                   </Link>
                   <Link
-                    href="/ui/components#components"
+                    href="/ui/components"
                     className="d-none md:d-b fs-sm c-white/80 h:c-white"
                   >
-                    UI Blocks
+                    Components
                   </Link>
                   <Link
                     href="/ui/templates"
