@@ -2,8 +2,6 @@
 
 Official documentation website for Yumma CSS.
 
-A CLI-first CSS framework for the web with abbreviated styles.
-
 ---
 
 ## Documentation
