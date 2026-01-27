@@ -1,60 +1,35 @@
 import { Menu } from "@base-ui/react/menu";
-import { CaretDownIcon, CaretRightIcon } from "@phosphor-icons/react";
+import { CaretDownIcon } from "@phosphor-icons/react";
 
 export default function ExampleMenu() {
   return (
     <Menu.Root>
       <Menu.Trigger className="d-f ai-c jc-c h-10 g-2 bw-1 bc-silver-4 br-1 bg-silver-1 px-4 fs-md fw-500 c-slate us-none h:bg-silver-2 fv:os-s fv:ow-2 fv:oo--1 fv:oc-blue-8">
-        Song <CaretDownIcon size={10} className="mr--1" />
+        Song <CaretDownIcon size={12} className="mr--1" />
       </Menu.Trigger>
       <Menu.Portal>
         <Menu.Positioner className="ow-0" sideOffset={8}>
           <Menu.Popup className="bw-1 bc-silver-4 br-1 bg-white bs-md py-1 c-slate menu-popup">
-            <Menu.Item className="d-f py-2 pr-8 pl-4 fs-sm ow-0 us-none c-d menu-item">
+            <Menu.Item className="d-f py-1 pr-8 pl-4 fs-sm ow-0 us-none c-d menu-item">
               Add to Library
             </Menu.Item>
 
-            <Menu.SubmenuRoot>
-              <Menu.SubmenuTrigger className="d-f ai-c jc-sb w-full g-4 py-2 pr-4 pl-4 fs-sm ow-0 us-none c-d menu-item">
-                Add to Playlist <CaretRightIcon size={10} />
-              </Menu.SubmenuTrigger>
-              <Menu.Portal>
-                <Menu.Positioner
-                  className="ow-0"
-                  sideOffset={-4}
-                  alignOffset={-4}
-                >
-                  <Menu.Popup className="bw-1 bc-silver-4 br-1 bg-white bs-md py-1 c-slate menu-submenu">
-                    <Menu.Item className="d-f py-2 pr-8 pl-4 fs-sm ow-0 us-none c-d menu-item">
-                      Get Up!
-                    </Menu.Item>
-                    <Menu.Item className="d-f py-2 pr-8 pl-4 fs-sm ow-0 us-none c-d menu-item">
-                      Inside Out
-                    </Menu.Item>
-                    <Menu.Item className="d-f py-2 pr-8 pl-4 fs-sm ow-0 us-none c-d menu-item">
-                      Night Beats
-                    </Menu.Item>
-                    <Menu.Separator className="mx-4 my-2 h-px bg-silver-4" />
-                    <Menu.Item className="d-f py-2 pr-8 pl-4 fs-sm ow-0 us-none c-d menu-item">
-                      New playlist…
-                    </Menu.Item>
-                  </Menu.Popup>
-                </Menu.Positioner>
-              </Menu.Portal>
-            </Menu.SubmenuRoot>
+            <Menu.Item className="d-f py-1 pr-8 pl-4 fs-sm ow-0 us-none c-d menu-item">
+              Add to Playlist
+            </Menu.Item>
 
             <Menu.Separator className="mx-4 my-2 h-px bg-silver-4" />
-            <Menu.Item className="d-f py-2 pr-8 pl-4 fs-sm ow-0 us-none c-d menu-item">
+            <Menu.Item className="d-f py-1 pr-8 pl-4 fs-sm ow-0 us-none c-d menu-item">
               Play Next
             </Menu.Item>
-            <Menu.Item className="d-f py-2 pr-8 pl-4 fs-sm ow-0 us-none c-d menu-item">
+            <Menu.Item className="d-f py-1 pr-8 pl-4 fs-sm ow-0 us-none c-d menu-item">
               Play Last
             </Menu.Item>
             <Menu.Separator className="mx-4 my-2 h-px bg-silver-4" />
-            <Menu.Item className="d-f py-2 pr-8 pl-4 fs-sm ow-0 us-none c-d menu-item">
+            <Menu.Item className="d-f py-1 pr-8 pl-4 fs-sm ow-0 us-none c-d menu-item">
               Favorite
             </Menu.Item>
-            <Menu.Item className="d-f py-2 pr-8 pl-4 fs-sm ow-0 us-none c-d menu-item">
+            <Menu.Item className="d-f py-1 pr-8 pl-4 fs-sm ow-0 us-none c-d menu-item">
               Share
             </Menu.Item>
           </Menu.Popup>
@@ -82,7 +57,7 @@ export default function ExampleMenu() {
         .menu-item[data-highlighted] {
           position: relative;
           z-index: 0;
-          color: var(--silver-1);
+          color: #f8f9fa;
         }
         .menu-item[data-highlighted]::before {
           content: '';
@@ -91,7 +66,7 @@ export default function ExampleMenu() {
           inset-block: 0;
           inset-inline: 0.25rem;
           border-radius: 0.25rem;
-          background-color: var(--slate);
+          background-color: #0a0a0c;
         }
         .menu-item[data-popup-open] {
           position: relative;
