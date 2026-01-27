@@ -111,6 +111,8 @@ export const sidebarConfig: SidebarConfig = [
       { title: "Installation", slug: "installation" },
       { title: "Configuration", slug: "configuration" },
       { title: "Upgrading", slug: "upgrading" },
+      { title: "Agents", slug: "AGENTS" },
+      { title: "llms.txt", slug: "llms" },
     ],
   },
   {
