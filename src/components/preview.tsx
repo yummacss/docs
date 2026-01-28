@@ -7,9 +7,9 @@ import { registry } from "@/registry";
 const previewVariants = cva("bg-white btw-1 brw-1 blw-1", {
   variants: {
     variant: {
-      centered: "d-f ai-c jc-c p-4",
+      centered: "d-f ai-c jc-c p-10",
       inline: "d-f fd-c p-4",
-      inlineCentered: "d-f jc-c p-4",
+      inlineCentered: "d-f jc-c p-10",
       noPadding: "d-f fd-c",
     },
   },
