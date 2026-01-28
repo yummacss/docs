@@ -9,7 +9,7 @@ export default function ExampleMenu() {
       </Menu.Trigger>
       <Menu.Portal>
         <Menu.Positioner className="ow-0" sideOffset={8}>
-          <Menu.Popup className="bw-1 bc-silver-4 br-1 bg-white bs-md py-1 c-slate menu-popup">
+          <Menu.Popup className="bw-1 bc-silver-4 br-1 bg-white bsh-md py-1 c-slate menu-popup">
             <Menu.Item className="d-f py-1 pr-8 pl-4 fs-sm ow-0 us-none c-d menu-item">
               Add to Library
             </Menu.Item>

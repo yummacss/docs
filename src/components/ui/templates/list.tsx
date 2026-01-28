@@ -35,7 +35,7 @@ export default function TemplatesList() {
                 src={template.cover}
                 alt={`${template.name} preview`}
                 fill
-                className="of-c"
+                className="of-c us-none"
                 unoptimized
               />
             </Link>

@@ -20,7 +20,7 @@ export default function ExampleSelect() {
       </Select.Trigger>
       <Select.Portal>
         <Select.Positioner sideOffset={8} className="ow-0 us-none zi-10">
-          <Select.Popup className="bw-1 bc-silver-4 br-1 bg-white bs-md c-slate select-popup">
+          <Select.Popup className="bw-1 bc-silver-4 br-1 bg-white bsh-md c-slate select-popup">
             <Select.List className="p-r py-1 o-a">
               {fonts.map(({ label, value }) => (
                 <Select.Item

@@ -18,19 +18,15 @@ export default function ExampleProgress() {
 
   return (
     <Progress.Root className="d-g gtc-2 rg-2 w-48" value={value}>
-      <Progress.Label className="fs-sm fw-500 c-slate">
+      <Progress.Label className="fs-sm fw-500 c-slate-11">
         Export data
       </Progress.Label>
-      <Progress.Value className="m-0 fs-sm c-slate ta-r gcs-2" />
-      <Progress.Track className="o-h bg-silver-2 h-1 progress-track">
-        <Progress.Indicator className="d-b bg-slate-6 progress-indicator" />
+      <Progress.Value className="m-0 fs-sm c-slate-12 ta-r gcs-2" />
+      <Progress.Track className="o-h bg-silver-2 h-2 br-pill bw-1 bc-silver-4 bs-s gcs-1 gce-3 progress-track">
+        <Progress.Indicator className="d-b bg-slate-5 progress-indicator" />
       </Progress.Track>
 
       <style>{`
-        .progress-track {
-          grid-column: 1 / 3;
-          box-shadow: inset 0 0 0 1px var(--silver-4);
-        }
         .progress-indicator {
           height: 100%;
           transition: width 500ms;

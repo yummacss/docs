@@ -32,10 +32,12 @@ export default function ExampleProgress() {
 
   return (
     <Progress.Root className="d-g gtc-2 rg-2 w-48" value={value}>
-      <Progress.Label className="fs-sm fw-500 c-slate">Export data</Progress.Label>
-      <Progress.Value className="m-0 fs-sm c-slate ta-r gcs-2" />
-      <Progress.Track className="o-h bg-silver-2 h-1">
-        <Progress.Indicator className="d-b bg-slate-6 h-full" />
+      <Progress.Label className="fs-sm fw-500 c-slate-11">
+        Export data
+      </Progress.Label>
+      <Progress.Value className="m-0 fs-sm c-slate-12 ta-r gcs-2" />
+      <Progress.Track className="o-h bg-silver-2 h-2 br-pill bw-1 bc-silver-4 bs-s gcs-1 gce-3">
+        <Progress.Indicator className="d-b bg-slate-5 h-full transition:width_500ms" />
       </Progress.Track>
     </Progress.Root>
   );
@@ -50,11 +52,10 @@ A vanilla HTML and CSS implementation.
 
 ```html
 <div class="d-g gtc-2 rg-2 w-48">
-  <span class="fs-sm fw-500 c-slate">Export data</span>
-  <span class="m-0 fs-sm c-slate ta-r gcs-2">45%</span>
-  <div class="o-h bg-silver-2 h-1" style="grid-column: 1 / 3;">
-    <div class="d-b bg-slate-6 h-full" style="width: 45%;"></div>
+  <span class="fs-sm fw-500 c-slate-11">Export data</span>
+  <span class="m-0 fs-sm c-slate-12 ta-r gcs-2">45%</span>
+  <div class="o-h bg-silver-2 h-2 br-pill bw-1 bc-silver-4 bs-s gcs-1 gce-3">
+    <div class="d-b bg-slate-5 h-full" style="width: 45%; transition: width 500ms;"></div>
   </div>
 </div>
 ```
-

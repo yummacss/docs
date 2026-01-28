@@ -106,7 +106,7 @@ function ToastList() {
     <Toast.Root
       key={toast.id}
       toast={toast}
-      className="br-1 bw-1 bc-silver-4 bg-white bs-md p-4 toast-root"
+      className="br-1 bw-1 bc-silver-4 bg-white bsh-md p-4 toast-root"
     >
       <Toast.Content className="toast-content">
         <Toast.Title className="fs-md lh-5 fw-500" />
