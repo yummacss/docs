@@ -3,59 +3,28 @@ export const meta = {
   description: "Displays the status of a task that takes a long time.",
 };
 
-## React
-
-An interactive component powered by Base UI and styled with Yumma CSS.
+## Examples
 
 ### Basic
+
+A basic Progress implementation.
 
 <Preview id="progress-basic" />
 
 ```tsx
-"use client";
-
-import * as React from "react";
-import { Progress } from "@base-ui/react/progress";
-
-export default function ExampleProgress() {
-  const [value, setValue] = React.useState(20);
-
-  // Simulate changes
-  React.useEffect(() => {
-    const interval = setInterval(() => {
-      setValue((current) =>
-        Math.min(100, Math.round(current + Math.random() * 25))
-      );
-    }, 1000);
-    return () => clearInterval(interval);
-  }, []);
-
-  return (
-    <Progress.Root className="d-g gtc-2 rg-2 w-48" value={value}>
-      <Progress.Label className="fs-sm fw-500 c-slate-11">
-        Export data
-      </Progress.Label>
-      <Progress.Value className="m-0 fs-sm c-slate-12 ta-r gcs-2" />
-      <Progress.Track className="o-h bg-silver-2 h-2 br-pill bw-1 bc-silver-4 bs-s gcs-1 gce-3">
-        <Progress.Indicator className="d-b bg-slate-5 h-full transition:width_500ms" />
-      </Progress.Track>
-    </Progress.Root>
-  );
-}
+// wip: reuse registry content to avoid mismatches
 ```
 
-## HTML
+### Vertical
 
-A vanilla HTML and CSS implementation.
+A vertical Progress implementation.
 
-### Basic Example
+<Preview id="wip" />
 
-```html
-<div class="d-g gtc-2 rg-2 w-48">
-  <span class="fs-sm fw-500 c-slate-11">Export data</span>
-  <span class="m-0 fs-sm c-slate-12 ta-r gcs-2">45%</span>
-  <div class="o-h bg-silver-2 h-2 br-pill bw-1 bc-silver-4 bs-s gcs-1 gce-3">
-    <div class="d-b bg-slate-5 h-full" style="width: 45%; transition: width 500ms;"></div>
-  </div>
-</div>
+```tsx
+// wip: reuse registry content to avoid mismatches
 ```
+
+## API Reference
+
+Check out the [Base UI](https://base-ui.com/react/components/progress) documentation for more information.

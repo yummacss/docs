@@ -3,83 +3,38 @@ export const meta = {
   description: "A component for toggling between related panels on the same page.",
 };
 
-## React
-
-An interactive component powered by Base UI and styled with Yumma CSS.
+## Examples
 
 ### Basic
+
+A basic Tabs implementation.
 
 <Preview id="tabs-basic" variant="inlineCentered" className="bg-white" />
 
 ```tsx
-import { Tabs } from "@base-ui/react/tabs";
-import { ShapesIcon, ProjectorScreenChartIcon, UserCircleIcon } from "@phosphor-icons/react";
-
-export default function ExampleTabs() {
-  return (
-    <Tabs.Root className="bw-1 bc-silver-4 br-1" defaultValue="overview">
-      <Tabs.List className="p-r d-f g-1 px-1 bbw-1 bc-silver-4">
-        <Tabs.Tab
-          className="d-f ai-c jc-c h-8 px-3 fs-sm fw-500 bw-0 bg-transparent us-none"
-          value="overview"
-        >
-          Overview
-        </Tabs.Tab>
-        <Tabs.Tab
-          className="d-f ai-c jc-c h-8 px-3 fs-sm fw-500 bw-0 bg-transparent us-none"
-          value="projects"
-        >
-          Projects
-        </Tabs.Tab>
-        <Tabs.Tab
-          className="d-f ai-c jc-c h-8 px-3 fs-sm fw-500 bw-0 bg-transparent us-none"
-          value="account"
-        >
-          Account
-        </Tabs.Tab>
-        <Tabs.Indicator className="p-a t-half l-0 zi-n1 h-6 br-1 bg-silver-1" />
-      </Tabs.List>
-      <Tabs.Panel className="d-f ai-c jc-c h-32" value="overview">
-        <ShapesIcon size={40} className="c-silver-4" />
-      </Tabs.Panel>
-      <Tabs.Panel className="d-f ai-c jc-c h-32" value="projects">
-        <ProjectorScreenChartIcon size={40} className="c-silver-4" />
-      </Tabs.Panel>
-      <Tabs.Panel className="d-f ai-c jc-c h-32" value="account">
-        <UserCircleIcon size={40} className="c-silver-4" />
-      </Tabs.Panel>
-    </Tabs.Root>
-  );
-}
+// wip: reuse registry content to avoid mismatches
 ```
 
-## HTML
+### Vertical
 
-A vanilla HTML and CSS implementation.
+A vertical Tabs implementation.
 
-### Basic Example
+<Preview id="wip" />
 
-```html
-<div class="bw-1 bc-silver-4 br-1">
-  <div role="tablist" class="d-f g-1 px-1 bbw-1 bc-silver-4">
-    <button role="tab" aria-selected="true" class="d-f ai-c jc-c h-8 px-3 fs-sm fw-500 c-slate bw-0 bg-silver-1 br-1">
-      Overview
-    </button>
-    <button role="tab" aria-selected="false" class="d-f ai-c jc-c h-8 px-3 fs-sm fw-500 c-slate-6 bw-0 bg-transparent h:c-slate">
-      Projects
-    </button>
-    <button role="tab" aria-selected="false" class="d-f ai-c jc-c h-8 px-3 fs-sm fw-500 c-slate-6 bw-0 bg-transparent h:c-slate">
-      Account
-    </button>
-  </div>
-  <div role="tabpanel" class="d-f ai-c jc-c h-32">
-    <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 c-silver-4" viewBox="0 0 256 256">
-      <rect width="256" height="256" fill="none"/>
-      <polygon points="64 64 24 184 104 184 64 64" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
-      <circle cx="156" cy="76" r="44" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
-      <rect x="136" y="152" width="88" height="56" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/>
-    </svg>
-  </div>
-</div>
+```tsx
+// wip: reuse registry content to avoid mismatches
 ```
 
+### Manual
+
+Manually activated Tabs.
+
+<Preview id="wip" />
+
+```tsx
+// wip: reuse registry content to avoid mismatches
+```
+
+## API Reference
+
+Check out the [Base UI](https://base-ui.com/react/components/tabs) documentation for more information.

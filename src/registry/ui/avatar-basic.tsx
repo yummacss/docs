@@ -10,11 +10,11 @@ export default function ExampleAvatar() {
           className="d-full of-c"
         />
         <Avatar.Fallback className="d-f ai-c jc-c d-full fs-md fw-500 c-slate-12">
-          JB
+          LT
         </Avatar.Fallback>
       </Avatar.Root>
       <Avatar.Root className="d-if d-12 ai-c jc-c br-pill o-h bg-silver-1 us-none va-m">
-        JB
+        LT
       </Avatar.Root>
     </div>
   );

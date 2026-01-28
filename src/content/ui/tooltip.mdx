@@ -3,83 +3,38 @@ export const meta = {
   description: "A popup that appears when an element is hovered or focused.",
 };
 
-## React
-
-An interactive component powered by Base UI and styled with Yumma CSS.
+## Examples
 
 ### Basic
+
+A basic Tooltip implementation.
 
 <Preview id="tooltip-basic" />
 
 ```tsx
-import { Tooltip } from "@base-ui/react/tooltip";
-import { TextB, TextItalic, TextUnderline } from "@phosphor-icons/react";
-
-export default function ExampleTooltip() {
-  return (
-    <Tooltip.Provider>
-      <div className="d-f bw-1 bc-silver-4 br-1 bg-silver-1 p-1">
-        <Tooltip.Root>
-          <Tooltip.Trigger className="d-f d-8 ai-c jc-c br-1 b-0 bg-transparent c-slate us-none h:bg-silver-2">
-            <TextB size={16} aria-label="Bold" />
-          </Tooltip.Trigger>
-          <Tooltip.Portal>
-            <Tooltip.Positioner sideOffset={10}>
-              <Tooltip.Popup className="d-f fd-c px-2 py-1 br-1 fs-sm bg-white">
-                Bold
-              </Tooltip.Popup>
-            </Tooltip.Positioner>
-          </Tooltip.Portal>
-        </Tooltip.Root>
-
-        <Tooltip.Root>
-          <Tooltip.Trigger className="d-f d-8 ai-c jc-c br-1 b-0 bg-transparent c-slate us-none h:bg-silver-2">
-            <TextItalic size={16} aria-label="Italic" />
-          </Tooltip.Trigger>
-          <Tooltip.Portal>
-            <Tooltip.Positioner sideOffset={10}>
-              <Tooltip.Popup className="d-f fd-c px-2 py-1 br-1 fs-sm bg-white">
-                Italic
-              </Tooltip.Popup>
-            </Tooltip.Positioner>
-          </Tooltip.Portal>
-        </Tooltip.Root>
-
-        <Tooltip.Root>
-          <Tooltip.Trigger className="d-f d-8 ai-c jc-c br-1 b-0 bg-transparent c-slate us-none h:bg-silver-2">
-            <TextUnderline size={16} aria-label="Underline" />
-          </Tooltip.Trigger>
-          <Tooltip.Portal>
-            <Tooltip.Positioner sideOffset={10}>
-              <Tooltip.Popup className="d-f fd-c px-2 py-1 br-1 fs-sm bg-white">
-                Underline
-              </Tooltip.Popup>
-            </Tooltip.Positioner>
-          </Tooltip.Portal>
-        </Tooltip.Root>
-      </div>
-    </Tooltip.Provider>
-  );
-}
+// wip: reuse registry content to avoid mismatches
 ```
 
-## HTML
+### Positioning
 
-A vanilla HTML and CSS implementation.
+Customize the positioning of the tooltip.
 
-### Basic Example
+<Preview id="wip" />
 
-```html
-<!-- Icon buttons with tooltips -->
-<div class="d-f bw-1 bc-silver-4 br-1 bg-silver-1 p-1">
-  <button class="d-f d-8 ai-c jc-c br-1 b-0 bg-transparent c-slate us-none h:bg-silver-2">B</button>
-  <button class="d-f d-8 ai-c jc-c br-1 b-0 bg-transparent c-slate us-none h:bg-silver-2">I</button>
-  <button class="d-f d-8 ai-c jc-c br-1 b-0 bg-transparent c-slate us-none h:bg-silver-2">U</button>
-</div>
-
-<!-- Tooltip popup (shown on hover) -->
-<div class="px-2 py-1 br-1 fs-sm bg-white bw-1 bc-silver-4 bsh-md">
-  Bold
-</div>
+```tsx
+// wip: reuse registry content to avoid mismatches
 ```
 
+### Delay
+
+Customize the open/close delay of the tooltip.
+
+<Preview id="wip" />
+
+```tsx
+// wip: reuse registry content to avoid mismatches
+```
+
+## API Reference
+
+Check out the [Base UI](https://base-ui.com/react/components/tooltip) documentation for more information.

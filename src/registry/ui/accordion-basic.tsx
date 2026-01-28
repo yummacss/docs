@@ -3,10 +3,7 @@ import { PlusIcon } from "@phosphor-icons/react";
 
 export default function ExampleAccordion() {
   return (
-    <Accordion.Root
-      className="d-f w-96 fd-c jc-c c-slate"
-      defaultValue={["get-started"]}
-    >
+    <Accordion.Root className="d-f w-96 fd-c jc-c c-slate">
       {items.map((item) => (
         <Accordion.Item
           key={item.value}

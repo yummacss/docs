@@ -3,84 +3,29 @@ export const meta = {
   description: "An easily stylable radio button component.",
 };
 
-## React
-
-An interactive component powered by Base UI and styled with Yumma CSS.
+## Examples
 
 ### Basic
+
+A basic Radio implementation.
 
 <Preview id="radio-basic" />
 
 ```tsx
-"use client";
-
-import * as React from "react";
-import { Radio } from "@base-ui/react/radio";
-import { RadioGroup } from "@base-ui/react/radio-group";
-
-export default function ExampleRadio() {
-  const id = React.useId();
-  return (
-    <RadioGroup
-      aria-labelledby={id}
-      defaultValue="fuji-apple"
-      className="d-f fd-c ai-fs g-1 c-slate"
-    >
-      <div className="fw-500" id={id}>
-        Best apple
-      </div>
-
-      <label className="d-f ai-c g-2">
-        <Radio.Root value="fuji-apple" className="d-f w-5 h-5 ai-c jc-c br-full ow-0 p-0 m-0 bw-0">
-          <Radio.Indicator className="d-f ai-c jc-c" />
-        </Radio.Root>
-        Fuji
-      </label>
-
-      <label className="d-f ai-c g-2">
-        <Radio.Root value="gala-apple" className="d-f w-5 h-5 ai-c jc-c br-full ow-0 p-0 m-0 bw-0">
-          <Radio.Indicator className="d-f ai-c jc-c" />
-        </Radio.Root>
-        Gala
-      </label>
-
-      <label className="d-f ai-c g-2">
-        <Radio.Root value="granny-smith-apple" className="d-f w-5 h-5 ai-c jc-c br-full ow-0 p-0 m-0 bw-0">
-          <Radio.Indicator className="d-f ai-c jc-c" />
-        </Radio.Root>
-        Granny Smith
-      </label>
-    </RadioGroup>
-  );
-}
+// wip: reuse registry content to avoid mismatches
 ```
 
-## HTML
+### Card
 
-A vanilla HTML and CSS implementation.
+A card-based Radio implementation.
 
-### Basic Example
+<Preview id="wip" />
 
-```html
-<div class="d-f fd-c ai-fs g-1 c-slate">
-  <div class="fw-500">Best apple</div>
-  
-  <label class="d-f ai-c g-2">
-    <span class="d-f w-5 h-5 ai-c jc-c br-full bg-slate">
-      <span class="d-2 br-full bg-silver-1"></span>
-    </span>
-    Fuji
-  </label>
-  
-  <label class="d-f ai-c g-2">
-    <span class="d-f w-5 h-5 ai-c jc-c br-full bw-1 bc-silver-4 bg-transparent"></span>
-    Gala
-  </label>
-  
-  <label class="d-f ai-c g-2">
-    <span class="d-f w-5 h-5 ai-c jc-c br-full bw-1 bc-silver-4 bg-transparent"></span>
-    Granny Smith
-  </label>
-</div>
+```tsx
+// wip: reuse registry content to avoid mismatches
 ```
+
+## API Reference
+
+Check out the [Base UI](https://base-ui.com/react/components/radio) documentation for more information.
 

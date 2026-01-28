@@ -3,41 +3,28 @@ export const meta = {
   description: "A control that indicates whether a setting is on or off.",
 };
 
-## React
-
-An interactive component powered by Base UI and styled with Yumma CSS.
+## Examples
 
 ### Basic
+
+A basic Switch implementation.
 
 <Preview id="switch-basic" />
 
 ```tsx
-import { Switch } from "@base-ui/react/switch";
-
-export default function ExampleSwitch() {
-  return (
-    <Switch.Root defaultChecked className="p-r d-f h-6 w-10 br-pill p-px">
-      <Switch.Thumb className="h-full br-pill bg-white" />
-    </Switch.Root>
-  );
-}
+// wip: reuse registry content to avoid mismatches
 ```
 
-## HTML
+### Controlled
 
-A vanilla HTML and CSS implementation.
+A controlled Switch implementation.
 
-### Basic Example
+<Preview id="wip" />
 
-```html
-<!-- Switch (checked state) -->
-<span class="p-r d-f ai-c h-6 w-10 br-pill p-px bg-slate">
-  <span class="d-f ai-c jc-c h-full br-pill bg-white" style="aspect-ratio: 1/1; translate: 1rem 0; box-shadow: 0 0 1px 1px var(--silver-4);"></span>
-</span>
-
-<!-- Switch (unchecked state) -->
-<span class="p-r d-f ai-c h-6 w-10 br-pill p-px bg-silver-2 bw-1 bc-silver-4">
-  <span class="d-f ai-c jc-c h-full br-pill bg-white" style="aspect-ratio: 1/1; box-shadow: 0 0 1px 1px var(--silver-4);"></span>
-</span>
+```tsx
+// wip: reuse registry content to avoid mismatches
 ```
 
+## API Reference
+
+Check out the [Base UI](https://base-ui.com/react/components/switch) documentation for more information.

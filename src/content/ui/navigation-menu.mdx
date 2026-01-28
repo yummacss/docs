@@ -3,102 +3,28 @@ export const meta = {
   description: "A collection of links and menus for website navigation.",
 };
 
-## React
-
-An interactive component powered by Base UI and styled with Yumma CSS.
+## Examples
 
 ### Basic
+
+A basic Navigation Menu implementation.
 
 <Preview id="navigation-menu-basic" />
 
 ```tsx
-"use client";
-
-import { NavigationMenu } from "@base-ui/react/navigation-menu";
-import { CaretDownIcon } from "@phosphor-icons/react";
-
-export default function ExampleNavigationMenu() {
-  return (
-    <NavigationMenu.Root className="min-w-max br-1 bw-1 bc-silver-4 bg-silver-1 p-1">
-      <NavigationMenu.List className="p-r d-f m-0 p-0">
-        <NavigationMenu.Item>
-          <NavigationMenu.Trigger className="d-f ai-c jc-c g-1 h-10 px-3 m-0 ow-0 bw-0 br-1 bg-transparent fs-sm fw-500 c-slate-11 us-none td-n c-p navmenu-trigger">
-            Overview
-            <NavigationMenu.Icon className="navmenu-icon">
-              <CaretDownIcon size={12} />
-            </NavigationMenu.Icon>
-          </NavigationMenu.Trigger>
-          <NavigationMenu.Content className="p-6 h-full">
-            <ul className="d-g m-0 p-0 gtc-2">
-              {overviewLinks.map((item) => (
-                <li key={item.href}>
-                  <NavigationMenu.Link
-                    href={item.href}
-                    className="d-b p-2 br-1 td-n c-inherit h:bg-silver-2"
-                  >
-                    <h3 className="m-0 mb-1 fs-md fw-500 c-slate-12">{item.title}</h3>
-                    <p className="m-0 fs-xs c-slate-11">{item.description}</p>
-                  </NavigationMenu.Link>
-                </li>
-              ))}
-            </ul>
-          </NavigationMenu.Content>
-        </NavigationMenu.Item>
-
-        <NavigationMenu.Item>
-          <NavigationMenu.Link
-            href="https://github.com/rrenildopereiraa/yumma-css"
-            className="d-f ai-c jc-c g-1 h-10 px-3 m-0 ow-0 bw-0 br-1 bg-transparent fs-sm fw-500 c-slate-11 us-none td-n c-p"
-          >
-            GitHub
-          </NavigationMenu.Link>
-        </NavigationMenu.Item>
-      </NavigationMenu.List>
-
-      <NavigationMenu.Portal>
-        <NavigationMenu.Positioner sideOffset={10} className="navmenu-positioner">
-          <NavigationMenu.Popup className="navmenu-popup">
-            <NavigationMenu.Viewport className="p-r w-full h-full o-h" />
-          </NavigationMenu.Popup>
-        </NavigationMenu.Positioner>
-      </NavigationMenu.Portal>
-    </NavigationMenu.Root>
-  );
-}
+// wip: reuse registry content to avoid mismatches
 ```
 
-## HTML
+### Vertical
 
-A vanilla HTML and CSS implementation.
+A vertical Navigation Menu implementation.
 
-### Basic Example
+<Preview id="wip" />
 
-```html
-<nav class="p-r min-w-max br-1 bw-1 bc-silver-4 bg-silver-1 p-1">
-  <ul class="p-r d-f m-0 p-0">
-    <li>
-      <button class="d-f ai-c jc-c g-1 h-10 px-3 m-0 br-1 bg-transparent fs-sm fw-500 c-slate-11 us-none">
-        Overview
-      </button>
-    </li>
-    <li>
-      <a href="https://github.com" class="d-f ai-c jc-c h-10 px-3 br-1 bg-transparent fs-sm fw-500 c-slate-11 us-none td-n">
-        GitHub
-      </a>
-    </li>
-  </ul>
-  <!-- Overview menu (shown as open) -->
-  <div class="p-a t-full l-0 mt-2 br-1 bg-white bsh-md bw-1 bc-silver-4 p-6">
-    <div class="d-g gtc-2">
-      <a href="#introduction" class="d-b p-2 br-1 td-n c-inherit h:bg-silver-2">
-        <h3 class="m-0 mb-1 fs-md fw-500 c-slate-12">Introduction</h3>
-        <p class="m-0 fs-xs c-slate-11">Get started with Yumma UI components.</p>
-      </a>
-      <a href="#accessibility" class="d-b p-2 br-1 td-n c-inherit h:bg-silver-2">
-        <h3 class="m-0 mb-1 fs-md fw-500 c-slate-12">Accessibility</h3>
-        <p class="m-0 fs-xs c-slate-11">Learn how we build accessible components.</p>
-      </a>
-    </div>
-  </div>
-</nav>
+```tsx
+// wip: reuse registry content to avoid mismatches
 ```
+
+## API Reference
+
+Check out the [Base UI](https://base-ui.com/react/components/navigation-menu) documentation for more information.

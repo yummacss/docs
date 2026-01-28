@@ -3,81 +3,14 @@ export const meta = {
   description: "Displays customer reviews, testimonials, and social proof to build trust.",
 };
 
-## React
-
-An interactive component powered by Base UI and styled with Yumma CSS.
+## Examples
 
 ### Basic
+
+A basic Testimonial Section implementation.
 
 <Preview id="testimonial-section-basic" />
 
 ```tsx
-import { StarIcon } from "@phosphor-icons/react";
-
-export default function TestimonialSectionBasic() {
-  return (
-    <section className="py-12 px-6 ta-c max-w-3xl m-auto d-f fd-c ai-c">
-      <blockquote>
-        <p className="fs-xl fw-500 c-slate-8 lh-4 mb-2">
-          Suddenly, we can ship and scale multiple high-quality projects in no time. I can't believe how much time I wasted without this library!
-        </p>
-      </blockquote>
-      <div className="fs-md fw-500 c-black fs-n mb-1">Jordan Burgess</div>
-      <div className="d-12 br-pill o-h mb-2">
-        <img src="https://untitledui.com/images/avatars/jordan-burgess" alt="Jordan Burgess" className="w-full h-full of-c" />
-      </div>
-      <div className="fs-sm c-silver-10 mb-4">Chief Technology Officer</div>
-      <div className="d-f ai-c g-1 c-orange">
-        <StarIcon size={20} weight="fill" />
-        <StarIcon size={20} weight="fill" />
-        <StarIcon size={20} weight="fill" />
-        <StarIcon size={20} weight="fill" />
-        <StarIcon size={20} weight="fill" />
-      </div>
-    </section>
-  );
-}
-```
-
-## HTML
-
-A vanilla HTML and CSS implementation.
-
-### Basic Example
-
-```html
-<section class="py-12 px-6 ta-c max-w-3xl m-auto d-f fd-c ai-c">
-  <blockquote>
-    <p class="fs-xl fw-500 c-slate-8 lh-4 mb-2">
-      Suddenly, we can ship and scale multiple high-quality projects in no time. I can't believe how much time I wasted without this library!
-    </p>
-  </blockquote>
-  <div class="fs-md fw-500 c-black fs-n mb-1">Jordan Burgess</div>
-  <div class="d-12 br-pill o-h mb-2">
-    <img src="https://untitledui.com/images/avatars/jordan-burgess" alt="Jordan Burgess" class="w-full h-full of-c" />
-  </div>
-  <div class="fs-sm c-silver-10 mb-4">Chief Technology Officer</div>
-  <div class="d-f ai-c g-1 c-orange">
-    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 256 256" fill="currentColor" stroke="none">
-      <rect width="256" height="256" fill="none" />
-      <path d="M234.29,114.85l-45,38.83L203,211.75a16.4,16.4,0,0,1-24.5,17.82L128,198.49,77.47,229.57A16.4,16.4,0,0,1,53,211.75l13.76-58.07-45-38.83A16.46,16.46,0,0,1,31.08,86l59-4.76,22.76-55.08a16.36,16.36,0,0,1,30.27,0l22.75,55.08,59,4.76a16.46,16.46,0,0,1,9.37,28.86Z" />
-    </svg>
-    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 256 256" fill="currentColor" stroke="none">
-      <rect width="256" height="256" fill="none" />
-      <path d="M234.29,114.85l-45,38.83L203,211.75a16.4,16.4,0,0,1-24.5,17.82L128,198.49,77.47,229.57A16.4,16.4,0,0,1,53,211.75l13.76-58.07-45-38.83A16.46,16.46,0,0,1,31.08,86l59-4.76,22.76-55.08a16.36,16.36,0,0,1,30.27,0l22.75,55.08,59,4.76a16.46,16.46,0,0,1,9.37,28.86Z" />
-    </svg>
-    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 256 256" fill="currentColor" stroke="none">
-      <rect width="256" height="256" fill="none" />
-      <path d="M234.29,114.85l-45,38.83L203,211.75a16.4,16.4,0,0,1-24.5,17.82L128,198.49,77.47,229.57A16.4,16.4,0,0,1,53,211.75l13.76-58.07-45-38.83A16.46,16.46,0,0,1,31.08,86l59-4.76,22.76-55.08a16.36,16.36,0,0,1,30.27,0l22.75,55.08,59,4.76a16.46,16.46,0,0,1,9.37,28.86Z" />
-    </svg>
-    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 256 256" fill="currentColor" stroke="none">
-      <rect width="256" height="256" fill="none" />
-      <path d="M234.29,114.85l-45,38.83L203,211.75a16.4,16.4,0,0,1-24.5,17.82L128,198.49,77.47,229.57A16.4,16.4,0,0,1,53,211.75l13.76-58.07-45-38.83A16.46,16.46,0,0,1,31.08,86l59-4.76,22.76-55.08a16.36,16.36,0,0,1,30.27,0l22.75,55.08,59,4.76a16.46,16.46,0,0,1,9.37,28.86Z" />
-    </svg>
-    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 256 256" fill="currentColor" stroke="none">
-      <rect width="256" height="256" fill="none" />
-      <path d="M234.29,114.85l-45,38.83L203,211.75a16.4,16.4,0,0,1-24.5,17.82L128,198.49,77.47,229.57A16.4,16.4,0,0,1,53,211.75l13.76-58.07-45-38.83A16.46,16.46,0,0,1,31.08,86l59-4.76,22.76-55.08a16.36,16.36,0,0,1,30.27,0l22.75,55.08,59,4.76a16.46,16.46,0,0,1,9.37,28.86Z" />
-    </svg>
-  </div>
-</section>
+// wip: reuse registry content to avoid mismatches
 ```

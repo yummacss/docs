@@ -3,45 +3,39 @@ export const meta = {
   description: "An easily stylable checkbox component.",
 };
 
-## React
-
-An interactive component powered by Base UI and styled with Yumma CSS.
+## Examples
 
 ### Basic
+
+A basic Checkbox implementation.
 
 <Preview id="checkbox-basic" />
 
 ```tsx
-import { Checkbox } from "@base-ui/react/checkbox";
-import { CheckIcon } from "@phosphor-icons/react";
-
-export default function ExampleCheckbox() {
-  return (
-    <label className="d-f ai-c g-2 fs-md c-slate-12">
-      <Checkbox.Root
-        defaultChecked
-        className="d-f ai-c jc-c d-5 br-1 fv:os-s fv:ow-2 fv:oo-2 fv:oc-blue-8 checkbox-root"
-      >
-        <Checkbox.Indicator className="d-f c-silver-1">
-          <CheckIcon size={12} weight="bold" />
-        </Checkbox.Indicator>
-      </Checkbox.Root>
-      Enable notifications
-    </label>
-  );
-}
+// wip: reuse registry content to avoid mismatches
 ```
 
-## HTML
+### Indicator
 
-A vanilla HTML and CSS implementation.
+Customize the appearance of the checkbox indicator.
 
-### Basic Example
+<Preview id="wip" />
 
-```html
-<label class="d-f ai-c g-2 fs-md c-slate-12">
-  <input type="checkbox" checked class="d-5 ac-slate" style="accent-color: #0a0a0c" />
-  Enable notifications
-</label>
+```tsx
+// wip: reuse registry content to avoid mismatches
 ```
+
+### Indeterminate
+
+Show a checkbox in an indeterminate state.
+
+<Preview id="wip" />
+
+```tsx
+// wip: reuse registry content to avoid mismatches
+```
+
+## API Reference
+
+Check out the [Base UI](https://base-ui.com/react/components/checkbox) documentation for more information.
 
