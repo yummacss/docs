@@ -1,12 +1,18 @@
+"use client";
+
 import { Field } from "@base-ui/react/field";
 import { Switch } from "@base-ui/react/switch";
+import { useState } from "react";
 
 export default function ExampleSwitch() {
+  const [checked, setChecked] = useState(true);
+
   return (
     <Field.Root className="d-f ai-c g-2">
       <Switch.Root
-        id="switch-notifications"
-        defaultChecked
+        id="switch-controlled"
+        checked={checked}
+        onCheckedChange={setChecked}
         className="p-r d-f h-6 w-10 br-pill switch-root"
       >
         <Switch.Thumb className="h-full br-pill bg-white switch-thumb" />
@@ -16,10 +22,10 @@ export default function ExampleSwitch() {
           appearance: none;
           border: 0;
           margin: 0;
-          outline: 1px solid transparent;
+          outline: 1px solid #dadcdf;
           outline-offset: -1px;
           background-color: transparent;
-          background-image: linear-gradient(to right, #757580 35%, #ecedee 65%);
+          background-image: linear-gradient(to right, #0a0a0c 35%, #ecedee 65%);
           background-size: 200% 100%;
           background-position-x: 100%;
           background-repeat: no-repeat;
@@ -46,10 +52,10 @@ export default function ExampleSwitch() {
       `}</style>
       </Switch.Root>
       <label
-        htmlFor="switch-notifications"
+        htmlFor="switch-controlled"
         className="fs-sm fw-500 c-slate-12 select-none"
       >
-        Notifications
+        {checked ? "Notifications ON" : "Notifications OFF"}
       </label>
     </Field.Root>
   );
