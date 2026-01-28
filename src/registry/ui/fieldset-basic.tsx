@@ -12,7 +12,7 @@ export default function ExampleFieldset() {
         <Field.Label className="fs-sm fw-500 c-slate-12">Company</Field.Label>
         <Field.Control
           placeholder="Enter company name"
-          className="h-10 w-full br-1 bw-1 bc-silver-4 pl-4 fs-md c-slate-12 bg-white f:os-s f:ow-2 f:oo--1 f:oc-blue-8"
+          className="h-10 w-full br-1 bw-1 bc-silver-4 pl-4 fs-md c-slate-12 bg-white fv:os-s fv:ow-2 fv:oo--1 fv:oc-blue-8"
         />
       </Field.Root>
 
@@ -20,7 +20,7 @@ export default function ExampleFieldset() {
         <Field.Label className="fs-sm fw-500 c-slate-12">Tax ID</Field.Label>
         <Field.Control
           placeholder="Enter fiscal number"
-          className="h-10 w-full br-1 bw-1 bc-silver-4 pl-4 fs-md c-slate-12 bg-white f:os-s f:ow-2 f:oo--1 f:oc-blue-8"
+          className="h-10 w-full br-1 bw-1 bc-silver-4 pl-4 fs-md c-slate-12 bg-white fv:os-s fv:ow-2 fv:oo--1 fv:oc-blue-8"
         />
       </Field.Root>
     </Fieldset.Root>

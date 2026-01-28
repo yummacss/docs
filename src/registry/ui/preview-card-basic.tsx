@@ -8,7 +8,7 @@ export default function ExamplePreviewCard() {
       <p className="fs-md c-slate-12">
         The principles of good{" "}
         <PreviewCard.Trigger
-          className="c-blue-8 td-n h:td-u preview-card-trigger"
+          className="c-blue-8 td-n h:td-u fv:td-u preview-card-trigger"
           href="https://en.wikipedia.org/wiki/Typography"
         >
           typography

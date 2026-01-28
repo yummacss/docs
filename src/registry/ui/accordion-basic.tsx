@@ -23,7 +23,7 @@ export default function ExampleAccordion() {
               />
             </Accordion.Trigger>
           </Accordion.Header>
-          <Accordion.Panel className="o-h fs-md c-slate-6 accordion-panel">
+          <Accordion.Panel className="o-h fs-md c-slate-11 accordion-panel">
             <div className="p-3">{item.content}</div>
           </Accordion.Panel>
         </Accordion.Item>
