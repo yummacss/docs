@@ -3,84 +3,24 @@ export const meta = {
   description: "Showcases partner, client, or brand logos in a grid or row layout.",
 };
 
-## React
-
-An interactive component powered by Base UI and styled with Yumma CSS.
+## Examples
 
 ### Basic
+
+A basic Logo Section implementation.
 
 <Preview id="logo-section-basic" variant="noPadding" />
 
 ```tsx
-export default function LogoSectionBasic() {
-  return (
-    <section className="py-12 px-6">
-      <p className="fs-sm c-silver-10 ta-c mb-8 m-0">Trusted by leading companies worldwide</p>
-      <div className="d-f fw-w jc-c ai-c g-10">
-        <img src="https://cdn.prod.website-files.com/6365d860c7b7a7191055eb8a/66eeb02f5dfb43eaea30f1fd_3Portals.svg" alt="3Portals" className="h-6" />
-        <img src="https://cdn.prod.website-files.com/6365d860c7b7a7191055eb8a/66eeb030e508f6bded1fc406_AlphaWave.svg" alt="AlphaWave" className="h-6" />
-        <img src="https://cdn.prod.website-files.com/6365d860c7b7a7191055eb8a/66eeb0337a01b10910bf6637_Capsule.svg" alt="Capsule" className="h-6" />
-        <img src="https://cdn.prod.website-files.com/6365d860c7b7a7191055eb8a/66eeb0357d06ad2a414bbefd_Command%252BR.svg" alt="Command+R" className="h-6" />
-        <img src="https://cdn.prod.website-files.com/6365d860c7b7a7191055eb8a/66eeb0357a01b10910bf6829_Constellation.svg" alt="Constellation" className="h-6" />
-      </div>
-    </section>
-  );
-}
+// wip: reuse registry content to avoid mismatches
 ```
 
 ### Heading
 
+A Logo Section with a heading.
+
 <Preview id="logo-section-heading" variant="noPadding" />
 
 ```tsx
-export default function LogoSectionHeading() {
-  return (
-    <section className="py-12 px-6 ta-c">
-      <h2 className="fs-xxl fw-600 c-slate-10 mb-2">Backed by the best</h2>
-      <p className="fs-sm c-silver-10 mb-10 m-0">We partner with industry leaders to deliver exceptional results</p>
-      <div className="d-f fw-w jc-c ai-c g-12">
-        <img src="https://cdn.prod.website-files.com/6365d860c7b7a7191055eb8a/66eeb02f5dfb43eaea30f1fd_3Portals.svg" alt="3Portals" className="h-6" />
-        <img src="https://cdn.prod.website-files.com/6365d860c7b7a7191055eb8a/66eeb030e508f6bded1fc406_AlphaWave.svg" alt="AlphaWave" className="h-6" />
-        <img src="https://cdn.prod.website-files.com/6365d860c7b7a7191055eb8a/66eeb0337a01b10910bf6637_Capsule.svg" alt="Capsule" className="h-6" />
-        <img src="https://cdn.prod.website-files.com/6365d860c7b7a7191055eb8a/66eeb0357d06ad2a414bbefd_Command%252BR.svg" alt="Command+R" className="h-6" />
-        <img src="https://cdn.prod.website-files.com/6365d860c7b7a7191055eb8a/66eeb0357a01b10910bf6829_Constellation.svg" alt="Constellation" className="h-6" />
-      </div>
-    </section>
-  );
-}
-```
-
-## HTML
-
-A vanilla HTML and CSS implementation.
-
-### Basic Example
-
-```html
-<section class="py-12 px-6">
-  <p class="fs-sm c-silver-10 ta-c mb-8 m-0">Trusted by leading companies worldwide</p>
-  <div class="d-f fw-w jc-c ai-c g-10">
-    <img src="https://cdn.prod.website-files.com/6365d860c7b7a7191055eb8a/66eeb02f5dfb43eaea30f1fd_3Portals.svg" alt="3Portals" class="h-6" />
-    <img src="https://cdn.prod.website-files.com/6365d860c7b7a7191055eb8a/66eeb030e508f6bded1fc406_AlphaWave.svg" alt="AlphaWave" class="h-6" />
-    <img src="https://cdn.prod.website-files.com/6365d860c7b7a7191055eb8a/66eeb0337a01b10910bf6637_Capsule.svg" alt="Capsule" class="h-6" />
-    <img src="https://cdn.prod.website-files.com/6365d860c7b7a7191055eb8a/66eeb0357d06ad2a414bbefd_Command%252BR.svg" alt="Command+R" class="h-6" />
-    <img src="https://cdn.prod.website-files.com/6365d860c7b7a7191055eb8a/66eeb0357a01b10910bf6829_Constellation.svg" alt="Constellation" class="h-6" />
-  </div>
-</section>
-```
-
-### Heading Example
-
-```html
-<section class="py-12 px-6 ta-c">
-  <h2 class="fs-xxl fw-600 c-slate-10 mb-2">Backed by the best</h2>
-  <p class="fs-sm c-silver-10 mb-10 m-0">We partner with industry leaders to deliver exceptional results</p>
-  <div class="d-f fw-w jc-c ai-c g-12">
-    <img src="https://cdn.prod.website-files.com/6365d860c7b7a7191055eb8a/66eeb02f5dfb43eaea30f1fd_3Portals.svg" alt="3Portals" class="h-6" />
-    <img src="https://cdn.prod.website-files.com/6365d860c7b7a7191055eb8a/66eeb030e508f6bded1fc406_AlphaWave.svg" alt="AlphaWave" class="h-6" />
-    <img src="https://cdn.prod.website-files.com/6365d860c7b7a7191055eb8a/66eeb0337a01b10910bf6637_Capsule.svg" alt="Capsule" class="h-6" />
-    <img src="https://cdn.prod.website-files.com/6365d860c7b7a7191055eb8a/66eeb0357d06ad2a414bbefd_Command%252BR.svg" alt="Command+R" class="h-6" />
-    <img src="https://cdn.prod.website-files.com/6365d860c7b7a7191055eb8a/66eeb0357a01b10910bf6829_Constellation.svg" alt="Constellation" class="h-6" />
-  </div>
-</section>
+// wip: reuse registry content to avoid mismatches
 ```

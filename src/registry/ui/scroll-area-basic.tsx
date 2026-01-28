@@ -2,9 +2,9 @@ import { ScrollArea } from "@base-ui/react/scroll-area";
 
 export default function ExampleScrollArea() {
   return (
-    <ScrollArea.Root className="h-36 w-96 max-w-full">
-      <ScrollArea.Viewport className="h-full br-1 bw-1 bc-silver-4 scroll-area-viewport">
-        <div className="d-f fd-c g-4 py-3 pr-6 pl-4 fs-sm c-slate">
+    <ScrollArea.Root className="p-r h-36 w-96 max-w-full">
+      <ScrollArea.Viewport className="h-full br-1 bw-1 bc-silver-4 fv:os-s fv:ow-2 fv:oc-blue-8 scroll-area-viewport">
+        <div className="d-f fd-c g-4 py-3 pr-6 pl-4 fs-sm c-slate-12">
           <p className="m-0">
             Vernacular architecture is building done outside any academic
             tradition, and without professional guidance. It is not a particular
@@ -23,21 +23,18 @@ export default function ExampleScrollArea() {
           </p>
         </div>
       </ScrollArea.Viewport>
-      <ScrollArea.Scrollbar className="scroll-area-scrollbar">
-        <ScrollArea.Thumb className="scroll-area-thumb" />
+      <ScrollArea.Scrollbar className="p-a r-0 t-0 b-0 z-1 scroll-area-scrollbar">
+        <ScrollArea.Thumb className="br-pill scroll-area-thumb" />
       </ScrollArea.Scrollbar>
 
       <style>{`
         .scroll-area-viewport {
           overscroll-behavior: contain;
         }
-        .scroll-area-viewport:focus-visible {
-          outline: 2px solid var(--blue-8);
-        }
         .scroll-area-scrollbar {
           display: flex;
           justify-content: center;
-          background-color: var(--silver-2);
+          background-color: #ecedee;
           width: 0.25rem;
           border-radius: 0.375rem;
           margin: 0.5rem;
@@ -62,7 +59,7 @@ export default function ExampleScrollArea() {
         .scroll-area-thumb {
           width: 100%;
           border-radius: inherit;
-          background-color: var(--slate-6);
+          background-color: #757580;
         }
       `}</style>
     </ScrollArea.Root>

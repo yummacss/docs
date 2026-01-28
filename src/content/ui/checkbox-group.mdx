@@ -3,99 +3,28 @@ export const meta = {
   description: "Provides shared state to a series of checkboxes.",
 };
 
-## React
-
-An interactive component powered by Base UI and styled with Yumma CSS.
+## Examples
 
 ### Basic
+
+A basic Checkbox Group implementation.
 
 <Preview id="checkbox-group-basic" />
 
 ```tsx
-"use client";
-
-import { Checkbox } from "@base-ui/react/checkbox";
-import { CheckboxGroup } from "@base-ui/react/checkbox-group";
-import { CheckIcon } from "@phosphor-icons/react";
-import { useId } from "react";
-
-export default function ExampleCheckboxGroup() {
-  const id = useId();
-
-  return (
-    <CheckboxGroup
-      aria-labelledby={id}
-      defaultValue={["fuji-apple"]}
-      className="d-f fd-c ai-fs g-1 c-slate-12"
-    >
-      <div className="fw-500" id={id}>
-        Apples
-      </div>
-
-      <label className="d-f ai-c g-2">
-        <Checkbox.Root
-          name="apple"
-          value="fuji-apple"
-          className="d-f ai-c jc-c d-5 br-1 fv:os-s fv:ow-2 fv:oo-2 fv:oc-blue-8 checkbox-group-root"
-        >
-          <Checkbox.Indicator className="d-f c-silver-1">
-            <CheckIcon size={12} weight="bold" />
-          </Checkbox.Indicator>
-        </Checkbox.Root>
-        Fuji
-      </label>
-
-      <label className="d-f ai-c g-2">
-        <Checkbox.Root
-          name="apple"
-          value="gala-apple"
-          className="d-f ai-c jc-c d-5 br-1 fv:os-s fv:ow-2 fv:oo-2 fv:oc-blue-8 checkbox-group-root"
-        >
-          <Checkbox.Indicator className="d-f c-silver-1">
-            <CheckIcon size={12} weight="bold" />
-          </Checkbox.Indicator>
-        </Checkbox.Root>
-        Gala
-      </label>
-
-      <label className="d-f ai-c g-2">
-        <Checkbox.Root
-          name="apple"
-          value="granny-smith-apple"
-          className="d-f ai-c jc-c d-5 br-1 fv:os-s fv:ow-2 fv:oo-2 fv:oc-blue-8 checkbox-group-root"
-        >
-          <Checkbox.Indicator className="d-f c-silver-1">
-            <CheckIcon size={12} weight="bold" />
-          </Checkbox.Indicator>
-        </Checkbox.Root>
-        Granny Smith
-      </label>
-    </CheckboxGroup>
-  );
-}
+// wip: reuse registry content to avoid mismatches
 ```
 
-## HTML
+### Validation
 
-A vanilla HTML and CSS implementation.
+Add form validation to a set of checkboxes.
 
-### Basic Example
+<Preview id="wip" />
 
-```html
-<fieldset class="d-f fd-c ai-fs g-1 c-slate-12 bw-0">
-  <legend class="fw-500">Apples</legend>
-  <label class="d-f ai-c g-2">
-    <input type="checkbox" name="apple" value="fuji-apple" class="d-5 ac-slate" style="accent-color: #0a0a0c" checked />
-    Fuji
-  </label>
-  <label class="d-f ai-c g-2">
-    <input type="checkbox" name="apple" value="gala-apple" class="d-5 ac-slate" style="accent-color: #0a0a0c" />
-    Gala
-  </label>
-  <label class="d-f ai-c g-2">
-    <input type="checkbox" name="apple" value="granny-smith-apple" class="d-5 ac-slate" style="accent-color: #0a0a0c" />
-    Granny Smith
-  </label>
-</fieldset>
+```tsx
+// wip: reuse registry content to avoid mismatches
 ```
 
+## API Reference
+
+Check out the [Base UI](https://base-ui.com/react/components/checkbox-group) documentation for more information.

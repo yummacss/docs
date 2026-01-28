@@ -10,7 +10,7 @@ export default function ExampleRadio() {
     <RadioGroup
       aria-labelledby={id}
       defaultValue="fuji-apple"
-      className="d-f fd-c g-1 ai-fs c-slate"
+      className="d-f fd-c g-1 ai-fs c-slate-12"
     >
       <div className="fw-500" id={id}>
         Best apple
@@ -20,7 +20,7 @@ export default function ExampleRadio() {
       <label className="d-f ai-c g-2">
         <Radio.Root
           value="fuji-apple"
-          className="d-f ai-c jc-c w-5 h-5 br-full bw-0 bg-transparent p-0 m-0 ow-0 radio-root"
+          className="d-f ai-c jc-c w-5 h-5 br-full bw-0 bg-transparent p-0 m-0 ow-0 fv:os-s fv:ow-2 fv:oo-2 fv:oc-blue-8 radio-root"
         >
           <Radio.Indicator className="d-f ai-c jc-c radio-indicator" />
         </Radio.Root>
@@ -31,7 +31,7 @@ export default function ExampleRadio() {
       <label className="d-f ai-c g-2">
         <Radio.Root
           value="gala-apple"
-          className="d-f ai-c jc-c w-5 h-5 br-full bw-0 bg-transparent p-0 m-0 ow-0 radio-root"
+          className="d-f ai-c jc-c w-5 h-5 br-full bw-0 bg-transparent p-0 m-0 ow-0 fv:os-s fv:ow-2 fv:oo-2 fv:oc-blue-8 radio-root"
         >
           <Radio.Indicator className="d-f ai-c jc-c radio-indicator" />
         </Radio.Root>
@@ -42,7 +42,7 @@ export default function ExampleRadio() {
       <label className="d-f ai-c g-2">
         <Radio.Root
           value="granny-smith-apple"
-          className="d-f ai-c jc-c w-5 h-5 br-full bw-0 bg-transparent p-0 m-0 ow-0 radio-root"
+          className="d-f ai-c jc-c w-5 h-5 br-full bw-0 bg-transparent p-0 m-0 ow-0 fv:os-s fv:ow-2 fv:oo-2 fv:oc-blue-8 radio-root"
         >
           <Radio.Indicator className="d-f ai-c jc-c radio-indicator" />
         </Radio.Root>
@@ -51,15 +51,11 @@ export default function ExampleRadio() {
 
       <style>{`
         .radio-root[data-unchecked] {
-          border: 1px solid var(--silver-4);
+          border: 1px solid #dadcdf;
           background-color: transparent;
         }
         .radio-root[data-checked] {
-          background-color: var(--slate);
-        }
-        .radio-root:focus-visible {
-          outline: 2px solid var(--blue-8);
-          outline-offset: 2px;
+          background-color: #0a0a0c;
         }
         .radio-indicator[data-unchecked] {
           display: none;
@@ -69,7 +65,7 @@ export default function ExampleRadio() {
           border-radius: 100%;
           width: 0.5rem;
           height: 0.5rem;
-          background-color: var(--silver-1);
+          background-color: #f5f5f6;
         }
       `}</style>
     </RadioGroup>

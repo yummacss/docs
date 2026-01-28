@@ -1,7 +1,7 @@
 import { MagnifyingGlassIcon, SparkleIcon } from "@phosphor-icons/react/dist/ssr";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { SiHtml5, SiNextdotjs, SiReact } from "react-icons/si";
+import { SiNextdotjs, SiReact } from "react-icons/si";
 import Silk from "@/components/silk";
 import Navbar from "@/components/ui/navbar";
 
@@ -30,13 +30,13 @@ export default function UIPage() {
         <div className="w-full" style={{ maxWidth: "72rem" }}>
           <div className="d-g lg:gtc-2 g-12 ai-fe">
             <div>
-              <Link href="/blog/introducing-templates" className="c-white">
+              <Link href="/ui/templates/neutra" className="c-white">
                 <div className="d-if ai-c g-2 px-4 py-2 bf-b-md bw-1 bg-white/5 bc-white/10 br-pill mb-8">
                   <span className="w-3 h-3 br-pill">
                     <SparkleIcon className="w-3 h-3" weight="fill" />
                   </span>
                   <span className="fs-xs fw-500 ls-4">
-                    Yumma UI got templates now!
+                    Neutra: Design Agency template
                   </span>
                 </div>
               </Link>
@@ -65,19 +65,16 @@ export default function UIPage() {
               </div>
 
               <div className="d-f fw-w g-3 btw-1 bc-white/10 pt-6">
-                <span className="fs-sm c-white/60">Works with:</span>
+                <span className="fs-sm c-white/60">Works with</span>
                 <div className="d-f ai-c g-4">
                   <div className="d-f ai-c g-2 c-white/80 us-none">
                     <SiNextdotjs size={20} />
                     <span className="fs-sm fw-500">Next.js</span>
                   </div>
+                  <span className="fs-sm c-white/60">and</span>
                   <div className="d-f ai-c g-2 c-white/80 us-none">
                     <SiReact size={20} />
                     <span className="fs-sm fw-500">React</span>
-                  </div>
-                  <div className="d-f ai-c g-2 c-white/80 us-none">
-                    <SiHtml5 size={20} />
-                    <span className="fs-sm fw-500">HTML</span>
                   </div>
                 </div>
               </div>

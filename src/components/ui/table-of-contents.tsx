@@ -4,7 +4,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import EditPage from "@/components/ui/edit-page";
-import ExternalLinks from "@/components/ui/external-links";
 
 interface TocItem {
   id: string;
@@ -92,7 +91,6 @@ export default function TableOfContents() {
           {!isBlogPost && (
             <div className="mt-8 pt-8 btw-1 bc-white/5 d-f fd-c g-3">
               <EditPage />
-              <ExternalLinks />
             </div>
           )}
         </div>

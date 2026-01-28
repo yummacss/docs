@@ -3,63 +3,39 @@ export const meta = {
   description: "A popup that opens on top of the entire page.",
 };
 
-## React
-
-An interactive component powered by Base UI and styled with Yumma CSS.
+## Examples
 
 ### Basic
+
+A basic Dialog implementation.
 
 <Preview id="dialog-basic" variant="inlineCentered" className="bg-white" />
 
 ```tsx
-import { Dialog } from "@base-ui/react/dialog";
-
-export default function ExampleDialog() {
-  return (
-    <Dialog.Root>
-      <Dialog.Trigger className="d-f h-10 ai-c jc-c px-4 bw-1 bc-silver-4 br-1 bg-silver-1 fs-md fw-500 c-slate us-none h:bg-silver-2 fv:os-s fv:ow-2 fv:oo--1 fv:oc-blue-8">
-        View notifications
-      </Dialog.Trigger>
-      <Dialog.Portal>
-        <Dialog.Backdrop className="p-f zi-50 t-0 l-0 r-0 b-0 bg-black" />
-        <Dialog.Popup className="p-f zi-50 t-half l-half bw-1 bc-silver-4 br-2 p-6 bg-silver-1 c-slate w-96">
-          <Dialog.Title className="fs-lg fw-500 c-slate mb-1">
-            Notifications
-          </Dialog.Title>
-          <Dialog.Description className="fs-md c-slate-6 mb-6">
-            You are all caught up. Good job!
-          </Dialog.Description>
-          <div className="d-f jc-fe g-4">
-            <Dialog.Close className="d-f h-10 ai-c jc-c px-4 bw-1 bc-silver-4 br-1 bg-silver-1 fs-md fw-500 c-slate us-none h:bg-silver-2 fv:os-s fv:ow-2 fv:oo--1 fv:oc-blue-8">
-              Close
-            </Dialog.Close>
-          </div>
-        </Dialog.Popup>
-      </Dialog.Portal>
-    </Dialog.Root>
-  );
-}
+// wip: reuse registry content to avoid mismatches
 ```
 
-## HTML
+### Form
 
-A vanilla HTML and CSS implementation.
+Open a dialog with a form.
 
-### Basic Example
+<Preview id="wip" />
 
-```html
-<button aria-haspopup="dialog" class="d-f h-10 ai-c jc-c px-4 bw-1 bc-silver-4 br-1 bg-silver-1 fs-md fw-500 c-slate us-none h:bg-silver-2">
-  View notifications
-</button>
-
-<div class="p-f zi-50 t-0 l-0 w-full h-full d-f ai-c jc-c bg-black/20">
-  <div role="dialog" aria-modal="true" class="bw-1 bc-silver-4 br-2 p-6 bg-silver-1 c-slate w-96">
-    <h3 class="fs-lg fw-500 c-slate mb-1">Notifications</h3>
-    <p class="fs-md c-slate-6 mb-6">You are all caught up. Good job!</p>
-    <div class="d-f jc-fe g-4">
-      <button class="d-f h-10 ai-c jc-c px-4 bw-1 bc-silver-4 br-1 bg-silver-1 fs-md fw-500 c-slate us-none h:bg-silver-2">Close</button>
-    </div>
-  </div>
-</div>
+```tsx
+// wip: reuse registry content to avoid mismatches
 ```
+
+### Nested
+
+Open a dialog within another dialog.
+
+<Preview id="wip" />
+
+```tsx
+// wip: reuse registry content to avoid mismatches
+```
+
+## API Reference
+
+Check out the [Base UI](https://base-ui.com/react/components/dialog) documentation for more information.
 

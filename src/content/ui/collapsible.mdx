@@ -3,56 +3,19 @@ export const meta = {
   description: "A collapsible panel controlled by a button.",
 };
 
-## React
-
-An interactive component powered by Base UI and styled with Yumma CSS.
+## Examples
 
 ### Basic
+
+A basic Collapsible implementation.
 
 <Preview id="collapsible-basic" />
 
 ```tsx
-"use client";
-
-import { Collapsible } from "@base-ui/react/collapsible";
-import { CaretRightIcon } from "@phosphor-icons/react";
-
-export default function ExampleCollapsible() {
-  return (
-    <Collapsible.Root className="d-f fd-c jc-c min-h-36 w-56 c-slate-12">
-      <Collapsible.Trigger className="d-f ai-c g-2 px-2 py-1 br-1 bg-silver-1 fs-sm fw-500 c-slate-12 h:bg-silver-2 fv:os-s fv:ow-2 fv:oc-blue-8">
-        <CaretRightIcon size={12} weight="bold" />
-        Recovery keys
-      </Collapsible.Trigger>
-      <Collapsible.Panel className="d-f fd-c jc-fe o-h fs-sm">
-        <div className="d-f fd-c g-2 mt-1 py-2 pl-7 br-1 bg-silver-1">
-          <div>alien-bean-pasta</div>
-          <div>wild-irish-burrito</div>
-          <div>horse-battery-staple</div>
-        </div>
-      </Collapsible.Panel>
-    </Collapsible.Root>
-  );
-}
+// wip: reuse registry content to avoid mismatches
 ```
 
-## HTML
+## API Reference
 
-A vanilla HTML and CSS implementation.
-
-### Basic Example
-
-```html
-<details class="d-f fd-c jc-c min-h-36 w-56 c-slate-12">
-  <summary class="d-f ai-c g-2 px-2 py-1 br-1 bg-silver-1 fs-sm fw-500 c-slate-12 h:bg-silver-2">
-    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 256 256"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z" fill="currentColor"/></svg>
-    Recovery keys
-  </summary>
-  <div class="d-f fd-c g-2 mt-1 py-2 pl-7 br-1 bg-silver-1 fs-sm">
-    <div>alien-bean-pasta</div>
-    <div>wild-irish-burrito</div>
-    <div>horse-battery-staple</div>
-  </div>
-</details>
-```
+Check out the [Base UI](https://base-ui.com/react/components/collapsible) documentation for more information.
 

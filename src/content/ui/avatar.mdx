@@ -3,52 +3,18 @@ export const meta = {
   description: "An easily stylable avatar component.",
 };
 
-## React
-
-An interactive component powered by Base UI and styled with Yumma CSS.
+## Examples
 
 ### Basic
+
+A basic Avatar implementation.
 
 <Preview id="avatar-basic" />
 
 ```tsx
-import { Avatar } from "@base-ui/react/avatar";
-
-export default function ExampleAvatar() {
-  return (
-    <div className="d-f ai-c g-5">
-      <Avatar.Root className="d-if d-12 ai-c jc-c br-pill o-h bg-silver-1 us-none va-m">
-        <Avatar.Image
-          src="https://images.unsplash.com/photo-1543610892-0b1f7e6d8ac1?w=128&h=128&dpr=2&q=80"
-          alt="Jordan Burgess"
-          className="d-full of-c"
-        />
-        <Avatar.Fallback className="d-f ai-c jc-c d-full fs-md fw-500 c-slate-12">
-          JB
-        </Avatar.Fallback>
-      </Avatar.Root>
-      <Avatar.Root className="d-if d-12 ai-c jc-c br-pill o-h bg-silver-1 us-none va-m">
-        JB
-      </Avatar.Root>
-    </div>
-  );
-}
+// wip: reuse registry content to avoid mismatches
 ```
 
-## HTML
+## API Reference
 
-A vanilla HTML and CSS implementation.
-
-### Basic Example
-
-```html
-<div class="d-f ai-c g-5">
-  <div class="d-if d-12 ai-c jc-c br-pill o-h bg-silver-1 us-none va-m">
-    <img src="https://images.unsplash.com/photo-1543610892-0b1f7e6d8ac1?w=128&h=128&dpr=2&q=80" alt="Jordan Burgess" class="d-full of-c" />
-  </div>
-  <div class="d-if d-12 ai-c jc-c br-pill o-h bg-silver-1 us-none va-m">
-    JB
-  </div>
-</div>
-```
-
+Check out the [Base UI](https://base-ui.com/react/components/avatar) documentation for more information.

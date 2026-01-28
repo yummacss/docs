@@ -3,207 +3,24 @@ export const meta = {
   description: "Displays a list of events in chronological order.",
 };
 
-## React
-
-An interactive component powered by Base UI and styled with Yumma CSS.
+## Examples
 
 ### Basic
+
+A basic Timeline implementation.
 
 <Preview id="timeline-basic" />
 
 ```tsx
-export default function TimelineBasic() {
-  return (
-    <div className="d-f fd-c g-4">
-      <div className="d-f g-4">
-        <div className="d-f fd-c ai-c">
-          <div className="w-3 h-3 br-pill bg-slate-8 fs-0"></div>
-          <div className="w-px h-full bg-silver-2 my-1"></div>
-        </div>
-        <div className="pb-4">
-          <p className="fs-sm fw-500 c-slate-8 mb-1 fw-600">Account Created</p>
-          <p className="fs-xs c-silver-10 mb-2">October 10, 2024</p>
-          <p className="fs-sm c-silver-12 lh-4">The user account was successfully created and verified.</p>
-        </div>
-      </div>
-      <div className="d-f g-4">
-        <div className="d-f fd-c ai-c">
-          <div className="w-3 h-3 br-pill bg-slate-8 fs-0"></div>
-          <div className="w-px h-full bg-silver-2 my-1"></div>
-        </div>
-        <div className="pb-4">
-          <p className="fs-sm fw-500 c-slate-8 mb-1 fw-600">Subscription Started</p>
-          <p className="fs-xs c-silver-10 mb-2">October 12, 2024</p>
-          <p className="fs-sm c-silver-12 lh-4">The Pro plan subscription has been activated.</p>
-        </div>
-      </div>
-      <div className="d-f g-4">
-        <div className="d-f fd-c ai-c">
-          <div className="w-3 h-3 br-pill bg-slate-8 fs-0"></div>
-        </div>
-        <div>
-          <p className="fs-sm fw-500 c-slate-8 mb-1 fw-600">Payment Received</p>
-          <p className="fs-xs c-silver-10 mb-2">October 14, 2024</p>
-          <p className="fs-sm c-silver-12 lh-4">Monthly payment of $29.00 was successfully processed.</p>
-        </div>
-      </div>
-    </div>
-  );
-}
+// wip: reuse registry content to avoid mismatches
 ```
 
 ### Icons
 
+A Timeline with icons.
+
 <Preview id="timeline-icons" />
 
 ```tsx
-import { UserCheckIcon, ChatsIcon, MapPinPlusIcon } from "@phosphor-icons/react";
-
-export default function TimelineIcons() {
-  return (
-    <div className="d-f fd-c g-4">
-      <div className="d-f g-4">
-        <div className="d-f fd-c ai-c">
-          <div className="d-f ai-c jc-c w-8 h-8 br-pill bg-silver-2 c-black fs-0">
-            <UserCheckIcon size={20} />
-          </div>
-          <div className="w-px h-full bg-silver-2 my-1"></div>
-        </div>
-        <div className="pb-4">
-          <p className="fs-sm fw-500 c-slate-8 mb-1 fw-600">Profile Updated</p>
-          <p className="fs-xs c-silver-10 mb-2">November 01, 2024</p>
-          <p className="fs-sm c-silver-12 lh-4">User updated their profile picture and bio information.</p>
-        </div>
-      </div>
-      <div className="d-f g-4">
-        <div className="d-f fd-c ai-c">
-          <div className="d-f ai-c jc-c w-8 h-8 br-pill bg-silver-2 c-black fs-0">
-            <ChatsIcon size={20} />
-          </div>
-          <div className="w-px h-full bg-silver-2 my-1"></div>
-        </div>
-        <div className="pb-4">
-          <p className="fs-sm fw-500 c-slate-8 mb-1 fw-600">New Message</p>
-          <p className="fs-xs c-silver-10 mb-2">November 03, 2024</p>
-          <p className="fs-sm c-silver-12 lh-4">You received a new message from the support team regarding your ticket.</p>
-        </div>
-      </div>
-      <div className="d-f g-4">
-        <div className="d-f fd-c ai-c">
-          <div className="d-f ai-c jc-c w-8 h-8 br-pill bg-silver-2 c-black fs-0">
-            <MapPinPlusIcon size={20} />
-          </div>
-        </div>
-        <div className="pt-1">
-          <p className="fs-sm fw-500 c-slate-8 mb-1 fw-600">Location Added</p>
-          <p className="fs-xs c-silver-10 mb-2">November 05, 2024</p>
-          <p className="fs-sm c-silver-12 lh-4">A new shipping address was added to your account.</p>
-        </div>
-      </div>
-    </div>
-  );
-}
-```
-
-## HTML
-
-A vanilla HTML and CSS implementation.
-
-### Basic Example
-
-```html
-<div class="d-f fd-c g-4">
-  <div class="d-f g-4">
-    <div class="d-f fd-c ai-c">
-      <div class="w-3 h-3 br-pill bg-slate-8 fs-0"></div>
-      <div class="w-px h-full bg-silver-2 my-1"></div>
-    </div>
-    <div class="pb-4">
-      <p class="fs-sm fw-500 c-slate-8 mb-1 fw-600">Account Created</p>
-      <p class="fs-xs c-silver-10 mb-2">October 10, 2024</p>
-      <p class="fs-sm c-silver-12 lh-4">The user account was successfully created and verified.</p>
-    </div>
-  </div>
-  <div class="d-f g-4">
-    <div class="d-f fd-c ai-c">
-      <div class="w-3 h-3 br-pill bg-slate-8 fs-0"></div>
-      <div class="w-px h-full bg-silver-2 my-1"></div>
-    </div>
-    <div class="pb-4">
-      <p class="fs-sm fw-500 c-slate-8 mb-1 fw-600">Subscription Started</p>
-      <p class="fs-xs c-silver-10 mb-2">October 12, 2024</p>
-      <p class="fs-sm c-silver-12 lh-4">The Pro plan subscription has been activated.</p>
-    </div>
-  </div>
-  <div class="d-f g-4">
-    <div class="d-f fd-c ai-c">
-      <div class="w-3 h-3 br-pill bg-slate-8 fs-0"></div>
-    </div>
-    <div>
-      <p class="fs-sm fw-500 c-slate-8 mb-1 fw-600">Payment Received</p>
-      <p class="fs-xs c-silver-10 mb-2">October 14, 2024</p>
-      <p class="fs-sm c-silver-12 lh-4">Monthly payment of $29.00 was successfully processed.</p>
-    </div>
-  </div>
-</div>
-```
-
-### Icons Example
-
-```html
-<div class="d-f fd-c g-4">
-  <div class="d-f g-4">
-    <div class="d-f fd-c ai-c">
-      <div class="d-f ai-c jc-c w-8 h-8 br-pill bg-silver-2 c-black fs-0">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 256 256">
-          <rect width="256" height="256" fill="none" />
-          <circle cx="128" cy="120" r="40" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
-          <path d="M63.8,199.37a72,72,0,0,1,128.4,0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
-          <path d="M222.67,112A95.92,95.92,0,1,1,144,33.33" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
-          <polyline points="184 56 200 72 232 40" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
-        </svg>
-      </div>
-      <div class="w-px h-full bg-silver-2 my-1"></div>
-    </div>
-    <div class="pb-4">
-      <p class="fs-sm fw-500 c-slate-8 mb-1 fw-600">Profile Updated</p>
-      <p class="fs-xs c-silver-10 mb-2">November 01, 2024</p>
-      <p class="fs-sm c-silver-12 lh-4">User updated their profile picture and bio information.</p>
-    </div>
-  </div>
-  <div class="d-f g-4">
-    <div class="d-f fd-c ai-c">
-      <div class="d-f ai-c jc-c w-8 h-8 br-pill bg-silver-2 c-black fs-0">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 256 256">
-          <rect width="256" height="256" fill="none" />
-          <path d="M32.5,138A72,72,0,1,1,62,167.5l-27.76,8.16a8,8,0,0,1-9.93-9.93Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
-          <path d="M163.94,80.11A72,72,0,0,1,223.5,186l8.16,27.76a8,8,0,0,1-9.93,9.93L194,215.5A72.05,72.05,0,0,1,92.06,175.89" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
-        </svg>
-      </div>
-      <div class="w-px h-full bg-silver-2 my-1"></div>
-    </div>
-    <div class="pb-4">
-      <p class="fs-sm fw-500 c-slate-8 mb-1 fw-600">New Message</p>
-      <p class="fs-xs c-silver-10 mb-2">November 03, 2024</p>
-      <p class="fs-sm c-silver-12 lh-4">You received a new message from the support team regarding your ticket.</p>
-    </div>
-  </div>
-  <div class="d-f g-4">
-    <div class="d-f fd-c ai-c">
-      <div class="d-f ai-c jc-c w-8 h-8 br-pill bg-silver-2 c-black fs-0">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 256 256">
-          <rect width="256" height="256" fill="none" />
-          <path d="M208,104c0,72-80,128-80,128S48,176,48,104a80,80,0,0,1,160,0Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
-          <line x1="128" y1="72" x2="128" y2="136" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
-          <line x1="96" y1="104" x2="160" y2="104" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
-        </svg>
-      </div>
-    </div>
-    <div class="pt-1">
-      <p class="fs-sm fw-500 c-slate-8 mb-1 fw-600">Location Added</p>
-      <p class="fs-xs c-silver-10 mb-2">November 05, 2024</p>
-      <p class="fs-sm c-silver-12 lh-4">A new shipping address was added to your account.</p>
-    </div>
-  </div>
-</div>
+// wip: reuse registry content to avoid mismatches
 ```

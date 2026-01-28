@@ -2,7 +2,6 @@ import type { ComponentType } from "react";
 
 // Import all preview components
 import AccordionBasic from "./ui/accordion-basic";
-import AccordionIcons from "./ui/accordion-icons";
 import AlertDialogBasic from "./ui/alert-dialog-basic";
 import AuthFormBasicSignIn from "./ui/auth-form-basic-sign-in";
 import AuthFormBasicSignUp from "./ui/auth-form-basic-sign-up";
@@ -75,7 +74,6 @@ import TooltipBasic from "./ui/tooltip-basic";
 export const registry: Record<string, ComponentType> = {
   // Accordion
   "accordion-basic": AccordionBasic,
-  "accordion-icons": AccordionIcons,
   // Alert Dialog
   "alert-dialog-basic": AlertDialogBasic,
   // Autocomplete

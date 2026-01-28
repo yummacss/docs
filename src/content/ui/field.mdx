@@ -3,54 +3,18 @@ export const meta = {
   description: "A component that provides labeling and validation for form controls.",
 };
 
-## React
-
-An interactive component powered by Base UI and styled with Yumma CSS.
+## Examples
 
 ### Basic
+
+A basic Field implementation.
 
 <Preview id="field-basic" />
 
 ```tsx
-import { Field } from "@base-ui/react/field";
-
-export default function ExampleField() {
-  return (
-    <Field.Root className="d-f fd-c ai-fs g-1 w-full max-w-64">
-      <Field.Label className="fs-sm fw-500 c-slate-12">Name</Field.Label>
-      <Field.Control
-        required
-        placeholder="Required"
-        className="h-10 w-full br-1 bw-1 bc-silver-4 pl-4 fs-md c-slate-12 bg-white f:os-s f:ow-2 f:oo--1 f:oc-blue-8"
-      />
-      <Field.Error className="fs-sm c-red-9" match="valueMissing">
-        Please enter your name
-      </Field.Error>
-      <Field.Description className="fs-sm c-slate-11">
-        Visible on your profile
-      </Field.Description>
-    </Field.Root>
-
-  );
-}
+// wip: reuse registry content to avoid mismatches
 ```
 
-## HTML
+## API Reference
 
-A vanilla HTML and CSS implementation.
-
-### Basic Example
-
-```html
-<div class="d-f fd-c ai-fs g-1 w-full max-w-64">
-  <label class="fs-sm fw-500 c-slate-12" for="name-input">Name</label>
-  <input
-    id="name-input"
-    type="text"
-    required
-    placeholder="Required"
-    class="h-10 w-full br-1 bw-1 bc-silver-4 pl-4 fs-md c-slate-12 bg-white f:os-s f:ow-2 f:oo--1 f:oc-blue-8"
-  />
-  <p class="fs-sm c-slate-11 m-0">Visible on your profile</p>
-</div>
-```
+Check out the [Base UI](https://base-ui.com/react/components/field) documentation for more information.
