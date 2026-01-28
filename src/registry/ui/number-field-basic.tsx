@@ -8,36 +8,21 @@ export default function ExampleNumberField() {
   const id = React.useId();
   return (
     <NumberField.Root id={id} defaultValue={100} className="d-f fd-c ai-fs g-1">
-      <NumberField.ScrubArea className="c-ewr">
-        <label htmlFor={id} className="c-ewr fs-sm fw-500 c-slate">
+      <NumberField.ScrubArea className="c-er">
+        <label htmlFor={id} className="c-er fs-sm fw-500 c-slate-11">
           Amount
         </label>
       </NumberField.ScrubArea>
 
       <NumberField.Group className="d-f">
-        <NumberField.Decrement className="d-f ai-c jc-c d-10 btw-1 bbw-1 blw-1 brw-0 bc-silver-4 br-l-1 bg-silver-1 c-slate us-none h:bg-silver-2">
+        <NumberField.Decrement className="d-f ai-c jc-c d-10 bw-1 brw-0 bc-silver-4 br-l-1 bg-silver-1 c-slate-12 us-none h:bg-silver-2 a:bg-silver-4">
           <MinusIcon size={10} />
         </NumberField.Decrement>
-        <NumberField.Input className="h-10 w-24 ta-c fs-md c-slate number-field-input" />
-        <NumberField.Increment className="d-f ai-c jc-c d-10 btw-1 bbw-1 blw-0 brw-1 bc-silver-4 br-r-1 bg-silver-1 c-slate us-none h:bg-silver-2">
+        <NumberField.Input className="h-10 w-24 ta-c fs-md c-slate-12 btw-1 bbw-1 bc-silver-4 f:z-1 f:os-s f:ow-2 f:oo--1 f:oc-blue-8" />
+        <NumberField.Increment className="d-f ai-c jc-c d-10 bw-1 blw-0 bc-silver-4 br-r-1 bg-silver-1 c-slate-12 us-none h:bg-silver-2 a:bg-silver-4">
           <PlusIcon size={10} />
         </NumberField.Increment>
       </NumberField.Group>
-
-      <style>{`
-        .number-field-input {
-          border-top: 1px solid var(--silver-4);
-          border-bottom: 1px solid var(--silver-4);
-          border-left: none;
-          border-right: none;
-          font-variant-numeric: tabular-nums;
-        }
-        .number-field-input:focus {
-          z-index: 1;
-          outline: 2px solid var(--blue-8);
-          outline-offset: -1px;
-        }
-      `}</style>
     </NumberField.Root>
   );
 }

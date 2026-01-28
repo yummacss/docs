@@ -19,43 +19,45 @@ import { CaretDownIcon } from "@phosphor-icons/react";
 
 export default function ExampleNavigationMenu() {
   return (
-    <NavigationMenu.Root className="min-w-max br-1 bw-1 bc-silver-4 bg-silver-1 p-1 c-slate">
+    <NavigationMenu.Root className="min-w-max br-1 bw-1 bc-silver-4 bg-silver-1 p-1">
       <NavigationMenu.List className="p-r d-f m-0 p-0">
         <NavigationMenu.Item>
-          <NavigationMenu.Trigger className="d-f ai-c jc-c g-1 h-10 px-3 m-0 ow-0 bw-0 br-1 bg-transparent fs-md fw-500 c-slate us-none td-n">
+          <NavigationMenu.Trigger className="d-f ai-c jc-c g-1 h-10 px-3 m-0 ow-0 bw-0 br-1 bg-transparent fs-sm fw-500 c-slate-11 us-none td-n c-p navmenu-trigger">
             Overview
-            <NavigationMenu.Icon>
-              <CaretDownIcon size={10} />
+            <NavigationMenu.Icon className="navmenu-icon">
+              <CaretDownIcon size={12} />
             </NavigationMenu.Icon>
           </NavigationMenu.Trigger>
-          <NavigationMenu.Content className="p-6 h-full bg-silver-1">
-            <ul className="d-g m-0 p-0" style={{ gridTemplateColumns: "12rem 12rem" }}>
-              <li>
-                <NavigationMenu.Link href="#introduction" className="d-b p-2 br-1 td-n c-inherit h:bg-silver-2">
-                  <h3 className="m-0 mb-1 fs-md fw-500">Introduction</h3>
-                  <p className="m-0 fs-sm c-slate-6">Get started with Yumma UI components.</p>
-                </NavigationMenu.Link>
-              </li>
-              <li>
-                <NavigationMenu.Link href="#accessibility" className="d-b p-2 br-1 td-n c-inherit h:bg-silver-2">
-                  <h3 className="m-0 mb-1 fs-md fw-500">Accessibility</h3>
-                  <p className="m-0 fs-sm c-slate-6">Learn how we build accessible components.</p>
-                </NavigationMenu.Link>
-              </li>
+          <NavigationMenu.Content className="p-6 h-full">
+            <ul className="d-g m-0 p-0 gtc-2">
+              {overviewLinks.map((item) => (
+                <li key={item.href}>
+                  <NavigationMenu.Link
+                    href={item.href}
+                    className="d-b p-2 br-1 td-n c-inherit h:bg-silver-2"
+                  >
+                    <h3 className="m-0 mb-1 fs-md fw-500 c-slate-12">{item.title}</h3>
+                    <p className="m-0 fs-xs c-slate-11">{item.description}</p>
+                  </NavigationMenu.Link>
+                </li>
+              ))}
             </ul>
           </NavigationMenu.Content>
         </NavigationMenu.Item>
 
         <NavigationMenu.Item>
-          <NavigationMenu.Link href="https://github.com" className="d-f ai-c jc-c h-10 px-3 br-1 bg-transparent fs-md fw-500 c-slate us-none td-n">
+          <NavigationMenu.Link
+            href="https://github.com/rrenildopereiraa/yumma-css"
+            className="d-f ai-c jc-c g-1 h-10 px-3 m-0 ow-0 bw-0 br-1 bg-transparent fs-sm fw-500 c-slate-11 us-none td-n c-p"
+          >
             GitHub
           </NavigationMenu.Link>
         </NavigationMenu.Item>
       </NavigationMenu.List>
 
       <NavigationMenu.Portal>
-        <NavigationMenu.Positioner sideOffset={10}>
-          <NavigationMenu.Popup className="p-r br-1 bg-silver-1 c-slate bs-md bw-1 bc-silver-4">
+        <NavigationMenu.Positioner sideOffset={10} className="navmenu-positioner">
+          <NavigationMenu.Popup className="navmenu-popup">
             <NavigationMenu.Viewport className="p-r w-full h-full o-h" />
           </NavigationMenu.Popup>
         </NavigationMenu.Positioner>
@@ -72,32 +74,31 @@ A vanilla HTML and CSS implementation.
 ### Basic Example
 
 ```html
-<nav class="p-r min-w-max br-1 bw-1 bc-silver-4 bg-silver-1 p-1 c-slate">
+<nav class="p-r min-w-max br-1 bw-1 bc-silver-4 bg-silver-1 p-1">
   <ul class="p-r d-f m-0 p-0">
     <li>
-      <button class="d-f ai-c jc-c g-1 h-10 px-3 m-0 br-1 bg-silver-2 fs-md fw-500 c-slate us-none">
-        Overview ▼
+      <button class="d-f ai-c jc-c g-1 h-10 px-3 m-0 br-1 bg-transparent fs-sm fw-500 c-slate-11 us-none">
+        Overview
       </button>
     </li>
     <li>
-      <a href="https://github.com" class="d-f ai-c jc-c h-10 px-3 br-1 bg-transparent fs-md fw-500 c-slate us-none td-n">
+      <a href="https://github.com" class="d-f ai-c jc-c h-10 px-3 br-1 bg-transparent fs-sm fw-500 c-slate-11 us-none td-n">
         GitHub
       </a>
     </li>
   </ul>
   <!-- Overview menu (shown as open) -->
-  <div class="p-a t-full l-0 mt-2 br-1 bg-silver-1 c-slate bs-md bw-1 bc-silver-4 p-6">
-    <div class="d-g" style="grid-template-columns: 12rem 12rem;">
+  <div class="p-a t-full l-0 mt-2 br-1 bg-white bsh-md bw-1 bc-silver-4 p-6">
+    <div class="d-g gtc-2">
       <a href="#introduction" class="d-b p-2 br-1 td-n c-inherit h:bg-silver-2">
-        <h3 class="m-0 mb-1 fs-md fw-500">Introduction</h3>
-        <p class="m-0 fs-sm c-slate-6">Get started with Yumma UI components.</p>
+        <h3 class="m-0 mb-1 fs-md fw-500 c-slate-12">Introduction</h3>
+        <p class="m-0 fs-xs c-slate-11">Get started with Yumma UI components.</p>
       </a>
       <a href="#accessibility" class="d-b p-2 br-1 td-n c-inherit h:bg-silver-2">
-        <h3 class="m-0 mb-1 fs-md fw-500">Accessibility</h3>
-        <p class="m-0 fs-sm c-slate-6">Learn how we build accessible components.</p>
+        <h3 class="m-0 mb-1 fs-md fw-500 c-slate-12">Accessibility</h3>
+        <p class="m-0 fs-xs c-slate-11">Learn how we build accessible components.</p>
       </a>
     </div>
   </div>
 </nav>
 ```
-

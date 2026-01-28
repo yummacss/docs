@@ -5,7 +5,7 @@ import { PreviewCard } from "@base-ui/react/preview-card";
 export default function ExamplePreviewCard() {
   return (
     <PreviewCard.Root>
-      <p className="max-w-64 fs-md c-slate">
+      <p className="fs-md c-slate-12">
         The principles of good{" "}
         <PreviewCard.Trigger
           className="c-blue-8 td-n h:td-u preview-card-trigger"
@@ -13,24 +13,24 @@ export default function ExamplePreviewCard() {
         >
           typography
         </PreviewCard.Trigger>{" "}
-        remain into the digital age.
+        remain in the digital age.
       </p>
 
       <PreviewCard.Portal>
         <PreviewCard.Positioner sideOffset={8}>
-          <PreviewCard.Popup className="d-f fd-c g-2 w-60 p-2 br-1 bg-white bs-md bw-1 bc-silver-4 preview-card-popup">
+          <PreviewCard.Popup className="d-f fd-c g-2 w-56 p-2 br-2 bg-white bsh-md bw-1 bc-silver-4 preview-card-popup">
             {/* biome-ignore lint: Using img for external URL */}
             <img
-              width="448"
-              height="300"
-              className="d-b w-full br-1"
+              width="224"
+              height="150"
+              className="d-b w-full h-auto br-1"
               src="https://images.unsplash.com/photo-1619615391095-dfa29e1672ef?q=80&w=448&h=300"
               alt="Station Hofplein signage in Rotterdam, Netherlands"
             />
-            <p className="fs-sm c-slate m-0">
-              <strong>Typography</strong> is the art and
-              science of arranging type to make written language clear, visually
-              appealing, and effective in communication.
+            <p className="fs-sm c-slate-11 m-0">
+              <strong className="fw-600 c-slate-12">Typography</strong> is the
+              art and science of arranging type to make written language clear,
+              visually appealing, and effective in communication.
             </p>
           </PreviewCard.Popup>
         </PreviewCard.Positioner>
@@ -47,7 +47,7 @@ export default function ExamplePreviewCard() {
         .preview-card-popup[data-starting-style],
         .preview-card-popup[data-ending-style] {
           opacity: 0;
-          transform: scale(0.9);
+          transform: scale(0.95);
         }
       `}</style>
     </PreviewCard.Root>

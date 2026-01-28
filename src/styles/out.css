@@ -129,6 +129,10 @@ summary {
   background-color: #e3e4e6;
 }
 
+.a\:bg-silver-4:active {
+  background-color: #dadcdf;
+}
+
 .ac-b {
   align-content: baseline;
 }
@@ -633,6 +637,14 @@ summary {
   background-color: #e0e0e3;
 }
 
+.bg-slate-12 {
+  background-color: #0a0a0c;
+}
+
+.bg-slate-5 {
+  background-color: #757580;
+}
+
 .bg-slate-6 {
   background-color: #5a5a67;
 }
@@ -949,6 +961,10 @@ summary {
 
 .c-d {
   cursor: default;
+}
+
+.c-er {
+  cursor: ew-resize;
 }
 
 .c-gray {
@@ -1633,10 +1649,6 @@ summary {
 
 .fs-xxl {
   font-size: 1.5rem;
-}
-
-.fv\:bg-silver-2:focus-visible {
-  background-color: #ecedee;
 }
 
 .fv\:oc-black:focus-visible {

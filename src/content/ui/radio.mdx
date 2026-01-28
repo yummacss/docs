@@ -21,35 +21,50 @@ import { RadioGroup } from "@base-ui/react/radio-group";
 export default function ExampleRadio() {
   const id = React.useId();
   return (
-    <RadioGroup
-      aria-labelledby={id}
-      defaultValue="fuji-apple"
-      className="d-f fd-c ai-fs g-1 c-slate"
-    >
-      <div className="fw-500" id={id}>
+    <RadioGroup aria-labelledby={id} defaultValue="fuji-apple" className="d-f fd-c g-1 ai-fs">
+      <div className="fs-sm fw-500 c-slate-11" id={id}>
         Best apple
       </div>
 
-      <label className="d-f ai-c g-2">
-        <Radio.Root value="fuji-apple" className="d-f w-5 h-5 ai-c jc-c br-full ow-0 p-0 m-0 bw-0">
-          <Radio.Indicator className="d-f ai-c jc-c" />
+      <label className="d-f ai-c g-2 fs-sm c-slate-12 c-p">
+        <Radio.Root
+          value="fuji-apple"
+          className="d-f ai-c jc-c d-5 br-pill bw-1 bc-silver-4 bg-silver-1 h:bg-silver-2 fv:os-s fv:ow-2 fv:oo-2 fv:oc-blue-8 radio-root"
+        >
+          <Radio.Indicator className="d-2 br-pill bg-silver-1 radio-indicator" />
         </Radio.Root>
         Fuji
       </label>
 
-      <label className="d-f ai-c g-2">
-        <Radio.Root value="gala-apple" className="d-f w-5 h-5 ai-c jc-c br-full ow-0 p-0 m-0 bw-0">
-          <Radio.Indicator className="d-f ai-c jc-c" />
+      <label className="d-f ai-c g-2 fs-sm c-slate-12 c-p">
+        <Radio.Root
+          value="gala-apple"
+          className="d-f ai-c jc-c d-5 br-pill bw-1 bc-silver-4 bg-silver-1 h:bg-silver-2 fv:os-s fv:ow-2 fv:oo-2 fv:oc-blue-8 radio-root"
+        >
+          <Radio.Indicator className="d-2 br-pill bg-silver-1 radio-indicator" />
         </Radio.Root>
         Gala
       </label>
 
-      <label className="d-f ai-c g-2">
-        <Radio.Root value="granny-smith-apple" className="d-f w-5 h-5 ai-c jc-c br-full ow-0 p-0 m-0 bw-0">
-          <Radio.Indicator className="d-f ai-c jc-c" />
+      <label className="d-f ai-c g-2 fs-sm c-slate-12 c-p">
+        <Radio.Root
+          value="granny-smith-apple"
+          className="d-f ai-c jc-c d-5 br-pill bw-1 bc-silver-4 bg-silver-1 h:bg-silver-2 fv:os-s fv:ow-2 fv:oo-2 fv:oc-blue-8 radio-root"
+        >
+          <Radio.Indicator className="d-2 br-pill bg-silver-1 radio-indicator" />
         </Radio.Root>
         Granny Smith
       </label>
+
+      <style>{`
+        .radio-root[data-checked] {
+          background-color: var(--slate-12);
+          border-color: var(--slate-12);
+        }
+        .radio-indicator[data-unchecked] {
+          display: none;
+        }
+      `}</style>
     </RadioGroup>
   );
 }
@@ -62,25 +77,24 @@ A vanilla HTML and CSS implementation.
 ### Basic Example
 
 ```html
-<div class="d-f fd-c ai-fs g-1 c-slate">
-  <div class="fw-500">Best apple</div>
-  
-  <label class="d-f ai-c g-2">
-    <span class="d-f w-5 h-5 ai-c jc-c br-full bg-slate">
-      <span class="d-2 br-full bg-silver-1"></span>
+<div class="d-f fd-c ai-fs g-1">
+  <div class="fs-sm fw-500 c-slate-11">Best apple</div>
+
+  <label class="d-f ai-c g-2 fs-sm c-slate-12 c-p">
+    <span class="d-f ai-c jc-c d-5 br-pill bg-slate-12">
+      <span class="d-2 br-pill bg-silver-1"></span>
     </span>
     Fuji
   </label>
-  
-  <label class="d-f ai-c g-2">
-    <span class="d-f w-5 h-5 ai-c jc-c br-full bw-1 bc-silver-4 bg-transparent"></span>
+
+  <label class="d-f ai-c g-2 fs-sm c-slate-12 c-p">
+    <span class="d-f ai-c jc-c d-5 br-pill bw-1 bc-silver-4 bg-silver-1 h:bg-silver-2"></span>
     Gala
   </label>
-  
-  <label class="d-f ai-c g-2">
-    <span class="d-f w-5 h-5 ai-c jc-c br-full bw-1 bc-silver-4 bg-transparent"></span>
+
+  <label class="d-f ai-c g-2 fs-sm c-slate-12 c-p">
+    <span class="d-f ai-c jc-c d-5 br-pill bw-1 bc-silver-4 bg-silver-1 h:bg-silver-2"></span>
     Granny Smith
   </label>
 </div>
 ```
-

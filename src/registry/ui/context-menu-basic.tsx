@@ -8,7 +8,7 @@ export default function ExampleContextMenu() {
       </ContextMenu.Trigger>
       <ContextMenu.Portal>
         <ContextMenu.Positioner className="ow-0">
-          <ContextMenu.Popup className="bw-1 bc-silver-4 br-1 bg-white bs-md py-1 c-slate-12 context-menu-popup">
+          <ContextMenu.Popup className="bw-1 bc-silver-4 br-1 bg-white bsh-md py-1 c-slate-12 context-menu-popup">
             <ContextMenu.Item className="d-f py-2 pr-8 pl-4 fs-sm ow-0 us-none c-d context-menu-item">
               Add to Library
             </ContextMenu.Item>
