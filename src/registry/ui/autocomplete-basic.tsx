@@ -4,18 +4,20 @@ import { Autocomplete } from "@base-ui/react/autocomplete";
 export default function ExampleAutocomplete() {
   return (
     <Autocomplete.Root items={tags}>
-      {/** biome-ignore lint/a11y/noLabelWithoutControl: false positive */}
-      <label className="d-f fd-c g-1 fs-sm fw-500 c-slate">
-        Search tags
+      <div className="d-f fd-c g-1">
+        <label htmlFor="autocomplete-input" className="fs-sm fw-500 c-slate-12">
+          Search tags
+        </label>
         <Autocomplete.Input
+          id="autocomplete-input"
           placeholder="e.g. feature"
-          className="h-10 w-64 md:w-80 bw-1 bc-silver-4 br-1 bg-white pl-4 fs-md c-slate fv:os-s fv:ow-2 fv:oo--1 fv:oc-blue-8 b-0"
+          className="h-10 w-64 md:w-80 bw-1 bc-silver-4 br-1 bg-white pl-4 fs-md c-slate-12 fv:os-s fv:ow-2 fv:oo--1 fv:oc-blue-8 b-0"
         />
-      </label>
+      </div>
 
       <Autocomplete.Portal>
         <Autocomplete.Positioner className="ow-0" sideOffset={4}>
-          <Autocomplete.Popup className="w-64 md:w-80 max-h-72 bw-1 bc-silver-4 br-1 bg-white bs-lg c-slate o-h autocomplete-popup">
+          <Autocomplete.Popup className="w-64 md:w-80 max-h-72 bw-1 bc-silver-4 br-1 bg-white bs-lg c-slate-12 o-h autocomplete-popup">
             <Autocomplete.Empty className="p-4 fs-sm c-slate-6 autocomplete-empty">
               No tags found.
             </Autocomplete.Empty>

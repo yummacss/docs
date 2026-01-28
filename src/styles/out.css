@@ -1459,10 +1459,6 @@ summary {
   outline-color: #878ae4;
 }
 
-.f\:oc-red-2:focus {
-  outline-color: #f3c5c5;
-}
-
 .f\:oc-silver-1:focus {
   outline-color: #f5f5f6;
 }
@@ -1663,6 +1659,14 @@ summary {
   outline-color: #cdcef4;
 }
 
+.fv\:oc-red-2:focus-visible {
+  outline-color: #f3c5c5;
+}
+
+.fv\:oc-silver-1:focus-visible {
+  outline-color: #f5f5f6;
+}
+
 .fv\:oc-white:focus-visible {
   outline-color: #fff;
 }
@@ -1685,6 +1689,10 @@ summary {
 
 .fv\:ow-2:focus-visible {
   outline-width: 2px;
+}
+
+.fv\:td-u:focus-visible {
+  text-decoration: underline;
 }
 
 .fw-100 {

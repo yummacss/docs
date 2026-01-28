@@ -15,7 +15,7 @@ export default function ExampleCombobox() {
           <Combobox.Input
             placeholder="e.g. Apple"
             id={id}
-            className="h-10 w-64 bw-1 bc-silver-4 br-1 bg-white pl-4 fs-md c-slate-12 f:os-s f:ow-2 f:oo--1 f:oc-blue-8"
+            className="h-10 w-64 bw-1 bc-silver-4 br-1 bg-white pl-4 fs-md c-slate-12 fv:os-s fv:ow-2 fv:oo--1 fv:oc-blue-8"
           />
           <div className="p-a d-f ai-c jc-c r-2 b-0 h-10 c-silver-9">
             <Combobox.Clear
@@ -90,7 +90,7 @@ export default function ExampleCombobox() {
         .combobox-item[data-highlighted] {
           position: relative;
           z-index: 0;
-          color: #f8f9fa;
+          color: #f5f5f6;
         }
         .combobox-item[data-highlighted]::before {
           content: '';

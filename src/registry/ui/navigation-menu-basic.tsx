@@ -8,7 +8,7 @@ export default function ExampleNavigationMenu() {
     <NavigationMenu.Root className="min-w-max br-1 bw-1 bc-silver-4 bg-silver-1 p-1">
       <NavigationMenu.List className="p-r d-f m-0 p-0">
         <NavigationMenu.Item>
-          <NavigationMenu.Trigger className="d-f ai-c jc-c g-1 h-10 px-3 m-0 ow-0 bw-0 br-1 bg-transparent fs-sm fw-500 c-slate-11 us-none td-n c-p navmenu-trigger">
+          <NavigationMenu.Trigger className="d-f ai-c jc-c g-1 h-10 px-3 m-0 ow-0 bw-0 br-1 bg-transparent fs-sm fw-500 c-slate-12 us-none td-n c-p navmenu-trigger">
             Overview
             <NavigationMenu.Icon className="navmenu-icon">
               <CaretDownIcon size={12} />
@@ -34,7 +34,7 @@ export default function ExampleNavigationMenu() {
         </NavigationMenu.Item>
 
         <NavigationMenu.Item>
-          <NavigationMenu.Trigger className="d-f ai-c jc-c g-1 h-10 px-3 m-0 ow-0 bw-0 br-1 bg-transparent fs-sm fw-500 c-slate-11 us-none td-n c-p navmenu-trigger">
+          <NavigationMenu.Trigger className="d-f ai-c jc-c g-1 h-10 px-3 m-0 ow-0 bw-0 br-1 bg-transparent fs-sm fw-500 c-slate-12 us-none td-n c-p navmenu-trigger">
             Handbook
             <NavigationMenu.Icon className="navmenu-icon">
               <CaretDownIcon size={12} />
@@ -62,7 +62,7 @@ export default function ExampleNavigationMenu() {
         <NavigationMenu.Item>
           <NavigationMenu.Link
             href="https://github.com/rrenildopereiraa/yumma-css"
-            className="d-f ai-c jc-c g-1 h-10 px-3 m-0 ow-0 bw-0 br-1 bg-transparent fs-sm fw-500 c-slate-11 us-none td-n c-p"
+            className="d-f ai-c jc-c g-1 h-10 px-3 m-0 ow-0 bw-0 br-1 bg-transparent fs-sm fw-500 c-slate-12 us-none td-n c-p"
           >
             GitHub
           </NavigationMenu.Link>
@@ -119,7 +119,7 @@ export default function ExampleNavigationMenu() {
                       height var(--duration) var(--easing);
           width: var(--popup-width);
           height: var(--popup-height);
-          box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+          box-shadow: 1px 3px 5px -1px #0000001a;
           border: 1px solid #dadcdf;
         }
         .navmenu-popup[data-starting-style],
