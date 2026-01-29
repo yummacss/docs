@@ -263,13 +263,13 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                   className="p-1 bw-1 d-f ai-c"
                   style={{ borderColor: "#31365e", backgroundColor: "#151724" }}
                 >
-                  <ArrowUpIcon size={16} />
+                  <ArrowUpIcon weight="bold" size={16} />
                 </kbd>
                 <kbd
                   className="p-1 bw-1 d-f ai-c"
                   style={{ borderColor: "#31365e", backgroundColor: "#151724" }}
                 >
-                  <ArrowDownIcon size={16} />
+                  <ArrowDownIcon weight="bold" size={16} />
                 </kbd>
                 <span className="ml-1">Navigate</span>
               </span>
@@ -278,7 +278,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                   className="p-1 bw-1 d-f ai-c"
                   style={{ borderColor: "#31365e", backgroundColor: "#151724" }}
                 >
-                  <ArrowElbowDownLeftIcon size={16} />
+                  <ArrowElbowDownLeftIcon weight="bold" size={16} />
                 </kbd>
                 <span className="ml-1">Go to page</span>
               </span>
@@ -288,7 +288,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                 className="p-1 bw-1 d-f ai-c"
                 style={{ borderColor: "#31365e", backgroundColor: "#151724" }}
               >
-                <XIcon size={16} />
+                <XIcon weight="bold" size={16} />
               </kbd>
               <span className="ml-1">Close</span>
             </span>
