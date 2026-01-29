@@ -9,7 +9,7 @@ export default function ExampleToast() {
     <Toast.Provider>
       <ToastButton />
       <Toast.Portal>
-        <Toast.Viewport className="p-f zi-10 t-auto r-4 b-4 m-auto d-f w-72">
+        <Toast.Viewport className="p-f zi-90 t-a r-4 b-4 m-a d-f w-80">
           <ToastList />
         </Toast.Viewport>
       </Toast.Portal>
@@ -27,16 +27,15 @@ export default function ExampleToast() {
           bottom: 0;
           left: auto;
           width: 100%;
-          margin-right: 0;
           z-index: calc(1000 - var(--toast-index));
           transform-origin: bottom center;
           height: var(--height);
-          transform: translateX(var(--toast-swipe-movement-x))
+          transform: 
+            translateX(var(--toast-swipe-movement-x))
             translateY(calc(var(--toast-swipe-movement-y) - (var(--toast-index) * var(--peek)) - (var(--shrink) * var(--height))))
             scale(var(--scale));
-          transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s, height 0.15s;
+          transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1), opacity 500ms, height 150ms;
           user-select: none;
-          background-clip: padding-box;
         }
         .toast-root::after {
           content: '';
@@ -50,19 +49,31 @@ export default function ExampleToast() {
           transform: translateX(var(--toast-swipe-movement-x)) translateY(var(--offset-y));
           height: var(--toast-height);
         }
-        .toast-root[data-starting-style],
-        .toast-root[data-ending-style]:not([data-limited]):not([data-swipe-direction]) {
+        .toast-root[data-starting-style] {
           transform: translateY(150%);
         }
         .toast-root[data-ending-style] {
           opacity: 0;
+          transform: translateY(150%);
+        }
+        .toast-root[data-ending-style][data-swipe-direction='up'] {
+           transform: translateY(calc(var(--toast-swipe-movement-y) - 150%));
+        }
+        .toast-root[data-ending-style][data-swipe-direction='down'] {
+           transform: translateY(calc(var(--toast-swipe-movement-y) + 150%));
+        }
+        .toast-root[data-ending-style][data-swipe-direction='left'] {
+           transform: translateX(calc(var(--toast-swipe-movement-x) - 150%)) translateY(var(--offset-y));
+        }
+        .toast-root[data-ending-style][data-swipe-direction='right'] {
+           transform: translateX(calc(var(--toast-swipe-movement-x) + 150%)) translateY(var(--offset-y));
         }
         .toast-root[data-limited] {
           opacity: 0;
         }
         .toast-content {
           overflow: hidden;
-          transition: opacity 0.25s;
+          transition: opacity 250ms;
         }
         .toast-content[data-behind] {
           opacity: 0;
@@ -92,7 +103,7 @@ function ToastButton() {
   return (
     <button
       type="button"
-      className="d-f h-10 ai-c jc-c br-1 bw-1 bc-silver-4 bg-silver-1 px-4 fw-500 c-slate us-none h:bg-silver-2 fv:os-s fv:ow-2 fv:oo--1 fv:oc-blue-8"
+      className="d-f h-10 ai-c jc-c br-1 bw-1 bc-silver-4 bg-silver-1 px-4 fs-sm fw-500 c-slate-12 us-none h:bg-silver-2 fv:os-s fv:ow-2 fv:oo--1 fv:oc-blue-8 active:bg-silver-2"
       onClick={createToast}
     >
       Create toast
@@ -106,16 +117,16 @@ function ToastList() {
     <Toast.Root
       key={toast.id}
       toast={toast}
-      className="br-1 bw-1 bc-silver-4 bg-white bsh-md p-4 toast-root"
+      className="br-2 bw-1 bc-silver-4 bg-silver-1 bsh-lg p-4 toast-root bg-cp"
     >
-      <Toast.Content className="toast-content">
-        <Toast.Title className="fs-md lh-5 fw-500" />
-        <Toast.Description className="fs-sm lh-5 c-slate-6" />
+      <Toast.Content className="toast-content d-f fd-c g-0">
+        <Toast.Title className="fs-md lh-5 fw-500 c-slate-12" />
+        <Toast.Description className="fs-sm lh-5 c-slate-9" />
         <Toast.Close
-          className="p-a t-2 r-2 d-f h-8 w-8 ai-c jc-c br-1 b-0 bg-transparent c-slate-6 h:bg-silver-1 h:c-slate"
+          className="p-a t-2 r-2 d-f d-7 ai-c jc-c br-1 bw-0 bg-transparent c-slate-8 h:bg-silver-2 h:c-slate-12 fv:os-s fv:ow-2 fv:oo--1 fv:oc-blue-8"
           aria-label="Close"
         >
-          <XIcon size={16} />
+          <XIcon className="d-5" aria-hidden="true" />
         </Toast.Close>
       </Toast.Content>
     </Toast.Root>
