@@ -50,6 +50,9 @@ importers:
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
+      expressive-code-collapsible:
+        specifier: ^0.1.0
+        version: 0.1.0(@expressive-code/core@0.41.5)
       gsap:
         specifier: ^3.14.2
         version: 3.14.2
@@ -1062,6 +1065,12 @@ packages:
 
   estree-walker@3.0.3:
     resolution: {integrity: sha512-7RUKfXgSMMkzt6ZuXmqapOurLGPPfgj6l9uRZ7lRGolvk0y2yocc35LdcxKC5PQZdn2DMqioAQ2NoWcrTKmm6g==}
+
+  expressive-code-collapsible@0.1.0:
+    resolution: {integrity: sha512-3NLXiLYwK5ztEWhRWifllqPxwlS1rfwdcEGhONj3NE5bSldW9tQ6omOlZhmVv0vlZvp+4GEhrAfQq0plyfgEXg==}
+    engines: {node: ^18.17.1 || ^20.3.0 || >=21.0.0}
+    peerDependencies:
+      '@expressive-code/core': '>=0.37.1'
 
   expressive-code@0.41.5:
     resolution: {integrity: sha512-iXl9BgDogQgzgE/WRSrcyU8upOcRZrXPMiu6tegEHML57YLQ65S0E3/sjAXmMZy0GXoPs60s9jbwoMo/mdEQOg==}
@@ -2725,6 +2734,10 @@ snapshots:
   estree-walker@3.0.3:
     dependencies:
       '@types/estree': 1.0.8
+
+  expressive-code-collapsible@0.1.0(@expressive-code/core@0.41.5):
+    dependencies:
+      '@expressive-code/core': 0.41.5
 
   expressive-code@0.41.5:
     dependencies:
