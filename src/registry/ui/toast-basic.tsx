@@ -1,7 +1,6 @@
 "use client";
 
 import { Toast } from "@base-ui/react/toast";
-import { XIcon } from "@phosphor-icons/react";
 import * as React from "react";
 
 export default function ExampleToast() {
@@ -131,4 +130,23 @@ function ToastList() {
       </Toast.Content>
     </Toast.Root>
   ));
+}
+
+function XIcon(props: React.ComponentProps<"svg">) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <title>Close</title>
+      <path d="M18 6 6 18" />
+      <path d="m6 6 12 12" />
+    </svg>
+  );
 }

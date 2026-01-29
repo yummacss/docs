@@ -26,7 +26,7 @@ export default async function BlogPage() {
         {years.map((year, yearIndex) => (
           <div key={year}>
             <div className="mb-16">
-              <h2 className="fs-4xl fw-400 mb-8 c-white">{year}</h2>
+              <h2 className="ff-e fs-4xl fw-400 mb-8 c-white">{year}</h2>
 
               {postsByYear.get(year)?.map((post) => (
                 <article key={post.slug} className="mb-12">

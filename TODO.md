@@ -1,3 +1,3 @@
-# Yumma CSS Missing Utilities
+# Yumma CSS 3.10
 
-- [ ] `e:*` - `empty` Pseudo Class (`e:d-none`)
+- [ ] `:empty` (pseudo-class)
