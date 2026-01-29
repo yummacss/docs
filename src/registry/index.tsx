@@ -70,17 +70,13 @@ import ToolbarBasic from "./ui/toolbar-basic";
 import TooltipBasic from "./ui/tooltip-basic";
 
 // Registry of preview components
-// Each key maps to a component
-export const registry: Record<string, ComponentType> = {
+export const components: Record<string, ComponentType> = {
   // Accordion
   "accordion-basic": AccordionBasic,
   // Alert Dialog
   "alert-dialog-basic": AlertDialogBasic,
   // Autocomplete
   "autocomplete-basic": AutocompleteBasic,
-  // Auth Form
-  "auth-form-basic-sign-in": AuthFormBasicSignIn,
-  "auth-form-basic-sign-up": AuthFormBasicSignUp,
   // Avatar
   "avatar-basic": AvatarBasic,
   // Button
@@ -95,16 +91,6 @@ export const registry: Record<string, ComponentType> = {
   "combobox-basic": ComboboxBasic,
   // Context Menu
   "context-menu-basic": ContextMenuBasic,
-  // Comparison List
-  "comparison-list-basic": ComparisonListBasic,
-  "comparison-list-side-by-side": ComparisonListSideBySide,
-  // Contact Section
-  "contact-section-basic": ContactSectionBasic,
-  "contact-section-form": ContactSectionForm,
-  // CTA Section
-  "cta-section-basic": CtaSectionBasic,
-  "cta-section-colored": CtaSectionColored,
-  "cta-section-icons": CtaSectionIcons,
   // Dialog
   "dialog-basic": DialogBasic,
   // Field
@@ -113,6 +99,8 @@ export const registry: Record<string, ComponentType> = {
   "fieldset-basic": FieldsetBasic,
   // Form
   "form-basic": FormBasic,
+  // Input
+  "input-basic": InputBasic,
   // Menu
   "menu-basic": MenuBasic,
   // Menubar
@@ -153,6 +141,22 @@ export const registry: Record<string, ComponentType> = {
   "toolbar-basic": ToolbarBasic,
   // Tooltip
   "tooltip-basic": TooltipBasic,
+};
+
+export const blocks: Record<string, ComponentType> = {
+  // Auth Form
+  "auth-form-basic-sign-in": AuthFormBasicSignIn,
+  "auth-form-basic-sign-up": AuthFormBasicSignUp,
+  // Comparison List
+  "comparison-list-basic": ComparisonListBasic,
+  "comparison-list-side-by-side": ComparisonListSideBySide,
+  // Contact Section
+  "contact-section-basic": ContactSectionBasic,
+  "contact-section-form": ContactSectionForm,
+  // CTA Section
+  "cta-section-basic": CtaSectionBasic,
+  "cta-section-colored": CtaSectionColored,
+  "cta-section-icons": CtaSectionIcons,
   // Feature Section
   "feature-section-basic": FeatureSectionBasic,
   "feature-section-centered": FeatureSectionCentered,
@@ -163,12 +167,11 @@ export const registry: Record<string, ComponentType> = {
   // Header Section
   "header-section-basic": HeaderSectionBasic,
   "header-section-centered": HeaderSectionCentered,
+  // Header Section Label
   "header-section-label": HeaderSectionLabel,
   // Hero Section
   "hero-section-basic": HeroSectionBasic,
   "hero-section-badge-on-top": HeroSectionBadgeOnTop,
-  // Input
-  "input-basic": InputBasic,
   // Logo Section
   "logo-section-basic": LogoSectionBasic,
   "logo-section-heading": LogoSectionHeading,
@@ -190,4 +193,9 @@ export const registry: Record<string, ComponentType> = {
   // Timeline
   "timeline-basic": TimelineBasic,
   "timeline-icons": TimelineIcons,
+};
+
+export const registry: Record<string, ComponentType> = {
+  ...components,
+  ...blocks,
 };

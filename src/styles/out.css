@@ -453,10 +453,6 @@ summary {
   border-color: #0000;
 }
 
-.bc-white {
-  border-color: #fff;
-}
-
 .bc-white\/10 {
   border-color: #ffffff1a;
 }
@@ -515,10 +511,6 @@ summary {
 
 .bg-blue {
   background-color: #3575dd;
-}
-
-.bg-blue-1 {
-  background-color: #dfe9fa;
 }
 
 .bg-blue-9 {
@@ -1672,14 +1664,6 @@ summary {
   outline-color: #cdcef4;
 }
 
-.fv\:oc-red-2:focus-visible {
-  outline-color: #f3c5c5;
-}
-
-.fv\:oc-silver-1:focus-visible {
-  outline-color: #f5f5f6;
-}
-
 .fv\:oc-white:focus-visible {
   outline-color: #fff;
 }
@@ -2074,10 +2058,6 @@ summary {
 
 .h\:bg-red-11:hover {
   background-color: #411212;
-}
-
-.h\:bg-red-7:hover {
-  background-color: #b93434;
 }
 
 .h\:bg-red\/50:hover {
