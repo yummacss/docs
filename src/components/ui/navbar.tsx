@@ -1,13 +1,14 @@
 "use client";
 
-import { MagnifyingGlassIcon } from "@phosphor-icons/react";
+import { MagnifyingGlassIcon } from "@phosphor-icons/react/dist/ssr";
 import { cva, type VariantProps } from "class-variance-authority";
 import { clsx } from "clsx";
-
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { type ReactNode, useEffect, useState } from "react";
+import { SiGithub, SiNpm } from "react-icons/si";
+import pkg from "../../../package.json";
 import { SearchDialog } from "./search-dialog";
 
 const navbarVariants = cva("p-f l-0 r-0 t-0 zi-10 bbw-1", {
@@ -61,6 +62,7 @@ export default function Navbar({ variant, className, links }: NavbarProps) {
                   height={80}
                   alt="Yumma CSS"
                   className="h-10 w-auto of-c us-none"
+                  priority
                 />
               </Link>
             </div>
@@ -93,25 +95,36 @@ export default function Navbar({ variant, className, links }: NavbarProps) {
                   >
                     Templates
                   </Link>
-                  <Link
-                    href="https://github.com/yummacss/yummacss"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="d-none md:d-b fs-sm c-white/80 h:c-white"
-                  >
-                    GitHub
-                  </Link>
                 </>
               )}
 
               <button
                 type="button"
                 onClick={() => setSearchOpen(true)}
-                className="d-f ai-c g-2 md:px-4 md:py-2 bg-white/5 bf-b-sm fs-sm h:bg-white/10 c-white bw-1 bc-white/10 br-0 sm:br-0"
+                className="d-f ai-c g-2 md:px-4 md:py-2 bg-white/5 bf-b-sm fs-sm h:bg-white/10 c-white bw-1 bc-white/10 br-pill"
               >
-                <MagnifyingGlassIcon size={15} weight="duotone" />
-                <span className="d-none md:d-b us-none">Ctrl K</span>
+                <MagnifyingGlassIcon size={15} />
+                <kbd className="fs-xs c-white/60">Ctrl K</kbd>
               </button>
+
+              <div className="d-f ai-c g-4 ml-2">
+                <Link
+                  href="https://www.npmjs.com/package/yummacss"
+                  className="d-f ai-c g-1 c-white/80 h:c-white fs-xs"
+                  target="_blank"
+                >
+                  <SiNpm size={16} />
+                  <span className="tw-b">v{pkg.version}</span>
+                </Link>
+                <Link
+                  href="https://github.com/yummacss/yummacss"
+                  className="d-f ai-c g-1 c-white/80 h:c-white fs-xs"
+                  target="_blank"
+                >
+                  <SiGithub size={16} />
+                  <span>GitHub</span>
+                </Link>
+              </div>
             </div>
           </nav>
         </div>

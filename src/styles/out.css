@@ -4100,10 +4100,6 @@ summary {
 }
 
 @media (width >= 40rem) {
-  .sm\:br-0 {
-    border-radius: 0;
-  }
-
   .sm\:d-32 {
     width: 8rem;
     height: 8rem;
