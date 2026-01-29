@@ -6,7 +6,8 @@ import {
   Reactjs,
   TypeScript,
   YummaCSS,
-} from "@react-symbols/icons";
+} from "@react-symbols/icons/files";
+
 import type * as React from "react";
 
 // Stack icon mapping by keyword

@@ -2,11 +2,14 @@
 
 import { Dialog } from "@base-ui/react/dialog";
 import {
-  ArrowElbowDownLeftIcon,
-  FileTextIcon,
-  MagnifyingGlassIcon,
-  StackSimpleIcon,
-} from "@phosphor-icons/react";
+  CaretDown,
+  CaretUp,
+  FileText,
+  KeyReturn,
+  MagnifyingGlass,
+  SignOut,
+  StackSimple,
+} from "@phosphor-icons/react/dist/ssr";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { getBorderColor } from "@/utils/colors";
@@ -111,9 +114,9 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
   // Get category icon
   const getCategoryIcon = (category: string) => {
     if (category === "docs") {
-      return <FileTextIcon size={14} className="c-white" />;
+      return <FileText size={14} className="c-white" />;
     }
-    return <StackSimpleIcon size={14} className="c-white" />;
+    return <StackSimple size={14} className="c-white" />;
   };
 
   // Track global index for keyboard nav
@@ -151,7 +154,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
             className="d-f ai-c g-3 px-4 py-3"
             style={{ borderBottom: "1px solid #31365e" }}
           >
-            <MagnifyingGlassIcon size={18} className="c-white/50" />
+            <MagnifyingGlass size={18} className="c-white/50" />
             <input
               ref={inputRef}
               type="text"
@@ -230,10 +233,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
 
                         {/* Action indicator */}
                         {isSelected && (
-                          <ArrowElbowDownLeftIcon
-                            size={14}
-                            className="c-white/50 fs-0"
-                          />
+                          <KeyReturn size={14} className="c-white/50 fs-0" />
                         )}
                       </button>
                     );
@@ -257,35 +257,35 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
             <div className="d-f ai-c g-4">
               <span className="d-f ai-c g-1">
                 <kbd
-                  className="px-1 bw-1"
+                  className="p-1 bw-1 d-f ai-c"
                   style={{ borderColor: "#31365e", backgroundColor: "#151724" }}
                 >
-                  ↑
+                  <CaretUp size={16} />
                 </kbd>
                 <kbd
-                  className="px-1 bw-1"
+                  className="p-1 bw-1 d-f ai-c"
                   style={{ borderColor: "#31365e", backgroundColor: "#151724" }}
                 >
-                  ↓
+                  <CaretDown size={16} />
                 </kbd>
                 <span className="ml-1">Navigate</span>
               </span>
               <span className="d-f ai-c g-1">
                 <kbd
-                  className="px-1 bw-1"
+                  className="p-1 bw-1 d-f ai-c"
                   style={{ borderColor: "#31365e", backgroundColor: "#151724" }}
                 >
-                  ↵
+                  <KeyReturn size={16} />
                 </kbd>
                 <span className="ml-1">Go to page</span>
               </span>
             </div>
             <span className="d-f ai-c g-1">
               <kbd
-                className="px-1 bw-1"
+                className="p-1 bw-1 d-f ai-c"
                 style={{ borderColor: "#31365e", backgroundColor: "#151724" }}
               >
-                Esc
+                <SignOut size={16} />
               </kbd>
               <span className="ml-1">Close</span>
             </span>
