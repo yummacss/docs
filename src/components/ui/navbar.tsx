@@ -70,44 +70,38 @@ export default function Navbar({ variant, className, links }: NavbarProps) {
               {links ? (
                 links
               ) : (
-                <>
-                  <Link
-                    href="/docs"
-                    className="d-none md:d-b fs-sm c-white/80 h:c-white"
-                  >
+                <div className="d-none lg:d-f ai-c g-8">
+                  <Link href="/docs" className="fs-sm c-white/80 h:c-white">
                     Docs
                   </Link>
-                  <Link
-                    href="/blog"
-                    className="d-none md:d-b fs-sm c-white/80 h:c-white"
-                  >
+                  <Link href="/blog" className="fs-sm c-white/80 h:c-white">
                     Blog
                   </Link>
                   <Link
                     href="/ui/components"
-                    className="d-none md:d-b fs-sm c-white/80 h:c-white"
+                    className="fs-sm c-white/80 h:c-white"
                   >
                     Components
                   </Link>
                   <Link
                     href="/ui/templates"
-                    className="d-none md:d-b fs-sm c-white/80 h:c-white"
+                    className="fs-sm c-white/80 h:c-white"
                   >
                     Templates
                   </Link>
-                </>
+                </div>
               )}
 
               <button
                 type="button"
                 onClick={() => setSearchOpen(true)}
-                className="d-f ai-c g-2 md:px-4 md:py-2 bg-white/5 bf-b-sm fs-sm h:bg-white/10 c-white bw-1 bc-white/10 br-pill"
+                className="d-f ai-c g-2 p-2 lg:px-4 lg:py-2 bg-white/5 bf-b-sm fs-sm h:bg-white/10 c-white bw-1 bc-white/10 br-pill"
               >
                 <MagnifyingGlassIcon size={15} />
-                <kbd className="fs-xs c-white/60">Ctrl K</kbd>
+                <kbd className="d-none lg:d-b fs-xs c-white/60">Ctrl K</kbd>
               </button>
 
-              <div className="d-f ai-c g-4 ml-2">
+              <div className="d-none md:d-f ai-c g-4 ml-2">
                 <Link
                   href="https://www.npmjs.com/package/yummacss"
                   className="d-f ai-c g-1 c-white/80 h:c-white fs-xs"
