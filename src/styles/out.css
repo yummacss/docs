@@ -1309,6 +1309,11 @@ summary {
   height: 1.5rem;
 }
 
+.d-7 {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
 .d-8 {
   width: 2rem;
   height: 2rem;
@@ -2105,6 +2110,10 @@ summary {
 
 .h\:c-slate:hover {
   color: #3f3f4e;
+}
+
+.h\:c-slate-12:hover {
+  color: #0a0a0c;
 }
 
 .h\:c-slate-8:hover {
@@ -3440,10 +3449,6 @@ summary {
   top: 2rem;
 }
 
-.t-auto {
-  top: auto;
-}
-
 .t-half {
   top: 50%;
 }
@@ -4066,6 +4071,10 @@ summary {
 
 .zi-50 {
   z-index: 50;
+}
+
+.zi-90 {
+  z-index: 90;
 }
 
 @media (pointer: coarse) {
