@@ -1,225 +1,128 @@
 export const meta = {
-  title: "Core Package",
-  description: "Core utility definitions for Yumma CSS projects.",
+	title: "Core Package",
+	description: "Learn how to access Yumma CSS utility definitions using the Core package.",
 };
 
 ## What is Yumma CSS Core?
 
-It's an open-source library written in TypeScript that gives you access to all the Yumma CSS class definitions through simple functions. It's the same library that powers Yumma CSS, this documentation, and our playground.
+The `@yummacss/core` is the foundational engine that powers the entire Yumma CSS ecosystem. It's a TypeScript library that contains every utility definition, prefix, and variant used by the Yumma CSS compiler. 
 
-## Installing the Core Package
+Whether you're building a plugin, an IDE extension, or a custom build tool, the Core package provides the raw data you need to interact with Yumma CSS programmatically.
 
-Install the Yumma CSS Core package using your preferred package manager:
+## Why use the Yumma CSS Core?
+
+While most developers will use the standard `yummacss` package for styling, the Core package is essential for:
+
+- **Building Tooling**: Create IntelliSense plugins, linters, or documentation generators.
+- **Custom Integrations**: Integrate Yumma CSS into other frameworks or design systems.
+- **Dynamic Analysis**: Programmatically inspect all available utilities, prefixes, and CSS properties.
+
+## Installation
+
+Install the package using your preferred package manager:
 
 ```bash title="Terminal"
 npm install @yummacss/core
 ```
 
-### Getting all definitions
+## Quick start
 
-Retrieve all available definitions at once.
+The Core package exports functions to retrieve utility definitions by category or as a whole.
+
+### Getting all utilities
+
+Retrieve every single utility definition available in Yumma CSS.
 
 ```js title="index.js"
-import { coreUtilities } from "@yummacss/core";
+import { coreUtils } from "@yummacss/core";
 
-const all = coreUtilities();
+const all = coreUtils();
 ```
 
-### Getting category definitions
+### Scoped utilities
 
-Retrieve all definitions for a specific category.
+If you only need a specific category, you can import scoped functions.
 
 ```js title="index.js"
-import { backgroundUtilities } from "@yummacss/core";
+import { backgroundUtils, fontUtils } from "@yummacss/core";
 
-console.log(backgroundUtilities());
+console.log(backgroundUtils()); // Returns background-related utilities
+console.log(fontUtils());       // Returns font-related utilities
 ```
 
-### Getting specific definitions
+## Understanding the data structure
 
-Retrieve a specific definition from a category.
+Each utility in Yumma CSS is represented by a `Utility` object. Understanding this structure is key to building tools on top of the Core.
 
-```js title="index.js"
-import { boxModelUtilities } from "@yummacss/core";
+### The utility interface
 
-const boxModel = boxModelUtilities();
-const margin = boxModel["margin"];
+```ts title="utility.ts"
+interface Utility {
+	prefix: string;          // The class name prefix (e.g., "ba")
+	properties: string[];    // The CSS properties controlled (e.g., ["background-attachment"])
+	slug: string;            // The unique identifier for the utility
+	values: {                // A map of keys to their CSS values
+		[key: string]: string;
+	};
+	variants?: Variants;     // Supported variants like hover or media queries
+}
+```
 
-console.log(margin);
+### Concrete example
+
+Here is how the `background-attachment` utility looks like under the hood:
+
+```json title="Terminal" frame="terminal"
+{
+	"background-attachment": {
+		"prefix": "ba",
+		"properties": ["background-attachment"],
+		"slug": "background-attachment",
+		"values": {
+			"f": "fixed",
+			"l": "local",
+			"s": "scroll"
+		},
+		"variants": {
+			"mediaQueries": [...],
+			"pseudoClasses": [...]
+		}
+	}
+}
 ```
 
 ## Available functions
 
-These are the available functions:
+The Core package provides the following functions to access utility definitions:
 
-### Core Utilities
+| Function               | Description                                    |
+|------------------------|------------------------------------------------|
+| `coreUtils()`          | Returns all available Yumma CSS utilities.     |
+| `backgroundUtils()`    | Utilities for background properties.           |
+| `borderUtils()`        | Utilities for borders and radius.              |
+| `boxModelUtils()`      | Spacing, dimensions, and box model properties. |
+| `colorUtils()`         | The entire Yumma CSS color palette.            |
+| `effectUtils()`        | Shadows, opacity, and filters.                 |
+| `flexboxUtils()`       | Flexbox layout definitions.                    |
+| `fontUtils()`          | Typography and font-related properties.        |
+| `gridUtils()`          | CSS Grid layout definitions.                   |
+| `interactivityUtils()` | Cursors, accents, and user interaction.        |
+| `outlineUtils()`       | Outline styling and offsets.                   |
+| `positioningUtils()`   | Positioning, z-index, and layout flow.         |
+| `svgUtils()`           | SVG-specific properties like fill and stroke.  |
+| `tableUtils()`         | Table layouts and border collapse.             |
+| `textUtils()`          | Text alignment, decoration, and overflow.      |
+| `transformUtils()`     | Transforms, rotations, and scales.             |
 
-Returns all available Yumma CSS utilities as a single object.
 
-**type:** `Utilities`
+## Typescript support
 
-### Background Utilities
-
-Returns all utility related to backgrounds.
-
-**type:** `Utilities`
-
-### Border Utilities
-
-Returns all utility related to borders.
-
-**type:** `Utilities`
-
-### Box Model Utilities
-
-Returns all utility related to the box model.
-
-**type:** `Utilities`
-
-### Color Utilities
-
-Returns all utility related to colors.
-
-**type:** `Utilities`
-
-### Effect Utilities
-
-Returns all utility related to effects.
-
-**type:** `Utilities`
-
-### Flexbox Utilities
-
-Returns all utility related to flexbox.
-
-**type:** `Utilities`
-
-### Font Utilities
-
-Returns all utility related to fonts.
-
-**type:** `Utilities`
-
-### Grid Utilities
-
-Returns all utility related to CSS Grid.
-
-**type:** `Utilities`
-
-### Interactivity Utilities
-
-Returns all utility related to interactivity.
-
-**type:** `Utilities`
-
-### Outline Utilities
-
-Returns all utility related to outlines.
-
-**type:** `Utilities`
-
-### Positioning Utilities
-
-Returns all utility related to positioning.
-
-**type:** `Utilities`
-
-### Svg Utilities
-
-Returns all utility related to SVG.
-
-**type:** `Utilities`
-
-### Table Utilities
-
-Returns all utility related to tables.
-
-**type:** `Utilities`
-
-### Text Utilities
-
-Returns all utility related to text.
-
-**type:** `Utilities`
-
-### Transform Utilities
-
-Returns all utility related to transforms.
-
-**type:** `Utilities`
-
-## Using Typescript
-
-Using Typescript? You might need to import the following types:
+The Core package is written in TypeScript and exports all internal interfaces for a better developer experience.
 
 ```ts title="index.ts"
-import type { Utilities, Colors } from "@yummacss/core";
-import type { Utility, Color } from "@yummacss/core";
-```
+import type { Utility, Utilities, Variants, Colors } from "@yummacss/core";
 
-### Utility interface
-
-Represents a Yumma CSS utility.
-
-```ts title="utility.ts"
-import type { Variants } from "./variants";
-
-export interface Utility {
-	prefix: string;
-	properties: string[];
-	slug: string;
-	values: { [key: string]: string };
-	variants?: Variants;
-}
-
-export interface Utilities {
-	[key: string]: Utility;
-}
-```
-
-### Color interface
-
-Represents a Yumma CSS utility color.
-
-```ts title="color.ts"
-import type { Utility } from "./utility";
-
-export interface Color extends Utility {}
-
-export interface Colors {
-	[key: string]: Color;
-}
-```
-
-### Variant interface
-
-Represents a Yumma CSS utility variant.
-
-```ts title="variants.ts"
-export interface PseudoClass {
-	prefix: string;
-	value: string;
-}
-
-export interface PseudoElement {
-	prefix: string;
-	value: string;
-}
-
-export interface MediaQuery {
-	prefix: string;
-	value: string;
-}
-
-export interface Opacity {
-	prefix: string;
-	value: string;
-}
-
-export interface Variants {
-	pseudoClasses?: PseudoClass[];
-	pseudoElements?: PseudoElement[];
-	mediaQueries?: MediaQuery[];
-	opacity?: Opacity[];
-}
+const customTool = (data: Utilities) => {
+	// Your logic here
+};
 ```
