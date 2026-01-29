@@ -10,7 +10,7 @@
   "scripts": {
     "build:css": "yummacss build",
     "build": "next build",
-    "dev": "concurrently \"next dev\" \"yummacss watch\"",
+    "dev": "concurrently \"next dev --turbo\" \"yummacss watch\"",
     "generate:llms": "tsx scripts/generate-llms-txt.ts",
     "lint": "biome check --write",
     "start": "next start",
