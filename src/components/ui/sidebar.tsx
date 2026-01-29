@@ -36,18 +36,14 @@ export default function Sidebar() {
 
         {sidebarConfig.map((section) => (
           <div key={section.title} className="d-f fd-c g-4">
-            <h3 className="fs-md fw-400 tt-c ls-5 c-white">
-              {section.title}
-            </h3>
+            <h3 className="fs-md fw-400 tt-c ls-5 c-white">{section.title}</h3>
             <ul className="d-f fd-c g-2">
               {section.items.map((item) => {
                 // item with children (nested structure)
                 if (hasChildren(item)) {
                   return (
                     <li key={item.title} className="d-f fd-c g-2">
-                      <span className="fs-md c-white/50">
-                        {item.title}
-                      </span>
+                      <span className="fs-md c-white/50">{item.title}</span>
                       <ul className="d-f ml-4 fd-c g-1">
                         {item.children.map((child) => {
                           const href = `/docs/${child.slug}`;
@@ -75,9 +71,7 @@ export default function Sidebar() {
                 if (hasItems(item)) {
                   return (
                     <li key={item.title} className="d-f fd-c g-2">
-                      <span className="fs-md c-white/50">
-                        {item.title}
-                      </span>
+                      <span className="fs-md c-white/50">{item.title}</span>
                       <ul className="d-f ml-4 fd-c g-1">
                         {item.items.map((subItem) => {
                           if (hasChildren(subItem)) {

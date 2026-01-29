@@ -3,9 +3,9 @@
 import { Dialog } from "@base-ui/react/dialog";
 import {
   ArrowElbowDownLeftIcon,
-  DiamondIcon,
-  DiamondsFourIcon,
+  FileTextIcon,
   MagnifyingGlassIcon,
+  StackSimpleIcon,
 } from "@phosphor-icons/react";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
@@ -111,9 +111,9 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
   // Get category icon
   const getCategoryIcon = (category: string) => {
     if (category === "docs") {
-      return <DiamondIcon size={14} className="c-white" />;
+      return <FileTextIcon size={14} className="c-white" />;
     }
-    return <DiamondsFourIcon size={14} className="c-white" />;
+    return <StackSimpleIcon size={14} className="c-white" />;
   };
 
   // Track global index for keyboard nav
@@ -256,17 +256,37 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
           >
             <div className="d-f ai-c g-4">
               <span className="d-f ai-c g-1">
-                <kbd className="px-1 br-1 bg-white/10">↑</kbd>
-                <kbd className="px-1 br-1 bg-white/10">↓</kbd>
+                <kbd
+                  className="px-1 bw-1"
+                  style={{ borderColor: "#31365e", backgroundColor: "#151724" }}
+                >
+                  ↑
+                </kbd>
+                <kbd
+                  className="px-1 bw-1"
+                  style={{ borderColor: "#31365e", backgroundColor: "#151724" }}
+                >
+                  ↓
+                </kbd>
                 <span className="ml-1">Navigate</span>
               </span>
               <span className="d-f ai-c g-1">
-                <kbd className="px-1 br-1 bg-white/10">↵</kbd>
+                <kbd
+                  className="px-1 bw-1"
+                  style={{ borderColor: "#31365e", backgroundColor: "#151724" }}
+                >
+                  ↵
+                </kbd>
                 <span className="ml-1">Go to page</span>
               </span>
             </div>
             <span className="d-f ai-c g-1">
-              <kbd className="px-1 br-1 bg-white/10">Esc</kbd>
+              <kbd
+                className="px-1 bw-1"
+                style={{ borderColor: "#31365e", backgroundColor: "#151724" }}
+              >
+                Esc
+              </kbd>
               <span className="ml-1">Close</span>
             </span>
           </div>
