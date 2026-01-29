@@ -1648,6 +1648,14 @@ summary {
   font-size: 1.5rem;
 }
 
+.fv\:bc-transparent:focus-visible {
+  border-color: #0000;
+}
+
+.fv\:br-1:focus-visible {
+  border-radius: .25rem;
+}
+
 .fv\:oc-black:focus-visible {
   outline-color: #000;
 }
@@ -1682,6 +1690,10 @@ summary {
 
 .fv\:oo--1:focus-visible {
   outline-offset: -1px;
+}
+
+.fv\:oo--2:focus-visible {
+  outline-offset: -2px;
 }
 
 .fv\:oo-2:focus-visible {
@@ -2108,6 +2120,10 @@ summary {
   color: #000;
 }
 
+.h\:c-blue-8:hover {
+  color: #26549f;
+}
+
 .h\:c-slate:hover {
   color: #3f3f4e;
 }
@@ -2384,6 +2400,10 @@ summary {
   max-height: fit-content;
 }
 
+.max-h-vh {
+  max-height: 100vh;
+}
+
 .max-w-100 {
   max-width: 25rem;
 }
@@ -2553,10 +2573,6 @@ summary {
   margin-left: 2rem;
 }
 
-.ml-auto {
-  margin-left: auto;
-}
-
 .mr--1 {
   margin-right: -.25rem;
 }
@@ -2567,10 +2583,6 @@ summary {
 
 .mr-2 {
   margin-right: .5rem;
-}
-
-.mr-3 {
-  margin-right: .75rem;
 }
 
 .mr-5 {
@@ -3071,6 +3083,10 @@ summary {
 
 .pr-1 {
   padding-right: .25rem;
+}
+
+.pr-3 {
+  padding-right: .75rem;
 }
 
 .pr-4 {
