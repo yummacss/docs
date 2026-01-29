@@ -1,3 +1,4 @@
+import path from "node:path";
 import createMDX from "@next/mdx";
 import { redirects } from "./redirects";
 import eclipsaTheme from "./src/themes/eclipsa.json";
@@ -41,6 +42,7 @@ const withMDX = createMDX({
     // Pass plugin names as strings for Turbopack compatibility
     remarkPlugins: ["remark-gfm"],
     rehypePlugins: [
+      [path.resolve("src/plugins/rehype-registry.mjs"), {}],
       // The nested array structure is required to pass options
       // to a rehype plugin
       ["rehype-expressive-code", rehypeExpressiveCodeOptions],
