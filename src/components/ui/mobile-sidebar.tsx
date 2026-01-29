@@ -78,144 +78,150 @@ export default function MobileSidebar({
       }}
     >
       <div className="p-r h-full d-f fd-c">
-        <div className="f-1 o-y-auto px-6 pb-8 pt-6">
-          <div className="d-f fd-c g-8">
-            <SidebarLinks onLinkClick={onClose} />
+        <div className="f-1 o-y-auto pb-8 pt-6">
+          <div className="sm-xxl mx-auto px-6">
+            <div className="d-f fd-c g-8">
+              <SidebarLinks onLinkClick={onClose} />
 
-            {config.map((section) => (
-              <div key={section.title} className="d-f fd-c g-4">
-                <h3 className="fs-md fw-400 tt-c ls-5 c-white">
-                  {section.title}
-                </h3>
-                <ul className="d-f ml-4 fd-c g-2">
-                  {section.items.map((item) => {
-                    // item with children (nested structure)
-                    if (hasChildren(item)) {
-                      return (
-                        <li key={item.title} className="d-f fd-c g-2">
-                          <span className="fs-md c-white/50">{item.title}</span>
-                          <ul className="d-f ml-4 fd-c g-1">
-                            {(
-                              item.children as (
-                                | SidebarConfigSimpleItem
-                                | UISidebarConfigSimpleItem
-                              )[]
-                            ).map((child) => {
-                              const href = `${baseRoute}/${child.slug}`;
-                              const isActive = pathname === href;
-
-                              return (
-                                <li key={child.slug}>
-                                  <Link
-                                    href={href}
-                                    onClick={onClose}
-                                    className={`d-f ai-c g-3 fs-md ${isActive ? "c-white" : "c-white/70 h:c-white"}`}
-                                  >
-                                    {child.title}
-                                  </Link>
-                                </li>
-                              );
-                            })}
-                          </ul>
-                        </li>
-                      );
-                    }
-
-                    // item with items (recursive structure)
-                    if (hasItems(item)) {
-                      return (
-                        <li key={item.title} className="d-f fd-c g-2">
-                          <span className="fs-md c-white/50">{item.title}</span>
-                          <ul className="d-f ml-4 fd-c g-1">
-                            {(
-                              item.items as (
-                                | SidebarConfigItem
-                                | UISidebarConfigItem
-                              )[]
-                            ).map((subItem) => {
-                              if (hasChildren(subItem)) {
-                                return (
-                                  <li
-                                    key={subItem.title}
-                                    className="d-f fd-c g-2"
-                                  >
-                                    <span className="fs-md c-white/40">
-                                      {subItem.title}
-                                    </span>
-                                    <ul className="d-f ml-4 fd-c g-1">
-                                      {(
-                                        subItem.children as (
-                                          | SidebarConfigSimpleItem
-                                          | UISidebarConfigSimpleItem
-                                        )[]
-                                      ).map((child) => {
-                                        const href = `${baseRoute}/${child.slug}`;
-                                        const isActive = pathname === href;
-
-                                        return (
-                                          <li key={child.slug}>
-                                            <Link
-                                              href={href}
-                                              onClick={onClose}
-                                              className={`d-f ai-c g-3 fs-md ${isActive ? "c-white" : "c-white/70 h:c-white"}`}
-                                            >
-                                              {child.title}
-                                            </Link>
-                                          </li>
-                                        );
-                                      })}
-                                    </ul>
-                                  </li>
-                                );
-                              }
-
-                              if (subItem.slug) {
-                                const href = `${baseRoute}/${subItem.slug}`;
+              {config.map((section) => (
+                <div key={section.title} className="d-f fd-c g-4">
+                  <h3 className="fs-md fw-400 tt-c ls-5 c-white">
+                    {section.title}
+                  </h3>
+                  <ul className="d-f ml-4 fd-c g-2">
+                    {section.items.map((item) => {
+                      // item with children (nested structure)
+                      if (hasChildren(item)) {
+                        return (
+                          <li key={item.title} className="d-f fd-c g-2">
+                            <span className="fs-md c-white/50">
+                              {item.title}
+                            </span>
+                            <ul className="d-f ml-4 fd-c g-1">
+                              {(
+                                item.children as (
+                                  | SidebarConfigSimpleItem
+                                  | UISidebarConfigSimpleItem
+                                )[]
+                              ).map((child) => {
+                                const href = `${baseRoute}/${child.slug}`;
                                 const isActive = pathname === href;
 
                                 return (
-                                  <li key={subItem.slug}>
+                                  <li key={child.slug}>
                                     <Link
                                       href={href}
                                       onClick={onClose}
                                       className={`d-f ai-c g-3 fs-md ${isActive ? "c-white" : "c-white/70 h:c-white"}`}
                                     >
-                                      {subItem.title}
+                                      {child.title}
                                     </Link>
                                   </li>
                                 );
-                              }
+                              })}
+                            </ul>
+                          </li>
+                        );
+                      }
 
-                              return null;
-                            })}
-                          </ul>
-                        </li>
-                      );
-                    }
+                      // item with items (recursive structure)
+                      if (hasItems(item)) {
+                        return (
+                          <li key={item.title} className="d-f fd-c g-2">
+                            <span className="fs-md c-white/50">
+                              {item.title}
+                            </span>
+                            <ul className="d-f ml-4 fd-c g-1">
+                              {(
+                                item.items as (
+                                  | SidebarConfigItem
+                                  | UISidebarConfigItem
+                                )[]
+                              ).map((subItem) => {
+                                if (hasChildren(subItem)) {
+                                  return (
+                                    <li
+                                      key={subItem.title}
+                                      className="d-f fd-c g-2"
+                                    >
+                                      <span className="fs-md c-white/40">
+                                        {subItem.title}
+                                      </span>
+                                      <ul className="d-f ml-4 fd-c g-1">
+                                        {(
+                                          subItem.children as (
+                                            | SidebarConfigSimpleItem
+                                            | UISidebarConfigSimpleItem
+                                          )[]
+                                        ).map((child) => {
+                                          const href = `${baseRoute}/${child.slug}`;
+                                          const isActive = pathname === href;
 
-                    // simple item with slug
-                    if (item.slug) {
-                      const href = `${baseRoute}/${item.slug}`;
-                      const isActive = pathname === href;
+                                          return (
+                                            <li key={child.slug}>
+                                              <Link
+                                                href={href}
+                                                onClick={onClose}
+                                                className={`d-f ai-c g-3 fs-md ${isActive ? "c-white" : "c-white/70 h:c-white"}`}
+                                              >
+                                                {child.title}
+                                              </Link>
+                                            </li>
+                                          );
+                                        })}
+                                      </ul>
+                                    </li>
+                                  );
+                                }
 
-                      return (
-                        <li key={item.slug}>
-                          <Link
-                            href={href}
-                            onClick={onClose}
-                            className={`d-f ai-c g-3 ${isActive ? "c-white" : "c-white/70 h:c-white"}`}
-                          >
-                            {item.title}
-                          </Link>
-                        </li>
-                      );
-                    }
+                                if (subItem.slug) {
+                                  const href = `${baseRoute}/${subItem.slug}`;
+                                  const isActive = pathname === href;
 
-                    return null;
-                  })}
-                </ul>
-              </div>
-            ))}
+                                  return (
+                                    <li key={subItem.slug}>
+                                      <Link
+                                        href={href}
+                                        onClick={onClose}
+                                        className={`d-f ai-c g-3 fs-md ${isActive ? "c-white" : "c-white/70 h:c-white"}`}
+                                      >
+                                        {subItem.title}
+                                      </Link>
+                                    </li>
+                                  );
+                                }
+
+                                return null;
+                              })}
+                            </ul>
+                          </li>
+                        );
+                      }
+
+                      // simple item with slug
+                      if (item.slug) {
+                        const href = `${baseRoute}/${item.slug}`;
+                        const isActive = pathname === href;
+
+                        return (
+                          <li key={item.slug}>
+                            <Link
+                              href={href}
+                              onClick={onClose}
+                              className={`d-f ai-c g-3 ${isActive ? "c-white" : "c-white/70 h:c-white"}`}
+                            >
+                              {item.title}
+                            </Link>
+                          </li>
+                        );
+                      }
+
+                      return null;
+                    })}
+                  </ul>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
