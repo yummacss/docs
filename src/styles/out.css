@@ -4184,14 +4184,6 @@ summary {
     min-width: 4rem;
   }
 
-  .md\:px-4 {
-    padding-inline: 1rem;
-  }
-
-  .md\:py-2 {
-    padding-block: .5rem;
-  }
-
   .md\:w-80 {
     width: 20rem;
   }
@@ -4276,6 +4268,14 @@ summary {
 
   .lg\:pt-14 {
     padding-top: 3.5rem;
+  }
+
+  .lg\:px-4 {
+    padding-inline: 1rem;
+  }
+
+  .lg\:py-2 {
+    padding-block: .5rem;
   }
 
   .lg\:w-64 {
