@@ -98,7 +98,7 @@ export default function Navbar({ variant, className, links }: NavbarProps) {
                 className="d-f ai-c g-2 p-2 lg:px-4 lg:py-2 bg-white/5 bf-b-sm fs-sm h:bg-white/10 c-white bw-1 bc-white/10 br-pill"
               >
                 <MagnifyingGlassIcon size={15} />
-                <kbd className="d-none lg:d-b fs-xs c-white/60">Ctrl K</kbd>
+                <kbd className="d-none lg:d-b fs-xs c-white/60 us-none">Ctrl K</kbd>
               </button>
 
               <div className="d-none md:d-f ai-c g-4 ml-2">

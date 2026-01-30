@@ -53,7 +53,7 @@ export default function Sidebar() {
                             <li key={child.slug}>
                               <Link
                                 href={href}
-                                className={`d-f ai-c g-3 fs-md ${
+                                className={`d-f ai-c g-3 fs-md us-none ${
                                   isActive ? "c-white" : "c-white/70 h:c-white"
                                 }`}
                               >
@@ -141,7 +141,7 @@ export default function Sidebar() {
                     <li key={item.slug}>
                       <Link
                         href={href}
-                        className={`d-f ai-c g-3 ${
+                        className={`d-f ai-c g-3 us-none ${
                           isActive ? "c-white" : "c-white/70 h:c-white"
                         }`}
                       >
