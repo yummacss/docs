@@ -83,7 +83,7 @@ export default function SidebarLinks({ onLinkClick }: SidebarLinksProps) {
             key={link.href}
             href={link.href}
             onClick={onLinkClick}
-            className={`d-if ai-c g-4 ${isActive ? "" : "team"}`}
+            className={`d-if ai-c g-4 us-none ${isActive ? "" : "team"}`}
             {...(link.external && {
               target: "_blank",
               rel: "noopener noreferrer",
