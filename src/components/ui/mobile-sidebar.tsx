@@ -71,7 +71,7 @@ export default function MobileSidebar({
 
   return (
     <div
-      className="p-f t-26 l-0 w-fc zi-20 lg:d-none btw-1 brw-1 bc-white/5"
+      className="p-f t-26 l-0 w-fc zi-20 lg:d-none btw-1 brw-1 bc-white/5 bsh-md"
       style={{
         backgroundColor: "#151724",
         height: "calc(100vh - 6.5rem)",
