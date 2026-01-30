@@ -4097,6 +4097,10 @@ summary {
     flex-direction: row;
   }
 
+  .sm\:fs-md {
+    font-size: 1rem;
+  }
+
   .sm\:g-2 {
     gap: .5rem;
   }
