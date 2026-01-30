@@ -1,4 +1,4 @@
-# Yumma CSS
+# Yumma CSS Docs
 
 Official documentation website for Yumma CSS.
 
