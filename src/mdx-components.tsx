@@ -120,7 +120,7 @@ const components: MDXComponents = {
     props.className ? (
       <p {...props}>{children}</p>
     ) : (
-      <p className="fs-sm sm:fs-md my-4 c-white/80" {...props}>
+      <p className="fs-xs sm:fs-md my-4 c-white/80" {...props}>
         {children}
       </p>
     ),
