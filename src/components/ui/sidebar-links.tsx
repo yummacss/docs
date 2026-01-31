@@ -29,8 +29,8 @@ const sidebarLinks: SidebarLink[] = [
       pathname.startsWith("/docs") && pathname !== "/docs/core-package",
   },
   {
-    title: "Core Package",
-    href: "/docs/core-package",
+    title: "Core Module",
+    href: "/docs/core-module",
     icon: AtomIcon,
     isActive: (pathname) => pathname === "/docs/core-package",
   },
