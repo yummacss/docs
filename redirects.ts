@@ -84,22 +84,17 @@ export const redirects = [
   },
   {
     source: "/docs/api-reference",
-    destination: "/docs/core-package",
-    permanent: true,
-  },
-  {
-    source: "/docs/core-library",
-    destination: "/docs/core-package",
-    permanent: true,
-  },
-  {
-    source: "/docs/top-right-bottom-left",
-    destination: "/docs/top",
+    destination: "/docs/core-module",
     permanent: true,
   },
   {
     source: "/docs/core-package",
     destination: "/docs/core-module",
+    permanent: true,
+  },
+  {
+    source: "/docs/top-right-bottom-left",
+    destination: "/docs/top",
     permanent: true,
   },
   // Framework guides

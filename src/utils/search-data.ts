@@ -36,10 +36,10 @@ function extractDocsItems(): SearchItem[] {
     extract(section.items);
   }
 
-  // Add api-reference (not in sidebar config but exists as a page)
+  // Add core-module (not in sidebar config but exists as a page)
   items.push({
-    title: "API Reference",
-    path: "/docs/api-reference",
+    title: "Core Module",
+    path: "/docs/core-module",
     category: "docs",
   });
 

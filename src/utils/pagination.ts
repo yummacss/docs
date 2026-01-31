@@ -59,8 +59,8 @@ export function getDocsNavigation(slug: string): {
     allPages.push(...flattenSidebarItems(section.items));
   }
 
-  // Add api-reference manually
-  allPages.push({ slug: "api-reference", title: "API Reference" });
+  // Add core-module manually
+  allPages.push({ slug: "core-module", title: "Core Module" });
 
   const currentIndex = allPages.findIndex((page) => page.slug === slug);
 
