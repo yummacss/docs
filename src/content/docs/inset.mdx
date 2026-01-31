@@ -1,0 +1,74 @@
+export const meta = {
+  title: "Inset",
+  description: "Controls the placement of positioned elements in all directions.",
+};
+
+<Baseline path="css.properties.inset" />
+
+<UtilityTable category="positioning" name="inset" />
+
+<Preview>
+  <div className="p-r d-18 sm:d-32 c-white" id="area">
+    <div className="p-a i-0 b-1" />
+    <div className="p-a i-0 d-f ai-c jc-c bg-indigo p-4">A</div>
+  </div>
+</Preview>
+
+```html "i-0"
+<div class="p-r d-18 sm:d-32 c-white">
+  <div class="p-a i-0 b-1"></div>
+  <div class="p-a i-0 d-f ai-c jc-c bg-indigo p-4">A</div>
+</div>
+```
+
+## Inset X
+
+Controls the placement of positioned elements in the horizontal direction.
+
+<UtilityTable category="positioning" name="inset-x" />
+
+<Preview>
+  <div className="p-r d-18 sm:d-32 c-white" id="area">
+    <div className="p-a i-0 b-1" />
+    <div className="p-a t-0 ix-0 d-f h-12 ai-c jc-c bg-indigo p-4">A</div>
+  </div>
+</Preview>
+
+```html "ix-0"
+<div class="p-r d-18 sm:d-32 c-white">
+  <div class="p-a i-0 b-1"></div>
+  <div class="p-a t-0 ix-0 d-f h-12 ai-c jc-c bg-indigo p-4">A</div>
+</div>
+```
+
+## Inset Y
+
+Controls the placement of positioned elements in the vertical direction.
+
+<UtilityTable category="positioning" name="inset-y" />
+
+<Preview>
+  <div className="p-r d-18 sm:d-32 c-white" id="area">
+    <div className="p-a i-0 b-1" />
+    <div className="p-a iy-0 l-0 d-f w-12 ai-c jc-c bg-indigo p-4">A</div>
+  </div>
+</Preview>
+
+```html "iy-0"
+<div class="p-r d-18 sm:d-32 c-white">
+  <div class="p-a i-0 b-1"></div>
+  <div class="p-a iy-0 l-0 d-f w-12 ai-c jc-c bg-indigo p-4">A</div>
+</div>
+```
+
+## Using utility variants
+
+Learn how to override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+
+### Targeting different viewports
+
+<MediaVariant class="i-0" variant="i-4" classPrefix="i" />
+
+### Targeting hover states
+
+<HoverVariant class="i-0" variant="i-4" classPrefix="i" />
