@@ -117,6 +117,14 @@ summary {
   appearance: none;
 }
 
+.a\:\:c-indigo:after {
+  color: #6366f1;
+}
+
+.a\:\:p-a:after {
+  position: absolute;
+}
+
 .a\:bg-indigo-7:active {
   background-color: #5558cf;
 }
@@ -3689,6 +3697,10 @@ summary {
   text-decoration-color: #ffb81c;
 }
 
+.tde-0 {
+  transition-delay: 0s;
+}
+
 .tdl-lt {
   text-decoration-line: line-through;
 }
@@ -3787,10 +3799,6 @@ summary {
 
 .tp-none {
   transition-property: none;
-}
-
-.trd-0 {
-  transition-delay: 0s;
 }
 
 .ts-2 {
@@ -4123,10 +4131,6 @@ summary {
 
   .sm\:fd-r {
     flex-direction: row;
-  }
-
-  .sm\:fs-md {
-    font-size: 1rem;
   }
 
   .sm\:g-2 {

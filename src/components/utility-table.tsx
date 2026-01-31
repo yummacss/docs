@@ -1,65 +1,34 @@
 "use client";
 
-import {
-  backgroundUtils,
-  borderUtils,
-  boxModelUtils,
-  colorUtils,
-  effectUtils,
-  flexboxUtils,
-  fontUtils,
-  gridUtils,
-  interactivityUtils,
-  outlineUtils,
-  positioningUtils,
-  svgUtils,
-  tableUtils,
-  textUtils,
-  transformUtils,
-  type Utilities,
-} from "@yummacss/core";
+import * as core from "@yummacss/core";
 
-type Category =
-  | "background"
-  | "border"
-  | "boxModel"
-  | "color"
-  | "effect"
-  | "flexbox"
-  | "font"
-  | "grid"
-  | "interactivity"
-  | "outline"
-  | "positioning"
-  | "svg"
-  | "table"
-  | "text"
-  | "transform";
+const categoryGetters = {
+  background: core.backgroundUtils,
+  border: core.borderUtils,
+  boxModel: core.boxModelUtils,
+  color: core.colorUtils,
+  effect: core.effectUtils,
+  flexbox: core.flexboxUtils,
+  font: core.fontUtils,
+  grid: core.gridUtils,
+  interactivity: core.interactivityUtils,
+  outline: core.outlineUtils,
+  positioning: core.positioningUtils,
+  svg: core.svgUtils,
+  table: core.tableUtils,
+  text: core.textUtils,
+  transform: core.transformUtils,
+  transition: core.transitionUtils,
+} as const;
 
-interface ApiTableProps {
+type Category = keyof typeof categoryGetters;
+
+interface Props {
   category: Category;
   name: string;
 }
 
-const catGetters: Record<Category, () => Utilities> = {
-  background: backgroundUtils,
-  border: borderUtils,
-  boxModel: boxModelUtils,
-  color: colorUtils,
-  effect: effectUtils,
-  flexbox: flexboxUtils,
-  font: fontUtils,
-  grid: gridUtils,
-  interactivity: interactivityUtils,
-  outline: outlineUtils,
-  positioning: positioningUtils,
-  svg: svgUtils,
-  table: tableUtils,
-  text: textUtils,
-  transform: transformUtils,
-};
-
-export default function ApiTable({ category, name }: ApiTableProps) {
+export default function UtilityTable({ category, name }: Props) {
   const variants: Array<{ prefix: string; property: string; value: string }> =
     [];
 
@@ -68,7 +37,7 @@ export default function ApiTable({ category, name }: ApiTableProps) {
       throw new Error("Missing props: category and name are required");
     }
 
-    const getter = catGetters[category];
+    const getter = categoryGetters[category];
     if (!getter) {
       throw new Error(`Unknown category: ${category}`);
     }

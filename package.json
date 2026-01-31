@@ -58,6 +58,6 @@
     "remark-code-preview": "^1.2.6",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3",
-    "yummacss": "^3.10.0"
+    "yummacss": "^3.10.1"
   }
 }

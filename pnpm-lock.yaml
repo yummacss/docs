@@ -124,8 +124,8 @@ importers:
         specifier: ^5.9.3
         version: 5.9.3
       yummacss:
-        specifier: ^3.10.0
-        version: 3.10.0
+        specifier: ^3.10.1
+        version: 3.10.1
 
 packages:
 
@@ -845,14 +845,11 @@ packages:
   '@webgpu/types@0.1.68':
     resolution: {integrity: sha512-3ab1B59Ojb6RwjOspYLsTpCzbNB3ZaamIAxBMmvnNkiDoLTZUOBXZ9p5nAYVEkQlDdf6qAZWi1pqj9+ypiqznA==}
 
-  '@yummacss/core@3.10.0':
-    resolution: {integrity: sha512-g8geUCQvfFjkswbTVRWBEV+G7TyT9vtt2RNlmPzYHhF9Vpn2FfOBX8oeb8i3b3AAI1ktyykwX5mdMl123dd98A==}
-
   '@yummacss/core@3.10.1':
     resolution: {integrity: sha512-SY5m+VdSBBjggadJqpnwAguB78DqeznOVsWPxXW4zb4wyISZxft2sM0k/ciVtZC1WPTThcQ5o88m3IYpsJOz3g==}
 
-  '@yummacss/nitro@3.10.0':
-    resolution: {integrity: sha512-gnZcvDD7MMaSaGiiLZJn68o+HcDpyY8iMhC53/luLyzgKP0o6Jvp5/+3NNuvUgOFUKHduHJxO9mvCkm08Dk2GA==}
+  '@yummacss/nitro@3.10.1':
+    resolution: {integrity: sha512-TOiPnneRfFgIbms4zoB664Wmint2PGZIXE9tNSN0Dl3WhKv3BetL5yrSenoIwc21ripvOqg/kzx74cCW7705Bw==}
 
   acorn-jsx@5.3.2:
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
@@ -1954,8 +1951,8 @@ packages:
     resolution: {integrity: sha512-CzhO+pFNo8ajLM2d2IW/R93ipy99LWjtwblvC1RsoSUMZgyLbYFr221TnSNT7GjGdYui6P459mw9JH/g/zW2ug==}
     engines: {node: '>=18'}
 
-  yummacss@3.10.0:
-    resolution: {integrity: sha512-0wjBvcAtbVCGTO2rIsPXjscPiLiEBK7RsJWQs+nHmlyTJWxz4B9H8h47QZ57CJ5qLTcUZ34YrAnvq4nbmfr2zw==}
+  yummacss@3.10.1:
+    resolution: {integrity: sha512-lENevmXg3ixjEN1JxeUEqsdLde/t3TpIuo0TXzJYYuAzIWVDdrWZN5iYpbZtMLeS9hbCDnfoXUiXsjTgxbhZ1Q==}
     hasBin: true
 
   zod@4.3.6:
@@ -2515,17 +2512,13 @@ snapshots:
 
   '@webgpu/types@0.1.68': {}
 
-  '@yummacss/core@3.10.0':
-    dependencies:
-      tinycolor2: 1.6.0
-
   '@yummacss/core@3.10.1':
     dependencies:
       tinycolor2: 1.6.0
 
-  '@yummacss/nitro@3.10.0':
+  '@yummacss/nitro@3.10.1':
     dependencies:
-      '@yummacss/core': 3.10.0
+      '@yummacss/core': 3.10.1
       globby: 16.1.0
       zod: 4.3.6
 
@@ -4020,9 +4013,9 @@ snapshots:
 
   yoctocolors@2.1.2: {}
 
-  yummacss@3.10.0:
+  yummacss@3.10.1:
     dependencies:
-      '@yummacss/nitro': 3.10.0
+      '@yummacss/nitro': 3.10.1
       chokidar: 5.0.0
       commander: 14.0.3
       globby: 16.1.0
