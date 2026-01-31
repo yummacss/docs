@@ -2040,6 +2040,10 @@ summary {
   background-color: #dbf3e4;
 }
 
+.h\:bg-indigo-3:hover {
+  background-color: #b6b7ee;
+}
+
 .h\:bg-indigo-6\/50:hover {
   background-color: #7073de80;
 }

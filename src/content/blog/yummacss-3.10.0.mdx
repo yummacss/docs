@@ -1,18 +1,58 @@
 export const meta = {
   authors: ["Renildo"],
   cover: "~",
-  date: "2026-01-29",
-  description: "Today, we're releasing Yumma CSS 3.10. This update brings some pretty big changes to the colour palette, and there are also some breaking changes.",
+  date: "2026-01-31",
+  description: "We've revamped the color palette, added 11 new pseudo-class variants, introduced a new transitions category, and streamlined transforms with the new rotate shorthand.",
   title: "Yumma CSS 3.10"
 };
 
-**This update might change existing features, make sure you check out the [release notes](https://github.com/yummacss/yummacss/releases/tag/v3.9.0) before upgrading.**
+**This update might change existing features, make sure you check out the [release notes](https://github.com/yummacss/yummacss/releases/tag/v3.10.0) before upgrading.**
+
+---
+
+## Breaking changes
+
+This version introduces some breaking changes that you should be aware of before upgrading.
+
+### Teal removal
+
+We've decided to remove the `teal` color option from our color system. If you were using it, we recommend switching to `mint` or `cyan` for a similar aesthetic.
+
+### Shorthand for rotation
+
+We've replaced the `t-r-*` (`transform: rotate()`) utilities with `ro-*` which now uses the standalone `rotate` property. This makes it more consistent with other property-based utilities.
+
+```html del={1} ins={2} title="index.html"
+<div class="t-r-45">...</div>
+<div class="ro-45">...</div>
+```
+
+### Font family renaming
+
+To improve clarity and consistency, we've renamed two font family prefixes:
+
+```html del={1-2} ins={3-4} title="index.html"
+<div class="ff-s">System</div>
+<div class="ff-c">Charters</div>
+<div class="ff-d">Default</div>
+<div class="ff-s">Serif</div>
+```
 
 ---
 
 ## All-new colors
 
 We finally revamped the whole color palette to make it more accessible and use more vibrant colors.
+
+We've also added 7 new colors to the family, giving you even more flexibility for your designs.
+
+- Lime
+- Mint
+- Sky
+- Lavender
+- Magenta
+- Coral
+- Zinc
 
 <Tabs defaultValue="v3.10">
   <TabsList>
@@ -67,18 +107,62 @@ We finally revamped the whole color palette to make it more accessible and use m
   </TabsPanel>
 </Tabs>
 
-## New color options
+## New pseudo-class variants
 
-We also added more color options to the color family, which gives you new ways to design different components your web application.
+This release adds 11 new pseudo-class variants to help you style elements based on their state or position.
 
-- Lime
-- Mint
-- Sky
-- Lavender
-- Magenta
-- Coral
-- Zinc
+| Prefix | Variant |
+| --- | --- |
+| `c:*` | `:checked` |
+| `d:*` | `:disabled` |
+| `e:*` | `:empty` |
+| `fc:*` | `:first-child` |
+| `i:*` | `:invalid` |
+| `in:*` | `:indeterminate` |
+| `lc:*` | `:last-child` |
+| `nc:*` | `:nth-child` |
+| `r:*` | `:required` |
+| `ro:*` | `:read-only` |
+| `v:*` | `:valid` |
 
-## Teal is no longer available
+## Introducing Transitions
 
-We also decided to remove the Teal color from our color system.
+We've introduced a new transitions category to help you create smooth animations between states.
+
+<Preview>
+  <button className="bg-indigo p-px c-white br-0 tp-all td-300 ttf-io h:bg-indigo-3">
+    Hover me
+  </button>
+</Preview>
+
+```html "tp-a" "td-300" "ttf-io"
+<button class="bg-indigo p-px c-white br-0 tp-a td-300 ttf-io h:bg-indigo-3">
+  Hover me
+</button>
+```
+
+The new utilities include:
+- `tp-*` for `transition-property`
+- `td-*` for `transition-duration` (steps of 50ms)
+- `ttf-*` for `transition-timing-function`
+- `trd-*` for `transition-delay` (steps of 50ms)
+
+## Modern font stacks
+
+We've updated our default font family variables to use more modern and comprehensive font stacks. This ensures your applications look great across all devices and operating systems by default.
+
+## Expanded utilities
+
+We've also expanded the `ar-*` (`aspect-ratio`) utilities to support more common ratios.
+
+<UtilityTable category="positioning" name="aspect-ratio" />
+
+---
+
+## Upgrade
+
+You can get the latest version of Yumma CSS from npm:
+
+```bash
+pnpm install yummacss@latest
+```
