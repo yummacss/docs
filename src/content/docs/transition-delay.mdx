@@ -1,0 +1,32 @@
+export const meta = {
+  title: "Transition Delay",
+  description: "Controls the delay before a transition effect starts.",
+};
+
+<Baseline path="css.properties.transition-delay" />
+
+<UtilityTable category="transition" name="transition-delay" />
+
+## Usage
+
+Use the `trd-*` utilities to specify a delay before a transition effect begins.
+
+<Preview>
+  <div className="bg-indigo d-16 tp-a td-300 trd-500 h:bg-indigo-3"></div>
+</Preview>
+
+```html "trd-500"
+<div class="bg-indigo d-16 tp-a td-300 trd-500 h:bg-indigo-3"></div>
+```
+
+## Using utility variants
+
+Learn how to override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+
+### Targeting different viewports
+
+<MediaVariant class="trd-0" variant="trd-150" classPrefix="trd" />
+
+### Targeting hover states
+
+<HoverVariant class="trd-0" variant="trd-150" classPrefix="trd" />

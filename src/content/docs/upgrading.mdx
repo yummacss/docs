@@ -94,6 +94,9 @@ Here are the utilities that have been renamed in v3:
 | `float`             | flo-*  | fl-*   |
 | `box-shadow`        | bs-*   | bsh-*  |
 | `isolation`         | i-*    | is-*   |
+| `rotate`            | t-r-*  | ro-*   |
+| `system-ui`         | ff-s   | ff-d   |
+| `charter`           | ff-c   | ff-s   |
 | `height` / `width`  | *-1/1  | *-dvh  |
 | _Any color utility_ | lead    | slate  |
 
@@ -183,6 +186,17 @@ The `font-size` utilities have been renamed from `fs-b` to `fs-md`.
 <div class="fs-md">...</div>
 ```
 
+### Font Family
+
+The font family utility prefixes have been renamed to better reflect their purpose:
+
+```html del={1-2} ins={3-4} title="index.html"
+<div class="ff-s">...</div>
+<div class="ff-c">...</div>
+<div class="ff-d">...</div>
+<div class="ff-s">...</div>
+```
+
 ### Overflow
 
 The `overflow` utilities have been shortened from `ovf-*` to `o-*`.
@@ -266,6 +280,15 @@ The box shadow utility prefix has been updated from `bs-` to `bsh-`:
 ```html del={1} ins={2} title="index.html"
 <div class="bs-*">...</div>
 <div class="bsh-*">...</div>
+```
+
+### Rotation
+
+The rotation utility prefix has been updated from `t-r-` to `ro-` and now uses the standalone `rotate` property:
+
+```html del={1} ins={2} title="index.html"
+<div class="t-r-*">...</div>
+<div class="ro-*">...</div>
 ```
 
 ### Isolation

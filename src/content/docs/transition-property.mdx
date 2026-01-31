@@ -1,0 +1,32 @@
+export const meta = {
+  title: "Transition Property",
+  description: "Controls which properties should have a transition effect.",
+};
+
+<Baseline path="css.properties.transition-property" />
+
+<UtilityTable category="transition" name="transition-property" />
+
+## Usage
+
+Use the `tp-*` utilities to specify which properties should transition when their values change.
+
+<Preview>
+  <div className="bg-indigo d-16 tp-a h:bg-indigo-3"></div>
+</Preview>
+
+```html "tp-a"
+<div class="bg-indigo d-16 tp-a h:bg-indigo-3"></div>
+```
+
+## Using utility variants
+
+Learn how to override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+
+### Targeting different viewports
+
+<MediaVariant class="tp-none" variant="tp-a" classPrefix="tp" />
+
+### Targeting hover states
+
+<HoverVariant class="tp-none" variant="tp-a" classPrefix="tp" />

@@ -1,0 +1,32 @@
+export const meta = {
+  title: "Transition Duration",
+  description: "Controls the duration of a transition effect.",
+};
+
+<Baseline path="css.properties.transition-duration" />
+
+<UtilityTable category="transition" name="transition-duration" />
+
+## Usage
+
+Use the `td-*` utilities to control the amount of time a transition should take to complete.
+
+<Preview>
+  <div className="bg-indigo d-16 tp-a td-500 h:bg-indigo-3"></div>
+</Preview>
+
+```html "td-500"
+<div class="bg-indigo d-16 tp-a td-500 h:bg-indigo-3"></div>
+```
+
+## Using utility variants
+
+Learn how to override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+
+### Targeting different viewports
+
+<MediaVariant class="td-150" variant="td-300" classPrefix="td" />
+
+### Targeting hover states
+
+<HoverVariant class="td-150" variant="td-300" classPrefix="td" />
