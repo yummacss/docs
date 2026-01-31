@@ -47,8 +47,8 @@ export function getAllSlugs(): string[] {
     extractSlugs(section.items);
   }
 
-  // we need to add core-package manually since it's not in the sidebar config
-  slugs.push("core-package");
+  // we need to add core-module manually since it's not in the sidebar config
+  slugs.push("core-module");
 
   return slugs;
 }
@@ -61,9 +61,9 @@ export function findCurrentPageInfo(pathname: string): {
   // remove /docs/ prefix and get the slug
   const slug = pathname.replace(/^\/docs\//, "");
 
-  // special case for core-package (not in sidebar config)
-  if (slug === "core-package") {
-    return { sectionTitle: "Installation", pageTitle: "Core Library" };
+  // special case for core-module (not in sidebar config)
+  if (slug === "core-module") {
+    return { sectionTitle: "Installation", pageTitle: "Core Module" };
   }
 
   function searchInItems(

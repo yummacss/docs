@@ -97,6 +97,11 @@ export const redirects = [
     destination: "/docs/top",
     permanent: true,
   },
+  {
+    source: "/docs/core-package",
+    destination: "/docs/core-module",
+    permanent: true,
+  },
   // Framework guides
   {
     source: "/docs/guides/react",
