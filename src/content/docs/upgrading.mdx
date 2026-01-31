@@ -67,6 +67,15 @@ With Yumma CSS v3 you no longer need to install `yummacss` as a standard depende
 npm install yummacss -D
 ```
 
+### Core Package
+
+You'll need to replace the `@yummacss/api` package with the new but old same `@yummacss/core` and update your imports if you're using the `@yummacss/api` package directly.
+
+```bash title="Terminal"
+npm remove @yummacss/api
+npm install @yummacss/core
+```
+
 ## Utility changes
 
 Here are the utilities that have been renamed in v3:
@@ -78,12 +87,14 @@ Here are the utilities that have been renamed in v3:
 | `left`              | dir-l   | l-\*   |
 | `right`             | dir-r   | r-\*   |
 | `top`               | dir-t   | t-\*   |
-| `columns`           | cols-\* | c-\*   |
-| `height` & `width`  | dim-\*  | d-\*   |
+| `columns`           | cols-* | c-*    |
+| `height` & `width`  | dim-*  | d-*    |
 | `font-size: 1rem;`  | fs-b    | fs-md  |
-| `overflow`          | ovf-\*  | o-\*   |
-| `float`             | flo-\*  | fl-\*  |
-| `height` / `width`  | \*-1/1  | \*-dvh |
+| `overflow`          | ovf-*  | o-*    |
+| `float`             | flo-*  | fl-*   |
+| `box-shadow`        | bs-*   | bsh-*  |
+| `isolation`         | i-*    | is-*   |
+| `height` / `width`  | *-1/1  | *-dvh  |
 | _Any color utility_ | lead    | slate  |
 
 | `*-lead`
@@ -246,6 +257,24 @@ The text color utility prefix has been shortened from `tc-` to `c-`:
 ```html del={1} ins={2} title="index.html"
 <div class="tc-slate">...</div>
 <div class="c-slate">...</div>
+```
+
+### Box Shadow
+
+The box shadow utility prefix has been updated from `bs-` to `bsh-`:
+
+```html del={1} ins={2} title="index.html"
+<div class="bs-*">...</div>
+<div class="bsh-*">...</div>
+```
+
+### Isolation
+
+The isolation utility prefix has been updated from `i-` to `is-`:
+
+```html del={1} ins={2} title="index.html"
+<div class="i-*">...</div>
+<div class="is-*">...</div>
 ```
 
 ## Base style changes

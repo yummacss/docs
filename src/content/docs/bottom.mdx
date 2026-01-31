@@ -1,0 +1,34 @@
+export const meta = {
+  title: "Bottom",
+  description: "Controls the bottom placement of positioned elements.",
+};
+
+<Baseline path="css.properties.bottom" />
+
+<UtilityTable category="positioning" name="bottom" />
+
+<Preview>
+  <div className="p-r d-18 sm:d-32 c-white" id="area">
+    <div className="p-a i-0 b-1" />
+    <div className="p-a b-0 l-0 d-f d-12 ai-c jc-c bg-indigo p-4">A</div>
+  </div>
+</Preview>
+
+```html "b-0"
+<div class="p-r d-18 sm:d-32 c-white">
+  <div class="p-a i-0 b-1"></div>
+  <div class="p-a b-0 l-0 d-f d-12 ai-c jc-c bg-indigo p-4">A</div>
+</div>
+```
+
+## Using utility variants
+
+Learn how to override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+
+### Targeting different viewports
+
+<MediaVariant class="b-0" variant="b-4" classPrefix="b" />
+
+### Targeting hover states
+
+<HoverVariant class="b-0" variant="b-4" classPrefix="b" />

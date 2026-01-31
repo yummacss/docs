@@ -2140,6 +2140,10 @@ summary {
   inset: 25rem;
 }
 
+.i-4 {
+  inset: 1rem;
+}
+
 .is-auto {
   isolation: auto;
 }

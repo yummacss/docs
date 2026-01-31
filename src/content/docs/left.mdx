@@ -1,0 +1,34 @@
+export const meta = {
+  title: "Left",
+  description: "Controls the left placement of positioned elements.",
+};
+
+<Baseline path="css.properties.left" />
+
+<UtilityTable category="positioning" name="left" />
+
+<Preview>
+  <div className="p-r d-18 sm:d-32 c-white" id="area">
+    <div className="p-a i-0 b-1" />
+    <div className="p-a t-0 l-0 d-f d-12 ai-c jc-c bg-indigo p-4">A</div>
+  </div>
+</Preview>
+
+```html "l-0"
+<div class="p-r d-18 sm:d-32 c-white">
+  <div class="p-a i-0 b-1"></div>
+  <div class="p-a t-0 l-0 d-f d-12 ai-c jc-c bg-indigo p-4">A</div>
+</div>
+```
+
+## Using utility variants
+
+Learn how to override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+
+### Targeting different viewports
+
+<MediaVariant class="l-0" variant="l-4" classPrefix="l" />
+
+### Targeting hover states
+
+<HoverVariant class="l-0" variant="l-4" classPrefix="l" />
