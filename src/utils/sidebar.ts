@@ -300,6 +300,18 @@ export const sidebarConfig: SidebarConfig = [
     ],
   },
   {
+    title: "Transition",
+    items: [
+      { title: "Transition Delay", slug: "transition-delay" },
+      { title: "Transition Duration", slug: "transition-duration" },
+      { title: "Transition Property", slug: "transition-property" },
+      {
+        title: "Transition Timing Function",
+        slug: "transition-timing-function",
+      },
+    ],
+  },
+  {
     title: "Typography",
     items: [
       {

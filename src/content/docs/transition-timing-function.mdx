@@ -1,0 +1,32 @@
+export const meta = {
+  title: "Transition Timing Function",
+  description: "Controls the speed curve of a transition effect.",
+};
+
+<Baseline path="css.properties.transition-timing-function" />
+
+<UtilityTable category="transition" name="transition-timing-function" />
+
+## Usage
+
+Use the `ttf-*` utilities to control the pace of a transition.
+
+<Preview>
+  <div className="bg-indigo d-16 tp-a td-300 ttf-io h:bg-indigo-3"></div>
+</Preview>
+
+```html "ttf-io"
+<div class="bg-indigo d-16 tp-a td-300 ttf-io h:bg-indigo-3"></div>
+```
+
+## Using utility variants
+
+Learn how to override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+
+### Targeting different viewports
+
+<MediaVariant class="ttf-i" variant="ttf-o" classPrefix="ttf" />
+
+### Targeting hover states
+
+<HoverVariant class="ttf-i" variant="ttf-o" classPrefix="ttf" />

@@ -7,16 +7,16 @@ export const meta = {
 
 <UtilityTable category="font" name="font-family" />
 
-## Charter
+## Serif
 
-If Charter is not available, it will fall back to `Cambria`, and then to a generic `serif` font.
+If Serif is not available, it will fall back to `Cambria`, and then to a generic `serif` font.
 
 <Preview variant="inline">
-  <p className="ff-c fs-lg ta-c c-slate">Sphinx of black quartz, judge my vow.</p>
+  <p className="ff-s fs-lg ta-c c-slate">Sphinx of black quartz, judge my vow.</p>
 </Preview>
 
-```html "ff-c"
-<p class="ff-c fs-lg ta-c c-slate">Sphinx of black quartz, judge my vow.</p>
+```html "ff-s"
+<p class="ff-s fs-lg ta-c c-slate">Sphinx of black quartz, judge my vow.</p>
 ```
 
 ## UI Monospace
@@ -31,18 +31,18 @@ If ui-monospace is not available, it will fall back to `Consolas`, and then to a
 <p class="ff-m fs-lg ta-c c-slate">Sphinx of black quartz, judge my vow.</p>
 ```
 
-## System UI
+## Default
 
-If `system-ui` is not available, it will fall back to a generic `sans-serif` font.
+If Default is not available, it will fall back to a generic `sans-serif` font.
 
-<Note icon="heart">Yumma CSS uses the `system-ui` as a default font family. Learn more about it in the [docs](/docs/base-styles#document).</Note>
+<Note icon="heart">Yumma CSS uses the `Default` as a default font family. Learn more about it in the [docs](/docs/base-styles#document).</Note>
 
 <Preview variant="inline">
-  <p className="ff-s fs-lg ta-c c-slate">Sphinx of black quartz, judge my vow.</p>
+  <p className="ff-d fs-lg ta-c c-slate">Sphinx of black quartz, judge my vow.</p>
 </Preview>
 
-```html "ff-s"
-<p class="ff-s fs-lg ta-c c-slate">Sphinx of black quartz, judge my vow.</p>
+```html "ff-d"
+<p class="ff-d fs-lg ta-c c-slate">Sphinx of black quartz, judge my vow.</p>
 ```
 
 ## Using utility variants
@@ -51,8 +51,8 @@ Learn how to override existing utilities based on the user's [screen size](/docs
 
 ### Targeting different viewports
 
-<MediaVariant class="ff-s" variant="ff-m" classPrefix="ff" />
+<MediaVariant class="ff-d" variant="ff-m" classPrefix="ff" />
 
 ### Targeting hover states
 
-<HoverVariant class="ff-s" variant="ff-m" classPrefix="ff" />
+<HoverVariant class="ff-d" variant="ff-m" classPrefix="ff" />
