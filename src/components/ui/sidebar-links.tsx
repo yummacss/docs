@@ -26,13 +26,13 @@ const sidebarLinks: SidebarLink[] = [
     href: "/docs/installation",
     icon: BookIcon,
     isActive: (pathname) =>
-      pathname.startsWith("/docs") && pathname !== "/docs/core-package",
+      pathname.startsWith("/docs") && pathname !== "/docs/core-module",
   },
   {
     title: "Core Module",
     href: "/docs/core-module",
     icon: AtomIcon,
-    isActive: (pathname) => pathname === "/docs/core-package",
+    isActive: (pathname) => pathname === "/docs/core-module",
   },
   {
     title: "Blog Articles",
