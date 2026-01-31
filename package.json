@@ -1,6 +1,6 @@
 {
   "name": "yumma-css-docs",
-  "version": "3.9.0",
+  "version": "0.0.0",
   "description": "A CLI-first CSS framework for the web with abbreviated styles.",
   "homepage": "https://yummacss.com",
   "license": "MIT",
@@ -29,7 +29,7 @@
     "@react-three/fiber": "^9.5.0",
     "@vercel/analytics": "^1.6.1",
     "@vercel/speed-insights": "^1.3.1",
-    "@yummacss/core": "^3.10.0",
+    "@yummacss/core": "^3.10.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "expressive-code-collapsible": "^0.1.0",
