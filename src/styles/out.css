@@ -1135,6 +1135,10 @@ summary {
   cursor: w-resize;
 }
 
+.c-yellow {
+  color: #ffb81c;
+}
+
 .c-zi {
   cursor: zoom-in;
 }
