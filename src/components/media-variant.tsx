@@ -1,8 +1,8 @@
 interface MediaVariantProps {
-  classPrefix: string;
+  prefix: string;
 }
 
-export default function MediaVariant({ classPrefix }: MediaVariantProps) {
+export default function MediaVariant({ prefix }: MediaVariantProps) {
   return (
     <div className="mb-6">
       <p className="mb-4 c-white/80">
@@ -11,28 +11,28 @@ export default function MediaVariant({ classPrefix }: MediaVariantProps) {
           className="fs-sm px-2 py-1"
           style={{ backgroundColor: "#21243f" }}
         >
-          sm:{classPrefix}-[utility]
+          sm:{prefix}-[utility]
         </code>
         ,{" "}
         <code
           className="fs-sm px-2 py-1"
           style={{ backgroundColor: "#21243f" }}
         >
-          md:{classPrefix}-[utility]
+          md:{prefix}-[utility]
         </code>
         ,{" "}
         <code
           className="fs-sm px-2 py-1"
           style={{ backgroundColor: "#21243f" }}
         >
-          lg:{classPrefix}-[utility]
+          lg:{prefix}-[utility]
         </code>
         , and{" "}
         <code
           className="fs-sm px-2 py-1"
           style={{ backgroundColor: "#21243f" }}
         >
-          xxl:{classPrefix}-[utility]
+          xxl:{prefix}-[utility]
         </code>{" "}
         to allow targeting specific utilities in different viewports.
       </p>
