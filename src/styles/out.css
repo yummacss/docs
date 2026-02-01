@@ -2152,6 +2152,10 @@ summary {
   opacity: .9;
 }
 
+.h\:t-s-80:hover {
+  transform: scale(.8);
+}
+
 .h\:td-u:hover {
   text-decoration: underline;
 }
@@ -3317,6 +3321,10 @@ summary {
   stroke: #64748b;
 }
 
+.s\:\:bg-blue-10::selection {
+  background-color: #102c67;
+}
+
 .s\:\:bg-indigo::selection {
   background-color: #6366f1;
 }
@@ -3677,6 +3685,10 @@ summary {
   text-align: start;
 }
 
+.td-3 {
+  transition-duration: .15s;
+}
+
 .td-none {
   text-decoration: none;
 }
@@ -3697,8 +3709,8 @@ summary {
   text-decoration-color: #ffb81c;
 }
 
-.tde-0 {
-  transition-delay: 0s;
+.tde-3 {
+  transition-delay: .15s;
 }
 
 .tdl-lt {
