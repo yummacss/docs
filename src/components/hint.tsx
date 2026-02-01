@@ -22,12 +22,12 @@ const icons = {
 
 type IconName = keyof typeof icons;
 
-interface NoteProps {
+interface Props {
   icon: IconName;
   children: ReactNode;
 }
 
-export default function Note({ icon, children }: NoteProps) {
+export default function Hint({ icon, children }: Props) {
   const Icon = icons[icon];
 
   return (

@@ -1,13 +1,13 @@
 import type { MDXComponents } from "mdx/types";
 import Image from "next/image";
 import Baseline from "@/components/baseline";
+import Hint from "@/components/hint";
 import HoverVariant from "@/components/hover-variant";
 import LegacyColor from "@/components/legacy/legacy-color";
 import LegacyPalette from "@/components/legacy/legacy-palette";
 import LegacyTable from "@/components/legacy/legacy-table";
 import MediaVariant from "@/components/media-variant";
 import NegativeValues from "@/components/negative-values";
-import Note from "@/components/note";
 import OpacityVariant from "@/components/opacity-variant";
 import Palette from "@/components/palette";
 import Preview from "@/components/preview";
@@ -35,18 +35,18 @@ function generateId(children: React.ReactNode): string {
 
 const components: MDXComponents = {
   // docs components
-  Reference,
   Baseline,
+  Hint,
   HoverVariant,
   LegacyColor,
   LegacyPalette,
   LegacyTable,
   MediaVariant,
   NegativeValues,
-  Note,
   OpacityVariant,
   Palette,
   Preview,
+  Reference,
   Step,
   Stepper,
   Steps: Stepper, // Alias for Stepper
