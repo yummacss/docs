@@ -3571,8 +3571,8 @@ summary {
   text-align: start;
 }
 
-.td-3 {
-  transition-duration: .15s;
+.td-300 {
+  transition-delay: .3s;
 }
 
 .td-none {
@@ -3645,6 +3645,10 @@ summary {
 
 .tdt-ff {
   text-decoration-thickness: from-font;
+}
+
+.tdu-500 {
+  transition-duration: .5s;
 }
 
 .ti-0 {
