@@ -2054,10 +2054,6 @@ summary {
   background-color: #4d3708;
 }
 
-.h\:bsh-lg:hover {
-  box-shadow: 1px 3px 5px 1px #0000001a;
-}
-
 .h\:c-black:hover {
   color: #000;
 }
@@ -3709,6 +3705,10 @@ summary {
 
 .tp-a {
   transition-property: all;
+}
+
+.tp-bs {
+  transition-property: box-shadow;
 }
 
 .tp-c {
