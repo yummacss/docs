@@ -1,10 +1,10 @@
 # Yumma CSS
 This is the documentation for the `yummacss` package.
-It is a CLI-first CSS framework with abbreviated, intuitive class names.
+An atomic CSS framework with abbreviated class names.
 
 ## Getting Started
 
-- [Installation](https://yummacss.com/docs/installation): Yumma CSS a CLI-first CSS framework for the web with abbreviated styles.
+- [Installation](https://yummacss.com/docs/installation): An atomic CSS framework with abbreviated class names.
 - [Configuration](https://yummacss.com/docs/configuration): Setting your first Yumma CSS project.
 - [Upgrading](https://yummacss.com/docs/upgrading): Learn how to upgrade your project from Yumma CSS v2 to v3.
 
@@ -13,7 +13,9 @@ It is a CLI-first CSS framework with abbreviated, intuitive class names.
 - [Styling Elements](https://yummacss.com/docs/styling-elements): Learn how to style elements in Yumma CSS.
 - [Colors](https://yummacss.com/docs/colors): Learn how to use colors in Yumma CSS.
 - [Media Queries](https://yummacss.com/docs/media-queries): Learn how to make responsive layouts with Yumma CSS.
+- [Negative Values](https://yummacss.com/docs/negative-values): Learn how to use negative values with Yumma CSS utilities.
 - [Pseudo Classes](https://yummacss.com/docs/pseudo-classes): Learn how to use pseudo-classes in Yumma CSS.
+- [Pseudo Elements](https://yummacss.com/docs/pseudo-elements): Learn how to style pseudo-elements in Yumma CSS.
 - [Base Styles](https://yummacss.com/docs/base-styles): Accessible and modern set of base styles for Yumma CSS projects.
 
 ## Background
@@ -107,23 +109,28 @@ It is a CLI-first CSS framework with abbreviated, intuitive class names.
 - [Scroll Snap Align](https://yummacss.com/docs/scroll-snap-align): Controls where the scroll snaps to align with an element.
 - [Scroll Snap Stop](https://yummacss.com/docs/scroll-snap-stop): Controls whether the scroll container passes over possible snap positions.
 - [Scroll Snap Type](https://yummacss.com/docs/scroll-snap-type): Controls the strictness of snap points in a snap container.
+- [Touch Action](https://yummacss.com/docs/touch-action): Controls how touch gestures are handled by an element.
 - [User Select](https://yummacss.com/docs/user-select): Controls the ability of the user to select text in an element.
 
 ## Positioning
 
 - [Aspect Ratio](https://yummacss.com/docs/aspect-ratio): Controls the aspect ratio of an element.
+- [Bottom](https://yummacss.com/docs/bottom): Controls the bottom placement of positioned elements.
 - [Clear](https://yummacss.com/docs/clear): Controls moving elements under floating elements.
 - [Columns](https://yummacss.com/docs/columns): Controls how many columns are in an element.
 - [Display](https://yummacss.com/docs/display): Controls the display box type of an element.
 - [Float](https://yummacss.com/docs/float): Controls the content wrapping around an element.
+- [Inset](https://yummacss.com/docs/inset): Controls the placement of positioned elements in all directions.
 - [Isolation](https://yummacss.com/docs/isolation): Controls whether an element must create a new stacking context.
+- [Left](https://yummacss.com/docs/left): Controls the left placement of positioned elements.
 - [Object Fit](https://yummacss.com/docs/object-fit): Controls how to resize the content of a replaced element.
 - [Object Position](https://yummacss.com/docs/object-position): Controls how to position the container
-- [Overflow](https://yummacss.com/docs/overflow): Controls how an element behaves when content overflows.
 - [Overflow X](https://yummacss.com/docs/overflow-x): Controls how an element behaves when content overflows on the X-axis.
 - [Overflow Y](https://yummacss.com/docs/overflow-y): Controls how an element behaves when content overflows on the Y-axis.
+- [Overflow](https://yummacss.com/docs/overflow): Controls how an element behaves when content overflows.
 - [Position](https://yummacss.com/docs/position): Controls the positioning of elements.
-- [Top / Right / Bottom / Left](https://yummacss.com/docs/top-right-bottom-left): Controls placement of positioned elements.
+- [Right](https://yummacss.com/docs/right): Controls the right placement of positioned elements.
+- [Top](https://yummacss.com/docs/top): Controls the top placement of positioned elements.
 - [Visibility](https://yummacss.com/docs/visibility): Controls the visibility of an element without affecting the layout.
 - [Z-Index](https://yummacss.com/docs/z-index): Controls the element
 
@@ -142,6 +149,15 @@ It is a CLI-first CSS framework with abbreviated, intuitive class names.
 - [Scale](https://yummacss.com/docs/scale): Controls how an element changes size on a 2D plane.
 - [Skew](https://yummacss.com/docs/skew): Controls how an element on the 2D plane is transformed.
 - [Transform Origin](https://yummacss.com/docs/transform-origin): Controls to specify where an element should start transforming.
+- [Translate X](https://yummacss.com/docs/translate-x): Controls horizontal translation of an element along the X-axis.
+- [Translate Y](https://yummacss.com/docs/translate-y): Controls vertical translation of an element along the Y-axis.
+
+## Transition
+
+- [Transition Delay](https://yummacss.com/docs/transition-delay): Controls the delay before a transition effect starts.
+- [Transition Duration](https://yummacss.com/docs/transition-duration): Controls the duration of a transition effect.
+- [Transition Property](https://yummacss.com/docs/transition-property): Controls which properties should have a transition effect.
+- [Transition Timing Function](https://yummacss.com/docs/transition-timing-function): Controls the speed curve of a transition effect.
 
 ## Typography
 

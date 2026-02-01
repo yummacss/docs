@@ -3,8 +3,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 
-const description =
-  "A CLI-first CSS framework for the web with abbreviated styles.";
+const description = "An atomic CSS framework with abbreviated class names.";
 
 export const metadata: Metadata = {
   title: {

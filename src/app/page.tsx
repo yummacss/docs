@@ -1,9 +1,9 @@
 import {
-  GlobeSimpleIcon,
+  FeatherIcon,
   LightningIcon,
+  SealCheckIcon,
   SparkleIcon,
   StarIcon,
-  TerminalIcon,
 } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
 import DarkVeil from "@/components/dark-veil";
@@ -44,7 +44,7 @@ export default function Home() {
                 Style more, type even less
               </h1>
               <p className="fs-lg c-white/70 mb-8 lh-5">
-                A CLI-first CSS framework for the web with abbreviated and
+                An atomic CSS framework with abbreviated utility classes and
                 optimized styles for simple and scalable design systems.
               </p>
 
@@ -66,16 +66,16 @@ export default function Home() {
 
               <div className="d-f fw-w g-3 btw-1 bc-white/10 pt-6">
                 <div className="px-4 py-2 bg-white/5 bf-b-md fs-xs d-f ai-c g-2 bw-1 bc-white/10 tt-u us-none">
-                  <GlobeSimpleIcon size={15} weight="duotone" />
-                  Dedicated Library
+                  <SealCheckIcon size={15} weight="duotone" />
+                  Tomorrow's CSS
                 </div>
                 <div className="px-4 py-2 bg-white/5 bf-b-md fs-xs d-f ai-c g-2 bw-1 bc-white/10 tt-u us-none">
-                  <TerminalIcon size={15} />
-                  CLI-First
-                </div>
-                <div className="px-4 py-2 bg-white/5 bf-b-md fs-xs d-f ai-c g-2 bw-1 bc-white/10 tt-u us-none">
-                  <LightningIcon size={15} weight="duotone" />
+                  <LightningIcon size={15} />
                   Blazing Fast
+                </div>
+                <div className="px-4 py-2 bg-white/5 bf-b-md fs-xs d-f ai-c g-2 bw-1 bc-white/10 tt-u us-none">
+                  <FeatherIcon size={15} weight="duotone" />
+                  Featherlight
                 </div>
               </div>
             </div>
