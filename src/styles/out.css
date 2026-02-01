@@ -2002,10 +2002,6 @@ summary {
   background-color: #d7f8f0;
 }
 
-.h\:bg-indigo-3:hover {
-  background-color: #babcf9;
-}
-
 .h\:bg-indigo-6\/50:hover {
   background-color: #797bf380;
 }
@@ -2058,6 +2054,10 @@ summary {
   background-color: #4d3708;
 }
 
+.h\:bsh-lg:hover {
+  box-shadow: 1px 3px 5px 1px #0000001a;
+}
+
 .h\:c-black:hover {
   color: #000;
 }
@@ -2086,12 +2086,20 @@ summary {
   color: #ffffffe6;
 }
 
+.h\:o-50:hover {
+  opacity: .5;
+}
+
 .h\:o-90:hover {
   opacity: .9;
 }
 
 .h\:t-s-80:hover {
   transform: scale(.8);
+}
+
+.h\:t-s-90:hover {
+  transform: scale(.9);
 }
 
 .h\:td-u:hover {
@@ -3575,6 +3583,14 @@ summary {
   transition-delay: .3s;
 }
 
+.td-500 {
+  transition-delay: .5s;
+}
+
+.td-700 {
+  transition-delay: .7s;
+}
+
 .td-none {
   text-decoration: none;
 }
@@ -3647,8 +3663,16 @@ summary {
   text-decoration-thickness: from-font;
 }
 
+.tdu-300 {
+  transition-duration: .3s;
+}
+
 .tdu-500 {
   transition-duration: .5s;
+}
+
+.tdu-700 {
+  transition-duration: .7s;
 }
 
 .ti-0 {
@@ -3687,6 +3711,22 @@ summary {
   transition-property: all;
 }
 
+.tp-c {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+}
+
+.tp-none {
+  transition-property: none;
+}
+
+.tp-o {
+  transition-property: opacity;
+}
+
+.tp-t {
+  transition-property: transform;
+}
+
 .ts-2 {
   tab-size: 2;
 }
@@ -3713,6 +3753,10 @@ summary {
 
 .ttf-io {
   transition-timing-function: ease-in-out;
+}
+
+.ttf-l {
+  transition-timing-function: linear;
 }
 
 .tuo-0 {
