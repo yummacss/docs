@@ -1103,6 +1103,10 @@ summary {
   color: #fff;
 }
 
+.c-white\/30 {
+  color: #ffffff4d;
+}
+
 .c-white\/40 {
   color: #fff6;
 }
@@ -2891,6 +2895,10 @@ summary {
   padding-bottom: 3rem;
 }
 
+.pb-2 {
+  padding-bottom: .5rem;
+}
+
 .pb-3 {
   padding-bottom: .75rem;
 }
@@ -3069,6 +3077,10 @@ summary {
 
 .pt-8 {
   padding-top: 2rem;
+}
+
+.px-0 {
+  padding-inline: 0;
 }
 
 .px-1 {

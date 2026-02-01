@@ -11,11 +11,11 @@ import Note from "@/components/note";
 import OpacityVariant from "@/components/opacity-variant";
 import Palette from "@/components/palette";
 import Preview from "@/components/preview";
+import Reference from "@/components/reference";
 import Stepper, { Step } from "@/components/stepper";
 import { Tabs, TabsList, TabsPanel, TabsTab } from "@/components/tabs";
 import TemplateFAQ from "@/components/ui/templates/faq";
 import TemplatesList from "@/components/ui/templates/list";
-import UtilityTable from "@/components/utility-table";
 
 // generate IDs from heading text
 function generateId(children: React.ReactNode): string {
@@ -35,7 +35,7 @@ function generateId(children: React.ReactNode): string {
 
 const components: MDXComponents = {
   // docs components
-  UtilityTable,
+  Reference,
   Baseline,
   HoverVariant,
   LegacyColor,
