@@ -11,28 +11,28 @@ export default function MediaVariant({ classPrefix }: MediaVariantProps) {
           className="fs-sm px-2 py-1"
           style={{ backgroundColor: "#21243f" }}
         >
-          sm:{classPrefix}-*
+          sm:{classPrefix}-[utility]
         </code>
         ,{" "}
         <code
           className="fs-sm px-2 py-1"
           style={{ backgroundColor: "#21243f" }}
         >
-          md:{classPrefix}-*
+          md:{classPrefix}-[utility]
         </code>
         ,{" "}
         <code
           className="fs-sm px-2 py-1"
           style={{ backgroundColor: "#21243f" }}
         >
-          lg:{classPrefix}-*
+          lg:{classPrefix}-[utility]
         </code>
         , and{" "}
         <code
           className="fs-sm px-2 py-1"
           style={{ backgroundColor: "#21243f" }}
         >
-          xxl:{classPrefix}-*
+          xxl:{classPrefix}-[utility]
         </code>{" "}
         to allow targeting specific utilities in different viewports.
       </p>
