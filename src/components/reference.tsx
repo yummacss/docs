@@ -94,7 +94,7 @@ export default function Reference({ category, name }: Props) {
 
   return (
     <div
-      className="mb-6 br-1 o-h"
+      className="mb-6 o-h"
       style={{ backgroundColor: "#1a1d2e", border: "1px solid #232741" }}
     >
       <Accordion defaultValue={[0]}>
