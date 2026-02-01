@@ -18,7 +18,7 @@ export default function HoverVariant({ prefix }: HoverVariantProps) {
           className="fs-sm px-2 py-1"
           style={{ backgroundColor: "#21243f" }}
         >
-          h:{prefix}[utility]
+          h:{prefix}-[utility]
         </code>{" "}
         utility to override elements and change their values when hovering over
         them.
