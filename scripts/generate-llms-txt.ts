@@ -118,7 +118,7 @@ function generateLlmsTxt(): void {
 
   // Header
   const header =
-    "# Yumma CSS\nThis is the documentation for the `yummacss` package.\nIt is a CLI-first CSS framework with abbreviated, intuitive class names.";
+    "# Yumma CSS\nThis is the documentation for the `yummacss` package.\nAn atomic CSS framework with abbreviated class names.";
 
   sections.push(header);
 
