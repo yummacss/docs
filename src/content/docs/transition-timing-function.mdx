@@ -7,16 +7,48 @@ export const meta = {
 
 <Reference category="transition" name="transition-timing-function" />
 
-## Usage
-
 Use the `ttf-*` utilities to control the pace of a transition.
 
+<Note icon="cursor">Try hovering the div to see how the timing affects the animation speed.</Note>
+
+## Linear
+
 <Preview>
-  <div className="bg-indigo d-16 tp-a td-300 ttf-io h:bg-indigo-3"></div>
+  <div className="bg-indigo d-16 tp-a tdu-500 ttf-l h:t-s-80"></div>
+</Preview>
+
+```html "ttf-l"
+<div class="bg-indigo d-16 tp-a tdu-500 ttf-l h:t-s-80"></div>
+```
+
+## Ease-in
+
+<Preview>
+  <div className="bg-indigo d-16 tp-a tdu-500 ttf-i h:t-s-80"></div>
+</Preview>
+
+```html "ttf-i"
+<div class="bg-indigo d-16 tp-a tdu-500 ttf-i h:t-s-80"></div>
+```
+
+## Ease-out
+
+<Preview>
+  <div className="bg-indigo d-16 tp-a tdu-500 ttf-o h:t-s-80"></div>
+</Preview>
+
+```html "ttf-o"
+<div class="bg-indigo d-16 tp-a tdu-500 ttf-o h:t-s-80"></div>
+```
+
+## Ease-in-out
+
+<Preview>
+  <div className="bg-indigo d-16 tp-a tdu-500 ttf-io h:t-s-80"></div>
 </Preview>
 
 ```html "ttf-io"
-<div class="bg-indigo d-16 tp-a td-300 ttf-io h:bg-indigo-3"></div>
+<div class="bg-indigo d-16 tp-a tdu-500 ttf-io h:t-s-80"></div>
 ```
 
 ## Using utility variants
