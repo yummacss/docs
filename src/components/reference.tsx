@@ -112,7 +112,7 @@ export default function Reference({ category, name }: Props) {
           </AccordionTrigger>
           <AccordionPanel>
             {/* Utilities list */}
-            <div className="max-h-72 o-y-auto">
+            <div className="max-h-52 o-y-auto">
               {/* Subtle search input */}
               <div
                 className="d-f ai-c g-2 mb-2 pb-2"
