@@ -1,8 +1,8 @@
 interface HoverVariantProps {
-  classPrefix: string;
+  prefix: string;
 }
 
-export default function HoverVariant({ classPrefix }: HoverVariantProps) {
+export default function HoverVariant({ prefix }: HoverVariantProps) {
   return (
     <div className="mb-6">
       <p className="mb-4 c-white/80">
@@ -18,7 +18,7 @@ export default function HoverVariant({ classPrefix }: HoverVariantProps) {
           className="fs-sm px-2 py-1"
           style={{ backgroundColor: "#21243f" }}
         >
-          h:{classPrefix}-*
+          h:{prefix}[utility]
         </code>{" "}
         utility to override elements and change their values when hovering over
         them.

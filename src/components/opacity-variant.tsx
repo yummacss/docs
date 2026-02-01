@@ -11,44 +11,44 @@ export default function OpacityVariant({ classPrefix }: OpacityVariantProps) {
           className="fs-sm px-2 py-1"
           style={{ backgroundColor: "#21243f" }}
         >
-          {classPrefix}-*
+          {classPrefix}-[color]
         </code>{" "}
         syntax, where{" "}
         <code
           className="fs-sm px-2 py-1"
           style={{ backgroundColor: "#21243f" }}
-        >
-          *
+        >        
+          /[number]
         </code>{" "}
         represents the opacity value (e.g.,{" "}
         <code
           className="fs-sm px-2 py-1"
           style={{ backgroundColor: "#21243f" }}
         >
-          {classPrefix}-*/25
+          {classPrefix}-[color]/25
         </code>
         ,{" "}
         <code
           className="fs-sm px-2 py-1"
           style={{ backgroundColor: "#21243f" }}
         >
-          {classPrefix}-*/50
+          {classPrefix}-[color]/50
         </code>
         ,{" "}
         <code
           className="fs-sm px-2 py-1"
           style={{ backgroundColor: "#21243f" }}
         >
-          {classPrefix}-*/75
+          {classPrefix}-[color]/75
         </code>
         ,{" "}
         <code
           className="fs-sm px-2 py-1"
           style={{ backgroundColor: "#21243f" }}
         >
-          {classPrefix}-*/100
+          {classPrefix}-[color]/100
         </code>
-        ) to create semi-transparent versions of the base color.
+        ).
       </p>
     </div>
   );
