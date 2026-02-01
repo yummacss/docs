@@ -67,7 +67,7 @@ export default function Baseline({ path }: BaselineProps) {
       ? "This feature works across the latest devices and browser versions. This feature might not work in older devices or browsers."
       : "This feature does not work in some of the most widely-used browsers.";
 
-  const statusColor = isHigh ? "c-white" : isLow ? "c-white" : "c-white";
+  const statusColor = isHigh ? "c-green" : isLow ? "c-white" : "c-yellow";
 
   const StatusIcon = isHigh ? SealCheckIcon : isLow ? ChecksIcon : WarningIcon;
 
@@ -104,7 +104,7 @@ export default function Baseline({ path }: BaselineProps) {
       <div className="d-g g-4 gtc-1 sm:gtc-2 md:gtc-4">
         {browsers.map((browser) => (
           <div key={browser.key} className="d-f ai-c g-2">
-            <div className={browser.supported ? "c-white" : "c-red"}>
+            <div className={browser.supported ? "c-green" : "c-red"}>
               {browser.supported ? (
                 <ThumbsUpIcon size={20} weight="duotone" />
               ) : (
