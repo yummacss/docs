@@ -875,6 +875,10 @@ summary {
   box-shadow: 1px 3px 5px -1px #0000001a;
 }
 
+.bsh-none {
+  box-shadow: none;
+}
+
 .bsh-sm {
   box-shadow: 1px 3px 5px -2px #0000001a;
 }
@@ -2052,6 +2056,10 @@ summary {
 
 .h\:bg-yellow-11:hover {
   background-color: #4d3708;
+}
+
+.h\:bsh-xl:hover {
+  box-shadow: 1px 3px 5px 2px #0000001a;
 }
 
 .h\:c-black:hover {
