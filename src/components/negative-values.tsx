@@ -1,8 +1,8 @@
 interface NegativeValuesProps {
-  classPrefix: string;
+  prefix: string;
 }
 
-export default function NegativeValues({ classPrefix }: NegativeValuesProps) {
+export default function NegativeValues({ prefix }: NegativeValuesProps) {
   return (
     <div className="mb-6">
       <p className="mb-4 c-white/80">
@@ -18,7 +18,7 @@ export default function NegativeValues({ classPrefix }: NegativeValuesProps) {
           className="fs-sm px-2 py-1"
           style={{ backgroundColor: "#21243f" }}
         >
-          {classPrefix}--4
+          {prefix}--4
         </code>{" "}
         applies a negative.
       </p>
