@@ -9,7 +9,7 @@ Pseudo-element variants allow you to style `::before`, `::after`, `::selection`,
 
 It makes a pseudo-element that's the first child of the selected element.
 
-<Note icon="info">Pseudo-elements require content to be visible. Make sure to set content via CSS or inline styles when using `::before`.</Note>
+<Hint icon="info">Pseudo-elements require content to be visible. Make sure to set content via CSS or inline styles when using `::before`.</Hint>
 
 ```html "b::p-a" "b::bg-indigo/10"
 <div class="p-r b::p-a b::i-0 b::bg-indigo/10 p-8">
@@ -21,7 +21,7 @@ It makes a pseudo-element that's the first child of the selected element.
 
 It makes a pseudo-element that's the last child of the selected element.
 
-<Note icon="info">Like `::before`, the `::after` pseudo-element requires content to be visible.</Note>
+<Hint icon="info">Like `::before`, the `::after` pseudo-element requires content to be visible.</Hint>
 
 ```html "a::p-a" "a::c-indigo"
 <div class="p-r a::p-a a::c-indigo">
@@ -33,7 +33,7 @@ It makes a pseudo-element that's the last child of the selected element.
 
 It applies styles to highlighted text.
 
-<Note icon="cursor_text">Try selecting the text below to see the custom selection styling.</Note>
+<Hint icon="cursor_text">Try selecting the text below to see the custom selection styling.</Hint>
 
 <Preview>
   <p className="s::bg-indigo c-black">Select this text to see custom selection colors!</p>
@@ -47,7 +47,7 @@ It applies styles to highlighted text.
 
 This is the placeholder text for an input or textarea element.
 
-<Note icon="cursor_click">Try focusing on the input to see the placeholder styling.</Note>
+<Hint icon="cursor_click">Try focusing on the input to see the placeholder styling.</Hint>
 
 <Preview>
   <input className="p::c-silver bw-1 bc-silver p-3 w-full" placeholder="Enter your email..." />
