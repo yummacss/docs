@@ -1,22 +1,22 @@
 {
   "name": "yumma-css-docs",
   "version": "3.10.2",
-  "description": "A CLI-first CSS framework for the web with abbreviated styles.",
+  "private": true,
+  "description": "Official documentation website for Yumma CSS.",
   "homepage": "https://yummacss.com",
   "license": "MIT",
   "author": "Renildo Pereira",
-  "private": true,
   "type": "module",
   "scripts": {
-    "build:css": "yummacss build",
     "build": "next build",
+    "build:css": "yummacss build",
     "dev": "concurrently \"next dev --turbo\" \"yummacss watch\"",
     "generate:llms": "tsx scripts/generate-llms-txt.ts",
     "lint": "biome check --write",
+    "sort": "sort-package-json",
     "start": "next start",
     "update-yummacss": "pnpm up yummacss @yummacss/core --latest"
   },
-  "packageManager": "pnpm@10.28.2",
   "dependencies": {
     "@base-ui/react": "^1.1.0",
     "@fontsource/esteban": "^5.2.7",
@@ -56,8 +56,10 @@
     "@types/tinycolor2": "^1.4.6",
     "concurrently": "^9.2.1",
     "remark-code-preview": "^1.2.6",
+    "sort-package-json": "^3.6.1",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3",
     "yummacss": "^3.10.2"
-  }
+  },
+  "packageManager": "pnpm@10.28.2"
 }
