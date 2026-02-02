@@ -34,6 +34,7 @@
     "clsx": "^2.1.1",
     "expressive-code-collapsible": "^0.1.0",
     "gsap": "^3.14.2",
+    "motion": "^12.30.0",
     "next": "16.1.6",
     "next-mdx-remote-client": "^2.1.7",
     "ogl": "^1.0.11",

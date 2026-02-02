@@ -385,6 +385,10 @@ summary {
   border-color: #a5a6f7;
 }
 
+.bc-indigo-7 {
+  border-color: #5558cf;
+}
+
 .bc-indigo-8 {
   border-color: #4749ae;
 }
@@ -409,6 +413,10 @@ summary {
   border-color: #f18c94;
 }
 
+.bc-red-7 {
+  border-color: #c6313c;
+}
+
 .bc-s {
   border-collapse: separate;
 }
@@ -419,6 +427,10 @@ summary {
 
 .bc-silver-2 {
   border-color: #e1e3e7;
+}
+
+.bc-silver-3 {
+  border-color: #d3d7dc;
 }
 
 .bc-silver-4 {
@@ -611,6 +623,10 @@ summary {
 
 .bg-silver-1 {
   background-color: #eff0f2;
+}
+
+.bg-silver-1\/50 {
+  background-color: #eff0f280;
 }
 
 .bg-silver-2 {
@@ -1366,10 +1382,6 @@ summary {
   background-color: #c6cad1;
 }
 
-.d\:c-silver-8:disabled {
-  color: #70757e;
-}
-
 .d\:c-silver-9:disabled {
   color: #5a5f66;
 }
@@ -1646,6 +1658,14 @@ summary {
   outline-color: #a5a6f7;
 }
 
+.fv\:oc-indigo-6:focus-visible {
+  outline-color: #797bf3;
+}
+
+.fv\:oc-red-6:focus-visible {
+  outline-color: #ea5560;
+}
+
 .fv\:oc-white:focus-visible {
   outline-color: #fff;
 }
@@ -1660,6 +1680,10 @@ summary {
 
 .fv\:oo--2:focus-visible {
   outline-offset: -2px;
+}
+
+.fv\:oo-1:focus-visible {
+  outline-offset: 1px;
 }
 
 .fv\:oo-2:focus-visible {
@@ -1760,10 +1784,6 @@ summary {
 
 .g-4 {
   gap: 1rem;
-}
-
-.g-5 {
-  gap: 1.25rem;
 }
 
 .g-6 {
@@ -1954,6 +1974,10 @@ summary {
   height: 12.5rem;
 }
 
+.h-55 {
+  height: 13.75rem;
+}
+
 .h-6 {
   height: 1.5rem;
 }
@@ -2034,12 +2058,24 @@ summary {
   background-color: #451115;
 }
 
+.h\:bg-red-8:hover {
+  background-color: #a62932;
+}
+
 .h\:bg-red\/50:hover {
   background-color: #e6394680;
 }
 
 .h\:bg-silver-1:hover {
   background-color: #eff0f2;
+}
+
+.h\:bg-silver-1\/50:hover {
+  background-color: #eff0f280;
+}
+
+.h\:bg-silver-1\/55:hover {
+  background-color: #eff0f28c;
 }
 
 .h\:bg-silver-2:hover {
@@ -3039,10 +3075,6 @@ summary {
   padding-left: 1.75rem;
 }
 
-.pr-1 {
-  padding-right: .25rem;
-}
-
 .pr-3 {
   padding-right: .75rem;
 }
@@ -3163,6 +3195,10 @@ summary {
   padding-block: 1rem;
 }
 
+.py-5 {
+  padding-block: 1.25rem;
+}
+
 .py-6 {
   padding-block: 1.5rem;
 }
@@ -3257,10 +3293,6 @@ summary {
 
 .s-slate {
   stroke: #64748b;
-}
-
-.s\:\:bg-blue-10::selection {
-  background-color: #102c67;
 }
 
 .s\:\:bg-indigo::selection {
@@ -3679,6 +3711,10 @@ summary {
   text-decoration-thickness: from-font;
 }
 
+.tdu-150 {
+  transition-duration: .15s;
+}
+
 .tdu-300 {
   transition-duration: .3s;
 }
@@ -3943,10 +3979,6 @@ summary {
   width: 20rem;
 }
 
-.w-92 {
-  width: 23rem;
-}
-
 .w-96 {
   width: 24rem;
 }
@@ -4160,10 +4192,6 @@ summary {
 
   .md\:min-w-16 {
     min-width: 4rem;
-  }
-
-  .md\:w-80 {
-    width: 20rem;
   }
 
   .md\:w-auto {
