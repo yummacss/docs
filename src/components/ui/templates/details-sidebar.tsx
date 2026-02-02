@@ -40,14 +40,14 @@ export default function TemplateDetailsSidebar() {
           <div className="d-f fd-c g-2 mb-6">
             <Link
               href={template.checkoutUrl}
-              className="d-f ai-c jc-c bg-white c-black px-4 py-3 fw-600 fs-sm h:bg-white/90 us-none"
+              className="d-f ai-c jc-c bg-white c-black px-4 py-3 fw-600 fs-sm h:bg-white/90 us-none fv:oc-indigo-4 fv:ow-2"
             >
               Get template
             </Link>
             <Link
               href={template.previewUrl}
               target="_blank"
-              className="d-f ai-c jc-c g-2 bg-transparent c-white px-4 py-3 fw-500 fs-sm bw-1 bc-white/20 h:bg-white/5 us-none"
+              className="d-f ai-c jc-c g-2 bg-transparent c-white px-4 py-3 fw-500 fs-sm bw-1 bc-white/20 h:bg-white/5 us-none fv:oc-indigo-4 fv:ow-2"
             >
               <span>Live preview</span>
               <ArrowSquareOutIcon size={16} weight="bold" />

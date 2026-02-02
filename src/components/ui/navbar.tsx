@@ -1,9 +1,10 @@
 "use client";
 
+import { Button } from "@base-ui/react";
 import { MagnifyingGlassIcon } from "@phosphor-icons/react/dist/ssr";
+import { YummaCSS } from "@react-symbols/icons/files";
 import { cva, type VariantProps } from "class-variance-authority";
 import { clsx } from "clsx";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { type ReactNode, useEffect, useState } from "react";
@@ -55,15 +56,11 @@ export default function Navbar({ variant, className, links }: NavbarProps) {
         <div className="sm-xxl mx-auto px-6 py-2">
           <nav className="d-f ai-c jc-sb">
             <div className="d-f ai-c g-2">
-              <Link href={isUI ? "/ui" : "/"}>
-                <Image
-                  src={isUI ? "/ui-logotype.png" : "/logotype.png"}
-                  width={240}
-                  height={80}
-                  alt="Yumma CSS"
-                  className="h-10 w-auto of-c us-none"
-                  priority
-                />
+              <Link
+                href={isUI ? "/ui" : "/"}
+                className="fv:oc-indigo-4 fv:ow-2"
+              >
+                <YummaCSS className="h-10 w-auto us-none" />
               </Link>
             </div>
             <div className="d-f ai-c g-8">
@@ -71,40 +68,48 @@ export default function Navbar({ variant, className, links }: NavbarProps) {
                 links
               ) : (
                 <div className="d-none lg:d-f ai-c g-8">
-                  <Link href="/docs" className="fs-sm c-white/80 h:c-white">
+                  <Link
+                    href="/docs"
+                    className="fs-sm c-white/80 h:c-white fv:oc-indigo-4 fv:ow-2"
+                  >
                     Docs
                   </Link>
-                  <Link href="/blog" className="fs-sm c-white/80 h:c-white">
+                  <Link
+                    href="/blog"
+                    className="fs-sm c-white/80 h:c-white fv:oc-indigo-4 fv:ow-2"
+                  >
                     Blog
                   </Link>
                   <Link
                     href="/ui/components"
-                    className="fs-sm c-white/80 h:c-white"
+                    className="fs-sm c-white/80 h:c-white fv:oc-indigo-4 fv:ow-2"
                   >
                     Components
                   </Link>
                   <Link
                     href="/ui/templates"
-                    className="fs-sm c-white/80 h:c-white"
+                    className="fs-sm c-white/80 h:c-white fv:oc-indigo-4 fv:ow-2"
                   >
                     Templates
                   </Link>
                 </div>
               )}
 
-              <button
+              <Button
                 type="button"
                 onClick={() => setSearchOpen(true)}
-                className="d-f ai-c g-2 p-2 lg:px-4 lg:py-2 bg-white/5 bf-b-sm fs-sm h:bg-white/10 c-white bw-1 bc-white/10 br-pill"
+                className="d-f ai-c g-2 p-2 lg:px-4 lg:py-2 bg-white/5 bf-b-sm fs-sm h:bg-white/10 c-white bw-1 bc-white/10 br-pill fv:oc-indigo-4 fv:ow-2"
               >
                 <MagnifyingGlassIcon size={15} />
-                <kbd className="d-none lg:d-b fs-xs c-white/60 us-none">Ctrl K</kbd>
-              </button>
+                <kbd className="d-none lg:d-b fs-xs c-white/60 us-none">
+                  Ctrl K
+                </kbd>
+              </Button>
 
               <div className="d-none md:d-f ai-c g-4 ml-2">
                 <Link
                   href="https://www.npmjs.com/package/yummacss"
-                  className="d-f ai-c g-1 c-white/80 h:c-white fs-xs"
+                  className="d-f ai-c g-1 c-white/80 h:c-white fs-xs fv:oc-indigo-4 fv:ow-2"
                   target="_blank"
                 >
                   <SiNpm size={16} />
@@ -112,7 +117,7 @@ export default function Navbar({ variant, className, links }: NavbarProps) {
                 </Link>
                 <Link
                   href="https://github.com/yummacss/yummacss"
-                  className="d-f ai-c g-1 c-white/80 h:c-white fs-xs"
+                  className="d-f ai-c g-1 c-white/80 h:c-white fs-xs fv:oc-indigo-4 fv:ow-2"
                   target="_blank"
                 >
                   <SiGithub size={16} />

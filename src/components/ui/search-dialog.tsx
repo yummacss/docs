@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@base-ui/react";
 import { Dialog } from "@base-ui/react/dialog";
 import {
   ArrowDownIcon,
@@ -191,7 +192,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                     const isColorCopied = copiedColor === item.title;
 
                     return (
-                      <button
+                      <Button
                         key={`${item.path}-${item.title}`}
                         data-search-item
                         type="button"
@@ -238,7 +239,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                             className="c-white/50 fs-0"
                           />
                         )}
-                      </button>
+                      </Button>
                     );
                   })}
                 </div>

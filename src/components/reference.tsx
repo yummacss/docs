@@ -1,5 +1,6 @@
 "use client";
 
+import { Input } from "@base-ui/react";
 import { MagnifyingGlassIcon } from "@phosphor-icons/react/dist/ssr";
 import * as core from "@yummacss/core";
 import { useState } from "react";
@@ -119,7 +120,7 @@ export default function Reference({ category, name }: Props) {
                 style={{ borderBottom: "1px solid #232741" }}
               >
                 <MagnifyingGlassIcon size={12} className="c-white/30 fs-0" />
-                <input
+                <Input
                   type="text"
                   placeholder="Filter..."
                   value={search}

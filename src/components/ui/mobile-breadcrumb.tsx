@@ -1,6 +1,7 @@
 "use client";
 
-import { CaretRightIcon, ListIcon, XIcon } from "@phosphor-icons/react";
+import { Button } from "@base-ui/react";
+import { CaretRightIcon, EqualsIcon, XIcon } from "@phosphor-icons/react";
 import { usePathname } from "next/navigation";
 import { lazy, Suspense, useEffect, useState } from "react";
 import { findCurrentPageInfo } from "@/utils/sidebar";
@@ -40,14 +41,14 @@ export default function MobileBreadcrumb() {
       >
         <div className="sm-xxl mx-auto px-6 py-2">
           <div className="d-f ai-c g-4">
-            <button
+            <Button
               type="button"
               onClick={() => setIsSidebarOpen(!isSidebarOpen)}
               className="d-f ai-c jc-c c-white/70 h:c-white"
               aria-label={isSidebarOpen ? "Close sidebar" : "Open sidebar"}
             >
-              {isSidebarOpen ? <XIcon size={15} /> : <ListIcon size={15} />}
-            </button>
+              {isSidebarOpen ? <XIcon size={15} /> : <EqualsIcon size={15} />}
+            </Button>
 
             <div className="d-f ai-c g-2 fs-sm c-white/70">
               <span>{pageInfo.sectionTitle}</span>
