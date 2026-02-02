@@ -2503,10 +2503,6 @@ summary {
   min-height: 4rem;
 }
 
-.min-h-36 {
-  min-height: 9rem;
-}
-
 .min-h-dvh {
   min-height: 100dvh;
 }
@@ -3069,10 +3065,6 @@ summary {
 
 .pl-6 {
   padding-left: 1.5rem;
-}
-
-.pl-7 {
-  padding-left: 1.75rem;
 }
 
 .pr-3 {

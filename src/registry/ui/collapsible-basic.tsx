@@ -2,38 +2,50 @@
 
 import { Collapsible } from "@base-ui/react/collapsible";
 import { CaretRightIcon } from "@phosphor-icons/react";
+import { AnimatePresence, motion } from "motion/react";
+import * as React from "react";
 
 export default function ExampleCollapsible() {
-  return (
-    <Collapsible.Root className="d-f fd-c jc-c w-56 min-h-36 c-slate-12">
-      <Collapsible.Trigger className="d-f ai-c g-2 br-1 bg-silver-1 px-2 py-1 fs-sm fw-500 c-slate-12 h:bg-silver-2 fv:os-s fv:ow-2 fv:oc-blue-8 collapsible-trigger">
-        <CaretRightIcon size={12} weight="bold" className="collapsible-icon" />
-        Recovery keys
-      </Collapsible.Trigger>
-      <Collapsible.Panel className="d-f fd-c jc-fe o-h fs-sm collapsible-panel">
-        <div className="d-f fd-c g-2 br-1 bg-silver-1 mt-1 py-2 pl-7">
-          <div>alien-bean-pasta</div>
-          <div>wild-irish-burrito</div>
-          <div>horse-battery-staple</div>
-        </div>
-      </Collapsible.Panel>
+  const [open, setOpen] = React.useState(false);
 
-      <style>{`
-        .collapsible-panel {
-          height: var(--collapsible-panel-height);
-          transition: height 150ms ease-out;
-        }
-        .collapsible-panel[data-starting-style],
-        .collapsible-panel[data-ending-style] {
-          height: 0;
-        }
-        .collapsible-icon {
-          transition: transform 150ms ease-out;
-        }
-        .collapsible-trigger[data-panel-open] .collapsible-icon {
-          transform: rotate(90deg);
-        }
-      `}</style>
+  return (
+    <Collapsible.Root
+      open={open}
+      onOpenChange={setOpen}
+      className="d-f fd-c w-64 c-slate-10"
+    >
+      <Collapsible.Trigger className="d-f ai-c g-2 br-2 bw-1 bc-silver-2 bg-white px-3 py-2 fs-sm fw-600 c-slate-10 h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 c-p b-0">
+        <motion.span
+          animate={{ rotate: open ? 90 : 0 }}
+          transition={{ duration: 0.15, ease: "easeOut" }}
+          className="d-f"
+        >
+          <CaretRightIcon size={12} weight="bold" />
+        </motion.span>
+        System requirements
+      </Collapsible.Trigger>
+
+      <AnimatePresence initial={false}>
+        {open && (
+          <Collapsible.Panel
+            render={
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.15, ease: "easeOut" }}
+              />
+            }
+            className="o-h"
+          >
+            <div className="d-f fd-c g-2 br-2 bw-1 bc-silver-2 bg-white mt-1 py-3 px-4 fs-sm">
+              <div>Node.js 18 or later</div>
+              <div>macOS, Windows, or Linux</div>
+              <div>4GB RAM minimum</div>
+            </div>
+          </Collapsible.Panel>
+        )}
+      </AnimatePresence>
     </Collapsible.Root>
   );
 }
