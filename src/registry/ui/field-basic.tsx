@@ -2,18 +2,24 @@ import { Field } from "@base-ui/react/field";
 
 export default function ExampleField() {
   return (
-    <Field.Root className="d-f fd-c ai-fs g-1 w-full max-w-64">
-      <Field.Label className="fs-sm fw-500 c-slate-12">Name</Field.Label>
+    <Field.Root className="d-f fd-c ai-fs g-2 w-full max-w-64">
+      <Field.Label className="fs-sm fw-600 c-slate-10">
+        Email <span className="c-indigo">*</span>
+      </Field.Label>
       <Field.Control
         required
-        placeholder="Required"
-        className="h-10 w-full bw-1 bc-silver-4 br-1 bg-white pl-4 fs-md c-slate-12 fv:os-s fv:ow-2 fv:oo--1 fv:oc-blue-8"
+        type="email"
+        placeholder="you@example.com"
+        className="h-10 w-full bw-1 bc-silver-3 br-2 bg-white pl-4 fs-sm c-slate-10 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
       />
-      <Field.Error className="fs-sm c-red-9" match="valueMissing">
-        Please enter your name
+      <Field.Error className="fs-sm c-red" match="valueMissing">
+        Please enter your email address
       </Field.Error>
-      <Field.Description className="fs-sm c-slate-11">
-        Visible on your profile
+      <Field.Error className="fs-sm c-red" match="typeMismatch">
+        Please enter a valid email address
+      </Field.Error>
+      <Field.Description className="fs-sm c-slate-8">
+        Never shared publicly.
       </Field.Description>
     </Field.Root>
   );
