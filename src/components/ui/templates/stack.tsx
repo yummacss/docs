@@ -42,11 +42,11 @@ function getIconForStack(stackItem: string): React.ComponentType<{
   return null;
 }
 
-interface TemplateStackProps {
+interface Props {
   stack: string[];
 }
 
-export default function TemplateStack({ stack }: TemplateStackProps) {
+export default function TemplateStack({ stack }: Props) {
   return (
     <div className="d-g gtc-2 md:gtc-3 g-4">
       {stack.map((item) => {

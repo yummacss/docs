@@ -1,7 +1,7 @@
 import { Avatar as BaseAvatar } from "@base-ui/react/avatar";
 import type * as React from "react";
 
-interface AvatarProps {
+interface Props {
   src: string;
   alt: string;
   fallback?: string;
@@ -15,7 +15,7 @@ export function Avatar({
   fallback,
   className = "",
   style,
-}: AvatarProps) {
+}: Props) {
   const initials =
     fallback ||
     alt

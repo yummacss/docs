@@ -1,8 +1,8 @@
-interface NegativeValuesProps {
+interface Props {
   prefix: string;
 }
 
-export default function NegativeValues({ prefix }: NegativeValuesProps) {
+export default function NegativeValues({ prefix }: Props) {
   return (
     <div className="mb-6">
       <p className="mb-4 c-white/80">

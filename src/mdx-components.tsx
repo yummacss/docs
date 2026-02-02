@@ -6,12 +6,12 @@ import HoverVariant from "@/components/hover-variant";
 import LegacyColor from "@/components/legacy/legacy-color";
 import LegacyPalette from "@/components/legacy/legacy-palette";
 import LegacyTable from "@/components/legacy/legacy-table";
-import MediaVariant from "@/components/media-variant";
 import NegativeValues from "@/components/negative-values";
-import OpacityVariant from "@/components/opacity-variant";
+import OpacityModifier from "@/components/opacity-modifier";
 import Palette from "@/components/palette";
 import Preview from "@/components/preview";
 import Reference from "@/components/reference";
+import ResponsiveVariant from "@/components/responsive-variant";
 import Stepper, { Step } from "@/components/stepper";
 import { Tabs, TabsList, TabsPanel, TabsTab } from "@/components/tabs";
 import TemplateFAQ from "@/components/ui/templates/faq";
@@ -41,9 +41,9 @@ const components: MDXComponents = {
   LegacyColor,
   LegacyPalette,
   LegacyTable,
-  MediaVariant,
+  ResponsiveVariant,
   NegativeValues,
-  OpacityVariant,
+  OpacityModifier,
   Palette,
   Preview,
   Reference,

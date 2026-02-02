@@ -1,10 +1,10 @@
-import { CursorClickIcon } from "@phosphor-icons/react/dist/ssr";
+import { DropHalfIcon } from "@phosphor-icons/react/dist/ssr";
 
 interface Props {
   prefix: string;
 }
 
-export default function HoverVariant({ prefix }: Props) {
+export default function OpacityModifier({ prefix }: Props) {
   return (
     <div
       className="mb-6 p-4"
@@ -15,17 +15,17 @@ export default function HoverVariant({ prefix }: Props) {
           className="d-f ai-c jc-c p-2 br-1 fs-0"
           style={{ backgroundColor: "#232741", color: "#9aa6ef" }}
         >
-          <CursorClickIcon size={20} weight="duotone" />
+          <DropHalfIcon size={20} weight="duotone" />
         </div>
         <p className="c-white/70 fs-sm">
-          Add the{" "}
+          Append{" "}
           <code
             className="px-1"
             style={{ backgroundColor: "#232741", color: "#dda2f6" }}
           >
-            h:
+            /[opacity]
           </code>{" "}
-          prefix to apply styles only when the user hovers over the element.
+          to any color utility to control its transparency level.
         </p>
       </div>
 
@@ -35,7 +35,7 @@ export default function HoverVariant({ prefix }: Props) {
       >
         <span className="c-white/50 fs-xs">Syntax:</span>
         <code className="fs-sm" style={{ color: "#dda2f6" }}>
-          h:{prefix}-[value]
+          {prefix}-[color]/[0-100]
         </code>
       </div>
     </div>

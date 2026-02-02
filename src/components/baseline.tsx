@@ -26,12 +26,12 @@ const { features } = data as {
   features: Record<string, FeatureData>;
 };
 
-interface BaselineProps {
+interface Props {
   /** Example: "css.properties.accent-color" */
   path: string;
 }
 
-export default function Baseline({ path }: BaselineProps) {
+export default function Baseline({ path }: Props) {
   // Find feature that contains this BCD key
   const matchingFeature = Object.entries(features).find(([, feature]) => {
     // Type guard: only FeatureData has compat_features

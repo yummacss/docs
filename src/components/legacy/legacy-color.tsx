@@ -7,7 +7,7 @@ interface ColorClass {
   value: string;
 }
 
-interface LegacyColorProps {
+interface Props {
   classPrefix: string;
   propNames: string[];
   data: ColorClass[];
@@ -74,7 +74,7 @@ export default function LegacyColor({
   classPrefix,
   propNames,
   data,
-}: LegacyColorProps) {
+}: Props) {
   const colorData = generateClassData(classPrefix, propNames, data);
 
   return (

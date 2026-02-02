@@ -25,7 +25,7 @@ const defaultFeatureIconMap: Record<string, Icon> = {
   performance: GaugeIcon,
 };
 
-interface TemplateFeaturesProps {
+interface Props {
   features: TemplateFeature[];
   iconMap?: Record<string, Icon>;
 }
@@ -33,7 +33,7 @@ interface TemplateFeaturesProps {
 export default function TemplateFeatures({
   features,
   iconMap = defaultFeatureIconMap,
-}: TemplateFeaturesProps) {
+}: Props) {
   return (
     <Accordion>
       {features.map((feature) => {

@@ -32,7 +32,7 @@ function hasItems(item: SidebarConfigItem | UISidebarConfigItem): item is (
   return "items" in item && Array.isArray(item.items);
 }
 
-interface MobileSidebarProps {
+interface Props {
   isOpen: boolean;
   onClose: () => void;
   routeType: "docs" | "ui";
@@ -42,7 +42,7 @@ export default function MobileSidebar({
   isOpen,
   onClose,
   routeType,
-}: MobileSidebarProps) {
+}: Props) {
   const pathname = usePathname();
   const fullConfig = routeType === "ui" ? uiSidebarConfig : sidebarConfig;
   const baseRoute = routeType === "ui" ? "/ui" : "/docs";

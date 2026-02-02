@@ -1,0 +1,62 @@
+import {
+  DeviceMobileCameraIcon,
+  DeviceTabletSpeakerIcon,
+  LaptopIcon,
+  MonitorIcon,
+} from "@phosphor-icons/react/dist/ssr";
+
+interface Props {
+  prefix: string;
+}
+
+const breakpoints = [
+  {
+    prefix: "sm",
+    label: "Small",
+    minWidth: "640px",
+    icon: DeviceMobileCameraIcon,
+  },
+  {
+    prefix: "md",
+    label: "Medium",
+    minWidth: "768px",
+    icon: DeviceTabletSpeakerIcon,
+  },
+  { prefix: "lg", label: "Large", minWidth: "1024px", icon: LaptopIcon },
+  {
+    prefix: "xxl",
+    label: "Extra Large",
+    minWidth: "1536px",
+    icon: MonitorIcon,
+  },
+] as const;
+
+export default function ResponsiveVariant({ prefix }: Props) {
+  return (
+    <div className="mb-6 d-g gtc-1 sm:gtc-2 g-3">
+      {breakpoints.map((bp) => (
+        <div
+          key={bp.prefix}
+          className="p-3 br-0 d-f ai-c g-3"
+          style={{ backgroundColor: "#1a1d2e", border: "1px solid #232741" }}
+        >
+          <bp.icon
+            size={24}
+            weight="duotone"
+            style={{ color: "#9aa6ef" }}
+            className="fs-0"
+          />
+          <div className="f-1">
+            <code className="d-b fs-sm mb-1" style={{ color: "#dda2f6" }}>
+              {bp.prefix}:{prefix}-[value]
+            </code>
+            <div className="d-f ai-c jc-sb">
+              <span className="c-white/70 fs-xs">{bp.label}</span>
+              <span className="c-white/40 fs-xs">≥{bp.minWidth}</span>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}

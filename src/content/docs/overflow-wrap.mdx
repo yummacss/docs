@@ -33,14 +33,20 @@ The browser will break long words and wrap them onto the next line to prevent ov
 <p class="fs-lg ta-c max-d-80 c-slate ow-bw">The longest word entered in most standard English dictionaries is Pneumonoultramicroscopicsilicovolcanoconiosis with 45 letters.</p>
 ```
 
-## Core concepts
+## Using utility variants
 
 Learn how to override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
 
 ### Responsive design
 
-<MediaVariant prefix="ow" />
+Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
 
-### Hover states
+Target specific viewport sizes with breakpoint prefixes
+
+<ResponsiveVariant prefix="ow" />
+
+### Hover state variant
+
+Apply styles conditionally when users hover over an element using the `h:` prefix.
 
 <HoverVariant prefix="ow" />
