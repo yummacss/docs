@@ -1,90 +1,78 @@
+"use client";
+
 import { Menu } from "@base-ui/react/menu";
 import { CaretDownIcon } from "@phosphor-icons/react";
+import { AnimatePresence, motion } from "motion/react";
+import * as React from "react";
 
 export default function ExampleMenu() {
+  const [open, setOpen] = React.useState(false);
+
   return (
-    <Menu.Root>
-      <Menu.Trigger className="d-f ai-c jc-c h-10 g-2 bw-1 bc-silver-4 br-1 bg-silver-1 px-4 fs-md fw-500 c-slate-12 us-none h:bg-silver-2 fv:os-s fv:ow-2 fv:oo--1 fv:oc-blue-8">
-        Song <CaretDownIcon size={12} className="mr--1" />
+    <Menu.Root open={open} onOpenChange={setOpen}>
+      <Menu.Trigger className="d-f ai-c g-2 bg-white c-slate-10 br-2 px-3 py-2 fw-600 bsh-xs bw-1 bc-silver-2 us-none tp-c tdu-150 ttf-io h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 c-p b-0">
+        Actions <CaretDownIcon size={12} />
       </Menu.Trigger>
-      <Menu.Portal>
-        <Menu.Positioner className="ow-0" sideOffset={8}>
-          <Menu.Popup className="bw-1 bc-silver-4 br-1 bg-white bsh-md py-1 c-slate-12 menu-popup">
-            <Menu.Item className="d-f py-1 pr-8 pl-4 fs-sm ow-0 us-none c-slate-12 menu-item">
-              Add to Library
-            </Menu.Item>
 
-            <Menu.Item className="d-f py-1 pr-8 pl-4 fs-sm ow-0 us-none c-slate-12 menu-item">
-              Add to Playlist
-            </Menu.Item>
+      <AnimatePresence>
+        {open && (
+          <Menu.Portal keepMounted>
+            <Menu.Positioner className="ow-0" sideOffset={8}>
+              <Menu.Popup
+                render={
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    transition={{ duration: 0.1, ease: "easeOut" }}
+                  />
+                }
+                className="bw-1 bc-silver-2 br-2 bg-white bsh-lg py-1 c-slate-10"
+              >
+                <Menu.Item
+                  className={(state) =>
+                    `d-f py-2 pr-8 pl-4 fs-sm us-none c-p ${
+                      state.highlighted ? "bg-silver-1" : "h:bg-silver-1"
+                    }`
+                  }
+                >
+                  Edit
+                </Menu.Item>
+                <Menu.Item
+                  className={(state) =>
+                    `d-f py-2 pr-8 pl-4 fs-sm us-none c-p ${
+                      state.highlighted ? "bg-silver-1" : "h:bg-silver-1"
+                    }`
+                  }
+                >
+                  Duplicate
+                </Menu.Item>
+                <Menu.Item
+                  className={(state) =>
+                    `d-f py-2 pr-8 pl-4 fs-sm us-none c-p ${
+                      state.highlighted ? "bg-silver-1" : "h:bg-silver-1"
+                    }`
+                  }
+                >
+                  Archive
+                </Menu.Item>
 
-            <Menu.Separator className="mx-4 my-2 h-px bg-silver-4" />
-            <Menu.Item className="d-f py-1 pr-8 pl-4 fs-sm ow-0 us-none c-slate-12 menu-item">
-              Play Next
-            </Menu.Item>
-            <Menu.Item className="d-f py-1 pr-8 pl-4 fs-sm ow-0 us-none c-slate-12 menu-item">
-              Play Last
-            </Menu.Item>
-            <Menu.Separator className="mx-4 my-2 h-px bg-silver-4" />
-            <Menu.Item className="d-f py-1 pr-8 pl-4 fs-sm ow-0 us-none c-slate-12 menu-item">
-              Favorite
-            </Menu.Item>
-            <Menu.Item className="d-f py-1 pr-8 pl-4 fs-sm ow-0 us-none c-slate-12 menu-item">
-              Share
-            </Menu.Item>
-          </Menu.Popup>
-        </Menu.Positioner>
-      </Menu.Portal>
-      <style>{`
-        .menu-popup {
-          transform-origin: var(--transform-origin);
-          transition: transform 150ms, opacity 150ms;
-        }
-        .menu-popup[data-starting-style],
-        .menu-popup[data-ending-style] {
-          opacity: 0;
-          transform: scale(0.9);
-        }
-        .menu-submenu {
-          transform-origin: var(--transform-origin);
-          transition: transform 150ms, opacity 150ms;
-        }
-        .menu-submenu[data-starting-style],
-        .menu-submenu[data-ending-style] {
-          opacity: 0;
-          transform: scale(0.9);
-        }
-        .menu-item[data-highlighted] {
-          position: relative;
-          z-index: 0;
-          color: #f5f5f6;
-        }
-        .menu-item[data-highlighted]::before {
-          content: '';
-          position: absolute;
-          z-index: -1;
-          inset-block: 0;
-          inset-inline: 0.25rem;
-          border-radius: 0.25rem;
-          background-color: #0a0a0c;
-        }
-        .menu-item[data-popup-open] {
-          position: relative;
-          z-index: 0;
-        }
-        .menu-item[data-popup-open]::before {
-          content: '';
-          position: absolute;
-          z-index: -1;
-          inset-block: 0;
-          inset-inline: 0.25rem;
-          border-radius: 0.25rem;
-          background-color: #ecedee;
-        }
-        .menu-item[data-highlighted][data-popup-open]::before {
-          background-color: #3f3f4e;
-        }
-      `}</style>
+                <Menu.Separator className="mx-4 my-1 h-px bg-silver-2" />
+
+                <Menu.Item
+                  className={(state) =>
+                    `d-f py-2 pr-8 pl-4 fs-sm us-none c-p c-red ${
+                      state.highlighted ? "bg-red-1" : "h:bg-red-1"
+                    }`
+                  }
+                >
+                  Delete
+                </Menu.Item>
+              </Menu.Popup>
+            </Menu.Positioner>
+          </Menu.Portal>
+        )}
+      </AnimatePresence>
     </Menu.Root>
   );
 }
