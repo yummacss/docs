@@ -1,66 +1,89 @@
+"use client";
+
 import { Accordion } from "@base-ui/react/accordion";
-import { PlusIcon } from "@phosphor-icons/react";
+import { CaretDownIcon } from "@phosphor-icons/react";
+import { AnimatePresence, type HTMLMotionProps, motion } from "motion/react";
+import * as React from "react";
 
 export default function ExampleAccordion() {
+  const [value, setValue] = React.useState<string[]>([]);
+
   return (
-    <Accordion.Root className="d-f w-96 fd-c jc-c c-slate">
-      {items.map((item) => (
-        <Accordion.Item
-          key={item.value}
-          value={item.value}
-          className="bbw-1 bc-silver-4"
-        >
-          <Accordion.Header className="m-0">
-            <Accordion.Trigger className="p-r d-f w-full ai-b jc-sb g-4 bg-silver-1 py-2 pr-1 pl-3 ta-l fw-500 h:bg-silver-2 fv:zi-1 fv:os-s fv:ow-2 fv:oc-blue-8 c-p b-0">
-              {item.title}
-              <PlusIcon
-                size={12}
-                className="mr-2 c-slate-12 fs-0 accordion-icon"
-                aria-hidden="true"
-              />
-            </Accordion.Trigger>
-          </Accordion.Header>
-          <Accordion.Panel className="o-h fs-md c-slate-11 accordion-panel">
-            <div className="p-3">{item.content}</div>
-          </Accordion.Panel>
-        </Accordion.Item>
-      ))}
-      <style>{`
-        .accordion-icon {
-          transition: transform 150ms ease-out;
-        }
-        [data-panel-open] .accordion-icon {
-          transform: scale(1.1) rotate(45deg);
-        }
-        .accordion-panel {
-          height: var(--accordion-panel-height);
-          transition: height 150ms ease-out;
-        }
-        .accordion-panel[data-starting-style],
-        .accordion-panel[data-ending-style] {
-          height: 0;
-        }
-      `}</style>
+    <Accordion.Root
+      className="d-f fd-c w-full max-w-96"
+      value={value}
+      onValueChange={setValue}
+    >
+      {items.map((item, index) => {
+        const isOpen = value.includes(item.value);
+        return (
+          <Accordion.Item
+            key={item.value}
+            value={item.value}
+            className={index === items.length - 1 ? "" : "bbw-1 bc-silver-3"}
+          >
+            <Accordion.Header className="m-0">
+              <Accordion.Trigger className="d-f w-full ai-c jc-sb g-3 py-4 px-0 bg-transparent b-0 c-p ta-l br-1 fv:os-s fv:ow-2 fv:oo-1 fv:oc-indigo-6">
+                <span className="fs-sm fw-500 c-slate-8">{item.title}</span>
+                <motion.span
+                  animate={{ rotate: isOpen ? 180 : 0 }}
+                  transition={{ duration: 0.15, ease: "easeInOut" }}
+                  className="d-f"
+                >
+                  <CaretDownIcon
+                    size={16}
+                    weight="bold"
+                    className="c-slate-6 fs-0"
+                    aria-hidden
+                  />
+                </motion.span>
+              </Accordion.Trigger>
+            </Accordion.Header>
+            <AnimatePresence initial={false}>
+              {isOpen && (
+                <Accordion.Panel
+                  keepMounted
+                  render={(props) => (
+                    <motion.div
+                      {...(props as HTMLMotionProps<"div">)}
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.2, ease: "easeOut" }}
+                      className="o-h"
+                    />
+                  )}
+                >
+                  <p className="m-0 pb-4 fs-sm c-slate-6 lh-4">
+                    {item.content}
+                  </p>
+                </Accordion.Panel>
+              )}
+            </AnimatePresence>
+          </Accordion.Item>
+        );
+      })}
     </Accordion.Root>
   );
 }
 
 const items = [
   {
-    value: "what-is",
-    title: "What is Yumma UI?",
+    value: "shipping",
+    title: "What are the shipping options?",
     content:
-      "Yumma UI is a library of high-quality unstyled React components for design systems and web apps.",
+      "We offer free standard shipping on all orders over $50. Express and next-day delivery are available at checkout for an additional fee.",
   },
   {
-    value: "get-started",
-    title: "How do I get started?",
+    value: "returns",
+    title: "How do returns work?",
     content:
-      "Head to the \"Introduction\" guide in the docs. If you've used unstyled libraries before, you'll feel at home.",
+      "You have 30 days from delivery to return any unused item. Simply initiate a return through your account dashboard and print the prepaid label.",
   },
   {
-    value: "use-project",
-    title: "Can I use it for my project?",
-    content: "Of course! Yumma UI is free and open source.",
+    value: "payment",
+    title: "What payment methods do you accept?",
+    content:
+      "We accept all major credit cards, PayPal, Apple Pay, and Google Pay. Installment plans are available through Klarna for orders over $100.",
   },
 ];

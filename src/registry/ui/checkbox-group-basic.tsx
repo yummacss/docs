@@ -11,64 +11,66 @@ export default function ExampleCheckboxGroup() {
   return (
     <CheckboxGroup
       aria-labelledby={id}
-      defaultValue={["fuji-apple"]}
-      className="d-f fd-c g-1 ai-fs c-slate-12"
+      defaultValue={["email"]}
+      className="d-f fd-c g-2 ai-fs c-slate-10"
     >
-      <div className="fw-500" id={id}>
-        Apples
+      <div className="fw-600 fs-sm" id={id}>
+        Notifications
       </div>
 
-      {/* biome-ignore lint/a11y/noLabelWithoutControl: Base UI Checkbox.Root internally renders the input */}
-      <label className="d-f ai-c g-2">
+      {/** biome-ignore lint/a11y/noLabelWithoutControl: Base UI handles this */}
+      <label className="d-f ai-c g-2 fs-sm fw-600">
         <Checkbox.Root
-          name="apple"
-          value="fuji-apple"
-          className="d-f d-5 ai-c jc-c br-1 fv:os-s fv:ow-2 fv:oo-2 fv:oc-blue-8 checkbox-group-root"
+          name="notifications"
+          value="email"
+          className={(state) =>
+            `d-f d-4 ai-c jc-c br-1 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+              state.checked ? "bg-indigo" : "bw-1 bc-silver-3 bg-transparent"
+            }`
+          }
         >
-          <Checkbox.Indicator className="d-f c-silver-1">
+          <Checkbox.Indicator className="d-f c-white">
             <CheckIcon size={12} weight="bold" />
           </Checkbox.Indicator>
         </Checkbox.Root>
-        Fuji
+        Email alerts
       </label>
 
-      {/* biome-ignore lint/a11y/noLabelWithoutControl: Base UI Checkbox.Root internally renders the input */}
-      <label className="d-f ai-c g-2">
+      {/** biome-ignore lint/a11y/noLabelWithoutControl: Base UI handles this> */}
+      <label className="d-f ai-c g-2 fs-sm fw-600">
         <Checkbox.Root
-          name="apple"
-          value="gala-apple"
-          className="d-f d-5 ai-c jc-c br-1 fv:os-s fv:ow-2 fv:oo-2 fv:oc-blue-8 checkbox-group-root"
+          name="notifications"
+          value="sms"
+          className={(state) =>
+            `d-f d-4 ai-c jc-c br-1 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+              state.checked ? "bg-indigo" : "bw-1 bc-silver-3 bg-transparent"
+            }`
+          }
         >
-          <Checkbox.Indicator className="d-f c-silver-1">
+          <Checkbox.Indicator className="d-f c-white">
             <CheckIcon size={12} weight="bold" />
           </Checkbox.Indicator>
         </Checkbox.Root>
-        Gala
+        SMS alerts
       </label>
 
-      {/* biome-ignore lint/a11y/noLabelWithoutControl: Base UI Checkbox.Root internally renders the input */}
-      <label className="d-f ai-c g-2">
+      {/** biome-ignore lint/a11y/noLabelWithoutControl: Base UI handles this> */}
+      <label className="d-f ai-c g-2 fs-sm fw-600">
         <Checkbox.Root
-          name="apple"
-          value="granny-smith-apple"
-          className="d-f d-5 ai-c jc-c br-1 fv:os-s fv:ow-2 fv:oo-2 fv:oc-blue-8 checkbox-group-root"
+          name="notifications"
+          value="push"
+          className={(state) =>
+            `d-f d-4 ai-c jc-c br-1 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+              state.checked ? "bg-indigo" : "bw-1 bc-silver-3 bg-transparent"
+            }`
+          }
         >
-          <Checkbox.Indicator className="d-f c-silver-1">
+          <Checkbox.Indicator className="d-f c-white">
             <CheckIcon size={12} weight="bold" />
           </Checkbox.Indicator>
         </Checkbox.Root>
-        Granny Smith
+        Push notifications
       </label>
-
-      <style>{`
-        .checkbox-group-root[data-unchecked] {
-          border: 1px solid #dadcdf;
-          background-color: transparent;
-        }
-        .checkbox-group-root[data-checked] {
-          background-color: #0a0a0c;
-        }
-      `}</style>
     </CheckboxGroup>
   );
 }

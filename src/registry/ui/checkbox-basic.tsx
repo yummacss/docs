@@ -3,26 +3,21 @@ import { CheckIcon } from "@phosphor-icons/react";
 
 export default function ExampleCheckbox() {
   return (
-    // biome-ignore lint/a11y/noLabelWithoutControl: Base UI Checkbox.Root internally renders the input
-    <label className="d-f ai-c g-2 fs-md c-slate-12">
+    // biome-ignore lint/a11y/noLabelWithoutControl: Base UI handles this
+    <label className="d-f ai-c g-2 fs-sm fw-600 c-slate-10">
       <Checkbox.Root
         defaultChecked
-        className="d-f d-5 ai-c jc-c br-1 fv:os-s fv:ow-2 fv:oo-2 fv:oc-blue-8 checkbox-root"
+        className={(state) =>
+          `d-f d-4 ai-c jc-c br-1 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+            state.checked ? "bg-indigo" : "bw-1 bc-silver-3 bg-transparent"
+          }`
+        }
       >
-        <Checkbox.Indicator className="d-f c-silver-1">
+        <Checkbox.Indicator className="d-f c-white">
           <CheckIcon size={12} weight="bold" />
         </Checkbox.Indicator>
       </Checkbox.Root>
-      Enable notifications
-      <style>{`
-        .checkbox-root[data-unchecked] {
-          border: 1px solid #dadcdf;
-          background-color: transparent;
-        }
-        .checkbox-root[data-checked] {
-          background-color: #0a0a0c;
-        }
-      `}</style>
+      Remember my preferences
     </label>
   );
 }
