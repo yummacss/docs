@@ -67,7 +67,7 @@ export default function UISidebar() {
                             <li key={child.slug}>
                               <Link
                                 href={href}
-                                className={`d-f ai-c g-3 fs-md ${
+                                className={`d-if ai-c g-3 fs-md fv:oc-indigo-4 fv:oo-2 fv:ow-2 ${
                                   isActive ? "c-white" : "c-white/70 h:c-white"
                                 }`}
                               >
@@ -103,7 +103,7 @@ export default function UISidebar() {
                                       <li key={child.slug}>
                                         <Link
                                           href={href}
-                                          className={`d-f ai-c g-3 fs-md ${
+                                          className={`d-if ai-c g-3 fs-md fv:oc-indigo-4 fv:oo-2 fv:ow-2 ${
                                             isActive
                                               ? "c-white"
                                               : "c-white/70 h:c-white"
@@ -127,7 +127,7 @@ export default function UISidebar() {
                               <li key={subItem.slug}>
                                 <Link
                                   href={href}
-                                  className={`d-f ai-c g-3 fs-md ${
+                                  className={`d-if ai-c g-3 fs-md fv:oc-indigo-4 fv:oo-2 fv:ow-2 ${
                                     isActive
                                       ? "c-white"
                                       : "c-white/70 h:c-white"
@@ -155,7 +155,7 @@ export default function UISidebar() {
                     <li key={item.slug}>
                       <Link
                         href={href}
-                        className={`d-f ai-c g-3 ${
+                        className={`d-if ai-c g-3 fv:oc-indigo-4 fv:oo-2 fv:ow-2 ${
                           isActive ? "c-white" : "c-white/70 h:c-white"
                         }`}
                       >

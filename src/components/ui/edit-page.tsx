@@ -11,7 +11,7 @@ export default function EditPage() {
   return (
     <Link
       href={url}
-      className="d-f ai-c g-2 fs-sm c-white/70 h:c-white td-none"
+      className="d-if ai-c g-2 fs-sm c-white/70 h:c-white td-none fv:oc-indigo-4 fv:ow-2"
     >
       <PencilSimpleIcon size={16} weight="duotone" />
       <span>Edit this page</span>

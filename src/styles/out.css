@@ -1642,6 +1642,10 @@ summary {
   outline-color: #d0d1fb;
 }
 
+.fv\:oc-indigo-4:focus-visible {
+  outline-color: #a5a6f7;
+}
+
 .fv\:oc-white:focus-visible {
   outline-color: #fff;
 }

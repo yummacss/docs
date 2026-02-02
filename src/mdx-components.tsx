@@ -128,7 +128,11 @@ const components: MDXComponents = {
     props.className ? (
       <a {...props}>{children}</a>
     ) : (
-      <a className="h:td-u" style={{ color: "#bec6f2" }} {...props}>
+      <a
+        className="h:td-u fv:oc-indigo-4 fv:ow-2"
+        style={{ color: "#bec6f2" }}
+        {...props}
+      >
         {children}
       </a>
     ),
