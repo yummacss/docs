@@ -10,7 +10,7 @@ interface AdditionalClass {
   value: string;
 }
 
-interface LegacyTableProps {
+interface Props {
   additionalClasses?: AdditionalClass[];
   classPrefix: string;
   data?: ClassItem[];
@@ -88,7 +88,7 @@ export default function LegacyTable({
   unit,
   excludeZero,
   round,
-}: LegacyTableProps) {
+}: Props) {
   const codeData =
     data ||
     generateClassData(

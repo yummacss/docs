@@ -41,14 +41,20 @@ Use the `tdu-*` utilities to control the amount of time a transition should take
 <div class="bg-indigo d-16 tp-a tdu-700 h:bg-slate-7"></div>
 ```
 
-## Core concepts
+## Using utility variants
 
 Learn how to override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
 
 ### Responsive design
 
-<MediaVariant prefix="tdu" />
+Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
 
-### Hover states
+Target specific viewport sizes with breakpoint prefixes
+
+<ResponsiveVariant prefix="tdu" />
+
+### Hover state variant
+
+Apply styles conditionally when users hover over an element using the `h:` prefix.
 
 <HoverVariant prefix="tdu" />

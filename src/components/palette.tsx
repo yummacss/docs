@@ -10,11 +10,11 @@ interface ColorItem {
   color: string;
 }
 
-interface PaletteProps {
+interface Props {
   data: ColorItem[];
 }
 
-export default function Palette({ data }: PaletteProps) {
+export default function Palette({ data }: Props) {
   return (
     <div className="d-f fd-c g-1">
       <div className="d-none lg:d-f fd-c g-1 ai-c md:fd-r md:ai-c">

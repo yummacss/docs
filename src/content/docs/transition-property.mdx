@@ -71,14 +71,20 @@ Use the `tp-*` utilities to specify which properties should transition when thei
 <div class="bg-indigo d-16 tp-t tdu-300 ttf-io h:t-s-90"></div>
 ```
 
-## Core concepts
+## Using utility variants
 
 Learn how to override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
 
 ### Responsive design
 
-<MediaVariant prefix="tp" />
+Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
 
-### Hover states
+Target specific viewport sizes with breakpoint prefixes
+
+<ResponsiveVariant prefix="tp" />
+
+### Hover state variant
+
+Apply styles conditionally when users hover over an element using the `h:` prefix.
 
 <HoverVariant prefix="tp" />

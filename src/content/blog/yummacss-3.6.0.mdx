@@ -12,7 +12,7 @@ export const meta = {
 
 ## Arbitrary chaining support
 
-Chaining variants to pseudo-classes or using opacity variants with active, focus, or hover wasn't possible before. You can now link variants to whatever variants you like.
+Chaining variants to pseudo-classes or using opacity modifiers with active, focus, or hover wasn't possible before. You can now link variants to whatever variants you like.
 
 | Class              | Generated CSS Rule                                                      |
 |--------------------|-------------------------------------------------------------------------|
@@ -22,7 +22,7 @@ Chaining variants to pseudo-classes or using opacity variants with active, focus
 | `lg:h:bg-red/50`   | `@media (width >= 64rem) { .lg\:h\:bg-red\/50:hover { ... } }`          |
 | `lg:h:f:bg-red/25` | `@media (width >= 64rem) { .lg\:h\:f\:bg-red\/25:hover:focus { ... } }` |
 
-### Opacity variants with hover
+### Opacity modifiers with hover
 
 <Hint icon="cursor">Try hovering the div to see how the opacity changes.</Hint>
 

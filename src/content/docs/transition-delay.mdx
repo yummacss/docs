@@ -41,14 +41,20 @@ Use the `td-*` utilities to specify a delay before a transition effect begins.
 <div class="bg-indigo d-16 td-700 h:bg-slate-7"></div>
 ```
 
-## Core concepts
+## Using utility variants
 
 Learn how to override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
 
 ### Responsive design
 
-<MediaVariant prefix="td" />
+Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
 
-### Hover states
+Target specific viewport sizes with breakpoint prefixes
+
+<ResponsiveVariant prefix="td" />
+
+### Hover state variant
+
+Apply styles conditionally when users hover over an element using the `h:` prefix.
 
 <HoverVariant prefix="td" />

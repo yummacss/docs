@@ -86,11 +86,11 @@ void main() {
 }
 `;
 
-interface SilkPlaneProps {
+interface Props {
   uniforms: SilkUniforms;
 }
 
-const SilkPlane = forwardRef<Mesh, SilkPlaneProps>(function SilkPlane(
+const SilkPlane = forwardRef<Mesh, Props>(function SilkPlane(
   { uniforms },
   ref,
 ) {

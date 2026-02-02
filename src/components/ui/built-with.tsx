@@ -9,12 +9,12 @@ export interface BuiltWithItem {
   icon: Icon | React.ComponentType<{ width?: number; height?: number }>;
 }
 
-interface BuiltWithProps {
+interface Props {
   items: BuiltWithItem[];
   className?: string;
 }
 
-export default function BuiltWith({ items, className = "" }: BuiltWithProps) {
+export default function BuiltWith({ items, className = "" }: Props) {
   return (
     <div className={`d-g gtc-2 md:gtc-3 g-4 ${className}`}>
       {items.map((item) => {

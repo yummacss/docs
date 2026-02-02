@@ -55,14 +55,20 @@ The text will be displayed with a line above it.
 <p class="fs-lg ta-c c-slate tdl-o">Sphinx of black quartz, judge my vow.</p>
 ```
 
-## Core concepts
+## Using utility variants
 
 Learn how to override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
 
 ### Responsive design
 
-<MediaVariant prefix="tdl" />
+Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
 
-### Hover states
+Target specific viewport sizes with breakpoint prefixes
+
+<ResponsiveVariant prefix="tdl" />
+
+### Hover state variant
+
+Apply styles conditionally when users hover over an element using the `h:` prefix.
 
 <HoverVariant prefix="tdl" />

@@ -49,14 +49,20 @@ Indicates that the element is a interactive element that can be activated.
 <button class="c-p px-3 py-2 br-0 fs-md fw-600 lh-1 bg-white c-slate-8 bw-1 bc-silver-4 h:bg-silver-1 f:oc-silver-1 f:os-s f:ow-2">Buy</button>
 ```
 
-## Core concepts
+## Using utility variants
 
 Learn how to override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
 
 ### Responsive design
 
-<MediaVariant prefix="c" />
+Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
 
-### Hover states
+Target specific viewport sizes with breakpoint prefixes
+
+<ResponsiveVariant prefix="c" />
+
+### Hover state variant
+
+Apply styles conditionally when users hover over an element using the `h:` prefix.
 
 <HoverVariant prefix="c" />

@@ -21,18 +21,24 @@ export const meta = {
 </div>
 ```
 
-## Core concepts
+## Using utility variants
 
-Learn how to use utility classes on a case-by-case basis by using tools like [media queries](docs/media-queries) or [pseudo-classes](docs/pseudo-classes) and more.
+Extend utilities with [responsive breakpoints](docs/media-queries), [hover states](/docs/pseudo-classes#hover), and [opacity modifiers](/docs/colors#using-opacity-variants).
 
 ### Responsive design
 
-<MediaVariant prefix="ac" />
+Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
 
-### Hover states
+<ResponsiveVariant prefix="ac" />
+
+### Hover state variant
+
+Apply styles conditionally when users hover over an element using the `h:` prefix.
 
 <HoverVariant prefix="ac" />
 
-### Opacity variants
+### Opacity modifiers
 
-<OpacityVariant prefix="ac" />
+Adjust color transparency by appending an opacity value to any color utility.
+
+<OpacityModifier prefix="ac" />

@@ -1,7 +1,7 @@
 import { CaretLeftIcon, CaretRightIcon } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
 
-interface PaginationProps {
+interface Props {
   previous: { slug: string; title: string } | null;
   next: { slug: string; title: string } | null;
   basePath: string;
@@ -11,7 +11,7 @@ export default function Pagination({
   previous,
   next,
   basePath,
-}: PaginationProps) {
+}: Props) {
   if (!previous && !next) {
     return null;
   }
