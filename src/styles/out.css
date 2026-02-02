@@ -2054,6 +2054,10 @@ summary {
   background-color: #6366f140;
 }
 
+.h\:bg-red-1:hover {
+  background-color: #fbdfe1;
+}
+
 .h\:bg-red-11:hover {
   background-color: #451115;
 }
