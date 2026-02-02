@@ -2,30 +2,31 @@
 
 import { Combobox } from "@base-ui/react/combobox";
 import { CaretDownIcon, CheckIcon, XIcon } from "@phosphor-icons/react";
-import { useId } from "react";
+import { AnimatePresence, motion } from "motion/react";
+import * as React from "react";
 
 export default function ExampleCombobox() {
-  const id = useId();
+  const [open, setOpen] = React.useState(false);
 
   return (
-    <Combobox.Root items={fruits}>
-      <div className="d-f fd-c g-1 fs-sm fw-500 c-slate-12 p-r">
-        <label htmlFor={id}>Choose a fruit</label>
-        <div className="p-r combobox-input-wrapper">
+    <Combobox.Root items={countries} open={open} onOpenChange={setOpen}>
+      <div className="d-f fd-c g-2 fs-sm c-slate-10 p-r">
+        {/** biome-ignore lint/a11y/noLabelWithoutControl: <explanation> */}
+        <label className="fw-600">Select country</label>
+        <div className="p-r">
           <Combobox.Input
-            placeholder="e.g. Apple"
-            id={id}
-            className="h-10 w-64 bw-1 bc-silver-4 br-1 bg-white pl-4 fs-md c-slate-12 fv:os-s fv:ow-2 fv:oo--1 fv:oc-blue-8"
+            placeholder="e.g. United States"
+            className="h-10 w-64 bw-1 bc-silver-3 br-2 bg-white pl-4 pr-16 fs-sm c-slate-10 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
           />
-          <div className="p-a d-f ai-c jc-c r-2 b-0 h-10 c-silver-9">
+          <div className="p-a d-f ai-c jc-c r-2 b-0 h-10 c-slate-6">
             <Combobox.Clear
-              className="d-f ai-c jc-c d-6 h-10 br-1 bg-transparent p-0 combobox-clear"
+              className="d-f ai-c jc-c d-6 h-10 br-1 bg-transparent p-0 b-0 c-slate-6 h:c-slate-10 c-p"
               aria-label="Clear selection"
             >
               <XIcon size={16} />
             </Combobox.Clear>
             <Combobox.Trigger
-              className="d-f ai-c jc-c d-6 h-10 br-1 bg-transparent p-0"
+              className="d-f ai-c jc-c d-6 h-10 br-1 bg-transparent p-0 b-0 c-slate-6 h:c-slate-10 c-p"
               aria-label="Open popup"
             >
               <CaretDownIcon size={16} />
@@ -34,97 +35,73 @@ export default function ExampleCombobox() {
         </div>
       </div>
 
-      <Combobox.Portal>
-        <Combobox.Positioner className="ow-0" sideOffset={4}>
-          <Combobox.Popup className="bw-1 bc-silver-4 br-1 bg-white bs-lg c-slate-12 o-h combobox-popup">
-            <Combobox.Empty className="p-4 fs-sm c-silver-9 combobox-empty">
-              No fruits found.
-            </Combobox.Empty>
-            <Combobox.List className="o-y-auto ow-0 py-2 combobox-list">
-              {(item: string) => (
-                <Combobox.Item
-                  key={item}
-                  value={item}
-                  className="d-g ai-c g-2 py-2 pr-8 pl-4 fs-sm ow-0 us-none c-d combobox-item"
+      <AnimatePresence>
+        {open && (
+          <Combobox.Portal keepMounted>
+            <Combobox.Positioner className="ow-0" sideOffset={8}>
+              <Combobox.Popup
+                render={
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    transition={{ duration: 0.1, ease: "easeOut" }}
+                  />
+                }
+                className="w-64 bw-1 bc-silver-2 br-2 bg-white bsh-lg c-slate-10 o-h"
+              >
+                <Combobox.Empty className="py-4 px-4 fs-sm c-slate-6">
+                  No countries found.
+                </Combobox.Empty>
+                <Combobox.List
+                  className="o-y-auto ow-0"
+                  style={{ maxHeight: "18rem" }}
                 >
-                  <Combobox.ItemIndicator className="combobox-indicator">
-                    <CheckIcon size={12} weight="bold" />
-                  </Combobox.ItemIndicator>
-                  <div className="combobox-item-text">{item}</div>
-                </Combobox.Item>
-              )}
-            </Combobox.List>
-          </Combobox.Popup>
-        </Combobox.Positioner>
-      </Combobox.Portal>
-
-      <style>{`
-        .combobox-input-wrapper:has(.combobox-clear) input {
-          padding-right: calc(0.5rem + 1.5rem * 2);
-        }
-        .combobox-popup {
-          width: var(--anchor-width);
-          max-height: 23rem;
-          max-width: var(--available-width);
-          transform-origin: var(--transform-origin);
-          transition: opacity 100ms, transform 100ms;
-        }
-        .combobox-popup[data-starting-style],
-        .combobox-popup[data-ending-style] {
-          opacity: 0;
-          transform: scale(0.95);
-        }
-        .combobox-empty:empty {
-          display: none;
-        }
-        .combobox-list {
-          max-height: min(23rem, var(--available-height));
-          overscroll-behavior: contain;
-        }
-        .combobox-list[data-empty] {
-          padding: 0;
-        }
-        .combobox-item {
-          grid-template-columns: 0.75rem 1fr;
-        }
-        .combobox-item[data-highlighted] {
-          position: relative;
-          z-index: 0;
-          color: #f5f5f6;
-        }
-        .combobox-item[data-highlighted]::before {
-          content: '';
-          position: absolute;
-          z-index: -1;
-          inset-block: 0.125rem;
-          inset-inline: 0.25rem;
-          border-radius: 0.25rem;
-          background-color: #0a0a0c;
-        }
-        .combobox-indicator {
-          grid-column-start: 1;
-        }
-        .combobox-item-text {
-          grid-column-start: 2;
-        }
-      `}</style>
+                  {(country: Country) => (
+                    <Combobox.Item
+                      key={country.code}
+                      value={country}
+                      className={(state) =>
+                        `d-f ai-c g-2 py-2 px-4 fs-sm us-none c-d c-p ${
+                          state.highlighted ? "bg-silver-1" : "h:bg-silver-1"
+                        }`
+                      }
+                    >
+                      <Combobox.ItemIndicator className="d-f c-indigo">
+                        <CheckIcon size={12} weight="bold" />
+                      </Combobox.ItemIndicator>
+                      <span className="fg-1">{country.name}</span>
+                    </Combobox.Item>
+                  )}
+                </Combobox.List>
+              </Combobox.Popup>
+            </Combobox.Positioner>
+          </Combobox.Portal>
+        )}
+      </AnimatePresence>
     </Combobox.Root>
   );
 }
 
-const fruits = [
-  "Apple",
-  "Banana",
-  "Orange",
-  "Pineapple",
-  "Grape",
-  "Mango",
-  "Strawberry",
-  "Blueberry",
-  "Raspberry",
-  "Cherry",
-  "Peach",
-  "Pear",
-  "Kiwi",
-  "Watermelon",
+interface Country {
+  code: string;
+  name: string;
+}
+
+const countries: Country[] = [
+  { code: "us", name: "United States" },
+  { code: "ca", name: "Canada" },
+  { code: "gb", name: "United Kingdom" },
+  { code: "de", name: "Germany" },
+  { code: "fr", name: "France" },
+  { code: "jp", name: "Japan" },
+  { code: "au", name: "Australia" },
+  { code: "br", name: "Brazil" },
+  { code: "in", name: "India" },
+  { code: "mx", name: "Mexico" },
+  { code: "es", name: "Spain" },
+  { code: "it", name: "Italy" },
+  { code: "nl", name: "Netherlands" },
+  { code: "se", name: "Sweden" },
+  { code: "no", name: "Norway" },
 ];
