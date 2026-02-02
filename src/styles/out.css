@@ -1023,10 +1023,6 @@ summary {
   color: #e63946;
 }
 
-.c-red-8 {
-  color: #a62932;
-}
-
 .c-rs {
   cursor: row-resize;
 }
@@ -1385,6 +1381,10 @@ summary {
 
 .d\:c-silver-9:disabled {
   color: #5a5f66;
+}
+
+.d\:o-50:disabled {
+  opacity: .5;
 }
 
 .f-1 {

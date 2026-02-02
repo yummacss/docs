@@ -7,6 +7,7 @@ import * as React from "react";
 export default function ExampleForm() {
   const [errors, setErrors] = React.useState<Record<string, string>>({});
   const [loading, setLoading] = React.useState(false);
+  const [success, setSuccess] = React.useState(false);
 
   return (
     <Form
@@ -15,55 +16,59 @@ export default function ExampleForm() {
       onSubmit={async (event) => {
         event.preventDefault();
         const formData = new FormData(event.currentTarget);
-        const value = formData.get("url") as string;
+        const username = formData.get("username") as string;
 
         setLoading(true);
-        const response = await submitForm(value);
-        const serverErrors = {
-          url: response.error || "",
-        };
+        setSuccess(false);
+        const response = await checkUsername(username);
 
-        setErrors(serverErrors);
+        if (response.error) {
+          setErrors({ username: response.error });
+        } else {
+          setErrors({});
+          setSuccess(true);
+        }
         setLoading(false);
       }}
     >
-      <Field.Root name="url" className="d-f fd-c ai-fs g-1">
-        <Field.Label className="fs-sm fw-500 c-slate">Homepage</Field.Label>
+      <Field.Root name="username" className="d-f fd-c ai-fs g-2">
+        <Field.Label className="fs-sm fw-600 c-slate-10">
+          Username <span className="c-indigo">*</span>
+        </Field.Label>
         <Field.Control
-          type="url"
           required
-          defaultValue="https://example.com"
-          placeholder="https://example.com"
-          pattern="https?://.*"
-          className="h-10 w-full bw-1 bc-silver-4 br-1 bg-white pl-4 fs-md c-slate-12 fv:os-s fv:ow-2 fv:oo--1 fv:oc-blue-8"
+          placeholder="Enter username"
+          pattern="[a-z0-9_]+"
+          className="h-10 w-full bw-1 bc-silver-3 br-2 bg-white pl-4 fs-sm c-slate-10 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
         />
-        <Field.Error className="fs-sm c-red-8" />
+        <Field.Error className="fs-sm c-red" />
+        {success && (
+          <span className="fs-sm c-green">Username is available!</span>
+        )}
       </Field.Root>
       <button
         disabled={loading}
         type="submit"
-        className="d-f ai-c jc-c h-10 bw-1 bc-silver-4 br-1 bg-silver-1 px-4 m-0 fs-md fw-500 c-slate us-none h:bg-silver-2 fv:os-s fv:ow-2 fv:oo--1 fv:oc-blue-8"
+        className="bg-indigo c-white br-2 px-3 py-2 fw-600 bsh-md bw-1 bc-indigo-7 us-none tp-c tdu-150 ttf-io h:bg-indigo-8 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 c-p b-0 d:o-50 d:c-not-allowed"
       >
-        {loading ? "Submitting..." : "Submit"}
+        {loading ? "Checking..." : "Check availability"}
       </button>
     </Form>
   );
 }
 
-async function submitForm(value: string) {
-  // Mimic a server response
+async function checkUsername(username: string) {
   await new Promise((resolve) => {
-    setTimeout(resolve, 1000);
+    setTimeout(resolve, 800);
   });
 
-  try {
-    const url = new URL(value);
+  const taken = ["admin", "root", "user", "test"];
+  if (taken.includes(username.toLowerCase())) {
+    return { error: "This username is already taken" };
+  }
 
-    if (url.hostname.endsWith("example.com")) {
-      return { error: "The example domain is not allowed" };
-    }
-  } catch {
-    return { error: "This is not a valid URL" };
+  if (username.length < 3) {
+    return { error: "Username must be at least 3 characters" };
   }
 
   return { success: true };
