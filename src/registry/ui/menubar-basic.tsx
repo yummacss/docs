@@ -2,7 +2,6 @@
 
 import { Menu } from "@base-ui/react/menu";
 import { Menubar } from "@base-ui/react/menubar";
-import { CaretRightIcon } from "@phosphor-icons/react";
 import { AnimatePresence, motion } from "motion/react";
 import * as React from "react";
 
@@ -82,12 +81,12 @@ export default function ExampleMenubar() {
                   }
                   className="br-2 bg-white c-slate-10 py-1 bsh-lg bw-1 bc-silver-2"
                 >
-                  <Menu.Item className={itemClass}>Undo</Menu.Item>
-                  <Menu.Item className={itemClass}>Redo</Menu.Item>
+                  <Menu.Item className={itemClass}>Undo action</Menu.Item>
+                  <Menu.Item className={itemClass}>Redo action</Menu.Item>
                   <Menu.Separator className="mx-4 my-1 h-px bg-silver-2" />
-                  <Menu.Item className={itemClass}>Cut</Menu.Item>
-                  <Menu.Item className={itemClass}>Copy</Menu.Item>
-                  <Menu.Item className={itemClass}>Paste</Menu.Item>
+                  <Menu.Item className={itemClass}>Cut selection</Menu.Item>
+                  <Menu.Item className={itemClass}>Copy text</Menu.Item>
+                  <Menu.Item className={itemClass}>Paste content</Menu.Item>
                 </Menu.Popup>
               </Menu.Positioner>
             </Menu.Portal>
