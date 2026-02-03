@@ -9,65 +9,50 @@ export default function ExampleRadio() {
   return (
     <RadioGroup
       aria-labelledby={id}
-      defaultValue="fuji-apple"
-      className="d-f fd-c g-1 ai-fs c-slate-12"
+      defaultValue="monthly"
+      className="d-f fd-c g-2 ai-fs"
     >
-      <div className="fw-500" id={id}>
-        Best apple
+      <div className="fs-md fw-600 c-slate-10" id={id}>
+        Billing cycle
       </div>
 
       {/* biome-ignore lint: Radio.Root contains hidden input */}
-      <label className="d-f ai-c g-2">
+      <label className="d-f ai-c g-2 fs-sm c-slate-10 c-p">
         <Radio.Root
-          value="fuji-apple"
-          className="d-f ai-c jc-c w-5 h-5 br-full bw-0 bg-transparent p-0 m-0 ow-0 fv:os-s fv:ow-2 fv:oo-2 fv:oc-blue-8 radio-root"
+          value="monthly"
+          className={(state) =>
+            `d-f ai-c jc-c d-4 br-pill p-0 m-0 ${
+              state.checked ? "bg-indigo" : "bg-white bw-1 bc-silver-3"
+            } fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6`
+          }
         >
-          <Radio.Indicator className="d-f ai-c jc-c radio-indicator" />
+          <Radio.Indicator
+            className={(state) =>
+              state.checked ? "d-2 br-pill bg-white" : "d-none"
+            }
+          />
         </Radio.Root>
-        Fuji
+        Monthly
       </label>
 
       {/* biome-ignore lint: Radio.Root contains hidden input */}
-      <label className="d-f ai-c g-2">
+      <label className="d-f ai-c g-2 fs-sm c-slate-10 c-p">
         <Radio.Root
-          value="gala-apple"
-          className="d-f ai-c jc-c w-5 h-5 br-full bw-0 bg-transparent p-0 m-0 ow-0 fv:os-s fv:ow-2 fv:oo-2 fv:oc-blue-8 radio-root"
+          value="yearly"
+          className={(state) =>
+            `d-f ai-c jc-c d-4 br-pill p-0 m-0 ${
+              state.checked ? "bg-indigo" : "bg-white bw-1 bc-silver-3"
+            } fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6`
+          }
         >
-          <Radio.Indicator className="d-f ai-c jc-c radio-indicator" />
+          <Radio.Indicator
+            className={(state) =>
+              state.checked ? "d-2 br-pill bg-white" : "d-none"
+            }
+          />
         </Radio.Root>
-        Gala
+        Yearly
       </label>
-
-      {/* biome-ignore lint: Radio.Root contains hidden input */}
-      <label className="d-f ai-c g-2">
-        <Radio.Root
-          value="granny-smith-apple"
-          className="d-f ai-c jc-c w-5 h-5 br-full bw-0 bg-transparent p-0 m-0 ow-0 fv:os-s fv:ow-2 fv:oo-2 fv:oc-blue-8 radio-root"
-        >
-          <Radio.Indicator className="d-f ai-c jc-c radio-indicator" />
-        </Radio.Root>
-        Granny Smith
-      </label>
-
-      <style>{`
-        .radio-root[data-unchecked] {
-          border: 1px solid #dadcdf;
-          background-color: transparent;
-        }
-        .radio-root[data-checked] {
-          background-color: #0a0a0c;
-        }
-        .radio-indicator[data-unchecked] {
-          display: none;
-        }
-        .radio-indicator::before {
-          content: '';
-          border-radius: 100%;
-          width: 0.5rem;
-          height: 0.5rem;
-          background-color: #f5f5f6;
-        }
-      `}</style>
     </RadioGroup>
   );
 }

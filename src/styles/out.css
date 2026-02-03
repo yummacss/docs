@@ -1953,10 +1953,6 @@ summary {
   height: 12rem;
 }
 
-.h-5 {
-  height: 1.25rem;
-}
-
 .h-50 {
   height: 12.5rem;
 }
@@ -2335,6 +2331,10 @@ summary {
   margin: 0;
 }
 
+.m-2 {
+  margin: .5rem;
+}
+
 .m-8 {
   margin: 2rem;
 }
@@ -2656,6 +2656,10 @@ summary {
 
 .my-8 {
   margin-block: 2rem;
+}
+
+.o-0 {
+  opacity: 0;
 }
 
 .o-100 {
@@ -3882,6 +3886,10 @@ summary {
   vertical-align: top;
 }
 
+.w-1 {
+  width: .25rem;
+}
+
 .w-10 {
   width: 2.5rem;
 }
@@ -3920,10 +3928,6 @@ summary {
 
 .w-48 {
   width: 12rem;
-}
-
-.w-5 {
-  width: 1.25rem;
 }
 
 .w-56 {
