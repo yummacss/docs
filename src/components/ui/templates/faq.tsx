@@ -6,7 +6,7 @@ import {
   AccordionTrigger,
 } from "@/components/accordion";
 
-export default function TemplateFAQ() {
+export default function FAQ() {
   return (
     <div className="my-8">
       <Accordion>

@@ -1,0 +1,129 @@
+export const meta = {
+  title: "Installation",
+  description: "Get started with Yumma UI in your React or Next.js project.",
+};
+
+## Getting started
+
+Yumma UI components are designed to be copied and pasted into your project. To ensure everything works correctly, you need to set up the necessary dependencies and configuration.
+
+### Next.js (App Router)
+
+The recommended way to use Yumma UI with Next.js is by using the App Router.
+
+<Stepper>
+  <Step title="Create project">
+    Initialize a new Next.js project if you haven't already.
+
+    ```bash title="Terminal"
+    npx create-next-app@latest my-app
+    ```
+  </Step>
+
+  <Step title="Install dependencies">
+    Install the core dependencies for Yumma UI.
+
+    ```bash title="Terminal"
+    pnpm add yummacss @base-ui/react motion
+    ```
+  </Step>
+
+  <Step title="Initialize Yumma CSS">
+    Create a configuration file in your project.
+
+    ```bash title="Terminal"
+    pnpm yummacss init
+    ```
+  </Step>
+
+  <Step title="Configure Yumma CSS">
+    Specify the locations of all your project files in the config file.
+
+    ```js title="yumma.config.mjs" mark={4-6}
+    export default {
+      source: ["./src/**/*.{ts,tsx}"],
+      output: "./src/styles.css",
+      buildOptions: {
+        reset: true,
+      },
+    };
+    ```
+  </Step>
+
+  <Step title="Import styles">
+    Import the generated CSS file in your root layout.
+
+    ```tsx title="src/app/layout.tsx"
+    import "./styles.css";
+
+    export default function RootLayout({ children }) {
+      return (
+        <html lang="en">
+          <body>{children}</body>
+        </html>
+      );
+    }
+    ```
+  </Step>
+</Stepper>
+
+### React (Vite)
+
+If you're using Vite for your React project, follow these steps to get started.
+
+<Stepper>
+  <Step title="Create project">
+    Initialize a new React project with Vite.
+
+    ```bash title="Terminal"
+    pnpm create vite my-app --template react-ts
+    ```
+  </Step>
+
+  <Step title="Install dependencies">
+    Install the core dependencies for Yumma UI.
+
+    ```bash title="Terminal"
+    pnpm add yummacss @base-ui/react motion
+    ```
+  </Step>
+
+  <Step title="Initialize Yumma CSS">
+    Create a configuration file in your project.
+
+    ```bash title="Terminal"
+    pnpm yummacss init
+    ```
+  </Step>
+
+  <Step title="Configure Yumma CSS">
+    Specify the locations of all your project files in the config file.
+
+    ```js title="yumma.config.mjs" mark={4-6}
+    export default {
+      source: ["./src/**/*.{ts,tsx}"],
+      output: "./src/styles.css",
+      buildOptions: {
+        reset: true,
+      },
+    };
+    ```
+  </Step>
+
+  <Step title="Import styles">
+    Import the generated CSS file in your root entry file.
+
+    ```tsx title="src/main.tsx"
+    import "./styles.css";
+    import React from "react";
+    import ReactDOM from "react-dom/client";
+    import App from "./App";
+
+    ReactDOM.createRoot(document.getElementById("root")).render(
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    );
+    ```
+  </Step>
+</Stepper>

@@ -30,14 +30,14 @@ export const uiSidebarConfig: UISidebarConfig = [
   {
     title: "Getting Started",
     items: [
-      {
-        title: "Introduction",
-        slug: "components",
-      },
+      { title: "Introduction", slug: "introduction" },
+      { title: "Installation", slug: "installation" },
+      { title: "Theming", slug: "theming" },
+      { title: "Components", slug: "components" },
     ],
   },
   {
-    title: "Components",
+    title: "Base Components",
     items: [
       { title: "Accordion", slug: "accordion" },
       { title: "Alert Dialog", slug: "alert-dialog" },
@@ -77,7 +77,7 @@ export const uiSidebarConfig: UISidebarConfig = [
     ],
   },
   {
-    title: "Blocks",
+    title: "Application UI",
     items: [
       { title: "Auth Form", slug: "auth-form" },
       { title: "Comparison List", slug: "comparison-list" },
