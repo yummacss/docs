@@ -1833,14 +1833,6 @@ summary {
   grid-column-end: 3;
 }
 
-.gcs-1 {
-  grid-column-start: 1;
-}
-
-.gcs-2 {
-  grid-column-start: 2;
-}
-
 .gcs-3 {
   grid-column-start: 3;
 }
