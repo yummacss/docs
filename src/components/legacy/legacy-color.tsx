@@ -70,11 +70,7 @@ function generateClassData(
   });
 }
 
-export default function LegacyColor({
-  classPrefix,
-  propNames,
-  data,
-}: Props) {
+export default function LegacyColor({ classPrefix, propNames, data }: Props) {
   const colorData = generateClassData(classPrefix, propNames, data);
 
   return (
