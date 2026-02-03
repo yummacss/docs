@@ -1,12 +1,12 @@
 "use client";
 
 import { Progress } from "@base-ui/react/progress";
+import { motion } from "motion/react";
 import * as React from "react";
 
 export default function ExampleProgress() {
   const [value, setValue] = React.useState(20);
 
-  // Simulate changes
   React.useEffect(() => {
     const interval = setInterval(() => {
       setValue((current) =>
@@ -17,21 +17,24 @@ export default function ExampleProgress() {
   }, []);
 
   return (
-    <Progress.Root className="d-g gtc-2 rg-2 w-48" value={value}>
-      <Progress.Label className="fs-sm fw-500 c-slate-12">
-        Export data
-      </Progress.Label>
-      <Progress.Value className="m-0 fs-sm c-slate-12 ta-r gcs-2" />
-      <Progress.Track className="o-h bg-silver-2 h-2 br-pill bw-1 bc-silver-4 bs-s gcs-1 gce-3 progress-track">
-        <Progress.Indicator className="d-b bg-slate-5 progress-indicator" />
+    <Progress.Root className="d-f fd-c g-2 w-64" value={value}>
+      <div className="d-f jc-sb ai-c">
+        <Progress.Label className="fs-sm fw-600 c-slate-10">
+          Uploading files
+        </Progress.Label>
+        <Progress.Value className="fs-sm c-slate-8" />
+      </div>
+      <Progress.Track className="o-h bg-silver-2 h-2 br-pill">
+        <Progress.Indicator
+          render={
+            <motion.div
+              animate={{ width: `${value}%` }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+            />
+          }
+          className="bg-indigo h-full br-pill"
+        />
       </Progress.Track>
-
-      <style>{`
-        .progress-indicator {
-          height: 100%;
-          transition: width 500ms;
-        }
-      `}</style>
     </Progress.Root>
   );
 }
