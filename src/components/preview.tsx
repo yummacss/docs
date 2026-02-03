@@ -11,7 +11,6 @@ const previewVariants = cva("bg-white btw-1 brw-1 blw-1", {
       inline: "d-f fd-c p-4",
       inlineCentered: "d-f jc-c p-10",
       noPadding: "d-f fd-c",
-      taller: "d-f ai-c jc-c h-55",
     },
   },
   defaultVariants: {

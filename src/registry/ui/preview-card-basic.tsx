@@ -1,55 +1,59 @@
 "use client";
 
 import { PreviewCard } from "@base-ui/react/preview-card";
+import { AnimatePresence, motion } from "motion/react";
+import * as React from "react";
 
 export default function ExamplePreviewCard() {
+  const [open, setOpen] = React.useState(false);
+
   return (
-    <PreviewCard.Root>
-      <p className="fs-md c-slate-12">
-        The principles of good{" "}
+    <PreviewCard.Root open={open} onOpenChange={setOpen}>
+      <p className="fs-sm c-slate-10 m-0">
+        Learn more about{" "}
         <PreviewCard.Trigger
-          className="c-blue-8 td-n h:td-u fv:td-u preview-card-trigger"
-          href="https://en.wikipedia.org/wiki/Typography"
+          className={`c-indigo fw-600 td-n h:td-u fv:td-u ${open ? "td-u" : ""}`}
+          href="https://en.wikipedia.org/wiki/Responsive_web_design"
         >
-          typography
+          responsive design
         </PreviewCard.Trigger>{" "}
-        remain in the digital age.
+        and modern web layouts.
       </p>
 
-      <PreviewCard.Portal>
-        <PreviewCard.Positioner sideOffset={8}>
-          <PreviewCard.Popup className="d-f fd-c g-2 w-56 p-2 br-2 bg-white bsh-md bw-1 bc-silver-4 preview-card-popup">
-            {/* biome-ignore lint: Using img for external URL */}
-            <img
-              width="224"
-              height="150"
-              className="d-b w-full h-auto br-1"
-              src="https://images.unsplash.com/photo-1619615391095-dfa29e1672ef?q=80&w=448&h=300"
-              alt="Station Hofplein signage in Rotterdam, Netherlands"
-            />
-            <p className="fs-sm c-slate-11 m-0">
-              <strong className="fw-600 c-slate-12">Typography</strong> is the
-              art and science of arranging type to make written language clear,
-              visually appealing, and effective in communication.
-            </p>
-          </PreviewCard.Popup>
-        </PreviewCard.Positioner>
-      </PreviewCard.Portal>
-
-      <style>{`
-        .preview-card-trigger[data-popup-open] {
-          text-decoration: underline;
-        }
-        .preview-card-popup {
-          transform-origin: var(--transform-origin);
-          transition: transform 150ms, opacity 150ms;
-        }
-        .preview-card-popup[data-starting-style],
-        .preview-card-popup[data-ending-style] {
-          opacity: 0;
-          transform: scale(0.95);
-        }
-      `}</style>
+      <AnimatePresence>
+        {open && (
+          <PreviewCard.Portal keepMounted>
+            <PreviewCard.Positioner sideOffset={8}>
+              <PreviewCard.Popup
+                render={
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    transition={{ duration: 0.15, ease: "easeOut" }}
+                  />
+                }
+                className="d-f fd-c g-2 w-64 p-3 br-2 bg-white bsh-lg bw-1 bc-silver-2"
+              >
+                {/* biome-ignore lint: Using img for external URL */}
+                <img
+                  width="232"
+                  height="140"
+                  className="d-b w-full h-auto br-2"
+                  src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=464&h=280"
+                  alt="MacBook with code on screen"
+                />
+                <p className="fs-xs c-slate-8 m-0 lh-4">
+                  <strong className="fw-600 c-slate-10">
+                    Responsive design
+                  </strong>{" "}
+                  adapts layouts to different screen sizes for optimal viewing.
+                </p>
+              </PreviewCard.Popup>
+            </PreviewCard.Positioner>
+          </PreviewCard.Portal>
+        )}
+      </AnimatePresence>
     </PreviewCard.Root>
   );
 }
