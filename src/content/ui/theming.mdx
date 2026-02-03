@@ -1,0 +1,82 @@
+export const meta = {
+  title: "Theming & Customization",
+  description: "Learn how to customize Yumma UI components to fit your design system.",
+};
+
+## Atomic customization
+
+Yumma UI is built with a strictly atomic philosophy. Unlike other component libraries that use semantic tokens (`primary`, `secondary`, etc.) or complex theme objects, Yumma UI components are styled using direct atomic classes from **Yumma CSS**.
+
+This means customization is as simple as changing a class name:
+
+```tsx
+// Changing target background and text color
+<Button className="bg-blue-5 c-white h:bg-blue-6">
+  Click Me
+</Button>
+```
+
+### Flexible by design
+
+Because Yumma CSS does not use a configuration-based token system or support arbitrary values, you have the ultimate freedom to construct your own design system from scratch. Yumma UI provides you with professionally designed, production-ready starting points that you can then adapt to your brand's specific needs.
+
+## Component slots
+
+Most Yumma UI components are built using **Base UI**, which provides a clear "slot" system for deep customization. This allows you to style every single part of a component independently.
+
+For example, in a Dialog component, you might have slots for the `Backdrop`, `Content`, and `Close` button:
+
+```tsx
+<Dialog>
+  <DialogBackdrop className="bg-black/50" />
+  <DialogContent className="bg-zinc-9 p-6 br-2">
+    {/* ... */}
+  </DialogContent>
+</Dialog>
+```
+
+## Building your own system
+
+The best way to "theme" Yumma UI is to treat it as a collection of high-quality templates. 
+
+1. **Copy**: Grab the component code you need.
+2. **Paste**: Drop it into your project's component directory.
+3. **Adapt**: Modify the Yumma CSS classes to match your desired aesthetic.
+
+## Variant management
+
+While Yumma UI is built with direct atomic classes, you might want to create reusable components with semantic variants like `variant="primary"` or `size="lg"`. 
+
+We recommend using **class-variance-authority (cva)** for this. It allows you to define variants in a structured way that remains easy to maintain:
+
+```tsx
+import { Button } from "@base-ui/react";
+import { cva, type VariantProps } from "class-variance-authority";
+
+const buttonStyles = cva("br-1 fs-sm", {
+  variants: {
+    variant: {
+      primary: "bg-blue-5 c-white h:bg-blue-6",
+      secondary: "bg-zinc-8 c-white h:bg-zinc-7",
+    },
+    size: {
+      sm: "px-2 py-1",
+      md: "px-4 py-2",
+    },
+  },
+  defaultVariants: {
+    variant: "primary",
+    size: "md",
+  },
+});
+
+export interface MyButtonProps
+  extends Button.Props,
+    VariantProps<typeof buttonStyles> {}
+
+export const MyButton = ({ className, variant, size, ...props }: MyButtonProps) => (
+  <Button className={buttonStyles({ variant, size, className })} {...props} />
+);
+```
+
+This approach ensures that your project remains lightweight, performant, and perfectly aligned with your design vision.

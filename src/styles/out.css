@@ -517,12 +517,20 @@ summary {
   background-color: #0003;
 }
 
+.bg-black\/50 {
+  background-color: #00000080;
+}
+
 .bg-black\/70 {
   background-color: #000000b3;
 }
 
 .bg-blue {
   background-color: #2563eb;
+}
+
+.bg-blue-5 {
+  background-color: #628ff1;
 }
 
 .bg-blue-9 {
@@ -671,6 +679,14 @@ summary {
 
 .bg-white\/5 {
   background-color: #ffffff0d;
+}
+
+.bg-zinc-8 {
+  background-color: #3b3b42;
+}
+
+.bg-zinc-9 {
+  background-color: #303035;
 }
 
 .blw-0 {
@@ -2009,6 +2025,10 @@ summary {
   background-color: #2563eb;
 }
 
+.h\:bg-blue-6:hover {
+  background-color: #4479ee;
+}
+
 .h\:bg-green-1:hover {
   background-color: #d7f8f0;
 }
@@ -2079,6 +2099,10 @@ summary {
 
 .h\:bg-yellow-11:hover {
   background-color: #4d3708;
+}
+
+.h\:bg-zinc-7:hover {
+  background-color: #47474e;
 }
 
 .h\:bsh-xl:hover {

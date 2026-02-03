@@ -14,7 +14,7 @@ import Reference from "@/components/reference";
 import ResponsiveVariant from "@/components/responsive-variant";
 import Stepper, { Step } from "@/components/stepper";
 import { Tabs, TabsList, TabsPanel, TabsTab } from "@/components/tabs";
-import TemplateFAQ from "@/components/ui/templates/faq";
+import FAQ from "@/components/ui/templates/faq";
 import TemplatesList from "@/components/ui/templates/list";
 
 // generate IDs from heading text
@@ -54,7 +54,7 @@ const components: MDXComponents = {
   TabsList,
   TabsPanel,
   TabsTab,
-  TemplateFAQ,
+  FAQ,
   TemplatesList,
   h1: ({ children, ...props }) => {
     const id = props.id || generateId(children);
