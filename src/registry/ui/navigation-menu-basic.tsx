@@ -22,7 +22,7 @@ function NavTrigger({
   return (
     <NavigationMenu.Trigger
       className={(state) =>
-        `d-f ai-c jc-c g-1 h-10 px-3 m-0 bw-0 br-1 fs-sm fw-600 c-slate-10 us-none td-n c-p h:bg-silver-1 ${
+        `d-f ai-c jc-c g-1 h-10 px-3 m-0 bw-0 br-pill fs-sm fw-600 c-slate-10 us-none td-n c-p h:bg-silver-1 ${
           state.open ? "bg-silver-1" : "bg-transparent"
         } ${className || ""}`
       }
@@ -43,7 +43,7 @@ function NavTrigger({
 
 export default function ExampleNavigationMenu() {
   return (
-    <NavigationMenu.Root className="min-w-max br-2 bw-1 bc-silver-2 bg-white p-1">
+    <NavigationMenu.Root className="min-w-max br-pill bw-1 bc-silver-2 bg-white p-1">
       <NavigationMenu.List className="p-r d-f m-0 p-0 g-1">
         <NavigationMenu.Item>
           <NavTrigger>Developers</NavTrigger>
@@ -104,7 +104,7 @@ export default function ExampleNavigationMenu() {
         <NavigationMenu.Item>
           <NavigationMenu.Link
             href="#pricing"
-            className="d-f ai-c jc-c h-10 px-3 m-0 bw-0 br-1 bg-transparent fs-sm fw-600 c-slate-10 us-none td-n c-p h:bg-silver-1"
+            className="d-f ai-c jc-c h-10 px-3 m-0 bw-0 br-pill bg-transparent fs-sm fw-600 c-slate-10 us-none td-n c-p h:bg-silver-1"
           >
             Pricing
           </NavigationMenu.Link>
@@ -121,7 +121,7 @@ export default function ExampleNavigationMenu() {
                 transition={{ duration: 0.15, ease: "easeOut" }}
               />
             }
-            className="br-2 bg-white bsh-lg bw-1 bc-silver-2 o-h"
+            className="br-3 bg-white bsh-lg bw-1 bc-silver-2 o-h"
           >
             <NavigationMenu.Viewport className="p-r w-full h-full o-h" />
           </NavigationMenu.Popup>

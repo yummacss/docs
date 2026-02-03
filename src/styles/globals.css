@@ -37,7 +37,13 @@ body {
 [role="alertdialog"],
 [role="alertdialog"] *,
 [role="listbox"],
-[role="listbox"] * {
+[role="listbox"] *,
+[role="menu"],
+[role="menu"] *,
+[role="menubar"],
+[role="menubar"] *,
+[role="navigation"],
+[role="navigation"] * {
   font-family:
     system-ui,
     -apple-system,
