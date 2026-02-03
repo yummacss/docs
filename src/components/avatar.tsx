@@ -9,13 +9,7 @@ interface Props {
   style?: React.CSSProperties;
 }
 
-export function Avatar({
-  src,
-  alt,
-  fallback,
-  className = "",
-  style,
-}: Props) {
+export function Avatar({ src, alt, fallback, className = "", style }: Props) {
   const initials =
     fallback ||
     alt

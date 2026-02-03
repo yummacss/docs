@@ -38,11 +38,7 @@ interface Props {
   routeType: "docs" | "ui";
 }
 
-export default function MobileSidebar({
-  isOpen,
-  onClose,
-  routeType,
-}: Props) {
+export default function MobileSidebar({ isOpen, onClose, routeType }: Props) {
   const pathname = usePathname();
   const fullConfig = routeType === "ui" ? uiSidebarConfig : sidebarConfig;
   const baseRoute = routeType === "ui" ? "/ui" : "/docs";

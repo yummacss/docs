@@ -24,7 +24,7 @@ export default function TemplatesSidebar() {
             <li>
               <Link
                 href="/ui/templates"
-                className={`d-f ai-c g-3 fs-md ${
+                className={`d-f ai-c g-3 fs-md us-none ${
                   pathname === "/ui/templates"
                     ? "c-white"
                     : "c-white/70 h:c-white"
@@ -41,7 +41,7 @@ export default function TemplatesSidebar() {
                 <li key={template.slug}>
                   <Link
                     href={href}
-                    className={`d-f ai-c g-3 fs-md ${
+                    className={`d-f ai-c g-3 fs-md us-none ${
                       isActive ? "c-white" : "c-white/70 h:c-white"
                     }`}
                   >

@@ -47,10 +47,7 @@ const getBorderStyle = (color: string): string => {
   return "none";
 };
 
-export default function LegacyPalette({
-  data,
-  percentage = 10,
-}: Props) {
+export default function LegacyPalette({ data, percentage = 10 }: Props) {
   return (
     <div className="d-f fd-c g-1">
       <div className="d-none lg:d-f fd-c g-1 ai-c md:fd-r md:ai-c">
