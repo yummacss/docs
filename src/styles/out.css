@@ -933,10 +933,6 @@ summary {
   color: #000;
 }
 
-.c-blue-8 {
-  color: #1b47a9;
-}
-
 .c-cr {
   cursor: col-resize;
 }
@@ -1063,10 +1059,6 @@ summary {
 
 .c-slate-10 {
   color: #2c333d;
-}
-
-.c-slate-11 {
-  color: #1e232a;
 }
 
 .c-slate-12 {
@@ -1967,10 +1959,6 @@ summary {
 
 .h-50 {
   height: 12.5rem;
-}
-
-.h-55 {
-  height: 13.75rem;
 }
 
 .h-6 {
