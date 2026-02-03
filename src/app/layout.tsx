@@ -13,8 +13,8 @@ export const metadata: Metadata = {
   description,
   icons: {
     apple: "/apple-touch-icon.png",
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
   },
   metadataBase: new URL("https://yummacss.com"),
   openGraph: {
