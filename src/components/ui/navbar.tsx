@@ -60,7 +60,7 @@ export default function Navbar({ variant, className, links }: NavbarProps) {
                 href={isUI ? "/ui" : "/"}
                 className="fv:oc-indigo-4 fv:ow-2"
               >
-                <YummaCSS className="h-10 w-auto us-none" />
+                <YummaCSS className="h-8 w-auto us-none" />
               </Link>
             </div>
             <div className="d-f ai-c g-8">
