@@ -10,7 +10,7 @@ It represents an element that is activated by the user, typically by pressing th
 <Hint icon="cursor_click">Try clicking and holding the button to see the active state.</Hint>
 
 <Preview>
-  <button className="bg-indigo a:bg-indigo-7 px-3 py-2 br-0 c-white">Press me</button>
+  <button className="bg-indigo c-white br-2 px-3 py-2 fw-600 bsh-md bw-1 bc-indigo-7 us-none tp-c tdu-150 ttf-io a:bg-indigo-7 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 c-p b-0">Press me</button>
 </Preview>
 
 ```html "a:bg-indigo-7"
@@ -24,7 +24,7 @@ It represents an element that has received focus and is triggered when the user 
 <Hint icon="cursor_click">Try clicking on the input field to see how the border color and outline change.</Hint>
 
 <Preview>
-  <button className="bg-indigo f:oc-indigo-4 f:oo-2 f:os-s f:ow-2 px-3 py-2 br-0 c-white">Click me</button>
+  <button className="bg-indigo c-white br-2 px-3 py-2 fw-600 bsh-md bw-1 bc-indigo-7 us-none tp-c tdu-150 ttf-io f:oc-indigo-4 f:oo-2 f:os-s f:ow-2 c-p b-0">Click me</button>
 </Preview>
 
 ```html "f:oc-indigo-4 f:oo-2 f:os-s f:ow-2"
@@ -38,7 +38,7 @@ It'll match an element when the user interacts with it using a pointing device. 
 <Hint icon="hand_pointing">Try hovering over the button to see how the background color changes.</Hint>
 
 <Preview>
-  <button className="bg-indigo h:bg-indigo-7 px-3 py-2 br-0 c-white c-p">Hover me</button>
+  <button className="bg-indigo c-white br-2 px-3 py-2 fw-600 bsh-md bw-1 bc-indigo-7 us-none tp-c tdu-150 ttf-io h:bg-indigo-7 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 c-p b-0">Hover me</button>
 </Preview>
 
 ```html "h:bg-indigo-7"
@@ -52,11 +52,11 @@ When an element matches the `:focus` pseudo-class and the UA (user agent) figure
 <Hint icon="keyboard">Try using Tab to focus the button with your keyboard.</Hint>
 
 <Preview>
-  <button className="bg-indigo fv:ow-2 fv:oc-indigo-2 px-3 py-2 br-0 c-white c-p">Focus me</button>
+  <button className="bg-indigo c-white br-2 px-3 py-2 fw-600 bsh-md bw-1 bc-indigo-7 us-none tp-c tdu-150 ttf-io fv:ow-2 fv:oc-indigo-4 fv:oo-2 c-p b-0">Focus me</button>
 </Preview>
 
 ```html "fv:ow-2" "fv:oc-indigo-2"
-<button className="bg-indigo fv:ow-2 fv:oc-indigo-2 px-3 py-2 br-0 c-white c-p">Focus me</button>
+<button className="bg-indigo fv:ow-2 fv:oc-indigo-4 fv:oo-2 px-3 py-2 br-0 c-white c-p">Focus me</button>
 ```
 
 ## Focus Within
@@ -66,8 +66,8 @@ It matches an element if the element or any of its descendants are focused.
 <Hint icon="cursor_click">Try clicking on the input field to see the container's border change.</Hint>
 
 <Preview>
-  <div className="fw:bc-indigo bw-2 bc-silver p-px">
-    <input className="p-2 bw-1 bc-silver" placeholder="Focus me" />
+  <div className="d-f ai-c w-full max-w-64 br-2 bw-1 bc-silver-3 bg-white fw:os-s fw:ow-2 fw:oo-2 fw:oc-indigo-6 fv:oc-indigo-6">
+    <input className="f-1 h-10 pl-4 b-0 fs-sm c-slate-10 bg-transparent" placeholder="Focus me" style={{ outline: 'none' }} />
   </div>
 </Preview>
 
@@ -83,21 +83,23 @@ It represents any radio, checkbox, or option element that is checked or toggled 
 
 <Preview>
   <div className="d-f g-2 ai-c">
-    <input type="checkbox" className="c:bg-indigo-4 d-4 br-0" checked />
-    <label>Checked checkbox</label>
+    <input type="checkbox" className="d-4 br-1 bw-1 bc-silver-3 appearance-none c-p" checked readOnly />
+    <label className="fs-sm fw-600 c-slate-10">Checked checkbox</label>
   </div>
 </Preview>
 
 ```html "c:bg-indigo-4"
-<input type="checkbox" class="c:bg-indigo-4 d-4 br-0" checked />
+<input type="checkbox" class="d-4 br-0" checked />
 ```
 
 ## Disabled
 
 It represents any disabled element. An element is disabled if it can't be activated or accept focus.
 
+<Hint icon="cursor">Elements with the `disabled` attribute use `cursor: not-allowed` by default in [Base Styles](/docs/base-styles).</Hint>
+
 <Preview>
-  <button className="bg-indigo-2 d:bg-silver-4 d:c-silver-9 px-3 py-2 br-0 c-white" disabled>Disabled button</button>
+  <button className="bg-silver-2 c-silver-9 br-2 px-3 py-2 fw-600 bsh-xs bw-1 bc-silver-3 us-none tp-c tdu-150 ttf-io d:bg-silver-1 d:c-silver-8" disabled>Disabled button</button>
 </Preview>
 
 ```html "d:bg-silver-4" "d:c-silver-9"
