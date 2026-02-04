@@ -26,11 +26,6 @@ export const redirects = [
     destination: "/ui/components",
     permanent: true,
   },
-  {
-    source: "/ui/introduction",
-    destination: "/ui/components",
-    permanent: true,
-  },
   // Docs redirects
   {
     source: "/docs/colours",
@@ -95,6 +90,11 @@ export const redirects = [
   {
     source: "/docs/top-right-bottom-left",
     destination: "/docs/top",
+    permanent: true,
+  },
+  {
+    source: "/docs/dimensions",
+    destination: "/docs/dimension",
     permanent: true,
   },
   // Framework guides

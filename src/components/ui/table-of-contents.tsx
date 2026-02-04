@@ -70,12 +70,12 @@ export default function TableOfContents() {
         <div className="px-8 pb-12">
           <h3 className="fs-md fw-400 tt-c mb-3 c-white">On this page</h3>
           <ul className="d-f fd-c g-2 fs-sm">
-            {headings.map((heading) => {
+            {headings.map((heading, index) => {
               const isActive = activeId === heading.id;
 
               return (
                 <li
-                  key={heading.id}
+                  key={`${heading.id}-${heading.level}-${index}`}
                   className={heading.level === 3 ? "ml-4" : ""}
                 >
                   <Link
