@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -44,7 +44,7 @@ export default function Sidebar() {
                   return (
                     <li key={item.title} className="d-f fd-c g-2">
                       <span className="fs-md c-white/50">{item.title}</span>
-                      <ul className="d-f ml-4 fd-c g-1">
+                      <ul className="d-f fd-c g-1">
                         {item.children.map((child) => {
                           const href = `/docs/${child.slug}`;
                           const isActive = pathname === href;
@@ -72,7 +72,7 @@ export default function Sidebar() {
                   return (
                     <li key={item.title} className="d-f fd-c g-2">
                       <span className="fs-md c-white/50">{item.title}</span>
-                      <ul className="d-f ml-4 fd-c g-1">
+                      <ul className="d-f fd-c g-1">
                         {item.items.map((subItem) => {
                           if (hasChildren(subItem)) {
                             return (
@@ -80,7 +80,7 @@ export default function Sidebar() {
                                 <span className="fs-md c-white/40">
                                   {subItem.title}
                                 </span>
-                                <ul className="d-f ml-4 fd-c g-1">
+                                <ul className="d-f fd-c g-1">
                                   {subItem.children.map((child) => {
                                     const href = `/docs/${child.slug}`;
                                     const isActive = pathname === href;

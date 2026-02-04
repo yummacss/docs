@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -67,10 +67,10 @@ export default function MobileSidebar({ isOpen, onClose, routeType }: Props) {
 
   return (
     <div
-      className="p-f t-26 l-0 w-fc zi-20 lg:d-none btw-1 brw-1 bc-white/5 bsh-md"
+      className="p-f t-24 l-0 w-full zi-20 lg:d-none btw-1 bc-white/5 bsh-md"
       style={{
         backgroundColor: "#151724",
-        height: "calc(100vh - 6.5rem)",
+        height: "calc(100vh - 6rem)",
       }}
     >
       <div className="p-r h-full d-f fd-c">
@@ -84,7 +84,7 @@ export default function MobileSidebar({ isOpen, onClose, routeType }: Props) {
                   <h3 className="fs-md fw-400 tt-c ls-5 c-white">
                     {section.title}
                   </h3>
-                  <ul className="d-f ml-4 fd-c g-2">
+                  <ul className="d-f fd-c g-2">
                     {section.items.map((item) => {
                       // item with children (nested structure)
                       if (hasChildren(item)) {
@@ -93,7 +93,7 @@ export default function MobileSidebar({ isOpen, onClose, routeType }: Props) {
                             <span className="fs-md c-white/50">
                               {item.title}
                             </span>
-                            <ul className="d-f ml-4 fd-c g-1">
+                            <ul className="d-f fd-c g-1">
                               {(
                                 item.children as (
                                   | SidebarConfigSimpleItem
@@ -108,7 +108,7 @@ export default function MobileSidebar({ isOpen, onClose, routeType }: Props) {
                                     <Link
                                       href={href}
                                       onClick={onClose}
-                                      className={`d-f ai-c g-3 fs-md ${isActive ? "c-white" : "c-white/70 h:c-white"}`}
+                                      className={`d-if ai-c g-3 fs-md ${isActive ? "c-white" : "c-white/70 h:c-white"}`}
                                     >
                                       {child.title}
                                     </Link>
@@ -127,7 +127,7 @@ export default function MobileSidebar({ isOpen, onClose, routeType }: Props) {
                             <span className="fs-md c-white/50">
                               {item.title}
                             </span>
-                            <ul className="d-f ml-4 fd-c g-1">
+                            <ul className="d-f fd-c g-1">
                               {(
                                 item.items as (
                                   | SidebarConfigItem
@@ -143,7 +143,7 @@ export default function MobileSidebar({ isOpen, onClose, routeType }: Props) {
                                       <span className="fs-md c-white/40">
                                         {subItem.title}
                                       </span>
-                                      <ul className="d-f ml-4 fd-c g-1">
+                                      <ul className="d-f fd-c g-1">
                                         {(
                                           subItem.children as (
                                             | SidebarConfigSimpleItem
@@ -158,7 +158,7 @@ export default function MobileSidebar({ isOpen, onClose, routeType }: Props) {
                                               <Link
                                                 href={href}
                                                 onClick={onClose}
-                                                className={`d-f ai-c g-3 fs-md ${isActive ? "c-white" : "c-white/70 h:c-white"}`}
+                                                className={`d-if ai-c g-3 fs-md ${isActive ? "c-white" : "c-white/70 h:c-white"}`}
                                               >
                                                 {child.title}
                                               </Link>
@@ -179,7 +179,7 @@ export default function MobileSidebar({ isOpen, onClose, routeType }: Props) {
                                       <Link
                                         href={href}
                                         onClick={onClose}
-                                        className={`d-f ai-c g-3 fs-md ${isActive ? "c-white" : "c-white/70 h:c-white"}`}
+                                        className={`d-if ai-c g-3 fs-md ${isActive ? "c-white" : "c-white/70 h:c-white"}`}
                                       >
                                         {subItem.title}
                                       </Link>

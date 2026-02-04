@@ -108,8 +108,8 @@ body {
   background-size: 10px 10px;
   background-image: repeating-linear-gradient(
     45deg,
-    #31365e 0,
-    #31365e 1px,
+    #c2c3cc 0,
+    #c2c3cc 1px,
     #fff 0,
     #fff 50%
   );
