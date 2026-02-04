@@ -4,18 +4,18 @@ An atomic CSS framework with abbreviated class names.
 
 ## Getting Started
 
-- [Installation](https://yummacss.com/docs/installation): An atomic CSS framework with abbreviated class names.
+- [Installation](https://yummacss.com/docs/installation): Yumma CSS is an atomic CSS framework that takes a different approach to utility-first styling. Instead of long, complicated utilities, Yumma CSS uses abbreviations to make class names intuitive and fast to type.
 - [Configuration](https://yummacss.com/docs/configuration): Setting your first Yumma CSS project.
-- [Upgrading](https://yummacss.com/docs/upgrading): Learn how to upgrade your project from Yumma CSS v2 to v3.
+- [Upgrading](https://yummacss.com/docs/upgrading): Upgrade your legacy project from Yumma CSS v2 to v3.
 
 ## Foundations
 
-- [Styling Elements](https://yummacss.com/docs/styling-elements): Learn how to style elements in Yumma CSS.
-- [Colors](https://yummacss.com/docs/colors): Learn how to use colors in Yumma CSS.
-- [Media Queries](https://yummacss.com/docs/media-queries): Learn how to make responsive layouts with Yumma CSS.
-- [Negative Values](https://yummacss.com/docs/negative-values): Learn how to use negative values with Yumma CSS utilities.
-- [Pseudo Classes](https://yummacss.com/docs/pseudo-classes): Learn how to use pseudo-classes in Yumma CSS.
-- [Pseudo Elements](https://yummacss.com/docs/pseudo-elements): Learn how to style pseudo-elements in Yumma CSS.
+- [Styling Elements](https://yummacss.com/docs/styling-elements): A guide to styling elements using Yumma CSS.
+- [Colors](https://yummacss.com/docs/colors): Use colors in Yumma CSS.
+- [Media Queries](https://yummacss.com/docs/media-queries): Use responsive variants for responsive user interfaces.
+- [Negative Values](https://yummacss.com/docs/negative-values): Use negative values with Yumma CSS utilities.
+- [Pseudo Classes](https://yummacss.com/docs/pseudo-classes): Use pseudo-classes to apply utilities in specific scenarios.
+- [Pseudo Elements](https://yummacss.com/docs/pseudo-elements): Use pseudo-elements to apply utilities in specific scenarios.
 - [Base Styles](https://yummacss.com/docs/base-styles): Accessible and modern set of base styles for Yumma CSS projects.
 
 ## Background
