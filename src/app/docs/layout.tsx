@@ -17,7 +17,7 @@ export default function DocsLayout({
         <div className="d-g gtc-1 lg:gtc-12 g-8">
           <Sidebar />
 
-          <div className="lg:gc-s-6 pt-26 lg:pt-14">
+          <div className="lg:gc-s-6 pt-24 lg:pt-12">
             <article className="max-w-none">{children}</article>
           </div>
 

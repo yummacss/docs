@@ -98,11 +98,11 @@ export default function Navbar({ variant, className, links }: NavbarProps) {
               <Button
                 type="button"
                 onClick={() => setSearchOpen(true)}
-                className="d-f ai-c g-2 p-2 lg:px-4 lg:py-2 bg-white/5 bf-b-sm fs-sm h:bg-white/10 c-white bw-1 bc-white/10 br-pill fv:oc-indigo-4 fv:ow-2"
+                className="d-f ai-c jc-c g-2 py-2 px-3 lg:px-4 lg:py-2 bg-white/5 bf-b-sm fs-sm h:bg-white/10 c-white bw-1 bc-white/10 br-pill fv:oc-indigo-4 fv:ow-2"
               >
                 <MagnifyingGlassIcon size={15} />
                 <kbd className="d-none lg:d-b fs-xs c-white/60 us-none">
-                  Ctrl K
+                  Ctrl&nbsp;K
                 </kbd>
               </Button>
 
