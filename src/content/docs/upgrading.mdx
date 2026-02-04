@@ -1,11 +1,15 @@
 export const meta = {
   title: "Upgrading",
-  description: "Upgrade your legacy project from Yumma CSS v2 to v3.",
+  description: "Migrate your project from legacy versions of Yumma CSS.",
 };
 
-Yumma CSS v3 is a major update with new features & breaking changes.
+Modern versions of Yumma CSS introduce significant improvements, including a new CLI-based workflow & core shifts in utility naming.
 
-In v3, we replaced the old `@import` & introduced a new CLI tool.
+Previous versions relied on `@import` statements; the current system uses a dedicated CLI for better performance & flexibility.
+
+## Legacy versions
+
+In this guide, **legacy** refers to Yumma CSS v2 & earlier versions. These older systems are no longer actively developed & lack the performance optimizations of the current CLI-driven core.
 
 <Stepper>
   <Step title="Update Yumma CSS">
@@ -59,7 +63,7 @@ In v3, we replaced the old `@import` & introduced a new CLI tool.
 
 ## Dependency changes
 
-Yumma CSS v3 works as a CLI tool. Install it as a dev dependency (`-D`) instead of a standard dependency.
+Yumma CSS now functions as a CLI tool. Install it as a dev dependency (`-D`) instead of a standard dependency to keep your production bundle lean.
 
 ```bash title="Terminal"
 npm install yummacss -D
@@ -76,9 +80,9 @@ npm install @yummacss/core
 
 ## Utility changes
 
-Here are the utilities that have been renamed in v3:
+Utilities renamed in the current version:
 
-| Style               | v2      | v3     |
+| Style               | Legacy  | Latest |
 | ------------------- | ------- | ------ |
 | `bottom`            | dir-b   | bo-\*  |
 | `inset`             | dir-i   | i-\*   |
@@ -96,13 +100,12 @@ Here are the utilities that have been renamed in v3:
 | `system-ui`         | ff-s   | ff-d   |
 | `charter`           | ff-c   | ff-s   |
 | `height` / `width`  | *-1/1  | *-dvh  |
-| _Any color utility_ | lead    | slate  |
+| _Color utilities_   | lead    | slate  |
 
-| `*-lead`
 
 ### Color utility changes
 
-In v3, light (`l-`) & dark (`d-`) characters are removed across all color utilities. `lead` is renamed to `slate`.
+In the current version, light (`l-`) & dark (`d-`) characters are removed across all color utilities. `lead` is renamed to `slate`.
 
 <div className="p-4">
   ```html del={1} ins={2} title="index.html"
@@ -113,7 +116,7 @@ In v3, light (`l-`) & dark (`d-`) characters are removed across all color utilit
 
 Color hue modification increased from 10 % to 14 %. Light colors are lighter; dark colors are darker.
 
-| v2.1           | v3.0          | Difference    |
+| Legacy         | Latest        | Difference    |
 | -------------- | ------------- | ------------- |
 | `*-l-indigo-6` | `*-indigo-1`  | -2 characters |
 | `*-l-indigo-5` | `*-indigo-2`  | -2 characters |
@@ -300,7 +303,7 @@ Prefix updated from `i-` to `is-`.
 
 ## Base style changes
 
-Yumma CSS v3 modernizes base styles for consistency. These are enabled by default & can be disabled in `yumma.config.mjs`.
+Modern Yumma CSS versions include standardized base styles for better consistency. These are enabled by default & can be disabled in `yumma.config.mjs`.
 
 Remove paddings by default:
 
