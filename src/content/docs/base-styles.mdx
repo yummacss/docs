@@ -1,6 +1,6 @@
 export const meta = {
-  title: "Base Styles",
-  description: "Accessible and modern set of base styles for Yumma CSS projects.",
+  title: "Base styles",
+  description: "Accessible & modern base styles for Yumma CSS projects.",
 };
 
 ## Box sizing
@@ -8,8 +8,8 @@ export const meta = {
 Apply a modern box model and remove browser defaults to simplify layout consistency.
 
 
-1. **Use a more intuitive `box-sizing` model to make the design consistent.**
-2. **Remove default `margin` and `padding`.**
+1. **Use an intuitive `box-sizing` model for design consistency.**
+2. **Remove default `margin` & `padding`.**
 3. **Reset default `border` styles.**
 
 ```css
@@ -28,13 +28,13 @@ Apply a modern box model and remove browser defaults to simplify layout consiste
 
 ## Document
 
-Set a default system font, improve font smoothing, and add accessible line-height.
+Set a default system font, improve rendering, & apply accessible line-height.
 
 
 1. **Set a default system font.**
-2. **Improve `font` smoothing.**
+2. **Improve `font` rendering.**
 3. **Inherit font styles from parent elements.**
-4. **Add accessible `line-height`.**
+4. **Apply accessible `line-height`.**
 
 ```css
 html {
@@ -50,11 +50,11 @@ body {
 
 ## Media Elements
 
-Ensure responsive images and videos behave predictably in all layouts.
+Ensure images & videos behave predictably in all layouts.
 
 
-1. **Ensure all media elements like images, videos, and canvases are block-level.**
-2. **Limit their maximum width to the parent container.**
+1. **Set media elements (images, videos, canvases) to block-level.**
+2. **Limit maximum width to parent container.**
 
 ```css
 canvas,
@@ -69,11 +69,11 @@ video {
 
 ## Form Elements
 
-Normalize form controls for visual consistency and better accessibility.
+Normalize form controls for visual consistency & accessibility.
 
 
-1. **Reset background and border styles for form elements.**
-2. **Use `inherit` to ensure font consistency within forms.**
+1. **Reset background & border styles.**
+2. **Use `inherit` for font consistency.**
 3. **Add default padding for usability.**
 
 ```css
@@ -131,10 +131,9 @@ button {
 }
 ```
 
-Disabled States
+Disabled states
 
-
-1. **Reduce opacity and set a "not-allowed" cursor for disabled elements.**
+1. **Reduce opacity & apply a "not-allowed" cursor.**
 
 ```css
 button:disabled,
@@ -148,12 +147,12 @@ textarea:disabled {
 
 ## Typography
 
-Improve text rendering, wrapping, and default font behavior across browsers.
+Improve rendering, wrapping, & default font behavior.
 
 
 1. **Avoid text overflows.**
 2. **Improve line wrapping for headings.**
-3. **Add a consistent font weight for bold text.**
+3. **Apply a consistent font weight.**
 
 ```css
 h1,
@@ -182,7 +181,7 @@ p {
 }
 ```
 
-Add the correct font weight in Chrome, Edge, and Safari.
+Chrome, Edge, & Safari bold weight correction:
 
 ```css
 b,
@@ -191,7 +190,7 @@ strong {
 }
 ```
 
-Add the correct font size in all browsers.
+Default font size across browsers:
 
 ```css
 small {
@@ -214,8 +213,8 @@ samp {
 }
 ```
 
-1. **Remove underline styling from links by default.**
-2. **Reset color to inherit from parent element.**
+1. **Remove default underlines from links.**
+2. **Inherit color from parent elements.**
 
 ```css
 a {
@@ -226,7 +225,7 @@ a {
 
 ## Lists
 
-Remove default list styles for a cleaner and more customizable base.
+Remove default list styles for clean, customizable lists.
 
 ```css
 ol,
@@ -241,7 +240,7 @@ ul {
 Standardize table header styling for better readability.
 
 
-1. **Add a consistent font weight for bold text.**
+1. **Apply consistent bold font weights.**
 
 ```css
 th {
@@ -255,9 +254,9 @@ th {
 Fix minor browser quirks and improve default styles for common elements.
 
 
-1. **Add the correct height in Firefox.**
+1. **Add correct height in Firefox.**
 2. **Correct text decoration.**
-3. **Add spacing around horizontal rules.**
+3. **Add spacing around `hr` elements.**
 
 ```css
 hr {
@@ -279,9 +278,9 @@ summary {
 }
 ```
 
-### Disabling base styles
+### Disable base styles
 
-Use the `buildOptions.reset` option in the `yumma.config.mjs` file to disable base styles.
+Set `buildOptions.reset` to `false` in `yumma.config.mjs`.
 
 ```js title="yumma.config.mjs"
 export default = {

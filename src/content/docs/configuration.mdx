@@ -1,25 +1,25 @@
 export const meta = {
   title: "Configuration",
-  description: "Setting your first Yumma CSS project.",
+  description: "Configure your first Yumma CSS project.",
 };
 
-## Installing the CLI
+## Install the CLI
 
-Yumma CSS comes with the Yumma CLI, a powerful tool that's a breeze to set up and takes no time or effort for production-ready projects.
+Yumma CSS includes the Yumma CLI, a powerful tool for generating production-ready styles.
 
 ```bash title="Terminal"
 npm install yummacss -D
 ```
 
-## Creating your configuration file
+## Create your configuration file
 
-To start using the CLI, you need to create a configuration file in your project.
+Initialize a configuration file in your project.
 
 ```bash title="Terminal"
 npx yummacss init
 ```
 
-This will create a complete `yumma.config.mjs` file at the root of your project shown below.
+This creates a `yumma.config.mjs` file at your project root.
 
 ```js title="yumma.config.mjs"
 export default {
@@ -34,9 +34,9 @@ export default {
 
 ### Source
 
-A collection of paths for your template files, such as `.js`, `.tsx`, or `.html` files. This is where the CLI will look for utilities to include in the final CSS file.
+A collection of paths for your template files (e.g., `.js`, `.tsx`, `.html`). The CLI scans these files for utilities to include in the final CSS file.
 
-<Hint icon="info">Use glob patterns to include subfolders and specific file types.</Hint>
+<Hint icon="info">Use glob patterns to include subfolders & specific file types.</Hint>
 
 ```js title="yumma.config.mjs" mark={2}
 export default {
@@ -46,7 +46,7 @@ export default {
 
 ### Output
 
-A string that specifies the output path for the compiled CSS file. This is where the CLI will save the final CSS file after processing your template files.
+Specifies the output path for the compiled CSS file.
 
 ```js title="yumma.config.mjs" mark={2}
 export default {
@@ -56,7 +56,7 @@ export default {
 
 ### Reset
 
-A boolean that determines whether the inclusion of the [base styles](/docs/base-styles).
+Determines whether to include [base styles](/docs/base-styles).
 
 ```js title="yumma.config.mjs" mark={3}
 export default {
@@ -68,7 +68,7 @@ export default {
 
 ### Minify
 
-A boolean that determines whether the compiled CSS files should or not be minified. This is useful for production builds where you want to reduce the file size for faster loading times.
+Determines whether to minify compiled CSS files. Enable this for production builds to reduce file size.
 
 ```js title="yumma.config.mjs" mark={3}
 export default {
@@ -78,13 +78,11 @@ export default {
 };
 ```
 
-## Generating styles
+## Generate styles
 
-The CLI will scan all the files specified in the `source` array and generate a single CSS file based on the utilities used in those files. The output file is specified in the `output` field.
+The CLI scans files specified in `source` & generates a CSS file based on the utilities used.
 
 ### HTML Input
-
-Let's say you have the following HTML file:
 
 ```jsx title="index.html"
 <button class="bg-white bw-1 bc-silver-4">
@@ -94,23 +92,23 @@ Let's say you have the following HTML file:
 
 ### CSS Output
 
-Once you run the either `build` or `watch` command, the CLI will generate the following CSS file:
+Running the `build` or `watch` command generates the following CSS:
 
 ```css title="styles.css"
 h1 {
   overflow-wrap: break-word;
   text-wrap: balance;
-  font-size: 1rem;
+  font-size: 1 rem;
   font-weight: 600;
 }
 
 .my-2 {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-top: 0.5 rem;
+  margin-bottom: 0.5 rem;
 }
 
 .fs-xl {
-  font-size: 1.25rem;
+  font-size: 1.25 rem;
 }
 
 .ta-c {
@@ -118,17 +116,17 @@ h1 {
 }
 ```
 
-## CLI Commands
+## CLI commands
 
-The Yumma CSS CLI provides several commands to help you work with your Yumma CSS files.
+The Yumma CSS CLI provides commands to manage your project.
 
 <Hint icon="info">
-  Make sure you have a [`yumma.config.mjs`](/docs/config) file set up before running these commands. If you haven't, run `npx yummacss init` first.
+  Create a [`yumma.config.mjs`](/docs/config) file before running these commands. If you haven't, run `npx yummacss init`.
 </Hint>
 
 ### Build
 
-The `build` command will compile your Yumma CSS files once.
+Compile your Yumma CSS files once.
 
 ```bash
 npx yummacss build
@@ -136,7 +134,7 @@ npx yummacss build
 
 ### Watch
 
-The `watch` command will watch for changes in your Yumma CSS files and recompile them automatically.
+Watch for file changes & recompile automatically.
 
 ```bash
 npx yummacss watch

@@ -1,54 +1,54 @@
 export const meta = {
-  title: "Media Queries",
-  description: "Use responsive variants for responsive user interfaces.",
+  title: "Media queries",
+  description: "Use responsive variants to build flexible user interfaces.",
 };
 
 ## Mobile-first approach
 
-By default, all base utilities can be used with responsive variants. You can use breakpoints variants such as `sm:*`, `md:*`, `lg:*`, `xl:*` and `xxl:*` to apply specific rules to different screen sizes. For example:
+By default, all base utilities support responsive variants. Use breakpoints like `sm:*`, `md:*`, `lg:*`, `xl:*` & `xxl:*` to apply specific rules to different screen sizes.
 
-> Don't use breakpoints to apply styles to mobile devices. Use them to style small screens, then override for larger screens.
+> Target small screens first, then override for larger viewports.
 
 ```html ins={2} del={1}
 <h1 class="sm:ta-c ...">Good evening!</h1>
 <h1 class="ta-c sm:ta-l ...">Good evening!</h1>
 ```
 
-Here's a reference for all the breakpoints available in Yumma CSS:
+Yumma CSS breakpoints reference:
 
 | Prefix | Min width                           |
 | ------ | ----------------------------------- |
-| sm     | `@media (width >= 40rem) // 640px`  |
-| md     | `@media (width >= 48rem) // 768px`  |
-| lg     | `@media (width >= 64rem) // 1024px` |
-| xl     | `@media (width >= 80rem) // 1280px` |
-| xxl    | `@media (width >= 96rem) // 1536px` |
+| sm     | `@media (width >= 40 rem) // 640px` |
+| md     | `@media (width >= 48 rem) // 768px` |
+| lg     | `@media (width >= 64 rem) // 1024px` |
+| xl     | `@media (width >= 80 rem) // 1280px` |
+| xxl    | `@media (width >= 96 rem) // 1536px` |
 
-## Using media queries
+## Use media queries
 
-<Hint icon="width">Try resizing your browser window to see how the text changes based on viewport width.</Hint>
+Resize your browser window to see how these elements respond to viewport width.
 
 <Preview>
-    <p className="c-slate d-b p-4 sm:d-none">This is a small screen.</p>
-    <p className="c-slate d-none md:d-none p-4 sm:d-b">This is a medium screen.</p>
-    <p className="c-slate d-none lg:d-none md:d-b p-4">This is a large screen.</p>
-    <p className="c-slate d-none lg:d-b p-4 ta-c xl:d-none">This is an extra large screen.</p>
-    <p className="c-slate d-none p-4 ta-c xxl:d-b">This is double extra large screen.</p>
+    <p className="c-slate d-b p-4 sm:d-none">Small screen</p>
+    <p className="c-slate d-none md:d-none p-4 sm:d-b">Medium screen</p>
+    <p className="c-slate d-none lg:d-none md:d-b p-4">Large screen</p>
+    <p className="c-slate d-none lg:d-b p-4 ta-c xl:d-none">Extra large screen</p>
+    <p className="c-slate d-none p-4 ta-c xxl:d-b">Double extra large screen</p>
 </Preview>
 
 ```html "sm:d-b" "md:d-b" "lg:d-b" "xl:d-b" "xxl:d-b"
-<p class="c-slate d-b p-4 sm:d-none">This is a small screen.</p>
-<p class="c-slate d-none md:d-none p-4 sm:d-b">This is a medium screen.</p>
-<p class="c-slate d-none lg:d-none md:d-b p-4">This is a large screen.</p>
-<p class="c-slate d-none lg:d-b p-4 ta-c xl:d-none">This is an extra large screen.</p>
-<p class="c-slate d-none p-4 ta-c xxl:d-b">This is double extra large screen.</p>
+<p class="c-slate d-b p-4 sm:d-none">Small screen</p>
+<p class="c-slate d-none md:d-none p-4 sm:d-b">Medium screen</p>
+<p class="c-slate d-none lg:d-none md:d-b p-4">Large screen</p>
+<p class="c-slate d-none lg:d-b p-4 ta-c xl:d-none">Extra large screen</p>
+<p class="c-slate d-none p-4 ta-c xxl:d-b">Double extra large screen</p>
 ```
 
 ## Touch devices
 
-The `pc:*` variant targets devices with a coarse pointer (typically touch screens). This lets you apply larger tap targets and touch-friendly spacing on mobile devices.
+The `pc:*` variant targets devices with a coarse pointer (typically touch screens). Use this to apply larger tap targets & touch-friendly spacing.
 
-<Hint icon="hand_tap">This variant activates on touch-enabled devices with coarse pointer input.</Hint>
+<Hint icon="hand_tap">Activates on touch-enabled devices with coarse pointer input.</Hint>
 
 ```html "pc:p-6"
 <button type="button" class="p-4 pc:p-6 bg-indigo c-white">
@@ -56,8 +56,8 @@ The `pc:*` variant targets devices with a coarse pointer (typically touch screen
 </button>
 ```
 
-Here's a complete reference of all touch devices media query variant:
+Touch device reference:
 
-| Prefix | Media Query                           | Description      |
-| ------ | ------------------------------------- | ---------------- |
-| `pc:`  | `@media (pointer: coarse)`            | Touch devices    |
+| Prefix | Media Query                | Description   |
+| ------ | -------------------------- | ------------- |
+| `pc:`  | `@media (pointer: coarse)` | Touch devices |

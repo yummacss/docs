@@ -1,15 +1,15 @@
 export const meta = {
   title: "Installation",
-  description: "Yumma CSS is an atomic CSS framework that takes a different approach to utility-first styling. Instead of long, complicated utilities, Yumma CSS uses abbreviations to make class names intuitive and fast to type.",
+  description: "Set up Yumma CSS in your project using the CLI or CDN.",
 };
 
 ## Set up Yumma CSS
 
-Here's a very quick and easy way to get started with Yumma CSS.
+Follow these steps to get started with Yumma CSS.
 
 ### Use the CLI
 
-Yumma CSS is available as a package on [npm](https://www.npmjs.com/package/yummacss). You can install it using your favorite package manager:
+Yumma CSS is available as a package on [npm](https://www.npmjs.com/package/yummacss). Install it using your favorite package manager:
 
 <Stepper>
   <Step title="Install Yumma CSS">
@@ -27,8 +27,8 @@ Yumma CSS is available as a package on [npm](https://www.npmjs.com/package/yumma
 
   </Step>
 
-  <Step title="Set up configuration">
-    Specify the locations of all your project files in the config file.
+  <Step title="Configure sources">
+    Specify the locations/paths of your project files in the config file.
 
     ```js title="yumma.config.mjs" mark={2-3}
     export default {
@@ -44,7 +44,7 @@ Yumma CSS is available as a package on [npm](https://www.npmjs.com/package/yumma
   </Step>
 
   <Step title="Build styles">
-    You're all set! Start typing Yumma CSS classes, and watch the magic happening in our CSS file.
+    Start using Yumma CSS classes, then generate your styles.
 
     ```bash title="Terminal"
     npx yummacss build
@@ -55,10 +55,10 @@ Yumma CSS is available as a package on [npm](https://www.npmjs.com/package/yumma
 
 ### Use the CDN
 
-Yumma CSS is also available as a CDN. You can import it directly in your HTML file.
+Import Yumma CSS directly into your HTML file via CDN for quick prototyping.
 
 <Stepper>
-  <Step title="Import Yumma CSS">
+  <Step title="Import script">
 
     ```html
     <script src="https://unpkg.com/@yummacss/runtime"></script>
@@ -66,7 +66,7 @@ Yumma CSS is also available as a CDN. You can import it directly in your HTML fi
 
   </Step>
 
-  <Step title="Start using Yumma CSS">
+  <Step title="Start styling">
 
     ```html title="index.html" {7, 10-12}
     <!DOCTYPE html>
