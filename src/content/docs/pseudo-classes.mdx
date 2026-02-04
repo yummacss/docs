@@ -1,11 +1,11 @@
 export const meta = {
   title: "Pseudo-classes",
-  description: "Use pseudo-classes to apply utilities in specific scenarios.",
+  description: "Apply utilities in specific scenarios using pseudo-classes.",
 };
 
 ## Active
 
-It represents an element that is activated by the user, typically by pressing the primary mouse button.
+Represents an element activated by the user (e.g., clicking a button).
 
 <Hint icon="cursor_click">Try clicking and holding the button to see the active state.</Hint>
 
@@ -19,7 +19,7 @@ It represents an element that is activated by the user, typically by pressing th
 
 ## Focus
 
-It represents an element that has received focus and is triggered when the user clicks or taps on it or uses the Tab key.
+Represents an element that received focus via click, tap, or the **Tab** key.
 
 <Hint icon="cursor_click">Try clicking on the input field to see how the border color and outline change.</Hint>
 
@@ -33,7 +33,7 @@ It represents an element that has received focus and is triggered when the user 
 
 ## Hover
 
-It'll match an element when the user interacts with it using a pointing device. You don't need to press the mouse button to trigger it.
+Matches an element when the user interacts with it using a pointing device.
 
 <Hint icon="hand_pointing">Try hovering over the button to see how the background color changes.</Hint>
 
@@ -47,7 +47,7 @@ It'll match an element when the user interacts with it using a pointing device. 
 
 ## Focus Visible
 
-When an element matches the `:focus` pseudo-class and the UA (user agent) figures out through heuristics that the focus should be made evident on the element.
+Triggers when an element matches `:focus` & the browser determines focus should be evident.
 
 <Hint icon="keyboard">Try using Tab to focus the button with your keyboard.</Hint>
 
@@ -61,7 +61,7 @@ When an element matches the `:focus` pseudo-class and the UA (user agent) figure
 
 ## Focus Within
 
-It matches an element if the element or any of its descendants are focused.
+Matches an element if the element or any of its descendants are focused.
 
 <Hint icon="cursor_click">Try clicking on the input field to see the container's border change.</Hint>
 
@@ -79,7 +79,7 @@ It matches an element if the element or any of its descendants are focused.
 
 ## Checked
 
-It represents any radio, checkbox, or option element that is checked or toggled to an on state.
+Represents radio, checkbox, or option elements toggled to an "on" state.
 
 <Preview>
   <div className="d-f g-2 ai-c">
@@ -94,7 +94,7 @@ It represents any radio, checkbox, or option element that is checked or toggled 
 
 ## Disabled
 
-It represents any disabled element. An element is disabled if it can't be activated or accept focus.
+Represents disabled elements that cannot be activated or receive focus.
 
 <Hint icon="cursor">Elements with the `disabled` attribute use `cursor: not-allowed` by default in [Base Styles](/docs/base-styles).</Hint>
 

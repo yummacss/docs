@@ -1,21 +1,21 @@
 export const meta = {
-  title: "Styling Elements",
-  description: "A guide to styling elements using Yumma CSS.",
+  title: "Styling elements",
+  description: "Style elements using Yumma CSS utility classes.",
 };
 
-## Applying utilities
+## Apply utilities
 
-Apply utilities to your HTML elements to style them. You can apply multiple classes to a single element.
+Add utility classes to your HTML elements. You can combine multiple classes on a single element.
 
 <Preview>
       <button className="bg-indigo c-white br-2 px-3 py-2 fw-600 bsh-md bw-1 bc-indigo-7 us-none tp-c tdu-150 ttf-io h:bg-indigo-8 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 c-p b-0">Add to Cart</button>
 </Preview>
 
 ```html
-<button class="bg-indigo br-0 bw-0 c-white c-p fw-600 py-2 px-5 h:bg-indigo-8">Purchase</button>
+<button class="bg-indigo c-white br-2 px-3 py-2 fw-600 bsh-md bw-1 bc-indigo-7 us-none tp-c tdu-150 ttf-io h:bg-indigo-8 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 c-p b-0">Add to Cart</button>
 ```
 
-Here's a quick reference for the examples above.
+Reference for the examples above:
 
 <div className="o-x-auto max-h-90">
 
@@ -28,14 +28,14 @@ Here's a quick reference for the examples above.
 | `c-*`   | [cursor](/docs/cursor)                                |
 | `fw-*`  | [font-weight](/docs/font-weight)                      |
 | `h:*`   | [hover:](/docs/pseudo-classes#hover)      |
-| `px-*`  | [padding-x](/docs/padding#padding-x) - (left & right) |
-| `py-*`  | [padding-y](/docs/padding#padding-y) - (bottom & top) |
+| `px-*`  | [padding-x](/docs/padding#padding-x) |
+| `py-*`  | [padding-y](/docs/padding#padding-y) |
 
 </div>
 
-## Combining utilities
+## Combine utilities
 
-You can combine utilities to create complex styles.
+Combine utilities to create complex styles & custom components.
 
 <Preview className="bg-silver-1">
   <div className="bg-white bsh-md d-f fd-c g-4 h-100 max-w-80 p-5">
@@ -46,11 +46,11 @@ You can combine utilities to create complex styles.
 
     <div className="fs-xl fw-600 c-slate">Sneakers</div>
 
-    <p className="fs-sm c-slate">Comfortable and stylish, these sneakers are perfect for any occasion.</p>
+    <p className="fs-sm c-slate">Comfortable & stylish, these sneakers are perfect for any occasion.</p>
 
     <div className="ai-c d-f jc-sb mt-auto">
       <span className="fs-lg fw-700 c-slate">$59.99</span>
-      <button className="bg-black fv:oc-black fv:oo-2 fv:os-s fv:ow-2 fw-500 px-4 py-2 c-white">Add to Cart</button>
+      <button className="bg-indigo c-white br-2 px-3 py-2 fw-600 bsh-md bw-1 bc-indigo-7 us-none tp-c tdu-150 ttf-io h:bg-indigo-8 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 c-p b-0">Add to Cart</button>
     </div>
   </div>
 </Preview>
@@ -64,23 +64,23 @@ You can combine utilities to create complex styles.
 
   <div class="fs-xl fw-600 c-slate">Sneakers</div>
 
-  <p class="fs-sm c-slate">Comfortable and stylish, these sneakers are perfect for any occasion.</p>
+  <p class="fs-sm c-slate">Comfortable & stylish, these sneakers are perfect for any occasion.</p>
 
   <div class="ai-c d-f jc-sb mt-auto">
     <span class="fs-lg fw-700 c-slate">$59.99</span>
-    <button class="bg-black fv:oc-black fv:oo-2 fv:os-s fv:ow-2 fw-500 px-4 py-2 c-white">Add to Cart</button>
+    <button class="bg-indigo c-white br-2 px-3 py-2 fw-600 bsh-md bw-1 bc-indigo-7 us-none tp-c tdu-150 ttf-io h:bg-indigo-8 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 c-p b-0">Add to Cart</button>
   </div>
 </div>
 ```
 
-Here's a quick reference for the examples above.
+Reference for the examples above:
 
 <div className="o-x-auto max-h-90">
 
 | Class     | Style                                                 |
 | --------- | ----------------------------------------------------- |
 | `rad-*`   | [border-radius](/docs/border-radius)                  |
-| `bs-*`    | [box-shadow](/docs/box-shadow)                        |
+| `bsh-*`    | [box-shadow](/docs/box-shadow)                        |
 | `d-*`     | [display](/docs/display)                              |
 | `fd-*`    | [flex-direction](/docs/flex-direction)                |
 | `f:*`     | [focus:](/docs/pseudo-classes#focus)                  |
@@ -96,8 +96,8 @@ Here's a quick reference for the examples above.
 | `os-*`    | [outline-style](/docs/outline-style)                  |
 | `ow-*`    | [outline-width](/docs/outline-width)                  |
 | `o-*`     | [overflow](/docs/overflow)                            |
-| `px-*`    | [padding-x](/docs/padding#padding-x) - (left & right) |
-| `py-*`    | [padding-y](/docs/padding#padding-y) - (top & bottom) |
+| `px-*`    | [padding-x](/docs/padding#padding-x) |
+| `py-*`    | [padding-y](/docs/padding#padding-y) |
 | `p-*`     | [padding](/docs/padding)                              |
 | `p-*`     | [position](/docs/position)                            |
 | `tc-*`    | [text-color](/docs/color)                             |
@@ -106,33 +106,12 @@ Here's a quick reference for the examples above.
 
 </div>
 
-## Why not vanilla CSS?
-
-If you're still not convinced about utilities, here are a few reasons why you might want to consider them.
-
-- **No reusability** - inline styles can't be reused across components
-- **No consistency** - inline styles make it hard to maintain a consistent design system
-- **No organization** - inline styles can quickly become a mess
-- **No theming** - inline styles make it hard to switch between different themes
-
-With Yumma CSS every utility class will feel familiar to you since it's pretty much just an abbreviated version of the property it represents. For example, `d-f` is for `display: flex;`, `o-auto` is for `overflow: auto;`, and so on.
-
 ## Why use utilities?
 
-Utilities solve many of the problems that come with traditional CSS approaches, especially when working on larger projects. Here's why they make such a difference.
+Utilities solve common issues in traditional CSS development:
 
-If your building projects with vanilla CSS chances are you're probably familiar with some of the issues below.
+- **No naming conflicts** - Stop worrying about `.card-header` vs `.product-header`.
+- **Maintainable code** - No redundant styles or specificity wars.
+- **Faster builds** - Small bundle sizes & immediate feedback since utilities map directly to CSS properties.
 
-- **Invalid and outdated syntax** - deprecated properties, old vendor prefixes, browser hacks
-- **Redundant styles** - duplicate rules, specificity wars, unused selectors
-- **Refactoring risks** - cleanup efforts, refactoring difficulties, global scope issues
-- **Naming conventions** - inconsistent class names across different developers and time periods
-- **Performance issues** - big bundle sizes, bloated CSS files, visual regressions
-
-Utilities solve these problems by taking a completely different approach to styling.
-
-- **Predictable and consistent** - each utility does one thing reliably
-- **Composable and flexible** - combine utilities to create complex styles
-- **Faster development** - no context switching, immediate feedback, reusable patterns
-
-One of the biggest time-savers with utilities is that you don't have to come up with names for everything. Instead of spending time thinking about whether to call something `.card-header`, `.product-title`, or `.section-heading`, you just use the utilities you need.
+With Yumma CSS, every utility class feels familiar because it's an abbreviated version of the property it represents. For example, `d-f` maps to `display: flex;` & `o-auto` maps to `overflow: auto;`.

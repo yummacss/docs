@@ -1,11 +1,11 @@
 export const meta = {
   title: "Colors",
-  description: "Use colors in Yumma CSS.",
+  description: "Apply & customize colors using Yumma CSS utility classes.",
 };
 
-## Color Families
+## Color families
 
-There are 19 colors, and each of those has 12 shades.
+Yumma CSS provides 19 color families, each with 12 shades.
 
 <Palette
   data={[
@@ -31,9 +31,9 @@ There are 19 colors, and each of those has 12 shades.
   ]}
 />
 
-## Using color utilities
+## Use color utilities
 
-Here's an example of how to use the color system to style a button:
+Apply color system utilities to style your elements.
 
 <Preview>
   <div className="d-g g-16 gtc-1 sm:gtc-3">
@@ -44,16 +44,16 @@ Here's an example of how to use the color system to style a button:
 </Preview>
 
 ```html "bg-red" "bg-green" "bg-blue"
-<div className="d-g g-16 gtc-1 sm:gtc-3">
-  <div className="bg-red d-16"></div>
-  <div className="bg-green d-16"></div>
-  <div className="bg-blue d-16"></div>
+<div class="d-g g-16 gtc-1 sm:gtc-3">
+  <div class="bg-red d-16"></div>
+  <div class="bg-green d-16"></div>
+  <div class="bg-blue d-16"></div>
 </div>
 ```
 
-## Using color shades
+## Use color shades
 
-You can use the color shades to style your elements.
+Use color shades for more precise control over your designs.
 
 <Preview>
   <div className="d-g g-16 gtc-1 sm:gtc-3">
@@ -63,19 +63,17 @@ You can use the color shades to style your elements.
   </div>
 </Preview>
 
-```html "bg-red-3" "bg-green-6" "bg-blue-9"
-<div className="d-g g-16 gtc-1 sm:gtc-3">
-  <div className="bg-red-3 d-16"></div>
-  <div className="bg-green-6 d-16"></div>
-  <div className="bg-blue-9 d-16"></div>
+```html "bg-red-5" "bg-green-5" "bg-blue-5"
+<div class="d-g g-16 gtc-1 sm:gtc-3">
+  <div class="bg-red-5 d-16"></div>
+  <div class="bg-green-5 d-16"></div>
+  <div class="bg-blue-5 d-16"></div>
 </div>
 ```
 
-## Using opacity modifiers
+## Use opacity modifiers
 
-Great for targeting opacity to different utilities.
-
-Opacity variants are available for all color utilities, with a scale ranging from `0` to `95` in increments of `5`.
+Target specific opacity values across color utilities. Opacity variants range from 0 to 95 in increments of 5.
 
 <Preview>
   <div className="d-g g-16 gtc-1 sm:gtc-3">

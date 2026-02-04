@@ -525,10 +525,6 @@ summary {
   background-color: #628ff1;
 }
 
-.bg-blue-9 {
-  background-color: #153988;
-}
-
 .bg-green {
   background-color: #06d6a0;
 }
@@ -539,10 +535,6 @@ summary {
 
 .bg-green-5 {
   background-color: #4ce1bb;
-}
-
-.bg-green-6 {
-  background-color: #29dcad;
 }
 
 .bg-indigo {
@@ -615,10 +607,6 @@ summary {
 
 .bg-red-1 {
   background-color: #fbdfe1;
-}
-
-.bg-red-3 {
-  background-color: #f4a8ae;
 }
 
 .bg-red-5 {
@@ -1615,10 +1603,6 @@ summary {
 
 .fv\:br-1:focus-visible {
   border-radius: .25rem;
-}
-
-.fv\:oc-black:focus-visible {
-  outline-color: #000;
 }
 
 .fv\:oc-blue-8:focus-visible {
