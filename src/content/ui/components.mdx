@@ -17,17 +17,3 @@ There are {uiSidebarConfig[1].items.length} base components available.
     </div>
   ))}
 </div>
-
----
-
-## Application UI
-
-There are {uiSidebarConfig[2].items.length} application ui components available.
-
-<div className="d-g gtc-1 sm:gtc-3 rg-8 my-10">
-  {uiSidebarConfig[2].items.map(item => (
-    <div key={item.slug}>
-      <Link className="h:td-u c-white" href={`/ui/${item.slug}`}>{item.title}</Link>
-    </div>
-  ))}
-</div>
