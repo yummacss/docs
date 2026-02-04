@@ -3122,6 +3122,10 @@ summary {
   padding-top: 3.5rem;
 }
 
+.pt-24 {
+  padding-top: 6rem;
+}
+
 .pt-26 {
   padding-top: 6.5rem;
 }
@@ -3426,8 +3430,8 @@ summary {
   top: 25rem;
 }
 
-.t-14 {
-  top: 3.5rem;
+.t-12 {
+  top: 3rem;
 }
 
 .t-2 {
@@ -4269,6 +4273,10 @@ summary {
 
   .lg\:h\:f\:bg-red\/25:hover:focus {
     background-color: #e6394640;
+  }
+
+  .lg\:pt-12 {
+    padding-top: 3rem;
   }
 
   .lg\:pt-14 {
