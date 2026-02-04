@@ -115,9 +115,9 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
   // Get category icon
   const getCategoryIcon = (category: string) => {
     if (category === "docs") {
-      return <ArrowRightIcon size={14} className="c-white" />;
+      return <ArrowRightIcon size={14} className="c-white/50" />;
     }
-    return <StackSimpleIcon size={14} className="c-white" />;
+    return <StackSimpleIcon size={14} className="c-white/50" />;
   };
 
   // Track global index for keyboard nav
@@ -182,7 +182,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
 
               return (
                 <div key={category} className="mb-2">
-                  <div className="px-2 py-1 fs-xs c-white/40 tt-u ls-3">
+                  <div className="px-2 py-1 fs-xs c-white tt-u ls-3">
                     {label}
                   </div>
                   {items.map((item) => {
@@ -220,7 +220,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
 
                         {/* Title and Description */}
                         <div className="f-1 min-w-0">
-                          <div className="c-white fs-sm tw-n to-e o-h ws-nw">
+                          <div className="c-white fs-md tw-n to-e o-h ws-nw">
                             {item.title}
                           </div>
                           {item.description && (
@@ -247,7 +247,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
             })}
 
             {flatResults.length === 0 && (
-              <div className="px-4 py-8 ta-c c-white/50 fs-sm">
+              <div className="px-4 py-8 ta-c c-white/50 fs-md">
                 No results found for "{query}"
               </div>
             )}
@@ -261,37 +261,37 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
             <div className="d-f ai-c g-4">
               <span className="d-f ai-c g-1">
                 <kbd
-                  className="p-1 bw-1 d-f ai-c"
+                  className="p-1 bw-1 d-f ai-c br-1"
                   style={{ borderColor: "#31365e", backgroundColor: "#151724" }}
                 >
                   <ArrowUpIcon weight="bold" size={16} />
                 </kbd>
                 <kbd
-                  className="p-1 bw-1 d-f ai-c"
+                  className="p-1 bw-1 d-f ai-c br-1"
                   style={{ borderColor: "#31365e", backgroundColor: "#151724" }}
                 >
                   <ArrowDownIcon weight="bold" size={16} />
                 </kbd>
-                <span className="ml-1">Navigate</span>
+                <span className="ml-1 fs-md">to navigate</span>
               </span>
               <span className="d-f ai-c g-1">
                 <kbd
-                  className="p-1 bw-1 d-f ai-c"
+                  className="p-1 bw-1 d-f ai-c br-1"
                   style={{ borderColor: "#31365e", backgroundColor: "#151724" }}
                 >
                   <ArrowElbowDownLeftIcon weight="bold" size={16} />
                 </kbd>
-                <span className="ml-1">Go to page</span>
+                <span className="ml-1 fs-md">to select</span>
               </span>
             </div>
             <span className="d-f ai-c g-1">
               <kbd
-                className="p-1 bw-1 d-f ai-c"
+                className="p-1 bw-1 d-f ai-c br-1"
                 style={{ borderColor: "#31365e", backgroundColor: "#151724" }}
               >
                 <XIcon weight="bold" size={16} />
               </kbd>
-              <span className="ml-1">Close</span>
+              <span className="ml-1 fs-md">to close</span>
             </span>
           </div>
         </Dialog.Popup>
