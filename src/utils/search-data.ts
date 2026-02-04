@@ -70,6 +70,7 @@ function extractUIItems(): {
 
         if (
           sectionTitle === "Components" ||
+          sectionTitle === "Base Components" ||
           sectionTitle === "Getting Started"
         ) {
           searchItem.category = "components";
