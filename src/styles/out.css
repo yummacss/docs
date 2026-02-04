@@ -2393,10 +2393,6 @@ summary {
   max-height: 16rem;
 }
 
-.max-h-72 {
-  max-height: 18rem;
-}
-
 .max-h-80 {
   max-height: 20rem;
 }
@@ -3126,10 +3122,6 @@ summary {
   padding-top: 6rem;
 }
 
-.pt-26 {
-  padding-top: 6.5rem;
-}
-
 .pt-4 {
   padding-top: 1rem;
 }
@@ -3444,10 +3436,6 @@ summary {
 
 .t-24 {
   top: 6rem;
-}
-
-.t-26 {
-  top: 6.5rem;
 }
 
 .t-4 {
@@ -4277,10 +4265,6 @@ summary {
 
   .lg\:pt-12 {
     padding-top: 3rem;
-  }
-
-  .lg\:pt-14 {
-    padding-top: 3.5rem;
   }
 
   .lg\:px-4 {
