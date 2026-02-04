@@ -73,7 +73,7 @@ export default function SidebarLinks({ onLinkClick }: SidebarLinksProps) {
   const pathname = usePathname();
 
   return (
-    <div className="d-g g-3 sm:g-2 w-fc h-fc">
+    <div className="d-g g-3 sm:g-2 w-full h-fc">
       {sidebarLinks.map((link) => {
         const isActive = link.isActive?.(pathname) ?? false;
         const IconComponent = link.icon;

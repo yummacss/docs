@@ -39,8 +39,8 @@ export default function MobileBreadcrumb() {
         className={`p-f t-12 r-0 l-0 zi-10 d-b lg:d-none btw-1 ${isSidebarOpen ? "" : "bbw-1"} bc-white/5`}
         style={{ backgroundColor: "#151724" }}
       >
-        <div className="sm-xxl mx-auto px-6 py-2">
-          <div className="d-f ai-c g-4">
+        <div className="sm-xxl mx-auto px-6 h-12 d-f ai-c">
+          <div className="d-f ai-c g-4 w-full">
             <Button
               type="button"
               onClick={() => setIsSidebarOpen(!isSidebarOpen)}
