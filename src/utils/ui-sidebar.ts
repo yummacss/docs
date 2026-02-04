@@ -77,27 +77,6 @@ export const uiSidebarConfig: UISidebarConfig = [
     ],
   },
   {
-    title: "Application UI",
-    items: [
-      { title: "Auth Form", slug: "auth-form" },
-      { title: "Comparison List", slug: "comparison-list" },
-      { title: "Contact Section", slug: "contact-section" },
-      { title: "CTA Section", slug: "cta-section" },
-      { title: "Feature Section", slug: "feature-section" },
-      { title: "Footer", slug: "footer" },
-      { title: "Header Section", slug: "header-section" },
-      { title: "Hero Section", slug: "hero-section" },
-      { title: "Logo Section", slug: "logo-section" },
-      { title: "Navbar", slug: "navbar" },
-      { title: "Newsletter Section", slug: "newsletter-section" },
-      { title: "Pricing Section", slug: "pricing-section" },
-      { title: "Statistics Section", slug: "statistics-section" },
-      { title: "Team Section", slug: "team-section" },
-      { title: "Testimonial Section", slug: "testimonial-section" },
-      { title: "Timeline", slug: "timeline" },
-    ],
-  },
-  {
     title: "Templates",
     items: [
       { title: "Browse Templates", slug: "templates" },
