@@ -13,32 +13,23 @@ export const meta = {
 
 The background image positioning area extends to the outer edge of the padding, excluding the border.
 
-<Preview>
-  <div className="b-3 bs-d bc-pb bo-pb bc-indigo-4 bg-indigo d-20 p-2"></div>
-</Preview>
+<Preview id="background-origin-padding" />
 
-```html "bo-pb"
-<div class="b-3 bs-d bc-pb bo-pb bc-indigo-4 bg-indigo d-20 p-2"></div>
+```tsx registry="background-origin-padding"
 ```
 
 The background image positioning area includes the border area.
 
-<Preview>
-  <div className="b-3 bs-d bc-bb bo-bb bc-indigo-4 bg-indigo d-20 p-2"></div>
-</Preview>
+<Preview id="background-origin-border" />
 
-```html "bo-bb"
-<div class="b-3 bs-d bc-bb bo-bb bc-indigo-4 bg-indigo d-20 p-2"></div>
+```tsx registry="background-origin-border"
 ```
 
 The background image positioning area clips to the content area, excluding padding & borders.
 
-<Preview>
-  <div className="b-3 bs-d bc-cb bo-cb bc-indigo-4 bg-indigo d-20 p-2"></div>
-</Preview>
+<Preview id="background-origin-content" />
 
-```html "bo-cb"
-<div class="b-3 bs-d bc-cb bo-cb bc-indigo-4 bg-indigo d-20 p-2"></div>
+```tsx registry="background-origin-content"
 ```
 
 ### Responsive Design
@@ -47,14 +38,10 @@ Use breakpoint prefixes to target different screen sizes. Styles apply from the 
 
 Target viewport sizes with breakpoint prefixes.
 
-<ResponsiveVariant class="bo-cb" variant="bo-bb" classPrefix="bo">
-  ### Breakpoint variant
-</ResponsiveVariant>
+<ResponsiveVariant prefix="bo" />
 
 ### Hover State
 
 Apply styles conditionally on hover using the `h:` prefix.
 
-<HoverVariant class="bo-cb" variant="bo-bb" classPrefix="bo">
-  ### Hover variant
-</HoverVariant>
+<HoverVariant prefix="bo" />
