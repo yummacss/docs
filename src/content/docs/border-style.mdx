@@ -1,11 +1,14 @@
 export const meta = {
   title: "Border Style",
-  description: "Controls the style of the borders of an element.",
+  description: "Control the style of an element's borders.",
 };
 
 <Baseline path="css.properties.border-style" />
 
 <Reference category="border" name="border-style" />
+
+## Usage
+
 <Preview>
   <div className="d-g g-16 gtc-1 sm:gtc-3">
     <div className="ai-c bw-2 bs-none bc-indigo d-f d-16 jc-c c-indigo">A</div>
@@ -22,20 +25,16 @@ export const meta = {
 </div>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="b" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="b" />

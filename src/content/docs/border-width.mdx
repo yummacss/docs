@@ -1,11 +1,13 @@
 export const meta = {
   title: "Border Width",
-  description: "Controls the width of the borders of an element.",
+  description: "Control the width of an element's borders.",
 };
 
 <Baseline path="css.properties.border-width" />
 
 <Reference category="border" name="border-width" />
+
+## Usage
 
 <Preview>
   <div className="d-g g-16 gtc-1 sm:gtc-3">
@@ -23,9 +25,9 @@ export const meta = {
 </div>
 ```
 
-## Border Top Width
+### Border Top Width
 
-Controls the width of the top border of an element.
+Control the width of an element's top border.
 
 <Baseline path="css.properties.border-top-width" />
 
@@ -48,9 +50,9 @@ Controls the width of the top border of an element.
   </div>
 ```
 
-## Border Right Width
+### Border Right Width
 
-Controls the width of the right border of an element.
+Control the width of an element's right border.
 
 <Baseline path="css.properties.border-right-width" />
 
@@ -72,9 +74,9 @@ Controls the width of the right border of an element.
   </div>
 ```
 
-## Border Bottom Width
+### Border Bottom Width
 
-Controls the width of the bottom border of an element.
+Control the width of an element's bottom border.
 
 <Baseline path="css.properties.border-bottom-width" />
 
@@ -96,9 +98,9 @@ Controls the width of the bottom border of an element.
   </div>
 ```
 
-## Border Left Width
+### Border Left Width
 
-Controls the width of the left border of an element.
+Control the width of an element's left border.
 
 <Baseline path="css.properties.border-left-width" />
 
@@ -120,20 +122,16 @@ Controls the width of the left border of an element.
   </div>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="b" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="b" />

@@ -1,13 +1,15 @@
 export const meta = {
   title: "Border Radius",
-  description: "Controls the radius of the borders of an element.",
+  description: "Control the radius of an element's borders.",
 };
 
 <Baseline path="css.properties.border-radius" />
 
 <Reference category="border" name="border-radius" />
 
-Applies a radius of `0.5rem` to all corners of an element.
+## Usage
+
+Apply a `0.5 rem` radius to all corners of an element.
 
 <Preview>
   <div className="bg-indigo d-16 br-2"></div>
@@ -17,9 +19,9 @@ Applies a radius of `0.5rem` to all corners of an element.
 <div class="bg-indigo d-16 br-2"></div>
 ```
 
-## Top Radius
+### Top Radius
 
-Applies a radius of `0.5rem` to the **top** border of an element.
+Apply a `0.5 rem` radius to the top border of an element.
 
 <Baseline path="css.properties.border-top-radius" />
 
@@ -33,9 +35,9 @@ Applies a radius of `0.5rem` to the **top** border of an element.
 <div class="bg-indigo d-16 br-t-2"></div>
 ```
 
-## Right Radius
+### Right Radius
 
-Applies a radius of `0.5rem` to the **right border** of an element.
+Apply a `0.5 rem` radius to the right border of an element.
 
 <Baseline path="css.properties.border-right-radius" />
 
@@ -49,15 +51,15 @@ Applies a radius of `0.5rem` to the **right border** of an element.
 <div class="bg-indigo d-16 br-r-2"></div>
 ```
 
-## Bottom Radius
+### Bottom Radius
 
-Applies a radius of `0.5rem` to the **bottom** border of an element.
+Apply a `0.5 rem` radius to the bottom border of an element.
 
 <Baseline path="css.properties.border-bottom-radius" />
 
 <Reference category="border" name="border-bottom-radius" />
 
-Applies a radius of `0.5rem` to the bottom border of an element.
+Apply a `0.5 rem` radius to the bottom border of an element.
 
 <Preview>
   <div className="bg-indigo d-16 br-b-2"></div>
@@ -67,9 +69,9 @@ Applies a radius of `0.5rem` to the bottom border of an element.
 <div class="bg-indigo d-16 br-b-2"></div>
 ```
 
-## Left Radius
+### Left Radius
 
-Applies a radius of `0.5rem` to the **left** border of an element.
+Apply a `0.5 rem` radius to the left border of an element.
 
 <Baseline path="css.properties.border-left-radius" />
 
@@ -83,9 +85,9 @@ Applies a radius of `0.5rem` to the **left** border of an element.
 <div class="bg-indigo d-16 br-l-2"></div>
 ```
 
-## Top Right Radius
+### Top Right Radius
 
-Applies a radius of `0.5rem` to the **top right** corner of an element.
+Apply a `0.5 rem` radius to the top right corner of an element.
 
 <Baseline path="css.properties.border-top-right-radius" />
 
@@ -99,9 +101,9 @@ Applies a radius of `0.5rem` to the **top right** corner of an element.
 <div class="bg-indigo d-16 br-tr-2"></div>
 ```
 
-## Bottom Right Radius
+### Bottom Right Radius
 
-Applies a radius of `0.5rem` to the **bottom right** corner of an element.
+Apply a `0.5 rem` radius to the bottom right corner of an element.
 
 <Baseline path="css.properties.border-bottom-right-radius" />
 
@@ -115,9 +117,9 @@ Applies a radius of `0.5rem` to the **bottom right** corner of an element.
 <div class="bg-indigo d-16 br-br-2"></div>
 ```
 
-## Bottom Left Radius
+### Bottom Left Radius
 
-Applies a radius of `0.5rem` to the **bottom left** corner of an element.
+Apply a `0.5 rem` radius to the bottom left corner of an element.
 
 <Baseline path="css.properties.border-bottom-left-radius" />
 
@@ -131,9 +133,9 @@ Applies a radius of `0.5rem` to the **bottom left** corner of an element.
 <div class="bg-indigo d-16 br-bl-2"></div>
 ```
 
-## Top Left Radius
+### Top Left Radius
 
-Applies a radius of `0.5rem` to the **top left** corner of an element.
+Apply a `0.5 rem` radius to the top left corner of an element.
 
 <Baseline path="css.properties.border-top-left-radius" />
 
@@ -147,7 +149,7 @@ Applies a radius of `0.5rem` to the **top left** corner of an element.
 <div class="bg-indigo d-16 br-tl-2"></div>
 ```
 
-## Using Percentages
+### Use Percentages
 
 <Preview>
   <div className="d-g g-8 gtc-1 sm:gtc-2">
@@ -163,20 +165,16 @@ Applies a radius of `0.5rem` to the **top left** corner of an element.
 </div>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="rad" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="rad" />
