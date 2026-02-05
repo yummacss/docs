@@ -40,6 +40,7 @@ interface Props {
 export default function Reference({ category, name }: Props) {
   const [search, setSearch] = useState("");
 
+  let basePrefix = name;
   const variants: Array<{ prefix: string; property: string; value: string }> =
     [];
 
@@ -57,6 +58,7 @@ export default function Reference({ category, name }: Props) {
     const util = utils[name];
 
     if (util) {
+      basePrefix = util.prefix;
       Object.entries(util.values).forEach(([suffix, value]) => {
         const prefix = suffix === "" ? util.prefix : `${util.prefix}-${suffix}`;
         const property = util.properties[0];
@@ -91,7 +93,7 @@ export default function Reference({ category, name }: Props) {
       )
     : variants;
 
-  const utilityPrefix = variants[0]?.prefix.split("-")[0] || name;
+  const utilityPrefix = basePrefix;
 
   return (
     <div
