@@ -1,17 +1,17 @@
 export const meta = {
   title: "List Style Type",
-  description: "Controls the style of a list.",
+  description: "Control the style of list item markers.",
 };
 
 <Baseline path="css.properties.list-style-type" />
 
 <Reference category="text" name="list-style-type" />
 
-## Disc
+## Usage
+
+### Disc
 
 > Initial value
-
-The list items will be marked with solid circles, which is the default style for unordered lists.
 
 <Preview>
   <ul className="lsp-o lst-d">
@@ -45,9 +45,7 @@ The list items will be marked with solid circles, which is the default style for
 </ul>
 ```
 
-## Square
-
-The list items will be marked with solid squares, providing a different visual style for the list.
+### Square
 
 <Preview>
   <ul className="lsp-o lst-s">
@@ -65,20 +63,16 @@ The list items will be marked with solid squares, providing a different visual s
 </ul>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="lst" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="lst" />

@@ -1,17 +1,17 @@
 export const meta = {
   title: "Overflow Wrap",
-  description: "Controls word wrapping",
+  description: "Control how words wrap when they overflow their container.",
 };
 
 <Baseline path="css.properties.overflow-wrap" />
 
 <Reference category="text" name="overflow-wrap" />
 
-## Normal
+## Usage
+
+### Normal
 
 > Initial value
-
-The browser will only break lines at allowed break points, and long words will overflow the container if they cannot fit.
 
 <Preview>
   <p className="fs-lg ta-c max-d-80 c-slate o-auto ow-n">The longest word entered in most standard English dictionaries is Pneumonoultramicroscopicsilicovolcanoconiosis with 45 letters.</p>
@@ -21,9 +21,7 @@ The browser will only break lines at allowed break points, and long words will o
 <p class="fs-lg ta-c max-d-80 c-slate o-auto ow-n">The longest word entered in most standard English dictionaries is Pneumonoultramicroscopicsilicovolcanoconiosis with 45 letters.</p>
 ```
 
-## Break Word
-
-The browser will break long words and wrap them onto the next line to prevent overflow.
+### Break Word
 
 <Preview>
   <p className="fs-lg ta-c max-d-80 c-slate ow-bw">The longest word entered in most standard English dictionaries is Pneumonoultramicroscopicsilicovolcanoconiosis with 45 letters.</p>
@@ -33,20 +31,16 @@ The browser will break long words and wrap them onto the next line to prevent ov
 <p class="fs-lg ta-c max-d-80 c-slate ow-bw">The longest word entered in most standard English dictionaries is Pneumonoultramicroscopicsilicovolcanoconiosis with 45 letters.</p>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="ow" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="ow" />

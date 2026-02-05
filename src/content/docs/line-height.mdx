@@ -1,15 +1,15 @@
 export const meta = {
   title: "Line Height",
-  description: "Controls the line height of an element.",
+  description: "Control the line height of an element.",
 };
 
 <Baseline path="css.properties.line-height" />
 
 <Reference category="text" name="line-height" />
 
-## 1
+## Usage
 
-The line height is equal to the font size, resulting in single spacing between lines.
+### 1
 
 <Preview>
     <p className="fs-lg lh-1 p-4 ta-c c-slate">The pike eats the owl and then lazes in the sun under the water. Who would eat a big pike?</p>
@@ -19,9 +19,7 @@ The line height is equal to the font size, resulting in single spacing between l
 <p class="fs-lg lh-1 p-4 ta-c c-slate">The pike eats the owl and then lazes in the sun under the water. Who would eat a big pike?</p>
 ```
 
-## 2
-
-The line height is 1.25 times the font size, providing a bit of extra space between lines for improved readability.
+### 2
 
 <Preview>
     <p className="fs-lg lh-2 p-4 ta-c c-slate">The pike eats the owl and then lazes in the sun under the water. Who would eat a big pike?</p>
@@ -31,9 +29,7 @@ The line height is 1.25 times the font size, providing a bit of extra space betw
 <p class="fs-lg lh-2 p-4 ta-c c-slate">The pike eats the owl and then lazes in the sun under the water. Who would eat a big pike?</p>
 ```
 
-## 3
-
-The line height is 1.375 times the font size, offering a comfortable amount of spacing between lines.
+### 3
 
 <Preview>
     <p className="fs-lg lh-3 p-4 ta-c c-slate">The pike eats the owl and then lazes in the sun under the water. Who would eat a big pike?</p>
@@ -43,9 +39,7 @@ The line height is 1.375 times the font size, offering a comfortable amount of s
 <p class="fs-lg lh-3 p-4 ta-c c-slate">The pike eats the owl and then lazes in the sun under the water. Who would eat a big pike?</p>
 ```
 
-## 4
-
-The line height is 1.5 times the font size, which is commonly used for body text to enhance readability.
+### 4
 
 <Preview>
     <p className="fs-lg lh-4 p-4 ta-c c-slate">The pike eats the owl and then lazes in the sun under the water. Who would eat a big pike?</p>
@@ -55,9 +49,7 @@ The line height is 1.5 times the font size, which is commonly used for body text
 <p class="fs-lg lh-4 p-4 ta-c c-slate">The pike eats the owl and then lazes in the sun under the water. Who would eat a big pike?</p>
 ```
 
-## 5
-
-The line height is 1.625 times the font size, providing a more spacious feel for the text.
+### 5
 
 <Preview>
     <p className="fs-lg lh-5 p-4 ta-c c-slate">The pike eats the owl and then lazes in the sun under the water. Who would eat a big pike?</p>
@@ -67,9 +59,7 @@ The line height is 1.625 times the font size, providing a more spacious feel for
 <p class="fs-lg lh-5 p-4 ta-c c-slate">The pike eats the owl and then lazes in the sun under the water. Who would eat a big pike?</p>
 ```
 
-## 6
-
-The line height is double the font size, creating a very open and airy layout for the text.
+### 6
 
 <Preview>
     <p className="fs-lg lh-6 p-4 ta-c c-slate">The pike eats the owl and then lazes in the sun under the water. Who would eat a big pike?</p>
@@ -79,20 +69,16 @@ The line height is double the font size, creating a very open and airy layout fo
 <p class="fs-lg lh-6 p-4 ta-c c-slate">The pike eats the owl and then lazes in the sun under the water. Who would eat a big pike?</p>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="lh" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="lh" />

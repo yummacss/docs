@@ -1,15 +1,15 @@
 export const meta = {
   title: "Tab Size",
-  description: "Controls the width of tab characters.",
+  description: "Control the width of tab characters.",
 };
 
 <Baseline path="css.properties.tab-size" />
 
 <Reference category="text" name="tab-size" />
 
-## Tab Size 2
+## Usage
 
-The tab size will be set to 2, which is a common indentation size for code.
+### 2
 
 <Preview variant="inline">
     <section className="bg-black">
@@ -23,9 +23,7 @@ The tab size will be set to 2, which is a common indentation size for code.
 </section>
 ```
 
-## Tab Size 4
-
-The tab size will be set to 4, providing more space between tab stops.
+### 4
 
 <Preview variant="inline">
     <section className="bg-black">
@@ -39,9 +37,7 @@ The tab size will be set to 4, providing more space between tab stops.
 </section>
 ```
 
-## Tab Size 8
-
-The default browser tab size is typically 8.
+### 8
 
 <Preview variant="inline">
     <section className="bg-black">
@@ -55,20 +51,16 @@ The default browser tab size is typically 8.
 </section>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="ts" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="ts" />

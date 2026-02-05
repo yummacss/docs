@@ -1,15 +1,15 @@
 export const meta = {
   title: "Vertical Align",
-  description: "Controls the vertical alignment of an inline or table-cell box.",
+  description: "Control the vertical alignment of an inline or table-cell box.",
 };
 
 <Baseline path="css.properties.vertical-align" />
 
 <Reference category="text" name="vertical-align" />
 
-## Baseline
+## Usage
 
-Aligns the baseline of the element with the baseline of its parent.
+### Baseline
 
 <Preview>
   <div className="fs-md c-slate">
@@ -25,9 +25,7 @@ Aligns the baseline of the element with the baseline of its parent.
 </div>
 ```
 
-## Middle
-
-Aligns the middle of the element with the baseline plus half the x-height of the parent.
+### Middle
 
 <Preview>
   <div className="fs-md c-slate">
@@ -43,9 +41,7 @@ Aligns the middle of the element with the baseline plus half the x-height of the
 </div>
 ```
 
-## Top
-
-Aligns the top of the element with the top of the tallest element on the line.
+### Top
 
 <Preview>
   <div className="fs-md c-slate">
@@ -61,9 +57,7 @@ Aligns the top of the element with the top of the tallest element on the line.
 </div>
 ```
 
-## Bottom
-
-Aligns the bottom of the element with the lowest element on the line.
+### Bottom
 
 <Preview>
   <div className="fs-md c-slate">
@@ -79,9 +73,7 @@ Aligns the bottom of the element with the lowest element on the line.
 </div>
 ```
 
-## Sub
-
-Aligns the baseline of the element with the subscript-baseline of its parent.
+### Sub
 
 <Preview>
   <div className="fs-md c-slate">
@@ -97,9 +89,7 @@ Aligns the baseline of the element with the subscript-baseline of its parent.
 </div>
 ```
 
-## Super
-
-Aligns the baseline of the element with the superscript-baseline of its parent.
+### Super
 
 <Preview>
   <div className="fs-md c-slate">
@@ -115,20 +105,16 @@ Aligns the baseline of the element with the superscript-baseline of its parent.
 </div>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="va" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="va" />

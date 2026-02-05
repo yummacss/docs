@@ -1,57 +1,47 @@
 export const meta = {
   title: "Font Weight",
-  description: "Controls the font weight of an element.",
+  description: "Control the font weight of an element.",
 };
 
 <Baseline path="css.properties.font-weight" />
 
 <Reference category="font" name="font-weight" />
 
-## 100
+## Usage
 
-This weight is very light and is typically used for fine text.
+### 100
 
 <Preview variant="inline">
   <p className="fs-lg fw-100 ta-c c-slate">Sphinx of black quartz, judge my vow.</p>
 </Preview>
 
-## 200
-
-This weight is light and is often used for subtle emphasis.
+### 200
 
 <Preview variant="inline">
   <p className="fs-lg fw-200 ta-c c-slate">Sphinx of black quartz, judge my vow.</p>
 </Preview>
 
-## 300
-
-This weight is slightly bolder than light and is used for emphasis.
+### 300
 
 <Preview variant="inline">
   <p className="fs-lg fw-300 ta-c c-slate">Sphinx of black quartz, judge my vow.</p>
 </Preview>
 
-## 400
+### 400
 
 > Initial value
-
-This is the normal weight for body text.
 
 <Preview variant="inline">
   <p className="fs-lg fw-400 ta-c c-slate">Sphinx of black quartz, judge my vow.</p>
 </Preview>
 
-## 500
-
-This weight is medium and is often used for headings or important text.
+### 500
 
 <Preview variant="inline">
   <p className="fs-lg fw-500 ta-c c-slate">Sphinx of black quartz, judge my vow.</p>
 </Preview>
 
-## 600
-
-This weight is semi-bold and is typically used for prominent headings.
+### 600
 
 <Hint icon="heart">Yumma CSS uses the value `600` for all headings. Learn more about it in the [base styles docs](/docs/base-styles).</Hint>
 
@@ -59,9 +49,7 @@ This weight is semi-bold and is typically used for prominent headings.
   <p className="fs-lg fw-600 ta-c c-slate">Sphinx of black quartz, judge my vow.</p>
 </Preview>
 
-## 700
-
-This weight is bold and is often used for major headings.
+### 700
 
 <Hint icon="heart">Yumma CSS uses the value `700` for elements like `<b>` and `<strong>`. Learn more about it in the [base styles docs](/docs/base-styles).</Hint>
 
@@ -69,36 +57,28 @@ This weight is bold and is often used for major headings.
   <p className="fs-lg fw-700 ta-c c-slate">Sphinx of black quartz, judge my vow.</p>
 </Preview>
 
-## 800
-
-This weight is extra bold and is typically used for very prominent text.
+### 800
 
 <Preview variant="inline">
   <p className="fs-lg fw-800 ta-c c-slate">Sphinx of black quartz, judge my vow.</p>
 </Preview>
 
-## 900
-
-This weight is the heaviest and is often used for the most impactful text.
+### 900
 
 <Preview variant="inline">
   <p className="fs-lg fw-900 ta-c c-slate">Sphinx of black quartz, judge my vow.</p>
 </Preview>
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="fw" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="fw" />

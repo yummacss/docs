@@ -1,17 +1,17 @@
 export const meta = {
   title: "Font Style",
-  description: "Controls the font style of an element.",
+  description: "Control the font style of an element.",
 };
 
 <Baseline path="css.properties.font-style" />
 
 <Reference category="font" name="font-style" />
 
-## Normal
+## Usage
+
+### Normal
 
 > Initial value
-
-The text will be displayed in a standard format without any italicization.
 
 <Preview variant="inline">
   <p className="fs-lg fs-n ta-c c-slate">Sphinx of black quartz, judge my vow.</p>
@@ -21,9 +21,7 @@ The text will be displayed in a standard format without any italicization.
 <p class="fs-lg fs-n ta-c c-slate">Sphinx of black quartz, judge my vow.</p>
 ```
 
-## Italic
-
-The text will be displayed in an italicized format.
+### Italic
 
 <Preview variant="inline">
   <p className="fs-lg fs-i ta-c c-slate">Sphinx of black quartz, judge my vow.</p>
@@ -33,20 +31,16 @@ The text will be displayed in an italicized format.
 <p class="fs-lg fs-i ta-c c-slate">Sphinx of black quartz, judge my vow.</p>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="fs" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="fs" />

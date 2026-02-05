@@ -1,15 +1,15 @@
 export const meta = {
   title: "Text Decoration Line",
-  description: "Controls the text decoration line of an element.",
+  description: "Control the text decoration line of an element.",
 };
 
 <Baseline path="css.properties.text-decoration-line" />
 
 <Reference category="text" name="text-decoration-line" />
 
-## Line Through
+## Usage
 
-The text will be displayed with a line through it, indicating that it is struck out.
+### Line Through
 
 <Preview>
   <p className="fs-lg ta-c c-slate tdl-lt">Sphinx of black quartz, judge my vow.</p>
@@ -19,9 +19,7 @@ The text will be displayed with a line through it, indicating that it is struck 
 <p class="fs-lg ta-c c-slate tdl-lt">Sphinx of black quartz, judge my vow.</p>
 ```
 
-## None
-
-The text will be displayed without any decoration lines.
+### None
 
 <Preview>
   <p className="fs-lg ta-c c-slate tdl-none">Sphinx of black quartz, judge my vow.</p>
@@ -31,9 +29,7 @@ The text will be displayed without any decoration lines.
 <p class="fs-lg ta-c c-slate tdl-none">Sphinx of black quartz, judge my vow.</p>
 ```
 
-## Underline
-
-The text will be displayed with an underline, emphasizing the content.
+### Underline
 
 <Preview>
   <p className="fs-lg ta-c c-slate tdl-u">Sphinx of black quartz, judge my vow.</p>
@@ -43,9 +39,7 @@ The text will be displayed with an underline, emphasizing the content.
 <p class="fs-lg ta-c c-slate tdl-u">Sphinx of black quartz, judge my vow.</p>
 ```
 
-## Overline
-
-The text will be displayed with a line above it.
+### Overline
 
 <Preview>
   <p className="fs-lg ta-c c-slate tdl-o">Sphinx of black quartz, judge my vow.</p>
@@ -55,20 +49,16 @@ The text will be displayed with a line above it.
 <p class="fs-lg ta-c c-slate tdl-o">Sphinx of black quartz, judge my vow.</p>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="tdl" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="tdl" />
