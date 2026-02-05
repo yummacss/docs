@@ -2093,6 +2093,14 @@ summary {
   color: #ffffffe6;
 }
 
+.h\:h-32:hover {
+  height: 8rem;
+}
+
+.h\:h-64:hover {
+  height: 16rem;
+}
+
 .h\:o-50:hover {
   opacity: .5;
 }
@@ -2111,6 +2119,14 @@ summary {
 
 .h\:td-u:hover {
   text-decoration: underline;
+}
+
+.h\:w-32:hover {
+  width: 8rem;
+}
+
+.h\:w-64:hover {
+  width: 16rem;
 }
 
 .i-0 {
