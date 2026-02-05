@@ -10,13 +10,23 @@ export default function rehypeRegistry() {
 
         if (registryMatch) {
           const registryId = registryMatch[1];
-          const filePath = path.join(
+          let filePath = path.join(
             process.cwd(),
             "src",
             "registry",
             "ui",
             `${registryId}.tsx`,
           );
+
+          if (!fs.existsSync(filePath)) {
+            filePath = path.join(
+              process.cwd(),
+              "src",
+              "registry",
+              "docs",
+              `${registryId}.tsx`,
+            );
+          }
 
           if (fs.existsSync(filePath)) {
             const content = fs.readFileSync(filePath, "utf-8");
