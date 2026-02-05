@@ -2,18 +2,19 @@ import { bleakHouse } from "@/constants/p";
 
 export const meta = {
   title: "Text Indent",
-  description: "Controls the indentation, or the space before a line of block text.",
+  description: "Control the indentation of a block of text.",
+  description: "Set the indentation of the first line of text in a block.",
 };
 
 <Baseline path="css.properties.text-indent" />
 
 <Reference category="text" name="text-indent" />
 
-## 0
+## Usage
+
+### 0
 
 > Initial value
-
-The text will have no indentation at the start of the paragraph.
 
 <Preview>
   <p className="fs-lg c-slate ti-0">{bleakHouse}</p>
@@ -23,68 +24,56 @@ The text will have no indentation at the start of the paragraph.
 <p class="fs-lg c-slate ti-0">London. Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall. Implacable November weather. As much mud in the streets as if the waters had but newly retired from the face of the earth, and it would not be wonderful to meet a Megalosaurus, forty feet long or so, waddling like an elephantine lizard up Holborn Hill. London. Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall. Implacable November weather. As much mud in the streets as if the waters had but newly retired from the face of the earth, and it would not be wonderful to meet a Megalosaurus, forty feet long or so, waddling like an elephantine lizard up Holborn Hill.</p>
 ```
 
-## 1
-
-The text will be indented slightly at the start of the paragraph.
+### 1
 
 <Preview>
-  <p className="fs-lg c-slate ti-0">{bleakHouse}</p>
+  <p className="fs-lg c-slate ti-1">{bleakHouse}</p>
 </Preview>
 
 ```html "ti-1"
 <p class="fs-lg c-slate ti-1">London. Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall. Implacable November weather. As much mud in the streets as if the waters had but newly retired from the face of the earth, and it would not be wonderful to meet a Megalosaurus, forty feet long or so, waddling like an elephantine lizard up Holborn Hill. London. Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall. Implacable November weather. As much mud in the streets as if the waters had but newly retired from the face of the earth, and it would not be wonderful to meet a Megalosaurus, forty feet long or so, waddling like an elephantine lizard up Holborn Hill.</p>
 ```
 
-## 2
-
-The text will be indented a small amount at the start of the paragraph.
+### 2
 
 <Preview>
-  <p className="fs-lg c-slate ti-0">{bleakHouse}</p>
+  <p className="fs-lg c-slate ti-2">{bleakHouse}</p>
 </Preview>
 
 ```html "ti-2"
 <p class="fs-lg c-slate ti-2">London. Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall. Implacable November weather. As much mud in the streets as if the waters had but newly retired from the face of the earth, and it would not be wonderful to meet a Megalosaurus, forty feet long or so, waddling like an elephantine lizard up Holborn Hill. London. Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall. Implacable November weather. As much mud in the streets as if the waters had but newly retired from the face of the earth, and it would not be wonderful to meet a Megalosaurus, forty feet long or so, waddling like an elephantine lizard up Holborn Hill.</p>
 ```
 
-## 3
-
-The text will be indented moderately at the start of the paragraph.
+### 3
 
 <Preview>
-  <p className="fs-lg c-slate ti-0">{bleakHouse}</p>
+  <p className="fs-lg c-slate ti-3">{bleakHouse}</p>
 </Preview>
 
 ```html "ti-3"
 <p class="fs-lg c-slate ti-3">London. Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall. Implacable November weather. As much mud in the streets as if the waters had but newly retired from the face of the earth, and it would not be wonderful to meet a Megalosaurus, forty feet long or so, waddling like an elephantine lizard up Holborn Hill. London. Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall. Implacable November weather. As much mud in the streets as if the waters had but newly retired from the face of the earth, and it would not be wonderful to meet a Megalosaurus, forty feet long or so, waddling like an elephantine lizard up Holborn Hill.</p>
 ```
 
-## 4
-
-The text will be indented more significantly at the start of the paragraph.
+### 4
 
 <Preview>
-  <p className="fs-lg c-slate ti-4">London. Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall. Implacable November weather. As much mud in the streets as if the waters had but newly retired from the face of the earth, and it would not be wonderful to meet a Megalosaurus, forty feet long or so, waddling like an elephantine lizard up Holborn Hill. London. Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall. Implacable November weather. As much mud in the streets as if the waters had but newly retired from the face of the earth, and it would not be wonderful to meet a Megalosaurus, forty feet long or so, waddling like an elephantine lizard up Holborn Hill.</p>
+  <p className="fs-lg c-slate ti-4">{bleakHouse}</p>
 </Preview>
 
 ```html "ti-4"
 <p class="fs-lg c-slate ti-4">London. Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall. Implacable November weather. As much mud in the streets as if the waters had but newly retired from the face of the earth, and it would not be wonderful to meet a Megalosaurus, forty feet long or so, waddling like an elephantine lizard up Holborn Hill. London. Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall. Implacable November weather. As much mud in the streets as if the waters had but newly retired from the face of the earth, and it would not be wonderful to meet a Megalosaurus, forty feet long or so, waddling like an elephantine lizard up Holborn Hill.</p>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="ti" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="ti" />

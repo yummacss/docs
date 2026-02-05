@@ -1,17 +1,17 @@
 export const meta = {
   title: "Text Overflow",
-  description: "Controls how hidden text overflow content is displayed.",
+  description: "Control how overflowed content that is not visible is signaled to users.",
 };
 
 <Baseline path="css.properties.text-overflow" />
 
 <Reference category="text" name="text-overflow" />
 
-## Clip
+## Usage
+
+### Clip
 
 > Initial value
-
-The text will be clipped at the edge of the container without any indication that it has been cut off.
 
 <Preview>
   <p className="fs-lg o-h c-slate to-c w-35 ws-nw">Pneumonoultramicroscopicsilicovolcanoconiosis</p>
@@ -21,9 +21,7 @@ The text will be clipped at the edge of the container without any indication tha
 <p class="fs-lg o-h c-slate to-c w-35 ws-nw">Pneumonoultramicroscopicsilicovolcanoconiosis</p>
 ```
 
-## Ellipsis
-
-The text will be truncated with an ellipsis at the end to indicate that there is more content that is not visible.
+### Ellipsis
 
 <Preview>
   <p className="fs-lg o-h c-slate to-e w-35 ws-nw">Pneumonoultramicroscopicsilicovolcanoconiosis</p>
@@ -33,20 +31,16 @@ The text will be truncated with an ellipsis at the end to indicate that there is
 <p class="fs-lg o-h c-slate to-e w-35 ws-nw">Pneumonoultramicroscopicsilicovolcanoconiosis</p>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="to" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="to" />

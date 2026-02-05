@@ -1,15 +1,17 @@
 export const meta = {
   title: "Writing Mode",
-  description: "Sets whether lines of text are laid out horizontally or vertically.",
+  description: "Control whether lines of text are laid out horizontally or vertically.",
 };
 
 <Baseline path="css.properties.writing-mode" />
 
 <Reference category="text" name="writing-mode" />
 
-## Horizontal Top to Bottom
+## Usage
 
-Lines of text are laid out horizontally, read from top to bottom. This is the default writing mode.
+### Horizontal Top to Bottom
+
+> Initial value
 
 <Preview>
   <div className="fs-md wm-htb c-slate">
@@ -23,9 +25,7 @@ Lines of text are laid out horizontally, read from top to bottom. This is the de
 </div>
 ```
 
-## Vertical Right to Left
-
-Lines of text are laid out vertically, read from right to left.
+### Vertical Right to Left
 
 <Preview>
   <div className="fs-md wm-vrl c-slate h-32">
@@ -39,9 +39,7 @@ Lines of text are laid out vertically, read from right to left.
 </div>
 ```
 
-## Vertical Left to Right
-
-Lines of text are laid out vertically, read from left to right.
+### Vertical Left to Right
 
 <Preview>
   <div className="fs-md wm-vlr c-slate h-32">
@@ -55,9 +53,7 @@ Lines of text are laid out vertically, read from left to right.
 </div>
 ```
 
-## Sideways Right to Left
-
-Lines of text are laid out vertically, with characters rotated sideways, read from right to left.
+### Sideways Right to Left
 
 <Preview>
   <div className="fs-md wm-srl c-slate h-32">
@@ -71,9 +67,7 @@ Lines of text are laid out vertically, with characters rotated sideways, read fr
 </div>
 ```
 
-## Sideways Left to Right
-
-Lines of text are laid out vertically, with characters rotated sideways, read from left to right.
+### Sideways Left to Right
 
 <Preview>
   <div className="fs-md wm-slr c-slate h-32">
@@ -87,20 +81,16 @@ Lines of text are laid out vertically, with characters rotated sideways, read fr
 </div>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="wm" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="wm" />

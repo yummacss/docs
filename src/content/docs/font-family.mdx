@@ -1,13 +1,15 @@
 export const meta = {
   title: "Font Family",
-  description: "Controls the font family of an element.",
+  description: "Control the font family of an element.",
 };
 
 <Baseline path="css.properties.font-family" />
 
 <Reference category="font" name="font-family" />
 
-## Serif
+## Usage
+
+### Serif
 
 If Serif is not available, it will fall back to `Cambria`, and then to a generic `serif` font.
 
@@ -19,7 +21,7 @@ If Serif is not available, it will fall back to `Cambria`, and then to a generic
 <p class="ff-s fs-lg ta-c c-slate">Sphinx of black quartz, judge my vow.</p>
 ```
 
-## UI Monospace
+### UI Monospace
 
 If ui-monospace is not available, it will fall back to `Consolas`, and then to a generic `monospace` font.
 
@@ -31,7 +33,7 @@ If ui-monospace is not available, it will fall back to `Consolas`, and then to a
 <p class="ff-m fs-lg ta-c c-slate">Sphinx of black quartz, judge my vow.</p>
 ```
 
-## Default
+### Default
 
 If Default is not available, it will fall back to a generic `sans-serif` font.
 
@@ -45,20 +47,16 @@ If Default is not available, it will fall back to a generic `sans-serif` font.
 <p class="ff-d fs-lg ta-c c-slate">Sphinx of black quartz, judge my vow.</p>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="ff" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="ff" />

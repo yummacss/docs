@@ -1,17 +1,17 @@
 export const meta = {
   title: "List Style Position",
-  description: "Controls how bullets and numbers are positioned in lists.",
+  description: "Control the position of list item markers.",
 };
 
 <Baseline path="css.properties.list-style-position" />
 
 <Reference category="text" name="list-style-position" />
 
-## Outside
+## Usage
+
+### Outside
 
 > Initial value
-
-The list item markers will be placed outside the list item's content area, allowing the text to align normally.
 
 <Preview>
   <ul className="lsp-o lst-d">
@@ -29,9 +29,7 @@ The list item markers will be placed outside the list item's content area, allow
 </ul>
 ```
 
-## Inside
-
-The list item markers will be placed inside the list item's content area, affecting the text alignment.
+### Inside
 
 <Preview>
   <ul className="lsp-i lst-d">
@@ -49,20 +47,16 @@ The list item markers will be placed inside the list item's content area, affect
 </ul>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="lsp" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="lsp" />

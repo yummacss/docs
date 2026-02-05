@@ -2,18 +2,18 @@ import { bleakHouse } from "@/constants/p";
 
 export const meta = {
   title: "Text Align",
-  description: "Controls the alignment of text.",
+  description: "Control the alignment of text.",
 };
 
 <Baseline path="css.properties.text-align" />
 
 <Reference category="text" name="text-align" />
 
-## Start
+## Usage
+
+### Start
 
 > Initial value
-
-The text will be aligned to the start of the container, which is typically side-to-right languages.
 
 <Preview>
   <div className="fs-md ta-s c-slate">
@@ -27,9 +27,7 @@ The text will be aligned to the start of the container, which is typically side-
 </div>
 ```
 
-## Center
-
-The text will be centered within its container.
+### Center
 
 <Preview>
   <div className="fs-md ta-c c-slate">
@@ -43,9 +41,7 @@ The text will be centered within its container.
 </div>
 ```
 
-## End
-
-The text will be aligned to the end of the container, which is typically the right side-to-right languages.
+### End
 
 <Preview>
   <div className="fs-md ta-e c-slate">
@@ -59,9 +55,7 @@ The text will be aligned to the end of the container, which is typically the rig
 </div>
 ```
 
-## Justify
-
-The text will be stretched to align with both and right edges of the container, creating a clean look.
+### Justify
 
 <Preview>
   <div className="fs-md ta-j c-slate">
@@ -75,9 +69,7 @@ The text will be stretched to align with both and right edges of the container, 
 </div>
 ```
 
-## Justify All
-
-The text will be justified, including the last line, which will also stretch to fill the width of the container.
+### Justify All
 
 <Preview>
   <div className="fs-md ta-ja c-slate">
@@ -91,9 +83,7 @@ The text will be justified, including the last line, which will also stretch to 
 </div>
 ```
 
-## Left
-
-The text will be aligned to side of the container, which is the default alignment in most cases.
+### Left
 
 <Preview>
   <div className="fs-md ta-l c-slate">
@@ -107,9 +97,7 @@ The text will be aligned to side of the container, which is the default alignmen
 </div>
 ```
 
-## Match Parent
-
-The text will inherit the text alignment from its parent element.
+### Match Parent
 
 <Preview>
   <div className="ta-r">
@@ -127,9 +115,7 @@ The text will inherit the text alignment from its parent element.
 </div>
 ```
 
-## Right
-
-The text will be aligned to the right side of the container.
+### Right
 
 <Preview>
   <div className="fs-md ta-r c-slate">
@@ -143,20 +129,16 @@ The text will be aligned to the right side of the container.
 </div>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="ta" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="ta" />

@@ -1,15 +1,15 @@
 export const meta = {
   title: "Letter Spacing",
-  description: "Controls how the letters are spaced on an element.",
+  description: "Control the letter spacing of an element.",
 };
 
 <Baseline path="css.properties.letter-spacing" />
 
 <Reference category="text" name="letter-spacing" />
 
-## 0
+## Usage
 
-The letters will be spaced normally.
+### 0
 
 <Preview>
     <p className="fs-lg ls-0 p-4 ta-c c-slate">Sphinx of black quartz, judge my vow.</p>
@@ -19,9 +19,7 @@ The letters will be spaced normally.
 <p class="fs-lg ls-0 p-4 ta-c c-slate">Sphinx of black quartz, judge my vow.</p>
 ```
 
-## 1
-
-The letters will be slightly closer together than normal.
+### 1
 
 <Preview>
     <p className="fs-lg ls-1 p-4 ta-c c-slate">Sphinx of black quartz, judge my vow.</p>
@@ -31,9 +29,7 @@ The letters will be slightly closer together than normal.
 <p class="fs-lg ls-1 p-4 ta-c c-slate">Sphinx of black quartz, judge my vow.</p>
 ```
 
-## 2
-
-The letters will be slightly closer together.
+### 2
 
 <Preview>
     <p className="fs-lg ls-2 p-4 ta-c c-slate">Sphinx of black quartz, judge my vow.</p>
@@ -43,9 +39,7 @@ The letters will be slightly closer together.
 <p class="fs-lg ls-2 p-4 ta-c c-slate">Sphinx of black quartz, judge my vow.</p>
 ```
 
-## 3
-
-The letters will be slightly more spaced apart.
+### 3
 
 <Preview>
     <p className="fs-lg ls-3 p-4 ta-c c-slate">Sphinx of black quartz, judge my vow.</p>
@@ -55,9 +49,7 @@ The letters will be slightly more spaced apart.
 <p class="fs-lg ls-3 p-4 ta-c c-slate">Sphinx of black quartz, judge my vow.</p>
 ```
 
-## 4
-
-The letters will be spaced further apart.
+### 4
 
 <Preview>
     <p className="fs-lg ls-4 p-4 ta-c c-slate">Sphinx of black quartz, judge my vow.</p>
@@ -67,9 +59,7 @@ The letters will be spaced further apart.
 <p class="fs-lg ls-4 p-4 ta-c c-slate">Sphinx of black quartz, judge my vow.</p>
 ```
 
-## 5
-
-The letters will be significantly spaced apart.
+### 5
 
 <Preview>
     <p className="fs-lg ls-5 p-4 ta-c c-slate">Sphinx of black quartz, judge my vow.</p>
@@ -79,20 +69,16 @@ The letters will be significantly spaced apart.
 <p class="fs-lg ls-5 p-4 ta-c c-slate">Sphinx of black quartz, judge my vow.</p>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="ls" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="ls" />

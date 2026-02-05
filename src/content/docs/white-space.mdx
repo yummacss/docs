@@ -2,18 +2,18 @@ import { bleakHouse } from "@/constants/p";
 
 export const meta = {
   title: "White Space",
-  description: "Controls how white space is handled within an element.",
+  description: "Control how white space is handled within an element.",
 };
 
 <Baseline path="css.properties.white-space" />
 
 <Reference category="text" name="white-space" />
 
-## Normal
+## Usage
+
+### Normal
 
 > Initial value
-
-The text will wrap normally, and multiple spaces will be collapsed into a single space.
 
 <Preview>
   <div className="c-slate fs-lg ws-n">{bleakHouse}</div>
@@ -25,9 +25,7 @@ The text will wrap normally, and multiple spaces will be collapsed into a single
 </div>
 ```
 
-## Break Spaces
-
-The text will respect spaces and line breaks, allowing for wrapping at spaces.
+### Break Spaces
 
 <Preview>
   <div className="c-slate fs-lg ws-bs">{bleakHouse}</div>
@@ -39,9 +37,7 @@ The text will respect spaces and line breaks, allowing for wrapping at spaces.
 </div>
 ```
 
-## No Wrap
-
-The text will not wrap to the next line, and it will overflow the container if it exceeds the width.
+### No Wrap
 
 <Preview>
   <div className="o-x-auto">
@@ -57,9 +53,7 @@ The text will not wrap to the next line, and it will overflow the container if i
 </div>
 ```
 
-## Pre
-
-The text will be displayed as is, preserving spaces and line breaks.
+### Pre
 
 <Preview className="bg-white o-auto">
   <div className="c-slate fs-lg ws-p">{bleakHouse}</div>
@@ -71,9 +65,7 @@ The text will be displayed as is, preserving spaces and line breaks.
 </div>
 ```
 
-## Pre-Line
-
-The text will preserve line breaks but collapse multiple spaces into a single space.
+### Pre-Line
 
 <Preview>
   <div className="c-slate fs-lg ws-pl">{bleakHouse}</div>
@@ -85,9 +77,7 @@ The text will preserve line breaks but collapse multiple spaces into a single sp
 </div>
 ```
 
-## Pre-Wrap
-
-The text will preserve spaces and line breaks, and it will wrap when necessary.
+### Pre-Wrap
 
 <Preview>
   <div className="c-slate fs-lg ws-pw">{bleakHouse}</div>
@@ -99,20 +89,16 @@ The text will preserve spaces and line breaks, and it will wrap when necessary.
 </div>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="ws" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="ws" />

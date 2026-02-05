@@ -1,15 +1,15 @@
 export const meta = {
   title: "Font Size",
-  description: "Controls the font size of an element.",
+  description: "Control the font size of an element.",
 };
 
 <Baseline path="css.properties.font-size" />
 
 <Reference category="font" name="font-size" />
 
-## Extra Small
+## Usage
 
-This size is typically used for smaller text elements.
+### Extra Small
 
 <Preview variant="inline">
   <p className="fs-xs ta-c c-slate">Aa</p>
@@ -19,9 +19,7 @@ This size is typically used for smaller text elements.
 <p class="fs-xs ta-c c-slate">Aa</p>
 ```
 
-## Small
-
-This size is often used for slightly larger text elements.
+### Small
 
 <Preview variant="inline">
   <p className="fs-sm ta-c c-slate">Aa</p>
@@ -31,11 +29,9 @@ This size is often used for slightly larger text elements.
 <p class="fs-sm ta-c c-slate">Aa</p>
 ```
 
-## Medium
+### Medium
 
 > Initial value
-
-This is the standard size for body text.
 
 <Preview variant="inline">
   <p className="fs-md ta-c c-slate">Aa</p>
@@ -45,9 +41,7 @@ This is the standard size for body text.
 <p class="fs-md ta-c c-slate">Aa</p>
 ```
 
-## Large
-
-This size is often used for prominent headings.
+### Large
 
 <Preview variant="inline">
   <p className="fs-lg ta-c c-slate">Aa</p>
@@ -57,9 +51,7 @@ This size is often used for prominent headings.
 <p class="fs-lg ta-c c-slate">Aa</p>
 ```
 
-## Extra Large
-
-This size is typically used for major headings or titles.
+### Extra Large
 
 <Preview variant="inline">
   <p className="fs-xl ta-c c-slate">Aa</p>
@@ -69,9 +61,7 @@ This size is typically used for major headings or titles.
 <p class="fs-xl ta-c c-slate">Aa</p>
 ```
 
-## XXL
-
-This size is often used for very prominent headings.
+### XXL
 
 <Preview variant="inline">
   <p className="fs-xxl ta-c c-slate">Aa</p>
@@ -81,9 +71,7 @@ This size is often used for very prominent headings.
 <p class="fs-xxl ta-c c-slate">Aa</p>
 ```
 
-## 3XL
-
-This size is typically used for the largest headings.
+### 3XL
 
 <Preview variant="inline">
   <p className="fs-3xl ta-c c-slate">Aa</p>
@@ -93,9 +81,7 @@ This size is typically used for the largest headings.
 <p class="fs-3xl ta-c c-slate">Aa</p>
 ```
 
-## 4XL
-
-This size is often used for the most prominent headings.
+### 4XL
 
 <Preview variant="inline">
   <p className="fs-4xl ta-c c-slate">Aa</p>
@@ -105,9 +91,7 @@ This size is often used for the most prominent headings.
 <p class="fs-4xl ta-c c-slate">Aa</p>
 ```
 
-## 5XL
-
-This size is typically used for the most prominent text elements.
+### 5XL
 
 <Preview variant="inline">
   <p className="fs-5xl ta-c c-slate">Aa</p>
@@ -117,9 +101,7 @@ This size is typically used for the most prominent text elements.
 <p class="fs-5xl ta-c c-slate">Aa</p>
 ```
 
-## 6XL
-
-This size is often used for the most prominent text elements.
+### 6XL
 
 <Preview variant="inline">
   <p className="fs-6xl ta-c c-slate">Aa</p>
@@ -129,9 +111,7 @@ This size is often used for the most prominent text elements.
 <p class="fs-6xl ta-c c-slate">Aa</p>
 ```
 
-## 7XL
-
-This size is typically used for the largest display text.
+### 7XL
 
 <Preview variant="inline">
   <p className="fs-7xl ta-c c-slate">Aa</p>
@@ -141,9 +121,7 @@ This size is typically used for the largest display text.
 <p class="fs-7xl ta-c c-slate">Aa</p>
 ```
 
-## 8XL
-
-This size is typically used for the largest display text.
+### 8XL
 
 <Preview variant="inline">
   <p className="fs-8xl ta-c c-slate">Aa</p>
@@ -153,9 +131,7 @@ This size is typically used for the largest display text.
 <p class="fs-8xl ta-c c-slate">Aa</p>
 ```
 
-## 9XL
-
-This size is typically used for the largest display text.
+### 9XL
 
 <Preview variant="inline">
   <p className="fs-9xl ta-c c-slate">Aa</p>
@@ -165,20 +141,16 @@ This size is typically used for the largest display text.
 <p class="fs-9xl ta-c c-slate">Aa</p>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="fs" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="fs" />

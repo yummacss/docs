@@ -1,17 +1,17 @@
 export const meta = {
   title: "Text Decoration Style",
-  description: "Controls the style of text decoration.",
+  description: "Control the style of text decoration.",
 };
 
 <Baseline path="css.properties.text-decoration-style" />
 
 <Reference category="text" name="text-decoration-style" />
 
-## Solid
+## Usage
+
+### Solid
 
 > Initial value
-
-The text will be displayed with a solid line for its decoration.
 
 <Preview>
   <p className="fs-lg ta-c c-slate tdl-u tds-s">Sphinx of black quartz, judge my vow.</p>
@@ -21,9 +21,7 @@ The text will be displayed with a solid line for its decoration.
 <p class="fs-lg ta-c c-slate tdl-u tds-s">Sphinx of black quartz, judge my vow.</p>
 ```
 
-## Dashed
-
-The text will be displayed with a dashed line for its decoration.
+### Dashed
 
 <Preview>
   <p className="fs-lg ta-c c-slate tdl-u tds-d">Sphinx of black quartz, judge my vow.</p>
@@ -33,9 +31,7 @@ The text will be displayed with a dashed line for its decoration.
 <p class="fs-lg ta-c c-slate tdl-u tds-d">Sphinx of black quartz, judge my vow.</p>
 ```
 
-## Wavy
-
-The text will be displayed with a wavy line for its decoration.
+### Wavy
 
 <Preview>
   <p className="fs-lg ta-c c-slate tdl-u tds-w">Sphinx of black quartz, judge my vow.</p>
@@ -45,20 +41,16 @@ The text will be displayed with a wavy line for its decoration.
 <p class="fs-lg ta-c c-slate tdl-u tds-w">Sphinx of black quartz, judge my vow.</p>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="tds" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="tds" />

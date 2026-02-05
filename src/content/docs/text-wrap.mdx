@@ -2,18 +2,18 @@ import { bleakHouse } from "@/constants/p";
 
 export const meta = {
   title: "Text Wrap",
-  description: "Controls how text is wrapped within an element.",
+  description: "Control how text wraps within an element.",
 };
 
 <Baseline path="css.properties.text-wrap" />
 
 <Reference category="text" name="text-wrap" />
 
-## Wrap
+## Usage
+
+### Wrap
 
 > Initial value
-
-The text will wrap to the next line when it reaches the end of the container.
 
 <Preview>
   <div className="d-g g-4 max-w-64 mx-auto">
@@ -31,9 +31,7 @@ The text will wrap to the next line when it reaches the end of the container.
 </div>
 ```
 
-## Balance
-
-The text will be wrapped in a way that balances the line lengths, creating a more visually appealing layout.
+### Balance
 
 <Preview>
   <div className="d-g g-4 max-w-64 mx-auto">
@@ -51,9 +49,7 @@ The text will be wrapped in a way that balances the line lengths, creating a mor
 </div>
 ```
 
-## No Wrap
-
-The text will not wrap to the next line, and it will overflow the container if it exceeds the width.
+### No Wrap
 
 <Preview>
   <div className="d-g g-4 max-w-64 mx-auto">
@@ -71,9 +67,7 @@ The text will not wrap to the next line, and it will overflow the container if i
 </div>
 ```
 
-## Pretty
-
-The text will be wrapped in a way that maintains a visually pleasing appearance, often used for better readability.
+### Pretty
 
 <Preview>
   <div className="d-g g-4 max-w-64 mx-auto">
@@ -91,20 +85,16 @@ The text will be wrapped in a way that maintains a visually pleasing appearance,
 </div>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="tw" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="tw" />
