@@ -1,11 +1,13 @@
 export const meta = {
   title: "Accent Color",
-  description: "Controls form control accent color.",
+  description: "Control the accent color of form controls.",
 };
 
 <Baseline path="css.properties.accent-color" />
 
 <Reference category="color" name="accent-color" />
+
+## Usage
 
 <Preview>
   <div className="d-g g-8 gtc-1 sm:gtc-2">
@@ -21,24 +23,22 @@ export const meta = {
 </div>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Extend utilities with [responsive breakpoints](docs/media-queries), [hover states](/docs/pseudo-classes#hover), and [opacity modifiers](/docs/colors#using-opacity-variants).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="ac" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="ac" />
 
-### Opacity modifiers
+### Opacity Modifiers
 
-Adjust color transparency by appending an opacity value to any color utility.
+Adjust color transparency by appending an opacity suffix.
 
 <OpacityModifier prefix="ac" />

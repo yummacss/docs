@@ -1,11 +1,13 @@
 export const meta = {
   title: "Border Color",
-  description: "Controls the color of the borders of an element.",
+  description: "Control the color of an element's borders.",
 };
 
 <Baseline path="css.properties.border-color" />
 
 <Reference category="color" name="border-color" />
+
+## Usage
 
 <Preview>
   <div className="d-g g-16 gtc-1 sm:gtc-3">
@@ -23,9 +25,9 @@ export const meta = {
 </div>
 ```
 
-## Border Top Color
+### Border Top Color
 
-Controls the color of the top border of an element.
+Control the color of an element's top border.
 
 <Baseline path="css.properties.border-top-color" />
 
@@ -47,9 +49,9 @@ Controls the color of the top border of an element.
 </div>
 ```
 
-## Border Right Color
+### Border Right Color
 
-Controls the color of the right border of an element.
+Control the color of an element's right border.
 
 <Baseline path="css.properties.border-right-color" />
 
@@ -71,9 +73,9 @@ Controls the color of the right border of an element.
 </div>
 ```
 
-## Border Bottom Color
+### Border Bottom Color
 
-Controls the color of the bottom border of an element.
+Control the color of an element's bottom border.
 
 <Baseline path="css.properties.border-bottom-color" />
 
@@ -95,9 +97,9 @@ Controls the color of the bottom border of an element.
 </div>
 ```
 
-## Border Left Color
+### Border Left Color
 
-Controls the color of the left border of an element.
+Control the color of an element's left border.
 
 <Baseline path="css.properties.border-left-color" />
 
@@ -119,26 +121,22 @@ Controls the color of the left border of an element.
 </div>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="bc" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="bc" />
 
-### Opacity modifiers
+### Opacity Modifiers
 
-Adjust color transparency by appending an opacity value to any color utility.
+Adjust color transparency by appending an opacity suffix.
 
 <OpacityModifier prefix="bc" />
