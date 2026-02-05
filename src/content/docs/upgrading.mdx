@@ -16,7 +16,7 @@ In this guide, **legacy** refers to Yumma CSS v2 & earlier versions. These older
     Remove the old `yummacss` package.
 
     ```bash title="Terminal"
-    npm install yummacss@latest
+    pnpm add yummacss@latest
     ```
   </Step>
 
@@ -66,7 +66,7 @@ In this guide, **legacy** refers to Yumma CSS v2 & earlier versions. These older
 Yumma CSS now functions as a CLI tool. Install it as a dev dependency (`-D`) instead of a standard dependency to keep your production bundle lean.
 
 ```bash title="Terminal"
-npm install yummacss -D
+pnpm add yummacss -D
 ```
 
 ### Core package
@@ -74,8 +74,8 @@ npm install yummacss -D
 Replace the `@yummacss/api` package with `@yummacss/core`. Update your imports accordingly.
 
 ```bash title="Terminal"
-npm remove @yummacss/api
-npm install @yummacss/core
+pnpm remove @yummacss/api
+pnpm add @yummacss/core
 ```
 
 ## Utility changes
