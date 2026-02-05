@@ -1,33 +1,33 @@
 export const meta = {
   title: "Touch Action",
-  description: "Controls how touch gestures are handled by an element.",
+  description: "Control how touch gestures are handled by an element.",
 };
 
 <Baseline path="css.properties.touch-action" />
 
 <Reference category="interactivity" name="touch-action" />
 
-The `ta-*` utilities control how touch gestures behave on an element. This is particularly useful for creating custom touch interactions or preventing certain default behaviors on touch devices.
+## Usage
 
-## Auto
+### Auto
 
-Use `ta-auto` to enable all default touch behaviors:
+Allow all default touch behaviors.
 
 ```html "ta-auto"
 <div class="ta-auto">Full touch support</div>
 ```
 
-## None
+### None
 
-Use `ta-none` to disable all touch interactions:
+Disable all touch interactions.
 
 ```html "ta-none"
 <div class="ta-none">Touch disabled</div>
 ```
 
-## Pan X
+### Pan X
 
-Use `ta-px` to allow only horizontal panning:
+Allow only horizontal panning.
 
 <Preview>
   <div className="ta-px h-32 w-full ov-s">
@@ -45,9 +45,9 @@ Use `ta-px` to allow only horizontal panning:
 </div>
 ```
 
-## Pan Y
+### Pan Y
 
-Use `ta-py` to allow only vertical panning:
+Allow only vertical panning.
 
 <Preview>
   <div className="ta-py h-32 w-full ov-s">
@@ -65,14 +65,14 @@ Use `ta-py` to allow only vertical panning:
 </div>
 ```
 
-## Directional panning
+### Directional Panning
 
-Control panning direction with more granular utilities:
+Control panning direction with granular utilities.
 
-- `ta-pl` - Allow panning only to the left
-- `ta-pr` - Allow panning only to the right
-- `ta-pu` - Allow panning only upward
-- `ta-pd` - Allow panning only downward
+- `ta-pl`: Panning to the left.
+- `ta-pr`: Panning to the right.
+- `ta-pu`: Panning upward.
+- `ta-pd`: Panning downward.
 
 ```html "ta-pr"
 <div class="ta-pr ov-s">
@@ -80,9 +80,9 @@ Control panning direction with more granular utilities:
 </div>
 ```
 
-## Pinch Zoom
+### Pinch Zoom
 
-Use `ta-pz` to enable pinch-to-zoom gestures:
+Enable pinch-to-zoom gestures.
 
 ```html "ta-pz"
 <div class="ta-pz">
@@ -90,9 +90,9 @@ Use `ta-pz` to enable pinch-to-zoom gestures:
 </div>
 ```
 
-## Manipulation
+### Manipulation
 
-Use `ta-m` to enable panning and pinch zooming, but disable double-tap-to-zoom:
+Enable panning and pinch zooming while disabling double-tap-to-zoom.
 
 ```html "ta-m"
 <div class="ta-m">
@@ -130,14 +130,16 @@ Use `ta-m` to enable panning and pinch zooming, but disable double-tap-to-zoom:
 </canvas>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
+Target viewport sizes with breakpoint prefixes.
 
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
+<ResponsiveVariant prefix="ta" />
 
-Target specific viewport sizes with breakpoint prefixes
+### Hover State
 
-<ResponsiveVariant classPrefix="ta" />
+Apply styles conditionally on hover using the `h:` prefix.
+
+<HoverVariant prefix="ta" />

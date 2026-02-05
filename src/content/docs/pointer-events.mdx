@@ -1,17 +1,17 @@
 export const meta = {
   title: "Pointer Events",
-  description: "Controls how an item responds to pointer events.",
+  description: "Control how an item responds to pointer events.",
 };
 
 <Baseline path="css.properties.pointer-events" />
 
 <Reference category="interactivity" name="pointer-events" />
 
-## Auto
+## Usage
 
-> Initial value
+### Auto
 
-The element can receive pointer events as normal.
+Allow the element to receive pointer events as normal.
 
 <Hint icon="cursor_click">Try clicking the search emoji to see how the input reacts.</Hint>
 
@@ -35,11 +35,9 @@ The element can receive pointer events as normal.
 </div>
 ```
 
-## None
+### None
 
-The element won't receive any pointer events, meaning you can't click on it.
-
-<Hint icon="cursor_click">Try clicking the search emoji to see how the input reacts.</Hint>
+Prevent the element from receiving any pointer events.
 
 <Preview className="bg-silver-1">
   <div>
@@ -65,16 +63,14 @@ The element won't receive any pointer events, meaning you can't click on it.
 
 Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
 
-### Responsive design
+### Responsive Design
 
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
 <ResponsiveVariant prefix="pe" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="pe" />

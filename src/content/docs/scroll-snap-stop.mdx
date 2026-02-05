@@ -1,19 +1,19 @@
 export const meta = {
   title: "Scroll Snap Stop",
-  description: "Controls whether the scroll container passes over possible snap positions.",
+  description: "Control whether the scroll container passes over snap positions.",
 };
 
 <Baseline path="css.properties.scroll-snap-stop" />
 
 <Reference category="interactivity" name="scroll-snap-stop" />
 
-## Normal
-
-> Initial value
-
-Allows the scroll to stop at the snap position only when the user scrolls slowly, providing a more flexible scrolling experience.
+## Usage
 
 <Hint icon="hand_swipe_right">Try scrolling through the image container to see how it behaves.</Hint>
+
+### Normal
+
+Allow the scroll to stop at the snap position only when scrolling slowly.
 
 <Preview variant="inline">
   <div className="o-h pb-4 p-r" id="area">
@@ -65,11 +65,9 @@ Allows the scroll to stop at the snap position only when the user scrolls slowly
 </div>
 ```
 
-## Always
+### Always
 
-Ensures that the scroll will always stop at the snap position.
-
-<Hint icon="hand_swipe_right">Try scrolling through the image container to see how it behaves.</Hint>
+Ensure the scroll always stops at the snap position.
 
 <Preview variant="inline">
   <div className="o-h pb-4 p-r" id="area">
@@ -121,20 +119,16 @@ Ensures that the scroll will always stop at the snap position.
 </div>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
+Target viewport sizes with breakpoint prefixes.
 
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
+<ResponsiveVariant prefix="sss" />
 
-Target specific viewport sizes with breakpoint prefixes
+### Hover State
 
-<ResponsiveVariant prefix="sns" />
+Apply styles conditionally on hover using the `h:` prefix.
 
-### Hover state variant
-
-Apply styles conditionally when users hover over an element using the `h:` prefix.
-
-<HoverVariant prefix="sns" />
+<HoverVariant prefix="sss" />

@@ -1,17 +1,19 @@
 export const meta = {
   title: "Scroll Snap Align",
-  description: "Controls where the scroll snaps to align with an element.",
+  description: "Control where the scroll snaps to align with an element.",
 };
 
 <Baseline path="css.properties.scroll-snap-align" />
 
 <Reference category="interactivity" name="scroll-snap-align" />
 
-## Center
-
-Ensures that the element will snap to the center of the scroll container when scrolling.
+## Usage
 
 <Hint icon="hand_swipe_right">Try scrolling through the image container to see how it behaves.</Hint>
+
+### Center
+
+Snap the element to the center of the scroll container.
 
 <Preview variant="inline">
   <div className="o-h pb-4 p-r" id="area">
@@ -63,11 +65,9 @@ Ensures that the element will snap to the center of the scroll container when sc
 </div>
 ```
 
-## End
+### End
 
-Ensures that the element will snap to the end of the scroll container when scrolling.
-
-<Hint icon="hand_swipe_right">Try scrolling through the image container to see how it behaves.</Hint>
+Snap the element to the end of the scroll container.
 
 <Preview variant="inline">
   <div className="o-h pb-4 p-r" id="area">
@@ -119,11 +119,9 @@ Ensures that the element will snap to the end of the scroll container when scrol
 </div>
 ```
 
-## Start
+### Start
 
-Ensures that the element will snap to the start of the scroll container when scrolling.
-
-<Hint icon="hand_swipe_right">Try scrolling through the image container to see how it behaves.</Hint>
+Snap the element to the start of the scroll container.
 
 <Preview variant="inline">
   <div className="o-h pb-4 p-r" id="area">
@@ -175,20 +173,16 @@ Ensures that the element will snap to the start of the scroll container when scr
 </div>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="ssa" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="ssa" />
