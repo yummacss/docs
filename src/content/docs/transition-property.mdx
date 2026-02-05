@@ -1,17 +1,17 @@
 export const meta = {
   title: "Transition Property",
-  description: "Controls which properties should have a transition effect.",
+  description: "Control which properties have a transition effect.",
 };
 
 <Baseline path="css.properties.transition-property" />
 
 <Reference category="transition" name="transition-property" />
 
-Use the `tp-*` utilities to specify which properties should transition when their values change.
+## Usage
 
-<Hint icon="cursor">Try hovering the div to see which properties transition.</Hint>
+<Hint icon="cursor">Try hovering the div to see how long it takes for the color to change.</Hint>
 
-## All
+### All
 
 <Preview>
   <div className="bg-indigo d-16 tp-a tdu-300 ttf-io h:t-s-90 h:bg-slate-7"></div>
@@ -21,7 +21,7 @@ Use the `tp-*` utilities to specify which properties should transition when thei
 <div class="bg-indigo d-16 tp-a tdu-300 ttf-io h:t-s-90 h:bg-slate-7"></div>
 ```
 
-## Box Shadow
+### Box Shadow
 
 <Preview>
   <div className="bsh-none bw-1 bc-silver-4 d-16 tp-bs tdu-300 ttf-io h:bsh-xl"></div>
@@ -31,7 +31,7 @@ Use the `tp-*` utilities to specify which properties should transition when thei
 <div class="bsh-none bw-1 bc-silver-4 d-16 tp-bs tdu-300 ttf-io h:bsh-xl"></div>
 ```
 
-## Colors
+### Colors
 
 <Preview>
   <div className="bg-indigo d-16 tp-c tdu-300 ttf-io h:bg-slate-7"></div>
@@ -41,7 +41,7 @@ Use the `tp-*` utilities to specify which properties should transition when thei
 <div class="bg-indigo d-16 tp-c tdu-300 ttf-io h:bg-slate-7"></div>
 ```
 
-## None
+### None
 
 <Preview>
   <div className="bg-indigo d-16 tp-none tdu-300 ttf-io h:t-s-90 h:bg-slate-7"></div>
@@ -51,7 +51,7 @@ Use the `tp-*` utilities to specify which properties should transition when thei
 <div class="bg-indigo d-16 tp-none tdu-300 ttf-io h:t-s-90 h:bg-slate-7"></div>
 ```
 
-## Opacity
+### Opacity
 
 <Preview>
   <div className="bg-indigo d-16 tp-o tdu-300 ttf-io h:o-50"></div>
@@ -61,7 +61,7 @@ Use the `tp-*` utilities to specify which properties should transition when thei
 <div class="bg-indigo d-16 tp-o tdu-300 ttf-io h:o-50"></div>
 ```
 
-## Transform
+### Transform
 
 <Preview>
   <div className="bg-indigo d-16 tp-t tdu-300 ttf-io h:t-s-90"></div>
@@ -71,20 +71,16 @@ Use the `tp-*` utilities to specify which properties should transition when thei
 <div class="bg-indigo d-16 tp-t tdu-300 ttf-io h:t-s-90"></div>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="tp" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="tp" />
