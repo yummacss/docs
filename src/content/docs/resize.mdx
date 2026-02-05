@@ -1,17 +1,17 @@
 export const meta = {
   title: "Resize",
-  description: "Controls the way an item can be resized.",
+  description: "Control how an element can be resized.",
 };
 
 <Baseline path="css.properties.resize" />
 
 <Reference category="interactivity" name="resize" />
 
-## None
+## Usage
 
-> Initial value
+### None
 
-Prevents the element from being resized by the user.
+Prevent an element from being resized.
 
 <Hint icon="size">Try resizing the text area to see how it changes in size.</Hint>
 
@@ -29,11 +29,9 @@ Prevents the element from being resized by the user.
 </div>
 ```
 
-## Both
+### Both
 
-Allows the element to be resized both horizontally and vertically.
-
-<Hint icon="size">Try resizing the text area to see how it changes in size.</Hint>
+Allow an element to be resized both horizontally and vertically.
 
 <Preview>
   <div className="d-f fd-c">
@@ -49,11 +47,9 @@ Allows the element to be resized both horizontally and vertically.
 </div>
 ```
 
-## Horizontal
+### Horizontal
 
-Allows the element to be resized only in the horizontal direction.
-
-<Hint icon="size">Try resizing the text area to see how it changes in size.</Hint>
+Allow an element to be resized horizontally.
 
 <Preview>
   <div className="d-f fd-c">
@@ -69,11 +65,9 @@ Allows the element to be resized only in the horizontal direction.
 </div>
 ```
 
-## Vertical
+### Vertical
 
-Allows the element to be resized only in the vertical direction.
-
-<Hint icon="size">Try resizing the text area to see how it changes in size.</Hint>
+Allow an element to be resized vertically.
 
 <Preview>
   <div className="d-f fd-c">
@@ -89,20 +83,16 @@ Allows the element to be resized only in the vertical direction.
 </div>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="r" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="r" />

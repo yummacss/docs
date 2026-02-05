@@ -1,17 +1,17 @@
 export const meta = {
   title: "User Select",
-  description: "Controls the ability of the user to select text in an element.",
+  description: "Control the ability of the user to select text in an element.",
 };
 
 <Baseline path="css.properties.user-select" />
 
 <Reference category="interactivity" name="user-select" />
 
-## Auto
+## Usage
 
-> Initial value
+### Auto
 
-Allows the browser to determine the default highlighting behavior based on the element's content.
+Allow the browser to determine the default highlighting behavior.
 
 <Hint icon="cursor_text">Try selecting the sentence to see how the text highlighting works.</Hint>
 
@@ -23,11 +23,9 @@ Allows the browser to determine the default highlighting behavior based on the e
 <p class="fs-lg c-slate us-auto">Sphinx of black quartz, judge my vow.</p>
 ```
 
-## All
+### All
 
-Allows the user to select all text within the element when clicked or dragged over.
-
-<Hint icon="cursor_click">Try clicking the sentence to see how the text highlighting works.</Hint>
+Allow the user to select all text within the element.
 
 <Preview>
   <div className="fs-lg c-slate us-a">Sphinx of black quartz, judge my vow.</div>
@@ -37,11 +35,9 @@ Allows the user to select all text within the element when clicked or dragged ov
 <p class="fs-lg c-slate us-a">Sphinx of black quartz, judge my vow.</p>
 ```
 
-## None
+### None
 
-Prevents the user from selecting any text within the element.
-
-<Hint icon="cursor_text">Try selecting the sentence to see how the text highlighting doesn't work.</Hint>
+Prevent the user from selecting any text within the element.
 
 <Preview>
   <div className="fs-lg c-slate us-none">Sphinx of black quartz, judge my vow.</div>
@@ -51,11 +47,9 @@ Prevents the user from selecting any text within the element.
 <p class="fs-lg c-slate us-none">Sphinx of black quartz, judge my vow.</p>
 ```
 
-## Text
+### Text
 
-Allows the user to select text within the element, enabling text highlighting while preventing highlighting of other elements.
-
-<Hint icon="cursor_text">Try selecting the sentence to see how the text highlighting works.</Hint>
+Allow the user to select text within the element.
 
 <Preview>
   <div className="fs-lg c-slate us-t">Sphinx of black quartz, judge my vow.</div>
@@ -65,20 +59,16 @@ Allows the user to select text within the element, enabling text highlighting wh
 <p class="fs-lg c-slate us-t">Sphinx of black quartz, judge my vow.</p>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="us" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="us" />

@@ -1,17 +1,17 @@
 export const meta = {
   title: "Scroll Snap Type",
-  description: "Controls the strictness of snap points in a snap container.",
+  description: "Control the strictness of snap points in a snap container.",
 };
 
 <Baseline path="css.properties.scroll-snap-type" />
 
 <Reference category="interactivity" name="scroll-snap-type" />
 
-## None
+## Usage
 
-> Initial value
+### None
 
-Disables any snapping behavior, allowing for free scrolling without restrictions.
+Disable any snapping behavior.
 
 <Hint icon="hand_swipe_right">Try scrolling through the image container to see how it behaves.</Hint>
 
@@ -53,11 +53,9 @@ Disables any snapping behavior, allowing for free scrolling without restrictions
 </div>
 ```
 
-## Both Mandatory
+### Both Mandatory
 
-Enables snapping in both horizontal and vertical directions, requiring the scroll to stop at defined snap points.
-
-<Hint icon="hand_swipe_right">Try scrolling through the image container to see how it behaves.</Hint>
+Enable snapping in both horizontal and vertical directions.
 
 <Preview variant="inline">
   <div className="o-h p-r">
@@ -97,11 +95,9 @@ Enables snapping in both horizontal and vertical directions, requiring the scrol
 </div>
 ```
 
-## X Mandatory
+### X Mandatory
 
-Enables snapping in the horizontal direction, requiring the scroll to stop at defined snap points along the x-axis.
-
-<Hint icon="hand_swipe_right">Try scrolling through the image container to see how it behaves.</Hint>
+Enable snapping in the horizontal direction.
 
 <Preview variant="inline">
   <div className="o-h p-r">
@@ -141,11 +137,9 @@ Enables snapping in the horizontal direction, requiring the scroll to stop at de
 </div>
 ```
 
-## X Proximity
+### X Proximity
 
-Enables snapping in the horizontal direction, allowing the scroll to stop at defined snap points only when the user scrolls slowly.
-
-<Hint icon="hand_swipe_right">Try scrolling through the image container to see how it behaves.</Hint>
+Enable snapping in the horizontal direction when scrolling slowly.
 
 <Preview variant="inline">
   <div className="o-h p-r">
@@ -185,11 +179,9 @@ Enables snapping in the horizontal direction, allowing the scroll to stop at def
 </div>
 ```
 
-## Y Mandatory
+### Y Mandatory
 
-Enables snapping in the vertical direction, requiring the scroll to stop at defined snap points along the y-axis.
-
-<Hint icon="hand_swipe_right">Try scrolling through the image container to see how it behaves.</Hint>
+Enable snapping in the vertical direction.
 
 <Preview>
   <div className="o-h p-r w-fc">
@@ -229,11 +221,9 @@ Enables snapping in the vertical direction, requiring the scroll to stop at defi
 </div>
 ```
 
-## Y Proximity
+### Y Proximity
 
-Enables snapping in the vertical direction, allowing the scroll to stop at defined snap points only when the user scrolls slowly.
-
-<Hint icon="hand_swipe_right">Try scrolling through the image container to see how it behaves.</Hint>
+Enable snapping in the vertical direction when scrolling slowly.
 
 <Preview>
   <div className="o-h p-r w-fc">
@@ -273,20 +263,16 @@ Enables snapping in the vertical direction, allowing the scroll to stop at defin
 </div>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="sst" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="sst" />

@@ -1,17 +1,19 @@
 export const meta = {
   title: "Cursor",
-  description: "Controls the cursor style when hovering over an element.",
+  description: "Control the cursor style when hovering over an element.",
 };
 
 <Baseline path="css.properties.cursor" />
 
 <Reference category="interactivity" name="cursor" />
 
-## Help
+## Usage
 
-Indicates that the element provides helpful information.
+### Help
 
-<Hint icon="cursor">Try hovering over the buttons to see how the cursor transforms with your mouse.</Hint>
+Indicate that the element provides helpful information.
+
+<Hint icon="cursor">Try hovering over the buttons to see how the cursor transforms.</Hint>
 
 <Preview>
   <button className="c-h px-3 py-2 br-0 fs-md fw-600 lh-1 bg-white c-slate-8 bw-1 bc-silver-4 h:bg-silver-1 f:oc-silver-1 f:os-s f:ow-2">Help</button>
@@ -21,11 +23,9 @@ Indicates that the element provides helpful information.
 <button class="c-h px-3 py-2 br-0 fs-md fw-600 lh-1 bg-white c-slate-8 bw-1 bc-silver-4 h:bg-silver-1 f:oc-silver-1 f:os-s f:ow-2">Help</button>
 ```
 
-## Not Allowed
+### Not Allowed
 
-Indicates that the requested action cannot be performed.
-
-<Hint icon="cursor">Try hovering over the buttons to see how the cursor transforms with your mouse.</Hint>
+Indicate that an action cannot be performed.
 
 <Preview>
   <button className="c-na px-3 py-2 br-0 fs-md fw-600 lh-1 bg-green-1 c-green bw-1 bc-green-4 h:bg-green-1 f:oc-green-1 f:os-s f:ow-2">Start</button>
@@ -35,11 +35,9 @@ Indicates that the requested action cannot be performed.
 <button class="c-na px-3 py-2 br-0 fs-md fw-600 lh-1 bg-green-1 c-green bw-1 bc-green-4 h:bg-green-1 f:oc-green-1 f:os-s f:ow-2">Start</button>
 ```
 
-## Pointer
+### Pointer
 
-Indicates that the element is a interactive element that can be activated.
-
-<Hint icon="cursor">Try hovering over the buttons to see how the cursor transforms with your mouse.</Hint>
+Indicate that an element is interactive.
 
 <Preview>
   <button className="c-p px-3 py-2 br-0 fs-md fw-600 lh-1 bg-white c-slate-8 bw-1 bc-silver-4 h:bg-silver-1 f:oc-silver-1 f:os-s f:ow-2">Buy</button>
@@ -51,18 +49,14 @@ Indicates that the element is a interactive element that can be activated.
 
 ## Using utility variants
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+### Responsive Design
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
 <ResponsiveVariant prefix="c" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="c" />

@@ -1,44 +1,40 @@
 export const meta = {
   title: "Appearance",
-  description: "Utilities to disable the styling of the original form controls.",
+  description: "Control the appearance of native form controls.",
 };
 
 <Baseline path="css.properties.appearance" />
 
 <Reference category="interactivity" name="appearance" />
 
-## None
+## Usage
 
-> Initial value
+### None
 
-Removes all default styling from the element.
+Remove the default styling of an element.
 
 ```html "a-none"
 <button class="a-none ...">Send</button>
 ```
 
-## Auto
+### Auto
 
-Allows the element to use the default styling provided by the browser.
+Apply the default styling of an element provided by the browser.
 
 ```html "a-auto"
 <button class="a-auto ...">Send</button>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="a" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="a" />

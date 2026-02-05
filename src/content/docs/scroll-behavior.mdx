@@ -1,44 +1,38 @@
 export const meta = {
   title: "Scroll Behavior",
-  description: "Controls the scroll behavior of an element.",
+  description: "Control the scroll behavior of an element.",
 };
 
 <Baseline path="css.properties.scroll-behavior" />
 
 <Reference category="interactivity" name="scroll-behavior" />
 
-## Auto
+## Usage
 
-> Initial value
+### Auto
 
-Allows the default scrolling behavior, which is immediate and without any animation.
+Allow the default, immediate scrolling behavior.
 
 ```html "sb-auto"
 <div class="sb-auto ..."></div>
 ```
 
-## Smooth
-
-Enables a smooth scrolling effect, providing a gradual transition when scrolling to a different part of the page.
+### Smooth
 
 ```html "sb-s"
 <div class="sb-s ..."></div>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="sb" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="sb" />
