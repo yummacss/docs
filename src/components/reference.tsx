@@ -98,8 +98,8 @@ export default function Reference({ category, name }: Props) {
       className="mb-6 o-h"
       style={{ backgroundColor: "#1a1d2e", border: "1px solid #232741" }}
     >
-      <Accordion defaultValue={[0]}>
-        <AccordionItem value={0} className="bw-0">
+      <Accordion>
+        <AccordionItem className="bw-0">
           <AccordionTrigger className="bg-transparent">
             <span className="d-f ai-c g-2">
               <code style={{ color: "#dda2f6" }}>{utilityPrefix}-[value]</code>

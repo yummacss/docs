@@ -2,7 +2,7 @@ import { londonShort } from "@/constants/p";
 
 export const meta = {
   title: "Background Clip",
-  description: "Controls the box around the background of an element.",
+  description: "Control how far a background image extends within an element.",
 };
 
 <Baseline path="css.properties.background-clip" />
@@ -11,9 +11,7 @@ export const meta = {
 
 ## Border Box
 
-> Initial value
-
-The background extends to the outer edge of the border (including the border itself).
+The background image extends to the outer edge of the border.
 
 <Preview>
   <div className="b-3 bs-d bc-bb bc-indigo-8 bg-indigo d-20 p-2"></div>
@@ -25,7 +23,7 @@ The background extends to the outer edge of the border (including the border its
 
 ## Content Box
 
-The background is confined to the content area, excluding padding and borders.
+The background image clips to the content area, excluding padding & borders.
 
 <Preview>
   <div className="b-3 bs-d bc-cb bc-indigo-8 bg-indigo d-20 p-2"></div>
@@ -37,7 +35,7 @@ The background is confined to the content area, excluding padding and borders.
 
 ## Padding Box
 
-The background extends to the outer edge of the padding, but does not include the border.
+The background image extends to the outer edge of the padding, excluding the border.
 
 <Preview>
   <div className="b-3 bs-d bc-indigo-8 bc-pb bg-indigo d-20 p-2"></div>
@@ -49,7 +47,7 @@ The background extends to the outer edge of the padding, but does not include th
 
 ## Text
 
-The background is clipped to the text itself, allowing for unique visual effects.
+The background image clips to the text.
 
 <Preview>
   <div className="bc-t fs-3xl fw-700 o-h px-4 py-2 rad-2 c-transparent" style={{ backgroundImage: "linear-gradient(132deg, #413cb8 0.00%, #7a77cd 100.00%)" }}>
@@ -63,20 +61,16 @@ The background is clipped to the text itself, allowing for unique visual effects
 </div>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="bc" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="bc" />

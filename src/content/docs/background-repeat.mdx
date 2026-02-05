@@ -1,6 +1,6 @@
 export const meta = {
   title: "Background Repeat",
-  description: "Controls the repetition of the background image of an element.",
+  description: "Control how a background image repeats within an element.",
 };
 
 <Baseline path="css.properties.background-repeat" />
@@ -9,9 +9,7 @@ export const meta = {
 
 ## Repeat
 
-> Initial value
-
-The background image will be repeated both horizontally and vertically.
+The background image repeats horizontally & vertically.
 
 <Preview>
   <div
@@ -31,9 +29,7 @@ The background image will be repeated both horizontally and vertically.
 </div>
 ```
 
-## No Repeat
-
-The background image will not be repeated.
+The background image does not repeat.
 
 <Preview>
   <div
@@ -53,9 +49,7 @@ The background image will not be repeated.
 </div>
 ```
 
-## Round
-
-The background image will be repeated and resized to fit the area.
+The background image repeats & resizes to fit the area.
 
 <Preview>
   <div
@@ -75,9 +69,7 @@ The background image will be repeated and resized to fit the area.
 </div>
 ```
 
-## Repeat X
-
-The background image will be repeated horizontally only.
+The background image repeats horizontally only.
 
 <Preview>
   <div
@@ -97,9 +89,7 @@ The background image will be repeated horizontally only.
 </div>
 ```
 
-## Repeat Y
-
-The background image will be repeated vertically only.
+The background image repeats vertically only.
 
 <Preview>
   <div
@@ -119,9 +109,7 @@ The background image will be repeated vertically only.
 </div>
 ```
 
-## Space
-
-The background image will be repeated and spaced evenly.
+The background image repeats & spaces evenly.
 
 <Preview>
   <div
@@ -141,23 +129,19 @@ The background image will be repeated and spaced evenly.
 </div>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant class="br-r" variant="br-nr" classPrefix="br">
   ### Breakpoint variant
 </ResponsiveVariant>
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant class="br-r" variant="br-nr" classPrefix="br">
   ### Hover variant

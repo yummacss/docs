@@ -1,6 +1,6 @@
 export const meta = {
   title: "Background Size",
-  description: "Controls the size of the background image of an element.",
+  description: "Control the size of a background image within an element.",
 };
 
 <Baseline path="css.properties.background-size" />
@@ -8,8 +8,6 @@ export const meta = {
 <Reference category="background" name="background-size" />
 
 ## Auto
-
-> Initial value
 
 The background image retains its original size.
 
@@ -25,9 +23,7 @@ The background image retains its original size.
 </div>
 ```
 
-## Cover
-
-The background image will cover the entire element.
+The background image covers the entire element.
 
 <Preview>
   <div className="d-30">
@@ -41,9 +37,7 @@ The background image will cover the entire element.
 </div>
 ```
 
-## Contain
-
-The background image will be scaled to fit within the element.
+The background image scales to fit within the element.
 
 <Preview>
   <div className="d-30">
@@ -57,23 +51,19 @@ The background image will be scaled to fit within the element.
 </div>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant class="bs-auto" variant="bs-c" classPrefix="bs">
   ### Breakpoint variant
 </ResponsiveVariant>
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant class="bs-auto" variant="bs-c" classPrefix="bs">
   ### Hover variant
