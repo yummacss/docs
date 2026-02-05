@@ -2,7 +2,7 @@ import { bleakHouse } from "@/constants/p";
 
 export const meta = {
   title: "Background Attachment",
-  description: "Controls how the background responds to scrolling.",
+  description: "Control how a background image responds to scrolling.",
 };
 
 <Baseline path="css.properties.background-attachment" />
@@ -11,11 +11,9 @@ export const meta = {
 
 ## Scroll
 
-> Initial value
+The background image moves with the page content.
 
-The image will move with the content of the page.
-
-<Hint icon="mouse_scroll">Try scrolling through the image to see how it behaves.</Hint>
+<Hint icon="mouse_scroll">Scroll through the image to see its behavior.</Hint>
 
 <Preview>
     <div className="o-auto ba-s bs-c ff-c fs-xxl fw-700 max-h-80 p-5 ta-c" style={{backgroundImage: 'url(/img/sea.jpg)'}}>{bleakHouse}</div>
@@ -27,11 +25,9 @@ The image will move with the content of the page.
 </div>
 ```
 
-## Fixed
+The background image remains fixed when scrolling.
 
-The image will not move when the content is scrolled.
-
-<Hint icon="mouse_scroll">Try scrolling the page to see how it behaves.</Hint>
+<Hint icon="mouse_scroll">Scroll the page to see its behavior.</Hint>
 
 <Preview>
     <div className="o-auto ba-f bs-c ff-c fs-xxl fw-700 max-h-80 p-5 ta-c" style={{backgroundImage: 'url(/img/sea.jpg)'}}>{bleakHouse}</div>
@@ -43,11 +39,9 @@ The image will not move when the content is scrolled.
 </div>
 ```
 
-## Local
+The background image scrolls with the element content.
 
-The image will scroll with the content of the element.
-
-<Hint icon="mouse_scroll">Try scrolling through the image to see how it behaves.</Hint>
+<Hint icon="mouse_scroll">Scroll through the image to see its behavior.</Hint>
 
 <Preview>
     <div className="o-auto ba-l bs-c ff-c fs-xxl fw-700 max-h-80 p-5 ta-c" style={{backgroundImage: 'url(/img/sea.jpg)'}}>{bleakHouse}</div>
@@ -59,20 +53,16 @@ The image will scroll with the content of the element.
 </div>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="ba" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="ba" />

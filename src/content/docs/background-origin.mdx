@@ -1,6 +1,6 @@
 export const meta = {
   title: "Background Origin",
-  description: "Controls background positioning relative to borders, padding, and content.",
+  description: "Control the background image positioning area relative to borders, padding & content.",
 };
 
 <Baseline path="css.properties.background-origin" />
@@ -9,9 +9,7 @@ export const meta = {
 
 ## Padding Box
 
-> Initial value
-
-The background positioning area extends to the outer edge of the padding, but does not include the border.
+The background image positioning area extends to the outer edge of the padding, excluding the border.
 
 <Preview>
   <div className="b-3 bs-d bc-pb bo-pb bc-indigo-4 bg-indigo d-20 p-2"></div>
@@ -21,9 +19,7 @@ The background positioning area extends to the outer edge of the padding, but do
 <div class="b-3 bs-d bc-pb bo-pb bc-indigo-4 bg-indigo d-20 p-2"></div>
 ```
 
-## Border Box
-
-The background positioning area includes the border area.
+The background image positioning area includes the border area.
 
 <Preview>
   <div className="b-3 bs-d bc-bb bo-bb bc-indigo-4 bg-indigo d-20 p-2"></div>
@@ -33,9 +29,7 @@ The background positioning area includes the border area.
 <div class="b-3 bs-d bc-bb bo-bb bc-indigo-4 bg-indigo d-20 p-2"></div>
 ```
 
-## Content Box
-
-The background positioning area is confined to the content area, excluding padding and borders.
+The background image positioning area clips to the content area, excluding padding & borders.
 
 <Preview>
   <div className="b-3 bs-d bc-cb bo-cb bc-indigo-4 bg-indigo d-20 p-2"></div>
@@ -45,23 +39,19 @@ The background positioning area is confined to the content area, excluding paddi
 <div class="b-3 bs-d bc-cb bo-cb bc-indigo-4 bg-indigo d-20 p-2"></div>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant class="bo-cb" variant="bo-bb" classPrefix="bo">
   ### Breakpoint variant
 </ResponsiveVariant>
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant class="bo-cb" variant="bo-bb" classPrefix="bo">
   ### Hover variant

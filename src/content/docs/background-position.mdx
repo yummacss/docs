@@ -1,11 +1,13 @@
 export const meta = {
   title: "Background Position",
-  description: "Controls the position of the background image of an element.",
+  description: "Control the position of a background image within an element.",
 };
 
 <Baseline path="css.properties.background-position" />
 
 <Reference category="background" name="background-position" />
+
+Position a background image within an element.
 
 <Preview>
   <div className="d-g g-1 gtc-3">
@@ -35,23 +37,19 @@ export const meta = {
 </div>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant class="bp-l" variant="bp-r" classPrefix="bp">
   ### Breakpoint variant
 </ResponsiveVariant>
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant class="bp-l" variant="bp-r" classPrefix="bp">
   ### Hover variant
