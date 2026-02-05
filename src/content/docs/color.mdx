@@ -1,11 +1,13 @@
 export const meta = {
-  title: "Color",
-  description: "Controls the text color of an element.",
+  title: "Text Color",
+  description: "Control the text color of an element.",
 };
 
 <Baseline path="css.properties.color" />
 
 <Reference category="color" name="color" />
+
+## Usage
 
 <Preview>
   <div className="d-g p-4 rg-4">
@@ -23,26 +25,22 @@ export const meta = {
 </div>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
+Target viewport sizes with breakpoint prefixes.
 
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
+<ResponsiveVariant prefix="c" />
 
-Target specific viewport sizes with breakpoint prefixes
+### Hover State
 
-<ResponsiveVariant prefix="tc" />
+Apply styles conditionally on hover using the `h:` prefix.
 
-### Hover state variant
+<HoverVariant prefix="c" />
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+### Opacity Modifiers
 
-<HoverVariant prefix="tc" />
+Adjust color transparency by appending an opacity suffix.
 
-### Opacity modifiers
-
-Adjust color transparency by appending an opacity value to any color utility.
-
-<OpacityModifier prefix="tc" />
+<OpacityModifier prefix="c" />

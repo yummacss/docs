@@ -1,13 +1,15 @@
 export const meta = {
   title: "Caret Color",
-  description: "Controls the text input cursor color.",
+  description: "Control the color of the text input cursor.",
 };
 
 <Baseline path="css.properties.caret-color" />
 
 <Reference category="color" name="caret-color" />
 
-The custom caret-color will have an **indigo** color from the default color palette.
+## Usage
+
+Set the color of the text cursor in form elements.
 
 <Hint icon="cursor_text">Look at the color of the cursor when typing.</Hint>
 
@@ -39,26 +41,22 @@ The custom caret-color will have an **indigo** color from the default color pale
 </div>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="cc" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="cc" />
 
-### Opacity modifiers
+### Opacity Modifiers
 
-Adjust color transparency by appending an opacity value to any color utility.
+Adjust color transparency by appending an opacity suffix.
 
 <OpacityModifier prefix="cc" />
