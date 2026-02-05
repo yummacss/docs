@@ -1,17 +1,17 @@
 export const meta = {
   title: "Border Collapse",
-  description: "Controls the collapsing or separation of table borders.",
+  description: "Control the collapsing & separation of table borders.",
 };
 
 <Baseline path="css.properties.border-collapse" />
 
 <Reference category="border" name="border-collapse" />
 
-## Separate
+## Usage
 
-> Initial value
+### Separate
 
-The borders of the table cells will remain distinct, allowing for spacing between them.
+Table cell borders remain distinct, allowing for spacing.
 
 <Preview>
   <table className="bw-1 bc-gray bc-s ta-c c-gray w-full">
@@ -43,9 +43,9 @@ The borders of the table cells will remain distinct, allowing for spacing betwee
 </table>
 ```
 
-## Collapse
+### Collapse
 
-The borders of the table will be merged together.
+Table borders merge.
 
 <Preview>
   <table className="bw-1 bc-gray bc-c ta-c c-gray w-full">
@@ -77,20 +77,16 @@ The borders of the table will be merged together.
 </table>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="bs" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="bs" />
