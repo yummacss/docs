@@ -1,17 +1,17 @@
 export const meta = {
   title: "Flex Direction",
-  description: "Controls the direction of flex elements.",
+  description: "Control the direction of flex items.",
 };
 
 <Baseline path="css.properties.flex-direction" />
 
 <Reference category="flexbox" name="flex-direction" />
 
-## Row
+## Usage
 
-> Initial value
+### Row
 
-The items will be arranged horizontally in a single row.
+Position items horizontally in a single row.
 
 <Preview variant="inline">
   <div className="d-f fd-r cg-4 c-white">
@@ -29,9 +29,9 @@ The items will be arranged horizontally in a single row.
 </div>
 ```
 
-## Column
+### Column
 
-The items will be arranged vertically in a single column.
+Position items vertically in a single column.
 
 <Preview>
   <div className="d-f fd-c rg-4 c-white">
@@ -49,9 +49,9 @@ The items will be arranged vertically in a single column.
 </div>
 ```
 
-## Column Reverse
+### Column Reverse
 
-The items will be arranged vertically in a single column, but in reverse order.
+Position items vertically in reverse order.
 
 <Preview>
   <div className="d-f fd-cr rg-4 c-white">
@@ -69,9 +69,9 @@ The items will be arranged vertically in a single column, but in reverse order.
 </div>
 ```
 
-## Row Reverse
+### Row Reverse
 
-The items will be arranged horizontally in a single row, but in reverse order.
+Position items horizontally in reverse order.
 
 <Preview>
   <div className="d-f fd-rr cg-4 c-white">
@@ -89,20 +89,16 @@ The items will be arranged horizontally in a single row, but in reverse order.
 </div>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="fd" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="fd" />

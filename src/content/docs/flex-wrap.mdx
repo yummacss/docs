@@ -1,17 +1,17 @@
 export const meta = {
   title: "Flex Wrap",
-  description: "Controls how flex items are wrapped.",
+  description: "Control how flex items wrap in a container.",
 };
 
 <Baseline path="css.properties.flex-wrap" />
 
 <Reference category="flexbox" name="flex-wrap" />
 
+## Usage
+
 ### No Wrap
 
-> Initial value
-
-The items will be displayed in a single line, and they will not wrap to the next line.
+Prevent items from wrapping to the next line.
 
 <Preview>
   <div className="p-r c-white">
@@ -35,7 +35,7 @@ The items will be displayed in a single line, and they will not wrap to the next
 
 ### Wrap
 
-The items will wrap onto multiple lines if there is not enough space in the container.
+Allow items to wrap onto multiple lines.
 
 <Preview>
   <div className="p-r c-white">
@@ -59,7 +59,7 @@ The items will wrap onto multiple lines if there is not enough space in the cont
 
 ### Wrap Reverse
 
-The items will wrap onto multiple lines, but the order of the lines will be reversed.
+Allow items to wrap onto multiple lines in reverse order.
 
 <Preview>
   <div className="p-r c-white">
@@ -81,20 +81,16 @@ The items will wrap onto multiple lines, but the order of the lines will be reve
 </div>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="fw" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="fw" />

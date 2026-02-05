@@ -1,13 +1,15 @@
 export const meta = {
   title: "Flex Shrink",
-  description: "Controls the shrinkage of the flex items.",
+  description: "Control how flex items shrink to fit the container.",
 };
 
 <Baseline path="css.properties.flex-shrink" />
 
 <Reference category="flexbox" name="flex-shrink" />
 
-The items will proportionally shrink to fit the container when there is not enough space.
+## Usage
+
+Shrink items proportionally to fit the container when space is limited.
 
 <Preview variant="inline">
   <div className="d-f g-4 c-white" id="area">
@@ -25,20 +27,16 @@ The items will proportionally shrink to fit the container when there is not enou
 </div>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="fs" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="fs" />

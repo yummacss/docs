@@ -1,17 +1,17 @@
 export const meta = {
   title: "Justify Content",
-  description: "Controls the positioning of flex and grid elements on a container's main axis.",
+  description: "Control how items are aligned along a container's main axis.",
 };
 
 <Baseline path="css.properties.justify-content" />
 
 <Reference category="flexbox" name="justify-content" />
 
-## Normal
+## Usage
 
-> Initial value
+### Normal
 
-The items will be aligned according to the default alignment of the container.
+Align items according to the container's default alignment.
 
 <Preview variant="inline">
     <div className="d-f g-4 jc-n c-white" id="area">
@@ -29,9 +29,9 @@ The items will be aligned according to the default alignment of the container.
 </div>
 ```
 
-## Center
+### Center
 
-The items will be centered within the container along the main axis.
+Center items within the container along the main axis.
 
 <Preview variant="inline">
     <div className="d-f g-4 jc-c c-white" id="area">
@@ -49,9 +49,9 @@ The items will be centered within the container along the main axis.
 </div>
 ```
 
-## Flex End
+### Flex End
 
-The items will be aligned to the end of the container along the main axis.
+Align items to the end of the container along the main axis.
 
 <Preview variant="inline">
     <div className="d-f g-4 jc-fe c-white" id="area">
@@ -69,9 +69,9 @@ The items will be aligned to the end of the container along the main axis.
 </div>
 ```
 
-## Flex Start
+### Flex Start
 
-The items will be aligned to the start of the container along the main axis.
+Align items to the start of the container along the main axis.
 
 <Preview variant="inline">
     <div className="d-f g-4 jc-fs c-white" id="area">
@@ -89,9 +89,9 @@ The items will be aligned to the start of the container along the main axis.
 </div>
 ```
 
-## Stretch
+### Stretch
 
-The items will stretch to fill the available space along the main axis.
+Stretch items to fill the available space along the main axis.
 
 <Preview variant="inline">
     <div className="c-white" id="area">
@@ -113,9 +113,9 @@ The items will stretch to fill the available space along the main axis.
 </div>
 ```
 
-## Space Between
+### Space Between
 
-The items will be evenly distributed in the container, with the first item at the start and the last item at the end.
+Distribute items evenly with the first item at the start & the last item at the end.
 
 <Preview variant="inline">
     <div className="d-f g-4 jc-sb c-white" id="area">
@@ -133,9 +133,9 @@ The items will be evenly distributed in the container, with the first item at th
 </div>
 ```
 
-## Space Around
+### Space Around
 
-The items will be evenly distributed in the container with space around them.
+Distribute items evenly with equal space around them.
 
 <Preview variant="inline">
     <div className="d-f g-4 jc-sa c-white" id="area">
@@ -153,9 +153,9 @@ The items will be evenly distributed in the container with space around them.
 </div>
 ```
 
-## Space Evenly
+### Space Evenly
 
-The items will be evenly distributed in the container with equal space around them.
+Distribute items evenly with equal space between them.
 
 <Preview variant="inline">
     <div className="d-f g-4 gaf-c jc-se c-white" id="area">
@@ -173,20 +173,16 @@ The items will be evenly distributed in the container with equal space around th
 </div>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="jc" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="jc" />

@@ -1,17 +1,19 @@
 export const meta = {
   title: "Grid Row",
-  description: "Controls the size and position of elements across rows.",
+  description: "Control the size and position of items across grid rows.",
 };
 
-## Grid Row Span
+## Usage
 
-Controls the row span of a grid item.
+### Grid Row Span
+
+Control the row span of a grid item.
 
 <Baseline path="css.properties.grid-row" />
 
 <Reference category="grid" name="grid-row" />
 
-The item will span across **2** rows, starting from its current position and occupying the next **2** rows in the grid.
+Allow an item to span across multiple rows.
 
 <Preview variant="inline">
     <div className="d-g g-4 gtc-3 h-75">
@@ -33,15 +35,15 @@ The item will span across **2** rows, starting from its current position and occ
 </div>
 ```
 
-## Grid Row End
+### Grid Row End
 
-Controls where the grid item ends on the grid rows.
+Control where a grid item ends within the grid rows.
 
 <Baseline path="css.properties.grid-row-end" />
 
 <Reference category="grid" name="grid-row-end" />
 
-The item will end at the first row line, effectively spanning from its starting position to the second row line.
+Position an item to end at a specific grid line.
 
 <Preview variant="inline">
     <div className="p-r">
@@ -63,15 +65,15 @@ The item will end at the first row line, effectively spanning from its starting 
 </div>
 ```
 
-## Grid Row Start
+### Grid Row Start
 
-Controls where the grid item begins on the grid rows.
+Control where a grid item begins within the grid rows.
 
 <Baseline path="css.properties.grid-row-start" />
 
 <Reference category="grid" name="grid-row-start" />
 
-The item will begin at the first row line, positioning it to start in the third row of the grid.
+Position an item to start at a specific grid line.
 
 <Preview variant="inline">
     <div className="p-r">
@@ -93,20 +95,16 @@ The item will begin at the first row line, positioning it to start in the third 
 </div>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="gr" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="gr" />
