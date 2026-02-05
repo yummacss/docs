@@ -58,8 +58,8 @@ export const redirects = [
     permanent: true,
   },
   {
-    source: "/docs/dimension",
-    destination: "/docs/dimensions",
+    source: "/docs/dimensions",
+    destination: "/docs/dimension",
     permanent: true,
   },
   {

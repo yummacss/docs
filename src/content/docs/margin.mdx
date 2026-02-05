@@ -1,9 +1,11 @@
 export const meta = {
   title: "Margin",
-  description: "Controls the margin of an element.",
+  description: "Control the margin of an element.",
 };
 
 <Baseline path="css.properties.margin" />
+
+## Usage
 
 <Reference category="boxModel" name="margin" />
 
@@ -19,9 +21,9 @@ export const meta = {
 </div>
 ```
 
-## Margin Top
+### Margin Top
 
-Controls the margin to the **top** of an element.
+Control an element's top margin.
 
 <Baseline path="css.properties.margin-top" />
 
@@ -39,9 +41,9 @@ Controls the margin to the **top** of an element.
 </div>
 ```
 
-## Margin Right
+### Margin Right
 
-Controls the margin to the **right** of an element.
+Control an element's right margin.
 
 <Baseline path="css.properties.margin-right" />
 
@@ -59,9 +61,9 @@ Controls the margin to the **right** of an element.
 </div>
 ```
 
-## Margin Bottom
+### Margin Bottom
 
-Controls the margin to the bottom of an element.
+Control an element's bottom margin.
 
 <Baseline path="css.properties.margin-bottom" />
 
@@ -79,9 +81,9 @@ Controls the margin to the bottom of an element.
 </div>
 ```
 
-## Margin Left
+### Margin Left
 
-Controls the margin to the **left** of an element.
+Control an element's left margin.
 
 <Baseline path="css.properties.margin-left" />
 
@@ -99,9 +101,9 @@ Controls the margin to the **left** of an element.
 </div>
 ```
 
-## Margin Block End
+### Margin Block End
 
-Controls the logical block end margin of an element, which maps to a physical margin depending on the element's writing mode, directionality, and text orientation.
+Control an element's logical block end margin.
 
 <Baseline path="css.properties.margin-block-end" />
 
@@ -119,9 +121,9 @@ Controls the logical block end margin of an element, which maps to a physical ma
 </div>
 ```
 
-## Margin Block Start
+### Margin Block Start
 
-Controls the logical block start margin of an element, which maps to a physical margin depending on the element's writing mode, directionality, and text orientation.
+Control an element's logical block start margin.
 
 <Baseline path="css.properties.margin-block-start" />
 
@@ -139,9 +141,9 @@ Controls the logical block start margin of an element, which maps to a physical 
 </div>
 ```
 
-## Margin Inline End
+### Margin Inline End
 
-Controls the logical inline end margin of an element, which maps to a physical margin depending on the element's writing mode, directionality, and text orientation.
+Control an element's logical inline end margin.
 
 <Baseline path="css.properties.margin-inline-end" />
 
@@ -159,9 +161,9 @@ Controls the logical inline end margin of an element, which maps to a physical m
 </div>
 ```
 
-## Margin Inline Start
+### Margin Inline Start
 
-Controls the logical inline start margin of an element, which maps to a physical margin depending on the element's writing mode, directionality, and text orientation.
+Control an element's logical inline start margin.
 
 <Baseline path="css.properties.margin-inline-start" />
 
@@ -179,11 +181,11 @@ Controls the logical inline start margin of an element, which maps to a physical
 </div>
 ```
 
-## Margin X
+### Margin Inline
 
-Controls the **left** and **right** margins of an element at once.
+Control an element's horizontal margin.
 
-<Reference category="boxModel" name="margin-x" />
+<Reference category="boxModel" name="margin-inline" />
 
 <Preview>
   <div id="area">
@@ -197,11 +199,11 @@ Controls the **left** and **right** margins of an element at once.
 </div>
 ```
 
-## Margin Y
+### Margin Block
 
-Controls the **bottom** and **top** margins of an element at once.
+Control an element's vertical margin.
 
-<Reference category="boxModel" name="margin-y" />
+<Reference category="boxModel" name="margin-block" />
 
 <Preview>
   <div className="d-f fd-r" id="area">
@@ -215,20 +217,16 @@ Controls the **bottom** and **top** margins of an element at once.
 </div>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="m" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="m" />

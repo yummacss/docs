@@ -1,9 +1,11 @@
 export const meta = {
   title: "Width",
-  description: "Controls the width of an element.",
+  description: "Control the width of an element.",
 };
 
 <Baseline path="css.properties.width" />
+
+## Usage
 
 <Reference category="boxModel" name="width" />
 
@@ -23,15 +25,15 @@ export const meta = {
 </div>
 ```
 
-## Max Width
+### Max Width
 
-Controls the maximum width of an element.
+Control an element's maximum width.
 
 <Baseline path="css.properties.max-width" />
 
 <Reference category="boxModel" name="max-width" />
 
-The **max-w-64** utility sets the maximum width to **16rem**, ensuring that the element does not exceed this width regardless of the content inside.
+The `max-w-64` utility limits an element's width to `16 rem`.
 
 <Hint icon="arrows_horizontal">Try changing the horizontal size of the box to see how wide it can be at the maximum size.</Hint>
 
@@ -43,15 +45,15 @@ The **max-w-64** utility sets the maximum width to **16rem**, ensuring that the 
 <div class="ai-c bg-indigo d-f jc-c max-w-64 min-w-16 o-auto p-6 r-h c-white w-32">64</div>
 ```
 
-## Min Width
+### Min Width
 
-Controls the minimum width of an element.
+Control an element's minimum width.
 
 <Baseline path="css.properties.min-width" />
 
 <Reference category="boxModel" name="min-width" />
 
-The **min-w-16** utility sets the minimum width to `4rem`, ensuring that the element maintains at least this width even when the content is smaller.
+The `min-w-16` utility ensures an element's width is at least `4 rem`.
 
 <Hint icon="arrows_horizontal">Try changing the horizontal size of the box to see how wide it can be at the minimum size.</Hint>
 
@@ -63,7 +65,7 @@ The **min-w-16** utility sets the minimum width to `4rem`, ensuring that the ele
 <div class="ai-c bg-indigo d-f jc-c max-w-64 min-w-16 o-auto p-6 r-h c-white w-32">32</div>
 ```
 
-## Using percentages
+### Use Percentages
 
 <Preview>
   <div className="b-3 bs-d bc-indigo d-g p-2 rg-8 w-64">
@@ -79,20 +81,16 @@ The **min-w-16** utility sets the minimum width to `4rem`, ensuring that the ele
 </div>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="w" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="w" />
