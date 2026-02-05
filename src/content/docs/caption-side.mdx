@@ -1,17 +1,17 @@
 export const meta = {
   title: "Caption Side",
-  description: "Controls the caption element orientation in a table.",
+  description: "Control the orientation of the caption element in a table.",
 };
 
 <Baseline path="css.properties.caption-side" />
 
 <Reference category="table" name="caption-side" />
 
-## Top
+## Usage
 
-> Initial value
+### Top
 
-The caption will be displayed above the table.
+Display the caption above the table.
 
 <Preview>
   <table className="bw-1 bs-d bc-c bc-slate ta-c w-full">
@@ -43,9 +43,9 @@ The caption will be displayed above the table.
 </table>
 ```
 
-## Bottom
+### Bottom
 
-The caption will be displayed below the table.
+Display the caption below the table.
 
 <Preview>
   <table className="bw-1 bs-d bc-c bc-slate ta-c w-full">
@@ -77,20 +77,16 @@ The caption will be displayed below the table.
 </table>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="cs" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="cs" />
