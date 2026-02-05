@@ -1,11 +1,17 @@
 export const meta = {
   title: "Object Position",
-  description: "Controls how to position the container's content.",
+  description: "Control how to position the container's content.",
 };
 
 <Baseline path="css.properties.object-position" />
 
 <Reference category="positioning" name="object-position" />
+
+## Usage
+
+### Center
+
+Control how to position the content of a replaced element.
 
 <Preview>
   <div className="d-g g-1 gtc-3">
@@ -35,20 +41,16 @@ export const meta = {
 </div>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="op" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="op" />

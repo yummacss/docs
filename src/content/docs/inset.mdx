@@ -1,18 +1,17 @@
 export const meta = {
   title: "Inset",
-  description: "Controls the placement of positioned elements in all directions.",
+  description: "Control the placement of positioned elements.",
 };
 
 <Baseline path="css.properties.inset" />
 
 <Reference category="positioning" name="inset" />
 
-<Preview>
-  <div className="p-r d-18 sm:d-32 c-white" id="area">
-    <div className="p-a i-0 b-1" />
-    <div className="p-a i-0 d-f ai-c jc-c bg-indigo p-4">A</div>
-  </div>
-</Preview>
+## Usage
+
+### Inset
+
+Control the placement of a positioned element in all directions.
 
 ```html "i-0"
 <div class="p-r d-18 sm:d-32 c-white">
@@ -21,18 +20,11 @@ export const meta = {
 </div>
 ```
 
-## Inset X
-
-Controls the placement of positioned elements in the horizontal direction.
+### Inset X
 
 <Reference category="positioning" name="inset-x" />
 
-<Preview>
-  <div className="p-r d-18 sm:d-32 c-white" id="area">
-    <div className="p-a i-0 b-1" />
-    <div className="p-a t-0 ix-0 d-f h-12 ai-c jc-c bg-indigo p-4">A</div>
-  </div>
-</Preview>
+Control the placement of a positioned element in the horizontal direction.
 
 ```html "ix-0"
 <div class="p-r d-18 sm:d-32 c-white">
@@ -41,18 +33,11 @@ Controls the placement of positioned elements in the horizontal direction.
 </div>
 ```
 
-## Inset Y
-
-Controls the placement of positioned elements in the vertical direction.
+### Inset Y
 
 <Reference category="positioning" name="inset-y" />
 
-<Preview>
-  <div className="p-r d-18 sm:d-32 c-white" id="area">
-    <div className="p-a i-0 b-1" />
-    <div className="p-a iy-0 l-0 d-f w-12 ai-c jc-c bg-indigo p-4">A</div>
-  </div>
-</Preview>
+Control the placement of a positioned element in the vertical direction.
 
 ```html "iy-0"
 <div class="p-r d-18 sm:d-32 c-white">
@@ -61,20 +46,16 @@ Controls the placement of positioned elements in the vertical direction.
 </div>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="i" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="i" />

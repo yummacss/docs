@@ -1,18 +1,13 @@
 export const meta = {
   title: "Top",
-  description: "Controls the top placement of positioned elements.",
+  description: "Control the top placement of positioned elements.",
 };
 
 <Baseline path="css.properties.top" />
 
 <Reference category="positioning" name="top" />
 
-<Preview>
-  <div className="p-r d-18 sm:d-32 c-white" id="area">
-    <div className="p-a i-0 b-1" />
-    <div className="p-a t-0 r-0 d-f d-12 ai-c jc-c bg-indigo p-4">A</div>
-  </div>
-</Preview>
+## Usage
 
 ```html "t-0"
 <div class="p-r d-18 sm:d-32 c-white">
@@ -21,20 +16,16 @@ export const meta = {
 </div>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="t" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="t" />

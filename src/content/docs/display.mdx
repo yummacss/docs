@@ -1,116 +1,112 @@
 export const meta = {
   title: "Display",
-  description: "Controls the display box type of an element.",
+  description: "Control the display box type of an element.",
 };
 
 <Baseline path="css.properties.display" />
 
 <Reference category="positioning" name="display" />
 
-## Inline
+## Usage
 
-> Initial value
+### Inline
 
-Makes the element an inline element, allowing it to sit within a line of text without breaking the flow.
+Display the element as an inline element.
 
 ```html "d-i"
 <div class="d-i ...">A</div>
 ```
 
-## Block
+### Block
 
-Makes the element a block-level element, causing it to take up the full width available and start on a new line.
+Display the element as a block-level element.
 
 ```html "d-b"
 <div class="d-b ...">A</div>
 ```
 
-## Flex
+### Flex
 
-Makes the element a flex container, enabling the use of flexbox layout properties for its children.
+Display the element as a flex container.
 
 ```html "d-f"
 <div class="d-f ...">A</div>
 ```
 
-## Flow Root
+### Flow Root
 
-Creates a new block formatting context, allowing for better control of floated children.
+Create a new block formatting context.
 
 ```html "d-fr"
 <div class="d-fr ...">A</div>
 ```
 
-## Grid
+### Grid
 
-Makes the element a grid container, enabling the use of grid layout properties for its children.
+Display the element as a grid container.
 
 ```html "d-g"
 <div class="d-g ...">A</div>
 ```
 
-## Inline Flex
+### Inline Flex
 
-Makes the element an inline flex container, allowing it to sit within a line of text while enabling flexbox layout properties for its children.
+Display the element as an inline flex container.
 
 ```html "d-if"
 <div class="d-if ...">A</div>
 ```
 
-## Inline Block
+### Inline Block
 
-Makes the element an inline-block element, allowing it to sit within a line of text while also respecting width and height properties.
+Display the element as an inline-block element.
 
 ```html "d-ib"
 <div class="d-ib ...">A</div>
 ```
 
-## Inline Grid
+### Inline Grid
 
-Makes the element an inline grid container, allowing it to sit within a line of text while enabling grid layout properties for its children.
+Display the element as an inline grid container.
 
 ```html "d-ig"
 <div class="d-ig ...">A</div>
 ```
 
-## Inline Table
+### Inline Table
 
-Makes the element an inline table, allowing it to sit within a line of text while behaving like a table element.
+Display the element as an inline table.
 
 ```html "d-it"
 <div class="d-it ..."></div>
 ```
 
-## Table
+### Table
 
-Makes the element a block-level table, allowing it to contain table rows and cells.
+Display the element as a block-level table.
 
 ```html "d-t"
 <div class="d-t ..."></div>
 ```
 
-## None
+### None
 
-Hides the element, preventing it from being displayed in the layout.
+Hide the element from the layout.
 
 ```html "d-none"
 <div class="d-none ...">A</div>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="d" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="d" />

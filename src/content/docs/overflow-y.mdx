@@ -1,17 +1,17 @@
 export const meta = {
   title: "Overflow Y",
-  description: "Controls how an element behaves when content overflows on the Y-axis.",
+  description: "Control how an element behaves when content overflows on the vertical axis.",
 };
 
 <Baseline path="css.properties.overflow-y" />
 
 <Reference category="positioning" name="overflow-y" />
 
-## Visible
+## Usage
 
-> Initial value
+### Visible
 
-Ensures that any content overflowing vertically remains visible outside the container.
+Allow the content to overflow the container vertically.
 
 <Preview className="bg-white o-auto">
   <div className="bw-1 bc-slate bs-d h-32 o-y-v p-2 w-64">
@@ -25,9 +25,9 @@ Ensures that any content overflowing vertically remains visible outside the cont
 </div>
 ```
 
-## Auto
+### Auto
 
-Allows the content to scroll vertically if it overflows the container, while hiding the scrollbar when not needed.
+Allow the content to scroll vertically if it overflows.
 
 <Preview className="bg-white o-auto">
   <div className="bw-1 bc-slate bs-d h-32 o-y-auto p-2 w-64">
@@ -41,9 +41,9 @@ Allows the content to scroll vertically if it overflows the container, while hid
 </div>
 ```
 
-## Clip
+### Clip
 
-Clips the content that overflows vertically, preventing it from being displayed or scrolled.
+Clip the content that overflows vertically.
 
 <Preview className="bg-white o-auto">
   <div className="bw-1 bc-slate bs-d h-32 o-y-c p-2 w-64">
@@ -57,9 +57,9 @@ Clips the content that overflows vertically, preventing it from being displayed 
 </div>
 ```
 
-## Hidden
+### Hidden
 
-Hides any content that overflows vertically, ensuring it is not visible or scrollable.
+Hide the content that overflows vertically.
 
 <Preview className="bg-white o-auto">
   <div className="bw-1 bc-slate bs-d h-32 o-y-h p-2 w-64">
@@ -73,9 +73,9 @@ Hides any content that overflows vertically, ensuring it is not visible or scrol
 </div>
 ```
 
-## Scroll
+### Scroll
 
-Enables a vertical scrollbar for the container, allowing users to scroll through the content even if it doesn’t overflow.
+Always show a vertical scrollbar on the element.
 
 <Preview className="bg-white o-auto">
   <div className="bw-1 bc-slate bs-d h-32 o-y-s p-2 w-64">
@@ -89,20 +89,16 @@ Enables a vertical scrollbar for the container, allowing users to scroll through
 </div>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="o-y" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="o-y" />

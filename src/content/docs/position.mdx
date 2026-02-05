@@ -1,17 +1,17 @@
 export const meta = {
   title: "Position",
-  description: "Controls the positioning of elements.",
+  description: "Control the positioning of elements.",
 };
 
 <Baseline path="css.properties.position" />
 
 <Reference category="positioning" name="position" />
 
-## Static
+## Usage
 
-> Initial value
+### Static
 
-The element is positioned according to the normal flow of the document, and top, right, bottom, and left properties have no effect.
+Position the element according to the normal document flow.
 
 <Preview variant="inline">
   <div className="c-white">
@@ -27,9 +27,9 @@ The element is positioned according to the normal flow of the document, and top,
 </div>
 ```
 
-## Absolute
+### Absolute
 
-The element is positioned relative to its nearest positioned ancestor (not static), allowing for precise placement.
+Position the element relative to its nearest positioned ancestor.
 
 <Preview variant="inline">
   <div className="bg-indigo-2 h-32 p-4 p-r c-white">
@@ -43,9 +43,9 @@ The element is positioned relative to its nearest positioned ancestor (not stati
 </div>
 ```
 
-## Fixed
+### Fixed
 
-The element is positioned relative to the viewport, meaning it stays in the same place even when the page is scrolled.
+Position the element relative to the viewport.
 
 ```html "p-f"
 <div class="c-white">
@@ -54,9 +54,9 @@ The element is positioned relative to the viewport, meaning it stays in the same
 </div>
 ```
 
-## Relative
+### Relative
 
-The element is positioned relative to its normal position, allowing for adjustments without affecting the layout of surrounding elements.
+Position the element relative to its normal position.
 
 <Preview variant="inline">
   <div className="c-white">
@@ -72,11 +72,11 @@ The element is positioned relative to its normal position, allowing for adjustme
 </div>
 ```
 
-## Sticky
+### Sticky
 
-The element is treated as relative until it crosses a specified threshold, at which point it is treated as fixed.
+<Hint icon="mouse_scroll">Try scrolling through the container to see how the sticky behavior works.</Hint>
 
-<Hint icon="mouse_scroll">Try scrolling through the container to see how the sticky position works.</Hint>
+Stick the element to a specified threshold within its container.
 
 <Preview variant="inline">
   <div className="b-1 h-64 o-y-s c-white">
@@ -92,20 +92,16 @@ The element is treated as relative until it crosses a specified threshold, at wh
 </div>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="p" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="p" />

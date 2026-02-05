@@ -1,17 +1,17 @@
 export const meta = {
   title: "Visibility",
-  description: "Controls the visibility of an element without affecting the layout.",
+  description: "Control the visibility of an element.",
 };
 
 <Baseline path="css.properties.visibility" />
 
 <Reference category="positioning" name="visibility" />
 
-## Visible
+## Usage
 
-> Initial value
+### Visible
 
-The element will be displayed and take up space in the layout.
+Display the element normally in the layout.
 
 <Preview>
   <div className="d-g g-4 gtc-1 sm:gtc-3">
@@ -29,9 +29,9 @@ The element will be displayed and take up space in the layout.
 </div>
 ```
 
-## Collapse
+### Collapse
 
-The element will be hidden, and it will not take up any space in the layout.
+Hide the element without taking up space.
 
 <Preview>
   <table className="bw-1 bs-d bc-c c-slate w-full">
@@ -83,9 +83,9 @@ The element will be hidden, and it will not take up any space in the layout.
 </table>
 ```
 
-## Hidden
+### Hidden
 
-The element will be hidden, but it will still take up space in the layout.
+Hide the element while still taking up space.
 
 <Preview>
   <div className="d-g g-4 gtc-1 sm:gtc-3">
@@ -103,20 +103,16 @@ The element will be hidden, but it will still take up space in the layout.
 </div>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="v" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="v" />

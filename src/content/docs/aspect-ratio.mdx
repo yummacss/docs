@@ -1,17 +1,17 @@
 export const meta = {
   title: "Aspect Ratio",
-  description: "Controls the aspect ratio of an element.",
+  description: "Control the aspect ratio of an element.",
 };
 
 <Baseline path="css.properties.aspect-ratio" />
 
 <Reference category="positioning" name="aspect-ratio" />
 
-## Auto
+## Usage
 
-> Initial value
+### Auto
 
-Allows the element to maintain its default aspect ratio based on its content.
+Allow the element to maintain its default aspect ratio.
 
 <Preview>
   <div className="ar-auto h-32">
@@ -25,9 +25,9 @@ Allows the element to maintain its default aspect ratio based on its content.
 </div>
 ```
 
-## 1/1
+### 1/1
 
-Enforces a square aspect ratio.
+Enforce a square aspect ratio.
 
 <Preview>
   <div className="ar-1/1 h-32">
@@ -41,9 +41,9 @@ Enforces a square aspect ratio.
 </div>
 ```
 
-## 1/2
+### 1/2
 
-Enforces a vertical aspect ratio.
+Enforce a vertical aspect ratio.
 
 <Preview>
   <div className="ar-1/2 h-32">
@@ -57,9 +57,9 @@ Enforces a vertical aspect ratio.
 </div>
 ```
 
-## 16/9
+### 16/9
 
-Enforces a widescreen aspect ratio.
+Enforce a widescreen aspect ratio.
 
 <Preview>
   <div className="ar-16/9 h-32">
@@ -73,9 +73,9 @@ Enforces a widescreen aspect ratio.
 </div>
 ```
 
-## 2/1
+### 2/1
 
-Enforces a horizontal aspect ratio.
+Enforce a horizontal aspect ratio.
 
 <Preview>
   <div className="ar-2/1 h-32">
@@ -89,9 +89,9 @@ Enforces a horizontal aspect ratio.
 </div>
 ```
 
-## 2/3
+### 2/3
 
-Enforces a vertical aspect ratio.
+Enforce a vertical aspect ratio.
 
 <Preview>
   <div className="ar-2/3 h-32">
@@ -105,9 +105,9 @@ Enforces a vertical aspect ratio.
 </div>
 ```
 
-## 3/2
+### 3/2
 
-Enforces a horizontal aspect ratio.
+Enforce a horizontal aspect ratio.
 
 <Preview>
   <div className="ar-3/2 h-32">
@@ -121,9 +121,9 @@ Enforces a horizontal aspect ratio.
 </div>
 ```
 
-## 9/16
+### 9/16
 
-Enforces a vertical aspect ratio.
+Enforce a vertical aspect ratio.
 
 <Preview>
   <div className="ar-9/16 h-32">
@@ -137,20 +137,16 @@ Enforces a vertical aspect ratio.
 </div>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="ar" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="ar" />
