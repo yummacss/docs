@@ -1,32 +1,32 @@
 export const meta = {
   title: "Translate Y",
-  description: "Controls vertical translation of an element along the Y-axis.",
+  description: "Control the vertical translation of an element.",
 };
 
 <Baseline path="css.properties.translate" />
 
 <Reference category="transform" name="translate-y" />
 
-The `t-ty-*` utilities allow you to translate elements along the Y-axis (vertically). This is particularly useful for positioning elements or creating vertical animations.
+## Usage
 
-## Using utility variants
+Control the vertical translation of an element along the Y-axis.
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+### Responsive Design
 
-### Responsive design
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant classPrefix="t-ty" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant classPrefix="t-ty" />
 
-### Using negative values
+### Negative Values
+
+Use negative variants to translate in the opposite direction.
 
 <NegativeValues classPrefix="t-ty" />

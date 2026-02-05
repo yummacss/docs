@@ -1,43 +1,43 @@
 export const meta = {
-  title: "Rotate",
-  description: "Control the rotation of an element.",
+  title: "Skew X",
+  description: "Control the horizontal skew of an element.",
 };
 
-<Baseline path="css.properties.rotate" />
+<Baseline path="css.properties.transform" />
 
-<Reference category="transform" name="rotate" />
+<Reference category="transform" name="skew-x" />
 
 ## Usage
 
 <Preview>
   <div className="d-g g-16 gtc-1 sm:gtc-3">
     <div className="my-4 p-r">
-      <img className="d-18 d-ib ro-15 us-none" src="/img/clivia.jpg" />
+      <img className="d-18 d-ib t-skx-3 us-none" src="/img/clivia.jpg" />
       <img className="o-20 d-18 d-ib l-0 p-a us-none" src="/img/clivia.jpg" />
     </div>
     <div className="my-4 p-r">
-      <img className="d-18 d-ib ro-30 us-none" src="/img/clivia.jpg" />
+      <img className="d-18 d-ib t-skx-6 us-none" src="/img/clivia.jpg" />
       <img className="o-20 d-18 d-ib l-0 p-a us-none" src="/img/clivia.jpg" />
     </div>
     <div className="my-4 p-r">
-      <img className="d-18 d-ib ro-60 us-none" src="/img/clivia.jpg" />
+      <img className="d-18 d-ib t-skx-12 us-none" src="/img/clivia.jpg" />
       <img className="o-20 d-18 d-ib l-0 p-a us-none" src="/img/clivia.jpg" />
     </div>
   </div>
 </Preview>
 
-```html "ro-15" "ro-30" "ro-60"
+```html "t-skx-3" "t-skx-6" "t-skx-12"
 <div class="d-g g-16 gtc-1 sm:gtc-3">
   <div class="my-4 p-r">
-    <img class="d-18 d-ib ro-15 us-none" src="/img/clivia.jpg" />
+    <img class="d-18 d-ib t-skx-3 us-none" src="/img/clivia.jpg" />
     <img class="o-20 d-18 d-ib l-0 p-a us-none" src="/img/clivia.jpg" />
   </div>
   <div class="my-4 p-r">
-    <img class="d-18 d-ib ro-30 us-none" src="/img/clivia.jpg" />
+    <img class="d-18 d-ib t-skx-6 us-none" src="/img/clivia.jpg" />
     <img class="o-20 d-18 d-ib l-0 p-a us-none" src="/img/clivia.jpg" />
   </div>
   <div class="my-4 p-r">
-    <img class="d-18 d-ib ro-60 us-none" src="/img/clivia.jpg" />
+    <img class="d-18 d-ib t-skx-12 us-none" src="/img/clivia.jpg" />
     <img class="o-20 d-18 d-ib l-0 p-a us-none" src="/img/clivia.jpg" />
   </div>
 </div>
@@ -49,10 +49,10 @@ Use breakpoint prefixes to target different screen sizes. Styles apply from the 
 
 Target viewport sizes with breakpoint prefixes.
 
-<ResponsiveVariant prefix="ro" />
+<ResponsiveVariant prefix="t-skx" />
 
 ### Hover State
 
 Apply styles conditionally on hover using the `h:` prefix.
 
-<HoverVariant prefix="ro" />
+<HoverVariant prefix="t-skx" />

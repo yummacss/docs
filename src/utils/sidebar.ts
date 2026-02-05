@@ -294,6 +294,8 @@ export const sidebarConfig: SidebarConfig = [
       { title: "Rotate", slug: "rotate" },
       { title: "Scale", slug: "scale" },
       { title: "Skew", slug: "skew" },
+      { title: "Skew X", slug: "skew-x" },
+      { title: "Skew Y", slug: "skew-y" },
       { title: "Transform Origin", slug: "transform-origin" },
       { title: "Translate X", slug: "translate-x" },
       { title: "Translate Y", slug: "translate-y" },
