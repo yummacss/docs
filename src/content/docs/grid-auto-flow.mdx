@@ -1,17 +1,17 @@
 export const meta = {
   title: "Grid Auto Flow",
-  description: "Controls the automatic placement of grid elements.",
+  description: "Control how items are automatically placed in a grid.",
 };
 
 <Baseline path="css.properties.grid-auto-flow" />
 
 <Reference category="grid" name="grid-auto-flow" />
 
-## Row
+## Usage
 
-> Initial value
+### Row
 
-The items will be placed in the grid by filling each row before moving to the next one.
+Place items by filling each row before moving to the next.
 
 <Preview variant="inline">
   <div className="d-g g-4 gaf-r gtc-3 gtr-3 ta-c c-white" id="area">
@@ -33,9 +33,9 @@ The items will be placed in the grid by filling each row before moving to the ne
 </div>
 ```
 
-## Column
+### Column
 
-The items will be placed in the grid by filling each column before moving to the next one.
+Place items by filling each column before moving to the next.
 
 <Preview variant="inline">
   <div className="d-g g-4 gaf-c gtc-3 gtr-3 ta-c" id="area">
@@ -57,9 +57,9 @@ The items will be placed in the grid by filling each column before moving to the
 </div>
 ```
 
-## Dense
+### Dense
 
-The items will be placed in the grid in a way that fills in gaps as efficiently as possible.
+Fill in gaps in the grid as efficiently as possible.
 
 <Preview variant="inline">
   <div className="d-g g-4 gaf-d gtc-3 gtr-3 ta-c c-white" id="area">
@@ -81,9 +81,9 @@ The items will be placed in the grid in a way that fills in gaps as efficiently 
 </div>
 ```
 
-## Row Dense
+### Row Dense
 
-The items will be placed in the grid by filling each row first, while also attempting to fill any gaps efficiently.
+Fill in each row while attempting to fill gaps efficiently.
 
 <Preview variant="inline">
   <div className="d-g gaf-rd g-4 ta-c c-white" id="area">
@@ -103,20 +103,16 @@ The items will be placed in the grid by filling each row first, while also attem
 </div>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="gaf" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="gaf" />

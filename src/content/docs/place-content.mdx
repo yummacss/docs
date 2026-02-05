@@ -1,15 +1,17 @@
 export const meta = {
   title: "Place Content",
-  description: "Control how content is justified and aligned simultaneously.",
+  description: "Control how items are justified and aligned simultaneously.",
 };
 
 <Baseline path="css.properties.place-content" />
 
 <Reference category="grid" name="place-content" />
 
-## Baseline
+## Usage
 
-The items will be aligned along the baseline of the container.
+### Baseline
+
+Align items along the container's baseline.
 
 <Preview variant="inline" className="c-white">
   <div id="area">
@@ -33,9 +35,9 @@ The items will be aligned along the baseline of the container.
 </div>
 ```
 
-## Center
+### Center
 
-The items will be centered within the container.
+Center items within the container.
 
 <Preview variant="inline" className="c-white">
   <div id="area">
@@ -59,9 +61,9 @@ The items will be centered within the container.
 </div>
 ```
 
-## End
+### End
 
-The items will be aligned to the end of the container.
+Align items to the end of the container.
 
 <Preview variant="inline" className="c-white">
   <div id="area">
@@ -85,9 +87,9 @@ The items will be aligned to the end of the container.
 </div>
 ```
 
-## Start
+### Start
 
-The items will be aligned to the start of the container.
+Align items to the start of the container.
 
 <Preview variant="inline" className="c-white">
   <div id="area">
@@ -111,9 +113,9 @@ The items will be aligned to the start of the container.
 </div>
 ```
 
-## Space Around
+### Space Around
 
-The items will be evenly distributed in the container with space around them.
+Distribute items evenly with equal space around them.
 
 <Preview variant="inline" className="c-white">
   <div id="area">
@@ -137,9 +139,9 @@ The items will be evenly distributed in the container with space around them.
 </div>
 ```
 
-## Space Between
+### Space Between
 
-The items will be evenly distributed in the container with the first item at the start and the last item at the end.
+Distribute items evenly with the first item at the start & the last item at the end.
 
 <Preview variant="inline" className="c-white">
   <div id="area">
@@ -163,9 +165,9 @@ The items will be evenly distributed in the container with the first item at the
 </div>
 ```
 
-## Space Evenly
+### Space Evenly
 
-The items will be evenly distributed in the container with equal space around them.
+Distribute items evenly with equal space between them.
 
 <Preview variant="inline" className="c-white">
   <div id="area">
@@ -189,9 +191,9 @@ The items will be evenly distributed in the container with equal space around th
 </div>
 ```
 
-## Stretch
+### Stretch
 
-The items will stretch to fill the container along the cross axis.
+Stretch items to fill the container along the cross axis.
 
 <Preview variant="inline" className="c-white">
   <div id="area">
@@ -215,20 +217,16 @@ The items will stretch to fill the container along the cross axis.
 </div>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="pc" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="pc" />

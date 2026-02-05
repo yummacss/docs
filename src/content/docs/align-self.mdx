@@ -1,17 +1,17 @@
 export const meta = {
   title: "Align Self",
-  description: "Controls the positioning of a single flex or grid element along the transverse axis of its container.",
+  description: "Control how an individual item is aligned along a container's cross axis.",
 };
 
 <Baseline path="css.properties.align-self" />
 
 <Reference category="flexbox" name="align-self" />
 
-## Auto
+## Usage
 
-> Initial value
+### Auto
 
-The item will use the default alignment based on the container's alignment properties.
+Align the item based on the container's default alignment properties.
 
 <Preview>
   <div className="as-auto d-f g-4 h-24 w-full" id="area">
@@ -29,9 +29,9 @@ The item will use the default alignment based on the container's alignment prope
 </div>
 ```
 
-## Baseline
+### Baseline
 
-The item will be aligned along the baseline of the container.
+Align the item along the container's baseline.
 
 <Preview>
   <div className="as-b d-f g-4 h-24 w-full" id="area">
@@ -49,9 +49,9 @@ The item will be aligned along the baseline of the container.
 </div>
 ```
 
-## Center
+### Center
 
-The item will be centered within its container.
+Center the item within its container.
 
 <Preview>
   <div className="as-c d-f g-4 h-24 w-full" id="area">
@@ -69,9 +69,9 @@ The item will be centered within its container.
 </div>
 ```
 
-## Flex-End
+### Flex End
 
-The item will be aligned to the end of its container.
+Align the item to the end of its container.
 
 <Preview>
   <div className="as-fe d-f g-4 h-24 w-full" id="area">
@@ -89,9 +89,9 @@ The item will be aligned to the end of its container.
 </div>
 ```
 
-## Flex-Start
+### Flex Start
 
-The item will be aligned to the start of its container.
+Align the item to the start of its container.
 
 <Preview>
   <div className="as-fs d-f g-4 h-24 w-full" id="area">
@@ -109,9 +109,9 @@ The item will be aligned to the start of its container.
 </div>
 ```
 
-## Stretch
+### Stretch
 
-The item will stretch to fill its container along the cross axis.
+Stretch the item to fill its container along the cross axis.
 
 <Preview>
   <div className="as-s d-f g-4 h-24 w-full" id="area">
@@ -129,20 +129,16 @@ The item will stretch to fill its container along the cross axis.
 </div>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="as" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="as" />

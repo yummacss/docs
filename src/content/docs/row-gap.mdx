@@ -1,13 +1,15 @@
 export const meta = {
   title: "Row Gap",
-  description: "Controls the gap between rows in a grid layout.",
+  description: "Control the spacing between rows in a grid layout.",
 };
 
 <Baseline path="css.properties.row-gap" />
 
 <Reference category="grid" name="row-gap" />
 
-The element will have a uniform spacing of **0.75rem** between its rows.
+## Usage
+
+Define the spacing between grid rows.
 
 <Preview variant="inline">
   <div id="area">
@@ -27,20 +29,16 @@ The element will have a uniform spacing of **0.75rem** between its rows.
 </div>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="rg" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="rg" />

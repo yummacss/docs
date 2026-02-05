@@ -1,15 +1,17 @@
 export const meta = {
   title: "Place Self",
-  description: "Controls how single items are justified and aligned simultaneously.",
+  description: "Control how an individual item is justified and aligned simultaneously.",
 };
 
 <Baseline path="css.properties.place-self" />
 
 <Reference category="grid" name="place-self" />
 
-## Auto
+## Usage
 
-The item will use the default alignment based on the container's alignment properties.
+### Auto
+
+Align the item based on the container's default alignment properties.
 
 <Preview variant="inline">
   <div id="area">
@@ -29,9 +31,9 @@ The item will use the default alignment based on the container's alignment prope
 </div>
 ```
 
-## Center
+### Center
 
-The item will be centered within its grid area.
+Center the item within its grid area.
 
 <Preview variant="inline">
   <div id="area">
@@ -51,9 +53,9 @@ The item will be centered within its grid area.
 </div>
 ```
 
-## End
+### End
 
-The item will be aligned to the end of its grid area.
+Align the item to the end of its grid area.
 
 <Preview variant="inline">
   <div id="area">
@@ -73,9 +75,9 @@ The item will be aligned to the end of its grid area.
 </div>
 ```
 
-## Start
+### Start
 
-The item will be aligned to the start of its grid area.
+Align the item to the start of its grid area.
 
 <Preview variant="inline">
   <div id="area">
@@ -95,9 +97,9 @@ The item will be aligned to the start of its grid area.
 </div>
 ```
 
-## Stretch
+### Stretch
 
-The item will stretch to fill its grid area along the cross axis.
+Stretch the item to fill its grid area along the cross axis.
 
 <Preview variant="inline">
   <div id="area">
@@ -117,20 +119,16 @@ The item will stretch to fill its grid area along the cross axis.
 </div>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="ps" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="ps" />

@@ -1,13 +1,15 @@
 export const meta = {
   title: "Grid Template Rows",
-  description: "Utilities to specify the rows in a grid layout.",
+  description: "Control the rows in a grid layout.",
 };
 
 <Baseline path="css.properties.grid-template-rows" />
 
 <Reference category="grid" name="grid-template-rows" />
 
-The grid will have **3** rows, each with a minimum size of **0** and a maximum size of `1fr`, allowing them to grow and fill the available space equally.
+## Usage
+
+Define the rows of a grid layout.
 
 <Preview variant="inline">
     <div className="o-auto p-r">
@@ -39,20 +41,16 @@ The grid will have **3** rows, each with a minimum size of **0** and a maximum s
 </div>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="gtr" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="gtr" />

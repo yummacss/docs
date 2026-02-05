@@ -1,17 +1,17 @@
 export const meta = {
   title: "Grid Auto Rows",
-  description: "Controls the size of grid lines created implicitly.",
+  description: "Control the size of implicitly-created grid rows.",
 };
 
 <Baseline path="css.properties.grid-auto-rows" />
 
 <Reference category="grid" name="grid-auto-rows" />
 
-## Auto
+## Usage
 
-> Initial value
+### Auto
 
-The rows will size themselves based on the content and available space in the grid container.
+Size rows based on the content and available space.
 
 <Preview variant="inline">
     <div className="o-auto">
@@ -33,9 +33,9 @@ The rows will size themselves based on the content and available space in the gr
 </div>
 ```
 
-## Min Content
+### Min Content
 
-The rows will size themselves to the smallest possible height that does not cause overflow.
+Size rows to the smallest possible height without overflowing.
 
 <Preview variant="inline">
     <div className="o-auto">
@@ -57,9 +57,9 @@ The rows will size themselves to the smallest possible height that does not caus
 </div>
 ```
 
-## Max Content
+### Max Content
 
-The rows will size themselves to the largest possible height based on their content.
+Size rows to the largest possible height based on their content.
 
 <Preview variant="inline">
     <div className="o-auto">
@@ -81,20 +81,16 @@ The rows will size themselves to the largest possible height based on their cont
 </div>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="gar" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="gar" />
