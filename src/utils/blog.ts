@@ -29,6 +29,7 @@ const blogSlugs = [
   "yummacss-3.8.0",
   "yummacss-3.9.0",
   "yummacss-3.10.0",
+  "yummacss-3.11.0",
 ];
 
 export function getAllBlogSlugs(): string[] {
