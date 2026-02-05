@@ -1,17 +1,17 @@
 export const meta = {
   title: "Transition Delay",
-  description: "Controls the delay before a transition effect starts.",
+  description: "Control the delay before a transition effect starts.",
 };
 
 <Baseline path="css.properties.transition-delay" />
 
 <Reference category="transition" name="transition-delay" />
 
-Use the `td-*` utilities to specify a delay before a transition effect begins.
+## Usage
 
 <Hint icon="cursor">Try hovering the div to see how long it takes for the color to change.</Hint>
 
-## 300
+### 300
 
 <Preview>
   <div className="bg-indigo d-16 td-300 h:bg-slate-7"></div>
@@ -21,7 +21,7 @@ Use the `td-*` utilities to specify a delay before a transition effect begins.
 <div class="bg-indigo d-16 td-300 h:bg-slate-7"></div>
 ```
 
-## 500
+### 500
 
 <Preview>
   <div className="bg-indigo d-16 td-500 h:bg-slate-7"></div>
@@ -31,7 +31,7 @@ Use the `td-*` utilities to specify a delay before a transition effect begins.
 <div class="bg-indigo d-16 td-500 h:bg-slate-7"></div>
 ```
 
-## 700
+### 700
 
 <Preview>
   <div className="bg-indigo d-16 td-700 h:bg-slate-7"></div>
@@ -41,20 +41,16 @@ Use the `td-*` utilities to specify a delay before a transition effect begins.
 <div class="bg-indigo d-16 td-700 h:bg-slate-7"></div>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="td" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="td" />

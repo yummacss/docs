@@ -1,17 +1,17 @@
 export const meta = {
   title: "Transition Timing Function",
-  description: "Controls the speed curve of a transition effect.",
+  description: "Control the speed curve of a transition effect.",
 };
 
 <Baseline path="css.properties.transition-timing-function" />
 
 <Reference category="transition" name="transition-timing-function" />
 
-Use the `ttf-*` utilities to control the pace of a transition.
+## Usage
 
-<Hint icon="cursor">Try hovering the div to see how the timing affects the animation speed.</Hint>
+<Hint icon="cursor">Try hovering the div to see how long it takes for the color to change.</Hint>
 
-## Linear
+### Linear
 
 <Preview>
   <div className="bg-indigo d-16 tp-a tdu-500 ttf-l h:t-s-80"></div>
@@ -21,7 +21,7 @@ Use the `ttf-*` utilities to control the pace of a transition.
 <div class="bg-indigo d-16 tp-a tdu-500 ttf-l h:t-s-80"></div>
 ```
 
-## Ease-in
+### Ease-in
 
 <Preview>
   <div className="bg-indigo d-16 tp-a tdu-500 ttf-i h:t-s-80"></div>
@@ -31,7 +31,7 @@ Use the `ttf-*` utilities to control the pace of a transition.
 <div class="bg-indigo d-16 tp-a tdu-500 ttf-i h:t-s-80"></div>
 ```
 
-## Ease-out
+### Ease-out
 
 <Preview>
   <div className="bg-indigo d-16 tp-a tdu-500 ttf-o h:t-s-80"></div>
@@ -41,7 +41,7 @@ Use the `ttf-*` utilities to control the pace of a transition.
 <div class="bg-indigo d-16 tp-a tdu-500 ttf-o h:t-s-80"></div>
 ```
 
-## Ease-in-out
+### Ease-in-out
 
 <Preview>
   <div className="bg-indigo d-16 tp-a tdu-500 ttf-io h:t-s-80"></div>
@@ -51,20 +51,16 @@ Use the `ttf-*` utilities to control the pace of a transition.
 <div class="bg-indigo d-16 tp-a tdu-500 ttf-io h:t-s-80"></div>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="ttf" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="ttf" />

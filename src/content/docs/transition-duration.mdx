@@ -1,17 +1,17 @@
 export const meta = {
   title: "Transition Duration",
-  description: "Controls the duration of a transition effect.",
+  description: "Control the amount of time a transition takes to complete.",
 };
 
 <Baseline path="css.properties.transition-duration" />
 
 <Reference category="transition" name="transition-duration" />
 
-Use the `tdu-*` utilities to control the amount of time a transition should take to complete.
+## Usage
 
-<Hint icon="cursor">Try hovering the div to see how fast the color changes.</Hint>
+<Hint icon="cursor">Try hovering the div to see how long it takes for the color to change.</Hint>
 
-## 300
+### 300
 
 <Preview>
   <div className="bg-indigo d-16 tp-a tdu-300 h:bg-slate-7"></div>
@@ -21,7 +21,7 @@ Use the `tdu-*` utilities to control the amount of time a transition should take
 <div class="bg-indigo d-16 tp-a tdu-300 h:bg-slate-7"></div>
 ```
 
-## 500
+### 500
 
 <Preview>
   <div className="bg-indigo d-16 tp-a tdu-500 h:bg-slate-7"></div>
@@ -31,7 +31,7 @@ Use the `tdu-*` utilities to control the amount of time a transition should take
 <div class="bg-indigo d-16 tp-a tdu-500 h:bg-slate-7"></div>
 ```
 
-## 700
+### 700
 
 <Preview>
   <div className="bg-indigo d-16 tp-a tdu-700 h:bg-slate-7"></div>
@@ -41,20 +41,16 @@ Use the `tdu-*` utilities to control the amount of time a transition should take
 <div class="bg-indigo d-16 tp-a tdu-700 h:bg-slate-7"></div>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="tdu" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="tdu" />
