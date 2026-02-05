@@ -19,8 +19,8 @@ This version introduces some breaking changes that you should be aware of before
 We've renamed the `@yummacss/api` package to `@yummacss/core`. The name "core" better represents the package as the foundation of Yumma CSS, while avoiding potential confusion with other types of APIs.
 
 ```bash title="Terminal"
-npm remove @yummacss/api
-npm install @yummacss/core
+pnpm remove @yummacss/api
+pnpm add @yummacss/core
 ```
 
 To avoid naming collisions and improve consistency, we've renamed two utility prefixes:
@@ -215,7 +215,7 @@ Under the hood, we've updated `mx-*`, `my-*`, `px-*`, and `py-*` utilities to us
 
 ## Upgrade
 
-You can get the latest version of Yumma CSS from npm:
+You can get the latest version of Yumma CSS from npm or pnpm:
 
 ```bash
 pnpm install yummacss@latest
