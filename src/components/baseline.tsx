@@ -1,9 +1,9 @@
 import {
-  ChecksIcon,
+  RocketLaunchIcon,
   SealCheckIcon,
+  SealWarningIcon,
   ThumbsDownIcon,
   ThumbsUpIcon,
-  WarningIcon,
 } from "@phosphor-icons/react/dist/ssr";
 import data from "web-features/data.json";
 
@@ -67,9 +67,13 @@ export default function Baseline({ path }: Props) {
       ? "This feature works across the latest devices and browser versions. This feature might not work in older devices or browsers."
       : "This feature does not work in some of the most widely-used browsers.";
 
-  const statusColor = isHigh ? "c-green" : isLow ? "c-white" : "c-yellow";
+  const statusColor = isHigh ? "c-green" : isLow ? "c-indigo-5" : "c-yellow";
 
-  const StatusIcon = isHigh ? SealCheckIcon : isLow ? ChecksIcon : WarningIcon;
+  const StatusIcon = isHigh
+    ? SealCheckIcon
+    : isLow
+      ? RocketLaunchIcon
+      : SealWarningIcon;
 
   const support = status.support || {};
 
