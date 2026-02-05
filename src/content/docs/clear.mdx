@@ -1,17 +1,17 @@
 export const meta = {
   title: "Clear",
-  description: "Controls moving elements under floating elements.",
+  description: "Control how elements are moved under floating elements.",
 };
 
 <Baseline path="css.properties.clear" />
 
 <Reference category="positioning" name="clear" />
 
-## None
+## Usage
 
-> Initial value
+### None
 
-Allows the element to be positioned normally without clearing any floating elements.
+Allow the element to be positioned normally without clearing floats.
 
 <Preview variant="inline">
   <div className="bg-indigo d-32 fl-l"></div>
@@ -23,9 +23,9 @@ Allows the element to be positioned normally without clearing any floating eleme
 <div class="cl-none p-6"></div>
 ```
 
-## Both
+### Both
 
-Ensures that the element is moved below any floating elements on both sides.
+Move the element below floating elements on both sides.
 
 <Preview variant="inline">
   <div className="bg-indigo d-32 fl-l"></div>
@@ -39,9 +39,9 @@ Ensures that the element is moved below any floating elements on both sides.
 <div class="cl-b p-6"></div>
 ```
 
-## Inline End
+### Inline End
 
-Ensures that the element is moved below any floating elements on the inline end side, which is typically the right side in left-to-right layouts.
+Move the element below floating elements on the inline end side.
 
 <Preview variant="inline">
   <div className="bg-indigo d-32 fl-r"></div>
@@ -53,9 +53,9 @@ Ensures that the element is moved below any floating elements on the inline end 
 <div class="cl-ie p-6"></div>
 ```
 
-## Inline Start
+### Inline Start
 
-Ensures that the element is moved below any floating elements on the inline start side, which is typically the left side in left-to-right layouts.
+Move the element below floating elements on the inline start side.
 
 <Preview variant="inline">
   <div className="bg-indigo d-32 fl-l"></div>
@@ -67,9 +67,9 @@ Ensures that the element is moved below any floating elements on the inline star
 <div class="cl-is p-6"></div>
 ```
 
-## Left
+### Left
 
-Ensures that the element is moved below any floating elements on the left side.
+Move the element below floating elements on the left side.
 
 <Preview variant="inline">
   <div className="bg-indigo d-32 fl-l"></div>
@@ -81,9 +81,9 @@ Ensures that the element is moved below any floating elements on the left side.
 <div class="cl-l p-6"></div>
 ```
 
-## Right
+### Right
 
-Ensures that the element is moved below any floating elements on the right side.
+Move the element below floating elements on the right side.
 
 <Preview variant="inline">
   <div className="bg-indigo d-32 fl-r"></div>
@@ -95,20 +95,16 @@ Ensures that the element is moved below any floating elements on the right side.
 <div class="cl-r p-6"></div>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="cl" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="cl" />

@@ -1,11 +1,13 @@
 export const meta = {
   title: "Z-Index",
-  description: "Controls the element's stack order.",
+  description: "Control the stack order of an element.",
 };
 
 <Baseline path="css.properties.z-index" />
 
 <Reference category="positioning" name="z-index" />
+
+## Usage
 
 <Preview>
   <div className="p-r">
@@ -29,16 +31,16 @@ export const meta = {
 </div>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Target media queries
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="zi" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="zi" />

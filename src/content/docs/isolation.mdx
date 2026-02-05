@@ -1,44 +1,40 @@
 export const meta = {
   title: "Isolation",
-  description: "Controls whether an element must create a new stacking context.",
+  description: "Control whether an element must create a new stacking context.",
 };
 
 <Baseline path="css.properties.isolation" />
 
 <Reference category="positioning" name="isolation" />
 
-## Auto
+## Usage
 
-> Initial value
+### Auto
 
-The element will use the default isolation behavior, allowing overlapping elements to blend together.
+Allow the element to use the default isolation behavior.
 
 ```html "is-auto"
 <div class="is-auto ..."></div>
 ```
 
-## Isolate
+### Isolate
 
-The element will create a new stacking context, preventing overlapping elements from blending with the background.
+Create a new stacking context for the element.
 
 ```html "is-i"
 <div class="is-i ..."></div>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="is" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="is" />

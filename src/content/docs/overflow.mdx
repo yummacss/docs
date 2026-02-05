@@ -1,17 +1,17 @@
 export const meta = {
   title: "Overflow",
-  description: "Controls how an element behaves when content overflows.",
+  description: "Control how an element behaves when content overflows.",
 };
 
 <Baseline path="css.properties.overflow" />
 
 <Reference category="positioning" name="overflow" />
 
-## Visible
+## Usage
 
-> Initial value
+### Visible
 
-The content will overflow the container and be visible outside of it.
+Allow the content to overflow the container.
 
 <Preview className="bg-white o-auto">
   <div className="bw-1 bc-slate bs-d h-32 o-v p-2 w-64">
@@ -25,11 +25,11 @@ The content will overflow the container and be visible outside of it.
 </div>
 ```
 
-## Auto
-
-The element will add scrollbars if the content overflows the container.
+### Auto
 
 <Hint icon="mouse_scroll">Try scrolling through the container to see how the overflow behaves.</Hint>
+
+Add scrollbars to the element if the content overflows.
 
 <Preview className="bg-white o-auto">
   <div className="bw-1 bc-slate bs-d h-32 o-auto p-2 w-64">
@@ -43,9 +43,9 @@ The element will add scrollbars if the content overflows the container.
 </div>
 ```
 
-## Clip
+### Clip
 
-The content that overflows the container will be clipped and not visible.
+Clip the content that overflows the container.
 
 <Preview className="bg-white o-auto">
   <div className="bw-1 bc-slate bs-d h-32 o-c p-2 w-64">
@@ -59,9 +59,9 @@ The content that overflows the container will be clipped and not visible.
 </div>
 ```
 
-## Hidden
+### Hidden
 
-The content that overflows the container will be hidden and not visible, without scrollbars.
+Hide the content that overflows the container.
 
 <Preview className="bg-white o-auto">
   <div className="bw-1 bc-slate bs-d h-32 o-h p-2 w-64">
@@ -75,9 +75,9 @@ The content that overflows the container will be hidden and not visible, without
 </div>
 ```
 
-## Scroll
+### Scroll
 
-The element will always show scrollbars, regardless of whether the content overflows.
+Always show scrollbars on the element.
 
 <Preview className="bg-white o-auto">
   <div className="bw-1 bc-slate bs-d h-32 o-s p-2 w-64">
@@ -91,20 +91,16 @@ The element will always show scrollbars, regardless of whether the content overf
 </div>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="o" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="o" />
