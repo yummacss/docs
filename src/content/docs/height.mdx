@@ -1,9 +1,11 @@
 export const meta = {
   title: "Height",
-  description: "Controls the height of an element.",
+  description: "Control the height of an element.",
 };
 
 <Baseline path="css.properties.height" />
+
+## Usage
 
 <Reference category="boxModel" name="height" />
 
@@ -23,15 +25,15 @@ export const meta = {
 </div>
 ```
 
-## Max Height
+### Max Height
 
-Controls the maximum height of an element.
+Control an element's maximum height.
 
 <Baseline path="css.properties.max-height" />
 
 <Reference category="boxModel" name="max-height" />
 
-The **max-h-64** utility sets the maximum height to `16rem`, ensuring that the element does not exceed this height regardless of the content inside.
+The `max-h-64` utility limits an element's height to `16 rem`.
 
 <Hint icon="arrows_vertical">Try changing the vertical size of the box to see how wide it can be at the maximum size.</Hint>
 
@@ -43,15 +45,15 @@ The **max-h-64** utility sets the maximum height to `16rem`, ensuring that the e
 <div class="ai-c bg-indigo d-f jc-c max-h-64 min-h-16 o-auto p-3 r-v c-white h-32">64</div>
 ```
 
-## Min Height
+### Min Height
 
-Controls the minimum height of an element.
+Control an element's minimum height.
 
 <Baseline path="css.properties.min-height" />
 
 <Reference category="boxModel" name="min-height" />
 
-The **min-h-64** utility sets the minimum height to `8rem`, ensuring that the element maintains at least this height even when the content is smaller.
+The `min-h-16` utility ensures an element's height is at least `4 rem`.
 
 <Hint icon="arrows_vertical">Try changing the vertical size of the box to see how wide it can be at the maximum size.</Hint>
 
@@ -63,7 +65,7 @@ The **min-h-64** utility sets the minimum height to `8rem`, ensuring that the el
 <div class="ai-c bg-indigo d-f jc-c max-h-64 min-h-16 o-auto p-3 r-v c-white h-32">32</div>
 ```
 
-## Using Percentages
+### Use Percentages
 
 <Preview>
     <div className="b-3 bs-d bc-indigo d-f h-64 p-2 cg-8 c-white">
@@ -79,20 +81,16 @@ The **min-h-64** utility sets the minimum height to `8rem`, ensuring that the el
 </div>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="h" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="h" />

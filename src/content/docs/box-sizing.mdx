@@ -1,17 +1,17 @@
 export const meta = {
   title: "Box Sizing",
-  description: "Controls the calculation of the total size of an element.",
+  description: "Control how the total width & height of an element is calculated.",
 };
 
 <Baseline path="css.properties.box-sizing" />
 
 <Reference category="boxModel" name="box-sizing" />
 
-## Content Box
+## Usage
 
-> Initial value
+### Content Box
 
-The element's width and height do not include padding and borders.
+Width & height exclude padding & borders.
 
 <Preview>
   <div className="d-26 bs-cb p-8" id="area">
@@ -25,9 +25,9 @@ The element's width and height do not include padding and borders.
 </div>
 ```
 
-## Border Box
+### Border Box
 
-The element's width and height include padding and borders.
+Width & height include padding & borders.
 
 <Hint icon="heart">Yumma CSS uses the `border-box` CSS property by default. Learn more about it in the [base styles docs](/docs/base-styles).</Hint>
 
@@ -43,20 +43,16 @@ The element's width and height include padding and borders.
 </div>
 ```
 
-## Using utility variants
+### Responsive Design
 
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
 
-### Responsive design
-
-Target different screen sizes by adding breakpoint prefixes. Styles apply from the specified breakpoint and up.
-
-Target specific viewport sizes with breakpoint prefixes
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="bs" />
 
-### Hover state variant
+### Hover State
 
-Apply styles conditionally when users hover over an element using the `h:` prefix.
+Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="bs" />
