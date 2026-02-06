@@ -13,44 +13,122 @@ export const meta = {
 
 The background image repeats horizontally & vertically.
 
-<Preview id="background-repeat-repeat" />
+<Preview>
+  <div
+    className="br-r bp-c h-s"
+    style={{
+      backgroundImage:
+        "url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWJvbWIiPjxjaXJjbGUgY3g9IjExIiBjeT0iMTMiIHI9IjkiLz48cGF0aCBkPSJNMTQuMzUgNC42NSAxNi4zIDIuN2EyLjQxIDIuNDEgMCAwIDEgMy40IDBsMS42IDEuNmEyLjQgMi40IDAgMCAxIDAgMy40bC0xLjk1IDEuOTUiLz48cGF0aCBkPSJtMjIgMi0xLjUgMS41Ii8+PC9zdmc+')",
+    }}
+  >
+    <div className="p-10"></div>
+  </div>
+</Preview>
 
-```tsx registry="background-repeat-repeat"
+```html "br-r"
+<div class="br-r bp-c h-s" style="background-image: url('...');">
+  <div class="p-10"></div>
+</div>
 ```
 
 The background image does not repeat.
 
-<Preview id="background-repeat-no-repeat" />
+<Preview>
+  <div
+    className="br-nr bp-c h-s"
+    style={{
+      backgroundImage:
+        "url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWJvbWIiPjxjaXJjbGUgY3g9IjExIiBjeT0iMTMiIHI9IjkiLz48cGF0aCBkPSJNMTQuMzUgNC42NSAxNi4zIDIuN2EyLjQxIDIuNDEgMCAwIDEgMy40IDBsMS42IDEuNmEyLjQgMi40IDAgMCAxIDAgMy40bC0xLjk1IDEuOTUiLz48cGF0aCBkPSJtMjIgMi0xLjUgMS41Ii8+PC9zdmc+')",
+    }}
+  >
+    <div className="p-10"></div>
+  </div>
+</Preview>
 
-```tsx registry="background-repeat-no-repeat"
+```html "br-nr"
+<div class="br-nr bp-c h-s" style="background-image: url('...');">
+  <div class="p-10"></div>
+</div>
 ```
 
 The background image repeats & resizes to fit the area.
 
-<Preview id="background-repeat-round" />
+<Preview>
+  <div
+    className="br-ro bp-c h-s"
+    style={{
+      backgroundImage:
+        "url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWJvbWIiPjxjaXJjbGUgY3g9IjExIiBjeT0iMTMiIHI9IjkiLz48cGF0aCBkPSJNMTQuMzUgNC42NSAxNi4zIDIuN2EyLjQxIDIuNDEgMCAwIDEgMy40IDBsMS42IDEuNmEyLjQgMi40IDAgMCAxIDAgMy40bC0xLjk1IDEuOTUiLz48cGF0aCBkPSJtMjIgMi0xLjUgMS41Ii8+PC9zdmc+')",
+    }}
+  >
+    <div className="p-10"></div>
+  </div>
+</Preview>
 
-```tsx registry="background-repeat-round"
+```html "br-ro"
+<div class="br-ro bp-c h-s" style="background-image: url('...');">
+  <div class="p-10"></div>
+</div>
 ```
 
 The background image repeats horizontally only.
 
-<Preview id="background-repeat-repeat-x" />
+<Preview>
+  <div
+    className="br-rx bp-c h-s"
+    style={{
+      backgroundImage:
+        "url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWJvbWIiPjxjaXJjbGUgY3g9IjExIiBjeT0iMTMiIHI9IjkiLz48cGF0aCBkPSJNMTQuMzUgNC42NSAxNi4zIDIuN2EyLjQxIDIuNDEgMCAwIDEgMy40IDBsMS42IDEuNmEyLjQgMi40IDAgMCAxIDAgMy40bC0xLjk1IDEuOTUiLz48cGF0aCBkPSJtMjIgMi0xLjUgMS41Ii8+PC9zdmc+')",
+    }}
+  >
+    <div className="p-10"></div>
+  </div>
+</Preview>
 
-```tsx registry="background-repeat-repeat-x"
+```html "br-rx"
+<div class="br-rx bp-c h-s" style="background-image: url('...');">
+  <div class="p-10"></div>
+</div>
 ```
 
 The background image repeats vertically only.
 
-<Preview id="background-repeat-repeat-y" />
+<Preview>
+  <div
+    className="br-ry bp-c h-s"
+    style={{
+      backgroundImage:
+        "url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWJvbWIiPjxjaXJjbGUgY3g9IjExIiBjeT0iMTMiIHI9IjkiLz48cGF0aCBkPSJNMTQuMzUgNC42NSAxNi4zIDIuN2EyLjQxIDIuNDEgMCAwIDEgMy40IDBsMS42IDEuNmEyLjQgMi40IDAgMCAxIDAgMy40bC0xLjk1IDEuOTUiLz48cGF0aCBkPSJtMjIgMi0xLjUgMS41Ii8+PC9zdmc+')",
+    }}
+  >
+    <div className="p-10"></div>
+  </div>
+</Preview>
 
-```tsx registry="background-repeat-repeat-y"
+```html "br-ry"
+<div class="br-ry bp-c h-s" style="background-image: url('...');">
+  <div class="p-10"></div>
+</div>
 ```
 
 The background image repeats & spaces evenly.
 
-<Preview id="background-repeat-space" />
+<Preview>
+  <div
+    className="br-s bp-c h-s"
+    style={{
+      backgroundImage:
+        "url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWJvbWIiPjxjaXJjbGUgY3g9IjExIiBjeT0iMTMiIHI9IjkiLz48cGF0aCBkPSJNMTQuMzUgNC42NSAxNi4zIDIuN2EyLjQxIDIuNDEgMCAwIDEgMy40IDBsMS42IDEuNmEyLjQgMi40IDAgMCAxIDAgMy40bC0xLjk1IDEuOTUiLz48cGF0aCBkPSJtMjIgMi0xLjUgMS41Ii8+PC9zdmc+')",
+    }}
+  >
+    <div className="p-10"></div>
+  </div>
+</Preview>
 
-```tsx registry="background-repeat-space"
+```html "br-s"
+<div class="br-s bp-c h-s" style="background-image: url('...');">
+  <div class="p-10"></div>
+</div>
 ```
 
 ### Responsive Design
@@ -59,10 +137,14 @@ Use breakpoint prefixes to target different screen sizes. Styles apply from the 
 
 Target viewport sizes with breakpoint prefixes.
 
-<ResponsiveVariant prefix="br" />
+<ResponsiveVariant class="br-r" variant="br-nr" classPrefix="br">
+  ### Breakpoint variant
+</ResponsiveVariant>
 
 ### Hover State
 
 Apply styles conditionally on hover using the `h:` prefix.
 
-<HoverVariant prefix="br" />
+<HoverVariant class="br-r" variant="br-nr" classPrefix="br">
+  ### Hover variant
+</HoverVariant>

@@ -3686,6 +3686,14 @@ summary {
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
 }
 
+.tp-d {
+  transition-property: height, width;
+}
+
+.tp-h {
+  transition-property: height;
+}
+
 .tp-none {
   transition-property: none;
 }
@@ -3696,6 +3704,10 @@ summary {
 
 .tp-t {
   transition-property: transform;
+}
+
+.tp-w {
+  transition-property: width;
 }
 
 .ts-2 {

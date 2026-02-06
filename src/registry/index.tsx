@@ -1,5 +1,5 @@
 import type { ComponentType } from "react";
-import { docs } from "./docs";
+
 // Import all preview components
 import AccordionBasic from "./ui/accordion-basic";
 import AlertDialogBasic from "./ui/alert-dialog-basic";
@@ -116,5 +116,4 @@ export const blocks: Record<string, ComponentType> = {};
 export const registry: Record<string, ComponentType> = {
   ...components,
   ...blocks,
-  ...docs,
 };
