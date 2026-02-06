@@ -1,8 +1,8 @@
-
+import { bleakHouse } from "@/constants/p";
 
 export const meta = {
   title: "Background Attachment",
-  description: "Control how a background image responds to scrolling.",
+  description: "Control how a background image behaves when scrolling.",
 };
 
 <Baseline path="css.properties.background-attachment" />
@@ -13,13 +13,18 @@ export const meta = {
 
 ### Scroll
 
-The background image moves with the page content.
+The background image scrolls with the element.
 
 <Hint icon="mouse_scroll">Scroll through the image to see its behavior.</Hint>
 
-<Preview id="background-attachment-scroll" />
+<Preview>
+    <div className="o-auto ba-s bs-c ff-c fs-xxl fw-700 max-h-80 p-5 ta-c" style={{backgroundImage: 'url(/img/sea.jpg)'}}>{bleakHouse}</div>
+</Preview>
 
-```tsx registry="background-attachment-scroll"
+```html "ba-s"
+<div class="o-auto ba-s bs-c ff-c fs-xxl fw-700 max-h-80 p-5 ta-c" style="background-image: url(/img/sea.jpg);">
+  London. Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall.
+</div>
 ```
 
 ### Fixed
@@ -28,9 +33,14 @@ The background image remains fixed when scrolling.
 
 <Hint icon="mouse_scroll">Scroll the page to see its behavior.</Hint>
 
-<Preview id="background-attachment-fixed" />
+<Preview>
+    <div className="o-auto ba-f bs-c ff-c fs-xxl fw-700 max-h-80 p-5 ta-c" style={{backgroundImage: 'url(/img/sea.jpg)'}}>{bleakHouse}</div>
+</Preview>
 
-```tsx registry="background-attachment-fixed"
+```html "ba-f"
+<div class="o-auto ba-f bs-c ff-c fs-xxl fw-700 max-h-80 p-5 ta-c" style="background-image: url(/img/sea.jpg);">
+  London. Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall.
+</div>
 ```
 
 ### Local
@@ -39,9 +49,14 @@ The background image scrolls with the element content.
 
 <Hint icon="mouse_scroll">Scroll through the image to see its behavior.</Hint>
 
-<Preview id="background-attachment-local" />
+<Preview>
+    <div className="o-auto ba-l bs-c ff-c fs-xxl fw-700 max-h-80 p-5 ta-c" style={{backgroundImage: 'url(/img/sea.jpg)'}}>{bleakHouse}</div>
+</Preview>
 
-```tsx registry="background-attachment-local"
+```html "ba-l"
+<div class="o-auto ba-l bs-c ff-c fs-xxl fw-700 max-h-80 p-5 ta-c" style="background-image: url(/img/sea.jpg);">
+  London. Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall.
+</div>
 ```
 
 ### Responsive Design
