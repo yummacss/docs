@@ -30,16 +30,7 @@ export default function rehypeRegistry() {
 
           if (fs.existsSync(filePath)) {
             const content = fs.readFileSync(filePath, "utf-8");
-
-            // Extract the content within the return statement
-            const returnMatch = content.match(
-              /return\s*\(([\s\S]*?)\);|return\s*([\s\S]*?);/,
-            );
-            const extractedCode = returnMatch
-              ? returnMatch[1] || returnMatch[2]
-              : content;
-
-            node.children = [{ type: "text", value: extractedCode.trim() }];
+            node.children = [{ type: "text", value: content }];
           } else {
             node.children = [
               {
