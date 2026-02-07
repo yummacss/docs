@@ -1,0 +1,29 @@
+export const meta = {
+  authors: ["Renildo"],
+  cover: "~",
+  date: "2026-02-07",
+  description: "Yumma CSS v3.12.0 is here with CommonJS (CJS) support across all core packages, improving compatibility with diverse Node.js environments.",
+  title: "Yumma CSS 3.12"
+};
+
+While ESM is the future of JavaScript, many projects and tools still rely on CommonJS. By supporting both formats, we're making Yumma CSS more accessible and easier to integrate into any workflow.
+
+## CommonJS Support
+
+We've added CJS support to the following packages:
+
+- [cli](https://www.npmjs.com/package/@yummacss/cli): You can now use the Yumma CSS in projects that haven't fully migrated to ESM.
+- [nitro](https://www.npmjs.com/package/@yummacss/nitro): Our high-performance engine is now compatible with CJS environments.
+- [runtime](https://www.npmjs.com/package/@yummacss/runtime): The runtime library now supports CJS format.
+
+This is a relatively small update, but it will significantly benefit projects and tools that still rely on CommonJS for their build processes or development environments.
+
+---
+
+## Upgrade
+
+
+```bash
+pnpm install yummacss@latest
+```
+

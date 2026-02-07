@@ -42,8 +42,8 @@ importers:
         specifier: ^1.3.1
         version: 1.3.1(next@16.1.6(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react@19.2.4)
       '@yummacss/core':
-        specifier: ^3.11.0
-        version: 3.11.0
+        specifier: ^3.12.0
+        version: 3.12.0
       class-variance-authority:
         specifier: ^0.7.1
         version: 0.7.1
@@ -130,8 +130,8 @@ importers:
         specifier: ^5.9.3
         version: 5.9.3
       yummacss:
-        specifier: ^3.11.0
-        version: 3.11.0
+        specifier: ^3.12.0
+        version: 3.12.0
 
 packages:
 
@@ -851,11 +851,11 @@ packages:
   '@webgpu/types@0.1.69':
     resolution: {integrity: sha512-RPmm6kgRbI8e98zSD3RVACvnuktIja5+yLgDAkTmxLr90BEwdTXRQWNLF3ETTTyH/8mKhznZuN5AveXYFEsMGQ==}
 
-  '@yummacss/core@3.11.0':
-    resolution: {integrity: sha512-VvBNCAQCB9Ti8DsSh6RsEihPCx8YJq5xmQ2vrExyLYY2Z/eJUQTNMvjUG4U0EVg8ly/b9lnI7Q5npxPyM9P9Gw==}
+  '@yummacss/core@3.12.0':
+    resolution: {integrity: sha512-B8uzg0JuFJlTz1mC9rFDWiCgZSyN0AUpWSSPN5v3C70GD15vGp0k/V6ppWYmrE1nAV9AkNNrSkwIv2USs2E71A==}
 
-  '@yummacss/nitro@3.11.0':
-    resolution: {integrity: sha512-8EDwZsJ1aTp9hJfFD1OyBUFjz0fn7P3i/zBaV3Uyw2Rc/YFUE2Ccvc3CofTCDlYR75YUOPfLdBCR94tL1J5G/g==}
+  '@yummacss/nitro@3.12.0':
+    resolution: {integrity: sha512-CksX/Upkpx9hCvdRP9KySrd+VnysUXfmd3hraplTkwP7KRa1x/CUAHEg/8YrsB9/dN8Kd4sWndzPl5IMLZYfGA==}
 
   acorn-jsx@5.3.2:
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
@@ -2027,8 +2027,8 @@ packages:
     resolution: {integrity: sha512-CzhO+pFNo8ajLM2d2IW/R93ipy99LWjtwblvC1RsoSUMZgyLbYFr221TnSNT7GjGdYui6P459mw9JH/g/zW2ug==}
     engines: {node: '>=18'}
 
-  yummacss@3.11.0:
-    resolution: {integrity: sha512-udPIu6/W0v+B4/6w5LwEKckXQD14+1eXG42kEj9PrB2CRVpVFYX/z6NxPsJVvZRznoBpKT1WUXV/IOLwRsoqOg==}
+  yummacss@3.12.0:
+    resolution: {integrity: sha512-nDoH4ExNZ/iqfkxsWP2Sb5U7QkqxCzCkWeyYJ8THm7lI3QtGUN6gf1zvTh1RmpnUnRiSKYqje2r5AagoPvJ5MA==}
     hasBin: true
 
   zod@4.3.6:
@@ -2588,13 +2588,13 @@ snapshots:
 
   '@webgpu/types@0.1.69': {}
 
-  '@yummacss/core@3.11.0':
+  '@yummacss/core@3.12.0':
     dependencies:
       tinycolor2: 1.6.0
 
-  '@yummacss/nitro@3.11.0':
+  '@yummacss/nitro@3.12.0':
     dependencies:
-      '@yummacss/core': 3.11.0
+      '@yummacss/core': 3.12.0
       globby: 16.1.0
       zod: 4.3.6
 
@@ -4140,9 +4140,9 @@ snapshots:
 
   yoctocolors@2.1.2: {}
 
-  yummacss@3.11.0:
+  yummacss@3.12.0:
     dependencies:
-      '@yummacss/nitro': 3.11.0
+      '@yummacss/nitro': 3.12.0
       chokidar: 5.0.0
       commander: 14.0.3
       globby: 16.1.0

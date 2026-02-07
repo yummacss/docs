@@ -30,6 +30,7 @@ const blogSlugs = [
   "yummacss-3.9.0",
   "yummacss-3.10.0",
   "yummacss-3.11.0",
+  "yummacss-3.12.0",
   "yummacss-intellisense",
 ];
 
