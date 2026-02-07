@@ -245,6 +245,7 @@ const components: MDXComponents = {
       src={src as string}
       alt={alt || ""}
       className={className || "w-full h-auto my-4"}
+      style={{ backgroundColor: "#21243f" }}
       unoptimized
       width={1920}
       height={1080}

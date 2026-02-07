@@ -16,7 +16,7 @@ const blogSlugs = [
   "yummacss-2.0.0",
   "yummacss-2.1.0",
   "yummacss-3.0.0",
-  "api-1.0.0",
+  "yummacss-api",
   "yummacss-3.1.0",
   "yummacss-3.2.0",
   "yummacss-3.3.0",
@@ -30,6 +30,7 @@ const blogSlugs = [
   "yummacss-3.9.0",
   "yummacss-3.10.0",
   "yummacss-3.11.0",
+  "yummacss-intellisense",
 ];
 
 export function getAllBlogSlugs(): string[] {

@@ -1,31 +1,6 @@
+import { LineLoop } from "three";
+
 export const redirects = [
-  // Blog redirects
-  {
-    source: "/blog/v0",
-    destination: "/blog/yummacss-0.1",
-    permanent: true,
-  },
-  {
-    source: "/blog/v1",
-    destination: "/blog/yummacss-1.1",
-    permanent: true,
-  },
-  {
-    source: "/blog/v2",
-    destination: "/blog/yummacss-2.1",
-    permanent: true,
-  },
-  {
-    source: "/blog/v3",
-    destination: "/blog/yummacss-3.0",
-    permanent: true,
-  },
-  // UI Component redirects
-  {
-    source: "/components",
-    destination: "/ui/components",
-    permanent: true,
-  },
   // Docs redirects
   {
     source: "/docs/colours",
@@ -146,6 +121,38 @@ export const redirects = [
   {
     source: "/docs/guides/svelte",
     destination: "/docs/installation",
+    permanent: true,
+  },
+  // Blog redirects
+  {
+    source: "/blog/v0",
+    destination: "/blog/yummacss-0.1",
+    permanent: true,
+  },
+  {
+    source: "/blog/v1",
+    destination: "/blog/yummacss-1.1",
+    permanent: true,
+  },
+  {
+    source: "/blog/v2",
+    destination: "/blog/yummacss-2.1",
+    permanent: true,
+  },
+  {
+    source: "/blog/v3",
+    destination: "/blog/yummacss-3.0",
+    permanent: true,
+  },
+  {
+    source: "/blog/api-1.0.0",
+    destination: "/blog/yummacss-api",
+    permanent: true,
+  },
+  // Yumma UI redirects
+  {
+    source: "/components",
+    destination: "/ui/components",
     permanent: true,
   },
 ];
