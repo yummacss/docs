@@ -441,10 +441,6 @@ summary {
   border-color: #64748b;
 }
 
-.bc-slate-2 {
-  border-color: #d1d5dc;
-}
-
 .bc-t {
   background-clip: text;
 }
@@ -565,10 +561,6 @@ summary {
   background-color: #babcf9cc;
 }
 
-.bg-indigo-5 {
-  background-color: #8f91f5;
-}
-
 .bg-indigo-6\/25 {
   background-color: #797bf340;
 }
@@ -657,10 +649,6 @@ summary {
   background-color: #8f9bab;
 }
 
-.bg-slate-9\/90 {
-  background-color: #3a4351e6;
-}
-
 .bg-transparent {
   background-color: #0000;
 }
@@ -675,10 +663,6 @@ summary {
 
 .bg-white\/5 {
   background-color: #ffffff0d;
-}
-
-.bg-white\/80 {
-  background-color: #fffc;
 }
 
 .bg-zinc-8 {
@@ -913,10 +897,6 @@ summary {
   box-shadow: 1px 3px 5px -2px #0000001a;
 }
 
-.bsh-xl {
-  box-shadow: 1px 3px 5px 2px #0000001a;
-}
-
 .bsh-xs {
   box-shadow: 1px 3px 5px -3px #0000001a;
 }
@@ -1067,10 +1047,6 @@ summary {
 
 .c-slate-12 {
   color: #101316;
-}
-
-.c-slate-3 {
-  color: #bbc2cc;
 }
 
 .c-slate-5 {
@@ -1773,10 +1749,6 @@ summary {
   gap: .5rem;
 }
 
-.g-20 {
-  gap: 5rem;
-}
-
 .g-3 {
   gap: .75rem;
 }
@@ -1973,10 +1945,6 @@ summary {
   height: 2rem;
 }
 
-.h-80 {
-  height: 20rem;
-}
-
 .h-96 {
   height: 24rem;
 }
@@ -2071,10 +2039,6 @@ summary {
 
 .h\:bg-silver-2:hover {
   background-color: #e1e3e7;
-}
-
-.h\:bg-slate-2:hover {
-  background-color: #d1d5dc;
 }
 
 .h\:bg-slate-7:hover {
@@ -2397,6 +2361,10 @@ summary {
   max-height: 16rem;
 }
 
+.max-h-80 {
+  max-height: 20rem;
+}
+
 .max-h-90 {
   max-height: 22.5rem;
 }
@@ -2435,10 +2403,6 @@ summary {
 
 .max-w-full {
   max-width: 100%;
-}
-
-.max-w-lg {
-  max-width: 64rem;
 }
 
 .mb-1 {
@@ -2572,10 +2536,6 @@ summary {
 
 .mt-1 {
   margin-top: .25rem;
-}
-
-.mt-10 {
-  margin-top: 2.5rem;
 }
 
 .mt-12 {
@@ -3114,10 +3074,6 @@ summary {
   padding-inline: .25rem;
 }
 
-.px-10 {
-  padding-inline: 2.5rem;
-}
-
 .px-2 {
   padding-inline: .5rem;
 }
@@ -3152,10 +3108,6 @@ summary {
 
 .py-2 {
   padding-block: .5rem;
-}
-
-.py-20 {
-  padding-block: 5rem;
 }
 
 .py-3 {
