@@ -2,17 +2,17 @@ export const meta = {
   authors: ["Renildo"],
   cover: "~",
   date: "2025-09-11",
-  description: "Rolling out Yumma CSS 3.3. This update is all about making some quality-of-life improvements to the configuration file, as well as a new configuration file format.",
+  description: "Introduction of the .mjs configuration format & improves configuration file generation.",
   title: "Yumma CSS 3.3",
 };
 
-**This update might change existing features, make sure you check out the [release notes](https://github.com/yummacss/yummacss/releases/tag/v3.3.0) before upgrading.**
+**This update involves significant breaking changes across the codebase. We recommend upgrading with caution and thoroughly testing your implementation, as existing features will likely break.**
 
 ---
 
-## Using MJS configuration file
+## Using .mjs configuration
 
-We're dropping support for the `.js` file extension and going with the `.mjs` extension instead. This means you won't need to add `type="module"` to your `package.json` file anymore. We had to make this change to get rid of the module detection process from the CLI.
+Yumma CSS v3.3 transitions from `.js` to `.mjs` for configuration files, removing the need for `type="module"` in `package.json` & optimizing CLI module detection.
 
 ```diff
 - yumma.config.js
@@ -23,7 +23,7 @@ We're dropping support for the `.js` file extension and going with the `.mjs` ex
 
 ## Configuration file generation
 
-Oh, and we fixed the JSON syntax when generating the configuration file. The `init` command should now generate valid config properties from now on.
+This release fixes JSON syntax issues in the configuration file generation. The `init` command now generates valid configuration properties.
 
 ```js title="yumma.config.mjs"
 export default {
@@ -40,7 +40,7 @@ export default {
 
 ## Upgrade
 
-
+Get the latest version of Yumma CSS:
 
 ```bash
 pnpm add yummacss@latest
