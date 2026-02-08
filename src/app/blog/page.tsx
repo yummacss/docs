@@ -17,7 +17,7 @@ export default async function BlogPage() {
     <div className="pt-14 sm:pt-16">
       <div className="mx-auto my-16" style={{ maxWidth: "64rem" }}>
         <h1 className="ff-e fs-5xl fw-400 mt-6 c-white">Blog articles</h1>
-        <p className="fs-lg c-white/70" style={{ maxWidth: "48rem" }}>
+        <p className="fs-lg c-white/70 mt-6" style={{ maxWidth: "48rem" }}>
           The latest updates and articles from Yumma CSS.
         </p>
       </div>
