@@ -2,33 +2,33 @@ export const meta = {
   authors: ["Renildo"],
   cover: "~",
   date: "2025-10-02",
-  description: "Today we're releasing Yumma CSS 3.4 - a complete rework of the core framework with a focus on performance, a rewritten CLI, base style changes, quality-of-life improvements, and much more.",
+  description: "Core framework rework focused on performance, rewritten CLI, base style changes, & quality-of-life improvements.",
   title: "Yumma CSS 3.4",
 };
 
-**This update might change existing features, make sure you check out the [release notes](https://github.com/yummacss/yummacss/releases/tag/v3.4.0) before upgrading.**
+**This update involves significant breaking changes across the codebase. We recommend upgrading with caution and thoroughly testing your implementation, as existing features will likely break.**
 
 ---
 
-## No more SCSS
+## SCSS removal
 
-On November 16, 2024, we [launched Yumma CSS API](/blog/api-1.0.0), an accessible way to retrieve all base Yumma CSS class definitions trough Javascript and Typescript functions. We mostly used it in our documentation site, and then in our [playground](https://play.yummacss.com) site for code completions.
+In 2024, the [launch of Yumma CSS API](/blog/api-1.0.0) provided a way to retrieve base class definitions through JavaScript & TypeScript functions. These were used in the documentation & [playground](https://play.yummacss.com) for code completions.
 
-With the release of the new CLI in Yumma CSS v3, SCSS compilation become the main activity of the entire framework. It used `sass-embedded` to compile SCSS to CSS and `purgecss` to remove styles that aren't being used. These tasks took a long time to finish, especially with larger projects.
+The v3 CLI rewrite made SCSS compilation a primary focus, using `sass-embedded` & `purgecss` to generate & clean styles. These tasks were slow on larger projects.
 
-So, in Yumma CSS v3.4, we decided to migrate from `sass-embedded` to `@yummacss/api` for CSS generation. This drastically improves build times and overall performance while also reducing the bundle size of the framework.
+Yumma CSS v3.4 migrates from `sass-embedded` to `@yummacss/api` for CSS generation, significantly improving build times, overall performance, & bundle size.
 
 ---
 
-## CLI changes
+## CLI updates
 
-This release includes a bunch of changes to the CLI's overall logic and performance. Here are the most noticeable ones:
+This release includes logic & performance updates to the CLI:
 
 ### Token extraction
 
-The new token extraction process in Yumma CSS v3.4 will allow the CLI to look for class tokens in your `source` files defined in your `yumma.config.mjs` file and generate a CSS file accordingly.
+The new token extraction process allows the CLI to scan for class tokens in `source` files defined in `yumma.config.mjs` & generate CSS accordingly.
 
-This change should avoid unnecessary CSS generation and improve build times even further.
+This avoids unnecessary CSS generation & further improves build performance.
 
 ```html title="index.html" "d-f ai-c jc-c"
 <div class="d-f ai-c jc-c">bg-blue</div>
@@ -50,9 +50,9 @@ This change should avoid unnecessary CSS generation and improve build times even
 }
 ```
 
-### Faster builds & rebuilds
+### Build performance
 
-Since we the data is already structured inside `@yummacss/api` and doesn't need to be compiled, the only task left for the CLI is to extract the tokens from the `source` files and generate the final CSS file.
+Since data is already structured in `@yummacss/api`, the CLI only extracts tokens from `source` files to generate the final CSS.
 
 ```bash title="Terminal" frame="terminal" {1}
 npx yummacss watch
@@ -65,22 +65,22 @@ i Watching...
 √ Build done in 3ms. (./src/out.css)
 ```
 
-Try it out yourself by running `npx yummacss watch` or `npx yummacss watch` in your terminal.
+Run `npx yummacss watch` in your terminal to test the performance.
 
 ---
 
-## API changes
+## API updates
 
-We updated our Library API in order to allow Yumma CSS to generate all of its utilities including variants. Your projects should continue to function as expected.
+The Library API is updated to support utility & variant generation. Existing projects will continue to function.
 
-- Added support for pseudo-class for all utility definitions.
-- Added support for media query for all utility definitions
+- Added pseudo-class support for all utility definitions.
+- Added media query support for all utility definitions.
 
 ---
 
-## Color breakpoints support
+## Responsive color support
 
-Pretty self explanatory, but now you can use breakpoints with color utilities.
+You can now use breakpoints with color utilities.
 
 ```html title="index.html"
 <div class="bg-white md:bg-silver-1">...</div>
@@ -88,9 +88,9 @@ Pretty self explanatory, but now you can use breakpoints with color utilities.
 
 ---
 
-## Base style changes
+## Base style updates
 
-Without `purgecss` you should NOT expect tree shaking when using `buildOptions.reset`. This means that all base styles will be included in the final CSS file.
+Without `purgecss`, tree shaking is disabled when using `buildOptions.reset`. This includes all base styles in the final CSS file.
 
 ```js title="yumma.config.mjs" mark={5}
 export default {
@@ -105,12 +105,12 @@ export default {
 
 ---
 
-## NPM hot fix
+## NPM fix
 
-We had a bug that was preventing users from running the Yumma CSS CLI when using `npm` as a package manager. This issue should now be fixed.
+A fix is available for a bug that prevented the Yumma CSS CLI from running when using `npm` as a package manager.
 
 ```bash title="Terminal" frame="terminal"
-pnpm add yummacss -D
+npm install yummacss -D
 npx yummacss init
 npx yummacss build
 ```
@@ -119,7 +119,7 @@ npx yummacss build
 
 ## Upgrade
 
-
+Get the latest version of Yumma CSS:
 
 ```bash
 pnpm up yummacss@latest
