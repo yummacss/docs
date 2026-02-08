@@ -2,41 +2,45 @@ export const meta = {
   authors: ["Renildo"],
   cover: "~",
   date: "2026-01-15",
-  description: "We've put the API, Nitro and Runtime into the main repository, this should make development much more coordinated.",
+  description: "Transition of the Yumma CSS ecosystem to a monorepo for improved development coordination.",
   title: "Yumma CSS 3.8"
 };
 
-**This should be a very easy update to install. Check out the [release notes](https://github.com/yummacss/yummacss/releases/tag/v3.8.0) for more information.**
+**This update involves significant breaking changes across the codebase. We recommend upgrading with caution and thoroughly testing your implementation, as existing features will likely break.**
 
 ---
 
-## The Monorepo Transition
+## Monorepo transition
 
-We've officially transitioned the Yumma CSS ecosystem into a monorepo! This means that `api`, `nitro` (the engine behind Yumma CSS), and `runtime` are now all living under the main [yummacss](https://github.com/yummacss/yummacss) repository.
+The Yumma CSS ecosystem has transitioned to a monorepo. The `api`, `nitro` (the Yumma CSS engine), & `runtime` now reside in the main [yummacss](https://github.com/yummacss/yummacss) repository.
 
-I've wanted to do this for a long time. Bringing everything under one roof makes the development process much more efficient and ensures everything stays in sync.
+This consolidation improves development efficiency & ensures package synchronization.
 
-### Public Archives
+### Public archives
 
-Following this change, the repositories dedicated to the API, Nitro, and Runtime have been archived. You can still view them, but all future development will take place within the [main monorepo](https://github.com/yummacss/yummacss).
+Repositories for API, Nitro, & Runtime are now archived. Future development occurs in the [main monorepo](https://github.com/yummacss/yummacss).
 
-## Version Synchronization
+---
 
-We've synchronized the versions of all core packages to match the main Yumma CSS version as part of this transition.
+## Version synchronization
+
+Core package versions are synchronized with the main Yumma CSS version:
 
 - `@yummacss/api@1.8.0` -> `@yummacss/api@3.8.0`
 - `@yummacss/nitro@0.5.0` -> `@yummacss/nitro@3.8.0`
 - `@yummacss/runtime@0.3.0` -> `@yummacss/runtime@3.8.0`
 
-## No API Changes
+---
 
-This update is purely an internal structural change. There are no new functionalities, bug fixes, or changes to how you use Yumma CSS or its subpackages. Everything works exactly as it did before!
+## No API changes
+
+This update is a structural change. Existing functionalities, bug fixes, & usage patterns remain unchanged.
 
 ---
 
 ## Upgrade
 
-
+Get the latest version of Yumma CSS:
 
 ```bash
 pnpm up yummacss@latest
