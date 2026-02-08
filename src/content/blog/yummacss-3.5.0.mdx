@@ -2,25 +2,23 @@ export const meta = {
   authors: ["Renildo"],
   cover: "~",
   date: "2025-10-12",
-  description: "Opacity variants for color utilities and small improvements to the CLI it's everything Yumma CSS 3.5 is all about.",
+  description: "Opacity variants for color utilities & small CLI improvements.",
   title: "Yumma CSS 3.5"
 };
 
-**This update might change existing features, make sure you check out the [release notes](https://github.com/yummacss/yummacss/releases/tag/v3.5.0) before upgrading.**
+**This update involves significant breaking changes across the codebase. We recommend upgrading with caution and thoroughly testing your implementation, as existing features will likely break.**
 
 ---
 
 ## First-party engine
 
-That's right, we decided to create our own first-party engine for Yumma CSS. This shouldn't have any impact on your projects, but it's a big deal for us internally.
-
-This change will allow us to extend Yumma CSS to feature projects like [Yumma CSS Play](https://play.yummacss.com) and more.
+Yumma CSS now features a first-party engine. This internal change supports future projects like [Yumma CSS Play](https://play.yummacss.com) without impacting existing projects.
 
 ---
 
 ## Opacity color variants
 
-You can now use color utility variants to specifically apply opacity to single utilities.
+You can now use color utility variants to apply opacity to specific utilities.
 
 <Preview>
   <div className="d-g g-4 gtc-4">
@@ -44,7 +42,7 @@ You can now use color utility variants to specifically apply opacity to single u
 
 ## Upgrade
 
-
+Get the latest version of Yumma CSS:
 
 ```bash
 pnpm up yummacss@latest
