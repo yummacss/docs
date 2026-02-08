@@ -131,17 +131,17 @@ export const redirects = [
   },
   {
     source: "/blog/v1",
-    destination: "/blog/yummacss-1.1",
+    destination: "/blog/yummacss-1.2.0",
     permanent: true,
   },
   {
     source: "/blog/v2",
-    destination: "/blog/yummacss-2.1",
+    destination: "/blog/yummacss-2.1.0",
     permanent: true,
   },
   {
     source: "/blog/v3",
-    destination: "/blog/yummacss-3.0",
+    destination: "/blog/yummacss-3.0.0",
     permanent: true,
   },
   {
