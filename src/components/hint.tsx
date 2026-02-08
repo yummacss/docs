@@ -17,6 +17,7 @@ const icons = {
   mouse_right_click: Icons.MouseRightClickIcon,
   mouse_scroll: Icons.MouseScrollIcon,
   size: Icons.ResizeIcon,
+  warning: Icons.WarningIcon,
   width: Icons.RulerIcon,
 } as const;
 
