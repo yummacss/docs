@@ -2,26 +2,34 @@ export const meta = {
   authors: ["Renildo"],
   cover: "~",
   date: "2025-07-11",
-  description: "Today, we are introducing Yumma CSS API, a TypeScript/JavaScript library designed to meet a variety of development needs.",
+  description: "Introducing Yumma CSS API, a TypeScript & JavaScript library providing programmatic access to utility definitions.",
   title: "Open-sourcing Yumma CSS API"
 };
 
-## Why Yumma CSS API?
+---
 
-It fuels both all Yumma CSS documentation, playground, and now Yumma CSS CLI by providing the necessary data and utilities.
+## Before you read!
 
-Instead of manually searching for utilities or maintaining your own lists, you can now access the entire Yumma CSS utility set through simple, type-safe functions. This makes it easy to:
+<Hint icon="warning">As of Yumma CSS v3.9, the `@yummacss/api` package has been renamed to `@yummacss/core`.</Hint>
 
-- Generate documentation
-- Build custom apps, plugins or extensions
-- Integrate with frameworks
-- Analyze or extend your design system
+---
+
+## Why the Yumma CSS API?
+
+The Yumma CSS API powers the documentation, playground, & CLI by providing essential data & utilities.
+
+Instead of manual utility searches, you can now access the Yumma CSS utility set through type-safe functions. This simplifies:
+
+- Generating documentation
+- Building custom apps, plugins, or extensions
+- Integrating with frameworks
+- Analyzing or extending design systems
 
 ## Getting started
 
-Yumma CSS API is a powerful Typescript/Javascript utility library that provides programmatic access to Yumma CSS class definitions.
+The Yumma CSS API is a TypeScript & JavaScript utility library that provides programmatic access to class definitions.
 
-### Installing
+### Install
 
 ```bash
 pnpm add @yummacss/api
@@ -29,7 +37,7 @@ pnpm add @yummacss/api
 
 ## Usage examples
 
-Get all utilities at once:
+Get all utilities:
 
 ```ts
 import { coreUtils } from "@yummacss/api";
@@ -37,7 +45,7 @@ import { coreUtils } from "@yummacss/api";
 const all = coreUtils();
 ```
 
-Get only background utilities:
+Get background utilities:
 
 ```ts
 import { backgroundUtils } from "@yummacss/api";
@@ -45,7 +53,7 @@ import { backgroundUtils } from "@yummacss/api";
 const backgrounds = backgroundUtils();
 ```
 
-Access a specific utility from a category:
+Access a specific utility:
 
 ```ts
 import { boxModelUtils } from "@yummacss/api";
@@ -56,7 +64,7 @@ const margin = boxModel["margin"];
 
 ## Available API
 
-Import utility group functions individually:
+Import utility group functions:
 
 ```ts
 import {
@@ -79,4 +87,4 @@ import {
 } from "@yummacss/api";
 ```
 
-Learn more in the [developer API documentation](/docs/api-reference).
+Learn more in the [developer API reference](/docs/api-reference).
