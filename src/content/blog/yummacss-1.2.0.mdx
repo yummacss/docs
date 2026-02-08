@@ -6,116 +6,54 @@ export const meta = {
   title: "Yumma CSS 1.2"
 };
 
-**This update might change existing features, make sure you check out the [release notes](https://github.com/yummacss/yummacss/releases/tag/v1.2.0).**
+import { COLOR_FAMILIES, LEGACY_SHADE_LABELS } from "@/utils/colors";
+
+**This update might change existing features, but upgrading should be a straightforward task.**
 
 ---
 
 ## All-new utilities
 
-We added dozens of new utilities to Yumma CSS v1.2.0. Here are a few of the most notable ones:
+Added dozens of new utilities to Yumma CSS v1.2.0. Notable additions include:
 
 ### Box Model
 
-It's been a while since we've seen new utilities for `height`, `width`, and `dimension`. Well, here it is - `fit-content`!
+Introduced `fit-content` support for **height**, **width**, & **dimension** utilities.
 
-<LegacyTable
-  data={[
-    {
-      className: "h-fc",
-      properties: ["height: fit-content;"],
-    },
-    {
-      className: "w-fc",
-      properties: ["width: fit-content;"],
-    },
-    {
-      className: "max-h-fc",
-      properties: ["max-height: fit-content;"],
-    },
-    {
-      className: "min-h-fc",
-      properties: ["min-height: fit-content;"],
-    },
-    {
-      className: "max-w-*",
-      properties: ["max-width: fit-content;"],
-    },
-    {
-      className: "min-w-*",
-      properties: ["min-width: fit-content;"],
-    },
-    {
-      className: "dim-1",
-      properties: ["height: 0.25rem;", "width: 0.25rem;"],
-    },
-    {
-      className: "max-dim-1",
-      properties: ["max-height: 0.25rem;", "max-width: 0.25rem;"],
-    },
-    {
-      className: "min-dim-1",
-      properties: ["min-height: 0.25rem;", "min-width: 0.25rem;"],
-    },
-  ]}
-/>
+| Utility     | Property                  |
+|-------------|---------------------------|
+| `h-fc`      | `height: fit-content;`      |
+| `w-fc`      | `width: fit-content;`       |
+| `max-h-fc`  | `max-height: fit-content;` |
+| `min-h-fc`  | `min-height: fit-content;` |
+| `max-w-fc`  | `max-width: fit-content;`  |
+| `min-w-fc`  | `min-width: fit-content;`  |
+| `dim-1`     | `height: 0.25rem; width: 0.25rem;` |
+| `max-dim-1` | `max-height: 0.25rem; max-width: 0.25rem;` |
+| `min-dim-1` | `min-height: 0.25rem; min-width: 0.25rem;` |
 
 ### Flex
 
-<LegacyTable
-  data={[
-    {
-      className: "f-auto",
-      properties: ["flex: auto;"],
-    },
-    {
-      className: "f-full",
-      properties: ["flex: 100%;"],
-    },
-    {
-      className: "f-half",
-      properties: ["flex: 50%;"],
-    },
-  ]}
-/>
+| Utility  | Property       |
+|----------|----------------|
+| `f-auto` | `flex: auto;`  |
+| `f-full` | `flex: 100%;`  |
+| `f-half` | `flex: 50%;`   |
 
 ### Line Height
 
-<LegacyTable
-  data={[
-    {
-      className: "lh-1",
-      properties: ["line-height: 1;"],
-    },
-    {
-      className: "lh-2",
-      properties: ["line-height: 1.25;"],
-    },
-    {
-      className: "lh-3",
-      properties: ["line-height: 1.375;"],
-    },
-    {
-      className: "lh-4",
-      properties: ["line-height: 1.5;"],
-    },
-    {
-      className: "lh-5",
-      properties: ["line-height: 1.625;"],
-    },
-    {
-      className: "lh-6",
-      properties: ["line-height: 2;"],
-    },
-  ]}
-/>
+| Utility | Property             |
+|---------|----------------------|
+| `lh-1`   | `line-height: 1;`     |
+| `lh-2`   | `line-height: 1.25;`  |
+| `lh-3`   | `line-height: 1.375;` |
+| `lh-4`   | `line-height: 1.5;`   |
+| `lh-5`   | `line-height: 1.625;` |
+| `lh-6`   | `line-height: 2;`     |
 
-## ...and more
+## Color rework
 
-You can check the [release notes](https://github.com/yummacss/yummacss/releases/tag/v1.2.0) for the full list of new utilities.
-
-## New colors
-
-In the past, the colors weren't as rich as we wanted them to be, which was a bit of a limitation because colors with less contrast can go unnoticed in many scenarios.
+Reworked the color palette for improved contrast & visibility across various UI scenarios.
 
 <Tabs defaultValue="v1.2">
     <TabsList>
@@ -124,7 +62,10 @@ In the past, the colors weren't as rich as we wanted them to be, which was a bit
     </TabsList>
 
   <TabsPanel value="v1.2">
-    <LegacyPalette
+    <Palette
+      scale={LEGACY_SHADE_LABELS}
+      whitePercentage={10}
+      blackPercentage={10}
       data={[
         { "name": "Red", "color": "#d73d3d" },
         { "name": "Orange", "color": "#e06814" },
@@ -137,13 +78,16 @@ In the past, the colors weren't as rich as we wanted them to be, which was a bit
         { "name": "Violet", "color": "#7d53dd" },
         { "name": "Pink", "color": "#d4418a" },
         { "name": "Gray", "color": "#606773" },
-        { "name": "Lead", "color": "#3f3f4e" },
+        { "name": "Lead", "color": "#3f3f4e" }, 
       ]}
     />
   </TabsPanel>
 
   <TabsPanel value="v1.1">
-    <LegacyPalette
+    <Palette
+      scale={LEGACY_SHADE_LABELS}
+      whitePercentage={10}
+      blackPercentage={10}
       data={[
         { "name": "Red", "color": "#f26d50" },
         { "name": "Orange", "color": "#f68e55" },
@@ -162,21 +106,17 @@ In the past, the colors weren't as rich as we wanted them to be, which was a bit
   </TabsPanel>
 </Tabs>
 
-### New transparent color variant
+Added support for `transparent` across all color utilities.
 
-Oh, another thing, though it's not a technically color, we added support for `transparent` in all color utilities.
-
-```html "bg-transparent" title="index.html"
+```html "bg-transparent"
 <div class="bg-transparent">Transparent</div>
 ```
 
 ---
 
-## Dimension media query support
+Added media query support for **dimension** utilities.
 
-We added media query support for the **Dimension** utilities.
-
-```html "md:d-16" title="index.html"
+```html "md:d-16"
 <div class="d-4 md:d-16"></div>
 ```
 
@@ -184,7 +124,7 @@ We added media query support for the **Dimension** utilities.
 
 ## Upgrade
 
-
+Get the latest version of Yumma CSS from npm or pnpm:
 
 ```bash
 pnpm add yummacss@latest

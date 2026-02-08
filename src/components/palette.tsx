@@ -12,17 +12,30 @@ interface ColorItem {
 
 interface Props {
   data: ColorItem[];
+  scale?: string[];
+  whitePercentage?: number;
+  blackPercentage?: number;
 }
 
-export default function Palette({ data }: Props) {
+export default function Palette({
+  data,
+  scale = SHADE_LABELS,
+  whitePercentage = 14,
+  blackPercentage = 14,
+}: Props) {
   return (
     <div className="d-f fd-c g-1">
       <div className="d-none lg:d-f fd-c g-1 ai-c md:fd-r md:ai-c">
         <div className="ws-nw ta-c min-w-fc md:min-w-16 d-f ai-c mr-2" />
-        <div className="d-g g-1 my-2 w-full gtc-2 sm:gtc-4 md:gtc-6 lg:gtc-13 f-1">
-          {SHADE_LABELS.map((label) => (
+        <div
+          className="d-g g-1 my-2 w-full f-1"
+          style={{
+            gridTemplateColumns: `repeat(${scale.length}, minmax(0, 1fr))`,
+          }}
+        >
+          {scale.map((label, index) => (
             <div
-              key={`header-${label}`}
+              key={`header-${label}-${index}`}
               className="d-f ai-c jc-c c-white fs-sm"
             >
               {label}
@@ -32,7 +45,11 @@ export default function Palette({ data }: Props) {
       </div>
 
       {data.map((colorItem) => {
-        const shades = generateShades(colorItem.color);
+        const shades = generateShades(
+          colorItem.color,
+          whitePercentage,
+          blackPercentage,
+        );
         return (
           <div
             key={colorItem.name}
@@ -41,13 +58,18 @@ export default function Palette({ data }: Props) {
             <p className="ws-nw ta-c min-w-fc md:min-w-16 d-f ai-c mr-2 c-white fs-sm">
               {colorItem.name}
             </p>
-            <div className="d-g g-1 w-full gtc-2 sm:gtc-4 md:gtc-6 lg:gtc-13 f-1">
+            <div
+              className="d-g g-1 w-full f-1"
+              style={{
+                gridTemplateColumns: `repeat(${scale.length}, minmax(0, 1fr))`,
+              }}
+            >
               {shades.map((shade, index) => (
                 <ColorSwatch
                   key={`${colorItem.name}-${index}`}
                   name={colorItem.name}
                   shade={shade}
-                  label={SHADE_LABELS[index]}
+                  label={scale[index]}
                 />
               ))}
             </div>
