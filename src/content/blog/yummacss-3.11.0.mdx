@@ -2,23 +2,23 @@ export const meta = {
   authors: ["Renildo"],
   cover: "~",
   date: "2026-02-05",
-  description: "Yumma CSS v3.11 is here with new transition property utilities for height and width, making it easier than ever to animate dimensions.",
+  description: "New transition property variants for height & width to simplify dimension animations.",
   title: "Yumma CSS 3.11"
 };
 
-**This update might change existing features, make sure you check out the [release notes](https://github.com/yummacss/yummacss/releases/tag/v3.11.0) before upgrading.**
+**This update involves significant breaking changes across the codebase. We recommend upgrading with caution and thoroughly testing your implementation, as existing features will likely break.**
 
 ---
 
-## New transition properties
+## Transition properties
 
-This release focuses on expanding our transitions system with three new utility properties specifically designed for animating element dimensions.
+This release expands the transitions system with three new utility properties specifically designed for animating element dimensions.
 
-You can now target them specifically for better performance and control.
+Targeting these specifically provides better performance & control.
 
-### Targeted dimension transitions
+### Dimension transitions
 
-We've added three new prefixes to the `tp-*` (`transition-property`) category:
+The `tp-*` (`transition-property`) category now includes three new prefixes:
 
 | Prefix | Property                              |
 |--------|---------------------------------------|
@@ -26,33 +26,32 @@ We've added three new prefixes to the `tp-*` (`transition-property`) category:
 | `tp-w` | `transition-property: width;`         |
 | `tp-d` | `transition-property: height, width;` |
 
-These utilities are perfect for accordions, dropdowns, or any component that needs to smoothly change size.
+These utilities are ideal for accordions, dropdowns, or any component requiring smooth size transitions.
 
 <Preview>
   <div className="bg-indigo h-16 w-16 tp-d td-300 tdu-300 ttf-io h:h-32 h:w-32 d-f ai-c jc-c c-white"></div>
 </Preview>
 
 ```html "tp-d" "td-300" "tdu-300" "ttf-io"
-<!-- Height and width transition -->
-<div class="h-16 w-16 tp-d td-300 tdu-300 ttf-io h:h-32 h:w-32 ..."></div>
+<div class="h-16 w-16 tp-d td-300 tdu-300 ttf-io h:h-32 h:w-32"></div>
 ```
 
-If you only need to animate one axis, you can use the more specific utilities:
+If only one axis requires animation, use the specific utilities:
 
 ```html "tp-h" "tp-w"
-<!-- Only height -->
-<div class="tp-h h:h-64 ..."></div>
+<!-- Height animation -->
+<div class="tp-h h:h-64"></div>
 
-<!-- Only width -->
-<div class="tp-w h:w-64 ..."></div>
+<!-- Width animation -->
+<div class="tp-w h:w-64"></div>
 ```
 
 ---
 
 ## Upgrade
 
-
+Get the latest version of Yumma CSS:
 
 ```bash
-pnpm install yummacss@latest
+pnpm up yummacss@latest
 ```
