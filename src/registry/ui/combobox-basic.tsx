@@ -11,7 +11,6 @@ export default function ExampleCombobox() {
   return (
     <Combobox.Root items={countries} open={open} onOpenChange={setOpen}>
       <div className="d-f fd-c g-2 fs-sm c-slate-10 p-r">
-        {/** biome-ignore lint/a11y/noLabelWithoutControl: <explanation> */}
         <label className="fw-600">Select country</label>
         <div className="p-r">
           <Combobox.Input
