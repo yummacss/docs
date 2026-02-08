@@ -2,28 +2,33 @@ export const meta = {
   authors: ["Renildo"],
   cover: "~",
   date: "2026-02-07",
-  description: "Yumma CSS v3.12.0 is here with CommonJS (CJS) support across all core packages, improving compatibility with diverse Node.js environments.",
+  description: "CommonJS (CJS) support across core packages for improved Node.js environment compatibility.",
   title: "Yumma CSS 3.12"
 };
 
-While ESM is the future of JavaScript, many projects and tools still rely on CommonJS. By supporting both formats, we're making Yumma CSS more accessible and easier to integrate into any workflow.
+**This update involves significant breaking changes across the codebase. We recommend upgrading with caution and thoroughly testing your implementation, as existing features will likely break.**
 
-## CommonJS Support
+---
 
-We've added CJS support to the following packages:
+## CommonJS support
 
-- [cli](https://www.npmjs.com/package/@yummacss/cli): You can now use the Yumma CSS in projects that haven't fully migrated to ESM.
-- [nitro](https://www.npmjs.com/package/@yummacss/nitro): Our high-performance engine is now compatible with CJS environments.
-- [runtime](https://www.npmjs.com/package/@yummacss/runtime): The runtime library now supports CJS format.
+While ESM is the future of JavaScript, many projects still rely on CommonJS. Supporting both formats makes Yumma CSS more accessible & easier to integrate into any workflow.
 
-This is a relatively small update, but it will significantly benefit projects and tools that still rely on CommonJS for their build processes or development environments.
+CJS support is added to these packages:
+
+- [cli](https://www.npmjs.com/package/@yummacss/cli)
+- [nitro](https://www.npmjs.com/package/@yummacss/nitro)
+- [runtime](https://www.npmjs.com/package/@yummacss/runtime)
+
+This update benefits projects & tools that rely on CommonJS for build processes or development environments.
 
 ---
 
 ## Upgrade
 
+Get the latest version of Yumma CSS:
 
 ```bash
-pnpm install yummacss@latest
+pnpm up yummacss@latest
 ```
 
