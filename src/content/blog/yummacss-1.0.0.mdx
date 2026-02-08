@@ -6,145 +6,84 @@ export const meta = {
   title: "Yumma CSS 1.0"
 };
 
-**This update might break your codebase, we highly suggest you checking out the [release notes](https://github.com/yummacss/yummacss/releases/tag/v0.1.0) before upgrading.**
+**This update introduces breaking changes. Upgrading should be approached with caution as things will probably break.**
 
 ---
 
 ## All-new utilities
 
-We're always looking for ways to improve Yumma CSS. In this release, we're adding a few new utilities to cover more of the CSS specs.
+Added new utilities to expand CSS property coverage.
 
 ### Align Items
 
-<LegacyTable
-  data={[
-    {
-      className: "ai-fs",
-      properties: ["align-items: flex-start;"],
-    },
-    {
-      className: "ai-fe",
-      properties: ["align-items: flex-end;"],
-    },
-    {
-      className: "jc-e",
-      properties: ["justify-content: end;"],
-    },
-    {
-      className: "jc-fs",
-      properties: ["justify-content: flex-start;"],
-    },
-    {
-      className: "jc-fe",
-      properties: ["justify-content: flex-end;"],
-    },
-    {
-      className: "jc-l",
-      properties: ["justify-content: left;"],
-    },
-    {
-      className: "jc-r",
-      properties: ["justify-content: right;"],
-    },
-    {
-      className: "jc-n",
-      properties: ["justify-content: normal;"],
-    },
-    {
-      className: "jc-s",
-      properties: ["justify-content: stretch;"],
-    },
-  ]}
-/>
+| Utility | Property                       |
+|---------|--------------------------------|
+| `ai-fs` | `align-items: flex-start;`     |
+| `ai-fe` | `align-items: flex-end;`       |
+| `jc-e`  | `justify-content: end;`        |
+| `jc-fs` | `justify-content: flex-start;` |
+| `jc-fe` | `justify-content: flex-end;`   |
+| `jc-l`  | `justify-content: left;`       |
+| `jc-r`  | `justify-content: right;`      |
+| `jc-n`  | `justify-content: normal;`     |
+| `jc-s`  | `justify-content: stretch;`    |
 
 ### Display
 
-<LegacyTable
-  data={[
-    {
-      className: "d-fr",
-      properties: ["display: flow-root;"],
-    },
-  ]}
-/>
+| Utility | Property              |
+|---------|-----------------------|
+| `d-fr`  | `display: flow-root;` |
 
 ### Float
 
-<LegacyTable
-  data={[
-    {
-      className: "f-is",
-      properties: ["float: inline-start;"],
-    },
-    {
-      className: "f-ie",
-      properties: ["float: inline-end;"],
-    },
-  ]}
-/>
+| Utility | Property               |
+|---------|------------------------|
+| `f-is`  | `float: inline-start;` |
+| `f-ie`  | `float: inline-end;`   |
+
 
 ### Text Align
 
-<LegacyTable
-  data={[
-    {
-      className: "ta-ja",
-      properties: ["text-align: justify-all;"],
-    },
-    {
-      className: "ta-mp",
-      properties: ["text-align: match-parent;"],
-    },
-    {
-      className: "tdl-o",
-      properties: ["text-decoration-line: overline;"],
-    },
-  ]}
-/>
-
-## ...and more
-
-There are a lot more utilities in this release, but we're not going to list them all here. You can check the [release notes](https://github.com/yummacss/yummacss/releases/tag/v1.0.0) though.
+| Utility | Property                          |
+|---------|-----------------------------------|
+| `ta-ja` | `text-align: justify-all;`        |
+| `ta-mp` | `text-align: match-parent;`       |
+| `tdl-o` | `text-decoration-line: overline;` |
 
 ---
 
 ## Viewport expansion
 
-We're also going to add viewports for the **Height** and **Width** utilities, which will be a huge help with responsive designs. We can't wait to roll it out to the other utilities!
+Added viewport support for **height** & **width** utilities.
 
-```html "md:h-auto" "md:w-auto" title="index.html"
-<div class="... h-10 md:h-auto md:w-auto w-10">...</div>
+```html "md:h-auto" "md:w-auto"
+<div class="h-10 md:h-auto md:w-auto w-10 ...">...</div>
 ```
 
 ---
 
-## New Lead color option
+## New lead color option
 
-We're pretty sure nobody builds websites in dark mode using gray, right? The new lead color is great for creating single-theme apps.
+Introduced the **lead** color variant for single-theme applications.
 
-<LegacyPalette
-  data={[
-    {
-      name: "Lead",
-      color: "#3f3f4e",
-    },
-  ]}
-/>
+| Color  | Value     |
+|--------|-----------|
+| `Lead` | `#3f3f4e` |
 
 ---
 
 ## Syntax changes
 
-We're making some changes to the syntax for the **Display** utilities. Here's how it's going to work from now on.
+Refined utility syntax for improved consistency.
 
-```html del={1} ins={2} title="index.html"
+```html del={1} ins={2}
 <div class="dis-*"></div>
 <div class="d-*"></div>
 ```
 
-We're also going to tweak the syntax for the hover state utilities. Basically, we're going to move them to the start of the utility `h:*` to make the code easier to understand.
+Relocated hover state prefixes to the start of utilities for better readability.
 
-```html del={1} ins={2} title="index.html"
+```html del={1} ins={2}
 <div class="bg-h-blue"></div>
 <div class="h:bg-blue"></div>
 ```
@@ -153,7 +92,7 @@ We're also going to tweak the syntax for the hover state utilities. Basically, w
 
 ## Upgrade
 
-You can get the latest version of Yumma CSS from npm or pnpm:
+Get the latest version of Yumma CSS from npm or pnpm:
 
 ```bash
 pnpm add yummacss@latest

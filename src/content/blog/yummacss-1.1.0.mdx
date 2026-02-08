@@ -6,11 +6,11 @@ export const meta = {
   title: "Yumma CSS 1.1"
 };
 
-**This update might change existing features, make sure you check out the [release notes](https://github.com/yummacss/yummacss/releases/tag/v1.1.0).**
+**This update might change existing features, but upgrading should be a straightforward task.**
 
 ---
 
-## Button transition
+## Button Transition
 
 The `btn-*` component has been around for a while, and we thought it could use a refresh with Yumma v1.1. So, to make the button components a bit more fancy, you'll now have transitions for button components with Yumma CSS v1.1.
 
@@ -20,29 +20,24 @@ The `btn-*` component has been around for a while, and we thought it could use a
 
 We're going to add a new class for font sizes in Yumma CSS 1.1. It'll be a variant for the utility, specifically for the `fs-xs` size.
 
-<LegacyTable
-  data={[
-    {
-      className: "fs-xs",
-      properties: ["font-size: 0.6rem;"],
-    },
-  ]}
-/>
+| Utility | Property           |
+|---------|--------------------|
+| `fs-xs`  | `font-size: 0.6rem;` |
 
 ---
 
-## Dimension utilities
+## Dimension Utilities
 
 We're looking forward to showing you what we think is one of the coolest new additions. The new `dim-*` utility is here to replace Height and Width.
 
-```html title="index.html" del={1} ins={2}
+```html del={1} ins={2}
 <div class="h-12 h-12"></div>
 <div class="dim-12"></div>
 ```
 
 ---
 
-## Media query changes
+## Media Query Changes
 
 We're going to be dropping the `xsm` and `xlg` breakpoints in favor of `xs` and `xl`.
 
@@ -55,13 +50,13 @@ We're going to be dropping the `xsm` and `xlg` breakpoints in favor of `xs` and 
 
 ---
 
-## Utility changes
+## Utility Changes
 
 This update will bring a few increments and small changes to the syntax of some of the utilities, and here's the list:
 
 ### Box Shadow
 
-```html title="index.html" del={1,2} ins={3,4}
+```html del={1,2} ins={3,4}
 <div class="bs-xsm"></div>
 <div class="bs-xlg"></div>
 <div class="bs-xs"></div>
@@ -70,14 +65,14 @@ This update will bring a few increments and small changes to the syntax of some 
 
 ### Font Sizes
 
-```html title="index.html" del={1} ins={2}
+```html del={1} ins={2}
 <div class="fs-xlg"></div>
 <div class="fs-xl"></div>
 ```
 
 ### Columns
 
-```html title="index.html" del={1} ins={2}
+```html del={1} ins={2}
 <div class="col-2"></div>
 <div class="cols-2"></div>
 ```
