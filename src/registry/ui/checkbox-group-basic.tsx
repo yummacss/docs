@@ -18,7 +18,6 @@ export default function ExampleCheckboxGroup() {
         Notifications
       </div>
 
-      {/** biome-ignore lint/a11y/noLabelWithoutControl: Base UI handles this */}
       <label className="d-f ai-c g-2 fs-sm fw-600">
         <Checkbox.Root
           name="notifications"
@@ -36,7 +35,6 @@ export default function ExampleCheckboxGroup() {
         Email alerts
       </label>
 
-      {/** biome-ignore lint/a11y/noLabelWithoutControl: Base UI handles this> */}
       <label className="d-f ai-c g-2 fs-sm fw-600">
         <Checkbox.Root
           name="notifications"
@@ -54,7 +52,6 @@ export default function ExampleCheckboxGroup() {
         SMS alerts
       </label>
 
-      {/** biome-ignore lint/a11y/noLabelWithoutControl: Base UI handles this> */}
       <label className="d-f ai-c g-2 fs-sm fw-600">
         <Checkbox.Root
           name="notifications"
