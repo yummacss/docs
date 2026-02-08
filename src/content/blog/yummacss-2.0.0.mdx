@@ -6,39 +6,25 @@ export const meta = {
   title: "Yumma CSS 2.0"
 };
 
-**This update might break your codebase, we highly suggest you checking out the [release notes](https://github.com/yummacss/yummacss/releases/tag/v2.0.0) before upgrading.**
+**This update involves significant breaking changes across the codebase. We recommend upgrading with caution and thoroughly testing your implementation, as existing features will likely break.**
 
 ---
 
 ## All-new utilities
 
-We will continue to push more, and more utilities to Yumma CSS. This latest release is no exception.
+Continuous utility expansion remains a priority. This major release introduces several new tools for design control.
 
 ### Accent Color
 
-<LegacyColor
-  classPrefix="ac-"
-  propNames={["accent-color"]}
-  data={[
-    { color: "red", value: "#d73d3d" },
-    { color: "orange", value: "#e06814" },
-    { color: "yellow", value: "#d3a107" },
-    { color: "green", value: "#1fb155" },
-    { color: "teal", value: "#12a695" },
-    { color: "cyan", value: "#05a4bf" },
-    { color: "blue", value: "#3575dd" },
-    { color: "indigo", value: "#595cd9" },
-    { color: "violet", value: "#7d53dd" },
-    { color: "pink", value: "#d4418a" },
-    { color: "gray", value: "#606773" },
-    { color: "lead", value: "#3f3f4e" },
-    { color: "silver", value: "#bfc2c7" },
-  ]}
-/>
+```html "ac-*"
+<input class="ac-red" type="checkbox" checked />
+<input class="ac-orange" type="checkbox" checked />
+<input class="ac-yellow" type="checkbox" checked />
+```
 
-### New Silver color option
+### New silver color option
 
-<LegacyPalette
+<Palette
   data={[
     {
       name: "Silver",
@@ -49,360 +35,171 @@ We will continue to push more, and more utilities to Yumma CSS. This latest rele
 
 ### Aspect Ratio
 
-<LegacyTable
-  data={[
-    {
-      className: "ar-s",
-      properties: ["aspect-ratio: 1/1;"],
-    },
-    {
-      className: "ar-l",
-      properties: ["aspect-ratio: 16/9;"],
-    },
-    {
-      className: "ar-auto",
-      properties: ["aspect-ratio: auto;"],
-    },
-  ]}
-/>
+| Utility | Property           |
+|---------|--------------------|
+| `ar-s`    | `aspect-ratio: 1/1;` |
+| `ar-l`    | `aspect-ratio: 16/9;` |
+| `ar-auto` | `aspect-ratio: auto;` |
 
 ### Backdrop Filter
 
-<LegacyTable
-  data={[
-    {
-      className: "bf-b-none",
-      properties: ["backdrop-filter: blur(0px);"],
-    },
-    {
-      className: "bf-b-xs",
-      properties: ["backdrop-filter: blur(4px);"],
-    },
-    {
-      className: "bf-b-sm",
-      properties: ["backdrop-filter: blur(8px);"],
-    },
-    {
-      className: "bf-b-md",
-      properties: ["backdrop-filter: blur(16px);"],
-    },
-    {
-      className: "bf-b-lg",
-      properties: ["backdrop-filter: blur(32px);"],
-    },
-    {
-      className: "bf-b-xl",
-      properties: ["backdrop-filter: blur(64px);"],
-    },
-  ]}
-/>
+| Utility | Property           |
+|---------|--------------------|
+| `bf-b-none` | `backdrop-filter: blur(0px);` |
+| `bf-b-xs`   | `backdrop-filter: blur(4px);` |
+| `bf-b-sm`   | `backdrop-filter: blur(8px);` |
+| `bf-b-md`   | `backdrop-filter: blur(16px);` |
+| `bf-b-lg`   | `backdrop-filter: blur(32px);` |
+| `bf-b-xl`   | `backdrop-filter: blur(64px);` |
 
 ### Border Collapse
 
-<LegacyTable
-  data={[
-    {
-      className: "bc-c",
-      properties: ["border-collapse: collapse;"],
-    },
-    {
-      className: "bc-s",
-      properties: ["border-collapse: separate;"],
-    },
-  ]}
-/>
+| Utility | Property           |
+|---------|--------------------|
+| `bc-c`   | `border-collapse: collapse;` |
+| `bc-s`   | `border-collapse: separate;` |
 
 ### Border Style
 
-<LegacyTable
-  data={[
-    {
-      className: "b-none",
-      properties: ["border-style: none;"],
-    },
-    {
-      className: "b-d",
-      properties: ["border-style: dashed;"],
-    },
-    {
-      className: "b-h",
-      properties: ["border-style: hidden;"],
-    },
-    {
-      className: "b-s",
-      properties: ["border-style: solid;"],
-    },
-  ]}
-/>
+| Utility | Property           |
+|---------|--------------------|
+| `b-none` | `border-style: none;` |
+| `b-d`    | `border-style: dashed;` |
+| `b-h`    | `border-style: hidden;` |
+| `b-s`    | `border-style: solid;` |
 
 ### Caption Side
 
-<LegacyTable
-  data={[
-    {
-      className: "cs-b",
-      properties: ["caption-side: bottom;"],
-    },
-    {
-      className: "cs-t",
-      properties: ["caption-side: top;"],
-    },
-  ]}
-/>
+| Utility | Property           |
+|---------|--------------------|
+| `cs-b`   | `caption-side: bottom;` |
+| `cs-t`   | `caption-side: top;` |
 
 ### Font Style
 
-<LegacyTable
-  data={[
-    {
-      className: "fs-i",
-      properties: ["font-style: italic;"],
-    },
-    {
-      className: "fs-n",
-      properties: ["font-style: normal;"],
-    },
-  ]}
-/>
+| Utility | Property           |
+|---------|--------------------|
+| `fs-i`   | `font-style: italic;` |
+| `fs-n`   | `font-style: normal;` |
 
 ### Gap
 
-We've completely reworked the Gap utilities. They now work as expected, and you can use them to add gaps between elements.
+Reworked the Gap utilities for more intuitive layout controls.
 
-<LegacyTable classPrefix="g-" propNames={["gap"]} incrementValue={0.25} range={16} unit="rem" />
+```html
+<div class="g-[0/16]">...</div>
+```
 
 ### Grid
 
-```html "gc-s-* gce-* gcs-*" "gr-s-* gre-* grs-*" title="index.html"
+```html "gc-s-* gce-* gcs-*" "gr-s-* gre-* grs-*"
 <div class="gc-s-* gce-* gcs-*">...</div>
 <div class="gr-s-* gre-* grs-*">...</div>
 ```
 
 ### Object Fit
 
-<LegacyTable
-  data={[
-    {
-      className: "of-c",
-      properties: ["object-fit: cover;"],
-    },
-    {
-      className: "of-f",
-      properties: ["object-fit: fill;"],
-    },
-
-    {
-      className: "of-none",
-      properties: ["object-fit: none;"],
-    },
-    {
-      className: "of-sd",
-      properties: ["object-fit: scale-down;"],
-    },
-
-]}
-/>
+| Utility | Property           |
+|---------|--------------------|
+| `of-c`    | `object-fit: cover;` |
+| `of-f`    | `object-fit: fill;` |
+| `of-none` | `object-fit: none;` |
+| `of-sd`   | `object-fit: scale-down;` |
 
 ### Object Position
 
-<LegacyTable
-  data={[
-    {
-      className: "op-b",
-      properties: ["object-position: bottom;"],
-    },
-    {
-      className: "op-c",
-      properties: ["object-position: center;"],
-    },
-    {
-      className: "op-lb",
-      properties: ["object-position: left bottom;"],
-    },
-    {
-      className: "op-left",
-      properties: ["object-position: left;"],
-    },
-    {
-      className: "op-lt",
-      properties: ["object-position: left top;"],
-    },
-    {
-      className: "op-r",
-      properties: ["object-position: right;"],
-    },
-    {
-      className: "op-rb",
-      properties: ["object-position: right bottom;"],
-    },
-    {
-      className: "op-rt",
-      properties: ["object-position: right top;"],
-    },
-    {
-      className: "op-t",
-      properties: ["object-position: top;"],
-    },
-  ]}
-/>
+| Utility | Property           |
+|---------|--------------------|
+| `op-b`    | `object-position: bottom;` |
+| `op-c`    | `object-position: center;` |
+| `op-lb`   | `object-position: left bottom;` |
+| `op-left` | `object-position: left;` |
+| `op-lt`   | `object-position: left top;` |
+| `op-r`    | `object-position: right;` |
+| `op-rb`   | `object-position: right bottom;` |
+| `op-rt`   | `object-position: right top;` |
+| `op-t`    | `object-position: top;` |
 
 ### Outline Color
 
-<LegacyColor
-  classPrefix="oc-"
-  propNames={["outline-color"]}
-  data={[
-    { color: "red", value: "#d73d3d" },
-    { color: "orange", value: "#e06814" },
-    { color: "yellow", value: "#d3a107" },
-    { color: "green", value: "#1fb155" },
-    { color: "teal", value: "#12a695" },
-    { color: "cyan", value: "#05a4bf" },
-    { color: "blue", value: "#3575dd" },
-    { color: "indigo", value: "#595cd9" },
-    { color: "violet", value: "#7d53dd" },
-    { color: "pink", value: "#d4418a" },
-    { color: "gray", value: "#606773" },
-    { color: "lead", value: "#3f3f4e" },
-  ]}
-/>
+```html "oc-*"
+<div class="o-4 os-s oc-indigo-6"></div>
+<div class="o-4 os-s oc-violet-6"></div>
+<div class="o-4 os-s oc-pink-6"></div>
+```
 
 ### Outline Offset
 
-<LegacyTable classPrefix="oo-" propNames={["outline-offset"]} incrementValue={4} range={4} unit="px" />
+```html
+<div class="oo-[0/4]">...</div>
+```
 
 ### Outline Style
 
-<LegacyTable
-  data={[
-    {
-      className: "os-none",
-      properties: ["outline-style: none;"],
-    },
-    {
-      className: "os-d",
-      properties: ["outline-style: dashed;"],
-    },
-    {
-      className: "os-h",
-      properties: ["outline-style: hidden;"],
-    },
-    {
-      className: "os-s",
-      properties: ["outline-style: solid;"],
-    },
-  ]}
-/>
+| Utility | Property           |
+|---------|--------------------|
+| `os-none` | `outline-style: none;` |
+| `os-d`    | `outline-style: dashed;` |
+| `os-h`    | `outline-style: hidden;` |
+| `os-s`    | `outline-style: solid;` |
 
 ### Outline Width
 
-<LegacyTable classPrefix="ow-" propNames={["outline-width"]} incrementValue={4} range={4} unit="px" />
+```html
+<div class="ow-[0/4]">...</div>
+```
 
 ### Spacing X
 
-<LegacyTable classPrefix="s-x-" propNames={["margin-left", "margin-right"]} range={100} incrementValue={0.25} unit="rem" />
+```html
+<div class="s-x-[0/100]">...</div>
+```
 
 ### Spacing Y
 
-<LegacyTable classPrefix="s-y-" propNames={["margin-top", "margin-bottom"]} range={100} incrementValue={0.25} unit="rem" />
+```html
+<div class="s-y-[0/100]">...</div>
+```
 
 ### Table Layout
 
-<LegacyTable
-  data={[
-    {
-      className: "tl-auto",
-      properties: ["table-layout: auto;"],
-    },
-    {
-      className: "tl-f",
-      properties: ["table-layout: fixed;"],
-    },
-  ]}
-/>
+| Utility | Property           |
+|---------|--------------------|
+| `tl-auto` | `table-layout: auto;` |
+| `tl-f`    | `table-layout: fixed;` |
 
 ### Text Decoration Color
 
-<LegacyColor
-  classPrefix="tdc-"
-  propNames={["outline-color"]}
-  data={[
-    { color: "red", value: "#d73d3d" },
-    { color: "orange", value: "#e06814" },
-    { color: "yellow", value: "#d3a107" },
-    { color: "green", value: "#1fb155" },
-    { color: "teal", value: "#12a695" },
-    { color: "cyan", value: "#05a4bf" },
-    { color: "blue", value: "#3575dd" },
-    { color: "indigo", value: "#595cd9" },
-    { color: "violet", value: "#7d53dd" },
-    { color: "pink", value: "#d4418a" },
-    { color: "gray", value: "#606773" },
-    { color: "lead", value: "#3f3f4e" },
-  ]}
-/>
+```html "tdc-*"
+<p class="td-u tdc-red">Red Underline</p>
+<p class="td-u tdc-green">Green Underline</p>
+<p class="td-u tdc-blue">Blue Underline</p>
+```
 
 ### Text Decoration Style
 
-<LegacyTable
-  data={[
-    {
-      className: "tds-none",
-      properties: ["text-decoration-style: none;"],
-    },
-    {
-      className: "tds-d",
-      properties: ["text-decoration-style: dashed;"],
-    },
-    {
-      className: "tds-h",
-      properties: ["text-decoration-style: hidden;"],
-    },
-    {
-      className: "tds-s",
-      properties: ["text-decoration-style: solid;"],
-    },
-  ]}
-/>
+| Utility | Property           |
+|---------|--------------------|
+| `tds-none` | `text-decoration-style: none;` |
+| `tds-d`    | `text-decoration-style: dashed;` |
+| `tds-h`    | `text-decoration-style: hidden;` |
+| `tds-s`    | `text-decoration-style: solid;` |
 
 ### Text Decoration Thickness
 
-<LegacyTable
-  data={[
-    {
-      className: "tdt-auto",
-      properties: ["text-decoration-thickness: auto;"],
-    },
-    {
-      className: "tdt-ff",
-      properties: ["text-decoration-thickness: from-font;"],
-    },
-    {
-      className: "tdt-0",
-      properties: ["text-decoration-thickness: 0px;"],
-    },
-    {
-      className: "tdt-1",
-      properties: ["text-decoration-thickness: 4px;"],
-    },
-    {
-      className: "tdt-2",
-      properties: ["text-decoration-thickness: 8px;"],
-    },
-    {
-      className: "tdt-3",
-      properties: ["text-decoration-thickness: 12px;"],
-    },
-    {
-      className: "tdt-4",
-      properties: ["text-decoration-thickness: 16px;"],
-    },
-  ]}
-/>
+| Utility | Property           |
+|---------|--------------------|
+| `tdt-auto` | `text-decoration-thickness: auto;` |
+| `tdt-ff`   | `text-decoration-thickness: from-font;` |
+| `tdt-0`    | `text-decoration-thickness: 0px;` |
+| `tdt-1`    | `text-decoration-thickness: 4px;` |
+| `tdt-2`    | `text-decoration-thickness: 8px;` |
+| `tdt-3`    | `text-decoration-thickness: 12px;` |
+| `tdt-4`    | `text-decoration-thickness: 16px;` |
 
 ## Base styles
 
-Don't like the default base styles? You can now disable them in the by importing the `yumma-core.css` file instead of the `yumma.css` file.
+Disable default base styles by importing `yumma-core.css` instead of `yumma.css`.
 
 #### Standard CSS
 
@@ -418,7 +215,7 @@ Don't like the default base styles? You can now disable them in the by importing
 
 ## Media queries
 
-You know how to use media queries, right? They're now everywhere in Yumma CSS. Literally everywhere!
+Media query support is now available across nearly all Yumma CSS utilities for better responsiveness.
 
 ```html "sm:gtc-2" "md:gtc-3" "lg:gtc-4"
 <div class="cnt mx-auto p-4">
@@ -432,7 +229,7 @@ You know how to use media queries, right? They're now everywhere in Yumma CSS. L
 
 ## Breakpoints changes
 
-We've made a few changes to the breakpoint system in Yumma CSS v2.0. We've removed the `xs` breakpoint and changed the values for the other breakpoints.
+Refined the breakpoint system by removing the `xs` breakpoint & adjusting existing values.
 
 <Tabs defaultValue="v2.0">
     <TabsList>
@@ -441,33 +238,29 @@ We've made a few changes to the breakpoint system in Yumma CSS v2.0. We've remov
     </TabsList>
 
   <TabsPanel value="v2.0">
-    <LegacyTable
-      data={[
-        { className: "sm", properties: ["min-width: 640px;"] },
-        { className: "md", properties: ["min-width: 768px;"] },
-        { className: "lg", properties: ["min-width: 1024px;"] },
-        { className: "xl", properties: ["min-width: 1280px;"] },
-        { className: "xxl", properties: ["min-width: 1536px;"] },
-      ]}
-    />
+| Utility | Property           |
+|---------|--------------------|
+| `sm`     | `min-width: 640px;` |
+| `md`     | `min-width: 768px;` |
+| `lg`     | `min-width: 1024px;` |
+| `xl`     | `min-width: 1280px;` |
+| `xxl`    | `min-width: 1536px;` |
   </TabsPanel>
 
   <TabsPanel value="v1.2">
-    <LegacyTable
-      data={[
-        { className: "xs", properties: ["min-width: 0;"] },
-        { className: "sm", properties: ["min-width: 480px;"] },
-        { className: "md", properties: ["min-width: 720px;"] },
-        { className: "lg", properties: ["min-width: 960px;"] },
-        { className: "xl", properties: ["min-width: 1200px;"] },
-      ]}
-    />
+| Utility | Property           |
+|---------|--------------------|
+| `xs`     | `min-width: 0;`     |
+| `sm`     | `min-width: 480px;` |
+| `md`     | `min-width: 720px;` |
+| `lg`     | `min-width: 960px;` |
+| `xl`     | `min-width: 1200px;` |
   </TabsPanel>
 </Tabs>
 
 ## Container rules
 
-We've given it a new class name, `cnt`, and added a set of media query rules to make sure it responds to different screen sizes.
+Introduced the `cnt` class for containers with built-in media query rules for responsiveness.
 
 <Tabs defaultValue="v2.0">
     <TabsList>
@@ -505,8 +298,7 @@ We've given it a new class name, `cnt`, and added a set of media query rules to 
 
 ## Upgrade
 
-
-
+Get the latest version of Yumma CSS from npm or pnpm:
 ```bash
 pnpm add yummacss@latest
 ```

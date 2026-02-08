@@ -161,6 +161,14 @@ summary {
   align-content: normal;
 }
 
+.ac-orange {
+  accent-color: #ff6b35;
+}
+
+.ac-red {
+  accent-color: #e63946;
+}
+
 .ac-sa {
   align-content: space-around;
 }
@@ -183,6 +191,10 @@ summary {
 
 .ac-st {
   align-content: stretch;
+}
+
+.ac-yellow {
+  accent-color: #ffb81c;
 }
 
 .ai-b {
@@ -481,20 +493,8 @@ summary {
   backdrop-filter: blur(16px);
 }
 
-.bf-b-none {
-  backdrop-filter: blur();
-}
-
 .bf-b-sm {
   backdrop-filter: blur(8px);
-}
-
-.bf-b-xl {
-  backdrop-filter: blur(64px);
-}
-
-.bf-b-xs {
-  backdrop-filter: blur(4px);
 }
 
 .bg-black {
@@ -2706,8 +2706,20 @@ summary {
   outline-color: #babcf9;
 }
 
+.oc-indigo-6 {
+  outline-color: #797bf3;
+}
+
 .oc-indigo-8 {
   outline-color: #4749ae;
+}
+
+.oc-pink-6 {
+  outline-color: #ef62a7;
+}
+
+.oc-violet-6 {
+  outline-color: #9b73f7;
 }
 
 .of-c {
@@ -3566,6 +3578,14 @@ summary {
   text-decoration: underline;
 }
 
+.tdc-blue {
+  text-decoration-color: #2563eb;
+}
+
+.tdc-green {
+  text-decoration-color: #06d6a0;
+}
+
 .tdc-red {
   text-decoration-color: #e63946;
 }
@@ -3624,10 +3644,6 @@ summary {
 
 .tdt-auto {
   text-decoration-thickness: auto;
-}
-
-.tdt-ff {
-  text-decoration-thickness: from-font;
 }
 
 .tdu-150 {
