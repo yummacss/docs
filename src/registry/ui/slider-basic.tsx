@@ -1,41 +1,25 @@
-import { Field } from "@base-ui/react/field";
+"use client";
+
 import { Slider } from "@base-ui/react/slider";
+import * as React from "react";
 
 export default function ExampleSlider() {
+  const [value, setValue] = React.useState(50);
+
   return (
-    <Field.Root className="d-f fd-c g-1">
-      <label
-        htmlFor="slider-volume"
-        className="c-d fs-sm fw-500 c-slate-12 select-none"
-      >
-        Volume
-      </label>
-      <Slider.Root defaultValue={25}>
-        <Slider.Control className="d-f ai-c w-56 py-3 us-none slider-control">
-          <Slider.Track className="h-1 w-full bg-silver-2 br-pill slider-track">
-            <Slider.Indicator className="bg-slate-5 br-pill slider-indicator" />
-            <Slider.Thumb
-              id="slider-volume"
-              className="d-4 bw-1 bc-silver-4 br-full bg-white us-none bsh-sm slider-thumb"
-            />
+    <div className="d-f fd-c g-2 w-64">
+      <div className="d-f jc-sb ai-c">
+        <label className="fs-sm fw-600 c-slate-10 us-none">Brightness</label>
+        <span className="fs-sm c-slate-8">{value}%</span>
+      </div>
+      <Slider.Root value={value} onValueChange={setValue}>
+        <Slider.Control className="d-f ai-c py-3 us-none ta-none">
+          <Slider.Track className="p-r h-2 w-full bg-silver-2 br-pill bw-1 bc-silver-3">
+            <Slider.Indicator className="bg-indigo br-pill" />
+            <Slider.Thumb className="d-5 br-pill bg-white bw-1 bc-silver-3 us-none bsh-sm fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
           </Slider.Track>
         </Slider.Control>
-
-        <style>{`
-        .slider-control {
-          touch-action: none;
-        }
-        .slider-track {
-          box-shadow: inset 0 0 0 1px #dadcdf;
-        }
-        .slider-thumb {
-          outline: 1px solid #dadcdf;
-        }
-        .slider-thumb:has(:focus-visible) {
-          outline: 2px solid #26549f;
-        }
-      `}</style>
       </Slider.Root>
-    </Field.Root>
+    </div>
   );
 }

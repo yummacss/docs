@@ -1840,10 +1840,6 @@ summary {
   grid-template-rows: repeat(3, minmax(0, 1fr));
 }
 
-.h-1 {
-  height: .25rem;
-}
-
 .h-10 {
   height: 2.5rem;
 }
