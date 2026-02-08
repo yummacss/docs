@@ -2,34 +2,34 @@ export const meta = {
   authors: ["Renildo"],
   cover: "~",
   date: "2026-01-31",
-  description: "Today we're rolling out Yumma CSS v3.10 with a redesigned color palette, new pseudo-class variants, new transitions and transforms utilities, and many more.",
+  description: "Redesigned color palette, new pseudo-class variants, & transition utilities.",
   title: "Yumma CSS 3.10"
 };
 
-**This update might change existing features, make sure you check out the [release notes](https://github.com/yummacss/yummacss/releases/tag/v3.10.0) before upgrading.**
+**This update involves significant breaking changes across the codebase. We recommend upgrading with caution and thoroughly testing your implementation, as existing features will likely break.**
 
 ---
 
 ## Breaking changes
 
-This version introduces some breaking changes that you should be aware of before upgrading.
+Awareness of these changes is recommended before upgrading.
 
 ### Teal removal
 
-We've decided to remove the `teal` color option from our color system. If you were using it, we recommend switching to `mint` or `cyan` for a similar aesthetic.
+The `teal` color is removed. Use `mint` or `cyan` for a similar aesthetic.
 
-### Shorthand for rotation
+### Rotation shorthand
 
-We've replaced the `t-r-*` (`transform: rotate()`) utilities with `ro-*` which now uses the standalone `rotate` property. This makes it more consistent with other property-based utilities.
+The `t-r-*` (`transform: rotate()`) utilities are replaced with `ro-*`, which uses the standalone `rotate` property for consistency.
 
 ```html del={1} ins={2} title="index.html"
 <div class="t-r-45">...</div>
 <div class="ro-45">...</div>
 ```
 
-### Font family renaming
+### Font family updates
 
-To improve clarity and consistency, we've renamed two font family prefixes:
+Two font family prefixes are renamed:
 
 ```html del={1-2} ins={3-4} title="index.html"
 <div class="ff-s">System</div>
@@ -40,19 +40,11 @@ To improve clarity and consistency, we've renamed two font family prefixes:
 
 ---
 
-## All-new colors
+## Colors
 
-We finally revamped the whole color palette to make it more accessible and use more vibrant colors.
+The color palette is redesigned for better accessibility & vibrancy. This update introduces 7 new colors:
 
-We've also added 7 new colors to the family, giving you even more flexibility for your designs.
-
-- Lime
-- Mint
-- Sky
-- Lavender
-- Magenta
-- Coral
-- Zinc
+- Lime, Mint, Sky, Lavender, Magenta, Coral, & Zinc.
 
 <Tabs defaultValue="v3.10">
   <TabsList>
@@ -107,9 +99,9 @@ We've also added 7 new colors to the family, giving you even more flexibility fo
   </TabsPanel>
 </Tabs>
 
-## New pseudo-class variants
+## Pseudo-class variants
 
-This release adds 11 new pseudo-class variants to help you style elements based on their state or position.
+Eleven new pseudo-class variants are added to style elements based on state or position.
 
 | Prefix | Variant |
 | --- | --- |
@@ -125,9 +117,9 @@ This release adds 11 new pseudo-class variants to help you style elements based 
 | `ro:*` | `:read-only` |
 | `v:*` | `:valid` |
 
-## Introducing Transitions
+## Transitions
 
-We've introduced a new transitions category to help you create smooth animations between states.
+A new transitions category is introduced for smooth state animations.
 
 <Preview>
   <div className="d-16 bg-indigo tp-a td-300 tdu-300 ttf-io h:t-s-80 h:bg-slate-7"></div>
@@ -138,23 +130,25 @@ We've introduced a new transitions category to help you create smooth animations
 ```
 
 The new utilities include:
-- `td-*` for `transition-delay` (steps of 50ms)
-- `tdu-*` for `transition-duration` (steps of 50ms)
-- `tp-*` for `transition-property`
-- `ttf-*` for `transition-timing-function`
+- `td-*` - `transition-delay` (50ms steps)
+- `tdu-*` - `transition-duration` (50ms steps)
+- `tp-*` - `transition-property`
+- `ttf-*` - `transition-timing-function`
 
-## Expanded utilities
+## Aspect ratio
 
-We've also expanded the `ar-*` (`aspect-ratio`) utilities to support more common ratios.
+The `ar-*` (`aspect-ratio`) utilities now support common ratios.
 
-<Reference category="positioning" name="aspect-ratio" />
+```html "ar-*"
+<div class="ar-*">...</div>
+```
 
 ---
 
 ## Upgrade
 
-
+Get the latest version of Yumma CSS:
 
 ```bash
-pnpm install yummacss@latest
+pnpm up yummacss@latest
 ```
