@@ -2,17 +2,17 @@ export const meta = {
   authors: ["Renildo"],
   cover: "~",
   date: "2025-12-31",
-  description: "Is 2025 almost over? Before that happens we have to release Yumma CSS 3.7!",
+  description: "New utility variants for border, gap, & dimension utilities, along with refined text utilities.",
   title: "Yumma CSS 3.7"
 };
 
-**This update might change existing features, make sure you check out the [release notes](https://github.com/yummacss/yummacss/releases/tag/v3.7.0) before upgrading.**
+**This update involves significant breaking changes across the codebase. We recommend upgrading with caution and thoroughly testing your implementation, as existing features will likely break.**
 
 ---
 
-## New utility variants
+## Utility variants
 
-We added `px` to all `border` and `gap` utilities.
+The `px` variant is now available for `border` & `gap` utilities.
 
 ### Border utilities
 
@@ -68,41 +68,52 @@ We added `px` to all `border` and `gap` utilities.
 </div>
 ```
 
-### Height and Width utilities
+### Dimension utilities
 
-The new `stretch` property is a part of the CSS spec and while it is not supported in all browsers, we added the utilities to Yumma CSS.
+The `stretch` property is added to `height`, `width`, & `dimension` utilities.
 
 ```html "w-s"
 <div class="w-s h-s bg-indigo"></div>
 ```
 
-This also valid for `dimension` utilities.
+---
 
-```html "d-s"
-<div class="d-s bg-indigo"></div>
-```
+## New utilities
 
-## All-new utilities
+This release introduces several text & positioning utilities.
 
-Before the new year we wanted to add a couple of new utilities to Yumma CSS.
+### Tab size
 
-These are all well supported in all major browsers.
+| Class  | Property            |
+|--------|---------------------|
+| `ts-2` | `tab-size: 2`       |
+| `ts-4` | `tab-size: 4`       |
+| `ts-8` | `tab-size: 8`       |
 
-### Tab Size utilities
+### Vertical align
 
-<Reference category="text" name="tab-size" />
+| Class   | Property                   |
+|---------|----------------------------|
+| `va-ba` | `vertical-align: baseline` |
+| `va-m`  | `vertical-align: middle`   |
+| `va-t`  | `vertical-align: top`      |
+| `va-b`  | `vertical-align: bottom`   |
+| `va-s`  | `vertical-align: sub`      |
+| `va-su` | `vertical-align: super`    |
 
-### Vertical Align utilities
+### Writing mode
 
-<Reference category="text" name="vertical-align" />
+| Class    | Property                    |
+|----------|-----------------------------|
+| `wm-htb` | `writing-mode: horizontal-tb` |
+| `wm-vrl` | `writing-mode: vertical-rl`   |
+| `wm-vlr` | `writing-mode: vertical-lr`   |
+| `wm-srl` | `writing-mode: sideways-rl`   |
+| `wm-slr` | `writing-mode: sideways-lr`   |
 
-### Writing Mode utilities
+### Positioning utilities
 
-<Reference category="text" name="writing-mode" />
-
-### Extend Top/Right/Bottom/Left utilities
-
-I don't know if you will ever even use this, but now `top`, `right`, `bottom`, `left` and `inset` utilities now ranges from 0-100.
+The range for `top`, `right`, `bottom`, `left`, & `inset` is extended to `0-100`.
 
 ```html "t-100" "i-100" "r-100"
 <div class="p-r d-18 sm:d-32 c-white">
@@ -111,53 +122,55 @@ I don't know if you will ever even use this, but now `top`, `right`, `bottom`, `
 </div>
 ```
 
+---
+
 ## Renamed utilities
 
-This update it's pretty much destructive as it contains quite a few breaking changes. We renamed some of existing utilities to truly make this a true abbreviation convention.
+Several utilities are renamed to follow a more consistent abbreviation convention.
 
-### Border Radius utilities
+### Border radius
 
 ```html del={1} ins={2} title="index.html"
 <div class="rad-9">...</div>
 <div class="br-pill">...</div>
 ```
 
-### Border Width
+### Border width
 
 ```html del={1} ins={2} title="index.html"
 <div class="b-*">...</div>
 <div class="bw-*">...</div>
 ```
 
-### Border Top Width
+### Border top width
 
 ```html del={1} ins={2} title="index.html"
 <div class="bt-*">...</div>
 <div class="btw-*">...</div>
 ```
 
-### Border Right Width
+### Border right width
 
 ```html del={1} ins={2} title="index.html"
 <div class="br-*">...</div>
 <div class="brw-*">...</div>
 ```
 
-### Border Left Width
+### Border left width
 
 ```html del={1} ins={2} title="index.html"
 <div class="bl-*">...</div>
 <div class="blw-*">...</div>
 ```
 
-### Border Bottom Width
+### Border bottom width
 
 ```html del={1} ins={2} title="index.html"
 <div class="bb-*">...</div>
 <div class="bbw-*">...</div>
 ```
 
-### Border Style
+### Border style
 
 ```html del={1} ins={2} title="index.html"
 <div class="b-*">...</div>
@@ -165,15 +178,17 @@ This update it's pretty much destructive as it contains quite a few breaking cha
 ```
 
 ### Color utilities
- 
+
 ```html del={1} ins={2} title="index.html"
 <div class="tc-{color}">...</div>
 <div class="c-{color}">...</div>
 ```
 
+---
+
 ## Upgrade
 
-
+Get the latest version of Yumma CSS:
 
 ```bash
 pnpm up yummacss@latest
