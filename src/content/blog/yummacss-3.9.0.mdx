@@ -2,30 +2,30 @@ export const meta = {
   authors: ["Renildo"],
   cover: "~",
   date: "2026-01-24",
-  description: "We've added support for negative values, new pseudo-class and pseudo-element variants, and expanded utilities. There have also been dependency changes.",
+  description: "Introduction of negative values, new pseudo-class & pseudo-element variants, & expanded utility sets.",
   title: "Yumma CSS 3.9"
 };
 
-**This update might change existing features, make sure you check out the [release notes](https://github.com/yummacss/yummacss/releases/tag/v3.9.0) before upgrading.**
+**This update involves significant breaking changes across the codebase. We recommend upgrading with caution and thoroughly testing your implementation, as existing features will likely break.**
 
 ---
 
 ## Breaking changes
 
-This version introduces some breaking changes that you should be aware of before upgrading.
+This version introduces several significant updates & structural changes.
 
-## API is now called Core
+## Package rename
 
-We've renamed the `@yummacss/api` package to `@yummacss/core`. The name "core" better represents the package as the foundation of Yumma CSS, while avoiding potential confusion with other types of APIs.
+The `@yummacss/api` package is renamed to `@yummacss/core`. This foundation better represents its role in the ecosystem.
 
 ```bash title="Terminal"
 pnpm remove @yummacss/api
 pnpm add @yummacss/core
 ```
 
-To avoid naming collisions and improve consistency, we've renamed two utility prefixes:
+To improve consistency, two utility prefixes are renamed:
 
-### Box Shadow
+### Box shadow
 
 ```html del={1} ins={2} title="index.html"
 <div class="bs-*">...</div>
@@ -41,15 +41,15 @@ To avoid naming collisions and improve consistency, we've renamed two utility pr
 
 ---
 
-## New pseudo-variants
+## Pseudo-variants
 
-This release introduces highly requested pseudo-class and pseudo-element variants that give you even more control over your styling.
+This release adds support for pseudo-classes & pseudo-elements.
 
 ### Pseudo-elements
 
-You can now style `::before`, `::after`, `::selection`, and `::placeholder` elements directly using the new variants.
+Style `::before`, `::after`, `::selection`, & `::placeholder` directly.
 
-The `s::*` variant lets you customize text selection styling:
+The `s::*` variant customizes text selection styling:
 
 <Preview>
   <p className="s::bg-indigo-4 s::c-white c-black">Select this text to see custom selection colors!</p>
@@ -59,7 +59,7 @@ The `s::*` variant lets you customize text selection styling:
 <p class="s::bg-indigo-4 s::c-white c-black">Select this text to see custom selection colors!</p>
 ```
 
-And the `p::*` variant styles placeholder text in form inputs:
+The `p::*` variant styles placeholder text:
 
 <Preview>
   <input className="p::c-red-4 p::fs-i bw-1 bc-red-4 br-0 p-3 w-full" placeholder="I said, enter your email!" />
@@ -71,7 +71,7 @@ And the `p::*` variant styles placeholder text in form inputs:
 
 ### Pseudo-classes
 
-We've added `fv:*` for `:focus-visible` and `fw:*` for `:focus-within`, giving you more precise control over focus states.
+New `fv:*` for `:focus-visible` & `fw:*` for `:focus-within` variants.
 
 <Preview>
   <button className="fv:ow-2 fv:oc-indigo p-px bg-indigo c-white br-0">
@@ -85,7 +85,7 @@ We've added `fv:*` for `:focus-visible` and `fw:*` for `:focus-within`, giving y
 </button>
 ```
 
-The `fw:*` variant is perfect for form containers:
+The `fw:*` variant targets containers when a child has focus:
 
 <Preview>
   <div className="fw:bc-indigo bw-2 bc-silver p-px br-0">
@@ -101,7 +101,7 @@ The `fw:*` variant is perfect for form containers:
 
 ## Touch device support
 
-The new `pc:*` media query variant targets devices with coarse pointer input (touch screens).
+The `pc:*` media query variant targets devices with coarse pointer input.
 
 <Preview>
   <button className="p-px pc:p-6 bg-indigo c-white br-0">
@@ -115,39 +115,43 @@ The new `pc:*` media query variant targets devices with coarse pointer input (to
 </button>
 ```
 
-## Extended cursor utilities
+## Cursor utilities
 
-We've added 11 new cursor values to help you create more intuitive interactions:
+New cursor values are added for enhanced interaction feedback.
 
-<Reference category="interactivity" name="cursor" />
+```html "c-*"
+<div class="c-*">...</div>
+```
 
 ## Touch action utilities
 
-Control how touch gestures behave with the new `ta-*` utilities that support all 9 `touch-action` values.
+New `ta-*` utilities support all `touch-action` values.
 
-<Reference category="interactivity" name="touch-action" />
+```html "ta-*"
+<div class="ta-*">...</div>
+```
 
-## Transform enhancements
+## Transform updates
 
-### Extended rotation range
+### Rotation range
 
-The `t-r-*` utility now supports rotation from 0 to 360 degrees in steps of 5, giving you much more flexibility.
+The `t-r-*` utility now ranges from 0 to 360 degrees.
 
-<Reference category="transform" name="rotate" />
+```html "t-r-*"
+<div class="t-r-*">...</div>
+```
 
 ### Translate utilities
 
-New `t-tx-*` and `t-ty-*` utilities make centering elements easier with `half` and `full` values.
+New `t-tx-*` & `t-ty-*` utilities simplify horizontal & vertical centering.
 
-<Reference category="transform" name="translate-x" />
+```html "t-tx-*" "t-ty-*"
+<div class="t-tx-* t-ty-*">...</div>
+```
 
-Translate utilities are also available for `y` axis.
+## Position auto support
 
-<Reference category="transform" name="translate-y" />
-
-## Positioning with auto
-
-You can now use `auto` with `b-*`, `i-*`, `ix-*`, `iy-*`, `l-*`, `r-*`, and `t-*` utilities.
+The `auto` value is supported for `b-*`, `i-*`, `ix-*`, `iy-*`, `l-*`, `r-*`, & `t-*` utilities.
 
 <Preview>
   <div className="p-r">
@@ -161,9 +165,9 @@ You can now use `auto` with `b-*`, `i-*`, `ix-*`, `iy-*`, `l-*`, `r-*`, and `t-*
 </div>
 ```
 
-## Negative value support
+## Negative values
 
-One of the most requested features is here! You can now use negative values with the `--` syntax.
+Negative values are supported via the `--` syntax.
 
 <Preview>
   <div className="c-white d-f fs-sm jc-c">
@@ -185,11 +189,9 @@ One of the most requested features is here! You can now use negative values with
 </div>
 ```
 
-This works with any utility that accepts numeric values like margins, positioning, and transforms.
+## Logical properties
 
-## Improved margin and padding
-
-Under the hood, we've updated `mx-*`, `my-*`, `px-*`, and `py-*` utilities to use logical properties (`margin-inline`, `margin-block`, `padding-inline`, `padding-block`). This provides better support for international layouts and different writing modes, with no behavior changes for standard left-to-right layouts.
+Utility sets for `mx-*`, `my-*`, `px-*`, & `py-*` now use logical properties (`margin-inline`, `margin-block`, `padding-inline`, `padding-block`).
 
 ```css del={1-4, 6-9} ins={11-13, 15-17} title="out.css"
 .mx-4 {
@@ -215,8 +217,8 @@ Under the hood, we've updated `mx-*`, `my-*`, `px-*`, and `py-*` utilities to us
 
 ## Upgrade
 
-
+Get the latest version of Yumma CSS:
 
 ```bash
-pnpm install yummacss@latest
+pnpm up yummacss@latest
 ```
