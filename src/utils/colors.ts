@@ -17,7 +17,24 @@ export const SHADE_LABELS = [
   "12",
 ];
 
-// Color families with their base RGB values
+// Legacy shade labels (from older releases)
+export const LEGACY_SHADE_LABELS = [
+  "6",
+  "5",
+  "4",
+  "3",
+  "2",
+  "1",
+  "Base",
+  "1",
+  "2",
+  "3",
+  "4",
+  "5",
+  "6",
+];
+
+// for search purposes!
 export const COLOR_FAMILIES: { name: string; color: string }[] = [
   { name: "Red", color: "rgb(215, 61, 61)" },
   { name: "Orange", color: "rgb(224, 104, 20)" },
@@ -35,12 +52,15 @@ export const COLOR_FAMILIES: { name: string; color: string }[] = [
 ];
 
 // Generate shades for a color (lighter to darker)
-export function generateShades(color: string): string[] {
-  const percentage = 14;
+export function generateShades(
+  color: string,
+  whitePercentage = 14,
+  blackPercentage = 14,
+): string[] {
   const shades: string[] = [];
 
   for (let i = 1; i <= 6; i++) {
-    const weight = (7 - i) * percentage;
+    const weight = (7 - i) * whitePercentage;
     const mixedColor = tinycolor.mix(color, "white", weight);
     shades.push(mixedColor.toHexString());
   }
@@ -48,7 +68,7 @@ export function generateShades(color: string): string[] {
   shades.push(tinycolor(color).toHexString()); // Base
 
   for (let i = 1; i <= 6; i++) {
-    const weight = i * percentage;
+    const weight = i * blackPercentage;
     const mixedColor = tinycolor.mix(color, "black", weight);
     shades.push(mixedColor.toHexString());
   }
