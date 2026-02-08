@@ -2,106 +2,49 @@ export const meta = {
   authors: ["Renildo"],
   cover: "~",
   date: "2024-10-11",
-  description: "We've got another new one coming your way! This new version is going to give you a lot more control over Border, Outline, and other utilities. It'll also improve the default rules in the base styles, along with a few other things.",
+  description: "More control over Border, Outline, & other, base styles & other improvements.",
   title: "Yumma CSS 2.1"
 };
 
-**This update might change existing features, make sure you check out the [release notes](https://github.com/yummacss/yummacss/releases/tag/v1.1.0).**
+**This update involves some destructive changes. We recommend reviewing your project as some existing styles might be affected.**
 
 ---
 
 ## All-new utilities
 
-We're adding a few more utilities to Yumma CSS v2.1.0. Here are a few of the most notable ones:
+Yumma CSS v2.1.0 introduces several new utilities for improved design precision.
 
 ### Align Content
 
-<LegacyTable
-  data={[
-    {
-      className: "ac-b",
-      properties: ["align-content: baseline;"],
-    },
-  ]}
-/>
+| Utility | Property             |
+|---------|----------------------|
+| `ac-b`   | `align-content: baseline;` |
 
 ### Align Items
 
-<LegacyTable
-  data={[
-    {
-      className: "ai-b",
-      properties: ["align-items: baseline;"],
-    },
-  ]}
-/>
+| Utility | Property           |
+|---------|--------------------|
+| `ai-b`   | `align-items: baseline;` |
 
 ### Cursor
 
-<LegacyTable
-  data={[
-    {
-      className: "c-cr",
-      properties: ["col-resize"],
-    },
-    {
-      className: "c-d",
-      properties: ["default"],
-    },
-    {
-      className: "c-ner",
-      properties: ["ne-resize"],
-    },
-    {
-      className: "c-neswr",
-      properties: ["nesw-resize"],
-    },
-    {
-      className: "c-none",
-      properties: ["none"],
-    },
-    {
-      className: "c-nwr",
-      properties: ["nw-resize"],
-    },
-    {
-      className: "c-nwser",
-      properties: ["nwse-resize"],
-    },
-    {
-      className: "c-pr",
-      properties: ["progress"],
-    },
-    {
-      className: "c-rs",
-      properties: ["row-resize"],
-    },
-    {
-      className: "c-sr",
-      properties: ["s-resize"],
-    },
-    {
-      className: "c-ser",
-      properties: ["se-resize"],
-    },
-    {
-      className: "c-swr",
-      properties: ["sw-resize"],
-    },
-    {
-      className: "c-wr",
-      properties: ["w-resize"],
-    },
-    {
-      className: "c-zi",
-      properties: ["zoom-in"],
-    },
-    {
-      className: "c-zo",
-      properties: ["zoom-out"],
-    },
-  ]}
-/>
+| Utility | Property     |
+|---------|--------------|
+| `c-cr`    | `col-resize`   |
+| `c-d`     | `default`      |
+| `c-ner`   | `ne-resize`    |
+| `c-neswr` | `nesw-resize`  |
+| `c-none`  | `none`         |
+| `c-nwr`   | `nw-resize`    |
+| `c-nwser` | `nwse-resize`  |
+| `c-pr`    | `progress`     |
+| `c-rs`    | `row-resize`   |
+| `c-sr`    | `s-resize`     |
+| `c-ser`   | `se-resize`    |
+| `c-swr`   | `sw-resize`    |
+| `c-wr`    | `w-resize`     |
+| `c-zi`    | `zoom-in`      |
+| `c-zo`    | `zoom-out`     |
 
 ### Border Radius
 
@@ -113,32 +56,20 @@ We're adding a few more utilities to Yumma CSS v2.1.0. Here are a few of the mos
 
   <TabsPanel value="v2.1">
     In this context, the base value is `0.25rem`.
-    <LegacyTable
-      classPrefix="rad-"
-      propNames={["border-radius"]}
-      incrementValue={0.25}
-      range={8}
-      unit="rem"
-      additionalClasses={[
-        { name: "full", value: "100%" },
-        { name: "half", value: "50%" },
-      ]}
-    />
+    ```html
+    <div class="rad-[0/8]">...</div>
+    <div class="rad-full">...</div>
+    <div class="rad-half">...</div>
+    ```
   </TabsPanel>
 
   <TabsPanel value="v2.0">
     In this context, the base value is `4px`.
-    <LegacyTable
-      classPrefix="rad-"
-      propNames={["border-radius"]}
-      incrementValue={4}
-      range={8}
-      unit="px"
-      additionalClasses={[
-        { name: "full", value: "100%" },
-        { name: "half", value: "50%" },
-      ]}
-    />
+    ```html
+    <div class="rad-[0/8]">...</div>
+    <div class="rad-full">...</div>
+    <div class="rad-half">...</div>
+    ```
   </TabsPanel>
 </Tabs>
 
@@ -151,31 +82,20 @@ We're adding a few more utilities to Yumma CSS v2.1.0. Here are a few of the mos
     </TabsList>
 
   <TabsPanel value="v2.1">
-    In this context, the `f-1` for example is a shorthand to `flex: 1 1 0%;`
-    <LegacyTable
-      classPrefix="f-"
-      excludeZero
-      propNames={["flex"]}
-      incrementName="%i %i 0%"
-      incrementValue={1}
-      range={8}
-      additionalClasses={[
-        { name: "auto", value: "1 1 auto" },
-        { name: "none", value: "none" },
-      ]}
-    />
+    In this context, `f-1` is a shorthand for `flex: 1 1 0%;`.
+    ```html
+    <div class="f-[1/8]">...</div>
+    <div class="f-auto">...</div>
+    <div class="f-none">...</div>
+    ```
   </TabsPanel>
 
   <TabsPanel value="v2.0">
-    In this context, the `f-1` for example is a shorthand to `flex: 1 1 0;`
-    <LegacyTable
-      classPrefix="f-"
-      excludeZero
-      propNames={["flex"]}
-      incrementValue={1}
-      range={8}
-      additionalClasses={[{ name: "none", value: "none" }]}
-    />
+    In this context, `f-1` is a shorthand for `flex: 1 1 0;`.
+    ```html
+    <div class="f-[1/8]">...</div>
+    <div class="f-none">...</div>
+    ```
   </TabsPanel>
 </Tabs>
 
@@ -188,58 +108,17 @@ We're adding a few more utilities to Yumma CSS v2.1.0. Here are a few of the mos
     </TabsList>
 
   <TabsPanel value="v2.1">
-    In this context, the sequence is always constant, starting from `1px` to `8px`.
-    <LegacyTable
-      classPrefix="b-"
-      propNames={["border-width"]}
-      incrementValue={1}
-      range={8}
-      unit="px"
-    />
+    In this context, values range from `1px` to `8px`.
+    ```html
+    <div class="b-[1/8]">...</div>
+    ```
   </TabsPanel>
 
   <TabsPanel value="v2.0">
-    In this context, the sequence is not constant, starting from `0px` to `14px`.
-    <LegacyTable
-      data={[
-        {
-          className: "b-0",
-          properties: ["border-width: 0px;"],
-        },
-        {
-          className: "b-1",
-          properties: ["border-width: 1px;"],
-        },
-        {
-          className: "b-2",
-          properties: ["border-width: 2px;"],
-        },
-        {
-          className: "b-3",
-          properties: ["border-width: 4px;"],
-        },
-        {
-          className: "b-4",
-          properties: ["border-width: 6px;"],
-        },
-        {
-          className: "b-5",
-          properties: ["border-width: 8px;"],
-        },
-        {
-          className: "b-6",
-          properties: ["border-width: 10px;"],
-        },
-        {
-          className: "b-7",
-          properties: ["border-width: 12px;"],
-        },
-        {
-          className: "b-8",
-          properties: ["border-width: 14px;"],
-        },
-      ]}
-    />
+    In this context, values range from `0px` to `14px`.
+    ```html
+    <div class="b-[0/8]">...</div>
+    ```
   </TabsPanel>
 </Tabs>
 
@@ -253,24 +132,16 @@ We're adding a few more utilities to Yumma CSS v2.1.0. Here are a few of the mos
 
   <TabsPanel value="v2.1">
     In this context, the base value is `0.25rem`.
-    <LegacyTable
-      classPrefix="oo-"
-      propNames={["outline-offset"]}
-      incrementValue={1}
-      range={4}
-      unit="px"
-    />
+    ```html
+    <div class="oo-[0/4]">...</div>
+    ```
   </TabsPanel>
 
   <TabsPanel value="v2.0">
     In this context, the base value is `4px`.
-    <LegacyTable
-      classPrefix="oo-"
-      propNames={["outline-offset"]}
-      incrementValue={4}
-      range={4}
-      unit="px"
-    />
+    ```html
+    <div class="oo-[0/4]">...</div>
+    ```
   </TabsPanel>
 </Tabs>
 
@@ -284,24 +155,16 @@ We're adding a few more utilities to Yumma CSS v2.1.0. Here are a few of the mos
 
   <TabsPanel value="v2.1">
     In this context, the base value is `0.25rem`.
-    <LegacyTable
-      classPrefix="ow-"
-      propNames={["outline-width"]}
-      incrementValue={1}
-      range={4}
-      unit="px"
-    />
+    ```html
+    <div class="ow-[0/4]">...</div>
+    ```
   </TabsPanel>
 
   <TabsPanel value="v2.0">
     In this context, the base value is `4px`.
-    <LegacyTable
-      classPrefix="ow-"
-      propNames={["outline-width"]}
-      incrementValue={4}
-      range={4}
-      unit="px"
-    />
+    ```html
+    <div class="ow-[0/4]">...</div>
+    ```
   </TabsPanel>
 </Tabs>
 
@@ -311,15 +174,15 @@ We're adding a few more utilities to Yumma CSS v2.1.0. Here are a few of the mos
 
 So buttons can act more like buttons.
 
-```scss mark={2} title="_base.scss"
+```scss mark={2}
 button {
   cursor: pointer;
 }
 ```
 
-New `font-size: inherit` and `font-weight: inherit` default rules.
+New `font-size: inherit` & `font-weight: inherit` default rules.
 
-```scss mark={8-9} title="_base.scss"
+```scss mark={8-9}
 h1,
 h2,
 h3,
@@ -337,7 +200,7 @@ p {
 
 ### Font Size
 
-We added a base utility: `fs-b`, and a `fs-9xl` utility variant.
+Added a base utility: `fs-b`, & a `fs-9xl` utility variant.
 
 <Tabs defaultValue="v2.1">
   <TabsList>
@@ -347,90 +210,32 @@ We added a base utility: `fs-b`, and a `fs-9xl` utility variant.
 
   <TabsPanel value="v2.1">
     In this context, the base value is `0.75rem`.
-    <LegacyTable
-      data={[
-        {
-          className: "fs-xs",
-          properties: ["font-size: 0.75rem;"],
-        },
-        {
-          className: "fs-b",
-          properties: ["font-size: 1rem;"],
-        },
-        {
-          className: "fs-sm",
-          properties: ["font-size: 1.5rem;"],
-        },
-        {
-          className: "fs-md",
-          properties: ["font-size: 2.25rem;"],
-        },
-        {
-          className: "fs-lg",
-          properties: ["font-size: 3rem;"],
-        },
-        {
-          className: "fs-xl",
-          properties: ["font-size: 3.75rem;"],
-        },
-        {
-          className: "fs-xxl",
-          properties: ["font-size: 4.5rem;"],
-        },
-        {
-          className: "fs-3xl",
-          properties: ["font-size: 5.25rem;"],
-        },
-        {
-          className: "fs-6xl",
-          properties: ["font-size: 6rem;"],
-        },
-        {
-          className: "fs-9xl",
-          properties: ["font-size: 6.75rem;"],
-        },
-      ]}
-    />
+    | Utility | Property           |
+    |---------|--------------------|
+    | `fs-xs`  | `font-size: 0.75rem;` |
+    | `fs-b`   | `font-size: 1rem;`    |
+    | `fs-sm`  | `font-size: 1.5rem;` |
+    | `fs-md`  | `font-size: 2.25rem;` |
+    | `fs-lg`  | `font-size: 3rem;` |
+    | `fs-xl`  | `font-size: 3.75rem;` |
+    | `fs-xxl` | `font-size: 4.5rem;` |
+    | `fs-3xl` | `font-size: 5.25rem;` |
+    | `fs-6xl` | `font-size: 6rem;` |
+    | `fs-9xl` | `font-size: 6.75rem;` |
   </TabsPanel>
 
   <TabsPanel value="v2.0">
     In this context, the base value is `16px`.
-    <LegacyTable
-      data={[
-        {
-          className: "fs-xs",
-          properties: ["font-size: 12px;"],
-        },
-        {
-          className: "fs-sm",
-          properties: ["font-size: 14.4px;"],
-        },
-        {
-          className: "fs-md",
-          properties: ["font-size: 16px;"],
-        },
-        {
-          className: "fs-lg",
-          properties: ["font-size: 19.2px;"],
-        },
-        {
-          className: "fs-xl",
-          properties: ["font-size: 23.04px;"],
-        },
-        {
-          className: "fs-xxl",
-          properties: ["font-size: 30.08px;"],
-        },
-        {
-          className: "fs-3xl",
-          properties: ["font-size: 35.52px;"],
-        },
-        {
-          className: "fs-6xl",
-          properties: ["font-size: 58.56px;"],
-        },
-      ]}
-    />
+    | Utility | Property           |
+    |---------|--------------------|
+    | `fs-xs`  | `font-size: 12px;` |
+    | `fs-sm`  | `font-size: 14.4px;` |
+    | `fs-md`  | `font-size: 16px;` |
+    | `fs-lg`  | `font-size: 19.2px;` |
+    | `fs-xl`  | `font-size: 23.04px;` |
+    | `fs-xxl` | `font-size: 30.08px;` |
+    | `fs-3xl` | `font-size: 35.52px;` |
+    | `fs-6xl` | `font-size: 58.56px;` |
   </TabsPanel>
 </Tabs>
 
@@ -438,7 +243,7 @@ We added a base utility: `fs-b`, and a `fs-9xl` utility variant.
 
 ## Upgrade
 
-
+Get the latest version of Yumma CSS from npm or pnpm:
 
 ```bash
 pnpm add yummacss@latest

@@ -293,22 +293,6 @@ summary {
   bottom: 1rem;
 }
 
-.b-5 {
-  bottom: 1.25rem;
-}
-
-.b-6 {
-  bottom: 1.5rem;
-}
-
-.b-7 {
-  bottom: 1.75rem;
-}
-
-.b-8 {
-  bottom: 2rem;
-}
-
 .b\:\:bg-indigo\/10:before {
   background-color: #6366f11a;
 }
