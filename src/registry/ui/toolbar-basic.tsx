@@ -1,5 +1,3 @@
-"use client";
-
 import { Separator } from "@base-ui/react/separator";
 import { Toggle } from "@base-ui/react/toggle";
 import { ToggleGroup } from "@base-ui/react/toggle-group";
@@ -10,7 +8,6 @@ import {
   TextStrikethroughIcon,
   TextUnderlineIcon,
 } from "@phosphor-icons/react";
-import { motion } from "motion/react";
 
 export default function ExampleToolbar() {
   return (
@@ -26,17 +23,9 @@ export default function ExampleToolbar() {
                 : "bg-transparent c-slate-8 h:bg-silver-1 h:c-slate-10"
             }`
           }
-          render={(props) => (
-            <motion.button
-              type="button"
-              {...props}
-              whileTap={{ y: 1 }}
-              transition={{ type: "spring", stiffness: 800, damping: 35 }}
-            >
-              <TextBolderIcon size={18} weight="bold" />
-            </motion.button>
-          )}
-        />
+        >
+          <TextBolderIcon size={18} weight="bold" />
+        </Toggle>
         <Toggle
           aria-label="Italic"
           value="italic"
@@ -47,17 +36,9 @@ export default function ExampleToolbar() {
                 : "bg-transparent c-slate-8 h:bg-silver-1 h:c-slate-10"
             }`
           }
-          render={(props) => (
-            <motion.button
-              type="button"
-              {...props}
-              whileTap={{ y: 1 }}
-              transition={{ type: "spring", stiffness: 800, damping: 35 }}
-            >
-              <TextItalicIcon size={18} weight="bold" />
-            </motion.button>
-          )}
-        />
+        >
+          <TextItalicIcon size={18} weight="bold" />
+        </Toggle>
         <Toggle
           aria-label="Underline"
           value="underline"
@@ -68,17 +49,9 @@ export default function ExampleToolbar() {
                 : "bg-transparent c-slate-8 h:bg-silver-1 h:c-slate-10"
             }`
           }
-          render={(props) => (
-            <motion.button
-              type="button"
-              {...props}
-              whileTap={{ y: 1 }}
-              transition={{ type: "spring", stiffness: 800, damping: 35 }}
-            >
-              <TextUnderlineIcon size={18} weight="bold" />
-            </motion.button>
-          )}
-        />
+        >
+          <TextUnderlineIcon size={18} weight="bold" />
+        </Toggle>
         <Toggle
           aria-label="Strikethrough"
           value="strikethrough"
@@ -89,17 +62,9 @@ export default function ExampleToolbar() {
                 : "bg-transparent c-slate-8 h:bg-silver-1 h:c-slate-10"
             }`
           }
-          render={(props) => (
-            <motion.button
-              type="button"
-              {...props}
-              whileTap={{ y: 1 }}
-              transition={{ type: "spring", stiffness: 800, damping: 35 }}
-            >
-              <TextStrikethroughIcon size={18} weight="bold" />
-            </motion.button>
-          )}
-        />
+        >
+          <TextStrikethroughIcon size={18} weight="bold" />
+        </Toggle>
       </ToggleGroup>
 
       <Separator orientation="vertical" className="w-px h-5 bg-silver-3" />
