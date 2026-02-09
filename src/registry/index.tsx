@@ -31,7 +31,6 @@ import SeparatorBasic from "./ui/separator-basic";
 import SliderBasic from "./ui/slider-basic";
 import SwitchBasic from "./ui/switch-basic";
 import TabsBasic from "./ui/tabs-basic";
-import ToastBasic from "./ui/toast-basic";
 import ToggleBasic from "./ui/toggle-basic";
 import ToggleGroupBasic from "./ui/toggle-group-basic";
 import ToolbarBasic from "./ui/toolbar-basic";
@@ -99,8 +98,6 @@ export const components: Record<string, ComponentType> = {
   "switch-basic": SwitchBasic,
   // Tabs
   "tabs-basic": TabsBasic,
-  // Toast
-  "toast-basic": ToastBasic,
   // Toggle
   "toggle-basic": ToggleBasic,
   // Toggle Group
