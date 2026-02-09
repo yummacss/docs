@@ -1228,6 +1228,11 @@ summary {
   height: 6.5rem;
 }
 
+.d-3 {
+  width: .75rem;
+  height: .75rem;
+}
+
 .d-30 {
   width: 7.5rem;
   height: 7.5rem;

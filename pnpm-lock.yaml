@@ -11,6 +11,9 @@ importers:
       '@base-ui/react':
         specifier: ^1.1.0
         version: 1.1.0(@types/react@19.2.10)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      '@expressive-code/plugin-collapsible-sections':
+        specifier: ^0.41.6
+        version: 0.41.6
       '@fontsource/esteban':
         specifier: ^5.2.7
         version: 5.2.7
@@ -393,6 +396,9 @@ packages:
 
   '@expressive-code/core@0.41.6':
     resolution: {integrity: sha512-FvJQP+hG0jWi/FLBSmvHInDqWR7jNANp9PUDjdMqSshHb0y7sxx3vHuoOr6SgXjWw+MGLqorZyPQ0aAlHEok6g==}
+
+  '@expressive-code/plugin-collapsible-sections@0.41.6':
+    resolution: {integrity: sha512-LxSa49aziWKgpGoOoZlTbXW1V1/mEPyxKb+J9JFgUtTizXNKX363uiCHcKQYzSLmIN7HII5WxF+uArGHwb+X+w==}
 
   '@expressive-code/plugin-frames@0.41.6':
     resolution: {integrity: sha512-d+hkSYXIQot6fmYnOmWAM+7TNWRv/dhfjMsNq+mIZz8Tb4mPHOcgcfZeEM5dV9TDL0ioQNvtcqQNuzA1sRPjxg==}
@@ -2225,6 +2231,10 @@ snapshots:
       postcss-nested: 6.2.0(postcss@8.5.6)
       unist-util-visit: 5.1.0
       unist-util-visit-parents: 6.0.2
+
+  '@expressive-code/plugin-collapsible-sections@0.41.6':
+    dependencies:
+      '@expressive-code/core': 0.41.6
 
   '@expressive-code/plugin-frames@0.41.6':
     dependencies:

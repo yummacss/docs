@@ -1,0 +1,176 @@
+"use client";
+
+import { Checkbox } from "@base-ui/react/checkbox";
+import { CheckboxGroup } from "@base-ui/react/checkbox-group";
+import { CheckIcon, MinusIcon } from "@phosphor-icons/react";
+import { useId, useState } from "react";
+
+const analytics = ["pageviews", "sessions"];
+const marketing = ["campaigns", "newsletters"];
+
+export default function ExampleCheckboxGroup() {
+  const analyticsId = useId();
+  const marketingId = useId();
+  const [analyticsValue, setAnalyticsValue] = useState<string[]>([]);
+  const [marketingValue, setMarketingValue] = useState<string[]>([]);
+
+  return (
+    <div className="d-f fd-c g-3 c-slate-10">
+      {/* Analytics Group */}
+      <CheckboxGroup
+        aria-labelledby={analyticsId}
+        value={analyticsValue}
+        onValueChange={setAnalyticsValue}
+        allValues={analytics}
+        className="d-f fd-c g-2"
+      >
+        {/* biome-ignore lint/a11y/noLabelWithoutControl: Base UI handles this */}
+        <label className="d-f ai-c g-2 fs-sm fw-600" id={analyticsId}>
+          <Checkbox.Root
+            name="analytics"
+            parent
+            className={(state) =>
+              `d-f d-4 ai-c jc-c br-1 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+                state.checked || state.indeterminate
+                  ? "bg-indigo"
+                  : "bw-1 bc-silver-3 bg-transparent"
+              }`
+            }
+          >
+            <Checkbox.Indicator
+              className="d-f c-white"
+              render={(props, state) => (
+                <span {...props}>
+                  {state.indeterminate ? (
+                    <MinusIcon size={12} weight="bold" />
+                  ) : (
+                    <CheckIcon size={12} weight="bold" />
+                  )}
+                </span>
+              )}
+            />
+          </Checkbox.Root>
+          Analytics
+        </label>
+
+        <div className="d-f fd-c g-2 ml-6">
+          {/* biome-ignore lint/a11y/noLabelWithoutControl: Base UI handles this */}
+          <label className="d-f ai-c g-2 fs-sm fw-600">
+            <Checkbox.Root
+              value="pageviews"
+              className={(state) =>
+                `d-f d-4 ai-c jc-c br-1 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+                  state.checked
+                    ? "bg-indigo"
+                    : "bw-1 bc-silver-3 bg-transparent"
+                }`
+              }
+            >
+              <Checkbox.Indicator className="d-f c-white">
+                <CheckIcon size={12} weight="bold" />
+              </Checkbox.Indicator>
+            </Checkbox.Root>
+            Page views
+          </label>
+
+          {/* biome-ignore lint/a11y/noLabelWithoutControl: Base UI handles this */}
+          <label className="d-f ai-c g-2 fs-sm fw-600">
+            <Checkbox.Root
+              value="sessions"
+              className={(state) =>
+                `d-f d-4 ai-c jc-c br-1 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+                  state.checked
+                    ? "bg-indigo"
+                    : "bw-1 bc-silver-3 bg-transparent"
+                }`
+              }
+            >
+              <Checkbox.Indicator className="d-f c-white">
+                <CheckIcon size={12} weight="bold" />
+              </Checkbox.Indicator>
+            </Checkbox.Root>
+            Sessions
+          </label>
+        </div>
+      </CheckboxGroup>
+
+      {/* Marketing Group */}
+      <CheckboxGroup
+        aria-labelledby={marketingId}
+        value={marketingValue}
+        onValueChange={setMarketingValue}
+        allValues={marketing}
+        className="d-f fd-c g-2"
+      >
+        {/* biome-ignore lint/a11y/noLabelWithoutControl: Base UI handles this */}
+        <label className="d-f ai-c g-2 fs-sm fw-600" id={marketingId}>
+          <Checkbox.Root
+            name="marketing"
+            parent
+            className={(state) =>
+              `d-f d-4 ai-c jc-c br-1 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+                state.checked || state.indeterminate
+                  ? "bg-indigo"
+                  : "bw-1 bc-silver-3 bg-transparent"
+              }`
+            }
+          >
+            <Checkbox.Indicator
+              className="d-f c-white"
+              render={(props, state) => (
+                <span {...props}>
+                  {state.indeterminate ? (
+                    <MinusIcon size={12} weight="bold" />
+                  ) : (
+                    <CheckIcon size={12} weight="bold" />
+                  )}
+                </span>
+              )}
+            />
+          </Checkbox.Root>
+          Marketing
+        </label>
+
+        <div className="d-f fd-c g-2 ml-6">
+          {/* biome-ignore lint/a11y/noLabelWithoutControl: Base UI handles this */}
+          <label className="d-f ai-c g-2 fs-sm fw-600">
+            <Checkbox.Root
+              value="campaigns"
+              className={(state) =>
+                `d-f d-4 ai-c jc-c br-1 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+                  state.checked
+                    ? "bg-indigo"
+                    : "bw-1 bc-silver-3 bg-transparent"
+                }`
+              }
+            >
+              <Checkbox.Indicator className="d-f c-white">
+                <CheckIcon size={12} weight="bold" />
+              </Checkbox.Indicator>
+            </Checkbox.Root>
+            Campaigns
+          </label>
+
+          {/* biome-ignore lint/a11y/noLabelWithoutControl: Base UI handles this */}
+          <label className="d-f ai-c g-2 fs-sm fw-600">
+            <Checkbox.Root
+              value="newsletters"
+              className={(state) =>
+                `d-f d-4 ai-c jc-c br-1 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+                  state.checked
+                    ? "bg-indigo"
+                    : "bw-1 bc-silver-3 bg-transparent"
+                }`
+              }
+            >
+              <Checkbox.Indicator className="d-f c-white">
+                <CheckIcon size={12} weight="bold" />
+              </Checkbox.Indicator>
+            </Checkbox.Root>
+            Newsletters
+          </label>
+        </div>
+      </CheckboxGroup>
+    </div>
+  );
+}

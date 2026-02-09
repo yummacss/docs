@@ -45,7 +45,6 @@ export const uiSidebarConfig: UISidebarConfig = [
       { title: "Avatar", slug: "avatar" },
       { title: "Button", slug: "button" },
       { title: "Checkbox", slug: "checkbox" },
-      { title: "Checkbox Group", slug: "checkbox-group" },
       { title: "Collapsible", slug: "collapsible" },
       { title: "Combobox", slug: "combobox" },
       { title: "Context Menu", slug: "context-menu" },
