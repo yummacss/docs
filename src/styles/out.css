@@ -1264,6 +1264,11 @@ summary {
   height: 2rem;
 }
 
+.d-9 {
+  width: 2.25rem;
+  height: 2.25rem;
+}
+
 .d-b {
   display: block;
 }
@@ -1578,10 +1583,6 @@ summary {
 
 .fs-xxl {
   font-size: 1.5rem;
-}
-
-.fv\:bc-transparent:focus-visible {
-  border-color: #0000;
 }
 
 .fv\:br-1:focus-visible {
