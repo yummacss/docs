@@ -625,6 +625,10 @@ summary {
   background-color: #e6e9ec;
 }
 
+.bg-slate-12 {
+  background-color: #101316;
+}
+
 .bg-slate-5 {
   background-color: #8f9bab;
 }
@@ -1572,10 +1576,6 @@ summary {
   font-size: 1.5rem;
 }
 
-.fv\:oc-blue-8:focus-visible {
-  outline-color: #1b47a9;
-}
-
 .fv\:oc-indigo:focus-visible {
   outline-color: #6366f1;
 }
@@ -1888,6 +1888,10 @@ summary {
   height: 12.5rem;
 }
 
+.h-56 {
+  height: 14rem;
+}
+
 .h-6 {
   height: 1.5rem;
 }
@@ -2030,6 +2034,10 @@ summary {
 
 .h\:bsh-xl:hover {
   box-shadow: 1px 3px 5px 2px #0000001a;
+}
+
+.h\:c-indigo:hover {
+  color: #6366f1;
 }
 
 .h\:c-slate-10:hover {
