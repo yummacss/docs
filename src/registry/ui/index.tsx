@@ -28,7 +28,11 @@ import ButtonOutlined from "./button-outlined";
 import ButtonPrimary from "./button-primary";
 import ButtonSecondary from "./button-secondary";
 import CheckboxBasic from "./checkbox-basic";
-import CheckboxGroupBasic from "./checkbox-group-basic";
+import CheckboxDetailed from "./checkbox-detailed";
+import CheckboxDisabled from "./checkbox-disabled";
+import CheckboxNestedParent from "./checkbox-nested-parent";
+import CheckboxParent from "./checkbox-parent";
+import CheckboxSizes from "./checkbox-sizes";
 import CollapsibleBasic from "./collapsible-basic";
 import ComboboxBasic from "./combobox-basic";
 import ContextMenuBasic from "./context-menu-basic";
@@ -92,8 +96,11 @@ export const components: Record<string, ComponentType> = {
   "button-disabled": ButtonDisabled,
   // Checkbox
   "checkbox-basic": CheckboxBasic,
-  // Checkbox Group
-  "checkbox-group-basic": CheckboxGroupBasic,
+  "checkbox-detailed": CheckboxDetailed,
+  "checkbox-disabled": CheckboxDisabled,
+  "checkbox-sizes": CheckboxSizes,
+  "checkbox-parent": CheckboxParent,
+  "checkbox-nested-parent": CheckboxNestedParent,
   // Collapsible
   "collapsible-basic": CollapsibleBasic,
   // Combobox

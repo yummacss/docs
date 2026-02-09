@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@base-ui/react": "^1.1.0",
+    "@expressive-code/plugin-collapsible-sections": "^0.41.6",
     "@fontsource/esteban": "^5.2.7",
     "@fontsource/ia-writer-quattro": "^5.2.5",
     "@mdx-js/loader": "^3.1.1",
@@ -62,5 +63,5 @@
     "typescript": "^5.9.3",
     "yummacss": "^3.12.0"
   },
-  "packageManager": "pnpm@10.29.1"
+  "packageManager": "pnpm@10.29.2"
 }
