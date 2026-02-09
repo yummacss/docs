@@ -55,8 +55,7 @@ export default function ExampleAccordion() {
                     stiffness: 500,
                     damping: 30,
                   }}
-                  style={{ display: "block" }}
-                  className="o-h"
+                  className="d-b o-h"
                 />
               )}
             >
