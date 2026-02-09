@@ -361,10 +361,6 @@ summary {
   border-color: #6fe7c8;
 }
 
-.bc-green-7 {
-  border-color: #05b88a;
-}
-
 .bc-indigo {
   border-color: #6366f1;
 }
@@ -439,10 +435,6 @@ summary {
 
 .bc-slate {
   border-color: #64748b;
-}
-
-.bc-slate-4 {
-  border-color: #a5aebc;
 }
 
 .bc-t {
@@ -647,10 +639,6 @@ summary {
 
 .bg-slate-12 {
   background-color: #101316;
-}
-
-.bg-slate-3 {
-  background-color: #bbc2cc;
 }
 
 .bg-slate-4 {
@@ -1051,10 +1039,6 @@ summary {
 
 .c-slate-10 {
   color: #2c333d;
-}
-
-.c-slate-11 {
-  color: #1e232a;
 }
 
 .c-slate-12 {
@@ -1600,10 +1584,6 @@ summary {
   font-size: 1.5rem;
 }
 
-.fv\:oc-green-6:focus-visible {
-  outline-color: #29dcad;
-}
-
 .fv\:oc-indigo:focus-visible {
   outline-color: #6366f1;
 }
@@ -1622,10 +1602,6 @@ summary {
 
 .fv\:oc-red-6:focus-visible {
   outline-color: #ea5560;
-}
-
-.fv\:oc-slate-6:focus-visible {
-  outline-color: #7a879b;
 }
 
 .fv\:oo--1:focus-visible {
@@ -1992,10 +1968,6 @@ summary {
   background-color: #d7f8f0;
 }
 
-.h\:bg-green-8:hover {
-  background-color: #049a73;
-}
-
 .h\:bg-indigo-1:hover {
   background-color: #e6e7fd;
 }
@@ -2046,10 +2018,6 @@ summary {
 
 .h\:bg-silver-2:hover {
   background-color: #e1e3e7;
-}
-
-.h\:bg-slate-4:hover {
-  background-color: #a5aebc;
 }
 
 .h\:bg-slate-7:hover {
