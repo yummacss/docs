@@ -69,7 +69,6 @@ export const uiSidebarConfig: UISidebarConfig = [
       { title: "Slider", slug: "slider" },
       { title: "Switch", slug: "switch" },
       { title: "Tabs", slug: "tabs" },
-      { title: "Toast", slug: "toast" },
       { title: "Toggle", slug: "toggle" },
       { title: "Toggle Group", slug: "toggle-group" },
       { title: "Toolbar", slug: "toolbar" },

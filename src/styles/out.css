@@ -1704,10 +1704,6 @@ summary {
   outline-width: 2px;
 }
 
-.g-0 {
-  gap: 0;
-}
-
 .g-1 {
   gap: .25rem;
 }
@@ -3991,10 +3987,6 @@ summary {
 
 .zi-50 {
   z-index: 50;
-}
-
-.zi-90 {
-  z-index: 90;
 }
 
 @media (pointer: coarse) {
