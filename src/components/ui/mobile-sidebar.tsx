@@ -67,7 +67,7 @@ export default function MobileSidebar({ isOpen, onClose, routeType }: Props) {
 
   return (
     <div
-      className="p-f t-24 l-0 w-full zi-20 lg:d-none btw-1 bc-white/5 bsh-md"
+      className="p-f t-24 l-0 w-full zi-20 lg:d-none btw-1 bc-white/10 bsh-md"
       style={{
         backgroundColor: "#151724",
         height: "calc(100vh - 6rem)",

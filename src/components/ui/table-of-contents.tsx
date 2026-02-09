@@ -60,7 +60,7 @@ export default function TableOfContents() {
   }
 
   return (
-    <aside className="d-none lg:d-b lg:gc-s-3 blw-1 bc-white/5">
+    <aside className="d-none lg:d-b lg:gc-s-3 blw-1 bc-white/10">
       <div
         className="p-st t-24 o-y-auto"
         style={{
@@ -89,7 +89,7 @@ export default function TableOfContents() {
             })}
           </ul>
           {!isBlogPost && (
-            <div className="mt-8 pt-8 btw-1 bc-white/5 d-f fd-c g-3">
+            <div className="mt-8 pt-8 btw-1 bc-white/10 d-f fd-c g-3">
               <EditPage />
             </div>
           )}
