@@ -1009,10 +1009,6 @@ summary {
   color: #d3d7dc;
 }
 
-.c-silver-4 {
-  color: #c6cad1;
-}
-
 .c-silver-8 {
   color: #70757e;
 }
@@ -1031,10 +1027,6 @@ summary {
 
 .c-slate-12 {
   color: #101316;
-}
-
-.c-slate-5 {
-  color: #8f9bab;
 }
 
 .c-slate-6 {
@@ -2046,10 +2038,6 @@ summary {
 
 .h\:c-slate-12:hover {
   color: #101316;
-}
-
-.h\:c-slate-8:hover {
-  color: #485464;
 }
 
 .h\:c-white:hover {

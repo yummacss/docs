@@ -18,7 +18,7 @@ export default function ExampleToggle() {
       render={(props, state) => (
         <motion.button
           type="button"
-          {...props}
+          {...(props as any)}
           whileTap={{ scale: 0.9 }}
           transition={{ type: "spring", stiffness: 800, damping: 35 }}
         >
