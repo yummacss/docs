@@ -176,14 +176,14 @@ const components: MDXComponents = {
     props.className ? (
       <hr {...props} />
     ) : (
-      <hr className="my-8 bc-white/5" {...props} />
+      <hr className="my-8 bc-white/10" {...props} />
     ),
   table: ({ children, ...props }) =>
     props.className ? (
       <table {...props}>{children}</table>
     ) : (
       <div className="o-x-auto my-6">
-        <table className="w-full bc-c bg-transparent bc-white/5" {...props}>
+        <table className="w-full bc-c bg-transparent bc-white/10" {...props}>
           {children}
         </table>
       </div>

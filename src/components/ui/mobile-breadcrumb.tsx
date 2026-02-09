@@ -36,7 +36,7 @@ export default function MobileBreadcrumb() {
   return (
     <>
       <div
-        className={`p-f t-12 r-0 l-0 zi-10 d-b lg:d-none btw-1 ${isSidebarOpen ? "" : "bbw-1"} bc-white/5`}
+        className={`p-f t-12 r-0 l-0 zi-10 d-b lg:d-none btw-1 ${isSidebarOpen ? "" : "bbw-1"} bc-white/10`}
         style={{ backgroundColor: "#151724" }}
       >
         <div className="sm-xxl mx-auto px-6 h-12 d-f ai-c">

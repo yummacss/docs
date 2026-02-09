@@ -21,7 +21,7 @@ export function Stepper({ children }: StepperProps) {
   const childArray = React.Children.toArray(children);
 
   return (
-    <ol className="p-r ml-4 blw-1 bc-white/5">
+    <ol className="p-r ml-4 blw-1 bc-white/10">
       {childArray.map((child, i) => {
         if (React.isValidElement<StepProps & InjectedStepProps>(child)) {
           return React.cloneElement(child, {

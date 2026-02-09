@@ -15,7 +15,7 @@ import { SearchDialog } from "./search-dialog";
 const navbarVariants = cva("p-f l-0 r-0 t-0 zi-10 bbw-1", {
   variants: {
     variant: {
-      default: "lg:bf-b-md bc-white/5",
+      default: "lg:bf-b-md bc-white/10",
       transparent: "bc-transparent",
     },
   },
