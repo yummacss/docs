@@ -15,10 +15,55 @@ pnpm add @base-ui/react motion
 
 ### Basic
 
-<Preview id="alert-dialog-basic" />
+<Tabs defaultValue="preview">
+  <TabsList>
+    <TabsTab value="preview">Preview</TabsTab>
+    <TabsTab value="code">Code</TabsTab>
+  </TabsList>
+  <TabsPanel className="bg-white" value="preview">
+    <Preview className="bw-0" id="alert-dialog-basic" />
+  </TabsPanel>
+  <TabsPanel value="code">
+    ```tsx registry="alert-dialog-basic"
+    ```
+  </TabsPanel>
+</Tabs>
 
-```tsx registry="alert-dialog-basic"
-```
+---
+
+### Verification
+
+<Tabs defaultValue="preview">
+  <TabsList>
+    <TabsTab value="preview">Preview</TabsTab>
+    <TabsTab value="code">Code</TabsTab>
+  </TabsList>
+  <TabsPanel className="bg-white" value="preview">
+    <Preview className="bw-0" id="alert-dialog-verification" />
+  </TabsPanel>
+  <TabsPanel value="code">
+    ```tsx registry="alert-dialog-verification"
+    ```
+  </TabsPanel>
+</Tabs>
+
+---
+
+### Mail
+
+<Tabs defaultValue="preview">
+  <TabsList>
+    <TabsTab value="preview">Preview</TabsTab>
+    <TabsTab value="code">Code</TabsTab>
+  </TabsList>
+  <TabsPanel className="bg-white" value="preview">
+    <Preview className="bw-0" id="alert-dialog-form" />
+  </TabsPanel>
+  <TabsPanel value="code">
+    ```tsx registry="alert-dialog-form"
+    ```
+  </TabsPanel>
+</Tabs>
 
 ## API Reference
 

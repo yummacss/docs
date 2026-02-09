@@ -525,6 +525,10 @@ summary {
   background-color: #e6e7fd;
 }
 
+.bg-indigo-1\/50 {
+  background-color: #e6e7fd80;
+}
+
 .bg-indigo-2 {
   background-color: #d0d1fb;
 }
@@ -2356,6 +2360,10 @@ summary {
   max-width: 100%;
 }
 
+.mb-0 {
+  margin-bottom: 0;
+}
+
 .mb-1 {
   margin-bottom: .25rem;
 }
@@ -2495,6 +2503,10 @@ summary {
 
 .mt-16 {
   margin-top: 4rem;
+}
+
+.mt-3 {
+  margin-top: .75rem;
 }
 
 .mt-4 {
@@ -3015,6 +3027,10 @@ summary {
 
 .pt-24 {
   padding-top: 6rem;
+}
+
+.pt-3 {
+  padding-top: .75rem;
 }
 
 .pt-6 {
@@ -3811,6 +3827,10 @@ summary {
 
 .w-12 {
   width: 3rem;
+}
+
+.w-14 {
+  width: 3.5rem;
 }
 
 .w-16 {

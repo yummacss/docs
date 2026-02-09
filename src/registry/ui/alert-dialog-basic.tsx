@@ -1,6 +1,7 @@
 "use client";
 
 import { AlertDialog } from "@base-ui/react/alert-dialog";
+import { Button } from "@base-ui/react/button";
 import { XIcon } from "@phosphor-icons/react";
 import { AnimatePresence, motion } from "motion/react";
 import * as React from "react";
@@ -10,7 +11,11 @@ export default function ExampleAlertDialog() {
 
   return (
     <AlertDialog.Root open={open} onOpenChange={setOpen}>
-      <AlertDialog.Trigger className="bg-white c-slate-10 br-2 px-3 py-2 fw-600 bsh-xs bw-1 bc-silver-2 us-none tp-c tdu-150 ttf-io h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 c-p b-0">
+      <AlertDialog.Trigger
+        render={
+          <Button className="bg-white c-slate-10 br-2 px-3 py-2 fw-600 bsh-xs bw-1 bc-silver-2 us-none tp-c tdu-150 ttf-io h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 c-p b-0" />
+        }
+      >
         Remove member
       </AlertDialog.Trigger>
       <AnimatePresence>
@@ -22,7 +27,7 @@ export default function ExampleAlertDialog() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  transition={{ duration: 0.15 }}
+                  transition={{ type: "spring", stiffness: 500, damping: 30 }}
                 />
               }
               className="p-f i-0 min-h-dvh bg-black/20"
@@ -34,7 +39,7 @@ export default function ExampleAlertDialog() {
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.95 }}
-                    transition={{ duration: 0.15, ease: "easeOut" }}
+                    transition={{ type: "spring", stiffness: 500, damping: 30 }}
                   />
                 }
                 className="w-96 br-2 bg-white c-slate-12 bsh-lg bw-1 bc-silver-2 o-h"
@@ -44,7 +49,11 @@ export default function ExampleAlertDialog() {
                   <AlertDialog.Title className="fs-sm fw-600 m-0">
                     Are you sure?
                   </AlertDialog.Title>
-                  <AlertDialog.Close className="d-f ai-c jc-c d-7 br-2 bg-transparent b-0 c-p c-slate-6 h:bg-silver-2 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6">
+                  <AlertDialog.Close
+                    render={
+                      <Button className="d-f ai-c jc-c d-7 br-2 bg-transparent b-0 c-p c-slate-6 h:bg-silver-2 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+                    }
+                  >
                     <XIcon size={16} weight="bold" aria-hidden />
                   </AlertDialog.Close>
                 </div>
@@ -55,12 +64,20 @@ export default function ExampleAlertDialog() {
                     their access to all projects.
                   </AlertDialog.Description>
                 </div>
-                <div className="d-f ai-c g-3 px-4 py-3">
-                  <AlertDialog.Close className="bg-red c-white br-2 px-3 py-2 fw-600 bsh-md bw-1 bc-red-7 fv:oc-red-6 us-none tp-c tdu-150 ttf-io h:bg-red-8 fv:ow-2 fv:oo-2 c-p b-0">
-                    Remove
-                  </AlertDialog.Close>
-                  <AlertDialog.Close className="c-slate-10 br-2 px-3 py-2 fw-600 us-none bg-transparent b-0 c-p tp-c tdu-150 ttf-io h:c-slate-12 h:bg-silver-1/55 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6">
+                <div className="d-g gtc-2 g-3 px-4 py-3">
+                  <AlertDialog.Close
+                    render={
+                      <Button className="bg-white c-slate-10 br-2 px-3 py-2 fw-600 bsh-xs bw-1 bc-silver-2 us-none tp-c tdu-150 ttf-io h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 c-p b-0" />
+                    }
+                  >
                     Cancel
+                  </AlertDialog.Close>
+                  <AlertDialog.Close
+                    render={
+                      <Button className="bg-red c-white br-2 px-3 py-2 fw-600 bsh-md bw-1 bc-red-7 fv:oc-red-6 us-none tp-c tdu-150 ttf-io h:bg-red-8 fv:ow-2 fv:oo-2 c-p b-0" />
+                    }
+                  >
+                    Remove
                   </AlertDialog.Close>
                 </div>
               </AlertDialog.Popup>
