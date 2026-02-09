@@ -36,19 +36,25 @@ export const LEGACY_SHADE_LABELS = [
 
 // for search purposes!
 export const COLOR_FAMILIES: { name: string; color: string }[] = [
-  { name: "Red", color: "rgb(215, 61, 61)" },
-  { name: "Orange", color: "rgb(224, 104, 20)" },
-  { name: "Yellow", color: "rgb(211, 161, 7)" },
-  { name: "Green", color: "rgb(31, 177, 85)" },
-  { name: "Teal", color: "rgb(18, 166, 149)" },
-  { name: "Cyan", color: "rgb(5, 164, 191)" },
-  { name: "Blue", color: "rgb(53, 117, 221)" },
-  { name: "Indigo", color: "rgb(89, 92, 217)" },
-  { name: "Violet", color: "rgb(125, 83, 221)" },
-  { name: "Pink", color: "rgb(212, 65, 138)" },
-  { name: "Slate", color: "rgb(63, 63, 78)" },
-  { name: "Gray", color: "rgb(96, 103, 115)" },
-  { name: "Silver", color: "rgb(191, 194, 199)" },
+  { name: "Red", color: "#e63946" },
+  { name: "Orange", color: "#ff6b35" },
+  { name: "Yellow", color: "#ffb81c" },
+  { name: "Lime", color: "#84cc16" },
+  { name: "Mint", color: "#10b981" },
+  { name: "Green", color: "#06d6a0" },
+  { name: "Cyan", color: "#06b6d4" },
+  { name: "Sky", color: "#38bdf8" },
+  { name: "Blue", color: "#2563eb" },
+  { name: "Indigo", color: "#6366f1" },
+  { name: "Violet", color: "#8b5cf6" },
+  { name: "Lavender", color: "#a78bfa" },
+  { name: "Magenta", color: "#d946ef" },
+  { name: "Pink", color: "#ec4899" },
+  { name: "Coral", color: "#ff6f91" },
+  { name: "Zinc", color: "#52525b" },
+  { name: "Gray", color: "#6b7280" },
+  { name: "Slate", color: "#64748b" },
+  { name: "Silver", color: "#9ca3af" },
 ];
 
 // Generate shades for a color (lighter to darker)
