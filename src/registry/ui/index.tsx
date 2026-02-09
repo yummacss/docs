@@ -17,6 +17,16 @@ import AvatarStacked from "./avatar-stacked";
 import AvatarStatus from "./avatar-status";
 import AvatarVerified from "./avatar-verified";
 import ButtonBasic from "./button-basic";
+import ButtonDanger from "./button-danger";
+import ButtonDisabled from "./button-disabled";
+import ButtonGhost from "./button-ghost";
+import ButtonIcon from "./button-icon";
+import ButtonIconOnly from "./button-icon-only";
+import ButtonLink from "./button-link";
+import ButtonLoading from "./button-loading";
+import ButtonOutlined from "./button-outlined";
+import ButtonPrimary from "./button-primary";
+import ButtonSecondary from "./button-secondary";
 import CheckboxBasic from "./checkbox-basic";
 import CheckboxGroupBasic from "./checkbox-group-basic";
 import CollapsibleBasic from "./collapsible-basic";
@@ -70,6 +80,16 @@ export const components: Record<string, ComponentType> = {
   "avatar-stacked": AvatarStacked,
   // Button
   "button-basic": ButtonBasic,
+  "button-primary": ButtonPrimary,
+  "button-secondary": ButtonSecondary,
+  "button-danger": ButtonDanger,
+  "button-outlined": ButtonOutlined,
+  "button-ghost": ButtonGhost,
+  "button-link": ButtonLink,
+  "button-icon": ButtonIcon,
+  "button-icon-only": ButtonIconOnly,
+  "button-loading": ButtonLoading,
+  "button-disabled": ButtonDisabled,
   // Checkbox
   "checkbox-basic": CheckboxBasic,
   // Checkbox Group
