@@ -2,7 +2,7 @@
 
 import { Accordion } from "@base-ui/react/accordion";
 import { CaretDownIcon } from "@phosphor-icons/react";
-import { AnimatePresence, type HTMLMotionProps, motion } from "motion/react";
+import { type HTMLMotionProps, motion } from "motion/react";
 import * as React from "react";
 
 export default function ExampleAccordion() {
@@ -40,27 +40,29 @@ export default function ExampleAccordion() {
                 </motion.span>
               </Accordion.Trigger>
             </Accordion.Header>
-            <AnimatePresence initial={false}>
-              {isOpen && (
-                <Accordion.Panel
-                  keepMounted
-                  render={(props) => (
-                    <motion.div
-                      {...(props as HTMLMotionProps<"div">)}
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.2, ease: "easeOut" }}
-                      className="o-h"
-                    />
-                  )}
-                >
-                  <p className="m-0 pb-4 fs-sm c-slate-6 lh-4">
-                    {item.content}
-                  </p>
-                </Accordion.Panel>
+            <Accordion.Panel
+              keepMounted
+              render={(props) => (
+                <motion.div
+                  {...(props as HTMLMotionProps<"div">)}
+                  initial={false}
+                  animate={
+                    isOpen
+                      ? { height: "auto", opacity: 1 }
+                      : { height: 0, opacity: 0 }
+                  }
+                  transition={{
+                    type: "spring",
+                    stiffness: 500,
+                    damping: 30,
+                  }}
+                  style={{ display: "block" }}
+                  className="o-h"
+                />
               )}
-            </AnimatePresence>
+            >
+              <p className="m-0 pb-4 fs-sm c-slate-6 lh-4">{item.content}</p>
+            </Accordion.Panel>
           </Accordion.Item>
         );
       })}
