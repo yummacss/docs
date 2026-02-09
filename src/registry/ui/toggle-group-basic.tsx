@@ -30,7 +30,7 @@ export default function ExampleToggleGroup() {
           <motion.button
             type="button"
             {...props}
-            whileTap={{ scale: 0.9 }}
+            whileTap={{ y: 1 }}
             transition={{ type: "spring", stiffness: 800, damping: 35 }}
           >
             <ListIcon size={18} weight="bold" />
@@ -51,7 +51,7 @@ export default function ExampleToggleGroup() {
           <motion.button
             type="button"
             {...props}
-            whileTap={{ scale: 0.9 }}
+            whileTap={{ y: 1 }}
             transition={{ type: "spring", stiffness: 800, damping: 35 }}
           >
             <ListBulletsIcon size={18} weight="bold" />
@@ -72,7 +72,7 @@ export default function ExampleToggleGroup() {
           <motion.button
             type="button"
             {...props}
-            whileTap={{ scale: 0.9 }}
+            whileTap={{ y: 1 }}
             transition={{ type: "spring", stiffness: 800, damping: 35 }}
           >
             <DotsNineIcon size={18} weight="bold" />
@@ -93,7 +93,7 @@ export default function ExampleToggleGroup() {
           <motion.button
             type="button"
             {...props}
-            whileTap={{ scale: 0.9 }}
+            whileTap={{ y: 1 }}
             transition={{ type: "spring", stiffness: 800, damping: 35 }}
           >
             <SquaresFourIcon size={18} weight="bold" />

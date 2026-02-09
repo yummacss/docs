@@ -137,10 +137,6 @@ summary {
   background-color: #e1e3e7;
 }
 
-.a\:bg-silver-3:active {
-  background-color: #d3d7dc;
-}
-
 .ac-b {
   align-content: baseline;
 }
@@ -619,10 +615,6 @@ summary {
 
 .bg-silver-3 {
   background-color: #d3d7dc;
-}
-
-.bg-silver-4 {
-  background-color: #c6cad1;
 }
 
 .bg-slate {
@@ -1224,11 +1216,6 @@ summary {
   height: 6.5rem;
 }
 
-.d-3 {
-  width: .75rem;
-  height: .75rem;
-}
-
 .d-30 {
   width: 7.5rem;
   height: 7.5rem;
@@ -1585,10 +1572,6 @@ summary {
   font-size: 1.5rem;
 }
 
-.fv\:br-1:focus-visible {
-  border-radius: .25rem;
-}
-
 .fv\:oc-blue-8:focus-visible {
   outline-color: #1b47a9;
 }
@@ -1615,10 +1598,6 @@ summary {
 
 .fv\:oo--1:focus-visible {
   outline-offset: -1px;
-}
-
-.fv\:oo--2:focus-visible {
-  outline-offset: -2px;
 }
 
 .fv\:oo-1:focus-visible {
@@ -1901,6 +1880,10 @@ summary {
   height: 12rem;
 }
 
+.h-5 {
+  height: 1.25rem;
+}
+
 .h-50 {
   height: 12.5rem;
 }
@@ -1919,6 +1902,10 @@ summary {
 
 .h-8 {
   height: 2rem;
+}
+
+.h-9 {
+  height: 2.25rem;
 }
 
 .h-96 {
@@ -2043,10 +2030,6 @@ summary {
 
 .h\:bsh-xl:hover {
   box-shadow: 1px 3px 5px 2px #0000001a;
-}
-
-.h\:c-blue-8:hover {
-  color: #1b47a9;
 }
 
 .h\:c-slate-10:hover {
@@ -2347,10 +2330,6 @@ summary {
 
 .max-h-fc {
   max-height: fit-content;
-}
-
-.max-h-vh {
-  max-height: 100vh;
 }
 
 .max-w-100 {
@@ -3004,10 +2983,6 @@ summary {
 
 .pr-16 {
   padding-right: 4rem;
-}
-
-.pr-3 {
-  padding-right: .75rem;
 }
 
 .pr-4 {
