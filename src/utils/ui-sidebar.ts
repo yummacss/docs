@@ -37,7 +37,7 @@ export const uiSidebarConfig: UISidebarConfig = [
     ],
   },
   {
-    title: "Base Components",
+    title: "Base components",
     items: [
       { title: "Accordion", slug: "accordion" },
       { title: "Alert Dialog", slug: "alert-dialog" },
