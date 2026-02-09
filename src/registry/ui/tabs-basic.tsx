@@ -1,81 +1,65 @@
+"use client";
+
 import { Tabs } from "@base-ui/react/tabs";
-import {
-  ProjectorScreenChartIcon,
-  ShapesIcon,
-  UserCircleIcon,
-} from "@phosphor-icons/react";
+import { BellIcon, GearIcon, UserIcon } from "@phosphor-icons/react";
+import { motion } from "motion/react";
+import * as React from "react";
+
+const tabs = [
+  { value: "account", label: "Account", icon: UserIcon },
+  { value: "settings", label: "Settings", icon: GearIcon },
+  { value: "notifications", label: "Notifications", icon: BellIcon },
+];
 
 export default function ExampleTabs() {
+  const [selected, setSelected] = React.useState("account");
+
   return (
     <Tabs.Root
-      className="bg-white br-1 bw-1 bc-silver-4"
-      defaultValue="overview"
+      value={selected}
+      onValueChange={setSelected}
+      className="w-80 bg-white br-2 bw-1 bc-silver-2"
     >
-      <Tabs.List className="p-r zi-0 d-f g-1 px-1 bbw-1 bc-silver-4">
-        <Tabs.Tab
-          className="p-r zi-10 d-f h-8 ai-c jc-c bw-0 px-2 fs-sm fw-500 ws-nw c-slate-5 us-none h:c-slate-8 tabs-tab"
-          value="overview"
-        >
-          Overview
-        </Tabs.Tab>
-        <Tabs.Tab
-          className="p-r zi-10 d-f h-8 ai-c jc-c bw-0 px-2 fs-sm fw-500 ws-nw c-slate-5 us-none h:c-slate-8 tabs-tab"
-          value="projects"
-        >
-          Projects
-        </Tabs.Tab>
-        <Tabs.Tab
-          className="p-r zi-10 d-f h-8 ai-c jc-c bw-0 px-2 fs-sm fw-500 ws-nw c-slate-5 us-none h:c-slate-8 tabs-tab"
-          value="account"
-        >
-          Account
-        </Tabs.Tab>
-        <Tabs.Indicator className="p-a t-half l-0 zi-0 h-6 br-1 bg-silver-2 tabs-indicator" />
+      <Tabs.List className="p-r d-f g-1 p-1 bbw-1 bc-silver-2">
+        {tabs.map((tab) => {
+          const Icon = tab.icon;
+          const isSelected = selected === tab.value;
+          return (
+            <Tabs.Tab
+              key={tab.value}
+              value={tab.value}
+              className={`p-r zi-10 fx-1 d-f ai-c jc-c g-2 h-9 bw-0 br-1 bg-transparent c-p us-none fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+                isSelected ? "c-white" : "c-slate-8 h:c-slate-10"
+              }`}
+            >
+              {isSelected && (
+                <motion.div
+                  layoutId="tabs-indicator"
+                  className="p-a ix-0 iy-0 zi-0 br-1 bg-indigo"
+                  transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                />
+              )}
+              <Icon size={18} weight="bold" className="p-r zi-10" />
+              <span className="p-r zi-10 fs-sm fw-500">{tab.label}</span>
+            </Tabs.Tab>
+          );
+        })}
       </Tabs.List>
-      <Tabs.Panel
-        className="p-r d-f h-32 ai-c jc-c tabs-panel"
-        value="overview"
-      >
-        <ShapesIcon size={40} className="c-silver-4" />
+      <Tabs.Panel value="account" className="p-4">
+        <p className="fs-sm c-slate-8">
+          Manage your account details and preferences.
+        </p>
       </Tabs.Panel>
-      <Tabs.Panel
-        className="p-r d-f h-32 ai-c jc-c tabs-panel"
-        value="projects"
-      >
-        <ProjectorScreenChartIcon size={40} className="c-silver-4" />
+      <Tabs.Panel value="settings" className="p-4">
+        <p className="fs-sm c-slate-8">
+          Configure application settings and behavior.
+        </p>
       </Tabs.Panel>
-      <Tabs.Panel className="p-r d-f h-32 ai-c jc-c tabs-panel" value="account">
-        <UserCircleIcon size={40} className="c-silver-4" />
+      <Tabs.Panel value="notifications" className="p-4">
+        <p className="fs-sm c-slate-8">
+          Control how you receive notifications.
+        </p>
       </Tabs.Panel>
-      <style>{`
-        .tabs-tab {
-          transition: color 200ms;
-          outline: none;
-        }
-        .tabs-tab:focus-visible {
-          position: relative;
-        }
-        .tabs-tab:focus-visible::before {
-          content: '';
-          position: absolute;
-          inset: 0.25rem 0;
-          border-radius: 0.125rem;
-          outline: 2px solid var(--blue-8);
-        }
-        .tabs-tab[data-active] {
-          color: var(--slate-12);
-        }
-        .tabs-indicator {
-          width: var(--active-tab-width);
-          transform: translateX(var(--active-tab-left)) translateY(-50%);
-          transition: transform 200ms ease-in-out, width 200ms ease-in-out;
-        }
-        .tabs-panel:focus-visible {
-          border-radius: 0.25rem;
-          outline: 2px solid var(--blue-8);
-          outline-offset: -1px;
-        }
-      `}</style>
     </Tabs.Root>
   );
 }
