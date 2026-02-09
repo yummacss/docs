@@ -1,56 +1,42 @@
-import { Field } from "@base-ui/react/field";
+"use client";
+
 import { Switch } from "@base-ui/react/switch";
+import { motion } from "motion/react";
+import * as React from "react";
 
 export default function ExampleSwitch() {
-  return (
-    <Field.Root className="d-f ai-c g-2">
-      <Switch.Root
-        id="switch-notifications"
-        defaultChecked
-        className="p-r d-f h-6 w-10 br-pill switch-root"
-      >
-        <Switch.Thumb className="h-full br-pill bg-white switch-thumb" />
+  const [checked, setChecked] = React.useState(true);
 
-        <style>{`
-        .switch-root {
-          appearance: none;
-          border: 0;
-          margin: 0;
-          outline: 1px solid transparent;
-          outline-offset: -1px;
-          background-color: transparent;
-          background-image: linear-gradient(to right, #757580 35%, #ecedee 65%);
-          background-size: 200% 100%;
-          background-position-x: 100%;
-          background-repeat: no-repeat;
-          transition-property: background-position;
-          transition-timing-function: cubic-bezier(0.26, 0.75, 0.38, 0.45);
-          transition-duration: 200ms;
-          cursor: pointer;
-        }
-        .switch-root[data-checked] {
-          background-position-x: 0%;
-        }
-        .switch-root:focus-visible {
-          outline: 2px solid #26549f;
-          outline-offset: 2px;
-        }
-        .switch-thumb {
-          aspect-ratio: 1 / 1;
-          box-shadow: 0 1px 2px rgba(0,0,0,0.1);
-          transition: translate 200ms cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .switch-thumb[data-checked] {
-          translate: 1rem 0;
-        }
-      `}</style>
+  return (
+    <div className="d-f ai-c g-3">
+      <Switch.Root
+        id="switch-dark-mode"
+        checked={checked}
+        onCheckedChange={setChecked}
+        className={`p-r d-f ai-c h-6 w-11 br-pill bw-0 m-0 p-px c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+          checked ? "bg-indigo" : "bg-silver-3"
+        }`}
+      >
+        <Switch.Thumb
+          render={
+            <motion.span
+              animate={{ x: checked ? 22 : 0 }}
+              transition={{
+                type: "spring",
+                stiffness: 700,
+                damping: 30,
+              }}
+            />
+          }
+          className="d-5 br-pill bg-white bsh-sm"
+        />
       </Switch.Root>
       <label
-        htmlFor="switch-notifications"
-        className="fs-sm fw-500 c-slate-12 select-none"
+        htmlFor="switch-dark-mode"
+        className="fs-sm fw-600 c-slate-10 us-none c-p"
       >
-        Notifications
+        Dark mode
       </label>
-    </Field.Root>
+    </div>
   );
 }
