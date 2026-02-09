@@ -457,6 +457,10 @@ summary {
   border-color: #0000;
 }
 
+.bc-white {
+  border-color: #fff;
+}
+
 .bc-white\/10 {
   border-color: #ffffff1a;
 }
@@ -515,6 +519,10 @@ summary {
 
 .bg-green-5 {
   background-color: #4ce1bb;
+}
+
+.bg-green-6 {
+  background-color: #29dcad;
 }
 
 .bg-indigo {
@@ -597,6 +605,10 @@ summary {
   background-color: #ed707a;
 }
 
+.bg-red-6 {
+  background-color: #ea5560;
+}
+
 .bg-red\/50 {
   background-color: #e6394680;
 }
@@ -627,6 +639,10 @@ summary {
 
 .bg-slate-12 {
   background-color: #101316;
+}
+
+.bg-slate-4 {
+  background-color: #a5aebc;
 }
 
 .bg-slate-5 {

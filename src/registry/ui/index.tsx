@@ -10,6 +10,12 @@ import AlertDialogForm from "./alert-dialog-mail";
 import AlertDialogVerification from "./alert-dialog-verification";
 import AutocompleteBasic from "./autocomplete-basic";
 import AvatarBasic from "./avatar-basic";
+import AvatarDetailed from "./avatar-detailed";
+import AvatarInitials from "./avatar-initials";
+import AvatarPlaceholder from "./avatar-placeholder";
+import AvatarStacked from "./avatar-stacked";
+import AvatarStatus from "./avatar-status";
+import AvatarVerified from "./avatar-verified";
 import ButtonBasic from "./button-basic";
 import CheckboxBasic from "./checkbox-basic";
 import CheckboxGroupBasic from "./checkbox-group-basic";
@@ -56,6 +62,12 @@ export const components: Record<string, ComponentType> = {
   "autocomplete-basic": AutocompleteBasic,
   // Avatar
   "avatar-basic": AvatarBasic,
+  "avatar-status": AvatarStatus,
+  "avatar-verified": AvatarVerified,
+  "avatar-placeholder": AvatarPlaceholder,
+  "avatar-initials": AvatarInitials,
+  "avatar-detailed": AvatarDetailed,
+  "avatar-stacked": AvatarStacked,
   // Button
   "button-basic": ButtonBasic,
   // Checkbox

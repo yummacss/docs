@@ -139,7 +139,7 @@ export default function ExampleAlertDialog() {
                         />
                         <Toolbar.Root className="p-a b-0 l-0 r-0 d-f ai-c fw-w g-1 btw-1 bc-silver-3 bg-white p-1">
                           <ToggleGroup className="d-f g-1">
-                            <Tooltip.Provider>
+                            <Tooltip.Provider closeDelay={0}>
                               <Tooltip.Root>
                                 <Tooltip.Trigger
                                   render={
@@ -166,7 +166,7 @@ export default function ExampleAlertDialog() {
                                 </Tooltip.Portal>
                               </Tooltip.Root>
                             </Tooltip.Provider>
-                            <Tooltip.Provider>
+                            <Tooltip.Provider closeDelay={0}>
                               <Tooltip.Root>
                                 <Tooltip.Trigger
                                   render={
@@ -193,7 +193,7 @@ export default function ExampleAlertDialog() {
                                 </Tooltip.Portal>
                               </Tooltip.Root>
                             </Tooltip.Provider>
-                            <Tooltip.Provider>
+                            <Tooltip.Provider closeDelay={0}>
                               <Tooltip.Root>
                                 <Tooltip.Trigger
                                   render={
@@ -225,7 +225,7 @@ export default function ExampleAlertDialog() {
                             orientation="vertical"
                             className="w-px h-5 bg-silver-3"
                           />
-                          <Tooltip.Provider>
+                          <Tooltip.Provider closeDelay={0}>
                             <Tooltip.Root>
                               <Tooltip.Trigger
                                 render={
@@ -248,7 +248,7 @@ export default function ExampleAlertDialog() {
                             className="w-px h-5 bg-silver-3"
                           />
                           <ToggleGroup className="d-f g-1">
-                            <Tooltip.Provider>
+                            <Tooltip.Provider closeDelay={0}>
                               <Tooltip.Root>
                                 <Tooltip.Trigger
                                   render={
@@ -275,7 +275,7 @@ export default function ExampleAlertDialog() {
                                 </Tooltip.Portal>
                               </Tooltip.Root>
                             </Tooltip.Provider>
-                            <Tooltip.Provider>
+                            <Tooltip.Provider closeDelay={0}>
                               <Tooltip.Root>
                                 <Tooltip.Trigger
                                   render={
@@ -305,7 +305,7 @@ export default function ExampleAlertDialog() {
                                 </Tooltip.Portal>
                               </Tooltip.Root>
                             </Tooltip.Provider>
-                            <Tooltip.Provider>
+                            <Tooltip.Provider closeDelay={0}>
                               <Tooltip.Root>
                                 <Tooltip.Trigger
                                   render={
@@ -338,7 +338,7 @@ export default function ExampleAlertDialog() {
                             className="w-px h-5 bg-silver-3"
                           />
                           <ToggleGroup className="d-f g-1">
-                            <Tooltip.Provider>
+                            <Tooltip.Provider closeDelay={0}>
                               <Tooltip.Root>
                                 <Tooltip.Trigger
                                   render={
@@ -365,7 +365,7 @@ export default function ExampleAlertDialog() {
                                 </Tooltip.Portal>
                               </Tooltip.Root>
                             </Tooltip.Provider>
-                            <Tooltip.Provider>
+                            <Tooltip.Provider closeDelay={0}>
                               <Tooltip.Root>
                                 <Tooltip.Trigger
                                   render={
@@ -397,7 +397,7 @@ export default function ExampleAlertDialog() {
                             orientation="vertical"
                             className="w-px h-5 bg-silver-3"
                           />
-                          <Tooltip.Provider>
+                          <Tooltip.Provider closeDelay={0}>
                             <Tooltip.Root>
                               <Tooltip.Trigger
                                 render={
@@ -419,7 +419,7 @@ export default function ExampleAlertDialog() {
                             orientation="vertical"
                             className="w-px h-5 bg-silver-3"
                           />
-                          <Tooltip.Provider>
+                          <Tooltip.Provider closeDelay={0}>
                             <Tooltip.Root>
                               <Tooltip.Trigger
                                 render={
@@ -438,7 +438,7 @@ export default function ExampleAlertDialog() {
                               </Tooltip.Portal>
                             </Tooltip.Root>
                           </Tooltip.Provider>
-                          <Tooltip.Provider>
+                          <Tooltip.Provider closeDelay={0}>
                             <Tooltip.Root>
                               <Tooltip.Trigger
                                 render={
