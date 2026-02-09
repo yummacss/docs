@@ -6,6 +6,8 @@ import AccordionBordered from "./accordion-bordered";
 import AccordionIcons from "./accordion-icons";
 import AccordionMultiple from "./accordion-multiple";
 import AlertDialogBasic from "./alert-dialog-basic";
+import AlertDialogForm from "./alert-dialog-mail";
+import AlertDialogVerification from "./alert-dialog-verification";
 import AutocompleteBasic from "./autocomplete-basic";
 import AvatarBasic from "./avatar-basic";
 import ButtonBasic from "./button-basic";
@@ -48,6 +50,8 @@ export const components: Record<string, ComponentType> = {
   "accordion-icons": AccordionIcons,
   // Alert Dialog
   "alert-dialog-basic": AlertDialogBasic,
+  "alert-dialog-form": AlertDialogForm,
+  "alert-dialog-verification": AlertDialogVerification,
   // Autocomplete
   "autocomplete-basic": AutocompleteBasic,
   // Avatar
