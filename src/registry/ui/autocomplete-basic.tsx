@@ -33,7 +33,7 @@ export default function ExampleAutocomplete() {
                     transition={{ duration: 0.1, ease: "easeOut" }}
                   />
                 }
-                className="w-64 bw-1 bc-silver-2 br-2 bg-white bsh-lg c-slate-10 o-h"
+                className="w-64 bw-1 bc-silver-2 br-2 bg-white bsh-lg c-slate-10 o-h py-1"
               >
                 <Autocomplete.Empty className="py-4 px-4 fs-sm c-slate-6">
                   No languages found.
@@ -49,7 +49,7 @@ export default function ExampleAutocomplete() {
                       render={(props, state) => (
                         <div
                           {...props}
-                          className={`d-f ai-c py-2 px-4 fs-sm us-none c-d c-p ${
+                          className={`d-f ai-c py-2 px-3 fs-sm us-none c-d c-p br-1 mx-1 c-slate-10 ${
                             state.highlighted ? "bg-silver-1" : "h:bg-silver-1"
                           }`}
                         >

@@ -17,10 +17,19 @@ Implement this component in your project using Yumma CSS and Base UI.
 
 ### Base
 
-<Preview id="tabs-basic" />
-
-```tsx registry="tabs-basic"
-```
+<Tabs defaultValue="preview">
+  <TabsList>
+    <TabsTab value="preview">Preview</TabsTab>
+    <TabsTab value="code">Code</TabsTab>
+  </TabsList>
+  <TabsPanel className="bg-white" value="preview">
+    <Preview className="bw-0" id="tabs-basic" />
+  </TabsPanel>
+  <TabsPanel value="code">
+    ```tsx registry="tabs-basic"
+    ```
+  </TabsPanel>
+</Tabs>
 
 ## API Reference
 
