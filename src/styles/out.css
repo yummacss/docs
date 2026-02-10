@@ -649,6 +649,10 @@ summary {
   background-color: #8f9bab;
 }
 
+.bg-slate-9\/60 {
+  background-color: #3a435199;
+}
+
 .bg-transparent {
   background-color: #0000;
 }
@@ -1587,6 +1591,10 @@ summary {
 
 .fs-xxl {
   font-size: 1.5rem;
+}
+
+.fv\:bg-white\/5:focus-visible {
+  background-color: #ffffff0d;
 }
 
 .fv\:oc-indigo:focus-visible {

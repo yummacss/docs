@@ -50,7 +50,7 @@ export function TabsList({
     >
       {children}
       <BaseTabs.Indicator
-        className="p-a l-0 t-half h-6"
+        className="p-a l-0 t-half h-6 tdu-200 ttf-io"
         style={{
           zIndex: -1,
           translate: "var(--active-tab-left) -50%",
@@ -58,8 +58,6 @@ export function TabsList({
           backgroundColor: "#21243f",
           border: "1px solid #31365e",
           transitionProperty: "translate, width",
-          transitionDuration: "200ms",
-          transitionTimingFunction: "ease-in-out",
         }}
       />
     </BaseTabs.List>
