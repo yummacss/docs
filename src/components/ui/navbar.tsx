@@ -10,6 +10,7 @@ import { usePathname } from "next/navigation";
 import { type ReactNode, useEffect, useState } from "react";
 import { SiGithub, SiNpm } from "react-icons/si";
 import pkg from "../../../package.json";
+import { LogoContextMenu } from "./logo-context-menu";
 import { SearchDialog } from "./search-dialog";
 
 const navbarVariants = cva("p-f l-0 r-0 t-0 zi-10 bbw-1", {
@@ -56,12 +57,14 @@ export default function Navbar({ variant, className, links }: NavbarProps) {
         <div className="sm-xxl mx-auto px-6 py-2">
           <nav className="d-f ai-c jc-sb">
             <div className="d-f ai-c g-2">
-              <Link
-                href={isUI ? "/ui" : "/"}
-                className="fv:oc-indigo-4 fv:ow-2"
-              >
-                <YummaCSS className="h-8 w-auto us-none" />
-              </Link>
+              <LogoContextMenu>
+                <Link
+                  href={isUI ? "/ui" : "/"}
+                  className="fv:oc-indigo-4 fv:ow-2"
+                >
+                  <YummaCSS className="h-8 w-auto" />
+                </Link>
+              </LogoContextMenu>
             </div>
             <div className="d-f ai-c g-8">
               {links ? (
@@ -102,7 +105,7 @@ export default function Navbar({ variant, className, links }: NavbarProps) {
               >
                 <MagnifyingGlassIcon size={15} />
                 <kbd className="d-none lg:d-b fs-xs c-white/60 us-none">
-                  Ctrl&nbsp;K
+                  Ctrl K
                 </kbd>
               </Button>
 
