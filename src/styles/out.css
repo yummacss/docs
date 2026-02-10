@@ -2215,12 +2215,20 @@ summary {
   left: 0;
 }
 
+.l-1 {
+  left: .25rem;
+}
+
 .l-2 {
   left: .5rem;
 }
 
 .l-4 {
   left: 1rem;
+}
+
+.l-6 {
+  left: 1.5rem;
 }
 
 .l-auto {
@@ -3350,6 +3358,10 @@ summary {
   top: 0;
 }
 
+.t-1 {
+  top: .25rem;
+}
+
 .t-100 {
   top: 25rem;
 }
@@ -3640,6 +3652,10 @@ summary {
 
 .tdu-150 {
   transition-duration: .15s;
+}
+
+.tdu-200 {
+  transition-duration: .2s;
 }
 
 .tdu-300 {

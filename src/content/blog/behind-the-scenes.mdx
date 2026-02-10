@@ -1,0 +1,73 @@
+export const meta = {
+  authors: ["Renildo"],
+  cover: "~",
+  date: "2026-02-10",
+  description: "A recap of the infrastructure changes we've made to the Yumma CSS ecosystem, from the monorepo transition to improved type safety in Core.",
+  title: "Behind the Scenes"
+};
+
+While most of our blog posts focus on new utilities & features for the Yumma CSS package, we've also been making significant improvements to the ecosystem's infrastructure. Here's a quick recap.
+
+## Monorepo transition
+
+The Yumma CSS ecosystem now lives in a single [monorepo](https://github.com/yummacss/yummacss). The `core` (formerly `api`), `nitro` (the engine), & `runtime` packages all reside in the same repository.
+
+This consolidation improves development efficiency & keeps package versions in sync.
+
+### Version synchronization
+
+All core package versions now match the main Yumma CSS version:
+
+- `@yummacss/api@1.8.0` -> `@yummacss/core@3.8.0`
+- `@yummacss/nitro@0.5.0` -> `@yummacss/nitro@3.8.0`
+- `@yummacss/runtime@0.3.0` -> `@yummacss/runtime@3.8.0`
+
+### Public archives
+
+The standalone repositories for Core, Nitro, & Runtime are now archived. All future development happens in the [main monorepo](https://github.com/yummacss/yummacss).
+
+## Core package improvements
+
+We've made the Core package more extensible & developer-friendly.
+
+### Exposing variant data
+
+You can now import `mediaQueries`, `opacity`, `pseudoClasses`, & `pseudoElements` directly from `@yummacss/core` to build custom tools & integrations.
+
+```js title="index.js"
+import { mediaQueries, opacity, pseudoClasses, pseudoElements } from "@yummacss/core";
+
+console.log(mediaQueries);
+```
+
+### Improved type safety
+
+Core now exports literal types for every variant prefix.
+
+```ts title="index.ts"
+import type { 
+    MediaQueryPrefix, 
+    OpacityPrefix, 
+    PseudoClassPrefix, 
+    PseudoElementPrefix,
+    VariantPrefix 
+} from "@yummacss/core";
+
+const prefix: VariantPrefix = "sm"; // Typed as a literal
+```
+
+### Immutable core interfaces
+
+We've integrated `readonly` properties into core interfaces. `Utility`, `Utilities`, & `Variants` now enforce strict type compatibility with literal constants.
+
+```ts title="utility.ts"
+interface Utility {
+    readonly prefix: string;
+    readonly properties: readonly string[];
+    readonly slug: string;
+    readonly values: {
+        readonly [key: string]: string;
+    };
+    readonly variants?: Variants;
+}
+```
