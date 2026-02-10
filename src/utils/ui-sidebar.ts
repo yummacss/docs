@@ -48,8 +48,6 @@ export const uiSidebarConfig: UISidebarConfig = [
       { title: "Combobox", slug: "combobox" },
       { title: "Context Menu", slug: "context-menu" },
       { title: "Dialog", slug: "dialog" },
-      { title: "Field", slug: "field" },
-      { title: "Fieldset", slug: "fieldset" },
       { title: "Form", slug: "form" },
       { title: "Input", slug: "input" },
       { title: "Menu", slug: "menu" },
