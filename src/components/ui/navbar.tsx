@@ -113,7 +113,9 @@ export default function Navbar({ variant, className, links }: NavbarProps) {
                   target="_blank"
                 >
                   <SiNpm size={16} />
-                  <span className="tw-b">v{pkg.version}</span>
+                  <span className="tw-b">
+                    v{pkg.devDependencies.yummacss.replace("^", "")}
+                  </span>
                 </Link>
                 <Link
                   href="https://github.com/yummacss/yummacss"
