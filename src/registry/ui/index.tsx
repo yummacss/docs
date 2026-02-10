@@ -37,6 +37,8 @@ import CollapsibleBasic from "./collapsible-basic";
 import ComboboxBasic from "./combobox-basic";
 import ContextMenuBasic from "./context-menu-basic";
 import DialogBasic from "./dialog-basic";
+import DialogPayment from "./dialog-payment";
+import DialogSettings from "./dialog-settings";
 import FieldBasic from "./field-basic";
 import FieldsetBasic from "./fieldset-basic";
 import FormBasic from "./form-basic";
@@ -109,6 +111,8 @@ export const components: Record<string, ComponentType> = {
   "context-menu-basic": ContextMenuBasic,
   // Dialog
   "dialog-basic": DialogBasic,
+  "dialog-payment": DialogPayment,
+  "dialog-settings": DialogSettings,
   // Field
   "field-basic": FieldBasic,
   // Fieldset
