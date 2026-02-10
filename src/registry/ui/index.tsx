@@ -39,8 +39,6 @@ import ContextMenuBasic from "./context-menu-basic";
 import DialogBasic from "./dialog-basic";
 import DialogPayment from "./dialog-payment";
 import DialogSettings from "./dialog-settings";
-import FieldBasic from "./field-basic";
-import FieldsetBasic from "./fieldset-basic";
 import FormBasic from "./form-basic";
 import InputBasic from "./input-basic";
 import MenuBasic from "./menu-basic";
@@ -113,10 +111,6 @@ export const components: Record<string, ComponentType> = {
   "dialog-basic": DialogBasic,
   "dialog-payment": DialogPayment,
   "dialog-settings": DialogSettings,
-  // Field
-  "field-basic": FieldBasic,
-  // Fieldset
-  "fieldset-basic": FieldsetBasic,
   // Form
   "form-basic": FormBasic,
   // Input
