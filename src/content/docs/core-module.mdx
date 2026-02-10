@@ -51,13 +51,13 @@ Each utility in Yumma CSS is represented by a `Utility` object. Understanding th
 
 ```ts title="utility.ts"
 interface Utility {
-	prefix: string;          // The class name prefix (e.g., "ba")
-	properties: string[];    // The CSS properties controlled (e.g., ["background-attachment"])
-	slug: string;            // The unique identifier for the utility
-	values: {                // A map of keys to their CSS values
-		[key: string]: string;
+	readonly prefix: string;          // The class name prefix (e.g., "ba")
+	readonly properties: readonly string[];    // The CSS properties controlled (e.g., ["background-attachment"])
+	readonly slug: string;            // The unique identifier for the utility
+	readonly values: {                // A map of keys to their CSS values
+		readonly [key: string]: string;
 	};
-	variants?: Variants;     // Supported variants like hover or media queries
+	readonly variants?: Variants;     // Supported variants like hover or media queries
 }
 ```
 
@@ -108,10 +108,45 @@ The Core package provides the following functions to access utility definitions:
 | `transformUtils()`     | Transforms, rotations, and scales.             |
 | `transitionsUtils()`   | Transitions and timing functions.              |
 
+## Variants
+
+The Core package exports all of the available Yumma CSS utility variants raw data:
+
+### Accessing variants
+
+You can import the variant arrays directly from the package.
+
+```js title="index.js"
+import { mediaQueries, opacity, pseudoClasses, pseudoElements } from "@yummacss/core";
+
+console.log(mediaQueries);
+```
+
+### Variant structure
+
+Each variant follows a consistent `prefix` and `value` structure.
+
+```json title="Terminal" frame="terminal"
+[
+  { "prefix": "sm", "value": "@media (width >= 40rem)" },
+  { "prefix": "50", "value": "80" },
+  { "prefix": "h", "value": ":hover" },
+  { "prefix": "b", "value": "::before" }
+]
+```
+
+| Type               | Description                                      |
+|--------------------|--------------------------------------------------|
+| `mediaQueries`     | Responsive breakpoints and media conditions.     |
+| `opacity`          | Modifiers for color transparency from 0 to 100.  |
+| `pseudoClasses`    | Interactive states like `:hover` or `:focus`.    |
+| `pseudoElements`   | Structural elements like `::before` or `::after`.|
 
 ## Typescript support
 
-The Core package is written in TypeScript and exports all internal interfaces for a better developer experience.
+The Core package is written in TypeScript and exports all internal interfaces and literal types for a better developer experience.
+
+### Utility types
 
 ```ts title="index.ts"
 import type { Utility, Utilities, Variants, Colors } from "@yummacss/core";
@@ -119,4 +154,21 @@ import type { Utility, Utilities, Variants, Colors } from "@yummacss/core";
 const customTool = (data: Utilities) => {
 	// your logic here
 };
+```
+
+### Variant literal types
+
+For even better type safety, we export literal types for every variant prefix. This is particularly useful for IDE extensions and plugins.
+
+```ts title="index.ts"
+import type { 
+    MediaQueryPrefix, 
+    OpacityPrefix, 
+    PseudoClassPrefix, 
+    PseudoElementPrefix,
+    VariantPrefix 
+} from "@yummacss/core";
+
+// VariantPrefix is a union of all available prefixes
+const prefix: VariantPrefix = "sm"; // Typed as a literal
 ```
