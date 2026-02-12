@@ -2,13 +2,12 @@
 
 import { Button } from "@base-ui/react";
 import { MagnifyingGlassIcon } from "@phosphor-icons/react/dist/ssr";
-// TODO: Find correct Github icon export from svgl-react or use another icon
-import { NPM } from "@ridemountainpig/svgl-react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { clsx } from "clsx";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { type ReactNode, useEffect, useState } from "react";
+import { SiGithub, SiNpm } from "react-icons/si";
 import pkg from "../../../package.json";
 import { YummaCSSDark } from "../icons/yummacss-dark";
 import { LogoContextMenu } from "./logo-context-menu";
@@ -116,7 +115,7 @@ export default function Navbar({ variant, className, links }: NavbarProps) {
                   className="d-f ai-c g-1 c-white/80 h:c-white fs-xs fv:oc-indigo-4 fv:ow-2"
                   target="_blank"
                 >
-                  <NPM className="d-4" />
+                  <SiNpm className="d-4" />
                   <span className="tw-b">
                     v{pkg.devDependencies.yummacss.replace("^", "")}
                   </span>
@@ -126,7 +125,7 @@ export default function Navbar({ variant, className, links }: NavbarProps) {
                   className="d-f ai-c g-1 c-white/80 h:c-white fs-xs fv:oc-indigo-4 fv:ow-2"
                   target="_blank"
                 >
-                  {/* <GitHub className="d-4" /> */}
+                  <SiGithub className="d-4" />
                   <span>GitHub</span>
                 </Link>
               </div>
