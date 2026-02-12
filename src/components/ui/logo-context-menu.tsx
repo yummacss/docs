@@ -37,10 +37,7 @@ export function LogoContextMenu({ children }: LogoContextMenuProps) {
       </BaseContextMenu.Trigger>
       <BaseContextMenu.Portal>
         <BaseContextMenu.Positioner className="zi-50">
-          <BaseContextMenu.Popup
-            className="bg-white/5 bf-b-md bc-white/10 bw-1 p-1 min-w-40"
-            
-          >
+          <BaseContextMenu.Popup className="bg-white/5 bf-b-md bc-white/10 bw-1 p-1 min-w-40">
             <BaseContextMenu.Item
               className="d-f ai-c g-2 px-2 py-1 fs-sm c-white/80 h:bg-white/5 h:c-white c-p o-n fv:bg-white/5"
               onClick={handleCopy}
