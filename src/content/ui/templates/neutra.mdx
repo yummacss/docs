@@ -3,7 +3,6 @@ import TemplateFeatures from "@/components/ui/templates/features";
 import TemplateStack from "@/components/ui/templates/stack";
 import { getTemplateBySlug, templateFeatures } from "@/utils/templates";
 import Image from "next/image";
-import { SiNextdotjs, SiReact } from "react-icons/si";
 
 export const meta = {
   title: "Neutra",
@@ -11,24 +10,6 @@ export const meta = {
 };
 
 export const template = getTemplateBySlug("neutra");
-
-export const hasNextjs = template.stack.some(item => item.toLowerCase().includes("next.js"));
-export const hasReact = template.stack.some(item => item.toLowerCase().includes("react"));
-
-<div className="d-f g-4 mb-8">
-  {hasNextjs && (
-    <div className="d-if ai-c g-2 fs-sm c-white/70">
-      <SiNextdotjs size={20} />
-      <span>{template.stack.find(item => item.toLowerCase().includes("next.js"))}</span>
-    </div>
-  )}
-  {hasReact && (
-    <div className="d-if ai-c g-2 fs-sm c-white/70">
-      <SiReact size={20} />
-      <span>{template.stack.find(item => item.toLowerCase().includes("react"))}</span>
-    </div>
-  )}
-</div>
 
 ---
 
@@ -59,7 +40,7 @@ Everything that makes this template special.
 
 ---
 
-## Built with
+## Tech stack
 
 Here are the technologies used to build {template.name}.
 

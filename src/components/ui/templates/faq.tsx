@@ -16,7 +16,9 @@ export default function FAQ() {
         </p>
 
         <AccordionItem value="what-included">
-          <AccordionTrigger>What's included in the template?</AccordionTrigger>
+          <AccordionTrigger>
+            What's included in the template?
+          </AccordionTrigger>
           <AccordionPanel>
             This template includes the complete source code, all pages shown in
             the preview, responsive design, and any components used. You'll get
@@ -25,7 +27,9 @@ export default function FAQ() {
         </AccordionItem>
 
         <AccordionItem value="updates">
-          <AccordionTrigger>Are updates included?</AccordionTrigger>
+          <AccordionTrigger>
+            Are updates included?
+          </AccordionTrigger>
           <AccordionPanel>
             Yes! All purchases include lifetime updates. You'll receive all
             future improvements, bug fixes, and new features for the template
@@ -37,7 +41,9 @@ export default function FAQ() {
         <p className="fs-xs c-white/40 tt-u ls-8 mb-2 mt-6">Licensing</p>
 
         <AccordionItem value="license-info">
-          <AccordionTrigger>What can I do with my purchase?</AccordionTrigger>
+          <AccordionTrigger>
+            What can I do with my purchase?
+          </AccordionTrigger>
           <AccordionPanel>
             Use it for any personal or commercial project. No limits.
           </AccordionPanel>
@@ -64,7 +70,9 @@ export default function FAQ() {
         </p>
 
         <AccordionItem value="refunds">
-          <AccordionTrigger>Do you offer refunds?</AccordionTrigger>
+          <AccordionTrigger>
+            Do you offer refunds?
+          </AccordionTrigger>
           <AccordionPanel>
             Due to the nature of digital products, all sales are final. However,
             we may consider refunds in exceptional cases such as duplicate
@@ -95,7 +103,9 @@ export default function FAQ() {
         </AccordionItem>
 
         <AccordionItem value="support">
-          <AccordionTrigger>How do I get support?</AccordionTrigger>
+          <AccordionTrigger>
+            How do I get support?
+          </AccordionTrigger>
           <AccordionPanel>
             You can reach out to us via{" "}
             <Link

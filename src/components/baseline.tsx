@@ -1,19 +1,21 @@
 import {
-  RocketLaunchIcon,
+  ConfettiIcon,
   SealCheckIcon,
   SealWarningIcon,
-  ThumbsDownIcon,
-  ThumbsUpIcon,
 } from "@phosphor-icons/react/dist/ssr";
+import { Chrome, Edge, Firefox, Safari } from "@ridemountainpig/svgl-react";
 import data from "web-features/data.json";
 
 interface FeatureStatus {
   baseline: false | "low" | "high";
   support: {
     chrome?: string;
+    chrome_android?: string;
     edge?: string;
     firefox?: string;
+    firefox_android?: string;
     safari?: string;
+    safari_ios?: string;
   };
 }
 
@@ -67,28 +69,45 @@ export default function Baseline({ path }: Props) {
       ? "This feature works across the latest devices and browser versions. This feature might not work in older devices or browsers."
       : "This feature does not work in some of the most widely-used browsers.";
 
-  const statusColor = isHigh ? "c-green" : isLow ? "c-indigo-5" : "c-yellow";
+  const statusColor = isHigh ? "c-green" : isLow ? "c-green-5" : "c-yellow";
 
   const StatusIcon = isHigh
     ? SealCheckIcon
     : isLow
-      ? RocketLaunchIcon
+      ? ConfettiIcon
       : SealWarningIcon;
 
   const support = status.support || {};
 
   const browsers = [
-    { key: "chrome", name: "Chrome" },
-    { key: "edge", name: "Edge" },
-    { key: "firefox", name: "Firefox" },
-    { key: "safari", name: "Safari" },
+    {
+      key: "chrome",
+      name: "Chrome",
+      icon: Chrome,
+      mobileKey: "chrome_android",
+    },
+    { key: "edge", name: "Edge", icon: Edge, mobileKey: null },
+    {
+      key: "firefox",
+      name: "Firefox",
+      icon: Firefox,
+      mobileKey: "firefox_android",
+    },
+    { key: "safari", name: "Safari", icon: Safari, mobileKey: "safari_ios" },
   ].map((b) => {
-    const version = support[b.key as keyof typeof support];
+    const desktopVersion = support[b.key as keyof typeof support];
+    const mobileVersion = b.mobileKey
+      ? support[b.mobileKey as keyof typeof support]
+      : undefined;
+
+    const isSupported = !!desktopVersion;
+    const isDesktopOnly = isSupported && b.mobileKey !== null && !mobileVersion;
 
     return {
       ...b,
-      supported: !!version,
-      version: version,
+      supported: isSupported,
+      desktopOnly: isDesktopOnly,
+      version: desktopVersion,
     };
   });
 
@@ -108,14 +127,28 @@ export default function Baseline({ path }: Props) {
       <div className="d-g g-4 gtc-1 sm:gtc-2 md:gtc-4">
         {browsers.map((browser) => (
           <div key={browser.key} className="d-f ai-c g-2">
-            <div className={browser.supported ? "c-green" : "c-red"}>
-              {browser.supported ? (
-                <ThumbsUpIcon size={20} weight="duotone" />
-              ) : (
-                <ThumbsDownIcon size={20} />
+            <div
+              className="d-f ai-c jc-c"
+              style={{
+                width: "24px",
+                height: "24px",
+                filter: !browser.supported ? "grayscale(1)" : "none",
+                opacity: !browser.supported ? 0.5 : 1,
+              }}
+            >
+              <browser.icon className="w-full h-full" />
+            </div>
+            <div className="d-f fd-c">
+              <span
+                className="c-white/80"
+                style={{ opacity: !browser.supported ? 0.5 : 1 }}
+              >
+                {browser.name}
+              </span>
+              {browser.desktopOnly && (
+                <span className="fs-xs c-white/50">Desktop only</span>
               )}
             </div>
-            <span className="c-white/80">{browser.name}</span>
           </div>
         ))}
       </div>

@@ -2,14 +2,15 @@
 
 import { Button } from "@base-ui/react";
 import { MagnifyingGlassIcon } from "@phosphor-icons/react/dist/ssr";
-import { YummaCSS } from "@react-symbols/icons/files";
+// TODO: Find correct Github icon export from svgl-react or use another icon
+import { NPM } from "@ridemountainpig/svgl-react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { clsx } from "clsx";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { type ReactNode, useEffect, useState } from "react";
-import { SiGithub, SiNpm } from "react-icons/si";
 import pkg from "../../../package.json";
+import { YummaCSSDark } from "../icons/yummacss-dark";
 import { LogoContextMenu } from "./logo-context-menu";
 import { SearchDialog } from "./search-dialog";
 
@@ -62,7 +63,7 @@ export default function Navbar({ variant, className, links }: NavbarProps) {
                   href={isUI ? "/ui" : "/"}
                   className="fv:oc-indigo-4 fv:ow-2"
                 >
-                  <YummaCSS className="h-8 w-auto" />
+                  <YummaCSSDark className="h-8 w-auto d-b" />
                 </Link>
               </LogoContextMenu>
             </div>
@@ -115,7 +116,7 @@ export default function Navbar({ variant, className, links }: NavbarProps) {
                   className="d-f ai-c g-1 c-white/80 h:c-white fs-xs fv:oc-indigo-4 fv:ow-2"
                   target="_blank"
                 >
-                  <SiNpm size={16} />
+                  <NPM className="d-4" />
                   <span className="tw-b">
                     v{pkg.devDependencies.yummacss.replace("^", "")}
                   </span>
@@ -125,7 +126,7 @@ export default function Navbar({ variant, className, links }: NavbarProps) {
                   className="d-f ai-c g-1 c-white/80 h:c-white fs-xs fv:oc-indigo-4 fv:ow-2"
                   target="_blank"
                 >
-                  <SiGithub size={16} />
+                  {/* <GitHub className="d-4" /> */}
                   <span>GitHub</span>
                 </Link>
               </div>
