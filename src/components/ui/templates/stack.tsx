@@ -1,38 +1,26 @@
 "use client";
 
 import {
-  Next,
-  PNPM,
-  Reactjs,
-  TypeScript,
-  YummaCSS,
-} from "@react-symbols/icons/files";
-
+  BaseUIDark,
+  MotionDark,
+  Nextjs,
+  PnpmDark,
+  ReactDark,
+} from "@ridemountainpig/svgl-react";
 import type * as React from "react";
+import { YummaCSSDark } from "../../icons/yummacss-dark";
 
 // Stack icon mapping by keyword
-const stackIconMap: Record<
-  string,
-  React.ComponentType<{
-    size?: number;
-    fill?: string;
-    width?: number;
-    height?: number;
-  }>
-> = {
-  "next.js": Next,
-  react: Reactjs,
-  yumma: YummaCSS,
-  pnpm: PNPM,
-  typescript: TypeScript,
+const stackIconMap: Record<string, React.ComponentType<any>> = {
+  "next.js": Nextjs,
+  react: ReactDark,
+  yumma: YummaCSSDark,
+  pnpm: PnpmDark,
+  "base ui": BaseUIDark,
+  motion: MotionDark,
 };
 
-function getIconForStack(stackItem: string): React.ComponentType<{
-  size?: number;
-  fill?: string;
-  width?: number;
-  height?: number;
-}> | null {
+function getIconForStack(stackItem: string): React.ComponentType<any> | null {
   const lowerItem = stackItem.toLowerCase();
   for (const [key, icon] of Object.entries(stackIconMap)) {
     if (lowerItem.includes(key)) {
@@ -55,9 +43,10 @@ export default function TemplateStack({ stack }: Props) {
         return (
           <div
             key={item}
-            className="p-4 bw-1 bc-white/10 bs-d br-0 d-f ai-c jc-c g-2 bg-black/10"
+            className="p-4 bw-1 bc-white/10 br-0 d-f ai-c jc-c g-2"
+            style={{ backgroundColor: "#21243f", borderColor: "#31365e" }}
           >
-            {StackIcon && <StackIcon width={24} height={24} />}
+            {StackIcon && <StackIcon className="d-6" />}
             <span className="fs-sm c-white">{item}</span>
           </div>
         );
