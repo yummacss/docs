@@ -110,7 +110,7 @@ export const sidebarConfig: SidebarConfig = [
     items: [
       { title: "Installation", slug: "installation" },
       { title: "Configuration", slug: "configuration" },
-      { title: "Editor Support", slug: "Editor Support" },
+      { title: "IntelliSense", slug: "editor-support" },
       { title: "Upgrading", slug: "upgrading" },
     ],
   },
