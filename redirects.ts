@@ -1,5 +1,3 @@
-import { LineLoop } from "three";
-
 export const redirects = [
   // Docs redirects
   {
@@ -12,16 +10,11 @@ export const redirects = [
     destination: "/docs/top-right-bottom-left",
     permanent: true,
   },
-  {
-    source: "/docs/cli",
+  ...["/docs/cli", "/docs/config"].map((source) => ({
+    source,
     destination: "/docs/configuration",
     permanent: true,
-  },
-  {
-    source: "/docs/config",
-    destination: "/docs/configuration",
-    permanent: true,
-  },
+  })),
   {
     source: "/docs/migration-guide",
     destination: "/docs/upgrading",
@@ -52,77 +45,36 @@ export const redirects = [
     destination: "/docs/styling-elements",
     permanent: true,
   },
-  {
-    source: "/docs/api-reference",
-    destination: "/docs/core-module",
-    permanent: true,
-  },
-  {
-    source: "/docs/core-package",
-    destination: "/docs/core-module",
-    permanent: true,
-  },
+  ...["/docs/api-reference", "/docs/core-package", "/docs/core-library"].map(
+    (source) => ({
+      source,
+      destination: "/docs/core-module",
+      permanent: true,
+    }),
+  ),
   {
     source: "/docs/top-right-bottom-left",
     destination: "/docs/top",
     permanent: true,
   },
-  {
-    source: "/docs/dimensions",
-    destination: "/docs/dimension",
-    permanent: true,
-  },
+
   // Framework guides
-  {
-    source: "/docs/guides/react",
+  ...[
+    "react",
+    "nextjs",
+    "preact",
+    "vue",
+    "nuxtjs",
+    "angular",
+    "astro",
+    "qwik",
+    "solid",
+    "svelte",
+  ].map((framework) => ({
+    source: `/docs/guides/${framework}`,
     destination: "/docs/installation",
     permanent: true,
-  },
-  {
-    source: "/docs/guides/nextjs",
-    destination: "/docs/installation",
-    permanent: true,
-  },
-  {
-    source: "/docs/guides/preact",
-    destination: "/docs/installation",
-    permanent: true,
-  },
-  {
-    source: "/docs/guides/vue",
-    destination: "/docs/installation",
-    permanent: true,
-  },
-  {
-    source: "/docs/guides/nuxtjs",
-    destination: "/docs/installation",
-    permanent: true,
-  },
-  {
-    source: "/docs/guides/angular",
-    destination: "/docs/installation",
-    permanent: true,
-  },
-  {
-    source: "/docs/guides/astro",
-    destination: "/docs/installation",
-    permanent: true,
-  },
-  {
-    source: "/docs/guides/qwik",
-    destination: "/docs/installation",
-    permanent: true,
-  },
-  {
-    source: "/docs/guides/solid",
-    destination: "/docs/installation",
-    permanent: true,
-  },
-  {
-    source: "/docs/guides/svelte",
-    destination: "/docs/installation",
-    permanent: true,
-  },
+  })),
   // Blog redirects
   {
     source: "/blog/v0",
