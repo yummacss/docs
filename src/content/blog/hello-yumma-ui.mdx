@@ -1,14 +1,20 @@
+import Image from "next/image";
+
 export const meta = {
   authors: ["Renildo"],
   cover: "~",
-  date: "2025-12-07",
+  date: "2026-01-11",
   description: "Public release of Yumma UI, a free component library for Yumma CSS.",
   title: "Hello Yumma UI!"
 };
 
+---
+
 ## What is Yumma UI?
 
-Building polished UIs with utility CSS often involves rebuilding the same buttons, alerts, & layouts. Yumma UI provides production-ready blocks so you can start from a real interface instead of an empty file.
+Building polished UIs with utility CSS means rebuilding the same buttons, alerts, & layouts. Yumma UI provides production-ready blocks so you start from a real interface instead of an empty file.
+
+---
 
 ## Get started
 
@@ -16,34 +22,98 @@ Getting started with Yumma UI requires [Yumma CSS](/docs).
 
 <Stepper>
   <Step title="Install Yumma CSS">
-    Ensure Yumma CSS is set up in your project.
-
-    ```bash
-    pnpm add yummacss
-    ```
+    Set up Yumma CSS in your project.
+```bash title="Terminal"
+pnpm add yummacss
+```
   </Step>
   <Step title="Browse components">
-    Visit the [UI documentation](/ui) to browse the available components.
+    Visit the [UI documentation](/ui) to browse available components.
   </Step>
   <Step title="Copy & paste">
     Use component code as is or customize it for your brand.
   </Step>
 </Stepper>
 
-## What you can build
+---
 
-Since Yumma UI is built on [Yumma CSS](/docs), you can customize components to match your brand identity.
+## Free components forever
 
-Lightbox, an imaginary brand landing page, uses Yumma UI components with minor changes.
+Browse the full catalog & own all components permanently.
 
-![Lightbox landing page](/blog/hello-yumma-ui-lightbox.png)
+<Tabs defaultValue="avatar">
+  <TabsList>
+    <TabsTab value="avatar">Avatar</TabsTab>
+    <TabsTab value="button">Button</TabsTab>
+    <TabsTab value="checkbox">Checkbox</TabsTab>
+    <TabsTab value="dialog">Dialog</TabsTab>
+  </TabsList>
+  <TabsPanel className="bg-white" value="avatar">
+    <Preview className="bw-0" id="avatar-basic" />
+  </TabsPanel>
+  <TabsPanel className="bg-white" value="button">
+    <Preview className="bw-0" id="button-basic" />
+  </TabsPanel>
+  <TabsPanel className="bg-white" value="checkbox">
+    <Preview className="bw-0" id="checkbox-basic" />
+  </TabsPanel>
+  <TabsPanel className="bg-white" value="dialog">
+    <Preview className="bw-0" id="dialog-settings" />
+  </TabsPanel>
+</Tabs>
 
-## Design choices
+---
 
-Create something unique to your brand by controlling colors, radii, margins, typography, & more.
+## Start with complete templates
 
-![Design system](/blog/hello-yumma-ui-design-system.png)
+Templates provide fully-built pages & layouts. Neutra is our first template—a minimal grayscale design for agencies & studios.
 
-## Start building
+<div className="d-g g-3 gtc-1 mb-8 md:gtc-2">
+  <a href="/ui/templates/neutra" className="bg-black/10 bc-white/10 br-0 bw-1 o-h p-r ar-16/9">
+    <Image src="/templates/neutra/home.png" alt="Neutra home page" fill className="of-c" />
+  </a>
+  <a href="/ui/templates/neutra" className="bg-black/10 bc-white/10 br-0 bw-1 o-h p-r ar-16/9">
+    <Image src="/templates/neutra/pricing.png" alt="Neutra pricing page" fill className="of-c" />
+  </a>
+  <a href="/ui/templates/neutra" className="bg-black/10 bc-white/10 br-0 bw-1 o-h p-r ar-16/9">
+    <Image src="/templates/neutra/process.png" alt="Neutra process page" fill className="of-c" />
+  </a>
+  <a href="/ui/templates/neutra" className="bg-black/10 bc-white/10 br-0 bw-1 o-h p-r ar-16/9">
+    <Image src="/templates/neutra/work.png" alt="Neutra work page" fill className="of-c" />
+  </a>
+</div>
 
-Browse the catalog in the [UI documentation](/ui).
+### What's included
+
+- **Multiple pages** – Home, About, Services, & more
+- **Responsive design** – Works on all devices
+- **Clean code** – Built with TypeScript & best practices
+- **Lifetime updates** – One-time purchase with perpetual updates
+
+### Pricing
+
+Templates cost €6 each & include lifetime updates. Payment is handled securely through [Polar](https://polar.sh).
+
+Review available license options [here](/ui/license).
+
+---
+
+## Tech stack
+
+Templates use modern technologies:
+
+- **Yumma CSS** – Styling
+- **Next.js** – Server-side rendering
+- **React** – Frontend framework
+- **pnpm** – Package management
+- **TypeScript** – Type safety
+
+Customize templates easily with [Yumma CSS](/docs).
+
+---
+
+## Start building today
+
+Yumma UI gives you production-ready components & complete templates. Skip the setup & focus on what makes your project unique.
+
+Browse [components](/ui) & [templates](/ui/templates) to get started.
