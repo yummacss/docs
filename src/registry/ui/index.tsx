@@ -1,22 +1,22 @@
 import type { ComponentType } from "react";
 
 // Import all preview components
-import AccordionBasic from "./accordion-basic";
+import AccordionBase from "./accordion-base";
 import AccordionBordered from "./accordion-bordered";
 import AccordionIcons from "./accordion-icons";
 import AccordionMultiple from "./accordion-multiple";
-import AlertDialogBasic from "./alert-dialog-basic";
+import AlertDialogBase from "./alert-dialog-base";
 import AlertDialogMail from "./alert-dialog-mail";
 import AlertDialogVerification from "./alert-dialog-verification";
-import AutocompleteBasic from "./autocomplete-basic";
-import AvatarBasic from "./avatar-basic";
+import AutocompleteBase from "./autocomplete-base";
+import AvatarBase from "./avatar-base";
 import AvatarDetailed from "./avatar-detailed";
 import AvatarInitials from "./avatar-initials";
 import AvatarPlaceholder from "./avatar-placeholder";
 import AvatarStacked from "./avatar-stacked";
 import AvatarStatus from "./avatar-status";
 import AvatarVerified from "./avatar-verified";
-import ButtonBasic from "./button-basic";
+import ButtonBase from "./button-base";
 import ButtonDanger from "./button-danger";
 import ButtonDisabled from "./button-disabled";
 import ButtonGhost from "./button-ghost";
@@ -27,55 +27,55 @@ import ButtonLoading from "./button-loading";
 import ButtonOutlined from "./button-outlined";
 import ButtonPrimary from "./button-primary";
 import ButtonSecondary from "./button-secondary";
-import CheckboxBasic from "./checkbox-basic";
+import CheckboxBase from "./checkbox-base";
 import CheckboxDetailed from "./checkbox-detailed";
 import CheckboxDisabled from "./checkbox-disabled";
 import CheckboxNestedParent from "./checkbox-nested-parent";
 import CheckboxParent from "./checkbox-parent";
 import CheckboxSizes from "./checkbox-sizes";
-import CollapsibleBasic from "./collapsible-basic";
-import ComboboxBasic from "./combobox-basic";
-import ContextMenuBasic from "./context-menu-basic";
-import DialogBasic from "./dialog-basic";
+import CollapsibleBase from "./collapsible-base";
+import ComboboxBase from "./combobox-base";
+import ContextMenuBase from "./context-menu-base";
+import DialogBase from "./dialog-base";
 import DialogPayment from "./dialog-payment";
 import DialogSettings from "./dialog-settings";
-import FormBasic from "./form-basic";
-import InputBasic from "./input-basic";
-import MenuBasic from "./menu-basic";
-import MenubarBasic from "./menubar-basic";
-import MeterBasic from "./meter-basic";
-import NavigationMenuBasic from "./navigation-menu-basic";
-import NumberFieldBasic from "./number-field-basic";
-import PopoverBasic from "./popover-basic";
-import PreviewCardBasic from "./preview-card-basic";
-import ProgressBasic from "./progress-basic";
-import RadioBasic from "./radio-basic";
-import ScrollAreaBasic from "./scroll-area-basic";
-import SelectBasic from "./select-basic";
-import SeparatorBasic from "./separator-basic";
-import SliderBasic from "./slider-basic";
-import SwitchBasic from "./switch-basic";
-import TabsBasic from "./tabs-basic";
-import ToggleBasic from "./toggle-basic";
-import ToggleGroupBasic from "./toggle-group-basic";
-import ToolbarBasic from "./toolbar-basic";
-import TooltipBasic from "./tooltip-basic";
+import FormBase from "./form-base";
+import InputBase from "./input-base";
+import MenuBase from "./menu-base";
+import MenubarBase from "./menubar-base";
+import MeterBase from "./meter-base";
+import NavigationMenuBase from "./navigation-menu-base";
+import NumberFieldBase from "./number-field-base";
+import PopoverBase from "./popover-base";
+import PreviewCardBase from "./preview-card-base";
+import ProgressBase from "./progress-base";
+import RadioBase from "./radio-base";
+import ScrollAreaBase from "./scroll-area-base";
+import SelectBase from "./select-base";
+import SeparatorBase from "./separator-base";
+import SliderBase from "./slider-base";
+import SwitchBase from "./switch-base";
+import TabsBase from "./tabs-base";
+import ToggleBase from "./toggle-base";
+import ToggleGroupBase from "./toggle-group-base";
+import ToolbarBase from "./toolbar-base";
+import TooltipBase from "./tooltip-base";
 
 // Registry of preview components
 export const components: Record<string, ComponentType> = {
   // Accordion
-  "accordion-basic": AccordionBasic,
+  "accordion-base": AccordionBase,
   "accordion-multiple": AccordionMultiple,
   "accordion-bordered": AccordionBordered,
   "accordion-icons": AccordionIcons,
   // Alert Dialog
-  "alert-dialog-basic": AlertDialogBasic,
+  "alert-dialog-base": AlertDialogBase,
   "alert-dialog-mail": AlertDialogMail,
   "alert-dialog-verification": AlertDialogVerification,
   // Autocomplete
-  "autocomplete-basic": AutocompleteBasic,
+  "autocomplete-base": AutocompleteBase,
   // Avatar
-  "avatar-basic": AvatarBasic,
+  "avatar-base": AvatarBase,
   "avatar-status": AvatarStatus,
   "avatar-verified": AvatarVerified,
   "avatar-placeholder": AvatarPlaceholder,
@@ -83,7 +83,7 @@ export const components: Record<string, ComponentType> = {
   "avatar-detailed": AvatarDetailed,
   "avatar-stacked": AvatarStacked,
   // Button
-  "button-basic": ButtonBasic,
+  "button-base": ButtonBase,
   "button-primary": ButtonPrimary,
   "button-secondary": ButtonSecondary,
   "button-danger": ButtonDanger,
@@ -95,64 +95,64 @@ export const components: Record<string, ComponentType> = {
   "button-loading": ButtonLoading,
   "button-disabled": ButtonDisabled,
   // Checkbox
-  "checkbox-basic": CheckboxBasic,
+  "checkbox-base": CheckboxBase,
   "checkbox-detailed": CheckboxDetailed,
   "checkbox-disabled": CheckboxDisabled,
   "checkbox-sizes": CheckboxSizes,
   "checkbox-parent": CheckboxParent,
   "checkbox-nested-parent": CheckboxNestedParent,
   // Collapsible
-  "collapsible-basic": CollapsibleBasic,
+  "collapsible-base": CollapsibleBase,
   // Combobox
-  "combobox-basic": ComboboxBasic,
+  "combobox-base": ComboboxBase,
   // Context Menu
-  "context-menu-basic": ContextMenuBasic,
+  "context-menu-base": ContextMenuBase,
   // Dialog
-  "dialog-basic": DialogBasic,
+  "dialog-base": DialogBase,
   "dialog-payment": DialogPayment,
   "dialog-settings": DialogSettings,
   // Form
-  "form-basic": FormBasic,
+  "form-base": FormBase,
   // Input
-  "input-basic": InputBasic,
+  "input-base": InputBase,
   // Menu
-  "menu-basic": MenuBasic,
+  "menu-base": MenuBase,
   // Menubar
-  "menubar-basic": MenubarBasic,
+  "menubar-base": MenubarBase,
   // Meter
-  "meter-basic": MeterBasic,
+  "meter-base": MeterBase,
   // Navigation Menu
-  "navigation-menu-basic": NavigationMenuBasic,
+  "navigation-menu-base": NavigationMenuBase,
   // Number Field
-  "number-field-basic": NumberFieldBasic,
+  "number-field-base": NumberFieldBase,
   // Popover
-  "popover-basic": PopoverBasic,
+  "popover-base": PopoverBase,
   // Preview Card
-  "preview-card-basic": PreviewCardBasic,
+  "preview-card-base": PreviewCardBase,
   // Progress
-  "progress-basic": ProgressBasic,
+  "progress-base": ProgressBase,
   // Radio
-  "radio-basic": RadioBasic,
+  "radio-base": RadioBase,
   // Scroll Area
-  "scroll-area-basic": ScrollAreaBasic,
+  "scroll-area-base": ScrollAreaBase,
   // Select
-  "select-basic": SelectBasic,
+  "select-base": SelectBase,
   // Separator
-  "separator-basic": SeparatorBasic,
+  "separator-base": SeparatorBase,
   // Slider
-  "slider-basic": SliderBasic,
+  "slider-base": SliderBase,
   // Switch
-  "switch-basic": SwitchBasic,
+  "switch-base": SwitchBase,
   // Tabs
-  "tabs-basic": TabsBasic,
+  "tabs-base": TabsBase,
   // Toggle
-  "toggle-basic": ToggleBasic,
+  "toggle-base": ToggleBase,
   // Toggle Group
-  "toggle-group-basic": ToggleGroupBasic,
+  "toggle-group-base": ToggleGroupBase,
   // Toolbar
-  "toolbar-basic": ToolbarBasic,
+  "toolbar-base": ToolbarBase,
   // Tooltip
-  "tooltip-basic": TooltipBasic,
+  "tooltip-base": TooltipBase,
 };
 
 export const blocks: Record<string, ComponentType> = {};
