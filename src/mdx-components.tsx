@@ -3,9 +3,6 @@ import Image from "next/image";
 import Baseline from "@/components/baseline";
 import Hint from "@/components/hint";
 import HoverVariant from "@/components/hover-variant";
-import LegacyColor from "@/components/legacy/legacy-color";
-import LegacyPalette from "@/components/legacy/legacy-palette";
-import LegacyTable from "@/components/legacy/legacy-table";
 import NegativeValues from "@/components/negative-values";
 import OpacityModifier from "@/components/opacity-modifier";
 import Palette from "@/components/palette";
@@ -34,13 +31,9 @@ function generateId(children: React.ReactNode): string {
 }
 
 const components: MDXComponents = {
-  // docs components
   Baseline,
   Hint,
   HoverVariant,
-  LegacyColor,
-  LegacyPalette,
-  LegacyTable,
   ResponsiveVariant,
   NegativeValues,
   OpacityModifier,

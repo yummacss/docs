@@ -4133,10 +4133,6 @@ summary {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
-  .md\:gtc-6 {
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-  }
-
   .md\:h-auto {
     height: auto;
   }
@@ -4197,10 +4193,6 @@ summary {
 
   .lg\:gtc-12 {
     grid-template-columns: repeat(12, minmax(0, 1fr));
-  }
-
-  .lg\:gtc-13 {
-    grid-template-columns: repeat(13, minmax(0, 1fr));
   }
 
   .lg\:gtc-2 {
