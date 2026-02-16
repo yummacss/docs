@@ -1,17 +1,23 @@
 "use client";
 
 import { Button } from "@base-ui/react";
-import { MagnifyingGlassIcon } from "@phosphor-icons/react/dist/ssr";
+import {
+  EqualsIcon,
+  MagnifyingGlassIcon,
+  XIcon,
+} from "@phosphor-icons/react/dist/ssr";
 import { cva, type VariantProps } from "class-variance-authority";
 import { clsx } from "clsx";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { type ReactNode, useEffect, useState } from "react";
+import { lazy, type ReactNode, Suspense, useEffect, useState } from "react";
 import { SiGithub, SiNpm } from "react-icons/si";
 import pkg from "../../../package.json";
 import { YummaCSSDark } from "../icons/yummacss-dark";
 import { LogoContextMenu } from "./logo-context-menu";
 import { SearchDialog } from "./search-dialog";
+
+const MobileSidebar = lazy(() => import("./mobile-sidebar"));
 
 const navbarVariants = cva("p-f l-0 r-0 t-0 zi-10 bbw-1", {
   variants: {
@@ -28,13 +34,20 @@ const navbarVariants = cva("p-f l-0 r-0 t-0 zi-10 bbw-1", {
 interface NavbarProps extends VariantProps<typeof navbarVariants> {
   className?: string;
   links?: ReactNode;
+  showMobileSidebar?: boolean;
 }
 
-export default function Navbar({ variant, className, links }: NavbarProps) {
+export default function Navbar({
+  variant,
+  className,
+  links,
+  showMobileSidebar = false,
+}: NavbarProps) {
   const pathname = usePathname();
   const isUI = pathname?.startsWith("/ui");
   const isLandingPage = pathname === "/" || pathname === "/ui";
   const [searchOpen, setSearchOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -48,13 +61,26 @@ export default function Navbar({ variant, className, links }: NavbarProps) {
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, []);
 
+  // prevent body scroll when sidebar is open
+  useEffect(() => {
+    if (isSidebarOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isSidebarOpen]);
+
   return (
     <>
       <header
         className={clsx(navbarVariants({ variant }), className)}
         style={{ backgroundColor: isLandingPage ? "transparent" : "#151724" }}
       >
-        <div className="sm-xxl mx-auto px-6 py-2">
+        <div className="sm-xxl mx-auto px-3 py-2">
           <nav className="d-f ai-c jc-sb">
             <div className="d-f ai-c g-2">
               <LogoContextMenu>
@@ -66,7 +92,7 @@ export default function Navbar({ variant, className, links }: NavbarProps) {
                 </Link>
               </LogoContextMenu>
             </div>
-            <div className="d-f ai-c g-8">
+            <div className="d-f ai-c g-4">
               {links ? (
                 links
               ) : (
@@ -101,7 +127,7 @@ export default function Navbar({ variant, className, links }: NavbarProps) {
               <Button
                 type="button"
                 onClick={() => setSearchOpen(true)}
-                className="d-f ai-c jc-c g-2 py-2 px-3 lg:px-4 lg:py-2 bg-white/5 bf-b-sm fs-sm h:bg-white/10 c-white bw-1 bc-white/10 br-pill fv:oc-indigo-4 fv:ow-2"
+                className="d-f ai-c jc-c g-2 h-8 px-3 lg:px-4 bg-white/5 bf-b-sm fs-sm h:bg-white/10 c-white bw-1 bc-white/10 br-pill fv:oc-indigo-4 fv:ow-2"
               >
                 <MagnifyingGlassIcon size={15} />
                 <kbd className="d-none lg:d-b fs-xs c-white/60 us-none">
@@ -129,12 +155,38 @@ export default function Navbar({ variant, className, links }: NavbarProps) {
                   <span>GitHub</span>
                 </Link>
               </div>
+
+              {showMobileSidebar && (
+                <Button
+                  type="button"
+                  onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+                  className="d-f lg:d-none ai-c jc-c g-2 c-white/70 h:c-white"
+                  aria-label={isSidebarOpen ? "Close menu" : "Open menu"}
+                >
+                  {isSidebarOpen ? (
+                    <XIcon size={20} />
+                  ) : (
+                    <EqualsIcon size={20} />
+                  )}
+                  <span className="fs-sm">Navigation</span>
+                </Button>
+              )}
             </div>
           </nav>
         </div>
       </header>
 
       <SearchDialog open={searchOpen} onClose={() => setSearchOpen(false)} />
+
+      {showMobileSidebar && (
+        <Suspense fallback={null}>
+          <MobileSidebar
+            isOpen={isSidebarOpen}
+            onClose={() => setIsSidebarOpen(false)}
+            routeType={isUI ? "ui" : "docs"}
+          />
+        </Suspense>
+      )}
     </>
   );
 }

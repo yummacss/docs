@@ -11,9 +11,9 @@ export default function TemplatesSidebar() {
   return (
     <aside className="d-none lg:d-b lg:gc-s-3">
       <div
-        className="p-st t-24 d-f fd-c g-8 o-y-auto"
+        className="p-st t-20 d-f fd-c g-8 o-y-auto"
         style={{
-          maxHeight: "calc(100vh - 6rem)",
+          maxHeight: "calc(100vh - 3rem)",
         }}
       >
         <SidebarLinks />

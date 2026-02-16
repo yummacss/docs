@@ -41,9 +41,9 @@ export default function UISidebar() {
   return (
     <aside className="d-none lg:d-b lg:gc-s-3">
       <div
-        className="p-st t-24 d-f fd-c g-8 o-y-auto pb-12"
+        className="p-st t-20 d-f fd-c g-8 o-y-auto pb-12"
         style={{
-          maxHeight: "calc(100vh - 6rem)",
+          maxHeight: "calc(100vh - 3rem)",
         }}
       >
         <SidebarLinks />
