@@ -160,14 +160,38 @@ export default function Navbar({
                 <Button
                   type="button"
                   onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-                  className="d-f lg:d-none ai-c jc-c g-2 c-white/70 h:c-white"
+                  className="d-f lg:d-none ai-c jc-c g-2 c-white/70 h:c-white p-r"
                   aria-label={isSidebarOpen ? "Close menu" : "Open menu"}
                 >
-                  {isSidebarOpen ? (
-                    <XIcon size={20} />
-                  ) : (
-                    <EqualsIcon size={20} />
-                  )}
+                  <div
+                    className="p-r d-f ai-c jc-c"
+                    style={{ width: 20, height: 20 }}
+                  >
+                    <EqualsIcon
+                      size={20}
+                      className="p-a"
+                      style={{
+                        opacity: isSidebarOpen ? 0 : 1,
+                        transform: isSidebarOpen
+                          ? "rotate(90deg)"
+                          : "rotate(0deg)",
+                        transition:
+                          "opacity 0.2s ease-in-out, transform 0.2s ease-in-out",
+                      }}
+                    />
+                    <XIcon
+                      size={20}
+                      className="p-a"
+                      style={{
+                        opacity: isSidebarOpen ? 1 : 0,
+                        transform: isSidebarOpen
+                          ? "rotate(0deg)"
+                          : "rotate(-90deg)",
+                        transition:
+                          "opacity 0.2s ease-in-out, transform 0.2s ease-in-out",
+                      }}
+                    />
+                  </div>
                   <span className="fs-sm">Navigation</span>
                 </Button>
               )}
