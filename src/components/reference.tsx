@@ -153,7 +153,7 @@ export default function Reference({ category, name }: Props) {
                       <code className="fs-sm" style={{ color: "#dda2f6" }}>
                         {variant.prefix}
                       </code>
-                      <code className="fs-xs" style={{ color: "#8892c2" }}>
+                      <code className="fs-xs" style={{ color: "#b9bed5" }}>
                         {variant.property}: {variant.value};
                       </code>
                     </div>
