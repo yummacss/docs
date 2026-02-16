@@ -1,27 +1,43 @@
+import { ThermometerColdIcon } from "@phosphor-icons/react/dist/ssr";
+
 interface Props {
   prefix: string;
 }
 
 export default function NegativeValues({ prefix }: Props) {
   return (
-    <div className="mb-6">
-      <p className="mb-4 c-white/80">
-        You can use negative values with the{" "}
-        <code
-          className="fs-sm px-2 py-1"
-          style={{ backgroundColor: "#21243f" }}
+    <div
+      className="mb-6 p-4"
+      style={{ backgroundColor: "#1a1d2e", border: "1px solid #232741" }}
+    >
+      <div className="d-f ai-c g-3 mb-3">
+        <div
+          className="d-f ai-c jc-c p-2 br-1 fs-0"
+          style={{ backgroundColor: "#232741", color: "#9aa6ef" }}
         >
-          --
-        </code>{" "}
-        syntax to apply negative numeric values. For example,{" "}
-        <code
-          className="fs-sm px-2 py-1"
-          style={{ backgroundColor: "#21243f" }}
-        >
-          {prefix}--4
-        </code>{" "}
-        applies a negative.
-      </p>
+          <ThermometerColdIcon size={20} weight="duotone" />
+        </div>
+        <p className="c-white/70 fs-sm">
+          Use the{" "}
+          <code
+            className="px-1"
+            style={{ backgroundColor: "#232741", color: "#dda2f6" }}
+          >
+            --
+          </code>{" "}
+          syntax to apply negative numeric values.
+        </p>
+      </div>
+
+      <div
+        className="d-f ai-c g-2 p-3 br-1"
+        style={{ backgroundColor: "#14162380" }}
+      >
+        <span className="c-white/50 fs-xs">Syntax:</span>
+        <code className="fs-sm" style={{ color: "#dda2f6" }}>
+          {prefix}--[value]
+        </code>
+      </div>
     </div>
   );
 }
