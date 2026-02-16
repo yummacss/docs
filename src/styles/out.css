@@ -481,6 +481,10 @@ summary {
   backdrop-filter: blur(8px);
 }
 
+.bf-b-xs {
+  backdrop-filter: blur(4px);
+}
+
 .bg-black {
   background-color: #000;
 }
@@ -495,6 +499,10 @@ summary {
 
 .bg-black\/50 {
   background-color: #00000080;
+}
+
+.bg-black\/60 {
+  background-color: #0009;
 }
 
 .bg-black\/70 {
@@ -1393,6 +1401,10 @@ summary {
   filter: grayscale(50%);
 }
 
+.f-g-90 {
+  filter: grayscale(90%);
+}
+
 .f-none {
   flex: none;
 }
@@ -2241,10 +2253,6 @@ summary {
 
 .l-auto {
   left: auto;
-}
-
-.l-half {
-  left: 50%;
 }
 
 .lh-1 {
