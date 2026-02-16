@@ -224,11 +224,7 @@ const components: MDXComponents = {
     props.className ? (
       <code {...props}>{children}</code>
     ) : (
-      <code
-        className="px-2 py-1"
-        style={{ backgroundColor: "#21243f" }}
-        {...props}
-      >
+      <code className="fs-md ff-m" style={{ color: "#dda2f6" }} {...props}>
         {children}
       </code>
     ),
