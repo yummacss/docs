@@ -3070,12 +3070,12 @@ summary {
   place-self: stretch stretch;
 }
 
-.pt-14 {
-  padding-top: 3.5rem;
+.pt-12 {
+  padding-top: 3rem;
 }
 
-.pt-24 {
-  padding-top: 6rem;
+.pt-14 {
+  padding-top: 3.5rem;
 }
 
 .pt-3 {
@@ -3384,10 +3384,6 @@ summary {
 
 .t-20 {
   top: 5rem;
-}
-
-.t-24 {
-  top: 6rem;
 }
 
 .t-4 {
@@ -4227,16 +4223,8 @@ summary {
     background-color: #e6394640;
   }
 
-  .lg\:pt-12 {
-    padding-top: 3rem;
-  }
-
   .lg\:px-4 {
     padding-inline: 1rem;
-  }
-
-  .lg\:py-2 {
-    padding-block: .5rem;
   }
 
   .lg\:w-64 {
