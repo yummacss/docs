@@ -85,7 +85,7 @@ The CLI scans files specified in `source` & generates a CSS file based on the ut
 ### HTML Input
 
 ```jsx title="index.html"
-<button class="bg-white bw-1 bc-silver-4">
+<button class="bg-white bw-1 c-black">
   Button
 </button>
 ```
@@ -95,24 +95,16 @@ The CLI scans files specified in `source` & generates a CSS file based on the ut
 Running the `build` or `watch` command generates the following CSS:
 
 ```css title="styles.css"
-h1 {
-  overflow-wrap: break-word;
-  text-wrap: balance;
-  font-size: 1 rem;
-  font-weight: 600;
+.bg-white {
+  background-color: #fff;
 }
 
-.my-2 {
-  margin-top: 0.5 rem;
-  margin-bottom: 0.5 rem;
+.bw-1 {
+  border-width: 1px;
 }
 
-.fs-xl {
-  font-size: 1.25 rem;
-}
-
-.ta-c {
-  text-align: center;
+.c-black {
+  color: #000;
 }
 ```
 
