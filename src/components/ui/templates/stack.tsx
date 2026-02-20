@@ -46,7 +46,7 @@ export default function TemplateStack({ stack }: Props) {
             className="p-4 bw-1 bc-white/10 br-0 d-f ai-c jc-c g-2"
             style={{ backgroundColor: "#21243f", borderColor: "#31365e" }}
           >
-            {StackIcon && <StackIcon className="d-6" />}
+            {StackIcon && <StackIcon className="w-6 h-6" />}
             <span className="fs-sm c-white">{item}</span>
           </div>
         );

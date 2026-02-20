@@ -141,7 +141,7 @@ export default function Navbar({
                   className="d-f ai-c g-1 c-white/80 h:c-white fs-xs fv:oc-indigo-4 fv:ow-2"
                   target="_blank"
                 >
-                  <SiNpm className="d-4" />
+                  <SiNpm className="w-4 h-4" />
                   <span className="tw-b">
                     v{pkg.devDependencies.yummacss.replace("^", "")}
                   </span>
@@ -151,7 +151,7 @@ export default function Navbar({
                   className="d-f ai-c g-1 c-white/80 h:c-white fs-xs fv:oc-indigo-4 fv:ow-2"
                   target="_blank"
                 >
-                  <SiGithub className="d-4" />
+                  <SiGithub className="w-4 h-4" />
                   <span>GitHub</span>
                 </Link>
               </div>

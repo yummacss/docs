@@ -1,0 +1,52 @@
+export const meta = {
+  title: "Overscroll Behavior Y",
+  description: "Control the browser's scroll overflow behavior on the vertical axis.",
+};
+
+<Baseline path="css.properties.overscroll-behavior-y" />
+
+<Reference category="interactivity" name="overscroll-behavior-y" />
+
+## Usage
+
+### Auto
+
+Use the `oby-a` utility to allow scroll overflow behavior on the vertical axis.
+
+```html "oby-a"
+<div class="oby-a ...">
+  ...
+</div>
+```
+
+### Contain
+
+Use the `oby-c` utility to contain scroll overflow behavior on the vertical axis.
+
+```html "oby-c"
+<div class="oby-c ...">
+  ...
+</div>
+```
+
+### None
+
+Use the `oby-n` utility to disable scroll overflow behavior on the vertical axis.
+
+```html "oby-n"
+<div class="oby-n ...">
+  ...
+</div>
+```
+
+### Responsiveness
+
+Use breakpoint prefixes to target different screen sizes.
+
+<ResponsiveVariant prefix="oby" />
+
+### Hover State
+
+Apply styles conditionally on hover using the `h:` prefix.
+
+<HoverVariant prefix="oby" />

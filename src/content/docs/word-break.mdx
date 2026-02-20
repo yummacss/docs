@@ -1,0 +1,52 @@
+export const meta = {
+  title: "Word Break",
+  description: "Specify how words should break when reaching the edge of a line.",
+};
+
+<Baseline path="css.properties.word-break" />
+
+<Reference category="text" name="word-break" />
+
+## Usage
+
+### Normal
+
+Use the `wb-n` utility to use default line break rules.
+
+```html "wb-n"
+<p class="wb-n ...">
+  ...
+</p>
+```
+
+### Break All
+
+Use the `wb-ba` utility to allow word breaks between any two characters.
+
+```html "wb-ba"
+<p class="wb-ba ...">
+  ...
+</p>
+```
+
+### Keep All
+
+Use the `wb-ka` utility to prevent word breaks for CJK texts.
+
+```html "wb-ka"
+<p class="wb-ka ...">
+  ...
+</p>
+```
+
+### Responsiveness
+
+Use breakpoint prefixes to target different screen sizes.
+
+<ResponsiveVariant prefix="wb" />
+
+### Hover State
+
+Apply styles conditionally on hover using the `h:` prefix.
+
+<HoverVariant prefix="wb" />

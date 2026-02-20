@@ -1,5 +1,5 @@
 export const meta = {
-  title: "Styling elements",
+  title: "Styling Elements",
   description: "Learn how to apply & combine utility classes.",
 };
 
@@ -8,11 +8,11 @@ export const meta = {
 Add utility classes to your HTML elements. You can combine multiple classes on a single element.
 
 <Preview>
-      <button className="bg-indigo c-white br-2 px-3 py-2 fw-600 bsh-md bw-1 bc-indigo-7 us-none tp-c tdu-150 ttf-io h:bg-indigo-8 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 c-p b-0">Add to Cart</button>
+      <button className="bg-indigo c-white br-2 px-3 py-2 fw-600 bs-o-md bw-1 bc-indigo-7 us-none tp-c tdu-150 ttf-io h:bg-indigo-8 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 c-p bw-0">Add to Cart</button>
 </Preview>
 
 ```html
-<button class="bg-indigo c-white br-2 px-3 py-2 fw-600 bsh-md bw-1 bc-indigo-7 us-none tp-c tdu-150 ttf-io h:bg-indigo-8 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 c-p b-0">Add to Cart</button>
+<button class="bg-indigo c-white br-2 px-3 py-2 fw-600 bs-o-md bw-1 bc-indigo-7 us-none tp-c tdu-150 ttf-io h:bg-indigo-8 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 c-p bw-0">Add to Cart</button>
 ```
 
 Reference for the examples above:
@@ -22,9 +22,9 @@ Reference for the examples above:
 | Class   | Style                                                 |
 | ------- | ----------------------------------------------------- |
 | `bg-*`  | [background-color](/docs/background-color)            |
-| `rad-*` | [border-radius](/docs/border-radius)                  |
-| `b-*`   | [border-width](/docs/border-width)                    |
-| `tc-*`  | [color](/docs/color)                                  |
+| `br-*`  | [border-radius](/docs/border-radius)                  |
+| `bw-*`  | [border-width](/docs/border-width)                    |
+| `c-*`   | [color](/docs/color)                                  |
 | `c-*`   | [cursor](/docs/cursor)                                |
 | `fw-*`  | [font-weight](/docs/font-weight)                      |
 | `h:*`   | [hover:](/docs/pseudo-classes#hover)      |
@@ -38,7 +38,7 @@ Reference for the examples above:
 Combine utilities to create complex styles & custom components.
 
 <Preview className="bg-silver-1">
-  <div className="bg-white bsh-md d-f fd-c g-4 h-100 max-w-80 p-5">
+  <div className="bg-white bs-o-md d-f fd-c g-4 h-100 max-w-80 p-5">
     <div className="p-r">
       <span className="bg-black/70 fs-xs fw-700 l-2 p-a px-2 py-px br-pill t-2 c-white us-none">New</span>
       <img className="h-40 of-c w-full" src="/img/shoes.jpg" />
@@ -50,13 +50,13 @@ Combine utilities to create complex styles & custom components.
 
     <div className="ai-c d-f jc-sb mt-auto">
       <span className="fs-lg fw-700 c-slate">$59.99</span>
-      <button className="bg-indigo c-white br-2 px-3 py-2 fw-600 bsh-md bw-1 bc-indigo-7 us-none tp-c tdu-150 ttf-io h:bg-indigo-8 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 c-p b-0">Add to Cart</button>
+      <button className="bg-indigo c-white br-2 px-3 py-2 fw-600 bs-o-md bw-1 bc-indigo-7 us-none tp-c tdu-150 ttf-io h:bg-indigo-8 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 c-p bw-0">Add to Cart</button>
     </div>
   </div>
 </Preview>
 
 ```html
-<div class="bg-white bsh-md d-f fd-c g-4 h-100 max-w-80 p-5">
+<div class="bg-white bs-o-md d-f fd-c g-4 h-100 max-w-80 p-5">
   <div class="p-r">
     <span class="bg-black/70 fs-xs fw-700 l-2 p-a px-2 py-px br-pill t-2 c-white us-none">New</span>
     <img class="h-40 of-c w-full" src="/img/shoes.jpg" />
@@ -68,7 +68,7 @@ Combine utilities to create complex styles & custom components.
 
   <div class="ai-c d-f jc-sb mt-auto">
     <span class="fs-lg fw-700 c-slate">$59.99</span>
-    <button class="bg-indigo c-white br-2 px-3 py-2 fw-600 bsh-md bw-1 bc-indigo-7 us-none tp-c tdu-150 ttf-io h:bg-indigo-8 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 c-p b-0">Add to Cart</button>
+    <button class="bg-indigo c-white br-2 px-3 py-2 fw-600 bs-o-md bw-1 bc-indigo-7 us-none tp-c tdu-150 ttf-io h:bg-indigo-8 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 c-p bw-0">Add to Cart</button>
   </div>
 </div>
 ```
@@ -79,8 +79,8 @@ Reference for the examples above:
 
 | Class     | Style                                                 |
 | --------- | ----------------------------------------------------- |
-| `rad-*`   | [border-radius](/docs/border-radius)                  |
-| `bsh-*`   | [box-shadow](/docs/box-shadow)                        |
+| `br-*`    | [border-radius](/docs/border-radius)                  |
+| `bs-o-*`  | [box-shadow](/docs/box-shadow)                        |
 | `d-*`     | [display](/docs/display)                              |
 | `fd-*`    | [flex-direction](/docs/flex-direction)                |
 | `f:*`     | [focus:](/docs/pseudo-classes#focus)                  |
@@ -100,7 +100,7 @@ Reference for the examples above:
 | `py-*`    | [padding-y](/docs/padding#padding-y) |
 | `p-*`     | [padding](/docs/padding)                              |
 | `p-*`     | [position](/docs/position)                            |
-| `tc-*`    | [text-color](/docs/color)                             |
+| `c-*`     | [color](/docs/color)                                  |
 | `t-*`     | [top](/docs/top-right-bottom-left)                    |
 | `w-*`     | [width](/docs/width)                                  |
 

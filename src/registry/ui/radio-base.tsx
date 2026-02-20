@@ -21,14 +21,14 @@ export default function ExampleRadio() {
         <Radio.Root
           value="monthly"
           className={(state) =>
-            `d-f ai-c jc-c d-4 br-pill p-0 m-0 ${
+            `d-f ai-c jc-c w-4 h-4 br-pill p-0 m-0 ${
               state.checked ? "bg-indigo" : "bg-white bw-1 bc-silver-3"
             } fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6`
           }
         >
           <Radio.Indicator
             className={(state) =>
-              state.checked ? "d-2 br-pill bg-white" : "d-none"
+              state.checked ? "w-2 h-2 br-pill bg-white" : "d-none"
             }
           />
         </Radio.Root>
@@ -40,14 +40,14 @@ export default function ExampleRadio() {
         <Radio.Root
           value="yearly"
           className={(state) =>
-            `d-f ai-c jc-c d-4 br-pill p-0 m-0 ${
+            `d-f ai-c jc-c w-4 h-4 br-pill p-0 m-0 ${
               state.checked ? "bg-indigo" : "bg-white bw-1 bc-silver-3"
             } fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6`
           }
         >
           <Radio.Indicator
             className={(state) =>
-              state.checked ? "d-2 br-pill bg-white" : "d-none"
+              state.checked ? "w-2 h-2 br-pill bg-white" : "d-none"
             }
           />
         </Radio.Root>

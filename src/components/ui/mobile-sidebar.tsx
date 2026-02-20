@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
@@ -72,7 +72,7 @@ export default function MobileSidebar({ isOpen, onClose, routeType }: Props) {
           animate={{ y: 0 }}
           exit={{ y: "100%" }}
           transition={{ type: "tween", duration: 0.3, ease: "easeInOut" }}
-          className="p-f t-12 l-0 w-full zi-20 lg:d-none btw-1 bc-white/10 bsh-md"
+          className="p-f t-12 l-0 w-full zi-20 lg:d-none btw-1 bc-white/10 bs-o-md"
           style={{
             backgroundColor: "#151724",
             height: "calc(100vh - 3rem)",
@@ -98,7 +98,7 @@ export default function MobileSidebar({ isOpen, onClose, routeType }: Props) {
                                 <span className="fs-md c-white/50">
                                   {item.title}
                                 </span>
-                                <ul className="d-f fd-c g-1">
+                                <ul className="d-f fd-c g-1 ml-4">
                                   {(
                                     item.children as (
                                       | SidebarConfigSimpleItem
@@ -132,7 +132,7 @@ export default function MobileSidebar({ isOpen, onClose, routeType }: Props) {
                                 <span className="fs-md c-white/50">
                                   {item.title}
                                 </span>
-                                <ul className="d-f fd-c g-1">
+                                <ul className="d-f fd-c g-1 ml-4">
                                   {(
                                     item.items as (
                                       | SidebarConfigItem

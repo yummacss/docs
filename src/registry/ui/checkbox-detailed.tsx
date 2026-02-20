@@ -10,7 +10,7 @@ export default function ExampleCheckbox() {
           <Checkbox.Root
             defaultChecked
             className={(state) =>
-              `d-f d-4 ai-c jc-c br-1 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+              `d-f w-4 h-4 ai-c jc-c br-1 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
                 state.checked ? "bg-indigo" : "bw-1 bc-silver-3 bg-transparent"
               }`
             }
@@ -31,7 +31,7 @@ export default function ExampleCheckbox() {
         <div className="d-f ai-c g-2 fs-sm fw-600 c-slate-10">
           <Checkbox.Root
             className={(state) =>
-              `d-f d-4 ai-c jc-c br-1 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+              `d-f w-4 h-4 ai-c jc-c br-1 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
                 state.checked ? "bg-indigo" : "bw-1 bc-silver-3 bg-transparent"
               }`
             }

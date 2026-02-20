@@ -1,0 +1,42 @@
+export const meta = {
+  title: "Container Queries",
+  description: "Apply styles based on the size of a parent container.",
+};
+
+## Usage
+
+Container queries allow you to change styles based on the size of a parent container rather than the viewport. They use the `@` prefix.
+
+```html "@sm:w-full"
+<div class="@sm:w-full ...">
+    Responsive based on container size
+  </div>
+```
+
+Container query breakpoints reference:
+
+| Prefix | Min Width                 |
+| ------ | ------------------------- |
+| `@sm`  | `@container (width >= 40rem)` |
+| `@md`  | `@container (width >= 48rem)` |
+| `@lg`  | `@container (width >= 64rem)` |
+| `@xl`  | `@container (width >= 80rem)` |
+| `@xxl` | `@container (width >= 96rem)` |
+
+## Example
+
+Resize the container below to see how the child element responds.
+
+<Preview>
+  <div className="bg-slate-1 p-4 w-full">
+    <div className="bg-indigo-5 c-white p-4 @sm:bg-red-5 @md:bg-green-5">
+      I change color based on my parent container!
+    </div>
+  </div>
+</Preview>
+
+```html "@sm:bg-red-5" "@md:bg-green-5"
+<div class="bg-indigo-5 @sm:bg-red-5 @md:bg-green-5">
+  I change color based on my parent container!
+</div>
+```

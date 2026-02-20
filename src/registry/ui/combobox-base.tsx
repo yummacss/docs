@@ -19,13 +19,13 @@ export default function ExampleCombobox() {
           />
           <div className="p-a d-f ai-c jc-c r-2 b-0 h-10 c-slate-6">
             <Combobox.Clear
-              className="d-f ai-c jc-c d-6 h-10 br-1 bg-transparent p-0 b-0 c-slate-6 h:c-slate-10 c-p"
+              className="d-f ai-c jc-c w-6 h-6 h-10 br-1 bg-transparent p-0 b-0 c-slate-6 h:c-slate-10 c-p"
               aria-label="Clear selection"
             >
               <XIcon size={16} />
             </Combobox.Clear>
             <Combobox.Trigger
-              className="d-f ai-c jc-c d-6 h-10 br-1 bg-transparent p-0 b-0 c-slate-6 h:c-slate-10 c-p"
+              className="d-f ai-c jc-c w-6 h-6 h-10 br-1 bg-transparent p-0 b-0 c-slate-6 h:c-slate-10 c-p"
               aria-label="Open popup"
             >
               <CaretDownIcon size={16} />
@@ -47,7 +47,7 @@ export default function ExampleCombobox() {
                     transition={{ duration: 0.1, ease: "easeOut" }}
                   />
                 }
-                className="w-64 bw-1 bc-silver-2 br-2 bg-white bsh-lg c-slate-10 o-h"
+                className="w-64 bw-1 bc-silver-2 br-2 bg-white bs-o-lg c-slate-10 o-h"
               >
                 <Combobox.Empty className="py-4 px-4 fs-sm c-slate-6">
                   No countries found.

@@ -10,7 +10,7 @@ export default function ExampleMenu() {
 
   return (
     <Menu.Root open={open} onOpenChange={setOpen}>
-      <Menu.Trigger className="d-f ai-c g-2 bg-white c-slate-10 br-2 px-3 py-2 fw-600 bsh-xs bw-1 bc-silver-2 us-none tp-c tdu-150 ttf-io h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 c-p b-0">
+      <Menu.Trigger className="d-f ai-c g-2 bg-white c-slate-10 br-2 px-3 py-2 fw-600 bs-o-xs bw-1 bc-silver-2 us-none tp-c tdu-150 ttf-io h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 c-p b-0">
         Actions <CaretDownIcon size={12} />
       </Menu.Trigger>
 
@@ -27,7 +27,7 @@ export default function ExampleMenu() {
                     transition={{ duration: 0.1, ease: "easeOut" }}
                   />
                 }
-                className="bw-1 bc-silver-2 br-2 bg-white bsh-lg py-1 c-slate-10"
+                className="bw-1 bc-silver-2 br-2 bg-white bs-o-lg py-1 c-slate-10"
               >
                 <Menu.Item
                   className={(state) =>

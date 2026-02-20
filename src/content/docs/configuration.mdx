@@ -22,6 +22,7 @@ pnpx yummacss init
 This creates a `yumma.config.mjs` file at your project root.
 
 ```js title="yumma.config.mjs"
+/** @type {import('@yummacss/nitro').Config} */
 export default {
   source: [""],
   output: "",
@@ -39,6 +40,7 @@ A collection of paths for your template files (e.g., `.js`, `.tsx`, `.html`). Th
 <Hint icon="info">Use glob patterns to include subfolders & specific file types.</Hint>
 
 ```js title="yumma.config.mjs" mark={2}
+/** @type {import('@yummacss/nitro').Config} */
 export default {
   source: ["./src/**/*.html"],
 };
@@ -49,6 +51,7 @@ export default {
 Specifies the output path for the compiled CSS file.
 
 ```js title="yumma.config.mjs" mark={2}
+/** @type {import('@yummacss/nitro').Config} */
 export default {
   output: "./src/styles.css",
 };
@@ -59,6 +62,7 @@ export default {
 Determines whether to include [base styles](/docs/base-styles).
 
 ```js title="yumma.config.mjs" mark={3}
+/** @type {import('@yummacss/nitro').Config} */
 export default {
   buildOptions: {
     reset: true, // default: true
@@ -71,6 +75,7 @@ export default {
 Determines whether to minify compiled CSS files. Enable this for production builds to reduce file size.
 
 ```js title="yumma.config.mjs" mark={3}
+/** @type {import('@yummacss/nitro').Config} */
 export default {
   buildOptions: {
     minify: true, // default: false

@@ -33,7 +33,7 @@ export default function ExamplePreviewCard() {
                     transition={{ duration: 0.15, ease: "easeOut" }}
                   />
                 }
-                className="d-f fd-c g-2 w-64 p-3 br-2 bg-white bsh-lg bw-1 bc-silver-2"
+                className="d-f fd-c g-2 w-64 p-3 br-2 bg-white bs-o-lg bw-1 bc-silver-2"
               >
                 {/* biome-ignore lint: Using img for external URL */}
                 <img

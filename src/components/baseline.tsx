@@ -128,10 +128,8 @@ export default function Baseline({ path }: Props) {
         {browsers.map((browser) => (
           <div key={browser.key} className="d-f ai-c g-2">
             <div
-              className="d-f ai-c jc-c"
+              className="d-f ai-c jc-c w-6 h-6"
               style={{
-                width: "24px",
-                height: "24px",
                 filter: !browser.supported ? "grayscale(1)" : "none",
                 opacity: !browser.supported ? 0.5 : 1,
               }}

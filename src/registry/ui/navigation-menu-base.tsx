@@ -55,7 +55,7 @@ export default function ExampleNavigationMenu() {
                     href={item.href}
                     className="d-f ai-fs g-3 p-2 br-2 td-n c-inherit h:bg-silver-1"
                   >
-                    <span className="d-f ai-c jc-c d-8 fs-0 br-2 bg-white bsh-xs bw-1 bc-silver-2 c-indigo">
+                    <span className="d-f ai-c jc-c w-8 h-8 fs-0 br-2 bg-white bs-o-xs bw-1 bc-silver-2 c-indigo">
                       {item.icon}
                     </span>
                     <div>
@@ -83,7 +83,7 @@ export default function ExampleNavigationMenu() {
                     href={item.href}
                     className="d-f ai-fs g-3 p-2 br-2 td-n c-inherit h:bg-silver-1"
                   >
-                    <span className="d-f ai-c jc-c d-8 fs-0 br-2 bg-white bsh-xs bw-1 bc-silver-2 c-indigo">
+                    <span className="d-f ai-c jc-c w-8 h-8 fs-0 br-2 bg-white bs-o-xs bw-1 bc-silver-2 c-indigo">
                       {item.icon}
                     </span>
                     <div>
@@ -121,7 +121,7 @@ export default function ExampleNavigationMenu() {
                 transition={{ duration: 0.15, ease: "easeOut" }}
               />
             }
-            className="br-3 bg-white bsh-lg bw-1 bc-silver-2 o-h"
+            className="br-3 bg-white bs-o-lg bw-1 bc-silver-2 o-h"
           >
             <NavigationMenu.Viewport className="p-r w-full h-full o-h" />
           </NavigationMenu.Popup>
