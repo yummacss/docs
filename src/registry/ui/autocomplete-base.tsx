@@ -33,7 +33,7 @@ export default function ExampleAutocomplete() {
                     transition={{ duration: 0.1, ease: "easeOut" }}
                   />
                 }
-                className="w-64 bw-1 bc-silver-2 br-2 bg-white bsh-lg c-slate-10 o-h py-1"
+                className="w-64 bw-1 bc-silver-2 br-2 bg-white bs-o-lg c-slate-10 o-h py-1"
               >
                 <Autocomplete.Empty className="py-4 px-4 fs-sm c-slate-6">
                   No languages found.

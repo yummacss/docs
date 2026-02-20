@@ -58,7 +58,7 @@ export default function UISidebar() {
                   return (
                     <li key={item.title} className="d-f fd-c g-2">
                       <span className="fs-md c-white/50">{item.title}</span>
-                      <ul className="d-f ml-4 fd-c g-1">
+                      <ul className="d-f fd-c g-1 ml-4">
                         {item.children.map((child) => {
                           const href = `/ui/${child.slug}`;
                           const isActive = pathname === href;
@@ -86,7 +86,7 @@ export default function UISidebar() {
                   return (
                     <li key={item.title} className="d-f fd-c g-2">
                       <span className="fs-md c-white/50">{item.title}</span>
-                      <ul className="d-f ml-4 fd-c g-1">
+                      <ul className="d-f fd-c g-1 ml-4">
                         {item.items.map((subItem) => {
                           if (hasChildren(subItem)) {
                             return (

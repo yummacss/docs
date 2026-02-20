@@ -11,7 +11,7 @@ export default function ExamplePopover() {
   return (
     <Popover.Root open={open} onOpenChange={setOpen}>
       <Popover.Trigger
-        className={`d-f ai-c jc-c d-10 bw-1 bc-silver-2 br-2 bg-white c-slate-10 us-none c-p h:bg-silver-1 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+        className={`d-f ai-c jc-c w-10 h-10 bw-1 bc-silver-2 br-2 bg-white c-slate-10 us-none c-p h:bg-silver-1 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
           open ? "bg-silver-1" : ""
         }`}
       >
@@ -30,7 +30,7 @@ export default function ExamplePopover() {
                     transition={{ duration: 0.15, ease: "easeOut" }}
                   />
                 }
-                className="bw-1 bc-silver-2 br-2 bg-white bsh-lg px-4 py-3 c-slate-10 w-56"
+                className="bw-1 bc-silver-2 br-2 bg-white bs-o-lg px-4 py-3 c-slate-10 w-56"
               >
                 <Popover.Title className="fs-sm fw-600 c-slate-10 m-0 mb-1">
                   Start a conversation

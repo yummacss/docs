@@ -35,7 +35,7 @@ export default function ExampleAlertDialog() {
     <AlertDialog.Root open={open} onOpenChange={setOpen}>
       <AlertDialog.Trigger
         render={
-          <Button className="bg-white c-slate-10 br-2 px-3 py-2 fw-600 bsh-xs bw-1 bc-silver-2 us-none tp-c tdu-150 ttf-io h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 c-p b-0" />
+          <Button className="bg-white c-slate-10 br-2 px-3 py-2 fw-600 bs-o-xs bw-1 bc-silver-2 us-none tp-c tdu-150 ttf-io h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 c-p b-0" />
         }
       >
         Compose
@@ -64,7 +64,7 @@ export default function ExampleAlertDialog() {
                     transition={{ type: "spring", stiffness: 500, damping: 30 }}
                   />
                 }
-                className="w-full br-2 bg-white c-slate-12 bsh-lg bw-1 bc-silver-2 o-h"
+                className="w-full br-2 bg-white c-slate-12 bs-o-lg bw-1 bc-silver-2 o-h"
                 style={{ maxWidth: "600px" }}
               >
                 <div className="d-f jc-sb ai-c px-4 py-2 bg-silver-1/50">
@@ -73,7 +73,7 @@ export default function ExampleAlertDialog() {
                   </AlertDialog.Title>
                   <AlertDialog.Close
                     render={
-                      <Button className="d-f ai-c jc-c d-7 br-2 bg-transparent b-0 c-p c-slate-6 h:bg-silver-2 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+                      <Button className="d-f ai-c jc-c w-7 h-7 br-2 bg-transparent b-0 c-p c-slate-6 h:bg-silver-2 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
                     }
                   >
                     <XIcon size={16} weight="bold" aria-hidden />
@@ -81,7 +81,7 @@ export default function ExampleAlertDialog() {
                 </div>
                 <div className="bbw-1 bc-silver-2" />
                 <div className="d-f ai-c g-3 px-4 py-3 bg-indigo-1/50">
-                  <span className="d-f ai-c jc-c d-10 fs-0 br-2 bg-white bsh-xs bw-1 bc-silver-2 c-indigo">
+                  <span className="d-f ai-c jc-c w-10 h-10 fs-0 br-2 bg-white bs-o-xs bw-1 bc-silver-2 c-indigo">
                     <PaperPlaneTiltIcon size={20} weight="bold" />
                   </span>
                   <div>
@@ -146,7 +146,7 @@ export default function ExampleAlertDialog() {
                                     <Toggle
                                       value="bold"
                                       className={(state) =>
-                                        `d-f d-8 ai-c jc-c bw-0 br-1 us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+                                        `d-f w-8 h-8 ai-c jc-c bw-0 br-1 us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
                                           state.pressed
                                             ? "bg-indigo c-white"
                                             : "bg-transparent c-slate-8 h:bg-silver-1 h:c-slate-10"
@@ -173,7 +173,7 @@ export default function ExampleAlertDialog() {
                                     <Toggle
                                       value="italic"
                                       className={(state) =>
-                                        `d-f d-8 ai-c jc-c bw-0 br-1 us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+                                        `d-f w-8 h-8 ai-c jc-c bw-0 br-1 us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
                                           state.pressed
                                             ? "bg-indigo c-white"
                                             : "bg-transparent c-slate-8 h:bg-silver-1 h:c-slate-10"
@@ -200,7 +200,7 @@ export default function ExampleAlertDialog() {
                                     <Toggle
                                       value="underline"
                                       className={(state) =>
-                                        `d-f d-8 ai-c jc-c bw-0 br-1 us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+                                        `d-f w-8 h-8 ai-c jc-c bw-0 br-1 us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
                                           state.pressed
                                             ? "bg-indigo c-white"
                                             : "bg-transparent c-slate-8 h:bg-silver-1 h:c-slate-10"
@@ -229,7 +229,7 @@ export default function ExampleAlertDialog() {
                             <Tooltip.Root>
                               <Tooltip.Trigger
                                 render={
-                                  <Toolbar.Button className="d-f d-8 ai-c jc-c bw-0 br-1 us-none c-p bg-transparent c-slate-8 h:bg-silver-1 h:c-slate-10 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+                                  <Toolbar.Button className="d-f w-8 h-8 ai-c jc-c bw-0 br-1 us-none c-p bg-transparent c-slate-8 h:bg-silver-1 h:c-slate-10 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
                                 }
                               >
                                 <PaletteIcon size={16} weight="bold" />
@@ -255,7 +255,7 @@ export default function ExampleAlertDialog() {
                                     <Toggle
                                       value="left"
                                       className={(state) =>
-                                        `d-f d-8 ai-c jc-c bw-0 br-1 us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+                                        `d-f w-8 h-8 ai-c jc-c bw-0 br-1 us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
                                           state.pressed
                                             ? "bg-indigo c-white"
                                             : "bg-transparent c-slate-8 h:bg-silver-1 h:c-slate-10"
@@ -282,7 +282,7 @@ export default function ExampleAlertDialog() {
                                     <Toggle
                                       value="center"
                                       className={(state) =>
-                                        `d-f d-8 ai-c jc-c bw-0 br-1 us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+                                        `d-f w-8 h-8 ai-c jc-c bw-0 br-1 us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
                                           state.pressed
                                             ? "bg-indigo c-white"
                                             : "bg-transparent c-slate-8 h:bg-silver-1 h:c-slate-10"
@@ -312,7 +312,7 @@ export default function ExampleAlertDialog() {
                                     <Toggle
                                       value="right"
                                       className={(state) =>
-                                        `d-f d-8 ai-c jc-c bw-0 br-1 us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+                                        `d-f w-8 h-8 ai-c jc-c bw-0 br-1 us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
                                           state.pressed
                                             ? "bg-indigo c-white"
                                             : "bg-transparent c-slate-8 h:bg-silver-1 h:c-slate-10"
@@ -345,7 +345,7 @@ export default function ExampleAlertDialog() {
                                     <Toggle
                                       value="bullets"
                                       className={(state) =>
-                                        `d-f d-8 ai-c jc-c bw-0 br-1 us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+                                        `d-f w-8 h-8 ai-c jc-c bw-0 br-1 us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
                                           state.pressed
                                             ? "bg-indigo c-white"
                                             : "bg-transparent c-slate-8 h:bg-silver-1 h:c-slate-10"
@@ -372,7 +372,7 @@ export default function ExampleAlertDialog() {
                                     <Toggle
                                       value="numbers"
                                       className={(state) =>
-                                        `d-f d-8 ai-c jc-c bw-0 br-1 us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+                                        `d-f w-8 h-8 ai-c jc-c bw-0 br-1 us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
                                           state.pressed
                                             ? "bg-indigo c-white"
                                             : "bg-transparent c-slate-8 h:bg-silver-1 h:c-slate-10"
@@ -401,7 +401,7 @@ export default function ExampleAlertDialog() {
                             <Tooltip.Root>
                               <Tooltip.Trigger
                                 render={
-                                  <Toolbar.Button className="d-f d-8 ai-c jc-c bw-0 br-1 us-none c-p bg-transparent c-slate-8 h:bg-silver-1 h:c-slate-10 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+                                  <Toolbar.Button className="d-f w-8 h-8 ai-c jc-c bw-0 br-1 us-none c-p bg-transparent c-slate-8 h:bg-silver-1 h:c-slate-10 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
                                 }
                               >
                                 <TrashIcon size={16} weight="bold" />
@@ -465,14 +465,14 @@ export default function ExampleAlertDialog() {
                 <div className="d-g gtc-2 g-3 px-4 py-3">
                   <AlertDialog.Close
                     render={
-                      <Button className="bg-white c-slate-10 br-2 px-3 py-2 fw-600 bsh-xs bw-1 bc-silver-2 us-none tp-c tdu-150 ttf-io h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 c-p b-0" />
+                      <Button className="bg-white c-slate-10 br-2 px-3 py-2 fw-600 bs-o-xs bw-1 bc-silver-2 us-none tp-c tdu-150 ttf-io h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 c-p b-0" />
                     }
                   >
                     Discard
                   </AlertDialog.Close>
                   <AlertDialog.Close
                     render={
-                      <Button className="bg-indigo c-white br-2 px-3 py-2 fw-600 bsh-md bw-1 bc-indigo-7 fv:oc-indigo-6 us-none tp-c tdu-150 ttf-io h:bg-indigo-8 fv:ow-2 fv:oo-2 c-p b-0" />
+                      <Button className="bg-indigo c-white br-2 px-3 py-2 fw-600 bs-o-md bw-1 bc-indigo-7 fv:oc-indigo-6 us-none tp-c tdu-150 ttf-io h:bg-indigo-8 fv:ow-2 fv:oo-2 c-p b-0" />
                     }
                   >
                     Send

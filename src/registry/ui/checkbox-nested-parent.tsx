@@ -30,7 +30,7 @@ export default function ExampleCheckboxGroup() {
             name="analytics"
             parent
             className={(state) =>
-              `d-f d-4 ai-c jc-c br-1 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+              `d-f w-4 h-4 ai-c jc-c br-1 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
                 state.checked || state.indeterminate
                   ? "bg-indigo"
                   : "bw-1 bc-silver-3 bg-transparent"
@@ -59,7 +59,7 @@ export default function ExampleCheckboxGroup() {
             <Checkbox.Root
               value="pageviews"
               className={(state) =>
-                `d-f d-4 ai-c jc-c br-1 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+                `d-f w-4 h-4 ai-c jc-c br-1 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
                   state.checked
                     ? "bg-indigo"
                     : "bw-1 bc-silver-3 bg-transparent"
@@ -78,7 +78,7 @@ export default function ExampleCheckboxGroup() {
             <Checkbox.Root
               value="sessions"
               className={(state) =>
-                `d-f d-4 ai-c jc-c br-1 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+                `d-f w-4 h-4 ai-c jc-c br-1 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
                   state.checked
                     ? "bg-indigo"
                     : "bw-1 bc-silver-3 bg-transparent"
@@ -108,7 +108,7 @@ export default function ExampleCheckboxGroup() {
             name="marketing"
             parent
             className={(state) =>
-              `d-f d-4 ai-c jc-c br-1 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+              `d-f w-4 h-4 ai-c jc-c br-1 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
                 state.checked || state.indeterminate
                   ? "bg-indigo"
                   : "bw-1 bc-silver-3 bg-transparent"
@@ -137,7 +137,7 @@ export default function ExampleCheckboxGroup() {
             <Checkbox.Root
               value="campaigns"
               className={(state) =>
-                `d-f d-4 ai-c jc-c br-1 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+                `d-f w-4 h-4 ai-c jc-c br-1 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
                   state.checked
                     ? "bg-indigo"
                     : "bw-1 bc-silver-3 bg-transparent"
@@ -156,7 +156,7 @@ export default function ExampleCheckboxGroup() {
             <Checkbox.Root
               value="newsletters"
               className={(state) =>
-                `d-f d-4 ai-c jc-c br-1 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+                `d-f w-4 h-4 ai-c jc-c br-1 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
                   state.checked
                     ? "bg-indigo"
                     : "bw-1 bc-silver-3 bg-transparent"

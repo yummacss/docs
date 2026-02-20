@@ -1,0 +1,72 @@
+export const meta = {
+  title: "Mix Blend Mode",
+  description: "Set how an element's content should blend with the background of its parent.",
+};
+
+<Baseline path="css.properties.mix-blend-mode" />
+
+<Reference category="effect" name="mix-blend-mode" />
+
+## Usage
+
+### Multiply
+
+Use the `mbm-m` utility to multiply the colors of the element & its background.
+
+```html "mbm-m"
+<div class="mbm-m ...">
+  ...
+</div>
+```
+
+### Screen
+
+Use the `mbm-s` utility to screen the colors of the element & its background.
+
+```html "mbm-s"
+<div class="mbm-s ...">
+  ...
+</div>
+```
+
+### Overlay
+
+Use the `mbm-o` utility to overlay the colors of the element & its background.
+
+```html "mbm-o"
+<div class="mbm-o ...">
+  ...
+</div>
+```
+
+### Darken
+
+Use the `mbm-d` utility to darken the colors of the element & its background.
+
+```html "mbm-d"
+<div class="mbm-d ...">
+  ...
+</div>
+```
+
+### Lighten
+
+Use the `mbm-l` utility to lighten the colors of the element & its background.
+
+```html "mbm-l"
+<div class="mbm-l ...">
+  ...
+</div>
+```
+
+### Responsiveness
+
+Use breakpoint prefixes to target different screen sizes.
+
+<ResponsiveVariant prefix="mbm" />
+
+### Hover State
+
+Apply styles conditionally on hover using the `h:` prefix.
+
+<HoverVariant prefix="mbm" />

@@ -23,7 +23,7 @@ export default function ExampleTooltip() {
                     transition={{ type: "spring", stiffness: 500, damping: 30 }}
                   />
                 }
-                className="px-3 py-2 br-1 bg-slate-12 fs-sm c-white bsh-sm"
+                className="px-3 py-2 br-1 bg-slate-12 fs-sm c-white bs-o-sm"
               >
                 Password must be 8+ characters
               </Tooltip.Popup>

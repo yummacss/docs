@@ -53,7 +53,7 @@ export default function ExampleSelect() {
                       transition={{ duration: 0.15, ease: "easeOut" }}
                     />
                   }
-                  className="bw-1 bc-silver-2 br-2 bg-white bsh-lg py-1"
+                  className="bw-1 bc-silver-2 br-2 bg-white bs-o-lg py-1"
                   style={{ minWidth: "var(--anchor-width)" }}
                 >
                   <Select.List className="p-r o-a">

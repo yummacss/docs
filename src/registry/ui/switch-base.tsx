@@ -28,7 +28,7 @@ export default function ExampleSwitch() {
               }}
             />
           }
-          className="d-5 br-pill bg-white bsh-sm"
+          className="w-5 h-5 br-pill bg-white bs-o-sm"
         />
       </Switch.Root>
       <label

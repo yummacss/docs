@@ -120,6 +120,7 @@ export const sidebarConfig: SidebarConfig = [
       { title: "Styling Elements", slug: "styling-elements" },
       { title: "Colors", slug: "colors" },
       { title: "Media Queries", slug: "media-queries" },
+      { title: "Container Queries", slug: "container-queries" },
       { title: "Negative Values", slug: "negative-values" },
       { title: "Pseudo Classes", slug: "pseudo-classes" },
       { title: "Pseudo Elements", slug: "pseudo-elements" },
@@ -163,8 +164,8 @@ export const sidebarConfig: SidebarConfig = [
   {
     title: "Box Model",
     items: [
+      { title: "Aspect Ratio", slug: "aspect-ratio" },
       { title: "Box Sizing", slug: "box-sizing" },
-      { title: "Dimension", slug: "dimension" },
       { title: "Height", slug: "height" },
       { title: "Margin", slug: "margin" },
       { title: "Padding", slug: "padding" },
@@ -183,6 +184,18 @@ export const sidebarConfig: SidebarConfig = [
       { title: "Outline Color", slug: "outline-color" },
       { title: "Stroke", slug: "stroke" },
       { title: "Text Decoration Color", slug: "text-decoration-color" },
+    ],
+  },
+  {
+    title: "Effects",
+    items: [
+      { title: "Backdrop Blur", slug: "backdrop-blur" },
+      { title: "Backdrop Grayscale", slug: "backdrop-grayscale" },
+      { title: "Blur", slug: "blur" },
+      { title: "Box Shadow", slug: "box-shadow" },
+      { title: "Grayscale", slug: "grayscale" },
+      { title: "Mix Blend Mode", slug: "mix-blend-mode" },
+      { title: "Opacity", slug: "opacity" },
     ],
   },
   {
@@ -227,21 +240,22 @@ export const sidebarConfig: SidebarConfig = [
     ],
   },
   {
-    title: "Effects",
-    items: [
-      { title: "Backdrop Blur", slug: "backdrop-blur" },
-      { title: "Blur", slug: "blur" },
-      { title: "Box Shadow", slug: "box-shadow" },
-      { title: "Grayscale", slug: "grayscale" },
-      { title: "Opacity", slug: "opacity" },
-    ],
-  },
-  {
     title: "Interactivity",
     items: [
       { title: "Appearance", slug: "appearance" },
       { title: "Cursor", slug: "cursor" },
       { title: "Field Sizing", slug: "field-sizing" },
+      { title: "Overscroll Behavior", slug: "overscroll-behavior" },
+      {
+        title: "Overscroll Behavior Block",
+        slug: "overscroll-behavior-block",
+      },
+      {
+        title: "Overscroll Behavior Inline",
+        slug: "overscroll-behavior-inline",
+      },
+      { title: "Overscroll Behavior X", slug: "overscroll-behavior-x" },
+      { title: "Overscroll Behavior Y", slug: "overscroll-behavior-y" },
       { title: "Pointer Events", slug: "pointer-events" },
       { title: "Resize", slug: "resize" },
       { title: "Scroll Behavior", slug: "scroll-behavior" },
@@ -255,22 +269,26 @@ export const sidebarConfig: SidebarConfig = [
     ],
   },
   {
-    title: "Positioning",
+    title: "Layout",
     items: [
-      { title: "Aspect Ratio", slug: "aspect-ratio" },
-      { title: "Bottom", slug: "bottom" },
       { title: "Clear", slug: "clear" },
       { title: "Columns", slug: "columns" },
       { title: "Display", slug: "display" },
       { title: "Float", slug: "float" },
-      { title: "Inset", slug: "inset" },
       { title: "Isolation", slug: "isolation" },
+    ],
+  },
+  {
+    title: "Positioning",
+    items: [
+      { title: "Bottom", slug: "bottom" },
+      { title: "Inset", slug: "inset" },
       { title: "Left", slug: "left" },
       { title: "Object Fit", slug: "object-fit" },
       { title: "Object Position", slug: "object-position" },
+      { title: "Overflow", slug: "overflow" },
       { title: "Overflow X", slug: "overflow-x" },
       { title: "Overflow Y", slug: "overflow-y" },
-      { title: "Overflow", slug: "overflow" },
       { title: "Position", slug: "position" },
       { title: "Right", slug: "right" },
       { title: "Top", slug: "top" },
@@ -279,24 +297,25 @@ export const sidebarConfig: SidebarConfig = [
     ],
   },
   {
+    title: "SVG",
+    items: [{ title: "Stroke Width", slug: "stroke-width" }],
+  },
+  {
     title: "Table",
     items: [
       { title: "Caption Side", slug: "caption-side" },
+      { title: "Empty Cells", slug: "empty-cells" },
       { title: "Table Layout", slug: "table-layout" },
     ],
-  },
-  {
-    title: "SVG",
-    items: [{ title: "Stroke Width", slug: "stroke-width" }],
   },
   {
     title: "Transform",
     items: [
       { title: "Rotate", slug: "rotate" },
       { title: "Scale", slug: "scale" },
-      { title: "Skew", slug: "skew" },
       { title: "Skew X", slug: "skew-x" },
       { title: "Skew Y", slug: "skew-y" },
+      { title: "Skew", slug: "skew" },
       { title: "Transform Origin", slug: "transform-origin" },
       { title: "Translate X", slug: "translate-x" },
       { title: "Translate Y", slug: "translate-y" },
@@ -318,7 +337,7 @@ export const sidebarConfig: SidebarConfig = [
     title: "Typography",
     items: [
       {
-        title: "Font",
+        title: "Fonts",
         children: [
           { title: "Font Family", slug: "font-family" },
           { title: "Font Size", slug: "font-size" },
@@ -338,10 +357,7 @@ export const sidebarConfig: SidebarConfig = [
           { title: "Text Align", slug: "text-align" },
           { title: "Text Decoration Line", slug: "text-decoration-line" },
           { title: "Text Decoration Style", slug: "text-decoration-style" },
-          {
-            title: "Text Decoration Thickness",
-            slug: "text-decoration-thickness",
-          },
+          { title: "Text Decoration Thickness", slug: "text-decoration-thickness",},
           { title: "Text Decoration", slug: "text-decoration" },
           { title: "Text Indent", slug: "text-indent" },
           { title: "Text Overflow", slug: "text-overflow" },
@@ -350,6 +366,7 @@ export const sidebarConfig: SidebarConfig = [
           { title: "Text Wrap", slug: "text-wrap" },
           { title: "Vertical Align", slug: "vertical-align" },
           { title: "White Space", slug: "white-space" },
+          { title: "Word Break", slug: "word-break" },
           { title: "Writing Mode", slug: "writing-mode" },
         ],
       },

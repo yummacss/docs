@@ -7,12 +7,12 @@ This document provides **complete reference** for using Yumma CSS utility classe
 ## Syntax Pattern
 
 ```
-{prefix}-{value}
+{prefix}-[value]
 ```
 
 **With variants:**
 ```
-{variant}:{prefix}-{value}
+{variant}:{prefix}-[value]
 ```
 
 **Examples:**
@@ -32,6 +32,20 @@ This document provides **complete reference** for using Yumma CSS utility classe
 | `lg:`  | `width >= 64rem` (1024px)         |
 | `xl:`  | `width >= 80rem` (1280px)         |
 | `xxl:` | `width >= 96rem` (1536px)         |
+
+---
+
+## Container Query Variants
+
+Container queries allow you to change styles based on the size of a parent container rather than the viewport. They use the `@` prefix.
+
+| Prefix  | Breakpoint                     |
+| ------- | ------------------------------ |
+| `@sm:`  | `@container (width >= 40rem)`  |
+| `@md:`  | `@container (width >= 48rem)`  |
+| `@lg:`  | `@container (width >= 64rem)`  |
+| `@xl:`  | `@container (width >= 80rem) ` |
+| `@xxl:` | `@container (width >= 96rem) ` |
 
 ---
 
@@ -85,49 +99,41 @@ Each color has shades `1-9` (1 = lightest, 5 = base, 9 = darkest)
 
 ### Color Utilities
 
-| Property                | Prefix  | Example                 |
-| ----------------------- | ------- | ----------------------- |
-| `background-color`      | `bg-`   | `bg-blue-5`, `bg-red-3` |
-| `color`                 | `c-`    | `c-white`, `c-gray-7`   |
-| `border-color`          | `bc-`   | `bc-slate-4`            |
-| `border-bottom-color`   | `bc-b-` | `bc-b-red-5`            |
-| `border-left-color`     | `bc-l-` | `bc-l-blue-5`           |
-| `border-right-color`    | `bc-r-` | `bc-r-green-5`          |
-| `border-top-color`      | `bc-t-` | `bc-t-yellow-5`         |
-| `accent-color`          | `ac-`   | `ac-blue-5`             |
-| `caret-color`           | `cc-`   | `cc-red-5`              |
-| `outline-color`         | `oc-`   | `oc-blue-5`             |
-| `text-decoration-color` | `tdc-`  | `tdc-red-5`             |
-| `fill`                  | `f-`    | `f-blue-5`              |
-| `stroke`                | `s-`    | `s-red-5`               |
+| Property                | Prefix | Example                 |
+| ----------------------- | ------ | ----------------------- |
+| `background-color`      | `bg-`  | `bg-blue-5`, `bg-red-3` |
+| `color`                 | `c-`   | `c-white`, `c-gray-7`   |
+| `border-color`          | `bc-`  | `bc-slate-4`            |
+| `border-bottom-color`   | `bbc-` | `bbc-red-5`             |
+| `border-left-color`     | `blc-` | `blc-blue-5`            |
+| `border-right-color`    | `brc-` | `brc-green-5`           |
+| `border-top-color`      | `btc-` | `btc-yellow-5`          |
+| `accent-color`          | `ac-`  | `ac-blue-5`             |
+| `caret-color`           | `cc-`  | `cc-red-5`              |
+| `outline-color`         | `oc-`  | `oc-blue-5`             |
+| `text-decoration-color` | `tdc-` | `tdc-red-5`             |
+| `fill`                  | `f-`   | `f-blue-5`              |
+| `stroke`                | `s-`   | `s-red-5`               |
 
 ---
 
 ## Box Model
 
-### Dimension (Height + Width)
-
-| Property        | Prefix   | Values                                                                                                                             |
-| --------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| `dimension`     | `d-`     | `0-100` (×0.25rem), `auto`, `full`, `half`, `dvh`, `dvw`, `vh`, `vw`, `fc`, `max`, `min`, `px`, `s`, `sm`, `md`, `lg`, `xl`, `xxl` |
-| `max-dimension` | `max-d-` | Same as dimension                                                                                                                  |
-| `min-dimension` | `min-d-` | Same as dimension                                                                                                                  |
-
 ### Height
 
-| Property     | Prefix   | Values                                                                                                                             |
-| ------------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| `height`     | `h-`     | `0-100` (×0.25rem), `auto`, `full`, `half`, `dvh`, `dvw`, `vh`, `vw`, `fc`, `max`, `min`, `px`, `s`, `sm`, `md`, `lg`, `xl`, `xxl` |
-| `max-height` | `max-h-` | Same as height                                                                                                                     |
-| `min-height` | `min-h-` | Same as height                                                                                                                     |
+| Property     | Prefix   | Values                                                                                                                                                                                     |
+| ------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `height`     | `h-`     | `0-100` (×0.25rem), `auto`, `full`, `half`, `dvh`, `dvw`, `vh`, `vw`, `vi`, `vb`, `svh`, `svw`, `lvh`, `lvw`, `vmin`, `vmax`, `fc`, `max`, `min`, `px`, `s`, `sm`, `md`, `lg`, `xl`, `xxl` |
+| `max-height` | `max-h-` | Same as height                                                                                                                                                                             |
+| `min-height` | `min-h-` | Same as height                                                                                                                                                                             |
 
 ### Width
 
-| Property    | Prefix   | Values                                                                                                                             |
-| ----------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| `width`     | `w-`     | `0-100` (×0.25rem), `auto`, `full`, `half`, `dvh`, `dvw`, `vh`, `vw`, `fc`, `max`, `min`, `px`, `s`, `sm`, `md`, `lg`, `xl`, `xxl` |
-| `max-width` | `max-w-` | Same as width                                                                                                                      |
-| `min-width` | `min-w-` | Same as width                                                                                                                      |
+| Property    | Prefix   | Values                                                                                                                                                                                     |
+| ----------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `width`     | `w-`     | `0-100` (×0.25rem), `auto`, `full`, `half`, `dvh`, `dvw`, `vh`, `vw`, `vi`, `vb`, `svh`, `svw`, `lvh`, `lvw`, `vmin`, `vmax`, `fc`, `max`, `min`, `px`, `s`, `sm`, `md`, `lg`, `xl`, `xxl` |
+| `max-width` | `max-w-` | Same as width                                                                                                                                                                              |
+| `min-width` | `min-w-` | Same as width                                                                                                                                                                              |
 
 ### Margin
 
@@ -145,7 +151,7 @@ Each color has shades `1-9` (1 = lightest, 5 = base, 9 = darkest)
 | `margin-inline-start` | `mis-` | Same                             |
 | `margin-inline-end`   | `mie-` | Same                             |
 
-**Negative margins:** Use `m--{value}` syntax (e.g., `m--4` for negative margin)
+**Negative margins:** Use `m--[value]` syntax (e.g., `m--4` for negative margin)
 
 ### Padding
 
@@ -427,7 +433,108 @@ Example: `gc-s-2` → `grid-column: span 2 / span 2`
 | ----------------- | ------------------------------------------- |
 | `zi-auto`         | `z-index: auto`                             |
 | `zi-0` to `zi-90` | `z-index: 0` to `z-index: 90` (steps of 10) |
+| `zi-9999`         | `z-index: 9999`                             |
 
+---
+
+## Effects
+
+### Mix Blend Mode
+
+| Class    | CSS                            |
+| -------- | ------------------------------ |
+| `mbm-n`  | `mix-blend-mode: normal`       |
+| `mbm-m`  | `mix-blend-mode: multiply`     |
+| `mbm-s`  | `mix-blend-mode: screen`       |
+| `mbm-o`  | `mix-blend-mode: overlay`      |
+| `mbm-d`  | `mix-blend-mode: darken`       |
+| `mbm-l`  | `mix-blend-mode: lighten`      |
+| `mbm-cd` | `mix-blend-mode: color-dodge`  |
+| `mbm-cb` | `mix-blend-mode: color-burn`   |
+| `mbm-hl` | `mix-blend-mode: hard-light`   |
+| `mbm-sl` | `mix-blend-mode: soft-light`   |
+| `mbm-df` | `mix-blend-mode: difference`   |
+| `mbm-e`  | `mix-blend-mode: exclusion`    |
+| `mbm-h`  | `mix-blend-mode: hue`          |
+| `mbm-st` | `mix-blend-mode: saturation`   |
+| `mbm-c`  | `mix-blend-mode: color`        |
+| `mbm-lu` | `mix-blend-mode: luminosity`   |
+| `mbm-pd` | `mix-blend-mode: plus-darker`  |
+| `mbm-pl` | `mix-blend-mode: plus-lighter` |
+
+---
+
+## Typography
+
+### Font Family
+
+| Class  | CSS                                                |
+| ------ | -------------------------------------------------- |
+| `ff-d` | `font-family: system-ui, ...` (default sans-serif) |
+| `ff-m` | `font-family: ui-monospace, ...` (monospace)       |
+| `ff-s` | `font-family: 'Iowan Old Style', ...` (serif)      |
+
+### Font Size
+
+| Class    | CSS                   |
+| -------- | --------------------- |
+| `fs-xs`  | `font-size: 0.75rem`  |
+| `fs-sm`  | `font-size: 0.875rem` |
+| `fs-md`  | `font-size: 1rem`     |
+| `fs-lg`  | `font-size: 1.125rem` |
+| `fs-xl`  | `font-size: 1.25rem`  |
+| `fs-xxl` | `font-size: 1.5rem`   |
+| `fs-3xl` | `font-size: 1.875rem` |
+| `fs-4xl` | `font-size: 2.25rem`  |
+| `fs-5xl` | `font-size: 3rem`     |
+| `fs-6xl` | `font-size: 3.75rem`  |
+| `fs-7xl` | `font-size: 4.5rem`   |
+| `fs-8xl` | `font-size: 6rem`     |
+| `fs-9xl` | `font-size: 8rem`     |
+
+### Font Style
+
+| Class  | CSS                  |
+| ------ | -------------------- |
+| `fs-i` | `font-style: italic` |
+| `fs-n` | `font-style: normal` |
+
+### Font Weight
+
+| Class                | CSS                                      |
+| -------------------- | ---------------------------------------- |
+| `fw-100` to `fw-900` | `font-weight: 100` to `font-weight: 900` |
+
+### Text Align
+
+| Class   | CSS                        |
+| ------- | -------------------------- |
+| `ta-l`  | `text-align: left`         |
+| `ta-r`  | `text-align: right`        |
+| `ta-c`  | `text-align: center`       |
+| `ta-j`  | `text-align: justify`      |
+| `ta-ja` | `text-align: justify-all`  |
+| `ta-s`  | `text-align: start`        |
+| `ta-e`  | `text-align: end`          |
+| `ta-mp` | `text-align: match-parent` |
+
+### Text Transform
+
+| Class  | CSS                          |
+| ------ | ---------------------------- |
+| `tt-u` | `text-transform: uppercase`  |
+| `tt-l` | `text-transform: lowercase`  |
+| `tt-c` | `text-transform: capitalize` |
+| `tt-n` | `text-transform: none`       |
+
+### Text Decoration
+
+| Class     | CSS                                  |
+| --------- | ------------------------------------ |
+| `td-none` | `text-decoration: none`              |
+| `td-u`    | `text-decoration: underline`         |
+| `tdl-u`   | `text-decoration-line: underline`    |
+| `tdl-lt`  | `text-decoration-line: line-through` |
 ### Display
 
 | Class    | CSS                     |
@@ -714,6 +821,15 @@ Example: `c-3` → `columns: 3`
 | `ow-n`  | `overflow-wrap: normal`     |
 | `ow-bw` | `overflow-wrap: break-word` |
 
+### Word Break
+
+| Class   | CSS                       |
+| ------- | ------------------------- |
+| `wb-n`  | `word-break: normal`      |
+| `wb-ba` | `word-break: break-all`   |
+| `wb-ka` | `word-break: keep-all`    |
+| `wb-ap` | `word-break: auto-phrase` |
+
 ### Vertical Align
 
 | Class   | CSS                           |
@@ -762,17 +878,17 @@ Example: `c-3` → `columns: 3`
 
 ### Border Radius
 
-| Property                     | Prefix   | Values            |
-| ---------------------------- | -------- | ----------------- |
-| `border-radius`              | `br-`    | `0-16` (×0.25rem) |
-| `border-top-radius`          | `br-t-`  | Same              |
-| `border-bottom-radius`       | `br-b-`  | Same              |
-| `border-left-radius`         | `br-l-`  | Same              |
-| `border-right-radius`        | `br-r-`  | Same              |
-| `border-top-left-radius`     | `br-tl-` | Same              |
-| `border-top-right-radius`    | `br-tr-` | Same              |
-| `border-bottom-left-radius`  | `br-bl-` | Same              |
-| `border-bottom-right-radius` | `br-br-` | Same              |
+| Property                     | Prefix  | Values                                          |
+| ---------------------------- | ------- | ----------------------------------------------- |
+| `border-radius`              | `br-`   | `0-16` (×0.25rem), `full`, `half`, `pill`, `px` |
+| `border-top-radius`          | `btr-`  | Same                                            |
+| `border-bottom-radius`       | `bbr-`  | Same                                            |
+| `border-left-radius`         | `blr-`  | Same                                            |
+| `border-right-radius`        | `brr-`  | Same                                            |
+| `border-top-left-radius`     | `btlr-` | Same                                            |
+| `border-top-right-radius`    | `btrr-` | Same                                            |
+| `border-bottom-left-radius`  | `bblr-` | Same                                            |
+| `border-bottom-right-radius` | `bbrr-` | Same                                            |
 
 ### Border Width
 
@@ -895,16 +1011,21 @@ Example: `c-3` → `columns: 3`
 
 ## Effects
 
-### Box Shadow
+### Box Shadow (Outset)
 
-| Class      | CSS                                      |
-| ---------- | ---------------------------------------- |
-| `bsh-none` | `box-shadow: none`                       |
-| `bsh-xs`   | `box-shadow: 1px 3px 5px -3px #0000001a` |
-| `bsh-sm`   | `box-shadow: 1px 3px 5px -2px #0000001a` |
-| `bsh-md`   | `box-shadow: 1px 3px 5px -1px #0000001a` |
-| `bsh-lg`   | `box-shadow: 1px 3px 5px 1px #0000001a`  |
-| `bsh-xl`   | `box-shadow: 1px 3px 5px 2px #0000001a`  |
+| Prefix  | Values                                     |
+| ------- | ------------------------------------------ |
+| `bs-o-` | `xs`, `sm`, `md`, `lg`, `xl`, `xxl`, `3xl` |
+
+Example: `bs-o-md` → `box-shadow: 0 4px 6px -1px #0000001a, ...`
+
+### Box Shadow (Inset)
+
+| Prefix  | Values                                     |
+| ------- | ------------------------------------------ |
+| `bs-i-` | `xs`, `sm`, `md`, `lg`, `xl`, `xxl`, `3xl` |
+
+Example: `bs-i-md` → `box-shadow: inset 0 2px 4px 0 #0000001a`
 
 ### Opacity
 
@@ -921,9 +1042,34 @@ Example: `c-3` → `columns: 3`
 
 ### Grayscale
 
-| Class                | CSS                                                                |
-| -------------------- | ------------------------------------------------------------------ |
-| `f-g-0` to `f-g-100` | `filter: grayscale(0%)` to `filter: grayscale(100%)` (steps of 10) |
+| Property                       | Prefix  | Values                |
+| ------------------------------ | ------- | --------------------- |
+| `filter: grayscale()`          | `f-g-`  | `0-100` (steps of 10) |
+| `backdrop-filter: grayscale()` | `bf-g-` | `0-100` (steps of 10) |
+
+### Mix Blend Mode
+
+| Class    | CSS                            |
+| -------- | ------------------------------ |
+| `mbm-n`  | `mix-blend-mode: normal`       |
+| `mbm-m`  | `mix-blend-mode: multiply`     |
+| `mbm-s`  | `mix-blend-mode: screen`       |
+| `mbm-o`  | `mix-blend-mode: overlay`      |
+| `mbm-d`  | `mix-blend-mode: darken`       |
+| `mbm-l`  | `mix-blend-mode: lighten`      |
+| `mbm-cd` | `mix-blend-mode: color-dodge`  |
+| `mbm-cb` | `mix-blend-mode: color-burn`   |
+| `mbm-hl` | `mix-blend-mode: hard-light`   |
+| `mbm-sl` | `mix-blend-mode: soft-light`   |
+| `mbm-df` | `mix-blend-mode: difference`   |
+| `mbm-e`  | `mix-blend-mode: exclusion`    |
+| `mbm-h`  | `mix-blend-mode: hue`          |
+| `mbm-st` | `mix-blend-mode: saturation`   |
+| `mbm-c`  | `mix-blend-mode: color`        |
+| `mbm-lu` | `mix-blend-mode: luminosity`   |
+| `mbm-pd` | `mix-blend-mode: plus-darker`  |
+| `mbm-pl` | `mix-blend-mode: plus-lighter` |
+
 
 ---
 
@@ -939,11 +1085,14 @@ Example: `ro-45` → `rotate: 45deg`
 
 ### Scale
 
-| Class                  | CSS                                                   |
-| ---------------------- | ----------------------------------------------------- |
-| `t-s-0` to `t-s-100`   | `transform: scale(0%)` to `scale(100%)` (steps of 10) |
-| `t-sx-0` to `t-sx-100` | `transform: scaleX(0%)` to `scaleX(100%)`             |
-| `t-sy-0` to `t-sy-100` | `transform: scaleY(0%)` to `scaleY(100%)`             |
+| Property | Prefix | Values                                |
+| -------- | ------ | ------------------------------------- |
+| `scale`  | `s-`   | `0-100` (steps of 10), e.g., `s-50`   |
+| `scale`  | `sx-`  | `0-100` (steps of 10), e.g., `sx-100` |
+| `scale`  | `sy-`  | `0-100` (steps of 10), e.g., `sy-50`  |
+| `scale`  | `sz-`  | `0-100` (steps of 10), e.g., `sz-100` |
+
+Example: `s-50` → `scale: 50%`, `sx-50` → `scale: 50% 1`
 
 ### Skew
 
@@ -1167,6 +1316,16 @@ Example: `td-100` → `transition-delay: 100ms`
 | `sst-y-p`  | `scroll-snap-type: y proximity`    |
 | `sst-b-m`  | `scroll-snap-type: both mandatory` |
 
+### Overscroll Behavior
+
+| Property                     | Prefix | Values                    |
+| ---------------------------- | ------ | ------------------------- |
+| `overscroll-behavior`        | `ob-`  | `auto`, `contain`, `none` |
+| `overscroll-behavior-block`  | `obb-` | Same                      |
+| `overscroll-behavior-inline` | `obi-` | Same                      |
+| `overscroll-behavior-x`      | `obx-` | Same                      |
+| `overscroll-behavior-y`      | `oby-` | Same                      |
+
 ---
 
 ## SVG
@@ -1199,6 +1358,13 @@ Example: `td-100` → `transition-delay: 100ms`
 | ------ | ---------------------- |
 | `cs-t` | `caption-side: top`    |
 | `cs-b` | `caption-side: bottom` |
+
+### Empty Cells
+
+| Class  | CSS                 |
+| ------ | ------------------- |
+| `ec-s` | `empty-cells: show` |
+| `ec-h` | `empty-cells: hide` |
 
 ---
 
@@ -1233,7 +1399,7 @@ Example: `td-100` → `transition-delay: 100ms`
 
 ### Smooth Transition
 ```html
-<div class="tp-a tdu-150 ttf-io h:t-s-105">
+<div class="tp-a tdu-150 ttf-io h:s-100">
   Hover to scale
 </div>
 ```

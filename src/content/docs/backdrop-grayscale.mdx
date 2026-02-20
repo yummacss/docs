@@ -1,0 +1,36 @@
+export const meta = {
+  title: "Backdrop Grayscale",
+  description: "Apply a grayscale filter to the area behind an element.",
+};
+
+<Baseline path="css.properties.backdrop-filter" />
+
+<Reference category="effect" name="backdrop-grayscale" />
+
+## Usage
+
+### Grayscale
+
+Use the `bf-g-[value]` utilities to apply a grayscale filter to the backdrop.
+
+<div className="p-4">
+  <div className="bg-silver-2 p-8 ta-c">
+    <div className="bg-white/50 bf-g-1 p-4">bf-g-1</div>
+  </div>
+</div>
+
+```html "bf-g-1"
+<div class="bg-white/50 bf-g-1 ...">...</div>
+```
+
+### Responsiveness
+
+Use breakpoint prefixes to target different screen sizes.
+
+<ResponsiveVariant prefix="bf-g" />
+
+### Hover State
+
+Apply styles conditionally on hover using the `h:` prefix.
+
+<HoverVariant prefix="bf-g" />

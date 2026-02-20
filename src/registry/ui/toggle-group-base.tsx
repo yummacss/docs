@@ -35,7 +35,7 @@ export default function ExampleToggleGroup() {
             key={item.value}
             aria-label={item.label}
             value={item.value}
-            className={`p-r zi-10 d-f d-9 ai-c jc-c bw-0 br-1 us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 bg-transparent ${
+            className={`p-r zi-10 d-f w-9 h-9 ai-c jc-c bw-0 br-1 us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 bg-transparent ${
               isSelected ? "c-white" : "c-slate-8 h:c-slate-10"
             }`}
           >

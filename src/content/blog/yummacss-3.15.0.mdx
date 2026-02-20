@@ -1,0 +1,68 @@
+export const meta = {
+  authors: ["Renildo"],
+  cover: "~",
+  date: "2026-02-20",
+  description: "Introducing container queries, standalone scale properties, refreshed box shadows & more.",
+  title: "Yumma CSS 3.15"
+};
+
+---
+
+Yumma CSS 3.15 is here with a major focus on modern CSS features, refined utility naming & better developer experience.
+
+## Container Queries
+
+One of the most requested features is now here. Container Queries allow you to style elements based on the size of their parent container.
+
+```html "@sm:w-full"
+<div class="cnt ...">
+  <div class="w-half @sm:w-full">
+    Responsive based on container size!
+  </div>
+</div>
+```
+
+This release introduces `@sm:`, `@md:`, `@lg:`, `@xl:` & `@xxl:` variants which target containers marked with the `cnt` class.
+
+## Standalone Scale
+
+Following our transition to standalone properties for `rotate`, we've now refactored `scale` to use the standalone property. This simplifies animations & reduces CSS output.
+
+| Prefix | Property |
+| ------ | -------- |
+| `s-`   | `scale`  |
+| `sx-`  | `scale-x`|
+| `sy-`  | `scale-y`|
+| `sz-`  | `scale-z`|
+
+Legacy `t-s-`, `t-sx-` & `t-sy-` prefixes are now deprecated in favor of these cleaner alternatives.
+
+## Refreshed Box Shadows
+
+We've completely overhauled our box shadow system. Shadows are now split into **Outset** & **Inset** categories for better clarity, with refined values from `xs` to `3xl`.
+
+```html "bs-o-md" "bs-i-sm"
+<!-- Outset Shadow -->
+<div class="bs-o-md ...">...</div>
+
+<!-- Inset Shadow -->
+<div class="bs-i-sm ...">...</div>
+```
+
+## New Utilities
+
+3.15 adds several new utilities for finer control over layout & interactivity:
+
+- **Overscroll Behavior**: Control how scroll overflow propagates with `ob-`, `obb-`, `obi-`, `obx-` & `oby-`.
+- **Mix Blend Mode**: New `mbm-` utilities for advanced color blending.
+- **Empty Cells**: Control borders for empty table cells with `ec-s` & `ec-h`.
+- **Word Break**: New `wb-` utility for precise line breaking.
+- **Backdrop Grayscale**: Apply grayscale filters to backdrops with `bf-g-`.
+
+## Upgrade
+
+Check the [Upgrading Guide](/docs/upgrading) for a full list of utility renames & removals.
+
+```bash
+pnpm add yummacss@latest
+```

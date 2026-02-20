@@ -41,7 +41,7 @@ export default function ExampleMenubar() {
                       transition={{ duration: 0.1, ease: "easeOut" }}
                     />
                   }
-                  className="br-2 bg-white c-slate-10 py-1 bsh-lg bw-1 bc-silver-2"
+                  className="br-2 bg-white c-slate-10 py-1 bs-o-lg bw-1 bc-silver-2"
                 >
                   <Menu.Item className={itemClass}>New project</Menu.Item>
                   <Menu.Item className={itemClass}>Open file</Menu.Item>
@@ -79,7 +79,7 @@ export default function ExampleMenubar() {
                       transition={{ duration: 0.1, ease: "easeOut" }}
                     />
                   }
-                  className="br-2 bg-white c-slate-10 py-1 bsh-lg bw-1 bc-silver-2"
+                  className="br-2 bg-white c-slate-10 py-1 bs-o-lg bw-1 bc-silver-2"
                 >
                   <Menu.Item className={itemClass}>Undo action</Menu.Item>
                   <Menu.Item className={itemClass}>Redo action</Menu.Item>
@@ -118,7 +118,7 @@ export default function ExampleMenubar() {
                       transition={{ duration: 0.1, ease: "easeOut" }}
                     />
                   }
-                  className="br-2 bg-white c-slate-10 py-1 bsh-lg bw-1 bc-silver-2"
+                  className="br-2 bg-white c-slate-10 py-1 bs-o-lg bw-1 bc-silver-2"
                 >
                   <Menu.Item className={itemClass}>Zoom in</Menu.Item>
                   <Menu.Item className={itemClass}>Zoom out</Menu.Item>

@@ -26,7 +26,7 @@ export default function ExampleContextMenu() {
                     transition={{ duration: 0.1, ease: "easeOut" }}
                   />
                 }
-                className="bw-1 bc-silver-2 br-2 bg-white bsh-lg py-1 c-slate-10"
+                className="bw-1 bc-silver-2 br-2 bg-white bs-o-lg py-1 c-slate-10"
               >
                 <ContextMenu.Item
                   className={(state) =>

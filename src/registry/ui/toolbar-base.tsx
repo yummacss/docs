@@ -17,7 +17,7 @@ export default function ExampleToolbar() {
           aria-label="Bold"
           value="bold"
           className={(state) =>
-            `d-f d-9 ai-c jc-c bw-0 br-1 us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+            `d-f w-9 h-9 ai-c jc-c bw-0 br-1 us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
               state.pressed
                 ? "bg-indigo c-white"
                 : "bg-transparent c-slate-8 h:bg-silver-1 h:c-slate-10"
@@ -30,7 +30,7 @@ export default function ExampleToolbar() {
           aria-label="Italic"
           value="italic"
           className={(state) =>
-            `d-f d-9 ai-c jc-c bw-0 br-1 us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+            `d-f w-9 h-9 ai-c jc-c bw-0 br-1 us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
               state.pressed
                 ? "bg-indigo c-white"
                 : "bg-transparent c-slate-8 h:bg-silver-1 h:c-slate-10"
@@ -43,7 +43,7 @@ export default function ExampleToolbar() {
           aria-label="Underline"
           value="underline"
           className={(state) =>
-            `d-f d-9 ai-c jc-c bw-0 br-1 us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+            `d-f w-9 h-9 ai-c jc-c bw-0 br-1 us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
               state.pressed
                 ? "bg-indigo c-white"
                 : "bg-transparent c-slate-8 h:bg-silver-1 h:c-slate-10"
@@ -56,7 +56,7 @@ export default function ExampleToolbar() {
           aria-label="Strikethrough"
           value="strikethrough"
           className={(state) =>
-            `d-f d-9 ai-c jc-c bw-0 br-1 us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+            `d-f w-9 h-9 ai-c jc-c bw-0 br-1 us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
               state.pressed
                 ? "bg-indigo c-white"
                 : "bg-transparent c-slate-8 h:bg-silver-1 h:c-slate-10"

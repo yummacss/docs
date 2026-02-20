@@ -1,0 +1,52 @@
+export const meta = {
+  title: "Overscroll Behavior Inline",
+  description: "Control the browser's scroll overflow behavior on the inline axis.",
+};
+
+<Baseline path="css.properties.overscroll-behavior-inline" />
+
+<Reference category="interactivity" name="overscroll-behavior-inline" />
+
+## Usage
+
+### Auto
+
+Use the `obi-a` utility to allow scroll overflow behavior on the inline axis.
+
+```html "obi-a"
+<div class="obi-a ...">
+  ...
+</div>
+```
+
+### Contain
+
+Use the `obi-c` utility to contain scroll overflow behavior on the inline axis.
+
+```html "obi-c"
+<div class="obi-c ...">
+  ...
+</div>
+```
+
+### None
+
+Use the `obi-n` utility to disable scroll overflow behavior on the inline axis.
+
+```html "obi-n"
+<div class="obi-n ...">
+  ...
+</div>
+```
+
+### Responsiveness
+
+Use breakpoint prefixes to target different screen sizes.
+
+<ResponsiveVariant prefix="obi" />
+
+### Hover State
+
+Apply styles conditionally on hover using the `h:` prefix.
+
+<HoverVariant prefix="obi" />

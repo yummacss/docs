@@ -1,0 +1,52 @@
+export const meta = {
+  title: "Overscroll Behavior Block",
+  description: "Control the browser's scroll overflow behavior on the block axis.",
+};
+
+<Baseline path="css.properties.overscroll-behavior-block" />
+
+<Reference category="interactivity" name="overscroll-behavior-block" />
+
+## Usage
+
+### Auto
+
+Use the `obb-a` utility to allow scroll overflow behavior to propagate on the block axis.
+
+```html "obb-a"
+<div class="obb-a ...">
+  ...
+</div>
+```
+
+### Contain
+
+Use the `obb-c` utility to contain scroll overflow behavior on the block axis.
+
+```html "obb-c"
+<div class="obb-c ...">
+  ...
+</div>
+```
+
+### None
+
+Use the `obb-n` utility to disable scroll overflow behavior on the block axis.
+
+```html "obb-n"
+<div class="obb-n ...">
+  ...
+</div>
+```
+
+### Responsiveness
+
+Use breakpoint prefixes to target different screen sizes.
+
+<ResponsiveVariant prefix="obb" />
+
+### Hover State
+
+Apply styles conditionally on hover using the `h:` prefix.
+
+<HoverVariant prefix="obb" />

@@ -1,0 +1,52 @@
+export const meta = {
+  title: "Overscroll Behavior",
+  description: "Control the browser's scroll overflow behavior.",
+};
+
+<Baseline path="css.properties.overscroll-behavior" />
+
+<Reference category="interactivity" name="overscroll-behavior" />
+
+## Usage
+
+### Auto
+
+Use the `ob-a` utility to allow scroll overflow behavior to propagate to parent elements.
+
+```html "ob-a"
+<div class="ob-a ...">
+  ...
+</div>
+```
+
+### Contain
+
+Use the `ob-c` utility to prevent scroll overflow behavior from propagating to parent elements, but allow scroll bounce effects within the element.
+
+```html "ob-c"
+<div class="ob-c ...">
+  ...
+</div>
+```
+
+### None
+
+Use the `ob-n` utility to prevent scroll overflow behavior from propagating to parent elements & disable scroll bounce effects.
+
+```html "ob-n"
+<div class="ob-n ...">
+  ...
+</div>
+```
+
+### Responsiveness
+
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
+
+<ResponsiveVariant prefix="ob" />
+
+### Hover State
+
+Apply styles conditionally on hover using the `h:` prefix.
+
+<HoverVariant prefix="ob" />

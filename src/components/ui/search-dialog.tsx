@@ -219,7 +219,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                               {/* Icon or Color Swatch */}
                               {item.category === "colors" && item.color ? (
                                 <div
-                                  className="d-4 br-1 fs-0"
+                                  className="w-4 h-4 br-1 fs-0"
                                   style={{
                                     backgroundColor: item.color,
                                     border: getBorderColor(item.color),
