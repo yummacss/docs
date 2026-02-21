@@ -159,9 +159,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                 onKeyDown={handleKeyDown}
               >
                 {/* Search Input */}
-                <div
-                  className="d-f ai-c g-3 px-4 py-3 bbw-1 bc-white/10"
-                >
+                <div className="d-f ai-c g-3 px-4 py-3 bbw-1 bc-white/10">
                   <MagnifyingGlassIcon size={18} className="c-white/50" />
                   <input
                     ref={inputRef}
@@ -265,9 +263,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                 </div>
 
                 {/* Footer */}
-                <div
-                  className="d-f ai-c jc-sb px-4 py-2 fs-xs c-white/40 btw-1 bc-white/10"
-                >
+                <div className="d-f ai-c jc-sb px-4 py-2 fs-xs c-white/40 btw-1 bc-white/10">
                   <div className="d-f ai-c g-4">
                     <span className="d-f ai-c g-1">
                       <kbd

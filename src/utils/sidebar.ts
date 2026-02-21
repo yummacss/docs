@@ -357,7 +357,10 @@ export const sidebarConfig: SidebarConfig = [
           { title: "Text Align", slug: "text-align" },
           { title: "Text Decoration Line", slug: "text-decoration-line" },
           { title: "Text Decoration Style", slug: "text-decoration-style" },
-          { title: "Text Decoration Thickness", slug: "text-decoration-thickness",},
+          {
+            title: "Text Decoration Thickness",
+            slug: "text-decoration-thickness",
+          },
           { title: "Text Decoration", slug: "text-decoration" },
           { title: "Text Indent", slug: "text-indent" },
           { title: "Text Overflow", slug: "text-overflow" },
