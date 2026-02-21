@@ -73,10 +73,7 @@ export default async function BlogPostPage({
             {author && (
               <div className="d-f ai-c g-4 fs-lg c-white/70">
                 <div className="d-f ai-c g-2">
-                  <Avatar
-                    src={author.avatar}
-                    alt={author.name}
-                  />
+                  <Avatar src={author.avatar} alt={author.name} />
                   <Link
                     href={author.url}
                     target="_blank"
