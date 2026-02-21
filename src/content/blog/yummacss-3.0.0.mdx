@@ -10,11 +10,11 @@ import { LEGACY_SHADE_LABELS } from "@/utils/colors";
 
 ---
 
-## What's new in v3.0?
+## What's New In V3.0?
 
 Yumma CSS v3.0 features a complete internal & external rewrite to improve design workflows. This release addresses major performance issues while adding & refining core utilities.
 
-### All-new CLI
+### All-New CLI
 
 Previous versions required importing large CSS files. Yumma CSS v3.0 introduces a CLI that scans your project & automatically removes unused styles, ensuring minimal production file sizes.
 
@@ -134,7 +134,7 @@ Previous versions required importing large CSS files. Yumma CSS v3.0 introduces 
 
 ---
 
-### New utilities & variants
+### New Utilities & Variants
 
 To provide a complete design toolkit, this release adds over 50 utilities to the core framework.
 
@@ -202,7 +202,7 @@ Check the [release notes](https://github.com/yummacss/yummacss/releases/tag/v3.0
 
 ---
 
-### Build performance
+### Build Performance
 
 We optimized the codebase to improve build times & reduce overall file size. Utility generation was refined to eliminate duplicate data in the `/dist` folder.
 
@@ -269,11 +269,11 @@ Upgrading from v2 or older to v3.0 via the Yumma CLI is a direct process.
 
 ---
 
-## Changes in v3.0
+## Changes In 3.0
 
 Yumma CSS v3.0 introduces core structural changes. Review the breaking changes below before updating your project.
 
-### Dependency changes
+### Dependency Changes
 
 Yumma CSS v3.0 should be installed as a dev dependency, as it functions as a CLI tool for generating CSS.
 
@@ -291,7 +291,7 @@ The full utility set remains available in the distribution folder for manual imp
 
 ---
 
-### Color utility changes
+### Color Utility Changes
 
 In v3.0, both the light (`l-`) and dark (`d-`) characters are being removed across all color utilities. As a result, the range used to determine a color's shade was also adjusted.
 
@@ -374,7 +374,7 @@ Here's a quick reference using `background-color`
 
 ---
 
-### Base style changes
+### Base Style Changes
 
 We're making some changes to the base styles in v3.0 to make it more modern and consistent. These changes are turned on by default, but you can turn them off using the config file.
 
@@ -541,7 +541,7 @@ summary {
 
 ---
 
-#### Disabling base styles
+#### Disabling Base Styles
 
 To disable base style generation, set `buildOptions.reset` to `false` in `yummacss.config.mjs`.
 
@@ -558,7 +558,7 @@ export default {
 
 ---
 
-### Breakpoint changes
+### Breakpoint Changes
 
 Yumma CSS v3.0 transitions from pixel-based units to rems, improving accessibility & scalability by respecting browser font settings.
 
@@ -571,14 +571,14 @@ Yumma CSS v3.0 transitions from pixel-based units to rems, improving accessibili
 | 1536px | 96rem _(1536px)_ | xxl        |
 
 ---
-### Fixed media query utilities
+### Fixed Media Query Utilities
 
 
 Related media query utilities are now grouped together, ensuring they correctly override styles in the DOM while reducing CSS file size.
 
 ---
 
-### Utility syntax changes
+### Utility Syntax Changes
 
 We're renaming several utilities to align with our default naming convention.
 
@@ -776,7 +776,7 @@ We're renaming several utilities to align with our default naming convention.
 <div class="fl-* ..."></div>
 ```
 
-### Dimension, Height and Width
+### Dimension, Height & Width
 
 ```html del={1-3} ins={4-6}
 <div class="d-1/1 ..."></div>
@@ -787,20 +787,20 @@ We're renaming several utilities to align with our default naming convention.
 <div class="w-dvh ..."></div>
 ```
 
-### Removed container utility
+### Removed Container Utility
 
 ```html del="cnt"
 <div class="cnt"></div>
 ```
 
-### Removed insert utility
+### Removed Insert Utility
 
 ```html del={1} ins={2}
 <div class="ins ..."></div>
 <div class="ai-c d-f jc-c ..."></div>
 ```
 
-### Removed spacing X utilities
+### Removed Spacing X Utilities
 
 Row Gap utilities can replace **Spacing X** in most cases, especially when combined with `d-f` (`display: flex`) or `d-if` (`display: inline-flex`).
 
@@ -820,7 +820,7 @@ Row Gap utilities can replace **Spacing X** in most cases, especially when combi
 </div>
 ```
 
-### Removed spacing Y utilities
+### Removed Spacing Y Utilities
 
 The same applies to **Column Gap** utilities.
 
@@ -840,7 +840,7 @@ The same applies to **Column Gap** utilities.
 </div>
 ```
 
-### Removed `*-1/2` property values
+### Removed `*-1/2` Property Values
 
 Turns out it wasn't very useful at all.
 

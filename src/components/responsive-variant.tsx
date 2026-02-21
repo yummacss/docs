@@ -48,7 +48,7 @@ export default function ResponsiveVariant({ prefix }: Props) {
           />
           <div className="f-1">
             <code className="d-b fs-sm mb-1" style={{ color: "#dda2f6" }}>
-              {bp.prefix}:{prefix}-[value]
+              {bp.prefix}:{prefix}-*
             </code>
             <div className="d-f ai-c jc-sb">
               <span className="c-white/70 fs-xs">{bp.label}</span>

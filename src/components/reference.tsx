@@ -104,7 +104,7 @@ export default function Reference({ category, name }: Props) {
         <AccordionItem className="bw-0">
           <AccordionTrigger className="bg-transparent">
             <span className="d-f ai-c g-2">
-              <code style={{ color: "#dda2f6" }}>{utilityPrefix}-[value]</code>
+              <code style={{ color: "#dda2f6" }}>{utilityPrefix}-*</code>
               <span
                 className="fs-xs px-2 py-1 br-1"
                 style={{ backgroundColor: "#232741", color: "#8892c2" }}

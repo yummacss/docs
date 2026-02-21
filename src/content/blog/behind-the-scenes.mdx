@@ -8,13 +8,13 @@ export const meta = {
 
 While most of our blog posts focus on new utilities & features for the Yumma CSS package, we've also been making significant improvements to the ecosystem's infrastructure. Here's a quick recap.
 
-## Monorepo transition
+## Monorepo Transition
 
 The Yumma CSS ecosystem now lives in a single [monorepo](https://github.com/yummacss/yummacss). The `core` (formerly `api`), `nitro` (the engine), & `runtime` packages all reside in the same repository.
 
 This consolidation improves development efficiency & keeps package versions in sync.
 
-### Version synchronization
+### Version Synchronization
 
 All core package versions now match the main Yumma CSS version:
 
@@ -22,15 +22,15 @@ All core package versions now match the main Yumma CSS version:
 - `@yummacss/nitro@0.5.0` -> `@yummacss/nitro@3.8.0`
 - `@yummacss/runtime@0.3.0` -> `@yummacss/runtime@3.8.0`
 
-### Public archives
+### Public Archives
 
 The standalone repositories for Core, Nitro, & Runtime are now archived. All future development happens in the [main monorepo](https://github.com/yummacss/yummacss).
 
-## Core package improvements
+## Core Package Improvements
 
 We've made the Core package more extensible & developer-friendly.
 
-### Exposing variant data
+### Exposing Variant Data
 
 You can now import `mediaQueries`, `opacity`, `pseudoClasses`, & `pseudoElements` directly from `@yummacss/core` to build custom tools & integrations.
 
@@ -40,7 +40,7 @@ import { mediaQueries, opacity, pseudoClasses, pseudoElements } from "@yummacss/
 console.log(mediaQueries);
 ```
 
-### Improved type safety
+### Improved Type Safety
 
 Core now exports literal types for every variant prefix.
 
@@ -56,7 +56,7 @@ import type {
 const prefix: VariantPrefix = "sm"; // Typed as a literal
 ```
 
-### Immutable core interfaces
+### Immutable Core Interfaces
 
 We've integrated `readonly` properties into core interfaces. `Utility`, `Utilities`, & `Variants` now enforce strict type compatibility with literal constants.
 

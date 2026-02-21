@@ -35,7 +35,7 @@ export default function HoverVariant({ prefix }: Props) {
       >
         <span className="c-white/50 fs-xs">Syntax:</span>
         <code className="fs-sm" style={{ color: "#dda2f6" }}>
-          h:{prefix}-[value]
+          h:{prefix}-*
         </code>
       </div>
     </div>

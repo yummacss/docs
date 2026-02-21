@@ -7,12 +7,12 @@ This document provides **complete reference** for using Yumma CSS utility classe
 ## Syntax Pattern
 
 ```
-{prefix}-[value]
+{prefix}-*
 ```
 
 **With variants:**
 ```
-{variant}:{prefix}-[value]
+{variant}:{prefix}-*
 ```
 
 **Examples:**
@@ -151,7 +151,7 @@ Each color has shades `1-9` (1 = lightest, 5 = base, 9 = darkest)
 | `margin-inline-start` | `mis-` | Same                             |
 | `margin-inline-end`   | `mie-` | Same                             |
 
-**Negative margins:** Use `m--[value]` syntax (e.g., `m--4` for negative margin)
+**Negative margins:** Use `m--*` syntax (e.g., `m--4` for negative margin)
 
 ### Padding
 
