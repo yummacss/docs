@@ -8,11 +8,11 @@ export const meta = {
 
 ---
 
-## Breaking changes
+## Breaking Changes
 
 This version introduces several significant updates & structural changes.
 
-## Package rename
+## Package Rename
 
 The `@yummacss/api` package is renamed to `@yummacss/core`. This foundation better represents its role in the ecosystem.
 
@@ -23,7 +23,7 @@ pnpm add @yummacss/core
 
 To improve consistency, two utility prefixes are renamed:
 
-### Box shadow
+### Box Shadow
 
 ```html del={1} ins={2} title="index.html"
 <div class="bs-*">...</div>
@@ -39,7 +39,7 @@ To improve consistency, two utility prefixes are renamed:
 
 ---
 
-## Pseudo-variants
+## Pseudo Variants
 
 This release adds support for pseudo-classes & pseudo-elements.
 
@@ -97,7 +97,7 @@ The `fw:*` variant targets containers when a child has focus:
 </div>
 ```
 
-## Touch device support
+## Touch Device Support
 
 The `pc:*` media query variant targets devices with coarse pointer input.
 
@@ -113,7 +113,7 @@ The `pc:*` media query variant targets devices with coarse pointer input.
 </button>
 ```
 
-## Cursor utilities
+## Cursor Utilities
 
 New cursor values are added for enhanced interaction feedback.
 
@@ -121,7 +121,7 @@ New cursor values are added for enhanced interaction feedback.
 <div class="c-*">...</div>
 ```
 
-## Touch action utilities
+## Touch Action Utilities
 
 New `ta-*` utilities support all `touch-action` values.
 
@@ -129,9 +129,9 @@ New `ta-*` utilities support all `touch-action` values.
 <div class="ta-*">...</div>
 ```
 
-## Transform updates
+## Transform Updates
 
-### Rotation range
+### Rotation Range
 
 The `t-r-*` utility now ranges from 0 to 360 degrees.
 
@@ -139,7 +139,7 @@ The `t-r-*` utility now ranges from 0 to 360 degrees.
 <div class="t-r-*">...</div>
 ```
 
-### Translate utilities
+### Translate Utilities
 
 New `t-tx-*` & `t-ty-*` utilities simplify horizontal & vertical centering.
 
@@ -147,7 +147,7 @@ New `t-tx-*` & `t-ty-*` utilities simplify horizontal & vertical centering.
 <div class="t-tx-* t-ty-*">...</div>
 ```
 
-## Position auto support
+## Position Auto Support
 
 The `auto` value is supported for `b-*`, `i-*`, `ix-*`, `iy-*`, `l-*`, `r-*`, & `t-*` utilities.
 
@@ -163,7 +163,7 @@ The `auto` value is supported for `b-*`, `i-*`, `ix-*`, `iy-*`, `l-*`, `r-*`, & 
 </div>
 ```
 
-## Negative values
+## Negative Values
 
 Negative values are supported via the `--` syntax.
 
@@ -187,7 +187,7 @@ Negative values are supported via the `--` syntax.
 </div>
 ```
 
-## Logical properties
+## Logical Properties
 
 Utility sets for `mx-*`, `my-*`, `px-*`, & `py-*` now use logical properties (`margin-inline`, `margin-block`, `padding-inline`, `padding-block`).
 

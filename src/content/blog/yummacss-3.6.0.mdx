@@ -8,11 +8,11 @@ export const meta = {
 
 ---
 
-## Arbitrary chaining
+## Arbitrary Chaining
 
 Chain utility variants to pseudo-classes or apply opacity modifiers to active, focus, & hover states. Variants can now be linked arbitrarily.
 
-| Class              | Generated CSS Rule                                                      |
+| Class              | Generated CSS                                                           |
 |--------------------|-------------------------------------------------------------------------|
 | `bg-red`           | `.bg-red { ... }`                                                       |
 | `bg-red/50`        | `.bg-red\/50 { ... }`                                                   |
@@ -20,7 +20,7 @@ Chain utility variants to pseudo-classes or apply opacity modifiers to active, f
 | `lg:h:bg-red/50`   | `@media (width >= 64rem) { .lg\:h\:bg-red\/50:hover { ... } }`          |
 | `lg:h:f:bg-red/25` | `@media (width >= 64rem) { .lg\:h\:f\:bg-red\/25:hover:focus { ... } }` |
 
-### Opacity modifiers with hover
+### Opacity Modifiers With Hover
 
 <Hint icon="cursor">Hover the div to see the opacity change.</Hint>
 
@@ -28,7 +28,7 @@ Chain utility variants to pseudo-classes or apply opacity modifiers to active, f
 <div class="bg-indigo-6/25 h:bg-indigo-6/50 d-16"></div>
 ```
 
-### Media variants with pseudo-classes
+### Media Variants With Pseudo Classes
 
 <Hint icon="size">Resize the window to see the hover opacity change.</Hint>
 
@@ -36,7 +36,7 @@ Chain utility variants to pseudo-classes or apply opacity modifiers to active, f
 <div class="bg-indigo-6/25 lg:h:bg-indigo/50 h:bg-indigo/25 d-16"></div>
 ```
 
-## Tokenizer updates
+## Tokenizer Changes
 
 Regular expressions are updated to capture complex class names with colons & slashes, specifically within template literals.
 

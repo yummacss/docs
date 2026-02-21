@@ -8,7 +8,7 @@ export const meta = {
 
 ---
 
-## SCSS removal
+## SCSS Removal
 
 In 2024, the [launch of Yumma CSS API](/blog/api-1.0.0) provided a way to retrieve base class definitions through JavaScript & TypeScript functions. These were used in the documentation & [playground](https://play.yummacss.com) for code completions.
 
@@ -18,11 +18,11 @@ Yumma CSS v3.4 migrates from `sass-embedded` to `@yummacss/api` for CSS generati
 
 ---
 
-## CLI updates
+## CLI Updates
 
 This release includes logic & performance updates to the CLI:
 
-### Token extraction
+### Token Extraction
 
 The new token extraction process allows the CLI to scan for class tokens in `source` files defined in `yumma.config.mjs` & generate CSS accordingly.
 
@@ -48,7 +48,7 @@ This avoids unnecessary CSS generation & further improves build performance.
 }
 ```
 
-### Build performance
+### Build Performance
 
 Since data is already structured in `@yummacss/api`, the CLI only extracts tokens from `source` files to generate the final CSS.
 
@@ -67,7 +67,7 @@ Run `pnpx yummacss watch` in your terminal to test the performance.
 
 ---
 
-## API updates
+## API Changes
 
 The Library API is updated to support utility & variant generation. Existing projects will continue to function.
 
@@ -76,7 +76,7 @@ The Library API is updated to support utility & variant generation. Existing pro
 
 ---
 
-## Responsive color support
+## Responsive Color Support
 
 You can now use breakpoints with color utilities.
 
@@ -86,7 +86,7 @@ You can now use breakpoints with color utilities.
 
 ---
 
-## Base style updates
+## Base Style Updates
 
 Without `purgecss`, tree shaking is disabled when using `buildOptions.reset`. This includes all base styles in the final CSS file.
 
@@ -103,7 +103,7 @@ export default {
 
 ---
 
-## NPM fix
+## NPM Fix
 
 A fix is available for a bug that prevented the Yumma CSS CLI from running when using `npm` as a package manager.
 
