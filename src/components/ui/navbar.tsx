@@ -137,7 +137,7 @@ export default function Navbar({
 
               <div className="d-none md:d-f ai-c g-4 ml-2">
                 <Link
-                  href="https://www.npmjs.com/package/yummacss"
+                  href="https://npmx.dev/package/yummacss"
                   className="d-f ai-c g-1 c-white/80 h:c-white fs-xs fv:oc-indigo-4 fv:ow-2"
                   target="_blank"
                 >
