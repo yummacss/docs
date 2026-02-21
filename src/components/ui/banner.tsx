@@ -12,7 +12,7 @@ export default async function Banner() {
       <div className="rainbow p-a i-0" />
       <div className="p-r d-f ai-c jc-c py-3 px-4 fs-sm fw-600 c-white bf-b-sm us-none">
         <Link href={`/blog/${latestPost.slug}`}>
-          Latest article: {latestPost.title}
+          {latestPost.title}
         </Link>
       </div>
     </div>
