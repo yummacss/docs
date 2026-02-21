@@ -82,26 +82,26 @@ pnpm add @yummacss/core
 
 Utilities renamed in the current version:
 
-| Style             | Legacy   | Latest  |
-|-------------------|----------|---------|
-| bottom            | `dir-b`  | `b-\*`  |
-| inset             | `dir-i`  | `i-\*`  |
-| left              | `dir-l`  | `l-\*`  |
-| right             | `dir-r`  | `r-\*`  |
-| top               | `dir-t`  | `t-\*`  |
-| columns           | `cols-*` | `c-*`   |
-| dimension    | `dim-*`/`d-*`  | `w-\* h-\*`   |
-| font-size: 1rem;  | `fs-b`   | `fs-md` |
-| overflow          | `ovf-*`  | `o-*`   |
-| float             | `flo-*`  | `fl-*`  |
-| box-shadow        | `bsh-*`  | `bs-o-*` & `bs-i-*` |
-| isolation         | `i-*`    | `is-*`  |
-| rotate            | `t-r-*`  | `ro-*`  |
-| scale             | `t-s-*`  | `s-*`   |
-| system-ui         | `ff-s`   | `ff-d`  |
-| charter           | `ff-c`   | `ff-s`  |
-| height / width    | `*-1/1`  | `*-dvh` |
-| _Color utilities_ | `lead`   | `slate` |
+| Style             | Legacy                    | Latest                          |
+|-------------------|---------------------------|---------------------------------|
+| bottom            | `dir-b`                   | `b-\*`                          |
+| inset             | `dir-i`                   | `i-\*`                          |
+| left              | `dir-l`                   | `l-\*`                          |
+| right             | `dir-r`                   | `r-\*`                          |
+| top               | `dir-t`                   | `t-\*`                          |
+| columns           | `cols-[value]`            | `c-[value]`                     |
+| dimension         | `dim-[value]`/`d-[value]` | `w-\* h-\*`                     |
+| font-size: 1rem;  | `fs-b`                    | `fs-md`                         |
+| overflow          | `ovf-[value]`             | `o-[value]`                     |
+| float             | `flo-[value]`             | `fl-[value]`                    |
+| box-shadow        | `bsh-[value]`             | `bs-o-[value]` & `bs-i-[value]` |
+| isolation         | `i-[value]`               | `is-[value]`                    |
+| rotate            | `t-r-[value]`             | `ro-[value]`                    |
+| scale             | `t-s-[value]`             | `s-[value]`                     |
+| system-ui         | `ff-s`                    | `ff-d`                          |
+| charter           | `ff-c`                    | `ff-s`                          |
+| height / width    | `*-1/1`                   | `*-dvh`                         |
+| _Color utilities_ | `lead`                    | `slate`                         |
 
 ### Color utility changes
 
@@ -147,34 +147,35 @@ Stretch utility suffixes updated from `-s` to `-st`.
 `dir-` prefix removed for layout utilities.
 
 ```html del={1-5} ins={6-10} title="index.html"
-<div class="dir-b-*">...</div>
-<div class="dir-i-*">...</div>
-<div class="dir-l-*">...</div>
-<div class="dir-r-*">...</div>
-<div class="dir-t-*">...</div>
-<div class="b-*">...</div>
-<div class="i-*">...</div>
-<div class="l-*">...</div>
-<div class="r-*">...</div>
-<div class="t-*">...</div>
+<div class="dir-b-[value]">...</div>
+<div class="dir-i-[value]">...</div>
+<div class="dir-l-[value]">...</div>
+<div class="dir-r-[value]">...</div>
+<div class="dir-t-[value]">...</div>
+<div class="b-[value]">...</div>
+<div class="i-[value]">...</div>
+<div class="l-[value]">...</div>
+<div class="r-[value]">...</div>
+<div class="t-[value]">...</div>
 ```
 
 ### Columns
 
-`cols-*` shortened to `c-*`.
+`cols-[value]` shortened to `c-[value]`.
 
 ```html del={1} ins={2} title="index.html"
-<div class="cols-*">...</div>
-<div class="c-*">...</div>
+<div class="cols-[value]">...</div>
+<div class="c-[value]">...</div>
 ```
 
 ### Dimension
 
-`dim-*` shortened to `d-*`.
+`dim-[value]` shortened to `d-[value]`.
 
-```html del={1} ins={2} title="index.html"
-<div class="dim-*">...</div>
-<div class="d-*">...</div>
+```html del={1,2} ins={3} title="index.html"
+<div class="dim-[value]">...</div>
+<div class="d-[value]">...</div>
+<div class="w-[value] h-[value]">...</div>
 ```
 
 ### Font size
@@ -199,20 +200,20 @@ Utility prefixes renamed for clarity:
 
 ### Overflow
 
-`ovf-*` shortened to `o-*`.
+`ovf-[value]` shortened to `o-[value]`.
 
 ```html del={1} ins={2} title="index.html"
-<div class="ovf-*">...</div>
-<div class="o-*">...</div>
+<div class="ovf-[value]">...</div>
+<div class="o-[value]">...</div>
 ```
 
 ### Float
 
-`flo-*` shortened to `fl-*`.
+`flo-[value]` shortened to `fl-[value]`.
 
 ```html del={1} ins={2} title="index.html"
-<div class="flo-*">...</div>
-<div class="fl-*">...</div>
+<div class="flo-[value]">...</div>
+<div class="fl-[value]">...</div>
 ```
 
 ### Dynamic viewport
@@ -220,57 +221,55 @@ Utility prefixes renamed for clarity:
 `*-1/1` renamed to `*-dvh`.
 
 ```html del={1-3} ins={4-6} title="index.html"
-<div class="h-1/1">...</div>
-<div class="w-1/1">...</div>
+<div class="w-1/1 h-1/1">...</div>
 <div class="d-1/1">...</div>
-<div class="h-dvh">...</div>
-<div class="w-dvw">...</div>
+<div class="w-dvh h-dvw">...</div>
 <div class="d-dvh">...</div>
 ```
 
 ### Border width
 
-`b-*` renamed to `bw-*`.
+`b-[value]` renamed to `bw-[value]`.
 
 ```html del={1} ins={2} title="index.html"
-<div class="b-*">...</div>
-<div class="bw-*">...</div>
+<div class="b-[value]">...</div>
+<div class="bw-[value]">...</div>
 ```
 
 This also applies to directional border width utilities:
 
-| Legacy | Latest  |
-|--------|---------|
-| `bt-*` | `btw-*` |
-| `br-*` | `brw-*` |
-| `bb-*` | `bbw-*` |
-| `bl-*` | `blw-*` |
+| Legacy       | Latest        |
+|--------------|---------------|
+| `bt-[value]` | `btw-[value]` |
+| `br-[value]` | `brw-[value]` |
+| `bb-[value]` | `bbw-[value]` |
+| `bl-[value]` | `blw-[value]` |
 
 ### Border color
 
 Directional border color utilities now use a consistent 3-character prefix.
 
-| Legacy   | Latest   |
-|----------|----------|
-| `bc-t-*` | `btc-*`  |
-| `bc-b-*` | `bbc-*`  |
-| `bc-l-*` | `blc-*`  |
-| `bc-r-*` | `brc-*`  |
+| Legacy         | Latest        |
+|----------------|---------------|
+| `bc-t-[value]` | `btc-[value]` |
+| `bc-b-[value]` | `bbc-[value]` |
+| `bc-l-[value]` | `blc-[value]` |
+| `bc-r-[value]` | `brc-[value]` |
 
 ### Border radius
 
 Directional border radius utilities now use a consistent 3-character prefix.
 
-| Legacy   | Latest   |
-|----------|----------|
-| `br-t-*` | `btr-*`  |
-| `br-b-*` | `bbr-*`  |
-| `br-l-*` | `blr-*`  |
-| `br-r-*` | `brr-*`  |
+| Legacy         | Latest        |
+|----------------|---------------|
+| `br-t-[value]` | `btr-[value]` |
+| `br-b-[value]` | `bbr-[value]` |
+| `br-l-[value]` | `blr-[value]` |
+| `br-r-[value]` | `brr-[value]` |
 
 ### Border style
 
-`b-*` renamed to `bs-*`.
+`b-[value]` renamed to `bs-[value]`.
 
 ```html del={1} ins={2} title="index.html"
 <div class="b-solid">...</div>
@@ -310,8 +309,8 @@ Prefix updated from `bsh-` to `bs-o-` for outset shadows & `bs-i-` for inset sha
 Prefix updated from `t-r-` to `ro-`. standalone `rotate` property is now used.
 
 ```html del={1} ins={2} title="index.html"
-<div class="t-r-*">...</div>
-<div class="ro-*">...</div>
+<div class="t-r-[value]">...</div>
+<div class="ro-[value]">...</div>
 ```
 
 ### Scale
@@ -319,12 +318,12 @@ Prefix updated from `t-r-` to `ro-`. standalone `rotate` property is now used.
 The standalone `scale` property is now used instead of `transform: scale()`.
 
 ```html del={1-3} ins={4-6} title="index.html"
-<div class="t-s-*">...</div>
-<div class="t-sx-*">...</div>
-<div class="t-sy-*">...</div>
-<div class="s-*">...</div>
-<div class="sx-*">...</div>
-<div class="sy-*">...</div>
+<div class="t-s-[value]">...</div>
+<div class="t-sx-[value]">...</div>
+<div class="t-sy-[value]">...</div>
+<div class="s-[value]">...</div>
+<div class="sx-[value]">...</div>
+<div class="sy-[value]">...</div>
 ```
 
 ### Isolation
@@ -332,8 +331,8 @@ The standalone `scale` property is now used instead of `transform: scale()`.
 Prefix updated from `i-` to `is-`.
 
 ```html del={1} ins={2} title="index.html"
-<div class="i-*">...</div>
-<div class="is-*">...</div>
+<div class="i-[value]">...</div>
+<div class="is-[value]">...</div>
 ```
 
 ## Base style changes
