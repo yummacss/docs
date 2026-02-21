@@ -1905,6 +1905,10 @@ summary {
   height: 100dvh;
 }
 
+.h-dvw {
+  height: 100dvw;
+}
+
 .h-fc {
   height: fit-content;
 }
@@ -3965,10 +3969,6 @@ summary {
 
 .w-dvh {
   width: 100dvh;
-}
-
-.w-dvw {
-  width: 100dvw;
 }
 
 .w-fc {
