@@ -1,9 +1,9 @@
 export const meta = {
-	title: "Core Integration",
-	description: "Integrate with the Yumma CSS engine programmatically.",
+	title: "Core API",
+	description: "Access Yumma CSS utilities, variants, and types programmatically.",
 };
 
-## What is Yumma CSS Core?
+## What Is Yumma CSS Core?
 
 The `@yummacss/core` is the foundational engine that powers the entire Yumma CSS ecosystem. It's a TypeScript library that contains every utility definition, prefix, and variant used by the Yumma CSS compiler. 
 
@@ -18,11 +18,11 @@ Install the package using your preferred package manager:
 pnpm add @yummacss/core
 ```
 
-## Quick start
+## Quick Start
 
 The Core package exports functions to retrieve utility definitions by category or as a whole.
 
-### Getting all utilities
+### Getting All Utilities
 
 Retrieve every single utility definition available in Yumma CSS.
 
@@ -32,7 +32,7 @@ import { coreUtils } from "@yummacss/core";
 const all = coreUtils();
 ```
 
-### Scoped utilities
+### Scoped Utilities
 
 If you only need a specific category, you can import scoped functions.
 
@@ -43,11 +43,11 @@ console.log(backgroundUtils()); // Returns background-related utilities
 console.log(fontUtils());       // Returns font-related utilities
 ```
 
-## Understanding the data structure
+## Understanding The Data Structure
 
 Each utility in Yumma CSS is represented by a `Utility` object. Understanding this structure is key to building tools on top of the Core.
 
-### The utility interface
+### The Utility Interface
 
 ```ts title="utility.ts"
 interface Utility {
@@ -61,7 +61,7 @@ interface Utility {
 }
 ```
 
-### Concrete example
+### Concrete Example
 
 Here is how the `background-attachment` utility looks like under the hood:
 
@@ -84,7 +84,7 @@ Here is how the `background-attachment` utility looks like under the hood:
 }
 ```
 
-## Available functions
+## Available Functions
 
 The Core package provides the following functions to access utility definitions:
 
@@ -112,7 +112,7 @@ The Core package provides the following functions to access utility definitions:
 
 The Core package exports all of the available Yumma CSS utility variants raw data:
 
-### Accessing variants
+### Accessing Variants
 
 You can import the variant arrays directly from the package.
 
@@ -122,7 +122,7 @@ import { mediaQueries, opacity, pseudoClasses, pseudoElements } from "@yummacss/
 console.log(mediaQueries);
 ```
 
-### Variant structure
+### Variant Structure
 
 Each variant follows a consistent `prefix` and `value` structure.
 
@@ -142,11 +142,11 @@ Each variant follows a consistent `prefix` and `value` structure.
 | `pseudoClasses`    | Interactive states like `:hover` or `:focus`.    |
 | `pseudoElements`   | Structural elements like `::before` or `::after`.|
 
-## Typescript support
+## Typescript Support
 
 The Core package is written in TypeScript and exports all internal interfaces and literal types for a better developer experience.
 
-### Utility types
+### Utility Types
 
 ```ts title="index.ts"
 import type { Utility, Utilities, Variants, Colors } from "@yummacss/core";
@@ -156,7 +156,7 @@ const customTool = (data: Utilities) => {
 };
 ```
 
-### Variant literal types
+### Variant Literal Types
 
 For even better type safety, we export literal types for every variant prefix. This is particularly useful for IDE extensions and plugins.
 
