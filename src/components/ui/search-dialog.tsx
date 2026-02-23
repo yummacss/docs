@@ -140,7 +140,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
               }
               className="p-f zi-50 t-0 l-0 r-0 b-0 bg-black/60 bf-b-xs f-g-90"
             />
-            <div className="p-f zi-50 t-0 l-0 r-0 b-0 d-f ai-c jc-c pe-n">
+            <div className="d-f p-f zi-50 t-0 l-0 r-0 b-0 ai-c jc-c pe-n">
               <Dialog.Popup
                 render={
                   <motion.div
@@ -150,7 +150,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                     transition={{ duration: 0.15, ease: "easeOut" }}
                   />
                 }
-                className="w-full o-h bw-1 bc-white/10"
+                className="o-h w-full bc-white/10 bw-1"
                 style={{
                   backgroundColor: "#151724",
                   maxHeight: "70vh",
@@ -159,7 +159,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                 onKeyDown={handleKeyDown}
               >
                 {/* Search Input */}
-                <div className="d-f ai-c g-3 px-4 py-3 bbw-1 bc-white/10">
+                <div className="d-f ai-c g-3 px-4 py-3 bc-white/10 bbw-1">
                   <MagnifyingGlassIcon size={18} className="c-white/50" />
                   <input
                     ref={inputRef}
@@ -170,7 +170,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                       setQuery(e.target.value);
                       setSelectedIndex(0);
                     }}
-                    className="f-1 bg-transparent b-0 fs-md c-white"
+                    className="b-0 f-1 bg-transparent c-white fs-md"
                     style={{ outline: "none" }}
                   />
                 </div>
@@ -187,7 +187,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
 
                     return (
                       <div key={category} className="mb-2">
-                        <div className="px-2 py-1 fs-xs c-white tt-u ls-3">
+                        <div className="px-2 py-1 c-white fs-xs tt-u ls-3">
                           {label}
                         </div>
                         {items.map((item) => {
@@ -207,7 +207,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                               onMouseEnter={() =>
                                 setSelectedIndex(currentIndex)
                               }
-                              className="d-f ai-c g-3 w-full px-3 py-2 ta-l b-0 c-p"
+                              className="d-f b-0 ai-c g-3 w-full px-3 py-2 ta-l c-p"
                               style={{
                                 backgroundColor: isSelected
                                   ? "#ffffff1a"
@@ -217,7 +217,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                               {/* Icon or Color Swatch */}
                               {item.category === "colors" && item.color ? (
                                 <div
-                                  className="w-4 h-4 br-1 fs-0"
+                                  className="fs-0 w-4 h-4 br-1"
                                   style={{
                                     backgroundColor: item.color,
                                     border: getBorderColor(item.color),
@@ -229,11 +229,11 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
 
                               {/* Title and Description */}
                               <div className="f-1 min-w-0">
-                                <div className="c-white fs-md tw-n to-e o-h ws-nw">
+                                <div className="o-h c-white fs-md tw-n to-e ws-nw">
                                   {item.title}
                                 </div>
                                 {item.description && (
-                                  <div className="c-white/50 fs-xs tw-n to-e o-h ws-nw">
+                                  <div className="c-white/50 o-h fs-xs tw-n to-e ws-nw">
                                     {item.category === "colors" && isColorCopied
                                       ? "Copied!"
                                       : item.description}
@@ -256,18 +256,18 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                   })}
 
                   {flatResults.length === 0 && (
-                    <div className="px-4 py-8 ta-c c-white/50 fs-md">
+                    <div className="c-white/50 px-4 py-8 ta-c fs-md">
                       No results found for "{query}"
                     </div>
                   )}
                 </div>
 
                 {/* Footer */}
-                <div className="d-f ai-c jc-sb px-4 py-2 fs-xs c-white/40 btw-1 bc-white/10">
+                <div className="d-f c-white/40 ai-c jc-sb px-4 py-2 bc-white/10 btw-1 fs-xs">
                   <div className="d-f ai-c g-4">
                     <span className="d-f ai-c g-1">
                       <kbd
-                        className="p-1 bw-1 d-f ai-c br-1 bw-1 bc-white/10"
+                        className="d-f ai-c p-1 bc-white/10 bw-1 br-1 bw-1"
                         style={{
                           backgroundColor: "#151724",
                         }}
@@ -275,7 +275,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                         <ArrowUpIcon weight="bold" size={16} />
                       </kbd>
                       <kbd
-                        className="p-1 bw-1 d-f ai-c br-1 bw-1 bc-white/10"
+                        className="d-f ai-c p-1 bc-white/10 bw-1 br-1 bw-1"
                         style={{
                           backgroundColor: "#151724",
                         }}
@@ -286,7 +286,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                     </span>
                     <span className="d-f ai-c g-1">
                       <kbd
-                        className="p-1 bw-1 d-f ai-c br-1 bw-1 bc-white/10"
+                        className="d-f ai-c p-1 bc-white/10 bw-1 br-1 bw-1"
                         style={{
                           backgroundColor: "#151724",
                         }}
@@ -298,7 +298,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                   </div>
                   <span className="d-f ai-c g-1">
                     <kbd
-                      className="p-1 bw-1 d-f ai-c br-1 bw-1 bc-white/10"
+                      className="d-f ai-c p-1 bc-white/10 bw-1 br-1 bw-1"
                       style={{
                         backgroundColor: "#151724",
                       }}

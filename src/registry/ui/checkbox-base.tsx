@@ -3,8 +3,7 @@ import { CheckIcon } from "@phosphor-icons/react";
 
 export default function ExampleCheckbox() {
   return (
-    // biome-ignore lint/a11y/noLabelWithoutControl: Base UI handles this
-    <label className="d-f ai-c g-2 fs-sm fw-600 c-slate-10">
+    <label className="d-f ai-c g-2 c-slate-10 fs-sm fw-600">
       <Checkbox.Root
         defaultChecked
         className={(state) =>

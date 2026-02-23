@@ -9,7 +9,7 @@ export default function ExampleContextMenu() {
 
   return (
     <ContextMenu.Root open={open} onOpenChange={setOpen}>
-      <ContextMenu.Trigger className="d-f ai-c jc-c h-48 w-60 bw-1 bc-silver-2 br-2 c-slate-10 fs-sm fw-600 us-none">
+      <ContextMenu.Trigger className="d-f ai-c jc-c h-48 w-60 bc-silver-2 c-slate-10 bw-1 br-2 fs-sm fw-600 us-none">
         Right click here
       </ContextMenu.Trigger>
 
@@ -26,7 +26,7 @@ export default function ExampleContextMenu() {
                     transition={{ duration: 0.1, ease: "easeOut" }}
                   />
                 }
-                className="bw-1 bc-silver-2 br-2 bg-white bs-o-lg py-1 c-slate-10"
+                className="py-1 bg-white bc-silver-2 c-slate-10 bw-1 br-2 bs-o-lg"
               >
                 <ContextMenu.Item
                   className={(state) =>

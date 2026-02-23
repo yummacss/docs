@@ -16,7 +16,6 @@ export default function ExampleCheckboxGroup() {
 
   return (
     <div className="d-f fd-c g-3 c-slate-10">
-      {/* Analytics Group */}
       <CheckboxGroup
         aria-labelledby={analyticsId}
         value={analyticsValue}
@@ -24,8 +23,10 @@ export default function ExampleCheckboxGroup() {
         allValues={analytics}
         className="d-f fd-c g-2"
       >
-        {/* biome-ignore lint/a11y/noLabelWithoutControl: Base UI handles this */}
-        <label className="d-f ai-c g-2 fs-sm fw-600" id={analyticsId}>
+        <label
+          className="d-f ai-c g-2 c-slate-10 fs-sm fw-600"
+          id={analyticsId}
+        >
           <Checkbox.Root
             name="analytics"
             parent
@@ -54,7 +55,6 @@ export default function ExampleCheckboxGroup() {
         </label>
 
         <div className="d-f fd-c g-2 ml-6">
-          {/* biome-ignore lint/a11y/noLabelWithoutControl: Base UI handles this */}
           <label className="d-f ai-c g-2 fs-sm fw-600">
             <Checkbox.Root
               value="pageviews"
@@ -73,7 +73,6 @@ export default function ExampleCheckboxGroup() {
             Page views
           </label>
 
-          {/* biome-ignore lint/a11y/noLabelWithoutControl: Base UI handles this */}
           <label className="d-f ai-c g-2 fs-sm fw-600">
             <Checkbox.Root
               value="sessions"
@@ -132,7 +131,6 @@ export default function ExampleCheckboxGroup() {
         </label>
 
         <div className="d-f fd-c g-2 ml-6">
-          {/* biome-ignore lint/a11y/noLabelWithoutControl: Base UI handles this */}
           <label className="d-f ai-c g-2 fs-sm fw-600">
             <Checkbox.Root
               value="campaigns"
@@ -151,7 +149,6 @@ export default function ExampleCheckboxGroup() {
             Campaigns
           </label>
 
-          {/* biome-ignore lint/a11y/noLabelWithoutControl: Base UI handles this */}
           <label className="d-f ai-c g-2 fs-sm fw-600">
             <Checkbox.Root
               value="newsletters"

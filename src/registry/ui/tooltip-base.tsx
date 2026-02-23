@@ -8,7 +8,7 @@ export default function ExampleTooltip() {
   return (
     <Tooltip.Provider>
       <Tooltip.Root>
-        <Tooltip.Trigger className="d-f ai-c jc-c c-slate-8 bg-transparent bw-0 c-p h:c-indigo fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6">
+        <Tooltip.Trigger className="d-f ai-c jc-c bg-transparent c-slate-8 bw-0 c-p h:c-indigo fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6">
           <QuestionIcon size={24} />
         </Tooltip.Trigger>
         <Tooltip.Portal>
@@ -23,7 +23,7 @@ export default function ExampleTooltip() {
                     transition={{ type: "spring", stiffness: 500, damping: 30 }}
                   />
                 }
-                className="px-3 py-2 br-1 bg-slate-12 fs-sm c-white bs-o-sm"
+                className="px-3 py-2 bg-slate-12 c-white br-1 fs-sm bs-o-sm"
               >
                 Password must be 8+ characters
               </Tooltip.Popup>

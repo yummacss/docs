@@ -19,12 +19,12 @@ export default function ExampleProgress() {
   return (
     <Progress.Root className="d-f fd-c g-2 w-64" value={value}>
       <div className="d-f jc-sb ai-c">
-        <Progress.Label className="fs-sm fw-600 c-slate-10">
+        <Progress.Label className="c-slate-10 fs-sm fw-600">
           Uploading files
         </Progress.Label>
-        <Progress.Value className="fs-sm c-slate-8" />
+        <Progress.Value className="c-slate-8 fs-sm" />
       </div>
-      <Progress.Track className="o-h bg-silver-2 h-2 br-pill">
+      <Progress.Track className="o-h h-2 bg-silver-2 br-pill">
         <Progress.Indicator
           render={
             <motion.div
@@ -32,7 +32,7 @@ export default function ExampleProgress() {
               transition={{ duration: 0.5, ease: "easeOut" }}
             />
           }
-          className="bg-indigo h-full br-pill"
+          className="h-full bg-indigo br-pill"
         />
       </Progress.Track>
     </Progress.Root>

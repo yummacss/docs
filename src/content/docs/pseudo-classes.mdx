@@ -10,11 +10,11 @@ Represents an element activated by the user (e.g., clicking a button).
 <Hint icon="cursor_click">Try clicking and holding the button to see the active state.</Hint>
 
 <Preview>
-  <button className="bg-indigo c-white br-2 px-3 py-2 fw-600 bs-o-md bw-1 bc-indigo-7 us-none tp-c tdu-150 ttf-io a:bg-indigo-7 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 c-p b-0">Press me</button>
+  <button className="b-0 px-3 py-2 bg-indigo a:bg-indigo-7 bc-indigo-7 c-white br-2 bw-1 fw-600 bs-o-md tp-c tdu-150 ttf-io us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6">Press me</button>
 </Preview>
 
 ```html "a:bg-indigo-7"
-<button class="bg-indigo a:bg-indigo-7 px-3 py-2 br-0 c-white">Press me</button>
+<button class="px-3 py-2 bg-indigo a:bg-indigo-7 c-white br-0">Press me</button>
 ```
 
 ## Focus
@@ -24,11 +24,11 @@ Represents an element that received focus via click, tap, or the **Tab** key.
 <Hint icon="cursor_click">Try clicking on the input field to see how the border color and outline change.</Hint>
 
 <Preview>
-  <button className="bg-indigo c-white br-2 px-3 py-2 fw-600 bs-o-md bw-1 bc-indigo-7 us-none tp-c tdu-150 ttf-io f:oc-indigo-4 f:oo-2 f:os-s f:ow-2 c-p b-0">Click me</button>
+  <button className="b-0 px-3 py-2 bg-indigo bc-indigo-7 c-white br-2 bw-1 fw-600 bs-o-md tp-c tdu-150 ttf-io us-none c-p f:oc-indigo-4 f:oo-2 f:os-s f:ow-2">Click me</button>
 </Preview>
 
 ```html "f:oc-indigo-4 f:oo-2 f:os-s f:ow-2"
-<button class="bg-indigo f:oc-indigo-4 f:oo-2 f:os-s f:ow-2 px-3 py-2 br-0 c-white">Click me</button>
+<button class="px-3 py-2 bg-indigo c-white br-0 f:oc-indigo-4 f:oo-2 f:os-s f:ow-2">Click me</button>
 ```
 
 ## Hover
@@ -38,11 +38,11 @@ Matches an element when the user interacts with it using a pointing device.
 <Hint icon="hand_pointing">Try hovering over the button to see how the background color changes.</Hint>
 
 <Preview>
-  <button className="bg-indigo c-white br-2 px-3 py-2 fw-600 bs-o-md bw-1 bc-indigo-7 us-none tp-c tdu-150 ttf-io h:bg-indigo-7 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 c-p b-0">Hover me</button>
+  <button className="b-0 px-3 py-2 bg-indigo h:bg-indigo-7 bc-indigo-7 c-white br-2 bw-1 fw-600 bs-o-md tp-c tdu-150 ttf-io us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6">Hover me</button>
 </Preview>
 
 ```html "h:bg-indigo-7"
-<button class="bg-indigo h:bg-indigo-7 px-3 py-2 br-0 c-white c-p">Hover me</button>
+<button class="px-3 py-2 bg-indigo h:bg-indigo-7 c-white br-0 c-p">Hover me</button>
 ```
 
 ## Focus Visible
@@ -52,11 +52,11 @@ Triggers when an element matches `:focus` & the browser determines focus should 
 <Hint icon="keyboard">Try using Tab to focus the button with your keyboard.</Hint>
 
 <Preview>
-  <button className="bg-indigo c-white br-2 px-3 py-2 fw-600 bs-o-md bw-1 bc-indigo-7 us-none tp-c tdu-150 ttf-io fv:ow-2 fv:oc-indigo-4 fv:oo-2 c-p b-0">Focus me</button>
+  <button className="b-0 px-3 py-2 bg-indigo bc-indigo-7 c-white br-2 bw-1 fw-600 bs-o-md tp-c tdu-150 ttf-io us-none c-p fv:ow-2 fv:oc-indigo-4 fv:oo-2">Focus me</button>
 </Preview>
 
 ```html "fv:ow-2" "fv:oc-indigo-2"
-<button className="bg-indigo fv:ow-2 fv:oc-indigo-4 fv:oo-2 px-3 py-2 br-0 c-white c-p">Focus me</button>
+<button className="px-3 py-2 bg-indigo c-white br-0 c-p fv:ow-2 fv:oc-indigo-4 fv:oo-2">Focus me</button>
 ```
 
 ## Focus Within
@@ -66,14 +66,14 @@ Matches an element if the element or any of its descendants are focused.
 <Hint icon="cursor_click">Try clicking on the input field to see the container's border change.</Hint>
 
 <Preview>
-  <div className="d-f ai-c w-full max-w-64 br-2 bw-1 bc-silver-3 bg-white fw:os-s fw:ow-2 fw:oo-2 fw:oc-indigo-6 fv:oc-indigo-6">
-    <input className="f-1 h-10 pl-4 b-0 fs-sm c-slate-10 bg-transparent" placeholder="Focus me" style={{ outline: 'none' }} />
+  <div className="d-f ai-c w-full max-w-64 bg-white bc-silver-3 br-2 bw-1 fw:os-s fw:ow-2 fw:oo-2 fw:oc-indigo-6 fv:oc-indigo-6">
+    <input className="b-0 f-1 h-10 pl-4 bg-transparent c-slate-10 fs-sm" placeholder="Focus me" style={{ outline: 'none' }} />
   </div>
 </Preview>
 
 ```html "fw:bc-indigo"
-<div class="fw:bc-indigo bw-2 bc-silver p-px">
-  <input class="p-2 bw-1 bc-silver" placeholder="Focus me" />
+<div class="p-px bc-silver bw-2 fw:bc-indigo">
+  <input class="p-2 bc-silver bw-1" placeholder="Focus me" />
 </div>
 ```
 
@@ -83,8 +83,8 @@ Represents radio, checkbox, or option elements toggled to an "on" state.
 
 <Preview>
   <div className="d-f g-2 ai-c">
-    <input type="checkbox" className="w-4 h-4 br-1 bw-1 bc-silver-3 appearance-none c-p" checked readOnly />
-    <label className="fs-sm fw-600 c-slate-10">Checked checkbox</label>
+    <input type="checkbox" className="w-4 h-4 bc-silver-3 br-1 bw-1 c-p appearance-none" checked readOnly />
+    <label className="c-slate-10 fs-sm fw-600">Checked checkbox</label>
   </div>
 </Preview>
 
@@ -99,11 +99,11 @@ Represents disabled elements that cannot be activated or receive focus.
 <Hint icon="cursor">Elements with the `disabled` attribute use `cursor: not-allowed` by default in [Base Styles](/docs/base-styles).</Hint>
 
 <Preview>
-  <button className="bg-silver-2 c-silver-9 br-2 px-3 py-2 fw-600 bs-o-xs bw-1 bc-silver-3 us-none tp-c tdu-150 ttf-io d:bg-silver-1 d:c-silver-8" disabled>Disabled button</button>
+  <button className="px-3 py-2 bg-silver-2 bc-silver-3 c-silver-9 br-2 bw-1 fw-600 bs-o-xs tp-c tdu-150 ttf-io us-none d:bg-silver-1 d:c-silver-8" disabled>Disabled button</button>
 </Preview>
 
 ```html "d:bg-silver-4" "d:c-silver-9"
-<button class="bg-indigo-2 d:bg-silver-4 d:c-silver-9 px-3 py-2 br-0 c-white" disabled>Disabled button</button>
+<button class="px-3 py-2 bg-indigo-2 c-white br-0 d:bg-silver-4 d:c-silver-9" disabled>Disabled button</button>
 ```
 
 Here's a reference for all the pseudo-variants available in Yumma CSS.

@@ -11,17 +11,17 @@ export const meta = {
 
 <Preview>
   <div className="d-g rg-8">
-    <div className="bg-indigo p-1 ta-c c-white w-16">16</div>
-    <div className="bg-indigo p-1 ta-c c-white w-28">28</div>
-    <div className="bg-indigo p-1 ta-c c-white w-48">48</div>
+    <div className="p-1 w-16 bg-indigo c-white ta-c">16</div>
+    <div className="p-1 w-28 bg-indigo c-white ta-c">28</div>
+    <div className="p-1 w-48 bg-indigo c-white ta-c">48</div>
   </div>
 </Preview>
 
 ```html "w-16" "w-28" "w-48"
 <div class="d-g rg-8">
-  <div class="bg-indigo p-1 ta-c c-white w-16">16</div>
-  <div class="bg-indigo p-1 ta-c c-white w-28">28</div>
-  <div class="bg-indigo p-1 ta-c c-white w-48">48</div>
+  <div class="p-1 w-16 bg-indigo c-white ta-c">16</div>
+  <div class="p-1 w-28 bg-indigo c-white ta-c">28</div>
+  <div class="p-1 w-48 bg-indigo c-white ta-c">48</div>
 </div>
 ```
 
@@ -36,11 +36,11 @@ Limit the maximum width of an element.
 <Hint icon="arrows_horizontal">Try changing the horizontal size of the box.</Hint>
 
 <Preview>
-  <div className="ai-c bg-indigo d-f jc-c max-w-64 min-w-16 o-auto p-6 r-h c-white w-32">64</div>
+  <div className="d-f o-auto ai-c jc-c max-w-64 min-w-16 p-6 w-32 bg-indigo c-white r-h">64</div>
 </Preview>
 
 ```html "max-w-64"
-<div class="ai-c bg-indigo d-f jc-c max-w-64 min-w-16 o-auto p-6 r-h c-white w-32">64</div>
+<div class="d-f o-auto ai-c jc-c max-w-64 min-w-16 p-6 w-32 bg-indigo c-white r-h">64</div>
 ```
 
 ### Min Width
@@ -54,26 +54,26 @@ Set the minimum width of an element.
 <Hint icon="arrows_horizontal">Try changing the horizontal size of the box.</Hint>
 
 <Preview>
-  <div className="ai-c bg-indigo d-f jc-c max-w-64 min-w-16 o-auto p-6 r-h c-white w-32">32</div>
+  <div className="d-f o-auto ai-c jc-c max-w-64 min-w-16 p-6 w-32 bg-indigo c-white r-h">32</div>
 </Preview>
 
 ```html "min-w-16"
-<div class="ai-c bg-indigo d-f jc-c max-w-64 min-w-16 o-auto p-6 r-h c-white w-32">32</div>
+<div class="d-f o-auto ai-c jc-c max-w-64 min-w-16 p-6 w-32 bg-indigo c-white r-h">32</div>
 ```
 
 ### Percentages
 
 <Preview>
-  <div className="b-3 bs-d bc-indigo d-g p-2 rg-8 w-64">
-    <div className="bg-indigo p-2 ta-c c-white w-full">100%</div>
-    <div className="bg-indigo p-2 ta-c c-white w-half">50%</div>
+  <div className="d-g b-3 rg-8 p-2 w-64 bc-indigo bs-d">
+    <div className="p-2 w-full bg-indigo c-white ta-c">100%</div>
+    <div className="p-2 w-half bg-indigo c-white ta-c">50%</div>
   </div>
 </Preview>
 
 ```html "w-full" "w-half"
-<div class="b-3 bs-d bc-indigo d-g p-2 rg-8 w-64">
-  <div class="bg-indigo p-2 ta-c c-white w-full">100%</div>
-  <div class="bg-indigo p-2 ta-c c-white w-half">50%</div>
+<div class="d-g b-3 rg-8 p-2 w-64 bc-indigo bs-d">
+  <div class="p-2 w-full bg-indigo c-white ta-c">100%</div>
+  <div class="p-2 w-half bg-indigo c-white ta-c">50%</div>
 </div>
 ```
 

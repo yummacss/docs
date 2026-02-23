@@ -43,26 +43,26 @@ function NavTrigger({
 
 export default function ExampleNavigationMenu() {
   return (
-    <NavigationMenu.Root className="min-w-max br-pill bw-1 bc-silver-2 bg-white p-1">
-      <NavigationMenu.List className="p-r d-f m-0 p-0 g-1">
+    <NavigationMenu.Root className="min-w-max p-1 bg-white bc-silver-2 br-pill bw-1">
+      <NavigationMenu.List className="d-f p-r g-1 m-0 p-0">
         <NavigationMenu.Item>
           <NavTrigger>Developers</NavTrigger>
           <NavigationMenu.Content className="p-2">
-            <ul className="d-f fd-c g-1 m-0 p-0 ls-n w-56">
+            <ul className="d-f fd-c g-1 m-0 p-0 w-56 ls-n">
               {developerLinks.map((item) => (
                 <li key={item.href}>
                   <NavigationMenu.Link
                     href={item.href}
-                    className="d-f ai-fs g-3 p-2 br-2 td-n c-inherit h:bg-silver-1"
+                    className="d-f c-inherit ai-fs g-3 p-2 br-2 td-n h:bg-silver-1"
                   >
-                    <span className="d-f ai-c jc-c w-8 h-8 fs-0 br-2 bg-white bs-o-xs bw-1 bc-silver-2 c-indigo">
+                    <span className="d-f ai-c jc-c fs-0 w-8 h-8 bg-white bc-silver-2 c-indigo br-2 bw-1 bs-o-xs">
                       {item.icon}
                     </span>
                     <div>
-                      <h3 className="m-0 mb-1 fs-sm fw-600 c-slate-10">
+                      <h3 className="m-0 mb-1 c-slate-10 fs-sm fw-600">
                         {item.title}
                       </h3>
-                      <p className="m-0 fs-xs c-slate-8 lh-4">
+                      <p className="m-0 c-slate-8 fs-xs lh-4">
                         {item.description}
                       </p>
                     </div>
@@ -76,21 +76,21 @@ export default function ExampleNavigationMenu() {
         <NavigationMenu.Item>
           <NavTrigger>Learn</NavTrigger>
           <NavigationMenu.Content className="p-2">
-            <ul className="d-f fd-c g-1 m-0 p-0 ls-n w-56">
+            <ul className="d-f fd-c g-1 m-0 p-0 w-56 ls-n">
               {learnLinks.map((item) => (
                 <li key={item.href}>
                   <NavigationMenu.Link
                     href={item.href}
-                    className="d-f ai-fs g-3 p-2 br-2 td-n c-inherit h:bg-silver-1"
+                    className="d-f c-inherit ai-fs g-3 p-2 br-2 td-n h:bg-silver-1"
                   >
-                    <span className="d-f ai-c jc-c w-8 h-8 fs-0 br-2 bg-white bs-o-xs bw-1 bc-silver-2 c-indigo">
+                    <span className="d-f ai-c jc-c fs-0 w-8 h-8 bg-white bc-silver-2 c-indigo br-2 bw-1 bs-o-xs">
                       {item.icon}
                     </span>
                     <div>
-                      <h3 className="m-0 mb-1 fs-sm fw-600 c-slate-10">
+                      <h3 className="m-0 mb-1 c-slate-10 fs-sm fw-600">
                         {item.title}
                       </h3>
-                      <p className="m-0 fs-xs c-slate-8 lh-4">
+                      <p className="m-0 c-slate-8 fs-xs lh-4">
                         {item.description}
                       </p>
                     </div>
@@ -104,7 +104,7 @@ export default function ExampleNavigationMenu() {
         <NavigationMenu.Item>
           <NavigationMenu.Link
             href="#pricing"
-            className="d-f ai-c jc-c h-10 px-3 m-0 bw-0 br-pill bg-transparent fs-sm fw-600 c-slate-10 us-none td-n c-p h:bg-silver-1"
+            className="d-f ai-c jc-c h-10 px-3 m-0 bg-transparent c-slate-10 bw-0 br-pill fs-sm fw-600 td-n us-none c-p h:bg-silver-1"
           >
             Pricing
           </NavigationMenu.Link>
@@ -121,9 +121,9 @@ export default function ExampleNavigationMenu() {
                 transition={{ duration: 0.15, ease: "easeOut" }}
               />
             }
-            className="br-3 bg-white bs-o-lg bw-1 bc-silver-2 o-h"
+            className="o-h bg-white bc-silver-2 br-3 bw-1 bs-o-lg"
           >
-            <NavigationMenu.Viewport className="p-r w-full h-full o-h" />
+            <NavigationMenu.Viewport className="p-r o-h w-full h-full" />
           </NavigationMenu.Popup>
         </NavigationMenu.Positioner>
       </NavigationMenu.Portal>

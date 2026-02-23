@@ -7,7 +7,7 @@ export default function ExampleButton() {
     <div className="d-f ai-c g-3">
       <Button
         disabled
-        className="d-f ai-c g-2 bg-indigo c-white br-2 px-2 py-1 fw-600 fs-sm bs-o-xs bw-1 bc-indigo-7 us-none c-p b-0 o-60"
+        className="d-f b-0 ai-c g-2 px-2 py-1 bg-indigo bc-indigo-7 c-white br-2 bw-1 fw-600 fs-sm bs-o-xs o-60 us-none c-p"
       >
         <motion.div
           animate={{ rotate: 360 }}
@@ -19,7 +19,7 @@ export default function ExampleButton() {
       </Button>
       <Button
         disabled
-        className="d-f ai-c g-2 bg-indigo c-white br-2 px-3 py-2 fw-600 bs-o-md bw-1 bc-indigo-7 us-none c-p b-0 o-60"
+        className="d-f b-0 ai-c g-2 px-3 py-2 bg-indigo bc-indigo-7 c-white br-2 bw-1 fw-600 bs-o-md o-60 us-none c-p"
       >
         <motion.div
           animate={{ rotate: 360 }}
@@ -31,7 +31,7 @@ export default function ExampleButton() {
       </Button>
       <Button
         disabled
-        className="d-f ai-c g-2 bg-indigo c-white br-2 px-4 py-3 fw-600 fs-lg bs-o-md bw-1 bc-indigo-7 us-none c-p b-0 o-60"
+        className="d-f b-0 ai-c g-2 px-4 py-3 bg-indigo bc-indigo-7 c-white br-2 bw-1 fw-600 fs-lg bs-o-md o-60 us-none c-p"
       >
         <motion.div
           animate={{ rotate: 360 }}

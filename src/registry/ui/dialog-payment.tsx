@@ -13,7 +13,7 @@ export default function DialogPayment() {
     <AlertDialog.Root open={open} onOpenChange={setOpen}>
       <AlertDialog.Trigger
         render={
-          <Button className="bg-white c-slate-10 br-2 px-3 py-2 fw-600 bs-o-xs bw-1 bc-silver-2 us-none tp-c tdu-150 ttf-io h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 c-p b-0" />
+          <Button className="b-0 px-3 py-2 bg-white bc-silver-2 c-slate-10 br-2 bw-1 fw-600 bs-o-xs tp-c tdu-150 ttf-io us-none c-p h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
         }
       >
         Add Payment Method
@@ -32,7 +32,7 @@ export default function DialogPayment() {
               }
               className="p-f i-0 min-h-dvh bg-black/20"
             />
-            <div className="p-f i-0 d-f ai-c jc-c">
+            <div className="d-f p-f i-0 ai-c jc-c">
               <AlertDialog.Popup
                 render={
                   <motion.div
@@ -42,45 +42,45 @@ export default function DialogPayment() {
                     transition={{ type: "spring", stiffness: 500, damping: 30 }}
                   />
                 }
-                className="w-96 br-2 bg-white c-slate-12 bs-o-lg bw-1 bc-silver-2 o-h"
+                className="o-h w-96 bg-white bc-silver-2 c-slate-12 br-2 bw-1 bs-o-lg"
                 style={{ maxWidth: "90vw" }}
               >
                 <div className="d-f jc-sb ai-c px-4 py-2 bg-silver-1/50">
-                  <AlertDialog.Title className="fs-sm fw-600 m-0">
+                  <AlertDialog.Title className="m-0 fs-sm fw-600">
                     Payment Details
                   </AlertDialog.Title>
                   <AlertDialog.Close
                     render={
-                      <Button className="d-f ai-c jc-c w-7 h-7 br-2 bg-transparent b-0 c-p c-slate-6 h:bg-silver-2 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+                      <Button className="d-f b-0 ai-c jc-c w-7 h-7 bg-transparent c-slate-6 br-2 c-p h:bg-silver-2 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
                     }
                   >
                     <XIcon size={16} weight="bold" aria-hidden />
                   </AlertDialog.Close>
                 </div>
-                <div className="bbw-1 bc-silver-2" />
+                <div className="bc-silver-2 bbw-1" />
                 <div className="d-f ai-c g-3 px-4 py-3 bg-indigo-1/50">
-                  <span className="d-f ai-c jc-c w-10 h-10 fs-0 br-2 bg-white bs-o-xs bw-1 bc-silver-2 c-indigo">
+                  <span className="d-f ai-c jc-c fs-0 w-10 h-10 bg-white bc-silver-2 c-indigo br-2 bw-1 bs-o-xs">
                     <CreditCardIcon size={20} weight="bold" />
                   </span>
                   <div>
-                    <h3 className="m-0 mb-1 fs-sm fw-600 c-slate-10">
+                    <h3 className="m-0 mb-1 c-slate-10 fs-sm fw-600">
                       Add payment method
                     </h3>
-                    <p className="m-0 fs-xs c-slate-8 lh-4">
+                    <p className="m-0 c-slate-8 fs-xs lh-4">
                       Enter your card details to continue
                     </p>
                   </div>
                 </div>
-                <div className="bbw-1 bc-silver-2" />
-                <form className="px-4 py-5 d-f fd-c g-4">
-                  <AlertDialog.Description className="fs-sm c-slate-7 m-0 lh-4">
+                <div className="bc-silver-2 bbw-1" />
+                <form className="d-f fd-c g-4 px-4 py-5">
+                  <AlertDialog.Description className="m-0 c-slate-7 fs-sm lh-4">
                     Your payment information is encrypted and secure.
                   </AlertDialog.Description>
 
                   <div className="d-f fd-c g-1">
                     <label
                       htmlFor="cardNumber"
-                      className="fs-xs fw-600 c-slate-10"
+                      className="c-slate-10 fs-xs fw-600"
                     >
                       Card Number
                     </label>
@@ -88,7 +88,7 @@ export default function DialogPayment() {
                       id="cardNumber"
                       type="text"
                       placeholder="1234 5678 9012 3456"
-                      className="bg-white c-slate-12 br-2 px-3 py-2 fs-sm bw-1 bc-silver-3 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ol-n"
+                      className="px-3 py-2 bg-white bc-silver-3 c-slate-12 br-2 bw-1 fs-sm ol-n fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
                     />
                   </div>
 
@@ -96,7 +96,7 @@ export default function DialogPayment() {
                     <div className="d-f fd-c g-1">
                       <label
                         htmlFor="expiry"
-                        className="fs-xs fw-600 c-slate-10"
+                        className="c-slate-10 fs-xs fw-600"
                       >
                         Expiry
                       </label>
@@ -104,46 +104,46 @@ export default function DialogPayment() {
                         id="expiry"
                         type="text"
                         placeholder="MM/YY"
-                        className="bg-white c-slate-12 br-2 px-3 py-2 fs-sm bw-1 bc-silver-3 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ol-n"
+                        className="px-3 py-2 bg-white bc-silver-3 c-slate-12 br-2 bw-1 fs-sm ol-n fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
                       />
                     </div>
 
                     <div className="d-f fd-c g-1">
-                      <label htmlFor="cvv" className="fs-xs fw-600 c-slate-10">
+                      <label htmlFor="cvv" className="c-slate-10 fs-xs fw-600">
                         CVV
                       </label>
                       <input
                         id="cvv"
                         type="text"
                         placeholder="123"
-                        className="bg-white c-slate-12 br-2 px-3 py-2 fs-sm bw-1 bc-silver-3 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ol-n"
+                        className="px-3 py-2 bg-white bc-silver-3 c-slate-12 br-2 bw-1 fs-sm ol-n fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
                       />
                     </div>
                   </div>
 
                   <div className="d-f fd-c g-1">
-                    <label htmlFor="name" className="fs-xs fw-600 c-slate-10">
+                    <label htmlFor="name" className="c-slate-10 fs-xs fw-600">
                       Cardholder Name
                     </label>
                     <input
                       id="name"
                       type="text"
                       placeholder="John Doe"
-                      className="bg-white c-slate-12 br-2 px-3 py-2 fs-sm bw-1 bc-silver-3 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ol-n"
+                      className="px-3 py-2 bg-white bc-silver-3 c-slate-12 br-2 bw-1 fs-sm ol-n fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
                     />
                   </div>
                 </form>
                 <div className="d-g gtc-2 g-3 px-4 py-3">
                   <AlertDialog.Close
                     render={
-                      <Button className="bg-white c-slate-10 br-2 px-3 py-2 fw-600 bs-o-xs bw-1 bc-silver-2 us-none tp-c tdu-150 ttf-io h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 c-p b-0" />
+                      <Button className="b-0 px-3 py-2 bg-white bc-silver-2 c-slate-10 br-2 bw-1 fw-600 bs-o-xs tp-c tdu-150 ttf-io us-none c-p h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
                     }
                   >
                     Cancel
                   </AlertDialog.Close>
                   <AlertDialog.Close
                     render={
-                      <Button className="bg-indigo c-white br-2 px-3 py-2 fw-600 bs-o-md bw-1 bc-indigo-7 fv:oc-indigo-6 us-none tp-c tdu-150 ttf-io h:bg-indigo-8 fv:ow-2 fv:oo-2 c-p b-0" />
+                      <Button className="b-0 px-3 py-2 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-2 bw-1 fw-600 bs-o-md tp-c tdu-150 ttf-io us-none c-p fv:oc-indigo-6 fv:ow-2 fv:oo-2" />
                     }
                   >
                     Add Card

@@ -33,11 +33,11 @@ const breakpoints = [
 
 export default function ResponsiveVariant({ prefix }: Props) {
   return (
-    <div className="mb-6 d-g gtc-1 sm:gtc-2 g-3">
+    <div className="d-g gtc-1 g-3 mb-6 sm:gtc-2">
       {breakpoints.map((bp) => (
         <div
           key={bp.prefix}
-          className="p-3 br-0 d-f ai-c g-3"
+          className="d-f ai-c g-3 p-3 br-0"
           style={{ backgroundColor: "#1a1d2e", border: "1px solid #232741" }}
         >
           <bp.icon
@@ -47,7 +47,7 @@ export default function ResponsiveVariant({ prefix }: Props) {
             className="fs-0"
           />
           <div className="f-1">
-            <code className="d-b fs-sm mb-1" style={{ color: "#dda2f6" }}>
+            <code className="d-b mb-1 fs-sm" style={{ color: "#dda2f6" }}>
               {bp.prefix}:{prefix}-*
             </code>
             <div className="d-f ai-c jc-sb">

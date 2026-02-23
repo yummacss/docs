@@ -12,12 +12,11 @@ export default function ExampleRadio() {
       defaultValue="monthly"
       className="d-f fd-c g-2 ai-fs"
     >
-      <div className="fs-md fw-600 c-slate-10" id={id}>
+      <div className="c-slate-10 fs-md fw-600" id={id}>
         Billing cycle
       </div>
 
-      {/* biome-ignore lint: Radio.Root contains hidden input */}
-      <label className="d-f ai-c g-2 fs-sm c-slate-10 c-p">
+      <label className="d-f ai-c g-2 c-slate-10 fs-sm c-p">
         <Radio.Root
           value="monthly"
           className={(state) =>
@@ -35,8 +34,7 @@ export default function ExampleRadio() {
         Monthly
       </label>
 
-      {/* biome-ignore lint: Radio.Root contains hidden input */}
-      <label className="d-f ai-c g-2 fs-sm c-slate-10 c-p">
+      <label className="d-f ai-c g-2 c-slate-10 fs-sm c-p">
         <Radio.Root
           value="yearly"
           className={(state) =>

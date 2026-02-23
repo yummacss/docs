@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function TemplatesLegalSidebar() {
   return (
-    <aside className="d-none lg:d-b lg:gc-s-3 blw-1 bc-white/10">
+    <aside className="d-none bc-white/10 blw-1 lg:d-b lg:gc-s-3">
       <div
         className="p-st t-20 o-y-auto"
         style={{
@@ -12,7 +12,7 @@ export default function TemplatesLegalSidebar() {
         }}
       >
         <div className="px-8 pb-12">
-          <h3 className="fs-md fw-400 tt-c mb-4 c-white">Useful Links</h3>
+          <h3 className="mb-4 c-white fs-md fw-400 tt-c">Useful Links</h3>
           <ul className="d-f fd-c g-3 fs-sm">
             <li>
               <Link

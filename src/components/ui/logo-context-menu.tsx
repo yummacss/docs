@@ -32,21 +32,21 @@ export function LogoContextMenu({ children }: LogoContextMenuProps) {
 
   return (
     <BaseContextMenu.Root>
-      <BaseContextMenu.Trigger className="us-none c-p o-n">
+      <BaseContextMenu.Trigger className="o-n us-none c-p">
         {children}
       </BaseContextMenu.Trigger>
       <BaseContextMenu.Portal>
         <BaseContextMenu.Positioner className="zi-50">
-          <BaseContextMenu.Popup className="bg-white/5 bf-b-md bc-white/10 bw-1 p-1 min-w-40">
+          <BaseContextMenu.Popup className="p-1 min-w-40 bc-white/10 bg-white/5 bw-1 bf-b-md">
             <BaseContextMenu.Item
-              className="d-f ai-c g-2 px-2 py-1 fs-sm c-white/80 h:bg-white/5 h:c-white c-p o-n fv:bg-white/5"
+              className="d-f c-white/80 o-n ai-c g-2 px-2 py-1 fs-sm c-p h:bg-white/5 h:c-white fv:bg-white/5"
               onClick={handleCopy}
             >
               <CopyIcon size={16} />
               <span>Copy SVG</span>
             </BaseContextMenu.Item>
             <BaseContextMenu.Item
-              className="d-f ai-c g-2 px-2 py-1 fs-sm c-white/80 h:bg-white/5 h:c-white c-p o-n fv:bg-white/5"
+              className="d-f c-white/80 o-n ai-c g-2 px-2 py-1 fs-sm c-p h:bg-white/5 h:c-white fv:bg-white/5"
               onClick={handleDownload}
             >
               <DownloadSimpleIcon size={16} />

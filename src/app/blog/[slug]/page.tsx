@@ -53,10 +53,10 @@ export default async function BlogPostPage({
 
   return (
     <div className="py-8">
-      <div className="d-g gtc-1 lg:gtc-12 g-8">
+      <div className="d-g gtc-1 g-8 lg:gtc-12">
         <article className="lg:gc-s-8">
           <header className="mb-12">
-            <div className="d-f ai-c g-2 fs-sm c-white/50 mb-4 mt-16">
+            <div className="d-f c-white/50 ai-c g-2 mb-4 mt-16 fs-sm">
               <Link href="/blog" className="h:c-white">
                 Blog
               </Link>
@@ -64,14 +64,14 @@ export default async function BlogPostPage({
               <span>{formatDate(meta?.date || "")}</span>
             </div>
 
-            <h1 className="fs-4xl lg:fs-5xl fw-400 mb-6 c-white">
+            <h1 className="mb-6 c-white fs-4xl fw-400 lg:fs-5xl">
               {meta?.title}
             </h1>
 
-            <p className="fs-lg c-white/70 mb-6 lh-5">{meta?.description}</p>
+            <p className="c-white/70 mb-6 fs-lg lh-5">{meta?.description}</p>
 
             {author && (
-              <div className="d-f ai-c g-4 fs-lg c-white/70">
+              <div className="d-f c-white/70 ai-c g-4 fs-lg">
                 <div className="d-f ai-c g-2">
                   <Avatar src={author.avatar} alt={author.name} />
                   <Link
@@ -88,7 +88,7 @@ export default async function BlogPostPage({
           </header>
 
           {meta?.cover && (
-            <div className="mb-12 o-h b-1 bc-white/10">
+            <div className="o-h b-1 mb-12 bc-white/10">
               <Image
                 src={`/blog/${slug}.png`}
                 alt={meta.title || "Blog cover"}

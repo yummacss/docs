@@ -12,7 +12,7 @@ export default function HoverVariant({ prefix }: Props) {
     >
       <div className="d-f ai-c g-3 mb-3">
         <div
-          className="d-f ai-c jc-c p-2 br-1 fs-0"
+          className="d-f ai-c jc-c fs-0 p-2 br-1"
           style={{ backgroundColor: "#232741", color: "#9aa6ef" }}
         >
           <CursorClickIcon size={20} weight="duotone" />

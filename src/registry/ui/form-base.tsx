@@ -32,24 +32,24 @@ export default function ExampleForm() {
       }}
     >
       <Field.Root name="username" className="d-f fd-c ai-fs g-2">
-        <Field.Label className="fs-sm fw-600 c-slate-10">
+        <Field.Label className="c-slate-10 fs-sm fw-600">
           Username <span className="c-indigo">*</span>
         </Field.Label>
         <Field.Control
           required
           placeholder="Enter username"
           pattern="[a-z0-9_]+"
-          className="h-10 w-full bw-1 bc-silver-3 br-2 bg-white pl-4 fs-sm c-slate-10 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
+          className="h-10 w-full pl-4 bg-white bc-silver-3 c-slate-10 bw-1 br-2 fs-sm fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
         />
-        <Field.Error className="fs-sm c-red" />
+        <Field.Error className="c-red fs-sm" />
         {success && (
-          <span className="fs-sm c-green">Username is available!</span>
+          <span className="c-green fs-sm">Username is available!</span>
         )}
       </Field.Root>
       <button
         disabled={loading}
         type="submit"
-        className="bg-indigo c-white br-2 px-3 py-2 fw-600 bs-o-md bw-1 bc-indigo-7 us-none tp-c tdu-150 ttf-io h:bg-indigo-8 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 c-p b-0 d:o-50 d:c-not-allowed"
+        className="b-0 px-3 py-2 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-2 bw-1 fw-600 bs-o-md tp-c tdu-150 ttf-io us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 d:o-50 d:c-not-allowed"
       >
         {loading ? "Checking..." : "Check availability"}
       </button>

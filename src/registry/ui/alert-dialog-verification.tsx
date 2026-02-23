@@ -40,7 +40,7 @@ export default function ExampleAlertDialog() {
     <AlertDialog.Root open={open} onOpenChange={setOpen}>
       <AlertDialog.Trigger
         render={
-          <Button className="bg-white c-slate-10 br-2 px-3 py-2 fw-600 bs-o-xs bw-1 bc-silver-2 us-none tp-c tdu-150 ttf-io h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 c-p b-0" />
+          <Button className="b-0 px-3 py-2 bg-white bc-silver-2 c-slate-10 br-2 bw-1 fw-600 bs-o-xs tp-c tdu-150 ttf-io us-none c-p h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
         }
       >
         Verify Email
@@ -59,7 +59,7 @@ export default function ExampleAlertDialog() {
               }
               className="p-f i-0 min-h-dvh bg-black/20"
             />
-            <div className="p-f i-0 d-f ai-c jc-c">
+            <div className="d-f p-f i-0 ai-c jc-c">
               <AlertDialog.Popup
                 render={
                   <motion.div
@@ -69,38 +69,38 @@ export default function ExampleAlertDialog() {
                     transition={{ type: "spring", stiffness: 500, damping: 30 }}
                   />
                 }
-                className="w-96 br-2 bg-white c-slate-12 bs-o-lg bw-1 bc-silver-2 o-h"
+                className="o-h w-96 bg-white bc-silver-2 c-slate-12 br-2 bw-1 bs-o-lg"
                 style={{ maxWidth: "90vw" }}
               >
                 <div className="d-f jc-sb ai-c px-4 py-2 bg-silver-1/50">
-                  <AlertDialog.Title className="fs-sm fw-600 m-0">
+                  <AlertDialog.Title className="m-0 fs-sm fw-600">
                     Verify your email
                   </AlertDialog.Title>
                   <AlertDialog.Close
                     render={
-                      <Button className="d-f ai-c jc-c w-7 h-7 br-2 bg-transparent b-0 c-p c-slate-6 h:bg-silver-2 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+                      <Button className="d-f b-0 ai-c jc-c w-7 h-7 bg-transparent c-slate-6 br-2 c-p h:bg-silver-2 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
                     }
                   >
                     <XIcon size={16} weight="bold" aria-hidden />
                   </AlertDialog.Close>
                 </div>
-                <div className="bbw-1 bc-silver-2" />
+                <div className="bc-silver-2 bbw-1" />
                 <div className="d-f ai-c g-3 px-4 py-3 bg-indigo-1/50">
-                  <span className="d-f ai-c jc-c w-10 h-10 fs-0 br-2 bg-white bs-o-xs bw-1 bc-silver-2 c-indigo">
+                  <span className="d-f ai-c jc-c fs-0 w-10 h-10 bg-white bc-silver-2 c-indigo br-2 bw-1 bs-o-xs">
                     <EnvelopeOpenIcon size={20} weight="bold" />
                   </span>
                   <div>
-                    <h3 className="m-0 mb-1 fs-sm fw-600 c-slate-10">
+                    <h3 className="m-0 mb-1 c-slate-10 fs-sm fw-600">
                       Verify your email
                     </h3>
-                    <p className="m-0 fs-xs c-slate-8 lh-4">
+                    <p className="m-0 c-slate-8 fs-xs lh-4">
                       Enter the code we sent to confirm your identity
                     </p>
                   </div>
                 </div>
-                <div className="bbw-1 bc-silver-2" />
+                <div className="bc-silver-2 bbw-1" />
                 <div className="px-4 py-5">
-                  <AlertDialog.Description className="fs-sm c-slate-7 m-0 mb-4 lh-4 ta-c">
+                  <AlertDialog.Description className="m-0 mb-4 c-slate-7 fs-sm lh-4 ta-c">
                     We've sent a 4-digit code to your email
                   </AlertDialog.Description>
                   <div className="d-f g-2 jc-c">
@@ -115,15 +115,15 @@ export default function ExampleAlertDialog() {
                         value={digit}
                         onChange={(e) => handleChange(index, e.target.value)}
                         onKeyDown={(e) => handleKeyDown(index, e)}
-                        className="w-14 h-14 ta-c fs-lg fw-600 br-2 bw-1 bc-silver-3 bg-white fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
+                        className="w-14 h-14 bg-white bc-silver-3 br-2 bw-1 ta-c fs-lg fw-600 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
                       />
                     ))}
                   </div>
-                  <p className="fs-xs c-slate-6 mt-3 mb-0 ta-c">
+                  <p className="mt-3 mb-0 c-slate-6 fs-xs ta-c">
                     Didn't receive it?{" "}
                     <button
                       type="button"
-                      className="c-indigo fw-600 bg-transparent b-0 c-p td-u p-0"
+                      className="b-0 p-0 bg-transparent c-indigo fw-600 td-u c-p"
                     >
                       Resend code
                     </button>
@@ -132,14 +132,14 @@ export default function ExampleAlertDialog() {
                 <div className="d-g gtc-2 g-3 px-4 py-3">
                   <AlertDialog.Close
                     render={
-                      <Button className="bg-white c-slate-10 br-2 px-3 py-2 fw-600 bs-o-xs bw-1 bc-silver-2 us-none tp-c tdu-150 ttf-io h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 c-p b-0" />
+                      <Button className="b-0 px-3 py-2 bg-white bc-silver-2 c-slate-10 br-2 bw-1 fw-600 bs-o-xs tp-c tdu-150 ttf-io us-none c-p h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
                     }
                   >
                     Cancel
                   </AlertDialog.Close>
                   <AlertDialog.Close
                     render={
-                      <Button className="bg-indigo c-white br-2 px-3 py-2 fw-600 bs-o-md bw-1 bc-indigo-7 fv:oc-indigo-6 us-none tp-c tdu-150 ttf-io h:bg-indigo-8 fv:ow-2 fv:oo-2 c-p b-0" />
+                      <Button className="b-0 px-3 py-2 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-2 bw-1 fw-600 bs-o-md tp-c tdu-150 ttf-io us-none c-p fv:oc-indigo-6 fv:ow-2 fv:oo-2" />
                     }
                   >
                     Verify

@@ -32,9 +32,9 @@ export default function Hint({ icon, children }: Props) {
   const Icon = icons[icon];
 
   return (
-    <div className="ai-c d-f g-2 mb-4">
+    <div className="d-f ai-c g-2 mb-4">
       <span
-        className="ai-c d-f fs-0 p-1 bw-1 br-1"
+        className="d-f ai-c fs-0 p-1 bw-1 br-1"
         style={{
           backgroundColor: "#21243f",
           borderColor: "#31365e",

@@ -36,18 +36,18 @@ interface Props {
 
 export default function TemplateStack({ stack }: Props) {
   return (
-    <div className="d-g gtc-2 md:gtc-3 g-4">
+    <div className="d-g gtc-2 g-4 md:gtc-3">
       {stack.map((item) => {
         const StackIcon = getIconForStack(item);
 
         return (
           <div
             key={item}
-            className="p-4 bw-1 bc-white/10 br-0 d-f ai-c jc-c g-2"
+            className="d-f ai-c jc-c g-2 p-4 bc-white/10 bw-1 br-0"
             style={{ backgroundColor: "#21243f", borderColor: "#31365e" }}
           >
             {StackIcon && <StackIcon className="w-6 h-6" />}
-            <span className="fs-sm c-white">{item}</span>
+            <span className="c-white fs-sm">{item}</span>
           </div>
         );
       })}

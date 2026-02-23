@@ -5,8 +5,8 @@ import { ScrollArea } from "@base-ui/react/scroll-area";
 export default function ExampleScrollArea() {
   return (
     <ScrollArea.Root className="p-r h-36 w-96 max-w-full">
-      <ScrollArea.Viewport className="h-full br-2 bw-1 bc-silver-2 fv:os-s fv:ow-2 fv:oc-indigo-6">
-        <div className="d-f fd-c g-4 py-3 pr-6 pl-4 fs-sm c-slate-10">
+      <ScrollArea.Viewport className="h-full bc-silver-2 br-2 bw-1 fv:os-s fv:ow-2 fv:oc-indigo-6">
+        <div className="d-f fd-c g-4 py-3 pr-6 pl-4 c-slate-10 fs-sm">
           <p className="m-0 lh-5">
             Design systems help teams build consistent, scalable user
             interfaces. They provide a shared language between designers and
@@ -28,7 +28,7 @@ export default function ExampleScrollArea() {
           } bg-silver-2`
         }
       >
-        <ScrollArea.Thumb className="w-full br-2 bg-slate-5" />
+        <ScrollArea.Thumb className="w-full bg-slate-5 br-2" />
       </ScrollArea.Scrollbar>
     </ScrollArea.Root>
   );

@@ -19,7 +19,6 @@ export default function ExampleCheckboxGroup() {
       allValues={permissions}
       className="d-f fd-c g-2 c-slate-10"
     >
-      {/* biome-ignore lint/a11y/noLabelWithoutControl: Base UI handles this */}
       <label className="d-f ai-c g-2 fs-sm fw-600" id={id}>
         <Checkbox.Root
           name="permissions"
@@ -49,7 +48,6 @@ export default function ExampleCheckboxGroup() {
       </label>
 
       <div className="d-f fd-c g-2 ml-6">
-        {/* biome-ignore lint/a11y/noLabelWithoutControl: Base UI handles this */}
         <label className="d-f ai-c g-2 fs-sm fw-600">
           <Checkbox.Root
             value="read"
@@ -66,7 +64,6 @@ export default function ExampleCheckboxGroup() {
           Read
         </label>
 
-        {/* biome-ignore lint/a11y/noLabelWithoutControl: Base UI handles this */}
         <label className="d-f ai-c g-2 fs-sm fw-600">
           <Checkbox.Root
             value="write"
@@ -83,7 +80,6 @@ export default function ExampleCheckboxGroup() {
           Write
         </label>
 
-        {/* biome-ignore lint/a11y/noLabelWithoutControl: Base UI handles this */}
         <label className="d-f ai-c g-2 fs-sm fw-600">
           <Checkbox.Root
             value="delete"

@@ -23,8 +23,8 @@ export default function ExampleAccordion() {
             className={index === items.length - 1 ? "" : "bbw-1 bc-silver-3"}
           >
             <Accordion.Header className="m-0">
-              <Accordion.Trigger className="d-f w-full ai-c jc-sb g-3 py-4 px-0 bg-transparent b-0 c-p ta-l br-1 fv:os-s fv:ow-2 fv:oo-1 fv:oc-indigo-6">
-                <span className="fs-sm fw-500 c-slate-8">{item.title}</span>
+              <Accordion.Trigger className="d-f b-0 ai-c jc-sb g-3 w-full py-4 px-0 bg-transparent br-1 ta-l c-p fv:os-s fv:ow-2 fv:oo-1 fv:oc-indigo-6">
+                <span className="c-slate-8 fs-sm fw-500">{item.title}</span>
                 <motion.span
                   initial={false}
                   animate={{ rotate: isOpen ? 90 : 0 }}
@@ -35,14 +35,14 @@ export default function ExampleAccordion() {
                     <MinusIcon
                       size={16}
                       weight="bold"
-                      className="c-slate-6 fs-0"
+                      className="fs-0 c-slate-6"
                       aria-hidden
                     />
                   ) : (
                     <PlusIcon
                       size={16}
                       weight="bold"
-                      className="c-slate-6 fs-0"
+                      className="fs-0 c-slate-6"
                       aria-hidden
                     />
                   )}
@@ -69,7 +69,7 @@ export default function ExampleAccordion() {
                 />
               )}
             >
-              <p className="m-0 pb-4 fs-sm c-slate-6 lh-4">{item.content}</p>
+              <p className="m-0 pb-4 c-slate-6 fs-sm lh-4">{item.content}</p>
             </Accordion.Panel>
           </Accordion.Item>
         );

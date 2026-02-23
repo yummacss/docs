@@ -18,7 +18,7 @@ export default function ExampleSelect() {
     <Field.Root className="d-f fd-c g-2">
       <label
         htmlFor="select-status"
-        className="fs-sm fw-600 c-slate-10 us-none"
+        className="c-slate-10 fs-sm fw-600 us-none"
       >
         Status
       </label>
@@ -43,7 +43,7 @@ export default function ExampleSelect() {
         <AnimatePresence>
           {open && (
             <Select.Portal>
-              <Select.Positioner sideOffset={6} className="ow-0 us-none zi-10">
+              <Select.Positioner sideOffset={6} className="zi-10 ow-0 us-none">
                 <Select.Popup
                   render={
                     <motion.div
@@ -53,7 +53,7 @@ export default function ExampleSelect() {
                       transition={{ duration: 0.15, ease: "easeOut" }}
                     />
                   }
-                  className="bw-1 bc-silver-2 br-2 bg-white bs-o-lg py-1"
+                  className="py-1 bg-white bc-silver-2 bw-1 br-2 bs-o-lg"
                   style={{ minWidth: "var(--anchor-width)" }}
                 >
                   <Select.List className="p-r o-a">

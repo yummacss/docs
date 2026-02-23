@@ -77,7 +77,7 @@ export default function Reference({ category, name }: Props) {
   if (variants.length === 0) {
     return (
       <div
-        className="p-4 mb-6 br-1 c-white/60 ta-c"
+        className="c-white/60 p-4 mb-6 br-1 ta-c"
         style={{ backgroundColor: "#1a1d2e", border: "1px solid #232741" }}
       >
         Something went wrong while fetching the data.
@@ -97,7 +97,7 @@ export default function Reference({ category, name }: Props) {
 
   return (
     <div
-      className="mb-6 o-h"
+      className="o-h mb-6"
       style={{ backgroundColor: "#1a1d2e", border: "1px solid #232741" }}
     >
       <Accordion>
@@ -106,7 +106,7 @@ export default function Reference({ category, name }: Props) {
             <span className="d-f ai-c g-2">
               <code style={{ color: "#dda2f6" }}>{utilityPrefix}-*</code>
               <span
-                className="fs-xs px-2 py-1 br-1"
+                className="px-2 py-1 br-1 fs-xs"
                 style={{ backgroundColor: "#232741", color: "#8892c2" }}
               >
                 {variants.length} utilities
@@ -115,7 +115,7 @@ export default function Reference({ category, name }: Props) {
           </AccordionTrigger>
           <AccordionPanel>
             {/* Utilities list */}
-            <div className="max-h-52 o-y-auto">
+            <div className="o-y-auto max-h-52">
               {/* Subtle search input */}
               <div
                 className="d-f ai-c g-2 mb-2 pb-2"
@@ -127,11 +127,11 @@ export default function Reference({ category, name }: Props) {
                   placeholder="Filter..."
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
-                  className="bw-0 bg-transparent c-white/70 fs-xs w-full"
+                  className="c-white/70 w-full bg-transparent bw-0 fs-xs"
                   style={{ outline: "none" }}
                 />
                 {search && (
-                  <span className="fs-xs c-white/30 fs-0 ws-nw">
+                  <span className="c-white/30 fs-0 fs-xs ws-nw">
                     {filtered.length}/{variants.length}
                   </span>
                 )}
@@ -159,7 +159,7 @@ export default function Reference({ category, name }: Props) {
                     </div>
                   ))
                 ) : (
-                  <div className="c-white/40 fs-xs py-2 ta-c">
+                  <div className="c-white/40 py-2 fs-xs ta-c">
                     No utilities match "{search}"
                   </div>
                 )}

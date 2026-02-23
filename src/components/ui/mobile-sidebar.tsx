@@ -72,21 +72,21 @@ export default function MobileSidebar({ isOpen, onClose, routeType }: Props) {
           animate={{ y: 0 }}
           exit={{ y: "100%" }}
           transition={{ type: "tween", duration: 0.3, ease: "easeInOut" }}
-          className="p-f t-12 l-0 w-full zi-20 lg:d-none btw-1 bc-white/10 bs-o-md"
+          className="p-f t-12 l-0 zi-20 w-full bc-white/10 btw-1 bs-o-md lg:d-none"
           style={{
             backgroundColor: "#151724",
             height: "calc(100vh - 3rem)",
           }}
         >
-          <div className="p-r h-full d-f fd-c">
-            <div className="f-1 o-y-auto pb-8 pt-6">
-              <div className="sm-xxl mx-auto px-6">
+          <div className="d-f p-r fd-c h-full">
+            <div className="o-y-auto f-1 pb-8 pt-6">
+              <div className="mx-auto px-6 sm-xxl">
                 <div className="d-f fd-c g-8">
                   <SidebarLinks onLinkClick={onClose} />
 
                   {config.map((section) => (
                     <div key={section.title} className="d-f fd-c g-4">
-                      <h3 className="fs-md fw-400 tt-c ls-5 c-white">
+                      <h3 className="c-white fs-md fw-400 tt-c ls-5">
                         {section.title}
                       </h3>
                       <ul className="d-f fd-c g-2">
@@ -95,7 +95,7 @@ export default function MobileSidebar({ isOpen, onClose, routeType }: Props) {
                           if (hasChildren(item)) {
                             return (
                               <li key={item.title} className="d-f fd-c g-2">
-                                <span className="fs-md c-white/50">
+                                <span className="c-white/50 fs-md">
                                   {item.title}
                                 </span>
                                 <ul className="d-f fd-c g-1 ml-4">
@@ -129,7 +129,7 @@ export default function MobileSidebar({ isOpen, onClose, routeType }: Props) {
                           if (hasItems(item)) {
                             return (
                               <li key={item.title} className="d-f fd-c g-2">
-                                <span className="fs-md c-white/50">
+                                <span className="c-white/50 fs-md">
                                   {item.title}
                                 </span>
                                 <ul className="d-f fd-c g-1 ml-4">
@@ -145,7 +145,7 @@ export default function MobileSidebar({ isOpen, onClose, routeType }: Props) {
                                           key={subItem.title}
                                           className="d-f fd-c g-2"
                                         >
-                                          <span className="fs-md c-white/40">
+                                          <span className="c-white/40 fs-md">
                                             {subItem.title}
                                           </span>
                                           <ul className="d-f fd-c g-1">

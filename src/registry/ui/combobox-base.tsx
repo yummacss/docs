@@ -10,22 +10,22 @@ export default function ExampleCombobox() {
 
   return (
     <Combobox.Root items={countries} open={open} onOpenChange={setOpen}>
-      <div className="d-f fd-c g-2 fs-sm c-slate-10 p-r">
+      <div className="d-f p-r fd-c g-2 c-slate-10 fs-sm">
         <label className="fw-600">Select country</label>
         <div className="p-r">
           <Combobox.Input
             placeholder="e.g. United States"
-            className="h-10 w-64 bw-1 bc-silver-3 br-2 bg-white pl-4 pr-16 fs-sm c-slate-10 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
+            className="h-10 w-64 pl-4 pr-16 bg-white bc-silver-3 c-slate-10 bw-1 br-2 fs-sm fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
           />
-          <div className="p-a d-f ai-c jc-c r-2 b-0 h-10 c-slate-6">
+          <div className="d-f p-a r-2 b-0 ai-c jc-c h-10 c-slate-6">
             <Combobox.Clear
-              className="d-f ai-c jc-c w-6 h-6 h-10 br-1 bg-transparent p-0 b-0 c-slate-6 h:c-slate-10 c-p"
+              className="d-f b-0 ai-c jc-c w-6 h-6 p-0 bg-transparent c-slate-6 br-1 c-p h:c-slate-10"
               aria-label="Clear selection"
             >
               <XIcon size={16} />
             </Combobox.Clear>
             <Combobox.Trigger
-              className="d-f ai-c jc-c w-6 h-6 h-10 br-1 bg-transparent p-0 b-0 c-slate-6 h:c-slate-10 c-p"
+              className="d-f b-0 ai-c jc-c w-6 h-6 p-0 bg-transparent c-slate-6 br-1 c-p h:c-slate-10"
               aria-label="Open popup"
             >
               <CaretDownIcon size={16} />
@@ -47,9 +47,9 @@ export default function ExampleCombobox() {
                     transition={{ duration: 0.1, ease: "easeOut" }}
                   />
                 }
-                className="w-64 bw-1 bc-silver-2 br-2 bg-white bs-o-lg c-slate-10 o-h"
+                className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-2 bs-o-lg"
               >
-                <Combobox.Empty className="py-4 px-4 fs-sm c-slate-6">
+                <Combobox.Empty className="py-4 px-4 c-slate-6 fs-sm">
                   No countries found.
                 </Combobox.Empty>
                 <Combobox.List

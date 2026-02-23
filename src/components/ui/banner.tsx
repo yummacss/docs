@@ -9,11 +9,9 @@ export default async function Banner() {
 
   return (
     <div className="p-r o-h mb-8">
-      <div className="rainbow p-a i-0" />
-      <div className="p-r d-f ai-c jc-c py-3 px-4 fs-sm fw-600 c-white bf-b-sm us-none">
-        <Link href={`/blog/${latestPost.slug}`}>
-          {latestPost.title}
-        </Link>
+      <div className="p-a i-0 rainbow" />
+      <div className="d-f p-r ai-c jc-c py-3 px-4 c-white fs-sm fw-600 bf-b-sm us-none">
+        <Link href={`/blog/${latestPost.slug}`}>{latestPost.title}</Link>
       </div>
     </div>
   );

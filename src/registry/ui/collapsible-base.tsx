@@ -14,7 +14,7 @@ export default function ExampleCollapsible() {
       onOpenChange={setOpen}
       className="d-f fd-c w-64 c-slate-10"
     >
-      <Collapsible.Trigger className="d-f ai-c g-2 br-2 bw-1 bc-silver-2 bg-white px-3 py-2 fs-sm fw-600 c-slate-10 h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 c-p b-0">
+      <Collapsible.Trigger className="d-f b-0 ai-c g-2 px-3 py-2 bg-white bc-silver-2 c-slate-10 br-2 bw-1 fs-sm fw-600 c-p h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6">
         <motion.span
           animate={{ rotate: open ? 90 : 0 }}
           transition={{ duration: 0.15, ease: "easeOut" }}
@@ -38,7 +38,7 @@ export default function ExampleCollapsible() {
             }
             className="o-h"
           >
-            <div className="d-f fd-c g-2 br-2 bw-1 bc-silver-2 bg-white mt-1 py-3 px-4 fs-sm">
+            <div className="d-f fd-c g-2 mt-1 py-3 px-4 bg-white bc-silver-2 br-2 bw-1 fs-sm">
               <div>Node.js 18 or later</div>
               <div>macOS, Windows, or Linux</div>
               <div>4GB RAM minimum</div>

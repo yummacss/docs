@@ -50,21 +50,21 @@ Style `::before`, `::after`, `::selection`, & `::placeholder` directly.
 The `s::*` variant customizes text selection styling:
 
 <Preview>
-  <p className="s::bg-indigo-4 s::c-white c-black">Select this text to see custom selection colors!</p>
+  <p className="c-black s::bg-indigo-4 s::c-white">Select this text to see custom selection colors!</p>
 </Preview>
 
 ```html "s::bg-indigo" "s::c-white"
-<p class="s::bg-indigo-4 s::c-white c-black">Select this text to see custom selection colors!</p>
+<p class="c-black s::bg-indigo-4 s::c-white">Select this text to see custom selection colors!</p>
 ```
 
 The `p::*` variant styles placeholder text:
 
 <Preview>
-  <input className="p::c-red-4 p::fs-i bw-1 bc-red-4 br-0 p-3 w-full" placeholder="I said, enter your email!" />
+  <input className="p-3 w-full bc-red-4 bw-1 br-0 p::c-red-4 p::fs-i" placeholder="I said, enter your email!" />
 </Preview>
 
 ```html "p::c-red-4" "p::fs-i"
-<input class="p::c-red-4 p::fs-i bw-1 bc-red-4 br-0 p-3 w-full" placeholder="I said, enter your email!" />
+<input class="p-3 w-full bc-red-4 bw-1 br-0 p::c-red-4 p::fs-i" placeholder="I said, enter your email!" />
 ```
 
 ### Pseudo Classes
@@ -72,13 +72,13 @@ The `p::*` variant styles placeholder text:
 New `fv:*` for `:focus-visible` & `fw:*` for `:focus-within` variants.
 
 <Preview>
-  <button className="fv:ow-2 fv:oc-indigo p-px bg-indigo c-white br-0">
+  <button className="p-px bg-indigo c-white br-0 fv:ow-2 fv:oc-indigo">
     Focus with keyboard
   </button>
 </Preview>
 
 ```html "fv:ow-2" "fv:oc-indigo"
-<button class="fv:ow-2 fv:oc-indigo p-px bg-indigo c-white br-0">
+<button class="p-px bg-indigo c-white br-0 fv:ow-2 fv:oc-indigo">
   Focus with keyboard
 </button>
 ```
@@ -86,13 +86,13 @@ New `fv:*` for `:focus-visible` & `fw:*` for `:focus-within` variants.
 The `fw:*` variant targets containers when a child has focus:
 
 <Preview>
-  <div className="fw:bc-indigo bw-2 bc-silver p-px br-0">
-    <input className="p-2 br-0 bw-1 bc-silver" placeholder="Focus me" />
+  <div className="p-px bc-silver bw-2 br-0 fw:bc-indigo">
+    <input className="p-2 bc-silver br-0 bw-1" placeholder="Focus me" />
   </div>
 </Preview>
 
 ```html "fw:bc-indigo"
-<div class="fw:bc-indigo bw-2 bc-silver p-px br-0">
+<div class="p-px bc-silver bw-2 br-0 fw:bc-indigo">
   <input class="p-2 br-0" placeholder="Focus me" />
 </div>
 ```
@@ -102,13 +102,13 @@ The `fw:*` variant targets containers when a child has focus:
 The `pc:*` media query variant targets devices with coarse pointer input.
 
 <Preview>
-  <button className="p-px pc:p-6 bg-indigo c-white br-0">
+  <button className="p-px bg-indigo c-white br-0 pc:p-6">
     Larger padding on touch devices
   </button>
 </Preview>
 
 ```html "pc:p-6"
-<button class="p-px pc:p-6 bg-indigo c-white br-0">
+<button class="p-px bg-indigo c-white br-0 pc:p-6">
   Larger padding on touch devices
 </button>
 ```
@@ -153,13 +153,13 @@ The `auto` value is supported for `b-*`, `i-*`, `ix-*`, `iy-*`, `l-*`, `r-*`, & 
 
 <Preview>
   <div className="p-r">
-    <div className="p-auto l-auto r-auto d-14 bg-indigo"></div>
+    <div className="d-14 l-auto r-auto p-auto bg-indigo"></div>
   </div>
 </Preview>
 
 ```html "l-auto" "r-auto"
 <div class="p-r">
-  <div class="p-auto l-auto r-auto d-14 bg-indigo"></div>
+  <div class="d-14 l-auto r-auto p-auto bg-indigo"></div>
 </div>
 ```
 
@@ -168,22 +168,22 @@ The `auto` value is supported for `b-*`, `i-*`, `ix-*`, `iy-*`, `l-*`, `r-*`, & 
 Negative values are supported via the `--` syntax.
 
 <Preview>
-  <div className="c-white d-f fs-sm jc-c">
-    <div className="ml--2 ai-c bg-indigo br-pill d-14 d-f jc-c bw-2 bc-indigo-2/50">A</div>
-    <div className="ml--2 ai-c bg-indigo br-pill d-14 d-f jc-c bw-2 bc-indigo-2/50">B</div>
-    <div className="ml--2 ai-c bg-indigo br-pill d-14 d-f jc-c bw-2 bc-indigo-2/50">C</div>
-    <div className="ml--2 ai-c bg-indigo br-pill d-14 d-f jc-c bw-2 bc-indigo-2/50">D</div>
-    <div className="ml--2 ai-c bg-indigo br-pill d-14 d-f jc-c bw-2 bc-indigo-2/50">E</div>
+  <div className="d-f jc-c c-white fs-sm">
+    <div className="d-14 d-f ai-c jc-c ml--2 bg-indigo bc-indigo-2/50 br-pill bw-2">A</div>
+    <div className="d-14 d-f ai-c jc-c ml--2 bg-indigo bc-indigo-2/50 br-pill bw-2">B</div>
+    <div className="d-14 d-f ai-c jc-c ml--2 bg-indigo bc-indigo-2/50 br-pill bw-2">C</div>
+    <div className="d-14 d-f ai-c jc-c ml--2 bg-indigo bc-indigo-2/50 br-pill bw-2">D</div>
+    <div className="d-14 d-f ai-c jc-c ml--2 bg-indigo bc-indigo-2/50 br-pill bw-2">E</div>
   </div>
 </Preview>
 
 ```html "ml--2"
-<div class="c-white d-f fs-sm jc-c">
-  <div class="ml--2 ai-c bg-indigo br-pill d-14 d-f jc-c bw-2 bc-indigo-2/50">A</div>
-  <div class="ml--2 ai-c bg-indigo br-pill d-14 d-f jc-c bw-2 bc-indigo-2/50">B</div>
-  <div class="ml--2 ai-c bg-indigo br-pill d-14 d-f jc-c bw-2 bc-indigo-2/50">C</div>
-  <div class="ml--2 ai-c bg-indigo br-pill d-14 d-f jc-c bw-2 bc-indigo-2/50">D</div>
-  <div class="ml--2 ai-c bg-indigo br-pill d-14 d-f jc-c bw-2 bc-indigo-2/50">E</div>
+<div class="d-f jc-c c-white fs-sm">
+  <div class="d-14 d-f ai-c jc-c ml--2 bg-indigo bc-indigo-2/50 br-pill bw-2">A</div>
+  <div class="d-14 d-f ai-c jc-c ml--2 bg-indigo bc-indigo-2/50 br-pill bw-2">B</div>
+  <div class="d-14 d-f ai-c jc-c ml--2 bg-indigo bc-indigo-2/50 br-pill bw-2">C</div>
+  <div class="d-14 d-f ai-c jc-c ml--2 bg-indigo bc-indigo-2/50 br-pill bw-2">D</div>
+  <div class="d-14 d-f ai-c jc-c ml--2 bg-indigo bc-indigo-2/50 br-pill bw-2">E</div>
 </div>
 ```
 

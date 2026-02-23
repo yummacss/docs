@@ -60,7 +60,7 @@ export default function TableOfContents() {
   }
 
   return (
-    <aside className="d-none lg:d-b lg:gc-s-3 blw-1 bc-white/10">
+    <aside className="d-none bc-white/10 blw-1 lg:d-b lg:gc-s-3">
       <div
         className="p-st t-20 o-y-auto"
         style={{
@@ -68,7 +68,7 @@ export default function TableOfContents() {
         }}
       >
         <div className="px-8 pb-12">
-          <h3 className="fs-md fw-400 tt-c mb-3 c-white/50">On this page</h3>
+          <h3 className="c-white/50 mb-3 fs-md fw-400 tt-c">On this page</h3>
           <ul className="d-f fd-c g-2 fs-sm">
             {headings.map((heading, index) => {
               const isActive = activeId === heading.id;
@@ -89,7 +89,7 @@ export default function TableOfContents() {
             })}
           </ul>
           {!isBlogPost && (
-            <div className="mt-8 pt-8 btw-1 bc-white/10 d-f fd-c g-3">
+            <div className="d-f fd-c g-3 mt-8 pt-8 bc-white/10 btw-1">
               <EditPage />
             </div>
           )}

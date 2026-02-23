@@ -41,7 +41,7 @@ export default function UISidebar() {
   return (
     <aside className="d-none lg:d-b lg:gc-s-3">
       <div
-        className="p-st t-20 d-f fd-c g-8 o-y-auto pb-12"
+        className="d-f p-st t-20 o-y-auto fd-c g-8 pb-12"
         style={{
           maxHeight: "calc(100vh - 3rem)",
         }}
@@ -50,14 +50,14 @@ export default function UISidebar() {
 
         {filteredConfig.map((section) => (
           <div key={section.title} className="d-f fd-c g-4">
-            <h3 className="fs-md fw-400 tt-c ls-5 c-white">{section.title}</h3>
+            <h3 className="c-white fs-md fw-400 tt-c ls-5">{section.title}</h3>
             <ul className="d-f fd-c g-2">
               {section.items.map((item) => {
                 // item with children (nested structure)
                 if (hasChildren(item)) {
                   return (
                     <li key={item.title} className="d-f fd-c g-2">
-                      <span className="fs-md c-white/50">{item.title}</span>
+                      <span className="c-white/50 fs-md">{item.title}</span>
                       <ul className="d-f fd-c g-1 ml-4">
                         {item.children.map((child) => {
                           const href = `/ui/${child.slug}`;
@@ -85,16 +85,16 @@ export default function UISidebar() {
                 if (hasItems(item)) {
                   return (
                     <li key={item.title} className="d-f fd-c g-2">
-                      <span className="fs-md c-white/50">{item.title}</span>
+                      <span className="c-white/50 fs-md">{item.title}</span>
                       <ul className="d-f fd-c g-1 ml-4">
                         {item.items.map((subItem) => {
                           if (hasChildren(subItem)) {
                             return (
                               <li key={subItem.title} className="d-f fd-c g-2">
-                                <span className="fs-md c-white/40">
+                                <span className="c-white/40 fs-md">
                                   {subItem.title}
                                 </span>
-                                <ul className="d-f ml-4 fd-c g-1">
+                                <ul className="d-f fd-c g-1 ml-4">
                                   {subItem.children.map((child) => {
                                     const href = `/ui/${child.slug}`;
                                     const isActive = pathname === href;
