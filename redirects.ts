@@ -50,9 +50,11 @@ export const redirects = [
     "/docs/core-package",
     "/docs/core-library",
     "/docs/core-module",
+    "/docs/core-integration",
+    "/docs/integration",
   ].map((source) => ({
     source,
-    destination: "/docs/integration",
+    destination: "/docs/core-api",
     permanent: true,
   })),
   {
