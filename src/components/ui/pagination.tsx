@@ -17,7 +17,7 @@ export default function Pagination({ previous, next, basePath }: Props) {
       {previous ? (
         <Link
           href={`${basePath}/${previous.slug}`}
-          className="d-f ai-c g-2 f-1 p-4 bc-white/10 br-0 bs-s fv:oc-indigo-4 fv:ow-2"
+          className="d-f ai-c g-2 f-1 p-4 bc-white/10 br-0 bs-s fv:oc-white fv:ow-2"
         >
           <CaretLeftIcon size={20} className="c-white/70" />
           <div className="d-f fd-c">
@@ -31,7 +31,7 @@ export default function Pagination({ previous, next, basePath }: Props) {
       {next ? (
         <Link
           href={`${basePath}/${next.slug}`}
-          className="d-f ai-c jc-fe g-2 f-1 p-4 bc-white/10 br-0 bs-s fv:oc-indigo-4 fv:ow-2"
+          className="d-f ai-c jc-fe g-2 f-1 p-4 bc-white/10 br-0 bs-s fv:oc-white fv:ow-2"
         >
           <div className="d-f fd-c ta-r">
             <span className="c-white/70 fs-sm">Next</span>

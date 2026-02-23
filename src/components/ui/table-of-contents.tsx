@@ -80,7 +80,7 @@ export default function TableOfContents() {
                 >
                   <Link
                     href={`#${heading.id}`}
-                    className={`fv:oc-indigo-4 fv:ow-2 ${isActive ? "c-white" : "c-white/70 h:c-white"}`}
+                    className={`fv:oc-white fv:ow-2 ${isActive ? "c-white" : "c-white/70 h:c-white"}`}
                   >
                     {heading.text}
                   </Link>

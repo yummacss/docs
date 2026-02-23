@@ -470,10 +470,6 @@ summary {
   backdrop-filter: blur(8px);
 }
 
-.bf-b-xs {
-  backdrop-filter: blur(4px);
-}
-
 .bg-black {
   background-color: #000;
 }
@@ -1551,6 +1547,10 @@ summary {
 
 .fv\:oc-red-6:focus-visible {
   outline-color: #ea5560;
+}
+
+.fv\:oc-white:focus-visible {
+  outline-color: #fff;
 }
 
 .fv\:oo--1:focus-visible {
