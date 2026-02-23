@@ -84,10 +84,7 @@ export default function Navbar({
           <nav className="d-f ai-c jc-sb">
             <div className="d-f ai-c g-2">
               <LogoContextMenu>
-                <Link
-                  href={isUI ? "/ui" : "/"}
-                  className="fv:oc-indigo-4 fv:ow-2"
-                >
+                <Link href={isUI ? "/ui" : "/"} className="fv:oc-white fv:ow-2">
                   <YummaCSSDark className="d-b h-8 w-auto" />
                 </Link>
               </LogoContextMenu>
@@ -99,25 +96,25 @@ export default function Navbar({
                 <div className="d-none ai-c g-8 lg:d-f">
                   <Link
                     href="/docs"
-                    className="c-white/80 fs-sm h:c-white fv:oc-indigo-4 fv:ow-2"
+                    className="c-white/80 fs-sm h:c-white fv:oc-white fv:ow-2"
                   >
                     Docs
                   </Link>
                   <Link
                     href="/blog"
-                    className="c-white/80 fs-sm h:c-white fv:oc-indigo-4 fv:ow-2"
+                    className="c-white/80 fs-sm h:c-white fv:oc-white fv:ow-2"
                   >
                     Blog
                   </Link>
                   <Link
                     href="/ui/components"
-                    className="c-white/80 fs-sm h:c-white fv:oc-indigo-4 fv:ow-2"
+                    className="c-white/80 fs-sm h:c-white fv:oc-white fv:ow-2"
                   >
                     Components
                   </Link>
                   <Link
                     href="/ui/templates"
-                    className="c-white/80 fs-sm h:c-white fv:oc-indigo-4 fv:ow-2"
+                    className="c-white/80 fs-sm h:c-white fv:oc-white fv:ow-2"
                   >
                     Templates
                   </Link>
@@ -127,7 +124,7 @@ export default function Navbar({
               <Button
                 type="button"
                 onClick={() => setSearchOpen(true)}
-                className="d-f ai-c jc-c g-2 h-8 px-3 bc-white/10 bg-white/5 c-white bw-1 br-pill fs-sm bf-b-sm lg:px-4 h:bg-white/10 fv:oc-indigo-4 fv:ow-2"
+                className="d-f ai-c jc-c g-2 h-8 px-3 bc-white/10 bg-white/5 c-white bw-1 br-pill fs-sm bf-b-sm lg:px-4 h:bg-white/10 fv:oc-white fv:ow-2"
               >
                 <MagnifyingGlassIcon size={15} />
                 <kbd className="d-none c-white/60 fs-xs us-none lg:d-b">
@@ -138,7 +135,7 @@ export default function Navbar({
               <div className="d-none ai-c g-4 ml-2 md:d-f">
                 <Link
                   href="https://npmx.dev/package/yummacss"
-                  className="d-f c-white/80 ai-c g-1 fs-xs h:c-white fv:oc-indigo-4 fv:ow-2"
+                  className="d-f c-white/80 ai-c g-1 fs-xs h:c-white fv:oc-white fv:ow-2"
                   target="_blank"
                 >
                   <SiNpm className="w-4 h-4" />
@@ -148,7 +145,7 @@ export default function Navbar({
                 </Link>
                 <Link
                   href="https://github.com/yummacss/yummacss"
-                  className="d-f c-white/80 ai-c g-1 fs-xs h:c-white fv:oc-indigo-4 fv:ow-2"
+                  className="d-f c-white/80 ai-c g-1 fs-xs h:c-white fv:oc-white fv:ow-2"
                   target="_blank"
                 >
                   <SiGithub className="w-4 h-4" />
