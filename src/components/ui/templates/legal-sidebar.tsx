@@ -17,7 +17,7 @@ export default function TemplatesLegalSidebar() {
             <li>
               <Link
                 href="/ui/license"
-                className="c-white/70 h:c-white fv:oc-indigo-4 fv:ow-2"
+                className="c-white/70 h:c-white fv:oc-white fv:ow-2"
               >
                 License
               </Link>
@@ -25,7 +25,7 @@ export default function TemplatesLegalSidebar() {
             <li>
               <Link
                 href="/ui/privacy"
-                className="c-white/70 h:c-white fv:oc-indigo-4 fv:ow-2"
+                className="c-white/70 h:c-white fv:oc-white fv:ow-2"
               >
                 Privacy Policy
               </Link>
@@ -34,7 +34,7 @@ export default function TemplatesLegalSidebar() {
               <Link
                 href="https://discord.gg/yummacss"
                 target="_blank"
-                className="c-white/70 h:c-white fv:oc-indigo-4 fv:ow-2"
+                className="c-white/70 h:c-white fv:oc-white fv:ow-2"
               >
                 Discord Community
               </Link>

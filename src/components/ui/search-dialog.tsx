@@ -138,7 +138,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                   transition={{ duration: 0.15, ease: "easeOut" }}
                 />
               }
-              className="p-f zi-50 t-0 l-0 r-0 b-0 bg-black/60 bf-b-xs f-g-90"
+              className="p-f zi-50 t-0 l-0 r-0 b-0 bg-black/60 bf-b-sm f-g-90"
             />
             <div className="d-f p-f zi-50 t-0 l-0 r-0 b-0 ai-c jc-c pe-n">
               <Dialog.Popup
