@@ -1387,7 +1387,7 @@ Example: `td-100` → `transition-delay: 100ms`
 
 ### Card with Shadow
 ```html
-<div class="bg-white br-2 bsh-md p-4">Card content</div>
+<div class="bg-white br-2 bs-o-md p-4">Card content</div>
 ```
 
 ### Button with Hover
