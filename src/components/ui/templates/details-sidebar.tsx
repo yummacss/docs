@@ -15,7 +15,7 @@ export default function TemplateDetailsSidebar() {
   }
 
   return (
-    <aside className="d-none lg:d-b lg:gc-s-3 blw-1 bc-white/10">
+    <aside className="d-none bc-white/10 blw-1 lg:d-b lg:gc-s-3">
       <div
         className="p-st t-20 o-y-auto"
         style={{
@@ -24,30 +24,30 @@ export default function TemplateDetailsSidebar() {
       >
         <div className="px-8 pb-12">
           <div className="mb-1">
-            <h3 className="fs-md fw-400 tt-c c-white m-0">
+            <h3 className="m-0 c-white fs-md fw-400 tt-c">
               About {template.name}
             </h3>
           </div>
-          <p className="fs-sm c-white/50 m-0 mb-6">{template.tagline}</p>
+          <p className="c-white/50 m-0 mb-6 fs-sm">{template.tagline}</p>
 
           {/* Price */}
           <div className="mb-6">
-            <span className="fs-3xl fw-600 c-white">€{template.price}</span>
-            <span className="fs-sm c-white/60 ml-1">/ one-time purchase</span>
+            <span className="c-white fs-3xl fw-600">€{template.price}</span>
+            <span className="c-white/60 ml-1 fs-sm">/ one-time purchase</span>
           </div>
 
           {/* CTAs */}
           <div className="d-f fd-c g-2 mb-6">
             <Link
               href={template.checkoutUrl}
-              className="d-f ai-c jc-c bg-white c-black px-4 py-3 fw-600 fs-sm h:bg-white/90 us-none fv:oc-indigo-4 fv:ow-2"
+              className="d-f ai-c jc-c px-4 py-3 bg-white c-black fw-600 fs-sm us-none h:bg-white/90 fv:oc-indigo-4 fv:ow-2"
             >
               Get template
             </Link>
             <Link
               href={template.previewUrl}
               target="_blank"
-              className="d-f ai-c jc-c g-2 bg-transparent c-white px-4 py-3 fw-500 fs-sm bw-1 bc-white/20 h:bg-white/5 us-none fv:oc-indigo-4 fv:ow-2"
+              className="d-f ai-c jc-c g-2 px-4 py-3 bc-white/20 bg-transparent c-white bw-1 fw-500 fs-sm us-none h:bg-white/5 fv:oc-indigo-4 fv:ow-2"
             >
               <span>Live preview</span>
               <ArrowSquareOutIcon size={16} weight="bold" />
@@ -55,18 +55,18 @@ export default function TemplateDetailsSidebar() {
           </div>
 
           {/* Divider */}
-          <div className="bbw-1 bc-white/10 mb-6" />
+          <div className="mb-6 bc-white/10 bbw-1" />
 
           {/* Pages Section */}
           <div className="mb-6">
-            <h4 className="fs-sm fw-500 c-white mb-3">
+            <h4 className="mb-3 c-white fs-sm fw-500">
               Pages ({template.pages.length})
             </h4>
             <ul className="d-f fd-c g-2 us-none">
               {template.pages.map((page) => {
                 const PageIcon = getPageIcon(page.title);
                 return (
-                  <li key={page.path} className="d-f ai-c g-2 fs-sm c-white/70">
+                  <li key={page.path} className="d-f c-white/70 ai-c g-2 fs-sm">
                     <PageIcon size={20} weight="duotone" />
                     <span>{page.title}</span>
                   </li>

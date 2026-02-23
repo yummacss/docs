@@ -11,11 +11,11 @@ export default function DocsLayout({
     <div className="min-h-dvh c-white">
       <Navbar showMobileSidebar />
 
-      <main className="sm-xxl mx-auto px-6">
-        <div className="d-g gtc-1 lg:gtc-12 g-8">
+      <main className="mx-auto px-6 sm-xxl">
+        <div className="d-g gtc-1 g-8 lg:gtc-12">
           <Sidebar />
 
-          <div className="lg:gc-s-6 pt-12">
+          <div className="pt-12 lg:gc-s-6">
             <article className="max-w-none">{children}</article>
           </div>
 

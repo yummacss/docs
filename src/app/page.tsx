@@ -11,8 +11,8 @@ import Navbar from "@/components/ui/navbar";
 
 export default function Home() {
   return (
-    <div className="min-h-dvh bg-black c-white p-r">
-      <div className="p-a t-0 l-0 w-full h-full zi-0">
+    <div className="p-r min-h-dvh bg-black c-white">
+      <div className="p-a t-0 l-0 zi-0 w-full h-full">
         <DarkVeil />
       </div>
       <div className="p-r zi-1">
@@ -20,19 +20,19 @@ export default function Home() {
       </div>
 
       <div
-        className="sm-xxl w-full mx-auto px-6 d-f ai-fe p-r zi-1"
+        className="d-f p-r zi-1 ai-fe w-full mx-auto px-6 sm-xxl"
         style={{
           minHeight: "calc(100vh - 120px)",
         }}
       >
         <div className="w-full" style={{ maxWidth: "72rem" }}>
-          <div className="d-g lg:gtc-2 g-12 ai-fe">
+          <div className="d-g g-12 ai-fe lg:gtc-2">
             <div>
               <Link
                 href="https://github.com/yummacss/yummacss"
                 className="c-white"
               >
-                <div className="d-if ai-c g-2 px-4 py-2 bf-b-md bw-1 bg-white/5 bc-white/10 br-pill mb-8">
+                <div className="d-if ai-c g-2 px-4 py-2 mb-8 bc-white/10 bg-white/5 bw-1 br-pill bf-b-md">
                   <span className="w-3 h-3 br-pill">
                     <StarIcon className="w-3 h-3" weight="fill" />
                   </span>
@@ -40,10 +40,10 @@ export default function Home() {
                 </div>
               </Link>
 
-              <h1 className="fs-5xl md:fs-6xl fw-400 mb-6 lh-2 ff-e">
+              <h1 className="mb-6 fs-5xl fw-400 lh-2 ff-e md:fs-6xl">
                 Style more, type even less
               </h1>
-              <p className="fs-lg c-white/70 mb-8 lh-5">
+              <p className="c-white/70 mb-8 fs-lg lh-5">
                 An atomic CSS framework with abbreviated utility classes and
                 optimized styles for simple and scalable design systems.
               </p>
@@ -51,29 +51,29 @@ export default function Home() {
               <div className="d-f fw-w g-4 mb-12">
                 <Link
                   href="/docs/installation"
-                  className="bg-white px-6 py-3 c-black fs-md fw-600 br-pill us-none"
+                  className="px-6 py-3 bg-white c-black br-pill fs-md fw-600 us-none"
                 >
                   Get started
                 </Link>
                 <Link
                   href="/ui"
-                  className="px-6 py-3 fw-600 c-white fs-md d-f ai-c g-2 us-none"
+                  className="d-f ai-c g-2 px-6 py-3 c-white fw-600 fs-md us-none"
                 >
                   <SparkleIcon size={20} weight="duotone" />
                   Yumma UI
                 </Link>
               </div>
 
-              <div className="d-f fw-w g-3 btw-1 bc-white/10 pt-6">
-                <div className="px-4 py-2 bg-white/5 bf-b-md fs-xs d-f ai-c g-2 bw-1 bc-white/10 tt-u us-none">
+              <div className="d-f fw-w g-3 pt-6 bc-white/10 btw-1">
+                <div className="d-f ai-c g-2 px-4 py-2 bc-white/10 bg-white/5 bw-1 fs-xs tt-u bf-b-md us-none">
                   <SealCheckIcon size={15} weight="duotone" />
                   Tomorrow's CSS
                 </div>
-                <div className="px-4 py-2 bg-white/5 bf-b-md fs-xs d-f ai-c g-2 bw-1 bc-white/10 tt-u us-none">
+                <div className="d-f ai-c g-2 px-4 py-2 bc-white/10 bg-white/5 bw-1 fs-xs tt-u bf-b-md us-none">
                   <LightningIcon size={15} />
                   Blazing Fast
                 </div>
-                <div className="px-4 py-2 bg-white/5 bf-b-md fs-xs d-f ai-c g-2 bw-1 bc-white/10 tt-u us-none">
+                <div className="d-f ai-c g-2 px-4 py-2 bc-white/10 bg-white/5 bw-1 fs-xs tt-u bf-b-md us-none">
                   <FeatherIcon size={15} weight="duotone" />
                   Featherlight
                 </div>

@@ -30,12 +30,12 @@ export default function ExamplePopover() {
                     transition={{ duration: 0.15, ease: "easeOut" }}
                   />
                 }
-                className="bw-1 bc-silver-2 br-2 bg-white bs-o-lg px-4 py-3 c-slate-10 w-56"
+                className="px-4 py-3 w-56 bg-white bc-silver-2 c-slate-10 bw-1 br-2 bs-o-lg"
               >
-                <Popover.Title className="fs-sm fw-600 c-slate-10 m-0 mb-1">
+                <Popover.Title className="m-0 mb-1 c-slate-10 fs-sm fw-600">
                   Start a conversation
                 </Popover.Title>
-                <Popover.Description className="fs-xs c-slate-8 m-0">
+                <Popover.Description className="m-0 c-slate-8 fs-xs">
                   Send a message to your team.
                 </Popover.Description>
               </Popover.Popup>

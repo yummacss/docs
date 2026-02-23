@@ -13,7 +13,7 @@ export default function ExampleAlertDialog() {
     <AlertDialog.Root open={open} onOpenChange={setOpen}>
       <AlertDialog.Trigger
         render={
-          <Button className="bg-white c-slate-10 br-2 px-3 py-2 fw-600 bs-o-xs bw-1 bc-silver-2 us-none tp-c tdu-150 ttf-io h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 c-p b-0" />
+          <Button className="b-0 px-3 py-2 bg-white bc-silver-2 c-slate-10 br-2 bw-1 fw-600 bs-o-xs tp-c tdu-150 ttf-io us-none c-p h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
         }
       >
         Remove member
@@ -32,7 +32,7 @@ export default function ExampleAlertDialog() {
               }
               className="p-f i-0 min-h-dvh bg-black/20"
             />
-            <div className="p-f i-0 d-f ai-c jc-c">
+            <div className="d-f p-f i-0 ai-c jc-c">
               <AlertDialog.Popup
                 render={
                   <motion.div
@@ -42,24 +42,24 @@ export default function ExampleAlertDialog() {
                     transition={{ type: "spring", stiffness: 500, damping: 30 }}
                   />
                 }
-                className="w-96 br-2 bg-white c-slate-12 bs-o-lg bw-1 bc-silver-2 o-h"
+                className="o-h w-96 bg-white bc-silver-2 c-slate-12 br-2 bw-1 bs-o-lg"
                 style={{ maxWidth: "90vw" }}
               >
                 <div className="d-f jc-sb ai-c px-4 py-2 bg-silver-1/50">
-                  <AlertDialog.Title className="fs-sm fw-600 m-0">
+                  <AlertDialog.Title className="m-0 fs-sm fw-600">
                     Are you sure?
                   </AlertDialog.Title>
                   <AlertDialog.Close
                     render={
-                      <Button className="d-f ai-c jc-c w-7 h-7 br-2 bg-transparent b-0 c-p c-slate-6 h:bg-silver-2 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+                      <Button className="d-f b-0 ai-c jc-c w-7 h-7 bg-transparent c-slate-6 br-2 c-p h:bg-silver-2 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
                     }
                   >
                     <XIcon size={16} weight="bold" aria-hidden />
                   </AlertDialog.Close>
                 </div>
-                <div className="bbw-1 bc-silver-2" />
+                <div className="bc-silver-2 bbw-1" />
                 <div className="px-4 py-5">
-                  <AlertDialog.Description className="fs-sm c-slate-7 m-0 lh-4">
+                  <AlertDialog.Description className="m-0 c-slate-7 fs-sm lh-4">
                     This will permanently remove the team member and revoke
                     their access to all projects.
                   </AlertDialog.Description>
@@ -67,14 +67,14 @@ export default function ExampleAlertDialog() {
                 <div className="d-g gtc-2 g-3 px-4 py-3">
                   <AlertDialog.Close
                     render={
-                      <Button className="bg-white c-slate-10 br-2 px-3 py-2 fw-600 bs-o-xs bw-1 bc-silver-2 us-none tp-c tdu-150 ttf-io h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 c-p b-0" />
+                      <Button className="b-0 px-3 py-2 bg-white bc-silver-2 c-slate-10 br-2 bw-1 fw-600 bs-o-xs tp-c tdu-150 ttf-io us-none c-p h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
                     }
                   >
                     Cancel
                   </AlertDialog.Close>
                   <AlertDialog.Close
                     render={
-                      <Button className="bg-red c-white br-2 px-3 py-2 fw-600 bs-o-md bw-1 bc-red-7 fv:oc-red-6 us-none tp-c tdu-150 ttf-io h:bg-red-8 fv:ow-2 fv:oo-2 c-p b-0" />
+                      <Button className="b-0 px-3 py-2 bg-red h:bg-red-8 bc-red-7 c-white br-2 bw-1 fw-600 bs-o-md tp-c tdu-150 ttf-io us-none c-p fv:oc-red-6 fv:ow-2 fv:oo-2" />
                     }
                   >
                     Remove

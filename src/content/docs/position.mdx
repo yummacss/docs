@@ -15,15 +15,15 @@ Position the element according to the normal document flow.
 
 <Preview variant="inline">
   <div className="c-white">
-    <div className="bg-indigo p-4 p-s">Static Position</div>
-    <div className="bg-indigo-2 p-4 c-slate">Another Element</div>
+    <div className="p-s p-4 bg-indigo">Static Position</div>
+    <div className="p-4 bg-indigo-2 c-slate">Another Element</div>
   </div>
 </Preview>
 
 ```html "p-s"
 <div class="c-white">
-  <div class="bg-indigo p-4 p-s">Static Position</div>
-  <div class="bg-indigo-2 p-4 c-slate">Another Element</div>
+  <div class="p-s p-4 bg-indigo">Static Position</div>
+  <div class="p-4 bg-indigo-2 c-slate">Another Element</div>
 </div>
 ```
 
@@ -32,14 +32,14 @@ Position the element according to the normal document flow.
 Position the element relative to its nearest positioned ancestor.
 
 <Preview variant="inline">
-  <div className="bg-indigo-2 h-32 p-4 p-r c-white">
-    <div className="bg-indigo l-4 t-4 p-4 p-a">Absolute Position</div>
+  <div className="p-r h-32 p-4 bg-indigo-2 c-white">
+    <div className="l-4 t-4 p-a p-4 bg-indigo">Absolute Position</div>
   </div>
 </Preview>
 
 ```html "p-a"
-<div class="bg-indigo-2 h-32 p-4 p-r c-white">
-  <div class="bg-indigo l-4 t-4 p-4 p-a">Absolute Position</div>
+<div class="p-r h-32 p-4 bg-indigo-2 c-white">
+  <div class="l-4 t-4 p-a p-4 bg-indigo">Absolute Position</div>
 </div>
 ```
 
@@ -49,8 +49,8 @@ Position the element relative to the viewport.
 
 ```html "p-f"
 <div class="c-white">
-  <div class="bg-indigo r-4 t-4 p-4 p-f">Fixed Position</div>
-  <div class="bg-indigo-2 h-s p-4 c-white">Scroll down to see the fixed element.</div>
+  <div class="r-4 t-4 p-f p-4 bg-indigo">Fixed Position</div>
+  <div class="h-s p-4 bg-indigo-2 c-white">Scroll down to see the fixed element.</div>
 </div>
 ```
 
@@ -60,15 +60,15 @@ Position the element relative to its normal position.
 
 <Preview variant="inline">
   <div className="c-white">
-    <div className="bg-indigo l-4 t-4 p-4 p-r">Relative Position</div>
-    <div className="bg-indigo-2 p-4 c-slate">Another Element</div>
+    <div className="l-4 t-4 p-r p-4 bg-indigo">Relative Position</div>
+    <div className="p-4 bg-indigo-2 c-slate">Another Element</div>
   </div>
 </Preview>
 
 ```html "p-r"
 <div class="c-white">
-  <div class="bg-indigo l-4 t-4 p-4 p-r">Relative Position</div>
-  <div class="bg-indigo-2 p-4 c-slate">Another Element</div>
+  <div class="l-4 t-4 p-r p-4 bg-indigo">Relative Position</div>
+  <div class="p-4 bg-indigo-2 c-slate">Another Element</div>
 </div>
 ```
 
@@ -79,16 +79,16 @@ Position the element relative to its normal position.
 Stick the element to a specified threshold within its container.
 
 <Preview variant="inline">
-  <div className="b-1 h-64 o-y-s c-white">
-    <div className="bg-indigo t-0 p-4 p-st">Sticky Position</div>
-    <div className="bg-indigo-2 h-96 p-4 c-slate">Scroll down to see the sticky behavior.</div>
+  <div className="b-1 o-y-s h-64 c-white">
+    <div className="t-0 p-st p-4 bg-indigo">Sticky Position</div>
+    <div className="h-96 p-4 bg-indigo-2 c-slate">Scroll down to see the sticky behavior.</div>
   </div>
 </Preview>
 
 ```html "p-st"
-<div class="b-1 h-64 o-y-s c-white">
-  <div class="bg-indigo t-0 p-4 p-st">Sticky Position</div>
-  <div class="bg-indigo-2 h-96 p-4 c-slate">Scroll down to see the sticky behavior.</div>
+<div class="b-1 o-y-s h-64 c-white">
+  <div class="t-0 p-st p-4 bg-indigo">Sticky Position</div>
+  <div class="h-96 p-4 bg-indigo-2 c-slate">Scroll down to see the sticky behavior.</div>
 </div>
 ```
 

@@ -80,7 +80,7 @@ export default function Navbar({
         className={clsx(navbarVariants({ variant }), className)}
         style={{ backgroundColor: isLandingPage ? "transparent" : "#151724" }}
       >
-        <div className="sm-xxl mx-auto px-3 py-2">
+        <div className="mx-auto px-3 py-2 sm-xxl">
           <nav className="d-f ai-c jc-sb">
             <div className="d-f ai-c g-2">
               <LogoContextMenu>
@@ -88,7 +88,7 @@ export default function Navbar({
                   href={isUI ? "/ui" : "/"}
                   className="fv:oc-indigo-4 fv:ow-2"
                 >
-                  <YummaCSSDark className="h-8 w-auto d-b" />
+                  <YummaCSSDark className="d-b h-8 w-auto" />
                 </Link>
               </LogoContextMenu>
             </div>
@@ -96,28 +96,28 @@ export default function Navbar({
               {links ? (
                 links
               ) : (
-                <div className="d-none lg:d-f ai-c g-8">
+                <div className="d-none ai-c g-8 lg:d-f">
                   <Link
                     href="/docs"
-                    className="fs-sm c-white/80 h:c-white fv:oc-indigo-4 fv:ow-2"
+                    className="c-white/80 fs-sm h:c-white fv:oc-indigo-4 fv:ow-2"
                   >
                     Docs
                   </Link>
                   <Link
                     href="/blog"
-                    className="fs-sm c-white/80 h:c-white fv:oc-indigo-4 fv:ow-2"
+                    className="c-white/80 fs-sm h:c-white fv:oc-indigo-4 fv:ow-2"
                   >
                     Blog
                   </Link>
                   <Link
                     href="/ui/components"
-                    className="fs-sm c-white/80 h:c-white fv:oc-indigo-4 fv:ow-2"
+                    className="c-white/80 fs-sm h:c-white fv:oc-indigo-4 fv:ow-2"
                   >
                     Components
                   </Link>
                   <Link
                     href="/ui/templates"
-                    className="fs-sm c-white/80 h:c-white fv:oc-indigo-4 fv:ow-2"
+                    className="c-white/80 fs-sm h:c-white fv:oc-indigo-4 fv:ow-2"
                   >
                     Templates
                   </Link>
@@ -127,18 +127,18 @@ export default function Navbar({
               <Button
                 type="button"
                 onClick={() => setSearchOpen(true)}
-                className="d-f ai-c jc-c g-2 h-8 px-3 lg:px-4 bg-white/5 bf-b-sm fs-sm h:bg-white/10 c-white bw-1 bc-white/10 br-pill fv:oc-indigo-4 fv:ow-2"
+                className="d-f ai-c jc-c g-2 h-8 px-3 bc-white/10 bg-white/5 c-white bw-1 br-pill fs-sm bf-b-sm lg:px-4 h:bg-white/10 fv:oc-indigo-4 fv:ow-2"
               >
                 <MagnifyingGlassIcon size={15} />
-                <kbd className="d-none lg:d-b fs-xs c-white/60 us-none">
+                <kbd className="d-none c-white/60 fs-xs us-none lg:d-b">
                   Ctrl K
                 </kbd>
               </Button>
 
-              <div className="d-none md:d-f ai-c g-4 ml-2">
+              <div className="d-none ai-c g-4 ml-2 md:d-f">
                 <Link
                   href="https://npmx.dev/package/yummacss"
-                  className="d-f ai-c g-1 c-white/80 h:c-white fs-xs fv:oc-indigo-4 fv:ow-2"
+                  className="d-f c-white/80 ai-c g-1 fs-xs h:c-white fv:oc-indigo-4 fv:ow-2"
                   target="_blank"
                 >
                   <SiNpm className="w-4 h-4" />
@@ -148,7 +148,7 @@ export default function Navbar({
                 </Link>
                 <Link
                   href="https://github.com/yummacss/yummacss"
-                  className="d-f ai-c g-1 c-white/80 h:c-white fs-xs fv:oc-indigo-4 fv:ow-2"
+                  className="d-f c-white/80 ai-c g-1 fs-xs h:c-white fv:oc-indigo-4 fv:ow-2"
                   target="_blank"
                 >
                   <SiGithub className="w-4 h-4" />
@@ -160,11 +160,11 @@ export default function Navbar({
                 <Button
                   type="button"
                   onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-                  className="d-f lg:d-none ai-c jc-c g-2 c-white/70 h:c-white p-r"
+                  className="d-f c-white/70 p-r ai-c jc-c g-2 lg:d-none h:c-white"
                   aria-label={isSidebarOpen ? "Close menu" : "Open menu"}
                 >
                   <div
-                    className="p-r d-f ai-c jc-c"
+                    className="d-f p-r ai-c jc-c"
                     style={{ width: 20, height: 20 }}
                   >
                     <EqualsIcon

@@ -18,9 +18,9 @@ export default function ExampleTabs() {
     <Tabs.Root
       value={selected}
       onValueChange={setSelected}
-      className="w-80 bg-white br-2 bw-1 bc-silver-2"
+      className="w-80 bg-white bc-silver-2 br-2 bw-1"
     >
-      <Tabs.List className="p-r d-f g-1 p-1 bbw-1 bc-silver-2">
+      <Tabs.List className="d-f p-r g-1 p-1 bc-silver-2 bbw-1">
         {tabs.map((tab) => {
           const Icon = tab.icon;
           const isSelected = selected === tab.value;
@@ -35,7 +35,7 @@ export default function ExampleTabs() {
               {isSelected && (
                 <motion.div
                   layoutId="tabs-indicator"
-                  className="p-a ix-0 iy-0 zi-0 br-1 bg-indigo"
+                  className="p-a ix-0 iy-0 zi-0 bg-indigo br-1"
                   transition={{ type: "spring", stiffness: 500, damping: 30 }}
                 />
               )}
@@ -46,17 +46,17 @@ export default function ExampleTabs() {
         })}
       </Tabs.List>
       <Tabs.Panel value="account" className="p-4">
-        <p className="fs-sm c-slate-8">
+        <p className="c-slate-8 fs-sm">
           Manage your account details and preferences.
         </p>
       </Tabs.Panel>
       <Tabs.Panel value="settings" className="p-4">
-        <p className="fs-sm c-slate-8">
+        <p className="c-slate-8 fs-sm">
           Configure application settings and behavior.
         </p>
       </Tabs.Panel>
       <Tabs.Panel value="notifications" className="p-4">
-        <p className="fs-sm c-slate-8">
+        <p className="c-slate-8 fs-sm">
           Control how you receive notifications.
         </p>
       </Tabs.Panel>

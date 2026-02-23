@@ -10,10 +10,10 @@ export const meta = {
 
 There are {uiSidebarConfig[1].items.length} base components available.
 
-<div className="d-g gtc-1 sm:gtc-3 rg-8 my-10">
+<div className="d-g gtc-1 rg-8 my-10 sm:gtc-3">
   {uiSidebarConfig[1].items.map(item => (
     <div key={item.slug}>
-      <Link className="h:td-u c-white" href={`/ui/${item.slug}`}>{item.title}</Link>
+      <Link className="c-white h:td-u" href={`/ui/${item.slug}`}>{item.title}</Link>
     </div>
   ))}
 </div>

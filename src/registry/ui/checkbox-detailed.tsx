@@ -4,9 +4,8 @@ import { CheckIcon } from "@phosphor-icons/react";
 export default function ExampleCheckbox() {
   return (
     <div className="d-f fd-c g-3">
-      {/* biome-ignore lint/a11y/noLabelWithoutControl: Base UI handles this */}
       <label className="d-f fd-c g-1">
-        <div className="d-f ai-c g-2 fs-sm fw-600 c-slate-10">
+        <div className="d-f ai-c g-2 c-slate-10 fs-sm fw-600">
           <Checkbox.Root
             defaultChecked
             className={(state) =>
@@ -21,14 +20,13 @@ export default function ExampleCheckbox() {
           </Checkbox.Root>
           Enable notifications
         </div>
-        <span className="fs-xs c-slate-8 ml-6">
+        <span className="ml-6 c-slate-8 fs-xs">
           Receive email updates about your account activity
         </span>
       </label>
 
-      {/* biome-ignore lint/a11y/noLabelWithoutControl: Base UI handles this */}
       <label className="d-f fd-c g-1">
-        <div className="d-f ai-c g-2 fs-sm fw-600 c-slate-10">
+        <div className="d-f ai-c g-2 c-slate-10 fs-sm fw-600">
           <Checkbox.Root
             className={(state) =>
               `d-f w-4 h-4 ai-c jc-c br-1 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
@@ -42,7 +40,7 @@ export default function ExampleCheckbox() {
           </Checkbox.Root>
           Marketing emails
         </div>
-        <span className="fs-xs c-slate-8 ml-6">
+        <span className="ml-6 c-slate-8 fs-xs">
           Get the latest news and special offers
         </span>
       </label>

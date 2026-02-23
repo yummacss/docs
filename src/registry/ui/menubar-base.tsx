@@ -16,7 +16,7 @@ export default function ExampleMenubar() {
   const [viewOpen, setViewOpen] = React.useState(false);
 
   return (
-    <Menubar className="d-f br-2 bw-1 bc-silver-2 bg-white p-1 g-1">
+    <Menubar className="d-f g-1 p-1 bg-white bc-silver-2 br-2 bw-1">
       {/* File Menu */}
       <Menu.Root open={fileOpen} onOpenChange={setFileOpen}>
         <Menu.Trigger
@@ -41,7 +41,7 @@ export default function ExampleMenubar() {
                       transition={{ duration: 0.1, ease: "easeOut" }}
                     />
                   }
-                  className="br-2 bg-white c-slate-10 py-1 bs-o-lg bw-1 bc-silver-2"
+                  className="py-1 bg-white bc-silver-2 c-slate-10 br-2 bw-1 bs-o-lg"
                 >
                   <Menu.Item className={itemClass}>New project</Menu.Item>
                   <Menu.Item className={itemClass}>Open file</Menu.Item>
@@ -79,7 +79,7 @@ export default function ExampleMenubar() {
                       transition={{ duration: 0.1, ease: "easeOut" }}
                     />
                   }
-                  className="br-2 bg-white c-slate-10 py-1 bs-o-lg bw-1 bc-silver-2"
+                  className="py-1 bg-white bc-silver-2 c-slate-10 br-2 bw-1 bs-o-lg"
                 >
                   <Menu.Item className={itemClass}>Undo action</Menu.Item>
                   <Menu.Item className={itemClass}>Redo action</Menu.Item>
@@ -118,7 +118,7 @@ export default function ExampleMenubar() {
                       transition={{ duration: 0.1, ease: "easeOut" }}
                     />
                   }
-                  className="br-2 bg-white c-slate-10 py-1 bs-o-lg bw-1 bc-silver-2"
+                  className="py-1 bg-white bc-silver-2 c-slate-10 br-2 bw-1 bs-o-lg"
                 >
                   <Menu.Item className={itemClass}>Zoom in</Menu.Item>
                   <Menu.Item className={itemClass}>Zoom out</Menu.Item>
@@ -133,7 +133,7 @@ export default function ExampleMenubar() {
 
       {/* Help Menu (disabled) */}
       <Menu.Root disabled>
-        <Menu.Trigger className="h-8 br-1 px-3 fs-sm fw-600 c-slate-10 us-none b-0 bg-transparent o-50">
+        <Menu.Trigger className="b-0 h-8 px-3 bg-transparent c-slate-10 br-1 fs-sm fw-600 o-50 us-none">
           Help
         </Menu.Trigger>
       </Menu.Root>

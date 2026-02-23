@@ -11,7 +11,7 @@ import {
 
 export default function ExampleToolbar() {
   return (
-    <Toolbar.Root className="d-f ai-c g-1 br-2 bw-1 bc-silver-2 bg-white p-1">
+    <Toolbar.Root className="d-f ai-c g-1 p-1 bg-white bc-silver-2 br-2 bw-1">
       <ToggleGroup className="d-f g-1" aria-label="Text formatting">
         <Toggle
           aria-label="Bold"
@@ -70,10 +70,10 @@ export default function ExampleToolbar() {
       <Separator orientation="vertical" className="w-px h-5 bg-silver-3" />
 
       <Toolbar.Group className="d-f g-1" aria-label="Actions">
-        <Toolbar.Button className="d-f h-9 ai-c jc-c px-3 br-1 bw-0 fs-sm fw-600 c-slate-8 us-none c-p bg-transparent h:bg-silver-1 h:c-slate-10 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6">
+        <Toolbar.Button className="d-f ai-c jc-c h-9 px-3 bg-transparent c-slate-8 br-1 bw-0 fs-sm fw-600 us-none c-p h:bg-silver-1 h:c-slate-10 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6">
           Undo
         </Toolbar.Button>
-        <Toolbar.Button className="d-f h-9 ai-c jc-c px-3 br-1 bw-0 fs-sm fw-600 c-slate-8 us-none c-p bg-transparent h:bg-silver-1 h:c-slate-10 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6">
+        <Toolbar.Button className="d-f ai-c jc-c h-9 px-3 bg-transparent c-slate-8 br-1 bw-0 fs-sm fw-600 us-none c-p h:bg-silver-1 h:c-slate-10 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6">
           Redo
         </Toolbar.Button>
       </Toolbar.Group>

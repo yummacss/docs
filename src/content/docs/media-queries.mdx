@@ -10,8 +10,8 @@ By default, all base utilities support responsive variants. Use breakpoints like
 > Target small screens first, then override for larger viewports.
 
 ```html ins={2} del={1}
-<h1 class="sm:ta-c ...">Good evening!</h1>
-<h1 class="ta-c sm:ta-l ...">Good evening!</h1>
+<h1 class="... sm:ta-c">Good evening!</h1>
+<h1 class="ta-c ... sm:ta-l">Good evening!</h1>
 ```
 
 Yumma CSS breakpoints reference:
@@ -29,19 +29,19 @@ Yumma CSS breakpoints reference:
 Resize your browser window to see how these elements respond to viewport width.
 
 <Preview>
-    <p className="c-slate d-b p-4 sm:d-none">Small screen</p>
-    <p className="c-slate d-none md:d-none p-4 sm:d-b">Medium screen</p>
-    <p className="c-slate d-none lg:d-none md:d-b p-4">Large screen</p>
-    <p className="c-slate d-none lg:d-b p-4 ta-c xl:d-none">Extra large screen</p>
-    <p className="c-slate d-none p-4 ta-c xxl:d-b">Double extra large screen</p>
+    <p className="d-b p-4 c-slate sm:d-none">Small screen</p>
+    <p className="d-none md:d-none p-4 c-slate sm:d-b">Medium screen</p>
+    <p className="d-none lg:d-none p-4 c-slate md:d-b">Large screen</p>
+    <p className="d-none xl:d-none p-4 c-slate ta-c lg:d-b">Extra large screen</p>
+    <p className="d-none p-4 c-slate ta-c xxl:d-b">Double extra large screen</p>
 </Preview>
 
 ```html "sm:d-b" "md:d-b" "lg:d-b" "xl:d-b" "xxl:d-b"
-<p class="c-slate d-b p-4 sm:d-none">Small screen</p>
-<p class="c-slate d-none md:d-none p-4 sm:d-b">Medium screen</p>
-<p class="c-slate d-none lg:d-none md:d-b p-4">Large screen</p>
-<p class="c-slate d-none lg:d-b p-4 ta-c xl:d-none">Extra large screen</p>
-<p class="c-slate d-none p-4 ta-c xxl:d-b">Double extra large screen</p>
+<p class="d-b p-4 c-slate sm:d-none">Small screen</p>
+<p class="d-none md:d-none p-4 c-slate sm:d-b">Medium screen</p>
+<p class="d-none lg:d-none p-4 c-slate md:d-b">Large screen</p>
+<p class="d-none xl:d-none p-4 c-slate ta-c lg:d-b">Extra large screen</p>
+<p class="d-none p-4 c-slate ta-c xxl:d-b">Double extra large screen</p>
 ```
 
 ## Touch devices
@@ -51,7 +51,7 @@ The `pc:*` variant targets devices with a coarse pointer (typically touch screen
 <Hint icon="hand_tap">Activates on touch-enabled devices with coarse pointer input.</Hint>
 
 ```html "pc:p-6"
-<button type="button" class="p-4 pc:p-6 bg-indigo c-white">
+<button type="button" class="p-4 bg-indigo c-white pc:p-6">
   Larger padding on touch devices
 </button>
 ```

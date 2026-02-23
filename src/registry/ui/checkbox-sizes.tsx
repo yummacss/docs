@@ -4,8 +4,7 @@ import { CheckIcon } from "@phosphor-icons/react";
 export default function ExampleCheckbox() {
   return (
     <div className="d-f ai-c g-4">
-      {/* biome-ignore lint/a11y/noLabelWithoutControl: Base UI handles this */}
-      <label className="d-f ai-c g-2 fs-xs fw-600 c-slate-10">
+      <label className="d-f ai-c g-2 c-slate-10 fs-xs fw-600">
         <Checkbox.Root
           defaultChecked
           className={(state) =>
@@ -21,8 +20,7 @@ export default function ExampleCheckbox() {
         Small
       </label>
 
-      {/* biome-ignore lint/a11y/noLabelWithoutControl: Base UI handles this */}
-      <label className="d-f ai-c g-2 fs-sm fw-600 c-slate-10">
+      <label className="d-f ai-c g-2 c-slate-10 fs-sm fw-600">
         <Checkbox.Root
           defaultChecked
           className={(state) =>
@@ -38,8 +36,7 @@ export default function ExampleCheckbox() {
         Medium
       </label>
 
-      {/* biome-ignore lint/a11y/noLabelWithoutControl: Base UI handles this */}
-      <label className="d-f ai-c g-2 fs-md fw-600 c-slate-10">
+      <label className="d-f ai-c g-2 c-slate-10 fs-md fw-600">
         <Checkbox.Root
           defaultChecked
           className={(state) =>

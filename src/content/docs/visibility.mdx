@@ -15,17 +15,17 @@ Display the element normally in the layout.
 
 <Preview>
   <div className="d-g g-4 gtc-1 sm:gtc-3">
-    <div className="ai-c bg-indigo d-f jc-c w-16 h-16 c-white v-v">A</div>
-    <div className="ai-c bg-indigo d-f jc-c w-16 h-16 c-white">B</div>
-    <div className="ai-c bg-indigo d-f jc-c w-16 h-16 c-white">C</div>
+    <div className="d-f v-v ai-c jc-c w-16 h-16 bg-indigo c-white">A</div>
+    <div className="d-f ai-c jc-c w-16 h-16 bg-indigo c-white">B</div>
+    <div className="d-f ai-c jc-c w-16 h-16 bg-indigo c-white">C</div>
   </div>
 </Preview>
 
 ```html "v-v"
 <div class="d-g g-4 gtc-1 sm:gtc-3">
-  <div class="ai-c bg-indigo d-f jc-c w-16 h-16 c-white v-v">A</div>
-  <div class="ai-c bg-indigo d-f jc-c w-16 h-16 c-white">B</div>
-  <div class="ai-c bg-indigo d-f jc-c w-16 h-16 c-white">C</div>
+  <div class="d-f v-v ai-c jc-c w-16 h-16 bg-indigo c-white">A</div>
+  <div class="d-f ai-c jc-c w-16 h-16 bg-indigo c-white">B</div>
+  <div class="d-f ai-c jc-c w-16 h-16 bg-indigo c-white">C</div>
 </div>
 ```
 
@@ -34,50 +34,50 @@ Display the element normally in the layout.
 Hide the element without taking up space.
 
 <Preview>
-  <table className="bw-1 bs-d bc-c c-slate w-full">
+  <table className="w-full c-slate bw-1 bs-d bc-c">
     <thead>
       <tr>
-        <th className="bw-1 bs-d bg-silver-2 bc-slate p-3 ta-c">H1</th>
-        <th className="bw-1 bs-d bg-silver-2 bc-slate p-3 ta-c">H2</th>
+        <th className="p-3 bg-silver-2 bc-slate bw-1 bs-d ta-c">H1</th>
+        <th className="p-3 bg-silver-2 bc-slate bw-1 bs-d ta-c">H2</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td className="bw-1 bs-d bc-slate p-3 ta-c">A</td>
-        <td className="bw-1 bs-d bc-slate p-3 ta-c">B</td>
+        <td className="p-3 bc-slate bw-1 bs-d ta-c">A</td>
+        <td className="p-3 bc-slate bw-1 bs-d ta-c">B</td>
       </tr>
       <tr className="v-c">
-        <td className="bw-1 bs-d bc-slate p-3 ta-c">C</td>
-        <td className="bw-1 bs-d bc-slate p-3 ta-c">D</td>
+        <td className="p-3 bc-slate bw-1 bs-d ta-c">C</td>
+        <td className="p-3 bc-slate bw-1 bs-d ta-c">D</td>
       </tr>
       <tr>
-        <td className="bw-1 bs-d bc-slate p-3 ta-c">E</td>
-        <td className="bw-1 bs-d bc-slate p-3 ta-c">F</td>
+        <td className="p-3 bc-slate bw-1 bs-d ta-c">E</td>
+        <td className="p-3 bc-slate bw-1 bs-d ta-c">F</td>
       </tr>
     </tbody>
   </table>
 </Preview>
 
 ```html "v-c"
-<table class="bw-1 bs-d bc-c c-slate w-full">
+<table class="w-full c-slate bw-1 bs-d bc-c">
   <thead>
     <tr>
-      <th class="bw-1 bs-d bg-silver-2 bc-slate p-3 ta-c">H1</th>
-      <th class="bw-1 bs-d bg-silver-2 bc-slate p-3 ta-c">H2</th>
+      <th class="p-3 bg-silver-2 bc-slate bw-1 bs-d ta-c">H1</th>
+      <th class="p-3 bg-silver-2 bc-slate bw-1 bs-d ta-c">H2</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td class="bw-1 bs-d bc-slate p-3 ta-c">A</td>
-      <td class="bw-1 bs-d bc-slate p-3 ta-c">B</td>
+      <td class="p-3 bc-slate bw-1 bs-d ta-c">A</td>
+      <td class="p-3 bc-slate bw-1 bs-d ta-c">B</td>
     </tr>
     <tr class="v-c">
-      <td class="bw-1 bs-d bc-slate p-3 ta-c">C</td>
-      <td class="bw-1 bs-d bc-slate p-3 ta-c">D</td>
+      <td class="p-3 bc-slate bw-1 bs-d ta-c">C</td>
+      <td class="p-3 bc-slate bw-1 bs-d ta-c">D</td>
     </tr>
     <tr>
-      <td class="bw-1 bs-d bc-slate p-3 ta-c">E</td>
-      <td class="bw-1 bs-d bc-slate p-3 ta-c">F</td>
+      <td class="p-3 bc-slate bw-1 bs-d ta-c">E</td>
+      <td class="p-3 bc-slate bw-1 bs-d ta-c">F</td>
     </tr>
   </tbody>
 </table>
@@ -89,17 +89,17 @@ Hide the element while still taking up space.
 
 <Preview>
   <div className="d-g g-4 gtc-1 sm:gtc-3">
-    <div className="ai-c bg-indigo d-f jc-c w-16 h-16 c-white v-h">A</div>
-    <div className="ai-c bg-indigo d-f jc-c w-16 h-16 c-white">B</div>
-    <div className="ai-c bg-indigo d-f jc-c w-16 h-16 c-white">C</div>
+    <div className="d-f v-h ai-c jc-c w-16 h-16 bg-indigo c-white">A</div>
+    <div className="d-f ai-c jc-c w-16 h-16 bg-indigo c-white">B</div>
+    <div className="d-f ai-c jc-c w-16 h-16 bg-indigo c-white">C</div>
   </div>
 </Preview>
 
 ```html "v-h"
 <div class="d-g g-4 gtc-1 sm:gtc-3">
-  <div class="ai-c bg-indigo d-f jc-c w-16 h-16 c-white v-h">A</div>
-  <div class="ai-c bg-indigo d-f jc-c w-16 h-16 c-white">B</div>
-  <div class="ai-c bg-indigo d-f jc-c w-16 h-16 c-white">C</div>
+  <div class="d-f v-h ai-c jc-c w-16 h-16 bg-indigo c-white">A</div>
+  <div class="d-f ai-c jc-c w-16 h-16 bg-indigo c-white">B</div>
+  <div class="d-f ai-c jc-c w-16 h-16 bg-indigo c-white">C</div>
 </div>
 ```
 

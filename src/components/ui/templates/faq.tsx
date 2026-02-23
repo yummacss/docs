@@ -11,7 +11,7 @@ export default function FAQ() {
     <div className="my-8">
       <Accordion>
         {/* Template Contents */}
-        <p className="fs-xs c-white/40 tt-u ls-8 mb-2 mt-4">
+        <p className="c-white/40 mb-2 mt-4 fs-xs tt-u ls-8">
           Template Contents
         </p>
 
@@ -34,7 +34,7 @@ export default function FAQ() {
         </AccordionItem>
 
         {/* Licensing */}
-        <p className="fs-xs c-white/40 tt-u ls-8 mb-2 mt-6">Licensing</p>
+        <p className="c-white/40 mb-2 mt-6 fs-xs tt-u ls-8">Licensing</p>
 
         <AccordionItem value="license-info">
           <AccordionTrigger>What can I do with my purchase?</AccordionTrigger>
@@ -59,7 +59,7 @@ export default function FAQ() {
         </AccordionItem>
 
         {/* Purchases & Support */}
-        <p className="fs-xs c-white/40 tt-u ls-8 mb-2 mt-6">
+        <p className="c-white/40 mb-2 mt-6 fs-xs tt-u ls-8">
           Purchases & Support
         </p>
 

@@ -10,7 +10,7 @@ export default function ExampleDialog() {
 
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
-      <Dialog.Trigger className="bg-white c-slate-10 br-2 px-3 py-2 fw-600 bs-o-xs bw-1 bc-silver-2 us-none tp-c tdu-150 ttf-io h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 c-p b-0">
+      <Dialog.Trigger className="b-0 px-3 py-2 bg-white bc-silver-2 c-slate-10 br-2 bw-1 fw-600 bs-o-xs tp-c tdu-150 ttf-io us-none c-p h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6">
         Get updates
       </Dialog.Trigger>
       <AnimatePresence>
@@ -27,7 +27,7 @@ export default function ExampleDialog() {
               }
               className="p-f i-0 min-h-dvh bg-black/20"
             />
-            <div className="p-f i-0 d-f ai-c jc-c">
+            <div className="d-f p-f i-0 ai-c jc-c">
               <Dialog.Popup
                 render={
                   <motion.div
@@ -37,43 +37,43 @@ export default function ExampleDialog() {
                     transition={{ duration: 0.15, ease: "easeOut" }}
                   />
                 }
-                className="w-96 br-2 bg-white c-slate-12 bs-o-lg bw-1 bc-silver-2 o-h"
+                className="o-h w-96 bg-white bc-silver-2 c-slate-12 br-2 bw-1 bs-o-lg"
                 style={{ maxWidth: "90vw" }}
               >
                 <div className="d-f jc-sb ai-c px-4 py-2 bg-silver-1/50">
-                  <Dialog.Title className="fs-sm fw-600 m-0">
+                  <Dialog.Title className="m-0 fs-sm fw-600">
                     Subscribe to updates
                   </Dialog.Title>
-                  <Dialog.Close className="d-f ai-c jc-c w-7 h-7 br-2 bg-transparent b-0 c-p c-slate-6 h:bg-silver-2 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6">
+                  <Dialog.Close className="d-f b-0 ai-c jc-c w-7 h-7 bg-transparent c-slate-6 br-2 c-p h:bg-silver-2 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6">
                     <XIcon size={16} weight="bold" aria-hidden />
                   </Dialog.Close>
                 </div>
-                <div className="bbw-1 bc-silver-2" />
+                <div className="bc-silver-2 bbw-1" />
                 <div className="px-4 py-5">
-                  <Dialog.Description className="fs-sm c-slate-7 m-0 lh-4 mb-4">
+                  <Dialog.Description className="m-0 mb-4 c-slate-7 fs-sm lh-4">
                     Stay informed with our latest news and product updates
                     delivered directly to your inbox.
                   </Dialog.Description>
-                  <ul className="m-0 p-0 ls-n fs-sm c-slate-8 d-f fd-c g-2">
+                  <ul className="d-f fd-c g-2 m-0 p-0 c-slate-8 ls-n fs-sm">
                     <li className="d-f ai-c g-2">
-                      <span className="w-2 h-2 br-pill bg-indigo" />
+                      <span className="w-2 h-2 bg-indigo br-pill" />
                       Weekly product highlights
                     </li>
                     <li className="d-f ai-c g-2">
-                      <span className="w-2 h-2 br-pill bg-indigo" />
+                      <span className="w-2 h-2 bg-indigo br-pill" />
                       New feature announcements
                     </li>
                     <li className="d-f ai-c g-2">
-                      <span className="w-2 h-2 br-pill bg-indigo" />
+                      <span className="w-2 h-2 bg-indigo br-pill" />
                       Exclusive early access
                     </li>
                   </ul>
                 </div>
                 <div className="d-f ai-c g-3 px-4 py-3">
-                  <Dialog.Close className="bg-indigo c-white br-2 px-3 py-2 fw-600 bs-o-md bw-1 bc-indigo-7 us-none tp-c tdu-150 ttf-io h:bg-indigo-8 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 c-p b-0">
+                  <Dialog.Close className="b-0 px-3 py-2 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-2 bw-1 fw-600 bs-o-md tp-c tdu-150 ttf-io us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6">
                     Subscribe
                   </Dialog.Close>
-                  <Dialog.Close className="c-slate-10 br-2 px-3 py-2 fw-600 us-none bg-transparent b-0 c-p tp-c tdu-150 ttf-io h:c-slate-12 h:bg-silver-1/55 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6">
+                  <Dialog.Close className="b-0 px-3 py-2 bg-transparent c-slate-10 br-2 fw-600 tp-c tdu-150 ttf-io us-none c-p h:c-slate-12 h:bg-silver-1/55 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6">
                     Maybe later
                   </Dialog.Close>
                 </div>

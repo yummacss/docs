@@ -25,10 +25,10 @@ export default function Palette({
 }: Props) {
   return (
     <div className="d-f fd-c g-1">
-      <div className="d-none lg:d-f fd-c g-1 ai-c md:fd-r md:ai-c">
-        <div className="ws-nw ta-c min-w-fc md:min-w-16 d-f ai-c mr-2" />
+      <div className="d-none fd-c g-1 ai-c md:ai-c lg:d-f md:fd-r">
+        <div className="d-f ai-c min-w-fc mr-2 ws-nw ta-c md:min-w-16" />
         <div
-          className="d-g g-1 my-2 w-full f-1"
+          className="d-g g-1 f-1 my-2 w-full"
           style={{
             gridTemplateColumns: `repeat(${scale.length}, minmax(0, 1fr))`,
           }}
@@ -53,13 +53,13 @@ export default function Palette({
         return (
           <div
             key={colorItem.name}
-            className="d-f fd-c g-1 ai-c md:fd-r md:ai-c"
+            className="d-f fd-c g-1 ai-c md:ai-c md:fd-r"
           >
-            <p className="ws-nw ta-c min-w-fc md:min-w-16 d-f ai-c mr-2 c-white fs-sm">
+            <p className="d-f ai-c min-w-fc mr-2 c-white ws-nw ta-c fs-sm md:min-w-16">
               {colorItem.name}
             </p>
             <div
-              className="d-g g-1 w-full f-1"
+              className="d-g g-1 f-1 w-full"
               style={{
                 gridTemplateColumns: `repeat(${scale.length}, minmax(0, 1fr))`,
               }}
@@ -117,7 +117,7 @@ function ColorSwatch({
   return (
     <Tooltip.Root open={tooltipOpen} onOpenChange={setTooltipOpen}>
       <Tooltip.Trigger
-        className="w-full c-p p-r ar-1/1 br-1"
+        className="p-r w-full ar-1/1 br-1 c-p"
         style={{
           backgroundColor: shade,
           border: getBorderColor(shade),
@@ -131,7 +131,7 @@ function ColorSwatch({
       <Tooltip.Portal>
         <Tooltip.Positioner sideOffset={10}>
           <Tooltip.Popup
-            className="d-f fd-c px-2 py-1 c-white fs-xs br-1"
+            className="d-f fd-c px-2 py-1 c-white br-1 fs-xs"
             style={{
               backgroundColor: "#21243f",
               border: "1px solid #31365e",

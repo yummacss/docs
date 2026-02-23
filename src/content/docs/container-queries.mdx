@@ -8,7 +8,7 @@ export const meta = {
 Container queries allow you to change styles based on the size of a parent container rather than the viewport. They use the `@` prefix.
 
 ```html "@sm:w-full"
-<div class="@sm:w-full ...">
+<div class="... @sm:w-full">
   Responsive based on container size
 </div>
 ```
@@ -28,8 +28,8 @@ Container query breakpoints reference:
 Resize the container below to see how the child element responds.
 
 <Preview>
-  <div className="bg-slate-1 p-4 w-full">
-    <div className="bg-indigo-5 c-white p-4 @sm:bg-red-5 @md:bg-green-5">
+  <div className="p-4 w-full bg-slate-1">
+    <div className="p-4 bg-indigo-5 c-white @sm:bg-red-5 @md:bg-green-5">
       I change color based on my parent container!
     </div>
   </div>

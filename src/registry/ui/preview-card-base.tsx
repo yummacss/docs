@@ -9,7 +9,7 @@ export default function ExamplePreviewCard() {
 
   return (
     <PreviewCard.Root open={open} onOpenChange={setOpen}>
-      <p className="fs-sm c-slate-10 m-0">
+      <p className="m-0 c-slate-10 fs-sm">
         Learn more about{" "}
         <PreviewCard.Trigger
           className={`c-indigo fw-600 td-n h:td-u fv:td-u ${open ? "td-u" : ""}`}
@@ -33,7 +33,7 @@ export default function ExamplePreviewCard() {
                     transition={{ duration: 0.15, ease: "easeOut" }}
                   />
                 }
-                className="d-f fd-c g-2 w-64 p-3 br-2 bg-white bs-o-lg bw-1 bc-silver-2"
+                className="d-f fd-c g-2 w-64 p-3 bg-white bc-silver-2 br-2 bw-1 bs-o-lg"
               >
                 {/* biome-ignore lint: Using img for external URL */}
                 <img
@@ -43,8 +43,8 @@ export default function ExamplePreviewCard() {
                   src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=464&h=280"
                   alt="MacBook with code on screen"
                 />
-                <p className="fs-xs c-slate-8 m-0 lh-4">
-                  <strong className="fw-600 c-slate-10">
+                <p className="m-0 c-slate-8 fs-xs lh-4">
+                  <strong className="c-slate-10 fw-600">
                     Responsive design
                   </strong>{" "}
                   adapts layouts to different screen sizes for optimal viewing.

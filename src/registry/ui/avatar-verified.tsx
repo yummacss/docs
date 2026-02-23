@@ -5,33 +5,33 @@ export default function ExampleAvatar() {
   return (
     <div className="d-f ai-c g-4">
       <div className="p-r">
-        <Avatar.Root className="d-if w-12 h-12 ai-c jc-c br-pill o-h bg-silver-1 us-none va-m">
+        <Avatar.Root className="d-if o-h ai-c jc-c w-12 h-12 bg-silver-1 br-pill va-m us-none">
           <Avatar.Image
             src="https://i.pravatar.cc/64?img=45"
             alt="Emma Wilson"
-            className="w-full h-full of-c"
+            className="of-c w-full h-full"
           />
-          <Avatar.Fallback className="d-f ai-c jc-c w-full h-full fs-md fw-500 c-slate-9">
+          <Avatar.Fallback className="d-f ai-c jc-c w-full h-full c-slate-9 fs-md fw-500">
             EW
           </Avatar.Fallback>
         </Avatar.Root>
-        <span className="p-a b-0 w-5 h-5 r-0 br-pill d-f ai-c jc-c bw-2 bc-white bg-white">
+        <span className="d-f p-a b-0 r-0 ai-c jc-c w-5 h-5 bg-white bc-white br-pill bw-2">
           <SealCheckIcon weight="fill" className="c-indigo" />
         </span>
       </div>
 
       <div className="p-r">
-        <Avatar.Root className="d-if w-12 h-12 ai-c jc-c br-pill o-h bg-silver-1 us-none va-m">
+        <Avatar.Root className="d-if o-h ai-c jc-c w-12 h-12 bg-silver-1 br-pill va-m us-none">
           <Avatar.Image
             src="https://i.pravatar.cc/64?img=18"
             alt="James Brown"
-            className="w-full h-full of-c"
+            className="of-c w-full h-full"
           />
-          <Avatar.Fallback className="d-f ai-c jc-c w-full h-full fs-md fw-500 c-slate-9">
+          <Avatar.Fallback className="d-f ai-c jc-c w-full h-full c-slate-9 fs-md fw-500">
             JB
           </Avatar.Fallback>
         </Avatar.Root>
-        <span className="p-a b-0 w-5 h-5 r-0 br-pill d-f ai-c jc-c bw-2 bc-white bg-white">
+        <span className="d-f p-a b-0 r-0 ai-c jc-c w-5 h-5 bg-white bc-white br-pill bw-2">
           <SealCheckIcon weight="fill" className="c-indigo" />
         </span>
       </div>

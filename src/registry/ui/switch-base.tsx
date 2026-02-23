@@ -28,12 +28,12 @@ export default function ExampleSwitch() {
               }}
             />
           }
-          className="w-5 h-5 br-pill bg-white bs-o-sm"
+          className="w-5 h-5 bg-white br-pill bs-o-sm"
         />
       </Switch.Root>
       <label
         htmlFor="switch-dark-mode"
-        className="fs-sm fw-600 c-slate-10 us-none c-p"
+        className="c-slate-10 fs-sm fw-600 us-none c-p"
       >
         Dark mode
       </label>

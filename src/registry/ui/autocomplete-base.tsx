@@ -10,13 +10,13 @@ export default function ExampleAutocomplete() {
   return (
     <Autocomplete.Root items={languages} open={open} onOpenChange={setOpen}>
       <div className="d-f fd-c g-2">
-        <label htmlFor="autocomplete-input" className="fs-sm fw-600 c-slate-10">
+        <label htmlFor="autocomplete-input" className="c-slate-10 fs-sm fw-600">
           Programming language
         </label>
         <Autocomplete.Input
           id="autocomplete-input"
           placeholder="e.g. TypeScript"
-          className="h-10 w-64 bw-1 bc-silver-3 br-2 bg-white pl-4 fs-sm c-slate-12 fv:os-s fv:ow-2 fv:oo--1 fv:oc-indigo-6"
+          className="h-10 w-64 pl-4 bg-white bc-silver-3 c-slate-12 bw-1 br-2 fs-sm fv:os-s fv:ow-2 fv:oo--1 fv:oc-indigo-6"
         />
       </div>
 
@@ -33,9 +33,9 @@ export default function ExampleAutocomplete() {
                     transition={{ duration: 0.1, ease: "easeOut" }}
                   />
                 }
-                className="w-64 bw-1 bc-silver-2 br-2 bg-white bs-o-lg c-slate-10 o-h py-1"
+                className="o-h w-64 py-1 bg-white bc-silver-2 c-slate-10 bw-1 br-2 bs-o-lg"
               >
-                <Autocomplete.Empty className="py-4 px-4 fs-sm c-slate-6">
+                <Autocomplete.Empty className="py-4 px-4 c-slate-6 fs-sm">
                   No languages found.
                 </Autocomplete.Empty>
                 <Autocomplete.List

@@ -75,11 +75,11 @@ Previous versions required importing large CSS files. Yumma CSS v3.0 introduces 
     </head>
 
     <body>
-      <div class="b-1 bc-silver-2 bg-white rad-2 bs-sm p-4">
-          <h1 class="fw-600 tc-indigo fs-lg">Hello 👋, name's Renildo.</h1>
+      <div class="b-1 bs-sm p-4 bg-white bc-silver-2 rad-2">
+          <h1 class="fw-600 fs-lg tc-indigo">Hello 👋, name's Renildo.</h1>
           <p class="tc-gray-7">I'm the Founder of Yumma CSS!</p>
 
-          <button class="bg-indigo fs-sm h:bg-indigo-7 mt-6 px-4 py-1 tc-white">GitHub</button>
+          <button class="mt-6 px-4 py-1 bg-indigo h:bg-indigo-7 fs-sm tc-white">GitHub</button>
       </div>
     </body>
 
@@ -797,7 +797,7 @@ We're renaming several utilities to align with our default naming convention.
 
 ```html del={1} ins={2}
 <div class="ins ..."></div>
-<div class="ai-c d-f jc-c ..."></div>
+<div class="d-f ai-c jc-c ..."></div>
 ```
 
 ### Removed Spacing X Utilities
@@ -806,17 +806,17 @@ Row Gap utilities can replace **Spacing X** in most cases, especially when combi
 
 <Preview>
   <div className="d-if fd-r cg-8 tc-white" id="area">
-    <div className="ai-c bg-indigo d-f d-16 jc-c"></div>
-    <div className="ai-c bg-indigo d-f d-16 jc-c"></div>
-    <div className="ai-c bg-indigo d-f d-16 jc-c"></div>
+    <div className="d-f d-16 ai-c jc-c bg-indigo"></div>
+    <div className="d-f d-16 ai-c jc-c bg-indigo"></div>
+    <div className="d-f d-16 ai-c jc-c bg-indigo"></div>
   </div>
 </Preview>
 
 ```html "cg-8"
 <div class="d-if fd-r cg-8 tc-white" id="area">
-  <div class="ai-c bg-indigo d-f d-16 jc-c"></div>
-  <div class="ai-c bg-indigo d-f d-16 jc-c"></div>
-  <div class="ai-c bg-indigo d-f d-16 jc-c"></div>
+  <div class="d-f d-16 ai-c jc-c bg-indigo"></div>
+  <div class="d-f d-16 ai-c jc-c bg-indigo"></div>
+  <div class="d-f d-16 ai-c jc-c bg-indigo"></div>
 </div>
 ```
 
@@ -826,17 +826,17 @@ The same applies to **Column Gap** utilities.
 
 <Preview>
   <div className="d-if fd-c rg-8" id="area">
-    <div className="ai-c bg-indigo d-f d-16 jc-c"></div>
-    <div className="ai-c bg-indigo d-f d-16 jc-c"></div>
-    <div className="ai-c bg-indigo d-f d-16 jc-c"></div>
+    <div className="d-f d-16 ai-c jc-c bg-indigo"></div>
+    <div className="d-f d-16 ai-c jc-c bg-indigo"></div>
+    <div className="d-f d-16 ai-c jc-c bg-indigo"></div>
   </div>
 </Preview>
 
 ```html "rg-8"
 <div class="d-if fd-c rg-8" id="area">
-  <div class="ai-c bg-indigo d-f d-16 jc-c"></div>
-  <div class="ai-c bg-indigo d-f d-16 jc-c"></div>
-  <div class="ai-c bg-indigo d-f d-16 jc-c"></div>
+  <div class="d-f d-16 ai-c jc-c bg-indigo"></div>
+  <div class="d-f d-16 ai-c jc-c bg-indigo"></div>
+  <div class="d-f d-16 ai-c jc-c bg-indigo"></div>
 </div>
 ```
 
