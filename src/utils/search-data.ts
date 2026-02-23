@@ -36,13 +36,6 @@ function extractDocsItems(): SearchItem[] {
     extract(section.items);
   }
 
-  // Add core-module (not in sidebar configuration but exists as a page)
-  items.push({
-    title: "Core Module",
-    path: "/docs/core-module",
-    category: "docs",
-  });
-
   return items;
 }
 

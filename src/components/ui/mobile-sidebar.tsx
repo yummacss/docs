@@ -13,7 +13,6 @@ import type {
   UISidebarConfigSimpleItem,
 } from "@/utils/ui-sidebar";
 import { uiSidebarConfig } from "@/utils/ui-sidebar";
-import SidebarLinks from "./sidebar-links";
 
 function hasChildren(item: SidebarConfigItem | UISidebarConfigItem): item is (
   | SidebarConfigItem
@@ -82,8 +81,6 @@ export default function MobileSidebar({ isOpen, onClose, routeType }: Props) {
             <div className="o-y-auto f-1 pb-8 pt-6">
               <div className="mx-auto px-6 sm-xxl">
                 <div className="d-f fd-c g-8">
-                  <SidebarLinks onLinkClick={onClose} />
-
                   {config.map((section) => (
                     <div key={section.title} className="d-f fd-c g-4">
                       <h3 className="c-white fs-md fw-400 tt-c ls-5">

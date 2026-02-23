@@ -59,9 +59,6 @@ export function getDocsNavigation(slug: string): {
     allPages.push(...flattenSidebarItems(section.items));
   }
 
-  // Add core-module manually
-  allPages.push({ slug: "core-module", title: "Core Module" });
-
   const currentIndex = allPages.findIndex((page) => page.slug === slug);
 
   if (currentIndex === -1) {

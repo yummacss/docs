@@ -118,6 +118,14 @@ export default function Navbar({
                   >
                     Templates
                   </Link>
+                  <Link
+                    href="https://play.yummacss.com"
+                    className="c-white/80 fs-sm h:c-white fv:oc-white fv:ow-2"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Playground
+                  </Link>
                 </div>
               )}
 
