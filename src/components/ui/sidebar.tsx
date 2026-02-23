@@ -7,7 +7,6 @@ import type {
   SidebarConfigSimpleItem,
 } from "@/utils/sidebar";
 import { sidebarConfig } from "@/utils/sidebar";
-import SidebarLinks from "./sidebar-links";
 
 function hasChildren(
   item: SidebarConfigItem,
@@ -32,8 +31,6 @@ export default function Sidebar() {
           maxHeight: "calc(100vh - 3rem)",
         }}
       >
-        <SidebarLinks />
-
         {sidebarConfig.map((section) => (
           <div key={section.title} className="d-f fd-c g-4">
             <h3 className="c-white fs-md fw-400 tt-c ls-5">{section.title}</h3>

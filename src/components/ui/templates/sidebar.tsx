@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import SidebarLinks from "@/components/ui/sidebar-links";
 import { templates } from "@/utils/templates";
 
 export default function TemplatesSidebar() {
@@ -16,8 +15,6 @@ export default function TemplatesSidebar() {
           maxHeight: "calc(100vh - 3rem)",
         }}
       >
-        <SidebarLinks />
-
         <div className="d-f fd-c g-4">
           <h3 className="c-white fs-md fw-400 tt-c ls-5">Templates</h3>
           <ul className="d-f fd-c g-2">

@@ -7,7 +7,6 @@ import type {
   UISidebarConfigSimpleItem,
 } from "@/utils/ui-sidebar";
 import { uiSidebarConfig } from "@/utils/ui-sidebar";
-import SidebarLinks from "./sidebar-links";
 
 function hasChildren(
   item: UISidebarConfigItem,
@@ -46,8 +45,6 @@ export default function UISidebar() {
           maxHeight: "calc(100vh - 3rem)",
         }}
       >
-        <SidebarLinks />
-
         {filteredConfig.map((section) => (
           <div key={section.title} className="d-f fd-c g-4">
             <h3 className="c-white fs-md fw-400 tt-c ls-5">{section.title}</h3>

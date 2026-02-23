@@ -1,109 +1,3 @@
-export interface SidebarConfigItemBase {
-  title: string;
-  slug?: string;
-}
-
-export interface SidebarConfigItemWithChildren extends SidebarConfigItemBase {
-  children: SidebarConfigSimpleItem[];
-}
-
-export interface SidebarConfigSimpleItem extends SidebarConfigItemBase {}
-
-export type SidebarConfigItem =
-  | SidebarConfigSimpleItem
-  | SidebarConfigItemWithChildren
-  | SidebarConfigItemWithItems;
-
-export interface SidebarConfigItemWithItems extends SidebarConfigItemBase {
-  items: SidebarConfigItem[];
-}
-
-export interface SidebarConfigSection {
-  title: string;
-  items: SidebarConfigItem[];
-}
-
-export type SidebarConfig = SidebarConfigSection[];
-
-// extract all slugs from the sidebar config
-export function getAllSlugs(): string[] {
-  const slugs: string[] = [];
-
-  function extractSlugs(items: SidebarConfigItem[]) {
-    for (const item of items) {
-      if (item.slug) {
-        slugs.push(item.slug);
-      }
-      if ("children" in item && Array.isArray(item.children)) {
-        extractSlugs(item.children);
-      }
-      if ("items" in item && Array.isArray(item.items)) {
-        extractSlugs(item.items);
-      }
-    }
-  }
-
-  for (const section of sidebarConfig) {
-    extractSlugs(section.items);
-  }
-
-  // we need to add core-module manually since it's not in the sidebar config
-  slugs.push("core-module");
-
-  return slugs;
-}
-
-// find the current page info from pathname
-export function findCurrentPageInfo(pathname: string): {
-  sectionTitle: string;
-  pageTitle: string;
-} | null {
-  // remove /docs/ prefix and get the slug
-  const slug = pathname.replace(/^\/docs\//, "");
-
-  // special case for core-module (not in sidebar config)
-  if (slug === "core-module") {
-    return { sectionTitle: "Installation", pageTitle: "Core Module" };
-  }
-
-  function searchInItems(
-    items: SidebarConfigItem[],
-    sectionTitle: string,
-  ): { sectionTitle: string; pageTitle: string } | null {
-    for (const item of items) {
-      // check if this item has the slug
-      if (item.slug === slug) {
-        return { sectionTitle, pageTitle: item.title };
-      }
-
-      // check in children
-      if ("children" in item && Array.isArray(item.children)) {
-        for (const child of item.children) {
-          if (child.slug === slug) {
-            return { sectionTitle, pageTitle: child.title };
-          }
-        }
-      }
-
-      // check in items recursively
-      if ("items" in item && Array.isArray(item.items)) {
-        const result = searchInItems(item.items, sectionTitle);
-        if (result) return result;
-      }
-    }
-
-    return null;
-  }
-
-  // search through all sections
-  for (const section of sidebarConfig) {
-    const result = searchInItems(section.items, section.title);
-    if (result) return result;
-  }
-
-  return null;
-}
-
 export const sidebarConfig: SidebarConfig = [
   {
     title: "Getting Started",
@@ -111,6 +5,7 @@ export const sidebarConfig: SidebarConfig = [
       { title: "Installation", slug: "installation" },
       { title: "Configuration", slug: "configuration" },
       { title: "Editor Support", slug: "editor-support" },
+      { title: "Core Integration", slug: "integration" },
       { title: "Upgrading", slug: "upgrading" },
     ],
   },
@@ -382,3 +277,101 @@ export const sidebarConfig: SidebarConfig = [
     ],
   },
 ];
+
+export interface SidebarConfigItemBase {
+  title: string;
+  slug?: string;
+}
+
+export interface SidebarConfigItemWithChildren extends SidebarConfigItemBase {
+  children: SidebarConfigSimpleItem[];
+}
+
+export interface SidebarConfigSimpleItem extends SidebarConfigItemBase {}
+
+export type SidebarConfigItem =
+  | SidebarConfigSimpleItem
+  | SidebarConfigItemWithChildren
+  | SidebarConfigItemWithItems;
+
+export interface SidebarConfigItemWithItems extends SidebarConfigItemBase {
+  items: SidebarConfigItem[];
+}
+
+export interface SidebarConfigSection {
+  title: string;
+  items: SidebarConfigItem[];
+}
+
+export type SidebarConfig = SidebarConfigSection[];
+
+// extract all slugs from the sidebar config
+export function getAllSlugs(): string[] {
+  const slugs: string[] = [];
+
+  function extractSlugs(items: SidebarConfigItem[]) {
+    for (const item of items) {
+      if (item.slug) {
+        slugs.push(item.slug);
+      }
+      if ("children" in item && Array.isArray(item.children)) {
+        extractSlugs(item.children);
+      }
+      if ("items" in item && Array.isArray(item.items)) {
+        extractSlugs(item.items);
+      }
+    }
+  }
+
+  for (const section of sidebarConfig) {
+    extractSlugs(section.items);
+  }
+
+  return slugs;
+}
+
+// find the current page info from pathname
+export function findCurrentPageInfo(pathname: string): {
+  sectionTitle: string;
+  pageTitle: string;
+} | null {
+  // remove /docs/ prefix and get the slug
+  const slug = pathname.replace(/^\/docs\//, "");
+
+  function searchInItems(
+    items: SidebarConfigItem[],
+    sectionTitle: string,
+  ): { sectionTitle: string; pageTitle: string } | null {
+    for (const item of items) {
+      // check if this item has the slug
+      if (item.slug === slug) {
+        return { sectionTitle, pageTitle: item.title };
+      }
+
+      // check in children
+      if ("children" in item && Array.isArray(item.children)) {
+        for (const child of item.children) {
+          if (child.slug === slug) {
+            return { sectionTitle, pageTitle: child.title };
+          }
+        }
+      }
+
+      // check in items recursively
+      if ("items" in item && Array.isArray(item.items)) {
+        const result = searchInItems(item.items, sectionTitle);
+        if (result) return result;
+      }
+    }
+
+    return null;
+  }
+
+  // search through all sections
+  for (const section of sidebarConfig) {
+    const result = searchInItems(section.items, section.title);
+    if (result) return result;
+  }
+
+  return null;
+}

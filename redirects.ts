@@ -45,13 +45,16 @@ export const redirects = [
     destination: "/docs/styling-elements",
     permanent: true,
   },
-  ...["/docs/api-reference", "/docs/core-package", "/docs/core-library"].map(
-    (source) => ({
-      source,
-      destination: "/docs/core-module",
-      permanent: true,
-    }),
-  ),
+  ...[
+    "/docs/api-reference",
+    "/docs/core-package",
+    "/docs/core-library",
+    "/docs/core-module",
+  ].map((source) => ({
+    source,
+    destination: "/docs/integration",
+    permanent: true,
+  })),
   {
     source: "/docs/top-right-bottom-left",
     destination: "/docs/top",
