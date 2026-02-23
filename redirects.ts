@@ -52,9 +52,10 @@ export const redirects = [
     "/docs/core-module",
     "/docs/core-integration",
     "/docs/integration",
+    "/docs/core-api",
   ].map((source) => ({
     source,
-    destination: "/docs/core-api",
+    destination: "/docs/functions-types",
     permanent: true,
   })),
   {
