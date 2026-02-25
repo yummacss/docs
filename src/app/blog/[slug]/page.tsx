@@ -64,7 +64,7 @@ export default async function BlogPostPage({
               <span>{formatDate(meta?.date || "")}</span>
             </div>
 
-            <h1 className="mb-6 c-white fs-4xl fw-400 lg:fs-5xl">
+            <h1 className="mb-2 c-white fs-4xl fw-400 lg:fs-5xl">
               {meta?.title}
             </h1>
 
