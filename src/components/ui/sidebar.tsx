@@ -34,7 +34,7 @@ export default function Sidebar() {
         {sidebarConfig.map((section) => (
           <div key={section.title} className="d-f fd-c g-4">
             <h3 className="c-white fs-md fw-400 tt-c ls-5">{section.title}</h3>
-            <ul className="d-f fd-c g-2">
+            <ul className="d-f fd-c g-2 ml-4">
               {section.items.map((item) => {
                 // item with children (nested structure)
                 if (hasChildren(item)) {
