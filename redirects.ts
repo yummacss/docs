@@ -63,7 +63,6 @@ export const redirects = [
     destination: "/docs/top",
     permanent: true,
   },
-
   // Framework guides
   ...[
     "react",
@@ -81,6 +80,11 @@ export const redirects = [
     destination: "/docs/installation",
     permanent: true,
   })),
+  {
+    source: "/blog/editor-support",
+    destination: "/blog/intellisense",
+    permanent: true,
+  },
   // Blog redirects
   {
     source: "/blog/v0",
@@ -88,8 +92,18 @@ export const redirects = [
     permanent: true,
   },
   {
+    source: "/blog/yummacss-1.0",
+    destination: "/blog/yummacss-1.0.0",
+    permanent: true,
+  },
+  {
     source: "/blog/v1",
     destination: "/blog/yummacss-1.2.0",
+    permanent: true,
+  },
+  {
+    source: "/blog/yummacss-2.0",
+    destination: "/blog/yummacss-2.0.0",
     permanent: true,
   },
   {
@@ -99,6 +113,11 @@ export const redirects = [
   },
   {
     source: "/blog/v3",
+    destination: "/blog/yummacss-3.0.0",
+    permanent: true,
+  },
+  {
+    source: "/blog/yummacss-3.0",
     destination: "/blog/yummacss-3.0.0",
     permanent: true,
   },
