@@ -3,7 +3,6 @@ import {
   LightningIcon,
   SealCheckIcon,
   SparkleIcon,
-  StarIcon,
 } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
 import DarkVeil from "@/components/dark-veil";
@@ -30,14 +29,11 @@ export default function Home() {
             <div>
               <Link
                 href="https://github.com/yummacss/yummacss"
-                className="c-white"
+                className="d-if ai-c g-2 px-4 py-2 mb-8 bc-white/10 bg-white/5 c-white bw-1 br-pill bf-b-md fv:oc-white fv:ow-2"
               >
-                <div className="d-if ai-c g-2 px-4 py-2 mb-8 bc-white/10 bg-white/5 bw-1 br-pill bf-b-md">
-                  <span className="w-3 h-3 br-pill">
-                    <StarIcon className="w-3 h-3" weight="fill" />
-                  </span>
-                  <span className="fs-xs fw-500 ls-4">Star us on GitHub</span>
-                </div>
+                <span className="fs-xs fw-500 ls-4">
+                  When Yumma CSS might not be for you?
+                </span>
               </Link>
 
               <h1 className="mb-6 fs-5xl fw-400 lh-2 ff-e md:fs-6xl">
@@ -57,7 +53,7 @@ export default function Home() {
                 </Link>
                 <Link
                   href="/ui"
-                  className="d-f ai-c g-2 px-6 py-3 c-white fw-600 fs-md us-none"
+                  className="d-f ai-c g-2 px-6 py-3 c-white br-pill fw-600 fs-md us-none fv:oc-white fv:ow-2"
                 >
                   <SparkleIcon size={20} weight="duotone" />
                   Yumma UI
