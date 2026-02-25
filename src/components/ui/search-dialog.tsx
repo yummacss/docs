@@ -7,6 +7,7 @@ import {
   ArrowElbowDownLeftIcon,
   ArrowRightIcon,
   ArrowUpIcon,
+  FileTextIcon,
   MagnifyingGlassIcon,
   StackSimpleIcon,
   XIcon,
@@ -117,6 +118,9 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
   const getCategoryIcon = (category: string) => {
     if (category === "docs") {
       return <ArrowRightIcon size={14} className="c-white/50" />;
+    }
+    if (category === "foundations") {
+      return <FileTextIcon size={14} className="c-white/50" />;
     }
     return <StackSimpleIcon size={14} className="c-white/50" />;
   };
