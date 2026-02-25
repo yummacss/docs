@@ -6,15 +6,15 @@ import { usePathname } from "next/navigation";
 
 export default function EditPage() {
   const pathname = usePathname();
-  const url = `https://github.com/yummacss/yummacss-docs/blob/release/src/content${pathname.replace(/\/$/, "")}.mdx`;
+  const url = `https://github.com/yummacss/docs/blob/release/src/content${pathname.replace(/\/$/, "")}.mdx`;
 
   return (
     <Link
       href={url}
-      className="d-if c-white/70 ai-c g-2 fs-sm td-none h:c-white fv:oc-white fv:ow-2"
+      className="d-if c-white/70 ai-c g-2 w-fc fs-sm td-none h:c-white fv:oc-white fv:ow-2"
     >
       <PencilSimpleIcon size={16} weight="duotone" />
-      <span>Edit this page</span>
+      Edit this page
     </Link>
   );
 }
