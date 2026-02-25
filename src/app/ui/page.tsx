@@ -33,15 +33,16 @@ export default function UIPage() {
         <div className="w-full" style={{ maxWidth: "72rem" }}>
           <div className="d-g g-12 ai-fe lg:gtc-2">
             <div>
-              <Link href="/ui/templates/neutra" className="c-white">
-                <div className="d-if ai-c g-2 px-4 py-2 mb-8 bc-white/10 bg-white/5 bw-1 br-pill bf-b-md">
-                  <span className="w-3 h-3 br-pill">
-                    <SparkleIcon className="w-3 h-3" weight="fill" />
-                  </span>
-                  <span className="fs-xs fw-500 ls-4">
-                    Neutra: Design Agency template
-                  </span>
-                </div>
+              <Link
+                href="/ui/templates/neutra"
+                className="d-if ai-c g-2 px-4 py-2 mb-8 bc-white/10 bg-white/5 c-white bw-1 br-pill bf-b-md fv:oc-white fv:ow-2"
+              >
+                <span className="w-3 h-3 br-pill">
+                  <SparkleIcon className="w-3 h-3" weight="fill" />
+                </span>
+                <span className="fs-xs fw-500 ls-4">
+                  Neutra: Design Agency template
+                </span>
               </Link>
               <h1 className="mb-6 fs-5xl fw-400 lh-2 ff-e md:fs-6xl">
                 Ship more, build even less
@@ -60,7 +61,7 @@ export default function UIPage() {
                 </Link>
                 <Link
                   href="/ui/templates"
-                  className="d-f ai-c g-2 px-6 py-3 c-white fw-600 fs-md us-none"
+                  className="d-f ai-c g-2 px-6 py-3 c-white br-pill fw-600 fs-md us-none fv:oc-white fv:ow-2"
                 >
                   <MagnifyingGlassIcon size={20} />
                   Browse templates
