@@ -21,8 +21,7 @@ pnpx yummacss init
 
 This creates a `yumma.config.mjs` file at your project root.
 
-```js title="yumma.config.mjs"
-/** @type {import('@yummacss/nitro').Config} */
+```mjs title="yumma.config.mjs"
 export default {
   source: [""],
   output: "",
@@ -33,14 +32,25 @@ export default {
 };
 ```
 
+### IntelliSense
+
+To enable IntelliSense and type checking, add the following JSDoc comment at the top of your configuration file.
+
+```mjs title="yumma.config.mjs" mark={1}
+/** @type {import('@yummacss/nitro').Config} */
+export default {
+  source: [""],
+  output: "",
+};
+```
+
 ### Source
 
 A collection of paths for your template files (e.g., `.js`, `.tsx`, `.html`). The CLI scans these files for utilities to include in the final CSS file.
 
 <Hint icon="info">Use glob patterns to include subfolders & specific file types.</Hint>
 
-```js title="yumma.config.mjs" mark={2}
-/** @type {import('@yummacss/nitro').Config} */
+```mjs title="yumma.config.mjs" mark={2}
 export default {
   source: ["./src/**/*.html"],
 };
@@ -50,8 +60,7 @@ export default {
 
 Specifies the output path for the compiled CSS file.
 
-```js title="yumma.config.mjs" mark={2}
-/** @type {import('@yummacss/nitro').Config} */
+```mjs title="yumma.config.mjs" mark={2}
 export default {
   output: "./src/styles.css",
 };
@@ -61,8 +70,7 @@ export default {
 
 Determines whether to include [base styles](/docs/base-styles).
 
-```js title="yumma.config.mjs" mark={3}
-/** @type {import('@yummacss/nitro').Config} */
+```mjs title="yumma.config.mjs" mark={3}
 export default {
   buildOptions: {
     reset: true, // default: true
@@ -74,8 +82,7 @@ export default {
 
 Determines whether to minify compiled CSS files. Enable this for production builds to reduce file size.
 
-```js title="yumma.config.mjs" mark={3}
-/** @type {import('@yummacss/nitro').Config} */
+```mjs title="yumma.config.mjs" mark={3}
 export default {
   buildOptions: {
     minify: true, // default: false

@@ -58,51 +58,6 @@ body {
   max-width: clamp(40rem, 80vw, 96rem);
 }
 
-@media (hover: hover) {
-  .t\:c-white:is(:where(.team):hover *) {
-    color: white;
-  }
-}
-
-.rainbow {
-  --start: #d4418a;
-  --mid: #7d53dd;
-  --end: #595cd9;
-  --via: #12a695;
-  mask-image:
-    linear-gradient(#fff, #0000), radial-gradient(circle at 50% 0, #fff, #0000);
-  mask-composite: intersect;
-  mix-blend-mode: difference;
-  background-image: repeating-linear-gradient(
-    60deg,
-    var(--end),
-    var(--start) 2%,
-    var(--start) 5%,
-    #0000 8%,
-    #0000 14%,
-    var(--via) 18%,
-    var(--via) 22%,
-    var(--mid) 28%,
-    var(--mid) 30%,
-    var(--via) 34%,
-    var(--via) 36%,
-    #0000,
-    var(--end) calc(50% - 12px)
-  );
-  background-size: 200% 100%;
-  animation: rainbow 16s linear infinite reverse;
-}
-
-@keyframes rainbow {
-  0% {
-    background-position: 0 0;
-  }
-
-  100% {
-    background-position: 100% 0;
-  }
-}
-
 #area {
   background-color: #fff;
   background-size: 10px 10px;
