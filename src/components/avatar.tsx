@@ -28,8 +28,8 @@ export function Avatar({ src, alt, fallback, className = "", style }: Props) {
         ...style,
       }}
     >
-      <BaseAvatar.Image src={src} alt={alt} className="of-c h-full w-full" />
-      <BaseAvatar.Fallback className="d-f jc-c ai-c h-full w-full fs-md">
+      <BaseAvatar.Image src={src} alt={alt} className="of-c w-full h-full" />
+      <BaseAvatar.Fallback className="d-f jc-c ai-c w-full h-full fs-md">
         {initials}
       </BaseAvatar.Fallback>
     </BaseAvatar.Root>
