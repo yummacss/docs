@@ -1,0 +1,34 @@
+export const meta = {
+  title: "Min Height",
+  description: "Set the minimum height of an element.",
+};
+
+<Baseline path="css.properties.min-height" />
+
+<Reference category="boxModel" name="min-height" />
+
+## Usage
+
+<Hint icon="arrows_vertical">Try changing the vertical size of the box.</Hint>
+
+<Preview>
+    <div className="d-f o-auto ai-c jc-c max-h-64 min-h-16 p-3 h-32 bg-indigo c-white r-v">32</div>
+</Preview>
+
+```html "min-h-16"
+<div class="d-f o-auto ai-c jc-c max-h-64 min-h-16 p-3 h-32 bg-indigo c-white r-v">32</div>
+```
+
+### Responsiveness
+
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
+
+Target viewport sizes with breakpoint prefixes.
+
+<ResponsiveVariant prefix="min-h" />
+
+### Hover State
+
+Apply styles conditionally on hover using the `h:` prefix.
+
+<HoverVariant prefix="min-h" />

@@ -1,26 +1,25 @@
 export const meta = {
-  title: "Margin",
-  description: "Set the margin for an element.",
+  title: "Margin Top",
+  description: "Control an element's top margin.",
 };
 
-<Baseline path="css.properties.margin" />
+<Baseline path="css.properties.margin-top" />
+
+<Reference category="boxModel" name="margin-top" />
 
 ## Usage
 
-<Reference category="boxModel" name="margin" />
-
 <Preview>
   <div className="d-f fd-r" id="area">
-    <div className="d-f ai-c jc-c w-16 h-16 m-8 bg-indigo c-white">8</div>
+    <div className="d-f t-8 ai-c jc-c w-16 h-16 mt-8 bg-indigo c-white">8</div>
   </div>
 </Preview>
 
-```html "m-8"
+```html "mt-8"
 <div class="d-f fd-r">
-  <div class="d-f ai-c jc-c w-16 h-16 m-8 bg-indigo c-white">8</div>
+  <div class="d-f t-8 ai-c jc-c w-16 h-16 mt-8 bg-indigo c-white">8</div>
 </div>
 ```
-
 
 ### Responsiveness
 
@@ -28,16 +27,16 @@ Use breakpoint prefixes to target different screen sizes. Styles apply from the 
 
 Target viewport sizes with breakpoint prefixes.
 
-<ResponsiveVariant prefix="m" />
+<ResponsiveVariant prefix="mt" />
 
 ### Hover State
 
 Apply styles conditionally on hover using the `h:` prefix.
 
-<HoverVariant prefix="m" />
+<HoverVariant prefix="mt" />
 
 ### Negative Values
 
 Use negative variants to apply negative margins.
 
-<NegativeValues prefix="m" />
+<NegativeValues prefix="mt" />

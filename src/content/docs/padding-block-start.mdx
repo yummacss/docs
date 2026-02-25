@@ -1,0 +1,40 @@
+export const meta = {
+  title: "Padding Block Start",
+  description: "Control an element's logical block start padding.",
+};
+
+<Baseline path="css.properties.padding-block-start" />
+
+<Reference category="boxModel" name="padding-block-start" />
+
+## Usage
+
+<Preview>
+  <div id="area">
+    <div className="p-8">
+      <p className="pbs-6 bg-indigo c-white">6</p>
+    </div>
+  </div>
+</Preview>
+
+```html "pbs-6"
+<div>
+  <div class="p-8">
+    <p class="pbs-6 bg-indigo c-white">6</p>
+  </div>
+</div>
+```
+
+### Responsiveness
+
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
+
+Target viewport sizes with breakpoint prefixes.
+
+<ResponsiveVariant prefix="pbs" />
+
+### Hover State
+
+Apply styles conditionally on hover using the `h:` prefix.
+
+<HoverVariant prefix="pbs" />

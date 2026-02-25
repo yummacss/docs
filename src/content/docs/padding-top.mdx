@@ -1,0 +1,40 @@
+export const meta = {
+  title: "Padding Top",
+  description: "Control an element's top padding.",
+};
+
+<Baseline path="css.properties.padding-top" />
+
+<Reference category="boxModel" name="padding-top" />
+
+## Usage
+
+<Preview>
+  <div id="area">
+    <div className="p-8">
+      <p className="pt-6 bg-indigo c-white">6</p>
+    </div>
+  </div>
+</Preview>
+
+```html "pt-6"
+<div>
+  <div class="p-8">
+    <p class="pt-6 bg-indigo c-white">6</p>
+  </div>
+</div>
+```
+
+### Responsiveness
+
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
+
+Target viewport sizes with breakpoint prefixes.
+
+<ResponsiveVariant prefix="pt" />
+
+### Hover State
+
+Apply styles conditionally on hover using the `h:` prefix.
+
+<HoverVariant prefix="pt" />

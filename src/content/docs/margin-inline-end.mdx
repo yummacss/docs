@@ -1,0 +1,42 @@
+export const meta = {
+  title: "Margin Inline End",
+  description: "Control an element's logical inline end margin.",
+};
+
+<Baseline path="css.properties.margin-inline-end" />
+
+<Reference category="boxModel" name="margin-inline-end" />
+
+## Usage
+
+<Preview>
+  <div id="area">
+    <div className="d-f ai-c jc-c w-16 h-16 mie-8 bg-indigo c-white">8</div>
+  </div>
+</Preview>
+
+```html "mie-8"
+<div>
+  <div class="d-f ai-c jc-c w-16 h-16 mie-8 bg-indigo c-white">8</div>
+</div>
+```
+
+### Responsiveness
+
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
+
+Target viewport sizes with breakpoint prefixes.
+
+<ResponsiveVariant prefix="mie" />
+
+### Hover State
+
+Apply styles conditionally on hover using the `h:` prefix.
+
+<HoverVariant prefix="mie" />
+
+### Negative Values
+
+Use negative variants to apply negative margins.
+
+<NegativeValues prefix="mie" />

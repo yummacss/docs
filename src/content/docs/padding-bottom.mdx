@@ -1,0 +1,40 @@
+export const meta = {
+  title: "Padding Bottom",
+  description: "Control an element's bottom padding.",
+};
+
+<Baseline path="css.properties.padding-bottom" />
+
+<Reference category="boxModel" name="padding-bottom" />
+
+## Usage
+
+<Preview>
+  <div id="area">
+    <div className="p-8">
+      <p className="pb-6 bg-indigo c-white">6</p>
+    </div>
+  </div>
+</Preview>
+
+```html "pb-6"
+<div>
+  <div class="p-8">
+    <p class="pb-6 bg-indigo c-white">6</p>
+  </div>
+</div>
+```
+
+### Responsiveness
+
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
+
+Target viewport sizes with breakpoint prefixes.
+
+<ResponsiveVariant prefix="pb" />
+
+### Hover State
+
+Apply styles conditionally on hover using the `h:` prefix.
+
+<HoverVariant prefix="pb" />

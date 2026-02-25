@@ -1,0 +1,42 @@
+export const meta = {
+  title: "Margin Left",
+  description: "Control an element's left margin.",
+};
+
+<Baseline path="css.properties.margin-left" />
+
+<Reference category="boxModel" name="margin-left" />
+
+## Usage
+
+<Preview>
+  <div id="area">
+    <div className="d-f ai-c jc-c w-16 h-16 ml-8 bg-indigo c-white">8</div>
+  </div>
+</Preview>
+
+```html "ml-8"
+<div>
+  <div class="d-f ai-c jc-c w-16 h-16 ml-8 bg-indigo c-white">8</div>
+</div>
+```
+
+### Responsiveness
+
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
+
+Target viewport sizes with breakpoint prefixes.
+
+<ResponsiveVariant prefix="ml" />
+
+### Hover State
+
+Apply styles conditionally on hover using the `h:` prefix.
+
+<HoverVariant prefix="ml" />
+
+### Negative Values
+
+Use negative variants to apply negative margins.
+
+<NegativeValues prefix="ml" />
