@@ -6,7 +6,14 @@ export interface SearchItem {
   title: string;
   description?: string;
   path: string;
-  category: "docs" | "components" | "blocks" | "templates" | "colors";
+  category:
+    | "docs"
+    | "foundations"
+    | "colors"
+    | "ui"
+    | "components"
+    | "blocks"
+    | "templates";
   color?: string;
 }
 
@@ -134,21 +141,37 @@ export const SEARCH_DATA: SearchItem[] = [
 
 // Default items to show when search is empty
 export const DEFAULT_ITEMS: SearchItem[] = [
-  { title: "Documentation", path: "/docs", category: "docs" },
-  { title: "Components", path: "/ui/components", category: "components" },
-  { title: "Templates", path: "/ui/templates", category: "templates" },
   { title: "Installation", path: "/docs/installation", category: "docs" },
   { title: "Configuration", path: "/docs/configuration", category: "docs" },
+  { title: "Colors", path: "/docs/colors", category: "docs" },
+  { title: "Components", path: "/ui/components", category: "ui" },
+  { title: "Templates", path: "/ui/templates", category: "ui" },
   { title: "Upgrading", path: "/docs/upgrading", category: "docs" },
   {
-    title: "Styling Elements",
-    path: "/docs/styling-elements",
-    category: "docs",
+    title: "Media Queries",
+    path: "/docs/media-queries",
+    category: "foundations",
   },
-  { title: "Colors", path: "/docs/colors", category: "docs" },
-  { title: "Media Queries", path: "/docs/media-queries", category: "docs" },
-  { title: "Pseudo Classes", path: "/docs/pseudo-classes", category: "docs" },
-  { title: "Base Styles", path: "/docs/base-styles", category: "docs" },
+  {
+    title: "Pseudo Classes",
+    path: "/docs/pseudo-classes",
+    category: "foundations",
+  },
+  {
+    title: "Pseudo Elements",
+    path: "/docs/pseudo-elements",
+    category: "foundations",
+  },
+  {
+    title: "Container Queries",
+    path: "/docs/container-queries",
+    category: "foundations",
+  },
+  {
+    title: "Negative Values",
+    path: "/docs/negative-values",
+    category: "foundations",
+  },
 ];
 
 // Helper to filter search results (prioritizes items starting with query)
@@ -205,8 +228,10 @@ export function groupByCategory(
 // Category labels for display
 export const CATEGORY_LABELS: Record<string, string> = {
   docs: "Docs",
+  foundations: "Foundations",
+  colors: "Colors",
+  ui: "Yumma UI",
   components: "Components",
   blocks: "Blocks",
   templates: "Templates",
-  colors: "Colors",
 };
