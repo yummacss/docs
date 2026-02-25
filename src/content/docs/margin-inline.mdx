@@ -1,0 +1,42 @@
+export const meta = {
+  title: "Margin Inline",
+  description: "Control an element's horizontal margin.",
+};
+
+<Baseline path="css.properties.margin-inline" />
+
+<Reference category="boxModel" name="margin-inline" />
+
+## Usage
+
+<Preview>
+  <div id="area">
+    <div className="d-f ai-c jc-c w-16 h-16 mx-8 bg-indigo c-white">8</div>
+  </div>
+</Preview>
+
+```html "mx-8"
+<div>
+  <div class="d-f ai-c jc-c w-16 h-16 mx-8 bg-indigo c-white">8</div>
+</div>
+```
+
+### Responsiveness
+
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
+
+Target viewport sizes with breakpoint prefixes.
+
+<ResponsiveVariant prefix="mx" />
+
+### Hover State
+
+Apply styles conditionally on hover using the `h:` prefix.
+
+<HoverVariant prefix="mx" />
+
+### Negative Values
+
+Use negative variants to apply negative margins.
+
+<NegativeValues prefix="mx" />

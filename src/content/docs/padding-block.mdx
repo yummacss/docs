@@ -1,0 +1,40 @@
+export const meta = {
+  title: "Padding Block",
+  description: "Control an element's vertical padding.",
+};
+
+<Baseline path="css.properties.padding-block" />
+
+<Reference category="boxModel" name="padding-block" />
+
+## Usage
+
+<Preview>
+  <div id="area">
+    <div className="p-8">
+      <p className="py-6 bg-indigo c-white">6</p>
+    </div>
+  </div>
+</Preview>
+
+```html "py-6"
+<div>
+  <div class="p-8">
+    <p class="py-6 bg-indigo c-white">6</p>
+  </div>
+</div>
+```
+
+### Responsiveness
+
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
+
+Target viewport sizes with breakpoint prefixes.
+
+<ResponsiveVariant prefix="py" />
+
+### Hover State
+
+Apply styles conditionally on hover using the `h:` prefix.
+
+<HoverVariant prefix="py" />

@@ -61,10 +61,54 @@ export const sidebarConfig: SidebarConfig = [
     items: [
       { title: "Aspect Ratio", slug: "aspect-ratio" },
       { title: "Box Sizing", slug: "box-sizing" },
-      { title: "Height", slug: "height" },
-      { title: "Margin", slug: "margin" },
-      { title: "Padding", slug: "padding" },
-      { title: "Width", slug: "width" },
+      {
+        title: "Height",
+        children: [
+          { title: "Height", slug: "height" },
+          { title: "Max Height", slug: "max-height" },
+          { title: "Min Height", slug: "min-height" },
+        ],
+      },
+      {
+        title: "Margin",
+        children: [
+          { title: "Margin", slug: "margin" },
+          { title: "Margin Top", slug: "margin-top" },
+          { title: "Margin Right", slug: "margin-right" },
+          { title: "Margin Bottom", slug: "margin-bottom" },
+          { title: "Margin Left", slug: "margin-left" },
+          { title: "Margin Block", slug: "margin-block" },
+          { title: "Margin Block Start", slug: "margin-block-start" },
+          { title: "Margin Block End", slug: "margin-block-end" },
+          { title: "Margin Inline", slug: "margin-inline" },
+          { title: "Margin Inline Start", slug: "margin-inline-start" },
+          { title: "Margin Inline End", slug: "margin-inline-end" },
+        ],
+      },
+      {
+        title: "Padding",
+        children: [
+          { title: "Padding", slug: "padding" },
+          { title: "Padding Top", slug: "padding-top" },
+          { title: "Padding Right", slug: "padding-right" },
+          { title: "Padding Bottom", slug: "padding-bottom" },
+          { title: "Padding Left", slug: "padding-left" },
+          { title: "Padding Block", slug: "padding-block" },
+          { title: "Padding Block Start", slug: "padding-block-start" },
+          { title: "Padding Block End", slug: "padding-block-end" },
+          { title: "Padding Inline", slug: "padding-inline" },
+          { title: "Padding Inline Start", slug: "padding-inline-start" },
+          { title: "Padding Inline End", slug: "padding-inline-end" },
+        ],
+      },
+      {
+        title: "Width",
+        children: [
+          { title: "Width", slug: "width" },
+          { title: "Max Width", slug: "max-width" },
+          { title: "Min Width", slug: "min-width" },
+        ],
+      },
     ],
   },
   {

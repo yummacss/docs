@@ -1,0 +1,32 @@
+export const meta = {
+  title: "Max Width",
+  description: "Limit the maximum width of an element.",
+};
+
+<Baseline path="css.properties.max-width" />
+
+<Reference category="boxModel" name="max-width" />
+
+<Hint icon="arrows_horizontal">Try changing the horizontal size of the box.</Hint>
+
+<Preview>
+  <div className="d-f o-auto ai-c jc-c max-w-64 min-w-16 p-6 w-32 bg-indigo c-white r-h">64</div>
+</Preview>
+
+```html "max-w-64"
+<div class="d-f o-auto ai-c jc-c max-w-64 min-w-16 p-6 w-32 bg-indigo c-white r-h">64</div>
+```
+
+### Responsiveness
+
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
+
+Target viewport sizes with breakpoint prefixes.
+
+<ResponsiveVariant prefix="max-w" />
+
+### Hover State
+
+Apply styles conditionally on hover using the `h:` prefix.
+
+<HoverVariant prefix="max-w" />

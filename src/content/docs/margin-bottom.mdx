@@ -1,0 +1,42 @@
+export const meta = {
+  title: "Margin Bottom",
+  description: "Control an element's bottom margin.",
+};
+
+<Baseline path="css.properties.margin-bottom" />
+
+<Reference category="boxModel" name="margin-bottom" />
+
+## Usage
+
+<Preview>
+  <div className="d-f fd-r" id="area">
+    <div className="d-f t-8 ai-c jc-c w-16 h-16 mb-8 bg-indigo c-white">8</div>
+  </div>
+</Preview>
+
+```html "mb-8"
+<div class="d-f fd-r">
+  <div class="d-f t-8 ai-c jc-c w-16 h-16 mb-8 bg-indigo c-white">8</div>
+</div>
+```
+
+### Responsiveness
+
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
+
+Target viewport sizes with breakpoint prefixes.
+
+<ResponsiveVariant prefix="mb" />
+
+### Hover State
+
+Apply styles conditionally on hover using the `h:` prefix.
+
+<HoverVariant prefix="mb" />
+
+### Negative Values
+
+Use negative variants to apply negative margins.
+
+<NegativeValues prefix="mb" />

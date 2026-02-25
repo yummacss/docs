@@ -1,0 +1,40 @@
+export const meta = {
+  title: "Padding Right",
+  description: "Control an element's right padding.",
+};
+
+<Baseline path="css.properties.padding-right" />
+
+<Reference category="boxModel" name="padding-right" />
+
+## Usage
+
+<Preview>
+  <div id="area">
+    <div className="p-8">
+      <p className="pr-6 bg-indigo c-white">6</p>
+    </div>
+  </div>
+</Preview>
+
+```html "pr-6"
+<div>
+  <div class="p-8">
+    <p class="pr-6 bg-indigo c-white">6</p>
+  </div>
+</div>
+```
+
+### Responsiveness
+
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
+
+Target viewport sizes with breakpoint prefixes.
+
+<ResponsiveVariant prefix="pr" />
+
+### Hover State
+
+Apply styles conditionally on hover using the `h:` prefix.
+
+<HoverVariant prefix="pr" />

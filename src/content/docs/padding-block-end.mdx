@@ -1,0 +1,40 @@
+export const meta = {
+  title: "Padding Block End",
+  description: "Control an element's logical block end padding.",
+};
+
+<Baseline path="css.properties.padding-block-end" />
+
+<Reference category="boxModel" name="padding-block-end" />
+
+## Usage
+
+<Preview>
+  <div id="area">
+    <div className="p-8">
+      <p className="pbe-6 bg-indigo c-white">6</p>
+    </div>
+  </div>
+</Preview>
+
+```html "pbe-6"
+<div>
+  <div class="p-8">
+    <p class="pbe-6 bg-indigo c-white">6</p>
+  </div>
+</div>
+```
+
+### Responsiveness
+
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
+
+Target viewport sizes with breakpoint prefixes.
+
+<ResponsiveVariant prefix="pbe" />
+
+### Hover State
+
+Apply styles conditionally on hover using the `h:` prefix.
+
+<HoverVariant prefix="pbe" />

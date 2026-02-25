@@ -1,0 +1,34 @@
+export const meta = {
+  title: "Max Height",
+  description: "Limit the maximum height of an element.",
+};
+
+<Baseline path="css.properties.max-height" />
+
+<Reference category="boxModel" name="max-height" />
+
+## Usage
+
+<Hint icon="arrows_vertical">Try changing the vertical size of the box.</Hint>
+
+<Preview>
+    <div className="d-f o-auto ai-c jc-c max-h-64 min-h-16 p-3 h-32 bg-indigo c-white r-v">64</div>
+</Preview>
+
+```html "max-h-64"
+<div class="d-f o-auto ai-c jc-c max-h-64 min-h-16 p-3 h-32 bg-indigo c-white r-v">64</div>
+```
+
+### Responsiveness
+
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
+
+Target viewport sizes with breakpoint prefixes.
+
+<ResponsiveVariant prefix="max-h" />
+
+### Hover State
+
+Apply styles conditionally on hover using the `h:` prefix.
+
+<HoverVariant prefix="max-h" />

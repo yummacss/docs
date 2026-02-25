@@ -1,0 +1,42 @@
+export const meta = {
+  title: "Margin Inline Start",
+  description: "Control an element's logical inline start margin.",
+};
+
+<Baseline path="css.properties.margin-inline-start" />
+
+<Reference category="boxModel" name="margin-inline-start" />
+
+## Usage
+
+<Preview>
+  <div id="area">
+    <div className="d-f ai-c jc-c w-16 h-16 mis-8 bg-indigo c-white">8</div>
+  </div>
+</Preview>
+
+```html "mis-8"
+<div>
+  <div class="d-f ai-c jc-c w-16 h-16 mis-8 bg-indigo c-white">8</div>
+</div>
+```
+
+### Responsiveness
+
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
+
+Target viewport sizes with breakpoint prefixes.
+
+<ResponsiveVariant prefix="mis" />
+
+### Hover State
+
+Apply styles conditionally on hover using the `h:` prefix.
+
+<HoverVariant prefix="mis" />
+
+### Negative Values
+
+Use negative variants to apply negative margins.
+
+<NegativeValues prefix="mis" />
