@@ -31,6 +31,7 @@ const blogSlugs = [
   "yummacss-intellisense",
   "behind-the-scenes",
   "yummacss-3.15.0",
+  "yummacss-3.16.0",
 ];
 
 export function getAllBlogSlugs(): string[] {
