@@ -1,0 +1,34 @@
+export const meta = {
+  title: "Bottom Left Radius",
+  description: "Set the bottom left border radius for an element.",
+};
+
+<Baseline path="css.properties.border-bottom-left-radius" />
+
+<Reference category="border" name="border-bottom-left-radius" />
+
+## Usage
+
+Apply a `0.5 rem` radius to the bottom left corner of an element.
+
+<Preview>
+  <div className="w-16 h-16 bg-indigo bblr-2"></div>
+</Preview>
+
+```html "bblr-2"
+<div class="w-16 h-16 bg-indigo bblr-2"></div>
+```
+
+### Responsiveness
+
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
+
+Target viewport sizes with breakpoint prefixes.
+
+<ResponsiveVariant prefix="bblr" />
+
+### Hover State
+
+Apply styles conditionally on hover using the `h:` prefix.
+
+<HoverVariant prefix="bblr" />
