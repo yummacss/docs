@@ -41,17 +41,37 @@ export const sidebarConfig: SidebarConfig = [
         children: [
           { title: "Border Collapse", slug: "border-collapse" },
           { title: "Border Radius", slug: "border-radius" },
-          { title: "Border Bottom Left Radius", slug: "border-bottom-left-radius" },
-          { title: "Border Bottom Radius", slug: "border-bottom-radius" },
-          { title: "Border Bottom Right Radius", slug: "border-bottom-right-radius",},
-          { title: "Border Left Radius", slug: "border-left-radius" },
-          { title: "Border Right Radius", slug: "border-right-radius" },
-          { title: "Border Top Left Radius", slug: "border-top-left-radius" },
-          { title: "Border Top Radius", slug: "border-top-radius" },
-          { title: "Border Top Right Radius", slug: "border-top-right-radius" },
+          {
+            title: "Border Block Start Radius",
+            slug: "border-block-start-radius",
+          },
+          {
+            title: "Border Block End Radius",
+            slug: "border-block-end-radius",
+          },
+          {
+            title: "Border Inline Start Radius",
+            slug: "border-inline-start-radius",
+          },
+          {
+            title: "Border Inline End Radius",
+            slug: "border-inline-end-radius",
+          },
+          {
+            title: "Border Start Start Radius",
+            slug: "border-start-start-radius",
+          },
+          {
+            title: "Border Start End Radius",
+            slug: "border-start-end-radius",
+          },
+          { title: "Border End Start Radius", slug: "border-end-start-radius" },
+          { title: "Border End End Radius", slug: "border-end-end-radius" },
           { title: "Border Spacing", slug: "border-spacing" },
           { title: "Border Style", slug: "border-style" },
           { title: "Border Width", slug: "border-width" },
+          { title: "Border Block Width", slug: "border-block-width" },
+          { title: "Border Inline Width", slug: "border-inline-width" },
         ],
       },
       {
@@ -270,6 +290,7 @@ export const sidebarConfig: SidebarConfig = [
       { title: "Skew Y", slug: "skew-y" },
       { title: "Skew", slug: "skew" },
       { title: "Transform Origin", slug: "transform-origin" },
+      { title: "Translate", slug: "translate" },
       { title: "Translate X", slug: "translate-x" },
       { title: "Translate Y", slug: "translate-y" },
     ],

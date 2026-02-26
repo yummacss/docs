@@ -1,0 +1,34 @@
+export const meta = {
+  title: "Border End Start Radius",
+  description: "Set the logical end-start border radius for an element.",
+};
+
+<Baseline path="css.properties.border-end-start-radius" />
+
+<Reference category="border" name="border-end-start-radius" />
+
+## Usage
+
+Apply a `0.5 rem` radius to the logical end-start border corner of an element.
+
+<Preview>
+  <div className="w-16 h-16 bg-indigo besr-2"></div>
+</Preview>
+
+```html "besr-2"
+<div class="w-16 h-16 bg-indigo besr-2"></div>
+```
+
+### Responsiveness
+
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
+
+Target viewport sizes with breakpoint prefixes.
+
+<ResponsiveVariant prefix="besr" />
+
+### Hover State
+
+Apply styles conditionally on hover using the `h:` prefix.
+
+<HoverVariant prefix="besr" />

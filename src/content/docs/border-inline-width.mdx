@@ -1,0 +1,44 @@
+export const meta = {
+  title: "Border Inline Width",
+  description: "Set the horizontal border width for an element.",
+};
+
+<Baseline path="css.properties.border-inline-width" />
+
+<Reference category="border" name="border-inline-width" />
+
+## Usage
+
+Control an element's horizontal border width. This utility sets both the left & right border widths.
+
+<Preview>
+  <div className="d-f fd-r">
+    <div className="d-f ai-c jc-c w-16 h-16 bc-indigo bs-s bxw-4"></div>
+  </div>
+</Preview>
+
+```html "bxw-4"
+<div class="d-f fd-r">
+  <div class="d-f ai-c jc-c w-16 h-16 bc-indigo bs-s bxw-4"></div>
+</div>
+```
+
+### Responsiveness
+
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
+
+Target viewport sizes with breakpoint prefixes.
+
+<ResponsiveVariant prefix="bxw" />
+
+### Hover State
+
+Apply styles conditionally on hover using the `h:` prefix.
+
+<HoverVariant prefix="bxw" />
+
+### Negative Values
+
+Use negative variants to apply negative border widths.
+
+<NegativeValues prefix="bxw" />
