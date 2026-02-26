@@ -1,0 +1,34 @@
+export const meta = {
+  title: "Top Right Radius",
+  description: "Set the top right border radius for an element.",
+};
+
+<Baseline path="css.properties.border-top-right-radius" />
+
+<Reference category="border" name="border-top-right-radius" />
+
+## Usage
+
+Apply a `0.5 rem` radius to the top right corner of an element.
+
+<Preview>
+  <div className="w-16 h-16 bg-indigo btrr-2"></div>
+</Preview>
+
+```html "btrr-2"
+<div class="w-16 h-16 bg-indigo btrr-2"></div>
+```
+
+### Responsiveness
+
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
+
+Target viewport sizes with breakpoint prefixes.
+
+<ResponsiveVariant prefix="btrr" />
+
+### Hover State
+
+Apply styles conditionally on hover using the `h:` prefix.
+
+<HoverVariant prefix="btrr" />
