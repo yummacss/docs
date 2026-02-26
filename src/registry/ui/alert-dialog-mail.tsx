@@ -130,7 +130,7 @@ export default function ExampleAlertDialog() {
                       >
                         Message
                       </label>
-                      <div className="p-r bg-white bc-silver-3 br-2 bw-1 fv-w:os-s fv-w:ow-2 fv-w:oo-2 fv-w:oc-indigo-6">
+                      <div className="p-r o-h bg-white bc-silver-3 br-2 bw-1 fv-w:os-s fv-w:ow-2 fv-w:oo-2 fv-w:oc-indigo-6">
                         <textarea
                           id="mail-message"
                           placeholder="Write your message..."

@@ -41,7 +41,7 @@ export default function DialogSettings() {
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.95 }}
-                    transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                    transition={{ duration: 0.2, ease: "easeInOut" }}
                   />
                 }
                 className="o-h w-96 bg-white bc-silver-2 c-slate-12 br-2 bw-1 bs-o-lg"
