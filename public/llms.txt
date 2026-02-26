@@ -7,6 +7,7 @@ An atomic CSS framework with abbreviated class names.
 - [Installation](https://yummacss.com/docs/installation): Install Yumma CSS using the CLI or CDN.
 - [Configuration](https://yummacss.com/docs/configuration): Configure your Yumma CSS project.
 - [Editor Support](https://yummacss.com/docs/editor-support): Editor support for auto-completion, previews & diagnostics.
+- [Functions & Types](https://yummacss.com/docs/functions-types): Access Yumma CSS utilities, variants, and types programmatically.
 - [Upgrading](https://yummacss.com/docs/upgrading): Guide for migrating from legacy versions of Yumma CSS.
 
 ## Foundations
@@ -45,9 +46,33 @@ An atomic CSS framework with abbreviated class names.
 - [Aspect Ratio](https://yummacss.com/docs/aspect-ratio): Set the aspect ratio of an element.
 - [Box Sizing](https://yummacss.com/docs/box-sizing): Set the box sizing model for an element.
 - [Height](https://yummacss.com/docs/height): Set the height for an element.
+- [Max Height](https://yummacss.com/docs/max-height): Limit the maximum height of an element.
+- [Min Height](https://yummacss.com/docs/min-height): Set the minimum height of an element.
 - [Margin](https://yummacss.com/docs/margin): Set the margin for an element.
+- [Margin Top](https://yummacss.com/docs/margin-top): Control an element
+- [Margin Right](https://yummacss.com/docs/margin-right): Control an element
+- [Margin Bottom](https://yummacss.com/docs/margin-bottom): Control an element
+- [Margin Left](https://yummacss.com/docs/margin-left): Control an element
+- [Margin Block](https://yummacss.com/docs/margin-block): Control an element
+- [Margin Block Start](https://yummacss.com/docs/margin-block-start): Control an element
+- [Margin Block End](https://yummacss.com/docs/margin-block-end): Control an element
+- [Margin Inline](https://yummacss.com/docs/margin-inline): Control an element
+- [Margin Inline Start](https://yummacss.com/docs/margin-inline-start): Control an element
+- [Margin Inline End](https://yummacss.com/docs/margin-inline-end): Control an element
 - [Padding](https://yummacss.com/docs/padding): Set the padding for an element.
+- [Padding Top](https://yummacss.com/docs/padding-top): Control an element
+- [Padding Right](https://yummacss.com/docs/padding-right): Control an element
+- [Padding Bottom](https://yummacss.com/docs/padding-bottom): Control an element
+- [Padding Left](https://yummacss.com/docs/padding-left): Control an element
+- [Padding Block](https://yummacss.com/docs/padding-block): Control an element
+- [Padding Block Start](https://yummacss.com/docs/padding-block-start): Control an element
+- [Padding Block End](https://yummacss.com/docs/padding-block-end): Control an element
+- [Padding Inline](https://yummacss.com/docs/padding-inline): Control an element
+- [Padding Inline Start](https://yummacss.com/docs/padding-inline-start): Control an element
+- [Padding Inline End](https://yummacss.com/docs/padding-inline-end): Control an element
 - [Width](https://yummacss.com/docs/width): Set the width for an element.
+- [Max Width](https://yummacss.com/docs/max-width): Limit the maximum width of an element.
+- [Min Width](https://yummacss.com/docs/min-width): Set the minimum width of an element.
 
 ## Colors
 
@@ -92,7 +117,13 @@ An atomic CSS framework with abbreviated class names.
 - [Grid Auto Flow](https://yummacss.com/docs/grid-auto-flow): Set how items are automatically placed in a grid.
 - [Grid Auto Rows](https://yummacss.com/docs/grid-auto-rows): Set the size of implicitly-created grid rows.
 - [Grid Column](https://yummacss.com/docs/grid-column): Set the size & position of items across grid columns.
+- [Grid Column End](https://yummacss.com/docs/grid-column-end): Control where a grid item ends within the grid columns.
+- [Grid Column Span](https://yummacss.com/docs/grid-column-span): Allow a grid item to span a specific number of columns.
+- [Grid Column Start](https://yummacss.com/docs/grid-column-start): Control the starting grid line for a grid item.
 - [Grid Row](https://yummacss.com/docs/grid-row): Set the size & position of items across grid rows.
+- [Grid Row End](https://yummacss.com/docs/grid-row-end): Control where a grid item ends within the grid rows.
+- [Grid Row Span](https://yummacss.com/docs/grid-row-span): Control the row span of a grid item.
+- [Grid Row Start](https://yummacss.com/docs/grid-row-start): Control where a grid item begins within the grid rows.
 - [Grid Template Columns](https://yummacss.com/docs/grid-template-columns): Set the columns for a grid layout.
 - [Grid Template Rows](https://yummacss.com/docs/grid-template-rows): Set the rows for a grid layout.
 - [Place Content](https://yummacss.com/docs/place-content): Set item justification & alignment simultaneously.
@@ -105,11 +136,11 @@ An atomic CSS framework with abbreviated class names.
 - [Appearance](https://yummacss.com/docs/appearance): Set the appearance for native form controls.
 - [Cursor](https://yummacss.com/docs/cursor): Set the cursor style when hovering over an element.
 - [Field Sizing](https://yummacss.com/docs/field-sizing): Set how form fields size themselves based on content.
-- [Overscroll Behavior](https://yummacss.com/docs/overscroll-behavior): Control the browser
-- [Overscroll Behavior Block](https://yummacss.com/docs/overscroll-behavior-block): Control the browser
-- [Overscroll Behavior Inline](https://yummacss.com/docs/overscroll-behavior-inline): Control the browser
-- [Overscroll Behavior X](https://yummacss.com/docs/overscroll-behavior-x): Control the browser
-- [Overscroll Behavior Y](https://yummacss.com/docs/overscroll-behavior-y): Control the browser
+- [Overscroll Behavior](https://yummacss.com/docs/overscroll-behavior): Set the browser
+- [Overscroll Behavior Block](https://yummacss.com/docs/overscroll-behavior-block): Set the browser
+- [Overscroll Behavior Inline](https://yummacss.com/docs/overscroll-behavior-inline): Set the browser
+- [Overscroll Behavior X](https://yummacss.com/docs/overscroll-behavior-x): Set the browser
+- [Overscroll Behavior Y](https://yummacss.com/docs/overscroll-behavior-y): Set the browser
 - [Pointer Events](https://yummacss.com/docs/pointer-events): Set how an item responds to pointer events.
 - [Resize](https://yummacss.com/docs/resize): Set how an element can be resized.
 - [Scroll Behavior](https://yummacss.com/docs/scroll-behavior): Set the scroll behavior for internal navigation.
@@ -159,6 +190,8 @@ An atomic CSS framework with abbreviated class names.
 
 - [Rotate](https://yummacss.com/docs/rotate): Set the rotation for an element.
 - [Scale](https://yummacss.com/docs/scale): Set the scale for an element.
+- [Skew X](https://yummacss.com/docs/skew-x): Set the horizontal skew for an element.
+- [Skew Y](https://yummacss.com/docs/skew-y): Set the vertical skew for an element.
 - [Skew](https://yummacss.com/docs/skew): Set the skew for an element.
 - [Transform Origin](https://yummacss.com/docs/transform-origin): Set the origin point for transformations.
 - [Translate X](https://yummacss.com/docs/translate-x): Set the horizontal translation for an element.
@@ -184,6 +217,9 @@ An atomic CSS framework with abbreviated class names.
 - [Overflow Wrap](https://yummacss.com/docs/overflow-wrap): Set how words wrap when they overflow their container.
 - [Tab Size](https://yummacss.com/docs/tab-size): Set the width of horizontal tab characters.
 - [Text Align](https://yummacss.com/docs/text-align): Set the horizontal alignment of text.
+- [Text Decoration Line](https://yummacss.com/docs/text-decoration-line): Set the type of decorative lines used on text.
+- [Text Decoration Style](https://yummacss.com/docs/text-decoration-style): Set the style of decorative lines on text.
+- [Text Decoration Thickness](https://yummacss.com/docs/text-decoration-thickness): Set the thickness of decorative lines on text.
 - [Text Decoration](https://yummacss.com/docs/text-decoration): Set the appearance of decorative lines on text.
 - [Text Indent](https://yummacss.com/docs/text-indent): Set the indentation of the first line of text.
 - [Text Overflow](https://yummacss.com/docs/text-overflow): Set how overflowing text is signaled to the user.
