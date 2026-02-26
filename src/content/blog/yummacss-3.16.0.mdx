@@ -1,0 +1,79 @@
+export const meta = {
+  authors: ["Renildo"],
+  cover: "~",
+  date: "2026-02-26",
+  description: "Introducing logical border properties, a standalone translate utility, & expanded border width control.",
+  title: "Yumma CSS 3.16"
+};
+
+---
+
+## Logical Border Properties
+
+Yumma CSS 3.16 transitions from physical to logical border properties. This change improves support for different writing modes & ensures layouts remain consistent across various languages.
+
+### Border Radius
+
+We've refactored directional border radius utilities to use logical equivalents. Physical directions like `top` & `left` are now represented by `block` & `inline` start/end.
+
+| Legacy | Latest | Prefix |
+| ------ | ------ | ------ |
+| `border-top-radius` | `border-block-start-radius` | `bbsr-` |
+| `border-bottom-radius` | `border-block-end-radius` | `bber-` |
+| `border-left-radius` | `border-inline-start-radius` | `bisr-` |
+| `border-right-radius` | `border-inline-end-radius` | `bier-` |
+
+Corners also adopt logical naming:
+
+| Legacy | Latest | Prefix |
+| ------ | ------ | ------ |
+| `border-top-left-radius` | `border-start-start-radius` | `bssr-` |
+| `border-top-right-radius` | `border-start-end-radius` | `bser-` |
+| `border-bottom-left-radius` | `border-end-start-radius` | `besr-` |
+| `border-bottom-right-radius` | `border-end-end-radius` | `beer-` |
+
+### Border Width
+
+Directional border width utilities now use logical properties for better layout flexibility.
+
+| Legacy | Latest | Prefix |
+| ------ | ------ | ------ |
+| `border-top-width` | `border-block-start-width` | `bbsw-` |
+| `border-bottom-width` | `border-block-end-width` | `bbew-` |
+| `border-left-width` | `border-inline-start-width` | `bisw-` |
+| `border-right-width` | `border-inline-end-width` | `biew-` |
+
+## New Utilities
+
+This release adds 3 new core utilities to expand your design capabilities:
+
+### Translate Utility
+
+A standalone `translate` utility is now available, following our shift towards standalone transform properties.
+
+```html "t-t-4"
+<div class="t-t-4 ...">
+  Translated by 1 rem!
+</div>
+```
+
+### Logical Widths
+
+We've implemented group utilities for block & inline border widths:
+
+- **Border Block Width** (`byw-`): Sets both top & bottom border widths.
+- **Border Inline Width** (`bxw-`): Sets both left & right border widths.
+
+```html "byw-2" "bxw-1"
+<div class="byw-2 bxw-1 ...">
+  Custom border axis control.
+</div>
+```
+
+## Upgrade
+
+Check the [Upgrading Guide](/docs/upgrading) for a full list of renamed utilities.
+
+```bash
+pnpm add yummacss@latest
+```

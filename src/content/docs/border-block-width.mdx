@@ -1,0 +1,44 @@
+export const meta = {
+  title: "Border Block Width",
+  description: "Set the vertical border width for an element.",
+};
+
+<Baseline path="css.properties.border-block-width" />
+
+<Reference category="border" name="border-block-width" />
+
+## Usage
+
+Control an element's vertical border width. This utility sets both the top & bottom border widths.
+
+<Preview>
+  <div className="d-f fd-r">
+    <div className="d-f ai-c jc-c w-16 h-16 bc-indigo bs-s byw-4"></div>
+  </div>
+</Preview>
+
+```html "byw-4"
+<div class="d-f fd-r">
+  <div class="d-f ai-c jc-c w-16 h-16 bc-indigo bs-s byw-4"></div>
+</div>
+```
+
+### Responsiveness
+
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
+
+Target viewport sizes with breakpoint prefixes.
+
+<ResponsiveVariant prefix="byw" />
+
+### Hover State
+
+Apply styles conditionally on hover using the `h:` prefix.
+
+<HoverVariant prefix="byw" />
+
+### Negative Values
+
+Use negative variants to apply negative border widths.
+
+<NegativeValues prefix="byw" />

@@ -7,7 +7,7 @@ Modern versions of Yumma CSS introduce significant improvements, including a new
 
 Previous versions relied on `@import` statements; the current system uses a dedicated CLI for better performance & flexibility.
 
-## Legacy versions
+## Legacy Versions
 
 In this guide, **legacy** refers to Yumma CSS v2 & earlier versions. These older systems are no longer actively developed & lack the performance optimizations of the current CLI-driven core.
 
@@ -61,7 +61,37 @@ In this guide, **legacy** refers to Yumma CSS v2 & earlier versions. These older
   </Step>
 </Stepper>
 
-## Dependency changes
+## Yumma Css 3.16
+
+Yumma CSS 3.16 transitions from physical border properties to logical ones. This update promotes layout flexibility across different writing modes.
+
+### Border Radius
+
+We've refactored directional border radius utilities to use logical equivalents:
+
+| Legacy | Latest | Prefix |
+| --- | --- | --- |
+| `border-top-radius` | `border-block-start-radius` | `bbsr-` |
+| `border-bottom-radius` | `border-block-end-radius` | `bber-` |
+| `border-left-radius` | `border-inline-start-radius` | `bisr-` |
+| `border-right-radius` | `border-inline-end-radius` | `bier-` |
+| `border-top-left-radius` | `border-start-start-radius` | `bssr-` |
+| `border-top-right-radius` | `border-start-end-radius` | `bser-` |
+| `border-bottom-left-radius` | `border-end-start-radius` | `besr-` |
+| `border-bottom-right-radius` | `border-end-end-radius` | `beer-` |
+
+### Border Width
+
+Directional border width utilities now use logical properties:
+
+| Legacy | Latest | Prefix |
+| --- | --- | --- |
+| `border-top-width` | `border-block-start-width` | `bbsw-` |
+| `border-bottom-width` | `border-block-end-width` | `bbew-` |
+| `border-left-width` | `border-inline-start-width` | `bisw-` |
+| `border-right-width` | `border-inline-end-width` | `biew-` |
+
+## Dependency Changes
 
 Yumma CSS now functions as a CLI tool. Install it as a dev dependency (`-D`) instead of a standard dependency to keep your production bundle lean.
 
@@ -69,7 +99,7 @@ Yumma CSS now functions as a CLI tool. Install it as a dev dependency (`-D`) ins
 pnpm add yummacss -D
 ```
 
-### Core package
+### Core Package
 
 Replace the `@yummacss/api` package with `@yummacss/core`. Update your imports accordingly.
 
@@ -78,7 +108,7 @@ pnpm remove @yummacss/api
 pnpm add @yummacss/core
 ```
 
-## Utility changes
+## Utility Changes
 
 Utilities renamed in the current version:
 
@@ -103,7 +133,7 @@ Utilities renamed in the current version:
 | height / width    | `*-1/1`                   | `*-dvh`                         |
 | _Color utilities_ | `lead`                    | `slate`                         |
 
-### Color utility changes
+### Color Utility Changes
 
 In the current version, light (`l-`) & dark (`d-`) characters are removed across all color utilities. `lead` is renamed to `slate`.
 
@@ -131,7 +161,7 @@ Color hue modification increased from 10 % to 14 %. Light colors are lighter; da
 | `*-d-indigo-5` | `*-indigo-11` |
 | `*-d-indigo-6` | `*-indigo-12` |
 
-### Align & justify
+### Align & Justify
 
 Stretch utility suffixes updated from `-s` to `-st`.
 
@@ -177,7 +207,7 @@ Stretch utility suffixes updated from `-s` to `-st`.
 <div class="d-*">...</div>
 ```
 
-### Font size
+### Font Size
 
 `fs-b` renamed to `fs-md`.
 
@@ -186,7 +216,7 @@ Stretch utility suffixes updated from `-s` to `-st`.
 <div class="fs-md">...</div>
 ```
 
-### Font family
+### Font Family
 
 Utility prefixes renamed for clarity:
 
@@ -215,7 +245,7 @@ Utility prefixes renamed for clarity:
 <div class="fl-*">...</div>
 ```
 
-### Dynamic viewport
+### Dynamic Viewport
 
 `*-1/1` renamed to `*-dvh`.
 
@@ -226,7 +256,7 @@ Utility prefixes renamed for clarity:
 <div class="d-dvh">...</div>
 ```
 
-### Border width
+### Border Width
 
 `b-*` renamed to `bw-*`.
 
@@ -244,7 +274,7 @@ This also applies to directional border width utilities:
 | `bb-*` | `bbw-*` |
 | `bl-*` | `blw-*` |
 
-### Border color
+### Border Color
 
 Directional border color utilities now use a consistent 3-character prefix.
 
@@ -255,7 +285,7 @@ Directional border color utilities now use a consistent 3-character prefix.
 | `bc-l-*` | `blc-*` |
 | `bc-r-*` | `brc-*` |
 
-### Border radius
+### Border Radius
 
 Directional border radius utilities now use a consistent 3-character prefix.
 
@@ -266,7 +296,7 @@ Directional border radius utilities now use a consistent 3-character prefix.
 | `br-l-*` | `blr-*` |
 | `br-r-*` | `brr-*` |
 
-### Border style
+### Border Style
 
 `b-*` renamed to `bs-*`.
 
@@ -275,7 +305,7 @@ Directional border radius utilities now use a consistent 3-character prefix.
 <div class="bs-solid">...</div>
 ```
 
-### Border radius
+### Border Radius
 
 `rad-9` renamed to `br-pill`.
 
@@ -284,7 +314,7 @@ Directional border radius utilities now use a consistent 3-character prefix.
 <div class="br-pill">...</div>
 ```
 
-### Color utilities
+### Color Utilities
 
 Text color prefix shortened from `tc-` to `c-`.
 
@@ -293,7 +323,7 @@ Text color prefix shortened from `tc-` to `c-`.
 <div class="c-slate">...</div>
 ```
 
-### Box shadow
+### Box Shadow
 
 Prefix updated from `bsh-` to `bs-o-` for outset shadows & `bs-i-` for inset shadows.
 
@@ -334,7 +364,7 @@ Prefix updated from `i-` to `is-`.
 <div class="is-*">...</div>
 ```
 
-## Base style changes
+## Base Style Changes
 
 Modern Yumma CSS versions include standardized base styles for better consistency. These are enabled by default & can be disabled in `yumma.config.mjs`.
 
@@ -499,7 +529,7 @@ summary {
 }
 ```
 
-### Disable base styles
+### Disable Base Styles
 
 Set `buildOptions.reset` to `false` in `yumma.config.mjs` to disable base styles.
 
