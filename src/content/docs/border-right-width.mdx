@@ -1,0 +1,34 @@
+export const meta = {
+  title: "Border Right Width",
+  description: "Set the right border width for an element.",
+};
+
+<Baseline path="css.properties.border-right-width" />
+
+<Reference category="border" name="border-right-width" />
+
+## Usage
+
+Apply a `0.25 rem` right border width to an element.
+
+<Preview>
+  <div className="w-16 h-16 bc-indigo bs-s brw-4"></div>
+</Preview>
+
+```html "brw-4"
+<div class="w-16 h-16 bc-indigo bs-s brw-4"></div>
+```
+
+### Responsiveness
+
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
+
+Target viewport sizes with breakpoint prefixes.
+
+<ResponsiveVariant prefix="brw" />
+
+### Hover State
+
+Apply styles conditionally on hover using the `h:` prefix.
+
+<HoverVariant prefix="brw" />

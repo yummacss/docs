@@ -277,16 +277,8 @@ summary {
   bottom: .25rem;
 }
 
-.b-2 {
-  bottom: .5rem;
-}
-
 .b-3 {
   bottom: .75rem;
-}
-
-.b-4 {
-  bottom: 1rem;
 }
 
 .b\:\:bg-indigo\/10:before {
@@ -330,16 +322,21 @@ summary {
   border-end-start-radius: .5rem;
 }
 
-.bbew-1 {
-  border-block-end-width: 1px;
+.bbew-4 {
+  border-block-end-width: 4px;
 }
 
-.bbew-2 {
-  border-block-end-width: 2px;
+.bblr-2 {
+  border-bottom-left-radius: .5rem;
 }
 
-.bbew-3 {
-  border-block-end-width: 3px;
+.bbr-2 {
+  border-bottom-right-radius: .5rem;
+  border-bottom-left-radius: .5rem;
+}
+
+.bbrr-2 {
+  border-bottom-right-radius: .5rem;
 }
 
 .bbsr-2 {
@@ -347,16 +344,16 @@ summary {
   border-start-end-radius: .5rem;
 }
 
-.bbsw-1 {
-  border-block-start-width: 1px;
+.bbsw-4 {
+  border-block-start-width: 4px;
 }
 
-.bbsw-2 {
-  border-block-start-width: 2px;
+.bbw-1 {
+  border-bottom-width: 1px;
 }
 
-.bbsw-3 {
-  border-block-start-width: 3px;
+.bbw-4 {
+  border-bottom-width: 4px;
 }
 
 .bc-bb {
@@ -696,16 +693,8 @@ summary {
   border-end-end-radius: .5rem;
 }
 
-.biew-1 {
-  border-inline-end-width: 1px;
-}
-
-.biew-2 {
-  border-inline-end-width: 2px;
-}
-
-.biew-3 {
-  border-inline-end-width: 3px;
+.biew-4 {
+  border-inline-end-width: 4px;
 }
 
 .bisr-2 {
@@ -713,16 +702,8 @@ summary {
   border-end-start-radius: .5rem;
 }
 
-.bisw-1 {
-  border-inline-start-width: 1px;
-}
-
-.bisw-2 {
-  border-inline-start-width: 2px;
-}
-
-.bisw-3 {
-  border-inline-start-width: 3px;
+.bisw-4 {
+  border-inline-start-width: 4px;
 }
 
 .blc-indigo {
@@ -735,6 +716,27 @@ summary {
 
 .blc-indigo-8 {
   border-left-color: #4749ae;
+}
+
+.blr-2 {
+  border-top-left-radius: .5rem;
+  border-bottom-left-radius: .5rem;
+}
+
+.blw-0 {
+  border-left-width: 0;
+}
+
+.blw-1 {
+  border-left-width: 1px;
+}
+
+.blw-2 {
+  border-left-width: 2px;
+}
+
+.blw-4 {
+  border-left-width: 4px;
 }
 
 .bo-bb {
@@ -849,6 +851,23 @@ summary {
   border-right-color: #4749ae;
 }
 
+.brr-2 {
+  border-top-right-radius: .5rem;
+  border-bottom-right-radius: .5rem;
+}
+
+.brw-0 {
+  border-right-width: 0;
+}
+
+.brw-1 {
+  border-right-width: 1px;
+}
+
+.brw-4 {
+  border-right-width: 4px;
+}
+
 .bs-4 {
   border-spacing: 1rem;
 }
@@ -943,6 +962,27 @@ summary {
 
 .btc-indigo-8 {
   border-top-color: #4749ae;
+}
+
+.btlr-2 {
+  border-top-left-radius: .5rem;
+}
+
+.btr-2 {
+  border-top-left-radius: .5rem;
+  border-top-right-radius: .5rem;
+}
+
+.btrr-2 {
+  border-top-right-radius: .5rem;
+}
+
+.btw-1 {
+  border-top-width: 1px;
+}
+
+.btw-4 {
+  border-top-width: 4px;
 }
 
 .bw-0 {

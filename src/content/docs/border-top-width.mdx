@@ -1,0 +1,34 @@
+export const meta = {
+  title: "Border Top Width",
+  description: "Set the top border width for an element.",
+};
+
+<Baseline path="css.properties.border-top-width" />
+
+<Reference category="border" name="border-top-width" />
+
+## Usage
+
+Apply a `0.25 rem` top border width to an element.
+
+<Preview>
+  <div className="w-16 h-16 bc-indigo bs-s btw-4"></div>
+</Preview>
+
+```html "btw-4"
+<div class="w-16 h-16 bc-indigo bs-s btw-4"></div>
+```
+
+### Responsiveness
+
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
+
+Target viewport sizes with breakpoint prefixes.
+
+<ResponsiveVariant prefix="btw" />
+
+### Hover State
+
+Apply styles conditionally on hover using the `h:` prefix.
+
+<HoverVariant prefix="btw" />
