@@ -38,12 +38,9 @@ export default function ExampleAutocomplete() {
                     transition={{ duration: 0.1, ease: "easeOut" }}
                   />
                 }
-                className="o-h w-64 py-1 bg-white bc-silver-2 c-slate-10 bw-1 br-2 bs-o-lg"
+                className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-2 bs-o-lg"
               >
-                <Autocomplete.Empty className="py-4 px-4 c-slate-6 fs-sm">
-                  No colors found.
-                </Autocomplete.Empty>
-                <Autocomplete.List className="o-y-auto max-h-72 ow-0">
+                <Autocomplete.List className="o-y-auto max-h-72 py-1 ow-0">
                   {(color: { name: string; color: string }) => (
                     <Autocomplete.Item
                       key={color.name}
@@ -65,6 +62,9 @@ export default function ExampleAutocomplete() {
                     />
                   )}
                 </Autocomplete.List>
+                <Autocomplete.Empty className="c-slate-6 fs-sm">
+                  <div className="py-4 px-4">No colors found.</div>
+                </Autocomplete.Empty>
               </Autocomplete.Popup>
             </Autocomplete.Positioner>
           </Autocomplete.Portal>

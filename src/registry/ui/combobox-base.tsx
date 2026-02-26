@@ -52,11 +52,8 @@ export default function ExampleCombobox() {
                 }
                 className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-2 bs-o-lg"
               >
-                <Combobox.Empty className="py-4 px-4 c-slate-6 fs-sm">
-                  No countries found.
-                </Combobox.Empty>
                 <Combobox.List
-                  className="o-y-auto ow-0"
+                  className="o-y-auto py-1 ow-0"
                   style={{ maxHeight: "18rem" }}
                 >
                   {(country: Country) => (
@@ -76,6 +73,9 @@ export default function ExampleCombobox() {
                     </Combobox.Item>
                   )}
                 </Combobox.List>
+                <Combobox.Empty className="c-slate-6 fs-sm">
+                  <div className="py-4 px-4">No countries found.</div>
+                </Combobox.Empty>
               </Combobox.Popup>
             </Combobox.Positioner>
           </Combobox.Portal>
