@@ -55,11 +55,11 @@ export default function ExampleAccordion() {
                     stiffness: 500,
                     damping: 30,
                   }}
-                  className="d-b o-h"
+                  className="o-h pb-4 c-slate-6 fs-sm lh-4"
                 />
               )}
             >
-              <p className="m-0 pb-4 c-slate-6 fs-sm lh-4">{item.content}</p>
+              {item.content}
             </Accordion.Panel>
           </Accordion.Item>
         );
