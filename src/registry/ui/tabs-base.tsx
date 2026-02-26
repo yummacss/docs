@@ -36,7 +36,7 @@ export default function ExampleTabs() {
                 <motion.div
                   layoutId="tabs-indicator"
                   className="p-a ix-0 iy-0 zi-0 bg-indigo br-1"
-                  transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                  transition={{ duration: 0.2, ease: "easeInOut" }}
                 />
               )}
               <Icon size={18} weight="bold" className="p-r zi-10" />

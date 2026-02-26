@@ -1,6 +1,6 @@
 export const meta = {
   title: "Toggle",
-  description: "Switch between on & off states.",
+  description: "Switch between on & off states, and group them with single or multiple selection.",
 };
 
 ## Installation
@@ -11,7 +11,7 @@ pnpm add @base-ui/react motion
 
 ## Examples
 
-Implement this component in your project using Yumma CSS and Base UI.
+Implement these components in your project using Yumma CSS and Base UI.
 
 ### Base
 
@@ -29,6 +29,24 @@ Implement this component in your project using Yumma CSS and Base UI.
   </TabsPanel>
 </Tabs>
 
+### Group
+
+A group of toggle buttons for text alignment.
+
+<Tabs defaultValue="preview">
+  <TabsList>
+    <TabsTab value="preview">Preview</TabsTab>
+    <TabsTab value="code">Code</TabsTab>
+  </TabsList>
+  <TabsPanel className="bg-white" value="preview">
+    <Preview className="bw-0" id="toggle-group-base" />
+  </TabsPanel>
+  <TabsPanel value="code">
+    ```tsx registry="toggle-group-base"
+    ```
+  </TabsPanel>
+</Tabs>
+
 ## API Reference
 
-Check out the [Base UI](https://base-ui.com/react/components/toggle) documentation for more information.
+Check out the [Toggle](https://base-ui.com/react/components/toggle) and [Toggle Group](https://base-ui.com/react/components/toggle-group) documentation for more information.
