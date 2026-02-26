@@ -1,0 +1,34 @@
+export const meta = {
+  title: "Border Left Width",
+  description: "Set the left border width for an element.",
+};
+
+<Baseline path="css.properties.border-left-width" />
+
+<Reference category="border" name="border-left-width" />
+
+## Usage
+
+Apply a `0.25 rem` left border width to an element.
+
+<Preview>
+  <div className="w-16 h-16 bc-indigo bs-s blw-4"></div>
+</Preview>
+
+```html "blw-4"
+<div class="w-16 h-16 bc-indigo bs-s blw-4"></div>
+```
+
+### Responsiveness
+
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
+
+Target viewport sizes with breakpoint prefixes.
+
+<ResponsiveVariant prefix="blw" />
+
+### Hover State
+
+Apply styles conditionally on hover using the `h:` prefix.
+
+<HoverVariant prefix="blw" />

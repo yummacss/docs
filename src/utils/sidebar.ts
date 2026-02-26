@@ -40,7 +40,28 @@ export const sidebarConfig: SidebarConfig = [
         title: "Border",
         children: [
           { title: "Border Collapse", slug: "border-collapse" },
+          { title: "Border Spacing", slug: "border-spacing" },
+          { title: "Border Style", slug: "border-style" },
+        ],
+      },
+      {
+        title: "Border Radius",
+        children: [
           { title: "Border Radius", slug: "border-radius" },
+          { title: "Border Top Radius", slug: "border-top-radius" },
+          { title: "Border Right Radius", slug: "border-right-radius" },
+          { title: "Border Bottom Radius", slug: "border-bottom-radius" },
+          { title: "Border Left Radius", slug: "border-left-radius" },
+          { title: "Border Top Left Radius", slug: "border-top-left-radius" },
+          { title: "Border Top Right Radius", slug: "border-top-right-radius" },
+          {
+            title: "Border Bottom Left Radius",
+            slug: "border-bottom-left-radius",
+          },
+          {
+            title: "Border Bottom Right Radius",
+            slug: "border-bottom-right-radius",
+          },
           {
             title: "Border Block Start Radius",
             slug: "border-block-start-radius",
@@ -67,11 +88,28 @@ export const sidebarConfig: SidebarConfig = [
           },
           { title: "Border End Start Radius", slug: "border-end-start-radius" },
           { title: "Border End End Radius", slug: "border-end-end-radius" },
-          { title: "Border Spacing", slug: "border-spacing" },
-          { title: "Border Style", slug: "border-style" },
+        ],
+      },
+      {
+        title: "Border Width",
+        children: [
           { title: "Border Width", slug: "border-width" },
+          { title: "Border Top Width", slug: "border-top-width" },
+          { title: "Border Right Width", slug: "border-right-width" },
+          { title: "Border Bottom Width", slug: "border-bottom-width" },
+          { title: "Border Left Width", slug: "border-left-width" },
           { title: "Border Block Width", slug: "border-block-width" },
           { title: "Border Inline Width", slug: "border-inline-width" },
+          {
+            title: "Border Block Start Width",
+            slug: "border-block-start-width",
+          },
+          { title: "Border Block End Width", slug: "border-block-end-width" },
+          {
+            title: "Border Inline Start Width",
+            slug: "border-inline-start-width",
+          },
+          { title: "Border Inline End Width", slug: "border-inline-end-width" },
         ],
       },
       {

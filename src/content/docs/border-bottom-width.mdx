@@ -1,0 +1,34 @@
+export const meta = {
+  title: "Border Bottom Width",
+  description: "Set the bottom border width for an element.",
+};
+
+<Baseline path="css.properties.border-bottom-width" />
+
+<Reference category="border" name="border-bottom-width" />
+
+## Usage
+
+Apply a `0.25 rem` bottom border width to an element.
+
+<Preview>
+  <div className="w-16 h-16 bc-indigo bs-s bbw-4"></div>
+</Preview>
+
+```html "bbw-4"
+<div class="w-16 h-16 bc-indigo bs-s bbw-4"></div>
+```
+
+### Responsiveness
+
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
+
+Target viewport sizes with breakpoint prefixes.
+
+<ResponsiveVariant prefix="bbw" />
+
+### Hover State
+
+Apply styles conditionally on hover using the `h:` prefix.
+
+<HoverVariant prefix="bbw" />
