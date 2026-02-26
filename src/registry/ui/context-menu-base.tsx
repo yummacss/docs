@@ -30,7 +30,7 @@ export default function ExampleContextMenu() {
               >
                 <ContextMenu.Item
                   className={(state) =>
-                    `d-f py-2 pr-8 pl-4 fs-sm us-none c-p ${
+                    `d-f py-2 pr-8 pl-4 fs-sm us-none c-p br-1 mx-1 ${
                       state.highlighted ? "bg-silver-1" : "h:bg-silver-1"
                     }`
                   }
@@ -39,7 +39,7 @@ export default function ExampleContextMenu() {
                 </ContextMenu.Item>
                 <ContextMenu.Item
                   className={(state) =>
-                    `d-f py-2 pr-8 pl-4 fs-sm us-none c-p ${
+                    `d-f py-2 pr-8 pl-4 fs-sm us-none c-p br-1 mx-1 ${
                       state.highlighted ? "bg-silver-1" : "h:bg-silver-1"
                     }`
                   }
@@ -48,7 +48,7 @@ export default function ExampleContextMenu() {
                 </ContextMenu.Item>
                 <ContextMenu.Item
                   className={(state) =>
-                    `d-f py-2 pr-8 pl-4 fs-sm us-none c-p ${
+                    `d-f py-2 pr-8 pl-4 fs-sm us-none c-p br-1 mx-1 ${
                       state.highlighted ? "bg-silver-1" : "h:bg-silver-1"
                     }`
                   }
@@ -60,7 +60,7 @@ export default function ExampleContextMenu() {
 
                 <ContextMenu.Item
                   className={(state) =>
-                    `d-f py-2 pr-8 pl-4 fs-sm us-none c-p ${
+                    `d-f py-2 pr-8 pl-4 fs-sm us-none c-p br-1 mx-1 ${
                       state.highlighted ? "bg-silver-1" : "h:bg-silver-1"
                     }`
                   }
@@ -69,7 +69,7 @@ export default function ExampleContextMenu() {
                 </ContextMenu.Item>
                 <ContextMenu.Item
                   className={(state) =>
-                    `d-f py-2 pr-8 pl-4 fs-sm us-none c-p ${
+                    `d-f py-2 pr-8 pl-4 fs-sm us-none c-p br-1 mx-1 ${
                       state.highlighted ? "bg-silver-1" : "h:bg-silver-1"
                     }`
                   }
@@ -81,7 +81,7 @@ export default function ExampleContextMenu() {
 
                 <ContextMenu.Item
                   className={(state) =>
-                    `d-f py-2 pr-8 pl-4 fs-sm us-none c-p c-red ${
+                    `d-f py-2 pr-8 pl-4 fs-sm us-none c-p c-red br-1 mx-1 ${
                       state.highlighted ? "bg-red-1" : "h:bg-red-1"
                     }`
                   }
