@@ -32,3 +32,23 @@ Target viewport sizes with breakpoint prefixes.
 Apply styles conditionally on hover using the `h:` prefix.
 
 <HoverVariant prefix="bblr" />
+
+## Logical Properties
+
+Use logical properties to adapt to the document's writing mode & direction.
+
+### Border End Start Radius
+
+Set the logical end-start border radius for an element.
+
+<Baseline path="css.properties.border-end-start-radius" />
+
+<Reference category="border" name="border-end-start-radius" />
+
+<Preview>
+  <div className="w-16 h-16 bg-indigo besr-2"></div>
+</Preview>
+
+```html "besr-2"
+<div class="w-16 h-16 bg-indigo besr-2"></div>
+```
