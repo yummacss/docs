@@ -11,9 +11,12 @@ export default function ExampleCombobox() {
   return (
     <Combobox.Root items={countries} open={open} onOpenChange={setOpen}>
       <div className="d-f p-r fd-c g-2 c-slate-10 fs-sm">
-        <label className="fw-600">Select country</label>
+        <label htmlFor="country-input" className="fw-600">
+          Select country
+        </label>
         <div className="p-r">
           <Combobox.Input
+            id="country-input"
             placeholder="e.g. United States"
             className="h-10 w-64 pl-4 pr-16 bg-white bc-silver-3 c-slate-10 bw-1 br-2 fs-sm fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
           />
@@ -61,7 +64,7 @@ export default function ExampleCombobox() {
                       key={country.code}
                       value={country}
                       className={(state) =>
-                        `d-f ai-c g-2 py-2 px-4 fs-sm us-none c-d c-p ${
+                        `d-f ai-c g-2 py-2 px-3 fs-sm us-none c-d c-p br-1 mx-1 ${
                           state.highlighted ? "bg-silver-1" : "h:bg-silver-1"
                         }`
                       }
