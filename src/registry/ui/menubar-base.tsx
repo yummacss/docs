@@ -6,7 +6,7 @@ import { AnimatePresence, motion } from "motion/react";
 import * as React from "react";
 
 const itemClass = (state: { highlighted: boolean }) =>
-  `d-f ai-c jc-sb g-4 px-4 py-2 fs-sm us-none c-p ${
+  `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p br-1 mx-1 ${
     state.highlighted ? "bg-silver-1" : "h:bg-silver-1"
   }`;
 
