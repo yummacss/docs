@@ -67,13 +67,13 @@ Matches an element if the element or any of its descendants are focused.
 
 <Preview>
   <div className="d-f ai-c w-full max-w-64 bg-white bc-silver-3 br-2 bw-1 fw:os-s fw:ow-2 fw:oo-2 fw:oc-indigo-6 fv:oc-indigo-6">
-    <input className="b-0 f-1 h-10 pl-4 bg-transparent c-slate-10 fs-sm" placeholder="Focus me" style={{ outline: 'none' }} />
+    <input className="b-0 f-1 h-10 pl-4 bg-transparent c-slate-10 fs-sm" placeholder="Focus me" />
   </div>
 </Preview>
 
-```html "fw:bc-indigo"
-<div class="p-px bc-silver bw-2 fw:bc-indigo">
-  <input class="p-2 bc-silver bw-1" placeholder="Focus me" />
+```html "fw:oc-indigo-6"
+<div class="d-f ai-c w-full max-w-64 bg-white bc-silver-3 br-2 bw-1 fw:os-s fw:ow-2 fw:oo-2 fw:oc-indigo-6 fv:oc-indigo-6">
+  <input class="b-0 f-1 h-10 pl-4 bg-transparent c-slate-10 fs-sm" placeholder="Focus me" />
 </div>
 ```
 
@@ -84,12 +84,15 @@ Represents radio, checkbox, or option elements toggled to an "on" state.
 <Preview>
   <div className="d-f g-2 ai-c">
     <input type="checkbox" className="w-4 h-4 bc-silver-3 br-1 bw-1 c-p appearance-none" checked readOnly />
-    <label className="c-slate-10 fs-sm fw-600">Checked checkbox</label>
+    <label className="c-slate-10 fw-600 c:bg-indigo-4fs-sm">Checked checkbox</label>
   </div>
 </Preview>
 
 ```html "c:bg-indigo-4"
-<input type="checkbox" class="w-4 h-4 br-0" checked />
+<div class="d-f g-2 ai-c">
+  <input type="checkbox" class="w-4 h-4 bc-silver-3 br-1 bw-1 c-p appearance-none" checked readOnly />
+  <label class="c-slate-10 fw-600 c:bg-indigo-4fs-sm">Checked checkbox</label>
+</div>
 ```
 
 ## Disabled
@@ -99,11 +102,11 @@ Represents disabled elements that cannot be activated or receive focus.
 <Hint icon="cursor">Elements with the `disabled` attribute use `cursor: not-allowed` by default in [Base Styles](/docs/base-styles).</Hint>
 
 <Preview>
-  <button className="px-3 py-2 bg-silver-2 bc-silver-3 c-silver-9 br-2 bw-1 fw-600 bs-o-xs tp-c tdu-150 ttf-io us-none d:bg-silver-1 d:c-silver-8" disabled>Disabled button</button>
+  <button className="px-3 py-2 bg-silver-2 bc-silver-3 c-silver-9 br-2 bw-1 fw-600 bs-o-xs tp-c tdu-150 ttf-io us-none d:bg-silver-1 d:c-silver-8" disabled>Disabled</button>
 </Preview>
 
 ```html "d:bg-silver-4" "d:c-silver-9"
-<button class="px-3 py-2 bg-indigo-2 c-white br-0 d:bg-silver-4 d:c-silver-9" disabled>Disabled button</button>
+<button class="px-3 py-2 bg-indigo-2 c-white br-0 d:bg-silver-4 d:c-silver-9" disabled>Disabled</button>
 ```
 
 Here's a reference for all the pseudo-variants available in Yumma CSS.
