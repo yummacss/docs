@@ -21,6 +21,7 @@ const categoryGetters = {
   font: core.fontUtils,
   grid: core.gridUtils,
   interactivity: core.interactivityUtils,
+  layout: core.layoutUtils,
   outline: core.outlineUtils,
   positioning: core.positioningUtils,
   svg: core.svgUtils,
