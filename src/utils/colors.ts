@@ -1,6 +1,5 @@
 import tinycolor from "tinycolor2";
 
-// Shade labels for color generation
 export const SHADE_LABELS = [
   "1",
   "2",
@@ -17,7 +16,6 @@ export const SHADE_LABELS = [
   "12",
 ];
 
-// Legacy shade labels (from older releases)
 export const LEGACY_SHADE_LABELS = [
   "6",
   "5",
@@ -34,7 +32,6 @@ export const LEGACY_SHADE_LABELS = [
   "6",
 ];
 
-// for search purposes!
 export const COLOR_FAMILIES: { name: string; color: string }[] = [
   { name: "Red", color: "#e63946" },
   { name: "Orange", color: "#ff6b35" },
@@ -57,7 +54,6 @@ export const COLOR_FAMILIES: { name: string; color: string }[] = [
   { name: "Silver", color: "#9ca3af" },
 ];
 
-// Generate shades for a color (lighter to darker)
 export function generateShades(
   color: string,
   whitePercentage = 14,
@@ -71,7 +67,7 @@ export function generateShades(
     shades.push(mixedColor.toHexString());
   }
 
-  shades.push(tinycolor(color).toHexString()); // Base
+  shades.push(tinycolor(color).toHexString());
 
   for (let i = 1; i <= 6; i++) {
     const weight = i * blackPercentage;
@@ -82,7 +78,6 @@ export function generateShades(
   return shades;
 }
 
-// Get border color based on luminance (for palette display)
 export function getBorderColor(color: string): string {
   const luminance = tinycolor(color).getLuminance();
 

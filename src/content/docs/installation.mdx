@@ -13,7 +13,7 @@ Install Yumma CSS with your favorite package manager:
 
 <Stepper>
   <Step title="Install Yumma CSS">
-    ```bash title="Terminal"
+    ```bash frame="none"
     pnpm add yummacss -D
     ```
   </Step>
@@ -21,7 +21,7 @@ Install Yumma CSS with your favorite package manager:
   <Step title="Initialize configuration">
     Create a configuration file in your project.
 
-    ```bash title="Terminal"
+    ```bash frame="none"
     pnpx yummacss init
     ```
 
@@ -30,7 +30,7 @@ Install Yumma CSS with your favorite package manager:
   <Step title="Configure sources">
     Specify the locations/paths of your project files in the config file.
 
-    ```js title="yumma.config.mjs" mark={2-3}
+    ```mjs title="yumma.config.mjs" mark={2-3}
     export default {
       source: ["./src/**/*.{ts,tsx}"],
       output: "./src/styles.css",
@@ -46,7 +46,7 @@ Install Yumma CSS with your favorite package manager:
   <Step title="Build styles">
     Start using Yumma CSS classes, then generate your styles.
 
-    ```bash title="Terminal"
+    ```bash frame="none"
     pnpx yummacss build
     ```
 
