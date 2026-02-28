@@ -15,7 +15,7 @@ In this guide, **legacy** refers to Yumma CSS v2 & earlier versions. These older
   <Step title="Update Yumma CSS">
     Remove the old `yummacss` package.
 
-    ```bash frame="none"
+    ```bash
     pnpm add yummacss@latest
     ```
   </Step>
@@ -23,7 +23,7 @@ In this guide, **legacy** refers to Yumma CSS v2 & earlier versions. These older
   <Step title="Initialize configuration">
     Create a configuration file in your project.
 
-    ```bash frame="none"
+    ```bash
     pnpx yummacss init
     ```
   </Step>
@@ -55,7 +55,7 @@ In this guide, **legacy** refers to Yumma CSS v2 & earlier versions. These older
   <Step title="Build styles">
     You can now start generating your CSS with the [`build`](/docs/configuration/#build) or [`watch`](/docs/configuration/#watch) command.
 
-    ```bash frame="none"
+    ```bash
     pnpx yummacss build
     ```
   </Step>
@@ -66,7 +66,7 @@ In this guide, **legacy** refers to Yumma CSS v2 & earlier versions. These older
 
 Yumma CSS now functions as a CLI tool. Install it as a dev dependency (`-D`) instead of a standard dependency to keep your production bundle lean.
 
-```bash frame="none"
+```bash
 pnpm add yummacss -D
 ```
 
@@ -74,7 +74,7 @@ pnpm add yummacss -D
 
 Replace the `@yummacss/api` package with `@yummacss/core`. Update your imports accordingly.
 
-```bash frame="none"
+```bash
 pnpm remove @yummacss/api
 pnpm add @yummacss/core
 ```

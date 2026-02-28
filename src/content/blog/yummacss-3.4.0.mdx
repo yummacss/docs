@@ -52,7 +52,7 @@ This avoids unnecessary CSS generation & further improves build performance.
 
 Since data is already structured in `@yummacss/api`, the CLI only extracts tokens from `source` files to generate the final CSS.
 
-```bash frame="none" frame="terminal" {1}
+```bash frame="terminal" {1}
 pnpx yummacss watch
 √ Build done in 11ms. (./src/out.css)
 i Watching...
@@ -107,7 +107,7 @@ export default {
 
 A fix is available for a bug that prevented the Yumma CSS CLI from running when using `npm` as a package manager.
 
-```bash frame="none" frame="terminal"
+```bash frame="terminal"
 npm install yummacss -D
 pnpx yummacss init
 pnpx yummacss build
