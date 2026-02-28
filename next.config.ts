@@ -5,11 +5,10 @@ import eclipsaTheme from "./src/themes/eclipsa.json";
 
 /** @type {import('rehype-expressive-code').RehypeExpressiveCodeOptions} */
 const rehypeExpressiveCodeOptions = {
-  // Pass the theme as a plain object
   themes: [eclipsaTheme],
   borderRadius: "0",
   styleOverrides: {
-    borderRadius: "0",
+    borderRadius: "0.15rem",
     frames: {
       borderRadius: "0",
       shadowColor: "transparent",
@@ -39,12 +38,10 @@ const nextConfig = {
 
 const withMDX = createMDX({
   options: {
-    // Pass plugin names as strings for Turbopack compatibility
     remarkPlugins: ["remark-gfm"],
     rehypePlugins: [
       [path.resolve("src/plugins/rehype-registry.mjs"), {}],
-      // The nested array structure is required to pass options
-      // to a rehype plugin
+
       ["rehype-expressive-code", rehypeExpressiveCodeOptions],
     ],
   },
