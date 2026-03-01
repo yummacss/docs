@@ -5,6 +5,11 @@ import { CaretDownIcon, CheckIcon, XIcon } from "@phosphor-icons/react";
 import { AnimatePresence, motion } from "motion/react";
 import * as React from "react";
 
+interface Country {
+  code: string;
+  name: string;
+}
+
 export default function ExampleCombobox() {
   const [open, setOpen] = React.useState(false);
 
@@ -59,7 +64,7 @@ export default function ExampleCombobox() {
                   {(country: Country) => (
                     <Combobox.Item
                       key={country.code}
-                      value={country}
+                      value={country.name}
                       className={(state) =>
                         `d-f ai-c g-2 py-2 px-3 fs-sm us-none c-d c-p br-1 mx-1 ${
                           state.highlighted ? "bg-silver-1" : "h:bg-silver-1"
@@ -83,11 +88,6 @@ export default function ExampleCombobox() {
       </AnimatePresence>
     </Combobox.Root>
   );
-}
-
-interface Country {
-  code: string;
-  name: string;
 }
 
 const countries: Country[] = [
