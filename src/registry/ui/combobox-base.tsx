@@ -1,39 +1,70 @@
 "use client";
 
-import { Autocomplete } from "@base-ui/react/autocomplete";
+import { Combobox } from "@base-ui/react/combobox";
+import { CaretDownIcon, CheckIcon, XIcon } from "@phosphor-icons/react";
 import { AnimatePresence, motion } from "motion/react";
 import * as React from "react";
 
-interface ColorFamily {
+interface Country {
+  code: string;
   name: string;
-  color: string;
 }
 
-export default function ExampleAutocomplete() {
+const countries: Country[] = [
+  { code: "us", name: "United States" },
+  { code: "ca", name: "Canada" },
+  { code: "gb", name: "United Kingdom" },
+  { code: "de", name: "Germany" },
+  { code: "fr", name: "France" },
+  { code: "jp", name: "Japan" },
+  { code: "au", name: "Australia" },
+  { code: "br", name: "Brazil" },
+  { code: "in", name: "India" },
+  { code: "mx", name: "Mexico" },
+  { code: "es", name: "Spain" },
+  { code: "it", name: "Italy" },
+  { code: "nl", name: "Netherlands" },
+  { code: "se", name: "Sweden" },
+  { code: "no", name: "Norway" },
+];
+
+export default function ExampleCombobox() {
   const [open, setOpen] = React.useState(false);
 
   return (
-    <Autocomplete.Root
-      items={COLOR_FAMILIES}
-      open={open}
-      onOpenChange={setOpen}
-    >
-      <div className="d-f fd-c g-2">
-        <label htmlFor="autocomplete-input" className="c-slate-10 fs-sm fw-600">
-          Color
+    <Combobox.Root items={countries} open={open} onOpenChange={setOpen}>
+      <div className="d-f p-r fd-c g-2 c-slate-10 fs-sm">
+        <label htmlFor="country-input" className="fw-600">
+          Select country
         </label>
-        <Autocomplete.Input
-          id="autocomplete-input"
-          placeholder="e.g. Indigo"
-          className="h-10 w-64 pl-4 bg-white bc-silver-3 c-slate-12 bw-1 br-2 fs-sm fv:os-s fv:ow-2 fv:oo--1 fv:oc-indigo-6"
-        />
+        <div className="p-r">
+          <Combobox.Input
+            id="country-input"
+            placeholder="e.g. United States"
+            className="h-10 w-64 pl-4 pr-16 bg-white bc-silver-3 c-slate-10 bw-1 br-2 fs-sm fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
+          />
+          <div className="d-f p-a r-2 b-0 ai-c jc-c h-10 c-slate-6">
+            <Combobox.Clear
+              className="d-f b-0 ai-c jc-c w-6 h-6 p-0 bg-transparent c-slate-6 br-1 c-p h:c-slate-10"
+              aria-label="Clear selection"
+            >
+              <XIcon size={16} />
+            </Combobox.Clear>
+            <Combobox.Trigger
+              className="d-f b-0 ai-c jc-c w-6 h-6 p-0 bg-transparent c-slate-6 br-1 c-p h:c-slate-10"
+              aria-label="Open popup"
+            >
+              <CaretDownIcon size={16} />
+            </Combobox.Trigger>
+          </div>
+        </div>
       </div>
 
       <AnimatePresence>
         {open && (
-          <Autocomplete.Portal keepMounted>
-            <Autocomplete.Positioner className="ow-0" sideOffset={4}>
-              <Autocomplete.Popup
+          <Combobox.Portal keepMounted>
+            <Combobox.Positioner className="ow-0" sideOffset={8}>
+              <Combobox.Popup
                 render={
                   <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
@@ -44,58 +75,35 @@ export default function ExampleAutocomplete() {
                 }
                 className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-2 bs-o-lg"
               >
-                <Autocomplete.List className="o-y-auto max-h-72 py-1 ow-0">
-                  {(color: ColorFamily) => (
-                    <Autocomplete.Item
-                      key={color.name}
-                      value={color.name}
-                      render={(props, state) => (
-                        <div
-                          {...props}
-                          className={`d-f ai-c g-3 py-2 px-3 fs-sm us-none c-d c-p br-1 mx-1 c-slate-10 ${
-                            state.highlighted ? "bg-silver-1" : "h:bg-silver-1"
-                          }`}
-                        >
-                          <div
-                            className="fs-0 w-4 h-4 br-pill"
-                            style={{ backgroundColor: color.color }}
-                          />
-                          {color.name}
-                        </div>
-                      )}
-                    />
+                <Combobox.List
+                  className="o-y-auto py-1 ow-0"
+                  style={{ maxHeight: "18rem" }}
+                >
+                  {(country: Country) => (
+                    <Combobox.Item
+                      key={country.code}
+                      value={country.name}
+                      className={(state) =>
+                        `d-f ai-c g-2 py-2 px-3 fs-sm us-none c-d c-p br-1 mx-1 ${
+                          state.highlighted ? "bg-silver-1" : "h:bg-silver-1"
+                        }`
+                      }
+                    >
+                      <Combobox.ItemIndicator className="d-f c-indigo">
+                        <CheckIcon size={12} weight="bold" />
+                      </Combobox.ItemIndicator>
+                      <span className="fg-1">{country.name}</span>
+                    </Combobox.Item>
                   )}
-                </Autocomplete.List>
-                <Autocomplete.Empty className="c-slate-6 fs-sm">
-                  <div className="py-4 px-4">No colors found.</div>
-                </Autocomplete.Empty>
-              </Autocomplete.Popup>
-            </Autocomplete.Positioner>
-          </Autocomplete.Portal>
+                </Combobox.List>
+                <Combobox.Empty className="c-slate-6 fs-sm">
+                  <div className="py-4 px-4">No countries found.</div>
+                </Combobox.Empty>
+              </Combobox.Popup>
+            </Combobox.Positioner>
+          </Combobox.Portal>
         )}
       </AnimatePresence>
-    </Autocomplete.Root>
+    </Combobox.Root>
   );
 }
-
-const COLOR_FAMILIES: ColorFamily[] = [
-  { name: "Red", color: "#e63946" },
-  { name: "Orange", color: "#ff6b35" },
-  { name: "Yellow", color: "#ffb81c" },
-  { name: "Lime", color: "#84cc16" },
-  { name: "Mint", color: "#10b981" },
-  { name: "Green", color: "#06d6a0" },
-  { name: "Cyan", color: "#06b6d4" },
-  { name: "Sky", color: "#38bdf8" },
-  { name: "Blue", color: "#2563eb" },
-  { name: "Indigo", color: "#6366f1" },
-  { name: "Violet", color: "#8b5cf6" },
-  { name: "Lavender", color: "#a78bfa" },
-  { name: "Magenta", color: "#d946ef" },
-  { name: "Pink", color: "#ec4899" },
-  { name: "Coral", color: "#ff6f91" },
-  { name: "Zinc", color: "#52525b" },
-  { name: "Gray", color: "#6b7280" },
-  { name: "Slate", color: "#64748b" },
-  { name: "Silver", color: "#9ca3af" },
-];
