@@ -2,7 +2,7 @@
 
 import { Collapsible } from "@base-ui/react/collapsible";
 import { CaretRightIcon } from "@phosphor-icons/react";
-import { AnimatePresence, motion } from "motion/react";
+import { type HTMLMotionProps, motion } from "motion/react";
 import * as React from "react";
 
 export default function ExampleCollapsible() {
@@ -25,27 +25,30 @@ export default function ExampleCollapsible() {
         System requirements
       </Collapsible.Trigger>
 
-      <AnimatePresence initial={false}>
-        {open && (
-          <Collapsible.Panel
-            render={
-              <motion.div
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: "auto", opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.15, ease: "easeOut" }}
-              />
+      <Collapsible.Panel
+        keepMounted
+        render={(props) => (
+          <motion.div
+            {...(props as HTMLMotionProps<"div">)}
+            initial={false}
+            animate={
+              open ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }
             }
+            transition={{
+              type: "spring",
+              stiffness: 500,
+              damping: 30,
+            }}
             className="d-b o-h"
-          >
-            <div className="d-f fd-c g-2 mt-1 py-3 px-4 bg-white bc-silver-2 br-2 bw-1 fs-sm">
-              <div>Node.js 18 or later</div>
-              <div>macOS, Windows, or Linux</div>
-              <div>4GB RAM minimum</div>
-            </div>
-          </Collapsible.Panel>
+          />
         )}
-      </AnimatePresence>
+      >
+        <div className="d-f fd-c g-2 mt-1 py-3 px-4 bg-white bc-silver-2 br-2 bw-1 fs-sm">
+          <div>Node.js 18 or later</div>
+          <div>macOS, Windows, or Linux</div>
+          <div>4GB RAM minimum</div>
+        </div>
+      </Collapsible.Panel>
     </Collapsible.Root>
   );
 }
