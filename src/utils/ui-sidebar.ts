@@ -59,7 +59,6 @@ export const uiSidebarConfig: UISidebarConfig = [
       { title: "Preview Card", slug: "preview-card" },
       { title: "Progress", slug: "progress" },
       { title: "Radio", slug: "radio" },
-      { title: "Scroll Area", slug: "scroll-area" },
       { title: "Select", slug: "select" },
       { title: "Separator", slug: "separator" },
       { title: "Slider", slug: "slider" },
