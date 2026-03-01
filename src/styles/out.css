@@ -1921,6 +1921,10 @@ summary {
   height: 1.75rem;
 }
 
+.h-70 {
+  height: 17.5rem;
+}
+
 .h-75 {
   height: 18.75rem;
 }
@@ -1967,6 +1971,10 @@ summary {
 
 .h-s {
   height: stretch;
+}
+
+.h-sm {
+  height: 40rem;
 }
 
 .h-vh {
