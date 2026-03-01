@@ -5,7 +5,7 @@ export default function ExampleButton() {
     <div className="d-f ai-c g-3">
       <Button
         disabled
-        className="b-0 px-2 py-1 bg-indigo bc-indigo-7 c-white br-2 bw-1 fw-600 fs-sm bs-o-xs o-50 us-none c-na"
+        className="b-0 px-2 py-1 bg-indigo bc-indigo-7 c-white br-2 bw-1 fw-600 fs-xs bs-o-xs o-50 us-none c-na"
       >
         Button sm
       </Button>
