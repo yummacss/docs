@@ -55,11 +55,11 @@ export default function ExampleAccordion() {
                     stiffness: 500,
                     damping: 30,
                   }}
-                  className="o-h pb-4 c-slate-6 fs-sm lh-4"
+                  className="d-b o-h"
                 />
               )}
             >
-              {item.content}
+              <p className="m-0 pb-4 c-slate-6 fs-sm lh-4">{item.content}</p>
             </Accordion.Panel>
           </Accordion.Item>
         );
@@ -70,21 +70,21 @@ export default function ExampleAccordion() {
 
 const items = [
   {
-    value: "shipping",
-    title: "What are the shipping options?",
+    value: "account",
+    title: "How do I create an account?",
     content:
-      "We offer free standard shipping on all orders over $50. Express and next-day delivery are available at checkout for an additional fee.",
+      "Click the 'Sign Up' button in the top right corner. Enter your email, create a password, and verify your email address.",
   },
   {
-    value: "returns",
-    title: "How do returns work?",
+    value: "security",
+    title: "Is my data secure?",
     content:
-      "You have 30 days from delivery to return any unused item. Simply initiate a return through your account dashboard and print the prepaid label.",
+      "Yes. We use industry-standard encryption, regular security audits, and comply with GDPR and SOC 2 standards.",
   },
   {
-    value: "payment",
-    title: "What payment methods do you accept?",
+    value: "export",
+    title: "Can I export my data?",
     content:
-      "We accept all major credit cards, PayPal, Apple Pay, and Google Pay. Installment plans are available through Klarna for orders over $100.",
+      "Absolutely. Export your data anytime in CSV, JSON, or PDF format from your account settings.",
   },
 ];

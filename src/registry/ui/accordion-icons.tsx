@@ -80,21 +80,21 @@ export default function ExampleAccordion() {
 
 const items = [
   {
-    value: "customization",
-    title: "Can I customize the design?",
+    value: "account",
+    title: "How do I create an account?",
     content:
-      "Yes! Use our theme editor to customize colors, fonts, spacing, and more. Or add custom CSS for complete control.",
+      "Click the 'Sign Up' button in the top right corner. Enter your email, create a password, and verify your email address.",
   },
   {
-    value: "integrations",
-    title: "What integrations are available?",
+    value: "security",
+    title: "Is my data secure?",
     content:
-      "We integrate with Slack, GitHub, Figma, Notion, Zapier, and 100+ other tools via our API and webhooks.",
+      "Yes. We use industry-standard encryption, regular security audits, and comply with GDPR and SOC 2 standards.",
   },
   {
-    value: "support",
-    title: "How can I get help?",
+    value: "export",
+    title: "Can I export my data?",
     content:
-      "Access our help center, live chat support, or email us. Enterprise plans include dedicated account managers.",
+      "Absolutely. Export your data anytime in CSV, JSON, or PDF format from your account settings.",
   },
 ];

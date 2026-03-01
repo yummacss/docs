@@ -36,7 +36,7 @@ export default function ExampleCollapsible() {
                 transition={{ duration: 0.15, ease: "easeOut" }}
               />
             }
-            className="o-h"
+            className="d-b o-h"
           >
             <div className="d-f fd-c g-2 mt-1 py-3 px-4 bg-white bc-silver-2 br-2 bw-1 fs-sm">
               <div>Node.js 18 or later</div>
