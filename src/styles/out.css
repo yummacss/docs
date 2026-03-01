@@ -656,10 +656,6 @@ summary {
   background-color: #a5aebc;
 }
 
-.bg-slate-5 {
-  background-color: #8f9bab;
-}
-
 .bg-transparent {
   background-color: #0000;
 }
@@ -1889,10 +1885,6 @@ summary {
   height: 8rem;
 }
 
-.h-36 {
-  height: 9rem;
-}
-
 .h-4 {
   height: 1rem;
 }
@@ -2319,10 +2311,6 @@ summary {
   margin: 0;
 }
 
-.m-2 {
-  margin: .5rem;
-}
-
 .m-8 {
   margin: 2rem;
 }
@@ -2393,10 +2381,6 @@ summary {
 
 .max-w-fc {
   max-width: fit-content;
-}
-
-.max-w-full {
-  max-width: 100%;
 }
 
 .mb-0 {
@@ -2629,10 +2613,6 @@ summary {
 
 .my-8 {
   margin-block: 2rem;
-}
-
-.o-0 {
-  opacity: 0;
 }
 
 .o-100 {
@@ -3897,10 +3877,6 @@ summary {
 
 .va-t {
   vertical-align: top;
-}
-
-.w-1 {
-  width: .25rem;
 }
 
 .w-10 {

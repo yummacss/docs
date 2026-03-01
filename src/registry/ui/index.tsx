@@ -1,6 +1,4 @@
 import type { ComponentType } from "react";
-
-// Import all preview components
 import AccordionBase from "./accordion-base";
 import AccordionBordered from "./accordion-bordered";
 import AccordionIcons from "./accordion-icons";
@@ -50,7 +48,6 @@ import PopoverBase from "./popover-base";
 import PreviewCardBase from "./preview-card-base";
 import ProgressBase from "./progress-base";
 import RadioBase from "./radio-base";
-import ScrollAreaBase from "./scroll-area-base";
 import SelectBase from "./select-base";
 import SeparatorBase from "./separator-base";
 import SliderBase from "./slider-base";
@@ -61,20 +58,15 @@ import ToggleGroupBase from "./toggle-group-base";
 import ToolbarBase from "./toolbar-base";
 import TooltipBase from "./tooltip-base";
 
-// Registry of preview components
-export const components: Record<string, ComponentType> = {
-  // Accordion
+export const baseComponents: Record<string, ComponentType> = {
   "accordion-base": AccordionBase,
   "accordion-multiple": AccordionMultiple,
   "accordion-bordered": AccordionBordered,
   "accordion-icons": AccordionIcons,
-  // Alert Dialog
   "alert-dialog-base": AlertDialogBase,
   "alert-dialog-mail": AlertDialogMail,
   "alert-dialog-verification": AlertDialogVerification,
-  // Autocomplete
   "autocomplete-base": AutocompleteBase,
-  // Avatar
   "avatar-base": AvatarBase,
   "avatar-status": AvatarStatus,
   "avatar-verified": AvatarVerified,
@@ -82,7 +74,6 @@ export const components: Record<string, ComponentType> = {
   "avatar-initials": AvatarInitials,
   "avatar-detailed": AvatarDetailed,
   "avatar-stacked": AvatarStacked,
-  // Button
   "button-base": ButtonBase,
   "button-primary": ButtonPrimary,
   "button-secondary": ButtonSecondary,
@@ -94,70 +85,44 @@ export const components: Record<string, ComponentType> = {
   "button-icon-only": ButtonIconOnly,
   "button-loading": ButtonLoading,
   "button-disabled": ButtonDisabled,
-  // Checkbox
   "checkbox-base": CheckboxBase,
   "checkbox-detailed": CheckboxDetailed,
   "checkbox-disabled": CheckboxDisabled,
   "checkbox-sizes": CheckboxSizes,
   "checkbox-parent": CheckboxParent,
   "checkbox-nested-parent": CheckboxNestedParent,
-  // Collapsible
   "collapsible-base": CollapsibleBase,
-  // Combobox
   "combobox-base": ComboboxBase,
-  // Context Menu
   "context-menu-base": ContextMenuBase,
-  // Dialog
   "dialog-base": DialogBase,
   "dialog-payment": DialogPayment,
   "dialog-settings": DialogSettings,
-  // Form
   "form-base": FormBase,
-  // Input
   "input-base": InputBase,
-  // Menu
   "menu-base": MenuBase,
-  // Menubar
   "menubar-base": MenubarBase,
-  // Meter
   "meter-base": MeterBase,
-  // Navigation Menu
   "navigation-menu-base": NavigationMenuBase,
-  // Number Field
   "number-field-base": NumberFieldBase,
-  // Popover
   "popover-base": PopoverBase,
-  // Preview Card
   "preview-card-base": PreviewCardBase,
-  // Progress
   "progress-base": ProgressBase,
-  // Radio
   "radio-base": RadioBase,
-  // Scroll Area
-  "scroll-area-base": ScrollAreaBase,
-  // Select
   "select-base": SelectBase,
-  // Separator
   "separator-base": SeparatorBase,
-  // Slider
   "slider-base": SliderBase,
-  // Switch
   "switch-base": SwitchBase,
-  // Tabs
   "tabs-base": TabsBase,
-  // Toggle
   "toggle-base": ToggleBase,
-  // Toggle Group
   "toggle-group-base": ToggleGroupBase,
-  // Toolbar
   "toolbar-base": ToolbarBase,
-  // Tooltip
   "tooltip-base": TooltipBase,
 };
 
-export const blocks: Record<string, ComponentType> = {};
+// coming soon
+export const uiBlocks: Record<string, ComponentType> = {};
 
 export const registry: Record<string, ComponentType> = {
-  ...components,
-  ...blocks,
+  ...baseComponents,
+  ...uiBlocks,
 };
