@@ -71,21 +71,21 @@ export default function ExampleAccordion() {
 
 const items = [
   {
-    value: "features",
-    title: "What features are included?",
+    value: "account",
+    title: "How do I create an account?",
     content:
-      "All plans include unlimited projects, 24/7 support, advanced analytics, custom domains, and team collaboration tools.",
+      "Click the 'Sign Up' button in the top right corner. Enter your email, create a password, and verify your email address.",
   },
   {
-    value: "pricing",
-    title: "How does pricing work?",
+    value: "security",
+    title: "Is my data secure?",
     content:
-      "We offer monthly and annual billing. Annual plans save you 20%. You can upgrade, downgrade, or cancel anytime.",
+      "Yes. We use industry-standard encryption, regular security audits, and comply with GDPR and SOC 2 standards.",
   },
   {
-    value: "trial",
-    title: "Is there a free trial?",
+    value: "export",
+    title: "Can I export my data?",
     content:
-      "Yes! Start with a 14-day free trial. No credit card required. Cancel anytime during the trial period.",
+      "Absolutely. Export your data anytime in CSV, JSON, or PDF format from your account settings.",
   },
 ];
