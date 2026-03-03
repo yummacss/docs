@@ -141,7 +141,7 @@ function generateLlmsTxt(): void {
   // Write output
   const output = `${sections.join("\n\n")}\n`;
   fs.writeFileSync(OUTPUT_PATH, output);
-  console.log(`Output successful with ${docsPages.size} docs pages`);
+  console.log(`Output successful with ${docsPages.size} pages.`);
 }
 
 generateLlmsTxt();
