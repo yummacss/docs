@@ -52,4 +52,6 @@ const outPath = path.join(root, "src/generated/og-meta.json");
 fs.mkdirSync(path.dirname(outPath), { recursive: true });
 fs.writeFileSync(outPath, JSON.stringify(map, null, 2));
 
-console.log(`✓ og-meta.json — ${Object.keys(map).length} entries → ${outPath}`);
+console.log(
+  `Output successful with ${Object.keys(map).length} entries.`,
+);
