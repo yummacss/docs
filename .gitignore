@@ -5,8 +5,9 @@ node_modules/
 build/
 dist/
 
-# next.js
+# artifacts
 .next/
+src/generated/
 
 # misc
 .DS_Store

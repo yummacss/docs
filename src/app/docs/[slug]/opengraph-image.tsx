@@ -1,8 +1,11 @@
 import { ImageResponse } from "next/og";
+import ogMeta from "@/generated/og-meta.json";
 
 export const runtime = "edge";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
+
+type OGMeta = Record<string, { title: string; description: string }>;
 
 export default async function Image({
   params,
@@ -10,14 +13,14 @@ export default async function Image({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const module = await import(`@/content/docs/${slug}.mdx`);
-  const meta = module.meta;
-
-  const title: string = meta?.title ?? "Documentation";
-  const description: string = meta?.description ?? "";
+  const meta = (ogMeta as OGMeta)[`docs/${slug}`];
 
   return new ImageResponse(
-    <OGImage title={title} description={description} />,
+    <OGImage
+      title={meta?.title || "Documentation"}
+      description={meta?.description || ""}
+      label="Yumma CSS — Docs"
+    />,
     { width: 1200, height: 630 },
   );
 }
@@ -25,10 +28,16 @@ export default async function Image({
 function OGImage({
   title,
   description,
+  label,
+  badge,
 }: {
   title: string;
   description: string;
+  label: string;
+  badge?: string;
 }) {
+  const titleSize = title.length > 40 ? 52 : title.length > 25 ? 64 : 80;
+
   return (
     <div
       style={{
@@ -43,6 +52,7 @@ function OGImage({
         position: "relative",
       }}
     >
+      {/* Diagonal grid texture */}
       <div
         style={{
           position: "absolute",
@@ -53,30 +63,70 @@ function OGImage({
         }}
       />
 
+      {/* Content */}
       <div
         style={{
           display: "flex",
           flexDirection: "column",
-          gap: 20,
-          maxWidth: 880,
+          gap: 24,
+          maxWidth: 900,
           zIndex: 1,
         }}
       >
-        <p
-          style={{
-            margin: 0,
-            fontSize: 18,
-            color: "rgba(255,255,255,0.4)",
-            letterSpacing: "0.1em",
-            textTransform: "uppercase",
-          }}
-        >
-          Yumma CSS — Docs
-        </p>
+        {/* Label row */}
+        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+          <span
+            style={{
+              fontSize: 17,
+              color: "rgba(255,255,255,0.4)",
+              letterSpacing: "0.1em",
+              textTransform: "uppercase",
+            }}
+          >
+            {label}
+          </span>
+          {badge && (
+            <>
+              <span
+                style={{
+                  width: 4,
+                  height: 4,
+                  borderRadius: "50%",
+                  backgroundColor: "rgba(255,255,255,0.2)",
+                  display: "flex",
+                }}
+              />
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  padding: "3px 12px",
+                  backgroundColor: "rgba(65,60,184,0.2)",
+                  border: "1px solid rgba(65,60,184,0.45)",
+                  borderRadius: 100,
+                }}
+              >
+                <span
+                  style={{
+                    fontSize: 13,
+                    color: "#a8b4e8",
+                    letterSpacing: "0.1em",
+                    textTransform: "uppercase",
+                    fontWeight: 500,
+                  }}
+                >
+                  {badge}
+                </span>
+              </div>
+            </>
+          )}
+        </div>
+
+        {/* Title */}
         <h1
           style={{
             margin: 0,
-            fontSize: title.length > 30 ? 64 : 80,
+            fontSize: titleSize,
             fontWeight: 400,
             color: "#a8b4e8",
             lineHeight: 1.1,
@@ -85,14 +135,16 @@ function OGImage({
         >
           {title}
         </h1>
+
+        {/* Description */}
         {description ? (
           <p
             style={{
               margin: 0,
-              fontSize: 26,
-              color: "rgba(255,255,255,0.55)",
-              lineHeight: 1.5,
-              maxWidth: 760,
+              fontSize: 24,
+              color: "rgba(255,255,255,0.5)",
+              lineHeight: 1.55,
+              maxWidth: 780,
             }}
           >
             {description}
@@ -100,6 +152,7 @@ function OGImage({
         ) : null}
       </div>
 
+      {/* Logo bottom-right */}
       <div
         style={{
           display: "flex",
@@ -108,13 +161,13 @@ function OGImage({
           zIndex: 1,
         }}
       >
-        <YummaCSSDarkLogo size={64} />
+        <YummaLogo size={64} />
       </div>
     </div>
   );
 }
 
-function YummaCSSDarkLogo({ size = 48 }: { size?: number }) {
+function YummaLogo({ size }: { size: number }) {
   return (
     <svg
       width={size}
@@ -132,3 +185,5 @@ function YummaCSSDarkLogo({ size = 48 }: { size?: number }) {
     </svg>
   );
 }
+
+export { OGImage, YummaLogo };

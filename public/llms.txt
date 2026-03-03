@@ -34,17 +34,23 @@ An atomic CSS framework with abbreviated class names.
 
 - [Border Collapse](https://yummacss.com/docs/border-collapse): Set the collapsing behavior for table borders.
 - [Border Radius](https://yummacss.com/docs/border-radius): Set the radius for element borders.
-- [Border Bottom Left Radius](https://yummacss.com/docs/border-bottom-left-radius): Set the bottom left border radius for an element.
-- [Border Bottom Radius](https://yummacss.com/docs/border-bottom-radius): Set the bottom border radius for an element.
-- [Border Bottom Right Radius](https://yummacss.com/docs/border-bottom-right-radius): Set the bottom right border radius for an element.
-- [Border Left Radius](https://yummacss.com/docs/border-left-radius): Set the left border radius for an element.
-- [Border Right Radius](https://yummacss.com/docs/border-right-radius): Set the right border radius for an element.
-- [Border Top Left Radius](https://yummacss.com/docs/border-top-left-radius): Set the top left border radius for an element.
 - [Border Top Radius](https://yummacss.com/docs/border-top-radius): Set the top border radius for an element.
-- [Border Top Right Radius](https://yummacss.com/docs/border-top-right-radius): Set the top right border radius for an element.
+- [Border Right Radius](https://yummacss.com/docs/border-right-radius): Set the right border radius for an element.
+- [Border Bottom Radius](https://yummacss.com/docs/border-bottom-radius): Set the bottom border radius for an element.
+- [Border Left Radius](https://yummacss.com/docs/border-left-radius): Set the left border radius for an element.
+- [Border Top Left Radius](https://yummacss.com/docs/border-top-left-radius): Set the top-left border radius for an element.
+- [Border Top Right Radius](https://yummacss.com/docs/border-top-right-radius): Set the top-right border radius for an element.
+- [Border Bottom Left Radius](https://yummacss.com/docs/border-bottom-left-radius): Set the bottom-left border radius for an element.
+- [Border Bottom Right Radius](https://yummacss.com/docs/border-bottom-right-radius): Set the bottom-right border radius for an element.
 - [Border Spacing](https://yummacss.com/docs/border-spacing): Set the distance between table borders.
 - [Border Style](https://yummacss.com/docs/border-style): Set the style for element borders.
 - [Border Width](https://yummacss.com/docs/border-width): Set the width for element borders.
+- [Border Top Width](https://yummacss.com/docs/border-top-width): Set the top border width for an element.
+- [Border Right Width](https://yummacss.com/docs/border-right-width): Set the right border width for an element.
+- [Border Bottom Width](https://yummacss.com/docs/border-bottom-width): Set the bottom border width for an element.
+- [Border Left Width](https://yummacss.com/docs/border-left-width): Set the left border width for an element.
+- [Border Block Width](https://yummacss.com/docs/border-block-width): Set the vertical border width for an element.
+- [Border Inline Width](https://yummacss.com/docs/border-inline-width): Set the horizontal border width for an element.
 - [Outline Offset](https://yummacss.com/docs/outline-offset): Set the offset for an element
 - [Outline Style](https://yummacss.com/docs/outline-style): Set the style for an element
 - [Outline Width](https://yummacss.com/docs/outline-width): Set the width for an element
@@ -202,6 +208,7 @@ An atomic CSS framework with abbreviated class names.
 - [Skew Y](https://yummacss.com/docs/skew-y): Set the vertical skew for an element.
 - [Skew](https://yummacss.com/docs/skew): Set the skew for an element.
 - [Transform Origin](https://yummacss.com/docs/transform-origin): Set the origin point for transformations.
+- [Translate](https://yummacss.com/docs/translate): Set the translation for an element.
 - [Translate X](https://yummacss.com/docs/translate-x): Set the horizontal translation for an element.
 - [Translate Y](https://yummacss.com/docs/translate-y): Set the vertical translation for an element.
 
