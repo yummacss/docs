@@ -8,7 +8,7 @@
   "author": "Renildo Pereira",
   "type": "module",
   "scripts": {
-    "build": "tsx scripts/generate-llms-txt.ts && next build",
+    "build": "tsx scripts/generate-og-meta.ts && tsx scripts/generate-llms-txt.ts && next build",
     "build:css": "yummacss build",
     "dev": "concurrently \"next dev --turbo\" \"yummacss watch\"",
     "generate:llms": "tsx scripts/generate-llms-txt.ts",
