@@ -108,13 +108,13 @@ function OGImageBlog({
           zIndex: 1,
         }}
       >
-        <YummaLogo size={64} />
+        <YummaCSSDarkLogo size={64} />
       </div>
     </div>
   );
 }
 
-function YummaLogo({ size = 48 }: { size?: number }) {
+function YummaCSSDarkLogo({ size = 48 }: { size?: number }) {
   return (
     <svg
       width={size}
