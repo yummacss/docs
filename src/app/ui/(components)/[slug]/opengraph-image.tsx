@@ -7,19 +7,26 @@ export const contentType = "image/png";
 export default async function Image({
   params,
 }: {
-  params: Promise<{ slug: string[] }>;
+  params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const slugPath = slug.join("/");
-  const module = await import(`@/content/ui/${slugPath}.mdx`);
-  const meta = module.meta;
+  const decodedSlug = decodeURIComponent(slug);
 
-  const title: string = meta?.title ?? "UI";
-  const description: string = meta?.description ?? "";
+  let title = "Yumma UI";
+  let description = "";
+  let sectionLabel = "Components";
 
-  // Determine section label from slug prefix
-  const isTemplate = slugPath.startsWith("templates");
-  const sectionLabel = isTemplate ? "Templates" : "Components";
+  try {
+    const module = await import(`@/content/ui/${decodedSlug}.mdx`);
+    const meta = module.meta;
+    title = meta?.title ?? "Yumma UI";
+    description = meta?.description ?? "";
+    sectionLabel = decodedSlug.startsWith("templates")
+      ? "Templates"
+      : "Components";
+  } catch {
+    // fallback values already set above
+  }
 
   return new ImageResponse(
     <OGImageUI
@@ -40,6 +47,8 @@ function OGImageUI({
   description: string;
   sectionLabel: string;
 }) {
+  const titleFontSize = title.length > 40 ? 52 : title.length > 25 ? 64 : 80;
+
   return (
     <div
       style={{
@@ -54,6 +63,7 @@ function OGImageUI({
         position: "relative",
       }}
     >
+      {/* Diagonal grid texture */}
       <div
         style={{
           position: "absolute",
@@ -64,40 +74,46 @@ function OGImageUI({
         }}
       />
 
+      {/* Top: section label + badge + title + description */}
       <div
         style={{
           display: "flex",
           flexDirection: "column",
-          gap: 20,
-          maxWidth: 880,
+          gap: 24,
+          maxWidth: 900,
           zIndex: 1,
         }}
       >
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 10,
-          }}
-        >
-          <p
+        {/* Label row */}
+        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+          <span
             style={{
-              margin: 0,
-              fontSize: 18,
+              fontSize: 17,
               color: "rgba(255,255,255,0.4)",
               letterSpacing: "0.1em",
               textTransform: "uppercase",
             }}
           >
             Yumma UI
-          </p>
+          </span>
+          {/* Divider dot */}
+          <span
+            style={{
+              width: 4,
+              height: 4,
+              borderRadius: "50%",
+              backgroundColor: "rgba(255,255,255,0.2)",
+              display: "flex",
+            }}
+          />
+          {/* Badge */}
           <div
             style={{
               display: "flex",
               alignItems: "center",
-              padding: "4px 12px",
-              backgroundColor: "rgba(65, 60, 184, 0.25)",
-              border: "1px solid rgba(65, 60, 184, 0.5)",
+              padding: "3px 12px",
+              backgroundColor: "rgba(65, 60, 184, 0.2)",
+              border: "1px solid rgba(65, 60, 184, 0.45)",
               borderRadius: 100,
             }}
           >
@@ -105,7 +121,7 @@ function OGImageUI({
               style={{
                 fontSize: 13,
                 color: "#a8b4e8",
-                letterSpacing: "0.08em",
+                letterSpacing: "0.1em",
                 textTransform: "uppercase",
                 fontWeight: 500,
               }}
@@ -115,10 +131,11 @@ function OGImageUI({
           </div>
         </div>
 
+        {/* Title */}
         <h1
           style={{
             margin: 0,
-            fontSize: title.length > 30 ? 64 : 80,
+            fontSize: titleFontSize,
             fontWeight: 400,
             color: "#a8b4e8",
             lineHeight: 1.1,
@@ -127,14 +144,16 @@ function OGImageUI({
         >
           {title}
         </h1>
+
+        {/* Description */}
         {description ? (
           <p
             style={{
               margin: 0,
-              fontSize: 26,
-              color: "rgba(255,255,255,0.55)",
-              lineHeight: 1.5,
-              maxWidth: 760,
+              fontSize: 24,
+              color: "rgba(255,255,255,0.5)",
+              lineHeight: 1.55,
+              maxWidth: 780,
             }}
           >
             {description}
@@ -142,6 +161,7 @@ function OGImageUI({
         ) : null}
       </div>
 
+      {/* Bottom right: logo */}
       <div
         style={{
           display: "flex",
@@ -150,13 +170,13 @@ function OGImageUI({
           zIndex: 1,
         }}
       >
-        <YummaLogo size={64} />
+        <YummaCSSDarkLogo size={64} />
       </div>
     </div>
   );
 }
 
-function YummaLogo({ size = 48 }: { size?: number }) {
+function YummaCSSDarkLogo({ size }: { size: number }) {
   return (
     <svg
       width={size}
