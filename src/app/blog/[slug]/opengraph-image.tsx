@@ -10,19 +10,19 @@ export default async function Image({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const module = await import(`@/content/docs/${slug}.mdx`);
+  const module = await import(`@/content/blog/${slug}.mdx`);
   const meta = module.meta;
 
-  const title: string = meta?.title ?? "Documentation";
+  const title: string = meta?.title ?? "Blog";
   const description: string = meta?.description ?? "";
 
   return new ImageResponse(
-    <OGImage title={title} description={description} />,
+    <OGImageBlog title={title} description={description} />,
     { width: 1200, height: 630 },
   );
 }
 
-function OGImage({
+function OGImageBlog({
   title,
   description,
 }: {
@@ -71,12 +71,12 @@ function OGImage({
             textTransform: "uppercase",
           }}
         >
-          Yumma CSS — Docs
+          Yumma CSS — Blog
         </p>
         <h1
           style={{
             margin: 0,
-            fontSize: title.length > 30 ? 64 : 80,
+            fontSize: title.length > 40 ? 56 : title.length > 25 ? 68 : 80,
             fontWeight: 400,
             color: "#a8b4e8",
             lineHeight: 1.1,

@@ -7,27 +7,38 @@ export const contentType = "image/png";
 export default async function Image({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string[] }>;
 }) {
   const { slug } = await params;
-  const module = await import(`@/content/docs/${slug}.mdx`);
+  const slugPath = slug.join("/");
+  const module = await import(`@/content/ui/${slugPath}.mdx`);
   const meta = module.meta;
 
-  const title: string = meta?.title ?? "Documentation";
+  const title: string = meta?.title ?? "UI";
   const description: string = meta?.description ?? "";
 
+  // Determine section label from slug prefix
+  const isTemplate = slugPath.startsWith("templates");
+  const sectionLabel = isTemplate ? "Templates" : "Components";
+
   return new ImageResponse(
-    <OGImage title={title} description={description} />,
+    <OGImageUI
+      title={title}
+      description={description}
+      sectionLabel={sectionLabel}
+    />,
     { width: 1200, height: 630 },
   );
 }
 
-function OGImage({
+function OGImageUI({
   title,
   description,
+  sectionLabel,
 }: {
   title: string;
   description: string;
+  sectionLabel: string;
 }) {
   return (
     <div
@@ -62,17 +73,48 @@ function OGImage({
           zIndex: 1,
         }}
       >
-        <p
+        <div
           style={{
-            margin: 0,
-            fontSize: 18,
-            color: "rgba(255,255,255,0.4)",
-            letterSpacing: "0.1em",
-            textTransform: "uppercase",
+            display: "flex",
+            alignItems: "center",
+            gap: 10,
           }}
         >
-          Yumma CSS — Docs
-        </p>
+          <p
+            style={{
+              margin: 0,
+              fontSize: 18,
+              color: "rgba(255,255,255,0.4)",
+              letterSpacing: "0.1em",
+              textTransform: "uppercase",
+            }}
+          >
+            Yumma UI
+          </p>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              padding: "4px 12px",
+              backgroundColor: "rgba(65, 60, 184, 0.25)",
+              border: "1px solid rgba(65, 60, 184, 0.5)",
+              borderRadius: 100,
+            }}
+          >
+            <span
+              style={{
+                fontSize: 13,
+                color: "#a8b4e8",
+                letterSpacing: "0.08em",
+                textTransform: "uppercase",
+                fontWeight: 500,
+              }}
+            >
+              {sectionLabel}
+            </span>
+          </div>
+        </div>
+
         <h1
           style={{
             margin: 0,
