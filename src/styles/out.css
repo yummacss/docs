@@ -710,8 +710,16 @@ summary {
   border-left-color: #babcf9;
 }
 
+.blc-indigo-5 {
+  border-left-color: #8f91f5;
+}
+
 .blc-indigo-8 {
   border-left-color: #4749ae;
+}
+
+.blc-silver-3 {
+  border-left-color: #d3d7dc;
 }
 
 .blr-2 {
@@ -1061,6 +1069,10 @@ summary {
   color: #8f91f5;
 }
 
+.c-indigo-7 {
+  color: #5558cf;
+}
+
 .c-na {
   cursor: not-allowed;
 }
@@ -1131,6 +1143,10 @@ summary {
 
 .c-slate-12 {
   color: #101316;
+}
+
+.c-slate-5 {
+  color: #8f9bab;
 }
 
 .c-slate-6 {
@@ -3083,6 +3099,10 @@ summary {
   place-self: stretch stretch;
 }
 
+.pt-1 {
+  padding-top: .25rem;
+}
+
 .pt-12 {
   padding-top: 3rem;
 }
@@ -3217,6 +3237,10 @@ summary {
 
 .rg-8 {
   row-gap: 2rem;
+}
+
+.ro-0 {
+  rotate: none;
 }
 
 .ro-15 {

@@ -71,9 +71,50 @@ A bordered style with spacing between items.
 
 ---
 
+### Ghost
+
+Items highlight with a left-border accent when expanded.
+
+<Tabs defaultValue="preview">
+  <TabsList>
+    <TabsTab value="preview">Preview</TabsTab>
+    <TabsTab value="code">Code</TabsTab>
+  </TabsList>
+  <TabsPanel className="bg-white" value="preview">
+    <Preview className="h-100 bw-0" id="accordion-ghost" />
+  </TabsPanel>
+  <TabsPanel value="code">
+    ```tsx registry="accordion-ghost"
+    ```
+  </TabsPanel>
+</Tabs>
+
+---
+
+### Subtle
+
+Items use a light fill that shifts to indigo when open.
+
+<Tabs defaultValue="preview">
+  <TabsList>
+    <TabsTab value="preview">Preview</TabsTab>
+    <TabsTab value="code">Code</TabsTab>
+  </TabsList>
+  <TabsPanel className="bg-white" value="preview">
+    <Preview className="h-100 bw-0" id="accordion-subtle" />
+  </TabsPanel>
+  <TabsPanel value="code">
+    ```tsx registry="accordion-subtle"
+    ```
+  </TabsPanel>
+</Tabs>
+
+
+---
+
 ### Icons
 
-Use Plus and Minus icons instead of the default caret.
+Use Plus & Minus icons instead of the default caret.
 
 <Tabs defaultValue="preview">
   <TabsList>
@@ -85,6 +126,26 @@ Use Plus and Minus icons instead of the default caret.
   </TabsPanel>
   <TabsPanel value="code">
     ```tsx registry="accordion-icons"
+    ```
+  </TabsPanel>
+</Tabs>
+
+---
+
+### Static
+
+No animation. Panels open & close instantly without motion.
+
+<Tabs defaultValue="preview">
+  <TabsList>
+    <TabsTab value="preview">Preview</TabsTab>
+    <TabsTab value="code">Code</TabsTab>
+  </TabsList>
+  <TabsPanel className="bg-white" value="preview">
+    <Preview className="h-100 bw-0" id="accordion-static" />
+  </TabsPanel>
+  <TabsPanel value="code">
+    ```tsx registry="accordion-static"
     ```
   </TabsPanel>
 </Tabs>
