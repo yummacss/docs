@@ -1321,10 +1321,6 @@ summary {
   color: #5a5f66;
 }
 
-.d\:o-50:disabled {
-  opacity: .5;
-}
-
 .ec-h {
   empty-cells: hide;
 }
