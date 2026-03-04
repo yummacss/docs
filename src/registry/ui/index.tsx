@@ -37,7 +37,6 @@ import ContextMenuBase from "./context-menu-base";
 import DialogBase from "./dialog-base";
 import DialogPayment from "./dialog-payment";
 import DialogSettings from "./dialog-settings";
-import FormBase from "./form-base";
 import InputBase from "./input-base";
 import MenuBase from "./menu-base";
 import MenubarBase from "./menubar-base";
@@ -97,7 +96,6 @@ export const baseComponents: Record<string, ComponentType> = {
   "dialog-base": DialogBase,
   "dialog-payment": DialogPayment,
   "dialog-settings": DialogSettings,
-  "form-base": FormBase,
   "input-base": InputBase,
   "menu-base": MenuBase,
   "menubar-base": MenubarBase,
