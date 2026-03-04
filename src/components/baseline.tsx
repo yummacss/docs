@@ -113,7 +113,7 @@ export default function Baseline({ path }: Props) {
 
   return (
     <div
-      className="mb-6 p-4 rd-2"
+      className="mb-6 p-4 br-1 rd-2"
       style={{ backgroundColor: "#1a1d2e", border: "1px solid #232741" }}
     >
       <div className="mb-4">
