@@ -1,8 +1,11 @@
 import type { ComponentType } from "react";
 import AccordionBase from "./accordion-base";
 import AccordionBordered from "./accordion-bordered";
+import AccordionGhost from "./accordion-ghost";
 import AccordionIcons from "./accordion-icons";
 import AccordionMultiple from "./accordion-multiple";
+import AccordionStatic from "./accordion-static";
+import AccordionSubtle from "./accordion-subtle";
 import AlertDialogBase from "./alert-dialog-base";
 import AlertDialogMail from "./alert-dialog-mail";
 import AlertDialogVerification from "./alert-dialog-verification";
@@ -61,6 +64,9 @@ export const baseComponents: Record<string, ComponentType> = {
   "accordion-base": AccordionBase,
   "accordion-multiple": AccordionMultiple,
   "accordion-bordered": AccordionBordered,
+  "accordion-static": AccordionStatic,
+  "accordion-ghost": AccordionGhost,
+  "accordion-subtle": AccordionSubtle,
   "accordion-icons": AccordionIcons,
   "alert-dialog-base": AlertDialogBase,
   "alert-dialog-mail": AlertDialogMail,
