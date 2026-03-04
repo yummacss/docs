@@ -29,6 +29,68 @@ Implement this component in your project using Yumma CSS and Base UI.
   </TabsPanel>
 </Tabs>
 
+
+---
+
+### Auto Highlight
+
+Highlight the first matching item automatically as you type.
+
+<Tabs defaultValue="preview">
+  <TabsList>
+    <TabsTab value="preview">Preview</TabsTab>
+    <TabsTab value="code">Code</TabsTab>
+  </TabsList>
+  <TabsPanel className="bg-white" value="preview">
+    <Preview className="bw-0" id="autocomplete-auto-highlight" />
+  </TabsPanel>
+  <TabsPanel value="code">
+    ```tsx registry="autocomplete-auto-highlight"
+    ```
+  </TabsPanel>
+</Tabs>
+
+---
+
+### Grouped
+
+Organize related options with group labels.
+
+<Tabs defaultValue="preview">
+  <TabsList>
+    <TabsTab value="preview">Preview</TabsTab>
+    <TabsTab value="code">Code</TabsTab>
+  </TabsList>
+  <TabsPanel className="bg-white" value="preview">
+    <Preview className="bw-0" id="autocomplete-grouped" />
+  </TabsPanel>
+  <TabsPanel value="code">
+    ```tsx registry="autocomplete-grouped"
+    ```
+  </TabsPanel>
+</Tabs>
+
+
+---
+
+### Static
+
+No animation. Popup opens and closes instantly.
+
+<Tabs defaultValue="preview">
+  <TabsList>
+    <TabsTab value="preview">Preview</TabsTab>
+    <TabsTab value="code">Code</TabsTab>
+  </TabsList>
+  <TabsPanel className="bg-white" value="preview">
+    <Preview className="bw-0" id="autocomplete-static" />
+  </TabsPanel>
+  <TabsPanel value="code">
+    ```tsx registry="autocomplete-static"
+    ```
+  </TabsPanel>
+</Tabs>
+
 ## API Reference
 
 Check out the [Base UI](https://base-ui.com/react/components/autocomplete) documentation for more information.

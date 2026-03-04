@@ -9,7 +9,10 @@ import AccordionSubtle from "./accordion-subtle";
 import AlertDialogBase from "./alert-dialog-base";
 import AlertDialogMail from "./alert-dialog-mail";
 import AlertDialogVerification from "./alert-dialog-verification";
+import AutocompleteAutoHighlight from "./autocomplete-auto-highlight";
 import AutocompleteBase from "./autocomplete-base";
+import AutocompleteGrouped from "./autocomplete-grouped";
+import AutocompleteStatic from "./autocomplete-static";
 import AvatarBase from "./avatar-base";
 import AvatarDetailed from "./avatar-detailed";
 import AvatarInitials from "./avatar-initials";
@@ -71,7 +74,10 @@ export const baseComponents: Record<string, ComponentType> = {
   "alert-dialog-base": AlertDialogBase,
   "alert-dialog-mail": AlertDialogMail,
   "alert-dialog-verification": AlertDialogVerification,
+  "autocomplete-auto-highlight": AutocompleteAutoHighlight,
   "autocomplete-base": AutocompleteBase,
+  "autocomplete-grouped": AutocompleteGrouped,
+  "autocomplete-static": AutocompleteStatic,
   "avatar-base": AvatarBase,
   "avatar-status": AvatarStatus,
   "avatar-verified": AvatarVerified,
