@@ -1,0 +1,84 @@
+"use client";
+
+import { Autocomplete } from "@base-ui/react/autocomplete";
+import { AnimatePresence, motion } from "motion/react";
+import * as React from "react";
+
+export default function ExampleAutocomplete() {
+  const [open, setOpen] = React.useState(false);
+
+  return (
+    <Autocomplete.Root
+      items={frameworks}
+      open={open}
+      onOpenChange={setOpen}
+      autoHighlight
+    >
+      <div className="d-f fd-c g-2">
+        <label htmlFor="auto-highlight-input" className="c-slate-10 fs-sm fw-600">
+          Framework
+        </label>
+        <Autocomplete.Input
+          id="auto-highlight-input"
+          placeholder="e.g. Next.js"
+          className="h-10 w-64 pl-4 bg-white bc-silver-3 c-slate-12 bw-1 br-2 fs-sm fv:os-s fv:ow-2 fv:oo--1 fv:oc-indigo-6"
+        />
+      </div>
+
+      <AnimatePresence>
+        {open && (
+          <Autocomplete.Portal keepMounted>
+            <Autocomplete.Positioner className="ow-0" sideOffset={4}>
+              <Autocomplete.Popup
+                render={
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    transition={{ duration: 0.1, ease: "easeOut" }}
+                  />
+                }
+                className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-2 bs-o-lg"
+              >
+                <Autocomplete.List className="o-y-auto max-h-72 py-1 ow-0">
+                  {(item: string) => (
+                    <Autocomplete.Item
+                      key={item}
+                      value={item}
+                      render={(props, state) => (
+                        <div
+                          {...props}
+                          className={`py-2 px-3 fs-sm us-none c-d c-p br-1 mx-1 c-slate-10 ${
+                            state.highlighted ? "bg-silver-1" : "h:bg-silver-1"
+                          }`}
+                        >
+                          {item}
+                        </div>
+                      )}
+                    />
+                  )}
+                </Autocomplete.List>
+                <Autocomplete.Empty className="c-slate-6 fs-sm">
+                  <div className="py-4 px-4">No frameworks found.</div>
+                </Autocomplete.Empty>
+              </Autocomplete.Popup>
+            </Autocomplete.Positioner>
+          </Autocomplete.Portal>
+        )}
+      </AnimatePresence>
+    </Autocomplete.Root>
+  );
+}
+
+const frameworks = [
+  "Next.js",
+  "Remix",
+  "Astro",
+  "Vite",
+  "Nuxt",
+  "SvelteKit",
+  "Solid Start",
+  "Qwik City",
+  "Angular",
+  "Ember",
+];
