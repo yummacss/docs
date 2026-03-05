@@ -408,6 +408,10 @@ summary {
   border-color: #4749ae;
 }
 
+.bc-lime-7 {
+  border-color: #72af13;
+}
+
 .bc-pb {
   background-clip: padding-box;
 }
@@ -606,6 +610,10 @@ summary {
 
 .bg-indigo\/60 {
   background-color: #6366f199;
+}
+
+.bg-lime {
+  background-color: #84cc16;
 }
 
 .bg-red {
@@ -1605,6 +1613,10 @@ summary {
   outline-color: #797bf3;
 }
 
+.fv\:oc-lime-6:focus-visible {
+  outline-color: #95d337;
+}
+
 .fv\:oc-red-6:focus-visible {
   outline-color: #ea5560;
 }
@@ -2027,6 +2039,10 @@ summary {
 
 .h\:bg-indigo\/25:hover {
   background-color: #6366f140;
+}
+
+.h\:bg-lime-8:hover {
+  background-color: #5f9310;
 }
 
 .h\:bg-red-1:hover {
