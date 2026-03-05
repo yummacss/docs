@@ -2,6 +2,10 @@
 @import "@fontsource/ia-writer-quattro";
 @import "./out.css";
 
+:root {
+  color-scheme: dark;
+}
+
 h1,
 h2,
 h3,
@@ -25,7 +29,7 @@ body {
   font-family: "iA Writer Quattro", sans-serif;
 }
 
-/* Reset font for component previews and portalled elements */
+/* reset font for component previews */
 [data-preview],
 [data-preview] *,
 [class*="-popup"],
