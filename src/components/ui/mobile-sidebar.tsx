@@ -79,7 +79,10 @@ export default function MobileSidebar({ isOpen, onClose, routeType }: Props) {
         >
           <div className="d-f p-r fd-c h-full">
             <div className="o-y-auto f-1 pb-8 pt-6">
-              <div className="mx-auto px-6 sm-xxl">
+              <div
+                className="mx-auto px-6"
+                style={{ maxWidth: "clamp(40rem, 80vw, 96rem)" }}
+              >
                 <div className="d-f fd-c g-8">
                   {config.map((section) => (
                     <div key={section.title} className="d-f fd-c g-4">

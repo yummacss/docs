@@ -53,19 +53,3 @@ body {
     Arial,
     sans-serif;
 }
-
-.sm-xxl {
-  max-width: clamp(40rem, 80vw, 96rem);
-}
-
-#area {
-  background-color: #fff;
-  background-size: 10px 10px;
-  background-image: repeating-linear-gradient(
-    45deg,
-    #c2c3cc 0,
-    #c2c3cc 1px,
-    #fff 0,
-    #fff 50%
-  );
-}

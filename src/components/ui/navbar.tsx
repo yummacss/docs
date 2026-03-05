@@ -80,7 +80,10 @@ export default function Navbar({
         className={clsx(navbarVariants({ variant }), className)}
         style={{ backgroundColor: isLandingPage ? "transparent" : "#151724" }}
       >
-        <div className="mx-auto px-3 py-2 sm-xxl">
+        <div
+          className="mx-auto px-3 py-2"
+          style={{ maxWidth: "clamp(40rem, 80vw, 96rem)" }}
+        >
           <nav className="d-f ai-c jc-sb">
             <div className="d-f ai-c g-2">
               <LogoContextMenu>

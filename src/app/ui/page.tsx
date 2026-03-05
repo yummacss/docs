@@ -25,9 +25,10 @@ export default function UIPage() {
       </div>
 
       <div
-        className="d-f p-r zi-1 ai-fe w-full mx-auto px-6 sm-xxl"
+        className="d-f p-r zi-1 ai-fe w-full mx-auto px-6"
         style={{
           minHeight: "calc(100vh - 120px)",
+          maxWidth: "clamp(40rem, 80vw, 96rem)",
         }}
       >
         <div className="w-full" style={{ maxWidth: "72rem" }}>
