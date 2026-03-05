@@ -18,7 +18,7 @@ export function Tabs({
   return (
     <BaseTabs.Root
       defaultValue={defaultValue}
-      className={`bw-1 ${className}`}
+      className={`bw-1 br-2 ${className}`}
       style={{ borderColor: "#31365e", ...style }}
       {...props}
     >
@@ -50,7 +50,7 @@ export function TabsList({
     >
       {children}
       <BaseTabs.Indicator
-        className="p-a l-0 t-half h-6 tdu-200 ttf-io"
+        className="p-a l-0 t-half h-6 tdu-200 ttf-io br-1"
         style={{
           zIndex: -1,
           translate: "var(--active-tab-left) -50%",
