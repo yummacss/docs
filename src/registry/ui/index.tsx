@@ -29,7 +29,6 @@ import ButtonIconOnly from "./button-icon-only";
 import ButtonLink from "./button-link";
 import ButtonLoading from "./button-loading";
 import ButtonOutlined from "./button-outlined";
-import ButtonPrimary from "./button-primary";
 import ButtonSecondary from "./button-secondary";
 import CheckboxBase from "./checkbox-base";
 import CheckboxDetailed from "./checkbox-detailed";
@@ -86,7 +85,6 @@ export const baseComponents: Record<string, ComponentType> = {
   "avatar-detailed": AvatarDetailed,
   "avatar-stacked": AvatarStacked,
   "button-base": ButtonBase,
-  "button-primary": ButtonPrimary,
   "button-secondary": ButtonSecondary,
   "button-danger": ButtonDanger,
   "button-outlined": ButtonOutlined,
