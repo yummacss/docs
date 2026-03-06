@@ -1,5 +1,6 @@
-/** @type {import('@yummacss/nitro').Config} */
-export default {
+import { defineConfig } from "yummacss";
+
+export default defineConfig({
   source: [
     "./src/**/*.{ts,tsx}",
     "./src/registry/**/*.{ts,tsx}",
@@ -11,4 +12,4 @@ export default {
     reset: true,
     minify: process.env.VERCEL_ENV === "production",
   },
-};
+});

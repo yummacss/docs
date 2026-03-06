@@ -30,15 +30,17 @@ Install Yumma CSS with your favorite package manager:
   <Step title="Configure sources">
     Specify the locations/paths of your project files in the config file.
 
-    ```mjs title="yumma.config.mjs" mark={2-3}
-    export default {
+    ```mjs title="yumma.config.mjs" mark={4-5}
+    import { defineConfig } from "yummacss";
+
+    export default defineConfig({
       source: ["./src/**/*.{ts,tsx}"],
       output: "./src/styles.css",
       buildOptions: {
         reset: true,
         minify: false,
       },
-    };
+    });
     ```
 
   </Step>
