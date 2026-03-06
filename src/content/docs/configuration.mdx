@@ -22,19 +22,21 @@ pnpx yummacss init
 This creates a `yumma.config.mjs` file at your project root.
 
 ```mjs title="yumma.config.mjs"
-export default {
+import { defineConfig } from "yummacss";
+
+export default defineConfig({
   source: [""],
   output: "",
   buildOptions: {
     reset: true,
     minify: false,
   },
-};
+});
 ```
 
 ### IntelliSense
 
-To enable IntelliSense and type checking, add the following JSDoc comment at the top of your configuration file.
+Using `defineConfig` automatically enables IntelliSense. Alternatively, you can add a JSDoc comment at the top of your configuration file.
 
 ```mjs title="yumma.config.mjs" mark={1}
 /** @type {import('@yummacss/nitro').Config} */
@@ -50,44 +52,52 @@ A collection of paths for your template files (e.g., `.js`, `.tsx`, `.html`). Th
 
 <Hint icon="info">Use glob patterns to include subfolders & specific file types.</Hint>
 
-```mjs title="yumma.config.mjs" mark={2}
-export default {
+```mjs title="yumma.config.mjs" mark={4}
+import { defineConfig } from "yummacss";
+
+export default defineConfig({
   source: ["./src/**/*.html"],
-};
+});
 ```
 
 ### Output
 
 Specifies the output path for the compiled CSS file.
 
-```mjs title="yumma.config.mjs" mark={2}
-export default {
+```mjs title="yumma.config.mjs" mark={4}
+import { defineConfig } from "yummacss";
+
+export default defineConfig({
   output: "./src/styles.css",
-};
+});
 ```
 
 ### Reset
 
 Determines whether to include [base styles](/docs/base-styles).
 
-```mjs title="yumma.config.mjs" mark={3}
-export default {
+```mjs title="yumma.config.mjs" mark={5}
+import { defineConfig } from "yummacss";
+
+export default defineConfig({
   buildOptions: {
     reset: true, // default: true
   },
-};
+});
 ```
 
 ### Minify
 
 Determines whether to minify compiled CSS files. Enable this for production builds to reduce file size.
 
-```mjs title="yumma.config.mjs" mark={3}
-export default {
+```mjs title="yumma.config.mjs" mark={5}
+import { defineConfig } from "yummacss";
+
+export default defineConfig({
   buildOptions: {
     minify: true, // default: false
   },
-};
+});
 ```
 
 ## Generate styles
