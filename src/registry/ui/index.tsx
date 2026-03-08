@@ -37,7 +37,12 @@ import CheckboxNestedParent from "./checkbox-nested-parent";
 import CheckboxParent from "./checkbox-parent";
 import CheckboxSizes from "./checkbox-sizes";
 import CollapsibleBase from "./collapsible-base";
+import CollapsibleBordered from "./collapsible-bordered";
+import CollapsibleStatic from "./collapsible-static";
 import ComboboxBase from "./combobox-base";
+import ComboboxInline from "./combobox-inline";
+import ComboboxMultiple from "./combobox-multiple";
+import ComboboxStatic from "./combobox-static";
 import ContextMenuBase from "./context-menu-base";
 import DialogBase from "./dialog-base";
 import DialogPayment from "./dialog-payment";
@@ -101,7 +106,12 @@ export const baseComponents: Record<string, ComponentType> = {
   "checkbox-parent": CheckboxParent,
   "checkbox-nested-parent": CheckboxNestedParent,
   "collapsible-base": CollapsibleBase,
+  "collapsible-bordered": CollapsibleBordered,
+  "collapsible-static": CollapsibleStatic,
   "combobox-base": ComboboxBase,
+  "combobox-multiple": ComboboxMultiple,
+  "combobox-inline": ComboboxInline,
+  "combobox-static": ComboboxStatic,
   "context-menu-base": ContextMenuBase,
   "dialog-base": DialogBase,
   "dialog-payment": DialogPayment,
