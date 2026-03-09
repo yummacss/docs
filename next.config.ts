@@ -1,11 +1,11 @@
 import path from "node:path";
 import createMDX from "@next/mdx";
 import { redirects } from "./redirects";
-import eclipsaTheme from "./src/themes/eclipsa.json";
+import eclipsa from "./src/themes/eclipsa.json";
 
 /** @type {import('rehype-expressive-code').RehypeExpressiveCodeOptions} */
 const rehypeExpressiveCodeOptions = {
-  themes: [eclipsaTheme],
+  themes: [eclipsa],
   borderRadius: "0",
   styleOverrides: {
     borderRadius: "0.15rem",
