@@ -10,24 +10,21 @@ export const meta = {
 
 ## Dependency Free
 
-Yumma CSS 3.20 achieves 0 3rd-party `dependencies` across all packages (`core`, `nitro`, `cli`, `intellisense`, `runtime`). This reduces install size & improves stability.
+Yumma CSS 3.20 ships with 0 3rd-party `dependencies` across all packages (`core`, `nitro`, `cli`, `intellisense`, `runtime`). 3rd party libraries are bundled at build time rather than installed at runtime, reducing install size & improving stability.
 
-### ESM Only
+## ESM Only
 
-All packages now output ESM only to embrace modern JavaScript standards.
+All packages now output ESM only, embracing modern JavaScript standards. Update your setup if you consume any Yumma CSS package in a CJS context.
 
 ## Breaking Changes
 
 ### Minification Removed
 
-The config schema in `nitro` & `runtime` drops the `buildOptions.minify` configuration option. 
-
-Modern tools like Vite, Webpack, & frameworks like Next.js & Astro already handle CSS minification. This change avoids redundant optimization & gives you full control to minify the outputted CSS from Yumma CSS using your preferred build pipeline.
+The `buildOptions.minify` option has been removed from the CLI config. Vite, Webpack, Next.js & Astro already handle CSS minification — use your preferred build pipeline to minify Yumma CSS output instead.
 
 ## Upgrade
 
-Read the [Upgrading Guide](/docs/upgrading) for a full list of configuration changes.
-
+Read the [Upgrading Guide](/docs/upgrading) for the full list of config changes.
 ```bash
 pnpm add yummacss@latest
 ```
