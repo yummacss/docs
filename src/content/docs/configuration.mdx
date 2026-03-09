@@ -29,7 +29,6 @@ export default defineConfig({
   output: "",
   buildOptions: {
     reset: true,
-    minify: false,
   },
 });
 ```
@@ -82,20 +81,6 @@ import { defineConfig } from "yummacss";
 export default defineConfig({
   buildOptions: {
     reset: true, // default: true
-  },
-});
-```
-
-### Minify
-
-Determines whether to minify compiled CSS files. Enable this for production builds to reduce file size.
-
-```mjs title="yumma.config.mjs" mark={5}
-import { defineConfig } from "yummacss";
-
-export default defineConfig({
-  buildOptions: {
-    minify: true, // default: false
   },
 });
 ```
