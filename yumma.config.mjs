@@ -10,6 +10,5 @@ export default defineConfig({
   output: "./src/styles/out.css",
   buildOptions: {
     reset: true,
-    minify: process.env.VERCEL_ENV === "production",
   },
 });
