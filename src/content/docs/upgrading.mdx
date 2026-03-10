@@ -334,6 +334,10 @@ Prefix updated from `i-` to `is-`.
 <div class="is-*">...</div>
 ```
 
+## Minify
+
+The `minify` build option is no longer available. Modern tools like Vite have become so fast that optimizing CSS internally in Yumma CSS is now obsolete. We recommend letting your bundler handle CSS minification.
+
 ## Base Style Changes
 
 Modern Yumma CSS versions include standardized base styles for better consistency. These are enabled by default & can be disabled in `yumma.config.mjs`.
@@ -351,16 +355,16 @@ Smother font rendering with a default system font. Source: [joshwcomeau.com](htt
 
 ```css mark={2} title="base.ts"
 html {
-  font-family: system-ui, sans-serif;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Noto Sans, Liberation Sans, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
 }
 ```
 
-Form elements now include padding by default. Borders are added for form elements without class attributes.
+Inherit the font family in `body` for better propagation.
 
 ```css ins={2-3} del={4} title="base.ts"
 body {
   -webkit-font-smoothing: antialiased;
-  font-family: system-ui, sans-serif;
+  font-family: inherit;
   line-height: 1.5;
 }
 ```
@@ -375,7 +379,7 @@ select,
 textarea {
   background-color: transparent;
   font-family: inherit;
-  padding: 0.5 rem;
+  padding: .5rem;
 }
 
 button:not([class]),
@@ -389,16 +393,14 @@ textarea:not([class]) {
 
 Clear outlines for interactive elements to improve accessibility.
 
-```css mark={7-9} title="base.ts"
+```css mark={1,7} title="base.ts"
+:is(a,
 button,
 input,
-textarea,
 select,
-a,
-summary {
-  &:focus {
-    outline: 2px solid transparent;
-  }
+summary,
+textarea):focus {
+  outline: 2px solid transparent;
 }
 ```
 
@@ -406,7 +408,7 @@ Textareas without `rows` use a default height. Source: [piccalil.li](https://pic
 
 ```css mark={2} title="base.ts"
 textarea:not([rows]) {
-  min-height: 10 em;
+  min-height: 10em;
 }
 ```
 
@@ -450,7 +452,7 @@ strong {
 }
 
 small {
-  font-size: 80 %;
+  font-size: 80%;
   line-height: 1.4;
 }
 
@@ -458,8 +460,8 @@ pre,
 code,
 kbd,
 samp {
-  font-family: monospace, monospace;
-  font-size: 1 em;
+  font-family: monospace;
+  font-size: 1em;
 }
 ```
 
@@ -487,7 +489,7 @@ Updated spacing for miscellaneous elements.
 hr {
   border-top: 1px solid #bfc2c7;
   height: 0;
-  margin: 1 em 0;
+  margin: 1em 0;
 }
 
 details {
