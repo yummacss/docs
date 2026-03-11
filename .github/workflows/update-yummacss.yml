@@ -29,6 +29,7 @@ jobs:
         run: pnpm up yummacss @yummacss/core --latest
 
       - name: Open PR
+        id: pr
         uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -39,4 +40,9 @@ jobs:
             ### Changed
 
             - Update `yummacss` & `@yummacss/core` to ${{ github.event.client_payload.version }}.
-          auto-merge: squash
+
+      - name: Auto-merge PR
+        if: steps.pr.outputs.pull-request-number
+        run: gh pr merge --auto --squash "${{ steps.pr.outputs.pull-request-url }}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
