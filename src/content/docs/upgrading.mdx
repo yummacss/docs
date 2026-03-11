@@ -1,22 +1,22 @@
 export const meta = {
   title: "Upgrading",
-  description: "Guide for migrating from legacy versions of Yumma CSS.",
+  description: "Migrate from legacy Yumma CSS to the latest version.",
 };
 
-Modern versions of Yumma CSS introduce significant improvements, including a new CLI-based workflow & core shifts in utility naming.
+Migrate from legacy Yumma CSS v2 to the modern CLI-driven workflow. Modern versions introduce significant performance improvements, a dedicated CLI, & core utility naming shifts.
 
-Previous versions relied on `@import` statements; the current system uses a dedicated CLI for better performance & flexibility.
+Previous versions relied on `@import` statements. The current system uses a dedicated CLI for better performance & flexibility.
 
 ## Legacy Versions
 
-In this guide, **legacy** refers to Yumma CSS v2 & earlier versions. These older systems are no longer actively developed & lack the performance optimizations of the current CLI-driven core.
+In this guide, **legacy** refers to Yumma CSS v2.1 & earlier versions. These older systems are no longer actively developed.
 
 <Stepper>
   <Step title="Update Yumma CSS">
-    Remove the old `yummacss` package.
+    Remove the legacy `yummacss` package & install the latest version. Install it as a dev dependency (`-D`) to keep your production bundle lean.
 
     ```bash
-    pnpm add yummacss@latest
+    pnpm up yummacss@latest
     ```
   </Step>
 
@@ -29,7 +29,7 @@ In this guide, **legacy** refers to Yumma CSS v2 & earlier versions. These older
   </Step>
 
   <Step title="Delete old imports">
-    Remove the old `@import` statements from your CSS files.
+    Remove the legacy `@import` statements from your CSS files.
 
     ```css title="styles.css" del={1-2}
     @import "yummacss/dist/yumma.min.css";
@@ -38,9 +38,9 @@ In this guide, **legacy** refers to Yumma CSS v2 & earlier versions. These older
   </Step>
 
   <Step title="Set up configuration">
-    Specify the locations of all your project files in the config file.
+    Specify the locations of all your project files in the new `yumma.config.js` file.
 
-    ```js title="yumma.config.mjs" mark={2-3}
+    ```js title="yumma.config.js" mark={2-3}
     export default {
       source: ["./src/**/*.html"],
       output: "./src/styles.css",
@@ -52,7 +52,7 @@ In this guide, **legacy** refers to Yumma CSS v2 & earlier versions. These older
   </Step>
 
   <Step title="Build styles">
-    You can now start generating your CSS with the [`build`](/docs/configuration/#build) or [`watch`](/docs/configuration/#watch) command.
+    Start generating your CSS with the [`build`](/docs/configuration/#build) or [`watch`](/docs/configuration/#watch) command.
 
     ```bash
     pnpx yummacss build
@@ -60,18 +60,9 @@ In this guide, **legacy** refers to Yumma CSS v2 & earlier versions. These older
   </Step>
 </Stepper>
 
-
 ## Dependency Changes
 
-Yumma CSS now functions as a CLI tool. Install it as a dev dependency (`-D`) instead of a standard dependency to keep your production bundle lean.
-
-```bash
-pnpm add yummacss -D
-```
-
-### Core Package
-
-Replace the `@yummacss/api` package with `@yummacss/core`. Update your imports accordingly.
+Yumma CSS now functions as a CLI tool. The `@yummacss/api` package is now `@yummacss/core`. Update your imports accordingly.
 
 ```bash
 pnpm remove @yummacss/api
@@ -82,430 +73,131 @@ pnpm add @yummacss/core
 
 Utilities renamed in the current version:
 
-| Style             | Legacy                    | Latest                          |
-|-------------------|---------------------------|---------------------------------|
-| _Color utilities_ | `lead`                    | `slate`                         |
-| border-radius     | `rad-*`                   | `br-*`                          |
-| border-width      | `b-*`                     | `bw-*`                          |
-| bottom            | `dir-b`                   | `b-\*`                          |
-| box-shadow        | `bsh-*`                   | `bs-o-*` & `bs-i-*`             |
-| charter           | `ff-c`                    | `ff-s`                          |
-| columns           | `cols-*`                  | `c-*`                           |
-| dimension         | `dim-*`/`d-*`             | `w-\* h-\*`                     |
-| float             | `flo-*`                   | `fl-*`                          |
-| font-size: 1rem;  | `fs-b`                    | `fs-md`                         |
-| height / width    | `*-1/1`                   | `*-dvh`                         |
-| inset             | `dir-i`                   | `i-\*`                          |
-| isolation         | `i-*`                     | `is-*`                          |
-| left              | `dir-l`                   | `l-\*`                          |
-| overflow          | `ovf-*`                   | `o-*`                           |
-| right             | `dir-r`                   | `r-\*`                          |
-| rotate            | `t-r-*`                   | `ro-*`                          |
-| scale             | `t-s-*`                   | `s-*`                           |
-| system-ui         | `ff-s`                    | `ff-d`                          |
-| top               | `dir-t`                   | `t-\*`                          |
+| Property | Legacy (v2) | Latest (v3.20.3) |
+|---|---|---|
+| Border Radius | `rad-*` | `br-*` |
+| Border Radius (Pill) | `rad-9` | `br-pill` |
+| Border Style | `b-*` | `bs-*` |
+| Border Width | `b-*` | `bw-*` |
+| Box Shadow | `bs-*` | `bs-o-*` & `bs-i-*` |
+| Color (Text) | `tc-*` | `c-*` |
+| Color (Lead) | `lead` | `slate` |
+| Color Variations | `l-*` & `d-*` | Removed |
+| Columns | `cols-*` | `c-*` |
+| Direction (Bottom) | `dir-b-*` | `b-*` |
+| Direction (Inset) | `dir-i-*` | `i-*` |
+| Direction (Left) | `dir-l-*` | `l-*` |
+| Direction (Right) | `dir-r-*` | `r-*` |
+| Direction (Top) | `dir-t-*` | `t-*` |
+| Float | `flo-*` | `fl-*` |
+| Font Family (Serif) | `ff-c` | `ff-s` |
+| Font Size (1rem) | `fs-b` | `fs-md` |
+| Object Position | `op-left` | `op-l` |
+| Overflow | `ovf-*` | `o-*` |
+| Viewport Units | `*-1/1` | `*-dvh` |
+
+## Removed Utilities
+
+The following utilities were completely removed to reduce bloat & improve consistency.
+
+| Category | Legacy (v2) | Replacement |
+|---|---|---|
+| Dimension | `dim-*` / `max-dim-*` / `min-dim-*` | Use `w-*` & `h-*` together |
+| Color Variations | `l-*` & `d-*` (e.g., `l-red-5`) | Use standard numbers (e.g., `red-3`) |
+| Spacing X/Y | `sx-*` & `sy-*` | Use gap (`g-*`, `cg-*`, `rg-*`) |
+| Container | `cnt` | Removed |
+| Inset | `ins` | Use `d-f ai-c jc-c` |
 
 ### Color Utility Changes
 
-In the current version, light (`l-`) & dark (`d-`) characters are removed across all color utilities. `lead` is renamed to `slate`.
+Remove light (`l-`) & dark (`d-`) character prefixes across all color utilities. The `lead` color is now `slate`. Map the legacy 1-6 scale to the new 1-12 scale.
 
-<div className="p-4">
   ```html del={1} ins={2} title="index.html"
   <button class="bg-l-lead-6 h:bg-d-lead-1">Button</button>
   <button class="bg-slate-1 h:bg-slate-7">Button</button>
   ```
-</div>
 
-| Legacy         | Latest        |
-| -------------- | ------------- |
-| `*-l-indigo-6` | `*-indigo-1`  |
-| `*-l-indigo-5` | `*-indigo-2`  |
-| `*-l-indigo-4` | `*-indigo-3`  |
-| `*-l-indigo-3` | `*-indigo-4`  |
-| `*-l-indigo-2` | `*-indigo-5`  |
-| `*-l-indigo-1` | `*-indigo-6`  |
-| `*-d-indigo-1` | `*-indigo-7`  |
-| `*-d-indigo-2` | `*-indigo-8`  |
-| `*-d-indigo-3` | `*-indigo-9`  |
+| Legacy | Latest |
+|---|---|
+| `*-l-indigo-6` | `*-indigo-1` |
+| `*-l-indigo-5` | `*-indigo-2` |
+| `*-l-indigo-4` | `*-indigo-3` |
+| `*-l-indigo-3` | `*-indigo-4` |
+| `*-l-indigo-2` | `*-indigo-5` |
+| `*-l-indigo-1` | `*-indigo-6` |
+| `*-d-indigo-1` | `*-indigo-7` |
+| `*-d-indigo-2` | `*-indigo-8` |
+| `*-d-indigo-3` | `*-indigo-9` |
 | `*-d-indigo-4` | `*-indigo-10` |
 | `*-d-indigo-5` | `*-indigo-11` |
 | `*-d-indigo-6` | `*-indigo-12` |
 
-### Align & Justify
+### Layout Direction
 
-Stretch utility suffixes updated from `-s` to `-st`.
-
-```html del={1-2} ins={3-4} title="index.html"
-<div class="ai-st">...</div>
-<div class="jc-st">...</div>
-<div class="ai-s">...</div>
-<div class="jc-s">...</div>
-```
-
-### Top / Right / Bottom / Left
-
-`dir-` prefix removed for layout utilities.
+Remove the `dir-` prefix for layout utilities.
 
 ```html del={1-5} ins={6-10} title="index.html"
-<div class="dir-b-*">...</div>
-<div class="dir-i-*">...</div>
-<div class="dir-l-*">...</div>
-<div class="dir-r-*">...</div>
-<div class="dir-t-*">...</div>
-<div class="b-*">...</div>
-<div class="i-*">...</div>
-<div class="l-*">...</div>
-<div class="r-*">...</div>
-<div class="t-*">...</div>
-```
-
-### Columns
-
-`cols-*` shortened to `c-*`.
-
-```html del={1} ins={2} title="index.html"
-<div class="cols-*">...</div>
-<div class="c-*">...</div>
-```
-
-### Dimension
-
-`dim-*` and `d-*` utilities were removed. Use `w-` and `h-` utilities instead.
-
-```html del={1,2} ins={3} title="index.html"
-<div class="dim-*">...</div>
-<div class="d-*">...</div>
-```
-
-### Font Size
-
-`fs-b` renamed to `fs-md`.
-
-```html del={1} ins={2}  title="index.html"
-<div class="fs-b">...</div>
-<div class="fs-md">...</div>
-```
-
-### Font Family
-
-Utility prefixes renamed for clarity:
-
-```html del={1-2} ins={3-4} title="index.html"
-<div class="ff-s">...</div>
-<div class="ff-c">...</div>
-<div class="ff-d">...</div>
-<div class="ff-s">...</div>
-```
-
-### Overflow
-
-`ovf-*` shortened to `o-*`.
-
-```html del={1} ins={2} title="index.html"
-<div class="ovf-*">...</div>
-<div class="o-*">...</div>
-```
-
-### Float
-
-`flo-*` shortened to `fl-*`.
-
-```html del={1} ins={2} title="index.html"
-<div class="flo-*">...</div>
-<div class="fl-*">...</div>
+<div class="dir-b-4">...</div>
+<div class="dir-i-2">...</div>
+<div class="dir-l-4">...</div>
+<div class="dir-r-2">...</div>
+<div class="dir-t-4">...</div>
+<div class="b-4">...</div>
+<div class="i-2">...</div>
+<div class="l-4">...</div>
+<div class="r-2">...</div>
+<div class="t-4">...</div>
 ```
 
 ### Dynamic Viewport
 
-`*-1/1` renamed to `*-dvh`.
+Replace 1/1 dynamic viewport utilities with `dvh` & `dvw`.
 
-```html del={1-3} ins={4-6} title="index.html"
+```html del={1-2} ins={3-4} title="index.html"
 <div class="w-1/1 h-1/1">...</div>
-<div class="d-1/1">...</div>
-<div class="w-dvh h-dvw">...</div>
-<div class="d-dvh">...</div>
+<div class="h-1/1">...</div>
+<div class="w-dvw h-dvh">...</div>
+<div class="h-dvh">...</div>
 ```
 
-### Border Width
+### Typography
 
-`b-*` renamed to `bw-*`.
+Use shorter prefixes for font utilities. Replace the `fs-b` class with `fs-md`.
+
+```html del={1-2} ins={3-4} title="index.html"
+<div class="fs-b">...</div>
+<div class="ff-c">...</div>
+<div class="fs-md">...</div>
+<div class="ff-s">...</div>
+```
+
+### Borders
+
+Prevent conflicts with unique prefixes for border width (`bw-*`) & border style (`bs-*`). Replace border radius (`rad-*`) with `br-*`.
 
 ```html del={1} ins={2} title="index.html"
-<div class="b-*">...</div>
-<div class="bw-*">...</div>
+<div class="rad-9 b-solid b-2">...</div>
+<div class="br-pill bs-s bw-2">...</div>
 ```
 
-This also applies to directional border width utilities:
+### Box Shadows
 
-| Legacy       | Latest        |
-|--------------|---------------|
-| `bt-*` | `btw-*` |
-| `br-*` | `brw-*` |
-| `bb-*` | `bbw-*` |
-| `bl-*` | `blw-*` |
-
-### Border Color
-
-Directional border color utilities now use a consistent 3-character prefix.
-
-| Legacy         | Latest        |
-|----------------|---------------|
-| `bc-t-*` | `btc-*` |
-| `bc-b-*` | `bbc-*` |
-| `bc-l-*` | `blc-*` |
-| `bc-r-*` | `brc-*` |
-
-### Border Radius
-
-Directional border radius utilities now use a consistent 3-character prefix.
-
-| Legacy         | Latest        |
-|----------------|---------------|
-| `br-t-*` | `btr-*` |
-| `br-b-*` | `bbr-*` |
-| `br-l-*` | `blr-*` |
-| `br-r-*` | `brr-*` |
-
-### Border Style
-
-`b-*` renamed to `bs-*`.
+Apply outset (`bs-o-`) & inset (`bs-i-`) prefixes for box shadow utilities.
 
 ```html del={1} ins={2} title="index.html"
-<div class="b-solid">...</div>
-<div class="bs-solid">...</div>
-```
-
-### Border Radius
-
-`rad-9` renamed to `br-pill`.
-
-```html del={1} ins={2} title="index.html"
-<div class="rad-9">...</div>
-<div class="br-pill">...</div>
-```
-
-### Color Utilities
-
-Text color prefix shortened from `tc-` to `c-`.
-
-```html del={1} ins={2} title="index.html"
-<div class="tc-slate">...</div>
-<div class="c-slate">...</div>
-```
-
-### Box Shadow
-
-Prefix updated from `bsh-` to `bs-o-` for outset shadows & `bs-i-` for inset shadows.
-
-```html del={1} ins={2-3} title="index.html"
-<div class="bsh-md">...</div>
+<div class="bs-md">...</div>
 <div class="bs-o-md">...</div>
-<div class="bs-i-md">...</div>
 ```
 
-### Rotation
+## Minify Option
 
-Prefix updated from `t-r-` to `ro-`. standalone `rotate` property is now used.
+The `minify` build option is removed. Choose modern tools like Vite to automate CSS minification instead.
 
-```html del={1} ins={2} title="index.html"
-<div class="t-r-*">...</div>
-<div class="ro-*">...</div>
-```
+## Base Styles
 
-### Scale
+Modern versions include standardized base styles for consistency. Disable base styles in `yumma.config.js` if you prefer your own reset.
 
-The standalone `scale` property is now used instead of `transform: scale()`.
-
-```html del={1-3} ins={4-6} title="index.html"
-<div class="t-s-*">...</div>
-<div class="t-sx-*">...</div>
-<div class="t-sy-*">...</div>
-<div class="s-*">...</div>
-<div class="sx-*">...</div>
-<div class="sy-*">...</div>
-```
-
-### Isolation
-
-Prefix updated from `i-` to `is-`.
-
-```html del={1} ins={2} title="index.html"
-<div class="i-*">...</div>
-<div class="is-*">...</div>
-```
-
-## Minify
-
-The `minify` build option is no longer available. Modern tools like Vite have become so fast that optimizing CSS internally in Yumma CSS is now obsolete. We recommend letting your bundler handle CSS minification.
-
-## Base Style Changes
-
-Modern Yumma CSS versions include standardized base styles for better consistency. These are enabled by default & can be disabled in `yumma.config.mjs`.
-
-Remove paddings by default:
-
-```css mark={3} title="base.ts"
-* {
-  margin: 0;
-  padding: 0;
-}
-```
-
-Smother font rendering with a default system font. Source: [joshwcomeau.com](https://joshwcomeau.com/css/custom-css-reset).
-
-```css mark={2} title="base.ts"
-html {
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Noto Sans, Liberation Sans, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
-}
-```
-
-Inherit the font family in `body` for better propagation.
-
-```css ins={2-3} del={4} title="base.ts"
-body {
-  -webkit-font-smoothing: antialiased;
-  font-family: inherit;
-  line-height: 1.5;
-}
-```
-
-Form elements now include padding by default. Borders are added for form elements without class attributes.
-
-```css mark={6-8,16} title="base.ts"
-button,
-input,
-optgroup,
-select,
-textarea {
-  background-color: transparent;
-  font-family: inherit;
-  padding: .5rem;
-}
-
-button:not([class]),
-input:not([class]),
-optgroup:not([class]),
-select:not([class]),
-textarea:not([class]) {
-  border: 1px solid #bfc2c7;
-}
-```
-
-Clear outlines for interactive elements to improve accessibility.
-
-```css mark={1,7} title="base.ts"
-:is(a,
-button,
-input,
-select,
-summary,
-textarea):focus {
-  outline: 2px solid transparent;
-}
-```
-
-Textareas without `rows` use a default height. Source: [piccalil.li](https://piccalil.li/blog/a-more-modern-css-reset).
-
-```css mark={2} title="base.ts"
-textarea:not([rows]) {
-  min-height: 10em;
-}
-```
-
-Distinct visual states for disabled elements.
-
-```css mark={5-6} title="base.ts"
-button:disabled,
-input:disabled,
-select:disabled,
-textarea:disabled {
-  cursor: not-allowed;
-  opacity: 0.5;
-}
-```
-
-Headings use balanced wrapping, consistent sizes, & bold weights.
-
-```css mark={7-9,13} title="base.ts"
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-size: 1rem;
-  font-weight: 600;
-  text-wrap: balance;
-}
-
-p {
-  text-wrap: pretty;
-}
-```
-
-Standardized scaling for small text & code elements. Source: [modern-normalize](https://github.com/sindresorhus/modern-normalize).
-
-```css mark={3,7-8,15-16} title="base.ts"
-b,
-strong {
-  font-weight: 700;
-}
-
-small {
-  font-size: 80%;
-  line-height: 1.4;
-}
-
-pre,
-code,
-kbd,
-samp {
-  font-family: monospace;
-  font-size: 1em;
-}
-```
-
-Reset default link styles:
-
-```css mark={2,7} title="base.ts"
-a {
-  color: inherit;
-  text-decoration: none;
-}
-```
-
-Consistent table header styling:
-
-```css mark={2-3} title="base.ts"
-th {
-  font-size: 1rem;
-  font-weight: 600;
-}
-```
-
-Updated spacing for miscellaneous elements.
-
-```css mark={3,8,12} title="base.ts"
-hr {
-  border-top: 1px solid #bfc2c7;
-  height: 0;
-  margin: 1em 0;
-}
-
-details {
-  display: block;
-}
-
-summary {
-  display: list-item;
-}
-```
-
-### Disable Base Styles
-
-Set `buildOptions.reset` to `false` in `yumma.config.mjs` to disable base styles.
-
-```js mark={5} title="yumma.config.mjs"
+```js mark={3} title="yumma.config.js"
 export default {
   buildOptions: {
     reset: false,
