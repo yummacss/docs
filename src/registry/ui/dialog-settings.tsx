@@ -88,7 +88,7 @@ export default function DialogSettings() {
                         Receive updates via email
                       </div>
                     </div>
-                    <button
+                    <Button
                       type="button"
                       onClick={() => setNotifications(!notifications)}
                       className={`p-r w-11 h-6 br-pill tp-bg tdu-200 ttf-io b-0 c-p ${
@@ -100,7 +100,7 @@ export default function DialogSettings() {
                           notifications ? "l-6" : "l-1"
                         }`}
                       />
-                    </button>
+                    </Button>
                   </div>
 
                   <div className="d-f jc-sb ai-c">
@@ -110,7 +110,7 @@ export default function DialogSettings() {
                         Automatically save your work
                       </div>
                     </div>
-                    <button
+                    <Button
                       type="button"
                       onClick={() => setAutoSave(!autoSave)}
                       className={`p-r w-11 h-6 br-pill tp-bg tdu-200 ttf-io b-0 c-p ${
@@ -122,7 +122,7 @@ export default function DialogSettings() {
                           autoSave ? "l-6" : "l-1"
                         }`}
                       />
-                    </button>
+                    </Button>
                   </div>
 
                   <div className="d-f fd-c g-1">

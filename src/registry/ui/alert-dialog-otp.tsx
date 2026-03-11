@@ -68,7 +68,7 @@ export default function ExampleAlertDialog() {
                 style={{ maxWidth: "600px" }}
               >
                 <div className="d-f jc-sb ai-c px-4 py-2 bg-silver-1/50">
-                  <AlertDialog.Title className="m-0 fs-sm fw-600">
+                  <AlertDialog.Title className="m-0 fs-md fw-600">
                     New message
                   </AlertDialog.Title>
                   <AlertDialog.Close
@@ -85,7 +85,7 @@ export default function ExampleAlertDialog() {
                     <PaperPlaneTiltIcon size={20} weight="bold" />
                   </span>
                   <div>
-                    <h3 className="m-0 mb-1 c-slate-10 fs-sm fw-600">
+                    <h3 className="m-0 mb-1 c-slate-10 fs-md fw-600">
                       Compose email
                     </h3>
                     <p className="m-0 c-slate-8 fs-xs lh-4">
@@ -107,7 +107,7 @@ export default function ExampleAlertDialog() {
                         id="mail-to"
                         type="email"
                         placeholder="recipient@example.com"
-                        className="h-10 w-full pl-3 bg-white bc-silver-3 c-slate-10 br-2 bw-1 fs-sm fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
+                        className="h-10 w-full pl-3 bg-white bc-silver-3 c-slate-10 br-2 bw-1 fs-md fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
                       />
                     </Field.Root>
                     <Field.Root className="d-f fd-c g-2">
@@ -120,7 +120,7 @@ export default function ExampleAlertDialog() {
                       <Input
                         id="mail-subject"
                         placeholder="Enter subject"
-                        className="h-10 w-full pl-3 bg-white bc-silver-3 c-slate-10 br-2 bw-1 fs-sm fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
+                        className="h-10 w-full pl-3 bg-white bc-silver-3 c-slate-10 br-2 bw-1 fs-md fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
                       />
                     </Field.Root>
                     <Field.Root className="d-f fd-c g-2">
@@ -133,9 +133,8 @@ export default function ExampleAlertDialog() {
                       <div className="p-r o-h bg-white bc-silver-3 br-2 bw-1 fv-w:os-s fv-w:ow-2 fv-w:oo-2 fv-w:oc-indigo-6">
                         <textarea
                           id="mail-message"
-                          placeholder="Write your message..."
                           rows={12}
-                          className="o-n w-full px-3 pt-3 pb-12 bg-transparent c-slate-10 br-2 bw-0 fs-sm r-none"
+                          className="o-n w-full px-3 pt-3 pb-12 bg-transparent c-slate-10 br-2 bw-0 fs-md r-none"
                         />
                         <Toolbar.Root className="d-f p-a b-0 l-0 r-0 ai-c fw-w g-1 p-1 bg-white bc-silver-3 btw-1">
                           <ToggleGroup className="d-f g-1">

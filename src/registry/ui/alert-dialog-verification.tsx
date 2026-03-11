@@ -115,18 +115,18 @@ export default function ExampleAlertDialog() {
                         value={digit}
                         onChange={(e) => handleChange(index, e.target.value)}
                         onKeyDown={(e) => handleKeyDown(index, e)}
-                        className="w-14 h-14 bg-white bc-silver-3 br-2 bw-1 ta-c fs-lg fw-600 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
+                        className="w-14 h-14 cc-slate-7 bc-silver-3 br-2 bw-1 ta-c fs-lg fw-600 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
                       />
                     ))}
                   </div>
                   <p className="mt-3 mb-0 c-slate-6 fs-xs ta-c">
                     Didn't receive it?{" "}
-                    <button
+                    <Button
                       type="button"
                       className="b-0 p-0 bg-transparent c-indigo fw-600 td-u c-p"
                     >
                       Resend code
-                    </button>
+                    </Button>
                   </p>
                 </div>
                 <div className="d-g gtc-2 g-3 px-4 py-3">
