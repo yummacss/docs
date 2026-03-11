@@ -7,18 +7,18 @@ This document provides **complete reference** for using Yumma CSS utility classe
 ## Syntax Pattern
 
 ```
-{prefix}-*
+{prefix}-{value}
 ```
 
 **With variants:**
 ```
-{variant}:{prefix}-*
+{variant}:{prefix}-{value}
 ```
 
 **Examples:**
-- `bg-red-5` → `background-color: #e63946`
-- `h:bg-blue-5` → On hover: `background-color: #2563eb`
-- `sm:d-f` → At 640px+: `display: flex`
+- `bg-red-5` > `background-color: #e63946`
+- `h:bg-blue-5` > On hover: `background-color: #2563eb`
+- `sm:d-f` > At 640px+: `display: flex`
 
 ---
 
@@ -76,10 +76,10 @@ Container queries allow you to change styles based on the size of a parent conta
 
 | Prefix | Selector        |
 | ------ | --------------- |
-| `::a:` | `::after`       |
-| `::b:` | `::before`      |
-| `::p:` | `::placeholder` |
-| `::s:` | `::selection`   |
+| `:a:`  | `:after`        |
+| `:b:`  | `:before`       |
+| `:p:`  | `::placeholder` |
+| `:s:`  | `::selection`   |
 
 ---
 
@@ -92,10 +92,10 @@ Container queries allow you to change styles based on the size of a parent conta
 Each color has shades `1-9` (1 = lightest, 5 = base, 9 = darkest)
 
 ### Special Colors
-- `black` → `#000000`
-- `white` → `#ffffff`
-- `transparent` → `transparent`
-- `current` → `currentColor`
+- `black` > `#000000`
+- `white` > `#ffffff`
+- `transparent` > `transparent`
+- `current` > `currentColor`
 
 ### Color Utilities
 
@@ -151,7 +151,7 @@ Each color has shades `1-9` (1 = lightest, 5 = base, 9 = darkest)
 | `margin-inline-start` | `mis-` | Same                             |
 | `margin-inline-end`   | `mie-` | Same                             |
 
-**Negative margins:** Use `m--*` syntax (e.g., `m--4` for negative margin)
+**Negative margins:** Use `m--{value}` syntax (e.g., `m--4` for negative margin)
 
 ### Padding
 
@@ -323,7 +323,7 @@ Each color has shades `1-9` (1 = lightest, 5 = base, 9 = darkest)
 | `grid-template-columns` | `gtc-` | `1-16` |
 | `grid-template-rows`    | `gtr-` | `1-16` |
 
-Example: `gtc-3` → `grid-template-columns: repeat(3, minmax(0, 1fr))`
+Example: `gtc-3` > `grid-template-columns: repeat(3, minmax(0, 1fr))`
 
 ### Grid Column/Row Span
 
@@ -332,7 +332,7 @@ Example: `gtc-3` → `grid-template-columns: repeat(3, minmax(0, 1fr))`
 | `grid-column` (span) | `gc-s-` | `1-16` |
 | `grid-row` (span)    | `gr-s-` | `1-16` |
 
-Example: `gc-s-2` → `grid-column: span 2 / span 2`
+Example: `gc-s-2` > `grid-column: span 2 / span 2`
 
 ### Grid Column/Row Start/End
 
@@ -478,8 +478,8 @@ Example: `gc-s-2` → `grid-column: span 2 / span 2`
 
 | Class    | CSS                   |
 | -------- | --------------------- |
-| `fs-xs`  | `font-size: 0.75rem`  |
-| `fs-sm`  | `font-size: 0.875rem` |
+| `fs-xs`  | `font-size: .75rem`   |
+| `fs-sm`  | `font-size: .875rem`  |
 | `fs-md`  | `font-size: 1rem`     |
 | `fs-lg`  | `font-size: 1.125rem` |
 | `fs-xl`  | `font-size: 1.25rem`  |
@@ -660,7 +660,7 @@ Example: `gc-s-2` → `grid-column: span 2 / span 2`
 | ------ | ------ |
 | `c-`   | `1-16` |
 
-Example: `c-3` → `columns: 3`
+Example: `c-3` > `columns: 3`
 
 ---
 
@@ -678,8 +678,8 @@ Example: `c-3` → `columns: 3`
 
 | Class    | CSS                   |
 | -------- | --------------------- |
-| `fs-xs`  | `font-size: 0.75rem`  |
-| `fs-sm`  | `font-size: 0.875rem` |
+| `fs-xs`  | `font-size: .75rem`  |
+| `fs-sm`  | `font-size: .875rem` |
 | `fs-md`  | `font-size: 1rem`     |
 | `fs-lg`  | `font-size: 1.125rem` |
 | `fs-xl`  | `font-size: 1.25rem`  |
@@ -740,7 +740,7 @@ Example: `c-3` → `columns: 3`
 | `tds-s`            | `text-decoration-style: solid`            |
 | `tds-d`            | `text-decoration-style: dashed`           |
 | `tds-w`            | `text-decoration-style: wavy`             |
-| `tdt-0` to `tdt-4` | `text-decoration-thickness: 0px` to `4px` |
+| `tdt-0` to `tdt-4` | `text-decoration-thickness: 0` to `4px` |
 | `tdt-auto`         | `text-decoration-thickness: auto`         |
 | `tdt-ff`           | `text-decoration-thickness: from-font`    |
 
@@ -749,7 +749,7 @@ Example: `c-3` → `columns: 3`
 | Class      | CSS                           |
 | ---------- | ----------------------------- |
 | `tuo-auto` | `text-underline-offset: auto` |
-| `tuo-0`    | `text-underline-offset: 0px`  |
+| `tuo-0`    | `text-underline-offset: 0`  |
 | `tuo-1`    | `text-underline-offset: 1px`  |
 | `tuo-2`    | `text-underline-offset: 2px`  |
 | `tuo-4`    | `text-underline-offset: 4px`  |
@@ -770,12 +770,12 @@ Example: `c-3` → `columns: 3`
 
 | Class  | CSS                        |
 | ------ | -------------------------- |
-| `ls-0` | `letter-spacing: 0em`      |
+| `ls-0` | `letter-spacing: 0`      |
 | `ls-1` | `letter-spacing: -0.05em`  |
 | `ls-2` | `letter-spacing: -0.025em` |
-| `ls-3` | `letter-spacing: 0.025em`  |
-| `ls-4` | `letter-spacing: 0.05em`   |
-| `ls-5` | `letter-spacing: 0.1em`    |
+| `ls-3` | `letter-spacing: .025em`  |
+| `ls-4` | `letter-spacing: .05em`   |
+| `ls-5` | `letter-spacing: .1em`    |
 
 ### Text Wrap
 
@@ -797,11 +797,11 @@ Example: `c-3` → `columns: 3`
 
 | Class  | CSS                    |
 | ------ | ---------------------- |
-| `ti-0` | `text-indent: 0px`     |
+| `ti-0` | `text-indent: 0`     |
 | `ti-1` | `text-indent: 1px`     |
-| `ti-2` | `text-indent: 0.25rem` |
-| `ti-3` | `text-indent: 0.5rem`  |
-| `ti-4` | `text-indent: 0.75rem` |
+| `ti-2` | `text-indent: .25rem` |
+| `ti-3` | `text-indent: .5rem`  |
+| `ti-4` | `text-indent: .75rem` |
 
 ### White Space
 
@@ -889,16 +889,30 @@ Example: `c-3` → `columns: 3`
 | `border-top-right-radius`    | `btrr-` | Same                                            |
 | `border-bottom-left-radius`  | `bblr-` | Same                                            |
 | `border-bottom-right-radius` | `bbrr-` | Same                                            |
+| `border-block-start-radius`  | `bbsr-` | Same                                            |
+| `border-block-end-radius`    | `bber-` | Same                                            |
+| `border-inline-start-radius` | `bisr-` | Same                                            |
+| `border-inline-end-radius`   | `bier-` | Same                                            |
+| `border-start-start-radius`  | `bssr-` | Same                                            |
+| `border-start-end-radius`    | `bser-` | Same                                            |
+| `border-end-start-radius`    | `besr-` | Same                                            |
+| `border-end-end-radius`      | `beer-` | Same                                            |
 
 ### Border Width
 
-| Property              | Prefix | Values     |
-| --------------------- | ------ | ---------- |
-| `border-width`        | `bw-`  | `0-4` (px) |
-| `border-top-width`    | `btw-` | Same       |
-| `border-right-width`  | `brw-` | Same       |
-| `border-bottom-width` | `bbw-` | Same       |
-| `border-left-width`   | `blw-` | Same       |
+| Property                    | Prefix  | Values     |
+| --------------------------- | ------- | ---------- |
+| `border-width`              | `bw-`   | `0-4` (px) |
+| `border-top-width`          | `btw-`  | Same       |
+| `border-right-width`        | `brw-`  | Same       |
+| `border-bottom-width`       | `bbw-`  | Same       |
+| `border-left-width`         | `blw-`  | Same       |
+| `border-block-width`        | `byw-`  | Same       |
+| `border-inline-width`       | `bxw-`  | Same       |
+| `border-block-start-width`  | `bbsw-` | Same       |
+| `border-block-end-width`    | `bbew-` | Same       |
+| `border-inline-start-width` | `bisw-` | Same       |
+| `border-inline-end-width`   | `biew-` | Same       |
 
 ### Border Style
 
@@ -917,9 +931,10 @@ Example: `c-3` → `columns: 3`
 
 ### Border Spacing
 
-| Prefix | Values            |
-| ------ | ----------------- |
-| `bs-`  | `0-16` (×0.25rem) |
+| Prefix  | Values            |
+| ------- | ----------------- |
+| `bs-`   | `0-16` (×0.25rem) |
+| `bs-px` | `1px`             |
 
 ---
 
@@ -1017,7 +1032,7 @@ Example: `c-3` → `columns: 3`
 | ------- | ------------------------------------------ |
 | `bs-o-` | `xs`, `sm`, `md`, `lg`, `xl`, `xxl`, `3xl` |
 
-Example: `bs-o-md` → `box-shadow: 0 4px 6px -1px #0000001a, ...`
+Example: `bs-o-md` > `box-shadow: 0 4px 6px -1px #0000001a, ...`
 
 ### Box Shadow (Inset)
 
@@ -1025,7 +1040,7 @@ Example: `bs-o-md` → `box-shadow: 0 4px 6px -1px #0000001a, ...`
 | ------- | ------------------------------------------ |
 | `bs-i-` | `xs`, `sm`, `md`, `lg`, `xl`, `xxl`, `3xl` |
 
-Example: `bs-i-md` → `box-shadow: inset 0 2px 4px 0 #0000001a`
+Example: `bs-i-md` > `box-shadow: inset 0 2px 4px 0 #0000001a`
 
 ### Opacity
 
@@ -1081,7 +1096,7 @@ Example: `bs-i-md` → `box-shadow: inset 0 2px 4px 0 #0000001a`
 | ------ | ----------------------- |
 | `ro-`  | `0-360` (steps of 5deg) |
 
-Example: `ro-45` → `rotate: 45deg`
+Example: `ro-45` > `rotate: 45deg`
 
 ### Scale
 
@@ -1092,7 +1107,7 @@ Example: `ro-45` → `rotate: 45deg`
 | `scale`  | `sy-`  | `0-100` (steps of 10), e.g., `sy-50`  |
 | `scale`  | `sz-`  | `0-100` (steps of 10), e.g., `sz-100` |
 
-Example: `s-50` → `scale: 50%`, `sx-50` → `scale: 50% 1`
+Example: `s-50` > `scale: 50%`, `sx-50` > `scale: 50% 1`
 
 ### Skew
 
@@ -1110,6 +1125,7 @@ Example: `s-50` → `scale: 50%`, `sx-50` → `scale: 50% 1`
 
 | Property     | Prefix  | Values                             |
 | ------------ | ------- | ---------------------------------- |
+| `translate`  | `t-t-`  | `0-100` (×0.25rem), `half`, `full` |
 | `translateX` | `t-tx-` | `0-100` (×0.25rem), `half`, `full` |
 | `translateY` | `t-ty-` | `0-100` (×0.25rem), `half`, `full` |
 
@@ -1148,7 +1164,7 @@ Example: `s-50` → `scale: 50%`, `sx-50` → `scale: 50% 1`
 | ------ | ------------------------ |
 | `tdu-` | `0-1000` (steps of 50ms) |
 
-Example: `tdu-150` → `transition-duration: 150ms`
+Example: `tdu-150` > `transition-duration: 150ms`
 
 ### Transition Delay
 
@@ -1156,7 +1172,7 @@ Example: `tdu-150` → `transition-duration: 150ms`
 | ------ | ------------------------ |
 | `td-`  | `0-1000` (steps of 50ms) |
 
-Example: `td-100` → `transition-delay: 100ms`
+Example: `td-100` > `transition-delay: 100ms`
 
 ### Transition Timing Function
 
@@ -1335,10 +1351,10 @@ Example: `td-100` → `transition-delay: 100ms`
 | Class  | CSS                 |
 | ------ | ------------------- |
 | `sw-0` | `stroke-width: 0`   |
-| `sw-2` | `stroke-width: 0.2` |
-| `sw-4` | `stroke-width: 0.4` |
-| `sw-6` | `stroke-width: 0.6` |
-| `sw-8` | `stroke-width: 0.8` |
+| `sw-2` | `stroke-width: .2`  |
+| `sw-4` | `stroke-width: .4`  |
+| `sw-6` | `stroke-width: .6`  |
+| `sw-8` | `stroke-width: .8`  |
 | `sw-1` | `stroke-width: 1`   |
 
 ---
@@ -1387,7 +1403,7 @@ Example: `td-100` → `transition-delay: 100ms`
 
 ### Card with Shadow
 ```html
-<div class="bg-white br-2 bs-o-md p-4">Card content</div>
+<div class="bg-white br-2 bsh-md p-4">Card content</div>
 ```
 
 ### Button with Hover
