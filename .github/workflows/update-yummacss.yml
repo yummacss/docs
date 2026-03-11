@@ -35,5 +35,8 @@ jobs:
           commit-message: "chore: update yummacss to ${{ github.event.client_payload.version }}"
           branch: update/yummacss-${{ github.event.client_payload.version }}
           title: "chore: update yummacss to ${{ github.event.client_payload.version }}"
-          body: "Automated update triggered by release ${{ github.event.client_payload.version }} in the monorepo."
+          body: |
+            ### Changed
+
+            - Update `yummacss` & `@yummacss/core` to ${{ github.event.client_payload.version }}.
           auto-merge: squash
