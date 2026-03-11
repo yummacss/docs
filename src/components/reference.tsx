@@ -42,7 +42,7 @@ export default function Reference({ category, name }: Props) {
   const [search, setSearch] = useState("");
 
   let basePrefix = name;
-  const variants: Array<{ prefix: string; property: string; value: string }> =
+  const variants: Array<{ prefix: string; properties: readonly string[]; value: string }> =
     [];
 
   try {
@@ -62,11 +62,11 @@ export default function Reference({ category, name }: Props) {
       basePrefix = util.prefix;
       Object.entries(util.values).forEach(([suffix, value]) => {
         const prefix = suffix === "" ? util.prefix : `${util.prefix}-${suffix}`;
-        const property = util.properties[0];
+        const properties = util.properties;
 
         variants.push({
           prefix,
-          property,
+          properties,
           value,
         });
       });
@@ -90,7 +90,10 @@ export default function Reference({ category, name }: Props) {
     ? variants.filter(
         (v) =>
           v.prefix.toLowerCase().includes(search.toLowerCase()) ||
-          v.value.toLowerCase().includes(search.toLowerCase()),
+          v.value.toLowerCase().includes(search.toLowerCase()) ||
+          v.properties.some((p) =>
+            p.toLowerCase().includes(search.toLowerCase()),
+          ),
       )
     : variants;
 
@@ -154,9 +157,13 @@ export default function Reference({ category, name }: Props) {
                       <code className="fs-sm" style={{ color: "#dda2f6" }}>
                         {variant.prefix}
                       </code>
-                      <code className="fs-xs" style={{ color: "#b9bed5" }}>
-                        {variant.property}: {variant.value};
-                      </code>
+                      <div className="d-f fd-c ai-fe">
+                        {variant.properties.map((prop) => (
+                          <code key={prop} className="fs-xs" style={{ color: "#b9bed5" }}>
+                            {prop}: {variant.value};
+                          </code>
+                        ))}
+                      </div>
                     </div>
                   ))
                 ) : (
