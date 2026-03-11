@@ -104,18 +104,18 @@ export default function ExampleAlertDialog() {
                     We've sent a 4-digit code to your email
                   </AlertDialog.Description>
                   <div className="d-f g-2 jc-c">
-                    {code.map((digit, index) => (
+                    {["slot-1", "slot-2", "slot-3", "slot-4"].map((slotId, index) => (
                       <input
-                        key={index}
+                        key={slotId}
                         ref={inputRefs[index]}
                         type="text"
                         inputMode="numeric"
                         maxLength={1}
                         placeholder="0"
-                        value={digit}
+                        value={code[index]}
                         onChange={(e) => handleChange(index, e.target.value)}
                         onKeyDown={(e) => handleKeyDown(index, e)}
-                        className="w-14 h-14 cc-slate-7 bc-silver-3 br-2 bw-1 ta-c fs-lg fw-600 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
+                        className="w-12 h-12 cc-slate-7 bc-silver-3 br-2 bw-1 ta-c fs-lg fw-600 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
                       />
                     ))}
                   </div>
