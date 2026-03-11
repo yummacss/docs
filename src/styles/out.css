@@ -313,8 +313,16 @@ summary {
   bottom: .25rem;
 }
 
+.b-2 {
+  bottom: .5rem;
+}
+
 .b-3 {
   bottom: .75rem;
+}
+
+.b-4 {
+  bottom: 1rem;
 }
 
 .b\:\:bg-indigo\/10:before {
@@ -2042,10 +2050,6 @@ summary {
   height: 100dvh;
 }
 
-.h-dvw {
-  height: 100dvw;
-}
-
 .h-fc {
   height: fit-content;
 }
@@ -2228,6 +2232,10 @@ summary {
 
 .i-100 {
   inset: 25rem;
+}
+
+.i-2 {
+  inset: .5rem;
 }
 
 .is-auto {
@@ -4138,6 +4146,10 @@ summary {
 
 .w-dvh {
   width: 100dvh;
+}
+
+.w-dvw {
+  width: 100dvw;
 }
 
 .w-fc {
