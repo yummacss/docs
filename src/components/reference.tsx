@@ -125,13 +125,13 @@ export default function Reference({ category, name }: Props) {
                 className="d-f ai-c g-2 mb-2 pb-2"
                 style={{ borderBottom: "1px solid #232741" }}
               >
-                <MagnifyingGlassIcon size={12} className="c-white/30 fs-0" />
+                <MagnifyingGlassIcon size={18} className="c-white/30 fs-0" />
                 <Input
                   type="text"
                   placeholder="Filter..."
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
-                  className="c-white/70 w-full bg-transparent bw-0 fs-xs"
+                  className="c-white/70 w-full bg-transparent bw-0 fs-md"
                   style={{ outline: "none" }}
                 />
                 {search && (

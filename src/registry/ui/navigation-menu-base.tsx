@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@base-ui/react";
 import { NavigationMenu } from "@base-ui/react/navigation-menu";
 import {
   BookOpenIcon,
@@ -27,7 +28,7 @@ function NavTrigger({
         } ${className || ""}`
       }
       render={(props, state) => (
-        <button {...props}>
+        <Button {...props}>
           {children}
           <NavigationMenu.Icon
             className="d-f tp-trf tdu-150 ttf-io"
@@ -35,7 +36,7 @@ function NavTrigger({
           >
             <CaretDownIcon size={12} />
           </NavigationMenu.Icon>
-        </button>
+        </Button>
       )}
     />
   );

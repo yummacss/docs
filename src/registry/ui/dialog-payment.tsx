@@ -46,7 +46,7 @@ export default function DialogPayment() {
                 style={{ maxWidth: "90vw" }}
               >
                 <div className="d-f jc-sb ai-c px-4 py-2 bg-silver-1/50">
-                  <AlertDialog.Title className="m-0 fs-sm fw-600">
+                  <AlertDialog.Title className="m-0 fs-md fw-600">
                     Payment Details
                   </AlertDialog.Title>
                   <AlertDialog.Close
@@ -63,7 +63,7 @@ export default function DialogPayment() {
                     <CreditCardIcon size={20} weight="bold" />
                   </span>
                   <div>
-                    <h3 className="m-0 mb-1 c-slate-10 fs-sm fw-600">
+                    <h3 className="m-0 mb-1 c-slate-10 fs-md fw-600">
                       Add payment method
                     </h3>
                     <p className="m-0 c-slate-8 fs-xs lh-4">
@@ -73,7 +73,7 @@ export default function DialogPayment() {
                 </div>
                 <div className="bc-silver-2 bbw-1" />
                 <form className="d-f fd-c g-4 px-4 py-5">
-                  <AlertDialog.Description className="m-0 c-slate-7 fs-sm lh-4">
+                  <AlertDialog.Description className="m-0 c-slate-7 fs-md lh-4">
                     Your payment information is encrypted and secure.
                   </AlertDialog.Description>
 
@@ -88,7 +88,7 @@ export default function DialogPayment() {
                       id="cardNumber"
                       type="text"
                       placeholder="1234 5678 9012 3456"
-                      className="px-3 py-2 bg-white bc-silver-3 c-slate-12 br-2 bw-1 fs-sm ol-n fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
+                      className="px-3 py-2 bg-white bc-silver-3 c-slate-12 br-2 bw-1 fs-md ol-n fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
                     />
                   </div>
 
@@ -104,7 +104,7 @@ export default function DialogPayment() {
                         id="expiry"
                         type="text"
                         placeholder="MM/YY"
-                        className="px-3 py-2 bg-white bc-silver-3 c-slate-12 br-2 bw-1 fs-sm ol-n fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
+                        className="px-3 py-2 bg-white bc-silver-3 c-slate-12 br-2 bw-1 fs-md ol-n fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
                       />
                     </div>
 
@@ -116,7 +116,7 @@ export default function DialogPayment() {
                         id="cvv"
                         type="text"
                         placeholder="123"
-                        className="px-3 py-2 bg-white bc-silver-3 c-slate-12 br-2 bw-1 fs-sm ol-n fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
+                        className="px-3 py-2 bg-white bc-silver-3 c-slate-12 br-2 bw-1 fs-md ol-n fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
                       />
                     </div>
                   </div>
@@ -129,7 +129,7 @@ export default function DialogPayment() {
                       id="name"
                       type="text"
                       placeholder="John Doe"
-                      className="px-3 py-2 bg-white bc-silver-3 c-slate-12 br-2 bw-1 fs-sm ol-n fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
+                      className="px-3 py-2 bg-white bc-silver-3 c-slate-12 br-2 bw-1 fs-md ol-n fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
                     />
                   </div>
                 </form>

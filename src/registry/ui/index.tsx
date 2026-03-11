@@ -7,7 +7,7 @@ import AccordionMultiple from "./accordion-multiple";
 import AccordionStatic from "./accordion-static";
 import AccordionSubtle from "./accordion-subtle";
 import AlertDialogBase from "./alert-dialog-base";
-import AlertDialogMail from "./alert-dialog-mail";
+import AlertDialogOtp from "./alert-dialog-otp";
 import AlertDialogVerification from "./alert-dialog-verification";
 import AutocompleteAutoHighlight from "./autocomplete-auto-highlight";
 import AutocompleteBase from "./autocomplete-base";
@@ -76,7 +76,7 @@ export const baseComponents: Record<string, ComponentType> = {
   "accordion-subtle": AccordionSubtle,
   "accordion-icons": AccordionIcons,
   "alert-dialog-base": AlertDialogBase,
-  "alert-dialog-mail": AlertDialogMail,
+  "alert-dialog-otp": AlertDialogOtp,
   "alert-dialog-verification": AlertDialogVerification,
   "autocomplete-auto-highlight": AutocompleteAutoHighlight,
   "autocomplete-base": AutocompleteBase,
