@@ -1,7 +1,5 @@
 import {
-  FeatherIcon,
-  LightningIcon,
-  SealCheckIcon,
+  ArrowRightIcon,
   SparkleIcon,
 } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
@@ -33,15 +31,32 @@ export default function Home() {
                 className="d-if ai-c g-2 px-4 py-2 mb-8 bc-white/10 bg-white/5 c-white bw-1 br-pill bf-b-md fv:oc-white fv:ow-2"
               >
                 <span className="fs-xs fw-500 ls-4">
-                  Try Yumma CSS in your browser
+                  Zero install, try it in your browser
                 </span>
+                <ArrowRightIcon size={16} />
               </Link>
 
               <h1 className="mb-6 fs-5xl fw-400 lh-2 ff-e md:fs-6xl">
                 Type less. Style more.
               </h1>
               <p className="c-white/70 mb-8 fs-lg lh-5">
-                Atomic CSS with abbreviated utility classes. d-f not flex, fw-600 not font-bold, o-auto not overflow-auto.
+                Atomic CSS with abbreviated utility classes.{" "}
+                <code className="ff-m fs-md" style={{ color: "#dda2f6" }}>
+                  d-f
+                </code>{" "}
+                not{" "}
+                <code className="ff-m fs-md" style={{ color: "#dda2f6" }}>
+                  flex
+                </code>
+                ,{" "}
+                <code className="ff-m fs-md" style={{ color: "#dda2f6" }}>
+                  fw-600
+                </code>{" "}
+                not{" "}
+                <code className="ff-m fs-md" style={{ color: "#dda2f6" }}>
+                  font-bold
+                </code>
+                .
               </p>
 
               <div className="d-f fw-w g-4 mb-12">
