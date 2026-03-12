@@ -30,7 +30,6 @@ export const uiSidebarConfig: UISidebarConfig = [
   {
     title: "Getting Started",
     items: [
-      { title: "Introduction", slug: "introduction" },
       { title: "Installation", slug: "installation" },
       { title: "Theming", slug: "theming" },
       { title: "Components", slug: "components" },
