@@ -11,8 +11,6 @@ import Reference from "@/components/reference";
 import ResponsiveVariant from "@/components/responsive-variant";
 import Stepper, { Step } from "@/components/stepper";
 import { Tabs, TabsList, TabsPanel, TabsTab } from "@/components/tabs";
-import FAQ from "@/components/ui/templates/faq";
-import TemplatesList from "@/components/ui/templates/list";
 
 // generate IDs from heading text
 function generateId(children: React.ReactNode): string {
@@ -47,8 +45,6 @@ const components: MDXComponents = {
   TabsList,
   TabsPanel,
   TabsTab,
-  FAQ,
-  TemplatesList,
   h1: ({ children, ...props }) => {
     const id = props.id || generateId(children);
     return props.className ? (

@@ -17,11 +17,11 @@
 | Prefix | Breakpoint                        |
 | ------ | --------------------------------- |
 | `pc:`  | `pointer: coarse` (touch devices) |
-| `sm:`  | `width >= 40rem` (640px)          |
-| `md:`  | `width >= 48rem` (768px)          |
-| `lg:`  | `width >= 64rem` (1024px)         |
-| `xl:`  | `width >= 80rem` (1280px)         |
-| `xxl:` | `width >= 96rem` (1536px)         |
+| `sm:`  | `min-width: 40rem` (640px)        |
+| `md:`  | `min-width: 48rem` (768px)        |
+| `lg:`  | `min-width: 64rem` (1024px)       |
+| `xl:`  | `min-width: 80rem` (1280px)       |
+| `xxl:` | `min-width: 96rem` (1536px)       |
 
 ---
 
@@ -31,11 +31,11 @@ Container queries allow you to change styles based on the size of a parent conta
 
 | Prefix  | Breakpoint                     |
 | ------- | ------------------------------ |
-| `@sm:`  | `@container (width >= 40rem)`  |
-| `@md:`  | `@container (width >= 48rem)`  |
-| `@lg:`  | `@container (width >= 64rem)`  |
-| `@xl:`  | `@container (width >= 80rem) ` |
-| `@xxl:` | `@container (width >= 96rem) ` |
+| `@sm:`  | `@container (min-width: 40rem)`|
+| `@md:`  | `@container (min-width: 48rem)`|
+| `@lg:`  | `@container (min-width: 64rem)`|
+| `@xl:`  | `@container (min-width: 80rem)`|
+| `@xxl:` | `@container (min-width: 96rem)`|
 
 ---
 

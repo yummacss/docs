@@ -53,5 +53,5 @@ fs.mkdirSync(path.dirname(outPath), { recursive: true });
 fs.writeFileSync(outPath, JSON.stringify(map, null, 2));
 
 console.log(
-  `Output successful with ${Object.keys(map).length} entries.`,
+  `[Yumma CSS: OG Meta] Output successful with ${Object.keys(map).length} entries.`,
 );
