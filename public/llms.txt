@@ -1,4 +1,5 @@
 # Yumma CSS
+
 > An atomic CSS framework with abbreviated utility classes.
 > Syntax: {prefix}-{value}, variants: {variant}:{prefix}-{value}
 
