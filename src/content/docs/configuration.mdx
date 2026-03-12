@@ -33,18 +33,6 @@ export default defineConfig({
 });
 ```
 
-### IntelliSense
-
-Using `defineConfig` automatically enables IntelliSense. Alternatively, you can add a JSDoc comment at the top of your configuration file.
-
-```mjs title="yumma.config.mjs" mark={1}
-/** @type {import('@yummacss/nitro').Config} */
-export default {
-  source: [""],
-  output: "",
-};
-```
-
 ### Source
 
 A collection of paths for your template files (e.g., `.js`, `.tsx`, `.html`). The CLI scans these files for utilities to include in the final CSS file.
