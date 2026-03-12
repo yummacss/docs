@@ -45,7 +45,7 @@ export default function Navbar({
 }: NavbarProps) {
   const pathname = usePathname();
   const isUI = pathname?.startsWith("/ui");
-  const isLandingPage = pathname === "/" || pathname === "/ui";
+  const isLandingPage = pathname === "/";
   const [searchOpen, setSearchOpen] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -87,7 +87,10 @@ export default function Navbar({
           <nav className="d-f ai-c jc-sb">
             <div className="d-f ai-c g-2">
               <LogoContextMenu>
-                <Link href={isUI ? "/ui" : "/"} className="fv:oc-white fv:ow-2">
+                <Link
+                  href={isUI ? "/ui/components" : "/"}
+                  className="fv:oc-white fv:ow-2"
+                >
                   <YummaCSSDark className="d-b h-8 w-auto" />
                 </Link>
               </LogoContextMenu>
