@@ -34,6 +34,19 @@ const nextConfig = {
   async redirects() {
     return redirects;
   },
+  async headers() {
+  return [
+    {
+      source: '/llms.txt',
+      headers: [
+        {
+          key: 'Cache-Control',
+          value: 'no-cache, must-revalidate',
+        },
+      ],
+    },
+  ]
+}
 };
 
 const withMDX = createMDX({
