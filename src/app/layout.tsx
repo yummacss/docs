@@ -20,6 +20,9 @@ export const metadata: Metadata = {
   openGraph: {
     images: "/og.png",
   },
+  other: {
+    "llms": "/llms.txt",
+  },
 };
 
 export default function RootLayout({
