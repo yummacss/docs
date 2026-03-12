@@ -1,6 +1,4 @@
-*,
-*:before,
-*:after {
+*, :before, :after {
   box-sizing: border-box;
   border: 0 solid;
 }
@@ -20,39 +18,22 @@ body {
   line-height: 1.5;
 }
 
-canvas,
-img,
-picture,
-svg,
-video {
-  display: block;
+canvas, img, picture, svg, video {
   max-width: 100%;
+  display: block;
 }
 
-button,
-input,
-optgroup,
-select,
-textarea {
+button, input, optgroup, select, textarea {
   background-color: transparent;
-  font-family: inherit;
   padding: .5rem;
+  font-family: inherit;
 }
 
-button:not([class]),
-input:not([class]),
-optgroup:not([class]),
-select:not([class]),
-textarea:not([class]) {
+button:not([class]), input:not([class]), optgroup:not([class]), select:not([class]), textarea:not([class]) {
   border: 1px solid #bfc2c7;
 }
 
-:is(a,
-button,
-input,
-select,
-summary,
-textarea):focus {
+:is(a, button, input, select, summary, textarea):focus {
   outline: 2px solid transparent;
 }
 
@@ -64,41 +45,26 @@ button {
   cursor: pointer;
 }
 
-button:disabled,
-input:disabled,
-select:disabled,
-textarea:disabled {
+button:disabled, input:disabled, select:disabled, textarea:disabled {
   cursor: not-allowed;
   opacity: .5;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
+h1, h2, h3, h4, h5, h6, p {
   overflow-wrap: break-word;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
   font-size: 1rem;
   font-weight: 600;
-  text-wrap: balance;
 }
 
 p {
   text-wrap: pretty;
 }
 
-b,
-strong {
+b, strong {
   font-weight: 700;
 }
 
@@ -107,10 +73,7 @@ small {
   line-height: 1.4;
 }
 
-pre,
-code,
-kbd,
-samp {
+pre, code, kbd, samp {
   font-family: monospace;
   font-size: 1em;
 }
@@ -120,10 +83,9 @@ a {
   text-decoration: none;
 }
 
-ol,
-ul {
-  list-style: none;
+ol, ul {
   padding: 0;
+  list-style: none;
 }
 
 th {
@@ -144,6 +106,7 @@ details {
 summary {
   display: list-item;
 }
+
 
 .a-auto {
   appearance: auto;
@@ -362,8 +325,8 @@ summary {
 }
 
 .bber-2 {
-  border-end-start-radius: .5rem;
   border-end-end-radius: .5rem;
+  border-end-start-radius: .5rem;
 }
 
 .bbew-4 {
@@ -375,13 +338,13 @@ summary {
 }
 
 .bbr-2 {
-  border-bottom-left-radius: .5rem;
   border-bottom-right-radius: .5rem;
+  border-bottom-left-radius: .5rem;
 }
 
 .bbr-3 {
-  border-bottom-left-radius: .75rem;
   border-bottom-right-radius: .75rem;
+  border-bottom-left-radius: .75rem;
 }
 
 .bbrr-2 {
@@ -543,10 +506,6 @@ summary {
 
 .bg-black {
   background-color: #000000;
-}
-
-.bg-black\/10 {
-  background-color: #0000001a;
 }
 
 .bg-black\/20 {
@@ -788,8 +747,8 @@ summary {
 }
 
 .blr-2 {
-  border-bottom-left-radius: .5rem;
   border-top-left-radius: .5rem;
+  border-bottom-left-radius: .5rem;
 }
 
 .blw-0 {
@@ -921,8 +880,8 @@ summary {
 }
 
 .brr-2 {
-  border-bottom-right-radius: .5rem;
   border-top-right-radius: .5rem;
+  border-bottom-right-radius: .5rem;
 }
 
 .brw-0 {
@@ -1435,7 +1394,7 @@ summary {
 }
 
 .f-b-none {
-  filter: blur(0);
+  filter: blur();
 }
 
 .f-b-xs {
@@ -1539,15 +1498,15 @@ summary {
 }
 
 .ff-d {
-  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', 'Liberation Sans', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  font-family: Iowan Old Style, Palatino Linotype, URW Palladio L, P052, serif;
 }
 
 .ff-m {
-  font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, 'Roboto Mono', 'Ubuntu Mono', Consolas, 'Liberation Mono', 'Courier New', monospace;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Noto Sans, Liberation Sans, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
 }
 
 .ff-s {
-  font-family: 'Iowan Old Style', 'Palatino Linotype', 'URW Palladio L', P052, serif;
+  font-family: ui-monospace, Cascadia Code, Source Code Pro, Menlo, Roboto Mono, Ubuntu Mono, Consolas, Liberation Mono, Courier New, monospace;
 }
 
 .fg-0 {
@@ -2158,10 +2117,6 @@ summary {
   background-color: #ffffff0d;
 }
 
-.h\:bg-white\/90:hover {
-  background-color: #ffffffe6;
-}
-
 .h\:bg-yellow-11:hover {
   background-color: #4d3708;
 }
@@ -2208,10 +2163,6 @@ summary {
 
 .h\:o-50:hover {
   opacity: .5;
-}
-
-.h\:o-90:hover {
-  opacity: .9;
 }
 
 .h\:td-u:hover {
@@ -2486,10 +2437,6 @@ summary {
 
 .max-w-64 {
   max-width: 16rem;
-}
-
-.max-w-70 {
-  max-width: 17.5rem;
 }
 
 .max-w-80 {
@@ -4252,13 +4199,7 @@ summary {
   z-index: 50;
 }
 
-@media (pointer: coarse) {
-  .pc\:p-6 {
-    padding: 1.5rem;
-  }
-}
-
-@media (width >= 40rem) {
+@media (min-width: 40rem) {
   .sm\:d-b {
     display: block;
   }
@@ -4304,7 +4245,7 @@ summary {
   }
 }
 
-@media (width >= 48rem) {
+@media (min-width: 48rem) {
   .md\:ai-c {
     align-items: center;
   }
@@ -4333,10 +4274,6 @@ summary {
     font-size: 3.75rem;
   }
 
-  .md\:gtc-2 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   .md\:gtc-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -4358,7 +4295,7 @@ summary {
   }
 }
 
-@media (width >= 64rem) {
+@media (min-width: 64rem) {
   .lg\:bf-b-md {
     backdrop-filter: blur(16px);
   }
@@ -4436,7 +4373,7 @@ summary {
   }
 }
 
-@media (width >= 80rem) {
+@media (min-width: 80rem) {
   .xl\:d-b {
     display: block;
   }
@@ -4446,8 +4383,14 @@ summary {
   }
 }
 
-@media (width >= 96rem) {
+@media (min-width: 96rem) {
   .xxl\:d-b {
     display: block;
+  }
+}
+
+@media (pointer: coarse) {
+  .pc\:p-6 {
+    padding: 1.5rem;
   }
 }

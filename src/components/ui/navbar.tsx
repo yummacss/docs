@@ -116,12 +116,6 @@ export default function Navbar({
                     Components
                   </Link>
                   <Link
-                    href="/ui/templates"
-                    className="c-white/80 fs-sm h:c-white fv:oc-white fv:ow-2"
-                  >
-                    Templates
-                  </Link>
-                  <Link
                     href="https://play.yummacss.com"
                     className="c-white/80 fs-sm h:c-white fv:oc-white fv:ow-2"
                     target="_blank"

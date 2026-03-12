@@ -12,8 +12,7 @@ export interface SearchItem {
     | "colors"
     | "ui"
     | "components"
-    | "blocks"
-    | "templates";
+    | "blocks";
   color?: string;
 }
 
@@ -50,16 +49,14 @@ function extractDocsItems(): SearchItem[] {
 function extractUIItems(): {
   components: SearchItem[];
   blocks: SearchItem[];
-  templates: SearchItem[];
 } {
   const components: SearchItem[] = [];
   const blocks: SearchItem[] = [];
-  const templates: SearchItem[] = [];
 
   function extract(configItems: UISidebarConfigItem[], sectionTitle: string) {
     for (const item of configItems) {
       if (item.slug) {
-        if (item.slug.startsWith("templates/")) continue;
+        if (item.slug === "templates") continue;
         if (["license", "privacy", "terms"].includes(item.slug)) continue;
 
         const searchItem: SearchItem = {
@@ -78,9 +75,6 @@ function extractUIItems(): {
         } else if (sectionTitle === "Blocks") {
           searchItem.category = "blocks";
           blocks.push(searchItem);
-        } else if (sectionTitle === "Templates") {
-          searchItem.category = "templates";
-          templates.push(searchItem);
         }
       }
       if ("children" in item && Array.isArray(item.children)) {
@@ -96,7 +90,7 @@ function extractUIItems(): {
     extract(section.items, section.title);
   }
 
-  return { components, blocks, templates };
+  return { components, blocks };
 }
 
 // Generate color items with all shades using shared utility
@@ -127,7 +121,6 @@ const DOCS_ITEMS = extractDocsItems();
 const {
   components: COMPONENT_ITEMS,
   blocks: BLOCK_ITEMS,
-  templates: TEMPLATE_ITEMS,
 } = extractUIItems();
 const COLOR_ITEMS = generateColorItems();
 
@@ -135,7 +128,6 @@ export const SEARCH_DATA: SearchItem[] = [
   ...DOCS_ITEMS,
   ...COMPONENT_ITEMS,
   ...BLOCK_ITEMS,
-  ...TEMPLATE_ITEMS,
   ...COLOR_ITEMS,
 ];
 
@@ -145,7 +137,6 @@ export const DEFAULT_ITEMS: SearchItem[] = [
   { title: "Configuration", path: "/docs/configuration", category: "docs" },
   { title: "Colors", path: "/docs/colors", category: "docs" },
   { title: "Components", path: "/ui/components", category: "ui" },
-  { title: "Templates", path: "/ui/templates", category: "ui" },
   { title: "Upgrading", path: "/docs/upgrading", category: "docs" },
   {
     title: "Media Queries",
@@ -233,5 +224,4 @@ export const CATEGORY_LABELS: Record<string, string> = {
   ui: "Yumma UI",
   components: "Components",
   blocks: "Blocks",
-  templates: "Templates",
 };

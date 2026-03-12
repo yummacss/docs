@@ -74,7 +74,6 @@ export function getDocsNavigation(slug: string): {
 
 /**
  * Get navigation for UI pages - section-aware to not cross section boundaries
- * Templates section should not show prev/next from Components/Blocks sections
  */
 export function getUINavigation(slug: string): {
   previous: { slug: string; title: string } | null;

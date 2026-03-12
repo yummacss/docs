@@ -1,6 +1,6 @@
-import LeftSidebarRouter from "@/components/ui/left-sidebar-router";
 import Navbar from "@/components/ui/navbar";
-import RightSidebarRouter from "@/components/ui/right-sidebar-router";
+import TableOfContents from "@/components/ui/table-of-contents";
+import UISidebar from "@/components/ui/ui-sidebar";
 
 export default function UILayout({ children }: { children: React.ReactNode }) {
   return (
@@ -12,13 +12,13 @@ export default function UILayout({ children }: { children: React.ReactNode }) {
         style={{ maxWidth: "clamp(40rem, 80vw, 96rem)" }}
       >
         <div className="d-g gtc-1 g-8 lg:gtc-12">
-          <LeftSidebarRouter />
+          <UISidebar />
 
           <div className="pt-12 lg:gc-s-6">
             <article className="max-w-none">{children}</article>
           </div>
 
-          <RightSidebarRouter />
+          <TableOfContents />
         </div>
       </main>
     </div>
