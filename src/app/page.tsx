@@ -1,7 +1,4 @@
-import {
-  ArrowRightIcon,
-  SparkleIcon,
-} from "@phosphor-icons/react/dist/ssr";
+import { ArrowRightIcon, SparkleIcon } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
 import DarkVeil from "@/components/dark-veil";
 import Navbar from "@/components/ui/navbar";
@@ -41,22 +38,10 @@ export default function Home() {
               </h1>
               <p className="c-white/70 mb-8 fs-lg lh-5">
                 Atomic CSS with abbreviated utility classes.{" "}
-                <code className="ff-m fs-md" style={{ color: "#dda2f6" }}>
-                  d-f
-                </code>{" "}
-                not{" "}
-                <code className="ff-m fs-md" style={{ color: "#dda2f6" }}>
-                  flex
-                </code>
-                ,{" "}
-                <code className="ff-m fs-md" style={{ color: "#dda2f6" }}>
-                  fw-600
-                </code>{" "}
-                not{" "}
-                <code className="ff-m fs-md" style={{ color: "#dda2f6" }}>
-                  font-bold
-                </code>
-                .
+                <code className="c-white ff-m fs-md">d-f</code> not{" "}
+                <code className="c-white ff-m fs-md">flex</code>,{" "}
+                <code className="c-white ff-m fs-md">fw-600</code> not{" "}
+                <code className="c-white ff-m fs-md">font-bold</code>.
               </p>
 
               <div className="d-f fw-w g-4 mb-12">
