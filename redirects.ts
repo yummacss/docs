@@ -5,11 +5,6 @@ export const redirects = [
     destination: "/docs/colors",
     permanent: true,
   },
-  {
-    source: "/docs/bottom-left-right-top",
-    destination: "/docs/top-right-bottom-left",
-    permanent: true,
-  },
   ...["/docs/cli", "/docs/config"].map((source) => ({
     source,
     destination: "/docs/configuration",
@@ -27,17 +22,17 @@ export const redirects = [
   },
   {
     source: "/docs/dimensions",
-    destination: "/docs/dimension",
+    destination: "/docs/upgrading#removed-utilities",
+    permanent: true,
+  },
+  {
+    source: "/docs/spacing",
+    destination: "/docs/upgrading#removed-utilities",
     permanent: true,
   },
   {
     source: "/resources",
     destination: "/docs/installation",
-    permanent: true,
-  },
-  {
-    source: "/docs/dev-api",
-    destination: "/docs/api-reference",
     permanent: true,
   },
   {
@@ -47,12 +42,13 @@ export const redirects = [
   },
   ...[
     "/docs/api-reference",
-    "/docs/core-package",
+    "/docs/core-api",
+    "/docs/core-integration",
     "/docs/core-library",
     "/docs/core-module",
-    "/docs/core-integration",
+    "/docs/core-package",
+    "/docs/dev-api",
     "/docs/integration",
-    "/docs/core-api",
   ].map((source) => ({
     source,
     destination: "/docs/functions-types",
@@ -129,6 +125,11 @@ export const redirects = [
   // Yumma UI redirects
   {
     source: "/components",
+    destination: "/ui/components",
+    permanent: true,
+  },
+  {
+    source: "/ui",
     destination: "/ui/components",
     permanent: true,
   },
