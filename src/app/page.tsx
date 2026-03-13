@@ -41,10 +41,10 @@ export default function Home() {
               </h1>
               <p className="c-white/70 mb-8 fs-lg lh-5">
                 Atomic CSS with abbreviated utility classes.{" "}
-                <code className="c-white ff-m fs-md">d-f</code> not{" "}
-                <code className="c-white ff-m fs-md">flex</code>,{" "}
-                <code className="c-white ff-m fs-md">fw-600</code> not{" "}
-                <code className="c-white ff-m fs-md">font-bold</code>.
+                <span className="c-white fs-md">d-f</span> not{" "}
+                <span className="c-white fs-md">flex</span>,{" "}
+                <span className="c-white fs-md">fw-600</span> not{" "}
+                <span className="c-white fs-md">font-bold</span>.
               </p>
 
               <div className="d-f fw-w g-4 mb-12">
