@@ -1498,15 +1498,15 @@ summary {
 }
 
 .ff-d {
-  font-family: Iowan Old Style, Palatino Linotype, URW Palladio L, P052, serif;
-}
-
-.ff-m {
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Noto Sans, Liberation Sans, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
 }
 
-.ff-s {
+.ff-m {
   font-family: ui-monospace, Cascadia Code, Source Code Pro, Menlo, Roboto Mono, Ubuntu Mono, Consolas, Liberation Mono, Courier New, monospace;
+}
+
+.ff-s {
+  font-family: Iowan Old Style, Palatino Linotype, URW Palladio L, P052, serif;
 }
 
 .fg-0 {
