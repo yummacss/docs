@@ -5,7 +5,7 @@ export const contentType = "image/png";
 import ogMeta from "@/generated/og-meta.json";
 import { makeOGResponse } from "@/lib/og";
 
-type M = Record<string, { title: string }>;
+type M = Record<string, { title: string; description: string }>;
 export default async ({ params }: { params: Promise<{ slug: string }> }) => {
   const { slug } = await params;
   const decoded = decodeURIComponent(slug);
@@ -14,5 +14,6 @@ export default async ({ params }: { params: Promise<{ slug: string }> }) => {
     (ogMeta as M)[`ui/${decoded}`]?.title || "Yumma UI",
     "/ui",
     badge,
+    (ogMeta as M)[`ui/${decoded}`]?.description,
   );
 };
