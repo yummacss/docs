@@ -1,10 +1,11 @@
 import type { MetadataRoute } from "next";
+import { getAllBlogSlugs } from "@/utils/blog";
+import { getAllUISlugs } from "@/utils/ui-sidebar";
 import { getAllSlugs } from "@/utils/sidebar";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://yummacss.com";
 
-  // get all documentation slugs
   const docSlugs = getAllSlugs();
   const docUrls = docSlugs.map((slug) => ({
     url: `${baseUrl}/docs/${slug}`,
@@ -13,7 +14,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  // static pages
+  const uiSlugs = getAllUISlugs();
+  const uiUrls = uiSlugs.map((slug) => ({
+    url: `${baseUrl}/ui/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly" as const,
+    priority: 0.7,
+  }));
+
+  const blogSlugs = getAllBlogSlugs();
+  const blogUrls = blogSlugs.map((slug) => ({
+    url: `${baseUrl}/blog/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
   const staticPages = [
     {
       url: baseUrl,
@@ -41,5 +57,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  return [...staticPages, ...docUrls];
+  return [...staticPages, ...docUrls, ...uiUrls, ...blogUrls];
 }

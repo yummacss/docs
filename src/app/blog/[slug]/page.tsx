@@ -21,6 +21,9 @@ export async function generateMetadata({
     title: meta?.title || "Blog Post",
     description: meta?.description || "",
     openGraph: {
+      type: "article",
+      publishedTime: meta?.date,
+      authors: ["Renildo Pereira"],
       images: [
         {
           url: image,
