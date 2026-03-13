@@ -18,8 +18,8 @@ function extractMeta(filePath: string): MetaEntry {
   if (!metaMatch) return { title: "", description: "" };
 
   const raw = metaMatch[1];
-  const titleMatch = raw.match(/title\s*:\s*["'\`]([^"'\`\n]+)["'\`]/);
-  const descMatch = raw.match(/description\s*:\s*["'\`]([^"'\`\n]+)["'\`]/);
+  const titleMatch = raw.match(/title\s*:\s*["'`]([^"'`\n]+)["'`]/);
+  const descMatch = raw.match(/description\s*:\s*["'`]([^"'`\n]+)["'`]/);
 
   return {
     title: titleMatch?.[1]?.trim() ?? "",

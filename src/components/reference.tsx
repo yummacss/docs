@@ -42,8 +42,11 @@ export default function Reference({ category, name }: Props) {
   const [search, setSearch] = useState("");
 
   let basePrefix = name;
-  const variants: Array<{ prefix: string; properties: readonly string[]; value: string }> =
-    [];
+  const variants: Array<{
+    prefix: string;
+    properties: readonly string[];
+    value: string;
+  }> = [];
 
   try {
     if (!category || !name) {
@@ -159,7 +162,11 @@ export default function Reference({ category, name }: Props) {
                       </code>
                       <div className="d-f fd-c ai-fe">
                         {variant.properties.map((prop) => (
-                          <code key={prop} className="fs-xs" style={{ color: "#b9bed5" }}>
+                          <code
+                            key={prop}
+                            className="fs-xs"
+                            style={{ color: "#b9bed5" }}
+                          >
                             {prop}: {variant.value};
                           </code>
                         ))}

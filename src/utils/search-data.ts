@@ -6,13 +6,7 @@ export interface SearchItem {
   title: string;
   description?: string;
   path: string;
-  category:
-    | "docs"
-    | "foundations"
-    | "colors"
-    | "ui"
-    | "components"
-    | "blocks";
+  category: "docs" | "foundations" | "colors" | "ui" | "components" | "blocks";
   color?: string;
 }
 
@@ -118,10 +112,7 @@ function generateColorItems(): SearchItem[] {
 
 // Build combined search data
 const DOCS_ITEMS = extractDocsItems();
-const {
-  components: COMPONENT_ITEMS,
-  blocks: BLOCK_ITEMS,
-} = extractUIItems();
+const { components: COMPONENT_ITEMS, blocks: BLOCK_ITEMS } = extractUIItems();
 const COLOR_ITEMS = generateColorItems();
 
 export const SEARCH_DATA: SearchItem[] = [

@@ -3,7 +3,8 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 
-const description = "Yumma CSS is an atomic CSS framework with abbreviated utility classes. Write d-f instead of flex, fw-600 instead of font-bold. Faster styling, less typing.";
+const description =
+  "Yumma CSS is an atomic CSS framework with abbreviated utility classes. Write d-f instead of flex, fw-600 instead of font-bold. Faster styling, less typing.";
 
 export const metadata: Metadata = {
   title: {
@@ -11,7 +12,13 @@ export const metadata: Metadata = {
     template: "%s - Yumma CSS",
   },
   description,
-  keywords: ["css framework", "atomic css", "utility classes", "tailwind alternative", "abbreviated css"],
+  keywords: [
+    "css framework",
+    "atomic css",
+    "utility classes",
+    "tailwind alternative",
+    "abbreviated css",
+  ],
   icons: {
     apple: "/apple-touch-icon.png",
     icon: "/favicon.svg",
@@ -22,7 +29,7 @@ export const metadata: Metadata = {
     images: "/og.png",
   },
   other: {
-    "llms": "/llms.txt",
+    llms: "/llms.txt",
   },
 };
 

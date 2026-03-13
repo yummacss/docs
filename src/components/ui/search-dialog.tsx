@@ -7,9 +7,9 @@ import {
   ArrowElbowDownLeftIcon,
   ArrowRightIcon,
   ArrowUpIcon,
+  DiamondsFourIcon,
   FileTextIcon,
   MagnifyingGlassIcon,
-  StackSimpleIcon,
   XIcon,
 } from "@phosphor-icons/react/dist/ssr";
 import { AnimatePresence, motion } from "motion/react";
@@ -122,7 +122,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
     if (category === "foundations") {
       return <FileTextIcon size={14} className="c-white/50" />;
     }
-    return <StackSimpleIcon size={14} className="c-white/50" />;
+    return <DiamondsFourIcon size={14} className="c-white/50" />;
   };
 
   // Track global index for keyboard nav
