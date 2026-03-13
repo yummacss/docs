@@ -38,7 +38,9 @@ export default function ExampleCollapsible() {
           </div>
           <div className="d-f ai-c jc-sb px-4 py-3 bbw-1 bc-silver-2">
             <span className="fs-xs fw-500 c-slate-7">Platform</span>
-            <span className="fs-xs fw-600 c-slate-8">macOS, Windows, Linux</span>
+            <span className="fs-xs fw-600 c-slate-8">
+              macOS, Windows, Linux
+            </span>
           </div>
           <div className="d-f ai-c jc-sb px-4 py-3 bbw-1 bc-silver-2">
             <span className="fs-xs fw-500 c-slate-7">RAM</span>
@@ -46,7 +48,9 @@ export default function ExampleCollapsible() {
           </div>
           <div className="d-f ai-c g-2 px-4 py-3 bg-silver-1 bbr-3">
             <InfoIcon size={13} className="c-slate-6 fs-0" />
-            <span className="fs-xs c-slate-7">16 GB RAM recommended for large projects</span>
+            <span className="fs-xs c-slate-7">
+              16 GB RAM recommended for large projects
+            </span>
           </div>
         </div>
       </Collapsible.Panel>

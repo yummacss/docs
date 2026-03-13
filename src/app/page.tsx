@@ -1,4 +1,7 @@
-import { ArrowRightIcon, SparkleIcon } from "@phosphor-icons/react/dist/ssr";
+import {
+  ArrowRightIcon,
+  DiamondsFourIcon,
+} from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
 import DarkVeil from "@/components/dark-veil";
 import Navbar from "@/components/ui/navbar";
@@ -28,7 +31,7 @@ export default function Home() {
                 className="d-if ai-c g-2 px-4 py-2 mb-8 bc-white/10 bg-white/5 c-white bw-1 br-pill bf-b-md fv:oc-white fv:ow-2"
               >
                 <span className="fs-xs fw-500 ls-4">
-                  Zero install, try it in your browser
+                  Try it in your browser
                 </span>
                 <ArrowRightIcon size={16} />
               </Link>
@@ -55,7 +58,7 @@ export default function Home() {
                   href="/ui/components"
                   className="d-f ai-c g-2 px-6 py-3 c-white br-pill fw-600 fs-md us-none fv:oc-white fv:ow-2"
                 >
-                  <SparkleIcon size={20} weight="duotone" />
+                  <DiamondsFourIcon size={20} weight="duotone" />
                   Components
                 </Link>
               </div>

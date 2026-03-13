@@ -1,8 +1,8 @@
 "use client";
 
 import { Combobox } from "@base-ui/react/combobox";
-import { AnimatePresence, motion } from "motion/react";
 import { CircleIcon, XIcon } from "@phosphor-icons/react";
+import { AnimatePresence, motion } from "motion/react";
 import * as React from "react";
 
 const skills = [
@@ -42,20 +42,22 @@ export default function ExampleCombobox() {
         </label>
         <div className="d-f fw-w ai-c g-1 min-h-10 w-72 px-2 py-1 bg-white bc-silver-3 bw-1 br-2 fw:os-s fw:ow-2 fw:oo-2 fw:oc-indigo-6">
           <Combobox.Chips className="d-c g-1">
-            {((chip: string) => (
-              <Combobox.Chip
-                key={chip}
-                className="d-f ai-c g-1 px-2 py-0 h-6 bg-indigo-1 bc-indigo-2 bw-1 br-pill fs-xs fw-500 c-indigo-7"
-              >
-                {chip}
-                <Combobox.ChipRemove
-                  className="d-f ai-c jc-c b-0 p-0 bg-transparent c-indigo-5 c-p h:c-indigo-8"
-                  aria-label={`Remove ${chip}`}
+            {
+              ((chip: string) => (
+                <Combobox.Chip
+                  key={chip}
+                  className="d-f ai-c g-1 px-2 py-0 h-6 bg-indigo-1 bc-indigo-2 bw-1 br-pill fs-xs fw-500 c-indigo-7"
                 >
-                  <XIcon size={11} weight="bold" />
-                </Combobox.ChipRemove>
-              </Combobox.Chip>
-            )) as unknown as React.ReactNode}
+                  {chip}
+                  <Combobox.ChipRemove
+                    className="d-f ai-c jc-c b-0 p-0 bg-transparent c-indigo-5 c-p h:c-indigo-8"
+                    aria-label={`Remove ${chip}`}
+                  >
+                    <XIcon size={11} weight="bold" />
+                  </Combobox.ChipRemove>
+                </Combobox.Chip>
+              )) as unknown as React.ReactNode
+            }
           </Combobox.Chips>
           <Combobox.Input
             id="skills-input"
