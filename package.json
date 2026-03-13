@@ -3,18 +3,6 @@
   "version": "0.0.0",
   "private": true,
   "description": "Official documentation website for Yumma CSS.",
-  "keywords": [
-    "css",
-    "css-framework",
-    "atomic-css",
-    "utility-css",
-    "utility-first",
-    "abbreviated-css",
-    "design-system",
-    "stylesheet",
-    "tailwind-alternative",
-    "yummacss"
-  ],
   "homepage": "https://yummacss.com",
   "license": "MIT",
   "author": "Renildo Pereira",
