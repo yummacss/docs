@@ -3,14 +3,15 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 
-const description = "An atomic CSS framework with abbreviated class names.";
+const description = "Yumma CSS is an atomic CSS framework with abbreviated utility classes. Write d-f instead of flex, fw-600 instead of font-bold. Faster styling, less typing.";
 
 export const metadata: Metadata = {
   title: {
-    default: "Yumma CSS - Style more, type even less",
+    default: "Yumma CSS - Type less. Style more.",
     template: "%s - Yumma CSS",
   },
   description,
+  keywords: ["css framework", "atomic css", "utility classes", "tailwind alternative", "abbreviated css"],
   icons: {
     apple: "/apple-touch-icon.png",
     icon: "/favicon.svg",
