@@ -18,7 +18,7 @@ const countries: Country[] = [
   { code: "fr", name: "France" },
   { code: "jp", name: "Japan" },
   { code: "au", name: "Australia" },
-  { code: "br", name: "Brazil" },
+  { code: "br", name: "Brasil" },
   { code: "in", name: "India" },
   { code: "mx", name: "Mexico" },
   { code: "es", name: "Spain" },
