@@ -33,9 +33,6 @@ export default async function Page({
   const meta = module.meta;
   const navigation = getUINavigation(slugPath);
 
-  // Check if this is a template page (don't show navigator)
-  const isTemplatePage = slugPath.startsWith("templates");
-
   return (
     <div className="mb-16">
       {meta && (
@@ -47,13 +44,11 @@ export default async function Page({
         </div>
       )}
       <Content />
-      {!isTemplatePage && (
-        <Pagination
-          previous={navigation.previous}
-          next={navigation.next}
-          basePath="/ui"
-        />
-      )}
+      <Pagination
+        previous={navigation.previous}
+        next={navigation.next}
+        basePath="/ui"
+      />
     </div>
   );
 }

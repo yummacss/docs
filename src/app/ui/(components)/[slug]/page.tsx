@@ -9,9 +9,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  // Decode URL-encoded slugs (e.g., templates%2Fneutra -> templates/neutra)
-  const decodedSlug = decodeURIComponent(slug);
-  const module = await import(`@/content/ui/${decodedSlug}.mdx`);
+  const module = await import(`@/content/ui/${slug}.mdx`);
   const meta = module.meta;
 
   return {
@@ -26,9 +24,7 @@ export default async function Page({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  // Decode URL-encoded slugs (e.g., templates%2Fneutra -> templates/neutra)
-  const decodedSlug = decodeURIComponent(slug);
-  const module = await import(`@/content/ui/${decodedSlug}.mdx`);
+  const module = await import(`@/content/ui/${slug}.mdx`);
   const Content = module.default;
   const meta = module.meta;
   const navigation = getUINavigation(slug);

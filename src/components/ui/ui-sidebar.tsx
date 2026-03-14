@@ -23,20 +23,6 @@ function hasItems(
 export default function UISidebar() {
   const pathname = usePathname();
 
-  // Determine if we're on a templates-related page
-  const isTemplatesPage =
-    pathname?.startsWith("/ui/templates") ||
-    pathname === "/ui/license" ||
-    pathname === "/ui/privacy" ||
-    pathname === "/ui/terms";
-
-  // Filter out Templates and Legal sections when on component pages
-  const filteredConfig = isTemplatesPage
-    ? uiSidebarConfig
-    : uiSidebarConfig.filter(
-        (section) => section.title !== "Templates" && section.title !== "Legal",
-      );
-
   return (
     <aside className="d-none lg:d-b lg:gc-s-3">
       <div
@@ -45,7 +31,7 @@ export default function UISidebar() {
           maxHeight: "calc(100vh - 3rem)",
         }}
       >
-        {filteredConfig.map((section) => (
+        {uiSidebarConfig.map((section) => (
           <div key={section.title} className="d-f fd-c g-4">
             <h3 className="c-white fs-md fw-400 tt-c ls-5">{section.title}</h3>
             <ul className="d-f fd-c g-2 ml-4">

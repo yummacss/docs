@@ -50,9 +50,6 @@ function extractUIItems(): {
   function extract(configItems: UISidebarConfigItem[], sectionTitle: string) {
     for (const item of configItems) {
       if (item.slug) {
-        if (item.slug === "templates") continue;
-        if (["license", "privacy", "terms"].includes(item.slug)) continue;
-
         const searchItem: SearchItem = {
           title: item.title,
           path: `/ui/${item.slug}`,
