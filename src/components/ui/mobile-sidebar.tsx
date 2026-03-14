@@ -40,28 +40,8 @@ interface Props {
 
 export default function MobileSidebar({ isOpen, onClose, routeType }: Props) {
   const pathname = usePathname();
-  const fullConfig = routeType === "ui" ? uiSidebarConfig : sidebarConfig;
+  const config = routeType === "ui" ? uiSidebarConfig : sidebarConfig;
   const baseRoute = routeType === "ui" ? "/ui" : "/docs";
-
-  // Filter sections based on route
-  const isTemplatesRoute = pathname?.startsWith("/ui/templates");
-  const isComponentsRoute =
-    routeType === "ui" &&
-    !isTemplatesRoute &&
-    !pathname?.startsWith("/ui/license") &&
-    !pathname?.startsWith("/ui/privacy") &&
-    !pathname?.startsWith("/ui/terms");
-
-  let config = fullConfig;
-  if (isTemplatesRoute) {
-    // Templates routes: only show Templates section
-    config = fullConfig.filter((section) => section.title === "Templates");
-  } else if (isComponentsRoute) {
-    // Components routes: exclude Templates and Legal sections
-    config = fullConfig.filter(
-      (section) => section.title !== "Templates" && section.title !== "Legal",
-    );
-  }
 
   return (
     <AnimatePresence>

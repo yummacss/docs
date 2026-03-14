@@ -8,12 +8,10 @@ import { makeOGResponse } from "@/lib/og";
 type M = Record<string, { title: string; description: string }>;
 export default async ({ params }: { params: Promise<{ slug: string }> }) => {
   const { slug } = await params;
-  const decoded = decodeURIComponent(slug);
-  const badge = decoded.startsWith("templates") ? "Templates" : "Components";
   return makeOGResponse(
-    (ogMeta as M)[`ui/${decoded}`]?.title || "Yumma UI",
+    (ogMeta as M)[`ui/${slug}`]?.title || "Yumma UI",
     "/ui",
-    badge,
-    (ogMeta as M)[`ui/${decoded}`]?.description,
+    "Components",
+    (ogMeta as M)[`ui/${slug}`]?.description,
   );
 };

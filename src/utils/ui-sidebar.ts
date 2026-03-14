@@ -67,14 +67,6 @@ export const uiSidebarConfig: UISidebarConfig = [
       { title: "Tooltip", slug: "tooltip" },
     ],
   },
-  {
-    title: "Legal",
-    items: [
-      { title: "License", slug: "license" },
-      { title: "Privacy", slug: "privacy" },
-      { title: "Terms", slug: "terms" },
-    ],
-  },
 ];
 
 // extract all slugs from the UI sidebar config
