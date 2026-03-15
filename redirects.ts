@@ -48,10 +48,11 @@ export const redirects = [
     "/docs/core-module",
     "/docs/core-package",
     "/docs/dev-api",
+    "/docs/functions-types",
     "/docs/integration",
   ].map((source) => ({
     source,
-    destination: "/docs/functions-types",
+    destination: "/docs/creating-apps",
     permanent: true,
   })),
   {
@@ -77,7 +78,7 @@ export const redirects = [
     permanent: true,
   })),
   {
-    source: "/blog/editor-support",
+    source: "/blog/code-editor",
     destination: "/blog/intellisense",
     permanent: true,
   },

@@ -6,7 +6,7 @@ export interface SearchItem {
   title: string;
   description?: string;
   path: string;
-  category: "docs" | "foundations" | "colors" | "ui" | "components" | "blocks";
+  category: "docs" | "handbook" | "colors" | "ui" | "components" | "blocks";
   color?: string;
 }
 
@@ -129,27 +129,27 @@ export const DEFAULT_ITEMS: SearchItem[] = [
   {
     title: "Media Queries",
     path: "/docs/media-queries",
-    category: "foundations",
+    category: "handbook",
   },
   {
     title: "Pseudo Classes",
     path: "/docs/pseudo-classes",
-    category: "foundations",
+    category: "handbook",
   },
   {
     title: "Pseudo Elements",
     path: "/docs/pseudo-elements",
-    category: "foundations",
+    category: "handbook",
   },
   {
     title: "Container Queries",
     path: "/docs/container-queries",
-    category: "foundations",
+    category: "handbook",
   },
   {
     title: "Negative Values",
     path: "/docs/negative-values",
-    category: "foundations",
+    category: "handbook",
   },
 ];
 
@@ -207,7 +207,7 @@ export function groupByCategory(
 // Category labels for display
 export const CATEGORY_LABELS: Record<string, string> = {
   docs: "Docs",
-  foundations: "Foundations",
+  handbook: "Handbook",
   colors: "Colors",
   ui: "Yumma UI",
   components: "Components",

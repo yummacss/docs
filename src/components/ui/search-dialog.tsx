@@ -119,7 +119,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
     if (category === "docs") {
       return <ArrowRightIcon size={14} className="c-white/50" />;
     }
-    if (category === "foundations") {
+    if (category === "handbook") {
       return <FileTextIcon size={14} className="c-white/50" />;
     }
     return <DiamondsFourIcon size={14} className="c-white/50" />;
