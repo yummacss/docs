@@ -4,13 +4,13 @@ export const sidebarConfig: SidebarConfig = [
     items: [
       { title: "Installation", slug: "installation" },
       { title: "Configuration", slug: "configuration" },
-      { title: "Editor Support", slug: "editor-support" },
-      { title: "Functions & Types", slug: "functions-types" },
+      { title: "Creating Apps", slug: "creating-apps" },
+      { title: "Code Editor", slug: "code-editor" },
       { title: "Upgrading", slug: "upgrading" },
     ],
   },
   {
-    title: "Foundations",
+    title: "Handbook",
     items: [
       { title: "Styling Elements", slug: "styling-elements" },
       { title: "Colors", slug: "colors" },

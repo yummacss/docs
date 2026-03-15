@@ -1,11 +1,11 @@
 export const meta = {
-	title: "Functions & Types",
-	description: "Access Yumma CSS utilities, variants, and types programmatically.",
+	title: "Creating Apps",
+	description: "Learn how to build custom apps with Yumma CSS Core.",
 };
 
 ## The Foundation Of Yumma CSS
 
-The `@yummacss/core` package is the foundational engine that powers the entire Yumma CSS ecosystem. It contains every possible utility definition, prefix, and variant used by the Yumma CSS compiler.
+The `@yummacss/core` package is the base structure that holds every possible utility definition, prefix, and variant used in Yumma CSS.
 
 ## Installation
 
@@ -125,7 +125,7 @@ Each variant follows a consistent `prefix` and `value` structure.
 
 ```json frame="none" frame="terminal"
 [
-  { "prefix": "sm", "value": "@media (width >= 40rem)" },
+  { "prefix": "sm", "value": "min-width: 40rem" },
   { "prefix": "50", "value": "80" },
   { "prefix": "h", "value": ":hover" },
   { "prefix": "b", "value": "::before" }
