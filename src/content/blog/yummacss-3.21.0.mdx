@@ -1,0 +1,87 @@
+export const meta = {
+  authors: ["Renildo"],
+  cover: "~",
+  date: "2026-03-16",
+  description: "Extend your design system with configurable colors and breakpoints.",
+  title: "Yumma CSS 3.21"
+};
+
+---
+
+## Extend Your Design System
+
+Yumma CSS 3.21 introduces all-new theming capabilities. You can now easily customize the default color scales and responsive breakpoints directly from your configuration file, giving you complete control over your interface.
+
+### Configurable Colors
+
+The `theme.colors` configuration option allows you to define custom color families and automatically generate shades from 0 to 9 using built-in shade generators (`percentage.light` and `percentage.dark`). You can now easily expand the core palette while preserving the atomic and semantic-free philosophy of Yumma CSS.
+
+```mjs {5}
+// yumma.config.mjs
+export default {
+  theme: {
+    colors: {
+      periwinkle: "#bec6f2",
+    },
+  },
+};
+```
+
+### Configurable Breakpoints
+
+You can now adjust your responsive layouts using the new `theme.screens` configuration option. You can override default media query breakpoints or add entirely new ones to match your project's viewport targets.
+
+```mjs {5-7}
+// yumma.config.mjs
+export default {
+  theme: {
+    screens: {
+      tablet: "640px",
+      laptop: "1024px",
+      desktop: "1280px",
+    },
+  },
+};
+```
+
+## Namespaced Classes
+
+We also added a new `prefix` configuration option to avoid naming conflicts with existing frameworks or component libraries. This prepends a custom prefix (e.g., `ui-`) to all generated Yumma CSS utility classes.
+
+```mjs {3}
+// yumma.config.mjs
+export default {
+  prefix: "ui-",
+};
+```
+
+## Class Safelisting
+
+The `safelist` configuration option allows you to specify a list of classes that the compiler should always generate, regardless of whether they are detected in your source files. We think this is particularly useful for dynamic class generation in React or Vue components.
+
+```mjs {3}
+// yumma.config.mjs
+export default {
+  safelist: ["bg-red-5", "p-4"],
+};
+```
+
+## Base Styles Normalization
+
+The `buildOptions.reset` option has been replaced with a simpler `normalize: true` flag in the configuration file.
+
+```mjs {3}
+// yumma.config.mjs
+export default {
+  normalize: true,
+};
+```
+
+
+## Upgrade
+
+Update your configuration file to take advantage of the new features. Read the [Upgrading Guide](/docs/upgrading) for the full list of config changes.
+
+```bash
+pnpm add yummacss@latest
+```

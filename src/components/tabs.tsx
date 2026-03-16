@@ -18,8 +18,8 @@ export function Tabs({
   return (
     <BaseTabs.Root
       defaultValue={defaultValue}
-      className={`bw-1 br-2 ${className}`}
-      style={{ borderColor: "#31365e", ...style }}
+      className={`bw-1 br-2 bc-navy ${className}`}
+      style={style}
       {...props}
     >
       {children}
@@ -41,22 +41,17 @@ export function TabsList({
 }: TabsListProps) {
   return (
     <BaseTabs.List
-      className={`d-f p-r zi-0 px-1 cg-1 ${className}`}
-      style={{
-        borderBottom: "1px solid #31365e",
-        ...style,
-      }}
+      className={`d-f p-r zi-0 px-1 cg-1 bbw-1 bc-navy ${className}`}
+      style={style}
       {...props}
     >
       {children}
       <BaseTabs.Indicator
-        className="p-a l-0 t-half h-6 tdu-200 ttf-io br-1"
+        className="p-a l-0 t-half h-6 tdu-200 ttf-io br-1 bg-charcoal bc-navy bw-1"
         style={{
           zIndex: -1,
           translate: "var(--active-tab-left) -50%",
           width: "var(--active-tab-width)",
-          backgroundColor: "#21243f",
-          border: "1px solid #31365e",
           transitionProperty: "translate, width",
         }}
       />

@@ -38,8 +38,8 @@ export default function Preview({
   if (id && !RegistryComponent) {
     return (
       <div
-        className={clsx(previewVariants({ variant }), className)}
-        style={{ borderColor: "#31365e", color: "#f87171" }}
+        className={clsx(previewVariants({ variant }), className) + " bc-navy"}
+        style={{ color: "#f87171" }}
       >
         Preview not found: "{id}"
       </div>
@@ -49,8 +49,7 @@ export default function Preview({
   return (
     <div
       data-preview
-      className={clsx(previewVariants({ variant }), className)}
-      style={{ borderColor: "#31365e" }}
+      className={clsx(previewVariants({ variant }), className) + " bc-navy"}
     >
       {RegistryComponent ? <RegistryComponent /> : children}
     </div>

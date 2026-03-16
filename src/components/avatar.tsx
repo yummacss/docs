@@ -21,10 +21,9 @@ export function Avatar({ src, alt, fallback, className = "", style }: Props) {
 
   return (
     <BaseAvatar.Root
-      className={`d-if jc-c ai-c br-pill us-none fw-500 fs-sm lh-1 o-h w-8 h-8 ${className}`}
+      className={`d-f jc-c ai-c br-pill us-none fw-500 fs-sm lh-1 o-h w-8 h-8 bg-charcoal ${className}`}
       style={{
         color: "#989ec2",
-        backgroundColor: "#21243f",
         ...style,
       }}
     >

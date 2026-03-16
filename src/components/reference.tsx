@@ -81,8 +81,7 @@ export default function Reference({ category, name }: Props) {
   if (variants.length === 0) {
     return (
       <div
-        className="c-white/60 p-4 mb-6 br-1 ta-c"
-        style={{ backgroundColor: "#1a1d2e", border: "1px solid #232741" }}
+        className="c-white/60 p-4 mb-6 br-1 ta-c bg-midnight bc-obsidian"
       >
         Something went wrong while fetching the data.
       </div>
@@ -104,17 +103,16 @@ export default function Reference({ category, name }: Props) {
 
   return (
     <div
-      className="o-h mb-6 br-1"
-      style={{ backgroundColor: "#1a1d2e", border: "1px solid #232741" }}
+      className="o-h mb-6 br-1 bg-midnight bc-obsidian"
     >
       <Accordion>
         <AccordionItem className="bw-0">
           <AccordionTrigger className="bg-transparent">
             <span className="d-f ai-c g-2">
-              <code style={{ color: "#dda2f6" }}>{utilityPrefix}-*</code>
+              <code className="c-amethyst">{utilityPrefix}-*</code>
               <span
-                className="px-2 py-1 br-1 fs-xs"
-                style={{ backgroundColor: "#232741", color: "#8892c2" }}
+                className="px-2 py-1 br-1 fs-xs bg-obsidian"
+                style={{ color: "#8892c2" }}
               >
                 {variants.length} utilities
               </span>
@@ -125,8 +123,7 @@ export default function Reference({ category, name }: Props) {
             <div className="o-y-auto max-h-52">
               {/* Subtle search input */}
               <div
-                className="d-f ai-c g-2 mb-2 pb-2"
-                style={{ borderBottom: "1px solid #232741" }}
+                className="d-f ai-c g-2 mb-2 pb-2 bbw-1 bc-obsidian"
               >
                 <MagnifyingGlassIcon size={18} className="c-white/30 fs-0" />
                 <Input
@@ -157,7 +154,7 @@ export default function Reference({ category, name }: Props) {
                             : "none",
                       }}
                     >
-                      <code className="fs-sm" style={{ color: "#dda2f6" }}>
+                      <code className="fs-sm c-amethyst">
                         {variant.prefix}
                       </code>
                       <div className="d-f fd-c ai-fe">

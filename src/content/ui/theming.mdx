@@ -43,6 +43,24 @@ The best way to "theme" Yumma UI is to treat it as a collection of high-quality 
 2. **Paste**: Drop it into your project's component directory.
 3. **Adapt**: Modify the Yumma CSS classes to match your desired aesthetic.
 
+### Extending colors
+
+You can extend or override the default color palette using the `theme.colors` configuration in `yumma.config.mjs`. This allows you to introduce brand-specific colors while maintaining the atomic approach.
+
+```mjs title="yumma.config.mjs" mark={4-8}
+import { defineConfig } from "yummacss";
+
+export default defineConfig({
+  theme: {
+    colors: {
+      purple: "#9333EA",
+    }
+  }
+});
+```
+
+Now you can use `bg-purple-5` or `c-purple-5` directly in your components!
+
 ## Variant management
 
 While Yumma UI is built with direct atomic classes, you might want to create reusable components with semantic variants like `variant="primary"` or `size="lg"`. 

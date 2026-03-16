@@ -37,8 +37,7 @@ export default function ResponsiveVariant({ prefix }: Props) {
       {breakpoints.map((bp) => (
         <div
           key={bp.prefix}
-          className="d-f ai-c g-3 p-3 br-1"
-          style={{ backgroundColor: "#1a1d2e", border: "1px solid #232741" }}
+          className="d-f ai-c g-3 p-3 br-1 bg-midnight bc-obsidian"
         >
           <bp.icon
             size={24}
@@ -47,7 +46,7 @@ export default function ResponsiveVariant({ prefix }: Props) {
             className="fs-0"
           />
           <div className="f-1">
-            <code className="d-b mb-1 fs-sm" style={{ color: "#dda2f6" }}>
+            <code className="d-b mb-1 fs-sm c-amethyst">
               {bp.prefix}:{prefix}-*
             </code>
             <div className="d-f ai-c jc-sb">

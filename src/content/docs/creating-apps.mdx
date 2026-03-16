@@ -31,13 +31,17 @@ const all = coreUtils();
 
 ### Scoped Utilities
 
-If you only need a specific category, you can import scoped functions.
+If you only need a specific category, you can import scoped functions. Some functions, like `colorUtils`, now accept a configuration object for custom color generation.
 
 ```js title="index.js"
-import { backgroundUtils, fontUtils } from "@yummacss/core";
+import { backgroundUtils, colorUtils } from "@yummacss/core";
 
 console.log(backgroundUtils()); // Returns background-related utilities
-console.log(fontUtils());       // Returns font-related utilities
+
+// Custom colors with 12% shade scaling
+console.log(colorUtils({
+    brand: "#9333ea",
+}, 12, 12));
 ```
 
 ## Understanding The Data Structure
@@ -91,7 +95,7 @@ The Core package provides the following functions to access utility definitions:
 | `backgroundUtils()`    | Utilities for background properties.           |
 | `borderUtils()`        | Utilities for borders and radius.              |
 | `boxModelUtils()`      | Spacing, dimensions, and box model properties. |
-| `colorUtils()`         | The entire Yumma CSS color palette.            |
+| `colorUtils()`         | Dynamic color palette based on user values.    |
 | `effectUtils()`        | Shadows, opacity, and filters.                 |
 | `flexboxUtils()`       | Flexbox layout definitions.                    |
 | `fontUtils()`          | Typography and font-related properties.        |
@@ -104,6 +108,9 @@ The Core package provides the following functions to access utility definitions:
 | `textUtils()`          | Text alignment, decoration, and overflow.      |
 | `transformUtils()`     | Transforms, rotations, and scales.             |
 | `transitionsUtils()`   | Transitions and timing functions.              |
+
+> [!NOTE]
+> `coreUtils` & `colorUtils` accept three optional parameters: `userColors` (object), `lightPercentage` (number), & `darkPercentage` (number).
 
 ## Variants
 
