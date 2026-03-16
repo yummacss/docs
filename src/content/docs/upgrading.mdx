@@ -40,13 +40,11 @@ In this guide, **legacy** refers to Yumma CSS v2.1 & earlier versions. These old
   <Step title="Set up configuration">
     Specify the locations of all your project files in the new `yumma.config.js` file.
 
-    ```js title="yumma.config.js" mark={2-3}
+    ```js title="yumma.config.js" mark={4}
     export default {
       source: ["./src/**/*.html"],
       output: "./src/styles.css",
-      buildOptions: {
-        reset: true,
-      },
+      normalize: true,
     };
     ```
   </Step>
@@ -73,7 +71,7 @@ pnpm add @yummacss/core
 
 Utilities renamed in the current version:
 
-| Property | Legacy (v2) | Latest (v3.20.3) |
+| Property | Legacy (v2) | Latest (v3.21.0) |
 |---|---|---|
 | Border Radius | `rad-*` | `br-*` |
 | Border Radius (Pill) | `rad-9` | `br-pill` |
@@ -197,10 +195,8 @@ The `minify` build option is removed. Choose modern tools like Vite to automate 
 
 Modern versions include standardized base styles for consistency. Disable base styles in `yumma.config.js` if you prefer your own reset.
 
-```js mark={3} title="yumma.config.js"
+```js mark={2} title="yumma.config.js"
 export default {
-  buildOptions: {
-    reset: false,
-  },
+  normalize: false,
 };
 ```

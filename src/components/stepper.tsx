@@ -44,11 +44,7 @@ export function Step({
   return (
     <li className={isLast ? "ml-8" : "mb-10 ml-8"}>
       <div
-        className="d-f p-a l--3 ai-c jc-c w-6 h-6 bw-1 br-1"
-        style={{
-          borderColor: "#323652",
-          backgroundColor: "#21243f",
-        }}
+        className="d-f p-a l--3 ai-c jc-c w-6 h-6 bw-1 br-1 bc-obsidian bg-charcoal"
       >
         <span className="c-white fs-xs">{stepNumber}</span>
       </div>

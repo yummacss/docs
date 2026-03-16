@@ -70,3 +70,26 @@ Target specific opacity values across color utilities. Opacity variants range fr
   <div class="w-16 h-16 bg-indigo-9/40"></div>
 </div>
 ```
+
+## Customize Colors
+
+Extend or override the default palette using the `theme.colors` configuration option. The compiler automatically generates color shades (from 0 to 9) using the defined `percentage.light` and `percentage.dark` values.
+
+```mjs title="yumma.config.mjs" mark={4-12}
+import { defineConfig } from "yummacss";
+
+export default defineConfig({
+  theme: {
+    colors: {
+      midnight: "#1a1d2e",
+      periwinkle: "#bec6f2",
+      percentage: {
+        light: 12, // lightens 1-4 by 12% each step
+        dark: 12,  // darkens 6-9 by 12% each step
+      }
+    }
+  }
+});
+```
+
+Learn more in the [Configuration](/docs/configuration#colors) guide.

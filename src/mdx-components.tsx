@@ -118,8 +118,7 @@ const components: MDXComponents = {
       <a {...props}>{children}</a>
     ) : (
       <a
-        className="h:td-u fv:oc-white fv:ow-2"
-        style={{ color: "#bec6f2" }}
+        className="h:td-u fv:oc-white fv:ow-2 c-periwinkle"
         {...props}
       >
         {children}
@@ -154,8 +153,7 @@ const components: MDXComponents = {
       <blockquote {...props}>{children}</blockquote>
     ) : (
       <blockquote
-        className="pl-2 blw-2"
-        style={{ borderColor: "#31365e" }}
+        className="pl-2 blw-2 bc-navy"
         {...props}
       >
         {children}
@@ -181,7 +179,7 @@ const components: MDXComponents = {
     props.className ? (
       <thead {...props}>{children}</thead>
     ) : (
-      <thead style={{ backgroundColor: "#1a1d2e" }} {...props}>
+      <thead className="bg-midnight" {...props}>
         {children}
       </thead>
     ),
@@ -190,8 +188,7 @@ const components: MDXComponents = {
       <th {...props}>{children}</th>
     ) : (
       <th
-        className="px-4 py-2 c-white bw-1 ta-l fw-500"
-        style={{ borderColor: "#31365e" }}
+        className="px-4 py-2 c-white bw-1 ta-l fw-500 bc-navy"
         {...props}
       >
         {children}
@@ -202,8 +199,7 @@ const components: MDXComponents = {
       <td {...props}>{children}</td>
     ) : (
       <td
-        className="c-white/80 px-4 py-2 bw-1"
-        style={{ borderColor: "#31365e" }}
+        className="c-white/80 px-4 py-2 bw-1 bc-navy"
         {...props}
       >
         {children}
@@ -213,7 +209,7 @@ const components: MDXComponents = {
     props.className ? (
       <code {...props}>{children}</code>
     ) : (
-      <code className="fs-md ff-m" style={{ color: "#dda2f6" }} {...props}>
+      <code className="fs-md ff-m c-amethyst" {...props}>
         {children}
       </code>
     ),
@@ -229,8 +225,7 @@ const components: MDXComponents = {
     <Image
       src={src as string}
       alt={alt || ""}
-      className={className || "w-full h-auto my-4"}
-      style={{ backgroundColor: "#21243f" }}
+      className={(className || "w-full h-auto my-4") + " bg-charcoal"}
       unoptimized
       width={1920}
       height={1080}

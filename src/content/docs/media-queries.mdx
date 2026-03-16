@@ -24,6 +24,30 @@ Yumma CSS breakpoints reference:
 | xl     | `@media (min-width: 80rem)` | 1280px      |
 | xxl    | `@media (min-width: 96rem)` | 1536px      |
 
+### Customize Breakpoints
+
+You can extend or override the default media query breakpoints using the `theme.screens` configuration option in your `yumma.config.mjs` file.
+
+```mjs title="yumma.config.mjs" mark={5-11}
+import { defineConfig } from "yummacss";
+
+export default defineConfig({
+  theme: {
+    screens: {
+      tablet: "48rem",
+      desktop: "64rem",
+      "3xl": "112rem",
+    }
+  }
+});
+```
+
+Using custom breakpoints works exactly the same as the defaults:
+
+```html
+<div class="tablet:bg-blue desktop:bg-red 3xl:bg-green"></div>
+```
+
 ## Use Media Queries
 
 Resize your browser window to see how these elements respond to viewport width.

@@ -428,6 +428,14 @@ summary {
   border-color: #72af13;
 }
 
+.bc-navy {
+  border-color: #31365e;
+}
+
+.bc-obsidian {
+  border-color: #232741;
+}
+
 .bc-pb {
   background-clip: padding-box;
 }
@@ -532,6 +540,10 @@ summary {
   background-color: #628ff1;
 }
 
+.bg-charcoal {
+  background-color: #21243f;
+}
+
 .bg-green {
   background-color: #06d6a0;
 }
@@ -618,6 +630,14 @@ summary {
 
 .bg-lime {
   background-color: #84cc16;
+}
+
+.bg-midnight {
+  background-color: #1a1d2e;
+}
+
+.bg-obsidian {
+  background-color: #232741;
 }
 
 .bg-red {
@@ -1041,6 +1061,10 @@ summary {
   columns: 4;
 }
 
+.c-amethyst {
+  color: #dda2f6;
+}
+
 .c-black {
   color: #000000;
 }
@@ -1119,6 +1143,10 @@ summary {
 
 .c-p {
   cursor: pointer;
+}
+
+.c-periwinkle {
+  color: #bec6f2;
 }
 
 .c-pr {

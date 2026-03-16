@@ -34,10 +34,8 @@ export default function Hint({ icon, children }: Props) {
   return (
     <div className="d-f ai-c g-2 mb-4">
       <span
-        className="d-f ai-c fs-0 p-1 bw-1 br-1"
+        className="d-f ai-c fs-0 p-1 bw-1 br-1 bg-charcoal bc-navy"
         style={{
-          backgroundColor: "#21243f",
-          borderColor: "#31365e",
           color: "#9aa6ef",
         }}
       >

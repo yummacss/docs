@@ -21,15 +21,12 @@ pnpx yummacss init
 
 This creates a `yumma.config.mjs` file at your project root.
 
-```mjs title="yumma.config.mjs"
+```mjs title="yumma.config.mjs" mark={4-5}
 import { defineConfig } from "yummacss";
 
 export default defineConfig({
   source: [""],
   output: "",
-  buildOptions: {
-    reset: true,
-  },
 });
 ```
 
@@ -39,7 +36,7 @@ A collection of paths for your template files (e.g., `.js`, `.tsx`, `.html`). Th
 
 <Hint icon="info">Use glob patterns to include subfolders & specific file types.</Hint>
 
-```mjs title="yumma.config.mjs" mark={4}
+```mjs title="yumma.config.mjs" mark={6}
 import { defineConfig } from "yummacss";
 
 export default defineConfig({
@@ -51,7 +48,7 @@ export default defineConfig({
 
 Specifies the output path for the compiled CSS file.
 
-```mjs title="yumma.config.mjs" mark={4}
+```mjs title="yumma.config.mjs" mark={6}
 import { defineConfig } from "yummacss";
 
 export default defineConfig({
@@ -59,17 +56,86 @@ export default defineConfig({
 });
 ```
 
-### Reset
+### Normalize
 
-Determines whether to include [base styles](/docs/base-styles).
+Determines whether to include base styles normalization.
 
-```mjs title="yumma.config.mjs" mark={5}
+```mjs title="yumma.config.mjs" mark={7}
 import { defineConfig } from "yummacss";
 
 export default defineConfig({
-  buildOptions: {
-    reset: true, // default: true
-  },
+  normalize: true, // default: true
+});
+```
+
+### Prefix
+
+Prepends a custom string to all generated Yumma CSS utility classes, effectively namespacing them to avoid collisions.
+
+```mjs title="yumma.config.mjs" mark={7}
+import { defineConfig } from "yummacss";
+
+export default defineConfig({
+  prefix: "ui",
+});
+```
+
+### Theme
+
+Extends or overrides default design tokens.
+
+#### Colors
+
+Define custom color families. The compiler automatically generates shades (from 0 to 9) unless a full palette is explicitly provided.
+
+<Hint icon="info">Use `percentage` to control how much the shade is lightened or darkened.</Hint>
+
+```mjs title="yumma.config.mjs" mark={5-10}
+import { defineConfig } from "yummacss";
+
+export default defineConfig({
+  theme: {
+    colors: {
+      brand: "#9333EA",
+      percentage: {
+        light: 14,
+        dark: 14,
+      }
+    }
+  }
+});
+```
+
+#### Screens
+
+Define custom media query breakpoints or override existing ones.
+
+```mjs title="yumma.config.mjs" mark={5-12}
+import { defineConfig } from "yummacss";
+
+export default defineConfig({
+  theme: {
+    screens: {
+      sm: "40rem",
+      md: "48rem",
+      lg: "64rem",
+      xl: "80rem",
+      xxl: "96rem",
+      "3xl": "112rem"
+    }
+  }
+});
+```
+
+### Safelist
+
+An array of utility classes that should always be generated in the final CSS output, regardless of whether they are present in your source files.
+
+```mjs title="yumma.config.mjs" mark={7}
+import { defineConfig } from "yummacss";
+
+export default defineConfig({
+  safelist: ["bg-red", "c-white", "fw-700"],
 });
 ```
 
