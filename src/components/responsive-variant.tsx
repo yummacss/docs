@@ -37,16 +37,11 @@ export default function ResponsiveVariant({ prefix }: Props) {
       {breakpoints.map((bp) => (
         <div
           key={bp.prefix}
-          className="d-f ai-c g-3 p-3 br-1 bg-midnight bc-obsidian"
+          className="d-f ai-c g-3 p-3 bc-clay bg-midnight bw-1 br-1"
         >
-          <bp.icon
-            size={24}
-            weight="duotone"
-            style={{ color: "#9aa6ef" }}
-            className="fs-0"
-          />
+          <bp.icon size={24} weight="duotone" className="c-cornflower fs-0" />
           <div className="f-1">
-            <code className="d-b mb-1 fs-sm c-amethyst">
+            <code className="d-b c-mauve mb-1 fs-sm">
               {bp.prefix}:{prefix}-*
             </code>
             <div className="d-f ai-c jc-sb">

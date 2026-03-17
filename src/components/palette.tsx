@@ -131,7 +131,7 @@ function ColorSwatch({
       <Tooltip.Portal>
         <Tooltip.Positioner sideOffset={10}>
           <Tooltip.Popup
-            className="d-f fd-c px-2 py-1 c-white br-1 fs-xs bg-charcoal bw-1 bc-navy"
+            className="d-f fd-c px-2 py-1 bc-navy bg-charcoal c-white br-1 bw-1 fs-xs"
             style={{
               transformOrigin: "bottom center",
               transition: !showCopied

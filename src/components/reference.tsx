@@ -80,9 +80,7 @@ export default function Reference({ category, name }: Props) {
 
   if (variants.length === 0) {
     return (
-      <div
-        className="c-white/60 p-4 mb-6 br-1 ta-c bg-midnight bc-obsidian"
-      >
+      <div className="c-white/60 p-4 mb-6 bg-midnight br-1 ta-c">
         Something went wrong while fetching the data.
       </div>
     );
@@ -102,16 +100,14 @@ export default function Reference({ category, name }: Props) {
   const utilityPrefix = basePrefix;
 
   return (
-    <div
-      className="o-h mb-6 br-1 bg-midnight bc-obsidian"
-    >
+    <div className="o-h mb-6 bc-clay bg-midnight bw-1 br-1">
       <Accordion>
         <AccordionItem className="bw-0">
           <AccordionTrigger className="bg-transparent">
             <span className="d-f ai-c g-2">
-              <code className="c-amethyst">{utilityPrefix}-*</code>
+              <code className="c-mauve">{utilityPrefix}-*</code>
               <span
-                className="px-2 py-1 br-1 fs-xs bg-obsidian"
+                className="px-2 py-1 bg-clay br-1 fs-xs"
                 style={{ color: "#8892c2" }}
               >
                 {variants.length} utilities
@@ -122,9 +118,7 @@ export default function Reference({ category, name }: Props) {
             {/* Utilities list */}
             <div className="o-y-auto max-h-52">
               {/* Subtle search input */}
-              <div
-                className="d-f ai-c g-2 mb-2 pb-2 bbw-1 bc-obsidian"
-              >
+              <div className="d-f ai-c g-2 mb-2 pb-2 bc-clay bbw-1">
                 <MagnifyingGlassIcon size={18} className="c-white/30 fs-0" />
                 <Input
                   type="text"
@@ -154,9 +148,7 @@ export default function Reference({ category, name }: Props) {
                             : "none",
                       }}
                     >
-                      <code className="fs-sm c-amethyst">
-                        {variant.prefix}
-                      </code>
+                      <code className="c-mauve fs-sm">{variant.prefix}</code>
                       <div className="d-f fd-c ai-fe">
                         {variant.properties.map((prop) => (
                           <code

@@ -380,6 +380,10 @@ summary {
   background-clip: content-box;
 }
 
+.bc-clay {
+  border-color: #232741;
+}
+
 .bc-gray {
   border-color: #6b7280;
 }
@@ -430,10 +434,6 @@ summary {
 
 .bc-navy {
   border-color: #31365e;
-}
-
-.bc-obsidian {
-  border-color: #232741;
 }
 
 .bc-pb {
@@ -544,6 +544,10 @@ summary {
   background-color: #21243f;
 }
 
+.bg-clay {
+  background-color: #232741;
+}
+
 .bg-green {
   background-color: #06d6a0;
 }
@@ -636,8 +640,8 @@ summary {
   background-color: #1a1d2e;
 }
 
-.bg-obsidian {
-  background-color: #232741;
+.bg-mirage {
+  background-color: #151724;
 }
 
 .bg-red {
@@ -1061,12 +1065,12 @@ summary {
   columns: 4;
 }
 
-.c-amethyst {
-  color: #dda2f6;
-}
-
 .c-black {
   color: #000000;
+}
+
+.c-cornflower {
+  color: #9aa6ef;
 }
 
 .c-cr {
@@ -1115,6 +1119,10 @@ summary {
 
 .c-indigo-7 {
   color: #5558cf;
+}
+
+.c-mauve {
+  color: #dda2f6;
 }
 
 .c-na {
