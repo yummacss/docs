@@ -1,6 +1,4 @@
-*,
-:before,
-:after {
+*, :before, :after {
   box-sizing: border-box;
   border: 0 solid;
 }
@@ -11,20 +9,7 @@
 }
 
 html {
-  font-family:
-    system-ui,
-    -apple-system,
-    Segoe UI,
-    Roboto,
-    Helvetica Neue,
-    Noto Sans,
-    Liberation Sans,
-    Arial,
-    sans-serif,
-    Apple Color Emoji,
-    Segoe UI Emoji,
-    Segoe UI Symbol,
-    Noto Color Emoji;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Noto Sans, Liberation Sans, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
 }
 
 body {
@@ -33,30 +18,18 @@ body {
   line-height: 1.5;
 }
 
-canvas,
-img,
-picture,
-svg,
-video {
+canvas, img, picture, svg, video {
   max-width: 100%;
   display: block;
 }
 
-button,
-input,
-optgroup,
-select,
-textarea {
+button, input, optgroup, select, textarea {
   background-color: transparent;
-  padding: 0.5rem;
+  padding: .5rem;
   font-family: inherit;
 }
 
-button:not([class]),
-input:not([class]),
-optgroup:not([class]),
-select:not([class]),
-textarea:not([class]) {
+button:not([class]), input:not([class]), optgroup:not([class]), select:not([class]), textarea:not([class]) {
   border: 1px solid #bfc2c7;
 }
 
@@ -72,30 +45,16 @@ button {
   cursor: pointer;
 }
 
-button:disabled,
-input:disabled,
-select:disabled,
-textarea:disabled {
+button:disabled, input:disabled, select:disabled, textarea:disabled {
   cursor: not-allowed;
-  opacity: 0.5;
+  opacity: .5;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
+h1, h2, h3, h4, h5, h6, p {
   overflow-wrap: break-word;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   text-wrap: balance;
   font-size: 1rem;
   font-weight: 600;
@@ -105,8 +64,7 @@ p {
   text-wrap: pretty;
 }
 
-b,
-strong {
+b, strong {
   font-weight: 700;
 }
 
@@ -115,10 +73,7 @@ small {
   line-height: 1.4;
 }
 
-pre,
-code,
-kbd,
-samp {
+pre, code, kbd, samp {
   font-family: monospace;
   font-size: 1em;
 }
@@ -128,8 +83,7 @@ a {
   text-decoration: none;
 }
 
-ol,
-ul {
+ol, ul {
   padding: 0;
   list-style: none;
 }
@@ -152,6 +106,7 @@ details {
 summary {
   display: list-item;
 }
+
 
 .a-auto {
   appearance: auto;
@@ -318,15 +273,15 @@ summary {
 }
 
 .b-1 {
-  bottom: 0.25rem;
+  bottom: .25rem;
 }
 
 .b-2 {
-  bottom: 0.5rem;
+  bottom: .5rem;
 }
 
 .b-3 {
-  bottom: 0.75rem;
+  bottom: .75rem;
 }
 
 .b-4 {
@@ -370,8 +325,8 @@ summary {
 }
 
 .bber-2 {
-  border-end-end-radius: 0.5rem;
-  border-end-start-radius: 0.5rem;
+  border-end-end-radius: .5rem;
+  border-end-start-radius: .5rem;
 }
 
 .bbew-4 {
@@ -379,26 +334,26 @@ summary {
 }
 
 .bblr-2 {
-  border-bottom-left-radius: 0.5rem;
+  border-bottom-left-radius: .5rem;
 }
 
 .bbr-2 {
-  border-bottom-right-radius: 0.5rem;
-  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: .5rem;
+  border-bottom-left-radius: .5rem;
 }
 
 .bbr-3 {
-  border-bottom-right-radius: 0.75rem;
-  border-bottom-left-radius: 0.75rem;
+  border-bottom-right-radius: .75rem;
+  border-bottom-left-radius: .75rem;
 }
 
 .bbrr-2 {
-  border-bottom-right-radius: 0.5rem;
+  border-bottom-right-radius: .5rem;
 }
 
 .bbsr-2 {
-  border-start-start-radius: 0.5rem;
-  border-start-end-radius: 0.5rem;
+  border-start-start-radius: .5rem;
+  border-start-end-radius: .5rem;
 }
 
 .bbsw-4 {
@@ -538,11 +493,11 @@ summary {
 }
 
 .beer-2 {
-  border-end-end-radius: 0.5rem;
+  border-end-end-radius: .5rem;
 }
 
 .besr-2 {
-  border-end-start-radius: 0.5rem;
+  border-end-start-radius: .5rem;
 }
 
 .bf-b-lg {
@@ -770,8 +725,8 @@ summary {
 }
 
 .bier-2 {
-  border-start-end-radius: 0.5rem;
-  border-end-end-radius: 0.5rem;
+  border-start-end-radius: .5rem;
+  border-end-end-radius: .5rem;
 }
 
 .biew-4 {
@@ -779,8 +734,8 @@ summary {
 }
 
 .bisr-2 {
-  border-start-start-radius: 0.5rem;
-  border-end-start-radius: 0.5rem;
+  border-start-start-radius: .5rem;
+  border-end-start-radius: .5rem;
 }
 
 .bisw-4 {
@@ -808,8 +763,8 @@ summary {
 }
 
 .blr-2 {
-  border-top-left-radius: 0.5rem;
-  border-bottom-left-radius: 0.5rem;
+  border-top-left-radius: .5rem;
+  border-bottom-left-radius: .5rem;
 }
 
 .blw-0 {
@@ -881,15 +836,15 @@ summary {
 }
 
 .br-1 {
-  border-radius: 0.25rem;
+  border-radius: .25rem;
 }
 
 .br-2 {
-  border-radius: 0.5rem;
+  border-radius: .5rem;
 }
 
 .br-3 {
-  border-radius: 0.75rem;
+  border-radius: .75rem;
 }
 
 .br-full {
@@ -941,8 +896,8 @@ summary {
 }
 
 .brr-2 {
-  border-top-right-radius: 0.5rem;
-  border-bottom-right-radius: 0.5rem;
+  border-top-right-radius: .5rem;
+  border-bottom-right-radius: .5rem;
 }
 
 .brw-0 {
@@ -1006,15 +961,11 @@ summary {
 }
 
 .bs-o-lg {
-  box-shadow:
-    0 10px 15px -3px #0000001a,
-    0 4px 6px -4px #0000001a;
+  box-shadow: 0 10px 15px -3px #0000001a, 0 4px 6px -4px #0000001a;
 }
 
 .bs-o-md {
-  box-shadow:
-    0 4px 6px -1px #0000001a,
-    0 2px 4px -2px #0000001a;
+  box-shadow: 0 4px 6px -1px #0000001a, 0 2px 4px -2px #0000001a;
 }
 
 .bs-o-none {
@@ -1022,9 +973,7 @@ summary {
 }
 
 .bs-o-sm {
-  box-shadow:
-    0 1px 3px #0000001a,
-    0 1px 2px -1px #0000001a;
+  box-shadow: 0 1px 3px #0000001a, 0 1px 2px -1px #0000001a;
 }
 
 .bs-o-xs {
@@ -1040,11 +989,11 @@ summary {
 }
 
 .bser-2 {
-  border-start-end-radius: 0.5rem;
+  border-start-end-radius: .5rem;
 }
 
 .bssr-2 {
-  border-start-start-radius: 0.5rem;
+  border-start-start-radius: .5rem;
 }
 
 .btc-indigo {
@@ -1060,16 +1009,16 @@ summary {
 }
 
 .btlr-2 {
-  border-top-left-radius: 0.5rem;
+  border-top-left-radius: .5rem;
 }
 
 .btr-2 {
-  border-top-left-radius: 0.5rem;
-  border-top-right-radius: 0.5rem;
+  border-top-left-radius: .5rem;
+  border-top-right-radius: .5rem;
 }
 
 .btrr-2 {
-  border-top-right-radius: 0.5rem;
+  border-top-right-radius: .5rem;
 }
 
 .btw-1 {
@@ -1349,7 +1298,7 @@ summary {
 }
 
 .cg-1 {
-  column-gap: 0.25rem;
+  column-gap: .25rem;
 }
 
 .cg-10 {
@@ -1577,43 +1526,15 @@ summary {
 }
 
 .ff-d {
-  font-family:
-    system-ui,
-    -apple-system,
-    Segoe UI,
-    Roboto,
-    Helvetica Neue,
-    Noto Sans,
-    Liberation Sans,
-    Arial,
-    sans-serif,
-    Apple Color Emoji,
-    Segoe UI Emoji,
-    Segoe UI Symbol,
-    Noto Color Emoji;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Noto Sans, Liberation Sans, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
 }
 
 .ff-m {
-  font-family:
-    ui-monospace,
-    Cascadia Code,
-    Source Code Pro,
-    Menlo,
-    Roboto Mono,
-    Ubuntu Mono,
-    Consolas,
-    Liberation Mono,
-    Courier New,
-    monospace;
+  font-family: ui-monospace, Cascadia Code, Source Code Pro, Menlo, Roboto Mono, Ubuntu Mono, Consolas, Liberation Mono, Courier New, monospace;
 }
 
 .ff-s {
-  font-family:
-    Iowan Old Style,
-    Palatino Linotype,
-    URW Palladio L,
-    P052,
-    serif;
+  font-family: Iowan Old Style, Palatino Linotype, URW Palladio L, P052, serif;
 }
 
 .fg-0 {
@@ -1857,7 +1778,7 @@ summary {
 }
 
 .g-1 {
-  gap: 0.25rem;
+  gap: .25rem;
 }
 
 .g-10 {
@@ -1873,11 +1794,11 @@ summary {
 }
 
 .g-2 {
-  gap: 0.5rem;
+  gap: .5rem;
 }
 
 .g-3 {
-  gap: 0.75rem;
+  gap: .75rem;
 }
 
 .g-4 {
@@ -2017,7 +1938,7 @@ summary {
 }
 
 .h-2 {
-  height: 0.5rem;
+  height: .5rem;
 }
 
 .h-20 {
@@ -2041,7 +1962,7 @@ summary {
 }
 
 .h-3 {
-  height: 0.75rem;
+  height: .75rem;
 }
 
 .h-30 {
@@ -2233,9 +2154,7 @@ summary {
 }
 
 .h\:bs-o-xl:hover {
-  box-shadow:
-    0 20px 25px -5px #0000001a,
-    0 8px 10px -6px #0000001a;
+  box-shadow: 0 20px 25px -5px #0000001a, 0 8px 10px -6px #0000001a;
 }
 
 .h\:c-indigo:hover {
@@ -2271,7 +2190,7 @@ summary {
 }
 
 .h\:o-50:hover {
-  opacity: 0.5;
+  opacity: .5;
 }
 
 .h\:td-u:hover {
@@ -2295,7 +2214,7 @@ summary {
 }
 
 .i-2 {
-  inset: 0.5rem;
+  inset: .5rem;
 }
 
 .is-auto {
@@ -2385,7 +2304,7 @@ summary {
 }
 
 .l--3 {
-  left: -0.75rem;
+  left: -.75rem;
 }
 
 .l--4 {
@@ -2397,11 +2316,11 @@ summary {
 }
 
 .l-1 {
-  left: 0.25rem;
+  left: .25rem;
 }
 
 .l-2 {
-  left: 0.5rem;
+  left: .5rem;
 }
 
 .l-4 {
@@ -2441,7 +2360,7 @@ summary {
 }
 
 .ls--2 {
-  letter-spacing: 0.025em;
+  letter-spacing: .025em;
 }
 
 .ls-0 {
@@ -2449,23 +2368,23 @@ summary {
 }
 
 .ls-1 {
-  letter-spacing: -0.05em;
+  letter-spacing: -.05em;
 }
 
 .ls-2 {
-  letter-spacing: -0.025em;
+  letter-spacing: -.025em;
 }
 
 .ls-3 {
-  letter-spacing: 0.025em;
+  letter-spacing: .025em;
 }
 
 .ls-4 {
-  letter-spacing: 0.05em;
+  letter-spacing: .05em;
 }
 
 .ls-5 {
-  letter-spacing: 0.1em;
+  letter-spacing: .1em;
 }
 
 .lsp-i {
@@ -2565,7 +2484,7 @@ summary {
 }
 
 .mb-1 {
-  margin-bottom: 0.25rem;
+  margin-bottom: .25rem;
 }
 
 .mb-10 {
@@ -2581,11 +2500,11 @@ summary {
 }
 
 .mb-2 {
-  margin-bottom: 0.5rem;
+  margin-bottom: .5rem;
 }
 
 .mb-3 {
-  margin-bottom: 0.75rem;
+  margin-bottom: .75rem;
 }
 
 .mb-4 {
@@ -2673,7 +2592,7 @@ summary {
 }
 
 .ml--2 {
-  margin-left: -0.5rem;
+  margin-left: -.5rem;
 }
 
 .ml--4 {
@@ -2681,11 +2600,11 @@ summary {
 }
 
 .ml-1 {
-  margin-left: 0.25rem;
+  margin-left: .25rem;
 }
 
 .ml-2 {
-  margin-left: 0.5rem;
+  margin-left: .5rem;
 }
 
 .ml-4 {
@@ -2701,11 +2620,11 @@ summary {
 }
 
 .mr-1 {
-  margin-right: 0.25rem;
+  margin-right: .25rem;
 }
 
 .mr-2 {
-  margin-right: 0.5rem;
+  margin-right: .5rem;
 }
 
 .mr-5 {
@@ -2717,7 +2636,7 @@ summary {
 }
 
 .mt-1 {
-  margin-top: 0.25rem;
+  margin-top: .25rem;
 }
 
 .mt-12 {
@@ -2729,7 +2648,7 @@ summary {
 }
 
 .mt-3 {
-  margin-top: 0.75rem;
+  margin-top: .75rem;
 }
 
 .mt-4 {
@@ -2749,7 +2668,7 @@ summary {
 }
 
 .mx-1 {
-  margin-inline: 0.25rem;
+  margin-inline: .25rem;
 }
 
 .mx-4 {
@@ -2765,7 +2684,7 @@ summary {
 }
 
 .my-1 {
-  margin-block: 0.25rem;
+  margin-block: .25rem;
 }
 
 .my-10 {
@@ -2777,11 +2696,11 @@ summary {
 }
 
 .my-2 {
-  margin-block: 0.5rem;
+  margin-block: .5rem;
 }
 
 .my-3 {
-  margin-block: 0.75rem;
+  margin-block: .75rem;
 }
 
 .my-4 {
@@ -2805,19 +2724,19 @@ summary {
 }
 
 .o-20 {
-  opacity: 0.2;
+  opacity: .2;
 }
 
 .o-50 {
-  opacity: 0.5;
+  opacity: .5;
 }
 
 .o-60 {
-  opacity: 0.6;
+  opacity: .6;
 }
 
 .o-70 {
-  opacity: 0.7;
+  opacity: .7;
 }
 
 .o-auto {
@@ -3037,7 +2956,7 @@ summary {
 }
 
 .p-1 {
-  padding: 0.25rem;
+  padding: .25rem;
 }
 
 .p-10 {
@@ -3045,11 +2964,11 @@ summary {
 }
 
 .p-2 {
-  padding: 0.5rem;
+  padding: .5rem;
 }
 
 .p-3 {
-  padding: 0.75rem;
+  padding: .75rem;
 }
 
 .p-4 {
@@ -3109,7 +3028,7 @@ summary {
 }
 
 .pb-1 {
-  padding-bottom: 0.25rem;
+  padding-bottom: .25rem;
 }
 
 .pb-12 {
@@ -3117,11 +3036,11 @@ summary {
 }
 
 .pb-2 {
-  padding-bottom: 0.5rem;
+  padding-bottom: .5rem;
 }
 
 .pb-3 {
-  padding-bottom: 0.75rem;
+  padding-bottom: .75rem;
 }
 
 .pb-4 {
@@ -3205,11 +3124,11 @@ summary {
 }
 
 .pl-2 {
-  padding-left: 0.5rem;
+  padding-left: .5rem;
 }
 
 .pl-3 {
-  padding-left: 0.75rem;
+  padding-left: .75rem;
 }
 
 .pl-4 {
@@ -3257,7 +3176,7 @@ summary {
 }
 
 .pt-1 {
-  padding-top: 0.25rem;
+  padding-top: .25rem;
 }
 
 .pt-12 {
@@ -3269,11 +3188,11 @@ summary {
 }
 
 .pt-2 {
-  padding-top: 0.5rem;
+  padding-top: .5rem;
 }
 
 .pt-3 {
-  padding-top: 0.75rem;
+  padding-top: .75rem;
 }
 
 .pt-6 {
@@ -3289,15 +3208,15 @@ summary {
 }
 
 .px-1 {
-  padding-inline: 0.25rem;
+  padding-inline: .25rem;
 }
 
 .px-2 {
-  padding-inline: 0.5rem;
+  padding-inline: .5rem;
 }
 
 .px-3 {
-  padding-inline: 0.75rem;
+  padding-inline: .75rem;
 }
 
 .px-4 {
@@ -3321,15 +3240,15 @@ summary {
 }
 
 .py-1 {
-  padding-block: 0.25rem;
+  padding-block: .25rem;
 }
 
 .py-2 {
-  padding-block: 0.5rem;
+  padding-block: .5rem;
 }
 
 .py-3 {
-  padding-block: 0.75rem;
+  padding-block: .75rem;
 }
 
 .py-4 {
@@ -3361,7 +3280,7 @@ summary {
 }
 
 .r-2 {
-  right: 0.5rem;
+  right: .5rem;
 }
 
 .r-4 {
@@ -3425,15 +3344,15 @@ summary {
 }
 
 .s-70 {
-  scale: 0.7;
+  scale: .7;
 }
 
 .s-80 {
-  scale: 0.8;
+  scale: .8;
 }
 
 .s-90 {
-  scale: 0.9;
+  scale: .9;
 }
 
 .s-silver {
@@ -3565,35 +3484,35 @@ summary {
 }
 
 .sw-2 {
-  stroke-width: 0.2px;
+  stroke-width: .2px;
 }
 
 .sw-6 {
-  stroke-width: 0.6px;
+  stroke-width: .6px;
 }
 
 .sx-70 {
-  scale: 0.7;
+  scale: .7;
 }
 
 .sx-80 {
-  scale: 0.8;
+  scale: .8;
 }
 
 .sx-90 {
-  scale: 0.9;
+  scale: .9;
 }
 
 .sy-70 {
-  scale: 0.7;
+  scale: .7;
 }
 
 .sy-80 {
-  scale: 0.8;
+  scale: .8;
 }
 
 .sy-90 {
-  scale: 0.9;
+  scale: .9;
 }
 
 .t--4 {
@@ -3605,7 +3524,7 @@ summary {
 }
 
 .t-1 {
-  top: 0.25rem;
+  top: .25rem;
 }
 
 .t-100 {
@@ -3617,7 +3536,7 @@ summary {
 }
 
 .t-2 {
-  top: 0.5rem;
+  top: .5rem;
 }
 
 .t-20 {
@@ -3889,15 +3808,15 @@ summary {
 }
 
 .ti-2 {
-  text-indent: 0.25rem;
+  text-indent: .25rem;
 }
 
 .ti-3 {
-  text-indent: 0.5rem;
+  text-indent: .5rem;
 }
 
 .ti-4 {
-  text-indent: 0.75rem;
+  text-indent: .75rem;
 }
 
 .tl-f {
@@ -3921,8 +3840,7 @@ summary {
 }
 
 .tp-c {
-  transition-property:
-    color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
 }
 
 .tp-d {
@@ -4102,7 +4020,7 @@ summary {
 }
 
 .w-2 {
-  width: 0.5rem;
+  width: .5rem;
 }
 
 .w-20 {
@@ -4126,7 +4044,7 @@ summary {
 }
 
 .w-3 {
-  width: 0.75rem;
+  width: .75rem;
 }
 
 .w-30 {
