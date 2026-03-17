@@ -213,7 +213,7 @@ const components: MDXComponents = {
     <Image
       src={src as string}
       alt={alt || ""}
-      className={(className || "w-full h-auto my-4") + " bg-charcoal"}
+      className={`${className || "w-full h-auto my-4"} bg-charcoal`}
       unoptimized
       width={1920}
       height={1080}
