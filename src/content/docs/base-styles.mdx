@@ -280,10 +280,10 @@ summary {
 
 Set `buildOptions.reset` to `false` in `yumma.config.mjs`.
 
-```js title="yumma.config.mjs"
-export default = {
-  buildOptions: {
-    reset: false,
-  },
-};
+```mjs title="yumma.config.mjs" {4}
+import { defineConfig } from "yummacss";
+
+export default defineConfig({
+  normalize: true,
+});
 ```

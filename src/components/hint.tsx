@@ -33,12 +33,7 @@ export default function Hint({ icon, children }: Props) {
 
   return (
     <div className="d-f ai-c g-2 mb-4">
-      <span
-        className="d-f ai-c fs-0 p-1 bw-1 br-1 bg-charcoal bc-navy"
-        style={{
-          color: "#9aa6ef",
-        }}
-      >
+      <span className="d-f c-periwinkle ai-c fs-0 p-1 bc-navy bg-charcoal bw-1 br-1">
         <Icon size={20} weight="duotone" />
       </span>
       <span className="c-white/80">{children}</span>

@@ -11,12 +11,14 @@ export default defineConfig({
   normalize: true,
   theme: {
     colors: {
-      periwinkle: "#bec6f2",
-      navy: "#31365e",
-      midnight: "#1a1d2e",
-      obsidian: "#232741",
-      amethyst: "#dda2f6",
       charcoal: "#21243f",
+      clay: "#232741",
+      cornflower: "#9aa6ef",
+      mauve: "#dda2f6",
+      midnight: "#1a1d2e",
+      mirage: "#151724",
+      navy: "#31365e",
+      periwinkle: "#bec6f2",
     },
   },
 });
