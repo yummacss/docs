@@ -139,7 +139,7 @@ export default function Reference({ category, name }: Props) {
                 {filtered.length > 0 ? (
                   filtered.map((variant, index) => (
                     <div
-                      key={`${variant.prefix}-${index}`}
+                      key={variant.prefix}
                       className="d-f ai-c jc-sb py-2 px-0"
                       style={{
                         borderBottom:
@@ -156,7 +156,8 @@ export default function Reference({ category, name }: Props) {
                             className="fs-xs"
                             style={{ color: "#b9bed5" }}
                           >
-                            {prop}: {variant.value};
+                            {prop}: {variant.value}
+                            {`;`}
                           </code>
                         ))}
                       </div>
