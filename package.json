@@ -44,7 +44,7 @@
     "remark-gfm": "^4.0.1",
     "three": "^0.183.2",
     "tinycolor2": "^1.6.0",
-    "web-features": "^3.20.0"
+    "web-features": "^3.21.0"
   },
   "devDependencies": {
     "@biomejs/biome": "2.4.6",
