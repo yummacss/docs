@@ -9,63 +9,16 @@ export const meta = {
 
 ## Usage
 
-### Auto
-
-Allow the element to receive pointer events as normal.
-
-<Hint icon="cursor_click">Try clicking the search emoji to see how the input reacts.</Hint>
-
-<Preview className="bg-silver-1">
-  <div>
-    <label className="d-b mb-1 c-slate fw-600">Auto</label>
-    <div className="p-r">
-      <input className="pl-10 pr-4 py-2 w-full bc-silver-4 bw-1 f:oc-silver-1 f:os-s f:ow-2" placeholder="Search..." />
-      <div className="d-f b-0 l-0 t-0 p-a ai-c pl-3 pe-auto">🔎</div>
-    </div>
-  </div>
-</Preview>
-
-```html "pe-auto"
-<div>
-  <label class="d-b mb-1 c-slate fw-600">Auto</label>
-  <div class="p-r">
-    <input class="pl-10 pr-4 py-2 w-full bc-gray-2 bw-1" placeholder="Search..." />
-    <div class="d-f b-0 l-0 t-0 p-a ai-c pl-3 pe-auto">🔎</div>
-  </div>
-</div>
+```html
+<div class="pe-auto ...">🔎</div>
+<div class="pe-none ...">🔎</div>
 ```
-
-### None
-
-Prevent the element from receiving any pointer events.
-
-<Preview className="bg-silver-1">
-  <div>
-    <label className="d-b mb-1 c-slate fw-600">None</label>
-    <div className="p-r">
-      <input className="pl-10 pr-4 py-2 w-full bc-silver-4 bw-1 f:oc-silver-1 f:os-s f:ow-2" placeholder="Search..." />
-      <div className="d-f b-0 l-0 t-0 p-a ai-c pl-3 pe-none">🔎</div>
-    </div>
-  </div>
-</Preview>
-
-```html "pe-none"
-<div>
-  <label class="d-b mb-1 c-slate fw-600">None</label>
-  <div class="p-r">
-    <input class="pl-10 pr-4 py-2 w-full bc-gray-2 bw-1" placeholder="Search..." />
-    <div class="d-f b-0 l-0 t-0 p-a ai-c pl-3 pe-none">🔎</div>
-  </div>
-</div>
-```
-
-## Using utility variants
-
-Override existing utilities based on the user's [screen size](/docs/media-queries) or other factors, such as [hover states](/docs/pseudo-classes).
 
 ### Responsiveness
 
 Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
+
+Target viewport sizes with breakpoint prefixes.
 
 <ResponsiveVariant prefix="pe" />
 

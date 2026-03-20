@@ -1,132 +1,14 @@
-import { bleakHouse } from "@/constants/p";
-
-export const meta = {
-  title: "Text Align",
-  description: "Set the horizontal alignment of text.",
-};
-
-<Baseline path="css.properties.text-align" />
-
-<Reference category="text" name="text-align" />
-
 ## Usage
 
-### Start
-
-> Initial value
-
-<Preview>
-  <div className="c-slate fs-md ta-s">
-    {bleakHouse}
-  </div>
-</Preview>
-
-```html "ta-s"
-<div class="c-slate fs-md ta-s">
-  Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall...
-</div>
-```
-
-### Center
-
-<Preview>
-  <div className="c-slate fs-md ta-c">
-    {bleakHouse}
-  </div>
-</Preview>
-
-```html "ta-c"
-<div class="c-slate fs-md ta-c">
-  Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall...
-</div>
-```
-
-### End
-
-<Preview>
-  <div className="c-slate fs-md ta-e">
-    {bleakHouse}
-  </div>
-</Preview>
-
-```html "ta-e"
-<div class="c-slate fs-md ta-e">
-  Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall...
-</div>
-```
-
-### Justify
-
-<Preview>
-  <div className="c-slate fs-md ta-j">
-    {bleakHouse}
-  </div>
-</Preview>
-
-```html "ta-j"
-<div class="c-slate fs-md ta-j">
-  Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall...
-</div>
-```
-
-### Justify All
-
-<Preview>
-  <div className="c-slate fs-md ta-ja">
-    {bleakHouse}
-  </div>
-</Preview>
-
-```html "ta-ja"
-<div class="c-slate fs-md ta-ja">
-  Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall...
-</div>
-```
-
-### Left
-
-<Preview>
-  <div className="c-slate fs-md ta-l">
-    {bleakHouse}
-  </div>
-</Preview>
-
-```html "ta-l"
-<div class="c-slate fs-md ta-l">
-  Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall...
-</div>
-```
-
-### Match Parent
-
-<Preview>
-  <div className="ta-r">
-    <div className="c-slate fs-md ta-mp">
-      {bleakHouse}
-    </div>
-  </div>
-</Preview>
-
-```html "ta-mp" "ta-r"
-<div class="ta-r">
-  <div class="c-slate fs-md ta-mp">
-    Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall...
-  </div>
-</div>
-```
-
-### Right
-
-<Preview>
-  <div className="c-slate fs-md ta-r">
-    {bleakHouse}
-  </div>
-</Preview>
-
-```html "ta-r"
-<div class="c-slate fs-md ta-r">
-  Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall...
-</div>
+```html
+<p class="ta-s ...">Start</p>
+<p class="ta-c ...">Center</p>
+<p class="ta-e ...">End</p>
+<p class="ta-j ...">Justify</p>
+<p class="ta-ja ...">Justify All</p>
+<p class="ta-l ...">Left</p>
+<p class="ta-r ...">Right</p>
+<p class="ta-mp ...">Match Parent</p>
 ```
 
 ### Responsiveness

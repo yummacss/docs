@@ -152,6 +152,10 @@ summary {
   align-content: flex-start;
 }
 
+.ac-indigo {
+  accent-color: #6366f1;
+}
+
 .ac-n {
   align-content: normal;
 }
@@ -174,14 +178,6 @@ summary {
 
 .ac-se {
   align-content: space-evenly;
-}
-
-.ac-silver-2 {
-  accent-color: #e1e3e7;
-}
-
-.ac-silver-8 {
-  accent-color: #70757e;
 }
 
 .ac-st {
@@ -216,28 +212,8 @@ summary {
   aspect-ratio: 1;
 }
 
-.ar-1\/2 {
-  aspect-ratio: 1 / 2;
-}
-
 .ar-16\/9 {
   aspect-ratio: 16 / 9;
-}
-
-.ar-2\/1 {
-  aspect-ratio: 2;
-}
-
-.ar-2\/3 {
-  aspect-ratio: 2 / 3;
-}
-
-.ar-3\/2 {
-  aspect-ratio: 3 / 2;
-}
-
-.ar-9\/16 {
-  aspect-ratio: 9 / 16;
 }
 
 .ar-auto {
@@ -280,10 +256,6 @@ summary {
   bottom: .5rem;
 }
 
-.b-3 {
-  bottom: .75rem;
-}
-
 .b-4 {
   bottom: 1rem;
 }
@@ -314,14 +286,6 @@ summary {
 
 .bbc-indigo {
   border-bottom-color: #6366f1;
-}
-
-.bbc-indigo-3 {
-  border-bottom-color: #babcf9;
-}
-
-.bbc-indigo-8 {
-  border-bottom-color: #4749ae;
 }
 
 .bber-2 {
@@ -384,18 +348,6 @@ summary {
   border-color: #232741;
 }
 
-.bc-gray {
-  border-color: #6b7280;
-}
-
-.bc-gray-2 {
-  border-color: #d3d5d9;
-}
-
-.bc-green-4 {
-  border-color: #6fe7c8;
-}
-
 .bc-indigo {
   border-color: #6366f1;
 }
@@ -408,24 +360,12 @@ summary {
   border-color: #d0d1fb80;
 }
 
-.bc-indigo-3 {
-  border-color: #babcf9;
-}
-
-.bc-indigo-4 {
-  border-color: #a5a6f7;
-}
-
 .bc-indigo-6 {
   border-color: #797bf3;
 }
 
 .bc-indigo-7 {
   border-color: #5558cf;
-}
-
-.bc-indigo-8 {
-  border-color: #4749ae;
 }
 
 .bc-lime-7 {
@@ -468,10 +408,6 @@ summary {
   border-color: #c6cad1;
 }
 
-.bc-slate {
-  border-color: #64748b;
-}
-
 .bc-t {
   background-clip: text;
 }
@@ -498,10 +434,6 @@ summary {
 
 .besr-2 {
   border-end-start-radius: .5rem;
-}
-
-.bf-b-lg {
-  backdrop-filter: blur(32px);
 }
 
 .bf-b-md {
@@ -594,10 +526,6 @@ summary {
 
 .bg-indigo-8 {
   background-color: #4749ae;
-}
-
-.bg-indigo-9 {
-  background-color: #393b8c;
 }
 
 .bg-indigo-9\/40 {
@@ -742,16 +670,8 @@ summary {
   border-left-color: #6366f1;
 }
 
-.blc-indigo-3 {
-  border-left-color: #babcf9;
-}
-
 .blc-indigo-5 {
   border-left-color: #8f91f5;
-}
-
-.blc-indigo-8 {
-  border-left-color: #4749ae;
 }
 
 .blc-silver-3 {
@@ -883,14 +803,6 @@ summary {
   border-right-color: #6366f1;
 }
 
-.brc-indigo-3 {
-  border-right-color: #babcf9;
-}
-
-.brc-indigo-8 {
-  border-right-color: #4749ae;
-}
-
 .brr-2 {
   border-top-right-radius: .5rem;
   border-bottom-right-radius: .5rem;
@@ -936,20 +848,12 @@ summary {
   border-style: dashed;
 }
 
-.bs-i-lg {
-  box-shadow: inset 0 4px 6px #0000001a;
-}
-
 .bs-i-md {
   box-shadow: inset 0 2px 4px #0000001a;
 }
 
 .bs-i-sm {
   box-shadow: inset 0 2px 4px #0000000f;
-}
-
-.bs-i-xs {
-  box-shadow: inset 0 1px 2px #0000000d;
 }
 
 .bs-none {
@@ -962,10 +866,6 @@ summary {
 
 .bs-o-md {
   box-shadow: 0 4px 6px -1px #0000001a, 0 2px 4px -2px #0000001a;
-}
-
-.bs-o-none {
-  box-shadow: none;
 }
 
 .bs-o-sm {
@@ -994,14 +894,6 @@ summary {
 
 .btc-indigo {
   border-top-color: #6366f1;
-}
-
-.btc-indigo-3 {
-  border-top-color: #babcf9;
-}
-
-.btc-indigo-8 {
-  border-top-color: #4749ae;
 }
 
 .btlr-2 {
@@ -1079,14 +971,6 @@ summary {
 
 .c-er {
   cursor: ew-resize;
-}
-
-.c-gray {
-  color: #6b7280;
-}
-
-.c-gray-7 {
-  color: #5c626e;
 }
 
 .c-green {
@@ -1173,14 +1057,6 @@ summary {
   color: #9ca3af;
 }
 
-.c-silver-3 {
-  color: #d3d7dc;
-}
-
-.c-silver-8 {
-  color: #70757e;
-}
-
 .c-silver-9 {
   color: #5a5f66;
 }
@@ -1231,10 +1107,6 @@ summary {
 
 .c-swr {
   cursor: sw-resize;
-}
-
-.c-transparent {
-  color: transparent;
 }
 
 .c-white {
@@ -1299,10 +1171,6 @@ summary {
 
 .cg-10 {
   column-gap: 2.5rem;
-}
-
-.cg-4 {
-  column-gap: 1rem;
 }
 
 .cg-8 {
@@ -1429,10 +1297,6 @@ summary {
   flex: auto;
 }
 
-.f-b-none {
-  filter: blur();
-}
-
 .f-b-xs {
   filter: blur(4px);
 }
@@ -1441,16 +1305,8 @@ summary {
   fill: currentColor;
 }
 
-.f-g-0 {
-  filter: grayscale(0%);
-}
-
 .f-g-100 {
   filter: grayscale();
-}
-
-.f-g-50 {
-  filter: grayscale(50%);
 }
 
 .f-g-90 {
@@ -1465,28 +1321,12 @@ summary {
   fill: #9ca3af;
 }
 
-.f-silver-4 {
-  fill: #c6cad1;
-}
-
-.f-silver-8 {
-  fill: #70757e;
-}
-
-.f\:oc-green-1:focus {
-  outline-color: #d7f8f0;
-}
-
 .f\:oc-indigo-4:focus {
   outline-color: #a5a6f7;
 }
 
 .f\:oc-indigo-5:focus {
   outline-color: #8f91f5;
-}
-
-.f\:oc-silver-1:focus {
-  outline-color: #eff0f2;
 }
 
 .f\:oo-2:focus {
@@ -1501,20 +1341,8 @@ summary {
   outline-width: 2px;
 }
 
-.fb-0 {
-  flex-basis: 0;
-}
-
 .fb-50 {
   flex-basis: 12.5rem;
-}
-
-.fb-auto {
-  flex-basis: auto;
-}
-
-.fb-full {
-  flex-basis: 100%;
 }
 
 .fd-c {
@@ -1545,16 +1373,8 @@ summary {
   font-family: Iowan Old Style, Palatino Linotype, URW Palladio L, P052, serif;
 }
 
-.fg-0 {
-  flex-grow: 0;
-}
-
 .fg-1 {
   flex-grow: 1;
-}
-
-.fg-2 {
-  flex-grow: 2;
 }
 
 .fl-ie {
@@ -1583,10 +1403,6 @@ summary {
 
 .fs-1 {
   flex-shrink: 1;
-}
-
-.fs-2 {
-  flex-shrink: 2;
 }
 
 .fs-3xl {
@@ -1813,10 +1629,6 @@ summary {
   gap: 1rem;
 }
 
-.g-6 {
-  gap: 1.5rem;
-}
-
 .g-8 {
   gap: 2rem;
 }
@@ -1839,6 +1651,10 @@ summary {
 
 .gaf-c {
   grid-auto-flow: column;
+}
+
+.gaf-cd {
+  grid-auto-flow: column dense;
 }
 
 .gaf-d {
@@ -1885,14 +1701,6 @@ summary {
   grid-row-end: 3;
 }
 
-.gre-4 {
-  grid-row-end: 4;
-}
-
-.grs-1 {
-  grid-row-start: 1;
-}
-
 .grs-2 {
   grid-row-start: 2;
 }
@@ -1933,10 +1741,6 @@ summary {
   height: 3.5rem;
 }
 
-.h-15 {
-  height: 3.75rem;
-}
-
 .h-16 {
   height: 4rem;
 }
@@ -1953,28 +1757,12 @@ summary {
   height: 5rem;
 }
 
-.h-22 {
-  height: 5.5rem;
-}
-
 .h-24 {
   height: 6rem;
 }
 
-.h-26 {
-  height: 6.5rem;
-}
-
-.h-28 {
-  height: 7rem;
-}
-
 .h-3 {
   height: .75rem;
-}
-
-.h-30 {
-  height: 7.5rem;
 }
 
 .h-32 {
@@ -2009,10 +1797,6 @@ summary {
   height: 1.5rem;
 }
 
-.h-64 {
-  height: 16rem;
-}
-
 .h-7 {
   height: 1.75rem;
 }
@@ -2021,20 +1805,12 @@ summary {
   height: 17.5rem;
 }
 
-.h-75 {
-  height: 18.75rem;
-}
-
 .h-8 {
   height: 2rem;
 }
 
 .h-9 {
   height: 2.25rem;
-}
-
-.h-96 {
-  height: 24rem;
 }
 
 .h-auto {
@@ -2051,10 +1827,6 @@ summary {
 
 .h-full {
   height: 100%;
-}
-
-.h-half {
-  height: 50%;
 }
 
 .h-px {
@@ -2079,10 +1851,6 @@ summary {
 
 .h\:bg-blue-6:hover {
   background-color: #4479ee;
-}
-
-.h\:bg-green-1:hover {
-  background-color: #d7f8f0;
 }
 
 .h\:bg-indigo:hover {
@@ -2121,10 +1889,6 @@ summary {
   background-color: #fbdfe1;
 }
 
-.h\:bg-red-11:hover {
-  background-color: #451115;
-}
-
 .h\:bg-red-8:hover {
   background-color: #a62932;
 }
@@ -2161,16 +1925,8 @@ summary {
   background-color: #ffffff0d;
 }
 
-.h\:bg-yellow-11:hover {
-  background-color: #4d3708;
-}
-
 .h\:bg-zinc-7:hover {
   background-color: #47474e;
-}
-
-.h\:bs-o-xl:hover {
-  box-shadow: 0 20px 25px -5px #0000001a, 0 8px 10px -6px #0000001a;
 }
 
 .h\:c-indigo:hover {
@@ -2203,10 +1959,6 @@ summary {
 
 .h\:h-64:hover {
   height: 16rem;
-}
-
-.h\:o-50:hover {
-  opacity: .5;
 }
 
 .h\:td-u:hover {
@@ -2431,20 +2183,8 @@ summary {
   margin: 2rem;
 }
 
-.m-auto {
-  margin: auto;
-}
-
 .m-px {
   margin: 1px;
-}
-
-.max-h-100 {
-  max-height: 25rem;
-}
-
-.max-h-50 {
-  max-height: 12.5rem;
 }
 
 .max-h-52 {
@@ -2459,24 +2199,12 @@ summary {
   max-height: 18rem;
 }
 
-.max-h-80 {
-  max-height: 20rem;
-}
-
 .max-h-90 {
   max-height: 22.5rem;
 }
 
 .max-h-fc {
   max-height: fit-content;
-}
-
-.max-w-100 {
-  max-width: 25rem;
-}
-
-.max-w-30 {
-  max-width: 7.5rem;
 }
 
 .max-w-64 {
@@ -2635,10 +2363,6 @@ summary {
   margin-left: 2rem;
 }
 
-.mr-1 {
-  margin-right: .25rem;
-}
-
 .mr-2 {
   margin-right: .5rem;
 }
@@ -2735,24 +2459,12 @@ summary {
   margin-block: 2rem;
 }
 
-.o-100 {
-  opacity: 1;
-}
-
-.o-20 {
-  opacity: .2;
-}
-
 .o-50 {
   opacity: .5;
 }
 
 .o-60 {
   opacity: .6;
-}
-
-.o-70 {
-  opacity: .7;
 }
 
 .o-auto {
@@ -2839,16 +2551,8 @@ summary {
   outline-color: #6366f1;
 }
 
-.oc-indigo-3 {
-  outline-color: #babcf9;
-}
-
 .oc-indigo-6 {
   outline-color: #797bf3;
-}
-
-.oc-indigo-8 {
-  outline-color: #4749ae;
 }
 
 .oc-pink-6 {
@@ -3135,10 +2839,6 @@ summary {
   padding-inline-start: 1.5rem;
 }
 
-.pl-10 {
-  padding-left: 2.5rem;
-}
-
 .pl-2 {
   padding-left: .5rem;
 }
@@ -3157,10 +2857,6 @@ summary {
 
 .pr-16 {
   padding-right: 4rem;
-}
-
-.pr-4 {
-  padding-right: 1rem;
 }
 
 .pr-6 {
@@ -3327,10 +3023,6 @@ summary {
   row-gap: 2.5rem;
 }
 
-.rg-4 {
-  row-gap: 1rem;
-}
-
 .rg-8 {
   row-gap: 2rem;
 }
@@ -3363,28 +3055,8 @@ summary {
   scale: .7;
 }
 
-.s-80 {
-  scale: .8;
-}
-
-.s-90 {
-  scale: .9;
-}
-
 .s-silver {
   stroke: #9ca3af;
-}
-
-.s-silver-4 {
-  stroke: #c6cad1;
-}
-
-.s-silver-8 {
-  stroke: #70757e;
-}
-
-.s-slate {
-  stroke: #64748b;
 }
 
 .s\:\:bg-indigo::selection {
@@ -3459,10 +3131,6 @@ summary {
   scroll-snap-align: end;
 }
 
-.ssa-none {
-  scroll-snap-align: none;
-}
-
 .ssa-s {
   scroll-snap-align: start;
 }
@@ -3511,24 +3179,8 @@ summary {
   scale: .7;
 }
 
-.sx-80 {
-  scale: .8;
-}
-
-.sx-90 {
-  scale: .9;
-}
-
 .sy-70 {
   scale: .7;
-}
-
-.sy-80 {
-  scale: .8;
-}
-
-.sy-90 {
-  scale: .9;
 }
 
 .t--4 {
@@ -3561,10 +3213,6 @@ summary {
 
 .t-4 {
   top: 1rem;
-}
-
-.t-8 {
-  top: 2rem;
 }
 
 .t-half {
@@ -3643,8 +3291,20 @@ summary {
   transform: skewY(6deg);
 }
 
+.t-t-1 {
+  translate: .25rem .25rem;
+}
+
 .t-t-4 {
   translate: 1rem 1rem;
+}
+
+.t-tx-1 {
+  transform: translateX(.25rem);
+}
+
+.t-ty-1 {
+  transform: translateY(.25rem);
 }
 
 .ta-auto {
@@ -3737,10 +3397,6 @@ summary {
 
 .tdc-red {
   text-decoration-color: #e63946;
-}
-
-.tdc-yellow {
-  text-decoration-color: #ffb81c;
 }
 
 .tdl-lt {
@@ -3983,28 +3639,8 @@ summary {
   visibility: visible;
 }
 
-.va-b {
-  vertical-align: bottom;
-}
-
-.va-ba {
-  vertical-align: baseline;
-}
-
 .va-m {
   vertical-align: middle;
-}
-
-.va-s {
-  vertical-align: sub;
-}
-
-.va-su {
-  vertical-align: super;
-}
-
-.va-t {
-  vertical-align: top;
 }
 
 .w-10 {
@@ -4023,10 +3659,6 @@ summary {
   width: 3.5rem;
 }
 
-.w-15 {
-  width: 3.75rem;
-}
-
 .w-16 {
   width: 4rem;
 }
@@ -4043,36 +3675,12 @@ summary {
   width: 5rem;
 }
 
-.w-22 {
-  width: 5.5rem;
-}
-
 .w-24 {
   width: 6rem;
 }
 
-.w-26 {
-  width: 6.5rem;
-}
-
-.w-28 {
-  width: 7rem;
-}
-
 .w-3 {
   width: .75rem;
-}
-
-.w-30 {
-  width: 7.5rem;
-}
-
-.w-32 {
-  width: 8rem;
-}
-
-.w-35 {
-  width: 8.75rem;
 }
 
 .w-4 {
@@ -4081,10 +3689,6 @@ summary {
 
 .w-40 {
   width: 10rem;
-}
-
-.w-48 {
-  width: 12rem;
 }
 
 .w-5 {
@@ -4262,10 +3866,6 @@ summary {
 
   .sm\:gtc-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .sm\:gtc-4 {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .sm\:h-32 {

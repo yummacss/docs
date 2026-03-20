@@ -9,38 +9,9 @@ export const meta = {
 
 ## Usage
 
-### Content Box
-
-Exclude padding and borders from an element's total size.
-
-<Preview>
-  <div className="w-26 h-26 bs-cb p-8">
-    <div className="d-f ai-c jc-c w-full h-full bg-indigo c-white">Content</div>
-  </div>
-</Preview>
-
-```html "bs-cb"
-<div class="w-26 h-26 bs-cb p-8">
-  <div class="d-f ai-c jc-c w-full h-full bg-indigo c-white">Content</div>
-</div>
-```
-
-### Border Box
-
-Include padding and borders in an element's total size.
-
-<Hint icon="heart">Yumma CSS uses `border-box` by default. Learn more in the [base styles](/docs/base-styles) docs.</Hint>
-
-<Preview>
-  <div className="w-26 h-26 bs-bb p-8">
-    <div className="d-f ai-c jc-c w-full h-full bg-indigo c-white">Box</div>
-  </div>
-</Preview>
-
-```html "bs-bb"
-<div class="w-26 h-26 bs-bb p-8">
-  <div class="d-f ai-c jc-c w-full h-full bg-indigo c-white">Box</div>
-</div>
+```html
+<div class="bs-cb ..."></div>
+<div class="bs-bb ..."></div>
 ```
 
 ### Responsiveness

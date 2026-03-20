@@ -9,40 +9,9 @@ export const meta = {
 
 ## Usage
 
-### Fixed
-
-Maintain a fixed size for form fields.
-
-<Preview>
-  <div className="d-f fd-c">
-    <label className="mb-2 c-slate fw-600">Write a message:</label>
-    <textarea className="max-h-50 max-w-100 bc-silver-4 bw-1 fs-f r-none f:oc-silver-1 f:os-s f:ow-2" placeholder="Hello, my name is..."></textarea>
-  </div>
-</Preview>
-
-```html "fs-f"
-<div class="d-f fd-c">
-  <label class="mb-2 c-slate fw-600">Write a message:</label>
-  <textarea class="max-h-50 max-w-100 bc-silver-4 bw-1 fs-f r-none f:oc-silver-1 f:os-s f:ow-2" placeholder="Hello, my name is..."></textarea>
-</div>
-```
-
-### Content
-
-Allow form fields to size themselves based on content.
-
-<Preview>
-  <div className="d-f fd-c">
-    <label className="mb-2 c-slate fw-600">Write a message:</label>
-    <textarea className="max-h-50 max-w-100 bc-silver-4 bw-1 fs-c r-none f:oc-silver-1 f:os-s f:ow-2" placeholder="Hello, my name is..."></textarea>
-  </div>
-</Preview>
-
-```html "fs-c"
-<div class="d-f fd-c">
-  <label class="mb-2 c-slate fw-600">Write a message:</label>
-  <textarea class="max-h-50 max-w-100 bc-silver-4 bw-1 fs-c r-none f:oc-silver-1 f:os-s f:ow-2" placeholder="Hello, my name is..."></textarea>
-</div>
+```html
+<textarea class="fs-f ..."></textarea>
+<textarea class="fs-c ..."></textarea>
 ```
 
 ### Responsiveness

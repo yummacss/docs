@@ -9,78 +9,11 @@ export const meta = {
 
 ## Usage
 
-### None
-
-Prevent an element from being resized.
-
-<Hint icon="size">Try resizing the text area to see how it changes in size.</Hint>
-
-<Preview>
-  <div className="d-f fd-c">
-    <label className="mb-2 c-slate">Write a message:</label>
-    <textarea className="px-3 py-2 bc-silver-4 bw-1 fs-md r-none f:oc-silver-1 f:os-s f:ow-2" rows={4}></textarea>
-  </div>
-</Preview>
-
-```html "r-none"
-<div class="d-f fd-c">
-  <label class="mb-2">Write a message:</label>
-  <textarea class="px-3 py-2 bc-silver-4 bw-1 fs-md r-none f:oc-silver-1 f:os-s f:ow-2" rows="4"></textarea>
-</div>
-```
-
-### Both
-
-Allow an element to be resized both horizontally and vertically.
-
-<Preview>
-  <div className="d-f fd-c">
-    <label className="mb-2 c-slate">Write a message:</label>
-    <textarea className="max-h-50 max-w-100 px-3 py-2 bc-silver-4 bw-1 fs-md r-b f:oc-silver-1 f:os-s f:ow-2" rows={4}></textarea>
-  </div>
-</Preview>
-
-```html "r-b"
-<div class="d-f fd-c">
-  <label class="mb-2">Write a message:</label>
-  <textarea class="max-h-50 max-w-100 px-3 py-2 bc-silver-4 bw-1 fs-md r-b f:oc-silver-1 f:os-s f:ow-2" rows="4"></textarea>
-</div>
-```
-
-### Horizontal
-
-Allow an element to be resized horizontally.
-
-<Preview>
-  <div className="d-f fd-c">
-    <label className="mb-2 c-slate">Write a message:</label>
-    <textarea className="max-w-100 px-3 py-2 bc-silver-4 bw-1 fs-md r-h f:oc-silver-1 f:os-s f:ow-2" rows={4}></textarea>
-  </div>
-</Preview>
-
-```html "r-h"
-<div class="d-f fd-c">
-  <label class="mb-2">Write a message:</label>
-  <textarea class="max-w-100 px-3 py-2 bc-silver-4 bw-1 fs-md r-h f:oc-silver-1 f:os-s f:ow-2" rows="4"></textarea>
-</div>
-```
-
-### Vertical
-
-Allow an element to be resized vertically.
-
-<Preview>
-  <div className="d-f fd-c">
-    <label className="mb-2 c-slate">Write a message:</label>
-    <textarea className="max-h-100 px-3 py-2 bc-silver-4 bw-1 fs-md r-v f:oc-silver-1 f:os-s f:ow-2" rows={4}></textarea>
-  </div>
-</Preview>
-
-```html "r-v"
-<div class="d-f fd-c">
-  <label class="mb-2">Write a message:</label>
-  <textarea class="max-h-100 px-3 py-2 bc-silver-4 bw-1 fs-md r-v f:oc-silver-1 f:os-s f:ow-2" rows="4"></textarea>
-</div>
+```html
+<textarea class="r-none ..."></textarea>
+<textarea class="r-b ..."></textarea>
+<textarea class="r-h ..."></textarea>
+<textarea class="r-v ..."></textarea>
 ```
 
 ### Responsiveness

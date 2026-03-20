@@ -9,98 +9,10 @@ export const meta = {
 
 ## Usage
 
-### Visible
-
-Display the element normally in the layout.
-
-<Preview>
-  <div className="d-g g-4 gtc-1 sm:gtc-3">
-    <div className="d-f v-v ai-c jc-c w-16 h-16 bg-indigo c-white">A</div>
-    <div className="d-f ai-c jc-c w-16 h-16 bg-indigo c-white">B</div>
-    <div className="d-f ai-c jc-c w-16 h-16 bg-indigo c-white">C</div>
-  </div>
-</Preview>
-
-```html "v-v"
-<div class="d-g g-4 gtc-1 sm:gtc-3">
-  <div class="d-f v-v ai-c jc-c w-16 h-16 bg-indigo c-white">A</div>
-  <div class="d-f ai-c jc-c w-16 h-16 bg-indigo c-white">B</div>
-  <div class="d-f ai-c jc-c w-16 h-16 bg-indigo c-white">C</div>
-</div>
-```
-
-### Collapse
-
-Hide the element without taking up space.
-
-<Preview>
-  <table className="w-full c-slate bw-1 bs-d bc-c">
-    <thead>
-      <tr>
-        <th className="p-3 bg-silver-2 bc-slate bw-1 bs-d ta-c">H1</th>
-        <th className="p-3 bg-silver-2 bc-slate bw-1 bs-d ta-c">H2</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td className="p-3 bc-slate bw-1 bs-d ta-c">A</td>
-        <td className="p-3 bc-slate bw-1 bs-d ta-c">B</td>
-      </tr>
-      <tr className="v-c">
-        <td className="p-3 bc-slate bw-1 bs-d ta-c">C</td>
-        <td className="p-3 bc-slate bw-1 bs-d ta-c">D</td>
-      </tr>
-      <tr>
-        <td className="p-3 bc-slate bw-1 bs-d ta-c">E</td>
-        <td className="p-3 bc-slate bw-1 bs-d ta-c">F</td>
-      </tr>
-    </tbody>
-  </table>
-</Preview>
-
-```html "v-c"
-<table class="w-full c-slate bw-1 bs-d bc-c">
-  <thead>
-    <tr>
-      <th class="p-3 bg-silver-2 bc-slate bw-1 bs-d ta-c">H1</th>
-      <th class="p-3 bg-silver-2 bc-slate bw-1 bs-d ta-c">H2</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td class="p-3 bc-slate bw-1 bs-d ta-c">A</td>
-      <td class="p-3 bc-slate bw-1 bs-d ta-c">B</td>
-    </tr>
-    <tr class="v-c">
-      <td class="p-3 bc-slate bw-1 bs-d ta-c">C</td>
-      <td class="p-3 bc-slate bw-1 bs-d ta-c">D</td>
-    </tr>
-    <tr>
-      <td class="p-3 bc-slate bw-1 bs-d ta-c">E</td>
-      <td class="p-3 bc-slate bw-1 bs-d ta-c">F</td>
-    </tr>
-  </tbody>
-</table>
-```
-
-### Hidden
-
-Hide the element while still taking up space.
-
-<Preview>
-  <div className="d-g g-4 gtc-1 sm:gtc-3">
-    <div className="d-f v-h ai-c jc-c w-16 h-16 bg-indigo c-white">A</div>
-    <div className="d-f ai-c jc-c w-16 h-16 bg-indigo c-white">B</div>
-    <div className="d-f ai-c jc-c w-16 h-16 bg-indigo c-white">C</div>
-  </div>
-</Preview>
-
-```html "v-h"
-<div class="d-g g-4 gtc-1 sm:gtc-3">
-  <div class="d-f v-h ai-c jc-c w-16 h-16 bg-indigo c-white">A</div>
-  <div class="d-f ai-c jc-c w-16 h-16 bg-indigo c-white">B</div>
-  <div class="d-f ai-c jc-c w-16 h-16 bg-indigo c-white">C</div>
-</div>
+```html
+<div class="v-v ...">Visible</div>
+<div class="v-c ...">Collapse</div>
+<div class="v-h ...">Hidden</div>
 ```
 
 ### Responsiveness

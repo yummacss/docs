@@ -9,72 +9,9 @@ export const meta = {
 
 ## Usage
 
-### Separate
-
-Table cell borders remain distinct, allowing for spacing.
-
-<Preview>
-  <table className="w-full bc-gray c-gray bw-1 bc-s ta-c">
-    <tbody>
-      <tr>
-        <td className="p-2 bc-gray bw-1">A</td>
-        <td className="p-2 bc-gray bw-1">B</td>
-      </tr>
-      <tr>
-        <td className="p-2 bc-gray bw-1">C</td>
-        <td className="p-2 bc-gray bw-1">D</td>
-      </tr>
-    </tbody>
-  </table>
-</Preview>
-
-```html "bc-s"
-<table class="w-full bc-gray c-gray bw-1 bc-s ta-c">
-  <tbody>
-    <tr>
-      <td class="p-2 bc-gray bw-1">A</td>
-      <td class="p-2 bc-gray bw-1">B</td>
-    </tr>
-    <tr>
-      <td class="p-2 bc-gray bw-1">C</td>
-      <td class="p-2 bc-gray bw-1">D</td>
-    </tr>
-  </tbody>
-</table>
-```
-
-### Collapse
-
-Table borders merge.
-
-<Preview>
-  <table className="w-full bc-gray c-gray bw-1 bc-c ta-c">
-    <tbody>
-      <tr>
-        <td className="p-2 bc-gray bw-1">A</td>
-        <td className="p-2 bc-gray bw-1">B</td>
-      </tr>
-      <tr>
-        <td className="p-2 bc-gray bw-1">C</td>
-        <td className="p-2 bc-gray bw-1">D</td>
-      </tr>
-    </tbody>
-  </table>
-</Preview>
-
-```html "bc-c"
-<table class="w-full bc-gray c-gray bw-1 bc-c ta-c">
-  <tbody>
-    <tr>
-      <td class="p-2 bc-gray bw-1">A</td>
-      <td class="p-2 bc-gray bw-1">B</td>
-    </tr>
-    <tr>
-      <td class="p-2 bc-gray bw-1">C</td>
-      <td class="p-2 bc-gray bw-1">D</td>
-    </tr>
-  </tbody>
-</table>
+```html
+<table class="bc-s ..."></table>
+<table class="bc-c ..."></table>
 ```
 
 ### Responsiveness

@@ -9,84 +9,12 @@ export const meta = {
 
 ## Usage
 
-### Visible
-
-Allow the content to overflow the container horizontally.
-
-<Preview className="o-auto bg-white">
-  <div className="o-x-v h-32 p-2 w-64 bc-slate bw-1 bs-d">
-    <div className="h-full w-96 c-slate">Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall. Implacable November weather. As much mud in the streets as if the waters had but newly retired from the face of the earth.</div>
-  </div>
-</Preview>
-
-```html "o-x-v"
-<div class="o-x-v h-32 p-2 w-64 bc-slate bw-1 bs-d">
-  <div class="h-full w-96 c-slate">Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall. Implacable November weather. As much mud in the streets as if the waters had but newly retired from the face of the earth.</div>
-</div>
-```
-
-### Auto
-
-Allow the content to scroll horizontally if it overflows.
-
-<Preview className="o-auto bg-white">
-  <div className="o-x-auto h-32 p-2 w-64 bc-slate bw-1 bs-d">
-    <div className="h-full w-96 c-slate">Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall. Implacable November weather. As much mud in the streets as if the waters had but newly retired from the face of the earth.</div>
-  </div>
-</Preview>
-
-```html "o-x-auto"
-<div class="o-x-auto h-32 p-2 w-64 bc-slate bw-1 bs-d">
-  <div class="h-full w-96 c-slate">Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall. Implacable November weather. As much mud in the streets as if the waters had but newly retired from the face of the earth.</div>
-</div>
-```
-
-### Clip
-
-Clip the content that overflows horizontally.
-
-<Preview className="o-auto bg-white">
-  <div className="o-x-c h-32 p-2 w-64 bc-slate bw-1 bs-d">
-    <div className="h-full w-96 c-slate">Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall. Implacable November weather. As much mud in the streets as if the waters had but newly retired from the face of the earth.</div>
-  </div>
-</Preview>
-
-```html "o-x-c"
-<div class="o-x-c h-32 p-2 w-64 bc-slate bw-1 bs-d">
-  <div class="h-full w-96 c-slate">Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall. Implacable November weather. As much mud in the streets as if the waters had but newly retired from the face of the earth.</div>
-</div>
-```
-
-### Hidden
-
-Hide the content that overflows horizontally.
-
-<Preview className="o-auto bg-white">
-  <div className="o-x-h h-32 p-2 w-64 bc-slate bw-1 bs-d">
-    <div className="h-full w-96 c-slate">Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall. Implacable November weather. As much mud in the streets as if the waters had but newly retired from the face of the earth.</div>
-  </div>
-</Preview>
-
-```html "o-x-h"
-<div class="o-x-h h-32 p-2 w-64 bc-slate bw-1 bs-d">
-  <div class="h-full w-96 c-slate">Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall. Implacable November weather. As much mud in the streets as if the waters had but newly retired from the face of the earth.</div>
-</div>
-```
-
-### Scroll
-
-Always show a horizontal scrollbar on the element.
-
-<Preview className="o-auto bg-white">
-  <div className="o-x-s h-32 p-2 w-64 bc-slate bw-1 bs-d">
-    <div className="h-full w-96 c-slate">Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall. Implacable November weather. As much mud in the streets as if the waters had but newly retired from the face of the earth.</div>
-  </div>
-</Preview>
-
-```html "o-x-s"
-<div class="o-x-s h-32 p-2 w-64 bc-slate bw-1 bs-d">
-  <div class="h-full w-96 c-slate">Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall. Implacable November weather. As much mud in the streets as if the waters had but newly retired from the face of the earth.</div>
-</div>
+```html
+<div class="o-x-v ...">Visible</div>
+<div class="o-x-auto ...">Auto</div>
+<div class="o-x-c ...">Clip</div>
+<div class="o-x-h ...">Hidden</div>
+<div class="o-x-s ...">Scroll</div>
 ```
 
 ### Responsiveness
