@@ -9,32 +9,16 @@ export const meta = {
 
 ## Usage
 
-<Preview>
-  <div className="d-g g-1 gtc-3">
-    <div className="w-24 h-24 bp-lt" style={{ backgroundImage: "url(/img/clivia.jpg)" }}></div>
-    <div className="w-24 h-24 bp-t" style={{ backgroundImage: "url(/img/clivia.jpg)" }}></div>
-    <div className="w-24 h-24 bp-rt" style={{ backgroundImage: "url(/img/clivia.jpg)" }}></div>
-    <div className="w-24 h-24 bp-l" style={{ backgroundImage: "url(/img/clivia.jpg)" }}></div>
-    <div className="w-24 h-24 bp-c" style={{ backgroundImage: "url(/img/clivia.jpg)" }}></div>
-    <div className="w-24 h-24 bp-r" style={{ backgroundImage: "url(/img/clivia.jpg)" }}></div>
-    <div className="w-24 h-24 bp-lb" style={{ backgroundImage: "url(/img/clivia.jpg)" }}></div>
-    <div className="w-24 h-24 bp-b" style={{ backgroundImage: "url(/img/clivia.jpg)" }}></div>
-    <div className="w-24 h-24 bp-rb" style={{ backgroundImage: "url(/img/clivia.jpg)" }}></div>
-  </div>
-</Preview>
-
-```html "bp-lt" "bp-t" "bp-rt" "bp-l" "bp-c" "bp-r" "bp-lb" "bp-b" "bp-rb"
-<div class="d-g g-1 gtc-3">
-  <div class="w-24 h-24 bp-lt" style="background-image:url(/img/clivia.jpg)"></div>
-  <div class="w-24 h-24 bp-t" style="background-image:url(/img/clivia.jpg)"></div>
-  <div class="w-24 h-24 bp-rt" style="background-image:url(/img/clivia.jpg)"></div>
-  <div class="w-24 h-24 bp-l" style="background-image:url(/img/clivia.jpg)"></div>
-  <div class="w-24 h-24 bp-c" style="background-image:url(/img/clivia.jpg)"></div>
-  <div class="w-24 h-24 bp-r" style="background-image:url(/img/clivia.jpg)"></div>
-  <div class="w-24 h-24 bp-lb" style="background-image:url(/img/clivia.jpg)"></div>
-  <div class="w-24 h-24 bp-b" style="background-image:url(/img/clivia.jpg)"></div>
-  <div class="w-24 h-24 bp-rb" style="background-image:url(/img/clivia.jpg)"></div>
-</div>
+```html
+<div class="bp-lt ..."></div>
+<div class="bp-t ..."></div>
+<div class="bp-rt ..."></div>
+<div class="bp-l ..."></div>
+<div class="bp-c ..."></div>
+<div class="bp-r ..."></div>
+<div class="bp-lb ..."></div>
+<div class="bp-b ..."></div>
+<div class="bp-rb ..."></div>
 ```
 
 ### Responsiveness
@@ -43,14 +27,10 @@ Use breakpoint prefixes to target different screen sizes. Styles apply from the 
 
 Target viewport sizes with breakpoint prefixes.
 
-<ResponsiveVariant class="bp-l" variant="bp-r" prefix="bp">
-  ### Breakpoint variant
-</ResponsiveVariant>
+<ResponsiveVariant prefix="bp" />
 
 ### Hover State
 
 Apply styles conditionally on hover using the `h:` prefix.
 
-<HoverVariant class="bp-l" variant="bp-r" prefix="bp">
-  ### Hover variant
-</HoverVariant>
+<HoverVariant prefix="bp" />

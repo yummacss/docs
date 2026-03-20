@@ -1,88 +1,10 @@
-import { bleakHouse } from "@/constants/p";
-
-export const meta = {
-  title: "Text Wrap",
-  description: "Set how text wraps within an element.",
-};
-
-<Baseline path="css.properties.text-wrap" />
-
-<Reference category="text" name="text-wrap" />
-
 ## Usage
 
-### Wrap
-
-> Initial value
-
-<Preview>
-  <div className="d-g g-4 max-w-64 mx-auto">
-    <div className="c-slate fs-xl fw-600 tw-w">Bleak House by Charles Dickens</div>
-    <div className="c-gray-7 fs-sm">{bleakHouse}</div>
-  </div>
-</Preview>
-
-```html "tw-w"
-<div class="d-g g-4 max-w-64 mx-auto">
-  <div class="c-slate fs-xl fw-600 tw-w">Bleak House by Charles Dickens</div>
-  <div class="c-gray-7 fs-sm">
-    London. Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall...
-  </div>
-</div>
-```
-
-### Balance
-
-<Preview>
-  <div className="d-g g-4 max-w-64 mx-auto">
-    <div className="c-slate fs-xl fw-600 tw-b">Bleak House by Charles Dickens</div>
-    <div className="c-gray-7 fs-sm">{bleakHouse}</div>
-  </div>
-</Preview>
-
-```html "tw-b"
-<div class="d-g g-4 max-w-64 mx-auto">
-  <div class="c-slate fs-xl fw-600 tw-b">Bleak House by Charles Dickens</div>
-  <div class="c-gray-7 fs-sm">
-    London. Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall...
-  </div>
-</div>
-```
-
-### No Wrap
-
-<Preview>
-  <div className="d-g g-4 max-w-64 mx-auto">
-    <div className="c-slate fs-xl fw-600 tw-nw">Bleak House by Charles Dickens</div>
-    <div className="c-gray-7 fs-sm">{bleakHouse}</div>
-  </div>
-</Preview>
-
-```html "tw-nw"
-<div class="d-g g-4 max-w-64 mx-auto">
-  <div class="c-slate fs-xl fw-600 tw-nw">Bleak House by Charles Dickens</div>
-  <div class="c-gray-7 fs-sm">
-    London. Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall...
-  </div>
-</div>
-```
-
-### Pretty
-
-<Preview>
-  <div className="d-g g-4 max-w-64 mx-auto">
-    <div className="c-slate fs-xl fw-600 tw-p">Bleak House by Charles Dickens</div>
-    <div className="c-gray-7 fs-sm">{bleakHouse}</div>
-  </div>
-</Preview>
-
-```html "tw-p"
-<div class="d-g g-4 max-w-64 mx-auto">
-  <div class="c-slate fs-xl fw-600 tw-p">Bleak House by Charles Dickens</div>
-  <div class="c-gray-7 fs-sm">
-    London. Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall...
-  </div>
-</div>
+```html
+<p class="tw-w ...">Wrap</p>
+<p class="tw-b ...">Balance</p>
+<p class="tw-nw ...">No Wrap</p>
+<p class="tw-p ...">Pretty</p>
 ```
 
 ### Responsiveness

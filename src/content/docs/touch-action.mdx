@@ -9,125 +9,14 @@ export const meta = {
 
 ## Usage
 
-### Auto
-
-Allow all default touch behaviors.
-
-```html "ta-auto"
-<div class="ta-auto">Full touch support</div>
-```
-
-### None
-
-Disable all touch interactions.
-
-```html "ta-none"
-<div class="ta-none">Touch disabled</div>
-```
-
-### Pan X
-
-Allow only horizontal panning.
-
-<Preview>
-  <div className="h-32 w-full ta-px ov-s">
-    <div className="w-128 p-4 bg-indigo/10 br-1">
-      Scroll horizontally only
-    </div>
-  </div>
-</Preview>
-
-```html "ta-px"
-<div class="h-32 w-full ta-px ov-s">
-  <div class="w-128 p-4 bg-indigo/10 br-1">
-    Scroll horizontally only
-  </div>
-</div>
-```
-
-### Pan Y
-
-Allow only vertical panning.
-
-<Preview>
-  <div className="h-32 w-full ta-py ov-s">
-    <div className="h-64 p-4 bg-indigo/10 br-1">
-      Scroll vertically only
-    </div>
-  </div>
-</Preview>
-
-```html "ta-py"
-<div class="h-32 w-full ta-py ov-s">
-  <div class="h-64 p-4 bg-indigo/10 br-1">
-    Scroll vertically only
-  </div>
-</div>
-```
-
-### Directional Panning
-
-Control panning direction with granular utilities.
-
-- `ta-pl`: Panning to the left.
-- `ta-pr`: Panning to the right.
-- `ta-pu`: Panning upward.
-- `ta-pd`: Panning downward.
-
-```html "ta-pr"
-<div class="ta-pr ov-s">
-  Swipe right only
-</div>
-```
-
-### Pinch Zoom
-
-Enable pinch-to-zoom gestures.
-
-```html "ta-pz"
-<div class="ta-pz">
-  Pinch to zoom
-</div>
-```
-
-### Manipulation
-
-Enable panning and pinch zooming while disabling double-tap-to-zoom.
-
-```html "ta-m"
-<div class="ta-m">
-  Pan and pinch, no double-tap zoom
-</div>
-```
-
-## Common use cases
-
-### Custom scroll containers
-
-```html "ta-py"
-<div class="h-64 ta-py ov-s">
-  <div class="h-128">
-    <!-- Vertical scrolling content -->
-  </div>
-</div>
-```
-
-### Horizontal carousels
-
-```html "ta-px"
-<div class="ta-px ov-s">
-  <div class="d-f g-4 w-128">
-    <!-- Horizontal carousel items -->
-  </div>
-</div>
-```
-
-### Prevent scroll interference
-
-```html "ta-none"
-<canvas class="ta-none">
-  <!-- Canvas for drawing, disable touch scrolling -->
-</canvas>
+```html
+<div class="ta-auto ...">Full touch support</div>
+<div class="ta-none ...">Touch disabled</div>
+<div class="ta-px ...">Scroll horizontally only</div>
+<div class="ta-py ...">Scroll vertically only</div>
+<div class="ta-pr ...">Swipe right only</div>
+<div class="ta-pz ...">Pinch to zoom</div>
+<div class="ta-m ...">Pan and pinch, no double-tap zoom</div>
 ```
 
 ### Responsiveness

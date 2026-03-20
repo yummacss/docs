@@ -9,76 +9,10 @@ export const meta = {
 
 ## Usage
 
-### Auto
-
-Size rows based on the content and available space.
-
-<Preview variant="inline">
-    <div className="o-auto">
-      <div className="d-g gar-auto gtc-auto g-4">
-          <div className="d-f ai-c jc-c p-4 bg-indigo c-white">Pneumonoultramicroscopicsilicovolcanoconiosis</div>
-          <div className="d-f ai-c jc-c p-4 bg-indigo-8 c-indigo-5">B</div>
-          <div className="d-f ai-c jc-c p-4 bg-indigo-8 c-indigo-5">C</div>
-      </div>
-    </div>
-</Preview>
-
-```html "gar-auto"
-<div class="o-auto">
-  <div class="d-g gar-auto gtc-auto g-4">
-    <div class="d-f ai-c jc-c p-4 bg-indigo c-white">Pneumonoultramicroscopicsilicovolcanoconiosis</div>
-    <div class="d-f ai-c jc-c p-4 bg-indigo-8 c-indigo-5">B</div>
-    <div class="d-f ai-c jc-c p-4 bg-indigo-8 c-indigo-5">C</div>
-  </div>
-</div>
-```
-
-### Min Content
-
-Size rows to the smallest possible height without overflowing.
-
-<Preview variant="inline">
-    <div className="o-auto">
-      <div className="d-g gar-min gtc-min g-4">
-          <div className="d-f ai-c jc-c p-4 bg-indigo c-white">Pneumonoultramicroscopicsilicovolcanoconiosis</div>
-          <div className="d-f ai-c jc-c p-4 bg-indigo-8 c-indigo-5">B</div>
-          <div className="d-f ai-c jc-c p-4 bg-indigo-8 c-indigo-5">C</div>
-      </div>
-    </div>
-</Preview>
-
-```html "gar-min"
-<div class="o-auto">
-  <div class="d-g gar-min gtc-min g-4">
-    <div class="d-f ai-c jc-c p-4 bg-indigo c-white">Pneumonoultramicroscopicsilicovolcanoconiosis</div>
-    <div class="d-f ai-c jc-c p-4 bg-indigo-8 c-indigo-5">B</div>
-    <div class="d-f ai-c jc-c p-4 bg-indigo-8 c-indigo-5">C</div>
-  </div>
-</div>
-```
-
-### Max Content
-
-Size rows to the largest possible height based on their content.
-
-<Preview variant="inline">
-    <div className="o-auto">
-      <div className="d-g gar-max gtc-max g-4">
-          <div className="d-f ai-c jc-c p-4 bg-indigo c-white">Pneumonoultramicroscopicsilicovolcanoconiosis</div>
-          <div className="d-f ai-c jc-c p-4 bg-indigo-8 c-indigo-5">B</div>
-          <div className="d-f ai-c jc-c p-4 bg-indigo-8 c-indigo-5">C</div>
-      </div>
-    </div>
-</Preview>
-
-```html "gar-max"
-<div class="o-auto">
-  <div class="d-g gar-max gtc-max g-4">
-    <div class="d-f ai-c jc-c p-4 bg-indigo c-white">Pneumonoultramicroscopicsilicovolcanoconiosis</div>
-    <div class="d-f ai-c jc-c p-4 bg-indigo-8 c-indigo-5">B</div>
-    <div class="d-f ai-c jc-c p-4 bg-indigo-8 c-indigo-5">C</div>
-  </div>
-</div>
+```html
+<div class="gar-auto ..."></div>
+<div class="gar-min ..."></div>
+<div class="gar-max ..."></div>
 ```
 
 ### Responsiveness

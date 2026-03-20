@@ -9,48 +9,10 @@ export const meta = {
 
 ## Usage
 
-### Auto
-
-The background image retains its original size.
-
-<Preview>
-  <div className="w-30 h-30">
-    <div className="h-30 bs-auto bp-c" style={{ backgroundImage: "url(/img/lighthouse.jpg)" }}></div>
-  </div>
-</Preview>
-
-```html "bs-auto"
-<div class="w-30 h-30">
-  <div class="h-30 bs-auto bp-c" style="background-image:url(/img/lighthouse.jpg)"></div>
-</div>
-```
-
-The background image covers the entire element.
-
-<Preview>
-  <div className="w-30 h-30">
-    <div className="h-30 bs-c bp-c" style={{ backgroundImage: "url(/img/lighthouse.jpg)" }}></div>
-  </div>
-</Preview>
-
-```html "bs-c"
-<div class="w-30 h-30">
-  <div class="h-30 bs-c bp-c" style="background-image:url(/img/lighthouse.jpg)"></div>
-</div>
-```
-
-The background image scales to fit within the element.
-
-<Preview>
-  <div className="w-30 h-30">
-    <div className="h-30 bs-co bp-c" style={{ backgroundImage: "url(/img/lighthouse.jpg)" }}></div>
-  </div>
-</Preview>
-
-```html "bs-co"
-<div class="w-30 h-30">
-  <div class="h-30 bs-co bp-c" style="background-image:url(/img/lighthouse.jpg)"></div>
-</div>
+```html
+<div class="bs-auto ..."></div>
+<div class="bs-c ..."></div>
+<div class="bs-co ..."></div>
 ```
 
 ### Responsiveness
@@ -59,14 +21,10 @@ Use breakpoint prefixes to target different screen sizes. Styles apply from the 
 
 Target viewport sizes with breakpoint prefixes.
 
-<ResponsiveVariant class="bs-auto" variant="bs-c" prefix="bs">
-  ### Breakpoint variant
-</ResponsiveVariant>
+<ResponsiveVariant prefix="bs" />
 
 ### Hover State
 
 Apply styles conditionally on hover using the `h:` prefix.
 
-<HoverVariant class="bs-auto" variant="bs-c" prefix="bs">
-  ### Hover variant
-</HoverVariant>
+<HoverVariant prefix="bs" />

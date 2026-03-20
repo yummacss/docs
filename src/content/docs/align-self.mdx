@@ -9,124 +9,13 @@ export const meta = {
 
 ## Usage
 
-### Auto
-
-Align the item based on the container's default alignment properties.
-
-<Preview>
-  <div className="d-f as-auto g-4 h-24 w-full">
-    <div className="d-f ai-c f-1 jc-c p-4 bg-indigo-8 c-indigo-5">A</div>
-    <div className="d-f ai-c as-auto f-1 jc-c p-4 bg-indigo c-white">B</div>
-    <div className="d-f ai-c f-1 jc-c p-4 bg-indigo-8 c-indigo-5">C</div>
-  </div>
-</Preview>
-
-```html "as-auto"
-<div class="d-f g-4 h-24 w-full">
-  <div class="d-f ai-c f-1 jc-c p-4 bg-indigo-8 c-indigo-5">A</div>
-  <div class="d-f ai-c as-auto f-1 jc-c p-4 bg-indigo c-white">B</div>
-  <div class="d-f ai-c f-1 jc-c p-4 bg-indigo-8 c-indigo-5">C</div>
-</div>
-```
-
-### Baseline
-
-Align the item along the container's baseline.
-
-<Preview>
-  <div className="d-f as-b g-4 h-24 w-full">
-    <div className="d-f ai-c f-1 jc-c p-4 bg-indigo-8 c-indigo-5">A</div>
-    <div className="d-f ai-c as-b f-1 jc-c p-4 bg-indigo c-white">B</div>
-    <div className="d-f ai-c f-1 jc-c p-4 bg-indigo-8 c-indigo-5">C</div>
-  </div>
-</Preview>
-
-```html "as-b"
-<div class="d-f g-4 h-24 w-full">
-  <div class="d-f ai-c f-1 jc-c p-4 bg-indigo-8 c-indigo-5">A</div>
-  <div class="d-f ai-c as-b f-1 jc-c p-4 bg-indigo c-white">B</div>
-  <div class="d-f ai-c f-1 jc-c p-4 bg-indigo-8 c-indigo-5">C</div>
-</div>
-```
-
-### Center
-
-Center the item within its container.
-
-<Preview>
-  <div className="d-f as-c g-4 h-24 w-full">
-    <div className="d-f ai-c f-1 jc-c p-4 bg-indigo-8 c-indigo-5">A</div>
-    <div className="d-f ai-c as-c f-1 jc-c p-4 bg-indigo c-white">B</div>
-    <div className="d-f ai-c f-1 jc-c p-4 bg-indigo-8 c-indigo-5">C</div>
-  </div>
-</Preview>
-
-```html "as-c"
-<div class="d-f g-4 h-24 w-full">
-  <div class="d-f ai-c f-1 jc-c p-4 bg-indigo-8 c-indigo-5">A</div>
-  <div class="d-f ai-c as-c f-1 jc-c p-4 bg-indigo c-white">B</div>
-  <div class="d-f ai-c f-1 jc-c p-4 bg-indigo-8 c-indigo-5">C</div>
-</div>
-```
-
-### Flex End
-
-Align the item to the end of its container.
-
-<Preview>
-  <div className="d-f as-fe g-4 h-24 w-full">
-    <div className="d-f ai-c f-1 jc-c p-4 bg-indigo-8 c-indigo-5">A</div>
-    <div className="d-f ai-c as-fe f-1 jc-c p-4 bg-indigo c-white">B</div>
-    <div className="d-f ai-c f-1 jc-c p-4 bg-indigo-8 c-indigo-5">C</div>
-  </div>
-</Preview>
-
-```html "as-fe"
-<div class="d-f g-4 h-24 w-full">
-  <div class="d-f ai-c f-1 jc-c p-4 bg-indigo-8 c-indigo-5">A</div>
-  <div class="d-f ai-c as-fe f-1 jc-c p-4 bg-indigo c-white">B</div>
-  <div class="d-f ai-c f-1 jc-c p-4 bg-indigo-8 c-indigo-5">C</div>
-</div>
-```
-
-### Flex Start
-
-Align the item to the start of its container.
-
-<Preview>
-  <div className="d-f as-fs g-4 h-24 w-full">
-    <div className="d-f ai-c f-1 jc-c p-4 bg-indigo-8 c-indigo-5">A</div>
-    <div className="d-f ai-c as-fs f-1 jc-c p-4 bg-indigo c-white">B</div>
-    <div className="d-f ai-c f-1 jc-c p-4 bg-indigo-8 c-indigo-5">C</div>
-  </div>
-</Preview>
-
-```html "as-fs"
-<div class="d-f g-4 h-24 w-full">
-  <div class="d-f ai-c f-1 jc-c p-4 bg-indigo-8 c-indigo-5">A</div>
-  <div class="d-f ai-c as-fs f-1 jc-c p-4 bg-indigo c-white">B</div>
-  <div class="d-f ai-c f-1 jc-c p-4 bg-indigo-8 c-indigo-5">C</div>
-</div>
-```
-
-### Stretch
-
-Stretch the item to fill its container along the cross axis.
-
-<Preview>
-  <div className="d-f as-s g-4 h-24 w-full">
-    <div className="d-f ai-c f-1 jc-c p-4 bg-indigo-8 c-indigo-5">A</div>
-    <div className="d-f ai-c as-s f-1 jc-c p-4 bg-indigo c-white">B</div>
-    <div className="d-f ai-c f-1 jc-c p-4 bg-indigo-8 c-indigo-5">C</div>
-  </div>
-</Preview>
-
-```html "as-s"
-<div class="d-f g-4 h-24 w-full">
-  <div class="d-f ai-c f-1 jc-c p-4 bg-indigo-8 c-indigo-5">A</div>
-  <div class="d-f ai-c as-s f-1 jc-c p-4 bg-indigo c-white">B</div>
-  <div class="d-f ai-c f-1 jc-c p-4 bg-indigo-8 c-indigo-5">C</div>
-</div>
+```html
+<div class="as-auto ..."></div>
+<div class="as-b ..."></div>
+<div class="as-c ..."></div>
+<div class="as-fe ..."></div>
+<div class="as-fs ..."></div>
+<div class="as-s ..."></div>
 ```
 
 ### Responsiveness

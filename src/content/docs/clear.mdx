@@ -9,90 +9,13 @@ export const meta = {
 
 ## Usage
 
-### None
-
-Allow the element to be positioned normally without clearing floats.
-
-<Preview variant="inline">
-  <div className="fl-l w-32 h-32 bg-indigo"></div>
-  <div className="cl-none p-6"></div>
-</Preview>
-
-```html "cl-none"
-<div class="fl-l w-32 h-32 bg-indigo"></div>
-<div class="cl-none p-6"></div>
-```
-
-### Both
-
-Move the element below floating elements on both sides.
-
-<Preview variant="inline">
-  <div className="fl-l w-32 h-32 bg-indigo"></div>
-  <div className="fl-r w-32 h-32 bg-indigo"></div>
-  <div className="cl-b p-6"></div>
-</Preview>
-
-```html "cl-b"
-<div class="fl-l w-32 h-32 bg-indigo"></div>
-<div class="fl-r w-32 h-32 bg-indigo"></div>
-<div class="cl-b p-6"></div>
-```
-
-### Inline End
-
-Move the element below floating elements on the inline end side.
-
-<Preview variant="inline">
-  <div className="fl-r w-32 h-32 bg-indigo"></div>
-  <div className="cl-ie p-6"></div>
-</Preview>
-
-```html "cl-ie"
-<div class="fl-r w-32 h-32 bg-indigo"></div>
-<div class="cl-ie p-6"></div>
-```
-
-### Inline Start
-
-Move the element below floating elements on the inline start side.
-
-<Preview variant="inline">
-  <div className="fl-l w-32 h-32 bg-indigo"></div>
-  <div className="cl-is p-6"></div>
-</Preview>
-
-```html "cl-is"
-<div class="fl-l w-32 h-32 bg-indigo"></div>
-<div class="cl-is p-6"></div>
-```
-
-### Left
-
-Move the element below floating elements on the left side.
-
-<Preview variant="inline">
-  <div className="fl-l w-32 h-32 bg-indigo"></div>
-  <div className="cl-l p-6"></div>
-</Preview>
-
-```html "cl-l"
-<div class="fl-l w-32 h-32 bg-indigo"></div>
-<div class="cl-l p-6"></div>
-```
-
-### Right
-
-Move the element below floating elements on the right side.
-
-<Preview variant="inline">
-  <div className="fl-r w-32 h-32 bg-indigo"></div>
-  <div className="cl-r p-6"></div>
-</Preview>
-
-```html "cl-r"
-<div class="fl-r w-32 h-32 bg-indigo"></div>
-<div class="cl-r p-6"></div>
+```html
+<div class="cl-none ..."></div>
+<div class="cl-b ..."></div>
+<div class="cl-ie ..."></div>
+<div class="cl-is ..."></div>
+<div class="cl-l ..."></div>
+<div class="cl-r ..."></div>
 ```
 
 ### Responsiveness

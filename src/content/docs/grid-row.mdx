@@ -5,94 +5,12 @@ export const meta = {
 
 ## Usage
 
-### Grid Row Span
-
-Control the row span of a grid item.
-
-<Baseline path="css.properties.grid-row" />
-
 <Reference category="grid" name="grid-row" />
 
-Allow an item to span across multiple rows.
-
-<Preview variant="inline">
-    <div className="d-g g-4 gtc-3 h-75">
-      <div className="d-f ai-c gr-s-2 jc-c p-4 bg-indigo c-white">A</div>
-      <div className="d-f ai-c jc-c p-4 bg-indigo-8 c-indigo-5">B</div>
-      <div className="d-f ai-c jc-c p-4 bg-indigo-8 c-indigo-5">C</div>
-      <div className="d-f ai-c jc-c p-4 bg-indigo-8 c-indigo-5">D</div>
-      <div className="d-f ai-c jc-c p-4 bg-indigo-8 c-indigo-5">E</div>
-    </div>
-</Preview>
-
-```html "gr-s-2"
-<div class="d-g g-4 gtc-3 h-75">
-  <div class="d-f ai-c gr-s-2 jc-c p-4 bg-indigo c-white">A</div>
-  <div class="d-f ai-c jc-c p-4 bg-indigo-8 c-indigo-5">B</div>
-  <div class="d-f ai-c jc-c p-4 bg-indigo-8 c-indigo-5">C</div>
-  <div class="d-f ai-c jc-c p-4 bg-indigo-8 c-indigo-5">D</div>
-  <div class="d-f ai-c jc-c p-4 bg-indigo-8 c-indigo-5">E</div>
-</div>
-```
-
-### Grid Row End
-
-Control where a grid item ends within the grid rows.
-
-<Baseline path="css.properties.grid-row-end" />
-
-<Reference category="grid" name="grid-row-end" />
-
-Position an item to end at a specific grid line.
-
-<Preview variant="inline">
-    <div className="p-r">
-      <div className="d-g g-4 gaf-c gtr-3 ta-c">
-          <div className="d-f ai-c gr-s-2 gre-3 jc-c p-4 bg-indigo c-white">A</div>
-          <div className="d-f ai-c gre-4 grs-1 jc-c p-4 bg-indigo-8 c-indigo-5">B</div>
-          <div className="d-f ai-c gre-4 grs-1 jc-c p-4 bg-indigo-8 c-indigo-5">C</div>
-      </div>
-    </div>
-</Preview>
-
-```html "gre-3"
-<div class="p-r">
-  <div class="d-g g-4 gaf-c gtr-3 ta-c">
-    <div class="d-f ai-c gr-s-2 gre-3 jc-c p-4 bg-indigo c-white">A</div>
-    <div class="d-f ai-c gre-4 grs-1 jc-c p-4 bg-indigo-8 c-indigo-5">B</div>
-    <div class="d-f ai-c gre-4 grs-1 jc-c p-4 bg-indigo-8 c-indigo-5">C</div>
-  </div>
-</div>
-```
-
-### Grid Row Start
-
-Control where a grid item begins within the grid rows.
-
-<Baseline path="css.properties.grid-row-start" />
-
-<Reference category="grid" name="grid-row-start" />
-
-Position an item to start at a specific grid line.
-
-<Preview variant="inline">
-    <div className="p-r">
-      <div className="d-g g-4 gaf-c gtr-3 ta-c">
-          <div className="d-f ai-c gr-s-2 grs-2 jc-c p-4 bg-indigo c-white">A</div>
-          <div className="d-f ai-c gre-4 grs-1 jc-c p-4 bg-indigo-8 c-indigo-5">B</div>
-          <div className="d-f ai-c gre-4 grs-1 jc-c p-4 bg-indigo-8 c-indigo-5">C</div>
-      </div>
-    </div>
-</Preview>
-
-```html "grs-2"
-<div class="p-r">
-  <div class="d-g g-4 gaf-c gtr-3 ta-c">
-    <div class="d-f ai-c gr-s-2 grs-2 jc-c p-4 bg-indigo c-white">A</div>
-    <div class="d-f ai-c gre-4 grs-1 jc-c p-4 bg-indigo-8 c-indigo-5">B</div>
-    <div class="d-f ai-c gre-4 grs-1 jc-c p-4 bg-indigo-8 c-indigo-5">C</div>
-  </div>
-</div>
+```html
+<div class="gr-s-2 ..."></div>
+<div class="gre-3 ..."></div>
+<div class="grs-2 ..."></div>
 ```
 
 ### Responsiveness

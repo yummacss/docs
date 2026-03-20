@@ -9,100 +9,13 @@ export const meta = {
 
 ## Usage
 
-### Baseline
-
-<Preview>
-  <div className="c-slate fs-md">
-    <span className="p-1 bc-silver-4 bw-1 va-ba">Baseline</span>
-    <span className="fs-xl">Text</span>
-  </div>
-</Preview>
-
-```html "va-ba"
-<div class="c-slate fs-md">
-    <span class="p-1 bc-silver-4 bw-1 va-ba">Baseline</span>
-    <span class="fs-xl">Text</span>
-</div>
-```
-
-### Middle
-
-<Preview>
-  <div className="c-slate fs-md">
-    <span className="p-1 bc-silver-4 bw-1 va-m">Middle</span>
-    <span className="fs-xl">Text</span>
-  </div>
-</Preview>
-
-```html "va-m"
-<div class="c-slate fs-md">
-    <span class="p-1 bc-silver-4 bw-1 va-m">Middle</span>
-    <span class="fs-xl">Text</span>
-</div>
-```
-
-### Top
-
-<Preview>
-  <div className="c-slate fs-md">
-    <span className="p-1 bc-silver-4 bw-1 va-t">Top</span>
-    <span className="fs-xl">Text</span>
-  </div>
-</Preview>
-
-```html "va-t"
-<div class="c-slate fs-md">
-    <span class="p-1 bc-silver-4 bw-1 va-t">Top</span>
-    <span class="fs-xl">Text</span>
-</div>
-```
-
-### Bottom
-
-<Preview>
-  <div className="c-slate fs-md">
-    <span className="p-1 bc-silver-4 bw-1 va-b">Bottom</span>
-    <span className="fs-xl">Text</span>
-  </div>
-</Preview>
-
-```html "va-b"
-<div class="c-slate fs-md">
-    <span class="p-1 bc-silver-4 bw-1 va-b">Bottom</span>
-    <span class="fs-xl">Text</span>
-</div>
-```
-
-### Sub
-
-<Preview>
-  <div className="c-slate fs-md">
-    <span className="p-1 bc-silver-4 bw-1 va-s">Sub</span>
-    <span className="fs-xl">Text</span>
-  </div>
-</Preview>
-
-```html "va-s"
-<div class="c-slate fs-md">
-    <span class="p-1 bc-silver-4 bw-1 va-s">Sub</span>
-    <span class="fs-xl">Text</span>
-</div>
-```
-
-### Super
-
-<Preview>
-  <div className="c-slate fs-md">
-    <span className="p-1 bc-silver-4 bw-1 va-su">Super</span>
-    <span className="fs-xl">Text</span>
-  </div>
-</Preview>
-
-```html "va-su"
-<div class="c-slate fs-md">
-    <span class="p-1 bc-silver-4 bw-1 va-su">Super</span>
-    <span class="fs-xl">Text</span>
-</div>
+```html
+<div class="ws-n ...">Normal</div>
+<div class="ws-bs ...">Break Spaces</div>
+<div class="ws-nw ...">No Wrap</div>
+<div class="ws-p ...">Pre</div>
+<div class="ws-pl ...">Pre-Line</div>
+<div class="ws-pw ...">Pre-Wrap</div>
 ```
 
 ### Responsiveness
@@ -111,16 +24,16 @@ Use breakpoint prefixes to target different screen sizes. Styles apply from the 
 
 Target viewport sizes with breakpoint prefixes.
 
-<ResponsiveVariant prefix="va" />
+<ResponsiveVariant prefix="ws" />
 
 ### Hover State
 
 Apply styles conditionally on hover using the `h:` prefix.
 
-<HoverVariant prefix="va" />
+<HoverVariant prefix="ws" />
 
 ### Negative Values
 
 Use negative variants to apply negative vertical align values.
 
-<NegativeValues prefix="va" />
+<NegativeValues prefix="ws" />
