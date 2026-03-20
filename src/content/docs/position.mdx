@@ -9,66 +9,8 @@ export const meta = {
 
 ## Usage
 
-### Static
-
-Position the element according to the normal document flow.
-
-<Preview variant="inline">
-  <div className="c-white">
-    <div className="p-s p-4 bg-indigo">Static Position</div>
-    <div className="p-4 bg-indigo-2 c-slate">Another Element</div>
-  </div>
-</Preview>
-
-```html "p-s"
-<div class="c-white">
-  <div class="p-s p-4 bg-indigo">Static Position</div>
-  <div class="p-4 bg-indigo-2 c-slate">Another Element</div>
-</div>
 ```
-
-### Absolute
-
-Position the element relative to its nearest positioned ancestor.
-
-<Preview variant="inline">
-  <div className="p-r h-32 p-4 bg-indigo-2 c-white">
-    <div className="l-4 t-4 p-a p-4 bg-indigo">Absolute Position</div>
-  </div>
-</Preview>
-
-```html "p-a"
-<div class="p-r h-32 p-4 bg-indigo-2 c-white">
-  <div class="l-4 t-4 p-a p-4 bg-indigo">Absolute Position</div>
-</div>
-```
-
-### Fixed
-
-Position the element relative to the viewport.
-
-```html "p-f"
-<div class="c-white">
-  <div class="r-4 t-4 p-f p-4 bg-indigo">Fixed Position</div>
-  <div class="h-s p-4 bg-indigo-2 c-white">Scroll down to see the fixed element.</div>
-</div>
-```
-
-### Relative
-
-Position the element relative to its normal position.
-
-<Preview variant="inline">
-  <div className="c-white">
-    <div className="l-4 t-4 p-r p-4 bg-indigo">Relative Position</div>
-    <div className="p-4 bg-indigo-2 c-slate">Another Element</div>
-  </div>
-```html
-<div class="p-s ...">Static</div>
-<div class="p-a ...">Absolute</div>
-<div class="p-f ...">Fixed</div>
-<div class="p-r ...">Relative</div>
-<div class="p-st ...">Sticky</div>
+...
 ```
 
 ### Responsiveness
