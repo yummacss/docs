@@ -61,22 +61,44 @@ Negative z-index values allow you to place elements behind their siblings or par
 </div>
 ```
 
-## Letter Spacing
+## Sign Toggle
 
-Utilities like `ls-1` (which is `-0.05 em`) already represent negative values. Using the negative syntax `ls--1` will toggle the sign, resulting in a positive value.
+Specific utilities in Yumma CSS use a sign-toggle behavior. Instead of simply prepending a negative sign, the double-dash `--` syntax flips the current sign of the utility's value. This is particularly useful for utilities where the default value is already negative.
+
+### Letter Spacing
+
+Utilities like `ls-1` & `ls-2` are defined with negative CSS values. Using the sign-toggle syntax `ls--1` or `ls--2` flips these to positive values, resulting in wider spacing instead of tighter spacing.
+
+| Class  | Standard Value | Negated Class | Negated Value |
+| ------ | -------------- | ------------- | ------------- |
+| `ls-0` | `0`            | `ls--0`       | `0`           |
+| `ls-1` | `-0.05 em`     | `ls--1`       | `0.05 em`     |
+| `ls-2` | `-0.025 em`    | `ls--2`       | `0.025 em`    |
+| `ls-3` | `0.025 em`     | `ls--3`       | `-0.025 em`   |
+| `ls-4` | `0.05 em`      | `ls--4`       | `-0.05 em`    |
+| `ls-5` | `0.1 em`       | `ls--5`       | `-0.1 em`     |
 
 <Hint icon="info">
-  Negative spacing utilities toggle the inherent sign of the value definition.
+  Sign-toggle behavior applies to any utility where the defined CSS value already starts with a negative number.
 </Hint>
 
 <Preview>
-  <div className="d-f fd-c g-2">
-    <p className="ls-2 c-slate">Tight spacing (ls-2)</p>
-    <p className="ls--2 c-slate">Wide spacing (ls--2)</p>
+  <div className="d-f fd-c g-4">
+    <div>
+      <p className="fs-xs c-slate tt-u fw-700 mb-1">Standard (Tight)</p>
+      <p className="ls-1 c-indigo fs-xl fw-600">The quick brown fox</p>
+    </div>
+    <div>
+      <p className="fs-xs c-slate tt-u fw-700 mb-1">Negated (Wide)</p>
+      <p className="ls--1 c-indigo fs-xl fw-600">The quick brown fox</p>
+    </div>
   </div>
 </Preview>
 
-```html "ls-2" "ls--2"
-<p class="ls-2 c-slate">Tight spacing (-0.025em)</p>
-<p class="ls--2 c-slate">Wide spacing (0.025em)</p>
+```html "ls-1" "ls--1"
+<!-- Tight spacing (-0.05 em) -->
+<p class="ls-1">The quick brown fox</p>
+
+<!-- Wide spacing (0.05 em) -->
+<p class="ls--1">The quick brown fox</p>
 ```

@@ -80,6 +80,22 @@ export default defineConfig({
 });
 ```
 
+<Hint icon="info">
+  When a prefix is set, all utilities must include it—including entries in the `safelist`. For example, if your prefix is `ui`, use `ui-bg-red` instead of `bg-red`.
+</Hint>
+
+<Preview>
+  <button className="ui-bg-indigo ui-c-white ui-p-4 ui-br-1">
+    Prefixed Button
+  </button>
+</Preview>
+
+```html
+<button class="ui-bg-indigo ui-c-white ui-p-4 ui-br-1">
+  Prefixed Button
+</button>
+```
+
 ### Theme
 
 Extends or overrides default design tokens.
@@ -129,7 +145,7 @@ export default defineConfig({
 
 ### Safelist
 
-An array of utility classes that should always be generated in the final CSS output, regardless of whether they are present in your source files.
+An array of utility classes that should always be generated in the final CSS output, regardless of whether they are present in your source files. Use this for classes that are added dynamically via JavaScript.
 
 ```mjs title="yumma.config.mjs" mark={7}
 import { defineConfig } from "yummacss";
@@ -138,6 +154,14 @@ export default defineConfig({
   safelist: ["bg-red", "c-white", "fw-700"],
 });
 ```
+
+<Hint icon="info">
+  Use `safelist` for classes generated dynamically at runtime. For example, in React, a template literal like `` `bg-${color}-5` `` cannot be detected by the file scanner, making a safelist necessary.
+</Hint>
+
+<Hint icon="info">
+  The compiler includes safelisted classes even if they are missing from your source files.
+</Hint>
 
 ## Generate styles
 
