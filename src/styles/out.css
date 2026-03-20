@@ -588,10 +588,6 @@ summary {
   background-color: #babcf9cc;
 }
 
-.bg-indigo-5 {
-  background-color: #8f91f5;
-}
-
 .bg-indigo-6\/25 {
   background-color: #797bf340;
 }
@@ -1345,6 +1341,18 @@ summary {
   caption-side: top;
 }
 
+.ct-is {
+  container-type: inline-size;
+}
+
+.ct-none {
+  container-type: none;
+}
+
+.ct-s {
+  container-type: size;
+}
+
 .d-b {
   display: block;
 }
@@ -2077,6 +2085,10 @@ summary {
   background-color: #d7f8f0;
 }
 
+.h\:bg-indigo:hover {
+  background-color: #6366f1;
+}
+
 .h\:bg-indigo-1:hover {
   background-color: #e6e7fd;
 }
@@ -2099,6 +2111,10 @@ summary {
 
 .h\:bg-lime-8:hover {
   background-color: #5f9310;
+}
+
+.h\:bg-red:hover {
+  background-color: #e63946;
 }
 
 .h\:bg-red-1:hover {
@@ -2359,8 +2375,8 @@ summary {
   line-height: 2;
 }
 
-.ls--2 {
-  letter-spacing: .025em;
+.ls--1 {
+  letter-spacing: .05em;
 }
 
 .ls-0 {

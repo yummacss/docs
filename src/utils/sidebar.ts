@@ -238,6 +238,7 @@ export const sidebarConfig: SidebarConfig = [
     items: [
       { title: "Clear", slug: "clear" },
       { title: "Columns", slug: "columns" },
+      { title: "Container Type", slug: "container-type" },
       { title: "Display", slug: "display" },
       { title: "Float", slug: "float" },
       { title: "Isolation", slug: "isolation" },

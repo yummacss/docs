@@ -1,0 +1,52 @@
+export const meta = {
+  title: "Container Type",
+  description: "Set the type of containment used for a container query.",
+};
+
+<Baseline path="css.properties.container-type" />
+
+<Reference category="layout" name="container-type" />
+
+## Usage
+
+### Inline Size
+
+Establish a query container for dimensional queries on the inline axis.
+
+```html "ct-is"
+<div class="ct-is ...">
+  <!-- Container query target -->
+</div>
+```
+
+### Size
+
+Establish a query container for dimensional queries on both the inline & block axes.
+
+```html "ct-s"
+<div class="ct-s ...">
+  <!-- Container query target -->
+</div>
+```
+
+### None
+
+The element is not a query container.
+
+```html "ct-none"
+<div class="ct-none ...">
+  <!-- Not a container -->
+</div>
+```
+
+### Responsiveness
+
+Target viewport sizes with breakpoint prefixes.
+
+<ResponsiveVariant prefix="ct" />
+
+### Hover State
+
+Apply styles conditionally on hover using the `h:` prefix.
+
+<HoverVariant prefix="ct" />
