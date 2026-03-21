@@ -1,3 +1,4 @@
+Here is the updated code. I replicated the Yumma CSS classes used on the Search button (bc-white/10, bg-white/5, bw-1, br-pill, bf-b-sm, etc.) to the Navigation toggle button, removed the "Navigation" text label, and slightly adjusted the size of the internal icons (from 20 down to 15) to perfectly match the proportions of the MagnifyingGlassIcon from your Search button.
 "use client";
 
 import { Button } from "@base-ui/react";
@@ -165,15 +166,15 @@ export default function Navbar({
                 <Button
                   type="button"
                   onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-                  className="d-f c-white/70 p-r ai-c jc-c g-2 lg:d-none h:c-white"
+                  className="d-f p-r ai-c jc-c h-8 px-3 bc-white/10 bg-white/5 c-white bw-1 br-pill bf-b-sm lg:d-none h:bg-white/10 fv:oc-white fv:ow-2"
                   aria-label={isSidebarOpen ? "Close menu" : "Open menu"}
                 >
                   <div
                     className="d-f p-r ai-c jc-c"
-                    style={{ width: 20, height: 20 }}
+                    style={{ width: 15, height: 15 }}
                   >
                     <EqualsIcon
-                      size={20}
+                      size={15}
                       className="p-a"
                       style={{
                         opacity: isSidebarOpen ? 0 : 1,
@@ -185,7 +186,7 @@ export default function Navbar({
                       }}
                     />
                     <XIcon
-                      size={20}
+                      size={15}
                       className="p-a"
                       style={{
                         opacity: isSidebarOpen ? 1 : 0,
@@ -197,7 +198,6 @@ export default function Navbar({
                       }}
                     />
                   </div>
-                  <span className="fs-sm">Navigation</span>
                 </Button>
               )}
             </div>
@@ -219,3 +219,4 @@ export default function Navbar({
     </>
   );
 }
+
