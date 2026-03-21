@@ -1,4 +1,3 @@
-Here is the updated code. I replicated the Yumma CSS classes used on the Search button (bc-white/10, bg-white/5, bw-1, br-pill, bf-b-sm, etc.) to the Navigation toggle button, removed the "Navigation" text label, and slightly adjusted the size of the internal icons (from 20 down to 15) to perfectly match the proportions of the MagnifyingGlassIcon from your Search button.
 "use client";
 
 import { Button } from "@base-ui/react";
