@@ -28,14 +28,12 @@ Yumma CSS breakpoints reference:
 
 You can extend or override the default media query breakpoints using the `theme.screens` configuration option in your `yumma.config.mjs` file.
 
-```mjs title="yumma.config.mjs" mark={5-11}
+```mjs title="yumma.config.mjs" mark={4-10}
 import { defineConfig } from "yummacss";
 
 export default defineConfig({
   theme: {
     screens: {
-      tablet: "48rem",
-      desktop: "64rem",
       "3xl": "112rem",
     }
   }
@@ -45,7 +43,7 @@ export default defineConfig({
 Using custom breakpoints works exactly the same as the defaults:
 
 ```html
-<div class="tablet:bg-blue desktop:bg-red 3xl:bg-green"></div>
+<div class="3xl:bg-indigo"></div>
 ```
 
 ## Use Media Queries
