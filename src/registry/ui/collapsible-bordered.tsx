@@ -12,7 +12,7 @@ export default function ExampleCollapsible() {
     <Collapsible.Root
       open={open}
       onOpenChange={setOpen}
-      className="d-f fd-c w-64 bg-white bc-silver-3 bw-1 br-3 o-h"
+      className="d-f fd-c w-64 bg-white bc-silver-3 bw-1 br-lg o-h"
     >
       <Collapsible.Trigger className="d-f b-0 ai-c jc-sb g-2 w-full px-4 py-3 bg-transparent ta-l c-p h:bg-silver-1 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6">
         <span className="fs-sm fw-600 c-slate-9">System requirements</span>

@@ -9,7 +9,7 @@ export default function ExampleContextMenu() {
 
   return (
     <ContextMenu.Root open={open} onOpenChange={setOpen}>
-      <ContextMenu.Trigger className="d-f ai-c jc-c h-48 w-60 bc-silver-2 c-slate-10 bw-1 br-2 fs-sm fw-600 us-none">
+      <ContextMenu.Trigger className="d-f ai-c jc-c h-48 w-60 bc-silver-2 c-slate-10 bw-1 br-md fs-sm fw-600 us-none">
         Right click here
       </ContextMenu.Trigger>
 
@@ -26,11 +26,11 @@ export default function ExampleContextMenu() {
                     transition={{ duration: 0.1, ease: "easeOut" }}
                   />
                 }
-                className="py-1 bg-white bc-silver-2 c-slate-10 bw-1 br-2 bs-o-lg"
+                className="py-1 bg-white bc-silver-2 c-slate-10 bw-1 br-md bs-o-lg"
               >
                 <ContextMenu.Item
                   className={(state) =>
-                    `d-f py-2 pr-8 pl-4 fs-sm us-none c-p br-1 mx-1 ${
+                    `d-f py-2 pr-8 pl-4 fs-sm us-none c-p br-sm mx-1 ${
                       state.highlighted ? "bg-silver-1" : "h:bg-silver-1"
                     }`
                   }
@@ -39,7 +39,7 @@ export default function ExampleContextMenu() {
                 </ContextMenu.Item>
                 <ContextMenu.Item
                   className={(state) =>
-                    `d-f py-2 pr-8 pl-4 fs-sm us-none c-p br-1 mx-1 ${
+                    `d-f py-2 pr-8 pl-4 fs-sm us-none c-p br-sm mx-1 ${
                       state.highlighted ? "bg-silver-1" : "h:bg-silver-1"
                     }`
                   }
@@ -48,7 +48,7 @@ export default function ExampleContextMenu() {
                 </ContextMenu.Item>
                 <ContextMenu.Item
                   className={(state) =>
-                    `d-f py-2 pr-8 pl-4 fs-sm us-none c-p br-1 mx-1 ${
+                    `d-f py-2 pr-8 pl-4 fs-sm us-none c-p br-sm mx-1 ${
                       state.highlighted ? "bg-silver-1" : "h:bg-silver-1"
                     }`
                   }
@@ -60,7 +60,7 @@ export default function ExampleContextMenu() {
 
                 <ContextMenu.Item
                   className={(state) =>
-                    `d-f py-2 pr-8 pl-4 fs-sm us-none c-p br-1 mx-1 ${
+                    `d-f py-2 pr-8 pl-4 fs-sm us-none c-p br-sm mx-1 ${
                       state.highlighted ? "bg-silver-1" : "h:bg-silver-1"
                     }`
                   }
@@ -69,7 +69,7 @@ export default function ExampleContextMenu() {
                 </ContextMenu.Item>
                 <ContextMenu.Item
                   className={(state) =>
-                    `d-f py-2 pr-8 pl-4 fs-sm us-none c-p br-1 mx-1 ${
+                    `d-f py-2 pr-8 pl-4 fs-sm us-none c-p br-sm mx-1 ${
                       state.highlighted ? "bg-silver-1" : "h:bg-silver-1"
                     }`
                   }
@@ -81,7 +81,7 @@ export default function ExampleContextMenu() {
 
                 <ContextMenu.Item
                   className={(state) =>
-                    `d-f py-2 pr-8 pl-4 fs-sm us-none c-p c-red br-1 mx-1 ${
+                    `d-f py-2 pr-8 pl-4 fs-sm us-none c-p br-sm mx-1 ${
                       state.highlighted ? "bg-red-1" : "h:bg-red-1"
                     }`
                   }

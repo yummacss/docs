@@ -33,13 +33,13 @@ export default function ExamplePreviewCard() {
                     transition={{ duration: 0.15, ease: "easeOut" }}
                   />
                 }
-                className="d-f fd-c g-2 w-64 p-3 bg-white bc-silver-2 br-2 bw-1 bs-o-lg"
+                className="d-f fd-c g-2 w-64 p-3 bg-white bc-silver-2 br-md bw-1 bs-o-lg"
               >
                 {/* biome-ignore lint: Using img for external URL */}
                 <img
                   width="232"
                   height="140"
-                  className="d-b w-full h-auto br-2"
+                  className="d-b w-full h-auto br-md"
                   src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=464&h=280"
                   alt="MacBook with code on screen"
                 />

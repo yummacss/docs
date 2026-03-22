@@ -18,7 +18,7 @@ export default function ExampleTabs() {
     <Tabs.Root
       value={selected}
       onValueChange={setSelected}
-      className="w-80 bg-white bc-silver-2 br-2 bw-1"
+      className="w-80 bg-white bc-silver-2 br-md bw-1"
     >
       <Tabs.List className="d-f p-r g-1 p-1 bc-silver-2 bbw-1">
         {tabs.map((tab) => {
@@ -28,14 +28,14 @@ export default function ExampleTabs() {
             <Tabs.Tab
               key={tab.value}
               value={tab.value}
-              className={`p-r zi-10 fx-1 d-f ai-c jc-c g-2 h-9 bw-0 br-1 bg-transparent c-p us-none fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+              className={`p-r zi-10 fx-1 d-f ai-c jc-c g-2 h-9 bw-0 br-sm bg-transparent c-p us-none fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
                 isSelected ? "c-white" : "c-slate-8 h:c-slate-10"
               }`}
             >
               {isSelected && (
                 <motion.div
                   layoutId="tabs-indicator"
-                  className="p-a ix-0 iy-0 zi-0 bg-indigo br-1"
+                  className="p-a ix-0 iy-0 zi-0 bg-indigo br-sm"
                   transition={{ duration: 0.2, ease: "easeInOut" }}
                 />
               )}

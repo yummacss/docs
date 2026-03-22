@@ -25,7 +25,7 @@ export default function ExampleToggleGroup() {
     <ToggleGroup
       value={selected}
       onValueChange={setSelected}
-      className="d-f p-r g-1 p-1 bg-white bc-silver-2 br-2 bw-1"
+      className="d-f p-r g-1 p-1 bg-white bc-silver-2 br-md bw-1"
     >
       {toggleItems.map((item) => {
         const isSelected = selected.includes(item.value);
@@ -35,14 +35,14 @@ export default function ExampleToggleGroup() {
             key={item.value}
             aria-label={item.label}
             value={item.value}
-            className={`p-r zi-10 d-f w-9 h-9 ai-c jc-c bw-0 br-1 us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 bg-transparent ${
+            className={`p-r zi-10 d-f w-9 h-9 ai-c jc-c bw-0 br-sm us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 bg-transparent ${
               isSelected ? "c-white" : "c-slate-8 h:c-slate-10"
             }`}
           >
             {isSelected && (
               <motion.div
                 layoutId="toggle-indicator"
-                className="p-a ix-0 iy-0 zi-0 bg-indigo br-1"
+                className="p-a ix-0 iy-0 zi-0 bg-indigo br-sm"
                 transition={{ duration: 0.2, ease: "easeInOut" }}
               />
             )}

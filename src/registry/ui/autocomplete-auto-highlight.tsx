@@ -24,7 +24,7 @@ export default function ExampleAutocomplete() {
         <Autocomplete.Input
           id="auto-highlight-input"
           placeholder="e.g. Next.js"
-          className="h-10 w-64 pl-4 bg-white bc-silver-3 c-slate-12 bw-1 br-2 fs-sm fv:os-s fv:ow-2 fv:oo--1 fv:oc-indigo-6"
+          className="h-10 w-64 pl-4 bg-white bc-silver-3 c-slate-12 bw-1 br-md fs-sm fv:os-s fv:ow-2 fv:oo--1 fv:oc-indigo-6"
         />
       </div>
 
@@ -41,7 +41,7 @@ export default function ExampleAutocomplete() {
                     transition={{ duration: 0.1, ease: "easeOut" }}
                   />
                 }
-                className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-2 bs-o-lg"
+                className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-md bs-o-lg"
               >
                 <Autocomplete.List className="o-y-auto max-h-72 py-1 ow-0">
                   {(item: string) => (
@@ -51,7 +51,7 @@ export default function ExampleAutocomplete() {
                       render={(props, state) => (
                         <div
                           {...props}
-                          className={`py-2 px-3 fs-sm us-none c-d c-p br-1 mx-1 c-slate-10 ${
+                          className={`py-2 px-3 fs-sm us-none c-d c-p br-sm mx-1 c-slate-10 ${
                             state.highlighted ? "bg-silver-1" : "h:bg-silver-1"
                           }`}
                         >

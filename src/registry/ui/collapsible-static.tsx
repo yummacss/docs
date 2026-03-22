@@ -11,11 +11,11 @@ export default function ExampleCollapsible() {
     <Collapsible.Root
       open={open}
       onOpenChange={setOpen}
-      className="d-f fd-c w-72 bg-white bc-silver-3 bw-1 br-3"
+      className="d-f fd-c w-72 bg-white bc-silver-3 bw-1 br-lg"
     >
       <Collapsible.Trigger className="d-f b-0 ai-c jc-sb g-3 w-full px-4 py-3 bg-transparent ta-l c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6">
         <div className="d-f ai-c g-3">
-          <span className="d-f ai-c jc-c w-8 h-8 br-2 bg-silver-1 bc-silver-3 bw-1">
+          <span className="d-f ai-c jc-c w-8 h-8 br-md bg-silver-1 bc-silver-3 bw-1">
             <HardDriveIcon size={16} className="c-slate-6" />
           </span>
           <div className="d-f fd-c g-0">
@@ -46,7 +46,7 @@ export default function ExampleCollapsible() {
             <span className="fs-xs fw-500 c-slate-7">RAM</span>
             <span className="fs-xs fw-600 c-slate-8">4 GB minimum</span>
           </div>
-          <div className="d-f ai-c g-2 px-4 py-3 bg-silver-1 bbr-3">
+          <div className="d-f ai-c g-2 px-4 py-3 bg-silver-1 bbr-lg">
             <InfoIcon size={13} className="c-slate-6 fs-0" />
             <span className="fs-xs c-slate-7">
               16 GB RAM recommended for large projects

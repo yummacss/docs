@@ -40,7 +40,7 @@ export default function ExampleCombobox() {
         <label htmlFor="skills-input" className="fw-600">
           Skills
         </label>
-        <div className="d-f fw-w ai-c g-1 min-h-10 w-72 px-2 py-1 bg-white bc-silver-3 bw-1 br-2 fw:os-s fw:ow-2 fw:oo-2 fw:oc-indigo-6">
+        <div className="d-f fw-w ai-c g-1 min-h-10 w-72 px-2 py-1 bg-white bc-silver-3 bw-1 br-md fw:os-s fw:ow-2 fw:oo-2 fw:oc-indigo-6">
           <Combobox.Chips className="d-c g-1">
             {
               ((chip: string) => (
@@ -80,7 +80,7 @@ export default function ExampleCombobox() {
                     transition={{ duration: 0.1, ease: "easeOut" }}
                   />
                 }
-                className="o-h w-72 bg-white bc-silver-2 c-slate-10 bw-1 br-2 bs-o-lg"
+                className="o-h w-72 bg-white bc-silver-2 c-slate-10 bw-1 br-md bs-o-lg"
               >
                 <Combobox.List
                   className="o-y-auto py-1 ow-0"
@@ -93,7 +93,7 @@ export default function ExampleCombobox() {
                       render={(props, state) => (
                         <div
                           {...props}
-                          className={`d-f ai-c g-2 py-2 px-3 fs-sm c-slate-8 us-none c-d c-p br-1 mx-1 ${
+                          className={`d-f ai-c g-2 py-2 px-3 fs-sm c-slate-8 us-none c-d c-p br-sm mx-1 ${
                             state.highlighted ? "bg-silver-1" : "h:bg-silver-1"
                           }`}
                         >

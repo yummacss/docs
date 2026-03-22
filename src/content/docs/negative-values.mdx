@@ -32,14 +32,14 @@ Use negative margins to overlap elements or create unique layouts. Negative marg
 Apply negative offsets to position elements outside their parents or create overlapping effects. This works with `t-`, `r-`, `b-`, `l-` & `i-` utilities.
 
 <Preview>
-  <div className="p-r w-40 h-40 bg-silver-2 br-2">
-    <div className="p-a t--4 l--4 w-12 h-12 bg-indigo br-1"></div>
+  <div className="p-r w-40 h-40 bg-silver-2 br-md">
+    <div className="p-a t--4 l--4 w-12 h-12 bg-indigo br-sm"></div>
   </div>
 </Preview>
 
 ```html "t--4" "l--4"
-<div class="p-r w-40 h-40 bg-silver-2 br-2">
-  <div class="p-a t--4 l--4 w-12 h-12 bg-indigo br-1"></div>
+<div class="p-r w-40 h-40 bg-silver-2 br-md">
+  <div class="p-a t--4 l--4 w-12 h-12 bg-indigo br-sm"></div>
 </div>
 ```
 
@@ -48,14 +48,14 @@ Apply negative offsets to position elements outside their parents or create over
 Negative z-index values allow you to place elements behind their siblings or parents. Use `zi--{value}` to target negative stack levels.
 
 <Preview>
-  <div className="d-f p-r ai-c jc-c w-full h-32 bg-silver-1 br-2">
+  <div className="d-f p-r ai-c jc-c w-full h-32 bg-silver-1 br-md">
     <div className="p-a zi--10 w-24 h-24 bg-indigo/20 br-pill"></div>
     <span className="c-slate fw-600">Background Layer</span>
   </div>
 </Preview>
 
 ```html "zi--10"
-<div class="d-f p-r ai-c jc-c w-full h-32 bg-silver-1 br-2">
+<div class="d-f p-r ai-c jc-c w-full h-32 bg-silver-1 br-md">
   <div class="p-a zi--10 w-24 h-24 bg-indigo/20 br-pill"></div>
   <span>Background Layer</span>
 </div>

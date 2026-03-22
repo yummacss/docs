@@ -80,7 +80,7 @@ export default function Reference({ category, name }: Props) {
 
   if (variants.length === 0) {
     return (
-      <div className="c-white/60 p-4 mb-6 bg-midnight br-1 ta-c">
+      <div className="c-white/60 p-4 mb-6 bg-midnight br-sm ta-c">
         Something went wrong while fetching the data.
       </div>
     );
@@ -100,14 +100,14 @@ export default function Reference({ category, name }: Props) {
   const utilityPrefix = basePrefix;
 
   return (
-    <div className="o-h mb-6 bc-clay bg-midnight bw-1 br-1">
+    <div className="o-h mb-6 bc-clay bg-midnight bw-1 br-sm">
       <Accordion>
         <AccordionItem className="bw-0">
           <AccordionTrigger className="bg-transparent">
             <span className="d-f ai-c g-2">
               <code className="c-mauve">{utilityPrefix}-*</code>
               <span
-                className="px-2 py-1 bg-clay br-1 fs-xs"
+                className="px-2 py-1 bg-clay br-sm fs-xs"
                 style={{ color: "#8892c2" }}
               >
                 {variants.length} utilities

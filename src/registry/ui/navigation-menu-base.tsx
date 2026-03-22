@@ -54,9 +54,9 @@ export default function ExampleNavigationMenu() {
                 <li key={item.href}>
                   <NavigationMenu.Link
                     href={item.href}
-                    className="d-f c-inherit ai-fs g-3 p-2 br-2 td-n h:bg-silver-1"
+                    className="d-f c-inherit ai-fs g-3 p-2 br-md td-n h:bg-silver-1"
                   >
-                    <span className="d-f ai-c jc-c fs-0 w-8 h-8 bg-white bc-silver-2 c-indigo br-2 bw-1 bs-o-xs">
+                    <span className="d-f ai-c jc-c fs-0 w-8 h-8 bg-white bc-silver-2 c-indigo br-md bw-1 bs-o-xs">
                       {item.icon}
                     </span>
                     <div>
@@ -82,9 +82,9 @@ export default function ExampleNavigationMenu() {
                 <li key={item.href}>
                   <NavigationMenu.Link
                     href={item.href}
-                    className="d-f c-inherit ai-fs g-3 p-2 br-2 td-n h:bg-silver-1"
+                    className="d-f c-inherit ai-fs g-3 p-2 br-md td-n h:bg-silver-1"
                   >
-                    <span className="d-f ai-c jc-c fs-0 w-8 h-8 bg-white bc-silver-2 c-indigo br-2 bw-1 bs-o-xs">
+                    <span className="d-f ai-c jc-c fs-0 w-8 h-8 bg-white bc-silver-2 c-indigo br-md bw-1 bs-o-xs">
                       {item.icon}
                     </span>
                     <div>
@@ -122,7 +122,7 @@ export default function ExampleNavigationMenu() {
                 transition={{ duration: 0.15, ease: "easeOut" }}
               />
             }
-            className="o-h bg-white bc-silver-2 br-3 bw-1 bs-o-lg"
+            className="o-h bg-white bc-silver-2 br-lg bw-1 bs-o-lg"
           >
             <NavigationMenu.Viewport className="p-r o-h w-full h-full" />
           </NavigationMenu.Popup>

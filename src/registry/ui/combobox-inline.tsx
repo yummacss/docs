@@ -24,7 +24,7 @@ function ItemIcon({ selected }: { selected: boolean }) {
 
 export default function ExampleCombobox() {
   return (
-    <div className="d-f fd-c g-0 w-64 bg-white bc-silver-3 bw-1 br-2 o-h">
+    <div className="d-f fd-c g-0 w-64 bg-white bc-silver-3 bw-1 br-md o-h">
       <Combobox.Root inline items={frameworks}>
         <div className="d-f ai-c g-2 px-3 bbw-1 bc-silver-3">
           <MagnifyingGlassIcon size={14} className="c-slate-4 fs-0" />
@@ -41,7 +41,7 @@ export default function ExampleCombobox() {
               render={(props, state) => (
                 <div
                   {...props}
-                  className={`d-f ai-c g-2 py-2 px-3 fs-sm c-slate-8 us-none c-d c-p br-1 mx-1 ${
+                  className={`d-f ai-c g-2 py-2 px-3 fs-sm c-slate-8 us-none c-d c-p br-sm mx-1 ${
                     state.highlighted ? "bg-silver-1" : "h:bg-silver-1"
                   }`}
                 >
