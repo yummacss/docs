@@ -40,6 +40,11 @@ export const redirects = [
     destination: "/docs/styling-elements",
     permanent: true,
   },
+  {
+    source: "/docs/code-editor",
+    destination: "docs/ide-support",
+    permanent: true,
+  },
   ...[
     "/docs/api-reference",
     "/docs/core-api",
