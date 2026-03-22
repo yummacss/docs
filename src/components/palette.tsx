@@ -33,9 +33,9 @@ export default function Palette({
             gridTemplateColumns: `repeat(${scale.length}, minmax(0, 1fr))`,
           }}
         >
-          {scale.map((label, index) => (
+          {scale.map((label) => (
             <div
-              key={`header-${label}-${index}`}
+              key={`header-${label}`}
               className="d-f ai-c jc-c c-white fs-sm"
             >
               {label}
@@ -66,7 +66,7 @@ export default function Palette({
             >
               {shades.map((shade, index) => (
                 <ColorSwatch
-                  key={`${colorItem.name}-${index}`}
+                  key={`${colorItem.name}-${scale[index]}`}
                   name={colorItem.name}
                   shade={shade}
                   label={scale[index]}
