@@ -221,7 +221,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                               {/* Icon or Color Swatch */}
                               {item.category === "colors" && item.color ? (
                                 <div
-                                  className="fs-0 w-4 h-4 br-1"
+                                  className="fs-0 w-4 h-4 br-sm"
                                   style={{
                                     backgroundColor: item.color,
                                     border: getBorderColor(item.color),
@@ -271,7 +271,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                   <div className="d-f ai-c g-4">
                     <span className="d-f ai-c g-1">
                       <kbd
-                        className="d-f ai-c p-1 bc-white/10 br-1 bw-1"
+                        className="d-f ai-c p-1 bc-white/10 br-sm bw-1"
                         style={{
                           backgroundColor: "#151724",
                         }}
@@ -279,7 +279,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                         <ArrowUpIcon weight="bold" size={16} />
                       </kbd>
                       <kbd
-                        className="d-f ai-c p-1 bc-white/10 br-1 bw-1"
+                        className="d-f ai-c p-1 bc-white/10 br-sm bw-1"
                         style={{
                           backgroundColor: "#151724",
                         }}
@@ -290,7 +290,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                     </span>
                     <span className="d-f ai-c g-1">
                       <kbd
-                        className="d-f ai-c p-1 bc-white/10 br-1 bw-1"
+                        className="d-f ai-c p-1 bc-white/10 br-sm bw-1"
                         style={{
                           backgroundColor: "#151724",
                         }}
@@ -302,7 +302,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                   </div>
                   <span className="d-f ai-c g-1">
                     <kbd
-                      className="d-f ai-c p-1 bc-white/10 br-1 bw-1"
+                      className="d-f ai-c p-1 bc-white/10 br-sm bw-1"
                       style={{
                         backgroundColor: "#151724",
                       }}

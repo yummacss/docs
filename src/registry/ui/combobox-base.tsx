@@ -41,17 +41,17 @@ export default function ExampleCombobox() {
           <Combobox.Input
             id="country-input"
             placeholder="e.g. United States"
-            className="h-10 w-64 pl-4 pr-16 bg-white bc-silver-3 c-slate-10 bw-1 br-2 fs-sm fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
+            className="h-10 w-64 pl-4 pr-16 bg-white bc-silver-3 c-slate-10 bw-1 br-md fs-sm fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
           />
           <div className="d-f p-a r-2 b-0 ai-c jc-c h-10 c-slate-6">
             <Combobox.Clear
-              className="d-f b-0 ai-c jc-c w-6 h-6 p-0 bg-transparent c-slate-6 br-1 c-p h:c-slate-10"
+              className="d-f b-0 ai-c jc-c w-6 h-6 p-0 bg-transparent c-slate-6 br-sm c-p h:c-slate-10"
               aria-label="Clear selection"
             >
               <XIcon size={16} />
             </Combobox.Clear>
             <Combobox.Trigger
-              className="d-f b-0 ai-c jc-c w-6 h-6 p-0 bg-transparent c-slate-6 br-1 c-p h:c-slate-10"
+              className="d-f b-0 ai-c jc-c w-6 h-6 p-0 bg-transparent c-slate-6 br-sm c-p h:c-slate-10"
               aria-label="Open popup"
             >
               <CaretDownIcon size={16} />
@@ -73,7 +73,7 @@ export default function ExampleCombobox() {
                     transition={{ duration: 0.1, ease: "easeOut" }}
                   />
                 }
-                className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-2 bs-o-lg"
+                className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-md bs-o-lg"
               >
                 <Combobox.List
                   className="o-y-auto py-1 ow-0"
@@ -84,7 +84,7 @@ export default function ExampleCombobox() {
                       key={country.code}
                       value={country.name}
                       className={(state) =>
-                        `d-f ai-c g-2 py-2 px-3 fs-sm us-none c-d c-p br-1 mx-1 ${
+                        `d-f ai-c g-2 py-2 px-3 fs-sm us-none c-d c-p br-sm mx-1 ${
                           state.highlighted ? "bg-silver-1" : "h:bg-silver-1"
                         }`
                       }

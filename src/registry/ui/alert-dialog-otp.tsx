@@ -35,7 +35,7 @@ export default function ExampleAlertDialog() {
     <AlertDialog.Root open={open} onOpenChange={setOpen}>
       <AlertDialog.Trigger
         render={
-          <Button className="b-0 px-3 py-2 bg-white bc-silver-2 c-slate-10 br-2 bw-1 fw-600 bs-o-xs tp-c tdu-150 ttf-io us-none c-p h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+          <Button className="b-0 px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-600 bs-o-xs tp-c tdu-150 ttf-io us-none c-p h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
         }
       >
         Compose
@@ -64,7 +64,7 @@ export default function ExampleAlertDialog() {
                     transition={{ type: "spring", stiffness: 500, damping: 30 }}
                   />
                 }
-                className="o-h w-full bg-white bc-silver-2 c-slate-12 br-2 bw-1 bs-o-lg"
+                className="o-h w-full bg-white bc-silver-2 c-slate-12 br-md bw-1 bs-o-lg"
                 style={{ maxWidth: "600px" }}
               >
                 <div className="d-f jc-sb ai-c px-4 py-2 bg-silver-1/50">
@@ -73,7 +73,7 @@ export default function ExampleAlertDialog() {
                   </AlertDialog.Title>
                   <AlertDialog.Close
                     render={
-                      <Button className="d-f b-0 ai-c jc-c w-7 h-7 bg-transparent c-slate-6 br-2 c-p h:bg-silver-2 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+                      <Button className="d-f b-0 ai-c jc-c w-7 h-7 bg-transparent c-slate-6 br-md c-p h:bg-silver-2 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
                     }
                   >
                     <XIcon size={16} weight="bold" aria-hidden />
@@ -81,7 +81,7 @@ export default function ExampleAlertDialog() {
                 </div>
                 <div className="bc-silver-2 bbw-1" />
                 <div className="d-f ai-c g-3 px-4 py-3 bg-indigo-1/50">
-                  <span className="d-f ai-c jc-c fs-0 w-10 h-10 bg-white bc-silver-2 c-indigo br-2 bw-1 bs-o-xs">
+                  <span className="d-f ai-c jc-c fs-0 w-10 h-10 bg-white bc-silver-2 c-indigo br-md bw-1 bs-o-xs">
                     <PaperPlaneTiltIcon size={20} weight="bold" />
                   </span>
                   <div>
@@ -107,7 +107,7 @@ export default function ExampleAlertDialog() {
                         id="mail-to"
                         type="email"
                         placeholder="recipient@example.com"
-                        className="h-10 w-full pl-3 bg-white bc-silver-3 c-slate-10 br-2 bw-1 fs-md fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
+                        className="h-10 w-full pl-3 bg-white bc-silver-3 c-slate-10 br-md bw-1 fs-md fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
                       />
                     </Field.Root>
                     <Field.Root className="d-f fd-c g-2">
@@ -120,7 +120,7 @@ export default function ExampleAlertDialog() {
                       <Input
                         id="mail-subject"
                         placeholder="Enter subject"
-                        className="h-10 w-full pl-3 bg-white bc-silver-3 c-slate-10 br-2 bw-1 fs-md fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
+                        className="h-10 w-full pl-3 bg-white bc-silver-3 c-slate-10 br-md bw-1 fs-md fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
                       />
                     </Field.Root>
                     <Field.Root className="d-f fd-c g-2">
@@ -130,11 +130,11 @@ export default function ExampleAlertDialog() {
                       >
                         Message
                       </label>
-                      <div className="p-r o-h bg-white bc-silver-3 br-2 bw-1 fv-w:os-s fv-w:ow-2 fv-w:oo-2 fv-w:oc-indigo-6">
+                      <div className="p-r o-h bg-white bc-silver-3 br-md bw-1 fv-w:os-s fv-w:ow-2 fv-w:oo-2 fv-w:oc-indigo-6">
                         <textarea
                           id="mail-message"
                           rows={12}
-                          className="o-n w-full px-3 pt-3 pb-12 bg-transparent c-slate-10 br-2 bw-0 fs-md r-none"
+                          className="o-n w-full px-3 pt-3 pb-12 bg-transparent c-slate-10 br-md bw-0 fs-md r-none"
                         />
                         <Toolbar.Root className="d-f p-a b-0 l-0 r-0 ai-c fw-w g-1 p-1 bg-white bc-silver-3 btw-1">
                           <ToggleGroup className="d-f g-1">
@@ -145,7 +145,7 @@ export default function ExampleAlertDialog() {
                                     <Toggle
                                       value="bold"
                                       className={(state) =>
-                                        `d-f w-8 h-8 ai-c jc-c bw-0 br-1 us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+                                        `d-f w-8 h-8 ai-c jc-c bw-0 br-sm us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
                                           state.pressed
                                             ? "bg-indigo c-white"
                                             : "bg-transparent c-slate-8 h:bg-silver-1 h:c-slate-10"
@@ -158,7 +158,7 @@ export default function ExampleAlertDialog() {
                                 </Tooltip.Trigger>
                                 <Tooltip.Portal>
                                   <Tooltip.Positioner sideOffset={8}>
-                                    <Tooltip.Popup className="px-2 py-1 bg-slate-12 c-white br-1 fs-xs us-none">
+                                    <Tooltip.Popup className="px-2 py-1 bg-slate-12 c-white br-sm fs-xs us-none">
                                       Bold
                                     </Tooltip.Popup>
                                   </Tooltip.Positioner>
@@ -172,7 +172,7 @@ export default function ExampleAlertDialog() {
                                     <Toggle
                                       value="italic"
                                       className={(state) =>
-                                        `d-f w-8 h-8 ai-c jc-c bw-0 br-1 us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+                                        `d-f w-8 h-8 ai-c jc-c bw-0 br-sm us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
                                           state.pressed
                                             ? "bg-indigo c-white"
                                             : "bg-transparent c-slate-8 h:bg-silver-1 h:c-slate-10"
@@ -185,7 +185,7 @@ export default function ExampleAlertDialog() {
                                 </Tooltip.Trigger>
                                 <Tooltip.Portal>
                                   <Tooltip.Positioner sideOffset={8}>
-                                    <Tooltip.Popup className="px-2 py-1 bg-slate-12 c-white br-1 fs-xs us-none">
+                                    <Tooltip.Popup className="px-2 py-1 bg-slate-12 c-white br-sm fs-xs us-none">
                                       Italic
                                     </Tooltip.Popup>
                                   </Tooltip.Positioner>
@@ -199,7 +199,7 @@ export default function ExampleAlertDialog() {
                                     <Toggle
                                       value="underline"
                                       className={(state) =>
-                                        `d-f w-8 h-8 ai-c jc-c bw-0 br-1 us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+                                        `d-f w-8 h-8 ai-c jc-c bw-0 br-sm us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
                                           state.pressed
                                             ? "bg-indigo c-white"
                                             : "bg-transparent c-slate-8 h:bg-silver-1 h:c-slate-10"
@@ -212,7 +212,7 @@ export default function ExampleAlertDialog() {
                                 </Tooltip.Trigger>
                                 <Tooltip.Portal>
                                   <Tooltip.Positioner sideOffset={8}>
-                                    <Tooltip.Popup className="px-2 py-1 bg-slate-12 c-white br-1 fs-xs us-none">
+                                    <Tooltip.Popup className="px-2 py-1 bg-slate-12 c-white br-sm fs-xs us-none">
                                       Underline
                                     </Tooltip.Popup>
                                   </Tooltip.Positioner>
@@ -228,14 +228,14 @@ export default function ExampleAlertDialog() {
                             <Tooltip.Root>
                               <Tooltip.Trigger
                                 render={
-                                  <Toolbar.Button className="d-f ai-c jc-c w-8 h-8 bg-transparent c-slate-8 bw-0 br-1 us-none c-p h:bg-silver-1 h:c-slate-10 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+                                  <Toolbar.Button className="d-f ai-c jc-c w-8 h-8 bg-transparent c-slate-8 bw-0 br-sm us-none c-p h:bg-silver-1 h:c-slate-10 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
                                 }
                               >
                                 <PaletteIcon size={16} weight="bold" />
                               </Tooltip.Trigger>
                               <Tooltip.Portal>
                                 <Tooltip.Positioner sideOffset={8}>
-                                  <Tooltip.Popup className="px-2 py-1 bg-slate-12 c-white br-1 fs-xs us-none">
+                                  <Tooltip.Popup className="px-2 py-1 bg-slate-12 c-white br-sm fs-xs us-none">
                                     Text color
                                   </Tooltip.Popup>
                                 </Tooltip.Positioner>
@@ -254,7 +254,7 @@ export default function ExampleAlertDialog() {
                                     <Toggle
                                       value="left"
                                       className={(state) =>
-                                        `d-f w-8 h-8 ai-c jc-c bw-0 br-1 us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+                                        `d-f w-8 h-8 ai-c jc-c bw-0 br-sm us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
                                           state.pressed
                                             ? "bg-indigo c-white"
                                             : "bg-transparent c-slate-8 h:bg-silver-1 h:c-slate-10"
@@ -267,7 +267,7 @@ export default function ExampleAlertDialog() {
                                 </Tooltip.Trigger>
                                 <Tooltip.Portal>
                                   <Tooltip.Positioner sideOffset={8}>
-                                    <Tooltip.Popup className="px-2 py-1 bg-slate-12 c-white br-1 fs-xs us-none">
+                                    <Tooltip.Popup className="px-2 py-1 bg-slate-12 c-white br-sm fs-xs us-none">
                                       Align left
                                     </Tooltip.Popup>
                                   </Tooltip.Positioner>
@@ -281,7 +281,7 @@ export default function ExampleAlertDialog() {
                                     <Toggle
                                       value="center"
                                       className={(state) =>
-                                        `d-f w-8 h-8 ai-c jc-c bw-0 br-1 us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+                                        `d-f w-8 h-8 ai-c jc-c bw-0 br-sm us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
                                           state.pressed
                                             ? "bg-indigo c-white"
                                             : "bg-transparent c-slate-8 h:bg-silver-1 h:c-slate-10"
@@ -297,7 +297,7 @@ export default function ExampleAlertDialog() {
                                 </Tooltip.Trigger>
                                 <Tooltip.Portal>
                                   <Tooltip.Positioner sideOffset={8}>
-                                    <Tooltip.Popup className="px-2 py-1 bg-slate-12 c-white br-1 fs-xs us-none">
+                                    <Tooltip.Popup className="px-2 py-1 bg-slate-12 c-white br-sm fs-xs us-none">
                                       Align center
                                     </Tooltip.Popup>
                                   </Tooltip.Positioner>
@@ -311,7 +311,7 @@ export default function ExampleAlertDialog() {
                                     <Toggle
                                       value="right"
                                       className={(state) =>
-                                        `d-f w-8 h-8 ai-c jc-c bw-0 br-1 us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+                                        `d-f w-8 h-8 ai-c jc-c bw-0 br-sm us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
                                           state.pressed
                                             ? "bg-indigo c-white"
                                             : "bg-transparent c-slate-8 h:bg-silver-1 h:c-slate-10"
@@ -324,7 +324,7 @@ export default function ExampleAlertDialog() {
                                 </Tooltip.Trigger>
                                 <Tooltip.Portal>
                                   <Tooltip.Positioner sideOffset={8}>
-                                    <Tooltip.Popup className="px-2 py-1 bg-slate-12 c-white br-1 fs-xs us-none">
+                                    <Tooltip.Popup className="px-2 py-1 bg-slate-12 c-white br-sm fs-xs us-none">
                                       Align right
                                     </Tooltip.Popup>
                                   </Tooltip.Positioner>
@@ -344,7 +344,7 @@ export default function ExampleAlertDialog() {
                                     <Toggle
                                       value="bullets"
                                       className={(state) =>
-                                        `d-f w-8 h-8 ai-c jc-c bw-0 br-1 us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+                                        `d-f w-8 h-8 ai-c jc-c bw-0 br-sm us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
                                           state.pressed
                                             ? "bg-indigo c-white"
                                             : "bg-transparent c-slate-8 h:bg-silver-1 h:c-slate-10"
@@ -357,7 +357,7 @@ export default function ExampleAlertDialog() {
                                 </Tooltip.Trigger>
                                 <Tooltip.Portal>
                                   <Tooltip.Positioner sideOffset={8}>
-                                    <Tooltip.Popup className="px-2 py-1 bg-slate-12 c-white br-1 fs-xs us-none">
+                                    <Tooltip.Popup className="px-2 py-1 bg-slate-12 c-white br-sm fs-xs us-none">
                                       Bullet list
                                     </Tooltip.Popup>
                                   </Tooltip.Positioner>
@@ -371,7 +371,7 @@ export default function ExampleAlertDialog() {
                                     <Toggle
                                       value="numbers"
                                       className={(state) =>
-                                        `d-f w-8 h-8 ai-c jc-c bw-0 br-1 us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+                                        `d-f w-8 h-8 ai-c jc-c bw-0 br-sm us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
                                           state.pressed
                                             ? "bg-indigo c-white"
                                             : "bg-transparent c-slate-8 h:bg-silver-1 h:c-slate-10"
@@ -384,7 +384,7 @@ export default function ExampleAlertDialog() {
                                 </Tooltip.Trigger>
                                 <Tooltip.Portal>
                                   <Tooltip.Positioner sideOffset={8}>
-                                    <Tooltip.Popup className="px-2 py-1 bg-slate-12 c-white br-1 fs-xs us-none">
+                                    <Tooltip.Popup className="px-2 py-1 bg-slate-12 c-white br-sm fs-xs us-none">
                                       Numbered list
                                     </Tooltip.Popup>
                                   </Tooltip.Positioner>
@@ -400,14 +400,14 @@ export default function ExampleAlertDialog() {
                             <Tooltip.Root>
                               <Tooltip.Trigger
                                 render={
-                                  <Toolbar.Button className="d-f ai-c jc-c w-8 h-8 bg-transparent c-slate-8 bw-0 br-1 us-none c-p h:bg-silver-1 h:c-slate-10 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+                                  <Toolbar.Button className="d-f ai-c jc-c w-8 h-8 bg-transparent c-slate-8 bw-0 br-sm us-none c-p h:bg-silver-1 h:c-slate-10 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
                                 }
                               >
                                 <TrashIcon size={16} weight="bold" />
                               </Tooltip.Trigger>
                               <Tooltip.Portal>
                                 <Tooltip.Positioner sideOffset={8}>
-                                  <Tooltip.Popup className="px-2 py-1 bg-slate-12 c-white br-1 fs-xs us-none">
+                                  <Tooltip.Popup className="px-2 py-1 bg-slate-12 c-white br-sm fs-xs us-none">
                                     Remove formatting
                                   </Tooltip.Popup>
                                 </Tooltip.Positioner>
@@ -422,7 +422,7 @@ export default function ExampleAlertDialog() {
                             <Tooltip.Root>
                               <Tooltip.Trigger
                                 render={
-                                  <Toolbar.Button className="d-f ai-c g-2 h-8 px-2 bg-transparent c-slate-8 br-1 bw-0 fs-xs fw-600 us-none c-p h:bg-silver-1 h:c-slate-10 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+                                  <Toolbar.Button className="d-f ai-c g-2 h-8 px-2 bg-transparent c-slate-8 br-sm bw-0 fs-xs fw-600 us-none c-p h:bg-silver-1 h:c-slate-10 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
                                 }
                               >
                                 <PaperclipIcon size={16} weight="bold" />
@@ -430,7 +430,7 @@ export default function ExampleAlertDialog() {
                               </Tooltip.Trigger>
                               <Tooltip.Portal>
                                 <Tooltip.Positioner sideOffset={8}>
-                                  <Tooltip.Popup className="px-2 py-1 bg-slate-12 c-white br-1 fs-xs us-none">
+                                  <Tooltip.Popup className="px-2 py-1 bg-slate-12 c-white br-sm fs-xs us-none">
                                     Attach files from your device
                                   </Tooltip.Popup>
                                 </Tooltip.Positioner>
@@ -441,7 +441,7 @@ export default function ExampleAlertDialog() {
                             <Tooltip.Root>
                               <Tooltip.Trigger
                                 render={
-                                  <Toolbar.Button className="d-f ai-c g-2 h-8 px-2 bg-transparent c-slate-8 br-1 bw-0 fs-xs fw-600 us-none c-p h:bg-silver-1 h:c-slate-10 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+                                  <Toolbar.Button className="d-f ai-c g-2 h-8 px-2 bg-transparent c-slate-8 br-sm bw-0 fs-xs fw-600 us-none c-p h:bg-silver-1 h:c-slate-10 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
                                 }
                               >
                                 <ImageIcon size={16} weight="bold" />
@@ -449,7 +449,7 @@ export default function ExampleAlertDialog() {
                               </Tooltip.Trigger>
                               <Tooltip.Portal>
                                 <Tooltip.Positioner sideOffset={8}>
-                                  <Tooltip.Popup className="px-2 py-1 bg-slate-12 c-white br-1 fs-xs us-none">
+                                  <Tooltip.Popup className="px-2 py-1 bg-slate-12 c-white br-sm fs-xs us-none">
                                     Insert images into message
                                   </Tooltip.Popup>
                                 </Tooltip.Positioner>
@@ -464,14 +464,14 @@ export default function ExampleAlertDialog() {
                 <div className="d-g gtc-2 g-3 px-4 py-3">
                   <AlertDialog.Close
                     render={
-                      <Button className="b-0 px-3 py-2 bg-white bc-silver-2 c-slate-10 br-2 bw-1 fw-600 bs-o-xs tp-c tdu-150 ttf-io us-none c-p h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+                      <Button className="b-0 px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-600 bs-o-xs tp-c tdu-150 ttf-io us-none c-p h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
                     }
                   >
                     Discard
                   </AlertDialog.Close>
                   <AlertDialog.Close
                     render={
-                      <Button className="b-0 px-3 py-2 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-2 bw-1 fw-600 bs-o-md tp-c tdu-150 ttf-io us-none c-p fv:oc-indigo-6 fv:ow-2 fv:oo-2" />
+                      <Button className="b-0 px-3 py-2 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-md bw-1 fw-600 bs-o-md tp-c tdu-150 ttf-io us-none c-p fv:oc-indigo-6 fv:ow-2 fv:oo-2" />
                     }
                   >
                     Send
