@@ -222,6 +222,11 @@ summary {
   border-bottom-left-radius: 0.5rem;
 }
 
+.bbr-sm {
+  border-bottom-right-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
+
 .bbsr-md {
   border-start-start-radius: 0.375rem;
   border-start-end-radius: 0.375rem;
@@ -697,6 +702,14 @@ summary {
 
 .c-indigo-7 {
   color: #5558cf;
+}
+
+.c-indigo-8 {
+  color: #4749ae;
+}
+
+.c-indigo-9 {
+  color: #393b8c;
 }
 
 .c-mauve {

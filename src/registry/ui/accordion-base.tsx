@@ -33,7 +33,7 @@ export default function ExampleAccordion() {
                   <CaretDownIcon
                     size={16}
                     weight="bold"
-                    className="fs-0 c-slate-6"
+                    className="fs-0 c-indigo-8"
                     aria-hidden
                   />
                 </motion.span>
@@ -59,7 +59,7 @@ export default function ExampleAccordion() {
                 />
               )}
             >
-              <p className="m-0 pb-4 c-slate-6 fs-sm lh-4">{item.content}</p>
+              <p className="m-0 pb-4 c-indigo-8 fs-sm lh-4">{item.content}</p>
             </Accordion.Panel>
           </Accordion.Item>
         );
