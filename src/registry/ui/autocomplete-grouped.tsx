@@ -58,7 +58,7 @@ export default function ExampleAutocomplete() {
                 <Autocomplete.List className="o-y-auto max-h-72 py-1 ow-0">
                   {(group: TechGroup) => (
                     <Autocomplete.Group key={group.value}>
-                      <Autocomplete.GroupLabel className="px-3 pt-2 pb-1 c-slate-5 fs-xs fw-600 tt-u ls-4">
+                      <Autocomplete.GroupLabel className="px-3 pt-2 pb-1 c-slate-8 fs-xs fw-600 tt-u ls-4">
                         {group.value}
                       </Autocomplete.GroupLabel>
                       {group.items.map((item) => (
