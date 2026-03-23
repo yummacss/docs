@@ -144,7 +144,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
               }
               className="p-f zi-50 t-0 l-0 r-0 b-0 bg-black/60 bf-b-sm f-g-90"
             />
-            <div className="d-f p-f zi-50 t-0 l-0 r-0 b-0 ai-c jc-c pe-n">
+            <div className="d-f p-f zi-50 t-0 l-0 r-0 b-0 ai-c jc-c pe-none">
               <Dialog.Popup
                 render={
                   <motion.div
@@ -154,7 +154,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                     transition={{ duration: 0.15, ease: "easeOut" }}
                   />
                 }
-                className="o-h w-full bc-white/10 bw-1"
+                className="o-h w-full bc-white/10 bw-1 br-lg"
                 style={{
                   backgroundColor: "#151724",
                   maxHeight: "70vh",
@@ -211,7 +211,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                               onMouseEnter={() =>
                                 setSelectedIndex(currentIndex)
                               }
-                              className="d-f b-0 ai-c g-3 w-full px-3 py-2 ta-l c-p"
+                              className="d-f b-0 ai-c g-3 w-full px-3 py-2 br-sm ta-l c-p"
                               style={{
                                 backgroundColor: isSelected
                                   ? "#ffffff1a"
