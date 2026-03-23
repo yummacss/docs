@@ -13,7 +13,7 @@ export default function ExampleCollapsible() {
       onOpenChange={setOpen}
       className="d-f fd-c w-72 bg-white bc-silver-3 bw-1 br-lg"
     >
-      <Collapsible.Trigger className="d-f b-0 ai-c jc-sb g-3 w-full px-4 py-3 bg-transparent ta-l c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6">
+      <Collapsible.Trigger className="d-f b-0 ai-c jc-sb g-3 w-full px-4 py-3 bg-transparent ta-l c-p">
         <div className="d-f ai-c g-3">
           <span className="d-f ai-c jc-c w-8 h-8 br-md bg-silver-1 bc-silver-3 bw-1">
             <HardDriveIcon size={16} className="c-slate-6" />
