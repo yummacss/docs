@@ -41,7 +41,7 @@ export default function ExampleCombobox() {
           <Combobox.Input
             id="country-input"
             placeholder="e.g. United States"
-            className="h-10 w-64 pl-4 pr-16 bg-white bc-silver-3 c-slate-10 bw-1 br-md fs-sm fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
+            className="h-10 w-64 pl-4 pr-16 bg-white bc-silver-3 c-slate-10 bw-1 br-md fs-md fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
           />
           <div className="d-f p-a r-2 b-0 ai-c jc-c h-10 c-slate-6">
             <Combobox.Clear

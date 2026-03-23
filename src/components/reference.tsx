@@ -38,6 +38,8 @@ interface Props {
   name: string;
 }
 
+const DEFAULT_ACCORDION_VALUE = ["reference-item"];
+
 export default function Reference({ category, name }: Props) {
   const [search, setSearch] = useState("");
 
@@ -101,7 +103,7 @@ export default function Reference({ category, name }: Props) {
 
   return (
     <div className="o-h mb-6 bc-clay bg-midnight bw-1 br-sm">
-      <Accordion defaultValue={["reference-item"]}>
+      <Accordion defaultValue={DEFAULT_ACCORDION_VALUE}>
         <AccordionItem className="bw-0" value="reference-item">
           <AccordionTrigger className="bg-transparent">
             <span className="d-f ai-c g-2">

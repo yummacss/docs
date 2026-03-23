@@ -30,7 +30,7 @@ export default function ExampleCombobox() {
           <MagnifyingGlassIcon size={14} className="c-slate-4 fs-0" />
           <Combobox.Input
             placeholder="Search frameworks…"
-            className="f-1 h-10 bg-transparent b-0 fs-sm c-slate-10"
+            className="f-1 h-10 bg-transparent b-0 fs-md c-slate-10"
           />
         </div>
         <Combobox.List className="o-y-auto py-1" style={{ maxHeight: "13rem" }}>

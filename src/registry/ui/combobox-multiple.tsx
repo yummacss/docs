@@ -62,7 +62,7 @@ export default function ExampleCombobox() {
           <Combobox.Input
             id="skills-input"
             placeholder="Search skills…"
-            className="f-1 min-w-16 h-7 px-1 bg-transparent b-0 fs-sm c-slate-10"
+            className="f-1 min-w-16 h-7 px-1 bg-transparent b-0 fs-md c-slate-10"
           />
         </div>
       </div>

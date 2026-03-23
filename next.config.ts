@@ -30,7 +30,7 @@ const rehypeExpressiveCodeOptions = {
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
+  pageExtensions: ["tsx", "mdx"],
   async redirects() {
     return redirects;
   },
