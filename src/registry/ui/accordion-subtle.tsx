@@ -63,7 +63,7 @@ export default function ExampleAccordion() {
                 />
               )}
             >
-              <p className="m-0 px-4 pb-3 c-slate-6 fs-sm lh-4">
+              <p className="m-0 px-4 pb-3 c-indigo-9 fs-sm lh-4">
                 {item.content}
               </p>
             </Accordion.Panel>
