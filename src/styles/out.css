@@ -1917,6 +1917,10 @@ summary {
   padding-bottom: 2rem;
 }
 
+.pe-none {
+  pointer-events: none;
+}
+
 .pl-2 {
   padding-left: .5rem;
 }
