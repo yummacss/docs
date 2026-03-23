@@ -30,7 +30,7 @@ export default function ExampleAutocomplete() {
         <Autocomplete.Input
           id="static-input"
           placeholder="Search a fruit..."
-          className="h-10 w-64 pl-4 bg-white bc-silver-3 c-slate-12 bw-1 br-md fs-sm fv:os-s fv:ow-2 fv:oo--1 fv:oc-indigo-6"
+          className="h-10 w-64 pl-4 bg-white bc-silver-3 c-slate-12 bw-1 br-md fs-md fv:os-s fv:ow-2 fv:oo--1 fv:oc-indigo-6"
         />
       </div>
 
