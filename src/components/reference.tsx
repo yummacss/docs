@@ -101,8 +101,8 @@ export default function Reference({ category, name }: Props) {
 
   return (
     <div className="o-h mb-6 bc-clay bg-midnight bw-1 br-sm">
-      <Accordion>
-        <AccordionItem className="bw-0">
+      <Accordion defaultValue={["reference-item"]}>
+        <AccordionItem className="bw-0" value="reference-item">
           <AccordionTrigger className="bg-transparent">
             <span className="d-f ai-c g-2">
               <code className="c-mauve">{utilityPrefix}-*</code>
