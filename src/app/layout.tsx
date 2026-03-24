@@ -39,7 +39,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html className="sb-s spt-20" lang="en">
+    <html className="sb-s spt-20" lang="en" data-scroll-behavior="smooth">
       <body style={{ backgroundColor: "#151724" }}>
         {children}
         <Analytics />
