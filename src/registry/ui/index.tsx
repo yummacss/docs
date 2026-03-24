@@ -44,6 +44,12 @@ import ComboboxInline from "./combobox-inline";
 import ComboboxMultiple from "./combobox-multiple";
 import ComboboxStatic from "./combobox-static";
 import ContextMenuBase from "./context-menu-base";
+import ContextMenuCheckboxes from "./context-menu-checkboxes";
+import ContextMenuGrouped from "./context-menu-grouped";
+import ContextMenuIcons from "./context-menu-icons";
+import ContextMenuNested from "./context-menu-nested";
+import ContextMenuRadios from "./context-menu-radios";
+import ContextMenuStatic from "./context-menu-static";
 import DialogBase from "./dialog-base";
 import DialogPayment from "./dialog-payment";
 import DialogSettings from "./dialog-settings";
@@ -113,6 +119,12 @@ export const baseComponents: Record<string, ComponentType> = {
   "combobox-inline": ComboboxInline,
   "combobox-static": ComboboxStatic,
   "context-menu-base": ContextMenuBase,
+  "context-menu-icons": ContextMenuIcons,
+  "context-menu-static": ContextMenuStatic,
+  "context-menu-grouped": ContextMenuGrouped,
+  "context-menu-checkboxes": ContextMenuCheckboxes,
+  "context-menu-radios": ContextMenuRadios,
+  "context-menu-nested": ContextMenuNested,
   "dialog-base": DialogBase,
   "dialog-payment": DialogPayment,
   "dialog-settings": DialogSettings,

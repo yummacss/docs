@@ -1946,6 +1946,14 @@ summary {
   padding-right: 4rem;
 }
 
+.pr-3 {
+  padding-right: .75rem;
+}
+
+.pr-4 {
+  padding-right: 1rem;
+}
+
 .pr-6 {
   padding-right: 1.5rem;
 }
@@ -2350,8 +2358,16 @@ summary {
   width: 10rem;
 }
 
+.w-48 {
+  width: 12rem;
+}
+
 .w-5 {
   width: 1.25rem;
+}
+
+.w-52 {
+  width: 13rem;
 }
 
 .w-56 {
