@@ -11,7 +11,7 @@ pnpm add @base-ui/react motion
 
 ## Examples
 
-Implement this component in your project using Yumma CSS and Base UI.
+Build this component with Yumma CSS & Base UI.
 
 ### Base
 
@@ -25,6 +25,126 @@ Implement this component in your project using Yumma CSS and Base UI.
   </TabsPanel>
   <TabsPanel value="code">
     ```tsx registry="context-menu-base"
+    ```
+  </TabsPanel>
+</Tabs>
+
+---
+
+### Icons
+
+Add a Phosphor icon to each menu item.
+
+<Tabs defaultValue="preview">
+  <TabsList>
+    <TabsTab value="preview">Preview</TabsTab>
+    <TabsTab value="code">Code</TabsTab>
+  </TabsList>
+  <TabsPanel className="bg-white bbr-sm" value="preview">
+    <Preview className="bw-0 h-100" id="context-menu-icons" />
+  </TabsPanel>
+  <TabsPanel value="code">
+    ```tsx registry="context-menu-icons"
+    ```
+  </TabsPanel>
+</Tabs>
+
+---
+
+### Grouped
+
+Organize items into labeled sections with `Group` & `GroupLabel`.
+
+<Tabs defaultValue="preview">
+  <TabsList>
+    <TabsTab value="preview">Preview</TabsTab>
+    <TabsTab value="code">Code</TabsTab>
+  </TabsList>
+  <TabsPanel className="bg-white bbr-sm" value="preview">
+    <Preview className="bw-0 h-100" id="context-menu-grouped" />
+  </TabsPanel>
+  <TabsPanel value="code">
+    ```tsx registry="context-menu-grouped"
+    ```
+  </TabsPanel>
+</Tabs>
+
+---
+
+### Checkboxes
+
+Toggle multiple options independently with `CheckboxItem`.
+
+<Tabs defaultValue="preview">
+  <TabsList>
+    <TabsTab value="preview">Preview</TabsTab>
+    <TabsTab value="code">Code</TabsTab>
+  </TabsList>
+  <TabsPanel className="bg-white bbr-sm" value="preview">
+    <Preview className="bw-0 h-100" id="context-menu-checkboxes" />
+  </TabsPanel>
+  <TabsPanel value="code">
+    ```tsx registry="context-menu-checkboxes"
+    ```
+  </TabsPanel>
+</Tabs>
+
+---
+
+### Radios
+
+Select 1 option from a set with `RadioGroup` & `RadioItem`.
+
+<Tabs defaultValue="preview">
+  <TabsList>
+    <TabsTab value="preview">Preview</TabsTab>
+    <TabsTab value="code">Code</TabsTab>
+  </TabsList>
+  <TabsPanel className="bg-white bbr-sm" value="preview">
+    <Preview className="bw-0 h-100" id="context-menu-radios" />
+  </TabsPanel>
+  <TabsPanel value="code">
+    ```tsx registry="context-menu-radios"
+    ```
+  </TabsPanel>
+</Tabs>
+
+---
+
+### Nested
+
+Open a nested submenu with `SubmenuRoot` & `SubmenuTrigger`.
+
+<Tabs defaultValue="preview">
+  <TabsList>
+    <TabsTab value="preview">Preview</TabsTab>
+    <TabsTab value="code">Code</TabsTab>
+  </TabsList>
+  <TabsPanel className="bg-white bbr-sm" value="preview">
+    <Preview className="bw-0 h-100" id="context-menu-nested" />
+  </TabsPanel>
+  <TabsPanel value="code">
+    ```tsx registry="context-menu-nested"
+    ```
+  </TabsPanel>
+</Tabs>
+
+---
+
+### Static
+
+Open & close the menu instantly, without animation.
+
+<Tabs defaultValue="preview">
+  <TabsList>
+    <TabsTab value="preview">Preview</TabsTab>
+    <TabsTab value="code">Code</TabsTab>
+  </TabsList>
+  <TabsPanel className="bg-white bbr-sm" value="preview">
+    <Preview className="bw-0 h-100" id="context-menu-static" />
+  </TabsPanel>
+  <TabsPanel value="code">
+    ```tsx registry="context-menu-static"
     ```
   </TabsPanel>
 </Tabs>
