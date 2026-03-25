@@ -1,4 +1,4 @@
-import { CursorClickIcon } from "@phosphor-icons/react/dist/ssr";
+import { HandPointUp } from "@gravity-ui/icons";
 
 interface Props {
   prefix: string;
@@ -9,7 +9,7 @@ export default function HoverVariant({ prefix }: Props) {
     <div className="mb-6 p-4 bc-clay bg-midnight bw-1 br-sm">
       <div className="d-f ai-c g-3 mb-3">
         <div className="d-f c-cornflower ai-c jc-c fs-0 p-2 bg-clay br-pill">
-          <CursorClickIcon size={20} weight="duotone" />
+          <HandPointUp className="w-5 h-5" />
         </div>
         <p className="c-white/70 fs-sm">
           Add the <code className="c-mauve px-1 bg-clay">h:</code> prefix to

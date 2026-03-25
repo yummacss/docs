@@ -17,6 +17,9 @@ importers:
       '@fontsource/ia-writer-quattro':
         specifier: ^5.2.5
         version: 5.2.5
+      '@gravity-ui/icons':
+        specifier: ^2.18.0
+        version: 2.18.0(react@19.2.4)
       '@mdx-js/loader':
         specifier: ^3.1.1
         version: 3.1.1
@@ -420,6 +423,14 @@ packages:
 
   '@fontsource/ia-writer-quattro@5.2.5':
     resolution: {integrity: sha512-aCQ3n2B4VFAIiV3RFuDPe4cog2L9G7+9I9AwiwMZeFMM3fJoZrXhy01LdiqERDFnqKSFRIiibbhwQn/ucYkCGQ==}
+
+  '@gravity-ui/icons@2.18.0':
+    resolution: {integrity: sha512-JoRc/4Ch9GLaufZfpGd2ePRRisMXEjMI+r3y8kPKyYIAdQZz07jpIXEgsft1gvBxjSht2MS2uu5+vfhe1WP0ow==}
+    peerDependencies:
+      react: '*'
+    peerDependenciesMeta:
+      react:
+        optional: true
 
   '@img/colour@1.1.0':
     resolution: {integrity: sha512-Td76q7j57o/tLVdgS746cYARfSyxk8iEfRxewL9h4OMzYhbW4TAcppl0mT4eyqXddh6L/jwoM75mo7ixa/pCeQ==}
@@ -1955,6 +1966,12 @@ snapshots:
   '@fontsource/esteban@5.2.7': {}
 
   '@fontsource/ia-writer-quattro@5.2.5': {}
+
+  '@gravity-ui/icons@2.18.0(react@19.2.4)':
+    dependencies:
+      tslib: 2.8.1
+    optionalDependencies:
+      react: 19.2.4
 
   '@img/colour@1.1.0':
     optional: true

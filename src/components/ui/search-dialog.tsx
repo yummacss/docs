@@ -3,15 +3,15 @@
 import { Button } from "@base-ui/react";
 import { Dialog } from "@base-ui/react/dialog";
 import {
-  ArrowDownIcon,
-  ArrowElbowDownLeftIcon,
-  ArrowRightIcon,
-  ArrowUpIcon,
-  DiamondsFourIcon,
-  FileTextIcon,
-  MagnifyingGlassIcon,
-  XIcon,
-} from "@phosphor-icons/react/dist/ssr";
+  ArrowDown,
+  ArrowRight,
+  ArrowUp,
+  ArrowUturnCwLeft,
+  FileText,
+  LayersVertical,
+  Magnifier,
+  Xmark,
+} from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
@@ -117,12 +117,12 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
   // Get category icon
   const getCategoryIcon = (category: string) => {
     if (category === "docs") {
-      return <ArrowRightIcon size={14} className="c-white/50" />;
+      return <ArrowRight className="w-4 h-4 c-white/50" />;
     }
     if (category === "handbook") {
-      return <FileTextIcon size={14} className="c-white/50" />;
+      return <FileText className="w-4 h-4 c-white/50" />;
     }
-    return <DiamondsFourIcon size={14} className="c-white/50" />;
+    return <LayersVertical className="w-4 h-4 c-white/50" />;
   };
 
   // Track global index for keyboard nav
@@ -164,7 +164,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
               >
                 {/* Search Input */}
                 <div className="d-f ai-c g-3 px-4 py-3 bc-white/10 bbw-1">
-                  <MagnifyingGlassIcon size={18} className="c-white/50" />
+                  <Magnifier className="w-5 h-5 c-white/50" />
                   <input
                     ref={inputRef}
                     type="text"
@@ -247,10 +247,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
 
                               {/* Action indicator */}
                               {isSelected && (
-                                <ArrowElbowDownLeftIcon
-                                  size={14}
-                                  className="c-white/50 fs-0"
-                                />
+                                <ArrowUturnCwLeft className="w-4 h-4 c-white/50 fs-0" />
                               )}
                             </Button>
                           );
@@ -276,7 +273,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                           backgroundColor: "#151724",
                         }}
                       >
-                        <ArrowUpIcon weight="bold" size={16} />
+                        <ArrowUp className="w-4 h-4" />
                       </kbd>
                       <kbd
                         className="d-f ai-c p-1 bc-white/10 br-sm bw-1"
@@ -284,7 +281,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                           backgroundColor: "#151724",
                         }}
                       >
-                        <ArrowDownIcon weight="bold" size={16} />
+                        <ArrowDown className="w-4 h-4" />
                       </kbd>
                       <span className="ml-1 fs-md">to navigate</span>
                     </span>
@@ -295,7 +292,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                           backgroundColor: "#151724",
                         }}
                       >
-                        <ArrowElbowDownLeftIcon weight="bold" size={16} />
+                        <ArrowUturnCwLeft className="w-4 h-4" />
                       </kbd>
                       <span className="ml-1 fs-md">to select</span>
                     </span>
@@ -307,7 +304,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                         backgroundColor: "#151724",
                       }}
                     >
-                      <XIcon weight="bold" size={16} />
+                      <Xmark className="w-4 h-4" />
                     </kbd>
                     <span className="ml-1 fs-md">to close</span>
                   </span>

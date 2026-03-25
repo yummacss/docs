@@ -1,9 +1,3 @@
-import {
-  DeviceMobileCameraIcon,
-  DeviceTabletSpeakerIcon,
-  LaptopIcon,
-  MonitorIcon,
-} from "@phosphor-icons/react/dist/ssr";
 
 interface Props {
   prefix: string;
@@ -14,20 +8,17 @@ const breakpoints = [
     prefix: "sm",
     label: "Small",
     minWidth: "640px",
-    icon: DeviceMobileCameraIcon,
   },
   {
     prefix: "md",
     label: "Medium",
     minWidth: "768px",
-    icon: DeviceTabletSpeakerIcon,
   },
-  { prefix: "lg", label: "Large", minWidth: "1024px", icon: LaptopIcon },
+  { prefix: "lg", label: "Large", minWidth: "1024px" },
   {
     prefix: "xxl",
     label: "Extra Large",
     minWidth: "1536px",
-    icon: MonitorIcon,
   },
 ] as const;
 
@@ -39,7 +30,7 @@ export default function ResponsiveVariant({ prefix }: Props) {
           key={bp.prefix}
           className="d-f ai-c g-3 p-3 bc-clay bg-midnight bw-1 br-sm"
         >
-          <bp.icon size={24} weight="duotone" className="c-cornflower fs-0" />
+
           <div className="f-1">
             <code className="d-b c-mauve mb-1 fs-sm">
               {bp.prefix}:{prefix}-*
