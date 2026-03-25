@@ -1,7 +1,7 @@
 "use client";
 
 import { Input } from "@base-ui/react";
-import { MagnifyingGlassIcon } from "@phosphor-icons/react/dist/ssr";
+import { Magnifier } from "@gravity-ui/icons";
 import * as core from "@yummacss/core";
 import { useState } from "react";
 import {
@@ -121,7 +121,7 @@ export default function Reference({ category, name }: Props) {
             <div className="o-y-auto max-h-52">
               {/* Subtle search input */}
               <div className="d-f ai-c g-2 mb-2 pb-2 bc-clay bbw-1">
-                <MagnifyingGlassIcon size={18} className="c-white/30 fs-0" />
+                <Magnifier className="w-4 h-4 c-white/30 fs-0" />
                 <Input
                   type="text"
                   placeholder="Filter..."

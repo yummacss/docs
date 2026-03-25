@@ -1384,6 +1384,10 @@ summary {
   background-color: #47474e;
 }
 
+.h\:br-sm:hover {
+  border-radius: 0.25rem;
+}
+
 .h\:c-indigo:hover {
   color: #6366f1;
 }

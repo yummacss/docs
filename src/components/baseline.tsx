@@ -1,8 +1,4 @@
-import {
-  ConfettiIcon,
-  SealCheckIcon,
-  SealWarningIcon,
-} from "@phosphor-icons/react/dist/ssr";
+import { SealCheck, Sparkles, TriangleExclamation } from "@gravity-ui/icons";
 import { Chrome, Edge, Firefox, Safari } from "@ridemountainpig/svgl-react";
 import data from "web-features/data.json";
 
@@ -72,10 +68,10 @@ export default function Baseline({ path }: Props) {
   const statusColor = isHigh ? "c-green" : isLow ? "c-green-5" : "c-yellow";
 
   const StatusIcon = isHigh
-    ? SealCheckIcon
+    ? SealCheck
     : isLow
-      ? ConfettiIcon
-      : SealWarningIcon;
+      ? Sparkles
+      : TriangleExclamation;
 
   const support = status.support || {};
 
@@ -115,7 +111,7 @@ export default function Baseline({ path }: Props) {
     <div className="mb-6 p-4 bc-clay bg-midnight bw-1 br-sm">
       <div className="mb-4">
         <div className="d-f ai-c g-2 mb-2">
-          <StatusIcon className={statusColor} size={20} weight="duotone" />
+          <StatusIcon className={`${statusColor} w-5 h-5`} />
           <h3 className="c-white fs-lg fw-500">{statusLabel}</h3>
         </div>
         <p className="c-white/70">{statusDescription}</p>

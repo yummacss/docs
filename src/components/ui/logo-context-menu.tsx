@@ -1,7 +1,7 @@
 "use client";
 
 import { ContextMenu as BaseContextMenu } from "@base-ui/react/context-menu";
-import { CopyIcon, DownloadSimpleIcon } from "@phosphor-icons/react";
+import { ArrowDownToLine, Copy } from "@gravity-ui/icons";
 import type * as React from "react";
 
 interface LogoContextMenuProps {
@@ -37,19 +37,19 @@ export function LogoContextMenu({ children }: LogoContextMenuProps) {
       </BaseContextMenu.Trigger>
       <BaseContextMenu.Portal>
         <BaseContextMenu.Positioner className="zi-50">
-          <BaseContextMenu.Popup className="p-1 min-w-40 bc-white/10 bg-white/5 bw-1 bf-b-md">
+          <BaseContextMenu.Popup className="p-1 min-w-40 bc-white/10 bg-white/5 bw-1 br-md bf-b-md">
             <BaseContextMenu.Item
-              className="d-f c-white/80 o-n ai-c g-2 px-2 py-1 fs-sm c-p h:bg-white/5 h:c-white fv:bg-white/5"
+              className="d-f c-white/80 o-n ai-c g-2 px-2 py-1 fs-sm c-p h:bg-white/5 h:br-sm h:c-white fv:bg-white/5"
               onClick={handleCopy}
             >
-              <CopyIcon size={16} />
+              <Copy className="w-4 h-4" />
               <span>Copy SVG</span>
             </BaseContextMenu.Item>
             <BaseContextMenu.Item
-              className="d-f c-white/80 o-n ai-c g-2 px-2 py-1 fs-sm c-p h:bg-white/5 h:c-white fv:bg-white/5"
+              className="d-f c-white/80 o-n ai-c g-2 px-2 py-1 fs-sm c-p h:bg-white/5 h:br-sm h:c-white fv:bg-white/5"
               onClick={handleDownload}
             >
-              <DownloadSimpleIcon size={16} />
+              <ArrowDownToLine className="w-4 h-4" />
               <span>Download SVG</span>
             </BaseContextMenu.Item>
           </BaseContextMenu.Popup>

@@ -134,7 +134,7 @@ export default function Navbar({
                 onClick={() => setSearchOpen(true)}
                 className="d-f ai-c jc-c g-2 h-8 px-3 bc-white/10 bg-white/5 c-white bw-1 br-pill fs-sm bf-b-sm lg:px-4 h:bg-white/10 fv:oc-white fv:ow-2"
               >
-                <MagnifyingGlassIcon size={15} />
+                <MagnifyingGlassIcon className="w-4 h-4" />
                 <kbd className="d-none c-white/60 fs-xs us-none lg:d-b">
                   Ctrl K
                 </kbd>
@@ -168,13 +168,9 @@ export default function Navbar({
                   className="d-f p-r ai-c jc-c h-8 px-3 bc-white/10 bg-white/5 c-white bw-1 br-pill bf-b-sm lg:d-none h:bg-white/10 fv:oc-white fv:ow-2"
                   aria-label={isSidebarOpen ? "Close menu" : "Open menu"}
                 >
-                  <div
-                    className="d-f p-r ai-c jc-c"
-                    style={{ width: 15, height: 15 }}
-                  >
+                  <div className="d-f p-r ai-c jc-c w-4 h-4">
                     <EqualsIcon
-                      size={15}
-                      className="p-a"
+                      className="p-a w-4 h-4"
                       style={{
                         opacity: isSidebarOpen ? 0 : 1,
                         transform: isSidebarOpen
@@ -185,8 +181,7 @@ export default function Navbar({
                       }}
                     />
                     <XIcon
-                      size={15}
-                      className="p-a"
+                      className="p-a w-4 h-4"
                       style={{
                         opacity: isSidebarOpen ? 1 : 0,
                         transform: isSidebarOpen

@@ -1,7 +1,7 @@
 "use client";
 
 import { Accordion as BaseAccordion } from "@base-ui/react/accordion";
-import { PlusIcon } from "@phosphor-icons/react/dist/ssr";
+import { Plus } from "@gravity-ui/icons";
 import type * as React from "react";
 
 interface AccordionProps
@@ -78,11 +78,7 @@ export function AccordionTrigger({
         {...props}
       >
         <span className="f-1 fs-md fw-600">{children}</span>
-        <PlusIcon
-          size={16}
-          weight="bold"
-          className="c-white/60 fs-0 accordion-icon"
-        />
+        <Plus className="w-4 h-4 c-white/60 fs-0 accordion-icon" />
       </BaseAccordion.Trigger>
       <style jsx global>{`
         [data-panel-open] .accordion-icon {

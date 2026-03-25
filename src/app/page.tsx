@@ -1,7 +1,4 @@
-import {
-  ArrowRightIcon,
-  DiamondsFourIcon,
-} from "@phosphor-icons/react/dist/ssr";
+import { ArrowRight, LayersVertical } from "@gravity-ui/icons";
 import Link from "next/link";
 import DarkVeil from "@/components/dark-veil";
 import Navbar from "@/components/ui/navbar";
@@ -33,7 +30,7 @@ export default function Home() {
                 <span className="fs-xs fw-500 ls-4">
                   Try it in your browser
                 </span>
-                <ArrowRightIcon size={16} />
+                <ArrowRight className="w-4 h-4" />
               </Link>
 
               <h1 className="mb-6 fs-5xl fw-400 lh-2 ff-e md:fs-6xl">
@@ -58,7 +55,7 @@ export default function Home() {
                   href="/ui/components"
                   className="d-f ai-c g-2 px-6 py-3 c-white br-pill fw-600 fs-md us-none fv:oc-white fv:ow-2"
                 >
-                  <DiamondsFourIcon size={20} weight="duotone" />
+                  <LayersVertical className="w-5 h-5" />
                   Components
                 </Link>
               </div>

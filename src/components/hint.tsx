@@ -1,24 +1,24 @@
-import * as Icons from "@phosphor-icons/react/dist/ssr";
+import * as Icons from "@gravity-ui/icons";
 import type { ReactNode } from "react";
 
 const icons = {
-  arrows_horizontal: Icons.ArrowsHorizontalIcon,
-  arrows_vertical: Icons.ArrowsVerticalIcon,
-  cursor_click: Icons.CursorClickIcon,
-  cursor_text: Icons.CursorTextIcon,
-  cursor: Icons.CursorIcon,
-  hand_pointing: Icons.HandPointingIcon,
-  hand_swipe_right: Icons.HandSwipeRightIcon,
-  hand_tap: Icons.HandTapIcon,
-  heart: Icons.HeartIcon,
-  info: Icons.InfoIcon,
-  keyboard: Icons.KeyboardIcon,
-  mouse_left_click: Icons.MouseLeftClickIcon,
-  mouse_right_click: Icons.MouseRightClickIcon,
-  mouse_scroll: Icons.MouseScrollIcon,
-  size: Icons.ResizeIcon,
-  warning: Icons.WarningIcon,
-  width: Icons.RulerIcon,
+  arrows_horizontal: Icons.ArrowsExpandHorizontal,
+  arrows_vertical: Icons.ArrowsExpandVertical,
+  cursor_click: Icons.HandPointUp,
+  cursor_text: Icons.FontCursor,
+  cursor: Icons.HandPointUp,
+  hand_pointing: Icons.HandPointUp,
+  hand_swipe_right: Icons.FontCursor,
+  hand_tap: Icons.HandPointUp,
+  heart: Icons.Heart,
+  info: Icons.CircleInfo,
+  keyboard: Icons.Keyboard,
+  mouse_left_click: Icons.HandPointUp,
+  mouse_right_click: Icons.HandPointUp,
+  mouse_scroll: Icons.HandPointUp,
+  size: Icons.HandOk,
+  warning: Icons.TriangleExclamation,
+  width: Icons.ArrowsExpandHorizontal,
 } as const;
 
 type IconName = keyof typeof icons;
@@ -34,7 +34,7 @@ export default function Hint({ icon, children }: Props) {
   return (
     <div className="d-f ai-c g-2 mb-4">
       <span className="d-f c-periwinkle ai-c fs-0 p-1 bc-navy bg-charcoal bw-1 br-sm">
-        <Icon size={20} weight="duotone" />
+        <Icon className="w-5 h-5" />
       </span>
       <span className="c-white/80">{children}</span>
     </div>
