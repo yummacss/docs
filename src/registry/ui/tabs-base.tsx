@@ -1,14 +1,14 @@
 "use client";
 
 import { Tabs } from "@base-ui/react/tabs";
-import { Bell, Gear, Person } from "@gravity-ui/icons";
+import { BellDot, Gear, Person } from "@gravity-ui/icons";
 import { motion } from "motion/react";
 import * as React from "react";
 
 const tabs = [
   { value: "account", label: "Account", icon: Person },
   { value: "settings", label: "Settings", icon: Gear },
-  { value: "notifications", label: "Notifications", icon: Bell },
+  { value: "notifications", label: "Notifications", icon: BellDot },
 ];
 
 export default function ExampleTabs() {

@@ -5,12 +5,12 @@ import { Dialog } from "@base-ui/react/dialog";
 import {
   ArrowDown,
   ArrowRight,
+  ArrowRightFromSquare,
   ArrowUp,
   ArrowUturnCwLeft,
   FileText,
   LayersVertical,
   Magnifier,
-  Xmark,
 } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import { useRouter } from "next/navigation";
@@ -117,12 +117,12 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
   // Get category icon
   const getCategoryIcon = (category: string) => {
     if (category === "docs") {
-      return <ArrowRight className="w-4 h-4 c-white/50" />;
+      return <ArrowRight className="c-white/50 w-4 h-4" />;
     }
     if (category === "handbook") {
-      return <FileText className="w-4 h-4 c-white/50" />;
+      return <FileText className="c-white/50 w-4 h-4" />;
     }
-    return <LayersVertical className="w-4 h-4 c-white/50" />;
+    return <LayersVertical className="c-white/50 w-4 h-4" />;
   };
 
   // Track global index for keyboard nav
@@ -164,7 +164,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
               >
                 {/* Search Input */}
                 <div className="d-f ai-c g-3 px-4 py-3 bc-white/10 bbw-1">
-                  <Magnifier className="w-5 h-5 c-white/50" />
+                  <Magnifier className="c-white/50 w-5 h-5" />
                   <input
                     ref={inputRef}
                     type="text"
@@ -247,7 +247,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
 
                               {/* Action indicator */}
                               {isSelected && (
-                                <ArrowUturnCwLeft className="w-4 h-4 c-white/50 fs-0" />
+                                <ArrowUturnCwLeft className="c-white/50 fs-0 w-4 h-4" />
                               )}
                             </Button>
                           );
@@ -304,7 +304,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                         backgroundColor: "#151724",
                       }}
                     >
-                      <Xmark className="w-4 h-4" />
+                      <ArrowRightFromSquare className="w-4 h-4" />
                     </kbd>
                     <span className="ml-1 fs-md">to close</span>
                   </span>
