@@ -10,7 +10,6 @@ import { lazy, type ReactNode, Suspense, useEffect, useState } from "react";
 import { SiGithub, SiNpm } from "react-icons/si";
 import pkg from "../../../package.json";
 import { YummaCSSDark } from "../icons/yummacss-dark";
-import { LogoContextMenu } from "./logo-context-menu";
 import { SearchDialog } from "./search-dialog";
 
 const MobileSidebar = lazy(() => import("./mobile-sidebar"));
@@ -82,14 +81,12 @@ export default function Navbar({
         >
           <nav className="d-f ai-c jc-sb">
             <div className="d-f ai-c g-2">
-              <LogoContextMenu>
-                <Link
-                  href={isUI ? "/ui/components" : "/"}
-                  className="fv:oc-white fv:ow-2"
-                >
-                  <YummaCSSDark className="d-b h-8 w-auto" />
-                </Link>
-              </LogoContextMenu>
+              <Link
+                href={isUI ? "/ui/components" : "/"}
+                className="fv:oc-white fv:ow-2"
+              >
+                <YummaCSSDark className="d-b h-8 w-auto" />
+              </Link>
             </div>
             <div className="d-f ai-c g-4">
               {links ? (

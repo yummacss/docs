@@ -1032,10 +1032,6 @@ summary {
   font-size: 1.5rem;
 }
 
-.fv\:bg-white\/5:focus-visible {
-  background-color: #ffffff0d;
-}
-
 .fv\:oc-indigo:focus-visible {
   outline-color: #6366f1;
 }
@@ -1394,10 +1390,6 @@ summary {
 
 .h\:bg-zinc-7:hover {
   background-color: #47474e;
-}
-
-.h\:br-sm:hover {
-  border-radius: 0.25rem;
 }
 
 .h\:c-indigo:hover {
