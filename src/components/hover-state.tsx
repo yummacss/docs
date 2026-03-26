@@ -1,10 +1,14 @@
 import { HandPointUp } from "@gravity-ui/icons";
+import { type Category, getPrefix } from "../utils/yummacss";
 
 interface Props {
-  prefix: string;
+  category: Category;
+  name: string;
 }
 
-export default function HoverVariant({ prefix }: Props) {
+export default function HoverVariant({ category, name }: Props) {
+  const prefix = getPrefix(category, name);
+
   return (
     <div className="mb-6 p-4 bc-clay bg-midnight bw-1 br-sm">
       <div className="d-f ai-c g-3 mb-3">
@@ -17,7 +21,7 @@ export default function HoverVariant({ prefix }: Props) {
         </p>
       </div>
 
-      <div className="d-f ai-c g-2 p-3 br-sm bg-mirage">
+      <div className="d-f ai-c g-2 p-3 bg-mirage br-sm">
         <span className="c-white/50 fs-xs">Syntax:</span>
         <code className="c-mauve fs-sm">h:{prefix}-*</code>
       </div>

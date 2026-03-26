@@ -1,5 +1,8 @@
+import { type Category, getPrefix } from "../utils/yummacss";
+
 interface Props {
-  prefix: string;
+  category: Category;
+  name: string;
 }
 
 const breakpoints = [
@@ -21,7 +24,9 @@ const breakpoints = [
   },
 ] as const;
 
-export default function ResponsiveVariant({ prefix }: Props) {
+export default function ResponsiveVariant({ category, name }: Props) {
+  const prefix = getPrefix(category, name);
+
   return (
     <div className="d-g gtc-1 g-3 mb-6 sm:gtc-2">
       {breakpoints.map((bp) => (
