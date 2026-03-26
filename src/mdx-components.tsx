@@ -1,6 +1,5 @@
 import type { MDXComponents } from "mdx/types";
 import Image from "next/image";
-import Script from "next/script";
 import Baseline from "@/components/baseline";
 import Hint from "@/components/hint";
 import HoverVariant from "@/components/hover-state";
@@ -223,18 +222,6 @@ const components: MDXComponents = {
     />
   ),
   div: ({ children, ...props }) => <div {...props}>{children}</div>,
-  script: (props) => {
-    if (props.type === "module") {
-      return (
-        <Script
-          id="rehype-expressive-code-script"
-          strategy="lazyOnload"
-          {...props}
-        />
-      );
-    }
-    return <Script id="mdx-script" {...props} />;
-  },
 } satisfies MDXComponents;
 
 export function useMDXComponents(): MDXComponents {
