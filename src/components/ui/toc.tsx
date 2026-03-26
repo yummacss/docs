@@ -68,7 +68,9 @@ export default function TableOfContents() {
         }}
       >
         <div className="px-8 pb-12">
-          <h3 className="c-silver-8 fs-xs fw-600 ls-2 tt-u mb-4">On this page</h3>
+          <h3 className="c-silver-8 fs-xs fw-600 ls-2 tt-u mb-4">
+            On this page
+          </h3>
           <ul className="d-f fd-c g-2 fs-sm">
             {headings.map((heading) => {
               const isActive = activeId === heading.id;

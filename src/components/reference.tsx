@@ -2,36 +2,14 @@
 
 import { Input } from "@base-ui/react";
 import { Magnifier } from "@gravity-ui/icons";
-import * as core from "@yummacss/core";
 import { useState } from "react";
+import { type Category, categoryGetters } from "../utils/yummacss";
 import {
   Accordion,
   AccordionItem,
   AccordionPanel,
   AccordionTrigger,
 } from "./accordion";
-
-const categoryGetters = {
-  background: core.backgroundUtils,
-  border: core.borderUtils,
-  boxModel: core.boxModelUtils,
-  color: core.colorUtils,
-  effect: core.effectUtils,
-  flexbox: core.flexboxUtils,
-  font: core.fontUtils,
-  grid: core.gridUtils,
-  interactivity: core.interactivityUtils,
-  layout: core.layoutUtils,
-  outline: core.outlineUtils,
-  positioning: core.positioningUtils,
-  svg: core.svgUtils,
-  table: core.tableUtils,
-  text: core.textUtils,
-  transform: core.transformUtils,
-  transition: core.transitionUtils,
-} as const;
-
-type Category = keyof typeof categoryGetters;
 
 interface Props {
   category: Category;
@@ -121,7 +99,7 @@ export default function Reference({ category, name }: Props) {
             <div className="o-y-auto max-h-52">
               {/* Subtle search input */}
               <div className="d-f ai-c g-2 mb-2 pb-2 bc-clay bbw-1">
-                <Magnifier className="w-4 h-4 c-white/30 fs-0" />
+                <Magnifier className="c-white/30 fs-0 w-4 h-4" />
                 <Input
                   type="text"
                   placeholder="Filter..."

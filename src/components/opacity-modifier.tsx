@@ -1,10 +1,14 @@
 import { Droplet } from "@gravity-ui/icons";
+import { type Category, getPrefix } from "../utils/yummacss";
 
 interface Props {
-  prefix: string;
+  category: Category;
+  name: string;
 }
 
-export default function OpacityModifier({ prefix }: Props) {
+export default function OpacityModifier({ category, name }: Props) {
+  const prefix = getPrefix(category, name);
+
   return (
     <div className="mb-6 p-4 bc-clay bg-midnight bw-1 br-sm">
       <div className="d-f ai-c g-3 mb-3">
