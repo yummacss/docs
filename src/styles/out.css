@@ -1160,18 +1160,6 @@ summary {
   gap: 1px;
 }
 
-.gr-s-2 {
-  grid-row: span 2 / span 2;
-}
-
-.gre-3 {
-  grid-row-end: 3;
-}
-
-.grs-2 {
-  grid-row-start: 2;
-}
-
 .gtc-1 {
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }
@@ -1564,10 +1552,6 @@ summary {
 
 .m-0 {
   margin: 0;
-}
-
-.m-8 {
-  margin: 2rem;
 }
 
 .m-px {
@@ -2170,14 +2154,6 @@ summary {
   text-align: center;
 }
 
-.ta-e {
-  text-align: end;
-}
-
-.ta-j {
-  text-align: justify;
-}
-
 .ta-ja {
   text-align: justify-all;
 }
@@ -2196,10 +2172,6 @@ summary {
 
 .ta-r {
   text-align: right;
-}
-
-.ta-s {
-  text-align: start;
 }
 
 .td-300 {
@@ -2246,26 +2218,6 @@ summary {
   transition-duration: 500ms;
 }
 
-.ti-0 {
-  text-indent: 0;
-}
-
-.ti-1 {
-  text-indent: 1px;
-}
-
-.ti-2 {
-  text-indent: .25rem;
-}
-
-.ti-3 {
-  text-indent: .5rem;
-}
-
-.ti-4 {
-  text-indent: .75rem;
-}
-
 .to-e {
   text-overflow: ellipsis;
 }
@@ -2304,14 +2256,6 @@ summary {
 
 .tw-n {
   text-wrap: nowrap;
-}
-
-.tw-p {
-  text-wrap: pretty;
-}
-
-.tw-w {
-  text-wrap: wrap;
 }
 
 .us-none {
