@@ -1,6 +1,6 @@
 import Navbar from "@/components/ui/navbar";
 import Sidebar from "@/components/ui/sidebar";
-import TableOfContents from "@/components/ui/table-of-contents";
+import TableOfContents from "@/components/ui/toc";
 
 export default function DocsLayout({
   children,

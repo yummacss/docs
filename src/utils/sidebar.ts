@@ -3,7 +3,7 @@ export const sidebarConfig: SidebarConfig = [
     title: "Getting Started",
     items: [
       { title: "Installation", slug: "installation" },
-      { title: "Configuration", slug: "configuration" },
+      { title: "Configuration", slug: "configuration", updated: true },
       { title: "Creating Apps", slug: "creating-apps" },
       { title: "IDE Support", slug: "ide-support" },
       { title: "Upgrading", slug: "upgrading" },
@@ -16,7 +16,7 @@ export const sidebarConfig: SidebarConfig = [
       { title: "Colors", slug: "colors" },
       { title: "Media Queries", slug: "media-queries" },
       { title: "Container Queries", slug: "container-queries" },
-      { title: "Negative Values", slug: "negative-values" },
+      { title: "Negative Values", slug: "negative-values", updated: true },
       { title: "Pseudo Classes", slug: "pseudo-classes" },
       { title: "Pseudo Elements", slug: "pseudo-elements" },
       { title: "Base Styles", slug: "base-styles" },
@@ -238,7 +238,7 @@ export const sidebarConfig: SidebarConfig = [
     items: [
       { title: "Clear", slug: "clear" },
       { title: "Columns", slug: "columns" },
-      { title: "Container Type", slug: "container-type" },
+      { title: "Container Type", slug: "container-type", updated: true },
       { title: "Display", slug: "display" },
       { title: "Float", slug: "float" },
       { title: "Isolation", slug: "isolation" },
@@ -347,6 +347,7 @@ export const sidebarConfig: SidebarConfig = [
 export interface SidebarConfigItemBase {
   title: string;
   slug?: string;
+  updated?: boolean;
 }
 
 export interface SidebarConfigItemWithChildren extends SidebarConfigItemBase {

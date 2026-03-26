@@ -45,6 +45,11 @@ export const redirects = [
     destination: "docs/ide-support",
     permanent: true,
   },
+  {
+    source: "/ui/theming",
+    destination: "/ui/customization",
+    permanent: true,
+  },
   ...[
     "/docs/api-reference",
     "/docs/core-api",

@@ -32,16 +32,18 @@ export default function UISidebar() {
         }}
       >
         {uiSidebarConfig.map((section) => (
-          <div key={section.title} className="d-f fd-c g-4">
-            <h3 className="c-white fs-md fw-400 tt-c ls-5">{section.title}</h3>
-            <ul className="d-f fd-c g-2 ml-4">
+          <div key={section.title} className="d-f fd-c g-3">
+            <h3 className="c-silver-8 fs-xs fw-600 ls-2 tt-u">
+              {section.title}
+            </h3>
+            <ul className="d-f fd-c g-2">
               {section.items.map((item) => {
                 // item with children (nested structure)
                 if (hasChildren(item)) {
                   return (
                     <li key={item.title} className="d-f fd-c g-2">
-                      <span className="c-white/50 fs-md">{item.title}</span>
-                      <ul className="d-f fd-c g-1 ml-4">
+                      <span className="c-silver-9 fs-sm">{item.title}</span>
+                      <ul className="d-f fd-c g-1">
                         {item.children.map((child) => {
                           const href = `/ui/${child.slug}`;
                           const isActive = pathname === href;
@@ -50,9 +52,12 @@ export default function UISidebar() {
                             <li key={child.slug}>
                               <Link
                                 href={href}
-                                className={`d-if ai-c g-3 fs-md us-none fv:oc-white fv:oo-2 fv:ow-2 ${isActive ? "c-white" : "c-white/70 h:c-white"}`}
+                                className={`d-if ai-c g-3 fs-sm us-none fv:oc-white fv:oo-2 fv:ow-2 fv:os-s ${isActive ? "c-white" : "c-white/70 h:c-white"}`}
                               >
                                 {child.title}
+                                {child.updated && (
+                                  <span className="w-2 h-2 bg-white br-pill" />
+                                )}
                               </Link>
                             </li>
                           );
@@ -66,13 +71,13 @@ export default function UISidebar() {
                 if (hasItems(item)) {
                   return (
                     <li key={item.title} className="d-f fd-c g-2">
-                      <span className="c-white/50 fs-md">{item.title}</span>
-                      <ul className="d-f fd-c g-1 ml-4">
+                      <span className="c-silver-9 fs-sm">{item.title}</span>
+                      <ul className="d-f fd-c g-1">
                         {item.items.map((subItem) => {
                           if (hasChildren(subItem)) {
                             return (
                               <li key={subItem.title} className="d-f fd-c g-2">
-                                <span className="c-white/40 fs-md">
+                                <span className="c-silver-10 fs-sm">
                                   {subItem.title}
                                 </span>
                                 <ul className="d-f fd-c g-1 ml-4">
@@ -84,9 +89,12 @@ export default function UISidebar() {
                                       <li key={child.slug}>
                                         <Link
                                           href={href}
-                                          className={`d-if ai-c g-3 fs-md us-none fv:oc-white fv:oo-2 fv:ow-2 ${isActive ? "c-white" : "c-white/70 h:c-white"}`}
+                                          className={`d-if ai-c g-3 fs-sm us-none fv:oc-white fv:oo-2 fv:ow-2 fv:os-s ${isActive ? "c-white" : "c-white/70 h:c-white"}`}
                                         >
                                           {child.title}
+                                          {child.updated && (
+                                            <span className="w-2 h-2 bg-white br-pill" />
+                                          )}
                                         </Link>
                                       </li>
                                     );
@@ -104,9 +112,12 @@ export default function UISidebar() {
                               <li key={subItem.slug}>
                                 <Link
                                   href={href}
-                                  className={`d-if ai-c g-3 fs-md us-none fv:oc-white fv:oo-2 fv:ow-2 ${isActive ? "c-white" : "c-white/70 h:c-white"}`}
+                                  className={`d-if ai-c g-3 fs-sm us-none fv:oc-white fv:oo-2 fv:ow-2 fv:os-s ${isActive ? "c-white" : "c-white/70 h:c-white"}`}
                                 >
                                   {subItem.title}
+                                  {subItem.updated && (
+                                    <span className="w-2 h-2 bg-white br-pill" />
+                                  )}
                                 </Link>
                               </li>
                             );
@@ -128,9 +139,12 @@ export default function UISidebar() {
                     <li key={item.slug}>
                       <Link
                         href={href}
-                        className={`d-if ai-c g-3 us-none fv:oc-white fv:oo-2 fv:ow-2 ${isActive ? "c-white" : "c-white/70 h:c-white"}`}
+                        className={`d-if ai-c g-3 fs-sm us-none fv:oc-white fv:oo-2 fv:ow-2 fv:os-s ${isActive ? "c-white" : "c-white/70 h:c-white"}`}
                       >
                         {item.title}
+                        {item.updated && (
+                          <span className="w-2 h-2 bg-white br-pill" />
+                        )}
                       </Link>
                     </li>
                   );
