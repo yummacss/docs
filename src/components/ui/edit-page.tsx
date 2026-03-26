@@ -1,6 +1,6 @@
 "use client";
 
-import { PencilSimpleIcon } from "@phosphor-icons/react/dist/ssr";
+import { Pencil } from "@gravity-ui/icons";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -13,7 +13,7 @@ export default function EditPage() {
       href={url}
       className="d-if c-white/70 ai-c g-2 w-fc fs-sm td-none h:c-white fv:oc-white fv:ow-2"
     >
-      <PencilSimpleIcon size={16} weight="duotone" />
+      <Pencil className="w-4 h-4" />
       Edit this page
     </Link>
   );

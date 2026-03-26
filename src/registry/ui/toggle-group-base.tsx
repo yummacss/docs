@@ -2,20 +2,15 @@
 
 import { Toggle } from "@base-ui/react/toggle";
 import { ToggleGroup } from "@base-ui/react/toggle-group";
-import {
-  DotsNineIcon,
-  ListBulletsIcon,
-  ListIcon,
-  SquaresFourIcon,
-} from "@phosphor-icons/react";
+import { Grip, LayoutCellsLarge, LayoutList, ListUl } from "@gravity-ui/icons";
 import { motion } from "motion/react";
 import * as React from "react";
 
 const toggleItems = [
-  { value: "compact-list", label: "Compact list", icon: ListIcon },
-  { value: "default-list", label: "Default list", icon: ListBulletsIcon },
-  { value: "compact-grid", label: "Compact grid", icon: DotsNineIcon },
-  { value: "default-grid", label: "Default grid", icon: SquaresFourIcon },
+  { value: "compact-list", label: "Compact list", icon: LayoutList },
+  { value: "default-list", label: "Default list", icon: ListUl },
+  { value: "compact-grid", label: "Compact grid", icon: Grip },
+  { value: "default-grid", label: "Default grid", icon: LayoutCellsLarge },
 ];
 
 export default function ExampleToggleGroup() {
@@ -46,7 +41,7 @@ export default function ExampleToggleGroup() {
                 transition={{ duration: 0.2, ease: "easeInOut" }}
               />
             )}
-            <Icon size={18} weight="bold" className="p-r zi-10" />
+            <Icon className="w-5 h-5 p-r zi-10" />
           </Toggle>
         );
       })}

@@ -1,5 +1,5 @@
 import { Checkbox } from "@base-ui/react/checkbox";
-import { CheckIcon } from "@phosphor-icons/react";
+import { Check } from "@gravity-ui/icons";
 
 export default function ExampleCheckbox() {
   return (
@@ -15,7 +15,7 @@ export default function ExampleCheckbox() {
             }
           >
             <Checkbox.Indicator className="d-f c-white">
-              <CheckIcon size={12} weight="bold" />
+              <Check className="w-3 h-3" />
             </Checkbox.Indicator>
           </Checkbox.Root>
           Enable notifications
@@ -35,7 +35,7 @@ export default function ExampleCheckbox() {
             }
           >
             <Checkbox.Indicator className="d-f c-white">
-              <CheckIcon size={12} weight="bold" />
+              <Check className="w-3 h-3" />
             </Checkbox.Indicator>
           </Checkbox.Root>
           Marketing emails

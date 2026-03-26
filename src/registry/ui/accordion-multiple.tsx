@@ -1,7 +1,7 @@
 "use client";
 
 import { Accordion } from "@base-ui/react/accordion";
-import { CaretDownIcon } from "@phosphor-icons/react";
+import { ChevronDown } from "@gravity-ui/icons";
 import { type HTMLMotionProps, motion } from "motion/react";
 import * as React from "react";
 
@@ -31,12 +31,7 @@ export default function ExampleAccordion() {
                   transition={{ duration: 0.15, ease: "easeInOut" }}
                   className="d-f"
                 >
-                  <CaretDownIcon
-                    size={16}
-                    weight="bold"
-                    className="fs-0 c-slate-6"
-                    aria-hidden
-                  />
+                  <ChevronDown className="w-4 h-4 fs-0 c-slate-6" aria-hidden />
                 </motion.span>
               </Accordion.Trigger>
             </Accordion.Header>

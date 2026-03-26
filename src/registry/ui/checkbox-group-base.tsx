@@ -2,7 +2,7 @@
 
 import { Checkbox } from "@base-ui/react/checkbox";
 import { CheckboxGroup } from "@base-ui/react/checkbox-group";
-import { CheckIcon } from "@phosphor-icons/react";
+import { Check } from "@gravity-ui/icons";
 import { useId } from "react";
 
 export default function ExampleCheckboxGroup() {
@@ -29,7 +29,7 @@ export default function ExampleCheckboxGroup() {
           }
         >
           <Checkbox.Indicator className="d-f c-white">
-            <CheckIcon size={12} weight="bold" />
+            <Check className="w-3 h-3" />
           </Checkbox.Indicator>
         </Checkbox.Root>
         Email alerts
@@ -46,7 +46,7 @@ export default function ExampleCheckboxGroup() {
           }
         >
           <Checkbox.Indicator className="d-f c-white">
-            <CheckIcon size={12} weight="bold" />
+            <Check className="w-3 h-3" />
           </Checkbox.Indicator>
         </Checkbox.Root>
         SMS alerts
@@ -63,7 +63,7 @@ export default function ExampleCheckboxGroup() {
           }
         >
           <Checkbox.Indicator className="d-f c-white">
-            <CheckIcon size={12} weight="bold" />
+            <Check className="w-3 h-3" />
           </Checkbox.Indicator>
         </Checkbox.Root>
         Push notifications

@@ -1,7 +1,7 @@
 "use client";
 
 import { Combobox } from "@base-ui/react/combobox";
-import { CircleIcon, XIcon } from "@phosphor-icons/react";
+import { Circle, Xmark } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import * as React from "react";
 
@@ -25,9 +25,9 @@ const skills = [
 
 function ItemIcon({ selected }: { selected: boolean }) {
   return selected ? (
-    <CircleIcon size={14} weight="fill" className="c-indigo-6 fs-0" />
+    <Circle className="w-3.5 h-3.5 c-indigo-6 fs-0" />
   ) : (
-    <CircleIcon size={14} className="c-slate-3 fs-0" />
+    <Circle className="w-3.5 h-3.5 c-slate-3 fs-0" />
   );
 }
 
@@ -53,7 +53,7 @@ export default function ExampleCombobox() {
                     className="d-f ai-c jc-c b-0 p-0 bg-transparent c-indigo-5 c-p h:c-indigo-8"
                     aria-label={`Remove ${chip}`}
                   >
-                    <XIcon size={11} weight="bold" />
+                    <Xmark className="w-2.75 h-2.75" />
                   </Combobox.ChipRemove>
                 </Combobox.Chip>
               )) as unknown as React.ReactNode

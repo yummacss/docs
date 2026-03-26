@@ -2,7 +2,7 @@
 
 import { Checkbox } from "@base-ui/react/checkbox";
 import { CheckboxGroup } from "@base-ui/react/checkbox-group";
-import { CheckIcon, MinusIcon } from "@phosphor-icons/react";
+import { Check, Minus } from "@gravity-ui/icons";
 import { useId, useState } from "react";
 
 const analytics = ["pageviews", "sessions"];
@@ -43,9 +43,9 @@ export default function ExampleCheckboxGroup() {
               render={(props, state) => (
                 <span {...props}>
                   {state.indeterminate ? (
-                    <MinusIcon size={12} weight="bold" />
+                    <Minus className="w-3 h-3" />
                   ) : (
-                    <CheckIcon size={12} weight="bold" />
+                    <Check className="w-3 h-3" />
                   )}
                 </span>
               )}
@@ -67,7 +67,7 @@ export default function ExampleCheckboxGroup() {
               }
             >
               <Checkbox.Indicator className="d-f c-white">
-                <CheckIcon size={12} weight="bold" />
+                <Check className="w-3 h-3" />
               </Checkbox.Indicator>
             </Checkbox.Root>
             Page views
@@ -85,7 +85,7 @@ export default function ExampleCheckboxGroup() {
               }
             >
               <Checkbox.Indicator className="d-f c-white">
-                <CheckIcon size={12} weight="bold" />
+                <Check className="w-3 h-3" />
               </Checkbox.Indicator>
             </Checkbox.Root>
             Sessions
@@ -119,9 +119,9 @@ export default function ExampleCheckboxGroup() {
               render={(props, state) => (
                 <span {...props}>
                   {state.indeterminate ? (
-                    <MinusIcon size={12} weight="bold" />
+                    <Minus className="w-3 h-3" />
                   ) : (
-                    <CheckIcon size={12} weight="bold" />
+                    <Check className="w-3 h-3" />
                   )}
                 </span>
               )}
@@ -143,7 +143,7 @@ export default function ExampleCheckboxGroup() {
               }
             >
               <Checkbox.Indicator className="d-f c-white">
-                <CheckIcon size={12} weight="bold" />
+                <Check className="w-3 h-3" />
               </Checkbox.Indicator>
             </Checkbox.Root>
             Campaigns
@@ -161,7 +161,7 @@ export default function ExampleCheckboxGroup() {
               }
             >
               <Checkbox.Indicator className="d-f c-white">
-                <CheckIcon size={12} weight="bold" />
+                <Check className="w-3 h-3" />
               </Checkbox.Indicator>
             </Checkbox.Root>
             Newsletters

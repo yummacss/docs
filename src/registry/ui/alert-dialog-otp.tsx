@@ -10,21 +10,21 @@ import { ToggleGroup } from "@base-ui/react/toggle-group";
 import { Toolbar } from "@base-ui/react/toolbar";
 import { Tooltip } from "@base-ui/react/tooltip";
 import {
-  ImageIcon,
-  ListBulletsIcon,
-  ListNumbersIcon,
-  PaletteIcon,
-  PaperclipIcon,
-  PaperPlaneTiltIcon,
-  TextAlignCenterIcon,
-  TextAlignLeftIcon,
-  TextAlignRightIcon,
-  TextBolderIcon,
-  TextItalicIcon,
-  TextUnderlineIcon,
-  TrashIcon,
-  XIcon,
-} from "@phosphor-icons/react";
+  Bold,
+  Italic,
+  ListOl,
+  ListUl,
+  Palette,
+  Paperclip,
+  PaperPlane,
+  Picture,
+  TextAlignCenter,
+  TextAlignLeft,
+  TextAlignRight,
+  TrashBin,
+  Underline,
+  Xmark,
+} from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import * as React from "react";
 
@@ -76,13 +76,13 @@ export default function ExampleAlertDialog() {
                       <Button className="d-f b-0 ai-c jc-c w-7 h-7 bg-transparent c-slate-6 br-md c-p h:bg-silver-2 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
                     }
                   >
-                    <XIcon size={16} weight="bold" aria-hidden />
+                    <Xmark aria-hidden className="w-4 h-4" />
                   </AlertDialog.Close>
                 </div>
                 <div className="bc-silver-2 bbw-1" />
                 <div className="d-f ai-c g-3 px-4 py-3 bg-indigo-1/50">
                   <span className="d-f ai-c jc-c fs-0 w-10 h-10 bg-white bc-silver-2 c-indigo br-md bw-1 bs-o-xs">
-                    <PaperPlaneTiltIcon size={20} weight="bold" />
+                    <PaperPlane className="w-5 h-5" />
                   </span>
                   <div>
                     <h3 className="m-0 mb-1 c-slate-10 fs-md fw-600">
@@ -154,7 +154,7 @@ export default function ExampleAlertDialog() {
                                     />
                                   }
                                 >
-                                  <TextBolderIcon size={16} weight="bold" />
+                                  <Bold className="w-4 h-4" />
                                 </Tooltip.Trigger>
                                 <Tooltip.Portal>
                                   <Tooltip.Positioner sideOffset={8}>
@@ -181,7 +181,7 @@ export default function ExampleAlertDialog() {
                                     />
                                   }
                                 >
-                                  <TextItalicIcon size={16} weight="bold" />
+                                  <Italic className="w-4 h-4" />
                                 </Tooltip.Trigger>
                                 <Tooltip.Portal>
                                   <Tooltip.Positioner sideOffset={8}>
@@ -208,7 +208,7 @@ export default function ExampleAlertDialog() {
                                     />
                                   }
                                 >
-                                  <TextUnderlineIcon size={16} weight="bold" />
+                                  <Underline className="w-4 h-4" />
                                 </Tooltip.Trigger>
                                 <Tooltip.Portal>
                                   <Tooltip.Positioner sideOffset={8}>
@@ -231,7 +231,7 @@ export default function ExampleAlertDialog() {
                                   <Toolbar.Button className="d-f ai-c jc-c w-8 h-8 bg-transparent c-slate-8 bw-0 br-sm us-none c-p h:bg-silver-1 h:c-slate-10 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
                                 }
                               >
-                                <PaletteIcon size={16} weight="bold" />
+                                <Palette className="w-4 h-4" />
                               </Tooltip.Trigger>
                               <Tooltip.Portal>
                                 <Tooltip.Positioner sideOffset={8}>
@@ -263,7 +263,7 @@ export default function ExampleAlertDialog() {
                                     />
                                   }
                                 >
-                                  <TextAlignLeftIcon size={16} weight="bold" />
+                                  <TextAlignLeft className="w-4 h-4" />
                                 </Tooltip.Trigger>
                                 <Tooltip.Portal>
                                   <Tooltip.Positioner sideOffset={8}>
@@ -290,10 +290,7 @@ export default function ExampleAlertDialog() {
                                     />
                                   }
                                 >
-                                  <TextAlignCenterIcon
-                                    size={16}
-                                    weight="bold"
-                                  />
+                                  <TextAlignCenter className="w-4 h-4" />
                                 </Tooltip.Trigger>
                                 <Tooltip.Portal>
                                   <Tooltip.Positioner sideOffset={8}>
@@ -320,7 +317,7 @@ export default function ExampleAlertDialog() {
                                     />
                                   }
                                 >
-                                  <TextAlignRightIcon size={16} weight="bold" />
+                                  <TextAlignRight className="w-4 h-4" />
                                 </Tooltip.Trigger>
                                 <Tooltip.Portal>
                                   <Tooltip.Positioner sideOffset={8}>
@@ -353,7 +350,7 @@ export default function ExampleAlertDialog() {
                                     />
                                   }
                                 >
-                                  <ListBulletsIcon size={16} weight="bold" />
+                                  <ListUl className="w-4 h-4" />
                                 </Tooltip.Trigger>
                                 <Tooltip.Portal>
                                   <Tooltip.Positioner sideOffset={8}>
@@ -380,7 +377,7 @@ export default function ExampleAlertDialog() {
                                     />
                                   }
                                 >
-                                  <ListNumbersIcon size={16} weight="bold" />
+                                  <ListOl className="w-4 h-4" />
                                 </Tooltip.Trigger>
                                 <Tooltip.Portal>
                                   <Tooltip.Positioner sideOffset={8}>
@@ -403,7 +400,7 @@ export default function ExampleAlertDialog() {
                                   <Toolbar.Button className="d-f ai-c jc-c w-8 h-8 bg-transparent c-slate-8 bw-0 br-sm us-none c-p h:bg-silver-1 h:c-slate-10 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
                                 }
                               >
-                                <TrashIcon size={16} weight="bold" />
+                                <TrashBin className="w-4 h-4" />
                               </Tooltip.Trigger>
                               <Tooltip.Portal>
                                 <Tooltip.Positioner sideOffset={8}>
@@ -425,7 +422,7 @@ export default function ExampleAlertDialog() {
                                   <Toolbar.Button className="d-f ai-c g-2 h-8 px-2 bg-transparent c-slate-8 br-sm bw-0 fs-xs fw-600 us-none c-p h:bg-silver-1 h:c-slate-10 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
                                 }
                               >
-                                <PaperclipIcon size={16} weight="bold" />
+                                <Paperclip className="w-4 h-4" />
                                 Attach
                               </Tooltip.Trigger>
                               <Tooltip.Portal>
@@ -444,7 +441,7 @@ export default function ExampleAlertDialog() {
                                   <Toolbar.Button className="d-f ai-c g-2 h-8 px-2 bg-transparent c-slate-8 br-sm bw-0 fs-xs fw-600 us-none c-p h:bg-silver-1 h:c-slate-10 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
                                 }
                               >
-                                <ImageIcon size={16} weight="bold" />
+                                <Picture className="w-4 h-4" />
                                 Insert
                               </Tooltip.Trigger>
                               <Tooltip.Portal>

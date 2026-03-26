@@ -2,7 +2,7 @@
 
 import { AlertDialog } from "@base-ui/react/alert-dialog";
 import { Button } from "@base-ui/react/button";
-import { XIcon } from "@phosphor-icons/react";
+import { Xmark } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import * as React from "react";
 
@@ -54,7 +54,7 @@ export default function ExampleAlertDialog() {
                       <Button className="d-f b-0 ai-c jc-c w-7 h-7 bg-transparent c-slate-6 br-md c-p h:bg-silver-2 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
                     }
                   >
-                    <XIcon size={16} weight="bold" aria-hidden />
+                    <Xmark aria-hidden className="w-4 h-4" />
                   </AlertDialog.Close>
                 </div>
                 <div className="bc-silver-2 bbw-1" />

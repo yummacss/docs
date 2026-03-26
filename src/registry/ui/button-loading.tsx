@@ -1,5 +1,5 @@
 import { Button } from "@base-ui/react/button";
-import { SpinnerIcon } from "@phosphor-icons/react";
+import { CircleDashed } from "@gravity-ui/icons";
 import { motion } from "motion/react";
 
 export default function ExampleButton() {
@@ -12,7 +12,7 @@ export default function ExampleButton() {
         animate={{ rotate: 360 }}
         transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
       >
-        <SpinnerIcon size={16} weight="bold" />
+        <CircleDashed className="w-4 h-4" />
       </motion.div>
       Please wait
     </Button>

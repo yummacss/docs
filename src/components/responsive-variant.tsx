@@ -1,4 +1,3 @@
-
 interface Props {
   prefix: string;
 }
@@ -30,7 +29,6 @@ export default function ResponsiveVariant({ prefix }: Props) {
           key={bp.prefix}
           className="d-f ai-c g-3 p-3 bc-clay bg-midnight bw-1 br-sm"
         >
-
           <div className="f-1">
             <code className="d-b c-mauve mb-1 fs-sm">
               {bp.prefix}:{prefix}-*

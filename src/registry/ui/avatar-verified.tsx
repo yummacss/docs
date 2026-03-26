@@ -1,5 +1,5 @@
 import { Avatar } from "@base-ui/react/avatar";
-import { SealCheckIcon } from "@phosphor-icons/react";
+import { CircleCheckFill } from "@gravity-ui/icons";
 
 export default function ExampleAvatar() {
   return (
@@ -16,7 +16,7 @@ export default function ExampleAvatar() {
           </Avatar.Fallback>
         </Avatar.Root>
         <span className="d-f p-a b-0 r-0 ai-c jc-c w-5 h-5 bg-white bc-white br-pill bw-2">
-          <SealCheckIcon weight="fill" className="c-indigo" />
+          <CircleCheckFill className="c-indigo" />
         </span>
       </div>
 
@@ -32,7 +32,7 @@ export default function ExampleAvatar() {
           </Avatar.Fallback>
         </Avatar.Root>
         <span className="d-f p-a b-0 r-0 ai-c jc-c w-5 h-5 bg-white bc-white br-pill bw-2">
-          <SealCheckIcon weight="fill" className="c-indigo" />
+          <CircleCheckFill className="c-indigo" />
         </span>
       </div>
     </div>

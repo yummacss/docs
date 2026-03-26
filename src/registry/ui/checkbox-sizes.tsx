@@ -1,5 +1,5 @@
 import { Checkbox } from "@base-ui/react/checkbox";
-import { CheckIcon } from "@phosphor-icons/react";
+import { Check } from "@gravity-ui/icons";
 
 export default function ExampleCheckbox() {
   return (
@@ -14,7 +14,7 @@ export default function ExampleCheckbox() {
           }
         >
           <Checkbox.Indicator className="d-f c-white">
-            <CheckIcon size={10} weight="bold" />
+            <Check className="w-2.5 h-2.5" />
           </Checkbox.Indicator>
         </Checkbox.Root>
         Small
@@ -30,7 +30,7 @@ export default function ExampleCheckbox() {
           }
         >
           <Checkbox.Indicator className="d-f c-white">
-            <CheckIcon size={12} weight="bold" />
+            <Check className="w-3 h-3" />
           </Checkbox.Indicator>
         </Checkbox.Root>
         Medium
@@ -46,7 +46,7 @@ export default function ExampleCheckbox() {
           }
         >
           <Checkbox.Indicator className="d-f c-white">
-            <CheckIcon size={14} weight="bold" />
+            <Check className="w-3.5 h-3.5" />
           </Checkbox.Indicator>
         </Checkbox.Root>
         Large

@@ -1,7 +1,7 @@
 "use client";
 
 import { Combobox } from "@base-ui/react/combobox";
-import { CaretDownIcon, CheckIcon, XIcon } from "@phosphor-icons/react";
+import { Check, ChevronDown, Xmark } from "@gravity-ui/icons";
 import * as React from "react";
 
 interface Country {
@@ -47,13 +47,13 @@ export default function ExampleCombobox() {
               className="d-f b-0 ai-c jc-c w-6 h-6 p-0 bg-transparent c-slate-6 br-sm c-p h:c-slate-10"
               aria-label="Clear selection"
             >
-              <XIcon size={16} />
+              <Xmark className="w-4 h-4" />
             </Combobox.Clear>
             <Combobox.Trigger
               className="d-f b-0 ai-c jc-c w-6 h-6 p-0 bg-transparent c-slate-6 br-sm c-p h:c-slate-10"
               aria-label="Open popup"
             >
-              <CaretDownIcon size={16} />
+              <ChevronDown className="w-4 h-4" />
             </Combobox.Trigger>
           </div>
         </div>
@@ -78,7 +78,7 @@ export default function ExampleCombobox() {
                     }
                   >
                     <Combobox.ItemIndicator className="d-f c-indigo">
-                      <CheckIcon size={12} weight="bold" />
+                      <Check className="w-3 h-3" />
                     </Combobox.ItemIndicator>
                     <span className="fg-1">{country.name}</span>
                   </Combobox.Item>

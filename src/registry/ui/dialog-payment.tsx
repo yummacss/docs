@@ -2,7 +2,7 @@
 
 import { AlertDialog } from "@base-ui/react/alert-dialog";
 import { Button } from "@base-ui/react/button";
-import { CreditCardIcon, XIcon } from "@phosphor-icons/react";
+import { CreditCard, Xmark } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import * as React from "react";
 
@@ -54,13 +54,13 @@ export default function DialogPayment() {
                       <Button className="d-f b-0 ai-c jc-c w-7 h-7 bg-transparent c-slate-6 br-md c-p h:bg-silver-2 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
                     }
                   >
-                    <XIcon size={16} weight="bold" aria-hidden />
+                    <Xmark aria-hidden className="w-4 h-4" />
                   </AlertDialog.Close>
                 </div>
                 <div className="bc-silver-2 bbw-1" />
                 <div className="d-f ai-c g-3 px-4 py-3 bg-indigo-1/50">
                   <span className="d-f ai-c jc-c fs-0 w-10 h-10 bg-white bc-silver-2 c-indigo br-md bw-1 bs-o-xs">
-                    <CreditCardIcon size={20} weight="bold" />
+                    <CreditCard className="w-5 h-5" />
                   </span>
                   <div>
                     <h3 className="m-0 mb-1 c-slate-10 fs-md fw-600">

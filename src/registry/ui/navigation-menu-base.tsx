@@ -3,14 +3,14 @@
 import { Button } from "@base-ui/react";
 import { NavigationMenu } from "@base-ui/react/navigation-menu";
 import {
-  BookOpenIcon,
-  CaretDownIcon,
-  ChatCircleIcon,
-  CodeIcon,
-  GearIcon,
-  PuzzlePieceIcon,
-  RocketLaunchIcon,
-} from "@phosphor-icons/react";
+  BookOpen,
+  ChevronDown,
+  Code,
+  Comment,
+  Gear,
+  Puzzle,
+  Rocket,
+} from "@gravity-ui/icons";
 import { motion } from "motion/react";
 
 function NavTrigger({
@@ -34,7 +34,7 @@ function NavTrigger({
             className="d-f tp-trf tdu-150 ttf-io"
             style={{ transform: state.open ? "rotate(180deg)" : "rotate(0)" }}
           >
-            <CaretDownIcon size={12} />
+            <ChevronDown className="w-3 h-3" />
           </NavigationMenu.Icon>
         </Button>
       )}
@@ -137,19 +137,19 @@ const developerLinks = [
     href: "#api",
     title: "API Reference",
     description: "Explore endpoints and methods.",
-    icon: <CodeIcon size={18} weight="bold" />,
+    icon: <Code className="w-5 h-5" />,
   },
   {
     href: "#plugins",
     title: "Plugins",
     description: "Extend with custom plugins.",
-    icon: <PuzzlePieceIcon size={18} weight="bold" />,
+    icon: <Puzzle className="w-5 h-5" />,
   },
   {
     href: "#tools",
     title: "CLI Tools",
     description: "Command line utilities.",
-    icon: <GearIcon size={18} weight="bold" />,
+    icon: <Gear className="w-4 h-4" />,
   },
 ];
 
@@ -158,18 +158,18 @@ const learnLinks = [
     href: "#guides",
     title: "Guides",
     description: "Step-by-step tutorials.",
-    icon: <BookOpenIcon size={18} weight="bold" />,
+    icon: <BookOpen className="w-5 h-5" />,
   },
   {
     href: "#examples",
     title: "Examples",
     description: "Ready-to-use templates.",
-    icon: <RocketLaunchIcon size={18} weight="bold" />,
+    icon: <Rocket className="w-5 h-5" />,
   },
   {
     href: "#community",
     title: "Community",
     description: "Join the discussion.",
-    icon: <ChatCircleIcon size={18} weight="bold" />,
+    icon: <Comment className="w-4 h-4" />,
   },
 ];

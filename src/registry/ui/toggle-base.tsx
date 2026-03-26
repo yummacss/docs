@@ -1,7 +1,7 @@
 "use client";
 
 import { Toggle } from "@base-ui/react/toggle";
-import { PauseIcon, PlayIcon } from "@phosphor-icons/react";
+import { Pause, Play } from "@gravity-ui/icons";
 import { motion } from "motion/react";
 
 export default function ExampleToggle() {
@@ -23,9 +23,9 @@ export default function ExampleToggle() {
           transition={{ type: "spring", stiffness: 800, damping: 35 }}
         >
           {state.pressed ? (
-            <PauseIcon size={24} weight="fill" />
+            <Pause className="w-6 h-6" />
           ) : (
-            <PlayIcon size={24} weight="fill" />
+            <Play className="w-6 h-6" />
           )}
         </motion.button>
       )}

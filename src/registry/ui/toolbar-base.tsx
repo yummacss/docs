@@ -2,12 +2,7 @@ import { Separator } from "@base-ui/react/separator";
 import { Toggle } from "@base-ui/react/toggle";
 import { ToggleGroup } from "@base-ui/react/toggle-group";
 import { Toolbar } from "@base-ui/react/toolbar";
-import {
-  TextBolderIcon,
-  TextItalicIcon,
-  TextStrikethroughIcon,
-  TextUnderlineIcon,
-} from "@phosphor-icons/react";
+import { Bold, Italic, Strikethrough, Underline } from "@gravity-ui/icons";
 
 export default function ExampleToolbar() {
   return (
@@ -24,7 +19,7 @@ export default function ExampleToolbar() {
             }`
           }
         >
-          <TextBolderIcon size={18} weight="bold" />
+          <Bold className="w-5 h-5" />
         </Toggle>
         <Toggle
           aria-label="Italic"
@@ -37,7 +32,7 @@ export default function ExampleToolbar() {
             }`
           }
         >
-          <TextItalicIcon size={18} weight="bold" />
+          <Italic className="w-5 h-5" />
         </Toggle>
         <Toggle
           aria-label="Underline"
@@ -50,7 +45,7 @@ export default function ExampleToolbar() {
             }`
           }
         >
-          <TextUnderlineIcon size={18} weight="bold" />
+          <Underline className="w-5 h-5" />
         </Toggle>
         <Toggle
           aria-label="Strikethrough"
@@ -63,7 +58,7 @@ export default function ExampleToolbar() {
             }`
           }
         >
-          <TextStrikethroughIcon size={18} weight="bold" />
+          <Strikethrough className="w-5 h-5" />
         </Toggle>
       </ToggleGroup>
 

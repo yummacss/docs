@@ -2,13 +2,12 @@
 
 import { ContextMenu } from "@base-ui/react/context-menu";
 import {
-  ArrowCounterClockwiseIcon,
-  ClipboardIcon,
-  CopyIcon,
-  ScissorsIcon,
-  SelectionAllIcon,
-  TrashIcon,
-} from "@phosphor-icons/react";
+  ArrowRotateLeft,
+  Copy,
+  Scissors,
+  SquareDashed,
+  TrashBin,
+} from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import * as React from "react";
 
@@ -43,7 +42,7 @@ export default function ExampleContextMenu() {
                     }`
                   }
                 >
-                  <ScissorsIcon size={14} className="c-slate-5 fs-0" />
+                  <Scissors className="w-4 h-4 c-slate-5 fs-0" />
                   Cut
                 </ContextMenu.Item>
                 <ContextMenu.Item
@@ -53,7 +52,7 @@ export default function ExampleContextMenu() {
                     }`
                   }
                 >
-                  <CopyIcon size={14} className="c-slate-5 fs-0" />
+                  <Copy className="w-4 h-4 c-slate-5 fs-0" />
                   Copy
                 </ContextMenu.Item>
                 <ContextMenu.Item
@@ -63,7 +62,7 @@ export default function ExampleContextMenu() {
                     }`
                   }
                 >
-                  <ClipboardIcon size={14} className="c-slate-5 fs-0" />
+                  <Copy className="w-4 h-4 c-slate-5 fs-0" />
                   Paste
                 </ContextMenu.Item>
 
@@ -76,7 +75,7 @@ export default function ExampleContextMenu() {
                     }`
                   }
                 >
-                  <SelectionAllIcon size={14} className="c-slate-5 fs-0" />
+                  <SquareDashed className="w-4 h-4 c-slate-5 fs-0" />
                   Select all
                 </ContextMenu.Item>
                 <ContextMenu.Item
@@ -86,7 +85,7 @@ export default function ExampleContextMenu() {
                     }`
                   }
                 >
-                  <ArrowCounterClockwiseIcon size={14} className="c-slate-5 fs-0" />
+                  <ArrowRotateLeft className="w-4 h-4 c-slate-5 fs-0" />
                   Undo
                 </ContextMenu.Item>
 
@@ -99,7 +98,7 @@ export default function ExampleContextMenu() {
                     }`
                   }
                 >
-                  <TrashIcon size={14} className="fs-0" />
+                  <TrashBin className="w-4 h-4 fs-0" />
                   Delete
                 </ContextMenu.Item>
               </ContextMenu.Popup>

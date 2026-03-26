@@ -1,7 +1,7 @@
 "use client";
 
 import { NumberField } from "@base-ui/react/number-field";
-import { MinusIcon, PlusIcon } from "@phosphor-icons/react";
+import { Minus, Plus } from "@gravity-ui/icons";
 import * as React from "react";
 
 export default function ExampleNumberField() {
@@ -16,11 +16,11 @@ export default function ExampleNumberField() {
 
       <NumberField.Group className="d-f">
         <NumberField.Decrement className="d-f ai-c jc-c w-10 h-10 bg-white bc-silver-3 c-slate-10 blr-md bw-1 brw-0 us-none c-p h:bg-silver-1 a:bg-silver-2">
-          <MinusIcon size={12} weight="bold" />
+          <Minus className="w-3 h-3" />
         </NumberField.Decrement>
         <NumberField.Input className="p-r zi-10 h-10 w-20 bg-white bc-silver-3 c-slate-10 btw-1 bbw-1 ta-c fs-md fv:z-1 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
         <NumberField.Increment className="d-f ai-c jc-c w-10 h-10 bg-white bc-silver-3 c-slate-10 brr-md bw-1 blw-0 us-none c-p h:bg-silver-1 a:bg-silver-2">
-          <PlusIcon size={12} weight="bold" />
+          <Plus className="w-3 h-3" />
         </NumberField.Increment>
       </NumberField.Group>
     </NumberField.Root>

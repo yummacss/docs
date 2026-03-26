@@ -1,7 +1,7 @@
 "use client";
 
 import { Popover } from "@base-ui/react/popover";
-import { ChatCircleIcon } from "@phosphor-icons/react";
+import { Comment } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import * as React from "react";
 
@@ -15,7 +15,7 @@ export default function ExamplePopover() {
           open ? "bg-silver-1" : ""
         }`}
       >
-        <ChatCircleIcon size={20} aria-label="Messages" />
+        <Comment aria-label="Messages" className="w-5 h-5" />
       </Popover.Trigger>
       <AnimatePresence>
         {open && (

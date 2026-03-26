@@ -1,7 +1,7 @@
 "use client";
 
 import { Accordion } from "@base-ui/react/accordion";
-import { MinusIcon, PlusIcon } from "@phosphor-icons/react";
+import { Minus, Plus } from "@gravity-ui/icons";
 import { type HTMLMotionProps, motion } from "motion/react";
 import * as React from "react";
 
@@ -32,19 +32,9 @@ export default function ExampleAccordion() {
                   className="d-f"
                 >
                   {isOpen ? (
-                    <MinusIcon
-                      size={16}
-                      weight="bold"
-                      className="fs-0 c-slate-6"
-                      aria-hidden
-                    />
+                    <Minus className="w-4 h-4 fs-0 c-slate-6" aria-hidden />
                   ) : (
-                    <PlusIcon
-                      size={16}
-                      weight="bold"
-                      className="fs-0 c-slate-6"
-                      aria-hidden
-                    />
+                    <Plus className="w-4 h-4 fs-0 c-slate-6" aria-hidden />
                   )}
                 </motion.span>
               </Accordion.Trigger>

@@ -1,14 +1,14 @@
 "use client";
 
 import { Tabs } from "@base-ui/react/tabs";
-import { BellIcon, GearIcon, UserIcon } from "@phosphor-icons/react";
+import { Bell, Gear, Person } from "@gravity-ui/icons";
 import { motion } from "motion/react";
 import * as React from "react";
 
 const tabs = [
-  { value: "account", label: "Account", icon: UserIcon },
-  { value: "settings", label: "Settings", icon: GearIcon },
-  { value: "notifications", label: "Notifications", icon: BellIcon },
+  { value: "account", label: "Account", icon: Person },
+  { value: "settings", label: "Settings", icon: Gear },
+  { value: "notifications", label: "Notifications", icon: Bell },
 ];
 
 export default function ExampleTabs() {
@@ -39,7 +39,7 @@ export default function ExampleTabs() {
                   transition={{ duration: 0.2, ease: "easeInOut" }}
                 />
               )}
-              <Icon size={18} weight="bold" className="p-r zi-10" />
+              <Icon className="w-5 h-5 p-r zi-10" />
               <span className="p-r zi-10 fs-sm fw-500">{tab.label}</span>
             </Tabs.Tab>
           );
