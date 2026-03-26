@@ -1,7 +1,7 @@
 "use client";
 
 import { ContextMenu } from "@base-ui/react/context-menu";
-import { CircleIcon } from "@phosphor-icons/react";
+import { CircleFill } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import * as React from "react";
 
@@ -42,7 +42,10 @@ export default function ExampleContextMenu() {
                   Sort by
                 </div>
 
-                <ContextMenu.RadioGroup value={sortBy} onValueChange={setSortBy}>
+                <ContextMenu.RadioGroup
+                  value={sortBy}
+                  onValueChange={setSortBy}
+                >
                   {sortOptions.map((option) => (
                     <ContextMenu.RadioItem
                       key={option.value}
@@ -55,11 +58,7 @@ export default function ExampleContextMenu() {
                     >
                       <span className="d-f ai-c jc-c w-4 h-4 br-pill fs-0 bw-1 bc-silver-3">
                         <ContextMenu.RadioItemIndicator>
-                          <CircleIcon
-                            size={8}
-                            weight="fill"
-                            className="c-indigo"
-                          />
+                          <CircleFill className="w-2 h-2 c-indigo" />
                         </ContextMenu.RadioItemIndicator>
                       </span>
                       {option.label}

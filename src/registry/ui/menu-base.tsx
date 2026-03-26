@@ -1,7 +1,7 @@
 "use client";
 
 import { Menu } from "@base-ui/react/menu";
-import { CaretDownIcon } from "@phosphor-icons/react";
+import { ChevronDown } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import * as React from "react";
 
@@ -11,7 +11,7 @@ export default function ExampleMenu() {
   return (
     <Menu.Root open={open} onOpenChange={setOpen}>
       <Menu.Trigger className="d-f b-0 ai-c g-2 px-3 py-2 h-fc bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-600 bs-o-xs tp-c tdu-150 ttf-io us-none c-p h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6">
-        Actions <CaretDownIcon size={12} />
+        Actions <ChevronDown className="w-3 h-3" />
       </Menu.Trigger>
 
       <AnimatePresence>

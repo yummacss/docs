@@ -1,7 +1,7 @@
 "use client";
 
 import { Collapsible } from "@base-ui/react/collapsible";
-import { CaretRightIcon } from "@phosphor-icons/react";
+import { ChevronRight } from "@gravity-ui/icons";
 import { type HTMLMotionProps, motion } from "motion/react";
 import * as React from "react";
 
@@ -21,7 +21,7 @@ export default function ExampleCollapsible() {
           transition={{ duration: 0.15, ease: "easeOut" }}
           className="d-f"
         >
-          <CaretRightIcon size={14} weight="bold" className="c-slate-4" />
+          <ChevronRight className="w-3.5 h-3.5 c-slate-4" />
         </motion.span>
       </Collapsible.Trigger>
 

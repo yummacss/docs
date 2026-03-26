@@ -1,7 +1,7 @@
 "use client";
 
 import { Combobox } from "@base-ui/react/combobox";
-import { CircleIcon, MagnifyingGlassIcon } from "@phosphor-icons/react";
+import { Circle, Magnifier } from "@gravity-ui/icons";
 
 const frameworks = [
   "Next.js",
@@ -16,9 +16,9 @@ const frameworks = [
 
 function ItemIcon({ selected }: { selected: boolean }) {
   return selected ? (
-    <CircleIcon size={14} weight="fill" className="c-indigo-6 fs-0" />
+    <Circle className="w-3.5 h-3.5 c-indigo-6 fs-0" />
   ) : (
-    <CircleIcon size={14} className="c-slate-3 fs-0" />
+    <Circle className="w-3.5 h-3.5 c-slate-3 fs-0" />
   );
 }
 
@@ -27,7 +27,7 @@ export default function ExampleCombobox() {
     <div className="d-f fd-c g-0 w-64 bg-white bc-silver-3 bw-1 br-md o-h">
       <Combobox.Root inline items={frameworks}>
         <div className="d-f ai-c g-2 px-3 bbw-1 bc-silver-3">
-          <MagnifyingGlassIcon size={14} className="c-slate-4 fs-0" />
+          <Magnifier className="w-3.5 h-3.5 c-slate-4 fs-0" />
           <Combobox.Input
             placeholder="Search frameworks…"
             className="f-1 h-10 bg-transparent b-0 fs-md c-slate-10"

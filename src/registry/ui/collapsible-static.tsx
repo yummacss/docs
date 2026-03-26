@@ -1,7 +1,7 @@
 "use client";
 
 import { Collapsible } from "@base-ui/react/collapsible";
-import { CaretRightIcon, HardDriveIcon, InfoIcon } from "@phosphor-icons/react";
+import { ChevronRight, CircleInfo, HardDrive } from "@gravity-ui/icons";
 import * as React from "react";
 
 export default function ExampleCollapsible() {
@@ -16,17 +16,15 @@ export default function ExampleCollapsible() {
       <Collapsible.Trigger className="d-f b-0 ai-c jc-sb g-3 w-full px-4 py-3 bg-transparent ta-l c-p">
         <div className="d-f ai-c g-3">
           <span className="d-f ai-c jc-c w-8 h-8 br-md bg-silver-1 bc-silver-3 bw-1">
-            <HardDriveIcon size={16} className="c-slate-6" />
+            <HardDrive className="w-4 h-4 c-slate-6" />
           </span>
           <div className="d-f fd-c g-0">
             <span className="fs-sm fw-600 c-slate-9">System requirements</span>
             <span className="fs-xs c-slate-5">View hardware & OS details</span>
           </div>
         </div>
-        <CaretRightIcon
-          size={14}
-          weight="bold"
-          className={`c-slate-4 ${open ? "ro-90" : "ro-0"}`}
+        <ChevronRight
+          className={`w-4 h-4 c-slate-4 ${open ? "ro-90" : "ro-0"}`}
         />
       </Collapsible.Trigger>
 
@@ -47,7 +45,7 @@ export default function ExampleCollapsible() {
             <span className="fs-xs fw-600 c-slate-8">4 GB minimum</span>
           </div>
           <div className="d-f ai-c g-2 px-4 py-3 bg-silver-1 bbr-lg">
-            <InfoIcon size={13} className="c-slate-6 fs-0" />
+            <CircleInfo className="w-3.25 h-3.25 c-slate-6 fs-0" />
             <span className="fs-xs c-slate-7">
               16 GB RAM recommended for large projects
             </span>

@@ -2,7 +2,7 @@
 
 import { Field } from "@base-ui/react/field";
 import { Select } from "@base-ui/react/select";
-import { CaretUpDownIcon, CheckIcon } from "@phosphor-icons/react";
+import { CaretsExpandVertical, Check } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import * as React from "react";
 
@@ -37,7 +37,7 @@ export default function ExampleSelect() {
             }
           </Select.Value>
           <Select.Icon className="d-f c-slate-8">
-            <CaretUpDownIcon size={16} />
+            <CaretsExpandVertical className="w-4 h-4" />
           </Select.Icon>
         </Select.Trigger>
         <AnimatePresence>
@@ -64,7 +64,7 @@ export default function ExampleSelect() {
                         className={itemClass}
                       >
                         <Select.ItemIndicator className="d-f ai-c">
-                          <CheckIcon size={14} weight="bold" />
+                          <Check className="w-3.5 h-3.5" />
                         </Select.ItemIndicator>
                         <Select.ItemText>{label}</Select.ItemText>
                       </Select.Item>

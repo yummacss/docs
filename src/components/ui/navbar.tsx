@@ -1,11 +1,7 @@
 "use client";
 
 import { Button } from "@base-ui/react";
-import {
-  EqualsIcon,
-  MagnifyingGlassIcon,
-  XIcon,
-} from "@phosphor-icons/react/dist/ssr";
+import { Bars, Magnifier, Xmark } from "@gravity-ui/icons";
 import { cva, type VariantProps } from "class-variance-authority";
 import { clsx } from "clsx";
 import Link from "next/link";
@@ -134,7 +130,7 @@ export default function Navbar({
                 onClick={() => setSearchOpen(true)}
                 className="d-f ai-c jc-c g-2 h-8 px-3 bc-white/10 bg-white/5 c-white bw-1 br-pill fs-sm bf-b-sm lg:px-4 h:bg-white/10 fv:oc-white fv:ow-2"
               >
-                <MagnifyingGlassIcon className="w-4 h-4" />
+                <Magnifier className="w-4 h-4" />
                 <kbd className="d-none c-white/60 fs-xs us-none lg:d-b">
                   Ctrl K
                 </kbd>
@@ -169,7 +165,7 @@ export default function Navbar({
                   aria-label={isSidebarOpen ? "Close menu" : "Open menu"}
                 >
                   <div className="d-f p-r ai-c jc-c w-4 h-4">
-                    <EqualsIcon
+                    <Bars
                       className="p-a w-4 h-4"
                       style={{
                         opacity: isSidebarOpen ? 0 : 1,
@@ -180,7 +176,7 @@ export default function Navbar({
                           "opacity 0.2s ease-in-out, transform 0.2s ease-in-out",
                       }}
                     />
-                    <XIcon
+                    <Xmark
                       className="p-a w-4 h-4"
                       style={{
                         opacity: isSidebarOpen ? 1 : 0,

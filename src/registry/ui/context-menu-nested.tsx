@@ -2,15 +2,15 @@
 
 import { ContextMenu } from "@base-ui/react/context-menu";
 import {
-  CaretRightIcon,
-  CopyIcon,
-  EnvelopeIcon,
-  LinkIcon,
-  PencilIcon,
-  ShareNetworkIcon,
-  TrashIcon,
-  UserPlusIcon,
-} from "@phosphor-icons/react";
+  ArrowUpFromSquare,
+  ChevronRight,
+  Copy,
+  Envelope,
+  Link,
+  Pencil,
+  PersonPlus,
+  TrashBin,
+} from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import * as React from "react";
 
@@ -41,18 +41,18 @@ export default function ExampleContextMenu() {
                     transition={{ duration: 0.1, ease: "easeOut" }}
                   />
                 }
-                className="py-1 bg-white bc-silver-2 c-slate-10 bw-1 br-md bs-o-lg w-48"
+                className="py-1 w-48 bg-white bc-silver-2 c-slate-10 bw-1 br-md bs-o-lg"
               >
                 <ContextMenu.Item
                   className={(state) => itemClass(state.highlighted)}
                 >
-                  <PencilIcon size={14} className="c-slate-5 fs-0" />
+                  <Pencil className="fs-0 w-4 h-4 c-slate-5" />
                   Edit
                 </ContextMenu.Item>
                 <ContextMenu.Item
                   className={(state) => itemClass(state.highlighted)}
                 >
-                  <CopyIcon size={14} className="c-slate-5 fs-0" />
+                  <Copy className="fs-0 w-4 h-4 c-slate-5" />
                   Duplicate
                 </ContextMenu.Item>
 
@@ -67,10 +67,10 @@ export default function ExampleContextMenu() {
                     }
                   >
                     <span className="d-f ai-c g-2">
-                      <ShareNetworkIcon size={14} className="c-slate-5 fs-0" />
+                      <ArrowUpFromSquare className="fs-0 w-4 h-4 c-slate-5" />
                       Share
                     </span>
-                    <CaretRightIcon size={12} className="c-slate-4 fs-0" />
+                    <ChevronRight className="fs-0 w-3 h-3 c-slate-4" />
                   </ContextMenu.SubmenuTrigger>
 
                   <ContextMenu.Portal>
@@ -79,23 +79,23 @@ export default function ExampleContextMenu() {
                       sideOffset={-4}
                       alignOffset={-4}
                     >
-                      <ContextMenu.Popup className="py-1 bg-white bc-silver-2 c-slate-10 bw-1 br-md bs-o-lg w-48">
+                      <ContextMenu.Popup className="py-1 w-48 bg-white bc-silver-2 c-slate-10 bw-1 br-md bs-o-lg">
                         <ContextMenu.Item
                           className={(state) => itemClass(state.highlighted)}
                         >
-                          <LinkIcon size={14} className="c-slate-5 fs-0" />
+                          <Link className="fs-0 w-4 h-4 c-slate-5" />
                           Copy link
                         </ContextMenu.Item>
                         <ContextMenu.Item
                           className={(state) => itemClass(state.highlighted)}
                         >
-                          <EnvelopeIcon size={14} className="c-slate-5 fs-0" />
+                          <Envelope className="fs-0 w-4 h-4 c-slate-5" />
                           Send via email
                         </ContextMenu.Item>
                         <ContextMenu.Item
                           className={(state) => itemClass(state.highlighted)}
                         >
-                          <UserPlusIcon size={14} className="c-slate-5 fs-0" />
+                          <PersonPlus className="fs-0 w-4 h-4 c-slate-5" />
                           Invite collaborator
                         </ContextMenu.Item>
                       </ContextMenu.Popup>
@@ -112,7 +112,7 @@ export default function ExampleContextMenu() {
                     }`
                   }
                 >
-                  <TrashIcon size={14} className="fs-0" />
+                  <TrashBin className="fs-0 w-4 h-4" />
                   Delete
                 </ContextMenu.Item>
               </ContextMenu.Popup>

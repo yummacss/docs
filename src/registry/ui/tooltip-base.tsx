@@ -1,7 +1,7 @@
 "use client";
 
 import { Tooltip } from "@base-ui/react/tooltip";
-import { QuestionIcon } from "@phosphor-icons/react";
+import { CircleQuestion } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 
 export default function ExampleTooltip() {
@@ -9,7 +9,7 @@ export default function ExampleTooltip() {
     <Tooltip.Provider>
       <Tooltip.Root>
         <Tooltip.Trigger className="d-f ai-c jc-c bg-transparent c-slate-8 bw-0 c-p h:c-indigo fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6">
-          <QuestionIcon size={24} />
+          <CircleQuestion className="w-6 h-6" />
         </Tooltip.Trigger>
         <Tooltip.Portal>
           <Tooltip.Positioner sideOffset={4}>
