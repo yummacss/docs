@@ -1,7 +1,7 @@
 "use client";
 
 import { Toggle } from "@base-ui/react/toggle";
-import { Pause, Play } from "@gravity-ui/icons";
+import { PauseFill, PlayFill } from "@gravity-ui/icons";
 import { motion } from "motion/react";
 
 export default function ExampleToggle() {
@@ -23,9 +23,9 @@ export default function ExampleToggle() {
           transition={{ type: "spring", stiffness: 800, damping: 35 }}
         >
           {state.pressed ? (
-            <Pause className="w-6 h-6" />
+            <PauseFill className="w-5 h-5" />
           ) : (
-            <Play className="w-6 h-6" />
+            <PlayFill className="w-5 h-5" />
           )}
         </motion.button>
       )}
