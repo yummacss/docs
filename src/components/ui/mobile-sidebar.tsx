@@ -108,8 +108,10 @@ export default function MobileSidebar({ isOpen, onClose, routeType }: Props) {
                                 </span>
                                 <ul className="d-f fd-c g-1">
                                   {(item.children as any[]).map((child) => {
-                                    const isMenu = section.title === "Menu";
-                                    const href = isMenu
+                                    const isNavigation =
+                                      section.title === "Navigation" ||
+                                      section.title === "Menu";
+                                    const href = isNavigation
                                       ? (child as any).href
                                       : `${baseRoute}/${child.slug}`;
                                     const isActive = pathname === href;
@@ -222,8 +224,10 @@ export default function MobileSidebar({ isOpen, onClose, routeType }: Props) {
 
                           // simple item with slug
                           if (item.slug) {
-                            const isMenu = section.title === "Menu";
-                            const href = isMenu
+                            const isNavigation =
+                              section.title === "Navigation" ||
+                              section.title === "Menu";
+                            const href = isNavigation
                               ? (item as any).href
                               : `${baseRoute}/${item.slug}`;
                             const isActive = pathname === href;
