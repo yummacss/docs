@@ -1,6 +1,7 @@
 export interface UISidebarConfigItemBase {
   title: string;
   slug?: string;
+  updated?: boolean;
 }
 
 export interface UISidebarConfigItemWithChildren
@@ -31,7 +32,7 @@ export const uiSidebarConfig: UISidebarConfig = [
     title: "Getting Started",
     items: [
       { title: "Installation", slug: "installation" },
-      { title: "Theming", slug: "theming" },
+      { title: "Customization", slug: "customization", updated: true },
       { title: "Components", slug: "components" },
     ],
   },

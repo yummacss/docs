@@ -1,5 +1,5 @@
 import Navbar from "@/components/ui/navbar";
-import TableOfContents from "@/components/ui/table-of-contents";
+import TableOfContents from "@/components/ui/toc";
 import UISidebar from "@/components/ui/ui-sidebar";
 
 export default function UILayout({ children }: { children: React.ReactNode }) {

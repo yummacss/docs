@@ -448,6 +448,10 @@ summary {
   background-color: #151724;
 }
 
+.bg-periwinkle {
+  background-color: #bec6f2;
+}
+
 .bg-red {
   background-color: #e63946;
 }
@@ -758,6 +762,14 @@ summary {
 
 .c-ser {
   cursor: se-resize;
+}
+
+.c-silver-10 {
+  color: #45484d;
+}
+
+.c-silver-8 {
+  color: #70757e;
 }
 
 .c-silver-9 {
@@ -1542,16 +1554,16 @@ summary {
   letter-spacing: -.05em;
 }
 
+.ls-2 {
+  letter-spacing: -.025em;
+}
+
 .ls-3 {
   letter-spacing: .025em;
 }
 
 .ls-4 {
   letter-spacing: .05em;
-}
-
-.ls-5 {
-  letter-spacing: .1em;
 }
 
 .lst-d {
@@ -1700,6 +1712,10 @@ summary {
 
 .ml-8 {
   margin-left: 2rem;
+}
+
+.ml-auto {
+  margin-left: auto;
 }
 
 .mr-2 {
@@ -2276,10 +2292,6 @@ summary {
 
 .tp-w {
   transition-property: width;
-}
-
-.tt-c {
-  text-transform: capitalize;
 }
 
 .tt-u {

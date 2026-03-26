@@ -40,8 +40,36 @@ interface Props {
 
 export default function MobileSidebar({ isOpen, onClose, routeType }: Props) {
   const pathname = usePathname();
-  const config = routeType === "ui" ? uiSidebarConfig : sidebarConfig;
+  const baseConfig = routeType === "ui" ? uiSidebarConfig : sidebarConfig;
   const baseRoute = routeType === "ui" ? "/ui" : "/docs";
+
+  const navigationItems = [
+    { title: "Home", href: "/", updated: false },
+    { title: "Docs", href: "/docs", updated: false },
+    { title: "Components", href: "/ui/components", updated: false },
+    { title: "Blog", href: "/blog", updated: false },
+    {
+      title: "Playground",
+      href: "https://play.yummacss.com",
+      external: true,
+      updated: false,
+    },
+  ];
+
+  const config = [
+    {
+      title: "Navigation",
+      items: navigationItems.map((item) => ({
+        title: item.title,
+        slug: item.href.startsWith("http")
+          ? item.href
+          : item.href.replace(/^\/(docs|ui)\//, "").replace(/^\/$/, "home"),
+        href: item.href,
+        external: item.external,
+      })),
+    },
+    ...baseConfig,
+  ];
 
   return (
     <AnimatePresence>
@@ -65,27 +93,25 @@ export default function MobileSidebar({ isOpen, onClose, routeType }: Props) {
               >
                 <div className="d-f fd-c g-8">
                   {config.map((section) => (
-                    <div key={section.title} className="d-f fd-c g-4">
-                      <h3 className="c-white fs-md fw-400 tt-c ls-5">
+                    <div key={section.title} className="d-f fd-c g-3">
+                      <h3 className="c-silver-8 fs-xs fw-600 ls-2 tt-u">
                         {section.title}
                       </h3>
-                      <ul className="d-f fd-c g-2 ml-4">
+                      <ul className="d-f fd-c g-2">
                         {section.items.map((item) => {
                           // item with children (nested structure)
                           if (hasChildren(item)) {
                             return (
                               <li key={item.title} className="d-f fd-c g-2">
-                                <span className="c-white/50 fs-md">
+                                <span className="c-silver-9 fs-lg">
                                   {item.title}
                                 </span>
-                                <ul className="d-f fd-c g-1 ml-4">
-                                  {(
-                                    item.children as (
-                                      | SidebarConfigSimpleItem
-                                      | UISidebarConfigSimpleItem
-                                    )[]
-                                  ).map((child) => {
-                                    const href = `${baseRoute}/${child.slug}`;
+                                <ul className="d-f fd-c g-1">
+                                  {(item.children as any[]).map((child) => {
+                                    const isMenu = section.title === "Menu";
+                                    const href = isMenu
+                                      ? (child as any).href
+                                      : `${baseRoute}/${child.slug}`;
                                     const isActive = pathname === href;
 
                                     return (
@@ -93,9 +119,17 @@ export default function MobileSidebar({ isOpen, onClose, routeType }: Props) {
                                         <Link
                                           href={href}
                                           onClick={onClose}
-                                          className={`d-if ai-c g-3 fs-md us-none fv:oc-white fv:oo-2 fv:ow-2 fv:os-s ${isActive ? "c-white" : "c-white/70 h:c-white"}`}
+                                          className={`d-if ai-c g-3 fs-lg us-none fv:oc-white fv:oo-2 fv:ow-2 fv:os-s ${isActive ? "c-white" : "c-white/70 h:c-white"}`}
+                                          target={
+                                            (child as any).external
+                                              ? "_blank"
+                                              : undefined
+                                          }
                                         >
                                           {child.title}
+                                          {child.updated && (
+                                            <span className="w-2 h-2 bg-white br-pill" />
+                                          )}
                                         </Link>
                                       </li>
                                     );
@@ -109,10 +143,10 @@ export default function MobileSidebar({ isOpen, onClose, routeType }: Props) {
                           if (hasItems(item)) {
                             return (
                               <li key={item.title} className="d-f fd-c g-2">
-                                <span className="c-white/50 fs-md">
+                                <span className="c-silver-9 fs-lg">
                                   {item.title}
                                 </span>
-                                <ul className="d-f fd-c g-1 ml-4">
+                                <ul className="d-f fd-c g-1">
                                   {(
                                     item.items as (
                                       | SidebarConfigItem
@@ -125,10 +159,10 @@ export default function MobileSidebar({ isOpen, onClose, routeType }: Props) {
                                           key={subItem.title}
                                           className="d-f fd-c g-2"
                                         >
-                                          <span className="c-white/40 fs-md">
+                                          <span className="c-silver-10 fs-lg">
                                             {subItem.title}
                                           </span>
-                                          <ul className="d-f fd-c g-1">
+                                          <ul className="d-f fd-c g-1 ml-4">
                                             {(
                                               subItem.children as (
                                                 | SidebarConfigSimpleItem
@@ -142,11 +176,14 @@ export default function MobileSidebar({ isOpen, onClose, routeType }: Props) {
                                               return (
                                                 <li key={child.slug}>
                                                   <Link
-                                                    href={href}
+                                                    href={`${baseRoute}/${child.slug}`}
                                                     onClick={onClose}
-                                                    className={`d-if ai-c g-3 fs-md us-none fv:oc-white fv:oo-2 fv:ow-2 fv:os-s ${isActive ? "c-white" : "c-white/70 h:c-white"}`}
+                                                    className={`d-if ai-c g-3 fs-lg us-none fv:oc-white fv:oo-2 fv:ow-2 fv:os-s ${isActive ? "c-white" : "c-white/70 h:c-white"}`}
                                                   >
                                                     {child.title}
+                                                    {(child as any).updated && (
+                                                      <span className="w-2 h-2 bg-white br-pill" />
+                                                    )}
                                                   </Link>
                                                 </li>
                                               );
@@ -163,11 +200,14 @@ export default function MobileSidebar({ isOpen, onClose, routeType }: Props) {
                                       return (
                                         <li key={subItem.slug}>
                                           <Link
-                                            href={href}
+                                            href={`${baseRoute}/${subItem.slug}`}
                                             onClick={onClose}
-                                            className={`d-if ai-c g-3 fs-md us-none fv:oc-white fv:oo-2 fv:ow-2 fv:os-s ${isActive ? "c-white" : "c-white/70 h:c-white"}`}
+                                            className={`d-if ai-c g-3 fs-lg us-none fv:oc-white fv:oo-2 fv:ow-2 fv:os-s ${isActive ? "c-white" : "c-white/70 h:c-white"}`}
                                           >
                                             {subItem.title}
+                                            {(subItem as any).updated && (
+                                              <span className="w-2 h-2 bg-white br-pill" />
+                                            )}
                                           </Link>
                                         </li>
                                       );
@@ -182,7 +222,10 @@ export default function MobileSidebar({ isOpen, onClose, routeType }: Props) {
 
                           // simple item with slug
                           if (item.slug) {
-                            const href = `${baseRoute}/${item.slug}`;
+                            const isMenu = section.title === "Menu";
+                            const href = isMenu
+                              ? (item as any).href
+                              : `${baseRoute}/${item.slug}`;
                             const isActive = pathname === href;
 
                             return (
@@ -190,9 +233,17 @@ export default function MobileSidebar({ isOpen, onClose, routeType }: Props) {
                                 <Link
                                   href={href}
                                   onClick={onClose}
-                                  className={`d-if ai-c g-3 us-none fv:oc-white fv:oo-2 fv:ow-2 fv:os-s ${isActive ? "c-white" : "c-white/70 h:c-white"}`}
+                                  className={`d-if ai-c g-3 fs-lg us-none fv:oc-white fv:oo-2 fv:ow-2 fv:os-s ${isActive ? "c-white" : "c-white/70 h:c-white"}`}
+                                  target={
+                                    (item as any).external
+                                      ? "_blank"
+                                      : undefined
+                                  }
                                 >
                                   {item.title}
+                                  {(item as any).updated && (
+                                    <span className="w-2 h-2 bg-white br-pill" />
+                                  )}
                                 </Link>
                               </li>
                             );
