@@ -50,21 +50,6 @@ export const redirects = [
     destination: "/ui/customization",
     permanent: true,
   },
-  ...[
-    "/docs/api-reference",
-    "/docs/core-api",
-    "/docs/core-integration",
-    "/docs/core-library",
-    "/docs/core-module",
-    "/docs/core-package",
-    "/docs/dev-api",
-    "/docs/functions-types",
-    "/docs/integration",
-  ].map((source) => ({
-    source,
-    destination: "/docs/creating-apps",
-    permanent: true,
-  })),
   {
     source: "/docs/top-right-bottom-left",
     destination: "/docs/top",

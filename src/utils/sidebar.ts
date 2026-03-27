@@ -4,7 +4,6 @@ export const sidebarConfig: SidebarConfig = [
     items: [
       { title: "Installation", slug: "installation" },
       { title: "Configuration", slug: "configuration", updated: true },
-      { title: "Creating Apps", slug: "creating-apps" },
       { title: "IDE Support", slug: "ide-support" },
       { title: "Upgrading", slug: "upgrading" },
     ],

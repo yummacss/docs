@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import EditPage from "@/components/ui/edit-page";
+import ViewMarkdown from "./view-markdown";
 
 interface TocItem {
   id: string;
@@ -68,7 +69,7 @@ export default function TableOfContents() {
         }}
       >
         <div className="px-8 pb-12">
-          <h3 className="c-silver-8 fs-xs fw-600 ls-2 tt-u mb-4">
+          <h3 className="mb-4 c-silver-8 fs-xs fw-600 ls-2 tt-u">
             On this page
           </h3>
           <ul className="d-f fd-c g-2 fs-sm">
@@ -93,6 +94,7 @@ export default function TableOfContents() {
           {!isBlogPost && (
             <div className="d-f fd-c g-3 mt-8 pt-8 bc-white/10 btw-1">
               <EditPage />
+              {/* <ViewMarkdown /> */}
             </div>
           )}
         </div>
