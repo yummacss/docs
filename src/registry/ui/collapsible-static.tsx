@@ -45,7 +45,7 @@ export default function ExampleCollapsible() {
             <span className="fs-xs fw-600 c-slate-8">4 GB minimum</span>
           </div>
           <div className="d-f ai-c g-2 px-4 py-3 bg-silver-1 bbr-lg">
-            <CircleInfo className="w-3.25 h-3.25 c-slate-6 fs-0" />
+            <CircleInfo className="w-3 h-3 c-slate-6 fs-0" />
             <span className="fs-xs c-slate-7">
               16 GB RAM recommended for large projects
             </span>

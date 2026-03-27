@@ -48,7 +48,7 @@ export default function ExampleContextMenu() {
                 >
                   <span className="d-f ai-c jc-c w-4 h-4 br-sm fs-0 bw-1 bc-silver-3">
                     <ContextMenu.CheckboxItemIndicator>
-                      <Check className="w-2.5 h-2.5 c-indigo" />
+                      <Check className="w-3 h-3 c-indigo" />
                     </ContextMenu.CheckboxItemIndicator>
                   </span>
                   Show hidden files
@@ -65,7 +65,7 @@ export default function ExampleContextMenu() {
                 >
                   <span className="d-f ai-c jc-c w-4 h-4 br-sm fs-0 bw-1 bc-silver-3">
                     <ContextMenu.CheckboxItemIndicator>
-                      <Check className="w-2.5 h-2.5 c-indigo" />
+                      <Check className="w-3 h-3 c-indigo" />
                     </ContextMenu.CheckboxItemIndicator>
                   </span>
                   Show file extensions
@@ -82,7 +82,7 @@ export default function ExampleContextMenu() {
                 >
                   <span className="d-f ai-c jc-c w-4 h-4 br-sm fs-0 bw-1 bc-silver-3">
                     <ContextMenu.CheckboxItemIndicator>
-                      <Check className="w-2.5 h-2.5 c-indigo" />
+                      <Check className="w-3 h-3 c-indigo" />
                     </ContextMenu.CheckboxItemIndicator>
                   </span>
                   Sort ascending
@@ -101,7 +101,7 @@ export default function ExampleContextMenu() {
                 >
                   <span className="d-f ai-c jc-c w-4 h-4 br-sm fs-0 bw-1 bc-silver-3">
                     <ContextMenu.CheckboxItemIndicator>
-                      <Check className="w-2.5 h-2.5 c-indigo" />
+                      <Check className="w-3 h-3 c-indigo" />
                     </ContextMenu.CheckboxItemIndicator>
                   </span>
                   Show preview pane

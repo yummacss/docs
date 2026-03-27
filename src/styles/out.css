@@ -824,6 +824,10 @@ summary {
   cursor: sw-resize;
 }
 
+.c-transparent {
+  color: transparent;
+}
+
 .c-white {
   color: #ffffff;
 }
