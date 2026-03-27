@@ -1822,6 +1822,10 @@ summary {
   object-fit: cover;
 }
 
+.os-none {
+  outline-style: none;
+}
+
 .os-s {
   outline-style: solid;
 }
@@ -1924,6 +1928,10 @@ summary {
 
 .pb-8 {
   padding-bottom: 2rem;
+}
+
+.pe-auto {
+  pointer-events: auto;
 }
 
 .pe-none {

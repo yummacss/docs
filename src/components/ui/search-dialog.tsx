@@ -2,6 +2,7 @@
 
 import { Button } from "@base-ui/react";
 import { Dialog } from "@base-ui/react/dialog";
+import { Input } from "@base-ui/react/input";
 import {
   ArrowDown,
   ArrowRight,
@@ -154,7 +155,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                     transition={{ duration: 0.15, ease: "easeOut" }}
                   />
                 }
-                className="o-h w-full bc-white/10 bw-1 br-lg"
+                className="o-h w-full bc-white/10 bw-1 br-lg pe-auto"
                 style={{
                   backgroundColor: "#151724",
                   maxHeight: "70vh",
@@ -165,7 +166,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                 {/* Search Input */}
                 <div className="d-f ai-c g-3 px-4 py-3 bc-white/10 bbw-1">
                   <Magnifier className="c-white/50 w-5 h-5" />
-                  <input
+                  <Input
                     ref={inputRef}
                     type="text"
                     placeholder="Search documentation…"
@@ -174,8 +175,8 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                       setQuery(e.target.value);
                       setSelectedIndex(0);
                     }}
-                    className="b-0 f-1 bg-transparent c-white fs-md"
-                    style={{ outline: "none" }}
+                    autoFocus
+                    className="b-0 f-1 bg-transparent c-white fs-md os-none"
                   />
                 </div>
 
