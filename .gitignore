@@ -7,7 +7,6 @@ dist/
 
 # artifacts
 .next/
-src/generated/
 
 # misc
 .DS_Store

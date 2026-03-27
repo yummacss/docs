@@ -6,8 +6,8 @@ export interface Author {
 
 export const authors: Record<string, Author> = {
   Renildo: {
+    avatar: "https://avatars.githubusercontent.com/u/56491937?v=4",
     name: "Renildo Pereira",
-    avatar: "/avatars/renildo.jpg",
     url: "https://x.com/rrenildoo",
   },
 };
