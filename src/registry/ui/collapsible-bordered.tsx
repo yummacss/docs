@@ -21,7 +21,7 @@ export default function ExampleCollapsible() {
           transition={{ duration: 0.15, ease: "easeOut" }}
           className="d-f"
         >
-          <ChevronRight className="w-3.5 h-3.5 c-slate-4" />
+          <ChevronRight className="w-4 h-4 c-slate-4" />
         </motion.span>
       </Collapsible.Trigger>
 

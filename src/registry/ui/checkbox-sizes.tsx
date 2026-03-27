@@ -14,7 +14,7 @@ export default function ExampleCheckbox() {
           }
         >
           <Checkbox.Indicator className="d-f c-white">
-            <Check className="w-2.5 h-2.5" />
+            <Check className="w-3 h-3" />
           </Checkbox.Indicator>
         </Checkbox.Root>
         Small
@@ -46,7 +46,7 @@ export default function ExampleCheckbox() {
           }
         >
           <Checkbox.Indicator className="d-f c-white">
-            <Check className="w-3.5 h-3.5" />
+            <Check className="w-4 h-4" />
           </Checkbox.Indicator>
         </Checkbox.Root>
         Large

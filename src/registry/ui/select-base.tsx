@@ -64,7 +64,7 @@ export default function ExampleSelect() {
                         className={itemClass}
                       >
                         <Select.ItemIndicator className="d-f ai-c">
-                          <Check className="w-3.5 h-3.5" />
+                          <Check className="w-4 h-4" />
                         </Select.ItemIndicator>
                         <Select.ItemText>{label}</Select.ItemText>
                       </Select.Item>
