@@ -1,5 +1,4 @@
-export const redirects = [
-  // Docs redirects
+const docsRedirects = [
   {
     source: "/docs/colours",
     destination: "/docs/colors",
@@ -42,12 +41,7 @@ export const redirects = [
   },
   {
     source: "/docs/code-editor",
-    destination: "docs/ide-support",
-    permanent: true,
-  },
-  {
-    source: "/ui/theming",
-    destination: "/ui/customization",
+    destination: "/docs/ide-support",
     permanent: true,
   },
   {
@@ -55,7 +49,9 @@ export const redirects = [
     destination: "/docs/top",
     permanent: true,
   },
-  // Framework guides
+];
+
+const frameworkRedirects = [
   ...[
     "react",
     "nextjs",
@@ -72,12 +68,14 @@ export const redirects = [
     destination: "/docs/installation",
     permanent: true,
   })),
+];
+
+const blogRedirects = [
   {
     source: "/blog/code-editor",
     destination: "/blog/intellisense",
     permanent: true,
   },
-  // Blog redirects
   {
     source: "/blog/v0",
     destination: "/blog/yummacss-0.1",
@@ -118,7 +116,14 @@ export const redirects = [
     destination: "/blog/yummacss-api",
     permanent: true,
   },
-  // Yumma UI redirects
+];
+
+const uiRedirects = [
+  {
+    source: "/ui/theming",
+    destination: "/ui/customization",
+    permanent: true,
+  },
   {
     source: "/components",
     destination: "/ui/components",
@@ -129,4 +134,11 @@ export const redirects = [
     destination: "/ui/components",
     permanent: true,
   },
+];
+
+export const redirects = [
+  ...docsRedirects,
+  ...frameworkRedirects,
+  ...blogRedirects,
+  ...uiRedirects,
 ];
