@@ -4,7 +4,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 
 const description =
-  "Yumma CSS is an atomic CSS framework with abbreviated utility classes. Write d-f instead of flex, fw-600 instead of font-bold. Faster styling, less typing.";
+  "Yumma CSS is an ergonomic CSS framework with abbreviated utility classes. Write d-f instead of flex, fw-600 instead of font-bold. Faster styling, less typing.";
 
 export const metadata: Metadata = {
   title: {
@@ -13,11 +13,12 @@ export const metadata: Metadata = {
   },
   description,
   keywords: [
-    "css framework",
-    "atomic css",
-    "utility classes",
-    "tailwind alternative",
     "abbreviated css",
+    "atomic css",
+    "css framework",
+    "ergonomic css framework",
+    "tailwind alternative",
+    "utility classes",
   ],
   icons: {
     apple: "/apple-touch-icon.png",
