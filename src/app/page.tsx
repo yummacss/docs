@@ -37,7 +37,7 @@ export default function Home() {
                 Type less. Style more.
               </h1>
               <p className="c-white/70 mb-8 fs-lg lh-5">
-                Atomic CSS with abbreviated utility classes.{" "}
+                The ergonomic CSS framework with abbreviated utility classes.{" "}
                 <span className="c-white fs-md">d-f</span> not{" "}
                 <span className="c-white fs-md">flex</span>,{" "}
                 <span className="c-white fs-md">fw-600</span> not{" "}

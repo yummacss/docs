@@ -29,27 +29,22 @@ export default async function BlogPage() {
               <h2 className="mb-8 c-white ff-e fs-4xl fw-400">{year}</h2>
 
               {postsByYear.get(year)?.map((post) => (
-                <article key={post.slug} className="mb-12 p-r group">
-                  <Link
-                    href={`/blog/${post.slug}`}
-                    className="p-a i-0 zi-1 tc-s"
-                    aria-label={post.title}
-                  />
+                <article key={post.slug} className="mb-12">
                   <div className="d-f fd-c g-8 lg:fd-r">
                     <div className="lg:f-1">
                       <h3 className="mb-4 c-white fs-xxl fw-400">
-                        <span className="group-h:td-u">{post.title}</span>
+                        <Link href={`/blog/${post.slug}`} className="h:td-u">
+                          {post.title}
+                        </Link>
                       </h3>
-                      <p className="c-white/70 mb-4 lh-5 line-clamp-3">
-                        {post.description}
-                      </p>
+                      <p className="c-white/70 mb-4 lh-5">{post.description}</p>
                       <div className="d-f c-white/50 ai-c g-2 fs-sm">
                         <span>{formatDate(post.date)}</span>
                       </div>
                     </div>
                     {post.cover && (
                       <div className="lg:w-64 lg:fs-0">
-                        <div className="o-h b-1 bc-white/10 bg-white/10 br-sm">
+                        <div className="o-h b-1 bc-white/10 bg-white/10">
                           <Image
                             src={`/blog/${post.slug}.png`}
                             alt={post.title}
