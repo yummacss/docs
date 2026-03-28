@@ -5,7 +5,7 @@ import { formatDate, getAllBlogPosts, groupPostsByYear } from "@/utils/blog";
 
 export const metadata: Metadata = {
   title: "Blog",
-  description: "The latest updates and articles from Yumma CSS.",
+  description: "The latest updates & articles from Yumma CSS.",
 };
 
 export default async function BlogPage() {
@@ -18,7 +18,7 @@ export default async function BlogPage() {
       <div className="mx-auto my-16" style={{ maxWidth: "64rem" }}>
         <h1 className="mt-6 c-white ff-e fs-5xl fw-400">Blog Articles</h1>
         <p className="c-white/70 mt-6 fs-lg" style={{ maxWidth: "48rem" }}>
-          The latest updates and articles from Yumma CSS.
+          The latest updates & articles from Yumma CSS.
         </p>
       </div>
 
