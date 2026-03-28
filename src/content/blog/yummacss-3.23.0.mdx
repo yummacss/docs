@@ -1,0 +1,45 @@
+export const meta = {
+  authors: ["Renildo"],
+  cover: "~",
+  date: "2026-03-28",
+  description: "Logical sizing utilities for better internationalization support.",
+  title: "Yumma CSS 3.23"
+};
+
+---
+
+## Logical Sizing Utilities
+
+Yumma CSS 3.23 introduces `inline-size` & `block-size` logical properties. These utilities specify dimensions relative to the writing mode, ensuring your layout remains consistent across different languages & orientations.
+
+### Inline Size
+
+Use the `xs-` utility to control the logical inline size of an element. For horizontal writing modes, this is equivalent to `width`.
+
+```html
+<div class="xs-1/2">
+  <!-- Logical width -->
+</div>
+```
+
+### Block Size
+
+Use the `ys-` utility to control the logical block size of an element. This is equivalent to `height` in standard layouts.
+
+```html
+<div class="ys-1/4">
+  <!-- Logical height -->
+</div>
+```
+
+### Min & Max Variants
+
+We added the corresponding `min-` & `max-` variants for both properties. Use `min-xs-`, `max-xs-`, `min-ys-`, & `max-ys-` to define precise sizing constraints.
+
+## Update Yumma CSS
+
+Ready to use logical sizing? Install the latest version of Yumma CSS:
+
+```bash
+pnpm add yummacss@latest
+```
