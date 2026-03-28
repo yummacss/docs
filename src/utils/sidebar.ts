@@ -79,6 +79,14 @@ export const sidebarConfig: SidebarConfig = [
     title: "Box Model",
     items: [
       { title: "Aspect Ratio", slug: "aspect-ratio" },
+      {
+        title: "Block Size",
+        children: [
+          { title: "Block Size", slug: "block-size" },
+          { title: "Max Block Size", slug: "max-block-size" },
+          { title: "Min Block Size", slug: "min-block-size" },
+        ],
+      },
       { title: "Box Sizing", slug: "box-sizing" },
       {
         title: "Height",
@@ -86,6 +94,14 @@ export const sidebarConfig: SidebarConfig = [
           { title: "Height", slug: "height" },
           { title: "Max Height", slug: "max-height" },
           { title: "Min Height", slug: "min-height" },
+        ],
+      },
+      {
+        title: "Inline Size",
+        children: [
+          { title: "Inline Size", slug: "inline-size" },
+          { title: "Max Inline Size", slug: "max-inline-size" },
+          { title: "Min Inline Size", slug: "min-inline-size" },
         ],
       },
       {
