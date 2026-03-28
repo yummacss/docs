@@ -16,7 +16,7 @@ export default function ViewMarkdown() {
       className="d-if c-white/70 ai-c g-2 w-fc fs-sm td-none h:c-white fv:oc-white fv:ow-2"
     >
       <LogoMarkdown className="w-4 h-4" />
-      View as markdown
+      View as Markdown
     </Link>
   );
 }
