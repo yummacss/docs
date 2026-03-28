@@ -16,7 +16,6 @@ const blogSlugs = [
   "yummacss-2.0.0",
   "yummacss-2.1.0",
   "yummacss-3.0.0",
-  "yummacss-api",
   "yummacss-3.1.0",
   "yummacss-3.2.0",
   "yummacss-3.3.0",
@@ -34,6 +33,7 @@ const blogSlugs = [
   "yummacss-3.16.0",
   "yummacss-3.20.0",
   "yummacss-3.21.0",
+  "yummacss-3.22.0",
   "yummacss-3.23.0",
 ];
 

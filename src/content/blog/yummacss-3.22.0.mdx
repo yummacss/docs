@@ -1,0 +1,52 @@
+export const meta = {
+  authors: ["Renildo"],
+  cover: "~",
+  date: "2026-03-22",
+  description: "Intuitive t-shirt sizing for border radius utilities.",
+  title: "Yumma CSS 3.22"
+};
+
+---
+
+## T-Shirt Sizing Convention
+
+Yumma CSS 3.22 introduces a t-shirt sizing convention for all `border-radius` utilities. This change replaces numeric suffixes with intuitive labels like `xs`, `sm`, `md`, & `lg`, making it easier to remember & apply consistent radius values.
+
+### Updated Utilities
+
+All utilities that previously used numeric values now use t-shirt sizes. This includes the base `br-` utility as well as directional variants like `btr-`, `brr-`, `bbr-`, & `blr-`.
+
+```diff lang="html" del={1} ins={2} title="example.html"
+<div class="br-2"></div>
+<div class="br-sm"></div>
+```
+
+The new convention follows a standard scale:
+
+```diff lang="html" del={1} ins={2} title="example.html"
+<div class="br-2 btr-4"></div>
+<div class="btr-md br-sm"></div>
+```
+
+### Supported Sizes
+
+You can choose from 7 different sizes:
+
+| Size  | Value    |
+|-------|----------|
+| `0`   | 0        |
+| `xs`  | 0.125rem |
+| `sm`  | 0.25rem  |
+| `md`  | 0.375rem |
+| `lg`  | 0.5rem   |
+| `xl`  | 0.75rem  |
+| `xxl` | 1rem     |
+| `3xl` | 1.5rem   |
+
+## Update Yumma CSS
+
+Update to the latest version to start using t-shirt sizing. Refer to the [Upgrade Guide](/docs/upgrading) for more details on migration.
+
+```bash
+pnpm add yummacss@latest
+```

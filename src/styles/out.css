@@ -640,6 +640,11 @@ summary {
   border-start-start-radius: 0.375rem;
 }
 
+.btr-md {
+  border-top-left-radius: 0.375rem;
+  border-top-right-radius: 0.375rem;
+}
+
 .btw-1 {
   border-top-width: 1px;
 }
