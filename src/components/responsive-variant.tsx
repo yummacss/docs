@@ -36,7 +36,7 @@ export default function ResponsiveVariant({ category, name }: Props) {
         >
           <div className="f-1">
             <code className="d-b c-mauve mb-1 fs-sm">
-              {bp.prefix}:{prefix}-*
+              {bp.prefix}:{prefix}-(value)
             </code>
             <div className="d-f ai-c jc-sb">
               <span className="c-white/70 fs-xs">{bp.label}</span>
