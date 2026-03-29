@@ -73,7 +73,7 @@ export default function ExampleAlertDialog() {
                 style={{ maxWidth: "90vw" }}
               >
                 <div className="d-f jc-sb ai-c px-4 py-2 bg-silver-1/50">
-                  <AlertDialog.Title className="fs-sm fw-600">
+                  <AlertDialog.Title className="fs-md fw-600">
                     Verify your email
                   </AlertDialog.Title>
                   <AlertDialog.Close
