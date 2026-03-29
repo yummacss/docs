@@ -21,43 +21,67 @@ export default function TableOfContents() {
   const uiPageInfo = findCurrentUIPageInfo(pathname || "");
   const isBaseComponent = uiPageInfo?.sectionTitle === "Base components";
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: pathname changes trigger toc refresh
   useEffect(() => {
-    const elements = Array.from(
-      document.querySelectorAll("article h2, article h3, main h2, main h3"),
-    ).filter((element) => {
-      return !element.closest("[data-meta]");
+    let intersectionObserver: IntersectionObserver | null = null;
+    let currentHeadingsJson = "";
+
+    function updateHeadings() {
+      const elements = Array.from(
+        document.querySelectorAll("article h2, article h3, main h2, main h3"),
+      ).filter((element) => {
+        return !element.closest("[data-meta]");
+      });
+
+      const items: TocItem[] = elements
+        .filter((element) => element.id) // only include headings with IDs
+        .map((element) => ({
+          id: element.id,
+          text: element.textContent || "",
+          level: Number(element.tagName.charAt(1)),
+        }));
+
+      const newJson = JSON.stringify(items);
+      if (newJson !== currentHeadingsJson) {
+        setHeadings(items);
+        currentHeadingsJson = newJson;
+
+        if (intersectionObserver) {
+          intersectionObserver.disconnect();
+        }
+
+        if (items.length > 0) {
+          intersectionObserver = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  setActiveId(entry.target.id);
+                }
+              });
+            },
+            { rootMargin: "0% 0% -80% 0%" },
+          );
+
+          elements.forEach((element) => {
+            if (element.id) intersectionObserver?.observe(element);
+          });
+        }
+      }
+    }
+
+    updateHeadings();
+
+    const mutationObserver = new MutationObserver(() => {
+      updateHeadings();
     });
 
-    const items: TocItem[] = elements
-      .filter((element) => element.id) // only include headings with IDs
-      .map((element) => ({
-        id: element.id,
-        text: element.textContent || "",
-        level: Number(element.tagName.charAt(1)),
-      }));
+    const mainElement = document.querySelector("main") || document.body;
+    mutationObserver.observe(mainElement, { childList: true, subtree: true, characterData: true });
 
-    setHeadings(items);
-
-    if (items.length === 0) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveId(entry.target.id);
-          }
-        });
-      },
-      { rootMargin: "0% 0% -80% 0%" },
-    );
-
-    elements.forEach((element) => {
-      if (element.id) observer.observe(element);
-    });
-
-    return () => observer.disconnect();
-  }, [pathname]);
+    return () => {
+      if (intersectionObserver) intersectionObserver.disconnect();
+      mutationObserver.disconnect();
+    };
+  }, []);
 
   if (headings.length === 0) {
     return null;
@@ -68,7 +92,7 @@ export default function TableOfContents() {
       <div
         className="p-st t-20 o-y-auto"
         style={{
-          maxHeight: "calc(100vh - 3rem)",
+          maxHeight: "calc(100vh - 5rem)",
         }}
       >
         <div className="px-8 pb-12">
