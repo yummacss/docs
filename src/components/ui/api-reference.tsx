@@ -17,7 +17,7 @@ export default function ApiReference() {
       className="d-if c-white/70 ai-c g-2 w-fc fs-sm td-none h:c-white fv:oc-white fv:ow-2"
     >
       <LinkIcon className="w-4 h-4" />
-      API Reference
+      API reference
     </Link>
   );
 }
