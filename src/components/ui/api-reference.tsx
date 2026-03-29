@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 export default function ApiReference() {
   const pathname = usePathname();
   const slug = pathname.replace(/^\/ui\//, "").replace(/\/$/, "");
-  const url = `https://base-ui.com/react/components/${slug}`;
+  const url = `https://base-ui.com/react/components/${slug}#api-reference`;
 
   return (
     <Link
