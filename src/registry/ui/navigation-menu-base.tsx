@@ -23,7 +23,7 @@ function NavTrigger({
   return (
     <NavigationMenu.Trigger
       className={(state) =>
-        `d-f ai-c jc-c g-1 h-10 px-3 m-0 bw-0 br-pill fs-sm fw-600 c-slate-10 us-none td-n c-p h:bg-silver-1 ${
+        `d-f ai-c jc-c g-1 h-10 px-3 bw-0 br-pill fs-sm fw-600 c-slate-10 us-none td-n h:bg-silver-1 ${
           state.open ? "bg-silver-1" : "bg-transparent"
         } ${className || ""}`
       }
@@ -31,7 +31,7 @@ function NavTrigger({
         <Button {...props}>
           {children}
           <NavigationMenu.Icon
-            className="d-f tp-trf tdu-150 ttf-io"
+            className="d-f tp-t tdu-150 ttf-io"
             style={{ transform: state.open ? "rotate(180deg)" : "rotate(0)" }}
           >
             <ChevronDown className="w-3 h-3" />
@@ -45,11 +45,11 @@ function NavTrigger({
 export default function ExampleNavigationMenu() {
   return (
     <NavigationMenu.Root className="min-w-max p-1 bg-white bc-silver-2 br-pill bw-1">
-      <NavigationMenu.List className="d-f p-r g-1 m-0 p-0">
+      <NavigationMenu.List className="d-f p-r g-1">
         <NavigationMenu.Item>
           <NavTrigger>Developers</NavTrigger>
           <NavigationMenu.Content className="p-2">
-            <ul className="d-f fd-c g-1 m-0 p-0 w-56 ls-n">
+            <ul className="d-f fd-c g-1 w-56">
               {developerLinks.map((item) => (
                 <li key={item.href}>
                   <NavigationMenu.Link
@@ -60,10 +60,10 @@ export default function ExampleNavigationMenu() {
                       {item.icon}
                     </span>
                     <div>
-                      <h3 className="m-0 mb-1 c-slate-10 fs-sm fw-600">
+                      <h3 className="mb-1 c-slate-10 fs-sm fw-600">
                         {item.title}
                       </h3>
-                      <p className="m-0 c-slate-8 fs-xs lh-4">
+                      <p className="c-slate-8 fs-xs lh-4">
                         {item.description}
                       </p>
                     </div>
@@ -77,7 +77,7 @@ export default function ExampleNavigationMenu() {
         <NavigationMenu.Item>
           <NavTrigger>Learn</NavTrigger>
           <NavigationMenu.Content className="p-2">
-            <ul className="d-f fd-c g-1 m-0 p-0 w-56 ls-n">
+            <ul className="d-f fd-c g-1 w-56">
               {learnLinks.map((item) => (
                 <li key={item.href}>
                   <NavigationMenu.Link
@@ -88,10 +88,10 @@ export default function ExampleNavigationMenu() {
                       {item.icon}
                     </span>
                     <div>
-                      <h3 className="m-0 mb-1 c-slate-10 fs-sm fw-600">
+                      <h3 className="mb-1 c-slate-10 fs-sm fw-600">
                         {item.title}
                       </h3>
-                      <p className="m-0 c-slate-8 fs-xs lh-4">
+                      <p className="c-slate-8 fs-xs lh-4">
                         {item.description}
                       </p>
                     </div>
@@ -105,7 +105,7 @@ export default function ExampleNavigationMenu() {
         <NavigationMenu.Item>
           <NavigationMenu.Link
             href="#pricing"
-            className="d-f ai-c jc-c h-10 px-3 m-0 bg-transparent c-slate-10 bw-0 br-pill fs-sm fw-600 td-n us-none c-p h:bg-silver-1"
+            className="d-f ai-c jc-c h-10 px-3 bg-transparent c-slate-10 bw-0 br-pill fs-sm fw-600 td-n us-none h:bg-silver-1"
           >
             Pricing
           </NavigationMenu.Link>

@@ -13,7 +13,7 @@ export default function ExampleAlertDialog() {
     <AlertDialog.Root open={open} onOpenChange={setOpen}>
       <AlertDialog.Trigger
         render={
-          <Button className="b-0 px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-600 bs-o-xs tp-c tdu-150 ttf-io us-none c-p h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+          <Button className="b-0 px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-600 bs-o-xs tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
         }
       >
         Remove member
@@ -46,12 +46,12 @@ export default function ExampleAlertDialog() {
                 style={{ maxWidth: "90vw" }}
               >
                 <div className="d-f jc-sb ai-c px-4 py-2 bg-silver-1/50">
-                  <AlertDialog.Title className="m-0 fs-sm fw-600">
+                  <AlertDialog.Title className="fs-sm fw-600">
                     Are you sure?
                   </AlertDialog.Title>
                   <AlertDialog.Close
                     render={
-                      <Button className="d-f b-0 ai-c jc-c w-7 h-7 bg-transparent c-slate-6 br-md c-p h:bg-silver-2 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+                      <Button className="d-f b-0 ai-c jc-c w-7 h-7 bg-transparent c-slate-6 br-md h:bg-silver-2 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
                     }
                   >
                     <Xmark aria-hidden className="w-4 h-4" />
@@ -59,7 +59,7 @@ export default function ExampleAlertDialog() {
                 </div>
                 <div className="bc-silver-2 bbw-1" />
                 <div className="px-4 py-5">
-                  <AlertDialog.Description className="m-0 c-slate-7 fs-sm lh-4">
+                  <AlertDialog.Description className="c-slate-7 fs-sm lh-4">
                     This will permanently remove the team member and revoke
                     their access to all projects.
                   </AlertDialog.Description>
@@ -67,14 +67,14 @@ export default function ExampleAlertDialog() {
                 <div className="d-g gtc-2 g-3 px-4 py-3">
                   <AlertDialog.Close
                     render={
-                      <Button className="b-0 px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-600 bs-o-xs tp-c tdu-150 ttf-io us-none c-p h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+                      <Button className="b-0 px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-600 bs-o-xs tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
                     }
                   >
                     Cancel
                   </AlertDialog.Close>
                   <AlertDialog.Close
                     render={
-                      <Button className="b-0 px-3 py-2 bg-red h:bg-red-8 bc-red-7 c-white br-md bw-1 fw-600 bs-o-md tp-c tdu-150 ttf-io us-none c-p fv:oc-red-6 fv:ow-2 fv:oo-2" />
+                      <Button className="b-0 px-3 py-2 bg-red h:bg-red-8 bc-red-7 c-white br-md bw-1 fw-600 bs-o-md tp-c tdu-150 ttf-io us-none fv:oc-red-6 fv:ow-2 fv:oo-2" />
                     }
                   >
                     Remove

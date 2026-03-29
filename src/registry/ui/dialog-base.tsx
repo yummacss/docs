@@ -54,7 +54,7 @@ export default function ExampleDialog() {
                     Stay informed with our latest news and product updates
                     delivered directly to your inbox.
                   </Dialog.Description>
-                  <ul className="d-f fd-c g-2 m-0 p-0 c-slate-8 ls-n fs-sm">
+                  <ul className="d-f fd-c g-2 m-0 p-0 c-slate-8 fs-md">
                     <li className="d-f ai-c g-2">
                       <span className="w-2 h-2 bg-indigo br-pill" />
                       Weekly product highlights
