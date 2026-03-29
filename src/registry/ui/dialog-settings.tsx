@@ -15,7 +15,7 @@ export default function DialogSettings() {
     <AlertDialog.Root open={open} onOpenChange={setOpen}>
       <AlertDialog.Trigger
         render={
-          <Button className="b-0 px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-600 bs-o-xs tp-c tdu-150 ttf-io us-none c-p h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+          <Button className="b-0 px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-600 bs-o-xs tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
         }
       >
         Preferences
@@ -53,7 +53,7 @@ export default function DialogSettings() {
                   </AlertDialog.Title>
                   <AlertDialog.Close
                     render={
-                      <Button className="d-f b-0 ai-c jc-c w-7 h-7 bg-transparent c-slate-6 br-md c-p h:bg-silver-2 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+                      <Button className="d-f b-0 ai-c jc-c w-7 h-7 bg-transparent c-slate-6 br-md h:bg-silver-2 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
                     }
                   >
                     <Xmark aria-hidden className="w-4 h-4" />
@@ -91,7 +91,7 @@ export default function DialogSettings() {
                     <Button
                       type="button"
                       onClick={() => setNotifications(!notifications)}
-                      className={`p-r w-11 h-6 br-pill tp-bg tdu-200 ttf-io b-0 c-p ${
+                      className={`p-r w-11 h-6 br-pill tp-bg tdu-200 ttf-io b-0 ${
                         notifications ? "bg-indigo" : "bg-silver-3"
                       }`}
                     >
@@ -113,7 +113,7 @@ export default function DialogSettings() {
                     <Button
                       type="button"
                       onClick={() => setAutoSave(!autoSave)}
-                      className={`p-r w-11 h-6 br-pill tp-bg tdu-200 ttf-io b-0 c-p ${
+                      className={`p-r w-11 h-6 br-pill tp-bg tdu-200 ttf-io b-0 ${
                         autoSave ? "bg-indigo" : "bg-silver-3"
                       }`}
                     >
@@ -131,7 +131,7 @@ export default function DialogSettings() {
                     </label>
                     <select
                       id="theme"
-                      className="px-3 py-2 bg-white bc-silver-3 c-slate-12 br-md bw-1 fs-sm c-p ol-n fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
+                      className="px-3 py-2 bg-white bc-silver-3 c-slate-12 br-md bw-1 fs-sm c-p os-none fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
                     >
                       <option>Light</option>
                       <option>Dark</option>
@@ -148,7 +148,7 @@ export default function DialogSettings() {
                     </label>
                     <select
                       id="language"
-                      className="px-3 py-2 bg-white bc-silver-3 c-slate-12 br-md bw-1 fs-sm c-p ol-n fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
+                      className="px-3 py-2 bg-white bc-silver-3 c-slate-12 br-md bw-1 fs-sm os-none fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
                     >
                       <option>English</option>
                       <option>Spanish</option>
@@ -160,14 +160,14 @@ export default function DialogSettings() {
                 <div className="d-g gtc-2 g-3 px-4 py-3">
                   <AlertDialog.Close
                     render={
-                      <Button className="b-0 px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-600 bs-o-xs tp-c tdu-150 ttf-io us-none c-p h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+                      <Button className="b-0 px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-600 bs-o-xs tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
                     }
                   >
                     Cancel
                   </AlertDialog.Close>
                   <AlertDialog.Close
                     render={
-                      <Button className="b-0 px-3 py-2 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-md bw-1 fw-600 bs-o-md tp-c tdu-150 ttf-io us-none c-p fv:oc-indigo-6 fv:ow-2 fv:oo-2" />
+                      <Button className="b-0 px-3 py-2 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-md bw-1 fw-600 bs-o-md tp-c tdu-150 ttf-io us-none fv:oc-indigo-6 fv:ow-2 fv:oo-2" />
                     }
                   >
                     Save Changes

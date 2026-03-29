@@ -35,7 +35,7 @@ export default function ExampleAlertDialog() {
     <AlertDialog.Root open={open} onOpenChange={setOpen}>
       <AlertDialog.Trigger
         render={
-          <Button className="b-0 px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-600 bs-o-xs tp-c tdu-150 ttf-io us-none c-p h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+          <Button className="b-0 px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-600 bs-o-xs tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
         }
       >
         Compose
@@ -68,12 +68,12 @@ export default function ExampleAlertDialog() {
                 style={{ maxWidth: "600px" }}
               >
                 <div className="d-f jc-sb ai-c px-4 py-2 bg-silver-1/50">
-                  <AlertDialog.Title className="m-0 fs-md fw-600">
+                  <AlertDialog.Title className="fs-md fw-600">
                     New message
                   </AlertDialog.Title>
                   <AlertDialog.Close
                     render={
-                      <Button className="d-f b-0 ai-c jc-c w-7 h-7 bg-transparent c-slate-6 br-md c-p h:bg-silver-2 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+                      <Button className="d-f b-0 ai-c jc-c w-7 h-7 bg-transparent c-slate-6 br-md h:bg-silver-2 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
                     }
                   >
                     <Xmark aria-hidden className="w-4 h-4" />
@@ -85,10 +85,10 @@ export default function ExampleAlertDialog() {
                     <PaperPlane className="w-5 h-5" />
                   </span>
                   <div>
-                    <h3 className="m-0 mb-1 c-slate-10 fs-md fw-600">
+                    <h3 className="mb-1 c-slate-10 fs-md fw-600">
                       Compose email
                     </h3>
-                    <p className="m-0 c-slate-8 fs-xs lh-4">
+                    <p className="c-slate-8 fs-xs lh-4">
                       Send a message to your recipient
                     </p>
                   </div>
@@ -134,7 +134,7 @@ export default function ExampleAlertDialog() {
                         <textarea
                           id="mail-message"
                           rows={12}
-                          className="o-n w-full px-3 pt-3 pb-12 bg-transparent c-slate-10 br-md bw-0 fs-md r-none"
+                          className="os-none w-full px-3 pt-3 pb-12 bg-transparent c-slate-10 br-md bw-0 fs-md r-none"
                         />
                         <Toolbar.Root className="d-f p-a b-0 l-0 r-0 ai-c fw-w g-1 p-1 bg-white bc-silver-3 btw-1">
                           <ToggleGroup className="d-f g-1">
@@ -145,7 +145,7 @@ export default function ExampleAlertDialog() {
                                     <Toggle
                                       value="bold"
                                       className={(state) =>
-                                        `d-f w-8 h-8 ai-c jc-c bw-0 br-sm us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+                                        `d-f w-8 h-8 ai-c jc-c bw-0 br-sm us-none fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
                                           state.pressed
                                             ? "bg-indigo c-white"
                                             : "bg-transparent c-slate-8 h:bg-silver-1 h:c-slate-10"
@@ -172,7 +172,7 @@ export default function ExampleAlertDialog() {
                                     <Toggle
                                       value="italic"
                                       className={(state) =>
-                                        `d-f w-8 h-8 ai-c jc-c bw-0 br-sm us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+                                        `d-f w-8 h-8 ai-c jc-c bw-0 br-sm us-none fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
                                           state.pressed
                                             ? "bg-indigo c-white"
                                             : "bg-transparent c-slate-8 h:bg-silver-1 h:c-slate-10"
@@ -199,7 +199,7 @@ export default function ExampleAlertDialog() {
                                     <Toggle
                                       value="underline"
                                       className={(state) =>
-                                        `d-f w-8 h-8 ai-c jc-c bw-0 br-sm us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+                                        `d-f w-8 h-8 ai-c jc-c bw-0 br-sm us-none fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
                                           state.pressed
                                             ? "bg-indigo c-white"
                                             : "bg-transparent c-slate-8 h:bg-silver-1 h:c-slate-10"
@@ -228,7 +228,7 @@ export default function ExampleAlertDialog() {
                             <Tooltip.Root>
                               <Tooltip.Trigger
                                 render={
-                                  <Toolbar.Button className="d-f ai-c jc-c w-8 h-8 bg-transparent c-slate-8 bw-0 br-sm us-none c-p h:bg-silver-1 h:c-slate-10 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+                                  <Toolbar.Button className="d-f ai-c jc-c w-8 h-8 bg-transparent c-slate-8 bw-0 br-sm us-none h:bg-silver-1 h:c-slate-10 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
                                 }
                               >
                                 <Palette className="w-4 h-4" />
@@ -397,7 +397,7 @@ export default function ExampleAlertDialog() {
                             <Tooltip.Root>
                               <Tooltip.Trigger
                                 render={
-                                  <Toolbar.Button className="d-f ai-c jc-c w-8 h-8 bg-transparent c-slate-8 bw-0 br-sm us-none c-p h:bg-silver-1 h:c-slate-10 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+                                  <Toolbar.Button className="d-f ai-c jc-c w-8 h-8 bg-transparent c-slate-8 bw-0 br-sm us-none h:bg-silver-1 h:c-slate-10 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
                                 }
                               >
                                 <TrashBin className="w-4 h-4" />
@@ -419,7 +419,7 @@ export default function ExampleAlertDialog() {
                             <Tooltip.Root>
                               <Tooltip.Trigger
                                 render={
-                                  <Toolbar.Button className="d-f ai-c g-2 h-8 px-2 bg-transparent c-slate-8 br-sm bw-0 fs-xs fw-600 us-none c-p h:bg-silver-1 h:c-slate-10 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+                                  <Toolbar.Button className="d-f ai-c g-2 h-8 px-2 bg-transparent c-slate-8 br-sm bw-0 fs-xs fw-600 us-none h:bg-silver-1 h:c-slate-10 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
                                 }
                               >
                                 <Paperclip className="w-4 h-4" />
@@ -438,7 +438,7 @@ export default function ExampleAlertDialog() {
                             <Tooltip.Root>
                               <Tooltip.Trigger
                                 render={
-                                  <Toolbar.Button className="d-f ai-c g-2 h-8 px-2 bg-transparent c-slate-8 br-sm bw-0 fs-xs fw-600 us-none c-p h:bg-silver-1 h:c-slate-10 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+                                  <Toolbar.Button className="d-f ai-c g-2 h-8 px-2 bg-transparent c-slate-8 br-sm bw-0 fs-xs fw-600 us-none h:bg-silver-1 h:c-slate-10 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
                                 }
                               >
                                 <Picture className="w-4 h-4" />
@@ -461,14 +461,14 @@ export default function ExampleAlertDialog() {
                 <div className="d-g gtc-2 g-3 px-4 py-3">
                   <AlertDialog.Close
                     render={
-                      <Button className="b-0 px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-600 bs-o-xs tp-c tdu-150 ttf-io us-none c-p h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+                      <Button className="b-0 px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-600 bs-o-xs tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
                     }
                   >
                     Discard
                   </AlertDialog.Close>
                   <AlertDialog.Close
                     render={
-                      <Button className="b-0 px-3 py-2 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-md bw-1 fw-600 bs-o-md tp-c tdu-150 ttf-io us-none c-p fv:oc-indigo-6 fv:ow-2 fv:oo-2" />
+                      <Button className="b-0 px-3 py-2 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-md bw-1 fw-600 bs-o-md tp-c tdu-150 ttf-io us-none fv:oc-indigo-6 fv:ow-2 fv:oo-2" />
                     }
                   >
                     Send

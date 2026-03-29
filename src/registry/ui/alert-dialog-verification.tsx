@@ -40,7 +40,7 @@ export default function ExampleAlertDialog() {
     <AlertDialog.Root open={open} onOpenChange={setOpen}>
       <AlertDialog.Trigger
         render={
-          <Button className="b-0 px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-600 bs-o-xs tp-c tdu-150 ttf-io us-none c-p h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+          <Button className="b-0 px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-600 bs-o-xs tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
         }
       >
         Verify Email
@@ -73,12 +73,12 @@ export default function ExampleAlertDialog() {
                 style={{ maxWidth: "90vw" }}
               >
                 <div className="d-f jc-sb ai-c px-4 py-2 bg-silver-1/50">
-                  <AlertDialog.Title className="m-0 fs-sm fw-600">
+                  <AlertDialog.Title className="fs-sm fw-600">
                     Verify your email
                   </AlertDialog.Title>
                   <AlertDialog.Close
                     render={
-                      <Button className="d-f b-0 ai-c jc-c w-7 h-7 bg-transparent c-slate-6 br-md c-p h:bg-silver-2 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+                      <Button className="d-f b-0 ai-c jc-c w-7 h-7 bg-transparent c-slate-6 br-md h:bg-silver-2 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
                     }
                   >
                     <Xmark aria-hidden className="w-4 h-4" />
@@ -90,17 +90,17 @@ export default function ExampleAlertDialog() {
                     <EnvelopeOpen className="w-5 h-5" />
                   </span>
                   <div>
-                    <h3 className="m-0 mb-1 c-slate-10 fs-sm fw-600">
+                    <h3 className="mb-1 c-slate-10 fs-sm fw-600">
                       Verify your email
                     </h3>
-                    <p className="m-0 c-slate-8 fs-xs lh-4">
+                    <p className="c-slate-8 fs-xs lh-4">
                       Enter the code we sent to confirm your identity
                     </p>
                   </div>
                 </div>
                 <div className="bc-silver-2 bbw-1" />
                 <div className="px-4 py-5">
-                  <AlertDialog.Description className="m-0 mb-4 c-slate-7 fs-sm lh-4 ta-c">
+                  <AlertDialog.Description className="mb-4 c-slate-7 fs-sm lh-4 ta-c">
                     We've sent a 4-digit code to your email
                   </AlertDialog.Description>
                   <div className="d-f g-2 jc-c">
@@ -125,7 +125,7 @@ export default function ExampleAlertDialog() {
                     Didn't receive it?{" "}
                     <Button
                       type="button"
-                      className="b-0 p-0 bg-transparent c-indigo fw-600 td-u c-p"
+                      className="b-0 p-0 bg-transparent c-indigo fw-600 td-u"
                     >
                       Resend code
                     </Button>
@@ -134,14 +134,14 @@ export default function ExampleAlertDialog() {
                 <div className="d-g gtc-2 g-3 px-4 py-3">
                   <AlertDialog.Close
                     render={
-                      <Button className="b-0 px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-600 bs-o-xs tp-c tdu-150 ttf-io us-none c-p h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+                      <Button className="b-0 px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-600 bs-o-xs tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
                     }
                   >
                     Cancel
                   </AlertDialog.Close>
                   <AlertDialog.Close
                     render={
-                      <Button className="b-0 px-3 py-2 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-md bw-1 fw-600 bs-o-md tp-c tdu-150 ttf-io us-none c-p fv:oc-indigo-6 fv:ow-2 fv:oo-2" />
+                      <Button className="b-0 px-3 py-2 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-md bw-1 fw-600 bs-o-md tp-c tdu-150 ttf-io us-none fv:oc-indigo-6 fv:ow-2 fv:oo-2" />
                     }
                   >
                     Verify
