@@ -2255,6 +2255,10 @@ summary {
   transition-property: height;
 }
 
+.tp-t {
+  transition-property: transform;
+}
+
 .tp-w {
   transition-property: width;
 }
