@@ -26,15 +26,15 @@ To improve consistency, two utility prefixes are renamed:
 ### Box Shadow
 
 ```html del={1} ins={2} title="index.html"
-<div class="bs-*">...</div>
-<div class="bsh-*">...</div>
+<div class="bs-(value)">...</div>
+<div class="bsh-(value)">...</div>
 ```
 
 ### Isolation
 
 ```html del={1} ins={2} title="index.html"
-<div class="i-*">...</div>
-<div class="is-*">...</div>
+<div class="i-(value)">...</div>
+<div class="is-(value)">...</div>
 ```
 
 ---
@@ -117,39 +117,39 @@ The `pc:*` media query variant targets devices with coarse pointer input.
 
 New cursor values are added for enhanced interaction feedback.
 
-```html "c-*"
-<div class="c-*">...</div>
+```html "c-(value)"
+<div class="c-(value)">...</div>
 ```
 
 ## Touch Action Utilities
 
-New `ta-*` utilities support all `touch-action` values.
+New `ta-(value)` utilities support all `touch-action` values.
 
-```html "ta-*"
-<div class="ta-*">...</div>
+```html "ta-(value)"
+<div class="ta-(value)">...</div>
 ```
 
 ## Transform Updates
 
 ### Rotation Range
 
-The `t-r-*` utility now ranges from 0 to 360 degrees.
+The `t-r-(value)` utility now ranges from 0 to 360 degrees.
 
-```html "t-r-*"
-<div class="t-r-*">...</div>
+```html "t-r-(value)"
+<div class="t-r-(value)">...</div>
 ```
 
 ### Translate Utilities
 
-New `t-tx-*` & `t-ty-*` utilities simplify horizontal & vertical centering.
+New `t-tx-(value)` & `t-ty-(value)` utilities simplify horizontal & vertical centering.
 
-```html "t-tx-*" "t-ty-*"
-<div class="t-tx-* t-ty-*">...</div>
+```html "t-tx-(value)" "t-ty-(value)"
+<div class="t-tx-(value) t-ty-(value)">...</div>
 ```
 
 ## Position Auto Support
 
-The `auto` value is supported for `b-*`, `i-*`, `ix-*`, `iy-*`, `l-*`, `r-*`, & `t-*` utilities.
+The `auto` value is supported for `b-(value)`, `i-(value)`, `ix-(value)`, `iy-(value)`, `l-(value)`, `r-(value)`, & `t-(value)` utilities.
 
 <Preview>
   <div className="p-r">
@@ -189,7 +189,7 @@ Negative values are supported via the `--` syntax.
 
 ## Logical Properties
 
-Utility sets for `mx-*`, `my-*`, `px-*`, & `py-*` now use logical properties (`margin-inline`, `margin-block`, `padding-inline`, `padding-block`).
+Utility sets for `mx-(value)`, `my-(value)`, `px-(value)`, & `py-(value)` now use logical properties (`margin-inline`, `margin-block`, `padding-inline`, `padding-block`).
 
 ```css del={1-4, 6-9} ins={11-13, 15-17} title="out.css"
 .mx-4 {

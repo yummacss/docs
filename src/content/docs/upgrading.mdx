@@ -73,25 +73,25 @@ Utilities renamed in the current version:
 
 | Property | Legacy (v2) | Latest (v3.21.0) |
 |---|---|---|
-| Border Radius | `rad-*` | `br-*` |
+| Border Radius | `rad-(value)` | `br-(value)` |
 | Border Radius (Pill) | `rad-9` | `br-pill` |
-| Border Style | `b-*` | `bs-*` |
-| Border Width | `b-*` | `bw-*` |
-| Box Shadow | `bs-*` | `bs-o-*` & `bs-i-*` |
-| Color (Text) | `tc-*` | `c-*` |
+| Border Style | `b-(value)` | `bs-(value)` |
+| Border Width | `b-(value)` | `bw-(value)` |
+| Box Shadow | `bs-(value)` | `bs-o-(value)` & `bs-i-(value)` |
+| Color (Text) | `tc-(value)` | `c-(value)` |
 | Color (Lead) | `lead` | `slate` |
-| Color Variations | `l-*` & `d-*` | Removed |
-| Columns | `cols-*` | `c-*` |
-| Direction (Bottom) | `dir-b-*` | `b-*` |
-| Direction (Inset) | `dir-i-*` | `i-*` |
-| Direction (Left) | `dir-l-*` | `l-*` |
-| Direction (Right) | `dir-r-*` | `r-*` |
-| Direction (Top) | `dir-t-*` | `t-*` |
-| Float | `flo-*` | `fl-*` |
+| Color Variations | `l-(value)` & `d-(value)` | Removed |
+| Columns | `cols-(value)` | `c-(value)` |
+| Direction (Bottom) | `dir-b-(value)` | `b-(value)` |
+| Direction (Inset) | `dir-i-(value)` | `i-(value)` |
+| Direction (Left) | `dir-l-(value)` | `l-(value)` |
+| Direction (Right) | `dir-r-(value)` | `r-(value)` |
+| Direction (Top) | `dir-t-(value)` | `t-(value)` |
+| Float | `flo-(value)` | `fl-(value)` |
 | Font Family (Serif) | `ff-c` | `ff-s` |
 | Font Size (1rem) | `fs-b` | `fs-md` |
 | Object Position | `op-left` | `op-l` |
-| Overflow | `ovf-*` | `o-*` |
+| Overflow | `ovf-(value)` | `o-(value)` |
 | Viewport Units | `*-1/1` | `*-dvh` |
 
 ## Removed Utilities
@@ -100,9 +100,9 @@ The following utilities were completely removed to reduce bloat & improve consis
 
 | Category | Legacy (v2) | Replacement |
 |---|---|---|
-| Dimension | `dim-*` / `max-dim-*` / `min-dim-*` | Use `w-*` & `h-*` together |
-| Color Variations | `l-*` & `d-*` (e.g., `l-red-5`) | Use standard numbers (e.g., `red-3`) |
-| Spacing X/Y | `sx-*` & `sy-*` | Use gap (`g-*`, `cg-*`, `rg-*`) |
+| Dimension | `dim-(value)` / `max-dim-(value)` / `min-dim-(value)` | Use `w-(value)` & `h-(value)` together |
+| Color Variations | `l-(value)` & `d-(value)` (e.g., `l-red-5`) | Use standard numbers (e.g., `red-3`) |
+| Spacing X/Y | `sx-(value)` & `sy-(value)` | Use gap (`g-(value)`, `cg-(value)`, `rg-(value)`) |
 | Container | `cnt` | Removed |
 | Inset | `ins` | Use `d-f ai-c jc-c` |
 
@@ -171,10 +171,10 @@ Use shorter prefixes for font utilities. Replace the `fs-b` class with `fs-md`.
 
 ### Borders
 
-Prevent conflicts with unique prefixes for border width (`bw-*`) & border style (`bs-*`). Replace border radius (`rad-*`) with `br-*`.
+Prevent conflicts with unique prefixes for border width (`bw-(value)`) & border style (`bs-(value)`). Replace border radius (`rad-(value)`) with `br-(value)`.
 
 ```html del={1} ins={2} title="index.html"
-<div class="rad-9 b-solid b-2">...</div>
+<div class="b-solid b-2 rad-9">...</div>
 <div class="br-pill bs-s bw-2">...</div>
 ```
 

@@ -18,7 +18,7 @@ The `teal` color is removed. Use `mint` or `cyan` for a similar aesthetic.
 
 ### Rotation Shorthand
 
-The `t-r-*` (`transform: rotate()`) utilities are replaced with `ro-*`, which uses the standalone `rotate` property for consistency.
+The `t-r-(value)` (`transform: rotate()`) utilities are replaced with `ro-(value)`, which uses the standalone `rotate` property for consistency.
 
 ```html del={1} ins={2} title="index.html"
 <div class="t-r-45">...</div>
@@ -128,17 +128,17 @@ A new transitions category is introduced for smooth state animations.
 ```
 
 The new utilities include:
-- `td-*` - `transition-delay` (50ms steps)
-- `tdu-*` - `transition-duration` (50ms steps)
-- `tp-*` - `transition-property`
-- `ttf-*` - `transition-timing-function`
+- `td-(value)` - `transition-delay` (50ms steps)
+- `tdu-(value)` - `transition-duration` (50ms steps)
+- `tp-(value)` - `transition-property`
+- `ttf-(value)` - `transition-timing-function`
 
 ## Aspect Ratio
 
-The `ar-*` (`aspect-ratio`) utilities now support common ratios.
+The `ar-(value)` (`aspect-ratio`) utilities now support common ratios.
 
-```html "ar-*"
-<div class="ar-*">...</div>
+```html "ar-(value)"
+<div class="ar-(value)">...</div>
 ```
 
 ---
