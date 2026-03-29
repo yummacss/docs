@@ -85,7 +85,7 @@ export default function Reference({ category, name }: Props) {
         <AccordionItem className="bw-0" value="reference-item">
           <AccordionTrigger className="bg-transparent">
             <span className="d-f ai-c g-2">
-              <code className="c-mauve">{utilityPrefix}-*</code>
+              <code className="c-mauve">{utilityPrefix}-(value)</code>
               <span
                 className="px-2 py-1 bg-clay br-sm fs-xs"
                 style={{ color: "#8892c2" }}
