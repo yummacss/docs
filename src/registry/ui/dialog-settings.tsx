@@ -48,7 +48,7 @@ export default function DialogSettings() {
                 style={{ maxWidth: "90vw" }}
               >
                 <div className="d-f jc-sb ai-c px-4 py-2 bg-silver-1/50">
-                  <AlertDialog.Title className="m-0 fs-sm fw-600">
+                  <AlertDialog.Title className="m-0 fs-md fw-600">
                     Preferences
                   </AlertDialog.Title>
                   <AlertDialog.Close
@@ -131,7 +131,7 @@ export default function DialogSettings() {
                     </label>
                     <select
                       id="theme"
-                      className="px-3 py-2 bg-white bc-silver-3 c-slate-12 br-md bw-1 fs-sm c-p os-none fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
+                      className="px-3 py-2 bg-white bc-silver-3 c-slate-12 br-md bw-1 os-none fs-sm c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
                     >
                       <option>Light</option>
                       <option>Dark</option>
@@ -148,7 +148,7 @@ export default function DialogSettings() {
                     </label>
                     <select
                       id="language"
-                      className="px-3 py-2 bg-white bc-silver-3 c-slate-12 br-md bw-1 fs-sm os-none fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
+                      className="px-3 py-2 bg-white bc-silver-3 c-slate-12 br-md bw-1 os-none fs-sm fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
                     >
                       <option>English</option>
                       <option>Spanish</option>
