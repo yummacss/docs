@@ -23,7 +23,7 @@ export default function NegativeValues({ category, name }: Props) {
 
       <div className="d-f ai-c g-2 p-3 bg-mirage br-sm">
         <span className="c-white/50 fs-xs">Syntax:</span>
-        <code className="c-mauve fs-sm">{prefix}--*</code>
+        <code className="c-mauve fs-sm">{prefix}--(value)</code>
       </div>
     </div>
   );

@@ -16,14 +16,14 @@ export default function OpacityModifier({ category, name }: Props) {
           <Droplet className="w-5 h-5" />
         </div>
         <p className="c-white/70 fs-sm">
-          Append <code className="c-mauve px-1 bg-clay">/[opacity]</code> to any
+          Append <code className="c-mauve px-1 bg-clay">/(opacity)</code> to any
           color utility to control its transparency level.
         </p>
       </div>
 
       <div className="d-f ai-c g-2 p-3 bg-mirage br-sm">
         <span className="c-white/50 fs-xs">Syntax:</span>
-        <code className="c-mauve fs-sm">{prefix}-[color]/[0-100]</code>
+        <code className="c-mauve fs-sm">{prefix}-(color)/(opacity)</code>
       </div>
     </div>
   );
