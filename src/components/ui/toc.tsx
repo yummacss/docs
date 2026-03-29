@@ -3,7 +3,9 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import ApiReference from "@/components/ui/api-reference";
 import EditPage from "@/components/ui/edit-page";
+import { findCurrentUIPageInfo } from "@/utils/ui-sidebar";
 
 interface TocItem {
   id: string;
@@ -16,6 +18,8 @@ export default function TableOfContents() {
   const [headings, setHeadings] = useState<TocItem[]>([]);
   const [activeId, setActiveId] = useState<string>("");
   const isBlogPost = pathname?.startsWith("/blog");
+  const uiPageInfo = findCurrentUIPageInfo(pathname || "");
+  const isBaseComponent = uiPageInfo?.sectionTitle === "Base components";
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: pathname changes trigger toc refresh
   useEffect(() => {
@@ -93,6 +97,7 @@ export default function TableOfContents() {
           {!isBlogPost && (
             <div className="d-f fd-c g-3 mt-8 pt-8 bc-white/10 btw-1">
               <EditPage />
+              {isBaseComponent && <ApiReference />}
             </div>
           )}
         </div>
