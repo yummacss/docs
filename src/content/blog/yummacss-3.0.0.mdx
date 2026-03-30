@@ -2,8 +2,9 @@ export const meta = {
   authors: ["Renildo"],
   cover: "~",
   date: "2025-04-14",
-  description: "A complete internal rewrite, a new CLI, significant performance improvements, & over 50 new utilities.",
-  title: "Yumma CSS 3.0"
+  description:
+    "A complete internal rewrite, a new CLI, significant performance improvements, & over 50 new utilities.",
+  title: "Yumma CSS 3.0",
 };
 
 import { LEGACY_SHADE_LABELS } from "@/utils/colors";
@@ -27,6 +28,7 @@ Previous versions required importing large CSS files. Yumma CSS v3.0 introduces 
     ```bash
     pnpm add yummacss -D
     ```
+
   </Step>
 
   <Step title="Add the configuration file">
@@ -44,6 +46,7 @@ Previous versions required importing large CSS files. Yumma CSS v3.0 introduces 
       - package.json
       - **yumma.config.js**
     ```
+
   </Step>
 
   <Step title="Set up the config file">
@@ -59,6 +62,7 @@ Previous versions required importing large CSS files. Yumma CSS v3.0 introduces 
       },
     };
     ```
+
   </Step>
 
   <Step title="Write CSS">
@@ -85,6 +89,7 @@ Previous versions required importing large CSS files. Yumma CSS v3.0 introduces 
 
     </html>
     ```
+
   </Step>
 
   <Step title="Compile the SCSS">
@@ -129,6 +134,7 @@ Previous versions required importing large CSS files. Yumma CSS v3.0 introduces 
 
     /* etc */
     ```
+
   </Step>
 </Stepper>
 
@@ -206,7 +212,7 @@ Check the [release notes](https://github.com/yummacss/yummacss/releases/tag/v3.0
 
 We optimized the codebase to improve build times & reduce overall file size. Utility generation was refined to eliminate duplicate data in the `/dist` folder.
 
-| Metric               | v2      | v3.0      | Improvement            |
+| Metric               | v2      | v3.0    | Improvement            |
 | -------------------- | ------- | ------- | ---------------------- |
 | Complete build       | 13.88 s | 3.96 s  | -9.92 s (71% faster)   |
 | File size (standard) | 3.21 MB | 2.53 MB | -0.68 MB (21% smaller) |
@@ -224,6 +230,7 @@ Upgrading from v2 or older to v3.0 via the Yumma CLI is a direct process.
     ```css del={1}
     @import "/node_modules/yummacss/dist/yumma.min.css";
     ```
+
   </Step>
 
   <Step title="Add the Yumma config file">
@@ -241,6 +248,7 @@ Upgrading from v2 or older to v3.0 via the Yumma CLI is a direct process.
     ├── package.json
     └── yumma.config.js <-
     ```
+
   </Step>
 
   <Step title="Set up the config file">
@@ -256,6 +264,7 @@ Upgrading from v2 or older to v3.0 via the Yumma CLI is a direct process.
       },
     };
     ```
+
   </Step>
 
   <Step title="Compile the SCSS">
@@ -264,6 +273,7 @@ Upgrading from v2 or older to v3.0 via the Yumma CLI is a direct process.
     ```bash
     pnpx yummacss build
     ```
+
   </Step>
 </Stepper>
 
@@ -306,21 +316,21 @@ Also, the color hue is increasing from `10%` shade modification to `14%`. This m
 
 Here's a quick reference using `background-color`
 
-| v2           | v3.0          | Difference    |
-| ------------ | ----------- | ------------- |
-| *-l-indigo-6 | *-indigo-1  | -2 characters |
-| *-l-indigo-5 | *-indigo-2  | -2 characters |
-| *-l-indigo-4 | *-indigo-3  | -2 characters |
-| *-l-indigo-3 | *-indigo-4  | -2 characters |
-| *-l-indigo-2 | *-indigo-5  | -2 characters |
-| *-l-indigo-1 | *-indigo-6  | -2 characters |
-| *-indigo     | *-indigo    | -0 characters |
-| *-d-indigo-1 | *-indigo-7  | -2 character  |
-| *-d-indigo-2 | *-indigo-8  | -2 character  |
-| *-d-indigo-3 | *-indigo-9  | -2 character  |
-| *-d-indigo-4 | *-indigo-10 | -1 character  |
-| *-d-indigo-5 | *-indigo-11 | -1 character  |
-| *-d-indigo-6 | *-indigo-12 | -1 character  |
+| v2            | v3.0         | Difference    |
+| ------------- | ------------ | ------------- |
+| \*-l-indigo-6 | \*-indigo-1  | -2 characters |
+| \*-l-indigo-5 | \*-indigo-2  | -2 characters |
+| \*-l-indigo-4 | \*-indigo-3  | -2 characters |
+| \*-l-indigo-3 | \*-indigo-4  | -2 characters |
+| \*-l-indigo-2 | \*-indigo-5  | -2 characters |
+| \*-l-indigo-1 | \*-indigo-6  | -2 characters |
+| \*-indigo     | \*-indigo    | -0 characters |
+| \*-d-indigo-1 | \*-indigo-7  | -2 character  |
+| \*-d-indigo-2 | \*-indigo-8  | -2 character  |
+| \*-d-indigo-3 | \*-indigo-9  | -2 character  |
+| \*-d-indigo-4 | \*-indigo-10 | -1 character  |
+| \*-d-indigo-5 | \*-indigo-11 | -1 character  |
+| \*-d-indigo-6 | \*-indigo-12 | -1 character  |
 
 <Tabs defaultValue="v3.0">
   <TabsList>
@@ -328,25 +338,25 @@ Here's a quick reference using `background-color`
     <TabsTab value="v2.0">v2.0</TabsTab>
   </TabsList>
 
-  <TabsPanel value="v3.0">
-    <Palette
-      data={[
-        { name: "Red", color: "#d73d3d" },
-        { name: "Orange", color: "#e06814" },
-        { name: "Yellow", color: "#d3a107" },
-        { name: "Green", color: "#1fb155" },
-        { name: "Teal", color: "#12a695" },
-        { name: "Cyan", color: "#05a4bf" },
-        { name: "Blue", color: "#3575dd" },
-        { name: "Indigo", color: "#595cd9" },
-        { name: "Violet", color: "#7d53dd" },
-        { name: "Pink", color: "#d4418a" },
-        { name: "Lead", color: "#3f3f4e" },
-        { name: "Gray", color: "#5f6672" },
-        { name: "Silver", color: "#bfc2c7" },
-      ]}
-    />
-  </TabsPanel>
+<TabsPanel value="v3.0">
+  <Palette
+    data={[
+      { name: "Red", color: "#d73d3d" },
+      { name: "Orange", color: "#e06814" },
+      { name: "Yellow", color: "#d3a107" },
+      { name: "Green", color: "#1fb155" },
+      { name: "Teal", color: "#12a695" },
+      { name: "Cyan", color: "#05a4bf" },
+      { name: "Blue", color: "#3575dd" },
+      { name: "Indigo", color: "#595cd9" },
+      { name: "Violet", color: "#7d53dd" },
+      { name: "Pink", color: "#d4418a" },
+      { name: "Lead", color: "#3f3f4e" },
+      { name: "Gray", color: "#5f6672" },
+      { name: "Silver", color: "#bfc2c7" },
+    ]}
+  />
+</TabsPanel>
 
   <TabsPanel value="v2.0">
     <Palette
@@ -571,8 +581,8 @@ Yumma CSS v3.0 transitions from pixel-based units to rems, improving accessibili
 | 1536px | 96rem _(1536px)_ | xxl        |
 
 ---
-### Fixed Media Query Utilities
 
+### Fixed Media Query Utilities
 
 Related media query utilities are now grouped together, ensuring they correctly override styles in the DOM while reducing CSS file size.
 
@@ -689,23 +699,15 @@ We're renaming several utilities to align with our default naming convention.
         <TabsTab value="v2.0">v2.0</TabsTab>
     </TabsList>
 
-  <TabsPanel value="v3.0">
-    | Utility | Property |
-    |---------|----------|
-    | `fs-xs`  | `font-size: 0.75rem;` |
-    | `fs-sm`  | `font-size: 0.875rem;` |
-    | `fs-b`   | `font-size: 1rem;` |
-    | `fs-md`  | `font-size: 1.125rem;` |
-    | `fs-lg`  | `font-size: 1.25rem;` |
-    | `fs-xl`  | `font-size: 1.5rem;` |
-    | `fs-xxl` | `font-size: 1.875rem;` |
-    | `fs-3xl` | `font-size: 2.25rem;` |
-    | `fs-4xl` | `font-size: 3rem;` |
-    | `fs-5xl` | `font-size: 3.75rem;` |
-    | `fs-6xl` | `font-size: 4.5rem;` |
-    | `fs-7xl` | `font-size: 6rem;` |
-    | `fs-8xl` | `font-size: 8rem;` |
-  </TabsPanel>
+<TabsPanel value="v3.0">
+  | Utility | Property | |---------|----------| | `fs-xs` | `font-size:
+  0.75rem;` | | `fs-sm` | `font-size: 0.875rem;` | | `fs-b` | `font-size: 1rem;`
+  | | `fs-md` | `font-size: 1.125rem;` | | `fs-lg` | `font-size: 1.25rem;` | |
+  `fs-xl` | `font-size: 1.5rem;` | | `fs-xxl` | `font-size: 1.875rem;` | |
+  `fs-3xl` | `font-size: 2.25rem;` | | `fs-4xl` | `font-size: 3rem;` | |
+  `fs-5xl` | `font-size: 3.75rem;` | | `fs-6xl` | `font-size: 4.5rem;` | |
+  `fs-7xl` | `font-size: 6rem;` | | `fs-8xl` | `font-size: 8rem;` |
+</TabsPanel>
 
   <TabsPanel value="v2.0">
     | Utility | Property |
@@ -731,13 +733,11 @@ We're renaming several utilities to align with our default naming convention.
         <TabsTab value="v2.0">v2.0</TabsTab>
     </TabsList>
 
-  <TabsPanel value="v3.0">
-    | Utility | Property |
-    |---------|----------|
-    | `ff-s`   | `font-family: Charter, Cambria, serif;` |
-    | `ff-m`   | `font-family: ui-monospace, Consolas, monospace;` |
-    | `ff-d`   | `font-family: system-ui, sans-serif;` |
-  </TabsPanel>
+<TabsPanel value="v3.0">
+  | Utility | Property | |---------|----------| | `ff-s` | `font-family:
+  Charter, Cambria, serif;` | | `ff-m` | `font-family: ui-monospace, Consolas,
+  monospace;` | | `ff-d` | `font-family: system-ui, sans-serif;` |
+</TabsPanel>
 
   <TabsPanel value="v2.0">
     | Utility | Property |

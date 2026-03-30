@@ -16,8 +16,8 @@ By default, all base utilities support responsive variants. Use breakpoints like
 
 Yumma CSS breakpoints reference:
 
-| Prefix | Min width                  | Pixel value |
-|--------|----------------------------|-------------|
+| Prefix | Min width                   | Pixel value |
+| ------ | --------------------------- | ----------- |
 | sm     | `@media (min-width: 40rem)` | 640px       |
 | md     | `@media (min-width: 48rem)` | 768px       |
 | lg     | `@media (min-width: 64rem)` | 1024px      |
@@ -35,8 +35,8 @@ export default defineConfig({
   theme: {
     screens: {
       "3xl": "112rem",
-    }
-  }
+    },
+  },
 });
 ```
 
@@ -51,11 +51,11 @@ Using custom breakpoints works exactly the same as the defaults:
 Resize your browser window to see how these elements respond to viewport width.
 
 <Preview>
-    <p className="d-b p-4 c-slate sm:d-none">Small screen</p>
-    <p className="d-none md:d-none p-4 c-slate sm:d-b">Medium screen</p>
-    <p className="d-none lg:d-none p-4 c-slate md:d-b">Large screen</p>
-    <p className="d-none xl:d-none p-4 c-slate ta-c lg:d-b">Extra large screen</p>
-    <p className="d-none p-4 c-slate ta-c xxl:d-b">Double extra large screen</p>
+  <p className="d-b p-4 c-slate sm:d-none">Small screen</p>
+  <p className="d-none md:d-none p-4 c-slate sm:d-b">Medium screen</p>
+  <p className="d-none lg:d-none p-4 c-slate md:d-b">Large screen</p>
+  <p className="d-none xl:d-none p-4 c-slate ta-c lg:d-b">Extra large screen</p>
+  <p className="d-none p-4 c-slate ta-c xxl:d-b">Double extra large screen</p>
 </Preview>
 
 ```html "sm:d-b" "md:d-b" "lg:d-b" "xl:d-b" "xxl:d-b"
@@ -70,7 +70,9 @@ Resize your browser window to see how these elements respond to viewport width.
 
 The `pc:*` variant targets devices with a coarse pointer (typically touch screens). Use this to apply larger tap targets & touch-friendly spacing.
 
-<Hint icon="hand_tap">Activates on touch-enabled devices with coarse pointer input.</Hint>
+<Hint icon="hand_tap">
+  Activates on touch-enabled devices with coarse pointer input.
+</Hint>
 
 ```html "pc:p-6"
 <button type="button" class="p-4 bg-indigo c-white pc:p-6">

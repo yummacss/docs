@@ -75,7 +75,11 @@ export default function TableOfContents() {
     });
 
     const mainElement = document.querySelector("main") || document.body;
-    mutationObserver.observe(mainElement, { childList: true, subtree: true, characterData: true });
+    mutationObserver.observe(mainElement, {
+      childList: true,
+      subtree: true,
+      characterData: true,
+    });
 
     return () => {
       if (intersectionObserver) intersectionObserver.disconnect();

@@ -2,8 +2,9 @@ export const meta = {
   authors: ["Renildo"],
   cover: "~",
   date: "2026-02-10",
-  description: "A recap of the infrastructure changes we've made to the Yumma CSS ecosystem, from the monorepo transition to improved type safety in Core.",
-  title: "Behind the Scenes"
+  description:
+    "A recap of the infrastructure changes we've made to the Yumma CSS ecosystem, from the monorepo transition to improved type safety in Core.",
+  title: "Behind the Scenes",
 };
 
 While most of our blog posts focus on new utilities & features for the Yumma CSS package, we've also been making significant improvements to the ecosystem's infrastructure. Here's a quick recap.
@@ -35,7 +36,12 @@ We've made the Core package more extensible & developer-friendly.
 You can now import `mediaQueries`, `opacity`, `pseudoClasses`, & `pseudoElements` directly from `@yummacss/core` to build custom tools & integrations.
 
 ```js title="index.js"
-import { mediaQueries, opacity, pseudoClasses, pseudoElements } from "@yummacss/core";
+import {
+  mediaQueries,
+  opacity,
+  pseudoClasses,
+  pseudoElements,
+} from "@yummacss/core";
 
 console.log(mediaQueries);
 ```
@@ -45,12 +51,12 @@ console.log(mediaQueries);
 Core now exports literal types for every variant prefix.
 
 ```ts title="index.ts"
-import type { 
-    MediaQueryPrefix, 
-    OpacityPrefix, 
-    PseudoClassPrefix, 
-    PseudoElementPrefix,
-    VariantPrefix 
+import type {
+  MediaQueryPrefix,
+  OpacityPrefix,
+  PseudoClassPrefix,
+  PseudoElementPrefix,
+  VariantPrefix,
 } from "@yummacss/core";
 
 const prefix: VariantPrefix = "sm"; // Typed as a literal
@@ -62,13 +68,13 @@ We've integrated `readonly` properties into core interfaces. `Utility`, `Utiliti
 
 ```ts title="utility.ts"
 interface Utility {
-    readonly prefix: string;
-    readonly properties: readonly string[];
-    readonly slug: string;
-    readonly values: {
-        readonly [key: string]: string;
-    };
-    readonly variants?: Variants;
+  readonly prefix: string;
+  readonly properties: readonly string[];
+  readonly slug: string;
+  readonly values: {
+    readonly [key: string]: string;
+  };
+  readonly variants?: Variants;
 }
 ```
 

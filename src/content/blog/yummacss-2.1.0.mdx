@@ -2,8 +2,9 @@ export const meta = {
   authors: ["Renildo"],
   cover: "~",
   date: "2024-10-11",
-  description: "More control over Border, Outline, & other, base styles & other improvements.",
-  title: "Yumma CSS 2.1"
+  description:
+    "More control over Border, Outline, & other, base styles & other improvements.",
+  title: "Yumma CSS 2.1",
 };
 
 ---
@@ -14,35 +15,35 @@ Yumma CSS v2.1.0 introduces several new utilities for improved design precision.
 
 ### Align Content
 
-| Utility | Property             |
-|---------|----------------------|
-| `ac-b`   | `align-content: baseline;` |
+| Utility | Property                   |
+| ------- | -------------------------- |
+| `ac-b`  | `align-content: baseline;` |
 
 ### Align Items
 
-| Utility | Property           |
-|---------|--------------------|
-| `ai-b`   | `align-items: baseline;` |
+| Utility | Property                 |
+| ------- | ------------------------ |
+| `ai-b`  | `align-items: baseline;` |
 
 ### Cursor
 
-| Utility | Property     |
-|---------|--------------|
-| `c-cr`    | `col-resize`   |
-| `c-d`     | `default`      |
-| `c-ner`   | `ne-resize`    |
-| `c-neswr` | `nesw-resize`  |
-| `c-none`  | `none`         |
-| `c-nwr`   | `nw-resize`    |
-| `c-nwser` | `nwse-resize`  |
-| `c-pr`    | `progress`     |
-| `c-rs`    | `row-resize`   |
-| `c-sr`    | `s-resize`     |
-| `c-ser`   | `se-resize`    |
-| `c-swr`   | `sw-resize`    |
-| `c-wr`    | `w-resize`     |
-| `c-zi`    | `zoom-in`      |
-| `c-zo`    | `zoom-out`     |
+| Utility   | Property      |
+| --------- | ------------- |
+| `c-cr`    | `col-resize`  |
+| `c-d`     | `default`     |
+| `c-ner`   | `ne-resize`   |
+| `c-neswr` | `nesw-resize` |
+| `c-none`  | `none`        |
+| `c-nwr`   | `nw-resize`   |
+| `c-nwser` | `nwse-resize` |
+| `c-pr`    | `progress`    |
+| `c-rs`    | `row-resize`  |
+| `c-sr`    | `s-resize`    |
+| `c-ser`   | `se-resize`   |
+| `c-swr`   | `sw-resize`   |
+| `c-wr`    | `w-resize`    |
+| `c-zi`    | `zoom-in`     |
+| `c-zo`    | `zoom-out`    |
 
 ### Border Radius
 
@@ -52,14 +53,13 @@ Yumma CSS v2.1.0 introduces several new utilities for improved design precision.
         <TabsTab value="v2.0">v2.0</TabsTab>
     </TabsList>
 
-  <TabsPanel value="v2.1">
-    In this context, the base value is `0.25rem`.
-    ```html
-    <div class="rad-[0/8]">...</div>
-    <div class="rad-full">...</div>
-    <div class="rad-half">...</div>
-    ```
-  </TabsPanel>
+<TabsPanel value="v2.1">
+  In this context, the base value is `0.25rem`. ```html
+  <div class="rad-[0/8]">...</div>
+  <div class="rad-full">...</div>
+  <div class="rad-half">...</div>
+  ```
+</TabsPanel>
 
   <TabsPanel value="v2.0">
     In this context, the base value is `4px`.
@@ -79,14 +79,13 @@ Yumma CSS v2.1.0 introduces several new utilities for improved design precision.
         <TabsTab value="v2.0">v2.0</TabsTab>
     </TabsList>
 
-  <TabsPanel value="v2.1">
-    In this context, `f-1` is a shorthand for `flex: 1 1 0%;`.
-    ```html
-    <div class="f-[1/8]">...</div>
-    <div class="f-auto">...</div>
-    <div class="f-none">...</div>
-    ```
-  </TabsPanel>
+<TabsPanel value="v2.1">
+  In this context, `f-1` is a shorthand for `flex: 1 1 0%;`. ```html
+  <div class="f-[1/8]">...</div>
+  <div class="f-auto">...</div>
+  <div class="f-none">...</div>
+  ```
+</TabsPanel>
 
   <TabsPanel value="v2.0">
     In this context, `f-1` is a shorthand for `flex: 1 1 0;`.
@@ -105,12 +104,11 @@ Yumma CSS v2.1.0 introduces several new utilities for improved design precision.
         <TabsTab value="v2.0">v2.0</TabsTab>
     </TabsList>
 
-  <TabsPanel value="v2.1">
-    In this context, values range from `1px` to `8px`.
-    ```html
-    <div class="b-[1/8]">...</div>
-    ```
-  </TabsPanel>
+<TabsPanel value="v2.1">
+  In this context, values range from `1px` to `8px`. ```html
+  <div class="b-[1/8]">...</div>
+  ```
+</TabsPanel>
 
   <TabsPanel value="v2.0">
     In this context, values range from `0px` to `14px`.
@@ -128,12 +126,11 @@ Yumma CSS v2.1.0 introduces several new utilities for improved design precision.
         <TabsTab value="v2.0">v2.0</TabsTab>
     </TabsList>
 
-  <TabsPanel value="v2.1">
-    In this context, the base value is `0.25rem`.
-    ```html
-    <div class="oo-[0/4]">...</div>
-    ```
-  </TabsPanel>
+<TabsPanel value="v2.1">
+  In this context, the base value is `0.25rem`. ```html
+  <div class="oo-[0/4]">...</div>
+  ```
+</TabsPanel>
 
   <TabsPanel value="v2.0">
     In this context, the base value is `4px`.
@@ -151,12 +148,11 @@ Yumma CSS v2.1.0 introduces several new utilities for improved design precision.
         <TabsTab value="v2.0">v2.0</TabsTab>
     </TabsList>
 
-  <TabsPanel value="v2.1">
-    In this context, the base value is `0.25rem`.
-    ```html
-    <div class="ow-[0/4]">...</div>
-    ```
-  </TabsPanel>
+<TabsPanel value="v2.1">
+  In this context, the base value is `0.25rem`. ```html
+  <div class="ow-[0/4]">...</div>
+  ```
+</TabsPanel>
 
   <TabsPanel value="v2.0">
     In this context, the base value is `4px`.
@@ -206,21 +202,15 @@ Added a base utility: `fs-b`, & a `fs-9xl` utility variant.
     <TabsTab value="v2.0">Previously</TabsTab>
   </TabsList>
 
-  <TabsPanel value="v2.1">
-    In this context, the base value is `0.75rem`.
-    | Utility | Property           |
-    |---------|--------------------|
-    | `fs-xs`  | `font-size: 0.75rem;` |
-    | `fs-b`   | `font-size: 1rem;`    |
-    | `fs-sm`  | `font-size: 1.5rem;` |
-    | `fs-md`  | `font-size: 2.25rem;` |
-    | `fs-lg`  | `font-size: 3rem;` |
-    | `fs-xl`  | `font-size: 3.75rem;` |
-    | `fs-xxl` | `font-size: 4.5rem;` |
-    | `fs-3xl` | `font-size: 5.25rem;` |
-    | `fs-6xl` | `font-size: 6rem;` |
-    | `fs-9xl` | `font-size: 6.75rem;` |
-  </TabsPanel>
+<TabsPanel value="v2.1">
+  In this context, the base value is `0.75rem`. | Utility | Property |
+  |---------|--------------------| | `fs-xs` | `font-size: 0.75rem;` | | `fs-b`
+  | `font-size: 1rem;` | | `fs-sm` | `font-size: 1.5rem;` | | `fs-md` |
+  `font-size: 2.25rem;` | | `fs-lg` | `font-size: 3rem;` | | `fs-xl` |
+  `font-size: 3.75rem;` | | `fs-xxl` | `font-size: 4.5rem;` | | `fs-3xl` |
+  `font-size: 5.25rem;` | | `fs-6xl` | `font-size: 6rem;` | | `fs-9xl` |
+  `font-size: 6.75rem;` |
+</TabsPanel>
 
   <TabsPanel value="v2.0">
     In this context, the base value is `16px`.

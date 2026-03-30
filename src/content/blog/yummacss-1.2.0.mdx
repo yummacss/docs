@@ -2,8 +2,9 @@ export const meta = {
   authors: ["Renildo"],
   cover: "~",
   date: "2024-03-21",
-  description: "We've been planning to revamp the color palette of Yumma CSS for a while, happy to announce the new version Yumma CSS v1.2.0!",
-  title: "Yumma CSS 1.2"
+  description:
+    "We've been planning to revamp the color palette of Yumma CSS for a while, happy to announce the new version Yumma CSS v1.2.0!",
+  title: "Yumma CSS 1.2",
 };
 
 import { COLOR_FAMILIES, LEGACY_SHADE_LABELS } from "@/utils/colors";
@@ -19,7 +20,7 @@ Added dozens of new utilities to Yumma CSS v1.2.0. Notable additions include:
 Introduced `fit-content` support for **height**, **width**, & **dimension** utilities.
 
 | Utility      | Property                                           |
-|--------------|----------------------------------------------------|
+| ------------ | -------------------------------------------------- |
 | `h-fc`       | `height: fit-content;`                             |
 | `w-fc`       | `width: fit-content;`                              |
 | `max-h-fc`   | `max-height: fit-content;`                         |
@@ -30,19 +31,18 @@ Introduced `fit-content` support for **height**, **width**, & **dimension** util
 | `max-dim-fc` | `max-height: fit-content; max-width: fit-content;` |
 | `min-dim-fc` | `min-height: fit-content; min-width: fit-content;` |
 
-
 ### Flex
 
-| Utility  | Property       |
-|----------|----------------|
-| `f-auto` | `flex: auto;`  |
-| `f-full` | `flex: 100%;`  |
-| `f-half` | `flex: 50%;`   |
+| Utility  | Property      |
+| -------- | ------------- |
+| `f-auto` | `flex: auto;` |
+| `f-full` | `flex: 100%;` |
+| `f-half` | `flex: 50%;`  |
 
 ### Line Height
 
 | Utility | Property              |
-|---------|-----------------------|
+| ------- | --------------------- |
 | `lh-1`  | `line-height: 1;`     |
 | `lh-2`  | `line-height: 1.25;`  |
 | `lh-3`  | `line-height: 1.375;` |
@@ -60,27 +60,27 @@ Reworked the color palette for improved contrast & visibility across various UI 
         <TabsTab value="v1.1">v1.1</TabsTab>
     </TabsList>
 
-  <TabsPanel value="v1.2">
-    <Palette
-      scale={LEGACY_SHADE_LABELS}
-      whitePercentage={10}
-      blackPercentage={10}
-      data={[
-        { "name": "Red", "color": "#d73d3d" },
-        { "name": "Orange", "color": "#e06814" },
-        { "name": "Yellow", "color": "#d3a107" },
-        { "name": "Green", "color": "#1fb155" },
-        { "name": "Teal", "color": "#12a695" },
-        { "name": "Cyan", "color": "#05a4bf" },
-        { "name": "Blue", "color": "#3575dd" },
-        { "name": "Indigo", "color": "#595cd9" },
-        { "name": "Violet", "color": "#7d53dd" },
-        { "name": "Pink", "color": "#d4418a" },
-        { "name": "Gray", "color": "#606773" },
-        { "name": "Lead", "color": "#3f3f4e" }, 
-      ]}
-    />
-  </TabsPanel>
+<TabsPanel value="v1.2">
+  <Palette
+    scale={LEGACY_SHADE_LABELS}
+    whitePercentage={10}
+    blackPercentage={10}
+    data={[
+      { name: "Red", color: "#d73d3d" },
+      { name: "Orange", color: "#e06814" },
+      { name: "Yellow", color: "#d3a107" },
+      { name: "Green", color: "#1fb155" },
+      { name: "Teal", color: "#12a695" },
+      { name: "Cyan", color: "#05a4bf" },
+      { name: "Blue", color: "#3575dd" },
+      { name: "Indigo", color: "#595cd9" },
+      { name: "Violet", color: "#7d53dd" },
+      { name: "Pink", color: "#d4418a" },
+      { name: "Gray", color: "#606773" },
+      { name: "Lead", color: "#3f3f4e" },
+    ]}
+  />
+</TabsPanel>
 
   <TabsPanel value="v1.1">
     <Palette

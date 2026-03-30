@@ -8,28 +8,34 @@ export const meta = {
 Add utility classes to your HTML elements. You can combine multiple classes on a single element.
 
 <Preview>
-  <button className="px-3 py-2 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-md bw-1 fw-600 bs-o-md tp-c tdu-150 ttf-io us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6">Add to Cart</button>
+  <button className="px-3 py-2 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-md bw-1 fw-600 bs-o-md tp-c tdu-150 ttf-io us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6">
+    Add to Cart
+  </button>
 </Preview>
 
 ```html
-<button class="px-3 py-2 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-md bw-1 fw-600 bs-o-md tp-c tdu-150 ttf-io us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6">Add to Cart</button>
+<button
+  class="px-3 py-2 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-md bw-1 fw-600 bs-o-md tp-c tdu-150 ttf-io us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
+>
+  Add to Cart
+</button>
 ```
 
 Reference for the examples above:
 
 <div className="o-x-auto max-h-90">
 
-| Class   | Style                                                 |
-| ------- | ----------------------------------------------------- |
-| `bg-(value)`  | [background-color](/docs/background-color)            |
-| `br-(value)`  | [border-radius](/docs/border-radius)                  |
-| `bw-(value)`  | [border-width](/docs/border-width)                    |
-| `c-(value)`   | [color](/docs/color)                                  |
-| `c-(value)`   | [cursor](/docs/cursor)                                |
-| `fw-(value)`  | [font-weight](/docs/font-weight)                      |
-| `h:*`   | [hover:](/docs/pseudo-classes#hover)      |
-| `px-(value)`  | [padding-x](/docs/padding#padding-x) |
-| `py-(value)`  | [padding-y](/docs/padding#padding-y) |
+| Class        | Style                                      |
+| ------------ | ------------------------------------------ |
+| `bg-(value)` | [background-color](/docs/background-color) |
+| `br-(value)` | [border-radius](/docs/border-radius)       |
+| `bw-(value)` | [border-width](/docs/border-width)         |
+| `c-(value)`  | [color](/docs/color)                       |
+| `c-(value)`  | [cursor](/docs/cursor)                     |
+| `fw-(value)` | [font-weight](/docs/font-weight)           |
+| `h:*`        | [hover:](/docs/pseudo-classes#hover)       |
+| `px-(value)` | [padding-x](/docs/padding#padding-x)       |
+| `py-(value)` | [padding-y](/docs/padding#padding-y)       |
 
 </div>
 
@@ -52,23 +58,36 @@ Combine utilities to create complex styles & custom components.
       <span className="c-slate fs-lg fw-700">$59.99</span>
       <button className="px-3 py-2 bg-lime h:bg-lime-8 bc-lime-7 c-white br-md bw-1 fw-600 bs-o-md tp-c tdu-150 ttf-io us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-lime-6">Add to Cart</button>
     </div>
+
   </div>
 </Preview>
 
 ```html
 <div class="d-f fd-c g-4 h-100 max-w-80 p-5 bg-white bs-o-md">
   <div class="p-r">
-    <span class="l-2 p-a t-2 px-2 py-px bg-black/70 c-white br-pill fs-xs fw-700 us-none">New</span>
-    <img class="of-c h-40 w-full" src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+    <span
+      class="l-2 p-a t-2 px-2 py-px bg-black/70 c-white br-pill fs-xs fw-700 us-none"
+      >New</span
+    >
+    <img
+      class="of-c h-40 w-full"
+      src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    />
   </div>
 
   <div class="c-slate fs-xl fw-600">Sneakers</div>
 
-  <p class="c-slate fs-sm">Comfortable & stylish, these sneakers are perfect for any occasion.</p>
+  <p class="c-slate fs-sm">
+    Comfortable & stylish, these sneakers are perfect for any occasion.
+  </p>
 
   <div class="d-f ai-c jc-sb mt-auto">
     <span class="c-slate fs-lg fw-700">$59.99</span>
-    <button class="px-3 py-2 bg-lime h:bg-lime-8 bc-lime-7 c-white br-md bw-1 fw-600 bs-o-md tp-c tdu-150 ttf-io us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-lime-6">Add to Cart</button>
+    <button
+      class="px-3 py-2 bg-lime h:bg-lime-8 bc-lime-7 c-white br-md bw-1 fw-600 bs-o-md tp-c tdu-150 ttf-io us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-lime-6"
+    >
+      Add to Cart
+    </button>
   </div>
 </div>
 ```
@@ -77,32 +96,32 @@ Reference for the examples above:
 
 <div className="o-x-auto max-h-90">
 
-| Class     | Style                                                 |
-| --------- | ----------------------------------------------------- |
-| `br-(value)`    | [border-radius](/docs/border-radius)                  |
-| `bs-o-(value)`  | [box-shadow](/docs/box-shadow)                        |
-| `d-(value)`     | [display](/docs/display)                              |
-| `fd-(value)`    | [flex-direction](/docs/flex-direction)                |
-| `f:*`     | [focus:](/docs/pseudo-classes#focus)                  |
-| `fs-(value)`    | [font-size](/docs/font-size)                          |
-| `fw-(value)`    | [font-weight](/docs/font-weight)                      |
-| `g-(value)`     | [gap](/docs/gap)                                      |
-| `h-(value)`     | [height](/docs/height)                                |
-| `l-(value)`     | [left](/docs/top-right-bottom-left)                   |
-| `mt-(value)`    | [margin-top](/docs/margin#margin-top)                 |
-| `max-w-(value)` | [max-width](/docs/width#max-width)                    |
-| `of-(value)`    | [object-fit](/docs/object-fit)                        |
-| `oo-(value)`    | [outline-offset](/docs/outline-offset)                |
-| `os-(value)`    | [outline-style](/docs/outline-style)                  |
-| `ow-(value)`    | [outline-width](/docs/outline-width)                  |
-| `o-(value)`     | [overflow](/docs/overflow)                            |
-| `px-(value)`    | [padding-x](/docs/padding#padding-x) |
-| `py-(value)`    | [padding-y](/docs/padding#padding-y) |
-| `p-(value)`     | [padding](/docs/padding)                              |
-| `p-(value)`     | [position](/docs/position)                            |
-| `c-(value)`     | [color](/docs/color)                                  |
-| `t-(value)`     | [top](/docs/top-right-bottom-left)                    |
-| `w-(value)`     | [width](/docs/width)                                  |
+| Class           | Style                                  |
+| --------------- | -------------------------------------- |
+| `br-(value)`    | [border-radius](/docs/border-radius)   |
+| `bs-o-(value)`  | [box-shadow](/docs/box-shadow)         |
+| `d-(value)`     | [display](/docs/display)               |
+| `fd-(value)`    | [flex-direction](/docs/flex-direction) |
+| `f:*`           | [focus:](/docs/pseudo-classes#focus)   |
+| `fs-(value)`    | [font-size](/docs/font-size)           |
+| `fw-(value)`    | [font-weight](/docs/font-weight)       |
+| `g-(value)`     | [gap](/docs/gap)                       |
+| `h-(value)`     | [height](/docs/height)                 |
+| `l-(value)`     | [left](/docs/top-right-bottom-left)    |
+| `mt-(value)`    | [margin-top](/docs/margin#margin-top)  |
+| `max-w-(value)` | [max-width](/docs/width#max-width)     |
+| `of-(value)`    | [object-fit](/docs/object-fit)         |
+| `oo-(value)`    | [outline-offset](/docs/outline-offset) |
+| `os-(value)`    | [outline-style](/docs/outline-style)   |
+| `ow-(value)`    | [outline-width](/docs/outline-width)   |
+| `o-(value)`     | [overflow](/docs/overflow)             |
+| `px-(value)`    | [padding-x](/docs/padding#padding-x)   |
+| `py-(value)`    | [padding-y](/docs/padding#padding-y)   |
+| `p-(value)`     | [padding](/docs/padding)               |
+| `p-(value)`     | [position](/docs/position)             |
+| `c-(value)`     | [color](/docs/color)                   |
+| `t-(value)`     | [top](/docs/top-right-bottom-left)     |
+| `w-(value)`     | [width](/docs/width)                   |
 
 </div>
 

@@ -11,6 +11,7 @@ To get started, check out the [Yumma CSS documentation](https://yummacss.com/doc
 ## Development
 
 To start the docs site in development mode, from the project root, run:
+
 ```bash
 pnpm install
 pnpm dev
@@ -19,6 +20,7 @@ pnpm dev
 This runs both Next.js dev server and Yumma CSS in watch mode.
 
 ## Build
+
 ```bash
 pnpm build
 ```

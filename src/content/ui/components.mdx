@@ -2,8 +2,9 @@ import { uiSidebarConfig } from "@/utils/ui-sidebar";
 import Link from "next/link";
 
 export const meta = {
-   title: "Components",
-   description: "A collection of UI components styled with Yumma CSS and Base UI for accessibility, keyboard navigation, and focus management.",
+  title: "Components",
+  description:
+    "A collection of UI components styled with Yumma CSS and Base UI for accessibility, keyboard navigation, and focus management.",
 };
 
 ## Base Components
@@ -11,9 +12,11 @@ export const meta = {
 There are {uiSidebarConfig[1].items.length} base components available.
 
 <div className="d-g gtc-1 rg-8 my-10 sm:gtc-3">
-  {uiSidebarConfig[1].items.map(item => (
+  {uiSidebarConfig[1].items.map((item) => (
     <div key={item.slug}>
-      <Link className="c-white h:td-u" href={`/ui/${item.slug}`}>{item.title}</Link>
+      <Link className="c-white h:td-u" href={`/ui/${item.slug}`}>
+        {item.title}
+      </Link>
     </div>
   ))}
 </div>

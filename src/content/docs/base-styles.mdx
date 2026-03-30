@@ -7,7 +7,6 @@ export const meta = {
 
 Apply a modern box model and remove browser defaults to simplify layout consistency.
 
-
 1. **Use an intuitive `box-sizing` model for design consistency.**
 2. **Remove default `margin` & `padding`.**
 3. **Reset default `border` styles.**
@@ -30,7 +29,6 @@ Apply a modern box model and remove browser defaults to simplify layout consiste
 
 Set a default system font, improve rendering, & apply accessible line-height.
 
-
 1. **Set a default system font.**
 2. **Improve `font` rendering.**
 3. **Inherit font styles from parent elements.**
@@ -38,7 +36,20 @@ Set a default system font, improve rendering, & apply accessible line-height.
 
 ```css
 html {
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Noto Sans, Liberation Sans, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji; /* 1 */
+  font-family:
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Helvetica Neue,
+    Noto Sans,
+    Liberation Sans,
+    Arial,
+    sans-serif,
+    Apple Color Emoji,
+    Segoe UI Emoji,
+    Segoe UI Symbol,
+    Noto Color Emoji; /* 1 */
 }
 
 body {
@@ -51,7 +62,6 @@ body {
 ## Media Elements
 
 Ensure images & videos behave predictably in all layouts.
-
 
 1. **Set media elements (images, videos, canvases) to block-level.**
 2. **Limit maximum width to parent container.**
@@ -71,7 +81,6 @@ video {
 
 Normalize form controls for visual consistency & accessibility.
 
-
 1. **Reset background & border styles.**
 2. **Use `inherit` for font consistency.**
 3. **Add default padding for usability.**
@@ -83,7 +92,7 @@ optgroup,
 select,
 textarea {
   background-color: transparent; /* 1 */
-  padding: .5rem; /* 3 */
+  padding: 0.5rem; /* 3 */
   font-family: inherit; /* 2 */
 }
 ```
@@ -103,12 +112,7 @@ textarea:not([class]) {
 Apply consistent focus styles to interactive elements.
 
 ```css
-:is(a,
-button,
-input,
-select,
-summary,
-textarea):focus {
+:is(a, button, input, select, summary, textarea):focus {
   outline: 2px solid transparent;
 }
 ```
@@ -139,14 +143,13 @@ input:disabled,
 select:disabled,
 textarea:disabled {
   cursor: not-allowed; /* 1 */
-  opacity: .5; /* 1 */
+  opacity: 0.5; /* 1 */
 }
 ```
 
 ## Typography
 
 Improve rendering, wrapping, & default font behavior.
-
 
 1. **Avoid text overflows.**
 2. **Improve line wrapping for headings.**
@@ -197,7 +200,6 @@ small {
 }
 ```
 
-
 1. **Correct the inheritance and scaling of font size in all browsers.**
 2. **Correct the odd `em` font sizing in all browsers.**
 
@@ -237,7 +239,6 @@ ul {
 
 Standardize table header styling for better readability.
 
-
 1. **Apply consistent bold font weights.**
 
 ```css
@@ -250,7 +251,6 @@ th {
 ## Miscellaneous
 
 Fix minor browser quirks and improve default styles for common elements.
-
 
 1. **Add correct height in Firefox.**
 2. **Correct text decoration.**
