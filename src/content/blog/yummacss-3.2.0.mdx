@@ -2,11 +2,12 @@ export const meta = {
   authors: ["Renildo"],
   cover: "~",
   date: "2025-08-19",
-  description: "Introduction of new box model, border radius, & color utilities, along with size values from the breakpoint system.",
+  description:
+    "Introduction of new box model, border radius, & color utilities, along with size values from the breakpoint system.",
   tableOfContents: {
-    maxHeadingLevel: 4
+    maxHeadingLevel: 4,
   },
-  title: "Yumma CSS 3.2"
+  title: "Yumma CSS 3.2",
 };
 
 ---
@@ -65,7 +66,9 @@ The `0-100` range scale has limitations for **Dimension**, **Height**, & **Width
 Use `9` in `rad-(value)` utilities to apply a `border-radius` of `9999px` for perfectly rounded corners.
 
 ```html "rad-9"
-<button class="b-0 py-2 px-5 bg-indigo h:bg-indigo-8 fw-600 c-p rad-9 tc-white">Subscribe</button>
+<button class="b-0 py-2 px-5 bg-indigo h:bg-indigo-8 fw-600 c-p rad-9 tc-white">
+  Subscribe
+</button>
 ```
 
 ---
@@ -87,7 +90,11 @@ All color utilities now support the `currentColor` value via the `*-current` uti
 
 ```html "f-current"
 <div class="tc-blue">
-  <svg class="w-10 h-10 f-current" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+  <svg
+    class="w-10 h-10 f-current"
+    viewBox="0 0 16 16"
+    xmlns="http://www.w3.org/2000/svg"
+  >
     <circle cx="8" cy="8" r="8" />
   </svg>
 </div>

@@ -18,6 +18,7 @@ In this guide, **legacy** refers to Yumma CSS v2.1 & earlier versions. These old
     ```bash
     pnpm up yummacss@latest
     ```
+
   </Step>
 
   <Step title="Initialize configuration">
@@ -26,6 +27,7 @@ In this guide, **legacy** refers to Yumma CSS v2.1 & earlier versions. These old
     ```bash
     pnpx yummacss init
     ```
+
   </Step>
 
   <Step title="Delete old imports">
@@ -35,6 +37,7 @@ In this guide, **legacy** refers to Yumma CSS v2.1 & earlier versions. These old
     @import "yummacss/dist/yumma.min.css";
     @import "yummacss/dist/yumma.css";
     ```
+
   </Step>
 
   <Step title="Set up configuration">
@@ -47,6 +50,7 @@ In this guide, **legacy** refers to Yumma CSS v2.1 & earlier versions. These old
       normalize: true,
     };
     ```
+
   </Step>
 
   <Step title="Build styles">
@@ -55,6 +59,7 @@ In this guide, **legacy** refers to Yumma CSS v2.1 & earlier versions. These old
     ```bash
     pnpx yummacss build
     ```
+
   </Step>
 </Stepper>
 
@@ -71,61 +76,61 @@ pnpm add @yummacss/core
 
 Utilities renamed in the current version:
 
-| Property | Legacy (v2) | Latest (v3.21.0) |
-|---|---|---|
-| Border Radius | `rad-(value)` | `br-(value)` |
-| Border Radius (Pill) | `rad-9` | `br-pill` |
-| Border Style | `b-(value)` | `bs-(value)` |
-| Border Width | `b-(value)` | `bw-(value)` |
-| Box Shadow | `bs-(value)` | `bs-o-(value)` & `bs-i-(value)` |
-| Color (Text) | `tc-(value)` | `c-(value)` |
-| Color (Lead) | `lead` | `slate` |
-| Color Variations | `l-(value)` & `d-(value)` | Removed |
-| Columns | `cols-(value)` | `c-(value)` |
-| Direction (Bottom) | `dir-b-(value)` | `b-(value)` |
-| Direction (Inset) | `dir-i-(value)` | `i-(value)` |
-| Direction (Left) | `dir-l-(value)` | `l-(value)` |
-| Direction (Right) | `dir-r-(value)` | `r-(value)` |
-| Direction (Top) | `dir-t-(value)` | `t-(value)` |
-| Float | `flo-(value)` | `fl-(value)` |
-| Font Family (Serif) | `ff-c` | `ff-s` |
-| Font Size (1rem) | `fs-b` | `fs-md` |
-| Object Position | `op-left` | `op-l` |
-| Overflow | `ovf-(value)` | `o-(value)` |
-| Viewport Units | `*-1/1` | `*-dvh` |
+| Property             | Legacy (v2)               | Latest (v3.21.0)                |
+| -------------------- | ------------------------- | ------------------------------- |
+| Border Radius        | `rad-(value)`             | `br-(value)`                    |
+| Border Radius (Pill) | `rad-9`                   | `br-pill`                       |
+| Border Style         | `b-(value)`               | `bs-(value)`                    |
+| Border Width         | `b-(value)`               | `bw-(value)`                    |
+| Box Shadow           | `bs-(value)`              | `bs-o-(value)` & `bs-i-(value)` |
+| Color (Text)         | `tc-(value)`              | `c-(value)`                     |
+| Color (Lead)         | `lead`                    | `slate`                         |
+| Color Variations     | `l-(value)` & `d-(value)` | Removed                         |
+| Columns              | `cols-(value)`            | `c-(value)`                     |
+| Direction (Bottom)   | `dir-b-(value)`           | `b-(value)`                     |
+| Direction (Inset)    | `dir-i-(value)`           | `i-(value)`                     |
+| Direction (Left)     | `dir-l-(value)`           | `l-(value)`                     |
+| Direction (Right)    | `dir-r-(value)`           | `r-(value)`                     |
+| Direction (Top)      | `dir-t-(value)`           | `t-(value)`                     |
+| Float                | `flo-(value)`             | `fl-(value)`                    |
+| Font Family (Serif)  | `ff-c`                    | `ff-s`                          |
+| Font Size (1rem)     | `fs-b`                    | `fs-md`                         |
+| Object Position      | `op-left`                 | `op-l`                          |
+| Overflow             | `ovf-(value)`             | `o-(value)`                     |
+| Viewport Units       | `*-1/1`                   | `*-dvh`                         |
 
 ## Removed Utilities
 
 The following utilities were completely removed to reduce bloat & improve consistency.
 
-| Category | Legacy (v2) | Replacement |
-|---|---|---|
-| Dimension | `dim-(value)` / `max-dim-(value)` / `min-dim-(value)` | Use `w-(value)` & `h-(value)` together |
-| Color Variations | `l-(value)` & `d-(value)` (e.g., `l-red-5`) | Use standard numbers (e.g., `red-3`) |
-| Spacing X/Y | `sx-(value)` & `sy-(value)` | Use gap (`g-(value)`, `cg-(value)`, `rg-(value)`) |
-| Container | `cnt` | Removed |
-| Inset | `ins` | Use `d-f ai-c jc-c` |
+| Category         | Legacy (v2)                                           | Replacement                                       |
+| ---------------- | ----------------------------------------------------- | ------------------------------------------------- |
+| Dimension        | `dim-(value)` / `max-dim-(value)` / `min-dim-(value)` | Use `w-(value)` & `h-(value)` together            |
+| Color Variations | `l-(value)` & `d-(value)` (e.g., `l-red-5`)           | Use standard numbers (e.g., `red-3`)              |
+| Spacing X/Y      | `sx-(value)` & `sy-(value)`                           | Use gap (`g-(value)`, `cg-(value)`, `rg-(value)`) |
+| Container        | `cnt`                                                 | Removed                                           |
+| Inset            | `ins`                                                 | Use `d-f ai-c jc-c`                               |
 
 ### Color Utility Changes
 
 Remove light (`l-`) & dark (`d-`) character prefixes across all color utilities. The `lead` color is now `slate`. Map the legacy 1-6 scale to the new 1-12 scale.
 
-  ```html del={1} ins={2} title="index.html"
-  <button class="bg-l-lead-6 h:bg-d-lead-1">Button</button>
-  <button class="bg-slate-1 h:bg-slate-7">Button</button>
-  ```
+```html del={1} ins={2} title="index.html"
+<button class="bg-l-lead-6 h:bg-d-lead-1">Button</button>
+<button class="bg-slate-1 h:bg-slate-7">Button</button>
+```
 
-| Legacy | Latest |
-|---|---|
-| `*-l-indigo-6` | `*-indigo-1` |
-| `*-l-indigo-5` | `*-indigo-2` |
-| `*-l-indigo-4` | `*-indigo-3` |
-| `*-l-indigo-3` | `*-indigo-4` |
-| `*-l-indigo-2` | `*-indigo-5` |
-| `*-l-indigo-1` | `*-indigo-6` |
-| `*-d-indigo-1` | `*-indigo-7` |
-| `*-d-indigo-2` | `*-indigo-8` |
-| `*-d-indigo-3` | `*-indigo-9` |
+| Legacy         | Latest        |
+| -------------- | ------------- |
+| `*-l-indigo-6` | `*-indigo-1`  |
+| `*-l-indigo-5` | `*-indigo-2`  |
+| `*-l-indigo-4` | `*-indigo-3`  |
+| `*-l-indigo-3` | `*-indigo-4`  |
+| `*-l-indigo-2` | `*-indigo-5`  |
+| `*-l-indigo-1` | `*-indigo-6`  |
+| `*-d-indigo-1` | `*-indigo-7`  |
+| `*-d-indigo-2` | `*-indigo-8`  |
+| `*-d-indigo-3` | `*-indigo-9`  |
 | `*-d-indigo-4` | `*-indigo-10` |
 | `*-d-indigo-5` | `*-indigo-11` |
 | `*-d-indigo-6` | `*-indigo-12` |

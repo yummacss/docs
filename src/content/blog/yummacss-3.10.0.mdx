@@ -2,8 +2,9 @@ export const meta = {
   authors: ["Renildo"],
   cover: "~",
   date: "2026-01-31",
-  description: "Redesigned color palette, new pseudo-class variants, & transition utilities.",
-  title: "Yumma CSS 3.10"
+  description:
+    "Redesigned color palette, new pseudo-class variants, & transition utilities.",
+  title: "Yumma CSS 3.10",
 };
 
 ---
@@ -50,31 +51,31 @@ The color palette is redesigned for better accessibility & vibrancy. This update
     <TabsTab value="v3.9">v3.9</TabsTab>
   </TabsList>
 
-  <TabsPanel value="v3.10">
-    <Palette
-      data={[
-        { name: "Red", color: "#E63946" },
-        { name: "Orange", color: "#FF6B35" },
-        { name: "Yellow", color: "#FFB81C" },
-        { name: "Lime", color: "#84CC16" },
-        { name: "Mint", color: "#10B981" },
-        { name: "Green", color: "#06D6A0" },
-        { name: "Cyan", color: "#06B6D4" },
-        { name: "Sky", color: "#38BDF8" },
-        { name: "Blue", color: "#2563EB" },
-        { name: "Indigo", color: "#6366F1" },
-        { name: "Violet", color: "#8B5CF6" },
-        { name: "Lavender", color: "#A78BFA" },
-        { name: "Magenta", color: "#D946EF" },
-        { name: "Pink", color: "#EC4899" },
-        { name: "Coral", color: "#FF6F91" },
-        { name: "Zinc", color: "#52525B" },
-        { name: "Gray", color: "#6B7280" },
-        { name: "Slate", color: "#64748B" },
-        { name: "Silver", color: "#9CA3AF" },
-      ]}
-    />
-  </TabsPanel>
+<TabsPanel value="v3.10">
+  <Palette
+    data={[
+      { name: "Red", color: "#E63946" },
+      { name: "Orange", color: "#FF6B35" },
+      { name: "Yellow", color: "#FFB81C" },
+      { name: "Lime", color: "#84CC16" },
+      { name: "Mint", color: "#10B981" },
+      { name: "Green", color: "#06D6A0" },
+      { name: "Cyan", color: "#06B6D4" },
+      { name: "Sky", color: "#38BDF8" },
+      { name: "Blue", color: "#2563EB" },
+      { name: "Indigo", color: "#6366F1" },
+      { name: "Violet", color: "#8B5CF6" },
+      { name: "Lavender", color: "#A78BFA" },
+      { name: "Magenta", color: "#D946EF" },
+      { name: "Pink", color: "#EC4899" },
+      { name: "Coral", color: "#FF6F91" },
+      { name: "Zinc", color: "#52525B" },
+      { name: "Gray", color: "#6B7280" },
+      { name: "Slate", color: "#64748B" },
+      { name: "Silver", color: "#9CA3AF" },
+    ]}
+  />
+</TabsPanel>
 
   <TabsPanel value="v3.9">
     <Palette
@@ -101,19 +102,19 @@ The color palette is redesigned for better accessibility & vibrancy. This update
 
 Eleven new pseudo-class variants are added to style elements based on state or position.
 
-| Prefix | Variant |
-| --- | --- |
-| `c:*` | `:checked` |
-| `d:*` | `:disabled` |
-| `e:*` | `:empty` |
-| `fc:*` | `:first-child` |
-| `i:*` | `:invalid` |
+| Prefix | Variant          |
+| ------ | ---------------- |
+| `c:*`  | `:checked`       |
+| `d:*`  | `:disabled`      |
+| `e:*`  | `:empty`         |
+| `fc:*` | `:first-child`   |
+| `i:*`  | `:invalid`       |
 | `in:*` | `:indeterminate` |
-| `lc:*` | `:last-child` |
-| `nc:*` | `:nth-child` |
-| `r:*` | `:required` |
-| `ro:*` | `:read-only` |
-| `v:*` | `:valid` |
+| `lc:*` | `:last-child`    |
+| `nc:*` | `:nth-child`     |
+| `r:*`  | `:required`      |
+| `ro:*` | `:read-only`     |
+| `v:*`  | `:valid`         |
 
 ## Transitions
 
@@ -124,10 +125,13 @@ A new transitions category is introduced for smooth state animations.
 </Preview>
 
 ```html "tp-a" "td-300" "tdu-300" "ttf-io"
-<div class="d-16 bg-indigo tp-a td-300 tdu-300 ttf-io h:t-s-80 h:bg-slate-7"></div>
+<div
+  class="d-16 bg-indigo tp-a td-300 tdu-300 ttf-io h:t-s-80 h:bg-slate-7"
+></div>
 ```
 
 The new utilities include:
+
 - `td-(value)` - `transition-delay` (50ms steps)
 - `tdu-(value)` - `transition-duration` (50ms steps)
 - `tp-(value)` - `transition-property`

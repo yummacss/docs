@@ -34,7 +34,9 @@ export default defineConfig({
 
 A collection of paths for your template files (e.g., `.js`, `.tsx`, `.html`). The CLI scans these files for utilities to include in the final CSS file.
 
-<Hint icon="info">Use glob patterns to include subfolders & specific file types.</Hint>
+<Hint icon="info">
+  Use glob patterns to include subfolders & specific file types.
+</Hint>
 
 ```mjs title="yumma.config.mjs" mark={6}
 import { defineConfig } from "yummacss";
@@ -81,13 +83,13 @@ export default defineConfig({
 ```
 
 <Hint icon="info">
-  When a prefix is set, all utilities must include it—including entries in the `safelist`. For example, if your prefix is `ui`, use `ui-bg-red` instead of `bg-red`.
+  When a prefix is set, all utilities must include it—including entries in the
+  `safelist`. For example, if your prefix is `ui`, use `ui-bg-red` instead of
+  `bg-red`.
 </Hint>
 
 ```html
-<button class="ui-bg-indigo ui-c-white ui-p-4 ui-br-sm">
-  Prefixed Button
-</button>
+<button class="ui-bg-indigo ui-c-white ui-p-4 ui-br-sm">Prefixed Button</button>
 ```
 
 ### Theme
@@ -98,7 +100,9 @@ Extends or overrides default design tokens.
 
 Define custom color families. The compiler automatically generates shades (from 0 to 9) unless a full palette is explicitly provided.
 
-<Hint icon="info">Use `percentage` to control how much the shade is lightened or darkened.</Hint>
+<Hint icon="info">
+  Use `percentage` to control how much the shade is lightened or darkened.
+</Hint>
 
 ```mjs title="yumma.config.mjs" mark={5-10}
 import { defineConfig } from "yummacss";
@@ -110,9 +114,9 @@ export default defineConfig({
       percentage: {
         light: 14,
         dark: 14,
-      }
-    }
-  }
+      },
+    },
+  },
 });
 ```
 
@@ -131,9 +135,9 @@ export default defineConfig({
       lg: "64rem",
       xl: "80rem",
       xxl: "96rem",
-      "3xl": "112rem"
-    }
-  }
+      "3xl": "112rem",
+    },
+  },
 });
 ```
 
@@ -150,11 +154,14 @@ export default defineConfig({
 ```
 
 <Hint icon="info">
-  Use `safelist` for classes generated dynamically at runtime. For example, in React, a template literal like `` `bg-\${color}-5` `` cannot be detected by the file scanner, making a safelist necessary.
+  Use `safelist` for classes generated dynamically at runtime. For example, in
+  React, a template literal like `` `bg-\${color}-5` `` cannot be detected by
+  the file scanner, making a safelist necessary.
 </Hint>
 
 <Hint icon="info">
-  The compiler includes safelisted classes even if they are missing from your source files.
+  The compiler includes safelisted classes even if they are missing from your
+  source files.
 </Hint>
 
 ## Generate styles
@@ -164,9 +171,7 @@ The CLI scans files specified in `source` & generates a CSS file based on the ut
 ### HTML Input
 
 ```jsx title="index.html"
-<button class="bg-white c-black bw-1">
-  Button
-</button>
+<button class="bg-white c-black bw-1">Button</button>
 ```
 
 ### CSS Output
@@ -192,7 +197,8 @@ Running the `build` or `watch` command generates the following CSS:
 The Yumma CSS CLI provides commands to manage your project.
 
 <Hint icon="info">
-  Create a `yumma.config.mjs` file before running these commands. If you haven't, run `yummacss init`.
+  Create a `yumma.config.mjs` file before running these commands. If you
+  haven't, run `yummacss init`.
 </Hint>
 
 ### Build

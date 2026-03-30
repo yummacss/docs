@@ -11,9 +11,7 @@ This means customization is as simple as changing a class name:
 
 ```tsx
 // Changing target background and text color
-<Button className="bg-blue-5 c-white h:bg-blue-6">
-  Click Me
-</Button>
+<Button className="bg-blue-5 c-white h:bg-blue-6">Click Me</Button>
 ```
 
 ### Flexible by design
@@ -29,15 +27,13 @@ For example, in a Dialog component, you might have slots for the `Backdrop`, `Co
 ```tsx
 <Dialog>
   <DialogBackdrop className="bg-black/50" />
-  <DialogContent className="p-6 bg-zinc-9 br-md">
-    {/* ... */}
-  </DialogContent>
+  <DialogContent className="p-6 bg-zinc-9 br-md">{/* ... */}</DialogContent>
 </Dialog>
 ```
 
 ## Building your own system
 
-The best way to "theme" Yumma UI is to treat it as a collection of high-quality templates. 
+The best way to "theme" Yumma UI is to treat it as a collection of high-quality templates.
 
 1. **Copy**: Grab the component code you need.
 2. **Paste**: Drop it into your project's component directory.
@@ -54,8 +50,8 @@ export default defineConfig({
   theme: {
     colors: {
       purple: "#9333EA",
-    }
-  }
+    },
+  },
 });
 ```
 
@@ -63,7 +59,7 @@ Now you can use `bg-purple-5` or `c-purple-5` directly in your components!
 
 ## Variant management
 
-While Yumma UI is built with direct atomic classes, you might want to create reusable components with semantic variants like `variant="primary"` or `size="lg"`. 
+While Yumma UI is built with direct atomic classes, you might want to create reusable components with semantic variants like `variant="primary"` or `size="lg"`.
 
 We recommend using **class-variance-authority (cva)** for this. It allows you to define variants in a structured way that remains easy to maintain:
 
@@ -89,10 +85,14 @@ const buttonStyles = cva("br-sm fs-sm", {
 });
 
 export interface MyButtonProps
-  extends Button.Props,
-    VariantProps<typeof buttonStyles> {}
+  extends Button.Props, VariantProps<typeof buttonStyles> {}
 
-export const MyButton = ({ className, variant, size, ...props }: MyButtonProps) => (
+export const MyButton = ({
+  className,
+  variant,
+  size,
+  ...props
+}: MyButtonProps) => (
   <Button className={buttonStyles({ variant, size, className })} {...props} />
 );
 ```

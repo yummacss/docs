@@ -2,8 +2,9 @@ export const meta = {
   authors: ["Renildo"],
   cover: "~",
   date: "2026-02-20",
-  description: "Introducing container queries, standalone scale properties, refreshed box shadows & more.",
-  title: "Yumma CSS 3.15"
+  description:
+    "Introducing container queries, standalone scale properties, refreshed box shadows & more.",
+  title: "Yumma CSS 3.15",
 };
 
 ---
@@ -13,21 +14,19 @@ export const meta = {
 Container Queries allow you to style elements based on the size of their parent container.
 
 ```html "@sm:w-full"
-<div class="w-half @sm:w-full">
-  Responsive based on container size!
-</div>
+<div class="w-half @sm:w-full">Responsive based on container size!</div>
 ```
 
 ## Standalone Scale
 
 Following our transition to standalone properties for `rotate`, we've now refactored `scale` to use the standalone property.
 
-| Prefix | Property |
-| ------ | -------- |
-| `s-`   | `scale`  |
-| `sx-`  | `scale-x`|
-| `sy-`  | `scale-y`|
-| `sz-`  | `scale-z`|
+| Prefix | Property  |
+| ------ | --------- |
+| `s-`   | `scale`   |
+| `sx-`  | `scale-x` |
+| `sy-`  | `scale-y` |
+| `sz-`  | `scale-z` |
 
 ## Refreshed Box Shadows
 

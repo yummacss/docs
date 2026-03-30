@@ -2,8 +2,9 @@ export const meta = {
   authors: ["Renildo"],
   cover: "~",
   date: "2026-01-24",
-  description: "Introduction of negative values, new pseudo-class & pseudo-element variants, & expanded utility sets.",
-  title: "Yumma CSS 3.9"
+  description:
+    "Introduction of negative values, new pseudo-class & pseudo-element variants, & expanded utility sets.",
+  title: "Yumma CSS 3.9",
 };
 
 ---
@@ -50,21 +51,31 @@ Style `::before`, `::after`, `::selection`, & `::placeholder` directly.
 The `s::*` variant customizes text selection styling:
 
 <Preview>
-  <p className="c-black s::bg-indigo-4 s::c-white">Select this text to see custom selection colors!</p>
+  <p className="c-black s::bg-indigo-4 s::c-white">
+    Select this text to see custom selection colors!
+  </p>
 </Preview>
 
 ```html "s::bg-indigo" "s::c-white"
-<p class="c-black s::bg-indigo-4 s::c-white">Select this text to see custom selection colors!</p>
+<p class="c-black s::bg-indigo-4 s::c-white">
+  Select this text to see custom selection colors!
+</p>
 ```
 
 The `p::*` variant styles placeholder text:
 
 <Preview>
-  <input className="p-3 w-full bc-red-4 bw-1 br-0 p::c-red-4 p::fs-i" placeholder="I said, enter your email!" />
+  <input
+    className="p-3 w-full bc-red-4 bw-1 br-0 p::c-red-4 p::fs-i"
+    placeholder="I said, enter your email!"
+  />
 </Preview>
 
 ```html "p::c-red-4" "p::fs-i"
-<input class="p-3 w-full bc-red-4 bw-1 br-0 p::c-red-4 p::fs-i" placeholder="I said, enter your email!" />
+<input
+  class="p-3 w-full bc-red-4 bw-1 br-0 p::c-red-4 p::fs-i"
+  placeholder="I said, enter your email!"
+/>
 ```
 
 ### Pseudo Classes
@@ -169,21 +180,41 @@ Negative values are supported via the `--` syntax.
 
 <Preview>
   <div className="d-f jc-c c-white fs-sm">
-    <div className="d-14 d-f ai-c jc-c ml--2 bg-indigo bc-indigo-2/50 br-pill bw-2">A</div>
-    <div className="d-14 d-f ai-c jc-c ml--2 bg-indigo bc-indigo-2/50 br-pill bw-2">B</div>
-    <div className="d-14 d-f ai-c jc-c ml--2 bg-indigo bc-indigo-2/50 br-pill bw-2">C</div>
-    <div className="d-14 d-f ai-c jc-c ml--2 bg-indigo bc-indigo-2/50 br-pill bw-2">D</div>
-    <div className="d-14 d-f ai-c jc-c ml--2 bg-indigo bc-indigo-2/50 br-pill bw-2">E</div>
+    <div className="d-14 d-f ai-c jc-c ml--2 bg-indigo bc-indigo-2/50 br-pill bw-2">
+      A
+    </div>
+    <div className="d-14 d-f ai-c jc-c ml--2 bg-indigo bc-indigo-2/50 br-pill bw-2">
+      B
+    </div>
+    <div className="d-14 d-f ai-c jc-c ml--2 bg-indigo bc-indigo-2/50 br-pill bw-2">
+      C
+    </div>
+    <div className="d-14 d-f ai-c jc-c ml--2 bg-indigo bc-indigo-2/50 br-pill bw-2">
+      D
+    </div>
+    <div className="d-14 d-f ai-c jc-c ml--2 bg-indigo bc-indigo-2/50 br-pill bw-2">
+      E
+    </div>
   </div>
 </Preview>
 
 ```html "ml--2"
 <div class="d-f jc-c c-white fs-sm">
-  <div class="d-14 d-f ai-c jc-c ml--2 bg-indigo bc-indigo-2/50 br-pill bw-2">A</div>
-  <div class="d-14 d-f ai-c jc-c ml--2 bg-indigo bc-indigo-2/50 br-pill bw-2">B</div>
-  <div class="d-14 d-f ai-c jc-c ml--2 bg-indigo bc-indigo-2/50 br-pill bw-2">C</div>
-  <div class="d-14 d-f ai-c jc-c ml--2 bg-indigo bc-indigo-2/50 br-pill bw-2">D</div>
-  <div class="d-14 d-f ai-c jc-c ml--2 bg-indigo bc-indigo-2/50 br-pill bw-2">E</div>
+  <div class="d-14 d-f ai-c jc-c ml--2 bg-indigo bc-indigo-2/50 br-pill bw-2">
+    A
+  </div>
+  <div class="d-14 d-f ai-c jc-c ml--2 bg-indigo bc-indigo-2/50 br-pill bw-2">
+    B
+  </div>
+  <div class="d-14 d-f ai-c jc-c ml--2 bg-indigo bc-indigo-2/50 br-pill bw-2">
+    C
+  </div>
+  <div class="d-14 d-f ai-c jc-c ml--2 bg-indigo bc-indigo-2/50 br-pill bw-2">
+    D
+  </div>
+  <div class="d-14 d-f ai-c jc-c ml--2 bg-indigo bc-indigo-2/50 br-pill bw-2">
+    E
+  </div>
 </div>
 ```
 

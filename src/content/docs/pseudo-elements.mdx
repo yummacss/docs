@@ -9,59 +9,74 @@ Pseudo-element variants allow you to style `::before`, `::after`, `::selection`,
 
 Creates a pseudo-element that is the first child of the selected element.
 
-<Hint icon="info">Pseudo Elements require content to be visible. Make sure to set content via CSS or inline styles when using `::before`.</Hint>
+<Hint icon="info">
+  Pseudo Elements require content to be visible. Make sure to set content via
+  CSS or inline styles when using `::before`.
+</Hint>
 
 ```html "b::p-a" "b::bg-indigo/10"
-<div class="p-r p-8 b::p-a b::i-0 b::bg-indigo/10">
-  Styled content
-</div>
+<div class="p-r p-8 b::p-a b::i-0 b::bg-indigo/10">Styled content</div>
 ```
 
 ## After
 
 Creates a pseudo-element that is the last child of the selected element.
 
-<Hint icon="info">Like `::before`, the `::after` pseudo-element requires content to be visible.</Hint>
+<Hint icon="info">
+  Like `::before`, the `::after` pseudo-element requires content to be visible.
+</Hint>
 
 ```html "a::p-a" "a::c-indigo"
-<div class="p-r a::p-a a::c-indigo">
-  Styled content
-</div>
+<div class="p-r a::p-a a::c-indigo">Styled content</div>
 ```
 
 ## Selection
 
 Applies styles to highlighted/selected text.
 
-<Hint icon="cursor_text">Try selecting the text below to see the custom selection styling.</Hint>
+<Hint icon="cursor_text">
+  Try selecting the text below to see the custom selection styling.
+</Hint>
 
 <Preview>
-  <p className="c-black s::bg-indigo">Select this text to see custom selection colors!</p>
+  <p className="c-black s::bg-indigo">
+    Select this text to see custom selection colors!
+  </p>
 </Preview>
 
 ```html "s::bg-indigo"
-<p class="c-black s::bg-indigo">Select this text to see custom selection colors!</p>
+<p class="c-black s::bg-indigo">
+  Select this text to see custom selection colors!
+</p>
 ```
 
 ## Placeholder
 
 Styles the placeholder text for `input` or `textarea` elements.
 
-<Hint icon="cursor_click">Try focusing on the input to see the placeholder styling.</Hint>
+<Hint icon="cursor_click">
+  Try focusing on the input to see the placeholder styling.
+</Hint>
 
 <Preview>
-  <input className="h-10 w-full max-w-64 pl-4 bg-white bc-silver-3 c-slate-10 br-md bw-1 fs-sm fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 p::c-silver" placeholder="Enter your email..." />
+  <input
+    className="h-10 w-full max-w-64 pl-4 bg-white bc-silver-3 c-slate-10 br-md bw-1 fs-sm fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 p::c-silver"
+    placeholder="Enter your email..."
+  />
 </Preview>
 
 ```html "p::c-silver"
-<input class="p-3 w-full bc-silver bw-1 p::c-silver" placeholder="Enter your email..." />
+<input
+  class="p-3 w-full bc-silver bw-1 p::c-silver"
+  placeholder="Enter your email..."
+/>
 ```
 
 Here's a reference for all the pseudo-element variants available in Yumma CSS:
 
-| Pseudo-element  | Prefix | Description                                    |
-| --------------- | ------ | ---------------------------------------------- |
-| `::after`       | `a::*` | Styles the last child pseudo-element           |
-| `::before`      | `b::*` | Styles the first child pseudo-element          |
-| `::selection`   | `s::*` | Styles the portion of text that is selected    |
-| `::placeholder` | `p::*` | Styles placeholder text in inputs and textareas | 
+| Pseudo-element  | Prefix | Description                                     |
+| --------------- | ------ | ----------------------------------------------- |
+| `::after`       | `a::*` | Styles the last child pseudo-element            |
+| `::before`      | `b::*` | Styles the first child pseudo-element           |
+| `::selection`   | `s::*` | Styles the portion of text that is selected     |
+| `::placeholder` | `p::*` | Styles placeholder text in inputs and textareas |

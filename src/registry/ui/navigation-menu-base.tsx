@@ -63,9 +63,7 @@ export default function ExampleNavigationMenu() {
                       <h3 className="mb-1 c-slate-10 fs-sm fw-600">
                         {item.title}
                       </h3>
-                      <p className="c-slate-8 fs-xs lh-4">
-                        {item.description}
-                      </p>
+                      <p className="c-slate-8 fs-xs lh-4">{item.description}</p>
                     </div>
                   </NavigationMenu.Link>
                 </li>
@@ -91,9 +89,7 @@ export default function ExampleNavigationMenu() {
                       <h3 className="mb-1 c-slate-10 fs-sm fw-600">
                         {item.title}
                       </h3>
-                      <p className="c-slate-8 fs-xs lh-4">
-                        {item.description}
-                      </p>
+                      <p className="c-slate-8 fs-xs lh-4">{item.description}</p>
                     </div>
                   </NavigationMenu.Link>
                 </li>
