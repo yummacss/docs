@@ -91,7 +91,7 @@ export default async function BlogPostPage({
           </header>
 
           {meta?.cover && (
-            <div className="o-h b-1 mb-12 bc-white/10">
+            <div className="o-h b-1 mb-12 bc-white/10 br-md">
               <Image
                 src={`/blog/${slug}.png`}
                 alt={meta.title || "Blog cover"}

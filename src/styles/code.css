@@ -1,0 +1,137 @@
+figure[data-rehype-pretty-code-figure] {
+  background-color: #21243f;
+  border: 1px solid #31365e;
+  border-radius: 0.25rem;
+  margin: 1.5rem 0;
+  overflow: hidden;
+  position: relative;
+}
+
+figcaption[data-rehype-pretty-code-title] {
+  background-color: #1e2039;
+  border-bottom: 1px solid #31365e;
+  color: #c4c7d9;
+  padding: 0.5rem 1rem;
+  font-family:
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+  font-size: 0.875rem;
+}
+
+figure[data-rehype-pretty-code-figure] pre {
+  padding: 1rem 0;
+  margin: 0;
+  overflow-x: auto;
+  background-color: transparent;
+}
+
+.rehype-pretty-copy {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  background-color: transparent;
+  color: #c4c7d9;
+  border: 1px solid transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9;
+}
+
+figure[data-rehype-pretty-code-figure]:has(figcaption) .rehype-pretty-copy {
+  top: 0.25rem;
+}
+
+.rehype-pretty-copy svg {
+  width: 16px;
+  height: 16px;
+}
+
+.rehype-pretty-copy .success {
+  display: none;
+}
+
+.rehype-pretty-copy[data-copied="true"] .ready {
+  display: none;
+}
+
+.rehype-pretty-copy[data-copied="true"] .success {
+  display: block;
+  color: #c4c7d9;
+}
+
+figure[data-rehype-pretty-code-figure] code {
+  display: grid;
+  font-size: 0.875rem;
+  font-weight: 400;
+  font-family:
+    "SF Mono",
+    "Menlo",
+    "DejaVu Sans Mono",
+    "Consolas",
+    "Inconsolata",
+    monospace;
+  min-width: 100%;
+}
+
+figure[data-rehype-pretty-code-figure] code > [data-line] {
+  padding: 0 1rem;
+  line-height: 1.6;
+}
+
+figure[data-rehype-pretty-code-figure] code > [data-highlighted-line] {
+  background-color: hsla(231, 73%, 77%, 0.1);
+  border-left: 2px solid hsl(231, 73%, 77%);
+  padding-left: calc(1rem - 2px);
+}
+
+figure[data-rehype-pretty-code-figure] code > [data-highlighted-line-id="ins"] {
+  background-color: hsla(127, 48%, 77%, 0.15);
+  border-left-color: hsl(127, 48%, 77%);
+}
+
+figure[data-rehype-pretty-code-figure] code > [data-highlighted-line-id="del"] {
+  background-color: hsla(0, 48%, 77%, 0.1);
+  border-left-color: hsl(0, 48%, 77%);
+}
+
+figure[data-rehype-pretty-code-figure] code > [data-highlighted-line-id="mark"] {
+  background-color: hsla(231, 73%, 77%, 0.1);
+  border-left-color: hsl(231, 73%, 77%);
+}
+
+[data-highlighted-chars] {
+  background-color: #2d3151;
+  border-radius: 0.25rem;
+  padding: 0.2rem 0.3rem;
+}
+
+code[data-line-numbers] {
+  counter-reset: line;
+}
+
+code[data-line-numbers] > [data-line]::before {
+  counter-increment: line;
+  content: counter(line);
+  display: inline-block;
+  width: 1rem;
+  margin-right: 1.5rem;
+  text-align: right;
+  color: #666;
+  font-weight: 400;
+}
+
+code[data-line-numbers-max-digits="2"] > [data-line]::before {
+  width: 1.5rem;
+}
+code[data-line-numbers-max-digits="3"] > [data-line]::before {
+  width: 2rem;
+}
