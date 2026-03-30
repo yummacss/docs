@@ -1,6 +1,7 @@
 @import "@fontsource/esteban";
 @import "@fontsource/ia-writer-quattro";
 @import "./out.css";
+@import "./code.css";
 
 :root {
   color-scheme: dark;

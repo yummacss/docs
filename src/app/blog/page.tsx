@@ -44,14 +44,14 @@ export default async function BlogPage() {
                     </div>
                     {post.cover && (
                       <div className="lg:w-64 lg:fs-0">
-                        <div className="o-h b-1 bc-white/10 bg-white/10">
+                        <div className="o-h b-1 bc-white/10 bg-white/10 br-md">
                           <Image
                             src={`/blog/${post.slug}.png`}
                             alt={post.title}
                             unoptimized
                             width={1200}
                             height={675}
-                            className="of-c w-full h-auto us-none"
+                            className="of-c w-full h-auto br-md us-none"
                           />
                         </div>
                       </div>
