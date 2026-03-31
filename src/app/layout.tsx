@@ -2,7 +2,6 @@ import "@/styles/globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
-import CopyScript from "@/components/copy-script";
 
 const description =
   "Yumma CSS is an ergonomic CSS framework with abbreviated utility classes. Write d-f instead of flex, fw-600 instead of font-bold. Faster styling, less typing.";
@@ -46,7 +45,6 @@ export default function RootLayout({
         {children}
         <Analytics />
         <SpeedInsights />
-        <CopyScript />
       </body>
     </html>
   );
