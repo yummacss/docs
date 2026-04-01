@@ -134,7 +134,7 @@ export default function ExampleAlertDialog() {
                         <textarea
                           id="mail-message"
                           rows={12}
-                          className="os-none w-full px-3 pt-3 pb-12 bg-transparent c-slate-10 br-md bw-0 fs-md r-none"
+                          className="w-full px-3 pt-3 pb-12 bg-transparent c-slate-10 os-none br-md bw-0 fs-md r-none"
                         />
                         <Toolbar.Root className="d-f p-a b-0 l-0 r-0 ai-c fw-w g-1 p-1 bg-white bc-silver-3 btw-1">
                           <ToggleGroup className="d-f g-1">

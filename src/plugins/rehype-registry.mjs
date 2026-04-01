@@ -4,12 +4,27 @@ import path from "node:path";
 export default function rehypeRegistry() {
   return (tree) => {
     visit(tree, "element", (node) => {
-      if (node.tagName === "code" && node.data?.meta) {
-        const meta = node.data.meta;
-        const registryMatch = meta.match(/registry=["']([^"']+)["']/);
+      if (node.tagName === "code") {
+        const textContent = node.children?.[0]?.value || "";
+        const metaStr = node.data?.meta || "";
+        
+        let isInlineRegistry = false;
+        let registryIdMatch = metaStr.match(/registryId=["']([^"']+)["']/i);
+        let lang = "";
+        let registryId = "";
 
-        if (registryMatch) {
-          const registryId = registryMatch[1];
+        if (!registryIdMatch && textContent) {
+          const inlineMatch = textContent.match(/^(\w+)\s+registryId=["']([^"']+)["']/i);
+          if (inlineMatch) {
+            lang = inlineMatch[1];
+            registryId = inlineMatch[2];
+            isInlineRegistry = true;
+          }
+        } else if (registryIdMatch) {
+          registryId = registryIdMatch[1];
+        }
+
+        if (registryId) {
           const filePath = path.join(
             process.cwd(),
             "src",
@@ -20,14 +35,42 @@ export default function rehypeRegistry() {
 
           if (fs.existsSync(filePath)) {
             const content = fs.readFileSync(filePath, "utf-8");
-            node.children = [{ type: "text", value: content }];
+            
+            if (isInlineRegistry) {
+              node.tagName = "pre";
+              node.properties = {};
+              node.children = [
+                {
+                  type: "element",
+                  tagName: "code",
+                  properties: {
+                    className: [`language-${lang}`],
+                  },
+                  data: {
+                    meta: `registryId="${registryId}"`
+                  },
+                  children: [{ type: "text", value: content }],
+                }
+              ];
+            } else {
+              node.children = [{ type: "text", value: content }];
+            }
           } else {
-            node.children = [
-              {
-                type: "text",
-                value: `// Error: Registry file not found: ${registryId}`,
-              },
-            ];
+            const errMsg = `// Error: Registry file not found: ${registryId}`;
+            if (isInlineRegistry) {
+              node.tagName = "pre";
+              node.properties = {};
+              node.children = [
+                {
+                  type: "element",
+                  tagName: "code",
+                  properties: { className: [`language-${lang || 'tsx'}`] },
+                  children: [{ type: "text", value: errMsg }]
+                }
+              ];
+            } else {
+              node.children = [{ type: "text", value: errMsg }];
+            }
           }
         }
       }
