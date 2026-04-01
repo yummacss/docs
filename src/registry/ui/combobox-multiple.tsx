@@ -25,9 +25,9 @@ const skills = [
 
 function ItemIcon({ selected }: { selected: boolean }) {
   return selected ? (
-    <Circle className="w-4 h-4 c-indigo-6 fs-0" />
+    <Circle className="fs-0 w-4 h-4 c-indigo-6" />
   ) : (
-    <Circle className="w-4 h-4 c-slate-3 fs-0" />
+    <Circle className="fs-0 w-4 h-4 c-slate-3" />
   );
 }
 
@@ -46,11 +46,11 @@ export default function ExampleCombobox() {
               ((chip: string) => (
                 <Combobox.Chip
                   key={chip}
-                  className="d-f ai-c g-1 px-2 py-0 h-6 bg-indigo-1 bc-indigo-2 bw-1 br-pill fs-xs fw-500 c-indigo-7"
+                  className="d-f ai-c g-1 px-2 py-0 h-6 bg-indigo-1 bc-indigo-2 c-indigo-7 bw-1 br-pill fs-xs fw-500"
                 >
                   {chip}
                   <Combobox.ChipRemove
-                    className="d-f ai-c jc-c b-0 p-0 bg-transparent c-indigo-5 c-p h:c-indigo-8"
+                    className="d-f b-0 ai-c jc-c p-0 bg-transparent c-indigo-5 c-p h:c-indigo-8"
                     aria-label={`Remove ${chip}`}
                   >
                     <Xmark className="w-3 h-3" />
@@ -62,7 +62,7 @@ export default function ExampleCombobox() {
           <Combobox.Input
             id="skills-input"
             placeholder="Search skills…"
-            className="f-1 min-w-16 h-7 px-1 bg-transparent b-0 fs-md c-slate-10"
+            className="b-0 f-1 min-w-16 h-7 px-1 bg-transparent c-slate-10 fs-md"
           />
         </div>
       </div>

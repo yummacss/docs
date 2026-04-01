@@ -20,6 +20,7 @@ const previewVariants = cva("bg-white btw-1 brw-1 blw-1", {
 
 interface PreviewProps extends VariantProps<typeof previewVariants> {
   /** Registry ID for isolated preview (recommended for UI components) */
+  registryId?: string;
   id?: string;
   /** Direct children (for simple inline demos, subject to MDX styling) */
   children?: React.ReactNode;
@@ -27,20 +28,22 @@ interface PreviewProps extends VariantProps<typeof previewVariants> {
 }
 
 export default function Preview({
+  registryId,
   id,
   children,
   variant,
   className,
 }: PreviewProps) {
   // If id is provided, render from registry (isolated from MDX)
-  const RegistryComponent = id ? registry[id] : null;
+  const actualId = registryId || id;
+  const RegistryComponent = actualId ? registry[actualId] : null;
 
-  if (id && !RegistryComponent) {
+  if (actualId && !RegistryComponent) {
     return (
       <div
         className={`${clsx(previewVariants({ variant }), className)}c-red bc-navy`}
       >
-        Preview not found: "{id}"
+        Preview not found: "{actualId}"
       </div>
     );
   }

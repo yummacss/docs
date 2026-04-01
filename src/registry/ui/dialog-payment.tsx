@@ -88,7 +88,7 @@ export default function DialogPayment() {
                       id="cardNumber"
                       type="text"
                       placeholder="1234 5678 9012 3456"
-                      className="px-3 py-2 bg-white bc-silver-3 c-slate-12 br-md bw-1 fs-md os-none fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
+                      className="px-3 py-2 bg-white bc-silver-3 c-slate-12 br-md bw-1 os-none fs-md fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
                     />
                   </div>
 
@@ -104,7 +104,7 @@ export default function DialogPayment() {
                         id="expiry"
                         type="text"
                         placeholder="MM/YY"
-                        className="px-3 py-2 bg-white bc-silver-3 c-slate-12 br-md bw-1 fs-md os-none fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
+                        className="px-3 py-2 bg-white bc-silver-3 c-slate-12 br-md bw-1 os-none fs-md fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
                       />
                     </div>
 
@@ -116,7 +116,7 @@ export default function DialogPayment() {
                         id="cvv"
                         type="text"
                         placeholder="123"
-                        className="px-3 py-2 bg-white bc-silver-3 c-slate-12 br-md bw-1 fs-md os-none fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
+                        className="px-3 py-2 bg-white bc-silver-3 c-slate-12 br-md bw-1 os-none fs-md fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
                       />
                     </div>
                   </div>
@@ -129,7 +129,7 @@ export default function DialogPayment() {
                       id="name"
                       type="text"
                       placeholder="John Doe"
-                      className="px-3 py-2 bg-white bc-silver-3 c-slate-12 br-md bw-1 fs-md os-none fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
+                      className="px-3 py-2 bg-white bc-silver-3 c-slate-12 br-md bw-1 os-none fs-md fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
                     />
                   </div>
                 </form>
