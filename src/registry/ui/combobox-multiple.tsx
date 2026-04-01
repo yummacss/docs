@@ -6,21 +6,15 @@ import { AnimatePresence, motion } from "motion/react";
 import * as React from "react";
 
 const skills = [
-  "React",
-  "TypeScript",
+  "CSS",
+  "GraphQL",
   "Next.js",
   "Node.js",
-  "GraphQL",
-  "Yumma CSS",
-  "Bootstrap",
-  "Styled Components",
-  "Styles X",
-  "CSS",
-  "SCSS",
   "PostgreSQL",
-  "Docker",
-  "Rust",
-  "Go",
+  "React",
+  "SCSS",
+  "TypeScript",
+  "Yumma CSS",
 ];
 
 function ItemIcon({ selected }: { selected: boolean }) {

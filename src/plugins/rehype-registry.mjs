@@ -7,14 +7,16 @@ export default function rehypeRegistry() {
       if (node.tagName === "code") {
         const textContent = node.children?.[0]?.value || "";
         const metaStr = node.data?.meta || "";
-        
+
         let isInlineRegistry = false;
-        let registryIdMatch = metaStr.match(/registryId=["']([^"']+)["']/i);
+        const registryIdMatch = metaStr.match(/registryId=["']([^"']+)["']/i);
         let lang = "";
         let registryId = "";
 
         if (!registryIdMatch && textContent) {
-          const inlineMatch = textContent.match(/^(\w+)\s+registryId=["']([^"']+)["']/i);
+          const inlineMatch = textContent.match(
+            /^(\w+)\s+registryId=["']([^"']+)["']/i,
+          );
           if (inlineMatch) {
             lang = inlineMatch[1];
             registryId = inlineMatch[2];
@@ -35,7 +37,7 @@ export default function rehypeRegistry() {
 
           if (fs.existsSync(filePath)) {
             const content = fs.readFileSync(filePath, "utf-8");
-            
+
             if (isInlineRegistry) {
               node.tagName = "pre";
               node.properties = {};
@@ -47,10 +49,10 @@ export default function rehypeRegistry() {
                     className: [`language-${lang}`],
                   },
                   data: {
-                    meta: `registryId="${registryId}"`
+                    meta: `registryId="${registryId}"`,
                   },
                   children: [{ type: "text", value: content }],
-                }
+                },
               ];
             } else {
               node.children = [{ type: "text", value: content }];
@@ -64,9 +66,9 @@ export default function rehypeRegistry() {
                 {
                   type: "element",
                   tagName: "code",
-                  properties: { className: [`language-${lang || 'tsx'}`] },
-                  children: [{ type: "text", value: errMsg }]
-                }
+                  properties: { className: [`language-${lang || "tsx"}`] },
+                  children: [{ type: "text", value: errMsg }],
+                },
               ];
             } else {
               node.children = [{ type: "text", value: errMsg }];
