@@ -121,7 +121,7 @@ const blogRedirects = [
 const uiRedirects = [
   {
     source: "/ui/theming",
-    destination: "/ui/customization",
+    destination: "/ui/components/customization",
     permanent: true,
   },
   {
@@ -134,6 +134,42 @@ const uiRedirects = [
     destination: "/ui/components",
     permanent: true,
   },
+  // redirect old flat /ui/:slug paths to /ui/components/:slug
+  ...[
+    "installation",
+    "customization",
+    "accordion",
+    "autocomplete",
+    "avatar",
+    "button",
+    "checkbox",
+    "collapsible",
+    "combobox",
+    "context-menu",
+    "dialog",
+    "input",
+    "menu",
+    "menubar",
+    "meter",
+    "navigation-menu",
+    "number-field",
+    "popover",
+    "preview-card",
+    "progress",
+    "radio",
+    "select",
+    "separator",
+    "slider",
+    "switch",
+    "tabs",
+    "toggle",
+    "toolbar",
+    "tooltip",
+  ].map((slug) => ({
+    source: `/ui/${slug}`,
+    destination: `/ui/components/${slug}`,
+    permanent: true,
+  })),
 ];
 
 export const redirects = [

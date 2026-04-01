@@ -52,7 +52,7 @@ function extractUIItems(): {
       if (item.slug) {
         const searchItem: SearchItem = {
           title: item.title,
-          path: `/ui/${item.slug}`,
+          path: `/ui/components/${item.slug}`,
           category: "components",
         };
 

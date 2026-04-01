@@ -41,7 +41,7 @@ interface Props {
 export default function MobileSidebar({ isOpen, onClose, routeType }: Props) {
   const pathname = usePathname();
   const baseConfig = routeType === "ui" ? uiSidebarConfig : sidebarConfig;
-  const baseRoute = routeType === "ui" ? "/ui" : "/docs";
+  const baseRoute = routeType === "ui" ? "/ui/components" : "/docs";
 
   const navigationItems = [
     { title: "Home", href: "/", updated: false },

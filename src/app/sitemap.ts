@@ -16,7 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const uiSlugs = getAllUISlugs();
   const uiUrls = uiSlugs.map((slug) => ({
-    url: `${baseUrl}/ui/${slug}`,
+    url: `${baseUrl}/ui/components/${slug}`,
     lastModified: new Date(),
     changeFrequency: "weekly" as const,
     priority: 0.7,
