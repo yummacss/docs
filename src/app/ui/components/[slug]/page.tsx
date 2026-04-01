@@ -13,7 +13,7 @@ export async function generateMetadata({
   const meta = module.meta;
 
   return {
-    title: meta?.title || "Yumma UI Documentation",
+    title: meta?.title || "Yumma UI",
     description: meta?.description || "",
   };
 }
@@ -43,7 +43,7 @@ export default async function Page({
       <Pagination
         previous={navigation.previous}
         next={navigation.next}
-        basePath="/ui"
+        basePath="/ui/components"
       />
     </div>
   );
@@ -51,7 +51,10 @@ export default async function Page({
 
 export function generateStaticParams() {
   const slugs = getAllUISlugs();
-  return slugs.map((slug) => ({ slug }));
+  // exclude "components" since it has its own index page
+  return slugs
+    .filter((slug) => slug !== "components")
+    .map((slug) => ({ slug }));
 }
 
 export const dynamicParams = false;
