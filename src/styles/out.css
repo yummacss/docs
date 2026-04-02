@@ -1381,10 +1381,6 @@ summary {
   background-color: #ffffff1a;
 }
 
-.h\:bg-white\/5:hover {
-  background-color: #ffffff0d;
-}
-
 .h\:bg-zinc-7:hover {
   background-color: #47474e;
 }
@@ -1571,6 +1567,10 @@ summary {
   max-height: 13rem;
 }
 
+.max-h-56 {
+  max-height: 14rem;
+}
+
 .max-h-72 {
   max-height: 18rem;
 }
@@ -1597,6 +1597,18 @@ summary {
 
 .max-w-fc {
   max-width: fit-content;
+}
+
+.max-w-lg {
+  max-width: 64rem;
+}
+
+.max-w-md {
+  max-width: 48rem;
+}
+
+.max-w-sm {
+  max-width: 40rem;
 }
 
 .mb-0 {

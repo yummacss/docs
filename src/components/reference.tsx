@@ -1,15 +1,10 @@
 "use client";
 
-import { Input } from "@base-ui/react";
-import { Magnifier } from "@gravity-ui/icons";
+import { Button, Input } from "@base-ui/react";
+import { Accordion } from "@base-ui/react/accordion";
+import { Magnifier, Plus } from "@gravity-ui/icons";
 import { useState } from "react";
 import { type Category, categoryGetters } from "../utils/yummacss";
-import {
-  Accordion,
-  AccordionItem,
-  AccordionPanel,
-  AccordionTrigger,
-} from "./accordion";
 
 interface Props {
   category: Category;
@@ -81,78 +76,94 @@ export default function Reference({ category, name }: Props) {
 
   return (
     <div className="o-h mb-6 bc-clay bg-midnight bw-1 br-sm">
-      <Accordion defaultValue={DEFAULT_ACCORDION_VALUE}>
-        <AccordionItem className="bw-0" value="reference-item">
-          <AccordionTrigger className="bg-transparent">
-            <span className="d-f ai-c g-2">
-              <code className="c-mauve">{utilityPrefix}-(value)</code>
-              <span
-                className="px-2 py-1 bg-clay br-sm fs-xs"
-                style={{ color: "#8892c2" }}
-              >
-                {variants.length} utilities
-              </span>
-            </span>
-          </AccordionTrigger>
-          <AccordionPanel>
-            {/* Utilities list */}
-            <div className="o-y-auto max-h-52">
-              {/* Subtle search input */}
-              <div className="d-f ai-c g-2 mb-2 pb-2 bc-clay bbw-1">
-                <Magnifier className="c-white/30 fs-0 w-4 h-4" />
-                <Input
-                  type="text"
-                  placeholder="Filter..."
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
-                  className="c-white/70 w-full bg-transparent bw-0 fs-md"
-                  style={{ outline: "none" }}
-                />
-                {search && (
-                  <span className="c-white/30 fs-0 fs-xs ws-nw">
-                    {filtered.length}/{variants.length}
-                  </span>
-                )}
-              </div>
-
-              <div className="d-f fd-c g-1">
-                {filtered.length > 0 ? (
-                  filtered.map((variant, index) => (
-                    <div
-                      key={variant.prefix}
-                      className="d-f ai-c jc-sb py-2 px-0"
-                      style={{
-                        borderBottom:
-                          index < filtered.length - 1
-                            ? "1px solid #232741"
-                            : "none",
-                      }}
+      <Accordion.Root
+        defaultValue={DEFAULT_ACCORDION_VALUE}
+        className="d-f fd-c w-full"
+      >
+        <Accordion.Item value="reference-item" className="bw-0">
+          <Accordion.Header className="m-0">
+            <Accordion.Trigger
+              render={(triggerProps, { open }) => (
+                <Button
+                  {...triggerProps}
+                  className="d-f ai-c jc-sb g-4 w-full py-3 px-4 m-0 bg-transparent c-white bw-0 ta-l fw-600 fs-sm c-p us-none"
+                >
+                  <span className="d-f ai-c g-2">
+                    <code className="c-mauve ff-m">
+                      {utilityPrefix}-(value)
+                    </code>
+                    <span
+                      className="px-2 py-1 bg-clay br-sm fs-xs fw-600"
+                      style={{ color: "#8892c2" }}
                     >
-                      <code className="c-mauve fs-sm">{variant.prefix}</code>
-                      <div className="d-f fd-c ai-fe">
-                        {variant.properties.map((prop) => (
-                          <code
-                            key={prop}
-                            className="fs-xs"
-                            style={{ color: "#b9bed5" }}
-                          >
-                            {prop}: {variant.value}
-                            {`;`}
-                          </code>
-                        ))}
+                      {variants.length} utilities
+                    </span>
+                  </span>
+                  <Plus
+                    className={`w-4 h-4 fs-0 tp-t tp-c tdu-200 ttf-io ${open ? "ro-45 c-white" : "ro-0 c-white/60"}`}
+                  />
+                </Button>
+              )}
+            />
+          </Accordion.Header>
+          <Accordion.Panel className="c-white/70 o-h fs-sm lh-4">
+            <div className="px-4 pb-4">
+              <div className="o-y-auto max-h-52">
+                <div className="d-f ai-c g-2 mb-2 pb-2 bc-clay bbw-1">
+                  <Magnifier className="c-white/30 fs-0 w-4 h-4" />
+                  <Input
+                    type="text"
+                    placeholder="Filter..."
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
+                    className="c-white/70 w-full bg-transparent bw-0 fs-md"
+                  />
+                  {search && (
+                    <span className="c-white/30 fs-0 fs-xs ws-nw">
+                      {filtered.length}/{variants.length}
+                    </span>
+                  )}
+                </div>
+
+                <div className="d-f fd-c g-1">
+                  {filtered.length > 0 ? (
+                    filtered.map((variant, index) => (
+                      <div
+                        key={variant.prefix}
+                        className="d-f ai-c jc-sb py-2 px-0"
+                        style={{
+                          borderBottom:
+                            index < filtered.length - 1
+                              ? "1px solid #232741"
+                              : "none",
+                        }}
+                      >
+                        <code className="c-mauve fs-sm">{variant.prefix}</code>
+                        <div className="d-f fd-c ai-fe">
+                          {variant.properties.map((prop) => (
+                            <code
+                              key={prop}
+                              className="fs-xs"
+                              style={{ color: "#b9bed5" }}
+                            >
+                              {prop}: {variant.value}
+                              {`;`}
+                            </code>
+                          ))}
+                        </div>
                       </div>
+                    ))
+                  ) : (
+                    <div className="c-white/40 py-2 fs-xs ta-c">
+                      No utilities match "{search}"
                     </div>
-                  ))
-                ) : (
-                  <div className="c-white/40 py-2 fs-xs ta-c">
-                    No utilities match "{search}"
-                  </div>
-                )}
+                  )}
+                </div>
               </div>
             </div>
-          </AccordionPanel>
-        </AccordionItem>
-      </Accordion>
+          </Accordion.Panel>
+        </Accordion.Item>
+      </Accordion.Root>
     </div>
   );
 }

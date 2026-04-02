@@ -76,10 +76,7 @@ export default function ExampleCombobox() {
                 }
                 className="o-h w-72 bg-white bc-silver-2 c-slate-10 bw-1 br-md bs-o-lg"
               >
-                <Combobox.List
-                  className="o-y-auto py-1 ow-0"
-                  style={{ maxHeight: "14rem" }}
-                >
+                <Combobox.List className="o-y-auto py-1 max-h-56 ow-0">
                   {(skill: string) => (
                     <Combobox.Item
                       key={skill}

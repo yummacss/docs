@@ -63,10 +63,7 @@ export default function ExampleCombobox() {
         <Combobox.Portal keepMounted>
           <Combobox.Positioner className="ow-0" sideOffset={8}>
             <Combobox.Popup className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-md bs-o-lg">
-              <Combobox.List
-                className="o-y-auto py-1 ow-0"
-                style={{ maxHeight: "18rem" }}
-              >
+              <Combobox.List className="o-y-auto py-1 max-h-72 ow-0">
                 {(country: Country) => (
                   <Combobox.Item
                     key={country.code}
