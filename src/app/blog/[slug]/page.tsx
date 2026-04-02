@@ -98,8 +98,7 @@ export default async function BlogPostPage({
                 unoptimized
                 width={1200}
                 height={630}
-                className="w-full h-auto us-none"
-                style={{ backgroundColor: "#21243f" }}
+                className="w-full h-auto bg-charcoal us-none"
               />
             </div>
           )}

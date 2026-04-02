@@ -64,8 +64,7 @@ export default function ExampleAlertDialog() {
                     transition={{ type: "spring", stiffness: 500, damping: 30 }}
                   />
                 }
-                className="o-h w-full bg-white bc-silver-2 c-slate-12 br-md bw-1 bs-o-lg"
-                style={{ maxWidth: "600px" }}
+                className="o-h w-full max-w-sm bg-white bc-silver-2 c-slate-12 br-md bw-1 bs-o-lg"
               >
                 <div className="d-f jc-sb ai-c px-4 py-2 bg-silver-1/50">
                   <AlertDialog.Title className="fs-md fw-600">
