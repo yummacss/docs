@@ -17,7 +17,7 @@ Yumma CSS 3.21 introduces all-new theming capabilities. You can now easily custo
 
 The `theme.colors` configuration option allows you to define custom color families and automatically generate shades from 0 to 9 using built-in shade generators (`percentage.light` and `percentage.dark`). You can now easily expand the core palette while preserving the atomic and semantic-free philosophy of Yumma CSS.
 
-```mjs {5} title="yumma.config.mjs"
+```mjs {4} title="yumma.config.mjs"
 export default {
   theme: {
     colors: {
@@ -31,7 +31,7 @@ export default {
 
 You can now adjust your responsive layouts using the new `theme.screens` configuration option. You can override default media query breakpoints or add entirely new ones to match your project's viewport targets.
 
-```mjs {5-7} title="yumma.config.mjs"
+```mjs {4-6} title="yumma.config.mjs"
 export default {
   theme: {
     screens: {
@@ -47,7 +47,7 @@ export default {
 
 We also added a new `prefix` configuration option to avoid naming conflicts with existing frameworks or component libraries. This prepends a custom prefix (e.g., `ui-`) to all generated Yumma CSS utility classes.
 
-```mjs {3} title="yumma.config.mjs"
+```mjs {2} title="yumma.config.mjs"
 export default {
   prefix: "ui-",
 };
@@ -57,7 +57,7 @@ export default {
 
 The `safelist` configuration option allows you to specify a list of classes that the compiler should always generate, regardless of whether they are detected in your source files. We think this is particularly useful for dynamic class generation in React or Vue components.
 
-```mjs {3} title="yumma.config.mjs"
+```mjs {2} title="yumma.config.mjs"
 export default {
   safelist: ["bg-red-5", "p-4"],
 };
