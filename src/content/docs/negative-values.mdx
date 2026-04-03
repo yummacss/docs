@@ -5,7 +5,7 @@ export const meta = {
 
 ## Use Negative Values
 
-Yumma CSS supports negative values for specific utilities like margins, positioning & letter spacing. Use the `{prefix}--{value}` syntax to apply a negative value.
+Yumma CSS supports negative values for specific utilities like margins, positioning & letter spacing. Use the `{prefix}--(value)` syntax to apply a negative value.
 
 ## Margin
 
@@ -51,7 +51,7 @@ Apply negative offsets to position elements outside their parents or create over
 
 ## Z-Index
 
-Negative z-index values allow you to place elements behind their siblings or parents. Use `zi--{value}` to target negative stack levels.
+Negative z-index values allow you to place elements behind their siblings or parents. Use `zi--(value)` to target negative stack levels.
 
 <Preview>
   <div className="d-f p-r ai-c jc-c w-full h-32 bg-silver-1 br-md">
@@ -92,12 +92,12 @@ Utilities like `ls-1` & `ls-2` are defined with negative CSS values. Using the s
 <Preview>
   <div className="d-f fd-c g-4">
     <div>
-      <p className="fs-xs c-slate tt-u fw-700 mb-1">Standard (Tight)</p>
-      <p className="ls-1 c-indigo fs-xl fw-600">The quick brown fox</p>
+      <p className="mb-1 c-slate fs-xs tt-u fw-700">Standard (Tight)</p>
+      <p className="c-indigo ls-1 fs-xl fw-600">The quick brown fox</p>
     </div>
     <div>
-      <p className="fs-xs c-slate tt-u fw-700 mb-1">Negated (Wide)</p>
-      <p className="ls--1 c-indigo fs-xl fw-600">The quick brown fox</p>
+      <p className="mb-1 c-slate fs-xs tt-u fw-700">Negated (Wide)</p>
+      <p className="c-indigo ls--1 fs-xl fw-600">The quick brown fox</p>
     </div>
   </div>
 </Preview>
