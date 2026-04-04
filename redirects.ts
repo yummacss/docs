@@ -60,7 +60,6 @@ const uiRedirects = [
     destination: "/ui/components",
     permanent: true,
   },
-  // redirect old flat /ui/:slug paths to /ui/components/:slug
   ...[
     "installation",
     "customization",
