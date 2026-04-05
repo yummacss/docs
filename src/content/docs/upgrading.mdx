@@ -78,8 +78,8 @@ Utilities renamed in the current version:
 | Border Style         | `b-(value)`               | `bs-(value)`                    |
 | Border Width         | `b-(value)`               | `bw-(value)`                    |
 | Box Shadow           | `bs-(value)`              | `bs-o-(value)` & `bs-i-(value)` |
-| Color (Text)         | `tc-(value)`              | `c-(value)`                     |
 | Color (Lead)         | `lead`                    | `slate`                         |
+| Color (Text)         | `tc-(value)`              | `c-(value)`                     |
 | Color Variations     | `l-(value)` & `d-(value)` | Removed                         |
 | Direction (Bottom)   | `dir-b-(value)`           | `b-(value)`                     |
 | Direction (Inset)    | `dir-i-(value)`           | `i-(value)`                     |
@@ -101,7 +101,7 @@ Utilities renamed in the current version:
 | Translate            | `t-t-(value)`             | `tr-(value)`                    |
 | Translate X          | `t-tx-(value)`            | `ttx-(value)`                   |
 | Translate Y          | `t-ty-(value)`            | `tty-(value)`                   |
-| Viewport Units       | `(value)-1/1`                   | `(value)-dvh`                         |
+| Viewport Units       | `(value)-1/1`             | `(value)-dvh`                   |
 
 ## Removed Utilities
 
@@ -109,16 +109,16 @@ The following utilities were completely removed to reduce bloat & improve consis
 
 | Category         | Legacy (v2)                                           | Replacement                                       |
 | ---------------- | ----------------------------------------------------- | ------------------------------------------------- |
-| Dimension        | `dim-(value)` / `max-dim-(value)` / `min-dim-(value)` | Use `w-(value)` & `h-(value)` together            |
-| Color Variations | `l-(value)` & `d-(value)` (e.g., `l-red-5`)           | Use standard numbers (e.g., `red-3`)              |
-| Spacing X/Y      | `sx-(value)` & `sy-(value)`                           | Use gap (`g-(value)`, `cg-(value)`, `rg-(value)`) |
-| Container        | `cnt`                                                 | Removed                                           |
-| Inset            | `ins`                                                 | Use `d-f ai-c jc-c`                               |
-| Columns          | `c-(value)`                                           | Removed                                           |
-| Tab Size         | `tab-(value)`                                         | Removed                                           |
 | Caption Side     | `cs-(value)`                                          | Removed                                           |
+| Color Variations | `l-(value)` & `d-(value)` (e.g., `l-red-5`)           | Use standard numbers (e.g., `red-3`)              |
+| Columns          | `c-(value)`                                           | Removed                                           |
+| Container        | `cnt`                                                 | Removed                                           |
+| Dimension        | `dim-(value)` / `max-dim-(value)` / `min-dim-(value)` | Use `w-(value)` & `h-(value)` together            |
 | Empty Cells      | `ec-(value)`                                          | Removed                                           |
+| Inset            | `ins`                                                 | Use `d-f ai-c jc-c`                               |
+| Spacing X/Y      | `sx-(value)` & `sy-(value)`                           | Use gap (`g-(value)`, `cg-(value)`, `rg-(value)`) |
 | Stroke Width     | `sw-(value)`                                          | Removed                                           |
+| Tab Size         | `tab-(value)`                                         | Removed                                           |
 
 ### Color Utility Changes
 
@@ -166,10 +166,10 @@ Remove the `dir-` prefix for layout utilities.
 Replace 1/1 dynamic viewport utilities with `dvh` & `dvw`.
 
 ```html del={1-2} ins={3-4} title="index.html"
-<div class="w-1/1 h-1/1">...</div>
 <div class="h-1/1">...</div>
-<div class="w-dvw h-dvh">...</div>
 <div class="h-dvh">...</div>
+<div class="w-1/1 h-1/1">...</div>
+<div class="w-dvw h-dvh">...</div>
 ```
 
 ### Typography
