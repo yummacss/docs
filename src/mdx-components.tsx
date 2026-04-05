@@ -1,4 +1,4 @@
-import type { MDXComponents } from "mdx/types";
+﻿import type { MDXComponents } from "mdx/types";
 import Image from "next/image";
 import Baseline from "@/components/baseline";
 import Hint from "@/components/hint";
@@ -163,7 +163,7 @@ const components: MDXComponents = {
     props.className ? (
       <table {...props}>{children}</table>
     ) : (
-      <div className="o-x-auto my-6">
+      <div className="ox-auto my-6">
         <table className="w-full bc-white/10 bg-transparent bc-c" {...props}>
           {children}
         </table>
@@ -227,3 +227,4 @@ const components: MDXComponents = {
 export function useMDXComponents(): MDXComponents {
   return components;
 }
+

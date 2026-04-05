@@ -37,9 +37,9 @@ Use `px` to set the padding or margin of an element to `1px`.
 
 Yumma CSS v3.2 adds viewport-percentage length units:
 
-- `*-dvw`: Apply `100dvw` to an element.
-- `*-vh`: Apply `100vh` to an element.
-- `*-vw`: Apply `100vw` to an element.
+- `(value)-dvw`: Apply `100dvw` to an element.
+- `(value)-vh`: Apply `100vh` to an element.
+- `(value)-vw`: Apply `100vw` to an element.
 
 ```html title="index.html"
 <div class="d-dvw ..."></div>
@@ -53,11 +53,11 @@ The `0-100` range scale has limitations for **Dimension**, **Height**, & **Width
 
 | Class   | Value   |
 | ------- | ------- |
-| `*-sm`  | `40rem` |
-| `*-md`  | `48rem` |
-| `*-lg`  | `64rem` |
-| `*-xl`  | `80rem` |
-| `*-xxl` | `96rem` |
+| `(value)-sm`  | `40rem` |
+| `(value)-md`  | `48rem` |
+| `(value)-lg`  | `64rem` |
+| `(value)-xl`  | `80rem` |
+| `(value)-xxl` | `96rem` |
 
 ---
 
@@ -86,7 +86,7 @@ The `lead` color utility is renamed to `slate` for better accuracy. Find & repla
 
 ### New currentColor variant
 
-All color utilities now support the `currentColor` value via the `*-current` utility, making it easier to build themeable components.
+All color utilities now support the `currentColor` value via the `(value)-current` utility, making it easier to build themeable components.
 
 ```html "f-current"
 <div class="tc-blue">

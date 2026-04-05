@@ -3,9 +3,9 @@ export const sidebarConfig: SidebarConfig = [
     title: "Getting Started",
     items: [
       { title: "Installation", slug: "installation" },
-      { title: "Configuration", slug: "configuration", updated: true },
+      { title: "Configuration", slug: "configuration" },
       { title: "IDE Support", slug: "ide-support" },
-      { title: "Upgrading", slug: "upgrading" },
+      { title: "Upgrading", slug: "upgrading", updated: true },
     ],
   },
   {
@@ -15,7 +15,7 @@ export const sidebarConfig: SidebarConfig = [
       { title: "Colors", slug: "colors" },
       { title: "Media Queries", slug: "media-queries" },
       { title: "Container Queries", slug: "container-queries" },
-      { title: "Negative Values", slug: "negative-values", updated: true },
+      { title: "Negative Values", slug: "negative-values" },
       { title: "Pseudo Classes", slug: "pseudo-classes" },
       { title: "Pseudo Elements", slug: "pseudo-elements" },
       { title: "Base Styles", slug: "base-styles" },
@@ -253,10 +253,11 @@ export const sidebarConfig: SidebarConfig = [
     items: [
       { title: "Clear", slug: "clear" },
       { title: "Columns", slug: "columns" },
-      { title: "Container Type", slug: "container-type", updated: true },
+      { title: "Container Type", slug: "container-type" },
       { title: "Display", slug: "display" },
       { title: "Float", slug: "float" },
       { title: "Isolation", slug: "isolation" },
+      { title: "Table Layout", slug: "table-layout", updated: true },
     ],
   },
   {
@@ -275,18 +276,6 @@ export const sidebarConfig: SidebarConfig = [
       { title: "Top", slug: "top" },
       { title: "Visibility", slug: "visibility" },
       { title: "Z-Index", slug: "z-index" },
-    ],
-  },
-  {
-    title: "SVG",
-    items: [{ title: "Stroke Width", slug: "stroke-width" }],
-  },
-  {
-    title: "Table",
-    items: [
-      { title: "Caption Side", slug: "caption-side" },
-      { title: "Empty Cells", slug: "empty-cells" },
-      { title: "Table Layout", slug: "table-layout" },
     ],
   },
   {

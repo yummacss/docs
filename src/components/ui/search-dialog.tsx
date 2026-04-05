@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { Button } from "@base-ui/react";
 import { Dialog } from "@base-ui/react/dialog";
@@ -143,7 +143,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                   transition={{ duration: 0.15, ease: "easeOut" }}
                 />
               }
-              className="p-f zi-50 t-0 l-0 r-0 b-0 bg-black/60 bf-b-sm f-g-90"
+              className="p-f zi-50 t-0 l-0 r-0 b-0 bg-black/60 bf-b-sm fgr-90"
             />
             <div className="d-f p-f zi-50 t-0 l-0 r-0 b-0 ai-c jc-c pe-none">
               <Dialog.Popup
@@ -169,21 +169,21 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                   <Input
                     ref={inputRef}
                     type="text"
-                    placeholder="Search documentation…"
+                    placeholder="Search documentation..."
                     value={query}
                     onChange={(e) => {
                       setQuery(e.target.value);
                       setSelectedIndex(0);
                     }}
                     autoFocus
-                    className="b-0 f-1 bg-transparent c-white fs-md os-none"
+                    className="b-0 f-1 bg-transparent c-white os-none fs-md"
                   />
                 </div>
 
                 {/* Results */}
                 <div
                   ref={listRef}
-                  className="o-y-auto px-2 py-2"
+                  className="px-2 py-2 oy-auto"
                   style={{ maxHeight: "calc(70vh - 120px)" }}
                 >
                   {Object.entries(CATEGORY_LABELS).map(([category, label]) => {

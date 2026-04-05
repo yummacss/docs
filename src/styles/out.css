@@ -953,10 +953,6 @@ summary {
   fill: currentColor;
 }
 
-.f-g-90 {
-  filter: grayscale(90%);
-}
-
 .f-none {
   flex: none;
 }
@@ -1003,6 +999,10 @@ summary {
 
 .fg-1 {
   flex-grow: 1;
+}
+
+.fgr-90 {
+  filter: grayscale(90%);
 }
 
 .fs-0 {
@@ -1815,14 +1815,6 @@ summary {
   overflow: hidden;
 }
 
-.o-x-auto {
-  overflow-x: auto;
-}
-
-.o-y-auto {
-  overflow-y: auto;
-}
-
 .oc-indigo-6 {
   outline-color: #797bf3;
 }
@@ -1849,6 +1841,14 @@ summary {
 
 .ow-0 {
   outline-width: 0;
+}
+
+.ox-auto {
+  overflow-x: auto;
+}
+
+.oy-auto {
+  overflow-y: auto;
 }
 
 .p-0 {
@@ -2169,10 +2169,6 @@ summary {
 
 .t-half {
   top: 50%;
-}
-
-.t-t-4 {
-  translate: 1rem 1rem;
 }
 
 .ta-c {
