@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
@@ -86,7 +86,7 @@ export default function MobileSidebar({ isOpen, onClose, routeType }: Props) {
           }}
         >
           <div className="d-f p-r fd-c h-full">
-            <div className="o-y-auto f-1 pb-8 pt-6">
+            <div className="oy-auto f-1 pb-8 pt-6">
               <div
                 className="mx-auto px-6"
                 style={{ maxWidth: "clamp(40rem, 80vw, 96rem)" }}
@@ -267,3 +267,4 @@ export default function MobileSidebar({ isOpen, onClose, routeType }: Props) {
     </AnimatePresence>
   );
 }
+

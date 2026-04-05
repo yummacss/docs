@@ -145,6 +145,12 @@ export default defineConfig({
 
 An array of utility classes that should always be generated in the final CSS output, regardless of whether they are present in your source files. Use this for classes that are added dynamically via JavaScript.
 
+<Hint icon="info">
+  Use `safelist` for classes generated dynamically at runtime. For example, in
+  React, a template literal like `` `bg-\${color}-5` `` cannot be detected by
+  the file scanner, making a safelist necessary.
+</Hint>
+
 ```mjs title="yumma.config.mjs" mark={7}
 import { defineConfig } from "yummacss";
 
@@ -152,17 +158,6 @@ export default defineConfig({
   safelist: ["bg-red", "c-white", "fw-700"],
 });
 ```
-
-<Hint icon="info">
-  Use `safelist` for classes generated dynamically at runtime. For example, in
-  React, a template literal like `` `bg-\${color}-5` `` cannot be detected by
-  the file scanner, making a safelist necessary.
-</Hint>
-
-<Hint icon="info">
-  The compiler includes safelisted classes even if they are missing from your
-  source files.
-</Hint>
 
 ## Generate styles
 

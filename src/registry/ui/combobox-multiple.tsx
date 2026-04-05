@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { Combobox } from "@base-ui/react/combobox";
 import { Circle, Xmark } from "@gravity-ui/icons";
@@ -55,7 +55,7 @@ export default function ExampleCombobox() {
           </Combobox.Chips>
           <Combobox.Input
             id="skills-input"
-            placeholder="Search skills…"
+            placeholder="Search skills..."
             className="b-0 f-1 min-w-16 h-7 px-1 bg-transparent c-slate-10 fs-md"
           />
         </div>
@@ -76,7 +76,7 @@ export default function ExampleCombobox() {
                 }
                 className="o-h w-72 bg-white bc-silver-2 c-slate-10 bw-1 br-md bs-o-lg"
               >
-                <Combobox.List className="o-y-auto py-1 max-h-56 ow-0">
+                <Combobox.List className="py-1 max-h-56 ow-0 oy-auto">
                   {(skill: string) => (
                     <Combobox.Item
                       key={skill}

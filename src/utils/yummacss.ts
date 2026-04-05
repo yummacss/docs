@@ -13,8 +13,6 @@ export const categoryGetters = {
   layout: core.layoutUtils,
   outline: core.outlineUtils,
   positioning: core.positioningUtils,
-  svg: core.svgUtils,
-  table: core.tableUtils,
   text: core.textUtils,
   transform: core.transformUtils,
   transition: core.transitionUtils,

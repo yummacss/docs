@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -26,7 +26,7 @@ export default function Sidebar() {
   return (
     <aside className="d-none lg:d-b lg:gc-s-3">
       <div
-        className="d-f p-st t-20 o-y-auto fd-c g-8 pb-12"
+        className="d-f p-st t-20 oy-auto fd-c g-8 pb-12"
         style={{
           maxHeight: "calc(100vh - 5rem)",
         }}
@@ -159,3 +159,4 @@ export default function Sidebar() {
     </aside>
   );
 }
+

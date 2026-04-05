@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -94,7 +94,7 @@ export default function TableOfContents() {
   return (
     <aside className="d-none bc-white/10 blw-1 lg:d-b lg:gc-s-3">
       <div
-        className="p-st t-20 o-y-auto"
+        className="p-st t-20 oy-auto"
         style={{
           maxHeight: "calc(100vh - 5rem)",
         }}
@@ -133,3 +133,4 @@ export default function TableOfContents() {
     </aside>
   );
 }
+

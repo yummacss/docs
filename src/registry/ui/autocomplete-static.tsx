@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { Autocomplete } from "@base-ui/react/autocomplete";
 import * as React from "react";
@@ -37,7 +37,7 @@ export default function ExampleAutocomplete() {
       <Autocomplete.Portal keepMounted>
         <Autocomplete.Positioner className="ow-0" sideOffset={4}>
           <Autocomplete.Popup className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-md bs-o-lg">
-            <Autocomplete.List className="o-y-auto max-h-72 py-1 ow-0">
+            <Autocomplete.List className="oy-auto max-h-72 py-1 ow-0">
               {(item: string) => (
                 <Autocomplete.Item
                   key={item}
@@ -64,3 +64,4 @@ export default function ExampleAutocomplete() {
     </Autocomplete.Root>
   );
 }
+

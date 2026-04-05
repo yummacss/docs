@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { Button, Input } from "@base-ui/react";
 import { Accordion } from "@base-ui/react/accordion";
@@ -108,7 +108,7 @@ export default function Reference({ category, name }: Props) {
           </Accordion.Header>
           <Accordion.Panel className="c-white/70 o-h fs-sm lh-4">
             <div className="px-4 pb-4">
-              <div className="o-y-auto max-h-52">
+              <div className="oy-auto max-h-52">
                 <div className="d-f ai-c g-2 mb-2 pb-2 bc-clay bbw-1">
                   <Magnifier className="c-white/30 fs-0 w-4 h-4" />
                   <Input
@@ -167,3 +167,4 @@ export default function Reference({ category, name }: Props) {
     </div>
   );
 }
+
