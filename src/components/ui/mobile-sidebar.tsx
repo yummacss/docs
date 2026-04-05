@@ -267,4 +267,3 @@ export default function MobileSidebar({ isOpen, onClose, routeType }: Props) {
     </AnimatePresence>
   );
 }
-

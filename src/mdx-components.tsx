@@ -227,4 +227,3 @@ const components: MDXComponents = {
 export function useMDXComponents(): MDXComponents {
   return components;
 }
-

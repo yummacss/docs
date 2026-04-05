@@ -167,4 +167,3 @@ export default function Reference({ category, name }: Props) {
     </div>
   );
 }
-
