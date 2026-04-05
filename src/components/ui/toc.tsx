@@ -7,94 +7,53 @@ import ApiReference from "@/components/ui/api-reference";
 import EditPage from "@/components/ui/edit-page";
 import { findCurrentUIPageInfo } from "@/utils/ui-sidebar";
 
-interface TocItem {
+export interface TocItem {
   id: string;
   text: string;
   level: number;
 }
 
-export default function TableOfContents() {
+interface Props {
+  items: TocItem[];
+}
+
+export default function TableOfContents({ items }: Props) {
   const pathname = usePathname();
-  const [headings, setHeadings] = useState<TocItem[]>([]);
   const [activeId, setActiveId] = useState<string>("");
   const isBlogPost = pathname?.startsWith("/blog");
   const uiPageInfo = findCurrentUIPageInfo(pathname || "");
   const isBaseComponent = uiPageInfo?.sectionTitle === "Base components";
 
   useEffect(() => {
-    let intersectionObserver: IntersectionObserver | null = null;
-    let currentHeadingsJson = "";
+    if (items.length === 0) return;
 
-    function updateHeadings() {
-      const elements = Array.from(
-        document.querySelectorAll("article h2, article h3, main h2, main h3"),
-      ).filter((element) => {
-        return !element.closest("[data-meta]");
-      });
-
-      const items: TocItem[] = elements
-        .filter((element) => element.id) // only include headings with IDs
-        .map((element) => ({
-          id: element.id,
-          text: element.textContent || "",
-          level: Number(element.tagName.charAt(1)),
-        }));
-
-      const newJson = JSON.stringify(items);
-      if (newJson !== currentHeadingsJson) {
-        setHeadings(items);
-        currentHeadingsJson = newJson;
-
-        if (intersectionObserver) {
-          intersectionObserver.disconnect();
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setActiveId(entry.target.id);
+          }
         }
+      },
+      { rootMargin: "0% 0% -80% 0%" },
+    );
 
-        if (items.length > 0) {
-          intersectionObserver = new IntersectionObserver(
-            (entries) => {
-              entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                  setActiveId(entry.target.id);
-                }
-              });
-            },
-            { rootMargin: "0% 0% -80% 0%" },
-          );
-
-          elements.forEach((element) => {
-            if (element.id) intersectionObserver?.observe(element);
-          });
-        }
-      }
+    for (const item of items) {
+      const el = document.getElementById(item.id);
+      if (el) observer.observe(el);
     }
 
-    updateHeadings();
+    return () => observer.disconnect();
+  }, [items]);
 
-    const mutationObserver = new MutationObserver(() => {
-      updateHeadings();
-    });
-
-    const mainElement = document.querySelector("main") || document.body;
-    mutationObserver.observe(mainElement, {
-      childList: true,
-      subtree: true,
-      characterData: true,
-    });
-
-    return () => {
-      if (intersectionObserver) intersectionObserver.disconnect();
-      mutationObserver.disconnect();
-    };
-  }, []);
-
-  if (headings.length === 0) {
+  if (items.length === 0) {
     return null;
   }
 
   return (
     <aside className="d-none bc-white/10 blw-1 lg:d-b lg:gc-s-3">
       <div
-        className="p-st t-20 oy-auto"
+        className="p-st t-20 o-y-auto"
         style={{
           maxHeight: "calc(100vh - 5rem)",
         }}
@@ -104,7 +63,7 @@ export default function TableOfContents() {
             On this page
           </h3>
           <ul className="d-f fd-c g-2 fs-sm">
-            {headings.map((heading) => {
+            {items.map((heading) => {
               const isActive = activeId === heading.id;
 
               return (

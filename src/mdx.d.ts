@@ -7,4 +7,9 @@ declare module "*.mdx" {
     description?: string;
     [key: string]: any;
   };
+  export const toc: Array<{
+    id: string;
+    text: string;
+    level: number;
+  }>;
 }
