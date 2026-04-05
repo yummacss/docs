@@ -323,7 +323,6 @@ export const sidebarConfig: SidebarConfig = [
           { title: "List Style Position", slug: "list-style-position" },
           { title: "List Style Type", slug: "list-style-type" },
           { title: "Overflow Wrap", slug: "overflow-wrap" },
-          { title: "Tab Size", slug: "tab-size" },
           { title: "Text Align", slug: "text-align" },
           { title: "Text Decoration Line", slug: "text-decoration-line" },
           { title: "Text Decoration Style", slug: "text-decoration-style" },
