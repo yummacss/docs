@@ -29,6 +29,34 @@ body {
   font-family: "iA Writer Quattro", sans-serif;
 }
 
+/* mobile sidebar drawer transitions */
+[data-mobile-sidebar-backdrop] {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+[data-mobile-sidebar-backdrop][data-open] {
+  opacity: 1;
+}
+
+[data-mobile-sidebar-backdrop][data-ending-style] {
+  opacity: 0;
+}
+
+[data-mobile-sidebar-popup] {
+  transform: translateY(100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+[data-mobile-sidebar-popup][data-starting-style],
+[data-mobile-sidebar-popup][data-ending-style] {
+  transform: translateY(100%);
+}
+
+[data-mobile-sidebar-popup][data-open] {
+  transform: translateY(0);
+}
+
 /* reset font for component previews */
 [data-preview],
 [data-preview] *,
