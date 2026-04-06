@@ -43,8 +43,8 @@ You can extend or override the default media query breakpoints using the `theme.
 
   <Step title="Use custom breakpoints">
     You will need to restart the dev server to see the changes.
-    ```html
-    <div className="d-n 3xl:d-b"></div>
+    ```html title="page.html" "3xl:d-b"
+    <div className="d-none 3xl:d-b"></div>
     ```
   </Step>
 </Stepper>
@@ -55,7 +55,12 @@ Resize your browser window to see how these elements respond to viewport width.
 
 <Preview registryId="media-queries-base" className="mb-2 br-md" />
 
-```tsx registryId="media-queries-base" "sm:d-b" "md:d-b" "lg:d-b" "xl:d-b" "xxl:d-b"
+```tsx "sm:d-b" "md:d-b" "lg:d-b" "xl:d-b" "xxl:d-b"
+<p className="d-b ... sm:d-none">Small screen</p>
+<p className="d-none md:d-none ... sm:d-b">Medium screen</p>
+<p className="d-none lg:d-none ... md:d-b">Large screen</p>
+<p className="d-none xl:d-none ... lg:d-b">Extra large screen</p>
+<p className="d-none ... xxl:d-b">Double extra large screen</p>
 ```
 
 ## Touch Devices
