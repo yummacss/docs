@@ -1,8 +1,13 @@
-"use client";
-
 import { cva, type VariantProps } from "class-variance-authority";
 import { clsx } from "clsx";
-import { registry } from "@/registry/ui";
+import type { ComponentType } from "react";
+import { registry as registryDocs } from "@/registry/docs";
+import { registry as registryUi } from "@/registry/ui";
+
+const registry: Record<string, ComponentType> = {
+  ...registryUi,
+  ...registryDocs,
+};
 
 const previewVariants = cva("bg-white btw-1 brw-1 blw-1", {
   variants: {

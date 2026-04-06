@@ -38,16 +38,9 @@ Applies styles to highlighted/selected text.
   Try selecting the text below to see the custom selection styling.
 </Hint>
 
-<Preview>
-  <p className="c-black s::bg-indigo">
-    Select this text to see custom selection colors!
-  </p>
-</Preview>
+<Preview registryId="pseudo-elements-selection" className="mb-2 br-md" />
 
-```html "s::bg-indigo"
-<p class="c-black s::bg-indigo">
-  Select this text to see custom selection colors!
-</p>
+```tsx registryId="pseudo-elements-selection" "s::bg-indigo"
 ```
 
 ## Placeholder
@@ -58,18 +51,9 @@ Styles the placeholder text for `input` or `textarea` elements.
   Try focusing on the input to see the placeholder styling.
 </Hint>
 
-<Preview>
-  <input
-    className="h-10 w-full max-w-64 pl-4 bg-white bc-silver-3 c-slate-10 br-md bw-1 fs-sm fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 p::c-silver"
-    placeholder="Enter your email..."
-  />
-</Preview>
+<Preview registryId="pseudo-elements-placeholder" className="mb-2 br-md" />
 
-```html "p::c-silver"
-<input
-  class="p-3 w-full bc-silver bw-1 p::c-silver"
-  placeholder="Enter your email..."
-/>
+```tsx registryId="pseudo-elements-placeholder" "p::c-silver"
 ```
 
 Here's a reference for all the pseudo-element variants available in Yumma CSS:

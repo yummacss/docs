@@ -18,7 +18,7 @@ export const sidebarConfig: SidebarConfig = [
       { title: "Negative Values", slug: "negative-values" },
       { title: "Pseudo Classes", slug: "pseudo-classes" },
       { title: "Pseudo Elements", slug: "pseudo-elements" },
-      { title: "Normalize", slug: "normalize", updated: true },
+      { title: "Normalize", slug: "normalize" },
     ],
   },
   {
