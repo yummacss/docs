@@ -33,7 +33,15 @@ Apply color system utilities to style your elements.
 
 ## Use Color Shades
 
-Use color shades for more precise control over your designs.
+Each color family generates 13 values from a single base hex. The base color has no suffix. Shades `1–6` mix progressively more white, and shades `7–12` mix progressively more black.
+
+| Suffix | Direction |
+|--------|-----------|
+| `1-6`  | Lightest  |
+| (none) | Base      |
+| `7-12` | Darkest   |
+
+The step size is controlled by `percentage.light` and `percentage.dark` in your config. Both default to `14`.
 
 <Preview>
   <div className="d-g g-4 gtc-3">
@@ -73,20 +81,16 @@ Target specific opacity values across color utilities. Opacity variants range fr
 
 ## Custom Colors
 
-Extend or override the default palette using the `theme.colors` configuration option. The compiler automatically generates color shades (from 0 to 9) using the defined `percentage.light` and `percentage.dark` values.
+Extend or override the default palette using the `theme.colors` configuration option. The compiler automatically generates color shades (from 1 to 12) using the defined `percentage.light` and `percentage.dark` values.
 
-```mjs title="yumma.config.mjs" mark={4-12}
+```mjs title="yumma.config.mjs" mark={4-9}
 import { defineConfig } from "yummacss";
 
 export default defineConfig({
   theme: {
     colors: {
-      midnight: "#1a1d2e",
-      periwinkle: "#bec6f2",
-      percentage: {
-        light: 12, // lightens 1-4 by 12% each step
-        dark: 12, // darkens 6-9 by 12% each step
-      },
+      background: "#1a1d2e",
+      link: "#bec6f2",
     },
   },
 });
