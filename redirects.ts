@@ -9,6 +9,11 @@ const docsRedirects = [
     destination: "/docs/colors",
     permanent: true,
   },
+  {
+    source: "/docs/styling-elements",
+    destination: "/docs/why-yumma-css",
+    permanent: true,
+  },
 ];
 
 const blogRedirects = [
