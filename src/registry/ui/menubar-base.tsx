@@ -133,7 +133,7 @@ export default function ExampleMenubar() {
 
       {/* Help Menu (disabled) */}
       <Menu.Root disabled>
-        <Menu.Trigger className="b-0 h-8 px-3 bg-transparent c-slate-10 br-sm fs-sm fw-600 o-50 us-none">
+        <Menu.Trigger className="h-8 px-3 bg-transparent c-slate-10 br-sm fs-sm fw-600 o-50 us-none">
           Help
         </Menu.Trigger>
       </Menu.Root>

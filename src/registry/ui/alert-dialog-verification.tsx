@@ -40,7 +40,7 @@ export default function ExampleAlertDialog() {
     <AlertDialog.Root open={open} onOpenChange={setOpen}>
       <AlertDialog.Trigger
         render={
-          <Button className="b-0 px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-600 bs-o-xs tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+          <Button className="px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-600 bs-o-xs tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
         }
       >
         Verify Email
@@ -116,7 +116,7 @@ export default function ExampleAlertDialog() {
                           value={code[index]}
                           onChange={(e) => handleChange(index, e.target.value)}
                           onKeyDown={(e) => handleKeyDown(index, e)}
-                          className="w-12 h-12 cc-slate-7 bc-silver-3 br-md bw-1 ta-c fs-lg fw-600 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
+                          className="w-12 h-12 bc-silver-3 cc-slate-7 br-md bw-1 ta-c fs-lg fw-600 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
                         />
                       ),
                     )}
@@ -125,7 +125,7 @@ export default function ExampleAlertDialog() {
                     Didn't receive it?{" "}
                     <Button
                       type="button"
-                      className="b-0 p-0 bg-transparent c-indigo fw-600 td-u"
+                      className="p-0 bg-transparent c-indigo fw-600 td-u"
                     >
                       Resend code
                     </Button>
@@ -134,14 +134,14 @@ export default function ExampleAlertDialog() {
                 <div className="d-g gtc-2 g-3 px-4 py-3">
                   <AlertDialog.Close
                     render={
-                      <Button className="b-0 px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-600 bs-o-xs tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+                      <Button className="px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-600 bs-o-xs tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
                     }
                   >
                     Cancel
                   </AlertDialog.Close>
                   <AlertDialog.Close
                     render={
-                      <Button className="b-0 px-3 py-2 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-md bw-1 fw-600 bs-o-md tp-c tdu-150 ttf-io us-none fv:oc-indigo-6 fv:ow-2 fv:oo-2" />
+                      <Button className="px-3 py-2 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-md bw-1 fw-600 bs-o-md tp-c tdu-150 ttf-io us-none fv:oc-indigo-6 fv:ow-2 fv:oo-2" />
                     }
                   >
                     Verify

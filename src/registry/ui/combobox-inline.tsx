@@ -30,7 +30,7 @@ export default function ExampleCombobox() {
           <Magnifier className="fs-0 w-4 h-4 c-slate-4" />
           <Combobox.Input
             placeholder="Search frameworks..."
-            className="b-0 f-1 h-10 bg-transparent c-slate-10 fs-md"
+            className="f-1 h-10 bg-transparent c-slate-10 fs-md"
           />
         </div>
         <Combobox.List className="oy-auto py-1 max-h-52">

@@ -118,12 +118,12 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
   // Get category icon
   const getCategoryIcon = (category: string) => {
     if (category === "docs") {
-      return <ArrowRight className="c-white/50 w-4 h-4" />;
+      return <ArrowRight className="w-4 h-4 c-white/50" />;
     }
     if (category === "handbook") {
-      return <FileText className="c-white/50 w-4 h-4" />;
+      return <FileText className="w-4 h-4 c-white/50" />;
     }
-    return <LayersVertical className="c-white/50 w-4 h-4" />;
+    return <LayersVertical className="w-4 h-4 c-white/50" />;
   };
 
   // Track global index for keyboard nav
@@ -165,7 +165,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
               >
                 {/* Search Input */}
                 <div className="d-f ai-c g-3 px-4 py-3 bc-white/10 bbw-1">
-                  <Magnifier className="c-white/50 w-5 h-5" />
+                  <Magnifier className="w-5 h-5 c-white/50" />
                   <Input
                     ref={inputRef}
                     type="text"
@@ -176,14 +176,14 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                       setSelectedIndex(0);
                     }}
                     autoFocus
-                    className="b-0 f-1 bg-transparent c-white os-none fs-md"
+                    className="f-1 bg-transparent c-white os-none fs-md"
                   />
                 </div>
 
                 {/* Results */}
                 <div
                   ref={listRef}
-                  className="px-2 py-2 oy-auto"
+                  className="oy-auto px-2 py-2"
                   style={{ maxHeight: "calc(70vh - 120px)" }}
                 >
                   {Object.entries(CATEGORY_LABELS).map(([category, label]) => {
@@ -238,7 +238,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                                   {item.title}
                                 </div>
                                 {item.description && (
-                                  <div className="c-white/50 o-h fs-xs tw-n to-e ws-nw">
+                                  <div className="o-h c-white/50 fs-xs tw-n to-e ws-nw">
                                     {item.category === "colors" && isColorCopied
                                       ? "Copied!"
                                       : item.description}
@@ -248,7 +248,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
 
                               {/* Action indicator */}
                               {isSelected && (
-                                <ArrowUturnCwLeft className="c-white/50 fs-0 w-4 h-4" />
+                                <ArrowUturnCwLeft className="fs-0 w-4 h-4 c-white/50" />
                               )}
                             </Button>
                           );
@@ -258,14 +258,14 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                   })}
 
                   {flatResults.length === 0 && (
-                    <div className="c-white/50 px-4 py-8 ta-c fs-md">
+                    <div className="px-4 py-8 c-white/50 ta-c fs-md">
                       No results found for "{query}"
                     </div>
                   )}
                 </div>
 
                 {/* Footer */}
-                <div className="d-f c-white/40 ai-c jc-sb px-4 py-2 bc-white/10 btw-1 fs-xs">
+                <div className="d-f ai-c jc-sb px-4 py-2 bc-white/10 c-white/40 btw-1 fs-xs">
                   <div className="d-f ai-c g-4">
                     <span className="d-f ai-c g-1">
                       <kbd
