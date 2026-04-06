@@ -208,15 +208,6 @@ summary {
   position: absolute;
 }
 
-.bber-md {
-  border-end-end-radius: 0.375rem;
-  border-end-start-radius: 0.375rem;
-}
-
-.bbew-4 {
-  border-block-end-width: 4px;
-}
-
 .bblr-xxl {
   border-bottom-left-radius: 1rem;
 }
@@ -229,15 +220,6 @@ summary {
 .bbr-sm {
   border-bottom-right-radius: 0.25rem;
   border-bottom-left-radius: 0.25rem;
-}
-
-.bbsr-md {
-  border-start-start-radius: 0.375rem;
-  border-start-end-radius: 0.375rem;
-}
-
-.bbsw-4 {
-  border-block-start-width: 4px;
 }
 
 .bbw-1 {
@@ -314,14 +296,6 @@ summary {
 
 .bc-white\/20 {
   border-color: #ffffff33;
-}
-
-.beer-md {
-  border-end-end-radius: 0.375rem;
-}
-
-.besr-md {
-  border-end-start-radius: 0.375rem;
 }
 
 .bf-b-md {
@@ -520,24 +494,6 @@ summary {
   background-color: #303035;
 }
 
-.bier-md {
-  border-start-end-radius: 0.375rem;
-  border-end-end-radius: 0.375rem;
-}
-
-.biew-4 {
-  border-inline-end-width: 4px;
-}
-
-.bisr-md {
-  border-start-start-radius: 0.375rem;
-  border-end-start-radius: 0.375rem;
-}
-
-.bisw-4 {
-  border-inline-start-width: 4px;
-}
-
 .blc-indigo-5 {
   border-left-color: #8f91f5;
 }
@@ -622,14 +578,6 @@ summary {
 
 .bs-s {
   border-style: solid;
-}
-
-.bser-md {
-  border-start-end-radius: 0.375rem;
-}
-
-.bssr-md {
-  border-start-start-radius: 0.375rem;
 }
 
 .btr-md {
