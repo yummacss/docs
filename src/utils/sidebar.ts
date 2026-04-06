@@ -1,7 +1,8 @@
 export const sidebarConfig: SidebarConfig = [
   {
-    title: "Getting Started",
+    title: "Get Started",
     items: [
+      { title: "Philosophy", slug: "philosophy", updated: true },
       { title: "Installation", slug: "installation" },
       { title: "Configuration", slug: "configuration" },
       { title: "IDE Support", slug: "ide-support" },
@@ -11,14 +12,13 @@ export const sidebarConfig: SidebarConfig = [
   {
     title: "Handbook",
     items: [
-      { title: "Philosophy", slug: "philosophy", updated: true },
       { title: "Colors", slug: "colors" },
+      { title: "Normalize", slug: "normalize" },
       { title: "Media Queries", slug: "media-queries" },
       { title: "Container Queries", slug: "container-queries" },
       { title: "Negative Values", slug: "negative-values" },
       { title: "Pseudo Classes", slug: "pseudo-classes" },
       { title: "Pseudo Elements", slug: "pseudo-elements" },
-      { title: "Normalize", slug: "normalize" },
     ],
   },
   {
