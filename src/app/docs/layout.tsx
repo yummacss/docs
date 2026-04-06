@@ -1,4 +1,6 @@
 import Navbar from "@/components/ui/navbar";
+import Sidebar from "@/components/ui/sidebar";
+import TableOfContents from "@/components/ui/toc";
 
 export default function DocsLayout({
   children,
@@ -13,7 +15,15 @@ export default function DocsLayout({
         className="mx-auto px-6"
         style={{ maxWidth: "clamp(40rem, 80vw, 96rem)" }}
       >
-        {children}
+        <div className="d-g gtc-1 g-8 lg:gtc-12">
+          <Sidebar />
+
+          <div className="pt-12 lg:gc-s-6">
+            <article className="max-w-none">{children}</article>
+          </div>
+
+          <TableOfContents />
+        </div>
       </main>
     </div>
   );

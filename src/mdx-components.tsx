@@ -12,6 +12,22 @@ import ResponsiveVariant from "@/components/responsive-variant";
 import Stepper, { Step } from "@/components/stepper";
 import { Tabs, TabsList, TabsPanel, TabsTab } from "@/components/tabs";
 
+// generate IDs from heading text
+function generateId(children: React.ReactNode): string {
+  const text =
+    typeof children === "string"
+      ? children
+      : Array.isArray(children)
+        ? children.join("")
+        : "";
+
+  return text
+    .toLowerCase()
+    .replace(/['']/g, "") // strip apostrophes first
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
 const components: MDXComponents = {
   Baseline,
   Hint,
@@ -24,35 +40,47 @@ const components: MDXComponents = {
   Reference,
   Step,
   Stepper,
-  Steps: Stepper,
+  Steps: Stepper, // Alias for Stepper
   Tabs,
   TabsList,
   TabsPanel,
   TabsTab,
-  h1: ({ children, ...props }) =>
-    props.className ? (
-      <h1 {...props}>{children}</h1>
-    ) : (
-      <h1 className="mb-4 c-white fs-4xl fw-400 lh-1" {...props}>
+  h1: ({ children, ...props }) => {
+    const id = props.id || generateId(children);
+    return props.className ? (
+      <h1 id={id} {...props}>
         {children}
       </h1>
-    ),
-  h2: ({ children, ...props }) =>
-    props.className ? (
-      <h2 {...props}>{children}</h2>
     ) : (
-      <h2 className="mt-12 mb-4 c-white fs-xxl fw-400 lh-1" {...props}>
+      <h1 id={id} className="mb-4 c-white fs-4xl fw-400 lh-1" {...props}>
+        {children}
+      </h1>
+    );
+  },
+  h2: ({ children, ...props }) => {
+    const id = props.id || generateId(children);
+    return props.className ? (
+      <h2 id={id} {...props}>
         {children}
       </h2>
-    ),
-  h3: ({ children, ...props }) =>
-    props.className ? (
-      <h3 {...props}>{children}</h3>
     ) : (
-      <h3 className="mt-8 mb-4 c-white fs-xl fw-400 lh-1" {...props}>
+      <h2 id={id} className="mt-12 mb-4 c-white fs-xxl fw-400 lh-1" {...props}>
+        {children}
+      </h2>
+    );
+  },
+  h3: ({ children, ...props }) => {
+    const id = props.id || generateId(children);
+    return props.className ? (
+      <h3 id={id} {...props}>
         {children}
       </h3>
-    ),
+    ) : (
+      <h3 id={id} className="mt-8 mb-4 c-white fs-xl fw-400 lh-1" {...props}>
+        {children}
+      </h3>
+    );
+  },
   h4: ({ children, ...props }) =>
     props.className ? (
       <h4 {...props}>{children}</h4>
@@ -135,7 +163,7 @@ const components: MDXComponents = {
     props.className ? (
       <table {...props}>{children}</table>
     ) : (
-      <div className="o-x-auto my-6">
+      <div className="ox-auto my-6">
         <table className="w-full bc-white/10 bg-transparent bc-c" {...props}>
           {children}
         </table>
