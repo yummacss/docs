@@ -217,6 +217,10 @@ summary {
   border-block-end-width: 4px;
 }
 
+.bblr-xxl {
+  border-bottom-left-radius: 1rem;
+}
+
 .bbr-lg {
   border-bottom-right-radius: 0.5rem;
   border-bottom-left-radius: 0.5rem;
@@ -635,6 +639,10 @@ summary {
 .btr-md {
   border-top-left-radius: 0.375rem;
   border-top-right-radius: 0.375rem;
+}
+
+.btrr-xxl {
+  border-top-right-radius: 1rem;
 }
 
 .btw-1 {

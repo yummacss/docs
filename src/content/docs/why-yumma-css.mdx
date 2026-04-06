@@ -7,24 +7,24 @@ Yumma CSS is an atomic CSS framework built around one idea: utility class names 
 
 ```html
 <!-- Yumma CSS -->
-<div class="d-f ai-c g-4 px-6 py-3 bg-indigo br-md">
+<h1 class="d-if px-6 bg-black c-white btrr-xxl bblr-xxl fs-4xl ff-m">Hello World!<h1>
 
 <!-- Other frameworks -->
-<div class="px-6 py-3 bg-indigo-500 flex items-center gap-4 rounded-md">
+<div class="inline-flex rounded-tr-2xl rounded-bl-2xl bg-black px-6 text-4xl font-medium text-white">Hello World!</div>
 ```
 
 ## Abbreviated by Design
 
 Most atomic CSS frameworks map utility classes to predefined tokens and names. Yumma CSS maps them to CSS properties and values directly, using consistent abbreviations.
 
-| CSS Property | Yumma CSS | Other frameworks |
-| --- | --- | --- |
-| `display: flex` | `d-f` | `flex` |
-| `font-weight: 600` | `fw-600` | `font-semibold` |
-| `padding-inline: 1.5rem` | `px-6` | `px-6` |
-| `align-items: center` | `ai-c` | `items-center` |
-| `background-color: red` | `bg-red` | `bg-red-500` |
-| `border-radius: 0.375rem` | `br-md` | `rounded-md` |
+| CSS Property              | Yumma CSS | Other frameworks |
+|---------------------------|-----------|------------------|
+| `display: flex`           | `d-f`     | `flex`           |
+| `font-weight: 600`        | `fw-600`  | `font-semibold`  |
+| `align-items: center`     | `ai-c`    | `items-center`   |
+| `justify-content: center` | `jc-c`    | `justify-center` |
+| `color: white`            | `c-white` | `text-white`     |
+| `border-radius: 0.375rem` | `br-md`   | `rounded-md`     |
 
 The pattern is consistent. Once you know the abbreviation for a property, you know it for every value of that property. There is no separate vocabulary to memorize for hover states, responsive variants.
 
