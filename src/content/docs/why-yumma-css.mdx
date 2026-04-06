@@ -1,0 +1,62 @@
+export const meta = {
+  title: "Why Yumma CSS?",
+  description: "What makes Yumma CSS different & when it fits your workflow.",
+};
+
+Yumma CSS is an atomic CSS framework built around one idea: utility class names should mirror the CSS properties they represent. Every class is an abbreviation, not an alias.
+
+```html
+<!-- Yumma CSS -->
+<div class="d-f ai-c g-4 px-6 py-3 bg-indigo br-md">
+
+<!-- Other frameworks -->
+<div class="px-6 py-3 bg-indigo-500 flex items-center gap-4 rounded-md">
+```
+
+## Abbreviated by Design
+
+Most atomic CSS frameworks map utility classes to predefined tokens and names. Yumma CSS maps them to CSS properties and values directly, using consistent abbreviations.
+
+| CSS Property | Yumma CSS | Other frameworks |
+| --- | --- | --- |
+| `display: flex` | `d-f` | `flex` |
+| `font-weight: 600` | `fw-600` | `font-semibold` |
+| `padding-inline: 1.5rem` | `px-6` | `px-6` |
+| `align-items: center` | `ai-c` | `items-center` |
+| `background-color: red` | `bg-red` | `bg-red-500` |
+| `border-radius: 0.375rem` | `br-md` | `rounded-md` |
+
+The pattern is consistent. Once you know the abbreviation for a property, you know it for every value of that property. There is no separate vocabulary to memorize for hover states, responsive variants.
+
+## Smaller Class Strings
+
+Fewer characters per class means less visual clutter in your markup. Complex components stay readable as they grow.
+
+Every class maps directly to a CSS declaration. `c-white` is `color: white`. `fw-600` is `font-weight: 600`. No indirection.
+
+```html
+<button class="px-3 py-2 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-md bw-1 fw-600 c-p">
+  Add to Cart
+</button>
+```
+
+
+## Closer to CSS
+
+Because class names follow CSS abbreviations, the mental model stays close to the language itself. You are not learning a framework vocabulary on top of CSS. You are using CSS with shorter names.
+
+This makes Yumma CSS approachable for developers who know CSS well and want to write it faster without switching to a preprocessor or build-heavy design token system.
+
+## When Yumma CSS Fits
+
+- You want utility-first CSS with less markup noise.
+- Your team knows CSS and wants class names that reflect it.
+- You prefer explicit values (`fw-600`) over semantic aliases (`font-semibold`).
+- You are building a design system where every class maps to exactly one CSS declaration.
+- You want predictable output: one class, one property, no surprises.
+
+## When It May Not Fit
+
+- You rely heavily on a large, pre-built component ecosystem.
+- Your team is already deeply familiar with another framework's vocabulary and switching cost outweighs the benefit.
+- You need a framework with official multi-framework UI kits out of the box.

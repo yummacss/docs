@@ -7,32 +7,23 @@ export const meta = {
 
 Apply a modern box model and remove browser defaults to simplify layout consistency.
 
-1. **Use an intuitive `box-sizing` model for design consistency.**
-2. **Remove default `margin` & `padding`.**
-3. **Reset default `border` styles.**
-
 ```css
 *,
 :before,
 :after {
-  box-sizing: border-box; /* 1 */
-  border: 0 solid; /* 3 */
+  box-sizing: border-box;
+  border: 0 solid;
 }
 
 * {
-  margin: 0; /* 2 */
-  padding: 0; /* 2 */
+  margin: 0;
+  padding: 0;
 }
 ```
 
 ## Document
 
 Set a default system font, improve rendering, & apply accessible line-height.
-
-1. **Set a default system font.**
-2. **Improve `font` rendering.**
-3. **Inherit font styles from parent elements.**
-4. **Apply accessible `line-height`.**
 
 ```css
 html {
@@ -49,12 +40,12 @@ html {
     Apple Color Emoji,
     Segoe UI Emoji,
     Segoe UI Symbol,
-    Noto Color Emoji; /* 1 */
+    Noto Color Emoji;
 }
 
 body {
-  -webkit-font-smoothing: antialiased; /* 2 */
-  font-family: inherit; /* 3 */
+  -webkit-font-smoothing: antialiased;
+  font-family: inherit;
   line-height: 1.5; /* 4 */
 }
 ```
@@ -63,17 +54,14 @@ body {
 
 Ensure images & videos behave predictably in all layouts.
 
-1. **Set media elements (images, videos, canvases) to block-level.**
-2. **Limit maximum width to parent container.**
-
 ```css
 canvas,
 img,
 picture,
 svg,
 video {
-  max-width: 100%; /* 2 */
-  display: block; /* 1 */
+  max-width: 100%;
+  display: block;
 }
 ```
 
@@ -81,19 +69,15 @@ video {
 
 Normalize form controls for visual consistency & accessibility.
 
-1. **Reset background & border styles.**
-2. **Use `inherit` for font consistency.**
-3. **Add default padding for usability.**
-
 ```css
 button,
 input,
 optgroup,
 select,
 textarea {
-  background-color: transparent; /* 1 */
-  padding: 0.5rem; /* 3 */
-  font-family: inherit; /* 2 */
+  background-color: transparent;
+  padding: 0.5rem;
+  font-family: inherit;
 }
 ```
 
@@ -105,7 +89,7 @@ input:not([class]),
 optgroup:not([class]),
 select:not([class]),
 textarea:not([class]) {
-  border: 1px solid #bfc2c7; /* 1 */
+  border: 1px solid #bfc2c7;
 }
 ```
 
@@ -135,25 +119,19 @@ button {
 
 Disabled states
 
-1. **Reduce opacity & apply a "not-allowed" cursor.**
-
 ```css
 button:disabled,
 input:disabled,
 select:disabled,
 textarea:disabled {
-  cursor: not-allowed; /* 1 */
-  opacity: 0.5; /* 1 */
+  cursor: not-allowed;
+  opacity: 0.5;
 }
 ```
 
 ## Typography
 
 Improve rendering, wrapping, & default font behavior.
-
-1. **Avoid text overflows.**
-2. **Improve line wrapping for headings.**
-3. **Apply a consistent font weight.**
 
 ```css
 h1,
@@ -163,7 +141,7 @@ h4,
 h5,
 h6,
 p {
-  overflow-wrap: break-word; /* 1 */
+  overflow-wrap: break-word;
 }
 
 h1,
@@ -172,13 +150,13 @@ h3,
 h4,
 h5,
 h6 {
-  text-wrap: balance; /* 2 */
-  font-size: 1rem; /* 3 */
-  font-weight: 600; /* 3 */
+  text-wrap: balance;
+  font-size: 1rem;
+  font-weight: 600;
 }
 
 p {
-  text-wrap: pretty; /* 2 */
+  text-wrap: pretty;
 }
 ```
 
@@ -200,16 +178,15 @@ small {
 }
 ```
 
-1. **Correct the inheritance and scaling of font size in all browsers.**
-2. **Correct the odd `em` font sizing in all browsers.**
+<br />
 
 ```css
 pre,
 code,
 kbd,
 samp {
-  font-family: monospace; /* 1 */
-  font-size: 1em; /* 2 */
+  font-family: monospace;
+  font-size: 1em;
 }
 ```
 
@@ -218,8 +195,8 @@ samp {
 
 ```css
 a {
-  color: inherit; /* 3 */
-  text-decoration: none; /* 1 */
+  color: inherit;
+  text-decoration: none;
 }
 ```
 
@@ -239,12 +216,10 @@ ul {
 
 Standardize table header styling for better readability.
 
-1. **Apply consistent bold font weights.**
-
 ```css
 th {
-  font-size: 1rem; /* 1 */
-  font-weight: 600; /* 1 */
+  font-size: 1rem;
+  font-weight: 600;
 }
 ```
 
@@ -252,15 +227,11 @@ th {
 
 Fix minor browser quirks and improve default styles for common elements.
 
-1. **Add correct height in Firefox.**
-2. **Correct text decoration.**
-3. **Add spacing around `hr` elements.**
-
 ```css
 hr {
-  border-top: 1px solid #bfc2c7; /* 2 */
-  height: 0; /* 1 */
-  margin: 1em 0; /* 3 */
+  border-top: 1px solid #bfc2c7;
+  height: 0;
+  margin: 1em 0;
 }
 ```
 
