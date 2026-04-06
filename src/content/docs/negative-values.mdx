@@ -11,60 +11,27 @@ Yumma CSS supports negative values for specific utilities like margins, position
 
 Use negative margins to overlap elements or create unique layouts. Negative margins are available for all margin utilities (`m-`, `mt-`, `mr-`, `mb-`, `ml-`, `mx-` & `my-`).
 
-<Preview>
-  <div className="d-f jc-c c-white fs-sm">
-    <div className="d-f ai-c jc-c w-14 h-14 bg-indigo bc-indigo-2/50 br-pill bw-2 z-1">
-      A
-    </div>
-    <div className="d-f ai-c jc-c ml--4 w-14 h-14 bg-indigo bc-indigo-2/50 br-pill bw-2 z-2">
-      B
-    </div>
-    <div className="d-f ai-c jc-c ml--4 w-14 h-14 bg-indigo bc-indigo-2/50 br-pill bw-2 z-3">
-      C
-    </div>
-  </div>
-</Preview>
+<Preview registryId="negative-values-margin" className="mb-2 br-md" />
 
-```html "ml--4"
-<div class="d-f jc-c c-white fs-sm">
-  <div class="d-f ai-c jc-c w-14 h-14 bg-indigo br-pill bw-2 z-1">A</div>
-  <div class="d-f ai-c jc-c ml--4 w-14 h-14 bg-indigo br-pill bw-2 z-2">B</div>
-  <div class="d-f ai-c jc-c ml--4 w-14 h-14 bg-indigo br-pill bw-2 z-3">C</div>
-</div>
+```tsx registryId="negative-values-margin" "ml--4"
 ```
 
 ## Positioning
 
 Apply negative offsets to position elements outside their parents or create overlapping effects. This works with `t-`, `r-`, `b-`, `l-` & `i-` utilities.
 
-<Preview>
-  <div className="p-r w-40 h-40 bg-silver-2 br-md">
-    <div className="p-a t--4 l--4 w-12 h-12 bg-indigo br-sm"></div>
-  </div>
-</Preview>
+<Preview registryId="negative-values-positioning" className="mb-2 br-md" />
 
-```html "t--4" "l--4"
-<div class="p-r w-40 h-40 bg-silver-2 br-md">
-  <div class="p-a t--4 l--4 w-12 h-12 bg-indigo br-sm"></div>
-</div>
+```tsx registryId="negative-values-positioning" "t--4" "l--4"
 ```
 
 ## Z-Index
 
 Negative z-index values allow you to place elements behind their siblings or parents. Use `zi--(value)` to target negative stack levels.
 
-<Preview>
-  <div className="d-f p-r ai-c jc-c w-full h-32 bg-silver-1 br-md">
-    <div className="p-a zi--10 w-24 h-24 bg-indigo/20 br-pill"></div>
-    <span className="c-slate fw-600">Background Layer</span>
-  </div>
-</Preview>
+<Preview registryId="negative-values-z-index" className="mb-2 br-md" />
 
-```html "zi--10"
-<div class="d-f p-r ai-c jc-c w-full h-32 bg-silver-1 br-md">
-  <div class="p-a zi--10 w-24 h-24 bg-indigo/20 br-pill"></div>
-  <span>Background Layer</span>
-</div>
+```tsx registryId="negative-values-z-index" "zi--10"
 ```
 
 ## Sign Toggle
@@ -89,23 +56,7 @@ Utilities like `ls-1` & `ls-2` are defined with negative CSS values. Using the s
   already starts with a negative number.
 </Hint>
 
-<Preview>
-  <div className="d-f fd-c g-4">
-    <div>
-      <p className="mb-1 c-slate fs-xs tt-u fw-700">Standard (Tight)</p>
-      <p className="c-indigo ls-1 fs-xl fw-600">The quick brown fox</p>
-    </div>
-    <div>
-      <p className="mb-1 c-slate fs-xs tt-u fw-700">Negated (Wide)</p>
-      <p className="c-indigo ls--1 fs-xl fw-600">The quick brown fox</p>
-    </div>
-  </div>
-</Preview>
+<Preview registryId="negative-values-sign-toggle" className="mb-2 br-md" />
 
-```html "ls-1" "ls--1"
-<!-- Tight spacing (-0.05 em) -->
-<p class="ls-1">The quick brown fox</p>
-
-<!-- Wide spacing (0.05 em) -->
-<p class="ls--1">The quick brown fox</p>
+```tsx registryId="negative-values-sign-toggle" "ls-1" "ls--1"
 ```

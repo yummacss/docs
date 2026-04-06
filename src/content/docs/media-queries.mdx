@@ -7,11 +7,9 @@ export const meta = {
 
 By default, all base utilities support responsive variants. Use breakpoints like `sm:*`, `md:*`, `lg:*`, `xl:*` & `xxl:*` to apply specific rules to different screen sizes.
 
-> Target small screens first, then override for larger viewports.
-
 ```html ins={2} del={1}
-<h1 class="... sm:ta-c">Good evening!</h1>
-<h1 class="ta-c ... sm:ta-l">Good evening!</h1>
+<h1 className="... sm:ta-c">Good evening!</h1>
+<h1 className="ta-c ... sm:ta-l">Good evening!</h1>
 ```
 
 Yumma CSS breakpoints reference:
@@ -28,42 +26,36 @@ Yumma CSS breakpoints reference:
 
 You can extend or override the default media query breakpoints using the `theme.screens` configuration option in your `yumma.config.mjs` file.
 
-```mjs title="yumma.config.mjs" mark={4-8}
-import { defineConfig } from "yummacss";
+<Stepper>
+  <Step title="Create a config file">
+    ```mjs title="yumma.config.mjs" mark={4-8}
+    import { defineConfig } from "yummacss";
 
-export default defineConfig({
-  theme: {
-    screens: {
-      "3xl": "112rem",
-    },
-  },
-});
-```
+    export default defineConfig({
+      theme: {
+        screens: {
+          "3xl": "112rem",
+        },
+      },
+    });
+    ```
+  </Step>
 
-Using custom breakpoints works exactly the same as the defaults:
-
-```html
-<div class="3xl:bg-indigo"></div>
-```
+  <Step title="Use custom breakpoints">
+    You will need to restart the dev server to see the changes.
+    ```html
+    <div className="d-n 3xl:d-b"></div>
+    ```
+  </Step>
+</Stepper>
 
 ## Use Media Queries
 
 Resize your browser window to see how these elements respond to viewport width.
 
-<Preview>
-  <p className="d-b p-4 c-slate sm:d-none">Small screen</p>
-  <p className="d-none md:d-none p-4 c-slate sm:d-b">Medium screen</p>
-  <p className="d-none lg:d-none p-4 c-slate md:d-b">Large screen</p>
-  <p className="d-none xl:d-none p-4 c-slate ta-c lg:d-b">Extra large screen</p>
-  <p className="d-none p-4 c-slate ta-c xxl:d-b">Double extra large screen</p>
-</Preview>
+<Preview registryId="media-queries-base" className="mb-2 br-md" />
 
-```html "sm:d-b" "md:d-b" "lg:d-b" "xl:d-b" "xxl:d-b"
-<p class="d-b p-4 c-slate sm:d-none">Small screen</p>
-<p class="d-none md:d-none p-4 c-slate sm:d-b">Medium screen</p>
-<p class="d-none lg:d-none p-4 c-slate md:d-b">Large screen</p>
-<p class="d-none xl:d-none p-4 c-slate ta-c lg:d-b">Extra large screen</p>
-<p class="d-none p-4 c-slate ta-c xxl:d-b">Double extra large screen</p>
+```tsx registryId="media-queries-base" "sm:d-b" "md:d-b" "lg:d-b" "xl:d-b" "xxl:d-b"
 ```
 
 ## Touch Devices
