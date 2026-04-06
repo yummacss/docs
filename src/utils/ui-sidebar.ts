@@ -29,7 +29,7 @@ export type UISidebarConfig = UISidebarConfigSection[];
 
 export const uiSidebarConfig: UISidebarConfig = [
   {
-    title: "Getting Started",
+    title: "Get Started",
     items: [
       { title: "Installation", slug: "installation" },
       { title: "Customization", slug: "customization", updated: true },
