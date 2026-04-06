@@ -2,11 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Avatar } from "@/components/avatar";
-<<<<<<< HEAD
-import TableOfContents, { type TocItem } from "@/components/ui/toc";
-=======
 import TableOfContents from "@/components/ui/toc";
->>>>>>> parent of b12b90cc (install and setup rehype-slug)
 import { getAuthor } from "@/utils/authors";
 import { formatDate, getAllBlogSlugs } from "@/utils/blog";
 
