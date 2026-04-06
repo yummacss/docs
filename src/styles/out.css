@@ -929,8 +929,16 @@ summary {
   background-color: #eff0f2;
 }
 
+.d\:bg-silver-4:disabled {
+  background-color: #c6cad1;
+}
+
 .d\:c-silver-8:disabled {
   color: #70757e;
+}
+
+.d\:c-silver-9:disabled {
+  color: #5a5f66;
 }
 
 .f-1 {
@@ -1035,6 +1043,10 @@ summary {
 
 .fv\:oc-indigo:focus-visible {
   outline-color: #6366f1;
+}
+
+.fv\:oc-indigo-2:focus-visible {
+  outline-color: #d0d1fb;
 }
 
 .fv\:oc-indigo-4:focus-visible {
