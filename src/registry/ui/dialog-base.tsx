@@ -10,7 +10,7 @@ export default function ExampleDialog() {
 
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
-      <Dialog.Trigger className="b-0 px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-600 bs-o-xs tp-c tdu-150 ttf-io us-none c-p h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6">
+      <Dialog.Trigger className="px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-600 bs-o-xs tp-c tdu-150 ttf-io us-none c-p h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6">
         Get updates
       </Dialog.Trigger>
       <AnimatePresence>
@@ -70,10 +70,10 @@ export default function ExampleDialog() {
                   </ul>
                 </div>
                 <div className="d-f ai-c g-3 px-4 py-3">
-                  <Dialog.Close className="b-0 px-3 py-2 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-md bw-1 fw-600 bs-o-md tp-c tdu-150 ttf-io us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6">
+                  <Dialog.Close className="px-3 py-2 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-md bw-1 fw-600 bs-o-md tp-c tdu-150 ttf-io us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6">
                     Subscribe
                   </Dialog.Close>
-                  <Dialog.Close className="b-0 px-3 py-2 bg-transparent c-slate-10 br-md fw-600 tp-c tdu-150 ttf-io us-none c-p h:c-slate-12 h:bg-silver-1/55 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6">
+                  <Dialog.Close className="px-3 py-2 bg-transparent c-slate-10 br-md fw-600 tp-c tdu-150 ttf-io us-none c-p h:c-slate-12 h:bg-silver-1/55 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6">
                     Maybe later
                   </Dialog.Close>
                 </div>
