@@ -1,5 +1,10 @@
 const docsRedirects = [
   {
+    source: "/docs/base-styles",
+    destination: "/docs/normalize",
+    permanent: true,
+  },
+  {
     source: "/docs/colours",
     destination: "/docs/colors",
     permanent: true,
