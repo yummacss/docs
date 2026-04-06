@@ -13,7 +13,10 @@ Represents an element activated by the user (e.g., clicking a button).
 
 <Preview registryId="pseudo-classes-active" className="mb-2 br-md" />
 
-```tsx registryId="pseudo-classes-active" "a:bg-indigo-7"
+```tsx "a:bg-indigo-7"
+<button className="a:bg-indigo-7 ...">
+  Press me
+</button>
 ```
 
 ## Focus
@@ -27,7 +30,10 @@ Represents an element that received focus via click, tap, or the **Tab** key.
 
 <Preview registryId="pseudo-classes-focus" className="mb-2 br-md" />
 
-```tsx registryId="pseudo-classes-focus" "f:oc-indigo-4" "f:oo-2" "f:os-s" "f:ow-2"
+```tsx "f:oc-indigo-4" "f:oo-2" "f:os-s" "f:ow-2"
+<button className="... f:oc-indigo-4 f:oo-2 f:os-s f:ow-2">
+  Click me
+</button>
 ```
 
 ## Hover
@@ -40,7 +46,10 @@ Matches an element when the user interacts with it using a pointing device.
 
 <Preview registryId="pseudo-classes-hover" className="mb-2 br-md" />
 
-```tsx registryId="pseudo-classes-hover" "h:bg-indigo-7"
+```tsx "h:bg-indigo-7"
+<button className="h:bg-indigo-7 ...">
+  Hover me
+</button>
 ```
 
 ## Focus Visible
@@ -53,7 +62,10 @@ Triggers when an element matches `:focus` & the browser determines focus should 
 
 <Preview registryId="pseudo-classes-focus-visible" className="mb-2 br-md" />
 
-```tsx registryId="pseudo-classes-focus-visible" "fv:ow-2" "fv:oc-indigo-2"
+```tsx "fv:ow-2" "fv:oc-indigo-2"
+<button className="... fv:ow-2 fv:oc-indigo-2">
+  Focus me
+</button>
 ```
 
 ## Focus Within
@@ -66,7 +78,10 @@ Matches an element if the element or any of its descendants are focused.
 
 <Preview registryId="pseudo-classes-focus-within" className="mb-2 br-md" />
 
-```tsx registryId="pseudo-classes-focus-within" "fw:oc-indigo-6"
+```tsx "fw:oc-indigo-6"
+<div className="... fw:oc-indigo-6">
+  <input placeholder="Focus me" />
+</div>
 ```
 
 ## Checked
@@ -75,7 +90,11 @@ Represents radio, checkbox, or option elements toggled to an "on" state.
 
 <Preview registryId="pseudo-classes-checked" className="mb-2 br-md" />
 
-```tsx registryId="pseudo-classes-checked" "c:bg-indigo-4"
+```tsx "c:bg-indigo-4"
+<input type="checkbox" checked />
+<label className="... c:bg-indigo-4">
+  Checked checkbox
+</label>
 ```
 
 ## Disabled
@@ -89,7 +108,10 @@ Represents disabled elements that cannot be activated or receive focus.
 
 <Preview registryId="pseudo-classes-disabled" className="mb-2 br-md" />
 
-```tsx registryId="pseudo-classes-disabled" "d:bg-silver-4" "d:c-silver-9"
+```tsx "d:bg-silver-4" "d:c-silver-9"
+<button className="... d:bg-silver-4 d:c-silver-9" disabled>
+  Disabled
+</button>
 ```
 
 Here's a reference for all the pseudo-variants available in Yumma CSS.

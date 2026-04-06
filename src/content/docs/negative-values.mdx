@@ -13,7 +13,10 @@ Use negative margins to overlap elements or create unique layouts. Negative marg
 
 <Preview registryId="negative-values-margin" className="mb-2 br-md" />
 
-```tsx registryId="negative-values-margin" "ml--4"
+```tsx "ml--4"
+<div className="z-1 ...">A</div>
+<div className="ml--4 z-2 ...">B</div>
+<div className="ml--4 z-3 ...">C</div>
 ```
 
 ## Positioning
@@ -22,7 +25,10 @@ Apply negative offsets to position elements outside their parents or create over
 
 <Preview registryId="negative-values-positioning" className="mb-2 br-md" />
 
-```tsx registryId="negative-values-positioning" "t--4" "l--4"
+```tsx "t--4" "l--4"
+<div className="p-r ...">
+  <div className="p-a t--4 l--4 ..."></div>
+</div>
 ```
 
 ## Z-Index
@@ -31,7 +37,11 @@ Negative z-index values allow you to place elements behind their siblings or par
 
 <Preview registryId="negative-values-z-index" className="mb-2 br-md" />
 
-```tsx registryId="negative-values-z-index" "zi--10"
+```tsx "zi--10"
+<div className="p-r ...">
+  <div className="p-a zi--10 ..."></div>
+  <span>Background Layer</span>
+</div>
 ```
 
 ## Sign Toggle
@@ -58,5 +68,7 @@ Utilities like `ls-1` & `ls-2` are defined with negative CSS values. Using the s
 
 <Preview registryId="negative-values-sign-toggle" className="mb-2 br-md" />
 
-```tsx registryId="negative-values-sign-toggle" "ls-1" "ls--1"
+```tsx "ls-1" "ls--1"
+<p className="ls-1 ...">Standard (Tight)</p>
+<p className="ls--1 ...">Negated (Wide)</p>
 ```
