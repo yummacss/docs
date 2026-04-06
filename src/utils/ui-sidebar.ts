@@ -100,8 +100,9 @@ export function findCurrentUIPageInfo(pathname: string): {
   sectionTitle: string;
   pageTitle: string;
 } | null {
-  // remove /ui/ prefix and get the slug
-  const slug = pathname.replace(/^\/ui\//, "");
+  // remove /ui/components/ prefix or /ui/ prefix and get the slug
+  let slug = pathname.replace(/^\/ui\/components\//, "");
+  slug = slug.replace(/^\/ui\//, "").replace(/\/$/, "");
 
   function searchInItems(
     items: UISidebarConfigItem[],
