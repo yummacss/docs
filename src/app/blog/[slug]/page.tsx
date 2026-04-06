@@ -2,7 +2,11 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Avatar } from "@/components/avatar";
+<<<<<<< HEAD
 import TableOfContents, { type TocItem } from "@/components/ui/toc";
+=======
+import TableOfContents from "@/components/ui/toc";
+>>>>>>> parent of b12b90cc (install and setup rehype-slug)
 import { getAuthor } from "@/utils/authors";
 import { formatDate, getAllBlogSlugs } from "@/utils/blog";
 
@@ -54,14 +58,12 @@ export default async function BlogPostPage({
 
   const author = meta?.authors ? getAuthor(meta.authors) : undefined;
 
-  const toc: TocItem[] = module.toc ?? [];
-
   return (
     <div className="py-8">
       <div className="d-g gtc-1 g-8 lg:gtc-12">
         <article className="lg:gc-s-8">
           <header className="mb-12">
-            <div className="d-f ai-c g-2 mb-4 mt-16 c-white/50 fs-sm">
+            <div className="d-f c-white/50 ai-c g-2 mb-4 mt-16 fs-sm">
               <Link href="/blog" className="h:c-white">
                 Blog
               </Link>
@@ -73,10 +75,10 @@ export default async function BlogPostPage({
               {meta?.title}
             </h1>
 
-            <p className="mb-6 c-white/70 fs-lg lh-5">{meta?.description}</p>
+            <p className="c-white/70 mb-6 fs-lg lh-5">{meta?.description}</p>
 
             {author && (
-              <div className="d-f ai-c g-4 c-white/70 fs-lg">
+              <div className="d-f c-white/70 ai-c g-4 fs-lg">
                 <div className="d-f ai-c g-2">
                   <Avatar src={author.avatar} alt={author.name} />
                   <Link
@@ -110,7 +112,7 @@ export default async function BlogPostPage({
           </div>
         </article>
 
-        <TableOfContents items={toc} />
+        <TableOfContents />
       </div>
     </div>
   );
