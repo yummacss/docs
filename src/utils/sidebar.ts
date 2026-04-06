@@ -11,7 +11,7 @@ export const sidebarConfig: SidebarConfig = [
   {
     title: "Handbook",
     items: [
-      { title: "Why Yumma CSS?", slug: "why-yumma-css", updated: true },
+      { title: "Philosophy", slug: "philosophy", updated: true },
       { title: "Colors", slug: "colors" },
       { title: "Media Queries", slug: "media-queries" },
       { title: "Container Queries", slug: "container-queries" },

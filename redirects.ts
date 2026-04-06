@@ -11,7 +11,7 @@ const docsRedirects = [
   },
   {
     source: "/docs/styling-elements",
-    destination: "/docs/why-yumma-css",
+    destination: "/docs/philosophy",
     permanent: true,
   },
 ];
