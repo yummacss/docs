@@ -11,14 +11,14 @@ export const sidebarConfig: SidebarConfig = [
   {
     title: "Handbook",
     items: [
-      { title: "Why Yumma CSS?", slug: "why-yumma-css" },
+      { title: "Why Yumma CSS?", slug: "why-yumma-css", updated: true },
       { title: "Colors", slug: "colors" },
       { title: "Media Queries", slug: "media-queries" },
       { title: "Container Queries", slug: "container-queries" },
       { title: "Negative Values", slug: "negative-values" },
       { title: "Pseudo Classes", slug: "pseudo-classes" },
       { title: "Pseudo Elements", slug: "pseudo-elements" },
-      { title: "Normalize", slug: "normalize" },
+      { title: "Normalize", slug: "normalize", updated: true },
     ],
   },
   {
