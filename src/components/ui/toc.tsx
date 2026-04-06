@@ -123,7 +123,7 @@ export default function TableOfContents() {
             })}
           </ul>
           {!isBlogPost && (
-            <div className="d-f fd-c g-3 mt-8 pt-8 bc-white/10 btw-1">
+            <div className="d-f fd-c g-3 mt-8 pt-8">
               <EditPage />
               {isBaseComponent && <ApiReference />}
             </div>
