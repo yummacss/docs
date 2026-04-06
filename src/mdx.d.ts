@@ -7,12 +7,4 @@ declare module "*.mdx" {
     description?: string;
     [key: string]: any;
   };
-<<<<<<< HEAD
-  export const toc: Array<{
-    id: string;
-    text: string;
-    level: number;
-  }>;
-=======
->>>>>>> parent of b12b90cc (install and setup rehype-slug)
 }
