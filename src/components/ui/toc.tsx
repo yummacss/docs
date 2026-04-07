@@ -96,7 +96,7 @@ export default function TableOfContents() {
       <div
         className="p-st t-20 oy-auto"
         style={{
-          maxHeight: "calc(100vh - 5rem)",
+          maxHeight: "calc(100dvh - 5rem)",
         }}
       >
         <div className="px-8 pb-12">

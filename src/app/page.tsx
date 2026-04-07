@@ -16,7 +16,7 @@ export default function Home() {
       <div
         className="d-f p-r zi-1 ai-fe w-full mx-auto px-6"
         style={{
-          minHeight: "calc(100vh - 120px)",
+          minHeight: "calc(100dvh - 120px)",
           maxWidth: "clamp(40rem, 80vw, 96rem)",
         }}
       >
@@ -36,7 +36,7 @@ export default function Home() {
               <h1 className="mb-6 fs-5xl fw-400 lh-2 ff-e md:fs-6xl">
                 Type less. Style more.
               </h1>
-              <p className="c-white/70 mb-8 fs-lg lh-5">
+              <p className="mb-8 c-white/70 fs-lg lh-5">
                 The ergonomic CSS framework with abbreviated utility classes.{" "}
                 <span className="c-white fs-md">d-f</span> not{" "}
                 <span className="c-white fs-md">flex</span>,{" "}
