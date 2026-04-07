@@ -1,3 +1,5 @@
+"use client";
+
 import { Separator } from "@base-ui/react/separator";
 import { Toggle } from "@base-ui/react/toggle";
 import { ToggleGroup } from "@base-ui/react/toggle-group";

@@ -26,6 +26,8 @@
     "@next/mdx": "^16.2.0",
     "@react-three/fiber": "^9.5.0",
     "@ridemountainpig/svgl-react": "^1.0.15",
+    "@shikijs/rehype": "^4.0.2",
+    "@shikijs/transformers": "^4.0.2",
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
     "@yummacss/core": "^3.24.2",
@@ -39,10 +41,10 @@
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "react-icons": "^5.6.0",
-    "rehype-expressive-code": "^0.41.7",
     "remark-gfm": "^4.0.1",
     "three": "^0.183.2",
     "tinycolor2": "^1.6.0",
+    "unist-util-visit": "^5.1.0",
     "web-features": "^3.22.1"
   },
   "devDependencies": {
