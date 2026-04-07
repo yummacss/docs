@@ -5,14 +5,6 @@ import { CircleFill } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import * as React from "react";
 
-const sortOptions = [
-  { value: "name", label: "Name" },
-  { value: "size", label: "Size" },
-  { value: "date-modified", label: "Date modified" },
-  { value: "date-created", label: "Date created" },
-  { value: "kind", label: "Kind" },
-];
-
 export default function ExampleContextMenu() {
   const [open, setOpen] = React.useState(false);
   const [sortBy, setSortBy] = React.useState("name");
@@ -73,3 +65,11 @@ export default function ExampleContextMenu() {
     </ContextMenu.Root>
   );
 }
+
+const sortOptions = [
+  { value: "name", label: "Name" },
+  { value: "size", label: "Size" },
+  { value: "date-modified", label: "Date modified" },
+  { value: "date-created", label: "Date created" },
+  { value: "kind", label: "Kind" },
+];

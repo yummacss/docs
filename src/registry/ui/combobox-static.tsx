@@ -1,31 +1,8 @@
-﻿"use client";
+"use client";
 
 import { Combobox } from "@base-ui/react/combobox";
 import { Check, ChevronDown, Xmark } from "@gravity-ui/icons";
 import * as React from "react";
-
-interface Country {
-  code: string;
-  name: string;
-}
-
-const countries: Country[] = [
-  { code: "us", name: "United States" },
-  { code: "ca", name: "Canada" },
-  { code: "gb", name: "United Kingdom" },
-  { code: "de", name: "Germany" },
-  { code: "fr", name: "France" },
-  { code: "jp", name: "Japan" },
-  { code: "au", name: "Australia" },
-  { code: "br", name: "Brasil" },
-  { code: "in", name: "India" },
-  { code: "mx", name: "Mexico" },
-  { code: "es", name: "Spain" },
-  { code: "it", name: "Italy" },
-  { code: "nl", name: "Netherlands" },
-  { code: "se", name: "Sweden" },
-  { code: "no", name: "Norway" },
-];
 
 export default function ExampleCombobox() {
   const [open, setOpen] = React.useState(false);
@@ -91,3 +68,26 @@ export default function ExampleCombobox() {
     </Combobox.Root>
   );
 }
+
+interface Country {
+  code: string;
+  name: string;
+}
+
+const countries: Country[] = [
+  { code: "us", name: "United States" },
+  { code: "ca", name: "Canada" },
+  { code: "gb", name: "United Kingdom" },
+  { code: "de", name: "Germany" },
+  { code: "fr", name: "France" },
+  { code: "jp", name: "Japan" },
+  { code: "au", name: "Australia" },
+  { code: "br", name: "Brasil" },
+  { code: "in", name: "India" },
+  { code: "mx", name: "Mexico" },
+  { code: "es", name: "Spain" },
+  { code: "it", name: "Italy" },
+  { code: "nl", name: "Netherlands" },
+  { code: "se", name: "Sweden" },
+  { code: "no", name: "Norway" },
+];

@@ -14,7 +14,7 @@ export default function ExampleAccordion() {
       value={value}
       onValueChange={setValue}
     >
-      {items.map((item) => {
+      {faqs.map((item) => {
         const isOpen = value.includes(item.value);
         return (
           <Accordion.Item
@@ -72,7 +72,7 @@ export default function ExampleAccordion() {
   );
 }
 
-const items = [
+const faqs = [
   {
     value: "account",
     title: "How do I create an account?",

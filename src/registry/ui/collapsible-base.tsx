@@ -22,7 +22,7 @@ export default function ExampleCollapsible() {
         >
           <ChevronRight className="w-3 h-3" />
         </motion.span>
-        System requirements
+        {systemRequirements.title}
       </Collapsible.Trigger>
 
       <Collapsible.Panel
@@ -44,11 +44,16 @@ export default function ExampleCollapsible() {
         )}
       >
         <div className="d-f fd-c g-2 mt-1 py-3 px-4 bg-white bc-silver-2 br-md bw-1 fs-sm">
-          <div>Node.js 18 or later</div>
-          <div>macOS, Windows, or Linux</div>
-          <div>4GB RAM minimum</div>
+          {systemRequirements.items.map((item) => (
+            <div key={item}>{item}</div>
+          ))}
         </div>
       </Collapsible.Panel>
     </Collapsible.Root>
   );
 }
+
+const systemRequirements = {
+  title: "System requirements",
+  items: ["Node.js 18 or later", "macOS, Windows, or Linux", "4GB RAM minimum"],
+};

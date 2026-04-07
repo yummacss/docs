@@ -1,7 +1,7 @@
 "use client";
 
 import { Popover } from "@base-ui/react/popover";
-import { Comment } from "@gravity-ui/icons";
+import { BellDot } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import * as React from "react";
 
@@ -15,7 +15,7 @@ export default function ExamplePopover() {
           open ? "bg-silver-1" : ""
         }`}
       >
-        <Comment aria-label="Messages" className="w-5 h-5" />
+        <BellDot aria-label="Notifications" className="w-5 h-5" />
       </Popover.Trigger>
       <AnimatePresence>
         {open && (
@@ -33,10 +33,10 @@ export default function ExamplePopover() {
                 className="px-4 py-3 w-56 bg-white bc-silver-2 c-slate-10 bw-1 br-md bs-o-lg"
               >
                 <Popover.Title className="m-0 mb-1 c-slate-10 fs-sm fw-600">
-                  Start a conversation
+                  Notifications
                 </Popover.Title>
                 <Popover.Description className="m-0 c-slate-8 fs-xs">
-                  Send a message to your team.
+                  Review your recent alerts and updates.
                 </Popover.Description>
               </Popover.Popup>
             </Popover.Positioner>

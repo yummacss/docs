@@ -76,6 +76,7 @@ body {
 [role="menubar"] *,
 [role="navigation"],
 [role="navigation"] * {
+  color-scheme: light;
   font-family:
     system-ui,
     -apple-system,

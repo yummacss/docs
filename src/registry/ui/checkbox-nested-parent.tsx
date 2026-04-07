@@ -5,9 +5,6 @@ import { CheckboxGroup } from "@base-ui/react/checkbox-group";
 import { Check, Minus } from "@gravity-ui/icons";
 import { useId, useState } from "react";
 
-const analytics = ["pageviews", "sessions"];
-const marketing = ["campaigns", "newsletters"];
-
 export default function ExampleCheckboxGroup() {
   const analyticsId = useId();
   const marketingId = useId();
@@ -169,3 +166,6 @@ export default function ExampleCheckboxGroup() {
     </div>
   );
 }
+
+const analytics = ["pageviews", "sessions"];
+const marketing = ["campaigns", "newsletters"];

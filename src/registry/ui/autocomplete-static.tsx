@@ -1,22 +1,7 @@
-﻿"use client";
+"use client";
 
 import { Autocomplete } from "@base-ui/react/autocomplete";
 import * as React from "react";
-
-const FRUITS = [
-  "Apple",
-  "Banana",
-  "Blueberry",
-  "Cherry",
-  "Grape",
-  "Lemon",
-  "Mango",
-  "Orange",
-  "Peach",
-  "Pear",
-  "Strawberry",
-  "Watermelon",
-];
 
 export default function ExampleAutocomplete() {
   const [open, setOpen] = React.useState(false);
@@ -64,3 +49,18 @@ export default function ExampleAutocomplete() {
     </Autocomplete.Root>
   );
 }
+
+const FRUITS = [
+  "Apple",
+  "Banana",
+  "Blueberry",
+  "Cherry",
+  "Grape",
+  "Lemon",
+  "Mango",
+  "Orange",
+  "Peach",
+  "Pear",
+  "Strawberry",
+  "Watermelon",
+];

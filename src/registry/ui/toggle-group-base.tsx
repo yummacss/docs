@@ -3,15 +3,7 @@
 import { Toggle } from "@base-ui/react/toggle";
 import { ToggleGroup } from "@base-ui/react/toggle-group";
 import { Grip, LayoutCellsLarge, LayoutList, ListUl } from "@gravity-ui/icons";
-import { motion } from "motion/react";
 import * as React from "react";
-
-const toggleItems = [
-  { value: "compact-list", label: "Compact list", icon: LayoutList },
-  { value: "default-list", label: "Default list", icon: ListUl },
-  { value: "compact-grid", label: "Compact grid", icon: Grip },
-  { value: "default-grid", label: "Default grid", icon: LayoutCellsLarge },
-];
 
 export default function ExampleToggleGroup() {
   const [selected, setSelected] = React.useState(["default-grid"]);
@@ -30,21 +22,23 @@ export default function ExampleToggleGroup() {
             key={item.value}
             aria-label={item.label}
             value={item.value}
-            className={`p-r zi-10 d-f w-9 h-9 ai-c jc-c bw-0 br-sm us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 bg-transparent ${
-              isSelected ? "c-white" : "c-slate-8 h:c-slate-10"
+            className={`d-f w-9 h-9 ai-c jc-c bw-0 br-sm us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+              isSelected
+                ? "bg-indigo c-white"
+                : "bg-transparent c-slate-8 h:bg-silver-1 h:c-slate-10"
             }`}
           >
-            {isSelected && (
-              <motion.div
-                layoutId="toggle-indicator"
-                className="p-a ix-0 iy-0 zi-0 bg-indigo br-sm"
-                transition={{ duration: 0.2, ease: "easeInOut" }}
-              />
-            )}
-            <Icon className="w-5 h-5 p-r zi-10" />
+            <Icon className="w-5 h-5" />
           </Toggle>
         );
       })}
     </ToggleGroup>
   );
 }
+
+const toggleItems = [
+  { value: "compact-list", label: "Compact list", icon: LayoutList },
+  { value: "default-list", label: "Default list", icon: ListUl },
+  { value: "compact-grid", label: "Compact grid", icon: Grip },
+  { value: "default-grid", label: "Default grid", icon: LayoutCellsLarge },
+];

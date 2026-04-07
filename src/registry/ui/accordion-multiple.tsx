@@ -15,13 +15,13 @@ export default function ExampleAccordion() {
       onValueChange={setValue}
       multiple
     >
-      {items.map((item, index) => {
+      {faqs.map((item, index) => {
         const isOpen = value.includes(item.value);
         return (
           <Accordion.Item
             key={item.value}
             value={item.value}
-            className={index === items.length - 1 ? "" : "bbw-1 bc-silver-3"}
+            className={index === faqs.length - 1 ? "" : "bbw-1 bc-silver-3"}
           >
             <Accordion.Header className="m-0">
               <Accordion.Trigger className="d-f b-0 ai-c jc-sb g-3 w-full py-4 px-0 bg-transparent br-sm ta-l c-p fv:os-s fv:ow-2 fv:oo-1 fv:oc-indigo-6">
@@ -64,7 +64,7 @@ export default function ExampleAccordion() {
   );
 }
 
-const items = [
+const faqs = [
   {
     value: "account",
     title: "How do I create an account?",

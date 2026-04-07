@@ -1,35 +1,8 @@
-﻿"use client";
+"use client";
 
 import { Autocomplete } from "@base-ui/react/autocomplete";
 import { AnimatePresence, motion } from "motion/react";
 import * as React from "react";
-
-interface ColorFamily {
-  name: string;
-  color: string;
-}
-
-const COLOR_FAMILIES: ColorFamily[] = [
-  { name: "Red", color: "#e63946" },
-  { name: "Orange", color: "#ff6b35" },
-  { name: "Yellow", color: "#ffb81c" },
-  { name: "Lime", color: "#84cc16" },
-  { name: "Mint", color: "#10b981" },
-  { name: "Green", color: "#06d6a0" },
-  { name: "Cyan", color: "#06b6d4" },
-  { name: "Sky", color: "#38bdf8" },
-  { name: "Blue", color: "#2563eb" },
-  { name: "Indigo", color: "#6366f1" },
-  { name: "Violet", color: "#8b5cf6" },
-  { name: "Lavender", color: "#a78bfa" },
-  { name: "Magenta", color: "#d946ef" },
-  { name: "Pink", color: "#ec4899" },
-  { name: "Coral", color: "#ff6f91" },
-  { name: "Zinc", color: "#52525b" },
-  { name: "Gray", color: "#6b7280" },
-  { name: "Slate", color: "#64748b" },
-  { name: "Silver", color: "#9ca3af" },
-];
 
 export default function ExampleAutocomplete() {
   const [open, setOpen] = React.useState(false);
@@ -99,3 +72,30 @@ export default function ExampleAutocomplete() {
     </Autocomplete.Root>
   );
 }
+
+interface ColorFamily {
+  name: string;
+  color: string;
+}
+
+const COLOR_FAMILIES: ColorFamily[] = [
+  { name: "Red", color: "#e63946" },
+  { name: "Orange", color: "#ff6b35" },
+  { name: "Yellow", color: "#ffb81c" },
+  { name: "Lime", color: "#84cc16" },
+  { name: "Mint", color: "#10b981" },
+  { name: "Green", color: "#06d6a0" },
+  { name: "Cyan", color: "#06b6d4" },
+  { name: "Sky", color: "#38bdf8" },
+  { name: "Blue", color: "#2563eb" },
+  { name: "Indigo", color: "#6366f1" },
+  { name: "Violet", color: "#8b5cf6" },
+  { name: "Lavender", color: "#a78bfa" },
+  { name: "Magenta", color: "#d946ef" },
+  { name: "Pink", color: "#ec4899" },
+  { name: "Coral", color: "#ff6f91" },
+  { name: "Zinc", color: "#52525b" },
+  { name: "Gray", color: "#6b7280" },
+  { name: "Slate", color: "#64748b" },
+  { name: "Silver", color: "#9ca3af" },
+];

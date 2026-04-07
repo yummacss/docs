@@ -5,7 +5,6 @@ import { CheckboxGroup } from "@base-ui/react/checkbox-group";
 import { Check, Minus } from "@gravity-ui/icons";
 import { useId, useState } from "react";
 
-const permissions = ["read", "write", "delete"];
 
 export default function ExampleCheckboxGroup() {
   const id = useId();
@@ -99,3 +98,5 @@ export default function ExampleCheckboxGroup() {
     </CheckboxGroup>
   );
 }
+
+const permissions = ["read", "write", "delete"];
