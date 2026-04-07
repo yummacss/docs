@@ -163,7 +163,6 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                 }}
                 onKeyDown={handleKeyDown}
               >
-                {/* Search Input */}
                 <div className="d-f ai-c g-3 px-4 py-3 bc-white/10 bbw-1">
                   <Magnifier className="w-5 h-5 c-white/50" />
                   <Input
@@ -180,7 +179,6 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                   />
                 </div>
 
-                {/* Results */}
                 <div
                   ref={listRef}
                   className="oy-auto px-2 py-2"
@@ -219,7 +217,6 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                                   : "transparent",
                               }}
                             >
-                              {/* Icon or Color Swatch */}
                               {item.category === "colors" && item.color ? (
                                 <div
                                   className="fs-0 w-4 h-4 br-sm"
@@ -232,7 +229,6 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                                 getCategoryIcon(item.category)
                               )}
 
-                              {/* Title and Description */}
                               <div className="f-1 min-w-0">
                                 <div className="o-h c-white fs-md tw-n to-e ws-nw">
                                   {item.title}
@@ -246,7 +242,6 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                                 )}
                               </div>
 
-                              {/* Action indicator */}
                               {isSelected && (
                                 <ArrowUturnCwLeft className="fs-0 w-4 h-4 c-white/50" />
                               )}
@@ -264,7 +259,6 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                   )}
                 </div>
 
-                {/* Footer */}
                 <div className="d-f ai-c jc-sb px-4 py-2 bc-white/10 c-white/40 btw-1 fs-xs">
                   <div className="d-f ai-c g-4">
                     <span className="d-f ai-c g-1">

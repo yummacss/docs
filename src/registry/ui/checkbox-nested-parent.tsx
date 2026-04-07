@@ -93,7 +93,6 @@ export default function ExampleCheckboxGroup() {
         </div>
       </CheckboxGroup>
 
-      {/* Marketing Group */}
       <CheckboxGroup
         aria-labelledby={marketingId}
         value={marketingValue}
@@ -101,7 +100,6 @@ export default function ExampleCheckboxGroup() {
         allValues={marketing}
         className="d-f fd-c g-2"
       >
-        {/* biome-ignore lint/a11y/noLabelWithoutControl: Base UI handles this */}
         <label className="d-f ai-c g-2 fs-sm fw-600" id={marketingId}>
           <Checkbox.Root
             name="marketing"

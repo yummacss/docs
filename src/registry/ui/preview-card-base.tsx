@@ -35,7 +35,6 @@ export default function ExamplePreviewCard() {
                 }
                 className="d-f fd-c g-2 w-64 p-3 bg-white bc-silver-2 br-md bw-1 bs-o-lg"
               >
-                {/* biome-ignore lint: Using img for external URL */}
                 <img
                   width="232"
                   height="140"
