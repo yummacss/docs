@@ -13,7 +13,7 @@ export default function Pagination({ previous, next, basePath }: Props) {
   }
 
   return (
-    <nav className="d-f fd-c g-4 mt-16 pt-8 bc-white/10 btw-1 sm:fd-r">
+    <nav className="d-f fd-c g-4 mt-16 pt-8 sm:fd-r">
       {previous ? (
         <Link
           href={`${basePath}/${previous.slug}`}
