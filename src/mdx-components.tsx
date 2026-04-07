@@ -11,6 +11,7 @@ import Reference from "@/components/reference";
 import ResponsiveVariant from "@/components/responsive-variant";
 import Stepper, { Step } from "@/components/stepper";
 import { Tabs, TabsList, TabsPanel, TabsTab } from "@/components/tabs";
+import Code from "@/components/ui/code";
 
 // generate IDs from heading text
 function generateId(children: React.ReactNode): string {
@@ -30,14 +31,15 @@ function generateId(children: React.ReactNode): string {
 
 const components: MDXComponents = {
   Baseline,
+  Code,
   Hint,
   HoverVariant,
-  ResponsiveVariant,
   NegativeValues,
   OpacityModifier,
   Palette,
   Preview,
   Reference,
+  ResponsiveVariant,
   Step,
   Stepper,
   Steps: Stepper, // Alias for Stepper
@@ -109,7 +111,7 @@ const components: MDXComponents = {
     props.className ? (
       <p {...props}>{children}</p>
     ) : (
-      <p className="c-white/80 my-4" {...props}>
+      <p className="my-4 c-white/80" {...props}>
         {children}
       </p>
     ),
@@ -141,7 +143,7 @@ const components: MDXComponents = {
     props.className ? (
       <li {...props}>{children}</li>
     ) : (
-      <li className="c-white/80 my-2" {...props}>
+      <li className="my-2 c-white/80" {...props}>
         {children}
       </li>
     ),
@@ -189,18 +191,24 @@ const components: MDXComponents = {
     props.className ? (
       <td {...props}>{children}</td>
     ) : (
-      <td className="c-white/80 px-4 py-2 bc-navy bw-1" {...props}>
+      <td className="px-4 py-2 bc-navy c-white/80 bw-1" {...props}>
         {children}
       </td>
     ),
-  code: ({ children, ...props }) =>
-    props.className ? (
-      <code {...props}>{children}</code>
-    ) : (
+  code: ({ children, className, ...props }) => {
+    if (className?.includes("language-")) {
+      return (
+        <code className={className} {...props}>
+          {children}
+        </code>
+      );
+    }
+    return (
       <code className="c-mauve fs-md ff-m" {...props}>
         {children}
       </code>
-    ),
+    );
+  },
   strong: ({ children, ...props }) =>
     props.className ? (
       <strong {...props}>{children}</strong>
