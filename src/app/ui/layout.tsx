@@ -3,11 +3,12 @@ import Navbar from "@/components/ui/navbar";
 import TableOfContents from "@/components/ui/toc";
 import UISidebar from "@/components/ui/ui-sidebar";
 
-const description = "Beautiful UI components built with Yumma CSS.";
+const description =
+  "A collection of UI components styled with Yumma CSS and Base UI.";
 
 export const metadata: Metadata = {
   title: {
-    default: "Yumma UI - Beautiful UI components built with Yumma CSS.",
+    default: `Yumma UI - ${description}`,
     template: "%s · Yumma UI",
   },
   description,
