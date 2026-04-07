@@ -28,7 +28,7 @@ export default function Sidebar() {
       <div
         className="d-f p-st t-20 oy-auto fd-c g-8 pb-12"
         style={{
-          maxHeight: "calc(100vh - 5rem)",
+          maxHeight: "calc(100dvh - 5rem)",
         }}
       >
         {sidebarConfig.map((section) => (
