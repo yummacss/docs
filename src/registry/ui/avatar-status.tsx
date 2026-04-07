@@ -3,7 +3,6 @@ import { Avatar } from "@base-ui/react/avatar";
 export default function ExampleAvatar() {
   return (
     <div className="d-f ai-c g-4">
-      {/* Online status */}
       <div className="p-r">
         <Avatar.Root className="d-if o-h ai-c jc-c w-12 h-12 bg-silver-1 br-pill va-m us-none">
           <Avatar.Image
@@ -18,7 +17,6 @@ export default function ExampleAvatar() {
         <span className="p-a b-0 r-0 w-4 h-4 bg-green-6 bc-white br-pill bw-2" />
       </div>
 
-      {/* Offline status */}
       <div className="p-r">
         <Avatar.Root className="d-if o-h ai-c jc-c w-12 h-12 bg-silver-1 br-pill va-m us-none">
           <Avatar.Image
@@ -33,7 +31,6 @@ export default function ExampleAvatar() {
         <span className="p-a b-0 r-0 w-4 h-4 bg-slate-4 bc-white br-pill bw-2" />
       </div>
 
-      {/* Busy status */}
       <div className="p-r">
         <Avatar.Root className="d-if o-h ai-c jc-c w-12 h-12 bg-silver-1 br-pill va-m us-none">
           <Avatar.Image

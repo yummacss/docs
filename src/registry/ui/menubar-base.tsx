@@ -17,7 +17,6 @@ export default function ExampleMenubar() {
 
   return (
     <Menubar className="d-f g-1 p-1 bg-white bc-silver-2 br-md bw-1">
-      {/* File Menu */}
       <Menu.Root open={fileOpen} onOpenChange={setFileOpen}>
         <Menu.Trigger
           className={(state) =>
@@ -55,7 +54,6 @@ export default function ExampleMenubar() {
         </AnimatePresence>
       </Menu.Root>
 
-      {/* Edit Menu */}
       <Menu.Root open={editOpen} onOpenChange={setEditOpen}>
         <Menu.Trigger
           className={(state) =>
@@ -94,7 +92,6 @@ export default function ExampleMenubar() {
         </AnimatePresence>
       </Menu.Root>
 
-      {/* View Menu */}
       <Menu.Root open={viewOpen} onOpenChange={setViewOpen}>
         <Menu.Trigger
           className={(state) =>
@@ -131,7 +128,6 @@ export default function ExampleMenubar() {
         </AnimatePresence>
       </Menu.Root>
 
-      {/* Help Menu (disabled) */}
       <Menu.Root disabled>
         <Menu.Trigger className="h-8 px-3 bg-transparent c-slate-10 br-sm fs-sm fw-600 o-50 us-none">
           Help
