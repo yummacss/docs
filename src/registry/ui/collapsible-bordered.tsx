@@ -15,7 +15,9 @@ export default function ExampleCollapsible() {
       className="d-f fd-c w-64 bg-white bc-silver-3 bw-1 br-lg o-h"
     >
       <Collapsible.Trigger className="d-f b-0 ai-c jc-sb g-2 w-full px-4 py-3 bg-transparent ta-l c-p h:bg-silver-1">
-        <span className="fs-sm fw-600 c-slate-9">{systemRequirements.title}</span>
+        <span className="fs-sm fw-600 c-slate-9">
+          {systemRequirements.title}
+        </span>
         <motion.span
           animate={{ rotate: open ? 90 : 0 }}
           transition={{ duration: 0.15, ease: "easeOut" }}
@@ -55,9 +57,5 @@ export default function ExampleCollapsible() {
 
 const systemRequirements = {
   title: "System requirements",
-  items: [
-    "Node.js 18 or later",
-    "macOS, Windows, or Linux",
-    "4GB RAM minimum",
-  ],
+  items: ["Node.js 18 or later", "macOS, Windows, or Linux", "4GB RAM minimum"],
 };

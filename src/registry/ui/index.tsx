@@ -6,7 +6,7 @@ import AccordionIcons from "./accordion-icons";
 import AccordionMultiple from "./accordion-multiple";
 import AccordionStatic from "./accordion-static";
 import AccordionSubtle from "./accordion-subtle";
-import AlertDialogBase from "./alert-dialog-base";
+import AlertDialog from "./alert-dialog";
 import AlertDialogMail from "./alert-dialog-mail";
 import AlertDialogVerification from "./alert-dialog-verification";
 import AutocompleteAutoHighlight from "./autocomplete-auto-highlight";
@@ -69,62 +69,62 @@ import SliderBase from "./slider-base";
 import SwitchBase from "./switch-base";
 import TabsBase from "./tabs-base";
 import ToggleBase from "./toggle-base";
-import ToggleGroupBase from "./toggle-group-base";
+import ToggleGroup from "./toggle-group";
 import ToolbarBase from "./toolbar-base";
 import TooltipBase from "./tooltip-base";
 
 export const baseComponents: Record<string, ComponentType> = {
   "accordion-base": AccordionBase,
-  "accordion-multiple": AccordionMultiple,
   "accordion-bordered": AccordionBordered,
-  "accordion-static": AccordionStatic,
   "accordion-ghost": AccordionGhost,
-  "accordion-subtle": AccordionSubtle,
   "accordion-icons": AccordionIcons,
-  "alert-dialog-base": AlertDialogBase,
+  "accordion-multiple": AccordionMultiple,
+  "accordion-static": AccordionStatic,
+  "accordion-subtle": AccordionSubtle,
   "alert-dialog-mail": AlertDialogMail,
   "alert-dialog-verification": AlertDialogVerification,
+  "alert-dialog": AlertDialog,
   "autocomplete-auto-highlight": AutocompleteAutoHighlight,
   "autocomplete-base": AutocompleteBase,
   "autocomplete-grouped": AutocompleteGrouped,
   "autocomplete-static": AutocompleteStatic,
   "avatar-base": AvatarBase,
+  "avatar-detailed": AvatarDetailed,
+  "avatar-initials": AvatarInitials,
+  "avatar-placeholder": AvatarPlaceholder,
+  "avatar-stacked": AvatarStacked,
   "avatar-status": AvatarStatus,
   "avatar-verified": AvatarVerified,
-  "avatar-placeholder": AvatarPlaceholder,
-  "avatar-initials": AvatarInitials,
-  "avatar-detailed": AvatarDetailed,
-  "avatar-stacked": AvatarStacked,
   "button-base": ButtonBase,
-  "button-secondary": ButtonSecondary,
   "button-danger": ButtonDanger,
-  "button-outlined": ButtonOutlined,
-  "button-ghost": ButtonGhost,
-  "button-link": ButtonLink,
-  "button-icon": ButtonIcon,
-  "button-icon-only": ButtonIconOnly,
-  "button-loading": ButtonLoading,
   "button-disabled": ButtonDisabled,
+  "button-ghost": ButtonGhost,
+  "button-icon-only": ButtonIconOnly,
+  "button-icon": ButtonIcon,
+  "button-link": ButtonLink,
+  "button-loading": ButtonLoading,
+  "button-outlined": ButtonOutlined,
+  "button-secondary": ButtonSecondary,
   "checkbox-base": CheckboxBase,
   "checkbox-detailed": CheckboxDetailed,
   "checkbox-disabled": CheckboxDisabled,
-  "checkbox-sizes": CheckboxSizes,
-  "checkbox-parent": CheckboxParent,
   "checkbox-nested-parent": CheckboxNestedParent,
+  "checkbox-parent": CheckboxParent,
+  "checkbox-sizes": CheckboxSizes,
   "collapsible-base": CollapsibleBase,
   "collapsible-bordered": CollapsibleBordered,
   "collapsible-static": CollapsibleStatic,
   "combobox-base": ComboboxBase,
-  "combobox-multiple": ComboboxMultiple,
   "combobox-inline": ComboboxInline,
+  "combobox-multiple": ComboboxMultiple,
   "combobox-static": ComboboxStatic,
   "context-menu-base": ContextMenuBase,
-  "context-menu-icons": ContextMenuIcons,
-  "context-menu-static": ContextMenuStatic,
-  "context-menu-grouped": ContextMenuGrouped,
   "context-menu-checkboxes": ContextMenuCheckboxes,
-  "context-menu-radios": ContextMenuRadios,
+  "context-menu-grouped": ContextMenuGrouped,
+  "context-menu-icons": ContextMenuIcons,
   "context-menu-nested": ContextMenuNested,
+  "context-menu-radios": ContextMenuRadios,
+  "context-menu-static": ContextMenuStatic,
   "dialog-base": DialogBase,
   "dialog-payment": DialogPayment,
   "dialog-settings": DialogSettings,
@@ -144,7 +144,7 @@ export const baseComponents: Record<string, ComponentType> = {
   "switch-base": SwitchBase,
   "tabs-base": TabsBase,
   "toggle-base": ToggleBase,
-  "toggle-group-base": ToggleGroupBase,
+  "toggle-group": ToggleGroup,
   "toolbar-base": ToolbarBase,
   "tooltip-base": TooltipBase,
 };
