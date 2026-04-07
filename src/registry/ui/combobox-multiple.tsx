@@ -1,15 +1,15 @@
 "use client";
 
 import { Combobox } from "@base-ui/react/combobox";
-import { Circle, Xmark } from "@gravity-ui/icons";
+import { Check, Xmark } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import * as React from "react";
 
 function ItemIcon({ selected }: { selected: boolean }) {
   return selected ? (
-    <Circle className="fs-0 w-4 h-4 c-indigo-6" />
+    <Check className="fs-0 w-4 h-4 c-indigo-6" />
   ) : (
-    <Circle className="fs-0 w-4 h-4 c-slate-3" />
+    <Check className="fs-0 w-4 h-4 c-transparent" />
   );
 }
 
