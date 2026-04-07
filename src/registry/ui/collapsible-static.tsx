@@ -19,8 +19,12 @@ export default function ExampleCollapsible() {
             <HardDrive className="w-4 h-4 c-slate-6" />
           </span>
           <div className="d-f fd-c g-0">
-            <span className="fs-sm fw-600 c-slate-9">{systemRequirements.header.title}</span>
-            <span className="fs-xs c-slate-5">{systemRequirements.header.description}</span>
+            <span className="fs-sm fw-600 c-slate-9">
+              {systemRequirements.header.title}
+            </span>
+            <span className="fs-xs c-slate-5">
+              {systemRequirements.header.description}
+            </span>
           </div>
         </div>
         <ChevronRight
