@@ -1,21 +1,9 @@
-﻿"use client";
+"use client";
 
 import { Combobox } from "@base-ui/react/combobox";
 import { Circle, Xmark } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import * as React from "react";
-
-const skills = [
-  "CSS",
-  "GraphQL",
-  "Next.js",
-  "Node.js",
-  "PostgreSQL",
-  "React",
-  "SCSS",
-  "TypeScript",
-  "Yumma CSS",
-];
 
 function ItemIcon({ selected }: { selected: boolean }) {
   return selected ? (
@@ -106,3 +94,15 @@ export default function ExampleCombobox() {
     </Combobox.Root>
   );
 }
+
+const skills = [
+  "CSS",
+  "GraphQL",
+  "Next.js",
+  "Node.js",
+  "PostgreSQL",
+  "React",
+  "SCSS",
+  "TypeScript",
+  "Yumma CSS",
+];

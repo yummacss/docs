@@ -19,8 +19,8 @@ export default function ExampleCollapsible() {
             <HardDrive className="w-4 h-4 c-slate-6" />
           </span>
           <div className="d-f fd-c g-0">
-            <span className="fs-sm fw-600 c-slate-9">System requirements</span>
-            <span className="fs-xs c-slate-5">View hardware & OS details</span>
+            <span className="fs-sm fw-600 c-slate-9">{systemRequirements.header.title}</span>
+            <span className="fs-xs c-slate-5">{systemRequirements.header.description}</span>
           </div>
         </div>
         <ChevronRight
@@ -30,28 +30,34 @@ export default function ExampleCollapsible() {
 
       <Collapsible.Panel>
         <div className="d-f fd-c g-0 btw-1 bc-silver-3">
-          <div className="d-f ai-c jc-sb px-4 py-3 bbw-1 bc-silver-2">
-            <span className="fs-xs fw-500 c-slate-7">Runtime</span>
-            <span className="fs-xs fw-600 c-slate-8">Node.js 18 or later</span>
-          </div>
-          <div className="d-f ai-c jc-sb px-4 py-3 bbw-1 bc-silver-2">
-            <span className="fs-xs fw-500 c-slate-7">Platform</span>
-            <span className="fs-xs fw-600 c-slate-8">
-              macOS, Windows, Linux
-            </span>
-          </div>
-          <div className="d-f ai-c jc-sb px-4 py-3 bbw-1 bc-silver-2">
-            <span className="fs-xs fw-500 c-slate-7">RAM</span>
-            <span className="fs-xs fw-600 c-slate-8">4 GB minimum</span>
-          </div>
+          {systemRequirements.items.map((item) => (
+            <div
+              key={item.label}
+              className="d-f ai-c jc-sb px-4 py-3 bbw-1 bc-silver-2"
+            >
+              <span className="fs-xs fw-500 c-slate-7">{item.label}</span>
+              <span className="fs-xs fw-600 c-slate-8">{item.value}</span>
+            </div>
+          ))}
           <div className="d-f ai-c g-2 px-4 py-3 bg-silver-1 bbr-lg">
             <CircleInfo className="w-3 h-3 c-slate-6 fs-0" />
-            <span className="fs-xs c-slate-7">
-              16 GB RAM recommended for large projects
-            </span>
+            <span className="fs-xs c-slate-7">{systemRequirements.footer}</span>
           </div>
         </div>
       </Collapsible.Panel>
     </Collapsible.Root>
   );
 }
+
+const systemRequirements = {
+  header: {
+    title: "System requirements",
+    description: "View hardware & OS details",
+  },
+  items: [
+    { label: "Runtime", value: "Node.js 18 or later" },
+    { label: "Platform", value: "macOS, Windows, Linux" },
+    { label: "RAM", value: "4 GB minimum" },
+  ],
+  footer: "16 GB RAM recommended for large projects",
+};

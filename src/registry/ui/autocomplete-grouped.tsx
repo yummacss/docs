@@ -1,28 +1,8 @@
-﻿"use client";
+"use client";
 
 import { Autocomplete } from "@base-ui/react/autocomplete";
 import { AnimatePresence, motion } from "motion/react";
 import * as React from "react";
-
-interface TechGroup {
-  value: string;
-  items: string[];
-}
-
-const TECH_GROUPS: TechGroup[] = [
-  {
-    value: "Frontend",
-    items: ["React", "Vue", "Svelte", "Angular", "Solid"],
-  },
-  {
-    value: "Backend",
-    items: ["Node.js", "Deno", "Bun", "Django", "Rails"],
-  },
-  {
-    value: "Database",
-    items: ["PostgreSQL", "MySQL", "SQLite", "MongoDB", "Redis"],
-  },
-];
 
 export default function ExampleAutocomplete() {
   const [open, setOpen] = React.useState(false);
@@ -93,3 +73,23 @@ export default function ExampleAutocomplete() {
     </Autocomplete.Root>
   );
 }
+
+interface TechGroup {
+  value: string;
+  items: string[];
+}
+
+const TECH_GROUPS: TechGroup[] = [
+  {
+    value: "Frontend",
+    items: ["React", "Vue", "Svelte", "Angular", "Solid"],
+  },
+  {
+    value: "Backend",
+    items: ["Node.js", "Deno", "Bun", "Django", "Rails"],
+  },
+  {
+    value: "Database",
+    items: ["PostgreSQL", "MySQL", "SQLite", "MongoDB", "Redis"],
+  },
+];

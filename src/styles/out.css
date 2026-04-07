@@ -1153,10 +1153,6 @@ summary {
   height: .5rem;
 }
 
-.h-20 {
-  height: 5rem;
-}
-
 .h-24 {
   height: 6rem;
 }
@@ -1371,16 +1367,6 @@ summary {
 
 .i-2 {
   inset: .5rem;
-}
-
-.ix-0 {
-  left: 0;
-  right: 0;
-}
-
-.iy-0 {
-  top: 0;
-  bottom: 0;
 }
 
 .jc-c {

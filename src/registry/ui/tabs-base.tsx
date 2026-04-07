@@ -2,14 +2,7 @@
 
 import { Tabs } from "@base-ui/react/tabs";
 import { BellDot, Gear, Person } from "@gravity-ui/icons";
-import { motion } from "motion/react";
 import * as React from "react";
-
-const tabs = [
-  { value: "account", label: "Account", icon: Person },
-  { value: "settings", label: "Settings", icon: Gear },
-  { value: "notifications", label: "Notifications", icon: BellDot },
-];
 
 export default function ExampleTabs() {
   const [selected, setSelected] = React.useState("account");
@@ -28,19 +21,14 @@ export default function ExampleTabs() {
             <Tabs.Tab
               key={tab.value}
               value={tab.value}
-              className={`p-r zi-10 fx-1 d-f ai-c jc-c g-2 h-9 bw-0 br-sm bg-transparent c-p us-none fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
-                isSelected ? "c-white" : "c-slate-8 h:c-slate-10"
+              className={`fx-1 d-f ai-c jc-c g-2 h-9 bw-0 br-sm c-p us-none fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+                isSelected
+                  ? "bg-indigo c-white"
+                  : "bg-transparent c-slate-8 h:bg-silver-1 h:c-slate-10"
               }`}
             >
-              {isSelected && (
-                <motion.div
-                  layoutId="tabs-indicator"
-                  className="p-a ix-0 iy-0 zi-0 bg-indigo br-sm"
-                  transition={{ duration: 0.2, ease: "easeInOut" }}
-                />
-              )}
-              <Icon className="w-5 h-5 p-r zi-10" />
-              <span className="p-r zi-10 fs-sm fw-500">{tab.label}</span>
+              <Icon className="w-5 h-5" />
+              <span className="fs-sm fw-500">{tab.label}</span>
             </Tabs.Tab>
           );
         })}
@@ -63,3 +51,9 @@ export default function ExampleTabs() {
     </Tabs.Root>
   );
 }
+
+const tabs = [
+  { value: "account", label: "Account", icon: Person },
+  { value: "settings", label: "Settings", icon: Gear },
+  { value: "notifications", label: "Notifications", icon: BellDot },
+];

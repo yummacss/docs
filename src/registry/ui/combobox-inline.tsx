@@ -1,18 +1,7 @@
-﻿"use client";
+"use client";
 
 import { Combobox } from "@base-ui/react/combobox";
 import { Check, Magnifier } from "@gravity-ui/icons";
-
-const frameworks = [
-  "Next.js",
-  "Remix",
-  "Astro",
-  "Nuxt",
-  "SvelteKit",
-  "SolidStart",
-  "Analog",
-  "Gatsby",
-];
 
 function ItemIcon({ selected }: { selected: boolean }) {
   return selected ? (
@@ -56,3 +45,14 @@ export default function ExampleCombobox() {
     </div>
   );
 }
+
+const frameworks = [
+  "Next.js",
+  "Remix",
+  "Astro",
+  "Nuxt",
+  "SvelteKit",
+  "SolidStart",
+  "Analog",
+  "Gatsby",
+];

@@ -54,13 +54,13 @@ export default function ExampleNavigationMenu() {
                 <li key={item.href}>
                   <NavigationMenu.Link
                     href={item.href}
-                    className="d-f c-inherit ai-fs g-3 p-2 br-md td-n h:bg-silver-1"
+                    className="d-f ai-fs g-3 p-2 c-inherit br-md td-n h:bg-silver-1"
                   >
                     <span className="d-f ai-c jc-c fs-0 w-8 h-8 bg-white bc-silver-2 c-indigo br-md bw-1 bs-o-xs">
                       {item.icon}
                     </span>
                     <div>
-                      <h3 className="mb-1 c-slate-10 fs-sm fw-600">
+                      <h3 className="mb-1 c-slate-10 fs-sm fw-600 lh-1">
                         {item.title}
                       </h3>
                       <p className="c-slate-8 fs-xs lh-4">{item.description}</p>
@@ -80,13 +80,13 @@ export default function ExampleNavigationMenu() {
                 <li key={item.href}>
                   <NavigationMenu.Link
                     href={item.href}
-                    className="d-f c-inherit ai-fs g-3 p-2 br-md td-n h:bg-silver-1"
+                    className="d-f ai-fs g-3 p-2 c-inherit br-md td-n h:bg-silver-1"
                   >
                     <span className="d-f ai-c jc-c fs-0 w-8 h-8 bg-white bc-silver-2 c-indigo br-md bw-1 bs-o-xs">
                       {item.icon}
                     </span>
                     <div>
-                      <h3 className="mb-1 c-slate-10 fs-sm fw-600">
+                      <h3 className="mb-1 c-slate-10 fs-sm fw-600 lh-1">
                         {item.title}
                       </h3>
                       <p className="c-slate-8 fs-xs lh-4">{item.description}</p>
