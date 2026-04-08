@@ -42,7 +42,7 @@ export default function ExampleContextMenu() {
                     }`
                   }
                 >
-                  <Scissors className="w-4 h-4 c-slate-5 fs-0" />
+                  <Scissors className="fs-0 w-4 h-4 c-slate-5" />
                   Cut
                 </ContextMenu.Item>
                 <ContextMenu.Item
@@ -52,7 +52,7 @@ export default function ExampleContextMenu() {
                     }`
                   }
                 >
-                  <Copy className="w-4 h-4 c-slate-5 fs-0" />
+                  <Copy className="fs-0 w-4 h-4 c-slate-5" />
                   Copy
                 </ContextMenu.Item>
                 <ContextMenu.Item
@@ -62,7 +62,7 @@ export default function ExampleContextMenu() {
                     }`
                   }
                 >
-                  <Copy className="w-4 h-4 c-slate-5 fs-0" />
+                  <Copy className="fs-0 w-4 h-4 c-slate-5" />
                   Paste
                 </ContextMenu.Item>
 
@@ -75,7 +75,7 @@ export default function ExampleContextMenu() {
                     }`
                   }
                 >
-                  <SquareDashed className="w-4 h-4 c-slate-5 fs-0" />
+                  <SquareDashed className="fs-0 w-4 h-4 c-slate-5" />
                   Select all
                 </ContextMenu.Item>
                 <ContextMenu.Item
@@ -85,7 +85,7 @@ export default function ExampleContextMenu() {
                     }`
                   }
                 >
-                  <ArrowRotateLeft className="w-4 h-4 c-slate-5 fs-0" />
+                  <ArrowRotateLeft className="fs-0 w-4 h-4 c-slate-5" />
                   Undo
                 </ContextMenu.Item>
 
@@ -93,12 +93,12 @@ export default function ExampleContextMenu() {
 
                 <ContextMenu.Item
                   className={(state) =>
-                    `d-f ai-c g-2 py-2 pr-8 pl-3 fs-sm us-none c-p br-sm mx-1 ${
-                      state.highlighted ? "bg-red-1 c-red" : "c-red h:bg-red-1"
+                    `d-f ai-c g-2 py-2 pr-8 pl-3 fs-sm us-none c-red c-p br-sm mx-1 ${
+                      state.highlighted ? "bg-red-1" : "h:bg-red-1"
                     }`
                   }
                 >
-                  <TrashBin className="w-4 h-4 fs-0" />
+                  <TrashBin className="fs-0 w-4 h-4" />
                   Delete
                 </ContextMenu.Item>
               </ContextMenu.Popup>
