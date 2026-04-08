@@ -38,6 +38,7 @@ import CheckboxParent from "./checkbox-parent";
 import CheckboxSizes from "./checkbox-sizes";
 import CollapsibleBase from "./collapsible-base";
 import CollapsibleBordered from "./collapsible-bordered";
+import CollapsibleIcon from "./collapsible-icon";
 import CollapsibleStatic from "./collapsible-static";
 import ComboboxBase from "./combobox-base";
 import ComboboxInline from "./combobox-inline";
@@ -113,6 +114,7 @@ export const baseComponents: Record<string, ComponentType> = {
   "checkbox-sizes": CheckboxSizes,
   "collapsible-base": CollapsibleBase,
   "collapsible-bordered": CollapsibleBordered,
+  "collapsible-icon": CollapsibleIcon,
   "collapsible-static": CollapsibleStatic,
   "combobox-base": ComboboxBase,
   "combobox-inline": ComboboxInline,
