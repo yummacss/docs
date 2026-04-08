@@ -129,7 +129,7 @@ export default function Navbar({
               >
                 <Magnifier className="w-4 h-4" />
                 <kbd className="d-none c-white/60 fs-xs us-none lg:d-b">
-                  Search documentation...
+                  Search documentation…
                 </kbd>
               </Button>
 

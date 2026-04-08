@@ -168,7 +168,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                   <Input
                     ref={inputRef}
                     type="text"
-                    placeholder="Search documentation..."
+                    placeholder="Search documentation…"
                     value={query}
                     onChange={(e) => {
                       setQuery(e.target.value);
