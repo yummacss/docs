@@ -107,8 +107,8 @@ export default function ExampleContextMenu() {
 
                 <ContextMenu.Item
                   className={(state) =>
-                    `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm us-none c-p br-sm mx-1 ${
-                      state.highlighted ? "bg-red-1 c-red" : "c-red h:bg-red-1"
+                    `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm us-none c-red c-p br-sm mx-1 ${
+                      state.highlighted ? "bg-red-1" : "h:bg-red-1"
                     }`
                   }
                 >
