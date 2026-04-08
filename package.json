@@ -23,9 +23,9 @@
     "@gravity-ui/icons": "^2.18.0",
     "@mdx-js/loader": "^3.1.1",
     "@mdx-js/react": "^3.1.1",
-    "@next/mdx": "^16.2.0",
+    "@next/mdx": "^16.2.2",
     "@react-three/fiber": "^9.5.0",
-    "@ridemountainpig/svgl-react": "^1.0.15",
+    "@ridemountainpig/svgl-react": "^1.0.16",
     "@shikijs/rehype": "^4.0.2",
     "@shikijs/transformers": "^4.0.2",
     "@vercel/analytics": "^2.0.1",
@@ -35,8 +35,8 @@
     "clsx": "^2.1.1",
     "gsap": "^3.14.2",
     "motion": "^12.38.0",
-    "next": "16.2.0",
-    "next-mdx-remote-client": "^2.1.9",
+    "next": "16.2.2",
+    "next-mdx-remote-client": "^2.1.10",
     "ogl": "^1.0.11",
     "react": "19.2.4",
     "react-dom": "19.2.4",
@@ -48,9 +48,9 @@
     "web-features": "^3.22.1"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.4.8",
+    "@biomejs/biome": "2.4.10",
     "@types/mdx": "^2.0.13",
-    "@types/node": "^25.5.0",
+    "@types/node": "^25.5.2",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@types/three": "^0.183.1",
@@ -59,7 +59,7 @@
     "remark-code-preview": "^1.2.6",
     "sort-package-json": "^3.6.1",
     "tsx": "^4.21.0",
-    "typescript": "^5.9.3",
+    "typescript": "^6.0.2",
     "yummacss": "^3.24.2"
   },
   "packageManager": "pnpm@10.33.0+sha512.10568bb4a6afb58c9eb3630da90cc9516417abebd3fabbe6739f0ae795728da1491e9db5a544c76ad8eb7570f5c4bb3d6c637b2cb41bfdcdb47fa823c8649319"
