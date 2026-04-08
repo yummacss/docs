@@ -60,7 +60,7 @@ export default async function BlogPostPage({
         <article className="lg:gc-s-8">
           <header className="mb-12">
             <div className="d-f c-white/50 ai-c g-2 mb-4 mt-16 fs-sm">
-              <Link href="/blog" className="h:c-white">
+              <Link href="/blog" className="h:c-white fv:oc-white fv:ow-2">
                 Blog
               </Link>
               <span>/</span>
@@ -81,7 +81,7 @@ export default async function BlogPostPage({
                     href={author.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="c-white/70 h:tc-white"
+                    className="c-white/70 h:tc-white fv:oc-white fv:ow-2"
                   >
                     {author.name}
                   </Link>
