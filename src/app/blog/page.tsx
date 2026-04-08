@@ -30,7 +30,10 @@ export default async function BlogPage() {
 
               {postsByYear.get(year)?.map((post) => (
                 <article key={post.slug} className="mb-12">
-                  <Link href={`/blog/${post.slug}`} className="d-b fv:oc-white fv:ow-2">
+                  <Link
+                    href={`/blog/${post.slug}`}
+                    className="d-b fv:oc-white fv:ow-2"
+                  >
                     <div className="d-f fd-c g-8 lg:fd-r">
                       <div className="lg:f-1">
                         <h3 className="mb-4 c-white fs-xxl fw-400">
