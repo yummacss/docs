@@ -41,7 +41,7 @@ export default function Home() {
                 <span className="c-white fs-md">d-f</span> not{" "}
                 <span className="c-white fs-md">flex</span>,{" "}
                 <span className="c-white fs-md">fw-600</span> not{" "}
-                <span className="c-white fs-md">font-bold</span>.
+                <span className="c-white fs-md">font-semibold</span>.
               </p>
 
               <div className="d-f fw-w g-4 mb-12">
