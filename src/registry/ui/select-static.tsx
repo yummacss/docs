@@ -16,14 +16,14 @@ export default function SelectStatic() {
   return (
     <Field.Root className="d-f fd-c g-2">
       <label
-        htmlFor="select-status"
+        htmlFor="select-status-static"
         className="c-slate-10 fs-sm fw-600 us-none"
       >
         Status
       </label>
       <Select.Root defaultValue={null} open={open} onOpenChange={setOpen}>
         <Select.Trigger
-          id="select-status"
+          id="select-status-static"
           className={`d-f ai-c jc-sb h-10 min-w-40 g-3 bw-1 bc-silver-3 br-md bg-white px-3 c-slate-10 us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
             open ? "bg-silver-1" : "h:bg-silver-1"
           }`}

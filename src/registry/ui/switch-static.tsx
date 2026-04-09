@@ -9,7 +9,7 @@ export default function SwitchStatic() {
   return (
     <div className="d-f ai-c g-3">
       <Switch.Root
-        id="switch-dark-mode"
+        id="switch-dark-mode-static"
         checked={checked}
         onCheckedChange={setChecked}
         className={`p-r d-f ai-c h-6 w-11 br-pill bw-0 m-0 px-1 c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
@@ -23,7 +23,7 @@ export default function SwitchStatic() {
         />
       </Switch.Root>
       <label
-        htmlFor="switch-dark-mode"
+        htmlFor="switch-dark-mode-static"
         className="c-slate-10 fs-sm fw-600 us-none c-p"
       >
         Dark mode
