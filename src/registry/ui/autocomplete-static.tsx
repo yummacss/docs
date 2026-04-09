@@ -13,11 +13,14 @@ export default function AutocompleteStatic() {
       onOpenChange={setOpen}
     >
       <div className="d-f fd-c g-2">
-        <label htmlFor="autocomplete-input" className="c-slate-10 fs-sm fw-600">
+        <label
+          htmlFor="autocomplete-input-static"
+          className="c-slate-10 fs-sm fw-600"
+        >
           Color
         </label>
         <Autocomplete.Input
-          id="autocomplete-input"
+          id="autocomplete-input-static"
           placeholder="e.g. Indigo"
           className="h-10 w-64 pl-4 bg-white bc-silver-3 c-slate-12 bw-1 br-md fs-md fv:os-s fv:ow-2 fv:oo--1 fv:oc-indigo-6"
         />
