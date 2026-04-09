@@ -67,6 +67,7 @@ import NumberFieldBase from "./number-field-base";
 import PopoverBase from "./popover-base";
 import PopoverStatic from "./popover-static";
 import PreviewCardBase from "./preview-card-base";
+import PreviewCardStatic from "./preview-card-static";
 import ProgressBase from "./progress-base";
 import RadioBase from "./radio-base";
 import SelectBase from "./select-base";
@@ -147,6 +148,7 @@ export const baseComponents: Record<string, ComponentType> = {
   "number-field-base": NumberFieldBase,
   "popover-base": PopoverBase,
   "preview-card-base": PreviewCardBase,
+  "preview-card-static": PreviewCardStatic,
   "progress-base": ProgressBase,
   "radio-base": RadioBase,
   "select-base": SelectBase,
