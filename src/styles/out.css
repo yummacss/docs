@@ -1589,6 +1589,10 @@ summary {
   margin-left: -1rem;
 }
 
+.ml-0 {
+  margin-left: 0;
+}
+
 .ml-1 {
   margin-left: .25rem;
 }
@@ -1599,6 +1603,10 @@ summary {
 
 .ml-4 {
   margin-left: 1rem;
+}
+
+.ml-5 {
+  margin-left: 1.25rem;
 }
 
 .ml-6 {

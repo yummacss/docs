@@ -1,0 +1,35 @@
+"use client";
+
+import { Popover } from "@base-ui/react/popover";
+import { BellDot } from "@gravity-ui/icons";
+import * as React from "react";
+
+export default function PopoverStatic() {
+  const [open, setOpen] = React.useState(false);
+
+  return (
+    <Popover.Root open={open} onOpenChange={setOpen}>
+      <Popover.Trigger
+        className={`d-f ai-c jc-c w-10 h-10 bw-1 bc-silver-2 br-md bg-white c-slate-10 us-none c-p h:bg-silver-1 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+          open ? "bg-silver-1" : ""
+        }`}
+      >
+        <BellDot aria-label="Notifications" className="w-5 h-5" />
+      </Popover.Trigger>
+      {open && (
+        <Popover.Portal keepMounted>
+          <Popover.Positioner sideOffset={8}>
+            <Popover.Popup className="px-4 py-3 w-56 bg-white bc-silver-2 c-slate-10 bw-1 br-md bs-o-lg">
+              <Popover.Title className="m-0 mb-1 c-slate-10 fs-sm fw-600">
+                Notifications
+              </Popover.Title>
+              <Popover.Description className="m-0 c-slate-8 fs-xs">
+                Review your recent alerts and updates.
+              </Popover.Description>
+            </Popover.Popup>
+          </Popover.Positioner>
+        </Popover.Portal>
+      )}
+    </Popover.Root>
+  );
+}

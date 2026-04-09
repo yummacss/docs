@@ -7,8 +7,6 @@ import AccordionMultiple from "./accordion-multiple";
 import AccordionStatic from "./accordion-static";
 import AccordionSubtle from "./accordion-subtle";
 import AlertDialogConfirmation from "./alert-dialog-confirmation";
-import DialogVerification from "./dialog-verification";
-import DialogMail from "./dialog-mail";
 import AutocompleteAutoHighlight from "./autocomplete-auto-highlight";
 import AutocompleteBase from "./autocomplete-base";
 import AutocompleteGrouped from "./autocomplete-grouped";
@@ -52,27 +50,38 @@ import ContextMenuNested from "./context-menu-nested";
 import ContextMenuRadios from "./context-menu-radios";
 import ContextMenuStatic from "./context-menu-static";
 import DialogBase from "./dialog-base";
+import DialogMail from "./dialog-mail";
 import DialogPayment from "./dialog-payment";
 import DialogSettings from "./dialog-settings";
+import DialogStatic from "./dialog-static";
+import DialogVerification from "./dialog-verification";
 import InputBase from "./input-base";
 import MenuBase from "./menu-base";
+import MenuStatic from "./menu-static";
 import MenubarBase from "./menubar-base";
+import MenubarStatic from "./menubar-static";
 import MeterBase from "./meter-base";
 import NavigationMenuBase from "./navigation-menu-base";
+import NavigationMenuStatic from "./navigation-menu-static";
 import NumberFieldBase from "./number-field-base";
 import PopoverBase from "./popover-base";
+import PopoverStatic from "./popover-static";
 import PreviewCardBase from "./preview-card-base";
 import ProgressBase from "./progress-base";
 import RadioBase from "./radio-base";
 import SelectBase from "./select-base";
+import SelectStatic from "./select-static";
 import SeparatorBase from "./separator-base";
 import SliderBase from "./slider-base";
 import SwitchBase from "./switch-base";
+import SwitchStatic from "./switch-static";
 import TabsBase from "./tabs-base";
 import ToggleBase from "./toggle-base";
 import ToggleGroup from "./toggle-group";
+import ToggleStatic from "./toggle-static";
 import ToolbarBase from "./toolbar-base";
 import TooltipBase from "./tooltip-base";
+import TooltipStatic from "./tooltip-static";
 
 export const baseComponents: Record<string, ComponentType> = {
   "accordion-base": AccordionBase,
@@ -149,6 +158,15 @@ export const baseComponents: Record<string, ComponentType> = {
   "toggle-group": ToggleGroup,
   "toolbar-base": ToolbarBase,
   "tooltip-base": TooltipBase,
+  "dialog-static": DialogStatic,
+  "menu-static": MenuStatic,
+  "menubar-static": MenubarStatic,
+  "navigation-menu-static": NavigationMenuStatic,
+  "popover-static": PopoverStatic,
+  "select-static": SelectStatic,
+  "switch-static": SwitchStatic,
+  "toggle-static": ToggleStatic,
+  "tooltip-static": TooltipStatic,
 };
 
 // coming soon
