@@ -1,7 +1,7 @@
 "use client";
 
-import { AlertDialog } from "@base-ui/react/alert-dialog";
 import { Button } from "@base-ui/react/button";
+import { Dialog } from "@base-ui/react/dialog";
 import { CreditCard, Xmark } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import * as React from "react";
@@ -10,18 +10,18 @@ export default function DialogPayment() {
   const [open, setOpen] = React.useState(false);
 
   return (
-    <AlertDialog.Root open={open} onOpenChange={setOpen}>
-      <AlertDialog.Trigger
+    <Dialog.Root open={open} onOpenChange={setOpen}>
+      <Dialog.Trigger
         render={
           <Button className="px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-600 bs-o-xs tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
         }
       >
         Add Payment Method
-      </AlertDialog.Trigger>
+      </Dialog.Trigger>
       <AnimatePresence>
         {open && (
-          <AlertDialog.Portal keepMounted>
-            <AlertDialog.Backdrop
+          <Dialog.Portal keepMounted>
+            <Dialog.Backdrop
               render={
                 <motion.div
                   initial={{ opacity: 0 }}
@@ -33,7 +33,7 @@ export default function DialogPayment() {
               className="p-f i-0 min-h-dvh bg-black/20"
             />
             <div className="d-f p-f i-0 ai-c jc-c">
-              <AlertDialog.Popup
+              <Dialog.Popup
                 render={
                   <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
@@ -46,16 +46,16 @@ export default function DialogPayment() {
                 style={{ maxWidth: "90vw" }}
               >
                 <div className="d-f jc-sb ai-c px-4 py-2 bg-silver-1/50">
-                  <AlertDialog.Title className="m-0 fs-md fw-600">
+                  <Dialog.Title className="m-0 fs-md fw-600">
                     Payment Details
-                  </AlertDialog.Title>
-                  <AlertDialog.Close
+                  </Dialog.Title>
+                  <Dialog.Close
                     render={
                       <Button className="d-f b-0 ai-c jc-c w-7 h-7 bg-transparent c-slate-6 br-md h:bg-silver-2 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
                     }
                   >
                     <Xmark aria-hidden className="w-4 h-4" />
-                  </AlertDialog.Close>
+                  </Dialog.Close>
                 </div>
                 <div className="bc-silver-2 bbw-1" />
                 <div className="d-f ai-c g-3 px-4 py-3 bg-indigo-1/50">
@@ -73,9 +73,9 @@ export default function DialogPayment() {
                 </div>
                 <div className="bc-silver-2 bbw-1" />
                 <form className="d-f fd-c g-4 px-4 py-5">
-                  <AlertDialog.Description className="m-0 c-slate-7 fs-md lh-4">
+                  <Dialog.Description className="m-0 c-slate-7 fs-sm lh-4">
                     Your payment information is encrypted and secure.
-                  </AlertDialog.Description>
+                  </Dialog.Description>
 
                   <div className="d-f fd-c g-1">
                     <label
@@ -134,26 +134,26 @@ export default function DialogPayment() {
                   </div>
                 </form>
                 <div className="d-g gtc-2 g-3 px-4 py-3">
-                  <AlertDialog.Close
+                  <Dialog.Close
                     render={
                       <Button className="px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-600 bs-o-xs tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
                     }
                   >
                     Cancel
-                  </AlertDialog.Close>
-                  <AlertDialog.Close
+                  </Dialog.Close>
+                  <Dialog.Close
                     render={
                       <Button className="px-3 py-2 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-md bw-1 fw-600 bs-o-md tp-c tdu-150 ttf-io us-none fv:oc-indigo-6 fv:ow-2 fv:oo-2" />
                     }
                   >
                     Add Card
-                  </AlertDialog.Close>
+                  </Dialog.Close>
                 </div>
-              </AlertDialog.Popup>
+              </Dialog.Popup>
             </div>
-          </AlertDialog.Portal>
+          </Dialog.Portal>
         )}
       </AnimatePresence>
-    </AlertDialog.Root>
+    </Dialog.Root>
   );
 }
