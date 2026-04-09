@@ -3,7 +3,7 @@
 import { Slider } from "@base-ui/react/slider";
 import * as React from "react";
 
-export default function ExampleSlider() {
+export default function SliderBase() {
   const [value, setValue] = React.useState(50);
 
   return (

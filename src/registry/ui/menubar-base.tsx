@@ -10,7 +10,7 @@ const itemClass = (state: { highlighted: boolean }) =>
     state.highlighted ? "bg-silver-1" : "h:bg-silver-1"
   }`;
 
-export default function ExampleMenubar() {
+export default function MenubarBase() {
   const [fileOpen, setFileOpen] = React.useState(false);
   const [editOpen, setEditOpen] = React.useState(false);
   const [viewOpen, setViewOpen] = React.useState(false);

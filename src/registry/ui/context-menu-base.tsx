@@ -4,7 +4,7 @@ import { ContextMenu } from "@base-ui/react/context-menu";
 import { AnimatePresence, motion } from "motion/react";
 import * as React from "react";
 
-export default function ExampleContextMenu() {
+export default function ContextMenuBase() {
   const [open, setOpen] = React.useState(false);
 
   return (

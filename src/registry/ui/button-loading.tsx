@@ -4,7 +4,7 @@ import { Button } from "@base-ui/react/button";
 import { CircleDashed } from "@gravity-ui/icons";
 import { motion } from "motion/react";
 
-export default function ExampleButton() {
+export default function ButtonLoading() {
   return (
     <Button
       disabled

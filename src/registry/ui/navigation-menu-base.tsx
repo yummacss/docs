@@ -42,7 +42,7 @@ function NavTrigger({
   );
 }
 
-export default function ExampleNavigationMenu() {
+export default function NavigationMenuBase() {
   return (
     <NavigationMenu.Root className="min-w-max p-1 bg-white bc-silver-2 br-pill bw-1">
       <NavigationMenu.List className="d-f p-r g-1">

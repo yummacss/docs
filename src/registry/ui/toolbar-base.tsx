@@ -6,7 +6,7 @@ import { ToggleGroup } from "@base-ui/react/toggle-group";
 import { Toolbar } from "@base-ui/react/toolbar";
 import { Bold, Italic, Strikethrough, Underline } from "@gravity-ui/icons";
 
-export default function ExampleToolbar() {
+export default function ToolbarBase() {
   return (
     <Toolbar.Root className="d-f ai-c g-1 p-1 bg-white bc-silver-2 br-md bw-1">
       <ToggleGroup className="d-f g-1" aria-label="Text formatting">

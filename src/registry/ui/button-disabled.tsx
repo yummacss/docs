@@ -1,6 +1,6 @@
 import { Button } from "@base-ui/react/button";
 
-export default function ExampleButton() {
+export default function ButtonDisabled() {
   return (
     <Button
       disabled

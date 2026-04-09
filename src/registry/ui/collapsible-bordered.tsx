@@ -5,7 +5,7 @@ import { ChevronRight } from "@gravity-ui/icons";
 import { type HTMLMotionProps, motion } from "motion/react";
 import * as React from "react";
 
-export default function ExampleCollapsible() {
+export default function CollapsibleBordered() {
   const [open, setOpen] = React.useState(false);
 
   return (

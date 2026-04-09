@@ -13,7 +13,7 @@ function ItemIcon({ selected }: { selected: boolean }) {
   );
 }
 
-export default function ExampleCombobox() {
+export default function ComboboxMultiple() {
   const [open, setOpen] = React.useState(false);
 
   return (

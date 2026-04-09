@@ -4,7 +4,7 @@ import { Progress } from "@base-ui/react/progress";
 import { motion } from "motion/react";
 import * as React from "react";
 
-export default function ExampleProgress() {
+export default function ProgressBase() {
   const [value, setValue] = React.useState(20);
 
   React.useEffect(() => {

@@ -1,7 +1,7 @@
 import { Avatar } from "@base-ui/react/avatar";
 import { CircleCheckFill } from "@gravity-ui/icons";
 
-export default function ExampleAvatar() {
+export default function AvatarVerified() {
   return (
     <div className="d-f ai-c g-4">
       {verifiedMembers.map((member) => (

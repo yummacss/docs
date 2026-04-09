@@ -4,7 +4,7 @@ import { PreviewCard } from "@base-ui/react/preview-card";
 import { AnimatePresence, motion } from "motion/react";
 import * as React from "react";
 
-export default function ExamplePreviewCard() {
+export default function PreviewCardBase() {
   const [open, setOpen] = React.useState(false);
 
   return (

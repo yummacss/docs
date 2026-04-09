@@ -5,7 +5,7 @@ import { Check } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import * as React from "react";
 
-export default function ExampleContextMenu() {
+export default function ContextMenuCheckboxes() {
   const [open, setOpen] = React.useState(false);
   const [hidden, setHidden] = React.useState(false);
   const [extensions, setExtensions] = React.useState(true);

@@ -1,7 +1,7 @@
 import { Avatar } from "@base-ui/react/avatar";
 import { PersonFill } from "@gravity-ui/icons";
 
-export default function ExampleAvatar() {
+export default function AvatarPlaceholder() {
   return (
     <div className="d-f ai-c g-4">
       {placeholders.map((placeholder) => (

@@ -5,7 +5,7 @@ import { CircleFill } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import * as React from "react";
 
-export default function ExampleContextMenu() {
+export default function ContextMenuRadios() {
   const [open, setOpen] = React.useState(false);
   const [sortBy, setSortBy] = React.useState("name");
 

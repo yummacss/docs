@@ -4,7 +4,7 @@ import { Tabs } from "@base-ui/react/tabs";
 import { BellDot, Gear, Person } from "@gravity-ui/icons";
 import * as React from "react";
 
-export default function ExampleTabs() {
+export default function TabsBase() {
   const [selected, setSelected] = React.useState("account");
 
   return (

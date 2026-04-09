@@ -4,7 +4,7 @@ import { Switch } from "@base-ui/react/switch";
 import { motion } from "motion/react";
 import * as React from "react";
 
-export default function ExampleSwitch() {
+export default function SwitchBase() {
   const [checked, setChecked] = React.useState(true);
 
   return (

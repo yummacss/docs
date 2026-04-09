@@ -19,7 +19,7 @@ const itemClass = (highlighted: boolean) =>
     highlighted ? "bg-silver-1" : "h:bg-silver-1"
   }`;
 
-export default function ExampleContextMenu() {
+export default function ContextMenuNested() {
   const [open, setOpen] = React.useState(false);
 
   return (

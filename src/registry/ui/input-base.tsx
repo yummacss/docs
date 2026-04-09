@@ -1,6 +1,6 @@
 import { Input } from "@base-ui/react/input";
 
-export default function ExampleInput() {
+export default function InputBase() {
   return (
     <Input
       placeholder="Search projects..."

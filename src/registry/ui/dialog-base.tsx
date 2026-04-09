@@ -6,7 +6,7 @@ import { Xmark } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import * as React from "react";
 
-export default function ExampleDialog() {
+export default function DialogBase() {
   const [open, setOpen] = React.useState(false);
 
   return (

@@ -11,7 +11,7 @@ const itemClass = (state: { highlighted: boolean }) =>
     state.highlighted ? "bg-silver-1" : "h:bg-silver-1"
   }`;
 
-export default function ExampleSelect() {
+export default function SelectBase() {
   const [open, setOpen] = React.useState(false);
 
   return (
