@@ -1,6 +1,6 @@
 import { Avatar } from "@base-ui/react/avatar";
 
-export default function ExampleAvatar() {
+export default function AvatarInitials() {
   return (
     <div className="d-f ai-c g-4">
       {initialProfiles.map((profile) => (

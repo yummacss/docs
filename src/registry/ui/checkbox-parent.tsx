@@ -5,7 +5,7 @@ import { CheckboxGroup } from "@base-ui/react/checkbox-group";
 import { Check, Minus } from "@gravity-ui/icons";
 import { useId, useState } from "react";
 
-export default function ExampleCheckboxGroup() {
+export default function CheckboxParent() {
   const id = useId();
   const [value, setValue] = useState<string[]>([]);
 

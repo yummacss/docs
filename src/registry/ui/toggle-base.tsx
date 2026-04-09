@@ -4,7 +4,7 @@ import { Toggle } from "@base-ui/react/toggle";
 import { PauseFill, PlayFill } from "@gravity-ui/icons";
 import { motion } from "motion/react";
 
-export default function ExampleToggle() {
+export default function ToggleBase() {
   return (
     <Toggle
       aria-label="Play or pause"

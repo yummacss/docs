@@ -4,7 +4,7 @@ import { Accordion } from "@base-ui/react/accordion";
 import { ChevronDown } from "@gravity-ui/icons";
 import * as React from "react";
 
-export default function ExampleAccordion() {
+export default function AccordionStatic() {
   const [value, setValue] = React.useState<string[]>([]);
 
   return (

@@ -28,7 +28,7 @@ import {
 import { AnimatePresence, motion } from "motion/react";
 import * as React from "react";
 
-export default function ExampleDialogMail() {
+export default function DialogMail() {
   const [open, setOpen] = React.useState(false);
 
   return (

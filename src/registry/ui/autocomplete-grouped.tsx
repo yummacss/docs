@@ -4,7 +4,7 @@ import { Autocomplete } from "@base-ui/react/autocomplete";
 import { AnimatePresence, motion } from "motion/react";
 import * as React from "react";
 
-export default function ExampleAutocomplete() {
+export default function AutocompleteGrouped() {
   const [open, setOpen] = React.useState(false);
 
   return (

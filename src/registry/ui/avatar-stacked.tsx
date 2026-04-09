@@ -1,6 +1,6 @@
 import { Avatar } from "@base-ui/react/avatar";
 
-export default function ExampleAvatar() {
+export default function AvatarStacked() {
   return (
     <div className="d-f ai-c">
       {stackMembers.map((member, index) => (

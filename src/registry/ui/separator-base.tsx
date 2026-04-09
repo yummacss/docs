@@ -1,6 +1,6 @@
 import { Separator } from "@base-ui/react/separator";
 
-export default function ExampleSeparator() {
+export default function SeparatorBase() {
   return (
     <div className="d-f ai-c g-4">
       <span className="c-slate-8 fs-sm">© 2025 Acme Inc</span>

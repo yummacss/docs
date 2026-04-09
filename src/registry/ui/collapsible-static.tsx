@@ -4,7 +4,7 @@ import { Collapsible } from "@base-ui/react/collapsible";
 import { ChevronRight } from "@gravity-ui/icons";
 import * as React from "react";
 
-export default function ExampleCollapsible() {
+export default function CollapsibleStatic() {
   const [open, setOpen] = React.useState(false);
 
   return (

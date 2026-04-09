@@ -6,7 +6,7 @@ import { Xmark } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import * as React from "react";
 
-export default function ExampleAlertDialogConfirmation() {
+export default function AlertDialogConfirmation() {
   const [open, setOpen] = React.useState(false);
 
   return (

@@ -3,7 +3,7 @@
 import { Autocomplete } from "@base-ui/react/autocomplete";
 import * as React from "react";
 
-export default function ExampleAutocomplete() {
+export default function AutocompleteStatic() {
   const [open, setOpen] = React.useState(false);
 
   return (

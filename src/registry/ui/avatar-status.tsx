@@ -1,6 +1,6 @@
 import { Avatar } from "@base-ui/react/avatar";
 
-export default function ExampleAvatar() {
+export default function AvatarStatus() {
   return (
     <div className="d-f ai-c g-4">
       {statusMembers.map((member) => (

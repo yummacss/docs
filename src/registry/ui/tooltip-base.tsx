@@ -4,7 +4,7 @@ import { Tooltip } from "@base-ui/react/tooltip";
 import { CircleQuestion } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 
-export default function ExampleTooltip() {
+export default function TooltipBase() {
   return (
     <Tooltip.Provider>
       <Tooltip.Root>

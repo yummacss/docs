@@ -5,7 +5,7 @@ import { ToggleGroup } from "@base-ui/react/toggle-group";
 import { Grip, LayoutCellsLarge, LayoutList, ListUl } from "@gravity-ui/icons";
 import * as React from "react";
 
-export default function ExampleToggleGroup() {
+export default function ToggleGroupBase() {
   const [selected, setSelected] = React.useState(["default-grid"]);
 
   return (

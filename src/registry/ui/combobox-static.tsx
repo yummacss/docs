@@ -4,7 +4,7 @@ import { Combobox } from "@base-ui/react/combobox";
 import { Check, ChevronDown, Xmark } from "@gravity-ui/icons";
 import * as React from "react";
 
-export default function ExampleCombobox() {
+export default function ComboboxStatic() {
   const [open, setOpen] = React.useState(false);
 
   return (

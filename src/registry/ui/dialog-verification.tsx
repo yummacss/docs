@@ -6,7 +6,7 @@ import { EnvelopeOpen, Xmark } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import * as React from "react";
 
-export default function ExampleDialogVerification() {
+export default function DialogVerification() {
   const [open, setOpen] = React.useState(false);
   const [code, setCode] = React.useState(["", "", "", ""]);
   const inputRefs = [

@@ -11,7 +11,7 @@ function ItemIcon({ selected }: { selected: boolean }) {
   );
 }
 
-export default function ExampleCombobox() {
+export default function ComboboxInline() {
   return (
     <div className="d-f o-h fd-c g-0 w-64 bg-white bc-silver-3 bw-1 br-md">
       <Combobox.Root inline items={frameworks}>

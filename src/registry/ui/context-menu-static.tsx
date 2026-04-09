@@ -3,7 +3,7 @@
 import { ContextMenu } from "@base-ui/react/context-menu";
 import * as React from "react";
 
-export default function ExampleContextMenu() {
+export default function ContextMenuStatic() {
   const [open, setOpen] = React.useState(false);
 
   return (

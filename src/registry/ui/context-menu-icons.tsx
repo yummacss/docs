@@ -11,7 +11,7 @@ import {
 import { AnimatePresence, motion } from "motion/react";
 import * as React from "react";
 
-export default function ExampleContextMenu() {
+export default function ContextMenuIcons() {
   const [open, setOpen] = React.useState(false);
 
   return (

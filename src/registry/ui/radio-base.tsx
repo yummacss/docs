@@ -4,7 +4,7 @@ import { Radio } from "@base-ui/react/radio";
 import { RadioGroup } from "@base-ui/react/radio-group";
 import * as React from "react";
 
-export default function ExampleRadio() {
+export default function RadioBase() {
   const id = React.useId();
   return (
     <RadioGroup
