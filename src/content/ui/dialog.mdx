@@ -21,10 +21,10 @@ Implement this component in your project using Yumma CSS and Base UI.
     <TabsTab value="code">Code</TabsTab>
   </TabsList>
   <TabsPanel className="bg-white bbr-sm" value="preview">
-    <Preview className="bw-0" registryId="alert-dialog" />
+    <Preview className="bw-0" registryId="dialog-base" />
   </TabsPanel>
   <TabsPanel value="code">
-    ```tsx registryId="alert-dialog"
+    ```tsx registryId="dialog-base"
     ```
   </TabsPanel>
 </Tabs>
@@ -33,7 +33,7 @@ Implement this component in your project using Yumma CSS and Base UI.
 
 ### Verification
 
-Request user confirmation before completing an action.
+Enter a secure code to confirm your identity or complete a process.
 
 <Tabs defaultValue="preview">
   <TabsList>
@@ -41,10 +41,10 @@ Request user confirmation before completing an action.
     <TabsTab value="code">Code</TabsTab>
   </TabsList>
   <TabsPanel className="bg-white bbr-sm" value="preview">
-    <Preview className="bw-0" registryId="alert-dialog-verification" />
+    <Preview className="bw-0" registryId="dialog-verification" />
   </TabsPanel>
   <TabsPanel value="code">
-    ```tsx registryId="alert-dialog-verification"
+    ```tsx registryId="dialog-verification"
     ```
   </TabsPanel>
 </Tabs>
@@ -53,7 +53,7 @@ Request user confirmation before completing an action.
 
 ### Mail
 
-A composition interface for sending messages.
+A rich composition interface for sending emails with formatting tools.
 
 <Tabs defaultValue="preview">
   <TabsList>
@@ -61,10 +61,10 @@ A composition interface for sending messages.
     <TabsTab value="code">Code</TabsTab>
   </TabsList>
   <TabsPanel className="bg-white bbr-sm" value="preview">
-    <Preview className="bw-0" registryId="alert-dialog-mail" />
+    <Preview className="bw-0" registryId="dialog-mail" />
   </TabsPanel>
   <TabsPanel value="code">
-    ```tsx registryId="alert-dialog-mail"
+    ```tsx registryId="dialog-mail"
     ```
   </TabsPanel>
 </Tabs>
@@ -73,7 +73,7 @@ A composition interface for sending messages.
 
 ### Payment
 
-Collect payment information in a secure modal.
+Collect and manage payment information in a secure, encrypted modal.
 
 <Tabs defaultValue="preview">
   <TabsList>
@@ -93,7 +93,7 @@ Collect payment information in a secure modal.
 
 ### Settings
 
-Manage user preferences and account configurations.
+A centralized panel for adjusting preferences and account configurations.
 
 <Tabs defaultValue="preview">
   <TabsList>
@@ -105,6 +105,26 @@ Manage user preferences and account configurations.
   </TabsPanel>
   <TabsPanel value="code">
     ```tsx registryId="dialog-settings"
+    ```
+  </TabsPanel>
+</Tabs>
+
+---
+
+### Confirmation
+
+A blocking confirmation for high-consequence actions using the Alert Dialog component.
+
+<Tabs defaultValue="preview">
+  <TabsList>
+    <TabsTab value="preview">Preview</TabsTab>
+    <TabsTab value="code">Code</TabsTab>
+  </TabsList>
+  <TabsPanel className="bg-white bbr-sm" value="preview">
+    <Preview className="bw-0" registryId="alert-dialog-confirmation" />
+  </TabsPanel>
+  <TabsPanel value="code">
+    ```tsx registryId="alert-dialog-confirmation"
     ```
   </TabsPanel>
 </Tabs>

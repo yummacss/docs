@@ -1,7 +1,7 @@
 "use client";
 
-import { AlertDialog } from "@base-ui/react/alert-dialog";
 import { Button } from "@base-ui/react/button";
+import { Dialog } from "@base-ui/react/dialog";
 import { Field } from "@base-ui/react/field";
 import { Input } from "@base-ui/react/input";
 import { Separator } from "@base-ui/react/separator";
@@ -28,22 +28,22 @@ import {
 import { AnimatePresence, motion } from "motion/react";
 import * as React from "react";
 
-export default function ExampleAlertDialog() {
+export default function ExampleDialogMail() {
   const [open, setOpen] = React.useState(false);
 
   return (
-    <AlertDialog.Root open={open} onOpenChange={setOpen}>
-      <AlertDialog.Trigger
+    <Dialog.Root open={open} onOpenChange={setOpen}>
+      <Dialog.Trigger
         render={
           <Button className="px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-600 bs-o-xs tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
         }
       >
         Compose
-      </AlertDialog.Trigger>
+      </Dialog.Trigger>
       <AnimatePresence>
         {open && (
-          <AlertDialog.Portal keepMounted>
-            <AlertDialog.Backdrop
+          <Dialog.Portal keepMounted>
+            <Dialog.Backdrop
               render={
                 <motion.div
                   initial={{ opacity: 0 }}
@@ -55,7 +55,7 @@ export default function ExampleAlertDialog() {
               className="p-f i-0 min-h-dvh bg-black/20"
             />
             <div className="d-f p-f i-0 ai-c jc-c">
-              <AlertDialog.Popup
+              <Dialog.Popup
                 render={
                   <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
@@ -67,16 +67,16 @@ export default function ExampleAlertDialog() {
                 className="o-h w-full max-w-sm bg-white bc-silver-2 c-slate-12 br-md bw-1 bs-o-lg"
               >
                 <div className="d-f jc-sb ai-c px-4 py-2 bg-silver-1/50">
-                  <AlertDialog.Title className="fs-md fw-600">
+                  <Dialog.Title className="fs-md fw-600">
                     New message
-                  </AlertDialog.Title>
-                  <AlertDialog.Close
+                  </Dialog.Title>
+                  <Dialog.Close
                     render={
                       <Button className="d-f b-0 ai-c jc-c w-7 h-7 bg-transparent c-slate-6 br-md h:bg-silver-2 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
                     }
                   >
                     <Xmark aria-hidden className="w-4 h-4" />
-                  </AlertDialog.Close>
+                  </Dialog.Close>
                 </div>
                 <div className="bc-silver-2 bbw-1" />
                 <div className="d-f ai-c g-3 px-4 py-3 bg-indigo-1/50">
@@ -458,26 +458,26 @@ export default function ExampleAlertDialog() {
                   </div>
                 </div>
                 <div className="d-g gtc-2 g-3 px-4 py-3">
-                  <AlertDialog.Close
+                  <Dialog.Close
                     render={
                       <Button className="px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-600 bs-o-xs tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
                     }
                   >
                     Discard
-                  </AlertDialog.Close>
-                  <AlertDialog.Close
+                  </Dialog.Close>
+                  <Dialog.Close
                     render={
                       <Button className="px-3 py-2 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-md bw-1 fw-600 bs-o-md tp-c tdu-150 ttf-io us-none fv:oc-indigo-6 fv:ow-2 fv:oo-2" />
                     }
                   >
                     Send
-                  </AlertDialog.Close>
+                  </Dialog.Close>
                 </div>
-              </AlertDialog.Popup>
+              </Dialog.Popup>
             </div>
-          </AlertDialog.Portal>
+          </Dialog.Portal>
         )}
       </AnimatePresence>
-    </AlertDialog.Root>
+    </Dialog.Root>
   );
 }
