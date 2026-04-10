@@ -2093,6 +2093,10 @@ summary {
   text-align: right;
 }
 
+.td-100 {
+  transition-delay: 100ms;
+}
+
 .td-300 {
   transition-delay: 300ms;
 }
@@ -2119,6 +2123,10 @@ summary {
 
 .tdl-o {
   text-decoration-line: overline;
+}
+
+.tdu-100 {
+  transition-duration: 100ms;
 }
 
 .tdu-150 {
