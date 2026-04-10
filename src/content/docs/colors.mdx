@@ -57,7 +57,7 @@ Target specific opacity values across color utilities. Opacity variants range fr
 
 ## Custom Colors
 
-Extend or override the default palette using the `theme.colors` configuration option. The compiler automatically generates color shades (from 1 to 12) using the defined `percentage.light` and `percentage.dark` values.
+Extend or override the default palette using the `theme.colors` configuration option.
 
 <Stepper>
   <Step title="Configure custom colors">
@@ -67,8 +67,8 @@ Extend or override the default palette using the `theme.colors` configuration op
     export default defineConfig({
       theme: {
         colors: {
-          background: "#f5f6f7",
-          blue: "#1a73e8",
+          background: "#f5f6f7", // add new color family
+          blue: "#1a73e8", // overrides the default blue.
         },
       },
     });
