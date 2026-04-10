@@ -20,7 +20,7 @@ Because Yumma CSS does not use a configuration-based token system or support arb
 
 ## Component slots
 
-Most Yumma UI components are built using **Base UI**, which provides a clear "slot" system for deep customization. This allows you to style every single part of a component independently.
+Most Yumma UI components are built using [Base UI](https://base-ui.com), which provides a clear "slot" system for deep customization. This allows you to style every single part of a component independently.
 
 For example, in a Dialog component, you might have slots for the `Backdrop`, `Content`, and `Close` button:
 
@@ -49,13 +49,16 @@ import { defineConfig } from "yummacss";
 export default defineConfig({
   theme: {
     colors: {
-      purple: "#9333EA",
+      purple: "#9333EA", // add 'purple' as a new color
     },
+    percentage: {
+      light: 16, // mix 16% of white for lighter color shades
+      dark: 16, // mix 16% of black for darker color shades
+    }
   },
 });
 ```
 
-Now you can use `bg-purple-5` or `c-purple-5` directly in your components!
 
 ## Variant management
 
