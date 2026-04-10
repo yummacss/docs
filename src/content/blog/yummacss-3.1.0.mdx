@@ -17,13 +17,13 @@ Yumma CSS v3.1.0 adds support for focus & active pseudo-class variants compatibl
 
 Apply styles to elements that receive focus using the `f:` prefix, improving form & button accessibility.
 
-<Preview>
-  <button className="d-14 px-4 py-2 bg-indigo h:bg-indigo-7 f:oc-indigo-5 f:oo-2 f:os-s f:ow-2"></button>
+<Preview className="br-sm">
+  <button className="w-14 h-14 px-4 py-2 bg-indigo h:bg-indigo-7 f:oc-indigo-5 f:oo-2 f:os-s f:ow-2"></button>
 </Preview>
 
 ```html "f:oc-indigo-5 f:oo-2 f:os-s f:ow-2"
 <button
-  class="d-14 px-4 py-2 bg-indigo h:bg-indigo-7 f:oc-indigo-5 f:oo-2 f:os-s f:ow-2"
+  class="w-14 h-14 px-4 py-2 bg-indigo h:bg-indigo-7 f:oc-indigo-5 f:oo-2 f:os-s f:ow-2"
 ></button>
 ```
 
@@ -31,12 +31,12 @@ Apply styles to elements that receive focus using the `f:` prefix, improving for
 
 The `a:` prefix styles elements during interaction, perfect for button feedback & touch interactions.
 
-<Preview>
-  <div className="d-14 px-4 py-2 bg-indigo a:bg-indigo-9"></div>
+<Preview className="br-sm">
+  <div className="w-14 h-14 px-4 py-2 bg-indigo a:bg-indigo-9"></div>
 </Preview>
 
 ```html "a:bg-indigo-9"
-<div class="d-14 px-4 py-2 bg-indigo a:bg-indigo-9"></div>
+<div class="w-14 h-14 px-4 py-2 bg-indigo a:bg-indigo-9"></div>
 ```
 
 ---
@@ -44,12 +44,6 @@ The `a:` prefix styles elements during interaction, perfect for button feedback 
 ## Legacy CSS
 
 Legacy `yumma.css` & `yumma.min.css` files are removed from the distribution directory for performance & optimization.
-
-### Migration
-
-If using the Yumma CSS CLI, this is not a breaking change. However, if importing CSS files directly, migration is required.
-
-Learn more in the [upgrade guide](/docs/upgrading).
 
 ---
 

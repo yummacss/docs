@@ -50,12 +50,6 @@ Style `::before`, `::after`, `::selection`, & `::placeholder` directly.
 
 The `s::*` variant customizes text selection styling:
 
-<Preview>
-  <p className="c-black s::bg-indigo-4 s::c-white">
-    Select this text to see custom selection colors!
-  </p>
-</Preview>
-
 ```html "s::bg-indigo" "s::c-white"
 <p class="c-black s::bg-indigo-4 s::c-white">
   Select this text to see custom selection colors!
@@ -63,13 +57,6 @@ The `s::*` variant customizes text selection styling:
 ```
 
 The `p::*` variant styles placeholder text:
-
-<Preview>
-  <input
-    className="p-3 w-full bc-red-4 bw-1 br-0 p::c-red-4 p::fs-i"
-    placeholder="I said, enter your email!"
-  />
-</Preview>
 
 ```html "p::c-red-4" "p::fs-i"
 <input
@@ -82,12 +69,6 @@ The `p::*` variant styles placeholder text:
 
 New `fv:*` for `:focus-visible` & `fw:*` for `:focus-within` variants.
 
-<Preview>
-  <button className="p-px bg-indigo c-white br-0 fv:ow-2 fv:oc-indigo">
-    Focus with keyboard
-  </button>
-</Preview>
-
 ```html "fv:ow-2" "fv:oc-indigo"
 <button class="p-px bg-indigo c-white br-0 fv:ow-2 fv:oc-indigo">
   Focus with keyboard
@@ -95,12 +76,6 @@ New `fv:*` for `:focus-visible` & `fw:*` for `:focus-within` variants.
 ```
 
 The `fw:*` variant targets containers when a child has focus:
-
-<Preview>
-  <div className="p-px bc-silver bw-2 br-0 fw:bc-indigo">
-    <input className="p-2 bc-silver br-0 bw-1" placeholder="Focus me" />
-  </div>
-</Preview>
 
 ```html "fw:bc-indigo"
 <div class="p-px bc-silver bw-2 br-0 fw:bc-indigo">
@@ -111,12 +86,6 @@ The `fw:*` variant targets containers when a child has focus:
 ## Touch Device Support
 
 The `pc:*` media query variant targets devices with coarse pointer input.
-
-<Preview>
-  <button className="p-px bg-indigo c-white br-0 pc:p-6">
-    Larger padding on touch devices
-  </button>
-</Preview>
 
 ```html "pc:p-6"
 <button class="p-px bg-indigo c-white br-0 pc:p-6">
@@ -162,15 +131,9 @@ New `t-tx-(value)` & `t-ty-(value)` utilities simplify horizontal & vertical cen
 
 The `auto` value is supported for `b-(value)`, `i-(value)`, `ix-(value)`, `iy-(value)`, `l-(value)`, `r-(value)`, & `t-(value)` utilities.
 
-<Preview>
-  <div className="p-r">
-    <div className="d-14 l-auto r-auto p-auto bg-indigo"></div>
-  </div>
-</Preview>
-
 ```html "l-auto" "r-auto"
 <div class="p-r">
-  <div class="d-14 l-auto r-auto p-auto bg-indigo"></div>
+  <div class="l-auto r-auto w-14 h-14 p-auto bg-indigo"></div>
 </div>
 ```
 
@@ -178,42 +141,10 @@ The `auto` value is supported for `b-(value)`, `i-(value)`, `ix-(value)`, `iy-(v
 
 Negative values are supported via the `--` syntax.
 
-<Preview>
-  <div className="d-f jc-c c-white fs-sm">
-    <div className="d-14 d-f ai-c jc-c ml--2 bg-indigo bc-indigo-2/50 br-pill bw-2">
-      A
-    </div>
-    <div className="d-14 d-f ai-c jc-c ml--2 bg-indigo bc-indigo-2/50 br-pill bw-2">
-      B
-    </div>
-    <div className="d-14 d-f ai-c jc-c ml--2 bg-indigo bc-indigo-2/50 br-pill bw-2">
-      C
-    </div>
-    <div className="d-14 d-f ai-c jc-c ml--2 bg-indigo bc-indigo-2/50 br-pill bw-2">
-      D
-    </div>
-    <div className="d-14 d-f ai-c jc-c ml--2 bg-indigo bc-indigo-2/50 br-pill bw-2">
-      E
-    </div>
-  </div>
-</Preview>
-
 ```html "ml--2"
 <div class="d-f jc-c c-white fs-sm">
-  <div class="d-14 d-f ai-c jc-c ml--2 bg-indigo bc-indigo-2/50 br-pill bw-2">
+  <div class="d-f ai-c jc-c w-14 h-14 ml--2 bg-indigo bc-indigo-2/50 br-pill bw-2">
     A
-  </div>
-  <div class="d-14 d-f ai-c jc-c ml--2 bg-indigo bc-indigo-2/50 br-pill bw-2">
-    B
-  </div>
-  <div class="d-14 d-f ai-c jc-c ml--2 bg-indigo bc-indigo-2/50 br-pill bw-2">
-    C
-  </div>
-  <div class="d-14 d-f ai-c jc-c ml--2 bg-indigo bc-indigo-2/50 br-pill bw-2">
-    D
-  </div>
-  <div class="d-14 d-f ai-c jc-c ml--2 bg-indigo bc-indigo-2/50 br-pill bw-2">
-    E
   </div>
 </div>
 ```
