@@ -8,8 +8,8 @@ export const meta = {
 By default, all base utilities support responsive variants. Use breakpoints like `sm:*`, `md:*`, `lg:*`, `xl:*` & `xxl:*` to apply specific rules to different screen sizes.
 
 ```html ins={2} del={1}
-<h1 className="... sm:ta-c">Good evening!</h1>
-<h1 className="ta-c ... sm:ta-l">Good evening!</h1>
+<h1 className="… sm:ta-c">Good evening!</h1>
+<h1 className="ta-c … sm:ta-l">Good evening!</h1>
 ```
 
 Yumma CSS breakpoints reference:
@@ -56,11 +56,11 @@ Resize your browser window to see how these elements respond to viewport width.
 <Preview registryId="media-queries-base" className="mb-2 br-md" />
 
 ```tsx "sm:d-b" "md:d-b" "lg:d-b" "xl:d-b" "xxl:d-b"
-<p className="d-b ... sm:d-none">Small screen</p>
-<p className="d-none md:d-none ... sm:d-b">Medium screen</p>
-<p className="d-none lg:d-none ... md:d-b">Large screen</p>
-<p className="d-none xl:d-none ... lg:d-b">Extra large screen</p>
-<p className="d-none ... xxl:d-b">Double extra large screen</p>
+<p className="d-b … sm:d-none">Small screen</p>
+<p className="d-none md:d-none … sm:d-b">Medium screen</p>
+<p className="d-none lg:d-none … md:d-b">Large screen</p>
+<p className="d-none xl:d-none … lg:d-b">Extra large screen</p>
+<p className="d-none … xxl:d-b">Double extra large screen</p>
 ```
 
 ## Touch Devices
