@@ -2181,6 +2181,10 @@ summary {
   transition-timing-function: ease-in-out;
 }
 
+.tuo-2 {
+  text-underline-offset: 2px;
+}
+
 .tw-b {
   text-wrap: balance;
 }
