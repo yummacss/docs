@@ -27,7 +27,7 @@ export default function MenubarStatic() {
               <Menu.Item className={itemClass}>New project</Menu.Item>
               <Menu.Item className={itemClass}>Open file</Menu.Item>
               <Menu.Item className={itemClass}>Save</Menu.Item>
-              <Menu.Separator className="mx-4 my-1 h-px bg-silver-2" />
+              <Menu.Separator className="mx-0 my-1 h-px bg-silver-2" />
               <Menu.Item className={itemClass}>Print</Menu.Item>
             </Menu.Popup>
           </Menu.Positioner>
@@ -49,7 +49,7 @@ export default function MenubarStatic() {
             <Menu.Popup className="py-1 bg-white bc-silver-2 c-slate-10 br-md bw-1 bs-o-lg">
               <Menu.Item className={itemClass}>Undo action</Menu.Item>
               <Menu.Item className={itemClass}>Redo action</Menu.Item>
-              <Menu.Separator className="mx-4 my-1 h-px bg-silver-2" />
+              <Menu.Separator className="mx-0 my-1 h-px bg-silver-2" />
               <Menu.Item className={itemClass}>Cut selection</Menu.Item>
               <Menu.Item className={itemClass}>Copy text</Menu.Item>
               <Menu.Item className={itemClass}>Paste content</Menu.Item>
@@ -73,7 +73,7 @@ export default function MenubarStatic() {
             <Menu.Popup className="py-1 bg-white bc-silver-2 c-slate-10 br-md bw-1 bs-o-lg">
               <Menu.Item className={itemClass}>Zoom in</Menu.Item>
               <Menu.Item className={itemClass}>Zoom out</Menu.Item>
-              <Menu.Separator className="mx-4 my-1 h-px bg-silver-2" />
+              <Menu.Separator className="mx-0 my-1 h-px bg-silver-2" />
               <Menu.Item className={itemClass}>Full screen</Menu.Item>
             </Menu.Popup>
           </Menu.Positioner>

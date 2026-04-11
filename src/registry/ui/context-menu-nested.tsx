@@ -56,7 +56,7 @@ export default function ContextMenuNested() {
                   Duplicate
                 </ContextMenu.Item>
 
-                <ContextMenu.Separator className="mx-4 my-1 h-px bg-silver-2" />
+                <ContextMenu.Separator className="mx-0 my-1 h-px bg-silver-2" />
 
                 <ContextMenu.SubmenuRoot>
                   <ContextMenu.SubmenuTrigger
@@ -103,7 +103,7 @@ export default function ContextMenuNested() {
                   </ContextMenu.Portal>
                 </ContextMenu.SubmenuRoot>
 
-                <ContextMenu.Separator className="mx-4 my-1 h-px bg-silver-2" />
+                <ContextMenu.Separator className="mx-0 my-1 h-px bg-silver-2" />
 
                 <ContextMenu.Item
                   className={(state) =>

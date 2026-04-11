@@ -1661,12 +1661,12 @@ summary {
   margin-top: 2rem;
 }
 
-.mx-1 {
-  margin-inline: .25rem;
+.mx-0 {
+  margin-inline: 0;
 }
 
-.mx-4 {
-  margin-inline: 1rem;
+.mx-1 {
+  margin-inline: .25rem;
 }
 
 .mx-auto {
