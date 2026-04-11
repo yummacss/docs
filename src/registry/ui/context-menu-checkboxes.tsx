@@ -88,7 +88,7 @@ export default function ContextMenuCheckboxes() {
                   Sort ascending
                 </ContextMenu.CheckboxItem>
 
-                <ContextMenu.Separator className="mx-4 my-1 h-px bg-silver-2" />
+                <ContextMenu.Separator className="mx-0 my-1 h-px bg-silver-2" />
 
                 <ContextMenu.CheckboxItem
                   checked={preview}

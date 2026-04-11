@@ -66,7 +66,7 @@ export default function ContextMenuIcons() {
                   Paste
                 </ContextMenu.Item>
 
-                <ContextMenu.Separator className="mx-4 my-1 h-px bg-silver-2" />
+                <ContextMenu.Separator className="mx-0 my-1 h-px bg-silver-2" />
 
                 <ContextMenu.Item
                   className={(state) =>
@@ -89,7 +89,7 @@ export default function ContextMenuIcons() {
                   Undo
                 </ContextMenu.Item>
 
-                <ContextMenu.Separator className="mx-4 my-1 h-px bg-silver-2" />
+                <ContextMenu.Separator className="mx-0 my-1 h-px bg-silver-2" />
 
                 <ContextMenu.Item
                   className={(state) =>
