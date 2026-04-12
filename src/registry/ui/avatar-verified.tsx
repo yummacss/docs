@@ -16,7 +16,7 @@ export default function AvatarVerified() {
               {member.initials}
             </Avatar.Fallback>
           </Avatar.Root>
-          <span className="d-f p-a b-0 r-0 ai-c jc-c w-5 h-5 bg-white bc-white br-pill bw-2">
+          <span className="d-f p-a b-0 r-0 ai-c jc-c w-4 h-4 bg-white bc-white br-pill bw-1">
             <CircleCheckFill className="c-indigo" />
           </span>
         </div>
