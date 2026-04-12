@@ -62,21 +62,21 @@ export default function AccordionMultiple() {
 
 const faqs = [
   {
-    value: "account",
-    title: "How do I create an account?",
+    value: "timeout",
+    title: "How do I timeout a member?",
     content:
-      "Click the 'Sign Up' button in the top right corner. Enter your email, create a password, and verify your email address.",
+      "Right-click a member in the member list, select Timeout, and choose the duration (1 min to 28 days).",
   },
   {
-    value: "security",
-    title: "Is my data secure?",
+    value: "ban",
+    title: "How do I ban someone?",
     content:
-      "Yes. We use industry-standard encryption, regular security audits, and comply with GDPR and SOC 2 standards.",
+      "Right-click a user and select Ban. They will be permanently removed from the server.",
   },
   {
-    value: "export",
-    title: "Can I export my data?",
+    value: "warnings",
+    title: "How do I manage warnings?",
     content:
-      "Absolutely. Export your data anytime in CSV, JSON, or PDF format from your account settings.",
+      "Use a moderation bot to track warnings. Configure auto-moderation rules to kick or ban after X warnings.",
   },
 ];

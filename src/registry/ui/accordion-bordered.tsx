@@ -63,21 +63,21 @@ export default function AccordionBordered() {
 
 const faqs = [
   {
-    value: "account",
-    title: "How do I create an account?",
+    value: "visibility",
+    title: "Who can see my messages?",
     content:
-      "Click the 'Sign Up' button in the top right corner. Enter your email, create a password, and verify your email address.",
+      "Go to Privacy & Safety > Message Delivery to choose who can send you direct messages.",
   },
   {
-    value: "security",
-    title: "Is my data secure?",
+    value: "blocking",
+    title: "How do I block someone?",
     content:
-      "Yes. We use industry-standard encryption, regular security audits, and comply with GDPR and SOC 2 standards.",
+      "Open a user's profile, click the three dots, and select Block. They won't be able to message or mention you.",
   },
   {
-    value: "export",
-    title: "Can I export my data?",
+    value: "status",
+    title: "How do I hide my online status?",
     content:
-      "Absolutely. Export your data anytime in CSV, JSON, or PDF format from your account settings.",
+      "Go to User Settings > Privacy > Activity and disable 'Show current games' and 'Show online status'.",
   },
 ];

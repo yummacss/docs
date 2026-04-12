@@ -70,21 +70,21 @@ export default function AccordionSubtle() {
 
 const faqs = [
   {
-    value: "account",
-    title: "How do I create an account?",
+    value: "mute",
+    title: "How do I mute a channel?",
     content:
-      "Click the 'Sign Up' button in the top right corner. Enter your email, create a password, and verify your email address.",
+      "Right-click a channel and select Mute. You won't receive notifications for that channel.",
   },
   {
-    value: "security",
-    title: "Is my data secure?",
+    value: "notifications",
+    title: "How do I change notification settings?",
     content:
-      "Yes. We use industry-standard encryption, regular security audits, and comply with GDPR and SOC 2 standards.",
+      "Click the bell icon at the top of a channel to choose All Messages, Mentions Only, or Nothing.",
   },
   {
-    value: "export",
-    title: "Can I export my data?",
+    value: "theme",
+    title: "How do I enable dark mode?",
     content:
-      "Absolutely. Export your data anytime in CSV, JSON, or PDF format from your account settings.",
+      "Press Ctrl+Shift+G or click User Settings > Appearance > Theme > Dark.",
   },
 ];
