@@ -34,11 +34,7 @@ export default function CollapsibleBase() {
             animate={
               open ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }
             }
-            transition={{
-              type: "spring",
-              stiffness: 500,
-              damping: 30,
-            }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
             className="d-b o-h"
           />
         )}

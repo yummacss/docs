@@ -29,7 +29,7 @@ export default function DialogSettings() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                  transition={{ duration: 0.2, ease: "easeOut" }}
                 />
               }
               className="p-f i-0 min-h-dvh bg-black/20"
