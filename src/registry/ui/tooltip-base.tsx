@@ -20,7 +20,7 @@ export default function TooltipBase() {
                     initial={{ opacity: 0, y: 4 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 4 }}
-                    transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                    transition={{ duration: 0.2, ease: "easeOut" }}
                   />
                 }
                 className="px-3 py-2 bg-slate-12 c-white br-sm fs-sm bs-o-sm us-none"

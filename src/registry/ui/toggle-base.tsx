@@ -20,7 +20,7 @@ export default function ToggleBase() {
           type="button"
           {...(props as any)}
           whileTap={{ scale: 0.9 }}
-          transition={{ type: "spring", stiffness: 800, damping: 35 }}
+          transition={{ duration: 0.2, ease: "easeOut" }}
         >
           {state.pressed ? (
             <PauseFill className="w-5 h-5" />
