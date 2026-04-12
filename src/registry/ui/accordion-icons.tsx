@@ -66,21 +66,21 @@ export default function AccordionIcons() {
 
 const faqs = [
   {
-    value: "account",
-    title: "How do I create an account?",
+    value: "bot",
+    title: "How do I add a bot?",
     content:
-      "Click the 'Sign Up' button in the top right corner. Enter your email, create a password, and verify your email address.",
+      "Visit the bot's webpage and click Add to Server. Authorize it in the server you manage.",
   },
   {
-    value: "security",
-    title: "Is my data secure?",
+    value: "webhook",
+    title: "How do I set up webhooks?",
     content:
-      "Yes. We use industry-standard encryption, regular security audits, and comply with GDPR and SOC 2 standards.",
+      "Go to Server Settings > Integrations > Webhooks to create and manage outgoing webhooks.",
   },
   {
-    value: "export",
-    title: "Can I export my data?",
+    value: "commands",
+    title: "How do I create custom commands?",
     content:
-      "Absolutely. Export your data anytime in CSV, JSON, or PDF format from your account settings.",
+      "Enable a bot with command features, then use '/' followed by the command name.",
   },
 ];

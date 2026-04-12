@@ -42,21 +42,21 @@ export default function AccordionStatic() {
 
 const faqs = [
   {
-    value: "account",
-    title: "How do I create an account?",
+    value: "username",
+    title: "How do I change my username?",
     content:
-      "Click the 'Sign Up' button in the top right corner. Enter your email, create a password, and verify your email address.",
+      "Go to User Settings > Account > Username and enter your new username. It must be unique across the platform.",
   },
   {
-    value: "security",
-    title: "Is my data secure?",
+    value: "status",
+    title: "How do I set my status message?",
     content:
-      "Yes. We use industry-standard encryption, regular security audits, and comply with GDPR and SOC 2 standards.",
+      "Click your avatar in the bottom left and select a status emoji or type a custom message.",
   },
   {
-    value: "export",
-    title: "Can I export my data?",
+    value: "avatar",
+    title: "How can I customize my profile picture?",
     content:
-      "Absolutely. Export your data anytime in CSV, JSON, or PDF format from your account settings.",
+      "Navigate to User Settings > Profile > Avatar and upload a new image up to 2MB in size.",
   },
 ];

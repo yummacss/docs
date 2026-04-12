@@ -70,21 +70,21 @@ export default function AccordionGhost() {
 
 const faqs = [
   {
-    value: "account",
-    title: "How do I create an account?",
+    value: "server",
+    title: "How do I create a server?",
     content:
-      "Click the 'Sign Up' button in the top right corner. Enter your email, create a password, and verify your email address.",
+      "Click the plus icon next to your servers and select 'Create My Own'. Choose a name and customize the icon.",
   },
   {
-    value: "security",
-    title: "Is my data secure?",
+    value: "invite",
+    title: "How do I invite friends?",
     content:
-      "Yes. We use industry-standard encryption, regular security audits, and comply with GDPR and SOC 2 standards.",
+      "Go to Server Settings > Invite People and create a permanent invite link to share.",
   },
   {
-    value: "export",
-    title: "Can I export my data?",
+    value: "roles",
+    title: "How do I manage member roles?",
     content:
-      "Absolutely. Export your data anytime in CSV, JSON, or PDF format from your account settings.",
+      "Go to Server Settings > Roles to create, edit, and assign roles with custom permissions.",
   },
 ];
