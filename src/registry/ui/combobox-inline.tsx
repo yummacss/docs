@@ -13,7 +13,7 @@ function ItemIcon({ selected }: { selected: boolean }) {
 
 export default function ComboboxInline() {
   return (
-    <div className="d-f o-h fd-c g-0 w-64 bg-white bc-silver-3 bw-1 br-xl">
+    <div className="d-f o-h fd-c g-0 w-64 bg-white bc-silver-3 bw-1 br-lg">
       <Combobox.Root inline items={users}>
         <div className="d-f ai-c g-2 px-3 bc-silver-3 bbw-1">
           <Magnifier className="fs-0 w-4 h-4 c-slate-4" />
