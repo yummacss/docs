@@ -60,7 +60,7 @@ export default function CollapsibleBordered() {
                   <span className="fs-xs c-slate-6">@{user.handle}</span>
                 </div>
               </div>
-              <Button className="d-f ai-c jc-c h-7 px-3 bg-indigo c-white br-pill fs-xs fw-600 tp-c tdu-150 ttf-io us-none fv:os-s fv:ow-2 fv:oo-2 fv:oc-white h:bg-indigo-8">
+              <Button className="d-f ai-c jc-c h-7 px-3 bg-indigo c-white br-pill fs-xs fw-600 tp-c tdu-150 ttf-io us-none fv:bg-indigo-8 h:bg-indigo-8">
                 Follow
               </Button>
             </div>
