@@ -539,6 +539,10 @@ summary {
   border-radius: 0.25rem;
 }
 
+.br-xl {
+  border-radius: 0.75rem;
+}
+
 .brr-md {
   border-top-right-radius: 0.375rem;
   border-bottom-right-radius: 0.375rem;
@@ -667,10 +671,6 @@ summary {
 
 .c-indigo-9 {
   color: #393b8c;
-}
-
-.c-lime {
-  color: #84cc16;
 }
 
 .c-mauve {
@@ -1129,6 +1129,10 @@ summary {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+.gtc-6 {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
 .h-10 {
   height: 2.5rem;
 }
@@ -1497,6 +1501,10 @@ summary {
   max-width: 16rem;
 }
 
+.max-w-72 {
+  max-width: 18rem;
+}
+
 .max-w-96 {
   max-width: 24rem;
 }
@@ -1673,6 +1681,10 @@ summary {
   margin-inline: .25rem;
 }
 
+.mx-3 {
+  margin-inline: .75rem;
+}
+
 .mx-auto {
   margin-inline: auto;
 }
@@ -1829,10 +1841,6 @@ summary {
   font-style: italic;
 }
 
-.pb-1 {
-  padding-bottom: .25rem;
-}
-
 .pb-12 {
   padding-bottom: 3rem;
 }
@@ -1903,10 +1911,6 @@ summary {
 
 .pt-14 {
   padding-top: 3.5rem;
-}
-
-.pt-2 {
-  padding-top: .5rem;
 }
 
 .pt-3 {

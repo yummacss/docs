@@ -1,6 +1,7 @@
 "use client";
 
 import { Autocomplete } from "@base-ui/react/autocomplete";
+import { Hashtag, Volume, Lock } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import * as React from "react";
 
@@ -8,15 +9,19 @@ export default function AutocompleteGrouped() {
   const [open, setOpen] = React.useState(false);
 
   return (
-    <Autocomplete.Root items={TECH_GROUPS} open={open} onOpenChange={setOpen}>
+    <Autocomplete.Root
+      items={CHANNEL_GROUPS}
+      open={open}
+      onOpenChange={setOpen}
+    >
       <div className="d-f fd-c g-2">
         <label htmlFor="grouped-input" className="c-slate-10 fs-sm fw-600">
-          Technology
+          Search channels
         </label>
         <Autocomplete.Input
           id="grouped-input"
-          placeholder="e.g. React"
-          className="h-10 w-64 pl-4 bg-white bc-silver-3 c-slate-12 bw-1 br-md fs-md fv:os-s fv:ow-2 fv:oo--1 fv:oc-indigo-6"
+          placeholder="e.g. general"
+          className="h-10 w-64 pl-4 bg-white bc-silver-3 c-slate-12 bw-1 br-lg fs-md fv:os-s fv:ow-2 fv:oo--1 fv:oc-indigo-6"
         />
       </div>
 
@@ -33,14 +38,11 @@ export default function AutocompleteGrouped() {
                     transition={{ duration: 0.1, ease: "easeOut" }}
                   />
                 }
-                className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-md bs-o-lg"
+                className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-lg"
               >
                 <Autocomplete.List className="oy-auto max-h-72 py-1 ow-0">
-                  {(group: TechGroup) => (
+                  {(group: ChannelGroup, groupIndex) => (
                     <Autocomplete.Group key={group.value}>
-                      <Autocomplete.GroupLabel className="px-3 pt-2 pb-1 c-slate-8 fs-xs fw-600 tt-u ls-4">
-                        {group.value}
-                      </Autocomplete.GroupLabel>
                       {group.items.map((item) => (
                         <Autocomplete.Item
                           key={item}
@@ -48,17 +50,29 @@ export default function AutocompleteGrouped() {
                           render={(props, state) => (
                             <div
                               {...props}
-                              className={`py-2 px-3 fs-sm us-none c-d c-p br-sm mx-1 c-slate-10 ${
+                              className={`d-f ai-c g-2 py-2 px-3 fs-sm us-none c-d c-p br-lg mx-1 c-slate-10 ${
                                 state.highlighted
                                   ? "bg-silver-1"
                                   : "h:bg-silver-1"
                               }`}
                             >
-                              {item}
+                              {group.value === "Text Channels" && (
+                                <Hashtag className="w-4 h-4 c-slate-6" />
+                              )}
+                              {group.value === "Voice Channels" && (
+                                <Volume className="w-4 h-4 c-slate-6" />
+                              )}
+                              {group.value === "Private" && (
+                                <Lock className="w-4 h-4 c-slate-6" />
+                              )}
+                              <span className="fw-600">{item}</span>
                             </div>
                           )}
                         />
                       ))}
+                      {groupIndex < CHANNEL_GROUPS.length - 1 && (
+                        <div className="my-2 mx-3 h-px bg-silver-2" />
+                      )}
                     </Autocomplete.Group>
                   )}
                 </Autocomplete.List>
@@ -74,22 +88,22 @@ export default function AutocompleteGrouped() {
   );
 }
 
-interface TechGroup {
+interface ChannelGroup {
   value: string;
   items: string[];
 }
 
-const TECH_GROUPS: TechGroup[] = [
+const CHANNEL_GROUPS: ChannelGroup[] = [
   {
-    value: "Frontend",
-    items: ["React", "Vue", "Svelte", "Angular", "Solid"],
+    value: "Text Channels",
+    items: ["general", "announcements", "memes", "music", "gaming"],
   },
   {
-    value: "Backend",
-    items: ["Node.js", "Deno", "Bun", "Django", "Rails"],
+    value: "Voice Channels",
+    items: ["Main Stage", "Gaming Lounge", "Study Room", "Music Jam"],
   },
   {
-    value: "Database",
-    items: ["PostgreSQL", "MySQL", "SQLite", "MongoDB", "Redis"],
+    value: "Private",
+    items: ["mod-chat", "admin-only"],
   },
 ];
