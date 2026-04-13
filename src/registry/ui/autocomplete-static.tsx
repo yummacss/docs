@@ -57,7 +57,7 @@ export default function AutocompleteStatic() {
               )}
             </Autocomplete.List>
             <Autocomplete.Empty className="c-slate-6 fs-sm">
-              <div className="py-4 px-4">No users found.</div>
+              <div className="pt-2 pb-3 px-4">No users found.</div>
             </Autocomplete.Empty>
           </Autocomplete.Popup>
         </Autocomplete.Positioner>
