@@ -1,5 +1,7 @@
 "use client";
 
+import { Avatar } from "@base-ui/react/avatar";
+import { Button } from "@base-ui/react/button";
 import { Collapsible } from "@base-ui/react/collapsible";
 import { ChevronRight } from "@gravity-ui/icons";
 import { type HTMLMotionProps, motion } from "motion/react";
@@ -12,7 +14,7 @@ export default function CollapsibleBase() {
     <Collapsible.Root
       open={open}
       onOpenChange={setOpen}
-      className="d-f fd-c w-64 c-slate-10"
+      className="d-f fd-c w-72 c-slate-10"
     >
       <Collapsible.Trigger className="d-f b-0 ai-c g-2 px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fs-sm fw-600 c-p h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6">
         <motion.span
@@ -22,7 +24,7 @@ export default function CollapsibleBase() {
         >
           <ChevronRight className="w-3 h-3" />
         </motion.span>
-        {systemRequirements.title}
+        {whoToFollow.title}
       </Collapsible.Trigger>
 
       <Collapsible.Panel
@@ -39,9 +41,29 @@ export default function CollapsibleBase() {
           />
         )}
       >
-        <div className="d-f fd-c g-2 mt-1 py-3 px-4 bg-white bc-silver-2 br-md bw-1 fs-sm">
-          {systemRequirements.items.map((item) => (
-            <div key={item}>{item}</div>
+        <div className="d-f fd-c g-3 mt-1 py-3 px-3 bg-white bc-silver-2 br-md bw-1">
+          {whoToFollow.users.map((user) => (
+            <div key={user.name} className="d-f ai-c jc-sb">
+              <div className="d-f ai-c g-3">
+                <Avatar.Root className="d-if o-h ai-c jc-c w-8 h-8 br-pill va-m us-none bc-silver-3 bw-1">
+                  <Avatar.Image
+                    src={user.avatar}
+                    alt={user.name}
+                    className="of-c w-full h-full"
+                  />
+                  <Avatar.Fallback className="d-f ai-c jc-c w-full h-full c-slate-8 fs-xs">
+                    {user.name[0]}
+                  </Avatar.Fallback>
+                </Avatar.Root>
+                <div className="d-f fd-c g-0">
+                  <span className="fs-sm fw-600 c-slate-10">{user.name}</span>
+                  <span className="fs-xs c-slate-6">@{user.handle}</span>
+                </div>
+              </div>
+              <Button className="d-f ai-c jc-c h-7 px-3 bg-indigo c-white br-pill fs-xs fw-600 tp-c tdu-150 ttf-io us-none fv:os-s fv:ow-2 fv:oo-2 fv:oc-white h:bg-indigo-8">
+                Follow
+              </Button>
+            </div>
           ))}
         </div>
       </Collapsible.Panel>
@@ -49,7 +71,23 @@ export default function CollapsibleBase() {
   );
 }
 
-const systemRequirements = {
-  title: "System requirements",
-  items: ["Node.js 18 or later", "macOS, Windows, or Linux", "4GB RAM minimum"],
+const whoToFollow = {
+  title: "Who to follow",
+  users: [
+    {
+      name: "Sarah",
+      handle: "sarahc",
+      avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Sarah",
+    },
+    {
+      name: "Avery",
+      handle: "averyg",
+      avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Avery",
+    },
+    {
+      name: "Jude",
+      handle: "judem",
+      avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Jude",
+    },
+  ],
 };

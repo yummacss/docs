@@ -212,11 +212,6 @@ summary {
   border-bottom-left-radius: 1rem;
 }
 
-.bbr-lg {
-  border-bottom-right-radius: 0.5rem;
-  border-bottom-left-radius: 0.5rem;
-}
-
 .bbr-sm {
   border-bottom-right-radius: 0.25rem;
   border-bottom-left-radius: 0.25rem;

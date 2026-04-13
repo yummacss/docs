@@ -1,7 +1,9 @@
 "use client";
 
+import { Avatar } from "@base-ui/react/avatar";
+import { Button } from "@base-ui/react/button";
 import { Collapsible } from "@base-ui/react/collapsible";
-import { ChevronRight, CircleInfo, HardDrive } from "@gravity-ui/icons";
+import { ChevronRight, CircleCheckFill, PersonPlus } from "@gravity-ui/icons";
 import { type HTMLMotionProps, motion } from "motion/react";
 import * as React from "react";
 
@@ -12,22 +14,10 @@ export default function CollapsibleIcon() {
     <Collapsible.Root
       open={open}
       onOpenChange={setOpen}
-      className="d-f fd-c w-72 bg-white bc-silver-3 bw-1 br-lg"
+      className="d-f fd-c w-72 bg-white bc-silver-3 bw-1 br-lg o-h"
     >
-      <Collapsible.Trigger className="d-f b-0 ai-c jc-sb g-3 w-full px-4 py-3 bg-transparent ta-l c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6">
-        <div className="d-f ai-c g-3">
-          <span className="d-f ai-c jc-c w-8 h-8 br-md bg-silver-1 bc-silver-3 bw-1">
-            <HardDrive className="w-4 h-4 c-slate-6" />
-          </span>
-          <div className="d-f fd-c g-0">
-            <span className="fs-sm fw-600 c-slate-9">
-              {systemRequirements.header.title}
-            </span>
-            <span className="fs-xs c-slate-5">
-              {systemRequirements.header.description}
-            </span>
-          </div>
-        </div>
+      <Collapsible.Trigger className="d-f b-0 ai-c jc-sb g-2 w-full px-4 py-3 bg-transparent ta-l c-p h:bg-silver-1 bw-0">
+        <span className="fs-sm fw-600 c-slate-9">{whoToFollow.title}</span>
         <motion.span
           animate={{ rotate: open ? 90 : 0 }}
           transition={{ duration: 0.15, ease: "easeOut" }}
@@ -51,35 +41,63 @@ export default function CollapsibleIcon() {
           />
         )}
       >
-        <div className="d-f fd-c g-0 btw-1 bc-silver-3">
-          {systemRequirements.items.map((item) => (
-            <div
-              key={item.label}
-              className="d-f ai-c jc-sb px-4 py-3 bbw-1 bc-silver-2"
-            >
-              <span className="fs-xs fw-500 c-slate-7">{item.label}</span>
-              <span className="fs-xs fw-600 c-slate-8">{item.value}</span>
+        <div className="d-f fd-c g-3 px-4 py-3 btw-1 bc-silver-3">
+          {whoToFollow.users.map((user) => (
+            <div key={user.name} className="d-f ai-c jc-sb">
+              <div className="d-f ai-c g-3">
+                <div className="p-r">
+                  <Avatar.Root className="d-if o-h ai-c jc-c w-8 h-8 br-pill va-m us-none bc-silver-3 bw-1">
+                    <Avatar.Image
+                      src={user.avatar}
+                      alt={user.name}
+                      className="of-c w-full h-full"
+                    />
+                    <Avatar.Fallback className="d-f ai-c jc-c w-full h-full c-slate-8 fs-xs">
+                      {user.name[0]}
+                    </Avatar.Fallback>
+                  </Avatar.Root>
+                  {user.verified && (
+                    <span className="d-f p-a b-0 r-0 ai-c jc-c w-3 h-3 bg-white bc-white br-pill bw-1">
+                      <CircleCheckFill className="c-indigo" />
+                    </span>
+                  )}
+                </div>
+                <div className="d-f fd-c g-0">
+                  <span className="fs-sm fw-600 c-slate-10">{user.name}</span>
+                  <span className="fs-xs c-slate-6">@{user.handle}</span>
+                </div>
+              </div>
+              <Button className="d-f ai-c jc-c w-8 h-8 bg-indigo c-white br-pill  tp-c tdu-150 ttf-io us-none fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 h:bg-indigo-8">
+                <PersonPlus className="w-4 h-4" />
+              </Button>
             </div>
           ))}
-          <div className="d-f ai-c g-2 px-4 py-3 bg-silver-1 bbr-lg">
-            <CircleInfo className="w-3 h-3 c-slate-6 fs-0" />
-            <span className="fs-xs c-slate-7">{systemRequirements.footer}</span>
-          </div>
         </div>
       </Collapsible.Panel>
     </Collapsible.Root>
   );
 }
 
-const systemRequirements = {
-  header: {
-    title: "System requirements",
-    description: "View hardware & OS details",
-  },
-  items: [
-    { label: "Runtime", value: "Node.js 18 or later" },
-    { label: "Platform", value: "macOS, Windows, Linux" },
-    { label: "RAM", value: "4 GB minimum" },
+const whoToFollow = {
+  title: "Who to follow",
+  users: [
+    {
+      name: "Sarah",
+      handle: "sarahc",
+      avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Sarah",
+      verified: true,
+    },
+    {
+      name: "Avery",
+      handle: "averyg",
+      avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Avery",
+      verified: true,
+    },
+    {
+      name: "Jude",
+      handle: "judem",
+      avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Jude",
+      verified: false,
+    },
   ],
-  footer: "16 GB RAM recommended for large projects",
 };
