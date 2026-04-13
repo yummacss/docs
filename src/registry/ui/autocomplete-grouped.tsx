@@ -1,7 +1,7 @@
 "use client";
 
 import { Autocomplete } from "@base-ui/react/autocomplete";
-import { Hashtag, Volume, Lock } from "@gravity-ui/icons";
+import { Hashtag, Lock, Volume } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import * as React from "react";
 
