@@ -15,7 +15,7 @@ export default function CheckboxGroupBase() {
       className="d-f fd-c g-2 ai-fs c-slate-10"
     >
       <div className="fw-600 fs-sm" id={id}>
-        Notifications
+        Permissions
       </div>
 
       <label className="d-f ai-c g-2 fs-sm fw-600">
@@ -32,7 +32,7 @@ export default function CheckboxGroupBase() {
             <Check className="w-3 h-3" />
           </Checkbox.Indicator>
         </Checkbox.Root>
-        Email alerts
+        Kick members
       </label>
 
       <label className="d-f ai-c g-2 fs-sm fw-600">
@@ -49,7 +49,7 @@ export default function CheckboxGroupBase() {
             <Check className="w-3 h-3" />
           </Checkbox.Indicator>
         </Checkbox.Root>
-        SMS alerts
+        Ban members
       </label>
 
       <label className="d-f ai-c g-2 fs-sm fw-600">
@@ -66,7 +66,7 @@ export default function CheckboxGroupBase() {
             <Check className="w-3 h-3" />
           </Checkbox.Indicator>
         </Checkbox.Root>
-        Push notifications
+        Administrator
       </label>
     </CheckboxGroup>
   );

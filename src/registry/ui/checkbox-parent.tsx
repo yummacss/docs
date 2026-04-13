@@ -42,7 +42,7 @@ export default function CheckboxParent() {
             )}
           />
         </Checkbox.Root>
-        All permissions
+        Bot permissions
       </label>
 
       <div className="d-f fd-c g-2 ml-6">

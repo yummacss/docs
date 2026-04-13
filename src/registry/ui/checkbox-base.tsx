@@ -18,7 +18,7 @@ export default function CheckboxBase() {
           <Check className="w-3 h-3" />
         </Checkbox.Indicator>
       </Checkbox.Root>
-      Remember my preferences
+      I agree to the terms of service
     </label>
   );
 }

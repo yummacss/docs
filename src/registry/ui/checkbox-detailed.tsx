@@ -20,10 +20,10 @@ export default function CheckboxDetailed() {
               <Check className="w-3 h-3" />
             </Checkbox.Indicator>
           </Checkbox.Root>
-          Enable notifications
+          Manage channels
         </div>
         <span className="ml-6 c-slate-8 fs-xs">
-          Receive email updates about your account activity
+          Create, edit, or delete channels
         </span>
       </label>
 
@@ -40,10 +40,10 @@ export default function CheckboxDetailed() {
               <Check className="w-3 h-3" />
             </Checkbox.Indicator>
           </Checkbox.Root>
-          Marketing emails
+          Manage roles
         </div>
         <span className="ml-6 c-slate-8 fs-xs">
-          Get the latest news and special offers
+          Create, edit, or delete roles
         </span>
       </label>
     </div>

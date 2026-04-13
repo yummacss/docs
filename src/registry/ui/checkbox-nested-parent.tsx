@@ -7,9 +7,9 @@ import { useId, useState } from "react";
 
 export default function CheckboxNestedParent() {
   const analyticsId = useId();
-  const marketingId = useId();
+  const moderationId = useId();
   const [analyticsValue, setAnalyticsValue] = useState<string[]>([]);
-  const [marketingValue, setMarketingValue] = useState<string[]>([]);
+  const [moderationValue, setModerationValue] = useState<string[]>([]);
 
   return (
     <div className="d-f fd-c g-3 c-slate-10">
@@ -17,7 +17,7 @@ export default function CheckboxNestedParent() {
         aria-labelledby={analyticsId}
         value={analyticsValue}
         onValueChange={setAnalyticsValue}
-        allValues={analytics}
+        allValues={["read_messages", "send_messages"]}
         className="d-f fd-c g-2"
       >
         <label
@@ -48,13 +48,13 @@ export default function CheckboxNestedParent() {
               )}
             />
           </Checkbox.Root>
-          Analytics
+          General
         </label>
 
         <div className="d-f fd-c g-2 ml-6">
           <label className="d-f ai-c g-2 fs-sm fw-600">
             <Checkbox.Root
-              value="pageviews"
+              value="read_messages"
               className={(state) =>
                 `d-f w-4 h-4 ai-c jc-c br-sm fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
                   state.checked
@@ -67,12 +67,12 @@ export default function CheckboxNestedParent() {
                 <Check className="w-3 h-3" />
               </Checkbox.Indicator>
             </Checkbox.Root>
-            Page views
+            Read messages
           </label>
 
           <label className="d-f ai-c g-2 fs-sm fw-600">
             <Checkbox.Root
-              value="sessions"
+              value="send_messages"
               className={(state) =>
                 `d-f w-4 h-4 ai-c jc-c br-sm fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
                   state.checked
@@ -85,21 +85,21 @@ export default function CheckboxNestedParent() {
                 <Check className="w-3 h-3" />
               </Checkbox.Indicator>
             </Checkbox.Root>
-            Sessions
+            Send messages
           </label>
         </div>
       </CheckboxGroup>
 
       <CheckboxGroup
-        aria-labelledby={marketingId}
-        value={marketingValue}
-        onValueChange={setMarketingValue}
-        allValues={marketing}
+        aria-labelledby={moderationId}
+        value={moderationValue}
+        onValueChange={setModerationValue}
+        allValues={["kick_members", "ban_members"]}
         className="d-f fd-c g-2"
       >
-        <label className="d-f ai-c g-2 fs-sm fw-600" id={marketingId}>
+        <label className="d-f ai-c g-2 fs-sm fw-600" id={moderationId}>
           <Checkbox.Root
-            name="marketing"
+            name="moderation"
             parent
             className={(state) =>
               `d-f w-4 h-4 ai-c jc-c br-sm fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
@@ -122,13 +122,13 @@ export default function CheckboxNestedParent() {
               )}
             />
           </Checkbox.Root>
-          Marketing
+          Moderation
         </label>
 
         <div className="d-f fd-c g-2 ml-6">
           <label className="d-f ai-c g-2 fs-sm fw-600">
             <Checkbox.Root
-              value="campaigns"
+              value="kick_members"
               className={(state) =>
                 `d-f w-4 h-4 ai-c jc-c br-sm fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
                   state.checked
@@ -141,12 +141,12 @@ export default function CheckboxNestedParent() {
                 <Check className="w-3 h-3" />
               </Checkbox.Indicator>
             </Checkbox.Root>
-            Campaigns
+            Kick members
           </label>
 
           <label className="d-f ai-c g-2 fs-sm fw-600">
             <Checkbox.Root
-              value="newsletters"
+              value="ban_members"
               className={(state) =>
                 `d-f w-4 h-4 ai-c jc-c br-sm fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
                   state.checked
@@ -159,13 +159,10 @@ export default function CheckboxNestedParent() {
                 <Check className="w-3 h-3" />
               </Checkbox.Indicator>
             </Checkbox.Root>
-            Newsletters
+            Ban members
           </label>
         </div>
       </CheckboxGroup>
     </div>
   );
 }
-
-const analytics = ["pageviews", "sessions"];
-const marketing = ["campaigns", "newsletters"];
