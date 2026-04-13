@@ -1,13 +1,20 @@
 "use client";
 
+import { Avatar } from "@base-ui/react/avatar";
 import { Combobox } from "@base-ui/react/combobox";
 import { Check, Magnifier } from "@gravity-ui/icons";
 
-function ItemIcon({ selected }: { selected: boolean }) {
+function ItemIcon({
+  selected,
+  className = "",
+}: {
+  selected: boolean;
+  className?: string;
+}) {
   return selected ? (
-    <Check className="fs-0 w-4 h-4 c-indigo-6" />
+    <Check className={`fs-0 w-4 h-4 c-indigo-6 ${className}`} />
   ) : (
-    <Check className="fs-0 w-4 h-4 c-transparent" />
+    <Check className={`fs-0 w-4 h-4 c-transparent ${className}`} />
   );
 }
 
@@ -23,10 +30,10 @@ export default function ComboboxInline() {
           />
         </div>
         <Combobox.List className="oy-auto py-1 max-h-52">
-          {(user: string) => (
+          {(user: User) => (
             <Combobox.Item
-              key={user}
-              value={user}
+              key={user.handle}
+              value={user.handle}
               render={(props, state) => (
                 <div
                   {...props}
@@ -34,8 +41,19 @@ export default function ComboboxInline() {
                     state.highlighted ? "bg-silver-1" : "h:bg-silver-1"
                   }`}
                 >
-                  <ItemIcon selected={state.selected} />
-                  <span className="fg-1">@{user}</span>
+                  <Avatar.Root className="d-if o-h ai-c jc-c w-6 h-6 br-pill us-none bc-silver-3 bw-1">
+                    <Avatar.Image
+                      src={user.avatar}
+                      alt={user.name}
+                      className="of-c w-full h-full"
+                    />
+                    <Avatar.Fallback className="d-f ai-c jc-c w-full h-full c-slate-8 fs-xs">
+                      {user.name[0]}
+                    </Avatar.Fallback>
+                  </Avatar.Root>
+                  <span className="fg-1">{user.name}</span>
+                  <span className="c-slate-6 fw-400">@{user.handle}</span>
+                  <ItemIcon selected={state.selected} className="ml-auto" />
                 </div>
               )}
             />
@@ -46,15 +64,61 @@ export default function ComboboxInline() {
   );
 }
 
-const users = [
-  "sarahc",
-  "averyg",
-  "judem",
-  "leok",
-  "rileyb",
-  "adrianm",
-  "jessicam",
-  "aidenw",
-  "liamj",
-  "mariav",
+interface User {
+  name: string;
+  handle: string;
+  avatar: string;
+}
+
+const users: User[] = [
+  {
+    name: "Sarah",
+    handle: "sarahc",
+    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Sarah",
+  },
+  {
+    name: "Avery",
+    handle: "averyg",
+    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Avery",
+  },
+  {
+    name: "Jude",
+    handle: "judem",
+    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Jude",
+  },
+  {
+    name: "Leo",
+    handle: "leok",
+    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Leo",
+  },
+  {
+    name: "Riley",
+    handle: "rileyb",
+    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Riley",
+  },
+  {
+    name: "Adrian",
+    handle: "adrianm",
+    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Adrian",
+  },
+  {
+    name: "Jessica",
+    handle: "jessicam",
+    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Jessica",
+  },
+  {
+    name: "Aiden",
+    handle: "aidenw",
+    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Aiden",
+  },
+  {
+    name: "Liam",
+    handle: "liamj",
+    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Liam",
+  },
+  {
+    name: "Maria",
+    handle: "mariav",
+    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Maria",
+  },
 ];

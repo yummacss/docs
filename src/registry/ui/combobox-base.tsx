@@ -1,5 +1,6 @@
 "use client";
 
+import { Avatar } from "@base-ui/react/avatar";
 import { Combobox } from "@base-ui/react/combobox";
 import { Check, ChevronDown, Xmark } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
@@ -63,10 +64,21 @@ export default function ComboboxBase() {
                         }`
                       }
                     >
-                      <Combobox.ItemIndicator className="d-f c-indigo">
+                      <Avatar.Root className="d-if o-h ai-c jc-c w-6 h-6 br-pill us-none bc-silver-3 bw-1">
+                        <Avatar.Image
+                          src={user.avatar}
+                          alt={user.name}
+                          className="of-c w-full h-full"
+                        />
+                        <Avatar.Fallback className="d-f ai-c jc-c w-full h-full c-slate-8 fs-xs">
+                          {user.name[0]}
+                        </Avatar.Fallback>
+                      </Avatar.Root>
+                      <span className="fg-1">{user.name}</span>
+                      <span className="c-slate-6 fw-400">@{user.handle}</span>
+                      <Combobox.ItemIndicator className="d-f c-indigo ml-auto">
                         <Check className="w-3 h-3" />
                       </Combobox.ItemIndicator>
-                      <span className="fg-1">@{user.handle}</span>
                     </Combobox.Item>
                   )}
                 </Combobox.List>
@@ -83,20 +95,70 @@ export default function ComboboxBase() {
 }
 
 interface User {
+  name: string;
   handle: string;
+  avatar: string;
 }
 
 const users: User[] = [
-  { handle: "sarahc" },
-  { handle: "averyg" },
-  { handle: "judem" },
-  { handle: "leok" },
-  { handle: "rileyb" },
-  { handle: "adrianm" },
-  { handle: "jessicam" },
-  { handle: "aidenw" },
-  { handle: "liamj" },
-  { handle: "mariav" },
-  { handle: "vivianr" },
-  { handle: "wyattk" },
+  {
+    name: "Sarah",
+    handle: "sarahc",
+    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Sarah",
+  },
+  {
+    name: "Avery",
+    handle: "averyg",
+    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Avery",
+  },
+  {
+    name: "Jude",
+    handle: "judem",
+    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Jude",
+  },
+  {
+    name: "Leo",
+    handle: "leok",
+    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Leo",
+  },
+  {
+    name: "Riley",
+    handle: "rileyb",
+    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Riley",
+  },
+  {
+    name: "Adrian",
+    handle: "adrianm",
+    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Adrian",
+  },
+  {
+    name: "Jessica",
+    handle: "jessicam",
+    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Jessica",
+  },
+  {
+    name: "Aiden",
+    handle: "aidenw",
+    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Aiden",
+  },
+  {
+    name: "Liam",
+    handle: "liamj",
+    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Liam",
+  },
+  {
+    name: "Maria",
+    handle: "mariav",
+    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Maria",
+  },
+  {
+    name: "Vivian",
+    handle: "vivianr",
+    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Vivian",
+  },
+  {
+    name: "Wyatt",
+    handle: "wyattk",
+    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Wyatt",
+  },
 ];
