@@ -62,7 +62,7 @@ export default function AutocompleteAutoHighlight() {
                   )}
                 </Autocomplete.List>
                 <Autocomplete.Empty className="c-slate-6 fs-sm">
-                  <div className="py-4 px-4">No results found.</div>
+                  <div className="pt-2 pb-3 px-4">No emoji found.</div>
                 </Autocomplete.Empty>
               </Autocomplete.Popup>
             </Autocomplete.Positioner>
