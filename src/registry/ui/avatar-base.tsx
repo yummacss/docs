@@ -2,7 +2,7 @@ import { Avatar } from "@base-ui/react/avatar";
 
 export default function AvatarBase() {
   return (
-    <Avatar.Root className="d-if o-h ai-c jc-c w-12 h-12 bg-silver-1 br-pill va-m us-none">
+    <Avatar.Root className="d-if o-h ai-c jc-c w-12 h-12 bg-silver-1 bc-silver-3 br-pill bw-1 va-m us-none">
       <Avatar.Image
         src={userProfile.avatarUrl}
         alt={userProfile.name}
@@ -16,7 +16,7 @@ export default function AvatarBase() {
 }
 
 const userProfile = {
-  name: "Marcus Webb",
-  initials: "MW",
-  avatarUrl: "https://i.pravatar.cc/64?img=12",
+  name: "Sarah",
+  initials: "S",
+  avatarUrl: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Sarah",
 };

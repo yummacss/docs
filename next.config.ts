@@ -9,9 +9,6 @@ const nextConfig = {
   async redirects() {
     return redirects;
   },
-  experimental: {
-    mdxRs: true,
-  },
 };
 
 const withMDX = createMDX({

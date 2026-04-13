@@ -5,7 +5,7 @@ export default function AvatarStatus() {
     <div className="d-f ai-c g-4">
       {statusMembers.map((member) => (
         <div key={member.name} className="p-r">
-          <Avatar.Root className="d-if o-h ai-c jc-c w-12 h-12 bg-silver-1 br-pill va-m us-none">
+          <Avatar.Root className="d-if o-h ai-c jc-c w-12 h-12 bg-silver-1 bc-silver-3 br-pill bw-1 va-m us-none">
             <Avatar.Image
               src={member.avatarUrl}
               alt={member.name}
@@ -26,21 +26,21 @@ export default function AvatarStatus() {
 
 const statusMembers = [
   {
-    name: "Marcus Webb",
-    initials: "MW",
-    avatarUrl: "https://i.pravatar.cc/64?img=12",
+    name: "Sarah",
+    initials: "S",
+    avatarUrl: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Sarah",
     statusColor: "bg-green-6",
   },
   {
-    name: "Sarah Chen",
-    initials: "SC",
-    avatarUrl: "https://i.pravatar.cc/64?img=25",
+    name: "Avery",
+    initials: "A",
+    avatarUrl: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Avery",
     statusColor: "bg-slate-4",
   },
   {
-    name: "Alex Kim",
-    initials: "AK",
-    avatarUrl: "https://i.pravatar.cc/64?img=33",
+    name: "Jude",
+    initials: "J",
+    avatarUrl: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Jude",
     statusColor: "bg-red-6",
   },
 ];

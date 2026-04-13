@@ -246,6 +246,10 @@ summary {
   border-color: #d0d1fb80;
 }
 
+.bc-indigo-3 {
+  border-color: #babcf9;
+}
+
 .bc-indigo-6 {
   border-color: #797bf3;
 }
@@ -554,6 +558,10 @@ summary {
 
 .brw-1 {
   border-right-width: 1px;
+}
+
+.bs-d {
+  border-style: dashed;
 }
 
 .bs-i-sm {

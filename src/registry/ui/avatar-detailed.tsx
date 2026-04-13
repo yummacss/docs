@@ -5,7 +5,7 @@ export default function AvatarDetailed() {
     <div className="d-f fd-c g-4">
       {teamMembers.map((member) => (
         <div key={member.name} className="d-f ai-c g-3">
-          <Avatar.Root className="d-if o-h ai-c jc-c w-12 h-12 bg-silver-1 br-pill va-m us-none">
+          <Avatar.Root className="d-if o-h ai-c jc-c w-12 h-12 bg-silver-1 bc-silver-3 br-pill bw-1 va-m us-none">
             <Avatar.Image
               src={member.avatarUrl}
               alt={member.name}
@@ -27,21 +27,21 @@ export default function AvatarDetailed() {
 
 const teamMembers = [
   {
-    name: "Marcus Webb",
-    role: "Product Designer",
-    initials: "MW",
-    avatarUrl: "https://i.pravatar.cc/64?img=12",
+    name: "Sarah",
+    role: "@sarahc",
+    initials: "S",
+    avatarUrl: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Sarah",
   },
   {
-    name: "Sarah Chen",
-    role: "Software Engineer",
-    initials: "SC",
-    avatarUrl: "https://i.pravatar.cc/64?img=25",
+    name: "Avery",
+    role: "@averyg",
+    initials: "A",
+    avatarUrl: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Avery",
   },
   {
-    name: "Alex Kim",
-    role: "Marketing Manager",
-    initials: "AK",
-    avatarUrl: "https://i.pravatar.cc/64?img=33",
+    name: "Jude",
+    role: "@judet",
+    initials: "J",
+    avatarUrl: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Jude",
   },
 ];

@@ -1,4 +1,6 @@
 import { Avatar } from "@base-ui/react/avatar";
+import { Button } from "@base-ui/react/button";
+import { Plus } from "@gravity-ui/icons";
 
 export default function AvatarStacked() {
   return (
@@ -6,7 +8,7 @@ export default function AvatarStacked() {
       {stackMembers.map((member, index) => (
         <Avatar.Root
           key={member.name}
-          className={`d-if o-h ai-c jc-c w-14 h-14 bg-silver-1 bc-white br-pill bw-2 va-m us-none ${index > 0 ? "ml--2" : ""}`}
+          className={`d-if o-h ai-c jc-c w-14 h-14 bg-silver-1 bc-silver-3 br-pill bw-1 va-m us-none ${index > 0 ? "ml--2" : ""}`}
         >
           <Avatar.Image
             src={member.avatarUrl}
@@ -18,35 +20,38 @@ export default function AvatarStacked() {
           </Avatar.Fallback>
         </Avatar.Root>
       ))}
-      <Avatar.Root className="d-if o-h ai-c jc-c w-14 h-14 ml--2 bg-indigo-1 bc-white br-pill bw-2 va-m us-none">
-        <Avatar.Fallback className="d-f ai-c jc-c w-full h-full c-indigo fs-sm fw-600">
+      <Avatar.Root className="d-if o-h ai-c jc-c w-14 h-14 ml--2 bg-silver-1 bc-silver-3 br-pill bw-1 va-m us-none">
+        <Avatar.Fallback className="d-f ai-c jc-c w-full h-full c-slate-8 fs-md fw-600">
           +{extraCount}
         </Avatar.Fallback>
       </Avatar.Root>
+      <Button className="d-if ai-c jc-c w-14 h-14 ml-2 bg-transparent bs-d bc-silver-3 br-pill bw-1 c-slate-6 tp-c tdu-150 ttf-io us-none">
+        <Plus className="w-6 h-6" />
+      </Button>
     </div>
   );
 }
 
 const stackMembers = [
   {
-    name: "Marcus Webb",
-    initials: "MW",
-    avatarUrl: "https://i.pravatar.cc/64?img=12",
+    name: "Sarah",
+    initials: "S",
+    avatarUrl: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Sarah",
   },
   {
-    name: "Sarah Chen",
-    initials: "SC",
-    avatarUrl: "https://i.pravatar.cc/64?img=25",
+    name: "Avery",
+    initials: "A",
+    avatarUrl: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Avery",
   },
   {
-    name: "Alex Kim",
-    initials: "AK",
-    avatarUrl: "https://i.pravatar.cc/64?img=33",
+    name: "Jude",
+    initials: "J",
+    avatarUrl: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Jude",
   },
   {
-    name: "Emma Wilson",
-    initials: "EW",
-    avatarUrl: "https://i.pravatar.cc/64?img=45",
+    name: "Leo",
+    initials: "L",
+    avatarUrl: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Leo",
   },
 ];
 
