@@ -4,10 +4,6 @@ Official documentation website for Yumma CSS.
 
 ---
 
-## Documentation
-
-To get started, check out the [Yumma CSS documentation](https://yummacss.com/docs/installation).
-
 ## Development
 
 To start the docs site in development mode, from the project root, run:
