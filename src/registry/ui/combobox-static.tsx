@@ -8,16 +8,16 @@ export default function ComboboxStatic() {
   const [open, setOpen] = React.useState(false);
 
   return (
-    <Combobox.Root items={countries} open={open} onOpenChange={setOpen}>
+    <Combobox.Root items={users} open={open} onOpenChange={setOpen}>
       <div className="d-f p-r fd-c g-2 c-slate-10 fs-sm">
-        <label htmlFor="country-input-static" className="fw-600">
-          Select country
+        <label htmlFor="user-input-static" className="fw-600">
+          Mention user
         </label>
         <div className="p-r">
           <Combobox.Input
-            id="country-input-static"
-            placeholder="e.g. United States"
-            className="h-10 w-64 pl-4 pr-16 bg-white bc-silver-3 c-slate-10 bw-1 br-md fs-md fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
+            id="user-input-static"
+            placeholder="e.g. @sarahc"
+            className="h-10 w-64 pl-4 pr-16 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
           />
           <div className="d-f p-a r-2 b-0 ai-c jc-c h-10 c-slate-6">
             <Combobox.Clear
@@ -39,14 +39,14 @@ export default function ComboboxStatic() {
       {open && (
         <Combobox.Portal keepMounted>
           <Combobox.Positioner className="ow-0" sideOffset={8}>
-            <Combobox.Popup className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-md bs-o-lg">
+            <Combobox.Popup className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-lg">
               <Combobox.List className="oy-auto py-1 max-h-72 ow-0">
-                {(country: Country) => (
+                {(user: User) => (
                   <Combobox.Item
-                    key={country.code}
-                    value={country.name}
+                    key={user.handle}
+                    value={user.handle}
                     className={(state) =>
-                      `d-f ai-c g-2 py-2 px-3 fs-sm us-none c-d c-p br-sm mx-1 ${
+                      `d-f ai-c g-2 py-2 px-3 fs-sm fw-600 us-none c-d c-p br-lg mx-1 ${
                         state.highlighted ? "bg-silver-1" : "h:bg-silver-1"
                       }`
                     }
@@ -54,12 +54,12 @@ export default function ComboboxStatic() {
                     <Combobox.ItemIndicator className="d-f c-indigo">
                       <Check className="w-3 h-3" />
                     </Combobox.ItemIndicator>
-                    <span className="fg-1">{country.name}</span>
+                    <span className="fg-1">@{user.handle}</span>
                   </Combobox.Item>
                 )}
               </Combobox.List>
               <Combobox.Empty className="c-slate-6 fs-sm">
-                <div className="py-4 px-4">No countries found.</div>
+                <div className="py-4 px-4">No users found.</div>
               </Combobox.Empty>
             </Combobox.Popup>
           </Combobox.Positioner>
@@ -69,25 +69,21 @@ export default function ComboboxStatic() {
   );
 }
 
-interface Country {
-  code: string;
-  name: string;
+interface User {
+  handle: string;
 }
 
-const countries: Country[] = [
-  { code: "us", name: "United States" },
-  { code: "ca", name: "Canada" },
-  { code: "gb", name: "United Kingdom" },
-  { code: "de", name: "Germany" },
-  { code: "fr", name: "France" },
-  { code: "jp", name: "Japan" },
-  { code: "au", name: "Australia" },
-  { code: "br", name: "Brasil" },
-  { code: "in", name: "India" },
-  { code: "mx", name: "Mexico" },
-  { code: "es", name: "Spain" },
-  { code: "it", name: "Italy" },
-  { code: "nl", name: "Netherlands" },
-  { code: "se", name: "Sweden" },
-  { code: "no", name: "Norway" },
+const users: User[] = [
+  { handle: "sarahc" },
+  { handle: "averyg" },
+  { handle: "judem" },
+  { handle: "leok" },
+  { handle: "rileyb" },
+  { handle: "adrianm" },
+  { handle: "jessicam" },
+  { handle: "aidenw" },
+  { handle: "liamj" },
+  { handle: "mariav" },
+  { handle: "vivianr" },
+  { handle: "wyattk" },
 ];
