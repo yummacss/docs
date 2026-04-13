@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ApiReference from "@/components/ui/api-reference";
 import EditPage from "@/components/ui/edit-page";
 import { findCurrentUIPageInfo } from "@/utils/ui-sidebar";
@@ -21,67 +21,79 @@ export default function TableOfContents() {
   const uiPageInfo = findCurrentUIPageInfo(pathname || "");
   const isBaseComponent = uiPageInfo?.sectionTitle === "Base components";
 
-  useEffect(() => {
-    let intersectionObserver: IntersectionObserver | null = null;
-    let currentHeadingsJson = "";
+  const intersectionObserverRef = useRef<IntersectionObserver | null>(null);
+  const debounceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
+  useEffect(() => {
     function updateHeadings() {
       const elements = Array.from(
         document.querySelectorAll("article h2, article h3, main h2, main h3"),
-      ).filter((element) => {
-        return !element.closest("[data-meta]");
-      });
+      ).filter((element) => !element.closest("[data-meta]"));
 
       const items: TocItem[] = elements
-        .filter((element) => element.id) // only include headings with IDs
+        .filter((element) => element.id)
         .map((element) => ({
           id: element.id,
           text: element.textContent || "",
           level: Number(element.tagName.charAt(1)),
         }));
 
-      const newJson = JSON.stringify(items);
-      if (newJson !== currentHeadingsJson) {
-        setHeadings(items);
-        currentHeadingsJson = newJson;
+      setHeadings((prev) => {
+        const prevJson = JSON.stringify(prev);
+        const nextJson = JSON.stringify(items);
+        if (prevJson === nextJson) return prev;
 
-        if (intersectionObserver) {
-          intersectionObserver.disconnect();
+        // Only rewire the IntersectionObserver when headings actually changed
+        if (intersectionObserverRef.current) {
+          intersectionObserverRef.current.disconnect();
         }
 
         if (items.length > 0) {
-          intersectionObserver = new IntersectionObserver(
+          intersectionObserverRef.current = new IntersectionObserver(
             (entries) => {
-              entries.forEach((entry) => {
+              for (const entry of entries) {
                 if (entry.isIntersecting) {
                   setActiveId(entry.target.id);
                 }
-              });
+              }
             },
             { rootMargin: "0% 0% -80% 0%" },
           );
 
-          elements.forEach((element) => {
-            if (element.id) intersectionObserver?.observe(element);
-          });
+          for (const element of elements) {
+            if (element.id) {
+              intersectionObserverRef.current.observe(element);
+            }
+          }
         }
-      }
+
+        return items;
+      });
     }
 
     updateHeadings();
 
     const mutationObserver = new MutationObserver(() => {
-      updateHeadings();
+      if (debounceTimerRef.current) {
+        clearTimeout(debounceTimerRef.current);
+      }
+      debounceTimerRef.current = setTimeout(updateHeadings, 100);
     });
 
     const mainElement = document.querySelector("main") || document.body;
     mutationObserver.observe(mainElement, {
       childList: true,
       subtree: true,
+      // characterData removed — fired on every text node change, too aggressive
     });
 
     return () => {
-      if (intersectionObserver) intersectionObserver.disconnect();
+      if (intersectionObserverRef.current) {
+        intersectionObserverRef.current.disconnect();
+      }
+      if (debounceTimerRef.current) {
+        clearTimeout(debounceTimerRef.current);
+      }
       mutationObserver.disconnect();
     };
   }, []);

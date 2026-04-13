@@ -1,6 +1,8 @@
 import fs from "node:fs";
 import path from "node:path";
 
+const fileCache = new Map();
+
 export default function rehypeRegistry() {
   return (tree) => {
     visit(tree, "element", (node) => {
@@ -46,7 +48,10 @@ export default function rehypeRegistry() {
           }
 
           if (fs.existsSync(filePath)) {
-            const content = fs.readFileSync(filePath, "utf-8");
+            if (!fileCache.has(filePath)) {
+              fileCache.set(filePath, fs.readFileSync(filePath, "utf-8"));
+            }
+            const content = fileCache.get(filePath);
 
             if (isInlineRegistry) {
               node.tagName = "pre";
