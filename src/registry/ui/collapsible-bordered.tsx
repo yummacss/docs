@@ -1,5 +1,7 @@
 "use client";
 
+import { Avatar } from "@base-ui/react/avatar";
+import { Button } from "@base-ui/react/button";
 import { Collapsible } from "@base-ui/react/collapsible";
 import { ChevronRight } from "@gravity-ui/icons";
 import { type HTMLMotionProps, motion } from "motion/react";
@@ -12,12 +14,10 @@ export default function CollapsibleBordered() {
     <Collapsible.Root
       open={open}
       onOpenChange={setOpen}
-      className="d-f fd-c w-64 bg-white bc-silver-3 bw-1 br-lg o-h"
+      className="d-f fd-c w-72 bg-white bc-silver-3 bw-1 br-lg o-h"
     >
-      <Collapsible.Trigger className="d-f b-0 ai-c jc-sb g-2 w-full px-4 py-3 bg-transparent ta-l c-p h:bg-silver-1">
-        <span className="fs-sm fw-600 c-slate-9">
-          {systemRequirements.title}
-        </span>
+      <Collapsible.Trigger className="d-f b-0 ai-c jc-sb g-2 w-full px-4 py-3 bg-transparent ta-l c-p h:bg-silver-1 bw-0">
+        <span className="fs-sm fw-600 c-slate-9">{whoToFollow.title}</span>
         <motion.span
           animate={{ rotate: open ? 90 : 0 }}
           transition={{ duration: 0.15, ease: "easeOut" }}
@@ -41,9 +41,29 @@ export default function CollapsibleBordered() {
           />
         )}
       >
-        <div className="d-f fd-c g-2 px-4 py-3 btw-1 bc-silver-3 fs-sm c-slate-6 lh-4">
-          {systemRequirements.items.map((item) => (
-            <div key={item}>{item}</div>
+        <div className="d-f fd-c g-3 px-4 py-3 btw-1 bc-silver-3">
+          {whoToFollow.users.map((user) => (
+            <div key={user.name} className="d-f ai-c jc-sb">
+              <div className="d-f ai-c g-3">
+                <Avatar.Root className="d-if o-h ai-c jc-c w-8 h-8 br-pill va-m us-none bc-silver-3 bw-1">
+                  <Avatar.Image
+                    src={user.avatar}
+                    alt={user.name}
+                    className="of-c w-full h-full"
+                  />
+                  <Avatar.Fallback className="d-f ai-c jc-c w-full h-full c-slate-8 fs-xs">
+                    {user.name[0]}
+                  </Avatar.Fallback>
+                </Avatar.Root>
+                <div className="d-f fd-c g-0">
+                  <span className="fs-sm fw-600 c-slate-10">{user.name}</span>
+                  <span className="fs-xs c-slate-6">@{user.handle}</span>
+                </div>
+              </div>
+              <Button className="d-f ai-c jc-c h-7 px-3 bg-indigo c-white br-pill fs-xs fw-600 tp-c tdu-150 ttf-io us-none fv:os-s fv:ow-2 fv:oo-2 fv:oc-white h:bg-indigo-8">
+                Follow
+              </Button>
+            </div>
           ))}
         </div>
       </Collapsible.Panel>
@@ -51,7 +71,23 @@ export default function CollapsibleBordered() {
   );
 }
 
-const systemRequirements = {
-  title: "System requirements",
-  items: ["Node.js 18 or later", "macOS, Windows, or Linux", "4GB RAM minimum"],
+const whoToFollow = {
+  title: "Who to follow",
+  users: [
+    {
+      name: "Aiden",
+      handle: "aidenw",
+      avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Aiden",
+    },
+    {
+      name: "Liam",
+      handle: "liamj",
+      avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Liam",
+    },
+    {
+      name: "Maria",
+      handle: "mariav",
+      avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Maria",
+    },
+  ],
 };
