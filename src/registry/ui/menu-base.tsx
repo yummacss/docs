@@ -57,7 +57,7 @@ export default function MenuBase() {
                   Archive
                 </Menu.Item>
 
-                <Menu.Separator className="mx-0 my-1 h-px bg-silver-2" />
+                <Menu.Separator className="my-1 w-full h-px bg-silver-2" />
 
                 <Menu.Item
                   className={(state) =>

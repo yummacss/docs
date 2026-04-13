@@ -1,6 +1,7 @@
 "use client";
 
 import { Autocomplete } from "@base-ui/react/autocomplete";
+import { Separator } from "@base-ui/react/separator";
 import { Hashtag, Lock, Volume } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import * as React from "react";
@@ -71,7 +72,7 @@ export default function AutocompleteGrouped() {
                         />
                       ))}
                       {groupIndex < CHANNEL_GROUPS.length - 1 && (
-                        <div className="my-2 mx-3 h-px bg-silver-2" />
+                        <Separator className="my-2 w-full h-px bg-silver-2" />
                       )}
                     </Autocomplete.Group>
                   )}

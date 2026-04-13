@@ -56,7 +56,7 @@ export default function ContextMenuBase() {
                   Paste
                 </ContextMenu.Item>
 
-                <ContextMenu.Separator className="mx-0 my-1 h-px bg-silver-2" />
+                <ContextMenu.Separator className="my-1 w-full h-px bg-silver-2" />
 
                 <ContextMenu.Item
                   className={(state) =>
@@ -77,7 +77,7 @@ export default function ContextMenuBase() {
                   Undo
                 </ContextMenu.Item>
 
-                <ContextMenu.Separator className="mx-0 my-1 h-px bg-silver-2" />
+                <ContextMenu.Separator className="my-1 w-full h-px bg-silver-2" />
 
                 <ContextMenu.Item
                   className={(state) =>

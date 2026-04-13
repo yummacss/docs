@@ -61,7 +61,7 @@ export default function ContextMenuGrouped() {
                   </ContextMenu.Item>
                 </ContextMenu.Group>
 
-                <ContextMenu.Separator className="mx-0 my-1 h-px bg-silver-2" />
+                <ContextMenu.Separator className="my-1 w-full h-px bg-silver-2" />
 
                 <ContextMenu.Group>
                   <ContextMenu.GroupLabel className="px-3 py-1 fs-xs fw-600 c-slate-5 tt-u ls-3">
@@ -96,7 +96,7 @@ export default function ContextMenuGrouped() {
                   </ContextMenu.Item>
                 </ContextMenu.Group>
 
-                <ContextMenu.Separator className="mx-0 my-1 h-px bg-silver-2" />
+                <ContextMenu.Separator className="my-1 w-full h-px bg-silver-2" />
 
                 <ContextMenu.Group>
                   <ContextMenu.GroupLabel className="px-3 py-1 fs-xs fw-600 c-slate-5 tt-u ls-3">
@@ -122,7 +122,7 @@ export default function ContextMenuGrouped() {
                   </ContextMenu.Item>
                 </ContextMenu.Group>
 
-                <ContextMenu.Separator className="mx-0 my-1 h-px bg-silver-2" />
+                <ContextMenu.Separator className="my-1 w-full h-px bg-silver-2" />
               </ContextMenu.Popup>
             </ContextMenu.Positioner>
           </ContextMenu.Portal>
