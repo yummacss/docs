@@ -78,7 +78,6 @@ export default function TableOfContents() {
     mutationObserver.observe(mainElement, {
       childList: true,
       subtree: true,
-      characterData: true,
     });
 
     return () => {

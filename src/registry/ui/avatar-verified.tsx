@@ -6,7 +6,7 @@ export default function AvatarVerified() {
     <div className="d-f ai-c g-4">
       {verifiedMembers.map((member) => (
         <div key={member.name} className="p-r">
-          <Avatar.Root className="d-if o-h ai-c jc-c w-12 h-12 bg-silver-1 br-pill va-m us-none">
+          <Avatar.Root className="d-if o-h ai-c jc-c w-12 h-12 bg-silver-1 bc-silver-3 br-pill bw-1 va-m us-none">
             <Avatar.Image
               src={member.avatarUrl}
               alt={member.name}
@@ -27,13 +27,13 @@ export default function AvatarVerified() {
 
 const verifiedMembers = [
   {
-    name: "Emma Wilson",
-    initials: "EW",
-    avatarUrl: "https://i.pravatar.cc/64?img=45",
+    name: "Sarah",
+    initials: "S",
+    avatarUrl: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Sarah",
   },
   {
-    name: "James Brown",
-    initials: "JB",
-    avatarUrl: "https://i.pravatar.cc/64?img=18",
+    name: "Avery",
+    initials: "A",
+    avatarUrl: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Avery",
   },
 ];

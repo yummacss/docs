@@ -14,7 +14,7 @@ import AutocompleteStatic from "./autocomplete-static";
 import AvatarBase from "./avatar-base";
 import AvatarDetailed from "./avatar-detailed";
 import AvatarInitials from "./avatar-initials";
-import AvatarPlaceholder from "./avatar-placeholder";
+import AvatarFallback from "./avatar-fallback";
 import AvatarStacked from "./avatar-stacked";
 import AvatarStatus from "./avatar-status";
 import AvatarVerified from "./avatar-verified";
@@ -102,7 +102,7 @@ export const baseComponents: Record<string, ComponentType> = {
   "avatar-base": AvatarBase,
   "avatar-detailed": AvatarDetailed,
   "avatar-initials": AvatarInitials,
-  "avatar-placeholder": AvatarPlaceholder,
+  "avatar-fallback": AvatarFallback,
   "avatar-stacked": AvatarStacked,
   "avatar-status": AvatarStatus,
   "avatar-verified": AvatarVerified,

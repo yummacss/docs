@@ -5,8 +5,8 @@ export default function AvatarInitials() {
     <div className="d-f ai-c g-4">
       {initialProfiles.map((profile) => (
         <Avatar.Root
-          key={profile.initials}
-          className="d-if o-h ai-c jc-c w-12 h-12 bg-indigo-1 br-pill va-m us-none"
+          key={profile.name}
+          className="d-if o-h ai-c jc-c w-12 h-12 bg-indigo-1 bc-indigo-3 br-pill bw-1 va-m us-none"
         >
           <Avatar.Fallback className="d-f ai-c jc-c w-full h-full c-indigo fs-md fw-600">
             {profile.initials}
@@ -18,8 +18,8 @@ export default function AvatarInitials() {
 }
 
 const initialProfiles = [
-  { initials: "MW" },
-  { initials: "SC" },
-  { initials: "AK" },
-  { initials: "EW" },
+  { name: "Sarah", initials: "S" },
+  { name: "Avery", initials: "A" },
+  { name: "Jude", initials: "J" },
+  { name: "Leo", initials: "L" },
 ];
