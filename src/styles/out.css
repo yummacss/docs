@@ -996,6 +996,14 @@ summary {
   font-size: 1.5rem;
 }
 
+.fv\:bg-indigo-1:focus-visible {
+  background-color: #e6e7fd;
+}
+
+.fv\:bg-indigo-8:focus-visible {
+  background-color: #4749ae;
+}
+
 .fv\:oc-indigo:focus-visible {
   outline-color: #6366f1;
 }

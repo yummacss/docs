@@ -14,9 +14,9 @@ export default function CollapsibleBase() {
     <Collapsible.Root
       open={open}
       onOpenChange={setOpen}
-      className="d-f fd-c w-72 c-slate-10"
+      className="d-f fd-c w-72 c-slate-10 br-xl"
     >
-      <Collapsible.Trigger className="d-f b-0 ai-c g-2 px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fs-sm fw-600 c-p h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6">
+      <Collapsible.Trigger className="d-f b-0 ai-c g-2 px-3 py-2 bg-white bc-silver-2 c-slate-10 br-lg bw-1 fs-sm fw-600 c-p h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6">
         <motion.span
           animate={{ rotate: open ? 90 : 0 }}
           transition={{ duration: 0.15, ease: "easeOut" }}
@@ -41,7 +41,7 @@ export default function CollapsibleBase() {
           />
         )}
       >
-        <div className="d-f fd-c g-3 mt-1 py-3 px-3 bg-white bc-silver-2 br-md bw-1">
+        <div className="d-f fd-c g-3 mt-1 py-3 px-3 bg-white bc-silver-2 br-xl bw-1">
           {whoToFollow.users.map((user) => (
             <div key={user.name} className="d-f ai-c jc-sb">
               <div className="d-f ai-c g-3">
@@ -60,7 +60,7 @@ export default function CollapsibleBase() {
                   <span className="fs-xs c-slate-6">@{user.handle}</span>
                 </div>
               </div>
-              <Button className="d-f ai-c jc-c h-7 px-3 bg-indigo c-white br-pill fs-xs fw-600 tp-c tdu-150 ttf-io us-none fv:os-s fv:ow-2 fv:oo-2 fv:oc-white h:bg-indigo-8">
+              <Button className="d-f ai-c jc-c h-7 px-3 bg-indigo c-white br-pill fs-xs fw-600 tp-c tdu-150 ttf-io us-none fv:bg-indigo-8 h:bg-indigo-8">
                 Follow
               </Button>
             </div>

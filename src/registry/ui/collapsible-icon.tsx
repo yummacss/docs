@@ -3,12 +3,23 @@
 import { Avatar } from "@base-ui/react/avatar";
 import { Button } from "@base-ui/react/button";
 import { Collapsible } from "@base-ui/react/collapsible";
-import { ChevronRight, CircleCheckFill, PersonPlus } from "@gravity-ui/icons";
+import {
+  Check,
+  ChevronRight,
+  CircleCheckFill,
+  PersonPlus,
+} from "@gravity-ui/icons";
 import { type HTMLMotionProps, motion } from "motion/react";
 import * as React from "react";
 
 export default function CollapsibleIcon() {
   const [open, setOpen] = React.useState(false);
+  const [followed, setFollowed] = React.useState(
+    whoToFollow.users.reduce(
+      (acc, user) => ({ ...acc, [user.name]: false }),
+      {} as Record<string, boolean>,
+    ),
+  );
 
   return (
     <Collapsible.Root
@@ -67,9 +78,27 @@ export default function CollapsibleIcon() {
                   <span className="fs-xs c-slate-6">@{user.handle}</span>
                 </div>
               </div>
-              <Button className="d-f ai-c jc-c w-8 h-8 bg-indigo c-white br-pill  tp-c tdu-150 ttf-io us-none fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 h:bg-indigo-8">
-                <PersonPlus className="w-4 h-4" />
-              </Button>
+              {followed[user.name] ? (
+                <Button
+                  className="d-f ai-c jc-c w-8 h-8 bg-transparent bc-indigo c-indigo br-pill bw-1 tp-c tdu-150 ttf-io us-none fv:bg-indigo-1"
+                  aria-label={`Unfollow ${user.name}`}
+                  onClick={() =>
+                    setFollowed((prev) => ({ ...prev, [user.name]: false }))
+                  }
+                >
+                  <Check className="w-4 h-4" />
+                </Button>
+              ) : (
+                <Button
+                  className="d-f ai-c jc-c w-8 h-8 bg-indigo c-white br-pill tp-c tdu-150 ttf-io us-none fv:bg-indigo-8 h:bg-indigo-8"
+                  aria-label={`Follow ${user.name}`}
+                  onClick={() =>
+                    setFollowed((prev) => ({ ...prev, [user.name]: true }))
+                  }
+                >
+                  <PersonPlus className="w-4 h-4" />
+                </Button>
+              )}
             </div>
           ))}
         </div>
