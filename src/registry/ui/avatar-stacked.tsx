@@ -25,7 +25,7 @@ export default function AvatarStacked() {
           +{extraCount}
         </Avatar.Fallback>
       </Avatar.Root>
-      <Button className="d-if ai-c jc-c w-14 h-14 ml-2 bg-transparent bs-d bc-silver-3 br-pill bw-1 c-slate-6 tp-c tdu-150 ttf-io us-none">
+      <Button className="d-if ai-c jc-c w-14 h-14 ml-2 bg-transparent bc-silver c-slate-6 bs-d br-pill bw-1 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50">
         <Plus className="w-6 h-6" />
       </Button>
     </div>
