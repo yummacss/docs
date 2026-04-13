@@ -1,34 +1,60 @@
+"use client";
+
 import { Avatar } from "@base-ui/react/avatar";
-import { Button } from "@base-ui/react/button";
+import { Tooltip } from "@base-ui/react/tooltip";
 import { Plus } from "@gravity-ui/icons";
+import { AnimatePresence, motion } from "motion/react";
 
 export default function AvatarStacked() {
   return (
-    <div className="d-f ai-c">
-      {stackMembers.map((member, index) => (
-        <Avatar.Root
-          key={member.name}
-          className={`d-if o-h ai-c jc-c w-14 h-14 bg-silver-1 bc-silver-3 br-pill bw-1 va-m us-none ${index > 0 ? "ml--2" : ""}`}
-        >
-          <Avatar.Image
-            src={member.avatarUrl}
-            alt={member.name}
-            className="of-c w-full h-full"
-          />
-          <Avatar.Fallback className="d-f ai-c jc-c w-full h-full c-slate-9 fs-md fw-500">
-            {member.initials}
+    <Tooltip.Provider>
+      <div className="d-f ai-c">
+        {stackMembers.map((member, index) => (
+          <Avatar.Root
+            key={member.name}
+            className={`d-if o-h ai-c jc-c w-14 h-14 bg-silver-1 bc-silver-3 br-pill bw-1 va-m us-none ${index > 0 ? "ml--2" : ""}`}
+          >
+            <Avatar.Image
+              src={member.avatarUrl}
+              alt={member.name}
+              className="of-c w-full h-full"
+            />
+            <Avatar.Fallback className="d-f ai-c jc-c w-full h-full c-slate-9 fs-md fw-500">
+              {member.initials}
+            </Avatar.Fallback>
+          </Avatar.Root>
+        ))}
+        <Avatar.Root className="d-if o-h ai-c jc-c w-14 h-14 ml--2 bg-silver-1 bc-silver-3 br-pill bw-1 va-m us-none">
+          <Avatar.Fallback className="d-f ai-c jc-c w-full h-full c-slate-8 fs-md fw-600">
+            +{extraCount}
           </Avatar.Fallback>
         </Avatar.Root>
-      ))}
-      <Avatar.Root className="d-if o-h ai-c jc-c w-14 h-14 ml--2 bg-silver-1 bc-silver-3 br-pill bw-1 va-m us-none">
-        <Avatar.Fallback className="d-f ai-c jc-c w-full h-full c-slate-8 fs-md fw-600">
-          +{extraCount}
-        </Avatar.Fallback>
-      </Avatar.Root>
-      <Button className="d-if ai-c jc-c w-14 h-14 ml-2 bg-transparent bc-silver c-slate-6 bs-d br-pill bw-1 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50">
-        <Plus className="w-6 h-6" />
-      </Button>
-    </div>
+        <Tooltip.Root>
+          <Tooltip.Trigger className="d-if ai-c jc-c w-14 h-14 ml-2 bg-transparent bc-silver-3 c-slate-6 bs-d br-pill bw-1 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50">
+            <Plus className="w-6 h-6" />
+          </Tooltip.Trigger>
+          <Tooltip.Portal>
+            <Tooltip.Positioner sideOffset={4}>
+              <AnimatePresence>
+                <Tooltip.Popup
+                  render={
+                    <motion.div
+                      initial={{ opacity: 0, y: 4 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 4 }}
+                      transition={{ duration: 0.15, ease: "easeOut" }}
+                    />
+                  }
+                  className="px-2 py-1 bg-slate-12 c-white br-sm fs-xs bs-o-sm us-none"
+                >
+                  Add participant
+                </Tooltip.Popup>
+              </AnimatePresence>
+            </Tooltip.Positioner>
+          </Tooltip.Portal>
+        </Tooltip.Root>
+      </div>
+    </Tooltip.Provider>
   );
 }
 
