@@ -43,7 +43,7 @@ export default function AutocompleteAutoHighlight() {
                 }
                 className="o-h w-auto max-w-72 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-lg"
               >
-                <Autocomplete.List className="d-g gtc-6 g-1 p-2 ow-0">
+                <Autocomplete.List className="d-g gtc-6 g-1 py-1 ow-0">
                   {(item: Emoji) => (
                     <Autocomplete.Item
                       key={item.name}
@@ -51,7 +51,7 @@ export default function AutocompleteAutoHighlight() {
                       render={(props, state) => (
                         <div
                           {...props}
-                          className={`d-f ai-c jc-c py-2 px-2 fs-xl us-none c-d c-p br-lg ${
+                          className={`d-f ai-c jc-c py-2 px-3 fs-xl us-none c-d c-p br-lg mx-1 ${
                             state.highlighted ? "bg-silver-1" : "h:bg-silver-1"
                           }`}
                         >
