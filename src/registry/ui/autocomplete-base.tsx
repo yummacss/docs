@@ -1,6 +1,7 @@
 "use client";
 
 import { Autocomplete } from "@base-ui/react/autocomplete";
+import { Avatar } from "@base-ui/react/avatar";
 import { AnimatePresence, motion } from "motion/react";
 import * as React from "react";
 
@@ -8,19 +9,15 @@ export default function AutocompleteBase() {
   const [open, setOpen] = React.useState(false);
 
   return (
-    <Autocomplete.Root
-      items={COLOR_FAMILIES}
-      open={open}
-      onOpenChange={setOpen}
-    >
+    <Autocomplete.Root items={USERS} open={open} onOpenChange={setOpen}>
       <div className="d-f fd-c g-2">
         <label htmlFor="autocomplete-input" className="c-slate-10 fs-sm fw-600">
-          Color
+          Mention user
         </label>
         <Autocomplete.Input
           id="autocomplete-input"
-          placeholder="e.g. Indigo"
-          className="h-10 w-64 pl-4 bg-white bc-silver-3 c-slate-12 bw-1 br-md fs-md fv:os-s fv:ow-2 fv:oo--1 fv:oc-indigo-6"
+          placeholder="e.g. Sarah"
+          className="h-10 w-64 pl-4 bg-white bc-silver-3 c-slate-12 bw-1 br-lg fs-md fv:os-s fv:ow-2 fv:oo--1 fv:oc-indigo-6"
         />
       </div>
 
@@ -37,32 +34,42 @@ export default function AutocompleteBase() {
                     transition={{ duration: 0.1, ease: "easeOut" }}
                   />
                 }
-                className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-md bs-o-lg"
+                className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-lg"
               >
                 <Autocomplete.List className="oy-auto max-h-72 py-1 ow-0">
-                  {(color: ColorFamily) => (
+                  {(user: User) => (
                     <Autocomplete.Item
-                      key={color.name}
-                      value={color.name}
+                      key={user.name}
+                      value={user.name}
                       render={(props, state) => (
                         <div
                           {...props}
-                          className={`d-f ai-c g-3 py-2 px-3 fs-sm us-none c-d c-p br-sm mx-1 c-slate-10 ${
+                          className={`d-f ai-c jc-sb g-3 py-2 px-3 fs-sm us-none c-d c-p br-lg mx-1 c-slate-10 ${
                             state.highlighted ? "bg-silver-1" : "h:bg-silver-1"
                           }`}
                         >
-                          <div
-                            className="fs-0 w-4 h-4 br-pill"
-                            style={{ backgroundColor: color.color }}
-                          />
-                          {color.name}
+                          <div className="d-f ai-c g-3">
+                            <Avatar.Root className="w-6 h-6 bc-silver-3 br-pill bw-1">
+                              <Avatar.Image
+                                src={user.avatar}
+                                className="of-c w-full h-full br-pill"
+                              />
+                              <Avatar.Fallback className="d-f ai-c jc-c w-full h-full bg-silver-2 c-slate-8 fs-xs">
+                                {user.name[0]}
+                              </Avatar.Fallback>
+                            </Avatar.Root>
+                            <span className="fw-600">{user.name}</span>
+                          </div>
+                          <span className="fw-400 c-slate-6">
+                            @{user.handle}
+                          </span>
                         </div>
                       )}
                     />
                   )}
                 </Autocomplete.List>
                 <Autocomplete.Empty className="c-slate-6 fs-sm">
-                  <div className="py-4 px-4">No colors found.</div>
+                  <div className="py-4 px-4">No users found.</div>
                 </Autocomplete.Empty>
               </Autocomplete.Popup>
             </Autocomplete.Positioner>
@@ -73,29 +80,112 @@ export default function AutocompleteBase() {
   );
 }
 
-interface ColorFamily {
+interface User {
   name: string;
-  color: string;
+  handle: string;
+  avatar: string;
 }
 
-const COLOR_FAMILIES: ColorFamily[] = [
-  { name: "Red", color: "#e63946" },
-  { name: "Orange", color: "#ff6b35" },
-  { name: "Yellow", color: "#ffb81c" },
-  { name: "Lime", color: "#84cc16" },
-  { name: "Mint", color: "#10b981" },
-  { name: "Green", color: "#06d6a0" },
-  { name: "Cyan", color: "#06b6d4" },
-  { name: "Sky", color: "#38bdf8" },
-  { name: "Blue", color: "#2563eb" },
-  { name: "Indigo", color: "#6366f1" },
-  { name: "Violet", color: "#8b5cf6" },
-  { name: "Lavender", color: "#a78bfa" },
-  { name: "Magenta", color: "#d946ef" },
-  { name: "Pink", color: "#ec4899" },
-  { name: "Coral", color: "#ff6f91" },
-  { name: "Zinc", color: "#52525b" },
-  { name: "Gray", color: "#6b7280" },
-  { name: "Slate", color: "#64748b" },
-  { name: "Silver", color: "#9ca3af" },
+const USERS: User[] = [
+  {
+    name: "Sarah",
+    handle: "sarahc",
+    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Sarah",
+  },
+  {
+    name: "Avery",
+    handle: "averyg",
+    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Avery",
+  },
+  {
+    name: "Jude",
+    handle: "judet",
+    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Jude",
+  },
+  {
+    name: "Leo",
+    handle: "leok",
+    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Leo",
+  },
+  {
+    name: "Riley",
+    handle: "rileyb",
+    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Riley",
+  },
+  {
+    name: "Adrian",
+    handle: "adrianm",
+    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Adrian",
+  },
+  {
+    name: "Jessica",
+    handle: "jessicap",
+    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Jessica",
+  },
+  {
+    name: "Aiden",
+    handle: "aidenw",
+    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Aiden",
+  },
+  {
+    name: "Liam",
+    handle: "liamj",
+    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Liam",
+  },
+  {
+    name: "Maria",
+    handle: "mariav",
+    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Maria",
+  },
+  {
+    name: "Vivian",
+    handle: "vivianh",
+    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Vivian",
+  },
+  {
+    name: "Wyatt",
+    handle: "wyattk",
+    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Wyatt",
+  },
+  {
+    name: "Jade",
+    handle: "jadel",
+    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Jade",
+  },
+  {
+    name: "Nolan",
+    handle: "nolans",
+    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Nolan",
+  },
+  {
+    name: "Sophia",
+    handle: "sophiac",
+    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Sophia",
+  },
+  {
+    name: "Liliana",
+    handle: "lilianar",
+    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Liliana",
+  },
+  {
+    name: "Katherine",
+    handle: "katherinep",
+    avatar:
+      "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Katherine",
+  },
+  {
+    name: "Aidan",
+    handle: "aidanj",
+    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Aidan",
+  },
+  {
+    name: "Jocelyn",
+    handle: "jocelynm",
+    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Jocelyn",
+  },
+  {
+    name: "Sadie",
+    handle: "sadiel",
+    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Sadie",
+  },
 ];

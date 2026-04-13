@@ -5,9 +5,12 @@ import { redirects } from "./redirects";
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  pageExtensions: ["tsx", "mdx"],
+  pageExtensions: ["js", "jsx", "md", "mdx", "mjs", "ts", "tsx"],
   async redirects() {
     return redirects;
+  },
+  experimental: {
+    mdxRs: true,
   },
 };
 
