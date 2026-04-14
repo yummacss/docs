@@ -2,6 +2,8 @@ export interface UISidebarConfigItemBase {
   title: string;
   slug?: string;
   updated?: boolean;
+  primitive?: boolean;
+  wip?: boolean;
 }
 
 export interface UISidebarConfigItemWithChildren
@@ -38,43 +40,51 @@ export const uiSidebarConfig: UISidebarConfig = [
   {
     title: "Base components",
     items: [
-      { title: "Accordion", slug: "accordion" },
-      { title: "Autocomplete", slug: "autocomplete" },
-      { title: "Avatar", slug: "avatar" },
+      { title: "Accordion", slug: "accordion", primitive: true },
+      { title: "Autocomplete", slug: "autocomplete", primitive: true },
+      { title: "Avatar", slug: "avatar", primitive: true },
       { title: "Badge", slug: "badge", updated: true },
       { title: "Breadcrumb", slug: "breadcrumb", updated: true },
-      { title: "Button", slug: "button" },
-      { title: "Checkbox", slug: "checkbox" },
-      { title: "Collapsible", slug: "collapsible" },
+      { title: "Button", slug: "button", primitive: true },
+      { title: "Checkbox", slug: "checkbox", primitive: true },
+      { title: "Collapsible", slug: "collapsible", primitive: true },
       { title: "Color Picker", slug: "color-picker", updated: true },
-      { title: "Combobox", slug: "combobox" },
-      { title: "Context Menu", slug: "context-menu" },
-      { title: "Dialog", slug: "dialog" },
-      { title: "Drawer", slug: "drawer", updated: true },
+      { title: "Combobox", slug: "combobox", primitive: true },
+      { title: "Context Menu", slug: "context-menu", primitive: true },
+      { title: "Dialog", slug: "dialog", primitive: true },
+      {
+        title: "Drawer",
+        slug: "drawer",
+        updated: true,
+        primitive: true,
+      },
       { title: "File Upload", slug: "file-upload", updated: true },
-      { title: "Input", slug: "input" },
+      { title: "Input", slug: "input", primitive: true },
       { title: "Kbd", slug: "kbd", updated: true },
-      { title: "Knob", slug: "knob", updated: true },
-      { title: "Menu", slug: "menu" },
-      { title: "Menubar", slug: "menubar" },
-      { title: "Meter", slug: "meter" },
-      { title: "Navigation Menu", slug: "navigation-menu" },
-      { title: "Number Field", slug: "number-field" },
+      { title: "Menu", slug: "menu", primitive: true },
+      { title: "Menubar", slug: "menubar", primitive: true },
+      { title: "Meter", slug: "meter", primitive: true },
+      {
+        title: "Navigation Menu",
+        slug: "navigation-menu",
+        primitive: true,
+      },
+      { title: "Number Field", slug: "number-field", primitive: true },
       { title: "Onboarding", slug: "onboarding", updated: true },
-      { title: "Popover", slug: "popover" },
-      { title: "Preview Card", slug: "preview-card" },
-      { title: "Progress", slug: "progress" },
-      { title: "Radio", slug: "radio" },
+      { title: "Popover", slug: "popover", primitive: true },
+      { title: "Preview Card", slug: "preview-card", primitive: true },
+      { title: "Progress", slug: "progress", primitive: true },
+      { title: "Radio", slug: "radio", primitive: true },
       { title: "Rating", slug: "rating", updated: true },
-      { title: "Select", slug: "select" },
-      { title: "Separator", slug: "separator" },
-      { title: "Slider", slug: "slider" },
-      { title: "Switch", slug: "switch" },
-      { title: "Tabs", slug: "tabs" },
+      { title: "Select", slug: "select", primitive: true },
+      { title: "Separator", slug: "separator", primitive: true },
+      { title: "Slider", slug: "slider", primitive: true },
+      { title: "Switch", slug: "switch", primitive: true },
+      { title: "Tabs", slug: "tabs", primitive: true },
       { title: "Text Editor", slug: "text-editor", updated: true },
-      { title: "Toggle", slug: "toggle" },
-      { title: "Toolbar", slug: "toolbar" },
-      { title: "Tooltip", slug: "tooltip" },
+      { title: "Toggle", slug: "toggle", primitive: true },
+      { title: "Toolbar", slug: "toolbar", primitive: true },
+      { title: "Tooltip", slug: "tooltip", primitive: true },
     ],
   },
 ];
@@ -102,6 +112,39 @@ export function getAllUISlugs(): string[] {
   }
 
   return slugs;
+}
+
+// find the current item from pathname
+export function findCurrentUIItemBySlug(
+  pathname: string,
+): UISidebarConfigItemBase | null {
+  let slug = pathname.replace(/^\/ui\/components\//, "");
+  slug = slug.replace(/^\/ui\//, "").replace(/\/$/, "");
+
+  function searchInItems(
+    items: UISidebarConfigItem[],
+  ): UISidebarConfigItemBase | null {
+    for (const item of items) {
+      if (item.slug === slug) return item;
+      if ("children" in item && Array.isArray(item.children)) {
+        for (const child of item.children) {
+          if (child.slug === slug) return child;
+        }
+      }
+      if ("items" in item && Array.isArray(item.items)) {
+        const result = searchInItems(item.items);
+        if (result) return result;
+      }
+    }
+    return null;
+  }
+
+  for (const section of uiSidebarConfig) {
+    const result = searchInItems(section.items);
+    if (result) return result;
+  }
+
+  return null;
 }
 
 // find the current page info from pathname
