@@ -12,6 +12,7 @@ import AutocompleteBase from "./autocomplete-base";
 import AutocompleteGrouped from "./autocomplete-grouped";
 import AutocompleteStatic from "./autocomplete-static";
 import AvatarBase from "./avatar-base";
+import AvatarCompact from "./avatar-compact";
 import AvatarDetailed from "./avatar-detailed";
 import AvatarFallback from "./avatar-fallback";
 import AvatarInitials from "./avatar-initials";
@@ -100,6 +101,7 @@ export const baseComponents: Record<string, ComponentType> = {
   "autocomplete-grouped": AutocompleteGrouped,
   "autocomplete-static": AutocompleteStatic,
   "avatar-base": AvatarBase,
+  "avatar-compact": AvatarCompact,
   "avatar-detailed": AvatarDetailed,
   "avatar-initials": AvatarInitials,
   "avatar-fallback": AvatarFallback,

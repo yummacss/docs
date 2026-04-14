@@ -530,6 +530,10 @@ summary {
   border-radius: 0;
 }
 
+.br-full {
+  border-radius: 100%;
+}
+
 .br-lg {
   border-radius: 0.5rem;
 }
