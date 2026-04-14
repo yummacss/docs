@@ -45,7 +45,7 @@ import ComboboxStatic from "./combobox-static";
 import ContextMenuBase from "./context-menu-base";
 import ContextMenuCheckboxes from "./context-menu-checkboxes";
 import ContextMenuGrouped from "./context-menu-grouped";
-import ContextMenuIcons from "./context-menu-icons";
+import ContextMenuShortcuts from "./context-menu-shortcuts";
 import ContextMenuNested from "./context-menu-nested";
 import ContextMenuRadios from "./context-menu-radios";
 import ContextMenuStatic from "./context-menu-static";
@@ -133,7 +133,7 @@ export const baseComponents: Record<string, ComponentType> = {
   "context-menu-base": ContextMenuBase,
   "context-menu-checkboxes": ContextMenuCheckboxes,
   "context-menu-grouped": ContextMenuGrouped,
-  "context-menu-icons": ContextMenuIcons,
+  "context-menu-shortcuts": ContextMenuShortcuts,
   "context-menu-nested": ContextMenuNested,
   "context-menu-radios": ContextMenuRadios,
   "context-menu-static": ContextMenuStatic,

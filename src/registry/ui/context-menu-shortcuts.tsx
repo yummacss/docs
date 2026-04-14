@@ -12,7 +12,7 @@ import {
 import { AnimatePresence, motion } from "motion/react";
 import * as React from "react";
 
-export default function ContextMenuBase() {
+export default function ContextMenuShortcuts() {
   const [open, setOpen] = React.useState(false);
 
   return (
@@ -38,69 +38,107 @@ export default function ContextMenuBase() {
               >
                 <ContextMenu.Item
                   className={(state) =>
-                    `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm fw-600 us-none c-p br-lg mx-1 ${
+                    `d-f ai-c jc-sb g-2 py-2 pr-3 pl-3 fs-sm fw-600 us-none c-p br-lg mx-1 ${
                       state.highlighted ? "bg-silver-1" : "h:bg-silver-1"
                     }`
                   }
                 >
-                  <ArrowUturnCcwLeft className="fs-0 w-4 h-4 c-slate-5" />
-                  Reply
+                  <span className="d-f ai-c g-2 fg-1">
+                    <ArrowUturnCcwLeft className="fs-0 w-4 h-4 c-slate-5" />
+                    Reply
+                  </span>
+                  <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
+                    <span>⌘</span>
+                    <span>R</span>
+                  </span>
                 </ContextMenu.Item>
                 <ContextMenu.Item
                   className={(state) =>
-                    `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm fw-600 us-none c-p br-lg mx-1 ${
+                    `d-f ai-c jc-sb g-2 py-2 pr-3 pl-3 fs-sm fw-600 us-none c-p br-lg mx-1 ${
                       state.highlighted ? "bg-silver-1" : "h:bg-silver-1"
                     }`
                   }
                 >
-                  <At className="fs-0 w-4 h-4 c-slate-5" />
-                  Mention
+                  <span className="d-f ai-c g-2 fg-1">
+                    <At className="fs-0 w-4 h-4 c-slate-5" />
+                    Mention
+                  </span>
+                  <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
+                    <span>⌘</span>
+                    <span>M</span>
+                  </span>
                 </ContextMenu.Item>
                 <ContextMenu.Item
                   className={(state) =>
-                    `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm fw-600 us-none c-p br-lg mx-1 ${
+                    `d-f ai-c jc-sb g-2 py-2 pr-3 pl-3 fs-sm fw-600 us-none c-p br-lg mx-1 ${
                       state.highlighted ? "bg-silver-1" : "h:bg-silver-1"
                     }`
                   }
                 >
-                  <Link className="fs-0 w-4 h-4 c-slate-5" />
-                  Copy message link
-                </ContextMenu.Item>
-
-                <ContextMenu.Separator className="my-1 w-full h-px bg-silver-2" />
-
-                <ContextMenu.Item
-                  className={(state) =>
-                    `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm fw-600 us-none c-p br-lg mx-1 ${
-                      state.highlighted ? "bg-silver-1" : "h:bg-silver-1"
-                    }`
-                  }
-                >
-                  <Pin className="fs-0 w-4 h-4 c-slate-5" />
-                  Pin message
-                </ContextMenu.Item>
-                <ContextMenu.Item
-                  className={(state) =>
-                    `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm fw-600 us-none c-p br-lg mx-1 ${
-                      state.highlighted ? "bg-silver-1" : "h:bg-silver-1"
-                    }`
-                  }
-                >
-                  <CommentSlash className="fs-0 w-4 h-4 c-slate-5" />
-                  Mark unread
+                  <span className="d-f ai-c g-2 fg-1">
+                    <Link className="fs-0 w-4 h-4 c-slate-5" />
+                    Copy message link
+                  </span>
+                  <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
+                    <span>⌘</span>
+                    <span>⇧</span>
+                    <span>C</span>
+                  </span>
                 </ContextMenu.Item>
 
                 <ContextMenu.Separator className="my-1 w-full h-px bg-silver-2" />
 
                 <ContextMenu.Item
                   className={(state) =>
-                    `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm fw-600 us-none c-red c-p br-lg mx-1 ${
+                    `d-f ai-c jc-sb g-2 py-2 pr-3 pl-3 fs-sm fw-600 us-none c-p br-lg mx-1 ${
+                      state.highlighted ? "bg-silver-1" : "h:bg-silver-1"
+                    }`
+                  }
+                >
+                  <span className="d-f ai-c g-2 fg-1">
+                    <Pin className="fs-0 w-4 h-4 c-slate-5" />
+                    Pin message
+                  </span>
+                  <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
+                    <span>⌘</span>
+                    <span>P</span>
+                  </span>
+                </ContextMenu.Item>
+                <ContextMenu.Item
+                  className={(state) =>
+                    `d-f ai-c jc-sb g-2 py-2 pr-3 pl-3 fs-sm fw-600 us-none c-p br-lg mx-1 ${
+                      state.highlighted ? "bg-silver-1" : "h:bg-silver-1"
+                    }`
+                  }
+                >
+                  <span className="d-f ai-c g-2 fg-1">
+                    <CommentSlash className="fs-0 w-4 h-4 c-slate-5" />
+                    Mark unread
+                  </span>
+                  <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
+                    <span>⌘</span>
+                    <span>⇧</span>
+                    <span>U</span>
+                  </span>
+                </ContextMenu.Item>
+
+                <ContextMenu.Separator className="my-1 w-full h-px bg-silver-2" />
+
+                <ContextMenu.Item
+                  className={(state) =>
+                    `d-f ai-c jc-sb g-2 py-2 pr-3 pl-3 fs-sm fw-600 us-none c-red c-p br-lg mx-1 ${
                       state.highlighted ? "bg-red-1" : "h:bg-red-1"
                     }`
                   }
                 >
-                  <TrashBin className="fs-0 w-4 h-4" />
-                  Delete message
+                  <span className="d-f ai-c g-2 fg-1">
+                    <TrashBin className="fs-0 w-4 h-4" />
+                    Delete message
+                  </span>
+                  <span className="d-f ai-c g-1 c-red fw-400 fs-xs">
+                    <span>⌘</span>
+                    <span>⌫</span>
+                  </span>
                 </ContextMenu.Item>
               </ContextMenu.Popup>
             </ContextMenu.Positioner>
