@@ -2,7 +2,7 @@
 
 import { Button } from "@base-ui/react/button";
 import { Dialog } from "@base-ui/react/dialog";
-import { EnvelopeOpen, Xmark } from "@gravity-ui/icons";
+import { Envelope, Xmark } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import * as React from "react";
 
@@ -87,7 +87,7 @@ export default function DialogVerification() {
                 <div className="bc-silver-2 bbw-1" />
                 <div className="d-f ai-c g-3 px-4 py-3 bg-indigo-1/50">
                   <span className="d-f ai-c jc-c fs-0 w-10 h-10 bg-white bc-silver-2 c-indigo br-md bw-1 bs-o-xs">
-                    <EnvelopeOpen className="w-5 h-5" />
+                    <Envelope className="w-5 h-5" />
                   </span>
                   <div>
                     <h3 className="mb-1 c-slate-10 fs-sm fw-600">

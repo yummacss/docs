@@ -7,12 +7,12 @@ import * as React from "react";
 
 export default function ContextMenuRadios() {
   const [open, setOpen] = React.useState(false);
-  const [sortBy, setSortBy] = React.useState("name");
+  const [sortBy, setSortBy] = React.useState("recent");
 
   return (
     <ContextMenu.Root open={open} onOpenChange={setOpen}>
-      <ContextMenu.Trigger className="d-f ai-c jc-c h-48 w-60 bc-silver-2 c-slate-10 bw-1 br-md fs-sm fw-600 us-none">
-        Right click here
+      <ContextMenu.Trigger className="d-f ai-c jc-c h-48 w-60 bc-slate-3 bs-d c-slate-10 bw-1 br-lg fs-sm fw-600 us-none">
+        Right-click here
       </ContextMenu.Trigger>
 
       <AnimatePresence>
@@ -28,10 +28,10 @@ export default function ContextMenuRadios() {
                     transition={{ duration: 0.1, ease: "easeOut" }}
                   />
                 }
-                className="py-1 bg-white bc-silver-2 c-slate-10 bw-1 br-md bs-o-lg w-48"
+                className="py-1 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-lg w-48"
               >
                 <div className="px-3 py-1 fs-xs fw-600 c-slate-5 tt-u ls-3">
-                  Sort by
+                  Sort messages
                 </div>
 
                 <ContextMenu.RadioGroup
@@ -43,7 +43,7 @@ export default function ContextMenuRadios() {
                       key={option.value}
                       value={option.value}
                       className={(state) =>
-                        `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm us-none c-p br-sm mx-1 ${
+                        `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-600 us-none c-p br-lg mx-1 ${
                           state.highlighted ? "bg-silver-1" : "h:bg-silver-1"
                         }`
                       }
@@ -67,9 +67,7 @@ export default function ContextMenuRadios() {
 }
 
 const sortOptions = [
-  { value: "name", label: "Name" },
-  { value: "size", label: "Size" },
-  { value: "date-modified", label: "Date modified" },
-  { value: "date-created", label: "Date created" },
-  { value: "kind", label: "Kind" },
+  { value: "recent", label: "Recent activity" },
+  { value: "newest", label: "Newest first" },
+  { value: "oldest", label: "Oldest first" },
 ];
