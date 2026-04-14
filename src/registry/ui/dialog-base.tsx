@@ -30,7 +30,7 @@ export default function DialogBase() {
                   transition={{ duration: 0.2, ease: "easeOut" }}
                 />
               }
-              className="p-f i-0 min-h-dvh bg-black/20"
+              className="p-f i-0 min-h-dvh bg-black/20 bf-b-xs"
             />
             <div className="d-f p-f i-0 ai-c jc-c">
               <Dialog.Popup

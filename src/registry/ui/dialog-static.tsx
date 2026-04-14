@@ -15,7 +15,7 @@ export default function DialogStatic() {
         Open dialog
       </Dialog.Trigger>
       <Dialog.Portal>
-        <Dialog.Backdrop className="p-f i-0 min-h-dvh bg-black/20" />
+        <Dialog.Backdrop className="p-f i-0 min-h-dvh bg-black/20 bf-b-xs" />
         <div className="d-f p-f i-0 ai-c jc-c">
           <Dialog.Popup
             className="o-h w-96 bg-white bc-silver-2 c-slate-12 br-md bw-1 bs-o-lg"
