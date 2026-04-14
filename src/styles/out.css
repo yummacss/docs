@@ -309,6 +309,10 @@ summary {
   backdrop-filter: blur(8px);
 }
 
+.bf-b-xs {
+  backdrop-filter: blur(4px);
+}
+
 .bg-black {
   background-color: #000000;
 }
