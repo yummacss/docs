@@ -9,10 +9,10 @@ import Link from "next/link";
 
 ## Base Components
 
-There are {uiSidebarConfig[1].items.length} base components available.
+There are {uiSidebarConfig[1].items.filter((item) => !item.wip).length} base components available.
 
 <div className="d-g gtc-1 rg-8 my-10 sm:gtc-3">
-  {uiSidebarConfig[1].items.map((item) => (
+  {uiSidebarConfig[1].items.filter((item) => !item.wip).map((item) => (
     <div key={item.slug}>
       <Link className="c-white h:td-u" href={`/ui/${item.slug}`}>
         {item.title}

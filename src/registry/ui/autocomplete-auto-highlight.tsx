@@ -51,8 +51,9 @@ export default function AutocompleteAutoHighlight() {
                       render={(props, state) => (
                         <div
                           {...props}
-                          className={`d-f ai-c jc-c py-2 px-3 fs-xl us-none c-d c-p br-lg mx-1 ${state.highlighted ? "bg-silver-1" : "h:bg-silver-1"
-                            }`}
+                          className={`d-f ai-c jc-c py-2 px-3 fs-xl us-none c-d c-p br-lg mx-1 ${
+                            state.highlighted ? "bg-silver-1" : "h:bg-silver-1"
+                          }`}
                         >
                           {item.emoji}
                         </div>

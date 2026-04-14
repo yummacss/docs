@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import ApiReference from "@/components/ui/api-reference";
 import EditPage from "@/components/ui/edit-page";
-import { findCurrentUIPageInfo } from "@/utils/ui-sidebar";
+import { findCurrentUIItemBySlug } from "@/utils/ui-sidebar";
 
 interface TocItem {
   id: string;
@@ -18,8 +18,7 @@ export default function TableOfContents() {
   const [headings, setHeadings] = useState<TocItem[]>([]);
   const [activeId, setActiveId] = useState<string>("");
   const isBlogPost = pathname?.startsWith("/blog");
-  const uiPageInfo = findCurrentUIPageInfo(pathname || "");
-  const isBaseComponent = uiPageInfo?.sectionTitle === "Base components";
+  const currentItem = findCurrentUIItemBySlug(pathname || "");
 
   const intersectionObserverRef = useRef<IntersectionObserver | null>(null);
 
@@ -102,7 +101,7 @@ export default function TableOfContents() {
           {!isBlogPost && (
             <div className="d-f fd-c g-3 mt-8 pt-8">
               <EditPage />
-              {isBaseComponent && <ApiReference />}
+              {currentItem?.primitive && <ApiReference />}
             </div>
           )}
         </div>
