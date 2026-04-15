@@ -35,7 +35,7 @@ export default function DialogMail() {
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger
         render={
-          <Button className="px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-600 bs-o-xs tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+          <Button className="px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-600 bs-o-xs tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
         }
       >
         Compose
@@ -72,7 +72,7 @@ export default function DialogMail() {
                   </Dialog.Title>
                   <Dialog.Close
                     render={
-                      <Button className="d-f b-0 ai-c jc-c w-7 h-7 bg-transparent c-slate-6 br-md h:bg-silver-2 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+                      <Button className="d-f b-0 ai-c jc-c w-7 h-7 bg-transparent c-slate-6 br-md h:bg-silver-2 fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
                     }
                   >
                     <Xmark aria-hidden className="w-4 h-4" />
@@ -106,7 +106,7 @@ export default function DialogMail() {
                         id="mail-to"
                         type="email"
                         placeholder="recipient@example.com"
-                        className="h-10 w-full pl-3 bg-white bc-silver-3 c-slate-10 br-md bw-1 fs-md fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
+                        className="h-10 w-full pl-3 bg-white bc-silver-3 c-slate-10 br-md bw-1 fs-md fv:ow-2 fv:oo-2 fv:oc-indigo-6"
                       />
                     </Field.Root>
                     <Field.Root className="d-f fd-c g-2">
@@ -119,7 +119,7 @@ export default function DialogMail() {
                       <Input
                         id="mail-subject"
                         placeholder="Enter subject"
-                        className="h-10 w-full pl-3 bg-white bc-silver-3 c-slate-10 br-md bw-1 fs-md fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
+                        className="h-10 w-full pl-3 bg-white bc-silver-3 c-slate-10 br-md bw-1 fs-md fv:ow-2 fv:oo-2 fv:oc-indigo-6"
                       />
                     </Field.Root>
                     <Field.Root className="d-f fd-c g-2">
@@ -144,7 +144,7 @@ export default function DialogMail() {
                                     <Toggle
                                       value="bold"
                                       className={(state) =>
-                                        `d-f w-8 h-8 ai-c jc-c bw-0 br-sm us-none fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+                                        `d-f w-8 h-8 ai-c jc-c bw-0 br-sm us-none fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
                                           state.pressed
                                             ? "bg-indigo c-white"
                                             : "bg-transparent c-slate-8 h:bg-silver-1 h:c-slate-10"
@@ -171,7 +171,7 @@ export default function DialogMail() {
                                     <Toggle
                                       value="italic"
                                       className={(state) =>
-                                        `d-f w-8 h-8 ai-c jc-c bw-0 br-sm us-none fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+                                        `d-f w-8 h-8 ai-c jc-c bw-0 br-sm us-none fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
                                           state.pressed
                                             ? "bg-indigo c-white"
                                             : "bg-transparent c-slate-8 h:bg-silver-1 h:c-slate-10"
@@ -198,7 +198,7 @@ export default function DialogMail() {
                                     <Toggle
                                       value="underline"
                                       className={(state) =>
-                                        `d-f w-8 h-8 ai-c jc-c bw-0 br-sm us-none fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+                                        `d-f w-8 h-8 ai-c jc-c bw-0 br-sm us-none fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
                                           state.pressed
                                             ? "bg-indigo c-white"
                                             : "bg-transparent c-slate-8 h:bg-silver-1 h:c-slate-10"
@@ -227,7 +227,7 @@ export default function DialogMail() {
                             <Tooltip.Root>
                               <Tooltip.Trigger
                                 render={
-                                  <Toolbar.Button className="d-f ai-c jc-c w-8 h-8 bg-transparent c-slate-8 bw-0 br-sm us-none h:bg-silver-1 h:c-slate-10 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+                                  <Toolbar.Button className="d-f ai-c jc-c w-8 h-8 bg-transparent c-slate-8 bw-0 br-sm us-none h:bg-silver-1 h:c-slate-10 fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
                                 }
                               >
                                 <Palette className="w-4 h-4" />
@@ -253,7 +253,7 @@ export default function DialogMail() {
                                     <Toggle
                                       value="left"
                                       className={(state) =>
-                                        `d-f w-8 h-8 ai-c jc-c bw-0 br-sm us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+                                        `d-f w-8 h-8 ai-c jc-c bw-0 br-sm us-none c-p fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
                                           state.pressed
                                             ? "bg-indigo c-white"
                                             : "bg-transparent c-slate-8 h:bg-silver-1 h:c-slate-10"
@@ -280,7 +280,7 @@ export default function DialogMail() {
                                     <Toggle
                                       value="center"
                                       className={(state) =>
-                                        `d-f w-8 h-8 ai-c jc-c bw-0 br-sm us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+                                        `d-f w-8 h-8 ai-c jc-c bw-0 br-sm us-none c-p fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
                                           state.pressed
                                             ? "bg-indigo c-white"
                                             : "bg-transparent c-slate-8 h:bg-silver-1 h:c-slate-10"
@@ -307,7 +307,7 @@ export default function DialogMail() {
                                     <Toggle
                                       value="right"
                                       className={(state) =>
-                                        `d-f w-8 h-8 ai-c jc-c bw-0 br-sm us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+                                        `d-f w-8 h-8 ai-c jc-c bw-0 br-sm us-none c-p fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
                                           state.pressed
                                             ? "bg-indigo c-white"
                                             : "bg-transparent c-slate-8 h:bg-silver-1 h:c-slate-10"
@@ -340,7 +340,7 @@ export default function DialogMail() {
                                     <Toggle
                                       value="bullets"
                                       className={(state) =>
-                                        `d-f w-8 h-8 ai-c jc-c bw-0 br-sm us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+                                        `d-f w-8 h-8 ai-c jc-c bw-0 br-sm us-none c-p fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
                                           state.pressed
                                             ? "bg-indigo c-white"
                                             : "bg-transparent c-slate-8 h:bg-silver-1 h:c-slate-10"
@@ -367,7 +367,7 @@ export default function DialogMail() {
                                     <Toggle
                                       value="numbers"
                                       className={(state) =>
-                                        `d-f w-8 h-8 ai-c jc-c bw-0 br-sm us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+                                        `d-f w-8 h-8 ai-c jc-c bw-0 br-sm us-none c-p fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
                                           state.pressed
                                             ? "bg-indigo c-white"
                                             : "bg-transparent c-slate-8 h:bg-silver-1 h:c-slate-10"
@@ -396,7 +396,7 @@ export default function DialogMail() {
                             <Tooltip.Root>
                               <Tooltip.Trigger
                                 render={
-                                  <Toolbar.Button className="d-f ai-c jc-c w-8 h-8 bg-transparent c-slate-8 bw-0 br-sm us-none h:bg-silver-1 h:c-slate-10 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+                                  <Toolbar.Button className="d-f ai-c jc-c w-8 h-8 bg-transparent c-slate-8 bw-0 br-sm us-none h:bg-silver-1 h:c-slate-10 fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
                                 }
                               >
                                 <TrashBin className="w-4 h-4" />
@@ -418,7 +418,7 @@ export default function DialogMail() {
                             <Tooltip.Root>
                               <Tooltip.Trigger
                                 render={
-                                  <Toolbar.Button className="d-f ai-c g-2 h-8 px-2 bg-transparent c-slate-8 br-sm bw-0 fs-xs fw-600 us-none h:bg-silver-1 h:c-slate-10 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+                                  <Toolbar.Button className="d-f ai-c g-2 h-8 px-2 bg-transparent c-slate-8 br-sm bw-0 fs-xs fw-600 us-none h:bg-silver-1 h:c-slate-10 fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
                                 }
                               >
                                 <Paperclip className="w-4 h-4" />
@@ -437,7 +437,7 @@ export default function DialogMail() {
                             <Tooltip.Root>
                               <Tooltip.Trigger
                                 render={
-                                  <Toolbar.Button className="d-f ai-c g-2 h-8 px-2 bg-transparent c-slate-8 br-sm bw-0 fs-xs fw-600 us-none h:bg-silver-1 h:c-slate-10 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+                                  <Toolbar.Button className="d-f ai-c g-2 h-8 px-2 bg-transparent c-slate-8 br-sm bw-0 fs-xs fw-600 us-none h:bg-silver-1 h:c-slate-10 fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
                                 }
                               >
                                 <Picture className="w-4 h-4" />
@@ -460,7 +460,7 @@ export default function DialogMail() {
                 <div className="d-g gtc-2 g-3 px-4 py-3">
                   <Dialog.Close
                     render={
-                      <Button className="px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-600 bs-o-xs tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+                      <Button className="px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-600 bs-o-xs tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
                     }
                   >
                     Discard

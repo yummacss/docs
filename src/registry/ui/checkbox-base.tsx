@@ -9,7 +9,7 @@ export default function CheckboxBase() {
       <Checkbox.Root
         defaultChecked
         className={(state) =>
-          `d-f w-4 h-4 ai-c jc-c br-sm fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+          `d-f w-4 h-4 ai-c jc-c br-sm fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
             state.checked ? "bg-indigo" : "bw-1 bc-silver-3 bg-transparent"
           }`
         }

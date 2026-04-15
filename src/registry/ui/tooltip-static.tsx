@@ -7,7 +7,7 @@ export default function TooltipStatic() {
   return (
     <Tooltip.Provider>
       <Tooltip.Root>
-        <Tooltip.Trigger className="d-f ai-c jc-c bg-transparent c-slate-8 bw-0 c-p h:c-slate-12 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6">
+        <Tooltip.Trigger className="d-f ai-c jc-c bg-transparent c-slate-8 bw-0 c-p h:c-slate-12 fv:ow-2 fv:oo-2 fv:oc-indigo-6">
           <CircleQuestion className="w-6 h-6" />
         </Tooltip.Trigger>
         <Tooltip.Portal>

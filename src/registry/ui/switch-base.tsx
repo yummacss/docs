@@ -13,7 +13,7 @@ export default function SwitchBase() {
         id="switch-dark-mode"
         checked={checked}
         onCheckedChange={setChecked}
-        className={`p-r d-f ai-c h-6 w-11 br-pill bw-0 m-0 px-1 c-p tp-bg tdu-200 ttf-io fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+        className={`p-r d-f ai-c h-6 w-11 br-pill bw-0 m-0 px-1 c-p tp-bg tdu-200 ttf-io fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
           checked ? "bg-indigo" : "bg-silver-3"
         }`}
       >

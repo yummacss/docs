@@ -24,7 +24,7 @@ export default function AutocompleteAutoHighlight() {
         <Autocomplete.Input
           id="auto-highlight-input"
           placeholder="e.g.Rainbow"
-          className="h-10 w-64 pl-4 bg-white bc-silver-3 c-slate-12 bw-1 br-lg fs-md fv:os-s fv:ow-2 fv:oo--1 fv:oc-indigo-6"
+          className="h-10 w-64 pl-4 bg-white bc-silver-3 c-slate-12 bw-1 br-lg fs-md fv:ow-2 fv:oo--1 fv:oc-indigo-6"
         />
       </div>
 
@@ -41,7 +41,7 @@ export default function AutocompleteAutoHighlight() {
                     transition={{ duration: 0.1, ease: "easeOut" }}
                   />
                 }
-                className="o-h w-auto max-w-72 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-lg"
+                className="o-h w-auto max-w-72 bg-white bc-silver-3 c-slate-10 bw-1 br-xl bs-o-lg"
               >
                 <Autocomplete.List className="d-g gtc-6 g-1 py-1 ow-0">
                   {(item: Emoji) => (
@@ -51,7 +51,7 @@ export default function AutocompleteAutoHighlight() {
                       render={(props, state) => (
                         <div
                           {...props}
-                          className={`d-f ai-c jc-c py-2 px-3 fs-xl us-none c-d c-p br-lg mx-1 ${
+                          className={`d-f ai-c jc-c py-2 px-3 fs-xl us-none c-p br-lg mx-1 ${
                             state.highlighted ? "bg-silver-1" : "h:bg-silver-1"
                           }`}
                         >

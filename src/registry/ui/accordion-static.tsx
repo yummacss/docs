@@ -22,7 +22,7 @@ export default function AccordionStatic() {
             className={index === faqs.length - 1 ? "" : "bbw-1 bc-silver-3"}
           >
             <Accordion.Header className="m-0">
-              <Accordion.Trigger className="d-f b-0 ai-c jc-sb g-3 w-full py-4 px-0 bg-transparent br-sm ta-l c-p fv:os-s fv:ow-2 fv:oo-1 fv:oc-indigo-6">
+              <Accordion.Trigger className="d-f b-0 ai-c jc-sb g-3 w-full py-4 px-0 bg-transparent br-sm ta-l c-p fv:ow-2 fv:oo-1 fv:oc-indigo-6">
                 <span className="c-slate-8 fs-sm fw-500">{item.title}</span>
                 <ChevronDown
                   className={`w-4 h-4 fs-0 c-slate-6 ${isOpen ? "ro-180" : "ro-0"}`}

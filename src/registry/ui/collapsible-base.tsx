@@ -16,7 +16,7 @@ export default function CollapsibleBase() {
       onOpenChange={setOpen}
       className="d-f fd-c w-72 c-slate-10 br-xl"
     >
-      <Collapsible.Trigger className="d-f b-0 ai-c g-2 px-3 py-2 bg-white bc-silver-2 c-slate-10 br-lg bw-1 fs-sm fw-600 c-p h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6">
+      <Collapsible.Trigger className="d-f b-0 ai-c g-2 px-3 py-2 bg-white bc-silver-2 c-slate-10 br-lg bw-1 fs-sm fw-600 c-p h:bg-silver-1/50 fv:ow-2 fv:oo-2 fv:oc-indigo-6">
         <motion.span
           animate={{ rotate: open ? 90 : 0 }}
           transition={{ duration: 0.15, ease: "easeOut" }}
@@ -45,7 +45,7 @@ export default function CollapsibleBase() {
           {whoToFollow.users.map((user) => (
             <div key={user.name} className="d-f ai-c jc-sb">
               <div className="d-f ai-c g-3">
-                <Avatar.Root className="d-if o-h ai-c jc-c w-8 h-8 br-pill va-m us-none bc-silver-3 bw-1">
+                <Avatar.Root className="d-if o-h ai-c jc-c w-8 h-8 bc-silver-3 br-pill bw-1 va-m us-none">
                   <Avatar.Image
                     src={user.avatar}
                     alt={user.name}
@@ -56,11 +56,11 @@ export default function CollapsibleBase() {
                   </Avatar.Fallback>
                 </Avatar.Root>
                 <div className="d-f fd-c g-0">
-                  <span className="fs-sm fw-600 c-slate-10">{user.name}</span>
-                  <span className="fs-xs c-slate-6">@{user.handle}</span>
+                  <span className="c-slate-10 fs-sm fw-600">{user.name}</span>
+                  <span className="c-slate-6 fs-xs">@{user.handle}</span>
                 </div>
               </div>
-              <Button className="d-f ai-c jc-c h-7 px-3 bg-indigo c-white br-pill fs-xs fw-600 tp-c tdu-150 ttf-io us-none fv:bg-indigo-8 h:bg-indigo-8">
+              <Button className="d-f ai-c jc-c h-7 px-3 bg-indigo fv:bg-indigo-8 h:bg-indigo-8 c-white br-pill fs-xs fw-600 tp-c tdu-150 ttf-io us-none">
                 Follow
               </Button>
             </div>

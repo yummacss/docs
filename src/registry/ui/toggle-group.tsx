@@ -22,7 +22,7 @@ export default function ToggleGroupBase() {
             key={item.value}
             aria-label={item.label}
             value={item.value}
-            className={`d-f w-9 h-9 ai-c jc-c bw-0 br-sm us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+            className={`d-f w-9 h-9 ai-c jc-c bw-0 br-sm us-none c-p fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
               isSelected
                 ? "bg-indigo c-white"
                 : "bg-transparent c-slate-8 h:bg-silver-1 h:c-slate-10"
