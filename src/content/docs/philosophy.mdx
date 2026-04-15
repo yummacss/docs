@@ -3,7 +3,7 @@ export const meta = {
   description: "Why Yumma CSS maps class names directly to CSS properties.",
 };
 
-Yumma CSS is an atomic CSS framework built around one idea: utility class names should mirror the CSS properties they represent. Every class is an abbreviation, not an alias.
+Yumma CSS is built around one idea: utility class names should be abbreviations of CSS properties, not aliases for them.
 
 ```html
 <!-- Yumma CSS -->
@@ -13,26 +13,60 @@ Yumma CSS is an atomic CSS framework built around one idea: utility class names 
 <div class="inline-flex rounded-tr-2xl rounded-bl-2xl bg-black px-6 text-4xl font-medium text-white">Hello World!</div>
 ```
 
-## Abbreviated by Design
+## Abbreviations, not aliases
 
-Most atomic CSS frameworks map utility classes to predefined tokens and names. Yumma CSS maps them to CSS properties and values directly, using consistent abbreviations.
+Most utility frameworks introduce a vocabulary layer. Class names *represent* CSS values through human-readable aliases.
 
-| CSS Property              | Yumma CSS | Other frameworks |
-|---------------------------|-----------|------------------|
-| `display: flex`           | `d-f`     | `flex`           |
-| `font-weight: 600`        | `fw-600`  | `font-semibold`  |
-| `align-items: center`     | `ai-c`    | `items-center`   |
-| `justify-content: center` | `jc-c`    | `justify-center` |
-| `color: white`            | `c-white` | `text-white`     |
-| `border-radius: 0.375rem` | `br-md`   | `rounded-md`     |
+| CSS Property              | Other  frameworks | Yumma CSS |
+|---------------------------|-------------------|-----------|
+| `display: flex`           | `flex`            | `d-f`     |
+| `font-weight: 600`        | `font-semibold`   | `fw-600`  |
+| `align-items: center`     | `items-center`    | `ai-c`    |
+| `justify-content: center` | `justify-center`  | `jc-c`    |
+| `color: white`            | `text-white`      | `c-white` |
+| `border-radius: 0.375rem` | `rounded-md`      | `br-md`   |
 
-The pattern is consistent. Once you know the abbreviation for a property, you know it for every value of that property. There is no separate vocabulary to memorize for hover states, responsive variants.
+With aliases, you learn the framework first, then the framework translates to CSS.
 
-## Smaller Class Strings
+With abbreviations, you already know CSS, the class name is just a shorter version of what you already know.
 
-Fewer characters per class means less visual clutter in your markup. Complex components stay readable as they grow.
+## Isn't this just a shorter syntax for the same thing?
 
-Every class maps directly to a CSS declaration. `c-white` is `color: white`. `fw-600` is `font-weight: 600`. No indirection.
+Not quite. The difference is in the mental model.
+
+Alias-based frameworks optimize for readability, `font-semibold` reads like English. But readability comes at a cost: you need to memorize a separate vocabulary on top of CSS. `font-semibold` doesn't tell you it's `font-weight: 600`. `items-center` doesn't tell you it's `align-items`. The framework becomes a translation layer between you and CSS.
+
+Yumma CSS removes that layer. The abbreviation rules are consistent and predictable. Once you know that `jc` is `justify-content` and `c` is `center`, you know `jc-c` forever, and you also know `jc-fe` (flex-end), `jc-sb` (space-between), and every other value without looking anything up.
+
+There is no vocabulary to memorize on top of CSS. There is only CSS, abbreviated.
+
+## One class. One property. No surprises.
+
+Every class in Yumma CSS maps to exactly one CSS property.
+
+```css
+.ai-c {
+  align-items: center;
+}
+
+.c-white {
+  color: #ffffff;
+}
+
+.d-f {
+  display: flex;
+}
+
+.fw-600 {
+  font-weight: 600;
+}
+```
+
+What you see is what you get. No multi-property shorthands hidden behind a single class. No surprises in the output. If you see `ai-c` in the markup, you know exactly what CSS it produces.
+
+## Smaller markup, same output
+
+Fewer characters per class means less noise in your markup. Complex components stay readable as they grow.
 
 ```html
 <button class="px-3 py-2 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-md bw-1 fw-600 c-p">
@@ -40,23 +74,16 @@ Every class maps directly to a CSS declaration. `c-white` is `color: white`. `fw
 </button>
 ```
 
+## When Yumma CSS fits
 
-## Closer to CSS
-
-Because class names follow CSS abbreviations, the mental model stays close to the language itself. You are not learning a framework vocabulary on top of CSS. You are using CSS with shorter names.
-
-This makes Yumma CSS approachable for developers who know CSS well and want to write it faster without switching to a preprocessor or build-heavy design token system.
-
-## When Yumma CSS Fits
-
-- You want utility-first CSS with less markup noise.
-- Your team knows CSS and wants class names that reflect it.
+- You know CSS well and want class names that reflect it directly.
 - You prefer explicit values (`fw-600`) over semantic aliases (`font-semibold`).
-- You are building a design system where every class maps to exactly one CSS declaration.
-- You want predictable output: one class, one property, no surprises.
+- You want predictable output without indirections.
+- You're building a design system where consistency and transparency matter.
+- You want a smaller, faster mental model.
 
-## When It May Not Fit
+## When it may not fit
 
-- You rely heavily on a large, pre-built component ecosystem.
-- Your team is already deeply familiar with another framework's vocabulary and switching cost outweighs the benefit.
-- You need a framework with official multi-framework UI kits out of the box.
+- You rely heavily on a large pre-built component ecosystem.
+- Your team is deeply familiar with another framework's vocabulary and the switching cost outweighs the benefit.
+- You need official multi-framework UI kits out of the box.
