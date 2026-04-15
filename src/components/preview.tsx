@@ -1,13 +1,31 @@
 import { cva, type VariantProps } from "class-variance-authority";
 import { clsx } from "clsx";
+import dynamic from "next/dynamic";
 import type { ComponentType } from "react";
-import { registry as registryDocs } from "@/registry/docs";
-import { registry as registryUi } from "@/registry/ui";
 
-const registry: Record<string, ComponentType> = {
-  ...registryUi,
-  ...registryDocs,
-};
+// Lazy-load registry components individually to avoid pulling the entire
+// registry (100+ components) into a single module graph, which causes
+// Turbopack to stall during HMR. Each component is loaded on demand via
+// next/dynamic with a variable import path, so the bundler creates a
+// separate chunk per component.
+const dynamicCache = new Map<string, ComponentType>();
+
+function getRegistryComponent(id: string): ComponentType | null {
+  if (dynamicCache.has(id)) {
+    return dynamicCache.get(id) || null;
+  }
+
+  const LazyComponent = dynamic(
+    () =>
+      import(`@/registry/ui/${id}.tsx`).catch(
+        () => import(`@/registry/docs/${id}.tsx`),
+      ),
+    { ssr: true },
+  );
+
+  dynamicCache.set(id, LazyComponent);
+  return LazyComponent;
+}
 
 const previewVariants = cva("bg-white btw-1 brw-1 blw-1", {
   variants: {
@@ -41,7 +59,7 @@ export default function Preview({
 }: PreviewProps) {
   // If id is provided, render from registry (isolated from MDX)
   const actualId = registryId || id;
-  const RegistryComponent = actualId ? registry[actualId] : null;
+  const RegistryComponent = actualId ? getRegistryComponent(actualId) : null;
 
   if (actualId && !RegistryComponent) {
     return (

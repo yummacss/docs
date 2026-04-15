@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 
+const isDev = process.env.NODE_ENV !== "production";
 const fileCache = new Map();
 
 export default function rehypeRegistry() {
@@ -48,7 +49,9 @@ export default function rehypeRegistry() {
           }
 
           if (fs.existsSync(filePath)) {
-            if (!fileCache.has(filePath)) {
+            // In dev mode, always read fresh to avoid stale cache across HMR cycles.
+            // In production, cache for build performance.
+            if (isDev || !fileCache.has(filePath)) {
               fileCache.set(filePath, fs.readFileSync(filePath, "utf-8"));
             }
             const content = fileCache.get(filePath);
