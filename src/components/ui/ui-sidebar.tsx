@@ -52,7 +52,7 @@ export default function UISidebar() {
                             <li key={child.slug}>
                               <Link
                                 href={href}
-                                className={`d-if ai-c g-3 fs-sm us-none fv:oc-white fv:oo-2 fv:ow-2 fv:os-s ${isActive ? "c-white" : "c-white/70 h:c-white"}`}
+                                className={`d-if ai-c g-3 fs-sm us-none fv:oc-white fv:oo-2 fv:ow-2 ${isActive ? "c-white" : "c-white/70 h:c-white"}`}
                               >
                                 {child.title}
                                 {child.updated && (
@@ -89,7 +89,7 @@ export default function UISidebar() {
                                       <li key={child.slug}>
                                         <Link
                                           href={href}
-                                          className={`d-if ai-c g-3 fs-sm us-none fv:oc-white fv:oo-2 fv:ow-2 fv:os-s ${isActive ? "c-white" : "c-white/70 h:c-white"}`}
+                                          className={`d-if ai-c g-3 fs-sm us-none fv:oc-white fv:oo-2 fv:ow-2 ${isActive ? "c-white" : "c-white/70 h:c-white"}`}
                                         >
                                           {child.title}
                                           {child.updated && (
@@ -112,7 +112,7 @@ export default function UISidebar() {
                               <li key={subItem.slug}>
                                 <Link
                                   href={href}
-                                  className={`d-if ai-c g-3 fs-sm us-none fv:oc-white fv:oo-2 fv:ow-2 fv:os-s ${isActive ? "c-white" : "c-white/70 h:c-white"}`}
+                                  className={`d-if ai-c g-3 fs-sm us-none fv:oc-white fv:oo-2 fv:ow-2 ${isActive ? "c-white" : "c-white/70 h:c-white"}`}
                                 >
                                   {subItem.title}
                                   {subItem.updated && (
@@ -139,7 +139,7 @@ export default function UISidebar() {
                     <li key={item.slug}>
                       <Link
                         href={href}
-                        className={`d-if ai-c g-3 fs-sm us-none fv:oc-white fv:oo-2 fv:ow-2 fv:os-s ${isActive ? "c-white" : "c-white/70 h:c-white"}`}
+                        className={`d-if ai-c g-3 fs-sm us-none fv:oc-white fv:oo-2 fv:ow-2 ${isActive ? "c-white" : "c-white/70 h:c-white"}`}
                       >
                         {item.title}
                         {item.updated && (

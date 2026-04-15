@@ -229,6 +229,10 @@ summary {
   border-color: #232741;
 }
 
+.bc-green-2 {
+  border-color: #b4f3e3;
+}
+
 .bc-indigo {
   border-color: #6366f1;
 }
@@ -363,6 +367,10 @@ summary {
 
 .bg-green-6 {
   background-color: #29dcad;
+}
+
+.bg-green\/10 {
+  background-color: #06d6a01a;
 }
 
 .bg-indigo {
@@ -1046,10 +1054,6 @@ summary {
 
 .fv\:oo-2:focus-visible {
   outline-offset: 2px;
-}
-
-.fv\:os-s:focus-visible {
-  outline-style: solid;
 }
 
 .fv\:ow-2:focus-visible {

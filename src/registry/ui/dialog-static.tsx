@@ -9,7 +9,7 @@ export default function DialogStatic() {
     <Dialog.Root>
       <Dialog.Trigger
         render={
-          <Button className="px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-600 bs-o-xs us-none h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+          <Button className="px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-600 bs-o-xs us-none h:bg-silver-1/50 fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
         }
       >
         Open dialog
@@ -25,7 +25,7 @@ export default function DialogStatic() {
               <Dialog.Title className="fs-md fw-600">Base Dialog</Dialog.Title>
               <Dialog.Close
                 render={
-                  <Button className="d-f b-0 ai-c jc-c w-7 h-7 bg-transparent c-slate-6 br-md h:bg-silver-2 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+                  <Button className="d-f b-0 ai-c jc-c w-7 h-7 bg-transparent c-slate-6 br-md h:bg-silver-2 fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
                 }
               >
                 <Xmark aria-hidden className="w-4 h-4" />
@@ -41,7 +41,7 @@ export default function DialogStatic() {
             <div className="d-g gtc-2 g-3 px-4 py-3">
               <Dialog.Close
                 render={
-                  <Button className="px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-600 bs-o-xs us-none h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+                  <Button className="px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-600 bs-o-xs us-none h:bg-silver-1/50 fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
                 }
               >
                 Cancel

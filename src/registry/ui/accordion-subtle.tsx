@@ -23,7 +23,7 @@ export default function AccordionSubtle() {
             className={`br-md ${isOpen ? "bg-indigo-1" : "bg-silver-1 h:bg-silver-2"}`}
           >
             <Accordion.Header className="m-0">
-              <Accordion.Trigger className="d-f b-0 ai-c jc-sb g-3 w-full py-3 px-4 bg-transparent br-sm ta-l c-p fv:os-s fv:ow-2 fv:oo-1 fv:oc-indigo-6">
+              <Accordion.Trigger className="d-f b-0 ai-c jc-sb g-3 w-full py-3 px-4 bg-transparent br-sm ta-l c-p fv:ow-2 fv:oo-1 fv:oc-indigo-6">
                 <span
                   className={`fs-sm fw-500 ${isOpen ? "c-indigo-7" : "c-slate-8"}`}
                 >

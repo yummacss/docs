@@ -86,10 +86,10 @@ export default function MobileSidebar({ isOpen, onClose, routeType }: Props) {
         <Drawer.Viewport className="d-f p-f t-12 l-0 r-0 b-0 zi-20 fd-c lg:d-none">
           <Drawer.Popup
             data-mobile-sidebar-popup
-            className="f-1 bc-white/10 bg-mirage btw-1 bs-o-md oy-auto"
+            className="oy-auto f-1 bc-white/10 bg-mirage btw-1 bs-o-md"
           >
             <div className="d-f p-r fd-c h-full">
-              <div className="f-1 pb-8 pt-6 oy-auto">
+              <div className="oy-auto f-1 pb-8 pt-6">
                 <div className="mx-auto px-6">
                   <div className="d-f fd-c g-8">
                     {config.map((section) => (
@@ -121,7 +121,7 @@ export default function MobileSidebar({ isOpen, onClose, routeType }: Props) {
                                           <Link
                                             href={href}
                                             onClick={onClose}
-                                            className={`d-if ai-c g-3 fs-lg us-none fv:oc-white fv:oo-2 fv:ow-2 fv:os-s ${isActive ? "c-white" : "c-white/70 h:c-white"}`}
+                                            className={`d-if ai-c g-3 fs-lg us-none fv:oc-white fv:oo-2 fv:ow-2 ${isActive ? "c-white" : "c-white/70 h:c-white"}`}
                                             target={
                                               (child as any).external
                                                 ? "_blank"
@@ -180,7 +180,7 @@ export default function MobileSidebar({ isOpen, onClose, routeType }: Props) {
                                                     <Link
                                                       href={`${baseRoute}/${child.slug}`}
                                                       onClick={onClose}
-                                                      className={`d-if ai-c g-3 fs-lg us-none fv:oc-white fv:oo-2 fv:ow-2 fv:os-s ${isActive ? "c-white" : "c-white/70 h:c-white"}`}
+                                                      className={`d-if ai-c g-3 fs-lg us-none fv:oc-white fv:oo-2 fv:ow-2 ${isActive ? "c-white" : "c-white/70 h:c-white"}`}
                                                     >
                                                       {child.title}
                                                       {(child as any)
@@ -205,7 +205,7 @@ export default function MobileSidebar({ isOpen, onClose, routeType }: Props) {
                                             <Link
                                               href={`${baseRoute}/${subItem.slug}`}
                                               onClick={onClose}
-                                              className={`d-if ai-c g-3 fs-lg us-none fv:oc-white fv:oo-2 fv:ow-2 fv:os-s ${isActive ? "c-white" : "c-white/70 h:c-white"}`}
+                                              className={`d-if ai-c g-3 fs-lg us-none fv:oc-white fv:oo-2 fv:ow-2 ${isActive ? "c-white" : "c-white/70 h:c-white"}`}
                                             >
                                               {subItem.title}
                                               {(subItem as any).updated && (
@@ -238,7 +238,7 @@ export default function MobileSidebar({ isOpen, onClose, routeType }: Props) {
                                   <Link
                                     href={href}
                                     onClick={onClose}
-                                    className={`d-if ai-c g-3 fs-lg us-none fv:oc-white fv:oo-2 fv:ow-2 fv:os-s ${isActive ? "c-white" : "c-white/70 h:c-white"}`}
+                                    className={`d-if ai-c g-3 fs-lg us-none fv:oc-white fv:oo-2 fv:ow-2 ${isActive ? "c-white" : "c-white/70 h:c-white"}`}
                                     target={
                                       (item as any).external
                                         ? "_blank"

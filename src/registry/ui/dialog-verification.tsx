@@ -40,7 +40,7 @@ export default function DialogVerification() {
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger
         render={
-          <Button className="px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-600 bs-o-xs tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+          <Button className="px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-600 bs-o-xs tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
         }
       >
         Verify Email
@@ -78,7 +78,7 @@ export default function DialogVerification() {
                   </Dialog.Title>
                   <Dialog.Close
                     render={
-                      <Button className="d-f b-0 ai-c jc-c w-7 h-7 bg-transparent c-slate-6 br-md h:bg-silver-2 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+                      <Button className="d-f b-0 ai-c jc-c w-7 h-7 bg-transparent c-slate-6 br-md h:bg-silver-2 fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
                     }
                   >
                     <Xmark aria-hidden className="w-4 h-4" />
@@ -116,7 +116,7 @@ export default function DialogVerification() {
                           value={code[index]}
                           onChange={(e) => handleChange(index, e.target.value)}
                           onKeyDown={(e) => handleKeyDown(index, e)}
-                          className="w-12 h-12 bc-silver-3 cc-slate-7 br-md bw-1 ta-c fs-lg fw-600 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
+                          className="w-12 h-12 bc-silver-3 cc-slate-7 br-md bw-1 ta-c fs-lg fw-600 fv:ow-2 fv:oo-2 fv:oc-indigo-6"
                         />
                       ),
                     )}
@@ -134,7 +134,7 @@ export default function DialogVerification() {
                 <div className="d-g gtc-2 g-3 px-4 py-3">
                   <Dialog.Close
                     render={
-                      <Button className="px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-600 bs-o-xs tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+                      <Button className="px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-600 bs-o-xs tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
                     }
                   >
                     Cancel

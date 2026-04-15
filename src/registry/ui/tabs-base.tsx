@@ -21,7 +21,7 @@ export default function TabsBase() {
             <Tabs.Tab
               key={tab.value}
               value={tab.value}
-              className={`fx-1 d-f ai-c jc-c g-2 h-9 bw-0 br-sm c-p us-none fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+              className={`fx-1 d-f ai-c jc-c g-2 h-9 bw-0 br-sm c-p us-none fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
                 isSelected
                   ? "bg-indigo c-white"
                   : "bg-transparent c-slate-8 h:bg-silver-1 h:c-slate-10"

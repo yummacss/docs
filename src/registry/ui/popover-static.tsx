@@ -8,7 +8,7 @@ export default function PopoverStatic() {
     <Popover.Root>
       <Popover.Trigger
         className={(state) =>
-          `d-f ai-c jc-c w-10 h-10 bw-1 bc-silver-2 br-md bg-white c-slate-10 us-none c-p fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+          `d-f ai-c jc-c w-10 h-10 bw-1 bc-silver-2 br-md bg-white c-slate-10 us-none c-p fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
             state.open ? "bg-silver-1 h:bg-silver-1" : "h:bg-silver-1"
           }`
         }

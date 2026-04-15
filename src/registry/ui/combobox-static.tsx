@@ -18,7 +18,7 @@ export default function ComboboxStatic() {
           <Combobox.Input
             id="user-input-static"
             placeholder="e.g. @sarahc"
-            className="h-10 w-64 pl-4 pr-16 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md fv:os-s fv:ow-2 fv:oo-2 fv:oc-indigo-6"
+            className="h-10 w-64 pl-4 pr-16 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md fv:ow-2 fv:oo-2 fv:oc-indigo-6"
           />
           <div className="d-f p-a r-2 b-0 ai-c jc-c h-10 c-slate-6">
             <Combobox.Clear
@@ -47,12 +47,12 @@ export default function ComboboxStatic() {
                     key={user.handle}
                     value={user.handle}
                     className={(state) =>
-                      `d-f ai-c g-2 py-2 px-3 fs-sm fw-600 us-none c-d c-p br-lg mx-1 ${
+                      `d-f ai-c g-2 py-2 px-3 fs-sm fw-600 us-none c-p br-lg mx-1 ${
                         state.highlighted ? "bg-silver-1" : "h:bg-silver-1"
                       }`
                     }
                   >
-                    <Avatar.Root className="d-if o-h ai-c jc-c w-6 h-6 br-pill us-none bc-silver-3 bw-1">
+                    <Avatar.Root className="d-if o-h ai-c jc-c w-6 h-6 bc-silver-3 br-pill bw-1 us-none">
                       <Avatar.Image
                         src={user.avatar}
                         alt={user.name}
@@ -64,7 +64,7 @@ export default function ComboboxStatic() {
                     </Avatar.Root>
                     <span className="fg-1">{user.name}</span>
                     <span className="c-slate-6 fw-400">@{user.handle}</span>
-                    <Combobox.ItemIndicator className="d-f c-indigo ml-auto">
+                    <Combobox.ItemIndicator className="d-f ml-auto c-indigo">
                       <Check className="w-3 h-3" />
                     </Combobox.ItemIndicator>
                   </Combobox.Item>

@@ -37,11 +37,11 @@ export default function ComboboxInline() {
               render={(props, state) => (
                 <div
                   {...props}
-                  className={`d-f ai-c g-2 py-2 px-3 fs-sm fw-600 c-slate-8 us-none c-d c-p br-lg mx-1 ${
+                  className={`d-f ai-c g-2 py-2 px-3 fs-sm fw-600 c-slate-8 us-none c-p br-lg mx-1 ${
                     state.highlighted ? "bg-silver-1" : "h:bg-silver-1"
                   }`}
                 >
-                  <Avatar.Root className="d-if o-h ai-c jc-c w-6 h-6 br-pill us-none bc-silver-3 bw-1">
+                  <Avatar.Root className="d-if o-h ai-c jc-c w-6 h-6 bc-silver-3 br-pill bw-1 us-none">
                     <Avatar.Image
                       src={user.avatar}
                       alt={user.name}

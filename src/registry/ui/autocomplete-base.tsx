@@ -17,7 +17,7 @@ export default function AutocompleteBase() {
         <Autocomplete.Input
           id="autocomplete-input"
           placeholder="e.g. Sarah"
-          className="h-10 w-64 pl-4 bg-white bc-silver-3 c-slate-12 bw-1 br-lg fs-md fv:os-s fv:ow-2 fv:oo--1 fv:oc-indigo-6"
+          className="h-10 w-64 pl-4 bg-white bc-silver-3 c-slate-12 bw-1 br-lg fs-md fv:ow-2 fv:oo--1 fv:oc-indigo-6"
         />
       </div>
 
@@ -44,7 +44,7 @@ export default function AutocompleteBase() {
                       render={(props, state) => (
                         <div
                           {...props}
-                          className={`d-f ai-c jc-sb g-3 py-2 px-3 fs-sm us-none c-d c-p br-lg mx-1 c-slate-10 ${
+                          className={`d-f ai-c jc-sb g-3 py-2 px-3 fs-sm us-none c-p br-lg mx-1 c-slate-10 ${
                             state.highlighted ? "bg-silver-1" : "h:bg-silver-1"
                           }`}
                         >
@@ -60,7 +60,7 @@ export default function AutocompleteBase() {
                             </Avatar.Root>
                             <span className="fw-600">{user.name}</span>
                           </div>
-                          <span className="fw-400 c-slate-6">
+                          <span className="c-slate-6 fw-400">
                             @{user.handle}
                           </span>
                         </div>
