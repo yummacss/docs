@@ -24,11 +24,11 @@ export default function Home() {
           <div className="d-g g-12 ai-fe lg:gtc-2">
             <div>
               <Link
-                href="https://play.yummacss.com"
+                href="/docs/philosophy"
                 className="d-if ai-c g-2 px-4 py-2 mb-8 bc-white/10 bg-white/5 c-white bw-1 br-pill bf-b-md fv:oc-white fv:ow-2"
               >
                 <span className="fs-xs fw-500 ls-4">
-                  Try it in your browser
+                  Isn't this just "Tailwind"?
                 </span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
@@ -38,8 +38,8 @@ export default function Home() {
               </h1>
               <p className="mb-8 c-white/70 fs-lg lh-5">
                 The ergonomic CSS framework with abbreviated utility classes.{" "}
-                <span className="c-white fs-md">d-f</span> not{" "}
-                <span className="c-white fs-md">flex</span>,{" "}
+                <span className="c-white fs-md">d-if</span> not{" "}
+                <span className="c-white fs-md">inline-flex</span>,{" "}
                 <span className="c-white fs-md">fw-600</span> not{" "}
                 <span className="c-white fs-md">font-semibold</span>.
               </p>
