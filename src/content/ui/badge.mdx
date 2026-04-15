@@ -3,12 +3,6 @@ export const meta = {
   description: "Highlight status, count, or label information.",
 };
 
-## Installation
-
-```bash
-pnpm add @base-ui/react motion
-```
-
 ## Examples
 
 Implement this component in your project using Yumma CSS and Base UI.
@@ -21,7 +15,7 @@ Implement this component in your project using Yumma CSS and Base UI.
     <TabsTab value="code">Code</TabsTab>
   </TabsList>
   <TabsPanel className="bg-white bbr-sm" value="preview">
-    <p className="c-red ta-c">Coming Soon…</p>
+    <Preview className="bw-0" registryId="badge-base" />
   </TabsPanel>
   <TabsPanel value="code">
     ```tsx registryId="badge-base"
@@ -31,9 +25,9 @@ Implement this component in your project using Yumma CSS and Base UI.
 
 ---
 
-### Static
+### Pilled
 
-Open and close instantly, without animation.
+A badge with a pill-shaped border radius.
 
 <Tabs defaultValue="preview">
   <TabsList>
@@ -41,10 +35,50 @@ Open and close instantly, without animation.
     <TabsTab value="code">Code</TabsTab>
   </TabsList>
   <TabsPanel className="bg-white bbr-sm" value="preview">
-    <p className="c-red ta-c">Coming Soon…</p>
+    <Preview className="bw-0" registryId="badge-pilled" />
   </TabsPanel>
   <TabsPanel value="code">
-    ```tsx registryId="badge-static"
+    ```tsx registryId="badge-pilled"
+    ```
+  </TabsPanel>
+</Tabs>
+
+---
+
+### Soft
+
+A badge with a soft background color and matching text color.
+
+<Tabs defaultValue="preview">
+  <TabsList>
+    <TabsTab value="preview">Preview</TabsTab>
+    <TabsTab value="code">Code</TabsTab>
+  </TabsList>
+  <TabsPanel className="bg-white bbr-sm" value="preview">
+    <Preview className="bw-0" registryId="badge-soft" />
+  </TabsPanel>
+  <TabsPanel value="code">
+    ```tsx registryId="badge-soft"
+    ```
+  </TabsPanel>
+</Tabs>
+
+---
+
+### Soft Pilled
+
+A soft badge with a pill-shaped border radius.
+
+<Tabs defaultValue="preview">
+  <TabsList>
+    <TabsTab value="preview">Preview</TabsTab>
+    <TabsTab value="code">Code</TabsTab>
+  </TabsList>
+  <TabsPanel className="bg-white bbr-sm" value="preview">
+    <Preview className="bw-0" registryId="badge-soft-pilled" />
+  </TabsPanel>
+  <TabsPanel value="code">
+    ```tsx registryId="badge-soft-pilled"
     ```
   </TabsPanel>
 </Tabs>

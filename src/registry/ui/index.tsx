@@ -19,6 +19,10 @@ import AvatarInitials from "./avatar-initials";
 import AvatarStacked from "./avatar-stacked";
 import AvatarStatus from "./avatar-status";
 import AvatarVerified from "./avatar-verified";
+import BadgeBase from "./badge-base";
+import BadgePilled from "./badge-pilled";
+import BadgeSoft from "./badge-soft";
+import BadgeSoftPilled from "./badge-soft-pilled";
 import ButtonBase from "./button-base";
 import ButtonDanger from "./button-danger";
 import ButtonDisabled from "./button-disabled";
@@ -108,6 +112,10 @@ export const baseComponents: Record<string, ComponentType> = {
   "avatar-stacked": AvatarStacked,
   "avatar-status": AvatarStatus,
   "avatar-verified": AvatarVerified,
+  "badge-base": BadgeBase,
+  "badge-pilled": BadgePilled,
+  "badge-soft": BadgeSoft,
+  "badge-soft-pilled": BadgeSoftPilled,
   "button-base": ButtonBase,
   "button-danger": ButtonDanger,
   "button-disabled": ButtonDisabled,
