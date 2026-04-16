@@ -208,10 +208,6 @@ summary {
   position: absolute;
 }
 
-.bblr-xxl {
-  border-bottom-left-radius: 1rem;
-}
-
 .bbr-sm {
   border-bottom-right-radius: 0.25rem;
   border-bottom-left-radius: 0.25rem;
@@ -606,10 +602,6 @@ summary {
 .btr-md {
   border-top-left-radius: 0.375rem;
   border-top-right-radius: 0.375rem;
-}
-
-.btrr-xxl {
-  border-top-right-radius: 1rem;
 }
 
 .btw-1 {
@@ -1586,6 +1578,10 @@ summary {
 
 .mb-8 {
   margin-bottom: 2rem;
+}
+
+.mbs-6 {
+  margin-block-start: 1.5rem;
 }
 
 .min-h-10 {
