@@ -19,7 +19,7 @@ export default function ComboboxBase() {
           <Combobox.Input
             id="user-input"
             placeholder="e.g. @sarahc"
-            className="h-10 w-64 pl-4 pr-16 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md fv:ow-2 fv:oo-2 fv:oc-indigo-6"
+            className="h-10 w-64 pl-4 pr-16 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md bs-o-xs fv:ow-2 fv:oo-2 fv:oc-indigo-6"
           />
           <div className="d-f p-a r-2 b-0 ai-c jc-c h-10 c-slate-6">
             <Combobox.Clear
