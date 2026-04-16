@@ -23,7 +23,7 @@ export default function ComboboxMultiple() {
         <label htmlFor="role-input" className="fw-600">
           Assign role
         </label>
-        <div className="d-f fw-w ai-c g-1 min-h-10 w-72 px-2 py-1 bg-white bc-silver-3 bw-1 br-lg fw:os-s fw:ow-2 fw:oo-2 fw:oc-indigo-6">
+        <div className="d-f fw-w ai-c g-1 min-h-10 w-72 px-2 py-1 bg-white bc-silver-3 bw-1 br-lg bs-o-xs fw:os-s fw:ow-2 fw:oo-2 fw:oc-indigo-6">
           <Combobox.Chips className="d-c g-1">
             {
               ((chip: string) => (
