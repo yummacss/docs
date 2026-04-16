@@ -3,14 +3,16 @@ export const meta = {
   description: "Why Yumma CSS maps class names directly to CSS properties.",
 };
 
-Yumma CSS is built around one idea: utility class names should be abbreviations of CSS properties, not aliases for them.
+If you know CSS, you already know this framework. If the classes below look foreign to you, that's probably a CSS problem, not a framework problem.
+
+Most developers who "know CSS" have been writing framework classes so long they've forgotten the actual properties.
 
 ```html
-<!-- Yumma CSS -->
-<h1 class="d-if px-6 bg-black c-white btrr-xxl bblr-xxl fs-4xl ff-m">Hello World!<h1>
+<!-- Obvious with no lookups. -->
+<h1 class="d-if ai-c mbs-6 ml-4 c-black fw-600">Who we are?<h1>
 
-<!-- Other frameworks -->
-<div class="inline-flex rounded-tr-2xl rounded-bl-2xl bg-black px-6 text-4xl font-medium text-white">Hello World!</div>
+<!-- Not so obvious. -->
+<div class="inline-flex items-center mbs-6 ml-4 text-black font-semibold"></div>
 ```
 
 ## Abbreviations, not aliases
