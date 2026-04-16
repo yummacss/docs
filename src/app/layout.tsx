@@ -5,10 +5,11 @@ import type { Metadata } from "next";
 
 const description =
   "Yumma CSS is an ergonomic CSS framework with abbreviated utility classes. Write d-f instead of flex, fw-600 instead of font-bold. Faster styling, less typing.";
+const tagline = "Type less. Style more.";
 
 export const metadata: Metadata = {
   title: {
-    default: "Yumma CSS - Type less. Style more.",
+    default: `Yumma CSS - ${tagline}`,
     template: "%s · Yumma CSS",
   },
   description,
@@ -27,7 +28,20 @@ export const metadata: Metadata = {
   },
   metadataBase: new URL("https://yummacss.com"),
   openGraph: {
-    images: "/og.png",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: `Yumma CSS - ${tagline}`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `Yumma CSS - ${tagline}`,
+    description,
+    images: ["/og.png"],
   },
   other: {
     llms: "/llms.txt",
