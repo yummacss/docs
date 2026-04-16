@@ -12,7 +12,7 @@ export default function CheckboxDisabled() {
           defaultChecked
           className={(state) =>
             `d-f w-4 h-4 ai-c jc-c br-sm fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
-              state.checked ? "bg-indigo" : "bw-1 bc-silver-3 bg-transparent"
+              state.checked ? "bg-indigo" : "bw-1 bc-silver-3 bg-transparent bs-o-xs"
             }`
           }
         >
@@ -28,7 +28,7 @@ export default function CheckboxDisabled() {
           disabled
           className={(state) =>
             `d-f w-4 h-4 ai-c jc-c br-sm fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
-              state.checked ? "bg-indigo" : "bw-1 bc-silver-3 bg-transparent"
+              state.checked ? "bg-indigo" : "bw-1 bc-silver-3 bg-transparent bs-o-xs"
             }`
           }
         >
