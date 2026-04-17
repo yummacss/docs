@@ -70,21 +70,21 @@ export default function AccordionSubtle() {
 
 const faqs = [
   {
-    value: "mute",
-    title: "How do I mute a channel?",
+    value: "billing",
+    title: "How does the billing cycle work?",
     content:
-      "Right-click a channel and select Mute. You won't receive notifications for that channel.",
+      "Invoices are generated on the first of each month for the previous month's usage. You have 14 days to review and payment is automatically processed on the 15th.",
   },
   {
-    value: "notifications",
-    title: "How do I change notification settings?",
+    value: "roles",
+    title: "What roles can I assign to team members?",
     content:
-      "Click the bell icon at the top of a channel to choose All Messages, Mentions Only, or Nothing.",
+      "You can assign Admin, Editor, or Viewer roles. Admins can manage billing and team settings, Editors can create and edit content, and Viewers have read-only access.",
   },
   {
-    value: "theme",
-    title: "How do I enable dark mode?",
+    value: "permissions",
+    title: "Can I set custom permissions per project?",
     content:
-      "Press Ctrl+Shift+G or click User Settings > Appearance > Theme > Dark.",
+      "Yes, go to Team Settings > Permissions to configure project-level access. You can override the default role permissions for any team member.",
   },
 ];

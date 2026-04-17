@@ -42,21 +42,21 @@ export default function AccordionStatic() {
 
 const faqs = [
   {
-    value: "username",
-    title: "How do I change my username?",
+    value: "billing",
+    title: "How does the billing cycle work?",
     content:
-      "Go to User Settings > Account > Username and enter your new username. It must be unique across the platform.",
+      "Invoices are generated on the first of each month for the previous month's usage. You have 14 days to review and payment is automatically processed on the 15th.",
   },
   {
-    value: "status",
-    title: "How do I set my status message?",
+    value: "roles",
+    title: "What roles can I assign to team members?",
     content:
-      "Click your avatar in the bottom left and select a status emoji or type a custom message.",
+      "You can assign Admin, Editor, or Viewer roles. Admins can manage billing and team settings, Editors can create and edit content, and Viewers have read-only access.",
   },
   {
-    value: "avatar",
-    title: "How can I customize my profile picture?",
+    value: "permissions",
+    title: "Can I set custom permissions per project?",
     content:
-      "Navigate to User Settings > Profile > Avatar and upload a new image up to 2MB in size.",
+      "Yes, go to Team Settings > Permissions to configure project-level access. You can override the default role permissions for any team member.",
   },
 ];

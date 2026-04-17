@@ -63,21 +63,21 @@ export default function AccordionBordered() {
 
 const faqs = [
   {
-    value: "visibility",
-    title: "Who can see my messages?",
+    value: "billing",
+    title: "How does the billing cycle work?",
     content:
-      "Go to Privacy & Safety > Message Delivery to choose who can send you direct messages.",
+      "Invoices are generated on the first of each month for the previous month's usage. You have 14 days to review and payment is automatically processed on the 15th.",
   },
   {
-    value: "blocking",
-    title: "How do I block someone?",
+    value: "roles",
+    title: "What roles can I assign to team members?",
     content:
-      "Open a user's profile, click the three dots, and select Block. They won't be able to message or mention you.",
+      "You can assign Admin, Editor, or Viewer roles. Admins can manage billing and team settings, Editors can create and edit content, and Viewers have read-only access.",
   },
   {
-    value: "status",
-    title: "How do I hide my online status?",
+    value: "permissions",
+    title: "Can I set custom permissions per project?",
     content:
-      "Go to User Settings > Privacy > Activity and disable 'Show current games' and 'Show online status'.",
+      "Yes, go to Team Settings > Permissions to configure project-level access. You can override the default role permissions for any team member.",
   },
 ];

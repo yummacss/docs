@@ -70,21 +70,21 @@ export default function AccordionGhost() {
 
 const faqs = [
   {
-    value: "server",
-    title: "How do I create a server?",
+    value: "billing",
+    title: "How does the billing cycle work?",
     content:
-      "Click the plus icon next to your servers and select 'Create My Own'. Choose a name and customize the icon.",
-  },
-  {
-    value: "invite",
-    title: "How do I invite friends?",
-    content:
-      "Go to Server Settings > Invite People and create a permanent invite link to share.",
+      "Invoices are generated on the first of each month for the previous month's usage. You have 14 days to review and payment is automatically processed on the 15th.",
   },
   {
     value: "roles",
-    title: "How do I manage member roles?",
+    title: "What roles can I assign to team members?",
     content:
-      "Go to Server Settings > Roles to create, edit, and assign roles with custom permissions.",
+      "You can assign Admin, Editor, or Viewer roles. Admins can manage billing and team settings, Editors can create and edit content, and Viewers have read-only access.",
+  },
+  {
+    value: "permissions",
+    title: "Can I set custom permissions per project?",
+    content:
+      "Yes, go to Team Settings > Permissions to configure project-level access. You can override the default role permissions for any team member.",
   },
 ];
