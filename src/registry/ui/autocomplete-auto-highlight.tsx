@@ -52,7 +52,9 @@ export default function AutocompleteAutoHighlight() {
                         <div
                           {...props}
                           className={`d-f ai-c jc-c py-2 px-3 fs-xl us-none c-p br-lg mx-1 ${
-                            state.highlighted ? "bg-silver-1" : "h:bg-silver-1"
+                            state.highlighted
+                              ? "bg-silver-1/50"
+                              : "bg-transparent"
                           }`}
                         >
                           {item.emoji}
@@ -62,7 +64,7 @@ export default function AutocompleteAutoHighlight() {
                   )}
                 </Autocomplete.List>
                 <Autocomplete.Empty className="c-slate-6 fs-sm">
-                  <div className="pt-2 pb-3 px-4">No emoji found.</div>
+                  <div className="pt-2 pb-3 px-4 us-none">No emoji found.</div>
                 </Autocomplete.Empty>
               </Autocomplete.Popup>
             </Autocomplete.Positioner>

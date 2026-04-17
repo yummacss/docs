@@ -4,11 +4,6 @@ import { Field } from "@base-ui/react/field";
 import { Select } from "@base-ui/react/select";
 import { CaretsExpandVertical, Check } from "@gravity-ui/icons";
 
-const itemClass = (state: { highlighted: boolean }) =>
-  `d-f ai-c g-2 py-2 px-3 fs-sm us-none c-p br-sm mx-1 c-slate-10 ${
-    state.highlighted ? "bg-silver-1" : "h:bg-silver-1"
-  }`;
-
 export default function SelectStatic() {
   return (
     <Field.Root className="d-f fd-c g-2">
@@ -22,8 +17,8 @@ export default function SelectStatic() {
         <Select.Trigger
           id="select-status-static"
           className={(state) =>
-            `d-f ai-c jc-sb h-10 min-w-40 g-3 bw-1 bc-silver-3 br-md bg-white px-3 c-slate-10 us-none c-p fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
-              state.open ? "bg-silver-1" : "h:bg-silver-1"
+            `d-f ai-c jc-sb h-10 min-w-40 g-3 bw-1 bc-silver-3 br-lg bg-white px-3 c-slate-10 us-none c-p fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+              state.open ? "bg-silver-1/50" : "bg-transparent"
             }`
           }
         >
@@ -41,12 +36,12 @@ export default function SelectStatic() {
         <Select.Portal>
           <Select.Positioner sideOffset={6} className="zi-10 ow-0 us-none">
             <Select.Popup
-              className="py-1 bg-white bc-silver-2 bw-1 br-md bs-o-lg"
+              className="py-1 bg-white bc-silver-2 bw-1 br-xl bs-o-lg"
               style={{ minWidth: "var(--anchor-width)" }}
             >
               <Select.List className="p-r o-a">
                 {statuses.map(({ label, value }) => (
-                  <Select.Item key={value} value={value} className={itemClass}>
+                  <Select.Item key={value} value={value} className={(state) => `d-f ai-c g-2 py-2 px-3 fs-sm us-none c-p br-lg mx-1 c-slate-10 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`}>
                     <Select.ItemIndicator className="d-f ai-c">
                       <Check className="w-4 h-4" />
                     </Select.ItemIndicator>

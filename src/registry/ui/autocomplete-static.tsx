@@ -35,7 +35,7 @@ export default function AutocompleteStatic() {
                     <div
                       {...props}
                       className={`d-f ai-c jc-sb g-3 py-2 px-3 fs-sm us-none c-p br-lg mx-1 c-slate-10 ${
-                        state.highlighted ? "bg-silver-1" : "h:bg-silver-1"
+                        state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`}
                     >
                       <div className="d-f ai-c g-3">
@@ -57,7 +57,7 @@ export default function AutocompleteStatic() {
               )}
             </Autocomplete.List>
             <Autocomplete.Empty className="c-slate-6 fs-sm">
-              <div className="pt-2 pb-3 px-4">No users found.</div>
+              <div className="pt-2 pb-3 px-4 us-none">No users found.</div>
             </Autocomplete.Empty>
           </Autocomplete.Popup>
         </Autocomplete.Positioner>
