@@ -437,6 +437,10 @@ summary {
   background-color: #fbdfe1;
 }
 
+.bg-red-1\/50 {
+  background-color: #fbdfe180;
+}
+
 .bg-red-5 {
   background-color: #ed707a;
 }

@@ -18,7 +18,7 @@ export default function ComboboxStatic() {
           <Combobox.Input
             id="user-input-static"
             placeholder="e.g. @sarahc"
-            className="h-10 w-64 pl-4 pr-16 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md fv:ow-2 fv:oo-2 fv:oc-indigo-6 bs-o-xs"
+            className="h-10 w-64 pl-4 pr-16 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md bs-o-xs fv:ow-2 fv:oo-2 fv:oc-indigo-6"
           />
           <div className="d-f p-a r-2 b-0 ai-c jc-c h-10 c-slate-6">
             <Combobox.Clear
@@ -48,7 +48,7 @@ export default function ComboboxStatic() {
                     value={user.handle}
                     className={(state) =>
                       `d-f ai-c g-2 py-2 px-3 fs-sm fw-600 us-none c-p br-lg mx-1 ${
-                        state.highlighted ? "bg-silver-1" : "h:bg-silver-1"
+                        state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
                   >

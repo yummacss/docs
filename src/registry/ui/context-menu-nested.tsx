@@ -12,17 +12,12 @@ import {
 import { AnimatePresence, motion } from "motion/react";
 import * as React from "react";
 
-const itemClass = (highlighted: boolean) =>
-  `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-600 us-none c-p br-lg mx-1 ${
-    highlighted ? "bg-silver-1" : "h:bg-silver-1"
-  }`;
-
 export default function ContextMenuNested() {
   const [open, setOpen] = React.useState(false);
 
   return (
     <ContextMenu.Root open={open} onOpenChange={setOpen}>
-      <ContextMenu.Trigger className="d-f ai-c jc-c h-48 w-60 bc-slate-3 bs-d c-slate-10 bw-1 br-lg fs-sm fw-600 us-none">
+      <ContextMenu.Trigger className="d-f ai-c jc-c h-48 w-60 bc-slate-3 c-slate-10 bs-d bw-1 br-lg fs-sm fw-600 us-none">
         Right-click here
       </ContextMenu.Trigger>
 
@@ -45,7 +40,7 @@ export default function ContextMenuNested() {
                   <ContextMenu.SubmenuTrigger
                     className={(state) =>
                       `d-f ai-c jc-sb g-2 py-2 pl-3 pr-3 fs-sm fw-600 us-none c-p br-lg mx-1 ${
-                        state.highlighted ? "bg-silver-1" : "h:bg-silver-1"
+                        state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
                   >
@@ -66,7 +61,7 @@ export default function ContextMenuNested() {
                         {reactions.map((reaction) => (
                           <ContextMenu.Item
                             key={reaction.code}
-                            className={(state) => itemClass(state.highlighted)}
+                            className={(state) => `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-600 us-none c-p br-lg mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`}
                           >
                             <span className="fs-sm">{reaction.emoji}</span>
                             <span className="c-slate-6">{reaction.code}</span>
@@ -78,13 +73,13 @@ export default function ContextMenuNested() {
                 </ContextMenu.SubmenuRoot>
 
                 <ContextMenu.Item
-                  className={(state) => itemClass(state.highlighted)}
+                  className={(state) => `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-600 us-none c-p br-lg mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`}
                 >
                   <Pencil className="fs-0 w-4 h-4 c-slate-5" />
                   Edit Message
                 </ContextMenu.Item>
                 <ContextMenu.Item
-                  className={(state) => itemClass(state.highlighted)}
+                  className={(state) => `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-600 us-none c-p br-lg mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`}
                 >
                   <ArrowUturnCcwLeft className="fs-0 w-4 h-4 c-slate-5" />
                   Reply
@@ -93,7 +88,7 @@ export default function ContextMenuNested() {
                 <ContextMenu.Separator className="my-1 w-full h-px bg-silver-2" />
 
                 <ContextMenu.Item
-                  className={(state) => itemClass(state.highlighted)}
+                  className={(state) => `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-600 us-none c-p br-lg mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`}
                 >
                   <ArrowUturnCwRight className="fs-0 w-4 h-4 c-slate-5" />
                   Forward
@@ -104,7 +99,7 @@ export default function ContextMenuNested() {
                 <ContextMenu.Item
                   className={(state) =>
                     `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-600 us-none c-red c-p br-lg mx-1 ${
-                      state.highlighted ? "bg-red-1" : "h:bg-red-1"
+                      state.highlighted ? "bg-red-1/50" : "bg-transparent"
                     }`
                   }
                 >

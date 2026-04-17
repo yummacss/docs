@@ -74,7 +74,9 @@ export default function ComboboxMultiple() {
                         <div
                           {...props}
                           className={`d-f ai-c g-2 py-2 px-3 fs-sm fw-600 c-slate-8 us-none c-p br-lg mx-1 ${
-                            state.highlighted ? "bg-silver-1" : "h:bg-silver-1"
+                            state.highlighted
+                              ? "bg-silver-1/50"
+                              : "bg-transparent"
                           }`}
                         >
                           <ItemIcon selected={state.selected} />

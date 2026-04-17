@@ -53,8 +53,8 @@ export default function AutocompleteGrouped() {
                               {...props}
                               className={`d-f ai-c g-2 py-2 px-3 fs-sm us-none c-p br-lg mx-1 c-slate-10 ${
                                 state.highlighted
-                                  ? "bg-silver-1"
-                                  : "h:bg-silver-1"
+                                  ? "bg-silver-1/50"
+                                  : "bg-transparent"
                               }`}
                             >
                               {group.value === "Text Channels" && (
@@ -78,7 +78,9 @@ export default function AutocompleteGrouped() {
                   )}
                 </Autocomplete.List>
                 <Autocomplete.Empty className="c-slate-6 fs-sm">
-                  <div className="pt-2 pb-3 px-4">No channels found.</div>
+                  <div className="pt-2 pb-3 px-4 us-none">
+                    No channels found.
+                  </div>
                 </Autocomplete.Empty>
               </Autocomplete.Popup>
             </Autocomplete.Positioner>
