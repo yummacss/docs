@@ -5,7 +5,7 @@ import { Check } from "@gravity-ui/icons";
 
 export default function CheckboxBase() {
   return (
-    <label className="d-f ai-c g-2 c-slate-10 fs-sm fw-600">
+    <label className="d-f ai-c g-2 c-slate-10 fs-sm fw-500">
       <Checkbox.Root
         defaultChecked
         className={(state) =>

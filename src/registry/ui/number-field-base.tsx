@@ -9,7 +9,7 @@ export default function NumberFieldBase() {
   return (
     <NumberField.Root id={id} defaultValue={4} className="d-f fd-c ai-fs g-2">
       <NumberField.ScrubArea className="c-er">
-        <label htmlFor={id} className="c-slate-10 fs-sm fw-600 c-er">
+        <label htmlFor={id} className="c-slate-10 fs-sm fw-500 c-er">
           Quantity
         </label>
       </NumberField.ScrubArea>

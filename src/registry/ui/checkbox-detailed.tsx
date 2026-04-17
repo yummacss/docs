@@ -7,7 +7,7 @@ export default function CheckboxDetailed() {
   return (
     <div className="d-f fd-c g-3">
       <label className="d-f fd-c g-1">
-        <div className="d-f ai-c g-2 c-slate-10 fs-sm fw-600">
+        <div className="d-f ai-c g-2 c-slate-10 fs-sm fw-500">
           <Checkbox.Root
             defaultChecked
             className={(state) =>
@@ -30,7 +30,7 @@ export default function CheckboxDetailed() {
       </label>
 
       <label className="d-f fd-c g-1">
-        <div className="d-f ai-c g-2 c-slate-10 fs-sm fw-600">
+        <div className="d-f ai-c g-2 c-slate-10 fs-sm fw-500">
           <Checkbox.Root
             className={(state) =>
               `d-f w-4 h-4 ai-c jc-c br-sm fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${

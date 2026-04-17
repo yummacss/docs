@@ -9,7 +9,7 @@ export default function SliderBase() {
   return (
     <div className="d-f fd-c g-2 w-64">
       <div className="d-f jc-sb ai-c">
-        <label className="c-slate-10 fs-sm fw-600 us-none">Brightness</label>
+        <label className="c-slate-10 fs-sm fw-500 us-none">Brightness</label>
         <span className="c-slate-8 fs-sm">{value}%</span>
       </div>
       <Slider.Root value={value} onValueChange={setValue}>

@@ -15,7 +15,7 @@ export default function MenubarBase() {
       <Menu.Root open={fileOpen} onOpenChange={setFileOpen}>
         <Menu.Trigger
           className={(state) =>
-            `h-8 br-lg px-3 fs-sm fw-600 c-slate-10 us-none c-p b-0 bg-transparent ${
+            `h-8 br-lg px-3 fs-sm fw-500 c-slate-10 us-none c-p b-0 bg-transparent ${
               state.open ? "bg-silver-1/50" : "bg-transparent"
             }`
           }
@@ -52,7 +52,7 @@ export default function MenubarBase() {
       <Menu.Root open={editOpen} onOpenChange={setEditOpen}>
         <Menu.Trigger
           className={(state) =>
-            `h-8 br-lg px-3 fs-sm fw-600 c-slate-10 us-none c-p b-0 bg-transparent ${
+            `h-8 br-lg px-3 fs-sm fw-500 c-slate-10 us-none c-p b-0 bg-transparent ${
               state.open ? "bg-silver-1/50" : "bg-transparent"
             }`
           }
@@ -90,7 +90,7 @@ export default function MenubarBase() {
       <Menu.Root open={viewOpen} onOpenChange={setViewOpen}>
         <Menu.Trigger
           className={(state) =>
-            `h-8 br-lg px-3 fs-sm fw-600 c-slate-10 us-none c-p b-0 bg-transparent ${
+            `h-8 br-lg px-3 fs-sm fw-500 c-slate-10 us-none c-p b-0 bg-transparent ${
               state.open ? "bg-silver-1/50" : "bg-transparent"
             }`
           }
@@ -124,7 +124,7 @@ export default function MenubarBase() {
       </Menu.Root>
 
       <Menu.Root disabled>
-        <Menu.Trigger className="h-8 px-3 bg-transparent c-slate-10 br-lg fs-sm fw-600 o-50 us-none">
+        <Menu.Trigger className="h-8 px-3 bg-transparent c-slate-10 br-lg fs-sm fw-500 o-50 us-none">
           Help
         </Menu.Trigger>
       </Menu.Root>

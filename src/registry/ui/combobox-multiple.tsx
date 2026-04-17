@@ -20,7 +20,7 @@ export default function ComboboxMultiple() {
   return (
     <Combobox.Root multiple items={roles} open={open} onOpenChange={setOpen}>
       <div className="d-f fd-c g-2 c-slate-10 fs-sm">
-        <label htmlFor="role-input" className="fw-600">
+        <label htmlFor="role-input" className="fw-500">
           Assign role
         </label>
         <div className="d-f fw-w ai-c g-1 min-h-10 w-72 px-2 py-1 bg-white bc-silver-3 bw-1 br-lg bs-o-xs fw:os-s fw:ow-2 fw:oo-2 fw:oc-indigo-6">
@@ -73,7 +73,7 @@ export default function ComboboxMultiple() {
                       render={(props, state) => (
                         <div
                           {...props}
-                          className={`d-f ai-c g-2 py-2 px-3 fs-sm fw-600 c-slate-8 us-none c-p br-lg mx-1 ${
+                          className={`d-f ai-c g-2 py-2 px-3 fs-sm fw-500 c-slate-8 us-none c-p br-lg mx-1 ${
                             state.highlighted
                               ? "bg-silver-1/50"
                               : "bg-transparent"

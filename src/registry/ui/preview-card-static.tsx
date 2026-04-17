@@ -9,7 +9,7 @@ export default function PreviewCardStatic() {
         Learn more about{" "}
         <PreviewCard.Trigger
           className={(state) =>
-            `c-indigo fw-600 td-n h:td-u fv:td-u ${state.open ? "td-u" : ""}`
+            `c-indigo fw-500 td-n h:td-u fv:td-u ${state.open ? "td-u" : ""}`
           }
           href="https://en.wikipedia.org/wiki/Responsive_web_design"
         >
@@ -29,7 +29,7 @@ export default function PreviewCardStatic() {
               alt="MacBook with code on screen"
             />
             <p className="m-0 c-slate-8 fs-xs lh-4">
-              <strong className="c-slate-10 fw-600">Responsive design</strong>{" "}
+              <strong className="c-slate-10 fw-500">Responsive design</strong>{" "}
               adapts layouts to different screen sizes for optimal viewing.
             </p>
           </PreviewCard.Popup>

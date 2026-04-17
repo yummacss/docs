@@ -11,7 +11,7 @@ export default function AutocompleteBase() {
   return (
     <Autocomplete.Root items={USERS} open={open} onOpenChange={setOpen}>
       <div className="d-f fd-c g-2">
-        <label htmlFor="autocomplete-input" className="c-slate-10 fs-sm fw-600">
+        <label htmlFor="autocomplete-input" className="c-slate-10 fs-sm fw-500">
           Mention user
         </label>
         <Autocomplete.Input
@@ -60,7 +60,7 @@ export default function AutocompleteBase() {
                                 {user.name[0]}
                               </Avatar.Fallback>
                             </Avatar.Root>
-                            <span className="fw-600">{user.name}</span>
+                            <span className="fw-500">{user.name}</span>
                           </div>
                           <span className="c-slate-6 fw-400">
                             @{user.handle}

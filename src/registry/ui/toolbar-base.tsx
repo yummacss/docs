@@ -67,10 +67,10 @@ export default function ToolbarBase() {
       <Separator orientation="vertical" className="w-px h-5 bg-silver-3" />
 
       <Toolbar.Group className="d-f g-1" aria-label="Actions">
-        <Toolbar.Button className="d-f ai-c jc-c h-9 px-3 bg-transparent c-slate-8 br-md bw-0 fs-sm fw-600 us-none c-p h:bg-silver-1 h:c-slate-10 fv:ow-2 fv:oo-2 fv:oc-indigo-6">
+        <Toolbar.Button className="d-f ai-c jc-c h-9 px-3 bg-transparent c-slate-8 br-md bw-0 fs-sm fw-500 us-none c-p h:bg-silver-1 h:c-slate-10 fv:ow-2 fv:oo-2 fv:oc-indigo-6">
           Undo
         </Toolbar.Button>
-        <Toolbar.Button className="d-f ai-c jc-c h-9 px-3 bg-transparent c-slate-8 br-md bw-0 fs-sm fw-600 us-none c-p h:bg-silver-1 h:c-slate-10 fv:ow-2 fv:oo-2 fv:oc-indigo-6">
+        <Toolbar.Button className="d-f ai-c jc-c h-9 px-3 bg-transparent c-slate-8 br-md bw-0 fs-sm fw-500 us-none c-p h:bg-silver-1 h:c-slate-10 fv:ow-2 fv:oo-2 fv:oc-indigo-6">
           Redo
         </Toolbar.Button>
       </Toolbar.Group>

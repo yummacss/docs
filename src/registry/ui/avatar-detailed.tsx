@@ -16,7 +16,7 @@ export default function AvatarDetailed() {
             </Avatar.Fallback>
           </Avatar.Root>
           <div>
-            <p className="m-0 c-slate-10 fs-sm fw-600">{member.name}</p>
+            <p className="m-0 c-slate-10 fs-sm fw-500">{member.name}</p>
             <p className="m-0 c-slate-7 fs-xs">{member.role}</p>
           </div>
         </div>

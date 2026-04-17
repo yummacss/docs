@@ -9,7 +9,7 @@ export default function SelectStatic() {
     <Field.Root className="d-f fd-c g-2">
       <label
         htmlFor="select-status-static"
-        className="c-slate-10 fs-sm fw-600 us-none"
+        className="c-slate-10 fs-sm fw-500 us-none"
       >
         Status
       </label>

@@ -17,7 +17,7 @@ export default function CheckboxParent() {
       allValues={permissions}
       className="d-f fd-c g-2 c-slate-10"
     >
-      <label className="d-f ai-c g-2 fs-sm fw-600" id={id}>
+      <label className="d-f ai-c g-2 fs-sm fw-500" id={id}>
         <Checkbox.Root
           name="permissions"
           parent
@@ -46,7 +46,7 @@ export default function CheckboxParent() {
       </label>
 
       <div className="d-f fd-c g-2 ml-6">
-        <label className="d-f ai-c g-2 fs-sm fw-600">
+        <label className="d-f ai-c g-2 fs-sm fw-500">
           <Checkbox.Root
             value="read"
             className={(state) =>
@@ -64,7 +64,7 @@ export default function CheckboxParent() {
           Read
         </label>
 
-        <label className="d-f ai-c g-2 fs-sm fw-600">
+        <label className="d-f ai-c g-2 fs-sm fw-500">
           <Checkbox.Root
             value="write"
             className={(state) =>
@@ -82,7 +82,7 @@ export default function CheckboxParent() {
           Write
         </label>
 
-        <label className="d-f ai-c g-2 fs-sm fw-600">
+        <label className="d-f ai-c g-2 fs-sm fw-500">
           <Checkbox.Root
             value="delete"
             className={(state) =>

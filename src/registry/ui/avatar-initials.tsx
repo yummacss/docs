@@ -8,7 +8,7 @@ export default function AvatarInitials() {
           key={profile.name}
           className="d-if o-h ai-c jc-c w-12 h-12 bg-indigo-1 bc-indigo-3 br-pill bw-1 va-m us-none"
         >
-          <Avatar.Fallback className="d-f ai-c jc-c w-full h-full c-indigo fs-md fw-600">
+          <Avatar.Fallback className="d-f ai-c jc-c w-full h-full c-indigo fs-md fw-500">
             {profile.initials}
           </Avatar.Fallback>
         </Avatar.Root>

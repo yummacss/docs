@@ -25,7 +25,7 @@ export default function AvatarStacked() {
           </Avatar.Root>
         ))}
         <Avatar.Root className="d-if o-h ai-c jc-c w-10 h-10 ml--2 bg-silver-1 bc-silver-3 br-pill bw-1 va-m us-none">
-          <Avatar.Fallback className="d-f ai-c jc-c w-full h-full c-slate-8 fs-md fw-600">
+          <Avatar.Fallback className="d-f ai-c jc-c w-full h-full c-slate-8 fs-md fw-500">
             +{extraCount}
           </Avatar.Fallback>
         </Avatar.Root>

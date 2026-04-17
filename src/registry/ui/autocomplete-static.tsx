@@ -12,7 +12,7 @@ export default function AutocompleteStatic() {
       <div className="d-f fd-c g-2">
         <label
           htmlFor="autocomplete-input-static"
-          className="c-slate-10 fs-sm fw-600"
+          className="c-slate-10 fs-sm fw-500"
         >
           Mention user
         </label>
@@ -48,7 +48,7 @@ export default function AutocompleteStatic() {
                             {user.name[0]}
                           </Avatar.Fallback>
                         </Avatar.Root>
-                        <span className="fw-600">{user.name}</span>
+                        <span className="fw-500">{user.name}</span>
                       </div>
                       <span className="c-slate-6 fw-400">@{user.handle}</span>
                     </div>

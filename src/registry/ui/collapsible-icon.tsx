@@ -25,10 +25,10 @@ export default function CollapsibleIcon() {
     <Collapsible.Root
       open={open}
       onOpenChange={setOpen}
-      className="d-f fd-c w-72 bg-white bc-silver-3 bw-1 br-lg o-h"
+      className="d-f o-h fd-c w-72 bg-white bc-silver-3 bw-1 br-lg"
     >
-      <Collapsible.Trigger className="d-f b-0 ai-c jc-sb g-2 w-full px-4 py-3 bg-transparent ta-l c-p h:bg-silver-1 bw-0">
-        <span className="fs-sm fw-600 c-slate-9">{whoToFollow.title}</span>
+      <Collapsible.Trigger className="d-f b-0 ai-c jc-sb g-2 w-full px-4 py-3 bg-transparent bw-0 ta-l c-p h:bg-silver-1">
+        <span className="c-slate-9 fs-sm fw-500">{whoToFollow.title}</span>
         <motion.span
           animate={{ rotate: open ? 90 : 0 }}
           transition={{ duration: 0.15, ease: "easeOut" }}
@@ -52,12 +52,12 @@ export default function CollapsibleIcon() {
           />
         )}
       >
-        <div className="d-f fd-c g-3 px-4 py-3 btw-1 bc-silver-3">
+        <div className="d-f fd-c g-3 px-4 py-3 bc-silver-3 btw-1">
           {whoToFollow.users.map((user) => (
             <div key={user.name} className="d-f ai-c jc-sb">
               <div className="d-f ai-c g-3">
                 <div className="p-r">
-                  <Avatar.Root className="d-if o-h ai-c jc-c w-8 h-8 br-pill va-m us-none bc-silver-3 bw-1">
+                  <Avatar.Root className="d-if o-h ai-c jc-c w-8 h-8 bc-silver-3 br-pill bw-1 va-m us-none">
                     <Avatar.Image
                       src={user.avatar}
                       alt={user.name}
@@ -74,8 +74,8 @@ export default function CollapsibleIcon() {
                   )}
                 </div>
                 <div className="d-f fd-c g-0">
-                  <span className="fs-sm fw-600 c-slate-10">{user.name}</span>
-                  <span className="fs-xs c-slate-6">@{user.handle}</span>
+                  <span className="c-slate-10 fs-sm fw-500">{user.name}</span>
+                  <span className="c-slate-6 fs-xs">@{user.handle}</span>
                 </div>
               </div>
               {followed[user.name] ? (
@@ -90,7 +90,7 @@ export default function CollapsibleIcon() {
                 </Button>
               ) : (
                 <Button
-                  className="d-f ai-c jc-c w-8 h-8 bg-indigo c-white br-pill tp-c tdu-150 ttf-io us-none fv:bg-indigo-8 h:bg-indigo-8"
+                  className="d-f ai-c jc-c w-8 h-8 bg-indigo fv:bg-indigo-8 h:bg-indigo-8 c-white br-pill tp-c tdu-150 ttf-io us-none"
                   aria-label={`Follow ${user.name}`}
                   onClick={() =>
                     setFollowed((prev) => ({ ...prev, [user.name]: true }))
