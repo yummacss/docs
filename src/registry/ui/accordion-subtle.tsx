@@ -70,21 +70,21 @@ export default function AccordionSubtle() {
 
 const faqs = [
   {
-    value: "billing",
-    title: "How does the billing cycle work?",
+    value: "email",
+    title: "How do I configure email notifications?",
     content:
-      "Invoices are generated on the first of each month for the previous month's usage. You have 14 days to review and payment is automatically processed on the 15th.",
+      "Go to Settings > Notifications and toggle email alerts. Choose when to receive them: immediately, daily digest, or weekly summary.",
   },
   {
-    value: "roles",
-    title: "What roles can I assign to team members?",
+    value: "slack",
+    title: "Can I receive notifications in Slack?",
     content:
-      "You can assign Admin, Editor, or Viewer roles. Admins can manage billing and team settings, Editors can create and edit content, and Viewers have read-only access.",
+      "Yes, install the Slack integration in Settings > Integrations. Map workspace events to specific Slack channels.",
   },
   {
-    value: "permissions",
-    title: "Can I set custom permissions per project?",
+    value: "appearance",
+    title: "How do I customize the workspace theme?",
     content:
-      "Yes, go to Team Settings > Permissions to configure project-level access. You can override the default role permissions for any team member.",
+      "Navigate to Settings > Appearance to choose between Light, Dark, or System. You can also add a custom logo and brand colors.",
   },
 ];

@@ -70,21 +70,21 @@ export default function AccordionGhost() {
 
 const faqs = [
   {
-    value: "billing",
-    title: "How does the billing cycle work?",
+    value: "workspace",
+    title: "How do I create a new workspace?",
     content:
-      "Invoices are generated on the first of each month for the previous month's usage. You have 14 days to review and payment is automatically processed on the 15th.",
+      "Click the dropdown in the top left and select 'New Workspace'. Choose a name, invite team members, and set default permissions.",
   },
   {
-    value: "roles",
-    title: "What roles can I assign to team members?",
+    value: "channels",
+    title: "How do I set up team channels?",
     content:
-      "You can assign Admin, Editor, or Viewer roles. Admins can manage billing and team settings, Editors can create and edit content, and Viewers have read-only access.",
+      "Go to Workspace Settings > Channels and create public or private channels. You can organize by project, team, or topic.",
   },
   {
-    value: "permissions",
-    title: "Can I set custom permissions per project?",
+    value: "templates",
+    title: "Can I create project templates?",
     content:
-      "Yes, go to Team Settings > Permissions to configure project-level access. You can override the default role permissions for any team member.",
+      "Yes, create a new project and save it as a template. Team members can use it as a starting point for new projects.",
   },
 ];

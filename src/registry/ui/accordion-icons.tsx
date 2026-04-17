@@ -66,21 +66,21 @@ export default function AccordionIcons() {
 
 const faqs = [
   {
-    value: "billing",
-    title: "How does the billing cycle work?",
+    value: "integrations",
+    title: "How do I add third-party integrations?",
     content:
-      "Invoices are generated on the first of each month for the previous month's usage. You have 14 days to review and payment is automatically processed on the 15th.",
+      "Go to Settings > Integrations to browse available apps. Click Install and authorize the connection in your workspace.",
   },
   {
-    value: "roles",
-    title: "What roles can I assign to team members?",
+    value: "webhooks",
+    title: "How do I set up outgoing webhooks?",
     content:
-      "You can assign Admin, Editor, or Viewer roles. Admins can manage billing and team settings, Editors can create and edit content, and Viewers have read-only access.",
+      "Navigate to Settings > Webhooks to create custom endpoints. Configure events like task created, status changed, or comment added.",
   },
   {
-    value: "permissions",
-    title: "Can I set custom permissions per project?",
+    value: "api",
+    title: "Can I build custom API integrations?",
     content:
-      "Yes, go to Team Settings > Permissions to configure project-level access. You can override the default role permissions for any team member.",
+      "Yes, generate an API key in Settings > API. Use REST or GraphQL endpoints to read, create, and update resources programmatically.",
   },
 ];

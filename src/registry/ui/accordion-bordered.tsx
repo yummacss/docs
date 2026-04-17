@@ -63,21 +63,21 @@ export default function AccordionBordered() {
 
 const faqs = [
   {
-    value: "billing",
-    title: "How does the billing cycle work?",
+    value: "visibility",
+    title: "Who can see my workspace activity?",
     content:
-      "Invoices are generated on the first of each month for the previous month's usage. You have 14 days to review and payment is automatically processed on the 15th.",
+      "Go to Settings > Privacy to control visibility. You can choose between team members, workspace admins, or public access.",
   },
   {
-    value: "roles",
-    title: "What roles can I assign to team members?",
+    value: "blocking",
+    title: "How do I block a member from my workspace?",
     content:
-      "You can assign Admin, Editor, or Viewer roles. Admins can manage billing and team settings, Editors can create and edit content, and Viewers have read-only access.",
+      "Open the member profile, click the three dots, and select Remove. They won't be able to rejoin without an invitation.",
   },
   {
-    value: "permissions",
-    title: "Can I set custom permissions per project?",
+    value: "audit",
+    title: "Can I see who accessed sensitive documents?",
     content:
-      "Yes, go to Team Settings > Permissions to configure project-level access. You can override the default role permissions for any team member.",
+      "Yes, go to Settings > Audit Log to view a complete history of document access, edits, and downloads with timestamps.",
   },
 ];
