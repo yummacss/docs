@@ -62,21 +62,21 @@ export default function AccordionMultiple() {
 
 const faqs = [
   {
-    value: "timeout",
-    title: "How do I timeout a member?",
+    value: "billing",
+    title: "How does the billing cycle work?",
     content:
-      "Right-click a member in the member list, select Timeout, and choose the duration (1 min to 28 days).",
+      "Invoices are generated on the first of each month for the previous month's usage. You have 14 days to review and payment is automatically processed on the 15th.",
   },
   {
-    value: "ban",
-    title: "How do I ban someone?",
+    value: "roles",
+    title: "What roles can I assign to team members?",
     content:
-      "Right-click a user and select Ban. They will be permanently removed from the server.",
+      "You can assign Admin, Editor, or Viewer roles. Admins can manage billing and team settings, Editors can create and edit content, and Viewers have read-only access.",
   },
   {
-    value: "warnings",
-    title: "How do I manage warnings?",
+    value: "permissions",
+    title: "Can I set custom permissions per project?",
     content:
-      "Use a moderation bot to track warnings. Configure auto-moderation rules to kick or ban after X warnings.",
+      "Yes, go to Team Settings > Permissions to configure project-level access. You can override the default role permissions for any team member.",
   },
 ];

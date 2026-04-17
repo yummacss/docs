@@ -66,21 +66,21 @@ export default function AccordionIcons() {
 
 const faqs = [
   {
-    value: "bot",
-    title: "How do I add a bot?",
+    value: "billing",
+    title: "How does the billing cycle work?",
     content:
-      "Visit the bot's webpage and click Add to Server. Authorize it in the server you manage.",
+      "Invoices are generated on the first of each month for the previous month's usage. You have 14 days to review and payment is automatically processed on the 15th.",
   },
   {
-    value: "webhook",
-    title: "How do I set up webhooks?",
+    value: "roles",
+    title: "What roles can I assign to team members?",
     content:
-      "Go to Server Settings > Integrations > Webhooks to create and manage outgoing webhooks.",
+      "You can assign Admin, Editor, or Viewer roles. Admins can manage billing and team settings, Editors can create and edit content, and Viewers have read-only access.",
   },
   {
-    value: "commands",
-    title: "How do I create custom commands?",
+    value: "permissions",
+    title: "Can I set custom permissions per project?",
     content:
-      "Enable a bot with command features, then use '/' followed by the command name.",
+      "Yes, go to Team Settings > Permissions to configure project-level access. You can override the default role permissions for any team member.",
   },
 ];
