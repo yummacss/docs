@@ -70,21 +70,21 @@ export default function AccordionGhost() {
 
 const faqs = [
   {
-    value: "workspace",
-    title: "How do I create a new workspace?",
+    value: "privacy",
+    title: "Who can see my profile information?",
     content:
-      "Click the dropdown in the top left and select 'New Workspace'. Choose a name, invite team members, and set default permissions.",
+      "Go to Settings > Privacy to choose who sees your profile. Options are Everyone, Friends Only, or Only Me. Post visibility is set per post.",
   },
   {
-    value: "channels",
-    title: "How do I set up team channels?",
+    value: "reporting",
+    title: "How do I report a user or post?",
     content:
-      "Go to Workspace Settings > Channels and create public or private channels. You can organize by project, team, or topic.",
+      "Tap the three dots on any post or profile and select Report. Choose the reason and provide any additional details. Our team reviews all reports within 24 hours.",
   },
   {
-    value: "templates",
-    title: "Can I create project templates?",
+    value: "blocking",
+    title: "Can I block someone without them knowing?",
     content:
-      "Yes, create a new project and save it as a template. Team members can use it as a starting point for new projects.",
+      "Yes, go to a user's profile, tap the three dots, and select Block. They won't be notified, and they won't be able to see or interact with your content.",
   },
 ];
