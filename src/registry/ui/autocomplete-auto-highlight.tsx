@@ -17,7 +17,7 @@ export default function AutocompleteAutoHighlight() {
       <div className="d-f fd-c g-2">
         <label
           htmlFor="auto-highlight-input"
-          className="c-slate-10 fs-sm fw-600"
+          className="c-slate-10 fs-sm fw-500"
         >
           Add emoji
         </label>

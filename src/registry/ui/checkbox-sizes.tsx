@@ -6,7 +6,7 @@ import { Check } from "@gravity-ui/icons";
 export default function CheckboxSizes() {
   return (
     <div className="d-f ai-c g-4">
-      <label className="d-f ai-c g-2 c-slate-10 fs-xs fw-600">
+      <label className="d-f ai-c g-2 c-slate-10 fs-xs fw-500">
         <Checkbox.Root
           defaultChecked
           className={(state) =>
@@ -24,7 +24,7 @@ export default function CheckboxSizes() {
         Small
       </label>
 
-      <label className="d-f ai-c g-2 c-slate-10 fs-sm fw-600">
+      <label className="d-f ai-c g-2 c-slate-10 fs-sm fw-500">
         <Checkbox.Root
           defaultChecked
           className={(state) =>
@@ -42,7 +42,7 @@ export default function CheckboxSizes() {
         Medium
       </label>
 
-      <label className="d-f ai-c g-2 c-slate-10 fs-md fw-600">
+      <label className="d-f ai-c g-2 c-slate-10 fs-md fw-500">
         <Checkbox.Root
           defaultChecked
           className={(state) =>

@@ -21,7 +21,7 @@ export default function CheckboxNestedParent() {
         className="d-f fd-c g-2"
       >
         <label
-          className="d-f ai-c g-2 c-slate-10 fs-sm fw-600"
+          className="d-f ai-c g-2 c-slate-10 fs-sm fw-500"
           id={analyticsId}
         >
           <Checkbox.Root
@@ -52,7 +52,7 @@ export default function CheckboxNestedParent() {
         </label>
 
         <div className="d-f fd-c g-2 ml-6">
-          <label className="d-f ai-c g-2 fs-sm fw-600">
+          <label className="d-f ai-c g-2 fs-sm fw-500">
             <Checkbox.Root
               value="read_messages"
               className={(state) =>
@@ -70,7 +70,7 @@ export default function CheckboxNestedParent() {
             Read messages
           </label>
 
-          <label className="d-f ai-c g-2 fs-sm fw-600">
+          <label className="d-f ai-c g-2 fs-sm fw-500">
             <Checkbox.Root
               value="send_messages"
               className={(state) =>
@@ -97,7 +97,7 @@ export default function CheckboxNestedParent() {
         allValues={["kick_members", "ban_members"]}
         className="d-f fd-c g-2"
       >
-        <label className="d-f ai-c g-2 fs-sm fw-600" id={moderationId}>
+        <label className="d-f ai-c g-2 fs-sm fw-500" id={moderationId}>
           <Checkbox.Root
             name="moderation"
             parent
@@ -126,7 +126,7 @@ export default function CheckboxNestedParent() {
         </label>
 
         <div className="d-f fd-c g-2 ml-6">
-          <label className="d-f ai-c g-2 fs-sm fw-600">
+          <label className="d-f ai-c g-2 fs-sm fw-500">
             <Checkbox.Root
               value="kick_members"
               className={(state) =>
@@ -144,7 +144,7 @@ export default function CheckboxNestedParent() {
             Kick members
           </label>
 
-          <label className="d-f ai-c g-2 fs-sm fw-600">
+          <label className="d-f ai-c g-2 fs-sm fw-500">
             <Checkbox.Root
               value="ban_members"
               className={(state) =>

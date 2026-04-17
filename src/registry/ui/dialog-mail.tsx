@@ -35,7 +35,7 @@ export default function DialogMail() {
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger
         render={
-          <Button className="px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-600 bs-o-xs tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+          <Button className="px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-500 bs-o-xs tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
         }
       >
         Compose
@@ -67,7 +67,7 @@ export default function DialogMail() {
                 className="o-h w-full max-w-sm bg-white bc-silver-2 c-slate-12 br-md bw-1 bs-o-lg"
               >
                 <div className="d-f jc-sb ai-c px-4 py-2 bg-silver-1/50">
-                  <Dialog.Title className="fs-md fw-600">
+                  <Dialog.Title className="fs-md fw-500">
                     New message
                   </Dialog.Title>
                   <Dialog.Close
@@ -84,7 +84,7 @@ export default function DialogMail() {
                     <PaperPlane className="w-5 h-5" />
                   </span>
                   <div>
-                    <h3 className="mb-1 c-slate-10 fs-md fw-600">
+                    <h3 className="mb-1 c-slate-10 fs-md fw-500">
                       Compose email
                     </h3>
                     <p className="c-slate-8 fs-xs lh-4">
@@ -98,7 +98,7 @@ export default function DialogMail() {
                     <Field.Root className="d-f fd-c g-2">
                       <label
                         htmlFor="mail-to"
-                        className="c-slate-8 fs-xs fw-600"
+                        className="c-slate-8 fs-xs fw-500"
                       >
                         To
                       </label>
@@ -112,7 +112,7 @@ export default function DialogMail() {
                     <Field.Root className="d-f fd-c g-2">
                       <label
                         htmlFor="mail-subject"
-                        className="c-slate-8 fs-xs fw-600"
+                        className="c-slate-8 fs-xs fw-500"
                       >
                         Subject
                       </label>
@@ -125,7 +125,7 @@ export default function DialogMail() {
                     <Field.Root className="d-f fd-c g-2">
                       <label
                         htmlFor="mail-message"
-                        className="c-slate-8 fs-xs fw-600"
+                        className="c-slate-8 fs-xs fw-500"
                       >
                         Message
                       </label>
@@ -418,7 +418,7 @@ export default function DialogMail() {
                             <Tooltip.Root>
                               <Tooltip.Trigger
                                 render={
-                                  <Toolbar.Button className="d-f ai-c g-2 h-8 px-2 bg-transparent c-slate-8 br-sm bw-0 fs-xs fw-600 us-none h:bg-silver-1 h:c-slate-10 fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+                                  <Toolbar.Button className="d-f ai-c g-2 h-8 px-2 bg-transparent c-slate-8 br-sm bw-0 fs-xs fw-500 us-none h:bg-silver-1 h:c-slate-10 fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
                                 }
                               >
                                 <Paperclip className="w-4 h-4" />
@@ -437,7 +437,7 @@ export default function DialogMail() {
                             <Tooltip.Root>
                               <Tooltip.Trigger
                                 render={
-                                  <Toolbar.Button className="d-f ai-c g-2 h-8 px-2 bg-transparent c-slate-8 br-sm bw-0 fs-xs fw-600 us-none h:bg-silver-1 h:c-slate-10 fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+                                  <Toolbar.Button className="d-f ai-c g-2 h-8 px-2 bg-transparent c-slate-8 br-sm bw-0 fs-xs fw-500 us-none h:bg-silver-1 h:c-slate-10 fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
                                 }
                               >
                                 <Picture className="w-4 h-4" />
@@ -460,14 +460,14 @@ export default function DialogMail() {
                 <div className="d-g gtc-2 g-3 px-4 py-3">
                   <Dialog.Close
                     render={
-                      <Button className="px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-600 bs-o-xs tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+                      <Button className="px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-500 bs-o-xs tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
                     }
                   >
                     Discard
                   </Dialog.Close>
                   <Dialog.Close
                     render={
-                      <Button className="px-3 py-2 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-md bw-1 fw-600 bs-o-md tp-c tdu-150 ttf-io us-none fv:oc-indigo-6 fv:ow-2 fv:oo-2" />
+                      <Button className="px-3 py-2 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-md bw-1 fw-500 bs-o-md tp-c tdu-150 ttf-io us-none fv:oc-indigo-6 fv:ow-2 fv:oo-2" />
                     }
                   >
                     Send

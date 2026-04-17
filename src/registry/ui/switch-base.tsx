@@ -29,7 +29,7 @@ export default function SwitchBase() {
       </Switch.Root>
       <label
         htmlFor="switch-dark-mode"
-        className="c-slate-10 fs-sm fw-600 us-none c-p"
+        className="c-slate-10 fs-sm fw-500 us-none c-p"
       >
         Dark mode
       </label>

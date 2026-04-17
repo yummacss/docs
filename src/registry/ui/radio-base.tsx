@@ -12,7 +12,7 @@ export default function RadioBase() {
       defaultValue="monthly"
       className="d-f fd-c g-2 ai-fs"
     >
-      <div className="c-slate-10 fs-md fw-600" id={id}>
+      <div className="c-slate-10 fs-md fw-500" id={id}>
         Billing cycle
       </div>
 

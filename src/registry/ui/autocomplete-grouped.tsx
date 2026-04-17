@@ -16,7 +16,7 @@ export default function AutocompleteGrouped() {
       onOpenChange={setOpen}
     >
       <div className="d-f fd-c g-2">
-        <label htmlFor="grouped-input" className="c-slate-10 fs-sm fw-600">
+        <label htmlFor="grouped-input" className="c-slate-10 fs-sm fw-500">
           Search channels
         </label>
         <Autocomplete.Input
@@ -66,7 +66,7 @@ export default function AutocompleteGrouped() {
                               {group.value === "Private" && (
                                 <Lock className="w-4 h-4 c-slate-6" />
                               )}
-                              <span className="fw-600">{item}</span>
+                              <span className="fw-500">{item}</span>
                             </div>
                           )}
                         />

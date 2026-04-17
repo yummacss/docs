@@ -12,7 +12,7 @@ export default function ComboboxBase() {
   return (
     <Combobox.Root items={users} open={open} onOpenChange={setOpen}>
       <div className="d-f p-r fd-c g-2 c-slate-10 fs-sm">
-        <label htmlFor="user-input" className="fw-600">
+        <label htmlFor="user-input" className="fw-500">
           Mention user
         </label>
         <div className="p-r">
@@ -59,7 +59,7 @@ export default function ComboboxBase() {
                       key={user.handle}
                       value={user.handle}
                       className={(state) =>
-                        `d-f ai-c g-2 py-2 px-3 fs-sm fw-600 us-none c-p br-lg mx-1 ${
+                        `d-f ai-c g-2 py-2 px-3 fs-sm fw-500 us-none c-p br-lg mx-1 ${
                           state.highlighted
                             ? "bg-silver-1/50"
                             : "bg-transparent"

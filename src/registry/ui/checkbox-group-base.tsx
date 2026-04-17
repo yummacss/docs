@@ -14,11 +14,11 @@ export default function CheckboxGroupBase() {
       defaultValue={["email"]}
       className="d-f fd-c g-2 ai-fs c-slate-10"
     >
-      <div className="fw-600 fs-sm" id={id}>
+      <div className="fw-500 fs-sm" id={id}>
         Permissions
       </div>
 
-      <label className="d-f ai-c g-2 fs-sm fw-600">
+      <label className="d-f ai-c g-2 fs-sm fw-500">
         <Checkbox.Root
           name="notifications"
           value="email"
@@ -37,7 +37,7 @@ export default function CheckboxGroupBase() {
         Kick members
       </label>
 
-      <label className="d-f ai-c g-2 fs-sm fw-600">
+      <label className="d-f ai-c g-2 fs-sm fw-500">
         <Checkbox.Root
           name="notifications"
           value="sms"
@@ -56,7 +56,7 @@ export default function CheckboxGroupBase() {
         Ban members
       </label>
 
-      <label className="d-f ai-c g-2 fs-sm fw-600">
+      <label className="d-f ai-c g-2 fs-sm fw-500">
         <Checkbox.Root
           name="notifications"
           value="push"

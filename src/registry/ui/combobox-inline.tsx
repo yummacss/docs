@@ -37,7 +37,7 @@ export default function ComboboxInline() {
               render={(props, state) => (
                 <div
                   {...props}
-                  className={`d-f ai-c g-2 py-2 px-3 fs-sm fw-600 c-slate-8 us-none c-p br-lg mx-1 ${
+                  className={`d-f ai-c g-2 py-2 px-3 fs-sm fw-500 c-slate-8 us-none c-p br-lg mx-1 ${
                     state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                   }`}
                 >

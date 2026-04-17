@@ -11,7 +11,7 @@ export default function ContextMenuRadios() {
 
   return (
     <ContextMenu.Root open={open} onOpenChange={setOpen}>
-      <ContextMenu.Trigger className="d-f ai-c jc-c h-48 w-60 bc-slate-3 c-slate-10 bs-d bw-1 br-lg fs-sm fw-600 us-none">
+      <ContextMenu.Trigger className="d-f ai-c jc-c h-48 w-60 bc-slate-3 c-slate-10 bs-d bw-1 br-lg fs-sm fw-500 us-none">
         Right-click here
       </ContextMenu.Trigger>
 
@@ -30,7 +30,7 @@ export default function ContextMenuRadios() {
                 }
                 className="py-1 w-48 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-lg"
               >
-                <div className="px-3 py-1 c-slate-5 fs-xs fw-600 tt-u ls-3">
+                <div className="px-3 py-1 c-slate-5 fs-xs fw-500 tt-u ls-3">
                   Sort messages
                 </div>
 
@@ -43,7 +43,7 @@ export default function ContextMenuRadios() {
                       key={option.value}
                       value={option.value}
                       className={(state) =>
-                        `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-600 us-none c-p br-lg mx-1 ${
+                        `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
                           state.highlighted
                             ? "bg-silver-1/50"
                             : "bg-transparent"
