@@ -62,21 +62,21 @@ export default function AccordionMultiple() {
 
 const faqs = [
   {
-    value: "billing",
-    title: "How does the billing cycle work?",
+    value: "suspend",
+    title: "How do I suspend a team member?",
     content:
-      "Invoices are generated on the first of each month for the previous month's usage. You have 14 days to review and payment is automatically processed on the 15th.",
+      "Go to Team Settings > Members, select a user, and choose Suspend. Their access is frozen and they cannot log in during suspension.",
   },
   {
-    value: "roles",
-    title: "What roles can I assign to team members?",
+    value: "remove",
+    title: "How do I remove a member from the workspace?",
     content:
-      "You can assign Admin, Editor, or Viewer roles. Admins can manage billing and team settings, Editors can create and edit content, and Viewers have read-only access.",
+      "Click the member's menu and select Remove. You can choose to keep or remove their content from the workspace.",
   },
   {
-    value: "permissions",
-    title: "Can I set custom permissions per project?",
+    value: "logs",
+    title: "Where can I review moderation actions?",
     content:
-      "Yes, go to Team Settings > Permissions to configure project-level access. You can override the default role permissions for any team member.",
+      "All actions are logged in Settings > Audit Log. Filter by action type to review suspensions, removals, and permission changes.",
   },
 ];
