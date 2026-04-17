@@ -1,11 +1,11 @@
 "use client";
 
 import { Accordion } from "@base-ui/react/accordion";
-import { ChevronDown } from "@gravity-ui/icons";
+import { Minus, Plus } from "@gravity-ui/icons";
 import { type HTMLMotionProps, motion } from "motion/react";
 import * as React from "react";
 
-export default function AccordionGhost() {
+export default function AccordionIconsLeft() {
   const [value, setValue] = React.useState<string[]>([]);
 
   return (
@@ -20,25 +20,23 @@ export default function AccordionGhost() {
           <Accordion.Item
             key={item.value}
             value={item.value}
-            className={`blw-2 pl-4 ${isOpen ? "blc-indigo-5" : "blc-silver-3"} ${index === faqs.length - 1 ? "" : "mb-3"}`}
+            className={index === faqs.length - 1 ? "" : "bbw-1 bc-silver-3"}
           >
             <Accordion.Header className="m-0">
-              <Accordion.Trigger className="d-f b-0 ai-c jc-sb g-3 w-full py-2 px-0 bg-transparent br-sm ta-l c-p fv:ow-2 fv:oo-1 fv:oc-indigo-6">
-                <span
-                  className={`fs-sm fw-500 ${isOpen ? "c-indigo-6" : "c-slate-8"}`}
-                >
-                  {item.title}
-                </span>
+              <Accordion.Trigger className="d-f b-0 ai-c g-3 w-full py-4 px-0 bg-transparent br-sm ta-l c-p fv:ow-2 fv:oo-1 fv:oc-indigo-6">
                 <motion.span
-                  animate={{ rotate: isOpen ? 180 : 0 }}
+                  initial={false}
+                  animate={{ rotate: isOpen ? 90 : 0 }}
                   transition={{ duration: 0.15, ease: "easeInOut" }}
                   className="d-f"
                 >
-                  <ChevronDown
-                    className={`w-4 h-4 fs-0 ${isOpen ? "c-indigo-5" : "c-slate-6"}`}
-                    aria-hidden
-                  />
+                  {isOpen ? (
+                    <Minus className="fs-0 w-4 h-4 c-slate-6" aria-hidden />
+                  ) : (
+                    <Plus className="fs-0 w-4 h-4 c-slate-6" aria-hidden />
+                  )}
                 </motion.span>
+                <span className="c-slate-8 fs-sm fw-500">{item.title}</span>
               </Accordion.Trigger>
             </Accordion.Header>
             <Accordion.Panel
@@ -57,9 +55,7 @@ export default function AccordionGhost() {
                 />
               )}
             >
-              <p className="m-0 pt-1 pb-2 c-slate-6 fs-sm lh-4">
-                {item.content}
-              </p>
+              <p className="m-0 pb-4 c-slate-6 fs-sm lh-4">{item.content}</p>
             </Accordion.Panel>
           </Accordion.Item>
         );

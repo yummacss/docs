@@ -42,21 +42,21 @@ export default function AccordionStatic() {
 
 const faqs = [
   {
-    value: "billing",
-    title: "How does the billing cycle work?",
+    value: "privacy",
+    title: "Who can see my profile information?",
     content:
-      "Invoices are generated on the first of each month for the previous month's usage. You have 14 days to review and payment is automatically processed on the 15th.",
+      "Go to Settings > Privacy to choose who sees your profile. Options are Everyone, Friends Only, or Only Me. Post visibility is set per post.",
   },
   {
-    value: "roles",
-    title: "What roles can I assign to team members?",
+    value: "reporting",
+    title: "How do I report a user or post?",
     content:
-      "You can assign Admin, Editor, or Viewer roles. Admins can manage billing and team settings, Editors can create and edit content, and Viewers have read-only access.",
+      "Tap the three dots on any post or profile and select Report. Choose the reason and provide any additional details. Our team reviews all reports within 24 hours.",
   },
   {
-    value: "permissions",
-    title: "Can I set custom permissions per project?",
+    value: "blocking",
+    title: "Can I block someone without them knowing?",
     content:
-      "Yes, go to Team Settings > Permissions to configure project-level access. You can override the default role permissions for any team member.",
+      "Yes, go to a user's profile, tap the three dots, and select Block. They won't be notified, and they won't be able to see or interact with your content.",
   },
 ];

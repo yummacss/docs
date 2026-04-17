@@ -253,6 +253,8 @@ Every component that uses `<AnimatePresence>` MUST have a `-static.tsx` sibling 
 - CSS-only rotation uses `ro-180` / `ro-0` classes
 - The static description is always: **"Open and close instantly, without animation."**
 
+**Static sections in docs must always appear LAST.** After showing all style and functional variants, place the Static variant as the final section. This follows the pattern: animated variants first, then CSS-only fallback last.
+
 ---
 
 ## Component File Structure Rules
@@ -266,6 +268,9 @@ Every component that uses `<AnimatePresence>` MUST have a `-static.tsx` sibling 
 2. Import and register in `src/registry/ui/index.tsx` under `baseComponents`
 3. Remove `wip: true` from the component entry in `src/utils/ui-sidebar.ts` when at least one example is ready
 
+### Section headings
+Use single-word headings for docs sections (e.g., "Disabled" not "Disabled Item", "Open" not "Default Open"). Exception: when the Base UI prop requires two words (e.g., "Auto Highlight" for autocomplete), keep it as is.
+
 ### Content themes
 All component content MUST come from one of these three domains only:
 - **Social Media** (users, followers, mentions, channels, posts, reactions)
@@ -273,6 +278,8 @@ All component content MUST come from one of these three domains only:
 - **E-commerce** (products, orders, payment, cart, inventory)
 
 Never invent a fourth context. Never use generic Lorem Ipsum. No music/entertainment app context.
+
+**Distribute contexts across style variants, not as separate components.** Each variant (base, bordered, ghost, subtle, etc.) should use a different domain context to demonstrate versatility. For example: base=SaaS, bordered=E-commerce, ghost=Social Media. Do NOT create standalone context-specific components — contexts are for copywriting only.
 
 ---
 

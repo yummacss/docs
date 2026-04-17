@@ -63,21 +63,21 @@ export default function AccordionBordered() {
 
 const faqs = [
   {
-    value: "visibility",
-    title: "Who can see my workspace activity?",
+    value: "returns",
+    title: "What is your return policy?",
     content:
-      "Go to Settings > Privacy to control visibility. You can choose between team members, workspace admins, or public access.",
+      "You can return most items within 30 days of delivery. Items must be unused and in original packaging. Start a return from your order history.",
   },
   {
-    value: "blocking",
-    title: "How do I block a member from my workspace?",
+    value: "shipping",
+    title: "How long does shipping take?",
     content:
-      "Open the member profile, click the three dots, and select Remove. They won't be able to rejoin without an invitation.",
+      "Standard shipping takes 5-7 business days. Express shipping is 2-3 days. Free shipping is available on orders over $50.",
   },
   {
-    value: "audit",
-    title: "Can I see who accessed sensitive documents?",
+    value: "payment",
+    title: "What payment methods do you accept?",
     content:
-      "Yes, go to Settings > Audit Log to view a complete history of document access, edits, and downloads with timestamps.",
+      "We accept all major credit cards, PayPal, Apple Pay, and Google Pay. You can also save your payment methods for faster checkout.",
   },
 ];

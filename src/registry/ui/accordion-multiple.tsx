@@ -62,21 +62,21 @@ export default function AccordionMultiple() {
 
 const faqs = [
   {
-    value: "suspend",
-    title: "How do I suspend a team member?",
+    value: "shipping",
+    title: "How long does shipping take?",
     content:
-      "Go to Team Settings > Members, select a user, and choose Suspend. Their access is frozen and they cannot log in during suspension.",
+      "Standard shipping takes 5-7 business days. Express shipping is 2-3 days. Free shipping is available on orders over $50.",
   },
   {
-    value: "remove",
-    title: "How do I remove a member from the workspace?",
+    value: "tracking",
+    title: "How can I track my order?",
     content:
-      "Click the member's menu and select Remove. You can choose to keep or remove their content from the workspace.",
+      "You'll receive a tracking number via email once your order ships. Use it on our tracking page to see real-time updates on delivery status.",
   },
   {
-    value: "logs",
-    title: "Where can I review moderation actions?",
+    value: "exchange",
+    title: "Can I exchange an item?",
     content:
-      "All actions are logged in Settings > Audit Log. Filter by action type to review suspensions, removals, and permission changes.",
+      "Yes, exchanges are free within 30 days. Visit your order history, select the item, and choose Exchange. We'll ship the replacement immediately.",
   },
 ];

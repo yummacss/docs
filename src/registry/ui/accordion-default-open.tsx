@@ -5,8 +5,8 @@ import { ChevronDown } from "@gravity-ui/icons";
 import { type HTMLMotionProps, motion } from "motion/react";
 import * as React from "react";
 
-export default function AccordionGhost() {
-  const [value, setValue] = React.useState<string[]>([]);
+export default function AccordionDefaultOpen() {
+  const [value, setValue] = React.useState<string[]>(["billing"]);
 
   return (
     <Accordion.Root
@@ -20,24 +20,17 @@ export default function AccordionGhost() {
           <Accordion.Item
             key={item.value}
             value={item.value}
-            className={`blw-2 pl-4 ${isOpen ? "blc-indigo-5" : "blc-silver-3"} ${index === faqs.length - 1 ? "" : "mb-3"}`}
+            className={index === faqs.length - 1 ? "" : "bbw-1 bc-silver-3"}
           >
             <Accordion.Header className="m-0">
-              <Accordion.Trigger className="d-f b-0 ai-c jc-sb g-3 w-full py-2 px-0 bg-transparent br-sm ta-l c-p fv:ow-2 fv:oo-1 fv:oc-indigo-6">
-                <span
-                  className={`fs-sm fw-500 ${isOpen ? "c-indigo-6" : "c-slate-8"}`}
-                >
-                  {item.title}
-                </span>
+              <Accordion.Trigger className="d-f b-0 ai-c jc-sb g-3 w-full py-4 px-0 bg-transparent br-sm ta-l c-p fv:ow-2 fv:oo-1 fv:oc-indigo-6">
+                <span className="c-slate-8 fs-sm fw-500">{item.title}</span>
                 <motion.span
                   animate={{ rotate: isOpen ? 180 : 0 }}
                   transition={{ duration: 0.15, ease: "easeInOut" }}
                   className="d-f"
                 >
-                  <ChevronDown
-                    className={`w-4 h-4 fs-0 ${isOpen ? "c-indigo-5" : "c-slate-6"}`}
-                    aria-hidden
-                  />
+                  <ChevronDown className="fs-0 w-4 h-4 c-slate-6" aria-hidden />
                 </motion.span>
               </Accordion.Trigger>
             </Accordion.Header>
@@ -57,9 +50,7 @@ export default function AccordionGhost() {
                 />
               )}
             >
-              <p className="m-0 pt-1 pb-2 c-slate-6 fs-sm lh-4">
-                {item.content}
-              </p>
+              <p className="m-0 pb-4 c-slate-6 fs-sm lh-4">{item.content}</p>
             </Accordion.Panel>
           </Accordion.Item>
         );
@@ -70,21 +61,21 @@ export default function AccordionGhost() {
 
 const faqs = [
   {
-    value: "privacy",
-    title: "Who can see my profile information?",
+    value: "returns",
+    title: "What is your return policy?",
     content:
-      "Go to Settings > Privacy to choose who sees your profile. Options are Everyone, Friends Only, or Only Me. Post visibility is set per post.",
+      "You can return most items within 30 days of delivery. Items must be unused and in original packaging. Start a return from your order history.",
   },
   {
-    value: "reporting",
-    title: "How do I report a user or post?",
+    value: "shipping",
+    title: "How long does shipping take?",
     content:
-      "Tap the three dots on any post or profile and select Report. Choose the reason and provide any additional details. Our team reviews all reports within 24 hours.",
+      "Standard shipping takes 5-7 business days. Express shipping is 2-3 days. Free shipping is available on orders over $50.",
   },
   {
-    value: "blocking",
-    title: "Can I block someone without them knowing?",
+    value: "payment",
+    title: "What payment methods do you accept?",
     content:
-      "Yes, go to a user's profile, tap the three dots, and select Block. They won't be notified, and they won't be able to see or interact with your content.",
+      "We accept all major credit cards, PayPal, Apple Pay, and Google Pay. You can also save your payment methods for faster checkout.",
   },
 ];
