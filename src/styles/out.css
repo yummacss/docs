@@ -357,6 +357,10 @@ summary {
   background-color: #d7f8f0;
 }
 
+.bg-green-3 {
+  background-color: #91edd5;
+}
+
 .bg-green-5 {
   background-color: #4ce1bb;
 }
@@ -421,8 +425,16 @@ summary {
   background-color: #1a1d2e;
 }
 
+.bg-mint-3 {
+  background-color: #96e0c8;
+}
+
 .bg-mirage {
   background-color: #151724;
+}
+
+.bg-orange-3 {
+  background-color: #ffbea6;
 }
 
 .bg-periwinkle {
@@ -439,6 +451,10 @@ summary {
 
 .bg-red-1\/50 {
   background-color: #fbdfe180;
+}
+
+.bg-red-3 {
+  background-color: #f4a8ae;
 }
 
 .bg-red-5 {
@@ -487,6 +503,10 @@ summary {
 
 .bg-transparent {
   background-color: transparent;
+}
+
+.bg-violet-3 {
+  background-color: #ccb7fb;
 }
 
 .bg-white {
@@ -556,6 +576,10 @@ summary {
 
 .br-xl {
   border-radius: 0.75rem;
+}
+
+.br-xs {
+  border-radius: 0.125rem;
 }
 
 .brr-md {
@@ -2156,6 +2180,10 @@ summary {
   transition-duration: 100ms;
 }
 
+.tdu-1000 {
+  transition-duration: 1000ms;
+}
+
 .tdu-150 {
   transition-duration: 150ms;
 }
@@ -2206,6 +2234,10 @@ summary {
 
 .ttf-io {
   transition-timing-function: ease-in-out;
+}
+
+.ttf-l {
+  transition-timing-function: linear;
 }
 
 .tuo-2 {
@@ -2262,6 +2294,10 @@ summary {
 
 .w-24 {
   width: 6rem;
+}
+
+.w-28 {
+  width: 7rem;
 }
 
 .w-3 {
