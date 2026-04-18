@@ -1148,10 +1148,6 @@ summary {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
-.gtc-6 {
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-}
-
 .h-10 {
   height: 2.5rem;
 }
@@ -1518,10 +1514,6 @@ summary {
 
 .max-w-64 {
   max-width: 16rem;
-}
-
-.max-w-72 {
-  max-width: 18rem;
 }
 
 .max-w-96 {

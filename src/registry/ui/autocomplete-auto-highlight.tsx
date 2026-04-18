@@ -9,7 +9,7 @@ export default function AutocompleteAutoHighlight() {
 
   return (
     <Autocomplete.Root
-      items={EMOJIS}
+      items={TEAM_MEMBERS}
       open={open}
       onOpenChange={setOpen}
       autoHighlight
@@ -19,12 +19,12 @@ export default function AutocompleteAutoHighlight() {
           htmlFor="auto-highlight-input"
           className="c-slate-10 fs-sm fw-500"
         >
-          Add emoji
+          Assign task
         </label>
         <Autocomplete.Input
           id="auto-highlight-input"
-          placeholder="e.g.Rainbow"
-          className="h-10 w-64 pl-4 bg-white bc-silver-3 c-slate-12 bw-1 br-lg fs-md bs-o-xs fv:ow-2 fv:oo--1 fv:oc-indigo-6"
+          placeholder="Search team members"
+          className="h-10 w-64 pl-4 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md bs-o-xs fv:ow-2 fv:oo--1 fv:oc-indigo-6"
         />
       </div>
 
@@ -41,30 +41,42 @@ export default function AutocompleteAutoHighlight() {
                     transition={{ duration: 0.1, ease: "easeOut" }}
                   />
                 }
-                className="o-h w-auto max-w-72 bg-white bc-silver-3 c-slate-10 bw-1 br-xl bs-o-lg"
+                className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-lg"
               >
-                <Autocomplete.List className="d-g gtc-6 g-1 py-1 ow-0">
-                  {(item: Emoji) => (
+                <Autocomplete.List className="oy-auto max-h-72 py-1 ow-0">
+                  {(member: TeamMember) => (
                     <Autocomplete.Item
-                      key={item.name}
-                      value={item.name}
+                      key={member.name}
+                      value={member.name}
                       render={(props, state) => (
                         <div
                           {...props}
-                          className={`d-f ai-c jc-c py-2 px-3 fs-xl us-none c-p br-lg mx-1 ${
+                          className={`d-f ai-c g-3 py-2 px-3 fs-sm us-none c-p br-lg mx-1 c-slate-10 ${
                             state.highlighted
                               ? "bg-silver-1/50"
                               : "bg-transparent"
                           }`}
                         >
-                          {item.emoji}
+                          <img
+                            src={member.avatar}
+                            alt={member.name}
+                            className="w-6 h-6 of-c br-pill bw-1 bc-silver-3"
+                          />
+                          <div className="d-f fd-c">
+                            <span className="fw-500">{member.name}</span>
+                            <span className="fs-xs c-slate-6">
+                              {member.role}
+                            </span>
+                          </div>
                         </div>
                       )}
                     />
                   )}
                 </Autocomplete.List>
                 <Autocomplete.Empty className="c-slate-6 fs-sm">
-                  <div className="pt-2 pb-3 px-4 us-none">No emoji found.</div>
+                  <div className="pt-2 pb-3 px-4 us-none">
+                    No members found.
+                  </div>
                 </Autocomplete.Empty>
               </Autocomplete.Popup>
             </Autocomplete.Positioner>
@@ -75,22 +87,41 @@ export default function AutocompleteAutoHighlight() {
   );
 }
 
-interface Emoji {
+interface TeamMember {
   name: string;
-  emoji: string;
+  role: string;
+  avatar: string;
 }
 
-const EMOJIS: Emoji[] = [
-  { name: "Party", emoji: "🥳" },
-  { name: "Fire", emoji: "🔥" },
-  { name: "Heart", emoji: "❤️" },
-  { name: "Star", emoji: "⭐" },
-  { name: "Rocket", emoji: "🚀" },
-  { name: "Tada", emoji: "🎉" },
-  { name: "Hundred", emoji: "💯" },
-  { name: "Sparkles", emoji: "✨" },
-  { name: "Rainbow", emoji: "🌈" },
-  { name: "Skull", emoji: "💀" },
-  { name: "Joy", emoji: "😂" },
-  { name: "Thinking", emoji: "🤔" },
+const TEAM_MEMBERS: TeamMember[] = [
+  {
+    name: "Sarah Chen",
+    role: "Product Designer",
+    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Sarah",
+  },
+  {
+    name: "Avery Gonzalez",
+    role: "Frontend Developer",
+    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Avery",
+  },
+  {
+    name: "Jude Thompson",
+    role: "Backend Developer",
+    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Jude",
+  },
+  {
+    name: "Leo Kim",
+    role: "DevOps Engineer",
+    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Leo",
+  },
+  {
+    name: "Riley Brown",
+    role: "Product Manager",
+    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Riley",
+  },
+  {
+    name: "Adrian Moore",
+    role: "QA Engineer",
+    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Adrian",
+  },
 ];
