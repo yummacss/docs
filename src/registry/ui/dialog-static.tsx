@@ -9,7 +9,7 @@ export default function DialogStatic() {
     <Dialog.Root>
       <Dialog.Trigger
         render={
-          <Button className="px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-500 bs-o-xs us-none h:bg-silver-1/50 fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+          <Button className="px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-500 us-none h:bg-silver-1/50 fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
         }
       >
         Open dialog
@@ -18,7 +18,7 @@ export default function DialogStatic() {
         <Dialog.Backdrop className="p-f i-0 min-h-dvh bg-black/20 bf-b-xs" />
         <div className="d-f p-f i-0 ai-c jc-c">
           <Dialog.Popup
-            className="o-h w-96 bg-white bc-silver-2 c-slate-12 br-md bw-1 bs-o-lg"
+            className="o-h w-96 bg-white bc-silver-2 c-slate-12 br-md bw-1 bs-o-xs"
             style={{ maxWidth: "90vw" }}
           >
             <div className="d-f jc-sb ai-c px-4 py-2 bg-silver-1/50">
@@ -41,14 +41,14 @@ export default function DialogStatic() {
             <div className="d-g gtc-2 g-3 px-4 py-3">
               <Dialog.Close
                 render={
-                  <Button className="px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-500 bs-o-xs us-none h:bg-silver-1/50 fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+                  <Button className="px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-500 us-none h:bg-silver-1/50 fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
                 }
               >
                 Cancel
               </Dialog.Close>
               <Dialog.Close
                 render={
-                  <Button className="px-3 py-2 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-md bw-1 fw-500 bs-o-md us-none fv:oc-indigo-6 fv:ow-2 fv:oo-2" />
+                  <Button className="px-3 py-2 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-md bw-1 fw-500 us-none fv:oc-indigo-6 fv:ow-2 fv:oo-2" />
                 }
               >
                 Confirm
