@@ -1,0 +1,97 @@
+"use client";
+
+import { Autocomplete } from "@base-ui/react/autocomplete";
+import {
+  BellDot,
+  CircleQuestionDot,
+  Globe,
+  Magnifier,
+  PersonsLock,
+  PersonGear,
+  ShieldKeyhole,
+} from "@gravity-ui/icons";
+import { AnimatePresence, motion } from "motion/react";
+import * as React from "react";
+
+export default function AutocompleteIcon() {
+  const [open, setOpen] = React.useState(false);
+
+  return (
+    <Autocomplete.Root items={SETTINGS} open={open} onOpenChange={setOpen}>
+      <div className="d-f fd-c g-2">
+        <label htmlFor="icon-input" className="c-slate-10 fs-sm fw-500">
+          Search settings
+        </label>
+        <div className="d-f ai-c p-r">
+          <Magnifier className="p-a l-3 c-slate-5 w-4 h-4" />
+          <Autocomplete.Input
+            id="icon-input"
+            placeholder="Account, Privacy, & more"
+            className="h-10 w-64 pl-10 pr-4 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md bs-o-xs fv:ow-2 fv:oo--1 fv:oc-indigo-6"
+          />
+        </div>
+      </div>
+
+      <AnimatePresence>
+        {open && (
+          <Autocomplete.Portal keepMounted>
+            <Autocomplete.Positioner className="ow-0" sideOffset={4}>
+              <Autocomplete.Popup
+                render={
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    transition={{ duration: 0.1, ease: "easeOut" }}
+                  />
+                }
+                className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-lg"
+              >
+                <Autocomplete.List className="oy-auto max-h-72 py-1 ow-0">
+                  {(item: Setting) => (
+                    <Autocomplete.Item
+                      key={item.label}
+                      value={item.label}
+                      render={(props, state) => (
+                        <div
+                          {...props}
+                          className={`d-f ai-c g-3 py-2 px-3 fs-sm us-none c-p br-lg mx-1 c-slate-10 ${
+                            state.highlighted
+                              ? "bg-silver-1/50"
+                              : "bg-transparent"
+                          }`}
+                        >
+                          <item.icon className="w-4 h-4 c-slate-5" />
+                          <span className="fw-500">{item.label}</span>
+                        </div>
+                      )}
+                    />
+                  )}
+                </Autocomplete.List>
+                <Autocomplete.Empty className="c-slate-6 fs-sm">
+                  <div className="pt-2 pb-3 px-4 us-none">
+                    No settings found.
+                  </div>
+                </Autocomplete.Empty>
+              </Autocomplete.Popup>
+            </Autocomplete.Positioner>
+          </Autocomplete.Portal>
+        )}
+      </AnimatePresence>
+    </Autocomplete.Root>
+  );
+}
+
+type Setting = {
+  label: string;
+  icon: React.ComponentType<{ className?: string }>;
+};
+
+const SETTINGS: Setting[] = [
+  { label: "Account Settings", icon: PersonGear },
+  { label: "Privacy & Security", icon: ShieldKeyhole },
+  { label: "Notifications", icon: BellDot },
+  { label: "Language & Region", icon: Globe },
+  { label: "Blocked Accounts", icon: PersonsLock },
+  { label: "Help Center", icon: CircleQuestionDot },
+];

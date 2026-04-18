@@ -271,6 +271,9 @@ Every component that uses `<AnimatePresence>` MUST have a `-static.tsx` sibling 
 ### Section headings
 Use single-word headings for docs sections (e.g., "Disabled" not "Disabled Item", "Open" not "Default Open"). Exception: when the Base UI prop requires two words (e.g., "Auto Highlight" for autocomplete), keep it as is.
 
+### Naming convention for variants
+When a variant name includes a feature name (e.g., "with icon"), use hyphen instead of hyphenated prefix. For example: `autocomplete-icon` instead of `autocomplete-with-icon`.
+
 ### Content themes
 All component content MUST come from one of these three domains only:
 - **Social Media** (users, followers, mentions, channels, posts, reactions)
