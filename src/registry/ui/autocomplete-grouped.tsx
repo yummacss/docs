@@ -2,7 +2,6 @@
 
 import { Autocomplete } from "@base-ui/react/autocomplete";
 import { Separator } from "@base-ui/react/separator";
-import { Hashtag, Lock, Volume } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import * as React from "react";
 
@@ -11,18 +10,18 @@ export default function AutocompleteGrouped() {
 
   return (
     <Autocomplete.Root
-      items={CHANNEL_GROUPS}
+      items={PRODUCT_GROUPS}
       open={open}
       onOpenChange={setOpen}
     >
       <div className="d-f fd-c g-2">
         <label htmlFor="grouped-input" className="c-slate-10 fs-sm fw-500">
-          Search channels
+          Search products
         </label>
         <Autocomplete.Input
           id="grouped-input"
-          placeholder="e.g. general"
-          className="h-10 w-64 pl-4 bg-white bc-silver-3 c-slate-12 bw-1 br-lg fs-md bs-o-xs fv:ow-2 fv:oo--1 fv:oc-indigo-6"
+          placeholder="iPhone, Macbook, & more"
+          className="h-10 w-64 pl-4 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md bs-o-xs fv:ow-2 fv:oo--1 fv:oc-indigo-6"
         />
       </div>
 
@@ -39,39 +38,39 @@ export default function AutocompleteGrouped() {
                     transition={{ duration: 0.1, ease: "easeOut" }}
                   />
                 }
-                className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-lg"
+                className="o-h w-72 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-lg"
               >
                 <Autocomplete.List className="oy-auto max-h-72 py-1 ow-0">
-                  {(group: ChannelGroup, groupIndex) => (
+                  {(group: ProductGroup, groupIndex) => (
                     <Autocomplete.Group key={group.value}>
+                      <div className="px-3 py-1 fs-xs fw-500 c-slate-6 tt-u ls-3">
+                        {group.value}
+                      </div>
                       {group.items.map((item) => (
                         <Autocomplete.Item
-                          key={item}
-                          value={item}
+                          key={item.name}
+                          value={item.name}
                           render={(props, state) => (
                             <div
                               {...props}
-                              className={`d-f ai-c g-2 py-2 px-3 fs-sm us-none c-p br-lg mx-1 c-slate-10 ${
+                              className={`d-f ai-c g-3 py-2 px-3 fs-sm us-none c-p br-lg mx-1 c-slate-10 ${
                                 state.highlighted
                                   ? "bg-silver-1/50"
                                   : "bg-transparent"
                               }`}
                             >
-                              {group.value === "Text Channels" && (
-                                <Hashtag className="w-4 h-4 c-slate-6" />
-                              )}
-                              {group.value === "Voice Channels" && (
-                                <Volume className="w-4 h-4 c-slate-6" />
-                              )}
-                              {group.value === "Private" && (
-                                <Lock className="w-4 h-4 c-slate-6" />
-                              )}
-                              <span className="fw-500">{item}</span>
+                              <div className="w-8 h-8 bg-silver-2 br-md" />
+                              <div className="d-f fd-c">
+                                <span className="fw-500">{item.name}</span>
+                                <span className="fs-xs c-slate-6">
+                                  {item.category}
+                                </span>
+                              </div>
                             </div>
                           )}
                         />
                       ))}
-                      {groupIndex < CHANNEL_GROUPS.length - 1 && (
+                      {groupIndex < PRODUCT_GROUPS.length - 1 && (
                         <Separator className="my-2 w-full h-px bg-silver-2" />
                       )}
                     </Autocomplete.Group>
@@ -79,7 +78,7 @@ export default function AutocompleteGrouped() {
                 </Autocomplete.List>
                 <Autocomplete.Empty className="c-slate-6 fs-sm">
                   <div className="pt-2 pb-3 px-4 us-none">
-                    No channels found.
+                    No products found.
                   </div>
                 </Autocomplete.Empty>
               </Autocomplete.Popup>
@@ -91,22 +90,39 @@ export default function AutocompleteGrouped() {
   );
 }
 
-interface ChannelGroup {
-  value: string;
-  items: string[];
+interface Product {
+  name: string;
+  category: string;
 }
 
-const CHANNEL_GROUPS: ChannelGroup[] = [
+interface ProductGroup {
+  value: string;
+  items: Product[];
+}
+
+const PRODUCT_GROUPS: ProductGroup[] = [
   {
-    value: "Text Channels",
-    items: ["general", "announcements", "memes", "music", "gaming"],
+    value: "MacBook",
+    items: [
+      { name: 'MacBook Pro 14"', category: "Space Black" },
+      { name: 'MacBook Pro 16"', category: "Space Black" },
+      { name: 'MacBook Air 13"', category: "Starlight" },
+    ],
   },
   {
-    value: "Voice Channels",
-    items: ["Main Stage", "Gaming Lounge", "Study Room", "Music Jam"],
+    value: "iPhone",
+    items: [
+      { name: "iPhone 15 Pro Max", category: "Natural Titanium" },
+      { name: "iPhone 15 Pro", category: "Blue Titanium" },
+      { name: "iPhone 15", category: "Pink" },
+    ],
   },
   {
-    value: "Private",
-    items: ["mod-chat", "admin-only"],
+    value: "iPad",
+    items: [
+      { name: 'iPad Pro 12.9"', category: "Space Gray" },
+      { name: 'iPad Air 11"', category: "Blue" },
+      { name: "iPad mini", category: "Purple" },
+    ],
   },
 ];
