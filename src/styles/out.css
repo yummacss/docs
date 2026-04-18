@@ -2180,10 +2180,6 @@ summary {
   transition-duration: 100ms;
 }
 
-.tdu-1000 {
-  transition-duration: 1000ms;
-}
-
 .tdu-150 {
   transition-duration: 150ms;
 }
@@ -2234,10 +2230,6 @@ summary {
 
 .ttf-io {
   transition-timing-function: ease-in-out;
-}
-
-.ttf-l {
-  transition-timing-function: linear;
 }
 
 .tuo-2 {
