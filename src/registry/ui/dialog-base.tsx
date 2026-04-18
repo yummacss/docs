@@ -13,7 +13,7 @@ export default function DialogBase() {
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger
         render={
-          <Button className="px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+          <Button className="px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-500 bs-o-xs tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
         }
       >
         Open dialog
@@ -42,7 +42,7 @@ export default function DialogBase() {
                     transition={{ duration: 0.2, ease: "easeOut" }}
                   />
                 }
-                className="o-h w-96 bg-white bc-silver-2 c-slate-12 br-md bw-1 bs-o-xs"
+                className="o-h w-96 bg-white bc-silver-2 c-slate-12 br-md bw-1 bs-o-lg"
                 style={{ maxWidth: "90vw" }}
               >
                 <div className="d-f jc-sb ai-c px-4 py-2 bg-silver-1/50">
