@@ -449,3 +449,4 @@ state.checked ? "bg-indigo" : "bw-1 bc-silver-3 bg-transparent bs-o-xs"
 - Never fabricate a Base UI component that does not exist (e.g. `Badge`, `Breadcrumb` have no Base UI primitive)
 - Never add `wip: true` to a component that has at least one working example
 - Never use `bs-d` (dashed border) on elements other than placeholder/trigger zones
+- **Never use custom SVGs.** Always use Gravity Icons (`@gravity-ui/icons`). Import icons as named imports (e.g., `import { PersonPlus } from "@gravity-ui/icons"`).
