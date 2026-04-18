@@ -1428,6 +1428,10 @@ summary {
   left: .25rem;
 }
 
+.l-3 {
+  left: .75rem;
+}
+
 .l-4 {
   left: 1rem;
 }
@@ -1874,6 +1878,10 @@ summary {
 
 .pe-none {
   pointer-events: none;
+}
+
+.pl-10 {
+  padding-left: 2.5rem;
 }
 
 .pl-2 {
