@@ -31,7 +31,7 @@ Implement this component in your project using Yumma CSS and Base UI.
 
 ---
 
-### Verification
+### OTP
 
 Enter a secure code to confirm your identity or complete a process.
 
@@ -41,30 +41,10 @@ Enter a secure code to confirm your identity or complete a process.
     <TabsTab value="code">Code</TabsTab>
   </TabsList>
   <TabsPanel className="bg-white bbr-sm" value="preview">
-    <Preview className="bw-0" registryId="dialog-verification" />
+    <Preview className="bw-0" registryId="dialog-otp" />
   </TabsPanel>
   <TabsPanel value="code">
-    ```tsx registryId="dialog-verification"
-    ```
-  </TabsPanel>
-</Tabs>
-
----
-
-### Mail
-
-A rich composition interface for sending emails with formatting tools.
-
-<Tabs defaultValue="preview">
-  <TabsList>
-    <TabsTab value="preview">Preview</TabsTab>
-    <TabsTab value="code">Code</TabsTab>
-  </TabsList>
-  <TabsPanel className="bg-white bbr-sm" value="preview">
-    <Preview className="bw-0" registryId="dialog-mail" />
-  </TabsPanel>
-  <TabsPanel value="code">
-    ```tsx registryId="dialog-mail"
+    ```tsx registryId="dialog-otp"
     ```
   </TabsPanel>
 </Tabs>
@@ -85,26 +65,6 @@ Collect and manage payment information in a secure, encrypted modal.
   </TabsPanel>
   <TabsPanel value="code">
     ```tsx registryId="dialog-payment"
-    ```
-  </TabsPanel>
-</Tabs>
-
----
-
-### Settings
-
-A centralized panel for adjusting preferences and account configurations.
-
-<Tabs defaultValue="preview">
-  <TabsList>
-    <TabsTab value="preview">Preview</TabsTab>
-    <TabsTab value="code">Code</TabsTab>
-  </TabsList>
-  <TabsPanel className="bg-white bbr-sm" value="preview">
-    <Preview className="bw-0" registryId="dialog-settings" />
-  </TabsPanel>
-  <TabsPanel value="code">
-    ```tsx registryId="dialog-settings"
     ```
   </TabsPanel>
 </Tabs>

@@ -2,6 +2,8 @@
 
 import { Button } from "@base-ui/react/button";
 import { Dialog } from "@base-ui/react/dialog";
+import { Field } from "@base-ui/react/field";
+import { Input } from "@base-ui/react/input";
 import { CreditCard, Xmark } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import * as React from "react";
@@ -13,7 +15,7 @@ export default function DialogPayment() {
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger
         render={
-          <Button className="px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-500 bs-o-xs tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+          <Button className="px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
         }
       >
         Add Payment Method
@@ -42,11 +44,11 @@ export default function DialogPayment() {
                     transition={{ duration: 0.2, ease: "easeOut" }}
                   />
                 }
-                className="o-h w-96 bg-white bc-silver-2 c-slate-12 br-md bw-1 bs-o-xs"
+                className="o-h w-96 bg-white bc-silver-2 c-slate-12 br-xl bw-1 bs-o-xs"
                 style={{ maxWidth: "90vw" }}
               >
                 <div className="d-f jc-sb ai-c px-4 py-2 bg-silver-1/50">
-                  <Dialog.Title className="m-0 fs-md fw-500">
+                  <Dialog.Title className="m-0 c-slate-8 fs-md fw-500">
                     Payment Details
                   </Dialog.Title>
                   <Dialog.Close
@@ -57,83 +59,66 @@ export default function DialogPayment() {
                     <Xmark aria-hidden className="w-4 h-4" />
                   </Dialog.Close>
                 </div>
-                <div className="bc-silver-2 bbw-1" />
-                <div className="d-f ai-c g-3 px-4 py-3 bg-indigo-1/50">
-                  <span className="d-f ai-c jc-c fs-0 w-10 h-10 bg-white bc-silver-2 c-indigo br-md bw-1">
+                <div className="bc-silver-3 bbw-1" />
+                <div className="d-f ai-c g-3 px-4 py-3 bg-silver-1/50">
+                  <span className="d-f ai-c jc-c fs-0 w-10 h-10 bg-white bc-silver-3 c-slate-7 br-md bw-1">
                     <CreditCard className="w-5 h-5" />
                   </span>
                   <div>
-                    <h3 className="m-0 mb-1 c-slate-10 fs-md fw-500">
+                    <h3 className="m-0 mb-1 c-slate-8 fs-sm fw-500">
                       Add payment method
                     </h3>
-                    <p className="m-0 c-slate-8 fs-xs lh-4">
-                      Enter your card details to continue
+                    <p className="m-0 c-slate-6 fs-xs lh-4">
+                      Add your card information.
                     </p>
                   </div>
                 </div>
-                <div className="bc-silver-2 bbw-1" />
+                <div className="bc-silver-3 bbw-1" />
                 <form className="d-f fd-c g-4 px-4 py-5">
-                  <Dialog.Description className="m-0 c-slate-7 fs-sm lh-4">
-                    Your payment information is encrypted and secure.
-                  </Dialog.Description>
-
-                  <div className="d-f fd-c g-1">
-                    <label
-                      htmlFor="cardNumber"
-                      className="c-slate-10 fs-xs fw-500"
-                    >
+                  <Field.Root className="d-f fd-c g-2">
+                    <Field.Label className="c-slate-7 fs-sm fw-500">
                       Card Number
-                    </label>
-                    <input
+                    </Field.Label>
+                    <Input
                       id="cardNumber"
-                      type="text"
+                      className="w-full px-3 py-2 bg-white bc-silver-3 c-slate-12 br-md bw-1 os-none fs-md fv:ow-2 fv:oo-2 fv:oc-indigo-6"
                       placeholder="1234 5678 9012 3456"
-                      className="px-3 py-2 bg-white bc-silver-3 c-slate-12 br-md bw-1 os-none fs-md fv:ow-2 fv:oo-2 fv:oc-indigo-6"
                     />
-                  </div>
+                  </Field.Root>
 
                   <div className="d-g gtc-2 g-3">
-                    <div className="d-f fd-c g-1">
-                      <label
-                        htmlFor="expiry"
-                        className="c-slate-10 fs-xs fw-500"
-                      >
+                    <Field.Root className="d-f fd-c g-1">
+                      <Field.Label className="c-slate-7 fs-sm fw-500">
                         Expiry
-                      </label>
-                      <input
-                        id="expiry"
-                        type="text"
+                      </Field.Label>
+                      <Input
+                        className="w-full px-3 py-2 bg-white bc-silver-3 c-slate-12 br-md bw-1 os-none fs-md fv:ow-2 fv:oo-2 fv:oc-indigo-6"
                         placeholder="MM/YY"
-                        className="px-3 py-2 bg-white bc-silver-3 c-slate-12 br-md bw-1 os-none fs-md fv:ow-2 fv:oo-2 fv:oc-indigo-6"
                       />
-                    </div>
+                    </Field.Root>
 
-                    <div className="d-f fd-c g-1">
-                      <label htmlFor="cvv" className="c-slate-10 fs-xs fw-500">
+                    <Field.Root className="d-f fd-c g-1">
+                      <Field.Label className="c-slate-7 fs-sm fw-500">
                         CVV
-                      </label>
-                      <input
-                        id="cvv"
-                        type="text"
+                      </Field.Label>
+                      <Input
+                        className="w-full px-3 py-2 bg-white bc-silver-3 c-slate-12 br-md bw-1 os-none fs-md fv:ow-2 fv:oo-2 fv:oc-indigo-6"
                         placeholder="123"
-                        className="px-3 py-2 bg-white bc-silver-3 c-slate-12 br-md bw-1 os-none fs-md fv:ow-2 fv:oo-2 fv:oc-indigo-6"
                       />
-                    </div>
+                    </Field.Root>
                   </div>
 
-                  <div className="d-f fd-c g-1">
-                    <label htmlFor="name" className="c-slate-10 fs-xs fw-500">
+                  <Field.Root className="d-f fd-c g-1">
+                    <Field.Label className="c-slate-7 fs-sm fw-500">
                       Cardholder Name
-                    </label>
-                    <input
-                      id="name"
-                      type="text"
+                    </Field.Label>
+                    <Input
+                      className="w-full px-3 py-2 bg-white bc-silver-3 c-slate-12 br-md bw-1 os-none fs-md fv:ow-2 fv:oo-2 fv:oc-indigo-6"
                       placeholder="John Doe"
-                      className="px-3 py-2 bg-white bc-silver-3 c-slate-12 br-md bw-1 os-none fs-md fv:ow-2 fv:oo-2 fv:oc-indigo-6"
                     />
-                  </div>
+                  </Field.Root>
                 </form>
-                <div className="d-g gtc-2 g-3 px-4 py-3">
+                <div className="d-g gtc-2 g-3 px-4 py-4">
                   <Dialog.Close
                     render={
                       <Button className="px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
