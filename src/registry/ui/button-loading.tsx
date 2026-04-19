@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@base-ui/react/button";
-import { CircleDashed } from "@gravity-ui/icons";
+import { Clock } from "@gravity-ui/icons";
 import { motion } from "motion/react";
 
 export default function ButtonLoading() {
@@ -14,7 +14,7 @@ export default function ButtonLoading() {
         animate={{ rotate: 360 }}
         transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
       >
-        <CircleDashed className="w-4 h-4" />
+        <Clock className="w-4 h-4" />
       </motion.div>
       Please wait
     </Button>
