@@ -208,9 +208,17 @@ summary {
   position: absolute;
 }
 
+.bblr-md {
+  border-bottom-left-radius: 0.375rem;
+}
+
 .bbr-sm {
   border-bottom-right-radius: 0.25rem;
   border-bottom-left-radius: 0.25rem;
+}
+
+.bbrr-md {
+  border-bottom-right-radius: 0.375rem;
 }
 
 .bbw-1 {
@@ -227,6 +235,10 @@ summary {
 
 .bc-green-2 {
   border-color: #b4f3e3;
+}
+
+.bc-green-7 {
+  border-color: #05b88a;
 }
 
 .bc-indigo {
@@ -623,8 +635,16 @@ summary {
   border-style: solid;
 }
 
+.btlr-md {
+  border-top-left-radius: 0.375rem;
+}
+
 .btr-md {
   border-top-left-radius: 0.375rem;
+  border-top-right-radius: 0.375rem;
+}
+
+.btrr-md {
   border-top-right-radius: 0.375rem;
 }
 
@@ -642,6 +662,10 @@ summary {
 
 .bw-2 {
   border-width: 2px;
+}
+
+.bxw-0 {
+  border-inline-width: 0;
 }
 
 .bxw-1 {
@@ -1036,6 +1060,10 @@ summary {
   background-color: #4749ae;
 }
 
+.fv\:oc-green-6:focus-visible {
+  outline-color: #29dcad;
+}
+
 .fv\:oc-indigo:focus-visible {
   outline-color: #6366f1;
 }
@@ -1290,6 +1318,10 @@ summary {
 
 .h\:bg-blue-6:hover {
   background-color: #4479ee;
+}
+
+.h\:bg-green-8:hover {
+  background-color: #049a73;
 }
 
 .h\:bg-indigo:hover {
