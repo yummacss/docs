@@ -1,5 +1,6 @@
 "use client";
 
+import { Avatar } from "@base-ui/react/avatar";
 import { Button } from "@base-ui/react/button";
 import { Dialog } from "@base-ui/react/dialog";
 import { Xmark } from "@gravity-ui/icons";
@@ -9,20 +10,22 @@ export default function DialogStatic() {
     <Dialog.Root>
       <Dialog.Trigger
         render={
-          <Button className="px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-500 bs-o-xs us-none h:bg-silver-1/50 fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+          <Button className="px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
         }
       >
-        Open dialog
+        Request access
       </Dialog.Trigger>
       <Dialog.Portal>
         <Dialog.Backdrop className="p-f i-0 min-h-dvh bg-black/20 bf-b-xs" />
         <div className="d-f p-f i-0 ai-c jc-c">
           <Dialog.Popup
-            className="o-h w-96 bg-white bc-silver-2 c-slate-12 br-md bw-1 bs-o-xs"
+            className="o-h w-96 bg-white bc-silver-2 c-slate-12 br-xl bw-1 bs-o-xs"
             style={{ maxWidth: "90vw" }}
           >
             <div className="d-f jc-sb ai-c px-4 py-2 bg-silver-1/50">
-              <Dialog.Title className="fs-md fw-500">Base Dialog</Dialog.Title>
+              <Dialog.Title className="c-slate-8 fs-md fw-500">
+                Access request
+              </Dialog.Title>
               <Dialog.Close
                 render={
                   <Button className="d-f b-0 ai-c jc-c w-7 h-7 bg-transparent c-slate-6 br-md h:bg-silver-2 fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
@@ -30,25 +33,43 @@ export default function DialogStatic() {
               >
                 <Xmark aria-hidden className="w-4 h-4" />
               </Dialog.Close>
+</div>
+                <div className="bc-silver-2 bbw-1" />
+                <div className="d-f fd-c ai-c jc-c g-3 px-4 py-5">
+              <Avatar.Root className="w-12 h-12 bc-silver-3 br-pill bw-1">
+                <Avatar.Image
+                  src="https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Sarah"
+                  className="of-c w-full h-full br-pill"
+                />
+                <Avatar.Fallback className="d-f ai-c jc-c w-full h-full bg-silver-2 c-slate-8 fs-md">
+                  S
+                </Avatar.Fallback>
+              </Avatar.Root>
+              <div className="d-f fd-c ta-c">
+                <span className="c-slate-10 fs-md fw-500">Sarah</span>
+                <span className="c-slate-6 fs-sm">sarah@yummaui.com</span>
+              </div>
             </div>
-            <div className="bc-silver-2 bbw-1" />
-            <div className="px-4 py-5">
-              <Dialog.Description className="c-slate-7 fs-sm lh-4">
-                This is a basic dialog component. You can use it to display
-                content that requires user attention or interaction.
+            <div className="px-4 py-3">
+              <Dialog.Description className="c-slate-7 fs-sm lh-4 ta-c">
+                Your{" "}
+                <a href="#" className="c-indigo fw-600">
+                  Sales Site
+                </a>
+                {" "}project now has a pending collaboration request from Sarah.
               </Dialog.Description>
             </div>
-            <div className="d-g gtc-2 g-3 px-4 py-3">
+            <div className="d-g gtc-2 g-3 px-4 py-4">
               <Dialog.Close
                 render={
-                  <Button className="px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-500 us-none h:bg-silver-1/50 fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+                  <Button className="px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
                 }
               >
                 Cancel
               </Dialog.Close>
               <Dialog.Close
                 render={
-                  <Button className="px-3 py-2 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-md bw-1 fw-500 us-none fv:oc-indigo-6 fv:ow-2 fv:oo-2" />
+                  <Button className="px-3 py-2 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:oc-indigo-6 fv:ow-2 fv:oo-2" />
                 }
               >
                 Confirm

@@ -24,7 +24,6 @@ export default function DialogVerification() {
     newCode[index] = value;
     setCode(newCode);
 
-    // Auto-advance to next input
     if (value && index < 3) {
       inputRefs[index + 1].current?.focus();
     }
@@ -40,7 +39,7 @@ export default function DialogVerification() {
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger
         render={
-          <Button className="px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-500 bs-o-xs tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+          <Button className="px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
         }
       >
         Verify Email
@@ -69,12 +68,12 @@ export default function DialogVerification() {
                     transition={{ duration: 0.2, ease: "easeOut" }}
                   />
                 }
-                className="o-h w-96 bg-white bc-silver-2 c-slate-12 br-md bw-1 bs-o-xs"
+                className="o-h w-96 bg-white bc-silver-2 c-slate-12 br-xl bw-1 bs-o-xs"
                 style={{ maxWidth: "90vw" }}
               >
                 <div className="d-f jc-sb ai-c px-4 py-2 bg-silver-1/50">
-                  <Dialog.Title className="fs-md fw-500">
-                    Verify your email
+                  <Dialog.Title className="c-slate-8 fs-md fw-500">
+                    Verification code
                   </Dialog.Title>
                   <Dialog.Close
                     render={
@@ -84,25 +83,18 @@ export default function DialogVerification() {
                     <Xmark aria-hidden className="w-4 h-4" />
                   </Dialog.Close>
                 </div>
-                <div className="bc-indigo-1 bbw-1" />
-                <div className="d-f ai-c g-3 px-4 py-3 bg-indigo-1/50">
-                  <span className="d-f ai-c jc-c fs-0 w-10 h-10 bg-white bc-silver-2 c-indigo br-md bw-1">
-                    <Envelope className="w-5 h-5" />
+                <div className="bc-silver-2 bbw-1" />
+                <div className="d-f ai-c jc-c g-2 p-4">
+                  <span className="d-f ai-c jc-c w-12 h-12 bg-white c-indigo br-lg bw-1 bc-silver-3 bs-o-xs">
+                    <Envelope className="w-6 h-6" />
                   </span>
-                  <div>
-                    <h3 className="mb-1 c-slate-10 fs-sm fw-500">
-                      Verify your email
-                    </h3>
-                    <p className="c-slate-8 fs-xs lh-4">
-                      Enter the code we sent to confirm your identity
-                    </p>
-                  </div>
                 </div>
-                <div className="bc-indigo-1 bbw-1" />
-                <div className="px-4 py-5">
-                  <Dialog.Description className="mb-4 c-slate-7 fs-sm lh-4 ta-c">
+                <div className="px-4 py-3">
+                  <Dialog.Description className="c-slate-7 fs-sm lh-4 ta-c">
                     We've sent a 4-digit code to your email
                   </Dialog.Description>
+                </div>
+                <div className="px-4 py-3">
                   <div className="d-f g-2 jc-c">
                     {["slot-1", "slot-2", "slot-3", "slot-4"].map(
                       (slotId, index) => (
@@ -116,22 +108,22 @@ export default function DialogVerification() {
                           value={code[index]}
                           onChange={(e) => handleChange(index, e.target.value)}
                           onKeyDown={(e) => handleKeyDown(index, e)}
-                          className="w-12 h-12 bc-silver-3 cc-slate-7 br-md bw-1 ta-c fs-lg fw-500 fv:ow-2 fv:oo-2 fv:oc-indigo-6"
+                          className="w-16 h-16 bc-silver-3 cc-slate-7 br-md bw-1 ta-c fs-4xl fw-500 fv:ow-2 fv:oo-2 fv:oc-indigo-6 p::c-silver-6"
                         />
                       ),
                     )}
                   </div>
                   <p className="mt-3 mb-0 c-slate-6 fs-xs ta-c">
-                    Didn't receive it?{" "}
+                    Did you not get a code?{" "}
                     <Button
                       type="button"
                       className="p-0 bg-transparent c-indigo fw-500 td-u"
                     >
-                      Resend code
+                      Click to resend.
                     </Button>
                   </p>
                 </div>
-                <div className="d-g gtc-2 g-3 px-4 py-3">
+                <div className="d-g gtc-2 g-3 px-4 py-4">
                   <Dialog.Close
                     render={
                       <Button className="px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
