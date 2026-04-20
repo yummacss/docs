@@ -28,13 +28,13 @@ export default function AvatarDetailed() {
 const teamMembers = [
   {
     name: "Sarah",
-    role: "@sarahc",
+    role: "@sarah",
     initials: "S",
     avatarUrl: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Sarah",
   },
   {
     name: "Avery",
-    role: "@averyg",
+    role: "@avery",
     initials: "A",
     avatarUrl: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Avery",
   },

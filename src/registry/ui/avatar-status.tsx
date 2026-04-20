@@ -11,9 +11,6 @@ export default function AvatarStatus() {
               alt={member.name}
               className="of-c w-full h-full"
             />
-            <Avatar.Fallback className="d-f ai-c jc-c w-full h-full c-slate-9 fs-md fw-500">
-              {member.initials}
-            </Avatar.Fallback>
           </Avatar.Root>
           <span
             className={`p-a b-0 r-0 w-4 h-4 bc-white br-pill bw-2 ${member.statusColor}`}
@@ -27,19 +24,16 @@ export default function AvatarStatus() {
 const statusMembers = [
   {
     name: "Sarah",
-    initials: "S",
     avatarUrl: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Sarah",
     statusColor: "bg-green-6",
   },
   {
     name: "Avery",
-    initials: "A",
     avatarUrl: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Avery",
     statusColor: "bg-slate-4",
   },
   {
     name: "Jude",
-    initials: "J",
     avatarUrl: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Jude",
     statusColor: "bg-red-6",
   },

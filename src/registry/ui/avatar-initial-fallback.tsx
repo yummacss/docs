@@ -1,6 +1,6 @@
 import { Avatar } from "@base-ui/react/avatar";
 
-export default function AvatarInitials() {
+export default function AvatarFallbackInitial() {
   return (
     <div className="d-f ai-c g-4">
       {initialProfiles.map((profile) => (

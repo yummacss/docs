@@ -17,7 +17,7 @@ export default function ComboboxStatic() {
         <div className="p-r">
           <Combobox.Input
             id="user-input-static"
-            placeholder="e.g. @sarahc"
+            placeholder="e.g. @sarah"
             className="h-10 w-64 pl-4 pr-16 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md bs-o-xs fv:ow-2 fv:oo-2 fv:oc-indigo-6"
           />
           <div className="d-f p-a r-2 b-0 ai-c jc-c h-10 c-slate-6">
@@ -90,17 +90,17 @@ interface User {
 const users: User[] = [
   {
     name: "Sarah",
-    handle: "sarahc",
+    handle: "sarah",
     avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Sarah",
   },
   {
     name: "Avery",
-    handle: "averyg",
+    handle: "avery",
     avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Avery",
   },
   {
     name: "Jude",
-    handle: "judem",
+    handle: "jude",
     avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Jude",
   },
   {

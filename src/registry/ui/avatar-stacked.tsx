@@ -7,7 +7,7 @@ import { AnimatePresence, motion } from "motion/react";
 
 export default function AvatarStacked() {
   return (
-    <Tooltip.Provider>
+    <Tooltip.Provider delay={300}>
       <div className="d-f ai-c">
         {stackMembers.map((member, index) => (
           <Avatar.Root
