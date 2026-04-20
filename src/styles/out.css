@@ -361,6 +361,14 @@ summary {
   background-color: #232741;
 }
 
+.bg-diff-add\/10 {
+  background-color: #a8e1ad1a;
+}
+
+.bg-diff-remove\/10 {
+  background-color: #e1a8a81a;
+}
+
 .bg-green {
   background-color: #06d6a0;
 }
@@ -383,6 +391,10 @@ summary {
 
 .bg-green\/10 {
   background-color: #06d6a01a;
+}
+
+.bg-highlight\/10 {
+  background-color: #9aa5ef1a;
 }
 
 .bg-indigo {
@@ -1730,6 +1742,10 @@ summary {
 
 .mt-8 {
   margin-top: 2rem;
+}
+
+.mx--4 {
+  margin-inline: -1rem;
 }
 
 .mx-1 {
