@@ -6,7 +6,7 @@ import { type HTMLMotionProps, motion } from "motion/react";
 import * as React from "react";
 
 export default function AccordionNoSeparator() {
-  const [value, setValue] = React.useState<string[]>(["specs"]);
+  const [value, setValue] = React.useState<string[]>([]);
 
   return (
     <Accordion.Root
@@ -24,9 +24,7 @@ export default function AccordionNoSeparator() {
           >
             <Accordion.Header className="m-0">
               <Accordion.Trigger className="d-f b-0 ai-c jc-sb g-3 w-full py-3 px-0 bg-transparent br-sm ta-l c-p fv:ow-2 fv:oo-1 fv:oc-indigo-6">
-                <span
-                  className={`fs-sm fw-500 ${isOpen ? "c-indigo-6" : "c-slate-8"}`}
-                >
+                <span className="fs-sm fw-500 c-slate-8">
                   {item.title}
                 </span>
                 <motion.span
@@ -35,7 +33,7 @@ export default function AccordionNoSeparator() {
                   className="d-f"
                 >
                   <ChevronDown
-                    className={`w-4 h-4 fs-0 ${isOpen ? "c-indigo-5" : "c-slate-6"}`}
+                    className="w-4 h-4 fs-0 c-slate-6"
                     aria-hidden
                   />
                 </motion.span>
