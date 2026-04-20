@@ -9,7 +9,13 @@ export default defineConfig({
   ],
   output: "./src/styles/out.css",
   normalize: true,
-  safelist: ["mx--4", "bg-highlight/10", "bg-diff-add/10", "bg-diff-remove/10"],
+  safelist: [
+    "mx--4",
+    "bg-highlight/10",
+    "bg-diff-add/10",
+    "bg-diff-remove/10",
+    "bc-highlight/50",
+  ],
   theme: {
     colors: {
       charcoal: "#21243f",
