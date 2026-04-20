@@ -6,7 +6,7 @@ import { type HTMLMotionProps, motion } from "motion/react";
 import * as React from "react";
 
 export default function AccordionDefaultOpen() {
-  const [value, setValue] = React.useState<string[]>(["billing"]);
+  const [value, setValue] = React.useState<string[]>(["mentions"]);
 
   return (
     <Accordion.Root
@@ -61,21 +61,18 @@ export default function AccordionDefaultOpen() {
 
 const faqs = [
   {
-    value: "returns",
-    title: "What is your return policy?",
-    content:
-      "You can return most items within 30 days of delivery. Items must be unused and in original packaging. Start a return from your order history.",
+    value: "mentions",
+    title: "Mentions",
+    content: "4 people mentioned you in conversations",
   },
   {
-    value: "shipping",
-    title: "How long does shipping take?",
-    content:
-      "Standard shipping takes 5-7 business days. Express shipping is 2-3 days. Free shipping is available on orders over $50.",
+    value: "messages",
+    title: "Messages",
+    content: "12 unread messages from your conversations",
   },
   {
-    value: "payment",
-    title: "What payment methods do you accept?",
-    content:
-      "We accept all major credit cards, PayPal, Apple Pay, and Google Pay. You can also save your payment methods for faster checkout.",
+    value: "blocked",
+    title: "Blocked Users",
+    content: "You have blocked 8 accounts",
   },
 ];
