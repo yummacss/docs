@@ -4,7 +4,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 
 const description =
-  "Yumma CSS is an ergonomic CSS framework with abbreviated utility classes. Write d-f instead of flex, fw-600 instead of font-bold. Faster styling, less typing.";
+  "Yumma CSS is an ergonomic CSS framework with abbreviated utility classes. Write d-f instead of flex, fw-600 instead of font-semibold. Faster styling, less typing.";
 const tagline = "Type less. Style more.";
 
 export const metadata: Metadata = {
