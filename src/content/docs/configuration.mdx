@@ -38,7 +38,7 @@ A collection of paths for your template files (e.g., `.js`, `.tsx`, `.html`). Th
   Use glob patterns to include subfolders & specific file types.
 </Hint>
 
-```mjs title="yumma.config.mjs" mark={6}
+```mjs title="yumma.config.mjs" mark={4}
 import { defineConfig } from "yummacss";
 
 export default defineConfig({
@@ -50,7 +50,7 @@ export default defineConfig({
 
 Specifies the output path for the compiled CSS file.
 
-```mjs title="yumma.config.mjs" mark={6}
+```mjs title="yumma.config.mjs" mark={4}
 import { defineConfig } from "yummacss";
 
 export default defineConfig({
@@ -62,7 +62,7 @@ export default defineConfig({
 
 Determines whether to include base styles normalization.
 
-```mjs title="yumma.config.mjs" mark={7}
+```mjs title="yumma.config.mjs" mark={4}
 import { defineConfig } from "yummacss";
 
 export default defineConfig({
@@ -74,7 +74,7 @@ export default defineConfig({
 
 Prepends a custom string to all generated Yumma CSS utility classes, effectively namespacing them to avoid collisions.
 
-```mjs title="yumma.config.mjs" mark={7}
+```mjs title="yumma.config.mjs" mark={4}
 import { defineConfig } from "yummacss";
 
 export default defineConfig({
@@ -104,7 +104,7 @@ Define custom color families. The compiler automatically generates shades (from 
   Use `percentage` to control how much the shade is lightened or darkened.
 </Hint>
 
-```mjs title="yumma.config.mjs" mark={5-10}
+```mjs title="yumma.config.mjs" mark={4-12}
 import { defineConfig } from "yummacss";
 
 export default defineConfig({
@@ -124,7 +124,7 @@ export default defineConfig({
 
 Define custom media query breakpoints or override existing ones.
 
-```mjs title="yumma.config.mjs" mark={5-12}
+```mjs title="yumma.config.mjs" mark={4-13}
 import { defineConfig } from "yummacss";
 
 export default defineConfig({
@@ -151,7 +151,7 @@ An array of utility classes that should always be generated in the final CSS out
   the file scanner, making a safelist necessary.
 </Hint>
 
-```mjs title="yumma.config.mjs" mark={7}
+```mjs title="yumma.config.mjs" mark={4}
 import { defineConfig } from "yummacss";
 
 export default defineConfig({
