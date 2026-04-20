@@ -233,10 +233,6 @@ summary {
   border-color: #232741;
 }
 
-.bc-green-2 {
-  border-color: #b4f3e3;
-}
-
 .bc-green-7 {
   border-color: #05b88a;
 }
@@ -255,6 +251,10 @@ summary {
 
 .bc-indigo-2\/50 {
   border-color: #d0d1fb80;
+}
+
+.bc-indigo-2\/80 {
+  border-color: #d0d1fbcc;
 }
 
 .bc-indigo-3 {
@@ -391,10 +391,6 @@ summary {
 
 .bg-green-6 {
   background-color: #29dcad;
-}
-
-.bg-green\/10 {
-  background-color: #06d6a01a;
 }
 
 .bg-highlight\/10 {

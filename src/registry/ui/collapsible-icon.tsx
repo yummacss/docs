@@ -112,19 +112,19 @@ const whoToFollow = {
   users: [
     {
       name: "Sarah",
-      handle: "sarahc",
+      handle: "sarah",
       avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Sarah",
       verified: true,
     },
     {
       name: "Avery",
-      handle: "averyg",
+      handle: "avery",
       avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Avery",
       verified: true,
     },
     {
       name: "Jude",
-      handle: "judem",
+      handle: "jude",
       avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Jude",
       verified: false,
     },

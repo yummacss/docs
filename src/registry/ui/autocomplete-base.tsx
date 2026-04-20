@@ -91,12 +91,12 @@ interface User {
 const USERS: User[] = [
   {
     name: "Sarah",
-    handle: "sarahc",
+    handle: "sarah",
     avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Sarah",
   },
   {
     name: "Avery",
-    handle: "averyg",
+    handle: "avery",
     avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Avery",
   },
   {

@@ -95,32 +95,32 @@ interface TeamMember {
 
 const TEAM_MEMBERS: TeamMember[] = [
   {
-    name: "Sarah Chen",
+    name: "Sarah",
     role: "Product Designer",
     avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Sarah",
   },
   {
-    name: "Avery Gonzalez",
+    name: "Avery",
     role: "Frontend Developer",
     avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Avery",
   },
   {
-    name: "Jude Thompson",
+    name: "Jude",
     role: "Backend Developer",
     avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Jude",
   },
   {
-    name: "Leo Kim",
+    name: "Leo",
     role: "DevOps Engineer",
     avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Leo",
   },
   {
-    name: "Riley Brown",
+    name: "Riley",
     role: "Product Manager",
     avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Riley",
   },
   {
-    name: "Adrian Moore",
+    name: "Adrian",
     role: "QA Engineer",
     avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Adrian",
   },

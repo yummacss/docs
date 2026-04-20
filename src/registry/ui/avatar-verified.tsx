@@ -12,9 +12,6 @@ export default function AvatarVerified() {
               alt={member.name}
               className="of-c w-full h-full"
             />
-            <Avatar.Fallback className="d-f ai-c jc-c w-full h-full c-slate-9 fs-md fw-500">
-              {member.initials}
-            </Avatar.Fallback>
           </Avatar.Root>
           <span className="d-f p-a b-0 r-0 ai-c jc-c w-4 h-4 bg-white bc-white br-pill bw-1">
             <CircleCheckFill className="c-indigo" />
@@ -28,12 +25,10 @@ export default function AvatarVerified() {
 const verifiedMembers = [
   {
     name: "Sarah",
-    initials: "S",
     avatarUrl: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Sarah",
   },
   {
     name: "Avery",
-    initials: "A",
     avatarUrl: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Avery",
   },
 ];
