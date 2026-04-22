@@ -5,7 +5,7 @@ export default function AvatarDetailed() {
     <div className="d-f fd-c g-4">
       {teamMembers.map((member) => (
         <div key={member.name} className="d-f ai-c g-3">
-          <Avatar.Root className="d-if o-h ai-c jc-c w-12 h-12 bg-silver-1 bc-silver-3 br-pill bw-1 va-m us-none">
+          <Avatar.Root className="d-if o-h ai-c jc-c w-12 h-12 bg-silver-1 bc-white br-pill bw-1 va-m us-none">
             <Avatar.Image
               src={member.avatarUrl}
               alt={member.name}
@@ -30,18 +30,21 @@ const teamMembers = [
     name: "Sarah",
     role: "@sarah",
     initials: "S",
-    avatarUrl: "https://api.dicebear.com/9.x/notionists/svg?seed=Sarah",
+    avatarUrl:
+      "https://api.dicebear.com/9.x/open-peeps/svg?seed=Sarah&backgroundColor=DAF0B9",
   },
   {
-    name: "Avery",
-    role: "@avery",
+    name: "John",
+    role: "@john",
     initials: "A",
-    avatarUrl: "https://api.dicebear.com/9.x/notionists/svg?seed=Avery",
+    avatarUrl:
+      "https://api.dicebear.com/9.x/open-peeps/svg?seed=John&backgroundColor=B4E9F2",
   },
   {
-    name: "Jude",
-    role: "@judet",
+    name: "Noah",
+    role: "@noah",
     initials: "J",
-    avatarUrl: "https://api.dicebear.com/9.x/notionists/svg?seed=Jude",
+    avatarUrl:
+      "https://api.dicebear.com/9.x/open-peeps/svg?seed=Noah&backgroundColor=D0D1FB",
   },
 ];

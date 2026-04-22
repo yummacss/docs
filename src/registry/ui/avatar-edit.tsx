@@ -6,9 +6,9 @@ export default function AvatarEdit() {
   return (
     <div className="d-f ai-c g-4">
       <div className="p-r">
-        <Avatar.Root className="d-if o-h ai-c jc-c w-12 h-12 bg-silver-1 bc-silver-3 br-pill bw-1 va-m us-none">
+        <Avatar.Root className="d-if o-h ai-c jc-c w-12 h-12 bg-silver-1 bc-white br-pill bw-1 va-m us-none">
           <Avatar.Image
-            src="https://api.dicebear.com/9.x/notionists/svg?seed=Sarah"
+            src="https://api.dicebear.com/9.x/open-peeps/svg?seed=Sarah&backgroundColor=DAF0B9"
             alt="Sarah"
             className="of-c w-full h-full"
           />

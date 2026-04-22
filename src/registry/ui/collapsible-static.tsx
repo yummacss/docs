@@ -59,9 +59,9 @@ const whoToFollow = {
   title: "Who to follow",
   users: [
     {
-      name: "Leo",
+      name: "Melanie",
       handle: "leok",
-      avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Leo",
+      avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Melanie",
     },
     {
       name: "Riley",

@@ -19,7 +19,7 @@ export default function AvatarFallbackInitial() {
 
 const initialProfiles = [
   { name: "Sarah", initials: "S" },
-  { name: "Avery", initials: "A" },
-  { name: "Jude", initials: "J" },
-  { name: "Leo", initials: "L" },
+  { name: "John", initials: "A" },
+  { name: "Noah", initials: "J" },
+  { name: "Melanie", initials: "L" },
 ];

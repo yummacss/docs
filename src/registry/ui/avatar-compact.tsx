@@ -4,11 +4,11 @@ import { Avatar } from "@base-ui/react/avatar";
 
 export default function AvatarCompact() {
   return (
-    <div className="d-f ai-c p-1 bg-white bc-silver-3 bw-1 br-pill">
+    <div className="d-f ai-c p-px bg-white bc-silver-3 bw-1 br-pill">
       {stackMembers.map((member, index) => (
         <Avatar.Root
           key={member.name}
-          className={`d-if o-h ai-c jc-c w-10 h-10 bg-silver-1 bc-silver-3 br-pill bw-1 va-m us-none ${index > 0 ? "ml--2" : ""}`}
+          className={`d-if o-h ai-c jc-c w-10 h-10 bg-silver-1 bc-white br-pill bw-1 va-m us-none ${index > 0 ? "ml--2" : ""}`}
         >
           <Avatar.Image
             src={member.avatarUrl}
@@ -33,17 +33,20 @@ const stackMembers = [
   {
     name: "Sarah",
     initials: "S",
-    avatarUrl: "https://api.dicebear.com/9.x/notionists/svg?seed=Sarah",
+    avatarUrl:
+      "https://api.dicebear.com/9.x/open-peeps/svg?seed=Sarah&backgroundColor=DAF0B9",
   },
   {
-    name: "Avery",
+    name: "John",
     initials: "A",
-    avatarUrl: "https://api.dicebear.com/9.x/notionists/svg?seed=Avery",
+    avatarUrl:
+      "https://api.dicebear.com/9.x/open-peeps/svg?seed=John&backgroundColor=B4E9F2",
   },
   {
-    name: "Jude",
+    name: "Noah",
     initials: "J",
-    avatarUrl: "https://api.dicebear.com/9.x/notionists/svg?seed=Jude",
+    avatarUrl:
+      "https://api.dicebear.com/9.x/open-peeps/svg?seed=Noah&backgroundColor=D0D1FB",
   },
 ];
 
