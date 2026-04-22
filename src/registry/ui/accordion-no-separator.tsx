@@ -3,10 +3,10 @@
 import { Accordion } from "@base-ui/react/accordion";
 import { ChevronDown } from "@gravity-ui/icons";
 import { type HTMLMotionProps, motion } from "motion/react";
-import * as React from "react";
+import { useState } from "react";
 
 export default function AccordionNoSeparator() {
-  const [value, setValue] = React.useState<string[]>([]);
+  const [value, setValue] = useState<string[]>([]);
 
   return (
     <Accordion.Root
@@ -24,18 +24,13 @@ export default function AccordionNoSeparator() {
           >
             <Accordion.Header className="m-0">
               <Accordion.Trigger className="d-f b-0 ai-c jc-sb g-3 w-full py-3 px-0 bg-transparent br-sm ta-l c-p fv:ow-2 fv:oo-1 fv:oc-indigo-6">
-                <span className="fs-sm fw-500 c-slate-8">
-                  {item.title}
-                </span>
+                <span className="fs-sm fw-500 c-slate-8">{item.title}</span>
                 <motion.span
                   animate={{ rotate: isOpen ? 180 : 0 }}
                   transition={{ duration: 0.15, ease: "easeInOut" }}
                   className="d-f"
                 >
-                  <ChevronDown
-                    className="w-4 h-4 fs-0 c-slate-6"
-                    aria-hidden
-                  />
+                  <ChevronDown className="w-4 h-4 fs-0 c-slate-6" aria-hidden />
                 </motion.span>
               </Accordion.Trigger>
             </Accordion.Header>
@@ -55,9 +50,7 @@ export default function AccordionNoSeparator() {
                 />
               )}
             >
-              <p className="m-0 pb-4 c-slate-6 fs-sm lh-4">
-                {item.content}
-              </p>
+              <p className="m-0 pb-4 c-slate-6 fs-sm lh-4">{item.content}</p>
             </Accordion.Panel>
           </Accordion.Item>
         );

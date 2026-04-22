@@ -4,16 +4,16 @@ import { Button } from "@base-ui/react/button";
 import { Dialog } from "@base-ui/react/dialog";
 import { Envelope, Xmark } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
-import * as React from "react";
+import { type KeyboardEvent, useRef, useState } from "react";
 
 export default function DialogVerification() {
-  const [open, setOpen] = React.useState(false);
-  const [code, setCode] = React.useState(["", "", "", ""]);
+  const [open, setOpen] = useState(false);
+  const [code, setCode] = useState(["", "", "", ""]);
   const inputRefs = [
-    React.useRef<HTMLInputElement>(null),
-    React.useRef<HTMLInputElement>(null),
-    React.useRef<HTMLInputElement>(null),
-    React.useRef<HTMLInputElement>(null),
+    useRef<HTMLInputElement>(null),
+    useRef<HTMLInputElement>(null),
+    useRef<HTMLInputElement>(null),
+    useRef<HTMLInputElement>(null),
   ];
 
   const handleChange = (index: number, value: string) => {
@@ -29,7 +29,7 @@ export default function DialogVerification() {
     }
   };
 
-  const handleKeyDown = (index: number, e: React.KeyboardEvent) => {
+  const handleKeyDown = (index: number, e: KeyboardEvent) => {
     if (e.key === "Backspace" && !code[index] && index > 0) {
       inputRefs[index - 1].current?.focus();
     }

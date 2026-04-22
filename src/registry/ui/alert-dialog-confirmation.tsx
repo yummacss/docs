@@ -4,10 +4,10 @@ import { AlertDialog } from "@base-ui/react/alert-dialog";
 import { Button } from "@base-ui/react/button";
 import { TrashBin } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
-import * as React from "react";
+import { useState } from "react";
 
 export default function AlertDialogConfirmation() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
     <AlertDialog.Root open={open} onOpenChange={setOpen}>
@@ -47,11 +47,11 @@ export default function AlertDialogConfirmation() {
               >
                 <div className="d-f jc-sb ai-c px-4 py-2 bg-silver-1/50">
                   <div className="d-f jc-sb ai-c w-full">
-                  <AlertDialog.Title className="c-slate-8 fs-md fw-500">
-                    Delete account
-                  </AlertDialog.Title>
-                  <div className="w-7 h-7" />
-                </div>
+                    <AlertDialog.Title className="c-slate-8 fs-md fw-500">
+                      Delete account
+                    </AlertDialog.Title>
+                    <div className="w-7 h-7" />
+                  </div>
                 </div>
                 <div className="bc-silver-2 bbw-1" />
                 <div className="d-f ai-c jc-c g-2 p-4">
@@ -62,8 +62,8 @@ export default function AlertDialogConfirmation() {
                 <div className="px-4 py-3">
                   <AlertDialog.Description className="c-slate-7 fs-sm lh-4 ta-c">
                     This action cannot be undone. This will{" "}
-                    <span className="c-slate-9 fw-600">permanently delete</span>
-                    {" "}your data from our servers.
+                    <span className="c-slate-9 fw-600">permanently delete</span>{" "}
+                    your data from our servers.
                   </AlertDialog.Description>
                 </div>
                 <div className="d-g gtc-2 g-3 px-4 py-4">

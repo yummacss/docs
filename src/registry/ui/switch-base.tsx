@@ -2,10 +2,10 @@
 
 import { Switch } from "@base-ui/react/switch";
 import { motion } from "motion/react";
-import * as React from "react";
+import { useState } from "react";
 
 export default function SwitchBase() {
-  const [checked, setChecked] = React.useState(true);
+  const [checked, setChecked] = useState(true);
 
   return (
     <div className="d-f ai-c g-3">

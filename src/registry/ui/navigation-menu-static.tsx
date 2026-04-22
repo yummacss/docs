@@ -11,13 +11,13 @@ import {
   Puzzle,
   Rocket,
 } from "@gravity-ui/icons";
-import type * as React from "react";
+import type { ReactNode } from "react";
 
 function NavTrigger({
   children,
   className,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
   className?: string;
 }) {
   return (

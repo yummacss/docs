@@ -10,11 +10,11 @@ import {
   PersonPlus,
 } from "@gravity-ui/icons";
 import { type HTMLMotionProps, motion } from "motion/react";
-import * as React from "react";
+import { useState } from "react";
 
 export default function CollapsibleIcon() {
-  const [open, setOpen] = React.useState(false);
-  const [followed, setFollowed] = React.useState(
+  const [open, setOpen] = useState(false);
+  const [followed, setFollowed] = useState(
     whoToFollow.users.reduce(
       (acc, user) => ({ ...acc, [user.name]: false }),
       {} as Record<string, boolean>,

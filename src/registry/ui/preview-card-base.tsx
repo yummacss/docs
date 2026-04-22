@@ -2,10 +2,10 @@
 
 import { PreviewCard } from "@base-ui/react/preview-card";
 import { AnimatePresence, motion } from "motion/react";
-import * as React from "react";
+import { useState } from "react";
 
 export default function PreviewCardBase() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
     <PreviewCard.Root open={open} onOpenChange={setOpen}>

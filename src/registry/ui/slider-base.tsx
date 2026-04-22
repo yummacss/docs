@@ -1,10 +1,10 @@
 "use client";
 
 import { Slider } from "@base-ui/react/slider";
-import * as React from "react";
+import { useState } from "react";
 
 export default function SliderBase() {
-  const [value, setValue] = React.useState(50);
+  const [value, setValue] = useState(50);
 
   return (
     <div className="d-f fd-c g-2 w-64">

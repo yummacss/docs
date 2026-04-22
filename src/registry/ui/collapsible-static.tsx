@@ -4,10 +4,10 @@ import { Avatar } from "@base-ui/react/avatar";
 import { Button } from "@base-ui/react/button";
 import { Collapsible } from "@base-ui/react/collapsible";
 import { ChevronRight } from "@gravity-ui/icons";
-import * as React from "react";
+import { useState } from "react";
 
 export default function CollapsibleStatic() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
     <Collapsible.Root

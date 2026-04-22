@@ -5,10 +5,10 @@ import { Button } from "@base-ui/react/button";
 import { Dialog } from "@base-ui/react/dialog";
 import { Xmark } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
-import * as React from "react";
+import { useState } from "react";
 
 export default function DialogBase() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
@@ -79,8 +79,8 @@ export default function DialogBase() {
                     Your{" "}
                     <a href="#" className="c-indigo fw-600">
                       Sales Site
-                    </a>
-                    {" "}project now has a pending collaboration request from Sarah.
+                    </a>{" "}
+                    project now has a pending collaboration request from Sarah.
                   </Dialog.Description>
                 </div>
                 <div className="d-g gtc-2 g-3 px-4 py-4">

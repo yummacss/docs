@@ -3,10 +3,10 @@
 import { Autocomplete } from "@base-ui/react/autocomplete";
 import { Separator } from "@base-ui/react/separator";
 import { AnimatePresence, motion } from "motion/react";
-import * as React from "react";
+import { useState } from "react";
 
 export default function AutocompleteGrouped() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
     <Autocomplete.Root
