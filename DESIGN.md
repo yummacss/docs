@@ -11,6 +11,7 @@ This document defines the exact design language, token usage, and component patt
 3. **No decimal suffixes.** `w-1.5` is invalid. Round to `w-2`.
 4. **Read the Base UI docs before building.** Every component marked `primitive: true` in `src/utils/ui-sidebar.ts` has a Base UI counterpart. Fetch `https://base-ui.com/react/components/{component-name}` to understand the full API before writing code. Do not guess props. Components that are NOT marked `primitive: true` (e.g. Badge) have no Base UI counterpart — do not fabricate one.
 5. **Read `AGENTS.md` before using any utility.** It is the authoritative dictionary. If a utility is not listed there, it does not exist.
+6. **Use Base UI components.** Do NOT use native HTML elements (like `<button>`, `<input>`) for interactive controls when a Base UI equivalent exists. Always prefer Base UI primitives to ensure accessibility and consistent API patterns.
 
 ---
 

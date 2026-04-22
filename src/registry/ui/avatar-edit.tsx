@@ -1,0 +1,25 @@
+import { Avatar } from "@base-ui/react/avatar";
+import { Button } from "@base-ui/react/button";
+import { Pencil } from "@gravity-ui/icons";
+
+export default function AvatarEdit() {
+  return (
+    <div className="d-f ai-c g-4">
+      <div className="p-r">
+        <Avatar.Root className="d-if o-h ai-c jc-c w-12 h-12 bg-silver-1 bc-silver-3 br-pill bw-1 va-m us-none">
+          <Avatar.Image
+            src="https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Sarah"
+            alt="Sarah"
+            className="of-c w-full h-full"
+          />
+        </Avatar.Root>
+        <Button
+          className="d-f p-a b-0 r-0 ai-c jc-c w-5 h-5 p-0 bg-white bc-silver-3 br-pill bw-1 c-p fv:ow-2 fv:oo-1 fv:oc-indigo-6 us-none"
+          aria-label="Edit profile picture"
+        >
+          <Pencil className="w-3 h-3 fs-0 c-slate-6" />
+        </Button>
+      </div>
+    </div>
+  );
+}
