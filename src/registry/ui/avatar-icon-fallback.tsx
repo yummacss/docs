@@ -22,12 +22,12 @@ export default function AvatarIconFallback() {
 
 const fallbacks = [
   {
+    rootColor: "bg-cyan-1",
+    fallbackColor: "c-cyan",
+  },
+  {
     rootColor: "bg-indigo-1",
     fallbackColor: "c-indigo",
   },
-  {
-    rootColor: "bg-green-1",
-    fallbackColor: "c-green",
-  },
-  { rootColor: "bg-red-1", fallbackColor: "c-red" },
+  { rootColor: "bg-magenta-1", fallbackColor: "c-magenta" },
 ];
