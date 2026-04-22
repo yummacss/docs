@@ -1208,6 +1208,10 @@ summary {
   gap: 1rem;
 }
 
+.g-6 {
+  gap: 1.5rem;
+}
+
 .g-8 {
   gap: 2rem;
 }
