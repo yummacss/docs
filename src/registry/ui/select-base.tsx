@@ -4,10 +4,10 @@ import { Field } from "@base-ui/react/field";
 import { Select } from "@base-ui/react/select";
 import { CaretsExpandVertical, Check } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
-import * as React from "react";
+import { useState } from "react";
 
 export default function SelectBase() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
     <Field.Root className="d-f fd-c g-2">
@@ -56,7 +56,9 @@ export default function SelectBase() {
                       <Select.Item
                         key={value}
                         value={value}
-                        className={(state) => `d-f ai-c g-2 py-2 px-3 fs-sm us-none c-p br-lg mx-1 c-slate-10 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`}
+                        className={(state) =>
+                          `d-f ai-c g-2 py-2 px-3 fs-sm us-none c-p br-lg mx-1 c-slate-10 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                        }
                       >
                         <Select.ItemIndicator className="d-f ai-c">
                           <Check className="w-4 h-4" />

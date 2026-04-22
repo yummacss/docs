@@ -3,10 +3,10 @@
 import { Menu } from "@base-ui/react/menu";
 import { ChevronDown } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
-import * as React from "react";
+import { useState } from "react";
 
 export default function MenuBase() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
     <Menu.Root open={open} onOpenChange={setOpen}>

@@ -3,10 +3,10 @@
 import { Accordion } from "@base-ui/react/accordion";
 import { ChevronDown } from "@gravity-ui/icons";
 import { type HTMLMotionProps, motion } from "motion/react";
-import * as React from "react";
+import { useState } from "react";
 
 export default function AccordionBordered() {
-  const [value, setValue] = React.useState<string[]>([]);
+  const [value, setValue] = useState<string[]>([]);
 
   return (
     <Accordion.Root

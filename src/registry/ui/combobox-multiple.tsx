@@ -4,7 +4,7 @@ import { Avatar } from "@base-ui/react/avatar";
 import { Combobox } from "@base-ui/react/combobox";
 import { Check, Xmark } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
-import * as React from "react";
+import { type ReactNode, useState } from "react";
 
 function ItemIcon({ selected }: { selected: boolean }) {
   return selected ? (
@@ -15,7 +15,7 @@ function ItemIcon({ selected }: { selected: boolean }) {
 }
 
 export default function ComboboxMultiple() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
     <Combobox.Root multiple items={roles} open={open} onOpenChange={setOpen}>
@@ -39,7 +39,7 @@ export default function ComboboxMultiple() {
                     <Xmark className="w-3 h-3" />
                   </Combobox.ChipRemove>
                 </Combobox.Chip>
-              )) as unknown as React.ReactNode
+              )) as unknown as ReactNode
             }
           </Combobox.Chips>
           <Combobox.Input

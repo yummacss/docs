@@ -7,4 +7,4 @@ export default function BadgePilled() {
       <span className="c-slate-10 fs-xs fw-500 us-none">Label</span>
     </div>
   );
-}       
+}

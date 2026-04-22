@@ -2,10 +2,10 @@
 
 import { Radio } from "@base-ui/react/radio";
 import { RadioGroup } from "@base-ui/react/radio-group";
-import * as React from "react";
+import { useId } from "react";
 
 export default function RadioBase() {
-  const id = React.useId();
+  const id = useId();
   return (
     <RadioGroup
       aria-labelledby={id}

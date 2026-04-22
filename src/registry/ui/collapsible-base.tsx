@@ -5,10 +5,10 @@ import { Button } from "@base-ui/react/button";
 import { Collapsible } from "@base-ui/react/collapsible";
 import { ChevronRight } from "@gravity-ui/icons";
 import { type HTMLMotionProps, motion } from "motion/react";
-import * as React from "react";
+import { useState } from "react";
 
 export default function CollapsibleBase() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
     <Collapsible.Root

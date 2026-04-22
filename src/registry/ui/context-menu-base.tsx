@@ -10,10 +10,10 @@ import {
   TrashBin,
 } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
-import * as React from "react";
+import { useState } from "react";
 
 export default function ContextMenuBase() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
     <ContextMenu.Root open={open} onOpenChange={setOpen}>

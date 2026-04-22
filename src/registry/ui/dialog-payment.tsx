@@ -6,10 +6,10 @@ import { Field } from "@base-ui/react/field";
 import { Input } from "@base-ui/react/input";
 import { CreditCard, Xmark } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
-import * as React from "react";
+import { useState } from "react";
 
 export default function DialogPayment() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>

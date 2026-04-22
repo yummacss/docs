@@ -41,7 +41,13 @@ export default function SelectStatic() {
             >
               <Select.List className="p-r o-a">
                 {statuses.map(({ label, value }) => (
-                  <Select.Item key={value} value={value} className={(state) => `d-f ai-c g-2 py-2 px-3 fs-sm us-none c-p br-lg mx-1 c-slate-10 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`}>
+                  <Select.Item
+                    key={value}
+                    value={value}
+                    className={(state) =>
+                      `d-f ai-c g-2 py-2 px-3 fs-sm us-none c-p br-lg mx-1 c-slate-10 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                    }
+                  >
                     <Select.ItemIndicator className="d-f ai-c">
                       <Check className="w-4 h-4" />
                     </Select.ItemIndicator>

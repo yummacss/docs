@@ -2,10 +2,10 @@
 
 import { NumberField } from "@base-ui/react/number-field";
 import { Minus, Plus } from "@gravity-ui/icons";
-import * as React from "react";
+import { useId } from "react";
 
 export default function NumberFieldBase() {
-  const id = React.useId();
+  const id = useId();
   return (
     <NumberField.Root id={id} defaultValue={4} className="d-f fd-c ai-fs g-2">
       <NumberField.ScrubArea className="c-er">

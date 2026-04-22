@@ -9,10 +9,10 @@ import {
   Pin,
   TrashBin,
 } from "@gravity-ui/icons";
-import * as React from "react";
+import { useState } from "react";
 
 export default function ContextMenuStatic() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
     <ContextMenu.Root open={open} onOpenChange={setOpen}>

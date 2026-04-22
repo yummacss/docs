@@ -1,7 +1,11 @@
 "use client";
 
 import { Button } from "@base-ui/react/button";
-import { ArrowsExpandHorizontal, ArrowUpFromSquare, Heart } from "@gravity-ui/icons";
+import {
+  ArrowsExpandHorizontal,
+  ArrowUpFromSquare,
+  Heart,
+} from "@gravity-ui/icons";
 
 export default function ButtonGroupIcon() {
   return (

@@ -2,10 +2,10 @@
 
 import { Autocomplete } from "@base-ui/react/autocomplete";
 import { AnimatePresence, motion } from "motion/react";
-import * as React from "react";
+import { useState } from "react";
 
 export default function AutocompleteAutoHighlight() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
     <Autocomplete.Root

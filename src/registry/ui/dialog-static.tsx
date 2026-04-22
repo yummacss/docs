@@ -33,9 +33,9 @@ export default function DialogStatic() {
               >
                 <Xmark aria-hidden className="w-4 h-4" />
               </Dialog.Close>
-</div>
-                <div className="bc-silver-2 bbw-1" />
-                <div className="d-f fd-c ai-c jc-c g-3 px-4 py-5">
+            </div>
+            <div className="bc-silver-2 bbw-1" />
+            <div className="d-f fd-c ai-c jc-c g-3 px-4 py-5">
               <Avatar.Root className="w-12 h-12 bc-silver-3 br-pill bw-1">
                 <Avatar.Image
                   src="https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Sarah"
@@ -55,8 +55,8 @@ export default function DialogStatic() {
                 Your{" "}
                 <a href="#" className="c-indigo fw-600">
                   Sales Site
-                </a>
-                {" "}project now has a pending collaboration request from Sarah.
+                </a>{" "}
+                project now has a pending collaboration request from Sarah.
               </Dialog.Description>
             </div>
             <div className="d-g gtc-2 g-3 px-4 py-4">

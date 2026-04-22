@@ -1,10 +1,10 @@
 "use client";
 
 import { Switch } from "@base-ui/react/switch";
-import * as React from "react";
+import { useState } from "react";
 
 export default function SwitchStatic() {
-  const [checked, setChecked] = React.useState(true);
+  const [checked, setChecked] = useState(true);
 
   return (
     <div className="d-f ai-c g-3">

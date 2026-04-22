@@ -3,10 +3,10 @@
 import { ContextMenu } from "@base-ui/react/context-menu";
 import { ArrowUturnCcwLeft, At, Link, Pin, TrashBin } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
-import * as React from "react";
+import { useState } from "react";
 
 export default function ContextMenuGrouped() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
     <ContextMenu.Root open={open} onOpenChange={setOpen}>

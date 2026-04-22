@@ -2,10 +2,10 @@
 
 import { Autocomplete } from "@base-ui/react/autocomplete";
 import { Avatar } from "@base-ui/react/avatar";
-import * as React from "react";
+import { useState } from "react";
 
 export default function AutocompleteStatic() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
     <Autocomplete.Root items={USERS} open={open} onOpenChange={setOpen}>

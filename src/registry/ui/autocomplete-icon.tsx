@@ -6,15 +6,15 @@ import {
   CircleQuestionDot,
   Globe,
   Magnifier,
-  PersonsLock,
   PersonGear,
+  PersonsLock,
   ShieldKeyhole,
 } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
-import * as React from "react";
+import { type ComponentType, useState } from "react";
 
 export default function AutocompleteIcon() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
     <Autocomplete.Root items={SETTINGS} open={open} onOpenChange={setOpen}>
@@ -84,7 +84,7 @@ export default function AutocompleteIcon() {
 
 type Setting = {
   label: string;
-  icon: React.ComponentType<{ className?: string }>;
+  icon: ComponentType<{ className?: string }>;
 };
 
 const SETTINGS: Setting[] = [

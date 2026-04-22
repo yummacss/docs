@@ -3,10 +3,10 @@
 import { Accordion } from "@base-ui/react/accordion";
 import { ChevronDown, Lock } from "@gravity-ui/icons";
 import { type HTMLMotionProps, motion } from "motion/react";
-import * as React from "react";
+import { useState } from "react";
 
 export default function AccordionDisabled() {
-  const [value, setValue] = React.useState<string[]>([]);
+  const [value, setValue] = useState<string[]>([]);
 
   return (
     <Accordion.Root
@@ -72,9 +72,7 @@ export default function AccordionDisabled() {
                 />
               )}
             >
-              <p className="m-0 pb-4 c-slate-6 fs-sm lh-4">
-                {item.content}
-              </p>
+              <p className="m-0 pb-4 c-slate-6 fs-sm lh-4">{item.content}</p>
             </Accordion.Panel>
           </Accordion.Item>
         );

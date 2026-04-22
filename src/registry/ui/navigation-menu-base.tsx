@@ -12,12 +12,13 @@ import {
   Rocket,
 } from "@gravity-ui/icons";
 import { motion } from "motion/react";
+import type { ReactNode } from "react";
 
 function NavTrigger({
   children,
   className,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
   className?: string;
 }) {
   return (

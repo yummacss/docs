@@ -3,14 +3,14 @@
 import { ContextMenu } from "@base-ui/react/context-menu";
 import { Check } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
-import * as React from "react";
+import { useState } from "react";
 
 export default function ContextMenuCheckboxes() {
-  const [open, setOpen] = React.useState(false);
-  const [allMessages, setAllMessages] = React.useState(true);
-  const [mentions, setMentions] = React.useState(true);
-  const [dm, setDm] = React.useState(false);
-  const [muted, setMuted] = React.useState(false);
+  const [open, setOpen] = useState(false);
+  const [allMessages, setAllMessages] = useState(true);
+  const [mentions, setMentions] = useState(true);
+  const [dm, setDm] = useState(false);
+  const [muted, setMuted] = useState(false);
 
   return (
     <ContextMenu.Root open={open} onOpenChange={setOpen}>

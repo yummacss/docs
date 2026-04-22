@@ -10,10 +10,10 @@ import {
   TrashBin,
 } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
-import * as React from "react";
+import { useState } from "react";
 
 export default function ContextMenuNested() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
     <ContextMenu.Root open={open} onOpenChange={setOpen}>
@@ -61,7 +61,9 @@ export default function ContextMenuNested() {
                         {reactions.map((reaction) => (
                           <ContextMenu.Item
                             key={reaction.code}
-                            className={(state) => `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`}
+                            className={(state) =>
+                              `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                            }
                           >
                             <span className="fs-sm">{reaction.emoji}</span>
                             <span className="c-slate-6">{reaction.code}</span>
@@ -73,13 +75,17 @@ export default function ContextMenuNested() {
                 </ContextMenu.SubmenuRoot>
 
                 <ContextMenu.Item
-                  className={(state) => `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`}
+                  className={(state) =>
+                    `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                  }
                 >
                   <Pencil className="fs-0 w-4 h-4 c-slate-5" />
                   Edit Message
                 </ContextMenu.Item>
                 <ContextMenu.Item
-                  className={(state) => `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`}
+                  className={(state) =>
+                    `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                  }
                 >
                   <ArrowUturnCcwLeft className="fs-0 w-4 h-4 c-slate-5" />
                   Reply
@@ -88,7 +94,9 @@ export default function ContextMenuNested() {
                 <ContextMenu.Separator className="my-1 w-full h-px bg-silver-2" />
 
                 <ContextMenu.Item
-                  className={(state) => `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`}
+                  className={(state) =>
+                    `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                  }
                 >
                   <ArrowUturnCwRight className="fs-0 w-4 h-4 c-slate-5" />
                   Forward
