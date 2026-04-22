@@ -365,6 +365,10 @@ summary {
   background-color: #232741;
 }
 
+.bg-cyan-1 {
+  background-color: #d7f3f8;
+}
+
 .bg-diff-add\/10 {
   background-color: #a8e1ad1a;
 }
@@ -375,10 +379,6 @@ summary {
 
 .bg-green {
   background-color: #06d6a0;
-}
-
-.bg-green-1 {
-  background-color: #d7f8f0;
 }
 
 .bg-green-3 {
@@ -445,6 +445,10 @@ summary {
   background-color: #6366f199;
 }
 
+.bg-magenta-1 {
+  background-color: #f9e1fc;
+}
+
 .bg-midnight {
   background-color: #1a1d2e;
 }
@@ -475,10 +479,6 @@ summary {
 
 .bg-red {
   background-color: #e63946;
-}
-
-.bg-red-1 {
-  background-color: #fbdfe1;
 }
 
 .bg-red-1\/50 {
@@ -728,6 +728,10 @@ summary {
   cursor: col-resize;
 }
 
+.c-cyan {
+  color: #06b6d4;
+}
+
 .c-d {
   cursor: default;
 }
@@ -762,6 +766,10 @@ summary {
 
 .c-indigo-9 {
   color: #393b8c;
+}
+
+.c-magenta {
+  color: #d946ef;
 }
 
 .c-mauve {
