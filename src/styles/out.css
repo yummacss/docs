@@ -1148,6 +1148,10 @@ summary {
   outline-color: #ffffff;
 }
 
+.fv\:oc-white\/50:focus-visible {
+  outline-color: #ffffff80;
+}
+
 .fv\:oo--1:focus-visible {
   outline-offset: -1px;
 }
@@ -1394,6 +1398,10 @@ summary {
 
 .h\:bg-indigo-1:hover {
   background-color: #e6e7fd;
+}
+
+.h\:bg-indigo-2:hover {
+  background-color: #d0d1fb;
 }
 
 .h\:bg-indigo-6\/50:hover {
