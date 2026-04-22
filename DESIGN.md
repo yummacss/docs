@@ -154,7 +154,7 @@ All interactive form controls and containers use `bw-1` with an appropriate colo
 |---|---|
 | Inputs, selects, triggers | `bw-1 bc-silver-3` |
 | Containers, cards, dialogs | `bw-1 bc-silver-2` |
-| Avatar images | `bw-1 bc-silver-3` (ALWAYS — prevents blending with background) |
+| Avatar images | `bw-1 bc-white` (ALWAYS — prevents blending with background) |
 | Primary filled button | `bw-1 bc-indigo-7` |
 | Danger filled button | `bw-1 bc-red-7` |
 | Outlined button | `bw-1 bc-indigo` |
@@ -297,32 +297,32 @@ Only use these names and seeds. Never invent new people.
 
 ```ts
 const AVATARS = [
-  { name: "Sarah",     avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Sarah" },
-  { name: "Avery",     avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Avery" },
-  { name: "Jude",      avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Jude" },
-  { name: "Leo",       avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Leo" },
-  { name: "Riley",     avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Riley" },
-  { name: "Adrian",    avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Adrian" },
-  { name: "Jessica",   avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Jessica" },
-  { name: "Aiden",     avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Aiden" },
-  { name: "Liam",      avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Liam" },
-  { name: "Maria",     avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Maria" },
-  { name: "Vivian",    avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Vivian" },
-  { name: "Wyatt",     avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Wyatt" },
-  { name: "Jade",      avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Jade" },
-  { name: "Nolan",     avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Nolan" },
-  { name: "Sophia",    avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Sophia" },
-  { name: "Liliana",   avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Liliana" },
-  { name: "Katherine", avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Katherine" },
-  { name: "Aidan",     avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Aidan" },
-  { name: "Jocelyn",   avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Jocelyn" },
-  { name: "Sadie",     avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Sadie" },
+  { name: "Sarah",     avatar: "https://api.dicebear.com/9.x/open-peeps/svg?seed=Sarah&backgroundColor=DAF0B9" },
+  { name: "John",      avatar: "https://api.dicebear.com/9.x/open-peeps/svg?seed=John&backgroundColor=B4E9F2" },
+  { name: "Noah",      avatar: "https://api.dicebear.com/9.x/open-peeps/svg?seed=Noah&backgroundColor=D0D1FB" },
+  { name: "Melanie",   avatar: "https://api.dicebear.com/9.x/open-peeps/svg?seed=Melanie&backgroundColor=DCCEFC" },
+  { name: "Riley",     avatar: "https://api.dicebear.com/9.x/open-peeps/svg?seed=Riley&backgroundColor=F4C8FA" },
+  { name: "Adrian",    avatar: "https://api.dicebear.com/9.x/open-peeps/svg?seed=Adrian&backgroundColor=FFD4DE" },
+  { name: "Jessica",   avatar: "https://api.dicebear.com/9.x/open-peeps/svg?seed=Jessica&backgroundColor=DAF0B9" },
+  { name: "Aiden",     avatar: "https://api.dicebear.com/9.x/open-peeps/svg?seed=Aiden&backgroundColor=B4E9F2" },
+  { name: "Liam",      avatar: "https://api.dicebear.com/9.x/open-peeps/svg?seed=Liam&backgroundColor=D0D1FB" },
+  { name: "Maria",     avatar: "https://api.dicebear.com/9.x/open-peeps/svg?seed=Maria&backgroundColor=DCCEFC" },
+  { name: "Vivian",    avatar: "https://api.dicebear.com/9.x/open-peeps/svg?seed=Vivian&backgroundColor=F4C8FA" },
+  { name: "Wyatt",     avatar: "https://api.dicebear.com/9.x/open-peeps/svg?seed=Wyatt&backgroundColor=FFD4DE" },
+  { name: "Jade",      avatar: "https://api.dicebear.com/9.x/open-peeps/svg?seed=Jade&backgroundColor=DAF0B9" },
+  { name: "Nolan",     avatar: "https://api.dicebear.com/9.x/open-peeps/svg?seed=Nolan&backgroundColor=B4E9F2" },
+  { name: "Sophia",    avatar: "https://api.dicebear.com/9.x/open-peeps/svg?seed=Sophia&backgroundColor=D0D1FB" },
+  { name: "Liliana",   avatar: "https://api.dicebear.com/9.x/open-peeps/svg?seed=Liliana&backgroundColor=DCCEFC" },
+  { name: "Katherine", avatar: "https://api.dicebear.com/9.x/open-peeps/svg?seed=Katherine&backgroundColor=F4C8FA" },
+  { name: "Aidan",     avatar: "https://api.dicebear.com/9.x/open-peeps/svg?seed=Aidan&backgroundColor=FFD4DE" },
+  { name: "Jocelyn",   avatar: "https://api.dicebear.com/9.x/open-peeps/svg?seed=Jocelyn&backgroundColor=DAF0B9" },
+  { name: "Sadie",     avatar: "https://api.dicebear.com/9.x/open-peeps/svg?seed=Sadie&backgroundColor=B4E9F2" },
 ];
 ```
 
 ### Canonical avatar component pattern
 ```tsx
-<Avatar.Root className="d-if o-h ai-c jc-c w-8 h-8 bc-silver-3 br-pill bw-1 va-m us-none">
+<Avatar.Root className="d-if o-h ai-c jc-c w-8 h-8 bc-white br-pill bw-1 va-m us-none">
   <Avatar.Image src={user.avatar} alt={user.name} className="of-c w-full h-full" />
   <Avatar.Fallback className="d-f ai-c jc-c w-full h-full c-slate-8 fs-xs">
     {user.name[0]}

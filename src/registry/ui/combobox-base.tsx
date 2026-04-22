@@ -66,7 +66,7 @@ export default function ComboboxBase() {
                         }`
                       }
                     >
-                      <Avatar.Root className="d-if o-h ai-c jc-c w-6 h-6 bc-silver-3 br-pill bw-1 us-none">
+                      <Avatar.Root className="d-if o-h ai-c jc-c w-6 h-6 bc-white br-pill bw-1 us-none">
                         <Avatar.Image
                           src={user.avatar}
                           alt={user.name}
@@ -106,61 +106,73 @@ const users: User[] = [
   {
     name: "Sarah",
     handle: "sarah",
-    avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Sarah",
+    avatar:
+      "https://api.dicebear.com/9.x/open-peeps/svg?seed=Sarah&backgroundColor=DAF0B9",
   },
   {
-    name: "Avery",
-    handle: "avery",
-    avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Avery",
+    name: "John",
+    handle: "john",
+    avatar:
+      "https://api.dicebear.com/9.x/open-peeps/svg?seed=John&backgroundColor=B4E9F2",
   },
   {
-    name: "Jude",
-    handle: "jude",
-    avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Jude",
+    name: "Noah",
+    handle: "noah",
+    avatar:
+      "https://api.dicebear.com/9.x/open-peeps/svg?seed=Noah&backgroundColor=D0D1FB",
   },
   {
-    name: "Leo",
+    name: "Melanie",
     handle: "leok",
-    avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Leo",
+    avatar:
+      "https://api.dicebear.com/9.x/open-peeps/svg?seed=Melanie&backgroundColor=DCCEFC",
   },
   {
     name: "Riley",
     handle: "rileyb",
-    avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Riley",
+    avatar:
+      "https://api.dicebear.com/9.x/open-peeps/svg?seed=Riley&backgroundColor=F4C8FA",
   },
   {
     name: "Adrian",
     handle: "adrianm",
-    avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Adrian",
+    avatar:
+      "https://api.dicebear.com/9.x/open-peeps/svg?seed=Adrian&backgroundColor=FFD4DE",
   },
   {
     name: "Jessica",
     handle: "jessicam",
-    avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Jessica",
+    avatar:
+      "https://api.dicebear.com/9.x/open-peeps/svg?seed=Jessica&backgroundColor=DAF0B9",
   },
   {
     name: "Aiden",
     handle: "aidenw",
-    avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Aiden",
+    avatar:
+      "https://api.dicebear.com/9.x/open-peeps/svg?seed=Aiden&backgroundColor=B4E9F2",
   },
   {
     name: "Liam",
     handle: "liamj",
-    avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Liam",
+    avatar:
+      "https://api.dicebear.com/9.x/open-peeps/svg?seed=Liam&backgroundColor=D0D1FB",
   },
   {
     name: "Maria",
     handle: "mariav",
-    avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Maria",
+    avatar:
+      "https://api.dicebear.com/9.x/open-peeps/svg?seed=Maria&backgroundColor=DCCEFC",
   },
   {
     name: "Vivian",
     handle: "vivianr",
-    avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Vivian",
+    avatar:
+      "https://api.dicebear.com/9.x/open-peeps/svg?seed=Vivian&backgroundColor=F4C8FA",
   },
   {
     name: "Wyatt",
     handle: "wyattk",
-    avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Wyatt",
+    avatar:
+      "https://api.dicebear.com/9.x/open-peeps/svg?seed=Wyatt&backgroundColor=FFD4DE",
   },
 ];

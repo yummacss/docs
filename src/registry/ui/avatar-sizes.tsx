@@ -6,13 +6,12 @@ export default function AvatarSizes() {
     <div className="d-f fd-c g-6 ai-c">
       {sizes.map((s) => (
         <div key={s.id} className="d-f ai-c g-6">
-          {/* Status */}
           <div className="p-r">
             <Avatar.Root
-              className={`d-if o-h ai-c jc-c ${s.size} bg-silver-1 bc-silver-3 br-pill bw-1 va-m us-none`}
+              className={`d-if o-h ai-c jc-c ${s.size} bg-silver-1 bc-white br-pill bw-1 va-m us-none`}
             >
               <Avatar.Image
-                src="https://api.dicebear.com/9.x/notionists/svg?seed=Sarah"
+                src="https://api.dicebear.com/9.x/open-peeps/svg?seed=Sarah&backgroundColor=DAF0B9"
                 alt="Sarah"
                 className="of-c w-full h-full"
               />
@@ -22,14 +21,13 @@ export default function AvatarSizes() {
             />
           </div>
 
-          {/* Verified */}
           <div className="p-r">
             <Avatar.Root
-              className={`d-if o-h ai-c jc-c ${s.size} bg-silver-1 bc-silver-3 br-pill bw-1 va-m us-none`}
+              className={`d-if o-h ai-c jc-c ${s.size} bg-silver-1 bc-white br-pill bw-1 va-m us-none`}
             >
               <Avatar.Image
-                src="https://api.dicebear.com/9.x/notionists/svg?seed=Avery"
-                alt="Avery"
+                src="https://api.dicebear.com/9.x/open-peeps/svg?seed=John&backgroundColor=B4E9F2"
+                alt="John"
                 className="of-c w-full h-full"
               />
             </Avatar.Root>
@@ -40,7 +38,6 @@ export default function AvatarSizes() {
             </span>
           </div>
 
-          {/* Icon Fallback */}
           <Avatar.Root
             className={`d-if o-h ai-c jc-c ${s.size} bg-indigo-1 br-pill va-m us-none`}
           >
@@ -49,7 +46,6 @@ export default function AvatarSizes() {
             </Avatar.Fallback>
           </Avatar.Root>
 
-          {/* Initial Fallback */}
           <Avatar.Root
             className={`d-if o-h ai-c jc-c ${s.size} bg-indigo-1 bc-indigo-3 br-pill bw-1 va-m us-none`}
           >
@@ -101,7 +97,7 @@ const sizes = [
   {
     id: "xs",
     size: "w-8 h-8",
-    status: "w-2 h-2",
+    status: "w-3 h-3",
     icon: "w-4 h-4",
     text: "fs-xs",
     initial: "R",

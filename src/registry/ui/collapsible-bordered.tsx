@@ -45,7 +45,7 @@ export default function CollapsibleBordered() {
           {whoToFollow.users.map((user) => (
             <div key={user.name} className="d-f ai-c jc-sb">
               <div className="d-f ai-c g-3">
-                <Avatar.Root className="d-if o-h ai-c jc-c w-8 h-8 bc-silver-3 br-pill bw-1 va-m us-none">
+                <Avatar.Root className="d-if o-h ai-c jc-c w-8 h-8 bc-white br-pill bw-1 va-m us-none">
                   <Avatar.Image
                     src={user.avatar}
                     alt={user.name}
@@ -77,17 +77,20 @@ const whoToFollow = {
     {
       name: "Aiden",
       handle: "aidenw",
-      avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Aiden",
+      avatar:
+        "https://api.dicebear.com/9.x/open-peeps/svg?seed=Aiden&backgroundColor=B4E9F2",
     },
     {
       name: "Liam",
       handle: "liamj",
-      avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Liam",
+      avatar:
+        "https://api.dicebear.com/9.x/open-peeps/svg?seed=Liam&backgroundColor=D0D1FB",
     },
     {
       name: "Maria",
       handle: "mariav",
-      avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Maria",
+      avatar:
+        "https://api.dicebear.com/9.x/open-peeps/svg?seed=Maria&backgroundColor=DCCEFC",
     },
   ],
 };

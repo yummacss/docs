@@ -57,7 +57,7 @@ export default function CollapsibleIcon() {
             <div key={user.name} className="d-f ai-c jc-sb">
               <div className="d-f ai-c g-3">
                 <div className="p-r">
-                  <Avatar.Root className="d-if o-h ai-c jc-c w-8 h-8 bc-silver-3 br-pill bw-1 va-m us-none">
+                  <Avatar.Root className="d-if o-h ai-c jc-c w-8 h-8 bc-white br-pill bw-1 va-m us-none">
                     <Avatar.Image
                       src={user.avatar}
                       alt={user.name}
@@ -113,19 +113,22 @@ const whoToFollow = {
     {
       name: "Sarah",
       handle: "sarah",
-      avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Sarah",
+      avatar:
+        "https://api.dicebear.com/9.x/open-peeps/svg?seed=Sarah&backgroundColor=DAF0B9",
       verified: true,
     },
     {
-      name: "Avery",
-      handle: "avery",
-      avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Avery",
+      name: "John",
+      handle: "john",
+      avatar:
+        "https://api.dicebear.com/9.x/open-peeps/svg?seed=John&backgroundColor=B4E9F2",
       verified: true,
     },
     {
-      name: "Jude",
-      handle: "jude",
-      avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Jude",
+      name: "Noah",
+      handle: "noah",
+      avatar:
+        "https://api.dicebear.com/9.x/open-peeps/svg?seed=Noah&backgroundColor=D0D1FB",
       verified: false,
     },
   ],

@@ -97,31 +97,37 @@ const TEAM_MEMBERS: TeamMember[] = [
   {
     name: "Sarah",
     role: "Product Designer",
-    avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Sarah",
+    avatar:
+      "https://api.dicebear.com/9.x/open-peeps/svg?seed=Sarah&backgroundColor=DAF0B9",
   },
   {
-    name: "Avery",
+    name: "John",
     role: "Frontend Developer",
-    avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Avery",
+    avatar:
+      "https://api.dicebear.com/9.x/open-peeps/svg?seed=John&backgroundColor=B4E9F2",
   },
   {
-    name: "Jude",
+    name: "Noah",
     role: "Backend Developer",
-    avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Jude",
+    avatar:
+      "https://api.dicebear.com/9.x/open-peeps/svg?seed=Noah&backgroundColor=D0D1FB",
   },
   {
-    name: "Leo",
+    name: "Melanie",
     role: "DevOps Engineer",
-    avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Leo",
+    avatar:
+      "https://api.dicebear.com/9.x/open-peeps/svg?seed=Melanie&backgroundColor=DCCEFC",
   },
   {
     name: "Riley",
     role: "Product Manager",
-    avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Riley",
+    avatar:
+      "https://api.dicebear.com/9.x/open-peeps/svg?seed=Riley&backgroundColor=F4C8FA",
   },
   {
     name: "Adrian",
     role: "QA Engineer",
-    avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Adrian",
+    avatar:
+      "https://api.dicebear.com/9.x/open-peeps/svg?seed=Adrian&backgroundColor=FFD4DE",
   },
 ];
