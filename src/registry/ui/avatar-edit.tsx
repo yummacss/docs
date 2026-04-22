@@ -8,16 +8,16 @@ export default function AvatarEdit() {
       <div className="p-r">
         <Avatar.Root className="d-if o-h ai-c jc-c w-12 h-12 bg-silver-1 bc-silver-3 br-pill bw-1 va-m us-none">
           <Avatar.Image
-            src="https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Sarah"
+            src="https://api.dicebear.com/9.x/notionists/svg?seed=Sarah"
             alt="Sarah"
             className="of-c w-full h-full"
           />
         </Avatar.Root>
         <Button
-          className="d-f p-a b-0 r-0 ai-c jc-c w-5 h-5 p-0 bg-white bc-silver-3 br-pill bw-1 c-p fv:ow-2 fv:oo-1 fv:oc-indigo-6 us-none"
+          className="d-f p-a b-0 r-0 ai-c jc-c w-5 h-5 p-0 bg-white bc-silver-3 br-pill bw-1 c-p us-none fv:ow-2 fv:oo-1 fv:oc-indigo-6"
           aria-label="Edit profile picture"
         >
-          <Pencil className="w-3 h-3 fs-0 c-slate-6" />
+          <Pencil className="fs-0 w-3 h-3 c-slate-6" />
         </Button>
       </div>
     </div>

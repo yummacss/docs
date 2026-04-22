@@ -24,17 +24,17 @@ export default function AvatarStatus() {
 const statusMembers = [
   {
     name: "Sarah",
-    avatarUrl: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Sarah",
+    avatarUrl: "https://api.dicebear.com/9.x/notionists/svg?seed=Sarah",
     statusColor: "bg-green-6",
   },
   {
     name: "Avery",
-    avatarUrl: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Avery",
+    avatarUrl: "https://api.dicebear.com/9.x/notionists/svg?seed=Avery",
     statusColor: "bg-slate-4",
   },
   {
     name: "Jude",
-    avatarUrl: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Jude",
+    avatarUrl: "https://api.dicebear.com/9.x/notionists/svg?seed=Jude",
     statusColor: "bg-red-6",
   },
 ];

@@ -33,17 +33,17 @@ const stackMembers = [
   {
     name: "Sarah",
     initials: "S",
-    avatarUrl: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Sarah",
+    avatarUrl: "https://api.dicebear.com/9.x/notionists/svg?seed=Sarah",
   },
   {
     name: "Avery",
     initials: "A",
-    avatarUrl: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Avery",
+    avatarUrl: "https://api.dicebear.com/9.x/notionists/svg?seed=Avery",
   },
   {
     name: "Jude",
     initials: "J",
-    avatarUrl: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Jude",
+    avatarUrl: "https://api.dicebear.com/9.x/notionists/svg?seed=Jude",
   },
 ];
 

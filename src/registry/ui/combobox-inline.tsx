@@ -74,51 +74,51 @@ const users: User[] = [
   {
     name: "Sarah",
     handle: "sarah",
-    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Sarah",
+    avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Sarah",
   },
   {
     name: "Avery",
     handle: "avery",
-    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Avery",
+    avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Avery",
   },
   {
     name: "Jude",
     handle: "jude",
-    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Jude",
+    avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Jude",
   },
   {
     name: "Leo",
     handle: "leok",
-    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Leo",
+    avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Leo",
   },
   {
     name: "Riley",
     handle: "rileyb",
-    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Riley",
+    avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Riley",
   },
   {
     name: "Adrian",
     handle: "adrianm",
-    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Adrian",
+    avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Adrian",
   },
   {
     name: "Jessica",
     handle: "jessicam",
-    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Jessica",
+    avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Jessica",
   },
   {
     name: "Aiden",
     handle: "aidenw",
-    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Aiden",
+    avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Aiden",
   },
   {
     name: "Liam",
     handle: "liamj",
-    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Liam",
+    avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Liam",
   },
   {
     name: "Maria",
     handle: "mariav",
-    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Maria",
+    avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Maria",
   },
 ];
