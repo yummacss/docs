@@ -275,12 +275,13 @@ Use single-word headings for docs sections (e.g., "Disabled" not "Disabled Item"
 When a variant name includes a feature name (e.g., "with icon"), use hyphen instead of hyphenated prefix. For example: `autocomplete-icon` instead of `autocomplete-with-icon`.
 
 ### Content themes
-All component content MUST come from one of these three domains only:
+All component content MUST come from one of these four domains only:
 - **Social Media** (users, followers, mentions, channels, posts, reactions)
 - **SaaS / Project Management** (tasks, projects, roles, permissions, statuses, billing)
 - **E-commerce** (products, orders, payment, cart, inventory)
+- **Music** (tracks, albums, artists, playlists, plays, likes)
 
-Never invent a fourth context. Never use generic Lorem Ipsum. No music/entertainment app context.
+Never invent a fifth context. Never use generic Lorem Ipsum.
 
 **Distribute contexts across style variants, not as separate components.** Each variant (base, bordered, ghost, subtle, etc.) should use a different domain context to demonstrate versatility. For example: base=SaaS, bordered=E-commerce, ghost=Social Media. Do NOT create standalone context-specific components — contexts are for copywriting only.
 
@@ -444,7 +445,7 @@ state.checked ? "bg-indigo" : "bw-1 bc-silver-3 bg-transparent bs-o-xs"
 - Never use `bg-silver-1` as highlighted state for list items — use `bg-silver-1/50`
 - Never use `h:bg-silver-1` as the non-highlighted state for list items — use `bg-transparent`
 - Never invent avatar names outside the approved list
-- Never place content outside Social Media, SaaS/Project Management, or E-commerce contexts
+- Never place content outside Social Media, SaaS/Project Management, E-commerce, or Music contexts
 - Never fetch Base UI docs for components without `primitive: true` in `ui-sidebar.ts`
 - Never fabricate a Base UI component that does not exist (e.g. `Badge`, `Breadcrumb` have no Base UI primitive)
 - Never add `wip: true` to a component that has at least one working example
