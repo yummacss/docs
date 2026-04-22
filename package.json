@@ -17,7 +17,7 @@
     "update-yummacss": "pnpm up yummacss @yummacss/core --latest"
   },
   "dependencies": {
-    "@base-ui/react": "^1.4.0",
+    "@base-ui/react": "^1.4.1",
     "@fontsource/esteban": "^5.2.7",
     "@fontsource/ia-writer-quattro": "^5.2.5",
     "@gravity-ui/icons": "^2.18.0",
@@ -30,7 +30,7 @@
     "@shikijs/transformers": "^4.0.2",
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
-    "@yummacss/core": "^3.24.3",
+    "@yummacss/core": "^3.24.4",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "gsap": "^3.15.0",
@@ -59,8 +59,8 @@
     "remark-code-preview": "^1.2.6",
     "sort-package-json": "^3.6.1",
     "tsx": "^4.21.0",
-    "typescript": "^6.0.2",
-    "yummacss": "^3.24.3"
+    "typescript": "^6.0.3",
+    "yummacss": "^3.24.4"
   },
   "packageManager": "pnpm@10.33.0+sha512.10568bb4a6afb58c9eb3630da90cc9516417abebd3fabbe6739f0ae795728da1491e9db5a544c76ad8eb7570f5c4bb3d6c637b2cb41bfdcdb47fa823c8649319"
 }
