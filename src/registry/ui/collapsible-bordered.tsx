@@ -77,17 +77,17 @@ const whoToFollow = {
     {
       name: "Aiden",
       handle: "aidenw",
-      avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Aiden",
+      avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Aiden",
     },
     {
       name: "Liam",
       handle: "liamj",
-      avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Liam",
+      avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Liam",
     },
     {
       name: "Maria",
       handle: "mariav",
-      avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Maria",
+      avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Maria",
     },
   ],
 };

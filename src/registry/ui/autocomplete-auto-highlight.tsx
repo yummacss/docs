@@ -60,11 +60,11 @@ export default function AutocompleteAutoHighlight() {
                           <img
                             src={member.avatar}
                             alt={member.name}
-                            className="w-6 h-6 of-c br-pill bw-1 bc-silver-3"
+                            className="of-c w-6 h-6 bc-silver-3 br-pill bw-1"
                           />
                           <div className="d-f fd-c">
                             <span className="fw-500">{member.name}</span>
-                            <span className="fs-xs c-slate-6">
+                            <span className="c-slate-6 fs-xs">
                               {member.role}
                             </span>
                           </div>
@@ -97,31 +97,31 @@ const TEAM_MEMBERS: TeamMember[] = [
   {
     name: "Sarah",
     role: "Product Designer",
-    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Sarah",
+    avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Sarah",
   },
   {
     name: "Avery",
     role: "Frontend Developer",
-    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Avery",
+    avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Avery",
   },
   {
     name: "Jude",
     role: "Backend Developer",
-    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Jude",
+    avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Jude",
   },
   {
     name: "Leo",
     role: "DevOps Engineer",
-    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Leo",
+    avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Leo",
   },
   {
     name: "Riley",
     role: "Product Manager",
-    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Riley",
+    avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Riley",
   },
   {
     name: "Adrian",
     role: "QA Engineer",
-    avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Adrian",
+    avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Adrian",
   },
 ];

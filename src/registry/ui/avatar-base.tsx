@@ -14,5 +14,5 @@ export default function AvatarBase() {
 
 const userProfile = {
   name: "Sarah",
-  avatarUrl: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Sarah",
+  avatarUrl: "https://api.dicebear.com/9.x/notionists/svg?seed=Sarah",
 };

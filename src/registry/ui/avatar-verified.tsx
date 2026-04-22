@@ -25,10 +25,10 @@ export default function AvatarVerified() {
 const verifiedMembers = [
   {
     name: "Sarah",
-    avatarUrl: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Sarah",
+    avatarUrl: "https://api.dicebear.com/9.x/notionists/svg?seed=Sarah",
   },
   {
     name: "Avery",
-    avatarUrl: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Avery",
+    avatarUrl: "https://api.dicebear.com/9.x/notionists/svg?seed=Avery",
   },
 ];

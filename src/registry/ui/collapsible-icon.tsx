@@ -113,19 +113,19 @@ const whoToFollow = {
     {
       name: "Sarah",
       handle: "sarah",
-      avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Sarah",
+      avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Sarah",
       verified: true,
     },
     {
       name: "Avery",
       handle: "avery",
-      avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Avery",
+      avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Avery",
       verified: true,
     },
     {
       name: "Jude",
       handle: "jude",
-      avatar: "https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Jude",
+      avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Jude",
       verified: false,
     },
   ],

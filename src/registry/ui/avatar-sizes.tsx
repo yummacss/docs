@@ -12,7 +12,7 @@ export default function AvatarSizes() {
               className={`d-if o-h ai-c jc-c ${s.size} bg-silver-1 bc-silver-3 br-pill bw-1 va-m us-none`}
             >
               <Avatar.Image
-                src="https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Sarah"
+                src="https://api.dicebear.com/9.x/notionists/svg?seed=Sarah"
                 alt="Sarah"
                 className="of-c w-full h-full"
               />
@@ -28,7 +28,7 @@ export default function AvatarSizes() {
               className={`d-if o-h ai-c jc-c ${s.size} bg-silver-1 bc-silver-3 br-pill bw-1 va-m us-none`}
             >
               <Avatar.Image
-                src="https://api.dicebear.com/9.x/notionists-neutral/svg?seed=Avery"
+                src="https://api.dicebear.com/9.x/notionists/svg?seed=Avery"
                 alt="Avery"
                 className="of-c w-full h-full"
               />
@@ -36,7 +36,7 @@ export default function AvatarSizes() {
             <span
               className={`d-f p-a b-0 r-0 ai-c jc-c ${s.status} bg-white bc-white br-pill bw-1`}
             >
-              <CircleCheckFill className="c-indigo w-full h-full" />
+              <CircleCheckFill className="w-full h-full c-indigo" />
             </span>
           </div>
 
@@ -44,9 +44,7 @@ export default function AvatarSizes() {
           <Avatar.Root
             className={`d-if o-h ai-c jc-c ${s.size} bg-indigo-1 br-pill va-m us-none`}
           >
-            <Avatar.Fallback
-              className="d-f ai-c jc-c w-full h-full c-indigo"
-            >
+            <Avatar.Fallback className="d-f ai-c jc-c w-full h-full c-indigo">
               <PersonFill className={`${s.icon}`} />
             </Avatar.Fallback>
           </Avatar.Root>
