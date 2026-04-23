@@ -14,7 +14,7 @@ There are {uiSidebarConfig[1].items.filter((item) => !item.wip).length} base com
 <div className="d-g gtc-1 rg-8 my-10 sm:gtc-3">
   {uiSidebarConfig[1].items.map((item) => (
     <div key={item.slug}>
-      <Link className="c-white h:td-u" href={`/ui/${item.slug}`}>
+      <Link className="c-white h:td-u" href={`/ui/components/${item.slug}`}>
         {item.title}
       </Link>
     </div>
