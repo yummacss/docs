@@ -44,7 +44,7 @@ export const uiSidebarConfig: UISidebarConfig = [
       { title: "Autocomplete", slug: "autocomplete", primitive: true },
       { title: "Avatar", slug: "avatar", primitive: true },
       { title: "Badge", slug: "badge", updated: true },
-      { title: "Breadcrumb", slug: "breadcrumb" },
+      { title: "Breadcrumb", slug: "breadcrumb", updated: true },
       { title: "Button", slug: "button", primitive: true },
       { title: "Checkbox", slug: "checkbox", primitive: true },
       { title: "Collapsible", slug: "collapsible", primitive: true },
