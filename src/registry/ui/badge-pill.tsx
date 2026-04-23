@@ -6,7 +6,7 @@ export default function BadgePill() {
       <div className="d-f ai-c g-1 px-2 py-1 bg-white bc-silver-2 br-pill bw-1 bs-o-xs">
         <span className="c-slate-10 fs-xs fw-500 us-none">Hi-Res</span>
       </div>
-      <div className="d-f ai-c g-1 px-2 py-1 bg-indigo-1 bc-indigo-2 br-pill bw-1">
+      <div className="d-f ai-c g-1 px-2 py-1 bg-indigo-1 br-pill bw-0">
         <span className="c-indigo-7 fs-xs fw-500 us-none">Hi-Res</span>
       </div>
       <div className="d-f ai-c g-1 px-2 py-1 bg-indigo c-white br-pill bw-0">

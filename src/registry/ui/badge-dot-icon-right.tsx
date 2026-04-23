@@ -9,7 +9,7 @@ export default function BadgeDotIconRight() {
         <span className="c-slate-10 fs-xs fw-500 us-none">New</span>
         <SparklesFill className="w-3 h-3 c-sky-6" />
       </div>
-      <div className="d-f ai-c g-1 px-2 py-1 bg-sky-1 bc-sky-2 br-sm bw-1">
+      <div className="d-f ai-c g-1 px-2 py-1 bg-sky-1 br-sm bw-0">
         <span className="c-sky-7 fs-xs fw-500 us-none">New</span>
         <SparklesFill className="w-3 h-3 c-sky-7" />
       </div>

@@ -7,7 +7,7 @@ export default function BadgeDotPill() {
         <span className="w-2 h-2 bg-green-6 br-full" />
         <span className="c-slate-10 fs-xs fw-500 us-none">Online</span>
       </div>
-      <div className="d-f ai-c g-1 px-2 py-1 bg-green-1 bc-green-2 br-pill bw-1">
+      <div className="d-f ai-c g-1 px-2 py-1 bg-green-1 br-pill bw-0">
         <span className="w-2 h-2 bg-green-7 br-full" />
         <span className="c-green-7 fs-xs fw-500 us-none">Online</span>
       </div>
