@@ -1,6 +1,6 @@
 "use client";
 
-import { CircleCheck, ArrowRight } from "@gravity-ui/icons";
+import { ArrowRight, CircleCheck } from "@gravity-ui/icons";
 
 export default function BadgeDotIconRightPill() {
   return (
