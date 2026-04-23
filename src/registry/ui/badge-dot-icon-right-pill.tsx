@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, CircleCheck } from "@gravity-ui/icons";
+import { CircleCheck, ArrowRight } from "@gravity-ui/icons";
 
 export default function BadgeDotIconRightPill() {
   return (
@@ -14,7 +14,7 @@ export default function BadgeDotIconRightPill() {
         <ArrowRight className="w-3 h-3 c-indigo-7" />
       </div>
       <div className="d-f ai-c g-1 px-2 py-1 bg-indigo c-white br-pill bw-0">
-        <span className="fs-xs fw-500 us-none">View</span>
+        <span className="fs-xs fw-500 us-none">Go</span>
         <ArrowRight className="w-3 h-3" />
       </div>
     </div>
