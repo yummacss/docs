@@ -233,14 +233,6 @@ summary {
   border-color: #232741;
 }
 
-.bc-green-2 {
-  border-color: #b4f3e3;
-}
-
-.bc-green-7 {
-  border-color: #05b88a;
-}
-
 .bc-highlight\/50 {
   border-color: #9aa5ef80;
 }
@@ -269,16 +261,8 @@ summary {
   border-color: #5558cf;
 }
 
-.bc-mint-2 {
-  border-color: #b7ead9;
-}
-
 .bc-navy {
   border-color: #31365e;
-}
-
-.bc-orange-2 {
-  border-color: #ffd3c2;
 }
 
 .bc-red-2 {
@@ -309,8 +293,8 @@ summary {
   border-color: #c6cad1;
 }
 
-.bc-sky-2 {
-  border-color: #c3ebfd;
+.bc-sky-7 {
+  border-color: #30a3d5;
 }
 
 .bc-slate-2 {
@@ -335,10 +319,6 @@ summary {
 
 .bc-white\/20 {
   border-color: #ffffff33;
-}
-
-.bc-yellow-2 {
-  border-color: #ffeabb;
 }
 
 .bf-b-md {
@@ -595,6 +575,10 @@ summary {
 
 .bg-sky-1 {
   background-color: #dff4fe;
+}
+
+.bg-sky-6 {
+  background-color: #54c6f9;
 }
 
 .bg-slate {
@@ -1236,10 +1220,6 @@ summary {
   background-color: #4749ae;
 }
 
-.fv\:oc-green-6:focus-visible {
-  outline-color: #29dcad;
-}
-
 .fv\:oc-indigo:focus-visible {
   outline-color: #6366f1;
 }
@@ -1260,12 +1240,12 @@ summary {
   outline-color: #ea5560;
 }
 
-.fv\:oc-white:focus-visible {
-  outline-color: #ffffff;
+.fv\:oc-sky-6:focus-visible {
+  outline-color: #54c6f9;
 }
 
-.fv\:oc-white\/50:focus-visible {
-  outline-color: #ffffff80;
+.fv\:oc-white:focus-visible {
+  outline-color: #ffffff;
 }
 
 .fv\:oo--1:focus-visible {
@@ -1504,10 +1484,6 @@ summary {
   background-color: #4479ee;
 }
 
-.h\:bg-green-8:hover {
-  background-color: #049a73;
-}
-
 .h\:bg-indigo:hover {
   background-color: #6366f1;
 }
@@ -1562,6 +1538,10 @@ summary {
 
 .h\:bg-silver-2:hover {
   background-color: #e1e3e7;
+}
+
+.h\:bg-sky-8:hover {
+  background-color: #2888b3;
 }
 
 .h\:bg-slate-7:hover {
