@@ -6,9 +6,6 @@ import { redirects } from "./redirects";
 const nextConfig = {
   reactStrictMode: true,
   pageExtensions: ["js", "jsx", "md", "mdx", "mjs", "ts", "tsx"],
-  experimental: {
-    turbopackFileSystemCacheForDev: false,
-  },
   async redirects() {
     return redirects;
   },
