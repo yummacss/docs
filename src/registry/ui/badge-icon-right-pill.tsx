@@ -9,7 +9,7 @@ export default function BadgeIconRightPill() {
         <span className="c-slate-10 fs-xs fw-500 us-none">Hot Deal</span>
         <Flame className="w-3 h-3 c-slate-10" />
       </div>
-      <div className="d-f ai-c g-1 px-2 py-1 bg-orange-1 bc-orange-2 br-pill bw-1">
+      <div className="d-f ai-c g-1 px-2 py-1 bg-orange-1 br-pill bw-0">
         <span className="c-orange-7 fs-xs fw-500 us-none">Hot Deal</span>
         <Flame className="w-3 h-3 c-orange-7" />
       </div>

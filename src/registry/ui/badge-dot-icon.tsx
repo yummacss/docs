@@ -9,7 +9,7 @@ export default function BadgeDotIcon() {
         <CircleCheckFill className="w-3 h-3 c-mint-6" />
         <span className="c-slate-10 fs-xs fw-500 us-none">Succes</span>
       </div>
-      <div className="d-f ai-c g-1 px-2 py-1 bg-mint-1 bc-mint-2 br-sm bw-1">
+      <div className="d-f ai-c g-1 px-2 py-1 bg-mint-1 br-sm bw-0">
         <CircleCheckFill className="w-3 h-3 c-mint-7" />
         <span className="c-mint-7 fs-xs fw-500 us-none">Succes</span>
       </div>

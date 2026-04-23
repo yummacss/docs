@@ -9,7 +9,7 @@ export default function BadgeIconRight() {
         <span className="c-slate-10 fs-xs fw-500 us-none">Featured</span>
         <StarFill className="w-3 h-3 c-yellow-7" />
       </div>
-      <div className="d-f ai-c g-1 px-2 py-1 bg-yellow-1 bc-yellow-2 br-sm bw-1">
+      <div className="d-f ai-c g-1 px-2 py-1 bg-yellow-1 br-sm bw-0">
         <span className="c-yellow-7 fs-xs fw-500 us-none">Featured</span>
         <StarFill className="w-3 h-3 c-yellow-7" />
       </div>

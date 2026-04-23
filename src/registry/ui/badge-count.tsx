@@ -7,7 +7,7 @@ export default function BadgeCount() {
         <span className="c-slate-10 fs-xs fw-500 us-none">In cart</span>
         <span className="d-f ai-c jc-c w-4 h-4 bg-red c-white br-pill fs-xs fw-500">3</span>
       </div>
-      <div className="d-f ai-c g-1 px-2 py-1 bg-indigo-1 bc-indigo-2 br-sm bw-1">
+      <div className="d-f ai-c g-1 px-2 py-1 bg-indigo-1 br-sm bw-0">
         <span className="c-indigo-7 fs-xs fw-500 us-none">In cart</span>
         <span className="d-f ai-c jc-c w-4 h-4 bg-indigo c-white br-pill fs-xs fw-500">3</span>
       </div>

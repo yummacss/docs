@@ -9,7 +9,7 @@ export default function BadgeIcon() {
         <ShieldCheck className="w-3 h-3 c-slate-10" />
         <span className="c-slate-10 fs-xs fw-500 us-none">Verified</span>
       </div>
-      <div className="d-f ai-c g-1 px-2 py-1 bg-indigo-1 bc-indigo-2 br-sm bw-1">
+      <div className="d-f ai-c g-1 px-2 py-1 bg-indigo-1 br-sm bw-0">
         <ShieldCheck className="w-3 h-3 c-indigo-7" />
         <span className="c-indigo-7 fs-xs fw-500 us-none">Verified</span>
       </div>
