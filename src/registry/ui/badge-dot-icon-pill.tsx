@@ -13,9 +13,9 @@ export default function BadgeDotIconPill() {
         <CircleInfo className="w-3 h-3 c-indigo-7" />
         <span className="c-indigo-7 fs-xs fw-500 us-none">New</span>
       </div>
-      <div className="d-f ai-c g-1 px-2 py-1 bg-red c-white br-pill bw-0">
+      <div className="d-f ai-c g-1 px-2 py-1 bg-indigo c-white br-pill bw-0">
         <CircleXmark className="w-3 h-3" />
-        <span className="fs-xs fw-500 us-none">Error</span>
+        <span className="fs-xs fw-500 us-none">Done</span>
       </div>
     </div>
   );
