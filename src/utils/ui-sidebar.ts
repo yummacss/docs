@@ -57,7 +57,7 @@ export const uiSidebarConfig: UISidebarConfig = [
         primitive: true,
         wip: true,
       },
-      { title: "File Upload", slug: "file-upload", wip: true },
+      { title: "File Upload", slug: "file-upload" },
       { title: "Input", slug: "input", primitive: true },
       { title: "Kbd", slug: "kbd", wip: true },
       { title: "Menu", slug: "menu", primitive: true },
