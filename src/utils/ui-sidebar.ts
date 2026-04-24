@@ -48,7 +48,6 @@ export const uiSidebarConfig: UISidebarConfig = [
       { title: "Button", slug: "button", primitive: true },
       { title: "Checkbox", slug: "checkbox", primitive: true },
       { title: "Collapsible", slug: "collapsible", primitive: true },
-      { title: "Color Picker", slug: "color-picker", wip: true },
       { title: "Combobox", slug: "combobox", primitive: true },
       { title: "Context Menu", slug: "context-menu", primitive: true },
       { title: "Dialog", slug: "dialog", primitive: true },
