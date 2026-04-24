@@ -860,6 +860,10 @@ summary {
   color: #393b8c;
 }
 
+.c-indigo\/50 {
+  color: #6366f180;
+}
+
 .c-magenta {
   color: #d946ef;
 }
@@ -2450,6 +2454,10 @@ summary {
 
 .w-10 {
   width: 2.5rem;
+}
+
+.w-100 {
+  width: 25rem;
 }
 
 .w-11 {
