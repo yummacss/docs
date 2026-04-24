@@ -452,3 +452,4 @@ state.checked ? "bg-indigo" : "bw-1 bc-silver-3 bg-transparent bs-o-xs"
 - Never add `wip: true` to a component that has at least one working example
 - Never use `bs-d` (dashed border) on elements other than placeholder/trigger zones
 - **Never use custom SVGs.** Always use Gravity Icons (`@gravity-ui/icons`). Import icons as named imports (e.g., `import { PersonPlus } from "@gravity-ui/icons"`).
+- **No external packages.** Only use Base UI (`@base-ui/react/*`), Framer Motion (`motion/react`), and Gravity Icons (`@gravity-ui/icons`). Never import `clsx`, `classnames`, `tailwind-merge`, or any other utility package. Use template literals for conditional classes.
