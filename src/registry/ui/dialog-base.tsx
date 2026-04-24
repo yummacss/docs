@@ -60,12 +60,13 @@ export default function DialogBase() {
                 </div>
                 <div className="bc-silver-2 bbw-1" />
                 <div className="d-f fd-c ai-c jc-c g-3 px-4 py-5">
-                  <Avatar.Root className="w-12 h-12 bc-silver-3 br-pill bw-1">
+                  <Avatar.Root className="d-if o-h ai-c jc-c w-12 h-12 bc-white br-pill bw-1 va-m us-none">
                     <Avatar.Image
-                      src="https://api.dicebear.com/9.x/notionists/svg?seed=Sarah"
-                      className="of-c w-full h-full br-pill"
+                      src="https://api.dicebear.com/9.x/open-peeps/svg?seed=Sarah&backgroundColor=DAF0B9"
+                      alt="Sarah"
+                      className="of-c w-full h-full"
                     />
-                    <Avatar.Fallback className="d-f ai-c jc-c w-full h-full bg-silver-2 c-slate-8 fs-md">
+                    <Avatar.Fallback className="d-f ai-c jc-c w-full h-full c-slate-8 fs-md">
                       S
                     </Avatar.Fallback>
                   </Avatar.Root>
