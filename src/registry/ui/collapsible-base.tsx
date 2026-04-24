@@ -1,14 +1,20 @@
 "use client";
 
 import { Avatar } from "@base-ui/react/avatar";
-import { Button } from "@base-ui/react/button";
+import { Toggle } from "@base-ui/react/toggle";
 import { Collapsible } from "@base-ui/react/collapsible";
-import { ChevronRight } from "@gravity-ui/icons";
+import { Check, PersonPlus, ChevronRight } from "@gravity-ui/icons";
 import { type HTMLMotionProps, motion } from "motion/react";
 import { useState } from "react";
 
 export default function CollapsibleBase() {
   const [open, setOpen] = useState(false);
+  const [followed, setFollowed] = useState(
+    whoToFollow.users.reduce(
+      (acc, user, index) => ({ ...acc, [user.name]: index === 0 }),
+      {} as Record<string, boolean>,
+    ),
+  );
 
   return (
     <Collapsible.Root
@@ -60,9 +66,24 @@ export default function CollapsibleBase() {
                   <span className="c-slate-6 fs-xs">@{user.handle}</span>
                 </div>
               </div>
-              <Button className="d-f ai-c jc-c h-7 px-3 bg-indigo fv:bg-indigo-8 h:bg-indigo-8 c-white br-pill fs-xs fw-500 tp-c tdu-150 ttf-io us-none">
-                Follow
-              </Button>
+<Toggle
+                pressed={followed[user.name]}
+                className={`d-f ai-c jc-c w-8 h-8 p-0 br-pill tp-c tdu-150 ttf-io us-none ${
+                  followed[user.name]
+                    ? "bg-indigo fv:bg-indigo-8 h:bg-indigo-8 c-white"
+                    : "bg-white bc-indigo c-indigo bw-1"
+                }`}
+                aria-label={`Follow ${user.name}`}
+                onClick={() =>
+                  setFollowed((prev) => ({ ...prev, [user.name]: !prev[user.name] }))
+                }
+              >
+                {followed[user.name] ? (
+                  <Check className="w-4 h-4" />
+                ) : (
+                  <PersonPlus className="w-4 h-4" />
+                )}
+              </Toggle>
             </div>
           ))}
         </div>

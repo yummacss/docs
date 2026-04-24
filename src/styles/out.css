@@ -265,6 +265,10 @@ summary {
   border-color: #31365e;
 }
 
+.bc-red {
+  border-color: #e63946;
+}
+
 .bc-red-2 {
   border-color: #f8c4c8;
 }
@@ -291,6 +295,10 @@ summary {
 
 .bc-silver-4 {
   border-color: #c6cad1;
+}
+
+.bc-sky {
+  border-color: #38bdf8;
 }
 
 .bc-sky-7 {
@@ -940,6 +948,10 @@ summary {
   color: #5a5f66;
 }
 
+.c-sky {
+  color: #38bdf8;
+}
+
 .c-sky-6 {
   color: #54c6f9;
 }
@@ -1212,12 +1224,16 @@ summary {
   font-size: 1.5rem;
 }
 
-.fv\:bg-indigo-1:focus-visible {
-  background-color: #e6e7fd;
-}
-
 .fv\:bg-indigo-8:focus-visible {
   background-color: #4749ae;
+}
+
+.fv\:bg-red-8:focus-visible {
+  background-color: #a62932;
+}
+
+.fv\:bg-sky-8:focus-visible {
+  background-color: #2888b3;
 }
 
 .fv\:oc-indigo:focus-visible {
