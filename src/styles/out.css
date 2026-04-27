@@ -565,6 +565,10 @@ summary {
   background-color: #eff0f2;
 }
 
+.bg-silver-1\/30 {
+  background-color: #eff0f24d;
+}
+
 .bg-silver-1\/50 {
   background-color: #eff0f280;
 }
@@ -1558,6 +1562,10 @@ summary {
 
 .h\:bg-silver-1\/50:hover {
   background-color: #eff0f280;
+}
+
+.h\:bg-silver-1\/80:hover {
+  background-color: #eff0f2cc;
 }
 
 .h\:bg-silver-2:hover {
