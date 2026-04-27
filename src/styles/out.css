@@ -305,10 +305,6 @@ summary {
   border-color: #30a3d5;
 }
 
-.bc-slate-2 {
-  border-color: #d1d5dc;
-}
-
 .bc-slate-3 {
   border-color: #bbc2cc;
 }
@@ -1520,6 +1516,10 @@ summary {
   background-color: #e6e7fd;
 }
 
+.h\:bg-indigo-1\/50:hover {
+  background-color: #e6e7fd80;
+}
+
 .h\:bg-indigo-2:hover {
   background-color: #d0d1fb;
 }
@@ -1546,6 +1546,10 @@ summary {
 
 .h\:bg-red-1:hover {
   background-color: #fbdfe1;
+}
+
+.h\:bg-red-1\/50:hover {
+  background-color: #fbdfe180;
 }
 
 .h\:bg-red-8:hover {
