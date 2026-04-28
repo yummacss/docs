@@ -107,3 +107,4 @@ export default function DialogBase() {
       </AnimatePresence>
     </Dialog.Root>
   );
+}
