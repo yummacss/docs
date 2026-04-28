@@ -53,9 +53,8 @@ export default function AlertDialogConfirmation() {
                     <div className="w-7 h-7" />
                   </div>
                 </div>
-                <div className="bc-silver-2 bbw-1" />
-                <div className="d-f ai-c jc-c g-2 p-4">
-                  <span className="d-f ai-c jc-c w-12 h-12 bg-white c-red br-lg bw-1 bc-silver-3 bs-o-xs">
+                <div className="d-f ai-c jc-c g-2 p-4 bc-silver-2 btr-lg btw-1">
+                  <span className="d-f ai-c jc-c w-12 h-12 bc-silver-3 c-red br-lg bw-1 bs-o-xs">
                     <TrashBin className="w-6 h-6" />
                   </span>
                 </div>
@@ -69,7 +68,7 @@ export default function AlertDialogConfirmation() {
                 <div className="d-g gtc-2 g-3 px-4 py-4">
                   <AlertDialog.Close
                     render={
-                      <Button className="px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+                      <Button className="px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
                     }
                   >
                     Cancel
