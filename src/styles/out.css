@@ -751,6 +751,11 @@ summary {
   border-top-left-radius: 0.375rem;
 }
 
+.btr-lg {
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
 .btr-md {
   border-top-left-radius: 0.375rem;
   border-top-right-radius: 0.375rem;
@@ -1070,10 +1075,6 @@ summary {
 
 .c\:bg-indigo-4:checked {
   background-color: #a5a6f7;
-}
-
-.cc-slate-7 {
-  caret-color: #566478;
 }
 
 .cg-1 {
@@ -1788,10 +1789,6 @@ summary {
   max-width: 48rem;
 }
 
-.mb-0 {
-  margin-bottom: 0;
-}
-
 .mb-1 {
   margin-bottom: .25rem;
 }
@@ -1922,10 +1919,6 @@ summary {
 
 .mt-16 {
   margin-top: 4rem;
-}
-
-.mt-3 {
-  margin-top: .75rem;
 }
 
 .mt-4 {
@@ -2098,10 +2091,6 @@ summary {
 
 .p\:\:c-silver::placeholder {
   color: #9ca3af;
-}
-
-.p\:\:c-silver-6::placeholder {
-  color: #aab0ba;
 }
 
 .p\:\:fs-i::placeholder {
