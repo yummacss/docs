@@ -93,8 +93,8 @@ importers:
         specifier: ^5.1.0
         version: 5.1.0
       web-features:
-        specifier: ^3.24.0
-        version: 3.24.0
+        specifier: ^3.25.0
+        version: 3.25.0
     devDependencies:
       '@biomejs/biome':
         specifier: 2.4.13
@@ -1654,8 +1654,8 @@ packages:
   vfile@6.0.3:
     resolution: {integrity: sha512-KzIbH/9tXat2u30jf+smMwFCsno4wHVdNmzFyL+T/L3UGqqk6JKfVqOFOZEpZSHADH1k40ab6NUIXZq422ov3Q==}
 
-  web-features@3.24.0:
-    resolution: {integrity: sha512-D/e/FlTPpbTbSHwwS+8qgwP6E6TTlYnTJnSk/y80GKqlUVrtq69fpXZrcDy6GhNGgqUYtG8nOoiXj+Fh/a1dBQ==}
+  web-features@3.25.0:
+    resolution: {integrity: sha512-p4feOVUn9DU/xUdcGcM+GLWY1OPDXaTWbPNvI1jqPRg+UTQEl4RzEiRtLw1IBd5GE/XApcOYXr7ZRuWw6DR2MA==}
 
   wrap-ansi@7.0.0:
     resolution: {integrity: sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q==}
@@ -3416,7 +3416,7 @@ snapshots:
       '@types/unist': 3.0.3
       vfile-message: 4.0.3
 
-  web-features@3.24.0: {}
+  web-features@3.25.0: {}
 
   wrap-ansi@7.0.0:
     dependencies:
