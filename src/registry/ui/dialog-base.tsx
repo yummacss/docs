@@ -43,10 +43,10 @@ export default function DialogBase() {
                     transition={{ duration: 0.2, ease: "easeOut" }}
                   />
                 }
-                className="w-96 bg-white bc-silver-2 c-slate-12 br-xl bw-1 bs-o-xs"
+                className="o-h w-96 bg-white bc-silver-2 c-slate-12 br-xl bw-1 bs-o-xs"
                 style={{ maxWidth: "90vw" }}
               >
-                <div className="d-f jc-sb ai-c px-4 py-2 bg-silver-1/50 btr-xl">
+                <div className="d-f jc-sb ai-c px-4 py-2 bg-silver-1/50">
                   <Dialog.Title className="c-slate-8 fs-md fw-500">
                     Access request
                   </Dialog.Title>
@@ -107,4 +107,3 @@ export default function DialogBase() {
       </AnimatePresence>
     </Dialog.Root>
   );
-}
