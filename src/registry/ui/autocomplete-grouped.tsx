@@ -10,7 +10,7 @@ export default function AutocompleteGrouped() {
 
   return (
     <Autocomplete.Root
-      items={PRODUCT_GROUPS}
+      items={productGroups}
       open={open}
       onOpenChange={setOpen}
     >
@@ -70,7 +70,7 @@ export default function AutocompleteGrouped() {
                           )}
                         />
                       ))}
-                      {groupIndex < PRODUCT_GROUPS.length - 1 && (
+                      {groupIndex < productGroups.length - 1 && (
                         <Separator className="my-2 w-full h-px bg-silver-2" />
                       )}
                     </Autocomplete.Group>
@@ -100,7 +100,7 @@ interface ProductGroup {
   items: Product[];
 }
 
-const PRODUCT_GROUPS: ProductGroup[] = [
+const productGroups: ProductGroup[] = [
   {
     value: "MacBook",
     items: [

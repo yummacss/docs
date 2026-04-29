@@ -24,14 +24,14 @@ export default function AutocompleteLoading() {
     if (loading) {
       const timeout = setTimeout(() => {
         setLoading(false);
-        setHasResults(MUSIC.length > 0);
+        setHasResults(music.length > 0);
       }, 500);
       return () => clearTimeout(timeout);
     }
   }, [loading]);
 
   return (
-    <Autocomplete.Root items={MUSIC} open={open} onOpenChange={setOpen}>
+    <Autocomplete.Root items={music} open={open} onOpenChange={setOpen}>
       <div className="d-f fd-c g-2">
         <label htmlFor="loading-input" className="c-slate-10 fs-sm fw-500">
           Search music
@@ -186,7 +186,7 @@ interface MusicItem {
   color: string;
 }
 
-const MUSIC: MusicItem[] = [
+const music: MusicItem[] = [
   {
     name: "piano songs (part 2)",
     type: "Album",

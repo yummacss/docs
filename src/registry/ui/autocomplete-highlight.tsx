@@ -22,7 +22,7 @@ export default function AutocompleteHighlight() {
   const [query, setQuery] = useState("");
 
   return (
-    <Autocomplete.Root items={MUSIC} open={open} onOpenChange={setOpen}>
+    <Autocomplete.Root items={music} open={open} onOpenChange={setOpen}>
       <div className="d-f fd-c g-2">
         <label htmlFor="highlight-input" className="c-slate-10 fs-sm fw-500">
           Search music
@@ -99,7 +99,7 @@ interface MusicItem {
   color: string;
 }
 
-const MUSIC: MusicItem[] = [
+const music: MusicItem[] = [
   { name: "piano songs (part 2)", type: "Album", artist: "erica's garden", color: "bg-violet-3" },
   { name: "collarbone", type: "Single", artist: "The Glass Dogs", color: "bg-mint-3" },
   { name: "scaryfragile", type: "Profile", artist: "", color: "bg-silver-2" },

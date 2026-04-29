@@ -17,7 +17,7 @@ export default function AutocompleteIcon() {
   const [open, setOpen] = useState(false);
 
   return (
-    <Autocomplete.Root items={SETTINGS} open={open} onOpenChange={setOpen}>
+    <Autocomplete.Root items={settings} open={open} onOpenChange={setOpen}>
       <div className="d-f fd-c g-2">
         <label htmlFor="icon-input" className="c-slate-10 fs-sm fw-500">
           Search settings
@@ -87,7 +87,7 @@ type Setting = {
   icon: ComponentType<{ className?: string }>;
 };
 
-const SETTINGS: Setting[] = [
+const settings: Setting[] = [
   { label: "Account Settings", icon: PersonGear },
   { label: "Privacy & Security", icon: ShieldKeyhole },
   { label: "Notifications", icon: BellDot },

@@ -9,7 +9,7 @@ export default function AutocompleteAutoHighlight() {
 
   return (
     <Autocomplete.Root
-      items={TEAM_MEMBERS}
+      items={teamMembers}
       open={open}
       onOpenChange={setOpen}
       autoHighlight
@@ -93,7 +93,7 @@ interface TeamMember {
   avatar: string;
 }
 
-const TEAM_MEMBERS: TeamMember[] = [
+const teamMembers: TeamMember[] = [
   {
     name: "Sarah",
     role: "Product Designer",

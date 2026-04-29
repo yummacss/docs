@@ -8,7 +8,7 @@ export default function AutocompleteStatic() {
   const [open, setOpen] = useState(false);
 
   return (
-    <Autocomplete.Root items={USERS} open={open} onOpenChange={setOpen}>
+    <Autocomplete.Root items={users} open={open} onOpenChange={setOpen}>
       <div className="d-f fd-c g-2">
         <label
           htmlFor="autocomplete-input-static"
@@ -72,7 +72,7 @@ interface User {
   avatar: string;
 }
 
-const USERS: User[] = [
+const users: User[] = [
   {
     name: "Sarah",
     handle: "sarah",
