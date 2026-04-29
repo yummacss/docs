@@ -909,10 +909,6 @@ summary {
   cursor: nwse-resize;
 }
 
-.c-orange {
-  color: #ff6b35;
-}
-
 .c-orange-7 {
   color: #db5c2e;
 }
@@ -1385,10 +1381,6 @@ summary {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
-.h-1 {
-  height: .25rem;
-}
-
 .h-10 {
   height: 2.5rem;
 }
@@ -1595,10 +1587,6 @@ summary {
 
 .h\:c-indigo-8:hover {
   color: #4749ae;
-}
-
-.h\:c-red:hover {
-  color: #e63946;
 }
 
 .h\:c-slate-10:hover {
