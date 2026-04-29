@@ -52,7 +52,7 @@ export const uiSidebarConfig: UISidebarConfig = [
       { title: "Combobox", slug: "combobox", primitive: true },
       { title: "Context Menu", slug: "context-menu", primitive: true },
       { title: "Dialog", slug: "dialog", primitive: true },
-      { title: "Drawer", slug: "drawer", primitive: true, wip: true },
+      { title: "Drawer", slug: "drawer", primitive: true },
       { title: "Empty State", slug: "empty-state", wip: true },
       { title: "File Upload", slug: "file-upload" },
       { title: "Input", slug: "input", primitive: true },
