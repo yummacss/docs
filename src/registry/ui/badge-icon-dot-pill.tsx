@@ -2,7 +2,7 @@
 
 import { CheckDouble } from "@gravity-ui/icons";
 
-export default function BadgeDotIconPill() {
+export default function BadgeIconDotPill() {
   return (
     <div className="d-f fd-c g-6 ai-c">
       <div className="d-f ai-c g-1 px-2 py-1 bg-white bc-silver-2 br-pill bw-1 bs-o-xs">

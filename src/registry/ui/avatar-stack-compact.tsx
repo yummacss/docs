@@ -2,7 +2,7 @@
 
 import { Avatar } from "@base-ui/react/avatar";
 
-export default function AvatarCompact() {
+export default function AvatarStackCompact() {
   return (
     <div className="d-f ai-c p-px bg-white bc-silver-3 bw-1 br-pill">
       {stackMembers.map((member, index) => (
