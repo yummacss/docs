@@ -2,7 +2,7 @@
 
 import { ChevronRight, Ellipsis, House } from "@gravity-ui/icons";
 
-export default function BreadcrumbEllipsis() {
+export default function BreadcrumbCollapse() {
   return (
     <nav aria-label="Breadcrumb" className="d-f ai-c g-2">
       <a href="#" className="d-f ai-c g-2 c-slate-6 h:c-slate-10">
