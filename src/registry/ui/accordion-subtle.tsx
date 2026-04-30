@@ -5,7 +5,7 @@ import { ChevronDown } from "@gravity-ui/icons";
 import { type HTMLMotionProps, motion } from "motion/react";
 import { useState } from "react";
 
-export default function AccordionSoft() {
+export default function AccordionSubtle() {
   const [value, setValue] = useState<string[]>([]);
 
   return (
@@ -24,16 +24,14 @@ export default function AccordionSoft() {
           >
             <Accordion.Header className="m-0">
               <Accordion.Trigger className="d-f b-0 ai-c jc-sb g-3 w-full py-3 px-4 bg-transparent br-sm ta-l c-p fv:ow-2 fv:oo-1 fv:oc-indigo-6">
-                <span className="fs-sm fw-500 c-indigo-7">
-                  {item.title}
-                </span>
+                <span className="c-indigo-7 fs-sm fw-500">{item.title}</span>
                 <motion.span
                   animate={{ rotate: isOpen ? 180 : 0 }}
                   transition={{ duration: 0.15, ease: "easeInOut" }}
                   className="d-f"
                 >
                   <ChevronDown
-                    className="w-4 h-4 fs-0 c-indigo-5"
+                    className="fs-0 w-4 h-4 c-indigo-5"
                     aria-hidden
                   />
                 </motion.span>
