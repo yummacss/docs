@@ -6,7 +6,7 @@ import { useState } from "react";
 
 const limit = 5;
 
-export default function AutocompleteLimit() {
+export default function AutocompleteMaxItems() {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
 
