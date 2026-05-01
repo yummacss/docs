@@ -1,6 +1,5 @@
 "use client";
 
-import { Avatar } from "@base-ui/react/avatar";
 import { Combobox } from "@base-ui/react/combobox";
 import { Check, Xmark } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
