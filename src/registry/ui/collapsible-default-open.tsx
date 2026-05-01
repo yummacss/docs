@@ -1,8 +1,8 @@
 "use client";
 
 import { Avatar } from "@base-ui/react/avatar";
-import { Toggle } from "@base-ui/react/toggle";
 import { Collapsible } from "@base-ui/react/collapsible";
+import { Toggle } from "@base-ui/react/toggle";
 import { Bookmark, BookmarkFill, ChevronRight } from "@gravity-ui/icons";
 import { type HTMLMotionProps, motion } from "motion/react";
 import { useState } from "react";
@@ -17,10 +17,7 @@ export default function CollapsibleDefaultOpen() {
   );
 
   return (
-    <Collapsible.Root
-      defaultOpen
-      className="d-f fd-c w-72 c-slate-10 br-xl"
-    >
+    <Collapsible.Root defaultOpen className="d-f fd-c w-72 c-slate-10 br-xl">
       <Collapsible.Trigger
         className="d-f b-0 ai-c g-2 px-3 py-2 bg-white bc-silver-2 c-slate-10 br-lg bw-1 fs-sm fw-500 c-p h:bg-silver-1/50 fv:ow-2 fv:oo-2 fv:oc-indigo-6"
         onClick={() => setOpen(!open)}
@@ -64,8 +61,12 @@ export default function CollapsibleDefaultOpen() {
                   </Avatar.Fallback>
                 </Avatar.Root>
                 <div className="d-f fd-c g-0">
-                  <span className="c-slate-10 fs-sm fw-500">{playlist.name}</span>
-                  <span className="c-slate-6 fs-xs">{playlist.tracks} tracks</span>
+                  <span className="c-slate-10 fs-sm fw-500">
+                    {playlist.name}
+                  </span>
+                  <span className="c-slate-6 fs-xs">
+                    {playlist.tracks} tracks
+                  </span>
                 </div>
               </div>
               <Toggle
@@ -77,7 +78,10 @@ export default function CollapsibleDefaultOpen() {
                 }`}
                 aria-label={`Save ${playlist.name}`}
                 onClick={() =>
-                  setSaved((prev) => ({ ...prev, [playlist.id]: !prev[playlist.id] }))
+                  setSaved((prev) => ({
+                    ...prev,
+                    [playlist.id]: !prev[playlist.id],
+                  }))
                 }
               >
                 {saved[playlist.id] ? (

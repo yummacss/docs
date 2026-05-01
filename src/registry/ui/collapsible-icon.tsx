@@ -1,8 +1,8 @@
 "use client";
 
 import { Avatar } from "@base-ui/react/avatar";
-import { Toggle } from "@base-ui/react/toggle";
 import { Collapsible } from "@base-ui/react/collapsible";
+import { Toggle } from "@base-ui/react/toggle";
 import {
   Check,
   ChevronRight,
@@ -87,7 +87,10 @@ export default function CollapsibleIcon() {
                 }`}
                 aria-label={`Follow ${user.name}`}
                 onClick={() =>
-                  setFollowed((prev) => ({ ...prev, [user.name]: !prev[user.name] }))
+                  setFollowed((prev) => ({
+                    ...prev,
+                    [user.name]: !prev[user.name],
+                  }))
                 }
               >
                 {followed[user.name] ? (

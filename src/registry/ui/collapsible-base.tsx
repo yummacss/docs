@@ -1,9 +1,9 @@
 "use client";
 
 import { Avatar } from "@base-ui/react/avatar";
-import { Toggle } from "@base-ui/react/toggle";
 import { Collapsible } from "@base-ui/react/collapsible";
-import { Check, PersonPlus, ChevronRight } from "@gravity-ui/icons";
+import { Toggle } from "@base-ui/react/toggle";
+import { Check, ChevronRight, PersonPlus } from "@gravity-ui/icons";
 import { type HTMLMotionProps, motion } from "motion/react";
 import { useState } from "react";
 
@@ -66,7 +66,7 @@ export default function CollapsibleBase() {
                   <span className="c-slate-6 fs-xs">@{user.handle}</span>
                 </div>
               </div>
-<Toggle
+              <Toggle
                 pressed={followed[user.name]}
                 className={`d-f ai-c jc-c w-8 h-8 p-0 br-pill tp-c tdu-150 ttf-io us-none ${
                   followed[user.name]
@@ -75,7 +75,10 @@ export default function CollapsibleBase() {
                 }`}
                 aria-label={`Follow ${user.name}`}
                 onClick={() =>
-                  setFollowed((prev) => ({ ...prev, [user.name]: !prev[user.name] }))
+                  setFollowed((prev) => ({
+                    ...prev,
+                    [user.name]: !prev[user.name],
+                  }))
                 }
               >
                 {followed[user.name] ? (

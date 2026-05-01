@@ -1,8 +1,8 @@
 "use client";
 
 import { Avatar } from "@base-ui/react/avatar";
-import { Toggle } from "@base-ui/react/toggle";
 import { Collapsible } from "@base-ui/react/collapsible";
+import { Toggle } from "@base-ui/react/toggle";
 import { ChevronRight, Lock, LockOpen } from "@gravity-ui/icons";
 import { type HTMLMotionProps, motion } from "motion/react";
 import { useState } from "react";
@@ -75,7 +75,10 @@ export default function CollapsibleDestructive() {
                 }`}
                 aria-label={`Unblock ${user.name}`}
                 onClick={() =>
-                  setBlocked((prev) => ({ ...prev, [user.name]: !prev[user.name] }))
+                  setBlocked((prev) => ({
+                    ...prev,
+                    [user.name]: !prev[user.name],
+                  }))
                 }
               >
                 {blocked[user.name] ? (

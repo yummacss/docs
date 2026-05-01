@@ -1,9 +1,9 @@
 "use client";
 
 import { Avatar } from "@base-ui/react/avatar";
-import { Toggle } from "@base-ui/react/toggle";
 import { Collapsible } from "@base-ui/react/collapsible";
-import { Check, PersonPlus, ChevronRight } from "@gravity-ui/icons";
+import { Toggle } from "@base-ui/react/toggle";
+import { Check, ChevronRight, PersonPlus } from "@gravity-ui/icons";
 import { useState } from "react";
 
 export default function CollapsibleStatic() {
@@ -46,7 +46,7 @@ export default function CollapsibleStatic() {
                   <span className="c-slate-6 fs-xs">@{user.handle}</span>
                 </div>
               </div>
-<Toggle
+              <Toggle
                 pressed={followed[user.name]}
                 className={`d-f ai-c jc-c w-8 h-8 p-0 br-pill us-none ${
                   followed[user.name]
@@ -55,7 +55,10 @@ export default function CollapsibleStatic() {
                 }`}
                 aria-label={`Follow ${user.name}`}
                 onClick={() =>
-                  setFollowed((prev) => ({ ...prev, [user.name]: !prev[user.name] }))
+                  setFollowed((prev) => ({
+                    ...prev,
+                    [user.name]: !prev[user.name],
+                  }))
                 }
               >
                 {followed[user.name] ? (
