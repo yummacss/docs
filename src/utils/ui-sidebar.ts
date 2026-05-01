@@ -63,7 +63,6 @@ export const uiSidebarConfig: UISidebarConfig = [
       { title: "Card", slug: "card", wip: true },
       { title: "Collapsible", slug: "collapsible", primitive: true },
       { title: "Kbd", slug: "kbd", wip: true },
-      { title: "Meter", slug: "meter", primitive: true },
       { title: "Preview Card", slug: "preview-card", primitive: true },
       { title: "Progress", slug: "progress", primitive: true },
       { title: "Separator", slug: "separator", primitive: true },
