@@ -1,7 +1,7 @@
 const docsRedirects = [
   {
     source: "/docs",
-    destination: "/docs/introduction",
+    destination: "/docs/installation",
     permanent: true,
   },
   {
