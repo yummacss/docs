@@ -144,7 +144,7 @@ summary {
   accent-color: #e63946;
 }
 
-.ac-st {
+.ac-s {
   align-content: stretch;
 }
 
@@ -168,7 +168,7 @@ summary {
   align-items: flex-start;
 }
 
-.ai-st {
+.ai-s {
   align-items: stretch;
 }
 
@@ -176,7 +176,7 @@ summary {
   aspect-ratio: 1;
 }
 
-.as-st {
+.as-s {
   align-self: stretch;
 }
 
@@ -1657,12 +1657,12 @@ summary {
   justify-content: normal;
 }
 
-.jc-sb {
-  justify-content: space-between;
+.jc-s {
+  justify-content: stretch;
 }
 
-.jc-st {
-  justify-content: stretch;
+.jc-sb {
+  justify-content: space-between;
 }
 
 .l--3 {
