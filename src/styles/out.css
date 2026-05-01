@@ -1941,10 +1941,6 @@ summary {
   margin-block: .25rem;
 }
 
-.my-10 {
-  margin-block: 2.5rem;
-}
-
 .my-16 {
   margin-block: 4rem;
 }
@@ -2636,10 +2632,6 @@ summary {
 
   .sm\:gtc-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .sm\:gtc-3 {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .sm\:pt-16 {

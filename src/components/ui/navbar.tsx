@@ -82,7 +82,7 @@ export default function Navbar({
           <nav className="d-f ai-c jc-sb">
             <div className="d-f ai-c g-2">
               <Link
-                href={isUI ? "/ui/components" : "/"}
+                href={isUI ? "/ui/installation" : "/"}
                 className="fv:oc-white fv:ow-2"
               >
                 <YummaCSSDark className="d-b h-8 w-auto" />
@@ -106,7 +106,7 @@ export default function Navbar({
                     Blog
                   </Link>
                   <Link
-                    href="/ui/components"
+                    href="/ui/installation"
                     className="c-white/80 fs-sm h:c-white fv:oc-white fv:ow-2"
                   >
                     Components
