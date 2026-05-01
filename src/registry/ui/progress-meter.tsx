@@ -2,7 +2,7 @@
 
 import { Meter } from "@base-ui/react/meter";
 
-export default function MeterBase() {
+export default function ProgressMeter() {
   return (
     <Meter.Root className="d-f fd-c g-2 w-64" value={68}>
       <div className="d-f jc-sb ai-c">
