@@ -52,7 +52,7 @@ export default function Home() {
                   Get started
                 </Link>
                 <Link
-                  href="/ui/components"
+                  href="/ui/installation"
                   className="d-f ai-c g-2 px-6 py-3 c-white br-pill fw-600 fs-md us-none fv:oc-white fv:ow-2"
                 >
                   <LayersVertical className="w-5 h-5" />
