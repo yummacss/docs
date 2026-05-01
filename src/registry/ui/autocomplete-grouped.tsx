@@ -9,11 +9,7 @@ export default function AutocompleteGrouped() {
   const [open, setOpen] = useState(false);
 
   return (
-    <Autocomplete.Root
-      items={productGroups}
-      open={open}
-      onOpenChange={setOpen}
-    >
+    <Autocomplete.Root items={productGroups} open={open} onOpenChange={setOpen}>
       <div className="d-f fd-c g-2">
         <label htmlFor="grouped-input" className="c-slate-10 fs-sm fw-500">
           Search products
