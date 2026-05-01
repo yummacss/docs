@@ -3,7 +3,7 @@
 import { Checkbox } from "@base-ui/react/checkbox";
 import { Check } from "@gravity-ui/icons";
 
-export default function CheckboxReadonly() {
+export default function CheckboxReadOnly() {
   return (
     <label className="d-f ai-c g-2 c-slate-10 fs-sm fw-500">
       <Checkbox.Root
