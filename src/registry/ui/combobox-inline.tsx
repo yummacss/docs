@@ -2,7 +2,7 @@
 
 import { Avatar } from "@base-ui/react/avatar";
 import { Combobox } from "@base-ui/react/combobox";
-import { Check, Magnifier } from "@gravity-ui/icons";
+import { Check, Magnifier, Xmark } from "@gravity-ui/icons";
 
 function ItemIcon({
   selected,
@@ -11,11 +11,8 @@ function ItemIcon({
   selected: boolean;
   className?: string;
 }) {
-  return selected ? (
-    <Check className={`fs-0 w-4 h-4 c-indigo-6 ${className}`} />
-  ) : (
-    <Check className={`fs-0 w-4 h-4 c-transparent ${className}`} />
-  );
+  if (!selected) return null;
+  return <Check className={`fs-0 w-4 h-4 c-indigo-6 ${className}`} />;
 }
 
 export default function ComboboxInline() {
@@ -24,10 +21,20 @@ export default function ComboboxInline() {
       <Combobox.Root inline items={users}>
         <div className="d-f ai-c g-2 px-3 bc-silver-3 bbw-1">
           <Magnifier className="fs-0 w-4 h-4 c-slate-4" />
-          <Combobox.Input
-            placeholder="Mention user..."
-            className="f-1 h-10 bg-transparent c-slate-10 fs-md"
-          />
+          <div className="p-r">
+            <Combobox.Input
+              placeholder="Mention user..."
+              className="h-10 pl-4 pr-10 w-64 bg-transparent c-slate-10 fs-md"
+            />
+            <div className="d-f p-a r-2 b-0 ai-c jc-c h-10 c-slate-6">
+              <Combobox.Clear
+                className="d-f b-0 ai-c jc-c w-6 h-6 p-0 bg-transparent c-slate-6 br-sm c-p h:c-slate-10"
+                aria-label="Clear selection"
+              >
+                <Xmark className="w-4 h-4" />
+              </Combobox.Clear>
+            </div>
+          </div>
         </div>
         <Combobox.List className="oy-auto py-1 max-h-52">
           {(user: User) => (
