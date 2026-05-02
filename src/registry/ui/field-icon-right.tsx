@@ -1,6 +1,5 @@
 "use client";
 
-import { Button } from "@base-ui/react/button";
 import { Field } from "@base-ui/react/field";
 import { Magnifier } from "@gravity-ui/icons";
 
@@ -18,12 +17,9 @@ export default function FieldIconRight() {
           aria-label="Search in store"
           className="h-10 w-64 pl-4 pr-10 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md bs-o-xs fv:oo--1 fv:oc-indigo-6"
         />
-        <Button
-          className="d-f p-a r-3 ai-c jc-c c-slate-6 c-p us-none"
-          aria-label="Search"
-        >
+        <div className="d-f ai-c jc-c p-a r-3 c-slate-6">
           <Magnifier className="w-4 h-4" />
-        </Button>
+        </div>
       </div>
     </Field.Root>
   );
