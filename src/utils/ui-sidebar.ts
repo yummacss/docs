@@ -45,7 +45,7 @@ export const uiSidebarConfig: UISidebarConfig = [
       { title: "Combobox", slug: "combobox", primitive: true },
       { title: "File Upload", slug: "file-upload" },
       { title: "Input", slug: "input", primitive: true },
-      
+
       { title: "Radio", slug: "radio", primitive: true },
       { title: "Select", slug: "select", primitive: true },
       { title: "Slider", slug: "slider", primitive: true },
