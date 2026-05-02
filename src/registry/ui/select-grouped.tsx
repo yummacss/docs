@@ -15,20 +15,22 @@ export default function SelectGrouped() {
         htmlFor="select-grouped"
         className="c-slate-10 fs-sm fw-500 us-none"
       >
-        Category
+        Tech Stack
       </label>
       <Select.Root defaultValue={null} open={open} onOpenChange={setOpen}>
         <Select.Trigger
           id="select-grouped"
-          className={`d-f ai-c jc-sb h-10 w-64 bw-1 bc-silver-3 br-lg bg-white px-3 c-slate-10 us-none c-p fv:oo--1 fv:oc-indigo-5 ${
+          className={`d-f ai-c jc-sb h-10 w-64 bw-1 bc-silver-3 br-lg bg-white px-3 c-slate-10 us-none c-p bs-o-xs fv:oo--1 fv:oc-indigo-5 ${
             open ? "bg-silver-1/50" : "bg-transparent"
           }`}
         >
           <Select.Value>
             {(value) =>
               value
-                ? categories.find((c) => c.items.some((i) => i.value === value))?.items.find((i) => i.value === value)?.label
-                : "Select category..."
+                ? categories
+                    .flatMap((c) => c.items)
+                    .find((i) => i.value === value)?.label
+                : "Select stack..."
             }
           </Select.Value>
           <Select.Icon className="d-f c-slate-8">
@@ -53,7 +55,7 @@ export default function SelectGrouped() {
                   <Select.List className="p-r o-a">
                     {categories.map((group) => (
                       <Select.Group key={group.groupLabel}>
-                        <Select.GroupLabel className="px-3 py-1 fs-xs fw-600 c-slate-6">
+                        <Select.GroupLabel className="px-3 py-1 fs-xs fw-500 tt-u ls-3 c-slate-6">
                           {group.groupLabel}
                         </Select.GroupLabel>
                         {group.items.map(({ label, value }) => (
@@ -85,19 +87,27 @@ export default function SelectGrouped() {
 
 const categories = [
   {
-    groupLabel: "Fruits",
+    groupLabel: "Framework",
     items: [
-      { label: "Apple", value: "apple" },
-      { label: "Banana", value: "banana" },
-      { label: "Orange", value: "orange" },
+      { label: "Next.js", value: "nextjs" },
+      { label: "Astro", value: "astro" },
+      { label: "Remix", value: "remix" },
     ],
   },
   {
-    groupLabel: "Vegetables",
+    groupLabel: "Styling",
     items: [
-      { label: "Carrot", value: "carrot" },
-      { label: "Lettuce", value: "lettuce" },
-      { label: "Spinach", value: "spinach" },
+      { label: "Yumma CSS", value: "yummacss" },
+      { label: "Vanilla", value: "vanilla" },
+      { label: "CSS Modules", value: "cssmodules" },
+    ],
+  },
+  {
+    groupLabel: "Data",
+    items: [
+      { label: "tRPC", value: "trpc" },
+      { label: "REST", value: "rest" },
+      { label: "GraphQL", value: "graphql" },
     ],
   },
 ];

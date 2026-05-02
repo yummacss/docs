@@ -15,12 +15,12 @@ export default function SelectBase() {
         htmlFor="select-status"
         className="c-slate-10 fs-sm fw-500 us-none"
       >
-        Status
+        Task Status
       </label>
       <Select.Root defaultValue={null} open={open} onOpenChange={setOpen}>
         <Select.Trigger
           id="select-status"
-          className={`d-f ai-c jc-sb h-10 w-64 bw-1 bc-silver-3 br-lg bg-white px-3 c-slate-10 us-none c-p fv:oo--1 fv:oc-indigo-5 ${
+          className={`d-f ai-c jc-sb h-10 w-64 bw-1 bc-silver-3 br-lg bg-white px-3 c-slate-10 us-none c-p bs-o-xs fv:oo--1 fv:oc-indigo-5 ${
             open ? "bg-silver-1/50" : "bg-transparent"
           }`}
         >
@@ -81,8 +81,8 @@ export default function SelectBase() {
 }
 
 const statuses = [
-  { label: "Draft", value: "draft" },
-  { label: "In Review", value: "in-review" },
-  { label: "Published", value: "published" },
-  { label: "Archived", value: "archived" },
+  { label: "To Do", value: "todo" },
+  { label: "In Progress", value: "in-progress" },
+  { label: "Done", value: "done" },
+  { label: "Blocked", value: "blocked" },
 ];
