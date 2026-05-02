@@ -40,7 +40,11 @@ export default function SelectGrouped() {
         <AnimatePresence>
           {open && (
             <Select.Portal>
-              <Select.Positioner sideOffset={6} alignItemWithTrigger={false} className="zi-10 ow-0 us-none p-0">
+              <Select.Positioner
+                sideOffset={6}
+                alignItemWithTrigger={false}
+                className="zi-10 p-0 ow-0 us-none"
+              >
                 <Select.Popup
                   render={
                     <motion.div
@@ -55,7 +59,7 @@ export default function SelectGrouped() {
                   <Select.List className="p-r o-a">
                     {categories.map((group) => (
                       <Select.Group key={group.groupLabel}>
-                        <Select.GroupLabel className="px-3 py-1 fs-xs fw-500 tt-u ls-3 c-slate-6">
+                        <Select.GroupLabel className="px-3 py-1 c-slate-6 fs-xs fw-500 tt-u ls-3">
                           {group.groupLabel}
                         </Select.GroupLabel>
                         {group.items.map(({ label, value }) => (
@@ -90,16 +94,8 @@ const categories = [
     groupLabel: "Framework",
     items: [
       { label: "Next.js", value: "nextjs" },
+      { label: "Tanstack", value: "tanstack" },
       { label: "Astro", value: "astro" },
-      { label: "Remix", value: "remix" },
-    ],
-  },
-  {
-    groupLabel: "Styling",
-    items: [
-      { label: "Yumma CSS", value: "yummacss" },
-      { label: "Vanilla", value: "vanilla" },
-      { label: "CSS Modules", value: "cssmodules" },
     ],
   },
   {
