@@ -5,7 +5,7 @@ export default function InputBase() {
     <Input
       placeholder="Search projects..."
       aria-label="Search projects"
-      className="h-10 w-64 pl-4 bg-white bc-silver-3 c-slate-10 br-md bw-1 fs-md bs-o-xs fv:ow-2 fv:oo-2 fv:oc-indigo-6"
+      className="h-10 w-64 pl-4 bg-white bc-silver-3 c-slate-10 br-lg bw-1 fs-md bs-o-xs fv:ow-2 fv:oo-2 fv:oc-indigo-6"
     />
   );
 }
