@@ -3,13 +3,30 @@
 import { Combobox } from "@base-ui/react/combobox";
 import { Check, Xmark } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
-import { type ReactNode, useState } from "react";
+import { useState } from "react";
 
 function ItemIcon({ selected }: { selected: boolean }) {
   return selected ? (
     <Check className="fs-0 w-4 h-4 c-indigo-6" />
   ) : (
     <Check className="fs-0 w-4 h-4 c-transparent" />
+  );
+}
+
+function ChipItem({ chip }: { chip: string }) {
+  return (
+    <Combobox.Chip
+      key={chip}
+      className="d-f ai-c g-1 px-2 py-0 h-6 bg-indigo-1 bc-indigo-2 c-indigo-7 bw-1 br-pill fs-xs fw-500"
+    >
+      {chip}
+      <Combobox.ChipRemove
+        className="d-f b-0 ai-c jc-c p-0 bg-transparent c-indigo-5 c-p h:c-indigo-8"
+        aria-label={`Remove ${chip}`}
+      >
+        <Xmark className="w-3 h-3" />
+      </Combobox.ChipRemove>
+    </Combobox.Chip>
   );
 }
 
@@ -23,23 +40,8 @@ export default function ComboboxMultiple() {
           Assign role
         </label>
         <div className="d-f fw-w ai-c g-1 min-h-10 w-72 px-2 py-1 bg-white bc-silver-3 bw-1 br-lg bs-o-xs fw:os-s fw:ow-2 fw:oo-2 fw:oc-indigo-6">
-          <Combobox.Chips className="d-c g-1">
-            {
-              ((chip: string) => (
-                <Combobox.Chip
-                  key={chip}
-                  className="d-f ai-c g-1 px-2 py-0 h-6 bg-indigo-1 bc-indigo-2 c-indigo-7 bw-1 br-pill fs-xs fw-500"
-                >
-                  {chip}
-                  <Combobox.ChipRemove
-                    className="d-f b-0 ai-c jc-c p-0 bg-transparent c-indigo-5 c-p h:c-indigo-8"
-                    aria-label={`Remove ${chip}`}
-                  >
-                    <Xmark className="w-3 h-3" />
-                  </Combobox.ChipRemove>
-                </Combobox.Chip>
-              )) as unknown as ReactNode
-            }
+          <Combobox.Chips>
+            {((chip: string) => <ChipItem chip={chip} />) as any}
           </Combobox.Chips>
           <Combobox.Input
             id="role-input"
