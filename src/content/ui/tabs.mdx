@@ -33,6 +33,8 @@ Free, accessible React tabs components built with Base UI for tabbed content, se
 
 ### Underline
 
+An underlined style for active tab indicators.
+
 <Tabs defaultValue="preview">
   <TabsList>
     <TabsTab value="preview">Preview</TabsTab>
@@ -50,6 +52,8 @@ Free, accessible React tabs components built with Base UI for tabbed content, se
 ---
 
 ### Pills
+
+A pill-shaped style for tab containers with rounded corners.
 
 <Tabs defaultValue="preview">
   <TabsList>
@@ -69,6 +73,8 @@ Free, accessible React tabs components built with Base UI for tabbed content, se
 
 ### Disabled
 
+Prevent user interaction with specific tabs using the `disabled` prop.
+
 <Tabs defaultValue="preview">
   <TabsList>
     <TabsTab value="preview">Preview</TabsTab>
@@ -79,24 +85,6 @@ Free, accessible React tabs components built with Base UI for tabbed content, se
   </TabsPanel>
   <TabsPanel value="code">
     ```tsx registryId="tabs-disabled"
-    ```
-  </TabsPanel>
-</Tabs>
-
----
-
-### Static
-
-<Tabs defaultValue="preview">
-  <TabsList>
-    <TabsTab value="preview">Preview</TabsTab>
-    <TabsTab value="code">Code</TabsTab>
-  </TabsList>
-  <TabsPanel className="bg-white bbr-sm" value="preview">
-    <p className="c-red ta-c">Coming Soon…</p>
-  </TabsPanel>
-  <TabsPanel value="code">
-    ```tsx registryId="tabs-static"
     ```
   </TabsPanel>
 </Tabs>
@@ -115,6 +103,24 @@ Free, accessible React tabs components built with Base UI for tabbed content, se
   </TabsPanel>
   <TabsPanel value="code">
     ```tsx registryId="tabs-vertical"
+    ```
+  </TabsPanel>
+</Tabs>
+
+---
+
+### Static
+
+<Tabs defaultValue="preview">
+  <TabsList>
+    <TabsTab value="preview">Preview</TabsTab>
+    <TabsTab value="code">Code</TabsTab>
+  </TabsList>
+  <TabsPanel className="bg-white bbr-sm" value="preview">
+    <p className="c-red ta-c">Coming Soon…</p>
+  </TabsPanel>
+  <TabsPanel value="code">
+    ```tsx registryId="tabs-static"
     ```
   </TabsPanel>
 </Tabs>

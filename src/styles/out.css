@@ -1845,10 +1845,6 @@ summary {
   min-width: 0;
 }
 
-.min-w-40 {
-  min-width: 10rem;
-}
-
 .min-w-fc {
   min-width: fit-content;
 }
