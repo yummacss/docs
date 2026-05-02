@@ -41,7 +41,7 @@ Select a range between two values using the range prop.
     <TabsTab value="code">Code</TabsTab>
   </TabsList>
   <TabsPanel className="bg-white bbr-sm" value="preview">
-    <p className="c-red ta-c">Coming Soon…</p>
+    <Preview className="bw-0" registryId="slider-range" />
   </TabsPanel>
   <TabsPanel value="code">
     ```tsx registryId="slider-range"
@@ -93,13 +93,15 @@ A custom knob style for slider handles with different shapes.
 
 ### Disabled
 
+Prevent user interaction with the slider using the `disabled` prop.
+
 <Tabs defaultValue="preview">
   <TabsList>
     <TabsTab value="preview">Preview</TabsTab>
     <TabsTab value="code">Code</TabsTab>
   </TabsList>
   <TabsPanel className="bg-white bbr-sm" value="preview">
-    <p className="c-red ta-c">Coming Soon…</p>
+    <Preview className="bw-0" registryId="slider-disabled" />
   </TabsPanel>
   <TabsPanel value="code">
     ```tsx registryId="slider-disabled"
