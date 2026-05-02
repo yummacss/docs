@@ -20,7 +20,7 @@ export default function SelectGrouped() {
       <Select.Root defaultValue={null} open={open} onOpenChange={setOpen}>
         <Select.Trigger
           id="select-grouped"
-          className={`d-f ai-c jc-sb h-10 w-64 bw-1 bc-silver-3 br-lg bg-white px-3 c-slate-10 us-none c-p fv:oo-2 fv:oc-indigo-5 ${
+          className={`d-f ai-c jc-sb h-10 w-64 bw-1 bc-silver-3 br-lg bg-white px-3 c-slate-10 us-none c-p fv:oo--1 fv:oc-indigo-5 ${
             open ? "bg-silver-1/50" : "bg-transparent"
           }`}
         >
@@ -38,7 +38,7 @@ export default function SelectGrouped() {
         <AnimatePresence>
           {open && (
             <Select.Portal>
-              <Select.Positioner sideOffset={6} className="zi-10 ow-0 us-none p-0">
+              <Select.Positioner sideOffset={6} alignItemWithTrigger={false} className="zi-10 ow-0 us-none p-0">
                 <Select.Popup
                   render={
                     <motion.div
