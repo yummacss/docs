@@ -68,7 +68,7 @@ export default function AlertDialogConfirmation() {
                 <div className="d-g gtc-2 g-3 px-4 py-4">
                   <AlertDialog.Close
                     render={
-                      <Button className="px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+                      <Button className="px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:ow-2 fv:oo-2 fv:oc-indigo-5" />
                     }
                   >
                     Cancel

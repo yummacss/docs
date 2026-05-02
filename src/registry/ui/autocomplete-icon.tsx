@@ -22,12 +22,12 @@ export default function AutocompleteIcon() {
         <label htmlFor="icon-input" className="c-slate-10 fs-sm fw-500">
           Search settings
         </label>
-        <div className="d-f ai-c p-r">
-          <Magnifier className="p-a l-3 c-slate-5 w-4 h-4" />
+        <div className="d-f p-r ai-c">
+          <Magnifier className="p-a l-3 w-4 h-4 c-slate-5" />
           <Autocomplete.Input
             id="icon-input"
             placeholder="Account, Privacy, & more"
-            className="h-10 w-64 pl-10 pr-4 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md bs-o-xs fv:ow-2 fv:oo--1 fv:oc-indigo-6"
+            className="h-10 w-64 pl-10 pr-4 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md bs-o-xs fv:ow-2 fv:oo--1 fv:oc-indigo-5"
           />
         </div>
       </div>

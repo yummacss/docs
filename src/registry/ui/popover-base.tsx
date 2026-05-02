@@ -11,7 +11,7 @@ export default function PopoverBase() {
   return (
     <Popover.Root open={open} onOpenChange={setOpen}>
       <Popover.Trigger
-        className={`d-f ai-c jc-c w-10 h-10 bw-1 bc-silver-2 br-md bg-white c-slate-10 us-none c-p h:bg-silver-1 fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+        className={`d-f ai-c jc-c w-10 h-10 bw-1 bc-silver-2 br-md bg-white c-slate-10 us-none c-p h:bg-silver-1 fv:ow-2 fv:oo-2 fv:oc-indigo-5 ${
           open ? "bg-silver-1" : ""
         }`}
       >

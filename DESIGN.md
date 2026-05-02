@@ -138,11 +138,11 @@ Default `outline-width` is already 2px. Adding `fv:ow-2` explicitly is redundant
 ### Examples
 
 ```
-Standard (default):     fv:oo--1 fv:oc-indigo-6    (inputs, triggers, menu items)
-Buttons:              fv:oo-2 fv:oc-indigo-6    (primary, secondary, danger buttons)
+Standard (default):     fv:oo--1 fv:oc-indigo-5    (inputs, triggers, menu items)
+Buttons:              fv:oo-2 fv:oc-indigo-5    (primary, secondary, danger buttons)
 Danger buttons:        fv:oo-2 fv:oc-red-6
-Accordion triggers:   fv:oo--1 fv:oc-indigo-6    (tighter offset for triggers)
-Checked checkbox:    fv:oo-1 fv:oc-indigo-6    (needs offset from bg-indigo)
+Accordion triggers:   fv:oo--1 fv:oc-indigo-5    (tighter offset for triggers)
+Checked checkbox:    fv:oo-1 fv:oc-indigo-5    (needs offset from bg-indigo)
 ```
 
 Never use `outline: none` without a visible replacement.
@@ -339,12 +339,12 @@ const AVATARS = [
 
 ### Standard button (primary)
 ```tsx
-<Button className="d-if ai-c px-3 py-2 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-md bw-1 fw-500 bs-o-md tp-c tdu-150 ttf-io us-none fv:oo-2 fv:oc-indigo-6">
+<Button className="d-if ai-c px-3 py-2 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-md bw-1 fw-500 bs-o-md tp-c tdu-150 ttf-io us-none fv:oo-2 fv:oc-indigo-5">
 ```
 
 ### Standard button (secondary)
 ```tsx
-<Button className="d-if ai-c px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-500 bs-o-xs tp-c tdu-150 ttf-io us-none c-p h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-6">
+<Button className="d-if ai-c px-3 py-2 bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-500 bs-o-xs tp-c tdu-150 ttf-io us-none c-p h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5">
 ```
 
 ### Standard button (danger)
@@ -354,12 +354,12 @@ const AVATARS = [
 
 ### Standard input
 ```tsx
-<Input className="h-10 w-64 pl-4 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md bs-o-xs fv:oo--1 fv:oc-indigo-6" />
+<Input className="h-10 w-64 pl-4 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md bs-o-xs fv:oo--1 fv:oc-indigo-5" />
 ```
 
 ### Standard trigger (button that opens a panel)
 ```tsx
-<Trigger className="d-f b-0 ai-c g-2 px-3 py-2 h-fc bg-white bc-silver-2 c-slate-10 br-lg bw-1 fw-500 bs-o-xs tp-c tdu-150 ttf-io us-none c-p h:bg-silver-1/50 fv:oo--1 fv:oc-indigo-6">
+<Trigger className="d-f b-0 ai-c g-2 px-3 py-2 h-fc bg-white bc-silver-2 c-slate-10 br-lg bw-1 fw-500 bs-o-xs tp-c tdu-150 ttf-io us-none c-p h:bg-silver-1/50 fv:oo--1 fv:oc-indigo-5">
 ```
 
 ### Floating panel popup
@@ -389,7 +389,7 @@ const AVATARS = [
 
 ### Small pill CTA (inside cards/collapsibles)
 ```tsx
-<Button className="d-f ai-c jc-c h-7 px-3 bg-indigo h:bg-indigo-8 c-white br-pill fs-xs fw-500 tp-c tdu-150 ttf-io us-none fv:oo-2 fv:oc-indigo-6">
+<Button className="d-f ai-c jc-c h-7 px-3 bg-indigo h:bg-indigo-8 c-white br-pill fs-xs fw-500 tp-c tdu-150 ttf-io us-none fv:oo-2 fv:oc-indigo-5">
   Follow
 </Button>
 ```
@@ -399,7 +399,7 @@ const AVATARS = [
 Popup: o-h w-96 bg-white bc-silver-2 c-slate-12 br-md bw-1 bs-o-lg
   Header: d-f jc-sb ai-c px-4 py-2 bg-silver-1/50
     Title: fs-md fw-500
-    Close button: d-f b-0 ai-c jc-c w-7 h-7 bg-transparent c-slate-6 br-md h:bg-silver-2 fv:oo-2 fv:oc-indigo-6
+    Close button: d-f b-0 ai-c jc-c w-7 h-7 bg-transparent c-slate-6 br-md h:bg-silver-2 fv:oo-2 fv:oc-indigo-5
   Divider: bc-silver-2 bbw-1 (empty div)
   [Optional accent header]: d-f ai-c g-3 px-4 py-3 bg-indigo-1/50
     Icon box: d-f ai-c jc-c fs-0 w-10 h-10 bg-white bc-silver-2 c-indigo br-md bw-1 bs-o-xs
@@ -416,7 +416,7 @@ Menubar trigger buttons use `br-lg` and `h-8`. When open: `bg-silver-1/50`. When
 
 ### Toggle item inside toolbar/toggle group
 ```tsx
-className={`d-f w-9 h-9 ai-c jc-c bw-0 br-md us-none c-p fv:oo--1 fv:oc-indigo-6 ${
+className={`d-f w-9 h-9 ai-c jc-c bw-0 br-md us-none c-p fv:oo--1 fv:oc-indigo-5 ${
   state.pressed ? "bg-indigo c-white" : "bg-transparent c-slate-8 h:bg-silver-1 h:c-slate-10"
 }`}
 ```

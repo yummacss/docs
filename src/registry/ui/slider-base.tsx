@@ -16,7 +16,7 @@ export default function SliderBase() {
         <Slider.Control className="d-f ai-c py-3 us-none ta-none">
           <Slider.Track className="p-r h-2 w-full bg-silver-2 bc-silver-3 br-pill bw-1">
             <Slider.Indicator className="bg-indigo br-pill" />
-            <Slider.Thumb className="w-5 h-5 bg-white bc-silver-3 br-pill bw-1 bs-o-sm us-none fv:ow-2 fv:oo-2 fv:oc-indigo-6" />
+            <Slider.Thumb className="w-5 h-5 bg-white bc-silver-3 br-pill bw-1 bs-o-sm us-none fv:ow-2 fv:oo-2 fv:oc-indigo-5" />
           </Slider.Track>
         </Slider.Control>
       </Slider.Root>

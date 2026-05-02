@@ -24,7 +24,7 @@ export default function AccordionMultipleBordered() {
             className="bg-white bc-silver-3 bw-1 br-md"
           >
             <Accordion.Header className="m-0">
-              <Accordion.Trigger className="d-f b-0 ai-c jc-sb g-3 w-full py-3 px-4 bg-transparent br-sm ta-l c-p fv:ow-2 fv:oo-1 fv:oc-indigo-6">
+              <Accordion.Trigger className="d-f b-0 ai-c jc-sb g-3 w-full py-3 px-4 bg-transparent br-sm ta-l c-p fv:ow-2 fv:oo-1 fv:oc-indigo-5">
                 <span className="c-slate-8 fs-sm fw-500">{item.title}</span>
                 <motion.span
                   animate={{ rotate: isOpen ? 180 : 0 }}

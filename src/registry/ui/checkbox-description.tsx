@@ -9,7 +9,7 @@ export default function CheckboxDescription() {
       <label className="d-f ai-c g-2 c-slate-10 fs-sm fw-500">
         <Checkbox.Root
           className={(state) =>
-            `d-f w-4 h-4 ai-c jc-c br-sm fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+            `d-f w-4 h-4 ai-c jc-c br-sm fv:ow-2 fv:oo-2 fv:oc-indigo-5 ${
               state.checked
                 ? "bg-indigo"
                 : "bw-1 bc-silver-3 bg-transparent bs-o-xs"
@@ -22,7 +22,7 @@ export default function CheckboxDescription() {
         </Checkbox.Root>
         Email notifications
       </label>
-      <span className="c-slate-6 fs-xs ml-6">
+      <span className="ml-6 c-slate-6 fs-xs">
         Receive updates about your account activity
       </span>
     </div>
