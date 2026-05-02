@@ -1,21 +1,18 @@
 "use client";
 
 import { Slider } from "@base-ui/react/slider";
-import { useState } from "react";
 
-export default function SliderBase() {
-  const [value, setValue] = useState(50);
-
+export default function SliderDisabled() {
   return (
     <div className="d-f fd-c g-2 w-64">
       <div className="d-f jc-sb ai-c">
         <label className="c-slate-10 fs-sm fw-500 us-none">Brightness</label>
-        <span className="c-slate-8 fs-sm">{value}%</span>
+        <span className="c-slate-8 fs-sm">50%</span>
       </div>
-      <Slider.Root value={value} onValueChange={setValue}>
-        <Slider.Control className="d-f ai-c py-3 us-none ta-none">
+      <Slider.Root value={50} disabled>
+        <Slider.Control className="d-f ai-c py-3 o-50 us-none ta-none c-na">
           <Slider.Track className="p-r h-2 w-full bg-silver-1 br-pill">
-            <Slider.Indicator className="bg-indigo br-pill" />
+            <Slider.Indicator className="bg-indigo-2 br-pill" />
             <Slider.Thumb className="w-5 h-5 bg-white bc-silver-3 br-pill bw-1 bs-o-sm fv:ow-2 fv:oo-2 fv:oc-indigo-5" />
           </Slider.Track>
         </Slider.Control>
