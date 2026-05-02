@@ -1,7 +1,7 @@
 "use client";
 
-import { Eye, EyeSlash } from "@gravity-ui/icons";
 import { Field } from "@base-ui/react/field";
+import { Eye, EyeSlash } from "@gravity-ui/icons";
 import { useState } from "react";
 
 export default function InputPassword() {
@@ -9,7 +9,9 @@ export default function InputPassword() {
 
   return (
     <Field.Root className="d-f fd-c g-2 c-slate-10 fs-sm">
-      <Field.Label className="fw-500">Password <span className="c-red-5">*</span></Field.Label>
+      <Field.Label className="fw-500">
+        Password <span className="c-red-5">*</span>
+      </Field.Label>
       <div className="d-f ai-c w-64 bg-white bc-silver-3 bw-1 br-lg bs-o-xs fv:ow-2 fv:oo-2 fv:oc-indigo-6">
         <input
           type={visible ? "text" : "password"}
