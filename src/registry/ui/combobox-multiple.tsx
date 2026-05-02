@@ -6,11 +6,8 @@ import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
 function ItemIcon({ selected }: { selected: boolean }) {
-  return selected ? (
-    <Check className="fs-0 w-4 h-4 c-indigo-6" />
-  ) : (
-    <Check className="fs-0 w-4 h-4 c-transparent" />
-  );
+  if (!selected) return null;
+  return <Check className="fs-0 w-4 h-4 c-indigo-6" />;
 }
 
 function ChipItem({ chip }: { chip: string }) {
@@ -35,23 +32,34 @@ export default function ComboboxMultiple() {
 
   return (
     <Combobox.Root multiple items={roles} open={open} onOpenChange={setOpen}>
-      <div className="d-f fd-c g-2 c-slate-10 fs-sm">
+      <div className="d-f p-r fd-c g-2 c-slate-10 fs-sm">
         <label htmlFor="role-input" className="fw-500">
           Assign role
         </label>
-        <div className="d-f fw-w ai-c g-1 min-h-10 w-72">
+        <div className="p-r">
+          <Combobox.Chips className="d-f fw-w ai-c g-1 px-3 py-1">
+            {((chip: string) => <ChipItem chip={chip} />) as any}
+          </Combobox.Chips>
           <Combobox.Input
             id="role-input"
             placeholder="Assign role..."
-            className="f-1 min-w-16 px-3 py-2 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md bs-o-xs fv:oo--1 fv:oc-indigo-6"
+            className="h-10 w-64 pr-10 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md bs-o-xs fv:oo--1 fv:oc-indigo-6"
           />
+          <div className="d-f p-a r-2 b-0 ai-c jc-c h-10 c-slate-6">
+            <Combobox.Clear
+              className="d-f b-0 ai-c jc-c w-6 h-6 p-0 bg-transparent c-slate-6 br-sm c-p h:c-slate-10 fv:oo--1 fv:oc-indigo-6"
+              aria-label="Clear selection"
+            >
+              <Xmark className="w-4 h-4" />
+            </Combobox.Clear>
+          </div>
         </div>
       </div>
 
       <AnimatePresence>
         {open && (
           <Combobox.Portal keepMounted>
-            <Combobox.Positioner className="ow-0" sideOffset={12}>
+            <Combobox.Positioner className="ow-0" sideOffset={8}>
               <Combobox.Popup
                 render={
                   <motion.div
@@ -61,7 +69,7 @@ export default function ComboboxMultiple() {
                     transition={{ duration: 0.1, ease: "easeOut" }}
                   />
                 }
-                className="o-h w-72 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-lg"
+                className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-lg"
               >
                 <Combobox.List className="oy-auto py-1 max-h-56 ow-0">
                   {(role: string) => (
