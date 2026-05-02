@@ -9,14 +9,14 @@ export default function FieldError() {
       <Field.Label className="fw-500">
         Post caption <span className="c-red-5">*</span>
       </Field.Label>
-      <div className="d-f ai-c w-64 bg-white bc-red-5 bw-1 br-lg bs-o-xs">
-        <input
+      <div className="d-f ai-c p-r">
+        <Field.Control
           type="text"
           placeholder="Add a caption..."
           aria-label="Add a caption"
-          className="h-10 f-1 pl-4 pr-2 bg-transparent c-slate-10 fs-md us-none fv:oo--1 fv:oc-red-5"
+          className="h-10 w-64 pl-4 pr-10 bg-white bc-red-5 c-slate-10 bw-1 br-lg fs-md bs-o-xs fv:oo--1 fv:oc-red-5"
         />
-        <div className="d-f ai-c jc-c pr-3 c-red-5">
+        <div className="d-f ai-c jc-c p-a r-3 c-red-5">
           <CircleInfo className="w-4 h-4" />
         </div>
       </div>
