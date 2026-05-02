@@ -12,7 +12,7 @@ export default function InputSuccess() {
           type="text"
           placeholder="@handle"
           aria-label="Change username"
-          defaultValue="@sarah_connor"
+          defaultValue="@sarah"
           className="f-1 h-10 pl-4 pr-2 bg-transparent c-slate-10 fs-md us-none"
         />
         <div className="d-f ai-c jc-c pr-3 c-mint-5">
