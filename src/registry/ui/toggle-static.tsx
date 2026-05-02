@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@base-ui/react/button";
 import { Toggle } from "@base-ui/react/toggle";
 import { PauseFill, PlayFill } from "@gravity-ui/icons";
 
@@ -15,13 +16,13 @@ export default function ToggleStatic() {
         }`
       }
       render={(props, state) => (
-        <button type="button" {...(props as any)}>
+        <Button type="button" {...(props as any)}>
           {state.pressed ? (
             <PauseFill className="w-5 h-5" />
           ) : (
             <PlayFill className="w-5 h-5" />
           )}
-        </button>
+        </Button>
       )}
     />
   );

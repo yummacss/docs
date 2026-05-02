@@ -5,16 +5,20 @@ import { Magnifier } from "@gravity-ui/icons";
 
 export default function FieldIcon() {
   return (
-    <Field.Root className="d-f ai-c w-64 bg-white bc-silver-3 bw-1 br-lg bs-o-xs">
-      <div className="d-f ai-c jc-c pl-3 c-slate-6">
-        <Magnifier className="w-4 h-4" />
+    <Field.Root className="d-f fd-c g-2">
+      <label htmlFor="icon-input" className="c-slate-10 fs-sm fw-500">
+        Search products
+      </label>
+      <div className="d-f ai-c p-r">
+        <Magnifier className="p-a l-3 c-slate-5 w-4 h-4" />
+        <Field.Control
+          id="icon-input"
+          type="text"
+          placeholder="Search products..."
+          aria-label="Search products"
+          className="h-10 w-64 pl-8 pr-4 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md bs-o-xs fv:oo--1 fv:oc-indigo-6"
+        />
       </div>
-      <Field.Control
-        type="text"
-        placeholder="Search products..."
-        aria-label="Search products"
-        className="f-1 h-10 pl-2 pr-4 bg-transparent c-slate-10 bw-1 br-lg fs-md bs-o-xs us-none fv:oo--1 fv:oc-indigo-6"
-      />
     </Field.Root>
   );
 }

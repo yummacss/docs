@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@base-ui/react/button";
 import { Field } from "@base-ui/react/field";
 import { Eye, EyeSlash } from "@gravity-ui/icons";
 import { useState } from "react";
@@ -12,16 +13,15 @@ export default function FieldPassword() {
       <Field.Label className="fw-500">
         Password <span className="c-red-5">*</span>
       </Field.Label>
-      <div className="d-f ai-c w-64 bg-white bc-silver-3 bw-1 br-lg bs-o-xs">
+      <div className="d-f ai-c p-r">
         <Field.Control
           type={visible ? "text" : "password"}
           placeholder="Enter password"
           aria-label="Enter password"
-          className="h-10 f-1 pl-4 pr-2 bg-transparent c-slate-10 bw-1 br-lg fs-md us-none fv:oo--1 fv:oc-indigo-6"
+          className="h-10 w-64 pl-4 pr-10 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md bs-o-xs fv:oo--1 fv:oc-indigo-6"
         />
-        <button
-          type="button"
-          className="d-f ai-c jc-c pr-3 c-slate-6 c-p us-none fv:oo-2 fv:oc-indigo-6"
+        <Button
+          className="d-f ai-c jc-c p-a r-3 c-slate-6 c-p us-none"
           aria-label={visible ? "Hide password" : "Show password"}
           onClick={() => setVisible(!visible)}
         >
@@ -30,7 +30,7 @@ export default function FieldPassword() {
           ) : (
             <Eye className="w-4 h-4" />
           )}
-        </button>
+        </Button>
       </div>
       <Field.Description className="c-slate-6 fs-xs">
         Must be at least 8 characters

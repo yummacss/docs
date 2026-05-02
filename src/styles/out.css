@@ -2137,16 +2137,16 @@ summary {
   padding-left: 1.25rem;
 }
 
+.pl-8 {
+  padding-left: 2rem;
+}
+
 .pr-10 {
   padding-right: 2.5rem;
 }
 
 .pr-16 {
   padding-right: 4rem;
-}
-
-.pr-2 {
-  padding-right: .5rem;
 }
 
 .pr-3 {
@@ -2263,6 +2263,10 @@ summary {
 
 .r-2 {
   right: .5rem;
+}
+
+.r-3 {
+  right: .75rem;
 }
 
 .r-auto {
