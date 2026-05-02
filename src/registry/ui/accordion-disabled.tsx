@@ -27,7 +27,7 @@ export default function AccordionDisabled() {
             <Accordion.Header className="m-0">
               <Accordion.Trigger
                 className={`d-f b-0 ai-c jc-sb g-3 w-full py-4 px-0 bg-transparent br-sm ta-l ${
-                  isDisabled ? "pe-none" : "c-p fv:ow-2 fv:oo-1 fv:oc-indigo-6"
+                  isDisabled ? "pe-none" : "c-p fv:ow-2 fv:oo-1 fv:oc-indigo-5"
                 }`}
               >
                 <div className="d-f ai-c g-3">

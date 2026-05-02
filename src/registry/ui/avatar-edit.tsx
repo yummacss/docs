@@ -14,7 +14,7 @@ export default function AvatarEdit() {
           />
         </Avatar.Root>
         <Button
-          className="d-f p-a b-0 r-0 ai-c jc-c w-5 h-5 p-0 bg-white bc-silver-3 br-pill bw-1 c-p us-none fv:ow-2 fv:oo-1 fv:oc-indigo-6"
+          className="d-f p-a b-0 r-0 ai-c jc-c w-5 h-5 p-0 bg-white bc-silver-3 br-pill bw-1 c-p us-none fv:ow-2 fv:oo-1 fv:oc-indigo-5"
           aria-label="Edit profile picture"
         >
           <Pencil className="fs-0 w-3 h-3 c-slate-6" />

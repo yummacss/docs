@@ -17,7 +17,7 @@ export default function AutocompleteGrouped() {
         <Autocomplete.Input
           id="grouped-input"
           placeholder="iPhone, Macbook, & more"
-          className="h-10 w-64 pl-4 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md bs-o-xs fv:ow-2 fv:oo--1 fv:oc-indigo-6"
+          className="h-10 w-64 pl-4 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md bs-o-xs fv:ow-2 fv:oo--1 fv:oc-indigo-5"
         />
       </div>
 
@@ -39,7 +39,7 @@ export default function AutocompleteGrouped() {
                 <Autocomplete.List className="oy-auto max-h-72 py-1 ow-0">
                   {(group: ProductGroup, groupIndex) => (
                     <Autocomplete.Group key={group.value}>
-                      <div className="px-3 py-1 fs-xs fw-500 c-slate-6 tt-u ls-3">
+                      <div className="px-3 py-1 c-slate-6 fs-xs fw-500 tt-u ls-3">
                         {group.value}
                       </div>
                       {group.items.map((item) => (
@@ -58,7 +58,7 @@ export default function AutocompleteGrouped() {
                               <div className="w-8 h-8 bg-silver-2 br-md" />
                               <div className="d-f fd-c">
                                 <span className="fw-500">{item.name}</span>
-                                <span className="fs-xs c-slate-6">
+                                <span className="c-slate-6 fs-xs">
                                   {item.category}
                                 </span>
                               </div>

@@ -18,7 +18,7 @@ export default function RadioBase() {
           className={(state) =>
             `d-f ai-c jc-c w-4 h-4 br-pill p-0 m-0 ${
               state.checked ? "bg-indigo" : "bg-white bw-1 bc-silver-3"
-            } fv:ow-2 fv:oo-2 fv:oc-indigo-6`
+            } fv:ow-2 fv:oo-2 fv:oc-indigo-5`
           }
         >
           <Radio.Indicator
@@ -36,7 +36,7 @@ export default function RadioBase() {
           className={(state) =>
             `d-f ai-c jc-c w-4 h-4 br-pill p-0 m-0 ${
               state.checked ? "bg-indigo" : "bg-white bw-1 bc-silver-3"
-            } fv:ow-2 fv:oo-2 fv:oc-indigo-6`
+            } fv:ow-2 fv:oo-2 fv:oc-indigo-5`
           }
         >
           <Radio.Indicator
@@ -54,7 +54,7 @@ export default function RadioBase() {
           className={(state) =>
             `d-f ai-c jc-c w-4 h-4 br-pill p-0 m-0 ${
               state.checked ? "bg-indigo" : "bg-white bw-1 bc-silver-3"
-            } fv:ow-2 fv:oo-2 fv:oc-indigo-6`
+            } fv:ow-2 fv:oo-2 fv:oc-indigo-5`
           }
         >
           <Radio.Indicator

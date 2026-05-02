@@ -26,7 +26,7 @@ export default function AutocompleteMaxItems() {
           placeholder="Search projects…"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          className="h-10 w-64 pl-4 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md bs-o-xs fv:ow-2 fv:oo--1 fv:oc-indigo-6"
+          className="h-10 w-64 pl-4 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md bs-o-xs fv:ow-2 fv:oo--1 fv:oc-indigo-5"
         />
       </div>
 

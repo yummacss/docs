@@ -17,7 +17,7 @@ export default function SelectStatic() {
         <Select.Trigger
           id="select-status-static"
           className={(state) =>
-            `d-f ai-c jc-sb h-10 min-w-40 g-3 bw-1 bc-silver-3 br-lg bg-white px-3 c-slate-10 us-none c-p fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+            `d-f ai-c jc-sb h-10 min-w-40 g-3 bw-1 bc-silver-3 br-lg bg-white px-3 c-slate-10 us-none c-p fv:ow-2 fv:oo-2 fv:oc-indigo-5 ${
               state.open ? "bg-silver-1/50" : "bg-transparent"
             }`
           }

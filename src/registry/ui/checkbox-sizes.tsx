@@ -10,7 +10,7 @@ export default function CheckboxSizes() {
         <Checkbox.Root
           defaultChecked
           className={(state) =>
-            `d-f w-3 h-3 ai-c jc-c br-sm fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+            `d-f w-3 h-3 ai-c jc-c br-sm fv:ow-2 fv:oo-2 fv:oc-indigo-5 ${
               state.checked
                 ? "bg-indigo"
                 : "bw-1 bc-silver-3 bg-transparent bs-o-xs"
@@ -28,7 +28,7 @@ export default function CheckboxSizes() {
         <Checkbox.Root
           defaultChecked
           className={(state) =>
-            `d-f w-4 h-4 ai-c jc-c br-sm fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+            `d-f w-4 h-4 ai-c jc-c br-sm fv:ow-2 fv:oo-2 fv:oc-indigo-5 ${
               state.checked
                 ? "bg-indigo"
                 : "bw-1 bc-silver-3 bg-transparent bs-o-xs"
@@ -46,7 +46,7 @@ export default function CheckboxSizes() {
         <Checkbox.Root
           defaultChecked
           className={(state) =>
-            `d-f w-5 h-5 ai-c jc-c br-sm fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+            `d-f w-5 h-5 ai-c jc-c br-sm fv:ow-2 fv:oo-2 fv:oc-indigo-5 ${
               state.checked
                 ? "bg-indigo"
                 : "bw-1 bc-silver-3 bg-transparent bs-o-xs"

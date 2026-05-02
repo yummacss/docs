@@ -20,7 +20,7 @@ export default function SelectBase() {
       <Select.Root defaultValue={null} open={open} onOpenChange={setOpen}>
         <Select.Trigger
           id="select-status"
-          className={`d-f ai-c jc-sb h-10 min-w-40 g-3 bw-1 bc-silver-3 br-lg bg-white px-3 c-slate-10 us-none c-p fv:ow-2 fv:oo-2 fv:oc-indigo-6 ${
+          className={`d-f ai-c jc-sb h-10 min-w-40 g-3 bw-1 bc-silver-3 br-lg bg-white px-3 c-slate-10 us-none c-p fv:ow-2 fv:oo-2 fv:oc-indigo-5 ${
             open ? "bg-silver-1/50" : "bg-transparent"
           }`}
         >
