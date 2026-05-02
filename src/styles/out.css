@@ -666,10 +666,6 @@ summary {
   border-bottom-left-radius: 0.375rem;
 }
 
-.blw-0 {
-  border-left-width: 0;
-}
-
 .blw-1 {
   border-left-width: 1px;
 }
@@ -713,10 +709,6 @@ summary {
 .brr-md {
   border-top-right-radius: 0.375rem;
   border-bottom-right-radius: 0.375rem;
-}
-
-.brw-0 {
-  border-right-width: 0;
 }
 
 .brw-1 {
@@ -799,6 +791,10 @@ summary {
 
 .bxw-1 {
   border-inline-width: 1px;
+}
+
+.byw-1 {
+  border-block-width: 1px;
 }
 
 .byw-2 {
@@ -2527,6 +2523,10 @@ summary {
 
 .w-3 {
   width: .75rem;
+}
+
+.w-32 {
+  width: 8rem;
 }
 
 .w-4 {
