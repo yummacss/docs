@@ -4,7 +4,7 @@ import { Field } from "@base-ui/react/field";
 import { Eye, EyeSlash } from "@gravity-ui/icons";
 import { useState } from "react";
 
-export default function InputPassword() {
+export default function FieldPassword() {
   const [visible, setVisible] = useState(false);
 
   return (
@@ -12,16 +12,16 @@ export default function InputPassword() {
       <Field.Label className="fw-500">
         Password <span className="c-red-5">*</span>
       </Field.Label>
-      <div className="d-f ai-c w-64 bg-white bc-silver-3 bw-1 br-lg bs-o-xs fv:ow-2 fv:oo-2 fv:oc-indigo-6">
-        <input
+      <div className="d-f ai-c w-64 bg-white bc-silver-3 bw-1 br-lg bs-o-xs">
+        <Field.Control
           type={visible ? "text" : "password"}
           placeholder="Enter password"
           aria-label="Enter password"
-          className="h-10 f-1 pl-4 pr-2 bg-transparent c-slate-10 fs-md us-none"
+          className="h-10 f-1 pl-4 pr-2 bg-transparent c-slate-10 bw-1 br-lg fs-md us-none fv:oo--1 fv:oc-indigo-6"
         />
         <button
           type="button"
-          className="d-f ai-c jc-c pr-3 c-slate-6 c-p us-none"
+          className="d-f ai-c jc-c pr-3 c-slate-6 c-p us-none fv:oo-2 fv:oc-indigo-6"
           aria-label={visible ? "Hide password" : "Show password"}
           onClick={() => setVisible(!visible)}
         >

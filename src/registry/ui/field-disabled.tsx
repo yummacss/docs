@@ -2,7 +2,7 @@
 
 import { Field } from "@base-ui/react/field";
 
-export default function InputDisabled() {
+export default function FieldDisabled() {
   return (
     <Field.Root className="d-f fd-c g-2 c-slate-10 fs-sm" disabled>
       <Field.Label className="fw-500">Project name</Field.Label>
