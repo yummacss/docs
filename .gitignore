@@ -34,14 +34,12 @@ next-env.d.ts
 # OS
 Thumbs.db
 
-# testing
-project-hierarchy.txt
-coverage/
-*.tgz
-
 # vercel
 .vercel/
 
 # other
 .vercel
 .env*.local
+
+# opencode
+.opencode/
