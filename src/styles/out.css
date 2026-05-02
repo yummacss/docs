@@ -261,6 +261,10 @@ summary {
   border-color: #5558cf;
 }
 
+.bc-mint-5 {
+  border-color: #53cda4;
+}
+
 .bc-navy {
   border-color: #31365e;
 }
@@ -881,6 +885,10 @@ summary {
   color: #dda2f6;
 }
 
+.c-mint-5 {
+  color: #53cda4;
+}
+
 .c-mint-6 {
   color: #31c393;
 }
@@ -935,6 +943,10 @@ summary {
 
 .c-red-4 {
   color: #f18c94;
+}
+
+.c-red-5 {
+  color: #ed707a;
 }
 
 .c-red-7 {
@@ -1259,6 +1271,14 @@ summary {
 
 .fv\:oc-indigo-6:focus-visible {
   outline-color: #797bf3;
+}
+
+.fv\:oc-mint-5:focus-visible {
+  outline-color: #53cda4;
+}
+
+.fv\:oc-red-5:focus-visible {
+  outline-color: #ed707a;
 }
 
 .fv\:oc-red-6:focus-visible {
@@ -2135,6 +2155,10 @@ summary {
 
 .pr-16 {
   padding-right: 4rem;
+}
+
+.pr-2 {
+  padding-right: .5rem;
 }
 
 .pr-3 {
