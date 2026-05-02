@@ -44,7 +44,7 @@ export const uiSidebarConfig: UISidebarConfig = [
       { title: "Checkbox", slug: "checkbox", primitive: true },
       { title: "Combobox", slug: "combobox", primitive: true },
       { title: "File Upload", slug: "file-upload" },
-      { title: "Input", slug: "input", primitive: true },
+      { title: "Field", slug: "field", primitive: true },
 
       { title: "Radio", slug: "radio", primitive: true },
       { title: "Select", slug: "select", primitive: true },
