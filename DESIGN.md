@@ -255,7 +255,7 @@ Every component that uses `<AnimatePresence>` MUST have a `-static.tsx` sibling 
 - Remove `<AnimatePresence>`
 - Remove `keepMounted` from portals (or keep it, but no animation)
 - CSS-only rotation uses `ro-180` / `ro-0` classes
-- The static description is always: **"Open and close instantly, without animation."**
+- The static description is always: **"No animation utilities or animation dependencies."**
 
 **Static sections in docs must always appear LAST.** After showing all style and functional variants, place the Static variant as the final section. This follows the pattern: animated variants first, then CSS-only fallback last.
 
