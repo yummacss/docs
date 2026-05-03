@@ -8,10 +8,12 @@
   "author": "Renildo Pereira",
   "type": "module",
   "scripts": {
-    "build": "next build",
     "build:css": "yummacss build",
+    "build": "next build",
     "dev": "concurrently \"next dev --turbo\" \"yummacss watch\"",
-    "format": "biome check --write",
+    "format": "biome format --write .",
+    "lint:fix": "biome check --write .",
+    "lint": "biome check .",
     "sort": "sort-package-json",
     "start": "next start",
     "update-yummacss": "pnpm up yummacss @yummacss/core --latest"

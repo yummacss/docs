@@ -67,7 +67,7 @@ export default function TableOfContents() {
         intersectionObserverRef.current.disconnect();
       }
     };
-  }, [pathname]);
+  }, []);
 
   if (headings.length === 0) {
     return null;

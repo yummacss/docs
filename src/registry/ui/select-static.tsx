@@ -34,7 +34,11 @@ export default function SelectStatic() {
           </Select.Icon>
         </Select.Trigger>
         <Select.Portal>
-          <Select.Positioner sideOffset={6} alignItemWithTrigger={false} className="zi-10 p-0 ow-0 us-none">
+          <Select.Positioner
+            sideOffset={6}
+            alignItemWithTrigger={false}
+            className="zi-10 p-0 ow-0 us-none"
+          >
             <Select.Popup className="py-1 w-64 bg-white bc-silver-2 bw-1 br-xl bs-o-lg">
               <Select.List className="p-r o-a">
                 {statuses.map(({ label, value }) => (
