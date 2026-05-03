@@ -39,7 +39,8 @@
         },
         "rules": {
           "a11y": {
-            "useValidAnchor": "off"
+            "useValidAnchor": "off",
+            "noLabelWithoutControl": "off"
           }
         }
       }
