@@ -14,7 +14,7 @@ export default function SwitchStatic() {
         checked={checked}
         onCheckedChange={setChecked}
         className={`p-r d-f ai-c h-5 w-9 br-pill bw-0 m-0 px-1 c-p fv:ow-2 fv:oo-2 fv:oc-indigo-5 ${
-          checked ? "bg-indigo" : "bg-silver-3"
+          checked ? "bg-indigo" : "bg-silver-1"
         }`}
       >
         <Switch.Thumb

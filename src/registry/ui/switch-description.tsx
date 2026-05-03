@@ -6,7 +6,7 @@ import { motion } from "motion/react";
 import { useState } from "react";
 
 export default function SwitchDescription() {
-  const [checked, setChecked] = useState(true);
+  const [checked, setChecked] = useState(false);
 
   return (
     <Field.Root className="d-f fd-c g-1">
@@ -16,7 +16,7 @@ export default function SwitchDescription() {
           checked={checked}
           onCheckedChange={setChecked}
           className={`p-r d-f ai-c h-5 w-9 br-pill bw-0 m-0 px-1 c-p tp-c tdu-150 ttf-io fv:ow-2 fv:oo-2 fv:oc-indigo-5 ${
-            checked ? "bg-indigo" : "bg-silver-3"
+            checked ? "bg-indigo" : "bg-silver-1"
           }`}
         >
           <Switch.Thumb
