@@ -3,6 +3,7 @@
 import { Button } from "@base-ui/react/button";
 import { Toggle } from "@base-ui/react/toggle";
 import { PauseFill, PlayFill } from "@gravity-ui/icons";
+import type { ButtonHTMLAttributes } from "react";
 
 export default function ToggleStatic() {
   return (
@@ -16,7 +17,10 @@ export default function ToggleStatic() {
         }`
       }
       render={(props, state) => (
-        <Button type="button" {...(props as any)}>
+        <Button
+          type="button"
+          {...(props as ButtonHTMLAttributes<HTMLButtonElement>)}
+        >
           {state.pressed ? (
             <PauseFill className="w-5 h-5" />
           ) : (

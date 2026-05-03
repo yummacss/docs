@@ -32,11 +32,14 @@
   },
   "overrides": [
     {
-      "includes": ["src/registry/ui/**"],
+      "includes": ["src/registry/**"],
       "linter": {
+        "domains": {
+          "next": "none"
+        },
         "rules": {
           "a11y": {
-            "recommended": false
+            "useValidAnchor": "off"
           }
         }
       }

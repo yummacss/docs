@@ -1,6 +1,8 @@
 export interface UISidebarConfigItemBase {
   title: string;
   slug?: string;
+  href?: string;
+  external?: boolean;
   updated?: boolean;
   primitive?: boolean;
   wip?: boolean;
@@ -45,7 +47,6 @@ export const uiSidebarConfig: UISidebarConfig = [
       { title: "Combobox", slug: "combobox", primitive: true },
       { title: "File Upload", slug: "file-upload" },
       { title: "Field", slug: "field", primitive: true },
-
       { title: "Radio", slug: "radio", primitive: true },
       { title: "Select", slug: "select", primitive: true },
       { title: "Slider", slug: "slider", primitive: true },
@@ -104,7 +105,6 @@ export const uiSidebarConfig: UISidebarConfig = [
   },
 ];
 
-// extract all slugs from the UI sidebar config
 export function getAllUISlugs(): string[] {
   const slugs: string[] = [];
 
@@ -129,7 +129,6 @@ export function getAllUISlugs(): string[] {
   return slugs;
 }
 
-// find the current item from pathname
 export function findCurrentUIItemBySlug(
   pathname: string,
 ): UISidebarConfigItemBase | null {
@@ -162,12 +161,10 @@ export function findCurrentUIItemBySlug(
   return null;
 }
 
-// find the current page info from pathname
 export function findCurrentUIPageInfo(pathname: string): {
   sectionTitle: string;
   pageTitle: string;
 } | null {
-  // remove /ui/components/ prefix or /ui/ prefix and get the slug
   let slug = pathname.replace(/^\/ui\/components\//, "");
   slug = slug.replace(/^\/ui\//, "").replace(/\/$/, "");
 
@@ -176,12 +173,9 @@ export function findCurrentUIPageInfo(pathname: string): {
     sectionTitle: string,
   ): { sectionTitle: string; pageTitle: string } | null {
     for (const item of items) {
-      // check if this item has the slug
       if (item.slug === slug) {
         return { sectionTitle, pageTitle: item.title };
       }
-
-      // check in children
       if ("children" in item && Array.isArray(item.children)) {
         for (const child of item.children) {
           if (child.slug === slug) {
@@ -189,18 +183,14 @@ export function findCurrentUIPageInfo(pathname: string): {
           }
         }
       }
-
-      // check in items recursively
       if ("items" in item && Array.isArray(item.items)) {
         const result = searchInItems(item.items, sectionTitle);
         if (result) return result;
       }
     }
-
     return null;
   }
 
-  // search through all sections
   for (const section of uiSidebarConfig) {
     const result = searchInItems(section.items, section.title);
     if (result) return result;
