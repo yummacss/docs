@@ -1,5 +1,6 @@
 "use client";
 
+import { Field } from "@base-ui/react/field";
 import { Switch } from "@base-ui/react/switch";
 import { useState } from "react";
 
@@ -7,7 +8,7 @@ export default function SwitchStatic() {
   const [checked, setChecked] = useState(true);
 
   return (
-    <div className="d-f ai-c g-2">
+    <Field.Root className="d-f ai-c g-2">
       <Switch.Root
         id="switch-dark-mode"
         checked={checked}
@@ -17,17 +18,17 @@ export default function SwitchStatic() {
         }`}
       >
         <Switch.Thumb
-          className={`w-3 h-3 bg-white br-pill bs-o-xs ${
+          className={`w-3 h-3 bg-white br-pill bs-o-sm ${
             checked ? "ml-4" : "ml-0"
           }`}
         />
       </Switch.Root>
-      <label
+      <Field.Label
         htmlFor="switch-dark-mode"
         className="c-slate-10 fs-sm fw-500 us-none c-p"
       >
-        Dark mode
-      </label>
-    </div>
+        Unsubscribe email
+      </Field.Label>
+    </Field.Root>
   );
 }
