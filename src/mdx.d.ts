@@ -6,6 +6,6 @@ declare module "*.mdx" {
   export const meta: {
     title?: string;
     description?: string;
-    [key: string]: any;
+    [key: string]: unknown;
   };
 }

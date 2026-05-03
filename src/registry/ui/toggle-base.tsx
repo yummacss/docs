@@ -2,6 +2,7 @@
 
 import { Toggle } from "@base-ui/react/toggle";
 import { PauseFill, PlayFill } from "@gravity-ui/icons";
+import type { HTMLMotionProps } from "motion/react";
 import { motion } from "motion/react";
 
 export default function ToggleBase() {
@@ -18,7 +19,7 @@ export default function ToggleBase() {
       render={(props, state) => (
         <motion.button
           type="button"
-          {...(props as any)}
+          {...(props as HTMLMotionProps<"button">)}
           whileTap={{ scale: 0.9 }}
           transition={{ duration: 0.2, ease: "easeOut" }}
         >

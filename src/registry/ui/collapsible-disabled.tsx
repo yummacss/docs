@@ -9,10 +9,9 @@ import { useState } from "react";
 
 export default function CollapsibleDisabled() {
   const [open, setOpen] = useState(false);
-  const [followed, setFollowed] = useState(
-    whoToFollow.users.reduce(
-      (acc, user, index) => ({ ...acc, [user.name]: index === 0 }),
-      {} as Record<string, boolean>,
+  const [followed, setFollowed] = useState<Record<string, boolean>>(
+    Object.fromEntries(
+      whoToFollow.users.map((user, index) => [user.name, index === 0]),
     ),
   );
 

@@ -9,11 +9,8 @@ import { useState } from "react";
 
 export default function CollapsibleDestructive() {
   const [open, setOpen] = useState(false);
-  const [blocked, setBlocked] = useState(
-    blockedUsers.users.reduce(
-      (acc, user) => ({ ...acc, [user.name]: true }),
-      {} as Record<string, boolean>,
-    ),
+  const [blocked, setBlocked] = useState<Record<string, boolean>>(
+    Object.fromEntries(blockedUsers.users.map((user) => [user.name, true])),
   );
 
   return (
