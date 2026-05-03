@@ -61,7 +61,6 @@ export const uiSidebarConfig: UISidebarConfig = [
       { title: "Badge", slug: "badge", updated: true },
       { title: "Breadcrumb", slug: "breadcrumb", updated: true },
       { title: "Collapsible", slug: "collapsible", primitive: true },
-      { title: "Kbd", slug: "kbd", wip: true },
       { title: "Preview Card", slug: "preview-card", primitive: true },
       { title: "Progress", slug: "progress", primitive: true },
       { title: "Separator", slug: "separator", primitive: true },
@@ -80,7 +79,6 @@ export const uiSidebarConfig: UISidebarConfig = [
     title: "Navigation",
     items: [
       { title: "Navigation Menu", slug: "navigation-menu", primitive: true },
-      { title: "Pagination", slug: "pagination", wip: true },
       { title: "Tabs", slug: "tabs", primitive: true },
       { title: "Toolbar", slug: "toolbar", primitive: true },
     ],
@@ -91,7 +89,6 @@ export const uiSidebarConfig: UISidebarConfig = [
       { title: "Dialog", slug: "dialog", primitive: true },
       { title: "Drawer", slug: "drawer", primitive: true },
       { title: "Popover", slug: "popover", primitive: true },
-      { title: "Toast", slug: "toast", wip: true },
       { title: "Tooltip", slug: "tooltip", primitive: true },
     ],
   },
