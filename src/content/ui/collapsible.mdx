@@ -113,13 +113,15 @@ Open and close instantly, without animation.
 
 ### Disabled
 
+Prevent user interaction using the `disabled` prop.
+
 <Tabs defaultValue="preview">
   <TabsList>
     <TabsTab value="preview">Preview</TabsTab>
     <TabsTab value="code">Code</TabsTab>
   </TabsList>
   <TabsPanel className="bg-white bbr-sm" value="preview">
-    <p className="c-red ta-c">Coming Soon…</p>
+    <Preview className="h-fc bw-0" registryId="collapsible-disabled" />
   </TabsPanel>
   <TabsPanel value="code">
     ```tsx registryId="collapsible-disabled"
