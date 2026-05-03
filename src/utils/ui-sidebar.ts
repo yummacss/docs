@@ -60,7 +60,6 @@ export const uiSidebarConfig: UISidebarConfig = [
       { title: "Avatar", slug: "avatar", primitive: true },
       { title: "Badge", slug: "badge", updated: true },
       { title: "Breadcrumb", slug: "breadcrumb", updated: true },
-      { title: "Card", slug: "card", wip: true },
       { title: "Collapsible", slug: "collapsible", primitive: true },
       { title: "Kbd", slug: "kbd", wip: true },
       { title: "Preview Card", slug: "preview-card", primitive: true },
