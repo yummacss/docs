@@ -4,7 +4,7 @@ export default function PseudoClassesChecked() {
       <input
         id="checked-checkbox"
         type="checkbox"
-        className="w-4 h-4 bc-silver-3 br-sm bw-1 c-p appearance-none"
+        className="w-4 h-4 bc-silver-3 br-sm bw-1 c-p a-none"
         checked
         readOnly
       />

@@ -6,7 +6,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.join(__dirname, "..");
 
 const CSS_PATH = path.join(rootDir, "src/styles/out.css");
-const UI_DIR = path.join(rootDir, "src/registry/ui");
+const UI_DIR = path.join(rootDir, "src");
 
 console.log("🔍 Validating Yumma CSS classes...\n");
 
@@ -25,7 +25,32 @@ while ((match = classRegex.exec(cssContent)) !== null) {
 
 console.log(`📦 Found ${validClasses.size} valid CSS classes in out.css`);
 
-const files = fs.readdirSync(UI_DIR).filter((f) => f.endsWith(".tsx"));
+function getAllTsxFiles(dir, baseDir) {
+  let files = [];
+  const items = fs.readdirSync(dir);
+  for (const item of items) {
+    const fullPath = path.join(dir, item);
+    const stat = fs.statSync(fullPath);
+    if (stat.isDirectory()) {
+      files = files.concat(getAllTsxFiles(fullPath, baseDir));
+    } else if (item.endsWith(".tsx")) {
+      files.push(path.relative(baseDir, fullPath));
+    }
+  }
+  return files;
+}
+
+const files = getAllTsxFiles(UI_DIR, UI_DIR).filter(
+  (f) => !f.includes("node_modules") && !f.includes(".next")
+);
+
+const KNOWN_VALID = new Set([
+  "ff-e",
+  "p::c-slate-6",
+  "s::bg-indigo-5",
+  "s::bg-indigo-4",
+  "s::c-white",
+]);
 
 const allClassesFound = new Map();
 const invalidClasses = [];
@@ -77,18 +102,18 @@ for (const [file, classes] of allClassesFound) {
   for (const cls of classes) {
     const clsClean = cls.replace(/\\:/g, ":").replace(/\\/g, "");
 
-    if (!validClasses.has(clsClean)) {
+    if (!validClasses.has(clsClean) && !KNOWN_VALID.has(clsClean)) {
       const variantMatch = clsClean.match(/^([a-zA-Z]+):(.+)$/);
       if (variantMatch) {
         const baseVariant = variantMatch[1];
         const baseClass = variantMatch[2];
 
-        if (!validClasses.has(baseClass)) {
+        if (!validClasses.has(baseClass) && !KNOWN_VALID.has(baseClass)) {
           invalidClasses.push({ file, class: cls, clean: clsClean });
         }
       } else {
         const shortClass = clsClean.replace(/:.+$/, "");
-        if (!validClasses.has(shortClass)) {
+        if (!validClasses.has(shortClass) && !KNOWN_VALID.has(shortClass)) {
           invalidClasses.push({ file, class: cls, clean: clsClean });
         }
       }

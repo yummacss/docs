@@ -31,7 +31,7 @@ export default function UILayout({ children }: { children: React.ReactNode }) {
           <UISidebar />
 
           <div className="pt-12 lg:gc-s-6">
-            <article className="max-w-none">{children}</article>
+            <article>{children}</article>
           </div>
 
           <TableOfContents />
