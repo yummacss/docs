@@ -51,6 +51,7 @@ export const uiSidebarConfig: UISidebarConfig = [
       { title: "Select", slug: "select", primitive: true },
       { title: "Slider", slug: "slider", primitive: true },
       { title: "Switch", slug: "switch", primitive: true },
+      { title: "Textarea", slug: "textarea", updated: true },
       { title: "Toggle", slug: "toggle", primitive: true },
     ],
   },
