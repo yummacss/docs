@@ -11,7 +11,7 @@ export default function PreviewCardTeam() {
         Contact{" "}
         <PreviewCard.Trigger
           className={(state) =>
-            `c-indigo fw-500 td-n h:td-u fv:td-u ${state.open ? "td-u" : ""}`
+            `c-indigo fw-500 td-none h:td-u fv:td-u ${state.open ? "td-u" : ""}`
           }
         >
           @sarah
@@ -45,7 +45,7 @@ export default function PreviewCardTeam() {
                 <span className="c-slate-6 fs-xs">Frontend Engineer</span>
               </div>
             </div>
-            <div className="d-f g-1 flex-wrap">
+            <div className="d-f g-1 fw-w">
               <span className="d-f ai-c g-1 px-2 py-0 h-6 bg-indigo-1 bc-indigo-2 c-indigo-7 br-pill bw-1 fs-xs fw-500">
                 React
               </span>

@@ -66,7 +66,7 @@ export default function PreviewCardMultiple() {
             Chat with{" "}
             <PreviewCard.Trigger
               className={(state) =>
-                `c-indigo fw-500 td-n h:td-u fv:td-u ${state.open ? "td-u" : ""}`
+                `c-indigo fw-500 td-none h:td-u fv:td-u ${state.open ? "td-u" : ""}`
               }
               payload={previewContent.sarah}
             >
@@ -75,7 +75,7 @@ export default function PreviewCardMultiple() {
             or{" "}
             <PreviewCard.Trigger
               className={(state) =>
-                `c-indigo fw-500 td-n h:td-u fv:td-u ${state.open ? "td-u" : ""}`
+                `c-indigo fw-500 td-none h:td-u fv:td-u ${state.open ? "td-u" : ""}`
               }
               payload={previewContent.john}
             >

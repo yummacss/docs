@@ -1981,6 +1981,10 @@ summary {
   opacity: .6;
 }
 
+.o-auto {
+  overflow: auto;
+}
+
 .o-h {
   overflow: hidden;
 }

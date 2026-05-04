@@ -40,7 +40,7 @@ export default function SelectStatic() {
             className="zi-10 p-0 ow-0 us-none"
           >
             <Select.Popup className="py-1 w-64 bg-white bc-silver-2 bw-1 br-xl bs-o-lg">
-              <Select.List className="p-r o-a">
+              <Select.List className="p-r o-auto">
                 {statuses.map(({ label, value }) => (
                   <Select.Item
                     key={value}
