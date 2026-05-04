@@ -1,5 +1,5 @@
 import { Avatar as BaseAvatar } from "@base-ui/react/avatar";
-import type * as React from "react";
+import type React from "react";
 
 interface Props {
   src: string;
