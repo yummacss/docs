@@ -71,8 +71,8 @@ export default function PreviewCardMultiple() {
               payload={previewContent.sarah}
             >
               @sarah
-            </PreviewCard.Trigger>
-            {" "}or{" "}
+            </PreviewCard.Trigger>{" "}
+            or{" "}
             <PreviewCard.Trigger
               className={(state) =>
                 `c-indigo fw-500 td-n h:td-u fv:td-u ${state.open ? "td-u" : ""}`
@@ -80,8 +80,8 @@ export default function PreviewCardMultiple() {
               payload={previewContent.john}
             >
               @john
-            </PreviewCard.Trigger>
-            {" "}to collaborate.
+            </PreviewCard.Trigger>{" "}
+            to collaborate.
           </p>
 
           <PreviewCard.Portal>

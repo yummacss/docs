@@ -14,8 +14,8 @@ export default function PreviewCardStatic() {
           }
         >
           @sarah
-        </PreviewCard.Trigger>
-        {" "}to collaborate.
+        </PreviewCard.Trigger>{" "}
+        to collaborate.
       </p>
 
       <PreviewCard.Portal>

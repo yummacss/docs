@@ -15,7 +15,8 @@ export default function PreviewCardTeam() {
           }
         >
           @sarah
-        </PreviewCard.Trigger>{" "}for the frontend work.
+        </PreviewCard.Trigger>{" "}
+        for the frontend work.
       </p>
 
       <PreviewCard.Portal>

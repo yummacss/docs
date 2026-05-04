@@ -16,7 +16,8 @@ export default function PreviewCardCompact() {
           }
         >
           #dashboard-redesign
-        </PreviewCard.Trigger>{" "}details.
+        </PreviewCard.Trigger>{" "}
+        details.
       </p>
 
       <PreviewCard.Portal>
