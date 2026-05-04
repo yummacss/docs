@@ -97,7 +97,7 @@ export default function PreviewCardMultiple() {
                 }
                 className="d-f fd-c g-3 p-3 bg-white bc-silver-2 br-xl bw-1 bs-o-lg"
               >
-                {payload}
+                <>{payload}</>
               </PreviewCard.Popup>
             </PreviewCard.Positioner>
           </PreviewCard.Portal>
