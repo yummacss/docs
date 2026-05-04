@@ -17,7 +17,7 @@ export default function PreviewCardAvatar() {
         </Avatar.Root>
         <PreviewCard.Trigger
           className={(state) =>
-            `c-indigo fw-500 td-n h:td-u fv:td-u ${state.open ? "td-u" : ""}`
+            `c-indigo fw-500 td-none h:td-u fv:td-u ${state.open ? "td-u" : ""}`
           }
         >
           @sarah

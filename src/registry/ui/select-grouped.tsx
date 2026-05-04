@@ -56,7 +56,7 @@ export default function SelectGrouped() {
                   }
                   className="py-1 w-64 bg-white bc-silver-2 bw-1 br-xl bs-o-lg"
                 >
-                  <Select.List className="p-r o-a">
+                  <Select.List className="p-r o-auto">
                     {categories.map((group) => (
                       <Select.Group key={group.groupLabel}>
                         <Select.GroupLabel className="px-3 py-1 c-slate-6 fs-xs fw-500 tt-u ls-3">

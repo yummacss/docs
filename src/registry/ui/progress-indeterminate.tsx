@@ -24,7 +24,7 @@ export default function ProgressIndeterminate() {
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
-                className="w-1/3 h-full bg-indigo br-pill"
+                className="h-full bg-indigo br-pill"
               />
             }
             className="h-full"

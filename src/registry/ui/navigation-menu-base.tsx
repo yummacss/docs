@@ -24,7 +24,7 @@ function NavTrigger({
   return (
     <NavigationMenu.Trigger
       className={(state) =>
-        `d-f ai-c jc-c g-1 h-10 px-3 bw-0 br-pill fs-sm fw-500 c-slate-10 us-none td-n h:bg-silver-1 ${
+        `d-f ai-c jc-c g-1 h-10 px-3 bw-0 br-pill fs-sm fw-500 c-slate-10 us-none td-none h:bg-silver-1 ${
           state.open ? "bg-silver-1" : "bg-transparent"
         } ${className || ""}`
       }
@@ -55,7 +55,7 @@ export default function NavigationMenuBase() {
                 <li key={item.href}>
                   <NavigationMenu.Link
                     href={item.href}
-                    className="d-f ai-fs g-3 p-2 c-inherit br-md td-n h:bg-silver-1"
+                    className="d-f ai-fs g-3 p-2 br-md td-none h:bg-silver-1"
                   >
                     <span className="d-f ai-c jc-c fs-0 w-8 h-8 bg-white bc-silver-2 c-indigo br-md bw-1 bs-o-xs">
                       {item.icon}
@@ -81,7 +81,7 @@ export default function NavigationMenuBase() {
                 <li key={item.href}>
                   <NavigationMenu.Link
                     href={item.href}
-                    className="d-f ai-fs g-3 p-2 c-inherit br-md td-n h:bg-silver-1"
+                    className="d-f ai-fs g-3 p-2 br-md td-none h:bg-silver-1"
                   >
                     <span className="d-f ai-c jc-c fs-0 w-8 h-8 bg-white bc-silver-2 c-indigo br-md bw-1 bs-o-xs">
                       {item.icon}
@@ -102,7 +102,7 @@ export default function NavigationMenuBase() {
         <NavigationMenu.Item>
           <NavigationMenu.Link
             href="#pricing"
-            className="d-f ai-c jc-c h-10 px-3 bg-transparent c-slate-10 bw-0 br-pill fs-sm fw-500 td-n us-none h:bg-silver-1"
+            className="d-f ai-c jc-c h-10 px-3 bg-transparent c-slate-10 bw-0 br-pill fs-sm fw-500 td-none us-none h:bg-silver-1"
           >
             Pricing
           </NavigationMenu.Link>

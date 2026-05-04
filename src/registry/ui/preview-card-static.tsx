@@ -1,7 +1,7 @@
 "use client";
 
-import { PreviewCard } from "@base-ui/react/preview-card";
 import { Avatar } from "@base-ui/react/avatar";
+import { PreviewCard } from "@base-ui/react/preview-card";
 
 export default function PreviewCardStatic() {
   return (
@@ -10,7 +10,7 @@ export default function PreviewCardStatic() {
         Chat with{" "}
         <PreviewCard.Trigger
           className={(state) =>
-            `c-indigo fw-500 td-n h:td-u fv:td-u ${state.open ? "td-u" : ""}`
+            `c-indigo fw-500 td-none h:td-u fv:td-u ${state.open ? "td-u" : ""}`
           }
         >
           @sarah
