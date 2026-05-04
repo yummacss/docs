@@ -40,48 +40,32 @@ function extractDocsItems(): SearchItem[] {
 }
 
 // Extract items from UI sidebar config
-function extractUIItems(): {
-  components: SearchItem[];
-  blocks: SearchItem[];
-} {
+function extractUIItems(): SearchItem[] {
   const components: SearchItem[] = [];
-  const blocks: SearchItem[] = [];
 
-  function extract(configItems: UISidebarConfigItem[], sectionTitle: string) {
+  function extract(configItems: UISidebarConfigItem[]) {
     for (const item of configItems) {
       if (item.slug) {
-        const searchItem: SearchItem = {
+        components.push({
           title: item.title,
           path: `/ui/components/${item.slug}`,
           category: "components",
-        };
-
-        if (
-          sectionTitle === "Components" ||
-          sectionTitle === "Base components" ||
-          sectionTitle === "Get Started"
-        ) {
-          searchItem.category = "components";
-          components.push(searchItem);
-        } else if (sectionTitle === "Blocks") {
-          searchItem.category = "blocks";
-          blocks.push(searchItem);
-        }
+        });
       }
       if ("children" in item && Array.isArray(item.children)) {
-        extract(item.children, sectionTitle);
+        extract(item.children);
       }
       if ("items" in item && Array.isArray(item.items)) {
-        extract(item.items, sectionTitle);
+        extract(item.items);
       }
     }
   }
 
   for (const section of uiSidebarConfig) {
-    extract(section.items, section.title);
+    extract(section.items);
   }
 
-  return { components, blocks };
+  return components;
 }
 
 // Generate color items with all shades using shared utility
@@ -109,13 +93,12 @@ function generateColorItems(): SearchItem[] {
 
 // Build combined search data
 const DOCS_ITEMS = extractDocsItems();
-const { components: COMPONENT_ITEMS, blocks: BLOCK_ITEMS } = extractUIItems();
+const COMPONENT_ITEMS = extractUIItems();
 const COLOR_ITEMS = generateColorItems();
 
 export const SEARCH_DATA: SearchItem[] = [
   ...DOCS_ITEMS,
   ...COMPONENT_ITEMS,
-  ...BLOCK_ITEMS,
   ...COLOR_ITEMS,
 ];
 
@@ -211,5 +194,4 @@ export const CATEGORY_LABELS: Record<string, string> = {
   colors: "Colors",
   ui: "Yumma UI",
   components: "Components",
-  blocks: "Blocks",
 };
