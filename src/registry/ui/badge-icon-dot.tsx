@@ -7,15 +7,15 @@ export default function BadgeIconDot() {
     <div className="d-f fd-c g-6 ai-c">
       <div className="d-f ai-c g-1 px-2 py-1 bg-white bc-silver-2 br-sm bw-1 bs-o-xs">
         <CircleCheckFill className="w-3 h-3 c-mint-6" />
-        <span className="c-slate-10 fs-xs fw-500 us-none">Succes</span>
+        <span className="c-slate-10 fs-xs fw-500 us-none">Success</span>
       </div>
       <div className="d-f ai-c g-1 px-2 py-1 bg-mint-1 br-sm bw-0">
         <CircleCheckFill className="w-3 h-3 c-mint-7" />
-        <span className="c-mint-7 fs-xs fw-500 us-none">Succes</span>
+        <span className="c-mint-7 fs-xs fw-500 us-none">Success</span>
       </div>
       <div className="d-f ai-c g-1 px-2 py-1 bg-mint c-white br-sm bw-0">
         <CircleCheckFill className="w-3 h-3" />
-        <span className="fs-xs fw-500 us-none">Succes</span>
+        <span className="fs-xs fw-500 us-none">Success</span>
       </div>
     </div>
   );
