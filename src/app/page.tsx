@@ -9,12 +9,12 @@ export default function Home() {
       <div className="p-a t-0 l-0 zi-0 w-full h-full">
         <DarkVeil />
       </div>
-      <div className="p-r zi-1">
+      <div className="p-r zi-10">
         <Navbar variant="transparent" />
       </div>
 
       <div
-        className="d-f p-r zi-1 ai-fe w-full mx-auto px-6"
+        className="d-f p-r zi-10 ai-fe w-full mx-auto px-6"
         style={{
           minHeight: "calc(100dvh - 120px)",
           maxWidth: "clamp(40rem, 80vw, 96rem)",

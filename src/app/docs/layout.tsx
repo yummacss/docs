@@ -19,7 +19,7 @@ export default function DocsLayout({
           <Sidebar />
 
           <div className="pt-12 lg:gc-s-6">
-            <article className="max-w-none">{children}</article>
+            <article>{children}</article>
           </div>
 
           <TableOfContents />

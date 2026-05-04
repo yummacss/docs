@@ -2089,6 +2089,10 @@ summary {
   color: #9ca3af;
 }
 
+.p\:\:c-slate-6::placeholder {
+  color: #7a879b;
+}
+
 .p\:\:fs-i::placeholder {
   font-style: italic;
 }
@@ -2315,6 +2319,10 @@ summary {
 
 .s\:\:bg-indigo-4::selection {
   background-color: #a5a6f7;
+}
+
+.s\:\:bg-indigo-5::selection {
+  background-color: #8f91f5;
 }
 
 .s\:\:c-white::selection {
