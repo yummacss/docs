@@ -649,10 +649,6 @@ summary {
   background-color: #fff4db;
 }
 
-.bg-zinc-8 {
-  background-color: #3b3b42;
-}
-
 .bg-zinc-9 {
   background-color: #303035;
 }
@@ -1599,10 +1595,6 @@ summary {
 
 .h\:bg-white\/10:hover {
   background-color: #ffffff1a;
-}
-
-.h\:bg-zinc-7:hover {
-  background-color: #47474e;
 }
 
 .h\:c-indigo-8:hover {

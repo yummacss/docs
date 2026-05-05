@@ -35,7 +35,7 @@ For example, in a Dialog component, you might have slots for the `Backdrop`, `Co
 
 You can extend or override the default color palette using the `theme.colors` configuration in `yumma.config.mjs`. This allows you to introduce brand-specific colors while maintaining the atomic approach.
 
-```mjs title="yumma.config.mjs" mark={4-7}
+```mjs title="yumma.config.mjs" mark={5-7}
 import { defineConfig } from "yummacss";
 
 export default defineConfig({
@@ -47,29 +47,19 @@ export default defineConfig({
 });
 ```
 
-## Variant management
+## Overriding color shades
 
-While Yumma UI is built with direct atomic classes, you might want to create reusable components with semantic variants like `variant="primary"` or `size="lg"`.
+If you want to override specific shades of an existing color, you can do so by providing new values for those shades in the `theme.colors` configuration. For example, to change the `blue-5` shade:
 
-We recommend using **class-variance-authority (cva)** for this. It allows you to define variants in a structured way that remains easy to maintain:
+```mjs title="yumma.config.mjs" mark={5-8}
+import { defineConfig } from "yummacss";
 
-```tsx
-const buttonStyles = cva("br-sm fs-sm", {
-  variants: {
-    variant: {
-      primary: "bg-blue-5 c-white h:bg-blue-6",
-      secondary: "bg-zinc-8 c-white h:bg-zinc-7",
+export default defineConfig({
+  theme: {
+    percentage: {
+      light: 16, // default is 14
+      dark: 16, // default is 14
     },
-    size: {
-      sm: "px-2 py-1",
-      md: "px-4 py-2",
-    },
-  },
-  defaultVariants: {
-    variant: "primary",
-    size: "md",
   },
 });
 ```
-
-This approach ensures that your project remains lightweight, performant, and perfectly aligned with your design vision.
