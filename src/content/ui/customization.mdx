@@ -31,19 +31,11 @@ For example, in a Dialog component, you might have slots for the `Backdrop`, `Co
 </Dialog>
 ```
 
-## Building your own system
-
-The best way to "theme" Yumma UI is to treat it as a collection of high-quality templates.
-
-1. **Copy**: Grab the component code you need.
-2. **Paste**: Drop it into your project's component directory.
-3. **Adapt**: Modify the Yumma CSS classes to match your desired aesthetic.
-
-### Extending colors
+## Extending colors
 
 You can extend or override the default color palette using the `theme.colors` configuration in `yumma.config.mjs`. This allows you to introduce brand-specific colors while maintaining the atomic approach.
 
-```mjs title="yumma.config.mjs" mark={4-8}
+```mjs title="yumma.config.mjs" mark={4-7}
 import { defineConfig } from "yummacss";
 
 export default defineConfig({
@@ -51,14 +43,9 @@ export default defineConfig({
     colors: {
       purple: "#9333EA", // add 'purple' as a new color
     },
-    percentage: {
-      light: 16, // mix 16% of white for lighter color shades
-      dark: 16, // mix 16% of black for darker color shades
-    }
   },
 });
 ```
-
 
 ## Variant management
 
@@ -67,9 +54,6 @@ While Yumma UI is built with direct atomic classes, you might want to create reu
 We recommend using **class-variance-authority (cva)** for this. It allows you to define variants in a structured way that remains easy to maintain:
 
 ```tsx
-import { Button } from "@base-ui/react";
-import { cva, type VariantProps } from "class-variance-authority";
-
 const buttonStyles = cva("br-sm fs-sm", {
   variants: {
     variant: {
@@ -86,18 +70,6 @@ const buttonStyles = cva("br-sm fs-sm", {
     size: "md",
   },
 });
-
-export interface MyButtonProps
-  extends Button.Props, VariantProps<typeof buttonStyles> {}
-
-export const MyButton = ({
-  className,
-  variant,
-  size,
-  ...props
-}: MyButtonProps) => (
-  <Button className={buttonStyles({ variant, size, className })} {...props} />
-);
 ```
 
 This approach ensures that your project remains lightweight, performant, and perfectly aligned with your design vision.
