@@ -309,10 +309,6 @@ summary {
   border-color: #38bdf8;
 }
 
-.bc-sky-7 {
-  border-color: #30a3d5;
-}
-
 .bc-slate-3 {
   border-color: #bbc2cc;
 }
@@ -595,10 +591,6 @@ summary {
 
 .bg-sky-1 {
   background-color: #dff4fe;
-}
-
-.bg-sky-6 {
-  background-color: #54c6f9;
 }
 
 .bg-slate {
@@ -1275,10 +1267,6 @@ summary {
 
 .fv\:oc-red-6:focus-visible {
   outline-color: #ea5560;
-}
-
-.fv\:oc-sky-6:focus-visible {
-  outline-color: #54c6f9;
 }
 
 .fv\:oc-white:focus-visible {
