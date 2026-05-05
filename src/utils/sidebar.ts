@@ -186,7 +186,7 @@ export const sidebarConfig: SidebarConfig = [
           { title: "Flex Direction", slug: "flex-direction" },
           { title: "Flex Grow", slug: "flex-grow" },
           { title: "Flex Shrink", slug: "flex-shrink" },
-          { title: "Flex Wrap", slug: "fw-w" },
+          { title: "Flex Wrap", slug: "flex-wrap" },
           { title: "Justify Content", slug: "justify-content" },
           { title: "Justify Items", slug: "justify-items" },
           { title: "Justify Self", slug: "justify-self" },
