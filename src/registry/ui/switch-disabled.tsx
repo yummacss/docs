@@ -16,7 +16,7 @@ export default function SwitchDisabled() {
         disabled
         className="d-f p-r ai-c h-5 w-9 m-0 px-1 bg-silver-3 br-pill bw-0 c-p fv:ow-2 fv:oo-2 fv:oc-indigo-5"
       >
-        <Switch.Thumb className="w-3 h-3 ml-4 bg-white br-pill bs-o-sm" />
+        <Switch.Thumb className="w-4 h-3 ml-4 bg-white br-pill bs-o-sm" />
       </Switch.Root>
       <Field.Label
         htmlFor="switch-auto-invite"
