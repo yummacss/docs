@@ -25,7 +25,7 @@ The abbreviation mental model tries to be a set of consistent and predictable mi
 
 There is no vocabulary to memorize on top of CSS. There is only CSS, abbreviated.
 
-## One class. One property. No surprises.
+## How does it works?
 
 Every class in Yumma CSS maps to exactly one CSS property.
 
@@ -47,13 +47,12 @@ Every class in Yumma CSS maps to exactly one CSS property.
 }
 ```
 
-What you see is what you get. No multi-property shorthands hidden behind a single class. No surprises in the output. If you see `ai-c` in the markup, you know exactly what CSS it produces.
-
 ## Smaller markup, same output
 
-Fewer characters per class means less noise in your markup. Complex components stay readable as they grow.
+Fewer characters per class means less noise in your markup. This also means smaller bundles.
 
 ```html
+// 1.1kB
 <button class="px-3 py-2 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-md bw-1 fw-600 c-p">
   Add to Cart
 </button>
