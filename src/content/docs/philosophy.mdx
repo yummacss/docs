@@ -3,42 +3,25 @@ export const meta = {
   description: "Why Yumma CSS maps class names directly to CSS properties.",
 };
 
-If you know CSS, you already know this framework. If the classes below look foreign to you, that's probably a CSS problem, not a framework problem.
-
-Most developers who "know CSS" have been writing framework classes so long they've forgotten the actual properties.
-
-```html "d-if ai-c mbs-6 ml-4 c-black fw-600" "inline-flex items-center mbs-6 ml-4 text-black font-semibold"
-<!-- 35 chars -->
-<h1 class="d-if ai-c mbs-6 ml-4 c-black fw-600">Blog<h1>
-
-<!-- 60 chars -->
-<div class="inline-flex items-center mbs-6 ml-4 text-black font-semibold">Blog</div>
-```
-
 ## Abbreviations, not aliases
 
 Most utility frameworks introduce a vocabulary layer. Class names *represent* CSS values through human-readable aliases.
 
-| CSS Property              | Other  frameworks | Yumma CSS |
-|---------------------------|-------------------|-----------|
-| `display: flex`           | `flex`            | `d-f`     |
-| `font-weight: 600`        | `font-semibold`   | `fw-600`  |
-| `align-items: center`     | `items-center`    | `ai-c`    |
-| `justify-content: center` | `justify-center`  | `jc-c`    |
-| `color: white`            | `text-white`      | `c-white` |
-| `border-radius: 0.375rem` | `rounded-md`      | `br-md`   |
+```html "d-if ai-c mbs-6 ml-4 c-black fw-600" "inline-flex items-center mbs-6 ml-4 text-black font-semibold"
+<!-- 60 chars -->
+<div class="inline-flex items-center mbs-6 ml-4 text-black font-semibold">Blog</div>
 
-With aliases, you learn the framework first, then the framework translates to CSS.
+<!-- 35 chars -->
+<h1 class="d-if ai-c mbs-6 ml-4 c-black fw-600">Blog<h1>
+```
 
-With abbreviations, you already know CSS, the class name is just a shorter version of what you already know.
+With abbreviations, you already know CSS, the class name is just an abbreviation of what you already know.
 
-## Isn't this just a shorter syntax for the same thing?
+## About semantics
 
-Not quite. The difference is in the mental model.
+Semantic frameworks optimize for readability, `font-semibold` reads very naturally. But readability comes at a cost: you need to memorize a separate vocabulary on top of CSS. `font-semibold` doesn't tell you it's `font-weight: 600`. `items-center` doesn't tell you it's `align-items`, and so on and so forth.
 
-Alias-based frameworks optimize for readability, `font-semibold` reads like English. But readability comes at a cost: you need to memorize a separate vocabulary on top of CSS. `font-semibold` doesn't tell you it's `font-weight: 600`. `items-center` doesn't tell you it's `align-items`. The framework becomes a translation layer between you and CSS.
-
-Yumma CSS removes that layer. The abbreviation rules are consistent and predictable. Once you know that `jc` is `justify-content` and `c` is `center`, you know `jc-c` forever, and you also know `jc-fe` (flex-end), `jc-sb` (space-between), and every other value without looking anything up.
+The abbreviation mental model tries to be a set of consistent and predictable micro patterns. Once you know that `jc` is `justify-content` and `c` is `center`, you know `jc-c` forever, and you also know `jc-fe` (flex-end), `jc-sb` (space-between), and every other value without looking anything up.
 
 There is no vocabulary to memorize on top of CSS. There is only CSS, abbreviated.
 
