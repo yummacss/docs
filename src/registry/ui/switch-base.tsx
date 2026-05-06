@@ -14,7 +14,7 @@ export default function SwitchBase() {
         id="switch-follow"
         checked={checked}
         onCheckedChange={setChecked}
-        className={`p-r d-f ai-c h-5 w-9 br-pill bw-0 m-0 px-1 c-p tp-c tdu-150 ttf-io fv:ow-2 fv:oo-2 fv:oc-mint-5-5 ${
+        className={`p-r d-f ai-c h-5 w-9 br-pill m-0 px-1 c-p tp-c tdu-150 ttf-io fv:ow-2 fv:oo-2 fv:oc-mint-5 ${
           checked ? "bg-mint-5" : "bg-silver-1"
         }`}
       >
@@ -25,7 +25,7 @@ export default function SwitchBase() {
               transition={{ duration: 0.2, ease: "easeInOut" }}
             />
           }
-          className="w-4 h-3 bg-white br-pill bs-o-sm"
+          className="w-4 h-3 bg-white br-pill bs-o-xs"
         />
       </Switch.Root>
       <Field.Label
