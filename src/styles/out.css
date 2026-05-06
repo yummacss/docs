@@ -1389,6 +1389,10 @@ summary {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+.h-1 {
+  height: .25rem;
+}
+
 .h-10 {
   height: 2.5rem;
 }
@@ -1679,10 +1683,6 @@ summary {
 
 .l-1 {
   left: .25rem;
-}
-
-.l-2 {
-  left: .5rem;
 }
 
 .l-3 {
@@ -2499,6 +2499,10 @@ summary {
 
 .va-m {
   vertical-align: middle;
+}
+
+.w-1 {
+  width: .25rem;
 }
 
 .w-10 {

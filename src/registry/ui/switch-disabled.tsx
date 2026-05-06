@@ -15,7 +15,7 @@ export default function SwitchBase() {
         id="switch-auto-invite"
         checked={checked}
         onCheckedChange={setChecked}
-        className={`p-r d-f ai-c h-5 w-9 br-pill c-na bw-0 m-0 px-1 c-na tp-c tdu-150 ttf-io fv:ow-2 fv:oo-2 fv:oc-mint-5 ${
+        className={`p-r d-f ai-c h-5 w-9 br-pill c-na m-0 px-1 c-na tp-c tdu-150 ttf-io fv:ow-2 fv:oo-2 fv:oc-mint-5 ${
           checked ? "bg-mint-5" : "bg-red-1"
         }`}
       >
@@ -26,7 +26,7 @@ export default function SwitchBase() {
               transition={{ duration: 0.2, ease: "easeInOut" }}
             />
           }
-          className="w-4 h-3 bg-white br-pill bs-o-sm"
+          className="w-4 h-3 bg-white br-pill bs-o-xs"
         />
       </Switch.Root>
       <Field.Label
