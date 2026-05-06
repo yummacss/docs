@@ -22,13 +22,13 @@ export default function SwitchIcon() {
         <Switch.Thumb
           render={
             <motion.span
-              animate={{ x: checked ? 16 : 0 }}
+              animate={{ x: checked ? 12 : 0 }}
               transition={{ duration: 0.2, ease: "easeInOut" }}
-              className="w-3 h-3 bg-white br-pill bs-o-sm"
+              className="w-4 h-3 bg-white br-pill bs-o-sm"
             />
           }
         />
-        {checked && <Check className="d-f p-a l-1 ai-c jc-c w-3 h-3 c-white" />}
+        {checked && <Check className="d-f p-a l-1 ai-c jc-c w-4 h-3 c-white" />}
       </Switch.Root>
       <Field.Label
         htmlFor="switch-notifications"

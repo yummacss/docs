@@ -22,11 +22,11 @@ export default function SwitchDescription() {
           <Switch.Thumb
             render={
               <motion.span
-                animate={{ x: checked ? 16 : 0 }}
+                animate={{ x: checked ? 12 : 0 }}
                 transition={{ duration: 0.2, ease: "easeInOut" }}
               />
             }
-            className="w-3 h-3 bg-white br-pill bs-o-sm"
+            className="w-4 h-3 bg-white br-pill bs-o-sm"
           />
         </Switch.Root>
         <Field.Label
