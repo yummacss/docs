@@ -16,7 +16,7 @@ export default function SwitchIcon() {
         checked={checked}
         onCheckedChange={setChecked}
         className={`p-r d-f ai-c h-5 w-9 br-pill bw-0 m-0 px-1 c-p tp-c tdu-150 ttf-io fv:ow-2 fv:oo-2 fv:oc-indigo-5 ${
-          checked ? "bg-indigo" : "bg-silver-1"
+          checked ? "bg-mint-5" : "bg-silver-1"
         }`}
       >
         <Switch.Thumb
@@ -28,7 +28,7 @@ export default function SwitchIcon() {
             />
           }
         />
-        {checked && <Check className="d-f p-a l-1 ai-c jc-c w-4 h-3 c-white" />}
+        {checked && <Check className="d-f p-a l-1 ai-c jc-c w-3 h-3 c-white" />}
       </Switch.Root>
       <Field.Label
         htmlFor="switch-notifications"

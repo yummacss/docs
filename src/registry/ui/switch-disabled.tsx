@@ -14,9 +14,15 @@ export default function SwitchDisabled() {
         checked={checked}
         onCheckedChange={setChecked}
         disabled
-        className="d-f p-r ai-c h-5 w-9 m-0 px-1 bg-silver-3 br-pill bw-0 c-p fv:ow-2 fv:oo-2 fv:oc-indigo-5"
+        className={`d-f p-r ai-c h-5 w-9 m-0 px-1 br-pill bw-0 c-p fv:ow-2 fv:oo-2 fv:oc-indigo-5 ${
+          checked ? "bg-silver-3" : "bg-silver-1"
+        }`}
       >
-        <Switch.Thumb className="w-4 h-3 ml-4 bg-white br-pill bs-o-sm" />
+        <Switch.Thumb
+          className={`w-4 h-3 bg-white br-pill bs-o-sm ${
+            checked ? "ml-3" : "ml-0"
+          }`}
+        />
       </Switch.Root>
       <Field.Label
         htmlFor="switch-auto-invite"
