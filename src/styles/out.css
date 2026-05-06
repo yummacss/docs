@@ -1681,6 +1681,10 @@ summary {
   left: .25rem;
 }
 
+.l-2 {
+  left: .5rem;
+}
+
 .l-3 {
   left: .75rem;
 }
