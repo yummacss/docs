@@ -2,31 +2,36 @@
 
 import { Field } from "@base-ui/react/field";
 import { Switch } from "@base-ui/react/switch";
+import { motion } from "motion/react";
 import { useState } from "react";
 
-export default function SwitchDisabled() {
-  const [checked, setChecked] = useState(true);
+export default function SwitchBase() {
+  const [checked, setChecked] = useState(false);
 
   return (
-    <Field.Root className="d-f ai-c g-2 o-50 c-na">
+    <Field.Root className="d-f ai-c g-2 o-50">
       <Switch.Root
+        disabled
         id="switch-auto-invite"
         checked={checked}
         onCheckedChange={setChecked}
-        disabled
-        className={`d-f p-r ai-c h-5 w-9 m-0 px-1 br-pill bw-0 c-p fv:ow-2 fv:oo-2 fv:oc-indigo-5 ${
-          checked ? "bg-silver-3" : "bg-silver-1"
+        className={`p-r d-f ai-c h-5 w-9 br-pill c-na bw-0 m-0 px-1 c-na tp-c tdu-150 ttf-io fv:ow-2 fv:oo-2 fv:oc-mint-5 ${
+          checked ? "bg-mint-5" : "bg-red-1"
         }`}
       >
         <Switch.Thumb
-          className={`w-4 h-3 bg-white br-pill bs-o-sm ${
-            checked ? "ml-3" : "ml-0"
-          }`}
+          render={
+            <motion.span
+              animate={{ x: checked ? 12 : 0 }}
+              transition={{ duration: 0.2, ease: "easeInOut" }}
+            />
+          }
+          className="w-4 h-3 bg-white br-pill bs-o-sm"
         />
       </Switch.Root>
       <Field.Label
         htmlFor="switch-auto-invite"
-        className="c-slate-10 fs-sm fw-500 us-none c-p"
+        className="c-slate-10 fs-sm fw-500 us-none c-na"
       >
         Automatically accept invites
       </Field.Label>
