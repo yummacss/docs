@@ -4,7 +4,8 @@ import { Button } from "@base-ui/react/button";
 
 export default function ButtonSizes() {
   return (
-    <div className="d-f fd-c g-6 ai-c">
+// temporary scrollbar!!
+    <div className="d-f fd-c g-6 ai-c o-s">
       {sizes.map((s) => (
         <div key={s.id} className="d-f ai-c g-6">
           <Button className={`d-if ai-c ${s.padding} bg-indigo h:bg-indigo-8 bc-indigo-7 c-white ${s.br} bw-1 fw-500 bs-o-md tp-c tdu-150 ttf-io us-none fv:ow-2 fv:oo-2 fv:oc-indigo-5 ${s.text}`}>
