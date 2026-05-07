@@ -22,8 +22,6 @@ export default function TableOfContents() {
 
   const intersectionObserverRef = useRef<IntersectionObserver | null>(null);
 
-  // Re-scan headings whenever the route changes.
-  // Small delay lets Next.js finish rendering the new page before we query the DOM.
   // biome-ignore lint/correctness/useExhaustiveDependencies: i want to re-run this effect on every route change
   useEffect(() => {
     const timer = setTimeout(() => {
