@@ -54,7 +54,7 @@ export default function SelectGrouped() {
                       transition={{ duration: 0.15, ease: "easeOut" }}
                     />
                   }
-                  className="py-1 w-64 bg-white bc-silver-2 bw-1 br-xl bs-o-lg"
+                  className="py-1 w-64 bg-white bc-silver-2 bw-1 br-xl bs-o-xs"
                 >
                   <Select.List className="p-r o-auto">
                     {categories.map((group) => (

@@ -35,7 +35,7 @@ export default function PreviewCardAvatar() {
                 transition={{ duration: 0.15, ease: "easeOut" }}
               />
             }
-            className="d-f fd-c g-3 w-64 p-3 bg-white bc-silver-2 br-xl bw-1 bs-o-lg"
+            className="d-f fd-c g-3 w-64 p-3 bg-white bc-silver-2 br-xl bw-1 bs-o-xs"
           >
             <div className="d-f ai-c g-3">
               <Avatar.Root className="d-if o-h ai-c jc-c w-10 h-10 bc-white br-pill bw-1 va-m us-none">

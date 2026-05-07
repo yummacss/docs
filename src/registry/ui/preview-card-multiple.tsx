@@ -95,7 +95,7 @@ export default function PreviewCardMultiple() {
                     transition={{ duration: 0.15, ease: "easeOut" }}
                   />
                 }
-                className="d-f fd-c g-3 p-3 bg-white bc-silver-2 br-xl bw-1 bs-o-lg"
+                className="d-f fd-c g-3 p-3 bg-white bc-silver-2 br-xl bw-1 bs-o-xs"
               >
                 <>{payload}</>
               </PreviewCard.Popup>

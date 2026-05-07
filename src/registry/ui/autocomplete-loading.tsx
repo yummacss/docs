@@ -57,7 +57,7 @@ export default function AutocompleteLoading() {
                     transition={{ duration: 0.1, ease: "easeOut" }}
                   />
                 }
-                className="o-h w-80 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-lg"
+                className="o-h w-80 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs"
               >
                 {loading && hasResults ? (
                   <div className="d-f fd-c g-3 py-3 px-4">

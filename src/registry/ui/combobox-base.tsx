@@ -51,7 +51,7 @@ export default function ComboboxBase() {
                     transition={{ duration: 0.1, ease: "easeOut" }}
                   />
                 }
-                className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-lg"
+                className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs"
               >
                 <Combobox.List className="oy-auto py-1 max-h-72 ow-0">
                   {(user: User) => (

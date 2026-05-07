@@ -40,7 +40,7 @@ export default function ComboboxStatic() {
       {open && (
         <Combobox.Portal keepMounted>
           <Combobox.Positioner className="ow-0" sideOffset={8}>
-            <Combobox.Popup className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-lg">
+            <Combobox.Popup className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs">
               <Combobox.List className="oy-auto py-1 max-h-72 ow-0">
                 {(user: User) => (
                   <Combobox.Item

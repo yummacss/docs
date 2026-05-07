@@ -27,7 +27,7 @@ export default function MenuBase() {
                     transition={{ duration: 0.1, ease: "easeOut" }}
                   />
                 }
-                className="py-1 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-lg"
+                className="py-1 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs"
               >
                 <Menu.Item
                   className={(state) =>
