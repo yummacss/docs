@@ -14,7 +14,7 @@ import { SearchDialog } from "./search-dialog";
 
 const MobileSidebar = lazy(() => import("./mobile-sidebar"));
 
-const navbarVariants = cva("p-f l-0 r-0 t-0 zi-10 bbw-1", {
+const navbarVariants = cva("p-f l-0 r-0 t-0 zi-50 bbw-1", {
   variants: {
     variant: {
       default: "lg:bf-b-md bc-white/10",
@@ -82,7 +82,7 @@ export default function Navbar({
           <nav className="d-f ai-c jc-sb">
             <div className="d-f ai-c g-2">
               <Link
-                href={isUI ? "/ui/installation" : "/"}
+                href="/"
                 className="fv:oc-white fv:ow-2"
               >
                 <YummaCSSDark className="d-b h-8 w-auto" />

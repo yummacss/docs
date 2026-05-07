@@ -4,24 +4,11 @@ import Navbar from "@/components/ui/navbar";
 
 export default function Home() {
   return (
-    <div className="p-r min-h-dvh bg-mirage c-white">
-      {/*s
-       * Pure CSS background — replaces the OGL/WebGL DarkVeil canvas.
-       * Zero bundle cost, zero recompilation, zero runtime overhead.
-       * The radial gradients recreate the depth and colour temperature of
-       * the original shader at a fraction of the weight.
-       */}
-      <div
-        aria-hidden="true"
-        className="p-a t-0 l-0 zi-0 w-full h-full pe-none"
-      />
-
-      <div className="p-r zi-10">
-        <Navbar variant="transparent" />
-      </div>
+    <div className="p-r min-h-dvh c-white">
+      <Navbar variant="transparent" />
 
       <div
-        className="d-f p-r zi-10 ai-fe w-full mx-auto px-6"
+        className="d-f p-r ai-fe w-full mx-auto px-6"
         style={{
           minHeight: "calc(100dvh - 120px)",
           maxWidth: "clamp(40rem, 80vw, 96rem)",
