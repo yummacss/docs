@@ -3,9 +3,9 @@ import { CircleCheckFill, PersonFill } from "@gravity-ui/icons";
 
 export default function AvatarSizes() {
   return (
-    <div className="d-f fd-c g-6 ai-c">
+    <div className="d-f fd-c g-6 ai-c o-s">
       {sizes.map((s) => (
-        <div key={s.id} className="d-f ai-c g-6">
+        <div key={s.id} className="d-f ai-c g-6 fw-w">
           <div className="p-r">
             <Avatar.Root
               className={`d-if o-h ai-c jc-c ${s.size} bg-silver-1 bc-white br-pill bw-1 va-m us-none`}
