@@ -24,6 +24,7 @@ export default function TableOfContents() {
 
   // Re-scan headings whenever the route changes.
   // Small delay lets Next.js finish rendering the new page before we query the DOM.
+  // biome-ignore lint/correctness/useExhaustiveDependencies: i want to re-run this effect on every route change
   useEffect(() => {
     const timer = setTimeout(() => {
       const elements = Array.from(
@@ -67,7 +68,7 @@ export default function TableOfContents() {
         intersectionObserverRef.current.disconnect();
       }
     };
-  }, []);
+  }, [pathname]);
 
   if (headings.length === 0) {
     return null;

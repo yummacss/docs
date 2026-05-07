@@ -12,13 +12,12 @@ export default function FieldCounter() {
       <label htmlFor="bio-input" className="c-slate-10 fs-sm fw-500">
         Bio
       </label>
-      <Field.Control
+      <textarea
         id="bio-input"
-        render={<textarea />}
         placeholder="Tell us about yourself..."
         maxLength={maxLength}
         value={value}
-        onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setValue(e.target.value)}
+        onChange={(e) => setValue(e.target.value)}
         className="h-20 w-64 p-3 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md bs-o-xs fv:oo--1 fv:oc-indigo-5 us-none resize-none"
       />
       <span className="c-slate-6 fs-xs">
