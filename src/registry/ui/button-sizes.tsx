@@ -23,10 +23,6 @@ export default function ButtonSizes() {
           <Button className={`d-if ai-c ${s.padding} bg-red h:bg-red-8 bc-red-7 c-white ${s.br} bw-1 fw-500 bs-o-md tp-c tdu-150 ttf-io us-none fv:ow-2 fv:oo-2 fv:oc-red-5 ${s.text}`}>
             {s.label}
           </Button>
-
-          <Button className={`d-if ai-c ${s.padding} bg-white h:bg-silver-1 bc-silver-3 c-red-6 ${s.br} bw-1 fw-500 bs-o-xs tp-c tdu-150 ttf-io us-none fv:ow-2 fv:oo-2 fv:oc-red-5 ${s.text}`}>
-            {s.label}
-          </Button>
         </div>
       ))}
     </div>
