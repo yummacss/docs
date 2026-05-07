@@ -25,7 +25,7 @@ export default function AutocompleteStatic() {
 
       <Autocomplete.Portal keepMounted>
         <Autocomplete.Positioner className="ow-0" sideOffset={4}>
-          <Autocomplete.Popup className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-lg">
+          <Autocomplete.Popup className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs">
             <Autocomplete.List className="oy-auto max-h-72 py-1 ow-0">
               {(user: User) => (
                 <Autocomplete.Item

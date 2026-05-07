@@ -110,7 +110,7 @@ export default function NavigationMenuBase() {
 
       <NavigationMenu.Portal>
         <NavigationMenu.Positioner sideOffset={10}>
-          <NavigationMenu.Popup className="o-h bg-white bc-silver-2 br-xl bw-1 bs-o-lg">
+          <NavigationMenu.Popup className="o-h bg-white bc-silver-2 br-xl bw-1 bs-o-xs">
             <NavigationMenu.Viewport className="p-r o-h w-full h-full" />
           </NavigationMenu.Popup>
         </NavigationMenu.Positioner>
