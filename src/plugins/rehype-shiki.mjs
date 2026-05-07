@@ -29,15 +29,27 @@ function transformerMetaPreserve() {
   };
 }
 
-export default function rehypeShikiPlugin(options = {}) {
-  return rehypeShiki({
-    theme: eclipsa,
-    transformers: [
-      transformerMetaPreserve(),
-      transformerNotationDiff(),
-      transformerNotationHighlight(),
-      transformerNotationWordHighlight(),
-    ],
-    ...options,
-  });
+/**
+ * Cached plugin instance.
+ *
+ * rehypeShiki() internally calls createHighlighter() which loads language
+ * grammars and theme data — an expensive operation. By building the plugin
+ * once at module evaluation time and returning the same instance on every
+ * call, we avoid re-initialising Shiki for each of the 262 MDX files.
+ *
+ * The module is evaluated once per Next.js build worker, so this is safe.
+ */
+const shikiPluginInstance = rehypeShiki({
+  theme: eclipsa,
+  transformers: [
+    transformerMetaPreserve(),
+    transformerNotationDiff(),
+    transformerNotationHighlight(),
+    transformerNotationWordHighlight(),
+  ],
+});
+
+export default function rehypeShikiPlugin(_options = {}) {
+  // Always return the same instance — options are baked in above.
+  return shikiPluginInstance;
 }

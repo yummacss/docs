@@ -1,14 +1,21 @@
 import { ArrowRight, LayersVertical } from "@gravity-ui/icons";
 import Link from "next/link";
-import DarkVeil from "@/components/dark-veil";
 import Navbar from "@/components/ui/navbar";
 
 export default function Home() {
   return (
-    <div className="p-r min-h-dvh bg-black c-white">
-      <div className="p-a t-0 l-0 zi-0 w-full h-full">
-        <DarkVeil />
-      </div>
+    <div className="p-r min-h-dvh bg-mirage c-white">
+      {/*s
+       * Pure CSS background — replaces the OGL/WebGL DarkVeil canvas.
+       * Zero bundle cost, zero recompilation, zero runtime overhead.
+       * The radial gradients recreate the depth and colour temperature of
+       * the original shader at a fraction of the weight.
+       */}
+      <div
+        aria-hidden="true"
+        className="p-a t-0 l-0 zi-0 w-full h-full pe-none"
+      />
+
       <div className="p-r zi-10">
         <Navbar variant="transparent" />
       </div>

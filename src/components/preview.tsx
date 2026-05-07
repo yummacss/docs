@@ -1,6 +1,6 @@
 import { cva, type VariantProps } from "class-variance-authority";
 import { clsx } from "clsx";
-import dynamic from "next/dynamic";
+import { getRegistryComponent } from "@/registry";
 
 const previewVariants = cva("bg-white btw-1 brw-1 blw-1", {
   variants: {
@@ -23,16 +23,6 @@ interface PreviewProps extends VariantProps<typeof previewVariants> {
   className?: string;
 }
 
-function getDynamicComponent(id: string) {
-  return dynamic(
-    () =>
-      import(`@/registry/ui/${id}.tsx`).catch(
-        () => import(`@/registry/docs/${id}.tsx`),
-      ),
-    { ssr: true },
-  );
-}
-
 export default function Preview({
   registryId,
   id,
@@ -41,7 +31,10 @@ export default function Preview({
   className,
 }: PreviewProps) {
   const actualId = registryId || id;
-  const RegistryComponent = actualId ? getDynamicComponent(actualId) : null;
+
+  // Look up from the static map — never create dynamic() calls at render time.
+  // If the id isn't in the registry, fall through to children.
+  const RegistryComponent = actualId ? getRegistryComponent(actualId) : null;
 
   return (
     <div
