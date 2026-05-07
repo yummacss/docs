@@ -4,9 +4,9 @@ import { ShieldCheck } from "@gravity-ui/icons";
 
 export default function BadgeSizes() {
   return (
-    <div className="d-f fd-c g-6 ai-c">
+    <div className="d-f fd-c g-6 ai-c o-s">
       {sizes.map((s) => (
-        <div key={s.id} className="d-f ai-c g-6">
+        <div key={s.id} className="d-f ai-c g-6 fw-w">
           <div className={`d-f ai-c g-1 ${s.padding} bg-white bc-silver-2 br-sm bw-1 bs-o-xs`}>
             <span className={`${s.text} c-slate-10 fw-500 us-none`}>{s.base}</span>
           </div>

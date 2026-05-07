@@ -3,9 +3,11 @@ export const meta = {
   description: "Display content when a list or section has no items.",
 };
 
-## Work in Progress
+## Installation
 
-This component is currently a work in progress and not yet available for use. We are actively developing it and will update this page once it's ready.
+```bash
+pnpm add @base-ui/react
+```
 
 ## Examples
 
@@ -29,7 +31,9 @@ Free, accessible React empty state components built with Base UI for zero data v
 
 ---
 
-### Search
+### Icon
+
+An empty state with icon and text.
 
 <Tabs defaultValue="preview">
   <TabsList>
@@ -37,10 +41,50 @@ Free, accessible React empty state components built with Base UI for zero data v
     <TabsTab value="code">Code</TabsTab>
   </TabsList>
   <TabsPanel className="bg-white bbr-sm" value="preview">
-    <Preview className="h-56 bw-0" registryId="empty-state-search" />
+    <Preview className="h-56 bw-0" registryId="empty-state-icon" />
   </TabsPanel>
   <TabsPanel value="code">
-    ```tsx registryId="empty-state-search"
+    ```tsx registryId="empty-state-icon"
+    ```
+  </TabsPanel>
+</Tabs>
+
+---
+
+### Simple
+
+An empty state with title and description only.
+
+<Tabs defaultValue="preview">
+  <TabsList>
+    <TabsTab value="preview">Preview</TabsTab>
+    <TabsTab value="code">Code</TabsTab>
+  </TabsList>
+  <TabsPanel className="bg-white bbr-sm" value="preview">
+    <Preview className="h-56 bw-0" registryId="empty-state-simple" />
+  </TabsPanel>
+  <TabsPanel value="code">
+    ```tsx registryId="empty-state-simple"
+    ```
+  </TabsPanel>
+</Tabs>
+
+---
+
+### Actions
+
+An empty state with action buttons.
+
+<Tabs defaultValue="preview">
+  <TabsList>
+    <TabsTab value="preview">Preview</TabsTab>
+    <TabsTab value="code">Code</TabsTab>
+  </TabsList>
+  <TabsPanel className="bg-white bbr-sm" value="preview">
+    <Preview className="h-56 bw-0" registryId="empty-state-actions" />
+  </TabsPanel>
+  <TabsPanel value="code">
+    ```tsx registryId="empty-state-actions"
     ```
   </TabsPanel>
 </Tabs>

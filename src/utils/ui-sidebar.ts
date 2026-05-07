@@ -97,7 +97,7 @@ export const uiSidebarConfig: UISidebarConfig = [
   {
     title: "Application UI",
     items: [
-      { title: "Empty State", slug: "empty-state", wip: true },
+      { title: "Empty State", slug: "empty-state" },
       { title: "Onboarding", slug: "onboarding", wip: true },
       { title: "Rating", slug: "rating", wip: true },
       { title: "Skeleton", slug: "skeleton", wip: true },
