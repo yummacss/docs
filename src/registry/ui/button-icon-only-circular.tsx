@@ -1,4 +1,4 @@
-use client";
+"use client";
 
 import { Button } from "@base-ui/react/button";
 import { Plus } from "@gravity-ui/icons";
