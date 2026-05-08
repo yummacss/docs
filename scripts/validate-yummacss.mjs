@@ -41,7 +41,7 @@ function getAllTsxFiles(dir, baseDir) {
 }
 
 const files = getAllTsxFiles(UI_DIR, UI_DIR).filter(
-  (f) => !f.includes("node_modules") && !f.includes(".next")
+  (f) => !f.includes("node_modules") && !f.includes(".next"),
 );
 
 const KNOWN_VALID = new Set([

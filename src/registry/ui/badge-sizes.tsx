@@ -7,13 +7,19 @@ export default function BadgeSizes() {
     <div className="d-f fd-c g-6 ai-c o-s">
       {sizes.map((s) => (
         <div key={s.id} className="d-f ai-c g-6 fw-w">
-          <div className={`d-f ai-c g-1 ${s.padding} bg-white bc-silver-2 br-sm bw-1 bs-o-xs`}>
-            <span className={`${s.text} c-slate-10 fw-500 us-none`}>{s.base}</span>
+          <div
+            className={`d-f ai-c g-1 ${s.padding} bg-white bc-silver-2 br-sm bw-1 bs-o-xs`}
+          >
+            <span className={`${s.text} c-slate-10 fw-500 us-none`}>
+              {s.base}
+            </span>
           </div>
 
           <div className={`d-f ai-c g-1 ${s.padding} bg-indigo-1 br-sm`}>
             <ShieldCheck className={`${s.icon} c-indigo-7`} />
-            <span className={`${s.text} c-indigo-7 fw-500 us-none`}>{s.iconLabel}</span>
+            <span className={`${s.text} c-indigo-7 fw-500 us-none`}>
+              {s.iconLabel}
+            </span>
           </div>
 
           <div className={`d-f ai-c g-1 ${s.padding} bg-indigo c-white br-sm`}>
@@ -23,7 +29,9 @@ export default function BadgeSizes() {
 
           <div className={`d-f ai-c g-1 ${s.padding} bg-red-1 br-sm`}>
             <span className={`${s.dot} bg-red-7 br-full`} />
-            <span className={`${s.text} c-red-7 fw-500 us-none`}>{s.dotLight}</span>
+            <span className={`${s.text} c-red-7 fw-500 us-none`}>
+              {s.dotLight}
+            </span>
           </div>
 
           <div className={`d-f ai-c g-1 ${s.padding} bg-red c-white br-sm`}>

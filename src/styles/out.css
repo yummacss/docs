@@ -617,10 +617,6 @@ summary {
   background-color: #a5aebc;
 }
 
-.bg-slate-5 {
-  background-color: #8f9bab;
-}
-
 .bg-transparent {
   background-color: transparent;
 }
@@ -2461,6 +2457,10 @@ summary {
   text-overflow: ellipsis;
 }
 
+.to-m {
+  text-orientation: mixed;
+}
+
 .tp-a {
   transition-property: all;
 }
@@ -2651,6 +2651,10 @@ summary {
 
 .w-vw {
   width: 100vw;
+}
+
+.wm-vrl {
+  writing-mode: vertical-rl;
 }
 
 .ws-nw {

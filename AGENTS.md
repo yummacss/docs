@@ -2612,6 +2612,15 @@ Below is an exhaustive list of every supported utility prefix and value in Yumma
 | `text-decoration: none;` | `td-none` |
 | `text-decoration: underline;` | `td-u` |
 
+### text-orientation
+
+| CSS Rule | Yumma Utility |
+|----------|---------------|
+| `text-orientation: mixed;` | `to-m` |
+| `text-orientation: upright;` | `to-u` |
+| `text-orientation: sideways-right;` | `to-sr` |
+| `text-orientation: sideways;` | `to-v` |
+
 ### text-indent
 
 | CSS Rule | Yumma Utility |
