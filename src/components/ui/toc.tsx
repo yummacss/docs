@@ -22,7 +22,7 @@ export default function TableOfContents() {
 
   const intersectionObserverRef = useRef<IntersectionObserver | null>(null);
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: i want to re-run this effect on every route change
+  // biome-ignore lint/correctness/useExhaustiveDependencies: need this useEffect to re-run this on route change to update the headings
   useEffect(() => {
     const timer = setTimeout(() => {
       const elements = Array.from(
