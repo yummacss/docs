@@ -17,7 +17,7 @@ export default function CheckboxNestedParent() {
         aria-labelledby={analyticsId}
         value={analyticsValue}
         onValueChange={setAnalyticsValue}
-        allValues={["read_messages", "send_messages"]}
+        allValues={["view_tasks", "create_tasks"]}
         className="d-f fd-c g-2"
       >
         <label
@@ -48,13 +48,13 @@ export default function CheckboxNestedParent() {
               )}
             />
           </Checkbox.Root>
-          General
+          Sprint planning
         </label>
 
         <div className="d-f fd-c g-2 ml-6">
           <label className="d-f ai-c g-2 fs-sm fw-500">
             <Checkbox.Root
-              value="read_messages"
+              value="view_tasks"
               className={(state) =>
                 `d-f w-4 h-4 ai-c jc-c br-sm fv:ow-2 fv:oo-2 fv:oc-indigo-5 ${
                   state.checked
@@ -67,12 +67,12 @@ export default function CheckboxNestedParent() {
                 <Check className="w-3 h-3" />
               </Checkbox.Indicator>
             </Checkbox.Root>
-            Read messages
+            View tasks
           </label>
 
           <label className="d-f ai-c g-2 fs-sm fw-500">
             <Checkbox.Root
-              value="send_messages"
+              value="create_tasks"
               className={(state) =>
                 `d-f w-4 h-4 ai-c jc-c br-sm fv:ow-2 fv:oo-2 fv:oc-indigo-5 ${
                   state.checked
@@ -85,7 +85,7 @@ export default function CheckboxNestedParent() {
                 <Check className="w-3 h-3" />
               </Checkbox.Indicator>
             </Checkbox.Root>
-            Send messages
+            Create tasks
           </label>
         </div>
       </CheckboxGroup>
@@ -94,7 +94,7 @@ export default function CheckboxNestedParent() {
         aria-labelledby={moderationId}
         value={moderationValue}
         onValueChange={setModerationValue}
-        allValues={["kick_members", "ban_members"]}
+        allValues={["edit_sprint", "delete_sprint"]}
         className="d-f fd-c g-2"
       >
         <label className="d-f ai-c g-2 fs-sm fw-500" id={moderationId}>
@@ -122,13 +122,13 @@ export default function CheckboxNestedParent() {
               )}
             />
           </Checkbox.Root>
-          Moderation
+          Sprint management
         </label>
 
         <div className="d-f fd-c g-2 ml-6">
           <label className="d-f ai-c g-2 fs-sm fw-500">
             <Checkbox.Root
-              value="kick_members"
+              value="edit_sprint"
               className={(state) =>
                 `d-f w-4 h-4 ai-c jc-c br-sm fv:ow-2 fv:oo-2 fv:oc-indigo-5 ${
                   state.checked
@@ -141,12 +141,12 @@ export default function CheckboxNestedParent() {
                 <Check className="w-3 h-3" />
               </Checkbox.Indicator>
             </Checkbox.Root>
-            Kick members
+            Edit sprint
           </label>
 
           <label className="d-f ai-c g-2 fs-sm fw-500">
             <Checkbox.Root
-              value="ban_members"
+              value="delete_sprint"
               className={(state) =>
                 `d-f w-4 h-4 ai-c jc-c br-sm fv:ow-2 fv:oo-2 fv:oc-indigo-5 ${
                   state.checked
@@ -159,7 +159,7 @@ export default function CheckboxNestedParent() {
                 <Check className="w-3 h-3" />
               </Checkbox.Indicator>
             </Checkbox.Root>
-            Ban members
+            Delete sprint
           </label>
         </div>
       </CheckboxGroup>

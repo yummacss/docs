@@ -22,7 +22,7 @@ export default function CheckboxDisabled() {
             <Check className="w-3 h-3" />
           </Checkbox.Indicator>
         </Checkbox.Root>
-        Administrator
+        Manage billing
       </label>
 
       <label className="d-f ai-c g-2 c-slate-10 fs-sm fw-500 o-50 c-na">
@@ -40,7 +40,7 @@ export default function CheckboxDisabled() {
             <Check className="w-3 h-3" />
           </Checkbox.Indicator>
         </Checkbox.Root>
-        Manage messages
+        View reports
       </label>
     </div>
   );

@@ -15,7 +15,7 @@ export default function CheckboxGroupBase() {
       className="d-f fd-c g-2 ai-fs c-slate-10"
     >
       <div className="fw-500 fs-sm" id={id}>
-        Permissions
+        Task actions
       </div>
 
       <label className="d-f ai-c g-2 fs-sm fw-500">
@@ -34,7 +34,7 @@ export default function CheckboxGroupBase() {
             <Check className="w-3 h-3" />
           </Checkbox.Indicator>
         </Checkbox.Root>
-        Kick members
+        Edit task
       </label>
 
       <label className="d-f ai-c g-2 fs-sm fw-500">
@@ -53,7 +53,7 @@ export default function CheckboxGroupBase() {
             <Check className="w-3 h-3" />
           </Checkbox.Indicator>
         </Checkbox.Root>
-        Ban members
+        Delete task
       </label>
 
       <label className="d-f ai-c g-2 fs-sm fw-500">
@@ -72,7 +72,7 @@ export default function CheckboxGroupBase() {
             <Check className="w-3 h-3" />
           </Checkbox.Indicator>
         </Checkbox.Root>
-        Administrator
+        Assign member
       </label>
     </CheckboxGroup>
   );
