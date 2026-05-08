@@ -2,10 +2,11 @@ import { defineConfig } from "yummacss";
 
 export default defineConfig({
   source: [
-    "./src/**/*.{ts,tsx}",
-    "./src/registry/**/*.{ts,tsx}",
-    "./src/content/**/*.{md,mdx}",
+    "./src/app/**/*.tsx",
+    "./src/components/**/*.{ts,tsx}",
+    "./src/content/**/*.mdx",
     "./src/mdx-components.tsx",
+    "./src/registry/**/*.tsx",
   ],
   output: "./src/styles/out.css",
   normalize: true,
