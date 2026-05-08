@@ -17,13 +17,15 @@ function ItemIcon({
 
 export default function ComboboxInline() {
   return (
-    <div className="d-f o-h fd-c g-0 w-64 bg-white bc-silver-3 bw-1 br-lg">
-      <Combobox.Root inline items={users}>
-        <div className="d-f ai-c g-2 px-3 bc-silver-3 bbw-1">
+    <div className="d-f fd-c g-2 c-slate-10 fs-sm">
+      <label className="fw-500">Assign member</label>
+      <div className="d-f o-h fd-c g-0 w-64 bg-white bc-silver-3 bw-1 br-lg">
+        <Combobox.Root inline items={users}>
+          <div className="d-f ai-c g-2 px-3 bc-silver-3 bbw-1">
           <Magnifier className="fs-0 w-4 h-4 c-slate-4" />
           <div className="p-r">
             <Combobox.Input
-              placeholder="Mention user..."
+              placeholder="Search team members"
               className="h-10 pl-4 pr-10 w-64 bg-transparent c-slate-10 fs-md"
             />
             <div className="d-f p-a r-2 b-0 ai-c jc-c h-10 c-slate-6">
@@ -39,8 +41,8 @@ export default function ComboboxInline() {
         <Combobox.List className="oy-auto py-1 max-h-52">
           {(user: User) => (
             <Combobox.Item
-              key={user.handle}
-              value={user.handle}
+              key={user.name}
+              value={user.name}
               render={(props, state) => (
                 <div
                   {...props}
@@ -59,82 +61,83 @@ export default function ComboboxInline() {
                     </Avatar.Fallback>
                   </Avatar.Root>
                   <span className="fg-1">{user.name}</span>
-                  <span className="c-slate-6 fw-400">@{user.handle}</span>
+                  <span className="c-slate-6 fw-400">{user.role}</span>
                   <ItemIcon selected={state.selected} className="ml-auto" />
                 </div>
               )}
             />
           )}
         </Combobox.List>
-      </Combobox.Root>
+        </Combobox.Root>
+      </div>
     </div>
   );
 }
 
 interface User {
   name: string;
-  handle: string;
+  role: string;
   avatar: string;
 }
 
 const users: User[] = [
   {
     name: "Sarah",
-    handle: "sarah",
+    role: "Product Designer",
     avatar:
       "https://api.dicebear.com/9.x/open-peeps/svg?seed=Sarah&backgroundColor=DAF0B9",
   },
   {
     name: "John",
-    handle: "john",
+    role: "Frontend Developer",
     avatar:
       "https://api.dicebear.com/9.x/open-peeps/svg?seed=John&backgroundColor=B4E9F2",
   },
   {
     name: "Noah",
-    handle: "noah",
+    role: "Backend Developer",
     avatar:
       "https://api.dicebear.com/9.x/open-peeps/svg?seed=Noah&backgroundColor=D0D1FB",
   },
   {
     name: "Melanie",
-    handle: "leok",
+    role: "DevOps Engineer",
     avatar:
       "https://api.dicebear.com/9.x/open-peeps/svg?seed=Melanie&backgroundColor=DCCEFC",
   },
   {
     name: "Riley",
-    handle: "rileyb",
+    role: "Product Manager",
     avatar:
       "https://api.dicebear.com/9.x/open-peeps/svg?seed=Riley&backgroundColor=F4C8FA",
   },
   {
     name: "Adrian",
-    handle: "adrianm",
+    role: "QA Engineer",
     avatar:
       "https://api.dicebear.com/9.x/open-peeps/svg?seed=Adrian&backgroundColor=FFD4DE",
   },
   {
     name: "Jessica",
-    handle: "jessicam",
+    role: "UX Researcher",
     avatar:
       "https://api.dicebear.com/9.x/open-peeps/svg?seed=Jessica&backgroundColor=DAF0B9",
   },
   {
     name: "Aiden",
-    handle: "aidenw",
+    role: "Frontend Developer",
     avatar:
       "https://api.dicebear.com/9.x/open-peeps/svg?seed=Aiden&backgroundColor=B4E9F2",
   },
   {
     name: "Liam",
-    handle: "liamj",
+    role: "Backend Developer",
     avatar:
       "https://api.dicebear.com/9.x/open-peeps/svg?seed=Liam&backgroundColor=D0D1FB",
   },
   {
     name: "Maria",
-    handle: "mariav",
+    role: "Engineering Lead",
     avatar:
       "https://api.dicebear.com/9.x/open-peeps/svg?seed=Maria&backgroundColor=DCCEFC",
   },

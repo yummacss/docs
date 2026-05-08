@@ -13,12 +13,12 @@ export default function ComboboxBase() {
     <Combobox.Root items={users} open={open} onOpenChange={setOpen}>
       <div className="d-f p-r fd-c g-2 c-slate-10 fs-sm">
         <label htmlFor="user-input" className="fw-500">
-          Mention user
+          Assign member
         </label>
         <div className="p-r">
           <Combobox.Input
             id="user-input"
-            placeholder="e.g. @sarah"
+            placeholder="Search team members"
             className="h-10 w-64 pl-4 pr-16 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md bs-o-xs fv:oo--1 fv:oc-indigo-5"
           />
           <div className="d-f p-a r-2 b-0 ai-c jc-c h-10 c-slate-6">
@@ -56,8 +56,8 @@ export default function ComboboxBase() {
                 <Combobox.List className="oy-auto py-1 max-h-72 ow-0">
                   {(user: User) => (
                     <Combobox.Item
-                      key={user.handle}
-                      value={user.handle}
+                      key={user.name}
+                      value={user.name}
                       className={(state) =>
                         `d-f ai-c g-2 py-2 px-3 fs-sm fw-500 us-none c-p br-lg mx-1 ${
                           state.highlighted
@@ -77,7 +77,7 @@ export default function ComboboxBase() {
                         </Avatar.Fallback>
                       </Avatar.Root>
                       <span className="fg-1">{user.name}</span>
-                      <span className="c-slate-6 fw-400">@{user.handle}</span>
+                      <span className="c-slate-6 fw-400">{user.role}</span>
                       <Combobox.ItemIndicator className="d-f ml-auto c-indigo">
                         <Check className="w-3 h-3" />
                       </Combobox.ItemIndicator>
@@ -98,80 +98,80 @@ export default function ComboboxBase() {
 
 interface User {
   name: string;
-  handle: string;
+  role: string;
   avatar: string;
 }
 
 const users: User[] = [
   {
     name: "Sarah",
-    handle: "sarah",
+    role: "Product Designer",
     avatar:
       "https://api.dicebear.com/9.x/open-peeps/svg?seed=Sarah&backgroundColor=DAF0B9",
   },
   {
     name: "John",
-    handle: "john",
+    role: "Frontend Developer",
     avatar:
       "https://api.dicebear.com/9.x/open-peeps/svg?seed=John&backgroundColor=B4E9F2",
   },
   {
     name: "Noah",
-    handle: "noah",
+    role: "Backend Developer",
     avatar:
       "https://api.dicebear.com/9.x/open-peeps/svg?seed=Noah&backgroundColor=D0D1FB",
   },
   {
     name: "Melanie",
-    handle: "leok",
+    role: "DevOps Engineer",
     avatar:
       "https://api.dicebear.com/9.x/open-peeps/svg?seed=Melanie&backgroundColor=DCCEFC",
   },
   {
     name: "Riley",
-    handle: "rileyb",
+    role: "Product Manager",
     avatar:
       "https://api.dicebear.com/9.x/open-peeps/svg?seed=Riley&backgroundColor=F4C8FA",
   },
   {
     name: "Adrian",
-    handle: "adrianm",
+    role: "QA Engineer",
     avatar:
       "https://api.dicebear.com/9.x/open-peeps/svg?seed=Adrian&backgroundColor=FFD4DE",
   },
   {
     name: "Jessica",
-    handle: "jessicam",
+    role: "UX Researcher",
     avatar:
       "https://api.dicebear.com/9.x/open-peeps/svg?seed=Jessica&backgroundColor=DAF0B9",
   },
   {
     name: "Aiden",
-    handle: "aidenw",
+    role: "Frontend Developer",
     avatar:
       "https://api.dicebear.com/9.x/open-peeps/svg?seed=Aiden&backgroundColor=B4E9F2",
   },
   {
     name: "Liam",
-    handle: "liamj",
+    role: "Backend Developer",
     avatar:
       "https://api.dicebear.com/9.x/open-peeps/svg?seed=Liam&backgroundColor=D0D1FB",
   },
   {
     name: "Maria",
-    handle: "mariav",
+    role: "Engineering Lead",
     avatar:
       "https://api.dicebear.com/9.x/open-peeps/svg?seed=Maria&backgroundColor=DCCEFC",
   },
   {
     name: "Vivian",
-    handle: "vivianr",
+    role: "Product Designer",
     avatar:
       "https://api.dicebear.com/9.x/open-peeps/svg?seed=Vivian&backgroundColor=F4C8FA",
   },
   {
     name: "Wyatt",
-    handle: "wyattk",
+    role: "Backend Developer",
     avatar:
       "https://api.dicebear.com/9.x/open-peeps/svg?seed=Wyatt&backgroundColor=FFD4DE",
   },
