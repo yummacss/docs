@@ -24,21 +24,21 @@ export default function AutocompleteLoading() {
     if (loading) {
       const timeout = setTimeout(() => {
         setLoading(false);
-        setHasResults(music.length > 0);
+        setHasResults(projects.length > 0);
       }, 500);
       return () => clearTimeout(timeout);
     }
   }, [loading]);
 
   return (
-    <Autocomplete.Root items={music} open={open} onOpenChange={setOpen}>
+    <Autocomplete.Root items={projects} open={open} onOpenChange={setOpen}>
       <div className="d-f fd-c g-2">
         <label htmlFor="loading-input" className="c-slate-10 fs-sm fw-500">
-          Search music
+          Search projects
         </label>
         <Autocomplete.Input
           id="loading-input"
-          placeholder="Songs, albums, artists..."
+          placeholder="Project name or team..."
           onChange={handleInputChange}
           className="h-10 w-64 pl-4 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md bs-o-xs fv:ow-2 fv:oo--1 fv:oc-indigo-5"
         />
@@ -57,7 +57,7 @@ export default function AutocompleteLoading() {
                     transition={{ duration: 0.1, ease: "easeOut" }}
                   />
                 }
-                className="o-h w-80 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs"
+                className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs"
               >
                 {loading && hasResults ? (
                   <div className="d-f fd-c g-3 py-3 px-4">
@@ -80,48 +80,10 @@ export default function AutocompleteLoading() {
                         />
                       </div>
                     </div>
-                    <div className="d-f ai-c g-3">
-                      <motion.div
-                        animate={{ opacity: [0.5, 1, 0.5] }}
-                        transition={{ duration: 1, repeat: Infinity }}
-                        className="w-8 h-8 bg-silver-2 br-pill"
-                      />
-                      <div className="d-f fd-c g-1">
-                        <motion.div
-                          animate={{ opacity: [0.5, 1, 0.5] }}
-                          transition={{ duration: 1, repeat: Infinity }}
-                          className="h-3 w-20 bg-silver-2 br-xs"
-                        />
-                        <motion.div
-                          animate={{ opacity: [0.5, 1, 0.5] }}
-                          transition={{ duration: 1, repeat: Infinity }}
-                          className="h-2 w-14 bg-silver-1 br-xs"
-                        />
-                      </div>
-                    </div>
-                    <div className="d-f ai-c g-3">
-                      <motion.div
-                        animate={{ opacity: [0.5, 1, 0.5] }}
-                        transition={{ duration: 1, repeat: Infinity }}
-                        className="w-8 h-8 bg-silver-2 br-pill"
-                      />
-                      <div className="d-f fd-c g-1">
-                        <motion.div
-                          animate={{ opacity: [0.5, 1, 0.5] }}
-                          transition={{ duration: 1, repeat: Infinity }}
-                          className="h-3 w-28 bg-silver-2 br-xs"
-                        />
-                        <motion.div
-                          animate={{ opacity: [0.5, 1, 0.5] }}
-                          transition={{ duration: 1, repeat: Infinity }}
-                          className="h-2 w-12 bg-silver-1 br-xs"
-                        />
-                      </div>
-                    </div>
                   </div>
                 ) : !loading && hasResults ? (
                   <Autocomplete.List className="oy-auto max-h-72 py-1 ow-0">
-                    {(item: MusicItem) => (
+                    {(item: ProjectItem) => (
                       <Autocomplete.Item
                         key={item.name}
                         value={item.name}
@@ -135,28 +97,15 @@ export default function AutocompleteLoading() {
                             }`}
                           >
                             <div
-                              className={`w-8 h-8 ${
-                                item.type === "Artist" ||
-                                item.type === "Profile"
-                                  ? "br-pill"
-                                  : "br-md"
-                              } ${item.color}`}
-                            />
+                              className={`d-if ai-c jc-c w-8 h-8 br-md fs-xs fw-500 c-white ${item.color}`}
+                            >
+                              {item.name[0]}
+                            </div>
                             <div className="d-f fd-c">
                               <span className="fw-500">{item.name}</span>
-                              {item.type !== "Profile" && item.artist && (
-                                <span className="c-slate-6 fs-xs">
-                                  {item.type} · {item.artist}
-                                </span>
-                              )}
-                              {item.type !== "Profile" && !item.artist && (
-                                <span className="c-slate-6 fs-xs">
-                                  {item.type}
-                                </span>
-                              )}
-                              {item.type === "Profile" && (
-                                <span className="c-slate-6 fs-xs">Profile</span>
-                              )}
+                              <span className="c-slate-6 fs-xs">
+                                {item.team} · {item.status}
+                              </span>
                             </div>
                           </div>
                         )}
@@ -179,54 +128,54 @@ export default function AutocompleteLoading() {
   );
 }
 
-interface MusicItem {
+interface ProjectItem {
   name: string;
-  type: string;
-  artist: string;
+  team: string;
+  status: string;
   color: string;
 }
 
-const music: MusicItem[] = [
+const projects: ProjectItem[] = [
   {
-    name: "piano songs (part 2)",
-    type: "Album",
-    artist: "erica's garden",
-    color: "bg-violet-3",
+    name: "Storefront Redesign",
+    team: "Frontend Team",
+    status: "In Progress",
+    color: "bg-cyan-5",
   },
   {
-    name: "collarbone",
-    type: "Single",
-    artist: "The Glass Dogs",
-    color: "bg-mint-3",
+    name: "API v3 Migration",
+    team: "Platform Team",
+    status: "Active",
+    color: "bg-violet-5",
   },
   {
-    name: "scaryfragile",
-    type: "Profile",
-    artist: "Rick Valley",
-    color: "bg-silver-2",
+    name: "Design System",
+    team: "Design Team",
+    status: "Active",
+    color: "bg-coral-5",
   },
   {
-    name: "Indie Rock",
-    type: "Playlist",
-    artist: "",
-    color: "bg-green-3",
+    name: "Mobile App",
+    team: "Mobile Team",
+    status: "In Progress",
+    color: "bg-magenta-5",
   },
   {
-    name: "Grunge",
-    type: "Playlist",
-    artist: "",
-    color: "bg-red-3",
+    name: "Analytics Dashboard",
+    team: "Data Team",
+    status: "In Progress",
+    color: "bg-indigo-5",
   },
   {
-    name: "piano songs (part 1)",
-    type: "Album",
-    artist: "eric's garden",
-    color: "bg-violet-3",
+    name: "Auth Service",
+    team: "Platform Team",
+    status: "Active",
+    color: "bg-lime-5",
   },
   {
-    name: "Pangeia/Terraform",
-    type: "Compilation",
-    artist: "Vianne",
-    color: "bg-orange-3",
+    name: "Billing Portal",
+    team: "Payments Team",
+    status: "Backlog",
+    color: "bg-blue-5",
   },
 ];
