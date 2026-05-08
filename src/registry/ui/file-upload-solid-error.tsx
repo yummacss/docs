@@ -11,11 +11,11 @@ export default function FileUploadSolidError() {
         </div>
         <div className="d-f fd-c ai-c g-1">
           <span className="c-slate-10 fs-sm fw-500">
-            <a className="c-indigo td-none c-p">Click to upload</a> or drag and
+            <a className="c-indigo td-none c-p">Upload project assets</a> or drag and
             drop
           </span>
           <span className="c-slate-6 fs-xs fw-400">
-            SVG, PNG, JPG or GIF (max. 800x400px)
+            Maximum file size exceeded (10MB)
           </span>
         </div>
       </div>
