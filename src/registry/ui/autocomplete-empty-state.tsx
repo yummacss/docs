@@ -10,10 +10,7 @@ export default function AutocompleteEmptyState() {
   return (
     <Autocomplete.Root items={[]} open={open} onOpenChange={setOpen}>
       <div className="d-f fd-c g-2">
-        <label
-          htmlFor="empty-state-input"
-          className="c-slate-10 fs-sm fw-500"
-        >
+        <label htmlFor="empty-state-input" className="c-slate-10 fs-sm fw-500">
           Search tasks
         </label>
         <Autocomplete.Input
@@ -40,7 +37,9 @@ export default function AutocompleteEmptyState() {
               >
                 <Autocomplete.List className="py-3 ow-0">
                   <div className="d-f fd-c ai-c g-1 px-4">
-                    <span className="c-slate-10 fs-md fw-500">No tasks found</span>
+                    <span className="c-slate-10 fs-md fw-500">
+                      No tasks found
+                    </span>
                     <span className="c-slate-6 fs-sm">
                       Try searching for a different task
                     </span>

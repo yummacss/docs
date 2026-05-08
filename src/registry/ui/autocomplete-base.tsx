@@ -11,10 +11,7 @@ export default function AutocompleteBase() {
   return (
     <Autocomplete.Root items={teamMembers} open={open} onOpenChange={setOpen}>
       <div className="d-f fd-c g-2">
-        <label
-          htmlFor="autocomplete-input"
-          className="c-slate-10 fs-sm fw-500"
-        >
+        <label htmlFor="autocomplete-input" className="c-slate-10 fs-sm fw-500">
           Assign member
         </label>
         <Autocomplete.Input
@@ -64,7 +61,9 @@ export default function AutocompleteBase() {
                           </Avatar.Root>
                           <div className="d-f fd-c">
                             <span className="fw-500">{member.name}</span>
-                            <span className="c-slate-6 fs-xs">{member.role}</span>
+                            <span className="c-slate-6 fs-xs">
+                              {member.role}
+                            </span>
                           </div>
                         </div>
                       )}

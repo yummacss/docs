@@ -8,11 +8,7 @@ export default function AutocompleteStatic() {
   const [open, setOpen] = useState(false);
 
   return (
-    <Autocomplete.Root
-      items={teamMembers}
-      open={open}
-      onOpenChange={setOpen}
-    >
+    <Autocomplete.Root items={teamMembers} open={open} onOpenChange={setOpen}>
       <div className="d-f fd-c g-2">
         <label
           htmlFor="autocomplete-input-static"
@@ -61,9 +57,7 @@ export default function AutocompleteStatic() {
               )}
             </Autocomplete.List>
             <Autocomplete.Empty className="c-slate-6 fs-sm">
-              <div className="pt-2 pb-3 px-4 us-none">
-                No members found.
-              </div>
+              <div className="pt-2 pb-3 px-4 us-none">No members found.</div>
             </Autocomplete.Empty>
           </Autocomplete.Popup>
         </Autocomplete.Positioner>

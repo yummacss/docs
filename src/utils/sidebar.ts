@@ -332,6 +332,7 @@ export const sidebarConfig: SidebarConfig = [
           },
           { title: "Text Decoration", slug: "text-decoration" },
           { title: "Text Indent", slug: "text-indent" },
+          { title: "Text Orientation", slug: "text-orientation" },
           { title: "Text Overflow", slug: "text-overflow" },
           { title: "Text Transform", slug: "text-transform" },
           { title: "Text Underline Offset", slug: "text-underline-offset" },
