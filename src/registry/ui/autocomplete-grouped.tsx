@@ -66,7 +66,7 @@ export default function AutocompleteGrouped() {
                           />
                         ))}
                         {groupIndex < teamGroups.length - 1 && (
-                          <div className="w-full h-px bg-silver-2" />
+                          <div className="w-full h-px bg-silver-2 my-1" />
                         )}
                       </Autocomplete.Group>
                     )}
