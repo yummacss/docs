@@ -1513,6 +1513,10 @@ summary {
   height: 100vh;
 }
 
+.h-xs {
+  height: 32rem;
+}
+
 .h\:bg-blue:hover {
   background-color: #2563eb;
 }
