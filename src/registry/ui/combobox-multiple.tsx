@@ -61,34 +61,31 @@ export default function ComboboxMultiple() {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.15, ease: "easeOut" }}
               >
-              <Combobox.Popup
-                className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs"
-              >
-                <Combobox.List className="oy-auto py-1 max-h-56 ow-0">
-                  {(role: string) => (
-                    <Combobox.Item
-                      key={role}
-                      value={role}
-                      className={(state) =>
-                        `d-f ai-c g-2 py-2 px-3 fs-sm fw-500 c-slate-8 us-none c-p br-lg mx-1 ${
-                          state.highlighted
-                            ? "bg-silver-1/50"
-                            : "bg-transparent"
-                        }`
-                      }
-                    >
-                      
-                      <span className="fg-1">{role}</span>
-                      <Combobox.ItemIndicator className="d-f ml-auto c-indigo">
-                        <Check className="w-3 h-3" />
-                      </Combobox.ItemIndicator>
-                    </Combobox.Item>
-                  )}
-                </Combobox.List>
-                <Combobox.Empty className="c-slate-6 fs-sm">
-                  <div className="py-4 px-4">No roles found.</div>
-                </Combobox.Empty>
-              </Combobox.Popup>
+                <Combobox.Popup className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs">
+                  <Combobox.List className="oy-auto py-1 max-h-56 ow-0">
+                    {(role: string) => (
+                      <Combobox.Item
+                        key={role}
+                        value={role}
+                        className={(state) =>
+                          `d-f ai-c g-2 py-2 px-3 fs-sm fw-500 c-slate-8 us-none c-p br-lg mx-1 ${
+                            state.highlighted
+                              ? "bg-silver-1/50"
+                              : "bg-transparent"
+                          }`
+                        }
+                      >
+                        <span className="fg-1">{role}</span>
+                        <Combobox.ItemIndicator className="d-f ml-auto c-indigo">
+                          <Check className="w-3 h-3" />
+                        </Combobox.ItemIndicator>
+                      </Combobox.Item>
+                    )}
+                  </Combobox.List>
+                  <Combobox.Empty className="c-slate-6 fs-sm">
+                    <div className="py-4 px-4">No roles found.</div>
+                  </Combobox.Empty>
+                </Combobox.Popup>
               </motion.div>
             </Combobox.Positioner>
           </Combobox.Portal>
