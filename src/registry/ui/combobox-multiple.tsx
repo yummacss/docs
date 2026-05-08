@@ -34,16 +34,16 @@ export default function ComboboxMultiple() {
     <Combobox.Root multiple items={roles} open={open} onOpenChange={setOpen}>
       <div className="d-f p-r fd-c g-2 c-slate-10 fs-sm">
         <label htmlFor="role-input" className="fw-500">
-          Assign role
+          Set priority
         </label>
         <div className="p-r">
-          <Combobox.Chips className="d-f fw-w ai-c g-1 px-3 py-1">
+          <Combobox.Chips className="d-f fw-w ai-c g-0 px-3 py-1">
             {((chip: string) => <ChipItem chip={chip} />) as any}
           </Combobox.Chips>
           <Combobox.Input
             id="role-input"
-            placeholder="Assign role..."
-            className="h-10 w-64 pr-10 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md bs-o-xs fv:oo--1 fv:oc-indigo-5"
+            placeholder="Add priority..."
+            className="h-10 w-64 pl-4 pr-10 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md bs-o-xs fv:oo--1 fv:oc-indigo-5"
           />
           <div className="d-f p-a r-2 b-0 ai-c jc-c h-10 c-slate-6">
             <Combobox.Clear
@@ -105,12 +105,12 @@ export default function ComboboxMultiple() {
 }
 
 const roles = [
-  "Admin",
-  "Moderator",
-  "Member",
-  "VIP",
-  "Streamer",
-  "Partner",
-  "Booster",
-  "Newbie",
+  "High Priority",
+  "Medium Priority",
+  "Low Priority",
+  "Blocker",
+  "On Hold",
+  "In Review",
+  "Done",
+  "Backlog",
 ];
