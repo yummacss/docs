@@ -78,19 +78,7 @@ export default function AutocompleteGrouped() {
                   </Autocomplete.Empty>
                 </Autocomplete.Popup>
 
-                <div className="d-f fd-c g-0 oy-auto max-h-72">
-                  <div className="h-20 px-3 fs-xs fw-500 wm-vrl to-m brr-lg bxw-1 brw-1 bc-silver-2 ai-c jc-c c-slate-10">
-                    Frontend
-                  </div>
-                  <div className="w-full h-2 bc-silver-2" />
-                  <div className="h-20 px-3 fs-xs fw-500 wm-vrl to-m brr-lg bxw-1 brw-1 bc-silver-2 ai-c jc-c c-slate-10">
-                    Backend
-                  </div>
-                  <div className="w-full h-2 bc-silver-2" />
-                  <div className="h-20 px-3 fs-xs fw-500 wm-vrl to-m brr-lg bxw-1 brw-1 bc-silver-2 ai-c jc-c c-slate-10">
-                    DevOps
-                  </div>
-                </div>
+                
               </motion.div>
             </Autocomplete.Positioner>
           </Autocomplete.Portal>

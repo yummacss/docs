@@ -214,12 +214,12 @@ That means `transition-property: color, background-color, border-color, ...` + `
 
 ## Animation (Framer Motion)
 
-All animated floating elements use this entry/exit pattern:
+All other floating elements use this entry/exit pattern:
 ```tsx
-initial={{ opacity: 0, scale: 0.95 }}
-animate={{ opacity: 1, scale: 1 }}
-exit={{ opacity: 0, scale: 0.95 }}
-transition={{ duration: 0.1, ease: "easeOut" }}
+initial={{ opacity: 0 }}
+animate={{ opacity: 1 }}
+exit={{ opacity: 0 }}
+transition={{ duration: 0.15, ease: "easeOut" }}
 ```
 
 Panels that expand vertically (accordion, collapsible):

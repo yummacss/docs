@@ -2457,10 +2457,6 @@ summary {
   text-overflow: ellipsis;
 }
 
-.to-m {
-  text-orientation: mixed;
-}
-
 .tp-a {
   transition-property: all;
 }
@@ -2651,10 +2647,6 @@ summary {
 
 .w-vw {
   width: 100vw;
-}
-
-.wm-vrl {
-  writing-mode: vertical-rl;
 }
 
 .ws-nw {
