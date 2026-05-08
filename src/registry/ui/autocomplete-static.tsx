@@ -8,17 +8,21 @@ export default function AutocompleteStatic() {
   const [open, setOpen] = useState(false);
 
   return (
-    <Autocomplete.Root items={users} open={open} onOpenChange={setOpen}>
+    <Autocomplete.Root
+      items={teamMembers}
+      open={open}
+      onOpenChange={setOpen}
+    >
       <div className="d-f fd-c g-2">
         <label
           htmlFor="autocomplete-input-static"
           className="c-slate-10 fs-sm fw-500"
         >
-          Mention user
+          Assign member
         </label>
         <Autocomplete.Input
           id="autocomplete-input-static"
-          placeholder="e.g. Sarah"
+          placeholder="Search team members"
           className="h-10 w-64 pl-4 bg-white bc-silver-3 c-slate-12 bw-1 br-lg fs-md bs-o-xs fv:ow-2 fv:oo--1 fv:oc-indigo-5"
         />
       </div>
@@ -27,37 +31,39 @@ export default function AutocompleteStatic() {
         <Autocomplete.Positioner className="ow-0" sideOffset={4}>
           <Autocomplete.Popup className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs">
             <Autocomplete.List className="oy-auto max-h-72 py-1 ow-0">
-              {(user: User) => (
+              {(member: TeamMember) => (
                 <Autocomplete.Item
-                  key={user.name}
-                  value={user.name}
+                  key={member.name}
+                  value={member.name}
                   render={(props, state) => (
                     <div
                       {...props}
-                      className={`d-f ai-c jc-sb g-3 py-2 px-3 fs-sm us-none c-p br-lg mx-1 c-slate-10 ${
+                      className={`d-f ai-c g-3 py-2 px-3 fs-sm us-none c-p br-lg mx-1 c-slate-10 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`}
                     >
-                      <div className="d-f ai-c g-3">
-                        <Avatar.Root className="w-6 h-6 bc-white br-pill bw-1">
-                          <Avatar.Image
-                            src={user.avatar}
-                            className="of-c w-full h-full br-pill"
-                          />
-                          <Avatar.Fallback className="d-f ai-c jc-c w-full h-full bg-silver-2 c-slate-8 fs-xs">
-                            {user.name[0]}
-                          </Avatar.Fallback>
-                        </Avatar.Root>
-                        <span className="fw-500">{user.name}</span>
+                      <Avatar.Root className="w-6 h-6 bc-white br-pill bw-1">
+                        <Avatar.Image
+                          src={member.avatar}
+                          className="of-c w-full h-full br-pill"
+                        />
+                        <Avatar.Fallback className="d-f ai-c jc-c w-full h-full bg-silver-2 c-slate-8 fs-xs">
+                          {member.name[0]}
+                        </Avatar.Fallback>
+                      </Avatar.Root>
+                      <div className="d-f fd-c">
+                        <span className="fw-500">{member.name}</span>
+                        <span className="c-slate-6 fs-xs">{member.role}</span>
                       </div>
-                      <span className="c-slate-6 fw-400">@{user.handle}</span>
                     </div>
                   )}
                 />
               )}
             </Autocomplete.List>
             <Autocomplete.Empty className="c-slate-6 fs-sm">
-              <div className="pt-2 pb-3 px-4 us-none">No users found.</div>
+              <div className="pt-2 pb-3 px-4 us-none">
+                No members found.
+              </div>
             </Autocomplete.Empty>
           </Autocomplete.Popup>
         </Autocomplete.Positioner>
@@ -66,131 +72,83 @@ export default function AutocompleteStatic() {
   );
 }
 
-interface User {
+interface TeamMember {
   name: string;
-  handle: string;
+  role: string;
   avatar: string;
 }
 
-const users: User[] = [
+const teamMembers: TeamMember[] = [
   {
     name: "Sarah",
-    handle: "sarah",
+    role: "Product Designer",
     avatar:
       "https://api.dicebear.com/9.x/open-peeps/svg?seed=Sarah&backgroundColor=DAF0B9",
   },
   {
     name: "John",
-    handle: "john",
+    role: "Frontend Developer",
     avatar:
       "https://api.dicebear.com/9.x/open-peeps/svg?seed=John&backgroundColor=B4E9F2",
   },
   {
     name: "Noah",
-    handle: "noah",
+    role: "Backend Developer",
     avatar:
       "https://api.dicebear.com/9.x/open-peeps/svg?seed=Noah&backgroundColor=D0D1FB",
   },
   {
     name: "Melanie",
-    handle: "leok",
+    role: "DevOps Engineer",
     avatar:
       "https://api.dicebear.com/9.x/open-peeps/svg?seed=Melanie&backgroundColor=DCCEFC",
   },
   {
     name: "Riley",
-    handle: "rileyb",
+    role: "Product Manager",
     avatar:
       "https://api.dicebear.com/9.x/open-peeps/svg?seed=Riley&backgroundColor=F4C8FA",
   },
   {
     name: "Adrian",
-    handle: "adrianm",
+    role: "QA Engineer",
     avatar:
       "https://api.dicebear.com/9.x/open-peeps/svg?seed=Adrian&backgroundColor=FFD4DE",
   },
   {
     name: "Jessica",
-    handle: "jessicap",
+    role: "UX Researcher",
     avatar:
       "https://api.dicebear.com/9.x/open-peeps/svg?seed=Jessica&backgroundColor=DAF0B9",
   },
   {
     name: "Aiden",
-    handle: "aidenw",
+    role: "Frontend Developer",
     avatar:
       "https://api.dicebear.com/9.x/open-peeps/svg?seed=Aiden&backgroundColor=B4E9F2",
   },
   {
     name: "Liam",
-    handle: "liamj",
+    role: "Backend Developer",
     avatar:
       "https://api.dicebear.com/9.x/open-peeps/svg?seed=Liam&backgroundColor=D0D1FB",
   },
   {
     name: "Maria",
-    handle: "mariav",
+    role: "Engineering Lead",
     avatar:
       "https://api.dicebear.com/9.x/open-peeps/svg?seed=Maria&backgroundColor=DCCEFC",
   },
   {
     name: "Vivian",
-    handle: "vivianh",
+    role: "Product Designer",
     avatar:
       "https://api.dicebear.com/9.x/open-peeps/svg?seed=Vivian&backgroundColor=F4C8FA",
   },
   {
     name: "Wyatt",
-    handle: "wyattk",
+    role: "Backend Developer",
     avatar:
       "https://api.dicebear.com/9.x/open-peeps/svg?seed=Wyatt&backgroundColor=FFD4DE",
-  },
-  {
-    name: "Jade",
-    handle: "jadel",
-    avatar:
-      "https://api.dicebear.com/9.x/open-peeps/svg?seed=Jade&backgroundColor=DAF0B9",
-  },
-  {
-    name: "Nolan",
-    handle: "nolans",
-    avatar:
-      "https://api.dicebear.com/9.x/open-peeps/svg?seed=Nolan&backgroundColor=B4E9F2",
-  },
-  {
-    name: "Sophia",
-    handle: "sophiac",
-    avatar:
-      "https://api.dicebear.com/9.x/open-peeps/svg?seed=Sophia&backgroundColor=D0D1FB",
-  },
-  {
-    name: "Liliana",
-    handle: "lilianar",
-    avatar:
-      "https://api.dicebear.com/9.x/open-peeps/svg?seed=Liliana&backgroundColor=DCCEFC",
-  },
-  {
-    name: "Katherine",
-    handle: "katherinep",
-    avatar:
-      "https://api.dicebear.com/9.x/open-peeps/svg?seed=Katherine&backgroundColor=F4C8FA",
-  },
-  {
-    name: "Aidan",
-    handle: "aidanj",
-    avatar:
-      "https://api.dicebear.com/9.x/open-peeps/svg?seed=Aidan&backgroundColor=FFD4DE",
-  },
-  {
-    name: "Jocelyn",
-    handle: "jocelynm",
-    avatar:
-      "https://api.dicebear.com/9.x/open-peeps/svg?seed=Jocelyn&backgroundColor=DAF0B9",
-  },
-  {
-    name: "Sadie",
-    handle: "sadiel",
-    avatar:
-      "https://api.dicebear.com/9.x/open-peeps/svg?seed=Sadie&backgroundColor=B4E9F2",
   },
 ];

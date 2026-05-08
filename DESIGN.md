@@ -279,21 +279,24 @@ Use single-word headings for docs sections (e.g., "Disabled" not "Disabled Item"
 When a variant name includes a feature name (e.g., "with icon"), use hyphen instead of hyphenated prefix. For example: `autocomplete-icon` instead of `autocomplete-with-icon`.
 
 ### Content themes
-All component content MUST come from one of these four domains only:
-- **Social Media** (users, followers, mentions, channels, posts, reactions)
-- **SaaS / Project Management** (tasks, projects, roles, permissions, statuses, billing)
-- **E-commerce** (products, orders, payment, cart, inventory)
-- **Music** (tracks, albums, artists, playlists, plays, likes)
+All component content MUST use the **SaaS / Project Management** domain only:
+- Projects, tasks, boards, sprints
+- Team members, roles, permissions
+- Statuses, priorities, labels
+- Billing, subscriptions, plans
 
-Never invent a fifth context. Never use generic Lorem Ipsum.
+Never use Social Media, E-commerce, or Music contexts. Never use generic Lorem Ipsum.
 
-**Distribute contexts across style variants, not as separate components.** Each variant (base, bordered, ghost, subtle, etc.) should use a different domain context to demonstrate versatility. For example: base=SaaS, bordered=E-commerce, ghost=Social Media. Do NOT create standalone context-specific components — contexts are for copywriting only.
+All components should consistently demonstrate SaaS/project management contexts across all variants.
 
 ---
 
 ## Avatar Rules
 
 Avatars ALWAYS use `bw-1 bc-silver-3` to prevent blending with backgrounds.
+
+### Avatar names
+Use first names only. Never use full names or surnames (e.g., "Sarah" not "Sarah Chen").
 
 ### Canonical avatar list
 Only use these names and seeds. Never invent new people.

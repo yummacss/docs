@@ -10,12 +10,15 @@ export default function AutocompleteEmptyState() {
   return (
     <Autocomplete.Root items={[]} open={open} onOpenChange={setOpen}>
       <div className="d-f fd-c g-2">
-        <label htmlFor="empty-state-input" className="c-slate-10 fs-sm fw-500">
-          Search tracks
+        <label
+          htmlFor="empty-state-input"
+          className="c-slate-10 fs-sm fw-500"
+        >
+          Search tasks
         </label>
         <Autocomplete.Input
           id="empty-state-input"
-          placeholder="Song title or artist"
+          placeholder="Task name or assignee"
           className="h-10 w-64 pl-4 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md bs-o-xs fv:ow-2 fv:oo--1 fv:oc-indigo-5"
         />
       </div>
@@ -37,11 +40,9 @@ export default function AutocompleteEmptyState() {
               >
                 <Autocomplete.List className="py-3 ow-0">
                   <div className="d-f fd-c ai-c g-1 px-4">
-                    <span className="c-slate-10 fs-md fw-500">
-                      No tracks found
-                    </span>
+                    <span className="c-slate-10 fs-md fw-500">No tasks found</span>
                     <span className="c-slate-6 fs-sm">
-                      Try searching for a different song
+                      Try searching for a different task
                     </span>
                   </div>
                 </Autocomplete.List>

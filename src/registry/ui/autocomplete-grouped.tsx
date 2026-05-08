@@ -9,14 +9,14 @@ export default function AutocompleteGrouped() {
   const [open, setOpen] = useState(false);
 
   return (
-    <Autocomplete.Root items={productGroups} open={open} onOpenChange={setOpen}>
+    <Autocomplete.Root items={projectGroups} open={open} onOpenChange={setOpen}>
       <div className="d-f fd-c g-2">
         <label htmlFor="grouped-input" className="c-slate-10 fs-sm fw-500">
-          Search products
+          Switch project
         </label>
         <Autocomplete.Input
           id="grouped-input"
-          placeholder="iPhone, Macbook, & more"
+          placeholder="Search projects by status"
           className="h-10 w-64 pl-4 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md bs-o-xs fv:ow-2 fv:oo--1 fv:oc-indigo-5"
         />
       </div>
@@ -34,10 +34,10 @@ export default function AutocompleteGrouped() {
                     transition={{ duration: 0.1, ease: "easeOut" }}
                   />
                 }
-                className="o-h w-72 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs"
+                className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs"
               >
                 <Autocomplete.List className="oy-auto max-h-72 py-1 ow-0">
-                  {(group: ProductGroup, groupIndex) => (
+                  {(group: ProjectGroup, groupIndex) => (
                     <Autocomplete.Group key={group.value}>
                       <div className="px-3 py-1 c-slate-6 fs-xs fw-500 tt-u ls-3">
                         {group.value}
@@ -55,18 +55,22 @@ export default function AutocompleteGrouped() {
                                   : "bg-transparent"
                               }`}
                             >
-                              <div className="w-8 h-8 bg-silver-2 br-md" />
+                              <div
+                                className={`d-if ai-c jc-c w-8 h-8 br-md fs-xs fw-500 c-white ${item.color}`}
+                              >
+                                {item.name[0]}
+                              </div>
                               <div className="d-f fd-c">
                                 <span className="fw-500">{item.name}</span>
                                 <span className="c-slate-6 fs-xs">
-                                  {item.category}
+                                  {item.team}
                                 </span>
                               </div>
                             </div>
                           )}
                         />
                       ))}
-                      {groupIndex < productGroups.length - 1 && (
+                      {groupIndex < projectGroups.length - 1 && (
                         <Separator className="my-2 w-full h-px bg-silver-2" />
                       )}
                     </Autocomplete.Group>
@@ -74,7 +78,7 @@ export default function AutocompleteGrouped() {
                 </Autocomplete.List>
                 <Autocomplete.Empty className="c-slate-6 fs-sm">
                   <div className="pt-2 pb-3 px-4 us-none">
-                    No products found.
+                    No projects found.
                   </div>
                 </Autocomplete.Empty>
               </Autocomplete.Popup>
@@ -86,39 +90,38 @@ export default function AutocompleteGrouped() {
   );
 }
 
-interface Product {
+interface Project {
   name: string;
-  category: string;
+  team: string;
+  color: string;
 }
 
-interface ProductGroup {
+interface ProjectGroup {
   value: string;
-  items: Product[];
+  items: Project[];
 }
 
-const productGroups: ProductGroup[] = [
+const projectGroups: ProjectGroup[] = [
   {
-    value: "MacBook",
+    value: "Active",
     items: [
-      { name: 'MacBook Pro 14"', category: "Space Black" },
-      { name: 'MacBook Pro 16"', category: "Space Black" },
-      { name: 'MacBook Air 13"', category: "Starlight" },
+      { name: "Storefront Redesign", team: "Frontend Team", color: "bg-cyan-5" },
+      { name: "API v3 Migration", team: "Platform Team", color: "bg-violet-5" },
+      { name: "Design System", team: "Design Team", color: "bg-coral-5" },
     ],
   },
   {
-    value: "iPhone",
+    value: "In Progress",
     items: [
-      { name: "iPhone 15 Pro Max", category: "Natural Titanium" },
-      { name: "iPhone 15 Pro", category: "Blue Titanium" },
-      { name: "iPhone 15", category: "Pink" },
+      { name: "Mobile App", team: "Mobile Team", color: "bg-magenta-5" },
+      { name: "Analytics Dashboard", team: "Data Team", color: "bg-indigo-5" },
     ],
   },
   {
-    value: "iPad",
+    value: "Backlog",
     items: [
-      { name: 'iPad Pro 12.9"', category: "Space Gray" },
-      { name: 'iPad Air 11"', category: "Blue" },
-      { name: "iPad mini", category: "Purple" },
+      { name: "Admin Panel", team: "Backend Team", color: "bg-slate-5" },
+      { name: "Billing Portal", team: "Payments Team", color: "bg-blue-5" },
     ],
   },
 ];
