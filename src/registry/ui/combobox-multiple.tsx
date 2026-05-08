@@ -5,28 +5,6 @@ import { Check, Xmark } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
-function ItemIcon({ selected }: { selected: boolean }) {
-  if (!selected) return null;
-  return <Check className="fs-0 w-4 h-4 c-indigo-6" />;
-}
-
-function ChipItem({ chip }: { chip: string }) {
-  return (
-    <Combobox.Chip
-      key={chip}
-      className="d-f ai-c g-1 px-2 py-0 h-6 bg-indigo-1 bc-indigo-2 c-indigo-7 bw-1 br-pill fs-xs fw-500"
-    >
-      {chip}
-      <Combobox.ChipRemove
-        className="d-f b-0 ai-c jc-c p-0 bg-transparent c-indigo-5 c-p h:c-indigo-8"
-        aria-label={`Remove ${chip}`}
-      >
-        <Xmark className="w-3 h-3" />
-      </Combobox.ChipRemove>
-    </Combobox.Chip>
-  );
-}
-
 export default function ComboboxMultiple() {
   const [open, setOpen] = useState(false);
 
@@ -37,9 +15,26 @@ export default function ComboboxMultiple() {
           Set priority
         </label>
         <div className="p-r">
-          <Combobox.Chips className="d-f fw-w ai-c g-0 px-3 py-1">
-            {((chip: string) => <ChipItem chip={chip} />) as any}
-          </Combobox.Chips>
+          <Combobox.Value>
+            {(selectedValue) => (
+              <div className="d-f fw-w ai-c g-0 px-3 py-1">
+                {selectedValue.map((chip) => (
+                  <Combobox.Chip
+                    key={chip}
+                    className="d-f ai-c g-1 px-2 py-0 h-6 bg-indigo-1 bc-indigo-2 c-indigo-7 bw-1 br-pill fs-xs fw-500"
+                  >
+                    {chip}
+                    <Combobox.ChipRemove
+                      className="d-f b-0 ai-c jc-c p-0 bg-transparent c-indigo-5 c-p h:c-indigo-8"
+                      aria-label={`Remove ${chip}`}
+                    >
+                      <Xmark className="w-3 h-3" />
+                    </Combobox.ChipRemove>
+                  </Combobox.Chip>
+                ))}
+              </div>
+            )}
+          </Combobox.Value>
           <Combobox.Input
             id="role-input"
             placeholder="Add priority..."
@@ -74,20 +69,20 @@ export default function ComboboxMultiple() {
                     <Combobox.Item
                       key={role}
                       value={role}
-                      render={(props, state) => (
-                        <div
-                          {...props}
-                          className={`d-f ai-c g-2 py-2 px-3 fs-sm fw-500 c-slate-8 us-none c-p br-lg mx-1 ${
-                            state.highlighted
-                              ? "bg-silver-1/50"
-                              : "bg-transparent"
-                          }`}
-                        >
-                          <ItemIcon selected={state.selected} />
-                          <span className="fg-1">{role}</span>
-                        </div>
-                      )}
-                    />
+                      className={(state) =>
+                        `d-f ai-c g-2 py-2 px-3 fs-sm fw-500 c-slate-8 us-none c-p br-lg mx-1 ${
+                          state.highlighted
+                            ? "bg-silver-1/50"
+                            : "bg-transparent"
+                        }`
+                      }
+                    >
+                      
+                      <span className="fg-1">{role}</span>
+                      <Combobox.ItemIndicator className="d-f ml-auto c-indigo">
+                        <Check className="w-3 h-3" />
+                      </Combobox.ItemIndicator>
+                    </Combobox.Item>
                   )}
                 </Combobox.List>
                 <Combobox.Empty className="c-slate-6 fs-sm">

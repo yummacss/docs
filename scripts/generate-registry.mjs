@@ -31,11 +31,11 @@ const uiIds = getIds(uiDir);
 const docsIds = getIds(docsDir);
 
 const uiLines = uiIds
-  .map((id) => `  "${id}": dynamic(() => import("./ui/${id}"), ssr),`)
+  .map((id) => `  "${id}": dynamic(() => import("./ui/${id}"), { ssr: true }),`)
   .join("\n");
 
 const docsLines = docsIds
-  .map((id) => `  "${id}": dynamic(() => import("./docs/${id}"), ssr),`)
+  .map((id) => `  "${id}": dynamic(() => import("./docs/${id}"), { ssr: true }),`)
   .join("\n");
 
 const output = `/**
@@ -47,8 +47,6 @@ const output = `/**
  */
 
 import dynamic from "next/dynamic";
-
-const ssr = { ssr: true } as const;
 
 // ---------------------------------------------------------------------------
 // UI registry
