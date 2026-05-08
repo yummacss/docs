@@ -15,26 +15,6 @@ export default function ComboboxMultiple() {
           Set priority
         </label>
         <div className="p-r">
-          <Combobox.Value>
-            {(selectedValue) => (
-              <div className="d-f fw-w ai-c g-0 px-3 py-1">
-                {selectedValue.map((chip) => (
-                  <Combobox.Chip
-                    key={chip}
-                    className="d-f ai-c g-1 px-2 py-0 h-6 bg-indigo-1 bc-indigo-2 c-indigo-7 bw-1 br-pill fs-xs fw-500"
-                  >
-                    {chip}
-                    <Combobox.ChipRemove
-                      className="d-f b-0 ai-c jc-c p-0 bg-transparent c-indigo-5 c-p h:c-indigo-8"
-                      aria-label={`Remove ${chip}`}
-                    >
-                      <Xmark className="w-3 h-3" />
-                    </Combobox.ChipRemove>
-                  </Combobox.Chip>
-                ))}
-              </div>
-            )}
-          </Combobox.Value>
           <Combobox.Input
             id="role-input"
             placeholder="Add priority..."
@@ -49,6 +29,26 @@ export default function ComboboxMultiple() {
             </Combobox.Clear>
           </div>
         </div>
+        <Combobox.Value>
+          {(selectedValue) => (
+            <div className="d-f fw-w ai-c g-1 mt-1">
+              {selectedValue.map((chip) => (
+                <Combobox.Chip
+                  key={chip}
+                  className="d-f ai-c g-1 px-2 py-0 h-6 bg-indigo-1 bc-indigo-2 c-indigo-7 bw-1 br-pill fs-xs fw-500"
+                >
+                  {chip}
+                  <Combobox.ChipRemove
+                    className="d-f b-0 ai-c jc-c p-0 bg-transparent c-indigo-5 c-p h:c-indigo-8"
+                    aria-label={`Remove ${chip}`}
+                  >
+                    <Xmark className="w-3 h-3" />
+                  </Combobox.ChipRemove>
+                </Combobox.Chip>
+              ))}
+            </div>
+          )}
+        </Combobox.Value>
       </div>
 
       <AnimatePresence>
