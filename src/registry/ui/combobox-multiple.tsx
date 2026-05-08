@@ -60,15 +60,13 @@ export default function ComboboxMultiple() {
         {open && (
           <Combobox.Portal keepMounted>
             <Combobox.Positioner className="ow-0" sideOffset={8}>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.15, ease: "easeOut" }}
+              >
               <Combobox.Popup
-                render={
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
-                    transition={{ duration: 0.1, ease: "easeOut" }}
-                  />
-                }
                 className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs"
               >
                 <Combobox.List className="oy-auto py-1 max-h-56 ow-0">
@@ -96,6 +94,7 @@ export default function ComboboxMultiple() {
                   <div className="py-4 px-4">No roles found.</div>
                 </Combobox.Empty>
               </Combobox.Popup>
+              </motion.div>
             </Combobox.Positioner>
           </Combobox.Portal>
         )}
