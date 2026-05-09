@@ -28,10 +28,10 @@ export default function ContextMenuNested() {
               <ContextMenu.Popup
                 render={
                   <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
-                    transition={{ duration: 0.1, ease: "easeOut" }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.15, ease: "easeOut" }}
                   />
                 }
                 className="py-1 w-52 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs"
@@ -109,7 +109,7 @@ export default function ContextMenuNested() {
                             <img
                               src={member.avatar}
                               alt={member.name}
-                              className="d-f ai-c jc-c w-5 h-5 br-pill bc-white bw-1"
+                              className="d-f ai-c jc-c w-5 h-5 bc-white br-pill bw-1"
                             />
                             <span className="c-slate-10">{member.name}</span>
                           </ContextMenu.Item>
@@ -167,9 +167,29 @@ const labels = [
 ];
 
 const teamMembers = [
-  { name: "Sarah", avatar: "https://api.dicebear.com/9.x/open-peeps/svg?seed=Sarah&backgroundColor=DAF0B9" },
-  { name: "John", avatar: "https://api.dicebear.com/9.x/open-peeps/svg?seed=John&backgroundColor=B4E9F2" },
-  { name: "Noah", avatar: "https://api.dicebear.com/9.x/open-peeps/svg?seed=Noah&backgroundColor=D0D1FB" },
-  { name: "Melanie", avatar: "https://api.dicebear.com/9.x/open-peeps/svg?seed=Melanie&backgroundColor=DCCEFC" },
-  { name: "Riley", avatar: "https://api.dicebear.com/9.x/open-peeps/svg?seed=Riley&backgroundColor=F4C8FA" },
+  {
+    name: "Sarah",
+    avatar:
+      "https://api.dicebear.com/9.x/open-peeps/svg?seed=Sarah&backgroundColor=DAF0B9",
+  },
+  {
+    name: "John",
+    avatar:
+      "https://api.dicebear.com/9.x/open-peeps/svg?seed=John&backgroundColor=B4E9F2",
+  },
+  {
+    name: "Noah",
+    avatar:
+      "https://api.dicebear.com/9.x/open-peeps/svg?seed=Noah&backgroundColor=D0D1FB",
+  },
+  {
+    name: "Melanie",
+    avatar:
+      "https://api.dicebear.com/9.x/open-peeps/svg?seed=Melanie&backgroundColor=DCCEFC",
+  },
+  {
+    name: "Riley",
+    avatar:
+      "https://api.dicebear.com/9.x/open-peeps/svg?seed=Riley&backgroundColor=F4C8FA",
+  },
 ];
