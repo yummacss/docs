@@ -32,7 +32,7 @@ export default function SwitchBase() {
         htmlFor="switch-follow"
         className="c-slate-10 fs-sm fw-500 us-none c-p"
       >
-        Unsubscribe email
+        Email notifications
       </Field.Label>
     </Field.Root>
   );
