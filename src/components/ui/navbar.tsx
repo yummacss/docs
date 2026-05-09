@@ -14,7 +14,7 @@ import { SearchDialog } from "./search-dialog";
 
 const MobileSidebar = lazy(() => import("./mobile-sidebar"));
 
-const navbarVariants = cva("p-f l-0 r-0 t-0 zi-50 bbw-1", {
+const navbarVariants = cva("p-f ix-0 t-0 bbw-1", {
   variants: {
     variant: {
       default: "lg:bf-b-md bc-white/10",
@@ -133,7 +133,7 @@ export default function Navbar({
               <div className="d-none ai-c g-4 ml-2 md:d-f">
                 <Link
                   href="https://npmx.dev/package/yummacss"
-                  className="d-f c-white/80 ai-c g-1 fs-xs h:c-white fv:oc-white fv:ow-2"
+                  className="d-f ai-c g-1 c-white/80 fs-xs h:c-white fv:oc-white fv:ow-2"
                   target="_blank"
                 >
                   <SiNpm className="w-4 h-4" />
@@ -143,7 +143,7 @@ export default function Navbar({
                 </Link>
                 <Link
                   href="https://github.com/yummacss/yummacss"
-                  className="d-f c-white/80 ai-c g-1 fs-xs h:c-white fv:oc-white fv:ow-2"
+                  className="d-f ai-c g-1 c-white/80 fs-xs h:c-white fv:oc-white fv:ow-2"
                   target="_blank"
                 >
                   <SiGithub className="w-4 h-4" />

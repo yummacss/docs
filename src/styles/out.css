@@ -593,6 +593,10 @@ summary {
   background-color: #d3d7dc;
 }
 
+.bg-silver-4 {
+  background-color: #c6cad1;
+}
+
 .bg-sky {
   background-color: #38bdf8;
 }
@@ -723,6 +727,10 @@ summary {
   box-shadow: inset 0 2px 4px #0000000f;
 }
 
+.bs-o-lg {
+  box-shadow: 0 10px 15px -3px #0000001a, 0 4px 6px -4px #0000001a;
+}
+
 .bs-o-md {
   box-shadow: 0 4px 6px -1px #0000001a, 0 2px 4px -2px #0000001a;
 }
@@ -747,6 +755,10 @@ summary {
   border-top-left-radius: 0.375rem;
 }
 
+.btlr-xl {
+  border-top-left-radius: 0.75rem;
+}
+
 .btr-lg {
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
@@ -759,6 +771,10 @@ summary {
 
 .btrr-md {
   border-top-right-radius: 0.375rem;
+}
+
+.btrr-xl {
+  border-top-right-radius: 0.75rem;
 }
 
 .btw-0 {
@@ -1647,6 +1663,11 @@ summary {
 
 .i-2 {
   inset: .5rem;
+}
+
+.ix-0 {
+  left: 0;
+  right: 0;
 }
 
 .jc-c {
