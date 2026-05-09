@@ -194,7 +194,6 @@ const uiRegistry = {
   "skeleton-list": dynamic(() => import("./ui/skeleton-list"), { ssr: true }),
   "slider-base": dynamic(() => import("./ui/slider-base"), { ssr: true }),
   "slider-disabled": dynamic(() => import("./ui/slider-disabled"), { ssr: true }),
-  "slider-knob": dynamic(() => import("./ui/slider-knob"), { ssr: true }),
   "slider-range": dynamic(() => import("./ui/slider-range"), { ssr: true }),
   "switch-base": dynamic(() => import("./ui/switch-base"), { ssr: true }),
   "switch-color": dynamic(() => import("./ui/switch-color"), { ssr: true }),
