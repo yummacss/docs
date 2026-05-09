@@ -2,12 +2,7 @@
 
 import { Toggle } from "@base-ui/react/toggle";
 import { ToggleGroup } from "@base-ui/react/toggle-group";
-import {
-  Circle,
-  CircleExclamation,
-  ExclamationShape,
-  Minus,
-} from "@gravity-ui/icons";
+import { Bold, Italic, Paperclip, Underline } from "@gravity-ui/icons";
 import { useState } from "react";
 
 export default function ToggleGroupBase() {
@@ -42,8 +37,7 @@ export default function ToggleGroupBase() {
 }
 
 const toggleItems = [
-  { value: "high", label: "High priority", icon: CircleExclamation },
-  { value: "medium", label: "Medium priority", icon: ExclamationShape },
-  { value: "low", label: "Low priority", icon: Minus },
-  { value: "none", label: "No priority", icon: Circle },
+  { value: "high", label: "High priority", icon: Bold },
+  { value: "medium", label: "Medium priority", icon: Italic },
+  { value: "low", label: "Low priority", icon: Underline },
 ];
