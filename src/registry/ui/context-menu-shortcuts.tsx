@@ -1,14 +1,7 @@
 "use client";
 
 import { ContextMenu } from "@base-ui/react/context-menu";
-import {
-  Eye,
-  Link,
-  PersonPlus,
-  Pin,
-  TrashBin,
-  Xmark,
-} from "@gravity-ui/icons";
+import { Eye, Link, PersonPlus, Pin, TrashBin, Xmark } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -28,10 +21,10 @@ export default function ContextMenuShortcuts() {
               <ContextMenu.Popup
                 render={
                   <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
-                    transition={{ duration: 0.1, ease: "easeOut" }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.15, ease: "easeOut" }}
                   />
                 }
                 className="py-1 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs"
