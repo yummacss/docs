@@ -183,10 +183,7 @@ const uiRegistry = {
     ssr: true,
   }),
   "button-group": dynamic(() => import("./ui/button-group"), { ssr: true }),
-  "button-icon-only-circular": dynamic(
-    () => import("./ui/button-icon-only-circular"),
-    { ssr: true },
-  ),
+  "button-circle": dynamic(() => import("./ui/button-circle"), { ssr: true }),
   "button-icon-only": dynamic(() => import("./ui/button-icon-only"), {
     ssr: true,
   }),

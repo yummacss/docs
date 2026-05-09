@@ -3,7 +3,7 @@
 import { Button } from "@base-ui/react/button";
 import { Plus } from "@gravity-ui/icons";
 
-export default function ButtonIconOnlyCircular() {
+export default function ButtonCircle() {
   return (
     <div className="d-f fd-c g-6 ai-c">
       <Button className="d-if ai-c jc-c g-2 w-10 h-10 bg-indigo h:bg-indigo-8 h:bg-indigo-1/50 bc-indigo-7 c-white br-pill bw-1 fw-500 bs-o-xs tp-c tdu-150 ttf-io us-none fv:ow-2 fv:oo-2 fv:oc-indigo-5">
