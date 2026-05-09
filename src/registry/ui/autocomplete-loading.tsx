@@ -54,70 +54,68 @@ export default function AutocompleteLoading() {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.15, ease: "easeOut" }}
               >
-              <Autocomplete.Popup
-                className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs"
-              >
-                {loading && hasResults ? (
-                  <div className="d-f fd-c g-3 py-3 px-4">
-                    <div className="d-f ai-c g-3">
-                      <motion.div
-                        animate={{ opacity: [0.5, 1, 0.5] }}
-                        transition={{ duration: 1, repeat: Infinity }}
-                        className="w-8 h-8 bg-silver-2 br-md"
-                      />
-                      <div className="d-f fd-c g-1">
+                <Autocomplete.Popup className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs">
+                  {loading && hasResults ? (
+                    <div className="d-f fd-c g-3 py-3 px-4">
+                      <div className="d-f ai-c g-3">
                         <motion.div
                           animate={{ opacity: [0.5, 1, 0.5] }}
                           transition={{ duration: 1, repeat: Infinity }}
-                          className="h-3 w-24 bg-silver-2 br-xs"
+                          className="w-8 h-8 bg-silver-2 br-md"
                         />
-                        <motion.div
-                          animate={{ opacity: [0.5, 1, 0.5] }}
-                          transition={{ duration: 1, repeat: Infinity }}
-                          className="h-2 w-16 bg-silver-1 br-xs"
-                        />
+                        <div className="d-f fd-c g-1">
+                          <motion.div
+                            animate={{ opacity: [0.5, 1, 0.5] }}
+                            transition={{ duration: 1, repeat: Infinity }}
+                            className="h-3 w-24 bg-silver-2 br-xs"
+                          />
+                          <motion.div
+                            animate={{ opacity: [0.5, 1, 0.5] }}
+                            transition={{ duration: 1, repeat: Infinity }}
+                            className="h-2 w-16 bg-silver-1 br-xs"
+                          />
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ) : !loading && hasResults ? (
-                  <Autocomplete.List className="oy-auto max-h-72 py-1 ow-0">
-                    {(item: ProjectItem) => (
-                      <Autocomplete.Item
-                        key={item.name}
-                        value={item.name}
-                        render={(props, state) => (
-                          <div
-                            {...props}
-                            className={`d-f ai-c g-3 py-2 px-3 fs-sm us-none c-p br-lg mx-1 c-slate-10 ${
-                              state.highlighted
-                                ? "bg-silver-1/50"
-                                : "bg-transparent"
-                            }`}
-                          >
+                  ) : !loading && hasResults ? (
+                    <Autocomplete.List className="oy-auto max-h-72 py-1 ow-0">
+                      {(item: ProjectItem) => (
+                        <Autocomplete.Item
+                          key={item.name}
+                          value={item.name}
+                          render={(props, state) => (
                             <div
-                              className={`d-if ai-c jc-c w-8 h-8 br-md fs-xs fw-500 c-white ${item.color}`}
+                              {...props}
+                              className={`d-f ai-c g-3 py-2 px-3 fs-sm us-none c-p br-lg mx-1 c-slate-10 ${
+                                state.highlighted
+                                  ? "bg-silver-1/50"
+                                  : "bg-transparent"
+                              }`}
                             >
-                              {item.name[0]}
+                              <div
+                                className={`d-if ai-c jc-c w-8 h-8 br-md fs-xs fw-500 c-white ${item.color}`}
+                              >
+                                {item.name[0]}
+                              </div>
+                              <div className="d-f fd-c">
+                                <span className="fw-500">{item.name}</span>
+                                <span className="c-slate-6 fs-xs">
+                                  {item.team} · {item.status}
+                                </span>
+                              </div>
                             </div>
-                            <div className="d-f fd-c">
-                              <span className="fw-500">{item.name}</span>
-                              <span className="c-slate-6 fs-xs">
-                                {item.team} · {item.status}
-                              </span>
-                            </div>
-                          </div>
-                        )}
-                      />
-                    )}
-                  </Autocomplete.List>
-                ) : !loading && !hasResults ? (
-                  <Autocomplete.Empty className="c-slate-6 fs-sm">
-                    <div className="pt-2 pb-3 px-4 us-none">
-                      No results found.
-                    </div>
-                  </Autocomplete.Empty>
-                ) : null}
-              </Autocomplete.Popup>
+                          )}
+                        />
+                      )}
+                    </Autocomplete.List>
+                  ) : !loading && !hasResults ? (
+                    <Autocomplete.Empty className="c-slate-6 fs-sm">
+                      <div className="pt-2 pb-3 px-4 us-none">
+                        No results found.
+                      </div>
+                    </Autocomplete.Empty>
+                  ) : null}
+                </Autocomplete.Popup>
               </motion.div>
             </Autocomplete.Positioner>
           </Autocomplete.Portal>

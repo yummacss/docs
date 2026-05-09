@@ -3,12 +3,7 @@
 import { Avatar } from "@base-ui/react/avatar";
 import { Collapsible } from "@base-ui/react/collapsible";
 import { Toggle } from "@base-ui/react/toggle";
-import {
-  Check,
-  ChevronRight,
-  CircleCheckFill,
-  Plus,
-} from "@gravity-ui/icons";
+import { Check, ChevronRight, CircleCheckFill, Plus } from "@gravity-ui/icons";
 import { type HTMLMotionProps, motion } from "motion/react";
 import { useState } from "react";
 

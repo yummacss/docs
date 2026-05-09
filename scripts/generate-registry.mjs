@@ -35,7 +35,9 @@ const uiLines = uiIds
   .join("\n");
 
 const docsLines = docsIds
-  .map((id) => `  "${id}": dynamic(() => import("./docs/${id}"), { ssr: true }),`)
+  .map(
+    (id) => `  "${id}": dynamic(() => import("./docs/${id}"), { ssr: true }),`,
+  )
   .join("\n");
 
 const output = `/**
