@@ -5,7 +5,7 @@ import { Switch } from "@base-ui/react/switch";
 import { motion } from "motion/react";
 import { useState } from "react";
 
-export default function SwitchBase() {
+export default function SwitchDisabled() {
   const [checked, setChecked] = useState(false);
 
   return (
