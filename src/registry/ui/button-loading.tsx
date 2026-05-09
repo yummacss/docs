@@ -16,7 +16,7 @@ export default function ButtonLoading() {
       >
         <Clock className="w-4 h-4" />
       </motion.div>
-      Please wait
+      Saving...
     </Button>
   );
 }
