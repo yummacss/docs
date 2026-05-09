@@ -12,7 +12,7 @@ export default function SwitchDescription() {
     <Field.Root className="d-f fd-c g-1">
       <div className="d-f ai-c g-3">
         <Switch.Root
-          id="switch-lyrics"
+          id="switch-dark-mode"
           checked={checked}
           onCheckedChange={setChecked}
           className={`p-r d-f ai-c h-5 w-9 br-pill m-0 px-1 c-p tp-c tdu-150 ttf-io fv:ow-2 fv:oo-2 fv:oc-indigo-5 ${
@@ -30,14 +30,14 @@ export default function SwitchDescription() {
           />
         </Switch.Root>
         <Field.Label
-          htmlFor="switch-lyrics"
+          htmlFor="switch-dark-mode"
           className="c-slate-10 fs-sm fw-500"
         >
-          Show Lyrics
+          Dark mode
         </Field.Label>
       </div>
       <p className="pl-12 c-slate-6 fs-xs fw-400">
-        Display song lyrics while playing.
+        Enable dark mode for better visibility.
       </p>
     </Field.Root>
   );
