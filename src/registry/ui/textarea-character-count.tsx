@@ -19,7 +19,7 @@ export default function TextareaCounter() {
         maxLength={maxLength}
         value={value}
         onChange={(e) => setValue(e.target.value)}
-        className="h-20 w-64 p-3 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md bs-o-xs r-none us-none resize-none fv:oo--1 fv:oc-indigo-5"
+        className="h-20 w-64 p-3 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md bs-o-xs r-none us-none r-none fv:oo--1 fv:oc-indigo-5"
       />
       <span className="c-slate-6 fs-xs">
         {value.length} / {maxLength}
