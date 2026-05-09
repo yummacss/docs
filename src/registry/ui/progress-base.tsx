@@ -32,7 +32,9 @@ export default function ProgressBase() {
               transition={{ duration: 0.5, ease: "easeOut" }}
             />
           }
-          className="h-full bg-indigo br-pill"
+          className={(state) =>
+            `h-full br-pill ${state.status === "complete" ? "bg-green" : "bg-indigo"}`
+          }
         />
       </Progress.Track>
     </Progress.Root>
