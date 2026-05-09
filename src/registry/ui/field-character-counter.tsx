@@ -3,7 +3,7 @@
 import { Field } from "@base-ui/react/field";
 import { useState } from "react";
 
-export default function FieldCounter() {
+export default function FieldCharacterCounter() {
   const [value, setValue] = useState("");
   const maxLength = 100;
 

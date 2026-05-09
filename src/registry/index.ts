@@ -312,7 +312,10 @@ const uiRegistry = {
     ssr: true,
   }),
   "field-base": dynamic(() => import("./ui/field-base"), { ssr: true }),
-  "field-counter": dynamic(() => import("./ui/field-counter"), { ssr: true }),
+  "field-character-counter": dynamic(
+    () => import("./ui/field-character-counter"),
+    { ssr: true },
+  ),
   "field-disabled": dynamic(() => import("./ui/field-disabled"), { ssr: true }),
   "field-error": dynamic(() => import("./ui/field-error"), { ssr: true }),
   "field-helper": dynamic(() => import("./ui/field-helper"), { ssr: true }),
