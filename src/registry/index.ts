@@ -14,310 +14,126 @@ import dynamic from "next/dynamic";
 
 const uiRegistry = {
   "accordion-base": dynamic(() => import("./ui/accordion-base"), { ssr: true }),
-  "accordion-bordered": dynamic(() => import("./ui/accordion-bordered"), {
-    ssr: true,
-  }),
-  "accordion-default-open": dynamic(
-    () => import("./ui/accordion-default-open"),
-    { ssr: true },
-  ),
-  "accordion-disabled": dynamic(() => import("./ui/accordion-disabled"), {
-    ssr: true,
-  }),
-  "accordion-ghost": dynamic(() => import("./ui/accordion-ghost"), {
-    ssr: true,
-  }),
-  "accordion-icons-left": dynamic(() => import("./ui/accordion-icons-left"), {
-    ssr: true,
-  }),
-  "accordion-icons": dynamic(() => import("./ui/accordion-icons"), {
-    ssr: true,
-  }),
-  "accordion-multiple-bordered": dynamic(
-    () => import("./ui/accordion-multiple-bordered"),
-    { ssr: true },
-  ),
-  "accordion-multiple-default-open": dynamic(
-    () => import("./ui/accordion-multiple-default-open"),
-    { ssr: true },
-  ),
-  "accordion-multiple-ghost": dynamic(
-    () => import("./ui/accordion-multiple-ghost"),
-    { ssr: true },
-  ),
-  "accordion-multiple-icons-left": dynamic(
-    () => import("./ui/accordion-multiple-icons-left"),
-    { ssr: true },
-  ),
-  "accordion-multiple-subtle": dynamic(
-    () => import("./ui/accordion-multiple-subtle"),
-    { ssr: true },
-  ),
-  "accordion-multiple": dynamic(() => import("./ui/accordion-multiple"), {
-    ssr: true,
-  }),
-  "accordion-no-separator": dynamic(
-    () => import("./ui/accordion-no-separator"),
-    { ssr: true },
-  ),
-  "accordion-static": dynamic(() => import("./ui/accordion-static"), {
-    ssr: true,
-  }),
-  "accordion-subtle": dynamic(() => import("./ui/accordion-subtle"), {
-    ssr: true,
-  }),
-  "alert-dialog-confirmation": dynamic(
-    () => import("./ui/alert-dialog-confirmation"),
-    { ssr: true },
-  ),
-  "autocomplete-auto-highlight": dynamic(
-    () => import("./ui/autocomplete-auto-highlight"),
-    { ssr: true },
-  ),
-  "autocomplete-base": dynamic(() => import("./ui/autocomplete-base"), {
-    ssr: true,
-  }),
-  "autocomplete-empty-state": dynamic(
-    () => import("./ui/autocomplete-empty-state"),
-    { ssr: true },
-  ),
-  "autocomplete-grouped": dynamic(() => import("./ui/autocomplete-grouped"), {
-    ssr: true,
-  }),
-  "autocomplete-icon": dynamic(() => import("./ui/autocomplete-icon"), {
-    ssr: true,
-  }),
-  "autocomplete-loading": dynamic(() => import("./ui/autocomplete-loading"), {
-    ssr: true,
-  }),
-  "autocomplete-max-items": dynamic(
-    () => import("./ui/autocomplete-max-items"),
-    { ssr: true },
-  ),
-  "autocomplete-static": dynamic(() => import("./ui/autocomplete-static"), {
-    ssr: true,
-  }),
+  "accordion-bordered": dynamic(() => import("./ui/accordion-bordered"), { ssr: true }),
+  "accordion-default-open": dynamic(() => import("./ui/accordion-default-open"), { ssr: true }),
+  "accordion-disabled": dynamic(() => import("./ui/accordion-disabled"), { ssr: true }),
+  "accordion-ghost": dynamic(() => import("./ui/accordion-ghost"), { ssr: true }),
+  "accordion-icons-left": dynamic(() => import("./ui/accordion-icons-left"), { ssr: true }),
+  "accordion-icons": dynamic(() => import("./ui/accordion-icons"), { ssr: true }),
+  "accordion-multiple-bordered": dynamic(() => import("./ui/accordion-multiple-bordered"), { ssr: true }),
+  "accordion-multiple-default-open": dynamic(() => import("./ui/accordion-multiple-default-open"), { ssr: true }),
+  "accordion-multiple-ghost": dynamic(() => import("./ui/accordion-multiple-ghost"), { ssr: true }),
+  "accordion-multiple-icons-left": dynamic(() => import("./ui/accordion-multiple-icons-left"), { ssr: true }),
+  "accordion-multiple-subtle": dynamic(() => import("./ui/accordion-multiple-subtle"), { ssr: true }),
+  "accordion-multiple": dynamic(() => import("./ui/accordion-multiple"), { ssr: true }),
+  "accordion-no-separator": dynamic(() => import("./ui/accordion-no-separator"), { ssr: true }),
+  "accordion-static": dynamic(() => import("./ui/accordion-static"), { ssr: true }),
+  "accordion-subtle": dynamic(() => import("./ui/accordion-subtle"), { ssr: true }),
+  "alert-dialog-confirmation": dynamic(() => import("./ui/alert-dialog-confirmation"), { ssr: true }),
+  "autocomplete-auto-highlight": dynamic(() => import("./ui/autocomplete-auto-highlight"), { ssr: true }),
+  "autocomplete-base": dynamic(() => import("./ui/autocomplete-base"), { ssr: true }),
+  "autocomplete-empty-state": dynamic(() => import("./ui/autocomplete-empty-state"), { ssr: true }),
+  "autocomplete-grouped": dynamic(() => import("./ui/autocomplete-grouped"), { ssr: true }),
+  "autocomplete-icon": dynamic(() => import("./ui/autocomplete-icon"), { ssr: true }),
+  "autocomplete-loading": dynamic(() => import("./ui/autocomplete-loading"), { ssr: true }),
+  "autocomplete-max-items": dynamic(() => import("./ui/autocomplete-max-items"), { ssr: true }),
+  "autocomplete-static": dynamic(() => import("./ui/autocomplete-static"), { ssr: true }),
   "avatar-base": dynamic(() => import("./ui/avatar-base"), { ssr: true }),
-  "avatar-detailed": dynamic(() => import("./ui/avatar-detailed"), {
-    ssr: true,
-  }),
+  "avatar-detailed": dynamic(() => import("./ui/avatar-detailed"), { ssr: true }),
   "avatar-edit": dynamic(() => import("./ui/avatar-edit"), { ssr: true }),
-  "avatar-icon-fallback": dynamic(() => import("./ui/avatar-icon-fallback"), {
-    ssr: true,
-  }),
-  "avatar-initial-fallback": dynamic(
-    () => import("./ui/avatar-initial-fallback"),
-    { ssr: true },
-  ),
+  "avatar-icon-fallback": dynamic(() => import("./ui/avatar-icon-fallback"), { ssr: true }),
+  "avatar-initial-fallback": dynamic(() => import("./ui/avatar-initial-fallback"), { ssr: true }),
   "avatar-sizes": dynamic(() => import("./ui/avatar-sizes"), { ssr: true }),
-  "avatar-stack-compact": dynamic(() => import("./ui/avatar-stack-compact"), {
-    ssr: true,
-  }),
+  "avatar-stack-compact": dynamic(() => import("./ui/avatar-stack-compact"), { ssr: true }),
   "avatar-stacked": dynamic(() => import("./ui/avatar-stacked"), { ssr: true }),
   "avatar-status": dynamic(() => import("./ui/avatar-status"), { ssr: true }),
-  "avatar-verified": dynamic(() => import("./ui/avatar-verified"), {
-    ssr: true,
-  }),
+  "avatar-verified": dynamic(() => import("./ui/avatar-verified"), { ssr: true }),
   "badge-base": dynamic(() => import("./ui/badge-base"), { ssr: true }),
-  "badge-close-pill": dynamic(() => import("./ui/badge-close-pill"), {
-    ssr: true,
-  }),
+  "badge-close-pill": dynamic(() => import("./ui/badge-close-pill"), { ssr: true }),
   "badge-close": dynamic(() => import("./ui/badge-close"), { ssr: true }),
-  "badge-count-pill": dynamic(() => import("./ui/badge-count-pill"), {
-    ssr: true,
-  }),
+  "badge-count-pill": dynamic(() => import("./ui/badge-count-pill"), { ssr: true }),
   "badge-count": dynamic(() => import("./ui/badge-count"), { ssr: true }),
   "badge-dot-pill": dynamic(() => import("./ui/badge-dot-pill"), { ssr: true }),
   "badge-dot": dynamic(() => import("./ui/badge-dot"), { ssr: true }),
-  "badge-icon-dot-pill": dynamic(() => import("./ui/badge-icon-dot-pill"), {
-    ssr: true,
-  }),
+  "badge-icon-dot-pill": dynamic(() => import("./ui/badge-icon-dot-pill"), { ssr: true }),
   "badge-icon-dot": dynamic(() => import("./ui/badge-icon-dot"), { ssr: true }),
-  "badge-icon-pill": dynamic(() => import("./ui/badge-icon-pill"), {
-    ssr: true,
-  }),
-  "badge-icon-right-dot-pill": dynamic(
-    () => import("./ui/badge-icon-right-dot-pill"),
-    { ssr: true },
-  ),
-  "badge-icon-right-dot": dynamic(() => import("./ui/badge-icon-right-dot"), {
-    ssr: true,
-  }),
-  "badge-icon-right-pill": dynamic(() => import("./ui/badge-icon-right-pill"), {
-    ssr: true,
-  }),
-  "badge-icon-right": dynamic(() => import("./ui/badge-icon-right"), {
-    ssr: true,
-  }),
+  "badge-icon-pill": dynamic(() => import("./ui/badge-icon-pill"), { ssr: true }),
+  "badge-icon-right-dot-pill": dynamic(() => import("./ui/badge-icon-right-dot-pill"), { ssr: true }),
+  "badge-icon-right-dot": dynamic(() => import("./ui/badge-icon-right-dot"), { ssr: true }),
+  "badge-icon-right-pill": dynamic(() => import("./ui/badge-icon-right-pill"), { ssr: true }),
+  "badge-icon-right": dynamic(() => import("./ui/badge-icon-right"), { ssr: true }),
   "badge-icon": dynamic(() => import("./ui/badge-icon"), { ssr: true }),
   "badge-pill": dynamic(() => import("./ui/badge-pill"), { ssr: true }),
   "badge-sizes": dynamic(() => import("./ui/badge-sizes"), { ssr: true }),
-  "breadcrumb-base": dynamic(() => import("./ui/breadcrumb-base"), {
-    ssr: true,
-  }),
-  "breadcrumb-bordered": dynamic(() => import("./ui/breadcrumb-bordered"), {
-    ssr: true,
-  }),
-  "breadcrumb-collapse": dynamic(() => import("./ui/breadcrumb-collapse"), {
-    ssr: true,
-  }),
-  "breadcrumb-icons": dynamic(() => import("./ui/breadcrumb-icons"), {
-    ssr: true,
-  }),
-  "breadcrumb-slash": dynamic(() => import("./ui/breadcrumb-slash"), {
-    ssr: true,
-  }),
+  "breadcrumb-base": dynamic(() => import("./ui/breadcrumb-base"), { ssr: true }),
+  "breadcrumb-bordered": dynamic(() => import("./ui/breadcrumb-bordered"), { ssr: true }),
+  "breadcrumb-collapse": dynamic(() => import("./ui/breadcrumb-collapse"), { ssr: true }),
+  "breadcrumb-icons": dynamic(() => import("./ui/breadcrumb-icons"), { ssr: true }),
+  "breadcrumb-slash": dynamic(() => import("./ui/breadcrumb-slash"), { ssr: true }),
   "button-base": dynamic(() => import("./ui/button-base"), { ssr: true }),
   "button-circle": dynamic(() => import("./ui/button-circle"), { ssr: true }),
   "button-danger": dynamic(() => import("./ui/button-danger"), { ssr: true }),
-  "button-disabled": dynamic(() => import("./ui/button-disabled"), {
-    ssr: true,
-  }),
-  "button-favorite": dynamic(() => import("./ui/button-favorite"), {
-    ssr: true,
-  }),
+  "button-disabled": dynamic(() => import("./ui/button-disabled"), { ssr: true }),
+  "button-favorite": dynamic(() => import("./ui/button-favorite"), { ssr: true }),
   "button-ghost": dynamic(() => import("./ui/button-ghost"), { ssr: true }),
-  "button-group-icon": dynamic(() => import("./ui/button-group-icon"), {
-    ssr: true,
-  }),
+  "button-group-icon": dynamic(() => import("./ui/button-group-icon"), { ssr: true }),
   "button-group": dynamic(() => import("./ui/button-group"), { ssr: true }),
-  "button-icon-only": dynamic(() => import("./ui/button-icon-only"), {
-    ssr: true,
-  }),
-  "button-icon-pill": dynamic(() => import("./ui/button-icon-pill"), {
-    ssr: true,
-  }),
+  "button-icon-only": dynamic(() => import("./ui/button-icon-only"), { ssr: true }),
+  "button-icon-pill": dynamic(() => import("./ui/button-icon-pill"), { ssr: true }),
   "button-icon": dynamic(() => import("./ui/button-icon"), { ssr: true }),
   "button-link": dynamic(() => import("./ui/button-link"), { ssr: true }),
   "button-loading": dynamic(() => import("./ui/button-loading"), { ssr: true }),
-  "button-outlined": dynamic(() => import("./ui/button-outlined"), {
-    ssr: true,
-  }),
+  "button-outlined": dynamic(() => import("./ui/button-outlined"), { ssr: true }),
   "button-pill": dynamic(() => import("./ui/button-pill"), { ssr: true }),
-  "button-secondary-icon": dynamic(() => import("./ui/button-secondary-icon"), {
-    ssr: true,
-  }),
-  "button-secondary": dynamic(() => import("./ui/button-secondary"), {
-    ssr: true,
-  }),
+  "button-secondary-icon": dynamic(() => import("./ui/button-secondary-icon"), { ssr: true }),
+  "button-secondary": dynamic(() => import("./ui/button-secondary"), { ssr: true }),
   "button-sizes": dynamic(() => import("./ui/button-sizes"), { ssr: true }),
   "button-subtle": dynamic(() => import("./ui/button-subtle"), { ssr: true }),
   "checkbox-base": dynamic(() => import("./ui/checkbox-base"), { ssr: true }),
-  "checkbox-description": dynamic(() => import("./ui/checkbox-description"), {
-    ssr: true,
-  }),
-  "checkbox-detailed": dynamic(() => import("./ui/checkbox-detailed"), {
-    ssr: true,
-  }),
-  "checkbox-disabled": dynamic(() => import("./ui/checkbox-disabled"), {
-    ssr: true,
-  }),
-  "checkbox-group-base": dynamic(() => import("./ui/checkbox-group-base"), {
-    ssr: true,
-  }),
-  "checkbox-nested-parent": dynamic(
-    () => import("./ui/checkbox-nested-parent"),
-    { ssr: true },
-  ),
-  "checkbox-parent": dynamic(() => import("./ui/checkbox-parent"), {
-    ssr: true,
-  }),
-  "checkbox-read-only": dynamic(() => import("./ui/checkbox-read-only"), {
-    ssr: true,
-  }),
+  "checkbox-description": dynamic(() => import("./ui/checkbox-description"), { ssr: true }),
+  "checkbox-detailed": dynamic(() => import("./ui/checkbox-detailed"), { ssr: true }),
+  "checkbox-disabled": dynamic(() => import("./ui/checkbox-disabled"), { ssr: true }),
+  "checkbox-group-base": dynamic(() => import("./ui/checkbox-group-base"), { ssr: true }),
+  "checkbox-nested-parent": dynamic(() => import("./ui/checkbox-nested-parent"), { ssr: true }),
+  "checkbox-parent": dynamic(() => import("./ui/checkbox-parent"), { ssr: true }),
+  "checkbox-read-only": dynamic(() => import("./ui/checkbox-read-only"), { ssr: true }),
   "checkbox-sizes": dynamic(() => import("./ui/checkbox-sizes"), { ssr: true }),
-  "collapsible-base": dynamic(() => import("./ui/collapsible-base"), {
-    ssr: true,
-  }),
-  "collapsible-default-open": dynamic(
-    () => import("./ui/collapsible-default-open"),
-    { ssr: true },
-  ),
-  "collapsible-disabled": dynamic(() => import("./ui/collapsible-disabled"), {
-    ssr: true,
-  }),
-  "collapsible-icon": dynamic(() => import("./ui/collapsible-icon"), {
-    ssr: true,
-  }),
-  "collapsible-static": dynamic(() => import("./ui/collapsible-static"), {
-    ssr: true,
-  }),
+  "collapsible-base": dynamic(() => import("./ui/collapsible-base"), { ssr: true }),
+  "collapsible-default-open": dynamic(() => import("./ui/collapsible-default-open"), { ssr: true }),
+  "collapsible-disabled": dynamic(() => import("./ui/collapsible-disabled"), { ssr: true }),
+  "collapsible-icon": dynamic(() => import("./ui/collapsible-icon"), { ssr: true }),
+  "collapsible-static": dynamic(() => import("./ui/collapsible-static"), { ssr: true }),
   "combobox-base": dynamic(() => import("./ui/combobox-base"), { ssr: true }),
-  "combobox-grouped": dynamic(() => import("./ui/combobox-grouped"), {
-    ssr: true,
-  }),
-  "combobox-inline": dynamic(() => import("./ui/combobox-inline"), {
-    ssr: true,
-  }),
-  "combobox-loading": dynamic(() => import("./ui/combobox-loading"), {
-    ssr: true,
-  }),
-  "combobox-multiple": dynamic(() => import("./ui/combobox-multiple"), {
-    ssr: true,
-  }),
-  "combobox-static": dynamic(() => import("./ui/combobox-static"), {
-    ssr: true,
-  }),
-  "context-menu-base": dynamic(() => import("./ui/context-menu-base"), {
-    ssr: true,
-  }),
-  "context-menu-checkboxes": dynamic(
-    () => import("./ui/context-menu-checkboxes"),
-    { ssr: true },
-  ),
-  "context-menu-grouped": dynamic(() => import("./ui/context-menu-grouped"), {
-    ssr: true,
-  }),
-  "context-menu-nested": dynamic(() => import("./ui/context-menu-nested"), {
-    ssr: true,
-  }),
-  "context-menu-radios": dynamic(() => import("./ui/context-menu-radios"), {
-    ssr: true,
-  }),
-  "context-menu-shortcuts": dynamic(
-    () => import("./ui/context-menu-shortcuts"),
-    { ssr: true },
-  ),
-  "context-menu-static": dynamic(() => import("./ui/context-menu-static"), {
-    ssr: true,
-  }),
+  "combobox-grouped": dynamic(() => import("./ui/combobox-grouped"), { ssr: true }),
+  "combobox-inline": dynamic(() => import("./ui/combobox-inline"), { ssr: true }),
+  "combobox-loading": dynamic(() => import("./ui/combobox-loading"), { ssr: true }),
+  "combobox-multiple": dynamic(() => import("./ui/combobox-multiple"), { ssr: true }),
+  "combobox-static": dynamic(() => import("./ui/combobox-static"), { ssr: true }),
+  "context-menu-base": dynamic(() => import("./ui/context-menu-base"), { ssr: true }),
+  "context-menu-checkboxes": dynamic(() => import("./ui/context-menu-checkboxes"), { ssr: true }),
+  "context-menu-grouped": dynamic(() => import("./ui/context-menu-grouped"), { ssr: true }),
+  "context-menu-nested": dynamic(() => import("./ui/context-menu-nested"), { ssr: true }),
+  "context-menu-radios": dynamic(() => import("./ui/context-menu-radios"), { ssr: true }),
+  "context-menu-shortcuts": dynamic(() => import("./ui/context-menu-shortcuts"), { ssr: true }),
+  "context-menu-static": dynamic(() => import("./ui/context-menu-static"), { ssr: true }),
   "dialog-base": dynamic(() => import("./ui/dialog-base"), { ssr: true }),
   "dialog-form": dynamic(() => import("./ui/dialog-form"), { ssr: true }),
-  "dialog-scrollable": dynamic(() => import("./ui/dialog-scrollable"), {
-    ssr: true,
-  }),
+  "dialog-scrollable": dynamic(() => import("./ui/dialog-scrollable"), { ssr: true }),
   "dialog-static": dynamic(() => import("./ui/dialog-static"), { ssr: true }),
   "drawer-base": dynamic(() => import("./ui/drawer-base"), { ssr: true }),
-  "drawer-bottom-sheet": dynamic(() => import("./ui/drawer-bottom-sheet"), {
-    ssr: true,
-  }),
+  "drawer-bottom-sheet": dynamic(() => import("./ui/drawer-bottom-sheet"), { ssr: true }),
   "drawer-static": dynamic(() => import("./ui/drawer-static"), { ssr: true }),
-  "empty-state-actions": dynamic(() => import("./ui/empty-state-actions"), {
-    ssr: true,
-  }),
-  "empty-state-base": dynamic(() => import("./ui/empty-state-base"), {
-    ssr: true,
-  }),
-  "empty-state-icon": dynamic(() => import("./ui/empty-state-icon"), {
-    ssr: true,
-  }),
-  "empty-state-search": dynamic(() => import("./ui/empty-state-search"), {
-    ssr: true,
-  }),
-  "empty-state-text": dynamic(() => import("./ui/empty-state-text"), {
-    ssr: true,
-  }),
+  "empty-state-actions": dynamic(() => import("./ui/empty-state-actions"), { ssr: true }),
+  "empty-state-base": dynamic(() => import("./ui/empty-state-base"), { ssr: true }),
+  "empty-state-icon": dynamic(() => import("./ui/empty-state-icon"), { ssr: true }),
+  "empty-state-search": dynamic(() => import("./ui/empty-state-search"), { ssr: true }),
+  "empty-state-text": dynamic(() => import("./ui/empty-state-text"), { ssr: true }),
   "field-base": dynamic(() => import("./ui/field-base"), { ssr: true }),
-  "field-character-counter": dynamic(
-    () => import("./ui/field-character-counter"),
-    { ssr: true },
-  ),
+  "field-character-counter": dynamic(() => import("./ui/field-character-counter"), { ssr: true }),
   "field-disabled": dynamic(() => import("./ui/field-disabled"), { ssr: true }),
   "field-error": dynamic(() => import("./ui/field-error"), { ssr: true }),
   "field-helper": dynamic(() => import("./ui/field-helper"), { ssr: true }),
-  "field-icon-right": dynamic(() => import("./ui/field-icon-right"), {
-    ssr: true,
-  }),
+  "field-icon-right": dynamic(() => import("./ui/field-icon-right"), { ssr: true }),
   "field-icon": dynamic(() => import("./ui/field-icon"), { ssr: true }),
   "field-label": dynamic(() => import("./ui/field-label"), { ssr: true }),
   "field-password": dynamic(() => import("./ui/field-password"), { ssr: true }),
@@ -325,22 +141,11 @@ const uiRegistry = {
   "field-sizes": dynamic(() => import("./ui/field-sizes"), { ssr: true }),
   "field-success": dynamic(() => import("./ui/field-success"), { ssr: true }),
   "field-suffix": dynamic(() => import("./ui/field-suffix"), { ssr: true }),
-  "file-upload-base": dynamic(() => import("./ui/file-upload-base"), {
-    ssr: true,
-  }),
-  "file-upload-disabled": dynamic(() => import("./ui/file-upload-disabled"), {
-    ssr: true,
-  }),
-  "file-upload-error": dynamic(() => import("./ui/file-upload-error"), {
-    ssr: true,
-  }),
-  "file-upload-solid-error": dynamic(
-    () => import("./ui/file-upload-solid-error"),
-    { ssr: true },
-  ),
-  "file-upload-solid": dynamic(() => import("./ui/file-upload-solid"), {
-    ssr: true,
-  }),
+  "file-upload-base": dynamic(() => import("./ui/file-upload-base"), { ssr: true }),
+  "file-upload-disabled": dynamic(() => import("./ui/file-upload-disabled"), { ssr: true }),
+  "file-upload-error": dynamic(() => import("./ui/file-upload-error"), { ssr: true }),
+  "file-upload-solid-error": dynamic(() => import("./ui/file-upload-solid-error"), { ssr: true }),
+  "file-upload-solid": dynamic(() => import("./ui/file-upload-solid"), { ssr: true }),
   "menu-base": dynamic(() => import("./ui/menu-base"), { ssr: true }),
   "menu-grouped": dynamic(() => import("./ui/menu-grouped"), { ssr: true }),
   "menu-icons": dynamic(() => import("./ui/menu-icons"), { ssr: true }),
@@ -350,55 +155,25 @@ const uiRegistry = {
   "menu-static": dynamic(() => import("./ui/menu-static"), { ssr: true }),
   "menubar-base": dynamic(() => import("./ui/menubar-base"), { ssr: true }),
   "menubar-static": dynamic(() => import("./ui/menubar-static"), { ssr: true }),
-  "navigation-menu-base": dynamic(() => import("./ui/navigation-menu-base"), {
-    ssr: true,
-  }),
-  "navigation-menu-static": dynamic(
-    () => import("./ui/navigation-menu-static"),
-    { ssr: true },
-  ),
-  "number-field-base": dynamic(() => import("./ui/number-field-base"), {
-    ssr: true,
-  }),
-  "onboarding-base": dynamic(() => import("./ui/onboarding-base"), {
-    ssr: true,
-  }),
+  "navigation-menu-base": dynamic(() => import("./ui/navigation-menu-base"), { ssr: true }),
+  "navigation-menu-static": dynamic(() => import("./ui/navigation-menu-static"), { ssr: true }),
+  "number-field-base": dynamic(() => import("./ui/number-field-base"), { ssr: true }),
+  "onboarding-base": dynamic(() => import("./ui/onboarding-base"), { ssr: true }),
   "popover-base": dynamic(() => import("./ui/popover-base"), { ssr: true }),
   "popover-static": dynamic(() => import("./ui/popover-static"), { ssr: true }),
-  "preview-card-avatar": dynamic(() => import("./ui/preview-card-avatar"), {
-    ssr: true,
-  }),
-  "preview-card-base": dynamic(() => import("./ui/preview-card-base"), {
-    ssr: true,
-  }),
-  "preview-card-compact": dynamic(() => import("./ui/preview-card-compact"), {
-    ssr: true,
-  }),
-  "preview-card-multiple": dynamic(() => import("./ui/preview-card-multiple"), {
-    ssr: true,
-  }),
-  "preview-card-project": dynamic(() => import("./ui/preview-card-project"), {
-    ssr: true,
-  }),
-  "preview-card-static": dynamic(() => import("./ui/preview-card-static"), {
-    ssr: true,
-  }),
-  "preview-card-team": dynamic(() => import("./ui/preview-card-team"), {
-    ssr: true,
-  }),
+  "preview-card-avatar": dynamic(() => import("./ui/preview-card-avatar"), { ssr: true }),
+  "preview-card-base": dynamic(() => import("./ui/preview-card-base"), { ssr: true }),
+  "preview-card-compact": dynamic(() => import("./ui/preview-card-compact"), { ssr: true }),
+  "preview-card-multiple": dynamic(() => import("./ui/preview-card-multiple"), { ssr: true }),
+  "preview-card-project": dynamic(() => import("./ui/preview-card-project"), { ssr: true }),
+  "preview-card-static": dynamic(() => import("./ui/preview-card-static"), { ssr: true }),
+  "preview-card-team": dynamic(() => import("./ui/preview-card-team"), { ssr: true }),
   "progress-base": dynamic(() => import("./ui/progress-base"), { ssr: true }),
-  "progress-indeterminate": dynamic(
-    () => import("./ui/progress-indeterminate"),
-    { ssr: true },
-  ),
+  "progress-indeterminate": dynamic(() => import("./ui/progress-indeterminate"), { ssr: true }),
   "progress-meter": dynamic(() => import("./ui/progress-meter"), { ssr: true }),
-  "progress-static": dynamic(() => import("./ui/progress-static"), {
-    ssr: true,
-  }),
+  "progress-static": dynamic(() => import("./ui/progress-static"), { ssr: true }),
   "radio-base": dynamic(() => import("./ui/radio-base"), { ssr: true }),
-  "radio-description": dynamic(() => import("./ui/radio-description"), {
-    ssr: true,
-  }),
+  "radio-description": dynamic(() => import("./ui/radio-description"), { ssr: true }),
   "radio-disabled": dynamic(() => import("./ui/radio-disabled"), { ssr: true }),
   "rating-base": dynamic(() => import("./ui/rating-base"), { ssr: true }),
   "rating-static": dynamic(() => import("./ui/rating-static"), { ssr: true }),
@@ -406,78 +181,43 @@ const uiRegistry = {
   "select-grouped": dynamic(() => import("./ui/select-grouped"), { ssr: true }),
   "select-static": dynamic(() => import("./ui/select-static"), { ssr: true }),
   "separator-base": dynamic(() => import("./ui/separator-base"), { ssr: true }),
-  "separator-horizontal": dynamic(() => import("./ui/separator-horizontal"), {
-    ssr: true,
-  }),
-  "separator-icon-circle": dynamic(() => import("./ui/separator-icon-circle"), {
-    ssr: true,
-  }),
+  "separator-horizontal": dynamic(() => import("./ui/separator-horizontal"), { ssr: true }),
+  "separator-icon-circle": dynamic(() => import("./ui/separator-icon-circle"), { ssr: true }),
   "separator-icon": dynamic(() => import("./ui/separator-icon"), { ssr: true }),
-  "separator-label": dynamic(() => import("./ui/separator-label"), {
-    ssr: true,
-  }),
-  "separator-multiple": dynamic(() => import("./ui/separator-multiple"), {
-    ssr: true,
-  }),
+  "separator-label": dynamic(() => import("./ui/separator-label"), { ssr: true }),
+  "separator-multiple": dynamic(() => import("./ui/separator-multiple"), { ssr: true }),
   "skeleton-base": dynamic(() => import("./ui/skeleton-base"), { ssr: true }),
   "skeleton-card": dynamic(() => import("./ui/skeleton-card"), { ssr: true }),
   "skeleton-list": dynamic(() => import("./ui/skeleton-list"), { ssr: true }),
   "slider-base": dynamic(() => import("./ui/slider-base"), { ssr: true }),
-  "slider-disabled": dynamic(() => import("./ui/slider-disabled"), {
-    ssr: true,
-  }),
+  "slider-disabled": dynamic(() => import("./ui/slider-disabled"), { ssr: true }),
   "slider-range": dynamic(() => import("./ui/slider-range"), { ssr: true }),
-  "switch-accent-icon-color": dynamic(
-    () => import("./ui/switch-accent-icon-color"),
-    { ssr: true },
-  ),
+  "switch-accent-icon-color": dynamic(() => import("./ui/switch-accent-icon-color"), { ssr: true }),
   "switch-accent": dynamic(() => import("./ui/switch-accent"), { ssr: true }),
   "switch-base": dynamic(() => import("./ui/switch-base"), { ssr: true }),
-  "switch-description": dynamic(() => import("./ui/switch-description"), {
-    ssr: true,
-  }),
-  "switch-disabled": dynamic(() => import("./ui/switch-disabled"), {
-    ssr: true,
-  }),
+  "switch-description": dynamic(() => import("./ui/switch-description"), { ssr: true }),
+  "switch-disabled": dynamic(() => import("./ui/switch-disabled"), { ssr: true }),
   "switch-icon": dynamic(() => import("./ui/switch-icon"), { ssr: true }),
   "switch-static": dynamic(() => import("./ui/switch-static"), { ssr: true }),
   "tabs-base": dynamic(() => import("./ui/tabs-base"), { ssr: true }),
   "tabs-disabled": dynamic(() => import("./ui/tabs-disabled"), { ssr: true }),
   "tabs-underline": dynamic(() => import("./ui/tabs-underline"), { ssr: true }),
-  "tabs-vertical": dynamic(() => import("./ui/tabs-vertical"), { ssr: true }),
-  "text-editor-base": dynamic(() => import("./ui/text-editor-base"), {
-    ssr: true,
-  }),
-  "text-editor-static": dynamic(() => import("./ui/text-editor-static"), {
-    ssr: true,
-  }),
+  "text-editor-base": dynamic(() => import("./ui/text-editor-base"), { ssr: true }),
+  "text-editor-static": dynamic(() => import("./ui/text-editor-static"), { ssr: true }),
   "textarea-base": dynamic(() => import("./ui/textarea-base"), { ssr: true }),
-  "textarea-character-count": dynamic(
-    () => import("./ui/textarea-character-count"),
-    { ssr: true },
-  ),
-  "textarea-disabled": dynamic(() => import("./ui/textarea-disabled"), {
-    ssr: true,
-  }),
+  "textarea-character-count": dynamic(() => import("./ui/textarea-character-count"), { ssr: true }),
+  "textarea-disabled": dynamic(() => import("./ui/textarea-disabled"), { ssr: true }),
   "textarea-error": dynamic(() => import("./ui/textarea-error"), { ssr: true }),
-  "textarea-helper": dynamic(() => import("./ui/textarea-helper"), {
-    ssr: true,
-  }),
+  "textarea-helper": dynamic(() => import("./ui/textarea-helper"), { ssr: true }),
   "textarea-label": dynamic(() => import("./ui/textarea-label"), { ssr: true }),
-  "textarea-success": dynamic(() => import("./ui/textarea-success"), {
-    ssr: true,
-  }),
+  "textarea-success": dynamic(() => import("./ui/textarea-success"), { ssr: true }),
   "toggle-base": dynamic(() => import("./ui/toggle-base"), { ssr: true }),
-  "toggle-group-base": dynamic(() => import("./ui/toggle-group-base"), {
-    ssr: true,
-  }),
+  "toggle-group-base": dynamic(() => import("./ui/toggle-group-base"), { ssr: true }),
   "toggle-static": dynamic(() => import("./ui/toggle-static"), { ssr: true }),
   "toolbar-base": dynamic(() => import("./ui/toolbar-base"), { ssr: true }),
   "tooltip-arrow": dynamic(() => import("./ui/tooltip-arrow"), { ssr: true }),
   "tooltip-base": dynamic(() => import("./ui/tooltip-base"), { ssr: true }),
-  "tooltip-placement": dynamic(() => import("./ui/tooltip-placement"), {
-    ssr: true,
-  }),
+  "tooltip-placement": dynamic(() => import("./ui/tooltip-placement"), { ssr: true }),
   "tooltip-static": dynamic(() => import("./ui/tooltip-static"), { ssr: true }),
 } as const;
 
@@ -486,67 +226,23 @@ const uiRegistry = {
 // ---------------------------------------------------------------------------
 
 const docsRegistry = {
-  "colors-opacity-modifiers": dynamic(
-    () => import("./docs/colors-opacity-modifiers"),
-    { ssr: true },
-  ),
+  "colors-opacity-modifiers": dynamic(() => import("./docs/colors-opacity-modifiers"), { ssr: true }),
   "colors-shades": dynamic(() => import("./docs/colors-shades"), { ssr: true }),
-  "colors-utilities": dynamic(() => import("./docs/colors-utilities"), {
-    ssr: true,
-  }),
-  "media-queries-base": dynamic(() => import("./docs/media-queries-base"), {
-    ssr: true,
-  }),
-  "negative-values-margin": dynamic(
-    () => import("./docs/negative-values-margin"),
-    { ssr: true },
-  ),
-  "negative-values-positioning": dynamic(
-    () => import("./docs/negative-values-positioning"),
-    { ssr: true },
-  ),
-  "negative-values-sign-toggle": dynamic(
-    () => import("./docs/negative-values-sign-toggle"),
-    { ssr: true },
-  ),
-  "negative-values-z-index": dynamic(
-    () => import("./docs/negative-values-z-index"),
-    { ssr: true },
-  ),
-  "pseudo-classes-active": dynamic(
-    () => import("./docs/pseudo-classes-active"),
-    { ssr: true },
-  ),
-  "pseudo-classes-checked": dynamic(
-    () => import("./docs/pseudo-classes-checked"),
-    { ssr: true },
-  ),
-  "pseudo-classes-disabled": dynamic(
-    () => import("./docs/pseudo-classes-disabled"),
-    { ssr: true },
-  ),
-  "pseudo-classes-focus-visible": dynamic(
-    () => import("./docs/pseudo-classes-focus-visible"),
-    { ssr: true },
-  ),
-  "pseudo-classes-focus-within": dynamic(
-    () => import("./docs/pseudo-classes-focus-within"),
-    { ssr: true },
-  ),
-  "pseudo-classes-focus": dynamic(() => import("./docs/pseudo-classes-focus"), {
-    ssr: true,
-  }),
-  "pseudo-classes-hover": dynamic(() => import("./docs/pseudo-classes-hover"), {
-    ssr: true,
-  }),
-  "pseudo-elements-placeholder": dynamic(
-    () => import("./docs/pseudo-elements-placeholder"),
-    { ssr: true },
-  ),
-  "pseudo-elements-selection": dynamic(
-    () => import("./docs/pseudo-elements-selection"),
-    { ssr: true },
-  ),
+  "colors-utilities": dynamic(() => import("./docs/colors-utilities"), { ssr: true }),
+  "media-queries-base": dynamic(() => import("./docs/media-queries-base"), { ssr: true }),
+  "negative-values-margin": dynamic(() => import("./docs/negative-values-margin"), { ssr: true }),
+  "negative-values-positioning": dynamic(() => import("./docs/negative-values-positioning"), { ssr: true }),
+  "negative-values-sign-toggle": dynamic(() => import("./docs/negative-values-sign-toggle"), { ssr: true }),
+  "negative-values-z-index": dynamic(() => import("./docs/negative-values-z-index"), { ssr: true }),
+  "pseudo-classes-active": dynamic(() => import("./docs/pseudo-classes-active"), { ssr: true }),
+  "pseudo-classes-checked": dynamic(() => import("./docs/pseudo-classes-checked"), { ssr: true }),
+  "pseudo-classes-disabled": dynamic(() => import("./docs/pseudo-classes-disabled"), { ssr: true }),
+  "pseudo-classes-focus-visible": dynamic(() => import("./docs/pseudo-classes-focus-visible"), { ssr: true }),
+  "pseudo-classes-focus-within": dynamic(() => import("./docs/pseudo-classes-focus-within"), { ssr: true }),
+  "pseudo-classes-focus": dynamic(() => import("./docs/pseudo-classes-focus"), { ssr: true }),
+  "pseudo-classes-hover": dynamic(() => import("./docs/pseudo-classes-hover"), { ssr: true }),
+  "pseudo-elements-placeholder": dynamic(() => import("./docs/pseudo-elements-placeholder"), { ssr: true }),
+  "pseudo-elements-selection": dynamic(() => import("./docs/pseudo-elements-selection"), { ssr: true }),
 } as const;
 
 // ---------------------------------------------------------------------------
