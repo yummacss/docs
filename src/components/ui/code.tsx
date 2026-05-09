@@ -29,7 +29,7 @@ export default function Code({ title, children }: Props) {
           <CopyButton copied={copied} onCopy={handleCopy} />
         </div>
       ) : (
-        <div className="p-a t-2 r-2 zi-10">
+        <div className="p-a t-2 r-2">
           <CopyButton copied={copied} onCopy={handleCopy} />
         </div>
       )}
