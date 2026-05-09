@@ -2,9 +2,9 @@
 
 import { ContextMenu } from "@base-ui/react/context-menu";
 import {
-  ArrowUturnCcwLeft,
   Eye,
   Link,
+  PersonPlus,
   Pin,
   TrashBin,
   Xmark,
@@ -44,7 +44,7 @@ export default function ContextMenuShortcuts() {
                   }
                 >
                   <span className="d-f ai-c g-2 fg-1">
-                    <ArrowUturnCcwLeft className="fs-0 w-4 h-4 c-slate-5" />
+                    <PersonPlus className="fs-0 w-4 h-4 c-slate-5" />
                     Assign to
                   </span>
                   <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
