@@ -66,21 +66,21 @@ export default function AccordionSubtle() {
 
 const faqs = [
   {
-    value: "email",
-    title: "How do I configure email notifications?",
+    value: "access",
+    title: "How do I control team access?",
     content:
-      "Go to Settings > Notifications and toggle email alerts. Choose when to receive them: immediately, daily digest, or weekly summary.",
+      "Go to Team Settings to manage roles. Assign Admin, Member, or Viewer roles. You can also set project-specific permissions for each team member.",
   },
   {
-    value: "slack",
-    title: "Can I receive notifications in Slack?",
+    value: "notifications",
+    title: "How do I customize notifications?",
     content:
-      "Yes, install the Slack integration in Settings > Integrations. Map workspace events to specific Slack channels.",
+      "Visit Settings > Notifications. Choose what triggers email or in-app alerts. Filter by project, mention, or task status updates.",
   },
   {
-    value: "appearance",
-    title: "How do I customize the workspace theme?",
+    value: "sprints",
+    title: "How do I manage sprints?",
     content:
-      "Navigate to Settings > Appearance to choose between Light, Dark, or System. You can also add a custom logo and brand colors.",
+      "Create sprints from the Sprint page. Assign tasks from the backlog to the current sprint. Track progress with the burndown chart.",
   },
 ];

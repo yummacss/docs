@@ -61,18 +61,21 @@ export default function AccordionDefaultOpen() {
 
 const faqs = [
   {
-    value: "mentions",
-    title: "Mentions",
-    content: "4 people mentioned you in conversations",
+    value: "access",
+    title: "How do I control team access?",
+    content:
+      "Go to Team Settings to manage roles. Assign Admin, Member, or Viewer roles. You can also set project-specific permissions for each team member.",
   },
   {
-    value: "messages",
-    title: "Messages",
-    content: "12 unread messages from your conversations",
+    value: "notifications",
+    title: "How do I customize notifications?",
+    content:
+      "Visit Settings > Notifications. Choose what triggers email or in-app alerts. Filter by project, mention, or task status updates.",
   },
   {
-    value: "blocked",
-    title: "Blocked Users",
-    content: "You have blocked 8 accounts",
+    value: "sprints",
+    title: "How do I manage sprints?",
+    content:
+      "Create sprints from the Sprint page. Assign tasks from the backlog to the current sprint. Track progress with the burndown chart.",
   },
 ];

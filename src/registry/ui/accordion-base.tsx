@@ -61,21 +61,21 @@ export default function AccordionBase() {
 
 const faqs = [
   {
-    value: "billing",
-    title: "How does the billing cycle work?",
+    value: "access",
+    title: "How do I control team access?",
     content:
-      "Invoices are generated on the first of each month for the previous month's usage. You have 14 days to review and payment is automatically processed on the 15th.",
+      "Go to Team Settings to manage roles. Assign Admin, Member, or Viewer roles. You can also set project-specific permissions for each team member.",
   },
   {
-    value: "roles",
-    title: "What roles can I assign to team members?",
+    value: "notifications",
+    title: "How do I customize notifications?",
     content:
-      "You can assign Admin, Editor, or Viewer roles. Admins can manage billing and team settings, Editors can create and edit content, and Viewers have read-only access.",
+      "Visit Settings > Notifications. Choose what triggers email or in-app alerts. Filter by project, mention, or task status updates.",
   },
   {
-    value: "permissions",
-    title: "Can I set custom permissions per project?",
+    value: "sprints",
+    title: "How do I manage sprints?",
     content:
-      "Yes, go to Team Settings > Permissions to configure project-level access. You can override the default role permissions for any team member.",
+      "Create sprints from the Sprint page. Assign tasks from the backlog to the current sprint. Track progress with the burndown chart.",
   },
 ];

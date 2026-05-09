@@ -63,21 +63,21 @@ export default function AccordionBordered() {
 
 const faqs = [
   {
-    value: "returns",
-    title: "What is your return policy?",
+    value: "access",
+    title: "How do I control team access?",
     content:
-      "You can return most items within 30 days of delivery. Items must be unused and in original packaging. Start a return from your order history.",
+      "Go to Team Settings to manage roles. Assign Admin, Member, or Viewer roles. You can also set project-specific permissions for each team member.",
   },
   {
-    value: "shipping",
-    title: "How long does shipping take?",
+    value: "notifications",
+    title: "How do I customize notifications?",
     content:
-      "Standard shipping takes 5-7 business days. Express shipping is 2-3 days. Free shipping is available on orders over $50.",
+      "Visit Settings > Notifications. Choose what triggers email or in-app alerts. Filter by project, mention, or task status updates.",
   },
   {
-    value: "payment",
-    title: "What payment methods do you accept?",
+    value: "sprints",
+    title: "How do I manage sprints?",
     content:
-      "We accept all major credit cards, PayPal, Apple Pay, and Google Pay. You can also save your payment methods for faster checkout.",
+      "Create sprints from the Sprint page. Assign tasks from the backlog to the current sprint. Track progress with the burndown chart.",
   },
 ];

@@ -83,24 +83,21 @@ export default function AccordionDisabled() {
 
 const faqs = [
   {
-    value: "starter",
-    title: "Starter Plan",
+    value: "access",
+    title: "How do I control team access?",
     content:
-      "Perfect for small teams getting started. Includes 5 projects, 10GB storage, and email support. All core features included.",
-    disabled: false,
+      "Go to Team Settings to manage roles. Assign Admin, Member, or Viewer roles. You can also set project-specific permissions for each team member.",
   },
   {
-    value: "professional",
-    title: "Professional Plan",
+    value: "notifications",
+    title: "How do I customize notifications?",
     content:
-      "Advanced analytics, unlimited projects, priority support, and custom integrations. Perfect for growing teams.",
-    disabled: false,
+      "Visit Settings > Notifications. Choose what triggers email or in-app alerts. Filter by project, mention, or task status updates.",
   },
   {
-    value: "enterprise",
-    title: "Enterprise Plan",
+    value: "sprints",
+    title: "How do I manage sprints?",
     content:
-      "Dedicated account manager, SSO, SLA guarantee, and custom contracts. Contact sales for pricing details.",
-    disabled: true,
+      "Create sprints from the Sprint page. Assign tasks from the backlog to the current sprint. Track progress with the burndown chart.",
   },
 ];

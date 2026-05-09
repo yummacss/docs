@@ -66,21 +66,21 @@ export default function AccordionIcons() {
 
 const faqs = [
   {
-    value: "integrations",
-    title: "How do I add third-party integrations?",
+    value: "access",
+    title: "How do I control team access?",
     content:
-      "Go to Settings > Integrations to browse available apps. Click Install and authorize the connection in your workspace.",
+      "Go to Team Settings to manage roles. Assign Admin, Member, or Viewer roles. You can also set project-specific permissions for each team member.",
   },
   {
-    value: "webhooks",
-    title: "How do I set up outgoing webhooks?",
+    value: "notifications",
+    title: "How do I customize notifications?",
     content:
-      "Navigate to Settings > Webhooks to create custom endpoints. Configure events like task created, status changed, or comment added.",
+      "Visit Settings > Notifications. Choose what triggers email or in-app alerts. Filter by project, mention, or task status updates.",
   },
   {
-    value: "api",
-    title: "Can I build custom API integrations?",
+    value: "sprints",
+    title: "How do I manage sprints?",
     content:
-      "Yes, generate an API key in Settings > API. Use REST or GraphQL endpoints to read, create, and update resources programmatically.",
+      "Create sprints from the Sprint page. Assign tasks from the backlog to the current sprint. Track progress with the burndown chart.",
   },
 ];
