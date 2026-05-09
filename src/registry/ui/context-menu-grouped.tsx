@@ -1,7 +1,13 @@
 "use client";
 
 import { ContextMenu } from "@base-ui/react/context-menu";
-import { ArrowUturnCcwLeft, At, Link, Pin, TrashBin } from "@gravity-ui/icons";
+import {
+  ArrowUturnCcwLeft,
+  Eye,
+  Link,
+  Pin,
+  TrashBin,
+} from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -11,7 +17,7 @@ export default function ContextMenuGrouped() {
   return (
     <ContextMenu.Root open={open} onOpenChange={setOpen}>
       <ContextMenu.Trigger className="d-f ai-c jc-c h-48 w-60 bc-slate-3 c-slate-10 bs-d bw-1 br-lg fs-sm fw-500 us-none">
-        Right-click here
+        Right-click task
       </ContextMenu.Trigger>
 
       <AnimatePresence>
@@ -38,7 +44,7 @@ export default function ContextMenuGrouped() {
                     }
                   >
                     <ArrowUturnCcwLeft className="fs-0 w-4 h-4 c-slate-5" />
-                    Reply
+                    Assign to
                   </ContextMenu.Item>
                   <ContextMenu.Item
                     className={(state) =>
@@ -47,8 +53,8 @@ export default function ContextMenuGrouped() {
                       }`
                     }
                   >
-                    <At className="fs-0 w-4 h-4 c-slate-5" />
-                    Mention
+                    <Eye className="fs-0 w-4 h-4 c-slate-5" />
+                    Add watcher
                   </ContextMenu.Item>
                   <ContextMenu.Item
                     className={(state) =>
@@ -58,7 +64,7 @@ export default function ContextMenuGrouped() {
                     }
                   >
                     <Link className="fs-0 w-4 h-4 c-slate-5" />
-                    Copy message link
+                    Copy task link
                   </ContextMenu.Item>
                 </ContextMenu.Group>
 
@@ -73,7 +79,7 @@ export default function ContextMenuGrouped() {
                     }
                   >
                     <Pin className="fs-0 w-4 h-4 c-slate-5" />
-                    Pin message
+                    Pin task
                   </ContextMenu.Item>
                 </ContextMenu.Group>
 
@@ -88,7 +94,7 @@ export default function ContextMenuGrouped() {
                     }
                   >
                     <TrashBin className="fs-0 w-4 h-4" />
-                    Delete message
+                    Archive task
                   </ContextMenu.Item>
                 </ContextMenu.Group>
               </ContextMenu.Popup>

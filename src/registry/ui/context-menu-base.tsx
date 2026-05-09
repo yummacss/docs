@@ -3,11 +3,11 @@
 import { ContextMenu } from "@base-ui/react/context-menu";
 import {
   ArrowUturnCcwLeft,
-  At,
-  CommentSlash,
+  Eye,
   Link,
   Pin,
   TrashBin,
+  Xmark,
 } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
@@ -18,7 +18,7 @@ export default function ContextMenuBase() {
   return (
     <ContextMenu.Root open={open} onOpenChange={setOpen}>
       <ContextMenu.Trigger className="d-f ai-c jc-c h-48 w-60 bc-slate-3 c-slate-10 bs-d bw-1 br-lg fs-sm fw-500 us-none">
-        Right-click here
+        Right-click task
       </ContextMenu.Trigger>
 
       <AnimatePresence>
@@ -44,7 +44,7 @@ export default function ContextMenuBase() {
                   }
                 >
                   <ArrowUturnCcwLeft className="fs-0 w-4 h-4 c-slate-5" />
-                  Reply
+                  Assign to
                 </ContextMenu.Item>
                 <ContextMenu.Item
                   className={(state) =>
@@ -53,8 +53,8 @@ export default function ContextMenuBase() {
                     }`
                   }
                 >
-                  <At className="fs-0 w-4 h-4 c-slate-5" />
-                  Mention
+                  <Eye className="fs-0 w-4 h-4 c-slate-5" />
+                  Add watcher
                 </ContextMenu.Item>
                 <ContextMenu.Item
                   className={(state) =>
@@ -64,7 +64,7 @@ export default function ContextMenuBase() {
                   }
                 >
                   <Link className="fs-0 w-4 h-4 c-slate-5" />
-                  Copy message link
+                  Copy task link
                 </ContextMenu.Item>
 
                 <ContextMenu.Separator className="my-1 w-full h-px bg-silver-2" />
@@ -77,7 +77,7 @@ export default function ContextMenuBase() {
                   }
                 >
                   <Pin className="fs-0 w-4 h-4 c-slate-5" />
-                  Pin message
+                  Pin task
                 </ContextMenu.Item>
                 <ContextMenu.Item
                   className={(state) =>
@@ -86,8 +86,8 @@ export default function ContextMenuBase() {
                     }`
                   }
                 >
-                  <CommentSlash className="fs-0 w-4 h-4 c-slate-5" />
-                  Mark unread
+                  <Xmark className="fs-0 w-4 h-4 c-slate-5" />
+                  Mark as blocked
                 </ContextMenu.Item>
 
                 <ContextMenu.Separator className="my-1 w-full h-px bg-silver-2" />
@@ -100,7 +100,7 @@ export default function ContextMenuBase() {
                   }
                 >
                   <TrashBin className="fs-0 w-4 h-4" />
-                  Delete message
+                  Archive task
                 </ContextMenu.Item>
               </ContextMenu.Popup>
             </ContextMenu.Positioner>

@@ -7,15 +7,15 @@ import { useState } from "react";
 
 export default function ContextMenuCheckboxes() {
   const [open, setOpen] = useState(false);
-  const [allMessages, setAllMessages] = useState(true);
-  const [mentions, setMentions] = useState(true);
-  const [dm, setDm] = useState(false);
+  const [allTasks, setAllTasks] = useState(true);
+  const [assigned, setAssigned] = useState(true);
+  const [dueToday, setDueToday] = useState(false);
   const [muted, setMuted] = useState(false);
 
   return (
     <ContextMenu.Root open={open} onOpenChange={setOpen}>
       <ContextMenu.Trigger className="d-f ai-c jc-c h-48 w-60 bc-slate-3 c-slate-10 bs-d bw-1 br-lg fs-sm fw-500 us-none">
-        Right-click here
+        Right-click task
       </ContextMenu.Trigger>
 
       <AnimatePresence>
@@ -34,12 +34,12 @@ export default function ContextMenuCheckboxes() {
                 className="py-1 w-52 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs"
               >
                 <div className="px-3 py-1 c-slate-5 fs-xs fw-500 tt-u ls-3">
-                  Notification settings
+                  Task options
                 </div>
 
                 <ContextMenu.CheckboxItem
-                  checked={allMessages}
-                  onCheckedChange={setAllMessages}
+                  checked={allTasks}
+                  onCheckedChange={setAllTasks}
                   className={(state) =>
                     `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
                       state.highlighted ? "bg-silver-1/50" : "bg-transparent"
@@ -51,12 +51,12 @@ export default function ContextMenuCheckboxes() {
                       <Check className="w-3 h-3 c-indigo" />
                     </ContextMenu.CheckboxItemIndicator>
                   </span>
-                  All messages
+                  All tasks
                 </ContextMenu.CheckboxItem>
 
                 <ContextMenu.CheckboxItem
-                  checked={mentions}
-                  onCheckedChange={setMentions}
+                  checked={assigned}
+                  onCheckedChange={setAssigned}
                   className={(state) =>
                     `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
                       state.highlighted ? "bg-silver-1/50" : "bg-transparent"
@@ -68,12 +68,12 @@ export default function ContextMenuCheckboxes() {
                       <Check className="w-3 h-3 c-indigo" />
                     </ContextMenu.CheckboxItemIndicator>
                   </span>
-                  @mentions only
+                  Assigned to me
                 </ContextMenu.CheckboxItem>
 
                 <ContextMenu.CheckboxItem
-                  checked={dm}
-                  onCheckedChange={setDm}
+                  checked={dueToday}
+                  onCheckedChange={setDueToday}
                   className={(state) =>
                     `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
                       state.highlighted ? "bg-silver-1/50" : "bg-transparent"
@@ -85,7 +85,7 @@ export default function ContextMenuCheckboxes() {
                       <Check className="w-3 h-3 c-indigo" />
                     </ContextMenu.CheckboxItemIndicator>
                   </span>
-                  DMs only
+                  Due today
                 </ContextMenu.CheckboxItem>
 
                 <ContextMenu.Separator className="my-1 w-full h-px bg-silver-2" />
@@ -104,7 +104,7 @@ export default function ContextMenuCheckboxes() {
                       <Check className="w-3 h-3 c-indigo" />
                     </ContextMenu.CheckboxItemIndicator>
                   </span>
-                  Mute channel
+                  Mute task
                 </ContextMenu.CheckboxItem>
               </ContextMenu.Popup>
             </ContextMenu.Positioner>
