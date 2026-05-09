@@ -15,7 +15,7 @@ export default function SelectGrouped() {
         htmlFor="select-grouped"
         className="c-slate-10 fs-sm fw-500 us-none"
       >
-        Tech Stack
+        Task Category
       </label>
       <Select.Root defaultValue={null} open={open} onOpenChange={setOpen}>
         <Select.Trigger
@@ -30,7 +30,7 @@ export default function SelectGrouped() {
                 ? categories
                     .flatMap((c) => c.items)
                     .find((i) => i.value === value)?.label
-                : "Select stack..."
+                : "Select category..."
             }
           </Select.Value>
           <Select.Icon className="d-f c-slate-8">
@@ -57,11 +57,8 @@ export default function SelectGrouped() {
                   className="py-1 w-64 bg-white bc-silver-2 bw-1 br-xl bs-o-xs"
                 >
                   <Select.List className="p-r o-auto">
-                    {categories.map((group) => (
+                    {categories.map((group, groupIndex) => (
                       <Select.Group key={group.groupLabel}>
-                        <Select.GroupLabel className="px-3 py-1 c-slate-6 fs-xs fw-500 tt-u ls-3">
-                          {group.groupLabel}
-                        </Select.GroupLabel>
                         {group.items.map(({ label, value }) => (
                           <Select.Item
                             key={value}
@@ -76,6 +73,9 @@ export default function SelectGrouped() {
                             <Select.ItemText>{label}</Select.ItemText>
                           </Select.Item>
                         ))}
+                        {groupIndex < categories.length - 1 && (
+                          <div className="w-full h-px bg-silver-2 my-1" />
+                        )}
                       </Select.Group>
                     ))}
                   </Select.List>
@@ -91,19 +91,19 @@ export default function SelectGrouped() {
 
 const categories = [
   {
-    groupLabel: "Framework",
+    groupLabel: "Development",
     items: [
-      { label: "Next.js", value: "nextjs" },
-      { label: "Tanstack", value: "tanstack" },
-      { label: "Astro", value: "astro" },
+      { label: "Bug", value: "bug" },
+      { label: "Feature", value: "feature" },
+      { label: "Enhancement", value: "enhancement" },
     ],
   },
   {
-    groupLabel: "Data",
+    groupLabel: "Project",
     items: [
-      { label: "tRPC", value: "trpc" },
-      { label: "REST", value: "rest" },
-      { label: "GraphQL", value: "graphql" },
+      { label: "Documentation", value: "documentation" },
+      { label: "Design", value: "design" },
+      { label: "Research", value: "research" },
     ],
   },
 ];
