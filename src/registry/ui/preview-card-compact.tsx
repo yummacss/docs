@@ -12,7 +12,7 @@ export default function PreviewCardCompact() {
         View task{" "}
         <PreviewCard.Trigger
           className={(state) =>
-            `c-indigo fw-500 td-none h:td-u fv:td-u ${state.open ? "td-u" : ""}`
+            `c-indigo c-p fw-500 td-none h:td-u fv:td-u ${state.open ? "td-u" : ""}`
           }
         >
           #dashboard-redesign
@@ -25,9 +25,9 @@ export default function PreviewCardCompact() {
           <PreviewCard.Popup
             render={
               <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
                 transition={{ duration: 0.15, ease: "easeOut" }}
               />
             }
@@ -40,7 +40,7 @@ export default function PreviewCardCompact() {
               <span className="c-slate-6 fs-xs">#dashboard-redesign</span>
             </div>
             <div className="d-f ai-c g-2">
-              <span className="d-f ai-c g-1 px-2 py-0 h-5 bg-indigo-1 bc-indigo-2 c-indigo-7 br-pill bw-1 fs-xs fw-500">
+              <span className="d-f ai-c g-1 px-2 py-0 h-5 bg-silver-1 bc-silver-2 c-slate-7 br-pill bw-1 fs-xs fw-500">
                 In Progress
               </span>
             </div>

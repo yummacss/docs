@@ -235,14 +235,6 @@ animate={{ rotate: isOpen ? 180 : 0 }}
 transition={{ duration: 0.15, ease: "easeInOut" }}
 ```
 
-Tooltips use a `y` offset:
-```tsx
-initial={{ opacity: 0, y: 4 }}
-animate={{ opacity: 1, y: 0 }}
-exit={{ opacity: 0, y: 4 }}
-transition={{ duration: 0.15, ease: "easeOut" }}
-```
-
 Switch thumb uses `x` translate:
 ```tsx
 animate={{ x: checked ? 20 : 0 }}
