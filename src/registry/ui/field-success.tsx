@@ -6,13 +6,13 @@ import { Check } from "@gravity-ui/icons";
 export default function FieldSuccess() {
   return (
     <Field.Root className="d-f fd-c g-2 c-slate-10 fs-sm">
-      <Field.Label className="fw-500">Team name</Field.Label>
+      <Field.Label className="fw-500">Workspace name</Field.Label>
       <div className="d-f ai-c p-r">
         <Field.Control
           type="text"
-          placeholder="team-workspace"
-          aria-label="Team name"
-          defaultValue="acme-corp"
+          placeholder="Your workspace"
+          aria-label="Workspace name"
+          defaultValue="Sarah"
           className="h-10 w-64 pl-4 pr-10 bg-white bc-mint-5 c-slate-10 bw-1 br-lg fs-md bs-o-xs fv:oo--1 fv:oc-mint-5"
         />
         <div className="d-f ai-c jc-c p-a r-3 c-mint-5">
@@ -20,7 +20,7 @@ export default function FieldSuccess() {
         </div>
       </div>
       <Field.Description className="c-mint-6 fs-xs">
-        Team name is available
+        Workspace name is available
       </Field.Description>
     </Field.Root>
   );
