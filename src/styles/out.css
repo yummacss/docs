@@ -233,6 +233,10 @@ summary {
   border-color: #232741;
 }
 
+.bc-green-2 {
+  border-color: #b4f3e3;
+}
+
 .bc-highlight\/50 {
   border-color: #9aa5ef80;
 }
@@ -269,10 +273,6 @@ summary {
   border-color: #31365e;
 }
 
-.bc-red {
-  border-color: #e63946;
-}
-
 .bc-red-2 {
   border-color: #f8c4c8;
 }
@@ -303,10 +303,6 @@ summary {
 
 .bc-silver-4 {
   border-color: #c6cad1;
-}
-
-.bc-sky {
-  border-color: #38bdf8;
 }
 
 .bc-slate-3 {
@@ -515,10 +511,6 @@ summary {
 
 .bg-mint {
   background-color: #10b981;
-}
-
-.bg-mint-1 {
-  background-color: #d9f4eb;
 }
 
 .bg-mint-5 {
@@ -901,10 +893,6 @@ summary {
   color: #31c393;
 }
 
-.c-mint-7 {
-  color: #0e9f6f;
-}
-
 .c-na {
   cursor: not-allowed;
 }
@@ -979,10 +967,6 @@ summary {
 
 .c-silver-9 {
   color: #5a5f66;
-}
-
-.c-sky {
-  color: #38bdf8;
 }
 
 .c-sky-6 {
@@ -1251,14 +1235,6 @@ summary {
 
 .fv\:bg-indigo-8:focus-visible {
   background-color: #4749ae;
-}
-
-.fv\:bg-red-8:focus-visible {
-  background-color: #a62932;
-}
-
-.fv\:bg-sky-8:focus-visible {
-  background-color: #2888b3;
 }
 
 .fv\:oc-indigo:focus-visible {
@@ -1599,10 +1575,6 @@ summary {
 
 .h\:bg-silver-2:hover {
   background-color: #e1e3e7;
-}
-
-.h\:bg-sky-8:hover {
-  background-color: #2888b3;
 }
 
 .h\:bg-slate-7:hover {

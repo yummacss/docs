@@ -3,7 +3,7 @@
 import { Avatar } from "@base-ui/react/avatar";
 import { Collapsible } from "@base-ui/react/collapsible";
 import { Toggle } from "@base-ui/react/toggle";
-import { Check, ChevronRight, PersonPlus } from "@gravity-ui/icons";
+import { Check, ChevronRight, Plus } from "@gravity-ui/icons";
 import { type HTMLMotionProps, motion } from "motion/react";
 import { useState } from "react";
 
@@ -11,7 +11,7 @@ export default function CollapsibleBase() {
   const [open, setOpen] = useState(false);
   const [followed, setFollowed] = useState<Record<string, boolean>>(
     Object.fromEntries(
-      whoToFollow.users.map((user, index) => [user.name, index === 0]),
+      teamMembers.users.map((user, index) => [user.name, index === 0]),
     ),
   );
 
@@ -29,7 +29,7 @@ export default function CollapsibleBase() {
         >
           <ChevronRight className="w-3 h-3" />
         </motion.span>
-        {whoToFollow.title}
+        {teamMembers.title}
       </Collapsible.Trigger>
 
       <Collapsible.Panel
@@ -47,7 +47,7 @@ export default function CollapsibleBase() {
         )}
       >
         <div className="d-f fd-c g-3 mt-1 py-3 px-3 bg-white bc-silver-2 br-xl bw-1">
-          {whoToFollow.users.map((user) => (
+          {teamMembers.users.map((user) => (
             <div key={user.name} className="d-f ai-c jc-sb">
               <div className="d-f ai-c g-3">
                 <Avatar.Root className="d-if o-h ai-c jc-c w-8 h-8 bc-white br-pill bw-1 va-m us-none">
@@ -62,7 +62,7 @@ export default function CollapsibleBase() {
                 </Avatar.Root>
                 <div className="d-f fd-c g-0">
                   <span className="c-slate-10 fs-sm fw-500">{user.name}</span>
-                  <span className="c-slate-6 fs-xs">@{user.handle}</span>
+                  <span className="c-slate-6 fs-xs">{user.role}</span>
                 </div>
               </div>
               <Toggle
@@ -72,7 +72,7 @@ export default function CollapsibleBase() {
                     ? "bg-indigo fv:bg-indigo-8 h:bg-indigo-8 c-white"
                     : "bg-white bc-indigo c-indigo bw-1"
                 }`}
-                aria-label={`Follow ${user.name}`}
+                aria-label={`Add ${user.name}`}
                 onClick={() =>
                   setFollowed((prev) => ({
                     ...prev,
@@ -83,7 +83,7 @@ export default function CollapsibleBase() {
                 {followed[user.name] ? (
                   <Check className="w-4 h-4" />
                 ) : (
-                  <PersonPlus className="w-4 h-4" />
+                  <Plus className="w-4 h-4" />
                 )}
               </Toggle>
             </div>
@@ -94,24 +94,24 @@ export default function CollapsibleBase() {
   );
 }
 
-const whoToFollow = {
-  title: "Who to follow",
+const teamMembers = {
+  title: "Invite members",
   users: [
     {
       name: "Sarah",
-      handle: "sarah",
+      role: "Frontend Developer",
       avatar:
         "https://api.dicebear.com/9.x/open-peeps/svg?seed=Sarah&backgroundColor=DAF0B9",
     },
     {
       name: "John",
-      handle: "john",
+      role: "Backend Developer",
       avatar:
         "https://api.dicebear.com/9.x/open-peeps/svg?seed=John&backgroundColor=B4E9F2",
     },
     {
       name: "Noah",
-      handle: "noah",
+      role: "Project Manager",
       avatar:
         "https://api.dicebear.com/9.x/open-peeps/svg?seed=Noah&backgroundColor=D0D1FB",
     },

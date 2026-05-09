@@ -9,7 +9,7 @@ export default function BadgeBase() {
       <div className="d-f ai-c g-1 px-2 py-1 bg-slate-1 br-sm">
         <span className="c-slate-7 fs-xs fw-500 us-none">In Progress</span>
       </div>
-      <div className="d-f ai-c g-1 px-2 py-1 bg-slate c-white br-sm bw-0">
+      <div className="d-f ai-c g-1 px-2 py-1 bg-green c-white br-sm bw-0">
         <span className="fs-xs fw-500 us-none">Done</span>
       </div>
     </div>
