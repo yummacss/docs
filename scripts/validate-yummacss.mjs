@@ -105,7 +105,7 @@ for (const [file, classes] of allClassesFound) {
     if (!validClasses.has(clsClean) && !KNOWN_VALID.has(clsClean)) {
       const variantMatch = clsClean.match(/^([a-zA-Z]+):(.+)$/);
       if (variantMatch) {
-        const baseVariant = variantMatch[1];
+        const _baseVariant = variantMatch[1];
         const baseClass = variantMatch[2];
 
         if (!validClasses.has(baseClass) && !KNOWN_VALID.has(baseClass)) {
