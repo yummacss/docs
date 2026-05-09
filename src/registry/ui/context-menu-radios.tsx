@@ -12,7 +12,7 @@ export default function ContextMenuRadios() {
   return (
     <ContextMenu.Root open={open} onOpenChange={setOpen}>
       <ContextMenu.Trigger className="d-f ai-c jc-c h-48 w-60 bc-slate-3 c-slate-10 bs-d bw-1 br-lg fs-sm fw-500 us-none">
-        Right-click here
+        Right-click task
       </ContextMenu.Trigger>
 
       <AnimatePresence>
@@ -31,7 +31,7 @@ export default function ContextMenuRadios() {
                 className="py-1 w-48 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs"
               >
                 <div className="px-3 py-1 c-slate-5 fs-xs fw-500 tt-u ls-3">
-                  Sort messages
+                  Sort tasks
                 </div>
 
                 <ContextMenu.RadioGroup
@@ -69,7 +69,7 @@ export default function ContextMenuRadios() {
 }
 
 const sortOptions = [
-  { value: "recent", label: "Recent activity" },
-  { value: "newest", label: "Newest first" },
-  { value: "oldest", label: "Oldest first" },
+  { value: "recent", label: "Recent updates" },
+  { value: "newest", label: "Due soonest" },
+  { value: "oldest", label: "Due latest" },
 ];

@@ -3,11 +3,11 @@
 import { ContextMenu } from "@base-ui/react/context-menu";
 import {
   ArrowUturnCcwLeft,
-  At,
-  CommentSlash,
+  Eye,
   Link,
   Pin,
   TrashBin,
+  Xmark,
 } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
@@ -18,7 +18,7 @@ export default function ContextMenuShortcuts() {
   return (
     <ContextMenu.Root open={open} onOpenChange={setOpen}>
       <ContextMenu.Trigger className="d-f ai-c jc-c h-48 w-60 bc-slate-3 c-slate-10 bs-d bw-1 br-lg fs-sm fw-500 us-none">
-        Right-click here
+        Right-click task
       </ContextMenu.Trigger>
 
       <AnimatePresence>
@@ -45,7 +45,7 @@ export default function ContextMenuShortcuts() {
                 >
                   <span className="d-f ai-c g-2 fg-1">
                     <ArrowUturnCcwLeft className="fs-0 w-4 h-4 c-slate-5" />
-                    Reply
+                    Assign to
                   </span>
                   <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
                     <span>⌘</span>
@@ -60,8 +60,8 @@ export default function ContextMenuShortcuts() {
                   }
                 >
                   <span className="d-f ai-c g-2 fg-1">
-                    <At className="fs-0 w-4 h-4 c-slate-5" />
-                    Mention
+                    <Eye className="fs-0 w-4 h-4 c-slate-5" />
+                    Add watcher
                   </span>
                   <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
                     <span>⌘</span>
@@ -77,7 +77,7 @@ export default function ContextMenuShortcuts() {
                 >
                   <span className="d-f ai-c g-2 fg-1">
                     <Link className="fs-0 w-4 h-4 c-slate-5" />
-                    Copy message link
+                    Copy task link
                   </span>
                   <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
                     <span>⌘</span>
@@ -97,7 +97,7 @@ export default function ContextMenuShortcuts() {
                 >
                   <span className="d-f ai-c g-2 fg-1">
                     <Pin className="fs-0 w-4 h-4 c-slate-5" />
-                    Pin message
+                    Pin task
                   </span>
                   <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
                     <span>⌘</span>
@@ -112,13 +112,13 @@ export default function ContextMenuShortcuts() {
                   }
                 >
                   <span className="d-f ai-c g-2 fg-1">
-                    <CommentSlash className="fs-0 w-4 h-4 c-slate-5" />
-                    Mark unread
+                    <Xmark className="fs-0 w-4 h-4 c-slate-5" />
+                    Mark as blocked
                   </span>
                   <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
                     <span>⌘</span>
                     <span>⇧</span>
-                    <span>U</span>
+                    <span>B</span>
                   </span>
                 </ContextMenu.Item>
 
@@ -133,7 +133,7 @@ export default function ContextMenuShortcuts() {
                 >
                   <span className="d-f ai-c g-2 fg-1">
                     <TrashBin className="fs-0 w-4 h-4" />
-                    Delete message
+                    Archive task
                   </span>
                   <span className="d-f ai-c g-1 c-red fw-400 fs-xs">
                     <span>⌘</span>
