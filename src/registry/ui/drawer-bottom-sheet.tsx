@@ -6,7 +6,7 @@ import { Check, Flag, Pencil, TrashBin, Xmark } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
-export default function DrawerBottom() {
+export default function DrawerBottomSheet() {
   const [open, setOpen] = useState(false);
 
   return (
