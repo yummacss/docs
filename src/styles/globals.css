@@ -29,6 +29,12 @@ body {
   font-family: "iA Writer Quattro", sans-serif;
 }
 
+/* Base UI portals wrap their children in a `<div data-base-ui-portal>` element appended to <body>.
+   Lift every direct child (backdrop, internal backdrop, popup wrapper) above the navbar (z-index: 10). */
+[data-base-ui-portal]>* {
+  z-index: 20;
+}
+
 /* reset font for component previews */
 [data-preview],
 [data-preview] *,
