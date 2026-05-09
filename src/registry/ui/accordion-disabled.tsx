@@ -87,17 +87,20 @@ const faqs = [
     title: "How do I control team access?",
     content:
       "Go to Team Settings to manage roles. Assign Admin, Member, or Viewer roles. You can also set project-specific permissions for each team member.",
+    disabled: false,
   },
   {
     value: "notifications",
     title: "How do I customize notifications?",
     content:
       "Visit Settings > Notifications. Choose what triggers email or in-app alerts. Filter by project, mention, or task status updates.",
+    disabled: true,
   },
   {
     value: "sprints",
     title: "How do I manage sprints?",
     content:
       "Create sprints from the Sprint page. Assign tasks from the backlog to the current sprint. Track progress with the burndown chart.",
+    disabled: false,
   },
 ];
