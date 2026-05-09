@@ -4,7 +4,7 @@ import { NumberField } from "@base-ui/react/number-field";
 import { Minus, Plus } from "@gravity-ui/icons";
 import { useId } from "react";
 
-export default function FieldNumeric() {
+export default function NumberFieldBase() {
   const id = useId();
   return (
     <NumberField.Root id={id} defaultValue={4} className="d-f fd-c ai-fs g-2">

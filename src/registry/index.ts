@@ -173,6 +173,9 @@ const uiRegistry = {
   "button-disabled": dynamic(() => import("./ui/button-disabled"), {
     ssr: true,
   }),
+  "button-favorite": dynamic(() => import("./ui/button-favorite"), {
+    ssr: true,
+  }),
   "button-ghost": dynamic(() => import("./ui/button-ghost"), { ssr: true }),
   "button-group-icon": dynamic(() => import("./ui/button-group-icon"), {
     ssr: true,
@@ -198,7 +201,6 @@ const uiRegistry = {
     ssr: true,
   }),
   "button-sizes": dynamic(() => import("./ui/button-sizes"), { ssr: true }),
-  "button-star": dynamic(() => import("./ui/button-star"), { ssr: true }),
   "button-subtle": dynamic(() => import("./ui/button-subtle"), { ssr: true }),
   "checkbox-base": dynamic(() => import("./ui/checkbox-base"), { ssr: true }),
   "checkbox-description": dynamic(() => import("./ui/checkbox-description"), {
@@ -318,9 +320,6 @@ const uiRegistry = {
   }),
   "field-icon": dynamic(() => import("./ui/field-icon"), { ssr: true }),
   "field-label": dynamic(() => import("./ui/field-label"), { ssr: true }),
-  "number-field-base": dynamic(() => import("./ui/number-field-base"), {
-    ssr: true,
-  }),
   "field-password": dynamic(() => import("./ui/field-password"), { ssr: true }),
   "field-prefix": dynamic(() => import("./ui/field-prefix"), { ssr: true }),
   "field-sizes": dynamic(() => import("./ui/field-sizes"), { ssr: true }),
