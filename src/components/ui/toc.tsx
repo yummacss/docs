@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import ApiReference from "@/components/ui/api-reference";
 import EditPage from "@/components/ui/edit-page";
 import { findCurrentUIItemBySlug } from "@/utils/ui-sidebar";
@@ -16,11 +16,8 @@ interface TocItem {
 export default function TableOfContents() {
   const pathname = usePathname();
   const [headings, setHeadings] = useState<TocItem[]>([]);
-  const [activeId, setActiveId] = useState<string>("");
   const isBlogPost = pathname?.startsWith("/blog");
   const currentItem = findCurrentUIItemBySlug(pathname || "");
-
-  const intersectionObserverRef = useRef<IntersectionObserver | null>(null);
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: need this useEffect to re-run this on route change to update the headings
   useEffect(() => {
@@ -36,35 +33,10 @@ export default function TableOfContents() {
       }));
 
       setHeadings(items);
-      setActiveId("");
-
-      if (intersectionObserverRef.current) {
-        intersectionObserverRef.current.disconnect();
-      }
-
-      if (items.length > 0) {
-        intersectionObserverRef.current = new IntersectionObserver(
-          (entries) => {
-            for (const entry of entries) {
-              if (entry.isIntersecting) {
-                setActiveId(entry.target.id);
-              }
-            }
-          },
-          { rootMargin: "0% 0% -80% 0%" },
-        );
-
-        for (const el of elements) {
-          intersectionObserverRef.current.observe(el);
-        }
-      }
     }, 50);
 
     return () => {
       clearTimeout(timer);
-      if (intersectionObserverRef.current) {
-        intersectionObserverRef.current.disconnect();
-      }
     };
   }, [pathname]);
 
@@ -90,7 +62,7 @@ export default function TableOfContents() {
               >
                 <Link
                   href={`#${heading.id}`}
-                  className={`fv:oc-white fv:ow-2 ${activeId === heading.id ? "c-white" : "c-white/70 h:c-white"}`}
+                  className="c-white/70 h:c-white fv:oc-white fv:ow-2"
                 >
                   {heading.text}
                 </Link>
