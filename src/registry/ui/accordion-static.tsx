@@ -42,21 +42,21 @@ export default function AccordionStatic() {
 
 const faqs = [
   {
-    value: "privacy",
-    title: "Who can see my profile information?",
+    value: "access",
+    title: "How do I control team access?",
     content:
-      "Go to Settings > Privacy to choose who sees your profile. Options are Everyone, Friends Only, or Only Me. Post visibility is set per post.",
+      "Go to Team Settings to manage roles. Assign Admin, Member, or Viewer roles. You can also set project-specific permissions for each team member.",
   },
   {
-    value: "reporting",
-    title: "How do I report a user or post?",
+    value: "notifications",
+    title: "How do I customize notifications?",
     content:
-      "Tap the three dots on any post or profile and select Report. Choose the reason and provide any additional details. Our team reviews all reports within 24 hours.",
+      "Visit Settings > Notifications. Choose what triggers email or in-app alerts. Filter by project, mention, or task status updates.",
   },
   {
-    value: "blocking",
-    title: "Can I block someone without them knowing?",
+    value: "sprints",
+    title: "How do I manage sprints?",
     content:
-      "Yes, go to a user's profile, tap the three dots, and select Block. They won't be notified, and they won't be able to see or interact with your content.",
+      "Create sprints from the Sprint page. Assign tasks from the backlog to the current sprint. Track progress with the burndown chart.",
   },
 ];

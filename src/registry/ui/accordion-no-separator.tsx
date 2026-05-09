@@ -61,21 +61,21 @@ export default function AccordionNoSeparator() {
 
 const faqs = [
   {
-    value: "specs",
-    title: "Product Specifications",
+    value: "access",
+    title: "How do I control team access?",
     content:
-      "Display: 6.7-inch AMOLED, 120Hz refresh rate. Processor: Octa-core 3.2GHz. RAM: 12GB LPDDR5. Storage: 256GB UFS 4.0. Battery: 5000mAh with 65W fast charging.",
+      "Go to Team Settings to manage roles. Assign Admin, Member, or Viewer roles. You can also set project-specific permissions for each team member.",
   },
   {
-    value: "shipping",
-    title: "Shipping Information",
+    value: "notifications",
+    title: "How do I customize notifications?",
     content:
-      "Free standard shipping on all orders. Express delivery in 2-3 business days for $9.99. International shipping available to 40+ countries. Order processing within 24 hours.",
+      "Visit Settings > Notifications. Choose what triggers email or in-app alerts. Filter by project, mention, or task status updates.",
   },
   {
-    value: "warranty",
-    title: "Warranty & Returns",
+    value: "sprints",
+    title: "How do I manage sprints?",
     content:
-      "2-year manufacturer warranty included. 30-day hassle-free returns. Extended warranty available at checkout. Worldwide service center support.",
+      "Create sprints from the Sprint page. Assign tasks from the backlog to the current sprint. Track progress with the burndown chart.",
   },
 ];

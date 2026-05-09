@@ -64,21 +64,21 @@ export default function AccordionMultipleBordered() {
 
 const faqs = [
   {
-    value: "shipping",
-    title: "How long does shipping take?",
+    value: "access",
+    title: "How do I control team access?",
     content:
-      "Standard shipping takes 5-7 business days. Express shipping is 2-3 days. Free shipping is available on orders over $50.",
+      "Go to Team Settings to manage roles. Assign Admin, Member, or Viewer roles. You can also set project-specific permissions for each team member.",
   },
   {
-    value: "tracking",
-    title: "How can I track my order?",
+    value: "notifications",
+    title: "How do I customize notifications?",
     content:
-      "You'll receive a tracking number via email once your order ships. Use it on our tracking page to see real-time updates on delivery status.",
+      "Visit Settings > Notifications. Choose what triggers email or in-app alerts. Filter by project, mention, or task status updates.",
   },
   {
-    value: "exchange",
-    title: "Can I exchange an item?",
+    value: "sprints",
+    title: "How do I manage sprints?",
     content:
-      "Yes, exchanges are free within 30 days. Visit your order history, select the item, and choose Exchange. We'll ship the replacement immediately.",
+      "Create sprints from the Sprint page. Assign tasks from the backlog to the current sprint. Track progress with the burndown chart.",
   },
 ];
