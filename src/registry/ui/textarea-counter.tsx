@@ -10,12 +10,12 @@ export default function TextareaCounter() {
   return (
     <Field.Root className="d-f fd-c g-2">
       <label htmlFor="bio-input" className="c-slate-10 fs-sm fw-500">
-        Bio
+        Task notes
       </label>
       <Field.Control
         render={<textarea />}
         id="bio-input"
-        placeholder="Tell us about yourself..."
+        placeholder="Add notes about this task..."
         maxLength={maxLength}
         value={value}
         onChange={(e) => setValue(e.target.value)}
