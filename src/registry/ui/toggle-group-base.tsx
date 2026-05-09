@@ -2,11 +2,16 @@
 
 import { Toggle } from "@base-ui/react/toggle";
 import { ToggleGroup } from "@base-ui/react/toggle-group";
-import { Grip, LayoutCellsLarge, LayoutList, ListUl } from "@gravity-ui/icons";
+import {
+  Circle,
+  CircleExclamation,
+  ExclamationShape,
+  Minus,
+} from "@gravity-ui/icons";
 import { useState } from "react";
 
 export default function ToggleGroupBase() {
-  const [selected, setSelected] = useState(["default-grid"]);
+  const [selected, setSelected] = useState(["high"]);
 
   return (
     <ToggleGroup
@@ -37,8 +42,8 @@ export default function ToggleGroupBase() {
 }
 
 const toggleItems = [
-  { value: "compact-list", label: "Compact list", icon: LayoutList },
-  { value: "default-list", label: "Default list", icon: ListUl },
-  { value: "compact-grid", label: "Compact grid", icon: Grip },
-  { value: "default-grid", label: "Default grid", icon: LayoutCellsLarge },
+  { value: "high", label: "High priority", icon: CircleExclamation },
+  { value: "medium", label: "Medium priority", icon: ExclamationShape },
+  { value: "low", label: "Low priority", icon: Minus },
+  { value: "none", label: "No priority", icon: Circle },
 ];

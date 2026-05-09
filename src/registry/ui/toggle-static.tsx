@@ -2,13 +2,13 @@
 
 import { Button } from "@base-ui/react/button";
 import { Toggle } from "@base-ui/react/toggle";
-import { PauseFill, PlayFill } from "@gravity-ui/icons";
+import { Pin, PinSlash } from "@gravity-ui/icons";
 import type { ButtonHTMLAttributes } from "react";
 
 export default function ToggleStatic() {
   return (
     <Toggle
-      aria-label="Play or pause"
+      aria-label="Pin task"
       className={(state) =>
         `d-f w-12 h-12 ai-c jc-c bw-1 br-pill us-none c-p fv:ow-2 fv:oo-2 fv:oc-indigo-5 ${
           state.pressed
@@ -22,9 +22,9 @@ export default function ToggleStatic() {
           {...(props as ButtonHTMLAttributes<HTMLButtonElement>)}
         >
           {state.pressed ? (
-            <PauseFill className="w-5 h-5" />
+            <PinSlash className="w-5 h-5" />
           ) : (
-            <PlayFill className="w-5 h-5" />
+            <Pin className="w-5 h-5" />
           )}
         </Button>
       )}
