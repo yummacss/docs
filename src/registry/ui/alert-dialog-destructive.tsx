@@ -6,7 +6,7 @@ import { TrashBin } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
-export default function AlertDialogConfirmation() {
+export default function AlertDialogDestructive() {
   const [open, setOpen] = useState(false);
 
   return (
