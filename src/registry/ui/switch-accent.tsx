@@ -5,13 +5,13 @@ import { Switch } from "@base-ui/react/switch";
 import { motion } from "motion/react";
 import { useState } from "react";
 
-export default function SwitchColor() {
+export default function SwitchAccent() {
   const [checked, setChecked] = useState(false);
 
   return (
     <Field.Root className="d-f ai-c g-2">
       <Switch.Root
-        id="switch-notifications-color"
+        id="switch-notifications-accent"
         checked={checked}
         onCheckedChange={setChecked}
         className={`p-r d-f ai-c h-5 w-9 br-pill m-0 px-1 c-p tp-c tdu-150 ttf-io fv:ow-2 fv:oo-2 fv:oc-indigo-5 ${
@@ -29,7 +29,7 @@ export default function SwitchColor() {
         />
       </Switch.Root>
       <Field.Label
-        htmlFor="switch-notifications-color"
+        htmlFor="switch-notifications-accent"
         className="c-slate-10 fs-sm fw-500 us-none c-p"
       >
         Enable notifications
