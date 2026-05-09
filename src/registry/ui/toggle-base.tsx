@@ -8,8 +8,7 @@ import { motion } from "motion/react";
 export default function ToggleBase() {
   return (
     <Toggle
-      aria-label="Sun
- task"
+      aria-label="Toggle theme"
       className={(state) =>
         `d-f w-12 h-12 ai-c jc-c bw-1 br-pill us-none c-p fv:ow-2 fv:oo-2 fv:oc-indigo-5 ${
           state.pressed
