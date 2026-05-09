@@ -72,7 +72,7 @@ export default function Navbar({
   return (
     <>
       <header
-        className={clsx(navbarVariants({ variant }), className, "zi-20")}
+        className={clsx(navbarVariants({ variant }), className, "zi-10")}
         style={{ backgroundColor: isLandingPage ? "transparent" : "#151724" }}
       >
         <div
