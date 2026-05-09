@@ -12,7 +12,7 @@ export default function ProgressMeter() {
         <Meter.Value className="c-slate-8 fs-sm" />
       </div>
       <Meter.Track className="o-h h-2 bg-silver-2 br-pill">
-        <Meter.Indicator className="d-b h-full bg-indigo br-pill tp-w tdu-500 ttf-io" />
+        <Meter.Indicator className="d-b h-full bg-yellow br-pill tp-w tdu-500 ttf-io" />
       </Meter.Track>
     </Meter.Root>
   );
