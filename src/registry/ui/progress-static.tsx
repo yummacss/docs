@@ -24,7 +24,11 @@ export default function ProgressStatic() {
         <Progress.Value className="c-slate-8 fs-sm" />
       </div>
       <Progress.Track className="o-h h-2 bg-silver-2 br-pill">
-        <Progress.Indicator className="h-full bg-indigo br-pill" />
+        <Progress.Indicator
+          className={(state) =>
+            `h-full br-pill ${state.status === "complete" ? "bg-green" : "bg-indigo"}`
+          }
+        />
       </Progress.Track>
     </Progress.Root>
   );
