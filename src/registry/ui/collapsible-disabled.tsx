@@ -3,7 +3,7 @@
 import { Avatar } from "@base-ui/react/avatar";
 import { Collapsible } from "@base-ui/react/collapsible";
 import { Toggle } from "@base-ui/react/toggle";
-import { Check, ChevronRight, PersonPlus } from "@gravity-ui/icons";
+import { Check, ChevronRight, Plus } from "@gravity-ui/icons";
 import { type HTMLMotionProps, motion } from "motion/react";
 import { useState } from "react";
 
@@ -73,7 +73,7 @@ export default function CollapsibleDisabled() {
                     ? "bg-indigo fv:bg-indigo-8 h:bg-indigo-8 c-white"
                     : "bg-white bc-indigo c-indigo bw-1"
                 }`}
-                aria-label={`Follow ${user.name}`}
+                aria-label={`Add ${user.name}`}
                 onClick={() =>
                   setFollowed((prev) => ({
                     ...prev,
@@ -84,7 +84,7 @@ export default function CollapsibleDisabled() {
                 {followed[user.name] ? (
                   <Check className="w-4 h-4" />
                 ) : (
-                  <PersonPlus className="w-4 h-4" />
+                  <Plus className="w-4 h-4" />
                 )}
               </Toggle>
             </div>
