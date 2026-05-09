@@ -7,7 +7,7 @@ export default function BreadcrumbCollapse() {
     <nav aria-label="Breadcrumb" className="d-f ai-c g-2">
       <a href="#" className="d-f ai-c g-2 c-slate-6 h:c-slate-10">
         <House className="w-5 h-5" />
-        <span className="fs-sm fw-400">Dashboard</span>
+        <span className="fs-sm fw-400">Projects</span>
       </a>
       <ChevronRight className="w-4 h-4 c-slate-4" />
       <span className="d-f ai-c g-2 c-slate-6">
@@ -15,11 +15,11 @@ export default function BreadcrumbCollapse() {
       </span>
       <ChevronRight className="w-4 h-4 c-slate-4" />
       <a href="#" className="d-f ai-c g-2 c-slate-6 h:c-slate-10">
-        <span className="fs-sm fw-400">Components</span>
+        <span className="fs-sm fw-400">Sprint 1</span>
       </a>
       <ChevronRight className="w-4 h-4 c-slate-4" />
       <span className="c-indigo fs-sm fw-500" aria-current="page">
-        Badge
+        Tasks
       </span>
     </nav>
   );
