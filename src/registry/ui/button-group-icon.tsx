@@ -2,8 +2,8 @@
 
 import { Button } from "@base-ui/react/button";
 import {
-  ArrowsExpandHorizontal,
   ArrowDownToLine,
+  ArrowsExpandHorizontal,
   FolderPlus,
 } from "@gravity-ui/icons";
 
