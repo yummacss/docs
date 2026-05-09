@@ -20,7 +20,7 @@ export default function ProgressBase() {
     <Progress.Root className="d-f fd-c g-2 w-64" value={value}>
       <div className="d-f jc-sb ai-c">
         <Progress.Label className="c-slate-10 fs-sm fw-500">
-          Uploading files
+          Sprint progress
         </Progress.Label>
         <Progress.Value className="c-slate-8 fs-sm" />
       </div>

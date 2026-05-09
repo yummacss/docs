@@ -7,7 +7,7 @@ export default function ProgressMeter() {
     <Meter.Root className="d-f fd-c g-2 w-64" value={68}>
       <div className="d-f jc-sb ai-c">
         <Meter.Label className="c-slate-10 fs-sm fw-500">
-          Memory usage
+          Storage used
         </Meter.Label>
         <Meter.Value className="c-slate-8 fs-sm" />
       </div>
