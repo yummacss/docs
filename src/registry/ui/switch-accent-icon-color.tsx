@@ -6,7 +6,7 @@ import { Check } from "@gravity-ui/icons";
 import { motion } from "motion/react";
 import { useState } from "react";
 
-export default function SwitchIconColor() {
+export default function SwitchAccentIconColor() {
   const [checked, setChecked] = useState(false);
 
   return (
