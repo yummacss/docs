@@ -9,7 +9,7 @@ export default function ProgressIndeterminate() {
       <Progress.Root className="d-f fd-c g-2" value={null}>
         <div className="d-f jc-sb">
           <Progress.Label className="c-slate-10 fs-sm fw-500">
-            Loading data
+            Syncing tasks
           </Progress.Label>
           <Progress.Value className="c-slate-8 fs-sm" />
         </div>
