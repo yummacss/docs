@@ -1,6 +1,6 @@
 "use client";
 
-import { Folder, ChartBar } from "@gravity-ui/icons";
+import { ChartBar, Folder } from "@gravity-ui/icons";
 
 export default function BreadcrumbSlash() {
   return (
