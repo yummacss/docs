@@ -24,7 +24,7 @@ export default function UILayout({ children }: { children: React.ReactNode }) {
       <Navbar showMobileSidebar />
 
       <main
-        className="mx-auto px-6"
+        className="is-i mx-auto px-6"
         style={{ maxWidth: "clamp(40rem, 80vw, 96rem)" }}
       >
         <div className="d-g gtc-1 g-8 lg:gtc-12">

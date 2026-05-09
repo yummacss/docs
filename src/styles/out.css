@@ -1665,6 +1665,10 @@ summary {
   inset: .5rem;
 }
 
+.is-i {
+  isolation: isolate;
+}
+
 .ix-0 {
   left: 0;
   right: 0;
