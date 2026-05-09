@@ -31,9 +31,7 @@ export default function AutocompleteGrouped() {
                 transition={{ duration: 0.15, ease: "easeOut" }}
                 className="d-f ai-c"
               >
-                <Autocomplete.Popup
-                  className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs"
-                >
+                <Autocomplete.Popup className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs">
                   <Autocomplete.List className="oy-auto max-h-72 py-1 ow-0">
                     {(group: TeamGroup, groupIndex: number) => (
                       <Autocomplete.Group key={group.value}>
@@ -77,8 +75,6 @@ export default function AutocompleteGrouped() {
                     </div>
                   </Autocomplete.Empty>
                 </Autocomplete.Popup>
-
-                
               </motion.div>
             </Autocomplete.Positioner>
           </Autocomplete.Portal>

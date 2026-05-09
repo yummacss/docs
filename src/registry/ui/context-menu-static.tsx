@@ -1,14 +1,7 @@
 "use client";
 
 import { ContextMenu } from "@base-ui/react/context-menu";
-import {
-  Eye,
-  Link,
-  PersonPlus,
-  Pin,
-  TrashBin,
-  Xmark,
-} from "@gravity-ui/icons";
+import { Eye, Link, PersonPlus, Pin, TrashBin, Xmark } from "@gravity-ui/icons";
 import { useState } from "react";
 
 export default function ContextMenuStatic() {

@@ -40,56 +40,54 @@ export default function AutocompleteMaxItems() {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.15, ease: "easeOut" }}
               >
-              <Autocomplete.Popup
-                className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs"
-              >
-                <Autocomplete.List className="oy-auto py-1 ow-0">
-                  {(item: Project, index: number) => {
-                    if (index >= limit) return null;
-                    return (
-                      <Autocomplete.Item
-                        key={item.name}
-                        value={item.name}
-                        render={(props, state) => (
-                          <div
-                            {...props}
-                            className={`d-f ai-c g-3 py-2 px-3 fs-sm us-none c-p br-lg mx-1 c-slate-10 ${
-                              state.highlighted
-                                ? "bg-silver-1/50"
-                                : "bg-transparent"
-                            }`}
-                          >
-                            <span
-                              className={`d-if ai-c jc-c w-6 h-6 br-sm fs-xs fw-500 c-white ${item.color}`}
+                <Autocomplete.Popup className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs">
+                  <Autocomplete.List className="oy-auto py-1 ow-0">
+                    {(item: Project, index: number) => {
+                      if (index >= limit) return null;
+                      return (
+                        <Autocomplete.Item
+                          key={item.name}
+                          value={item.name}
+                          render={(props, state) => (
+                            <div
+                              {...props}
+                              className={`d-f ai-c g-3 py-2 px-3 fs-sm us-none c-p br-lg mx-1 c-slate-10 ${
+                                state.highlighted
+                                  ? "bg-silver-1/50"
+                                  : "bg-transparent"
+                              }`}
                             >
-                              {item.name[0]}
-                            </span>
-                            <div className="d-f fd-c min-w-0">
-                              <span className="fw-500">{item.name}</span>
-                              <span className="c-slate-6 fs-xs">
-                                {item.status}
+                              <span
+                                className={`d-if ai-c jc-c w-6 h-6 br-sm fs-xs fw-500 c-white ${item.color}`}
+                              >
+                                {item.name[0]}
                               </span>
+                              <div className="d-f fd-c min-w-0">
+                                <span className="fw-500">{item.name}</span>
+                                <span className="c-slate-6 fs-xs">
+                                  {item.status}
+                                </span>
+                              </div>
                             </div>
-                          </div>
-                        )}
-                      />
-                    );
-                  }}
-                </Autocomplete.List>
-                {matchCount > 0 && (
-                  <div className="d-f ai-c jc-sb px-3 py-2 bc-silver-2 bbw-1 btw-0">
-                    <span className="c-slate-6 fs-xs fw-500">
-                      Showing {Math.min(limit, matchCount)} of {matchCount}{" "}
-                      {matchCount === 1 ? "project" : "projects"}
-                    </span>
-                  </div>
-                )}
-                <Autocomplete.Empty className="c-slate-6 fs-sm">
-                  <div className="pt-2 pb-3 px-4 us-none">
-                    No projects found.
-                  </div>
-                </Autocomplete.Empty>
-              </Autocomplete.Popup>
+                          )}
+                        />
+                      );
+                    }}
+                  </Autocomplete.List>
+                  {matchCount > 0 && (
+                    <div className="d-f ai-c jc-sb px-3 py-2 bc-silver-2 bbw-1 btw-0">
+                      <span className="c-slate-6 fs-xs fw-500">
+                        Showing {Math.min(limit, matchCount)} of {matchCount}{" "}
+                        {matchCount === 1 ? "project" : "projects"}
+                      </span>
+                    </div>
+                  )}
+                  <Autocomplete.Empty className="c-slate-6 fs-sm">
+                    <div className="pt-2 pb-3 px-4 us-none">
+                      No projects found.
+                    </div>
+                  </Autocomplete.Empty>
+                </Autocomplete.Popup>
               </motion.div>
             </Autocomplete.Positioner>
           </Autocomplete.Portal>

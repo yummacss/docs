@@ -11,8 +11,8 @@ export default function FileUpload() {
         </div>
         <div className="d-f fd-c ai-c g-1">
           <span className="c-slate-10 fs-sm fw-500">
-            <a className="c-indigo td-none c-p">Upload project assets</a> or drag and
-            drop
+            <a className="c-indigo td-none c-p">Upload project assets</a> or
+            drag and drop
           </span>
           <span className="c-slate-6 fs-xs fw-400">
             Drag and drop project files here
