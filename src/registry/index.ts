@@ -181,7 +181,6 @@ const uiRegistry = {
   "select-base": dynamic(() => import("./ui/select-base"), { ssr: true }),
   "select-grouped": dynamic(() => import("./ui/select-grouped"), { ssr: true }),
   "select-static": dynamic(() => import("./ui/select-static"), { ssr: true }),
-  "separator-background": dynamic(() => import("./ui/separator-background"), { ssr: true }),
   "separator-base": dynamic(() => import("./ui/separator-base"), { ssr: true }),
   "separator-horizontal": dynamic(() => import("./ui/separator-horizontal"), { ssr: true }),
   "separator-icon-circle": dynamic(() => import("./ui/separator-icon-circle"), { ssr: true }),
