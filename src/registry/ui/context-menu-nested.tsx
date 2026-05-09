@@ -3,10 +3,10 @@
 import { ContextMenu } from "@base-ui/react/context-menu";
 import {
   ArrowUpFromSquare,
-  ArrowUturnCcwLeft,
   ChevronRight,
+  Flag,
   Pencil,
-  Tag,
+  PersonPlus,
   TrashBin,
 } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
@@ -34,7 +34,7 @@ export default function ContextMenuNested() {
                     transition={{ duration: 0.1, ease: "easeOut" }}
                   />
                 }
-                className="py-1 w-48 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs"
+                className="py-1 w-52 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs"
               >
                 <ContextMenu.SubmenuRoot>
                   <ContextMenu.SubmenuTrigger
@@ -45,7 +45,7 @@ export default function ContextMenuNested() {
                     }
                   >
                     <span className="d-f ai-c g-2">
-                      <Tag className="fs-0 w-4 h-4 c-slate-5" />
+                      <Flag className="fs-0 w-4 h-4 c-slate-5" />
                       Add Label
                     </span>
                     <ChevronRight className="fs-0 w-3 h-3 c-slate-4" />
@@ -57,7 +57,7 @@ export default function ContextMenuNested() {
                       sideOffset={-4}
                       alignOffset={-4}
                     >
-                      <ContextMenu.Popup className="py-1 w-48 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs">
+                      <ContextMenu.Popup className="py-1 w-52 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs">
                         {labels.map((label) => (
                           <ContextMenu.Item
                             key={label.name}
@@ -77,6 +77,48 @@ export default function ContextMenuNested() {
                   </ContextMenu.Portal>
                 </ContextMenu.SubmenuRoot>
 
+                <ContextMenu.SubmenuRoot>
+                  <ContextMenu.SubmenuTrigger
+                    className={(state) =>
+                      `d-f ai-c jc-sb g-2 py-2 pl-3 pr-3 fs-sm fw-500 us-none c-p br-lg mx-1 ${
+                        state.highlighted ? "bg-silver-1/50" : "bg-transparent"
+                      }`
+                    }
+                  >
+                    <span className="d-f ai-c g-2">
+                      <PersonPlus className="fs-0 w-4 h-4 c-slate-5" />
+                      Assign to
+                    </span>
+                    <ChevronRight className="fs-0 w-3 h-3 c-slate-4" />
+                  </ContextMenu.SubmenuTrigger>
+
+                  <ContextMenu.Portal>
+                    <ContextMenu.Positioner
+                      className="ow-0"
+                      sideOffset={-4}
+                      alignOffset={-4}
+                    >
+                      <ContextMenu.Popup className="py-1 w-52 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs">
+                        {teamMembers.map((member) => (
+                          <ContextMenu.Item
+                            key={member.name}
+                            className={(state) =>
+                              `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                            }
+                          >
+                            <img
+                              src={member.avatar}
+                              alt={member.name}
+                              className="d-f ai-c jc-c w-5 h-5 br-pill bc-white bw-1"
+                            />
+                            <span className="c-slate-10">{member.name}</span>
+                          </ContextMenu.Item>
+                        ))}
+                      </ContextMenu.Popup>
+                    </ContextMenu.Positioner>
+                  </ContextMenu.Portal>
+                </ContextMenu.SubmenuRoot>
+
                 <ContextMenu.Item
                   className={(state) =>
                     `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
@@ -84,14 +126,6 @@ export default function ContextMenuNested() {
                 >
                   <Pencil className="fs-0 w-4 h-4 c-slate-5" />
                   Edit task
-                </ContextMenu.Item>
-                <ContextMenu.Item
-                  className={(state) =>
-                    `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
-                  }
-                >
-                  <ArrowUturnCcwLeft className="fs-0 w-4 h-4 c-slate-5" />
-                  Assign to
                 </ContextMenu.Item>
 
                 <ContextMenu.Separator className="my-1 w-full h-px bg-silver-2" />
@@ -130,4 +164,12 @@ const labels = [
   { name: "High", color: "#e63946" },
   { name: "Medium", color: "#ffb81c" },
   { name: "Low", color: "#10b981" },
+];
+
+const teamMembers = [
+  { name: "Sarah", avatar: "https://api.dicebear.com/9.x/open-peeps/svg?seed=Sarah&backgroundColor=DAF0B9" },
+  { name: "John", avatar: "https://api.dicebear.com/9.x/open-peeps/svg?seed=John&backgroundColor=B4E9F2" },
+  { name: "Noah", avatar: "https://api.dicebear.com/9.x/open-peeps/svg?seed=Noah&backgroundColor=D0D1FB" },
+  { name: "Melanie", avatar: "https://api.dicebear.com/9.x/open-peeps/svg?seed=Melanie&backgroundColor=DCCEFC" },
+  { name: "Riley", avatar: "https://api.dicebear.com/9.x/open-peeps/svg?seed=Riley&backgroundColor=F4C8FA" },
 ];

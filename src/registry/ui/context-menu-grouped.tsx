@@ -2,9 +2,9 @@
 
 import { ContextMenu } from "@base-ui/react/context-menu";
 import {
-  ArrowUturnCcwLeft,
   Eye,
   Link,
+  PersonPlus,
   Pin,
   TrashBin,
 } from "@gravity-ui/icons";
@@ -43,7 +43,7 @@ export default function ContextMenuGrouped() {
                       }`
                     }
                   >
-                    <ArrowUturnCcwLeft className="fs-0 w-4 h-4 c-slate-5" />
+                    <PersonPlus className="fs-0 w-4 h-4 c-slate-5" />
                     Assign to
                   </ContextMenu.Item>
                   <ContextMenu.Item
