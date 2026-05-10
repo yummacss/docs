@@ -13,7 +13,7 @@ export default function MenuAccountStatus() {
     <Menu.Root open={open} onOpenChange={setOpen}>
       <Menu.Trigger className="d-f ai-c g-2 px-3 py-2 h-fc bg-white bc-silver-2 c-slate-10 br-lg bw-1 fw-500 bs-o-xs tp-c tdu-150 ttf-io us-none c-p h:bg-silver-1/50 fv:ow-2 fv:oo-2 fv:oc-indigo-5">
         <div className="p-r">
-          <Avatar.Root className="d-if o-h ai-c jc-c w-8 h-8 bc-white br-pill bw-1 va-m us-none">
+          <Avatar.Root className="d-if o-h ai-c jc-c w-6 h-6 bc-white br-pill bw-1 va-m us-none">
             <Avatar.Image
               src="https://api.dicebear.com/9.x/open-peeps/svg?seed=Sarah&backgroundColor=DAF0B9"
               alt="Sarah"
@@ -23,7 +23,7 @@ export default function MenuAccountStatus() {
               S
             </Avatar.Fallback>
           </Avatar.Root>
-          <span className="p-a b-0 r-0 w-3 h-3 bg-mint bc-white br-pill bw-1" />
+          <span className="p-a b-0 r-0 w-2 h-2 bg-mint bc-white br-pill bw-1" />
         </div>
         <span className="fs-sm fw-500">Sarah</span>
       </Menu.Trigger>
