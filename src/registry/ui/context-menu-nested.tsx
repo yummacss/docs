@@ -57,8 +57,7 @@ export default function ContextMenuNested() {
                             }
                           >
                             <span
-                              className="d-f ai-c jc-c w-3 h-3 br-pill"
-                              style={{ backgroundColor: label.color }}
+                              className={`d-f ai-c jc-c w-3 h-3 br-pill ${label.bg}`}
                             />
                             <span className="c-slate-10">{label.name}</span>
                           </ContextMenu.Item>
@@ -105,7 +104,7 @@ export default function ContextMenuNested() {
                               <span
                                 className={`p-a b-0 r-0 w-2 h-2 bc-white br-pill bw-1 ${
                                   member.status === "online"
-                                    ? "bg-mint"
+                                    ? "bg-green"
                                     : member.status === "away"
                                       ? "bg-yellow"
                                       : "bg-silver-4"
@@ -159,9 +158,9 @@ export default function ContextMenuNested() {
 }
 
 const labels = [
-  { name: "High", color: "#e63946" },
-  { name: "Medium", color: "#ffb81c" },
-  { name: "Low", color: "#10b981" },
+  { name: "High", bg: "bg-red" },
+  { name: "Medium", bg: "bg-yellow" },
+  { name: "Low", bg: "bg-green" },
 ];
 
 const teamMembers = [

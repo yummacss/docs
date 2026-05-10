@@ -2,7 +2,7 @@
 
 import { Menu } from "@base-ui/react/menu";
 import { Menubar } from "@base-ui/react/menubar";
-import { ChevronRight, CircleFill } from "@gravity-ui/icons";
+import { ChevronRight } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -109,8 +109,7 @@ export default function MenubarNested() {
                               }
                             >
                               <span
-                                className="fs-0 w-3 h-3 br-pill"
-                                style={{ backgroundColor: priority.color }}
+                                className={`fs-0 w-3 h-3 br-pill ${priority.bg}`}
                               />
                               {priority.name}
                             </Menu.Item>
@@ -170,14 +169,7 @@ const sprints = [
 ];
 
 const priorities = [
-  { name: "High", color: "#e63946" },
-  { name: "Medium", color: "#ffb81c" },
-  { name: "Low", color: "#10b981" },
-  { name: "None", color: "#6b7280" },
-];
-
-const members = [
-  { name: "John Doe", initials: "JD" },
-  { name: "Jane Smith", initials: "JS" },
-  { name: "Mike Wilson", initials: "MW" },
+  { name: "High", bg: "bg-red" },
+  { name: "Medium", bg: "bg-yellow" },
+  { name: "Low", bg: "bg-mint" },
 ];

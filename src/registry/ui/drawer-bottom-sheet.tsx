@@ -144,6 +144,6 @@ export default function DrawerBottomSheet() {
 const statuses = [
   { label: "To Do", value: "todo", color: "bg-silver-4" },
   { label: "In Progress", value: "in-progress", color: "bg-indigo" },
-  { label: "Done", value: "done", color: "bg-mint" },
+  { label: "Done", value: "done", color: "bg-green" },
   { label: "Blocked", value: "blocked", color: "bg-red" },
 ];

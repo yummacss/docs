@@ -237,6 +237,10 @@ summary {
   border-color: #b4f3e3;
 }
 
+.bc-green-5 {
+  border-color: #4ce1bb;
+}
+
 .bc-highlight\/50 {
   border-color: #9aa5ef80;
 }
@@ -263,10 +267,6 @@ summary {
 
 .bc-indigo-7 {
   border-color: #5558cf;
-}
-
-.bc-mint-5 {
-  border-color: #53cda4;
 }
 
 .bc-navy {
@@ -511,10 +511,6 @@ summary {
 
 .bg-mint {
   background-color: #10b981;
-}
-
-.bg-mint-5 {
-  background-color: #53cda4;
 }
 
 .bg-mirage {
@@ -881,14 +877,6 @@ summary {
   color: #dda2f6;
 }
 
-.c-mint-5 {
-  color: #53cda4;
-}
-
-.c-mint-6 {
-  color: #31c393;
-}
-
 .c-na {
   cursor: not-allowed;
 }
@@ -1237,6 +1225,10 @@ summary {
   background-color: #4749ae;
 }
 
+.fv\:oc-green-5:focus-visible {
+  outline-color: #4ce1bb;
+}
+
 .fv\:oc-indigo:focus-visible {
   outline-color: #6366f1;
 }
@@ -1251,10 +1243,6 @@ summary {
 
 .fv\:oc-indigo-5:focus-visible {
   outline-color: #8f91f5;
-}
-
-.fv\:oc-mint-5:focus-visible {
-  outline-color: #53cda4;
 }
 
 .fv\:oc-red-5:focus-visible {
