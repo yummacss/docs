@@ -21,7 +21,7 @@ export default function CollapsibleBase() {
       onOpenChange={setOpen}
       className="d-f fd-c w-72 c-slate-10 br-xl"
     >
-      <Collapsible.Trigger className="d-f b-0 ai-c g-2 px-3 py-2 bg-white bc-silver-2 c-slate-10 br-lg bw-1 fs-sm fw-500 c-p h:bg-silver-1/50 fv:ow-2 fv:oo-2 fv:oc-indigo-5">
+      <Collapsible.Trigger className="d-f ai-c g-2 px-3 py-2 bg-white bc-silver-2 c-slate-10 br-lg bw-1 fs-sm fw-500 c-p h:bg-silver-1/50 fv:ow-2 fv:oo-2 fv:oc-indigo-5">
         <motion.span
           animate={{ rotate: open ? 90 : 0 }}
           transition={{ duration: 0.15, ease: "easeOut" }}

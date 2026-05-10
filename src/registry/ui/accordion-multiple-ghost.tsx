@@ -24,7 +24,7 @@ export default function AccordionMultipleGhost() {
             className={`blw-2 pl-4 ${isOpen ? "blc-indigo-5" : "blc-silver-3"} ${index === faqs.length - 1 ? "" : "mb-3"}`}
           >
             <Accordion.Header className="m-0">
-              <Accordion.Trigger className="d-f b-0 ai-c jc-sb g-3 w-full py-2 px-0 bg-transparent br-sm ta-l c-p fv:ow-2 fv:oo-1 fv:oc-indigo-5">
+              <Accordion.Trigger className="d-f ai-c jc-sb g-3 w-full py-2 px-0 bg-transparent bw-0 br-sm ta-l c-p fv:ow-2 fv:oo-1 fv:oc-indigo-5">
                 <span
                   className={`fs-sm fw-500 ${isOpen ? "c-indigo-6" : "c-slate-8"}`}
                 >

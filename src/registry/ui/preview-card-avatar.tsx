@@ -16,7 +16,7 @@ export default function PreviewCardAvatar() {
               className="of-c w-full h-full"
             />
           </Avatar.Root>
-          <span className="p-a b-0 r-0 w-2 h-2 bg-green-6 bc-white br-pill bw-1" />
+          <span className="p-a r-0 w-2 h-2 bg-green-6 bc-white br-pill bw-1" />
         </div>
         <PreviewCard.Trigger
           className={(state) =>
@@ -49,7 +49,7 @@ export default function PreviewCardAvatar() {
                     className="of-c w-full h-full"
                   />
                 </Avatar.Root>
-                <span className="p-a b-0 r-0 w-3 h-3 bg-green-6 bc-white br-pill bw-1" />
+                <span className="p-a r-0 w-3 h-3 bg-green-6 bc-white bw-0 br-pill bw-1" />
               </div>
               <div className="d-f fd-c g-0">
                 <span className="c-slate-10 fs-sm fw-500">Sarah</span>
