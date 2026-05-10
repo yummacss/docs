@@ -1,21 +1,13 @@
 "use client";
 
 import { Avatar } from "@base-ui/react/avatar";
-import { Checkbox } from "@base-ui/react/checkbox";
 import { Menu } from "@base-ui/react/menu";
-import {
-  ArrowRightFromSquare,
-  Check,
-  Gear,
-  House,
-  Moon,
-} from "@gravity-ui/icons";
+import { ArrowRightFromSquare, GearDot, Person } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
 export default function MenuAccount() {
   const [open, setOpen] = useState(false);
-  const [darkMode, setDarkMode] = useState(true);
 
   return (
     <Menu.Root open={open} onOpenChange={setOpen}>
@@ -55,7 +47,7 @@ export default function MenuAccount() {
                     }`
                   }
                 >
-                  <House className="fs-0 w-4 h-4 c-slate-5" />
+                  <Person className="fs-0 w-4 h-4 c-slate-5" />
                   View profile
                 </Menu.Item>
                 <Menu.Item
@@ -65,35 +57,8 @@ export default function MenuAccount() {
                     }`
                   }
                 >
-                  <Gear className="fs-0 w-4 h-4 c-slate-5" />
-                  Account settings
-                </Menu.Item>
-                <Menu.Item
-                  className={(state) =>
-                    `d-f ai-c jc-sb g-2 py-2 pr-4 pl-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
-                      state.highlighted ? "bg-silver-1/50" : "bg-transparent"
-                    }`
-                  }
-                >
-                  <span className="d-f ai-c g-2">
-                    <Moon className="fs-0 w-4 h-4 c-slate-5" />
-                    Dark mode
-                  </span>
-                  <Checkbox.Root
-                    checked={darkMode}
-                    onCheckedChange={setDarkMode}
-                    className={(state) =>
-                      `d-f w-4 h-4 ai-c jc-c br-sm fv:ow-2 fv:oo-2 fv:oc-indigo-5 ${
-                        state.checked
-                          ? "bg-indigo"
-                          : "bw-1 bc-silver-3 bg-transparent bs-o-xs"
-                      }`
-                    }
-                  >
-                    <Checkbox.Indicator className="d-f c-white">
-                      <Check className="w-3 h-3" />
-                    </Checkbox.Indicator>
-                  </Checkbox.Root>
+                  <GearDot className="fs-0 w-4 h-4 c-slate-5" />
+                  Settings
                 </Menu.Item>
                 <Menu.Separator className="my-1 w-full h-px bg-silver-2" />
                 <Menu.Item
