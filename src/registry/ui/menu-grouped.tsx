@@ -1,14 +1,7 @@
 "use client";
 
 import { Menu } from "@base-ui/react/menu";
-import {
-  Briefcase,
-  ChevronDown,
-  GearDot,
-  House,
-  PersonPlanetEarth,
-  Tray,
-} from "@gravity-ui/icons";
+import { ChevronDown } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -44,7 +37,6 @@ export default function MenuGrouped() {
                       }`
                     }
                   >
-                    <House className="fs-0 w-4 h-4 c-slate-5" />
                     My tasks
                   </Menu.Item>
                   <Menu.Item
@@ -54,7 +46,6 @@ export default function MenuGrouped() {
                       }`
                     }
                   >
-                    <PersonPlanetEarth className="fs-0 w-4 h-4 c-slate-5" />
                     Shared with me
                   </Menu.Item>
                   <Menu.Item
@@ -64,7 +55,6 @@ export default function MenuGrouped() {
                       }`
                     }
                   >
-                    <Briefcase className="fs-0 w-4 h-4 c-slate-5" />
                     My projects
                   </Menu.Item>
                 </Menu.Group>
@@ -79,7 +69,6 @@ export default function MenuGrouped() {
                       }`
                     }
                   >
-                    <GearDot className="fs-0 w-4 h-4 c-slate-5" />
                     Project settings
                   </Menu.Item>
                   <Menu.Item
@@ -89,7 +78,6 @@ export default function MenuGrouped() {
                       }`
                     }
                   >
-                    <Tray className="fs-0 w-4 h-4 c-slate-5" />
                     Archive
                   </Menu.Item>
                 </Menu.Group>

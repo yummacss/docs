@@ -2,17 +2,6 @@
 
 import { Menu } from "@base-ui/react/menu";
 import { Menubar } from "@base-ui/react/menubar";
-import {
-  BellDot,
-  Briefcase,
-  CreditCard,
-  Gear,
-  House,
-  ListOl,
-  ListUl,
-  PersonPlanetEarth,
-  TrashBin,
-} from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -57,7 +46,6 @@ export default function MenubarGrouped() {
                         }`
                       }
                     >
-                      <House className="fs-0 w-4 h-4 c-slate-5" />
                       My tasks
                     </Menu.Item>
                     <Menu.Item
@@ -69,7 +57,6 @@ export default function MenubarGrouped() {
                         }`
                       }
                     >
-                      <PersonPlanetEarth className="fs-0 w-4 h-4 c-slate-5" />
                       My projects
                     </Menu.Item>
                     <Menu.Item
@@ -81,7 +68,6 @@ export default function MenubarGrouped() {
                         }`
                       }
                     >
-                      <Briefcase className="fs-0 w-4 h-4 c-slate-5" />
                       Team dashboard
                     </Menu.Item>
                   </Menu.Group>
@@ -98,7 +84,6 @@ export default function MenubarGrouped() {
                         }`
                       }
                     >
-                      <ListUl className="fs-0 w-4 h-4 c-slate-5" />
                       Backlog
                     </Menu.Item>
                     <Menu.Item
@@ -110,7 +95,6 @@ export default function MenubarGrouped() {
                         }`
                       }
                     >
-                      <Briefcase className="fs-0 w-4 h-4 c-slate-5" />
                       Sprints
                     </Menu.Item>
                     <Menu.Item
@@ -122,7 +106,6 @@ export default function MenubarGrouped() {
                         }`
                       }
                     >
-                      <TrashBin className="fs-0 w-4 h-4 c-slate-5" />
                       Archive
                     </Menu.Item>
                   </Menu.Group>
@@ -168,7 +151,6 @@ export default function MenubarGrouped() {
                         }`
                       }
                     >
-                      <Gear className="fs-0 w-4 h-4 c-slate-5" />
                       Project settings
                     </Menu.Item>
                     <Menu.Item
@@ -180,7 +162,6 @@ export default function MenubarGrouped() {
                         }`
                       }
                     >
-                      <PersonPlanetEarth className="fs-0 w-4 h-4 c-slate-5" />
                       Team members
                     </Menu.Item>
                     <Menu.Item
@@ -192,7 +173,6 @@ export default function MenubarGrouped() {
                         }`
                       }
                     >
-                      <ListOl className="fs-0 w-4 h-4 c-slate-5" />
                       Labels & priorities
                     </Menu.Item>
                   </Menu.Group>
@@ -209,7 +189,6 @@ export default function MenubarGrouped() {
                         }`
                       }
                     >
-                      <CreditCard className="fs-0 w-4 h-4 c-slate-5" />
                       Billing
                     </Menu.Item>
                     <Menu.Item
@@ -221,7 +200,6 @@ export default function MenubarGrouped() {
                         }`
                       }
                     >
-                      <BellDot className="fs-0 w-4 h-4 c-slate-5" />
                       Notifications
                     </Menu.Item>
                   </Menu.Group>
