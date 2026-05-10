@@ -1,7 +1,14 @@
 "use client";
 
 import { Menu } from "@base-ui/react/menu";
-import { Copy, EllipsisVertical, Pencil, TrashBin } from "@gravity-ui/icons";
+import {
+  EllipsisVertical,
+  FileArrowRightOut,
+  Folder,
+  Pencil,
+  TrashBin,
+  Tray,
+} from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -10,8 +17,8 @@ export default function MenuIconOnly() {
 
   return (
     <Menu.Root open={open} onOpenChange={setOpen}>
-      <Menu.Trigger className="p-0 bw-0">
-        <EllipsisVertical className="fs-0 w-6 h-6 c-silver-7 tp-c tdu-150 ttf-io h:c-silver-10" />
+      <Menu.Trigger className="d-f ai-c jc-c w-9 h-9 bg-white bc-silver-2 c-slate-10 br-lg bw-1 fw-500 bs-o-xs tp-c tdu-150 ttf-io us-none c-p h:bg-silver-1/50 fv:ow-2 fv:oo-2 fv:oc-indigo-5">
+        <EllipsisVertical className="fs-0 w-4 h-4" />
       </Menu.Trigger>
 
       <AnimatePresence>
@@ -46,7 +53,7 @@ export default function MenuIconOnly() {
                     }`
                   }
                 >
-                  <Copy className="fs-0 w-4 h-4 c-slate-5" />
+                  <Folder className="fs-0 w-4 h-4 c-slate-5" />
                   Duplicate
                 </Menu.Item>
                 <Menu.Item
@@ -56,9 +63,9 @@ export default function MenuIconOnly() {
                     }`
                   }
                 >
+                  <FileArrowRightOut className="fs-0 w-4 h-4 c-slate-5" />
                   Move to
                 </Menu.Item>
-                <Menu.Separator className="my-1 w-full h-px bg-silver-2" />
                 <Menu.Item
                   className={(state) =>
                     `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
@@ -66,8 +73,10 @@ export default function MenuIconOnly() {
                     }`
                   }
                 >
+                  <Tray className="fs-0 w-4 h-4 c-slate-5" />
                   Archive
                 </Menu.Item>
+                <Menu.Separator className="my-1 w-full h-px bg-silver-2" />
                 <Menu.Item
                   className={(state) =>
                     `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm fw-500 us-none c-red c-p br-lg mx-1 ${
