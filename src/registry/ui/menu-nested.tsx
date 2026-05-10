@@ -2,13 +2,13 @@
 
 import { Menu } from "@base-ui/react/menu";
 import {
-  Link,
   ChevronDown,
   ChevronRight,
   CircleFill,
+  ExclamationShape,
   Folder,
   Gear,
-  ExclamationShape,
+  Link,
   Tray,
 } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
