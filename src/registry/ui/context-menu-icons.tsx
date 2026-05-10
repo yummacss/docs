@@ -2,10 +2,10 @@
 
 import { ContextMenu } from "@base-ui/react/context-menu";
 import {
+  ArrowUpFromSquare,
   Copy,
   Link,
   Pencil,
-  Share,
   TrashBin,
 } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
@@ -72,8 +72,8 @@ export default function ContextMenuIcons() {
                     }`
                   }
                 >
-                  <Share className="fs-0 w-4 h-4 c-slate-5" />
-                  Share task
+                  <ArrowUpFromSquare className="fs-0 w-4 h-4 c-slate-5" />
+                  ArrowUpFromSquare task
                 </ContextMenu.Item>
                 <ContextMenu.Separator className="my-1 w-full h-px bg-silver-2" />
                 <ContextMenu.Item
