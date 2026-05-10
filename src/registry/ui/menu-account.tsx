@@ -1,23 +1,25 @@
 "use client";
 
 import { Avatar } from "@base-ui/react/avatar";
+import { Checkbox } from "@base-ui/react/checkbox";
 import { Menu } from "@base-ui/react/menu";
 import {
   ArrowRightFromSquare,
   Check,
-  GearDot,
+  Gear,
+  House,
   Moon,
-  Person,
 } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
 export default function MenuAccount() {
   const [open, setOpen] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
 
   return (
     <Menu.Root open={open} onOpenChange={setOpen}>
-      <Menu.Trigger className="d-f ai-c g-3 px-3 py-2 h-fc bg-white bc-silver-2 c-slate-10 br-lg bw-1 fw-500 bs-o-xs tp-c tdu-150 ttf-io us-none c-p h:bg-silver-1/50 fv:oo--1 fv:oc-indigo-5">
+      <Menu.Trigger className="d-f ai-c g-2 px-3 py-2 h-fc bg-white bc-silver-2 c-slate-10 br-lg bw-1 fw-500 bs-o-xs tp-c tdu-150 ttf-io us-none c-p h:bg-silver-1/50 fv:ow-2 fv:oo-2 fv:oc-indigo-5">
         <Avatar.Root className="d-if o-h ai-c jc-c w-8 h-8 bc-white br-pill bw-1 va-m us-none">
           <Avatar.Image
             src="https://api.dicebear.com/9.x/open-peeps/svg?seed=Sarah&backgroundColor=DAF0B9"
@@ -53,7 +55,7 @@ export default function MenuAccount() {
                     }`
                   }
                 >
-                  <Person className="fs-0 w-4 h-4 c-slate-5" />
+                  <House className="fs-0 w-4 h-4 c-slate-5" />
                   View profile
                 </Menu.Item>
                 <Menu.Item
@@ -63,8 +65,8 @@ export default function MenuAccount() {
                     }`
                   }
                 >
-                  <GearDot className="fs-0 w-4 h-4 c-slate-5" />
-                  Settings
+                  <Gear className="fs-0 w-4 h-4 c-slate-5" />
+                  Account settings
                 </Menu.Item>
                 <Menu.Item
                   className={(state) =>
@@ -77,7 +79,21 @@ export default function MenuAccount() {
                     <Moon className="fs-0 w-4 h-4 c-slate-5" />
                     Dark mode
                   </span>
-                  <Check className="fs-0 w-4 h-4 c-indigo" />
+                  <Checkbox.Root
+                    checked={darkMode}
+                    onCheckedChange={setDarkMode}
+                    className={(state) =>
+                      `d-f w-4 h-4 ai-c jc-c br-sm fv:ow-2 fv:oo-2 fv:oc-indigo-5 ${
+                        state.checked
+                          ? "bg-indigo"
+                          : "bw-1 bc-silver-3 bg-transparent bs-o-xs"
+                      }`
+                    }
+                  >
+                    <Checkbox.Indicator className="d-f c-white">
+                      <Check className="w-3 h-3" />
+                    </Checkbox.Indicator>
+                  </Checkbox.Root>
                 </Menu.Item>
                 <Menu.Separator className="my-1 w-full h-px bg-silver-2" />
                 <Menu.Item
