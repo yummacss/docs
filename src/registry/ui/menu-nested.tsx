@@ -9,7 +9,7 @@ import {
   Folder,
   Gear,
   Star,
-  TrashBin,
+  Tray,
 } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
@@ -90,7 +90,7 @@ export default function MenuNested() {
                   >
                     <span className="d-f ai-c g-2">
                       <Star className="fs-0 w-4 h-4 c-slate-5" />
-                      Label
+                      Set priority
                     </span>
                     <ChevronRight className="fs-0 w-3 h-3 c-slate-4" />
                   </Menu.SubmenuTrigger>
@@ -133,11 +133,8 @@ export default function MenuNested() {
                   }
                 >
                   <ArrowUpFromSquare className="fs-0 w-4 h-4 c-slate-5" />
-                  Share
+                  Copy task link
                 </Menu.Item>
-
-                <Menu.Separator className="my-1 w-full h-px bg-silver-2" />
-
                 <Menu.Item
                   className={(state) =>
                     `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
@@ -146,20 +143,17 @@ export default function MenuNested() {
                   }
                 >
                   <Gear className="fs-0 w-4 h-4 c-slate-5" />
-                  Settings
+                  Task settings
                 </Menu.Item>
-
-                <Menu.Separator className="my-1 w-full h-px bg-silver-2" />
-
                 <Menu.Item
                   className={(state) =>
-                    `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-red c-p br-lg mx-1 ${
-                      state.highlighted ? "bg-red-1/50" : "bg-transparent"
+                    `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
+                      state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                     }`
                   }
                 >
-                  <TrashBin className="fs-0 w-4 h-4" />
-                  Delete
+                  <Tray className="fs-0 w-4 h-4 c-slate-5" />
+                  Archive task
                 </Menu.Item>
               </Menu.Popup>
             </Menu.Positioner>
@@ -171,15 +165,15 @@ export default function MenuNested() {
 }
 
 const folders = [
-  { name: "Documents" },
-  { name: "Photos" },
-  { name: "Projects" },
+  { name: "Sprint 1" },
+  { name: "Sprint 2" },
+  { name: "Backlog" },
   { name: "Archive" },
 ];
 
 const labels = [
-  { name: "Work", color: "#2563eb" },
-  { name: "Personal", color: "#10b981" },
-  { name: "Urgent", color: "#e63946" },
-  { name: "Later", color: "#6b7280" },
+  { name: "High", color: "#e63946" },
+  { name: "Medium", color: "#ffb81c" },
+  { name: "Low", color: "#10b981" },
+  { name: "None", color: "#6b7280" },
 ];

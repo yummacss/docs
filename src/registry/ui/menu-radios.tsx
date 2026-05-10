@@ -66,8 +66,8 @@ export default function MenuRadios() {
 }
 
 const viewOptions = [
-  { value: "grid", label: "Grid view" },
+  { value: "board", label: "Board view" },
   { value: "list", label: "List view" },
-  { value: "compact", label: "Compact" },
-  { value: "detail", label: "Detail view" },
+  { value: "calendar", label: "Calendar view" },
+  { value: "timeline", label: "Timeline view" },
 ];

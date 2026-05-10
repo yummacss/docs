@@ -20,7 +20,7 @@ export default function MenuStatic() {
                 }`
               }
             >
-              Edit
+              Edit task
             </Menu.Item>
             <Menu.Item
               className={(state) =>
@@ -29,7 +29,7 @@ export default function MenuStatic() {
                 }`
               }
             >
-              Duplicate
+              Duplicate task
             </Menu.Item>
             <Menu.Item
               className={(state) =>
@@ -38,19 +38,16 @@ export default function MenuStatic() {
                 }`
               }
             >
-              Archive
+              Copy task link
             </Menu.Item>
-
-            <Menu.Separator className="my-1 w-full h-px bg-silver-2" />
-
             <Menu.Item
               className={(state) =>
-                `d-f py-2 pr-8 pl-4 fs-sm us-none c-p c-red br-lg mx-1 fw-500 ${
-                  state.highlighted ? "bg-red-1/50" : "h:bg-red-1"
+                `d-f py-2 pr-8 pl-4 fs-sm us-none c-p br-lg mx-1 fw-500 ${
+                  state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                 }`
               }
             >
-              Delete
+              Archive task
             </Menu.Item>
           </Menu.Popup>
         </Menu.Positioner>

@@ -1,12 +1,12 @@
 "use client";
 
-import { Folder } from "@gravity-ui/icons";
+import { FolderPlus } from "@gravity-ui/icons";
 
 export default function EmptyStateIcon() {
   return (
     <div className="d-f fd-c ai-c jc-c g-4 p-8">
       <div className="d-f ai-c jc-c w-10 h-10 bc-silver-3 c-indigo br-lg bw-1 bs-o-xs">
-        <Folder className="w-5 h-5" />
+        <FolderPlus className="w-5 h-5" />
       </div>
       <div className="d-f fd-c ai-c g-1 ta-c">
         <span className="c-slate-10 fs-md fw-500">No projects yet</span>
