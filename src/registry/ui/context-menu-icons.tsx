@@ -65,21 +65,11 @@ export default function ContextMenuIcons() {
                   <Link className="fs-0 w-4 h-4 c-slate-5" />
                   Copy task link
                 </ContextMenu.Item>
-                <ContextMenu.Item
-                  className={(state) =>
-                    `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm us-none c-p br-lg mx-1 fw-500 ${
-                      state.highlighted ? "bg-silver-1/50" : "bg-transparent"
-                    }`
-                  }
-                >
-                  <ArrowUpFromSquare className="fs-0 w-4 h-4 c-slate-5" />
-                  ArrowUpFromSquare task
-                </ContextMenu.Item>
                 <ContextMenu.Separator className="my-1 w-full h-px bg-silver-2" />
                 <ContextMenu.Item
                   className={(state) =>
-                    `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm us-none c-p br-lg mx-1 fw-500 ${
-                      state.highlighted ? "bg-silver-1/50" : "bg-transparent"
+                    `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm us-none c-red c-p br-lg mx-1 fw-500 ${
+                      state.highlighted ? "bg-red-1/50" : "bg-transparent"
                     }`
                   }
                 >
