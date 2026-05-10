@@ -3,16 +3,19 @@
 import { Menu } from "@base-ui/react/menu";
 import { Menubar } from "@base-ui/react/menubar";
 import {
-  ArrowDownToSquare,
-  ArrowUpFromSquare,
-  CloudArrowUpIn,
+  Calendar,
+  CirclePlus,
   Copy,
+  Dots9,
   File,
-  Folder,
-  LayoutHeaderCellsLargeFill,
+  FileArrowRightOut,
+  FolderPlus,
+  FontCursor,
   Link,
-  Pencil,
-  TrashBin,
+  ListTimeline,
+  ListUl,
+  Person,
+  Tray,
 } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
@@ -57,7 +60,7 @@ export default function MenubarIcons() {
                       }`
                     }
                   >
-                    <Pencil className="fs-0 w-4 h-4 c-slate-5" />
+                    <CirclePlus className="fs-0 w-4 h-4 c-slate-5" />
                     New task
                   </Menu.Item>
                   <Menu.Item
@@ -67,7 +70,7 @@ export default function MenubarIcons() {
                       }`
                     }
                   >
-                    <Folder className="fs-0 w-4 h-4 c-slate-5" />
+                    <FolderPlus className="fs-0 w-4 h-4 c-slate-5" />
                     New project
                   </Menu.Item>
                   <Menu.Item
@@ -77,7 +80,7 @@ export default function MenubarIcons() {
                       }`
                     }
                   >
-                    <CloudArrowUpIn className="fs-0 w-4 h-4 c-slate-5" />
+                    <File className="fs-0 w-4 h-4 c-slate-5" />
                     Import tasks
                   </Menu.Item>
                   <Menu.Item
@@ -87,7 +90,7 @@ export default function MenubarIcons() {
                       }`
                     }
                   >
-                    <ArrowDownToSquare className="fs-0 w-4 h-4 c-slate-5" />
+                    <FileArrowRightOut className="fs-0 w-4 h-4 c-slate-5" />
                     Export tasks
                   </Menu.Item>
                   <Menu.Item
@@ -97,7 +100,7 @@ export default function MenubarIcons() {
                       }`
                     }
                   >
-                    <TrashBin className="fs-0 w-4 h-4 c-slate-5" />
+                    <Tray className="fs-0 w-4 h-4 c-slate-5" />
                     Archive project
                   </Menu.Item>
                 </Menu.Popup>
@@ -139,7 +142,7 @@ export default function MenubarIcons() {
                       }`
                     }
                   >
-                    <Pencil className="fs-0 w-4 h-4 c-slate-5" />
+                    <FontCursor className="fs-0 w-4 h-4 c-slate-5" />
                     Rename task
                   </Menu.Item>
                   <Menu.Item
@@ -169,17 +172,7 @@ export default function MenubarIcons() {
                       }`
                     }
                   >
-                    <ArrowUpFromSquare className="fs-0 w-4 h-4 c-slate-5" />
-                    ArrowUpFromSquare task
-                  </Menu.Item>
-                  <Menu.Item
-                    className={(state) =>
-                      `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm us-none c-p br-lg mx-1 fw-500 ${
-                        state.highlighted ? "bg-silver-1/50" : "bg-transparent"
-                      }`
-                    }
-                  >
-                    <TrashBin className="fs-0 w-4 h-4 c-slate-5" />
+                    <Tray className="fs-0 w-4 h-4 c-slate-5" />
                     Archive task
                   </Menu.Item>
                 </Menu.Popup>
@@ -221,7 +214,7 @@ export default function MenubarIcons() {
                       }`
                     }
                   >
-                    <LayoutHeaderCellsLargeFill className="fs-0 w-4 h-4 c-slate-5" />
+                    <ListUl className="fs-0 w-4 h-4 c-slate-5" />
                     List view
                   </Menu.Item>
                   <Menu.Item
@@ -231,7 +224,7 @@ export default function MenubarIcons() {
                       }`
                     }
                   >
-                    <File className="fs-0 w-4 h-4 c-slate-5" />
+                    <Dots9 className="fs-0 w-4 h-4 c-slate-5" />
                     Board view
                   </Menu.Item>
                   <Menu.Item
@@ -241,7 +234,7 @@ export default function MenubarIcons() {
                       }`
                     }
                   >
-                    <Folder className="fs-0 w-4 h-4 c-slate-5" />
+                    <Calendar className="fs-0 w-4 h-4 c-slate-5" />
                     Calendar view
                   </Menu.Item>
                   <Menu.Item
@@ -251,7 +244,7 @@ export default function MenubarIcons() {
                       }`
                     }
                   >
-                    <LayoutHeaderCellsLargeFill className="fs-0 w-4 h-4 c-slate-5" />
+                    <ListTimeline className="fs-0 w-4 h-4 c-slate-5" />
                     Timeline view
                   </Menu.Item>
                 </Menu.Popup>
@@ -293,7 +286,7 @@ export default function MenubarIcons() {
                       }`
                     }
                   >
-                    <Folder className="fs-0 w-4 h-4 c-slate-5" />
+                    <Person className="fs-0 w-4 h-4 c-slate-5" />
                     Admin
                   </Menu.Item>
                   <Menu.Item
@@ -303,7 +296,7 @@ export default function MenubarIcons() {
                       }`
                     }
                   >
-                    <Folder className="fs-0 w-4 h-4 c-slate-5" />
+                    <Person className="fs-0 w-4 h-4 c-slate-5" />
                     Editor
                   </Menu.Item>
                   <Menu.Item
@@ -313,7 +306,7 @@ export default function MenubarIcons() {
                       }`
                     }
                   >
-                    <Folder className="fs-0 w-4 h-4 c-slate-5" />
+                    <Person className="fs-0 w-4 h-4 c-slate-5" />
                     Viewer
                   </Menu.Item>
                 </Menu.Popup>
