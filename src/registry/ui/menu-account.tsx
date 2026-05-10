@@ -5,9 +5,9 @@ import { Menu } from "@base-ui/react/menu";
 import {
   ArrowRightFromSquare,
   Check,
-  Gear,
-  House,
+  GearDot,
   Moon,
+  Person,
 } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
@@ -53,7 +53,7 @@ export default function MenuAccount() {
                     }`
                   }
                 >
-                  <House className="fs-0 w-4 h-4 c-slate-5" />
+                  <Person className="fs-0 w-4 h-4 c-slate-5" />
                   View profile
                 </Menu.Item>
                 <Menu.Item
@@ -63,8 +63,8 @@ export default function MenuAccount() {
                     }`
                   }
                 >
-                  <Gear className="fs-0 w-4 h-4 c-slate-5" />
-                  Account settings
+                  <GearDot className="fs-0 w-4 h-4 c-slate-5" />
+                  Settings
                 </Menu.Item>
                 <Menu.Item
                   className={(state) =>
