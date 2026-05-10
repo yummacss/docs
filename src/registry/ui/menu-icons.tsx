@@ -8,7 +8,7 @@ import {
   Flag,
   Pause,
   Pencil,
-  TrashBin,
+  Tray,
 } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
@@ -45,7 +45,7 @@ export default function MenuIcons() {
                   }
                 >
                   <Pencil className="fs-0 w-4 h-4 c-slate-5" />
-                  Rename
+                  Edit task
                 </Menu.Item>
                 <Menu.Item
                   className={(state) =>
@@ -55,7 +55,7 @@ export default function MenuIcons() {
                   }
                 >
                   <Copy className="fs-0 w-4 h-4 c-slate-5" />
-                  Duplicate
+                  Duplicate task
                 </Menu.Item>
                 <Menu.Item
                   className={(state) =>
@@ -65,11 +65,8 @@ export default function MenuIcons() {
                   }
                 >
                   <ArrowUpFromSquare className="fs-0 w-4 h-4 c-slate-5" />
-                  Share
+                  Copy task link
                 </Menu.Item>
-
-                <Menu.Separator className="my-1 w-full h-px bg-silver-2" />
-
                 <Menu.Item
                   className={(state) =>
                     `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm us-none c-p br-lg mx-1 fw-500 ${
@@ -78,7 +75,7 @@ export default function MenuIcons() {
                   }
                 >
                   <Flag className="fs-0 w-4 h-4 c-slate-5" />
-                  Mark as spam
+                  Set priority
                 </Menu.Item>
                 <Menu.Item
                   className={(state) =>
@@ -88,20 +85,17 @@ export default function MenuIcons() {
                   }
                 >
                   <Pause className="fs-0 w-4 h-4 c-slate-5" />
-                  Pause
+                  Pause task
                 </Menu.Item>
-
-                <Menu.Separator className="my-1 w-full h-px bg-silver-2" />
-
                 <Menu.Item
                   className={(state) =>
-                    `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm us-none c-p c-red br-lg mx-1 fw-500 ${
-                      state.highlighted ? "bg-red-1/50" : "bg-transparent"
+                    `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm us-none c-p br-lg mx-1 fw-500 ${
+                      state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                     }`
                   }
                 >
-                  <TrashBin className="fs-0 w-4 h-4" />
-                  Delete
+                  <Tray className="fs-0 w-4 h-4 c-slate-5" />
+                  Archive task
                 </Menu.Item>
               </Menu.Popup>
             </Menu.Positioner>

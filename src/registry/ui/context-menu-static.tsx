@@ -1,7 +1,7 @@
 "use client";
 
 import { ContextMenu } from "@base-ui/react/context-menu";
-import { Eye, Link, PersonPlus, Pin, TrashBin, Xmark } from "@gravity-ui/icons";
+import { Eye, Link, PersonPlus, Pin, Tray, Xmark } from "@gravity-ui/icons";
 import { useState } from "react";
 
 export default function ContextMenuStatic() {
@@ -79,7 +79,7 @@ export default function ContextMenuStatic() {
                 }`
               }
             >
-              <TrashBin className="fs-0 w-4 h-4" />
+              <Tray className="fs-0 w-4 h-4" />
               Archive task
             </ContextMenu.Item>
           </ContextMenu.Popup>

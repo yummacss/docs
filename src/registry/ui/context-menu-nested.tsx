@@ -8,7 +8,7 @@ import {
   Flag,
   Pencil,
   PersonPlus,
-  TrashBin,
+  Tray,
 } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
@@ -162,7 +162,7 @@ export default function ContextMenuNested() {
                     }`
                   }
                 >
-                  <TrashBin className="fs-0 w-4 h-4" />
+                  <Tray className="fs-0 w-4 h-4" />
                   Archive task
                 </ContextMenu.Item>
               </ContextMenu.Popup>

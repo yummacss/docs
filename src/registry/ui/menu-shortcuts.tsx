@@ -2,13 +2,13 @@
 
 import { Menu } from "@base-ui/react/menu";
 import {
-  ArrowUpFromSquare,
-  ArrowUturnCcwLeft,
   ChevronDown,
   Copy,
-  Pencil,
-  Star,
+  Link,
+  PencilToSquare,
+  Pin,
   TrashBin,
+  Tray,
 } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
@@ -45,8 +45,8 @@ export default function MenuShortcuts() {
                   }
                 >
                   <span className="d-f ai-c g-2 fg-1">
-                    <Pencil className="fs-0 w-4 h-4 c-slate-5" />
-                    Rename
+                    <PencilToSquare className="fs-0 w-4 h-4 c-slate-5" />
+                    Edit task
                   </span>
                   <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
                     <span>F2</span>
@@ -61,7 +61,7 @@ export default function MenuShortcuts() {
                 >
                   <span className="d-f ai-c g-2 fg-1">
                     <Copy className="fs-0 w-4 h-4 c-slate-5" />
-                    Duplicate
+                    Duplicate task
                   </span>
                   <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
                     <span>⌘</span>
@@ -76,33 +76,13 @@ export default function MenuShortcuts() {
                   }
                 >
                   <span className="d-f ai-c g-2 fg-1">
-                    <ArrowUpFromSquare className="fs-0 w-4 h-4 c-slate-5" />
-                    Share
+                    <Link className="fs-0 w-4 h-4 c-slate-5" />
+                    Copy link
                   </span>
                   <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
                     <span>⌘</span>
                     <span>⇧</span>
-                    <span>S</span>
-                  </span>
-                </Menu.Item>
-
-                <Menu.Separator className="my-1 w-full h-px bg-silver-2" />
-
-                <Menu.Item
-                  className={(state) =>
-                    `d-f ai-c jc-sb g-2 py-2 pr-3 pl-3 fs-sm fw-500 us-none c-p br-lg mx-1 ${
-                      state.highlighted ? "bg-silver-1/50" : "bg-transparent"
-                    }`
-                  }
-                >
-                  <span className="d-f ai-c g-2 fg-1">
-                    <Star className="fs-0 w-4 h-4 c-slate-5" />
-                    Add to favorites
-                  </span>
-                  <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
-                    <span>⌘</span>
-                    <span>⇧</span>
-                    <span>F</span>
+                    <span>C</span>
                   </span>
                 </Menu.Item>
                 <Menu.Item
@@ -113,31 +93,43 @@ export default function MenuShortcuts() {
                   }
                 >
                   <span className="d-f ai-c g-2 fg-1">
-                    <ArrowUturnCcwLeft className="fs-0 w-4 h-4 c-slate-5" />
-                    Move to trash
+                    <Pin className="fs-0 w-4 h-4 c-slate-5" />
+                    Pin task
                   </span>
                   <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
                     <span>⌘</span>
-                    <span>⌫</span>
+                    <span>P</span>
                   </span>
                 </Menu.Item>
-
-                <Menu.Separator className="my-1 w-full h-px bg-silver-2" />
-
                 <Menu.Item
                   className={(state) =>
-                    `d-f ai-c jc-sb g-2 py-2 pr-3 pl-3 fs-sm fw-500 us-none c-red c-p br-lg mx-1 ${
-                      state.highlighted ? "bg-red-1/50" : "bg-transparent"
+                    `d-f ai-c jc-sb g-2 py-2 pr-3 pl-3 fs-sm fw-500 us-none c-p br-lg mx-1 ${
+                      state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                     }`
                   }
                 >
                   <span className="d-f ai-c g-2 fg-1">
-                    <TrashBin className="fs-0 w-4 h-4" />
-                    Delete permanently
+                    <Tray className="fs-0 w-4 h-4 c-slate-5" />
+                    Archive task
                   </span>
-                  <span className="d-f ai-c g-1 c-red fw-400 fs-xs">
+                  <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
                     <span>⌘</span>
-                    <span>⇧</span>
+                    <span>E</span>
+                  </span>
+                </Menu.Item>
+                <Menu.Item
+                  className={(state) =>
+                    `d-f ai-c jc-sb g-2 py-2 pr-3 pl-3 fs-sm fw-500 us-none c-p br-lg mx-1 ${
+                      state.highlighted ? "bg-silver-1/50" : "bg-transparent"
+                    }`
+                  }
+                >
+                  <span className="d-f ai-c g-2 fg-1">
+                    <TrashBin className="fs-0 w-4 h-4 c-slate-5" />
+                    Delete task
+                  </span>
+                  <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
+                    <span>⌘</span>
                     <span>⌫</span>
                   </span>
                 </Menu.Item>

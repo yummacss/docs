@@ -2,12 +2,12 @@
 
 import { Menu } from "@base-ui/react/menu";
 import {
-  ArrowUpFromSquare,
+  Briefcase,
   ChevronDown,
-  Gear,
+  GearDot,
   House,
-  Person,
-  TrashBin,
+  PersonPlanetEarth,
+  Tray,
 } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
@@ -45,7 +45,7 @@ export default function MenuGrouped() {
                     }
                   >
                     <House className="fs-0 w-4 h-4 c-slate-5" />
-                    Dashboard
+                    My tasks
                   </Menu.Item>
                   <Menu.Item
                     className={(state) =>
@@ -54,7 +54,7 @@ export default function MenuGrouped() {
                       }`
                     }
                   >
-                    <ArrowUpFromSquare className="fs-0 w-4 h-4 c-slate-5" />
+                    <PersonPlanetEarth className="fs-0 w-4 h-4 c-slate-5" />
                     Shared with me
                   </Menu.Item>
                   <Menu.Item
@@ -64,8 +64,8 @@ export default function MenuGrouped() {
                       }`
                     }
                   >
-                    <Person className="fs-0 w-4 h-4 c-slate-5" />
-                    Personal
+                    <Briefcase className="fs-0 w-4 h-4 c-slate-5" />
+                    My projects
                   </Menu.Item>
                 </Menu.Group>
 
@@ -79,23 +79,18 @@ export default function MenuGrouped() {
                       }`
                     }
                   >
-                    <Gear className="fs-0 w-4 h-4 c-slate-5" />
-                    Preferences
+                    <GearDot className="fs-0 w-4 h-4 c-slate-5" />
+                    Project settings
                   </Menu.Item>
-                </Menu.Group>
-
-                <Menu.Separator className="my-1 w-full h-px bg-silver-2" />
-
-                <Menu.Group>
                   <Menu.Item
                     className={(state) =>
-                      `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm fw-500 us-none c-red c-p br-lg mx-1 ${
-                        state.highlighted ? "bg-red-1/50" : "bg-transparent"
+                      `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
+                        state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
                   >
-                    <TrashBin className="fs-0 w-4 h-4" />
-                    Trash
+                    <Tray className="fs-0 w-4 h-4 c-slate-5" />
+                    Archive
                   </Menu.Item>
                 </Menu.Group>
               </Menu.Popup>
