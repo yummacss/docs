@@ -12,7 +12,7 @@
       "!.next",
       "!dist",
       "!build",
-      "!*.css",
+      "!src/styles/out.css",
       "!src/registry/index.ts"
     ]
   },
