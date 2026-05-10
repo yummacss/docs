@@ -17,8 +17,15 @@ export default function MenubarStatic() {
           File
         </Menu.Trigger>
         <Menu.Portal>
-          <Menu.Positioner className="ow-0" sideOffset={6}>
-            <Menu.Popup className="py-1 bg-white bc-silver-2 c-slate-10 br-xl bw-1 bs-o-xs">
+          <Menu.Positioner className="ow-0" sideOffset={8}>
+            <Menu.Popup className="py-1 w-28 bg-white bc-silver-2 c-slate-10 br-xl bw-1 bs-o-xs">
+              <Menu.Item
+                className={(state) =>
+                  `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p br-lg mx-1 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                }
+              >
+                New task
+              </Menu.Item>
               <Menu.Item
                 className={(state) =>
                   `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p br-lg mx-1 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
@@ -31,14 +38,7 @@ export default function MenubarStatic() {
                   `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p br-lg mx-1 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
                 }
               >
-                Open file
-              </Menu.Item>
-              <Menu.Item
-                className={(state) =>
-                  `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p br-lg mx-1 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
-                }
-              >
-                Save
+                Import tasks
               </Menu.Item>
               <Menu.Separator className="my-1 w-full h-px bg-silver-2" />
               <Menu.Item
@@ -46,7 +46,7 @@ export default function MenubarStatic() {
                   `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p br-lg mx-1 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
                 }
               >
-                Print
+                Export tasks
               </Menu.Item>
             </Menu.Popup>
           </Menu.Positioner>
@@ -64,21 +64,21 @@ export default function MenubarStatic() {
           Edit
         </Menu.Trigger>
         <Menu.Portal>
-          <Menu.Positioner className="ow-0" sideOffset={6}>
-            <Menu.Popup className="py-1 bg-white bc-silver-2 c-slate-10 br-xl bw-1 bs-o-xs">
+          <Menu.Positioner className="ow-0" sideOffset={8}>
+            <Menu.Popup className="py-1 w-28 bg-white bc-silver-2 c-slate-10 br-xl bw-1 bs-o-xs">
               <Menu.Item
                 className={(state) =>
                   `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p br-lg mx-1 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
                 }
               >
-                Undo action
+                Undo
               </Menu.Item>
               <Menu.Item
                 className={(state) =>
                   `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p br-lg mx-1 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
                 }
               >
-                Redo action
+                Redo
               </Menu.Item>
               <Menu.Separator className="my-1 w-full h-px bg-silver-2" />
               <Menu.Item
@@ -86,21 +86,21 @@ export default function MenubarStatic() {
                   `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p br-lg mx-1 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
                 }
               >
-                Cut selection
+                Cut
               </Menu.Item>
               <Menu.Item
                 className={(state) =>
                   `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p br-lg mx-1 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
                 }
               >
-                Copy text
+                Copy
               </Menu.Item>
               <Menu.Item
                 className={(state) =>
                   `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p br-lg mx-1 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
                 }
               >
-                Paste content
+                Paste
               </Menu.Item>
             </Menu.Popup>
           </Menu.Positioner>
@@ -118,21 +118,21 @@ export default function MenubarStatic() {
           View
         </Menu.Trigger>
         <Menu.Portal>
-          <Menu.Positioner className="ow-0" sideOffset={6}>
-            <Menu.Popup className="py-1 bg-white bc-silver-2 c-slate-10 br-xl bw-1 bs-o-xs">
+          <Menu.Positioner className="ow-0" sideOffset={8}>
+            <Menu.Popup className="py-1 w-28 bg-white bc-silver-2 c-slate-10 br-xl bw-1 bs-o-xs">
               <Menu.Item
                 className={(state) =>
                   `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p br-lg mx-1 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
                 }
               >
-                Zoom in
+                Board view
               </Menu.Item>
               <Menu.Item
                 className={(state) =>
                   `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p br-lg mx-1 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
                 }
               >
-                Zoom out
+                List view
               </Menu.Item>
               <Menu.Separator className="my-1 w-full h-px bg-silver-2" />
               <Menu.Item
@@ -140,7 +140,7 @@ export default function MenubarStatic() {
                   `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p br-lg mx-1 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
                 }
               >
-                Full screen
+                Toggle sidebar
               </Menu.Item>
             </Menu.Popup>
           </Menu.Positioner>
@@ -149,7 +149,7 @@ export default function MenubarStatic() {
 
       <Menu.Root disabled>
         <Menu.Trigger className="h-8 px-3 bg-transparent c-slate-10 br-lg fs-sm fw-500 o-50 us-none">
-          Help
+          Team
         </Menu.Trigger>
       </Menu.Root>
     </Menubar>

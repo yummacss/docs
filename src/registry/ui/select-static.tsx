@@ -35,7 +35,7 @@ export default function SelectStatic() {
         </Select.Trigger>
         <Select.Portal>
           <Select.Positioner
-            sideOffset={6}
+            sideOffset={8}
             alignItemWithTrigger={false}
             className="zi-10 p-0 ow-0 us-none"
           >

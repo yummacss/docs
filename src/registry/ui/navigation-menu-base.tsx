@@ -110,7 +110,7 @@ export default function NavigationMenuBase() {
       </NavigationMenu.List>
 
       <NavigationMenu.Portal>
-        <NavigationMenu.Positioner sideOffset={10}>
+        <NavigationMenu.Positioner sideOffset={8}>
           <NavigationMenu.Popup
             render={
               <motion.div

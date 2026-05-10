@@ -44,7 +44,7 @@ export default function ComboboxLoading() {
       <AnimatePresence>
         {open && (
           <Combobox.Portal keepMounted>
-            <Combobox.Positioner className="ow-0" sideOffset={4}>
+            <Combobox.Positioner className="ow-0" sideOffset={8}>
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
