@@ -3,7 +3,7 @@
 import { Avatar } from "@base-ui/react/avatar";
 import { Menu } from "@base-ui/react/menu";
 import {
-ArrowRightFromSquare,
+  ArrowRightFromSquare,
   Bell,
   ChevronDown,
   ChevronRight,

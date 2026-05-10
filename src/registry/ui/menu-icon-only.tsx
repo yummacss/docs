@@ -1,7 +1,14 @@
 "use client";
 
 import { Menu } from "@base-ui/react/menu";
-import { EllipsisVertical, FileArrowRightOut, Folder, Pencil, TrashBin, Tray } from "@gravity-ui/icons";
+import {
+  EllipsisVertical,
+  FileArrowRightOut,
+  Folder,
+  Pencil,
+  TrashBin,
+  Tray,
+} from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
