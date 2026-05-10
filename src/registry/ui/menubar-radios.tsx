@@ -30,10 +30,10 @@ export default function MenubarRadios() {
                 <Menu.Popup
                   render={
                     <motion.div
-                      initial={{ opacity: 0, scale: 0.95 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0.95 }}
-                      transition={{ duration: 0.1, ease: "easeOut" }}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.15, ease: "easeOut" }}
                     />
                   }
                   className="py-1 w-48 bg-white bc-silver-2 c-slate-10 br-xl bw-1 bs-o-xs"
@@ -57,7 +57,7 @@ export default function MenubarRadios() {
                       >
                         <span className="d-f ai-c jc-c fs-0 w-4 h-4 bc-silver-3 br-pill bw-1">
                           <Menu.RadioItemIndicator>
-                            <span className="w-2 h-2 br-pill bg-indigo" />
+                            <span className="w-2 h-2 bg-indigo br-pill" />
                           </Menu.RadioItemIndicator>
                         </span>
                         {option.label}
@@ -88,10 +88,10 @@ export default function MenubarRadios() {
                 <Menu.Popup
                   render={
                     <motion.div
-                      initial={{ opacity: 0, scale: 0.95 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0.95 }}
-                      transition={{ duration: 0.1, ease: "easeOut" }}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.15, ease: "easeOut" }}
                     />
                   }
                   className="py-1 w-48 bg-white bc-silver-2 c-slate-10 br-xl bw-1 bs-o-xs"
@@ -115,7 +115,7 @@ export default function MenubarRadios() {
                       >
                         <span className="d-f ai-c jc-c fs-0 w-4 h-4 bc-silver-3 br-pill bw-1">
                           <Menu.RadioItemIndicator>
-                            <span className="w-2 h-2 br-pill bg-indigo" />
+                            <span className="w-2 h-2 bg-indigo br-pill" />
                           </Menu.RadioItemIndicator>
                         </span>
                         {option.label}

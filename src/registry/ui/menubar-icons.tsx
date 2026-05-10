@@ -41,10 +41,10 @@ export default function MenubarIcons() {
                 <Menu.Popup
                   render={
                     <motion.div
-                      initial={{ opacity: 0, scale: 0.95 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0.95 }}
-                      transition={{ duration: 0.1, ease: "easeOut" }}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.15, ease: "easeOut" }}
                     />
                   }
                   className="py-1 bg-white bc-silver-2 c-slate-10 br-xl bw-1 bs-o-xs"
@@ -123,10 +123,10 @@ export default function MenubarIcons() {
                 <Menu.Popup
                   render={
                     <motion.div
-                      initial={{ opacity: 0, scale: 0.95 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0.95 }}
-                      transition={{ duration: 0.1, ease: "easeOut" }}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.15, ease: "easeOut" }}
                     />
                   }
                   className="py-1 bg-white bc-silver-2 c-slate-10 br-xl bw-1 bs-o-xs"
@@ -205,10 +205,10 @@ export default function MenubarIcons() {
                 <Menu.Popup
                   render={
                     <motion.div
-                      initial={{ opacity: 0, scale: 0.95 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0.95 }}
-                      transition={{ duration: 0.1, ease: "easeOut" }}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.15, ease: "easeOut" }}
                     />
                   }
                   className="py-1 bg-white bc-silver-2 c-slate-10 br-xl bw-1 bs-o-xs"
