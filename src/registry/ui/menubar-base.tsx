@@ -9,6 +9,7 @@ export default function MenubarBase() {
   const [fileOpen, setFileOpen] = useState(false);
   const [editOpen, setEditOpen] = useState(false);
   const [viewOpen, setViewOpen] = useState(false);
+  const [shortcutsOpen, setShortcutsOpen] = useState(false);
 
   return (
     <Menubar className="d-f g-1 p-1 bg-white bc-silver-2 br-lg bw-1">
@@ -20,7 +21,7 @@ export default function MenubarBase() {
             }`
           }
         >
-          File
+          Project
         </Menu.Trigger>
         <AnimatePresence>
           {fileOpen && (
@@ -42,21 +43,21 @@ export default function MenubarBase() {
                       `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p br-lg mx-1 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
                     }
                   >
-                    New
+                    New task
                   </Menu.Item>
                   <Menu.Item
                     className={(state) =>
                       `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p br-lg mx-1 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
                     }
                   >
-                    Import
+                    Import tasks
                   </Menu.Item>
                   <Menu.Item
                     className={(state) =>
                       `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p br-lg mx-1 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
                     }
                   >
-                    Export
+                    Export tasks
                   </Menu.Item>
                 </Menu.Popup>
               </Menu.Positioner>
@@ -73,7 +74,7 @@ export default function MenubarBase() {
             }`
           }
         >
-          Edit
+          Assign
         </Menu.Trigger>
         <AnimatePresence>
           {editOpen && (
@@ -95,21 +96,21 @@ export default function MenubarBase() {
                       `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p br-lg mx-1 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
                     }
                   >
-                    Cut
+                    Assign task
                   </Menu.Item>
                   <Menu.Item
                     className={(state) =>
                       `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p br-lg mx-1 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
                     }
                   >
-                    Copy
+                    Reassign task
                   </Menu.Item>
                   <Menu.Item
                     className={(state) =>
                       `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p br-lg mx-1 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
                     }
                   >
-                    Paste
+                    Bulk assign
                   </Menu.Item>
                 </Menu.Popup>
               </Menu.Positioner>
@@ -148,21 +149,21 @@ export default function MenubarBase() {
                       `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p br-lg mx-1 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
                     }
                   >
-                    Board
+                    Board view
                   </Menu.Item>
                   <Menu.Item
                     className={(state) =>
                       `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p br-lg mx-1 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
                     }
                   >
-                    List
+                    List view
                   </Menu.Item>
                   <Menu.Item
                     className={(state) =>
                       `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p br-lg mx-1 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
                     }
                   >
-                    Zoom
+                    Timeline view
                   </Menu.Item>
                 </Menu.Popup>
               </Menu.Positioner>
@@ -171,10 +172,50 @@ export default function MenubarBase() {
         </AnimatePresence>
       </Menu.Root>
 
-      <Menu.Root disabled>
-        <Menu.Trigger className="h-8 px-3 bg-transparent c-slate-10 br-lg fs-sm fw-500 o-50 us-none">
-          Help
+      <Menu.Root open={shortcutsOpen} onOpenChange={setShortcutsOpen}>
+        <Menu.Trigger
+          className={(state) =>
+            `h-8 br-lg px-3 fs-sm fw-500 c-slate-10 us-none c-p b-0 bg-transparent ${
+              state.open ? "bg-silver-1/50" : "bg-transparent"
+            }`
+          }
+        >
+          Shortcuts
         </Menu.Trigger>
+        <AnimatePresence>
+          {shortcutsOpen && (
+            <Menu.Portal keepMounted>
+              <Menu.Positioner className="ow-0" sideOffset={8}>
+                <Menu.Popup
+                  render={
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.15, ease: "easeOut" }}
+                    />
+                  }
+                  className="py-1 bg-white bc-silver-2 c-slate-10 br-xl bw-1 bs-o-xs"
+                >
+                  <Menu.Item
+                    className={(state) =>
+                      `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p br-lg mx-1 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                    }
+                  >
+                    Keyboard shortcuts
+                  </Menu.Item>
+                  <Menu.Item
+                    className={(state) =>
+                      `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p br-lg mx-1 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                    }
+                  >
+                    Cheat sheet
+                  </Menu.Item>
+                </Menu.Popup>
+              </Menu.Positioner>
+            </Menu.Portal>
+          )}
+        </AnimatePresence>
       </Menu.Root>
     </Menubar>
   );
