@@ -3,15 +3,16 @@
 import { Avatar } from "@base-ui/react/avatar";
 import { Menu } from "@base-ui/react/menu";
 import {
-  ArrowRightFromSquare,
+ArrowRightFromSquare,
   Bell,
   ChevronDown,
   ChevronRight,
+  CircleQuestionDot,
   Folder,
   GearDot,
   ListCheck,
+  Lock,
   Person,
-  Sliders,
 } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
@@ -101,18 +102,8 @@ export default function MenuAccountStatus() {
                     }`
                   }
                 >
-                  <Sliders className="fs-0 w-4 h-4 c-slate-5" />
-                  Preferences
-                </Menu.Item>
-                <Menu.Item
-                  className={(state) =>
-                    `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
-                      state.highlighted ? "bg-silver-1/50" : "bg-transparent"
-                    }`
-                  }
-                >
-                  <Bell className="fs-0 w-4 h-4 c-slate-5" />
-                  Notifications
+                  <CircleQuestionDot className="fs-0 w-4 h-4 c-slate-5" />
+                  Help
                 </Menu.Item>
                 <Menu.Separator className="my-1 w-full h-px bg-silver-2" />
                 <Menu.SubmenuRoot>
