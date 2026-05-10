@@ -1,4 +1,6 @@
-*, :before, :after {
+*,
+:before,
+:after {
   box-sizing: border-box;
   border: 0 solid;
 }
@@ -9,7 +11,20 @@
 }
 
 html {
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Noto Sans, Liberation Sans, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  font-family:
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Helvetica Neue,
+    Noto Sans,
+    Liberation Sans,
+    Arial,
+    sans-serif,
+    Apple Color Emoji,
+    Segoe UI Emoji,
+    Segoe UI Symbol,
+    Noto Color Emoji;
 }
 
 body {
@@ -18,18 +33,30 @@ body {
   line-height: 1.5;
 }
 
-canvas, img, picture, svg, video {
+canvas,
+img,
+picture,
+svg,
+video {
   max-width: 100%;
   display: block;
 }
 
-button, input, optgroup, select, textarea {
+button,
+input,
+optgroup,
+select,
+textarea {
   background-color: transparent;
-  padding: .5rem;
+  padding: 0.5rem;
   font-family: inherit;
 }
 
-button:not([class]), input:not([class]), optgroup:not([class]), select:not([class]), textarea:not([class]) {
+button:not([class]),
+input:not([class]),
+optgroup:not([class]),
+select:not([class]),
+textarea:not([class]) {
   border: 1px solid #bfc2c7;
 }
 
@@ -45,16 +72,30 @@ button {
   cursor: pointer;
 }
 
-button:disabled, input:disabled, select:disabled, textarea:disabled {
+button:disabled,
+input:disabled,
+select:disabled,
+textarea:disabled {
   cursor: not-allowed;
-  opacity: .5;
+  opacity: 0.5;
 }
 
-h1, h2, h3, h4, h5, h6, p {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
   overflow-wrap: break-word;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   text-wrap: balance;
   font-size: 1rem;
   font-weight: 600;
@@ -64,7 +105,8 @@ p {
   text-wrap: pretty;
 }
 
-b, strong {
+b,
+strong {
   font-weight: 700;
 }
 
@@ -73,7 +115,10 @@ small {
   line-height: 1.4;
 }
 
-pre, code, kbd, samp {
+pre,
+code,
+kbd,
+samp {
   font-family: monospace;
   font-size: 1em;
 }
@@ -83,7 +128,8 @@ a {
   text-decoration: none;
 }
 
-ol, ul {
+ol,
+ul {
   padding: 0;
   list-style: none;
 }
@@ -106,7 +152,6 @@ details {
 summary {
   display: list-item;
 }
-
 
 .a-none {
   appearance: none;
@@ -185,11 +230,11 @@ summary {
 }
 
 .b-1 {
-  bottom: .25rem;
+  bottom: 0.25rem;
 }
 
 .b-2 {
-  bottom: .5rem;
+  bottom: 0.5rem;
 }
 
 .b-4 {
@@ -716,15 +761,21 @@ summary {
 }
 
 .bs-o-lg {
-  box-shadow: 0 10px 15px -3px #0000001a, 0 4px 6px -4px #0000001a;
+  box-shadow:
+    0 10px 15px -3px #0000001a,
+    0 4px 6px -4px #0000001a;
 }
 
 .bs-o-md {
-  box-shadow: 0 4px 6px -1px #0000001a, 0 2px 4px -2px #0000001a;
+  box-shadow:
+    0 4px 6px -1px #0000001a,
+    0 2px 4px -2px #0000001a;
 }
 
 .bs-o-sm {
-  box-shadow: 0 1px 3px #0000001a, 0 1px 2px -1px #0000001a;
+  box-shadow:
+    0 1px 3px #0000001a,
+    0 1px 2px -1px #0000001a;
 }
 
 .bs-o-xs {
@@ -1078,7 +1129,7 @@ summary {
 }
 
 .cg-1 {
-  column-gap: .25rem;
+  column-gap: 0.25rem;
 }
 
 .cg-8 {
@@ -1178,15 +1229,43 @@ summary {
 }
 
 .ff-d {
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Noto Sans, Liberation Sans, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  font-family:
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Helvetica Neue,
+    Noto Sans,
+    Liberation Sans,
+    Arial,
+    sans-serif,
+    Apple Color Emoji,
+    Segoe UI Emoji,
+    Segoe UI Symbol,
+    Noto Color Emoji;
 }
 
 .ff-m {
-  font-family: ui-monospace, Cascadia Code, Source Code Pro, Menlo, Roboto Mono, Ubuntu Mono, Consolas, Liberation Mono, Courier New, monospace;
+  font-family:
+    ui-monospace,
+    Cascadia Code,
+    Source Code Pro,
+    Menlo,
+    Roboto Mono,
+    Ubuntu Mono,
+    Consolas,
+    Liberation Mono,
+    Courier New,
+    monospace;
 }
 
 .ff-s {
-  font-family: Iowan Old Style, Palatino Linotype, URW Palladio L, P052, serif;
+  font-family:
+    Iowan Old Style,
+    Palatino Linotype,
+    URW Palladio L,
+    P052,
+    serif;
 }
 
 .fg-1 {
@@ -1334,7 +1413,7 @@ summary {
 }
 
 .g-1 {
-  gap: .25rem;
+  gap: 0.25rem;
 }
 
 .g-12 {
@@ -1342,11 +1421,11 @@ summary {
 }
 
 .g-2 {
-  gap: .5rem;
+  gap: 0.5rem;
 }
 
 .g-3 {
-  gap: .75rem;
+  gap: 0.75rem;
 }
 
 .g-4 {
@@ -1382,7 +1461,7 @@ summary {
 }
 
 .h-1 {
-  height: .25rem;
+  height: 0.25rem;
 }
 
 .h-10 {
@@ -1406,7 +1485,7 @@ summary {
 }
 
 .h-2 {
-  height: .5rem;
+  height: 0.5rem;
 }
 
 .h-20 {
@@ -1418,7 +1497,7 @@ summary {
 }
 
 .h-3 {
-  height: .75rem;
+  height: 0.75rem;
 }
 
 .h-32 {
@@ -1626,7 +1705,7 @@ summary {
 }
 
 .i-2 {
-  inset: .5rem;
+  inset: 0.5rem;
 }
 
 .is-i {
@@ -1663,7 +1742,7 @@ summary {
 }
 
 .l--3 {
-  left: -.75rem;
+  left: -0.75rem;
 }
 
 .l--4 {
@@ -1675,11 +1754,11 @@ summary {
 }
 
 .l-1 {
-  left: .25rem;
+  left: 0.25rem;
 }
 
 .l-3 {
-  left: .75rem;
+  left: 0.75rem;
 }
 
 .l-4 {
@@ -1715,23 +1794,23 @@ summary {
 }
 
 .ls--1 {
-  letter-spacing: .05em;
+  letter-spacing: 0.05em;
 }
 
 .ls-1 {
-  letter-spacing: -.05em;
+  letter-spacing: -0.05em;
 }
 
 .ls-2 {
-  letter-spacing: -.025em;
+  letter-spacing: -0.025em;
 }
 
 .ls-3 {
-  letter-spacing: .025em;
+  letter-spacing: 0.025em;
 }
 
 .ls-4 {
-  letter-spacing: .05em;
+  letter-spacing: 0.05em;
 }
 
 .lst-d {
@@ -1783,7 +1862,7 @@ summary {
 }
 
 .mb-1 {
-  margin-bottom: .25rem;
+  margin-bottom: 0.25rem;
 }
 
 .mb-10 {
@@ -1799,11 +1878,11 @@ summary {
 }
 
 .mb-2 {
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
 .mb-3 {
-  margin-bottom: .75rem;
+  margin-bottom: 0.75rem;
 }
 
 .mb-4 {
@@ -1843,7 +1922,7 @@ summary {
 }
 
 .ml--2 {
-  margin-left: -.5rem;
+  margin-left: -0.5rem;
 }
 
 .ml--4 {
@@ -1855,15 +1934,15 @@ summary {
 }
 
 .ml-1 {
-  margin-left: .25rem;
+  margin-left: 0.25rem;
 }
 
 .ml-2 {
-  margin-left: .5rem;
+  margin-left: 0.5rem;
 }
 
 .ml-3 {
-  margin-left: .75rem;
+  margin-left: 0.75rem;
 }
 
 .ml-4 {
@@ -1883,7 +1962,7 @@ summary {
 }
 
 .mr-2 {
-  margin-right: .5rem;
+  margin-right: 0.5rem;
 }
 
 .mr-5 {
@@ -1891,7 +1970,7 @@ summary {
 }
 
 .mt-1 {
-  margin-top: .25rem;
+  margin-top: 0.25rem;
 }
 
 .mt-12 {
@@ -1919,7 +1998,7 @@ summary {
 }
 
 .mx-1 {
-  margin-inline: .25rem;
+  margin-inline: 0.25rem;
 }
 
 .mx-auto {
@@ -1927,7 +2006,7 @@ summary {
 }
 
 .my-1 {
-  margin-block: .25rem;
+  margin-block: 0.25rem;
 }
 
 .my-16 {
@@ -1935,11 +2014,11 @@ summary {
 }
 
 .my-2 {
-  margin-block: .5rem;
+  margin-block: 0.5rem;
 }
 
 .my-3 {
-  margin-block: .75rem;
+  margin-block: 0.75rem;
 }
 
 .my-4 {
@@ -1959,11 +2038,11 @@ summary {
 }
 
 .o-50 {
-  opacity: .5;
+  opacity: 0.5;
 }
 
 .o-60 {
-  opacity: .6;
+  opacity: 0.6;
 }
 
 .o-auto {
@@ -2019,7 +2098,7 @@ summary {
 }
 
 .p-1 {
-  padding: .25rem;
+  padding: 0.25rem;
 }
 
 .p-10 {
@@ -2027,11 +2106,11 @@ summary {
 }
 
 .p-2 {
-  padding: .5rem;
+  padding: 0.5rem;
 }
 
 .p-3 {
-  padding: .75rem;
+  padding: 0.75rem;
 }
 
 .p-4 {
@@ -2091,11 +2170,11 @@ summary {
 }
 
 .pb-2 {
-  padding-bottom: .5rem;
+  padding-bottom: 0.5rem;
 }
 
 .pb-3 {
-  padding-bottom: .75rem;
+  padding-bottom: 0.75rem;
 }
 
 .pb-4 {
@@ -2123,11 +2202,11 @@ summary {
 }
 
 .pl-2 {
-  padding-left: .5rem;
+  padding-left: 0.5rem;
 }
 
 .pl-3 {
-  padding-left: .75rem;
+  padding-left: 0.75rem;
 }
 
 .pl-4 {
@@ -2155,7 +2234,7 @@ summary {
 }
 
 .pr-3 {
-  padding-right: .75rem;
+  padding-right: 0.75rem;
 }
 
 .pr-4 {
@@ -2175,7 +2254,7 @@ summary {
 }
 
 .pt-1 {
-  padding-top: .25rem;
+  padding-top: 0.25rem;
 }
 
 .pt-12 {
@@ -2187,11 +2266,11 @@ summary {
 }
 
 .pt-2 {
-  padding-top: .5rem;
+  padding-top: 0.5rem;
 }
 
 .pt-3 {
-  padding-top: .75rem;
+  padding-top: 0.75rem;
 }
 
 .pt-6 {
@@ -2207,15 +2286,15 @@ summary {
 }
 
 .px-1 {
-  padding-inline: .25rem;
+  padding-inline: 0.25rem;
 }
 
 .px-2 {
-  padding-inline: .5rem;
+  padding-inline: 0.5rem;
 }
 
 .px-3 {
-  padding-inline: .75rem;
+  padding-inline: 0.75rem;
 }
 
 .px-4 {
@@ -2239,15 +2318,15 @@ summary {
 }
 
 .py-1 {
-  padding-block: .25rem;
+  padding-block: 0.25rem;
 }
 
 .py-2 {
-  padding-block: .5rem;
+  padding-block: 0.5rem;
 }
 
 .py-3 {
-  padding-block: .75rem;
+  padding-block: 0.75rem;
 }
 
 .py-4 {
@@ -2271,11 +2350,11 @@ summary {
 }
 
 .r-2 {
-  right: .5rem;
+  right: 0.5rem;
 }
 
 .r-3 {
-  right: .75rem;
+  right: 0.75rem;
 }
 
 .r-auto {
@@ -2343,7 +2422,7 @@ summary {
 }
 
 .t-2 {
-  top: .5rem;
+  top: 0.5rem;
 }
 
 .t-20 {
@@ -2351,7 +2430,7 @@ summary {
 }
 
 .t-3 {
-  top: .75rem;
+  top: 0.75rem;
 }
 
 .t-4 {
@@ -2447,7 +2526,8 @@ summary {
 }
 
 .tp-c {
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-property:
+    color, background-color, border-color, text-decoration-color, fill, stroke;
 }
 
 .tp-d {
@@ -2495,7 +2575,7 @@ summary {
 }
 
 .w-1 {
-  width: .25rem;
+  width: 0.25rem;
 }
 
 .w-10 {
@@ -2523,7 +2603,7 @@ summary {
 }
 
 .w-2 {
-  width: .5rem;
+  width: 0.5rem;
 }
 
 .w-24 {
@@ -2531,7 +2611,7 @@ summary {
 }
 
 .w-3 {
-  width: .75rem;
+  width: 0.75rem;
 }
 
 .w-32 {

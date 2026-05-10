@@ -2,10 +2,10 @@
 
 import { Menu } from "@base-ui/react/menu";
 import {
-  Link,
   ChevronDown,
   Copy,
   ExclamationShape,
+  Link,
   Pause,
   Pencil,
   Tray,
