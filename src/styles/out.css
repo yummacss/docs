@@ -309,6 +309,10 @@ summary {
   border-color: #bbc2cc;
 }
 
+.bc-slate-6 {
+  border-color: #7a879b;
+}
+
 .bc-transparent {
   border-color: transparent;
 }
@@ -945,6 +949,10 @@ summary {
   color: #45484d;
 }
 
+.c-silver-7 {
+  color: #868c97;
+}
+
 .c-silver-8 {
   color: #70757e;
 }
@@ -1567,6 +1575,10 @@ summary {
 
 .h\:c-indigo-8:hover {
   color: #4749ae;
+}
+
+.h\:c-silver-10:hover {
+  color: #45484d;
 }
 
 .h\:c-slate-10:hover {
