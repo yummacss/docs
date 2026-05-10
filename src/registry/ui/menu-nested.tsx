@@ -1,7 +1,7 @@
 "use client";
 
 import { Menu } from "@base-ui/react/menu";
-import { ChevronDown, ChevronRight, CircleFill } from "@gravity-ui/icons";
+import { ChevronDown, ChevronRight } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -97,10 +97,7 @@ export default function MenuNested() {
                               }`
                             }
                           >
-                            <CircleFill
-                              className="fs-0 w-3 h-3"
-                              style={{ color: label.color }}
-                            />
+                            <span className={`fs-0 w-3 h-3 br-pill ${label.bg}`} />
                             {label.name}
                           </Menu.Item>
                         ))}
@@ -153,8 +150,7 @@ const folders = [
 ];
 
 const labels = [
-  { name: "High", color: "#e63946" },
-  { name: "Medium", color: "#ffb81c" },
-  { name: "Low", color: "#10b981" },
-  { name: "None", color: "#6b7280" },
+  { name: "High", bg: "bg-red" },
+  { name: "Medium", bg: "bg-yellow" },
+  { name: "Low", bg: "bg-mint" },
 ];
