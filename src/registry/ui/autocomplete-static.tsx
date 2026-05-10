@@ -27,7 +27,7 @@ export default function AutocompleteStatic() {
       <AnimatePresence>
         {open && (
           <Autocomplete.Portal keepMounted>
-            <Autocomplete.Positioner className="ow-0" sideOffset={4}>
+            <Autocomplete.Positioner className="ow-0" sideOffset={8}>
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}

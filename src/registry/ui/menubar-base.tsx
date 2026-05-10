@@ -25,18 +25,25 @@ export default function MenubarBase() {
         <AnimatePresence>
           {fileOpen && (
             <Menu.Portal keepMounted>
-              <Menu.Positioner className="ow-0" sideOffset={6}>
+              <Menu.Positioner className="ow-0" sideOffset={8}>
                 <Menu.Popup
                   render={
                     <motion.div
-                      initial={{ opacity: 0, scale: 0.95 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0.95 }}
-                      transition={{ duration: 0.1, ease: "easeOut" }}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.15, ease: "easeOut" }}
                     />
                   }
-                  className="py-1 bg-white bc-silver-2 c-slate-10 br-xl bw-1 bs-o-xs"
+                  className="py-1 w-28 bg-white bc-silver-2 c-slate-10 br-xl bw-1 bs-o-xs"
                 >
+                  <Menu.Item
+                    className={(state) =>
+                      `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p br-lg mx-1 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                    }
+                  >
+                    New task
+                  </Menu.Item>
                   <Menu.Item
                     className={(state) =>
                       `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p br-lg mx-1 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
@@ -49,14 +56,7 @@ export default function MenubarBase() {
                       `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p br-lg mx-1 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
                     }
                   >
-                    Open file
-                  </Menu.Item>
-                  <Menu.Item
-                    className={(state) =>
-                      `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p br-lg mx-1 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
-                    }
-                  >
-                    Save
+                    Import tasks
                   </Menu.Item>
                   <Menu.Separator className="my-1 w-full h-px bg-silver-2" />
                   <Menu.Item
@@ -64,7 +64,7 @@ export default function MenubarBase() {
                       `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p br-lg mx-1 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
                     }
                   >
-                    Print
+                    Export tasks
                   </Menu.Item>
                 </Menu.Popup>
               </Menu.Positioner>
@@ -86,31 +86,31 @@ export default function MenubarBase() {
         <AnimatePresence>
           {editOpen && (
             <Menu.Portal keepMounted>
-              <Menu.Positioner className="ow-0" sideOffset={6}>
+              <Menu.Positioner className="ow-0" sideOffset={8}>
                 <Menu.Popup
                   render={
                     <motion.div
-                      initial={{ opacity: 0, scale: 0.95 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0.95 }}
-                      transition={{ duration: 0.1, ease: "easeOut" }}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.15, ease: "easeOut" }}
                     />
                   }
-                  className="py-1 bg-white bc-silver-2 c-slate-10 br-xl bw-1 bs-o-xs"
+                  className="py-1 w-28 bg-white bc-silver-2 c-slate-10 br-xl bw-1 bs-o-xs"
                 >
                   <Menu.Item
                     className={(state) =>
                       `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p br-lg mx-1 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
                     }
                   >
-                    Undo action
+                    Undo
                   </Menu.Item>
                   <Menu.Item
                     className={(state) =>
                       `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p br-lg mx-1 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
                     }
                   >
-                    Redo action
+                    Redo
                   </Menu.Item>
                   <Menu.Separator className="my-1 w-full h-px bg-silver-2" />
                   <Menu.Item
@@ -118,21 +118,21 @@ export default function MenubarBase() {
                       `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p br-lg mx-1 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
                     }
                   >
-                    Cut selection
+                    Cut
                   </Menu.Item>
                   <Menu.Item
                     className={(state) =>
                       `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p br-lg mx-1 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
                     }
                   >
-                    Copy text
+                    Copy
                   </Menu.Item>
                   <Menu.Item
                     className={(state) =>
                       `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p br-lg mx-1 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
                     }
                   >
-                    Paste content
+                    Paste
                   </Menu.Item>
                 </Menu.Popup>
               </Menu.Positioner>
@@ -154,31 +154,31 @@ export default function MenubarBase() {
         <AnimatePresence>
           {viewOpen && (
             <Menu.Portal keepMounted>
-              <Menu.Positioner className="ow-0" sideOffset={6}>
+              <Menu.Positioner className="ow-0" sideOffset={8}>
                 <Menu.Popup
                   render={
                     <motion.div
-                      initial={{ opacity: 0, scale: 0.95 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0.95 }}
-                      transition={{ duration: 0.1, ease: "easeOut" }}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.15, ease: "easeOut" }}
                     />
                   }
-                  className="py-1 bg-white bc-silver-2 c-slate-10 br-xl bw-1 bs-o-xs"
+                  className="py-1 w-28 bg-white bc-silver-2 c-slate-10 br-xl bw-1 bs-o-xs"
                 >
                   <Menu.Item
                     className={(state) =>
                       `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p br-lg mx-1 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
                     }
                   >
-                    Zoom in
+                    Board view
                   </Menu.Item>
                   <Menu.Item
                     className={(state) =>
                       `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p br-lg mx-1 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
                     }
                   >
-                    Zoom out
+                    List view
                   </Menu.Item>
                   <Menu.Separator className="my-1 w-full h-px bg-silver-2" />
                   <Menu.Item
@@ -186,7 +186,7 @@ export default function MenubarBase() {
                       `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p br-lg mx-1 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
                     }
                   >
-                    Full screen
+                    Toggle sidebar
                   </Menu.Item>
                 </Menu.Popup>
               </Menu.Positioner>
@@ -197,7 +197,7 @@ export default function MenubarBase() {
 
       <Menu.Root disabled>
         <Menu.Trigger className="h-8 px-3 bg-transparent c-slate-10 br-lg fs-sm fw-500 o-50 us-none">
-          Help
+          Team
         </Menu.Trigger>
       </Menu.Root>
     </Menubar>
