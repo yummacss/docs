@@ -56,10 +56,7 @@ export default function TableOfContents() {
           </h3>
           <ul className="d-f fd-c g-2 fs-sm">
             {headings.map((heading) => (
-              <li
-                key={heading.id}
-                className={heading.level === 4 ? "ml-4" : ""}
-              >
+              <li key={heading.id}>
                 <Link
                   href={`#${heading.id}`}
                   className="c-white/70 h:c-white fv:oc-white fv:ow-2"
