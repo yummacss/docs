@@ -2,13 +2,13 @@
 
 import { Menu } from "@base-ui/react/menu";
 import {
-  ArrowUpFromSquare,
+  Link,
   ChevronDown,
   ChevronRight,
   CircleFill,
   Folder,
   Gear,
-  Star,
+  ExclamationShape,
   Tray,
 } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
@@ -89,7 +89,7 @@ export default function MenuNested() {
                     }
                   >
                     <span className="d-f ai-c g-2">
-                      <Star className="fs-0 w-4 h-4 c-slate-5" />
+                      <ExclamationShape className="fs-0 w-4 h-4 c-slate-5" />
                       Set priority
                     </span>
                     <ChevronRight className="fs-0 w-3 h-3 c-slate-4" />
@@ -132,7 +132,7 @@ export default function MenuNested() {
                     }`
                   }
                 >
-                  <ArrowUpFromSquare className="fs-0 w-4 h-4 c-slate-5" />
+                  <Link className="fs-0 w-4 h-4 c-slate-5" />
                   Copy task link
                 </Menu.Item>
                 <Menu.Item
