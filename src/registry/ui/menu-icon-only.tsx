@@ -1,7 +1,7 @@
 "use client";
 
 import { Menu } from "@base-ui/react/menu";
-import { Copy, EllipsisVertical, Pencil, TrashBin } from "@gravity-ui/icons";
+import { Copy, EllipsisVertical, PencilToSquare, TrashBin } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -10,7 +10,7 @@ export default function MenuIconOnly() {
 
   return (
     <Menu.Root open={open} onOpenChange={setOpen}>
-      <Menu.Trigger className="bw-0">
+      <Menu.Trigger className="p-0 bw-0">
         <EllipsisVertical className="fs-0 w-6 h-6 c-silver-7 tp-c tdu-150 ttf-io h:c-silver-10" />
       </Menu.Trigger>
 
@@ -36,7 +36,7 @@ export default function MenuIconOnly() {
                     }`
                   }
                 >
-                  <Pencil className="fs-0 w-4 h-4 c-slate-5" />
+                  <PencilToSquare className="fs-0 w-4 h-4 c-slate-5" />
                   Edit
                 </Menu.Item>
                 <Menu.Item

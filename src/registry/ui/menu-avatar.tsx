@@ -4,9 +4,10 @@ import { Avatar } from "@base-ui/react/avatar";
 import { Menu } from "@base-ui/react/menu";
 import {
   ArrowRightFromSquare,
-  ChevronDown,
-  Gear,
-  House,
+  CaretsExpandVertical,
+  ChevronRight,
+  GearDot,
+  Person,
 } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
@@ -28,10 +29,10 @@ export default function MenuAvatar() {
           </Avatar.Fallback>
         </Avatar.Root>
         <span className="fs-sm fw-500">Sarah</span>
-        <span className="d-f ai-c jc-c fs-0 w-2 h-2 bc-white br-pill bs-o-sm">
-          <span className="d-b w-2 h-2 bg-mint br-pill" />
+        <span className="d-f ai-c jc-c fs-0 w-2 h-2 bc-white br-pill">
+          <span className="d-b w-2 h-2 bg-green br-pill" />
         </span>
-        <ChevronDown className="fs-0 w-3 h-3 c-slate-5" />
+        <CaretsExpandVertical className="fs-0 w-3 h-3 c-slate-5" />
       </Menu.Trigger>
 
       <AnimatePresence>
@@ -56,7 +57,7 @@ export default function MenuAvatar() {
                     }`
                   }
                 >
-                  <House className="fs-0 w-4 h-4 c-slate-5" />
+                  <Person className="fs-0 w-4 h-4 c-slate-5" />
                   View profile
                 </Menu.Item>
                 <Menu.Item
@@ -66,7 +67,7 @@ export default function MenuAvatar() {
                     }`
                   }
                 >
-                  <Gear className="fs-0 w-4 h-4 c-slate-5" />
+                  <GearDot className="fs-0 w-4 h-4 c-slate-5" />
                   Account settings
                 </Menu.Item>
                 <Menu.Separator className="my-1 w-full h-px bg-silver-2" />
@@ -80,11 +81,11 @@ export default function MenuAvatar() {
                   >
                     <span className="d-f ai-c g-2">
                       <span className="d-f ai-c jc-c fs-0 w-3 h-3 bc-silver-3 br-pill">
-                        <span className="d-b w-2 h-2 bg-mint br-pill" />
+                        <span className="d-b w-2 h-2 bg-green br-pill" />
                       </span>
-                      Status
+                      Online
                     </span>
-                    <ChevronDown className="fs-0 w-3 h-3 c-slate-5" />
+                    <ChevronRight className="fs-0 w-3 h-3 c-slate-5" />
                   </Menu.SubmenuTrigger>
                   <Menu.Portal>
                     <Menu.Positioner sideOffset={-4} alignOffset={-4}>
@@ -99,7 +100,7 @@ export default function MenuAvatar() {
                           }
                         >
                           <span className="d-f ai-c jc-c fs-0 w-3 h-3 bc-silver-3 br-pill">
-                            <span className="d-b w-2 h-2 bg-mint br-pill" />
+                            <span className="d-b w-2 h-2 bg-green br-pill" />
                           </span>
                           Online
                         </Menu.Item>
@@ -141,7 +142,7 @@ export default function MenuAvatar() {
                           }
                         >
                           <span className="d-f ai-c jc-c fs-0 w-3 h-3 bc-silver-3 br-pill">
-                            <span className="d-b w-2 h-2 bc-slate-6 br-pill" />
+                            <span className="d-b w-2 h-2 bc-slate-6 bw-1 br-pill" />
                           </span>
                           Invisible
                         </Menu.Item>
