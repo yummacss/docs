@@ -1,5 +1,6 @@
 "use client";
 
+import { Avatar } from "@base-ui/react/avatar";
 import { ContextMenu } from "@base-ui/react/context-menu";
 import {
   ArrowUpFromSquare,
@@ -98,7 +99,7 @@ export default function ContextMenuNested() {
                       sideOffset={-4}
                       alignOffset={-4}
                     >
-                      <ContextMenu.Popup className="py-1 w-52 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs">
+                      <ContextMenu.Popup className="py-1 w-fc bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs">
                         {teamMembers.map((member) => (
                           <ContextMenu.Item
                             key={member.name}
@@ -106,11 +107,24 @@ export default function ContextMenuNested() {
                               `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
                             }
                           >
-                            <img
-                              src={member.avatar}
-                              alt={member.name}
-                              className="d-f ai-c jc-c w-5 h-5 bc-white br-pill bw-1"
-                            />
+                            <div className="p-r">
+                              <Avatar.Root className="d-if o-h ai-c jc-c w-5 h-5 bc-white br-pill bw-1 va-m us-none">
+                                <Avatar.Image
+                                  src={member.avatar}
+                                  alt={member.name}
+                                  className="of-c w-full h-full"
+                                />
+                              </Avatar.Root>
+                              <span
+                                className={`p-a b-0 r-0 w-2 h-2 bc-white br-pill bw-1 ${
+                                  member.status === "online"
+                                    ? "bg-mint"
+                                    : member.status === "away"
+                                      ? "bg-yellow"
+                                      : "bg-silver-4"
+                                }`}
+                              />
+                            </div>
                             <span className="c-slate-10">{member.name}</span>
                           </ContextMenu.Item>
                         ))}
@@ -171,25 +185,30 @@ const teamMembers = [
     name: "Sarah",
     avatar:
       "https://api.dicebear.com/9.x/open-peeps/svg?seed=Sarah&backgroundColor=DAF0B9",
+    status: "online",
   },
   {
     name: "John",
     avatar:
       "https://api.dicebear.com/9.x/open-peeps/svg?seed=John&backgroundColor=B4E9F2",
+    status: "away",
   },
   {
     name: "Noah",
     avatar:
       "https://api.dicebear.com/9.x/open-peeps/svg?seed=Noah&backgroundColor=D0D1FB",
+    status: "offline",
   },
   {
     name: "Melanie",
     avatar:
       "https://api.dicebear.com/9.x/open-peeps/svg?seed=Melanie&backgroundColor=DCCEFC",
+    status: "online",
   },
   {
     name: "Riley",
     avatar:
       "https://api.dicebear.com/9.x/open-peeps/svg?seed=Riley&backgroundColor=F4C8FA",
+    status: "away",
   },
 ];
