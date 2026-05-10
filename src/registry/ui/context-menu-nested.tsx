@@ -2,14 +2,7 @@
 
 import { Avatar } from "@base-ui/react/avatar";
 import { ContextMenu } from "@base-ui/react/context-menu";
-import {
-  ArrowUpFromSquare,
-  ChevronRight,
-  Flag,
-  Pencil,
-  PersonPlus,
-  Tray,
-} from "@gravity-ui/icons";
+import { ChevronRight } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -25,7 +18,7 @@ export default function ContextMenuNested() {
       <AnimatePresence>
         {open && (
           <ContextMenu.Portal keepMounted>
-            <ContextMenu.Positioner className="ow-0">
+            <ContextMenu.Positioner className="ow-0" sideOffset={8}>
               <ContextMenu.Popup
                 render={
                   <motion.div
@@ -45,10 +38,7 @@ export default function ContextMenuNested() {
                       }`
                     }
                   >
-                    <span className="d-f ai-c g-2">
-                      <Flag className="fs-0 w-4 h-4 c-slate-5" />
-                      Add Label
-                    </span>
+                    <span className="d-f ai-c g-2 fg-1">Add Label</span>
                     <ChevronRight className="fs-0 w-3 h-3 c-slate-4" />
                   </ContextMenu.SubmenuTrigger>
 
@@ -58,7 +48,7 @@ export default function ContextMenuNested() {
                       sideOffset={-4}
                       alignOffset={-4}
                     >
-                      <ContextMenu.Popup className="py-1 w-52 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs">
+                      <ContextMenu.Popup className="py-1 w-fc bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs">
                         {labels.map((label) => (
                           <ContextMenu.Item
                             key={label.name}
@@ -86,10 +76,7 @@ export default function ContextMenuNested() {
                       }`
                     }
                   >
-                    <span className="d-f ai-c g-2">
-                      <PersonPlus className="fs-0 w-4 h-4 c-slate-5" />
-                      Assign to
-                    </span>
+                    <span className="d-f ai-c g-2 fg-1">Assign to</span>
                     <ChevronRight className="fs-0 w-3 h-3 c-slate-4" />
                   </ContextMenu.SubmenuTrigger>
 
@@ -138,7 +125,6 @@ export default function ContextMenuNested() {
                     `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
                   }
                 >
-                  <Pencil className="fs-0 w-4 h-4 c-slate-5" />
                   Edit task
                 </ContextMenu.Item>
 
@@ -149,7 +135,6 @@ export default function ContextMenuNested() {
                     `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
                   }
                 >
-                  <ArrowUpFromSquare className="fs-0 w-4 h-4 c-slate-5" />
                   Share task
                 </ContextMenu.Item>
 
@@ -162,7 +147,6 @@ export default function ContextMenuNested() {
                     }`
                   }
                 >
-                  <Tray className="fs-0 w-4 h-4" />
                   Archive task
                 </ContextMenu.Item>
               </ContextMenu.Popup>

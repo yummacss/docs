@@ -2,13 +2,7 @@
 
 import { Menu } from "@base-ui/react/menu";
 import { Menubar } from "@base-ui/react/menubar";
-import {
-  ChevronRight,
-  CircleFill,
-  Folder,
-  Link,
-  Tray,
-} from "@gravity-ui/icons";
+import { ChevronRight, CircleFill } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -52,10 +46,7 @@ export default function MenubarNested() {
                         }`
                       }
                     >
-                      <span className="d-f ai-c g-2">
-                        <Folder className="fs-0 w-4 h-4 c-slate-5" />
-                        Move to
-                      </span>
+                      <span>Move to</span>
                       <ChevronRight className="fs-0 w-3 h-3 c-slate-4" />
                     </Menu.SubmenuTrigger>
 
@@ -65,7 +56,7 @@ export default function MenubarNested() {
                         sideOffset={-4}
                         alignOffset={-4}
                       >
-                        <Menu.Popup className="py-1 w-40 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs">
+                        <Menu.Popup className="py-1 w-fc bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs">
                           {sprints.map((sprint) => (
                             <Menu.Item
                               key={sprint.name}
@@ -77,7 +68,6 @@ export default function MenubarNested() {
                                 }`
                               }
                             >
-                              <Folder className="fs-0 w-4 h-4 c-slate-5" />
                               {sprint.name}
                             </Menu.Item>
                           ))}
@@ -96,10 +86,7 @@ export default function MenubarNested() {
                         }`
                       }
                     >
-                      <span className="d-f ai-c g-2">
-                        <CircleFill className="fs-0 w-4 h-4 c-slate-5" />
-                        Set priority
-                      </span>
+                      <span>Set priority</span>
                       <ChevronRight className="fs-0 w-3 h-3 c-slate-4" />
                     </Menu.SubmenuTrigger>
 
@@ -109,7 +96,7 @@ export default function MenubarNested() {
                         sideOffset={-4}
                         alignOffset={-4}
                       >
-                        <Menu.Popup className="py-1 w-40 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs">
+                        <Menu.Popup className="py-1 w-fc bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs">
                           {priorities.map((priority) => (
                             <Menu.Item
                               key={priority.name}
@@ -142,7 +129,6 @@ export default function MenubarNested() {
                       }`
                     }
                   >
-                    <Link className="fs-0 w-4 h-4 c-slate-5" />
                     Copy task link
                   </Menu.Item>
                   <Menu.Item
@@ -152,7 +138,6 @@ export default function MenubarNested() {
                       }`
                     }
                   >
-                    <Tray className="fs-0 w-4 h-4 c-slate-5" />
                     Archive task
                   </Menu.Item>
                 </Menu.Popup>
