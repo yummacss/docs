@@ -2,12 +2,7 @@
 
 import { Avatar } from "@base-ui/react/avatar";
 import { Menu } from "@base-ui/react/menu";
-import {
-  ArrowRightFromSquare,
-  ChevronDown,
-  Gear,
-  House,
-} from "@gravity-ui/icons";
+import { ArrowRightFromSquare, ChevronRight, GearDot, Person } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -28,10 +23,9 @@ export default function MenuAccountStatus() {
               S
             </Avatar.Fallback>
           </Avatar.Root>
-          <span className="p-a b-0 r-0 w-4 h-4 bg-mint bc-white br-pill bw-2" />
+          <span className="p-a b-0 r-0 w-3 h-3 bg-mint bc-white br-pill bw-1" />
         </div>
         <span className="fs-sm fw-500">Sarah</span>
-        <ChevronDown className="fs-0 w-3 h-3 c-slate-5" />
       </Menu.Trigger>
 
       <AnimatePresence>
@@ -56,7 +50,7 @@ export default function MenuAccountStatus() {
                     }`
                   }
                 >
-                  <House className="fs-0 w-4 h-4 c-slate-5" />
+                  <Person className="fs-0 w-4 h-4 c-slate-5" />
                   View profile
                 </Menu.Item>
                 <Menu.Item
@@ -66,8 +60,8 @@ export default function MenuAccountStatus() {
                     }`
                   }
                 >
-                  <Gear className="fs-0 w-4 h-4 c-slate-5" />
-                  Account settings
+                  <GearDot className="fs-0 w-4 h-4 c-slate-5" />
+                  Settings
                 </Menu.Item>
                 <Menu.Separator className="my-1 w-full h-px bg-silver-2" />
                 <Menu.SubmenuRoot>
@@ -82,9 +76,9 @@ export default function MenuAccountStatus() {
                       <span className="d-f ai-c jc-c fs-0 w-3 h-3 bc-silver-3 br-pill">
                         <span className="d-b w-2 h-2 bg-mint br-pill" />
                       </span>
-                      Status
+                      Online
                     </span>
-                    <ChevronDown className="fs-0 w-3 h-3 c-slate-5" />
+                    <ChevronRight className="fs-0 w-3 h-3 c-slate-5" />
                   </Menu.SubmenuTrigger>
                   <Menu.Portal>
                     <Menu.Positioner sideOffset={-4} alignOffset={-4}>
@@ -140,8 +134,8 @@ export default function MenuAccountStatus() {
                             }`
                           }
                         >
-                          <span className="d-f ai-c jc-c fs-0 w-3 h-3 bc-silver-3 br-pill">
-                            <span className="d-b w-2 h-2 bc-slate-6 br-pill" />
+                          <span className="d-f ai-c jc-c fs-0 w-3 h-3 bc-slate-6 br-pill bw-1">
+                            <span className="d-b w-2 h-2 bc-silver-1 br-pill" />
                           </span>
                           Invisible
                         </Menu.Item>
