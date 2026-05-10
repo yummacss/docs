@@ -20,7 +20,7 @@ export default function CheckboxBase() {
           <Check className="w-3 h-3" />
         </Checkbox.Indicator>
       </Checkbox.Root>
-      Subscribe to product updates
+      Mark task as complete
     </label>
   );
 }

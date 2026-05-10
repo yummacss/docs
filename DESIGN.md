@@ -270,8 +270,8 @@ Use single-word headings for docs sections (e.g., "Disabled" not "Disabled Item"
 ### Naming convention for variants
 When a variant name includes a feature name (e.g., "with icon"), use hyphen instead of hyphenated prefix. For example: `autocomplete-icon` instead of `autocomplete-with-icon`.
 
-### Content themes
-All component content MUST use the **SaaS / Project Management** domain only:
+### SCT (SaaS Context Treatment)
+All components must receive **SCT** when their content uses non-SaaS contexts. SCT means replacing content with SaaS/Project Management terminology:
 - Projects, tasks, boards, sprints
 - Team members, roles, permissions
 - Statuses, priorities, labels

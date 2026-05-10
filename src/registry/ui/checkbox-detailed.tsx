@@ -22,10 +22,10 @@ export default function CheckboxDetailed() {
               <Check className="w-3 h-3" />
             </Checkbox.Indicator>
           </Checkbox.Root>
-          Manage channels
+          Manage labels
         </div>
         <span className="ml-6 c-slate-8 fs-xs">
-          Create, edit, or delete channels
+          Create, edit, or delete task labels
         </span>
       </label>
 
@@ -44,10 +44,10 @@ export default function CheckboxDetailed() {
               <Check className="w-3 h-3" />
             </Checkbox.Indicator>
           </Checkbox.Root>
-          Manage roles
+          Manage priorities
         </div>
         <span className="ml-6 c-slate-8 fs-xs">
-          Create, edit, or delete roles
+          Create, edit, or delete task priorities
         </span>
       </label>
     </div>
