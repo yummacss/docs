@@ -1,16 +1,7 @@
 "use client";
 
 import { Menu } from "@base-ui/react/menu";
-import {
-  ChevronDown,
-  ChevronRight,
-  CircleFill,
-  ExclamationShape,
-  Folder,
-  Gear,
-  Link,
-  Tray,
-} from "@gravity-ui/icons";
+import { ChevronDown, ChevronRight, CircleFill } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -46,10 +37,7 @@ export default function MenuNested() {
                       }`
                     }
                   >
-                    <span className="d-f ai-c g-2">
-                      <Folder className="fs-0 w-4 h-4 c-slate-5" />
-                      Move to
-                    </span>
+                    <span>Move to</span>
                     <ChevronRight className="fs-0 w-3 h-3 c-slate-4" />
                   </Menu.SubmenuTrigger>
 
@@ -59,21 +47,20 @@ export default function MenuNested() {
                       sideOffset={-4}
                       alignOffset={-4}
                     >
-                      <Menu.Popup className="py-1 w-40 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs">
+                      <Menu.Popup className="py-1 w-fc bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs">
                         {folders.map((folder) => (
-                          <Menu.Item
-                            key={folder.name}
-                            className={(state) =>
-                              `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
-                                state.highlighted
-                                  ? "bg-silver-1/50"
-                                  : "bg-transparent"
-                              }`
-                            }
-                          >
-                            <Folder className="fs-0 w-4 h-4 c-slate-5" />
-                            {folder.name}
-                          </Menu.Item>
+<Menu.Item
+                              key={folder.name}
+                              className={(state) =>
+                                `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
+                                  state.highlighted
+                                    ? "bg-silver-1/50"
+                                    : "bg-transparent"
+                                }`
+                              }
+                            >
+                              {folder.name}
+                            </Menu.Item>
                         ))}
                       </Menu.Popup>
                     </Menu.Positioner>
@@ -88,10 +75,7 @@ export default function MenuNested() {
                       }`
                     }
                   >
-                    <span className="d-f ai-c g-2">
-                      <ExclamationShape className="fs-0 w-4 h-4 c-slate-5" />
-                      Set priority
-                    </span>
+<span>Set priority</span>
                     <ChevronRight className="fs-0 w-3 h-3 c-slate-4" />
                   </Menu.SubmenuTrigger>
 
@@ -101,8 +85,8 @@ export default function MenuNested() {
                       sideOffset={-4}
                       alignOffset={-4}
                     >
-                      <Menu.Popup className="py-1 w-40 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs">
-                        {labels.map((label) => (
+<Menu.Popup className="py-1 w-fc bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs">
+                          {labels.map((label) => (
                           <Menu.Item
                             key={label.name}
                             className={(state) =>
@@ -132,7 +116,6 @@ export default function MenuNested() {
                     }`
                   }
                 >
-                  <Link className="fs-0 w-4 h-4 c-slate-5" />
                   Copy task link
                 </Menu.Item>
                 <Menu.Item
@@ -142,7 +125,6 @@ export default function MenuNested() {
                     }`
                   }
                 >
-                  <Gear className="fs-0 w-4 h-4 c-slate-5" />
                   Task settings
                 </Menu.Item>
                 <Menu.Item
@@ -152,7 +134,6 @@ export default function MenuNested() {
                     }`
                   }
                 >
-                  <Tray className="fs-0 w-4 h-4 c-slate-5" />
                   Archive task
                 </Menu.Item>
               </Menu.Popup>

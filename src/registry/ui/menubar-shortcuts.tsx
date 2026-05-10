@@ -2,18 +2,6 @@
 
 import { Menu } from "@base-ui/react/menu";
 import { Menubar } from "@base-ui/react/menubar";
-import {
-  ArrowDownToSquare,
-  ArrowRotateLeft,
-  ArrowRotateRight,
-  CloudArrowUpIn,
-  Copy,
-  Folder,
-  LayoutHeaderCellsLargeFill,
-  ListUl,
-  Pencil,
-  Scissors,
-} from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -56,12 +44,9 @@ export default function MenubarShortcuts() {
                       }`
                     }
                   >
-                    <span className="d-f ai-c g-2 fg-1">
-                      <Pencil className="fs-0 w-4 h-4 c-slate-5" />
-                      New task
-                    </span>
+                    <span className="fg-1">New task</span>
                     <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
-                      <span>Ctrl</span>
+                      <span>⌘</span>
                       <span>N</span>
                     </span>
                   </Menu.Item>
@@ -72,13 +57,10 @@ export default function MenubarShortcuts() {
                       }`
                     }
                   >
-                    <span className="d-f ai-c g-2 fg-1">
-                      <Folder className="fs-0 w-4 h-4 c-slate-5" />
-                      New project
-                    </span>
+                    <span className="fg-1">New project</span>
                     <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
-                      <span>Ctrl</span>
-                      <span>Shift</span>
+                      <span>⌘</span>
+                      <span>⇧</span>
                       <span>N</span>
                     </span>
                   </Menu.Item>
@@ -90,12 +72,9 @@ export default function MenubarShortcuts() {
                       }`
                     }
                   >
-                    <span className="d-f ai-c g-2 fg-1">
-                      <CloudArrowUpIn className="fs-0 w-4 h-4 c-slate-5" />
-                      Import tasks
-                    </span>
+                    <span className="fg-1">Import tasks</span>
                     <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
-                      <span>Ctrl</span>
+                      <span>⌘</span>
                       <span>I</span>
                     </span>
                   </Menu.Item>
@@ -106,12 +85,9 @@ export default function MenubarShortcuts() {
                       }`
                     }
                   >
-                    <span className="d-f ai-c g-2 fg-1">
-                      <ArrowDownToSquare className="fs-0 w-4 h-4 c-slate-5" />
-                      Export tasks
-                    </span>
+                    <span className="fg-1">Export tasks</span>
                     <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
-                      <span>Ctrl</span>
+                      <span>⌘</span>
                       <span>E</span>
                     </span>
                   </Menu.Item>
@@ -154,12 +130,9 @@ export default function MenubarShortcuts() {
                       }`
                     }
                   >
-                    <span className="d-f ai-c g-2 fg-1">
-                      <ArrowRotateLeft className="fs-0 w-4 h-4 c-slate-5" />
-                      Undo
-                    </span>
+                    <span className="fg-1">Undo</span>
                     <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
-                      <span>Ctrl</span>
+                      <span>⌘</span>
                       <span>Z</span>
                     </span>
                   </Menu.Item>
@@ -170,12 +143,9 @@ export default function MenubarShortcuts() {
                       }`
                     }
                   >
-                    <span className="d-f ai-c g-2 fg-1">
-                      <ArrowRotateRight className="fs-0 w-4 h-4 c-slate-5" />
-                      Redo
-                    </span>
+                    <span className="fg-1">Redo</span>
                     <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
-                      <span>Ctrl</span>
+                      <span>⌘</span>
                       <span>Y</span>
                     </span>
                   </Menu.Item>
@@ -187,12 +157,9 @@ export default function MenubarShortcuts() {
                       }`
                     }
                   >
-                    <span className="d-f ai-c g-2 fg-1">
-                      <Scissors className="fs-0 w-4 h-4 c-slate-5" />
-                      Cut
-                    </span>
+                    <span className="fg-1">Cut</span>
                     <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
-                      <span>Ctrl</span>
+                      <span>⌘</span>
                       <span>X</span>
                     </span>
                   </Menu.Item>
@@ -203,12 +170,9 @@ export default function MenubarShortcuts() {
                       }`
                     }
                   >
-                    <span className="d-f ai-c g-2 fg-1">
-                      <Copy className="fs-0 w-4 h-4 c-slate-5" />
-                      Copy
-                    </span>
+                    <span className="fg-1">Copy</span>
                     <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
-                      <span>Ctrl</span>
+                      <span>⌘</span>
                       <span>C</span>
                     </span>
                   </Menu.Item>
@@ -219,12 +183,9 @@ export default function MenubarShortcuts() {
                       }`
                     }
                   >
-                    <span className="d-f ai-c g-2 fg-1">
-                      <Copy className="fs-0 w-4 h-4 c-slate-5" />
-                      Paste
-                    </span>
+                    <span className="fg-1">Paste</span>
                     <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
-                      <span>Ctrl</span>
+                      <span>⌘</span>
                       <span>V</span>
                     </span>
                   </Menu.Item>
@@ -267,12 +228,9 @@ export default function MenubarShortcuts() {
                       }`
                     }
                   >
-                    <span className="d-f ai-c g-2 fg-1">
-                      <Folder className="fs-0 w-4 h-4 c-slate-5" />
-                      Board view
-                    </span>
+                    <span className="fg-1">Board view</span>
                     <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
-                      <span>Ctrl</span>
+                      <span>⌘</span>
                       <span>1</span>
                     </span>
                   </Menu.Item>
@@ -283,12 +241,9 @@ export default function MenubarShortcuts() {
                       }`
                     }
                   >
-                    <span className="d-f ai-c g-2 fg-1">
-                      <ListUl className="fs-0 w-4 h-4 c-slate-5" />
-                      List view
-                    </span>
+                    <span className="fg-1">List view</span>
                     <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
-                      <span>Ctrl</span>
+                      <span>⌘</span>
                       <span>2</span>
                     </span>
                   </Menu.Item>
@@ -299,12 +254,9 @@ export default function MenubarShortcuts() {
                       }`
                     }
                   >
-                    <span className="d-f ai-c g-2 fg-1">
-                      <LayoutHeaderCellsLargeFill className="fs-0 w-4 h-4 c-slate-5" />
-                      Calendar view
-                    </span>
+                    <span className="fg-1">Calendar view</span>
                     <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
-                      <span>Ctrl</span>
+                      <span>⌘</span>
                       <span>3</span>
                     </span>
                   </Menu.Item>
@@ -316,12 +268,9 @@ export default function MenubarShortcuts() {
                       }`
                     }
                   >
-                    <span className="d-f ai-c g-2 fg-1">
-                      <Folder className="fs-0 w-4 h-4 c-slate-5" />
-                      Toggle sidebar
-                    </span>
+                    <span className="fg-1">Toggle sidebar</span>
                     <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
-                      <span>Ctrl</span>
+                      <span>⌘</span>
                       <span>B</span>
                     </span>
                   </Menu.Item>

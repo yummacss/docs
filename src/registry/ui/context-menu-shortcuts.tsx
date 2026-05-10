@@ -1,7 +1,6 @@
 "use client";
 
 import { ContextMenu } from "@base-ui/react/context-menu";
-import { Eye, Link, PersonPlus, Pin, Tray, Xmark } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -17,7 +16,7 @@ export default function ContextMenuShortcuts() {
       <AnimatePresence>
         {open && (
           <ContextMenu.Portal keepMounted>
-            <ContextMenu.Positioner className="ow-0">
+            <ContextMenu.Positioner className="ow-0" sideOffset={8}>
               <ContextMenu.Popup
                 render={
                   <motion.div
@@ -36,10 +35,7 @@ export default function ContextMenuShortcuts() {
                     }`
                   }
                 >
-                  <span className="d-f ai-c g-2 fg-1">
-                    <PersonPlus className="fs-0 w-4 h-4 c-slate-5" />
-                    Assign to
-                  </span>
+                  <span className="d-f ai-c g-2 fg-1">Assign to</span>
                   <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
                     <span>⌘</span>
                     <span>R</span>
@@ -52,10 +48,7 @@ export default function ContextMenuShortcuts() {
                     }`
                   }
                 >
-                  <span className="d-f ai-c g-2 fg-1">
-                    <Eye className="fs-0 w-4 h-4 c-slate-5" />
-                    Add watcher
-                  </span>
+                  <span className="d-f ai-c g-2 fg-1">Add watcher</span>
                   <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
                     <span>⌘</span>
                     <span>M</span>
@@ -68,10 +61,7 @@ export default function ContextMenuShortcuts() {
                     }`
                   }
                 >
-                  <span className="d-f ai-c g-2 fg-1">
-                    <Link className="fs-0 w-4 h-4 c-slate-5" />
-                    Copy task link
-                  </span>
+                  <span className="d-f ai-c g-2 fg-1">Copy task link</span>
                   <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
                     <span>⌘</span>
                     <span>⇧</span>
@@ -88,10 +78,7 @@ export default function ContextMenuShortcuts() {
                     }`
                   }
                 >
-                  <span className="d-f ai-c g-2 fg-1">
-                    <Pin className="fs-0 w-4 h-4 c-slate-5" />
-                    Pin task
-                  </span>
+                  <span className="d-f ai-c g-2 fg-1">Pin task</span>
                   <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
                     <span>⌘</span>
                     <span>P</span>
@@ -104,10 +91,7 @@ export default function ContextMenuShortcuts() {
                     }`
                   }
                 >
-                  <span className="d-f ai-c g-2 fg-1">
-                    <Xmark className="fs-0 w-4 h-4 c-slate-5" />
-                    Mark as blocked
-                  </span>
+                  <span className="d-f ai-c g-2 fg-1">Mark as blocked</span>
                   <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
                     <span>⌘</span>
                     <span>⇧</span>
@@ -124,10 +108,7 @@ export default function ContextMenuShortcuts() {
                     }`
                   }
                 >
-                  <span className="d-f ai-c g-2 fg-1">
-                    <Tray className="fs-0 w-4 h-4" />
-                    Archive task
-                  </span>
+                  <span className="d-f ai-c g-2 fg-1">Archive task</span>
                   <span className="d-f ai-c g-1 c-red fw-400 fs-xs">
                     <span>⌘</span>
                     <span>⌫</span>

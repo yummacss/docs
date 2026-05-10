@@ -1,15 +1,7 @@
 "use client";
 
 import { Menu } from "@base-ui/react/menu";
-import {
-  ChevronDown,
-  Copy,
-  Link,
-  PencilToSquare,
-  Pin,
-  TrashBin,
-  Tray,
-} from "@gravity-ui/icons";
+import { ChevronDown } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -44,10 +36,7 @@ export default function MenuShortcuts() {
                     }`
                   }
                 >
-                  <span className="d-f ai-c g-2 fg-1">
-                    <PencilToSquare className="fs-0 w-4 h-4 c-slate-5" />
-                    Edit task
-                  </span>
+                  <span className="fg-1">Edit task</span>
                   <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
                     <span>F2</span>
                   </span>
@@ -59,10 +48,7 @@ export default function MenuShortcuts() {
                     }`
                   }
                 >
-                  <span className="d-f ai-c g-2 fg-1">
-                    <Copy className="fs-0 w-4 h-4 c-slate-5" />
-                    Duplicate task
-                  </span>
+                  <span className="fg-1">Duplicate task</span>
                   <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
                     <span>⌘</span>
                     <span>D</span>
@@ -75,10 +61,7 @@ export default function MenuShortcuts() {
                     }`
                   }
                 >
-                  <span className="d-f ai-c g-2 fg-1">
-                    <Link className="fs-0 w-4 h-4 c-slate-5" />
-                    Copy link
-                  </span>
+                  <span className="fg-1">Copy link</span>
                   <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
                     <span>⌘</span>
                     <span>⇧</span>
@@ -92,10 +75,7 @@ export default function MenuShortcuts() {
                     }`
                   }
                 >
-                  <span className="d-f ai-c g-2 fg-1">
-                    <Pin className="fs-0 w-4 h-4 c-slate-5" />
-                    Pin task
-                  </span>
+                  <span className="fg-1">Pin task</span>
                   <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
                     <span>⌘</span>
                     <span>P</span>
@@ -108,10 +88,7 @@ export default function MenuShortcuts() {
                     }`
                   }
                 >
-                  <span className="d-f ai-c g-2 fg-1">
-                    <Tray className="fs-0 w-4 h-4 c-slate-5" />
-                    Archive task
-                  </span>
+                  <span className="fg-1">Archive task</span>
                   <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
                     <span>⌘</span>
                     <span>E</span>
@@ -124,10 +101,7 @@ export default function MenuShortcuts() {
                     }`
                   }
                 >
-                  <span className="d-f ai-c g-2 fg-1">
-                    <TrashBin className="fs-0 w-4 h-4 c-slate-5" />
-                    Delete task
-                  </span>
+                  <span className="fg-1">Delete task</span>
                   <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
                     <span>⌘</span>
                     <span>⌫</span>

@@ -51,7 +51,7 @@ export const uiSidebarConfig: UISidebarConfig = [
       { title: "Select", slug: "select", primitive: true },
       { title: "Slider", slug: "slider", primitive: true },
       { title: "Switch", slug: "switch", primitive: true },
-      { title: "Textarea", slug: "textarea", updated: true },
+      { title: "Textarea", slug: "textarea" },
       { title: "Toggle", slug: "toggle", primitive: true },
     ],
   },
@@ -60,8 +60,8 @@ export const uiSidebarConfig: UISidebarConfig = [
     items: [
       { title: "Accordion", slug: "accordion", primitive: true },
       { title: "Avatar", slug: "avatar", primitive: true },
-      { title: "Badge", slug: "badge", updated: true },
-      { title: "Breadcrumb", slug: "breadcrumb", updated: true },
+      { title: "Badge", slug: "badge" },
+      { title: "Breadcrumb", slug: "breadcrumb" },
       { title: "Collapsible", slug: "collapsible", primitive: true },
       { title: "Preview Card", slug: "preview-card", primitive: true },
       { title: "Progress", slug: "progress", primitive: true },
@@ -97,7 +97,7 @@ export const uiSidebarConfig: UISidebarConfig = [
   {
     title: "Application UI",
     items: [
-      { title: "Empty State", slug: "empty-state", updated: true },
+      { title: "Empty State", slug: "empty-state" },
       { title: "Onboarding", slug: "onboarding", wip: true },
       { title: "Rating", slug: "rating", wip: true },
       { title: "Skeleton", slug: "skeleton", wip: true },
