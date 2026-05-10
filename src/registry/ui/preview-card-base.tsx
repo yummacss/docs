@@ -41,7 +41,7 @@ export default function PreviewCardBase() {
                     className="of-c w-full h-full"
                   />
                 </Avatar.Root>
-                <span className="p-a r-0 w-3 h-3 bg-green-6 bc-white br-pill bw-1" />
+                <span className="p-a r-0 b-0 w-3 h-3 bg-green-6 bc-white br-pill bw-1" />
               </div>
               <div className="d-f fd-c g-0">
                 <span className="c-slate-10 fs-sm fw-500">Sarah</span>
