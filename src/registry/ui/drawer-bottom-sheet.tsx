@@ -44,7 +44,7 @@ export default function DrawerBottomSheet() {
                   transition={{ duration: 0.25, ease: "easeOut" }}
                 />
               }
-              className="d-f p-f l-0 r-0 b-0 fd-c bg-white bc-silver-2 bw-0 btw-1 btlr-xl btrr-xl bs-o-lg"
+              className="d-f p-f l-0 r-0 fd-c bg-white bc-silver-2 bw-0 btw-1 btlr-xl btrr-xl bs-o-lg"
             >
               <div className="d-f ai-c jc-sb px-4 py-3 bg-silver-1/50 bc-silver-2 bbw-1 btlr-xl btrr-xl">
                 <Drawer.Title className="c-slate-10 fs-md fw-500">
@@ -54,7 +54,7 @@ export default function DrawerBottomSheet() {
                   render={
                     <Button
                       type="button"
-                      className="d-f b-0 ai-c jc-c w-7 h-7 c-slate-6 br-md h:bg-silver-2 fv:oo-2 fv:oc-indigo-5"
+                      className="d-f ai-c jc-c w-7 h-7 c-slate-6 bw-0 br-md h:bg-silver-2 fv:oo-2 fv:oc-indigo-5"
                     />
                   }
                 >

@@ -15,7 +15,7 @@ export default function MenubarGrouped() {
       <Menu.Root open={projectOpen} onOpenChange={setProjectOpen}>
         <Menu.Trigger
           className={(state) =>
-            `h-8 br-lg px-3 fs-sm fw-500 c-slate-10 us-none c-p b-0 bg-transparent ${
+            `h-8 br-lg px-3 fs-sm fw-500 c-slate-10 us-none c-p bw-0 bg-transparent ${
               state.open ? "bg-silver-1/50" : "bg-transparent"
             }`
           }
@@ -120,7 +120,7 @@ export default function MenubarGrouped() {
       <Menu.Root open={settingsOpen} onOpenChange={setSettingsOpen}>
         <Menu.Trigger
           className={(state) =>
-            `h-8 br-lg px-3 fs-sm fw-500 c-slate-10 us-none c-p b-0 bg-transparent ${
+            `h-8 br-lg px-3 fs-sm fw-500 c-slate-10 us-none c-p bw-0 bg-transparent ${
               state.open ? "bg-silver-1/50" : "bg-transparent"
             }`
           }
@@ -214,7 +214,7 @@ export default function MenubarGrouped() {
       <Menu.Root open={permissionsOpen} onOpenChange={setPermissionsOpen}>
         <Menu.Trigger
           className={(state) =>
-            `h-8 br-lg px-3 fs-sm fw-500 c-slate-10 us-none c-p b-0 bg-transparent ${
+            `h-8 br-lg px-3 fs-sm fw-500 c-slate-10 us-none c-p bw-0 bg-transparent ${
               state.open ? "bg-silver-1/50" : "bg-transparent"
             }`
           }
@@ -239,9 +239,7 @@ export default function MenubarGrouped() {
                   <Menu.Item
                     className={(state) =>
                       `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
-                        state.highlighted
-                          ? "bg-silver-1/50"
-                          : "bg-transparent"
+                        state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
                   >
@@ -250,9 +248,7 @@ export default function MenubarGrouped() {
                   <Menu.Item
                     className={(state) =>
                       `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
-                        state.highlighted
-                          ? "bg-silver-1/50"
-                          : "bg-transparent"
+                        state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
                   >
@@ -262,9 +258,7 @@ export default function MenubarGrouped() {
                   <Menu.Item
                     className={(state) =>
                       `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
-                        state.highlighted
-                          ? "bg-silver-1/50"
-                          : "bg-transparent"
+                        state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
                   >

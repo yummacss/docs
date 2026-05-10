@@ -52,7 +52,7 @@ export default function DialogBase() {
                   </Dialog.Title>
                   <Dialog.Close
                     render={
-                      <Button className="d-f b-0 ai-c jc-c w-7 h-7 c-slate-6 br-md h:bg-silver-2 fv:ow-2 fv:oo-2 fv:oc-indigo-5" />
+                      <Button className="d-f ai-c jc-c w-7 h-7 c-slate-6 bw-0 br-md h:bg-silver-2 fv:ow-2 fv:oo-2 fv:oc-indigo-5" />
                     }
                   >
                     <Xmark aria-hidden className="w-4 h-4" />

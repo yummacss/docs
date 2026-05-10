@@ -18,7 +18,7 @@ export default function MenubarRadios() {
       <Menu.Root open={viewOpen} onOpenChange={setViewOpen}>
         <Menu.Trigger
           className={(state) =>
-            `h-8 br-lg px-3 fs-sm fw-500 c-slate-10 us-none c-p b-0 bg-transparent ${
+            `h-8 br-lg px-3 fs-sm fw-500 c-slate-10 us-none c-p bw-0 bg-transparent ${
               state.open ? "bg-silver-1/50" : "bg-transparent"
             }`
           }
@@ -76,7 +76,7 @@ export default function MenubarRadios() {
       <Menu.Root open={sortOpen} onOpenChange={setSortOpen}>
         <Menu.Trigger
           className={(state) =>
-            `h-8 br-lg px-3 fs-sm fw-500 c-slate-10 us-none c-p b-0 bg-transparent ${
+            `h-8 br-lg px-3 fs-sm fw-500 c-slate-10 us-none c-p bw-0 bg-transparent ${
               state.open ? "bg-silver-1/50" : "bg-transparent"
             }`
           }
@@ -134,7 +134,7 @@ export default function MenubarRadios() {
       <Menu.Root open={filterOpen} onOpenChange={setFilterOpen}>
         <Menu.Trigger
           className={(state) =>
-            `h-8 br-lg px-3 fs-sm fw-500 c-slate-10 us-none c-p b-0 bg-transparent ${
+            `h-8 br-lg px-3 fs-sm fw-500 c-slate-10 us-none c-p bw-0 bg-transparent ${
               state.open ? "bg-silver-1/50" : "bg-transparent"
             }`
           }
