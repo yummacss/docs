@@ -157,6 +157,7 @@ const uiRegistry = {
   "menu-static": dynamic(() => import("./ui/menu-static"), { ssr: true }),
   "menubar-base": dynamic(() => import("./ui/menubar-base"), { ssr: true }),
   "menubar-checkboxes": dynamic(() => import("./ui/menubar-checkboxes"), { ssr: true }),
+  "menubar-disabled": dynamic(() => import("./ui/menubar-disabled"), { ssr: true }),
   "menubar-grouped": dynamic(() => import("./ui/menubar-grouped"), { ssr: true }),
   "menubar-icons": dynamic(() => import("./ui/menubar-icons"), { ssr: true }),
   "menubar-nested": dynamic(() => import("./ui/menubar-nested"), { ssr: true }),
