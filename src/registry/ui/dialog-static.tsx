@@ -24,10 +24,10 @@ export default function DialogStatic() {
           <Dialog.Backdrop className="p-f i-0 min-h-dvh bg-black/20 bf-b-xs" />
           <div className="d-f p-f i-0 ai-c jc-c">
             <Dialog.Popup
-              className="o-h w-96 bg-white bc-silver-2 c-slate-12 br-xl bw-1 bs-o-xs"
+              className="o-h w-96 bg-silver-1 bc-silver-2 c-slate-12 br-xl bw-1 bs-o-xs"
               style={{ maxWidth: "90vw" }}
             >
-              <div className="d-f jc-sb ai-c px-4 py-2 bg-silver-1/50">
+              <div className="d-f jc-sb ai-c px-4 py-2 bg-silver-1">
                 <Dialog.Title className="c-slate-8 fs-md fw-500">
                   Access request
                 </Dialog.Title>
@@ -39,7 +39,7 @@ export default function DialogStatic() {
                   <Xmark aria-hidden className="w-4 h-4" />
                 </Dialog.Close>
               </div>
-              <div className="d-f fd-c ai-c jc-c g-3 px-4 py-5 bc-silver-2 btr-lg btw-1">
+              <div className="d-f fd-c ai-c jc-c g-3 px-4 py-5 bg-white bc-silver-2 btr-lg btw-1">
                 <Avatar.Root className="d-if o-h ai-c jc-c w-12 h-12 bc-white br-pill bw-1 va-m us-none">
                   <Avatar.Image
                     src="https://api.dicebear.com/9.x/open-peeps/svg?seed=Sarah&backgroundColor=DAF0B9"
@@ -55,7 +55,7 @@ export default function DialogStatic() {
                   <span className="c-slate-6 fs-sm">sarah@yummaui.com</span>
                 </div>
               </div>
-              <div className="px-4 py-3">
+              <div className="px-4 py-3 bg-white">
                 <Dialog.Description className="c-slate-7 fs-sm lh-4 ta-c">
                   Your{" "}
                   <a href="#" className="c-indigo fw-600">
@@ -64,7 +64,7 @@ export default function DialogStatic() {
                   project now has a pending collaboration request from Sarah.
                 </Dialog.Description>
               </div>
-              <div className="d-g gtc-2 g-3 px-4 py-4">
+              <div className="d-g gtc-2 g-3 px-4 py-4 bg-white">
                 <Dialog.Close
                   render={
                     <Button className="px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:ow-2 fv:oo-2 fv:oc-indigo-5" />
