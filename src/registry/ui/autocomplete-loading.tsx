@@ -108,13 +108,7 @@ export default function AutocompleteLoading() {
                         />
                       )}
                     </Autocomplete.List>
-                  ) : !loading && !hasResults ? (
-                    <Autocomplete.Empty className="c-slate-6 fs-sm">
-                      <div className="pt-2 pb-3 px-4 us-none">
-                        No results found.
-                      </div>
-                    </Autocomplete.Empty>
-                  ) : null}
+) : null}
                 </Autocomplete.Popup>
               </motion.div>
             </Autocomplete.Positioner>
