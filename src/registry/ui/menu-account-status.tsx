@@ -176,8 +176,8 @@ export default function MenuAccountStatus() {
                             }`
                           }
                         >
-                          <span className="d-f ai-c jc-c fs-0 w-3 h-3 bc-slate-6 br-pill bw-1">
-                            <span className="d-b w-2 h-2 bc-silver-1 br-pill" />
+                          <span className="d-f ai-c jc-c fs-0 w-3 h-3 bc-silver-3 br-pill">
+                            <span className="d-b w-2 h-2 bg-silver br-pill" />
                           </span>
                           Invisible
                         </Menu.Item>
