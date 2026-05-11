@@ -1,7 +1,7 @@
 "use client";
 
 import { Combobox } from "@base-ui/react/combobox";
-import { Check, Xmark } from "@gravity-ui/icons";
+import { Check, ChevronsExpandVertical, Xmark } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -21,12 +21,12 @@ export default function ComboboxMultiple() {
             className="h-10 w-64 pl-4 pr-10 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md bs-o-xs fv:oo--1 fv:oc-indigo-5"
           />
           <div className="d-f p-a r-2 b-0 ai-c jc-c h-10 c-slate-6">
-            <Combobox.Clear
+            <Combobox.Trigger
               className="d-f b-0 ai-c jc-c w-6 h-6 p-0 bg-transparent c-slate-6 br-sm c-p h:c-slate-10 fv:oo--1 fv:oc-indigo-5"
-              aria-label="Clear selection"
+              aria-label="Open popup"
             >
-              <Xmark className="w-4 h-4" />
-            </Combobox.Clear>
+              <ChevronsExpandVertical className="w-4 h-4" />
+            </Combobox.Trigger>
           </div>
         </div>
         <Combobox.Value>

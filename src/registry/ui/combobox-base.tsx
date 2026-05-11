@@ -2,7 +2,7 @@
 
 import { Avatar } from "@base-ui/react/avatar";
 import { Combobox } from "@base-ui/react/combobox";
-import { Check, ChevronDown, Xmark } from "@gravity-ui/icons";
+import { Check, ChevronsExpandVertical, Xmark } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -32,7 +32,7 @@ export default function ComboboxBase() {
               className="d-f b-0 ai-c jc-c w-6 h-6 p-0 bg-transparent c-slate-6 br-sm c-p h:c-slate-10 fv:oo--1 fv:oc-indigo-5"
               aria-label="Open popup"
             >
-              <ChevronDown className="w-4 h-4" />
+              <ChevronsExpandVertical className="w-4 h-4" />
             </Combobox.Trigger>
           </div>
         </div>
