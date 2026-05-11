@@ -66,7 +66,11 @@ export default function AutocompleteBase() {
                       />
                     )}
                   </Autocomplete.List>
-                  
+                  <Autocomplete.Empty className="c-slate-6 fs-sm">
+                    <div className="pt-2 pb-3 px-4 us-none">
+                      No members found.
+                    </div>
+                  </Autocomplete.Empty>
                 </Autocomplete.Popup>
               </motion.div>
             </Autocomplete.Positioner>

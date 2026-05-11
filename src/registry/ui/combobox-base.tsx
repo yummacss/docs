@@ -80,7 +80,9 @@ export default function ComboboxBase() {
                       </Combobox.Item>
                     )}
                   </Combobox.List>
-                  
+                  <Combobox.Empty className="c-slate-6 fs-sm">
+                    <div className="py-4 px-4">No users found.</div>
+                  </Combobox.Empty>
                 </Combobox.Popup>
               </motion.div>
             </Combobox.Positioner>
