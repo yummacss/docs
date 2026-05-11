@@ -111,9 +111,9 @@ Display a loading state while fetching results.
 
 ---
 
-### Empty State
+### Empty
 
-Display a custom empty state when no results match.
+Display selectable options in the dropdown.
 
 <Tabs defaultValue="preview">
   <TabsList>
@@ -121,10 +121,10 @@ Display a custom empty state when no results match.
     <TabsTab value="code">Code</TabsTab>
   </TabsList>
   <TabsPanel className="bg-white bbr-sm" value="preview">
-    <Preview className="bw-0 h-sm" registryId="autocomplete-empty-state" />
+    <Preview className="bw-0 h-sm" registryId="autocomplete-empty" />
   </TabsPanel>
   <TabsPanel value="code">
-    ```tsx registryId="autocomplete-empty-state"
+    ```tsx registryId="autocomplete-empty"
     ```
   </TabsPanel>
 </Tabs>
@@ -148,8 +148,6 @@ Restrict the maximum number of visible results.
     ```
   </TabsPanel>
 </Tabs>
-
----
 
 ### Static
 

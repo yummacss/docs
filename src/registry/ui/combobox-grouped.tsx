@@ -92,11 +92,7 @@ export default function ComboboxGrouped() {
                       </Combobox.Group>
                     )}
                   </Combobox.List>
-                  <Combobox.Empty className="c-slate-6 fs-sm">
-                    <div className="pt-2 pb-3 px-4 us-none">
-                      No members found.
-                    </div>
-                  </Combobox.Empty>
+                  
                 </Combobox.Popup>
               </motion.div>
             </Combobox.Positioner>

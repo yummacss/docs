@@ -82,11 +82,7 @@ export default function AutocompleteMaxItems() {
                       </span>
                     </div>
                   )}
-                  <Autocomplete.Empty className="c-slate-6 fs-sm">
-                    <div className="pt-2 pb-3 px-4 us-none">
-                      No projects found.
-                    </div>
-                  </Autocomplete.Empty>
+                  
                 </Autocomplete.Popup>
               </motion.div>
             </Autocomplete.Positioner>
