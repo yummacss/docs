@@ -17,7 +17,7 @@ export default function CheckboxSm() {
         }
       >
         <Checkbox.Indicator className="d-f c-white">
-          <Check className="w-3 h-3" />
+          <Check className="w-2 h-2" />
         </Checkbox.Indicator>
       </Checkbox.Root>
       Small

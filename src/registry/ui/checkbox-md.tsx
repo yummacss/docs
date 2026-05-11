@@ -3,7 +3,7 @@
 import { Checkbox } from "@base-ui/react/checkbox";
 import { Check } from "@gravity-ui/icons";
 
-export default function CheckboxXs() {
+export default function CheckboxMd() {
   return (
     <label className="d-f ai-c g-2 c-slate-10 fs-xs fw-500">
       <Checkbox.Root
@@ -17,10 +17,10 @@ export default function CheckboxXs() {
         }
       >
         <Checkbox.Indicator className="d-f c-white">
-          <Check className="w-2 h-2" />
+          <Check className="w-3 h-3" />
         </Checkbox.Indicator>
       </Checkbox.Root>
-      Extra Small
+      Medium
     </label>
   );
 }
