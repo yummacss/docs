@@ -293,10 +293,6 @@ summary {
   border-color: #9ca3af;
 }
 
-.bc-silver-1 {
-  border-color: #eff0f2;
-}
-
 .bc-silver-2 {
   border-color: #e1e3e7;
 }
@@ -311,10 +307,6 @@ summary {
 
 .bc-slate-3 {
   border-color: #bbc2cc;
-}
-
-.bc-slate-6 {
-  border-color: #7a879b;
 }
 
 .bc-transparent {
@@ -567,6 +559,10 @@ summary {
 
 .bg-red\/50 {
   background-color: #e6394680;
+}
+
+.bg-silver {
+  background-color: #9ca3af;
 }
 
 .bg-silver-1 {

@@ -2,9 +2,9 @@
 
 import { Menu } from "@base-ui/react/menu";
 import {
+  Copy,
   EllipsisVertical,
   FileArrowRightOut,
-  Folder,
   Pencil,
   TrashBin,
   Tray,
@@ -53,7 +53,7 @@ export default function MenuIconOnly() {
                     }`
                   }
                 >
-                  <Folder className="fs-0 w-4 h-4 c-slate-5" />
+                  <Copy className="fs-0 w-4 h-4 c-slate-5" />
                   Duplicate
                 </Menu.Item>
                 <Menu.Item
