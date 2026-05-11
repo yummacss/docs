@@ -128,7 +128,6 @@ const uiRegistry = {
   "empty-state-actions": dynamic(() => import("./ui/empty-state-actions"), { ssr: true }),
   "empty-state-base": dynamic(() => import("./ui/empty-state-base"), { ssr: true }),
   "empty-state-icon": dynamic(() => import("./ui/empty-state-icon"), { ssr: true }),
-  "empty-state-search": dynamic(() => import("./ui/empty-state-search"), { ssr: true }),
   "empty-state-text": dynamic(() => import("./ui/empty-state-text"), { ssr: true }),
   "field-base": dynamic(() => import("./ui/field-base"), { ssr: true }),
   "field-character-counter": dynamic(() => import("./ui/field-character-counter"), { ssr: true }),
