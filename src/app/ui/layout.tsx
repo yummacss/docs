@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 export default function UILayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-dvh">
-      <Navbar showMobileSidebar />
+      <Navbar showMobileSidebar routeType="ui" />
 
       <main
         className="zi-0 mx-auto px-6"
