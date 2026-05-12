@@ -4,7 +4,7 @@ import { Avatar } from "@base-ui/react/avatar";
 import { PreviewCard } from "@base-ui/react/preview-card";
 import { motion } from "motion/react";
 
-export default function PreviewCardAvatar() {
+export default function PreviewCardAvatarStatus() {
   return (
     <PreviewCard.Root>
       <div className="d-f ai-c g-2">
@@ -16,7 +16,7 @@ export default function PreviewCardAvatar() {
               className="of-c w-full h-full"
             />
           </Avatar.Root>
-          <span className="p-a r-0 w-2 h-2 bg-green-6 bc-white br-pill bw-1" />
+          <span className="p-a r-0 b-0 w-3 h-3 bg-green-6 bc-white br-pill bw-1" />
         </div>
         <PreviewCard.Trigger
           className={(state) =>
