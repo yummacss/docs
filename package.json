@@ -24,6 +24,7 @@
     "@fontsource/esteban": "^5.2.7",
     "@fontsource/ia-writer-quattro": "^5.2.5",
     "@gravity-ui/icons": "^2.18.0",
+    "@hugeicons/react": "^1.1.6",
     "@mdx-js/loader": "^3.1.1",
     "@mdx-js/react": "^3.1.1",
     "@next/mdx": "^16.2.4",
