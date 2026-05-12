@@ -56,19 +56,6 @@ export default function Navbar({
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, []);
 
-  // prevent body scroll when sidebar is open
-  useEffect(() => {
-    if (isSidebarOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [isSidebarOpen]);
-
   return (
     <>
       <header
