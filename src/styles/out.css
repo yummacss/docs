@@ -1774,6 +1774,10 @@ summary {
   max-width: 48rem;
 }
 
+.max-w-xs {
+  max-width: 32rem;
+}
+
 .mb-1 {
   margin-bottom: .25rem;
 }
