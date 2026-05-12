@@ -133,7 +133,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
     <Dialog.Root open={open} onOpenChange={(isOpen) => !isOpen && onClose()}>
       <AnimatePresence>
         {open && (
-          <Dialog.Portal>
+          <Dialog.Portal keepMounted>
             <Dialog.Backdrop
               render={
                 <motion.div
