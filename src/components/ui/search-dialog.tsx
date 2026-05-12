@@ -155,7 +155,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                     transition={{ duration: 0.15, ease: "easeOut" }}
                   />
                 }
-                className="o-h w-full max-w-xs bc-white/10 bg-mirage bw-1 br-lg pe-auto"
+                className="o-h w-full max-w-xs bc-white/10 bg-transparent bw-1 br-lg pe-auto"
                 style={{
                   maxHeight: "70vh",
                 }}
@@ -261,13 +261,13 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                   <div className="d-f ai-c g-4">
                     <span className="d-f ai-c g-1">
                       <kbd
-                        className="d-f ai-c p-1 bc-white/10 bg-mirage br-sm bw-1"
+                        className="d-f ai-c p-1 bc-white/10 bg-transparent br-sm bw-1"
                         style={{}}
                       >
                         <ArrowUp className="w-4 h-4" />
                       </kbd>
                       <kbd
-                        className="d-f ai-c p-1 bc-white/10 bg-mirage br-sm bw-1"
+                        className="d-f ai-c p-1 bc-white/10 bg-transparent br-sm bw-1"
                         style={{}}
                       >
                         <ArrowDown className="w-4 h-4" />
@@ -276,7 +276,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                     </span>
                     <span className="d-f ai-c g-1">
                       <kbd
-                        className="d-f ai-c p-1 bc-white/10 bg-mirage br-sm bw-1"
+                        className="d-f ai-c p-1 bc-white/10 bg-transparent br-sm bw-1"
                         style={{}}
                       >
                         <ArrowUturnCwLeft className="w-4 h-4" />
@@ -286,7 +286,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                   </div>
                   <span className="d-f ai-c g-1">
                     <kbd
-                      className="d-f ai-c p-1 bc-white/10 bg-mirage br-sm bw-1"
+                      className="d-f ai-c p-1 bc-white/10 bg-transparent br-sm bw-1"
                       style={{}}
                     >
                       <ArrowRightFromSquare className="w-4 h-4" />
