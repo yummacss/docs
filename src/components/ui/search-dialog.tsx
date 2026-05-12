@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { Button } from "@base-ui/react";
 import { Dialog } from "@base-ui/react/dialog";
@@ -133,7 +133,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
     <Dialog.Root open={open} onOpenChange={(isOpen) => !isOpen && onClose()}>
       <AnimatePresence>
         {open && (
-          <Dialog.Portal keepMounted>
+          <Dialog.Portal>
             <Dialog.Backdrop
               render={
                 <motion.div
