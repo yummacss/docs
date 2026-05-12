@@ -1830,10 +1830,6 @@ summary {
   min-width: fit-content;
 }
 
-.min-w-max {
-  min-width: max-content;
-}
-
 .ml--2 {
   margin-left: -.5rem;
 }
