@@ -4,24 +4,24 @@ import { Avatar } from "@base-ui/react/avatar";
 
 export default function AvatarStackCompact() {
   return (
-    <div className="d-f ai-c p-px bg-white bc-silver-3 bw-1 br-pill">
+    <div className="d-f ai-c p-px bg-white bc-silver-3 br-9999 bw-1">
       {stackMembers.map((member, index) => (
         <Avatar.Root
           key={member.name}
-          className={`d-if o-h ai-c jc-c w-10 h-10 bg-silver-1 bc-white br-pill bw-1 va-m us-none ${index > 0 ? "ml--2" : ""}`}
+          className={`d-if o-h ai-c jc-c w-10 h-10 bg-silver-1 bc-white br-9999 bw-1 va-m us-none ${index > 0 ? "ml--2" : ""}`}
         >
           <Avatar.Image
             src={member.avatarUrl}
             alt={member.name}
-            className="of-c w-full h-full"
+            className="of-c w-100% h-100%"
           />
-          <Avatar.Fallback className="d-f ai-c jc-c w-full h-full c-slate-9 fs-md fw-500">
+          <Avatar.Fallback className="d-f ai-c jc-c w-100% h-100% c-slate-9 fs-md fw-500">
             {member.initials}
           </Avatar.Fallback>
         </Avatar.Root>
       ))}
-      <Avatar.Root className="d-if o-h ai-c jc-c w-10 h-10 br-pill va-m us-none">
-        <Avatar.Fallback className="d-f ai-c jc-c w-full h-full c-slate-8 fs-md fw-400">
+      <Avatar.Root className="d-if o-h ai-c jc-c w-10 h-10 br-9999 va-m us-none">
+        <Avatar.Fallback className="d-f ai-c jc-c w-100% h-100% c-slate-8 fs-md fw-400">
           +{extraCount}
         </Avatar.Fallback>
       </Avatar.Root>

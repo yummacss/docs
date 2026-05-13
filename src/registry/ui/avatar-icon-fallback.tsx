@@ -7,10 +7,10 @@ export default function AvatarIconFallback() {
       {fallbacks.map((fallback) => (
         <Avatar.Root
           key={fallback.rootColor}
-          className={`d-if o-h ai-c jc-c w-12 h-12 ${fallback.rootColor} br-pill va-m us-none`}
+          className={`d-if o-h ai-c jc-c w-12 h-12 ${fallback.rootColor} br-9999 va-m us-none`}
         >
           <Avatar.Fallback
-            className={`d-f ai-c jc-c w-full h-full ${fallback.fallbackColor}`}
+            className={`d-f ai-c jc-c w-100% h-100% ${fallback.fallbackColor}`}
           >
             <PersonFill className="w-6 h-6" />
           </Avatar.Fallback>

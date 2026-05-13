@@ -47,7 +47,7 @@ export function TabsList({
     >
       {children}
       <BaseTabs.Indicator
-        className="p-a l-0 t-half h-6 tdu-200 ttf-io br-sm bg-charcoal bc-navy bw-1"
+        className="p-a l-0 t-50% h-6 bc-navy bg-charcoal br-sm bw-1 tdu-200 ttf-io"
         style={{
           zIndex: -1,
           translate: "var(--active-tab-left) -50%",

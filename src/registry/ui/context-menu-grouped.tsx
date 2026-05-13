@@ -58,7 +58,7 @@ export default function ContextMenuGrouped() {
                   </ContextMenu.Item>
                 </ContextMenu.Group>
 
-                <ContextMenu.Separator className="my-1 w-full h-px bg-silver-2" />
+                <ContextMenu.Separator className="my-1 w-100% h-px bg-silver-2" />
 
                 <ContextMenu.Group>
                   <ContextMenu.Item
@@ -72,7 +72,7 @@ export default function ContextMenuGrouped() {
                   </ContextMenu.Item>
                 </ContextMenu.Group>
 
-                <ContextMenu.Separator className="my-1 w-full h-px bg-silver-2" />
+                <ContextMenu.Separator className="my-1 w-100% h-px bg-silver-2" />
 
                 <ContextMenu.Group>
                   <ContextMenu.Item

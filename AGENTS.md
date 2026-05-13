@@ -124,9 +124,9 @@ Below is an exhaustive list of every supported utility prefix and value in Yumma
 | `border-radius: 0.75rem;` | `br-xl` |
 | `border-radius: 1rem;` | `br-xxl` |
 | `border-radius: 1.5rem;` | `br-3xl` |
-| `border-radius: 100%;` | `br-full` |
-| `border-radius: 50%;` | `br-half` |
-| `border-radius: 9999px;` | `br-pill` |
+| `border-radius: 100%;` | `br-100%` |
+| `border-radius: 50%;` | `br-50%` |
+| `border-radius: 9999px;` | `br-9999` |
 | `border-radius: 1px;` | `br-px` |
 
 ### border-bottom-radius
@@ -141,9 +141,9 @@ Below is an exhaustive list of every supported utility prefix and value in Yumma
 | `border-bottom-right-radius: 0.75rem;` | `bbr-xl` |
 | `border-bottom-right-radius: 1rem;` | `bbr-xxl` |
 | `border-bottom-right-radius: 1.5rem;` | `bbr-3xl` |
-| `border-bottom-right-radius: 100%;` | `bbr-full` |
-| `border-bottom-right-radius: 50%;` | `bbr-half` |
-| `border-bottom-right-radius: 9999px;` | `bbr-pill` |
+| `border-bottom-right-radius: 100%;` | `bbr-100%` |
+| `border-bottom-right-radius: 50%;` | `bbr-50%` |
+| `border-bottom-right-radius: 9999px;` | `bbr-9999` |
 | `border-bottom-right-radius: 1px;` | `bbr-px` |
 
 ### border-left-radius
@@ -158,9 +158,9 @@ Below is an exhaustive list of every supported utility prefix and value in Yumma
 | `border-top-left-radius: 0.75rem;` | `blr-xl` |
 | `border-top-left-radius: 1rem;` | `blr-xxl` |
 | `border-top-left-radius: 1.5rem;` | `blr-3xl` |
-| `border-top-left-radius: 100%;` | `blr-full` |
-| `border-top-left-radius: 50%;` | `blr-half` |
-| `border-top-left-radius: 9999px;` | `blr-pill` |
+| `border-top-left-radius: 100%;` | `blr-100%` |
+| `border-top-left-radius: 50%;` | `blr-50%` |
+| `border-top-left-radius: 9999px;` | `blr-9999` |
 | `border-top-left-radius: 1px;` | `blr-px` |
 
 ### border-right-radius
@@ -175,9 +175,9 @@ Below is an exhaustive list of every supported utility prefix and value in Yumma
 | `border-top-right-radius: 0.75rem;` | `brr-xl` |
 | `border-top-right-radius: 1rem;` | `brr-xxl` |
 | `border-top-right-radius: 1.5rem;` | `brr-3xl` |
-| `border-top-right-radius: 100%;` | `brr-full` |
-| `border-top-right-radius: 50%;` | `brr-half` |
-| `border-top-right-radius: 9999px;` | `brr-pill` |
+| `border-top-right-radius: 100%;` | `brr-100%` |
+| `border-top-right-radius: 50%;` | `brr-50%` |
+| `border-top-right-radius: 9999px;` | `brr-9999` |
 | `border-top-right-radius: 1px;` | `brr-px` |
 
 ### border-bottom-left-radius
@@ -192,9 +192,9 @@ Below is an exhaustive list of every supported utility prefix and value in Yumma
 | `border-bottom-left-radius: 0.75rem;` | `bblr-xl` |
 | `border-bottom-left-radius: 1rem;` | `bblr-xxl` |
 | `border-bottom-left-radius: 1.5rem;` | `bblr-3xl` |
-| `border-bottom-left-radius: 100%;` | `bblr-full` |
-| `border-bottom-left-radius: 50%;` | `bblr-half` |
-| `border-bottom-left-radius: 9999px;` | `bblr-pill` |
+| `border-bottom-left-radius: 100%;` | `bblr-100%` |
+| `border-bottom-left-radius: 50%;` | `bblr-50%` |
+| `border-bottom-left-radius: 9999px;` | `bblr-9999` |
 | `border-bottom-left-radius: 1px;` | `bblr-px` |
 
 ### border-bottom-right-radius
@@ -209,9 +209,9 @@ Below is an exhaustive list of every supported utility prefix and value in Yumma
 | `border-bottom-right-radius: 0.75rem;` | `bbrr-xl` |
 | `border-bottom-right-radius: 1rem;` | `bbrr-xxl` |
 | `border-bottom-right-radius: 1.5rem;` | `bbrr-3xl` |
-| `border-bottom-right-radius: 100%;` | `bbrr-full` |
-| `border-bottom-right-radius: 50%;` | `bbrr-half` |
-| `border-bottom-right-radius: 9999px;` | `bbrr-pill` |
+| `border-bottom-right-radius: 100%;` | `bbrr-100%` |
+| `border-bottom-right-radius: 50%;` | `bbrr-50%` |
+| `border-bottom-right-radius: 9999px;` | `bbrr-9999` |
 | `border-bottom-right-radius: 1px;` | `bbrr-px` |
 
 ### border-top-radius
@@ -226,9 +226,9 @@ Below is an exhaustive list of every supported utility prefix and value in Yumma
 | `border-top-left-radius: 0.75rem;` | `btr-xl` |
 | `border-top-left-radius: 1rem;` | `btr-xxl` |
 | `border-top-left-radius: 1.5rem;` | `btr-3xl` |
-| `border-top-left-radius: 100%;` | `btr-full` |
-| `border-top-left-radius: 50%;` | `btr-half` |
-| `border-top-left-radius: 9999px;` | `btr-pill` |
+| `border-top-left-radius: 100%;` | `btr-100%` |
+| `border-top-left-radius: 50%;` | `btr-50%` |
+| `border-top-left-radius: 9999px;` | `btr-9999` |
 | `border-top-left-radius: 1px;` | `btr-px` |
 
 ### border-top-left-radius
@@ -243,9 +243,9 @@ Below is an exhaustive list of every supported utility prefix and value in Yumma
 | `border-top-left-radius: 0.75rem;` | `btlr-xl` |
 | `border-top-left-radius: 1rem;` | `btlr-xxl` |
 | `border-top-left-radius: 1.5rem;` | `btlr-3xl` |
-| `border-top-left-radius: 100%;` | `btlr-full` |
-| `border-top-left-radius: 50%;` | `btlr-half` |
-| `border-top-left-radius: 9999px;` | `btlr-pill` |
+| `border-top-left-radius: 100%;` | `btlr-100%` |
+| `border-top-left-radius: 50%;` | `btlr-50%` |
+| `border-top-left-radius: 9999px;` | `btlr-9999` |
 | `border-top-left-radius: 1px;` | `btlr-px` |
 
 ### border-top-right-radius
@@ -260,9 +260,9 @@ Below is an exhaustive list of every supported utility prefix and value in Yumma
 | `border-top-right-radius: 0.75rem;` | `btrr-xl` |
 | `border-top-right-radius: 1rem;` | `btrr-xxl` |
 | `border-top-right-radius: 1.5rem;` | `btrr-3xl` |
-| `border-top-right-radius: 100%;` | `btrr-full` |
-| `border-top-right-radius: 50%;` | `btrr-half` |
-| `border-top-right-radius: 9999px;` | `btrr-pill` |
+| `border-top-right-radius: 100%;` | `btrr-100%` |
+| `border-top-right-radius: 50%;` | `btrr-50%` |
+| `border-top-right-radius: 9999px;` | `btrr-9999` |
 | `border-top-right-radius: 1px;` | `btrr-px` |
 
 ### border-block-end-radius
@@ -277,9 +277,9 @@ Below is an exhaustive list of every supported utility prefix and value in Yumma
 | `border-end-end-radius: 0.75rem;` | `bber-xl` |
 | `border-end-end-radius: 1rem;` | `bber-xxl` |
 | `border-end-end-radius: 1.5rem;` | `bber-3xl` |
-| `border-end-end-radius: 100%;` | `bber-full` |
-| `border-end-end-radius: 50%;` | `bber-half` |
-| `border-end-end-radius: 9999px;` | `bber-pill` |
+| `border-end-end-radius: 100%;` | `bber-100%` |
+| `border-end-end-radius: 50%;` | `bber-50%` |
+| `border-end-end-radius: 9999px;` | `bber-9999` |
 | `border-end-end-radius: 1px;` | `bber-px` |
 
 ### border-inline-start-radius
@@ -294,9 +294,9 @@ Below is an exhaustive list of every supported utility prefix and value in Yumma
 | `border-start-start-radius: 0.75rem;` | `bisr-xl` |
 | `border-start-start-radius: 1rem;` | `bisr-xxl` |
 | `border-start-start-radius: 1.5rem;` | `bisr-3xl` |
-| `border-start-start-radius: 100%;` | `bisr-full` |
-| `border-start-start-radius: 50%;` | `bisr-half` |
-| `border-start-start-radius: 9999px;` | `bisr-pill` |
+| `border-start-start-radius: 100%;` | `bisr-100%` |
+| `border-start-start-radius: 50%;` | `bisr-50%` |
+| `border-start-start-radius: 9999px;` | `bisr-9999` |
 | `border-start-start-radius: 1px;` | `bisr-px` |
 
 ### border-inline-end-radius
@@ -311,9 +311,9 @@ Below is an exhaustive list of every supported utility prefix and value in Yumma
 | `border-start-end-radius: 0.75rem;` | `bier-xl` |
 | `border-start-end-radius: 1rem;` | `bier-xxl` |
 | `border-start-end-radius: 1.5rem;` | `bier-3xl` |
-| `border-start-end-radius: 100%;` | `bier-full` |
-| `border-start-end-radius: 50%;` | `bier-half` |
-| `border-start-end-radius: 9999px;` | `bier-pill` |
+| `border-start-end-radius: 100%;` | `bier-100%` |
+| `border-start-end-radius: 50%;` | `bier-50%` |
+| `border-start-end-radius: 9999px;` | `bier-9999` |
 | `border-start-end-radius: 1px;` | `bier-px` |
 
 ### border-end-start-radius
@@ -328,9 +328,9 @@ Below is an exhaustive list of every supported utility prefix and value in Yumma
 | `border-end-start-radius: 0.75rem;` | `besr-xl` |
 | `border-end-start-radius: 1rem;` | `besr-xxl` |
 | `border-end-start-radius: 1.5rem;` | `besr-3xl` |
-| `border-end-start-radius: 100%;` | `besr-full` |
-| `border-end-start-radius: 50%;` | `besr-half` |
-| `border-end-start-radius: 9999px;` | `besr-pill` |
+| `border-end-start-radius: 100%;` | `besr-100%` |
+| `border-end-start-radius: 50%;` | `besr-50%` |
+| `border-end-start-radius: 9999px;` | `besr-9999` |
 | `border-end-start-radius: 1px;` | `besr-px` |
 
 ### border-end-end-radius
@@ -345,9 +345,9 @@ Below is an exhaustive list of every supported utility prefix and value in Yumma
 | `border-end-end-radius: 0.75rem;` | `beer-xl` |
 | `border-end-end-radius: 1rem;` | `beer-xxl` |
 | `border-end-end-radius: 1.5rem;` | `beer-3xl` |
-| `border-end-end-radius: 100%;` | `beer-full` |
-| `border-end-end-radius: 50%;` | `beer-half` |
-| `border-end-end-radius: 9999px;` | `beer-pill` |
+| `border-end-end-radius: 100%;` | `beer-100%` |
+| `border-end-end-radius: 50%;` | `beer-50%` |
+| `border-end-end-radius: 9999px;` | `beer-9999` |
 | `border-end-end-radius: 1px;` | `beer-px` |
 
 ### border-block-start-radius
@@ -362,9 +362,9 @@ Below is an exhaustive list of every supported utility prefix and value in Yumma
 | `border-start-start-radius: 0.75rem;` | `bbsr-xl` |
 | `border-start-start-radius: 1rem;` | `bbsr-xxl` |
 | `border-start-start-radius: 1.5rem;` | `bbsr-3xl` |
-| `border-start-start-radius: 100%;` | `bbsr-full` |
-| `border-start-start-radius: 50%;` | `bbsr-half` |
-| `border-start-start-radius: 9999px;` | `bbsr-pill` |
+| `border-start-start-radius: 100%;` | `bbsr-100%` |
+| `border-start-start-radius: 50%;` | `bbsr-50%` |
+| `border-start-start-radius: 9999px;` | `bbsr-9999` |
 | `border-start-start-radius: 1px;` | `bbsr-px` |
 
 ### border-start-start-radius
@@ -379,9 +379,9 @@ Below is an exhaustive list of every supported utility prefix and value in Yumma
 | `border-start-start-radius: 0.75rem;` | `bssr-xl` |
 | `border-start-start-radius: 1rem;` | `bssr-xxl` |
 | `border-start-start-radius: 1.5rem;` | `bssr-3xl` |
-| `border-start-start-radius: 100%;` | `bssr-full` |
-| `border-start-start-radius: 50%;` | `bssr-half` |
-| `border-start-start-radius: 9999px;` | `bssr-pill` |
+| `border-start-start-radius: 100%;` | `bssr-100%` |
+| `border-start-start-radius: 50%;` | `bssr-50%` |
+| `border-start-start-radius: 9999px;` | `bssr-9999` |
 | `border-start-start-radius: 1px;` | `bssr-px` |
 
 ### border-start-end-radius
@@ -396,9 +396,9 @@ Below is an exhaustive list of every supported utility prefix and value in Yumma
 | `border-start-end-radius: 0.75rem;` | `bser-xl` |
 | `border-start-end-radius: 1rem;` | `bser-xxl` |
 | `border-start-end-radius: 1.5rem;` | `bser-3xl` |
-| `border-start-end-radius: 100%;` | `bser-full` |
-| `border-start-end-radius: 50%;` | `bser-half` |
-| `border-start-end-radius: 9999px;` | `bser-pill` |
+| `border-start-end-radius: 100%;` | `bser-100%` |
+| `border-start-end-radius: 50%;` | `bser-50%` |
+| `border-start-end-radius: 9999px;` | `bser-9999` |
 | `border-start-end-radius: 1px;` | `bser-px` |
 
 ### border-spacing
@@ -625,8 +625,8 @@ Below is an exhaustive list of every supported utility prefix and value in Yumma
 | `block-size: 100vmin;` | `ys-vmin` |
 | `block-size: 100vmax;` | `ys-vmax` |
 | `block-size: fit-content;` | `ys-fc` |
-| `block-size: 100%;` | `ys-full` |
-| `block-size: 50%;` | `ys-half` |
+| `block-size: 100%;` | `ys-100%` |
+| `block-size: 50%;` | `ys-50%` |
 | `block-size: max-content;` | `ys-max` |
 | `block-size: min-content;` | `ys-min` |
 | `block-size: 1px;` | `ys-px` |
@@ -656,8 +656,8 @@ Below is an exhaustive list of every supported utility prefix and value in Yumma
 | `height: 100vmin;` | `h-vmin` |
 | `height: 100vmax;` | `h-vmax` |
 | `height: fit-content;` | `h-fc` |
-| `height: 100%;` | `h-full` |
-| `height: 50%;` | `h-half` |
+| `height: 100%;` | `h-100%` |
+| `height: 50%;` | `h-50%` |
 | `height: max-content;` | `h-max` |
 | `height: min-content;` | `h-min` |
 | `height: 1px;` | `h-px` |
@@ -687,8 +687,8 @@ Below is an exhaustive list of every supported utility prefix and value in Yumma
 | `inline-size: 100vmin;` | `xs-vmin` |
 | `inline-size: 100vmax;` | `xs-vmax` |
 | `inline-size: fit-content;` | `xs-fc` |
-| `inline-size: 100%;` | `xs-full` |
-| `inline-size: 50%;` | `xs-half` |
+| `inline-size: 100%;` | `xs-100%` |
+| `inline-size: 50%;` | `xs-50%` |
 | `inline-size: max-content;` | `xs-max` |
 | `inline-size: min-content;` | `xs-min` |
 | `inline-size: 1px;` | `xs-px` |
@@ -718,8 +718,8 @@ Below is an exhaustive list of every supported utility prefix and value in Yumma
 | `max-block-size: 100vmin;` | `max-ys-vmin` |
 | `max-block-size: 100vmax;` | `max-ys-vmax` |
 | `max-block-size: fit-content;` | `max-ys-fc` |
-| `max-block-size: 100%;` | `max-ys-full` |
-| `max-block-size: 50%;` | `max-ys-half` |
+| `max-block-size: 100%;` | `max-ys-100%` |
+| `max-block-size: 50%;` | `max-ys-50%` |
 | `max-block-size: max-content;` | `max-ys-max` |
 | `max-block-size: min-content;` | `max-ys-min` |
 | `max-block-size: 1px;` | `max-ys-px` |
@@ -749,8 +749,8 @@ Below is an exhaustive list of every supported utility prefix and value in Yumma
 | `max-height: 100vmin;` | `max-h-vmin` |
 | `max-height: 100vmax;` | `max-h-vmax` |
 | `max-height: fit-content;` | `max-h-fc` |
-| `max-height: 100%;` | `max-h-full` |
-| `max-height: 50%;` | `max-h-half` |
+| `max-height: 100%;` | `max-h-100%` |
+| `max-height: 50%;` | `max-h-50%` |
 | `max-height: max-content;` | `max-h-max` |
 | `max-height: min-content;` | `max-h-min` |
 | `max-height: 1px;` | `max-h-px` |
@@ -780,8 +780,8 @@ Below is an exhaustive list of every supported utility prefix and value in Yumma
 | `max-inline-size: 100vmin;` | `max-xs-vmin` |
 | `max-inline-size: 100vmax;` | `max-xs-vmax` |
 | `max-inline-size: fit-content;` | `max-xs-fc` |
-| `max-inline-size: 100%;` | `max-xs-full` |
-| `max-inline-size: 50%;` | `max-xs-half` |
+| `max-inline-size: 100%;` | `max-xs-100%` |
+| `max-inline-size: 50%;` | `max-xs-50%` |
 | `max-inline-size: max-content;` | `max-xs-max` |
 | `max-inline-size: min-content;` | `max-xs-min` |
 | `max-inline-size: 1px;` | `max-xs-px` |
@@ -811,8 +811,8 @@ Below is an exhaustive list of every supported utility prefix and value in Yumma
 | `min-block-size: 100vmin;` | `min-ys-vmin` |
 | `min-block-size: 100vmax;` | `min-ys-vmax` |
 | `min-block-size: fit-content;` | `min-ys-fc` |
-| `min-block-size: 100%;` | `min-ys-full` |
-| `min-block-size: 50%;` | `min-ys-half` |
+| `min-block-size: 100%;` | `min-ys-100%` |
+| `min-block-size: 50%;` | `min-ys-50%` |
 | `min-block-size: max-content;` | `min-ys-max` |
 | `min-block-size: min-content;` | `min-ys-min` |
 | `min-block-size: 1px;` | `min-ys-px` |
@@ -842,8 +842,8 @@ Below is an exhaustive list of every supported utility prefix and value in Yumma
 | `min-height: 100vmin;` | `min-h-vmin` |
 | `min-height: 100vmax;` | `min-h-vmax` |
 | `min-height: fit-content;` | `min-h-fc` |
-| `min-height: 100%;` | `min-h-full` |
-| `min-height: 50%;` | `min-h-half` |
+| `min-height: 100%;` | `min-h-100%` |
+| `min-height: 50%;` | `min-h-50%` |
 | `min-height: max-content;` | `min-h-max` |
 | `min-height: min-content;` | `min-h-min` |
 | `min-height: 1px;` | `min-h-px` |
@@ -873,8 +873,8 @@ Below is an exhaustive list of every supported utility prefix and value in Yumma
 | `min-inline-size: 100vmin;` | `min-xs-vmin` |
 | `min-inline-size: 100vmax;` | `min-xs-vmax` |
 | `min-inline-size: fit-content;` | `min-xs-fc` |
-| `min-inline-size: 100%;` | `min-xs-full` |
-| `min-inline-size: 50%;` | `min-xs-half` |
+| `min-inline-size: 100%;` | `min-xs-100%` |
+| `min-inline-size: 50%;` | `min-xs-50%` |
 | `min-inline-size: max-content;` | `min-xs-max` |
 | `min-inline-size: min-content;` | `min-xs-min` |
 | `min-inline-size: 1px;` | `min-xs-px` |
@@ -1080,8 +1080,8 @@ Below is an exhaustive list of every supported utility prefix and value in Yumma
 | `width: 100vmin;` | `w-vmin` |
 | `width: 100vmax;` | `w-vmax` |
 | `width: fit-content;` | `w-fc` |
-| `width: 100%;` | `w-full` |
-| `width: 50%;` | `w-half` |
+| `width: 100%;` | `w-100%` |
+| `width: 50%;` | `w-50%` |
 | `width: max-content;` | `w-max` |
 | `width: min-content;` | `w-min` |
 | `width: 1px;` | `w-px` |
@@ -1111,8 +1111,8 @@ Below is an exhaustive list of every supported utility prefix and value in Yumma
 | `max-width: 100vmin;` | `max-w-vmin` |
 | `max-width: 100vmax;` | `max-w-vmax` |
 | `max-width: fit-content;` | `max-w-fc` |
-| `max-width: 100%;` | `max-w-full` |
-| `max-width: 50%;` | `max-w-half` |
+| `max-width: 100%;` | `max-w-100%` |
+| `max-width: 50%;` | `max-w-50%` |
 | `max-width: max-content;` | `max-w-max` |
 | `max-width: min-content;` | `max-w-min` |
 | `max-width: 1px;` | `max-w-px` |
@@ -1142,8 +1142,8 @@ Below is an exhaustive list of every supported utility prefix and value in Yumma
 | `min-width: 100vmin;` | `min-w-vmin` |
 | `min-width: 100vmax;` | `min-w-vmax` |
 | `min-width: fit-content;` | `min-w-fc` |
-| `min-width: 100%;` | `min-w-full` |
-| `min-width: 50%;` | `min-w-half` |
+| `min-width: 100%;` | `min-w-100%` |
+| `min-width: 50%;` | `min-w-50%` |
 | `min-width: max-content;` | `min-w-max` |
 | `min-width: min-content;` | `min-w-min` |
 | `min-width: 1px;` | `min-w-px` |
@@ -1691,8 +1691,8 @@ Below is an exhaustive list of every supported utility prefix and value in Yumma
 |----------|---------------|
 | `flex-basis: value;` | `fb-{0-100}` |
 | `flex-basis: auto;` | `fb-auto` |
-| `flex-basis: 100%;` | `fb-full` |
-| `flex-basis: 50%;` | `fb-half` |
+| `flex-basis: 100%;` | `fb-100%` |
+| `flex-basis: 50%;` | `fb-50%` |
 
 ### flex-direction
 
@@ -2374,8 +2374,8 @@ Below is an exhaustive list of every supported utility prefix and value in Yumma
 |----------|---------------|
 | `bottom: value;` | `b-{0-100}` |
 | `bottom: auto;` | `b-auto` |
-| `bottom: 100%;` | `b-full` |
-| `bottom: 50%;` | `b-half` |
+| `bottom: 100%;` | `b-100%` |
+| `bottom: 50%;` | `b-50%` |
 
 ### inset
 
@@ -2383,8 +2383,8 @@ Below is an exhaustive list of every supported utility prefix and value in Yumma
 |----------|---------------|
 | `inset: value;` | `i-{0-100}` |
 | `inset: auto;` | `i-auto` |
-| `inset: 100%;` | `i-full` |
-| `inset: 50%;` | `i-half` |
+| `inset: 100%;` | `i-100%` |
+| `inset: 50%;` | `i-50%` |
 
 ### inset-x
 
@@ -2392,8 +2392,8 @@ Below is an exhaustive list of every supported utility prefix and value in Yumma
 |----------|---------------|
 | `left: value;` | `ix-{0-100}` |
 | `left: auto;` | `ix-auto` |
-| `left: 100%;` | `ix-full` |
-| `left: 50%;` | `ix-half` |
+| `left: 100%;` | `ix-100%` |
+| `left: 50%;` | `ix-50%` |
 
 ### inset-y
 
@@ -2401,8 +2401,8 @@ Below is an exhaustive list of every supported utility prefix and value in Yumma
 |----------|---------------|
 | `top: value;` | `iy-{0-100}` |
 | `top: auto;` | `iy-auto` |
-| `top: 100%;` | `iy-full` |
-| `top: 50%;` | `iy-half` |
+| `top: 100%;` | `iy-100%` |
+| `top: 50%;` | `iy-50%` |
 
 ### left
 
@@ -2410,8 +2410,8 @@ Below is an exhaustive list of every supported utility prefix and value in Yumma
 |----------|---------------|
 | `left: value;` | `l-{0-100}` |
 | `left: auto;` | `l-auto` |
-| `left: 100%;` | `l-full` |
-| `left: 50%;` | `l-half` |
+| `left: 100%;` | `l-100%` |
+| `left: 50%;` | `l-50%` |
 
 ### right
 
@@ -2419,8 +2419,8 @@ Below is an exhaustive list of every supported utility prefix and value in Yumma
 |----------|---------------|
 | `right: value;` | `r-{0-100}` |
 | `right: auto;` | `r-auto` |
-| `right: 100%;` | `r-full` |
-| `right: 50%;` | `r-half` |
+| `right: 100%;` | `r-100%` |
+| `right: 50%;` | `r-50%` |
 
 ### top
 
@@ -2428,8 +2428,8 @@ Below is an exhaustive list of every supported utility prefix and value in Yumma
 |----------|---------------|
 | `top: value;` | `t-{0-100}` |
 | `top: auto;` | `t-auto` |
-| `top: 100%;` | `t-full` |
-| `top: 50%;` | `t-half` |
+| `top: 100%;` | `t-100%` |
+| `top: 50%;` | `t-50%` |
 
 ### object-fit
 
@@ -2829,24 +2829,24 @@ Below is an exhaustive list of every supported utility prefix and value in Yumma
 | CSS Rule | Yumma Utility |
 |----------|---------------|
 | `translate: value;` | `tr-{0-100}` |
-| `translate: 100% 100%;` | `tr-full` |
-| `translate: 50% 50%;` | `tr-half` |
+| `translate: 100% 100%;` | `tr-100%` |
+| `translate: 50% 50%;` | `tr-50%` |
 
 ### translate-x
 
 | CSS Rule | Yumma Utility |
 |----------|---------------|
 | `transform: value;` | `ttx-{0-100}` |
-| `transform: translateX(100%);` | `ttx-full` |
-| `transform: translateX(50%);` | `ttx-half` |
+| `transform: translateX(100%);` | `ttx-100%` |
+| `transform: translateX(50%);` | `ttx-50%` |
 
 ### translate-y
 
 | CSS Rule | Yumma Utility |
 |----------|---------------|
 | `transform: value;` | `tty-{0-100}` |
-| `transform: translateY(100%);` | `tty-full` |
-| `transform: translateY(50%);` | `tty-half` |
+| `transform: translateY(100%);` | `tty-100%` |
+| `transform: translateY(50%);` | `tty-50%` |
 
 ### transition-delay
 

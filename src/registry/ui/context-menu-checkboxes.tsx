@@ -88,7 +88,7 @@ export default function ContextMenuCheckboxes() {
                   Due today
                 </ContextMenu.CheckboxItem>
 
-                <ContextMenu.Separator className="my-1 w-full h-px bg-silver-2" />
+                <ContextMenu.Separator className="my-1 w-100% h-px bg-silver-2" />
 
                 <ContextMenu.CheckboxItem
                   checked={muted}

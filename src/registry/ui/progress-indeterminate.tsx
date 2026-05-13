@@ -13,7 +13,7 @@ export default function ProgressIndeterminate() {
           </Progress.Label>
           <Progress.Value className="c-slate-8 fs-sm" />
         </div>
-        <Progress.Track className="o-h h-2 bg-silver-2 br-pill">
+        <Progress.Track className="o-h h-2 bg-silver-2 br-9999">
           <Progress.Indicator
             render={
               <motion.div
@@ -24,10 +24,10 @@ export default function ProgressIndeterminate() {
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
-                className="h-full bg-indigo br-pill"
+                className="h-100% bg-indigo br-9999"
               />
             }
-            className="h-full"
+            className="h-100%"
           />
         </Progress.Track>
       </Progress.Root>

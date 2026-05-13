@@ -21,14 +21,14 @@ export function Avatar({ src, alt, fallback, className = "", style }: Props) {
 
   return (
     <BaseAvatar.Root
-      className={`d-f jc-c ai-c br-pill us-none fw-500 fs-sm lh-1 o-h w-8 h-8 bg-charcoal ${className}`}
+      className={`d-f jc-c ai-c br-9999 us-none fw-500 fs-sm lh-1 o-h w-8 h-8 bg-charcoal ${className}`}
       style={{
         color: "#989ec2",
         ...style,
       }}
     >
-      <BaseAvatar.Image src={src} alt={alt} className="of-c w-full h-full" />
-      <BaseAvatar.Fallback className="d-f jc-c ai-c w-full h-full fs-md">
+      <BaseAvatar.Image src={src} alt={alt} className="of-c w-100% h-100%" />
+      <BaseAvatar.Fallback className="d-f jc-c ai-c w-100% h-100% fs-md">
         {initials}
       </BaseAvatar.Fallback>
     </BaseAvatar.Root>

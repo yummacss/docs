@@ -12,25 +12,25 @@ export default function AvatarStacked() {
         {stackMembers.map((member, index) => (
           <Avatar.Root
             key={member.name}
-            className={`d-if o-h ai-c jc-c w-10 h-10 bg-silver-1 bc-white br-pill bw-1 va-m us-none ${index > 0 ? "ml--2" : ""}`}
+            className={`d-if o-h ai-c jc-c w-10 h-10 bg-silver-1 bc-white br-9999 bw-1 va-m us-none ${index > 0 ? "ml--2" : ""}`}
           >
             <Avatar.Image
               src={member.avatarUrl}
               alt={member.name}
-              className="of-c w-full h-full"
+              className="of-c w-100% h-100%"
             />
-            <Avatar.Fallback className="d-f ai-c jc-c w-full h-full c-slate-9 fs-md fw-500">
+            <Avatar.Fallback className="d-f ai-c jc-c w-100% h-100% c-slate-9 fs-md fw-500">
               {member.initials}
             </Avatar.Fallback>
           </Avatar.Root>
         ))}
-        <Avatar.Root className="d-if o-h ai-c jc-c w-10 h-10 ml--2 bg-silver-1 bc-white br-pill bw-1 va-m us-none">
-          <Avatar.Fallback className="d-f ai-c jc-c w-full h-full c-slate-8 fs-md fw-500">
+        <Avatar.Root className="d-if o-h ai-c jc-c w-10 h-10 ml--2 bg-silver-1 bc-white br-9999 bw-1 va-m us-none">
+          <Avatar.Fallback className="d-f ai-c jc-c w-100% h-100% c-slate-8 fs-md fw-500">
             +{extraCount}
           </Avatar.Fallback>
         </Avatar.Root>
         <Tooltip.Root>
-          <Tooltip.Trigger className="d-if ai-c jc-c w-10 h-10 ml-2 bg-transparent bc-silver-3 c-slate-6 bs-d br-pill bw-1 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50">
+          <Tooltip.Trigger className="d-if ai-c jc-c w-10 h-10 ml-2 bg-transparent bc-silver-3 c-slate-6 br-9999 bs-d bw-1 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50">
             <Plus className="w-6 h-6" />
           </Tooltip.Trigger>
           <Tooltip.Portal>

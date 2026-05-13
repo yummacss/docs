@@ -28,7 +28,7 @@ export default function Palette({
       <div className="d-none fd-c g-1 ai-c md:ai-c lg:d-f md:fd-r">
         <div className="d-f ai-c min-w-fc mr-2 ws-nw ta-c md:min-w-16" />
         <div
-          className="d-g g-1 f-1 my-2 w-full"
+          className="d-g g-1 f-1 my-2 w-100%"
           style={{
             gridTemplateColumns: `repeat(${scale.length}, minmax(0, 1fr))`,
           }}
@@ -59,7 +59,7 @@ export default function Palette({
               {colorItem.name}
             </p>
             <div
-              className="d-g g-1 f-1 w-full"
+              className="d-g g-1 f-1 w-100%"
               style={{
                 gridTemplateColumns: `repeat(${scale.length}, minmax(0, 1fr))`,
               }}
@@ -117,7 +117,7 @@ function ColorSwatch({
   return (
     <Tooltip.Root open={tooltipOpen} onOpenChange={setTooltipOpen}>
       <Tooltip.Trigger
-        className="p-r w-full ar-1/1 br-sm c-p"
+        className="p-r w-100% ar-1/1 br-sm c-p"
         style={{
           backgroundColor: shade,
           border: getBorderColor(shade),

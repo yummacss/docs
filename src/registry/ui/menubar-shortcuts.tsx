@@ -65,7 +65,7 @@ export default function MenubarShortcuts() {
                       <span>N</span>
                     </span>
                   </Menu.Item>
-                  <Menu.Separator className="my-1 w-full h-px bg-silver-2" />
+                  <Menu.Separator className="my-1 w-100% h-px bg-silver-2" />
                   <Menu.Item
                     className={(state) =>
                       `d-f ai-c jc-sb g-2 py-2 pr-3 pl-3 fs-sm fw-500 us-none c-p br-lg mx-1 ${
@@ -221,7 +221,7 @@ export default function MenubarShortcuts() {
                       <span>3</span>
                     </span>
                   </Menu.Item>
-                  <Menu.Separator className="my-1 w-full h-px bg-silver-2" />
+                  <Menu.Separator className="my-1 w-100% h-px bg-silver-2" />
                   <Menu.Item
                     className={(state) =>
                       `d-f ai-c jc-sb g-2 py-2 pr-3 pl-3 fs-sm fw-500 us-none c-p br-lg mx-1 ${
@@ -294,7 +294,7 @@ export default function MenubarShortcuts() {
                       <span>R</span>
                     </span>
                   </Menu.Item>
-                  <Menu.Separator className="my-1 w-full h-px bg-silver-2" />
+                  <Menu.Separator className="my-1 w-100% h-px bg-silver-2" />
                   <Menu.Item
                     className={(state) =>
                       `d-f ai-c jc-sb g-2 py-2 pr-3 pl-3 fs-sm fw-500 us-none c-p br-lg mx-1 ${

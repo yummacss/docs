@@ -51,7 +51,7 @@ export default function AutocompleteGrouped() {
                                 <img
                                   src={member.avatar}
                                   alt={member.name}
-                                  className="w-8 h-8 of-c br-pill bc-white bw-1"
+                                  className="of-c w-8 h-8 bc-white br-9999 bw-1"
                                 />
                                 <div className="d-f fd-c">
                                   <span className="fw-500">{member.name}</span>
@@ -64,7 +64,7 @@ export default function AutocompleteGrouped() {
                           />
                         ))}
                         {groupIndex < teamGroups.length - 1 && (
-                          <div className="w-full h-px bg-silver-2 my-1" />
+                          <div className="w-100% h-px my-1 bg-silver-2" />
                         )}
                       </Autocomplete.Group>
                     )}

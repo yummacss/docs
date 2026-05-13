@@ -76,7 +76,7 @@ export default function MenuIconOnly() {
                   <Tray className="fs-0 w-4 h-4 c-slate-5" />
                   Archive
                 </Menu.Item>
-                <Menu.Separator className="my-1 w-full h-px bg-silver-2" />
+                <Menu.Separator className="my-1 w-100% h-px bg-silver-2" />
                 <Menu.Item
                   className={(state) =>
                     `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm fw-500 us-none c-red c-p br-lg mx-1 ${

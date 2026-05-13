@@ -5,13 +5,13 @@ export default function AvatarDetailed() {
     <div className="d-f fd-c g-4">
       {teamMembers.map((member) => (
         <div key={member.name} className="d-f ai-c g-3">
-          <Avatar.Root className="d-if o-h ai-c jc-c w-12 h-12 bg-silver-1 bc-white br-pill bw-1 va-m us-none">
+          <Avatar.Root className="d-if o-h ai-c jc-c w-12 h-12 bg-silver-1 bc-white br-9999 bw-1 va-m us-none">
             <Avatar.Image
               src={member.avatarUrl}
               alt={member.name}
-              className="of-c w-full h-full"
+              className="of-c w-100% h-100%"
             />
-            <Avatar.Fallback className="d-f ai-c jc-c w-full h-full c-slate-9 fs-md fw-500">
+            <Avatar.Fallback className="d-f ai-c jc-c w-100% h-100% c-slate-9 fs-md fw-500">
               {member.initials}
             </Avatar.Fallback>
           </Avatar.Root>

@@ -166,7 +166,7 @@ const components: MDXComponents = {
       <table {...props}>{children}</table>
     ) : (
       <div className="ox-auto my-6">
-        <table className="w-full bc-white/10 bg-transparent bc-c" {...props}>
+        <table className="w-100% bc-white/10 bg-transparent bc-c" {...props}>
           {children}
         </table>
       </div>
@@ -221,7 +221,7 @@ const components: MDXComponents = {
     <Image
       src={src as string}
       alt={alt || ""}
-      className={`${className || "w-full h-auto my-4"} bg-charcoal`}
+      className={`${className || "w-100% h-auto my-4"} bg-charcoal`}
       unoptimized
       width={1920}
       height={1080}

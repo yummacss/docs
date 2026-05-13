@@ -98,7 +98,7 @@ export default function MenuNested() {
                             }
                           >
                             <span
-                              className={`fs-0 w-3 h-3 br-pill ${label.bg}`}
+                              className={`fs-0 w-3 h-3 br-9999 ${label.bg}`}
                             />
                             {label.name}
                           </Menu.Item>

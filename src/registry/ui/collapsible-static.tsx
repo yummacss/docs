@@ -30,13 +30,13 @@ export default function CollapsibleStatic() {
           {teamMembers.users.map((user) => (
             <div key={user.name} className="d-f ai-c jc-sb">
               <div className="d-f ai-c g-3">
-                <Avatar.Root className="d-if o-h ai-c jc-c w-8 h-8 bc-white br-pill bw-1 va-m us-none">
+                <Avatar.Root className="d-if o-h ai-c jc-c w-8 h-8 bc-white br-9999 bw-1 va-m us-none">
                   <Avatar.Image
                     src={user.avatar}
                     alt={user.name}
-                    className="of-c w-full h-full"
+                    className="of-c w-100% h-100%"
                   />
-                  <Avatar.Fallback className="d-f ai-c jc-c w-full h-full c-slate-8 fs-xs">
+                  <Avatar.Fallback className="d-f ai-c jc-c w-100% h-100% c-slate-8 fs-xs">
                     {user.name[0]}
                   </Avatar.Fallback>
                 </Avatar.Root>
@@ -47,7 +47,7 @@ export default function CollapsibleStatic() {
               </div>
               <Toggle
                 pressed={followed[user.name]}
-                className={`d-f ai-c jc-c w-8 h-8 p-0 br-pill us-none ${
+                className={`d-f ai-c jc-c w-8 h-8 p-0 br-9999 us-none ${
                   followed[user.name]
                     ? "bg-indigo c-white"
                     : "bg-white bc-indigo c-indigo bw-1"

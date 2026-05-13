@@ -61,7 +61,7 @@ export default function MenuRadios() {
                   <GearDot className="fs-0 w-4 h-4 c-slate-5" />
                   Settings
                 </Menu.Item>
-                <Menu.Separator className="my-1 w-full h-px bg-silver-2" />
+                <Menu.Separator className="my-1 w-100% h-px bg-silver-2" />
                 <div className="px-3 py-1 c-slate-5 fs-xs fw-500 tt-u ls-3">
                   Switch account
                 </div>
@@ -70,23 +70,23 @@ export default function MenuRadios() {
                   <Menu.RadioItem
                     value="sarah"
                     className={(state) =>
-                      `d-f ai-c g-2 py-2 pr-4 pl-4 fs-sm fw-500 us-none c-p br-lg mx-1 w-full ${
+                      `d-f ai-c g-2 py-2 pr-4 pl-4 fs-sm fw-500 us-none c-p br-lg mx-1 w-100% ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
                   >
-                    <Avatar.Root className="d-if o-h ai-c jc-c w-5 h-5 bc-white br-pill bw-1 va-m us-none">
+                    <Avatar.Root className="d-if o-h ai-c jc-c w-5 h-5 bc-white br-9999 bw-1 va-m us-none">
                       <Avatar.Image
                         src="https://api.dicebear.com/9.x/open-peeps/svg?seed=Sarah&backgroundColor=DAF0B9"
                         alt="Sarah"
-                        className="of-c w-full h-full"
+                        className="of-c w-100% h-100%"
                       />
-                      <Avatar.Fallback className="d-f ai-c jc-c w-full h-full c-slate-8 fs-xs">
+                      <Avatar.Fallback className="d-f ai-c jc-c w-100% h-100% c-slate-8 fs-xs">
                         S
                       </Avatar.Fallback>
                     </Avatar.Root>
                     <span className="fs-sm fw-500">Sarah</span>
-                    <span className="d-f ai-c jc-c fs-0 w-3 h-3 ml-auto bc-silver-3 br-pill bw-1">
+                    <span className="d-f ai-c jc-c fs-0 w-3 h-3 ml-auto bc-silver-3 br-9999 bw-1">
                       <Menu.RadioItemIndicator>
                         <CircleFill className="w-2 h-2 c-indigo" />
                       </Menu.RadioItemIndicator>
@@ -96,23 +96,23 @@ export default function MenuRadios() {
                   <Menu.RadioItem
                     value="john"
                     className={(state) =>
-                      `d-f ai-c g-2 py-2 pr-4 pl-4 fs-sm fw-500 us-none c-p br-lg mx-1 w-full ${
+                      `d-f ai-c g-2 py-2 pr-4 pl-4 fs-sm fw-500 us-none c-p br-lg mx-1 w-100% ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
                   >
-                    <Avatar.Root className="d-if o-h ai-c jc-c w-5 h-5 bc-white br-pill bw-1 va-m us-none">
+                    <Avatar.Root className="d-if o-h ai-c jc-c w-5 h-5 bc-white br-9999 bw-1 va-m us-none">
                       <Avatar.Image
                         src="https://api.dicebear.com/9.x/open-peeps/svg?seed=John&backgroundColor=c0a0f0"
                         alt="John"
-                        className="of-c w-full h-full"
+                        className="of-c w-100% h-100%"
                       />
-                      <Avatar.Fallback className="d-f ai-c jc-c w-full h-full c-slate-8 fs-xs">
+                      <Avatar.Fallback className="d-f ai-c jc-c w-100% h-100% c-slate-8 fs-xs">
                         J
                       </Avatar.Fallback>
                     </Avatar.Root>
                     <span className="fs-sm fw-500">John</span>
-                    <span className="d-f ai-c jc-c fs-0 w-3 h-3 ml-auto bc-silver-3 br-pill bw-1">
+                    <span className="d-f ai-c jc-c fs-0 w-3 h-3 ml-auto bc-silver-3 br-9999 bw-1">
                       <Menu.RadioItemIndicator>
                         <CircleFill className="w-2 h-2 c-indigo" />
                       </Menu.RadioItemIndicator>
@@ -131,7 +131,7 @@ export default function MenuRadios() {
                   Add account
                 </Menu.Item>
 
-                <Menu.Separator className="my-1 w-full h-px bg-silver-2" />
+                <Menu.Separator className="my-1 w-100% h-px bg-silver-2" />
                 <Menu.Item
                   className={(state) =>
                     `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm fw-500 us-none c-red c-p br-lg mx-1 ${

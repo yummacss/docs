@@ -62,13 +62,13 @@ export default function ComboboxBase() {
                           }`
                         }
                       >
-                        <Avatar.Root className="d-if o-h ai-c jc-c w-6 h-6 bc-white br-pill bw-1 us-none">
+                        <Avatar.Root className="d-if o-h ai-c jc-c w-6 h-6 bc-white br-9999 bw-1 us-none">
                           <Avatar.Image
                             src={user.avatar}
                             alt={user.name}
-                            className="of-c w-full h-full"
+                            className="of-c w-100% h-100%"
                           />
-                          <Avatar.Fallback className="d-f ai-c jc-c w-full h-full c-slate-8 fs-xs">
+                          <Avatar.Fallback className="d-f ai-c jc-c w-100% h-100% c-slate-8 fs-xs">
                             {user.name[0]}
                           </Avatar.Fallback>
                         </Avatar.Root>

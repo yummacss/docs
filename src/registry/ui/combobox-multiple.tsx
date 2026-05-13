@@ -35,7 +35,7 @@ export default function ComboboxMultiple() {
               {selectedValue.map((chip: string) => (
                 <Combobox.Chip
                   key={chip}
-                  className="d-f ai-c g-1 px-2 py-0 h-6 bg-indigo-1 bc-indigo-2 c-indigo-7 bw-1 br-pill fs-xs fw-500"
+                  className="d-f ai-c g-1 px-2 py-0 h-6 bg-indigo-1 bc-indigo-2 c-indigo-7 bw-1 br-9999 fs-xs fw-500"
                 >
                   {chip}
                   <Combobox.ChipRemove

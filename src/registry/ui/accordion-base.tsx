@@ -10,7 +10,7 @@ export default function AccordionBase() {
 
   return (
     <Accordion.Root
-      className="d-f fd-c w-full max-w-96"
+      className="d-f fd-c w-100% max-w-96"
       value={value}
       onValueChange={setValue}
     >
@@ -23,7 +23,7 @@ export default function AccordionBase() {
             className={index === faqs.length - 1 ? "" : "bbw-1 bc-silver-3"}
           >
             <Accordion.Header className="m-0">
-              <Accordion.Trigger className="d-f ai-c jc-sb g-3 w-full py-4 px-0 bg-transparent bw-0 br-sm ta-l c-p fv:ow-2 fv:oo-1 fv:oc-indigo-5">
+              <Accordion.Trigger className="d-f ai-c jc-sb g-3 w-100% py-4 px-0 bg-transparent bw-0 br-sm ta-l c-p fv:ow-2 fv:oo-1 fv:oc-indigo-5">
                 <span className="c-slate-8 fs-sm fw-500">{item.title}</span>
                 <motion.span
                   animate={{ rotate: isOpen ? 180 : 0 }}

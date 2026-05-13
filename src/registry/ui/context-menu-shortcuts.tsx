@@ -69,7 +69,7 @@ export default function ContextMenuShortcuts() {
                   </span>
                 </ContextMenu.Item>
 
-                <ContextMenu.Separator className="my-1 w-full h-px bg-silver-2" />
+                <ContextMenu.Separator className="my-1 w-100% h-px bg-silver-2" />
 
                 <ContextMenu.Item
                   className={(state) =>
@@ -99,7 +99,7 @@ export default function ContextMenuShortcuts() {
                   </span>
                 </ContextMenu.Item>
 
-                <ContextMenu.Separator className="my-1 w-full h-px bg-silver-2" />
+                <ContextMenu.Separator className="my-1 w-100% h-px bg-silver-2" />
 
                 <ContextMenu.Item
                   className={(state) =>

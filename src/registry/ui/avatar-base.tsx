@@ -2,11 +2,11 @@ import { Avatar } from "@base-ui/react/avatar";
 
 export default function AvatarBase() {
   return (
-    <Avatar.Root className="d-if o-h ai-c jc-c w-12 h-12 bg-silver-1 bc-white br-pill bw-1 va-m us-none">
+    <Avatar.Root className="d-if o-h ai-c jc-c w-12 h-12 bg-silver-1 bc-white br-9999 bw-1 va-m us-none">
       <Avatar.Image
         src={userProfile.avatarUrl}
         alt={userProfile.name}
-        className="of-c w-full h-full"
+        className="of-c w-100% h-100%"
       />
     </Avatar.Root>
   );

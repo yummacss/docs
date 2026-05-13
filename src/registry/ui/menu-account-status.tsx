@@ -24,17 +24,17 @@ export default function MenuAccountStatus() {
     <Menu.Root open={open} onOpenChange={setOpen}>
       <Menu.Trigger className="d-f ai-c g-2 px-3 py-2 h-fc bg-white bc-silver-2 c-slate-10 br-lg bw-1 fw-500 bs-o-xs tp-c tdu-150 ttf-io us-none c-p h:bg-silver-1/50 fv:ow-2 fv:oo-2 fv:oc-indigo-5">
         <div className="p-r">
-          <Avatar.Root className="d-if o-h ai-c jc-c w-6 h-6 bc-white br-pill bw-1 va-m us-none">
+          <Avatar.Root className="d-if o-h ai-c jc-c w-6 h-6 bc-white br-9999 bw-1 va-m us-none">
             <Avatar.Image
               src="https://api.dicebear.com/9.x/open-peeps/svg?seed=Sarah&backgroundColor=DAF0B9"
               alt="Sarah"
-              className="of-c w-full h-full"
+              className="of-c w-100% h-100%"
             />
-            <Avatar.Fallback className="d-f ai-c jc-c w-full h-full c-slate-8 fs-xs">
+            <Avatar.Fallback className="d-f ai-c jc-c w-100% h-100% c-slate-8 fs-xs">
               S
             </Avatar.Fallback>
           </Avatar.Root>
-          <span className="p-a b-0 r-0 w-2 h-2 bg-mint bc-white br-pill bw-1" />
+          <span className="p-a b-0 r-0 w-2 h-2 bg-mint bc-white br-9999 bw-1" />
         </div>
         <span className="fs-sm fw-500">Sarah</span>
         <ChevronDown className="w-3 h-3" />
@@ -105,18 +105,18 @@ export default function MenuAccountStatus() {
                   <CircleQuestionDot className="fs-0 w-4 h-4 c-slate-5" />
                   Help
                 </Menu.Item>
-                <Menu.Separator className="my-1 w-full h-px bg-silver-2" />
+                <Menu.Separator className="my-1 w-100% h-px bg-silver-2" />
                 <Menu.SubmenuRoot>
                   <Menu.SubmenuTrigger
                     className={(state) =>
-                      `d-f ai-c jc-sb g-2 py-2 pr-4 pl-4 fs-sm fw-500 us-none c-p br-lg mx-1 w-full ${
+                      `d-f ai-c jc-sb g-2 py-2 pr-4 pl-4 fs-sm fw-500 us-none c-p br-lg mx-1 w-100% ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
                   >
                     <span className="d-f ai-c g-2">
-                      <span className="d-f ai-c jc-c fs-0 w-3 h-3 bc-silver-3 br-pill">
-                        <span className="d-b w-2 h-2 bg-mint br-pill" />
+                      <span className="d-f ai-c jc-c fs-0 w-3 h-3 bc-silver-3 br-9999">
+                        <span className="d-b w-2 h-2 bg-mint br-9999" />
                       </span>
                       Online
                     </span>
@@ -134,8 +134,8 @@ export default function MenuAccountStatus() {
                             }`
                           }
                         >
-                          <span className="d-f ai-c jc-c fs-0 w-3 h-3 bc-silver-3 br-pill">
-                            <span className="d-b w-2 h-2 bg-mint br-pill" />
+                          <span className="d-f ai-c jc-c fs-0 w-3 h-3 bc-silver-3 br-9999">
+                            <span className="d-b w-2 h-2 bg-mint br-9999" />
                           </span>
                           Online
                         </Menu.Item>
@@ -148,8 +148,8 @@ export default function MenuAccountStatus() {
                             }`
                           }
                         >
-                          <span className="d-f ai-c jc-c fs-0 w-3 h-3 bc-silver-3 br-pill">
-                            <span className="d-b w-2 h-2 bg-yellow br-pill" />
+                          <span className="d-f ai-c jc-c fs-0 w-3 h-3 bc-silver-3 br-9999">
+                            <span className="d-b w-2 h-2 bg-yellow br-9999" />
                           </span>
                           Away
                         </Menu.Item>
@@ -162,8 +162,8 @@ export default function MenuAccountStatus() {
                             }`
                           }
                         >
-                          <span className="d-f ai-c jc-c fs-0 w-3 h-3 bc-silver-3 br-pill">
-                            <span className="d-b w-2 h-2 bg-red br-pill" />
+                          <span className="d-f ai-c jc-c fs-0 w-3 h-3 bc-silver-3 br-9999">
+                            <span className="d-b w-2 h-2 bg-red br-9999" />
                           </span>
                           Do not disturb
                         </Menu.Item>
@@ -176,8 +176,8 @@ export default function MenuAccountStatus() {
                             }`
                           }
                         >
-                          <span className="d-f ai-c jc-c fs-0 w-3 h-3 bc-silver-3 br-pill">
-                            <span className="d-b w-2 h-2 bg-silver br-pill" />
+                          <span className="d-f ai-c jc-c fs-0 w-3 h-3 bc-silver-3 br-9999">
+                            <span className="d-b w-2 h-2 bg-silver br-9999" />
                           </span>
                           Invisible
                         </Menu.Item>
@@ -185,7 +185,7 @@ export default function MenuAccountStatus() {
                     </Menu.Positioner>
                   </Menu.Portal>
                 </Menu.SubmenuRoot>
-                <Menu.Separator className="my-1 w-full h-px bg-silver-2" />
+                <Menu.Separator className="my-1 w-100% h-px bg-silver-2" />
                 <Menu.Item
                   className={(state) =>
                     `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm fw-500 us-none c-red c-p br-lg mx-1 ${

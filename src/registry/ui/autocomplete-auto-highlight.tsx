@@ -56,7 +56,7 @@ export default function AutocompleteAutoHighlight() {
                             <img
                               src={member.avatar}
                               alt={member.name}
-                              className="of-c w-6 h-6 bc-silver-3 br-pill bw-1"
+                              className="of-c w-6 h-6 bc-silver-3 br-9999 bw-1"
                             />
                             <div className="d-f fd-c">
                               <span className="fw-500">{member.name}</span>

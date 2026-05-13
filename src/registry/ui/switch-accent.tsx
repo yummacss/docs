@@ -14,7 +14,7 @@ export default function SwitchAccent() {
         id="switch-notifications-accent"
         checked={checked}
         onCheckedChange={setChecked}
-        className={`p-r d-f ai-c h-5 w-9 br-pill m-0 px-1 c-p tp-c tdu-150 ttf-io fv:ow-2 fv:oo-2 fv:oc-indigo-5 ${
+        className={`p-r d-f ai-c h-5 w-9 br-9999 m-0 px-1 c-p tp-c tdu-150 ttf-io fv:ow-2 fv:oo-2 fv:oc-indigo-5 ${
           checked ? "bg-indigo" : "bg-silver-1"
         }`}
       >
@@ -25,7 +25,7 @@ export default function SwitchAccent() {
               transition={{ duration: 0.2, ease: "easeInOut" }}
             />
           }
-          className="w-4 h-3 bg-white br-pill bs-o-xs"
+          className="w-4 h-3 bg-white br-9999 bs-o-xs"
         />
       </Switch.Root>
       <Field.Label

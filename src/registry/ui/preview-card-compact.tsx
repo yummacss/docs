@@ -40,18 +40,18 @@ export default function PreviewCardCompact() {
               <span className="c-slate-6 fs-xs">#dashboard-redesign</span>
             </div>
             <div className="d-f ai-c g-2">
-              <span className="d-f ai-c g-1 px-2 py-0 h-5 bg-silver-1 bc-silver-2 c-slate-7 br-pill bw-1 fs-xs fw-500">
+              <span className="d-f ai-c g-1 px-2 py-0 h-5 bg-silver-1 bc-silver-2 c-slate-7 br-9999 bw-1 fs-xs fw-500">
                 In Progress
               </span>
             </div>
             <div className="d-f ai-c g-2">
               <span className="c-slate-6 fs-xs">Assigned to</span>
-              <div className="d-f ai-c g-1 px-2 py-0 h-5 bg-silver-1/50 bc-silver-2 br-pill bw-1">
-                <Avatar.Root className="d-if o-h ai-c jc-c w-4 h-4 bc-white br-pill bw-1 va-m us-none">
+              <div className="d-f ai-c g-1 px-2 py-0 h-5 bg-silver-1/50 bc-silver-2 br-9999 bw-1">
+                <Avatar.Root className="d-if o-h ai-c jc-c w-4 h-4 bc-white br-9999 bw-1 va-m us-none">
                   <Avatar.Image
                     src="https://api.dicebear.com/9.x/open-peeps/svg?seed=Sarah&backgroundColor=DAF0B9"
                     alt="Sarah"
-                    className="of-c w-full h-full"
+                    className="of-c w-100% h-100%"
                   />
                 </Avatar.Root>
                 <span className="c-slate-10 fs-xs">@sarah</span>

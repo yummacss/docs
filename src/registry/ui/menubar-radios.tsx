@@ -57,9 +57,9 @@ export default function MenubarRadios() {
                           }`
                         }
                       >
-                        <span className="d-f ai-c jc-c fs-0 w-4 h-4 bc-silver-3 br-pill bw-1">
+                        <span className="d-f ai-c jc-c fs-0 w-4 h-4 bc-silver-3 br-9999 bw-1">
                           <Menu.RadioItemIndicator>
-                            <span className="w-2 h-2 bg-indigo br-pill" />
+                            <span className="w-2 h-2 bg-indigo br-9999" />
                           </Menu.RadioItemIndicator>
                         </span>
                         {option.label}
@@ -115,9 +115,9 @@ export default function MenubarRadios() {
                           }`
                         }
                       >
-                        <span className="d-f ai-c jc-c fs-0 w-4 h-4 bc-silver-3 br-pill bw-1">
+                        <span className="d-f ai-c jc-c fs-0 w-4 h-4 bc-silver-3 br-9999 bw-1">
                           <Menu.RadioItemIndicator>
-                            <span className="w-2 h-2 bg-indigo br-pill" />
+                            <span className="w-2 h-2 bg-indigo br-9999" />
                           </Menu.RadioItemIndicator>
                         </span>
                         {option.label}
@@ -171,9 +171,9 @@ export default function MenubarRadios() {
                         }`
                       }
                     >
-                      <span className="d-f ai-c jc-c fs-0 w-4 h-4 bc-silver-3 br-pill bw-1">
+                      <span className="d-f ai-c jc-c fs-0 w-4 h-4 bc-silver-3 br-9999 bw-1">
                         <Menu.RadioItemIndicator>
-                          <span className="w-2 h-2 bg-indigo br-pill" />
+                          <span className="w-2 h-2 bg-indigo br-9999" />
                         </Menu.RadioItemIndicator>
                       </span>
                       All tasks
@@ -188,9 +188,9 @@ export default function MenubarRadios() {
                         }`
                       }
                     >
-                      <span className="d-f ai-c jc-c fs-0 w-4 h-4 bc-silver-3 br-pill bw-1">
+                      <span className="d-f ai-c jc-c fs-0 w-4 h-4 bc-silver-3 br-9999 bw-1">
                         <Menu.RadioItemIndicator>
-                          <span className="w-2 h-2 bg-indigo br-pill" />
+                          <span className="w-2 h-2 bg-indigo br-9999" />
                         </Menu.RadioItemIndicator>
                       </span>
                       Assigned to me
@@ -205,9 +205,9 @@ export default function MenubarRadios() {
                         }`
                       }
                     >
-                      <span className="d-f ai-c jc-c fs-0 w-4 h-4 bc-silver-3 br-pill bw-1">
+                      <span className="d-f ai-c jc-c fs-0 w-4 h-4 bc-silver-3 br-9999 bw-1">
                         <Menu.RadioItemIndicator>
-                          <span className="w-2 h-2 bg-indigo br-pill" />
+                          <span className="w-2 h-2 bg-indigo br-9999" />
                         </Menu.RadioItemIndicator>
                       </span>
                       Created by me

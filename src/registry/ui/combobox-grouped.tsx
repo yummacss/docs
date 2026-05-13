@@ -65,13 +65,13 @@ export default function ComboboxGrouped() {
                               }`
                             }
                           >
-                            <Avatar.Root className="d-if o-h ai-c jc-c w-8 h-8 bc-white br-pill bw-1 us-none">
+                            <Avatar.Root className="d-if o-h ai-c jc-c w-8 h-8 bc-white br-9999 bw-1 us-none">
                               <Avatar.Image
                                 src={member.avatar}
                                 alt={member.name}
-                                className="of-c w-full h-full"
+                                className="of-c w-100% h-100%"
                               />
-                              <Avatar.Fallback className="d-f ai-c jc-c w-full h-full c-slate-8 fs-xs">
+                              <Avatar.Fallback className="d-f ai-c jc-c w-100% h-100% c-slate-8 fs-xs">
                                 {member.name[0]}
                               </Avatar.Fallback>
                             </Avatar.Root>
@@ -87,7 +87,7 @@ export default function ComboboxGrouped() {
                           </Combobox.Item>
                         ))}
                         {groupIndex < teamGroups.length - 1 && (
-                          <div className="w-full h-px bg-silver-2 my-1" />
+                          <div className="w-100% h-px my-1 bg-silver-2" />
                         )}
                       </Combobox.Group>
                     )}

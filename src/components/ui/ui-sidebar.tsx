@@ -56,7 +56,7 @@ export default function UISidebar() {
                               >
                                 {child.title}
                                 {child.updated && (
-                                  <span className="w-2 h-2 bg-white br-pill" />
+                                  <span className="w-2 h-2 bg-white br-9999" />
                                 )}
                               </Link>
                             </li>
@@ -93,7 +93,7 @@ export default function UISidebar() {
                                         >
                                           {child.title}
                                           {child.updated && (
-                                            <span className="w-2 h-2 bg-white br-pill" />
+                                            <span className="w-2 h-2 bg-white br-9999" />
                                           )}
                                         </Link>
                                       </li>
@@ -116,7 +116,7 @@ export default function UISidebar() {
                                 >
                                   {subItem.title}
                                   {subItem.updated && (
-                                    <span className="w-2 h-2 bg-white br-pill" />
+                                    <span className="w-2 h-2 bg-white br-9999" />
                                   )}
                                 </Link>
                               </li>
@@ -143,7 +143,7 @@ export default function UISidebar() {
                       >
                         {item.title}
                         {item.updated && (
-                          <span className="w-2 h-2 bg-white br-pill" />
+                          <span className="w-2 h-2 bg-white br-9999" />
                         )}
                       </Link>
                     </li>

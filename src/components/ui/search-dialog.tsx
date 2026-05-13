@@ -155,7 +155,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                     transition={{ duration: 0.15, ease: "easeOut" }}
                   />
                 }
-                className="o-h w-full max-w-xs bc-white/10 bg-transparent bw-1 br-lg pe-auto"
+                className="o-h w-100% max-w-xs bc-white/10 bg-transparent bw-1 br-lg pe-auto"
                 style={{
                   maxHeight: "70vh",
                 }}
@@ -208,7 +208,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                               onMouseEnter={() =>
                                 setSelectedIndex(currentIndex)
                               }
-                              className="d-f b-0 ai-c g-3 w-full px-3 py-2 br-sm ta-l c-p"
+                              className="d-f b-0 ai-c g-3 w-100% px-3 py-2 br-sm ta-l c-p"
                               style={{
                                 backgroundColor: isSelected
                                   ? "#ffffff1a"

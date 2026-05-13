@@ -46,7 +46,7 @@ export default function CollapsibleDefaultOpen() {
                 <span className="c-slate-6 fs-xs">{sprint.dates}</span>
               </div>
               <span
-                className={`d-f ai-c g-1 px-2 py-0 h-6 ${sprint.bg} ${sprint.text} br-pill fs-xs fw-500`}
+                className={`d-f ai-c g-1 px-2 py-0 h-6 ${sprint.bg} ${sprint.text} br-9999 fs-xs fw-500`}
               >
                 {sprint.status}
               </span>
