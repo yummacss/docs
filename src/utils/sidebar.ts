@@ -2,7 +2,7 @@ export const sidebarConfig: SidebarConfig = [
   {
     title: "Get Started",
     items: [
-      { title: "Philosophy", slug: "philosophy", updated: true },
+      { title: "Philosophy", slug: "philosophy" },
       { title: "Installation", slug: "installation" },
       { title: "Configuration", slug: "configuration" },
       { title: "IDE Support", slug: "ide-support" },
@@ -71,6 +71,43 @@ export const sidebarConfig: SidebarConfig = [
           { title: "Outline Offset", slug: "outline-offset" },
           { title: "Outline Style", slug: "outline-style" },
           { title: "Outline Width", slug: "outline-width" },
+        ],
+      },
+      {
+        title: "Corner Shapes",
+        children: [
+          { title: "Corner Shape", slug: "corner-shape" },
+          { title: "Corner Block End Shape", slug: "corner-block-end-shape" },
+          {
+            title: "Corner Block Start Shape",
+            slug: "corner-block-start-shape",
+          },
+          {
+            title: "Corner Bottom Left Shape",
+            slug: "corner-bottom-left-shape",
+          },
+          {
+            title: "Corner Bottom Right Shape",
+            slug: "corner-bottom-right-shape",
+          },
+          { title: "Corner Bottom Shape", slug: "corner-bottom-shape" },
+          { title: "Corner End End Shape", slug: "corner-end-end-shape" },
+          { title: "Corner End Start Shape", slug: "corner-end-start-shape" },
+          { title: "Corner Inline End Shape", slug: "corner-inline-end-shape" },
+          {
+            title: "Corner Inline Start Shape",
+            slug: "corner-inline-start-shape",
+          },
+          { title: "Corner Left Shape", slug: "corner-left-shape" },
+          { title: "Corner Right Shape", slug: "corner-right-shape" },
+          { title: "Corner Start End Shape", slug: "corner-start-end-shape" },
+          {
+            title: "Corner Start Start Shape",
+            slug: "corner-start-start-shape",
+          },
+          { title: "Corner Top Left Shape", slug: "corner-top-left-shape" },
+          { title: "Corner Top Right Shape", slug: "corner-top-right-shape" },
+          { title: "Corner Top Shape", slug: "corner-top-shape" },
         ],
       },
     ],
@@ -256,7 +293,7 @@ export const sidebarConfig: SidebarConfig = [
       { title: "Display", slug: "display" },
       { title: "Float", slug: "float" },
       { title: "Isolation", slug: "isolation" },
-      { title: "Table Layout", slug: "table-layout", updated: true },
+      { title: "Table Layout", slug: "table-layout" },
     ],
   },
   {

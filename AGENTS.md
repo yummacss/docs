@@ -401,6 +401,159 @@ Below is an exhaustive list of every supported utility prefix and value in Yumma
 | `border-start-end-radius: 9999px;` | `bser-9999` |
 | `border-start-end-radius: 1px;` | `bser-px` |
 
+### corner-block-end-shape
+
+| CSS Rule | Yumma Utility |
+|----------|---------------|
+| `corner-block-end-shape: bevel;` | `cbes-b` |
+| `corner-block-end-shape: notch;` | `cbes-n` |
+| `corner-block-end-shape: round;` | `cbes-r` |
+| `corner-block-end-shape: squircle;` | `cbes-s` |
+
+### corner-block-start-shape
+
+| CSS Rule | Yumma Utility |
+|----------|---------------|
+| `corner-block-start-shape: bevel;` | `cbss-b` |
+| `corner-block-start-shape: notch;` | `cbss-n` |
+| `corner-block-start-shape: round;` | `cbss-r` |
+| `corner-block-start-shape: squircle;` | `cbss-s` |
+
+### corner-bottom-left-shape
+
+| CSS Rule | Yumma Utility |
+|----------|---------------|
+| `corner-bottom-left-shape: bevel;` | `cbls-b` |
+| `corner-bottom-left-shape: notch;` | `cbls-n` |
+| `corner-bottom-left-shape: round;` | `cbls-r` |
+| `corner-bottom-left-shape: squircle;` | `cbls-s` |
+
+### corner-bottom-right-shape
+
+| CSS Rule | Yumma Utility |
+|----------|---------------|
+| `corner-bottom-right-shape: bevel;` | `cbrs-b` |
+| `corner-bottom-right-shape: notch;` | `cbrs-n` |
+| `corner-bottom-right-shape: round;` | `cbrs-r` |
+| `corner-bottom-right-shape: squircle;` | `cbrs-s` |
+
+### corner-bottom-shape
+
+| CSS Rule | Yumma Utility |
+|----------|---------------|
+| `corner-bottom-shape: bevel;` | `cbs-b` |
+| `corner-bottom-shape: notch;` | `cbs-n` |
+| `corner-bottom-shape: round;` | `cbs-r` |
+| `corner-bottom-shape: squircle;` | `cbs-s` |
+
+### corner-end-end-shape
+
+| CSS Rule | Yumma Utility |
+|----------|---------------|
+| `corner-end-end-shape: bevel;` | `cees-b` |
+| `corner-end-end-shape: notch;` | `cees-n` |
+| `corner-end-end-shape: round;` | `cees-r` |
+| `corner-end-end-shape: squircle;` | `cees-s` |
+
+### corner-end-start-shape
+
+| CSS Rule | Yumma Utility |
+|----------|---------------|
+| `corner-end-start-shape: bevel;` | `cests-b` |
+| `corner-end-start-shape: notch;` | `cests-n` |
+| `corner-end-start-shape: round;` | `cests-r` |
+| `corner-end-start-shape: squircle;` | `cests-s` |
+
+### corner-inline-end-shape
+
+| CSS Rule | Yumma Utility |
+|----------|---------------|
+| `corner-inline-end-shape: bevel;` | `cies-b` |
+| `corner-inline-end-shape: notch;` | `cies-n` |
+| `corner-inline-end-shape: round;` | `cies-r` |
+| `corner-inline-end-shape: squircle;` | `cies-s` |
+
+### corner-inline-start-shape
+
+| CSS Rule | Yumma Utility |
+|----------|---------------|
+| `corner-inline-start-shape: bevel;` | `ciss-b` |
+| `corner-inline-start-shape: notch;` | `ciss-n` |
+| `corner-inline-start-shape: round;` | `ciss-r` |
+| `corner-inline-start-shape: squircle;` | `ciss-s` |
+
+### corner-left-shape
+
+| CSS Rule | Yumma Utility |
+|----------|---------------|
+| `corner-left-shape: bevel;` | `cls-b` |
+| `corner-left-shape: notch;` | `cls-n` |
+| `corner-left-shape: round;` | `cls-r` |
+| `corner-left-shape: squircle;` | `cls-s` |
+
+### corner-right-shape
+
+| CSS Rule | Yumma Utility |
+|----------|---------------|
+| `corner-right-shape: bevel;` | `crs-b` |
+| `corner-right-shape: notch;` | `crs-n` |
+| `corner-right-shape: round;` | `crs-r` |
+| `corner-right-shape: squircle;` | `crs-s` |
+
+### corner-shape
+
+| CSS Rule | Yumma Utility |
+|----------|---------------|
+| `corner-shape: bevel;` | `cs-b` |
+| `corner-shape: notch;` | `cs-n` |
+| `corner-shape: round;` | `cs-r` |
+| `corner-shape: squircle;` | `cs-s` |
+
+### corner-start-end-shape
+
+| CSS Rule | Yumma Utility |
+|----------|---------------|
+| `corner-start-end-shape: bevel;` | `cses-b` |
+| `corner-start-end-shape: notch;` | `cses-n` |
+| `corner-start-end-shape: round;` | `cses-r` |
+| `corner-start-end-shape: squircle;` | `cses-s` |
+
+### corner-start-start-shape
+
+| CSS Rule | Yumma Utility |
+|----------|---------------|
+| `corner-start-start-shape: bevel;` | `csss-b` |
+| `corner-start-start-shape: notch;` | `csss-n` |
+| `corner-start-start-shape: round;` | `csss-r` |
+| `corner-start-start-shape: squircle;` | `csss-s` |
+
+### corner-top-left-shape
+
+| CSS Rule | Yumma Utility |
+|----------|---------------|
+| `corner-top-left-shape: bevel;` | `ctls-b` |
+| `corner-top-left-shape: notch;` | `ctls-n` |
+| `corner-top-left-shape: round;` | `ctls-r` |
+| `corner-top-left-shape: squircle;` | `ctls-s` |
+
+### corner-top-right-shape
+
+| CSS Rule | Yumma Utility |
+|----------|---------------|
+| `corner-top-right-shape: bevel;` | `ctrs-b` |
+| `corner-top-right-shape: notch;` | `ctrs-n` |
+| `corner-top-right-shape: round;` | `ctrs-r` |
+| `corner-top-right-shape: squircle;` | `ctrs-s` |
+
+### corner-top-shape
+
+| CSS Rule | Yumma Utility |
+|----------|---------------|
+| `corner-top-shape: bevel;` | `cts-b` |
+| `corner-top-shape: notch;` | `cts-n` |
+| `corner-top-shape: round;` | `cts-r` |
+| `corner-top-shape: squircle;` | `cts-s` |
+
 ### border-spacing
 
 | CSS Rule | Yumma Utility |
