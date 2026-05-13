@@ -9,14 +9,14 @@ const previewContent = {
     <div className="d-f fd-c g-3 w-56">
       <div className="d-f ai-c g-3">
         <div className="p-r">
-          <Avatar.Root className="d-if o-h ai-c jc-c w-10 h-10 bc-white br-pill bw-1 va-m us-none">
+          <Avatar.Root className="d-if o-h ai-c jc-c w-10 h-10 bc-white br-9999 bw-1 va-m us-none">
             <Avatar.Image
               src="https://api.dicebear.com/9.x/open-peeps/svg?seed=Sarah&backgroundColor=DAF0B9"
               alt="Sarah"
-              className="of-c w-full h-full"
+              className="of-c w-100% h-100%"
             />
           </Avatar.Root>
-          <span className="p-a r-0 b-0 w-3 h-3 bg-green-6 bc-white br-pill bw-1" />
+          <span className="p-a r-0 b-0 w-3 h-3 bg-green-6 bc-white br-9999 bw-1" />
         </div>
         <div className="d-f fd-c g-0">
           <span className="c-slate-10 fs-sm fw-500">Sarah</span>
@@ -32,14 +32,14 @@ const previewContent = {
     <div className="d-f fd-c g-3 w-56">
       <div className="d-f ai-c g-3">
         <div className="p-r">
-          <Avatar.Root className="d-if o-h ai-c jc-c w-10 h-10 bc-white br-pill bw-1 va-m us-none">
+          <Avatar.Root className="d-if o-h ai-c jc-c w-10 h-10 bc-white br-9999 bw-1 va-m us-none">
             <Avatar.Image
               src="https://api.dicebear.com/9.x/open-peeps/svg?seed=John&backgroundColor=B4E9F2"
               alt="John"
-              className="of-c w-full h-full"
+              className="of-c w-100% h-100%"
             />
           </Avatar.Root>
-          <span className="p-a r-0 b-0 w-3 h-3 bg-slate-4 bc-white br-pill bw-1" />
+          <span className="p-a r-0 b-0 w-3 h-3 bg-slate-4 bc-white br-9999 bw-1" />
         </div>
         <div className="d-f fd-c g-0">
           <span className="c-slate-10 fs-sm fw-500">John</span>

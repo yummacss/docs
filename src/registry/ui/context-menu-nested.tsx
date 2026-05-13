@@ -57,7 +57,7 @@ export default function ContextMenuNested() {
                             }
                           >
                             <span
-                              className={`d-f ai-c jc-c w-3 h-3 br-pill ${label.bg}`}
+                              className={`d-f ai-c jc-c w-3 h-3 br-9999 ${label.bg}`}
                             />
                             <span className="c-slate-10">{label.name}</span>
                           </ContextMenu.Item>
@@ -94,15 +94,15 @@ export default function ContextMenuNested() {
                             }
                           >
                             <div className="p-r">
-                              <Avatar.Root className="d-if o-h ai-c jc-c w-5 h-5 bc-white br-pill bw-1 va-m us-none">
+                              <Avatar.Root className="d-if o-h ai-c jc-c w-5 h-5 bc-white br-9999 bw-1 va-m us-none">
                                 <Avatar.Image
                                   src={member.avatar}
                                   alt={member.name}
-                                  className="of-c w-full h-full"
+                                  className="of-c w-100% h-100%"
                                 />
                               </Avatar.Root>
                               <span
-                                className={`p-a b-0 r-0 w-2 h-2 bc-white br-pill bw-1 ${
+                                className={`p-a b-0 r-0 w-2 h-2 bc-white br-9999 bw-1 ${
                                   member.status === "online"
                                     ? "bg-green"
                                     : member.status === "away"
@@ -127,7 +127,7 @@ export default function ContextMenuNested() {
                   Edit task
                 </ContextMenu.Item>
 
-                <ContextMenu.Separator className="my-1 w-full h-px bg-silver-2" />
+                <ContextMenu.Separator className="my-1 w-100% h-px bg-silver-2" />
 
                 <ContextMenu.Item
                   className={(state) =>
@@ -137,7 +137,7 @@ export default function ContextMenuNested() {
                   Share task
                 </ContextMenu.Item>
 
-                <ContextMenu.Separator className="my-1 w-full h-px bg-silver-2" />
+                <ContextMenu.Separator className="my-1 w-100% h-px bg-silver-2" />
 
                 <ContextMenu.Item
                   className={(state) =>

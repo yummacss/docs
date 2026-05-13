@@ -73,7 +73,7 @@ export default function MenubarGrouped() {
                     </Menu.Item>
                   </Menu.Group>
 
-                  <Menu.Separator className="my-1 w-full h-px bg-silver-2" />
+                  <Menu.Separator className="my-1 w-100% h-px bg-silver-2" />
 
                   <Menu.Group>
                     <Menu.Item
@@ -178,7 +178,7 @@ export default function MenubarGrouped() {
                     </Menu.Item>
                   </Menu.Group>
 
-                  <Menu.Separator className="my-1 w-full h-px bg-silver-2" />
+                  <Menu.Separator className="my-1 w-100% h-px bg-silver-2" />
 
                   <Menu.Group>
                     <Menu.Item
@@ -254,7 +254,7 @@ export default function MenubarGrouped() {
                   >
                     Manage permissions
                   </Menu.Item>
-                  <Menu.Separator className="my-1 w-full h-px bg-silver-2" />
+                  <Menu.Separator className="my-1 w-100% h-px bg-silver-2" />
                   <Menu.Item
                     className={(state) =>
                       `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${

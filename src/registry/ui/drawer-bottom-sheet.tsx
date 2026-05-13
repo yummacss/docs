@@ -76,13 +76,13 @@ export default function DrawerBottomSheet() {
                     }
                   >
                     <span
-                      className={`d-if w-2 h-2 br-pill ${s.color}`}
+                      className={`d-if w-2 h-2 br-9999 ${s.color}`}
                       aria-hidden
                     />
                     {s.label}
                   </Drawer.Close>
                 ))}
-                <div className="my-2 h-px w-full bg-silver-2" />
+                <div className="my-2 h-px w-100% bg-silver-2" />
                 <p className="px-3 py-2 c-slate-6 fs-xs fw-500 tt-u ls-3">
                   Actions
                 </p>
@@ -119,7 +119,7 @@ export default function DrawerBottomSheet() {
                   <Pencil className="w-4 h-4 c-slate-5" />
                   Edit Task
                 </Drawer.Close>
-                <div className="my-2 h-px w-full bg-silver-2" />
+                <div className="my-2 h-px w-100% bg-silver-2" />
                 <Drawer.Close
                   render={
                     <button

@@ -55,7 +55,7 @@ export default function Reference({ category, name }: Props) {
 
   if (variants.length === 0) {
     return (
-      <div className="c-white/60 p-4 mb-6 bg-midnight br-sm ta-c">
+      <div className="p-4 mb-6 bg-midnight c-white/60 br-sm ta-c">
         Something went wrong while fetching the data.
       </div>
     );
@@ -78,7 +78,7 @@ export default function Reference({ category, name }: Props) {
     <div className="o-h mb-6 bc-clay bg-midnight bw-1 br-sm">
       <Accordion.Root
         defaultValue={DEFAULT_ACCORDION_VALUE}
-        className="d-f fd-c w-full"
+        className="d-f fd-c w-100%"
       >
         <Accordion.Item value="reference-item" className="bw-0">
           <Accordion.Header className="m-0">
@@ -86,7 +86,7 @@ export default function Reference({ category, name }: Props) {
               render={(triggerProps, { open }) => (
                 <Button
                   {...triggerProps}
-                  className="d-f ai-c jc-sb g-4 w-full py-3 px-4 m-0 bg-transparent c-white bw-0 ta-l fw-600 fs-sm c-p us-none"
+                  className="d-f ai-c jc-sb g-4 w-100% py-3 px-4 m-0 bg-transparent c-white bw-0 ta-l fw-600 fs-sm c-p us-none"
                 >
                   <span className="d-f ai-c g-2">
                     <code className="c-mauve ff-m">
@@ -106,20 +106,20 @@ export default function Reference({ category, name }: Props) {
               )}
             />
           </Accordion.Header>
-          <Accordion.Panel className="c-white/70 o-h fs-sm lh-4">
+          <Accordion.Panel className="o-h c-white/70 fs-sm lh-4">
             <div className="px-4 pb-4">
               <div className="oy-auto max-h-52">
                 <div className="d-f ai-c g-2 mb-2 pb-2 bc-clay bbw-1">
-                  <Magnifier className="c-white/30 fs-0 w-4 h-4" />
+                  <Magnifier className="fs-0 w-4 h-4 c-white/30" />
                   <Input
                     type="text"
                     placeholder="Filter..."
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
-                    className="c-white/70 w-full bg-transparent bw-0 fs-md"
+                    className="w-100% bg-transparent c-white/70 bw-0 fs-md"
                   />
                   {search && (
-                    <span className="c-white/30 fs-0 fs-xs ws-nw">
+                    <span className="fs-0 c-white/30 fs-xs ws-nw">
                       {filtered.length}/{variants.length}
                     </span>
                   )}
@@ -154,7 +154,7 @@ export default function Reference({ category, name }: Props) {
                       </div>
                     ))
                   ) : (
-                    <div className="c-white/40 py-2 fs-xs ta-c">
+                    <div className="py-2 c-white/40 fs-xs ta-c">
                       No utilities match "{search}"
                     </div>
                   )}

@@ -10,7 +10,7 @@ export default function AccordionMultipleGhost() {
 
   return (
     <Accordion.Root
-      className="d-f fd-c w-full max-w-96"
+      className="d-f fd-c w-100% max-w-96"
       value={value}
       onValueChange={setValue}
       multiple
@@ -24,7 +24,7 @@ export default function AccordionMultipleGhost() {
             className={`blw-2 pl-4 ${isOpen ? "blc-indigo-5" : "blc-silver-3"} ${index === faqs.length - 1 ? "" : "mb-3"}`}
           >
             <Accordion.Header className="m-0">
-              <Accordion.Trigger className="d-f ai-c jc-sb g-3 w-full py-2 px-0 bg-transparent bw-0 br-sm ta-l c-p fv:ow-2 fv:oo-1 fv:oc-indigo-5">
+              <Accordion.Trigger className="d-f ai-c jc-sb g-3 w-100% py-2 px-0 bg-transparent bw-0 br-sm ta-l c-p fv:ow-2 fv:oo-1 fv:oc-indigo-5">
                 <span
                   className={`fs-sm fw-500 ${isOpen ? "c-indigo-6" : "c-slate-8"}`}
                 >

@@ -40,13 +40,13 @@ export default function DialogStatic() {
                 </Dialog.Close>
               </div>
               <div className="d-f fd-c ai-c jc-c g-3 px-4 py-5 bg-white bc-silver-2 btr-lg btw-1">
-                <Avatar.Root className="d-if o-h ai-c jc-c w-12 h-12 bc-white br-pill bw-1 va-m us-none">
+                <Avatar.Root className="d-if o-h ai-c jc-c w-12 h-12 bc-white br-9999 bw-1 va-m us-none">
                   <Avatar.Image
                     src="https://api.dicebear.com/9.x/open-peeps/svg?seed=Sarah&backgroundColor=DAF0B9"
                     alt="Sarah"
-                    className="of-c w-full h-full"
+                    className="of-c w-100% h-100%"
                   />
-                  <Avatar.Fallback className="d-f ai-c jc-c w-full h-full c-slate-8 fs-md">
+                  <Avatar.Fallback className="d-f ai-c jc-c w-100% h-100% c-slate-8 fs-md">
                     S
                   </Avatar.Fallback>
                 </Avatar.Root>

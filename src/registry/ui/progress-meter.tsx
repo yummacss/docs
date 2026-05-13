@@ -11,8 +11,8 @@ export default function ProgressMeter() {
         </Meter.Label>
         <Meter.Value className="c-slate-8 fs-sm" />
       </div>
-      <Meter.Track className="o-h h-2 bg-silver-2 br-pill">
-        <Meter.Indicator className="d-b h-full bg-yellow br-pill tp-w tdu-500 ttf-io" />
+      <Meter.Track className="o-h h-2 bg-silver-2 br-9999">
+        <Meter.Indicator className="d-b h-100% bg-yellow br-9999 tp-w tdu-500 ttf-io" />
       </Meter.Track>
     </Meter.Root>
   );

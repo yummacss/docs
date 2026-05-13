@@ -59,7 +59,7 @@ export default function MenuGrouped() {
                   </Menu.Item>
                 </Menu.Group>
 
-                <Menu.Separator className="my-1 w-full h-px bg-silver-2" />
+                <Menu.Separator className="my-1 w-100% h-px bg-silver-2" />
 
                 <Menu.Group>
                   <Menu.Item

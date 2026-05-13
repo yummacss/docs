@@ -13,12 +13,12 @@ export default function SwitchStatic() {
         id="switch-dark-mode"
         checked={checked}
         onCheckedChange={setChecked}
-        className={`p-r d-f ai-c h-5 w-9 br-pill m-0 px-1 c-p fv:ow-2 fv:oo-2 fv:oc-indigo-5 ${
+        className={`p-r d-f ai-c h-5 w-9 br-9999 m-0 px-1 c-p fv:ow-2 fv:oo-2 fv:oc-indigo-5 ${
           checked ? "bg-green-5" : "bg-silver-1"
         }`}
       >
         <Switch.Thumb
-          className={`w-4 h-3 bg-white br-pill bs-o-xs ${
+          className={`w-4 h-3 bg-white br-9999 bs-o-xs ${
             checked ? "ml-3" : "ml-0"
           }`}
         />

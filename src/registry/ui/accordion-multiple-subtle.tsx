@@ -10,7 +10,7 @@ export default function AccordionMultipleSubtle() {
 
   return (
     <Accordion.Root
-      className="d-f fd-c g-2 w-full max-w-96"
+      className="d-f fd-c g-2 w-100% max-w-96"
       value={value}
       onValueChange={setValue}
       multiple
@@ -24,7 +24,7 @@ export default function AccordionMultipleSubtle() {
             className={`br-md ${isOpen ? "bg-indigo-1" : "bg-silver-1 h:bg-silver-2"}`}
           >
             <Accordion.Header className="m-0">
-              <Accordion.Trigger className="d-f ai-c jc-sb g-3 w-full py-3 px-4 bg-transparent bw-0 br-sm ta-l c-p fv:ow-2 fv:oo-1 fv:oc-indigo-5">
+              <Accordion.Trigger className="d-f ai-c jc-sb g-3 w-100% py-3 px-4 bg-transparent bw-0 br-sm ta-l c-p fv:ow-2 fv:oo-1 fv:oc-indigo-5">
                 <span
                   className={`fs-sm fw-500 ${isOpen ? "c-indigo-7" : "c-slate-8"}`}
                 >

@@ -88,7 +88,7 @@ export default function MobileSidebar({ isOpen, onClose, routeType }: Props) {
             data-mobile-sidebar-popup
             className="oy-auto f-1 bc-white/10 bg-mirage btw-1 bs-o-md"
           >
-            <div className="d-f p-r fd-c h-full">
+            <div className="d-f p-r fd-c h-100%">
               <div className="oy-auto f-1 pb-8 pt-6">
                 <div className="mx-auto px-6">
                   <div className="d-f fd-c g-8">
@@ -130,7 +130,7 @@ export default function MobileSidebar({ isOpen, onClose, routeType }: Props) {
                                           >
                                             {child.title}
                                             {child.updated && (
-                                              <span className="w-2 h-2 bg-white br-pill" />
+                                              <span className="w-2 h-2 bg-white br-9999" />
                                             )}
                                           </Link>
                                         </li>
@@ -185,7 +185,7 @@ export default function MobileSidebar({ isOpen, onClose, routeType }: Props) {
                                                       {child.title}
                                                       {(child as any)
                                                         .updated && (
-                                                        <span className="w-2 h-2 bg-white br-pill" />
+                                                        <span className="w-2 h-2 bg-white br-9999" />
                                                       )}
                                                     </Link>
                                                   </li>
@@ -209,7 +209,7 @@ export default function MobileSidebar({ isOpen, onClose, routeType }: Props) {
                                             >
                                               {subItem.title}
                                               {(subItem as any).updated && (
-                                                <span className="w-2 h-2 bg-white br-pill" />
+                                                <span className="w-2 h-2 bg-white br-9999" />
                                               )}
                                             </Link>
                                           </li>
@@ -247,7 +247,7 @@ export default function MobileSidebar({ isOpen, onClose, routeType }: Props) {
                                   >
                                     {item.title}
                                     {(item as any).updated && (
-                                      <span className="w-2 h-2 bg-white br-pill" />
+                                      <span className="w-2 h-2 bg-white br-9999" />
                                     )}
                                   </Link>
                                 </li>

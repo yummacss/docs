@@ -46,7 +46,7 @@ export default function AlertDialogConfirmation() {
                 style={{ maxWidth: "90vw" }}
               >
                 <div className="d-f jc-sb ai-c px-4 py-2 bg-silver-1">
-                  <div className="d-f jc-sb ai-c w-full">
+                  <div className="d-f jc-sb ai-c w-100%">
                     <AlertDialog.Title className="c-slate-8 fs-md fw-500">
                       Account deletion
                     </AlertDialog.Title>

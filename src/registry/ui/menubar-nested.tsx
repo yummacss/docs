@@ -111,7 +111,7 @@ export default function MenubarNested() {
                               }
                             >
                               <span
-                                className={`fs-0 w-3 h-3 br-pill ${priority.bg}`}
+                                className={`fs-0 w-3 h-3 br-9999 ${priority.bg}`}
                               />
                               {priority.name}
                             </Menu.Item>
@@ -121,7 +121,7 @@ export default function MenubarNested() {
                     </Menu.Portal>
                   </Menu.SubmenuRoot>
 
-                  <Menu.Separator className="my-1 w-full h-px bg-silver-2" />
+                  <Menu.Separator className="my-1 w-100% h-px bg-silver-2" />
 
                   <Menu.Item
                     className={(state) =>
@@ -200,7 +200,7 @@ export default function MenubarNested() {
                   >
                     Add label
                   </Menu.Item>
-                  <Menu.Separator className="my-1 w-full h-px bg-silver-2" />
+                  <Menu.Separator className="my-1 w-100% h-px bg-silver-2" />
                   <Menu.Item
                     className={(state) =>
                       `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
@@ -269,7 +269,7 @@ export default function MenubarNested() {
                   >
                     Collapse column
                   </Menu.Item>
-                  <Menu.Separator className="my-1 w-full h-px bg-silver-2" />
+                  <Menu.Separator className="my-1 w-100% h-px bg-silver-2" />
                   <Menu.Item
                     className={(state) =>
                       `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${

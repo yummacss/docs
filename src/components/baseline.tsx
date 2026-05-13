@@ -127,7 +127,7 @@ export default function Baseline({ path }: Props) {
                 opacity: !browser.supported ? 0.5 : 1,
               }}
             >
-              <browser.icon className="w-full h-full" />
+              <browser.icon className="w-100% h-100%" />
             </div>
             <div className="d-f fd-c">
               <span

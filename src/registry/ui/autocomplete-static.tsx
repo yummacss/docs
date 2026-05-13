@@ -49,12 +49,12 @@ export default function AutocompleteStatic() {
                                 : "bg-transparent"
                             }`}
                           >
-                            <Avatar.Root className="w-6 h-6 bc-white br-pill bw-1">
+                            <Avatar.Root className="w-6 h-6 bc-white br-9999 bw-1">
                               <Avatar.Image
                                 src={member.avatar}
-                                className="of-c w-full h-full br-pill"
+                                className="of-c w-100% h-100% br-9999"
                               />
-                              <Avatar.Fallback className="d-f ai-c jc-c w-full h-full bg-silver-2 c-slate-8 fs-xs">
+                              <Avatar.Fallback className="d-f ai-c jc-c w-100% h-100% bg-silver-2 c-slate-8 fs-xs">
                                 {member.name[0]}
                               </Avatar.Fallback>
                             </Avatar.Root>

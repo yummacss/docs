@@ -74,7 +74,7 @@ export default function SelectGrouped() {
                           </Select.Item>
                         ))}
                         {groupIndex < categories.length - 1 && (
-                          <div className="w-full h-px bg-silver-2 my-1" />
+                          <div className="w-100% h-px my-1 bg-silver-2" />
                         )}
                       </Select.Group>
                     ))}
