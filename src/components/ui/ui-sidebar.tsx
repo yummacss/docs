@@ -142,9 +142,7 @@ export default function UISidebar() {
                         className={`d-if ai-c g-3 fs-sm us-none fv:oc-white fv:oo-2 fv:ow-2 ${isActive ? "c-white" : "c-white/70 h:c-white"}`}
                       >
                         {item.title}
-                        {item.updated && (
-                          <span className="w-2 h-2 bg-white" />
-                        )}
+                        {item.updated && <span className="w-2 h-2 bg-white" />}
                       </Link>
                     </li>
                   );

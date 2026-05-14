@@ -80,7 +80,6 @@ export const uiSidebarConfig: UISidebarConfig = [
   {
     title: "Navigation",
     items: [
-      
       { title: "Tabs", slug: "tabs", primitive: true },
       { title: "Toolbar", slug: "toolbar", primitive: true },
     ],
