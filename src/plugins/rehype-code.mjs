@@ -99,7 +99,7 @@ function highlightWordsInNode(node, words, classes) {
 }
 
 const LINE_CLASSES = "d-b mx--4 px-4";
-const WORD_CLASSES = "bg-highlight/10 bw-1 bc-highlight/50 br-sm";
+const WORD_CLASSES = "bg-highlight/10 bw-1 bc-highlight/50";  
 
 export default function rehypeCode() {
   return (tree) => {
