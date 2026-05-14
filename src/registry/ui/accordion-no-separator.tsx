@@ -23,7 +23,7 @@ export default function AccordionNoSeparator() {
             className={isOpen ? "" : ""}
           >
             <Accordion.Header className="m-0">
-              <Accordion.Trigger className="d-f ai-c jc-sb g-3 w-100% py-3 px-0 bg-transparent bw-0 br-sm ta-l c-p fv:ow-2 fv:oo-1 fv:oc-indigo-5">
+              <Accordion.Trigger className="d-f ai-c jc-sb g-3 w-100% py-3 px-0 bg-transparent bw-0 br-sm ta-l c-p fv:oo-1 fv:oc-indigo-5">
                 <span className="c-slate-8 fs-sm fw-500">{item.title}</span>
                 <motion.span
                   animate={{ rotate: isOpen ? 180 : 0 }}
