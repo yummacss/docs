@@ -17,7 +17,7 @@ export default async function BlogPage() {
     <div className="pt-14 sm:pt-16">
       <div className="mx-auto my-16 max-w-lg">
         <h1 className="mt-6 c-white ff-e fs-5xl fw-400">Blog Articles</h1>
-        <p className="c-white/70 mt-6 max-w-md fs-lg">
+        <p className="mt-6 max-w-md c-white/70 fs-lg">
           The latest updates & articles from Yumma CSS.
         </p>
       </div>
@@ -39,10 +39,10 @@ export default async function BlogPage() {
                         <h3 className="mb-4 c-white fs-xxl fw-400">
                           {post.title}
                         </h3>
-                        <p className="c-white/70 mb-4 lh-5">
+                        <p className="mb-4 c-white/70 lh-5">
                           {post.description}
                         </p>
-                        <div className="d-f c-white/50 ai-c g-2 fs-sm">
+                        <div className="d-f ai-c g-2 c-white/50 fs-sm">
                           <span>{formatDate(post.date)}</span>
                         </div>
                       </div>
@@ -55,7 +55,7 @@ export default async function BlogPage() {
                               unoptimized
                               width={1200}
                               height={675}
-                              className="of-c w-full h-auto us-none"
+                              className="of-c w-100% h-auto us-none"
                             />
                           </div>
                         </div>
