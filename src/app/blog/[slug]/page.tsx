@@ -59,7 +59,7 @@ export default async function BlogPostPage({
       <div className="d-g gtc-1 g-8 lg:gtc-12">
         <article className="lg:gc-s-8">
           <header className="mb-12">
-            <div className="d-f c-white/50 ai-c g-2 mb-4 mt-16 fs-sm">
+            <div className="d-f ai-c g-2 mb-4 mt-16 c-white/50 fs-sm">
               <Link href="/blog" className="h:c-white fv:oc-white fv:ow-2">
                 Blog
               </Link>
@@ -71,10 +71,10 @@ export default async function BlogPostPage({
               {meta?.title}
             </h1>
 
-            <p className="c-white/70 mb-6 fs-lg lh-5">{meta?.description}</p>
+            <p className="mb-6 c-white/70 fs-lg lh-5">{meta?.description}</p>
 
             {author && (
-              <div className="d-f c-white/70 ai-c g-4 fs-lg">
+              <div className="d-f ai-c g-4 c-white/70 fs-lg">
                 <div className="d-f ai-c g-2">
                   <Avatar src={author.avatar} alt={author.name} />
                   <Link
@@ -98,7 +98,7 @@ export default async function BlogPostPage({
                 unoptimized
                 width={1200}
                 height={630}
-                className="w-full h-auto bg-charcoal us-none"
+                className="w-100% h-auto bg-charcoal us-none"
               />
             </div>
           )}

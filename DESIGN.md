@@ -90,10 +90,10 @@ This is the single most important design rule. Never guess. Follow this exactly.
 | **Checkbox / small controls** | `br-sm` |
 | **Toolbar root, toggle group root, menubar root** | `br-lg` |
 | **Toggle items inside toolbar/toggle group** | `br-md` |
-| **Pill buttons** (small follow/CTA inside cards) | `br-pill` |
-| **Avatar images** | `br-pill` |
-| **Switch root** | `br-pill` |
-| **Badges** | `br-sm` (base) or `br-pill` (pilled variant) |
+| **Pill buttons** (small follow/CTA inside cards) | `br-9999` |
+| **Avatar images** | `br-9999` |
+| **Switch root** | `br-9999` |
+| **Badges** | `br-sm` (base) or `br-9999` (pilled variant) |
 | **Tooltip popup** | `br-sm` |
 | **Collapsible bordered container** | `br-lg` (outer), `br-xl` (inner panel) |
 | **Icon accent boxes** (small icon in dialog header) | `br-md` |
@@ -162,7 +162,7 @@ All interactive form controls and containers use `bw-1` with an appropriate colo
 | Danger filled button | `bw-1 bc-red-7` |
 | Outlined button | `bw-1 bc-indigo` |
 | Secondary/ghost button | `bw-1 bc-silver-2` (secondary) or `bw-0` (ghost) |
-| Separator (horizontal) | `h-px w-full bg-silver-2` |
+| Separator (horizontal) | `h-px w-100% bg-silver-2` |
 | Separator (vertical) | `w-px h-5 bg-silver-3` |
 | Divider inside dialog | `bc-silver-2 bbw-1` (empty div) |
 
@@ -320,9 +320,9 @@ const AVATARS = [
 
 ### Canonical avatar component pattern
 ```tsx
-<Avatar.Root className="d-if o-h ai-c jc-c w-8 h-8 bc-white br-pill bw-1 va-m us-none">
-  <Avatar.Image src={user.avatar} alt={user.name} className="of-c w-full h-full" />
-  <Avatar.Fallback className="d-f ai-c jc-c w-full h-full c-slate-8 fs-xs">
+<Avatar.Root className="d-if o-h ai-c jc-c w-8 h-8 bc-white br-9999 bw-1 va-m us-none">
+  <Avatar.Image src={user.avatar} alt={user.name} className="of-c w-100% h-100%" />
+  <Avatar.Fallback className="d-f ai-c jc-c w-100% h-100% c-slate-8 fs-xs">
     {user.name[0]}
   </Avatar.Fallback>
 </Avatar.Root>
@@ -364,7 +364,7 @@ const AVATARS = [
 
 ### Separator inside a panel
 ```tsx
-<Separator className="my-1 w-full h-px bg-silver-2" />
+<Separator className="my-1 w-100% h-px bg-silver-2" />
 ```
 
 ### Vertical separator (toolbar)
@@ -384,7 +384,7 @@ const AVATARS = [
 
 ### Small pill CTA (inside cards/collapsibles)
 ```tsx
-<Button className="d-f ai-c jc-c h-7 px-3 bg-indigo h:bg-indigo-8 c-white br-pill fs-xs fw-500 tp-c tdu-150 ttf-io us-none fv:oo-2 fv:oc-indigo-5">
+<Button className="d-f ai-c jc-c h-7 px-3 bg-indigo h:bg-indigo-8 c-white br-9999 fs-xs fw-500 tp-c tdu-150 ttf-io us-none fv:oo-2 fv:oc-indigo-5">
   Follow
 </Button>
 ```
@@ -423,7 +423,7 @@ state.checked ? "bg-indigo" : "bw-1 bc-silver-3 bg-transparent bs-o-xs"
 
 ### Chip (multi-select)
 ```tsx
-<Chip className="d-f ai-c g-1 px-2 py-0 h-6 bg-indigo-1 bc-indigo-2 c-indigo-7 bw-1 br-pill fs-xs fw-500">
+<Chip className="d-f ai-c g-1 px-2 py-0 h-6 bg-indigo-1 bc-indigo-2 c-indigo-7 bw-1 br-9999 fs-xs fw-500">
 ```
 
 ---
