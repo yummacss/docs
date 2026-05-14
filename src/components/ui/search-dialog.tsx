@@ -148,9 +148,9 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
               <Dialog.Popup
                 render={
                   <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
                     transition={{ duration: 0.15, ease: "easeOut" }}
                   />
                 }
