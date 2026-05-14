@@ -1,4 +1,10 @@
-import { SealCheck, Sparkles, TriangleExclamation } from "@gravity-ui/icons";
+"use client";s
+
+import {
+  ExclamationMarkIcon,
+  SealCheckIcon,
+  SparkleIcon,
+} from "@phosphor-icons/react";
 import { Chrome, Edge, Firefox, Safari } from "@ridemountainpig/svgl-react";
 import data from "web-features/data.json";
 
@@ -68,10 +74,10 @@ export default function Baseline({ path }: Props) {
   const statusColor = isHigh ? "c-green" : isLow ? "c-green-5" : "c-yellow";
 
   const StatusIcon = isHigh
-    ? SealCheck
+    ? SealCheckIcon
     : isLow
-      ? Sparkles
-      : TriangleExclamation;
+      ? SparkleIcon
+      : ExclamationMarkIcon;
 
   const support = status.support || {};
 

@@ -2,7 +2,7 @@
 
 import { Button, Input } from "@base-ui/react";
 import { Accordion } from "@base-ui/react/accordion";
-import { Magnifier, Plus } from "@gravity-ui/icons";
+import { MagnifyingGlassIcon, PlusIcon } from "@phosphor-icons/react";
 import { useState } from "react";
 import { type Category, categoryGetters } from "../utils/yummacss";
 
@@ -99,7 +99,7 @@ export default function Reference({ category, name }: Props) {
                       {variants.length} utilities
                     </span>
                   </span>
-                  <Plus
+                  <PlusIcon
                     className={`w-4 h-4 fs-0 tp-t tp-c tdu-200 ttf-io ${open ? "ro-45 c-white" : "ro-0 c-white/60"}`}
                   />
                 </Button>
@@ -110,7 +110,7 @@ export default function Reference({ category, name }: Props) {
             <div className="px-4 pb-4">
               <div className="oy-auto max-h-52">
                 <div className="d-f ai-c g-2 mb-2 pb-2 bc-clay bbw-1">
-                  <Magnifier className="fs-0 w-4 h-4 c-white/30" />
+                  <MagnifyingGlassIcon className="fs-0 w-4 h-4 c-white/30" />
                   <Input
                     type="text"
                     placeholder="Filter..."

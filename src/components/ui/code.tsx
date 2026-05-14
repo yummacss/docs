@@ -1,7 +1,8 @@
 "use client";
 
 import { Button } from "@base-ui/react";
-import { Check, Copy } from "@gravity-ui/icons";
+import { CheckIcon } from "@phosphor-icons/react/dist/icons/Check";
+import { CopyIcon } from "@phosphor-icons/react/dist/icons/Copy";
 import { useRef, useState } from "react";
 
 interface Props {
@@ -51,7 +52,11 @@ function CopyButton({
       className="d-f ai-c g-1 px-2 py-1 c-white/50 h:c-white h:bg-white/10 fv:oc-white fv:ow-2"
       aria-label="Copy code"
     >
-      {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+      {copied ? (
+        <CheckIcon className="w-4 h-4" />
+      ) : (
+        <CopyIcon className="w-4 h-4" />
+      )}
       <span className="fs-xs">{copied ? "Copied!" : "Copy"}</span>
     </Button>
   );

@@ -4,15 +4,14 @@ import { Button } from "@base-ui/react";
 import { Dialog } from "@base-ui/react/dialog";
 import { Input } from "@base-ui/react/input";
 import {
-  ArrowDown,
-  ArrowRight,
-  ArrowRightFromSquare,
-  ArrowUp,
-  ArrowUturnCwLeft,
-  FileText,
-  LayersVertical,
-  Magnifier,
-} from "@gravity-ui/icons";
+  ArrowDownIcon,
+  ArrowElbowDownLeftIcon,
+  ArrowUpIcon,
+  MagnifyingGlassIcon,
+  SelectionIcon,
+  SignOutIcon,
+  SquareLogoIcon,
+} from "@phosphor-icons/react";
 import { AnimatePresence, motion } from "motion/react";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
@@ -118,12 +117,12 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
   // Get category icon
   const getCategoryIcon = (category: string) => {
     if (category === "docs") {
-      return <ArrowRight className="w-4 h-4 c-white/50" />;
+      return <SquareLogoIcon className="w-4 h-4 c-white/50" />;
     }
     if (category === "handbook") {
-      return <FileText className="w-4 h-4 c-white/50" />;
+      return <SquareLogoIcon className="w-4 h-4 c-white/50" />;
     }
-    return <LayersVertical className="w-4 h-4 c-white/50" />;
+    return <SelectionIcon className="w-4 h-4 c-white/50" />;
   };
 
   // Track global index for keyboard nav
@@ -162,7 +161,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                 onKeyDown={handleKeyDown}
               >
                 <div className="d-f ai-c g-3 px-4 py-3 bc-white/10 bbw-1">
-                  <Magnifier className="w-5 h-5 c-white/50" />
+                  <MagnifyingGlassIcon className="w-5 h-5 c-white/50" />
                   <Input
                     ref={inputRef}
                     type="text"
@@ -241,7 +240,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                               </div>
 
                               {isSelected && (
-                                <ArrowUturnCwLeft className="fs-0 w-4 h-4 c-white/50" />
+                                <ArrowElbowDownLeftIcon className="fs-0 w-4 h-4 c-white/50" />
                               )}
                             </Button>
                           );
@@ -264,13 +263,13 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                         className="d-f ai-c p-1 bc-white/10 bg-transparent bw-1"
                         style={{}}
                       >
-                        <ArrowUp className="w-4 h-4" />
+                        <ArrowUpIcon className="w-4 h-4" />
                       </kbd>
                       <kbd
                         className="d-f ai-c p-1 bc-white/10 bg-transparent bw-1"
                         style={{}}
                       >
-                        <ArrowDown className="w-4 h-4" />
+                        <ArrowDownIcon className="w-4 h-4" />
                       </kbd>
                       <span className="ml-1 fs-md">to navigate</span>
                     </span>
@@ -279,7 +278,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                         className="d-f ai-c p-1 bc-white/10 bg-transparent bw-1"
                         style={{}}
                       >
-                        <ArrowUturnCwLeft className="w-4 h-4" />
+                        <ArrowElbowDownLeftIcon className="w-4 h-4" />
                       </kbd>
                       <span className="ml-1 fs-md">to select</span>
                     </span>
@@ -289,7 +288,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                       className="d-f ai-c p-1 bc-white/10 bg-transparent bw-1"
                       style={{}}
                     >
-                      <ArrowRightFromSquare className="w-4 h-4" />
+                      <SignOutIcon className="w-4 h-4" />
                     </kbd>
                     <span className="ml-1 fs-md">to close</span>
                   </span>

@@ -1,6 +1,6 @@
 "use client";
 
-import { Link as LinkIcon } from "@gravity-ui/icons";
+import { LinkIcon } from "@phosphor-icons/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -15,7 +15,7 @@ export default function ApiReference() {
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className="d-if c-white/70 ai-c g-2 w-fc fs-sm td-none h:c-white fv:oc-white fv:ow-2"
+      className="d-if ai-c g-2 w-fc c-white/70 fs-sm td-none h:c-white fv:oc-white fv:ow-2"
     >
       <LinkIcon className="w-4 h-4" />
       API reference

@@ -1,4 +1,4 @@
-import { Droplet } from "@gravity-ui/icons";
+import { EyedropperIcon } from "@phosphor-icons/react/dist/icons/Eyedropper";
 import { type Category, getPrefix } from "../utils/yummacss";
 
 interface Props {
@@ -13,7 +13,7 @@ export default function OpacityModifier({ category, name }: Props) {
     <div className="mb-6 p-4 bc-clay bg-midnight bw-1">
       <div className="d-f ai-c g-3 mb-3">
         <div className="d-f ai-c jc-c fs-0 p-2 bg-clay c-cornflower">
-          <Droplet className="w-5 h-5" />
+          <EyedropperIcon className="w-5 h-5" />
         </div>
         <p className="c-white/70 fs-sm">
           Append <code className="px-1 bg-clay c-mauve">/(opacity)</code> to any

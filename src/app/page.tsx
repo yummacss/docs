@@ -1,4 +1,6 @@
-import { ArrowRight, LayersVertical } from "@gravity-ui/icons";
+"use client";
+
+import { DiamondsFourIcon } from "@phosphor-icons/react";
 import Link from "next/link";
 import Navbar from "@/components/ui/navbar";
 
@@ -39,7 +41,7 @@ export default function Home() {
                   href="/ui/installation"
                   className="d-f ai-c g-2 px-6 py-3 c-white fw-600 fs-md us-none fv:oc-white fv:ow-2"
                 >
-                  <LayersVertical className="w-5 h-5" />
+                  <DiamondsFourIcon className="w-5 h-5" />
                   Components
                 </Link>
               </div>
