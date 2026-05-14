@@ -17,16 +17,6 @@ export default function Home() {
         <div className="w-100%" style={{ maxWidth: "72rem" }}>
           <div className="d-g g-12 ai-fe lg:gtc-2">
             <div>
-              <Link
-                href="/docs/philosophy"
-                className="d-if ai-c g-2 px-4 py-2 mb-8 bc-white/10 bg-white/5 c-white bw-1 bf-b-md fv:oc-white fv:ow-2"
-              >
-                <span className="fs-xs fw-500 ls-4">
-                  Isn't this just "Tailwind"?
-                </span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-
               <h1 className="mb-6 fs-5xl fw-400 lh-2 ff-e md:fs-6xl">
                 Type less. Style more.
               </h1>

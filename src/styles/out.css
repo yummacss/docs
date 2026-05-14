@@ -325,10 +325,6 @@ summary {
   border-color: #ffffff33;
 }
 
-.bf-b-md {
-  backdrop-filter: blur(16px);
-}
-
 .bf-b-sm {
   backdrop-filter: blur(8px);
 }
@@ -1676,10 +1672,6 @@ summary {
 
 .ls-3 {
   letter-spacing: .025em;
-}
-
-.ls-4 {
-  letter-spacing: .05em;
 }
 
 .lst-d {
