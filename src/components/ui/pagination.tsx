@@ -1,4 +1,6 @@
-import { ChevronLeft, ChevronRight } from "@gravity-ui/icons";
+"use client";
+
+import { CaretLeftIcon, CaretRightIcon } from "@phosphor-icons/react";
 import Link from "next/link";
 
 interface Props {
@@ -19,7 +21,7 @@ export default function Pagination({ previous, next, basePath }: Props) {
           href={`${basePath}/${previous.slug}`}
           className="d-f ai-c g-2 f-1 p-4 bc-white/10 bs-s fv:oc-white fv:ow-2"
         >
-          <ChevronLeft className="w-5 h-5 c-white/70" />
+          <CaretLeftIcon className="w-5 h-5 c-white/70" />
           <div className="d-f fd-c">
             <span className="c-white/70 fs-sm">Previous</span>
             <span className="c-white h:c-white/90">{previous.title}</span>
@@ -37,7 +39,7 @@ export default function Pagination({ previous, next, basePath }: Props) {
             <span className="c-white/70 fs-sm">Next</span>
             <span className="c-white h:c-white/90">{next.title}</span>
           </div>
-          <ChevronRight className="w-5 h-5 c-white/70" />
+          <CaretRightIcon className="w-5 h-5 c-white/70" />
         </Link>
       ) : (
         <div className="f-1" />
