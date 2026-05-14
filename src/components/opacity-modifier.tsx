@@ -1,4 +1,6 @@
-import { EyedropperIcon } from "@phosphor-icons/react/dist/icons/Eyedropper";
+"use client";
+
+import { EyedropperIcon } from "@phosphor-icons/react";
 import { type Category, getPrefix } from "../utils/yummacss";
 
 interface Props {

@@ -1,8 +1,7 @@
 "use client";
 
 import { Button } from "@base-ui/react";
-import { CheckIcon } from "@phosphor-icons/react/dist/icons/Check";
-import { CopyIcon } from "@phosphor-icons/react/dist/icons/Copy";
+import { CheckIcon, CopyIcon } from "@phosphor-icons/react";
 import { useRef, useState } from "react";
 
 interface Props {
