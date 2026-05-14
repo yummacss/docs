@@ -18,7 +18,6 @@ export const metadata: Metadata = {
     "atomic css",
     "css framework",
     "ergonomic css framework",
-    "tailwind alternative",
     "utility classes",
   ],
   icons: {
