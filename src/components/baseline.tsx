@@ -1,5 +1,4 @@
 "use client";
-s;
 
 import {
   ExclamationMarkIcon,
