@@ -11,8 +11,6 @@ Yumma CSS supports negative values for specific utilities like margins, position
 
 Use negative margins to overlap elements or create unique layouts. Negative margins are available for all margin utilities (`m-`, `mt-`, `mr-`, `mb-`, `ml-`, `mx-` & `my-`).
 
-<Preview registryId="negative-values-margin" className="mb-2 br-md" />
-
 ```tsx "ml--4"
 <div className="z-1 …">A</div>
 <div className="ml--4 z-2 …">B</div>
@@ -23,8 +21,6 @@ Use negative margins to overlap elements or create unique layouts. Negative marg
 
 Apply negative offsets to position elements outside their parents or create overlapping effects. This works with `t-`, `r-`, `b-`, `l-` & `i-` utilities.
 
-<Preview registryId="negative-values-positioning" className="mb-2 br-md" />
-
 ```tsx "t--4" "l--4"
 <div className="p-r …">
   <div className="p-a t--4 l--4 …"></div>
@@ -34,8 +30,6 @@ Apply negative offsets to position elements outside their parents or create over
 ## Z-Index
 
 Negative z-index values allow you to place elements behind their siblings or parents. Use `zi--(value)` to target negative stack levels.
-
-<Preview registryId="negative-values-z-index" className="mb-2 br-md" />
 
 ```tsx "zi--10"
 <div className="p-r …">
@@ -65,8 +59,6 @@ Utilities like `ls-1` & `ls-2` are defined with negative CSS values. Using the s
   Sign-toggle behavior applies to any utility where the defined CSS value
   already starts with a negative number.
 </Hint>
-
-<Preview registryId="negative-values-sign-toggle" className="mb-2 br-md" />
 
 ```tsx "ls-1" "ls--1"
 <p className="ls-1 …">Standard (Tight)</p>

@@ -19,7 +19,7 @@ export default function Home() {
             <div>
               <Link
                 href="/docs/philosophy"
-                className="d-if ai-c g-2 px-4 py-2 mb-8 bc-white/10 bg-white/5 c-white br-9999 bw-1 bf-b-md fv:oc-white fv:ow-2"
+                className="d-if ai-c g-2 px-4 py-2 mb-8 bc-white/10 bg-white/5 c-white bw-1 bf-b-md fv:oc-white fv:ow-2"
               >
                 <span className="fs-xs fw-500 ls-4">
                   Isn't this just "Tailwind"?
@@ -41,13 +41,13 @@ export default function Home() {
               <div className="d-f fw-w g-4 mb-12">
                 <Link
                   href="/docs/installation"
-                  className="px-6 py-3 bg-white c-black br-9999 fs-md fw-600 us-none"
+                  className="px-6 py-3 bg-white c-black fs-md fw-600 us-none"
                 >
                   Get started
                 </Link>
                 <Link
                   href="/ui/installation"
-                  className="d-f ai-c g-2 px-6 py-3 c-white br-9999 fw-600 fs-md us-none fv:oc-white fv:ow-2"
+                  className="d-f ai-c g-2 px-6 py-3 c-white fw-600 fs-md us-none fv:oc-white fv:ow-2"
                 >
                   <LayersVertical className="w-5 h-5" />
                   Components

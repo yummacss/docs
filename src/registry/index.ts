@@ -241,36 +241,11 @@ const uiRegistry = {
 } as const;
 
 // ---------------------------------------------------------------------------
-// Docs registry
-// ---------------------------------------------------------------------------
-
-const docsRegistry = {
-  "colors-opacity-modifiers": dynamic(() => import("./docs/colors-opacity-modifiers"), { ssr: true }),
-  "colors-shades": dynamic(() => import("./docs/colors-shades"), { ssr: true }),
-  "colors-utilities": dynamic(() => import("./docs/colors-utilities"), { ssr: true }),
-  "media-queries-base": dynamic(() => import("./docs/media-queries-base"), { ssr: true }),
-  "negative-values-margin": dynamic(() => import("./docs/negative-values-margin"), { ssr: true }),
-  "negative-values-positioning": dynamic(() => import("./docs/negative-values-positioning"), { ssr: true }),
-  "negative-values-sign-toggle": dynamic(() => import("./docs/negative-values-sign-toggle"), { ssr: true }),
-  "negative-values-z-index": dynamic(() => import("./docs/negative-values-z-index"), { ssr: true }),
-  "pseudo-classes-active": dynamic(() => import("./docs/pseudo-classes-active"), { ssr: true }),
-  "pseudo-classes-checked": dynamic(() => import("./docs/pseudo-classes-checked"), { ssr: true }),
-  "pseudo-classes-disabled": dynamic(() => import("./docs/pseudo-classes-disabled"), { ssr: true }),
-  "pseudo-classes-focus-visible": dynamic(() => import("./docs/pseudo-classes-focus-visible"), { ssr: true }),
-  "pseudo-classes-focus-within": dynamic(() => import("./docs/pseudo-classes-focus-within"), { ssr: true }),
-  "pseudo-classes-focus": dynamic(() => import("./docs/pseudo-classes-focus"), { ssr: true }),
-  "pseudo-classes-hover": dynamic(() => import("./docs/pseudo-classes-hover"), { ssr: true }),
-  "pseudo-elements-placeholder": dynamic(() => import("./docs/pseudo-elements-placeholder"), { ssr: true }),
-  "pseudo-elements-selection": dynamic(() => import("./docs/pseudo-elements-selection"), { ssr: true }),
-} as const;
-
-// ---------------------------------------------------------------------------
 // Combined export
 // ---------------------------------------------------------------------------
 
 export const registry = {
   ...uiRegistry,
-  ...docsRegistry,
 } as const;
 
 export type RegistryId = keyof typeof registry;

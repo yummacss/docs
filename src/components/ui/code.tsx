@@ -22,7 +22,7 @@ export default function Code({ title, children }: Props) {
   };
 
   return (
-    <div ref={ref} className="p-r o-h my-4 bc-navy bg-charcoal bw-1 br-sm">
+    <div ref={ref} className="p-r o-h my-4 bc-navy bg-charcoal bw-1">
       {title ? (
         <div className="d-f ai-c jc-sb px-4 py-2 bc-navy bg-charcoal bbw-1">
           <span className="c-white/60 fs-xs ff-m">{title}</span>
@@ -48,7 +48,7 @@ function CopyButton({
   return (
     <Button
       onClick={onCopy}
-      className="d-f ai-c g-1 px-2 py-1 c-white/50 br-sm h:c-white h:bg-white/10 fv:oc-white fv:ow-2"
+      className="d-f ai-c g-1 px-2 py-1 c-white/50 h:c-white h:bg-white/10 fv:oc-white fv:ow-2"
       aria-label="Copy code"
     >
       {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}

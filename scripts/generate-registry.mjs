@@ -2,7 +2,7 @@
 /**
  * scripts/generate-registry.mjs
  *
- * Scans src/registry/ui/ and src/registry/docs/ and writes
+ * Scans src/registry/ui/ and writes
  * src/registry/index.ts with a static dynamic() import for every file.
  *
  * Run manually whenever you add or remove registry files:
@@ -17,7 +17,6 @@ import { basename, join } from "node:path";
 
 const cwd = process.cwd();
 const uiDir = join(cwd, "src/registry/ui");
-const docsDir = join(cwd, "src/registry/docs");
 const outFile = join(cwd, "src/registry/index.ts");
 
 function getIds(dir) {
@@ -28,16 +27,9 @@ function getIds(dir) {
 }
 
 const uiIds = getIds(uiDir);
-const docsIds = getIds(docsDir);
 
 const uiLines = uiIds
   .map((id) => `  "${id}": dynamic(() => import("./ui/${id}"), { ssr: true }),`)
-  .join("\n");
-
-const docsLines = docsIds
-  .map(
-    (id) => `  "${id}": dynamic(() => import("./docs/${id}"), { ssr: true }),`,
-  )
   .join("\n");
 
 const output = `/**
@@ -59,20 +51,11 @@ ${uiLines}
 } as const;
 
 // ---------------------------------------------------------------------------
-// Docs registry
-// ---------------------------------------------------------------------------
-
-const docsRegistry = {
-${docsLines}
-} as const;
-
-// ---------------------------------------------------------------------------
 // Combined export
 // ---------------------------------------------------------------------------
 
 export const registry = {
   ...uiRegistry,
-  ...docsRegistry,
 } as const;
 
 export type RegistryId = keyof typeof registry;
@@ -84,5 +67,5 @@ export function getRegistryComponent(id: string) {
 
 writeFileSync(outFile, output, "utf-8");
 console.log(
-  `✓ Registry generated: ${uiIds.length} UI + ${docsIds.length} docs components → src/registry/index.ts`,
+  `✓ Registry generated: ${uiIds.length} Yumma UI components → src/registry/index.ts`,
 );

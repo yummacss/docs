@@ -56,7 +56,7 @@ export default function Sidebar() {
                               >
                                 {child.title}
                                 {child.updated && (
-                                  <span className="w-2 h-2 ml-auto bg-periwinkle br-9999" />
+                                  <span className="w-2 h-2 ml-auto bg-periwinkle" />
                                 )}
                               </Link>
                             </li>
@@ -93,7 +93,7 @@ export default function Sidebar() {
                                         >
                                           {child.title}
                                           {child.updated && (
-                                            <span className="w-2 h-2 ml-auto bg-periwinkle br-9999" />
+                                            <span className="w-2 h-2 ml-auto bg-periwinkle" />
                                           )}
                                         </Link>
                                       </li>
@@ -116,7 +116,7 @@ export default function Sidebar() {
                                 >
                                   {subItem.title}
                                   {subItem.updated && (
-                                    <span className="w-2 h-2 bg-periwinkle br-9999" />
+                                    <span className="w-2 h-2 bg-periwinkle" />
                                   )}
                                 </Link>
                               </li>
@@ -143,7 +143,7 @@ export default function Sidebar() {
                       >
                         {item.title}
                         {item.updated && (
-                          <span className="w-2 h-2 bg-periwinkle br-9999" />
+                          <span className="w-2 h-2 bg-periwinkle" />
                         )}
                       </Link>
                     </li>

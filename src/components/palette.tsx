@@ -117,7 +117,7 @@ function ColorSwatch({
   return (
     <Tooltip.Root open={tooltipOpen} onOpenChange={setTooltipOpen}>
       <Tooltip.Trigger
-        className="p-r w-100% ar-1/1 br-sm c-p"
+        className="p-r w-100% ar-1/1 c-p"
         style={{
           backgroundColor: shade,
           border: getBorderColor(shade),
@@ -131,7 +131,7 @@ function ColorSwatch({
       <Tooltip.Portal>
         <Tooltip.Positioner sideOffset={10}>
           <Tooltip.Popup
-            className="d-f fd-c px-2 py-1 bc-navy bg-charcoal c-white br-sm bw-1 fs-xs"
+            className="d-f fd-c px-2 py-1 bc-navy bg-charcoal c-white bw-1 fs-xs"
             style={{
               transformOrigin: "bottom center",
               transition: !showCopied
