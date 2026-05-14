@@ -11,8 +11,6 @@ Represents an element activated by the user (e.g., clicking a button).
   Try clicking and holding the button to see the active state.
 </Hint>
 
-<Preview registryId="pseudo-classes-active" className="mb-2 br-md" />
-
 ```tsx "a:bg-indigo-7"
 <button className="… a:bg-indigo-7">
   Press me
@@ -28,8 +26,6 @@ Represents an element that received focus via click, tap, or the **Tab** key.
   change.
 </Hint>
 
-<Preview registryId="pseudo-classes-focus" className="mb-2 br-md" />
-
 ```tsx "f:oc-indigo-4" "f:oo-2" "f:os-s" "f:ow-2"
 <button className="… f:oc-indigo-4 f:oo-2 f:os-s f:ow-2">
   Click me
@@ -43,8 +39,6 @@ Matches an element when the user interacts with it using a pointing device.
 <Hint icon="hand_pointing">
   Try hovering over the button to see how the background color changes.
 </Hint>
-
-<Preview registryId="pseudo-classes-hover" className="mb-2 br-md" />
 
 ```tsx "h:bg-indigo-7"
 <button className="… h:bg-indigo-7">
@@ -60,8 +54,6 @@ Triggers when an element matches `:focus` & the browser determines focus should 
   Try using Tab to focus the button with your keyboard.
 </Hint>
 
-<Preview registryId="pseudo-classes-focus-visible" className="mb-2 br-md" />
-
 ```tsx "fv:ow-2" "fv:oc-indigo-2"
 <button className="… fv:ow-2 fv:oc-indigo-2">
   Focus me
@@ -76,8 +68,6 @@ Matches an element if the element or any of its descendants are focused.
   Try clicking on the input field to see the container's border change.
 </Hint>
 
-<Preview registryId="pseudo-classes-focus-within" className="mb-2 br-md" />
-
 ```tsx "fw:oc-indigo-6"
 <div className="… fw:oc-indigo-6">
   <input placeholder="Focus me" />
@@ -87,8 +77,6 @@ Matches an element if the element or any of its descendants are focused.
 ## Checked
 
 Represents radio, checkbox, or option elements toggled to an "on" state.
-
-<Preview registryId="pseudo-classes-checked" className="mb-2 br-md" />
 
 ```tsx "c:bg-indigo-4"
 <input type="checkbox" checked />
@@ -105,8 +93,6 @@ Represents disabled elements that cannot be activated or receive focus.
   Elements with the `disabled` attribute use `cursor: not-allowed` by default in
   [Normalize](/docs/normalize).
 </Hint>
-
-<Preview registryId="pseudo-classes-disabled" className="mb-2 br-md" />
 
 ```tsx "d:bg-silver-4" "d:c-silver-9"
 <button className="… d:bg-silver-4 d:c-silver-9" disabled>

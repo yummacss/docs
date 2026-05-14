@@ -130,7 +130,7 @@ export default function MobileSidebar({ isOpen, onClose, routeType }: Props) {
                                           >
                                             {child.title}
                                             {child.updated && (
-                                              <span className="w-2 h-2 bg-white br-9999" />
+                                              <span className="w-2 h-2 bg-white" />
                                             )}
                                           </Link>
                                         </li>
@@ -185,7 +185,7 @@ export default function MobileSidebar({ isOpen, onClose, routeType }: Props) {
                                                       {child.title}
                                                       {(child as any)
                                                         .updated && (
-                                                        <span className="w-2 h-2 bg-white br-9999" />
+                                                        <span className="w-2 h-2 bg-white" />
                                                       )}
                                                     </Link>
                                                   </li>
@@ -209,7 +209,7 @@ export default function MobileSidebar({ isOpen, onClose, routeType }: Props) {
                                             >
                                               {subItem.title}
                                               {(subItem as any).updated && (
-                                                <span className="w-2 h-2 bg-white br-9999" />
+                                                <span className="w-2 h-2 bg-white" />
                                               )}
                                             </Link>
                                           </li>
@@ -247,7 +247,7 @@ export default function MobileSidebar({ isOpen, onClose, routeType }: Props) {
                                   >
                                     {item.title}
                                     {(item as any).updated && (
-                                      <span className="w-2 h-2 bg-white br-9999" />
+                                      <span className="w-2 h-2 bg-white" />
                                     )}
                                   </Link>
                                 </li>
