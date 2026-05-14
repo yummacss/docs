@@ -62,7 +62,7 @@ export default function CollapsibleIcon() {
                     </Avatar.Fallback>
                   </Avatar.Root>
                   {user.admin && (
-                    <span className="d-f p-a r-0 ai-c jc-c w-3 h-3 bg-white bc-white br-9999 bw-0 bw-1">
+                    <span className="d-f p-a r-0 b-0 ai-c jc-c w-3 h-3 bg-white bc-white br-9999 bw-0 bw-1">
                       <CircleCheckFill className="c-indigo" />
                     </span>
                   )}
