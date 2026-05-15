@@ -12,7 +12,7 @@ import pkg from "../../../package.json";
 import { YummaCSSDark } from "../icons/yummacss-dark";
 import { SearchDialog } from "./search-dialog";
 
-const MobileSidebar = lazy(() => import("./mobile-sidebar"));
+const MobileDrawer = lazy(() => import("./mobile-drawer"));
 
 const navbarVariants = cva("p-f ix-0 t-0 bbw-1", {
   variants: {
@@ -29,14 +29,14 @@ const navbarVariants = cva("p-f ix-0 t-0 bbw-1", {
 interface NavbarProps extends VariantProps<typeof navbarVariants> {
   className?: string;
   links?: ReactNode;
-  showMobileSidebar?: boolean;
+  showMobileDrawer?: boolean;
 }
 
 export default function Navbar({
   variant,
   className,
   links,
-  showMobileSidebar = false,
+  showMobileDrawer = false,
 }: NavbarProps) {
   const pathname = usePathname();
   const isUI = pathname?.startsWith("/ui");
@@ -151,7 +151,7 @@ export default function Navbar({
                 </Link>
               </div>
 
-              {showMobileSidebar && (
+              {showMobileDrawer && (
                 <Button
                   type="button"
                   onClick={() => setIsSidebarOpen(!isSidebarOpen)}
@@ -191,9 +191,9 @@ export default function Navbar({
 
       <SearchDialog open={searchOpen} onClose={() => setSearchOpen(false)} />
 
-      {showMobileSidebar && (
+      {showMobileDrawer && (
         <Suspense fallback={null}>
-          <MobileSidebar
+          <MobileDrawer
             isOpen={isSidebarOpen}
             onClose={() => setIsSidebarOpen(false)}
             routeType={isUI ? "ui" : "docs"}

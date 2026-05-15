@@ -38,7 +38,7 @@ interface Props {
   routeType: "docs" | "ui";
 }
 
-export default function MobileSidebar({ isOpen, onClose, routeType }: Props) {
+export default function MobileDrawer({ isOpen, onClose, routeType }: Props) {
   const pathname = usePathname();
   const baseConfig = routeType === "ui" ? uiSidebarConfig : sidebarConfig;
   const baseRoute = routeType === "ui" ? "/ui/installation" : "/docs";
@@ -80,12 +80,12 @@ export default function MobileSidebar({ isOpen, onClose, routeType }: Props) {
     >
       <Drawer.Portal>
         <Drawer.Backdrop
-          data-mobile-sidebar-backdrop
+          data-mobile-drawer-backdrop
           className="p-f i-0 zi-10 bg-black/30 lg:d-none"
         />
         <Drawer.Viewport className="d-f p-f t-12 l-0 r-0 b-0 zi-20 fd-c lg:d-none">
           <Drawer.Popup
-            data-mobile-sidebar-popup
+            data-mobile-drawer-popup
             className="oy-auto f-1 bc-white/10 bg-mirage btw-1 bs-o-md"
           >
             <div className="d-f p-r fd-c h-100%">
