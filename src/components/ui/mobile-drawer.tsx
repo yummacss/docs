@@ -3,34 +3,79 @@
 import { Drawer } from "@base-ui/react/drawer";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import type {
-  SidebarConfigItem,
-  SidebarConfigSimpleItem,
-} from "@/utils/sidebar";
+import type { SidebarConfigItem } from "@/utils/sidebar";
 import { sidebarConfig } from "@/utils/sidebar";
-import type {
-  UISidebarConfigItem,
-  UISidebarConfigSimpleItem,
-} from "@/utils/ui-sidebar";
+import type { UISidebarConfigItem } from "@/utils/ui-sidebar";
 import { uiSidebarConfig } from "@/utils/ui-sidebar";
 
-function hasChildren(item: SidebarConfigItem | UISidebarConfigItem): item is (
-  | SidebarConfigItem
-  | UISidebarConfigItem
-) & {
-  children: (SidebarConfigSimpleItem | UISidebarConfigSimpleItem)[];
-} {
-  return "children" in item && Array.isArray(item.children);
+// ─── Types ────────────────────────────────────────────────────────────────────
+
+type AnyItem = SidebarConfigItem | UISidebarConfigItem;
+
+interface NavItem {
+  title: string;
+  href: string;
+  external?: boolean;
+  updated?: boolean;
 }
 
-function hasItems(item: SidebarConfigItem | UISidebarConfigItem): item is (
-  | SidebarConfigItem
-  | UISidebarConfigItem
-) & {
-  items: (SidebarConfigItem | UISidebarConfigItem)[];
-} {
-  return "items" in item && Array.isArray(item.items);
+interface NavSection {
+  title: string;
+  items: NavItem[];
 }
+
+// ─── Flatten sidebar config into flat NavSection[] ────────────────────────────
+
+function flattenItems(items: AnyItem[], baseRoute: string): NavItem[] {
+  const result: NavItem[] = [];
+
+  for (const item of items) {
+    if ("children" in item && Array.isArray(item.children)) {
+      // Group header with children — flatten children directly
+      result.push(...flattenItems(item.children, baseRoute));
+    } else if ("items" in item && Array.isArray(item.items)) {
+      // Recursive section — flatten items
+      result.push(...flattenItems(item.items, baseRoute));
+    } else if (item.slug) {
+      result.push({
+        title: item.title,
+        href: `${baseRoute}/${item.slug}`,
+        updated: (item as any).updated,
+      });
+    }
+  }
+
+  return result;
+}
+
+function buildNavSections(routeType: "docs" | "ui"): NavSection[] {
+  const config = routeType === "ui" ? uiSidebarConfig : sidebarConfig;
+  const baseRoute = routeType === "ui" ? "/ui/components" : "/docs";
+
+  const topNav: NavSection = {
+    title: "Navigation",
+    items: [
+      { title: "Home", href: "/" },
+      { title: "Docs", href: "/docs" },
+      { title: "Components", href: "/ui/installation" },
+      { title: "Blog", href: "/blog" },
+      {
+        title: "Playground",
+        href: "https://play.yummacss.com",
+        external: true,
+      },
+    ],
+  };
+
+  const sidebarSections: NavSection[] = config.map((section) => ({
+    title: section.title,
+    items: flattenItems(section.items, baseRoute),
+  }));
+
+  return [topNav, ...sidebarSections];
+}
+
+// ─── Props ────────────────────────────────────────────────────────────────────
 
 interface Props {
   isOpen: boolean;
@@ -38,38 +83,11 @@ interface Props {
   routeType: "docs" | "ui";
 }
 
+// ─── Component ────────────────────────────────────────────────────────────────
+
 export default function MobileDrawer({ isOpen, onClose, routeType }: Props) {
   const pathname = usePathname();
-  const baseConfig = routeType === "ui" ? uiSidebarConfig : sidebarConfig;
-  const baseRoute = routeType === "ui" ? "/ui/installation" : "/docs";
-
-  const navigationItems = [
-    { title: "Home", href: "/", updated: false },
-    { title: "Docs", href: "/docs", updated: false },
-    { title: "Components", href: "/ui/installation", updated: false },
-    { title: "Blog", href: "/blog", updated: false },
-    {
-      title: "Playground",
-      href: "https://play.yummacss.com",
-      external: true,
-      updated: false,
-    },
-  ];
-
-  const config = [
-    {
-      title: "Navigation",
-      items: navigationItems.map((item) => ({
-        title: item.title,
-        slug: item.href.startsWith("http")
-          ? item.href
-          : item.href.replace(/^\/(docs|ui)\//, "").replace(/^\/$/, "home"),
-        href: item.href,
-        external: item.external,
-      })),
-    },
-    ...baseConfig,
-  ];
+  const sections = buildNavSections(routeType);
 
   return (
     <Drawer.Root
@@ -79,190 +97,90 @@ export default function MobileDrawer({ isOpen, onClose, routeType }: Props) {
       }}
     >
       <Drawer.Portal>
-        <Drawer.Backdrop
-          data-mobile-drawer-backdrop
-          className="p-f i-0 zi-10 bg-black/30 lg:d-none"
-        />
-        <Drawer.Viewport className="d-f p-f t-12 l-0 r-0 b-0 zi-20 fd-c lg:d-none">
+        {/* Backdrop */}
+        <Drawer.Backdrop className="p-f i-0 zi-10 bg-black/30 lg:d-none" />
+
+        {/* Viewport — bottom sheet sliding up */}
+        <Drawer.Viewport className="d-f p-f i-0 zi-20 fd-c jc-fe lg:d-none">
           <Drawer.Popup
-            data-mobile-drawer-popup
-            className="oy-auto f-1 bc-white/10 bg-mirage btw-1 bs-o-md"
+            className="d-f o-h fd-c bc-white/10 bg-mirage btw-1 bs-o-md"
+            style={{
+              maxHeight: "85dvh",
+              // Swipe-to-dismiss transform
+              transform: "translateY(var(--drawer-swipe-movement-y))",
+              transition: "transform 350ms cubic-bezier(0.32, 0.72, 0, 1)",
+              overscrollBehavior: "contain",
+            }}
           >
-            <div className="d-f p-r fd-c h-100%">
-              <div className="oy-auto f-1 pb-8 pt-6">
-                <div className="mx-auto px-6">
-                  <div className="d-f fd-c g-8">
-                    {config.map((section) => (
-                      <div key={section.title} className="d-f fd-c g-3">
-                        <h3 className="c-silver-8 fs-xs fw-600 ls-2 tt-u">
-                          {section.title}
-                        </h3>
-                        <ul className="d-f fd-c g-2">
-                          {section.items.map((item) => {
-                            // item with children (nested structure)
-                            if (hasChildren(item)) {
-                              return (
-                                <li key={item.title} className="d-f fd-c g-2">
-                                  <span className="c-silver-9 fs-lg">
-                                    {item.title}
-                                  </span>
-                                  <ul className="d-f fd-c g-1">
-                                    {(item.children as any[]).map((child) => {
-                                      const isNavigation =
-                                        section.title === "Navigation" ||
-                                        section.title === "Menu";
-                                      const href = isNavigation
-                                        ? (child as any).href
-                                        : `${baseRoute}/${child.slug}`;
-                                      const isActive = pathname === href;
+            {/* Drag handle */}
+            <div className="d-f jc-c fs-0 pt-3 pb-1">
+              <div
+                className="w-10 h-1 bg-white/20"
+                style={{ borderRadius: 9999 }}
+              />
+            </div>
 
-                                      return (
-                                        <li key={child.slug}>
-                                          <Link
-                                            href={href}
-                                            onClick={onClose}
-                                            className={`d-if ai-c g-3 fs-lg us-none fv:oc-white fv:oo-2 fv:ow-2 ${isActive ? "c-white" : "c-white/70 h:c-white"}`}
-                                            target={
-                                              (child as any).external
-                                                ? "_blank"
-                                                : undefined
-                                            }
-                                          >
-                                            {child.title}
-                                            {child.updated && (
-                                              <span className="w-2 h-2 bg-white" />
-                                            )}
-                                          </Link>
-                                        </li>
-                                      );
-                                    })}
-                                  </ul>
-                                </li>
-                              );
-                            }
+            {/* Scrollable content — this is where Bug 2 was: no overflow-y */}
+            <Drawer.Content
+              className="oy-auto f-1 pb-8"
+              style={{ overscrollBehavior: "contain" }}
+            >
+              <div className="d-f fd-c g-8 px-6 pt-4">
+                {sections.map((section) => {
+                  // Skip sections with no items (e.g. wip-only sections)
+                  const visibleItems = section.items.filter((i) => i.href);
+                  if (visibleItems.length === 0) return null;
 
-                            // item with items (recursive structure)
-                            if (hasItems(item)) {
-                              return (
-                                <li key={item.title} className="d-f fd-c g-2">
-                                  <span className="c-silver-9 fs-lg">
-                                    {item.title}
-                                  </span>
-                                  <ul className="d-f fd-c g-1">
-                                    {(
-                                      item.items as (
-                                        | SidebarConfigItem
-                                        | UISidebarConfigItem
-                                      )[]
-                                    ).map((subItem) => {
-                                      if (hasChildren(subItem)) {
-                                        return (
-                                          <li
-                                            key={subItem.title}
-                                            className="d-f fd-c g-2"
-                                          >
-                                            <span className="c-silver-10 fs-lg">
-                                              {subItem.title}
-                                            </span>
-                                            <ul className="d-f fd-c g-1 ml-4">
-                                              {(
-                                                subItem.children as (
-                                                  | SidebarConfigSimpleItem
-                                                  | UISidebarConfigSimpleItem
-                                                )[]
-                                              ).map((child) => {
-                                                const href = `${baseRoute}/${child.slug}`;
-                                                const isActive =
-                                                  pathname === href;
+                  return (
+                    <div key={section.title} className="d-f fd-c g-3">
+                      <h3 className="c-silver-8 fs-xs fw-600 ls-2 tt-u">
+                        {section.title}
+                      </h3>
+                      <ul className="d-f fd-c g-1">
+                        {visibleItems.map((item) => {
+                          const isActive = pathname === item.href;
 
-                                                return (
-                                                  <li key={child.slug}>
-                                                    <Link
-                                                      href={`${baseRoute}/${child.slug}`}
-                                                      onClick={onClose}
-                                                      className={`d-if ai-c g-3 fs-lg us-none fv:oc-white fv:oo-2 fv:ow-2 ${isActive ? "c-white" : "c-white/70 h:c-white"}`}
-                                                    >
-                                                      {child.title}
-                                                      {(child as any)
-                                                        .updated && (
-                                                        <span className="w-2 h-2 bg-white" />
-                                                      )}
-                                                    </Link>
-                                                  </li>
-                                                );
-                                              })}
-                                            </ul>
-                                          </li>
-                                        );
-                                      }
-
-                                      if (subItem.slug) {
-                                        const href = `${baseRoute}/${subItem.slug}`;
-                                        const isActive = pathname === href;
-
-                                        return (
-                                          <li key={subItem.slug}>
-                                            <Link
-                                              href={`${baseRoute}/${subItem.slug}`}
-                                              onClick={onClose}
-                                              className={`d-if ai-c g-3 fs-lg us-none fv:oc-white fv:oo-2 fv:ow-2 ${isActive ? "c-white" : "c-white/70 h:c-white"}`}
-                                            >
-                                              {subItem.title}
-                                              {(subItem as any).updated && (
-                                                <span className="w-2 h-2 bg-white" />
-                                              )}
-                                            </Link>
-                                          </li>
-                                        );
-                                      }
-
-                                      return null;
-                                    })}
-                                  </ul>
-                                </li>
-                              );
-                            }
-
-                            // simple item with slug
-                            if (item.slug) {
-                              const isNavigation =
-                                section.title === "Navigation" ||
-                                section.title === "Menu";
-                              const href = isNavigation
-                                ? (item as any).href
-                                : `${baseRoute}/${item.slug}`;
-                              const isActive = pathname === href;
-
-                              return (
-                                <li key={item.slug}>
+                          return (
+                            <li key={item.href}>
+                              {/*
+                               * Drawer.Close wraps the link so the drawer
+                               * dismisses immediately on navigation — fixes Bug 2
+                               * (page scroll locked after clicking a link).
+                               */}
+                              <Drawer.Close
+                                render={
                                   <Link
-                                    href={href}
-                                    onClick={onClose}
-                                    className={`d-if ai-c g-3 fs-lg us-none fv:oc-white fv:oo-2 fv:ow-2 ${isActive ? "c-white" : "c-white/70 h:c-white"}`}
+                                    href={item.href}
                                     target={
-                                      (item as any).external
-                                        ? "_blank"
+                                      item.external ? "_blank" : undefined
+                                    }
+                                    rel={
+                                      item.external
+                                        ? "noopener noreferrer"
                                         : undefined
                                     }
-                                  >
-                                    {item.title}
-                                    {(item as any).updated && (
-                                      <span className="w-2 h-2 bg-white" />
-                                    )}
-                                  </Link>
-                                </li>
-                              );
-                            }
-
-                            return null;
-                          })}
-                        </ul>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+                                  />
+                                }
+                                className={[
+                                  "d-if ai-c g-3 w-100% py-1 fs-lg us-none",
+                                  "fv:oc-white fv:oo-2 fv:ow-2",
+                                  isActive ? "c-white" : "c-white/70 h:c-white",
+                                ].join(" ")}
+                              >
+                                {item.title}
+                                {item.updated && (
+                                  <span className="w-2 h-2 bg-periwinkle" />
+                                )}
+                              </Drawer.Close>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </div>
+                  );
+                })}
               </div>
-            </div>
+            </Drawer.Content>
           </Drawer.Popup>
         </Drawer.Viewport>
       </Drawer.Portal>
