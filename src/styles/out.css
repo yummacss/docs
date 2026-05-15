@@ -621,6 +621,10 @@ summary {
   background-color: #ffffff1a;
 }
 
+.bg-white\/20 {
+  background-color: #ffffff33;
+}
+
 .bg-white\/5 {
   background-color: #ffffff0d;
 }
@@ -2014,6 +2018,10 @@ summary {
   font-style: italic;
 }
 
+.pb-1 {
+  padding-bottom: .25rem;
+}
+
 .pb-12 {
   padding-bottom: 3rem;
 }
@@ -2122,8 +2130,8 @@ summary {
   padding-top: .75rem;
 }
 
-.pt-6 {
-  padding-top: 1.5rem;
+.pt-4 {
+  padding-top: 1rem;
 }
 
 .pt-8 {
@@ -2260,10 +2268,6 @@ summary {
 
 .t-100 {
   top: 25rem;
-}
-
-.t-12 {
-  top: 3rem;
 }
 
 .t-2 {
