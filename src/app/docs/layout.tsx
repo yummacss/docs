@@ -9,7 +9,7 @@ export default function DocsLayout({
 }) {
   return (
     <div className="min-h-dvh c-white">
-      <Navbar showMobileSidebar />
+      <Navbar showMobileDrawer />
 
       <main
         className="is-i mx-auto px-6"
