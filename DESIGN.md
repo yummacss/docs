@@ -388,7 +388,7 @@ Every component documentation page (`.mdx`) follows this exact structure:
 
 ## Size Examples
 
-[Size variants - Small, Medium, Large in order]
+Different sizes for all existing (component name) variants.
 
 ### Small
 
@@ -406,7 +406,7 @@ Every component documentation page (`.mdx`) follows this exact structure:
 
 ## Shape Examples
 
-[Squircle and Square variants]
+Different border radius styles for the Autocomplete component.
 
 ### Squircle
 
