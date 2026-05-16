@@ -53,7 +53,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html className="sb-s spt-20" lang="en" data-scroll-behavior="smooth">
+    <html
+      className="sb-s spt-20 s::bg-white/10"
+      lang="en"
+      data-scroll-behavior="smooth"
+    >
       <body className="bg-mirage">
         {children}
         <Analytics />

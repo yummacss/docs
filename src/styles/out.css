@@ -2254,6 +2254,10 @@ summary {
   background-color: #a5a6f7;
 }
 
+.s\:\:bg-white\/10::selection {
+  background-color: #ffffff1a;
+}
+
 .s\:\:c-white::selection {
   color: #ffffff;
 }
