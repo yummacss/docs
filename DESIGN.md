@@ -100,6 +100,85 @@ This is the single most important design rule. Never guess. Follow this exactly.
 
 ---
 
+## Shape Examples: Squircle Pattern
+
+For components that need a modern, highly rounded aesthetic. Use the corner-shape CSS property with matching border-radius.
+
+### Pattern
+| Element | Classes |
+|---------|----------|
+| Input / Trigger | `br-xxl cs-s` |
+| Popup / Panel | `br-3xl cs-s` |
+| Items inside popup | `br-xxl cs-s` |
+
+### Example (Autocomplete)
+```tsx
+// Input
+className="... br-xxl cs-s"
+
+// Popup
+className="... br-3xl cs-s"
+
+// Items
+className="... br-xxl cs-s"
+```
+
+---
+
+## Shape Examples: Square Pattern
+
+For components that need a brutalist, minimal aesthetic with zero border-radius.
+
+### Rules
+- Remove ALL `br-*` utilities from every element
+- Do NOT use `br-0` — simply omit border-radius (defaults to 0)
+- Avatars must also remove `br-9999` (use default circle)
+- The component should be 100% border-radius free
+
+### Example
+```tsx
+// Input - no br-* classes
+className="... fs-md bs-o-xs"
+
+// Popup - no br-* classes
+className="... bs-o-xs"
+
+// Items - no br-* classes
+className="..."
+```
+
+---
+
+## Icon Examples: Leading and Trailing
+
+For components that display icons inside input/trigger fields.
+
+### Leading Icon
+Icon positioned on the left side of the input.
+```tsx
+<div className="d-f p-r ai-c">
+  <Icon className="p-a l-3 w-4 h-4 c-slate-5" />
+  <Input className="h-10 w-64 pl-10 pr-4 ..." />
+</div>
+```
+
+### Trailing Icon
+Icon positioned on the right side of the input.
+```tsx
+<div className="d-f p-r ai-c">
+  <Input className="h-10 w-64 pl-4 pr-10 ..." />
+  <div className="d-f p-a r-3 ai-c jc-c c-slate-5">
+    <Icon className="w-4 h-4" />
+  </div>
+</div>
+```
+
+### File Naming
+- `component-icon-leading.tsx` — icon on left
+- `component-icon-trailing.tsx` — icon on right
+
+---
+
 ## Box Shadow Usage
 
 Use `bs-o-xs` for small components. Never omit shadow on interactive controls — it adds depth and polish.
@@ -283,6 +362,62 @@ All components should consistently demonstrate SaaS/project management contexts 
 
 ---
 
+## MDX Documentation Structure
+
+Every component documentation page (`.mdx`) follows this exact structure:
+
+```md
+## Core Examples
+
+[Base component first, then alphabetical A-Z]
+
+### Base
+[Component preview]
+
+---
+
+### Auto Highlight
+
+[Component preview]
+
+---
+
+### ... (more examples, A-Z sorted)
+
+## Icon Examples
+
+[Leading and trailing icon variants]
+
+### Leading Icon
+
+### Trailing Icon
+
+## Shape Examples
+
+[Squircle and Square variants]
+
+### Squircle
+
+### Square
+
+## More Examples
+
+[Always LAST section - includes Static variant]
+
+### Static
+
+No animation utilities or animation dependencies.
+```
+
+### Rules
+1. **Core Examples** — Base ALWAYS first. Sort alphabetically from the 2nd item onwards (not including Base).
+2. **Static Example** — Always under `## More Examples` (never a separate H2), always at the very end
+3. **Icon Examples** — Separate H2 section for icon variants (leading/trailing)
+4. **Shape Examples** — Separate H2 section for shape variants (squircle/square)
+5. **H2 Only** — Use `##` for top-level sections, `###` for individual examples
+
+---
+
 ## Avatar Rules
 
 Avatars ALWAYS use `bw-1 bc-silver-3` to prevent blending with backgrounds.
@@ -451,3 +586,4 @@ state.checked ? "bg-indigo" : "bw-1 bc-silver-3 bg-transparent bs-o-xs"
 - Never use `bs-d` (dashed border) on elements other than placeholder/trigger zones
 - **Never use custom SVGs.** Always use Gravity Icons (`@gravity-ui/icons`). Import icons as named imports (e.g., `import { PersonPlus } from "@gravity-ui/icons"`).
 - **No external packages.** Only use Base UI (`@base-ui/react/*`), Framer Motion (`motion/react`), and Gravity Icons (`@gravity-ui/icons`). Never import `clsx`, `classnames`, `tailwind-merge`, or any other utility package. Use template literals for conditional classes.
+- **Use actual Base UI props.** When a Base UI component has a prop for a feature (e.g., `limit`, `disabled`), use that prop instead of manual implementation. Rename the component file to match the prop name (e.g., `autocomplete-limit.tsx` not `autocomplete-max-items.tsx`).
