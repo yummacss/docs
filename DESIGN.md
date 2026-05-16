@@ -384,6 +384,16 @@ Every component documentation page (`.mdx`) follows this exact structure:
 
 ### ... (more examples, A-Z sorted)
 
+## Size Examples
+
+[Size variants - Small, Medium, Large in order]
+
+### Small
+
+### Medium
+
+### Large
+
 ## Icon Examples
 
 [Leading and trailing icon variants]
@@ -411,10 +421,11 @@ No animation utilities or animation dependencies.
 
 ### Rules
 1. **Core Examples** — Base ALWAYS first. Sort alphabetically from the 2nd item onwards (not including Base).
-2. **Static Example** — Always under `## More Examples` (never a separate H2), always at the very end
-3. **Icon Examples** — Separate H2 section for icon variants (leading/trailing)
-4. **Shape Examples** — Separate H2 section for shape variants (squircle/square)
-5. **H2 Only** — Use `##` for top-level sections, `###` for individual examples
+2. **Size Examples** — Separate H2 section for size variants (Small, Medium, Large). Sorted Small → Medium → Large.
+3. **Static Example** — Always under `## More Examples` (never a separate H2), always at the very end
+4. **Icon Examples** — Separate H2 section for icon variants (leading/trailing)
+5. **Shape Examples** — Separate H2 section for shape variants (squircle/square)
+6. **H2 Only** — Use `##` for top-level sections, `###` for individual examples
 
 ---
 
