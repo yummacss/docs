@@ -11,7 +11,10 @@ export default function AutocompleteSquare() {
   return (
     <Autocomplete.Root items={teamMembers} open={open} onOpenChange={setOpen}>
       <div className="d-f fd-c g-2">
-        <label htmlFor="autocomplete-square-input" className="c-slate-10 fs-sm fw-500">
+        <label
+          htmlFor="autocomplete-square-input"
+          className="c-slate-10 fs-sm fw-500"
+        >
           Assign member
         </label>
         <Autocomplete.Input
@@ -46,10 +49,10 @@ export default function AutocompleteSquare() {
                                 : "bg-transparent"
                             }`}
                           >
-                            <Avatar.Root className="w-6 h-6 bc-white br-9999 bw-1">
+                            <Avatar.Root className="w-6 h-6 bc-white bw-1">
                               <Avatar.Image
                                 src={member.avatar}
-                                className="of-c w-100% h-100% br-9999"
+                                className="of-c w-100% h-100%"
                               />
                               <Avatar.Fallback className="d-f ai-c jc-c w-100% h-100% bg-silver-2 c-slate-8 fs-xs">
                                 {member.name[0]}
