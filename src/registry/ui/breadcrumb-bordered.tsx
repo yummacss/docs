@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronRight, House } from "@gravity-ui/icons";
+import { ChevronRight } from "@gravity-ui/icons";
 
 export default function BreadcrumbBordered() {
   return (
@@ -8,16 +8,15 @@ export default function BreadcrumbBordered() {
       aria-label="Breadcrumb"
       className="d-f ai-c g-2 px-3 py-2 bg-white bc-silver-2 br-lg bw-1 bs-o-xs"
     >
-      <a href="#" className="d-f ai-c g-2 c-slate-6 h:c-slate-10">
-        <House className="w-5 h-5" />
+      <a href="#" className="c-slate-6 h:c-slate-10">
         <span className="fs-sm fw-400">Home</span>
       </a>
       <ChevronRight className="w-4 h-4 c-slate-4" />
-      <a href="#" className="d-f ai-c g-2 c-slate-6 h:c-slate-10">
+      <a href="#" className="c-slate-6 h:c-slate-10">
         <span className="fs-sm fw-400">Projects</span>
       </a>
       <ChevronRight className="w-4 h-4 c-slate-4" />
-      <a href="#" className="d-f ai-c g-2 c-slate-6 h:c-slate-10">
+      <a href="#" className="c-slate-6 h:c-slate-10">
         <span className="fs-sm fw-400">Team</span>
       </a>
       <ChevronRight className="w-4 h-4 c-slate-4" />

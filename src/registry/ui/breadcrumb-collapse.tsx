@@ -1,20 +1,19 @@
 "use client";
 
-import { ChevronRight, Ellipsis, House } from "@gravity-ui/icons";
+import { ChevronRight, Ellipsis } from "@gravity-ui/icons";
 
 export default function BreadcrumbCollapse() {
   return (
     <nav aria-label="Breadcrumb" className="d-f ai-c g-2">
-      <a href="#" className="d-f ai-c g-2 c-slate-6 h:c-slate-10">
-        <House className="w-5 h-5" />
+      <a href="#" className="c-slate-6 h:c-slate-10">
         <span className="fs-sm fw-400">Projects</span>
       </a>
       <ChevronRight className="w-4 h-4 c-slate-4" />
-      <span className="d-f ai-c g-2 c-slate-6">
+      <span className="c-slate-6">
         <Ellipsis className="w-5 h-5" />
       </span>
       <ChevronRight className="w-4 h-4 c-slate-4" />
-      <a href="#" className="d-f ai-c g-2 c-slate-6 h:c-slate-10">
+      <a href="#" className="c-slate-6 h:c-slate-10">
         <span className="fs-sm fw-400">Sprint 1</span>
       </a>
       <ChevronRight className="w-4 h-4 c-slate-4" />
