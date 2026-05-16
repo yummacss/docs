@@ -25,9 +25,43 @@ Free and accessible File Upload React components with Base UI and Yumma CSS.
 
 ---
 
-### Solid
+### Disabled
 
-A solid-bordered upload zone for billing invoices.
+<Tabs defaultValue="preview">
+  <TabsList>
+    <TabsTab value="preview">Preview</TabsTab>
+    <TabsTab value="code">Code</TabsTab>
+  </TabsList>
+  <TabsPanel className="bg-white bbr-sm" value="preview">
+    <Preview className="h-fc bw-0" registryId="file-upload-disabled" />
+  </TabsPanel>
+  <TabsPanel value="code">
+    ```tsx registryId="file-upload-disabled"
+    ```
+  </TabsPanel>
+</Tabs>
+
+---
+
+### Error
+
+<Tabs defaultValue="preview">
+  <TabsList>
+    <TabsTab value="preview">Preview</TabsTab>
+    <TabsTab value="code">Code</TabsTab>
+  </TabsList>
+  <TabsPanel className="bg-white bbr-sm" value="preview">
+    <Preview className="h-fc bw-0" registryId="file-upload-error" />
+  </TabsPanel>
+  <TabsPanel value="code">
+    ```tsx registryId="file-upload-error"
+    ```
+  </TabsPanel>
+</Tabs>
+
+---
+
+### Solid
 
 <Tabs defaultValue="preview">
   <TabsList>
@@ -45,27 +79,8 @@ A solid-bordered upload zone for billing invoices.
 
 ---
 
-### Error
-
-A dashed-bordered upload zone for team logos with error styling.
-<Tabs defaultValue="preview">
-  <TabsList>
-    <TabsTab value="preview">Preview</TabsTab>
-    <TabsTab value="code">Code</TabsTab>
-  </TabsList>
-  <TabsPanel className="bg-white bbr-sm" value="preview">
-    <Preview className="h-fc bw-0" registryId="file-upload-error" />
-  </TabsPanel>
-  <TabsPanel value="code">
-    ```tsx registryId="file-upload-error"
-    ```
-  </TabsPanel>
-</Tabs>
----
-
 ### Solid Error
 
-A solid-bordered upload zone for project assets with critical error styling.
 <Tabs defaultValue="preview">
   <TabsList>
     <TabsTab value="preview">Preview</TabsTab>
@@ -79,11 +94,14 @@ A solid-bordered upload zone for project assets with critical error styling.
     ```
   </TabsPanel>
 </Tabs>
+
 ---
 
-### Disabled
+## Shape Examples
 
-A disabled upload zone for project briefs, preventing interaction until approval.
+Different border radius styles for the File Upload component.
+
+### Squircle
 
 <Tabs defaultValue="preview">
   <TabsList>
@@ -91,10 +109,28 @@ A disabled upload zone for project briefs, preventing interaction until approval
     <TabsTab value="code">Code</TabsTab>
   </TabsList>
   <TabsPanel className="bg-white bbr-sm" value="preview">
-    <Preview className="h-fc bw-0" registryId="file-upload-disabled" />
+    <Preview className="h-fc bw-0" registryId="file-upload-squircle" />
   </TabsPanel>
   <TabsPanel value="code">
-    ```tsx registryId="file-upload-disabled"
+    ```tsx registryId="file-upload-squircle"
+    ```
+  </TabsPanel>
+</Tabs>
+
+---
+
+### Square
+
+<Tabs defaultValue="preview">
+  <TabsList>
+    <TabsTab value="preview">Preview</TabsTab>
+    <TabsTab value="code">Code</TabsTab>
+  </TabsList>
+  <TabsPanel className="bg-white bbr-sm" value="preview">
+    <Preview className="h-fc bw-0" registryId="file-upload-square" />
+  </TabsPanel>
+  <TabsPanel value="code">
+    ```tsx registryId="file-upload-square"
     ```
   </TabsPanel>
 </Tabs>
