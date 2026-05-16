@@ -123,7 +123,6 @@ const uiRegistry = {
   "collapsible-base": dynamic(() => import("./ui/collapsible-base"), { ssr: true }),
   "collapsible-default-open": dynamic(() => import("./ui/collapsible-default-open"), { ssr: true }),
   "collapsible-disabled": dynamic(() => import("./ui/collapsible-disabled"), { ssr: true }),
-  "collapsible-icon": dynamic(() => import("./ui/collapsible-icon"), { ssr: true }),
   "collapsible-static": dynamic(() => import("./ui/collapsible-static"), { ssr: true }),
   "combobox-base": dynamic(() => import("./ui/combobox-base"), { ssr: true }),
   "combobox-grouped": dynamic(() => import("./ui/combobox-grouped"), { ssr: true }),

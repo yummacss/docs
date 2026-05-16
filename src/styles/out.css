@@ -233,10 +233,6 @@ summary {
   border-color: #232741;
 }
 
-.bc-green-2 {
-  border-color: #b4f3e3;
-}
-
 .bc-green-5 {
   border-color: #4ce1bb;
 }
@@ -267,6 +263,10 @@ summary {
 
 .bc-indigo-7 {
   border-color: #5558cf;
+}
+
+.bc-mint-2 {
+  border-color: #b7ead9;
 }
 
 .bc-navy {
@@ -503,6 +503,10 @@ summary {
 
 .bg-mint {
   background-color: #10b981;
+}
+
+.bg-mint-1 {
+  background-color: #d9f4eb;
 }
 
 .bg-mirage {
@@ -881,6 +885,14 @@ summary {
   color: #dda2f6;
 }
 
+.c-mint {
+  color: #10b981;
+}
+
+.c-mint-8 {
+  color: #0c855d;
+}
+
 .c-na {
   cursor: not-allowed;
 }
@@ -1221,10 +1233,6 @@ summary {
   font-size: 1.5rem;
 }
 
-.fv\:bg-indigo-8:focus-visible {
-  background-color: #4749ae;
-}
-
 .fv\:oc-green-5:focus-visible {
   outline-color: #4ce1bb;
 }
@@ -1347,6 +1355,10 @@ summary {
 
 .gtc-4 {
   grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.h-0 {
+  height: 0;
 }
 
 .h-1 {
@@ -1906,6 +1918,10 @@ summary {
   margin-block: 2rem;
 }
 
+.o-0 {
+  opacity: 0;
+}
+
 .o-50 {
   opacity: .5;
 }
@@ -2352,6 +2368,10 @@ summary {
 
 .tdc-red {
   text-decoration-color: #e63946;
+}
+
+.tdl-lt {
+  text-decoration-line: line-through;
 }
 
 .tdl-o {
