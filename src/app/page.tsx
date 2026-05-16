@@ -24,10 +24,12 @@ export default function Home() {
               </h1>
               <p className="mb-8 c-white/70 fs-lg lh-5">
                 The ergonomic CSS framework with abbreviated utility classes.{" "}
-                <span className="c-white fs-md">d-if</span> not{" "}
-                <span className="c-white fs-md">inline-flex</span>,{" "}
-                <span className="c-white fs-md">fw-600</span> not{" "}
-                <span className="c-white fs-md">font-semibold</span>.
+                <span className="c-white fs-md">d</span> not{" "}
+                <span className="c-white fs-md">display</span>,{" "}
+                <span className="c-white fs-md">fw</span> not{" "}
+                <span className="c-white fs-md">font-weight</span>,{" "}
+                <span className="c-white fs-md">g</span> not{" "}
+                <span className="c-white fs-md">gap</span>.
               </p>
 
               <div className="d-f fw-w g-4 mb-12">
