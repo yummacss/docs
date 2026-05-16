@@ -3,7 +3,7 @@
 import { Field } from "@base-ui/react/field";
 import { Magnifier } from "@gravity-ui/icons";
 
-export default function FieldIconRight() {
+export default function FieldTrailing() {
   return (
     <Field.Root className="d-f fd-c g-2">
       <label htmlFor="icon-right-input" className="c-slate-10 fs-sm fw-500">
