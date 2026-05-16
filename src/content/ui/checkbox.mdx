@@ -25,24 +25,6 @@ Free and accessible Checkbox React components with Base UI and Yumma CSS.
 
 ---
 
-### Readonly
-
-<Tabs defaultValue="preview">
-  <TabsList>
-    <TabsTab value="preview">Preview</TabsTab>
-    <TabsTab value="code">Code</TabsTab>
-  </TabsList>
-  <TabsPanel className="bg-white bbr-sm" value="preview">
-    <Preview className="bw-0" registryId="checkbox-read-only" />
-  </TabsPanel>
-  <TabsPanel value="code">
-    ```tsx registryId="checkbox-read-only"
-    ```
-  </TabsPanel>
-</Tabs>
-
----
-
 ### Disabled
 
 <Tabs defaultValue="preview">
@@ -55,28 +37,6 @@ Free and accessible Checkbox React components with Base UI and Yumma CSS.
   </TabsPanel>
   <TabsPanel value="code">
     ```tsx registryId="checkbox-disabled"
-    ```
-  </TabsPanel>
-</Tabs>
-
----
-
-## Group Examples
-
-Uses the `CheckboxGroup` Base UI component to group multiple checkboxes together, allowing for better organization and management of related options.
-
-### With Label
-
-<Tabs defaultValue="preview">
-  <TabsList>
-    <TabsTab value="preview">Preview</TabsTab>
-    <TabsTab value="code">Code</TabsTab>
-  </TabsList>
-  <TabsPanel className="bg-white bbr-sm" value="preview">
-    <Preview className="bw-0" registryId="checkbox-group-label" />
-  </TabsPanel>
-  <TabsPanel value="code">
-    ```tsx registryId="checkbox-group-label"
     ```
   </TabsPanel>
 </Tabs>
@@ -101,7 +61,7 @@ Uses the `CheckboxGroup` Base UI component to group multiple checkboxes together
 
 ---
 
-### Nested Parent
+### Readonly
 
 <Tabs defaultValue="preview">
   <TabsList>
@@ -109,10 +69,50 @@ Uses the `CheckboxGroup` Base UI component to group multiple checkboxes together
     <TabsTab value="code">Code</TabsTab>
   </TabsList>
   <TabsPanel className="bg-white bbr-sm" value="preview">
-    <Preview className="bw-0" registryId="checkbox-nested-parent" />
+    <Preview className="bw-0" registryId="checkbox-read-only" />
   </TabsPanel>
   <TabsPanel value="code">
-    ```tsx registryId="checkbox-nested-parent"
+    ```tsx registryId="checkbox-read-only"
+    ```
+  </TabsPanel>
+</Tabs>
+
+---
+
+## Group Examples
+
+Checkbox Group component variants using Base UI `CheckboxGroup` API.
+
+### Group Label
+
+<Tabs defaultValue="preview">
+  <TabsList>
+    <TabsTab value="preview">Preview</TabsTab>
+    <TabsTab value="code">Code</TabsTab>
+  </TabsList>
+  <TabsPanel className="bg-white bbr-sm" value="preview">
+    <Preview className="bw-0" registryId="checkbox-group-label" />
+  </TabsPanel>
+  <TabsPanel value="code">
+    ```tsx registryId="checkbox-group-label"
+    ```
+  </TabsPanel>
+</Tabs>
+
+---
+
+### Group Nested Parent
+
+<Tabs defaultValue="preview">
+  <TabsList>
+    <TabsTab value="preview">Preview</TabsTab>
+    <TabsTab value="code">Code</TabsTab>
+  </TabsList>
+  <TabsPanel className="bg-white bbr-sm" value="preview">
+    <Preview className="bw-0" registryId="checkbox-group-nested-parent" />
+  </TabsPanel>
+  <TabsPanel value="code">
+    ```tsx registryId="checkbox-group-nested-parent"
     ```
   </TabsPanel>
 </Tabs>
@@ -179,7 +179,7 @@ Different sizes for the Checkbox component.
 
 ## More Examples
 
-A few more examples of Checkbox component with different configurations.
+A few more variants not using Base UI compound components.
 
 ### Description
 

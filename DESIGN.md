@@ -376,13 +376,15 @@ Every component documentation page (`.mdx`) follows this exact structure:
 
 ---
 
-### Auto Highlight
-
-[Component preview]
-
----
-
 ### ... (more examples, A-Z sorted)
+
+## Group Examples
+
+[Component group variants - CheckboxGroup, SelectGroup, etc.]
+
+### Group Label
+
+### Group Nested Parent
 
 ## Size Examples
 
@@ -412,7 +414,11 @@ Every component documentation page (`.mdx`) follows this exact structure:
 
 ## More Examples
 
-[Always LAST section - includes Static variant]
+A few more variants not using Base UI compound components.
+
+### Description
+
+### Detailed
 
 ### Static
 
@@ -420,12 +426,14 @@ No animation utilities or animation dependencies.
 ```
 
 ### Rules
-1. **Core Examples** — Base ALWAYS first. Sort alphabetically from the 2nd item onwards (not including Base).
-2. **Size Examples** — Separate H2 section for size variants (Small, Medium, Large). Sorted Small → Medium → Large.
-3. **Static Example** — Always under `## More Examples` (never a separate H2), always at the very end
-4. **Icon Examples** — Separate H2 section for icon variants (leading/trailing)
-5. **Shape Examples** — Separate H2 section for shape variants (squircle/square)
-6. **H2 Only** — Use `##` for top-level sections, `###` for individual examples
+1. **Core Examples** — Base ALWAYS first. Sort alphabetically from the 2nd item onwards (not including Base). Only includes examples that use Base UI component's core API (e.g., `checked`, `disabled`, `readonly`).
+2. **Group Examples** — Separate H2 section for component group variants (e.g., CheckboxGroup, SelectGroup). Sort alphabetically.
+3. **Size Examples** — Separate H2 section for size variants (Small, Medium, Large). Sorted Small → Medium → Large.
+4. **Static Example** — Always under `## More Examples` (never a separate H2), always at the very end
+5. **Icon Examples** — Separate H2 section for icon variants (leading/trailing)
+6. **Shape Examples** — Separate H2 section for shape variants (squircle/square)
+7. **More Examples** — For variants that don't use Base UI compound components (e.g., `Checkbox.Description`). Always before Static, at the end before the final divider.
+8. **H2 Only** — Use `##` for top-level sections, `###` for individual examples
 
 ---
 

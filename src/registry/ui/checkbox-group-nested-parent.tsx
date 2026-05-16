@@ -5,7 +5,7 @@ import { CheckboxGroup } from "@base-ui/react/checkbox-group";
 import { Check, Minus } from "@gravity-ui/icons";
 import { useId, useState } from "react";
 
-export default function CheckboxNestedParent() {
+export default function CheckboxGroupNestedParent() {
   const analyticsId = useId();
   const moderationId = useId();
   const [analyticsValue, setAnalyticsValue] = useState<string[]>([]);
