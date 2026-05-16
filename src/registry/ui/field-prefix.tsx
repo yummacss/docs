@@ -17,7 +17,7 @@ export default function FieldPrefix() {
         <Field.Control
           id="website-input"
           type="text"
-          placeholder="app.yourcompany.com"
+          placeholder="yummacss.com/ui"
           aria-label="Custom domain"
           className="h-10 w-56 pl-3 pr-4 bg-white bc-silver-3 c-slate-10 brr-lg byw-1 brw-1 fs-md bs-o-xs fv:oo--1 fv:oc-indigo-5"
         />
