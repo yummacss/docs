@@ -5,17 +5,17 @@ import { Avatar } from "@base-ui/react/avatar";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
-export default function AutocompleteSharp() {
+export default function AutocompleteSquare() {
   const [open, setOpen] = useState(false);
 
   return (
     <Autocomplete.Root items={teamMembers} open={open} onOpenChange={setOpen}>
       <div className="d-f fd-c g-2">
-        <label htmlFor="autocomplete-sharp-input" className="c-slate-10 fs-sm fw-500">
+        <label htmlFor="autocomplete-square-input" className="c-slate-10 fs-sm fw-500">
           Assign member
         </label>
         <Autocomplete.Input
-          id="autocomplete-sharp-input"
+          id="autocomplete-square-input"
           placeholder="Search team members"
           className="h-10 w-64 pl-4 bg-white bc-silver-3 c-slate-12 bw-1 fs-md bs-o-xs fv:ow-2 fv:oo--1 fv:oc-indigo-5"
         />
