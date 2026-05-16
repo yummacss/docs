@@ -670,6 +670,10 @@ summary {
   border-radius: 100%;
 }
 
+.br-3xl {
+  border-radius: 1.5rem;
+}
+
 .br-9999 {
   border-radius: 9999px;
 }
@@ -692,6 +696,10 @@ summary {
 
 .br-xs {
   border-radius: 0.125rem;
+}
+
+.br-xxl {
+  border-radius: 1rem;
 }
 
 .brr-lg {
@@ -759,10 +767,6 @@ summary {
 
 .btrr-xl {
   border-top-right-radius: 0.75rem;
-}
-
-.btw-0 {
-  border-top-width: 0;
 }
 
 .btw-1 {
@@ -1071,6 +1075,10 @@ summary {
 
 .cg-8 {
   column-gap: 2rem;
+}
+
+.cs-s {
+  corner-shape: squircle;
 }
 
 .ct-is {
