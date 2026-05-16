@@ -1,92 +1,27 @@
 "use client";
 
-import { Avatar } from "@base-ui/react/avatar";
 import { Collapsible } from "@base-ui/react/collapsible";
-import { Toggle } from "@base-ui/react/toggle";
-import { Check, ChevronRight, Plus } from "@gravity-ui/icons";
-import { type HTMLMotionProps, motion } from "motion/react";
-import { useState } from "react";
+import { Lock } from "@gravity-ui/icons";
 
 export default function CollapsibleDisabled() {
-  const [open, setOpen] = useState(false);
-  const [followed, setFollowed] = useState<Record<string, boolean>>(
-    Object.fromEntries(
-      whoToFollow.users.map((user, index) => [user.name, index === 0]),
-    ),
-  );
-
   return (
     <Collapsible.Root
-      open={open}
       disabled
-      onOpenChange={setOpen}
-      className="d-f fd-c w-72 c-slate-10 br-xl o-50"
+      className="d-f fd-c w-72 c-slate-10 o-50"
     >
-      <Collapsible.Trigger className="d-f ai-c g-2 px-3 py-2 bg-white bc-silver-2 c-slate-10 br-lg bw-1 fs-sm fw-500 c-na fv:ow-2 fv:oo-2 fv:oc-indigo-5">
-        <motion.span
-          animate={{ rotate: open ? 90 : 0 }}
-          transition={{ duration: 0.15, ease: "easeOut" }}
-          className="d-f"
-        >
-          <ChevronRight className="w-3 h-3" />
-        </motion.span>
-        {whoToFollow.title}
+      <Collapsible.Trigger className="d-f ai-c jc-sb g-3 w-100% py-3 px-3 bg-white bbw-1 bc-silver-3 c-na ta-l">
+        <span className="c-slate-6 fs-sm fw-500">Sprint 1 — Q1 2025</span>
+        <Lock className="w-3 h-3 c-slate-5" />
       </Collapsible.Trigger>
 
-      <Collapsible.Panel
-        keepMounted
-        render={(props) => (
-          <motion.div
-            {...(props as HTMLMotionProps<"div">)}
-            initial={false}
-            animate={
-              open ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }
-            }
-            transition={{ duration: 0.2, ease: "easeOut" }}
-            className="d-b o-h"
-          />
-        )}
-      >
-        <div className="d-f fd-c g-3 mt-1 py-3 px-3 bg-white bc-silver-2 br-xl bw-1">
-          {whoToFollow.users.map((user) => (
-            <div key={user.name} className="d-f ai-c jc-sb">
-              <div className="d-f ai-c g-3">
-                <Avatar.Root className="d-if o-h ai-c jc-c w-8 h-8 bc-white br-9999 bw-1 va-m us-none">
-                  <Avatar.Image
-                    src={user.avatar}
-                    alt={user.name}
-                    className="of-c w-100% h-100%"
-                  />
-                  <Avatar.Fallback className="d-f ai-c jc-c w-100% h-100% c-slate-8 fs-xs">
-                    {user.name[0]}
-                  </Avatar.Fallback>
-                </Avatar.Root>
-                <div className="d-f fd-c g-0">
-                  <span className="c-slate-10 fs-sm fw-500">{user.name}</span>
-                  <span className="c-slate-6 fs-xs">@{user.handle}</span>
-                </div>
+      <Collapsible.Panel className="d-b o-h h-auto">
+        <div className="d-f fd-c g-3 px-3 py-3">
+          {milestones.map((milestone) => (
+            <div key={milestone.name} className="d-f ai-c jc-sb">
+              <div className="d-f fd-c g-0">
+                <span className="c-slate-6 fs-sm">{milestone.name}</span>
+                <span className="c-slate-5 fs-xs">{milestone.date}</span>
               </div>
-              <Toggle
-                pressed={followed[user.name]}
-                className={`d-f ai-c jc-c w-8 h-8 p-0 br-9999 tp-c tdu-150 ttf-io us-none ${
-                  followed[user.name]
-                    ? "bg-indigo fv:bg-indigo-8 h:bg-indigo-8 c-white"
-                    : "bg-white bc-indigo c-indigo bw-1"
-                }`}
-                aria-label={`Add ${user.name}`}
-                onClick={() =>
-                  setFollowed((prev) => ({
-                    ...prev,
-                    [user.name]: !prev[user.name],
-                  }))
-                }
-              >
-                {followed[user.name] ? (
-                  <Check className="w-4 h-4" />
-                ) : (
-                  <Plus className="w-4 h-4" />
-                )}
-              </Toggle>
             </div>
           ))}
         </div>
@@ -95,26 +30,9 @@ export default function CollapsibleDisabled() {
   );
 }
 
-const whoToFollow = {
-  title: "Project collaborators",
-  users: [
-    {
-      name: "Sarah",
-      handle: "sarah",
-      avatar:
-        "https://api.dicebear.com/9.x/open-peeps/svg?seed=Sarah&backgroundColor=DAF0B9",
-    },
-    {
-      name: "John",
-      handle: "john",
-      avatar:
-        "https://api.dicebear.com/9.x/open-peeps/svg?seed=John&backgroundColor=B4E9F2",
-    },
-    {
-      name: "Noah",
-      handle: "noah",
-      avatar:
-        "https://api.dicebear.com/9.x/open-peeps/svg?seed=Noah&backgroundColor=D0D1FB",
-    },
-  ],
-};
+const milestones = [
+  { name: "Backlog refinement", date: "Mar 5" },
+  { name: "Feature freeze", date: "Mar 10" },
+  { name: "QA review", date: "Mar 12" },
+  { name: "Production release", date: "Mar 14" },
+];
