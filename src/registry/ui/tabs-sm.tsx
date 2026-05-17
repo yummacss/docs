@@ -3,7 +3,7 @@
 import { Tabs } from "@base-ui/react/tabs";
 import { useState } from "react";
 
-export default function ExampleTabsStatic() {
+export default function ExampleTabsSm() {
   const [selected, setSelected] = useState("board");
 
   return (
@@ -19,16 +19,16 @@ export default function ExampleTabsStatic() {
             <Tabs.Tab
               key={tab.value}
               value={tab.value}
-              className={`p-r zi-10 fg-1 d-f ai-c jc-c py-2 px-3 bg-transparent us-none fv:oo--1 fv:oc-indigo br-9999 ${
+              className={`p-r zi-10 fg-1 d-f ai-c jc-c py-1 px-2 bg-transparent us-none fv:oo--1 fv:oc-indigo br-9999 ${
                 isSelected ? "c-slate-10" : "c-slate-8 h:c-slate-10"
               }`}
             >
-              <span className="p-r zi-10 fs-sm fw-500">{tab.label}</span>
+              <span className="p-r zi-10 fs-xs fw-500">{tab.label}</span>
             </Tabs.Tab>
           );
         })}
         <Tabs.Indicator
-          className="p-a l-0 zi-0 bg-white br-9999 bs-o-xs"
+          className="p-a l-0 zi-0 bg-white br-9999 bs-o-xs tp-a tdu-200 ttf-io"
           style={{
             translate: "var(--active-tab-left) 0",
             width: "var(--active-tab-width)",

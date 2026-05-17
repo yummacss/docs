@@ -5,7 +5,7 @@ export const meta = {
 
 ## Core Examples
 
-Team Dashboard tabs for switching between overview metrics, activity graphs, and team roster.
+Project Dashboard tabs for switching between board, timeline, and calendar views.
 
 ### Base
 
@@ -55,6 +55,56 @@ Team Dashboard tabs for switching between overview metrics, activity graphs, and
   </TabsPanel>
 </Tabs>
 
+## Size Examples
+
+### Small
+
+<Tabs defaultValue="preview">
+  <TabsList>
+    <TabsTab value="preview">Preview</TabsTab>
+    <TabsTab value="code">Code</TabsTab>
+  </TabsList>
+  <TabsPanel className="bg-white bbr-sm" value="preview">
+    <Preview className="bw-0" registryId="tabs-sm" />
+  </TabsPanel>
+  <TabsPanel value="code">
+    ```tsx registryId="tabs-sm"
+    ```
+  </TabsPanel>
+</Tabs>
+
+### Medium
+
+<Tabs defaultValue="preview">
+  <TabsList>
+    <TabsTab value="preview">Preview</TabsTab>
+    <TabsTab value="code">Code</TabsTab>
+  </TabsList>
+  <TabsPanel className="bg-white bbr-sm" value="preview">
+    <Preview className="bw-0" registryId="tabs-md" />
+  </TabsPanel>
+  <TabsPanel value="code">
+    ```tsx registryId="tabs-md"
+    ```
+  </TabsPanel>
+</Tabs>
+
+### Large
+
+<Tabs defaultValue="preview">
+  <TabsList>
+    <TabsTab value="preview">Preview</TabsTab>
+    <TabsTab value="code">Code</TabsTab>
+  </TabsList>
+  <TabsPanel className="bg-white bbr-sm" value="preview">
+    <Preview className="bw-0" registryId="tabs-lg" />
+  </TabsPanel>
+  <TabsPanel value="code">
+    ```tsx registryId="tabs-lg"
+    ```
+  </TabsPanel>
+</Tabs>
+
 ## Icon Examples
 
 ### Icon Only
@@ -82,7 +132,6 @@ Team Dashboard tabs for switching between overview metrics, activity graphs, and
   </TabsList>
   <TabsPanel className="bg-white bbr-sm" value="preview">
     <Preview className="bw-0" registryId="tabs-icon-leading" />
-
   </TabsPanel>
   <TabsPanel value="code">
     ```tsx registryId="tabs-icon-leading"
@@ -141,6 +190,22 @@ Team Dashboard tabs for switching between overview metrics, activity graphs, and
 </Tabs>
 
 ## More Examples
+
+### Underline
+
+<Tabs defaultValue="preview">
+  <TabsList>
+    <TabsTab value="preview">Preview</TabsTab>
+    <TabsTab value="code">Code</TabsTab>
+  </TabsList>
+  <TabsPanel className="bg-white bbr-sm" value="preview">
+    <Preview className="bw-0" registryId="tabs-underline" />
+  </TabsPanel>
+  <TabsPanel value="code">
+    ```tsx registryId="tabs-underline"
+    ```
+  </TabsPanel>
+</Tabs>
 
 ### Static
 
