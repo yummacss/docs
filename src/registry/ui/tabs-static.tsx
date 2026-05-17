@@ -22,5 +22,5 @@ export default function ExampleTabsStatic() {
 const tabs = [
   { value: "overview", label: "Overview", active: true },
   { value: "activity", label: "Activity" },
-  { value: "members", label: "Members" },
+  { value: "team", label: "Team" },
 ];

@@ -44,5 +44,5 @@ export default function ExampleTabsSquircle() {
 const tabs = [
   { value: "overview", label: "Overview" },
   { value: "activity", label: "Activity" },
-  { value: "members", label: "Members" },
+  { value: "team", label: "Team" },
 ];

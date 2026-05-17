@@ -71,11 +71,11 @@ const tabs = [
       "42 commits merged, 12 PRs in review, and 8 issues resolved in the last 7 days across all repositories.",
   },
   {
-    value: "members",
-    label: "Members",
+    value: "team",
+    label: "Team",
     icon: Persons,
     panelTitle: "Team Roster",
     panelDesc:
-      "8 active members including 4 frontend, 2 backend, 1 designer, and 1 PM assigned to the current milestone.",
+      "8 active team including 4 frontend, 2 backend, 1 designer, and 1 PM assigned to the current milestone.",
   },
 ];

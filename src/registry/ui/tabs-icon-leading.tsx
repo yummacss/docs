@@ -47,5 +47,5 @@ export default function ExampleTabsIconLeading() {
 const tabs = [
   { value: "overview", label: "Overview", icon: Globe },
   { value: "activity", label: "Activity", icon: ChartAreaStacked },
-  { value: "members", label: "Members", icon: Persons },
+  { value: "team", label: "Team", icon: Persons },
 ];
