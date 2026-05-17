@@ -150,6 +150,7 @@ const uiRegistry = {
   "context-menu-static": dynamic(() => import("./ui/context-menu-static"), { ssr: true }),
   "dialog-base": dynamic(() => import("./ui/dialog-base"), { ssr: true }),
   "dialog-form": dynamic(() => import("./ui/dialog-form"), { ssr: true }),
+  "dialog-nested": dynamic(() => import("./ui/dialog-nested"), { ssr: true }),
   "dialog-static": dynamic(() => import("./ui/dialog-static"), { ssr: true }),
   "drawer-base": dynamic(() => import("./ui/drawer-base"), { ssr: true }),
   "drawer-bottom-sheet": dynamic(() => import("./ui/drawer-bottom-sheet"), { ssr: true }),
