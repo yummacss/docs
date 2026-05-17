@@ -9,7 +9,9 @@ import { useState } from "react";
 
 export default function DialogNested() {
   const [open, setOpen] = useState(false);
-  const [memberToRemove, setMemberToRemove] = useState<typeof teamMembers[number] | null>(null);
+  const [memberToRemove, setMemberToRemove] = useState<
+    (typeof teamMembers)[number] | null
+  >(null);
 
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
@@ -67,13 +69,19 @@ export default function DialogNested() {
                   {teamMembers.map((member) => (
                     <div key={member.name} className="d-f ai-c g-3">
                       <Avatar.Root className="d-if o-h ai-c jc-c w-8 h-8 bc-white br-9999 bw-1 va-m us-none">
-                        <Avatar.Image src={member.avatar} alt={member.name} className="of-c w-100% h-100%" />
+                        <Avatar.Image
+                          src={member.avatar}
+                          alt={member.name}
+                          className="of-c w-100% h-100%"
+                        />
                         <Avatar.Fallback className="d-f ai-c jc-c w-100% h-100% c-slate-8 fs-xs">
                           {member.name[0]}
                         </Avatar.Fallback>
                       </Avatar.Root>
                       <div className="d-f fd-c fg-1">
-                        <span className="c-slate-10 fs-sm fw-500">{member.name}</span>
+                        <span className="c-slate-10 fs-sm fw-500">
+                          {member.name}
+                        </span>
                         <span className="c-slate-6 fs-xs">{member.role}</span>
                       </div>
                       <Dialog.Root
@@ -100,7 +108,10 @@ export default function DialogNested() {
                                       initial={{ opacity: 0, scale: 0.95 }}
                                       animate={{ opacity: 1, scale: 1 }}
                                       exit={{ opacity: 0, scale: 0.95 }}
-                                      transition={{ duration: 0.2, ease: "easeOut" }}
+                                      transition={{
+                                        duration: 0.2,
+                                        ease: "easeOut",
+                                      }}
                                     />
                                   }
                                   className="o-h w-96 bg-silver-1 bc-silver-2 c-slate-12 br-xl bw-1 bs-o-xs"
@@ -119,23 +130,33 @@ export default function DialogNested() {
                                     </Dialog.Close>
                                   </div>
                                   <div className="d-f fd-c ai-c g-3 px-4 py-5 bg-white bc-silver-2 btr-lg btw-1">
-                                    <div className="p-r d-if">
+                                    <div className="d-if p-r">
                                       <Avatar.Root className="d-if o-h ai-c jc-c w-10 h-10 bc-white br-9999 bw-1 va-m us-none">
-                                        <Avatar.Image src={memberToRemove.avatar} alt={memberToRemove.name} className="of-c w-100% h-100%" />
+                                        <Avatar.Image
+                                          src={memberToRemove.avatar}
+                                          alt={memberToRemove.name}
+                                          className="of-c w-100% h-100%"
+                                        />
                                         <Avatar.Fallback className="d-f ai-c jc-c w-100% h-100% c-slate-8 fs-sm">
                                           {memberToRemove.name[0]}
                                         </Avatar.Fallback>
                                       </Avatar.Root>
-                                      <div className="p-a b-0 r-0 d-f ai-c jc-c w-4 h-4 bg-white br-9999">
+                                      <div className="d-f p-a b-0 r-0 ai-c jc-c w-4 h-4 bg-white br-9999">
                                         <CircleXmarkFill className="w-3 h-3 c-red" />
                                       </div>
                                     </div>
                                     <div className="d-f fd-c ta-c">
-                                      <span className="c-slate-10 fs-sm fw-500">{memberToRemove.name}</span>
-                                      <span className="c-slate-6 fs-xs">{memberToRemove.role}</span>
+                                      <span className="c-slate-10 fs-sm fw-500">
+                                        {memberToRemove.name}
+                                      </span>
+                                      <span className="c-slate-6 fs-xs">
+                                        {memberToRemove.role}
+                                      </span>
                                     </div>
                                     <span className="c-slate-7 fs-xs lh-4 ta-c">
-                                      This member will lose access to the Engineering board and all associated tasks.
+                                      This member will lose access to the
+                                      Engineering board and all associated
+                                      tasks.
                                     </span>
                                   </div>
                                   <div className="d-g gtc-2 g-3 px-4 py-4 bg-white">
@@ -173,7 +194,22 @@ export default function DialogNested() {
 }
 
 const teamMembers = [
-  { name: "Sarah", role: "Editor", avatar: "https://api.dicebear.com/9.x/open-peeps/svg?seed=Sarah&backgroundColor=DAF0B9" },
-  { name: "John",  role: "Admin",  avatar: "https://api.dicebear.com/9.x/open-peeps/svg?seed=John&backgroundColor=B4E9F2" },
-  { name: "Noah",  role: "Viewer", avatar: "https://api.dicebear.com/9.x/open-peeps/svg?seed=Noah&backgroundColor=D0D1FB" },
+  {
+    name: "Sarah",
+    role: "Editor",
+    avatar:
+      "https://api.dicebear.com/9.x/open-peeps/svg?seed=Sarah&backgroundColor=DAF0B9",
+  },
+  {
+    name: "John",
+    role: "Admin",
+    avatar:
+      "https://api.dicebear.com/9.x/open-peeps/svg?seed=John&backgroundColor=B4E9F2",
+  },
+  {
+    name: "Noah",
+    role: "Viewer",
+    avatar:
+      "https://api.dicebear.com/9.x/open-peeps/svg?seed=Noah&backgroundColor=D0D1FB",
+  },
 ];
