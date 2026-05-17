@@ -149,6 +149,7 @@ const uiRegistry = {
   "context-menu-squircle": dynamic(() => import("./ui/context-menu-squircle"), { ssr: true }),
   "context-menu-static": dynamic(() => import("./ui/context-menu-static"), { ssr: true }),
   "dialog-base": dynamic(() => import("./ui/dialog-base"), { ssr: true }),
+  "dialog-edit-profile": dynamic(() => import("./ui/dialog-edit-profile"), { ssr: true }),
   "dialog-form": dynamic(() => import("./ui/dialog-form"), { ssr: true }),
   "dialog-nested": dynamic(() => import("./ui/dialog-nested"), { ssr: true }),
   "dialog-squircle": dynamic(() => import("./ui/dialog-squircle"), { ssr: true }),

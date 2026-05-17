@@ -658,6 +658,11 @@ summary {
   border-bottom-left-radius: 0.5rem;
 }
 
+.blr-md {
+  border-top-left-radius: 0.375rem;
+  border-bottom-left-radius: 0.375rem;
+}
+
 .blw-1 {
   border-left-width: 1px;
 }
@@ -709,6 +714,11 @@ summary {
 .brr-lg {
   border-top-right-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
+}
+
+.brr-md {
+  border-top-right-radius: 0.375rem;
+  border-bottom-right-radius: 0.375rem;
 }
 
 .brw-1 {
@@ -1336,6 +1346,10 @@ summary {
 
 .g-4 {
   gap: 1rem;
+}
+
+.g-5 {
+  gap: 1.25rem;
 }
 
 .g-6 {
