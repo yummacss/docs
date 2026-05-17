@@ -20,7 +20,7 @@ export default function ExampleTabsDisabled() {
               key={tab.value}
               value={tab.value}
               disabled={tab.disabled}
-              className={`p-r zi-10 fg-1 d-f ai-c jc-c py-2 px-3 bg-transparent c-p us-none fv:oo--1 fv:oc-indigo br-9999 ${
+              className={`p-r zi-10 fg-1 d-f ai-c jc-c py-2 px-3 bg-transparent us-none fv:oo--1 fv:oc-indigo br-9999 ${
                 tab.disabled
                   ? "c-slate-5 o-50 c-na"
                   : isSelected
