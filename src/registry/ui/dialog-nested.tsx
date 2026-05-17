@@ -1,19 +1,15 @@
 "use client";
 
+import { Avatar } from "@base-ui/react/avatar";
 import { Button } from "@base-ui/react/button";
 import { Dialog } from "@base-ui/react/dialog";
-import { Xmark } from "@gravity-ui/icons";
+import { CircleXmarkFill, Xmark } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
-const roles = [
-  { name: "Editor", description: "Can edit tasks and comment" },
-  { name: "Viewer", description: "Read-only access to tasks" },
-];
-
 export default function DialogNested() {
   const [open, setOpen] = useState(false);
-  const [nestedOpen, setNestedOpen] = useState(false);
+  const [memberToRemove, setMemberToRemove] = useState<typeof teamMembers[number] | null>(null);
 
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
@@ -22,7 +18,7 @@ export default function DialogNested() {
           <Button className="px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:ow-2 fv:oo-2 fv:oc-indigo-5" />
         }
       >
-        Project settings
+        Team settings
       </Dialog.Trigger>
       <AnimatePresence>
         {open && (
@@ -44,20 +40,20 @@ export default function DialogNested() {
                   <motion.div
                     initial={{ opacity: 0, scale: 0.95, y: 0 }}
                     animate={
-                      nestedOpen
-                        ? { opacity: 1, scale: 0.95, y: 55 }
+                      memberToRemove
+                        ? { opacity: 1, scale: 0.95, y: 60 }
                         : { opacity: 1, scale: 1, y: 0 }
                     }
                     exit={{ opacity: 0, scale: 0.95, y: 0 }}
                     transition={{ duration: 0.2, ease: "easeOut" }}
                   />
                 }
-                className={`o-h ${nestedOpen ? "w-90" : "w-96"} bg-silver-1 bc-silver-2 c-slate-12 br-xl bw-1 bs-o-xs`}
+                className={`o-h ${memberToRemove ? "w-90" : "w-96"} bg-silver-1 bc-silver-2 c-slate-12 br-xl bw-1 bs-o-xs`}
                 style={{ maxWidth: "90vw" }}
               >
                 <div className="d-f jc-sb ai-c px-4 py-2 bg-silver-1">
                   <Dialog.Title className="c-slate-8 fs-md fw-500">
-                    Project settings
+                    Team settings
                   </Dialog.Title>
                   <Dialog.Close
                     render={
@@ -67,88 +63,105 @@ export default function DialogNested() {
                     <Xmark aria-hidden className="w-4 h-4" />
                   </Dialog.Close>
                 </div>
-                <div className="d-f fd-c g-4 px-4 py-5 bg-white bc-silver-2 btr-lg btw-1">
-                  <div className="d-f fd-c g-1">
-                    <span className="c-slate-10 fs-sm fw-500">
-                      Website Redesign
-                    </span>
-                    <span className="c-slate-6 fs-xs">
-                      Access level for Sarah
-                    </span>
-                  </div>
-                  <Dialog.Root open={nestedOpen} onOpenChange={setNestedOpen}>
-                    <Dialog.Trigger
-                      render={
-                        <Button className="px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:ow-2 fv:oo-2 fv:oc-indigo-5" />
-                      }
-                    >
-                      Change role
-                    </Dialog.Trigger>
-                    <AnimatePresence>
-                      {nestedOpen && (
-                        <Dialog.Portal>
-                          <div className="d-f p-f i-0 ai-c jc-c">
-                            <Dialog.Popup
-                              render={
-                                <motion.div
-                                  initial={{ opacity: 0, scale: 0.95 }}
-                                  animate={{ opacity: 1, scale: 1 }}
-                                  exit={{ opacity: 0, scale: 0.95 }}
-                                  transition={{
-                                    duration: 0.2,
-                                    ease: "easeOut",
-                                  }}
-                                />
-                              }
-                              className="o-h w-96 bg-silver-1 bc-silver-2 c-slate-12 br-xl bw-1 bs-o-xs"
-                              style={{ maxWidth: "90vw" }}
-                            >
-                              <div className="d-f jc-sb ai-c px-4 py-2 bg-silver-1">
-                                <Dialog.Title className="c-slate-8 fs-md fw-500">
-                                  Change role
-                                </Dialog.Title>
-                                <Dialog.Close
+                <div className="d-f fd-c g-3 px-4 py-5 bg-white bc-silver-2 btr-lg btw-1">
+                  {teamMembers.map((member) => (
+                    <div key={member.name} className="d-f ai-c g-3">
+                      <Avatar.Root className="d-if o-h ai-c jc-c w-8 h-8 bc-white br-9999 bw-1 va-m us-none">
+                        <Avatar.Image src={member.avatar} alt={member.name} className="of-c w-100% h-100%" />
+                        <Avatar.Fallback className="d-f ai-c jc-c w-100% h-100% c-slate-8 fs-xs">
+                          {member.name[0]}
+                        </Avatar.Fallback>
+                      </Avatar.Root>
+                      <div className="d-f fd-c fg-1">
+                        <span className="c-slate-10 fs-sm fw-500">{member.name}</span>
+                        <span className="c-slate-6 fs-xs">{member.role}</span>
+                      </div>
+                      <Dialog.Root
+                        open={memberToRemove?.name === member.name}
+                        onOpenChange={(nextOpen) => {
+                          if (!nextOpen) setMemberToRemove(null);
+                        }}
+                      >
+                        <Dialog.Trigger
+                          onClick={() => setMemberToRemove(member)}
+                          render={
+                            <Button className="px-2 py-1 bg-red h:bg-red-8 bc-red-7 c-white br-md bw-1 fs-xs fw-500 tp-c tdu-150 ttf-io us-none fv:ow-2 fv:oo-2 fv:oc-red-6" />
+                          }
+                        >
+                          Remove
+                        </Dialog.Trigger>
+                        <AnimatePresence>
+                          {memberToRemove?.name === member.name && (
+                            <Dialog.Portal>
+                              <div className="d-f p-f i-0 ai-c jc-c">
+                                <Dialog.Popup
                                   render={
-                                    <Button className="d-f ai-c jc-c w-7 h-7 c-slate-6 bw-0 br-md h:bg-silver-2 fv:ow-2 fv:oo-2 fv:oc-indigo-5" />
+                                    <motion.div
+                                      initial={{ opacity: 0, scale: 0.95 }}
+                                      animate={{ opacity: 1, scale: 1 }}
+                                      exit={{ opacity: 0, scale: 0.95 }}
+                                      transition={{ duration: 0.2, ease: "easeOut" }}
+                                    />
                                   }
+                                  className="o-h w-96 bg-silver-1 bc-silver-2 c-slate-12 br-xl bw-1 bs-o-xs"
+                                  style={{ maxWidth: "90vw" }}
                                 >
-                                  <Xmark aria-hidden className="w-4 h-4" />
-                                </Dialog.Close>
-                              </div>
-                              <div className="d-f fd-c g-3 px-4 py-5 bg-white bc-silver-2 btr-lg btw-1">
-                                {roles.map((role) => (
-                                  <div key={role.name} className="d-f fd-c g-1">
-                                    <span className="c-slate-10 fs-sm fw-500">
-                                      {role.name}
-                                    </span>
-                                    <span className="c-slate-6 fs-xs">
-                                      {role.description}
+                                  <div className="d-f jc-sb ai-c px-4 py-2 bg-silver-1">
+                                    <Dialog.Title className="c-slate-8 fs-md fw-500">
+                                      Remove {memberToRemove.name}?
+                                    </Dialog.Title>
+                                    <Dialog.Close
+                                      render={
+                                        <Button className="d-f ai-c jc-c w-7 h-7 c-slate-6 bw-0 br-md h:bg-silver-2 fv:ow-2 fv:oo-2 fv:oc-indigo-5" />
+                                      }
+                                    >
+                                      <Xmark aria-hidden className="w-4 h-4" />
+                                    </Dialog.Close>
+                                  </div>
+                                  <div className="d-f fd-c ai-c g-3 px-4 py-5 bg-white bc-silver-2 btr-lg btw-1">
+                                    <div className="p-r d-if">
+                                      <Avatar.Root className="d-if o-h ai-c jc-c w-10 h-10 bc-white br-9999 bw-1 va-m us-none">
+                                        <Avatar.Image src={memberToRemove.avatar} alt={memberToRemove.name} className="of-c w-100% h-100%" />
+                                        <Avatar.Fallback className="d-f ai-c jc-c w-100% h-100% c-slate-8 fs-sm">
+                                          {memberToRemove.name[0]}
+                                        </Avatar.Fallback>
+                                      </Avatar.Root>
+                                      <div className="p-a b-0 r-0 d-f ai-c jc-c w-4 h-4 bg-white br-9999">
+                                        <CircleXmarkFill className="w-3 h-3 c-red" />
+                                      </div>
+                                    </div>
+                                    <div className="d-f fd-c ta-c">
+                                      <span className="c-slate-10 fs-sm fw-500">{memberToRemove.name}</span>
+                                      <span className="c-slate-6 fs-xs">{memberToRemove.role}</span>
+                                    </div>
+                                    <span className="c-slate-7 fs-xs lh-4 ta-c">
+                                      This member will lose access to the Engineering board and all associated tasks.
                                     </span>
                                   </div>
-                                ))}
+                                  <div className="d-g gtc-2 g-3 px-4 py-4 bg-white">
+                                    <Dialog.Close
+                                      render={
+                                        <Button className="px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:ow-2 fv:oo-2 fv:oc-indigo-5" />
+                                      }
+                                    >
+                                      Cancel
+                                    </Dialog.Close>
+                                    <Dialog.Close
+                                      render={
+                                        <Button className="px-3 py-2 bg-red h:bg-red-8 bc-red-7 c-white br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:oo-2 fv:oc-red-6" />
+                                      }
+                                    >
+                                      Remove
+                                    </Dialog.Close>
+                                  </div>
+                                </Dialog.Popup>
                               </div>
-                              <div className="d-g gtc-2 g-3 px-4 py-4 bg-white">
-                                <Dialog.Close
-                                  render={
-                                    <Button className="px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:ow-2 fv:oo-2 fv:oc-indigo-5" />
-                                  }
-                                >
-                                  Cancel
-                                </Dialog.Close>
-                                <Dialog.Close
-                                  render={
-                                    <Button className="px-3 py-2 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:oc-indigo-5 fv:ow-2 fv:oo-2" />
-                                  }
-                                >
-                                  Apply
-                                </Dialog.Close>
-                              </div>
-                            </Dialog.Popup>
-                          </div>
-                        </Dialog.Portal>
-                      )}
-                    </AnimatePresence>
-                  </Dialog.Root>
+                            </Dialog.Portal>
+                          )}
+                        </AnimatePresence>
+                      </Dialog.Root>
+                    </div>
+                  ))}
                 </div>
               </Dialog.Popup>
             </div>
@@ -158,3 +171,9 @@ export default function DialogNested() {
     </Dialog.Root>
   );
 }
+
+const teamMembers = [
+  { name: "Sarah", role: "Editor", avatar: "https://api.dicebear.com/9.x/open-peeps/svg?seed=Sarah&backgroundColor=DAF0B9" },
+  { name: "John",  role: "Admin",  avatar: "https://api.dicebear.com/9.x/open-peeps/svg?seed=John&backgroundColor=B4E9F2" },
+  { name: "Noah",  role: "Viewer", avatar: "https://api.dicebear.com/9.x/open-peeps/svg?seed=Noah&backgroundColor=D0D1FB" },
+];
