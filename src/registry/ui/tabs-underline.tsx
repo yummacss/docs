@@ -4,7 +4,7 @@ import { Tabs } from "@base-ui/react/tabs";
 import { useState } from "react";
 
 export default function ExampleTabsUnderline() {
-  const [selected, setSelected] = useState("board");
+  const [selected, setSelected] = useState("plans");
 
   return (
     <Tabs.Root
@@ -35,7 +35,7 @@ export default function ExampleTabsUnderline() {
 }
 
 const tabs = [
-  { value: "board", label: "Board" },
-  { value: "timeline", label: "Timeline" },
-  { value: "calendar", label: "Calendar" },
+  { value: "plans", label: "Plans" },
+  { value: "subscriptions", label: "Subscriptions" },
+  { value: "invoices", label: "Invoices" },
 ];

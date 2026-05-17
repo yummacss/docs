@@ -4,7 +4,7 @@ import { Tabs } from "@base-ui/react/tabs";
 import { useState } from "react";
 
 export default function ExampleTabsDisabled() {
-  const [selected, setSelected] = useState("active");
+  const [selected, setSelected] = useState("members");
 
   return (
     <Tabs.Root
@@ -47,7 +47,7 @@ export default function ExampleTabsDisabled() {
 }
 
 const tabs = [
-  { value: "active", label: "Active" },
-  { value: "review", label: "Review", disabled: true },
-  { value: "done", label: "Done" },
+  { value: "members", label: "Members" },
+  { value: "roles", label: "Roles" },
+  { value: "permissions", label: "Permissions", disabled: true },
 ];

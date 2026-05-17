@@ -1,11 +1,11 @@
 "use client";
 
 import { Tabs } from "@base-ui/react/tabs";
-import { CircleCheck, ListCheck, CircleDashed } from "@gravity-ui/icons";
+import { FileDollar, CircleDollar, Receipt } from "@gravity-ui/icons";
 import { useState } from "react";
 
 export default function ExampleTabsIconLeading() {
-  const [selected, setSelected] = useState("planned");
+  const [selected, setSelected] = useState("plans");
 
   return (
     <Tabs.Root
@@ -45,7 +45,7 @@ export default function ExampleTabsIconLeading() {
 }
 
 const tabs = [
-  { value: "planned", label: "Planned", icon: ListCheck },
-  { value: "progress", label: "In Progress", icon: CircleDashed },
-  { value: "completed", label: "Completed", icon: CircleCheck },
+  { value: "plans", label: "Plans", icon: FileDollar },
+  { value: "subscriptions", label: "Subscriptions", icon: CircleDollar },
+  { value: "invoices", label: "Invoices", icon: Receipt },
 ];
