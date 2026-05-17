@@ -161,7 +161,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                 onKeyDown={handleKeyDown}
               >
                 <div className="d-f ai-c g-3 px-4 py-3 bc-white/10 bbw-1">
-                  <MagnifyingGlassIcon className="w-5 h-5 c-white/50" />
+                  <MagnifyingGlassIcon className="w-5 h-5 c-white" />
                   <Input
                     ref={inputRef}
                     type="text"
