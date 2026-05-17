@@ -1,7 +1,7 @@
 "use client";
 
 import { Tabs } from "@base-ui/react/tabs";
-import { LayoutCells, LayoutList, LayoutColumns3 } from "@gravity-ui/icons";
+import { LayoutCells, LayoutColumns3, LayoutList } from "@gravity-ui/icons";
 import { useState } from "react";
 
 export default function ExampleTabsIconOnly() {
