@@ -11,7 +11,7 @@ export default function SwitchSquare() {
   return (
     <Field.Root className="d-f ai-c g-2">
       <Switch.Root
-        id="switch-follow-square"
+        id="switch-notifications"
         checked={checked}
         onCheckedChange={setChecked}
         className={`p-r d-f ai-c h-5 w-9 m-0 px-1 c-p tp-c tdu-150 ttf-io fv:ow-2 fv:oo-2 fv:oc-green-5 ${
@@ -29,7 +29,7 @@ export default function SwitchSquare() {
         />
       </Switch.Root>
       <Field.Label
-        htmlFor="switch-follow-square"
+        htmlFor="switch-notifications"
         className="c-slate-10 fs-sm fw-500 us-none c-p"
       >
         Email notifications

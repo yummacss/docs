@@ -1,11 +1,11 @@
 "use client";
 
 import { Tabs } from "@base-ui/react/tabs";
-import { ChartAreaStacked, Globe, Persons } from "@gravity-ui/icons";
+import { Bug, Rocket, TriangleExclamation } from "@gravity-ui/icons";
 import { useState } from "react";
 
 export default function ExampleTabsIconTrailing() {
-  const [selected, setSelected] = useState("overview");
+  const [selected, setSelected] = useState("features");
 
   return (
     <Tabs.Root
@@ -45,7 +45,7 @@ export default function ExampleTabsIconTrailing() {
 }
 
 const tabs = [
-  { value: "overview", label: "Overview", icon: Globe },
-  { value: "activity", label: "Activity", icon: ChartAreaStacked },
-  { value: "team", label: "Team", icon: Persons },
+  { value: "features", label: "Features", icon: Rocket },
+  { value: "fixes", label: "Fixes", icon: Bug },
+  { value: "known-issues", label: "Known Issues", icon: TriangleExclamation },
 ];

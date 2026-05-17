@@ -11,7 +11,7 @@ export default function SwitchBase() {
   return (
     <Field.Root className="d-f ai-c g-2">
       <Switch.Root
-        id="switch-follow"
+        id="switch-unsubscribe"
         checked={checked}
         onCheckedChange={setChecked}
         className={`p-r d-f ai-c h-5 w-9 br-9999 m-0 px-1 c-p tp-c tdu-150 ttf-io fv:ow-2 fv:oo-2 fv:oc-green-5 ${
@@ -29,10 +29,10 @@ export default function SwitchBase() {
         />
       </Switch.Root>
       <Field.Label
-        htmlFor="switch-follow"
+        htmlFor="switch-unsubscribe"
         className="c-slate-10 fs-sm fw-500 us-none c-p"
       >
-        Email notifications
+        Unsubscribe email
       </Field.Label>
     </Field.Root>
   );
