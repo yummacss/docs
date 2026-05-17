@@ -2541,6 +2541,10 @@ summary {
   width: 10rem;
 }
 
+.w-42 {
+  width: 10.5rem;
+}
+
 .w-48 {
   width: 12rem;
 }
@@ -2579,6 +2583,10 @@ summary {
 
 .w-80 {
   width: 20rem;
+}
+
+.w-88 {
+  width: 22rem;
 }
 
 .w-9 {

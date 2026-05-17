@@ -110,7 +110,7 @@ export default function DialogSendInvite() {
                                     transition={{ duration: 0.15, ease: "easeOut" }}
                                   />
                                 }
-                                className="py-1 w-100% bg-white bc-silver-2 bw-1 br-xl bs-o-xs"
+                                className="py-1 w-88 bg-white bc-silver-2 bw-1 br-xl bs-o-xs"
                               >
                                 <Select.List className="p-r o-auto">
                                   {roles.map(({ label, value }) => (

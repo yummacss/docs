@@ -122,7 +122,7 @@ export default function DialogNewTask() {
                                     transition={{ duration: 0.15, ease: "easeOut" }}
                                   />
                                 }
-                                className="py-1 w-100% bg-white bc-silver-2 bw-1 br-xl bs-o-xs"
+                                className="py-1 w-88 bg-white bc-silver-2 bw-1 br-xl bs-o-xs"
                               >
                                 <Select.List className="p-r o-auto">
                                   {priorities.map(({ label, value }) => (
@@ -157,7 +157,7 @@ export default function DialogNewTask() {
                       >
                         <Autocomplete.Input
                           placeholder="Name"
-                          className="h-10 w-100% pl-3 bg-white bc-silver-3 c-slate-10 bw-1 br-md fs-md fv:oo--1 fv:oc-indigo-5"
+                          className="h-10 w-42 pl-3 bg-white bc-silver-3 c-slate-10 bw-1 br-md fs-md fv:oo--1 fv:oc-indigo-5"
                         />
                         <AnimatePresence>
                           {assigneeOpen && (
@@ -172,7 +172,7 @@ export default function DialogNewTask() {
                                   exit={{ opacity: 0, scale: 0.95 }}
                                   transition={{ duration: 0.15, ease: "easeOut" }}
                                 >
-                                  <Autocomplete.Popup className="o-h bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs">
+                                  <Autocomplete.Popup className="o-h w-42 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs">
                                     <Autocomplete.List className="oy-auto max-h-48 py-1 ow-0">
                                       {(member: TeamMember) => (
                                         <Autocomplete.Item
@@ -218,9 +218,9 @@ export default function DialogNewTask() {
                     <div className="d-f fd-c g-2">
                       <label className="c-slate-10 fs-sm fw-500">Due date</label>
                       <Field.Control
-                        render={<input type="date" />}
+                          render={<input type="date" />}
                         aria-label="Due date"
-                        className="h-10 w-100% pl-3 bg-white bc-silver-3 c-slate-10 bw-1 br-md fs-md fv:oo--1 fv:oc-indigo-5"
+                        className="h-10 w-42 pl-3 bg-white bc-silver-3 c-slate-10 bw-1 br-md fs-md fv:oo--1 fv:oc-indigo-5"
                       />
                     </div>
                   </div>
