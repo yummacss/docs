@@ -4,13 +4,13 @@ import { Tabs } from "@base-ui/react/tabs";
 import { useState } from "react";
 
 export default function ExampleTabsSquircle() {
-  const [selected, setSelected] = useState("overview");
+  const [selected, setSelected] = useState("subscriptions");
 
   return (
     <Tabs.Root
       value={selected}
       onValueChange={setSelected}
-      className="w-fc bg-silver-1 br-3xl cs-s bw-1"
+      className="w-fc bg-silver-1 br-xxl cs-s bw-1"
     >
       <Tabs.List className="d-f p-r g-1 p-1">
         {tabs.map((tab) => {
@@ -42,7 +42,7 @@ export default function ExampleTabsSquircle() {
 }
 
 const tabs = [
-  { value: "overview", label: "Overview" },
-  { value: "activity", label: "Activity" },
-  { value: "team", label: "Team" },
+  { value: "subscriptions", label: "Subscriptions" },
+  { value: "invoices", label: "Invoices" },
+  { value: "payments", label: "Payments" },
 ];

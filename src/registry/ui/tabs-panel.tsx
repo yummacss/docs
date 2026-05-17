@@ -1,15 +1,19 @@
 "use client";
 
 import { Tabs } from "@base-ui/react/tabs";
-import { ChartAreaStacked, Globe, Persons } from "@gravity-ui/icons";
+import { Globe, Comment, Clock } from "@gravity-ui/icons";
 import { useState } from "react";
 
 export default function ExampleTabsPanel() {
-  const [selected, setSelected] = useState("overview");
+  const [selected, setSelected] = useState("details");
 
   return (
-    <Tabs.Root value={selected} onValueChange={setSelected} className="w-fc">
-      <Tabs.List className="d-f p-r g-1 p-1 mb-6 bg-silver-1 br-9999 bw-1">
+    <Tabs.Root
+      value={selected}
+      onValueChange={setSelected}
+      className="w-fc"
+    >
+      <Tabs.List className="d-f p-r g-1 p-1 bg-silver-1 br-9999 bw-1 mb-6">
         {tabs.map((tab) => {
           const isSelected = selected === tab.value;
           return (
@@ -35,16 +39,12 @@ export default function ExampleTabsPanel() {
         />
       </Tabs.List>
       {tabs.map((tab) => (
-        <Tabs.Panel
-          key={tab.value}
-          value={tab.value}
-          className="p-6 bg-white br-lg bw-1"
-        >
+        <Tabs.Panel key={tab.value} value={tab.value} className="p-6 bg-white br-lg bw-1">
           <div className="d-f ai-c g-3">
             <tab.icon className="w-10 h-10 c-indigo-5" />
             <div>
-              <h3 className="mb-1 c-slate-10 fw-600 fs-lg">{tab.panelTitle}</h3>
-              <p className="c-slate-7 fs-sm">{tab.panelDesc}</p>
+              <h3 className="fw-600 fs-lg mb-1 c-slate-10">{tab.panelTitle}</h3>
+              <p className="fs-sm c-slate-7">{tab.panelDesc}</p>
             </div>
           </div>
         </Tabs.Panel>
@@ -55,27 +55,24 @@ export default function ExampleTabsPanel() {
 
 const tabs = [
   {
-    value: "overview",
-    label: "Overview",
+    value: "details",
+    label: "Details",
     icon: Globe,
-    panelTitle: "Project Health",
-    panelDesc:
-      "Current sprint velocity at 85% with 3 blockers requiring attention across the frontend and API teams.",
+    panelTitle: "Sprint Overview",
+    panelDesc: "3 active sprints across frontend, API, and mobile teams with 92% task completion rate this quarter.",
   },
   {
-    value: "activity",
-    label: "Activity",
-    icon: ChartAreaStacked,
-    panelTitle: "Weekly Activity",
-    panelDesc:
-      "42 commits merged, 12 PRs in review, and 8 issues resolved in the last 7 days across all repositories.",
+    value: "comments",
+    label: "Comments",
+    icon: Comment,
+    panelTitle: "Recent Discussion",
+    panelDesc: "14 unread comments across 8 pull requests awaiting review from the engineering team.",
   },
   {
-    value: "team",
-    label: "Team",
-    icon: Persons,
-    panelTitle: "Team Roster",
-    panelDesc:
-      "8 active team including 4 frontend, 2 backend, 1 designer, and 1 PM assigned to the current milestone.",
+    value: "history",
+    label: "History",
+    icon: Clock,
+    panelTitle: "Deployment History",
+    panelDesc: "Last deployment 2 hours ago — 4 commits merged including the authentication overhaul and caching layer.",
   },
 ];

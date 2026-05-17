@@ -4,7 +4,7 @@ import { Tabs } from "@base-ui/react/tabs";
 import { useState } from "react";
 
 export default function ExampleTabs() {
-  const [selected, setSelected] = useState("overview");
+  const [selected, setSelected] = useState("subscriptions");
 
   return (
     <Tabs.Root
@@ -42,7 +42,7 @@ export default function ExampleTabs() {
 }
 
 const tabs = [
-  { value: "overview", label: "Overview" },
-  { value: "activity", label: "Activity" },
-  { value: "team", label: "Team" },
+  { value: "subscriptions", label: "Subscriptions" },
+  { value: "invoices", label: "Invoices" },
+  { value: "payments", label: "Payments" },
 ];

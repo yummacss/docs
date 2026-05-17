@@ -12,7 +12,7 @@ export default function SwitchDisabled() {
     <Field.Root className="d-f ai-c g-2 o-50">
       <Switch.Root
         disabled
-        id="switch-auto-invite"
+        id="switch-disabled"
         checked={checked}
         onCheckedChange={setChecked}
         className={`p-r d-f ai-c h-5 w-9 br-9999 c-na m-0 px-1 c-na tp-c tdu-150 ttf-io fv:ow-2 fv:oo-2 fv:oc-green-5 ${
@@ -30,7 +30,7 @@ export default function SwitchDisabled() {
         />
       </Switch.Root>
       <Field.Label
-        htmlFor="switch-auto-invite"
+        htmlFor="switch-disabled"
         className="c-slate-10 fs-sm fw-500 us-none c-na"
       >
         Automatically accept invites
