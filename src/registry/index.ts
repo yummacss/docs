@@ -271,6 +271,7 @@ const uiRegistry = {
   "tabs-lg": dynamic(() => import("./ui/tabs-lg"), { ssr: true }),
   "tabs-md": dynamic(() => import("./ui/tabs-md"), { ssr: true }),
   "tabs-panel": dynamic(() => import("./ui/tabs-panel"), { ssr: true }),
+  "tabs-rounded": dynamic(() => import("./ui/tabs-rounded"), { ssr: true }),
   "tabs-sm": dynamic(() => import("./ui/tabs-sm"), { ssr: true }),
   "tabs-square": dynamic(() => import("./ui/tabs-square"), { ssr: true }),
   "tabs-squircle": dynamic(() => import("./ui/tabs-squircle"), { ssr: true }),
