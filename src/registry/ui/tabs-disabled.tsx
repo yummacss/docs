@@ -49,5 +49,5 @@ export default function ExampleTabsDisabled() {
 const tabs = [
   { value: "overview", label: "Overview" },
   { value: "activity", label: "Activity" },
-  { value: "members", label: "Members", disabled: true },
+  { value: "team", label: "Team", disabled: true },
 ];
