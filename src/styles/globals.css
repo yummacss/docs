@@ -35,7 +35,7 @@ body {
   z-index: 20;
 }
 
-/* reset font for component previews */
+/* reset font and selection for component previews */
 [data-preview],
 [data-preview] *,
 [class*="-popup"],
@@ -63,4 +63,26 @@ body {
     Helvetica,
     Arial,
     sans-serif;
+}
+
+[data-preview]::selection,
+[data-preview] *::selection,
+[class*="-popup"]::selection,
+[class*="-popup"] *::selection,
+[class*="-backdrop"]::selection,
+[class*="-backdrop"] *::selection,
+[role="dialog"]::selection,
+[role="dialog"] *::selection,
+[role="alertdialog"]::selection,
+[role="alertdialog"] *::selection,
+[role="listbox"]::selection,
+[role="listbox"] *::selection,
+[role="menu"]::selection,
+[role="menu"] *::selection,
+[role="menubar"]::selection,
+[role="menubar"] *::selection,
+[role="navigation"]::selection,
+[role="navigation"] *::selection {
+  background-color: Highlight;
+  color: HighlightText;
 }
