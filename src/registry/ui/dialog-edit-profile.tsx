@@ -83,7 +83,7 @@ export default function DialogEditProfile() {
                     </div>
                   </div>
                   <div className="d-g gtc-2 g-3">
-                    <div className="d-f fd-c g-1">
+                    <div className="d-f fd-c g-2">
                       <label className="c-slate-10 fs-sm fw-500">First name</label>
                       <Field.Control
                         render={<input />}
@@ -92,7 +92,7 @@ export default function DialogEditProfile() {
                         className="h-10 w-100% pl-3 bg-white bc-silver-3 c-slate-10 bw-1 br-md fs-md fv:oo--1 fv:oc-indigo-5"
                       />
                     </div>
-                    <div className="d-f fd-c g-1">
+                    <div className="d-f fd-c g-2">
                       <label className="c-slate-10 fs-sm fw-500">Last name</label>
                       <Field.Control
                         render={<input />}
@@ -102,7 +102,7 @@ export default function DialogEditProfile() {
                       />
                     </div>
                   </div>
-                  <div className="d-f fd-c g-1">
+                  <div className="d-f fd-c g-2">
                     <label className="c-slate-10 fs-sm fw-500">Username</label>
                     <Field.Control
                       render={<input />}
@@ -111,7 +111,7 @@ export default function DialogEditProfile() {
                       className="h-10 w-100% pl-3 bg-white bc-silver-3 c-slate-10 bw-1 br-md fs-md fv:oo--1 fv:oc-indigo-5"
                     />
                   </div>
-                  <div className="d-f fd-c g-1">
+                  <div className="d-f fd-c g-2">
                     <label className="c-slate-10 fs-sm fw-500">Email</label>
                     <div className="d-f ai-c">
                       <Field.Control
@@ -126,7 +126,7 @@ export default function DialogEditProfile() {
                       </div>
                     </div>
                   </div>
-                  <div className="d-f fd-c g-1">
+                  <div className="d-f fd-c g-2">
                     <label className="c-slate-10 fs-sm fw-500">Bio</label>
                     <Field.Control
                       render={<textarea />}
