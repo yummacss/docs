@@ -5,15 +5,15 @@ import { ToggleGroup } from "@base-ui/react/toggle-group";
 import { Toolbar } from "@base-ui/react/toolbar";
 import {
   ArrowUpArrowDown,
+  Clock,
   LayoutCells,
   LayoutColumns3,
   LayoutList,
   Plus,
-  Sliders,
 } from "@gravity-ui/icons";
 import { useState } from "react";
 
-export default function ToolbarBase() {
+export default function ToolbarLink() {
   const [view, setView] = useState<string[]>(["grid"]);
 
   return (
@@ -76,19 +76,17 @@ export default function ToolbarBase() {
           <ArrowUpArrowDown className="w-5 h-5" />
           Sort
         </Toolbar.Button>
-        <Toolbar.Button className="d-f ai-c g-1 jc-c h-9 px-3 bg-transparent c-slate-8 br-md bw-0 fs-sm fw-500 us-none c-p h:bg-silver-1 h:c-slate-10 fv:oo-2 fv:oc-indigo-5">
-          <Sliders className="w-5 h-5" />
-          Settings
-        </Toolbar.Button>
       </Toolbar.Group>
 
       <Toolbar.Separator className="w-px h-5 bg-silver-3" />
 
-      <Toolbar.Input
-        className="h-9 w-40 pl-3 bg-transparent bw-0 br-md fs-sm fv:oo--1 fv:oc-indigo-5"
-        placeholder="Search tasks..."
-        aria-label="Search tasks"
-      />
+      <Toolbar.Link
+        className="d-f ai-c g-1 h-9 px-3 c-slate-8 br-md fs-sm fw-500 td-none h:c-slate-10 fv:oo--1 fv:oc-indigo-5"
+        href="#"
+      >
+        <Clock className="w-5 h-5" />
+        Edited 2h ago
+      </Toolbar.Link>
     </Toolbar.Root>
   );
 }

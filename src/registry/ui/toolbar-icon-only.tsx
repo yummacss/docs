@@ -13,7 +13,7 @@ import {
 } from "@gravity-ui/icons";
 import { useState } from "react";
 
-export default function ToolbarBase() {
+export default function ToolbarIconOnly() {
   const [view, setView] = useState<string[]>(["grid"]);
 
   return (
@@ -68,17 +68,23 @@ export default function ToolbarBase() {
       <Toolbar.Separator className="w-px h-5 bg-silver-3" />
 
       <Toolbar.Group className="d-f g-1" aria-label="Actions">
-        <Toolbar.Button className="d-f ai-c g-1 jc-c h-9 px-3 bg-transparent c-slate-8 br-md bw-0 fs-sm fw-500 us-none c-p h:bg-silver-1 h:c-slate-10 fv:oo-2 fv:oc-indigo-5">
+        <Toolbar.Button
+          aria-label="New Task"
+          className="d-f ai-c jc-c w-9 h-9 bg-transparent c-slate-8 br-md bw-0 us-none c-p h:bg-silver-1 h:c-slate-10 fv:oo-2 fv:oc-indigo-5"
+        >
           <Plus className="w-5 h-5" />
-          New Task
         </Toolbar.Button>
-        <Toolbar.Button className="d-f ai-c g-1 jc-c h-9 px-3 bg-transparent c-slate-8 br-md bw-0 fs-sm fw-500 us-none c-p h:bg-silver-1 h:c-slate-10 fv:oo-2 fv:oc-indigo-5">
+        <Toolbar.Button
+          aria-label="Sort"
+          className="d-f ai-c jc-c w-9 h-9 bg-transparent c-slate-8 br-md bw-0 us-none c-p h:bg-silver-1 h:c-slate-10 fv:oo-2 fv:oc-indigo-5"
+        >
           <ArrowUpArrowDown className="w-5 h-5" />
-          Sort
         </Toolbar.Button>
-        <Toolbar.Button className="d-f ai-c g-1 jc-c h-9 px-3 bg-transparent c-slate-8 br-md bw-0 fs-sm fw-500 us-none c-p h:bg-silver-1 h:c-slate-10 fv:oo-2 fv:oc-indigo-5">
+        <Toolbar.Button
+          aria-label="Settings"
+          className="d-f ai-c jc-c w-9 h-9 bg-transparent c-slate-8 br-md bw-0 us-none c-p h:bg-silver-1 h:c-slate-10 fv:oo-2 fv:oc-indigo-5"
+        >
           <Sliders className="w-5 h-5" />
-          Settings
         </Toolbar.Button>
       </Toolbar.Group>
 

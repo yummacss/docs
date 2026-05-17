@@ -1013,6 +1013,10 @@ summary {
   color: #485464;
 }
 
+.c-slate-8\/50 {
+  color: #48546480;
+}
+
 .c-slate-9 {
   color: #3a4351;
 }
@@ -1539,6 +1543,10 @@ summary {
 
 .h\:bg-slate-7:hover {
   background-color: #566478;
+}
+
+.h\:bg-transparent:hover {
+  background-color: transparent;
 }
 
 .h\:bg-white\/10:hover {
@@ -2504,6 +2512,10 @@ summary {
 
 .w-4 {
   width: 1rem;
+}
+
+.w-40 {
+  width: 10rem;
 }
 
 .w-48 {
