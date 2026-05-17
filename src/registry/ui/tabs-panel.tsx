@@ -1,11 +1,10 @@
 "use client";
 
 import { Tabs } from "@base-ui/react/tabs";
-import { Globe, Comment, Clock } from "@gravity-ui/icons";
 import { useState } from "react";
 
 export default function ExampleTabsPanel() {
-  const [selected, setSelected] = useState("details");
+  const [selected, setSelected] = useState("statuses");
 
   return (
     <Tabs.Root
@@ -40,12 +39,9 @@ export default function ExampleTabsPanel() {
       </Tabs.List>
       {tabs.map((tab) => (
         <Tabs.Panel key={tab.value} value={tab.value} className="p-6 bg-white br-lg bw-1">
-          <div className="d-f ai-c g-3">
-            <tab.icon className="w-10 h-10 c-indigo-5" />
-            <div>
-              <h3 className="fw-600 fs-lg mb-1 c-slate-10">{tab.panelTitle}</h3>
-              <p className="fs-sm c-slate-7">{tab.panelDesc}</p>
-            </div>
+          <div>
+            <h3 className="fw-600 fs-lg mb-1 c-slate-10">{tab.panelTitle}</h3>
+            <p className="fs-sm c-slate-7">{tab.panelDesc}</p>
           </div>
         </Tabs.Panel>
       ))}
@@ -55,24 +51,21 @@ export default function ExampleTabsPanel() {
 
 const tabs = [
   {
-    value: "details",
-    label: "Details",
-    icon: Globe,
-    panelTitle: "Sprint Overview",
-    panelDesc: "3 active sprints across frontend, API, and mobile teams with 92% task completion rate this quarter.",
+    value: "statuses",
+    label: "Statuses",
+    panelTitle: "Task Statuses",
+    panelDesc: "Track progress across To Do, In Progress, Review, and Done stages with clear status transitions and blockers highlighted.",
   },
   {
-    value: "comments",
-    label: "Comments",
-    icon: Comment,
-    panelTitle: "Recent Discussion",
-    panelDesc: "14 unread comments across 8 pull requests awaiting review from the engineering team.",
+    value: "priorities",
+    label: "Priorities",
+    panelTitle: "Priority Levels",
+    panelDesc: "Assign Critical, High, Medium, or Low priority to tasks based on business impact and delivery deadlines.",
   },
   {
-    value: "history",
-    label: "History",
-    icon: Clock,
-    panelTitle: "Deployment History",
-    panelDesc: "Last deployment 2 hours ago — 4 commits merged including the authentication overhaul and caching layer.",
+    value: "labels",
+    label: "Labels",
+    panelTitle: "Label Groups",
+    panelDesc: "Organise work across teams with custom labels for feature types, departments, milestones, and release versions.",
   },
 ];

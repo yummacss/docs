@@ -1,11 +1,11 @@
 "use client";
 
 import { Tabs } from "@base-ui/react/tabs";
-import { LayoutCells, LayoutColumns3, LayoutList } from "@gravity-ui/icons";
+import { FileDollar, CircleDollar, Receipt } from "@gravity-ui/icons";
 import { useState } from "react";
 
 export default function ExampleTabsIconOnly() {
-  const [selected, setSelected] = useState("grid");
+  const [selected, setSelected] = useState("plans");
 
   return (
     <Tabs.Root
@@ -45,7 +45,7 @@ export default function ExampleTabsIconOnly() {
 }
 
 const tabs = [
-  { value: "grid", label: "Grid", icon: LayoutCells },
-  { value: "list", label: "List", icon: LayoutList },
-  { value: "columns", label: "Columns", icon: LayoutColumns3 },
+  { value: "plans", label: "Plans", icon: FileDollar },
+  { value: "subscriptions", label: "Subscriptions", icon: CircleDollar },
+  { value: "invoices", label: "Invoices", icon: Receipt },
 ];
