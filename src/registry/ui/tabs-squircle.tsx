@@ -3,14 +3,14 @@
 import { Tabs } from "@base-ui/react/tabs";
 import { useState } from "react";
 
-export default function ExampleTabs() {
+export default function ExampleTabsSquircle() {
   const [selected, setSelected] = useState("overview");
 
   return (
     <Tabs.Root
       value={selected}
       onValueChange={setSelected}
-      className="w-fc bg-silver-1 br-9999 bw-1"
+      className="w-fc bg-silver-1 br-3xl cs-s bw-1"
     >
       <Tabs.List className="d-f p-r g-1 p-1">
         {tabs.map((tab) => {
@@ -28,7 +28,7 @@ export default function ExampleTabs() {
           );
         })}
         <Tabs.Indicator
-          className="p-a l-0 zi-0 bg-white br-9999 bs-o-xs tp-a tdu-200 ttf-io"
+          className="p-a l-0 zi-0 bg-white br-xxl cs-s bs-o-xs tp-a tdu-200 ttf-io"
           style={{
             translate: "var(--active-tab-left) 0",
             width: "var(--active-tab-width)",

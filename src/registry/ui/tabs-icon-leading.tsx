@@ -1,9 +1,10 @@
 "use client";
 
 import { Tabs } from "@base-ui/react/tabs";
+import { ChartAreaStacked, Globe, Persons } from "@gravity-ui/icons";
 import { useState } from "react";
 
-export default function ExampleTabs() {
+export default function ExampleTabsIconLeading() {
   const [selected, setSelected] = useState("overview");
 
   return (
@@ -14,15 +15,17 @@ export default function ExampleTabs() {
     >
       <Tabs.List className="d-f p-r g-1 p-1">
         {tabs.map((tab) => {
+          const Icon = tab.icon;
           const isSelected = selected === tab.value;
           return (
             <Tabs.Tab
               key={tab.value}
               value={tab.value}
-              className={`p-r zi-10 fg-1 d-f ai-c jc-c py-2 px-3 bg-transparent c-p us-none fv:oo--1 fv:oc-indigo br-9999 ${
+              className={`p-r zi-10 fg-1 d-f ai-c jc-c g-2 py-2 px-3 bg-transparent c-p us-none fv:oo--1 fv:oc-indigo br-9999 ${
                 isSelected ? "c-slate-10" : "c-slate-8 h:c-slate-10"
               }`}
             >
+              <Icon className="p-r zi-10 w-5 h-5" />
               <span className="p-r zi-10 fs-sm fw-500">{tab.label}</span>
             </Tabs.Tab>
           );
@@ -42,7 +45,7 @@ export default function ExampleTabs() {
 }
 
 const tabs = [
-  { value: "overview", label: "Overview" },
-  { value: "activity", label: "Activity" },
-  { value: "members", label: "Members" },
+  { value: "overview", label: "Overview", icon: Globe },
+  { value: "activity", label: "Activity", icon: ChartAreaStacked },
+  { value: "members", label: "Members", icon: Persons },
 ];

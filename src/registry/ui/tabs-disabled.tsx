@@ -3,7 +3,7 @@
 import { Tabs } from "@base-ui/react/tabs";
 import { useState } from "react";
 
-export default function ExampleTabs() {
+export default function ExampleTabsDisabled() {
   const [selected, setSelected] = useState("overview");
 
   return (
@@ -19,8 +19,13 @@ export default function ExampleTabs() {
             <Tabs.Tab
               key={tab.value}
               value={tab.value}
+              disabled={tab.disabled}
               className={`p-r zi-10 fg-1 d-f ai-c jc-c py-2 px-3 bg-transparent c-p us-none fv:oo--1 fv:oc-indigo br-9999 ${
-                isSelected ? "c-slate-10" : "c-slate-8 h:c-slate-10"
+                tab.disabled
+                  ? "c-slate-5 o-50 c-na"
+                  : isSelected
+                    ? "c-slate-10"
+                    : "c-slate-8 h:c-slate-10"
               }`}
             >
               <span className="p-r zi-10 fs-sm fw-500">{tab.label}</span>
@@ -44,5 +49,5 @@ export default function ExampleTabs() {
 const tabs = [
   { value: "overview", label: "Overview" },
   { value: "activity", label: "Activity" },
-  { value: "members", label: "Members" },
+  { value: "members", label: "Members", disabled: true },
 ];
