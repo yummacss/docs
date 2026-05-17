@@ -276,6 +276,7 @@ const uiRegistry = {
   "tabs-squircle": dynamic(() => import("./ui/tabs-squircle"), { ssr: true }),
   "tabs-static": dynamic(() => import("./ui/tabs-static"), { ssr: true }),
   "tabs-underline": dynamic(() => import("./ui/tabs-underline"), { ssr: true }),
+  "tabs-vertical": dynamic(() => import("./ui/tabs-vertical"), { ssr: true }),
   "text-editor-base": dynamic(() => import("./ui/text-editor-base"), { ssr: true }),
   "text-editor-static": dynamic(() => import("./ui/text-editor-static"), { ssr: true }),
   "textarea-base": dynamic(() => import("./ui/textarea-base"), { ssr: true }),
