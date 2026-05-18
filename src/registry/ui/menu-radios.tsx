@@ -59,7 +59,7 @@ export default function MenuRadios() {
                   Settings
                 </Menu.Item>
                 <Menu.Separator className="my-1 w-100% h-px bg-silver-2" />
-                <div className="px-3 py-1 c-slate-5 fs-xs fw-500 tt-u ls-3">
+                <div className="px-3 py-1 c-slate-5 fs-xs fw-500 ls-3">
                   Switch account
                 </div>
 
