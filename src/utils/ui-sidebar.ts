@@ -87,6 +87,7 @@ export const uiSidebarConfig: UISidebarConfig = [
   {
     title: "Overlays",
     items: [
+      { title: "Command Palette", slug: "command-palette" },
       { title: "Dialog", slug: "dialog", primitive: true },
       { title: "Drawer", slug: "drawer", primitive: true },
       { title: "Popover", slug: "popover", primitive: true },
