@@ -20,47 +20,6 @@ import {
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useMemo, useState } from "react";
 
-interface CommandItem {
-  id: string;
-  label: string;
-  Icon: React.ComponentType<{ className?: string }>;
-}
-
-interface CommandGroup {
-  label: string;
-  items: CommandItem[];
-}
-
-type Scope = "all" | "actions" | "pages";
-
-const commandGroups: CommandGroup[] = [
-  {
-    label: "Actions",
-    items: [
-      { id: "new-doc", label: "New doc", Icon: Plus },
-      { id: "drafts", label: "Drafts", Icon: Pencil },
-      { id: "templates", label: "Templates", Icon: Copy },
-    ],
-  },
-  {
-    label: "Pages",
-    items: [
-      { id: "knowledge-base", label: "Knowledge base", Icon: Folder },
-      { id: "published", label: "Published pages", Icon: Eye },
-      { id: "analytics", label: "Analytics", Icon: BellDot },
-      { id: "settings", label: "Settings", Icon: Gear },
-      { id: "team-docs", label: "Team docs", Icon: Persons },
-      { id: "activity", label: "Activity", Icon: Clock },
-    ],
-  },
-];
-
-const scopes: { value: Scope; label: string }[] = [
-  { value: "all", label: "All" },
-  { value: "actions", label: "Actions" },
-  { value: "pages", label: "Pages" },
-];
-
 export default function CommandPaletteModes() {
   const [open, setOpen] = useState(false);
   const [scope, setScope] = useState<Scope>("all");
@@ -220,3 +179,44 @@ export default function CommandPaletteModes() {
     </Dialog.Root>
   );
 }
+
+interface CommandItem {
+  id: string;
+  label: string;
+  Icon: React.ComponentType<{ className?: string }>;
+}
+
+interface CommandGroup {
+  label: string;
+  items: CommandItem[];
+}
+
+type Scope = "all" | "actions" | "pages";
+
+const commandGroups: CommandGroup[] = [
+  {
+    label: "Actions",
+    items: [
+      { id: "new-doc", label: "New doc", Icon: Plus },
+      { id: "drafts", label: "Drafts", Icon: Pencil },
+      { id: "templates", label: "Templates", Icon: Copy },
+    ],
+  },
+  {
+    label: "Pages",
+    items: [
+      { id: "knowledge-base", label: "Knowledge base", Icon: Folder },
+      { id: "published", label: "Published pages", Icon: Eye },
+      { id: "analytics", label: "Analytics", Icon: BellDot },
+      { id: "settings", label: "Settings", Icon: Gear },
+      { id: "team-docs", label: "Team docs", Icon: Persons },
+      { id: "activity", label: "Activity", Icon: Clock },
+    ],
+  },
+];
+
+const scopes: { value: Scope; label: string }[] = [
+  { value: "all", label: "All" },
+  { value: "actions", label: "Actions" },
+  { value: "pages", label: "Pages" },
+];

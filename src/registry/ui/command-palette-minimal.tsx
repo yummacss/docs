@@ -7,38 +7,6 @@ import { Magnifier, Xmark } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
 
-interface CommandItem {
-  id: string;
-  label: string;
-}
-
-interface CommandGroup {
-  label: string;
-  items: CommandItem[];
-}
-
-const commandGroups: CommandGroup[] = [
-  {
-    label: "Actions",
-    items: [
-      { id: "new-doc", label: "New doc" },
-      { id: "drafts", label: "Drafts" },
-      { id: "templates", label: "Templates" },
-    ],
-  },
-  {
-    label: "Pages",
-    items: [
-      { id: "knowledge-base", label: "Knowledge base" },
-      { id: "published", label: "Published pages" },
-      { id: "analytics", label: "Analytics" },
-      { id: "settings", label: "Settings" },
-      { id: "team-docs", label: "Team docs" },
-      { id: "activity", label: "Activity" },
-    ],
-  },
-];
-
 export default function CommandPaletteMinimal() {
   const [open, setOpen] = useState(false);
 
@@ -146,3 +114,35 @@ export default function CommandPaletteMinimal() {
     </Dialog.Root>
   );
 }
+
+interface CommandItem {
+  id: string;
+  label: string;
+}
+
+interface CommandGroup {
+  label: string;
+  items: CommandItem[];
+}
+
+const commandGroups: CommandGroup[] = [
+  {
+    label: "Actions",
+    items: [
+      { id: "new-doc", label: "New doc" },
+      { id: "drafts", label: "Drafts" },
+      { id: "templates", label: "Templates" },
+    ],
+  },
+  {
+    label: "Pages",
+    items: [
+      { id: "knowledge-base", label: "Knowledge base" },
+      { id: "published", label: "Published pages" },
+      { id: "analytics", label: "Analytics" },
+      { id: "settings", label: "Settings" },
+      { id: "team-docs", label: "Team docs" },
+      { id: "activity", label: "Activity" },
+    ],
+  },
+];

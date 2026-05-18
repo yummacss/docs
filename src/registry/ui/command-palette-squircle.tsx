@@ -19,40 +19,6 @@ import {
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
 
-interface CommandItem {
-  id: string;
-  label: string;
-  shortcut?: string;
-  Icon: React.ComponentType<{ className?: string }>;
-}
-
-interface CommandGroup {
-  label: string;
-  items: CommandItem[];
-}
-
-const commandGroups: CommandGroup[] = [
-  {
-    label: "Actions",
-    items: [
-      { id: "new-doc", label: "New doc", Icon: Plus },
-      { id: "drafts", label: "Drafts", Icon: Pencil },
-      { id: "templates", label: "Templates", Icon: Copy },
-    ],
-  },
-  {
-    label: "Pages",
-    items: [
-      { id: "knowledge-base", label: "Knowledge base", Icon: Folder },
-      { id: "published", label: "Published pages", Icon: Eye },
-      { id: "analytics", label: "Analytics", Icon: BellDot },
-      { id: "settings", label: "Settings", Icon: Gear },
-      { id: "team-docs", label: "Team docs", Icon: Persons },
-      { id: "activity", label: "Activity", Icon: Clock },
-    ],
-  },
-];
-
 export default function CommandPaletteSquircle() {
   const [open, setOpen] = useState(false);
 
@@ -170,3 +136,37 @@ export default function CommandPaletteSquircle() {
     </Dialog.Root>
   );
 }
+
+interface CommandItem {
+  id: string;
+  label: string;
+  shortcut?: string;
+  Icon: React.ComponentType<{ className?: string }>;
+}
+
+interface CommandGroup {
+  label: string;
+  items: CommandItem[];
+}
+
+const commandGroups: CommandGroup[] = [
+  {
+    label: "Actions",
+    items: [
+      { id: "new-doc", label: "New doc", Icon: Plus },
+      { id: "drafts", label: "Drafts", Icon: Pencil },
+      { id: "templates", label: "Templates", Icon: Copy },
+    ],
+  },
+  {
+    label: "Pages",
+    items: [
+      { id: "knowledge-base", label: "Knowledge base", Icon: Folder },
+      { id: "published", label: "Published pages", Icon: Eye },
+      { id: "analytics", label: "Analytics", Icon: BellDot },
+      { id: "settings", label: "Settings", Icon: Gear },
+      { id: "team-docs", label: "Team docs", Icon: Persons },
+      { id: "activity", label: "Activity", Icon: Clock },
+    ],
+  },
+];
