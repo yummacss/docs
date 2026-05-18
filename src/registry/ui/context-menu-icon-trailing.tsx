@@ -1,7 +1,13 @@
 "use client";
 
 import { ContextMenu } from "@base-ui/react/context-menu";
-import { ArrowUpRightFromSquare, Eye, Link, Pin, Tray } from "@gravity-ui/icons";
+import {
+  ArrowUpRightFromSquare,
+  Eye,
+  Link,
+  Pin,
+  Tray,
+} from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 

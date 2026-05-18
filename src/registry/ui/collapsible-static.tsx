@@ -1,7 +1,12 @@
 "use client";
 
 import { Collapsible } from "@base-ui/react/collapsible";
-import { ChevronRight, Circle, CircleCheckFill, CircleDashed } from "@gravity-ui/icons";
+import {
+  ChevronRight,
+  Circle,
+  CircleCheckFill,
+  CircleDashed,
+} from "@gravity-ui/icons";
 import { useState } from "react";
 
 export default function CollapsibleStatic() {
@@ -20,7 +25,9 @@ export default function CollapsibleStatic() {
         />
       </Collapsible.Trigger>
 
-      <Collapsible.Panel className={`d-b o-h tp-all tdu-200 ttf-io ${open ? "h-auto o-1" : "h-0 o-0"}`}>
+      <Collapsible.Panel
+        className={`d-b o-h tp-all tdu-200 ttf-io ${open ? "h-auto o-1" : "h-0 o-0"}`}
+      >
         <div className="d-f fd-c px-3 py-2">
           {tasks.map((task) => (
             <div key={task.id} className="d-f ai-c g-2 py-2">
@@ -33,9 +40,7 @@ export default function CollapsibleStatic() {
               )}
               <span
                 className={`fs-sm ${
-                  task.status === "done"
-                    ? "c-slate-5 tdl-lt"
-                    : "c-slate-8"
+                  task.status === "done" ? "c-slate-5 tdl-lt" : "c-slate-8"
                 }`}
               >
                 {task.name}
