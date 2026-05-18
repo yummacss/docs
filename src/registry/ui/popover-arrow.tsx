@@ -15,7 +15,7 @@ export default function PopoverArrow() {
           open ? "bg-silver-1" : ""
         }`}
       >
-        <Calendar aria-label="Sprint info" className="w-5 h-5" />
+        <Calendar aria-label="Sprint info" role="img" className="w-5 h-5" />
       </Popover.Trigger>
       <AnimatePresence>
         {open && (
