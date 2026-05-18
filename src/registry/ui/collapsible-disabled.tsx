@@ -5,12 +5,9 @@ import { Lock } from "@gravity-ui/icons";
 
 export default function CollapsibleDisabled() {
   return (
-    <Collapsible.Root
-      disabled
-      className="d-f fd-c w-72 c-slate-10 o-50"
-    >
-      <Collapsible.Trigger className="d-f ai-c jc-sb g-3 w-100% py-3 px-3 bg-white bbw-1 bc-silver-3 c-na ta-l">
-        <span className="c-slate-6 fs-sm fw-500">Sprint 1 — Q1 2025</span>
+    <Collapsible.Root disabled className="d-f fd-c w-72 c-slate-10 o-50">
+      <Collapsible.Trigger className="d-f ai-c jc-sb g-3 w-100% py-3 px-3 bg-white bc-silver-3 bbw-1 ta-l c-na">
+        <span className="c-slate-6 fs-sm fw-500">Sprint 1 - Q1 2025</span>
         <Lock className="w-3 h-3 c-slate-5" />
       </Collapsible.Trigger>
 
