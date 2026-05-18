@@ -180,6 +180,10 @@ summary {
   align-self: stretch;
 }
 
+.b--2 {
+  bottom: -.5rem;
+}
+
 .b-0 {
   bottom: 0;
 }
@@ -1574,6 +1578,10 @@ summary {
 
 .h\:c-indigo-8:hover {
   color: #4749ae;
+}
+
+.h\:c-red-8:hover {
+  color: #a62932;
 }
 
 .h\:c-slate-10:hover {
