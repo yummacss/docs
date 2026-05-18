@@ -78,7 +78,7 @@ export default function DialogSignIn() {
                       className="h-10 w-100% pl-3 bg-white bc-silver-3 c-slate-10 bw-1 br-md fs-md fv:oo--1 fv:oc-indigo-5"
                     />
                   </div>
-                  <div className="d-f ai-c jc-sb">
+                  <div className="d-g gtc-2 g-3">
                     <label className="d-f ai-c g-2 c-slate-8 fs-sm us-none">
                       <Checkbox.Root
                         defaultChecked
@@ -96,9 +96,11 @@ export default function DialogSignIn() {
                       </Checkbox.Root>
                       Remember me
                     </label>
-                    <a href="#" className="c-indigo fs-sm td-none h:td-u">
-                      Forgot password?
-                    </a>
+                    <div className="ta-r">
+                      <a href="#" className="c-indigo fs-sm td-none h:td-u">
+                        Forgot password?
+                      </a>
+                    </div>
                   </div>
                 </div>
                 <div className="d-g gtc-2 g-3 px-4 py-4 bg-white">
