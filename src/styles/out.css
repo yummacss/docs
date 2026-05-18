@@ -1757,6 +1757,10 @@ summary {
   max-height: 14rem;
 }
 
+.max-h-64 {
+  max-height: 16rem;
+}
+
 .max-h-72 {
   max-height: 18rem;
 }
@@ -1923,6 +1927,10 @@ summary {
 
 .mx-2 {
   margin-inline: .5rem;
+}
+
+.mx-4 {
+  margin-inline: 1rem;
 }
 
 .mx-auto {
