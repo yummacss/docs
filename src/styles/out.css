@@ -2001,6 +2001,10 @@ summary {
   overflow-x: auto;
 }
 
+.ox-h {
+  overflow-x: hidden;
+}
+
 .oy-auto {
   overflow-y: auto;
 }
