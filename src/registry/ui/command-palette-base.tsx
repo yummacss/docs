@@ -17,6 +17,121 @@ import {
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
 
+export default function CommandPaletteBase() {
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === "/") {
+        e.preventDefault();
+        setOpen((prev) => !prev);
+      }
+    };
+    document.addEventListener("keydown", handler);
+    return () => document.removeEventListener("keydown", handler);
+  }, []);
+
+  return (
+    <Dialog.Root open={open} onOpenChange={setOpen}>
+      <Dialog.Trigger
+        render={
+          <Button className="d-f ai-c g-2 px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5" />
+        }
+      >
+        <Magnifier className="w-4 h-4" />
+        <span>Commands</span>
+      </Dialog.Trigger>
+      <AnimatePresence>
+        {open && (
+          <Dialog.Portal keepMounted>
+            <Dialog.Backdrop
+              render={
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.2, ease: "easeOut" }}
+                />
+              }
+              className="p-f i-0 min-h-dvh bg-black/20 bf-b-xs"
+            />
+            <div className="d-f p-f i-0 ai-c jc-c">
+              <Dialog.Popup
+                render={
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    transition={{ duration: 0.2, ease: "easeOut" }}
+                  />
+                }
+                className="o-h w-96 bg-silver-1 bc-silver-2 c-slate-12 br-xl bw-1 bs-o-xs"
+                style={{ maxWidth: "90vw" }}
+              >
+                <Combobox.Root inline items={commandGroups} autoHighlight>
+                  <div className="d-f ai-c g-2 px-4 py-1 bg-silver-1">
+                    <Magnifier className="fs-0 w-5 h-5 c-slate-4" />
+                    <Combobox.Input
+                      placeholder="Search commands..."
+                      autoFocus
+                      className="h-10 w-100% bg-transparent c-slate-10 fs-md"
+                    />
+                    <Dialog.Close
+                      render={
+                        <Button className="d-f ai-c jc-c w-7 h-7 c-slate-6 bw-0 br-md h:bg-silver-2 fv:oo-2 fv:oc-indigo-5" />
+                      }
+                    >
+                      <Xmark aria-hidden className="w-5 h-5" />
+                    </Dialog.Close>
+                  </div>
+                  <div className="bg-white bc-silver-2 btr-lg btw-1">
+                    <Combobox.List className="oy-auto max-h-72 py-1 ow-0">
+                      {(group: CommandGroup, groupIndex: number) => (
+                        <Combobox.Group key={group.label}>
+                          <div className="px-4 pt-2 pb-1 c-slate-5 fs-xs fw-500">
+                            {group.label}
+                          </div>
+                          {group.items.map((item) => (
+                            <Combobox.Item
+                              key={item.id}
+                              value={item.id}
+                              onClick={() => setOpen(false)}
+                              className={(state: { highlighted: boolean }) =>
+                                `d-f ai-c g-3 py-2 px-4 mx-2 fs-sm us-none c-p br-lg ${
+                                  state.highlighted
+                                    ? "bg-silver-1/50"
+                                    : "bg-transparent"
+                                }`
+                              }
+                            >
+                              <item.Icon className="fs-0 w-4 h-4 c-slate-7" />
+                              <span className="c-slate-10 fw-500">
+                                {item.label}
+                              </span>
+                            </Combobox.Item>
+                          ))}
+                          {groupIndex < commandGroups.length - 1 && (
+                            <div className="w-100% h-px my-1 bg-silver-2" />
+                          )}
+                        </Combobox.Group>
+                      )}
+                    </Combobox.List>
+                    <Combobox.Empty className="c-slate-6 fs-sm">
+                      <div className="py-8 px-4 ta-c fs-sm">
+                        No commands found.
+                      </div>
+                    </Combobox.Empty>
+                  </div>
+                </Combobox.Root>
+              </Dialog.Popup>
+            </div>
+          </Dialog.Portal>
+        )}
+      </AnimatePresence>
+    </Dialog.Root>
+  );
+}
+
 interface CommandItem {
   id: string;
   label: string;
@@ -55,126 +170,3 @@ const commandGroups: CommandGroup[] = [
     ],
   },
 ];
-
-export default function DialogCommandPaletteBase() {
-  const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    const handler = (e: KeyboardEvent) => {
-      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
-        e.preventDefault();
-        setOpen((prev) => !prev);
-      }
-    };
-    document.addEventListener("keydown", handler);
-    return () => document.removeEventListener("keydown", handler);
-  }, []);
-
-  return (
-    <Dialog.Root open={open} onOpenChange={setOpen}>
-      <Dialog.Trigger
-        render={
-          <Button className="d-f ai-c g-2 px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo--1 fv:oc-indigo-5" />
-        }
-      >
-        <Magnifier className="w-4 h-4" />
-        <span>Commands</span>
-        <kbd className="d-f ai-c px-1 py-0.5 ml-3 bg-silver-1/50 c-slate-5 br-md fs-xs us-none">
-          {"\u2318K"}
-        </kbd>
-      </Dialog.Trigger>
-      <AnimatePresence>
-        {open && (
-          <Dialog.Portal keepMounted>
-            <Dialog.Backdrop
-              render={
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.2, ease: "easeOut" }}
-                />
-              }
-              className="p-f i-0 min-h-dvh bg-black/20 bf-b-xs"
-            />
-            <div className="d-f p-f i-0 o-y-auto ai-c jc-c">
-              <Dialog.Popup
-                render={
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
-                    transition={{ duration: 0.2, ease: "easeOut" }}
-                  />
-                }
-                className="o-h w-96 bg-white bc-silver-2 c-slate-12 br-xl bw-1 bs-o-xs"
-                style={{ maxWidth: "90vw" }}
-              >
-                <Combobox.Root inline items={commandGroups} autoHighlight>
-                  <div className="d-f ai-c g-2 px-4 bc-silver-3 bbw-1">
-                    <Magnifier className="fs-0 w-5 h-5 c-slate-4" />
-                    <Combobox.Input
-                      placeholder="Search commands..."
-                      autoFocus
-                      className="h-12 w-100% bg-transparent c-slate-10 fs-md fw-500"
-                    />
-                    <Dialog.Close
-                      render={
-                        <Button className="d-f ai-c jc-c w-7 h-7 c-slate-6 bw-0 br-md h:bg-silver-2 fv:oo-2 fv:oc-indigo-5" />
-                      }
-                    >
-                      <Xmark aria-hidden className="w-4 h-4" />
-                    </Dialog.Close>
-                  </div>
-                  <Combobox.List className="oy-auto max-h-80 py-2 ow-0">
-                    {(group: CommandGroup, groupIndex: number) => (
-                      <Combobox.Group key={group.label}>
-                        <div className="px-4 pt-3 pb-1 c-slate-5 fs-xs fw-500 tt-u">
-                          {group.label}
-                        </div>
-                        {group.items.map((item) => (
-                          <Combobox.Item
-                            key={item.id}
-                            value={item.id}
-                            onClick={() => setOpen(false)}
-                            className={(state: { highlighted: boolean }) =>
-                              `d-f ai-c g-3 py-2 px-4 mx-2 fs-sm us-none c-p br-lg ${
-                                state.highlighted
-                                  ? "bg-silver-1/50"
-                                  : "bg-transparent"
-                              }`
-                            }
-                          >
-                            <div className="d-f ai-c jc-c w-6 h-6 bg-silver-1/50 br-md">
-                              <item.Icon className="w-4 h-4 c-slate-7" />
-                            </div>
-                            <span className="fg-1 c-slate-10 fw-500">
-                              {item.label}
-                            </span>
-                            {item.shortcut && (
-                              <kbd className="d-f ai-c px-1 py-0.5 bg-silver-1/50 c-slate-5 br-md fs-xs us-none">
-                                {item.shortcut}
-                              </kbd>
-                            )}
-                          </Combobox.Item>
-                        ))}
-                        {groupIndex < commandGroups.length - 1 && (
-                          <div className="w-100% h-px my-1 bg-silver-2" />
-                        )}
-                      </Combobox.Group>
-                    )}
-                  </Combobox.List>
-                  <Combobox.Empty className="c-slate-6 fs-sm">
-                    <div className="py-8 px-4 ta-c fs-sm">
-                      No commands found.
-                    </div>
-                  </Combobox.Empty>
-                </Combobox.Root>
-              </Dialog.Popup>
-            </div>
-          </Dialog.Portal>
-        )}
-      </AnimatePresence>
-    </Dialog.Root>
-  );
-}
