@@ -166,7 +166,6 @@ const uiRegistry = {
   "dialog-squircle": dynamic(() => import("./ui/dialog-squircle"), { ssr: true }),
   "dialog-static": dynamic(() => import("./ui/dialog-static"), { ssr: true }),
   "drawer-base": dynamic(() => import("./ui/drawer-base"), { ssr: true }),
-  "drawer-bottom-sheet": dynamic(() => import("./ui/drawer-bottom-sheet"), { ssr: true }),
   "drawer-static": dynamic(() => import("./ui/drawer-static"), { ssr: true }),
   "empty-state-actions": dynamic(() => import("./ui/empty-state-actions"), { ssr: true }),
   "empty-state-base": dynamic(() => import("./ui/empty-state-base"), { ssr: true }),
