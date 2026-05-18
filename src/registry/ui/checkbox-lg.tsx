@@ -9,7 +9,7 @@ export default function CheckboxLg() {
       <Checkbox.Root
         defaultChecked
         className={(state) =>
-          `d-f w-5 h-5 ai-c jc-c br-sm fv:ow-2 fv:oo-2 fv:oc-indigo-5 ${
+          `d-f w-5 h-5 ai-c jc-c br-sm fv:oo-2 fv:oc-indigo-5 ${
             state.checked
               ? "bg-indigo"
               : "bw-1 bc-silver-3 bg-transparent bs-o-xs"

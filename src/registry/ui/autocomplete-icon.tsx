@@ -27,7 +27,7 @@ export default function AutocompleteIcon() {
           <Autocomplete.Input
             id="icon-input"
             placeholder="Account, Privacy, & more"
-            className="h-10 w-64 pl-10 pr-4 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md bs-o-xs fv:ow-2 fv:oo--1 fv:oc-indigo-5"
+            className="h-10 w-64 pl-10 pr-4 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md bs-o-xs fv:oo--1 fv:oc-indigo-5"
           />
         </div>
       </div>

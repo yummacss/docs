@@ -16,7 +16,7 @@ export default function DialogEditProfile() {
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger
         render={
-          <Button className="px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:ow-2 fv:oo-2 fv:oc-indigo-5" />
+          <Button className="px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5" />
         }
       >
         Edit profile
@@ -54,7 +54,7 @@ export default function DialogEditProfile() {
                   </Dialog.Title>
                   <Dialog.Close
                     render={
-                      <Button className="d-f ai-c jc-c w-7 h-7 c-slate-6 bw-0 br-md h:bg-silver-2 fv:ow-2 fv:oo-2 fv:oc-indigo-5" />
+                      <Button className="d-f ai-c jc-c w-7 h-7 c-slate-6 bw-0 br-md h:bg-silver-2 fv:oo-2 fv:oc-indigo-5" />
                     }
                   >
                     <Xmark aria-hidden className="w-4 h-4" />
@@ -71,7 +71,7 @@ export default function DialogEditProfile() {
                         />
                       </Avatar.Root>
                       <Button
-                        className="d-f p-a b-0 r-0 ai-c jc-c w-5 h-5 p-0 bg-white bc-silver-3 br-9999 bw-1 us-none fv:ow-2 fv:oo-1 fv:oc-indigo-5"
+                        className="d-f p-a b-0 r-0 ai-c jc-c w-5 h-5 p-0 bg-white bc-silver-3 br-9999 bw-1 us-none fv:oo-1 fv:oc-indigo-5"
                         aria-label="Edit profile picture"
                       >
                         <Pencil className="fs-0 w-3 h-3 c-slate-6" />
@@ -84,7 +84,9 @@ export default function DialogEditProfile() {
                   </div>
                   <div className="d-g g-3 sm:gtc-2">
                     <div className="d-f fd-c g-2">
-                      <label className="c-slate-10 fs-sm fw-500">First name</label>
+                      <label className="c-slate-10 fs-sm fw-500">
+                        First name
+                      </label>
                       <Field.Control
                         render={<input />}
                         defaultValue="Sarah"
@@ -93,10 +95,11 @@ export default function DialogEditProfile() {
                       />
                     </div>
                     <div className="d-f fd-c g-2">
-                      <label className="c-slate-10 fs-sm fw-500">Last name</label>
+                      <label className="c-slate-10 fs-sm fw-500">
+                        Last name
+                      </label>
                       <Field.Control
                         render={<input />}
-                        
                         aria-label="Last name"
                         className="h-10 w-100% pl-3 bg-white bc-silver-3 c-slate-10 bw-1 br-md fs-md fv:oo--1 fv:oc-indigo-5"
                       />
@@ -113,12 +116,12 @@ export default function DialogEditProfile() {
                   </div>
                   <div className="d-f fd-c g-2">
                     <label className="c-slate-10 fs-sm fw-500">Email</label>
-                    <div className="d-f ai-c min-w-0 ox-h w-100%">
+                    <div className="d-f ox-h ai-c min-w-0 w-100%">
                       <Field.Control
                         render={<input />}
                         defaultValue="sarah"
                         aria-label="Email"
-                        className="h-10 fg-1 min-w-0 pl-3 bg-white bc-silver-3 c-slate-10 byw-1 blw-1 blr-md fs-md fv:oo--1 fv:oc-indigo-5"
+                        className="fg-1 h-10 min-w-0 pl-3 bg-white bc-silver-3 c-slate-10 byw-1 blw-1 blr-md fs-md fv:oo--1 fv:oc-indigo-5"
                       />
                       <Separator className="fs-0 w-px h-10 bg-silver-3" />
                       <div className="d-f fs-0 ai-c jc-c px-3 h-10 bg-white bc-silver-3 c-slate-6 byw-1 brw-1 brr-md fs-md">
@@ -139,14 +142,14 @@ export default function DialogEditProfile() {
                 <div className="d-g gtc-2 g-3 px-4 py-4 bg-white">
                   <Dialog.Close
                     render={
-                      <Button className="px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:ow-2 fv:oo-2 fv:oc-indigo-5" />
+                      <Button className="px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5" />
                     }
                   >
                     Cancel
                   </Dialog.Close>
                   <Dialog.Close
                     render={
-                      <Button className="px-3 py-2 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:oc-indigo-5 fv:ow-2 fv:oo-2" />
+                      <Button className="px-3 py-2 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:oc-indigo-5 fv:oo-2" />
                     }
                   >
                     Save changes

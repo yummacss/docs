@@ -1264,8 +1264,16 @@ summary {
   outline-color: #d0d1fb;
 }
 
+.fv\:oc-indigo-3:focus-visible {
+  outline-color: #babcf9;
+}
+
 .fv\:oc-indigo-5:focus-visible {
   outline-color: #8f91f5;
+}
+
+.fv\:oc-red-3:focus-visible {
+  outline-color: #f4a8ae;
 }
 
 .fv\:oc-red-5:focus-visible {
@@ -1753,6 +1761,10 @@ summary {
   max-height: 18rem;
 }
 
+.max-h-80 {
+  max-height: 20rem;
+}
+
 .max-h-fc {
   max-height: fit-content;
 }
@@ -1911,6 +1923,10 @@ summary {
 
 .mx-1 {
   margin-inline: .25rem;
+}
+
+.mx-2 {
+  margin-inline: .5rem;
 }
 
 .mx-auto {

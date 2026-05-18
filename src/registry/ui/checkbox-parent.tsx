@@ -22,7 +22,7 @@ export default function CheckboxParent() {
           name="permissions"
           parent
           className={(state) =>
-            `d-f w-4 h-4 ai-c jc-c br-sm fv:ow-2 fv:oo-2 fv:oc-indigo-5 ${
+            `d-f w-4 h-4 ai-c jc-c br-sm fv:oo-2 fv:oc-indigo-5 ${
               state.checked || state.indeterminate
                 ? "bg-indigo"
                 : "bw-1 bc-silver-3 bg-transparent bs-o-xs"
@@ -50,7 +50,7 @@ export default function CheckboxParent() {
           <Checkbox.Root
             value="read"
             className={(state) =>
-              `d-f w-4 h-4 ai-c jc-c br-sm fv:ow-2 fv:oo-2 fv:oc-indigo-5 ${
+              `d-f w-4 h-4 ai-c jc-c br-sm fv:oo-2 fv:oc-indigo-5 ${
                 state.checked
                   ? "bg-indigo"
                   : "bw-1 bc-silver-3 bg-transparent bs-o-xs"
@@ -68,7 +68,7 @@ export default function CheckboxParent() {
           <Checkbox.Root
             value="write"
             className={(state) =>
-              `d-f w-4 h-4 ai-c jc-c br-sm fv:ow-2 fv:oo-2 fv:oc-indigo-5 ${
+              `d-f w-4 h-4 ai-c jc-c br-sm fv:oo-2 fv:oc-indigo-5 ${
                 state.checked
                   ? "bg-indigo"
                   : "bw-1 bc-silver-3 bg-transparent bs-o-xs"
@@ -86,7 +86,7 @@ export default function CheckboxParent() {
           <Checkbox.Root
             value="delete"
             className={(state) =>
-              `d-f w-4 h-4 ai-c jc-c br-sm fv:ow-2 fv:oo-2 fv:oc-indigo-5 ${
+              `d-f w-4 h-4 ai-c jc-c br-sm fv:oo-2 fv:oc-indigo-5 ${
                 state.checked
                   ? "bg-indigo"
                   : "bw-1 bc-silver-3 bg-transparent bs-o-xs"

@@ -13,7 +13,7 @@ export default function SliderDisabled() {
         <Slider.Control className="d-f ai-c py-3 o-50 us-none ta-none c-na">
           <Slider.Track className="p-r h-2 w-100% bg-silver-1 br-9999">
             <Slider.Indicator className="bg-indigo-2 br-9999" />
-            <Slider.Thumb className="w-5 h-5 bg-white bc-silver-3 br-9999 bw-1 bs-o-sm fv:ow-2 fv:oo-2 fv:oc-indigo-5" />
+            <Slider.Thumb className="w-5 h-5 bg-white bc-silver-3 br-9999 bw-1 bs-o-sm fv:oo-2 fv:oc-indigo-5" />
           </Slider.Track>
         </Slider.Control>
       </Slider.Root>

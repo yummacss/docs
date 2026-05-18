@@ -19,7 +19,7 @@ export default function DialogNewTask() {
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger
         render={
-          <Button className="px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:ow-2 fv:oo-2 fv:oc-indigo-5" />
+          <Button className="px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5" />
         }
       >
         New task
@@ -57,7 +57,7 @@ export default function DialogNewTask() {
                   </Dialog.Title>
                   <Dialog.Close
                     render={
-                      <Button className="d-f ai-c jc-c w-7 h-7 c-slate-6 bw-0 br-md h:bg-silver-2 fv:ow-2 fv:oo-2 fv:oc-indigo-5" />
+                      <Button className="d-f ai-c jc-c w-7 h-7 c-slate-6 bw-0 br-md h:bg-silver-2 fv:oo-2 fv:oc-indigo-5" />
                     }
                   >
                     <Xmark aria-hidden className="w-4 h-4" />
@@ -74,7 +74,9 @@ export default function DialogNewTask() {
                     />
                   </div>
                   <div className="d-f fd-c g-2">
-                    <label className="c-slate-10 fs-sm fw-500">Description</label>
+                    <label className="c-slate-10 fs-sm fw-500">
+                      Description
+                    </label>
                     <Field.Control
                       render={<textarea />}
                       placeholder="Add details about this task..."
@@ -119,7 +121,10 @@ export default function DialogNewTask() {
                                     initial={{ opacity: 0, scale: 0.95 }}
                                     animate={{ opacity: 1, scale: 1 }}
                                     exit={{ opacity: 0, scale: 0.95 }}
-                                    transition={{ duration: 0.15, ease: "easeOut" }}
+                                    transition={{
+                                      duration: 0.15,
+                                      ease: "easeOut",
+                                    }}
                                   />
                                 }
                                 className="py-1 w-88 bg-white bc-silver-2 bw-1 br-xl bs-o-xs"
@@ -149,7 +154,9 @@ export default function DialogNewTask() {
                   </div>
                   <div className="d-g g-3 sm:gtc-2">
                     <div className="d-f fd-c g-2">
-                      <label className="c-slate-10 fs-sm fw-500">Assignee</label>
+                      <label className="c-slate-10 fs-sm fw-500">
+                        Assignee
+                      </label>
                       <Autocomplete.Root
                         items={teamMembers}
                         open={assigneeOpen}
@@ -170,7 +177,10 @@ export default function DialogNewTask() {
                                   initial={{ opacity: 0, scale: 0.95 }}
                                   animate={{ opacity: 1, scale: 1 }}
                                   exit={{ opacity: 0, scale: 0.95 }}
-                                  transition={{ duration: 0.15, ease: "easeOut" }}
+                                  transition={{
+                                    duration: 0.15,
+                                    ease: "easeOut",
+                                  }}
                                 >
                                   <Autocomplete.Popup className="o-h w-42 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs">
                                     <Autocomplete.List className="oy-auto max-h-48 py-1 ow-0">
@@ -196,7 +206,9 @@ export default function DialogNewTask() {
                                                   {member.name[0]}
                                                 </Avatar.Fallback>
                                               </Avatar.Root>
-                                              <span className="fw-500">{member.name}</span>
+                                              <span className="fw-500">
+                                                {member.name}
+                                              </span>
                                             </div>
                                           )}
                                         />
@@ -216,9 +228,11 @@ export default function DialogNewTask() {
                       </Autocomplete.Root>
                     </div>
                     <div className="d-f fd-c g-2">
-                      <label className="c-slate-10 fs-sm fw-500">Due date</label>
+                      <label className="c-slate-10 fs-sm fw-500">
+                        Due date
+                      </label>
                       <Field.Control
-                          render={<input type="date" />}
+                        render={<input type="date" />}
                         aria-label="Due date"
                         className="h-10 w-100% min-w-0 pl-3 bg-white bc-silver-3 c-slate-10 bw-1 br-md fs-md fv:oo--1 fv:oc-indigo-5"
                       />
@@ -228,14 +242,14 @@ export default function DialogNewTask() {
                 <div className="d-g gtc-2 g-3 px-4 py-4 bg-white">
                   <Dialog.Close
                     render={
-                      <Button className="px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:ow-2 fv:oo-2 fv:oc-indigo-5" />
+                      <Button className="px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5" />
                     }
                   >
                     Cancel
                   </Dialog.Close>
                   <Dialog.Close
                     render={
-                      <Button className="px-3 py-2 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:oc-indigo-5 fv:ow-2 fv:oo-2" />
+                      <Button className="px-3 py-2 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:oc-indigo-5 fv:oo-2" />
                     }
                   >
                     Create task
