@@ -147,7 +147,7 @@ export default function DialogNewTask() {
                       </AnimatePresence>
                     </Select.Root>
                   </div>
-                  <div className="d-g gtc-2 g-3">
+                  <div className="d-g g-3 sm:gtc-2">
                     <div className="d-f fd-c g-2">
                       <label className="c-slate-10 fs-sm fw-500">Assignee</label>
                       <Autocomplete.Root
@@ -157,7 +157,7 @@ export default function DialogNewTask() {
                       >
                         <Autocomplete.Input
                           placeholder="Name"
-                          className="h-10 w-42 pl-3 bg-white bc-silver-3 c-slate-10 bw-1 br-md fs-md fv:oo--1 fv:oc-indigo-5"
+                          className="h-10 w-100% pl-3 bg-white bc-silver-3 c-slate-10 bw-1 br-md fs-md fv:oo--1 fv:oc-indigo-5"
                         />
                         <AnimatePresence>
                           {assigneeOpen && (
@@ -220,7 +220,7 @@ export default function DialogNewTask() {
                       <Field.Control
                           render={<input type="date" />}
                         aria-label="Due date"
-                        className="h-10 w-42 pl-3 bg-white bc-silver-3 c-slate-10 bw-1 br-md fs-md fv:oo--1 fv:oc-indigo-5"
+                        className="h-10 w-100% pl-3 bg-white bc-silver-3 c-slate-10 bw-1 br-md fs-md fv:oo--1 fv:oc-indigo-5"
                       />
                     </div>
                   </div>

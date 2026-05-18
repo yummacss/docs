@@ -82,7 +82,7 @@ export default function DialogEditProfile() {
                       <span className="c-slate-6 fs-sm">@sarah</span>
                     </div>
                   </div>
-                  <div className="d-g gtc-2 g-3">
+                  <div className="d-g g-3 sm:gtc-2">
                     <div className="d-f fd-c g-2">
                       <label className="c-slate-10 fs-sm fw-500">First name</label>
                       <Field.Control
