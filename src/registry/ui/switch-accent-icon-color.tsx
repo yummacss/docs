@@ -15,7 +15,7 @@ export default function SwitchAccentIconColor() {
         id="switch-notifications-icon-color"
         checked={checked}
         onCheckedChange={setChecked}
-        className={`p-r d-f ai-c h-5 w-9 br-9999 m-0 px-1 c-p tp-c tdu-150 ttf-io fv:ow-2 fv:oo-2 fv:oc-indigo-5 ${
+        className={`p-r d-f ai-c h-5 w-9 br-9999 m-0 px-1 c-p tp-c tdu-150 ttf-io fv:oo-2 fv:oc-indigo-3 ${
           checked ? "bg-indigo" : "bg-silver-1"
         }`}
       >

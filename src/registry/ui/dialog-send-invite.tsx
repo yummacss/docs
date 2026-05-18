@@ -16,7 +16,7 @@ export default function DialogSendInvite() {
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger
         render={
-          <Button className="px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:ow-2 fv:oo-2 fv:oc-indigo-5" />
+          <Button className="px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5" />
         }
       >
         Send invite
@@ -54,7 +54,7 @@ export default function DialogSendInvite() {
                   </Dialog.Title>
                   <Dialog.Close
                     render={
-                      <Button className="d-f ai-c jc-c w-7 h-7 c-slate-6 bw-0 br-md h:bg-silver-2 fv:ow-2 fv:oo-2 fv:oc-indigo-5" />
+                      <Button className="d-f ai-c jc-c w-7 h-7 c-slate-6 bw-0 br-md h:bg-silver-2 fv:oo-2 fv:oc-indigo-5" />
                     }
                   >
                     <Xmark aria-hidden className="w-4 h-4" />
@@ -62,7 +62,9 @@ export default function DialogSendInvite() {
                 </div>
                 <div className="d-f fd-c g-4 px-4 py-5 bg-white bc-silver-2 btr-lg btw-1">
                   <div className="d-f fd-c g-2">
-                    <label className="c-slate-10 fs-sm fw-500">Email address</label>
+                    <label className="c-slate-10 fs-sm fw-500">
+                      Email address
+                    </label>
                     <Field.Control
                       render={<input type="email" />}
                       placeholder="colleague@company.com"
@@ -107,7 +109,10 @@ export default function DialogSendInvite() {
                                     initial={{ opacity: 0, scale: 0.95 }}
                                     animate={{ opacity: 1, scale: 1 }}
                                     exit={{ opacity: 0, scale: 0.95 }}
-                                    transition={{ duration: 0.15, ease: "easeOut" }}
+                                    transition={{
+                                      duration: 0.15,
+                                      ease: "easeOut",
+                                    }}
                                   />
                                 }
                                 className="py-1 w-88 bg-white bc-silver-2 bw-1 br-xl bs-o-xs"
@@ -136,7 +141,9 @@ export default function DialogSendInvite() {
                     </Select.Root>
                   </div>
                   <div className="d-f fd-c g-2">
-                    <label className="c-slate-10 fs-sm fw-500">Message (optional)</label>
+                    <label className="c-slate-10 fs-sm fw-500">
+                      Message (optional)
+                    </label>
                     <Field.Control
                       render={<textarea />}
                       placeholder="Add a personal note to your invitation..."
@@ -148,14 +155,14 @@ export default function DialogSendInvite() {
                 <div className="d-g gtc-2 g-3 px-4 py-4 bg-white">
                   <Dialog.Close
                     render={
-                      <Button className="px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:ow-2 fv:oo-2 fv:oc-indigo-5" />
+                      <Button className="px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5" />
                     }
                   >
                     Cancel
                   </Dialog.Close>
                   <Dialog.Close
                     render={
-                      <Button className="px-3 py-2 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:oc-indigo-5 fv:ow-2 fv:oo-2" />
+                      <Button className="px-3 py-2 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:oc-indigo-5 fv:oo-2" />
                     }
                   >
                     Send invite

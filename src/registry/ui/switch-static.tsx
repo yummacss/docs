@@ -13,8 +13,8 @@ export default function SwitchStatic() {
         id="switch-unsubscribe"
         checked={checked}
         onCheckedChange={setChecked}
-        className={`p-r d-f ai-c h-5 w-9 br-9999 m-0 px-1 c-p fv:ow-2 fv:oo-2 fv:oc-indigo-5 ${
-          checked ? "bg-green-5" : "bg-silver-1"
+        className={`p-r d-f ai-c h-5 w-9 br-9999 m-0 px-1 c-p fv:oo-2 fv:oc-indigo-5 ${
+          checked ? "bg-indigo-5" : "bg-silver-1"
         }`}
       >
         <Switch.Thumb

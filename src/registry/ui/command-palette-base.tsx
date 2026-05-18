@@ -41,7 +41,12 @@ const commandGroups: CommandGroup[] = [
   {
     label: "Pages",
     items: [
-      { id: "dashboard", label: "Dashboard", shortcut: "\u23181", Icon: Folder },
+      {
+        id: "dashboard",
+        label: "Dashboard",
+        shortcut: "\u23181",
+        Icon: Folder,
+      },
       { id: "projects", label: "Projects", shortcut: "\u23182", Icon: Folder },
       { id: "calendar", label: "Calendar", shortcut: "\u23183", Icon: Clock },
       { id: "settings", label: "Settings", shortcut: "\u2318,", Icon: Gear },
@@ -69,12 +74,12 @@ export default function DialogCommandPaletteBase() {
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger
         render={
-          <Button className="d-f ai-c g-2 px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:ow-2 fv:oo-2 fv:oc-indigo-5" />
+          <Button className="d-f ai-c g-2 px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo--1 fv:oc-indigo-5" />
         }
       >
         <Magnifier className="w-4 h-4" />
         <span>Commands</span>
-        <kbd className="d-f ai-c px-1 py-0.5 bg-silver-1/50 c-slate-5 br-md fs-xs ml-3 us-none">
+        <kbd className="d-f ai-c px-1 py-0.5 ml-3 bg-silver-1/50 c-slate-5 br-md fs-xs us-none">
           {"\u2318K"}
         </kbd>
       </Dialog.Trigger>
@@ -92,7 +97,7 @@ export default function DialogCommandPaletteBase() {
               }
               className="p-f i-0 min-h-dvh bg-black/20 bf-b-xs"
             />
-            <div className="d-f p-f i-0 ai-c jc-c o-y-auto">
+            <div className="d-f p-f i-0 o-y-auto ai-c jc-c">
               <Dialog.Popup
                 render={
                   <motion.div
@@ -115,7 +120,7 @@ export default function DialogCommandPaletteBase() {
                     />
                     <Dialog.Close
                       render={
-                        <Button className="d-f ai-c jc-c w-7 h-7 c-slate-6 bw-0 br-md h:bg-silver-2 fv:ow-2 fv:oo-2 fv:oc-indigo-5" />
+                        <Button className="d-f ai-c jc-c w-7 h-7 c-slate-6 bw-0 br-md h:bg-silver-2 fv:oo-2 fv:oc-indigo-5" />
                       }
                     >
                       <Xmark aria-hidden className="w-4 h-4" />
@@ -124,7 +129,7 @@ export default function DialogCommandPaletteBase() {
                   <Combobox.List className="oy-auto max-h-80 py-2 ow-0">
                     {(group: CommandGroup, groupIndex: number) => (
                       <Combobox.Group key={group.label}>
-                        <div className="px-4 pt-3 pb-1 fs-xs fw-500 c-slate-5 tt-u">
+                        <div className="px-4 pt-3 pb-1 c-slate-5 fs-xs fw-500 tt-u">
                           {group.label}
                         </div>
                         {group.items.map((item) => (

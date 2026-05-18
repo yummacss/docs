@@ -17,7 +17,7 @@ export default function DialogNested() {
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger
         render={
-          <Button className="px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:ow-2 fv:oo-2 fv:oc-indigo-5" />
+          <Button className="px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5" />
         }
       >
         Team settings
@@ -59,7 +59,7 @@ export default function DialogNested() {
                   </Dialog.Title>
                   <Dialog.Close
                     render={
-                      <Button className="d-f ai-c jc-c w-7 h-7 c-slate-6 bw-0 br-md h:bg-silver-2 fv:ow-2 fv:oo-2 fv:oc-indigo-5" />
+                      <Button className="d-f ai-c jc-c w-7 h-7 c-slate-6 bw-0 br-md h:bg-silver-2 fv:oo-2 fv:oc-indigo-5" />
                     }
                   >
                     <Xmark aria-hidden className="w-4 h-4" />
@@ -93,7 +93,7 @@ export default function DialogNested() {
                         <Dialog.Trigger
                           onClick={() => setMemberToRemove(member)}
                           render={
-                            <Button className="px-2 py-1 bg-red h:bg-red-8 bc-red-7 c-white br-md bw-1 fs-xs fw-500 tp-c tdu-150 ttf-io us-none fv:ow-2 fv:oo-2 fv:oc-red-6" />
+                            <Button className="px-2 py-1 bg-red h:bg-red-8 bc-red-7 c-white br-md bw-1 fs-xs fw-500 tp-c tdu-150 ttf-io us-none fv:oo-2 fv:oc-red-6" />
                           }
                         >
                           Remove
@@ -123,7 +123,7 @@ export default function DialogNested() {
                                     </Dialog.Title>
                                     <Dialog.Close
                                       render={
-                                        <Button className="d-f ai-c jc-c w-7 h-7 c-slate-6 bw-0 br-md h:bg-silver-2 fv:ow-2 fv:oo-2 fv:oc-indigo-5" />
+                                        <Button className="d-f ai-c jc-c w-7 h-7 c-slate-6 bw-0 br-md h:bg-silver-2 fv:oo-2 fv:oc-indigo-5" />
                                       }
                                     >
                                       <Xmark aria-hidden className="w-4 h-4" />
@@ -162,7 +162,7 @@ export default function DialogNested() {
                                   <div className="d-g gtc-2 g-3 px-4 py-4 bg-white">
                                     <Dialog.Close
                                       render={
-                                        <Button className="px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:ow-2 fv:oo-2 fv:oc-indigo-5" />
+                                        <Button className="px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5" />
                                       }
                                     >
                                       Cancel

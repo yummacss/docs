@@ -23,7 +23,7 @@ export default function CheckboxGroupLabel() {
           name="notifications"
           value="email"
           className={(state) =>
-            `d-f w-4 h-4 ai-c jc-c br-sm fv:ow-2 fv:oo-2 fv:oc-indigo-5 ${
+            `d-f w-4 h-4 ai-c jc-c br-sm fv:oo-2 fv:oc-indigo-5 ${
               state.checked
                 ? "bg-indigo"
                 : "bw-1 bc-silver-3 bg-transparent bs-o-xs"
@@ -42,7 +42,7 @@ export default function CheckboxGroupLabel() {
           name="notifications"
           value="sms"
           className={(state) =>
-            `d-f w-4 h-4 ai-c jc-c br-sm fv:ow-2 fv:oo-2 fv:oc-indigo-5 ${
+            `d-f w-4 h-4 ai-c jc-c br-sm fv:oo-2 fv:oc-indigo-5 ${
               state.checked
                 ? "bg-indigo"
                 : "bw-1 bc-silver-3 bg-transparent bs-o-xs"
@@ -61,7 +61,7 @@ export default function CheckboxGroupLabel() {
           name="notifications"
           value="push"
           className={(state) =>
-            `d-f w-4 h-4 ai-c jc-c br-sm fv:ow-2 fv:oo-2 fv:oc-indigo-5 ${
+            `d-f w-4 h-4 ai-c jc-c br-sm fv:oo-2 fv:oc-indigo-5 ${
               state.checked
                 ? "bg-indigo"
                 : "bw-1 bc-silver-3 bg-transparent bs-o-xs"

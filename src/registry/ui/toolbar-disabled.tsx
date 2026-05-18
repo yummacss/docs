@@ -17,7 +17,7 @@ export default function ToolbarDisabled() {
   const [view, setView] = useState<string[]>(["grid"]);
 
   return (
-    <Toolbar.Root className="d-f ai-c g-1 p-1 bg-white bc-silver-2 br-lg bw-1">
+    <Toolbar.Root className="d-f ai-c g-1 p-2 bg-white bc-silver-2 br-lg bw-1">
       <ToggleGroup
         className="d-f g-1"
         value={view}
@@ -28,7 +28,7 @@ export default function ToolbarDisabled() {
           value="grid"
           aria-label="Grid"
           className={(state) =>
-            `d-f w-9 h-9 ai-c jc-c bw-0 br-md us-none c-p fv:oo--1 fv:oc-indigo-5 ${
+            `d-f w-9 h-9 ai-c jc-c bw-0 br-md us-none c-p fv:oo-2 fv:oc-indigo-3 ${
               state.pressed
                 ? "bg-indigo c-white"
                 : "bg-transparent c-slate-8 h:bg-silver-1 h:c-slate-10"
@@ -41,7 +41,7 @@ export default function ToolbarDisabled() {
           value="list"
           aria-label="List"
           className={(state) =>
-            `d-f w-9 h-9 ai-c jc-c bw-0 br-md us-none c-p fv:oo--1 fv:oc-indigo-5 ${
+            `d-f w-9 h-9 ai-c jc-c bw-0 br-md us-none c-p fv:oo-2 fv:oc-indigo-3 ${
               state.pressed
                 ? "bg-indigo c-white"
                 : "bg-transparent c-slate-8 h:bg-silver-1 h:c-slate-10"
@@ -54,7 +54,7 @@ export default function ToolbarDisabled() {
           value="kanban"
           aria-label="Kanban"
           className={(state) =>
-            `d-f w-9 h-9 ai-c jc-c bw-0 br-md us-none c-p fv:oo--1 fv:oc-indigo-5 ${
+            `d-f w-9 h-9 ai-c jc-c bw-0 br-md us-none c-p fv:oo-2 fv:oc-indigo-3 ${
               state.pressed
                 ? "bg-indigo c-white"
                 : "bg-transparent c-slate-8 h:bg-silver-1 h:c-slate-10"
@@ -88,7 +88,7 @@ export default function ToolbarDisabled() {
       <Toolbar.Separator className="w-px h-5 bg-silver-3" />
 
       <Toolbar.Input
-        className="h-9 w-40 pl-3 bg-transparent bw-0 br-md fs-sm fv:oo--1 fv:oc-indigo-5"
+        className="h-9 w-40 pl-3 bg-transparent bw-0 br-md fs-sm fv:oo-2 fv:oc-indigo-3"
         placeholder="Search tasks..."
         aria-label="Search tasks"
       />

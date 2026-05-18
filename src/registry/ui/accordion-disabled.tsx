@@ -27,7 +27,7 @@ export default function AccordionDisabled() {
             <Accordion.Header className="m-0">
               <Accordion.Trigger
                 className={`d-f bw-0 ai-c jc-sb g-3 w-100% py-4 px-0 bg-transparent br-sm ta-l ${
-                  isDisabled ? "pe-none" : "c-p"
+                  isDisabled ? "c-na" : "c-p"
                 }`}
               >
                 <div className="d-f ai-c g-3">
@@ -87,7 +87,7 @@ const faqs = [
     title: "How do I control team access?",
     content:
       "Go to Team Settings to manage roles. Assign Admin, Member, or Viewer roles. You can also set project-specific permissions for each team member.",
-    disabled: false,
+    disabled: true,
   },
   {
     value: "notifications",
@@ -101,6 +101,6 @@ const faqs = [
     title: "How do I manage sprints?",
     content:
       "Create sprints from the Sprint page. Assign tasks from the backlog to the current sprint. Track progress with the burndown chart.",
-    disabled: false,
+    disabled: true,
   },
 ];

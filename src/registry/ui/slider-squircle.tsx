@@ -16,7 +16,7 @@ export default function SliderSquircle() {
         <Slider.Control className="d-f ai-c py-3 us-none ta-none">
           <Slider.Track className="p-r h-2 w-100% bg-silver-1 br-xxl cs-s">
             <Slider.Indicator className="bg-indigo br-xxl cs-s" />
-            <Slider.Thumb className="w-5 h-5 bg-white bc-silver-3 br-xxl cs-s bw-1 bs-o-sm fv:ow-2 fv:oo-2 fv:oc-indigo-5" />
+            <Slider.Thumb className="w-5 h-5 bg-white bc-silver-3 br-xxl cs-s bw-1 bs-o-sm fv:oo-2 fv:oc-indigo-5" />
           </Slider.Track>
         </Slider.Control>
       </Slider.Root>

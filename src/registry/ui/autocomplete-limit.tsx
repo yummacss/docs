@@ -8,7 +8,12 @@ export default function AutocompleteLimit() {
   const [open, setOpen] = useState(false);
 
   return (
-    <Autocomplete.Root items={Projects} open={open} onOpenChange={setOpen} limit={5}>
+    <Autocomplete.Root
+      items={Projects}
+      open={open}
+      onOpenChange={setOpen}
+      limit={5}
+    >
       <div className="d-f fd-c g-2">
         <label htmlFor="limit-input" className="c-slate-10 fs-sm fw-500">
           Switch project
@@ -16,7 +21,7 @@ export default function AutocompleteLimit() {
         <Autocomplete.Input
           id="limit-input"
           placeholder="Search projects…"
-          className="h-10 w-64 pl-4 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md bs-o-xs fv:ow-2 fv:oo--1 fv:oc-indigo-5"
+          className="h-10 w-64 pl-4 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md bs-o-xs fv:oo--1 fv:oc-indigo-5"
         />
       </div>
 
