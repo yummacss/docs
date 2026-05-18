@@ -32,9 +32,13 @@ export default function PopoverArrow() {
                 }
                 className="px-4 py-3 w-60 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs"
               >
-                <Popover.Arrow className="d-f ai-c jc-c w-4 h-4">
-                  <div className="w-4 h-4 bg-white bc-silver-1 blw-1 btw-1 ro-45" />
-                </Popover.Arrow>
+                <Popover.Arrow
+                  render={
+                    <div className="d-f ai-c jc-c">
+                      <div className="w-4 h-4 bg-white bc-silver-1 blw-1 btw-1 ro-45" />
+                    </div>
+                  }
+                />
                 <Popover.Title className="m-0 mb-1 c-slate-10 fs-sm fw-500">
                   Sprint 6
                 </Popover.Title>
