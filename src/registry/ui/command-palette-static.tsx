@@ -46,7 +46,8 @@ export default function CommandPaletteStatic() {
         </kbd>
       </Dialog.Trigger>
 
-      <Dialog.Portal keepMounted>
+      {open && (
+        <Dialog.Portal keepMounted>
         <Dialog.Backdrop className="p-f i-0 min-h-dvh bg-black/20 bf-b-xs" />
         <div className="d-f p-f i-0 ai-c jc-c">
           <Dialog.Popup
@@ -109,6 +110,7 @@ export default function CommandPaletteStatic() {
           </Dialog.Popup>
         </div>
       </Dialog.Portal>
+      )}
     </Dialog.Root>
   );
 }
