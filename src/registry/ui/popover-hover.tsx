@@ -36,7 +36,7 @@ export default function PopoverHover() {
                 <Popover.Title className="m-0 mb-1 c-slate-10 fs-sm fw-500">
                   IID-104 - Reporting Dashboard
                 </Popover.Title>
-                <div className="d-f ai-c g-2 mb-1">
+                <div className="d-f ai-c g-2 my-2">
                   <span className="d-if ai-c px-2 py-0.5 bg-indigo-1 c-indigo-7 br-9999 fs-xs fw-500">
                     In Progress
                   </span>
