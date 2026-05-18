@@ -1,6 +1,5 @@
 "use client";
 
-
 import { Menu } from "@base-ui/react/menu";
 import { Check, ChevronDown } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
@@ -33,7 +32,7 @@ export default function MenuCheckboxes() {
                 }
                 className="py-1 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs"
               >
-                <div className="px-3 py-1 c-slate-5 fs-xs fw-500 tt-u ls-3">
+                <div className="px-3 py-1 c-slate-5 fs-xs fw-500 ls-3">
                   Task filters
                 </div>
 

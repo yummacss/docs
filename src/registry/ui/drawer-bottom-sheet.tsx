@@ -62,7 +62,7 @@ export default function DrawerBottomSheet() {
                 </Drawer.Close>
               </div>
               <div className="d-f fd-c px-2 py-2">
-                <p className="px-3 py-2 c-slate-6 fs-xs fw-500 tt-u ls-3">
+                <p className="px-3 py-2 c-slate-6 fs-xs fw-500 ls-3">
                   Change Status
                 </p>
                 {statuses.map((s) => (
@@ -83,9 +83,7 @@ export default function DrawerBottomSheet() {
                   </Drawer.Close>
                 ))}
                 <div className="my-2 h-px w-100% bg-silver-2" />
-                <p className="px-3 py-2 c-slate-6 fs-xs fw-500 tt-u ls-3">
-                  Actions
-                </p>
+                <p className="px-3 py-2 c-slate-6 fs-xs fw-500 ls-3">Actions</p>
                 <Drawer.Close
                   render={
                     <button

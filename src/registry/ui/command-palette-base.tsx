@@ -7,10 +7,12 @@ import {
   BellDot,
   Clock,
   Copy,
+  Eye,
   Folder,
   Gear,
   Magnifier,
-  Person,
+  Pencil,
+  Persons,
   Plus,
   Xmark,
 } from "@gravity-ui/icons";
@@ -151,25 +153,20 @@ const commandGroups: CommandGroup[] = [
   {
     label: "Actions",
     items: [
-      { id: "new-task", label: "New task", shortcut: "\u2318N", Icon: Plus },
-      { id: "duplicate", label: "Duplicate", shortcut: "\u2318D", Icon: Copy },
-      { id: "delete", label: "Delete", Icon: Xmark },
+      { id: "new-doc", label: "New doc", Icon: Plus },
+      { id: "drafts", label: "Drafts", Icon: Pencil },
+      { id: "templates", label: "Templates", Icon: Copy },
     ],
   },
   {
     label: "Pages",
     items: [
-      {
-        id: "dashboard",
-        label: "Dashboard",
-        shortcut: "\u23181",
-        Icon: Folder,
-      },
-      { id: "projects", label: "Projects", shortcut: "\u23182", Icon: Folder },
-      { id: "calendar", label: "Calendar", shortcut: "\u23183", Icon: Clock },
-      { id: "settings", label: "Settings", shortcut: "\u2318,", Icon: Gear },
-      { id: "team", label: "Team", shortcut: "\u2318T", Icon: Person },
-      { id: "activity", label: "Activity", shortcut: "\u2318L", Icon: BellDot },
+      { id: "knowledge-base", label: "Knowledge base", Icon: Folder },
+      { id: "published", label: "Published pages", Icon: Eye },
+      { id: "analytics", label: "Analytics", Icon: BellDot },
+      { id: "settings", label: "Settings", Icon: Gear },
+      { id: "team-docs", label: "Team docs", Icon: Persons },
+      { id: "activity", label: "Activity", Icon: Clock },
     ],
   },
 ];
