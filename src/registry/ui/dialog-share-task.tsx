@@ -78,7 +78,7 @@ export default function DialogShareTask() {
                       onOpenChange={setPermOpen}
                     >
                       <Select.Trigger
-                        className={`d-f ai-c jc-sb h-10 w-100% bw-1 bc-silver-3 br-md bg-white px-3 c-slate-10 us-none c-p fv:oo--1 fv:oc-indigo-5 ${
+                        className={`d-f ai-c jc-sb h-10 w-100% bw-1 bc-silver-3 br-md bg-white px-3 c-slate-10 fs-md us-none c-p fv:oo--1 fv:oc-indigo-5 ${
                           permOpen ? "bg-silver-1/50" : "bg-transparent"
                         }`}
                       >
