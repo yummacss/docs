@@ -3,6 +3,7 @@
 import { Button } from "@base-ui/react/button";
 import { Combobox } from "@base-ui/react/combobox";
 import { Dialog } from "@base-ui/react/dialog";
+import { Tabs } from "@base-ui/react/tabs";
 import {
   BellDot,
   Clock,
@@ -140,22 +141,38 @@ export default function CommandPaletteModes() {
                       <Xmark aria-hidden className="w-5 h-5" />
                     </Dialog.Close>
                   </div>
-                  <div className="d-f g-1 px-4 py-1 bg-silver-1">
-                    {scopes.map(({ value, label }) => (
-                      <button
-                        key={value}
-                        type="button"
-                        onClick={() => setScope(value)}
-                        className={`d-f ai-c jc-c py-1 px-2 fs-xs fw-500 c-p us-none br-md ${
-                          scope === value
-                            ? "bg-white c-slate-10"
-                            : "c-slate-6 h:c-slate-10"
-                        }`}
-                      >
-                        {label}
-                      </button>
-                    ))}
-                  </div>
+                  <Tabs.Root
+                    value={scope}
+                    onValueChange={(v) => setScope(v as Scope)}
+                    className="w-100% bg-silver-1"
+                  >
+                    <Tabs.List className="d-f p-r g-1 px-4 py-1">
+                      {scopes.map(({ value, label }) => (
+                        <Tabs.Tab
+                          key={value}
+                          value={value}
+                          className={`p-r zi-10 fg-1 d-f ai-c jc-c py-1 px-2 bg-transparent us-none fv:oo--1 fv:oc-indigo br-md ${
+                            scope === value
+                              ? "c-slate-10"
+                              : "c-slate-6 h:c-slate-10"
+                          }`}
+                        >
+                          <span className="p-r zi-10 fs-xs fw-500">
+                            {label}
+                          </span>
+                        </Tabs.Tab>
+                      ))}
+                      <Tabs.Indicator
+                        className="p-a l-0 zi-0 bg-white br-md bs-o-xs tp-a tdu-200 ttf-io"
+                        style={{
+                          translate: "var(--active-tab-left) 0",
+                          width: "var(--active-tab-width)",
+                          top: "var(--active-tab-top)",
+                          height: "var(--active-tab-height)",
+                        }}
+                      />
+                    </Tabs.List>
+                  </Tabs.Root>
                   <div className="bg-white bc-silver-2 btr-lg btw-1">
                     <Combobox.List className="oy-auto max-h-64 py-1 ow-0">
                       {(group: CommandGroup, groupIndex: number) => (
