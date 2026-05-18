@@ -293,10 +293,6 @@ summary {
   border-color: #9ca3af;
 }
 
-.bc-silver-1 {
-  border-color: #eff0f2;
-}
-
 .bc-silver-2 {
   border-color: #e1e3e7;
 }
@@ -966,6 +962,10 @@ summary {
 
 .c-silver-10 {
   color: #45484d;
+}
+
+.c-silver-2 {
+  color: #e1e3e7;
 }
 
 .c-silver-8 {
@@ -1685,6 +1685,10 @@ summary {
   left: 1rem;
 }
 
+.l-50\% {
+  left: 50%;
+}
+
 .l-auto {
   left: auto;
 }
@@ -2331,6 +2335,10 @@ summary {
 
 .spt-20 {
   scroll-padding-top: 5rem;
+}
+
+.t--2 {
+  top: -.5rem;
 }
 
 .t--4 {
