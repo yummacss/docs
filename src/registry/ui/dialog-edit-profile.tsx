@@ -113,12 +113,12 @@ export default function DialogEditProfile() {
                   </div>
                   <div className="d-f fd-c g-2">
                     <label className="c-slate-10 fs-sm fw-500">Email</label>
-                    <div className="d-f ai-c">
+                    <div className="d-f ai-c min-w-0">
                       <Field.Control
                         render={<input />}
                         defaultValue="sarah"
                         aria-label="Email"
-                        className="h-10 fg-1 pl-3 bg-white bc-silver-3 c-slate-10 byw-1 blw-1 blr-md fs-md fv:oo--1 fv:oc-indigo-5"
+                        className="h-10 fg-1 min-w-0 pl-3 bg-white bc-silver-3 c-slate-10 byw-1 blw-1 blr-md fs-md fv:oo--1 fv:oc-indigo-5"
                       />
                       <Separator className="w-px h-10 bg-silver-3" />
                       <div className="d-f ai-c jc-c px-3 h-10 bg-white bc-silver-3 c-slate-6 byw-1 brw-1 brr-md fs-md">

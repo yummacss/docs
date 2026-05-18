@@ -220,7 +220,7 @@ export default function DialogNewTask() {
                       <Field.Control
                           render={<input type="date" />}
                         aria-label="Due date"
-                        className="h-10 w-100% pl-3 bg-white bc-silver-3 c-slate-10 bw-1 br-md fs-md fv:oo--1 fv:oc-indigo-5"
+                        className="h-10 w-100% min-w-0 pl-3 bg-white bc-silver-3 c-slate-10 bw-1 br-md fs-md fv:oo--1 fv:oc-indigo-5"
                       />
                     </div>
                   </div>
