@@ -1,0 +1,52 @@
+"use client";
+
+import { Popover } from "@base-ui/react/popover";
+import { Calendar } from "@gravity-ui/icons";
+import { AnimatePresence, motion } from "motion/react";
+import { useState } from "react";
+
+export default function PopoverArrow() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <Popover.Root open={open} onOpenChange={setOpen}>
+      <Popover.Trigger
+        className={`d-f ai-c jc-c w-10 h-10 bw-1 bc-silver-2 br-md bg-white c-slate-10 us-none c-p h:bg-silver-1 fv:oo-2 fv:oc-indigo-5 ${
+          open ? "bg-silver-1" : ""
+        }`}
+      >
+        <Calendar aria-label="Sprint info" className="w-5 h-5" />
+      </Popover.Trigger>
+      <AnimatePresence>
+        {open && (
+          <Popover.Portal keepMounted>
+            <Popover.Positioner sideOffset={8}>
+              <Popover.Popup
+                render={
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    transition={{ duration: 0.15, ease: "easeOut" }}
+                  />
+                }
+                className="px-4 py-3 w-60 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs"
+              >
+                <Popover.Arrow className="d-f ai-c jc-c w-4 h-4">
+                  <div className="w-4 h-4 bg-white bc-silver-1 blw-1 btw-1 ro-45" />
+                </Popover.Arrow>
+                <Popover.Title className="m-0 mb-1 c-slate-10 fs-sm fw-500">
+                  Sprint 6
+                </Popover.Title>
+                <Popover.Description className="m-0 c-slate-8 fs-xs">
+                  Jun 15 - Jun 28, 2026 - Focus on dashboard reporting and team
+                  collaboration features.
+                </Popover.Description>
+              </Popover.Popup>
+            </Popover.Positioner>
+          </Popover.Portal>
+        )}
+      </AnimatePresence>
+    </Popover.Root>
+  );
+}
