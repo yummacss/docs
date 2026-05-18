@@ -40,6 +40,9 @@ export default function CommandPaletteBase() {
       >
         <Magnifier className="w-4 h-4" />
         <span>Commands</span>
+        <kbd className="d-f ai-c px-1 py-0.5 ml-3 bg-silver-1/50 c-slate-5 br-md fs-xs us-none">
+          {"\u2318/"}
+        </kbd>
       </Dialog.Trigger>
       <AnimatePresence>
         {open && (
