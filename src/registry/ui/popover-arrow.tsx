@@ -39,13 +39,18 @@ export default function PopoverArrow() {
                   style={{ fill: "white" }}
                 >
                   <title>Arrow</title>
-                  <path d="M0 5 L5 0 L10 5" fill="white" stroke="currentColor" strokeWidth="1" />
+                  <path
+                    d="M0 5 L5 0 L10 5"
+                    fill="white"
+                    stroke="currentColor"
+                    strokeWidth="1"
+                  />
                 </svg>
                 <Popover.Title className="m-0 mb-1 c-slate-10 fs-sm fw-500">
                   Sprint 6
                 </Popover.Title>
                 <Popover.Description className="m-0 c-slate-8 fs-xs">
-                  Jun 15 - Jun 28, 2026 — Focus on dashboard reporting and team
+                  Jun 15 - Jun 28, 2026 - Focus on dashboard reporting and team
                   collaboration features.
                 </Popover.Description>
               </Popover.Popup>

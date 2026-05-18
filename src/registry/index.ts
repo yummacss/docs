@@ -323,7 +323,12 @@ const uiRegistry = {
   "toolbar-static": dynamic(() => import("./ui/toolbar-static"), { ssr: true }),
   "tooltip-arrow": dynamic(() => import("./ui/tooltip-arrow"), { ssr: true }),
   "tooltip-base": dynamic(() => import("./ui/tooltip-base"), { ssr: true }),
+  "tooltip-close": dynamic(() => import("./ui/tooltip-close"), { ssr: true }),
+  "tooltip-color": dynamic(() => import("./ui/tooltip-color"), { ssr: true }),
+  "tooltip-hover": dynamic(() => import("./ui/tooltip-hover"), { ssr: true }),
   "tooltip-placement": dynamic(() => import("./ui/tooltip-placement"), { ssr: true }),
+  "tooltip-square": dynamic(() => import("./ui/tooltip-square"), { ssr: true }),
+  "tooltip-squircle": dynamic(() => import("./ui/tooltip-squircle"), { ssr: true }),
   "tooltip-static": dynamic(() => import("./ui/tooltip-static"), { ssr: true }),
 } as const;
 
