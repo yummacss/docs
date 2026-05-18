@@ -94,7 +94,7 @@ export default function CommandPaletteMinimal() {
                             </Combobox.Item>
                           ))}
                           {groupIndex < commandGroups.length - 1 && (
-                            <div className="w-100% h-px mx-4 bg-silver-2" />
+                            <div className="w-100% h-px my-1 bg-silver-2" />
                           )}
                         </Combobox.Group>
                       )}

@@ -20,7 +20,7 @@ import {
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useMemo, useState } from "react";
 
-export default function CommandPaletteModes() {
+export default function CommandPaletteTabs() {
   const [open, setOpen] = useState(false);
   const [scope, setScope] = useState<Scope>("all");
 
@@ -159,7 +159,7 @@ export default function CommandPaletteModes() {
                             </Combobox.Item>
                           ))}
                           {groupIndex < filteredGroups.length - 1 && (
-                            <div className="h-px my-1 mx-4 bg-silver-2" />
+                            <div className="w-100% h-px my-1 bg-silver-2" />
                           )}
                         </Combobox.Group>
                       )}
