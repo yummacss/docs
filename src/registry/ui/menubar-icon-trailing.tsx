@@ -2,7 +2,13 @@
 
 import { Menu } from "@base-ui/react/menu";
 import { Menubar } from "@base-ui/react/menubar";
-import { ArrowUpRightFromSquare, Eye, Link, Pin, Tray } from "@gravity-ui/icons";
+import {
+  ArrowUpRightFromSquare,
+  Eye,
+  Link,
+  Pin,
+  Tray,
+} from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 

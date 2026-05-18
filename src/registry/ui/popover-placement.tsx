@@ -45,10 +45,14 @@ export default function PopoverPlacement() {
                       {side.charAt(0).toUpperCase() + side.slice(1)}
                     </Popover.Title>
                     <Popover.Description className="m-0 c-slate-8 fs-xs">
-                      {side === "top" && "Quick access to project settings and configuration."}
-                      {side === "right" && "View and manage task dependencies and blockers."}
-                      {side === "bottom" && "Additional details about the current sprint."}
-                      {side === "left" && "Navigate between boards and timelines."}
+                      {side === "top" &&
+                        "Quick access to project settings and configuration."}
+                      {side === "right" &&
+                        "View and manage task dependencies and blockers."}
+                      {side === "bottom" &&
+                        "Additional details about the current sprint."}
+                      {side === "left" &&
+                        "Navigate between boards and timelines."}
                     </Popover.Description>
                   </Popover.Popup>
                 </Popover.Positioner>

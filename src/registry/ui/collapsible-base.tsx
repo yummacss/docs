@@ -1,7 +1,12 @@
 "use client";
 
 import { Collapsible } from "@base-ui/react/collapsible";
-import { ChevronRight, Circle, CircleCheckFill, CircleDashed } from "@gravity-ui/icons";
+import {
+  ChevronRight,
+  Circle,
+  CircleCheckFill,
+  CircleDashed,
+} from "@gravity-ui/icons";
 import { type HTMLMotionProps, motion } from "motion/react";
 import { useState } from "react";
 
@@ -51,9 +56,7 @@ export default function CollapsibleBase() {
               )}
               <span
                 className={`fs-sm ${
-                  task.status === "done"
-                    ? "c-slate-5 tdl-lt"
-                    : "c-slate-8"
+                  task.status === "done" ? "c-slate-5 tdl-lt" : "c-slate-8"
                 }`}
               >
                 {task.name}

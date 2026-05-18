@@ -7,11 +7,7 @@ export default function ExampleTabsUnderline() {
   const [selected, setSelected] = useState("plans");
 
   return (
-    <Tabs.Root
-      value={selected}
-      onValueChange={setSelected}
-      className="w-fc"
-    >
+    <Tabs.Root value={selected} onValueChange={setSelected} className="w-fc">
       <Tabs.List className="d-f p-r g-3 bbw-1 bc-silver-2">
         {tabs.map((tab) => {
           const isSelected = selected === tab.value;

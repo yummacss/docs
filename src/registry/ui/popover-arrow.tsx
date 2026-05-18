@@ -38,12 +38,8 @@ export default function PopoverArrow() {
                   className="p-a t--2 l-50% ml--2 w-4 h-2 c-silver-2"
                   style={{ fill: "white" }}
                 >
-                  <path
-                    d="M0 5 L5 0 L10 5"
-                    fill="white"
-                    stroke="currentColor"
-                    strokeWidth="1"
-                  />
+                  <title>Arrow</title>
+                  <path d="M0 5 L5 0 L10 5" fill="white" stroke="currentColor" strokeWidth="1" />
                 </svg>
                 <Popover.Title className="m-0 mb-1 c-slate-10 fs-sm fw-500">
                   Sprint 6
