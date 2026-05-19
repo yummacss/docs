@@ -7,10 +7,10 @@ import {
   ArrowDownIcon,
   ArrowElbowDownLeftIcon,
   ArrowUpIcon,
+  BookOpenIcon,
+  DiamondsFourIcon,
   MagnifyingGlassIcon,
-  SelectionIcon,
   SignOutIcon,
-  SquareLogoIcon,
 } from "@phosphor-icons/react";
 import { AnimatePresence, motion } from "motion/react";
 import { useRouter } from "next/navigation";
@@ -117,12 +117,12 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
   // Get category icon
   const getCategoryIcon = (category: string) => {
     if (category === "docs") {
-      return <SquareLogoIcon className="w-4 h-4 c-white/50" />;
+      return <BookOpenIcon className="w-4 h-4 c-white/50" />;
     }
     if (category === "handbook") {
-      return <SquareLogoIcon className="w-4 h-4 c-white/50" />;
+      return <BookOpenIcon className="w-4 h-4 c-white/50" />;
     }
-    return <SelectionIcon className="w-4 h-4 c-white/50" />;
+    return <DiamondsFourIcon className="w-4 h-4 c-white/50" />;
   };
 
   // Track global index for keyboard nav
