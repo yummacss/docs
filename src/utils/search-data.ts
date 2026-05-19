@@ -6,11 +6,10 @@ export interface SearchItem {
   title: string;
   description?: string;
   path: string;
-  category: "docs" | "handbook" | "colors" | "ui" | "components" | "blocks";
+  category: "docs" | "colors" | "ui-components";
   color?: string;
 }
 
-// Extract items from docs sidebar config
 function extractDocsItems(): SearchItem[] {
   const items: SearchItem[] = [];
 
@@ -39,7 +38,6 @@ function extractDocsItems(): SearchItem[] {
   return items;
 }
 
-// Extract items from UI sidebar config
 function extractUIItems(): SearchItem[] {
   const components: SearchItem[] = [];
 
@@ -49,7 +47,7 @@ function extractUIItems(): SearchItem[] {
         components.push({
           title: item.title,
           path: `/ui/components/${item.slug}`,
-          category: "components",
+          category: "ui-components",
         });
       }
       if ("children" in item && Array.isArray(item.children)) {
@@ -68,7 +66,6 @@ function extractUIItems(): SearchItem[] {
   return components;
 }
 
-// Generate color items with all shades using shared utility
 function generateColorItems(): SearchItem[] {
   const items: SearchItem[] = [];
 
@@ -91,7 +88,6 @@ function generateColorItems(): SearchItem[] {
   return items;
 }
 
-// Build combined search data
 const DOCS_ITEMS = extractDocsItems();
 const COMPONENT_ITEMS = extractUIItems();
 const COLOR_ITEMS = generateColorItems();
@@ -102,40 +98,137 @@ export const SEARCH_DATA: SearchItem[] = [
   ...COLOR_ITEMS,
 ];
 
-// Default items to show when search is empty
 export const DEFAULT_ITEMS: SearchItem[] = [
+  {
+    title: "Autocomplete",
+    path: "/ui/components/autocomplete",
+    category: "ui-components",
+  },
+  {
+    title: "Checkbox",
+    path: "/ui/components/checkbox",
+    category: "ui-components",
+  },
+  {
+    title: "Combobox",
+    path: "/ui/components/combobox",
+    category: "ui-components",
+  },
+  {
+    title: "File Upload",
+    path: "/ui/components/file-upload",
+    category: "ui-components",
+  },
+  { title: "Field", path: "/ui/components/field", category: "ui-components" },
+  { title: "Radio", path: "/ui/components/radio", category: "ui-components" },
+  { title: "Select", path: "/ui/components/select", category: "ui-components" },
+  { title: "Slider", path: "/ui/components/slider", category: "ui-components" },
+  { title: "Switch", path: "/ui/components/switch", category: "ui-components" },
+  {
+    title: "Textarea",
+    path: "/ui/components/textarea",
+    category: "ui-components",
+  },
+  { title: "Toggle", path: "/ui/components/toggle", category: "ui-components" },
+  {
+    title: "Accordion",
+    path: "/ui/components/accordion",
+    category: "ui-components",
+  },
+  { title: "Avatar", path: "/ui/components/avatar", category: "ui-components" },
+  { title: "Badge", path: "/ui/components/badge", category: "ui-components" },
+  {
+    title: "Breadcrumb",
+    path: "/ui/components/breadcrumb",
+    category: "ui-components",
+  },
+  {
+    title: "Collapsible",
+    path: "/ui/components/collapsible",
+    category: "ui-components",
+  },
+  {
+    title: "Preview Card",
+    path: "/ui/components/preview-card",
+    category: "ui-components",
+  },
+  {
+    title: "Progress",
+    path: "/ui/components/progress",
+    category: "ui-components",
+  },
+  {
+    title: "Separator",
+    path: "/ui/components/separator",
+    category: "ui-components",
+  },
+  { title: "Button", path: "/ui/components/button", category: "ui-components" },
+  {
+    title: "Context Menu",
+    path: "/ui/components/context-menu",
+    category: "ui-components",
+  },
+  { title: "Menu", path: "/ui/components/menu", category: "ui-components" },
+  {
+    title: "Menubar",
+    path: "/ui/components/menubar",
+    category: "ui-components",
+  },
+  { title: "Tabs", path: "/ui/components/tabs", category: "ui-components" },
+  {
+    title: "Toolbar",
+    path: "/ui/components/toolbar",
+    category: "ui-components",
+  },
+  {
+    title: "Command Palette",
+    path: "/ui/components/command-palette",
+    category: "ui-components",
+  },
+  { title: "Dialog", path: "/ui/components/dialog", category: "ui-components" },
+  { title: "Drawer", path: "/ui/components/drawer", category: "ui-components" },
+  {
+    title: "Popover",
+    path: "/ui/components/popover",
+    category: "ui-components",
+  },
+  {
+    title: "Tooltip",
+    path: "/ui/components/tooltip",
+    category: "ui-components",
+  },
+  {
+    title: "Empty State",
+    path: "/ui/components/empty-state",
+    category: "ui-components",
+  },
+  {
+    title: "Onboarding",
+    path: "/ui/components/onboarding",
+    category: "ui-components",
+  },
+  { title: "Rating", path: "/ui/components/rating", category: "ui-components" },
+  {
+    title: "Skeleton",
+    path: "/ui/components/skeleton",
+    category: "ui-components",
+  },
+  {
+    title: "Text Editor",
+    path: "/ui/components/text-editor",
+    category: "ui-components",
+  },
+
   { title: "Installation", path: "/docs/installation", category: "docs" },
   { title: "Configuration", path: "/docs/configuration", category: "docs" },
+  { title: "IDE Support", path: "/docs/ide-support", category: "docs" },
   { title: "Colors", path: "/docs/colors", category: "docs" },
-  { title: "Components", path: "/ui/components", category: "ui" },
-  {
-    title: "Media Queries",
-    path: "/docs/media-queries",
-    category: "handbook",
-  },
-  {
-    title: "Pseudo Classes",
-    path: "/docs/pseudo-classes",
-    category: "handbook",
-  },
-  {
-    title: "Pseudo Elements",
-    path: "/docs/pseudo-elements",
-    category: "handbook",
-  },
-  {
-    title: "Container Queries",
-    path: "/docs/container-queries",
-    category: "handbook",
-  },
-  {
-    title: "Negative Values",
-    path: "/docs/negative-values",
-    category: "handbook",
-  },
+  { title: "Media Queries", path: "/docs/media-queries", category: "docs" },
+  { title: "Negative Values", path: "/docs/negative-values", category: "docs" },
+  { title: "Pseudo Classes", path: "/docs/pseudo-classes", category: "docs" },
+  { title: "Pseudo Elements", path: "/docs/pseudo-elements", category: "docs" },
 ];
 
-// Helper to filter search results (prioritizes items starting with query)
 export function filterSearchResults(query: string): SearchItem[] {
   if (!query.trim()) {
     return DEFAULT_ITEMS;
@@ -143,18 +236,15 @@ export function filterSearchResults(query: string): SearchItem[] {
 
   const lowerQuery = query.toLowerCase();
 
-  // Filter matching items
   const matches = SEARCH_DATA.filter(
     (item) =>
       item.title.toLowerCase().includes(lowerQuery) ||
       item.description?.toLowerCase().includes(lowerQuery),
   );
 
-  // Separate colors from other items to preserve shade order
   const colors = matches.filter((item) => item.category === "colors");
   const others = matches.filter((item) => item.category !== "colors");
 
-  // Sort non-colors: items starting with query first, then alphabetically
   others.sort((a, b) => {
     const aTitle = a.title.toLowerCase();
     const bTitle = b.title.toLowerCase();
@@ -166,11 +256,9 @@ export function filterSearchResults(query: string): SearchItem[] {
     return aTitle.localeCompare(bTitle);
   });
 
-  // Colors keep their original order (lightest → base → darkest)
   return [...others, ...colors];
 }
 
-// Group results by category
 export function groupByCategory(
   items: SearchItem[],
 ): Record<string, SearchItem[]> {
@@ -186,11 +274,8 @@ export function groupByCategory(
   );
 }
 
-// Category labels for display
 export const CATEGORY_LABELS: Record<string, string> = {
-  docs: "Docs",
-  handbook: "Handbook",
+  docs: "Documentation",
   colors: "Colors",
-  ui: "Yumma UI",
-  components: "Components",
+  "ui-components": "Components",
 };
