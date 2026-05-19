@@ -39,21 +39,6 @@ export const sidebarConfig: SidebarConfig = [
         title: "Border",
         children: [
           { title: "Border Collapse", slug: "border-collapse" },
-          { title: "Border Radius", slug: "border-radius" },
-          { title: "Border Top Radius", slug: "border-top-radius" },
-          { title: "Border Right Radius", slug: "border-right-radius" },
-          { title: "Border Bottom Radius", slug: "border-bottom-radius" },
-          { title: "Border Left Radius", slug: "border-left-radius" },
-          { title: "Border Top Left Radius", slug: "border-top-left-radius" },
-          { title: "Border Top Right Radius", slug: "border-top-right-radius" },
-          {
-            title: "Border Bottom Left Radius",
-            slug: "border-bottom-left-radius",
-          },
-          {
-            title: "Border Bottom Right Radius",
-            slug: "border-bottom-right-radius",
-          },
           { title: "Border Spacing", slug: "border-spacing" },
           { title: "Border Style", slug: "border-style" },
           { title: "Border Width", slug: "border-width" },
@@ -71,6 +56,31 @@ export const sidebarConfig: SidebarConfig = [
           { title: "Outline Offset", slug: "outline-offset" },
           { title: "Outline Style", slug: "outline-style" },
           { title: "Outline Width", slug: "outline-width" },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Radius & Corner",
+    items: [
+      {
+        title: "Border Radius",
+        children: [
+          { title: "Border Radius", slug: "border-radius" },
+          { title: "Border Top Radius", slug: "border-top-radius" },
+          { title: "Border Right Radius", slug: "border-right-radius" },
+          { title: "Border Bottom Radius", slug: "border-bottom-radius" },
+          { title: "Border Left Radius", slug: "border-left-radius" },
+          { title: "Border Top Left Radius", slug: "border-top-left-radius" },
+          { title: "Border Top Right Radius", slug: "border-top-right-radius" },
+          {
+            title: "Border Bottom Left Radius",
+            slug: "border-bottom-left-radius",
+          },
+          {
+            title: "Border Bottom Right Radius",
+            slug: "border-bottom-right-radius",
+          },
         ],
       },
       {
