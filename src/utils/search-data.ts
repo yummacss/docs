@@ -108,7 +108,6 @@ export const DEFAULT_ITEMS: SearchItem[] = [
   { title: "Configuration", path: "/docs/configuration", category: "docs" },
   { title: "Colors", path: "/docs/colors", category: "docs" },
   { title: "Components", path: "/ui/components", category: "ui" },
-  { title: "Upgrading", path: "/docs/upgrading", category: "docs" },
   {
     title: "Media Queries",
     path: "/docs/media-queries",
