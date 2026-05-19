@@ -44,6 +44,7 @@ export default function Navbar({
   const [searchOpen, setSearchOpen] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
+  // Open search with Ctrl/Cmd+K
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.ctrlKey || e.metaKey) && e.key === "k") {
@@ -56,18 +57,11 @@ export default function Navbar({
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, []);
 
-  // prevent body scroll when sidebar is open
-  useEffect(() => {
-    if (isSidebarOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [isSidebarOpen]);
+  // NOTE: body scroll management intentionally removed.
+  // The MobileDrawer uses Base UI's Drawer + ScrollArea which handles
+  // focus trapping and scroll containment internally — no manual
+  // document.body.style.overflow manipulation needed. That was the
+  // cause of the scroll-lock-after-navigation bug.
 
   return (
     <>
@@ -85,6 +79,7 @@ export default function Navbar({
                 <YummaCSSDark className="d-b h-8 w-auto" />
               </Link>
             </div>
+
             <div className="d-f ai-c g-4">
               {links ? (
                 links
