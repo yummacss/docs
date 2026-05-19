@@ -1,16 +1,4 @@
 #!/usr/bin/env node
-/**
- * scripts/generate-registry.mjs
- *
- * Scans src/registry/ui/ and writes
- * src/registry/index.ts with a static dynamic() import for every file.
- *
- * Run manually whenever you add or remove registry files:
- *   node scripts/generate-registry.mjs
- *
- * Or add to package.json scripts:
- *   "registry": "node scripts/generate-registry.mjs"
- */
 
 import { existsSync, readdirSync, writeFileSync } from "node:fs";
 import { basename, join } from "node:path";
@@ -40,19 +28,11 @@ const output = `/**
 import dynamic from "next/dynamic";
 
 // ---------------------------------------------------------------------------
-// Yumma UI
-// ---------------------------------------------------------------------------
-
-const uiRegistry = {
-${uiLines}
-} as const;
-
-// ---------------------------------------------------------------------------
-// Combined export
+// Yumma UI Registry
 // ---------------------------------------------------------------------------
 
 export const registry = {
-  ...uiRegistry,
+${uiLines}
 } as const;
 
 export type RegistryId = keyof typeof registry;
