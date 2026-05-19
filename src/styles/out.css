@@ -345,10 +345,6 @@ summary {
   background-color: #00000033;
 }
 
-.bg-black\/30 {
-  background-color: #0000004d;
-}
-
 .bg-black\/50 {
   background-color: #00000080;
 }
@@ -631,6 +627,10 @@ summary {
 
 .bg-white\/20 {
   background-color: #ffffff33;
+}
+
+.bg-white\/30 {
+  background-color: #ffffff4d;
 }
 
 .bg-white\/5 {
@@ -1574,6 +1574,14 @@ summary {
 
 .h\:bg-white\/10:hover {
   background-color: #ffffff1a;
+}
+
+.h\:bg-white\/15:hover {
+  background-color: #ffffff26;
+}
+
+.h\:bg-white\/5:hover {
+  background-color: #ffffff0d;
 }
 
 .h\:c-indigo-8:hover {
@@ -2675,10 +2683,6 @@ summary {
 
 .zi-10 {
   z-index: 10;
-}
-
-.zi-20 {
-  z-index: 20;
 }
 
 .zi-50 {

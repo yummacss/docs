@@ -4,8 +4,12 @@ export interface UISidebarConfigItemBase {
   href?: string;
   external?: boolean;
   updated?: boolean;
-  primitive?: boolean;
-  wip?: boolean;
+  /**
+   * When present, identifies the Base UI primitive this component is built on
+   * (e.g. `"button"`, `"dialog"`). A string value lets downstream code (hotkeys,
+   * API-reference links, etc.) use it without Boolean coercion.
+   */
+  primitive?: string;
 }
 
 export interface UISidebarConfigItemWithChildren
@@ -42,66 +46,66 @@ export const uiSidebarConfig: UISidebarConfig = [
   {
     title: "Forms",
     items: [
-      { title: "Autocomplete", slug: "autocomplete", primitive: true },
-      { title: "Checkbox", slug: "checkbox", primitive: true },
-      { title: "Combobox", slug: "combobox", primitive: true },
+      { title: "Autocomplete", slug: "autocomplete", primitive: "combobox" },
+      { title: "Checkbox", slug: "checkbox", primitive: "checkbox" },
+      { title: "Combobox", slug: "combobox", primitive: "combobox" },
       { title: "File Upload", slug: "file-upload" },
-      { title: "Field", slug: "field", primitive: true },
-      { title: "Radio", slug: "radio", primitive: true },
-      { title: "Select", slug: "select", primitive: true },
-      { title: "Slider", slug: "slider", primitive: true },
-      { title: "Switch", slug: "switch", primitive: true },
+      { title: "Field", slug: "field", primitive: "field" },
+      { title: "Radio", slug: "radio", primitive: "radio" },
+      { title: "Select", slug: "select", primitive: "select" },
+      { title: "Slider", slug: "slider", primitive: "slider" },
+      { title: "Switch", slug: "switch", primitive: "switch" },
       { title: "Textarea", slug: "textarea" },
-      { title: "Toggle", slug: "toggle", primitive: true },
+      { title: "Toggle", slug: "toggle", primitive: "toggle" },
     ],
   },
   {
     title: "Display",
     items: [
-      { title: "Accordion", slug: "accordion", primitive: true },
-      { title: "Avatar", slug: "avatar", primitive: true },
+      { title: "Accordion", slug: "accordion", primitive: "accordion" },
+      { title: "Avatar", slug: "avatar", primitive: "avatar" },
       { title: "Badge", slug: "badge" },
       { title: "Breadcrumb", slug: "breadcrumb" },
-      { title: "Collapsible", slug: "collapsible", primitive: true },
-      { title: "Preview Card", slug: "preview-card", primitive: true },
-      { title: "Progress", slug: "progress", primitive: true },
-      { title: "Separator", slug: "separator", primitive: true },
+      { title: "Collapsible", slug: "collapsible", primitive: "collapsible" },
+      { title: "Preview Card", slug: "preview-card", primitive: "preview-card" },
+      { title: "Progress", slug: "progress", primitive: "progress" },
+      { title: "Separator", slug: "separator", primitive: "separator" },
     ],
   },
   {
     title: "Interactive",
     items: [
-      { title: "Button", slug: "button", primitive: true },
-      { title: "Context Menu", slug: "context-menu", primitive: true },
-      { title: "Menu", slug: "menu", primitive: true },
-      { title: "Menubar", slug: "menubar", primitive: true },
+      { title: "Button", slug: "button", primitive: "button" },
+      { title: "Context Menu", slug: "context-menu", primitive: "context-menu" },
+      { title: "Menu", slug: "menu", primitive: "menu" },
+      { title: "Menubar", slug: "menubar", primitive: "menubar" },
     ],
   },
   {
     title: "Navigation",
     items: [
-      { title: "Tabs", slug: "tabs", primitive: true },
-      { title: "Toolbar", slug: "toolbar", primitive: true },
+      { title: "Tabs", slug: "tabs", primitive: "tabs" },
+      { title: "Toolbar", slug: "toolbar", primitive: "toolbar" },
     ],
   },
   {
     title: "Overlays",
     items: [
       { title: "Command Palette", slug: "command-palette" },
-      { title: "Dialog", slug: "dialog", primitive: true },
-      { title: "Drawer", slug: "drawer", primitive: true },
-      { title: "Popover", slug: "popover", primitive: true },
-      { title: "Tooltip", slug: "tooltip", primitive: true },
+      { title: "Dialog", slug: "dialog", primitive: "dialog" },
+      { title: "Drawer", slug: "drawer", primitive: "drawer" },
+      { title: "Popover", slug: "popover", primitive: "popover" },
+      { title: "Tooltip", slug: "tooltip", primitive: "tooltip" },
     ],
   },
   {
     title: "Application UI",
     items: [
       { title: "Empty State", slug: "empty-state" },
-      { title: "Onboarding", slug: "onboarding", wip: true },
-      { title: "Rating", slug: "rating", wip: true },
-      { title: "Skeleton", slug: "skeleton", wip: true },
-      { title: "Text Editor", slug: "text-editor", wip: true },
+      { title: "Onboarding", slug: "onboarding" },
+      { title: "Rating", slug: "rating" },
+      { title: "Skeleton", slug: "skeleton" },
+      { title: "Text Editor", slug: "text-editor" },
     ],
   },
 ];
