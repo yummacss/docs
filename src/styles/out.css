@@ -192,14 +192,6 @@ summary {
   bottom: .25rem;
 }
 
-.b-2 {
-  bottom: .5rem;
-}
-
-.b-4 {
-  bottom: 1rem;
-}
-
 .b\:\:bg-indigo\/10:before {
   background-color: #6366f11a;
 }
@@ -1640,10 +1632,6 @@ summary {
   inset: 25rem;
 }
 
-.i-2 {
-  inset: .5rem;
-}
-
 .is-i {
   isolation: isolate;
 }
@@ -1695,10 +1683,6 @@ summary {
 
 .l-3 {
   left: .75rem;
-}
-
-.l-4 {
-  left: 1rem;
 }
 
 .l-50\% {
@@ -2381,10 +2365,6 @@ summary {
   top: .75rem;
 }
 
-.t-4 {
-  top: 1rem;
-}
-
 .t-50\% {
   top: 50%;
 }
@@ -2647,10 +2627,6 @@ summary {
 
 .w-dvh {
   width: 100dvh;
-}
-
-.w-dvw {
-  width: 100dvw;
 }
 
 .w-fc {

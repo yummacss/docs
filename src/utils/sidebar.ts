@@ -6,7 +6,6 @@ export const sidebarConfig: SidebarConfig = [
       { title: "Installation", slug: "installation" },
       { title: "Configuration", slug: "configuration" },
       { title: "IDE Support", slug: "ide-support" },
-      { title: "Upgrading", slug: "upgrading", updated: true },
     ],
   },
   {
