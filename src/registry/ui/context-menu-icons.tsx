@@ -1,7 +1,7 @@
 "use client";
 
 import { ContextMenu } from "@base-ui/react/context-menu";
-import { ArrowUpFromSquare, Copy, Link, Pencil, Trash } from "lucide-react";
+import { Copy, Link, Pencil, SquareArrowRightExit, Trash } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 

@@ -27,27 +27,27 @@ export default function AlertDialogConfirmation() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
+                  transition={{ duration: 0.2, ease: "easeOut" }}
+                />
+              }
+              className="p-f i-0 min-h-dvh bg-black/20 bf-b-xs"
+            />
+            <div className="d-f p-f i-0 ai-c jc-c">
+              <AlertDialog.Popup
+                render={
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
                     transition={{ duration: 0.2, ease: "easeOut" }}
                   />
                 }
-                className="p-f i-0 min-h-dvh bg-black/20 bf-b-xs"
-              />
-              <div className="d-f p-f i-0 ai-c jc-c">
-                <AlertDialog.Popup
-                  render={
-                    <motion.div
-                      initial={{ opacity: 0, scale: 0.95 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0.95 }}
-                      transition={{ duration: 0.2, ease: "easeOut" }}
-                    />
-                  }
-                  className="o-h w-96 bg-silver-1 bc-silver-2 c-slate-12 br-xl bw-1 bs-o-xs"
-                  style={{ maxWidth: "90vw" }}
-                >
-                  <div className="d-f jc-sb ai-c px-4 py-2 bg-silver-1">
-                    <div className="d-f jc-sb ai-c w-100%">
-                      <AlertDialog.Title className="c-slate-8 fs-md fw-500">
+                className="o-h w-96 bg-silver-1 bc-silver-2 c-slate-12 br-xl bw-1 bs-o-xs"
+                style={{ maxWidth: "90vw" }}
+              >
+                <div className="d-f jc-sb ai-c px-4 py-2 bg-silver-1">
+                  <div className="d-f jc-sb ai-c w-100%">
+                    <AlertDialog.Title className="c-slate-8 fs-md fw-500">
                       Account deletion
                     </AlertDialog.Title>
                     <div className="w-7 h-7" />
