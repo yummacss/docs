@@ -44,7 +44,6 @@ export default function Navbar({
   const [searchOpen, setSearchOpen] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  // Open search with Ctrl/Cmd+K
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.ctrlKey || e.metaKey) && e.key === "k") {
@@ -56,12 +55,6 @@ export default function Navbar({
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, []);
-
-  // NOTE: body scroll management intentionally removed.
-  // The MobileDrawer uses Base UI's Drawer + ScrollArea which handles
-  // focus trapping and scroll containment internally — no manual
-  // document.body.style.overflow manipulation needed. That was the
-  // cause of the scroll-lock-after-navigation bug.
 
   return (
     <>

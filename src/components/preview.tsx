@@ -32,8 +32,7 @@ export default function Preview({
 }: PreviewProps) {
   const actualId = registryId || id;
 
-  // Look up from the static map — never create dynamic() calls at render time.
-  // If the id isn't in the registry, fall through to children.
+  // perf: never create dynamic() calls at render time.
   const RegistryComponent = actualId ? getRegistryComponent(actualId) : null;
 
   return (

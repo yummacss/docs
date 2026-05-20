@@ -36,7 +36,6 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
 
-  // Filter and group results
   const filteredResults = useMemo(() => filterSearchResults(query), [query]);
   const groupedResults = useMemo(
     () => groupByCategory(filteredResults),
@@ -44,7 +43,6 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
   );
   const flatResults = useMemo(() => filteredResults, [filteredResults]);
 
-  // Reset on open
   useEffect(() => {
     if (open) {
       setQuery("");
@@ -54,7 +52,6 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
     }
   }, [open]);
 
-  // Handle keyboard navigation
   const handleKeyDown = useCallback(
     (e: React.KeyboardEvent) => {
       switch (e.key) {
@@ -92,7 +89,6 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
     [flatResults, selectedIndex, router, onClose],
   );
 
-  // Scroll selected item into view
   useEffect(() => {
     if (listRef.current && flatResults.length > 0) {
       const items = listRef.current.querySelectorAll("[data-search-item]");
@@ -101,7 +97,6 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
     }
   }, [selectedIndex, flatResults.length]);
 
-  // Handle item click
   const handleItemClick = (item: SearchItem, index: number) => {
     if (item.category === "colors" && item.color) {
       navigator.clipboard.writeText(item.color.toUpperCase());
@@ -114,7 +109,6 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
     setSelectedIndex(index);
   };
 
-  // Get category icon
   const getCategoryIcon = (category: string) => {
     if (category === "docs") {
       return <BookOpenIcon className="w-4 h-4 c-white/50" />;
@@ -125,7 +119,6 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
     return <DiamondsFourIcon className="w-4 h-4 c-white/50" />;
   };
 
-  // Track global index for keyboard nav
   let globalIndex = -1;
 
   return (

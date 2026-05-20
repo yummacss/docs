@@ -4,8 +4,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { sidebarConfig } from "@/config/sidebar";
 
-// ─── Types ────────────────────────────────────────────────────────────────────
-
 interface AnySimpleItem {
   title: string;
   slug?: string;
