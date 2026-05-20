@@ -2,7 +2,7 @@
 
 import { Field } from "@base-ui/react/field";
 import { Switch } from "@base-ui/react/switch";
-import { Check } from "@gravity-ui/icons";
+import { Check } from "lucide-react";
 import { motion } from "motion/react";
 import { useState } from "react";
 

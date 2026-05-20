@@ -3,15 +3,15 @@
 import { Avatar } from "@base-ui/react/avatar";
 import { Menu } from "@base-ui/react/menu";
 import {
-  ArrowRightFromSquare,
   ChevronDown,
   ChevronRight,
-  CircleQuestionDot,
+  CircleQuestionMark,
+  Cog,
   Folder,
-  GearDot,
   ListCheck,
-  Person,
-} from "@gravity-ui/icons";
+  LogOut,
+  UserRound,
+} from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -60,7 +60,7 @@ export default function MenuAccountStatus() {
                     }`
                   }
                 >
-                  <Person className="fs-0 w-4 h-4 c-slate-5" />
+                  <UserRound className="fs-0 w-4 h-4 c-slate-5" />
                   View profile
                 </Menu.Item>
                 <Menu.Item
@@ -90,7 +90,7 @@ export default function MenuAccountStatus() {
                     }`
                   }
                 >
-                  <GearDot className="fs-0 w-4 h-4 c-slate-5" />
+                  <Cog className="fs-0 w-4 h-4 c-slate-5" />
                   Settings
                 </Menu.Item>
                 <Menu.Item
@@ -100,7 +100,7 @@ export default function MenuAccountStatus() {
                     }`
                   }
                 >
-                  <CircleQuestionDot className="fs-0 w-4 h-4 c-slate-5" />
+                  <CircleQuestionMark className="fs-0 w-4 h-4 c-slate-5" />
                   Help
                 </Menu.Item>
                 <Menu.Separator className="my-1 w-100% h-px bg-silver-2" />
@@ -191,7 +191,7 @@ export default function MenuAccountStatus() {
                     }`
                   }
                 >
-                  <ArrowRightFromSquare className="fs-0 w-4 h-4" />
+                  <LogOut className="fs-0 w-4 h-4" />
                   Sign out
                 </Menu.Item>
               </Menu.Popup>

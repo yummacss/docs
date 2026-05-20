@@ -1,13 +1,7 @@
 "use client";
 
 import { ContextMenu } from "@base-ui/react/context-menu";
-import {
-  ArrowUpRightFromSquare,
-  Eye,
-  Link,
-  Pin,
-  Tray,
-} from "@gravity-ui/icons";
+import { Archive, ArrowUpRightFromSquare, Eye, Link, Pin } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -85,7 +79,7 @@ export default function ContextMenuIconTrailing() {
                   }
                 >
                   Archive task
-                  <Tray className="fs-0 w-4 h-4" />
+                  <Archive className="fs-0 w-4 h-4" />
                 </ContextMenu.Item>
               </ContextMenu.Popup>
             </ContextMenu.Positioner>

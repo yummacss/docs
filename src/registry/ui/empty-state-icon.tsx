@@ -1,6 +1,6 @@
 "use client";
 
-import { FolderPlus } from "@gravity-ui/icons";
+import { FolderPlus } from "lucide-react";
 
 export default function EmptyStateIcon() {
   return (

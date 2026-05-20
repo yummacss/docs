@@ -1,13 +1,7 @@
 "use client";
 
 import { ContextMenu } from "@base-ui/react/context-menu";
-import {
-  ArrowUpFromSquare,
-  Copy,
-  Link,
-  Pencil,
-  TrashBin,
-} from "@gravity-ui/icons";
+import { ArrowUpFromSquare, Copy, Link, Pencil, Trash } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -73,7 +67,7 @@ export default function ContextMenuIcons() {
                     }`
                   }
                 >
-                  <TrashBin className="fs-0 w-4 h-4 c-red" />
+                  <Trash className="fs-0 w-4 h-4 c-red" />
                   Delete task
                 </ContextMenu.Item>
               </ContextMenu.Popup>

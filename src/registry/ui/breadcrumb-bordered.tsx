@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronRight } from "@gravity-ui/icons";
+import { ChevronRight } from "lucide-react";
 
 export default function BreadcrumbBordered() {
   return (

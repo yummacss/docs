@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronRight, File } from "@gravity-ui/icons";
+import { ChevronRight, File } from "lucide-react";
 
 export default function BreadcrumbIconTrailing() {
   return (

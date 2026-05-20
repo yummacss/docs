@@ -4,7 +4,7 @@ import { Button } from "@base-ui/react/button";
 import { Dialog } from "@base-ui/react/dialog";
 import { Field } from "@base-ui/react/field";
 import { Select } from "@base-ui/react/select";
-import { CaretsExpandVertical, Check, Xmark } from "@gravity-ui/icons";
+import { Check, Maximize2, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -57,7 +57,7 @@ export default function DialogSendInvite() {
                       <Button className="d-f ai-c jc-c w-7 h-7 c-slate-6 bw-0 br-md h:bg-silver-2 fv:oo-2 fv:oc-indigo-5" />
                     }
                   >
-                    <Xmark aria-hidden className="w-4 h-4" />
+                    <X aria-hidden className="w-4 h-4" />
                   </Dialog.Close>
                 </div>
                 <div className="d-f fd-c g-4 px-4 py-5 bg-white bc-silver-2 btr-lg btw-1">
@@ -92,7 +92,7 @@ export default function DialogSendInvite() {
                           }
                         </Select.Value>
                         <Select.Icon className="d-f c-slate-8">
-                          <CaretsExpandVertical className="w-4 h-4" />
+                          <Maximize2 className="w-4 h-4" />
                         </Select.Icon>
                       </Select.Trigger>
                       <AnimatePresence>

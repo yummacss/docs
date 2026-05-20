@@ -2,7 +2,7 @@
 
 import { Button } from "@base-ui/react/button";
 import { Field } from "@base-ui/react/field";
-import { Eye, EyeSlash } from "@gravity-ui/icons";
+import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 
 export default function FieldPassword() {
@@ -27,7 +27,7 @@ export default function FieldPassword() {
             onClick={() => setVisible(!visible)}
           >
             {visible ? (
-              <EyeSlash className="w-4 h-4" />
+              <EyeOff className="w-4 h-4" />
             ) : (
               <Eye className="w-4 h-4" />
             )}

@@ -1,7 +1,7 @@
 "use client";
 
 import { Tabs } from "@base-ui/react/tabs";
-import { CircleDollar, FileDollar, Receipt } from "@gravity-ui/icons";
+import { CircleDollarSign, File, Receipt } from "lucide-react";
 import { useState } from "react";
 
 export default function ExampleTabsIconLeading() {
@@ -45,7 +45,7 @@ export default function ExampleTabsIconLeading() {
 }
 
 const tabs = [
-  { value: "plans", label: "Plans", icon: FileDollar },
-  { value: "subscriptions", label: "Subscriptions", icon: CircleDollar },
+  { value: "plans", label: "Plans", icon: File },
+  { value: "subscriptions", label: "Subscriptions", icon: CircleDollarSign },
   { value: "invoices", label: "Invoices", icon: Receipt },
 ];

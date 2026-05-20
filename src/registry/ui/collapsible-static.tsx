@@ -4,9 +4,9 @@ import { Collapsible } from "@base-ui/react/collapsible";
 import {
   ChevronRight,
   Circle,
-  CircleCheckFill,
   CircleDashed,
-} from "@gravity-ui/icons";
+  CircleQuestionMark,
+} from "lucide-react";
 import { useState } from "react";
 
 export default function CollapsibleStatic() {
@@ -18,7 +18,7 @@ export default function CollapsibleStatic() {
       onOpenChange={setOpen}
       className="d-f fd-c w-72 c-slate-10"
     >
-      <Collapsible.Trigger className="d-f ai-c jc-sb g-3 w-100% py-3 px-3 bg-white bbw-1 bc-silver-3 c-p h:bg-silver-1/50 ta-l">
+      <Collapsible.Trigger className="d-f ai-c jc-sb g-3 w-100% py-3 px-3 bg-white bc-silver-3 bbw-1 ta-l c-p h:bg-silver-1/50">
         <span className="c-slate-8 fs-sm fw-500">Implement user dashboard</span>
         <ChevronRight
           className={`w-4 h-4 c-slate-5 tp-t tdu-150 ttf-io ${open ? "ro-90" : "ro-0"}`}
@@ -32,7 +32,7 @@ export default function CollapsibleStatic() {
           {tasks.map((task) => (
             <div key={task.id} className="d-f ai-c g-2 py-2">
               {task.status === "done" ? (
-                <CircleCheckFill className="w-4 h-4 c-mint" />
+                <CircleQuestionMark className="w-4 h-4 c-mint" />
               ) : task.status === "in-progress" ? (
                 <CircleDashed className="w-4 h-4 c-yellow" />
               ) : (

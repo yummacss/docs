@@ -2,7 +2,7 @@
 
 import { Avatar } from "@base-ui/react/avatar";
 import { Tooltip } from "@base-ui/react/tooltip";
-import { Plus } from "@gravity-ui/icons";
+import { Plus } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 
 export default function AvatarStacked() {

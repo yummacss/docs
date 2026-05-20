@@ -1,7 +1,7 @@
 "use client";
 
 import { Menu } from "@base-ui/react/menu";
-import { Lock } from "@gravity-ui/icons";
+import { Lock } from "lucide-react";
 
 export default function MenuDisabled() {
   return (

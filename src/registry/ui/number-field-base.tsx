@@ -1,7 +1,7 @@
 "use client";
 
 import { NumberField } from "@base-ui/react/number-field";
-import { Minus, Plus } from "@gravity-ui/icons";
+import { Minus, Plus } from "lucide-react";
 import { useId } from "react";
 
 export default function NumberFieldBase() {

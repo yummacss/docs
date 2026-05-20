@@ -2,13 +2,7 @@
 
 import { Menu } from "@base-ui/react/menu";
 import { Menubar } from "@base-ui/react/menubar";
-import {
-  ArrowUpRightFromSquare,
-  Eye,
-  Link,
-  Pin,
-  Tray,
-} from "@gravity-ui/icons";
+import { Archive, ArrowUpRightFromSquare, Eye, Link, Pin } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -178,7 +172,7 @@ export default function MenubarIconTrailing() {
                     }
                   >
                     Export as JSON
-                    <Tray className="fs-0 w-4 h-4 c-slate-5" />
+                    <Archive className="fs-0 w-4 h-4 c-slate-5" />
                   </Menu.Item>
                 </Menu.Popup>
               </Menu.Positioner>

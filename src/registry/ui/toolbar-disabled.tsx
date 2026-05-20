@@ -4,13 +4,12 @@ import { Toggle } from "@base-ui/react/toggle";
 import { ToggleGroup } from "@base-ui/react/toggle-group";
 import { Toolbar } from "@base-ui/react/toolbar";
 import {
-  ArrowUpArrowDown,
-  LayoutCells,
-  LayoutColumns3,
+  ArrowDownUp,
   LayoutList,
   Plus,
   Sliders,
-} from "@gravity-ui/icons";
+  Table,
+} from "lucide-react";
 import { useState } from "react";
 
 export default function ToolbarDisabled() {
@@ -35,7 +34,7 @@ export default function ToolbarDisabled() {
             }`
           }
         >
-          <LayoutCells className="w-5 h-5" />
+          <Table className="w-5 h-5" />
         </Toggle>
         <Toggle
           value="list"
@@ -61,7 +60,7 @@ export default function ToolbarDisabled() {
             }`
           }
         >
-          <LayoutColumns3 className="w-5 h-5" />
+          <Table className="w-5 h-5" />
         </Toggle>
       </ToggleGroup>
 
@@ -73,7 +72,7 @@ export default function ToolbarDisabled() {
           New Task
         </Toolbar.Button>
         <Toolbar.Button className="d-f ai-c g-1 jc-c h-9 px-3 bg-transparent c-slate-8 br-md bw-0 fs-sm fw-500 us-none c-p h:bg-silver-1 h:c-slate-10 fv:oo-2 fv:oc-indigo-5">
-          <ArrowUpArrowDown className="w-5 h-5" />
+          <ArrowDownUp className="w-5 h-5" />
           Sort
         </Toolbar.Button>
         <Toolbar.Button

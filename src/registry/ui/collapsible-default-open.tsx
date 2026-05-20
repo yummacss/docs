@@ -1,7 +1,7 @@
 "use client";
 
 import { Collapsible } from "@base-ui/react/collapsible";
-import { ChevronRight } from "@gravity-ui/icons";
+import { ChevronRight } from "lucide-react";
 import { type HTMLMotionProps, motion } from "motion/react";
 import { useState } from "react";
 
@@ -11,7 +11,7 @@ export default function CollapsibleDefaultOpen() {
   return (
     <Collapsible.Root defaultOpen className="d-f fd-c w-72 c-slate-10">
       <Collapsible.Trigger
-        className="d-f ai-c jc-sb g-3 w-100% py-3 px-3 bg-white bbw-1 bc-silver-3 c-p fv:oo-1 fv:oc-indigo-5 ta-l"
+        className="d-f ai-c jc-sb g-3 w-100% py-3 px-3 bg-white bc-silver-3 bbw-1 ta-l c-p fv:oo-1 fv:oc-indigo-5"
         onClick={() => setOpen(!open)}
       >
         <span className="c-slate-8 fs-sm fw-500">Active sprint</span>

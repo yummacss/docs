@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronRight, Ellipsis } from "@gravity-ui/icons";
+import { ChevronRight, Ellipsis } from "lucide-react";
 
 export default function BreadcrumbCollapse() {
   return (

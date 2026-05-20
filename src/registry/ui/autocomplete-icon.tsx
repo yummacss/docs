@@ -3,13 +3,13 @@
 import { Autocomplete } from "@base-ui/react/autocomplete";
 import {
   BellDot,
-  CircleQuestionDot,
+  CircleQuestionMark,
   Globe,
-  Magnifier,
-  PersonGear,
-  PersonsLock,
-  ShieldKeyhole,
-} from "@gravity-ui/icons";
+  Key,
+  Search,
+  UserRoundCog,
+  UserRoundKey,
+} from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { type ComponentType, useState } from "react";
 
@@ -23,7 +23,7 @@ export default function AutocompleteIcon() {
           Search settings
         </label>
         <div className="d-f p-r ai-c">
-          <Magnifier className="p-a l-3 w-4 h-4 c-slate-5" />
+          <Search className="p-a l-3 w-4 h-4 c-slate-5" />
           <Autocomplete.Input
             id="icon-input"
             placeholder="Account, Privacy, & more"
@@ -85,10 +85,10 @@ type Setting = {
 };
 
 const settings: Setting[] = [
-  { label: "Account Settings", icon: PersonGear },
-  { label: "Privacy & Security", icon: ShieldKeyhole },
+  { label: "Account Settings", icon: UserRoundCog },
+  { label: "Privacy & Security", icon: Key },
   { label: "Notifications", icon: BellDot },
   { label: "Language & Region", icon: Globe },
-  { label: "Blocked Accounts", icon: PersonsLock },
-  { label: "Help Center", icon: CircleQuestionDot },
+  { label: "Blocked Accounts", icon: UserRoundKey },
+  { label: "Help Center", icon: CircleQuestionMark },
 ];

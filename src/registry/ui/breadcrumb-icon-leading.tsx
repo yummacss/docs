@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronRight, House } from "@gravity-ui/icons";
+import { ChevronRight, House } from "lucide-react";
 
 export default function BreadcrumbIconLeading() {
   return (
@@ -17,7 +17,7 @@ export default function BreadcrumbIconLeading() {
         <span className="fs-sm fw-400">Team</span>
       </a>
       <ChevronRight className="w-4 h-4 c-slate-4" />
-      <span className="fs-sm fw-500 c-indigo" aria-current="page">
+      <span className="c-indigo fs-sm fw-500" aria-current="page">
         Board
       </span>
     </nav>

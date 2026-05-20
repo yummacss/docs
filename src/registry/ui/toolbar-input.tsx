@@ -4,13 +4,7 @@ import { NumberField } from "@base-ui/react/number-field";
 import { Toggle } from "@base-ui/react/toggle";
 import { ToggleGroup } from "@base-ui/react/toggle-group";
 import { Toolbar } from "@base-ui/react/toolbar";
-import {
-  LayoutCells,
-  LayoutColumns3,
-  LayoutList,
-  Minus,
-  Plus,
-} from "@gravity-ui/icons";
+import { LayoutList, Minus, Plus, Table } from "lucide-react";
 import { useState } from "react";
 
 export default function ToolbarInput() {
@@ -35,7 +29,7 @@ export default function ToolbarInput() {
             }`
           }
         >
-          <LayoutCells className="w-5 h-5" />
+          <Table className="w-5 h-5" />
         </Toggle>
         <Toggle
           value="list"
@@ -61,7 +55,7 @@ export default function ToolbarInput() {
             }`
           }
         >
-          <LayoutColumns3 className="w-5 h-5" />
+          <Table className="w-5 h-5" />
         </Toggle>
       </ToggleGroup>
 

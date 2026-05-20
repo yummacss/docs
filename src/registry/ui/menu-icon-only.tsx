@@ -2,13 +2,13 @@
 
 import { Menu } from "@base-ui/react/menu";
 import {
+  Archive,
   Copy,
   EllipsisVertical,
-  FileArrowRightOut,
   Pencil,
-  TrashBin,
-  Tray,
-} from "@gravity-ui/icons";
+  SquareArrowRightExit,
+  Trash,
+} from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -63,7 +63,7 @@ export default function MenuIconOnly() {
                     }`
                   }
                 >
-                  <FileArrowRightOut className="fs-0 w-4 h-4 c-slate-5" />
+                  <SquareArrowRightExit className="fs-0 w-4 h-4 c-slate-5" />
                   Move to
                 </Menu.Item>
                 <Menu.Item
@@ -73,7 +73,7 @@ export default function MenuIconOnly() {
                     }`
                   }
                 >
-                  <Tray className="fs-0 w-4 h-4 c-slate-5" />
+                  <Archive className="fs-0 w-4 h-4 c-slate-5" />
                   Archive
                 </Menu.Item>
                 <Menu.Separator className="my-1 w-100% h-px bg-silver-2" />
@@ -84,7 +84,7 @@ export default function MenuIconOnly() {
                     }`
                   }
                 >
-                  <TrashBin className="fs-0 w-4 h-4" />
+                  <Trash className="fs-0 w-4 h-4" />
                   Delete
                 </Menu.Item>
               </Menu.Popup>

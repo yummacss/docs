@@ -2,14 +2,14 @@
 
 import { Menu } from "@base-ui/react/menu";
 import {
+  Archive,
   ChevronDown,
   Copy,
-  ExclamationShape,
   Link,
   Pause,
   Pencil,
-  Tray,
-} from "@gravity-ui/icons";
+  TriangleAlert,
+} from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -74,7 +74,7 @@ export default function MenuIcons() {
                     }`
                   }
                 >
-                  <ExclamationShape className="fs-0 w-4 h-4 c-slate-5" />
+                  <TriangleAlert className="fs-0 w-4 h-4 c-slate-5" />
                   Set priority
                 </Menu.Item>
                 <Menu.Item
@@ -94,7 +94,7 @@ export default function MenuIcons() {
                     }`
                   }
                 >
-                  <Tray className="fs-0 w-4 h-4 c-slate-5" />
+                  <Archive className="fs-0 w-4 h-4 c-slate-5" />
                   Archive task
                 </Menu.Item>
               </Menu.Popup>

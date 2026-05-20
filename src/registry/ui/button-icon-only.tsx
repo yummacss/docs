@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@base-ui/react/button";
-import { Paperclip } from "@gravity-ui/icons";
+import { Paperclip } from "lucide-react";
 
 export default function ButtonIconOnly() {
   return (

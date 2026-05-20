@@ -1,5 +1,5 @@
 import { Avatar } from "@base-ui/react/avatar";
-import { PersonFill } from "@gravity-ui/icons";
+import { UserRound } from "lucide-react";
 
 export default function AvatarIconFallback() {
   return (
@@ -12,7 +12,7 @@ export default function AvatarIconFallback() {
           <Avatar.Fallback
             className={`d-f ai-c jc-c w-100% h-100% ${fallback.fallbackColor}`}
           >
-            <PersonFill className="w-6 h-6" />
+            <UserRound className="w-6 h-6" />
           </Avatar.Fallback>
         </Avatar.Root>
       ))}

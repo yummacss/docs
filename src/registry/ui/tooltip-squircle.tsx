@@ -1,14 +1,14 @@
 "use client";
 
 import { Tooltip } from "@base-ui/react/tooltip";
-import { BellDot } from "@gravity-ui/icons";
+import { BellDot } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 
 export default function TooltipSquircle() {
   return (
     <Tooltip.Provider>
       <Tooltip.Root>
-        <Tooltip.Trigger className="d-f ai-c jc-c bg-transparent c-slate-8 bw-0 c-p h:c-slate-12 cs-s fv:oo-2 fv:oc-indigo-5">
+        <Tooltip.Trigger className="d-f ai-c jc-c bg-transparent c-slate-8 bw-0 cs-s c-p h:c-slate-12 fv:oo-2 fv:oc-indigo-5">
           <BellDot aria-label="Notifications" className="w-6 h-6" />
         </Tooltip.Trigger>
         <Tooltip.Portal>
@@ -23,7 +23,7 @@ export default function TooltipSquircle() {
                     transition={{ duration: 0.2, ease: "easeOut" }}
                   />
                 }
-                className="px-3 py-2 bg-white c-slate-10 bc-silver-2 bw-1 br-3xl cs-s bs-o-xs us-none fs-sm"
+                className="px-3 py-2 bg-white bc-silver-2 c-slate-10 bw-1 br-3xl cs-s fs-sm bs-o-xs us-none"
               >
                 3 unread notifications
               </Tooltip.Popup>

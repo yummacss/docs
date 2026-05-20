@@ -4,7 +4,7 @@ import { Button } from "@base-ui/react/button";
 import { Field } from "@base-ui/react/field";
 import { Input } from "@base-ui/react/input";
 import { Popover } from "@base-ui/react/popover";
-import { Plus } from "@gravity-ui/icons";
+import { Plus } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -46,7 +46,7 @@ export default function PopoverForm() {
                     </Field.Label>
                     <Field.Control
                       render={
-                        <Input className="h-9 w-100% px-3 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md bs-o-xs fv:oo--1 fv:oc-indigo-5 min-w-0" />
+                        <Input className="h-9 w-100% px-3 min-w-0 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md bs-o-xs fv:oo--1 fv:oc-indigo-5" />
                       }
                       placeholder="Enter task title"
                     />
