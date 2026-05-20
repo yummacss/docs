@@ -67,7 +67,11 @@ export const uiSidebarConfig: UISidebarConfig = [
       { title: "Badge", slug: "badge" },
       { title: "Breadcrumb", slug: "breadcrumb" },
       { title: "Collapsible", slug: "collapsible", primitive: "collapsible" },
-      { title: "Preview Card", slug: "preview-card", primitive: "preview-card" },
+      {
+        title: "Preview Card",
+        slug: "preview-card",
+        primitive: "preview-card",
+      },
       { title: "Progress", slug: "progress", primitive: "progress" },
       { title: "Separator", slug: "separator", primitive: "separator" },
     ],
@@ -76,7 +80,11 @@ export const uiSidebarConfig: UISidebarConfig = [
     title: "Interactive",
     items: [
       { title: "Button", slug: "button", primitive: "button" },
-      { title: "Context Menu", slug: "context-menu", primitive: "context-menu" },
+      {
+        title: "Context Menu",
+        slug: "context-menu",
+        primitive: "context-menu",
+      },
       { title: "Menu", slug: "menu", primitive: "menu" },
       { title: "Menubar", slug: "menubar", primitive: "menubar" },
     ],

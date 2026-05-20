@@ -12,7 +12,7 @@ import pkg from "../../../package.json";
 import { YummaCSSDark } from "../icons/yummacss-dark";
 import { SearchDialog } from "./search-dialog";
 
-const MobileDrawer = lazy(() => import("./mobile-drawer"));
+const MobileDialog = lazy(() => import("./mobile-dialog"));
 
 const navbarVariants = cva("p-f ix-0 t-0 bbw-1", {
   variants: {
@@ -188,7 +188,7 @@ export default function Navbar({
 
       {showMobileDrawer && (
         <Suspense fallback={null}>
-          <MobileDrawer
+          <MobileDialog
             isOpen={isSidebarOpen}
             onClose={() => setIsSidebarOpen(false)}
             routeType={isUI ? "ui" : "docs"}

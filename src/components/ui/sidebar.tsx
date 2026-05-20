@@ -1,27 +1,48 @@
-﻿"use client";
+"use client";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import type {
-  SidebarConfigItem,
-  SidebarConfigSimpleItem,
-} from "@/utils/sidebar";
 import { sidebarConfig } from "@/utils/sidebar";
+import { uiSidebarConfig } from "@/utils/ui-sidebar";
+
+// ─── Types ────────────────────────────────────────────────────────────────────
+
+interface AnySimpleItem {
+  title: string;
+  slug?: string;
+  updated?: boolean;
+}
+
+interface AnyItem extends AnySimpleItem {
+  children?: AnySimpleItem[];
+  items?: AnyItem[];
+}
+
+interface AnySection {
+  title: string;
+  items: AnyItem[];
+}
+
+interface Props {
+  variant: "docs" | "ui";
+}
 
 function hasChildren(
-  item: SidebarConfigItem,
-): item is SidebarConfigItem & { children: SidebarConfigSimpleItem[] } {
-  return "children" in item && Array.isArray(item.children);
+  item: AnyItem,
+): item is AnyItem & { children: AnySimpleItem[] } {
+  return Array.isArray(item.children);
 }
 
-function hasItems(
-  item: SidebarConfigItem,
-): item is SidebarConfigItem & { items: SidebarConfigItem[] } {
-  return "items" in item && Array.isArray(item.items);
+function hasItems(item: AnyItem): item is AnyItem & { items: AnyItem[] } {
+  return Array.isArray(item.items);
 }
 
-export default function Sidebar() {
+export default function Sidebar({ variant }: Props) {
   const pathname = usePathname();
+  const config = (
+    variant === "ui" ? uiSidebarConfig : sidebarConfig
+  ) as AnySection[];
+  const basePath = variant === "ui" ? "/ui/components" : "/docs";
 
   return (
     <aside className="d-none lg:d-b lg:gc-s-3">
@@ -31,7 +52,7 @@ export default function Sidebar() {
           maxHeight: "calc(100dvh - 5rem)",
         }}
       >
-        {sidebarConfig.map((section) => (
+        {config.map((section) => (
           <div key={section.title} className="d-f fd-c g-3">
             <h3 className="c-silver-8 fs-xs fw-600 ls-2 tt-u">
               {section.title}
@@ -45,7 +66,7 @@ export default function Sidebar() {
                       <span className="c-silver-9 fs-sm">{item.title}</span>
                       <ul className="d-f fd-c g-1">
                         {item.children.map((child) => {
-                          const href = `/docs/${child.slug}`;
+                          const href = `${basePath}/${child.slug}`;
                           const isActive = pathname === href;
 
                           return (
@@ -82,7 +103,7 @@ export default function Sidebar() {
                                 </span>
                                 <ul className="d-f fd-c g-1 ml-4">
                                   {subItem.children.map((child) => {
-                                    const href = `/docs/${child.slug}`;
+                                    const href = `${basePath}/${child.slug}`;
                                     const isActive = pathname === href;
 
                                     return (
@@ -105,7 +126,7 @@ export default function Sidebar() {
                           }
 
                           if (subItem.slug) {
-                            const href = `/docs/${subItem.slug}`;
+                            const href = `${basePath}/${subItem.slug}`;
                             const isActive = pathname === href;
 
                             return (
@@ -132,7 +153,7 @@ export default function Sidebar() {
 
                 // simple item with slug
                 if (item.slug) {
-                  const href = `/docs/${item.slug}`;
+                  const href = `${basePath}/${item.slug}`;
                   const isActive = pathname === href;
 
                   return (
