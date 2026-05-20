@@ -17,7 +17,7 @@ export default function Home() {
         }}
       >
         <div className="w-100%" style={{ maxWidth: "72rem" }}>
-          <div className="d-g g-12 ai-fe lg:gtc-2 h-8 sm:h-12">
+          <div className="d-g g-12 ai-fe lg:gtc-2 h-4 sm:h-6">
             <div>
               <h1 className="mb-6 fs-5xl fw-400 lh-2 ff-e md:fs-6xl">
                 Type less. Style more.
