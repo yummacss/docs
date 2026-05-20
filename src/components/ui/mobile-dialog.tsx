@@ -5,10 +5,8 @@ import { Xmark } from "@gravity-ui/icons";
 import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import type { SidebarConfigItem } from "@/utils/sidebar";
-import { sidebarConfig } from "@/utils/sidebar";
-import type { UISidebarConfigItem } from "@/utils/ui-sidebar";
-import { uiSidebarConfig } from "@/utils/ui-sidebar";
+import { sidebarConfig } from "@/config/sidebar";
+import type { SidebarConfigItem, UISidebarConfigItem } from "@/utils/sidebar";
 
 type AnyItem = SidebarConfigItem | UISidebarConfigItem;
 
@@ -46,7 +44,7 @@ function flattenItems(items: AnyItem[], baseRoute: string): NavItem[] {
 }
 
 function buildNavSections(routeType: "docs" | "ui"): NavSection[] {
-  const config = routeType === "ui" ? uiSidebarConfig : sidebarConfig;
+  const config = sidebarConfig[routeType];
   const baseRoute = routeType === "ui" ? "/ui/components" : "/docs";
 
   const topNav: NavSection = {
@@ -105,17 +103,17 @@ export default function MobileDialog({ isOpen, onClose, routeType }: Props) {
                   transition={{ duration: 0.15, ease: "easeOut" }}
                 />
               }
-              className="p-f zi-10 t-0 l-0 r-0 b-0 bg-black/60 bf-b-sm fgr-90 lg:d-none"
+              className="p-f zi-10 t-0 l-0 r-0 b-0 bg-black/60 bg-mirage fgr-90 lg:d-none"
             />
 
             <div className="d-f p-f zi-10 t-0 l-0 r-0 b-0 ai-s jc-fe pe-none lg:d-none">
               <Dialog.Popup
                 render={
                   <motion.div
-                    initial={{ opacity: 0, x: "100%" }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: "100%" }}
-                    transition={{ duration: 0.2, ease: "easeOut" }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.15, ease: "easeOut" }}
                   />
                 }
                 className="o-h w-100% max-w-xs h-dvh bc-white/10 bg-transparent blw-1 pe-auto"

@@ -1,5 +1,5 @@
-import { type SidebarConfigItem, sidebarConfig } from "./sidebar";
-import { type UISidebarConfigItem, uiSidebarConfig } from "./ui-sidebar";
+import { sidebarConfig } from "@/config/sidebar";
+import type { SidebarConfigItem, UISidebarConfigItem } from "./sidebar";
 
 function flattenSidebarItems(
   items: SidebarConfigItem[],
@@ -55,7 +55,7 @@ export function getDocsNavigation(slug: string): {
 } {
   const allPages: Array<{ slug: string; title: string }> = [];
 
-  for (const section of sidebarConfig) {
+  for (const section of sidebarConfig.docs) {
     allPages.push(...flattenSidebarItems(section.items));
   }
 
@@ -82,7 +82,7 @@ export function getUINavigation(slug: string): {
   // Find which section the current slug belongs to
   let currentSectionPages: Array<{ slug: string; title: string }> = [];
 
-  for (const section of uiSidebarConfig) {
+  for (const section of sidebarConfig.ui) {
     const sectionPages = flattenUISidebarItems(section.items);
     const isInSection = sectionPages.some((page) => page.slug === slug);
 

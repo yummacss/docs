@@ -2,8 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { sidebarConfig } from "@/utils/sidebar";
-import { uiSidebarConfig } from "@/utils/ui-sidebar";
+import { sidebarConfig } from "@/config/sidebar";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -39,9 +38,7 @@ function hasItems(item: AnyItem): item is AnyItem & { items: AnyItem[] } {
 
 export default function Sidebar({ variant }: Props) {
   const pathname = usePathname();
-  const config = (
-    variant === "ui" ? uiSidebarConfig : sidebarConfig
-  ) as AnySection[];
+  const config = sidebarConfig[variant] as AnySection[];
   const basePath = variant === "ui" ? "/ui/components" : "/docs";
 
   return (
