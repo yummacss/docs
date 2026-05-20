@@ -361,10 +361,6 @@ summary {
   background-color: #628ff1;
 }
 
-.bg-charcoal {
-  background-color: #21243f;
-}
-
 .bg-clay {
   background-color: #232741;
 }
@@ -808,10 +804,6 @@ summary {
   color: #628ff1;
 }
 
-.c-cornflower {
-  color: #9aa6ef;
-}
-
 .c-cr {
   cursor: col-resize;
 }
@@ -842,6 +834,10 @@ summary {
 
 .c-green-7 {
   color: #05b88a;
+}
+
+.c-highlight {
+  color: #9aa5ef;
 }
 
 .c-indigo {
@@ -1518,6 +1514,10 @@ summary {
 
 .h\:bg-indigo\/25:hover {
   background-color: #6366f140;
+}
+
+.h\:bg-midnight-8:hover {
+  background-color: #131521;
 }
 
 .h\:bg-mirage:hover {

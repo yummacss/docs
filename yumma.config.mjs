@@ -19,11 +19,9 @@ export default defineConfig({
   ],
   theme: {
     colors: {
-      charcoal: "#21243f",
-      clay: "#232741",
-      cornflower: "#9aa6ef",
       "diff-add": "#a8e1ad",
       "diff-remove": "#e1a8a8",
+      clay: "#232741",
       highlight: "#9aa5ef",
       mauve: "#dda2f6",
       midnight: "#1a1d2e",

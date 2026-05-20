@@ -14,7 +14,7 @@ export default function HoverVariant({ category, name }: Props) {
   return (
     <div className="mb-6 p-4 bc-clay bg-midnight bw-1">
       <div className="d-f ai-c g-3 mb-3">
-        <div className="d-f ai-c jc-c fs-0 p-2 bg-clay c-cornflower">
+        <div className="d-f ai-c jc-c fs-0 p-2 bg-clay c-highlight">
           <HandPointingIcon className="w-5 h-5" />
         </div>
         <p className="c-white/70 fs-sm">
