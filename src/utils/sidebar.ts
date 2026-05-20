@@ -1,402 +1,12 @@
-export const sidebarConfig: SidebarConfig = [
-  {
-    title: "Get Started",
-    items: [
-      { title: "Philosophy", slug: "philosophy" },
-      { title: "Installation", slug: "installation" },
-      { title: "Configuration", slug: "configuration" },
-      { title: "IDE Support", slug: "ide-support" },
-    ],
-  },
-  {
-    title: "Handbook",
-    items: [
-      { title: "Colors", slug: "colors" },
-      { title: "Normalize", slug: "normalize" },
-      { title: "Media Queries", slug: "media-queries" },
-      { title: "Container Queries", slug: "container-queries" },
-      { title: "Negative Values", slug: "negative-values" },
-      { title: "Pseudo Classes", slug: "pseudo-classes" },
-      { title: "Pseudo Elements", slug: "pseudo-elements" },
-    ],
-  },
-  {
-    title: "Background",
-    items: [
-      { title: "Background Attachment", slug: "background-attachment" },
-      { title: "Background Clip", slug: "background-clip" },
-      { title: "Background Origin", slug: "background-origin" },
-      { title: "Background Position", slug: "background-position" },
-      { title: "Background Repeat", slug: "background-repeat" },
-      { title: "Background Size", slug: "background-size" },
-    ],
-  },
-  {
-    title: "Border & Outline",
-    items: [
-      {
-        title: "Border",
-        children: [
-          { title: "Border Collapse", slug: "border-collapse" },
-          { title: "Border Spacing", slug: "border-spacing" },
-          { title: "Border Style", slug: "border-style" },
-          { title: "Border Width", slug: "border-width" },
-          { title: "Border Top Width", slug: "border-top-width" },
-          { title: "Border Right Width", slug: "border-right-width" },
-          { title: "Border Bottom Width", slug: "border-bottom-width" },
-          { title: "Border Left Width", slug: "border-left-width" },
-          { title: "Border Block Width", slug: "border-block-width" },
-          { title: "Border Inline Width", slug: "border-inline-width" },
-        ],
-      },
-      {
-        title: "Outline",
-        children: [
-          { title: "Outline Offset", slug: "outline-offset" },
-          { title: "Outline Style", slug: "outline-style" },
-          { title: "Outline Width", slug: "outline-width" },
-        ],
-      },
-    ],
-  },
-  {
-    title: "Radius & Corner",
-    items: [
-      {
-        title: "Border Radius",
-        children: [
-          { title: "Border Radius", slug: "border-radius" },
-          { title: "Border Top Radius", slug: "border-top-radius" },
-          { title: "Border Right Radius", slug: "border-right-radius" },
-          { title: "Border Bottom Radius", slug: "border-bottom-radius" },
-          { title: "Border Left Radius", slug: "border-left-radius" },
-          { title: "Border Top Left Radius", slug: "border-top-left-radius" },
-          { title: "Border Top Right Radius", slug: "border-top-right-radius" },
-          {
-            title: "Border Bottom Left Radius",
-            slug: "border-bottom-left-radius",
-          },
-          {
-            title: "Border Bottom Right Radius",
-            slug: "border-bottom-right-radius",
-          },
-        ],
-      },
-      {
-        title: "Corner Shapes",
-        children: [
-          { title: "Corner Shape", slug: "corner-shape" },
-          { title: "Corner Block End Shape", slug: "corner-block-end-shape" },
-          {
-            title: "Corner Block Start Shape",
-            slug: "corner-block-start-shape",
-          },
-          {
-            title: "Corner Bottom Left Shape",
-            slug: "corner-bottom-left-shape",
-          },
-          {
-            title: "Corner Bottom Right Shape",
-            slug: "corner-bottom-right-shape",
-          },
-          { title: "Corner Bottom Shape", slug: "corner-bottom-shape" },
-          { title: "Corner End End Shape", slug: "corner-end-end-shape" },
-          { title: "Corner End Start Shape", slug: "corner-end-start-shape" },
-          { title: "Corner Inline End Shape", slug: "corner-inline-end-shape" },
-          {
-            title: "Corner Inline Start Shape",
-            slug: "corner-inline-start-shape",
-          },
-          { title: "Corner Left Shape", slug: "corner-left-shape" },
-          { title: "Corner Right Shape", slug: "corner-right-shape" },
-          { title: "Corner Start End Shape", slug: "corner-start-end-shape" },
-          {
-            title: "Corner Start Start Shape",
-            slug: "corner-start-start-shape",
-          },
-          { title: "Corner Top Left Shape", slug: "corner-top-left-shape" },
-          { title: "Corner Top Right Shape", slug: "corner-top-right-shape" },
-          { title: "Corner Top Shape", slug: "corner-top-shape" },
-        ],
-      },
-    ],
-  },
-  {
-    title: "Box Model",
-    items: [
-      { title: "Aspect Ratio", slug: "aspect-ratio" },
-      {
-        title: "Block Size",
-        children: [
-          { title: "Block Size", slug: "block-size" },
-          { title: "Max Block Size", slug: "max-block-size" },
-          { title: "Min Block Size", slug: "min-block-size" },
-        ],
-      },
-      { title: "Box Sizing", slug: "box-sizing" },
-      {
-        title: "Height",
-        children: [
-          { title: "Height", slug: "height" },
-          { title: "Max Height", slug: "max-height" },
-          { title: "Min Height", slug: "min-height" },
-        ],
-      },
-      {
-        title: "Inline Size",
-        children: [
-          { title: "Inline Size", slug: "inline-size" },
-          { title: "Max Inline Size", slug: "max-inline-size" },
-          { title: "Min Inline Size", slug: "min-inline-size" },
-        ],
-      },
-      {
-        title: "Margin",
-        children: [
-          { title: "Margin", slug: "margin" },
-          { title: "Margin Top", slug: "margin-top" },
-          { title: "Margin Right", slug: "margin-right" },
-          { title: "Margin Bottom", slug: "margin-bottom" },
-          { title: "Margin Left", slug: "margin-left" },
-          { title: "Margin Block", slug: "margin-block" },
-          { title: "Margin Block Start", slug: "margin-block-start" },
-          { title: "Margin Block End", slug: "margin-block-end" },
-          { title: "Margin Inline", slug: "margin-inline" },
-          { title: "Margin Inline Start", slug: "margin-inline-start" },
-          { title: "Margin Inline End", slug: "margin-inline-end" },
-        ],
-      },
-      {
-        title: "Padding",
-        children: [
-          { title: "Padding", slug: "padding" },
-          { title: "Padding Top", slug: "padding-top" },
-          { title: "Padding Right", slug: "padding-right" },
-          { title: "Padding Bottom", slug: "padding-bottom" },
-          { title: "Padding Left", slug: "padding-left" },
-          { title: "Padding Block", slug: "padding-block" },
-          { title: "Padding Block Start", slug: "padding-block-start" },
-          { title: "Padding Block End", slug: "padding-block-end" },
-          { title: "Padding Inline", slug: "padding-inline" },
-          { title: "Padding Inline Start", slug: "padding-inline-start" },
-          { title: "Padding Inline End", slug: "padding-inline-end" },
-        ],
-      },
-      {
-        title: "Width",
-        children: [
-          { title: "Width", slug: "width" },
-          { title: "Max Width", slug: "max-width" },
-          { title: "Min Width", slug: "min-width" },
-        ],
-      },
-    ],
-  },
-  {
-    title: "Colors",
-    items: [
-      { title: "Accent Color", slug: "accent-color" },
-      { title: "Background Color", slug: "background-color" },
-      { title: "Border Color", slug: "border-color" },
-      { title: "Caret Color", slug: "caret-color" },
-      { title: "Color", slug: "color" },
-      { title: "Fill", slug: "fill" },
-      { title: "Outline Color", slug: "outline-color" },
-      { title: "Stroke", slug: "stroke" },
-      { title: "Text Decoration Color", slug: "text-decoration-color" },
-    ],
-  },
-  {
-    title: "Effects",
-    items: [
-      { title: "Backdrop Blur", slug: "backdrop-blur" },
-      { title: "Backdrop Grayscale", slug: "backdrop-grayscale" },
-      { title: "Blur", slug: "blur" },
-      { title: "Box Shadow", slug: "box-shadow" },
-      { title: "Grayscale", slug: "grayscale" },
-      { title: "Mix Blend Mode", slug: "mix-blend-mode" },
-      { title: "Opacity", slug: "opacity" },
-    ],
-  },
-  {
-    title: "Flexbox & Grid",
-    items: [
-      {
-        title: "Flexbox",
-        children: [
-          { title: "Align Content", slug: "align-content" },
-          { title: "Align Items", slug: "align-items" },
-          { title: "Align Self", slug: "align-self" },
-          { title: "Flex", slug: "flex" },
-          { title: "Flex Basis", slug: "flex-basis" },
-          { title: "Flex Direction", slug: "flex-direction" },
-          { title: "Flex Grow", slug: "flex-grow" },
-          { title: "Flex Shrink", slug: "flex-shrink" },
-          { title: "Flex Wrap", slug: "flex-wrap" },
-          { title: "Justify Content", slug: "justify-content" },
-          { title: "Justify Items", slug: "justify-items" },
-          { title: "Justify Self", slug: "justify-self" },
-          { title: "Order", slug: "order" },
-        ],
-      },
-      {
-        title: "Grid",
-        children: [
-          { title: "Column Gap", slug: "column-gap" },
-          { title: "Gap", slug: "gap" },
-          { title: "Grid Auto Columns", slug: "grid-auto-columns" },
-          { title: "Grid Auto Flow", slug: "grid-auto-flow" },
-          { title: "Grid Auto Rows", slug: "grid-auto-rows" },
-          { title: "Grid Column", slug: "grid-column" },
-          { title: "Grid Column End", slug: "grid-column-end" },
-          { title: "Grid Column Span", slug: "grid-column-span" },
-          { title: "Grid Column Start", slug: "grid-column-start" },
-          { title: "Grid Row", slug: "grid-row" },
-          { title: "Grid Row End", slug: "grid-row-end" },
-          { title: "Grid Row Span", slug: "grid-row-span" },
-          { title: "Grid Row Start", slug: "grid-row-start" },
-          { title: "Grid Template Columns", slug: "grid-template-columns" },
-          { title: "Grid Template Rows", slug: "grid-template-rows" },
-          { title: "Place Content", slug: "place-content" },
-          { title: "Place Items", slug: "place-items" },
-          { title: "Place Self", slug: "place-self" },
-          { title: "Row Gap", slug: "row-gap" },
-        ],
-      },
-    ],
-  },
-  {
-    title: "Interactivity",
-    items: [
-      { title: "Appearance", slug: "appearance" },
-      { title: "Cursor", slug: "cursor" },
-      { title: "Field Sizing", slug: "field-sizing" },
-      { title: "Overscroll Behavior", slug: "overscroll-behavior" },
-      {
-        title: "Overscroll Behavior Block",
-        slug: "overscroll-behavior-block",
-      },
-      {
-        title: "Overscroll Behavior Inline",
-        slug: "overscroll-behavior-inline",
-      },
-      { title: "Overscroll Behavior X", slug: "overscroll-behavior-x" },
-      { title: "Overscroll Behavior Y", slug: "overscroll-behavior-y" },
-      { title: "Pointer Events", slug: "pointer-events" },
-      { title: "Resize", slug: "resize" },
-      { title: "Scroll Behavior", slug: "scroll-behavior" },
-      { title: "Scroll Margin", slug: "scroll-margin" },
-      { title: "Scroll Padding", slug: "scroll-padding" },
-      { title: "Scroll Snap Align", slug: "scroll-snap-align" },
-      { title: "Scroll Snap Stop", slug: "scroll-snap-stop" },
-      { title: "Scroll Snap Type", slug: "scroll-snap-type" },
-      { title: "Touch Action", slug: "touch-action" },
-      { title: "User Select", slug: "user-select" },
-    ],
-  },
-  {
-    title: "Layout",
-    items: [
-      { title: "Clear", slug: "clear" },
-      { title: "Container Type", slug: "container-type" },
-      { title: "Display", slug: "display" },
-      { title: "Float", slug: "float" },
-      { title: "Isolation", slug: "isolation" },
-      { title: "Table Layout", slug: "table-layout" },
-    ],
-  },
-  {
-    title: "Positioning",
-    items: [
-      { title: "Bottom", slug: "bottom" },
-      { title: "Inset", slug: "inset" },
-      { title: "Left", slug: "left" },
-      { title: "Object Fit", slug: "object-fit" },
-      { title: "Object Position", slug: "object-position" },
-      { title: "Overflow", slug: "overflow" },
-      { title: "Overflow X", slug: "overflow-x" },
-      { title: "Overflow Y", slug: "overflow-y" },
-      { title: "Position", slug: "position" },
-      { title: "Right", slug: "right" },
-      { title: "Top", slug: "top" },
-      { title: "Visibility", slug: "visibility" },
-      { title: "Z-Index", slug: "z-index" },
-    ],
-  },
-  {
-    title: "Transform",
-    items: [
-      { title: "Rotate", slug: "rotate" },
-      { title: "Scale", slug: "scale" },
-      { title: "Skew X", slug: "skew-x" },
-      { title: "Skew Y", slug: "skew-y" },
-      { title: "Skew", slug: "skew" },
-      { title: "Transform Origin", slug: "transform-origin" },
-      { title: "Translate", slug: "translate" },
-      { title: "Translate X", slug: "translate-x" },
-      { title: "Translate Y", slug: "translate-y" },
-    ],
-  },
-  {
-    title: "Transition",
-    items: [
-      { title: "Transition Delay", slug: "transition-delay" },
-      { title: "Transition Duration", slug: "transition-duration" },
-      { title: "Transition Property", slug: "transition-property" },
-      {
-        title: "Transition Timing Function",
-        slug: "transition-timing-function",
-      },
-    ],
-  },
-  {
-    title: "Typography",
-    items: [
-      {
-        title: "Fonts",
-        children: [
-          { title: "Font Family", slug: "font-family" },
-          { title: "Font Size", slug: "font-size" },
-          { title: "Font Style", slug: "font-style" },
-          { title: "Font Weight", slug: "font-weight" },
-        ],
-      },
-      {
-        title: "Text",
-        children: [
-          { title: "Letter Spacing", slug: "letter-spacing" },
-          { title: "Line Height", slug: "line-height" },
-          { title: "List Style Position", slug: "list-style-position" },
-          { title: "List Style Type", slug: "list-style-type" },
-          { title: "Overflow Wrap", slug: "overflow-wrap" },
-          { title: "Text Align", slug: "text-align" },
-          { title: "Text Decoration Line", slug: "text-decoration-line" },
-          { title: "Text Decoration Style", slug: "text-decoration-style" },
-          {
-            title: "Text Decoration Thickness",
-            slug: "text-decoration-thickness",
-          },
-          { title: "Text Decoration", slug: "text-decoration" },
-          { title: "Text Indent", slug: "text-indent" },
-          { title: "Text Orientation", slug: "text-orientation" },
-          { title: "Text Overflow", slug: "text-overflow" },
-          { title: "Text Transform", slug: "text-transform" },
-          { title: "Text Underline Offset", slug: "text-underline-offset" },
-          { title: "Text Wrap", slug: "text-wrap" },
-          { title: "Vertical Align", slug: "vertical-align" },
-          { title: "White Space", slug: "white-space" },
-          { title: "Word Break", slug: "word-break" },
-          { title: "Writing Mode", slug: "writing-mode" },
-        ],
-      },
-    ],
-  },
-];
+import { sidebarConfig } from "@/config/sidebar";
 
 export interface SidebarConfigItemBase {
   title: string;
   slug?: string;
+  href?: string;
+  external?: boolean;
   updated?: boolean;
+  primitive?: string;
 }
 
 export interface SidebarConfigItemWithChildren extends SidebarConfigItemBase {
@@ -405,14 +15,14 @@ export interface SidebarConfigItemWithChildren extends SidebarConfigItemBase {
 
 export interface SidebarConfigSimpleItem extends SidebarConfigItemBase {}
 
+export interface SidebarConfigItemWithItems extends SidebarConfigItemBase {
+  items: SidebarConfigItem[];
+}
+
 export type SidebarConfigItem =
   | SidebarConfigSimpleItem
   | SidebarConfigItemWithChildren
   | SidebarConfigItemWithItems;
-
-export interface SidebarConfigItemWithItems extends SidebarConfigItemBase {
-  items: SidebarConfigItem[];
-}
 
 export interface SidebarConfigSection {
   title: string;
@@ -421,50 +31,53 @@ export interface SidebarConfigSection {
 
 export type SidebarConfig = SidebarConfigSection[];
 
-// extract all slugs from the sidebar config
-export function getAllSlugs(): string[] {
-  const slugs: string[] = [];
+// Backward compatibility type aliases
+export type UISidebarConfigItemBase = SidebarConfigItemBase;
+export type UISidebarConfigItemWithChildren = SidebarConfigItemWithChildren;
+export type UISidebarConfigSimpleItem = SidebarConfigSimpleItem;
+export type UISidebarConfigItem = SidebarConfigItem;
+export type UISidebarConfigItemWithItems = SidebarConfigItemWithItems;
+export type UISidebarConfigSection = SidebarConfigSection;
+export type UISidebarConfig = SidebarConfig;
 
-  function extractSlugs(items: SidebarConfigItem[]) {
+// Consolidated recursion function for slug retrieval
+function extractSlugsFromSections(sections: SidebarConfigSection[]): string[] {
+  const slugs: string[] = [];
+  function extract(items: SidebarConfigItem[]) {
     for (const item of items) {
       if (item.slug) {
         slugs.push(item.slug);
       }
       if ("children" in item && Array.isArray(item.children)) {
-        extractSlugs(item.children);
+        extract(item.children);
       }
       if ("items" in item && Array.isArray(item.items)) {
-        extractSlugs(item.items);
+        extract(item.items);
       }
     }
   }
-
-  for (const section of sidebarConfig) {
-    extractSlugs(section.items);
+  for (const section of sections) {
+    extract(section.items);
   }
-
   return slugs;
 }
 
-// find the current page info from pathname
-export function findCurrentPageInfo(pathname: string): {
-  sectionTitle: string;
-  pageTitle: string;
-} | null {
-  // remove /docs/ prefix and get the slug
-  const slug = pathname.replace(/^\/docs\//, "");
+export const getAllSlugs = () => extractSlugsFromSections(sidebarConfig.docs);
+export const getAllUISlugs = () => extractSlugsFromSections(sidebarConfig.ui);
 
-  function searchInItems(
+// Consolidated search helper
+function findPageInfoInSections(
+  sections: SidebarConfigSection[],
+  slug: string,
+): { sectionTitle: string; pageTitle: string } | null {
+  function search(
     items: SidebarConfigItem[],
     sectionTitle: string,
   ): { sectionTitle: string; pageTitle: string } | null {
     for (const item of items) {
-      // check if this item has the slug
       if (item.slug === slug) {
         return { sectionTitle, pageTitle: item.title };
       }
-
-      // check in children
       if ("children" in item && Array.isArray(item.children)) {
         for (const child of item.children) {
           if (child.slug === slug) {
@@ -472,20 +85,56 @@ export function findCurrentPageInfo(pathname: string): {
           }
         }
       }
-
-      // check in items recursively
       if ("items" in item && Array.isArray(item.items)) {
-        const result = searchInItems(item.items, sectionTitle);
+        const result = search(item.items, sectionTitle);
         if (result) return result;
       }
     }
-
     return null;
   }
 
-  // search through all sections
-  for (const section of sidebarConfig) {
-    const result = searchInItems(section.items, section.title);
+  for (const section of sections) {
+    const result = search(section.items, section.title);
+    if (result) return result;
+  }
+  return null;
+}
+
+export function findCurrentPageInfo(pathname: string) {
+  const slug = pathname.replace(/^\/docs\//, "");
+  return findPageInfoInSections(sidebarConfig.docs, slug);
+}
+
+export function findCurrentUIPageInfo(pathname: string) {
+  let slug = pathname.replace(/^\/ui\/components\//, "");
+  slug = slug.replace(/^\/ui\//, "").replace(/\/$/, "");
+  return findPageInfoInSections(sidebarConfig.ui, slug);
+}
+
+export function findCurrentUIItemBySlug(
+  pathname: string,
+): SidebarConfigItemBase | null {
+  let slug = pathname.replace(/^\/ui\/components\//, "");
+  slug = slug.replace(/^\/ui\//, "").replace(/\/$/, "");
+
+  function search(items: SidebarConfigItem[]): SidebarConfigItemBase | null {
+    for (const item of items) {
+      if (item.slug === slug) return item;
+      if ("children" in item && Array.isArray(item.children)) {
+        for (const child of item.children) {
+          if (child.slug === slug) return child;
+        }
+      }
+      if ("items" in item && Array.isArray(item.items)) {
+        const result = search(item.items);
+        if (result) return result;
+      }
+    }
+    return null;
+  }
+
+  for (const section of sidebarConfig.ui) {
+    const result = search(section.items);
     if (result) return result;
   }
 

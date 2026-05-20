@@ -1,6 +1,6 @@
+import { sidebarConfig } from "@/config/sidebar";
 import { COLOR_FAMILIES, generateShades, SHADE_LABELS } from "./colors";
-import { type SidebarConfigItem, sidebarConfig } from "./sidebar";
-import { type UISidebarConfigItem, uiSidebarConfig } from "./ui-sidebar";
+import type { SidebarConfigItem, UISidebarConfigItem } from "./sidebar";
 
 export interface SearchItem {
   title: string;
@@ -31,7 +31,7 @@ function extractDocsItems(): SearchItem[] {
     }
   }
 
-  for (const section of sidebarConfig) {
+  for (const section of sidebarConfig.docs) {
     extract(section.items);
   }
 
@@ -59,7 +59,7 @@ function extractUIItems(): SearchItem[] {
     }
   }
 
-  for (const section of uiSidebarConfig) {
+  for (const section of sidebarConfig.ui) {
     extract(section.items);
   }
 

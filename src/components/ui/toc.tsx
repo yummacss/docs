@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import ApiReference from "@/components/ui/api-reference";
 import EditPage from "@/components/ui/edit-page";
-import { findCurrentUIItemBySlug } from "@/utils/ui-sidebar";
+import { findCurrentUIItemBySlug } from "@/utils/sidebar";
 
 interface TocItem {
   id: string;
