@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronRight } from "@gravity-ui/icons";
+import { ChevronRight } from "lucide-react";
 
 export default function BreadcrumbBase() {
   return (
@@ -17,7 +17,7 @@ export default function BreadcrumbBase() {
         <span className="fs-sm fw-400">Team</span>
       </a>
       <ChevronRight className="w-4 h-4 c-slate-4" />
-      <span className="fs-sm fw-500 c-indigo" aria-current="page">
+      <span className="c-indigo fs-sm fw-500" aria-current="page">
         Board
       </span>
     </nav>

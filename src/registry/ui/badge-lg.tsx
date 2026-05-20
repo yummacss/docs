@@ -1,6 +1,6 @@
 "use client";
 
-import { ShieldCheck } from "@gravity-ui/icons";
+import { ShieldCheck } from "lucide-react";
 
 export default function BadgeLg() {
   return (

@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@base-ui/react/button";
-import { Plus } from "@gravity-ui/icons";
+import { Plus } from "lucide-react";
 
 export default function ButtonIconPill() {
   return (

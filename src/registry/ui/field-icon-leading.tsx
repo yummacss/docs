@@ -1,7 +1,7 @@
 "use client";
 
 import { Field } from "@base-ui/react/field";
-import { Magnifier } from "@gravity-ui/icons";
+import { Search } from "lucide-react";
 
 export default function FieldLeading() {
   return (
@@ -10,7 +10,7 @@ export default function FieldLeading() {
         Search products
       </label>
       <div className="d-f p-r ai-c">
-        <Magnifier className="p-a l-3 w-4 h-4 c-slate-5" />
+        <Search className="p-a l-3 w-4 h-4 c-slate-5" />
         <Field.Control
           id="icon-input"
           type="text"

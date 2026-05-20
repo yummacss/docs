@@ -1,7 +1,7 @@
 "use client";
 
 import { Accordion } from "@base-ui/react/accordion";
-import { ChevronDown } from "@gravity-ui/icons";
+import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 
 export default function AccordionStatic() {

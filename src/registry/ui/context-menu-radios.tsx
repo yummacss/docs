@@ -1,7 +1,7 @@
 "use client";
 
 import { ContextMenu } from "@base-ui/react/context-menu";
-import { CircleFill } from "@gravity-ui/icons";
+import { Circle } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -52,7 +52,7 @@ export default function ContextMenuRadios() {
                     >
                       <span className="d-f ai-c jc-c fs-0 w-4 h-4 bc-silver-3 br-9999 bw-1">
                         <ContextMenu.RadioItemIndicator>
-                          <CircleFill className="w-2 h-2 c-indigo" />
+                          <Circle className="w-2 h-2 c-indigo" />
                         </ContextMenu.RadioItemIndicator>
                       </span>
                       {option.label}

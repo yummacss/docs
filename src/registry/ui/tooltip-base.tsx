@@ -1,7 +1,7 @@
 "use client";
 
 import { Tooltip } from "@base-ui/react/tooltip";
-import { BellDot } from "@gravity-ui/icons";
+import { BellDot } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 
 export default function TooltipBase() {
@@ -23,7 +23,7 @@ export default function TooltipBase() {
                     transition={{ duration: 0.2, ease: "easeOut" }}
                   />
                 }
-                className="px-3 py-2 bg-white c-slate-10 bc-silver-2 bw-1 br-md bs-o-xs us-none fs-sm"
+                className="px-3 py-2 bg-white bc-silver-2 c-slate-10 bw-1 br-md fs-sm bs-o-xs us-none"
               >
                 3 unread notifications
               </Tooltip.Popup>

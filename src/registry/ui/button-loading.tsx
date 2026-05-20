@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@base-ui/react/button";
-import { Clock } from "@gravity-ui/icons";
+import { Clock } from "lucide-react";
 import { motion } from "motion/react";
 
 export default function ButtonLoading() {

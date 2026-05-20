@@ -1,7 +1,7 @@
 "use client";
 
 import { Checkbox } from "@base-ui/react/checkbox";
-import { Check } from "@gravity-ui/icons";
+import { Check } from "lucide-react";
 
 export default function CheckboxBase() {
   return (

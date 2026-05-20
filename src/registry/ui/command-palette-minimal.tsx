@@ -3,7 +3,7 @@
 import { Button } from "@base-ui/react/button";
 import { Combobox } from "@base-ui/react/combobox";
 import { Dialog } from "@base-ui/react/dialog";
-import { Magnifier, Xmark } from "@gravity-ui/icons";
+import { Search, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
 
@@ -28,7 +28,7 @@ export default function CommandPaletteMinimal() {
           <Button className="d-f ai-c g-2 px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5" />
         }
       >
-        <Magnifier className="w-4 h-4" />
+        <Search className="w-4 h-4" />
         <span>Commands</span>
       </Dialog.Trigger>
       <AnimatePresence>
@@ -70,7 +70,7 @@ export default function CommandPaletteMinimal() {
                         <Button className="d-f ai-c jc-c w-7 h-7 c-slate-6 bw-0 br-md h:bg-silver-2 fv:oo-2 fv:oc-indigo-5" />
                       }
                     >
-                      <Xmark aria-hidden className="w-5 h-5" />
+                      <X aria-hidden className="w-5 h-5" />
                     </Dialog.Close>
                   </div>
                   <div className="bg-white bc-silver-2 btr-lg btw-1">

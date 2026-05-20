@@ -1,7 +1,7 @@
 "use client";
 
 import { Field } from "@base-ui/react/field";
-import { Check } from "@gravity-ui/icons";
+import { Check } from "lucide-react";
 
 export default function FieldSuccess() {
   return (

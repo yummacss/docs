@@ -1,7 +1,7 @@
 "use client";
 
 import { Accordion } from "@base-ui/react/accordion";
-import { Minus, Plus } from "@gravity-ui/icons";
+import { Minus, Plus } from "lucide-react";
 import { type HTMLMotionProps, motion } from "motion/react";
 import { useState } from "react";
 

@@ -2,7 +2,7 @@
 
 import { Avatar } from "@base-ui/react/avatar";
 import { ContextMenu } from "@base-ui/react/context-menu";
-import { ChevronRight } from "@gravity-ui/icons";
+import { ChevronRight } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 

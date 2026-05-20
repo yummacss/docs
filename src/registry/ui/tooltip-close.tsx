@@ -1,7 +1,7 @@
 "use client";
 
 import { Tooltip } from "@base-ui/react/tooltip";
-import { TrashBin } from "@gravity-ui/icons";
+import { Trash } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 
 export default function TooltipClose() {
@@ -9,7 +9,7 @@ export default function TooltipClose() {
     <Tooltip.Provider>
       <Tooltip.Root>
         <Tooltip.Trigger className="d-f ai-c jc-c bg-transparent c-red-7 bw-0 c-p h:c-red-8 fv:oo-2 fv:oc-red-6">
-          <TrashBin aria-label="Archive task" className="w-6 h-6" />
+          <Trash aria-label="Archive task" className="w-6 h-6" />
         </Tooltip.Trigger>
         <Tooltip.Portal>
           <Tooltip.Positioner sideOffset={8}>
@@ -23,7 +23,7 @@ export default function TooltipClose() {
                     transition={{ duration: 0.2, ease: "easeOut" }}
                   />
                 }
-                className="px-3 py-2 bg-white c-slate-10 bc-silver-2 bw-1 br-md bs-o-xs us-none fs-sm"
+                className="px-3 py-2 bg-white bc-silver-2 c-slate-10 bw-1 br-md fs-sm bs-o-xs us-none"
               >
                 Delete task
               </Tooltip.Popup>

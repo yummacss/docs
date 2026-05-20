@@ -1,7 +1,7 @@
 "use client";
 
 import { ContextMenu } from "@base-ui/react/context-menu";
-import { Eye, Link, PersonPlus, Pin, Tray, Xmark } from "@gravity-ui/icons";
+import { Archive, Eye, Link, Pin, UserRoundPlus, X } from "lucide-react";
 import { useState } from "react";
 
 export default function ContextMenuStatic() {
@@ -23,7 +23,7 @@ export default function ContextMenuStatic() {
                 }`
               }
             >
-              <PersonPlus className="fs-0 w-4 h-4 c-slate-5" />
+              <UserRoundPlus className="fs-0 w-4 h-4 c-slate-5" />
               Assign to
             </ContextMenu.Item>
             <ContextMenu.Item
@@ -66,7 +66,7 @@ export default function ContextMenuStatic() {
                 }`
               }
             >
-              <Xmark className="fs-0 w-4 h-4 c-slate-5" />
+              <X className="fs-0 w-4 h-4 c-slate-5" />
               Mark as blocked
             </ContextMenu.Item>
 
@@ -79,7 +79,7 @@ export default function ContextMenuStatic() {
                 }`
               }
             >
-              <Tray className="fs-0 w-4 h-4" />
+              <Archive className="fs-0 w-4 h-4" />
               Archive task
             </ContextMenu.Item>
           </ContextMenu.Popup>

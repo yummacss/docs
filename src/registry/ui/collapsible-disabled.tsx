@@ -1,7 +1,7 @@
 "use client";
 
 import { Collapsible } from "@base-ui/react/collapsible";
-import { Lock } from "@gravity-ui/icons";
+import { Lock } from "lucide-react";
 
 export default function CollapsibleDisabled() {
   return (

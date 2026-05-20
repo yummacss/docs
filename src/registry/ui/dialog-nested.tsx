@@ -3,7 +3,7 @@
 import { Avatar } from "@base-ui/react/avatar";
 import { Button } from "@base-ui/react/button";
 import { Dialog } from "@base-ui/react/dialog";
-import { CircleXmarkFill, Xmark } from "@gravity-ui/icons";
+import { X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -62,7 +62,7 @@ export default function DialogNested() {
                       <Button className="d-f ai-c jc-c w-7 h-7 c-slate-6 bw-0 br-md h:bg-silver-2 fv:oo-2 fv:oc-indigo-5" />
                     }
                   >
-                    <Xmark aria-hidden className="w-4 h-4" />
+                    <X aria-hidden className="w-4 h-4" />
                   </Dialog.Close>
                 </div>
                 <div className="d-f fd-c g-3 px-4 py-5 bg-white bc-silver-2 btr-lg btw-1">
@@ -126,7 +126,7 @@ export default function DialogNested() {
                                         <Button className="d-f ai-c jc-c w-7 h-7 c-slate-6 bw-0 br-md h:bg-silver-2 fv:oo-2 fv:oc-indigo-5" />
                                       }
                                     >
-                                      <Xmark aria-hidden className="w-4 h-4" />
+                                      <X aria-hidden className="w-4 h-4" />
                                     </Dialog.Close>
                                   </div>
                                   <div className="d-f fd-c ai-c g-3 px-4 py-5 bg-white bc-silver-2 btr-lg btw-1">
@@ -142,7 +142,7 @@ export default function DialogNested() {
                                         </Avatar.Fallback>
                                       </Avatar.Root>
                                       <div className="d-f p-a b-0 r-0 ai-c jc-c w-4 h-4 bg-white br-9999">
-                                        <CircleXmarkFill className="w-3 h-3 c-red" />
+                                        <X className="w-3 h-3 c-red" />
                                       </div>
                                     </div>
                                     <div className="d-f fd-c ta-c">

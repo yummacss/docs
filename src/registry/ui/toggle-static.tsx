@@ -2,7 +2,7 @@
 
 import { Button } from "@base-ui/react/button";
 import { Toggle } from "@base-ui/react/toggle";
-import { Moon, Sun } from "@gravity-ui/icons";
+import { Moon, Sun } from "lucide-react";
 import type { ButtonHTMLAttributes } from "react";
 
 export default function ToggleStatic() {

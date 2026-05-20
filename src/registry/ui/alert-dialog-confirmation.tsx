@@ -2,7 +2,7 @@
 
 import { AlertDialog } from "@base-ui/react/alert-dialog";
 import { Button } from "@base-ui/react/button";
-import { PersonXmark } from "@gravity-ui/icons";
+import { UserRoundX } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -27,27 +27,27 @@ export default function AlertDialogConfirmation() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  transition={{ duration: 0.2, ease: "easeOut" }}
-                />
-              }
-              className="p-f i-0 min-h-dvh bg-black/20 bf-b-xs"
-            />
-            <div className="d-f p-f i-0 ai-c jc-c">
-              <AlertDialog.Popup
-                render={
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
                     transition={{ duration: 0.2, ease: "easeOut" }}
                   />
                 }
-                className="o-h w-96 bg-silver-1 bc-silver-2 c-slate-12 br-xl bw-1 bs-o-xs"
-                style={{ maxWidth: "90vw" }}
-              >
-                <div className="d-f jc-sb ai-c px-4 py-2 bg-silver-1">
-                  <div className="d-f jc-sb ai-c w-100%">
-                    <AlertDialog.Title className="c-slate-8 fs-md fw-500">
+                className="p-f i-0 min-h-dvh bg-black/20 bf-b-xs"
+              />
+              <div className="d-f p-f i-0 ai-c jc-c">
+                <AlertDialog.Popup
+                  render={
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.95 }}
+                      transition={{ duration: 0.2, ease: "easeOut" }}
+                    />
+                  }
+                  className="o-h w-96 bg-silver-1 bc-silver-2 c-slate-12 br-xl bw-1 bs-o-xs"
+                  style={{ maxWidth: "90vw" }}
+                >
+                  <div className="d-f jc-sb ai-c px-4 py-2 bg-silver-1">
+                    <div className="d-f jc-sb ai-c w-100%">
+                      <AlertDialog.Title className="c-slate-8 fs-md fw-500">
                       Account deletion
                     </AlertDialog.Title>
                     <div className="w-7 h-7" />
@@ -55,7 +55,7 @@ export default function AlertDialogConfirmation() {
                 </div>
                 <div className="d-f ai-c jc-c g-2 p-4 bg-white bc-silver-2 btr-lg btw-1">
                   <span className="d-f ai-c jc-c w-12 h-12 bc-silver-3 c-red br-lg bw-1 bs-o-xs">
-                    <PersonXmark className="w-6 h-6" />
+                    <UserRoundX className="w-6 h-6" />
                   </span>
                 </div>
                 <div className="px-4 py-3 bg-white">

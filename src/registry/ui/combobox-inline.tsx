@@ -2,7 +2,7 @@
 
 import { Avatar } from "@base-ui/react/avatar";
 import { Combobox } from "@base-ui/react/combobox";
-import { Check, Magnifier, Xmark } from "@gravity-ui/icons";
+import { Check, Search, X } from "lucide-react";
 
 function ItemIcon({
   selected,
@@ -22,7 +22,7 @@ export default function ComboboxInline() {
       <div className="d-f o-h fd-c g-0 w-64 bg-white bc-silver-3 bw-1 br-xl bs-o-xs">
         <Combobox.Root inline items={users}>
           <div className="d-f ai-c g-2 px-3 bc-silver-3 bbw-1">
-            <Magnifier className="fs-0 w-4 h-4 c-slate-4" />
+            <Search className="fs-0 w-4 h-4 c-slate-4" />
             <div className="p-r">
               <Combobox.Input
                 placeholder="Search team members"
@@ -33,7 +33,7 @@ export default function ComboboxInline() {
                   className="d-f b-0 ai-c jc-c w-6 h-6 p-0 bg-transparent c-slate-6 br-sm c-p h:c-slate-10"
                   aria-label="Clear selection"
                 >
-                  <Xmark className="w-4 h-4" />
+                  <X className="w-4 h-4" />
                 </Combobox.Clear>
               </div>
             </div>

@@ -2,7 +2,7 @@
 
 import { Menu } from "@base-ui/react/menu";
 import { Menubar } from "@base-ui/react/menubar";
-import { ChevronRight } from "@gravity-ui/icons";
+import { ChevronRight } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 

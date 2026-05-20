@@ -1,7 +1,7 @@
 "use client";
 
 import { Menu } from "@base-ui/react/menu";
-import { ChevronDown, ChevronRight } from "@gravity-ui/icons";
+import { ChevronDown, ChevronRight } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 

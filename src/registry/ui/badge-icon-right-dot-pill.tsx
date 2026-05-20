@@ -1,6 +1,6 @@
 "use client";
 
-import { LockOpen } from "@gravity-ui/icons";
+import { LockOpen } from "lucide-react";
 
 export default function BadgeIconRightDotPill() {
   return (

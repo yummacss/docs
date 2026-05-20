@@ -17,9 +17,6 @@ importers:
       '@fontsource/ia-writer-quattro':
         specifier: ^5.2.5
         version: 5.2.5
-      '@gravity-ui/icons':
-        specifier: ^2.18.0
-        version: 2.18.0(react@19.2.5)
       '@mdx-js/loader':
         specifier: ^3.1.1
         version: 3.1.1
@@ -62,6 +59,9 @@ importers:
       gsap:
         specifier: ^3.15.0
         version: 3.15.0
+      lucide-react:
+        specifier: ^1.16.0
+        version: 1.16.0(react@19.2.5)
       motion:
         specifier: ^12.38.0
         version: 12.38.0(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
@@ -422,14 +422,6 @@ packages:
 
   '@fontsource/ia-writer-quattro@5.2.5':
     resolution: {integrity: sha512-aCQ3n2B4VFAIiV3RFuDPe4cog2L9G7+9I9AwiwMZeFMM3fJoZrXhy01LdiqERDFnqKSFRIiibbhwQn/ucYkCGQ==}
-
-  '@gravity-ui/icons@2.18.0':
-    resolution: {integrity: sha512-JoRc/4Ch9GLaufZfpGd2ePRRisMXEjMI+r3y8kPKyYIAdQZz07jpIXEgsft1gvBxjSht2MS2uu5+vfhe1WP0ow==}
-    peerDependencies:
-      react: '*'
-    peerDependenciesMeta:
-      react:
-        optional: true
 
   '@img/colour@1.1.0':
     resolution: {integrity: sha512-Td76q7j57o/tLVdgS746cYARfSyxk8iEfRxewL9h4OMzYhbW4TAcppl0mT4eyqXddh6L/jwoM75mo7ixa/pCeQ==}
@@ -1155,6 +1147,11 @@ packages:
 
   longest-streak@3.1.0:
     resolution: {integrity: sha512-9Ri+o0JYgehTaVBBDoMqIl8GXtbWg711O3srftcHhZ0dqnETqLaoIK0x17fUw9rFSlK/0NlsKe0Ahhyl5pXE2g==}
+
+  lucide-react@1.16.0:
+    resolution: {integrity: sha512-dYwyPzb4MEKpGUmNYk3WKWPnMrHs3FKM+q94kAnJrcDIqqn1hq2xY8scaS2ovsOCM5D51ey2gaRG3PBb1vgoYQ==}
+    peerDependencies:
+      react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
   markdown-extensions@2.0.0:
     resolution: {integrity: sha512-o5vL7aDWatOTX8LzaS1WMoaoxIiLRQJuIKKe2wAw6IeULDHaqbiqiggmx+pKvZDb1Sj+pE46Sn1T7lCqfFtg1Q==}
@@ -1895,12 +1892,6 @@ snapshots:
 
   '@fontsource/ia-writer-quattro@5.2.5': {}
 
-  '@gravity-ui/icons@2.18.0(react@19.2.5)':
-    dependencies:
-      tslib: 2.8.1
-    optionalDependencies:
-      react: 19.2.5
-
   '@img/colour@1.1.0':
     optional: true
 
@@ -2558,6 +2549,10 @@ snapshots:
       moo: 0.5.3
 
   longest-streak@3.1.0: {}
+
+  lucide-react@1.16.0(react@19.2.5):
+    dependencies:
+      react: 19.2.5
 
   markdown-extensions@2.0.0: {}
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@base-ui/react/button";
-import { Bold, Italic, Underline } from "@gravity-ui/icons";
+import { Bold, Italic, Underline } from "lucide-react";
 
 export default function ButtonGroupIcon() {
   return (

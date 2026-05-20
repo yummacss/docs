@@ -1,7 +1,7 @@
 "use client";
 
 import { Tooltip } from "@base-ui/react/tooltip";
-import { CircleQuestion } from "@gravity-ui/icons";
+import { CircleQuestionMark } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 
 export default function TooltipArrow() {
@@ -9,7 +9,10 @@ export default function TooltipArrow() {
     <Tooltip.Provider>
       <Tooltip.Root>
         <Tooltip.Trigger className="d-f ai-c jc-c bg-transparent c-slate-8 bw-0 c-p h:c-slate-12 fv:oo-2 fv:oc-indigo-5">
-          <CircleQuestion aria-label="Sprint schedule" className="w-6 h-6" />
+          <CircleQuestionMark
+            aria-label="Sprint schedule"
+            className="w-6 h-6"
+          />
         </Tooltip.Trigger>
         <Tooltip.Portal>
           <Tooltip.Positioner sideOffset={8}>
@@ -24,7 +27,7 @@ export default function TooltipArrow() {
                     className="p-r"
                   />
                 }
-                className="px-3 py-2 bg-white c-slate-10 bc-silver-2 bw-1 br-md bs-o-xs us-none fs-sm"
+                className="px-3 py-2 bg-white bc-silver-2 c-slate-10 bw-1 br-md fs-sm bs-o-xs us-none"
               >
                 <svg
                   viewBox="0 0 10 5"

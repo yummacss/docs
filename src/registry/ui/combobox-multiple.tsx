@@ -1,7 +1,7 @@
 "use client";
 
 import { Combobox } from "@base-ui/react/combobox";
-import { Check, ChevronsExpandVertical, Xmark } from "@gravity-ui/icons";
+import { Check, Maximize2, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -25,7 +25,7 @@ export default function ComboboxMultiple() {
               className="d-f b-0 ai-c jc-c w-6 h-6 p-0 bg-transparent c-slate-6 br-sm c-p h:c-slate-10 fv:oo--1 fv:oc-indigo-5"
               aria-label="Open popup"
             >
-              <ChevronsExpandVertical className="w-4 h-4" />
+              <Maximize2 className="w-4 h-4" />
             </Combobox.Trigger>
           </div>
         </div>
@@ -42,7 +42,7 @@ export default function ComboboxMultiple() {
                     className="d-f b-0 ai-c jc-c p-0 bg-transparent c-indigo-5 c-p h:c-indigo-8"
                     aria-label={`Remove ${chip}`}
                   >
-                    <Xmark className="w-3 h-3" />
+                    <X className="w-3 h-3" />
                   </Combobox.ChipRemove>
                 </Combobox.Chip>
               ))}

@@ -1,6 +1,6 @@
 "use client";
 
-import { Bookmark } from "@gravity-ui/icons";
+import { Bookmark } from "lucide-react";
 
 export default function BadgeIconPill() {
   return (

@@ -7,16 +7,16 @@ import { Tabs } from "@base-ui/react/tabs";
 import {
   BellDot,
   Clock,
+  Cog,
   Copy,
   Eye,
   Folder,
-  Gear,
-  Magnifier,
   Pencil,
-  Persons,
   Plus,
-  Xmark,
-} from "@gravity-ui/icons";
+  Search,
+  UsersRound,
+  X,
+} from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useMemo, useState } from "react";
 
@@ -51,7 +51,7 @@ export default function CommandPaletteTabs() {
           <Button className="d-f ai-c g-2 px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5" />
         }
       >
-        <Magnifier className="w-4 h-4" />
+        <Search className="w-4 h-4" />
         <span>Commands</span>
         <kbd className="d-f ai-c px-1 py-0.5 ml-3 bg-silver-1/50 c-slate-5 br-md fs-xs us-none">
           {"\u2318/"}
@@ -86,7 +86,7 @@ export default function CommandPaletteTabs() {
               >
                 <Combobox.Root inline items={filteredGroups} autoHighlight>
                   <div className="d-f ai-c g-2 px-4 py-1 bg-silver-1">
-                    <Magnifier className="fs-0 w-5 h-5 c-slate-4" />
+                    <Search className="fs-0 w-5 h-5 c-slate-4" />
                     <Combobox.Input
                       placeholder="Search..."
                       autoFocus
@@ -97,7 +97,7 @@ export default function CommandPaletteTabs() {
                         <Button className="d-f ai-c jc-c w-7 h-7 c-slate-6 bw-0 br-md h:bg-silver-2 fv:oo-2 fv:oc-indigo-5" />
                       }
                     >
-                      <Xmark aria-hidden className="w-5 h-5" />
+                      <X aria-hidden className="w-5 h-5" />
                     </Dialog.Close>
                   </div>
                   <Tabs.Root
@@ -208,8 +208,8 @@ const commandGroups: CommandGroup[] = [
       { id: "knowledge-base", label: "Knowledge base", Icon: Folder },
       { id: "published", label: "Published pages", Icon: Eye },
       { id: "analytics", label: "Analytics", Icon: BellDot },
-      { id: "settings", label: "Settings", Icon: Gear },
-      { id: "team-docs", label: "Team docs", Icon: Persons },
+      { id: "settings", label: "Settings", Icon: Cog },
+      { id: "team-docs", label: "Team docs", Icon: UsersRound },
       { id: "activity", label: "Activity", Icon: Clock },
     ],
   },

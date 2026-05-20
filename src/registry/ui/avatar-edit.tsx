@@ -1,6 +1,6 @@
 import { Avatar } from "@base-ui/react/avatar";
 import { Button } from "@base-ui/react/button";
-import { Pencil } from "@gravity-ui/icons";
+import { Pencil } from "lucide-react";
 
 export default function AvatarEdit() {
   return (

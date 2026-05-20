@@ -1,6 +1,6 @@
 "use client";
 
-import { Bell, Folder, House, Persons } from "@gravity-ui/icons";
+import { Bell, Folder, House, UsersRound } from "lucide-react";
 
 export default function BreadcrumbIcons() {
   return (
@@ -13,7 +13,7 @@ export default function BreadcrumbIcons() {
         /
       </span>
       <a href="#" className="d-f ai-c g-2 c-slate-6 h:c-slate-10">
-        <Persons className="w-5 h-5" />
+        <UsersRound className="w-5 h-5" />
         <span className="fs-sm fw-400">Members</span>
       </a>
       <span className="c-slate-4" aria-hidden="true">

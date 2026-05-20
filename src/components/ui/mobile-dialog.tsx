@@ -1,7 +1,7 @@
 "use client";
 
 import { Dialog } from "@base-ui/react/dialog";
-import { Xmark } from "@gravity-ui/icons";
+import { XIcon } from "@phosphor-icons/react";
 import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -126,7 +126,7 @@ export default function MobileDialog({ isOpen, onClose, routeType }: Props) {
                     aria-label="Close menu"
                     className="d-f ai-c jc-c w-9 h-9 bc-white/10 bg-white/5 c-white bw-1 h:bg-white/15 fv:oc-white fv:oo-2"
                   >
-                    <Xmark />
+                    <XIcon />
                   </Dialog.Close>
                 </div>
 

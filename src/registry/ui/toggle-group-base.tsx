@@ -2,7 +2,7 @@
 
 import { Toggle } from "@base-ui/react/toggle";
 import { ToggleGroup } from "@base-ui/react/toggle-group";
-import { Bold, Italic, Underline } from "@gravity-ui/icons";
+import { Bold, Italic, Underline } from "lucide-react";
 import { useState } from "react";
 
 export default function ToggleGroupBase() {

@@ -3,13 +3,13 @@
 import { Avatar } from "@base-ui/react/avatar";
 import { Menu } from "@base-ui/react/menu";
 import {
-  ArrowRightFromSquare,
   ChevronDown,
-  CircleFill,
-  GearDot,
-  Person,
+  Circle,
+  Cog,
+  LogOut,
   Plus,
-} from "@gravity-ui/icons";
+  UserRound,
+} from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -45,7 +45,7 @@ export default function MenuRadios() {
                     }`
                   }
                 >
-                  <Person className="fs-0 w-4 h-4 c-slate-5" />
+                  <UserRound className="fs-0 w-4 h-4 c-slate-5" />
                   View profile
                 </Menu.Item>
                 <Menu.Item
@@ -55,7 +55,7 @@ export default function MenuRadios() {
                     }`
                   }
                 >
-                  <GearDot className="fs-0 w-4 h-4 c-slate-5" />
+                  <Cog className="fs-0 w-4 h-4 c-slate-5" />
                   Settings
                 </Menu.Item>
                 <Menu.Separator className="my-1 w-100% h-px bg-silver-2" />
@@ -85,7 +85,7 @@ export default function MenuRadios() {
                     <span className="fs-sm fw-500">Sarah</span>
                     <span className="d-f ai-c jc-c fs-0 w-3 h-3 ml-auto bc-silver-3 br-9999 bw-1">
                       <Menu.RadioItemIndicator>
-                        <CircleFill className="w-2 h-2 c-indigo" />
+                        <Circle className="w-2 h-2 c-indigo" />
                       </Menu.RadioItemIndicator>
                     </span>
                   </Menu.RadioItem>
@@ -111,7 +111,7 @@ export default function MenuRadios() {
                     <span className="fs-sm fw-500">John</span>
                     <span className="d-f ai-c jc-c fs-0 w-3 h-3 ml-auto bc-silver-3 br-9999 bw-1">
                       <Menu.RadioItemIndicator>
-                        <CircleFill className="w-2 h-2 c-indigo" />
+                        <Circle className="w-2 h-2 c-indigo" />
                       </Menu.RadioItemIndicator>
                     </span>
                   </Menu.RadioItem>
@@ -136,7 +136,7 @@ export default function MenuRadios() {
                     }`
                   }
                 >
-                  <ArrowRightFromSquare className="fs-0 w-4 h-4" />
+                  <LogOut className="fs-0 w-4 h-4" />
                   Sign out
                 </Menu.Item>
               </Menu.Popup>

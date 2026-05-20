@@ -2,7 +2,7 @@
 
 import { Checkbox } from "@base-ui/react/checkbox";
 import { CheckboxGroup } from "@base-ui/react/checkbox-group";
-import { Check, Minus } from "@gravity-ui/icons";
+import { Check, Minus } from "lucide-react";
 import { useId, useState } from "react";
 
 export default function CheckboxGroupNestedParent() {

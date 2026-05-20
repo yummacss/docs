@@ -1,12 +1,7 @@
 "use client";
 
 import { Tooltip } from "@base-ui/react/tooltip";
-import {
-  CircleQuestion,
-  Gear,
-  PencilToSquare,
-  TrashBin,
-} from "@gravity-ui/icons";
+import { CircleQuestionMark, Cog, SquarePen, Trash } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 export default function TooltipColor() {
   return (
@@ -44,12 +39,16 @@ export default function TooltipColor() {
 }
 
 const items = [
-  { icon: CircleQuestion, label: "New task", ariaLabel: "Create a new task" },
   {
-    icon: PencilToSquare,
+    icon: CircleQuestionMark,
+    label: "New task",
+    ariaLabel: "Create a new task",
+  },
+  {
+    icon: SquarePen,
     label: "Edit sprint",
     ariaLabel: "Edit current sprint",
   },
-  { icon: Gear, label: "Settings", ariaLabel: "Project settings" },
-  { icon: TrashBin, label: "Delete task", ariaLabel: "Delete project" },
+  { icon: Cog, label: "Settings", ariaLabel: "Project settings" },
+  { icon: Trash, label: "Delete task", ariaLabel: "Delete project" },
 ];

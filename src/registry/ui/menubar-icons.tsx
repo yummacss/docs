@@ -3,20 +3,20 @@
 import { Menu } from "@base-ui/react/menu";
 import { Menubar } from "@base-ui/react/menubar";
 import {
+  Archive,
   Calendar,
   CirclePlus,
   Copy,
-  Dots9,
   File,
-  FileArrowRightOut,
   FolderPlus,
-  FontCursor,
+  Grip,
   Link,
-  ListTimeline,
-  ListUl,
-  Person,
-  Tray,
-} from "@gravity-ui/icons";
+  List,
+  SquareArrowRightExit,
+  TextCursor,
+  Timeline,
+  UserRound,
+} from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -90,7 +90,7 @@ export default function MenubarIcons() {
                       }`
                     }
                   >
-                    <FileArrowRightOut className="fs-0 w-4 h-4 c-slate-5" />
+                    <SquareArrowRightExit className="fs-0 w-4 h-4 c-slate-5" />
                     Export tasks
                   </Menu.Item>
                   <Menu.Item
@@ -100,7 +100,7 @@ export default function MenubarIcons() {
                       }`
                     }
                   >
-                    <Tray className="fs-0 w-4 h-4 c-slate-5" />
+                    <Archive className="fs-0 w-4 h-4 c-slate-5" />
                     Archive project
                   </Menu.Item>
                 </Menu.Popup>
@@ -142,7 +142,7 @@ export default function MenubarIcons() {
                       }`
                     }
                   >
-                    <FontCursor className="fs-0 w-4 h-4 c-slate-5" />
+                    <TextCursor className="fs-0 w-4 h-4 c-slate-5" />
                     Rename task
                   </Menu.Item>
                   <Menu.Item
@@ -172,7 +172,7 @@ export default function MenubarIcons() {
                       }`
                     }
                   >
-                    <Tray className="fs-0 w-4 h-4 c-slate-5" />
+                    <Archive className="fs-0 w-4 h-4 c-slate-5" />
                     Archive task
                   </Menu.Item>
                 </Menu.Popup>
@@ -214,7 +214,7 @@ export default function MenubarIcons() {
                       }`
                     }
                   >
-                    <ListUl className="fs-0 w-4 h-4 c-slate-5" />
+                    <List className="fs-0 w-4 h-4 c-slate-5" />
                     List view
                   </Menu.Item>
                   <Menu.Item
@@ -224,7 +224,7 @@ export default function MenubarIcons() {
                       }`
                     }
                   >
-                    <Dots9 className="fs-0 w-4 h-4 c-slate-5" />
+                    <Grip className="fs-0 w-4 h-4 c-slate-5" />
                     Board view
                   </Menu.Item>
                   <Menu.Item
@@ -244,7 +244,7 @@ export default function MenubarIcons() {
                       }`
                     }
                   >
-                    <ListTimeline className="fs-0 w-4 h-4 c-slate-5" />
+                    <Timeline className="fs-0 w-4 h-4 c-slate-5" />
                     Timeline view
                   </Menu.Item>
                 </Menu.Popup>
@@ -286,7 +286,7 @@ export default function MenubarIcons() {
                       }`
                     }
                   >
-                    <Person className="fs-0 w-4 h-4 c-slate-5" />
+                    <UserRound className="fs-0 w-4 h-4 c-slate-5" />
                     Admin
                   </Menu.Item>
                   <Menu.Item
@@ -296,7 +296,7 @@ export default function MenubarIcons() {
                       }`
                     }
                   >
-                    <Person className="fs-0 w-4 h-4 c-slate-5" />
+                    <UserRound className="fs-0 w-4 h-4 c-slate-5" />
                     Editor
                   </Menu.Item>
                   <Menu.Item
@@ -306,7 +306,7 @@ export default function MenubarIcons() {
                       }`
                     }
                   >
-                    <Person className="fs-0 w-4 h-4 c-slate-5" />
+                    <UserRound className="fs-0 w-4 h-4 c-slate-5" />
                     Viewer
                   </Menu.Item>
                 </Menu.Popup>

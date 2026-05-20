@@ -1,7 +1,7 @@
 "use client";
 
 import { Menu } from "@base-ui/react/menu";
-import { ChevronDown } from "@gravity-ui/icons";
+import { ChevronDown } from "lucide-react";
 
 export default function MenuStatic() {
   return (

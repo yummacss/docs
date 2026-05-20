@@ -1,5 +1,5 @@
 import { Avatar } from "@base-ui/react/avatar";
-import { CircleCheckFill, PersonFill } from "@gravity-ui/icons";
+import { CircleQuestionMark, UserRound } from "lucide-react";
 
 export default function AvatarLg() {
   return (
@@ -24,13 +24,13 @@ export default function AvatarLg() {
           />
         </Avatar.Root>
         <span className="d-f p-a b-0 r-0 ai-c jc-c w-4 h-4 bg-white bc-white br-9999 bw-1">
-          <CircleCheckFill className="w-100% h-100% c-indigo" />
+          <CircleQuestionMark className="w-100% h-100% c-indigo" />
         </span>
       </div>
 
       <Avatar.Root className="d-if o-h ai-c jc-c w-14 h-14 bg-indigo-1 br-9999 va-m us-none">
         <Avatar.Fallback className="d-f ai-c jc-c w-100% h-100% c-indigo">
-          <PersonFill className="w-7 h-7" />
+          <UserRound className="w-7 h-7" />
         </Avatar.Fallback>
       </Avatar.Root>
 

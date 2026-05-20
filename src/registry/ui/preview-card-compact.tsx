@@ -2,7 +2,7 @@
 
 import { Avatar } from "@base-ui/react/avatar";
 import { PreviewCard } from "@base-ui/react/preview-card";
-import { Clock } from "@gravity-ui/icons";
+import { Clock } from "lucide-react";
 import { motion } from "motion/react";
 
 export default function PreviewCardCompact() {
