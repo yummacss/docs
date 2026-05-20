@@ -31,14 +31,11 @@ const { features } = data as {
 };
 
 interface Props {
-  /** Example: "css.properties.accent-color" */
   path: string;
 }
 
 export default function Baseline({ path }: Props) {
-  // Find feature that contains this BCD key
   const matchingFeature = Object.entries(features).find(([, feature]) => {
-    // Type guard: only FeatureData has compat_features
     if ("compat_features" in feature) {
       return feature.compat_features?.includes(path);
     }
@@ -49,7 +46,6 @@ export default function Baseline({ path }: Props) {
 
   const [, feature] = matchingFeature;
 
-  // Type guard: only FeatureData has status
   if (!("status" in feature)) return null;
 
   const status = feature.status;

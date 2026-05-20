@@ -72,14 +72,10 @@ export function getDocsNavigation(slug: string): {
   };
 }
 
-/**
- * Get navigation for UI pages - section-aware to not cross section boundaries
- */
 export function getUINavigation(slug: string): {
   previous: { slug: string; title: string } | null;
   next: { slug: string; title: string } | null;
 } {
-  // Find which section the current slug belongs to
   let currentSectionPages: Array<{ slug: string; title: string }> = [];
 
   for (const section of sidebarConfig.ui) {
@@ -92,7 +88,6 @@ export function getUINavigation(slug: string): {
     }
   }
 
-  // If slug not found in any section
   if (currentSectionPages.length === 0) {
     return { previous: null, next: null };
   }
