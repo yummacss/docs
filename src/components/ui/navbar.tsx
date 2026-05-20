@@ -110,7 +110,7 @@ export default function Navbar({
               <Button
                 type="button"
                 onClick={() => setSearchOpen(true)}
-                className="d-f ai-c jc-c g-2 h-8 px-3 bc-white/10 bg-white/5 c-white bw-1 fs-sm bf-b-sm lg:px-4 h:bg-white/10 fv:oc-white fv:ow-2"
+                className="d-f ai-c jc-c g-2 h-8 px-3 bc-clay bg-midnight c-white bw-1 fs-sm bf-b-sm lg:px-4 h:bg-white/10 fv:oc-white fv:ow-2"
               >
                 <MagnifyingGlassIcon className="w-4 h-4" />
                 <kbd className="d-none c-white/60 fs-xs us-none lg:d-b">
@@ -143,7 +143,7 @@ export default function Navbar({
                 <Button
                   type="button"
                   onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-                  className="d-f p-r ai-c jc-c h-8 px-3 bc-white/10 bg-white/5 c-white bw-1 bf-b-sm lg:d-none h:bg-white/10 fv:oc-white fv:ow-2"
+                  className="d-f p-r ai-c jc-c h-8 px-3 bc-clay bg-midnight c-white bw-1 bf-b-sm lg:d-none h:bg-midnight-8 fv:oc-white fv:ow-2"
                   aria-label={isSidebarOpen ? "Close menu" : "Open menu"}
                 >
                   <div className="d-f p-r ai-c jc-c w-4 h-4">

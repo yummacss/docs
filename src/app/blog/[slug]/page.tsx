@@ -98,7 +98,7 @@ export default async function BlogPostPage({
                 unoptimized
                 width={1200}
                 height={630}
-                className="w-100% h-auto bg-charcoal us-none"
+                className="w-100% h-auto bg-midnight us-none"
               />
             </div>
           )}
