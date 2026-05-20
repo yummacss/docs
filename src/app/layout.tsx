@@ -54,7 +54,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      className="sb-s spt-20 s::bg-white/10"
+      className="sb-s spt-20 s::bg-highlight/10"
       lang="en"
       data-scroll-behavior="smooth"
     >
