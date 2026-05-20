@@ -2297,16 +2297,16 @@ summary {
   rotate: 450deg;
 }
 
+.s\:\:bg-highlight\/10::selection {
+  background-color: #9aa5ef1a;
+}
+
 .s\:\:bg-indigo::selection {
   background-color: #6366f1;
 }
 
 .s\:\:bg-indigo-4::selection {
   background-color: #a5a6f7;
-}
-
-.s\:\:bg-white\/10::selection {
-  background-color: #ffffff1a;
 }
 
 .s\:\:c-white::selection {
