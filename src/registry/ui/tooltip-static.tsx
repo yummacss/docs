@@ -13,7 +13,7 @@ export default function TooltipStatic() {
         <Tooltip.Portal>
           <Tooltip.Positioner sideOffset={8} className="zi-50">
             <Tooltip.Popup className="px-3 py-2 bg-white c-slate-10 bc-silver-2 bw-1 br-md bs-o-xs us-none fs-sm">
-                3 unread notifications
+              3 unread notifications
             </Tooltip.Popup>
           </Tooltip.Positioner>
         </Tooltip.Portal>

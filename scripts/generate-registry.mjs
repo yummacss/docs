@@ -43,6 +43,4 @@ export function getRegistryComponent(id: string) {
 `;
 
 writeFileSync(outFile, output, "utf-8");
-console.log(
-  `✓ Registry generated: ${uiIds.length} Yumma UI components.`,
-);
+console.log(`✓ Registry generated: ${uiIds.length} Yumma UI components.`);

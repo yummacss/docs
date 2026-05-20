@@ -1,7 +1,7 @@
 "use client";
 
 import { Tabs } from "@base-ui/react/tabs";
-import { FileDollar, CircleDollar, Receipt } from "@gravity-ui/icons";
+import { CircleDollar, FileDollar, Receipt } from "@gravity-ui/icons";
 import { useState } from "react";
 
 export default function ExampleTabsIconOnly() {

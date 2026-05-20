@@ -32,7 +32,12 @@ export default function TooltipArrow() {
                   style={{ fill: "white" }}
                 >
                   <title>Arrow</title>
-                  <path d="M0 0 L5 5 L10 0" fill="white" stroke="currentColor" strokeWidth="1" />
+                  <path
+                    d="M0 0 L5 5 L10 0"
+                    fill="white"
+                    stroke="currentColor"
+                    strokeWidth="1"
+                  />
                 </svg>
                 Sprint planning starts at 10am
               </Tooltip.Popup>
