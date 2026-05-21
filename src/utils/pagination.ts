@@ -76,35 +76,20 @@ export function getUINavigation(slug: string): {
   previous: { slug: string; title: string } | null;
   next: { slug: string; title: string } | null;
 } {
-  let currentSectionPages: Array<{ slug: string; title: string }> = [];
+  const allPages: Array<{ slug: string; title: string }> = [];
 
   for (const section of sidebarConfig.ui) {
-    const sectionPages = flattenUISidebarItems(section.items);
-    const isInSection = sectionPages.some((page) => page.slug === slug);
-
-    if (isInSection) {
-      currentSectionPages = sectionPages;
-      break;
-    }
+    allPages.push(...flattenUISidebarItems(section.items));
   }
 
-  if (currentSectionPages.length === 0) {
-    return { previous: null, next: null };
-  }
-
-  const currentIndex = currentSectionPages.findIndex(
-    (page) => page.slug === slug,
-  );
+  const currentIndex = allPages.findIndex((page) => page.slug === slug);
 
   if (currentIndex === -1) {
     return { previous: null, next: null };
   }
 
   return {
-    previous: currentIndex > 0 ? currentSectionPages[currentIndex - 1] : null,
-    next:
-      currentIndex < currentSectionPages.length - 1
-        ? currentSectionPages[currentIndex + 1]
-        : null,
+    previous: currentIndex > 0 ? allPages[currentIndex - 1] : null,
+    next: currentIndex < allPages.length - 1 ? allPages[currentIndex + 1] : null,
   };
 }
