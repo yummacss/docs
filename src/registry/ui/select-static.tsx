@@ -2,7 +2,7 @@
 
 import { Field } from "@base-ui/react/field";
 import { Select } from "@base-ui/react/select";
-import { Check, MoveVertical } from "lucide-react";
+import { Check, ChevronsUpDown } from "lucide-react";
 
 export default function SelectStatic() {
   return (
@@ -30,7 +30,7 @@ export default function SelectStatic() {
             }
           </Select.Value>
           <Select.Icon className="d-f c-slate-8">
-            <MoveVertical className="w-4 h-4" />
+            <ChevronsUpDown className="w-4 h-4" />
           </Select.Icon>
         </Select.Trigger>
         <Select.Portal>
