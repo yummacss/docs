@@ -6,7 +6,7 @@ import { Button } from "@base-ui/react/button";
 import { Dialog } from "@base-ui/react/dialog";
 import { Field } from "@base-ui/react/field";
 import { Select } from "@base-ui/react/select";
-import { Check, MoveVertical, X } from "lucide-react";
+import { Check, ChevronsUpDown, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -104,7 +104,7 @@ export default function DialogNewTask() {
                           }
                         </Select.Value>
                         <Select.Icon className="d-f c-slate-8">
-                          <MoveVertical className="w-4 h-4" />
+                          <ChevronsUpDown className="w-4 h-4" />
                         </Select.Icon>
                       </Select.Trigger>
                       <AnimatePresence>
