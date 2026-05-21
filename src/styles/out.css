@@ -1192,6 +1192,10 @@ summary {
   flex-shrink: 0;
 }
 
+.fs-3xl {
+  font-size: 1.875rem;
+}
+
 .fs-4xl {
   font-size: 2.25rem;
 }
@@ -2233,6 +2237,10 @@ summary {
   padding-block: .25rem;
 }
 
+.py-16 {
+  padding-block: 4rem;
+}
+
 .py-2 {
   padding-block: .5rem;
 }
@@ -2676,6 +2684,10 @@ summary {
     align-items: center;
   }
 
+  .md\:ai-fe {
+    align-items: flex-end;
+  }
+
   .md\:bg-silver-1 {
     background-color: #eff0f2;
   }
@@ -2696,8 +2708,16 @@ summary {
     flex-direction: row;
   }
 
-  .md\:fs-6xl {
-    font-size: 3.75rem;
+  .md\:fs-5xl {
+    font-size: 3rem;
+  }
+
+  .md\:fs-lg {
+    font-size: 1.125rem;
+  }
+
+  .md\:fs-md {
+    font-size: 1rem;
   }
 
   .md\:gtc-3 {
@@ -2718,6 +2738,10 @@ summary {
 
   .md\:pt-0 {
     padding-top: 0;
+  }
+
+  .md\:py-0 {
+    padding-block: 0;
   }
 
   .md\:w-auto {
@@ -2756,6 +2780,10 @@ summary {
 
   .lg\:fs-5xl {
     font-size: 3rem;
+  }
+
+  .lg\:fs-6xl {
+    font-size: 3.75rem;
   }
 
   .lg\:gc-s-3 {
