@@ -2716,6 +2716,10 @@ summary {
     min-width: 4rem;
   }
 
+  .md\:pt-0 {
+    padding-top: 0;
+  }
+
   .md\:w-auto {
     width: auto;
   }
