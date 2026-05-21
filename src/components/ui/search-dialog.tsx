@@ -41,7 +41,16 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
     () => groupByCategory(filteredResults),
     [filteredResults],
   );
-  const flatResults = useMemo(() => filteredResults, [filteredResults]);
+  const flatResults = useMemo(() => {
+    const ordered: SearchItem[] = [];
+    for (const category of Object.keys(CATEGORY_LABELS)) {
+      const items = groupedResults[category];
+      if (items) {
+        ordered.push(...items);
+      }
+    }
+    return ordered;
+  }, [groupedResults]);
 
   useEffect(() => {
     if (open) {
