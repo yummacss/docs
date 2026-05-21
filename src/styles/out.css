@@ -1192,10 +1192,6 @@ summary {
   flex-shrink: 0;
 }
 
-.fs-3xl {
-  font-size: 1.875rem;
-}
-
 .fs-4xl {
   font-size: 2.25rem;
 }
@@ -2093,6 +2089,10 @@ summary {
   padding-bottom: 3rem;
 }
 
+.pb-16 {
+  padding-bottom: 4rem;
+}
+
 .pb-2 {
   padding-bottom: .5rem;
 }
@@ -2235,10 +2235,6 @@ summary {
 
 .py-1 {
   padding-block: .25rem;
-}
-
-.py-16 {
-  padding-block: 4rem;
 }
 
 .py-2 {
@@ -2684,10 +2680,6 @@ summary {
     align-items: center;
   }
 
-  .md\:ai-fe {
-    align-items: flex-end;
-  }
-
   .md\:bg-silver-1 {
     background-color: #eff0f2;
   }
@@ -2736,12 +2728,12 @@ summary {
     min-width: 4rem;
   }
 
-  .md\:pt-0 {
-    padding-top: 0;
+  .md\:pb-0 {
+    padding-bottom: 0;
   }
 
-  .md\:py-0 {
-    padding-block: 0;
+  .md\:pt-0 {
+    padding-top: 0;
   }
 
   .md\:w-auto {

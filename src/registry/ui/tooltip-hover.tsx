@@ -25,7 +25,7 @@ export default function TooltipHover() {
                 }
                 className="px-3 py-2 bg-white bc-silver-2 c-slate-10 bw-1 br-md fs-sm bs-o-xs us-none"
               >
-                IID-104 - High priority
+                TSK-104 - High priority
               </Tooltip.Popup>
             </AnimatePresence>
           </Tooltip.Positioner>
