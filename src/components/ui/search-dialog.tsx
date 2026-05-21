@@ -146,7 +146,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
               }
               className="p-f zi-10 t-0 l-0 r-0 b-0 bg-black/60 bf-b-sm fgr-90"
             />
-            <div className="d-f p-f zi-10 t-0 l-0 r-0 b-0 ai-c jc-c pe-none">
+            <div className="d-f p-f zi-10 t-0 l-0 r-0 b-0 ai-fs pt-12 jc-c pe-none md:ai-c md:pt-0">
               <Dialog.Popup
                 render={
                   <motion.div

@@ -90,6 +90,7 @@ export function getUINavigation(slug: string): {
 
   return {
     previous: currentIndex > 0 ? allPages[currentIndex - 1] : null,
-    next: currentIndex < allPages.length - 1 ? allPages[currentIndex + 1] : null,
+    next:
+      currentIndex < allPages.length - 1 ? allPages[currentIndex + 1] : null,
   };
 }
