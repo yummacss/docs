@@ -27,7 +27,7 @@ export default function MenuNested() {
                     transition={{ duration: 0.15, ease: "easeOut" }}
                   />
                 }
-                className="py-1 w-48 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs"
+                className="py-1 w-48 bg-white bc-silver-2 c-slate-10 bw-1 br-lg bs-o-xs"
               >
                 <Menu.SubmenuRoot>
                   <Menu.SubmenuTrigger
@@ -47,7 +47,7 @@ export default function MenuNested() {
                       sideOffset={-4}
                       alignOffset={-4}
                     >
-                      <Menu.Popup className="py-1 w-fc bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs">
+                      <Menu.Popup className="py-1 w-fc bg-white bc-silver-2 c-slate-10 bw-1 br-lg bs-o-xs">
                         {folders.map((folder) => (
                           <Menu.Item
                             key={folder.name}
@@ -85,7 +85,7 @@ export default function MenuNested() {
                       sideOffset={-4}
                       alignOffset={-4}
                     >
-                      <Menu.Popup className="py-1 w-fc bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs">
+                      <Menu.Popup className="py-1 w-fc bg-white bc-silver-2 c-slate-10 bw-1 br-lg bs-o-xs">
                         {labels.map((label) => (
                           <Menu.Item
                             key={label.name}

@@ -51,7 +51,7 @@ export default function MenuAccountStatus() {
                     transition={{ duration: 0.15, ease: "easeOut" }}
                   />
                 }
-                className="py-1 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs"
+                className="py-1 bg-white bc-silver-2 c-slate-10 bw-1 br-lg bs-o-xs"
               >
                 <Menu.Item
                   className={(state) =>
@@ -122,7 +122,7 @@ export default function MenuAccountStatus() {
                   </Menu.SubmenuTrigger>
                   <Menu.Portal>
                     <Menu.Positioner sideOffset={-4} alignOffset={-4}>
-                      <Menu.Popup className="py-1 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs">
+                      <Menu.Popup className="py-1 bg-white bc-silver-2 c-slate-10 bw-1 br-lg bs-o-xs">
                         <Menu.Item
                           className={(state) =>
                             `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${

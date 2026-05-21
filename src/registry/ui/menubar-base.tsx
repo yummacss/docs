@@ -36,7 +36,7 @@ export default function MenubarBase() {
                       transition={{ duration: 0.15, ease: "easeOut" }}
                     />
                   }
-                  className="py-1 bg-white bc-silver-2 c-slate-10 br-xl bw-1 bs-o-xs"
+                  className="py-1 bg-white bc-silver-2 c-slate-10 br-lg bw-1 bs-o-xs"
                 >
                   <Menu.Item
                     className={(state) =>
@@ -89,7 +89,7 @@ export default function MenubarBase() {
                       transition={{ duration: 0.15, ease: "easeOut" }}
                     />
                   }
-                  className="py-1 bg-white bc-silver-2 c-slate-10 br-xl bw-1 bs-o-xs"
+                  className="py-1 bg-white bc-silver-2 c-slate-10 br-lg bw-1 bs-o-xs"
                 >
                   <Menu.Item
                     className={(state) =>
@@ -142,7 +142,7 @@ export default function MenubarBase() {
                       transition={{ duration: 0.15, ease: "easeOut" }}
                     />
                   }
-                  className="py-1 bg-white bc-silver-2 c-slate-10 br-xl bw-1 bs-o-xs"
+                  className="py-1 bg-white bc-silver-2 c-slate-10 br-lg bw-1 bs-o-xs"
                 >
                   <Menu.Item
                     className={(state) =>
@@ -195,7 +195,7 @@ export default function MenubarBase() {
                       transition={{ duration: 0.15, ease: "easeOut" }}
                     />
                   }
-                  className="py-1 bg-white bc-silver-2 c-slate-10 br-xl bw-1 bs-o-xs"
+                  className="py-1 bg-white bc-silver-2 c-slate-10 br-lg bw-1 bs-o-xs"
                 >
                   <Menu.Item
                     className={(state) =>

@@ -10,7 +10,7 @@ export default function ExampleTabsRounded() {
     <Tabs.Root
       value={selected}
       onValueChange={setSelected}
-      className="w-fc bg-silver-1 br-xl bw-1"
+      className="w-fc bg-silver-1 br-lg bw-1"
     >
       <Tabs.List className="d-f p-r g-1 p-1">
         {tabs.map((tab) => {

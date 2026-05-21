@@ -28,7 +28,7 @@ export default function ContextMenuNested() {
                     transition={{ duration: 0.15, ease: "easeOut" }}
                   />
                 }
-                className="py-1 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs"
+                className="py-1 bg-white bc-silver-2 c-slate-10 bw-1 br-lg bs-o-xs"
               >
                 <ContextMenu.SubmenuRoot>
                   <ContextMenu.SubmenuTrigger
@@ -48,7 +48,7 @@ export default function ContextMenuNested() {
                       sideOffset={-4}
                       alignOffset={-4}
                     >
-                      <ContextMenu.Popup className="py-1 w-fc bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs">
+                      <ContextMenu.Popup className="py-1 w-fc bg-white bc-silver-2 c-slate-10 bw-1 br-lg bs-o-xs">
                         {labels.map((label) => (
                           <ContextMenu.Item
                             key={label.name}
@@ -85,7 +85,7 @@ export default function ContextMenuNested() {
                       sideOffset={-4}
                       alignOffset={-4}
                     >
-                      <ContextMenu.Popup className="py-1 w-fc bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs">
+                      <ContextMenu.Popup className="py-1 w-fc bg-white bc-silver-2 c-slate-10 bw-1 br-lg bs-o-xs">
                         {teamMembers.map((member) => (
                           <ContextMenu.Item
                             key={member.name}

@@ -30,7 +30,7 @@ export default function AutocompleteEmptyState() {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.15, ease: "easeOut" }}
               >
-                <Autocomplete.Popup className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs">
+                <Autocomplete.Popup className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-lg bs-o-xs">
                   <Autocomplete.List className="py-3 ow-0">
                     <div className="d-f fd-c ai-c g-1 px-4">
                       <span className="c-slate-10 fs-md fw-500">

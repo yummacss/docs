@@ -13,7 +13,7 @@ export default function ExampleTabsVertical() {
       onValueChange={setSelected}
       className="d-f ai-s g-4"
     >
-      <Tabs.List className="d-f p-r fd-c g-1 p-1 w-fc bg-silver-1 br-xl bw-1">
+      <Tabs.List className="d-f p-r fd-c g-1 p-1 w-fc bg-silver-1 br-lg bw-1">
         {tabs.map((tab) => {
           const isSelected = selected === tab.value;
           return (

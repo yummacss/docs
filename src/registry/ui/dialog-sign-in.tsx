@@ -44,7 +44,7 @@ export default function DialogSignIn() {
                     transition={{ duration: 0.2, ease: "easeOut" }}
                   />
                 }
-                className="o-h w-80 bg-silver-1 bc-silver-2 c-slate-12 br-xl bw-1 bs-o-xs"
+                className="o-h w-80 bg-silver-1 bc-silver-2 c-slate-12 br-lg bw-1 bs-o-xs"
                 style={{ maxWidth: "90vw" }}
               >
                 <div className="d-f jc-sb ai-c px-4 py-2 bg-silver-1">

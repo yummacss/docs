@@ -38,7 +38,7 @@ export default function MenubarRadios() {
                       transition={{ duration: 0.15, ease: "easeOut" }}
                     />
                   }
-                  className="py-1 bg-white bc-silver-2 c-slate-10 br-xl bw-1 bs-o-xs"
+                  className="py-1 bg-white bc-silver-2 c-slate-10 br-lg bw-1 bs-o-xs"
                 >
                   <div className="px-3 py-1 c-slate-5 fs-xs fw-500 ls-3">
                     Display
@@ -96,7 +96,7 @@ export default function MenubarRadios() {
                       transition={{ duration: 0.15, ease: "easeOut" }}
                     />
                   }
-                  className="py-1 bg-white bc-silver-2 c-slate-10 br-xl bw-1 bs-o-xs"
+                  className="py-1 bg-white bc-silver-2 c-slate-10 br-lg bw-1 bs-o-xs"
                 >
                   <div className="px-3 py-1 c-slate-5 fs-xs fw-500 ls-3">
                     Sort by
@@ -154,7 +154,7 @@ export default function MenubarRadios() {
                       transition={{ duration: 0.15, ease: "easeOut" }}
                     />
                   }
-                  className="py-1 bg-white bc-silver-2 c-slate-10 br-xl bw-1 bs-o-xs"
+                  className="py-1 bg-white bc-silver-2 c-slate-10 br-lg bw-1 bs-o-xs"
                 >
                   <div className="px-3 py-1 c-slate-5 fs-xs fw-500 ls-3">
                     Filter by

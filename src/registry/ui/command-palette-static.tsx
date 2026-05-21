@@ -51,7 +51,7 @@ export default function CommandPaletteStatic() {
           <Dialog.Backdrop className="p-f i-0 min-h-dvh bg-black/20 bf-b-xs" />
           <div className="d-f p-f i-0 ai-c jc-c">
             <Dialog.Popup
-              className="o-h w-96 bg-silver-1 bc-silver-2 c-slate-12 br-xl bw-1 bs-o-xs"
+              className="o-h w-96 bg-silver-1 bc-silver-2 c-slate-12 br-lg bw-1 bs-o-xs"
               style={{ maxWidth: "90vw" }}
             >
               <Combobox.Root inline items={commandGroups} autoHighlight>

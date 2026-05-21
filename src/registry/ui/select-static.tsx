@@ -2,7 +2,7 @@
 
 import { Field } from "@base-ui/react/field";
 import { Select } from "@base-ui/react/select";
-import { Check, Maximize2 } from "lucide-react";
+import { Check, MoveVertical } from "lucide-react";
 
 export default function SelectStatic() {
   return (
@@ -30,7 +30,7 @@ export default function SelectStatic() {
             }
           </Select.Value>
           <Select.Icon className="d-f c-slate-8">
-            <Maximize2 className="w-4 h-4" />
+            <MoveVertical className="w-4 h-4" />
           </Select.Icon>
         </Select.Trigger>
         <Select.Portal>
@@ -39,7 +39,7 @@ export default function SelectStatic() {
             alignItemWithTrigger={false}
             className="zi-10 p-0 ow-0 us-none"
           >
-            <Select.Popup className="py-1 w-64 bg-white bc-silver-2 bw-1 br-xl bs-o-xs">
+            <Select.Popup className="py-1 w-64 bg-white bc-silver-2 bw-1 br-lg bs-o-xs">
               <Select.List className="p-r o-auto">
                 {statuses.map(({ label, value }) => (
                   <Select.Item

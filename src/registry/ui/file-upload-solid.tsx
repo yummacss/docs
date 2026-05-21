@@ -4,7 +4,7 @@ import { CloudUpload } from "lucide-react";
 
 export default function FileUploadSolid() {
   return (
-    <section className="d-f fd-c ai-c g-3 w-100 bc-silver-2 br-xl bw-1">
+    <section className="d-f fd-c ai-c g-3 w-100 bc-silver-2 br-lg bw-1">
       <div className="d-f fd-c ai-c g-2 p-8 bg-white ta-c">
         <div className="d-f ai-c jc-c w-10 h-10 bg-white bc-silver-2 br-lg bw-1 bs-o-xs">
           <CloudUpload className="w-5 h-5 c-slate-6" />

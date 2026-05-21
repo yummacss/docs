@@ -38,7 +38,7 @@ export default function AutocompleteAutoHighlight() {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.15, ease: "easeOut" }}
               >
-                <Autocomplete.Popup className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs">
+                <Autocomplete.Popup className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-lg bs-o-xs">
                   <Autocomplete.List className="oy-auto max-h-72 py-1 ow-0">
                     {(member: TeamMember) => (
                       <Autocomplete.Item
