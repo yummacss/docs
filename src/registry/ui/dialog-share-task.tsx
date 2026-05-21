@@ -4,7 +4,7 @@ import { Button } from "@base-ui/react/button";
 import { Dialog } from "@base-ui/react/dialog";
 import { Field } from "@base-ui/react/field";
 import { Select } from "@base-ui/react/select";
-import { Check, Maximize2, X } from "lucide-react";
+import { Check, MoveVertical, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -45,7 +45,7 @@ export default function DialogShareTask() {
                     transition={{ duration: 0.2, ease: "easeOut" }}
                   />
                 }
-                className="o-h w-96 bg-silver-1 bc-silver-2 c-slate-12 br-xl bw-1 bs-o-xs"
+                className="o-h w-96 bg-silver-1 bc-silver-2 c-slate-12 br-lg bw-1 bs-o-xs"
                 style={{ maxWidth: "90vw" }}
               >
                 <div className="d-f jc-sb ai-c px-4 py-2 bg-silver-1">
@@ -95,7 +95,7 @@ export default function DialogShareTask() {
                           }
                         </Select.Value>
                         <Select.Icon className="d-f c-slate-8">
-                          <Maximize2 className="w-4 h-4" />
+                          <MoveVertical className="w-4 h-4" />
                         </Select.Icon>
                       </Select.Trigger>
                       <AnimatePresence>
@@ -118,7 +118,7 @@ export default function DialogShareTask() {
                                     }}
                                   />
                                 }
-                                className="py-1 w-88 bg-white bc-silver-2 bw-1 br-xl bs-o-xs"
+                                className="py-1 w-88 bg-white bc-silver-2 bw-1 br-lg bs-o-xs"
                               >
                                 <Select.List className="p-r o-auto">
                                   {permissions.map(({ label, value }) => (

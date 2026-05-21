@@ -36,7 +36,7 @@ export default function MenubarNested() {
                       transition={{ duration: 0.15, ease: "easeOut" }}
                     />
                   }
-                  className="py-1 bg-white bc-silver-2 c-slate-10 br-xl bw-1 bs-o-xs"
+                  className="py-1 bg-white bc-silver-2 c-slate-10 br-lg bw-1 bs-o-xs"
                 >
                   <Menu.SubmenuRoot>
                     <Menu.SubmenuTrigger
@@ -58,7 +58,7 @@ export default function MenubarNested() {
                         sideOffset={-4}
                         alignOffset={-4}
                       >
-                        <Menu.Popup className="py-1 w-fc bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs">
+                        <Menu.Popup className="py-1 w-fc bg-white bc-silver-2 c-slate-10 bw-1 br-lg bs-o-xs">
                           {sprints.map((sprint) => (
                             <Menu.Item
                               key={sprint.name}
@@ -98,7 +98,7 @@ export default function MenubarNested() {
                         sideOffset={-4}
                         alignOffset={-4}
                       >
-                        <Menu.Popup className="py-1 w-fc bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs">
+                        <Menu.Popup className="py-1 w-fc bg-white bc-silver-2 c-slate-10 bw-1 br-lg bs-o-xs">
                           {priorities.map((priority) => (
                             <Menu.Item
                               key={priority.name}
@@ -171,7 +171,7 @@ export default function MenubarNested() {
                       transition={{ duration: 0.15, ease: "easeOut" }}
                     />
                   }
-                  className="py-1 bg-white bc-silver-2 c-slate-10 br-xl bw-1 bs-o-xs"
+                  className="py-1 bg-white bc-silver-2 c-slate-10 br-lg bw-1 bs-o-xs"
                 >
                   <Menu.Item
                     className={(state) =>
@@ -240,7 +240,7 @@ export default function MenubarNested() {
                       transition={{ duration: 0.15, ease: "easeOut" }}
                     />
                   }
-                  className="py-1 bg-white bc-silver-2 c-slate-10 br-xl bw-1 bs-o-xs"
+                  className="py-1 bg-white bc-silver-2 c-slate-10 br-lg bw-1 bs-o-xs"
                 >
                   <Menu.Item
                     className={(state) =>

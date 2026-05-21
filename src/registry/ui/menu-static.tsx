@@ -12,7 +12,7 @@ export default function MenuStatic() {
 
       <Menu.Portal>
         <Menu.Positioner className="ow-0" sideOffset={8}>
-          <Menu.Popup className="py-1 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs">
+          <Menu.Popup className="py-1 bg-white bc-silver-2 c-slate-10 bw-1 br-lg bs-o-xs">
             <Menu.Item
               className={(state) =>
                 `d-f py-2 pr-8 pl-4 fs-sm us-none c-p br-lg mx-1 fw-500 ${

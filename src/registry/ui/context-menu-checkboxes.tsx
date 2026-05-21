@@ -31,7 +31,7 @@ export default function ContextMenuCheckboxes() {
                     transition={{ duration: 0.15, ease: "easeOut" }}
                   />
                 }
-                className="py-1 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs"
+                className="py-1 bg-white bc-silver-2 c-slate-10 bw-1 br-lg bs-o-xs"
               >
                 <div className="px-3 py-1 c-slate-5 fs-xs fw-500 ls-3">
                   Task options

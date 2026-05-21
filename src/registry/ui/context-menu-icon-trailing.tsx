@@ -27,7 +27,7 @@ export default function ContextMenuIconTrailing() {
                     transition={{ duration: 0.15, ease: "easeOut" }}
                   />
                 }
-                className="py-1 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs"
+                className="py-1 bg-white bc-silver-2 c-slate-10 bw-1 br-lg bs-o-xs"
               >
                 <ContextMenu.Item
                   className={(state) =>

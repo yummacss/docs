@@ -2,7 +2,7 @@
 
 import { Field } from "@base-ui/react/field";
 import { Select } from "@base-ui/react/select";
-import { Check, Maximize2 } from "lucide-react";
+import { Check, MoveVertical } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -34,7 +34,7 @@ export default function SelectGrouped() {
             }
           </Select.Value>
           <Select.Icon className="d-f c-slate-8">
-            <Maximize2 className="w-4 h-4" />
+            <MoveVertical className="w-4 h-4" />
           </Select.Icon>
         </Select.Trigger>
         <AnimatePresence>
@@ -54,7 +54,7 @@ export default function SelectGrouped() {
                       transition={{ duration: 0.15, ease: "easeOut" }}
                     />
                   }
-                  className="py-1 w-64 bg-white bc-silver-2 bw-1 br-xl bs-o-xs"
+                  className="py-1 w-64 bg-white bc-silver-2 bw-1 br-lg bs-o-xs"
                 >
                   <Select.List className="p-r o-auto">
                     {categories.map((group, groupIndex) => (

@@ -2,7 +2,7 @@
 
 import { Field } from "@base-ui/react/field";
 import { Select } from "@base-ui/react/select";
-import { Check, Maximize2 } from "lucide-react";
+import { Check, MoveVertical } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -32,7 +32,7 @@ export default function SelectSquircle() {
             }
           </Select.Value>
           <Select.Icon className="d-f c-slate-8">
-            <Maximize2 className="w-4 h-4" />
+            <MoveVertical className="w-4 h-4" />
           </Select.Icon>
         </Select.Trigger>
         <AnimatePresence>

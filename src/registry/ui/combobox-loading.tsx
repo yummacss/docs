@@ -1,7 +1,7 @@
 "use client";
 
 import { Combobox } from "@base-ui/react/combobox";
-import { Maximize2 } from "lucide-react";
+import { MoveVertical } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { type ChangeEvent, useEffect, useState } from "react";
 
@@ -46,7 +46,7 @@ export default function ComboboxLoading() {
               className="d-f b-0 ai-c jc-c w-6 h-6 p-0 bg-transparent c-slate-6 br-sm c-p h:c-slate-10 fv:oo--1 fv:oc-indigo-5"
               aria-label="Open popup"
             >
-              <Maximize2 className="w-4 h-4" />
+              <MoveVertical className="w-4 h-4" />
             </Combobox.Trigger>
           </div>
         </div>
@@ -62,7 +62,7 @@ export default function ComboboxLoading() {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.15, ease: "easeOut" }}
               >
-                <Combobox.Popup className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-xl bs-o-xs">
+                <Combobox.Popup className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-lg bs-o-xs">
                   {loading ? (
                     <div className="d-f fd-c g-3 py-3 px-4">
                       <div className="d-f ai-c g-3">
