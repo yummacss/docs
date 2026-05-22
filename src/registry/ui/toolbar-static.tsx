@@ -3,7 +3,7 @@
 import { Toggle } from "@base-ui/react/toggle";
 import { ToggleGroup } from "@base-ui/react/toggle-group";
 import { Toolbar } from "@base-ui/react/toolbar";
-import { ArrowDownUp, LayoutList, Plus, Cog, Table } from "lucide-react";
+import { ArrowDownUp, LayoutList, Plus, Cog, Table, Kanban } from "lucide-react";
 import { useState } from "react";
 
 export default function ToolbarStatic() {
@@ -54,7 +54,7 @@ export default function ToolbarStatic() {
             }`
           }
         >
-          <Table className="w-5 h-5" />
+          <Kanban className="w-5 h-5" />
         </Toggle>
       </ToggleGroup>
 
