@@ -9,10 +9,7 @@ export default function TooltipArrow() {
     <Tooltip.Provider>
       <Tooltip.Root>
         <Tooltip.Trigger className="d-f ai-c jc-c bg-transparent c-slate-8 bw-0 c-p h:c-slate-12 fv:oo-2 fv:oc-indigo-5">
-          <CalendarClock
-            aria-label="Sprint schedule"
-            className="w-6 h-6"
-          />
+          <CalendarClock aria-label="Sprint schedule" className="w-6 h-6" />
         </Tooltip.Trigger>
         <Tooltip.Portal>
           <Tooltip.Positioner sideOffset={8}>
