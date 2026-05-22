@@ -1,7 +1,7 @@
 "use client";
 
 import { ContextMenu } from "@base-ui/react/context-menu";
-import { Archive, Eye, Link, Pin, UserRoundPlus, X } from "lucide-react";
+import { Archive, Ban, Eye, Link, Pin, UserRoundPlus } from "lucide-react";
 import { useState } from "react";
 
 export default function ContextMenuStatic() {
@@ -66,7 +66,7 @@ export default function ContextMenuStatic() {
                 }`
               }
             >
-              <X className="fs-0 w-4 h-4 c-slate-5" />
+              <Ban className="fs-0 w-4 h-4 c-slate-5" />
               Mark as blocked
             </ContextMenu.Item>
 

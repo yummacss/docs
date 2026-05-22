@@ -1,6 +1,6 @@
 "use client";
 
-import { ShieldCheck } from "lucide-react";
+import { BadgeCheck } from "lucide-react";
 
 export default function BadgeSm() {
   return (
@@ -9,11 +9,11 @@ export default function BadgeSm() {
         <span className="c-slate-10 fs-xs fw-500 us-none">Label</span>
       </div>
       <div className="d-f ai-c g-1 px-2 py-0 bg-indigo-1 br-sm">
-        <ShieldCheck className="w-3 h-3 c-indigo-7" />
+        <BadgeCheck className="w-3 h-3 c-indigo-7" />
         <span className="c-indigo-7 fs-xs fw-500 us-none">Label</span>
       </div>
       <div className="d-f ai-c g-1 px-2 py-0 bg-indigo c-white br-sm">
-        <ShieldCheck className="w-3 h-3" />
+        <BadgeCheck className="w-3 h-3" />
         <span className="fs-xs fw-500 us-none">Label</span>
       </div>
       <div className="d-f ai-c g-1 px-2 py-0 bg-red-1 br-sm">

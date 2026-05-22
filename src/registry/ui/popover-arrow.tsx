@@ -1,7 +1,7 @@
 "use client";
 
 import { Popover } from "@base-ui/react/popover";
-import { Calendar } from "lucide-react";
+import { CalendarClock } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -15,7 +15,7 @@ export default function PopoverArrow() {
           open ? "bg-silver-1" : ""
         }`}
       >
-        <Calendar aria-label="Sprint info" role="img" className="w-5 h-5" />
+        <CalendarClock aria-label="Sprint info" role="img" className="w-5 h-5" />
       </Popover.Trigger>
       <AnimatePresence>
         {open && (

@@ -4,14 +4,15 @@ import { Button } from "@base-ui/react/button";
 import { Combobox } from "@base-ui/react/combobox";
 import { Dialog } from "@base-ui/react/dialog";
 import {
-  BellDot,
-  Clock,
+  Activity,
+  BookDashed,
+  BookOpenCheck,
+  BookSearch,
+  ChartColumn,
   Cog,
-  Copy,
-  Eye,
-  Folder,
-  Pencil,
-  Plus,
+  Command,
+  FilePlusCorner,
+  NotepadTextDashed,
   Search,
   UsersRound,
   X,
@@ -42,8 +43,9 @@ export default function CommandPaletteBase() {
       >
         <Search className="w-4 h-4" />
         <span>Commands</span>
-        <kbd className="d-f ai-c px-1 py-0.5 ml-3 bg-silver-1/50 c-slate-5 br-md fs-xs us-none">
-          {"\u2318/"}
+        <kbd className="d-f ai-c g-0.5 px-1 py-0.5 ml-3 bg-silver-1/50 c-slate-5 br-md fs-xs us-none">
+          <Command className="w-3 h-3" />
+          <span>/</span>
         </kbd>
       </Dialog.Trigger>
       <AnimatePresence>
@@ -153,20 +155,20 @@ const commandGroups: CommandGroup[] = [
   {
     label: "Actions",
     items: [
-      { id: "new-doc", label: "New doc", Icon: Plus },
-      { id: "drafts", label: "Drafts", Icon: Pencil },
-      { id: "templates", label: "Templates", Icon: Copy },
+      { id: "new-doc", label: "New doc", Icon: FilePlusCorner },
+      { id: "drafts", label: "Drafts", Icon: NotepadTextDashed },
+      { id: "templates", label: "Templates", Icon: BookDashed },
     ],
   },
   {
     label: "Pages",
     items: [
-      { id: "knowledge-base", label: "Knowledge base", Icon: Folder },
-      { id: "published", label: "Published pages", Icon: Eye },
-      { id: "analytics", label: "Analytics", Icon: BellDot },
+      { id: "knowledge-base", label: "Knowledge base", Icon: BookSearch },
+      { id: "published", label: "Published pages", Icon: BookOpenCheck },
+      { id: "analytics", label: "Analytics", Icon: ChartColumn },
       { id: "settings", label: "Settings", Icon: Cog },
       { id: "team-docs", label: "Team docs", Icon: UsersRound },
-      { id: "activity", label: "Activity", Icon: Clock },
+      { id: "activity", label: "Activity", Icon: Activity },
     ],
   },
 ];

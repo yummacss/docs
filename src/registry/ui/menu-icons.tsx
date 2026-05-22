@@ -1,15 +1,7 @@
 "use client";
 
 import { Menu } from "@base-ui/react/menu";
-import {
-  Archive,
-  ChevronDown,
-  Copy,
-  Link,
-  Pause,
-  Pencil,
-  TriangleAlert,
-} from "lucide-react";
+import { ChevronDown, Eye, Link, Pin, UserPlus } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -44,8 +36,8 @@ export default function MenuIcons() {
                     }`
                   }
                 >
-                  <Pencil className="fs-0 w-4 h-4 c-slate-5" />
-                  Edit task
+                  <UserPlus className="fs-0 w-4 h-4 c-slate-5" />
+                  Add watcher
                 </Menu.Item>
                 <Menu.Item
                   className={(state) =>
@@ -54,8 +46,8 @@ export default function MenuIcons() {
                     }`
                   }
                 >
-                  <Copy className="fs-0 w-4 h-4 c-slate-5" />
-                  Duplicate task
+                  <Eye className="fs-0 w-4 h-4 c-slate-5" />
+                  View task
                 </Menu.Item>
                 <Menu.Item
                   className={(state) =>
@@ -67,6 +59,7 @@ export default function MenuIcons() {
                   <Link className="fs-0 w-4 h-4 c-slate-5" />
                   Copy task link
                 </Menu.Item>
+                <Menu.Separator className="my-1 w-100% h-px bg-silver-2" />
                 <Menu.Item
                   className={(state) =>
                     `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm us-none c-p br-lg mx-1 fw-500 ${
@@ -74,28 +67,8 @@ export default function MenuIcons() {
                     }`
                   }
                 >
-                  <TriangleAlert className="fs-0 w-4 h-4 c-slate-5" />
-                  Set priority
-                </Menu.Item>
-                <Menu.Item
-                  className={(state) =>
-                    `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm us-none c-p br-lg mx-1 fw-500 ${
-                      state.highlighted ? "bg-silver-1/50" : "bg-transparent"
-                    }`
-                  }
-                >
-                  <Pause className="fs-0 w-4 h-4 c-slate-5" />
-                  Pause task
-                </Menu.Item>
-                <Menu.Item
-                  className={(state) =>
-                    `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm us-none c-p br-lg mx-1 fw-500 ${
-                      state.highlighted ? "bg-silver-1/50" : "bg-transparent"
-                    }`
-                  }
-                >
-                  <Archive className="fs-0 w-4 h-4 c-slate-5" />
-                  Archive task
+                  <Pin className="fs-0 w-4 h-4 c-slate-5" />
+                  Pin task
                 </Menu.Item>
               </Menu.Popup>
             </Menu.Positioner>

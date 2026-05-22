@@ -52,7 +52,10 @@ export default function ContextMenuRadios() {
                     >
                       <span className="d-f ai-c jc-c fs-0 w-4 h-4 bc-silver-3 br-9999 bw-1">
                         <ContextMenu.RadioItemIndicator>
-                          <Circle className="w-2 h-2 c-indigo" />
+                          <Circle
+                            fill="currentColor"
+                            className="w-2 h-2 c-indigo"
+                          />
                         </ContextMenu.RadioItemIndicator>
                       </span>
                       {option.label}
