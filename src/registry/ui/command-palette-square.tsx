@@ -12,6 +12,7 @@ import {
   Cog,
   Command,
   FilePlusCorner,
+  FileText,
   NotepadTextDashed,
   Search,
   UsersRound,
@@ -156,7 +157,7 @@ const commandGroups: CommandGroup[] = [
     label: "Actions",
     items: [
       { id: "new-doc", label: "New doc", Icon: FilePlusCorner },
-      { id: "drafts", label: "Drafts", Icon: NotepadTextDashed },
+      { id: "drafts", label: "Drafts", Icon: FileText },
       { id: "templates", label: "Templates", Icon: BookDashed },
     ],
   },
