@@ -5,10 +5,10 @@ import {
   BellDot,
   CircleQuestionMark,
   Globe,
-  Key,
+  KeyRound,
   Search,
   UserRoundCog,
-  UserRoundKey,
+  UserRoundX,
 } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { type ComponentType, useState } from "react";
@@ -91,9 +91,9 @@ type Setting = {
 
 const settings: Setting[] = [
   { label: "Account Settings", icon: UserRoundCog },
-  { label: "Privacy & Security", icon: Key },
+  { label: "Privacy & Security", icon: KeyRound },
   { label: "Notifications", icon: BellDot },
   { label: "Language & Region", icon: Globe },
-  { label: "Blocked Accounts", icon: UserRoundKey },
+  { label: "Blocked Accounts", icon: UserRoundX },
   { label: "Help Center", icon: CircleQuestionMark },
 ];

@@ -1,6 +1,7 @@
 "use client";
 
 import { ContextMenu } from "@base-ui/react/context-menu";
+import { ArrowBigUp, Command, Delete } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -37,7 +38,7 @@ export default function ContextMenuShortcuts() {
                 >
                   <span className="d-f ai-c g-2 fg-1">Assign to</span>
                   <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
-                    <span>⌘</span>
+                    <Command className="w-3 h-3" />
                     <span>R</span>
                   </span>
                 </ContextMenu.Item>
@@ -50,7 +51,7 @@ export default function ContextMenuShortcuts() {
                 >
                   <span className="d-f ai-c g-2 fg-1">Add watcher</span>
                   <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
-                    <span>⌘</span>
+                    <Command className="w-3 h-3" />
                     <span>M</span>
                   </span>
                 </ContextMenu.Item>
@@ -63,8 +64,8 @@ export default function ContextMenuShortcuts() {
                 >
                   <span className="d-f ai-c g-2 fg-1">Copy task link</span>
                   <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
-                    <span>⌘</span>
-                    <span>⇧</span>
+                    <Command className="w-3 h-3" />
+                    <ArrowBigUp className="w-3 h-3" />
                     <span>C</span>
                   </span>
                 </ContextMenu.Item>
@@ -80,7 +81,7 @@ export default function ContextMenuShortcuts() {
                 >
                   <span className="d-f ai-c g-2 fg-1">Pin task</span>
                   <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
-                    <span>⌘</span>
+                    <Command className="w-3 h-3" />
                     <span>P</span>
                   </span>
                 </ContextMenu.Item>
@@ -93,8 +94,8 @@ export default function ContextMenuShortcuts() {
                 >
                   <span className="d-f ai-c g-2 fg-1">Mark as blocked</span>
                   <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
-                    <span>⌘</span>
-                    <span>⇧</span>
+                    <Command className="w-3 h-3" />
+                    <ArrowBigUp className="w-3 h-3" />
                     <span>B</span>
                   </span>
                 </ContextMenu.Item>
@@ -110,8 +111,8 @@ export default function ContextMenuShortcuts() {
                 >
                   <span className="d-f ai-c g-2 fg-1">Archive task</span>
                   <span className="d-f ai-c g-1 c-red fw-400 fs-xs">
-                    <span>⌘</span>
-                    <span>⌫</span>
+                    <Command className="w-3 h-3" />
+                    <Delete className="w-3 h-3" />
                   </span>
                 </ContextMenu.Item>
               </ContextMenu.Popup>

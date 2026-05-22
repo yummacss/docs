@@ -1,12 +1,7 @@
 "use client";
 
 import { Collapsible } from "@base-ui/react/collapsible";
-import {
-  ChevronRight,
-  Circle,
-  CircleDashed,
-  CircleQuestionMark,
-} from "lucide-react";
+import { CheckCheck, ChevronRight, Circle, Loader } from "lucide-react";
 import { type HTMLMotionProps, motion } from "motion/react";
 import { useState } from "react";
 
@@ -48,9 +43,9 @@ export default function CollapsibleBase() {
           {tasks.map((task) => (
             <div key={task.id} className="d-f ai-c g-2 py-2">
               {task.status === "done" ? (
-                <CircleQuestionMark className="w-4 h-4 c-mint" />
+                <CheckCheck className="w-4 h-4 c-mint" />
               ) : task.status === "in-progress" ? (
-                <CircleDashed className="w-4 h-4 c-yellow" />
+                <Loader className="w-4 h-4 c-yellow" />
               ) : (
                 <Circle className="w-4 h-4 c-slate-4" />
               )}

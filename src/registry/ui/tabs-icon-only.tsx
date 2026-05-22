@@ -1,11 +1,11 @@
 "use client";
 
 import { Tabs } from "@base-ui/react/tabs";
-import { CircleDollarSign, File, Receipt } from "lucide-react";
+import { Bug, ClipboardList, Rocket } from "lucide-react";
 import { useState } from "react";
 
 export default function ExampleTabsIconOnly() {
-  const [selected, setSelected] = useState("plans");
+  const [selected, setSelected] = useState("planning");
 
   return (
     <Tabs.Root
@@ -45,7 +45,7 @@ export default function ExampleTabsIconOnly() {
 }
 
 const tabs = [
-  { value: "plans", label: "Plans", icon: File },
-  { value: "subscriptions", label: "Subscriptions", icon: CircleDollarSign },
-  { value: "invoices", label: "Invoices", icon: Receipt },
+  { value: "planning", label: "Planning", icon: ClipboardList },
+  { value: "testing", label: "Testing", icon: Bug },
+  { value: "live", label: "Live", icon: Rocket },
 ];

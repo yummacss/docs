@@ -3,7 +3,7 @@
 import { Toggle } from "@base-ui/react/toggle";
 import { ToggleGroup } from "@base-ui/react/toggle-group";
 import { Toolbar } from "@base-ui/react/toolbar";
-import { ArrowDownUp, LayoutList, Plus, Sliders, Table } from "lucide-react";
+import { ArrowDownAZ, Cog, LayoutList, Plus, Table } from "lucide-react";
 import { useState } from "react";
 
 export default function ToolbarIconOnly() {
@@ -71,13 +71,13 @@ export default function ToolbarIconOnly() {
           aria-label="Sort"
           className="d-f ai-c jc-c w-9 h-9 bg-transparent c-slate-8 br-md bw-0 us-none c-p h:bg-silver-1 h:c-slate-10 fv:oo-2 fv:oc-indigo-5"
         >
-          <ArrowDownUp className="w-5 h-5" />
+          <ArrowDownAZ className="w-5 h-5" />
         </Toolbar.Button>
         <Toolbar.Button
           aria-label="Settings"
           className="d-f ai-c jc-c w-9 h-9 bg-transparent c-slate-8 br-md bw-0 us-none c-p h:bg-silver-1 h:c-slate-10 fv:oo-2 fv:oc-indigo-5"
         >
-          <Sliders className="w-5 h-5" />
+          <Cog className="w-5 h-5" />
         </Toolbar.Button>
       </Toolbar.Group>
 

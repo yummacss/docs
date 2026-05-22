@@ -8,7 +8,7 @@ import {
   CircleQuestionMark,
   Cog,
   Folder,
-  ListCheck,
+  ClipboardCheck,
   LogOut,
   UserRound,
 } from "lucide-react";
@@ -70,7 +70,7 @@ export default function MenuAccountStatus() {
                     }`
                   }
                 >
-                  <ListCheck className="fs-0 w-4 h-4 c-slate-5" />
+                  <ClipboardCheck className="fs-0 w-4 h-4 c-slate-5" />
                   My tasks
                 </Menu.Item>
                 <Menu.Item

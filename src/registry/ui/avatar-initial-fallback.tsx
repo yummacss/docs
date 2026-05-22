@@ -1,25 +1,26 @@
 import { Avatar } from "@base-ui/react/avatar";
 
+const fallbacks = [
+  { rootColor: "bg-lime-2 bc-lime-3", fallbackColor: "c-lime" },
+  { rootColor: "bg-cyan-2 bc-cyan-3", fallbackColor: "c-cyan" },
+  { rootColor: "bg-indigo-2 bc-indigo-3", fallbackColor: "c-indigo" },
+];
+
 export default function AvatarFallbackInitial() {
   return (
     <div className="d-f ai-c g-4">
-      {initialProfiles.map((profile) => (
+      {fallbacks.map((fallback) => (
         <Avatar.Root
-          key={profile.name}
-          className="d-if o-h ai-c jc-c w-12 h-12 bg-indigo-1 bc-indigo-3 br-9999 bw-1 va-m us-none"
+          key={fallback.rootColor}
+          className={`d-if o-h ai-c jc-c w-12 h-12 ${fallback.rootColor} br-9999 bw-1 va-m us-none`}
         >
-          <Avatar.Fallback className="d-f ai-c jc-c w-100% h-100% c-indigo fs-md fw-500">
-            {profile.initials}
+          <Avatar.Fallback
+            className={`d-f ai-c jc-c w-100% h-100% ${fallback.fallbackColor} fs-md fw-500`}
+          >
+            ME
           </Avatar.Fallback>
         </Avatar.Root>
       ))}
     </div>
   );
 }
-
-const initialProfiles = [
-  { name: "Sarah", initials: "S" },
-  { name: "John", initials: "A" },
-  { name: "Noah", initials: "J" },
-  { name: "Melanie", initials: "L" },
-];

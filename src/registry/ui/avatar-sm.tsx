@@ -28,15 +28,15 @@ export default function AvatarSm() {
         </span>
       </div>
 
-      <Avatar.Root className="d-if o-h ai-c jc-c w-8 h-8 bg-indigo-1 br-9999 va-m us-none">
+      <Avatar.Root className="d-if o-h ai-c jc-c w-8 h-8 bg-indigo-2 br-9999 va-m us-none">
         <Avatar.Fallback className="d-f ai-c jc-c w-100% h-100% c-indigo">
           <UserRound className="w-4 h-4" />
         </Avatar.Fallback>
       </Avatar.Root>
 
-      <Avatar.Root className="d-if o-h ai-c jc-c w-8 h-8 bg-indigo-1 bc-indigo-3 br-9999 bw-1 va-m us-none">
+      <Avatar.Root className="d-if o-h ai-c jc-c w-8 h-8 bg-indigo-2 bc-indigo-3 br-9999 bw-1 va-m us-none">
         <Avatar.Fallback className="d-f ai-c jc-c w-100% h-100% c-indigo fs-xs fw-500">
-          S
+          ME
         </Avatar.Fallback>
       </Avatar.Root>
     </div>

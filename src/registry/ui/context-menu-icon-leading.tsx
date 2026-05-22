@@ -1,7 +1,7 @@
 "use client";
 
 import { ContextMenu } from "@base-ui/react/context-menu";
-import { Copy, Link, Pencil, Trash } from "lucide-react";
+import { Eye, Link, Pin, UserPlus } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -36,8 +36,8 @@ export default function ContextMenuIcons() {
                     }`
                   }
                 >
-                  <Pencil className="fs-0 w-4 h-4 c-slate-5" />
-                  Edit task
+                  <UserPlus className="fs-0 w-4 h-4 c-slate-5" />
+                  Add watcher
                 </ContextMenu.Item>
                 <ContextMenu.Item
                   className={(state) =>
@@ -46,8 +46,8 @@ export default function ContextMenuIcons() {
                     }`
                   }
                 >
-                  <Copy className="fs-0 w-4 h-4 c-slate-5" />
-                  Duplicate task
+                  <Eye className="fs-0 w-4 h-4 c-slate-5" />
+                  View task
                 </ContextMenu.Item>
                 <ContextMenu.Item
                   className={(state) =>
@@ -62,13 +62,13 @@ export default function ContextMenuIcons() {
                 <ContextMenu.Separator className="my-1 w-100% h-px bg-silver-2" />
                 <ContextMenu.Item
                   className={(state) =>
-                    `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm us-none c-red c-p br-lg mx-1 fw-500 ${
-                      state.highlighted ? "bg-red-1/50" : "bg-transparent"
+                    `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm us-none c-p br-lg mx-1 fw-500 ${
+                      state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                     }`
                   }
                 >
-                  <Trash className="fs-0 w-4 h-4 c-red" />
-                  Delete task
+                  <Pin className="fs-0 w-4 h-4 c-slate-5" />
+                  Pin task
                 </ContextMenu.Item>
               </ContextMenu.Popup>
             </ContextMenu.Positioner>

@@ -1,7 +1,7 @@
 "use client";
 
 import { Tooltip } from "@base-ui/react/tooltip";
-import { CircleQuestionMark, Cog, SquarePen, Trash } from "lucide-react";
+import { Cog, Pen, Plus, Trash } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 export default function TooltipColor() {
   return (
@@ -40,12 +40,12 @@ export default function TooltipColor() {
 
 const items = [
   {
-    icon: CircleQuestionMark,
+    icon: Plus,
     label: "New task",
     ariaLabel: "Create a new task",
   },
   {
-    icon: SquarePen,
+    icon: Pen,
     label: "Edit sprint",
     ariaLabel: "Edit current sprint",
   },

@@ -1,7 +1,7 @@
 "use client";
 
 import { Menu } from "@base-ui/react/menu";
-import { ChevronDown } from "lucide-react";
+import { ArrowBigUp, ChevronDown, Command, Delete } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -50,7 +50,7 @@ export default function MenuShortcuts() {
                 >
                   <span className="fg-1">Duplicate task</span>
                   <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
-                    <span>⌘</span>
+                    <Command className="w-3 h-3" />
                     <span>D</span>
                   </span>
                 </Menu.Item>
@@ -63,8 +63,8 @@ export default function MenuShortcuts() {
                 >
                   <span className="fg-1">Copy link</span>
                   <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
-                    <span>⌘</span>
-                    <span>⇧</span>
+                    <Command className="w-3 h-3" />
+                    <ArrowBigUp className="w-3 h-3" />
                     <span>C</span>
                   </span>
                 </Menu.Item>
@@ -77,7 +77,7 @@ export default function MenuShortcuts() {
                 >
                   <span className="fg-1">Pin task</span>
                   <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
-                    <span>⌘</span>
+                    <Command className="w-3 h-3" />
                     <span>P</span>
                   </span>
                 </Menu.Item>
@@ -90,7 +90,7 @@ export default function MenuShortcuts() {
                 >
                   <span className="fg-1">Archive task</span>
                   <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
-                    <span>⌘</span>
+                    <Command className="w-3 h-3" />
                     <span>E</span>
                   </span>
                 </Menu.Item>
@@ -103,8 +103,8 @@ export default function MenuShortcuts() {
                 >
                   <span className="fg-1">Delete task</span>
                   <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
-                    <span>⌘</span>
-                    <span>⌫</span>
+                    <Command className="w-3 h-3" />
+                    <Delete className="w-3 h-3" />
                   </span>
                 </Menu.Item>
               </Menu.Popup>

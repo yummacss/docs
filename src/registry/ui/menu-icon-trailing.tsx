@@ -1,14 +1,7 @@
 "use client";
 
 import { Menu } from "@base-ui/react/menu";
-import {
-  Archive,
-  ArrowUpRightFromSquare,
-  Copy,
-  Eye,
-  Link,
-  Pin,
-} from "lucide-react";
+import { Eye, Link, Pin, UserPlus } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -44,7 +37,7 @@ export default function MenuIconTrailing() {
                   }
                 >
                   Add watcher
-                  <Eye className="fs-0 w-4 h-4 c-slate-5" />
+                  <UserPlus className="fs-0 w-4 h-4 c-slate-5" />
                 </Menu.Item>
                 <Menu.Item
                   className={(state) =>
@@ -53,8 +46,8 @@ export default function MenuIconTrailing() {
                     }`
                   }
                 >
-                  Duplicate task
-                  <Copy className="fs-0 w-4 h-4 c-slate-5" />
+                  View task
+                  <Eye className="fs-0 w-4 h-4 c-slate-5" />
                 </Menu.Item>
                 <Menu.Item
                   className={(state) =>
@@ -74,29 +67,8 @@ export default function MenuIconTrailing() {
                     }`
                   }
                 >
-                  Open in new tab
-                  <ArrowUpRightFromSquare className="fs-0 w-4 h-4 c-slate-5" />
-                </Menu.Item>
-                <Menu.Item
-                  className={(state) =>
-                    `d-f ai-c jc-sb g-2 py-2 pr-3 pl-4 fs-sm us-none c-p br-lg mx-1 fw-500 ${
-                      state.highlighted ? "bg-silver-1/50" : "bg-transparent"
-                    }`
-                  }
-                >
                   Pin task
                   <Pin className="fs-0 w-4 h-4 c-slate-5" />
-                </Menu.Item>
-                <Menu.Separator className="my-1 w-100% h-px bg-silver-2" />
-                <Menu.Item
-                  className={(state) =>
-                    `d-f ai-c jc-sb g-2 py-2 pr-3 pl-4 fs-sm us-none c-red c-p br-lg mx-1 fw-500 ${
-                      state.highlighted ? "bg-red-1/50" : "bg-transparent"
-                    }`
-                  }
-                >
-                  Archive task
-                  <Archive className="fs-0 w-4 h-4" />
                 </Menu.Item>
               </Menu.Popup>
             </Menu.Positioner>
