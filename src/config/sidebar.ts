@@ -479,7 +479,7 @@ export const sidebarConfig = {
         { title: "Onboarding", slug: "onboarding" },
         { title: "Rating", slug: "rating" },
         { title: "Skeleton", slug: "skeleton" },
-        { title: "Text Editor", slug: "text-editor" },
+
       ],
     },
   ] as SidebarConfig,
