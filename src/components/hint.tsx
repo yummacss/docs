@@ -45,7 +45,7 @@ export default function Hint({ icon, children }: Props) {
 
   return (
     <div className="d-f ai-c g-2 mb-4">
-      <span className="d-f ai-c fs-0 p-1 bc-navy bg-midnight c-periwinkle bw-1">
+      <span className="d-f ai-c fs-0 p-1 bc-clay bg-midnight c-periwinkle bw-1">
         <Icon className="w-5 h-5" />
       </span>
       <span className="c-white/80">{children}</span>

@@ -151,7 +151,7 @@ const components: MDXComponents = {
     props.className ? (
       <blockquote {...props}>{children}</blockquote>
     ) : (
-      <blockquote className="pl-2 bc-navy blw-2" {...props}>
+      <blockquote className="pl-2 bc-clay blw-2" {...props}>
         {children}
       </blockquote>
     ),
@@ -183,7 +183,7 @@ const components: MDXComponents = {
     props.className ? (
       <th {...props}>{children}</th>
     ) : (
-      <th className="px-4 py-2 bc-navy c-white bw-1 ta-l fw-500" {...props}>
+      <th className="px-4 py-2 bc-clay c-white bw-1 ta-l fw-500" {...props}>
         {children}
       </th>
     ),
@@ -191,7 +191,7 @@ const components: MDXComponents = {
     props.className ? (
       <td {...props}>{children}</td>
     ) : (
-      <td className="px-4 py-2 bc-navy c-white/80 bw-1" {...props}>
+      <td className="px-4 py-2 bc-clay c-white/80 bw-1" {...props}>
         {children}
       </td>
     ),
