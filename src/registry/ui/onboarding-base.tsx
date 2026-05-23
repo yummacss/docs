@@ -14,30 +14,6 @@ import {
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
-const PAGES = [
-  {
-    value: "welcome",
-    icon: PartyPopper,
-    title: "Welcome to the team",
-    description:
-      "Great to have you on board! Get stuck into your projects, work with your team and make your ideas real.",
-  },
-  {
-    value: "team",
-    icon: UsersRound,
-    title: "Connect with your team",
-    description:
-      "Browse member directories, join channels, and see what everyone's working on in real time.",
-  },
-  {
-    value: "launch",
-    icon: Rocket,
-    title: "Launch your first project",
-    description:
-      "Create a board, assign tasks, and set milestones. Everything you need to ship faster.",
-  },
-];
-
 const slideVariants = {
   enter: (d: number) => ({ x: d > 0 ? 40 : -40, opacity: 0 }),
   center: { x: 0, opacity: 1 },
@@ -50,13 +26,13 @@ export default function OnboardingBase() {
   const [direction, setDirection] = useState(0);
 
   const handleTabChange = (value: string) => {
-    const idx = PAGES.findIndex((p) => p.value === value);
+    const idx = items.findIndex((p) => p.value === value);
     setDirection(idx > page ? 1 : -1);
     setPage(idx);
   };
 
   const goNext = () => {
-    if (page < PAGES.length - 1) {
+    if (page < items.length - 1) {
       setDirection(1);
       setPage(page + 1);
     }
@@ -69,9 +45,9 @@ export default function OnboardingBase() {
     }
   };
 
-  const { icon: Icon, title, description } = PAGES[page];
+  const { icon: Icon, title, description } = items[page];
   const isFirst = page === 0;
-  const isLast = page === PAGES.length - 1;
+  const isLast = page === items.length - 1;
 
   return (
     <Dialog.Root
@@ -112,7 +88,7 @@ export default function OnboardingBase() {
                     transition={{ duration: 0.2, ease: "easeOut" }}
                   />
                 }
-                className="o-h w-96 bg-white bc-silver-2 c-slate-12 br-xxl bw-1 bs-o-lg p-r"
+                className="o-h p-r w-96 bg-white bc-silver-2 c-slate-12 br-xxl bw-1 bs-o-lg"
                 style={{ maxWidth: "90vw" }}
               >
                 <Dialog.Close
@@ -123,7 +99,7 @@ export default function OnboardingBase() {
                   <X aria-hidden className="w-4 h-4" />
                 </Dialog.Close>
                 <div className="px-8 pt-10 pb-6">
-                  <div className="d-f fd-c ai-c jc-c ta-c h-48 o-h">
+                  <div className="d-f o-h fd-c ai-c jc-c h-48 ta-c">
                     <AnimatePresence mode="wait" custom={direction}>
                       <motion.div
                         key={page}
@@ -139,7 +115,7 @@ export default function OnboardingBase() {
                           <Icon className="w-6 h-6" />
                         </div>
                         <span className="c-slate-10 fs-md fw-500">{title}</span>
-                        <p className="c-slate-6 fs-sm lh-4 m-0">
+                        <p className="m-0 c-slate-6 fs-sm lh-4">
                           {description}
                         </p>
                       </motion.div>
@@ -161,11 +137,11 @@ export default function OnboardingBase() {
                     <ArrowLeft className="w-4 h-4" />
                   </button>
                   <Tabs.Root
-                    value={PAGES[page].value}
+                    value={items[page].value}
                     onValueChange={handleTabChange}
                   >
                     <Tabs.List className="d-f g-2 jc-c">
-                      {PAGES.map(({ value }) => (
+                      {items.map(({ value }) => (
                         <Tabs.Tab
                           key={value}
                           value={value}
@@ -200,3 +176,27 @@ export default function OnboardingBase() {
     </Dialog.Root>
   );
 }
+
+const items = [
+  {
+    value: "welcome",
+    icon: PartyPopper,
+    title: "Welcome to the team",
+    description:
+      "Great to have you on board! Have a look at your projects, work with your team and make your ideas real.",
+  },
+  {
+    value: "team",
+    icon: UsersRound,
+    title: "Connect with your team",
+    description:
+      "Browse member directories, join channels, and see what everyone's working on in real time.",
+  },
+  {
+    value: "launch",
+    icon: Rocket,
+    title: "Launch your first project",
+    description:
+      "Create a board, assign tasks, and set milestones. Everything you need to ship faster.",
+  },
+];
