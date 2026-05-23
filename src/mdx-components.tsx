@@ -42,7 +42,6 @@ const components: MDXComponents = {
   ResponsiveVariant,
   Step,
   Stepper,
-  Steps: Stepper, // Alias for Stepper
   Tabs,
   TabsList,
   TabsPanel,
@@ -119,7 +118,7 @@ const components: MDXComponents = {
     props.className ? (
       <a {...props}>{children}</a>
     ) : (
-      <a className="c-periwinkle h:td-u fv:oc-white fv:ow-2" {...props}>
+      <a className="c-accent h:td-u fv:oc-white fv:ow-2" {...props}>
         {children}
       </a>
     ),
@@ -151,7 +150,7 @@ const components: MDXComponents = {
     props.className ? (
       <blockquote {...props}>{children}</blockquote>
     ) : (
-      <blockquote className="pl-2 bc-clay blw-2" {...props}>
+      <blockquote className="pl-2 bc-border blw-2" {...props}>
         {children}
       </blockquote>
     ),
@@ -159,14 +158,14 @@ const components: MDXComponents = {
     props.className ? (
       <hr {...props} />
     ) : (
-      <hr className="my-8 bc-clay" {...props} />
+      <hr className="my-8 bc-border bw-2 bs-d" {...props} />
     ),
   table: ({ children, ...props }) =>
     props.className ? (
       <table {...props}>{children}</table>
     ) : (
       <div className="ox-auto my-6">
-        <table className="w-100% bc-clay bg-transparent bc-c" {...props}>
+        <table className="w-100% bc-border bg-transparent bc-c" {...props}>
           {children}
         </table>
       </div>
@@ -175,7 +174,7 @@ const components: MDXComponents = {
     props.className ? (
       <thead {...props}>{children}</thead>
     ) : (
-      <thead className="bg-midnight" {...props}>
+      <thead className="bg-surface" {...props}>
         {children}
       </thead>
     ),
@@ -183,7 +182,7 @@ const components: MDXComponents = {
     props.className ? (
       <th {...props}>{children}</th>
     ) : (
-      <th className="px-4 py-2 bc-clay c-white bw-1 ta-l fw-500" {...props}>
+      <th className="px-4 py-2 bc-border c-white bw-1 ta-l fw-500" {...props}>
         {children}
       </th>
     ),
@@ -191,7 +190,7 @@ const components: MDXComponents = {
     props.className ? (
       <td {...props}>{children}</td>
     ) : (
-      <td className="px-4 py-2 bc-clay c-white/80 bw-1" {...props}>
+      <td className="px-4 py-2 bc-border c-white/80 bw-1" {...props}>
         {children}
       </td>
     ),
@@ -204,7 +203,7 @@ const components: MDXComponents = {
       );
     }
     return (
-      <code className="c-mauve fs-md ff-m" {...props}>
+      <code className="c-code fs-md ff-m" {...props}>
         {children}
       </code>
     );
@@ -221,7 +220,7 @@ const components: MDXComponents = {
     <Image
       src={src as string}
       alt={alt || ""}
-      className={`${className || "w-100% h-auto my-4"} bg-midnight`}
+      className={`${className || "w-100% h-auto my-4"} bg-surface`}
       unoptimized
       width={1920}
       height={1080}

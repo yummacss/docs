@@ -103,7 +103,7 @@ export default function MobileDialog({ isOpen, onClose, routeType }: Props) {
                   transition={{ duration: 0.15, ease: "easeOut" }}
                 />
               }
-              className="p-f zi-10 t-0 l-0 r-0 b-0 bg-black/60 bg-mirage fgr-90 lg:d-none"
+              className="p-f zi-10 t-0 l-0 r-0 b-0 bg-black/60 bg-page fgr-90 lg:d-none"
             />
 
             <div className="d-f p-f zi-10 t-0 l-0 r-0 b-0 ai-s jc-fe pe-none lg:d-none">
@@ -116,15 +116,15 @@ export default function MobileDialog({ isOpen, onClose, routeType }: Props) {
                     transition={{ duration: 0.15, ease: "easeOut" }}
                   />
                 }
-                className="o-h w-100% max-w-xs h-dvh bc-clay bg-transparent blw-1 pe-auto"
+                className="o-h w-100% max-w-xs h-dvh bc-border bg-transparent blw-1 pe-auto"
               >
-                <div className="d-f ai-c jc-sb px-4 py-3 bc-clay bbw-1">
+                <div className="d-f ai-c jc-sb px-4 py-3 bc-border bbw-1">
                   <Dialog.Title className="c-white fs-md fw-600">
                     Menu
                   </Dialog.Title>
                   <Dialog.Close
                     aria-label="Close menu"
-                    className="d-f ai-c jc-c w-9 h-9 bc-clay bg-white/5 c-white bw-1 h:bg-white/15 fv:oc-white fv:oo-2"
+                    className="d-f ai-c jc-c w-9 h-9 bc-border bg-white/5 c-white bw-1 h:bg-white/15 fv:oc-white fv:oo-2"
                   >
                     <XIcon />
                   </Dialog.Close>
@@ -176,7 +176,7 @@ export default function MobileDialog({ isOpen, onClose, routeType }: Props) {
                                 >
                                   {item.title}
                                   {item.updated && (
-                                    <span className="w-2 h-2 ml-auto bg-periwinkle" />
+                                    <span className="w-2 h-2 ml-auto bg-accent" />
                                   )}
                                 </Dialog.Close>
                               </li>

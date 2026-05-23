@@ -38,7 +38,7 @@ export default function Preview({
   return (
     <div
       data-preview
-      className={`${clsx(previewVariants({ variant }), className)} bc-clay`}
+      className={`${clsx(previewVariants({ variant }), className)} bc-border`}
     >
       {RegistryComponent ? <RegistryComponent /> : children}
     </div>

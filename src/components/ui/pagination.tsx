@@ -22,7 +22,7 @@ export default function Pagination({ previous, next, basePath }: Props) {
           nativeButton={false}
           render={<Link href={`${basePath}/${previous.slug}`} />}
           aria-label={`Previous: ${previous.title}`}
-          className="d-f ai-c jc-c w-8 h-8 bc-clay bg-midnight h:bg-midnight-7 c-periwinkle bw-1 fv:oc-white fv:oo-2"
+          className="d-f ai-c jc-c w-8 h-8 bc-border bg-surface h:bg-surface-7 c-accent bw-1 fv:oc-white fv:oo-2"
         >
           <CaretLeftIcon className="w-4 h-4" />
         </Button>
@@ -30,7 +30,7 @@ export default function Pagination({ previous, next, basePath }: Props) {
         <Button
           disabled
           aria-label="No previous page"
-          className="d-f ai-c jc-c w-8 h-8 bc-clay/30 bg-midnight c-white/30 bw-1 c-p-none"
+          className="d-f ai-c jc-c w-8 h-8 bc-border/30 bg-surface c-white/30 bw-1 c-p-none"
         >
           <CaretLeftIcon className="w-4 h-4" />
         </Button>
@@ -41,7 +41,7 @@ export default function Pagination({ previous, next, basePath }: Props) {
           nativeButton={false}
           render={<Link href={`${basePath}/${next.slug}`} />}
           aria-label={`Next: ${next.title}`}
-          className="d-f ai-c jc-c w-8 h-8 bc-clay bg-midnight h:bg-midnight-7 c-periwinkle bw-1 fv:oc-white fv:oo-2"
+          className="d-f ai-c jc-c w-8 h-8 bc-border bg-surface h:bg-surface-7 c-accent bw-1 fv:oc-white fv:oo-2"
         >
           <CaretRightIcon className="w-4 h-4" />
         </Button>
@@ -49,7 +49,7 @@ export default function Pagination({ previous, next, basePath }: Props) {
         <Button
           disabled
           aria-label="No next page"
-          className="d-f ai-c jc-c w-8 h-8 bc-clay/30 bg-midnight c-white/30 bw-1 c-p-none"
+          className="d-f ai-c jc-c w-8 h-8 bc-border/30 bg-surface c-white/30 bw-1 c-p-none"
         >
           <CaretRightIcon className="w-4 h-4" />
         </Button>

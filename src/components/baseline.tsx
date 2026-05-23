@@ -110,7 +110,7 @@ export default function Baseline({ path }: Props) {
   });
 
   return (
-    <div className="mb-6 p-4 bc-clay bg-midnight bw-1">
+    <div className="mb-6 p-4 bc-border bg-surface bw-1">
       <div className="mb-4">
         <div className="d-f ai-c g-2 mb-2">
           <StatusIcon className={`${statusColor} w-5 h-5`} />

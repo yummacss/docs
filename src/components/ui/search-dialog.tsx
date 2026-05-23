@@ -156,13 +156,13 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                     transition={{ duration: 0.15, ease: "easeOut" }}
                   />
                 }
-                className="o-h w-100% max-w-xs bc-clay bg-mirage bw-1 pe-auto"
+                className="o-h w-100% max-w-xs bc-border bg-page bw-1 pe-auto"
                 style={{
                   maxHeight: "70vh",
                 }}
                 onKeyDown={handleKeyDown}
               >
-                <div className="d-f ai-c g-3 px-4 py-3 bc-clay bbw-1">
+                <div className="d-f ai-c g-3 px-4 py-3 bc-border bbw-1">
                   <MagnifyingGlassIcon className="w-5 h-5 c-white" />
                   <Input
                     ref={inputRef}
@@ -209,12 +209,9 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                               onMouseEnter={() =>
                                 setSelectedIndex(currentIndex)
                               }
-                              className="d-f b-0 ai-c g-3 w-100% px-3 py-2 ta-l c-p"
-                              style={{
-                                backgroundColor: isSelected
-                                  ? "#232741"
-                                  : "transparent",
-                              }}
+                              className={`d-f b-0 ai-c g-3 w-100% px-3 py-2 ta-l c-p ${
+                                isSelected ? "bg-border" : "bg-transparent"
+                              }`}
                             >
                               {item.category === "colors" && item.color ? (
                                 <div
@@ -258,18 +255,16 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                   )}
                 </div>
 
-                <div className="d-f ai-c jc-sb px-4 py-2 bc-clay c-white/40 btw-1 fs-xs">
+                <div className="d-f ai-c jc-sb px-4 py-2 bc-border c-white/40 btw-1 fs-xs">
                   <div className="d-f ai-c g-4">
                     <span className="d-f ai-c g-1">
                       <kbd
-                        className="d-f ai-c p-1 bc-clay bg-transparent bw-1"
-                        style={{}}
+                        className="d-f ai-c p-1 bc-border bg-transparent bw-1"
                       >
                         <ArrowUpIcon className="w-4 h-4" />
                       </kbd>
                       <kbd
-                        className="d-f ai-c p-1 bc-clay bg-transparent bw-1"
-                        style={{}}
+                        className="d-f ai-c p-1 bc-border bg-transparent bw-1"
                       >
                         <ArrowDownIcon className="w-4 h-4" />
                       </kbd>
@@ -277,8 +272,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                     </span>
                     <span className="d-f ai-c g-1">
                       <kbd
-                        className="d-f ai-c p-1 bc-clay bg-transparent bw-1"
-                        style={{}}
+                        className="d-f ai-c p-1 bc-border bg-transparent bw-1"
                       >
                         <ArrowElbowDownLeftIcon className="w-4 h-4" />
                       </kbd>
@@ -287,8 +281,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                   </div>
                   <span className="d-f ai-c g-1">
                     <kbd
-                      className="d-f ai-c p-1 bc-clay bg-transparent bw-1"
-                      style={{}}
+                      className="d-f ai-c p-1 bc-border bg-transparent bw-1"
                     >
                       <SignOutIcon className="w-4 h-4" />
                     </kbd>

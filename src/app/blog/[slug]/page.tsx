@@ -91,14 +91,14 @@ export default async function BlogPostPage({
           </header>
 
           {meta?.cover && (
-            <div className="o-h b-1 mb-12 bc-clay">
+            <div className="o-h b-1 mb-12 bc-border">
               <Image
                 src={`/blog/${slug}.png`}
                 alt={meta.title || "Blog cover"}
                 unoptimized
                 width={1200}
                 height={630}
-                className="w-100% h-auto bg-midnight us-none"
+                className="w-100% h-auto bg-surface us-none"
               />
             </div>
           )}

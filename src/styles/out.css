@@ -221,16 +221,20 @@ summary {
   border-bottom-width: 1px;
 }
 
-.bc-c {
-  border-collapse: collapse;
+.bc-accent-dim\/50 {
+  border-color: #9aa5ef80;
 }
 
-.bc-clay {
+.bc-border {
   border-color: #232741;
 }
 
-.bc-clay\/30 {
+.bc-border\/30 {
   border-color: #2327414d;
+}
+
+.bc-c {
+  border-collapse: collapse;
 }
 
 .bc-cyan-3 {
@@ -239,10 +243,6 @@ summary {
 
 .bc-green-5 {
   border-color: #4ce1bb;
-}
-
-.bc-highlight\/50 {
-  border-color: #9aa5ef80;
 }
 
 .bc-indigo {
@@ -333,6 +333,14 @@ summary {
   backdrop-filter: blur(4px);
 }
 
+.bg-accent {
+  background-color: #bec6f2;
+}
+
+.bg-accent-dim\/10 {
+  background-color: #9aa5ef1a;
+}
+
 .bg-black {
   background-color: #000000;
 }
@@ -361,7 +369,7 @@ summary {
   background-color: #628ff1;
 }
 
-.bg-clay {
+.bg-border {
   background-color: #232741;
 }
 
@@ -411,10 +419,6 @@ summary {
 
 .bg-green-7 {
   background-color: #05b88a;
-}
-
-.bg-highlight\/10 {
-  background-color: #9aa5ef1a;
 }
 
 .bg-indigo {
@@ -493,20 +497,12 @@ summary {
   background-color: #e47af3;
 }
 
-.bg-midnight {
-  background-color: #1a1d2e;
-}
-
 .bg-mint {
   background-color: #10b981;
 }
 
 .bg-mint-1 {
   background-color: #d9f4eb;
-}
-
-.bg-mirage {
-  background-color: #151724;
 }
 
 .bg-orange {
@@ -517,8 +513,8 @@ summary {
   background-color: #ffe7df;
 }
 
-.bg-periwinkle {
-  background-color: #bec6f2;
+.bg-page {
+  background-color: #151724;
 }
 
 .bg-red {
@@ -599,6 +595,10 @@ summary {
 
 .bg-slate-4 {
   background-color: #a5aebc;
+}
+
+.bg-surface {
+  background-color: #1a1d2e;
 }
 
 .bg-transparent {
@@ -796,6 +796,14 @@ summary {
   border-block-width: 2px;
 }
 
+.c-accent {
+  color: #bec6f2;
+}
+
+.c-accent-dim {
+  color: #9aa5ef;
+}
+
 .c-black {
   color: #000000;
 }
@@ -806,6 +814,10 @@ summary {
 
 .c-blue-5 {
   color: #628ff1;
+}
+
+.c-code {
+  color: #dda2f6;
 }
 
 .c-cr {
@@ -840,10 +852,6 @@ summary {
   color: #05b88a;
 }
 
-.c-highlight {
-  color: #9aa5ef;
-}
-
 .c-indigo {
   color: #6366f1;
 }
@@ -870,10 +878,6 @@ summary {
 
 .c-lime {
   color: #84cc16;
-}
-
-.c-mauve {
-  color: #dda2f6;
 }
 
 .c-mint {
@@ -914,10 +918,6 @@ summary {
 
 .c-p {
   cursor: pointer;
-}
-
-.c-periwinkle {
-  color: #bec6f2;
 }
 
 .c-pr {
@@ -1528,14 +1528,6 @@ summary {
   background-color: #6366f140;
 }
 
-.h\:bg-midnight-7:hover {
-  background-color: #161928;
-}
-
-.h\:bg-midnight-8:hover {
-  background-color: #131521;
-}
-
 .h\:bg-red:hover {
   background-color: #e63946;
 }
@@ -1568,6 +1560,14 @@ summary {
   background-color: #566478;
 }
 
+.h\:bg-surface-7:hover {
+  background-color: #161928;
+}
+
+.h\:bg-surface-8:hover {
+  background-color: #131521;
+}
+
 .h\:bg-transparent:hover {
   background-color: transparent;
 }
@@ -1580,12 +1580,12 @@ summary {
   background-color: #ffffff0d;
 }
 
-.h\:c-indigo-8:hover {
-  color: #4749ae;
+.h\:c-accent-4:hover {
+  color: #d9def7;
 }
 
-.h\:c-periwinkle-4:hover {
-  color: #d9def7;
+.h\:c-indigo-8:hover {
+  color: #4749ae;
 }
 
 .h\:c-red-8:hover {
@@ -2333,7 +2333,7 @@ summary {
   rotate: 450deg;
 }
 
-.s\:\:bg-highlight\/10::selection {
+.s\:\:bg-accent-dim\/10::selection {
   background-color: #9aa5ef1a;
 }
 
