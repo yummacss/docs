@@ -3,14 +3,39 @@
 import { Button } from "@base-ui/react/button";
 import { Dialog } from "@base-ui/react/dialog";
 import { Tabs } from "@base-ui/react/tabs";
-import { ArrowLeft, ArrowRight, PartyPopper, Rocket, UsersRound, X } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  PartyPopper,
+  Rocket,
+  UsersRound,
+  X,
+} from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
 const PAGES = [
-  { value: "welcome", icon: PartyPopper, title: "Welcome to the team", description: "We're thrilled to have you onboard! Start exploring your projects, collaborate with your team, and bring your ideas to life." },
-  { value: "team", icon: UsersRound, title: "Connect with your team", description: "Browse member directories, join channels, and see what everyone's working on in real time." },
-  { value: "launch", icon: Rocket, title: "Launch your first project", description: "Create a board, assign tasks, and set milestones. Everything you need to ship faster." },
+  {
+    value: "welcome",
+    icon: PartyPopper,
+    title: "Welcome to the team",
+    description:
+      "We're thrilled to have you onboard! Start exploring your projects, collaborate with your team, and bring your ideas to life.",
+  },
+  {
+    value: "team",
+    icon: UsersRound,
+    title: "Connect with your team",
+    description:
+      "Browse member directories, join channels, and see what everyone's working on in real time.",
+  },
+  {
+    value: "launch",
+    icon: Rocket,
+    title: "Launch your first project",
+    description:
+      "Create a board, assign tasks, and set milestones. Everything you need to ship faster.",
+  },
 ];
 
 const slideVariants = {
@@ -49,7 +74,13 @@ export default function OnboardingBase() {
   const isLast = page === PAGES.length - 1;
 
   return (
-    <Dialog.Root open={open} onOpenChange={(v) => { setOpen(v); if (!v) setPage(0); }}>
+    <Dialog.Root
+      open={open}
+      onOpenChange={(v) => {
+        setOpen(v);
+        if (!v) setPage(0);
+      }}
+    >
       <Dialog.Trigger
         render={
           <Button className="px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5" />
@@ -93,24 +124,26 @@ export default function OnboardingBase() {
                 </Dialog.Close>
                 <div className="px-8 pt-10 pb-6">
                   <div className="d-f fd-c ai-c jc-c ta-c h-48 o-h">
-                  <AnimatePresence mode="wait" custom={direction}>
-                    <motion.div
-                      key={page}
-                      custom={direction}
-                      variants={slideVariants}
-                      initial="enter"
-                      animate="center"
-                      exit="exit"
-                      transition={{ duration: 0.2, ease: "easeOut" }}
-                      className="d-f fd-c ai-c g-3"
-                    >
-                      <div className="d-f ai-c jc-c w-12 h-12 bg-indigo-1/50 c-indigo br-100%">
-                        <Icon className="w-6 h-6" />
-                      </div>
-                      <span className="c-slate-10 fs-md fw-500">{title}</span>
-                      <p className="c-slate-6 fs-sm lh-4 m-0">{description}</p>
-                    </motion.div>
-                  </AnimatePresence>
+                    <AnimatePresence mode="wait" custom={direction}>
+                      <motion.div
+                        key={page}
+                        custom={direction}
+                        variants={slideVariants}
+                        initial="enter"
+                        animate="center"
+                        exit="exit"
+                        transition={{ duration: 0.2, ease: "easeOut" }}
+                        className="d-f fd-c ai-c g-3"
+                      >
+                        <div className="d-f ai-c jc-c w-12 h-12 bg-indigo-1/50 c-indigo br-100%">
+                          <Icon className="w-6 h-6" />
+                        </div>
+                        <span className="c-slate-10 fs-md fw-500">{title}</span>
+                        <p className="c-slate-6 fs-sm lh-4 m-0">
+                          {description}
+                        </p>
+                      </motion.div>
+                    </AnimatePresence>
                   </div>
                 </div>
                 <div className="d-f ai-c jc-c g-4 pb-8">
@@ -127,7 +160,10 @@ export default function OnboardingBase() {
                   >
                     <ArrowLeft className="w-4 h-4" />
                   </button>
-                  <Tabs.Root value={PAGES[page].value} onValueChange={handleTabChange}>
+                  <Tabs.Root
+                    value={PAGES[page].value}
+                    onValueChange={handleTabChange}
+                  >
                     <Tabs.List className="d-f g-2 jc-c">
                       {PAGES.map(({ value }) => (
                         <Tabs.Tab

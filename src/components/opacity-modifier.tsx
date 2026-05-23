@@ -18,8 +18,8 @@ export default function OpacityModifier({ category, name }: Props) {
           <EyedropperIcon className="w-5 h-5" />
         </div>
         <p className="c-white/70 fs-sm">
-          Append <code className="px-1 bg-border c-code">/(opacity)</code> to any
-          color utility to control its transparency level.
+          Append <code className="px-1 bg-border c-code">/(opacity)</code> to
+          any color utility to control its transparency level.
         </p>
       </div>
 

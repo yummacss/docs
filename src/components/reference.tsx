@@ -89,9 +89,7 @@ export default function Reference({ category, name }: Props) {
                   className="d-f ai-c jc-sb g-4 w-100% py-3 px-4 m-0 bg-transparent c-white bw-0 ta-l fw-600 fs-sm c-p us-none"
                 >
                   <span className="d-f ai-c g-2">
-                    <code className="c-code ff-m">
-                      {utilityPrefix}-(value)
-                    </code>
+                    <code className="c-code ff-m">{utilityPrefix}-(value)</code>
                     <span
                       className="px-2 py-1 bg-border fs-xs fw-600"
                       style={{ color: "#8892c2" }}

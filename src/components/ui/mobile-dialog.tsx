@@ -136,7 +136,9 @@ export default function MobileDialog({ isOpen, onClose, routeType }: Props) {
                 >
                   {sections.map((section) => {
                     const isTopNav = section.title === "__top-nav__";
-                    const displayTitle = isTopNav ? "Navigation" : section.title;
+                    const displayTitle = isTopNav
+                      ? "Navigation"
+                      : section.title;
                     const reactKey = section._key ?? section.title;
 
                     return (
