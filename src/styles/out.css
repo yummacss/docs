@@ -132,6 +132,10 @@ summary {
   background-color: #e1e3e7;
 }
 
+.a\:bg-surface-7:active {
+  background-color: #161928;
+}
+
 .ac-b {
   align-content: baseline;
 }
@@ -1550,10 +1554,6 @@ summary {
 
 .h\:bg-slate-7:hover {
   background-color: #566478;
-}
-
-.h\:bg-surface-7:hover {
-  background-color: #161928;
 }
 
 .h\:bg-surface-8:hover {

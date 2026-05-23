@@ -17,39 +17,23 @@ export default function Pagination({ previous, next, basePath }: Props) {
 
   return (
     <div className="d-f ai-c g-2">
-      {previous ? (
+      {previous && (
         <Button
           nativeButton={false}
           render={<Link href={`${basePath}/${previous.slug}`} />}
           aria-label={`Previous: ${previous.title}`}
-          className="d-f ai-c jc-c w-8 h-8 bc-border bg-surface h:bg-surface-7 c-accent bw-1 fv:oc-white fv:oo-2"
-        >
-          <CaretLeftIcon className="w-4 h-4" />
-        </Button>
-      ) : (
-        <Button
-          disabled
-          aria-label="No previous page"
-          className="d-f ai-c jc-c w-8 h-8 bc-border bg-surface c-white bw-1 c-p-none"
+          className="d-f ai-c jc-c w-8 h-8 bc-border bg-surface a:bg-surface-7 c-accent bw-1 fv:oc-white fv:oo-2"
         >
           <CaretLeftIcon className="w-4 h-4" />
         </Button>
       )}
 
-      {next ? (
+      {next && (
         <Button
           nativeButton={false}
           render={<Link href={`${basePath}/${next.slug}`} />}
           aria-label={`Next: ${next.title}`}
-          className="d-f ai-c jc-c w-8 h-8 bc-border bg-surface h:bg-surface-7 c-accent bw-1 fv:oc-white fv:oo-2"
-        >
-          <CaretRightIcon className="w-4 h-4" />
-        </Button>
-      ) : (
-        <Button
-          disabled
-          aria-label="No next page"
-          className="d-f ai-c jc-c w-8 h-8 bc-border bg-surface c-white bw-1 c-p-none"
+          className="d-f ai-c jc-c w-8 h-8 bc-border bg-surface a:bg-surface-7 c-accent bw-1 fv:oc-white fv:oo-2"
         >
           <CaretRightIcon className="w-4 h-4" />
         </Button>
