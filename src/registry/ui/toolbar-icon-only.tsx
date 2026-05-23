@@ -3,7 +3,14 @@
 import { Toggle } from "@base-ui/react/toggle";
 import { ToggleGroup } from "@base-ui/react/toggle-group";
 import { Toolbar } from "@base-ui/react/toolbar";
-import { ArrowDownAZ, Cog, Kanban, LayoutList, Plus, Table } from "lucide-react";
+import {
+  ArrowDownAZ,
+  Cog,
+  Kanban,
+  LayoutList,
+  Plus,
+  Table,
+} from "lucide-react";
 import { useState } from "react";
 
 export default function ToolbarIconOnly() {

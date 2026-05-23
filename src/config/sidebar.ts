@@ -479,7 +479,6 @@ export const sidebarConfig = {
         { title: "Onboarding", slug: "onboarding" },
         { title: "Rating", slug: "rating" },
         { title: "Skeleton", slug: "skeleton" },
-
       ],
     },
   ] as SidebarConfig,

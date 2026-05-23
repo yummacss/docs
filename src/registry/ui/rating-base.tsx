@@ -11,11 +11,7 @@ export default function RatingBase() {
   return (
     <div className="d-f fd-c ai-c jc-c g-4 p-8 h-56">
       <span className="c-slate-10 fs-sm fw-500">Rate this project</span>
-      <ToggleGroup
-        value={value}
-        onValueChange={setValue}
-        className="d-f g-1"
-      >
+      <ToggleGroup value={value} onValueChange={setValue} className="d-f g-1">
         {[1, 2, 3, 4, 5].map((star) => {
           const pressed = value.includes(star.toString());
           return (
