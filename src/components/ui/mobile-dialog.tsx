@@ -116,15 +116,15 @@ export default function MobileDialog({ isOpen, onClose, routeType }: Props) {
                     transition={{ duration: 0.15, ease: "easeOut" }}
                   />
                 }
-                className="o-h w-100% max-w-xs h-dvh bc-white/10 bg-transparent blw-1 pe-auto"
+                className="o-h w-100% max-w-xs h-dvh bc-clay bg-transparent blw-1 pe-auto"
               >
-                <div className="d-f ai-c jc-sb px-4 py-3 bc-white/10 bbw-1">
+                <div className="d-f ai-c jc-sb px-4 py-3 bc-clay bbw-1">
                   <Dialog.Title className="c-white fs-md fw-600">
                     Menu
                   </Dialog.Title>
                   <Dialog.Close
                     aria-label="Close menu"
-                    className="d-f ai-c jc-c w-9 h-9 bc-white/10 bg-white/5 c-white bw-1 h:bg-white/15 fv:oc-white fv:oo-2"
+                    className="d-f ai-c jc-c w-9 h-9 bc-clay bg-white/5 c-white bw-1 h:bg-white/15 fv:oc-white fv:oo-2"
                   >
                     <XIcon />
                   </Dialog.Close>

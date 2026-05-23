@@ -48,7 +48,7 @@ function CopyButton({
   return (
     <Button
       onClick={onCopy}
-      className="d-f ai-c g-1 px-2 py-1 c-white/50 h:c-white h:bg-white/10 fv:oc-white fv:ow-2"
+      className="d-f ai-c g-1 px-2 py-1 c-periwinkle h:c-periwinkle-4 fv:oc-white fv:ow-2"
       aria-label="Copy code"
     >
       {copied ? (

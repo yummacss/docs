@@ -48,7 +48,7 @@ export default async function BlogPage() {
                       </div>
                       {post.cover && (
                         <div className="lg:w-64 lg:fs-0">
-                          <div className="o-h b-1 bc-white/10 bg-white/10">
+                          <div className="o-h b-1 bc-clay bg-white/10">
                             <Image
                               src={`/blog/${post.slug}.png`}
                               alt={post.title}
@@ -66,9 +66,7 @@ export default async function BlogPage() {
               ))}
             </div>
 
-            {yearIndex < years.length - 1 && (
-              <hr className="mb-8 bc-white/10" />
-            )}
+            {yearIndex < years.length - 1 && <hr className="mb-8 bc-clay" />}
           </div>
         ))}
       </div>

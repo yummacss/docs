@@ -17,7 +17,7 @@ const MobileDialog = lazy(() => import("./mobile-dialog"));
 const navbarVariants = cva("p-f ix-0 t-0 bbw-1", {
   variants: {
     variant: {
-      default: "lg:bf-b-md bc-white/10",
+      default: "lg:bf-b-md bc-clay",
       transparent: "bc-transparent",
     },
   },
@@ -113,7 +113,7 @@ export default function Navbar({
                 className="d-f ai-c jc-c g-2 h-8 px-3 bc-clay bg-midnight h:bg-midnight-7 c-white bw-1 fs-sm bf-b-sm lg:px-4 fv:oc-white fv:ow-2"
               >
                 <MagnifyingGlassIcon className="w-4 h-4" />
-                <kbd className="d-none c-white/60 fs-xs us-none lg:d-b">
+                <kbd className="d-none c-white/80 fs-xs us-none lg:d-b">
                   Ctrl + K
                 </kbd>
               </Button>
