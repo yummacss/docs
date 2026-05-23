@@ -16,6 +16,7 @@ const withMDX = createMDX({
     remarkPlugins: ["remark-gfm"],
     rehypePlugins: [
       [path.resolve("src/plugins/rehype-registry.mjs"), {}],
+      path.resolve("src/plugins/rehype-component-source.mjs"),
       [path.resolve("src/plugins/rehype-shiki.mjs"), {}],
       path.resolve("src/plugins/rehype-code.mjs"),
     ],
