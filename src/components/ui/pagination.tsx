@@ -22,7 +22,7 @@ export default function Pagination({ previous, next, basePath }: Props) {
           nativeButton={false}
           render={<Link href={`${basePath}/${previous.slug}`} />}
           aria-label={`Previous: ${previous.title}`}
-          className="d-f ai-c jc-c w-8 h-8 bc-clay bg-midnight c-white bw-1 h:bg-midnight-7 fv:oc-white fv:oo-2"
+          className="d-f ai-c jc-c w-8 h-8 bc-clay bg-midnight h:bg-midnight-7 c-periwinkle bw-1 fv:oc-white fv:oo-2"
         >
           <CaretLeftIcon className="w-4 h-4" />
         </Button>
@@ -41,7 +41,7 @@ export default function Pagination({ previous, next, basePath }: Props) {
           nativeButton={false}
           render={<Link href={`${basePath}/${next.slug}`} />}
           aria-label={`Next: ${next.title}`}
-          className="d-f ai-c jc-c w-8 h-8 bc-clay bg-midnight c-white bw-1 h:bg-midnight-7 fv:oc-white fv:oo-2"
+          className="d-f ai-c jc-c w-8 h-8 bc-clay bg-midnight h:bg-midnight-7 c-periwinkle bw-1 fv:oc-white fv:oo-2"
         >
           <CaretRightIcon className="w-4 h-4" />
         </Button>

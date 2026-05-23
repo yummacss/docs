@@ -325,10 +325,6 @@ summary {
   border-color: #ffffff;
 }
 
-.bc-white\/10 {
-  border-color: #ffffff1a;
-}
-
 .bc-white\/20 {
   border-color: #ffffff33;
 }
@@ -1580,10 +1576,6 @@ summary {
   background-color: transparent;
 }
 
-.h\:bg-white\/10:hover {
-  background-color: #ffffff1a;
-}
-
 .h\:bg-white\/15:hover {
   background-color: #ffffff26;
 }
@@ -1594,6 +1586,10 @@ summary {
 
 .h\:c-indigo-8:hover {
   color: #4749ae;
+}
+
+.h\:c-periwinkle-4:hover {
+  color: #d9def7;
 }
 
 .h\:c-red-8:hover {
