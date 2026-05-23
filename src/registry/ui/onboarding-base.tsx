@@ -20,7 +20,7 @@ const PAGES = [
     icon: PartyPopper,
     title: "Welcome to the team",
     description:
-      "We're thrilled to have you onboard! Start exploring your projects, collaborate with your team, and bring your ideas to life.",
+      "Great to have you on board! Get stuck into your projects, work with your team and make your ideas real.",
   },
   {
     value: "team",
