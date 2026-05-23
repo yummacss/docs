@@ -258,31 +258,23 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                 <div className="d-f ai-c jc-sb px-4 py-2 bc-border c-white/40 btw-1 fs-xs">
                   <div className="d-f ai-c g-4">
                     <span className="d-f ai-c g-1">
-                      <kbd
-                        className="d-f ai-c p-1 bc-border bg-transparent bw-1"
-                      >
+                      <kbd className="d-f ai-c p-1 bc-border bg-transparent bw-1">
                         <ArrowUpIcon className="w-4 h-4" />
                       </kbd>
-                      <kbd
-                        className="d-f ai-c p-1 bc-border bg-transparent bw-1"
-                      >
+                      <kbd className="d-f ai-c p-1 bc-border bg-transparent bw-1">
                         <ArrowDownIcon className="w-4 h-4" />
                       </kbd>
                       <span className="ml-1 fs-md">to navigate</span>
                     </span>
                     <span className="d-f ai-c g-1">
-                      <kbd
-                        className="d-f ai-c p-1 bc-border bg-transparent bw-1"
-                      >
+                      <kbd className="d-f ai-c p-1 bc-border bg-transparent bw-1">
                         <ArrowElbowDownLeftIcon className="w-4 h-4" />
                       </kbd>
                       <span className="ml-1 fs-md">to select</span>
                     </span>
                   </div>
                   <span className="d-f ai-c g-1">
-                    <kbd
-                      className="d-f ai-c p-1 bc-border bg-transparent bw-1"
-                    >
+                    <kbd className="d-f ai-c p-1 bc-border bg-transparent bw-1">
                       <SignOutIcon className="w-4 h-4" />
                     </kbd>
                     <span className="ml-1 fs-md">to close</span>
