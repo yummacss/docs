@@ -13,10 +13,12 @@ const nextConfig = {
 
 const withMDX = createMDX({
   options: {
-    remarkPlugins: ["remark-gfm"],
+    remarkPlugins: [
+      "remark-gfm",
+      path.resolve("src/plugins/remark-component-source.mjs"),
+    ],
     rehypePlugins: [
       [path.resolve("src/plugins/rehype-registry.mjs"), {}],
-      path.resolve("src/plugins/rehype-component-source.mjs"),
       [path.resolve("src/plugins/rehype-shiki.mjs"), {}],
       path.resolve("src/plugins/rehype-code.mjs"),
     ],

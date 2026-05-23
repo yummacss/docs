@@ -19,9 +19,7 @@ export default function ComponentPreview({
 }: Props) {
   const [showCode, setShowCode] = useState(false);
   const actualId = registryId || id;
-  const RegistryComponent = actualId
-    ? getRegistryComponent(actualId)
-    : null;
+  const RegistryComponent = actualId ? getRegistryComponent(actualId) : null;
 
   return (
     <div className={`mb-6 bc-border bw-1 ${className || ""}`}>
@@ -39,13 +37,7 @@ export default function ComponentPreview({
         {showCode ? "Hide code" : "Show code"}
       </Toggle>
 
-      {showCode && (
-        <div className="max-h-80 oy-auto bg-surface">
-          <pre className="ff-m lh-5 ox-auto px-4 py-4">
-            <code>{children}</code>
-          </pre>
-        </div>
-      )}
+      {showCode && children}
     </div>
   );
 }

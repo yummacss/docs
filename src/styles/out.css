@@ -1748,10 +1748,6 @@ summary {
   max-height: 18rem;
 }
 
-.max-h-80 {
-  max-height: 20rem;
-}
-
 .max-h-fc {
   max-height: fit-content;
 }
