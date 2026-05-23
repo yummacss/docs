@@ -1467,16 +1467,8 @@ summary {
   height: stretch;
 }
 
-.h-sm {
-  height: 40rem;
-}
-
 .h-vh {
   height: 100vh;
-}
-
-.h-xs {
-  height: 32rem;
 }
 
 .h\:bg-blue:hover {
@@ -1754,6 +1746,10 @@ summary {
 
 .max-h-72 {
   max-height: 18rem;
+}
+
+.max-h-80 {
+  max-height: 20rem;
 }
 
 .max-h-fc {

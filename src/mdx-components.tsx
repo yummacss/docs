@@ -1,6 +1,7 @@
 ﻿import type { MDXComponents } from "mdx/types";
 import Image from "next/image";
 import Baseline from "@/components/baseline";
+import ComponentPreview from "@/components/component-preview";
 import Hint from "@/components/hint";
 import HoverVariant from "@/components/hover-state";
 import NegativeValues from "@/components/negative-values";
@@ -32,6 +33,7 @@ function generateId(children: React.ReactNode): string {
 const components: MDXComponents = {
   Baseline,
   Code,
+  ComponentPreview,
   Hint,
   HoverVariant,
   NegativeValues,
