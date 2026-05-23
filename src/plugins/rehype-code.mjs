@@ -99,7 +99,7 @@ function highlightWordsInNode(node, words, classes) {
 }
 
 const LINE_CLASSES = "d-b mx--4 px-4";
-const WORD_CLASSES = "bg-highlight/10 bw-1 bc-highlight/50";
+const WORD_CLASSES = "bg-accent-dim/10 bw-1 bc-accent-dim/50";
 
 export default function rehypeCode() {
   return (tree) => {
@@ -147,7 +147,7 @@ export default function rehypeCode() {
           } else if (insLines.has(lineNum)) {
             extra = `${LINE_CLASSES} bg-diff-add/10`;
           } else if (markLines.has(lineNum)) {
-            extra = `${LINE_CLASSES} bg-highlight/10`;
+            extra = `${LINE_CLASSES} bg-accent-dim/10`;
           } else {
             extra = "d-b";
           }

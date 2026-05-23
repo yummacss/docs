@@ -110,7 +110,7 @@ export default function Navbar({
               <Button
                 type="button"
                 onClick={() => setSearchOpen(true)}
-                className="d-f ai-c jc-c g-2 h-8 px-3 bc-border bg-surface h:bg-surface-7 c-white bw-1 fs-sm bf-b-sm lg:px-4 fv:oc-white fv:ow-2"
+                className="d-f ai-c jc-c g-2 h-8 px-3 bc-border bg-surface a:bg-surface-7 c-white bw-1 fs-sm bf-b-sm lg:px-4 fv:oc-white fv:ow-2"
               >
                 <MagnifyingGlassIcon className="w-4 h-4" />
                 <kbd className="d-none c-white/80 fs-xs us-none lg:d-b">
