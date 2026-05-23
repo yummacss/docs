@@ -103,7 +103,7 @@ export default function MobileDialog({ isOpen, onClose, routeType }: Props) {
                   transition={{ duration: 0.15, ease: "easeOut" }}
                 />
               }
-              className="p-f zi-10 t-0 l-0 r-0 b-0 bg-black/60 bg-page fgr-90 lg:d-none"
+              className="p-f zi-10 t-0 l-0 r-0 b-0 bg-black/60 bf-b-sm fgr-90"
             />
 
             <div className="d-f p-f zi-10 t-0 l-0 r-0 b-0 ai-s jc-fe pe-none lg:d-none">
@@ -116,7 +116,7 @@ export default function MobileDialog({ isOpen, onClose, routeType }: Props) {
                     transition={{ duration: 0.15, ease: "easeOut" }}
                   />
                 }
-                className="o-h w-100% max-w-xs h-dvh bc-border bg-transparent blw-1 pe-auto"
+                className="o-h w-100% max-w-xs h-dvh bc-border bg-page blw-1 pe-auto"
               >
                 <div className="d-f ai-c jc-sb px-4 py-3 bc-border bbw-1">
                   <Dialog.Title className="c-white fs-md fw-600">
@@ -124,7 +124,7 @@ export default function MobileDialog({ isOpen, onClose, routeType }: Props) {
                   </Dialog.Title>
                   <Dialog.Close
                     aria-label="Close menu"
-                    className="d-f ai-c jc-c w-9 h-9 bc-border bg-white/5 c-white bw-1 h:bg-white/15 fv:oc-white fv:oo-2"
+                    className="d-f ai-c jc-c w-9 h-9 bc-border bg-surface h:bg-surface-8 c-white bw-1 fv:oc-white fv:oo-2"
                   >
                     <XIcon />
                   </Dialog.Close>
@@ -136,7 +136,7 @@ export default function MobileDialog({ isOpen, onClose, routeType }: Props) {
                 >
                   {sections.map((section) => {
                     const isTopNav = section.title === "__top-nav__";
-                    const displayTitle = isTopNav ? "Menu" : section.title;
+                    const displayTitle = isTopNav ? "Navigation" : section.title;
                     const reactKey = section._key ?? section.title;
 
                     return (
@@ -170,7 +170,7 @@ export default function MobileDialog({ isOpen, onClose, routeType }: Props) {
                                     "d-if ai-c g-3 w-100% py-2 px-3 fs-md us-none",
                                     "fv:oc-white fv:oo-2 fv:ow-2",
                                     isActive
-                                      ? "c-white bg-white/10"
+                                      ? "c-white bg-border"
                                       : "c-white/70 h:c-white h:bg-white/5",
                                   ].join(" ")}
                                 >
