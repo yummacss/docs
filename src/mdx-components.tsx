@@ -158,7 +158,7 @@ const components: MDXComponents = {
     props.className ? (
       <hr {...props} />
     ) : (
-      <hr className="my-8 bc-border bw-2 bs-d" {...props} />
+      <hr className="my-8 bc-border bw-1 bs-d" {...props} />
     ),
   table: ({ children, ...props }) =>
     props.className ? (
