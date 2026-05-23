@@ -156,7 +156,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                     transition={{ duration: 0.15, ease: "easeOut" }}
                   />
                 }
-                className="o-h w-100% max-w-xs bc-clay bg-transparent bw-1 pe-auto"
+                className="o-h w-100% max-w-xs bc-clay bg-mirage bw-1 pe-auto"
                 style={{
                   maxHeight: "70vh",
                 }}
@@ -212,7 +212,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                               className="d-f b-0 ai-c g-3 w-100% px-3 py-2 ta-l c-p"
                               style={{
                                 backgroundColor: isSelected
-                                  ? "#ffffff1a"
+                                  ? "#232741"
                                   : "transparent",
                               }}
                             >

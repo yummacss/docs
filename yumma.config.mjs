@@ -26,7 +26,6 @@ export default defineConfig({
       mauve: "#dda2f6",
       midnight: "#1a1d2e",
       mirage: "#151724",
-      navy: "#31365e",
       periwinkle: "#bec6f2",
     },
   },
