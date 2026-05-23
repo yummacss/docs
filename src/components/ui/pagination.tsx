@@ -30,7 +30,7 @@ export default function Pagination({ previous, next, basePath }: Props) {
         <Button
           disabled
           aria-label="No previous page"
-          className="d-f ai-c jc-c w-8 h-8 bc-border/30 bg-surface c-white/30 bw-1 c-p-none"
+          className="d-f ai-c jc-c w-8 h-8 bc-border bg-surface c-white bw-1 c-p-none"
         >
           <CaretLeftIcon className="w-4 h-4" />
         </Button>
@@ -49,7 +49,7 @@ export default function Pagination({ previous, next, basePath }: Props) {
         <Button
           disabled
           aria-label="No next page"
-          className="d-f ai-c jc-c w-8 h-8 bc-border/30 bg-surface c-white/30 bw-1 c-p-none"
+          className="d-f ai-c jc-c w-8 h-8 bc-border bg-surface c-white bw-1 c-p-none"
         >
           <CaretRightIcon className="w-4 h-4" />
         </Button>
