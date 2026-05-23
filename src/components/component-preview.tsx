@@ -22,7 +22,7 @@ export default function ComponentPreview({
   const RegistryComponent = actualId ? getRegistryComponent(actualId) : null;
 
   return (
-    <div className={`mb-6 bc-border bw-1 ${className || ""}`}>
+    <div data-preview className={`mb-6 bc-border bw-1 ${className || ""}`}>
       {RegistryComponent ? (
         <div className="d-f ai-c jc-c p-10 bg-white">
           <RegistryComponent />
