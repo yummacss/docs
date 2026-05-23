@@ -72,7 +72,7 @@ export default function Sidebar({ variant }: Props) {
                               >
                                 {child.title}
                                 {child.updated && (
-                                  <span className="w-2 h-2 ml-auto bg-periwinkle" />
+                                  <span className="w-2 h-2 ml-auto bg-accent" />
                                 )}
                               </Link>
                             </li>
@@ -109,7 +109,7 @@ export default function Sidebar({ variant }: Props) {
                                         >
                                           {child.title}
                                           {child.updated && (
-                                            <span className="w-2 h-2 ml-auto bg-periwinkle" />
+                                            <span className="w-2 h-2 ml-auto bg-accent" />
                                           )}
                                         </Link>
                                       </li>
@@ -132,7 +132,7 @@ export default function Sidebar({ variant }: Props) {
                                 >
                                   {subItem.title}
                                   {subItem.updated && (
-                                    <span className="w-2 h-2 bg-periwinkle" />
+                                    <span className="w-2 h-2 bg-accent" />
                                   )}
                                 </Link>
                               </li>
@@ -159,7 +159,7 @@ export default function Sidebar({ variant }: Props) {
                       >
                         {item.title}
                         {item.updated && (
-                          <span className="w-2 h-2 bg-periwinkle" />
+                          <span className="w-2 h-2 bg-accent" />
                         )}
                       </Link>
                     </li>

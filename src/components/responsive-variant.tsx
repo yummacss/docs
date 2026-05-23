@@ -32,10 +32,10 @@ export default function ResponsiveVariant({ category, name }: Props) {
       {breakpoints.map((bp) => (
         <div
           key={bp.prefix}
-          className="d-f ai-c g-3 p-3 bc-clay bg-midnight bw-1"
+          className="d-f ai-c g-3 p-3 bc-border bg-surface bw-1"
         >
           <div className="f-1">
-            <code className="d-b mb-1 c-mauve fs-sm">
+            <code className="d-b mb-1 c-code fs-sm">
               {bp.prefix}:{prefix}-(value)
             </code>
             <div className="d-f ai-c jc-sb">

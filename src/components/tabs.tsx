@@ -18,7 +18,7 @@ export function Tabs({
   return (
     <BaseTabs.Root
       defaultValue={defaultValue}
-      className={`bw-1 bc-clay ${className}`}
+      className={`bw-1 bc-border ${className}`}
       style={style}
       {...props}
     >
@@ -41,13 +41,13 @@ export function TabsList({
 }: TabsListProps) {
   return (
     <BaseTabs.List
-      className={`d-f p-r zi-0 px-1 cg-1 bbw-1 bc-clay ${className}`}
+      className={`d-f p-r zi-0 px-1 cg-1 bbw-1 bc-border ${className}`}
       style={style}
       {...props}
     >
       {children}
       <BaseTabs.Indicator
-        className="p-a l-0 t-50% h-6 bc-clay bg-midnight bw-1 tdu-200 ttf-io"
+        className="p-a l-0 t-50% h-6 bc-border bg-surface bw-1 tdu-200 ttf-io"
         style={{
           zIndex: -1,
           translate: "var(--active-tab-left) -50%",

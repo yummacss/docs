@@ -55,7 +55,7 @@ export default function Reference({ category, name }: Props) {
 
   if (variants.length === 0) {
     return (
-      <div className="p-4 mb-6 bg-midnight c-white/60 ta-c">
+      <div className="p-4 mb-6 bg-surface c-white/60 ta-c">
         Something went wrong while fetching the data.
       </div>
     );
@@ -75,7 +75,7 @@ export default function Reference({ category, name }: Props) {
   const utilityPrefix = basePrefix;
 
   return (
-    <div className="o-h mb-6 bc-clay bg-midnight bw-1">
+    <div className="o-h mb-6 bc-border bg-surface bw-1">
       <Accordion.Root
         defaultValue={DEFAULT_ACCORDION_VALUE}
         className="d-f fd-c w-100%"
@@ -89,11 +89,11 @@ export default function Reference({ category, name }: Props) {
                   className="d-f ai-c jc-sb g-4 w-100% py-3 px-4 m-0 bg-transparent c-white bw-0 ta-l fw-600 fs-sm c-p us-none"
                 >
                   <span className="d-f ai-c g-2">
-                    <code className="c-mauve ff-m">
+                    <code className="c-code ff-m">
                       {utilityPrefix}-(value)
                     </code>
                     <span
-                      className="px-2 py-1 bg-clay fs-xs fw-600"
+                      className="px-2 py-1 bg-border fs-xs fw-600"
                       style={{ color: "#8892c2" }}
                     >
                       {variants.length} utilities
@@ -109,7 +109,7 @@ export default function Reference({ category, name }: Props) {
           <Accordion.Panel className="o-h c-white/70 fs-sm lh-4">
             <div className="px-4 pb-4">
               <div className="oy-auto max-h-52">
-                <div className="d-f ai-c g-2 mb-2 pb-2 bc-clay bbw-1">
+                <div className="d-f ai-c g-2 mb-2 pb-2 bc-border bbw-1">
                   <MagnifyingGlassIcon className="fs-0 w-4 h-4 c-white/30" />
                   <Input
                     type="text"
@@ -130,15 +130,11 @@ export default function Reference({ category, name }: Props) {
                     filtered.map((variant, index) => (
                       <div
                         key={variant.prefix}
-                        className="d-f ai-c jc-sb py-2 px-0"
-                        style={{
-                          borderBottom:
-                            index < filtered.length - 1
-                              ? "1px solid #232741"
-                              : "none",
-                        }}
+                        className={`d-f ai-c jc-sb py-2 px-0 ${
+                          index < filtered.length - 1 ? "bbw-1 bc-border" : ""
+                        }`}
                       >
-                        <code className="c-mauve fs-sm">{variant.prefix}</code>
+                        <code className="c-code fs-sm">{variant.prefix}</code>
                         <div className="d-f fd-c ai-fe">
                           {variant.properties.map((prop) => (
                             <code
