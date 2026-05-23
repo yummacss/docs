@@ -113,6 +113,8 @@ export default function rehypeCode() {
       const titleMatch =
         typeof meta === "string" ? meta.match(/title=["']([^"']+)["']/) : null;
       const title = titleMatch?.[1] ?? null;
+      const isPreview =
+        typeof meta === "string" && meta.split(" ").includes("preview");
 
       const langClass = codeEl.properties?.className?.find?.(
         (c) => typeof c === "string" && c.startsWith("language-"),
@@ -176,6 +178,7 @@ export default function rehypeCode() {
       node.properties = {
         ...(title ? { title } : {}),
         ...(lang ? { lang } : {}),
+        ...(isPreview ? { preview: true } : {}),
       };
     });
   };

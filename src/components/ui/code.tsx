@@ -7,10 +7,11 @@ import { useRef, useState } from "react";
 interface Props {
   title?: string;
   lang?: string;
+  preview?: boolean;
   children?: React.ReactNode;
 }
 
-export default function Code({ title, children }: Props) {
+export default function Code({ title, preview, children }: Props) {
   const [copied, setCopied] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -20,6 +21,14 @@ export default function Code({ title, children }: Props) {
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
+
+  if (preview) {
+    return (
+      <div className="max-h-80 oy-auto bg-surface">
+        <pre className="ff-m ox-auto px-4 py-4 lh-5">{children}</pre>
+      </div>
+    );
+  }
 
   return (
     <div ref={ref} className="p-r o-h my-4 bc-border bg-surface bw-1">

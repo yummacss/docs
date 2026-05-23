@@ -49,7 +49,7 @@ export default function remarkComponentSource() {
       node.children.push({
         type: "code",
         lang: ext || "tsx",
-        meta: `title="${registryId}.tsx"`,
+        meta: "preview",
         value: content,
       });
     });
