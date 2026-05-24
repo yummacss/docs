@@ -65,7 +65,7 @@ export default function ToolbarIconOnly() {
         </Toggle>
       </ToggleGroup>
 
-      <Toolbar.Separator className="w-px h-5 bg-silver-3" />
+      <Toolbar.Separator className="w-px h-5 mx-1 bg-silver-3" />
 
       <Toolbar.Group className="d-f g-1" aria-label="Actions">
         <Toolbar.Button
@@ -88,7 +88,7 @@ export default function ToolbarIconOnly() {
         </Toolbar.Button>
       </Toolbar.Group>
 
-      <Toolbar.Separator className="w-px h-5 bg-silver-3" />
+      <Toolbar.Separator className="w-px h-5 mx-1 bg-silver-3" />
 
       <Toolbar.Input
         className="h-9 w-40 pl-3 bg-transparent bw-0 br-md fs-sm fv:oo-2 fv:oc-indigo-3"

@@ -2,7 +2,7 @@
 
 import { AlertDialog } from "@base-ui/react/alert-dialog";
 import { Button } from "@base-ui/react/button";
-import { UserRoundX } from "lucide-react";
+import { UserRoundX, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -42,43 +42,36 @@ export default function AlertDialogConfirmation() {
                     transition={{ duration: 0.2, ease: "easeOut" }}
                   />
                 }
-                className="o-h w-96 bg-silver-1 bc-silver-2 c-slate-12 br-lg bw-1 bs-o-xs"
+                className="o-h p-r w-96 bg-white bc-silver-2 c-slate-12 br-xxl bw-1 bs-o-lg"
                 style={{ maxWidth: "90vw" }}
               >
-                <div className="d-f jc-sb ai-c px-4 py-2 bg-silver-1">
-                  <div className="d-f jc-sb ai-c w-100%">
-                    <AlertDialog.Title className="c-slate-8 fs-md fw-500">
-                      Account deletion
-                    </AlertDialog.Title>
-                    <div className="w-7 h-7" />
-                  </div>
-                </div>
-                <div className="d-f ai-c jc-c g-2 p-4 bg-white bc-silver-2 btr-lg btw-1">
-                  <span className="d-f ai-c jc-c w-12 h-12 bc-silver-3 c-red br-lg bw-1 bs-o-xs">
+                <AlertDialog.Close
+                  render={
+                    <Button className="d-f p-a r-3 t-3 ai-c jc-c w-7 h-7 c-slate-6 bw-0 br-md h:bg-silver-2 fv:oo-2 fv:oc-indigo-5" />
+                  }
+                >
+                  <X aria-hidden className="w-4 h-4" />
+                </AlertDialog.Close>
+                <div className="d-f fd-c ai-c g-3 pt-10 pb-6 px-4 bg-white">
+                  <span className="d-f ai-c jc-c w-12 h-12 bg-red-1/50 c-red br-100%">
                     <UserRoundX className="w-6 h-6" />
                   </span>
-                </div>
-                <div className="px-4 py-3 bg-white">
-                  <AlertDialog.Description className="c-slate-7 fs-sm lh-4 ta-c">
+                  <AlertDialog.Title className="c-slate-10 fs-md fw-500">
+                    Delete account?
+                  </AlertDialog.Title>
+                  <AlertDialog.Description className="c-slate-6 fs-sm lh-4 ta-c m-0">
                     This action cannot be undone. This will{" "}
                     <span className="c-slate-9 fw-600">permanently delete</span>{" "}
                     your data from our servers.
                   </AlertDialog.Description>
                 </div>
-                <div className="d-g gtc-2 g-3 px-4 py-4 bg-white">
+                <div className="d-f jc-c px-4 pb-4 bg-white">
                   <AlertDialog.Close
                     render={
-                      <Button className="px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5" />
+                      <Button className="px-6 py-2 bg-red h:bg-red-8 bc-red-7 c-white br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:oc-red-6 fv:oo-2" />
                     }
                   >
-                    Cancel
-                  </AlertDialog.Close>
-                  <AlertDialog.Close
-                    render={
-                      <Button className="px-3 py-2 bg-red h:bg-red-8 bc-red-7 c-white br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:oc-red-6 fv:oo-2" />
-                    }
-                  >
-                    Confirm
+                    Confirm deletion
                   </AlertDialog.Close>
                 </div>
               </AlertDialog.Popup>

@@ -45,22 +45,20 @@ export default function DialogShareTask() {
                     transition={{ duration: 0.2, ease: "easeOut" }}
                   />
                 }
-                className="o-h w-96 bg-silver-1 bc-silver-2 c-slate-12 br-lg bw-1 bs-o-xs"
+                className="o-h p-r w-96 bg-white bc-silver-2 c-slate-12 br-xxl bw-1 bs-o-lg"
                 style={{ maxWidth: "90vw" }}
               >
-                <div className="d-f jc-sb ai-c px-4 py-2 bg-silver-1">
-                  <Dialog.Title className="c-slate-8 fs-md fw-500">
+                <Dialog.Close
+                  render={
+                    <Button className="d-f p-a r-3 t-3 ai-c jc-c w-7 h-7 c-slate-6 bw-0 br-md h:bg-silver-2 fv:oo-2 fv:oc-indigo-5" />
+                  }
+                >
+                  <X aria-hidden className="w-4 h-4" />
+                </Dialog.Close>
+                <div className="d-f fd-c g-4 px-4 py-5 bg-white">
+                  <Dialog.Title className="c-slate-10 fs-md fw-500">
                     Share task
                   </Dialog.Title>
-                  <Dialog.Close
-                    render={
-                      <Button className="d-f ai-c jc-c w-7 h-7 c-slate-6 bw-0 br-md h:bg-silver-2 fv:oo-2 fv:oc-indigo-5" />
-                    }
-                  >
-                    <X aria-hidden className="w-4 h-4" />
-                  </Dialog.Close>
-                </div>
-                <div className="d-f fd-c g-4 px-4 py-5 bg-white bc-silver-2 btr-lg btw-1">
                   <div className="d-f fd-c g-2">
                     <label className="c-slate-10 fs-sm fw-500">
                       Team member

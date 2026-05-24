@@ -59,7 +59,7 @@ export default function ToolbarInput() {
         </Toggle>
       </ToggleGroup>
 
-      <Toolbar.Separator className="w-px h-5 bg-silver-3" />
+      <Toolbar.Separator className="w-px h-5 mx-1 bg-silver-3" />
 
       <NumberField.Root defaultValue={8} aria-label="Sprint points">
         <NumberField.Group className="d-f ai-c">
