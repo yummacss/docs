@@ -7,7 +7,7 @@ import { useState } from "react";
 
 export default function ContextMenuRadios() {
   const [open, setOpen] = useState(false);
-  const [sortBy, setSortBy] = useState("recent");
+  const [account, setAccount] = useState("work");
 
   return (
     <ContextMenu.Root open={open} onOpenChange={setOpen}>
@@ -28,15 +28,15 @@ export default function ContextMenuRadios() {
                     transition={{ duration: 0.15, ease: "easeOut" }}
                   />
                 }
-                className="py-1 w-48 bg-white bc-silver-2 c-slate-10 bw-1 br-lg bs-o-xs"
+                className="py-1 bg-white bc-silver-2 c-slate-10 bw-1 br-lg bs-o-xs"
               >
                 <div className="px-3 py-1 c-slate-5 fs-xs fw-500 ls-3">
                   Sort tasks
                 </div>
 
                 <ContextMenu.RadioGroup
-                  value={sortBy}
-                  onValueChange={setSortBy}
+                  value={account}
+                  onValueChange={setAccount}
                 >
                   {sortOptions.map((option) => (
                     <ContextMenu.RadioItem
@@ -53,8 +53,8 @@ export default function ContextMenuRadios() {
                       <span className="d-f ai-c jc-c fs-0 w-4 h-4 bc-silver-3 br-9999 bw-1">
                         <ContextMenu.RadioItemIndicator>
                           <Circle
-                            fill="currentColor"
                             className="w-2 h-2 c-indigo"
+                            style={{ fill: "currentColor" }}
                           />
                         </ContextMenu.RadioItemIndicator>
                       </span>
