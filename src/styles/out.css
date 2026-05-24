@@ -2160,6 +2160,10 @@ summary {
   padding-right: 2.5rem;
 }
 
+.pr-12 {
+  padding-right: 3rem;
+}
+
 .pr-16 {
   padding-right: 4rem;
 }
@@ -2274,6 +2278,10 @@ summary {
 
 .r-0 {
   right: 0;
+}
+
+.r-1 {
+  right: .25rem;
 }
 
 .r-100 {
