@@ -10,7 +10,7 @@
   "scripts": {
     "build:css": "yummacss build",
     "build": "next build",
-    "dev": "concurrently \"next dev --turbopack\" \"yummacss watch\"",
+    "dev": "concurrently \"next dev\" \"yummacss watch\"",
     "format": "biome format --write .",
     "lint:fix": "biome check --write .",
     "lint": "biome check .",

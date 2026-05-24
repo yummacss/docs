@@ -36,7 +36,7 @@ export default function MenuRadios() {
                     transition={{ duration: 0.15, ease: "easeOut" }}
                   />
                 }
-                className="py-1 bg-white bc-silver-2 c-slate-10 bw-1 br-lg bs-o-xs"
+                className="py-1 o-h bg-white bc-silver-2 c-slate-10 bw-1 br-lg bs-o-xs"
               >
                 <Menu.Item
                   className={(state) =>
@@ -67,7 +67,7 @@ export default function MenuRadios() {
                   <Menu.RadioItem
                     value="sarah"
                     className={(state) =>
-                      `d-f ai-c g-2 py-2 pr-4 pl-4 fs-sm fw-500 us-none c-p br-lg mx-1 w-100% ${
+                      `d-f ai-c g-2 py-2 pr-4 pl-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
@@ -85,7 +85,7 @@ export default function MenuRadios() {
                     <span className="fs-sm fw-500">Sarah</span>
                     <span className="d-f ai-c jc-c fs-0 w-3 h-3 ml-auto bc-silver-3 br-9999 bw-1">
                       <Menu.RadioItemIndicator>
-                        <Circle className="w-2 h-2 c-indigo" />
+                        <Circle className="w-2 h-2 c-indigo" style={{ fill: "currentColor" }} />
                       </Menu.RadioItemIndicator>
                     </span>
                   </Menu.RadioItem>
@@ -93,7 +93,7 @@ export default function MenuRadios() {
                   <Menu.RadioItem
                     value="john"
                     className={(state) =>
-                      `d-f ai-c g-2 py-2 pr-4 pl-4 fs-sm fw-500 us-none c-p br-lg mx-1 w-100% ${
+                      `d-f ai-c g-2 py-2 pr-4 pl-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
@@ -111,7 +111,7 @@ export default function MenuRadios() {
                     <span className="fs-sm fw-500">John</span>
                     <span className="d-f ai-c jc-c fs-0 w-3 h-3 ml-auto bc-silver-3 br-9999 bw-1">
                       <Menu.RadioItemIndicator>
-                        <Circle className="w-2 h-2 c-indigo" />
+                        <Circle className="w-2 h-2 c-indigo" style={{ fill: "currentColor" }} />
                       </Menu.RadioItemIndicator>
                     </span>
                   </Menu.RadioItem>
