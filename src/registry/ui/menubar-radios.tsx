@@ -2,16 +2,14 @@
 
 import { Menu } from "@base-ui/react/menu";
 import { Menubar } from "@base-ui/react/menubar";
+import { Circle } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
 export default function MenubarRadios() {
   const [viewOpen, setViewOpen] = useState(false);
-  const [view, setView] = useState("board");
   const [sortOpen, setSortOpen] = useState(false);
-  const [sort, setSort] = useState("date");
   const [filterOpen, setFilterOpen] = useState(false);
-  const [filter, setFilter] = useState("all");
 
   return (
     <Menubar className="d-f g-1 p-1 bg-white bc-silver-2 br-lg bw-1">
@@ -44,7 +42,7 @@ export default function MenubarRadios() {
                     Display
                   </div>
 
-                  <Menu.RadioGroup value={view} onValueChange={setView}>
+                  <Menu.RadioGroup defaultValue="board">
                     {viewOptions.map((option) => (
                       <Menu.RadioItem
                         key={option.value}
@@ -59,7 +57,10 @@ export default function MenubarRadios() {
                       >
                         <span className="d-f ai-c jc-c fs-0 w-4 h-4 bc-silver-3 br-9999 bw-1">
                           <Menu.RadioItemIndicator>
-                            <span className="w-2 h-2 bg-indigo br-9999" />
+                            <Circle
+                              className="w-2 h-2 c-indigo"
+                              style={{ fill: "currentColor" }}
+                            />
                           </Menu.RadioItemIndicator>
                         </span>
                         {option.label}
@@ -102,7 +103,7 @@ export default function MenubarRadios() {
                     Sort by
                   </div>
 
-                  <Menu.RadioGroup value={sort} onValueChange={setSort}>
+                  <Menu.RadioGroup defaultValue="date">
                     {sortOptions.map((option) => (
                       <Menu.RadioItem
                         key={option.value}
@@ -117,7 +118,10 @@ export default function MenubarRadios() {
                       >
                         <span className="d-f ai-c jc-c fs-0 w-4 h-4 bc-silver-3 br-9999 bw-1">
                           <Menu.RadioItemIndicator>
-                            <span className="w-2 h-2 bg-indigo br-9999" />
+                            <Circle
+                              className="w-2 h-2 c-indigo"
+                              style={{ fill: "currentColor" }}
+                            />
                           </Menu.RadioItemIndicator>
                         </span>
                         {option.label}
@@ -160,58 +164,30 @@ export default function MenubarRadios() {
                     Filter by
                   </div>
 
-                  <Menu.RadioGroup value={filter} onValueChange={setFilter}>
-                    <Menu.RadioItem
-                      value="all"
-                      className={(state) =>
-                        `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
-                          state.highlighted
-                            ? "bg-silver-1/50"
-                            : "bg-transparent"
-                        }`
-                      }
-                    >
-                      <span className="d-f ai-c jc-c fs-0 w-4 h-4 bc-silver-3 br-9999 bw-1">
-                        <Menu.RadioItemIndicator>
-                          <span className="w-2 h-2 bg-indigo br-9999" />
-                        </Menu.RadioItemIndicator>
-                      </span>
-                      All tasks
-                    </Menu.RadioItem>
-                    <Menu.RadioItem
-                      value="assigned"
-                      className={(state) =>
-                        `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
-                          state.highlighted
-                            ? "bg-silver-1/50"
-                            : "bg-transparent"
-                        }`
-                      }
-                    >
-                      <span className="d-f ai-c jc-c fs-0 w-4 h-4 bc-silver-3 br-9999 bw-1">
-                        <Menu.RadioItemIndicator>
-                          <span className="w-2 h-2 bg-indigo br-9999" />
-                        </Menu.RadioItemIndicator>
-                      </span>
-                      Assigned to me
-                    </Menu.RadioItem>
-                    <Menu.RadioItem
-                      value="created"
-                      className={(state) =>
-                        `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
-                          state.highlighted
-                            ? "bg-silver-1/50"
-                            : "bg-transparent"
-                        }`
-                      }
-                    >
-                      <span className="d-f ai-c jc-c fs-0 w-4 h-4 bc-silver-3 br-9999 bw-1">
-                        <Menu.RadioItemIndicator>
-                          <span className="w-2 h-2 bg-indigo br-9999" />
-                        </Menu.RadioItemIndicator>
-                      </span>
-                      Created by me
-                    </Menu.RadioItem>
+                  <Menu.RadioGroup defaultValue="all">
+                    {filterOptions.map((option) => (
+                      <Menu.RadioItem
+                        key={option.value}
+                        value={option.value}
+                        className={(state) =>
+                          `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
+                            state.highlighted
+                              ? "bg-silver-1/50"
+                              : "bg-transparent"
+                          }`
+                        }
+                      >
+                        <span className="d-f ai-c jc-c fs-0 w-4 h-4 bc-silver-3 br-9999 bw-1">
+                          <Menu.RadioItemIndicator>
+                            <Circle
+                              className="w-2 h-2 c-indigo"
+                              style={{ fill: "currentColor" }}
+                            />
+                          </Menu.RadioItemIndicator>
+                        </span>
+                        {option.label}
+                      </Menu.RadioItem>
+                    ))}
                   </Menu.RadioGroup>
                 </Menu.Popup>
               </Menu.Positioner>
@@ -235,4 +211,10 @@ const sortOptions = [
   { value: "priority", label: "Priority" },
   { value: "name", label: "Name" },
   { value: "assignee", label: "Assignee" },
+];
+
+const filterOptions = [
+  { value: "all", label: "All tasks" },
+  { value: "assigned", label: "Assigned to me" },
+  { value: "created", label: "Created by me" },
 ];
