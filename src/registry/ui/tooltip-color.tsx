@@ -1,7 +1,7 @@
 "use client";
 
 import { Tooltip } from "@base-ui/react/tooltip";
-import { Cog, Pen, Plus, Trash } from "lucide-react";
+import { Cog, Pen, Plus, Trash2 } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 export default function TooltipColor() {
   return (
@@ -50,5 +50,5 @@ const items = [
     ariaLabel: "Edit current sprint",
   },
   { icon: Cog, label: "Settings", ariaLabel: "Project settings" },
-  { icon: Trash, label: "Delete task", ariaLabel: "Delete project" },
+  { icon: Trash2, label: "Delete task", ariaLabel: "Delete project" },
 ];
