@@ -169,6 +169,7 @@ export const registry = {
   "empty-state-icon": dynamic(() => import("./ui/empty-state-icon"), { ssr: true }),
   "empty-state-text": dynamic(() => import("./ui/empty-state-text"), { ssr: true }),
   "field-base": dynamic(() => import("./ui/field-base"), { ssr: true }),
+  "field-button": dynamic(() => import("./ui/field-button"), { ssr: true }),
   "field-disabled": dynamic(() => import("./ui/field-disabled"), { ssr: true }),
   "field-error": dynamic(() => import("./ui/field-error"), { ssr: true }),
   "field-helper": dynamic(() => import("./ui/field-helper"), { ssr: true }),
