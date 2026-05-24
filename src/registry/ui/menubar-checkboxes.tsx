@@ -8,10 +8,6 @@ import { useState } from "react";
 
 export default function MenubarCheckboxes() {
   const [viewOpen, setViewOpen] = useState(false);
-  const [board, setBoard] = useState(true);
-  const [list, setList] = useState(true);
-  const [calendar, setCalendar] = useState(false);
-  const [timeline, setTimeline] = useState(false);
   const [priorityOpen, setPriorityOpen] = useState(false);
   const [labelsOpen, setLabelsOpen] = useState(false);
 
@@ -47,8 +43,7 @@ export default function MenubarCheckboxes() {
                   </div>
 
                   <Menu.CheckboxItem
-                    checked={board}
-                    onCheckedChange={setBoard}
+                    defaultChecked
                     className={(state) =>
                       `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
@@ -64,8 +59,7 @@ export default function MenubarCheckboxes() {
                   </Menu.CheckboxItem>
 
                   <Menu.CheckboxItem
-                    checked={list}
-                    onCheckedChange={setList}
+                    defaultChecked
                     className={(state) =>
                       `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
@@ -81,8 +75,6 @@ export default function MenubarCheckboxes() {
                   </Menu.CheckboxItem>
 
                   <Menu.CheckboxItem
-                    checked={calendar}
-                    onCheckedChange={setCalendar}
                     className={(state) =>
                       `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
@@ -98,8 +90,6 @@ export default function MenubarCheckboxes() {
                   </Menu.CheckboxItem>
 
                   <Menu.CheckboxItem
-                    checked={timeline}
-                    onCheckedChange={setTimeline}
                     className={(state) =>
                       `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
@@ -146,8 +136,7 @@ export default function MenubarCheckboxes() {
                   className="py-1 bg-white bc-silver-2 c-slate-10 br-lg bw-1 bs-o-xs"
                 >
                   <Menu.CheckboxItem
-                    checked={true}
-                    onCheckedChange={() => {}}
+                    defaultChecked
                     className={(state) =>
                       `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
@@ -163,8 +152,7 @@ export default function MenubarCheckboxes() {
                   </Menu.CheckboxItem>
 
                   <Menu.CheckboxItem
-                    checked={true}
-                    onCheckedChange={() => {}}
+                    defaultChecked
                     className={(state) =>
                       `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
@@ -180,8 +168,6 @@ export default function MenubarCheckboxes() {
                   </Menu.CheckboxItem>
 
                   <Menu.CheckboxItem
-                    checked={false}
-                    onCheckedChange={() => {}}
                     className={(state) =>
                       `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
@@ -228,8 +214,7 @@ export default function MenubarCheckboxes() {
                   className="py-1 bg-white bc-silver-2 c-slate-10 br-lg bw-1 bs-o-xs"
                 >
                   <Menu.CheckboxItem
-                    checked={true}
-                    onCheckedChange={() => {}}
+                    defaultChecked
                     className={(state) =>
                       `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
@@ -245,8 +230,7 @@ export default function MenubarCheckboxes() {
                   </Menu.CheckboxItem>
 
                   <Menu.CheckboxItem
-                    checked={true}
-                    onCheckedChange={() => {}}
+                    defaultChecked
                     className={(state) =>
                       `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
@@ -262,8 +246,6 @@ export default function MenubarCheckboxes() {
                   </Menu.CheckboxItem>
 
                   <Menu.CheckboxItem
-                    checked={false}
-                    onCheckedChange={() => {}}
                     className={(state) =>
                       `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
