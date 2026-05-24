@@ -1,5 +1,5 @@
 import { Avatar } from "@base-ui/react/avatar";
-import { CircleQuestionMark, UserRound } from "lucide-react";
+import { CircleCheck, UserRound } from "lucide-react";
 
 export default function AvatarLg() {
   return (
@@ -24,7 +24,7 @@ export default function AvatarLg() {
           />
         </Avatar.Root>
         <span className="d-f p-a b-0 r-0 ai-c jc-c w-4 h-4 bg-white bc-white br-9999 bw-1">
-          <CircleQuestionMark className="w-100% h-100% c-indigo" />
+          <CircleCheck className="w-100% h-100% c-indigo" />
         </span>
       </div>
 

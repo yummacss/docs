@@ -1,11 +1,5 @@
 import { Avatar } from "@base-ui/react/avatar";
 
-const fallbacks = [
-  { rootColor: "bg-lime-2 bc-lime-3", fallbackColor: "c-lime" },
-  { rootColor: "bg-cyan-2 bc-cyan-3", fallbackColor: "c-cyan" },
-  { rootColor: "bg-indigo-2 bc-indigo-3", fallbackColor: "c-indigo" },
-];
-
 export default function AvatarFallbackInitial() {
   return (
     <div className="d-f ai-c g-4">
@@ -24,3 +18,9 @@ export default function AvatarFallbackInitial() {
     </div>
   );
 }
+
+const fallbacks = [
+  { rootColor: "bg-lime-2 bc-lime-3", fallbackColor: "c-lime" },
+  { rootColor: "bg-cyan-2 bc-cyan-3", fallbackColor: "c-cyan" },
+  { rootColor: "bg-indigo-2 bc-indigo-3", fallbackColor: "c-indigo" },
+];
