@@ -19,7 +19,7 @@ export default function ExampleTabsRounded() {
             <Tabs.Tab
               key={tab.value}
               value={tab.value}
-              className={`p-r zi-10 fg-1 d-f ai-c jc-c py-2 px-3 bg-transparent us-none fv:oo--1 fv:oc-indigo br-lg ${
+              className={`p-r zi-10 fg-1 d-f ai-c jc-c py-2 px-3 bg-transparent us-none fv:oo--1 fv:oc-indigo br-md ${
                 isSelected ? "c-slate-10" : "c-slate-8 h:c-slate-10"
               }`}
             >
@@ -28,7 +28,7 @@ export default function ExampleTabsRounded() {
           );
         })}
         <Tabs.Indicator
-          className="p-a l-0 zi-0 bg-white br-lg bs-o-xs tp-a tdu-200 ttf-io"
+          className="p-a l-0 zi-0 bg-white br-md bs-o-xs tp-a tdu-200 ttf-io"
           style={{
             translate: "var(--active-tab-left) 0",
             width: "var(--active-tab-width)",
