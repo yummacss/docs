@@ -266,6 +266,7 @@ export const registry = {
   "skeleton-base": dynamic(() => import("./ui/skeleton-base"), { ssr: true }),
   "skeleton-card": dynamic(() => import("./ui/skeleton-card"), { ssr: true }),
   "skeleton-list": dynamic(() => import("./ui/skeleton-list"), { ssr: true }),
+  "skeleton-static": dynamic(() => import("./ui/skeleton-static"), { ssr: true }),
   "slider-base": dynamic(() => import("./ui/slider-base"), { ssr: true }),
   "slider-disabled": dynamic(() => import("./ui/slider-disabled"), { ssr: true }),
   "slider-range": dynamic(() => import("./ui/slider-range"), { ssr: true }),
