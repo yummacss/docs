@@ -65,7 +65,7 @@ export default function ToolbarDisabled() {
         </Toggle>
       </ToggleGroup>
 
-      <Toolbar.Separator className="w-px h-5 bg-silver-3" />
+      <Toolbar.Separator className="w-px h-5 mx-1 bg-silver-3" />
 
       <Toolbar.Group className="d-f g-1" aria-label="Actions">
         <Toolbar.Button className="d-f ai-c g-1 jc-c h-9 px-3 bg-transparent c-slate-8 br-md bw-0 fs-sm fw-500 us-none c-p h:bg-silver-1 h:c-slate-10 fv:oo-2 fv:oc-indigo-5">
@@ -85,7 +85,7 @@ export default function ToolbarDisabled() {
         </Toolbar.Button>
       </Toolbar.Group>
 
-      <Toolbar.Separator className="w-px h-5 bg-silver-3" />
+      <Toolbar.Separator className="w-px h-5 mx-1 bg-silver-3" />
 
       <Toolbar.Input
         className="h-9 w-40 pl-3 bg-transparent bw-0 br-md fs-sm fv:oo-2 fv:oc-indigo-3"

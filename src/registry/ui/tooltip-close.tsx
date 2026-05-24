@@ -1,7 +1,7 @@
 "use client";
 
 import { Tooltip } from "@base-ui/react/tooltip";
-import { Trash2 } from "lucide-react";
+import { Shredder } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 
 export default function TooltipClose() {
@@ -9,7 +9,7 @@ export default function TooltipClose() {
     <Tooltip.Provider>
       <Tooltip.Root>
         <Tooltip.Trigger className="d-f ai-c jc-c bg-transparent c-red-7 bw-0 c-p h:c-red-8 fv:oo-2 fv:oc-red-6">
-          <Trash2 aria-label="Archive task" className="w-6 h-6" />
+          <Shredder aria-label="Archive task" className="w-6 h-6" />
         </Tooltip.Trigger>
         <Tooltip.Portal>
           <Tooltip.Positioner sideOffset={8}>

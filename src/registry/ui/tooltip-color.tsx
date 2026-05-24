@@ -1,7 +1,7 @@
 "use client";
 
 import { Tooltip } from "@base-ui/react/tooltip";
-import { Cog, Pen, Plus, Trash2 } from "lucide-react";
+import { FilePenLine, FilePlusCorner, FileText, Shredder } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 export default function TooltipColor() {
   return (
@@ -9,7 +9,7 @@ export default function TooltipColor() {
       <div className="d-f g-1">
         {items.map(({ icon: Icon, label, ariaLabel }) => (
           <Tooltip.Root key={label}>
-            <Tooltip.Trigger className="d-f ai-c jc-c bg-transparent c-slate-8 bw-0 c-p h:c-slate-12 fv:oo-2 fv:oc-indigo-5">
+            <Tooltip.Trigger className="d-f ai-c jc-c bg-transparent c-indigo h:c-indigo-7 bw-0 c-p fv:oo-2 fv:oc-indigo-5">
               <Icon aria-label={ariaLabel} className="w-6 h-6" />
             </Tooltip.Trigger>
             <Tooltip.Portal>
@@ -24,7 +24,7 @@ export default function TooltipColor() {
                         transition={{ duration: 0.2, ease: "easeOut" }}
                       />
                     }
-                    className="px-3 py-2 bg-indigo c-white br-md fs-sm bs-o-xs us-none"
+                    className="px-3 py-2 bg-indigo-7 c-white br-md fs-sm bs-o-xs us-none"
                   >
                     {label}
                   </Tooltip.Popup>
@@ -40,15 +40,15 @@ export default function TooltipColor() {
 
 const items = [
   {
-    icon: Plus,
-    label: "New task",
+    icon: FilePlusCorner,
+    label: "Create task",
     ariaLabel: "Create a new task",
   },
+  { icon: FileText, label: "View task", ariaLabel: "View task" },
   {
-    icon: Pen,
-    label: "Edit sprint",
-    ariaLabel: "Edit current sprint",
+    icon: FilePenLine,
+    label: "Edit task",
+    ariaLabel: "Edit task",
   },
-  { icon: Cog, label: "Settings", ariaLabel: "Project settings" },
-  { icon: Trash2, label: "Delete task", ariaLabel: "Delete project" },
+  { icon: Shredder, label: "Delete task", ariaLabel: "Delete task" },
 ];

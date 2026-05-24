@@ -448,6 +448,10 @@ summary {
   background-color: #797bf340;
 }
 
+.bg-indigo-7 {
+  background-color: #5558cf;
+}
+
 .bg-indigo-9\/40 {
   background-color: #393b8c66;
 }
@@ -1557,6 +1561,10 @@ summary {
 
 .h\:c-accent-4:hover {
   color: #d9def7;
+}
+
+.h\:c-indigo-7:hover {
+  color: #5558cf;
 }
 
 .h\:c-indigo-8:hover {
