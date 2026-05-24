@@ -1,24 +1,16 @@
 "use client";
 
 import { Tooltip } from "@base-ui/react/tooltip";
-import { ArrowDown, ArrowLeft, ArrowRight, ArrowUp } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
-
-const sides = [
-  { side: "top" as const, icon: ArrowUp, label: "Top" },
-  { side: "right" as const, icon: ArrowRight, label: "Right" },
-  { side: "bottom" as const, icon: ArrowDown, label: "Bottom" },
-  { side: "left" as const, icon: ArrowLeft, label: "Left" },
-];
 
 export default function TooltipPlacement() {
   return (
     <Tooltip.Provider>
       <div className="d-g gtc-2 g-3">
-        {sides.map(({ side, icon: Icon, label }) => (
+        {sides.map((side) => (
           <Tooltip.Root key={side}>
-            <Tooltip.Trigger className="d-f ai-c jc-c w-10 h-10 bg-white bc-silver-2 c-slate-8 bw-1 br-md c-p h:c-slate-12 fv:oo-2 fv:oc-indigo-5">
-              <Icon aria-label={label} className="w-5 h-5" />
+            <Tooltip.Trigger className="d-f ai-c jc-c h-10 px-3 bw-1 bc-silver-3 br-lg bg-white c-slate-10 fs-sm us-none c-p h:bg-silver-1 fv:oo-2 fv:oc-indigo-5">
+              {side.charAt(0).toUpperCase() + side.slice(1)}
             </Tooltip.Trigger>
             <Tooltip.Portal>
               <Tooltip.Positioner side={side} sideOffset={8}>
@@ -34,7 +26,7 @@ export default function TooltipPlacement() {
                     }
                     className="px-3 py-2 bg-white bc-silver-2 c-slate-10 bw-1 br-md fs-sm bs-o-xs us-none"
                   >
-                    {label}
+                    {side.charAt(0).toUpperCase() + side.slice(1)}
                   </Tooltip.Popup>
                 </AnimatePresence>
               </Tooltip.Positioner>
@@ -45,3 +37,5 @@ export default function TooltipPlacement() {
     </Tooltip.Provider>
   );
 }
+
+const sides = ["top", "right", "bottom", "left"] as const;

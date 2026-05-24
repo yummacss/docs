@@ -4,8 +4,6 @@ import { Popover } from "@base-ui/react/popover";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
-const sides = ["top", "right", "bottom", "left"] as const;
-
 export default function PopoverPlacement() {
   const [open, setOpen] = useState<string | null>(null);
 
@@ -64,3 +62,5 @@ export default function PopoverPlacement() {
     </div>
   );
 }
+
+const sides = ["top", "right", "bottom", "left"] as const;
