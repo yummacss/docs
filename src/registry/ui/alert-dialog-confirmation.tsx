@@ -47,10 +47,10 @@ export default function AlertDialogConfirmation() {
               >
                 <AlertDialog.Close
                   render={
-                    <Button className="d-f p-a r-3 t-3 ai-c jc-c w-7 h-7 c-slate-6 bw-0 br-md h:bg-silver-2 fv:oo-2 fv:oc-indigo-5" />
+                    <Button className="d-f p-a r-3 t-3 ai-c jc-c w-7 h-7 p-0 c-slate-6 bw-0 br-md h:bg-silver-1/50 h:c-slate-7 fv:oo-2 fv:oc-indigo-5" />
                   }
                 >
-                  <X aria-hidden className="w-4 h-4" />
+                  <X aria-hidden className="w-5 h-5" />
                 </AlertDialog.Close>
                 <div className="d-f fd-c ai-c g-3 pt-10 pb-6 px-4 bg-white">
                   <span className="d-f ai-c jc-c w-12 h-12 bg-red-1/50 c-red br-100%">
@@ -59,7 +59,7 @@ export default function AlertDialogConfirmation() {
                   <AlertDialog.Title className="c-slate-10 fs-md fw-500">
                     Delete account?
                   </AlertDialog.Title>
-                  <AlertDialog.Description className="c-slate-6 fs-sm lh-4 ta-c m-0">
+                  <AlertDialog.Description className="m-0 c-slate-6 fs-sm lh-4 ta-c">
                     This action cannot be undone. This will{" "}
                     <span className="c-slate-9 fw-600">permanently delete</span>{" "}
                     your data from our servers.

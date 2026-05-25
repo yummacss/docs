@@ -248,6 +248,7 @@ export const registry = {
   "radio-base": dynamic(() => import("./ui/radio-base"), { ssr: true }),
   "radio-description": dynamic(() => import("./ui/radio-description"), { ssr: true }),
   "radio-disabled": dynamic(() => import("./ui/radio-disabled"), { ssr: true }),
+  "radio-static": dynamic(() => import("./ui/radio-static"), { ssr: true }),
   "rating-base": dynamic(() => import("./ui/rating-base"), { ssr: true }),
   "rating-static": dynamic(() => import("./ui/rating-static"), { ssr: true }),
   "select-base": dynamic(() => import("./ui/select-base"), { ssr: true }),

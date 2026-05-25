@@ -55,13 +55,13 @@ export default function DialogNested() {
               >
                 <Dialog.Close
                   render={
-                    <Button className="d-f p-a r-3 t-3 ai-c jc-c w-7 h-7 c-slate-6 bw-0 br-md h:bg-silver-2 fv:oo-2 fv:oc-indigo-5" />
+                    <Button className="d-f p-a r-3 t-3 ai-c jc-c w-7 h-7 p-0 c-slate-6 bw-0 br-md h:bg-silver-1/50 h:c-slate-7 fv:oo-2 fv:oc-indigo-5" />
                   }
                 >
-                  <X aria-hidden className="w-4 h-4" />
+                  <X aria-hidden className="w-5 h-5" />
                 </Dialog.Close>
                 <div className="d-f fd-c g-3 px-4 py-5 bg-white">
-                  <Dialog.Title className="c-slate-10 fs-md fw-500 pb-2">
+                  <Dialog.Title className="pb-2 c-slate-10 fs-md fw-500">
                     Team settings
                   </Dialog.Title>
                   {teamMembers.map((member) => (
@@ -117,15 +117,12 @@ export default function DialogNested() {
                                 >
                                   <Dialog.Close
                                     render={
-                                      <Button className="d-f p-a r-3 t-3 ai-c jc-c w-7 h-7 c-slate-6 bw-0 br-md h:bg-silver-2 fv:oo-2 fv:oc-indigo-5" />
+                                      <Button className="d-f p-a r-3 t-3 ai-c jc-c w-7 h-7 p-0 c-slate-6 bw-0 br-md h:bg-silver-1/50 h:c-slate-7 fv:oo-2 fv:oc-indigo-5" />
                                     }
                                   >
-                                    <X aria-hidden className="w-4 h-4" />
+                                    <X aria-hidden className="w-5 h-5" />
                                   </Dialog.Close>
                                   <div className="d-f fd-c ai-c g-3 px-4 py-5 bg-white">
-                                    <Dialog.Title className="c-slate-10 fs-md fw-500">
-                                      Remove {memberToRemove.name}?
-                                    </Dialog.Title>
                                     <div className="d-if p-r">
                                       <Avatar.Root className="d-if o-h ai-c jc-c w-10 h-10 bc-white br-9999 bw-1 va-m us-none">
                                         <Avatar.Image
@@ -149,7 +146,10 @@ export default function DialogNested() {
                                         {memberToRemove.role}
                                       </span>
                                     </div>
-                                    <span className="c-slate-7 fs-xs lh-4 ta-c">
+                                    <Dialog.Title className="c-slate-10 fs-md fw-500">
+                                      Remove {memberToRemove.name}?
+                                    </Dialog.Title>
+                                    <span className="c-slate-7 fs-sm lh-4 ta-c">
                                       This member will lose access to the
                                       Engineering board and all associated
                                       tasks.

@@ -8,6 +8,7 @@ import { Field } from "@base-ui/react/field";
 import { Pencil, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
+import type { HTMLMotionProps } from "motion/react";
 
 export default function DialogEditProfile() {
   const [open, setOpen] = useState(false);
@@ -15,12 +16,18 @@ export default function DialogEditProfile() {
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger
-        render={
-          <Button className="px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5" />
-        }
-      >
-        Edit profile
-      </Dialog.Trigger>
+        render={(props) => (
+          <motion.button
+            type="button"
+            {...(props as HTMLMotionProps<"button">)}
+            className="px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5"
+            whileTap={{ scale: 0.9 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
+          >
+            Edit profile
+          </motion.button>
+        )}
+      />
       <AnimatePresence>
         {open && (
           <Dialog.Portal keepMounted>
@@ -49,12 +56,18 @@ export default function DialogEditProfile() {
                 style={{ maxWidth: "90vw" }}
               >
                 <Dialog.Close
-                  render={
-                    <Button className="d-f p-a r-3 t-3 ai-c jc-c w-7 h-7 c-slate-6 bw-0 br-md h:bg-silver-2 fv:oo-2 fv:oc-indigo-5" />
-                  }
-                >
-                  <X aria-hidden className="w-4 h-4" />
-                </Dialog.Close>
+                  render={(props) => (
+                    <motion.button
+                      type="button"
+                      {...(props as HTMLMotionProps<"button">)}
+                      className="d-f p-a r-3 t-3 ai-c jc-c w-7 h-7 p-0 c-slate-6 bw-0 br-md h:bg-silver-2 fv:oo-2 fv:oc-indigo-5"
+                      whileTap={{ scale: 0.9 }}
+                      transition={{ duration: 0.2, ease: "easeOut" }}
+                    >
+                      <X aria-hidden className="w-5 h-5" />
+                    </motion.button>
+                  )}
+                />
                 <div className="d-f fd-c g-5 px-4 py-5 bg-white">
                   <Dialog.Title className="c-slate-10 fs-md fw-500">
                     Edit profile
@@ -69,11 +82,19 @@ export default function DialogEditProfile() {
                         />
                       </Avatar.Root>
                       <Button
-                        className="d-f p-a b-0 r-0 ai-c jc-c w-5 h-5 p-0 bg-white bc-silver-3 br-9999 bw-1 us-none fv:oo-1 fv:oc-indigo-5"
-                        aria-label="Edit profile picture"
-                      >
-                        <Pencil className="fs-0 w-3 h-3 c-slate-6" />
-                      </Button>
+                        render={(props) => (
+                          <motion.button
+                            type="button"
+                            {...(props as HTMLMotionProps<"button">)}
+                            className="d-f p-a b-0 r-0 ai-c jc-c w-5 h-5 p-0 bg-white bc-silver-3 br-9999 bw-1 us-none fv:oo-1 fv:oc-indigo-5"
+                            aria-label="Edit profile picture"
+                            whileTap={{ scale: 0.9 }}
+                            transition={{ duration: 0.2, ease: "easeOut" }}
+                          >
+                            <Pencil className="fs-0 w-3 h-3 c-slate-6" />
+                          </motion.button>
+                        )}
+                      />
                     </div>
                     <div className="d-f fd-c">
                       <span className="c-slate-10 fs-lg fw-500">Sarah</span>
@@ -139,19 +160,31 @@ export default function DialogEditProfile() {
                 </div>
                 <div className="d-g gtc-2 g-3 px-4 py-4 bg-white">
                   <Dialog.Close
-                    render={
-                      <Button className="px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5" />
-                    }
-                  >
-                    Cancel
-                  </Dialog.Close>
+                    render={(props) => (
+                      <motion.button
+                        type="button"
+                        {...(props as HTMLMotionProps<"button">)}
+                        className="px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5"
+                        whileTap={{ scale: 0.9 }}
+                        transition={{ duration: 0.2, ease: "easeOut" }}
+                      >
+                        Cancel
+                      </motion.button>
+                    )}
+                  />
                   <Dialog.Close
-                    render={
-                      <Button className="px-3 py-2 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:oc-indigo-5 fv:oo-2" />
-                    }
-                  >
-                    Save changes
-                  </Dialog.Close>
+                    render={(props) => (
+                      <motion.button
+                        type="button"
+                        {...(props as HTMLMotionProps<"button">)}
+                        className="px-3 py-2 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:oc-indigo-5 fv:oo-2"
+                        whileTap={{ scale: 0.9 }}
+                        transition={{ duration: 0.2, ease: "easeOut" }}
+                      >
+                        Save changes
+                      </motion.button>
+                    )}
+                  />
                 </div>
               </Dialog.Popup>
             </div>

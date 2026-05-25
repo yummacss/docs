@@ -29,15 +29,12 @@ export default function DialogStatic() {
             >
               <Dialog.Close
                 render={
-                  <Button className="d-f p-a r-3 t-3 ai-c jc-c w-7 h-7 c-slate-6 bw-0 br-md h:bg-silver-2 fv:oo-2 fv:oc-indigo-5" />
+                  <Button className="d-f p-a r-3 t-3 ai-c jc-c w-7 h-7 p-0 c-slate-6 bw-0 br-md h:bg-silver-1/50 h:c-slate-7 fv:oo-2 fv:oc-indigo-5" />
                 }
               >
-                <X aria-hidden className="w-4 h-4" />
+                <X aria-hidden className="w-5 h-5" />
               </Dialog.Close>
               <div className="d-f fd-c ai-c jc-c g-3 px-4 py-5 bg-white">
-                <Dialog.Title className="c-slate-10 fs-md fw-500">
-                  Access request
-                </Dialog.Title>
                 <Avatar.Root className="d-if o-h ai-c jc-c w-12 h-12 bc-white br-9999 bw-1 va-m us-none">
                   <Avatar.Image
                     src="https://api.dicebear.com/9.x/open-peeps/svg?seed=Sarah&backgroundColor=DAF0B9"
@@ -52,6 +49,11 @@ export default function DialogStatic() {
                   <span className="c-slate-10 fs-md fw-500">Sarah</span>
                   <span className="c-slate-6 fs-sm">sarah@yummaui.com</span>
                 </div>
+              </div>
+              <div className="px-4 py-2 bg-white">
+                <Dialog.Title className="c-slate-10 fs-md fw-500 ta-c">
+                  Access request
+                </Dialog.Title>
               </div>
               <div className="px-4 py-3 bg-white">
                 <Dialog.Description className="c-slate-7 fs-sm lh-4 ta-c">
@@ -68,14 +70,14 @@ export default function DialogStatic() {
                     <Button className="px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5" />
                   }
                 >
-                  Cancel
+                  Ignore
                 </Dialog.Close>
                 <Dialog.Close
                   render={
                     <Button className="px-3 py-2 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:oc-indigo-5 fv:oo-2" />
                   }
                 >
-                  Confirm
+                  Accept
                 </Dialog.Close>
               </div>
             </Dialog.Popup>
