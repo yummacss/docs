@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@base-ui/react/button";
-import { Clock } from "lucide-react";
+import { Loader } from "lucide-react";
 import { motion } from "motion/react";
 
 export default function ButtonLoading() {
@@ -14,7 +14,7 @@ export default function ButtonLoading() {
         animate={{ rotate: 360 }}
         transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
       >
-        <Clock className="w-4 h-4" />
+        <Loader className="w-4 h-4" />
       </motion.div>
       Saving...
     </Button>
