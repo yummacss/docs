@@ -3,6 +3,7 @@
 import { Menu } from "@base-ui/react/menu";
 import { Menubar } from "@base-ui/react/menubar";
 import { Circle } from "lucide-react";
+import type { HTMLMotionProps } from "motion/react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -47,6 +48,13 @@ export default function MenubarRadios() {
                       <Menu.RadioItem
                         key={option.value}
                         value={option.value}
+                        render={(props) => (
+                          <motion.div
+                            {...(props as HTMLMotionProps<"div">)}
+                            whileTap={{ scale: 0.95 }}
+                            transition={{ duration: 0.15, ease: "easeOut" }}
+                          />
+                        )}
                         className={(state) =>
                           `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
                             state.highlighted
@@ -108,6 +116,13 @@ export default function MenubarRadios() {
                       <Menu.RadioItem
                         key={option.value}
                         value={option.value}
+                        render={(props) => (
+                          <motion.div
+                            {...(props as HTMLMotionProps<"div">)}
+                            whileTap={{ scale: 0.95 }}
+                            transition={{ duration: 0.15, ease: "easeOut" }}
+                          />
+                        )}
                         className={(state) =>
                           `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
                             state.highlighted
@@ -169,6 +184,13 @@ export default function MenubarRadios() {
                       <Menu.RadioItem
                         key={option.value}
                         value={option.value}
+                        render={(props) => (
+                          <motion.div
+                            {...(props as HTMLMotionProps<"div">)}
+                            whileTap={{ scale: 0.95 }}
+                            transition={{ duration: 0.15, ease: "easeOut" }}
+                          />
+                        )}
                         className={(state) =>
                           `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
                             state.highlighted

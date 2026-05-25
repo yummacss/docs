@@ -10,6 +10,7 @@ import {
   Plus,
   UserRound,
 } from "lucide-react";
+import type { HTMLMotionProps } from "motion/react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -39,6 +40,13 @@ export default function MenuRadios() {
                 className="py-1 o-h bg-white bc-silver-2 c-slate-10 bw-1 br-lg bs-o-xs"
               >
                 <Menu.Item
+                  render={(props) => (
+                    <motion.div
+                      {...(props as HTMLMotionProps<"div">)}
+                      whileTap={{ scale: 0.95 }}
+                      transition={{ duration: 0.15, ease: "easeOut" }}
+                    />
+                  )}
                   className={(state) =>
                     `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
                       state.highlighted ? "bg-silver-1/50" : "bg-transparent"
@@ -49,6 +57,13 @@ export default function MenuRadios() {
                   View profile
                 </Menu.Item>
                 <Menu.Item
+                  render={(props) => (
+                    <motion.div
+                      {...(props as HTMLMotionProps<"div">)}
+                      whileTap={{ scale: 0.95 }}
+                      transition={{ duration: 0.15, ease: "easeOut" }}
+                    />
+                  )}
                   className={(state) =>
                     `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
                       state.highlighted ? "bg-silver-1/50" : "bg-transparent"
@@ -66,6 +81,13 @@ export default function MenuRadios() {
                 <Menu.RadioGroup value={account} onValueChange={setAccount}>
                   <Menu.RadioItem
                     value="sarah"
+                    render={(props) => (
+                      <motion.div
+                        {...(props as HTMLMotionProps<"div">)}
+                        whileTap={{ scale: 0.95 }}
+                        transition={{ duration: 0.15, ease: "easeOut" }}
+                      />
+                    )}
                     className={(state) =>
                       `d-f ai-c g-2 py-2 pr-4 pl-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
@@ -92,6 +114,13 @@ export default function MenuRadios() {
 
                   <Menu.RadioItem
                     value="john"
+                    render={(props) => (
+                      <motion.div
+                        {...(props as HTMLMotionProps<"div">)}
+                        whileTap={{ scale: 0.95 }}
+                        transition={{ duration: 0.15, ease: "easeOut" }}
+                      />
+                    )}
                     className={(state) =>
                       `d-f ai-c g-2 py-2 pr-4 pl-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
@@ -118,6 +147,13 @@ export default function MenuRadios() {
                 </Menu.RadioGroup>
 
                 <Menu.Item
+                  render={(props) => (
+                    <motion.div
+                      {...(props as HTMLMotionProps<"div">)}
+                      whileTap={{ scale: 0.95 }}
+                      transition={{ duration: 0.15, ease: "easeOut" }}
+                    />
+                  )}
                   className={(state) =>
                     `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
                       state.highlighted ? "bg-silver-1/50" : "bg-transparent"
@@ -130,6 +166,13 @@ export default function MenuRadios() {
 
                 <Menu.Separator className="my-1 w-100% h-px bg-silver-2" />
                 <Menu.Item
+                  render={(props) => (
+                    <motion.div
+                      {...(props as HTMLMotionProps<"div">)}
+                      whileTap={{ scale: 0.95 }}
+                      transition={{ duration: 0.15, ease: "easeOut" }}
+                    />
+                  )}
                   className={(state) =>
                     `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm fw-500 us-none c-red c-p br-lg mx-1 ${
                       state.highlighted ? "bg-red-1/50" : "bg-transparent"
