@@ -5,21 +5,10 @@ import { Combobox } from "@base-ui/react/combobox";
 import { Dialog } from "@base-ui/react/dialog";
 import { Search, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function CommandPaletteMinimal() {
   const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    const handler = (e: KeyboardEvent) => {
-      if ((e.metaKey || e.ctrlKey) && e.key === "/") {
-        e.preventDefault();
-        setOpen((prev) => !prev);
-      }
-    };
-    document.addEventListener("keydown", handler);
-    return () => document.removeEventListener("keydown", handler);
-  }, []);
 
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
@@ -55,11 +44,11 @@ export default function CommandPaletteMinimal() {
                     transition={{ duration: 0.2, ease: "easeOut" }}
                   />
                 }
-                className="o-h w-96 bg-silver-1 bc-silver-2 c-slate-12 br-lg bw-1 bs-o-xs"
+                className="o-h w-96 bg-white bc-silver-2 c-slate-12 br-xxl bw-1 bs-o-lg"
                 style={{ maxWidth: "90vw" }}
               >
                 <Combobox.Root inline items={commandGroups} autoHighlight>
-                  <div className="d-f ai-c g-2 px-4 py-1 bg-silver-1">
+                  <div className="d-f ai-c g-2 px-4 py-1">
                     <Combobox.Input
                       placeholder="Search..."
                       autoFocus
@@ -67,13 +56,13 @@ export default function CommandPaletteMinimal() {
                     />
                     <Dialog.Close
                       render={
-                        <Button className="d-f ai-c jc-c w-7 h-7 c-slate-6 bw-0 br-md h:bg-silver-2 fv:oo-2 fv:oc-indigo-5" />
+                        <Button className="d-f ai-c jc-c w-7 h-7 p-0 c-slate-6 bw-0 br-md h:bg-silver-2 fv:oo-2 fv:oc-indigo-5" />
                       }
                     >
                       <X aria-hidden className="w-5 h-5" />
                     </Dialog.Close>
                   </div>
-                  <div className="bg-white bc-silver-2 btr-lg btw-1">
+                  <div>
                     <Combobox.List className="ox-h oy-auto max-h-72 py-1 ow-0">
                       {(group: CommandGroup, groupIndex: number) => (
                         <Combobox.Group key={group.label}>

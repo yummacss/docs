@@ -11,7 +11,6 @@ import {
   BookSearch,
   ChartColumn,
   Cog,
-  Command,
   FilePlusCorner,
   FileText,
   NotepadTextDashed,
@@ -30,17 +29,6 @@ export default function CommandPaletteTabs() {
     if (!open) setScope("all");
   }, [open]);
 
-  useEffect(() => {
-    const handler = (e: KeyboardEvent) => {
-      if ((e.metaKey || e.ctrlKey) && e.key === "/") {
-        e.preventDefault();
-        setOpen((prev) => !prev);
-      }
-    };
-    document.addEventListener("keydown", handler);
-    return () => document.removeEventListener("keydown", handler);
-  }, []);
-
   const filteredGroups = useMemo(() => {
     if (scope === "all") return commandGroups;
     return commandGroups.filter((g) => g.label.toLowerCase() === scope);
@@ -55,10 +43,6 @@ export default function CommandPaletteTabs() {
       >
         <Search className="w-4 h-4" />
         <span>Commands</span>
-        <kbd className="d-f ai-c g-0.5 px-1 py-0.5 ml-3 bg-silver-1/50 c-slate-5 br-md fs-xs us-none">
-          <Command className="w-3 h-3" />
-          <span>/</span>
-        </kbd>
       </Dialog.Trigger>
       <AnimatePresence>
         {open && (
@@ -84,11 +68,11 @@ export default function CommandPaletteTabs() {
                     transition={{ duration: 0.2, ease: "easeOut" }}
                   />
                 }
-                className="o-h w-96 bg-silver-1 bc-silver-2 c-slate-12 br-lg bw-1 bs-o-xs"
+                className="o-h w-96 bg-white bc-silver-2 c-slate-12 br-xxl bw-1 bs-o-lg"
                 style={{ maxWidth: "90vw" }}
               >
                 <Combobox.Root inline items={filteredGroups} autoHighlight>
-                  <div className="d-f ai-c g-2 px-4 py-1 bg-silver-1">
+                  <div className="d-f ai-c g-2 px-4 py-1">
                     <Search className="fs-0 w-5 h-5 c-slate-4" />
                     <Combobox.Input
                       placeholder="Search..."
@@ -97,7 +81,7 @@ export default function CommandPaletteTabs() {
                     />
                     <Dialog.Close
                       render={
-                        <Button className="d-f ai-c jc-c w-7 h-7 c-slate-6 bw-0 br-md h:bg-silver-2 fv:oo-2 fv:oc-indigo-5" />
+                        <Button className="d-f ai-c jc-c w-7 h-7 p-0 c-slate-6 bw-0 br-md h:bg-silver-2 fv:oo-2 fv:oc-indigo-5" />
                       }
                     >
                       <X aria-hidden className="w-5 h-5" />
@@ -106,7 +90,7 @@ export default function CommandPaletteTabs() {
                   <Tabs.Root
                     value={scope}
                     onValueChange={(v) => setScope(v as Scope)}
-                    className="w-100% bg-silver-1"
+                    className="w-100%"
                   >
                     <Tabs.List className="d-f p-r g-1 px-4 py-1">
                       {scopes.map(({ value, label }) => (
@@ -135,7 +119,7 @@ export default function CommandPaletteTabs() {
                       />
                     </Tabs.List>
                   </Tabs.Root>
-                  <div className="bg-white bc-silver-2 btr-lg btw-1">
+                  <div>
                     <Combobox.List className="oy-auto max-h-64 py-1 ow-0">
                       {(group: CommandGroup, groupIndex: number) => (
                         <Combobox.Group key={group.label}>
