@@ -21,7 +21,7 @@ export default function DialogStatic() {
 
       {open && (
         <Dialog.Portal keepMounted>
-          <Dialog.Backdrop className="p-f i-0 min-h-dvh bg-black/20 bf-b-xs" />
+          <Dialog.Backdrop className="p-f i-0 min-h-dvh bg-black/20 bf-b-xs c-p" />
           <div className="d-f p-f i-0 ai-c jc-c">
             <Dialog.Popup
               className="o-h p-r w-96 bg-white bc-silver-2 c-slate-12 br-xxl bw-1 bs-o-lg"
