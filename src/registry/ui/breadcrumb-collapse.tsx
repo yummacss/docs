@@ -5,7 +5,7 @@ import { ChevronRight, Ellipsis } from "lucide-react";
 export default function BreadcrumbCollapse() {
   return (
     <nav aria-label="Breadcrumb" className="d-f ai-c g-2">
-      <a href="#" className="c-slate-6 h:c-slate-10">
+      <a href="#" className="c-slate-6 h:c-slate-10 fv:oo-2 fv:oc-indigo-5">
         <span className="fs-sm fw-400">Projects</span>
       </a>
       <ChevronRight className="w-4 h-4 c-slate-4" />
@@ -13,7 +13,7 @@ export default function BreadcrumbCollapse() {
         <Ellipsis className="w-5 h-5" />
       </span>
       <ChevronRight className="w-4 h-4 c-slate-4" />
-      <a href="#" className="c-slate-6 h:c-slate-10">
+      <a href="#" className="c-slate-6 h:c-slate-10 fv:oo-2 fv:oc-indigo-5">
         <span className="fs-sm fw-400">Sprint 1</span>
       </a>
       <ChevronRight className="w-4 h-4 c-slate-4" />

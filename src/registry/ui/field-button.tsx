@@ -23,7 +23,7 @@ export default function FieldButton() {
         <div className="d-f p-a r-1 ai-c jc-c">
           <Button
             aria-label="Search"
-            className="d-f ai-c jc-c w-8 h-8 bg-silver-1 c-slate-6 bw-0 br-md us-none c-p h:bg-silver-2 h:c-slate-10"
+            className="d-f ai-c jc-c w-8 h-8 bg-silver-1 c-slate-6 bw-0 br-md us-none c-p h:bg-silver-2 h:c-slate-10 fv:oo-2 fv:oc-indigo-5"
             render={(props) => (
               <motion.button
                 type="button"

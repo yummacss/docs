@@ -22,7 +22,7 @@ export default function FieldPassword() {
         <div className="d-f p-a r-3 ai-c jc-c c-slate-6">
           <Toggle
             aria-label="Toggle password visibility"
-            className="d-f ai-c jc-c p-0 c-slate-6 us-none"
+            className="d-f ai-c jc-c p-0 c-slate-6 us-none fv:oo-2 fv:oc-indigo-5"
             render={(props, state) => (
               <motion.button
                 type="button"
