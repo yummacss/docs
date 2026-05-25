@@ -476,7 +476,7 @@ Every `###` subheading gets a single-line functional description. Follow these r
 | `### Trailing` | Positions the add-on at the end of the content. |
 | `### Small` | Compact size for constrained spaces. |
 | `### Large` | Expanded size for emphasis or easier targeting. |
-| `### Loading` | Shows a `Spinner` while content processes. |
+| `### Loading` | Shows a `Skeleton` while content processes. |
 | `### Error` | Displays validation feedback in an error state. |
 | `### Ghost` | Removes visible border and background until hover. |
 | `### Link` | Renders as a navigational `Link` element. |
