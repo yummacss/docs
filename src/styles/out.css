@@ -368,12 +368,20 @@ summary {
   background-color: #232741;
 }
 
+.bg-coral {
+  background-color: #ff6f91;
+}
+
 .bg-coral-4 {
   background-color: #ffabbf;
 }
 
 .bg-coral-5 {
   background-color: #ff97b0;
+}
+
+.bg-cyan {
+  background-color: #06b6d4;
 }
 
 .bg-cyan-2 {
@@ -2088,6 +2096,10 @@ summary {
 
 .p\:\:fs-i::placeholder {
   font-style: italic;
+}
+
+.pb-0 {
+  padding-bottom: 0;
 }
 
 .pb-1 {
