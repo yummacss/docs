@@ -437,6 +437,57 @@ No animation utilities or animation dependencies.
 
 ---
 
+## Section Descriptions
+
+Every `##` and `###` heading MUST have a description line immediately after it.
+
+### H2 Description Patterns
+
+Each `##` section heading has a fixed, generic description applied across all component pages.
+
+| Section | Description |
+|---|---|
+| `## Core Examples` | `Accessible React components with Base UI and Yumma CSS.` |
+| `## Icon Examples` | `Icon-only buttons and decorative configurations.` |
+| `## Size Examples` | `Sizes from compact to large.` |
+| `## Shape Examples` | `Shapes from sharp to fully rounded.` |
+| `## Group Examples` | `Groups, nesting, and parent-child relationships.` |
+| `## More Examples` | `Additional variants and interactive states.` |
+
+### H3 Description Style
+
+Every `###` subheading gets a single-line functional description. Follow these rules:
+
+- **Functional (Option A):** Describe what the variant does or when to use it.
+- **Generic:** The same heading name must work across different components. Do not reference specific component names.
+- **API references in single quotes:** Use `'single quotes'` when mentioning a prop, component, or compound component. Use plain text for everything else.
+- **Period at the end:** Every description ends with a period.
+- **Skip:** `customization.mdx` and `installation.mdx` (prose documentation, not component variant pages).
+
+**Examples:**
+
+| Heading | Description |
+|---|---|
+| `### Base` | Standard implementation with default configuration. |
+| `### Disabled` | Prevents interaction with reduced visual emphasis. |
+| `### Square` | Applies sharp corners with no `border-radius`. |
+| `### Squircle` | Applies a smooth continuous curve between adjacent corners. |
+| `### Leading` | Positions the add-on at the start of the content. |
+| `### Trailing` | Positions the add-on at the end of the content. |
+| `### Small` | Compact size for constrained spaces. |
+| `### Large` | Expanded size for emphasis or easier targeting. |
+| `### Loading` | Shows a `Spinner` while content processes. |
+| `### Error` | Displays validation feedback in an error state. |
+| `### Ghost` | Removes visible border and background until hover. |
+| `### Link` | Renders as a navigational `Link` element. |
+| `### Arrow` | Positions a directional `Arrow` pointing at the trigger. |
+| `### Placement` | Demonstrates configurable `side` and `align` values. |
+| `### Static` | Renders without `motion` wrappers or interactive animations. |
+| `### Account` | Shows a user account menu with profile actions. |
+| `### Edit Profile` | Opens a dialog with editable profile fields. |
+
+---
+
 ## Avatar Rules
 
 Avatars ALWAYS use `bw-1 bc-silver-3` to prevent blending with backgrounds.
