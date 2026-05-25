@@ -49,10 +49,10 @@ export default function DialogSignUp() {
               >
                 <Dialog.Close
                   render={
-                    <Button className="d-f p-a r-3 t-3 ai-c jc-c w-7 h-7 c-slate-6 bw-0 br-md h:bg-silver-2 fv:oo-2 fv:oc-indigo-5" />
+                    <Button className="d-f p-a r-3 t-3 ai-c jc-c w-7 h-7 p-0 c-slate-6 bw-0 br-md h:bg-silver-1/50 h:c-slate-7 fv:oo-2 fv:oc-indigo-5" />
                   }
                 >
-                  <X aria-hidden className="w-4 h-4" />
+                  <X aria-hidden className="w-5 h-5" />
                 </Dialog.Close>
                 <div className="d-f fd-c g-4 px-4 py-5 bg-white">
                   <Dialog.Title className="c-slate-10 fs-md fw-500">

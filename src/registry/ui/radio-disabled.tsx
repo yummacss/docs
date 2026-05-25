@@ -2,6 +2,8 @@
 
 import { Radio } from "@base-ui/react/radio";
 import { RadioGroup } from "@base-ui/react/radio-group";
+import type { HTMLMotionProps } from "motion/react";
+import { motion } from "motion/react";
 
 export default function RadioDisabled() {
   return (
@@ -15,13 +17,20 @@ export default function RadioDisabled() {
                 state.checked ? "bg-indigo" : "bg-white bw-1 bc-silver-3"
               } fv:oo-2 fv:oc-indigo-5`
             }
-          >
-            <Radio.Indicator
-              className={(state) =>
-                state.checked ? "w-2 h-2 br-9999 bg-white" : "d-none"
-              }
-            />
-          </Radio.Root>
+            render={(props, _) => (
+              <motion.span
+                {...(props as HTMLMotionProps<"span">)}
+                whileTap={{ scale: 0.9 }}
+                transition={{ duration: 0.2, ease: "easeOut" }}
+              >
+                <Radio.Indicator
+                  className={(state) =>
+                    state.checked ? "w-2 h-2 br-9999 bg-white" : "d-none"
+                  }
+                />
+              </motion.span>
+            )}
+          />
           <span>Free plan</span>
         </div>
         <p className="pl-6 c-slate-6 fs-xs fw-400">Perfect for hobbyists</p>
@@ -36,13 +45,20 @@ export default function RadioDisabled() {
                 state.checked ? "bg-indigo" : "bg-white bw-1 bc-silver-3"
               } fv:oo-2 fv:oc-indigo-5`
             }
-          >
-            <Radio.Indicator
-              className={(state) =>
-                state.checked ? "w-2 h-2 br-9999 bg-white" : "d-none"
-              }
-            />
-          </Radio.Root>
+            render={(props, _) => (
+              <motion.span
+                {...(props as HTMLMotionProps<"span">)}
+                whileTap={{ scale: 0.9 }}
+                transition={{ duration: 0.2, ease: "easeOut" }}
+              >
+                <Radio.Indicator
+                  className={(state) =>
+                    state.checked ? "w-2 h-2 br-9999 bg-white" : "d-none"
+                  }
+                />
+              </motion.span>
+            )}
+          />
           <span>Pro plan</span>
         </div>
         <p className="pl-6 c-slate-6 fs-xs fw-400">For serious users</p>
@@ -58,13 +74,20 @@ export default function RadioDisabled() {
                 state.checked ? "bg-indigo" : "bg-white bw-1 bc-silver-3"
               }`
             }
-          >
-            <Radio.Indicator
-              className={(state) =>
-                state.checked ? "w-2 h-2 br-9999 bg-white" : "d-none"
-              }
-            />
-          </Radio.Root>
+            render={(props, _) => (
+              <motion.span
+                {...(props as HTMLMotionProps<"span">)}
+                whileTap={{ scale: 0.9 }}
+                transition={{ duration: 0.2, ease: "easeOut" }}
+              >
+                <Radio.Indicator
+                  className={(state) =>
+                    state.checked ? "w-2 h-2 br-9999 bg-white" : "d-none"
+                  }
+                />
+              </motion.span>
+            )}
+          />
           <span>Max plan</span>
         </div>
         <p className="pl-6 c-slate-6 fs-xs fw-400">Maximum power</p>
