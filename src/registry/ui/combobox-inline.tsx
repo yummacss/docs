@@ -23,10 +23,10 @@ export default function ComboboxInline() {
         <Combobox.Root inline items={users}>
           <div className="d-f ai-c g-2 px-3 bc-silver-3 bbw-1">
             <Search className="fs-0 w-4 h-4 c-slate-4" />
-            <div className="p-r">
+            <div className="p-r fg-1">
               <Combobox.Input
                 placeholder="Search team members"
-                className="h-10 pl-4 pr-10 w-64 bg-transparent c-slate-10 fs-md"
+                className="h-10 pl-4 pr-10 w-100% bg-transparent c-slate-10 fs-md bw-0 fv:oo--1 fv:oc-indigo-5"
               />
               <div className="d-f p-a r-2 b-0 ai-c jc-c h-10 c-slate-6">
                 <Combobox.Clear
