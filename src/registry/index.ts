@@ -85,6 +85,7 @@ export const registry = {
   "breadcrumb-slash": dynamic(() => import("./ui/breadcrumb-slash"), { ssr: true }),
   "breadcrumb-square": dynamic(() => import("./ui/breadcrumb-square"), { ssr: true }),
   "breadcrumb-squircle": dynamic(() => import("./ui/breadcrumb-squircle"), { ssr: true }),
+  "button-animated": dynamic(() => import("./ui/button-animated"), { ssr: true }),
   "button-base": dynamic(() => import("./ui/button-base"), { ssr: true }),
   "button-circle": dynamic(() => import("./ui/button-circle"), { ssr: true }),
   "button-danger": dynamic(() => import("./ui/button-danger"), { ssr: true }),
