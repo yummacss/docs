@@ -670,6 +670,10 @@ summary {
   border-radius: 1.5rem;
 }
 
+.br-50\% {
+  border-radius: 50%;
+}
+
 .br-9999 {
   border-radius: 9999px;
 }
