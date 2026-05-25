@@ -10,6 +10,7 @@ import {
   BookSearch,
   ChartColumn,
   Cog,
+  Command,
   FilePlusCorner,
   FileText,
   NotepadTextDashed,
@@ -18,10 +19,21 @@ import {
   X,
 } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function CommandPaletteBase() {
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === "/") {
+        e.preventDefault();
+        setOpen((prev) => !prev);
+      }
+    };
+    document.addEventListener("keydown", handler);
+    return () => document.removeEventListener("keydown", handler);
+  }, []);
 
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
@@ -32,6 +44,10 @@ export default function CommandPaletteBase() {
       >
         <Search className="w-4 h-4" />
         <span>Commands</span>
+        <kbd className="d-f ai-c g-0.5 px-1 py-0.5 ml-3 bg-silver-1/50 c-slate-5 br-md fs-xs us-none">
+          <Command className="w-3 h-3" />
+          <span>/</span>
+        </kbd>
       </Dialog.Trigger>
       <AnimatePresence>
         {open && (

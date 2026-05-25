@@ -740,19 +740,9 @@ summary {
   border-top-left-radius: 0.375rem;
 }
 
-.btr-lg {
-  border-top-left-radius: 0.5rem;
-  border-top-right-radius: 0.5rem;
-}
-
 .btr-md {
   border-top-left-radius: 0.375rem;
   border-top-right-radius: 0.375rem;
-}
-
-.btr-xxl {
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
 }
 
 .btrr-md {
