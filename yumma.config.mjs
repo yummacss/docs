@@ -9,7 +9,6 @@ export default defineConfig({
     "./src/registry/**/*.tsx",
   ],
   output: "./src/styles/out.css",
-  normalize: true,
   safelist: [
     "mx--4",
     "bg-accent-dim/10",
