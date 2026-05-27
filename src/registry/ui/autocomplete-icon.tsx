@@ -9,7 +9,7 @@ import {
   Search,
   UserRoundCog,
   UserRoundKey,
-} from "lucide-react";
+} from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 import { type ComponentType, useState } from "react";
 

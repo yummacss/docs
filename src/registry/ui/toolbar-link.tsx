@@ -10,7 +10,7 @@ import {
   LayoutList,
   Plus,
   Table,
-} from "lucide-react";
+} from "iconoir-react";
 import { useState } from "react";
 
 export default function ToolbarLink() {

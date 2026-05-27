@@ -1,7 +1,7 @@
 "use client";
 
 import { Field } from "@base-ui/react/field";
-import { TriangleAlert } from "lucide-react";
+import { TriangleAlert } from "iconoir-react";
 
 export default function TextareaError() {
   return (

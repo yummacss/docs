@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@base-ui/react/button";
-import { Pin } from "lucide-react";
+import { Pin } from "iconoir-react";
 
 export default function ButtonSecondaryIcon() {
   return (

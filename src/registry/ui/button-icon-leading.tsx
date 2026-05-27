@@ -1,5 +1,5 @@
 import { Button } from "@base-ui/react/button";
-import { UserRoundPlus } from "lucide-react";
+import { UserRoundPlus } from "iconoir-react";
 
 export default function ButtonIconLeading() {
   return (

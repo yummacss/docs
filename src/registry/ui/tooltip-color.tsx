@@ -1,7 +1,7 @@
 "use client";
 
 import { Tooltip } from "@base-ui/react/tooltip";
-import { FilePenLine, FilePlusCorner, FileText, Shredder } from "lucide-react";
+import { FilePenLine, FilePlusCorner, FileText, Shredder } from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 export default function TooltipColor() {
   return (

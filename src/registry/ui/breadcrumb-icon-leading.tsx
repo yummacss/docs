@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronRight, LayoutDashboard } from "lucide-react";
+import { ChevronRight, LayoutDashboard } from "iconoir-react";
 
 export default function BreadcrumbIconLeading() {
   return (

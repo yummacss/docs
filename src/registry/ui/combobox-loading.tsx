@@ -1,7 +1,7 @@
 "use client";
 
 import { Combobox } from "@base-ui/react/combobox";
-import { ChevronsUpDown } from "lucide-react";
+import { ChevronsUpDown } from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 import { type ChangeEvent, useEffect, useState } from "react";
 

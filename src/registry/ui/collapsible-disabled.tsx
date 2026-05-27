@@ -1,7 +1,7 @@
 "use client";
 
 import { Collapsible } from "@base-ui/react/collapsible";
-import { Lock } from "lucide-react";
+import { Lock } from "iconoir-react";
 
 export default function CollapsibleDisabled() {
   return (

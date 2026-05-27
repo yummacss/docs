@@ -1,7 +1,7 @@
 "use client";
 
 import { Tooltip } from "@base-ui/react/tooltip";
-import { Shredder } from "lucide-react";
+import { Shredder } from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 
 export default function TooltipClose() {

@@ -1,6 +1,6 @@
 "use client";
 
-import { LockOpen } from "lucide-react";
+import { LockOpen } from "iconoir-react";
 
 export default function BadgeIconRightDotPill() {
   return (

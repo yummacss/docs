@@ -1,6 +1,6 @@
 "use client";
 
-import { ThermometerColdIcon } from "@phosphor-icons/react";
+import { RulerMinus } from "iconoir-react";
 import { type Category, getPrefix } from "../utils/yummacss";
 
 interface Props {
@@ -15,7 +15,7 @@ export default function NegativeValues({ category, name }: Props) {
     <div className="mb-6 p-4 bc-border bg-surface bw-1">
       <div className="d-f ai-c g-3 mb-3">
         <div className="d-f ai-c jc-c fs-0 p-2 bg-border c-accent-dim">
-          <ThermometerColdIcon className="w-5 h-5" />
+          <RulerMinus className="w-5 h-5" />
         </div>
         <p className="c-white/70 fs-sm">
           Use the <code className="px-1 bg-border c-code">--</code> syntax to

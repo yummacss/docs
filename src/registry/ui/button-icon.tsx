@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@base-ui/react/button";
-import { UserRound } from "lucide-react";
+import { UserRound } from "iconoir-react";
 
 export default function ButtonIcon() {
   return (

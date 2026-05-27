@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronRight, Ellipsis } from "lucide-react";
+import { ChevronRight, Ellipsis } from "iconoir-react";
 
 export default function BreadcrumbCollapse() {
   return (

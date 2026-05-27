@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@base-ui/react/button";
-import { X } from "lucide-react";
+import { X } from "iconoir-react";
 
 export default function BadgeClose() {
   return (

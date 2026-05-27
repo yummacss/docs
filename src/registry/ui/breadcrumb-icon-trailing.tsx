@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronRight, File } from "lucide-react";
+import { ChevronRight, File } from "iconoir-react";
 
 export default function BreadcrumbIconTrailing() {
   return (

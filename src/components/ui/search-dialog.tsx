@@ -4,14 +4,14 @@ import { Button } from "@base-ui/react";
 import { Dialog } from "@base-ui/react/dialog";
 import { Input } from "@base-ui/react/input";
 import {
-  ArrowDownIcon,
-  ArrowElbowDownLeftIcon,
-  ArrowUpIcon,
-  BookOpenIcon,
-  DiamondsFourIcon,
-  MagnifyingGlassIcon,
-  SignOutIcon,
-} from "@phosphor-icons/react";
+  Component,
+  LogOut,
+  LongArrowDownLeftSolid,
+  NavArrowDown,
+  NavArrowUp,
+  OpenBook,
+  Search,
+} from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
@@ -120,12 +120,12 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
 
   const getCategoryIcon = (category: string) => {
     if (category === "docs") {
-      return <BookOpenIcon className="w-4 h-4 c-white/50" />;
+      return <OpenBook className="w-4 h-4 c-white/50" />;
     }
     if (category === "handbook") {
-      return <BookOpenIcon className="w-4 h-4 c-white/50" />;
+      return <OpenBook className="w-4 h-4 c-white/50" />;
     }
-    return <DiamondsFourIcon className="w-4 h-4 c-white/50" />;
+    return <Component className="w-4 h-4 c-white/50" />;
   };
 
   let globalIndex = -1;
@@ -163,7 +163,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                 onKeyDown={handleKeyDown}
               >
                 <div className="d-f ai-c g-3 px-4 py-3 bc-border bbw-1">
-                  <MagnifyingGlassIcon className="w-5 h-5 c-white" />
+                  <Search className="w-5 h-5 c-white" />
                   <Input
                     ref={inputRef}
                     type="text"
@@ -239,7 +239,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                               </div>
 
                               {isSelected && (
-                                <ArrowElbowDownLeftIcon className="fs-0 w-4 h-4 c-white/50" />
+                                <LongArrowDownLeftSolid className="fs-0 w-4 h-4 c-white/50" />
                               )}
                             </Button>
                           );
@@ -259,23 +259,23 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                   <div className="d-f ai-c g-4">
                     <span className="d-f ai-c g-1">
                       <kbd className="d-f ai-c p-1 bc-border bg-transparent bw-1">
-                        <ArrowUpIcon className="w-4 h-4" />
+                        <NavArrowUp className="w-4 h-4" />
                       </kbd>
                       <kbd className="d-f ai-c p-1 bc-border bg-transparent bw-1">
-                        <ArrowDownIcon className="w-4 h-4" />
+                        <NavArrowDown className="w-4 h-4" />
                       </kbd>
                       <span className="ml-1 fs-md">to navigate</span>
                     </span>
                     <span className="d-f ai-c g-1">
                       <kbd className="d-f ai-c p-1 bc-border bg-transparent bw-1">
-                        <ArrowElbowDownLeftIcon className="w-4 h-4" />
+                        <LongArrowDownLeftSolid className="w-4 h-4" />
                       </kbd>
                       <span className="ml-1 fs-md">to select</span>
                     </span>
                   </div>
                   <span className="d-f ai-c g-1">
                     <kbd className="d-f ai-c p-1 bc-border bg-transparent bw-1">
-                      <SignOutIcon className="w-4 h-4" />
+                      <LogOut className="w-4 h-4" />
                     </kbd>
                     <span className="ml-1 fs-md">to close</span>
                   </span>

@@ -1,6 +1,6 @@
 "use client";
 
-import { TriangleAlert } from "lucide-react";
+import { TriangleAlert } from "iconoir-react";
 
 export default function BadgeIconRightPill() {
   return (

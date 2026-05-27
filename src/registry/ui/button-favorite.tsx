@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@base-ui/react/button";
-import { Star } from "lucide-react";
+import { Star } from "iconoir-react";
 
 export default function ButtonStar() {
   return (

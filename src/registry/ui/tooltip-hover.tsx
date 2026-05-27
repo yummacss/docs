@@ -1,7 +1,7 @@
 "use client";
 
 import { Tooltip } from "@base-ui/react/tooltip";
-import { Flag } from "lucide-react";
+import { Flag } from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 
 export default function TooltipHover() {

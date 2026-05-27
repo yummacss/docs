@@ -16,7 +16,7 @@ import {
   Search,
   UsersRound,
   X,
-} from "lucide-react";
+} from "iconoir-react";
 import { useState } from "react";
 
 export default function CommandPaletteStatic() {

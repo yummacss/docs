@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronRight } from "lucide-react";
+import { ChevronRight } from "iconoir-react";
 
 export default function BreadcrumbSquircle() {
   return (

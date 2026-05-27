@@ -1,7 +1,7 @@
 "use client";
 
 import { Accordion } from "@base-ui/react/accordion";
-import { ChevronDown, Lock } from "lucide-react";
+import { ChevronDown, Lock } from "iconoir-react";
 import { type HTMLMotionProps, motion } from "motion/react";
 import { useState } from "react";
 

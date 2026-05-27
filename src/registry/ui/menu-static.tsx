@@ -1,7 +1,7 @@
 "use client";
 
 import { Menu } from "@base-ui/react/menu";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown } from "iconoir-react";
 
 export default function MenuStatic() {
   return (

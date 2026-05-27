@@ -1,6 +1,6 @@
 "use client";
 
-import { FolderX } from "lucide-react";
+import { FolderX } from "iconoir-react";
 
 export default function EmptyStateIcon() {
   return (
