@@ -1,7 +1,7 @@
 "use client";
 
 import { Popover } from "@base-ui/react/popover";
-import { BellDot } from "lucide-react";
+import { BellDot } from "iconoir-react";
 
 export default function PopoverStatic() {
   return (

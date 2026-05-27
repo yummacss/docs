@@ -1,7 +1,7 @@
 "use client";
 
 import { Collapsible } from "@base-ui/react/collapsible";
-import { CheckCheck, ChevronRight, Circle, Loader } from "lucide-react";
+import { CheckCheck, ChevronRight, Circle, Loader } from "iconoir-react";
 import { useState } from "react";
 
 export default function CollapsibleStatic() {

@@ -1,7 +1,7 @@
 "use client";
 
 import { Menu } from "@base-ui/react/menu";
-import { ArrowBigUp, ChevronDown, Command, Delete } from "lucide-react";
+import { ArrowBigUp, ChevronDown, Command, Delete } from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 

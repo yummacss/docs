@@ -1,36 +1,36 @@
 "use client";
 
 import {
-  ArrowsHorizontalIcon,
-  ArrowsVerticalIcon,
-  CursorTextIcon,
-  ExclamationMarkIcon,
-  HeartStraightIcon,
-  InfoIcon,
-  KeyboardIcon,
-  MouseLeftClickIcon,
-  ThumbsUpIcon,
-} from "@phosphor-icons/react";
+  Heart,
+  InfoCircle,
+  InputField,
+  MacOptionKey,
+  MouseButtonLeft,
+  MouseButtonRight,
+  MouseScrollWheel,
+  OpenSelectHandGesture,
+  Ruler,
+  RulerCombine,
+  WarningTriangle,
+} from "iconoir-react";
 import type { ReactNode } from "react";
 
 const icons = {
-  arrows_horizontal: ArrowsHorizontalIcon,
-  arrows_vertical: ArrowsVerticalIcon,
-  cursor_click: MouseLeftClickIcon,
-  cursor_text: CursorTextIcon,
-  cursor: MouseLeftClickIcon,
-  hand_pointing: MouseLeftClickIcon,
-  hand_swipe_right: CursorTextIcon,
-  hand_tap: MouseLeftClickIcon,
-  heart: HeartStraightIcon,
-  info: InfoIcon,
-  keyboard: KeyboardIcon,
-  mouse_left_click: MouseLeftClickIcon,
-  mouse_right_click: MouseLeftClickIcon,
-  mouse_scroll: MouseLeftClickIcon,
-  size: ThumbsUpIcon,
-  warning: ExclamationMarkIcon,
-  width: ArrowsHorizontalIcon,
+  cursor_click: OpenSelectHandGesture,
+  cursor_text: InputField,
+  cursor: OpenSelectHandGesture,
+  hand_pointing: OpenSelectHandGesture,
+  hand_swipe_right: InputField,
+  hand_tap: OpenSelectHandGesture,
+  heart: Heart,
+  info: InfoCircle,
+  keyboard: MacOptionKey,
+  mouse_left_click: MouseButtonLeft,
+  mouse_right_click: MouseButtonRight,
+  mouse_scroll: MouseScrollWheel,
+  size: RulerCombine,
+  warning: WarningTriangle,
+  width: Ruler,
 } as const;
 
 type IconName = keyof typeof icons;

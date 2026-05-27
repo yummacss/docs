@@ -1,6 +1,6 @@
 "use client";
 
-import { FileMdIcon } from "@phosphor-icons/react";
+import { FileMdIcon } from "iconoir-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 

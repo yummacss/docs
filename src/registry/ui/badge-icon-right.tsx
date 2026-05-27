@@ -1,6 +1,6 @@
 "use client";
 
-import { Sparkles } from "lucide-react";
+import { Sparkles } from "iconoir-react";
 
 export default function BadgeIconRight() {
   return (

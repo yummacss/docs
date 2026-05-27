@@ -1,7 +1,7 @@
 "use client";
 
 import { Tooltip } from "@base-ui/react/tooltip";
-import { BellDot } from "lucide-react";
+import { BellDot } from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 
 export default function TooltipSquare() {

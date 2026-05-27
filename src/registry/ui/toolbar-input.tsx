@@ -4,7 +4,7 @@ import { NumberField } from "@base-ui/react/number-field";
 import { Toggle } from "@base-ui/react/toggle";
 import { ToggleGroup } from "@base-ui/react/toggle-group";
 import { Toolbar } from "@base-ui/react/toolbar";
-import { Kanban, LayoutList, Minus, Plus, Table } from "lucide-react";
+import { Kanban, LayoutList, Minus, Plus, Table } from "iconoir-react";
 import { useState } from "react";
 
 export default function ToolbarInput() {

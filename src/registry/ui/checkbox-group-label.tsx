@@ -2,7 +2,7 @@
 
 import { Checkbox } from "@base-ui/react/checkbox";
 import { CheckboxGroup } from "@base-ui/react/checkbox-group";
-import { Check } from "lucide-react";
+import { Check } from "iconoir-react";
 import { useId } from "react";
 
 export default function CheckboxGroupLabel() {

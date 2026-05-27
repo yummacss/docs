@@ -1,6 +1,6 @@
 "use client";
 
-import { Bookmark } from "lucide-react";
+import { Bookmark } from "iconoir-react";
 
 export default function BadgeIconPill() {
   return (

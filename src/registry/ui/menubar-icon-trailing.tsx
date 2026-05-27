@@ -16,7 +16,7 @@ import {
   TextCursor,
   Timeline,
   UserRound,
-} from "lucide-react";
+} from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 

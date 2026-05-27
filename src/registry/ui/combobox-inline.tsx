@@ -2,7 +2,7 @@
 
 import { Avatar } from "@base-ui/react/avatar";
 import { Combobox } from "@base-ui/react/combobox";
-import { Check, Search, X } from "lucide-react";
+import { Check, Search, X } from "iconoir-react";
 
 function ItemIcon({
   selected,
@@ -26,7 +26,7 @@ export default function ComboboxInline() {
             <div className="p-r fg-1">
               <Combobox.Input
                 placeholder="Search team members"
-                className="h-10 pl-4 pr-10 w-100% bg-transparent c-slate-10 fs-md bw-0 fv:oo--1 fv:oc-indigo-5"
+                className="h-10 pl-4 pr-10 w-100% bg-transparent c-slate-10 bw-0 fs-md fv:oo--1 fv:oc-indigo-5"
               />
               <div className="d-f p-a r-2 b-0 ai-c jc-c h-10 c-slate-6">
                 <Combobox.Clear

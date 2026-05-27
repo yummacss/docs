@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@base-ui/react/button";
-import { Loader } from "lucide-react";
+import { Loader } from "iconoir-react";
 import { motion } from "motion/react";
 
 export default function ButtonLoading() {

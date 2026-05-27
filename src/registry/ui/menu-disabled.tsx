@@ -1,7 +1,7 @@
 "use client";
 
 import { Menu } from "@base-ui/react/menu";
-import { Lock } from "lucide-react";
+import { Lock } from "iconoir-react";
 
 export default function MenuDisabled() {
   return (

@@ -1,6 +1,6 @@
 "use client";
 
-import { DiamondsFourIcon } from "@phosphor-icons/react";
+import { ComponentSolid } from "iconoir-react";
 import Link from "next/link";
 import Navbar from "@/components/ui/navbar";
 
@@ -19,10 +19,10 @@ export default function Home() {
         <div className="w-100%" style={{ maxWidth: "72rem" }}>
           <div className="d-g g-12 ai-fe lg:gtc-2">
             <div>
-              <h1 className="mb-6 fs-4xl md:fs-5xl lg:fs-6xl fw-400 lh-2 ff-e">
+              <h1 className="mb-6 fs-4xl fw-400 lh-2 ff-e md:fs-5xl lg:fs-6xl">
                 Type less. Style more.
               </h1>
-              <p className="mb-8 c-white/70 fs-md md:fs-lg lh-5">
+              <p className="mb-8 c-white/70 fs-md lh-5 md:fs-lg">
                 The ergonomic CSS framework with abbreviated utility classes.{" "}
                 <span className="c-white fs-sm md:fs-md">d</span> not{" "}
                 <span className="c-white fs-sm md:fs-md">display</span>,{" "}
@@ -43,7 +43,7 @@ export default function Home() {
                   href="/ui/installation"
                   className="d-f ai-c g-2 px-6 py-3 c-white fw-600 fs-md us-none fv:oc-white fv:ow-2"
                 >
-                  <DiamondsFourIcon className="w-5 h-5" />
+                  <ComponentSolid className="w-5 h-5" />
                   Components
                 </Link>
               </div>

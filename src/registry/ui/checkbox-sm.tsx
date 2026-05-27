@@ -1,7 +1,7 @@
 "use client";
 
 import { Checkbox } from "@base-ui/react/checkbox";
-import { Check } from "lucide-react";
+import { Check } from "iconoir-react";
 
 export default function CheckboxSm() {
   return (

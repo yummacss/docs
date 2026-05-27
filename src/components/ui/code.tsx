@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@base-ui/react";
-import { CheckIcon, CopyIcon } from "@phosphor-icons/react";
+import { Check, Copy } from "iconoir-react";
 import { useRef, useState } from "react";
 
 interface Props {
@@ -24,8 +24,8 @@ export default function Code({ title, preview, children }: Props) {
 
   if (preview) {
     return (
-      <div className="max-h-80 oy-auto bg-surface">
-        <pre className="ff-m ox-auto px-4 py-4 lh-5">{children}</pre>
+      <div className="oy-auto max-h-80 bg-surface">
+        <pre className="ox-auto px-4 py-4 ff-m lh-5">{children}</pre>
       </div>
     );
   }
@@ -60,11 +60,7 @@ function CopyButton({
       className="d-f ai-c g-1 px-2 py-1 c-accent h:c-accent-4 fv:oc-white fv:ow-2"
       aria-label="Copy code"
     >
-      {copied ? (
-        <CheckIcon className="w-4 h-4" />
-      ) : (
-        <CopyIcon className="w-4 h-4" />
-      )}
+      {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
       <span className="fs-xs">{copied ? "Copied!" : "Copy"}</span>
     </Button>
   );

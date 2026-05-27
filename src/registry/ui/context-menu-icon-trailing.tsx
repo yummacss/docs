@@ -1,7 +1,7 @@
 "use client";
 
 import { ContextMenu } from "@base-ui/react/context-menu";
-import { Eye, Link, Pin, UserPlus } from "lucide-react";
+import { Eye, Link, Pin, UserPlus } from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 

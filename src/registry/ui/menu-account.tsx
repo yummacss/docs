@@ -5,12 +5,12 @@ import { Menu } from "@base-ui/react/menu";
 import {
   ChevronDown,
   CircleQuestionMark,
+  ClipboardCheck,
   Cog,
   Folder,
-  ClipboardCheck,
   LogOut,
   UserRound,
-} from "lucide-react";
+} from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 

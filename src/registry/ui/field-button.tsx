@@ -2,7 +2,7 @@
 
 import { Button } from "@base-ui/react/button";
 import { Field } from "@base-ui/react/field";
-import { Search } from "lucide-react";
+import { Search } from "iconoir-react";
 import type { HTMLMotionProps } from "motion/react";
 import { motion } from "motion/react";
 

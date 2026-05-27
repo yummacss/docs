@@ -1,6 +1,6 @@
 "use client";
 
-import { CheckCheck } from "lucide-react";
+import { CheckCheck } from "iconoir-react";
 
 export default function BadgeIconDotPill() {
   return (

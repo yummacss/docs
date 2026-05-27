@@ -1,5 +1,5 @@
 import { Avatar } from "@base-ui/react/avatar";
-import { CircleCheck, UserRound } from "lucide-react";
+import { CircleCheck, UserRound } from "iconoir-react";
 
 export default function AvatarSm() {
   return (

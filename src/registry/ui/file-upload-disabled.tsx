@@ -1,6 +1,6 @@
 "use client";
 
-import { CloudUpload } from "lucide-react";
+import { CloudUpload } from "iconoir-react";
 
 export default function FileUploadDisabled() {
   return (

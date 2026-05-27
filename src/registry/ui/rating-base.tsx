@@ -1,7 +1,7 @@
 "use client";
 
 import { Toggle } from "@base-ui/react/toggle";
-import { Star } from "lucide-react";
+import { Star } from "iconoir-react";
 import type { HTMLMotionProps } from "motion/react";
 import { motion } from "motion/react";
 import { useState } from "react";
@@ -19,9 +19,7 @@ export default function RatingBase() {
             <Toggle
               key={star}
               pressed={filled}
-              onPressedChange={() =>
-                setRating(star === rating ? 0 : star)
-              }
+              onPressedChange={() => setRating(star === rating ? 0 : star)}
               aria-label={`${star} star${star > 1 ? "s" : ""}`}
               className={(state) =>
                 `d-f ai-c jc-c w-9 h-9 bw-0 br-md us-none c-p fv:oo--1 fv:oc-indigo-5 ${

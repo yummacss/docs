@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@base-ui/react/button";
-import { Plus } from "lucide-react";
+import { Plus } from "iconoir-react";
 
 export default function EmptyStateActions() {
   return (

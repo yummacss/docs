@@ -1,11 +1,7 @@
 "use client";
 
-import {
-  ExclamationMarkIcon,
-  SealCheckIcon,
-  SparkleIcon,
-} from "@phosphor-icons/react";
 import { Chrome, Edge, Firefox, Safari } from "@ridemountainpig/svgl-react";
+import { CheckCircle, Sparks, WarningTriangle } from "iconoir-react";
 import data from "web-features/data.json";
 
 interface FeatureStatus {
@@ -69,11 +65,7 @@ export default function Baseline({ path }: Props) {
 
   const statusColor = isHigh ? "c-green" : isLow ? "c-green-5" : "c-yellow";
 
-  const StatusIcon = isHigh
-    ? SealCheckIcon
-    : isLow
-      ? SparkleIcon
-      : ExclamationMarkIcon;
+  const StatusIcon = isHigh ? CheckCircle : isLow ? Sparks : WarningTriangle;
 
   const support = status.support || {};
 

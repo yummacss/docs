@@ -1,9 +1,9 @@
 "use client";
 
 import { Button } from "@base-ui/react";
-import { ListIcon, MagnifyingGlassIcon, XIcon } from "@phosphor-icons/react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { clsx } from "clsx";
+import { List, Search, Xmark } from "iconoir-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { lazy, type ReactNode, Suspense, useEffect, useState } from "react";
@@ -112,7 +112,7 @@ export default function Navbar({
                 onClick={() => setSearchOpen(true)}
                 className="d-f ai-c jc-c g-2 h-8 px-3 bc-border bg-surface a:bg-surface-7 c-white bw-1 fs-sm bf-b-sm lg:px-4 fv:oc-white fv:ow-2"
               >
-                <MagnifyingGlassIcon className="w-4 h-4" />
+                <Search className="w-4 h-4" />
                 <kbd className="d-none c-white/80 fs-xs us-none lg:d-b">
                   Ctrl + K
                 </kbd>
@@ -147,7 +147,7 @@ export default function Navbar({
                   aria-label={isSidebarOpen ? "Close menu" : "Open menu"}
                 >
                   <div className="d-f p-r ai-c jc-c w-4 h-4">
-                    <ListIcon
+                    <List
                       className="p-a w-4 h-4"
                       style={{
                         opacity: isSidebarOpen ? 0 : 1,
@@ -158,7 +158,7 @@ export default function Navbar({
                           "opacity 0.2s ease-in-out, transform 0.2s ease-in-out",
                       }}
                     />
-                    <XIcon
+                    <Xmark
                       className="p-a w-4 h-4"
                       style={{
                         opacity: isSidebarOpen ? 1 : 0,

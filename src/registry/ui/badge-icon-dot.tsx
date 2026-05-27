@@ -1,6 +1,6 @@
 "use client";
 
-import { Check } from "lucide-react";
+import { Check } from "iconoir-react";
 
 export default function BadgeIconDot() {
   return (

@@ -2,7 +2,7 @@
 
 import { Field } from "@base-ui/react/field";
 import { Toggle } from "@base-ui/react/toggle";
-import { Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff } from "iconoir-react";
 import type { HTMLMotionProps } from "motion/react";
 import { motion } from "motion/react";
 

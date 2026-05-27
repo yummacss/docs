@@ -1,6 +1,6 @@
 "use client";
 
-import { EyedropperIcon } from "@phosphor-icons/react";
+import { UnionAlt } from "iconoir-react";
 import { type Category, getPrefix } from "../utils/yummacss";
 
 interface Props {
@@ -15,7 +15,7 @@ export default function OpacityModifier({ category, name }: Props) {
     <div className="mb-6 p-4 bc-border bg-surface bw-1">
       <div className="d-f ai-c g-3 mb-3">
         <div className="d-f ai-c jc-c fs-0 p-2 bg-border c-accent-dim">
-          <EyedropperIcon className="w-5 h-5" />
+          <UnionAlt className="w-5 h-5" />
         </div>
         <p className="c-white/70 fs-sm">
           Append <code className="px-1 bg-border c-code">/(opacity)</code> to

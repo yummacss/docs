@@ -1,7 +1,7 @@
 "use client";
 
 import { Tabs } from "@base-ui/react/tabs";
-import { Bug, ClipboardList, Rocket } from "lucide-react";
+import { Bug, ClipboardList, Rocket } from "iconoir-react";
 import { useState } from "react";
 
 export default function ExampleTabsIconLeading() {

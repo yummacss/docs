@@ -1,5 +1,5 @@
 import { Avatar } from "@base-ui/react/avatar";
-import { UserRound } from "lucide-react";
+import { UserRound } from "iconoir-react";
 
 export default function AvatarIconFallback() {
   return (

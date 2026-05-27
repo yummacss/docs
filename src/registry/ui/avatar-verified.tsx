@@ -1,5 +1,5 @@
 import { Avatar } from "@base-ui/react/avatar";
-import { CircleCheck } from "lucide-react";
+import { CircleCheck } from "iconoir-react";
 
 export default function AvatarVerified() {
   return (

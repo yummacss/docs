@@ -1,6 +1,6 @@
 "use client";
 
-import { BadgeCheck } from "lucide-react";
+import { BadgeCheck } from "iconoir-react";
 
 export default function BadgeLg() {
   return (

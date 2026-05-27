@@ -1,7 +1,7 @@
 "use client";
 
 import { NumberField } from "@base-ui/react/number-field";
-import { Minus, Plus } from "lucide-react";
+import { Minus, Plus } from "iconoir-react";
 import { useId } from "react";
 
 export default function NumberFieldBase() {

@@ -1,7 +1,7 @@
 "use client";
 
 import { Field } from "@base-ui/react/field";
-import { Check } from "lucide-react";
+import { Check } from "iconoir-react";
 
 export default function FieldSuccess() {
   return (

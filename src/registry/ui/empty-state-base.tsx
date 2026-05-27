@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@base-ui/react/button";
-import { Plus, UserRoundPlus } from "lucide-react";
+import { Plus, UserRoundPlus } from "iconoir-react";
 
 export default function EmptyStateBase() {
   return (

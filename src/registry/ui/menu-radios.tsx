@@ -9,7 +9,7 @@ import {
   LogOut,
   Plus,
   UserRound,
-} from "lucide-react";
+} from "iconoir-react";
 import type { HTMLMotionProps } from "motion/react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
@@ -37,7 +37,7 @@ export default function MenuRadios() {
                     transition={{ duration: 0.15, ease: "easeOut" }}
                   />
                 }
-                className="py-1 o-h bg-white bc-silver-2 c-slate-10 bw-1 br-lg bs-o-xs"
+                className="o-h py-1 bg-white bc-silver-2 c-slate-10 bw-1 br-lg bs-o-xs"
               >
                 <Menu.Item
                   render={(props) => (
@@ -107,7 +107,10 @@ export default function MenuRadios() {
                     <span className="fs-sm fw-500">Sarah</span>
                     <span className="d-f ai-c jc-c fs-0 w-3 h-3 ml-auto bc-silver-3 br-9999 bw-1">
                       <Menu.RadioItemIndicator>
-                        <Circle className="w-2 h-2 c-indigo" style={{ fill: "currentColor" }} />
+                        <Circle
+                          className="w-2 h-2 c-indigo"
+                          style={{ fill: "currentColor" }}
+                        />
                       </Menu.RadioItemIndicator>
                     </span>
                   </Menu.RadioItem>
@@ -140,7 +143,10 @@ export default function MenuRadios() {
                     <span className="fs-sm fw-500">John</span>
                     <span className="d-f ai-c jc-c fs-0 w-3 h-3 ml-auto bc-silver-3 br-9999 bw-1">
                       <Menu.RadioItemIndicator>
-                        <Circle className="w-2 h-2 c-indigo" style={{ fill: "currentColor" }} />
+                        <Circle
+                          className="w-2 h-2 c-indigo"
+                          style={{ fill: "currentColor" }}
+                        />
                       </Menu.RadioItemIndicator>
                     </span>
                   </Menu.RadioItem>

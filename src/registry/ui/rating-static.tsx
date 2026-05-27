@@ -1,7 +1,7 @@
 "use client";
 
 import { Toggle } from "@base-ui/react/toggle";
-import { Star } from "lucide-react";
+import { Star } from "iconoir-react";
 import { useState } from "react";
 
 export default function RatingStatic() {

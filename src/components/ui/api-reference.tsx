@@ -1,6 +1,6 @@
 "use client";
 
-import { LinkIcon } from "@phosphor-icons/react";
+import { Page } from "iconoir-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -17,7 +17,7 @@ export default function ApiReference() {
       rel="noopener noreferrer"
       className="d-if ai-c g-2 w-fc c-white/70 fs-sm td-none h:c-white fv:oc-white fv:ow-2"
     >
-      <LinkIcon className="w-4 h-4" />
+      <Page className="w-4 h-4" />
       API reference
     </Link>
   );

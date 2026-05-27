@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@base-ui/react/button";
-import { Paperclip } from "lucide-react";
+import { Paperclip } from "iconoir-react";
 
 export default function ButtonIconOnly() {
   return (
