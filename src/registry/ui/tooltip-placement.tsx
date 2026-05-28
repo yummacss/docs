@@ -9,7 +9,7 @@ export default function TooltipPlacement() {
       <div className="d-g gtc-2 g-3">
         {sides.map((side) => (
           <Tooltip.Root key={side}>
-            <Tooltip.Trigger className="d-f ai-c jc-c h-10 px-3 bg-white bc-silver-3 c-slate-10 bw-1 br-md fs-sm us-none c-p h:bg-silver-1 fv:oo-2 fv:oc-indigo-5">
+            <Tooltip.Trigger className="d-f ai-c jc-c h-10 px-3 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-sm us-none c-p h:bg-silver-1 fv:oo-2 fv:oc-indigo-5">
               {side.charAt(0).toUpperCase() + side.slice(1)}
             </Tooltip.Trigger>
             <Tooltip.Portal>
@@ -24,7 +24,7 @@ export default function TooltipPlacement() {
                         transition={{ duration: 0.2, ease: "easeOut" }}
                       />
                     }
-                    className="px-3 py-2 bg-white bc-silver-2 c-slate-10 bw-1 br-md fs-sm bs-o-xs us-none"
+                    className="px-3 py-2 bg-white bc-silver-2 c-slate-10 bw-1 br-lg fs-sm bs-o-xs us-none"
                   >
                     {side.charAt(0).toUpperCase() + side.slice(1)}
                   </Tooltip.Popup>
