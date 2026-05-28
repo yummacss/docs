@@ -14,7 +14,7 @@ export default function ContextMenuCheckboxes() {
 
   return (
     <ContextMenu.Root open={open} onOpenChange={setOpen}>
-      <ContextMenu.Trigger className="d-f ai-c jc-c h-48 w-60 bc-slate-3 c-slate-10 bs-d bw-1 br-lg fs-sm fw-500 us-none">
+      <ContextMenu.Trigger className="d-f ai-c jc-c h-48 w-60 bc-slate-3 c-slate-10 bs-d bw-1 br-md fs-sm fw-500 us-none">
         Right-click task
       </ContextMenu.Trigger>
 
@@ -31,7 +31,7 @@ export default function ContextMenuCheckboxes() {
                     transition={{ duration: 0.15, ease: "easeOut" }}
                   />
                 }
-                className="py-1 bg-white bc-silver-2 c-slate-10 bw-1 br-lg bs-o-xs"
+                className="py-1 bg-white bc-silver-2 c-slate-10 bw-1 br-md bs-o-xs"
               >
                 <div className="px-3 py-1 c-slate-5 fs-xs fw-500 ls-3">
                   Task options
@@ -41,7 +41,7 @@ export default function ContextMenuCheckboxes() {
                   checked={allTasks}
                   onCheckedChange={setAllTasks}
                   className={(state) =>
-                    `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
+                    `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-md mx-1 ${
                       state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                     }`
                   }
@@ -58,7 +58,7 @@ export default function ContextMenuCheckboxes() {
                   checked={assigned}
                   onCheckedChange={setAssigned}
                   className={(state) =>
-                    `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
+                    `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-md mx-1 ${
                       state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                     }`
                   }
@@ -75,7 +75,7 @@ export default function ContextMenuCheckboxes() {
                   checked={dueToday}
                   onCheckedChange={setDueToday}
                   className={(state) =>
-                    `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
+                    `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-md mx-1 ${
                       state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                     }`
                   }
@@ -94,7 +94,7 @@ export default function ContextMenuCheckboxes() {
                   checked={muted}
                   onCheckedChange={setMuted}
                   className={(state) =>
-                    `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
+                    `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-md mx-1 ${
                       state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                     }`
                   }

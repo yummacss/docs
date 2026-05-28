@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 
 export default function SkeletonCard() {
   return (
-    <div className="d-f fd-c o-h w-64 bg-white bc-silver-2 bw-1 br-lg bs-o-xs">
+    <div className="d-f o-h fd-c w-64 bg-white bc-silver-2 bw-1 br-md bs-o-xs">
       <motion.div
         animate={{ opacity: [0.5, 1, 0.5] }}
         transition={{ duration: 1, repeat: Infinity }}

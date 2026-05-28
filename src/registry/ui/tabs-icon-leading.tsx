@@ -5,7 +5,7 @@ import { Bug, Rocket, TaskList } from "iconoir-react";
 import { useState } from "react";
 
 export default function ExampleTabsIconLeading() {
-  const [selected, setSelected] = useState("plans");
+  const [selected, setSelected] = useState("planning");
 
   return (
     <Tabs.Root

@@ -9,7 +9,7 @@ export default function FieldDisabled() {
       <Field.Control
         placeholder="Enter project name"
         defaultValue="Private repo"
-        className="h-10 w-64 pl-4 c-slate-6 bc-silver-3 bw-1 br-lg fs-md"
+        className="h-10 w-64 pl-4 bc-silver-3 c-slate-6 bw-1 br-md fs-md"
       />
     </Field.Root>
   );

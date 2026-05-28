@@ -10,7 +10,7 @@ export default function ContextMenuIconTrailing() {
 
   return (
     <ContextMenu.Root open={open} onOpenChange={setOpen}>
-      <ContextMenu.Trigger className="d-f ai-c jc-c h-48 w-60 bc-slate-3 c-slate-10 bs-d bw-1 br-lg fs-sm fw-500 us-none">
+      <ContextMenu.Trigger className="d-f ai-c jc-c h-48 w-60 bc-slate-3 c-slate-10 bs-d bw-1 br-md fs-sm fw-500 us-none">
         Right-click task
       </ContextMenu.Trigger>
 
@@ -27,11 +27,11 @@ export default function ContextMenuIconTrailing() {
                     transition={{ duration: 0.15, ease: "easeOut" }}
                   />
                 }
-                className="py-1 bg-white bc-silver-2 c-slate-10 bw-1 br-lg bs-o-xs"
+                className="py-1 bg-white bc-silver-2 c-slate-10 bw-1 br-md bs-o-xs"
               >
                 <ContextMenu.Item
                   className={(state) =>
-                    `d-f ai-c jc-sb g-2 py-2 pr-3 pl-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
+                    `d-f ai-c jc-sb g-2 py-2 pr-3 pl-4 fs-sm fw-500 us-none c-p br-md mx-1 ${
                       state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                     }`
                   }
@@ -41,7 +41,7 @@ export default function ContextMenuIconTrailing() {
                 </ContextMenu.Item>
                 <ContextMenu.Item
                   className={(state) =>
-                    `d-f ai-c jc-sb g-2 py-2 pr-3 pl-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
+                    `d-f ai-c jc-sb g-2 py-2 pr-3 pl-4 fs-sm fw-500 us-none c-p br-md mx-1 ${
                       state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                     }`
                   }
@@ -51,7 +51,7 @@ export default function ContextMenuIconTrailing() {
                 </ContextMenu.Item>
                 <ContextMenu.Item
                   className={(state) =>
-                    `d-f ai-c jc-sb g-2 py-2 pr-3 pl-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
+                    `d-f ai-c jc-sb g-2 py-2 pr-3 pl-4 fs-sm fw-500 us-none c-p br-md mx-1 ${
                       state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                     }`
                   }
@@ -62,7 +62,7 @@ export default function ContextMenuIconTrailing() {
                 <ContextMenu.Separator className="my-1 w-100% h-px bg-silver-2" />
                 <ContextMenu.Item
                   className={(state) =>
-                    `d-f ai-c jc-sb g-2 py-2 pr-3 pl-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
+                    `d-f ai-c jc-sb g-2 py-2 pr-3 pl-4 fs-sm fw-500 us-none c-p br-md mx-1 ${
                       state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                     }`
                   }

@@ -11,7 +11,7 @@ export default function TextareaDisabled() {
         placeholder="Please provide your reason..."
         aria-label="Please provide your reason"
         defaultValue="Switching to a different tool."
-        className="h-24 w-64 pt-3 pl-3 bc-silver-3 c-slate-6 bw-1 br-lg fs-md r-none"
+        className="h-24 w-64 pt-3 pl-3 bc-silver-3 c-slate-6 bw-1 br-md fs-md r-none"
       />
     </Field.Root>
   );

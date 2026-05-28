@@ -35,7 +35,7 @@ export default function PopoverArrow() {
                     className="p-r"
                   />
                 }
-                className="px-4 py-3 w-60 bg-white bc-silver-2 c-slate-10 bw-1 br-lg bs-o-xs"
+                className="px-4 py-3 w-60 bg-white bc-silver-2 c-slate-10 bw-1 br-md bs-o-xs"
               >
                 <svg
                   viewBox="0 0 10 5"

@@ -12,11 +12,11 @@ export default function MenubarNested() {
   const [columnOpen, setColumnOpen] = useState(false);
 
   return (
-    <Menubar className="d-f g-1 p-1 bg-white bc-silver-2 br-lg bw-1">
+    <Menubar className="d-f g-1 p-1 bg-white bc-silver-2 br-md bw-1">
       <Menu.Root open={projectOpen} onOpenChange={setProjectOpen}>
         <Menu.Trigger
           className={(state) =>
-            `h-8 br-lg px-3 fs-sm fw-500 c-slate-10 us-none c-p bw-0 bg-transparent ${
+            `h-8 br-md px-3 fs-sm fw-500 c-slate-10 us-none c-p bw-0 bg-transparent ${
               state.open ? "bg-silver-1/50" : "bg-transparent"
             }`
           }
@@ -36,12 +36,12 @@ export default function MenubarNested() {
                       transition={{ duration: 0.15, ease: "easeOut" }}
                     />
                   }
-                  className="py-1 bg-white bc-silver-2 c-slate-10 br-lg bw-1 bs-o-xs"
+                  className="py-1 bg-white bc-silver-2 c-slate-10 br-md bw-1 bs-o-xs"
                 >
                   <Menu.SubmenuRoot>
                     <Menu.SubmenuTrigger
                       className={(state) =>
-                        `d-f ai-c jc-sb g-2 py-2 pl-3 pr-3 fs-sm fw-500 us-none c-p br-lg mx-1 ${
+                        `d-f ai-c jc-sb g-2 py-2 pl-3 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${
                           state.highlighted
                             ? "bg-silver-1/50"
                             : "bg-transparent"
@@ -58,12 +58,12 @@ export default function MenubarNested() {
                         sideOffset={-4}
                         alignOffset={-4}
                       >
-                        <Menu.Popup className="py-1 w-fc bg-white bc-silver-2 c-slate-10 bw-1 br-lg bs-o-xs">
+                        <Menu.Popup className="py-1 w-fc bg-white bc-silver-2 c-slate-10 bw-1 br-md bs-o-xs">
                           {sprints.map((sprint) => (
                             <Menu.Item
                               key={sprint.name}
                               className={(state) =>
-                                `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
+                                `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-md mx-1 ${
                                   state.highlighted
                                     ? "bg-silver-1/50"
                                     : "bg-transparent"
@@ -81,7 +81,7 @@ export default function MenubarNested() {
                   <Menu.SubmenuRoot>
                     <Menu.SubmenuTrigger
                       className={(state) =>
-                        `d-f ai-c jc-sb g-2 py-2 pl-3 pr-3 fs-sm fw-500 us-none c-p br-lg mx-1 ${
+                        `d-f ai-c jc-sb g-2 py-2 pl-3 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${
                           state.highlighted
                             ? "bg-silver-1/50"
                             : "bg-transparent"
@@ -98,12 +98,12 @@ export default function MenubarNested() {
                         sideOffset={-4}
                         alignOffset={-4}
                       >
-                        <Menu.Popup className="py-1 w-fc bg-white bc-silver-2 c-slate-10 bw-1 br-lg bs-o-xs">
+                        <Menu.Popup className="py-1 w-fc bg-white bc-silver-2 c-slate-10 bw-1 br-md bs-o-xs">
                           {priorities.map((priority) => (
                             <Menu.Item
                               key={priority.name}
                               className={(state) =>
-                                `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
+                                `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-md mx-1 ${
                                   state.highlighted
                                     ? "bg-silver-1/50"
                                     : "bg-transparent"
@@ -125,7 +125,7 @@ export default function MenubarNested() {
 
                   <Menu.Item
                     className={(state) =>
-                      `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
+                      `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-md mx-1 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
@@ -134,7 +134,7 @@ export default function MenubarNested() {
                   </Menu.Item>
                   <Menu.Item
                     className={(state) =>
-                      `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
+                      `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-md mx-1 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
@@ -151,7 +151,7 @@ export default function MenubarNested() {
       <Menu.Root open={taskOpen} onOpenChange={setTaskOpen}>
         <Menu.Trigger
           className={(state) =>
-            `h-8 br-lg px-3 fs-sm fw-500 c-slate-10 us-none c-p bw-0 bg-transparent ${
+            `h-8 br-md px-3 fs-sm fw-500 c-slate-10 us-none c-p bw-0 bg-transparent ${
               state.open ? "bg-silver-1/50" : "bg-transparent"
             }`
           }
@@ -171,11 +171,11 @@ export default function MenubarNested() {
                       transition={{ duration: 0.15, ease: "easeOut" }}
                     />
                   }
-                  className="py-1 bg-white bc-silver-2 c-slate-10 br-lg bw-1 bs-o-xs"
+                  className="py-1 bg-white bc-silver-2 c-slate-10 br-md bw-1 bs-o-xs"
                 >
                   <Menu.Item
                     className={(state) =>
-                      `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
+                      `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-md mx-1 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
@@ -184,7 +184,7 @@ export default function MenubarNested() {
                   </Menu.Item>
                   <Menu.Item
                     className={(state) =>
-                      `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
+                      `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-md mx-1 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
@@ -193,7 +193,7 @@ export default function MenubarNested() {
                   </Menu.Item>
                   <Menu.Item
                     className={(state) =>
-                      `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
+                      `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-md mx-1 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
@@ -203,7 +203,7 @@ export default function MenubarNested() {
                   <Menu.Separator className="my-1 w-100% h-px bg-silver-2" />
                   <Menu.Item
                     className={(state) =>
-                      `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
+                      `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-md mx-1 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
@@ -220,7 +220,7 @@ export default function MenubarNested() {
       <Menu.Root open={columnOpen} onOpenChange={setColumnOpen}>
         <Menu.Trigger
           className={(state) =>
-            `h-8 br-lg px-3 fs-sm fw-500 c-slate-10 us-none c-p bw-0 bg-transparent ${
+            `h-8 br-md px-3 fs-sm fw-500 c-slate-10 us-none c-p bw-0 bg-transparent ${
               state.open ? "bg-silver-1/50" : "bg-transparent"
             }`
           }
@@ -240,11 +240,11 @@ export default function MenubarNested() {
                       transition={{ duration: 0.15, ease: "easeOut" }}
                     />
                   }
-                  className="py-1 bg-white bc-silver-2 c-slate-10 br-lg bw-1 bs-o-xs"
+                  className="py-1 bg-white bc-silver-2 c-slate-10 br-md bw-1 bs-o-xs"
                 >
                   <Menu.Item
                     className={(state) =>
-                      `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
+                      `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-md mx-1 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
@@ -253,7 +253,7 @@ export default function MenubarNested() {
                   </Menu.Item>
                   <Menu.Item
                     className={(state) =>
-                      `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
+                      `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-md mx-1 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
@@ -262,7 +262,7 @@ export default function MenubarNested() {
                   </Menu.Item>
                   <Menu.Item
                     className={(state) =>
-                      `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
+                      `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-md mx-1 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
@@ -272,7 +272,7 @@ export default function MenubarNested() {
                   <Menu.Separator className="my-1 w-100% h-px bg-silver-2" />
                   <Menu.Item
                     className={(state) =>
-                      `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
+                      `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-md mx-1 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }

@@ -20,7 +20,7 @@ export default function SelectGrouped() {
       <Select.Root defaultValue={null} open={open} onOpenChange={setOpen}>
         <Select.Trigger
           id="select-grouped"
-          className={`d-f ai-c jc-sb h-10 w-64 bw-1 bc-silver-3 br-lg bg-white px-3 c-slate-10 us-none c-p bs-o-xs fv:oo--1 fv:oc-indigo-5 ${
+          className={`d-f ai-c jc-sb h-10 w-64 bw-1 bc-silver-3 br-md bg-white px-3 c-slate-10 us-none c-p bs-o-xs fv:oo--1 fv:oc-indigo-5 ${
             open ? "bg-silver-1/50" : "bg-transparent"
           }`}
         >
@@ -54,7 +54,7 @@ export default function SelectGrouped() {
                       transition={{ duration: 0.15, ease: "easeOut" }}
                     />
                   }
-                  className="py-1 w-64 bg-white bc-silver-2 bw-1 br-lg bs-o-xs"
+                  className="py-1 w-64 bg-white bc-silver-2 bw-1 br-md bs-o-xs"
                 >
                   <Select.List className="p-r o-auto">
                     {categories.map((group, groupIndex) => (
@@ -64,7 +64,7 @@ export default function SelectGrouped() {
                             key={value}
                             value={value}
                             className={(state) =>
-                              `d-f ai-c g-2 py-2 px-3 fs-sm us-none c-p br-lg mx-1 c-slate-10 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                              `d-f ai-c g-2 py-2 px-3 fs-sm us-none c-p br-md mx-1 c-slate-10 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
                             }
                           >
                             <Select.ItemIndicator className="d-f ai-c">
