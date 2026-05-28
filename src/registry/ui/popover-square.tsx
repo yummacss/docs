@@ -1,7 +1,7 @@
 "use client";
 
 import { Popover } from "@base-ui/react/popover";
-import { BellDot } from "iconoir-react";
+import { BellNotification } from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -15,7 +15,7 @@ export default function PopoverSquare() {
           open ? "bg-silver-1" : ""
         }`}
       >
-        <BellDot aria-label="Notifications" className="w-5 h-5" />
+        <BellNotification aria-label="Notifications" className="w-5 h-5" />
       </Popover.Trigger>
       <AnimatePresence>
         {open && (

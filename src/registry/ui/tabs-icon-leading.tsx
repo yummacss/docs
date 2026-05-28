@@ -1,7 +1,7 @@
 "use client";
 
 import { Tabs } from "@base-ui/react/tabs";
-import { Bug, ClipboardList, Rocket } from "iconoir-react";
+import { Bug, Rocket, TaskList } from "iconoir-react";
 import { useState } from "react";
 
 export default function ExampleTabsIconLeading() {
@@ -45,7 +45,7 @@ export default function ExampleTabsIconLeading() {
 }
 
 const tabs = [
-  { value: "planning", label: "Planning", icon: ClipboardList },
+  { value: "planning", label: "Planning", icon: TaskList },
   { value: "testing", label: "Testing", icon: Bug },
   { value: "live", label: "Live", icon: Rocket },
 ];

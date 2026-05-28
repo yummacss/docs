@@ -2,7 +2,7 @@
 
 import { Button } from "@base-ui/react/button";
 import { Toggle } from "@base-ui/react/toggle";
-import { Moon, Sun } from "iconoir-react";
+import { HalfMoon, SunLight } from "iconoir-react";
 import type { ButtonHTMLAttributes } from "react";
 
 export default function ToggleStatic() {
@@ -19,9 +19,9 @@ export default function ToggleStatic() {
       render={(props, state) => (
         <Button {...(props as ButtonHTMLAttributes<HTMLButtonElement>)}>
           {state.pressed ? (
-            <Moon className="w-5 h-5" />
+            <HalfMoon className="w-5 h-5" />
           ) : (
-            <Sun className="w-5 h-5" />
+            <SunLight className="w-5 h-5" />
           )}
         </Button>
       )}

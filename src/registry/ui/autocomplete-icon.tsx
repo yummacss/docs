@@ -2,13 +2,12 @@
 
 import { Autocomplete } from "@base-ui/react/autocomplete";
 import {
-  BellDot,
-  CircleQuestionMark,
+  BellNotification,
   Globe,
+  HelpCircle,
   Key,
   Search,
-  UserRoundCog,
-  UserRoundKey,
+  Wrench,
 } from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 import { type ComponentType, useState } from "react";
@@ -85,10 +84,10 @@ type Setting = {
 };
 
 const settings: Setting[] = [
-  { label: "Account Settings", icon: UserRoundCog },
+  { label: "Account Settings", icon: Wrench },
   { label: "Privacy & Security", icon: Key },
-  { label: "Notifications", icon: BellDot },
+  { label: "Notifications", icon: BellNotification },
   { label: "Language & Region", icon: Globe },
-  { label: "Blocked Accounts", icon: UserRoundKey },
-  { label: "Help Center", icon: CircleQuestionMark },
+  { label: "Blocked Accounts", icon: Key },
+  { label: "Help Center", icon: HelpCircle },
 ];

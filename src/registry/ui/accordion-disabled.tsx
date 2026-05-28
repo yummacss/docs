@@ -1,7 +1,7 @@
 "use client";
 
 import { Accordion } from "@base-ui/react/accordion";
-import { ChevronDown, Lock } from "iconoir-react";
+import { Lock, NavArrowDown } from "iconoir-react";
 import { type HTMLMotionProps, motion } from "motion/react";
 import { useState } from "react";
 
@@ -47,7 +47,7 @@ export default function AccordionDisabled() {
                   transition={{ duration: 0.15, ease: "easeInOut" }}
                   className="d-f"
                 >
-                  <ChevronDown
+                  <NavArrowDown
                     className={`fs-0 w-4 h-4 ${
                       isDisabled ? "c-slate-4/50" : "c-slate-6"
                     }`}

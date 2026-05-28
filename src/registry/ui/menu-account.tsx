@@ -3,13 +3,13 @@
 import { Avatar } from "@base-ui/react/avatar";
 import { Menu } from "@base-ui/react/menu";
 import {
-  ChevronDown,
-  CircleQuestionMark,
   ClipboardCheck,
-  Cog,
   Folder,
+  HelpCircle,
   LogOut,
-  UserRound,
+  NavArrowDown,
+  User,
+  Wrench,
 } from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
@@ -31,7 +31,7 @@ export default function MenuAccount() {
           </Avatar.Fallback>
         </Avatar.Root>
         <span className="fs-sm fw-500">Sarah</span>
-        <ChevronDown className="w-3 h-3" />
+        <NavArrowDown className="w-3 h-3" />
       </Menu.Trigger>
 
       <AnimatePresence>
@@ -56,7 +56,7 @@ export default function MenuAccount() {
                     }`
                   }
                 >
-                  <UserRound className="fs-0 w-4 h-4 c-slate-5" />
+                  <User className="fs-0 w-4 h-4 c-slate-5" />
                   View profile
                 </Menu.Item>
                 <Menu.Item
@@ -86,7 +86,7 @@ export default function MenuAccount() {
                     }`
                   }
                 >
-                  <Cog className="fs-0 w-4 h-4 c-slate-5" />
+                  <Wrench className="fs-0 w-4 h-4 c-slate-5" />
                   Settings
                 </Menu.Item>
                 <Menu.Item
@@ -96,7 +96,7 @@ export default function MenuAccount() {
                     }`
                   }
                 >
-                  <CircleQuestionMark className="fs-0 w-4 h-4 c-slate-5" />
+                  <HelpCircle className="fs-0 w-4 h-4 c-slate-5" />
                   Help
                 </Menu.Item>
                 <Menu.Separator className="my-1 w-100% h-px bg-silver-2" />

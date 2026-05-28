@@ -2,9 +2,9 @@
 
 import { Radio } from "@base-ui/react/radio";
 import { RadioGroup } from "@base-ui/react/radio-group";
+import type { HTMLMotionProps } from "motion/react";
 import { motion } from "motion/react";
 import { useId } from "react";
-import type { HTMLMotionProps } from "motion/react";
 
 export default function RadioBase() {
   const id = useId();
@@ -22,7 +22,7 @@ export default function RadioBase() {
               state.checked ? "bg-indigo" : "bg-white bw-1 bc-silver-3"
             } fv:oo-2 fv:oc-indigo-5`
           }
-          render={(props, state) => (
+          render={(props, _) => (
             <motion.span
               {...(props as HTMLMotionProps<"span">)}
               whileTap={{ scale: 0.9 }}
@@ -47,7 +47,7 @@ export default function RadioBase() {
               state.checked ? "bg-indigo" : "bg-white bw-1 bc-silver-3"
             } fv:oo-2 fv:oc-indigo-5`
           }
-          render={(props, state) => (
+          render={(props, _) => (
             <motion.span
               {...(props as HTMLMotionProps<"span">)}
               whileTap={{ scale: 0.9 }}
@@ -72,7 +72,7 @@ export default function RadioBase() {
               state.checked ? "bg-indigo" : "bg-white bw-1 bc-silver-3"
             } fv:oo-2 fv:oc-indigo-5`
           }
-          render={(props, state) => (
+          render={(props, _) => (
             <motion.span
               {...(props as HTMLMotionProps<"span">)}
               whileTap={{ scale: 0.9 }}

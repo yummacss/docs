@@ -3,7 +3,7 @@
 import { Avatar } from "@base-ui/react/avatar";
 import { Button } from "@base-ui/react/button";
 import { Dialog } from "@base-ui/react/dialog";
-import { X } from "iconoir-react";
+import { Xmark } from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -58,7 +58,7 @@ export default function DialogNested() {
                     <Button className="d-f p-a r-3 t-3 ai-c jc-c w-7 h-7 p-0 c-slate-6 bw-0 br-md h:bg-silver-1/50 h:c-slate-7 fv:oo-2 fv:oc-indigo-5" />
                   }
                 >
-                  <X aria-hidden className="w-5 h-5" />
+                  <Xmark aria-hidden className="w-5 h-5" />
                 </Dialog.Close>
                 <div className="d-f fd-c g-3 px-4 py-5 bg-white">
                   <Dialog.Title className="pb-2 c-slate-10 fs-md fw-500">
@@ -120,7 +120,7 @@ export default function DialogNested() {
                                       <Button className="d-f p-a r-3 t-3 ai-c jc-c w-7 h-7 p-0 c-slate-6 bw-0 br-md h:bg-silver-1/50 h:c-slate-7 fv:oo-2 fv:oc-indigo-5" />
                                     }
                                   >
-                                    <X aria-hidden className="w-5 h-5" />
+                                    <Xmark aria-hidden className="w-5 h-5" />
                                   </Dialog.Close>
                                   <div className="d-f fd-c ai-c g-3 px-4 py-5 bg-white">
                                     <div className="d-if p-r">
@@ -135,7 +135,7 @@ export default function DialogNested() {
                                         </Avatar.Fallback>
                                       </Avatar.Root>
                                       <div className="d-f p-a b-0 r-0 ai-c jc-c w-4 h-4 bg-white br-9999">
-                                        <X className="w-3 h-3 c-red" />
+                                        <Xmark className="w-3 h-3 c-red" />
                                       </div>
                                     </div>
                                     <div className="d-f fd-c ta-c">

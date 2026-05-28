@@ -3,14 +3,14 @@
 import { Avatar } from "@base-ui/react/avatar";
 import { Menu } from "@base-ui/react/menu";
 import {
-  ChevronDown,
-  ChevronRight,
-  CircleQuestionMark,
   ClipboardCheck,
-  Cog,
   Folder,
+  HelpCircle,
   LogOut,
-  UserRound,
+  NavArrowDown,
+  NavArrowRight,
+  User,
+  Wrench,
 } from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
@@ -35,7 +35,7 @@ export default function MenuAccountStatus() {
           <span className="p-a b-0 r-0 w-2 h-2 bg-mint bc-white br-9999 bw-1" />
         </div>
         <span className="fs-sm fw-500">Sarah</span>
-        <ChevronDown className="w-3 h-3" />
+        <NavArrowDown className="w-3 h-3" />
       </Menu.Trigger>
 
       <AnimatePresence>
@@ -60,7 +60,7 @@ export default function MenuAccountStatus() {
                     }`
                   }
                 >
-                  <UserRound className="fs-0 w-4 h-4 c-slate-5" />
+                  <User className="fs-0 w-4 h-4 c-slate-5" />
                   View profile
                 </Menu.Item>
                 <Menu.Item
@@ -90,7 +90,7 @@ export default function MenuAccountStatus() {
                     }`
                   }
                 >
-                  <Cog className="fs-0 w-4 h-4 c-slate-5" />
+                  <Wrench className="fs-0 w-4 h-4 c-slate-5" />
                   Settings
                 </Menu.Item>
                 <Menu.Item
@@ -100,7 +100,7 @@ export default function MenuAccountStatus() {
                     }`
                   }
                 >
-                  <CircleQuestionMark className="fs-0 w-4 h-4 c-slate-5" />
+                  <HelpCircle className="fs-0 w-4 h-4 c-slate-5" />
                   Help
                 </Menu.Item>
                 <Menu.Separator className="my-1 w-100% h-px bg-silver-2" />
@@ -118,7 +118,7 @@ export default function MenuAccountStatus() {
                       </span>
                       Online
                     </span>
-                    <ChevronRight className="fs-0 w-3 h-3 c-slate-5" />
+                    <NavArrowRight className="fs-0 w-3 h-3 c-slate-5" />
                   </Menu.SubmenuTrigger>
                   <Menu.Portal>
                     <Menu.Positioner sideOffset={-4} alignOffset={-4}>

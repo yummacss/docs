@@ -4,7 +4,7 @@ import { Button } from "@base-ui/react/button";
 import { Dialog } from "@base-ui/react/dialog";
 import { Field } from "@base-ui/react/field";
 import { Select } from "@base-ui/react/select";
-import { Check, ChevronsUpDown, X } from "iconoir-react";
+import { ArrowSeparateVertical, Check, Xmark } from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -53,7 +53,7 @@ export default function DialogSendInvite() {
                     <Button className="d-f p-a r-3 t-3 ai-c jc-c w-7 h-7 p-0 c-slate-6 bw-0 br-md h:bg-silver-1/50 h:c-slate-7 fv:oo-2 fv:oc-indigo-5" />
                   }
                 >
-                  <X aria-hidden className="w-5 h-5" />
+                  <Xmark aria-hidden className="w-5 h-5" />
                 </Dialog.Close>
                 <div className="d-f fd-c g-4 px-4 py-5 bg-white">
                   <Dialog.Title className="c-slate-10 fs-md fw-500">
@@ -90,7 +90,7 @@ export default function DialogSendInvite() {
                           }
                         </Select.Value>
                         <Select.Icon className="d-f c-slate-8">
-                          <ChevronsUpDown className="w-4 h-4" />
+                          <ArrowSeparateVertical className="w-4 h-4" />
                         </Select.Icon>
                       </Select.Trigger>
                       <AnimatePresence>

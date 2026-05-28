@@ -1,7 +1,7 @@
 "use client";
 
 import { Accordion } from "@base-ui/react/accordion";
-import { ChevronDown } from "iconoir-react";
+import { NavArrowDown } from "iconoir-react";
 import { type HTMLMotionProps, motion } from "motion/react";
 import { useState } from "react";
 
@@ -31,7 +31,10 @@ export default function AccordionMultiple() {
                   transition={{ duration: 0.15, ease: "easeInOut" }}
                   className="d-f"
                 >
-                  <ChevronDown className="fs-0 w-4 h-4 c-slate-6" aria-hidden />
+                  <NavArrowDown
+                    className="fs-0 w-4 h-4 c-slate-6"
+                    aria-hidden
+                  />
                 </motion.span>
               </Accordion.Trigger>
             </Accordion.Header>

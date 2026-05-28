@@ -5,7 +5,7 @@ import { Avatar } from "@base-ui/react/avatar";
 import { Button } from "@base-ui/react/button";
 import { Dialog } from "@base-ui/react/dialog";
 import { Field } from "@base-ui/react/field";
-import { Pencil, X } from "iconoir-react";
+import { EditPencil, Xmark } from "iconoir-react";
 import type { HTMLMotionProps } from "motion/react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
@@ -64,7 +64,7 @@ export default function DialogEditProfile() {
                       whileTap={{ scale: 0.9 }}
                       transition={{ duration: 0.2, ease: "easeOut" }}
                     >
-                      <X aria-hidden className="w-5 h-5" />
+                      <Xmark aria-hidden className="w-5 h-5" />
                     </motion.button>
                   )}
                 />
@@ -91,7 +91,7 @@ export default function DialogEditProfile() {
                             whileTap={{ scale: 0.9 }}
                             transition={{ duration: 0.2, ease: "easeOut" }}
                           >
-                            <Pencil className="fs-0 w-3 h-3 c-slate-6" />
+                            <EditPencil className="fs-0 w-3 h-3 c-slate-6" />
                           </motion.button>
                         )}
                       />

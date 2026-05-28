@@ -6,10 +6,10 @@ import { Tabs } from "@base-ui/react/tabs";
 import {
   ArrowLeft,
   ArrowRight,
-  PartyPopper,
   Rocket,
-  UsersRound,
-  X,
+  Sparks,
+  User,
+  Xmark,
 } from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
@@ -96,7 +96,7 @@ export default function OnboardingBase() {
                     <Button className="d-f p-a r-3 t-3 ai-c jc-c w-7 h-7 c-slate-6 bw-0 br-md h:bg-silver-2 fv:oo-2 fv:oc-indigo-5" />
                   }
                 >
-                  <X aria-hidden className="w-4 h-4" />
+                  <Xmark aria-hidden className="w-4 h-4" />
                 </Dialog.Close>
                 <div className="px-8 pt-10 pb-6">
                   <div className="d-f o-h fd-c ai-c jc-c h-48 ta-c">
@@ -180,14 +180,14 @@ export default function OnboardingBase() {
 const items = [
   {
     value: "welcome",
-    icon: PartyPopper,
+    icon: Sparks,
     title: "Welcome to the team",
     description:
       "Great to have you on board! Have a look at your projects, work with your team and make your ideas real.",
   },
   {
     value: "team",
-    icon: UsersRound,
+    icon: User,
     title: "Connect with your team",
     description:
       "Browse member directories, join channels, and see what everyone's working on in real time.",

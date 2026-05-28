@@ -1,7 +1,12 @@
 "use client";
 
 import { Collapsible } from "@base-ui/react/collapsible";
-import { CheckCheck, ChevronRight, Circle, Loader } from "iconoir-react";
+import {
+  Circle,
+  DoubleCheck,
+  NavArrowRight,
+  SystemRestart,
+} from "iconoir-react";
 import { useState } from "react";
 
 export default function CollapsibleStatic() {
@@ -15,7 +20,7 @@ export default function CollapsibleStatic() {
     >
       <Collapsible.Trigger className="d-f ai-c jc-sb g-3 w-100% py-3 px-3 bg-white bc-silver-3 bbw-1 ta-l c-p h:bg-silver-1/50">
         <span className="c-slate-8 fs-sm fw-500">Implement user dashboard</span>
-        <ChevronRight
+        <NavArrowRight
           className={`w-4 h-4 c-slate-5 tp-t tdu-150 ttf-io ${open ? "ro-90" : "ro-0"}`}
         />
       </Collapsible.Trigger>
@@ -27,9 +32,9 @@ export default function CollapsibleStatic() {
           {tasks.map((task) => (
             <div key={task.id} className="d-f ai-c g-2 py-2">
               {task.status === "done" ? (
-                <CheckCheck className="w-4 h-4 c-mint" />
+                <DoubleCheck className="w-4 h-4 c-mint" />
               ) : task.status === "in-progress" ? (
-                <Loader className="w-4 h-4 c-yellow" />
+                <SystemRestart className="w-4 h-4 c-yellow" />
               ) : (
                 <Circle className="w-4 h-4 c-slate-4" />
               )}

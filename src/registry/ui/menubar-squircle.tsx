@@ -163,7 +163,7 @@ export default function MenubarSquircle() {
                       `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p mx-1 br-xxl cs-s fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
                     }
                   >
-                    Timeline view
+                    KeyframesCoupleSolid view
                   </Menu.Item>
                 </Menu.Popup>
               </Menu.Positioner>

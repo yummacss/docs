@@ -14,7 +14,7 @@ export default function MenubarStatic() {
             }`
           }
         >
-          File
+          Page
         </Menu.Trigger>
         <Menu.Portal>
           <Menu.Positioner className="ow-0" sideOffset={8}>

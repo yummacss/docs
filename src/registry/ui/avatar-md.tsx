@@ -1,5 +1,5 @@
 import { Avatar } from "@base-ui/react/avatar";
-import { CircleCheck, UserRound } from "iconoir-react";
+import { CheckCircle, User } from "iconoir-react";
 
 export default function AvatarMd() {
   return (
@@ -24,13 +24,13 @@ export default function AvatarMd() {
           />
         </Avatar.Root>
         <span className="d-f p-a b-0 r-0 ai-c jc-c w-3 h-3 bg-white bc-white br-9999 bw-1">
-          <CircleCheck className="w-100% h-100% c-indigo" />
+          <CheckCircle className="w-100% h-100% c-indigo" />
         </span>
       </div>
 
       <Avatar.Root className="d-if o-h ai-c jc-c w-10 h-10 bg-indigo-2 br-9999 va-m us-none">
         <Avatar.Fallback className="d-f ai-c jc-c w-100% h-100% c-indigo">
-          <UserRound className="w-5 h-5" />
+          <User className="w-5 h-5" />
         </Avatar.Fallback>
       </Avatar.Root>
 

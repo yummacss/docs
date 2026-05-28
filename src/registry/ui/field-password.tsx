@@ -2,7 +2,7 @@
 
 import { Field } from "@base-ui/react/field";
 import { Toggle } from "@base-ui/react/toggle";
-import { Eye, EyeOff } from "iconoir-react";
+import { Eye, EyeClosed } from "iconoir-react";
 import type { HTMLMotionProps } from "motion/react";
 import { motion } from "motion/react";
 
@@ -31,7 +31,7 @@ export default function FieldPassword() {
                 transition={{ duration: 0.2, ease: "easeOut" }}
               >
                 {state.pressed ? (
-                  <EyeOff className="w-4 h-4" />
+                  <EyeClosed className="w-4 h-4" />
                 ) : (
                   <Eye className="w-4 h-4" />
                 )}

@@ -1,6 +1,6 @@
 "use client";
 
-import { Bell, Folder, LayoutDashboard, UsersRound } from "iconoir-react";
+import { Bell, DashboardDots, Folder, User } from "iconoir-react";
 
 export default function BreadcrumbIcons() {
   return (
@@ -9,7 +9,7 @@ export default function BreadcrumbIcons() {
         href="#"
         className="d-f ai-c g-2 c-slate-6 h:c-slate-10 fv:oo-2 fv:oc-indigo-5"
       >
-        <LayoutDashboard className="w-5 h-5" />
+        <DashboardDots className="w-5 h-5" />
         <span className="fs-sm fw-400">Overview</span>
       </a>
       <span className="c-slate-4" aria-hidden="true">
@@ -19,7 +19,7 @@ export default function BreadcrumbIcons() {
         href="#"
         className="d-f ai-c g-2 c-slate-6 h:c-slate-10 fv:oo-2 fv:oc-indigo-5"
       >
-        <UsersRound className="w-5 h-5" />
+        <User className="w-5 h-5" />
         <span className="fs-sm fw-400">Members</span>
       </a>
       <span className="c-slate-4" aria-hidden="true">

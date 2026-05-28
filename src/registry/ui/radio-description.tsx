@@ -2,8 +2,8 @@
 
 import { Radio } from "@base-ui/react/radio";
 import { RadioGroup } from "@base-ui/react/radio-group";
-import { motion } from "motion/react";
 import type { HTMLMotionProps } from "motion/react";
+import { motion } from "motion/react";
 
 export default function RadioDescriptions() {
   return (
@@ -17,19 +17,19 @@ export default function RadioDescriptions() {
                 state.checked ? "bg-indigo" : "bg-white bw-1 bc-silver-3"
               } fv:oo-2 fv:oc-indigo-5`
             }
-          render={(props, state) => (
-            <motion.span
-              {...(props as HTMLMotionProps<"span">)}
-              whileTap={{ scale: 0.9 }}
-              transition={{ duration: 0.2, ease: "easeOut" }}
-            >
-              <Radio.Indicator
-                className={(state) =>
-                  state.checked ? "w-2 h-2 br-9999 bg-white" : "d-none"
-                }
-              />
-            </motion.span>
-          )}
+            render={(props, _) => (
+              <motion.span
+                {...(props as HTMLMotionProps<"span">)}
+                whileTap={{ scale: 0.9 }}
+                transition={{ duration: 0.2, ease: "easeOut" }}
+              >
+                <Radio.Indicator
+                  className={(state) =>
+                    state.checked ? "w-2 h-2 br-9999 bg-white" : "d-none"
+                  }
+                />
+              </motion.span>
+            )}
           />
           <span>Free plan</span>
         </div>
@@ -45,19 +45,19 @@ export default function RadioDescriptions() {
                 state.checked ? "bg-indigo" : "bg-white bw-1 bc-silver-3"
               } fv:oo-2 fv:oc-indigo-5`
             }
-          render={(props, state) => (
-            <motion.span
-              {...(props as HTMLMotionProps<"span">)}
-              whileTap={{ scale: 0.9 }}
-              transition={{ duration: 0.2, ease: "easeOut" }}
-            >
-              <Radio.Indicator
-                className={(state) =>
-                  state.checked ? "w-2 h-2 br-9999 bg-white" : "d-none"
-                }
-              />
-            </motion.span>
-          )}
+            render={(props, _) => (
+              <motion.span
+                {...(props as HTMLMotionProps<"span">)}
+                whileTap={{ scale: 0.9 }}
+                transition={{ duration: 0.2, ease: "easeOut" }}
+              >
+                <Radio.Indicator
+                  className={(state) =>
+                    state.checked ? "w-2 h-2 br-9999 bg-white" : "d-none"
+                  }
+                />
+              </motion.span>
+            )}
           />
           <span>Pro plan</span>
         </div>
@@ -73,19 +73,19 @@ export default function RadioDescriptions() {
                 state.checked ? "bg-indigo" : "bg-white bw-1 bc-silver-3"
               } fv:oo-2 fv:oc-indigo-5`
             }
-          render={(props, state) => (
-            <motion.span
-              {...(props as HTMLMotionProps<"span">)}
-              whileTap={{ scale: 0.9 }}
-              transition={{ duration: 0.2, ease: "easeOut" }}
-            >
-              <Radio.Indicator
-                className={(state) =>
-                  state.checked ? "w-2 h-2 br-9999 bg-white" : "d-none"
-                }
-              />
-            </motion.span>
-          )}
+            render={(props, _) => (
+              <motion.span
+                {...(props as HTMLMotionProps<"span">)}
+                whileTap={{ scale: 0.9 }}
+                transition={{ duration: 0.2, ease: "easeOut" }}
+              >
+                <Radio.Indicator
+                  className={(state) =>
+                    state.checked ? "w-2 h-2 br-9999 bg-white" : "d-none"
+                  }
+                />
+              </motion.span>
+            )}
           />
           <span>Max plan</span>
         </div>
