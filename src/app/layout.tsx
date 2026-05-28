@@ -22,8 +22,8 @@ export const metadata: Metadata = {
   ],
   icons: {
     apple: "/apple-touch-icon.png",
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
   },
   metadataBase: new URL("https://yummacss.com"),
   openGraph: {
