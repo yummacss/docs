@@ -29,7 +29,7 @@ export default function PreviewCardProject() {
                 transition={{ duration: 0.15, ease: "easeOut" }}
               />
             }
-            className="d-f fd-c g-3 w-64 p-3 bg-white bc-silver-2 br-lg bw-1 bs-o-xs"
+            className="d-f fd-c g-3 w-64 p-3 bg-white bc-silver-2 br-md bw-1 bs-o-xs"
           >
             <div className="d-f fd-c g-1">
               <span className="c-slate-10 fs-md fw-500">Acme Website</span>

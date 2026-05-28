@@ -19,7 +19,7 @@ export default function ComboboxInline() {
   return (
     <div className="d-f fd-c g-2 c-slate-10 fs-sm">
       <label className="fw-500">Assign member</label>
-      <div className="d-f o-h fd-c g-0 w-64 bg-white bc-silver-3 bw-1 br-lg bs-o-xs">
+      <div className="d-f o-h fd-c g-0 w-64 bg-white bc-silver-3 bw-1 br-md bs-o-xs">
         <Combobox.Root inline items={users}>
           <div className="d-f ai-c g-2 px-3 bc-silver-3 bbw-1">
             <Search className="fs-0 w-4 h-4 c-slate-4" />
@@ -46,7 +46,7 @@ export default function ComboboxInline() {
                 render={(props, state) => (
                   <div
                     {...props}
-                    className={`d-f ai-c g-2 py-2 px-3 fs-sm fw-500 c-slate-8 us-none c-p br-lg mx-1 ${
+                    className={`d-f ai-c g-2 py-2 px-3 fs-sm fw-500 c-slate-8 us-none c-p br-md mx-1 ${
                       state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                     }`}
                   >

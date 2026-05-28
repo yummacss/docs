@@ -16,7 +16,7 @@ export default function AutocompleteEmptyState() {
         <Autocomplete.Input
           id="empty-state-input"
           placeholder="Task name or assignee"
-          className="h-10 w-64 pl-4 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md bs-o-xs fv:oo--1 fv:oc-indigo-5"
+          className="h-10 w-64 pl-4 bg-white bc-silver-3 c-slate-10 bw-1 br-md fs-md bs-o-xs fv:oo--1 fv:oc-indigo-5"
         />
       </div>
 
@@ -30,7 +30,7 @@ export default function AutocompleteEmptyState() {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.15, ease: "easeOut" }}
               >
-                <Autocomplete.Popup className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-lg bs-o-xs">
+                <Autocomplete.Popup className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-md bs-o-xs">
                   <Autocomplete.List className="py-3 ow-0">
                     <div className="d-f fd-c ai-c g-1 px-4">
                       <span className="c-slate-10 fs-md fw-500">

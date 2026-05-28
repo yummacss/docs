@@ -14,7 +14,7 @@ export default function TextareaError() {
           render={<textarea />}
           placeholder="Add notes about this task..."
           aria-label="Add notes about this task"
-          className="h-24 w-64 pt-3 pl-3 pr-10 bg-white bc-red-5 c-slate-10 bw-1 br-lg fs-md bs-o-xs r-none fv:oo--1 fv:oc-red-5"
+          className="h-24 w-64 pt-3 pl-3 pr-10 bg-white bc-red-5 c-slate-10 bw-1 br-md fs-md bs-o-xs r-none fv:oo--1 fv:oc-red-5"
         />
         <div className="d-f p-a r-3 t-3 ai-c jc-c c-red-5">
           <WarningTriangle className="w-4 h-4" />

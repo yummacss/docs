@@ -12,7 +12,7 @@ export default function PopoverHover() {
       <Popover.Trigger
         openOnHover
         delay={300}
-        className={`d-f ai-c jc-c h-10 px-3 bw-1 bc-silver-3 br-lg bg-white c-slate-10 fs-sm us-none c-p h:bg-silver-1 fv:oo-2 fv:oc-indigo-5 ${
+        className={`d-f ai-c jc-c h-10 px-3 bw-1 bc-silver-3 br-md bg-white c-slate-10 fs-sm us-none c-p h:bg-silver-1 fv:oo-2 fv:oc-indigo-5 ${
           open ? "bg-silver-1" : ""
         }`}
       >
@@ -31,7 +31,7 @@ export default function PopoverHover() {
                     transition={{ duration: 0.15, ease: "easeOut" }}
                   />
                 }
-                className="px-4 py-3 w-56 bg-white bc-silver-2 c-slate-10 bw-1 br-lg bs-o-xs"
+                className="px-4 py-3 w-56 bg-white bc-silver-2 c-slate-10 bw-1 br-md bs-o-xs"
               >
                 <Popover.Title className="m-0 mb-1 c-slate-10 fs-sm fw-500">
                   TSK-104 - Reporting Dashboard

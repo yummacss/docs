@@ -11,7 +11,7 @@ export default function ToolbarInput() {
   const [view, setView] = useState<string[]>(["grid"]);
 
   return (
-    <Toolbar.Root className="d-f ai-c g-1 p-2 bg-white bc-silver-2 br-lg bw-1">
+    <Toolbar.Root className="d-f ai-c g-1 p-2 bg-white bc-silver-2 br-md bw-1">
       <ToggleGroup
         className="d-f g-1"
         value={view}

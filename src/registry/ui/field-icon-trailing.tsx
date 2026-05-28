@@ -15,7 +15,7 @@ export default function FieldTrailing() {
           type="text"
           placeholder="Search tasks..."
           aria-label="Search tasks"
-          className="h-10 w-64 pl-4 pr-10 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md bs-o-xs fv:oo--1 fv:oc-indigo-5"
+          className="h-10 w-64 pl-4 pr-10 bg-white bc-silver-3 c-slate-10 bw-1 br-md fs-md bs-o-xs fv:oo--1 fv:oc-indigo-5"
         />
         <div className="d-f p-a r-3 ai-c jc-c c-slate-6">
           <Search className="w-4 h-4" />

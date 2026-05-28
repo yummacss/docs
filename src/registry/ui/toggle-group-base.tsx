@@ -12,7 +12,7 @@ export default function ToggleGroupBase() {
     <ToggleGroup
       value={selected}
       onValueChange={setSelected}
-      className="d-f p-r g-1 p-1 bg-white bc-silver-2 br-lg bw-1"
+      className="d-f p-r g-1 p-1 bg-white bc-silver-2 br-md bw-1"
     >
       {toggleItems.map((item) => {
         const isSelected = selected.includes(item.value);

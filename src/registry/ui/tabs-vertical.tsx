@@ -13,14 +13,14 @@ export default function ExampleTabsVertical() {
       onValueChange={setSelected}
       className="d-f ai-s g-4"
     >
-      <Tabs.List className="d-f p-r fd-c g-1 p-1 w-fc bg-silver-1 br-lg bw-1">
+      <Tabs.List className="d-f p-r fd-c g-1 p-1 w-fc bg-silver-1 br-md bw-1">
         {tabs.map((tab) => {
           const isSelected = selected === tab.value;
           return (
             <Tabs.Tab
               key={tab.value}
               value={tab.value}
-              className={`p-r zi-10 d-f ai-c g-2 py-2 px-3 bg-transparent us-none fv:oo--1 fv:oc-indigo br-lg ${
+              className={`p-r zi-10 d-f ai-c g-2 py-2 px-3 bg-transparent us-none fv:oo--1 fv:oc-indigo br-md ${
                 isSelected ? "c-slate-10" : "c-slate-8 h:c-slate-10"
               }`}
             >
@@ -29,7 +29,7 @@ export default function ExampleTabsVertical() {
           );
         })}
         <Tabs.Indicator
-          className="p-a t-0 l-0 zi-0 bg-white br-lg bs-o-xs tp-a tdu-200 ttf-io"
+          className="p-a t-0 l-0 zi-0 bg-white br-md bs-o-xs tp-a tdu-200 ttf-io"
           style={{
             left: "var(--active-tab-left)",
             width: "var(--active-tab-width)",

@@ -12,11 +12,11 @@ export default function MenubarCheckboxes() {
   const [labelsOpen, setLabelsOpen] = useState(false);
 
   return (
-    <Menubar className="d-f g-1 p-1 bg-white bc-silver-2 br-lg bw-1">
+    <Menubar className="d-f g-1 p-1 bg-white bc-silver-2 br-md bw-1">
       <Menu.Root open={viewOpen} onOpenChange={setViewOpen}>
         <Menu.Trigger
           className={(state) =>
-            `h-8 br-lg px-3 fs-sm fw-500 c-slate-10 us-none c-p bw-0 bg-transparent ${
+            `h-8 br-md px-3 fs-sm fw-500 c-slate-10 us-none c-p bw-0 bg-transparent ${
               state.open ? "bg-silver-1/50" : "bg-transparent"
             }`
           }
@@ -36,7 +36,7 @@ export default function MenubarCheckboxes() {
                       transition={{ duration: 0.1, ease: "easeOut" }}
                     />
                   }
-                  className="py-1 bg-white bc-silver-2 c-slate-10 br-lg bw-1 bs-o-xs"
+                  className="py-1 bg-white bc-silver-2 c-slate-10 br-md bw-1 bs-o-xs"
                 >
                   <div className="px-3 py-1 c-slate-5 fs-xs fw-500 ls-3">
                     Show views
@@ -45,7 +45,7 @@ export default function MenubarCheckboxes() {
                   <Menu.CheckboxItem
                     defaultChecked
                     className={(state) =>
-                      `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
+                      `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-md mx-1 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
@@ -61,7 +61,7 @@ export default function MenubarCheckboxes() {
                   <Menu.CheckboxItem
                     defaultChecked
                     className={(state) =>
-                      `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
+                      `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-md mx-1 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
@@ -76,7 +76,7 @@ export default function MenubarCheckboxes() {
 
                   <Menu.CheckboxItem
                     className={(state) =>
-                      `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
+                      `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-md mx-1 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
@@ -91,7 +91,7 @@ export default function MenubarCheckboxes() {
 
                   <Menu.CheckboxItem
                     className={(state) =>
-                      `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
+                      `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-md mx-1 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
@@ -113,7 +113,7 @@ export default function MenubarCheckboxes() {
       <Menu.Root open={priorityOpen} onOpenChange={setPriorityOpen}>
         <Menu.Trigger
           className={(state) =>
-            `h-8 br-lg px-3 fs-sm fw-500 c-slate-10 us-none c-p bw-0 bg-transparent ${
+            `h-8 br-md px-3 fs-sm fw-500 c-slate-10 us-none c-p bw-0 bg-transparent ${
               state.open ? "bg-silver-1/50" : "bg-transparent"
             }`
           }
@@ -133,12 +133,12 @@ export default function MenubarCheckboxes() {
                       transition={{ duration: 0.1, ease: "easeOut" }}
                     />
                   }
-                  className="py-1 bg-white bc-silver-2 c-slate-10 br-lg bw-1 bs-o-xs"
+                  className="py-1 bg-white bc-silver-2 c-slate-10 br-md bw-1 bs-o-xs"
                 >
                   <Menu.CheckboxItem
                     defaultChecked
                     className={(state) =>
-                      `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
+                      `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-md mx-1 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
@@ -154,7 +154,7 @@ export default function MenubarCheckboxes() {
                   <Menu.CheckboxItem
                     defaultChecked
                     className={(state) =>
-                      `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
+                      `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-md mx-1 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
@@ -169,7 +169,7 @@ export default function MenubarCheckboxes() {
 
                   <Menu.CheckboxItem
                     className={(state) =>
-                      `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
+                      `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-md mx-1 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
@@ -191,7 +191,7 @@ export default function MenubarCheckboxes() {
       <Menu.Root open={labelsOpen} onOpenChange={setLabelsOpen}>
         <Menu.Trigger
           className={(state) =>
-            `h-8 br-lg px-3 fs-sm fw-500 c-slate-10 us-none c-p bw-0 bg-transparent ${
+            `h-8 br-md px-3 fs-sm fw-500 c-slate-10 us-none c-p bw-0 bg-transparent ${
               state.open ? "bg-silver-1/50" : "bg-transparent"
             }`
           }
@@ -211,12 +211,12 @@ export default function MenubarCheckboxes() {
                       transition={{ duration: 0.1, ease: "easeOut" }}
                     />
                   }
-                  className="py-1 bg-white bc-silver-2 c-slate-10 br-lg bw-1 bs-o-xs"
+                  className="py-1 bg-white bc-silver-2 c-slate-10 br-md bw-1 bs-o-xs"
                 >
                   <Menu.CheckboxItem
                     defaultChecked
                     className={(state) =>
-                      `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
+                      `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-md mx-1 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
@@ -232,7 +232,7 @@ export default function MenubarCheckboxes() {
                   <Menu.CheckboxItem
                     defaultChecked
                     className={(state) =>
-                      `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
+                      `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-md mx-1 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
@@ -247,7 +247,7 @@ export default function MenubarCheckboxes() {
 
                   <Menu.CheckboxItem
                     className={(state) =>
-                      `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
+                      `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-md mx-1 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }

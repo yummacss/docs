@@ -20,7 +20,7 @@ export default function MenuAccountStatus() {
 
   return (
     <Menu.Root open={open} onOpenChange={setOpen}>
-      <Menu.Trigger className="d-f ai-c g-2 px-3 py-2 h-fc bg-white bc-silver-2 c-slate-10 br-lg bw-1 fw-500 bs-o-xs tp-c tdu-150 ttf-io us-none c-p h:bg-silver-1/50 fv:oo--1 fv:oc-indigo-5">
+      <Menu.Trigger className="d-f ai-c g-2 px-3 py-2 h-fc bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-500 bs-o-xs tp-c tdu-150 ttf-io us-none c-p h:bg-silver-1/50 fv:oo--1 fv:oc-indigo-5">
         <div className="p-r">
           <Avatar.Root className="d-if o-h ai-c jc-c w-6 h-6 bc-white br-9999 bw-1 va-m us-none">
             <Avatar.Image
@@ -51,11 +51,11 @@ export default function MenuAccountStatus() {
                     transition={{ duration: 0.15, ease: "easeOut" }}
                   />
                 }
-                className="py-1 bg-white bc-silver-2 c-slate-10 bw-1 br-lg bs-o-xs"
+                className="py-1 bg-white bc-silver-2 c-slate-10 bw-1 br-md bs-o-xs"
               >
                 <Menu.Item
                   className={(state) =>
-                    `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
+                    `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm fw-500 us-none c-p br-md mx-1 ${
                       state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                     }`
                   }
@@ -65,7 +65,7 @@ export default function MenuAccountStatus() {
                 </Menu.Item>
                 <Menu.Item
                   className={(state) =>
-                    `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
+                    `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm fw-500 us-none c-p br-md mx-1 ${
                       state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                     }`
                   }
@@ -75,7 +75,7 @@ export default function MenuAccountStatus() {
                 </Menu.Item>
                 <Menu.Item
                   className={(state) =>
-                    `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
+                    `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm fw-500 us-none c-p br-md mx-1 ${
                       state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                     }`
                   }
@@ -85,7 +85,7 @@ export default function MenuAccountStatus() {
                 </Menu.Item>
                 <Menu.Item
                   className={(state) =>
-                    `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
+                    `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm fw-500 us-none c-p br-md mx-1 ${
                       state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                     }`
                   }
@@ -95,7 +95,7 @@ export default function MenuAccountStatus() {
                 </Menu.Item>
                 <Menu.Item
                   className={(state) =>
-                    `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
+                    `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm fw-500 us-none c-p br-md mx-1 ${
                       state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                     }`
                   }
@@ -107,7 +107,7 @@ export default function MenuAccountStatus() {
                 <Menu.SubmenuRoot>
                   <Menu.SubmenuTrigger
                     className={(state) =>
-                      `d-f ai-c jc-sb g-2 py-2 pr-4 pl-4 fs-sm fw-500 us-none c-p br-lg mx-1 w-100% ${
+                      `d-f ai-c jc-sb g-2 py-2 pr-4 pl-4 fs-sm fw-500 us-none c-p br-md mx-1 w-100% ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
@@ -122,10 +122,10 @@ export default function MenuAccountStatus() {
                   </Menu.SubmenuTrigger>
                   <Menu.Portal>
                     <Menu.Positioner sideOffset={-4} alignOffset={-4}>
-                      <Menu.Popup className="py-1 bg-white bc-silver-2 c-slate-10 bw-1 br-lg bs-o-xs">
+                      <Menu.Popup className="py-1 bg-white bc-silver-2 c-slate-10 bw-1 br-md bs-o-xs">
                         <Menu.Item
                           className={(state) =>
-                            `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
+                            `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm fw-500 us-none c-p br-md mx-1 ${
                               state.highlighted
                                 ? "bg-silver-1/50"
                                 : "bg-transparent"
@@ -139,7 +139,7 @@ export default function MenuAccountStatus() {
                         </Menu.Item>
                         <Menu.Item
                           className={(state) =>
-                            `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
+                            `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm fw-500 us-none c-p br-md mx-1 ${
                               state.highlighted
                                 ? "bg-silver-1/50"
                                 : "bg-transparent"
@@ -153,7 +153,7 @@ export default function MenuAccountStatus() {
                         </Menu.Item>
                         <Menu.Item
                           className={(state) =>
-                            `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
+                            `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm fw-500 us-none c-p br-md mx-1 ${
                               state.highlighted
                                 ? "bg-silver-1/50"
                                 : "bg-transparent"
@@ -167,7 +167,7 @@ export default function MenuAccountStatus() {
                         </Menu.Item>
                         <Menu.Item
                           className={(state) =>
-                            `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm fw-500 us-none c-p br-lg mx-1 ${
+                            `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm fw-500 us-none c-p br-md mx-1 ${
                               state.highlighted
                                 ? "bg-silver-1/50"
                                 : "bg-transparent"
@@ -186,7 +186,7 @@ export default function MenuAccountStatus() {
                 <Menu.Separator className="my-1 w-100% h-px bg-silver-2" />
                 <Menu.Item
                   className={(state) =>
-                    `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm fw-500 us-none c-red c-p br-lg mx-1 ${
+                    `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm fw-500 us-none c-red c-p br-md mx-1 ${
                       state.highlighted ? "bg-red-1/50" : "bg-transparent"
                     }`
                   }

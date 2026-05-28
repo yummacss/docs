@@ -125,7 +125,7 @@ export default function DialogNewTask() {
                                     }}
                                   />
                                 }
-                                className="py-1 w-88 bg-white bc-silver-2 bw-1 br-lg bs-o-xs"
+                                className="py-1 w-88 bg-white bc-silver-2 bw-1 br-md bs-o-xs"
                               >
                                 <Select.List className="p-r o-auto">
                                   {priorities.map(({ label, value }) => (
@@ -133,7 +133,7 @@ export default function DialogNewTask() {
                                       key={value}
                                       value={value}
                                       className={(state) =>
-                                        `d-f ai-c g-2 py-2 px-3 fs-sm us-none c-p br-lg mx-1 c-slate-10 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                                        `d-f ai-c g-2 py-2 px-3 fs-sm us-none c-p br-md mx-1 c-slate-10 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
                                       }
                                     >
                                       <Select.ItemIndicator className="d-f ai-c">
@@ -180,7 +180,7 @@ export default function DialogNewTask() {
                                     ease: "easeOut",
                                   }}
                                 >
-                                  <Autocomplete.Popup className="o-h w-42 bg-white bc-silver-2 c-slate-10 bw-1 br-lg bs-o-xs">
+                                  <Autocomplete.Popup className="o-h w-42 bg-white bc-silver-2 c-slate-10 bw-1 br-md bs-o-xs">
                                     <Autocomplete.List className="oy-auto max-h-48 py-1 ow-0">
                                       {(member: TeamMember) => (
                                         <Autocomplete.Item
@@ -189,7 +189,7 @@ export default function DialogNewTask() {
                                           render={(props, state) => (
                                             <div
                                               {...props}
-                                              className={`d-f ai-c g-2 py-2 px-3 fs-sm us-none c-p br-lg mx-1 c-slate-10 ${
+                                              className={`d-f ai-c g-2 py-2 px-3 fs-sm us-none c-p br-md mx-1 c-slate-10 ${
                                                 state.highlighted
                                                   ? "bg-silver-1/50"
                                                   : "bg-transparent"

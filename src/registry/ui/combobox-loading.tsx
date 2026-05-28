@@ -39,7 +39,7 @@ export default function ComboboxLoading() {
             id="loading-input"
             placeholder="Task name or assignee..."
             onChange={handleInputChange}
-            className="h-10 w-64 pl-4 pr-10 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md bs-o-xs fv:oo--1 fv:oc-indigo-5"
+            className="h-10 w-64 pl-4 pr-10 bg-white bc-silver-3 c-slate-10 bw-1 br-md fs-md bs-o-xs fv:oo--1 fv:oc-indigo-5"
           />
           <div className="d-f p-a r-2 b-0 ai-c jc-c h-10 c-slate-6">
             <Combobox.Trigger
@@ -62,7 +62,7 @@ export default function ComboboxLoading() {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.15, ease: "easeOut" }}
               >
-                <Combobox.Popup className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-lg bs-o-xs">
+                <Combobox.Popup className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-md bs-o-xs">
                   {loading ? (
                     <div className="d-f fd-c g-3 py-3 px-4">
                       <div className="d-f ai-c g-3">
@@ -94,7 +94,7 @@ export default function ComboboxLoading() {
                           render={(props, state) => (
                             <div
                               {...props}
-                              className={`d-f ai-c g-3 py-2 px-3 fs-sm us-none c-p br-lg mx-1 c-slate-10 ${
+                              className={`d-f ai-c g-3 py-2 px-3 fs-sm us-none c-p br-md mx-1 c-slate-10 ${
                                 state.highlighted
                                   ? "bg-silver-1/50"
                                   : "bg-transparent"

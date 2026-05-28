@@ -26,7 +26,7 @@ export default function AutocompleteIcon() {
           <Autocomplete.Input
             id="icon-input"
             placeholder="Account, Privacy, & more"
-            className="h-10 w-64 pl-10 pr-4 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md bs-o-xs fv:oo--1 fv:oc-indigo-5"
+            className="h-10 w-64 pl-10 pr-4 bg-white bc-silver-3 c-slate-10 bw-1 br-md fs-md bs-o-xs fv:oo--1 fv:oc-indigo-5"
           />
         </div>
       </div>
@@ -41,7 +41,7 @@ export default function AutocompleteIcon() {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.15, ease: "easeOut" }}
               >
-                <Autocomplete.Popup className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-lg bs-o-xs">
+                <Autocomplete.Popup className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-md bs-o-xs">
                   <Autocomplete.List className="oy-auto max-h-72 py-1 ow-0">
                     {(item: Setting) => (
                       <Autocomplete.Item
@@ -50,7 +50,7 @@ export default function AutocompleteIcon() {
                         render={(props, state) => (
                           <div
                             {...props}
-                            className={`d-f ai-c g-3 py-2 px-3 fs-sm us-none c-p br-lg mx-1 c-slate-10 ${
+                            className={`d-f ai-c g-3 py-2 px-3 fs-sm us-none c-p br-md mx-1 c-slate-10 ${
                               state.highlighted
                                 ? "bg-silver-1/50"
                                 : "bg-transparent"

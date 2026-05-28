@@ -6,7 +6,7 @@ export default function FieldSm() {
       <Field.Label className="fw-500">Small</Field.Label>
       <Field.Control
         placeholder="Small input"
-        className="h-7 w-64 pl-3 pr-3 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-xs bs-o-xs fv:oo--1 fv:oc-indigo-5"
+        className="h-7 w-64 pl-3 pr-3 bg-white bc-silver-3 c-slate-10 bw-1 br-md fs-xs bs-o-xs fv:oo--1 fv:oc-indigo-5"
       />
     </Field.Root>
   );
