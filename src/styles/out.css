@@ -682,6 +682,10 @@ summary {
   border-radius: 9999px;
 }
 
+.br-lg {
+  border-radius: 0.5rem;
+}
+
 .br-md {
   border-radius: 0.375rem;
 }

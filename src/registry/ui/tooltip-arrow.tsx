@@ -27,7 +27,7 @@ export default function TooltipArrow() {
                     className="p-r"
                   />
                 }
-                className="px-3 py-2 bg-white bc-silver-2 c-slate-10 bw-1 br-md fs-sm bs-o-xs us-none"
+                className="px-3 py-2 bg-white bc-silver-2 c-slate-10 bw-1 br-lg fs-sm bs-o-xs us-none"
               >
                 <svg
                   viewBox="0 0 10 5"
