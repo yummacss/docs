@@ -45,7 +45,7 @@ export default function AvatarStacked() {
                       transition={{ duration: 0.15, ease: "easeOut" }}
                     />
                   }
-                  className="px-2 py-1 bg-slate-12 c-white br-sm fs-xs bs-o-sm us-none"
+                  className="px-3 py-2 bg-white bc-silver-2 c-slate-10 bw-1 br-lg fs-sm bs-o-xs us-none"
                 >
                   Add participant
                 </Tooltip.Popup>
