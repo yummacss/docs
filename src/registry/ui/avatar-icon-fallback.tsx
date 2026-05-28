@@ -1,5 +1,5 @@
 import { Avatar } from "@base-ui/react/avatar";
-import { UserRound } from "iconoir-react";
+import { User } from "iconoir-react";
 
 export default function AvatarIconFallback() {
   return (
@@ -12,7 +12,7 @@ export default function AvatarIconFallback() {
           <Avatar.Fallback
             className={`d-f ai-c jc-c w-100% h-100% ${fallback.fallbackColor}`}
           >
-            <UserRound className="w-6 h-6" />
+            <User className="w-6 h-6" />
           </Avatar.Fallback>
         </Avatar.Root>
       ))}

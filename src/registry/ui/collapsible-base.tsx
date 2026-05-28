@@ -1,7 +1,12 @@
 "use client";
 
 import { Collapsible } from "@base-ui/react/collapsible";
-import { CheckCheck, ChevronRight, Circle, Loader } from "iconoir-react";
+import {
+  Circle,
+  DoubleCheck,
+  NavArrowRight,
+  SystemRestart,
+} from "iconoir-react";
 import { type HTMLMotionProps, motion } from "motion/react";
 import { useState } from "react";
 
@@ -21,7 +26,7 @@ export default function CollapsibleBase() {
           transition={{ duration: 0.15, ease: "easeOut" }}
           className="d-f"
         >
-          <ChevronRight className="w-4 h-4 c-slate-5" />
+          <NavArrowRight className="w-4 h-4 c-slate-5" />
         </motion.span>
       </Collapsible.Trigger>
 
@@ -43,9 +48,9 @@ export default function CollapsibleBase() {
           {tasks.map((task) => (
             <div key={task.id} className="d-f ai-c g-2 py-2">
               {task.status === "done" ? (
-                <CheckCheck className="w-4 h-4 c-mint" />
+                <DoubleCheck className="w-4 h-4 c-mint" />
               ) : task.status === "in-progress" ? (
-                <Loader className="w-4 h-4 c-yellow" />
+                <SystemRestart className="w-4 h-4 c-yellow" />
               ) : (
                 <Circle className="w-4 h-4 c-slate-4" />
               )}

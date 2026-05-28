@@ -1,7 +1,7 @@
 "use client";
 
 import { Toggle } from "@base-ui/react/toggle";
-import { Moon, Sun } from "iconoir-react";
+import { HalfMoon, SunLight } from "iconoir-react";
 import type { HTMLMotionProps } from "motion/react";
 import { motion } from "motion/react";
 
@@ -24,9 +24,9 @@ export default function ToggleSquircle() {
           transition={{ duration: 0.2, ease: "easeOut" }}
         >
           {state.pressed ? (
-            <Moon className="w-5 h-5" />
+            <HalfMoon className="w-5 h-5" />
           ) : (
-            <Sun className="w-5 h-5" />
+            <SunLight className="w-5 h-5" />
           )}
         </motion.button>
       )}

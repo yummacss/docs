@@ -5,18 +5,17 @@ import { Combobox } from "@base-ui/react/combobox";
 import { Dialog } from "@base-ui/react/dialog";
 import {
   Activity,
-  BookDashed,
-  BookOpenCheck,
-  BookSearch,
-  ChartColumn,
-  Cog,
-  Command,
-  FilePlusCorner,
-  FileText,
-  NotepadTextDashed,
+  Folder,
+  KeyCommand,
+  OpenBook,
+  Page,
+  PagePlus,
+  PageSearch,
   Search,
-  UsersRound,
-  X,
+  StatUp,
+  User,
+  Wrench,
+  Xmark,
 } from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
@@ -45,7 +44,7 @@ export default function CommandPaletteBase() {
         <Search className="w-4 h-4" />
         <span>Commands</span>
         <kbd className="d-f ai-c g-0.5 px-1 py-0.5 ml-3 bg-silver-1/50 c-slate-5 br-md fs-xs us-none">
-          <Command className="w-3 h-3" />
+          <KeyCommand className="w-3 h-3" />
           <span>/</span>
         </kbd>
       </Dialog.Trigger>
@@ -89,7 +88,7 @@ export default function CommandPaletteBase() {
                         <Button className="d-f ai-c jc-c w-7 h-7 p-0 c-slate-6 bw-0 br-md h:bg-silver-2 fv:oo-2 fv:oc-indigo-5" />
                       }
                     >
-                      <X aria-hidden className="w-5 h-5" />
+                      <Xmark aria-hidden className="w-5 h-5" />
                     </Dialog.Close>
                   </div>
                   <div>
@@ -156,19 +155,19 @@ const commandGroups: CommandGroup[] = [
   {
     label: "Actions",
     items: [
-      { id: "new-doc", label: "New doc", Icon: FilePlusCorner },
-      { id: "drafts", label: "Drafts", Icon: FileText },
-      { id: "templates", label: "Templates", Icon: BookDashed },
+      { id: "new-doc", label: "New doc", Icon: PagePlus },
+      { id: "drafts", label: "Drafts", Icon: Page },
+      { id: "templates", label: "Templates", Icon: Folder },
     ],
   },
   {
     label: "Pages",
     items: [
-      { id: "knowledge-base", label: "Knowledge base", Icon: BookSearch },
-      { id: "published", label: "Published pages", Icon: BookOpenCheck },
-      { id: "analytics", label: "Analytics", Icon: ChartColumn },
-      { id: "settings", label: "Settings", Icon: Cog },
-      { id: "team-docs", label: "Team docs", Icon: UsersRound },
+      { id: "knowledge-base", label: "Knowledge base", Icon: PageSearch },
+      { id: "published", label: "Published pages", Icon: OpenBook },
+      { id: "analytics", label: "Analytics", Icon: StatUp },
+      { id: "settings", label: "Settings", Icon: Wrench },
+      { id: "team-docs", label: "Team docs", Icon: User },
       { id: "activity", label: "Activity", Icon: Activity },
     ],
   },

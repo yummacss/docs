@@ -4,7 +4,7 @@ import { NumberField } from "@base-ui/react/number-field";
 import { Toggle } from "@base-ui/react/toggle";
 import { ToggleGroup } from "@base-ui/react/toggle-group";
 import { Toolbar } from "@base-ui/react/toolbar";
-import { Kanban, LayoutList, Minus, Plus, Table } from "iconoir-react";
+import { KanbanBoard, List, Minus, Plus, Table } from "iconoir-react";
 import { useState } from "react";
 
 export default function ToolbarInput() {
@@ -42,7 +42,7 @@ export default function ToolbarInput() {
             }`
           }
         >
-          <LayoutList className="w-5 h-5" />
+          <List className="w-5 h-5" />
         </Toggle>
         <Toggle
           value="kanban"
@@ -55,7 +55,7 @@ export default function ToolbarInput() {
             }`
           }
         >
-          <Kanban className="w-5 h-5" />
+          <KanbanBoard className="w-5 h-5" />
         </Toggle>
       </ToggleGroup>
 

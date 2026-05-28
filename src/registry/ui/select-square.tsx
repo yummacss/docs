@@ -2,7 +2,7 @@
 
 import { Field } from "@base-ui/react/field";
 import { Select } from "@base-ui/react/select";
-import { Check, ChevronsUpDown } from "iconoir-react";
+import { ArrowSeparateVertical, Check } from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -32,7 +32,7 @@ export default function SelectSquare() {
             }
           </Select.Value>
           <Select.Icon className="d-f c-slate-8">
-            <ChevronsUpDown className="w-4 h-4" />
+            <ArrowSeparateVertical className="w-4 h-4" />
           </Select.Icon>
         </Select.Trigger>
         <AnimatePresence>

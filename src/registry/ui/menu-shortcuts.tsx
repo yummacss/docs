@@ -1,7 +1,7 @@
 "use client";
 
 import { Menu } from "@base-ui/react/menu";
-import { ArrowBigUp, ChevronDown, Command, Delete } from "iconoir-react";
+import { ArrowLeft, ArrowUp, KeyCommand, NavArrowDown } from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -11,7 +11,7 @@ export default function MenuShortcuts() {
   return (
     <Menu.Root open={open} onOpenChange={setOpen}>
       <Menu.Trigger className="d-f ai-c g-2 px-3 py-2 h-fc bg-white bc-silver-2 c-slate-10 br-lg bw-1 fw-500 bs-o-xs tp-c tdu-150 ttf-io us-none c-p h:bg-silver-1/50 fv:oo--1 fv:oc-indigo-5">
-        File <ChevronDown className="w-3 h-3" />
+        Page <NavArrowDown className="w-3 h-3" />
       </Menu.Trigger>
 
       <AnimatePresence>
@@ -50,7 +50,7 @@ export default function MenuShortcuts() {
                 >
                   <span className="fg-1">Duplicate task</span>
                   <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
-                    <Command className="w-3 h-3" />
+                    <KeyCommand className="w-3 h-3" />
                     <span>D</span>
                   </span>
                 </Menu.Item>
@@ -63,8 +63,8 @@ export default function MenuShortcuts() {
                 >
                   <span className="fg-1">Copy link</span>
                   <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
-                    <Command className="w-3 h-3" />
-                    <ArrowBigUp className="w-3 h-3" />
+                    <KeyCommand className="w-3 h-3" />
+                    <ArrowUp className="w-3 h-3" />
                     <span>C</span>
                   </span>
                 </Menu.Item>
@@ -77,7 +77,7 @@ export default function MenuShortcuts() {
                 >
                   <span className="fg-1">Pin task</span>
                   <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
-                    <Command className="w-3 h-3" />
+                    <KeyCommand className="w-3 h-3" />
                     <span>P</span>
                   </span>
                 </Menu.Item>
@@ -90,7 +90,7 @@ export default function MenuShortcuts() {
                 >
                   <span className="fg-1">Archive task</span>
                   <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
-                    <Command className="w-3 h-3" />
+                    <KeyCommand className="w-3 h-3" />
                     <span>E</span>
                   </span>
                 </Menu.Item>
@@ -103,8 +103,8 @@ export default function MenuShortcuts() {
                 >
                   <span className="fg-1">Delete task</span>
                   <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
-                    <Command className="w-3 h-3" />
-                    <Delete className="w-3 h-3" />
+                    <KeyCommand className="w-3 h-3" />
+                    <ArrowLeft className="w-3 h-3" />
                   </span>
                 </Menu.Item>
               </Menu.Popup>

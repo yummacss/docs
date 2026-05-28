@@ -1,14 +1,14 @@
 "use client";
 
 import { Tooltip } from "@base-ui/react/tooltip";
-import { BellDot } from "iconoir-react";
+import { BellNotification } from "iconoir-react";
 
 export default function TooltipStatic() {
   return (
     <Tooltip.Provider>
       <Tooltip.Root>
         <Tooltip.Trigger className="d-f ai-c jc-c bg-transparent c-slate-8 bw-0 c-p h:c-slate-12 fv:oo-2 fv:oc-indigo-5">
-          <BellDot aria-label="Notifications" className="w-6 h-6" />
+          <BellNotification aria-label="Notifications" className="w-6 h-6" />
         </Tooltip.Trigger>
         <Tooltip.Portal>
           <Tooltip.Positioner sideOffset={8} className="zi-50">

@@ -1,7 +1,7 @@
 "use client";
 
 import { Popover } from "@base-ui/react/popover";
-import { Info, X } from "iconoir-react";
+import { HelpCircle, Xmark } from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -15,7 +15,7 @@ export default function PopoverClose() {
           open ? "bg-silver-1" : ""
         }`}
       >
-        <Info aria-label="Task info" className="w-5 h-5" />
+        <HelpCircle aria-label="Task info" className="w-5 h-5" />
       </Popover.Trigger>
       <AnimatePresence>
         {open && (
@@ -42,7 +42,7 @@ export default function PopoverClose() {
                         type="button"
                         className="d-f ai-c jc-c w-5 h-5 bg-transparent c-slate-5 bw-0 br-md c-p h:bg-silver-2 h:c-slate-8 fv:oo--1 fv:oc-indigo-5"
                       >
-                        <X aria-hidden className="w-4 h-4" />
+                        <Xmark aria-hidden className="w-4 h-4" />
                       </button>
                     }
                   />

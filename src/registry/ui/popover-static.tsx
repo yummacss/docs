@@ -1,7 +1,7 @@
 "use client";
 
 import { Popover } from "@base-ui/react/popover";
-import { BellDot } from "iconoir-react";
+import { BellNotification } from "iconoir-react";
 
 export default function PopoverStatic() {
   return (
@@ -13,7 +13,7 @@ export default function PopoverStatic() {
           }`
         }
       >
-        <BellDot aria-label="Notifications" className="w-5 h-5" />
+        <BellNotification aria-label="Notifications" className="w-5 h-5" />
       </Popover.Trigger>
       <Popover.Portal>
         <Popover.Positioner sideOffset={8}>

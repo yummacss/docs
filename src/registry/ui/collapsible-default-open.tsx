@@ -1,7 +1,7 @@
 "use client";
 
 import { Collapsible } from "@base-ui/react/collapsible";
-import { ChevronRight } from "iconoir-react";
+import { NavArrowRight } from "iconoir-react";
 import { type HTMLMotionProps, motion } from "motion/react";
 import { useState } from "react";
 
@@ -20,7 +20,7 @@ export default function CollapsibleDefaultOpen() {
           transition={{ duration: 0.15, ease: "easeOut" }}
           className="d-f"
         >
-          <ChevronRight className="w-4 h-4 c-slate-5" />
+          <NavArrowRight className="w-4 h-4 c-slate-5" />
         </motion.span>
       </Collapsible.Trigger>
 

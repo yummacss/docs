@@ -4,18 +4,18 @@ import { Menu } from "@base-ui/react/menu";
 import { Menubar } from "@base-ui/react/menubar";
 import {
   Archive,
+  ArrowLeft,
+  ArrowRight,
   Calendar,
   Copy,
-  FolderInput,
-  FolderOutput,
+  DotsGrid3x3,
   FolderPlus,
-  Grip,
+  InputField,
+  KeyframesCoupleSolid,
   Link,
   List,
   Plus,
-  TextCursor,
-  Timeline,
-  UserRound,
+  User,
 } from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
@@ -81,7 +81,7 @@ export default function MenubarIconTrailing() {
                     }
                   >
                     Import tasks
-                    <FolderInput className="fs-0 w-4 h-4 c-slate-5" />
+                    <ArrowRight className="fs-0 w-4 h-4 c-slate-5" />
                   </Menu.Item>
                   <Menu.Item
                     className={(state) =>
@@ -91,7 +91,7 @@ export default function MenubarIconTrailing() {
                     }
                   >
                     Export tasks
-                    <FolderOutput className="fs-0 w-4 h-4 c-slate-5" />
+                    <ArrowLeft className="fs-0 w-4 h-4 c-slate-5" />
                   </Menu.Item>
                   <Menu.Item
                     className={(state) =>
@@ -143,7 +143,7 @@ export default function MenubarIconTrailing() {
                     }
                   >
                     Rename task
-                    <TextCursor className="fs-0 w-4 h-4 c-slate-5" />
+                    <InputField className="fs-0 w-4 h-4 c-slate-5" />
                   </Menu.Item>
                   <Menu.Item
                     className={(state) =>
@@ -225,7 +225,7 @@ export default function MenubarIconTrailing() {
                     }
                   >
                     Board view
-                    <Grip className="fs-0 w-4 h-4 c-slate-5" />
+                    <DotsGrid3x3 className="fs-0 w-4 h-4 c-slate-5" />
                   </Menu.Item>
                   <Menu.Item
                     className={(state) =>
@@ -244,8 +244,8 @@ export default function MenubarIconTrailing() {
                       }`
                     }
                   >
-                    Timeline view
-                    <Timeline className="fs-0 w-4 h-4 c-slate-5" />
+                    KeyframesCoupleSolid view
+                    <KeyframesCoupleSolid className="fs-0 w-4 h-4 c-slate-5" />
                   </Menu.Item>
                 </Menu.Popup>
               </Menu.Positioner>
@@ -287,7 +287,7 @@ export default function MenubarIconTrailing() {
                     }
                   >
                     Admin
-                    <UserRound className="fs-0 w-4 h-4 c-slate-5" />
+                    <User className="fs-0 w-4 h-4 c-slate-5" />
                   </Menu.Item>
                   <Menu.Item
                     className={(state) =>
@@ -297,7 +297,7 @@ export default function MenubarIconTrailing() {
                     }
                   >
                     Editor
-                    <UserRound className="fs-0 w-4 h-4 c-slate-5" />
+                    <User className="fs-0 w-4 h-4 c-slate-5" />
                   </Menu.Item>
                   <Menu.Item
                     className={(state) =>
@@ -307,7 +307,7 @@ export default function MenubarIconTrailing() {
                     }
                   >
                     Viewer
-                    <UserRound className="fs-0 w-4 h-4 c-slate-5" />
+                    <User className="fs-0 w-4 h-4 c-slate-5" />
                   </Menu.Item>
                 </Menu.Popup>
               </Menu.Positioner>

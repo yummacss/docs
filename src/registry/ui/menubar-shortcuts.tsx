@@ -2,7 +2,7 @@
 
 import { Menu } from "@base-ui/react/menu";
 import { Menubar } from "@base-ui/react/menubar";
-import { ArrowBigUp, Command } from "iconoir-react";
+import { ArrowUp, KeyCommand } from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -48,7 +48,7 @@ export default function MenubarShortcuts() {
                   >
                     <span className="fg-1">New task</span>
                     <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
-                      <Command className="w-3 h-3" />
+                      <KeyCommand className="w-3 h-3" />
                       <span>N</span>
                     </span>
                   </Menu.Item>
@@ -61,8 +61,8 @@ export default function MenubarShortcuts() {
                   >
                     <span className="fg-1">New project</span>
                     <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
-                      <Command className="w-3 h-3" />
-                      <ArrowBigUp className="w-3 h-3" />
+                      <KeyCommand className="w-3 h-3" />
+                      <ArrowUp className="w-3 h-3" />
                       <span>N</span>
                     </span>
                   </Menu.Item>
@@ -76,7 +76,7 @@ export default function MenubarShortcuts() {
                   >
                     <span className="fg-1">Import tasks</span>
                     <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
-                      <Command className="w-3 h-3" />
+                      <KeyCommand className="w-3 h-3" />
                       <span>I</span>
                     </span>
                   </Menu.Item>
@@ -89,7 +89,7 @@ export default function MenubarShortcuts() {
                   >
                     <span className="fg-1">Export tasks</span>
                     <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
-                      <Command className="w-3 h-3" />
+                      <KeyCommand className="w-3 h-3" />
                       <span>E</span>
                     </span>
                   </Menu.Item>
@@ -134,7 +134,7 @@ export default function MenubarShortcuts() {
                   >
                     <span className="fg-1">Undo</span>
                     <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
-                      <Command className="w-3 h-3" />
+                      <KeyCommand className="w-3 h-3" />
                       <span>Z</span>
                     </span>
                   </Menu.Item>
@@ -147,7 +147,7 @@ export default function MenubarShortcuts() {
                   >
                     <span className="fg-1">Redo</span>
                     <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
-                      <Command className="w-3 h-3" />
+                      <KeyCommand className="w-3 h-3" />
                       <span>Y</span>
                     </span>
                   </Menu.Item>
@@ -192,7 +192,7 @@ export default function MenubarShortcuts() {
                   >
                     <span className="fg-1">Board view</span>
                     <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
-                      <Command className="w-3 h-3" />
+                      <KeyCommand className="w-3 h-3" />
                       <span>1</span>
                     </span>
                   </Menu.Item>
@@ -205,7 +205,7 @@ export default function MenubarShortcuts() {
                   >
                     <span className="fg-1">List view</span>
                     <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
-                      <Command className="w-3 h-3" />
+                      <KeyCommand className="w-3 h-3" />
                       <span>2</span>
                     </span>
                   </Menu.Item>
@@ -218,7 +218,7 @@ export default function MenubarShortcuts() {
                   >
                     <span className="fg-1">Calendar view</span>
                     <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
-                      <Command className="w-3 h-3" />
+                      <KeyCommand className="w-3 h-3" />
                       <span>3</span>
                     </span>
                   </Menu.Item>
@@ -232,7 +232,7 @@ export default function MenubarShortcuts() {
                   >
                     <span className="fg-1">Toggle sidebar</span>
                     <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
-                      <Command className="w-3 h-3" />
+                      <KeyCommand className="w-3 h-3" />
                       <span>B</span>
                     </span>
                   </Menu.Item>
@@ -277,8 +277,8 @@ export default function MenubarShortcuts() {
                   >
                     <span className="fg-1">Invite members</span>
                     <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
-                      <Command className="w-3 h-3" />
-                      <ArrowBigUp className="w-3 h-3" />
+                      <KeyCommand className="w-3 h-3" />
+                      <ArrowUp className="w-3 h-3" />
                       <span>I</span>
                     </span>
                   </Menu.Item>
@@ -291,7 +291,7 @@ export default function MenubarShortcuts() {
                   >
                     <span className="fg-1">Manage roles</span>
                     <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
-                      <Command className="w-3 h-3" />
+                      <KeyCommand className="w-3 h-3" />
                       <span>R</span>
                     </span>
                   </Menu.Item>
@@ -305,7 +305,7 @@ export default function MenubarShortcuts() {
                   >
                     <span className="fg-1">Activity log</span>
                     <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
-                      <Command className="w-3 h-3" />
+                      <KeyCommand className="w-3 h-3" />
                       <span>L</span>
                     </span>
                   </Menu.Item>

@@ -1,7 +1,7 @@
 "use client";
 
 import { Accordion } from "@base-ui/react/accordion";
-import { ChevronDown } from "iconoir-react";
+import { NavArrowDown } from "iconoir-react";
 import { useState } from "react";
 
 export default function AccordionStatic() {
@@ -24,7 +24,7 @@ export default function AccordionStatic() {
             <Accordion.Header className="m-0">
               <Accordion.Trigger className="d-f ai-c jc-sb g-3 w-100% py-4 px-0 bg-transparent bw-0 br-sm ta-l c-p fv:oo-1 fv:oc-indigo-5">
                 <span className="c-slate-8 fs-sm fw-500">{item.title}</span>
-                <ChevronDown
+                <NavArrowDown
                   className={`w-4 h-4 fs-0 c-slate-6 ${isOpen ? "ro-180" : "ro-0"}`}
                   aria-hidden
                 />

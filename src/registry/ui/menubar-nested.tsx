@@ -2,7 +2,7 @@
 
 import { Menu } from "@base-ui/react/menu";
 import { Menubar } from "@base-ui/react/menubar";
-import { ChevronRight } from "iconoir-react";
+import { NavArrowRight } from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -49,7 +49,7 @@ export default function MenubarNested() {
                       }
                     >
                       <span>Move to</span>
-                      <ChevronRight className="fs-0 w-3 h-3 c-slate-4" />
+                      <NavArrowRight className="fs-0 w-3 h-3 c-slate-4" />
                     </Menu.SubmenuTrigger>
 
                     <Menu.Portal>
@@ -89,7 +89,7 @@ export default function MenubarNested() {
                       }
                     >
                       <span>Set priority</span>
-                      <ChevronRight className="fs-0 w-3 h-3 c-slate-4" />
+                      <NavArrowRight className="fs-0 w-3 h-3 c-slate-4" />
                     </Menu.SubmenuTrigger>
 
                     <Menu.Portal>

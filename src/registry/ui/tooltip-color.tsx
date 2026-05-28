@@ -1,7 +1,7 @@
 "use client";
 
 import { Tooltip } from "@base-ui/react/tooltip";
-import { FilePenLine, FilePlusCorner, FileText, Shredder } from "iconoir-react";
+import { BinFull, Page, PageEdit, PagePlus } from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 export default function TooltipColor() {
   return (
@@ -40,15 +40,15 @@ export default function TooltipColor() {
 
 const items = [
   {
-    icon: FilePlusCorner,
+    icon: PagePlus,
     label: "Create task",
     ariaLabel: "Create a new task",
   },
-  { icon: FileText, label: "View task", ariaLabel: "View task" },
+  { icon: Page, label: "View task", ariaLabel: "View task" },
   {
-    icon: FilePenLine,
+    icon: PageEdit,
     label: "Edit task",
     ariaLabel: "Edit task",
   },
-  { icon: Shredder, label: "Delete task", ariaLabel: "Delete task" },
+  { icon: BinFull, label: "Delete task", ariaLabel: "Delete task" },
 ];

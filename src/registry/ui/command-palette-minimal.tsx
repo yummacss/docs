@@ -3,7 +3,7 @@
 import { Button } from "@base-ui/react/button";
 import { Combobox } from "@base-ui/react/combobox";
 import { Dialog } from "@base-ui/react/dialog";
-import { Search, X } from "iconoir-react";
+import { Search, Xmark } from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -59,7 +59,7 @@ export default function CommandPaletteMinimal() {
                         <Button className="d-f ai-c jc-c w-7 h-7 p-0 c-slate-6 bw-0 br-md h:bg-silver-2 fv:oo-2 fv:oc-indigo-5" />
                       }
                     >
-                      <X aria-hidden className="w-5 h-5" />
+                      <Xmark aria-hidden className="w-5 h-5" />
                     </Dialog.Close>
                   </div>
                   <div>

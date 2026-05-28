@@ -3,11 +3,10 @@
 import { Button } from "@base-ui/react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { clsx } from "clsx";
-import { List, Search, Xmark } from "iconoir-react";
+import { GithubCircle, List, NpmSquare, Search, Xmark } from "iconoir-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { lazy, type ReactNode, Suspense, useEffect, useState } from "react";
-import { SiGithub, SiNpm } from "react-icons/si";
 import pkg from "../../../package.json";
 import { YummaCSSDark } from "../icons/yummacss-dark";
 import { SearchDialog } from "./search-dialog";
@@ -124,7 +123,7 @@ export default function Navbar({
                   className="d-f ai-c g-1 c-white/80 fs-xs h:c-white fv:oc-white fv:ow-2"
                   target="_blank"
                 >
-                  <SiNpm className="w-4 h-4" />
+                  <NpmSquare className="w-4 h-4" />
                   <span className="tw-b">
                     v{pkg.devDependencies.yummacss.replace("^", "")}
                   </span>
@@ -134,7 +133,7 @@ export default function Navbar({
                   className="d-f ai-c g-1 c-white/80 fs-xs h:c-white fv:oc-white fv:ow-2"
                   target="_blank"
                 >
-                  <SiGithub className="w-4 h-4" />
+                  <GithubCircle className="w-4 h-4" />
                   <span>GitHub</span>
                 </Link>
               </div>

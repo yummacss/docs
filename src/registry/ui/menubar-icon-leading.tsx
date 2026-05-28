@@ -4,18 +4,18 @@ import { Menu } from "@base-ui/react/menu";
 import { Menubar } from "@base-ui/react/menubar";
 import {
   Archive,
+  ArrowLeft,
+  ArrowRight,
   Calendar,
   Copy,
-  FolderInput,
-  FolderOutput,
+  DotsGrid3x3,
   FolderPlus,
-  Grip,
+  InputField,
+  KeyframesCoupleSolid,
   Link,
   List,
   Plus,
-  TextCursor,
-  Timeline,
-  UserRound,
+  User,
 } from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
@@ -80,7 +80,7 @@ export default function MenubarIcons() {
                       }`
                     }
                   >
-                    <FolderInput className="fs-0 w-4 h-4 c-slate-5" />
+                    <ArrowRight className="fs-0 w-4 h-4 c-slate-5" />
                     Import tasks
                   </Menu.Item>
                   <Menu.Item
@@ -90,7 +90,7 @@ export default function MenubarIcons() {
                       }`
                     }
                   >
-                    <FolderOutput className="fs-0 w-4 h-4 c-slate-5" />
+                    <ArrowLeft className="fs-0 w-4 h-4 c-slate-5" />
                     Export tasks
                   </Menu.Item>
                   <Menu.Item
@@ -142,7 +142,7 @@ export default function MenubarIcons() {
                       }`
                     }
                   >
-                    <TextCursor className="fs-0 w-4 h-4 c-slate-5" />
+                    <InputField className="fs-0 w-4 h-4 c-slate-5" />
                     Rename task
                   </Menu.Item>
                   <Menu.Item
@@ -224,7 +224,7 @@ export default function MenubarIcons() {
                       }`
                     }
                   >
-                    <Grip className="fs-0 w-4 h-4 c-slate-5" />
+                    <DotsGrid3x3 className="fs-0 w-4 h-4 c-slate-5" />
                     Board view
                   </Menu.Item>
                   <Menu.Item
@@ -244,8 +244,8 @@ export default function MenubarIcons() {
                       }`
                     }
                   >
-                    <Timeline className="fs-0 w-4 h-4 c-slate-5" />
-                    Timeline view
+                    <KeyframesCoupleSolid className="fs-0 w-4 h-4 c-slate-5" />
+                    KeyframesCoupleSolid view
                   </Menu.Item>
                 </Menu.Popup>
               </Menu.Positioner>
@@ -286,7 +286,7 @@ export default function MenubarIcons() {
                       }`
                     }
                   >
-                    <UserRound className="fs-0 w-4 h-4 c-slate-5" />
+                    <User className="fs-0 w-4 h-4 c-slate-5" />
                     Admin
                   </Menu.Item>
                   <Menu.Item
@@ -296,7 +296,7 @@ export default function MenubarIcons() {
                       }`
                     }
                   >
-                    <UserRound className="fs-0 w-4 h-4 c-slate-5" />
+                    <User className="fs-0 w-4 h-4 c-slate-5" />
                     Editor
                   </Menu.Item>
                   <Menu.Item
@@ -306,7 +306,7 @@ export default function MenubarIcons() {
                       }`
                     }
                   >
-                    <UserRound className="fs-0 w-4 h-4 c-slate-5" />
+                    <User className="fs-0 w-4 h-4 c-slate-5" />
                     Viewer
                   </Menu.Item>
                 </Menu.Popup>

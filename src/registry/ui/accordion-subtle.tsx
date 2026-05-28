@@ -1,7 +1,7 @@
 "use client";
 
 import { Accordion } from "@base-ui/react/accordion";
-import { ChevronDown } from "iconoir-react";
+import { NavArrowDown } from "iconoir-react";
 import { type HTMLMotionProps, motion } from "motion/react";
 import { useState } from "react";
 
@@ -30,7 +30,7 @@ export default function AccordionSubtle() {
                   transition={{ duration: 0.15, ease: "easeInOut" }}
                   className="d-f"
                 >
-                  <ChevronDown
+                  <NavArrowDown
                     className="fs-0 w-4 h-4 c-indigo-5"
                     aria-hidden
                   />

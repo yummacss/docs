@@ -3,14 +3,7 @@
 import { Toggle } from "@base-ui/react/toggle";
 import { ToggleGroup } from "@base-ui/react/toggle-group";
 import { Toolbar } from "@base-ui/react/toolbar";
-import {
-  ArrowDownAZ,
-  Cog,
-  Kanban,
-  LayoutList,
-  Plus,
-  Table,
-} from "iconoir-react";
+import { KanbanBoard, List, Plus, Sort, Table, Wrench } from "iconoir-react";
 import { useState } from "react";
 
 export default function ToolbarIconOnly() {
@@ -48,7 +41,7 @@ export default function ToolbarIconOnly() {
             }`
           }
         >
-          <LayoutList className="w-5 h-5" />
+          <List className="w-5 h-5" />
         </Toggle>
         <Toggle
           value="kanban"
@@ -61,7 +54,7 @@ export default function ToolbarIconOnly() {
             }`
           }
         >
-          <Kanban className="w-5 h-5" />
+          <KanbanBoard className="w-5 h-5" />
         </Toggle>
       </ToggleGroup>
 
@@ -78,13 +71,13 @@ export default function ToolbarIconOnly() {
           aria-label="Sort"
           className="d-f ai-c jc-c w-9 h-9 bg-transparent c-slate-8 br-md bw-0 us-none c-p h:bg-silver-1 h:c-slate-10 fv:oo-2 fv:oc-indigo-5"
         >
-          <ArrowDownAZ className="w-5 h-5" />
+          <Sort className="w-5 h-5" />
         </Toolbar.Button>
         <Toolbar.Button
           aria-label="Settings"
           className="d-f ai-c jc-c w-9 h-9 bg-transparent c-slate-8 br-md bw-0 us-none c-p h:bg-silver-1 h:c-slate-10 fv:oo-2 fv:oc-indigo-5"
         >
-          <Cog className="w-5 h-5" />
+          <Wrench className="w-5 h-5" />
         </Toolbar.Button>
       </Toolbar.Group>
 

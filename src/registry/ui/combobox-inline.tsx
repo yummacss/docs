@@ -2,7 +2,7 @@
 
 import { Avatar } from "@base-ui/react/avatar";
 import { Combobox } from "@base-ui/react/combobox";
-import { Check, Search, X } from "iconoir-react";
+import { Check, Search, Xmark } from "iconoir-react";
 
 function ItemIcon({
   selected,
@@ -33,7 +33,7 @@ export default function ComboboxInline() {
                   className="d-f b-0 ai-c jc-c w-6 h-6 p-0 bg-transparent c-slate-6 br-sm c-p h:c-slate-10"
                   aria-label="Clear selection"
                 >
-                  <X className="w-4 h-4" />
+                  <Xmark className="w-4 h-4" />
                 </Combobox.Clear>
               </div>
             </div>

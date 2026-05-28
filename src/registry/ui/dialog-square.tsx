@@ -3,7 +3,7 @@
 import { Avatar } from "@base-ui/react/avatar";
 import { Button } from "@base-ui/react/button";
 import { Dialog } from "@base-ui/react/dialog";
-import { X } from "iconoir-react";
+import { Xmark } from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -51,7 +51,7 @@ export default function DialogSquare() {
                     <Button className="d-f p-a r-3 t-3 ai-c jc-c w-7 h-7 p-0 c-slate-6 bw-0 h:bg-silver-1/50 h:c-slate-7 fv:oo-2 fv:oc-indigo-5" />
                   }
                 >
-                  <X aria-hidden className="w-5 h-5" />
+                  <Xmark aria-hidden className="w-5 h-5" />
                 </Dialog.Close>
                 <div className="d-f fd-c ai-c jc-c g-3 px-4 py-5 bg-white">
                   <Avatar.Root className="d-if o-h ai-c jc-c w-12 h-12 bc-white bw-1 va-m us-none">

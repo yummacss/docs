@@ -215,7 +215,6 @@ export const registry = {
   "menubar-grouped": dynamic(() => import("./ui/menubar-grouped"), { ssr: true }),
   "menubar-icon-leading": dynamic(() => import("./ui/menubar-icon-leading"), { ssr: true }),
   "menubar-icon-trailing": dynamic(() => import("./ui/menubar-icon-trailing"), { ssr: true }),
-  "menubar-icons": dynamic(() => import("./ui/menubar-icons"), { ssr: true }),
   "menubar-nested": dynamic(() => import("./ui/menubar-nested"), { ssr: true }),
   "menubar-radios": dynamic(() => import("./ui/menubar-radios"), { ssr: true }),
   "menubar-shortcuts": dynamic(() => import("./ui/menubar-shortcuts"), { ssr: true }),

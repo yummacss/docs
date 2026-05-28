@@ -2,7 +2,7 @@
 
 import { Avatar } from "@base-ui/react/avatar";
 import { ContextMenu } from "@base-ui/react/context-menu";
-import { ChevronRight } from "iconoir-react";
+import { NavArrowRight } from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -39,7 +39,7 @@ export default function ContextMenuNested() {
                     }
                   >
                     <span className="d-f ai-c g-2 fg-1">Add Label</span>
-                    <ChevronRight className="fs-0 w-3 h-3 c-slate-4" />
+                    <NavArrowRight className="fs-0 w-3 h-3 c-slate-4" />
                   </ContextMenu.SubmenuTrigger>
 
                   <ContextMenu.Portal>
@@ -76,7 +76,7 @@ export default function ContextMenuNested() {
                     }
                   >
                     <span className="d-f ai-c g-2 fg-1">Assign to</span>
-                    <ChevronRight className="fs-0 w-3 h-3 c-slate-4" />
+                    <NavArrowRight className="fs-0 w-3 h-3 c-slate-4" />
                   </ContextMenu.SubmenuTrigger>
 
                   <ContextMenu.Portal>
