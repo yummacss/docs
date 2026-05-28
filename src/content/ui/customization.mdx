@@ -17,7 +17,7 @@ This means customization is as simple as changing a class name:
 
 Because Yumma CSS does not use a configuration-based token system or support arbitrary values, you have the ultimate freedom to construct your own design system from scratch. Yumma UI provides you with professionally designed, production-ready starting points that you can then adapt to your brand's specific needs.
 
-## Component slots
+## Component Slots
 
 Most Yumma UI components are built using [Base UI](https://base-ui.com), which provides a clear "slot" system for deep customization. This allows you to style every single part of a component independently.
 
@@ -30,7 +30,7 @@ For example, in a Dialog component, you might have slots for the `Backdrop`, `Co
 </Dialog>
 ```
 
-## Extending colors
+## Extending Colors
 
 You can extend or override the default color palette using the `theme.colors` configuration in `yumma.config.mjs`. This allows you to introduce brand-specific colors while maintaining the atomic approach.
 
@@ -46,7 +46,7 @@ export default defineConfig({
 });
 ```
 
-## Overriding color shades
+## Overriding Color Shades
 
 If you want to override specific shades of an existing color, you can do so by providing new values for those shades in the `theme.colors` configuration. For example, to change the `blue-5` shade:
 
