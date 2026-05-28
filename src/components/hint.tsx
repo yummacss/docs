@@ -1,16 +1,17 @@
 "use client";
 
 import {
+  CursorPointer,
   Heart,
   InfoCircle,
   InputField,
-  MacOptionKey,
   MouseButtonLeft,
   MouseButtonRight,
   MouseScrollWheel,
   OpenSelectHandGesture,
   Ruler,
   RulerCombine,
+  StyleBorderSolid,
   WarningTriangle,
 } from "iconoir-react";
 import type { ReactNode } from "react";
@@ -23,8 +24,9 @@ const icons = {
   hand_swipe_right: InputField,
   hand_tap: OpenSelectHandGesture,
   heart: Heart,
+  hover: CursorPointer,
   info: InfoCircle,
-  keyboard: MacOptionKey,
+  keyboard: StyleBorderSolid,
   mouse_left_click: MouseButtonLeft,
   mouse_right_click: MouseButtonRight,
   mouse_scroll: MouseScrollWheel,

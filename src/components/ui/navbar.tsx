@@ -3,7 +3,7 @@
 import { Button } from "@base-ui/react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { clsx } from "clsx";
-import { GithubCircle, List, NpmSquare, Search, Xmark } from "iconoir-react";
+import { Github, List, NpmSquare, Search, Xmark } from "iconoir-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { lazy, type ReactNode, Suspense, useEffect, useState } from "react";
@@ -133,7 +133,7 @@ export default function Navbar({
                   className="d-f ai-c g-1 c-white/80 fs-xs h:c-white fv:oc-white fv:ow-2"
                   target="_blank"
                 >
-                  <GithubCircle className="w-4 h-4" />
+                  <Github className="w-4 h-4" />
                   <span>GitHub</span>
                 </Link>
               </div>
