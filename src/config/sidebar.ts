@@ -17,7 +17,6 @@ export const sidebarConfig = {
         { title: "Colors", slug: "colors" },
         { title: "Normalize", slug: "normalize" },
         { title: "Media Queries", slug: "media-queries" },
-        { title: "Container Queries", slug: "container-queries" },
         { title: "Negative Values", slug: "negative-values" },
         { title: "Pseudo Classes", slug: "pseudo-classes" },
         { title: "Pseudo Elements", slug: "pseudo-elements" },
