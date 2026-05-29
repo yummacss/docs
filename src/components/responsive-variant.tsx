@@ -28,7 +28,7 @@ export default function ResponsiveVariant({ category, name }: Props) {
   const prefix = getPrefix(category, name);
 
   return (
-    <div className="d-g gtc-1 g-3 mb-6 sm:gtc-2">
+    <div className="d-g gtc-1 g-3 mb-6 @sm:gtc-2">
       {breakpoints.map((bp) => (
         <div
           key={bp.prefix}

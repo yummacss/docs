@@ -98,7 +98,7 @@ export default function Reference({ category, name }: Props) {
                     </span>
                   </span>
                   <Plus
-                    className={`w-4 h-4 fs-0 tp-t tp-c tdu-200 ttf-io ${open ? "ro-45 c-white" : "ro-0 c-white/60"}`}
+                    className={`fs-0 w-4 h-4 tp-c tdu-200 ttf-io ${open ? "ro-45 c-white" : "ro-0 c-white/60"}`}
                   />
                 </Button>
               )}

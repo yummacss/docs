@@ -111,7 +111,7 @@ export default function Baseline({ path }: Props) {
         <p className="c-white/70">{statusDescription}</p>
       </div>
 
-      <div className="d-g g-4 gtc-1 sm:gtc-2 md:gtc-4">
+      <div className="d-g g-4 gtc-1 @sm:gtc-2 @md:gtc-4">
         {browsers.map((browser) => (
           <div key={browser.key} className="d-f ai-c g-2">
             <div

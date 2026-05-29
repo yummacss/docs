@@ -10,26 +10,26 @@ export default function Home() {
       <Navbar variant="transparent" />
 
       <div
-        className="d-f p-r ai-fe w-100% mx-auto px-6 pb-16 md:pb-0"
+        className="d-f p-r ai-fe w-100% mx-auto px-6 pb-16 @md:pb-0"
         style={{
           minHeight: "calc(100dvh - 120px)",
           maxWidth: "clamp(40rem, 80vw, 96rem)",
         }}
       >
         <div className="w-100%" style={{ maxWidth: "72rem" }}>
-          <div className="d-g g-12 ai-fe lg:gtc-2">
+          <div className="d-g g-12 ai-fe @lg:gtc-2">
             <div>
-              <h1 className="mb-6 fs-4xl fw-400 lh-2 ff-e md:fs-5xl lg:fs-6xl">
+              <h1 className="mb-6 fs-4xl fw-400 lh-2 ff-e @md:fs-5xl @lg:fs-6xl">
                 Type less. Style more.
               </h1>
-              <p className="mb-8 c-white/70 fs-md lh-5 md:fs-lg">
+              <p className="mb-8 c-white/70 fs-md lh-5 @md:fs-lg">
                 The ergonomic CSS framework with abbreviated utility classes.{" "}
-                <span className="c-white fs-sm md:fs-md">d</span> not{" "}
-                <span className="c-white fs-sm md:fs-md">display</span>,{" "}
-                <span className="c-white fs-sm md:fs-md">fw</span> not{" "}
-                <span className="c-white fs-sm md:fs-md">font-weight</span>,{" "}
-                <span className="c-white fs-sm md:fs-md">g</span> not{" "}
-                <span className="c-white fs-sm md:fs-md">gap</span>.
+                <span className="c-white fs-sm @md:fs-md">d</span> not{" "}
+                <span className="c-white fs-sm @md:fs-md">display</span>,{" "}
+                <span className="c-white fs-sm @md:fs-md">fw</span> not{" "}
+                <span className="c-white fs-sm @md:fs-md">font-weight</span>,{" "}
+                <span className="c-white fs-sm @md:fs-md">g</span> not{" "}
+                <span className="c-white fs-sm @md:fs-md">gap</span>.
               </p>
 
               <div className="d-f fw-w g-4 mb-12">

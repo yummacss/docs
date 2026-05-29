@@ -25,8 +25,8 @@ export default function Palette({
 }: Props) {
   return (
     <div className="d-f fd-c g-1">
-      <div className="d-none fd-c g-1 ai-c md:ai-c lg:d-f md:fd-r">
-        <div className="d-f ai-c min-w-fc mr-2 ws-nw ta-c md:min-w-16" />
+      <div className="d-none fd-c g-1 ai-c @md:ai-c @lg:d-f @md:fd-r">
+        <div className="d-f ai-c min-w-fc mr-2 ws-nw ta-c @md:min-w-16" />
         <div
           className="d-g g-1 f-1 my-2 w-100%"
           style={{
@@ -53,9 +53,9 @@ export default function Palette({
         return (
           <div
             key={colorItem.name}
-            className="d-f fd-c g-1 ai-c md:ai-c md:fd-r"
+            className="d-f fd-c g-1 ai-c @md:ai-c @md:fd-r"
           >
-            <p className="d-f ai-c min-w-fc mr-2 c-white ws-nw ta-c fs-sm md:min-w-16">
+            <p className="d-f ai-c min-w-fc mr-2 c-white ws-nw ta-c fs-sm @md:min-w-16">
               {colorItem.name}
             </p>
             <div
