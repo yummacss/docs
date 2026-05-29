@@ -4,6 +4,7 @@ import { redirects } from "./redirects";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  allowedDevOrigins: ['192.168.1.68'],
   reactStrictMode: true,
   pageExtensions: ["js", "jsx", "md", "mdx", "mjs", "ts", "tsx"],
   async redirects() {
