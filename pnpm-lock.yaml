@@ -42,8 +42,8 @@ importers:
         specifier: ^2.0.0
         version: 2.0.0(next@16.2.4(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(react@19.2.5)
       '@yummacss/core':
-        specifier: ^3.24.11
-        version: 3.24.11
+        specifier: ^3.24.13
+        version: 3.24.13
       class-variance-authority:
         specifier: ^0.7.1
         version: 0.7.1
@@ -118,8 +118,8 @@ importers:
         specifier: ^6.0.3
         version: 6.0.3
       yummacss:
-        specifier: ^3.24.11
-        version: 3.24.11
+        specifier: ^3.24.13
+        version: 3.24.13
 
 packages:
 
@@ -801,11 +801,11 @@ packages:
       vue-router:
         optional: true
 
-  '@yummacss/core@3.24.11':
-    resolution: {integrity: sha512-L7hybZKrC/qJewqatCX2FA1Qb3Umxi9mwqFqwyE2gja9gZPrnYsUYxE2Z6HQt/zUc9xA2PUxTxuiRfNf/2momA==}
+  '@yummacss/core@3.24.13':
+    resolution: {integrity: sha512-YCou0KL6VHXIX2T5xNvQNUQ2LsyQz2q5LynIWxdSrH+ywNIvfADtNRe1sjemZ4jfbVP0LDRf2XLXgd7fyGGtZA==}
 
-  '@yummacss/nitro@3.24.11':
-    resolution: {integrity: sha512-+YVFmPEpGmunhxA/B7635SEYqqJaWZtP8ZTJEuIcH2utrtpP5ElprPJXvEvxYg/erR7wzYDY8qrOKLj+RxS+QQ==}
+  '@yummacss/nitro@3.24.13':
+    resolution: {integrity: sha512-ARlwEaN2zUaJ972LZn6/L0K78vhmNy/l2svUtumbkUNCAgMKAPU/ZbAdIWalcfNioUYnAIiLHGs28wLRCIZRVw==}
 
   acorn-jsx@5.3.2:
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
@@ -1589,8 +1589,8 @@ packages:
     resolution: {integrity: sha512-7dSzzRQ++CKnNI/krKnYRV7JKKPUXMEh61soaHKg9mrWEhzFWhFnxPxGl+69cD1Ou63C13NUPCnmIcrvqCuM6w==}
     engines: {node: '>=12'}
 
-  yummacss@3.24.11:
-    resolution: {integrity: sha512-5NobZd8H+SZ7IO/fGXnfmjt90yCExN+tWFMPRFVm7UOce+EsreHzFmwXzCQputrKx2Y7hRlyZBG+jdyJatyE3g==}
+  yummacss@3.24.13:
+    resolution: {integrity: sha512-duw+gKWU7X0tGOOQ69pgQq9ty3gBLWCkUEkKOvTRdbMVMn89y/MW+l1N1y6cplydBxIO68S8DmqTmsVMp5et6g==}
     hasBin: true
 
   zwitch@2.0.4:
@@ -2080,11 +2080,11 @@ snapshots:
       next: 16.2.4(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
       react: 19.2.5
 
-  '@yummacss/core@3.24.11': {}
+  '@yummacss/core@3.24.13': {}
 
-  '@yummacss/nitro@3.24.11':
+  '@yummacss/nitro@3.24.13':
     dependencies:
-      '@yummacss/core': 3.24.11
+      '@yummacss/core': 3.24.13
 
   acorn-jsx@5.3.2(acorn@8.16.0):
     dependencies:
@@ -3271,8 +3271,8 @@ snapshots:
       y18n: 5.0.8
       yargs-parser: 21.1.1
 
-  yummacss@3.24.11:
+  yummacss@3.24.13:
     dependencies:
-      '@yummacss/nitro': 3.24.11
+      '@yummacss/nitro': 3.24.13
 
   zwitch@2.0.4: {}
