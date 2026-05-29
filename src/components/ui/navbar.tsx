@@ -76,7 +76,7 @@ export default function Navbar({
               {links ? (
                 links
               ) : (
-                <div className="d-none ai-c g-8 lg:d-f">
+                <div className="d-none ai-c g-8 @lg:d-f">
                   <Link
                     href="/docs"
                     className="c-white/80 fs-sm h:c-white fv:oc-white fv:ow-2"
@@ -109,15 +109,15 @@ export default function Navbar({
               <Button
                 type="button"
                 onClick={() => setSearchOpen(true)}
-                className="d-f ai-c jc-c g-2 h-8 px-3 bc-border bg-surface a:bg-surface-7 c-white bw-1 fs-sm bf-b-sm lg:px-4 fv:oc-white fv:ow-2"
+                className="d-f ai-c jc-c g-2 h-8 px-3 bc-border bg-surface a:bg-surface-7 c-white bw-1 fs-sm bf-b-sm @lg:px-4 fv:oc-white fv:ow-2"
               >
                 <Search className="w-4 h-4" />
-                <kbd className="d-none c-white/80 fs-xs us-none lg:d-b">
+                <kbd className="d-none c-white/80 fs-xs us-none @lg:d-b">
                   Ctrl + K
                 </kbd>
               </Button>
 
-              <div className="d-none ai-c g-4 ml-2 md:d-f">
+              <div className="d-none ai-c g-4 ml-2 @md:d-f">
                 <Link
                   href="https://npmx.dev/package/yummacss"
                   className="d-f ai-c g-1 c-white/80 fs-xs h:c-white fv:oc-white fv:ow-2"
@@ -142,7 +142,7 @@ export default function Navbar({
                 <Button
                   type="button"
                   onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-                  className="d-f p-r ai-c jc-c h-8 px-3 bc-border bg-surface h:bg-surface-8 c-white bw-1 bf-b-sm lg:d-none fv:oc-white fv:ow-2"
+                  className="d-f p-r ai-c jc-c h-8 px-3 bc-border bg-surface h:bg-surface-8 c-white bw-1 bf-b-sm @lg:d-none fv:oc-white fv:ow-2"
                   aria-label={isSidebarOpen ? "Close menu" : "Open menu"}
                 >
                   <div className="d-f p-r ai-c jc-c w-4 h-4">

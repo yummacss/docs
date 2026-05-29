@@ -40,7 +40,7 @@ export default function Sidebar({ variant }: Props) {
   const basePath = variant === "ui" ? "/ui/components" : "/docs";
 
   return (
-    <aside className="d-none lg:d-b lg:gc-s-3">
+    <aside className="d-none @lg:d-b @lg:gc-s-3">
       <div
         className="d-f p-st t-20 oy-auto fd-c g-8 pb-12"
         style={{

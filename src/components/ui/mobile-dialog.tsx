@@ -106,7 +106,7 @@ export default function MobileDialog({ isOpen, onClose, routeType }: Props) {
               className="p-f zi-10 t-0 l-0 r-0 b-0 bg-black/60 bf-b-sm fgr-90"
             />
 
-            <div className="d-f p-f zi-10 t-0 l-0 r-0 b-0 ai-s jc-fe pe-none lg:d-none">
+            <div className="d-f p-f zi-10 t-0 l-0 r-0 b-0 ai-s jc-fe pe-none @lg:d-none">
               <Dialog.Popup
                 render={
                   <motion.div
