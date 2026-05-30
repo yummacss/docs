@@ -33,7 +33,7 @@ Prefix the utility with `[variant]::`.
 ### 3. Media Queries
 Prefix the utility with `[@variant]:` for media queries
 - **Media**: `@sm:`, `@md:`, `@lg:`, `@xl:`, `@xxl:`, `@pc:` (pointer: coarse).
-**Example:** `md:w-50` or `md:h:bg-blue-3`
+**Example:** `@md:w-50` or `@md:h:bg-blue-3`
 
 ### 4. Opacity
 Append `/[value]` to the end of any color-based utility. Values range from `0` to `95` (in intervals of `5`).
