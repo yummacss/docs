@@ -19,14 +19,14 @@ import {
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
-export default function CommandPaletteSquare() {
+export default function CommandPaletteIcon() {
   const [open, setOpen] = useState(false);
 
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger
         render={
-          <Button className="d-f ai-c g-2 px-3 py-2 bc-silver-2 c-slate-10 bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5" />
+          <Button className="d-f ai-c g-2 px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5" />
         }
       >
         <Search className="w-4 h-4" />
@@ -56,7 +56,7 @@ export default function CommandPaletteSquare() {
                     transition={{ duration: 0.2, ease: "easeOut" }}
                   />
                 }
-                className="o-h w-96 bg-white bc-silver-2 c-slate-12 bw-1 bs-o-lg"
+                className="o-h w-96 bg-white bc-silver-2 c-slate-12 br-xxl bw-1 bs-o-lg"
                 style={{ maxWidth: "90vw" }}
               >
                 <Combobox.Root inline items={commandGroups} autoHighlight>
@@ -69,7 +69,7 @@ export default function CommandPaletteSquare() {
                     />
                     <Dialog.Close
                       render={
-                        <Button className="d-f ai-c jc-c w-7 h-7 p-0 c-slate-6 bw-0 br-0 h:bg-silver-1/50 h:c-slate-7 fv:oo-2 fv:oc-indigo-5" />
+                        <Button className="d-f ai-c jc-c w-7 h-7 p-0 c-slate-6 bw-0 br-9999 h:bg-silver-1/50 h:c-slate-7 fv:oo-2 fv:oc-indigo-5" />
                       }
                     >
                       <Xmark aria-hidden className="w-5 h-5" />
@@ -88,14 +88,16 @@ export default function CommandPaletteSquare() {
                               value={item.id}
                               onClick={() => setOpen(false)}
                               className={(state: { highlighted: boolean }) =>
-                                `d-f ai-c g-3 py-2 px-4 mx-2 fs-sm us-none c-p br-0 ${
+                                `d-f ai-c g-3 py-2 px-4 mx-2 fs-sm us-none c-p br-md ${
                                   state.highlighted
                                     ? "bg-silver-1/50"
                                     : "bg-transparent"
                                 }`
                               }
                             >
-                              <item.Icon className="fs-0 w-4 h-4 c-slate-7" />
+                              <div className="d-f ai-c jc-c w-8 h-8 bg-silver-1/50 c-slate-7 br-md">
+                                <item.Icon className="fs-0 w-4 h-4" />
+                              </div>
                               <span className="c-slate-10 fw-500">
                                 {item.label}
                               </span>
@@ -126,7 +128,6 @@ export default function CommandPaletteSquare() {
 interface CommandItem {
   id: string;
   label: string;
-  shortcut?: string;
   Icon: React.ComponentType<{ className?: string }>;
 }
 

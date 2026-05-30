@@ -20,7 +20,7 @@ const slideVariants = {
   exit: (d: number) => ({ x: d > 0 ? -40 : 40, opacity: 0 }),
 };
 
-export default function OnboardingBase() {
+export default function OnboardingSquare() {
   const [open, setOpen] = useState(false);
   const [page, setPage] = useState(0);
   const [direction, setDirection] = useState(0);
@@ -59,7 +59,7 @@ export default function OnboardingBase() {
     >
       <Dialog.Trigger
         render={
-          <Button className="px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5" />
+          <Button className="px-3 py-2 bc-silver-2 c-slate-10 bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5" />
         }
       >
         Start your journey
@@ -88,12 +88,12 @@ export default function OnboardingBase() {
                     transition={{ duration: 0.2, ease: "easeOut" }}
                   />
                 }
-                className="o-h p-r w-96 bg-white bc-silver-2 c-slate-12 br-xxl bw-1 bs-o-lg"
+                className="o-h p-r w-96 bg-white bc-silver-2 c-slate-12 br-0 bw-1 bs-o-lg"
                 style={{ maxWidth: "90vw" }}
               >
                 <Dialog.Close
                   render={
-                    <Button className="d-f p-a r-3 t-3 ai-c jc-c w-7 h-7 p-0 c-slate-6 bw-0 br-9999 h:bg-silver-1/50 h:c-slate-7 fv:oo-2 fv:oc-indigo-5" />
+                    <Button className="d-f p-a r-3 t-3 ai-c jc-c w-7 h-7 p-0 c-slate-6 bw-0 br-0 h:bg-silver-1/50 h:c-slate-7 fv:oo-2 fv:oc-indigo-5" />
                   }
                 >
                   <Xmark aria-hidden className="w-5 h-5" />
@@ -111,7 +111,7 @@ export default function OnboardingBase() {
                         transition={{ duration: 0.2, ease: "easeOut" }}
                         className="d-f fd-c ai-c g-3"
                       >
-                        <div className="d-f ai-c jc-c w-12 h-12 bg-indigo-1/50 c-indigo br-9999">
+                        <div className="d-f ai-c jc-c w-12 h-12 bg-indigo-1/50 c-indigo">
                           <Icon className="w-6 h-6" />
                         </div>
                         <span className="c-slate-10 fs-md fw-500">{title}</span>
@@ -127,7 +127,7 @@ export default function OnboardingBase() {
                     type="button"
                     onClick={goPrev}
                     disabled={isFirst}
-                    className={`d-f ai-c jc-c w-8 h-8 bw-0 br-md us-none fv:oo--1 fv:oc-indigo-5 ${
+                    className={`d-f ai-c jc-c w-8 h-8 bw-0 us-none fv:oo--1 fv:oc-indigo-5 ${
                       isFirst
                         ? "c-slate-3"
                         : "c-slate-6 h:bg-silver-1 h:c-slate-10 c-p"
@@ -146,7 +146,7 @@ export default function OnboardingBase() {
                           key={value}
                           value={value}
                           className={(state) =>
-                            `d-f ai-c jc-c w-4 h-4 br-9999 bw-0 us-none c-p fv:oo--1 fv:oc-indigo-5 ${
+                            `d-f ai-c jc-c w-4 h-4 bw-0 us-none c-p fv:oo--1 fv:oc-indigo-5 ${
                               state.active ? "bg-indigo" : "bg-silver-2"
                             }`
                           }
@@ -158,7 +158,7 @@ export default function OnboardingBase() {
                     type="button"
                     onClick={goNext}
                     disabled={isLast}
-                    className={`d-f ai-c jc-c w-8 h-8 bw-0 br-md us-none fv:oo--1 fv:oc-indigo-5 ${
+                    className={`d-f ai-c jc-c w-8 h-8 bw-0 us-none fv:oo--1 fv:oc-indigo-5 ${
                       isLast
                         ? "c-slate-3"
                         : "c-slate-6 h:bg-silver-1 h:c-slate-10 c-p"

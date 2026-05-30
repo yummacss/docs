@@ -20,7 +20,7 @@ const slideVariants = {
   exit: (d: number) => ({ x: d > 0 ? -40 : 40, opacity: 0 }),
 };
 
-export default function OnboardingBase() {
+export default function OnboardingSquircle() {
   const [open, setOpen] = useState(false);
   const [page, setPage] = useState(0);
   const [direction, setDirection] = useState(0);
@@ -59,7 +59,7 @@ export default function OnboardingBase() {
     >
       <Dialog.Trigger
         render={
-          <Button className="px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5" />
+          <Button className="px-3 py-2 bc-silver-2 c-slate-10 bw-1 br-xxl cs-s fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5" />
         }
       >
         Start your journey
@@ -127,7 +127,7 @@ export default function OnboardingBase() {
                     type="button"
                     onClick={goPrev}
                     disabled={isFirst}
-                    className={`d-f ai-c jc-c w-8 h-8 bw-0 br-md us-none fv:oo--1 fv:oc-indigo-5 ${
+                    className={`d-f ai-c jc-c w-8 h-8 bw-0 br-xxl cs-s us-none fv:oo--1 fv:oc-indigo-5 ${
                       isFirst
                         ? "c-slate-3"
                         : "c-slate-6 h:bg-silver-1 h:c-slate-10 c-p"
@@ -146,7 +146,7 @@ export default function OnboardingBase() {
                           key={value}
                           value={value}
                           className={(state) =>
-                            `d-f ai-c jc-c w-4 h-4 br-9999 bw-0 us-none c-p fv:oo--1 fv:oc-indigo-5 ${
+                            `d-f ai-c jc-c w-4 h-4 bw-0 us-none c-p fv:oo--1 fv:oc-indigo-5 ${
                               state.active ? "bg-indigo" : "bg-silver-2"
                             }`
                           }
@@ -158,7 +158,7 @@ export default function OnboardingBase() {
                     type="button"
                     onClick={goNext}
                     disabled={isLast}
-                    className={`d-f ai-c jc-c w-8 h-8 bw-0 br-md us-none fv:oo--1 fv:oc-indigo-5 ${
+                    className={`d-f ai-c jc-c w-8 h-8 bw-0 br-xxl cs-s us-none fv:oo--1 fv:oc-indigo-5 ${
                       isLast
                         ? "c-slate-3"
                         : "c-slate-6 h:bg-silver-1 h:c-slate-10 c-p"
