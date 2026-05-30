@@ -2154,7 +2154,7 @@ Below is an exhaustive list of every supported utility prefix and value in Yumma
 | `cursor: nwse-resize;` | `c-nwser` |
 | `cursor: pointer;` | `c-p` |
 | `cursor: progress;` | `c-pr` |
-| `cursor: row-resize;` | `c-rs` |
+| `cursor: row-resize;` | `c-rr` |
 | `cursor: se-resize;` | `c-ser` |
 | `cursor: s-resize;` | `c-sr` |
 | `cursor: sw-resize;` | `c-swr` |
