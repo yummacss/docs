@@ -56,8 +56,8 @@ export default async function BlogPostPage({
 
   return (
     <div className="py-8">
-      <div className="d-g gtc-1 g-8 lg:gtc-12">
-        <article className="lg:gc-s-8">
+      <div className="d-g gtc-1 g-8 @lg:gtc-12">
+        <article className="@lg:gc-s-8">
           <header className="mb-12">
             <div className="d-f ai-c g-2 mb-4 mt-16 c-white/50 fs-sm">
               <Link href="/blog" className="h:c-white fv:oc-white fv:ow-2">
@@ -67,7 +67,7 @@ export default async function BlogPostPage({
               <span>{formatDate(meta?.date || "")}</span>
             </div>
 
-            <h1 className="mb-2 c-white fs-4xl fw-400 lg:fs-5xl">
+            <h1 className="mb-2 c-white fs-4xl fw-400 @lg:fs-5xl">
               {meta?.title}
             </h1>
 

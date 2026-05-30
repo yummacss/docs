@@ -30,10 +30,9 @@ Prefix the utility with `[variant]::`.
 - `s::` -> `::selection`
 **Example:** `b::bg-black`
 
-### 3. Media & Container Queries
-Prefix the utility with `[variant]:` for media, `@[variant]:` for container queries.
-- **Media**: `sm:`, `md:`, `lg:`, `xl:`, `xxl:`, `pc:` (pointer: coarse).
-- **Container**: `@sm:`, `@md:`, `@lg:`, `@xl:`, `@xxl:`.
+### 3. Media Queries
+Prefix the utility with `[@variant]:` for media queries
+- **Media**: `@sm:`, `@md:`, `@lg:`, `@xl:`, `@xxl:`, `@pc:` (pointer: coarse).
 **Example:** `md:w-50` or `md:h:bg-blue-3`
 
 ### 4. Opacity
@@ -2441,14 +2440,6 @@ Below is an exhaustive list of every supported utility prefix and value in Yumma
 | `clear: left;` | `cl-l` |
 | `clear: none;` | `cl-none` |
 | `clear: right;` | `cl-r` |
-
-### container-type
-
-| CSS Rule | Yumma Utility |
-|----------|---------------|
-| `container-type: inline-size;` | `ct-is` |
-| `container-type: none;` | `ct-none` |
-| `container-type: size;` | `ct-s` |
 
 ### table-layout
 

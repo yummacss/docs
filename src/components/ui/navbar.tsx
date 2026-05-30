@@ -16,7 +16,7 @@ const MobileDialog = lazy(() => import("./mobile-dialog"));
 const navbarVariants = cva("p-f ix-0 t-0 bbw-1", {
   variants: {
     variant: {
-      default: "lg:bf-b-md bc-border",
+      default: "@lg:bf-b-md bc-border",
       transparent: "bc-transparent",
     },
   },

@@ -933,10 +933,6 @@ summary {
   color: #c6313c;
 }
 
-.c-rs {
-  cursor: row-resize;
-}
-
 .c-ser {
   cursor: se-resize;
 }
@@ -2703,20 +2699,16 @@ summary {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .\@sm\:pt-16 {
+    padding-top: 4rem;
+  }
+
   .\@sm\:ta-c {
     text-align: center;
   }
 
   .\@sm\:ta-l {
     text-align: left;
-  }
-
-  .sm\:gtc-2 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .sm\:pt-16 {
-    padding-top: 4rem;
   }
 }
 
@@ -2768,25 +2760,13 @@ summary {
   .\@md\:pt-0 {
     padding-top: 0;
   }
-
-  .md\:bg-silver-1 {
-    background-color: #eff0f2;
-  }
-
-  .md\:gtc-3 {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .md\:h-auto {
-    height: auto;
-  }
-
-  .md\:w-auto {
-    width: auto;
-  }
 }
 
 @media (min-width: 64rem) {
+  .\@lg\:bf-b-md {
+    backdrop-filter: blur(16px);
+  }
+
   .\@lg\:d-b {
     display: block;
   }
@@ -2797,6 +2777,22 @@ summary {
 
   .\@lg\:d-none {
     display: none;
+  }
+
+  .\@lg\:f-1 {
+    flex: 1;
+  }
+
+  .\@lg\:fd-r {
+    flex-direction: row;
+  }
+
+  .\@lg\:fs-0 {
+    flex-shrink: 0;
+  }
+
+  .\@lg\:fs-5xl {
+    font-size: 3rem;
   }
 
   .\@lg\:fs-6xl {
@@ -2811,6 +2807,10 @@ summary {
     grid-column: span 6 / span 6;
   }
 
+  .\@lg\:gc-s-8 {
+    grid-column: span 8 / span 8;
+  }
+
   .\@lg\:gtc-12 {
     grid-template-columns: repeat(12, minmax(0, 1fr));
   }
@@ -2823,51 +2823,7 @@ summary {
     padding-inline: 1rem;
   }
 
-  .lg\:bf-b-md {
-    backdrop-filter: blur(16px);
-  }
-
-  .lg\:f-1 {
-    flex: 1;
-  }
-
-  .lg\:fd-r {
-    flex-direction: row;
-  }
-
-  .lg\:fs-0 {
-    flex-shrink: 0;
-  }
-
-  .lg\:fs-5xl {
-    font-size: 3rem;
-  }
-
-  .lg\:gc-s-8 {
-    grid-column: span 8 / span 8;
-  }
-
-  .lg\:gtc-12 {
-    grid-template-columns: repeat(12, minmax(0, 1fr));
-  }
-
-  .lg\:gtc-4 {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
-  .lg\:h\:bg-indigo\/50:hover {
-    background-color: #6366f180;
-  }
-
-  .lg\:h\:bg-red\/50:hover {
-    background-color: #e6394680;
-  }
-
-  .lg\:h\:f\:bg-red\/25:hover:focus {
-    background-color: #e6394640;
-  }
-
-  .lg\:w-64 {
+  .\@lg\:w-64 {
     width: 16rem;
   }
 }
@@ -2890,10 +2846,6 @@ summary {
 
 @media (pointer: coarse) {
   .\@pc\:p-6 {
-    padding: 1.5rem;
-  }
-
-  .pc\:p-6 {
     padding: 1.5rem;
   }
 }

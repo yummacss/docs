@@ -222,7 +222,7 @@ const components: MDXComponents = {
     <Image
       src={src as string}
       alt={alt || ""}
-      className={`${className || "w-100% h-auto my-4"} bg-surface`}
+      className={`${className || "w-100% h-auto my-4"} bc-border bg-surface bw-1`}
       unoptimized
       width={1920}
       height={1080}

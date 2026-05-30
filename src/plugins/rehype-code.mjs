@@ -26,7 +26,7 @@ function parseRanges(meta, key) {
 
 /**
  * Parse quoted strings from meta, excluding the title value.
- * e.g. `"sm:d-b" "md:d-b"` returns ["sm:d-b", "md:d-b"]
+ * e.g. `"@sm:d-b" "@md:d-b"` returns ["@sm:d-b", "@md:d-b"]
  */
 function parseWords(meta, titleValue) {
   if (typeof meta !== "string") return [];

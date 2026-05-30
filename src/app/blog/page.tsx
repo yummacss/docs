@@ -14,7 +14,7 @@ export default async function BlogPage() {
   const years = Array.from(postsByYear.keys()).sort((a, b) => b - a);
 
   return (
-    <div className="pt-14 sm:pt-16">
+    <div className="pt-14 @sm:pt-16">
       <div className="mx-auto my-16 max-w-lg">
         <h1 className="mt-6 c-white ff-e fs-5xl fw-400">Blog Articles</h1>
         <p className="mt-6 max-w-md c-white/70 fs-lg">
@@ -34,8 +34,8 @@ export default async function BlogPage() {
                     href={`/blog/${post.slug}`}
                     className="d-b fv:oc-white fv:ow-2"
                   >
-                    <div className="d-f fd-c g-8 lg:fd-r">
-                      <div className="lg:f-1">
+                    <div className="d-f fd-c g-8 @lg:fd-r">
+                      <div className="@lg:f-1">
                         <h3 className="mb-4 c-white fs-xxl fw-400">
                           {post.title}
                         </h3>
@@ -47,7 +47,7 @@ export default async function BlogPage() {
                         </div>
                       </div>
                       {post.cover && (
-                        <div className="lg:w-64 lg:fs-0">
+                        <div className="@lg:w-64 @lg:fs-0">
                           <div className="o-h b-1 bc-border bg-white/10">
                             <Image
                               src={`/blog/${post.slug}.png`}
