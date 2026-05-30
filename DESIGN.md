@@ -654,6 +654,6 @@ state.checked ? "bg-indigo" : "bw-1 bc-silver-3 bg-transparent bs-o-xs"
 - Never fabricate a Base UI component that does not exist (e.g. `Badge`, `Breadcrumb` have no Base UI primitive)
 - Never add `wip: true` to a component that has at least one working example
 - Never use `bs-d` (dashed border) on elements other than placeholder/trigger zones
-- **Never use custom SVGs.** Always use Gravity Icons (`@gravity-ui/icons`). Import icons as named imports (e.g., `import { PersonPlus } from "@gravity-ui/icons"`).
-- **No external packages.** Only use Base UI (`@base-ui/react/*`), Framer Motion (`motion/react`), and Gravity Icons (`@gravity-ui/icons`). Never import `clsx`, `classnames`, `tailwind-merge`, or any other utility package. Use template literals for conditional classes.
+- **Never use custom SVGs.** Always use Gravity Icons (`iconoir-react`). Import icons as named imports (e.g., `import { PersonPlus } from "iconoir-react"`).
+- **No external packages.** Only use Base UI (`@base-ui/react/*`), Framer Motion (`motion/react`), and Gravity Icons (`iconoir-react`). Never import `clsx`, `classnames`, `tailwind-merge`, or any other utility package. Use template literals for conditional classes.
 - **Use actual Base UI props.** When a Base UI component has a prop for a feature (e.g., `limit`, `disabled`), use that prop instead of manual implementation. Rename the component file to match the prop name (e.g., `autocomplete-limit.tsx` not `autocomplete-max-items.tsx`).
