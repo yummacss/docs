@@ -1089,14 +1089,6 @@ summary {
   corner-shape: squircle;
 }
 
-.ct-is {
-  container-type: inline-size;
-}
-
-.ct-s {
-  container-type: size;
-}
-
 .d-b {
   display: block;
 }
@@ -2759,10 +2751,6 @@ summary {
 
   .\@md\:fs-md {
     font-size: 1rem;
-  }
-
-  .\@md\:g-2 {
-    gap: .5rem;
   }
 
   .\@md\:gtc-4 {
