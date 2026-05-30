@@ -93,10 +93,10 @@ export default function OnboardingBase() {
               >
                 <Dialog.Close
                   render={
-                    <Button className="d-f p-a r-3 t-3 ai-c jc-c w-7 h-7 c-slate-6 bw-0 br-md h:bg-silver-2 fv:oo-2 fv:oc-indigo-5" />
+                    <Button className="d-f p-a r-3 t-3 ai-c jc-c w-7 h-7 p-0 c-slate-6 bw-0 br-9999 h:bg-silver-1/50 h:c-slate-7 fv:oo-2 fv:oc-indigo-5" />
                   }
                 >
-                  <Xmark aria-hidden className="w-4 h-4" />
+                  <Xmark aria-hidden className="w-5 h-5" />
                 </Dialog.Close>
                 <div className="px-8 pt-10 pb-6">
                   <div className="d-f o-h fd-c ai-c jc-c h-48 ta-c">
@@ -111,7 +111,7 @@ export default function OnboardingBase() {
                         transition={{ duration: 0.2, ease: "easeOut" }}
                         className="d-f fd-c ai-c g-3"
                       >
-                        <div className="d-f ai-c jc-c w-12 h-12 bg-indigo-1/50 c-indigo br-100%">
+                        <div className="d-f ai-c jc-c w-12 h-12 bg-indigo-1/50 c-indigo br-9999">
                           <Icon className="w-6 h-6" />
                         </div>
                         <span className="c-slate-10 fs-md fw-500">{title}</span>
@@ -146,7 +146,7 @@ export default function OnboardingBase() {
                           key={value}
                           value={value}
                           className={(state) =>
-                            `d-f ai-c jc-c w-4 h-4 br-100% bw-0 us-none c-p fv:oo--1 fv:oc-indigo-5 ${
+                            `d-f ai-c jc-c w-4 h-4 br-9999 bw-0 us-none c-p fv:oo--1 fv:oc-indigo-5 ${
                               state.active ? "bg-indigo" : "bg-silver-2"
                             }`
                           }

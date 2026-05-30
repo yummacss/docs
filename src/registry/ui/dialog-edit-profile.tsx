@@ -60,7 +60,7 @@ export default function DialogEditProfile() {
                     <motion.button
                       type="button"
                       {...(props as HTMLMotionProps<"button">)}
-                      className="d-f p-a r-3 t-3 ai-c jc-c w-7 h-7 p-0 c-slate-6 bw-0 br-md h:bg-silver-1/50 h:c-slate-7 fv:oo-2 fv:oc-indigo-5"
+                      className="d-f p-a r-3 t-3 ai-c jc-c w-7 h-7 p-0 c-slate-6 bw-0 br-9999 h:bg-silver-1/50 h:c-slate-7 fv:oo-2 fv:oc-indigo-5"
                       whileTap={{ scale: 0.9 }}
                       transition={{ duration: 0.2, ease: "easeOut" }}
                     >

@@ -69,7 +69,7 @@ export default function CommandPaletteSquare() {
                     />
                     <Dialog.Close
                       render={
-                        <Button className="d-f ai-c jc-c w-7 h-7 p-0 c-slate-6 bw-0 h:bg-silver-2 fv:oo-2 fv:oc-indigo-5" />
+                        <Button className="d-f ai-c jc-c w-7 h-7 p-0 c-slate-6 bw-0 br-0 h:bg-silver-1/50 h:c-slate-7 fv:oo-2 fv:oc-indigo-5" />
                       }
                     >
                       <Xmark aria-hidden className="w-5 h-5" />
@@ -88,7 +88,7 @@ export default function CommandPaletteSquare() {
                               value={item.id}
                               onClick={() => setOpen(false)}
                               className={(state: { highlighted: boolean }) =>
-                                `d-f ai-c g-3 py-2 px-4 mx-2 fs-sm us-none c-p br-md ${
+                                `d-f ai-c g-3 py-2 px-4 mx-2 fs-sm us-none c-p br-0 ${
                                   state.highlighted
                                     ? "bg-silver-1/50"
                                     : "bg-transparent"

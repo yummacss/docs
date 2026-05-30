@@ -666,10 +666,6 @@ summary {
   border-radius: 0;
 }
 
-.br-100\% {
-  border-radius: 100%;
-}
-
 .br-3xl {
   border-radius: 1.5rem;
 }
