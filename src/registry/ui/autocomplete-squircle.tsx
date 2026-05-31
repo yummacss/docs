@@ -98,7 +98,6 @@ const teamMembers: TeamMember[] = [
       "https://api.dicebear.com/9.x/notionists/svg?seed=John&backgroundColor=DAF0B9",
   },
   {
-{
     name: "Aidan",
     role: "Frontend Developer",
     avatar:

@@ -165,28 +165,28 @@ const labels = [
 
 const teamMembers = [
   {
-    name: "John",
-    avatar:
-      "https://api.dicebear.com/9.x/notionists/svg?seed=John&backgroundColor=DAF0B9",
-    status: "online",
-  },
-  {
     name: "Adrian",
     avatar:
       "https://api.dicebear.com/9.x/notionists/svg?seed=Adrian&backgroundColor=FFD4DE",
     status: "away",
   },
   {
-    name: "Noah",
+    name: "John",
     avatar:
-      "https://api.dicebear.com/9.x/notionists/svg?seed=Noah&backgroundColor=D0D1FB",
-    status: "offline",
+      "https://api.dicebear.com/9.x/notionists/svg?seed=John&backgroundColor=DAF0B9",
+    status: "online",
   },
   {
     name: "Melanie",
     avatar:
       "https://api.dicebear.com/9.x/notionists/svg?seed=Melanie&backgroundColor=DCCEFC",
     status: "online",
+  },
+  {
+    name: "Noah",
+    avatar:
+      "https://api.dicebear.com/9.x/notionists/svg?seed=Noah&backgroundColor=D0D1FB",
+    status: "offline",
   },
   {
     name: "Riley",
