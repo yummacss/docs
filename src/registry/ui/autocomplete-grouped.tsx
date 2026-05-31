@@ -42,7 +42,7 @@ export default function AutocompleteGrouped() {
                             render={(props, state) => (
                               <div
                                 {...props}
-                                className={`d-f ai-c g-3 py-2 px-3 fs-sm us-none c-p br-md mx-1 c-slate-10 ${
+                                className={`d-f ai-c g-3 py-2 px-3 mx-1 c-slate-10 br-md fs-sm us-none c-p ${
                                   state.highlighted
                                     ? "bg-silver-1/50"
                                     : "bg-transparent"
@@ -100,22 +100,22 @@ const teamGroups: TeamGroup[] = [
     value: "Frontend",
     items: [
       {
-        name: "Sarah",
+        name: "John",
         role: "Frontend Developer",
         avatar:
-          "https://api.dicebear.com/9.x/open-peeps/svg?seed=Sarah&backgroundColor=DAF0B9",
+          "https://api.dicebear.com/9.x/notionists/svg?seed=John&backgroundColor=DAF0B9",
       },
       {
         name: "Noah",
         role: "UI Engineer",
         avatar:
-          "https://api.dicebear.com/9.x/open-peeps/svg?seed=Noah&backgroundColor=D0D1FB",
+          "https://api.dicebear.com/9.x/notionists/svg?seed=Noah&backgroundColor=D0D1FB",
       },
       {
         name: "Melanie",
         role: "React Developer",
         avatar:
-          "https://api.dicebear.com/9.x/open-peeps/svg?seed=Melanie&backgroundColor=DCCEFC",
+          "https://api.dicebear.com/9.x/notionists/svg?seed=Melanie&backgroundColor=DCCEFC",
       },
     ],
   },
@@ -126,19 +126,19 @@ const teamGroups: TeamGroup[] = [
         name: "Adrian",
         role: "Backend Developer",
         avatar:
-          "https://api.dicebear.com/9.x/open-peeps/svg?seed=Adrian&backgroundColor=FFD4DE",
+          "https://api.dicebear.com/9.x/notionists/svg?seed=Adrian&backgroundColor=FFD4DE",
       },
       {
         name: "Maria",
         role: "API Engineer",
         avatar:
-          "https://api.dicebear.com/9.x/open-peeps/svg?seed=Maria&backgroundColor=DCCEFC",
+          "https://api.dicebear.com/9.x/notionists/svg?seed=Maria&backgroundColor=DCCEFC",
       },
       {
         name: "Liam",
         role: "Node.js Developer",
         avatar:
-          "https://api.dicebear.com/9.x/open-peeps/svg?seed=Liam&backgroundColor=D0D1FB",
+          "https://api.dicebear.com/9.x/notionists/svg?seed=Liam&backgroundColor=D0D1FB",
       },
     ],
   },
@@ -149,19 +149,19 @@ const teamGroups: TeamGroup[] = [
         name: "Jessica",
         role: "DevOps Engineer",
         avatar:
-          "https://api.dicebear.com/9.x/open-peeps/svg?seed=Jessica&backgroundColor=DAF0B9",
+          "https://api.dicebear.com/9.x/notionists/svg?seed=Jessica&backgroundColor=DAF0B9",
       },
       {
         name: "Aiden",
         role: "SRE",
         avatar:
-          "https://api.dicebear.com/9.x/open-peeps/svg?seed=Aiden&backgroundColor=B4E9F2",
+          "https://api.dicebear.com/9.x/notionists/svg?seed=Aiden&backgroundColor=B4E9F2",
       },
       {
         name: "Wyatt",
         role: "Platform Engineer",
         avatar:
-          "https://api.dicebear.com/9.x/open-peeps/svg?seed=Wyatt&backgroundColor=FFD4DE",
+          "https://api.dicebear.com/9.x/notionists/svg?seed=Wyatt&backgroundColor=FFD4DE",
       },
     ],
   },

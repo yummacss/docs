@@ -60,28 +60,28 @@ export default function AvatarStacked() {
 
 const stackMembers = [
   {
-    name: "Sarah",
+    name: "John",
     initials: "S",
     avatarUrl:
-      "https://api.dicebear.com/9.x/open-peeps/svg?seed=Sarah&backgroundColor=DAF0B9",
+      "https://api.dicebear.com/9.x/notionists/svg?seed=John&backgroundColor=DAF0B9",
   },
   {
     name: "John",
     initials: "A",
     avatarUrl:
-      "https://api.dicebear.com/9.x/open-peeps/svg?seed=John&backgroundColor=B4E9F2",
+      "https://api.dicebear.com/9.x/notionists/svg?seed=John&backgroundColor=B4E9F2",
   },
   {
     name: "Noah",
     initials: "J",
     avatarUrl:
-      "https://api.dicebear.com/9.x/open-peeps/svg?seed=Noah&backgroundColor=D0D1FB",
+      "https://api.dicebear.com/9.x/notionists/svg?seed=Noah&backgroundColor=D0D1FB",
   },
   {
     name: "Melanie",
     initials: "L",
     avatarUrl:
-      "https://api.dicebear.com/9.x/open-peeps/svg?seed=Melanie&backgroundColor=DCCEFC",
+      "https://api.dicebear.com/9.x/notionists/svg?seed=Melanie&backgroundColor=DCCEFC",
   },
 ];
 

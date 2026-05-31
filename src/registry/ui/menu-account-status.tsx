@@ -24,8 +24,8 @@ export default function MenuAccountStatus() {
         <div className="p-r">
           <Avatar.Root className="d-if o-h ai-c jc-c w-6 h-6 bc-white br-9999 bw-1 va-m us-none">
             <Avatar.Image
-              src="https://api.dicebear.com/9.x/open-peeps/svg?seed=Sarah&backgroundColor=DAF0B9"
-              alt="Sarah"
+              src="https://api.dicebear.com/9.x/notionists/svg?seed=John&backgroundColor=DAF0B9"
+              alt="John"
               className="of-c w-100% h-100%"
             />
             <Avatar.Fallback className="d-f ai-c jc-c w-100% h-100% c-slate-8 fs-xs">
@@ -34,7 +34,7 @@ export default function MenuAccountStatus() {
           </Avatar.Root>
           <span className="p-a b-0 r-0 w-2 h-2 bg-mint bc-white br-9999 bw-1" />
         </div>
-        <span className="fs-sm fw-500">Sarah</span>
+        <span className="fs-sm fw-500">John</span>
         <NavArrowDown className="w-3 h-3" />
       </Menu.Trigger>
 

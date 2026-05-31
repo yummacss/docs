@@ -13,7 +13,7 @@ export default function AvatarSquircle() {
 }
 
 const userProfile = {
-  name: "Sarah",
+  name: "John",
   avatarUrl:
-    "https://api.dicebear.com/9.x/open-peeps/svg?seed=Sarah&backgroundColor=DAF0B9",
+    "https://api.dicebear.com/9.x/notionists/svg?seed=John&backgroundColor=DAF0B9",
 };

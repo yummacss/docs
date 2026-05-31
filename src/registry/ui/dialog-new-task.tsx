@@ -90,7 +90,7 @@ export default function DialogNewTask() {
                       onOpenChange={setPriorityOpen}
                     >
                       <Select.Trigger
-                        className={`d-f ai-c jc-sb h-10 w-100% bw-1 bc-silver-3 br-md bg-white px-3 c-slate-10 fs-md us-none c-p fv:oo--1 fv:oc-indigo-5 ${
+                        className={`d-f ai-c jc-sb h-10 w-100% px-3 bg-white bc-silver-3 c-slate-10 bw-1 br-md fs-md us-none c-p fv:oo--1 fv:oc-indigo-5 ${
                           priorityOpen ? "bg-silver-1/50" : "bg-transparent"
                         }`}
                       >
@@ -189,7 +189,7 @@ export default function DialogNewTask() {
                                           render={(props, state) => (
                                             <div
                                               {...props}
-                                              className={`d-f ai-c g-2 py-2 px-3 fs-sm us-none c-p br-md mx-1 c-slate-10 ${
+                                              className={`d-f ai-c g-2 py-2 px-3 mx-1 c-slate-10 br-md fs-sm us-none c-p ${
                                                 state.highlighted
                                                   ? "bg-silver-1/50"
                                                   : "bg-transparent"
@@ -277,39 +277,39 @@ interface TeamMember {
 
 const teamMembers: TeamMember[] = [
   {
-    name: "Sarah",
+    name: "John",
     role: "Product Designer",
     avatar:
-      "https://api.dicebear.com/9.x/open-peeps/svg?seed=Sarah&backgroundColor=DAF0B9",
+      "https://api.dicebear.com/9.x/notionists/svg?seed=John&backgroundColor=DAF0B9",
   },
   {
     name: "John",
     role: "Frontend Developer",
     avatar:
-      "https://api.dicebear.com/9.x/open-peeps/svg?seed=John&backgroundColor=B4E9F2",
+      "https://api.dicebear.com/9.x/notionists/svg?seed=John&backgroundColor=B4E9F2",
   },
   {
     name: "Noah",
     role: "Backend Developer",
     avatar:
-      "https://api.dicebear.com/9.x/open-peeps/svg?seed=Noah&backgroundColor=D0D1FB",
+      "https://api.dicebear.com/9.x/notionists/svg?seed=Noah&backgroundColor=D0D1FB",
   },
   {
     name: "Riley",
     role: "Product Manager",
     avatar:
-      "https://api.dicebear.com/9.x/open-peeps/svg?seed=Riley&backgroundColor=F4C8FA",
+      "https://api.dicebear.com/9.x/notionists/svg?seed=Riley&backgroundColor=F4C8FA",
   },
   {
     name: "Adrian",
     role: "QA Engineer",
     avatar:
-      "https://api.dicebear.com/9.x/open-peeps/svg?seed=Adrian&backgroundColor=FFD4DE",
+      "https://api.dicebear.com/9.x/notionists/svg?seed=Adrian&backgroundColor=FFD4DE",
   },
   {
     name: "Maria",
     role: "Engineering Lead",
     avatar:
-      "https://api.dicebear.com/9.x/open-peeps/svg?seed=Maria&backgroundColor=DCCEFC",
+      "https://api.dicebear.com/9.x/notionists/svg?seed=Maria&backgroundColor=DCCEFC",
   },
 ];

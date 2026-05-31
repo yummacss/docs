@@ -56,8 +56,8 @@ export default function DialogBase() {
                 <div className="d-f fd-c ai-c jc-c g-3 px-4 py-5 bg-white">
                   <Avatar.Root className="d-if o-h ai-c jc-c w-12 h-12 bc-white br-9999 bw-1 va-m us-none">
                     <Avatar.Image
-                      src="https://api.dicebear.com/9.x/open-peeps/svg?seed=Sarah&backgroundColor=DAF0B9"
-                      alt="Sarah"
+                      src="https://api.dicebear.com/9.x/notionists/svg?seed=John&backgroundColor=DAF0B9"
+                      alt="John"
                       className="of-c w-100% h-100%"
                     />
                     <Avatar.Fallback className="d-f ai-c jc-c w-100% h-100% c-slate-8 fs-md">
@@ -65,8 +65,8 @@ export default function DialogBase() {
                     </Avatar.Fallback>
                   </Avatar.Root>
                   <div className="d-f fd-c ta-c">
-                    <span className="c-slate-10 fs-md fw-500">Sarah</span>
-                    <span className="c-slate-6 fs-sm">sarah@yummaui.com</span>
+                    <span className="c-slate-10 fs-md fw-500">John</span>
+                    <span className="c-slate-6 fs-sm">john@yummaui.com</span>
                   </div>
                 </div>
                 <div className="px-4 py-2 bg-white">
@@ -80,7 +80,7 @@ export default function DialogBase() {
                     <a href="#" className="c-indigo fw-600">
                       Sales Site
                     </a>{" "}
-                    project now has a pending collaboration request from Sarah.
+                    project now has a pending collaboration request from John.
                   </Dialog.Description>
                 </div>
                 <div className="d-g gtc-2 g-3 px-4 py-4 bg-white">
