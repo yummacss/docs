@@ -31,7 +31,7 @@ export default function MenuBase() {
               >
                 <Menu.Item
                   className={(state) =>
-                    `d-f py-2 pr-8 pl-4 fs-sm us-none c-p br-md mx-1 fw-500 ${
+                    `d-f py-2 pl-3 pr-4 fs-sm us-none c-p br-md mx-1 fw-500 ${
                       state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                     }`
                   }
@@ -40,7 +40,7 @@ export default function MenuBase() {
                 </Menu.Item>
                 <Menu.Item
                   className={(state) =>
-                    `d-f py-2 pr-8 pl-4 fs-sm us-none c-p br-md mx-1 fw-500 ${
+                    `d-f py-2 pl-3 pr-4 fs-sm us-none c-p br-md mx-1 fw-500 ${
                       state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                     }`
                   }
@@ -49,7 +49,7 @@ export default function MenuBase() {
                 </Menu.Item>
                 <Menu.Item
                   className={(state) =>
-                    `d-f py-2 pr-8 pl-4 fs-sm us-none c-p br-md mx-1 fw-500 ${
+                    `d-f py-2 pl-3 pr-4 fs-sm us-none c-p br-md mx-1 fw-500 ${
                       state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                     }`
                   }
@@ -58,7 +58,7 @@ export default function MenuBase() {
                 </Menu.Item>
                 <Menu.Item
                   className={(state) =>
-                    `d-f py-2 pr-8 pl-4 fs-sm us-none c-p br-md mx-1 fw-500 ${
+                    `d-f py-2 pl-3 pr-4 fs-sm us-none c-p br-md mx-1 fw-500 ${
                       state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                     }`
                   }
