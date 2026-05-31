@@ -36,7 +36,7 @@ export default function PreviewCardSquircle() {
               <div className="p-r">
                 <Avatar.Root className="d-if o-h ai-c jc-c w-10 h-10 bc-white br-9999 bw-1 va-m us-none">
                   <Avatar.Image
-                    src="https://api.dicebear.com/9.x/open-peeps/svg?seed=Maya&backgroundColor=B4E9F2"
+                    src="https://api.dicebear.com/9.x/notionists/svg?seed=Maya&backgroundColor=B4E9F2"
                     alt="Maya"
                     className="of-c w-100% h-100%"
                   />

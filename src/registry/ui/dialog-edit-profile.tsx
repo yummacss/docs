@@ -76,8 +76,8 @@ export default function DialogEditProfile() {
                     <div className="p-r">
                       <Avatar.Root className="d-if o-h ai-c jc-c w-16 h-16 bg-silver-1 bc-white br-9999 bw-1 va-m us-none">
                         <Avatar.Image
-                          src="https://api.dicebear.com/9.x/open-peeps/svg?seed=Sarah&backgroundColor=DAF0B9"
-                          alt="Sarah"
+                          src="https://api.dicebear.com/9.x/notionists/svg?seed=John&backgroundColor=DAF0B9"
+                          alt="John"
                           className="of-c w-100% h-100%"
                         />
                       </Avatar.Root>
@@ -97,8 +97,8 @@ export default function DialogEditProfile() {
                       />
                     </div>
                     <div className="d-f fd-c">
-                      <span className="c-slate-10 fs-lg fw-500">Sarah</span>
-                      <span className="c-slate-6 fs-sm">@sarah</span>
+                      <span className="c-slate-10 fs-lg fw-500">John</span>
+                      <span className="c-slate-6 fs-sm">@john</span>
                     </div>
                   </div>
                   <div className="d-g g-3 @sm:gtc-2">
@@ -108,7 +108,7 @@ export default function DialogEditProfile() {
                       </label>
                       <Field.Control
                         render={<input />}
-                        defaultValue="Sarah"
+                        defaultValue="John"
                         aria-label="First name"
                         className="h-10 w-100% pl-3 bg-white bc-silver-3 c-slate-10 bw-1 br-md fs-md fv:oo--1 fv:oc-indigo-5"
                       />
@@ -128,7 +128,7 @@ export default function DialogEditProfile() {
                     <label className="c-slate-10 fs-sm fw-500">Username</label>
                     <Field.Control
                       render={<input />}
-                      defaultValue="sarah"
+                      defaultValue="john"
                       aria-label="Username"
                       className="h-10 w-100% pl-3 bg-white bc-silver-3 c-slate-10 bw-1 br-md fs-md fv:oo--1 fv:oc-indigo-5"
                     />
@@ -138,7 +138,7 @@ export default function DialogEditProfile() {
                     <div className="d-f ox-h ai-c min-w-0 w-100%">
                       <Field.Control
                         render={<input />}
-                        defaultValue="sarah"
+                        defaultValue="john"
                         aria-label="Email"
                         className="fg-1 h-10 min-w-0 pl-3 bg-white bc-silver-3 c-slate-10 byw-1 blw-1 blr-md fs-md fv:oo--1 fv:oc-indigo-5"
                       />

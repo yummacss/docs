@@ -13,7 +13,7 @@ export default function FieldSuffix() {
         <Field.Control
           id="email-input"
           type="text"
-          placeholder="sarah@yummaui"
+          placeholder="john@yummaui"
           aria-label="Email"
           className="h-10 w-48 pl-4 pr-3 bg-white bc-silver-3 c-slate-10 blr-lg byw-1 blw-1 fs-md bs-o-xs fv:oo--1 fv:oc-indigo-5"
         />

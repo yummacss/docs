@@ -24,13 +24,13 @@ export default function AvatarVerified() {
 
 const verifiedMembers = [
   {
-    name: "Sarah",
+    name: "John",
     avatarUrl:
-      "https://api.dicebear.com/9.x/open-peeps/svg?seed=Sarah&backgroundColor=DAF0B9",
+      "https://api.dicebear.com/9.x/notionists/svg?seed=John&backgroundColor=DAF0B9",
   },
   {
     name: "John",
     avatarUrl:
-      "https://api.dicebear.com/9.x/open-peeps/svg?seed=John&backgroundColor=B4E9F2",
+      "https://api.dicebear.com/9.x/notionists/svg?seed=John&backgroundColor=B4E9F2",
   },
 ];

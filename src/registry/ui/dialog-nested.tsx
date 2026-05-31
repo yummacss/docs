@@ -191,21 +191,21 @@ export default function DialogNested() {
 
 const teamMembers = [
   {
-    name: "Sarah",
+    name: "John",
     role: "Editor",
     avatar:
-      "https://api.dicebear.com/9.x/open-peeps/svg?seed=Sarah&backgroundColor=DAF0B9",
+      "https://api.dicebear.com/9.x/notionists/svg?seed=John&backgroundColor=DAF0B9",
   },
   {
     name: "John",
     role: "Admin",
     avatar:
-      "https://api.dicebear.com/9.x/open-peeps/svg?seed=John&backgroundColor=B4E9F2",
+      "https://api.dicebear.com/9.x/notionists/svg?seed=John&backgroundColor=B4E9F2",
   },
   {
     name: "Noah",
     role: "Viewer",
     avatar:
-      "https://api.dicebear.com/9.x/open-peeps/svg?seed=Noah&backgroundColor=D0D1FB",
+      "https://api.dicebear.com/9.x/notionists/svg?seed=Noah&backgroundColor=D0D1FB",
   },
 ];

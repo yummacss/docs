@@ -7,8 +7,8 @@ export default function AvatarLg() {
       <div className="p-r">
         <Avatar.Root className="d-if o-h ai-c jc-c w-14 h-14 bg-silver-1 bc-white br-9999 bw-1 va-m us-none">
           <Avatar.Image
-            src="https://api.dicebear.com/9.x/open-peeps/svg?seed=Sarah&backgroundColor=DAF0B9"
-            alt="Sarah"
+            src="https://api.dicebear.com/9.x/notionists/svg?seed=John&backgroundColor=DAF0B9"
+            alt="John"
             className="of-c w-100% h-100%"
           />
         </Avatar.Root>
@@ -18,7 +18,7 @@ export default function AvatarLg() {
       <div className="p-r">
         <Avatar.Root className="d-if o-h ai-c jc-c w-14 h-14 bg-silver-1 bc-white br-9999 bw-1 va-m us-none">
           <Avatar.Image
-            src="https://api.dicebear.com/9.x/open-peeps/svg?seed=John&backgroundColor=B4E9F2"
+            src="https://api.dicebear.com/9.x/notionists/svg?seed=John&backgroundColor=B4E9F2"
             alt="John"
             className="of-c w-100% h-100%"
           />

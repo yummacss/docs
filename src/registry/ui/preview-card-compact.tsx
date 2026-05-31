@@ -49,12 +49,12 @@ export default function PreviewCardCompact() {
               <div className="d-f ai-c g-1 px-2 py-0 h-5 bg-silver-1/50 bc-silver-2 br-9999 bw-1">
                 <Avatar.Root className="d-if o-h ai-c jc-c w-4 h-4 bc-white br-9999 bw-1 va-m us-none">
                   <Avatar.Image
-                    src="https://api.dicebear.com/9.x/open-peeps/svg?seed=Sarah&backgroundColor=DAF0B9"
-                    alt="Sarah"
+                    src="https://api.dicebear.com/9.x/notionists/svg?seed=John&backgroundColor=DAF0B9"
+                    alt="John"
                     className="of-c w-100% h-100%"
                   />
                 </Avatar.Root>
-                <span className="c-slate-10 fs-xs">@sarah</span>
+                <span className="c-slate-10 fs-xs">@john</span>
               </div>
             </div>
             <div className="d-f ai-c g-2">

@@ -16,7 +16,7 @@ import { useState } from "react";
 
 export default function MenuRadios() {
   const [open, setOpen] = useState(false);
-  const [account, setAccount] = useState("sarah");
+  const [account, setAccount] = useState("john");
 
   return (
     <Menu.Root open={open} onOpenChange={setOpen}>
@@ -80,7 +80,7 @@ export default function MenuRadios() {
 
                 <Menu.RadioGroup value={account} onValueChange={setAccount}>
                   <Menu.RadioItem
-                    value="sarah"
+                    value="john"
                     render={(props) => (
                       <motion.div
                         {...(props as HTMLMotionProps<"div">)}
@@ -96,15 +96,15 @@ export default function MenuRadios() {
                   >
                     <Avatar.Root className="d-if o-h ai-c jc-c w-5 h-5 bc-white br-9999 bw-1 va-m us-none">
                       <Avatar.Image
-                        src="https://api.dicebear.com/9.x/open-peeps/svg?seed=Sarah&backgroundColor=DAF0B9"
-                        alt="Sarah"
+                        src="https://api.dicebear.com/9.x/notionists/svg?seed=John&backgroundColor=DAF0B9"
+                        alt="John"
                         className="of-c w-100% h-100%"
                       />
                       <Avatar.Fallback className="d-f ai-c jc-c w-100% h-100% c-slate-8 fs-xs">
                         S
                       </Avatar.Fallback>
                     </Avatar.Root>
-                    <span className="fs-sm fw-500">Sarah</span>
+                    <span className="fs-sm fw-500">John</span>
                     <span className="d-f ai-c jc-c fs-0 w-3 h-3 ml-auto bc-silver-3 br-9999 bw-1">
                       <Menu.RadioItemIndicator>
                         <Circle
@@ -132,7 +132,7 @@ export default function MenuRadios() {
                   >
                     <Avatar.Root className="d-if o-h ai-c jc-c w-5 h-5 bc-white br-9999 bw-1 va-m us-none">
                       <Avatar.Image
-                        src="https://api.dicebear.com/9.x/open-peeps/svg?seed=John&backgroundColor=c0a0f0"
+                        src="https://api.dicebear.com/9.x/notionists/svg?seed=John&backgroundColor=c0a0f0"
                         alt="John"
                         className="of-c w-100% h-100%"
                       />

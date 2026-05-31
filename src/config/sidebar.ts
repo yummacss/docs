@@ -415,6 +415,7 @@ export const sidebarConfig = {
         { title: "Combobox", slug: "combobox", primitive: "combobox" },
         { title: "File Upload", slug: "file-upload" },
         { title: "Field", slug: "field", primitive: "field" },
+        { title: "Number Field", slug: "number-field" },
         { title: "Radio", slug: "radio", primitive: "radio" },
         { title: "Select", slug: "select", primitive: "select" },
         { title: "Slider", slug: "slider", primitive: "slider" },

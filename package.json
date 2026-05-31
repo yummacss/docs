@@ -5,7 +5,7 @@
   "description": "Yumma CSS documentation",
   "homepage": "https://yummacss.com",
   "license": "MIT",
-  "author": "Renildo Pereira",
+  "author": "John Pereira",
   "type": "module",
   "scripts": {
     "build:css": "yummacss build",
