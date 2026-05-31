@@ -2,7 +2,7 @@
 
 import { WarningTriangle } from "iconoir-react";
 
-export default function BadgeIconRightPill() {
+export default function BadgeIconTrailingPill() {
   return (
     <div className="d-f fd-c g-6 ai-c">
       <div className="d-f ai-c g-1 px-2 py-1 bg-white bc-silver-2 br-9999 bw-1 bs-o-xs">

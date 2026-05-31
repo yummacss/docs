@@ -580,14 +580,6 @@ summary {
   background-color: #c6cad1;
 }
 
-.bg-sky {
-  background-color: #38bdf8;
-}
-
-.bg-sky-1 {
-  background-color: #dff4fe;
-}
-
 .bg-slate {
   background-color: #64748b;
 }
@@ -957,14 +949,6 @@ summary {
 
 .c-silver-9 {
   color: #5a5f66;
-}
-
-.c-sky-6 {
-  color: #54c6f9;
-}
-
-.c-sky-7 {
-  color: #30a3d5;
 }
 
 .c-slate {
@@ -2184,6 +2168,10 @@ summary {
   padding-right: 4rem;
 }
 
+.pr-2 {
+  padding-right: .5rem;
+}
+
 .pr-3 {
   padding-right: .75rem;
 }
@@ -2526,10 +2514,6 @@ summary {
 
 .va-m {
   vertical-align: middle;
-}
-
-.w-1 {
-  width: .25rem;
 }
 
 .w-10 {
