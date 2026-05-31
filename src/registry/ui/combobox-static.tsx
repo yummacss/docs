@@ -87,7 +87,7 @@ interface User {
   avatar: string;
 }
 
-const users: User[
+const users: User[] = [
   {
     name: "Adrian",
     role: "Product Designer",
