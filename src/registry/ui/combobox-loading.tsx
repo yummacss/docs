@@ -94,20 +94,22 @@ export default function ComboboxLoading() {
                           render={(props, state) => (
                             <div
                               {...props}
-                              className={`d-f ai-c g-3 py-2 px-3 fs-sm us-none c-p br-md mx-1 c-slate-10 ${
+                              className={`d-f ai-c g-3 py-2 px-3 mx-1 c-slate-10 br-md fs-sm us-none c-p ${
                                 state.highlighted
                                   ? "bg-silver-1/50"
                                   : "bg-transparent"
                               }`}
                             >
                               <div
-                                className={`d-if ai-c jc-c w-8 h-8 br-md fs-xs fw-500 c-white ${item.color}`}
+                                className={`d-if ai-c jc-c fs-0 w-8 h-8 c-white br-md fs-xs fw-500 ${item.color}`}
                               >
                                 {item.title[0]}
                               </div>
-                              <div className="d-f fd-c">
-                                <span className="fw-500">{item.title}</span>
-                                <span className="c-slate-6 fs-xs">
+                              <div className="d-f fd-c min-w-0">
+                                <span className="o-h fw-500 to-e ws-nw">
+                                  {item.title}
+                                </span>
+                                <span className="o-h c-slate-6 fs-xs to-e ws-nw">
                                   {item.project} · {item.status}
                                 </span>
                               </div>
@@ -137,7 +139,7 @@ interface TaskItem {
 const tasks: TaskItem[] = [
   {
     title: "Fix navigation bug",
-    project: "Storefront Redesign",
+    project: "Storefront Redesign aaaaaaaaaaaaaaaaaaaaaaaaa",
     status: "In Progress",
     color: "bg-cyan-5",
   },
