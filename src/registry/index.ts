@@ -136,7 +136,6 @@ export const registry = {
   "command-palette-square": dynamic(() => import("./ui/command-palette-square"), { ssr: true }),
   "command-palette-squircle": dynamic(() => import("./ui/command-palette-squircle"), { ssr: true }),
   "command-palette-static": dynamic(() => import("./ui/command-palette-static"), { ssr: true }),
-  "command-palette-tabs": dynamic(() => import("./ui/command-palette-tabs"), { ssr: true }),
   "context-menu-base": dynamic(() => import("./ui/context-menu-base"), { ssr: true }),
   "context-menu-checkboxes": dynamic(() => import("./ui/context-menu-checkboxes"), { ssr: true }),
   "context-menu-disabled": dynamic(() => import("./ui/context-menu-disabled"), { ssr: true }),

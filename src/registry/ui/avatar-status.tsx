@@ -23,21 +23,21 @@ export default function AvatarStatus() {
 
 const statusMembers = [
   {
-    name: "John",
+    name: "Adrian",
     avatarUrl:
-      "https://api.dicebear.com/9.x/notionists/svg?seed=John&backgroundColor=DAF0B9",
+      "https://api.dicebear.com/9.x/notionists/svg?seed=Adrian&backgroundColor=FFD4DE",
     statusColor: "bg-green-6",
   },
   {
-    name: "John",
+    name: "Aidan",
     avatarUrl:
-      "https://api.dicebear.com/9.x/notionists/svg?seed=John&backgroundColor=B4E9F2",
+      "https://api.dicebear.com/9.x/notionists/svg?seed=Aidan&backgroundColor=FFD4DE",
     statusColor: "bg-slate-4",
   },
   {
-    name: "Noah",
+    name: "Jade",
     avatarUrl:
-      "https://api.dicebear.com/9.x/notionists/svg?seed=Noah&backgroundColor=D0D1FB",
+      "https://api.dicebear.com/9.x/notionists/svg?seed=Jade&backgroundColor=DAF0B9",
     statusColor: "bg-red-6",
   },
 ];
