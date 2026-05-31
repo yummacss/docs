@@ -139,7 +139,7 @@ interface TaskItem {
 const tasks: TaskItem[] = [
   {
     title: "Fix navigation bug",
-    project: "Storefront Redesign aaaaaaaaaaaaaaaaaaaaaaaaa",
+    project: "Storefront Redesign",
     status: "In Progress",
     color: "bg-cyan-5",
   },
