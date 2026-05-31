@@ -7,18 +7,18 @@ interface Props {
 
 const breakpoints = [
   {
-    prefix: "sm",
+    prefix: "@sm",
     label: "Small",
     minWidth: "640px",
   },
   {
-    prefix: "md",
+    prefix: "@md",
     label: "Medium",
     minWidth: "768px",
   },
-  { prefix: "lg", label: "Large", minWidth: "1024px" },
+  { prefix: "@lg", label: "Large", minWidth: "1024px" },
   {
-    prefix: "xxl",
+    prefix: "@xxl",
     label: "Extra Large",
     minWidth: "1536px",
   },
