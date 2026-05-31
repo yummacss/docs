@@ -20,7 +20,7 @@ export default function AvatarStacked() {
               className="of-c w-100% h-100%"
             />
             <Avatar.Fallback className="d-f ai-c jc-c w-100% h-100% c-slate-9 fs-md fw-500">
-              {member.initials}
+              {member.name[0]}
             </Avatar.Fallback>
           </Avatar.Root>
         ))}
@@ -60,28 +60,24 @@ export default function AvatarStacked() {
 
 const stackMembers = [
   {
-    name: "John",
-    initials: "S",
+    name: "Adrian",
     avatarUrl:
-      "https://api.dicebear.com/9.x/notionists/svg?seed=John&backgroundColor=DAF0B9",
+      "https://api.dicebear.com/9.x/notionists/svg?seed=Adrian&backgroundColor=FFD4DE",
   },
   {
-    name: "John",
-    initials: "A",
+    name: "Aidan",
     avatarUrl:
-      "https://api.dicebear.com/9.x/notionists/svg?seed=John&backgroundColor=B4E9F2",
+      "https://api.dicebear.com/9.x/notionists/svg?seed=Aidan&backgroundColor=FFD4DE",
   },
   {
-    name: "Noah",
-    initials: "J",
+    name: "Jade",
     avatarUrl:
-      "https://api.dicebear.com/9.x/notionists/svg?seed=Noah&backgroundColor=D0D1FB",
+      "https://api.dicebear.com/9.x/notionists/svg?seed=Jade&backgroundColor=DAF0B9",
   },
   {
-    name: "Melanie",
-    initials: "L",
+    name: "Jessica",
     avatarUrl:
-      "https://api.dicebear.com/9.x/notionists/svg?seed=Melanie&backgroundColor=DCCEFC",
+      "https://api.dicebear.com/9.x/notionists/svg?seed=Jessica&backgroundColor=DAF0B9",
   },
 ];
 

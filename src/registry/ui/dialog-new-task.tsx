@@ -283,10 +283,10 @@ const teamMembers: TeamMember[] = [
       "https://api.dicebear.com/9.x/notionists/svg?seed=John&backgroundColor=DAF0B9",
   },
   {
-    name: "John",
+    name: "Melanie",
     role: "Frontend Developer",
     avatar:
-      "https://api.dicebear.com/9.x/notionists/svg?seed=John&backgroundColor=B4E9F2",
+      "https://api.dicebear.com/9.x/notionists/svg?seed=Melanie&backgroundColor=DCCEFC",
   },
   {
     name: "Noah",

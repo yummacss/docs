@@ -171,9 +171,9 @@ const teamMembers = [
     status: "online",
   },
   {
-    name: "John",
+    name: "Adrian",
     avatar:
-      "https://api.dicebear.com/9.x/notionists/svg?seed=John&backgroundColor=B4E9F2",
+      "https://api.dicebear.com/9.x/notionists/svg?seed=Adrian&backgroundColor=FFD4DE",
     status: "away",
   },
   {
