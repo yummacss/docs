@@ -501,7 +501,6 @@ Only use these names and seeds. Never invent new people.
 ```ts
 const AVATARS = [
   { name: "John",     avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=John&backgroundColor=DAF0B9" },
-  { name: "John",      avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=John&backgroundColor=B4E9F2" },
   { name: "Noah",      avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Noah&backgroundColor=D0D1FB" },
   { name: "Melanie",   avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Melanie&backgroundColor=DCCEFC" },
   { name: "Riley",     avatar: "https://api.dicebear.com/9.x/notionists/svg?seed=Riley&backgroundColor=F4C8FA" },
