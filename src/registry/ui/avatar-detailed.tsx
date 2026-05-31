@@ -4,7 +4,7 @@ export default function AvatarDetailed() {
   return (
     <div className="d-f fd-c g-4">
       {teamMembers.map((member) => (
-        <div key={member.name} className="d-f ai-c g-3">
+        <div key={member.avatarUrl} className="d-f ai-c g-3">
           <Avatar.Root className="d-if o-h ai-c jc-c w-12 h-12 bg-silver-1 bc-white br-9999 bw-1 va-m us-none">
             <Avatar.Image
               src={member.avatarUrl}
@@ -29,7 +29,7 @@ const teamMembers = [
   {
     name: "John",
     role: "@john",
-    initials: "S",
+    initials: "J",
     avatarUrl:
       "https://api.dicebear.com/9.x/notionists/svg?seed=John&backgroundColor=DAF0B9",
   },

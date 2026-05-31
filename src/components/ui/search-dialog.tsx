@@ -4,7 +4,7 @@ import { Button } from "@base-ui/react";
 import { Dialog } from "@base-ui/react/dialog";
 import { Input } from "@base-ui/react/input";
 import {
-  Component,
+  ComponentSolid,
   LogOut,
   LongArrowDownLeftSolid,
   NavArrowDown,
@@ -125,7 +125,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
     if (category === "handbook") {
       return <OpenBook className="w-4 h-4 c-white/50" />;
     }
-    return <Component className="w-4 h-4 c-white/50" />;
+    return <ComponentSolid className="w-4 h-4 c-white/50" />;
   };
 
   let globalIndex = -1;

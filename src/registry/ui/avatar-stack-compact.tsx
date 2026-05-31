@@ -7,7 +7,7 @@ export default function AvatarStackCompact() {
     <div className="d-f ai-c p-px bg-white bc-silver-3 br-9999 bw-1">
       {stackMembers.map((member, index) => (
         <Avatar.Root
-          key={member.name}
+          key={member.avatarUrl}
           className={`d-if o-h ai-c jc-c w-10 h-10 bg-silver-1 bc-white br-9999 bw-1 va-m us-none ${index > 0 ? "ml--2" : ""}`}
         >
           <Avatar.Image

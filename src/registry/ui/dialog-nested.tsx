@@ -65,7 +65,7 @@ export default function DialogNested() {
                     Team settings
                   </Dialog.Title>
                   {teamMembers.map((member) => (
-                    <div key={member.name} className="d-f ai-c g-3">
+                    <div key={member.avatar} className="d-f ai-c g-3">
                       <Avatar.Root className="d-if o-h ai-c jc-c w-8 h-8 bc-white br-9999 bw-1 va-m us-none">
                         <Avatar.Image
                           src={member.avatar}

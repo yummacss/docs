@@ -37,7 +37,7 @@ export default function AutocompleteGrouped() {
                       <Autocomplete.Group key={group.value}>
                         {group.items.map((member) => (
                           <Autocomplete.Item
-                            key={member.name}
+                            key={member.avatar}
                             value={member.name}
                             render={(props, state) => (
                               <div
