@@ -16,14 +16,6 @@ export default function BadgeSm() {
         <BadgeCheck className="w-3 h-3" />
         <span className="fs-xs fw-500 us-none">Label</span>
       </div>
-      <div className="d-f ai-c g-1 px-2 py-0 bg-red-1 br-sm">
-        <span className="w-1 h-1 bg-red-7 br-9999" />
-        <span className="c-red-7 fs-xs fw-500 us-none">Label</span>
-      </div>
-      <div className="d-f ai-c g-1 px-2 py-0 bg-red c-white br-sm">
-        <span className="w-1 h-1 bg-white br-9999" />
-        <span className="fs-xs fw-500 us-none">Label</span>
-      </div>
     </div>
   );
 }
