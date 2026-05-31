@@ -88,7 +88,7 @@ export default function ContextMenuNested() {
                       <ContextMenu.Popup className="py-1 w-fc bg-white bc-silver-2 c-slate-10 bw-1 br-md bs-o-xs">
                         {teamMembers.map((member) => (
                           <ContextMenu.Item
-                            key={member.name}
+                            key={member.avatar}
                             className={(state) =>
                               `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-md mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
                             }

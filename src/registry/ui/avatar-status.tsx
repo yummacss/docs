@@ -4,7 +4,7 @@ export default function AvatarStatus() {
   return (
     <div className="d-f ai-c g-4">
       {statusMembers.map((member) => (
-        <div key={member.name} className="p-r">
+        <div key={member.avatarUrl} className="p-r">
           <Avatar.Root className="d-if o-h ai-c jc-c w-12 h-12 bg-silver-1 bc-white br-9999 bw-1 va-m us-none">
             <Avatar.Image
               src={member.avatarUrl}

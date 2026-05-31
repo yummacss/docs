@@ -41,7 +41,7 @@ export default function ComboboxInline() {
           <Combobox.List className="oy-auto py-1 max-h-52">
             {(user: User) => (
               <Combobox.Item
-                key={user.name}
+                key={user.avatar}
                 value={user.name}
                 render={(props, state) => (
                   <div

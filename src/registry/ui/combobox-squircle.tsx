@@ -52,7 +52,7 @@ export default function ComboboxSquircle() {
                   <Combobox.List className="oy-auto py-1 max-h-72 ow-0">
                     {(user: User) => (
                       <Combobox.Item
-                        key={user.name}
+                        key={user.avatar}
                         value={user.name}
                         className={(state) =>
                           `d-f ai-c g-2 py-2 px-3 fs-sm fw-500 us-none c-p br-xxl cs-s mx-1 ${

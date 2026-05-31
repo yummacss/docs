@@ -38,7 +38,7 @@ export default function AutocompleteStatic() {
                   <Autocomplete.List className="oy-auto max-h-72 py-1 ow-0">
                     {(member: TeamMember) => (
                       <Autocomplete.Item
-                        key={member.name}
+                        key={member.avatar}
                         value={member.name}
                         render={(props, state) => (
                           <div
