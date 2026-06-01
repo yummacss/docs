@@ -10,7 +10,7 @@ import {
   Page,
   PagePlus,
   PageSearch,
-  Search,
+  KeyCommand,
   StatUp,
   User,
   Wrench,
@@ -28,7 +28,7 @@ export default function CommandPaletteStatic() {
           <Button className="d-f ai-c g-2 px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5" />
         }
       >
-        <Search className="w-4 h-4" />
+        <KeyCommand className="w-4 h-4" />
         <span>Commands</span>
       </Dialog.Trigger>
 
@@ -42,7 +42,7 @@ export default function CommandPaletteStatic() {
             >
               <Combobox.Root inline items={commandGroups} autoHighlight>
                 <div className="d-f ai-c g-2 px-4 py-1">
-                  <Search className="fs-0 w-5 h-5 c-slate-4" />
+                  <KeyCommand className="fs-0 w-5 h-5 c-slate-4" />
                   <Combobox.Input
                     placeholder="Search commands..."
                     autoFocus

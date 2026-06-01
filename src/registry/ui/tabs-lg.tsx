@@ -43,6 +43,6 @@ export default function ExampleTabsLg() {
 
 const tabs = [
   { value: "board", label: "Board" },
-  { value: "timeline", label: "KeyframesCoupleSolid" },
+  { value: "timeline", label: "Keyframes" },
   { value: "calendar", label: "Calendar" },
 ];
