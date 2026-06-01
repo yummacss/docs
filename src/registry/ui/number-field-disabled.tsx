@@ -7,7 +7,12 @@ import { useId } from "react";
 export default function NumberFieldDisabled() {
   const id = useId();
   return (
-    <NumberField.Root id={id} defaultValue={4} disabled className="d-f fd-c ai-fs g-2">
+    <NumberField.Root
+      id={id}
+      defaultValue={4}
+      disabled
+      className="d-f fd-c ai-fs g-2"
+    >
       <NumberField.ScrubArea className="c-er">
         <label htmlFor={id} className="c-slate-5 fs-sm fw-500 c-er">
           Quantity

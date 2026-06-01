@@ -25,14 +25,16 @@ export default function DrawerBase() {
             pointerEvents: state.open ? "auto" : "none",
           })}
         />
-        <div className="p-f i-0 d-f ai-fe jc-c p-4 pb-0" style={{ pointerEvents: "none" }}>
+        <div
+          className="p-f i-0 d-f ai-fe jc-c p-4 pb-0"
+          style={{ pointerEvents: "none" }}
+        >
           <Drawer.Viewport className="w-100%">
             <Drawer.Popup
               className="w-100% bg-white c-slate-12 br-xxl bs-o-lg o-h p-r"
               style={(state) => {
                 const idle =
-                  !state.transitionStatus ||
-                  state.transitionStatus === "idle";
+                  !state.transitionStatus || state.transitionStatus === "idle";
                 const starting = state.transitionStatus === "starting";
                 const ending = state.transitionStatus === "ending";
 
@@ -83,28 +85,36 @@ export default function DrawerBase() {
                 <div className="d-f ai-c g-3 px-3 py-2 bg-silver-1 br-md">
                   <span className="w-2 h-2 bg-mint br-50%" />
                   <div className="d-f fd-c">
-                    <span className="c-slate-10 fs-sm fw-500">Task completed</span>
+                    <span className="c-slate-10 fs-sm fw-500">
+                      Task completed
+                    </span>
                     <span className="c-slate-6 fs-xs">15 min ago</span>
                   </div>
                 </div>
                 <div className="d-f ai-c g-3 px-3 py-2 bg-silver-1 br-md">
                   <span className="w-2 h-2 bg-coral br-50%" />
                   <div className="d-f fd-c">
-                    <span className="c-slate-10 fs-sm fw-500">Payment failed</span>
+                    <span className="c-slate-10 fs-sm fw-500">
+                      Payment failed
+                    </span>
                     <span className="c-slate-6 fs-xs">1 hour ago</span>
                   </div>
                 </div>
                 <div className="d-f ai-c g-3 px-3 py-2 bg-silver-1 br-md">
                   <span className="w-2 h-2 bg-yellow br-50%" />
                   <div className="d-f fd-c">
-                    <span className="c-slate-10 fs-sm fw-500">Meeting reminder</span>
+                    <span className="c-slate-10 fs-sm fw-500">
+                      Meeting reminder
+                    </span>
                     <span className="c-slate-6 fs-xs">30 min ago</span>
                   </div>
                 </div>
                 <div className="d-f ai-c g-3 px-3 py-2 bg-silver-1 br-md">
                   <span className="w-2 h-2 bg-cyan br-50%" />
                   <div className="d-f fd-c">
-                    <span className="c-slate-10 fs-sm fw-500">Friend request</span>
+                    <span className="c-slate-10 fs-sm fw-500">
+                      Friend request
+                    </span>
                     <span className="c-slate-6 fs-xs">2 hours ago</span>
                   </div>
                 </div>
