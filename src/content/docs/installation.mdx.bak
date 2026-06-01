@@ -1,0 +1,76 @@
+export const meta = {
+  title: "Installation",
+  description: "Install Yumma CSS using the CLI or CDN.",
+};
+
+## Set up Yumma CSS
+
+Follow these steps to get started with Yumma CSS.
+
+### Use the CLI
+
+Install Yumma CSS with your favorite package manager:
+
+<Stepper>
+  <Step title="Install Yumma CSS">
+    ```bash
+    pnpm add yummacss -D
+    ```
+  </Step>
+
+  <Step title="Initialize Configuration">
+    Create a configuration file in your project.
+
+    ```bash
+    pnpx yummacss init
+    ```
+
+  </Step>
+
+  <Step title="Configure Sources">
+    Specify the locations/paths of your project files in the config file.
+
+    ```mjs title="yumma.config.mjs" mark={4-5}
+    import { defineConfig } from "yummacss";
+
+    export default defineConfig({
+      source: ["./src/**/*.{ts,tsx}"],
+      output: "./src/styles.css",
+    });
+    ```
+
+  </Step>
+
+  <Step title="Build styles">
+    Start using Yumma CSS classes, then generate your styles.
+
+    ```bash
+    pnpx yummacss build
+    ```
+
+  </Step>
+</Stepper>
+
+### Use the CDN
+
+Import Yumma CSS directly into your HTML file via CDN for quick prototyping.
+
+<Stepper>
+  <Step title="Import Script">
+
+    ```html
+    <script src="https://unpkg.com/@yummacss/runtime"></script>
+    ```
+
+  </Step>
+
+  <Step title="Start Styling">
+
+    ```html title="index.html"
+    <body class="bg-black">
+      <h1 class="c-white">Hello World</h1>
+    </body>
+    ```
+
+  </Step>
+</Stepper>

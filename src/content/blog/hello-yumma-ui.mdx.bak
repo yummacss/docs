@@ -1,0 +1,45 @@
+import Image from "next/image";
+
+export const meta = {
+  authors: ["Renildo"],
+  cover: "~",
+  date: "2026-01-11",
+  description:
+    "Public release of Yumma UI, a free component library for Yumma CSS.",
+  title: "Hello Yumma UI!",
+};
+
+---
+
+## What Is Yumma UI?
+
+Building polished UIs with utility CSS means rebuilding the same buttons, alerts, & layouts. Yumma UI provides production-ready blocks so you start from a real interface instead of an empty file.
+
+---
+
+## Get Started
+
+Getting started with Yumma UI requires [Yumma CSS](/docs).
+
+<Stepper>
+  <Step title="Install Yumma CSS">
+    Set up Yumma CSS in your project. 
+    ```bash 
+    pnpm add yummacss 
+    ```
+  </Step>
+  <Step title="Browse Components">
+    Visit the [UI documentation](/ui) to browse available components.
+  </Step>
+  <Step title="Copy & Paste">
+    Use component code as is or customize it for your brand.
+  </Step>
+</Stepper>
+
+---
+
+## Start Building Today
+
+Yumma UI gives you production-ready components. Skip the setup & focus on what makes your project unique.
+
+Browse [components](/ui) to get started.
