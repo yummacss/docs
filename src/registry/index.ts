@@ -130,7 +130,6 @@ export const registry = {
   "combobox-static": dynamic(() => import("./ui/combobox-static"), { ssr: true }),
   "command-palette-base": dynamic(() => import("./ui/command-palette-base"), { ssr: true }),
   "command-palette-icon": dynamic(() => import("./ui/command-palette-icon"), { ssr: true }),
-  "command-palette-loading": dynamic(() => import("./ui/command-palette-loading"), { ssr: true }),
   "command-palette-minimal": dynamic(() => import("./ui/command-palette-minimal"), { ssr: true }),
   "command-palette-shortcut": dynamic(() => import("./ui/command-palette-shortcut"), { ssr: true }),
   "command-palette-square": dynamic(() => import("./ui/command-palette-square"), { ssr: true }),

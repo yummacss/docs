@@ -16,8 +16,8 @@ export default function MenubarBase() {
       <Menu.Root open={fileOpen} onOpenChange={setFileOpen}>
         <Menu.Trigger
           className={(state) =>
-            `h-8 br-md px-3 fs-sm fw-500 c-slate-10 us-none c-p bw-0 bg-transparent ${
-              state.open ? "bg-silver-1/50" : "bg-transparent"
+            `h-8 br-md px-3 fs-sm fw-500 c-slate-10 us-none c-p bw-0 bg-transparent h:bg-silver-1/50 ${
+              state.open ? "bg-silver-1/50" : ""
             }`
           }
         >
@@ -69,8 +69,8 @@ export default function MenubarBase() {
       <Menu.Root open={editOpen} onOpenChange={setEditOpen}>
         <Menu.Trigger
           className={(state) =>
-            `h-8 br-md px-3 fs-sm fw-500 c-slate-10 us-none c-p bw-0 bg-transparent ${
-              state.open ? "bg-silver-1/50" : "bg-transparent"
+            `h-8 br-md px-3 fs-sm fw-500 c-slate-10 us-none c-p bw-0 bg-transparent h:bg-silver-1/50 ${
+              state.open ? "bg-silver-1/50" : ""
             }`
           }
         >
@@ -122,8 +122,8 @@ export default function MenubarBase() {
       <Menu.Root open={viewOpen} onOpenChange={setViewOpen}>
         <Menu.Trigger
           className={(state) =>
-            `h-8 br-md px-3 fs-sm fw-500 c-slate-10 us-none c-p bw-0 bg-transparent ${
-              state.open ? "bg-silver-1/50" : "bg-transparent"
+            `h-8 br-md px-3 fs-sm fw-500 c-slate-10 us-none c-p bw-0 bg-transparent h:bg-silver-1/50 ${
+              state.open ? "bg-silver-1/50" : ""
             }`
           }
         >
@@ -175,8 +175,8 @@ export default function MenubarBase() {
       <Menu.Root open={shortcutsOpen} onOpenChange={setShortcutsOpen}>
         <Menu.Trigger
           className={(state) =>
-            `h-8 br-md px-3 fs-sm fw-500 c-slate-10 us-none c-p bw-0 bg-transparent ${
-              state.open ? "bg-silver-1/50" : "bg-transparent"
+            `h-8 br-md px-3 fs-sm fw-500 c-slate-10 us-none c-p bw-0 bg-transparent h:bg-silver-1/50 ${
+              state.open ? "bg-silver-1/50" : ""
             }`
           }
         >
