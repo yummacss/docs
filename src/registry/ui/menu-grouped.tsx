@@ -30,7 +30,9 @@ export default function MenuGrouped() {
                 className="py-1 bg-white bc-silver-2 c-slate-10 bw-1 br-md bs-o-xs"
               >
                 <Menu.Group>
-                  <div className="px-3 py-1 fs-xs fw-600 c-slate-5 us-none">Quick Actions</div>
+                  <div className="px-3 py-1 fs-xs fw-600 c-slate-5 us-none">
+                    Quick Actions
+                  </div>
                   <Menu.Item
                     className={(state) =>
                       `d-f ai-c g-2 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${
@@ -72,7 +74,9 @@ export default function MenuGrouped() {
                 <Menu.Separator className="my-1 w-100% h-px bg-silver-2" />
 
                 <Menu.Group>
-                  <div className="px-3 py-1 fs-xs fw-600 c-slate-5 us-none">Share & Export</div>
+                  <div className="px-3 py-1 fs-xs fw-600 c-slate-5 us-none">
+                    Share & Export
+                  </div>
                   <Menu.Item
                     className={(state) =>
                       `d-f ai-c g-2 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${

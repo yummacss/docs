@@ -88,7 +88,7 @@ export default function CommandPaletteSquare() {
                               value={item.id}
                               onClick={() => setOpen(false)}
                               className={(state: { highlighted: boolean }) =>
-                                `d-f ai-c g-3 py-2 px-4 mx-2 fs-sm us-none c-p br-0 ${
+                                `d-f ai-c g-2 py-2 px-2 mx-2 fs-sm us-none c-p br-0 ${
                                   state.highlighted
                                     ? "bg-silver-1/50"
                                     : "bg-transparent"
