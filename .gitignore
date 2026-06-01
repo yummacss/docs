@@ -41,5 +41,8 @@ Thumbs.db
 .vercel
 .env*.local
 
+# content-collections
+.content-collections/
+
 # opencode
 .opencode/
