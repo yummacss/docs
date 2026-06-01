@@ -60,7 +60,7 @@ function parseMetaBlock(text) {
 }
 
 function extractMeta(content) {
-  const match = content.match(/export\s+const\s+meta\s*=\s*(\{[\s\S]*?\});\n?/);
+  const match = content.match(/export\s+const\s+meta\s*=\s*(\{[\s\S]*?\});\r?\n?/);
   if (!match) return null;
   return { full: match[0], body: match[1], index: match.index };
 }
@@ -113,24 +113,26 @@ async function migrateFile(filePath, dryRun = false) {
   // Extract top-level imports
   const imports = extractImportLines(content);
 
-  // Remove the meta block and the --- separator if present
-  let rest = content.slice(0, metaMatch.index) + content.slice(metaMatch.index + metaMatch.full.length);
+  // Remove the meta block and everything before it (imports + blank lines)
+  // that's already captured by extractImportLines
+  let rest = content.slice(metaMatch.index + metaMatch.full.length);
   
-  // Remove leading/trailing empty lines from rest
-  rest = rest.replace(/^\n+/, "").replace(/\n+$/, "");
+  // Remove leading whitespace
+  rest = rest.replace(/^\s+/, "");
   
   // If rest starts with ---\n, remove it (the separator between meta and content)
   if (rest.startsWith("---")) {
-    rest = rest.replace(/^---\n/, "");
-    rest = rest.replace(/^\n+/, "");
+    rest = rest.replace(/^---\r?\n/, "");
+    rest = rest.replace(/^\s+/, "");
   }
 
   // Build YAML frontmatter
   const yaml = objectToYaml(metaObj);
   
   // Build new file
-  const importBlock = imports.length > 0 ? imports.join("\n") + "\n\n" : "";
-  const newContent = `---\n${yaml}\n---\n\n${importBlock}${rest}\n`;
+  const eol = content.includes("\r\n") ? "\r\n" : "\n";
+  const importBlock = imports.length > 0 ? imports.join(eol) + eol + eol : "";
+  const newContent = `---${eol}${yaml}${eol}---${eol}${eol}${importBlock}${rest}${eol}`;
 
   if (dryRun) {
     console.log(`  WOULD CONVERT: ${filePath}`);
