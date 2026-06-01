@@ -19,63 +19,63 @@ export default function ContextMenuStatic() {
             <ContextMenu.Popup className="py-1 bg-white bc-silver-2 c-slate-10 bw-1 br-md bs-o-xs">
               <ContextMenu.Item
                 className={(state) =>
-                  `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm fw-500 us-none c-p br-md mx-1 ${
+                  `d-f ai-c g-2 py-2 pr-3 pl-2 fs-sm fw-500 us-none c-p br-md mx-1 ${
+                    state.highlighted ? "bg-silver-1/50" : "bg-transparent"
+                  }`
+                }
+                >
+                  Edit
+                </ContextMenu.Item>
+              <ContextMenu.Item
+                className={(state) =>
+                  `d-f ai-c g-2 py-2 pr-3 pl-2 fs-sm fw-500 us-none c-p br-md mx-1 ${
                     state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                   }`
                 }
               >
-                Assign to
+                Duplicate
               </ContextMenu.Item>
               <ContextMenu.Item
                 className={(state) =>
-                  `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm fw-500 us-none c-p br-md mx-1 ${
+                  `d-f ai-c g-2 py-2 pr-3 pl-2 fs-sm fw-500 us-none c-p br-md mx-1 ${
                     state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                   }`
                 }
               >
-                Add watcher
+                Bookmark
               </ContextMenu.Item>
               <ContextMenu.Item
                 className={(state) =>
-                  `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm fw-500 us-none c-p br-md mx-1 ${
+                  `d-f ai-c g-2 py-2 pr-3 pl-2 fs-sm fw-500 us-none c-p br-md mx-1 ${
                     state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                   }`
                 }
               >
-                Copy task link
-              </ContextMenu.Item>
-
-              <ContextMenu.Separator className="my-1 w-100% h-px bg-silver-2" />
-
-              <ContextMenu.Item
-                className={(state) =>
-                  `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm fw-500 us-none c-p br-md mx-1 ${
-                    state.highlighted ? "bg-silver-1/50" : "bg-transparent"
-                  }`
-                }
-              >
-                Pin task
-              </ContextMenu.Item>
-              <ContextMenu.Item
-                className={(state) =>
-                  `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm fw-500 us-none c-p br-md mx-1 ${
-                    state.highlighted ? "bg-silver-1/50" : "bg-transparent"
-                  }`
-                }
-              >
-                Mark as blocked
+                Pin to top
               </ContextMenu.Item>
 
               <ContextMenu.Separator className="my-1 w-100% h-px bg-silver-2" />
 
               <ContextMenu.Item
                 className={(state) =>
-                  `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm fw-500 us-none c-red c-p br-md mx-1 ${
+                  `d-f ai-c g-2 py-2 pr-3 pl-2 fs-sm fw-500 us-none c-p br-md mx-1 ${
+                    state.highlighted ? "bg-silver-1/50" : "bg-transparent"
+                  }`
+                }
+              >
+                Archive
+              </ContextMenu.Item>
+
+              <ContextMenu.Separator className="my-1 w-100% h-px bg-silver-2" />
+
+              <ContextMenu.Item
+                className={(state) =>
+                  `d-f ai-c g-2 py-2 pr-3 pl-2 fs-sm fw-500 us-none c-red c-p br-md mx-1 ${
                     state.highlighted ? "bg-red-1/50" : "bg-transparent"
                   }`
                 }
               >
-                Archive task
+                Delete
               </ContextMenu.Item>
             </ContextMenu.Popup>
           </ContextMenu.Positioner>

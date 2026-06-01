@@ -1,7 +1,7 @@
 "use client";
 
 import { ContextMenu } from "@base-ui/react/context-menu";
-import { Eye, Link, Pin, UserPlus } from "iconoir-react";
+import { Bookmark, Copy, Edit, Link, Pin, ShareIos } from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -31,44 +31,64 @@ export default function ContextMenuIcons() {
               >
                 <ContextMenu.Item
                   className={(state) =>
-                    `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm us-none c-p br-md mx-1 fw-500 ${
+                    `d-f ai-c g-2 py-2 pr-3 pl-2 fs-sm us-none c-p br-md mx-1 fw-500 ${
                       state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                     }`
                   }
                 >
-                  <UserPlus className="fs-0 w-4 h-4 c-slate-5" />
-                  Add watcher
+                  <Edit className="fs-0 w-4 h-4 c-slate-5" />
+                  Edit
                 </ContextMenu.Item>
                 <ContextMenu.Item
                   className={(state) =>
-                    `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm us-none c-p br-md mx-1 fw-500 ${
+                    `d-f ai-c g-2 py-2 pr-3 pl-2 fs-sm us-none c-p br-md mx-1 fw-500 ${
                       state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                     }`
                   }
                 >
-                  <Eye className="fs-0 w-4 h-4 c-slate-5" />
-                  View task
+                  <Copy className="fs-0 w-4 h-4 c-slate-5" />
+                  Duplicate
                 </ContextMenu.Item>
                 <ContextMenu.Item
                   className={(state) =>
-                    `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm us-none c-p br-md mx-1 fw-500 ${
+                    `d-f ai-c g-2 py-2 pr-3 pl-2 fs-sm us-none c-p br-md mx-1 fw-500 ${
+                      state.highlighted ? "bg-silver-1/50" : "bg-transparent"
+                    }`
+                  }
+                >
+                  <ShareIos className="fs-0 w-4 h-4 c-slate-5" />
+                  Share
+                </ContextMenu.Item>
+                <ContextMenu.Item
+                  className={(state) =>
+                    `d-f ai-c g-2 py-2 pr-3 pl-2 fs-sm us-none c-p br-md mx-1 fw-500 ${
                       state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                     }`
                   }
                 >
                   <Link className="fs-0 w-4 h-4 c-slate-5" />
-                  Copy task link
+                  Copy link
                 </ContextMenu.Item>
                 <ContextMenu.Separator className="my-1 w-100% h-px bg-silver-2" />
                 <ContextMenu.Item
                   className={(state) =>
-                    `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm us-none c-p br-md mx-1 fw-500 ${
+                    `d-f ai-c g-2 py-2 pr-3 pl-2 fs-sm us-none c-p br-md mx-1 fw-500 ${
+                      state.highlighted ? "bg-silver-1/50" : "bg-transparent"
+                    }`
+                  }
+                >
+                  <Bookmark className="fs-0 w-4 h-4 c-slate-5" />
+                  Bookmark
+                </ContextMenu.Item>
+                <ContextMenu.Item
+                  className={(state) =>
+                    `d-f ai-c g-2 py-2 pr-3 pl-2 fs-sm us-none c-p br-md mx-1 fw-500 ${
                       state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                     }`
                   }
                 >
                   <Pin className="fs-0 w-4 h-4 c-slate-5" />
-                  Pin task
+                  Pin to top
                 </ContextMenu.Item>
               </ContextMenu.Popup>
             </ContextMenu.Positioner>

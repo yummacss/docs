@@ -2,7 +2,25 @@
 
 import { Avatar } from "@base-ui/react/avatar";
 import { ContextMenu } from "@base-ui/react/context-menu";
-import { NavArrowRight } from "iconoir-react";
+import {
+  Archive,
+  BellOff,
+  Bookmark,
+  ClockRotateRight,
+  Copy,
+  Edit,
+  Folder,
+  Group,
+  Label,
+  Link,
+  NavArrowRight,
+  Pin,
+  PrintingPage,
+  ShareIos,
+  SubmitDocument,
+  Trash,
+  TriangleFlag,
+} from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -30,16 +48,83 @@ export default function ContextMenuNested() {
                 }
                 className="py-1 bg-white bc-silver-2 c-slate-10 bw-1 br-md bs-o-xs"
               >
+                <div className="px-3 py-1 fs-xs fw-600 c-slate-5 us-none">
+                  Quick Actions
+                </div>
+
+                <ContextMenu.Item
+                  className={(state) =>
+                    `d-f ai-c g-2 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                  }
+                >
+                  <Edit className="fs-0 w-4 h-4 c-slate-5" />
+                  Edit
+                </ContextMenu.Item>
+
+                <ContextMenu.Item
+                  className={(state) =>
+                    `d-f ai-c g-2 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                  }
+                >
+                  <Copy className="fs-0 w-4 h-4 c-slate-5" />
+                  Duplicate
+                </ContextMenu.Item>
+
+                <ContextMenu.Item
+                  className={(state) =>
+                    `d-f ai-c g-2 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                  }
+                >
+                  <Bookmark className="fs-0 w-4 h-4 c-slate-5" />
+                  Bookmark
+                </ContextMenu.Item>
+
+                <ContextMenu.Item
+                  className={(state) =>
+                    `d-f ai-c g-2 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                  }
+                >
+                  <Pin className="fs-0 w-4 h-4 c-slate-5" />
+                  Pin to top
+                </ContextMenu.Item>
+
+                <ContextMenu.Separator className="my-1 w-100% h-px bg-silver-2" />
+
+                <div className="px-3 py-1 fs-xs fw-600 c-slate-5 us-none">
+                  Share & Export
+                </div>
+
+                <ContextMenu.Item
+                  className={(state) =>
+                    `d-f ai-c g-2 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                  }
+                >
+                  <ShareIos className="fs-0 w-4 h-4 c-slate-5" />
+                  Share
+                </ContextMenu.Item>
+
+                <ContextMenu.Item
+                  className={(state) =>
+                    `d-f ai-c g-2 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                  }
+                >
+                  <Link className="fs-0 w-4 h-4 c-slate-5" />
+                  Copy link
+                </ContextMenu.Item>
+
                 <ContextMenu.SubmenuRoot>
                   <ContextMenu.SubmenuTrigger
                     className={(state) =>
-                      `d-f ai-c jc-sb g-2 py-2 pl-3 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${
+                      `d-f ai-c jc-sb g-2 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
                   >
-                    <span className="d-f ai-c g-2 fg-1">Add Label</span>
-                    <NavArrowRight className="fs-0 w-3 h-3 c-slate-4" />
+                    <span className="d-f ai-c g-2 fg-1">
+                      <SubmitDocument className="fs-0 w-4 h-4 c-slate-5" />
+                      Export as
+                    </span>
+                    <NavArrowRight className="fs-0 w-4 h-4 c-slate-4" />
                   </ContextMenu.SubmenuTrigger>
 
                   <ContextMenu.Portal>
@@ -49,19 +134,100 @@ export default function ContextMenuNested() {
                       alignOffset={-4}
                     >
                       <ContextMenu.Popup className="py-1 w-fc bg-white bc-silver-2 c-slate-10 bw-1 br-md bs-o-xs">
-                        {labels.map((label) => (
-                          <ContextMenu.Item
-                            key={label.name}
-                            className={(state) =>
-                              `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-md mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
-                            }
-                          >
-                            <span
-                              className={`d-f ai-c jc-c w-3 h-3 br-9999 ${label.bg}`}
-                            />
-                            <span className="c-slate-10">{label.name}</span>
-                          </ContextMenu.Item>
-                        ))}
+                        <ContextMenu.Item
+                          className={(state) =>
+                            `d-f ai-c g-2 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                          }
+                        >
+                          PDF
+                        </ContextMenu.Item>
+                        <ContextMenu.Item
+                          className={(state) =>
+                            `d-f ai-c g-2 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                          }
+                        >
+                          CSV
+                        </ContextMenu.Item>
+                        <ContextMenu.Item
+                          className={(state) =>
+                            `d-f ai-c g-2 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                          }
+                        >
+                          Markdown
+                        </ContextMenu.Item>
+                        <ContextMenu.Item
+                          className={(state) =>
+                            `d-f ai-c g-2 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                          }
+                        >
+                          Plain text
+                        </ContextMenu.Item>
+                      </ContextMenu.Popup>
+                    </ContextMenu.Positioner>
+                  </ContextMenu.Portal>
+                </ContextMenu.SubmenuRoot>
+
+                <ContextMenu.Item
+                  className={(state) =>
+                    `d-f ai-c g-2 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                  }
+                >
+                  <PrintingPage className="fs-0 w-4 h-4 c-slate-5" />
+                  Print
+                </ContextMenu.Item>
+
+                <ContextMenu.Separator className="my-1 w-100% h-px bg-silver-2" />
+
+                <ContextMenu.SubmenuRoot>
+                  <ContextMenu.SubmenuTrigger
+                    className={(state) =>
+                      `d-f ai-c jc-sb g-2 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${
+                        state.highlighted ? "bg-silver-1/50" : "bg-transparent"
+                      }`
+                    }
+                  >
+                    <span className="d-f ai-c g-2 fg-1">
+                      <Folder className="fs-0 w-4 h-4 c-slate-5" />
+                      Move to
+                    </span>
+                    <NavArrowRight className="fs-0 w-4 h-4 c-slate-4" />
+                  </ContextMenu.SubmenuTrigger>
+
+                  <ContextMenu.Portal>
+                    <ContextMenu.Positioner
+                      className="ow-0"
+                      sideOffset={-4}
+                      alignOffset={-4}
+                    >
+                      <ContextMenu.Popup className="py-1 w-fc bg-white bc-silver-2 c-slate-10 bw-1 br-md bs-o-xs">
+                        <ContextMenu.Item
+                          className={(state) =>
+                            `d-f ai-c g-2 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                          }
+                        >
+                          Sprint 1
+                        </ContextMenu.Item>
+                        <ContextMenu.Item
+                          className={(state) =>
+                            `d-f ai-c g-2 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                          }
+                        >
+                          Sprint 2
+                        </ContextMenu.Item>
+                        <ContextMenu.Item
+                          className={(state) =>
+                            `d-f ai-c g-2 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                          }
+                        >
+                          Backlog
+                        </ContextMenu.Item>
+                        <ContextMenu.Item
+                          className={(state) =>
+                            `d-f ai-c g-2 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                          }
+                        >
+                          Archive
+                        </ContextMenu.Item>
                       </ContextMenu.Popup>
                     </ContextMenu.Positioner>
                   </ContextMenu.Portal>
@@ -70,13 +236,16 @@ export default function ContextMenuNested() {
                 <ContextMenu.SubmenuRoot>
                   <ContextMenu.SubmenuTrigger
                     className={(state) =>
-                      `d-f ai-c jc-sb g-2 py-2 pl-3 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${
+                      `d-f ai-c jc-sb g-2 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
                   >
-                    <span className="d-f ai-c g-2 fg-1">Assign to</span>
-                    <NavArrowRight className="fs-0 w-3 h-3 c-slate-4" />
+                    <span className="d-f ai-c g-2 fg-1">
+                      <Group className="fs-0 w-4 h-4 c-slate-5" />
+                      Assign to
+                    </span>
+                    <NavArrowRight className="fs-0 w-4 h-4 c-slate-4" />
                   </ContextMenu.SubmenuTrigger>
 
                   <ContextMenu.Portal>
@@ -90,7 +259,7 @@ export default function ContextMenuNested() {
                           <ContextMenu.Item
                             key={member.avatar}
                             className={(state) =>
-                              `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-md mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                              `d-f ai-c g-2 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
                             }
                           >
                             <div className="p-r">
@@ -121,32 +290,62 @@ export default function ContextMenuNested() {
 
                 <ContextMenu.Item
                   className={(state) =>
-                    `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-md mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                    `d-f ai-c g-2 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
                   }
                 >
-                  Edit task
+                  <Label className="fs-0 w-4 h-4 c-slate-5" />
+                  Add label
+                </ContextMenu.Item>
+
+                <ContextMenu.Item
+                  className={(state) =>
+                    `d-f ai-c g-2 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                  }
+                >
+                  <TriangleFlag className="fs-0 w-4 h-4 c-slate-5" />
+                  Set priority
                 </ContextMenu.Item>
 
                 <ContextMenu.Separator className="my-1 w-100% h-px bg-silver-2" />
 
                 <ContextMenu.Item
                   className={(state) =>
-                    `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-md mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                    `d-f ai-c g-2 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
                   }
                 >
-                  Share task
+                  <ClockRotateRight className="fs-0 w-4 h-4 c-slate-5" />
+                  Version history
+                </ContextMenu.Item>
+
+                <ContextMenu.Item
+                  className={(state) =>
+                    `d-f ai-c g-2 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                  }
+                >
+                  <BellOff className="fs-0 w-4 h-4 c-slate-5" />
+                  Mute notifications
+                </ContextMenu.Item>
+
+                <ContextMenu.Item
+                  className={(state) =>
+                    `d-f ai-c g-2 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                  }
+                >
+                  <Archive className="fs-0 w-4 h-4 c-slate-5" />
+                  Archive
                 </ContextMenu.Item>
 
                 <ContextMenu.Separator className="my-1 w-100% h-px bg-silver-2" />
 
                 <ContextMenu.Item
                   className={(state) =>
-                    `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-red c-p br-md mx-1 ${
+                    `d-f ai-c g-2 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-red c-p br-md mx-1 ${
                       state.highlighted ? "bg-red-1/50" : "bg-transparent"
                     }`
                   }
                 >
-                  Archive task
+                  <Trash className="fs-0 w-4 h-4 c-red" />
+                  Delete
                 </ContextMenu.Item>
               </ContextMenu.Popup>
             </ContextMenu.Positioner>
@@ -156,12 +355,6 @@ export default function ContextMenuNested() {
     </ContextMenu.Root>
   );
 }
-
-const labels = [
-  { name: "High", bg: "bg-red" },
-  { name: "Medium", bg: "bg-yellow" },
-  { name: "Low", bg: "bg-green" },
-];
 
 const teamMembers = [
   {

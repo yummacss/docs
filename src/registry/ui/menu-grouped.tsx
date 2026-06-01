@@ -30,32 +30,84 @@ export default function MenuGrouped() {
                 className="py-1 bg-white bc-silver-2 c-slate-10 bw-1 br-md bs-o-xs"
               >
                 <Menu.Group>
+                  <div className="px-3 py-1 fs-xs fw-600 c-slate-5 us-none">Quick Actions</div>
                   <Menu.Item
                     className={(state) =>
-                      `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-md mx-1 ${
+                      `d-f ai-c g-2 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
                   >
-                    My tasks
+                    Edit
                   </Menu.Item>
                   <Menu.Item
                     className={(state) =>
-                      `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-md mx-1 ${
+                      `d-f ai-c g-2 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
                   >
-                    Shared with me
+                    Duplicate
                   </Menu.Item>
                   <Menu.Item
                     className={(state) =>
-                      `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-md mx-1 ${
+                      `d-f ai-c g-2 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
                   >
-                    My projects
+                    Bookmark
+                  </Menu.Item>
+                  <Menu.Item
+                    className={(state) =>
+                      `d-f ai-c g-2 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${
+                        state.highlighted ? "bg-silver-1/50" : "bg-transparent"
+                      }`
+                    }
+                  >
+                    Pin to top
+                  </Menu.Item>
+                </Menu.Group>
+
+                <Menu.Separator className="my-1 w-100% h-px bg-silver-2" />
+
+                <Menu.Group>
+                  <div className="px-3 py-1 fs-xs fw-600 c-slate-5 us-none">Share & Export</div>
+                  <Menu.Item
+                    className={(state) =>
+                      `d-f ai-c g-2 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${
+                        state.highlighted ? "bg-silver-1/50" : "bg-transparent"
+                      }`
+                    }
+                  >
+                    Share
+                  </Menu.Item>
+                  <Menu.Item
+                    className={(state) =>
+                      `d-f ai-c g-2 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${
+                        state.highlighted ? "bg-silver-1/50" : "bg-transparent"
+                      }`
+                    }
+                  >
+                    Copy link
+                  </Menu.Item>
+                  <Menu.Item
+                    className={(state) =>
+                      `d-f ai-c g-2 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${
+                        state.highlighted ? "bg-silver-1/50" : "bg-transparent"
+                      }`
+                    }
+                  >
+                    Print
+                  </Menu.Item>
+                  <Menu.Item
+                    className={(state) =>
+                      `d-f ai-c g-2 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${
+                        state.highlighted ? "bg-silver-1/50" : "bg-transparent"
+                      }`
+                    }
+                  >
+                    Archive
                   </Menu.Item>
                 </Menu.Group>
 
@@ -64,21 +116,12 @@ export default function MenuGrouped() {
                 <Menu.Group>
                   <Menu.Item
                     className={(state) =>
-                      `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-md mx-1 ${
-                        state.highlighted ? "bg-silver-1/50" : "bg-transparent"
+                      `d-f ai-c g-2 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 c-red ${
+                        state.highlighted ? "bg-red-1/50" : "bg-transparent"
                       }`
                     }
                   >
-                    Project settings
-                  </Menu.Item>
-                  <Menu.Item
-                    className={(state) =>
-                      `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-md mx-1 ${
-                        state.highlighted ? "bg-silver-1/50" : "bg-transparent"
-                      }`
-                    }
-                  >
-                    Archive
+                    Delete
                   </Menu.Item>
                 </Menu.Group>
               </Menu.Popup>
