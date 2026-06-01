@@ -1,29 +1,25 @@
+import { allBlogs, allDocs, allUis } from "content-collections";
 import type { MetadataRoute } from "next";
-import { getAllBlogSlugs } from "@/utils/blog";
-import { getAllSlugs, getAllUISlugs } from "@/utils/sidebar";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://yummacss.com";
 
-  const docSlugs = getAllSlugs();
-  const docUrls = docSlugs.map((slug) => ({
-    url: `${baseUrl}/docs/${slug}`,
+  const docUrls = allDocs.map((doc) => ({
+    url: `${baseUrl}/docs/${doc._meta.path}`,
     lastModified: new Date(),
     changeFrequency: "weekly" as const,
     priority: 0.8,
   }));
 
-  const uiSlugs = getAllUISlugs();
-  const uiUrls = uiSlugs.map((slug) => ({
-    url: `${baseUrl}/ui/components/${slug}`,
+  const uiUrls = allUis.map((ui) => ({
+    url: `${baseUrl}/ui/components/${ui._meta.path}`,
     lastModified: new Date(),
     changeFrequency: "weekly" as const,
     priority: 0.7,
   }));
 
-  const blogSlugs = getAllBlogSlugs();
-  const blogUrls = blogSlugs.map((slug) => ({
-    url: `${baseUrl}/blog/${slug}`,
+  const blogUrls = allBlogs.map((post) => ({
+    url: `${baseUrl}/blog/${post._meta.path}`,
     lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.6,

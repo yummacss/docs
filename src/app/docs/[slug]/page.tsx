@@ -1,7 +1,7 @@
+import { allDocs } from "content-collections";
 import type { Metadata } from "next";
 import Pagination from "@/components/ui/pagination";
 import { getDocsNavigation } from "@/utils/pagination";
-import { getAllSlugs } from "@/utils/sidebar";
 
 export async function generateMetadata({
   params,
@@ -9,12 +9,11 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const module = await import(`@/content/docs/${slug}.mdx`);
-  const meta = module.meta;
+  const doc = allDocs.find((d) => d._meta.path === slug);
 
   return {
-    title: meta?.title || "Yumma CSS Documentation",
-    description: meta?.description || "",
+    title: doc?.title || "Yumma CSS Documentation",
+    description: doc?.description || "",
   };
 }
 
@@ -24,36 +23,34 @@ export default async function Page({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const module = await import(`@/content/docs/${slug}.mdx`);
-  const Content = module.default;
-  const meta = module.meta;
+  const doc = allDocs.find((d) => d._meta.path === slug)!;
+  const MDXContent = doc.mdx;
   const navigation = getDocsNavigation(slug);
 
   return (
     <div className="mb-16">
-      {meta && (
+      {doc && (
         <div className="my-8" data-meta>
           <div className="d-f ai-c jc-sb mb-2">
-            <h1 className="c-white fs-4xl fw-400">{meta.title}</h1>
+            <h1 className="c-white fs-4xl fw-400">{doc.title}</h1>
             <Pagination
               previous={navigation.previous}
               next={navigation.next}
               basePath="/docs"
             />
           </div>
-          {meta.description && (
-            <p className="c-white/70 fs-lg">{meta.description}</p>
+          {doc.description && (
+            <p className="c-white/70 fs-lg">{doc.description}</p>
           )}
         </div>
       )}
-      <Content />
+      <MDXContent />
     </div>
   );
 }
 
 export function generateStaticParams() {
-  const slugs = getAllSlugs();
-  return slugs.map((slug) => ({ slug }));
+  return allDocs.map((doc) => ({ slug: doc._meta.path }));
 }
 
 export const dynamicParams = false;

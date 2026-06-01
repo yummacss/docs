@@ -1,7 +1,7 @@
+import { allUis } from "content-collections";
 import type { Metadata } from "next";
 import Pagination from "@/components/ui/pagination";
 import { getUINavigation } from "@/utils/pagination";
-import { getAllUISlugs } from "@/utils/sidebar";
 
 export async function generateMetadata({
   params,
@@ -9,12 +9,11 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const module = await import(`@/content/ui/${slug}.mdx`);
-  const meta = module.meta;
+  const ui = allUis.find((u) => u._meta.path === slug);
 
   return {
-    title: meta?.title || "Yumma UI",
-    description: meta?.description || "",
+    title: ui?.title || "Yumma UI",
+    description: ui?.description || "",
   };
 }
 
@@ -24,39 +23,36 @@ export default async function Page({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const module = await import(`@/content/ui/${slug}.mdx`);
-  const Content = module.default;
-  const meta = module.meta;
+  const ui = allUis.find((u) => u._meta.path === slug)!;
+  const MDXContent = ui.mdx;
   const navigation = getUINavigation(slug);
 
   return (
     <div className="mb-16">
-      {meta && (
+      {ui && (
         <div className="my-8" data-meta>
           <div className="d-f ai-c jc-sb mb-2">
-            <h1 className="c-white fs-4xl fw-400">{meta.title}</h1>
+            <h1 className="c-white fs-4xl fw-400">{ui.title}</h1>
             <Pagination
               previous={navigation.previous}
               next={navigation.next}
               basePath="/ui/components"
             />
           </div>
-          {meta.description && (
-            <p className="c-white/70 fs-lg">{meta.description}</p>
+          {ui.description && (
+            <p className="c-white/70 fs-lg">{ui.description}</p>
           )}
         </div>
       )}
-      <Content />
+      <MDXContent />
     </div>
   );
 }
 
 export function generateStaticParams() {
-  const slugs = getAllUISlugs();
-  // exclude "components" since it has its own index page
-  return slugs
-    .filter((slug) => slug !== "components")
-    .map((slug) => ({ slug }));
+  return allUis
+    .filter((ui) => ui._meta.path !== "components")
+    .map((ui) => ({ slug: ui._meta.path }));
 }
 
 export const dynamicParams = false;
