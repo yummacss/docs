@@ -1,4 +1,9 @@
-import { defineCollection, defineConfig, createDefaultImport } from "@content-collections/core";
+import {
+  createDefaultImport,
+  defineCollection,
+  defineConfig,
+} from "@content-collections/core";
+import type { ComponentType } from "react";
 import { z } from "zod";
 
 const docs = defineCollection({
@@ -8,11 +13,17 @@ const docs = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string().optional(),
-    content: z.string(),
+    order: z.number().optional(),
+    updated: z.boolean().optional(),
+    content: z.string().optional(),
   }),
   transform: (doc) => ({
     ...doc,
-    mdx: createDefaultImport(`@/content/docs/${doc._meta.path}.mdx`),
+    mdx: createDefaultImport<ComponentType>(
+      `@/content/docs/${doc._meta.path}.mdx`,
+    ),
+    slug: doc._meta.path,
+    wordCount: doc.content?.split(/\s+/).length ?? 0,
   }),
 });
 
@@ -23,11 +34,18 @@ const ui = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string().optional(),
-    content: z.string(),
+    order: z.number().optional(),
+    updated: z.boolean().optional(),
+    primitive: z.string().optional(),
+    content: z.string().optional(),
   }),
   transform: (doc) => ({
     ...doc,
-    mdx: createDefaultImport(`@/content/ui/${doc._meta.path}.mdx`),
+    mdx: createDefaultImport<ComponentType>(
+      `@/content/ui/${doc._meta.path}.mdx`,
+    ),
+    slug: doc._meta.path,
+    wordCount: doc.content?.split(/\s+/).length ?? 0,
   }),
 });
 
@@ -39,13 +57,15 @@ const blog = defineCollection({
     title: z.string(),
     description: z.string(),
     date: z.string(),
-    authors: z.string(),
+    authors: z.array(z.string()),
     cover: z.string().optional(),
     content: z.string(),
   }),
   transform: (doc) => ({
     ...doc,
-    mdx: createDefaultImport(`@/content/blog/${doc._meta.path}.mdx`),
+    mdx: createDefaultImport<ComponentType>(
+      `@/content/blog/${doc._meta.path}.mdx`,
+    ),
   }),
 });
 

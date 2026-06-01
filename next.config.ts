@@ -16,6 +16,7 @@ const nextConfig = {
 const withMDX = createMDX({
   options: {
     remarkPlugins: [
+      "remark-frontmatter",
       "remark-gfm",
       path.resolve("src/plugins/remark-component-source.mjs"),
     ],

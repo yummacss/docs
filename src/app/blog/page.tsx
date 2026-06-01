@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 export default async function BlogPage() {
-  const posts = await getAllBlogPosts();
+  const posts = getAllBlogPosts();
   const postsByYear = groupPostsByYear(posts);
   const years = Array.from(postsByYear.keys()).sort((a, b) => b - a);
 
@@ -29,9 +29,9 @@ export default async function BlogPage() {
               <h2 className="mb-8 c-white ff-e fs-4xl fw-400">{year}</h2>
 
               {postsByYear.get(year)?.map((post) => (
-                <article key={post.slug} className="mb-12">
+                <article key={post._meta.path} className="mb-12">
                   <Link
-                    href={`/blog/${post.slug}`}
+                    href={`/blog/${post._meta.path}`}
                     className="d-b fv:oc-white fv:ow-2"
                   >
                     <div className="d-f fd-c g-8 @lg:fd-r">
@@ -50,7 +50,7 @@ export default async function BlogPage() {
                         <div className="@lg:w-64 @lg:fs-0">
                           <div className="o-h b-1 bc-border bg-white/10">
                             <Image
-                              src={`/blog/${post.slug}.png`}
+                              src={post.cover}
                               alt={post.title}
                               unoptimized
                               width={1200}

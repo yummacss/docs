@@ -1,10 +1,11 @@
+import { allBlogs } from "content-collections";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Avatar } from "@/components/avatar";
 import TableOfContents from "@/components/ui/toc";
 import { getAuthor } from "@/utils/authors";
-import { formatDate, getAllBlogSlugs } from "@/utils/blog";
+import { formatDate } from "@/utils/blog";
 
 export async function generateMetadata({
   params,
@@ -12,31 +13,30 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const module = await import(`@/content/blog/${slug}.mdx`);
-  const meta = module.meta;
+  const post = allBlogs.find((p) => p._meta.path === slug);
 
-  const image = meta?.cover ? `/blog/${slug}.png` : "/og.png";
+  const image = post?.cover || "/og.png";
 
   return {
-    title: meta?.title || "Blog Post",
-    description: meta?.description || "",
+    title: post?.title || "Blog Post",
+    description: post?.description || "",
     openGraph: {
       type: "article",
-      publishedTime: meta?.date,
+      publishedTime: post?.date,
       authors: ["Renildo Pereira"],
       images: [
         {
           url: image,
           width: 1200,
           height: 630,
-          alt: meta?.title || "Yumma CSS Blog",
+          alt: post?.title || "Yumma CSS Blog",
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: meta?.title,
-      description: meta?.description,
+      title: post?.title,
+      description: post?.description,
       images: [image],
     },
   };
@@ -48,11 +48,10 @@ export default async function BlogPostPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const module = await import(`@/content/blog/${slug}.mdx`);
-  const Content = module.default;
-  const meta = module.meta;
+  const post = allBlogs.find((p) => p._meta.path === slug)!;
+  const MDXContent = post.mdx;
 
-  const author = meta?.authors ? getAuthor(meta.authors) : undefined;
+  const author = post?.authors?.[0] ? getAuthor(post.authors[0]) : undefined;
 
   return (
     <div className="py-8">
@@ -64,14 +63,14 @@ export default async function BlogPostPage({
                 Blog
               </Link>
               <span>/</span>
-              <span>{formatDate(meta?.date || "")}</span>
+              <span>{formatDate(post?.date || "")}</span>
             </div>
 
             <h1 className="mb-2 c-white fs-4xl fw-400 @lg:fs-5xl">
-              {meta?.title}
+              {post?.title}
             </h1>
 
-            <p className="mb-6 c-white/70 fs-lg lh-5">{meta?.description}</p>
+            <p className="mb-6 c-white/70 fs-lg lh-5">{post?.description}</p>
 
             {author && (
               <div className="d-f ai-c g-4 c-white/70 fs-lg">
@@ -90,11 +89,11 @@ export default async function BlogPostPage({
             )}
           </header>
 
-          {meta?.cover && (
+          {post?.cover && (
             <div className="o-h b-1 mb-12 bc-border">
               <Image
-                src={`/blog/${slug}.png`}
-                alt={meta.title || "Blog cover"}
+                src={post.cover}
+                alt={post.title || "Blog cover"}
                 unoptimized
                 width={1200}
                 height={630}
@@ -104,7 +103,7 @@ export default async function BlogPostPage({
           )}
 
           <div>
-            <Content />
+            <MDXContent />
           </div>
         </article>
 
@@ -115,8 +114,7 @@ export default async function BlogPostPage({
 }
 
 export function generateStaticParams() {
-  const slugs = getAllBlogSlugs();
-  return slugs.map((slug) => ({ slug }));
+  return allBlogs.map((post) => ({ slug: post._meta.path }));
 }
 
 export const dynamicParams = false;
