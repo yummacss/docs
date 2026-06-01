@@ -1,7 +1,7 @@
 "use client";
 
 import { Menu } from "@base-ui/react/menu";
-import { ArrowLeft, ArrowUp, KeyCommand, NavArrowDown } from "iconoir-react";
+import { KeyCommand, NavArrowDown } from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -31,80 +31,95 @@ export default function MenuShortcuts() {
               >
                 <Menu.Item
                   className={(state) =>
-                    `d-f ai-c jc-sb g-2 py-2 pr-3 pl-3 fs-sm fw-500 us-none c-p br-md mx-1 ${
+                    `d-f ai-c jc-sb g-2 py-2 pr-3 pl-2 fs-sm fw-500 us-none c-p br-md mx-1 ${
                       state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                     }`
                   }
                 >
-                  <span className="fg-1">Edit task</span>
-                  <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
-                    <span>F2</span>
-                  </span>
-                </Menu.Item>
-                <Menu.Item
-                  className={(state) =>
-                    `d-f ai-c jc-sb g-2 py-2 pr-3 pl-3 fs-sm fw-500 us-none c-p br-md mx-1 ${
-                      state.highlighted ? "bg-silver-1/50" : "bg-transparent"
-                    }`
-                  }
-                >
-                  <span className="fg-1">Duplicate task</span>
-                  <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
-                    <KeyCommand className="w-3 h-3" />
-                    <span>D</span>
-                  </span>
-                </Menu.Item>
-                <Menu.Item
-                  className={(state) =>
-                    `d-f ai-c jc-sb g-2 py-2 pr-3 pl-3 fs-sm fw-500 us-none c-p br-md mx-1 ${
-                      state.highlighted ? "bg-silver-1/50" : "bg-transparent"
-                    }`
-                  }
-                >
-                  <span className="fg-1">Copy link</span>
-                  <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
-                    <KeyCommand className="w-3 h-3" />
-                    <ArrowUp className="w-3 h-3" />
-                    <span>C</span>
-                  </span>
-                </Menu.Item>
-                <Menu.Item
-                  className={(state) =>
-                    `d-f ai-c jc-sb g-2 py-2 pr-3 pl-3 fs-sm fw-500 us-none c-p br-md mx-1 ${
-                      state.highlighted ? "bg-silver-1/50" : "bg-transparent"
-                    }`
-                  }
-                >
-                  <span className="fg-1">Pin task</span>
-                  <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
-                    <KeyCommand className="w-3 h-3" />
-                    <span>P</span>
-                  </span>
-                </Menu.Item>
-                <Menu.Item
-                  className={(state) =>
-                    `d-f ai-c jc-sb g-2 py-2 pr-3 pl-3 fs-sm fw-500 us-none c-p br-md mx-1 ${
-                      state.highlighted ? "bg-silver-1/50" : "bg-transparent"
-                    }`
-                  }
-                >
-                  <span className="fg-1">Archive task</span>
-                  <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
+                  <span className="fg-1">Edit</span>
+                  <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs ml-4">
                     <KeyCommand className="w-3 h-3" />
                     <span>E</span>
                   </span>
                 </Menu.Item>
                 <Menu.Item
                   className={(state) =>
-                    `d-f ai-c jc-sb g-2 py-2 pr-3 pl-3 fs-sm fw-500 us-none c-p br-md mx-1 ${
+                    `d-f ai-c jc-sb g-2 py-2 pr-3 pl-2 fs-sm fw-500 us-none c-p br-md mx-1 ${
                       state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                     }`
                   }
                 >
-                  <span className="fg-1">Delete task</span>
-                  <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs">
+                  <span className="fg-1">Duplicate</span>
+                  <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs ml-4">
                     <KeyCommand className="w-3 h-3" />
-                    <ArrowLeft className="w-3 h-3" />
+                    <span>D</span>
+                  </span>
+                </Menu.Item>
+                <Menu.Item
+                  className={(state) =>
+                    `d-f ai-c jc-sb g-2 py-2 pr-3 pl-2 fs-sm fw-500 us-none c-p br-md mx-1 ${
+                      state.highlighted ? "bg-silver-1/50" : "bg-transparent"
+                    }`
+                  }
+                >
+                  <span className="fg-1">Bookmark</span>
+                  <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs ml-4">
+                    <KeyCommand className="w-3 h-3" />
+                    <span>B</span>
+                  </span>
+                </Menu.Item>
+                <Menu.Separator className="my-1 w-100% h-px bg-silver-2" />
+                <Menu.Item
+                  className={(state) =>
+                    `d-f ai-c jc-sb g-2 py-2 pr-3 pl-2 fs-sm fw-500 us-none c-p br-md mx-1 ${
+                      state.highlighted ? "bg-silver-1/50" : "bg-transparent"
+                    }`
+                  }
+                >
+                  <span className="fg-1">Copy link</span>
+                  <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs ml-4">
+                    <KeyCommand className="w-3 h-3" />
+                    <span>L</span>
+                  </span>
+                </Menu.Item>
+                <Menu.Item
+                  className={(state) =>
+                    `d-f ai-c jc-sb g-2 py-2 pr-3 pl-2 fs-sm fw-500 us-none c-p br-md mx-1 ${
+                      state.highlighted ? "bg-silver-1/50" : "bg-transparent"
+                    }`
+                  }
+                >
+                  <span className="fg-1">Print</span>
+                  <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs ml-4">
+                    <KeyCommand className="w-3 h-3" />
+                    <span>P</span>
+                  </span>
+                </Menu.Item>
+                <Menu.Item
+                  className={(state) =>
+                    `d-f ai-c jc-sb g-2 py-2 pr-3 pl-2 fs-sm fw-500 us-none c-p br-md mx-1 ${
+                      state.highlighted ? "bg-silver-1/50" : "bg-transparent"
+                    }`
+                  }
+                >
+                  <span className="fg-1">Mute notifications</span>
+                  <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs ml-4">
+                    <KeyCommand className="w-3 h-3" />
+                    <span>M</span>
+                  </span>
+                </Menu.Item>
+                <Menu.Separator className="my-1 w-100% h-px bg-silver-2" />
+                <Menu.Item
+                  className={(state) =>
+                    `d-f ai-c jc-sb g-2 py-2 pr-3 pl-2 fs-sm fw-500 us-none c-p br-md mx-1 c-red ${
+                      state.highlighted ? "bg-red-1/50" : "bg-transparent"
+                    }`
+                  }
+                >
+                  <span className="fg-1">Delete</span>
+                  <span className="d-f ai-c g-1 c-slate-6 fw-400 fs-xs ml-4">
+                    <KeyCommand className="w-3 h-3" />
+                    <span>D</span>
                   </span>
                 </Menu.Item>
               </Menu.Popup>

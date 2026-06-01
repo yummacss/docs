@@ -1,7 +1,7 @@
 "use client";
 
 import { Menu } from "@base-ui/react/menu";
-import { Eye, Link, Pin, UserPlus } from "iconoir-react";
+import { Bookmark, Copy, Edit, Link, Pin, ShareIos } from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -31,43 +31,63 @@ export default function MenuIconTrailing() {
               >
                 <Menu.Item
                   className={(state) =>
-                    `d-f ai-c jc-sb g-2 py-2 pr-3 pl-4 fs-sm us-none c-p br-md mx-1 fw-500 ${
+                    `d-f ai-c jc-sb g-2 py-2 pr-3 pl-2 fs-sm us-none c-p br-md mx-1 fw-500 ${
                       state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                     }`
                   }
                 >
-                  Add watcher
-                  <UserPlus className="fs-0 w-4 h-4 c-slate-5" />
+                  <span className="fg-1">Edit</span>
+                  <Edit className="fs-0 w-4 h-4 c-slate-5" />
                 </Menu.Item>
                 <Menu.Item
                   className={(state) =>
-                    `d-f ai-c jc-sb g-2 py-2 pr-3 pl-4 fs-sm us-none c-p br-md mx-1 fw-500 ${
+                    `d-f ai-c jc-sb g-2 py-2 pr-3 pl-2 fs-sm us-none c-p br-md mx-1 fw-500 ${
                       state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                     }`
                   }
                 >
-                  View task
-                  <Eye className="fs-0 w-4 h-4 c-slate-5" />
+                  <span className="fg-1">Duplicate</span>
+                  <Copy className="fs-0 w-4 h-4 c-slate-5" />
                 </Menu.Item>
                 <Menu.Item
                   className={(state) =>
-                    `d-f ai-c jc-sb g-2 py-2 pr-3 pl-4 fs-sm us-none c-p br-md mx-1 fw-500 ${
+                    `d-f ai-c jc-sb g-2 py-2 pr-3 pl-2 fs-sm us-none c-p br-md mx-1 fw-500 ${
                       state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                     }`
                   }
                 >
-                  Copy task link
+                  <span className="fg-1">Share</span>
+                  <ShareIos className="fs-0 w-4 h-4 c-slate-5" />
+                </Menu.Item>
+                <Menu.Item
+                  className={(state) =>
+                    `d-f ai-c jc-sb g-2 py-2 pr-3 pl-2 fs-sm us-none c-p br-md mx-1 fw-500 ${
+                      state.highlighted ? "bg-silver-1/50" : "bg-transparent"
+                    }`
+                  }
+                >
+                  <span className="fg-1">Copy link</span>
                   <Link className="fs-0 w-4 h-4 c-slate-5" />
                 </Menu.Item>
                 <Menu.Separator className="my-1 w-100% h-px bg-silver-2" />
                 <Menu.Item
                   className={(state) =>
-                    `d-f ai-c jc-sb g-2 py-2 pr-3 pl-4 fs-sm us-none c-p br-md mx-1 fw-500 ${
+                    `d-f ai-c jc-sb g-2 py-2 pr-3 pl-2 fs-sm us-none c-p br-md mx-1 fw-500 ${
                       state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                     }`
                   }
                 >
-                  Pin task
+                  <span className="fg-1">Bookmark</span>
+                  <Bookmark className="fs-0 w-4 h-4 c-slate-5" />
+                </Menu.Item>
+                <Menu.Item
+                  className={(state) =>
+                    `d-f ai-c jc-sb g-2 py-2 pr-3 pl-2 fs-sm us-none c-p br-md mx-1 fw-500 ${
+                      state.highlighted ? "bg-silver-1/50" : "bg-transparent"
+                    }`
+                  }
+                >
+                  <span className="fg-1">Pin to top</span>
                   <Pin className="fs-0 w-4 h-4 c-slate-5" />
                 </Menu.Item>
               </Menu.Popup>

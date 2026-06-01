@@ -15,39 +15,39 @@ export default function MenuStatic() {
           <Menu.Popup className="py-1 bg-white bc-silver-2 c-slate-10 bw-1 br-md bs-o-xs">
             <Menu.Item
               className={(state) =>
-                `d-f py-2 pl-3 pr-4 fs-sm us-none c-p br-md mx-1 fw-500 ${
+                `d-f py-2 pl-2 pr-3 fs-sm us-none c-p br-md mx-1 fw-500 ${
                   state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                 }`
               }
             >
-              Edit task
+              Edit
             </Menu.Item>
             <Menu.Item
               className={(state) =>
-                `d-f py-2 pl-3 pr-4 fs-sm us-none c-p br-md mx-1 fw-500 ${
+                `d-f py-2 pl-2 pr-3 fs-sm us-none c-p br-md mx-1 fw-500 ${
                   state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                 }`
               }
             >
-              Duplicate task
+              Duplicate
             </Menu.Item>
             <Menu.Item
               className={(state) =>
-                `d-f py-2 pl-3 pr-4 fs-sm us-none c-p br-md mx-1 fw-500 ${
+                `d-f py-2 pl-2 pr-3 fs-sm us-none c-p br-md mx-1 fw-500 ${
                   state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                 }`
               }
             >
-              Copy task link
+              Bookmark
             </Menu.Item>
             <Menu.Item
               className={(state) =>
-                `d-f py-2 pl-3 pr-4 fs-sm us-none c-p br-md mx-1 fw-500 ${
+                `d-f py-2 pl-2 pr-3 fs-sm us-none c-p br-md mx-1 fw-500 ${
                   state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                 }`
               }
             >
-              Archive task
+              Pin to top
             </Menu.Item>
           </Menu.Popup>
         </Menu.Positioner>

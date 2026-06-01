@@ -31,39 +31,39 @@ export default function MenuSquircle() {
               >
                 <Menu.Item
                   className={(state) =>
-                    `d-f py-2 pl-3 pr-4 fs-sm us-none c-p mx-1 br-xxl cs-s fw-500 ${
+                    `d-f py-2 pl-2 pr-3 fs-sm us-none c-p mx-1 br-xxl cs-s fw-500 ${
                       state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                     }`
                   }
                 >
-                  Edit task
+                  Edit
                 </Menu.Item>
                 <Menu.Item
                   className={(state) =>
-                    `d-f py-2 pl-3 pr-4 fs-sm us-none c-p mx-1 br-xxl cs-s fw-500 ${
+                    `d-f py-2 pl-2 pr-3 fs-sm us-none c-p mx-1 br-xxl cs-s fw-500 ${
                       state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                     }`
                   }
                 >
-                  Duplicate task
+                  Duplicate
                 </Menu.Item>
                 <Menu.Item
                   className={(state) =>
-                    `d-f py-2 pl-3 pr-4 fs-sm us-none c-p mx-1 br-xxl cs-s fw-500 ${
+                    `d-f py-2 pl-2 pr-3 fs-sm us-none c-p mx-1 br-xxl cs-s fw-500 ${
                       state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                     }`
                   }
                 >
-                  Copy task link
+                  Bookmark
                 </Menu.Item>
                 <Menu.Item
                   className={(state) =>
-                    `d-f py-2 pl-3 pr-4 fs-sm us-none c-p mx-1 br-xxl cs-s fw-500 ${
+                    `d-f py-2 pl-2 pr-3 fs-sm us-none c-p mx-1 br-xxl cs-s fw-500 ${
                       state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                     }`
                   }
                 >
-                  Archive task
+                  Pin to top
                 </Menu.Item>
               </Menu.Popup>
             </Menu.Positioner>
