@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Avatar } from "@/components/avatar";
+import JsonLd from "@/components/json-ld";
 import TableOfContents from "@/components/ui/toc";
 import { getAuthor } from "@/utils/authors";
 import { formatDate } from "@/utils/blog";
@@ -14,16 +15,18 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const post = allBlogs.find((p) => p._meta.path === slug);
-
+  const url = `https://yummacss.com/blog/${slug}`;
   const image = post?.cover || "/og.png";
 
   return {
     title: post?.title || "Blog Post",
     description: post?.description || "",
+    alternates: { canonical: url },
     openGraph: {
       type: "article",
       publishedTime: post?.date,
       authors: ["Renildo Pereira"],
+      url,
       images: [
         {
           url: image,
@@ -109,6 +112,21 @@ export default async function BlogPostPage({
 
         <TableOfContents />
       </div>
+
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "Article",
+          headline: post?.title,
+          description: post?.description,
+          datePublished: post?.date,
+          author: {
+            "@type": "Person",
+            name: "Renildo Pereira",
+          },
+          url: `https://yummacss.com/blog/${slug}`,
+        }}
+      />
     </div>
   );
 }

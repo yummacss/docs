@@ -6,6 +6,24 @@ import { formatDate, getAllBlogPosts, groupPostsByYear } from "@/utils/blog";
 export const metadata: Metadata = {
   title: "Blog",
   description: "The latest updates & articles from Yumma CSS.",
+  openGraph: {
+    title: "Blog · Yumma CSS",
+    description: "The latest updates & articles from Yumma CSS.",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Yumma CSS Blog",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog · Yumma CSS",
+    description: "The latest updates & articles from Yumma CSS.",
+    images: ["/og.png"],
+  },
 };
 
 export default async function BlogPage() {

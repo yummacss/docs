@@ -1,8 +1,35 @@
-"use client";
-
 import { ComponentSolid } from "iconoir-react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "@/components/ui/navbar";
+
+const tagline = "Type less. Style more.";
+
+export const metadata: Metadata = {
+  title: `Yumma CSS - ${tagline}`,
+  description:
+    "Yumma CSS is an ergonomic CSS framework with abbreviated utility classes. Write d-f instead of flex, fw-600 instead of font-semibold. Faster styling, less typing.",
+  openGraph: {
+    title: `Yumma CSS - ${tagline}`,
+    description:
+      "Yumma CSS is an ergonomic CSS framework with abbreviated utility classes. Write d-f instead of flex, fw-600 instead of font-semibold. Faster styling, less typing.",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: tagline,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `Yumma CSS - ${tagline}`,
+    description:
+      "Yumma CSS is an ergonomic CSS framework with abbreviated utility classes. Write d-f instead of flex, fw-600 instead of font-semibold. Faster styling, less typing.",
+    images: ["/og.png"],
+  },
+};
 
 export default function Home() {
   return (
