@@ -2,6 +2,7 @@ import "@/styles/globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
+import JsonLd from "@/components/json-ld";
 
 const description =
   "Yumma CSS is an ergonomic CSS framework with abbreviated utility classes. Write d-f instead of flex, fw-600 instead of font-semibold. Faster styling, less typing.";
@@ -62,6 +63,26 @@ export default function RootLayout({
         {children}
         <Analytics />
         <SpeedInsights />
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            name: "Yumma CSS",
+            url: "https://yummacss.com",
+            description,
+          }}
+        />
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            name: "Yumma CSS",
+            applicationCategory: "DeveloperApplication",
+            operatingSystem: "Any",
+            description,
+            url: "https://yummacss.com",
+          }}
+        />
       </body>
     </html>
   );
