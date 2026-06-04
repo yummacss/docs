@@ -25,8 +25,8 @@ export default function Palette({
 }: Props) {
   return (
     <div className="d-f fd-c g-1">
-      <div className="d-none fd-c g-1 ai-c @md:ai-c @lg:d-f @md:fd-r">
-        <div className="d-f ai-c min-w-fc mr-2 ws-nw ta-c @md:min-w-16" />
+      <div className="d-none @lg:d-f fd-c g-1 @md:fd-r @md:ai-c">
+        <div className="d-f ai-c ws-nw ta-c @md:w-24 @md:min-w-24 @md:mr-2" />
         <div
           className="d-g g-1 f-1 my-2 w-100%"
           style={{
@@ -55,7 +55,7 @@ export default function Palette({
             key={colorItem.name}
             className="d-f fd-c g-1 ai-c @md:ai-c @md:fd-r"
           >
-            <p className="d-f ai-c min-w-fc mr-2 c-white ws-nw ta-c fs-sm @md:min-w-16">
+            <p className="d-f ai-c c-white ws-nw o-h fs-sm @md:w-24 @md:min-w-24 @md:mr-2">
               {colorItem.name}
             </p>
             <div
@@ -131,7 +131,7 @@ function ColorSwatch({
       <Tooltip.Portal>
         <Tooltip.Positioner sideOffset={10}>
           <Tooltip.Popup
-            className="d-f fd-c px-2 py-1 bc-border bg-surface c-white bw-1 fs-xs"
+            className="d-f p-r fd-c px-2 py-1 bc-border bg-surface c-white bw-1 fs-xs"
             style={{
               transformOrigin: "bottom center",
               transition: !showCopied
@@ -142,7 +142,18 @@ function ColorSwatch({
               pointerEvents: tooltipOpen ? "auto" : "none",
             }}
           >
-            <Tooltip.Arrow className="d-f"></Tooltip.Arrow>
+            <svg
+              viewBox="0 0 10 5"
+              className="p-a b--2 l-50% ml--2 w-4 h-2"
+              style={{ fill: "#1a1d2e" }}
+            >
+              <path
+                d="M0 0 L5 5 L10 0"
+                fill="#1a1d2e"
+                stroke="#232741"
+                strokeWidth="1"
+              />
+            </svg>
             {showCopied ? "Copied!" : `${name} ${label}`}
           </Tooltip.Popup>
         </Tooltip.Positioner>
