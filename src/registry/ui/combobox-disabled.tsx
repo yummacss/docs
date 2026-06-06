@@ -1,7 +1,7 @@
 "use client";
 
 import { Combobox } from "@base-ui/react/combobox";
-import { ArrowSeparateVertical, Xmark } from "iconoir-react";
+import { ArrowSeparateVertical } from "iconoir-react";
 
 export default function ComboboxDisabled() {
   return (
@@ -14,12 +14,9 @@ export default function ComboboxDisabled() {
           <Combobox.Input
             id="user-input-disabled"
             placeholder="Search team members"
-            className="h-10 w-64 pl-4 pr-16 bg-white bc-silver-3 c-slate-4 bw-1 br-md fs-sm bs-o-xs"
+            className="h-10 w-64 pl-4 pr-10 bg-white bc-silver-3 c-slate-4 bw-1 br-md fs-sm bs-o-xs"
           />
           <div className="d-f p-a r-2 b-0 ai-c jc-c h-10 c-slate-6">
-            <div className="d-f ai-c jc-c w-6 h-6 c-slate-6">
-              <Xmark className="w-4 h-4" />
-            </div>
             <div className="d-f ai-c jc-c w-6 h-6 c-slate-6">
               <ArrowSeparateVertical className="w-4 h-4" />
             </div>
