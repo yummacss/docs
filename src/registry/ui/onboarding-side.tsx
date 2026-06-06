@@ -19,7 +19,7 @@ const slideVariants = {
   exit: (d: number) => ({ x: d > 0 ? -40 : 40, opacity: 0 }),
 };
 
-export default function OnboardingSquircle() {
+export default function OnboardingSide() {
   const [open, setOpen] = useState(false);
   const [page, setPage] = useState(0);
 
@@ -45,7 +45,7 @@ export default function OnboardingSquircle() {
     >
       <AlertDialog.Trigger
         render={
-          <Button className="px-3 py-2 bc-silver-2 c-slate-10 bw-1 br-xxl cs-s fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5" />
+          <Button className="px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5" />
         }
       >
         Start your journey
@@ -74,7 +74,7 @@ export default function OnboardingSquircle() {
                     transition={{ duration: 0.2, ease: "easeOut" }}
                   />
                 }
-                className="o-h p-r w-96 bg-white bc-silver-2 c-slate-12 br-3xl cs-s bw-1 bs-o-lg"
+                className="o-h p-r w-112 bg-white bc-silver-2 c-slate-12 br-xxl bw-1 bs-o-lg"
                 style={{ maxWidth: "90vw" }}
               >
                 <div className="d-f ai-c jc-sb px-6 pt-5">
@@ -83,7 +83,7 @@ export default function OnboardingSquircle() {
                     {!isFirst && (
                       <Button
                         onClick={goPrev}
-                        className="d-f ai-c jc-c w-8 h-8 bg-white bc-silver-2 c-slate-10 bw-1 br-xxl cs-s bs-o-xs tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5"
+                        className="d-f ai-c jc-c w-8 h-8 bg-white bc-silver-2 c-slate-10 br-md bw-1 bs-o-xs tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5"
                       >
                         <ArrowLeft className="w-4 h-4" />
                       </Button>
@@ -91,7 +91,7 @@ export default function OnboardingSquircle() {
                     {isLast ? (
                       <AlertDialog.Close
                         render={
-                          <Button className="d-f ai-c jc-c w-8 h-8 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white bw-1 br-xxl cs-s bs-o-xs tp-c tdu-150 ttf-io us-none fv:oo-2 fv:oc-indigo-5" />
+                          <Button className="d-f ai-c jc-c w-8 h-8 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-md bw-1 bs-o-xs tp-c tdu-150 ttf-io us-none fv:oo-2 fv:oc-indigo-5" />
                         }
                       >
                         <Check className="w-4 h-4" />
@@ -99,15 +99,15 @@ export default function OnboardingSquircle() {
                     ) : (
                       <Button
                         onClick={goNext}
-                        className="d-f ai-c jc-c w-8 h-8 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white bw-1 br-xxl cs-s bs-o-xs tp-c tdu-150 ttf-io us-none fv:oo-2 fv:oc-indigo-5"
+                        className="d-f ai-c jc-c w-8 h-8 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-md bw-1 bs-o-xs tp-c tdu-150 ttf-io us-none fv:oo-2 fv:oc-indigo-5"
                       >
                         <ArrowRight className="w-4 h-4" />
                       </Button>
                     )}
                   </div>
                 </div>
-                <div className="px-8 pt-8 pb-10">
-                  <div className="d-f o-h fd-c ai-c jc-c h-48 ta-c">
+                <div className="d-f g-0 px-0 py-4">
+                  <div className="d-f fd-c ai-c jc-c g-3 px-6 f-1 ta-c">
                     <AnimatePresence mode="wait" custom={page}>
                       <motion.div
                         key={page}
@@ -119,15 +119,15 @@ export default function OnboardingSquircle() {
                         transition={{ duration: 0.2, ease: "easeOut" }}
                         className="d-f fd-c ai-c g-3"
                       >
-                        <div className="d-f ai-c jc-c w-12 h-12 bg-indigo-1/50 c-indigo br-9999">
-                          <Icon className="w-6 h-6" />
-                        </div>
                         <span className="c-slate-10 fs-md fw-500">{title}</span>
                         <p className="m-0 c-slate-6 fs-sm lh-4">
                           {description}
                         </p>
                       </motion.div>
                     </AnimatePresence>
+                  </div>
+                  <div className="d-f ai-c jc-c w-40 h-40 bg-gradient-to-br from-indigo-1 to-indigo-3 c-indigo br-lg mr-4">
+                    <Icon className="w-10 h-10" />
                   </div>
                 </div>
               </AlertDialog.Popup>

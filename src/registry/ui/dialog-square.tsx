@@ -43,12 +43,12 @@ export default function DialogSquare() {
                     transition={{ duration: 0.2, ease: "easeOut" }}
                   />
                 }
-                className="o-h p-r w-96 bg-white bc-silver-2 c-slate-12 br-0 bw-1 bs-o-lg"
+                className="o-h p-r w-96 bg-white bc-silver-2 c-slate-12 bw-1 bs-o-lg"
                 style={{ maxWidth: "90vw" }}
               >
                 <Dialog.Close
                   render={
-                    <Button className="d-f p-a r-3 t-3 ai-c jc-c w-7 h-7 p-0 c-slate-6 bw-0 br-0 h:bg-silver-1/50 h:c-slate-7 fv:oo-2 fv:oc-indigo-5" />
+                    <Button className="d-f p-a r-3 t-3 ai-c jc-c w-7 h-7 p-0 c-slate-6 bw-0 h:bg-silver-1/50 h:c-slate-7 fv:oo-2 fv:oc-indigo-5" />
                   }
                 >
                   <Xmark aria-hidden className="w-5 h-5" />

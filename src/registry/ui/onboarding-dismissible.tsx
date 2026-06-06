@@ -2,13 +2,14 @@
 
 import { AlertDialog } from "@base-ui/react/alert-dialog";
 import { Button } from "@base-ui/react/button";
+import { Tabs } from "@base-ui/react/tabs";
 import {
   ArrowLeft,
   ArrowRight,
-  Check,
   Rocket,
   Sparks,
   User,
+  Xmark,
 } from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
@@ -19,21 +20,34 @@ const slideVariants = {
   exit: (d: number) => ({ x: d > 0 ? -40 : 40, opacity: 0 }),
 };
 
-export default function OnboardingSquircle() {
+export default function OnboardingDismissible() {
   const [open, setOpen] = useState(false);
   const [page, setPage] = useState(0);
+  const [direction, setDirection] = useState(0);
+
+  const handleTabChange = (value: string) => {
+    const idx = items.findIndex((p) => p.value === value);
+    setDirection(idx > page ? 1 : -1);
+    setPage(idx);
+  };
+
+  const goNext = () => {
+    if (page < items.length - 1) {
+      setDirection(1);
+      setPage(page + 1);
+    }
+  };
+
+  const goPrev = () => {
+    if (page > 0) {
+      setDirection(-1);
+      setPage(page - 1);
+    }
+  };
 
   const { icon: Icon, title, description } = items[page];
   const isFirst = page === 0;
   const isLast = page === items.length - 1;
-
-  const goNext = () => {
-    if (!isLast) setPage(page + 1);
-  };
-
-  const goPrev = () => {
-    if (!isFirst) setPage(page - 1);
-  };
 
   return (
     <AlertDialog.Root
@@ -45,7 +59,7 @@ export default function OnboardingSquircle() {
     >
       <AlertDialog.Trigger
         render={
-          <Button className="px-3 py-2 bc-silver-2 c-slate-10 bw-1 br-xxl cs-s fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5" />
+          <Button className="px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5" />
         }
       >
         Start your journey
@@ -74,44 +88,25 @@ export default function OnboardingSquircle() {
                     transition={{ duration: 0.2, ease: "easeOut" }}
                   />
                 }
-                className="o-h p-r w-96 bg-white bc-silver-2 c-slate-12 br-3xl cs-s bw-1 bs-o-lg"
+                className="o-h p-r w-96 bg-white bc-silver-2 c-slate-12 br-xxl bw-1 bs-o-lg"
                 style={{ maxWidth: "90vw" }}
               >
-                <div className="d-f ai-c jc-sb px-6 pt-5">
+                <AlertDialog.Close
+                  render={
+                    <Button className="d-f p-a l-3 t-3 ai-c jc-c w-7 h-7 p-0 c-slate-6 bw-0 br-9999 h:bg-silver-1/50 h:c-slate-7 fv:oo-2 fv:oc-indigo-5" />
+                  }
+                >
+                  <Xmark aria-hidden className="w-5 h-5" />
+                </AlertDialog.Close>
+                <div className="d-f ai-c jc-fe px-6 pt-5">
                   <span className="c-slate-5 fs-xs">{page + 1} / {items.length}</span>
-                  <div className="d-f g-2">
-                    {!isFirst && (
-                      <Button
-                        onClick={goPrev}
-                        className="d-f ai-c jc-c w-8 h-8 bg-white bc-silver-2 c-slate-10 bw-1 br-xxl cs-s bs-o-xs tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5"
-                      >
-                        <ArrowLeft className="w-4 h-4" />
-                      </Button>
-                    )}
-                    {isLast ? (
-                      <AlertDialog.Close
-                        render={
-                          <Button className="d-f ai-c jc-c w-8 h-8 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white bw-1 br-xxl cs-s bs-o-xs tp-c tdu-150 ttf-io us-none fv:oo-2 fv:oc-indigo-5" />
-                        }
-                      >
-                        <Check className="w-4 h-4" />
-                      </AlertDialog.Close>
-                    ) : (
-                      <Button
-                        onClick={goNext}
-                        className="d-f ai-c jc-c w-8 h-8 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white bw-1 br-xxl cs-s bs-o-xs tp-c tdu-150 ttf-io us-none fv:oo-2 fv:oc-indigo-5"
-                      >
-                        <ArrowRight className="w-4 h-4" />
-                      </Button>
-                    )}
-                  </div>
                 </div>
-                <div className="px-8 pt-8 pb-10">
+                <div className="px-8 pt-4 pb-6">
                   <div className="d-f o-h fd-c ai-c jc-c h-48 ta-c">
-                    <AnimatePresence mode="wait" custom={page}>
+                    <AnimatePresence mode="wait" custom={direction}>
                       <motion.div
                         key={page}
-                        custom={page}
+                        custom={direction}
                         variants={slideVariants}
                         initial="enter"
                         animate="center"
@@ -129,6 +124,52 @@ export default function OnboardingSquircle() {
                       </motion.div>
                     </AnimatePresence>
                   </div>
+                </div>
+                <div className="d-f ai-c jc-c g-4 pb-8">
+                  <button
+                    type="button"
+                    onClick={goPrev}
+                    disabled={isFirst}
+                    className={`d-f ai-c jc-c w-8 h-8 bw-0 br-md us-none fv:oo--1 fv:oc-indigo-5 ${
+                      isFirst
+                        ? "c-slate-3"
+                        : "c-slate-6 h:bg-silver-1 h:c-slate-10 c-p"
+                    }`}
+                    aria-label="Previous"
+                  >
+                    <ArrowLeft className="w-4 h-4" />
+                  </button>
+                  <Tabs.Root
+                    value={items[page].value}
+                    onValueChange={handleTabChange}
+                  >
+                    <Tabs.List className="d-f g-2 jc-c">
+                      {items.map(({ value }) => (
+                        <Tabs.Tab
+                          key={value}
+                          value={value}
+                          className={(state) =>
+                            `d-f ai-c jc-c w-4 h-4 br-9999 bw-0 us-none c-p fv:oo--1 fv:oc-indigo-5 ${
+                              state.active ? "bg-indigo" : "bg-silver-2"
+                            }`
+                          }
+                        />
+                      ))}
+                    </Tabs.List>
+                  </Tabs.Root>
+                  <button
+                    type="button"
+                    onClick={goNext}
+                    disabled={isLast}
+                    className={`d-f ai-c jc-c w-8 h-8 bw-0 br-md us-none fv:oo--1 fv:oc-indigo-5 ${
+                      isLast
+                        ? "c-slate-3"
+                        : "c-slate-6 h:bg-silver-1 h:c-slate-10 c-p"
+                    }`}
+                    aria-label="Next"
+                  >
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
                 </div>
               </AlertDialog.Popup>
             </div>
@@ -160,12 +201,5 @@ const items = [
     title: "Launch your first project",
     description:
       "Create a board, assign tasks, and set milestones. Everything you need to ship faster.",
-  },
-  {
-    value: "ready",
-    icon: Check,
-    title: "You're ready to go!",
-    description:
-      "Your workspace is all set. Start collaborating with your team and make your ideas real.",
   },
 ];

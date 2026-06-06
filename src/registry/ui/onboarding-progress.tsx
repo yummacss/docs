@@ -19,13 +19,14 @@ const slideVariants = {
   exit: (d: number) => ({ x: d > 0 ? -40 : 40, opacity: 0 }),
 };
 
-export default function OnboardingSquircle() {
+export default function OnboardingProgress() {
   const [open, setOpen] = useState(false);
   const [page, setPage] = useState(0);
 
   const { icon: Icon, title, description } = items[page];
   const isFirst = page === 0;
   const isLast = page === items.length - 1;
+  const progress = ((page + 1) / items.length) * 100;
 
   const goNext = () => {
     if (!isLast) setPage(page + 1);
@@ -45,7 +46,7 @@ export default function OnboardingSquircle() {
     >
       <AlertDialog.Trigger
         render={
-          <Button className="px-3 py-2 bc-silver-2 c-slate-10 bw-1 br-xxl cs-s fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5" />
+          <Button className="px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5" />
         }
       >
         Start your journey
@@ -74,16 +75,24 @@ export default function OnboardingSquircle() {
                     transition={{ duration: 0.2, ease: "easeOut" }}
                   />
                 }
-                className="o-h p-r w-96 bg-white bc-silver-2 c-slate-12 br-3xl cs-s bw-1 bs-o-lg"
+                className="o-h p-r w-96 bg-white bc-silver-2 c-slate-12 br-xxl bw-1 bs-o-lg"
                 style={{ maxWidth: "90vw" }}
               >
-                <div className="d-f ai-c jc-sb px-6 pt-5">
+                <div className="p-r w-100% h-1 bg-silver-2">
+                  <motion.div
+                    className="p-a i-0 t-0 h-100% bg-indigo"
+                    initial={{ width: 0 }}
+                    animate={{ width: `${progress}%` }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                  />
+                </div>
+                <div className="d-f ai-c jc-sb px-6 pt-4">
                   <span className="c-slate-5 fs-xs">{page + 1} / {items.length}</span>
                   <div className="d-f g-2">
                     {!isFirst && (
                       <Button
                         onClick={goPrev}
-                        className="d-f ai-c jc-c w-8 h-8 bg-white bc-silver-2 c-slate-10 bw-1 br-xxl cs-s bs-o-xs tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5"
+                        className="d-f ai-c jc-c w-8 h-8 bg-white bc-silver-2 c-slate-10 br-md bw-1 bs-o-xs tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5"
                       >
                         <ArrowLeft className="w-4 h-4" />
                       </Button>
@@ -91,7 +100,7 @@ export default function OnboardingSquircle() {
                     {isLast ? (
                       <AlertDialog.Close
                         render={
-                          <Button className="d-f ai-c jc-c w-8 h-8 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white bw-1 br-xxl cs-s bs-o-xs tp-c tdu-150 ttf-io us-none fv:oo-2 fv:oc-indigo-5" />
+                          <Button className="d-f ai-c jc-c w-8 h-8 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-md bw-1 bs-o-xs tp-c tdu-150 ttf-io us-none fv:oo-2 fv:oc-indigo-5" />
                         }
                       >
                         <Check className="w-4 h-4" />
@@ -99,14 +108,14 @@ export default function OnboardingSquircle() {
                     ) : (
                       <Button
                         onClick={goNext}
-                        className="d-f ai-c jc-c w-8 h-8 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white bw-1 br-xxl cs-s bs-o-xs tp-c tdu-150 ttf-io us-none fv:oo-2 fv:oc-indigo-5"
+                        className="d-f ai-c jc-c w-8 h-8 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-md bw-1 bs-o-xs tp-c tdu-150 ttf-io us-none fv:oo-2 fv:oc-indigo-5"
                       >
                         <ArrowRight className="w-4 h-4" />
                       </Button>
                     )}
                   </div>
                 </div>
-                <div className="px-8 pt-8 pb-10">
+                <div className="px-8 pt-6 pb-10">
                   <div className="d-f o-h fd-c ai-c jc-c h-48 ta-c">
                     <AnimatePresence mode="wait" custom={page}>
                       <motion.div

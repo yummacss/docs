@@ -19,13 +19,18 @@ const slideVariants = {
   exit: (d: number) => ({ x: d > 0 ? -40 : 40, opacity: 0 }),
 };
 
-export default function OnboardingBase() {
+export default function OnboardingChecklist() {
   const [open, setOpen] = useState(false);
   const [page, setPage] = useState(0);
+  const [checked, setChecked] = useState<Record<string, Set<string>>>({});
 
-  const { icon: Icon, title, description } = items[page];
+  const { icon: Icon, title, description, tasks } = items[page];
   const isFirst = page === 0;
   const isLast = page === items.length - 1;
+
+  const done = checked[items[page].value]?.size ?? 0;
+  const total = tasks?.length ?? 0;
+  const allDone = done >= total;
 
   const goNext = () => {
     if (!isLast) setPage(page + 1);
@@ -35,12 +40,24 @@ export default function OnboardingBase() {
     if (!isFirst) setPage(page - 1);
   };
 
+  const toggleTask = (taskId: string) => {
+    setChecked((prev) => {
+      const next = new Set(prev[items[page].value] ?? []);
+      if (next.has(taskId)) next.delete(taskId);
+      else next.add(taskId);
+      return { ...prev, [items[page].value]: next };
+    });
+  };
+
   return (
     <AlertDialog.Root
       open={open}
       onOpenChange={(v) => {
         setOpen(v);
-        if (!v) setPage(0);
+        if (!v) {
+          setPage(0);
+          setChecked({});
+        }
       }}
     >
       <AlertDialog.Trigger
@@ -99,23 +116,26 @@ export default function OnboardingBase() {
                     ) : (
                       <Button
                         onClick={goNext}
-                        className="d-f ai-c jc-c w-8 h-8 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-md bw-1 bs-o-xs tp-c tdu-150 ttf-io us-none fv:oo-2 fv:oc-indigo-5"
+                        disabled={!allDone}
+                        className={`d-f ai-c jc-c w-8 h-8 br-md bw-1 bs-o-xs tp-c tdu-150 ttf-io us-none fv:oo-2 fv:oc-indigo-5 ${
+                          allDone
+                            ? "bg-indigo h:bg-indigo-8 bc-indigo-7 c-white"
+                            : "bg-silver-1 bc-silver-2 c-slate-4"
+                        }`}
                       >
                         <ArrowRight className="w-4 h-4" />
                       </Button>
                     )}
                   </div>
                 </div>
-                <div className="px-8 pt-8 pb-10">
-                  <div className="d-f o-h fd-c ai-c jc-c h-48 ta-c">
-                    <AnimatePresence mode="wait" custom={page}>
+                <div className="px-8 pt-6 pb-10">
+                  <div className="d-f o-h fd-c ai-c ta-c">
+                    <AnimatePresence mode="wait">
                       <motion.div
                         key={page}
-                        custom={page}
-                        variants={slideVariants}
-                        initial="enter"
-                        animate="center"
-                        exit="exit"
+                        initial={{ opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -8 }}
                         transition={{ duration: 0.2, ease: "easeOut" }}
                         className="d-f fd-c ai-c g-3"
                       >
@@ -126,6 +146,44 @@ export default function OnboardingBase() {
                         <p className="m-0 c-slate-6 fs-sm lh-4">
                           {description}
                         </p>
+                        {tasks && tasks.length > 0 && (
+                          <div className="d-f fd-c g-2 w-100% pt-2 ta-l">
+                            {tasks.map((task) => {
+                              const isChecked = checked[items[page].value]?.has(task.id) ?? false;
+                              return (
+                                <button
+                                  key={task.id}
+                                  type="button"
+                                  onClick={() => toggleTask(task.id)}
+                                  className={`d-f ai-c g-2 px-3 py-2 w-100% br-md bw-0 fs-sm ta-l us-none c-p fv:oo-2 fv:oc-indigo-5 ${
+                                    isChecked
+                                      ? "bg-green-1/30"
+                                      : "bg-silver-1/50"
+                                  }`}
+                                >
+                                  <div
+                                    className={`d-f ai-c jc-c w-4 h-4 br-sm bw-1 flex-shrink-0 ${
+                                      isChecked
+                                        ? "bg-green bc-green-5 c-white bw-0"
+                                        : "bc-silver-3"
+                                    }`}
+                                  >
+                                    {isChecked && <Check className="w-3 h-3" />}
+                                  </div>
+                                  <span
+                                    className={
+                                      isChecked
+                                        ? "c-slate-6 td-l-through"
+                                        : "c-slate-10"
+                                    }
+                                  >
+                                    {task.label}
+                                  </span>
+                                </button>
+                              );
+                            })}
+                          </div>
+                        )}
                       </motion.div>
                     </AnimatePresence>
                   </div>
@@ -139,20 +197,37 @@ export default function OnboardingBase() {
   );
 }
 
-const items = [
+interface OnboardingItem {
+  value: string;
+  icon: React.ComponentType<{ className?: string }>;
+  title: string;
+  description: string;
+  tasks?: { id: string; label: string }[];
+}
+
+const items: OnboardingItem[] = [
   {
     value: "welcome",
     icon: Sparks,
     title: "Welcome to the team",
     description:
-      "Great to have you on board! Have a look at your projects, work with your team and make your ideas real.",
+      "Great to have you on board! Complete a few setup steps to get started.",
+    tasks: [
+      { id: "profile", label: "Set up your profile" },
+      { id: "preferences", label: "Configure workspace preferences" },
+    ],
   },
   {
     value: "team",
     icon: User,
     title: "Connect with your team",
     description:
-      "Browse member directories, join channels, and see what everyone's working on in real time.",
+      "Invite your colleagues and start collaborating right away.",
+    tasks: [
+      { id: "invite", label: "Invite team members" },
+      { id: "channels", label: "Join project channels" },
+      { id: "role", label: "Assign team roles" },
+    ],
   },
   {
     value: "launch",
@@ -160,6 +235,10 @@ const items = [
     title: "Launch your first project",
     description:
       "Create a board, assign tasks, and set milestones. Everything you need to ship faster.",
+    tasks: [
+      { id: "board", label: "Create a project board" },
+      { id: "milestone", label: "Set a milestone" },
+    ],
   },
   {
     value: "ready",
@@ -167,5 +246,6 @@ const items = [
     title: "You're ready to go!",
     description:
       "Your workspace is all set. Start collaborating with your team and make your ideas real.",
+    tasks: [],
   },
 ];
