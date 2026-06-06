@@ -95,7 +95,9 @@ export default function OnboardingChecklist() {
                 style={{ maxWidth: "90vw" }}
               >
                 <div className="d-f ai-c jc-sb px-6 pt-5">
-                  <span className="c-slate-5 fs-xs">{page + 1} / {items.length}</span>
+                  <span className="c-slate-5 fs-xs">
+                    {page + 1} / {items.length}
+                  </span>
                   <div className="d-f g-2">
                     {!isFirst && (
                       <Button
@@ -149,7 +151,9 @@ export default function OnboardingChecklist() {
                         {tasks && tasks.length > 0 && (
                           <div className="d-f fd-c g-2 w-100% pt-2 ta-l">
                             {tasks.map((task) => {
-                              const isChecked = checked[items[page].value]?.has(task.id) ?? false;
+                              const isChecked =
+                                checked[items[page].value]?.has(task.id) ??
+                                false;
                               return (
                                 <button
                                   key={task.id}
@@ -221,8 +225,7 @@ const items: OnboardingItem[] = [
     value: "team",
     icon: User,
     title: "Connect with your team",
-    description:
-      "Invite your colleagues and start collaborating right away.",
+    description: "Invite your colleagues and start collaborating right away.",
     tasks: [
       { id: "invite", label: "Invite team members" },
       { id: "channels", label: "Join project channels" },

@@ -1,7 +1,12 @@
 "use client";
 
 import { Toggle } from "@base-ui/react/toggle";
-import { EmojiQuite, EmojiSad, EmojiSatisfied, EmojiTalkingHappy } from "iconoir-react";
+import {
+  EmojiQuite,
+  EmojiSad,
+  EmojiSatisfied,
+  EmojiTalkingHappy,
+} from "iconoir-react";
 import type { HTMLMotionProps } from "motion/react";
 import { motion } from "motion/react";
 import { useState } from "react";

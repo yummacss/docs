@@ -87,7 +87,9 @@ export default function OnboardingProgress() {
                   />
                 </div>
                 <div className="d-f ai-c jc-sb px-6 pt-4">
-                  <span className="c-slate-5 fs-xs">{page + 1} / {items.length}</span>
+                  <span className="c-slate-5 fs-xs">
+                    {page + 1} / {items.length}
+                  </span>
                   <div className="d-f g-2">
                     {!isFirst && (
                       <Button
