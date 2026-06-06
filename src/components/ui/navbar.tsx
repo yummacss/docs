@@ -3,7 +3,7 @@
 import { Button } from "@base-ui/react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { clsx } from "clsx";
-import { Github, KeyCommand, List, NpmSquare, Xmark } from "iconoir-react";
+import { Github, List, NpmSquare, Search, Xmark } from "iconoir-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { lazy, type ReactNode, Suspense, useEffect, useState } from "react";
@@ -111,7 +111,7 @@ export default function Navbar({
                 onClick={() => setSearchOpen(true)}
                 className="d-f ai-c jc-c g-2 h-8 px-3 bc-border bg-surface a:bg-surface-7 c-white bw-1 fs-sm bf-b-sm @lg:px-4 fv:oc-white fv:ow-2"
               >
-                <KeyCommand className="w-4 h-4" />
+                <Search className="w-4 h-4" />
                 <kbd className="d-none c-white/80 fs-xs us-none @lg:d-b">
                   Ctrl + K
                 </kbd>

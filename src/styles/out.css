@@ -1403,10 +1403,6 @@ summary {
   height: .75rem;
 }
 
-.h-32 {
-  height: 8rem;
-}
-
 .h-4 {
   height: 1rem;
 }
@@ -1886,10 +1882,6 @@ summary {
 
 .mt-16 {
   margin-top: 4rem;
-}
-
-.mt-2 {
-  margin-top: .5rem;
 }
 
 .mt-4 {

@@ -1,8 +1,7 @@
 "use client";
 
 import { Menu } from "@base-ui/react/menu";
-import { NavArrowDown } from "iconoir-react";
-import { Circle } from "iconoir-react";
+import { Circle, NavArrowDown } from "iconoir-react";
 import type { HTMLMotionProps } from "motion/react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";

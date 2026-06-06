@@ -30,5 +30,6 @@ function getNavigation<T extends { _meta: { path: string }; title: string }>(
   };
 }
 
-export const getDocsNavigation = (slug: string) => getNavigation(sortedDocs, slug);
+export const getDocsNavigation = (slug: string) =>
+  getNavigation(sortedDocs, slug);
 export const getUINavigation = (slug: string) => getNavigation(sortedUis, slug);

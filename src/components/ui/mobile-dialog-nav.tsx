@@ -79,7 +79,9 @@ export default function MobileDialogNav({ sections, isOpen, onClose }: Props) {
                 >
                   {sections.map((section) => {
                     const isTopNav = section.title === "__top-nav__";
-                    const displayTitle = isTopNav ? "Navigation" : section.title;
+                    const displayTitle = isTopNav
+                      ? "Navigation"
+                      : section.title;
                     const reactKey = section._key ?? section.title;
 
                     return (
@@ -97,8 +99,14 @@ export default function MobileDialogNav({ sections, isOpen, onClose }: Props) {
                                   render={
                                     <Link
                                       href={item.href}
-                                      target={item.external ? "_blank" : undefined}
-                                      rel={item.external ? "noopener noreferrer" : undefined}
+                                      target={
+                                        item.external ? "_blank" : undefined
+                                      }
+                                      rel={
+                                        item.external
+                                          ? "noopener noreferrer"
+                                          : undefined
+                                      }
                                     />
                                   }
                                   className={[
