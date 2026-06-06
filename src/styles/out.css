@@ -616,6 +616,10 @@ summary {
   background-color: #ffffff1a;
 }
 
+.bg-white\/20 {
+  background-color: #ffffff33;
+}
+
 .bg-yellow {
   background-color: #ffb81c;
 }
@@ -1239,6 +1243,10 @@ summary {
   outline-color: #ffffff;
 }
 
+.fv\:oc-white\/50:focus-visible {
+  outline-color: #ffffff80;
+}
+
 .fv\:oo--1:focus-visible {
   outline-offset: -1px;
 }
@@ -1533,6 +1541,10 @@ summary {
 
 .h\:bg-transparent:hover {
   background-color: transparent;
+}
+
+.h\:bg-white\/10:hover {
+  background-color: #ffffff1a;
 }
 
 .h\:bg-white\/5:hover {
