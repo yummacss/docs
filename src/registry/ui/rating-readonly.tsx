@@ -7,7 +7,7 @@ export default function RatingReadonly() {
     <div className="d-f fd-c ai-c jc-c g-4 p-8 h-56">
       <span className="c-slate-10 fs-sm fw-500">Project rating</span>
       <div className="d-f ai-c g-3">
-        <span className="c-slate-10 fw-500 fs-2xl">4.2</span>
+        <span className="c-slate-10 fw-500 fs-xxl">4.2</span>
         <div className="d-f g-1">
           {[1, 2, 3, 4, 5].map((star) => (
             <Star

@@ -37,7 +37,7 @@ export default function PopoverHover() {
                   TSK-104 - Reporting Dashboard
                 </Popover.Title>
                 <div className="d-f ai-c g-2 my-2">
-                  <span className="d-if ai-c px-2 py-0.5 bg-indigo-1 c-indigo-7 br-9999 fs-xs fw-500">
+                  <span className="d-if ai-c px-2 py-1 bg-indigo-1 c-indigo-7 br-9999 fs-xs fw-500">
                     In Progress
                   </span>
                   <span className="c-slate-6 fs-xs">High</span>
