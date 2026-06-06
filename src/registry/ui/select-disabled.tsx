@@ -1,0 +1,42 @@
+"use client";
+
+import { Field } from "@base-ui/react/field";
+import { Select } from "@base-ui/react/select";
+import { ArrowSeparateVertical } from "iconoir-react";
+
+export default function SelectDisabled() {
+  return (
+    <Field.Root className="d-f fd-c g-2 o-50 c-na">
+      <label
+        htmlFor="select-status-disabled"
+        className="c-slate-10 fs-sm fw-500 us-none"
+      >
+        Task Status
+      </label>
+      <Select.Root defaultValue={"in-progress"} disabled>
+        <Select.Trigger
+          id="select-status-disabled"
+          className="d-f ai-c jc-sb h-10 w-64 bw-1 bc-silver-3 br-md bg-white px-3 c-slate-4 us-none bs-o-xs"
+        >
+          <Select.Value>
+            {(value) =>
+              value
+                ? statuses.find((s) => s.value === value)?.label
+                : "Select status..."
+            }
+          </Select.Value>
+          <Select.Icon className="d-f c-slate-6">
+            <ArrowSeparateVertical className="w-4 h-4" />
+          </Select.Icon>
+        </Select.Trigger>
+      </Select.Root>
+    </Field.Root>
+  );
+}
+
+const statuses = [
+  { label: "To Do", value: "todo" },
+  { label: "In Progress", value: "in-progress" },
+  { label: "Done", value: "done" },
+  { label: "Blocked", value: "blocked" },
+];

@@ -1,11 +1,11 @@
 "use client";
 
 import { Tabs } from "@base-ui/react/tabs";
-import { Bug, Rocket, TaskList } from "iconoir-react";
+import { HalfMoon, Laptop, SunLight } from "iconoir-react";
 import { useState } from "react";
 
 export default function ExampleTabsIconLeading() {
-  const [selected, setSelected] = useState("planning");
+  const [selected, setSelected] = useState("auto");
 
   return (
     <Tabs.Root
@@ -45,7 +45,7 @@ export default function ExampleTabsIconLeading() {
 }
 
 const tabs = [
-  { value: "planning", label: "Planning", icon: TaskList },
-  { value: "testing", label: "Testing", icon: Bug },
-  { value: "live", label: "Live", icon: Rocket },
+  { value: "auto", label: "Auto", icon: Laptop },
+  { value: "light", label: "Light", icon: SunLight },
+  { value: "dark", label: "Dark", icon: HalfMoon },
 ];
