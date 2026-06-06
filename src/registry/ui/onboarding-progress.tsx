@@ -78,14 +78,6 @@ export default function OnboardingProgress() {
                 className="o-h p-r w-96 bg-white bc-silver-2 c-slate-12 br-xxl bw-1 bs-o-lg"
                 style={{ maxWidth: "90vw" }}
               >
-                <div className="p-r w-100% h-1 bg-silver-2">
-                  <motion.div
-                    className="p-a i-0 t-0 h-100% bg-indigo"
-                    initial={{ width: 0 }}
-                    animate={{ width: `${progress}%` }}
-                    transition={{ duration: 0.3, ease: "easeOut" }}
-                  />
-                </div>
                 <div className="d-f ai-c jc-sb px-6 pt-4">
                   <span className="c-slate-5 fs-xs">
                     {page + 1} / {items.length}
@@ -139,6 +131,16 @@ export default function OnboardingProgress() {
                         </p>
                       </motion.div>
                     </AnimatePresence>
+                  </div>
+                </div>
+                <div className="d-f jc-c pb-6">
+                  <div className="p-r o-h w-32 h-1 bg-silver-2 br-9999">
+                    <motion.div
+                      className="p-a l-0 t-0 h-100% bg-indigo br-9999"
+                      initial={{ width: 0 }}
+                      animate={{ width: `${progress}%` }}
+                      transition={{ duration: 0.3, ease: "easeOut" }}
+                    />
                   </div>
                 </div>
               </AlertDialog.Popup>
