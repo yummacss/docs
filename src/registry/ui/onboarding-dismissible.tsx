@@ -99,7 +99,9 @@ export default function OnboardingDismissible() {
                   <Xmark aria-hidden className="w-5 h-5" />
                 </AlertDialog.Close>
                 <div className="d-f ai-c jc-fe px-6 pt-5">
-                  <span className="c-slate-5 fs-xs">{page + 1} / {items.length}</span>
+                  <span className="c-slate-5 fs-xs">
+                    {page + 1} / {items.length}
+                  </span>
                 </div>
                 <div className="px-8 pt-4 pb-6">
                   <div className="d-f o-h fd-c ai-c jc-c h-48 ta-c">
