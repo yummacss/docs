@@ -13,12 +13,6 @@ import {
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
-const slideVariants = {
-  enter: (d: number) => ({ x: d > 0 ? 40 : -40, opacity: 0 }),
-  center: { x: 0, opacity: 1 },
-  exit: (d: number) => ({ x: d > 0 ? -40 : 40, opacity: 0 }),
-};
-
 export default function OnboardingChecklist() {
   const [open, setOpen] = useState(false);
   const [page, setPage] = useState(0);
@@ -176,9 +170,7 @@ export default function OnboardingChecklist() {
                                   </div>
                                   <span
                                     className={
-                                      isChecked
-                                        ? "c-slate-6 td-l-through"
-                                        : "c-slate-10"
+                                      isChecked ? "c-green-7" : "c-slate-10"
                                     }
                                   >
                                     {task.label}

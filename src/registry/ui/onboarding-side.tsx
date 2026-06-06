@@ -74,7 +74,7 @@ export default function OnboardingSide() {
                     transition={{ duration: 0.2, ease: "easeOut" }}
                   />
                 }
-                className="o-h p-r w-112 bg-white bc-silver-2 c-slate-12 br-xxl bw-1 bs-o-lg"
+                className="o-h p-r w-96 bg-white bc-silver-2 c-slate-12 br-xxl bw-1 bs-o-lg"
                 style={{ maxWidth: "90vw" }}
               >
                 <div className="d-f ai-c jc-sb px-6 pt-5">
@@ -128,8 +128,8 @@ export default function OnboardingSide() {
                       </motion.div>
                     </AnimatePresence>
                   </div>
-                  <div className="d-f ai-c jc-c w-40 h-40 bg-gradient-to-br from-indigo-1 to-indigo-3 c-indigo br-lg mr-4">
-                    <Icon className="w-10 h-10" />
+                  <div className="d-f ai-c jc-c w-32 h-32 bg-indigo-2 c-indigo br-lg mr-4">
+                    <Icon className="w-8 h-8" />
                   </div>
                 </div>
               </AlertDialog.Popup>

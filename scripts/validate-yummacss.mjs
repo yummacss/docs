@@ -1,10 +1,16 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import {
+  coreUtils,
+  mediaQueries,
+  opacity,
+  pseudoClasses,
+  pseudoElements,
+} from "@yummacss/core";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.join(__dirname, "..");
-
 const CSS_PATH = path.join(rootDir, "src/styles/out.css");
 const UI_DIR = path.join(rootDir, "src");
 
@@ -12,18 +18,90 @@ console.log("🔍 Validating Yumma CSS classes...\n");
 
 const cssContent = fs.readFileSync(CSS_PATH, "utf-8");
 
-const validClasses = new Set();
+const compiledClasses = new Set();
 
 const classRegex =
-  /\.([a-zA-Z][a-zA-Z0-9:-]*(?:[/\\][a-zA-Z0-9/-]+)?(?:\\:[a-zA-Z0-9-]+(?:[/\\][a-zA-Z0-9/-]+)?)?)/g;
+  /\.((?:\\@|[a-zA-Z@])[a-zA-Z0-9:-]*(?:[/\\][a-zA-Z0-9/%-]+)?(?:\\:[a-zA-Z0-9-]+(?:[/\\][a-zA-Z0-9/%-]+)?)?)/g;
 let match;
 while ((match = classRegex.exec(cssContent)) !== null) {
   const raw = match[1];
   const className = raw.replace(/\\/g, "").replace(/\\:/g, ":");
-  validClasses.add(className);
+  if (className) {
+    compiledClasses.add(className);
+  }
 }
 
-console.log(`📦 Found ${validClasses.size} valid CSS classes in out.css`);
+console.log(`📦 From out.css: ${compiledClasses.size} compiled class names`);
+
+const utils = coreUtils();
+
+const coreClasses = new Set();
+for (const utility of Object.values(utils)) {
+  for (const valueKey of Object.keys(utility.values)) {
+    coreClasses.add(`${utility.prefix}-${valueKey}`);
+  }
+}
+
+console.log(`📦 From @yummacss/core: ${coreClasses.size} core class names`);
+
+const allClasses = new Set();
+for (const cls of coreClasses) allClasses.add(cls);
+for (const cls of compiledClasses) allClasses.add(cls);
+
+console.log(`📦 Merged: ${allClasses.size} total valid classes\n`);
+
+const KNOWN_VALID = new Set(["ff-e"]);
+
+// Custom theme color names from yumma.config.mjs — docs-specific only
+const CUSTOM_THEME_COLORS = [
+  "accent-dim",
+  "diff-add",
+  "diff-remove",
+  "accent",
+  "border",
+  "code",
+  "page",
+  "surface",
+];
+
+const pcPrefixes = new Set(pseudoClasses.map((pc) => pc.prefix));
+const pePrefixes = new Set(pseudoElements.map((pe) => pe.prefix));
+const mqPrefixes = new Set(mediaQueries.map((mq) => mq.prefix));
+const opPrefixes = new Set(opacity.map((op) => op.prefix));
+
+function usesCustomThemeColor(cls) {
+  const stripped = cls
+    .replace(/^@[a-z]+:/, "")
+    .replace(/^[a-z]+::/, "")
+    .replace(/^[a-z]+:/, "")
+    .replace(/\/\d+$/, "")
+    .replace(/:\d+$/, "");
+  return CUSTOM_THEME_COLORS.some(
+    (color) =>
+      stripped === color ||
+      stripped.endsWith(`-${color}`) ||
+      stripped.includes(`-${color}/`),
+  );
+}
+
+function isValidClass(cls) {
+  if (allClasses.has(cls)) return true;
+  if (KNOWN_VALID.has(cls)) return true;
+
+  const pcMatch = cls.match(/^([a-z]+):([a-z].+)$/);
+  if (pcMatch && pcPrefixes.has(pcMatch[1])) return allClasses.has(pcMatch[2]);
+
+  const peMatch = cls.match(/^([a-z]+)::(.+)$/);
+  if (peMatch && pePrefixes.has(peMatch[1])) return allClasses.has(peMatch[2]);
+
+  const mqMatch = cls.match(/^@([a-z]+):(.+)$/);
+  if (mqMatch && mqPrefixes.has(mqMatch[1])) return allClasses.has(mqMatch[2]);
+
+  const opMatch = cls.match(/^(.+):(\d+)$/);
+  if (opMatch && opPrefixes.has(opMatch[2])) return allClasses.has(opMatch[1]);
+
+  return false;
+}
 
 function getAllTsxFiles(dir, baseDir) {
   let files = [];
@@ -43,14 +121,6 @@ function getAllTsxFiles(dir, baseDir) {
 const files = getAllTsxFiles(UI_DIR, UI_DIR).filter(
   (f) => !f.includes("node_modules") && !f.includes(".next"),
 );
-
-const KNOWN_VALID = new Set([
-  "ff-e",
-  "p::c-slate-6",
-  "s::bg-indigo-5",
-  "s::bg-indigo-4",
-  "s::c-white",
-]);
 
 const allClassesFound = new Map();
 const invalidClasses = [];
@@ -99,24 +169,14 @@ console.log(
 );
 
 for (const [file, classes] of allClassesFound) {
+  const inRegistry = file.startsWith("registry");
   for (const cls of classes) {
     const clsClean = cls.replace(/\\:/g, ":").replace(/\\/g, "");
 
-    if (!validClasses.has(clsClean) && !KNOWN_VALID.has(clsClean)) {
-      const variantMatch = clsClean.match(/^([a-zA-Z]+):(.+)$/);
-      if (variantMatch) {
-        const _baseVariant = variantMatch[1];
-        const baseClass = variantMatch[2];
-
-        if (!validClasses.has(baseClass) && !KNOWN_VALID.has(baseClass)) {
-          invalidClasses.push({ file, class: cls, clean: clsClean });
-        }
-      } else {
-        const shortClass = clsClean.replace(/:.+$/, "");
-        if (!validClasses.has(shortClass) && !KNOWN_VALID.has(shortClass)) {
-          invalidClasses.push({ file, class: cls, clean: clsClean });
-        }
-      }
+    if (!isValidClass(clsClean)) {
+      invalidClasses.push({ file, class: cls, clean: clsClean });
+    } else if (inRegistry && usesCustomThemeColor(clsClean)) {
+      invalidClasses.push({ file, class: cls, clean: clsClean });
     }
   }
 }
@@ -125,25 +185,53 @@ if (invalidClasses.length === 0) {
   console.log("✅ All classes are valid!");
   process.exit(0);
 } else {
-  console.log(`❌ Found ${invalidClasses.length} invalid classes:\n`);
-
-  const grouped = {};
-  for (const item of invalidClasses) {
-    if (!grouped[item.clean]) {
-      grouped[item.clean] = [];
-    }
-    grouped[item.clean].push(item.file);
-  }
-
-  for (const [cls, fileList] of Object.entries(grouped)) {
-    console.log(`  "${cls}" found in:`);
-    for (const file of fileList) {
-      console.log(`    - ${file}`);
-    }
-  }
-
-  console.log(
-    "\n⚠️  These classes are not in Yumma CSS. Fix or replace with valid classes.",
+  const registryIssues = invalidClasses.filter((i) =>
+    i.file.startsWith("registry"),
   );
+  const docsIssues = invalidClasses.filter(
+    (i) => !i.file.startsWith("registry"),
+  );
+
+  if (registryIssues.length > 0) {
+    console.log(
+      `❌ Found ${registryIssues.length} registry files using docs-specific theme tokens:\n`,
+    );
+    const grouped = {};
+    for (const item of registryIssues) {
+      if (!grouped[item.clean]) {
+        grouped[item.clean] = [];
+      }
+      grouped[item.clean].push(item.file);
+    }
+    for (const [cls, fileList] of Object.entries(grouped)) {
+      console.log(`  "${cls}" found in:`);
+      for (const file of fileList) {
+        console.log(`    - ${file}`);
+      }
+    }
+    console.log(
+      "\n⚠️  Registry components must only use built-in Yumma CSS colors, not docs-specific theme tokens.",
+    );
+  }
+
+  if (docsIssues.length > 0) {
+    console.log(
+      `\n❌ Found ${docsIssues.length} invalid classes in docs files:\n`,
+    );
+    const grouped = {};
+    for (const item of docsIssues) {
+      if (!grouped[item.clean]) {
+        grouped[item.clean] = [];
+      }
+      grouped[item.clean].push(item.file);
+    }
+    for (const [cls, fileList] of Object.entries(grouped)) {
+      console.log(`  "${cls}" found in:`);
+      for (const file of fileList) {
+        console.log(`    - ${file}`);
+      }
+    }
+  }
+
   process.exit(1);
 }

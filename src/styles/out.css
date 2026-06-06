@@ -308,6 +308,10 @@ summary {
   border-color: #bbc2cc;
 }
 
+.bc-slate-4 {
+  border-color: #a5aebc;
+}
+
 .bc-transparent {
   border-color: transparent;
 }
@@ -590,6 +594,10 @@ summary {
 
 .bg-slate-1 {
   background-color: #e6e9ec;
+}
+
+.bg-slate-12 {
+  background-color: #101316;
 }
 
 .bg-slate-4 {
@@ -1407,12 +1415,12 @@ summary {
   height: .75rem;
 }
 
-.h-4 {
-  height: 1rem;
+.h-32 {
+  height: 8rem;
 }
 
-.h-40 {
-  height: 10rem;
+.h-4 {
+  height: 1rem;
 }
 
 .h-48 {
