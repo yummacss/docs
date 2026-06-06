@@ -8,9 +8,12 @@ export default function AutocompleteLoading() {
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [hasResults, setHasResults] = useState(true);
+  const [query, setQuery] = useState("");
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    if (e.target.value.length > 0) {
+    const value = e.target.value;
+    setQuery(value);
+    if (value.length > 0) {
       setLoading(true);
       setHasResults(true);
       setOpen(true);
@@ -24,11 +27,14 @@ export default function AutocompleteLoading() {
     if (loading) {
       const timeout = setTimeout(() => {
         setLoading(false);
-        setHasResults(projects.length > 0);
+        const filtered = projects.filter((p) =>
+          p.name.toLowerCase().includes(query.toLowerCase()),
+        );
+        setHasResults(filtered.length > 0);
       }, 500);
       return () => clearTimeout(timeout);
     }
-  }, [loading]);
+  }, [loading, query]);
 
   return (
     <Autocomplete.Root items={projects} open={open} onOpenChange={setOpen}>
@@ -110,7 +116,7 @@ export default function AutocompleteLoading() {
                     </Autocomplete.List>
                   ) : !loading && !hasResults ? (
                     <Autocomplete.Empty className="c-slate-6 fs-sm">
-                      <div className="pt-2 pb-3 px-4 us-none">
+                      <div className="pt-2 pb-3 px-4 us-none ai-c">
                         No results found.
                       </div>
                     </Autocomplete.Empty>
