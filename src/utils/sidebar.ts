@@ -1,5 +1,5 @@
-import { sidebarConfig, uiPrimitives } from "@/config/sidebar";
 import { allDocs, allUis } from "content-collections";
+import { sidebarConfig, uiPrimitives } from "@/config/sidebar";
 
 function getDocTitle(slug: string): string {
   return allDocs.find((d) => d._meta.path === slug)?.title ?? slug;

@@ -1,5 +1,5 @@
-import { statSync } from "fs";
 import { allBlogs, allDocs, allUis } from "content-collections";
+import { statSync } from "fs";
 import type { MetadataRoute } from "next";
 
 function getFileDate(slug: string, collection: string): Date {

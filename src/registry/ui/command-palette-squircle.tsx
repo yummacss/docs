@@ -6,11 +6,11 @@ import { Dialog } from "@base-ui/react/dialog";
 import {
   Activity,
   Folder,
+  KeyCommand,
   OpenBook,
   Page,
   PagePlus,
   PageSearch,
-  KeyCommand,
   StatUp,
   User,
   Wrench,
