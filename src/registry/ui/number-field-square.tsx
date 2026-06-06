@@ -15,11 +15,11 @@ export default function NumberFieldSquare() {
       </NumberField.ScrubArea>
 
       <NumberField.Group className="d-f fw:oo--1 fw:oc-indigo-5">
-        <NumberField.Decrement className="d-f ai-c jc-c w-10 h-10 bg-white bc-silver-3 c-slate-10 br-0 byw-1 blw-1 us-none c-p h:bg-silver-1/50 a:bg-silver-2">
+        <NumberField.Decrement className="d-f ai-c jc-c w-10 h-10 bg-white bc-silver-3 c-slate-10 byw-1 blw-1 us-none c-p h:bg-silver-1/50 a:bg-silver-2">
           <Minus className="w-3 h-3" />
         </NumberField.Decrement>
         <NumberField.Input className="h-10 w-32 bg-white bc-silver-3 c-slate-10 byw-1 ta-c fs-md" />
-        <NumberField.Increment className="d-f ai-c jc-c w-10 h-10 bg-white bc-silver-3 c-slate-10 br-0 byw-1 brw-1 us-none c-p h:bg-silver-1/50 a:bg-silver-2">
+        <NumberField.Increment className="d-f ai-c jc-c w-10 h-10 bg-white bc-silver-3 c-slate-10 byw-1 brw-1 us-none c-p h:bg-silver-1/50 a:bg-silver-2">
           <Plus className="w-3 h-3" />
         </NumberField.Increment>
       </NumberField.Group>

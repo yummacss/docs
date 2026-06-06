@@ -1,15 +1,14 @@
 "use client";
 
+import { AlertDialog } from "@base-ui/react/alert-dialog";
 import { Button } from "@base-ui/react/button";
-import { Dialog } from "@base-ui/react/dialog";
-import { Tabs } from "@base-ui/react/tabs";
 import {
   ArrowLeft,
   ArrowRight,
+  Check,
   Rocket,
   Sparks,
   User,
-  Xmark,
 } from "iconoir-react";
 import { useState } from "react";
 
@@ -17,49 +16,71 @@ export default function OnboardingStatic() {
   const [open, setOpen] = useState(false);
   const [page, setPage] = useState(0);
 
-  const goNext = () => {
-    if (page < items.length - 1) setPage(page + 1);
-  };
-
-  const goPrev = () => {
-    if (page > 0) setPage(page - 1);
-  };
-
   const { icon: Icon, title, description } = items[page];
   const isFirst = page === 0;
   const isLast = page === items.length - 1;
 
+  const goNext = () => {
+    if (!isLast) setPage(page + 1);
+  };
+
+  const goPrev = () => {
+    if (!isFirst) setPage(page - 1);
+  };
+
   return (
-    <Dialog.Root
+    <AlertDialog.Root
       open={open}
       onOpenChange={(v) => {
         setOpen(v);
         if (!v) setPage(0);
       }}
     >
-      <Dialog.Trigger
+      <AlertDialog.Trigger
         render={
           <Button className="px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5" />
         }
       >
         Start your journey
-      </Dialog.Trigger>
+      </AlertDialog.Trigger>
       {open && (
-        <Dialog.Portal keepMounted>
-          <Dialog.Backdrop className="p-f i-0 min-h-dvh bg-black/20 bf-b-xs" />
+        <AlertDialog.Portal keepMounted>
+          <AlertDialog.Backdrop className="p-f i-0 min-h-dvh bg-black/20 bf-b-xs" />
           <div className="d-f p-f i-0 ai-c jc-c">
-            <Dialog.Popup
+            <AlertDialog.Popup
               className="o-h p-r w-96 bg-white bc-silver-2 c-slate-12 br-xxl bw-1 bs-o-lg"
               style={{ maxWidth: "90vw" }}
             >
-              <Dialog.Close
-                render={
-                  <Button className="d-f p-a r-3 t-3 ai-c jc-c w-7 h-7 p-0 c-slate-6 bw-0 br-9999 h:bg-silver-1/50 h:c-slate-7 fv:oo-2 fv:oc-indigo-5" />
-                }
-              >
-                <Xmark aria-hidden className="w-5 h-5" />
-              </Dialog.Close>
-              <div className="px-8 pt-10 pb-6">
+              <div className="d-f ai-c jc-sb px-6 pt-5">
+                <span className="c-slate-5 fs-xs">{page + 1} / {items.length}</span>
+                <div className="d-f g-2">
+                  {!isFirst && (
+                    <Button
+                      onClick={goPrev}
+                      className="d-f ai-c jc-c w-8 h-8 bg-white bc-silver-2 c-slate-10 br-md bw-1 bs-o-xs tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5"
+                    >
+                      <ArrowLeft className="w-4 h-4" />
+                    </Button>
+                  )}
+                  {isLast ? (
+                    <AlertDialog.Close
+                      render={
+                        <Button className="d-f ai-c jc-c w-8 h-8 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-md bw-1 bs-o-xs tp-c tdu-150 ttf-io us-none fv:oo-2 fv:oc-indigo-5" />
+                      }
+                    >
+                      <Check className="w-4 h-4" />
+                    </AlertDialog.Close>
+                  ) : (
+                    <Button
+                      onClick={goNext}
+                      className="d-f ai-c jc-c w-8 h-8 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-md bw-1 bs-o-xs tp-c tdu-150 ttf-io us-none fv:oo-2 fv:oc-indigo-5"
+                    >
+                      <ArrowRight className="w-4 h-4" />
+                    </Button>
+                  )}
+                </div>
+              </div>
+              <div className="px-8 pt-8 pb-10">
                 <div className="d-f fd-c ai-c g-3 h-48 jc-c ta-c">
                   <div className="d-f ai-c jc-c w-12 h-12 bg-indigo-1/50 c-indigo br-9999">
                     <Icon className="w-6 h-6" />
@@ -68,60 +89,11 @@ export default function OnboardingStatic() {
                   <p className="m-0 c-slate-6 fs-sm lh-4">{description}</p>
                 </div>
               </div>
-              <div className="d-f ai-c jc-c g-4 pb-8">
-                <button
-                  type="button"
-                  onClick={goPrev}
-                  disabled={isFirst}
-                  className={`d-f ai-c jc-c w-8 h-8 bw-0 br-md us-none fv:oo--1 fv:oc-indigo-5 ${
-                    isFirst
-                      ? "c-slate-3"
-                      : "c-slate-6 h:bg-silver-1 h:c-slate-10 c-p"
-                  }`}
-                  aria-label="Previous"
-                >
-                  <ArrowLeft className="w-4 h-4" />
-                </button>
-                <Tabs.Root
-                  value={items[page].value}
-                  onValueChange={(v) => {
-                    const idx = items.findIndex((p) => p.value === v);
-                    setPage(idx);
-                  }}
-                >
-                  <Tabs.List className="d-f g-2 jc-c">
-                    {items.map(({ value }) => (
-                      <Tabs.Tab
-                        key={value}
-                        value={value}
-                        className={(state) =>
-                          `d-f ai-c jc-c w-4 h-4 br-9999 bw-0 us-none c-p fv:oo--1 fv:oc-indigo-5 ${
-                            state.active ? "bg-indigo" : "bg-silver-2"
-                          }`
-                        }
-                      />
-                    ))}
-                  </Tabs.List>
-                </Tabs.Root>
-                <button
-                  type="button"
-                  onClick={goNext}
-                  disabled={isLast}
-                  className={`d-f ai-c jc-c w-8 h-8 bw-0 br-md us-none fv:oo--1 fv:oc-indigo-5 ${
-                    isLast
-                      ? "c-slate-3"
-                      : "c-slate-6 h:bg-silver-1 h:c-slate-10 c-p"
-                  }`}
-                  aria-label="Next"
-                >
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-              </div>
-            </Dialog.Popup>
+            </AlertDialog.Popup>
           </div>
-        </Dialog.Portal>
+        </AlertDialog.Portal>
       )}
-    </Dialog.Root>
+    </AlertDialog.Root>
   );
 }
 
@@ -146,5 +118,12 @@ const items = [
     title: "Launch your first project",
     description:
       "Create a board, assign tasks, and set milestones. Everything you need to ship faster.",
+  },
+  {
+    value: "ready",
+    icon: Check,
+    title: "You're ready to go!",
+    description:
+      "Your workspace is all set. Start collaborating with your team and make your ideas real.",
   },
 ];

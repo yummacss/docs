@@ -226,6 +226,7 @@ export const registry = {
   "number-field-square": dynamic(() => import("./ui/number-field-square"), { ssr: true }),
   "number-field-squircle": dynamic(() => import("./ui/number-field-squircle"), { ssr: true }),
   "onboarding-base": dynamic(() => import("./ui/onboarding-base"), { ssr: true }),
+  "onboarding-pagination": dynamic(() => import("./ui/onboarding-pagination"), { ssr: true }),
   "onboarding-square": dynamic(() => import("./ui/onboarding-square"), { ssr: true }),
   "onboarding-squircle": dynamic(() => import("./ui/onboarding-squircle"), { ssr: true }),
   "onboarding-static": dynamic(() => import("./ui/onboarding-static"), { ssr: true }),
