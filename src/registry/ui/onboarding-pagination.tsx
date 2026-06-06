@@ -6,6 +6,7 @@ import { Tabs } from "@base-ui/react/tabs";
 import {
   ArrowLeft,
   ArrowRight,
+  Check,
   Rocket,
   Sparks,
   User,
@@ -146,19 +147,29 @@ export default function OnboardingPagination() {
                       ))}
                     </Tabs.List>
                   </Tabs.Root>
-                  <button
-                    type="button"
-                    onClick={goNext}
-                    disabled={isLast}
-                    className={`d-f ai-c jc-c w-8 h-8 bw-0 br-md us-none fv:oo--1 fv:oc-indigo-5 ${
-                      isLast
-                        ? "c-slate-3"
-                        : "c-slate-6 h:bg-silver-1 h:c-slate-10 c-p"
-                    }`}
-                    aria-label="Next"
-                  >
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
+                  {isLast ? (
+                    <AlertDialog.Close
+                      render={
+                        <Button className="d-f ai-c jc-c w-8 h-8 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-md bw-1 bs-o-xs tp-c tdu-150 ttf-io us-none fv:oo-2 fv:oc-indigo-5" />
+                      }
+                    >
+                      <Check className="w-4 h-4" />
+                    </AlertDialog.Close>
+                  ) : (
+                    <button
+                      type="button"
+                      onClick={goNext}
+                      disabled={isLast}
+                      className={`d-f ai-c jc-c w-8 h-8 bw-0 br-md us-none fv:oo--1 fv:oc-indigo-5 ${
+                        isLast
+                          ? "c-slate-3"
+                          : "c-slate-6 h:bg-silver-1 h:c-slate-10 c-p"
+                      }`}
+                      aria-label="Next"
+                    >
+                      <ArrowRight className="w-4 h-4" />
+                    </button>
+                  )}
                 </div>
               </AlertDialog.Popup>
             </div>
@@ -190,5 +201,12 @@ const items = [
     title: "Launch your first project",
     description:
       "Create a board, assign tasks, and set milestones. Everything you need to ship faster.",
+  },
+  {
+    value: "ready",
+    icon: Check,
+    title: "You're ready to go!",
+    description:
+      "Your workspace is all set. Start collaborating with your team and make your ideas real.",
   },
 ];
