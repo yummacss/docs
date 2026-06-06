@@ -15,7 +15,7 @@ export default function SwitchSquare() {
         checked={checked}
         onCheckedChange={setChecked}
         className={`p-r d-f ai-c h-5 w-9 m-0 px-1 c-p tp-c tdu-150 ttf-io fv:oo-2 fv:oc-indigo-3 ${
-          checked ? "bg-indigo-5" : "bg-silver-1"
+          checked ? "bg-indigo" : "bg-silver-1"
         }`}
       >
         <Switch.Thumb
