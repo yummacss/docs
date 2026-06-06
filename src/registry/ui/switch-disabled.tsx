@@ -16,7 +16,7 @@ export default function SwitchDisabled() {
         checked={checked}
         onCheckedChange={setChecked}
         className={`p-r d-f ai-c h-5 w-9 br-9999 c-na m-0 px-1 c-na tp-c tdu-150 ttf-io fv:oo-2 fv:oc-indigo-3 ${
-          checked ? "bg-indigo-5" : "bg-red-1"
+          checked ? "bg-indigo" : "bg-red-1"
         }`}
       >
         <Switch.Thumb
