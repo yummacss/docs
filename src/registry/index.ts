@@ -234,7 +234,6 @@ export const registry = {
   "onboarding-dismissible": dynamic(() => import("./ui/onboarding-dismissible"), { ssr: true }),
   "onboarding-pagination": dynamic(() => import("./ui/onboarding-pagination"), { ssr: true }),
   "onboarding-progress": dynamic(() => import("./ui/onboarding-progress"), { ssr: true }),
-  "onboarding-side": dynamic(() => import("./ui/onboarding-side"), { ssr: true }),
   "onboarding-square": dynamic(() => import("./ui/onboarding-square"), { ssr: true }),
   "onboarding-squircle": dynamic(() => import("./ui/onboarding-squircle"), { ssr: true }),
   "onboarding-static": dynamic(() => import("./ui/onboarding-static"), { ssr: true }),

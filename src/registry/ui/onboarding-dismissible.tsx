@@ -89,7 +89,7 @@ export default function OnboardingDismissible() {
                 >
                   <Xmark aria-hidden className="w-5 h-5" />
                 </AlertDialog.Close>
-                <div className="d-f ai-c jc-fe px-6 pt-5">
+                <div className="d-f ai-c jc-fe px-8 pt-5">
                   <div className="d-f g-2">
                     {!isFirst && (
                       <Button
