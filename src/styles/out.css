@@ -208,14 +208,6 @@ summary {
   position: absolute;
 }
 
-.bblr-md {
-  border-bottom-left-radius: 0.375rem;
-}
-
-.bbrr-md {
-  border-bottom-right-radius: 0.375rem;
-}
-
 .bbw-1 {
   border-bottom-width: 1px;
 }
@@ -738,16 +730,8 @@ summary {
   border-spacing: 1px;
 }
 
-.btlr-md {
-  border-top-left-radius: 0.375rem;
-}
-
 .btr-md {
   border-top-left-radius: 0.375rem;
-  border-top-right-radius: 0.375rem;
-}
-
-.btrr-md {
   border-top-right-radius: 0.375rem;
 }
 
@@ -765,10 +749,6 @@ summary {
 
 .bw-2 {
   border-width: 2px;
-}
-
-.bxw-0 {
-  border-inline-width: 0;
 }
 
 .bxw-1 {
