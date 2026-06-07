@@ -2,15 +2,7 @@
 
 import { AlertDialog } from "@base-ui/react/alert-dialog";
 import { Button } from "@base-ui/react/button";
-import {
-  ArrowLeft,
-  ArrowRight,
-  Check,
-  Rocket,
-  Sparks,
-  User,
-  Xmark,
-} from "iconoir-react";
+import { ArrowLeft, ArrowRight, BoxIso, Check, Community, PeaceHand, Xmark } from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -117,7 +109,7 @@ export default function OnboardingDismissible() {
                     )}
                   </div>
                 </div>
-                <div className="px-8 pt-8 pb-10">
+                <div className="px-8 pt-4 pb-10">
                   <div className="d-f o-h fd-c ai-c jc-c h-48 ta-c">
                     <AnimatePresence mode="wait" custom={page}>
                       <motion.div
@@ -130,8 +122,12 @@ export default function OnboardingDismissible() {
                         transition={{ duration: 0.2, ease: "easeOut" }}
                         className="d-f fd-c ai-c g-3"
                       >
-                        <div className="d-f ai-c jc-c w-12 h-12 bg-indigo-1/50 c-indigo br-9999">
-                          <Icon className="w-6 h-6" />
+                        <div className="d-ib p-r">
+                          <div className="p-a l--3 h-12 w-12 bg-white/70 bc-silver-2 bw-1 br-xl ro--3 tty-1" />
+                          <div className="p-a r--3 h-12 w-12 bg-white/70 bc-silver-2 bw-1 br-xl ro-3 tty-1" />
+                          <div className="d-f p-r ai-c jc-c h-14 w-14 bg-white bc-silver-2 bw-1 br-xl">
+                            <Icon className="w-6 h-6 c-black" />
+                          </div>
                         </div>
                         <span className="c-slate-10 fs-md fw-500">{title}</span>
                         <p className="m-0 c-slate-6 fs-sm lh-4">
@@ -153,21 +149,21 @@ export default function OnboardingDismissible() {
 const items = [
   {
     value: "welcome",
-    icon: Sparks,
+    icon: PeaceHand,
     title: "Welcome to the team",
     description:
       "Great to have you on board! Have a look at your projects, work with your team and make your ideas real.",
   },
   {
     value: "team",
-    icon: User,
+    icon: Community,
     title: "Connect with your team",
     description:
       "Browse member directories, join channels, and see what everyone's working on in real time.",
   },
   {
     value: "launch",
-    icon: Rocket,
+    icon: BoxIso,
     title: "Launch your first project",
     description:
       "Create a board, assign tasks, and set milestones. Everything you need to ship faster.",

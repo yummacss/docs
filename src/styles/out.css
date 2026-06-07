@@ -292,6 +292,10 @@ summary {
   border-color: #9ca3af;
 }
 
+.bc-silver-1 {
+  border-color: #eff0f2;
+}
+
 .bc-silver-2 {
   border-color: #e1e3e7;
 }
@@ -438,10 +442,6 @@ summary {
 
 .bg-indigo-1 {
   background-color: #e6e7fd;
-}
-
-.bg-indigo-1\/50 {
-  background-color: #e6e7fd80;
 }
 
 .bg-indigo-2 {
@@ -632,6 +632,10 @@ summary {
   background-color: #ffffff33;
 }
 
+.bg-white\/70 {
+  background-color: #ffffffb3;
+}
+
 .bg-yellow {
   background-color: #ffb81c;
 }
@@ -701,6 +705,10 @@ summary {
 
 .br-sm {
   border-radius: 0.25rem;
+}
+
+.br-xl {
+  border-radius: 0.75rem;
 }
 
 .br-xs {
@@ -1101,6 +1109,10 @@ summary {
 
 .d-g {
   display: grid;
+}
+
+.d-ib {
+  display: inline-block;
 }
 
 .d-if {
@@ -2300,6 +2312,10 @@ summary {
   padding-block: 2rem;
 }
 
+.r--3 {
+  right: -.75rem;
+}
+
 .r-0 {
   right: 0;
 }
@@ -2332,8 +2348,16 @@ summary {
   row-gap: 2rem;
 }
 
+.ro--3 {
+  rotate: -15deg;
+}
+
 .ro-0 {
   rotate: 0;
+}
+
+.ro-3 {
+  rotate: 15deg;
 }
 
 .ro-45 {
@@ -2514,6 +2538,10 @@ summary {
 
 .ttf-io {
   transition-timing-function: ease-in-out;
+}
+
+.tty-1 {
+  transform: translateY(.25rem);
 }
 
 .tuo-2 {
