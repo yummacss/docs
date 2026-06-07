@@ -240,10 +240,6 @@ summary {
   border-color: #4ce1bb;
 }
 
-.bc-indigo {
-  border-color: #6366f1;
-}
-
 .bc-indigo-2 {
   border-color: #d0d1fb;
 }
@@ -290,10 +286,6 @@ summary {
 
 .bc-silver {
   border-color: #9ca3af;
-}
-
-.bc-silver-1 {
-  border-color: #eff0f2;
 }
 
 .bc-silver-2 {
@@ -376,20 +368,12 @@ summary {
   background-color: #232741;
 }
 
-.bg-coral {
-  background-color: #ff6f91;
-}
-
 .bg-coral-4 {
   background-color: #ffabbf;
 }
 
 .bg-coral-5 {
   background-color: #ff97b0;
-}
-
-.bg-cyan {
-  background-color: #06b6d4;
 }
 
 .bg-cyan-2 {
@@ -1495,10 +1479,6 @@ summary {
   background-color: #6366f1;
 }
 
-.h\:bg-indigo-1:hover {
-  background-color: #e6e7fd;
-}
-
 .h\:bg-indigo-1\/50:hover {
   background-color: #e6e7fd80;
 }
@@ -2096,10 +2076,6 @@ summary {
   font-style: italic;
 }
 
-.pb-0 {
-  padding-bottom: 0;
-}
-
 .pb-1 {
   padding-bottom: .25rem;
 }
@@ -2242,10 +2218,6 @@ summary {
 
 .pt-5 {
   padding-top: 1.25rem;
-}
-
-.pt-6 {
-  padding-top: 1.5rem;
 }
 
 .pt-8 {
