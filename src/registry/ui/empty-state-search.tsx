@@ -29,7 +29,9 @@ export default function EmptyStateSearch() {
       </div>
       <div className="d-f fd-c ai-c g-1 ta-c">
         <span className="c-slate-10 fs-md fw-500">
-          No results for {"\u201C"}{query}{"\u201D"}
+          No results for {"\u201C"}
+          {query}
+          {"\u201D"}
         </span>
         <span className="c-slate-6 fs-sm">
           Try different keywords or check your spelling.

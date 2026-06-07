@@ -2,7 +2,15 @@
 
 import { AlertDialog } from "@base-ui/react/alert-dialog";
 import { Button } from "@base-ui/react/button";
-import { ArrowLeft, ArrowRight, BoxIso, Check, Community, PeaceHand, SparksSolid } from "iconoir-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  BoxIso,
+  Check,
+  Community,
+  PeaceHand,
+  SparksSolid,
+} from "iconoir-react";
 import { useState } from "react";
 
 export default function OnboardingStatic() {

@@ -3,7 +3,15 @@
 import { AlertDialog } from "@base-ui/react/alert-dialog";
 import { Button } from "@base-ui/react/button";
 import { Tabs } from "@base-ui/react/tabs";
-import { ArrowLeft, ArrowRight, BoxIso, Check, Community, PeaceHand, SparksSolid } from "iconoir-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  BoxIso,
+  Check,
+  Community,
+  PeaceHand,
+  SparksSolid,
+} from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 

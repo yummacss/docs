@@ -360,7 +360,7 @@ export const sidebarConfig = {
     { title: "Navigation", items: ["tabs", "toolbar"] },
     {
       title: "Overlays",
-      items: ["command-palette", "dialog", "drawer", "popover", "tooltip"],
+      items: ["command-palette", "dialog", "popover", "tooltip"],
     },
     {
       title: "Application UI",

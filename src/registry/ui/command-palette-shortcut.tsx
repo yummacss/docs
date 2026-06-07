@@ -12,6 +12,7 @@ import {
   PagePlus,
   PageSearch,
   Search,
+  Slash,
   StatUp,
   User,
   Wrench,
@@ -38,14 +39,14 @@ export default function CommandPaletteBase() {
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger
         render={
-          <Button className="d-f ai-c g-2 px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5" />
+          <Button className="d-f ai-c g-2 px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:oo-2 fv:oc-indigo-5" />
         }
       >
         <Search className="w-4 h-4" />
         <span>Commands</span>
         <kbd className="d-f ai-c g-1 px-1 py-1 ml-3 bg-silver-1/50 c-slate-5 br-md fs-xs us-none">
           <KeyCommand className="w-3 h-3" />
-          <span>/</span>
+          <Slash className="w-3 h-3" />
         </kbd>
       </Dialog.Trigger>
       <AnimatePresence>
