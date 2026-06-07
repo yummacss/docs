@@ -76,7 +76,11 @@ export default function OnboardingChecklist() {
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.95 }}
-                    transition={{ duration: 0.2, ease: "easeOut" }}
+                    transition={{
+                      duration: 0.2,
+                      ease: "easeOut",
+                      layout: { duration: 0.25, ease: "easeOut" },
+                    }}
                   />
                 }
                 className="o-h p-r w-96 bg-white bc-silver-2 c-slate-12 br-xxl bw-1 bs-o-lg"
@@ -120,9 +124,10 @@ export default function OnboardingChecklist() {
                 </div>
                 <div className="px-8 pt-4 pb-10">
                   <div className="d-f o-h fd-c ai-c ta-c">
-                    <AnimatePresence mode="wait">
+                    <AnimatePresence mode="popLayout">
                       <motion.div
                         key={page}
+                        layout
                         initial={{ opacity: 0, y: 8 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -8 }}
