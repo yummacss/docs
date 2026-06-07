@@ -3,7 +3,7 @@
 import { Button } from "@base-ui/react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { clsx } from "clsx";
-import { Github, List, NpmSquare, Search, Xmark } from "iconoir-react";
+import { Github, Menu, NpmSquare, Search, Xmark } from "iconoir-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { lazy, type ReactNode, Suspense, useEffect, useState } from "react";
@@ -146,7 +146,7 @@ export default function Navbar({
                   aria-label={isSidebarOpen ? "Close menu" : "Open menu"}
                 >
                   <div className="d-f p-r ai-c jc-c w-4 h-4">
-                    <List
+                    <Menu
                       className="p-a w-4 h-4"
                       style={{
                         opacity: isSidebarOpen ? 0 : 1,
