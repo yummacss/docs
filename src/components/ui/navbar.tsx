@@ -148,25 +148,11 @@ export default function Navbar({
                   <div className="d-f p-r ai-c jc-c w-4 h-4">
                     <Menu
                       className="p-a w-4 h-4"
-                      style={{
-                        opacity: isSidebarOpen ? 0 : 1,
-                        transform: isSidebarOpen
-                          ? "rotate(90deg)"
-                          : "rotate(0deg)",
-                        transition:
-                          "opacity 0.2s ease-in-out, transform 0.2s ease-in-out",
-                      }}
+                      style={{ opacity: isSidebarOpen ? 0 : 1 }}
                     />
                     <Xmark
                       className="p-a w-4 h-4"
-                      style={{
-                        opacity: isSidebarOpen ? 1 : 0,
-                        transform: isSidebarOpen
-                          ? "rotate(0deg)"
-                          : "rotate(-90deg)",
-                        transition:
-                          "opacity 0.2s ease-in-out, transform 0.2s ease-in-out",
-                      }}
+                      style={{ opacity: isSidebarOpen ? 1 : 0 }}
                     />
                   </div>
                 </Button>
