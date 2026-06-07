@@ -75,7 +75,6 @@ export const registry = {
   "badge-squircle": dynamic(() => import("./ui/badge-squircle"), { ssr: true }),
   "breadcrumb-base": dynamic(() => import("./ui/breadcrumb-base"), { ssr: true }),
   "breadcrumb-bordered": dynamic(() => import("./ui/breadcrumb-bordered"), { ssr: true }),
-  "breadcrumb-collapse": dynamic(() => import("./ui/breadcrumb-collapse"), { ssr: true }),
   "breadcrumb-icon-leading": dynamic(() => import("./ui/breadcrumb-icon-leading"), { ssr: true }),
   "breadcrumb-icon-trailing": dynamic(() => import("./ui/breadcrumb-icon-trailing"), { ssr: true }),
   "breadcrumb-icons": dynamic(() => import("./ui/breadcrumb-icons"), { ssr: true }),
