@@ -304,10 +304,6 @@ summary {
   border-color: #bbc2cc;
 }
 
-.bc-slate-4 {
-  border-color: #a5aebc;
-}
-
 .bc-transparent {
   border-color: transparent;
 }
@@ -580,10 +576,6 @@ summary {
   background-color: #e6e9ec;
 }
 
-.bg-slate-12 {
-  background-color: #101316;
-}
-
 .bg-slate-4 {
   background-color: #a5aebc;
 }
@@ -610,10 +602,6 @@ summary {
 
 .bg-white\/10 {
   background-color: #ffffff1a;
-}
-
-.bg-white\/20 {
-  background-color: #ffffff33;
 }
 
 .bg-white\/70 {
@@ -1251,10 +1239,6 @@ summary {
   outline-color: #ffffff;
 }
 
-.fv\:oc-white\/50:focus-visible {
-  outline-color: #ffffff80;
-}
-
 .fv\:oo--1:focus-visible {
   outline-offset: -1px;
 }
@@ -1541,10 +1525,6 @@ summary {
 
 .h\:bg-transparent:hover {
   background-color: transparent;
-}
-
-.h\:bg-white\/10:hover {
-  background-color: #ffffff1a;
 }
 
 .h\:bg-white\/5:hover {
