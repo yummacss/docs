@@ -72,7 +72,7 @@ export default function Navbar({
               </Link>
             </div>
 
-            <div className="d-f ai-c g-4">
+            <div className="d-f ai-c g-2 @sm:g-4">
               {links ? (
                 links
               ) : (
