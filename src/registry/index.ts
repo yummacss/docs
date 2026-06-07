@@ -133,6 +133,7 @@ export const registry = {
   "combobox-squircle": dynamic(() => import("./ui/combobox-squircle"), { ssr: true }),
   "combobox-static": dynamic(() => import("./ui/combobox-static"), { ssr: true }),
   "command-palette-base": dynamic(() => import("./ui/command-palette-base"), { ssr: true }),
+  "command-palette-description": dynamic(() => import("./ui/command-palette-description"), { ssr: true }),
   "command-palette-minimal": dynamic(() => import("./ui/command-palette-minimal"), { ssr: true }),
   "command-palette-shortcut": dynamic(() => import("./ui/command-palette-shortcut"), { ssr: true }),
   "command-palette-square": dynamic(() => import("./ui/command-palette-square"), { ssr: true }),
