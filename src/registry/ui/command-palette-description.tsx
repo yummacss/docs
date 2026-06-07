@@ -18,14 +18,14 @@ import {
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
-export default function CommandPaletteSquare() {
+export default function CommandPaletteDescription() {
   const [open, setOpen] = useState(false);
 
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger
         render={
-          <Button className="d-f ai-c g-2 px-3 py-2 bc-silver-2 c-slate-10 bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5" />
+          <Button className="d-f ai-c g-2 px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:oo-2 fv:oc-indigo-5" />
         }
       >
         <Search className="w-4 h-4" />
@@ -55,7 +55,7 @@ export default function CommandPaletteSquare() {
                     transition={{ duration: 0.2, ease: "easeOut" }}
                   />
                 }
-                className="o-h w-96 bg-white bc-silver-2 c-slate-12 bw-1 bs-o-lg"
+                className="o-h w-96 bg-white bc-silver-2 c-slate-12 br-xxl bw-1 bs-o-lg"
                 style={{ maxWidth: "90vw" }}
               >
                 <Combobox.Root inline items={commandGroups} autoHighlight>
@@ -80,17 +80,24 @@ export default function CommandPaletteSquare() {
                               value={item.id}
                               onClick={() => setOpen(false)}
                               className={(state: { highlighted: boolean }) =>
-                                `d-f ai-c g-2 py-2 px-2 mx-2 fs-sm us-none c-p ${
+                                `d-f ai-c g-2 py-2 px-2 mx-2 fs-sm us-none c-p br-md ${
                                   state.highlighted
                                     ? "bg-silver-1/50"
                                     : "bg-transparent"
                                 }`
                               }
                             >
-                              <item.Icon className="fs-0 w-4 h-4 c-slate-5" />
-                              <span className="c-slate-10 fw-500">
-                                {item.label}
-                              </span>
+                              <div className="d-f ai-c jc-c w-8 h-8 bg-white bc-silver-2 c-slate-5 bw-1 br-md bs-o-xs">
+                                <item.Icon className="fs-0 w-4 h-4" />
+                              </div>
+                              <div className="d-f fd-c">
+                                <span className="c-slate-10 fw-500">
+                                  {item.label}
+                                </span>
+                                <span className="c-slate-5 fs-xs">
+                                  {item.description}
+                                </span>
+                              </div>
                             </Combobox.Item>
                           ))}
                           {groupIndex < commandGroups.length - 1 && (
@@ -118,7 +125,7 @@ export default function CommandPaletteSquare() {
 interface CommandItem {
   id: string;
   label: string;
-  shortcut?: string;
+  description: string;
   Icon: React.ComponentType<{ className?: string }>;
 }
 
@@ -131,20 +138,65 @@ const commandGroups: CommandGroup[] = [
   {
     label: "Actions",
     items: [
-      { id: "new-doc", label: "New doc", Icon: PagePlus },
-      { id: "drafts", label: "Drafts", Icon: Page },
-      { id: "templates", label: "Templates", Icon: Folder },
+      {
+        id: "new-doc",
+        label: "New doc",
+        description: "Create a blank document",
+        Icon: PagePlus,
+      },
+      {
+        id: "drafts",
+        label: "Drafts",
+        description: "View your saved drafts",
+        Icon: Page,
+      },
+      {
+        id: "templates",
+        label: "Templates",
+        description: "Browse available templates",
+        Icon: Folder,
+      },
     ],
   },
   {
     label: "Pages",
     items: [
-      { id: "knowledge-base", label: "Knowledge base", Icon: PageSearch },
-      { id: "published", label: "Published pages", Icon: OpenBook },
-      { id: "analytics", label: "Analytics", Icon: StatUp },
-      { id: "settings", label: "Settings", Icon: Wrench },
-      { id: "team-docs", label: "Team docs", Icon: User },
-      { id: "activity", label: "Activity", Icon: Activity },
+      {
+        id: "knowledge-base",
+        label: "Knowledge base",
+        description: "Search internal docs",
+        Icon: PageSearch,
+      },
+      {
+        id: "published",
+        label: "Published pages",
+        description: "View live content",
+        Icon: OpenBook,
+      },
+      {
+        id: "analytics",
+        label: "Analytics",
+        description: "Traffic and engagement data",
+        Icon: StatUp,
+      },
+      {
+        id: "settings",
+        label: "Settings",
+        description: "Manage your preferences",
+        Icon: Wrench,
+      },
+      {
+        id: "team-docs",
+        label: "Team docs",
+        description: "Collaborate with your team",
+        Icon: User,
+      },
+      {
+        id: "activity",
+        label: "Activity",
+        description: "Recent changes and updates",
+        Icon: Activity,
+      },
     ],
   },
 ];

@@ -3,7 +3,7 @@
 import { Button } from "@base-ui/react/button";
 import { Combobox } from "@base-ui/react/combobox";
 import { Dialog } from "@base-ui/react/dialog";
-import { Search, Xmark } from "iconoir-react";
+import { Search } from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -54,13 +54,6 @@ export default function CommandPaletteMinimal() {
                       autoFocus
                       className="h-10 w-100% bg-transparent c-slate-10 fs-md"
                     />
-                    <Dialog.Close
-                      render={
-                        <Button className="d-f ai-c jc-c w-7 h-7 p-0 c-slate-6 bw-0 br-9999 h:bg-silver-1/50 h:c-slate-7 fv:oo-2 fv:oc-indigo-5" />
-                      }
-                    >
-                      <Xmark aria-hidden className="w-5 h-5" />
-                    </Dialog.Close>
                   </div>
                   <div>
                     <Combobox.List className="ox-h oy-auto max-h-72 py-1 ow-0">

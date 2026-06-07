@@ -14,7 +14,6 @@ import {
   StatUp,
   User,
   Wrench,
-  Xmark,
 } from "iconoir-react";
 import { useState } from "react";
 
@@ -48,13 +47,6 @@ export default function CommandPaletteStatic() {
                     autoFocus
                     className="h-10 w-100% bg-transparent c-slate-10 fs-md"
                   />
-                  <Dialog.Close
-                    render={
-                      <Button className="d-f ai-c jc-c w-7 h-7 p-0 c-slate-6 bw-0 br-9999 h:bg-silver-1/50 h:c-slate-7 fv:oo-2 fv:oc-indigo-5" />
-                    }
-                  >
-                    <Xmark aria-hidden className="w-5 h-5" />
-                  </Dialog.Close>
                 </div>
                 <div>
                   <Combobox.List className="oy-auto max-h-72 py-1 ow-0">
@@ -76,7 +68,7 @@ export default function CommandPaletteStatic() {
                               }`
                             }
                           >
-                            <item.Icon className="fs-0 w-4 h-4 c-slate-7" />
+                            <item.Icon className="fs-0 w-4 h-4 c-slate-5" />
                             <span className="c-slate-10 fw-500">
                               {item.label}
                             </span>
