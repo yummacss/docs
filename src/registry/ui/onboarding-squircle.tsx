@@ -77,7 +77,7 @@ export default function OnboardingSquircle() {
                 className="o-h p-r w-96 bg-white bc-silver-2 c-slate-12 br-3xl cs-s bw-1 bs-o-lg"
                 style={{ maxWidth: "90vw" }}
               >
-                <div className="d-f ai-c jc-sb px-6 pt-5">
+                <div className="d-f ai-c jc-sb px-8 pt-5">
                   <span className="c-slate-5 fs-xs">
                     {page + 1} / {items.length}
                   </span>

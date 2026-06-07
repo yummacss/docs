@@ -1415,10 +1415,6 @@ summary {
   height: .75rem;
 }
 
-.h-32 {
-  height: 8rem;
-}
-
 .h-4 {
   height: 1rem;
 }
@@ -1882,10 +1878,6 @@ summary {
 
 .ml-auto {
   margin-left: auto;
-}
-
-.mr-4 {
-  margin-right: 1rem;
 }
 
 .mr-5 {
