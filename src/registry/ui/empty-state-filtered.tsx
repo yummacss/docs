@@ -3,7 +3,11 @@
 import { Button } from "@base-ui/react/button";
 import { useState } from "react";
 
-const initialFilters = ["Status: In Progress", "Priority: High", "Assignee: You"];
+const initialFilters = [
+  "Status: In Progress",
+  "Priority: High",
+  "Assignee: You",
+];
 
 export default function EmptyStateFiltered() {
   const [filters, setFilters] = useState(initialFilters);
@@ -15,9 +19,7 @@ export default function EmptyStateFiltered() {
       <div className="d-f fd-c ai-c jc-c g-4 p-8">
         <div className="d-f fd-c ai-c g-1 ta-c">
           <span className="c-slate-10 fs-md fw-500">All filters cleared</span>
-          <span className="c-slate-6 fs-sm">
-            Showing all available items.
-          </span>
+          <span className="c-slate-6 fs-sm">Showing all available items.</span>
         </div>
       </div>
     );
