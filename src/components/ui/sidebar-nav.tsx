@@ -35,9 +35,7 @@ export default function SidebarNav({ sections, basePath }: Props) {
       >
         {sections.map((section) => (
           <div key={section.title} className="d-f fd-c g-3">
-            <h3 className="c-silver-8 fs-xs ls-2 tt-u">
-              {section.title}
-            </h3>
+            <h3 className="c-silver-8 fs-xs ls-2 tt-u">{section.title}</h3>
             <ul className="d-f fd-c g-2">
               {section.entries.map((entry) => {
                 if ("slug" in entry) {
