@@ -35,7 +35,7 @@ export default function SidebarNav({ sections, basePath }: Props) {
       >
         {sections.map((section) => (
           <div key={section.title} className="d-f fd-c g-3">
-            <h3 className="c-silver-8 fs-xs fw-600 ls-2 tt-u">
+            <h3 className="c-silver-8 fs-xs ls-2 tt-u">
               {section.title}
             </h3>
             <ul className="d-f fd-c g-2">
@@ -47,7 +47,7 @@ export default function SidebarNav({ sections, basePath }: Props) {
                     <li key={entry.slug}>
                       <Link
                         href={href}
-                        className={`d-if ai-c g-3 fs-sm us-none fv:oc-white fv:oo-2 fv:ow-2 ${isActive ? "c-white fw-600" : "c-white/70 h:c-white"}`}
+                        className={`d-if ai-c g-3 fs-sm us-none fv:oc-white fv:oo-2 fv:ow-2 ${isActive ? "c-accent td-u tds-d" : "c-white/70 h:c-accent"}`}
                       >
                         {entry.title}
                         {entry.updated && (
@@ -70,7 +70,7 @@ export default function SidebarNav({ sections, basePath }: Props) {
                           <li key={child.slug}>
                             <Link
                               href={href}
-                              className={`d-if ai-c g-3 fs-sm us-none fv:oc-white fv:oo-2 fv:ow-2 ${isActive ? "c-white fw-600" : "c-white/70 h:c-white"}`}
+                              className={`d-if ai-c g-3 fs-sm us-none fv:oc-white fv:oo-2 fv:ow-2 ${isActive ? "c-accent td-u tds-d" : "c-white/70 h:c-accent"}`}
                             >
                               {child.title}
                               {child.updated && (

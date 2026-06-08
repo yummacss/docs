@@ -1511,6 +1511,10 @@ summary {
   background-color: #ffffff0d;
 }
 
+.h\:c-accent:hover {
+  color: #bec6f2;
+}
+
 .h\:c-accent-4:hover {
   color: #d9def7;
 }
@@ -2414,6 +2418,10 @@ summary {
 
 .tdl-o {
   text-decoration-line: overline;
+}
+
+.tds-d {
+  text-decoration-style: dashed;
 }
 
 .tdu-100 {

@@ -77,32 +77,31 @@ export default function Navbar({
                 links
               ) : (
                 <div className="d-none ai-c g-8 @lg:d-f">
-                  <Link
-                    href="/docs"
-                    className="c-white/80 fs-sm h:c-white fv:oc-white fv:ow-2"
-                  >
-                    Docs
-                  </Link>
-                  <Link
-                    href="/blog"
-                    className="c-white/80 fs-sm h:c-white fv:oc-white fv:ow-2"
-                  >
-                    Blog
-                  </Link>
-                  <Link
-                    href="/ui/installation"
-                    className="c-white/80 fs-sm h:c-white fv:oc-white fv:ow-2"
-                  >
-                    Components
-                  </Link>
-                  <Link
-                    href="https://play.yummacss.com"
-                    className="c-white/80 fs-sm h:c-white fv:oc-white fv:ow-2"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Playground
-                  </Link>
+                  {[
+                    { href: "/docs", label: "Docs", prefix: "/docs" },
+                    { href: "/blog", label: "Blog", prefix: "/blog" },
+                    { href: "/ui/installation", label: "Components", prefix: "/ui" },
+                    { href: "https://play.yummacss.com", label: "Playground", external: true },
+                  ].map((link) => {
+                    const isActive = link.prefix
+                      ? pathname.startsWith(link.prefix)
+                      : pathname === link.href;
+                    return (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        target={link.external ? "_blank" : undefined}
+                        rel={link.external ? "noopener noreferrer" : undefined}
+                        className={`fs-sm fv:oc-white fv:ow-2 ${
+                          isActive
+                            ? "c-accent td-u tds-d"
+                            : "c-white/70 h:c-accent"
+                        }`}
+                      >
+                        {link.label}
+                      </Link>
+                    );
+                  })}
                 </div>
               )}
 
@@ -112,7 +111,7 @@ export default function Navbar({
                 className="d-f ai-c jc-c g-2 h-8 px-3 bc-border bg-surface a:bg-surface-7 c-white bw-1 fs-sm bf-b-sm @lg:px-4 fv:oc-white fv:ow-2"
               >
                 <Search className="w-4 h-4" />
-                <kbd className="d-none c-white/80 fs-xs us-none @lg:d-b">
+                <kbd className="d-none c-white/70 fs-xs us-none @lg:d-b">
                   Ctrl + K
                 </kbd>
               </Button>
@@ -120,7 +119,7 @@ export default function Navbar({
               <div className="d-none ai-c g-4 ml-2 @md:d-f">
                 <Link
                   href="https://npmx.dev/package/yummacss"
-                  className="d-f ai-c g-1 c-white/80 fs-xs h:c-white fv:oc-white fv:ow-2"
+                  className="d-f ai-c g-1 c-white/70 fs-xs h:c-white fv:oc-white fv:ow-2"
                   target="_blank"
                 >
                   <NpmSquare className="w-4 h-4" />
@@ -130,7 +129,7 @@ export default function Navbar({
                 </Link>
                 <Link
                   href="https://github.com/yummacss/yummacss"
-                  className="d-f ai-c g-1 c-white/80 fs-xs h:c-white fv:oc-white fv:ow-2"
+                  className="d-f ai-c g-1 c-white/70 fs-xs h:c-white fv:oc-white fv:ow-2"
                   target="_blank"
                 >
                   <Github className="w-4 h-4" />
