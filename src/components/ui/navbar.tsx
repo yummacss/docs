@@ -80,8 +80,16 @@ export default function Navbar({
                   {[
                     { href: "/docs", label: "Docs", prefix: "/docs" },
                     { href: "/blog", label: "Blog", prefix: "/blog" },
-                    { href: "/ui/installation", label: "Components", prefix: "/ui" },
-                    { href: "https://play.yummacss.com", label: "Playground", external: true },
+                    {
+                      href: "/ui/installation",
+                      label: "Components",
+                      prefix: "/ui",
+                    },
+                    {
+                      href: "https://play.yummacss.com",
+                      label: "Playground",
+                      external: true,
+                    },
                   ].map((link) => {
                     const isActive = link.prefix
                       ? pathname.startsWith(link.prefix)

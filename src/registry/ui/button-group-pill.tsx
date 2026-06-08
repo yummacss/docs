@@ -10,7 +10,10 @@ export default function ButtonGroupPill() {
       <Button className="d-f ai-c jc-c w-8 h-8 p-0 bg-transparent c-slate-10 bw-0 br-9999 c-p h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5">
         <ThumbsUp className="w-4 h-4" />
       </Button>
-      <Separator orientation="vertical" className="my-1 mx-1 h-5 w-px bg-silver-3" />
+      <Separator
+        orientation="vertical"
+        className="my-1 mx-1 h-5 w-px bg-silver-3"
+      />
       <Button className="d-f ai-c jc-c w-8 h-8 p-0 bg-transparent c-slate-10 bw-0 br-9999 c-p h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5">
         <ThumbsDown className="w-4 h-4" />
       </Button>
