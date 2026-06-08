@@ -19,7 +19,7 @@ export default function ExampleTabsStatic() {
             <Tabs.Tab
               key={tab.value}
               value={tab.value}
-              className={`p-r zi-10 fg-1 d-f ai-c jc-c py-2 px-3 bg-transparent us-none fv:oo--1 fv:oc-indigo br-9999 ${
+              className={`d-f p-r zi-10 fg-1 ai-c jc-c py-2 px-3 bg-transparent br-9999 us-none fv:oo--1 fv:oc-indigo ${
                 isSelected ? "c-slate-10" : "c-slate-8 h:c-slate-10"
               }`}
             >
@@ -43,6 +43,6 @@ export default function ExampleTabsStatic() {
 
 const tabs = [
   { value: "board", label: "Board" },
-  { value: "timeline", label: "KeyframesCoupleSolid" },
+  { value: "timeline", label: "Keyframes" },
   { value: "calendar", label: "Calendar" },
 ];
