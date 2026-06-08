@@ -46,7 +46,7 @@ export default function OnboardingStatic() {
       </AlertDialog.Trigger>
       {open && (
         <AlertDialog.Portal keepMounted>
-          <AlertDialog.Backdrop className="p-f i-0 min-h-dvh bg-black/20 bf-b-xs" />
+          <AlertDialog.Backdrop className="p-f i-0 min-h-dvh bg-black/5 bf-b-xs" />
           <div className="d-f p-f i-0 ai-c jc-c">
             <AlertDialog.Popup
               className="o-h p-r w-96 bg-white bc-silver-2 c-slate-12 br-xxl bw-1 bs-o-lg"
