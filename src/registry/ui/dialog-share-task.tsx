@@ -33,7 +33,7 @@ export default function DialogShareTask() {
                   transition={{ duration: 0.2, ease: "easeOut" }}
                 />
               }
-              className="p-f i-0 min-h-dvh bg-black/20 bf-b-xs"
+              className="p-f i-0 min-h-dvh bg-black/5 bf-b-xs"
             />
             <div className="d-f p-f i-0 ai-c jc-c">
               <Dialog.Popup
@@ -80,7 +80,7 @@ export default function DialogShareTask() {
                       onOpenChange={setPermOpen}
                     >
                       <Select.Trigger
-                        className={`d-f ai-c jc-sb h-10 w-100% bw-1 bc-silver-3 br-md bg-white px-3 c-slate-10 fs-md us-none c-p fv:oo--1 fv:oc-indigo-5 ${
+                        className={`d-f ai-c jc-sb h-10 w-100% px-3 bg-white bc-silver-3 c-slate-10 bw-1 br-md fs-md us-none c-p fv:oo--1 fv:oc-indigo-5 ${
                           permOpen ? "bg-silver-1/50" : "bg-transparent"
                         }`}
                       >
