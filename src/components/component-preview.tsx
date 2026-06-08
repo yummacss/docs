@@ -24,7 +24,7 @@ export default function ComponentPreview({
   return (
     <div className={`mb-6 bc-border bw-1 ${className || ""}`}>
       {RegistryComponent ? (
-        <div data-preview className="d-f ai-c jc-c p-10 bg-white">
+        <div data-preview className="d-f ox-auto ai-c jc-c p-10 bg-white">
           <RegistryComponent />
         </div>
       ) : null}
