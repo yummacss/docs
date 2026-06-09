@@ -13,7 +13,7 @@ export default function ToggleStatic() {
         `d-f w-12 h-12 ai-c jc-c bw-1 br-9999 us-none c-p fv:oo-2 fv:oc-indigo-5 ${
           state.pressed
             ? "bg-indigo bc-indigo-6 c-white"
-            : "bg-white bc-silver-3 c-indigo h:bg-silver-1"
+            : "bg-white bc-indigo-3 c-indigo h:bg-indigo-1"
         }`
       }
       render={(props, state) => (

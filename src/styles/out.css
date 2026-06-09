@@ -360,12 +360,20 @@ summary {
   background-color: #232741;
 }
 
+.bg-coral {
+  background-color: #ff6f91;
+}
+
 .bg-coral-4 {
   background-color: #ffabbf;
 }
 
 .bg-coral-5 {
   background-color: #ff97b0;
+}
+
+.bg-cyan {
+  background-color: #06b6d4;
 }
 
 .bg-cyan-2 {
@@ -466,6 +474,10 @@ summary {
 
 .bg-indigo\/60 {
   background-color: #6366f199;
+}
+
+.bg-lime {
+  background-color: #84cc16;
 }
 
 .bg-lime-2 {
@@ -582,6 +594,10 @@ summary {
 
 .bg-transparent {
   background-color: transparent;
+}
+
+.bg-violet {
+  background-color: #8b5cf6;
 }
 
 .bg-violet-4 {
@@ -1445,6 +1461,10 @@ summary {
 
 .h\:bg-indigo:hover {
   background-color: #6366f1;
+}
+
+.h\:bg-indigo-1:hover {
+  background-color: #e6e7fd;
 }
 
 .h\:bg-indigo-1\/50:hover {

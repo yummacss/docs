@@ -12,7 +12,7 @@ export default function ToggleGroupBase() {
     <ToggleGroup
       value={selected}
       onValueChange={setSelected}
-      className="d-f p-r g-1 p-1 bg-white bc-silver-2 br-md bw-1"
+      className="d-f p-r g-1 p-1 bg-white bc-indigo-2 br-md bw-1"
     >
       {toggleItems.map((item) => {
         const isSelected = selected.includes(item.value);
@@ -25,7 +25,7 @@ export default function ToggleGroupBase() {
             className={`d-f w-9 h-9 ai-c jc-c bw-0 br-md us-none c-p fv:oo-2 fv:oc-indigo-5 ${
               isSelected
                 ? "bg-indigo c-white"
-                : "bg-transparent c-slate-8 h:bg-silver-1 h:c-slate-10"
+                : "bg-transparent c-slate-8 h:bg-indigo-1 h:c-slate-10"
             }`}
           >
             <Icon className="w-5 h-5" />
