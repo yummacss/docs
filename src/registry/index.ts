@@ -322,6 +322,7 @@ export const registry = {
   "textarea-squircle": dynamic(() => import("./ui/textarea-squircle"), { ssr: true }),
   "textarea-success": dynamic(() => import("./ui/textarea-success"), { ssr: true }),
   "toggle-base": dynamic(() => import("./ui/toggle-base"), { ssr: true }),
+  "toggle-color-picker": dynamic(() => import("./ui/toggle-color-picker"), { ssr: true }),
   "toggle-group-base": dynamic(() => import("./ui/toggle-group-base"), { ssr: true }),
   "toggle-square": dynamic(() => import("./ui/toggle-square"), { ssr: true }),
   "toggle-squircle": dynamic(() => import("./ui/toggle-squircle"), { ssr: true }),
