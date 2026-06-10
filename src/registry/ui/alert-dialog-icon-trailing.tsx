@@ -2,7 +2,7 @@
 
 import { AlertDialog } from "@base-ui/react/alert-dialog";
 import { Button } from "@base-ui/react/button";
-import { NavArrowRight, UserXmark, Xmark } from "iconoir-react";
+import { UserXmark, Xmark } from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -15,7 +15,7 @@ export default function AlertDialogIconTrailing() {
         render={
           <Button className="d-if ai-c g-2 px-3 py-2 bg-red h:bg-red-8 bc-red-7 c-white br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:oo-2 fv:oc-red-6">
             Remove member
-            <NavArrowRight className="w-4 h-4" aria-hidden />
+            <UserXmark className="w-4 h-4" aria-hidden />
           </Button>
         }
       >

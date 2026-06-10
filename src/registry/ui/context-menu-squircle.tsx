@@ -9,7 +9,7 @@ export default function ContextMenuSquircle() {
 
   return (
     <ContextMenu.Root open={open} onOpenChange={setOpen}>
-      <ContextMenu.Trigger className="d-f ai-c jc-c h-48 w-60 bc-slate-3 c-slate-10 cs-s bs-d bw-1 br-xxl fs-sm fw-500 us-none">
+      <ContextMenu.Trigger className="bg-white d-f ai-c jc-c h-48 w-60 bc-slate-3 c-slate-10 cs-s bs-d bw-1 br-xxl fs-sm fw-500 us-none">
         Right-click task
       </ContextMenu.Trigger>
 
