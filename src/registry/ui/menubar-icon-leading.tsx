@@ -51,11 +51,11 @@ export default function MenubarIcons() {
                       transition={{ duration: 0.15, ease: "easeOut" }}
                     />
                   }
-                  className="py-1 bg-white bc-silver-2 c-slate-10 br-md bw-1 bs-o-xs"
+                  className="py-1 w-52 bg-white bc-silver-2 c-slate-10 br-md bw-1 bs-o-xs"
                 >
                   <Menu.Item
                     className={(state) =>
-                      `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm us-none c-p br-md mx-1 fw-500 ${
+                      `d-f ai-c g-3 py-2 pr-8 pl-4 fs-sm us-none c-p br-md mx-1 fw-500 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
@@ -65,7 +65,7 @@ export default function MenubarIcons() {
                   </Menu.Item>
                   <Menu.Item
                     className={(state) =>
-                      `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm us-none c-p br-md mx-1 fw-500 ${
+                      `d-f ai-c g-3 py-2 pr-8 pl-4 fs-sm us-none c-p br-md mx-1 fw-500 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
@@ -75,7 +75,7 @@ export default function MenubarIcons() {
                   </Menu.Item>
                   <Menu.Item
                     className={(state) =>
-                      `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm us-none c-p br-md mx-1 fw-500 ${
+                      `d-f ai-c g-3 py-2 pr-8 pl-4 fs-sm us-none c-p br-md mx-1 fw-500 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
@@ -85,7 +85,7 @@ export default function MenubarIcons() {
                   </Menu.Item>
                   <Menu.Item
                     className={(state) =>
-                      `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm us-none c-p br-md mx-1 fw-500 ${
+                      `d-f ai-c g-3 py-2 pr-8 pl-4 fs-sm us-none c-p br-md mx-1 fw-500 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
@@ -95,7 +95,7 @@ export default function MenubarIcons() {
                   </Menu.Item>
                   <Menu.Item
                     className={(state) =>
-                      `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm us-none c-p br-md mx-1 fw-500 ${
+                      `d-f ai-c g-3 py-2 pr-8 pl-4 fs-sm us-none c-p br-md mx-1 fw-500 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
@@ -133,11 +133,11 @@ export default function MenubarIcons() {
                       transition={{ duration: 0.15, ease: "easeOut" }}
                     />
                   }
-                  className="py-1 bg-white bc-silver-2 c-slate-10 br-md bw-1 bs-o-xs"
+                  className="py-1 w-52 bg-white bc-silver-2 c-slate-10 br-md bw-1 bs-o-xs"
                 >
                   <Menu.Item
                     className={(state) =>
-                      `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm us-none c-p br-md mx-1 fw-500 ${
+                      `d-f ai-c g-3 py-2 pr-8 pl-4 fs-sm us-none c-p br-md mx-1 fw-500 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
@@ -147,7 +147,7 @@ export default function MenubarIcons() {
                   </Menu.Item>
                   <Menu.Item
                     className={(state) =>
-                      `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm us-none c-p br-md mx-1 fw-500 ${
+                      `d-f ai-c g-3 py-2 pr-8 pl-4 fs-sm us-none c-p br-md mx-1 fw-500 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
@@ -157,7 +157,7 @@ export default function MenubarIcons() {
                   </Menu.Item>
                   <Menu.Item
                     className={(state) =>
-                      `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm us-none c-p br-md mx-1 fw-500 ${
+                      `d-f ai-c g-3 py-2 pr-8 pl-4 fs-sm us-none c-p br-md mx-1 fw-500 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
@@ -167,7 +167,7 @@ export default function MenubarIcons() {
                   </Menu.Item>
                   <Menu.Item
                     className={(state) =>
-                      `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm us-none c-p br-md mx-1 fw-500 ${
+                      `d-f ai-c g-3 py-2 pr-8 pl-4 fs-sm us-none c-p br-md mx-1 fw-500 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
@@ -205,11 +205,11 @@ export default function MenubarIcons() {
                       transition={{ duration: 0.15, ease: "easeOut" }}
                     />
                   }
-                  className="py-1 bg-white bc-silver-2 c-slate-10 br-md bw-1 bs-o-xs"
+                  className="py-1 w-52 bg-white bc-silver-2 c-slate-10 br-md bw-1 bs-o-xs"
                 >
                   <Menu.Item
                     className={(state) =>
-                      `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm us-none c-p br-md mx-1 fw-500 ${
+                      `d-f ai-c g-3 py-2 pr-8 pl-4 fs-sm us-none c-p br-md mx-1 fw-500 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
@@ -219,7 +219,7 @@ export default function MenubarIcons() {
                   </Menu.Item>
                   <Menu.Item
                     className={(state) =>
-                      `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm us-none c-p br-md mx-1 fw-500 ${
+                      `d-f ai-c g-3 py-2 pr-8 pl-4 fs-sm us-none c-p br-md mx-1 fw-500 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
@@ -229,7 +229,7 @@ export default function MenubarIcons() {
                   </Menu.Item>
                   <Menu.Item
                     className={(state) =>
-                      `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm us-none c-p br-md mx-1 fw-500 ${
+                      `d-f ai-c g-3 py-2 pr-8 pl-4 fs-sm us-none c-p br-md mx-1 fw-500 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
@@ -239,7 +239,7 @@ export default function MenubarIcons() {
                   </Menu.Item>
                   <Menu.Item
                     className={(state) =>
-                      `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm us-none c-p br-md mx-1 fw-500 ${
+                      `d-f ai-c g-3 py-2 pr-8 pl-4 fs-sm us-none c-p br-md mx-1 fw-500 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
@@ -277,11 +277,11 @@ export default function MenubarIcons() {
                       transition={{ duration: 0.15, ease: "easeOut" }}
                     />
                   }
-                  className="py-1 bg-white bc-silver-2 c-slate-10 br-md bw-1 bs-o-xs"
+                  className="py-1 w-52 bg-white bc-silver-2 c-slate-10 br-md bw-1 bs-o-xs"
                 >
                   <Menu.Item
                     className={(state) =>
-                      `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm us-none c-p br-md mx-1 fw-500 ${
+                      `d-f ai-c g-3 py-2 pr-8 pl-4 fs-sm us-none c-p br-md mx-1 fw-500 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
@@ -291,7 +291,7 @@ export default function MenubarIcons() {
                   </Menu.Item>
                   <Menu.Item
                     className={(state) =>
-                      `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm us-none c-p br-md mx-1 fw-500 ${
+                      `d-f ai-c g-3 py-2 pr-8 pl-4 fs-sm us-none c-p br-md mx-1 fw-500 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
@@ -301,7 +301,7 @@ export default function MenubarIcons() {
                   </Menu.Item>
                   <Menu.Item
                     className={(state) =>
-                      `d-f ai-c g-2 py-2 pr-8 pl-4 fs-sm us-none c-p br-md mx-1 fw-500 ${
+                      `d-f ai-c g-3 py-2 pr-8 pl-4 fs-sm us-none c-p br-md mx-1 fw-500 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
