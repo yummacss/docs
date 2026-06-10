@@ -310,7 +310,6 @@ export const registry = {
   "separator-icon-circle": dynamic(() => import("./ui/separator-icon-circle"), { ssr: true }),
   "separator-icon": dynamic(() => import("./ui/separator-icon"), { ssr: true }),
   "separator-label": dynamic(() => import("./ui/separator-label"), { ssr: true }),
-  "separator-multiple": dynamic(() => import("./ui/separator-multiple"), { ssr: true }),
   "separator-square": dynamic(() => import("./ui/separator-square"), { ssr: true }),
   "separator-squircle": dynamic(() => import("./ui/separator-squircle"), { ssr: true }),
   "skeleton-activity": dynamic(() => import("./ui/skeleton-activity"), { ssr: true }),

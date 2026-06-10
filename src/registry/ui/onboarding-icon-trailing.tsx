@@ -8,7 +8,6 @@ import {
   BoxIso,
   Check,
   Community,
-  NavArrowRight,
   PeaceHand,
   SparksSolid,
 } from "iconoir-react";
@@ -47,9 +46,9 @@ export default function OnboardingIconTrailing() {
     >
       <AlertDialog.Trigger
         render={
-          <Button className="d-if ai-c g-2 px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5">
+          <Button className="bg-white d-if ai-c g-2 px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5">
             Start your journey
-            <NavArrowRight className="w-4 h-4" aria-hidden />
+            <SparksSolid className="w-4 h-4" aria-hidden />
           </Button>
         }
       >

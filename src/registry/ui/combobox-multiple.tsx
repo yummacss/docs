@@ -31,7 +31,7 @@ export default function ComboboxMultiple() {
         </div>
         <Combobox.Value>
           {(selectedValue) => (
-            <div className="d-f fw-w ai-c g-1 mt-1">
+            <div className="d-f fw-w ai-c g-1">
               {selectedValue.map((chip: string) => (
                 <Combobox.Chip
                   key={chip}

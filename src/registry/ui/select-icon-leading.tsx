@@ -2,7 +2,7 @@
 
 import { Field } from "@base-ui/react/field";
 import { Select } from "@base-ui/react/select";
-import { ArrowSeparateVertical, Check, PriorityDown } from "iconoir-react";
+import { ArrowSeparateVertical, Check, TriangleFlag } from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -25,7 +25,7 @@ export default function SelectIconLeading() {
           }`}
         >
           <span className="d-f ai-c g-2">
-            <PriorityDown className="w-4 h-4 c-slate-5" aria-hidden />
+            <TriangleFlag className="w-4 h-4 c-slate-5" aria-hidden />
             <Select.Value>
               {(value) =>
                 value
