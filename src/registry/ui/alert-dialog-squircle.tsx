@@ -13,7 +13,7 @@ export default function AlertDialogSquircle() {
     <AlertDialog.Root open={open} onOpenChange={setOpen}>
       <AlertDialog.Trigger
         render={
-          <Button className="px-3 py-2 bc-silver-2 c-slate-10 br-xxl cs-s bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5" />
+          <Button className="d-if ai-c px-3 py-2 bg-red h:bg-red-8 bc-red-7 c-white br-xxl cs-s bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:oo-2 fv:oc-red-6" />
         }
       >
         Remove member

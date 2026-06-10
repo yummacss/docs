@@ -1,17 +1,6 @@
 import { Avatar } from "@base-ui/react/avatar";
 import { Combobox } from "@base-ui/react/combobox";
-import { Check, Search, Xmark } from "iconoir-react";
-
-function ItemIcon({
-  selected,
-  className = "",
-}: {
-  selected: boolean;
-  className?: string;
-}) {
-  if (!selected) return null;
-  return <Check className={`fs-0 w-4 h-4 c-indigo-6 ${className}`} />;
-}
+import { Search, Xmark } from "iconoir-react";
 
 export default function ComboboxInline() {
   return (
@@ -37,34 +26,26 @@ export default function ComboboxInline() {
             </div>
           </div>
           <Combobox.List className="oy-auto py-1 max-h-52">
-            {(user: User) => (
+            {users.map((user) => (
               <Combobox.Item
                 key={user.avatar}
                 value={user.name}
-                render={(props, state) => (
-                  <div
-                    {...props}
-                    className={`d-f ai-c g-2 py-2 px-3 mx-1 c-slate-8 br-md fs-sm fw-500 us-none c-p ${
-                      state.highlighted ? "bg-silver-1/50" : "bg-transparent"
-                    }`}
-                  >
-                    <Avatar.Root className="d-if o-h ai-c jc-c w-6 h-6 bc-white br-9999 bw-1 us-none">
-                      <Avatar.Image
-                        src={user.avatar}
-                        alt={user.name}
-                        className="of-c w-100% h-100%"
-                      />
-                      <Avatar.Fallback className="d-f ai-c jc-c w-100% h-100% c-slate-8 fs-xs">
-                        {user.name[0]}
-                      </Avatar.Fallback>
-                    </Avatar.Root>
-                    <span className="fg-1">{user.name}</span>
-                    <span className="c-slate-6 fw-400">{user.role}</span>
-                    <ItemIcon selected={state.selected} className="ml-auto" />
-                  </div>
-                )}
-              />
-            )}
+                className="d-f ai-c g-2 py-2 px-3 mx-1 c-slate-8 br-md fs-sm fw-500 us-none c-p bg-transparent"
+              >
+                <Avatar.Root className="d-if o-h ai-c jc-c w-6 h-6 bc-white br-9999 bw-1 us-none">
+                  <Avatar.Image
+                    src={user.avatar}
+                    alt={user.name}
+                    className="of-c w-100% h-100%"
+                  />
+                  <Avatar.Fallback className="d-f ai-c jc-c w-100% h-100% c-slate-8 fs-xs">
+                    {user.name[0]}
+                  </Avatar.Fallback>
+                </Avatar.Root>
+                <span className="fg-1">{user.name}</span>
+                <span className="c-slate-6 fw-400">{user.role}</span>
+              </Combobox.Item>
+            ))}
           </Combobox.List>
         </Combobox.Root>
       </div>

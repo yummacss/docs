@@ -38,7 +38,7 @@ export default function CollapsibleDefaultOpen() {
           />
         )}
       >
-        <div className="d-f fd-c g-3 px-3 py-3">
+        <div className="d-f fd-c g-3 px-3 py-3 bg-white">
           {sprints.map((sprint) => (
             <div key={sprint.id} className="d-f ai-c jc-sb">
               <div className="d-f fd-c g-0">

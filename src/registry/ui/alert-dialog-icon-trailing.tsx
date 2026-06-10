@@ -2,24 +2,24 @@
 
 import { AlertDialog } from "@base-ui/react/alert-dialog";
 import { Button } from "@base-ui/react/button";
-import { Archive, Xmark } from "iconoir-react";
+import { NavArrowRight, UserXmark, Xmark } from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
-export default function AlertDialogDestructive() {
+export default function AlertDialogIconTrailing() {
   const [open, setOpen] = useState(false);
 
   return (
     <AlertDialog.Root open={open} onOpenChange={setOpen}>
       <AlertDialog.Trigger
         render={
-          <Button className="d-if ai-c g-2 px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5">
-            <Archive className="w-4 h-4" aria-hidden />
-            Archive project
+          <Button className="d-if ai-c g-2 px-3 py-2 bg-red h:bg-red-8 bc-red-7 c-white br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:oo-2 fv:oc-red-6">
+            Remove member
+            <NavArrowRight className="w-4 h-4" aria-hidden />
           </Button>
         }
       >
-        Archive project
+        Remove member
       </AlertDialog.Trigger>
       <AnimatePresence>
         {open && (
@@ -56,16 +56,15 @@ export default function AlertDialogDestructive() {
                   <Xmark aria-hidden className="w-5 h-5" />
                 </AlertDialog.Close>
                 <div className="d-f fd-c ai-c g-3 pt-10 pb-6 px-4 bg-white">
-                  <span className="d-f ai-c jc-c w-12 h-12 bg-silver-2 c-slate-7 br-9999">
-                    <Archive className="w-6 h-6" />
+                  <span className="d-f ai-c jc-c w-12 h-12 bg-red-1/50 c-red br-9999">
+                    <UserXmark className="w-6 h-6" />
                   </span>
                   <AlertDialog.Title className="c-slate-10 fs-md fw-500">
-                    Archive project?
+                    Remove member?
                   </AlertDialog.Title>
                   <AlertDialog.Description className="m-0 c-slate-6 fs-sm lh-4 ta-c">
-                    This project will be archived. Team members can still view
-                    it but won&apos;t be able to make changes. You can
-                    unarchive it at any time.
+                    This will remove Sarah from the team and revoke all project
+                    access.
                   </AlertDialog.Description>
                 </div>
                 <div className="d-f jc-c g-3 px-4 pb-4 bg-white">
@@ -78,10 +77,10 @@ export default function AlertDialogDestructive() {
                   </AlertDialog.Close>
                   <AlertDialog.Close
                     render={
-                      <Button className="px-4 py-2 bg-slate-9 h:bg-slate-10 c-white br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:oo-2 fv:oc-slate-8" />
+                      <Button className="px-4 py-2 bg-red h:bg-red-8 bc-red-7 c-white br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:oc-red-6 fv:oo-2" />
                     }
                   >
-                    Archive
+                    Remove
                   </AlertDialog.Close>
                 </div>
               </AlertDialog.Popup>

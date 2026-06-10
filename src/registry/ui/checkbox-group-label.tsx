@@ -14,7 +14,7 @@ export default function CheckboxGroupLabel() {
       defaultValue={["email"]}
       className="d-f fd-c g-2 ai-fs c-slate-10"
     >
-      <div className="fw-500 fs-sm" id={id}>
+      <div className="fs-xs fw-600 c-slate-5 us-none" id={id}>
         Task actions
       </div>
 

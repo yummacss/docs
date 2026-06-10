@@ -17,11 +17,7 @@ export default function SelectDisabled() {
           className="d-f ai-c jc-sb h-10 w-64 bw-1 bc-silver-3 br-md bg-white px-3 c-slate-4 us-none bs-o-xs"
         >
           <Select.Value>
-            {(value) =>
-              value
-                ? statuses.find((s) => s.value === value)?.label
-                : "Select status..."
-            }
+            {statuses.find((s) => s.value === "in-progress")?.label}
           </Select.Value>
           <Select.Icon className="d-f c-slate-6">
             <ArrowSeparateVertical className="w-4 h-4" />

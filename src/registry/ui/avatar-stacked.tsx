@@ -30,7 +30,7 @@ export default function AvatarStacked() {
           </Avatar.Fallback>
         </Avatar.Root>
         <Tooltip.Root>
-          <Tooltip.Trigger className="d-if ai-c jc-c w-10 h-10 ml-2 bg-transparent bc-silver-3 c-slate-6 br-9999 bs-d bw-1 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50">
+          <Tooltip.Trigger className="d-if ai-c jc-c w-10 h-10 ml-2 bg-white bc-silver-3 c-slate-6 br-9999 bs-d bw-1 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50">
             <Plus className="w-6 h-6" />
           </Tooltip.Trigger>
           <Tooltip.Portal>

@@ -11,7 +11,7 @@ export default function ExampleTabsIconTrailing() {
     <Tabs.Root
       value={selected}
       onValueChange={setSelected}
-      className="w-fc bg-silver-1 br-9999 bw-1"
+      className="w-fc bg-silver-1 br-9999 bw-1 bc-silver-2"
     >
       <Tabs.List className="d-f p-r g-1 p-1">
         {tabs.map((tab) => {

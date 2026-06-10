@@ -28,7 +28,7 @@ export default function CollapsibleStatic() {
       <Collapsible.Panel
         className={`d-b o-h tp-all tdu-200 ttf-io ${open ? "h-auto o-1" : "h-0 o-0"}`}
       >
-        <div className="d-f fd-c px-3 py-2">
+        <div className="d-f fd-c px-3 py-2 bg-white">
           {tasks.map((task) => (
             <div key={task.id} className="d-f ai-c g-2 py-2">
               {task.status === "done" ? (

@@ -21,7 +21,7 @@ export default function CheckboxGroupNestedParent() {
         className="d-f fd-c g-2"
       >
         <label
-          className="d-f ai-c g-2 c-slate-10 fs-sm fw-500"
+          className="d-f ai-c g-2 fs-xs fw-600 c-slate-5 us-none"
           id={analyticsId}
         >
           <Checkbox.Root
@@ -97,7 +97,7 @@ export default function CheckboxGroupNestedParent() {
         allValues={["edit_sprint", "delete_sprint"]}
         className="d-f fd-c g-2"
       >
-        <label className="d-f ai-c g-2 fs-sm fw-500" id={moderationId}>
+        <label className="d-f ai-c g-2 fs-xs fw-600 c-slate-5 us-none" id={moderationId}>
           <Checkbox.Root
             name="moderation"
             parent

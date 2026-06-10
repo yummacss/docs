@@ -71,7 +71,7 @@ export default function ToolbarDisabled() {
         </Toolbar.Button>
         <Toolbar.Button
           disabled
-          className="d-f ai-c g-1 jc-c h-9 px-3 bg-transparent h:bg-transparent c-slate-8/50 br-md bw-0 fs-sm fw-500 us-none c-na"
+          className="d-f ai-c g-1 jc-c h-9 px-3 bg-transparent h:bg-transparent c-slate-8/50 br-md bw-0 fs-sm fw-500 us-none c-na o-50"
         >
           <Wrench className="w-5 h-5" />
           Settings

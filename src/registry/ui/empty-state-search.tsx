@@ -24,7 +24,7 @@ export default function EmptyStateSearch() {
 
   return (
     <div className="d-f fd-c ai-c jc-c g-4 p-8">
-      <div className="d-f ai-c jc-c w-10 h-10 bc-silver-3 c-slate-5 br-md bw-1 bs-o-xs">
+      <div className="d-f ai-c jc-c w-10 h-10 bg-white bc-silver-3 c-slate-5 br-md bw-1 bs-o-xs">
         <Search className="w-5 h-5" />
       </div>
       <div className="d-f fd-c ai-c g-1 ta-c">

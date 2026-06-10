@@ -44,7 +44,7 @@ export default function CollapsibleIcons() {
           />
         )}
       >
-        <div className="d-f fd-c px-3 py-2">
+        <div className="d-f fd-c px-3 py-2 bg-white">
           {tasks.map((task) => (
             <div key={task.id} className="d-f ai-c g-2 py-2">
               {task.status === "done" ? (
