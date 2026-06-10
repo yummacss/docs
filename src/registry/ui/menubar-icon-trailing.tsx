@@ -11,7 +11,7 @@ import {
   DotsGrid3x3,
   FolderPlus,
   InputField,
-  KeyframesCoupleSolid,
+  Keyframes,
   Link,
   List,
   Plus,
@@ -244,8 +244,8 @@ export default function MenubarIconTrailing() {
                       }`
                     }
                   >
-                    KeyframesCoupleSolid view
-                    <KeyframesCoupleSolid className="fs-0 w-4 h-4 c-slate-5" />
+                    Keyframes view
+                    <Keyframes className="fs-0 w-4 h-4 c-slate-5" />
                   </Menu.Item>
                 </Menu.Popup>
               </Menu.Positioner>

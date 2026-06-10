@@ -101,7 +101,7 @@ export default function MenubarCheckboxes() {
                         <Check className="w-3 h-3 c-indigo" />
                       </Menu.CheckboxItemIndicator>
                     </span>
-                    KeyframesCoupleSolid view
+                    Keyframes view
                   </Menu.CheckboxItem>
                 </Menu.Popup>
               </Menu.Positioner>
