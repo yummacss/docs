@@ -2528,6 +2528,10 @@ summary {
   vertical-align: middle;
 }
 
+.w-1 {
+  width: .25rem;
+}
+
 .w-10 {
   width: 2.5rem;
 }

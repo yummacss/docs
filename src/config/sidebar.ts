@@ -348,6 +348,7 @@ export const sidebarConfig = {
         "badge",
         "breadcrumb",
         "collapsible",
+        "meter",
         "preview-card",
         "progress",
         "separator",
@@ -360,7 +361,7 @@ export const sidebarConfig = {
     { title: "Navigation", items: ["tabs", "toolbar"] },
     {
       title: "Overlays",
-      items: ["command-palette", "dialog", "popover", "tooltip"],
+      items: ["alert-dialog", "command-palette", "dialog", "popover", "tooltip"],
     },
     {
       title: "Application UI",
@@ -384,6 +385,7 @@ export const uiPrimitives: Record<string, string> = {
   collapsible: "collapsible",
   "preview-card": "preview-card",
   progress: "progress",
+  meter: "meter",
   separator: "separator",
   button: "button",
   "context-menu": "context-menu",
@@ -392,6 +394,7 @@ export const uiPrimitives: Record<string, string> = {
   tabs: "tabs",
   toolbar: "toolbar",
   dialog: "dialog",
+  "alert-dialog": "alert-dialog",
   drawer: "drawer",
   popover: "popover",
   tooltip: "tooltip",
