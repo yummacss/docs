@@ -36,7 +36,7 @@ const ui = defineCollection({
     description: z.string().optional(),
     order: z.number().optional(),
     updated: z.boolean().optional(),
-    primitive: z.string().optional(),
+    primitive: z.boolean().optional(),
     content: z.string().optional(),
   }),
   transform: (doc) => ({

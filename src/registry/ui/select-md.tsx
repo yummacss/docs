@@ -11,10 +11,7 @@ export default function SelectMd() {
 
   return (
     <Field.Root className="d-f fd-c g-2">
-      <label
-        htmlFor="select-md"
-        className="c-slate-10 fs-sm fw-500 us-none"
-      >
+      <label htmlFor="select-md" className="c-slate-10 fs-sm fw-500 us-none">
         Task Status
       </label>
       <Select.Root defaultValue={null} open={open} onOpenChange={setOpen}>
