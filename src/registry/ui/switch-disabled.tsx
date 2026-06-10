@@ -9,13 +9,13 @@ export default function SwitchDisabled() {
   const [checked, setChecked] = useState(false);
 
   return (
-    <Field.Root className="d-f ai-c g-2 o-50">
+    <Field.Root className="d-f ai-c g-2 o-50 c-na">
       <Switch.Root
         disabled
         id="switch-disabled"
         checked={checked}
         onCheckedChange={setChecked}
-        className={`p-r d-f ai-c h-5 w-9 br-9999 c-na m-0 px-1 c-na tp-c tdu-150 ttf-io fv:oo-2 fv:oc-indigo-3 ${
+        className={`p-r d-f ai-c h-5 w-9 br-9999 m-0 px-1 tp-c tdu-150 ttf-io fv:oo-2 fv:oc-indigo-3 ${
           checked ? "bg-indigo" : "bg-red-1"
         }`}
       >
@@ -31,7 +31,7 @@ export default function SwitchDisabled() {
       </Switch.Root>
       <Field.Label
         htmlFor="switch-disabled"
-        className="c-slate-10 fs-sm fw-500 us-none c-na"
+        className="c-slate-10 fs-sm fw-500 us-none"
       >
         Automatically accept invites
       </Field.Label>

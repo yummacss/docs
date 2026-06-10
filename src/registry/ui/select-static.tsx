@@ -21,11 +21,7 @@ export default function SelectStatic() {
           }
         >
           <Select.Value>
-            {(value) =>
-              value
-                ? statuses.find((s) => s.value === value)?.label
-                : "Select status..."
-            }
+            Select status...
           </Select.Value>
           <Select.Icon className="d-f c-slate-8">
             <ArrowSeparateVertical className="w-4 h-4" />

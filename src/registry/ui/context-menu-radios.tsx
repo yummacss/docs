@@ -8,7 +8,7 @@ import { useState } from "react";
 
 export default function ContextMenuRadios() {
   const [open, setOpen] = useState(false);
-  const [account, setAccount] = useState("work");
+  const [account, setAccount] = useState("recent");
 
   return (
     <ContextMenu.Root open={open} onOpenChange={setOpen}>

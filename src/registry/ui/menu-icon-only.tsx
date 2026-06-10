@@ -39,7 +39,7 @@ export default function MenuIconOnly() {
               >
                 <Menu.Item
                   className={(state) =>
-                    `d-f ai-c g-3 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${
+                    `d-f ai-c py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${
                       state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                     }`
                   }
@@ -49,7 +49,7 @@ export default function MenuIconOnly() {
                 </Menu.Item>
                 <Menu.Item
                   className={(state) =>
-                    `d-f ai-c g-3 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${
+                    `d-f ai-c py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${
                       state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                     }`
                   }
@@ -59,7 +59,7 @@ export default function MenuIconOnly() {
                 </Menu.Item>
                 <Menu.Item
                   className={(state) =>
-                    `d-f ai-c g-3 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${
+                    `d-f ai-c py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${
                       state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                     }`
                   }
@@ -69,7 +69,7 @@ export default function MenuIconOnly() {
                 </Menu.Item>
                 <Menu.Item
                   className={(state) =>
-                    `d-f ai-c g-3 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${
+                    `d-f ai-c py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${
                       state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                     }`
                   }
@@ -80,7 +80,7 @@ export default function MenuIconOnly() {
                 <Menu.Separator className="my-1 w-100% h-px bg-silver-2" />
                 <Menu.Item
                   className={(state) =>
-                    `d-f ai-c g-3 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${
+                    `d-f ai-c py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${
                       state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                     }`
                   }
@@ -90,7 +90,7 @@ export default function MenuIconOnly() {
                 </Menu.Item>
                 <Menu.Item
                   className={(state) =>
-                    `d-f ai-c g-3 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${
+                    `d-f ai-c py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${
                       state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                     }`
                   }

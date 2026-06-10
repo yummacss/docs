@@ -342,30 +342,35 @@ export default function MenuNested() {
 const teamMembers = [
   {
     name: "Adrian",
+    role: "Product Designer",
     avatar:
       "https://api.dicebear.com/9.x/notionists/svg?seed=Adrian&backgroundColor=FFD4DE",
     status: "away",
   },
   {
     name: "John",
+    role: "Frontend Developer",
     avatar:
       "https://api.dicebear.com/9.x/notionists/svg?seed=John&backgroundColor=DAF0B9",
     status: "online",
   },
   {
     name: "Melanie",
+    role: "Product Manager",
     avatar:
       "https://api.dicebear.com/9.x/notionists/svg?seed=Melanie&backgroundColor=DCCEFC",
     status: "online",
   },
   {
     name: "Noah",
+    role: "Backend Developer",
     avatar:
       "https://api.dicebear.com/9.x/notionists/svg?seed=Noah&backgroundColor=D0D1FB",
     status: "offline",
   },
   {
     name: "Riley",
+    role: "UX Researcher",
     avatar:
       "https://api.dicebear.com/9.x/notionists/svg?seed=Riley&backgroundColor=F4C8FA",
     status: "away",

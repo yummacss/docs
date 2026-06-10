@@ -22,38 +22,29 @@ export default function AutocompleteStatic() {
         <Autocomplete.Positioner className="ow-0" sideOffset={8}>
           <Autocomplete.Popup className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-md bs-o-xs">
             <Autocomplete.List className="oy-auto max-h-72 py-1 ow-0">
-              {(member: TeamMember) => (
+              {teamMembers.map((member) => (
                 <Autocomplete.Item
                   key={`${member.name}-${member.role}`}
                   value={member.name}
-                  render={(props, state) => (
-                    <div
-                      {...props}
-                      className={`d-f ai-c g-3 py-2 px-3 mx-1 c-slate-10 br-md fs-sm us-none c-p ${
-                        state.highlighted
-                          ? "bg-silver-1/50"
-                          : "bg-transparent"
-                      }`}
-                    >
-                      <Avatar.Root className="w-6 h-6 bc-white br-9999 bw-1">
-                        <Avatar.Image
-                          src={member.avatar}
-                          className="of-c w-100% h-100% br-9999"
-                        />
-                        <Avatar.Fallback className="d-f ai-c jc-c w-100% h-100% bg-silver-2 c-slate-8 fs-xs">
-                          {member.name[0]}
-                        </Avatar.Fallback>
-                      </Avatar.Root>
-                      <div className="d-f fd-c">
-                        <span className="fw-500">{member.name}</span>
-                        <span className="c-slate-6 fs-xs">
-                          {member.role}
-                        </span>
-                      </div>
-                    </div>
-                  )}
-                />
-              )}
+                  className="d-f ai-c g-3 py-2 px-3 mx-1 c-slate-10 br-md fs-sm us-none c-p bg-transparent"
+                >
+                  <Avatar.Root className="w-6 h-6 bc-white br-9999 bw-1">
+                    <Avatar.Image
+                      src={member.avatar}
+                      className="of-c w-100% h-100% br-9999"
+                    />
+                    <Avatar.Fallback className="d-f ai-c jc-c w-100% h-100% bg-silver-2 c-slate-8 fs-xs">
+                      {member.name[0]}
+                    </Avatar.Fallback>
+                  </Avatar.Root>
+                  <div className="d-f fd-c">
+                    <span className="fw-500">{member.name}</span>
+                    <span className="c-slate-6 fs-xs">
+                      {member.role}
+                    </span>
+                  </div>
+                </Autocomplete.Item>
+              ))}
             </Autocomplete.List>
             <Autocomplete.Empty className="c-slate-6 fs-sm">
               <div className="pt-2 pb-3 px-4 us-none">

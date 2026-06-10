@@ -8,7 +8,7 @@ export default function ExampleTabsPanel() {
 
   return (
     <Tabs.Root value={selected} onValueChange={setSelected} className="w-fc">
-      <Tabs.List className="d-f p-r g-1 p-1 mb-6 bg-silver-1 br-9999 bw-1">
+      <Tabs.List className="d-f p-r g-1 p-1 mb-6 bg-silver-1 br-9999 bw-1 bc-silver-2">
         {tabs.map((tab) => {
           const isSelected = selected === tab.value;
           return (
@@ -37,7 +37,7 @@ export default function ExampleTabsPanel() {
         <Tabs.Panel
           key={tab.value}
           value={tab.value}
-          className="p-6 bg-white br-md bw-1"
+          className="p-6 bg-white br-md bw-1 bc-silver-2"
         >
           <div>
             <h3 className="mb-1 c-slate-10 fw-600 fs-lg">{tab.panelTitle}</h3>

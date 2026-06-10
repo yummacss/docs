@@ -2,7 +2,7 @@
 
 import { AlertDialog } from "@base-ui/react/alert-dialog";
 import { Button } from "@base-ui/react/button";
-import { WarningTriangle, Xmark } from "iconoir-react";
+import { Archive, Xmark } from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
@@ -13,13 +13,13 @@ export default function AlertDialogDestructive() {
     <AlertDialog.Root open={open} onOpenChange={setOpen}>
       <AlertDialog.Trigger
         render={
-          <Button className="d-if ai-c g-2 px-3 py-2 bg-red h:bg-red-8 bc-red-7 c-white br-md bw-1 fw-500 bs-o-md tp-c tdu-150 ttf-io us-none fv:oo-2 fv:oc-red-6">
-            <WarningTriangle className="w-4 h-4" aria-hidden />
-            Delete sprint
+          <Button className="d-if ai-c g-2 px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5">
+            <Archive className="w-4 h-4" aria-hidden />
+            Archive project
           </Button>
         }
       >
-        Delete sprint
+        Archive project
       </AlertDialog.Trigger>
       <AnimatePresence>
         {open && (
@@ -56,15 +56,16 @@ export default function AlertDialogDestructive() {
                   <Xmark aria-hidden className="w-5 h-5" />
                 </AlertDialog.Close>
                 <div className="d-f fd-c ai-c g-3 pt-10 pb-6 px-4 bg-white">
-                  <span className="d-f ai-c jc-c w-12 h-12 bg-red-1/50 c-red br-9999">
-                    <WarningTriangle className="w-6 h-6" />
+                  <span className="d-f ai-c jc-c w-12 h-12 bg-silver-2 c-slate-7 br-9999">
+                    <Archive className="w-6 h-6" />
                   </span>
                   <AlertDialog.Title className="c-slate-10 fs-md fw-500">
-                    Delete sprint?
+                    Archive project?
                   </AlertDialog.Title>
                   <AlertDialog.Description className="m-0 c-slate-6 fs-sm lh-4 ta-c">
-                    This action cannot be undone. All tasks in this sprint will
-                    be moved back to the backlog.
+                    This project will be archived. Team members can still view
+                    it but won&apos;t be able to make changes. You can
+                    unarchive it at any time.
                   </AlertDialog.Description>
                 </div>
                 <div className="d-f jc-c g-3 px-4 pb-4 bg-white">
@@ -77,10 +78,10 @@ export default function AlertDialogDestructive() {
                   </AlertDialog.Close>
                   <AlertDialog.Close
                     render={
-                      <Button className="px-4 py-2 bg-red h:bg-red-8 bc-red-7 c-white br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:oc-red-6 fv:oo-2" />
+                      <Button className="px-4 py-2 bg-slate-9 h:bg-slate-10 c-white br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:oo-2 fv:oc-slate-8" />
                     }
                   >
-                    Delete sprint
+                    Archive
                   </AlertDialog.Close>
                 </div>
               </AlertDialog.Popup>
