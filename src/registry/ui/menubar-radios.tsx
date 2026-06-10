@@ -225,7 +225,7 @@ const viewOptions = [
   { value: "board", label: "Board view" },
   { value: "list", label: "List view" },
   { value: "calendar", label: "Calendar view" },
-  { value: "timeline", label: "KeyframesCoupleSolid view" },
+  { value: "timeline", label: "Keyframes view" },
 ];
 
 const sortOptions = [

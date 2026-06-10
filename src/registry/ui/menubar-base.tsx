@@ -163,7 +163,7 @@ export default function MenubarBase() {
                       `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p br-md mx-1 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
                     }
                   >
-                    KeyframesCoupleSolid view
+                    Keyframes view
                   </Menu.Item>
                 </Menu.Popup>
               </Menu.Positioner>
