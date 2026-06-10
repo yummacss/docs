@@ -3,7 +3,7 @@
 import { Tabs } from "@base-ui/react/tabs";
 import { useState } from "react";
 
-export default function ExampleTabs() {
+export default function TabsBase() {
   const [selected, setSelected] = useState("subscriptions");
 
   return (
