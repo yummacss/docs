@@ -24,7 +24,10 @@ export default function Code({ title, preview, children }: Props) {
 
   if (preview) {
     return (
-      <div className="oy-auto max-h-80 bg-surface">
+      <div ref={ref} className="p-r oy-auto max-h-80 bg-surface">
+        <div className="p-a t-2 r-2">
+          <CopyButton copied={copied} onCopy={handleCopy} />
+        </div>
         <pre className="ox-auto px-4 py-4 ff-m lh-5">{children}</pre>
       </div>
     );
