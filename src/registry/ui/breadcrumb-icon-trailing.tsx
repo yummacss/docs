@@ -1,5 +1,3 @@
-"use client";
-
 import { NavArrowRight, Page } from "iconoir-react";
 
 export default function BreadcrumbIconTrailing() {

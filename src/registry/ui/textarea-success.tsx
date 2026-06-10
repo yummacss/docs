@@ -1,5 +1,3 @@
-"use client";
-
 import { Field } from "@base-ui/react/field";
 import { Check } from "iconoir-react";
 

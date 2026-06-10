@@ -1,5 +1,3 @@
-"use client";
-
 import { WarningTriangle } from "iconoir-react";
 
 export default function BadgeIconTrailingPill() {

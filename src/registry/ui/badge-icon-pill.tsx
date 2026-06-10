@@ -1,5 +1,3 @@
-"use client";
-
 import { BookmarkSolid } from "iconoir-react";
 
 export default function BadgeIconPill() {

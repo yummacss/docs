@@ -1,5 +1,3 @@
-"use client";
-
 import { Field } from "@base-ui/react/field";
 import { Select } from "@base-ui/react/select";
 import { ArrowSeparateVertical } from "iconoir-react";

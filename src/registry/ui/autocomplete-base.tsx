@@ -35,7 +35,7 @@ export default function AutocompleteBase() {
                   <Autocomplete.List className="oy-auto max-h-72 py-1 ow-0">
                     {(member: TeamMember) => (
                       <Autocomplete.Item
-                        key={member.avatar}
+                        key={`${member.name}-${member.role}`}
                         value={member.name}
                         render={(props, state) => (
                           <div

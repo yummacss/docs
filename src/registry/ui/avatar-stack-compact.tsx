@@ -1,5 +1,3 @@
-"use client";
-
 import { Avatar } from "@base-ui/react/avatar";
 
 export default function AvatarStackCompact() {

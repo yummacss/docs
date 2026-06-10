@@ -1,5 +1,3 @@
-"use client";
-
 import { Button } from "@base-ui/react/button";
 import { StarSolid } from "iconoir-react";
 

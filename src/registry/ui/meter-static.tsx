@@ -1,5 +1,3 @@
-"use client";
-
 import { Meter } from "@base-ui/react/meter";
 
 export default function MeterStatic() {

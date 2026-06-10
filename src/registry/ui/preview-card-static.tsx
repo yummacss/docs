@@ -1,5 +1,3 @@
-"use client";
-
 import { Avatar } from "@base-ui/react/avatar";
 import { PreviewCard } from "@base-ui/react/preview-card";
 

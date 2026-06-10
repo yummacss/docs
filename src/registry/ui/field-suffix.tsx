@@ -1,5 +1,3 @@
-"use client";
-
 import { Separator } from "@base-ui/react";
 import { Field } from "@base-ui/react/field";
 

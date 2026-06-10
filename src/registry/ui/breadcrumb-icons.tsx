@@ -1,5 +1,3 @@
-"use client";
-
 import { Bell, DashboardDots, Folder, User } from "iconoir-react";
 
 export default function BreadcrumbIcons() {

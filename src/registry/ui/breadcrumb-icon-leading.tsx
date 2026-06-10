@@ -1,5 +1,3 @@
-"use client";
-
 import { DashboardDots, NavArrowRight } from "iconoir-react";
 
 export default function BreadcrumbIconLeading() {

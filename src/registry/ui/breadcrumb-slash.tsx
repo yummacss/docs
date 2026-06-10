@@ -1,5 +1,3 @@
-"use client";
-
 export default function BreadcrumbSlash() {
   return (
     <nav aria-label="Breadcrumb" className="d-f ai-c g-2">

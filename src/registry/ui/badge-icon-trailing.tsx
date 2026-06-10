@@ -1,5 +1,3 @@
-"use client";
-
 import { SparksSolid } from "iconoir-react";
 
 export default function BadgeIconTrailing() {

@@ -1,5 +1,3 @@
-"use client";
-
 import { Button } from "@base-ui/react/button";
 import { Separator } from "@base-ui/react/separator";
 import { Bold, Italic, Underline } from "iconoir-react";
