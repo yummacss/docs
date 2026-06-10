@@ -16,7 +16,7 @@ export default function MenubarStatic() {
         </Menu.Trigger>
         <Menu.Portal>
           <Menu.Positioner className="ow-0" sideOffset={8}>
-            <Menu.Popup className="py-1 bg-white bc-silver-2 c-slate-10 br-md bw-1 bs-o-xs">
+            <Menu.Popup className="py-1 w-52 bg-white bc-silver-2 c-slate-10 br-md bw-1 bs-o-xs">
               <Menu.Item
                 className={(state) =>
                   `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p br-md mx-1 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
@@ -55,7 +55,7 @@ export default function MenubarStatic() {
         </Menu.Trigger>
         <Menu.Portal>
           <Menu.Positioner className="ow-0" sideOffset={8}>
-            <Menu.Popup className="py-1 bg-white bc-silver-2 c-slate-10 br-md bw-1 bs-o-xs">
+            <Menu.Popup className="py-1 w-52 bg-white bc-silver-2 c-slate-10 br-md bw-1 bs-o-xs">
               <Menu.Item
                 className={(state) =>
                   `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p br-md mx-1 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
@@ -94,7 +94,7 @@ export default function MenubarStatic() {
         </Menu.Trigger>
         <Menu.Portal>
           <Menu.Positioner className="ow-0" sideOffset={8}>
-            <Menu.Popup className="py-1 bg-white bc-silver-2 c-slate-10 br-md bw-1 bs-o-xs">
+            <Menu.Popup className="py-1 w-52 bg-white bc-silver-2 c-slate-10 br-md bw-1 bs-o-xs">
               <Menu.Item
                 className={(state) =>
                   `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p br-md mx-1 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
@@ -133,7 +133,7 @@ export default function MenubarStatic() {
         </Menu.Trigger>
         <Menu.Portal>
           <Menu.Positioner className="ow-0" sideOffset={8}>
-            <Menu.Popup className="py-1 bg-white bc-silver-2 c-slate-10 br-md bw-1 bs-o-xs">
+            <Menu.Popup className="py-1 w-52 bg-white bc-silver-2 c-slate-10 br-md bw-1 bs-o-xs">
               <Menu.Item
                 className={(state) =>
                   `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p br-md mx-1 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
