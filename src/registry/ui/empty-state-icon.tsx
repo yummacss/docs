@@ -1,5 +1,3 @@
-"use client";
-
 import { FolderMinus } from "iconoir-react";
 
 export default function EmptyStateIcon() {

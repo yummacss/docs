@@ -1,5 +1,3 @@
-"use client";
-
 export default function BadgeDotPill() {
   return (
     <div className="d-f fd-c g-6 ai-c">

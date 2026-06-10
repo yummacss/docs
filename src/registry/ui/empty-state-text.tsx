@@ -1,5 +1,3 @@
-"use client";
-
 export default function EmptyStateText() {
   return (
     <div className="d-f fd-c ai-c jc-c g-1 p-8">

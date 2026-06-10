@@ -240,7 +240,7 @@ export default function MenuNested() {
                       <Menu.Popup className="py-1 w-fc bg-white bc-silver-2 c-slate-10 bw-1 br-md bs-o-xs">
                         {teamMembers.map((member) => (
                           <Menu.Item
-                            key={member.avatar}
+                            key={`${member.name}-${member.role}`}
                             className={(state) =>
                               `d-f ai-c g-2 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
                             }

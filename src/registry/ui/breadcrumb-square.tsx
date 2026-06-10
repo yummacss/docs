@@ -1,5 +1,3 @@
-"use client";
-
 import { NavArrowRight } from "iconoir-react";
 
 export default function BreadcrumbSquare() {

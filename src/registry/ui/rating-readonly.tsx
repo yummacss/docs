@@ -1,5 +1,3 @@
-"use client";
-
 import { Star } from "iconoir-react";
 
 export default function RatingReadonly() {

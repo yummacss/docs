@@ -1,5 +1,3 @@
-"use client";
-
 import { ContextMenu } from "@base-ui/react/context-menu";
 
 export default function ContextMenuDisabled() {

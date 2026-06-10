@@ -1,5 +1,3 @@
-"use client";
-
 import { CloudUpload } from "iconoir-react";
 
 export default function FileUploadSquare() {

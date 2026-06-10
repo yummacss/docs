@@ -1,5 +1,3 @@
-"use client";
-
 import { Avatar } from "@base-ui/react/avatar";
 import { Combobox } from "@base-ui/react/combobox";
 import { Check, Search, Xmark } from "iconoir-react";

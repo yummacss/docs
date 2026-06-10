@@ -1,5 +1,3 @@
-"use client";
-
 import { Button } from "@base-ui/react/button";
 import { Plus, UserPlus } from "iconoir-react";
 

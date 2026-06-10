@@ -1,5 +1,3 @@
-"use client";
-
 import { Checkbox } from "@base-ui/react/checkbox";
 import { Check } from "iconoir-react";
 

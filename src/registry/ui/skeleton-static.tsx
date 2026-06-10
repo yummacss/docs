@@ -1,5 +1,3 @@
-"use client";
-
 export default function SkeletonStatic() {
   return (
     <div className="d-f fd-c g-5 p-8 h-56">

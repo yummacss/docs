@@ -1,5 +1,3 @@
-"use client";
-
 import { Collapsible } from "@base-ui/react/collapsible";
 import { Lock } from "iconoir-react";
 

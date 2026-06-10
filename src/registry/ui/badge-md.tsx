@@ -1,5 +1,3 @@
-"use client";
-
 import { BadgeCheck } from "iconoir-react";
 
 export default function BadgeMd() {
