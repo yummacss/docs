@@ -1,11 +1,11 @@
 "use client";
 
+import { allUis } from "content-collections";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import ApiReference from "@/components/ui/api-reference";
 import EditPage from "@/components/ui/edit-page";
-import { findCurrentUIItemBySlug } from "@/utils/sidebar";
 
 interface TocItem {
   id: string;
@@ -17,7 +17,9 @@ export default function TableOfContents() {
   const pathname = usePathname();
   const [headings, setHeadings] = useState<TocItem[]>([]);
   const isBlogPost = pathname?.startsWith("/blog");
-  const currentItem = findCurrentUIItemBySlug(pathname || "");
+  let slug = (pathname || "").replace(/^\/ui\/components\//, "");
+  slug = slug.replace(/^\/ui\//, "").replace(/\/$/, "");
+  const currentUI = allUis.find((u) => u._meta.path === slug);
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: need this useEffect to re-run this on route change to update the headings
   useEffect(() => {
@@ -69,7 +71,7 @@ export default function TableOfContents() {
           {!isBlogPost && (
             <div className="d-f fd-c g-3 mt-8 pt-8">
               <EditPage />
-              {currentItem?.primitive && <ApiReference />}
+              {currentUI?.primitive && <ApiReference />}
             </div>
           )}
         </div>

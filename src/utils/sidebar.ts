@@ -1,5 +1,5 @@
 import { allDocs, allUis } from "content-collections";
-import { sidebarConfig, uiPrimitives } from "@/config/sidebar";
+import { sidebarConfig } from "@/config/sidebar";
 
 function getDocTitle(slug: string): string {
   return allDocs.find((d) => d._meta.path === slug)?.title ?? slug;
@@ -65,13 +65,4 @@ export function findCurrentUIPageInfo(
     }
   }
   return null;
-}
-
-export function findCurrentUIItemBySlug(
-  pathname: string,
-): { primitive?: string } | null {
-  let slug = pathname.replace(/^\/ui\/components\//, "");
-  slug = slug.replace(/^\/ui\//, "").replace(/\/$/, "");
-  const primitive = uiPrimitives[slug];
-  return primitive ? { primitive } : null;
 }
