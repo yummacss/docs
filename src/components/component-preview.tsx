@@ -23,6 +23,19 @@ export default function ComponentPreview({
 
   return (
     <div className={`mb-6 bc-border bw-1 ${className || ""}`}>
+      {actualId ? (
+        <div className="d-f ai-c jc-c h-7 px-4 bc-border bg-surface bbw-1">
+          <a
+            href={`https://registry.yummacss.com/preview/${actualId}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="c-accent h:c-accent-4 fs-sm fw-500 us-none"
+          >
+            View in fullscreen
+          </a>
+        </div>
+      ) : null}
+
       {RegistryComponent ? (
         <div data-preview className="d-f ox-auto ai-c jc-c p-10 bg-white">
           <RegistryComponent />
