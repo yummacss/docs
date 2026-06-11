@@ -1,8 +1,7 @@
 "use client";
 import { Toggle } from "@base-ui/react/toggle";
-import type { ReactNode } from "react";
-import { useState } from "react";
-import { getRegistryComponent } from "@/registry";
+import { lazy, Suspense, type ReactNode, useState } from "react";
+import { getRegistryImport } from "@/registry";
 
 interface Props {
   registryId?: string;
@@ -19,7 +18,8 @@ export default function ComponentPreview({
 }: Props) {
   const [showCode, setShowCode] = useState(false);
   const actualId = registryId || id;
-  const RegistryComponent = actualId ? getRegistryComponent(actualId) : null;
+  const importFn = actualId ? getRegistryImport(actualId) : null;
+  const RegistryComponent = importFn ? lazy(importFn) : null;
 
   return (
     <div className={`mb-6 bc-border bw-1 ${className || ""}`}>
@@ -36,11 +36,13 @@ export default function ComponentPreview({
         </div>
       ) : null}
 
-      {RegistryComponent ? (
-        <div data-preview className="d-f ox-auto ai-c jc-c p-10 bg-white">
-          <RegistryComponent />
-        </div>
-      ) : null}
+      <Suspense fallback={null}>
+        {RegistryComponent ? (
+          <div data-preview className="d-f ox-auto ai-c jc-c p-10 bg-white">
+            <RegistryComponent />
+          </div>
+        ) : null}
+      </Suspense>
 
       <Toggle
         pressed={showCode}
