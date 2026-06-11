@@ -1,6 +1,8 @@
+"use client";
 import { cva, type VariantProps } from "class-variance-authority";
 import { clsx } from "clsx";
-import { getRegistryComponent } from "@/registry";
+import { lazy, Suspense } from "react";
+import { getRegistryImport } from "@/registry";
 
 const previewVariants = cva("bg-white btw-1 brw-1 blw-1", {
   variants: {
@@ -31,16 +33,17 @@ export default function Preview({
   className,
 }: PreviewProps) {
   const actualId = registryId || id;
-
-  // perf: never create dynamic() calls at render time.
-  const RegistryComponent = actualId ? getRegistryComponent(actualId) : null;
+  const importFn = actualId ? getRegistryImport(actualId) : null;
+  const RegistryComponent = importFn ? lazy(importFn) : null;
 
   return (
     <div
       data-preview
       className={`${clsx(previewVariants({ variant }), className)} bc-border`}
     >
-      {RegistryComponent ? <RegistryComponent /> : children}
+      <Suspense fallback={null}>
+        {RegistryComponent ? <RegistryComponent /> : children}
+      </Suspense>
     </div>
   );
 }
