@@ -97,7 +97,10 @@ export default function CheckboxGroupNestedParent() {
         allValues={["edit_sprint", "delete_sprint"]}
         className="d-f fd-c g-2"
       >
-        <label className="d-f ai-c g-2 fs-xs fw-600 c-slate-5 us-none" id={moderationId}>
+        <label
+          className="d-f ai-c g-2 fs-xs fw-600 c-slate-5 us-none"
+          id={moderationId}
+        >
           <Checkbox.Root
             name="moderation"
             parent

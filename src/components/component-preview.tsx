@@ -1,6 +1,8 @@
 "use client";
 import { Toggle } from "@base-ui/react/toggle";
-import { lazy, Suspense, type ReactNode, useState } from "react";
+import { Expand } from "iconoir-react";
+import type { ComponentType } from "react";
+import { lazy, type ReactNode, Suspense, useEffect, useState } from "react";
 import { getRegistryImport } from "@/registry";
 
 interface Props {
@@ -17,28 +19,33 @@ export default function ComponentPreview({
   children,
 }: Props) {
   const [showCode, setShowCode] = useState(false);
+  const [RegistryComponent, setRegistryComponent] =
+    useState<ComponentType<object> | null>(null);
   const actualId = registryId || id;
-  const importFn = actualId ? getRegistryImport(actualId) : null;
-  const RegistryComponent = importFn ? lazy(importFn) : null;
+
+  useEffect(() => {
+    if (actualId) {
+      const importFn = getRegistryImport(actualId);
+      if (importFn) {
+        setRegistryComponent(() => lazy(importFn));
+      }
+    }
+  }, [actualId]);
 
   return (
     <div className={`mb-6 bc-border bw-1 ${className || ""}`}>
-      {actualId ? (
-        <div className="d-f ai-c jc-c h-7 px-4 bc-border bg-surface bbw-1">
-          <a
-            href={`https://registry.yummacss.com/preview/${actualId}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="c-accent h:c-accent-4 fs-sm fw-500 us-none"
-          >
-            View in fullscreen
-          </a>
-        </div>
-      ) : null}
-
       <Suspense fallback={null}>
         {RegistryComponent ? (
-          <div data-preview className="d-f ox-auto ai-c jc-c p-10 bg-white">
+          <div data-preview className="d-f p-r ox-auto ai-c jc-c p-10 bg-white">
+            <a
+              href={`https://registry.yummacss.com/preview/${actualId}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="d-f p-a t-2 r-2 ai-c jc-c w-7 h-7 c-page"
+              aria-label="Open in registry"
+            >
+              <Expand className="w-4 h-4" />
+            </a>
             <RegistryComponent />
           </div>
         ) : null}

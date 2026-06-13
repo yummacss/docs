@@ -39,17 +39,13 @@ export default function AutocompleteStatic() {
                   </Avatar.Root>
                   <div className="d-f fd-c">
                     <span className="fw-500">{member.name}</span>
-                    <span className="c-slate-6 fs-xs">
-                      {member.role}
-                    </span>
+                    <span className="c-slate-6 fs-xs">{member.role}</span>
                   </div>
                 </Autocomplete.Item>
               ))}
             </Autocomplete.List>
             <Autocomplete.Empty className="c-slate-6 fs-sm">
-              <div className="pt-2 pb-3 px-4 us-none">
-                No members found.
-              </div>
+              <div className="pt-2 pb-3 px-4 us-none">No members found.</div>
             </Autocomplete.Empty>
           </Autocomplete.Popup>
         </Autocomplete.Positioner>
