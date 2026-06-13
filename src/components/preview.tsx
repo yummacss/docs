@@ -1,7 +1,8 @@
 "use client";
 import { cva, type VariantProps } from "class-variance-authority";
 import { clsx } from "clsx";
-import { lazy, Suspense } from "react";
+import type { ComponentType } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { getRegistryImport } from "@/registry";
 
 const previewVariants = cva("bg-white btw-1 brw-1 blw-1", {
@@ -33,8 +34,17 @@ export default function Preview({
   className,
 }: PreviewProps) {
   const actualId = registryId || id;
-  const importFn = actualId ? getRegistryImport(actualId) : null;
-  const RegistryComponent = importFn ? lazy(importFn) : null;
+  const [RegistryComponent, setRegistryComponent] =
+    useState<ComponentType<object> | null>(null);
+
+  useEffect(() => {
+    if (actualId) {
+      const importFn = getRegistryImport(actualId);
+      if (importFn) {
+        setRegistryComponent(() => lazy(importFn));
+      }
+    }
+  }, [actualId]);
 
   return (
     <div

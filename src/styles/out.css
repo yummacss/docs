@@ -903,6 +903,10 @@ summary {
   cursor: pointer;
 }
 
+.c-page {
+  color: #151724;
+}
+
 .c-pr {
   cursor: progress;
 }
