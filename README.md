@@ -14,8 +14,10 @@
 To start the docs site in development mode, from the project root, run:
 
 ```bash
-pnpm install
-pnpm dev
+# install dependencies
+pnpm i
+# start development
+pnpm d
 ```
 
 This runs both the Next.js dev server and Yumma CSS in watch mode.
