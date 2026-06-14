@@ -2544,6 +2544,10 @@ summary {
   width: 100%;
 }
 
+.w-11 {
+  width: 2.75rem;
+}
+
 .w-12 {
   width: 3rem;
 }

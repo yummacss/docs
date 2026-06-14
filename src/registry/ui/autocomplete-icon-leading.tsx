@@ -58,7 +58,7 @@ export default function AutocompleteIconLeading() {
                             }`}
                           >
                             <item.icon className="w-4 h-4 c-slate-5" />
-                            <span className="fw-500">{item.label}</span>
+                            <span className="min-w-0 o-h fw-500 to-e ws-nw">{item.label}</span>
                           </div>
                         )}
                       />

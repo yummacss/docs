@@ -103,9 +103,9 @@ export default function AutocompleteLoading() {
                               >
                                 {item.name[0]}
                               </div>
-                              <div className="d-f fd-c">
-                                <span className="fw-500">{item.name}</span>
-                                <span className="c-slate-6 fs-xs">
+                              <div className="d-f fd-c min-w-0">
+                                <span className="o-h fw-500 to-e ws-nw">{item.name}</span>
+                                <span className="o-h c-slate-6 fs-xs to-e ws-nw">
                                   {item.team} · {item.status}
                                 </span>
                               </div>

@@ -25,13 +25,15 @@ export default function SelectGrouped() {
           }`}
         >
           <Select.Value>
-            {(value) =>
-              value
-                ? categories
-                    .flatMap((c) => c.items)
-                    .find((i) => i.value === value)?.label
-                : "Select category..."
-            }
+            {(value) => (
+              <span className="min-w-0 o-h to-e ws-nw">
+                {value
+                  ? categories
+                      .flatMap((c) => c.items)
+                      .find((i) => i.value === value)?.label
+                  : "Select category..."}
+              </span>
+            )}
           </Select.Value>
           <Select.Icon className="d-f c-slate-8">
             <ArrowSeparateVertical className="w-4 h-4" />
