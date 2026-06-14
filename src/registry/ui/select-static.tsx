@@ -20,7 +20,9 @@ export default function SelectStatic() {
             }`
           }
         >
-          <Select.Value>Select status...</Select.Value>
+          <Select.Value>
+            <span className="min-w-0 o-h to-e ws-nw">Select status...</span>
+          </Select.Value>
           <Select.Icon className="d-f c-slate-8">
             <ArrowSeparateVertical className="w-4 h-4" />
           </Select.Icon>

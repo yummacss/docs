@@ -25,11 +25,13 @@ export default function SelectIconTrailing() {
           }`}
         >
           <Select.Value>
-            {(value) =>
-              value
-                ? priorities.find((p) => p.value === value)?.label
-                : "Select priority..."
-            }
+            {(value) => (
+              <span className="min-w-0 o-h to-e ws-nw">
+                {value
+                  ? priorities.find((p) => p.value === value)?.label
+                  : "Select priority..."}
+              </span>
+            )}
           </Select.Value>
           <span className="d-f ai-c g-1">
             <TriangleFlag className="w-4 h-4 c-slate-5" aria-hidden />

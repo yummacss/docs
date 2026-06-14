@@ -27,11 +27,13 @@ export default function SelectIconLeading() {
           <span className="d-f ai-c g-2">
             <TriangleFlag className="w-4 h-4 c-slate-5" aria-hidden />
             <Select.Value>
-              {(value) =>
-                value
-                  ? priorities.find((p) => p.value === value)?.label
-                  : "Select priority..."
-              }
+              {(value) => (
+                <span className="min-w-0 o-h to-e ws-nw">
+                  {value
+                    ? priorities.find((p) => p.value === value)?.label
+                    : "Select priority..."}
+                </span>
+              )}
             </Select.Value>
           </span>
           <Select.Icon className="d-f c-slate-8">

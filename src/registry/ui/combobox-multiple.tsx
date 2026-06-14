@@ -75,7 +75,7 @@ export default function ComboboxMultiple() {
                           }`
                         }
                       >
-                        <span className="fg-1">{role}</span>
+                        <span className="fg-1 min-w-0 o-h to-e ws-nw">{role}</span>
                         <Combobox.ItemIndicator className="d-f ml-auto c-indigo">
                           <Check className="w-3 h-3" />
                         </Combobox.ItemIndicator>

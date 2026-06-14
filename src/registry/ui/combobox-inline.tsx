@@ -42,8 +42,8 @@ export default function ComboboxInline() {
                     {user.name[0]}
                   </Avatar.Fallback>
                 </Avatar.Root>
-                <span className="fg-1">{user.name}</span>
-                <span className="c-slate-6 fw-400">{user.role}</span>
+                <span className="fg-1 min-w-0 o-h to-e ws-nw">{user.name}</span>
+                <span className="fs-0 o-h c-slate-6 fw-400 to-e ws-nw">{user.role}</span>
               </Combobox.Item>
             ))}
           </Combobox.List>

@@ -58,9 +58,9 @@ export default function AutocompleteAutoHighlight() {
                               alt={member.name}
                               className="of-c w-6 h-6 bc-silver-3 br-9999 bw-1"
                             />
-                            <div className="d-f fd-c">
-                              <span className="fw-500">{member.name}</span>
-                              <span className="c-slate-6 fs-xs">
+                            <div className="d-f fd-c min-w-0">
+                              <span className="o-h fw-500 to-e ws-nw">{member.name}</span>
+                              <span className="o-h c-slate-6 fs-xs to-e ws-nw">
                                 {member.role}
                               </span>
                             </div>
