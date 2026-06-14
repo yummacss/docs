@@ -55,7 +55,7 @@ export default function AutocompleteGrouped() {
                                 />
                                 <div className="d-f fd-c min-w-0">
                                   <span className="o-h fw-500 to-e ws-nw">{member.name}</span>
-                                  <span className="o-h c-slate-6 fs-xs to-e ws-nw">
+                                  <span className="c-slate-6 fs-xs">
                                     {member.role}
                                   </span>
                                 </div>

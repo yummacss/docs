@@ -17,7 +17,7 @@ export default function AutocompleteMd() {
         <Autocomplete.Input
           id="autocomplete-md-input"
           placeholder="Filter by role..."
-          className="h-10 w-64 pl-4 bg-white bc-silver-3 c-slate-12 bw-1 br-md fs-md bs-o-xs fv:oo--1 fv:oc-indigo-5"
+          className="h-9 w-64 pl-4 bg-white bc-silver-3 c-slate-12 bw-1 br-md fs-md bs-o-xs fv:oo--1 fv:oc-indigo-5"
         />
       </div>
 
@@ -51,7 +51,7 @@ export default function AutocompleteMd() {
                             </div>
                             <div className="d-f fd-c min-w-0">
                               <span className="o-h fw-500 to-e ws-nw">{role.name}</span>
-                              <span className="o-h c-slate-6 fs-xs to-e ws-nw">
+                              <span className="c-slate-6 fs-xs">
                                 {role.members} members
                               </span>
                             </div>

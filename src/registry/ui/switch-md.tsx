@@ -14,18 +14,18 @@ export default function SwitchMd() {
         id="switch-notifications"
         checked={checked}
         onCheckedChange={setChecked}
-        className={`p-r d-f ai-c h-5 w-9 br-9999 m-0 px-1 c-p tp-c tdu-150 ttf-io fv:oo-2 fv:oc-indigo-3 ${
+        className={`p-r d-f ai-c h-4 w-8 br-9999 m-0 px-1 c-p tp-c tdu-150 ttf-io fv:oo-2 fv:oc-indigo-3 ${
           checked ? "bg-indigo" : "bg-silver-1"
         }`}
       >
         <Switch.Thumb
           render={
             <motion.span
-              animate={{ x: checked ? 12 : 0 }}
+              animate={{ x: checked ? 8 : 0 }}
               transition={{ duration: 0.2, ease: "easeInOut" }}
             />
           }
-          className="w-4 h-3 bg-white br-9999 bs-o-xs"
+          className="w-3 h-2 bg-white br-9999 bs-o-xs"
         />
       </Switch.Root>
       <Field.Label

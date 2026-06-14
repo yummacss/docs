@@ -18,9 +18,9 @@ export default function ComboboxMd() {
           <Combobox.Input
             id="project-input"
             placeholder="Search projects..."
-            className="h-10 w-64 pl-4 pr-16 bg-white bc-silver-3 c-slate-10 bw-1 br-md fs-md bs-o-xs fv:oo--1 fv:oc-indigo-5"
+            className="h-9 w-64 pl-4 pr-16 bg-white bc-silver-3 c-slate-10 bw-1 br-md fs-md bs-o-xs fv:oo--1 fv:oc-indigo-5"
           />
-          <div className="d-f p-a r-2 b-0 ai-c jc-c h-10 c-slate-6">
+          <div className="d-f p-a r-2 b-0 ai-c jc-c h-9 c-slate-6">
             <Combobox.Clear
               className="d-f b-0 ai-c jc-c w-6 h-6 p-0 bg-transparent c-slate-6 br-sm c-p h:c-slate-10 fv:oo--1 fv:oc-indigo-5"
               aria-label="Clear selection"
@@ -62,7 +62,7 @@ export default function ComboboxMd() {
                         }
                       >
                         <span className="fg-1 min-w-0 o-h to-e ws-nw">{project.name}</span>
-                        <span className="fs-0 o-h c-slate-6 fw-400 to-e ws-nw">{project.status}</span>
+                        <span className="fs-0 c-slate-6 fw-400">{project.status}</span>
                         <Combobox.ItemIndicator className="d-f ml-auto c-indigo">
                           <Check className="w-3 h-3" />
                         </Combobox.ItemIndicator>
