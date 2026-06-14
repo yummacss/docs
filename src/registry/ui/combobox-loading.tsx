@@ -109,7 +109,7 @@ export default function ComboboxLoading() {
                                 <span className="o-h fw-500 to-e ws-nw">
                                   {item.title}
                                 </span>
-                                <span className="o-h c-slate-6 fs-xs to-e ws-nw">
+                                <span className="c-slate-6 fs-xs">
                                   {item.project} · {item.status}
                                 </span>
                               </div>

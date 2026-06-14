@@ -1,9 +1,10 @@
-import { NavArrowRight } from "iconoir-react";
+import { Home, NavArrowRight } from "iconoir-react";
 
 export default function BreadcrumbMd() {
   return (
     <nav aria-label="Breadcrumb" className="d-f ai-c g-2">
-      <a href="#" className="c-slate-6 h:c-slate-10 fv:oo-2 fv:oc-indigo-5">
+      <a href="#" className="d-f ai-c g-1 c-slate-6 h:c-slate-10 fv:oo-2 fv:oc-indigo-5">
+        <Home className="w-3 h-3" />
         <span className="fs-sm fw-400">Dashboard</span>
       </a>
       <NavArrowRight className="w-4 h-4 c-slate-4" />
