@@ -492,6 +492,10 @@ summary {
   background-color: #a6da57;
 }
 
+.bg-magenta {
+  background-color: #d946ef;
+}
+
 .bg-magenta-4 {
   background-color: #e994f6;
 }
@@ -1351,6 +1355,10 @@ summary {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+.gtc-5 {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
 .h-0 {
   height: 0;
 }
@@ -1397,6 +1405,10 @@ summary {
 
 .h-3 {
   height: .75rem;
+}
+
+.h-32 {
+  height: 8rem;
 }
 
 .h-4 {
@@ -2638,6 +2650,10 @@ summary {
 
 .w-64 {
   width: 16rem;
+}
+
+.w-68 {
+  width: 17rem;
 }
 
 .w-7 {
