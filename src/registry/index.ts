@@ -337,7 +337,6 @@ export const registry = {
   "skeleton-stats": () => import("./ui/skeleton-stats"),
   "slider-base": () => import("./ui/slider-base"),
   "slider-disabled": () => import("./ui/slider-disabled"),
-  "slider-emotion": () => import("./ui/slider-emotion"),
   "slider-range": () => import("./ui/slider-range"),
   "slider-square": () => import("./ui/slider-square"),
   "slider-squircle": () => import("./ui/slider-squircle"),
