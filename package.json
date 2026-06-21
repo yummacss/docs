@@ -17,7 +17,8 @@
     "sort": "sort-package-json",
     "start": "next start",
     "update-yummacss": "pnpm up yummacss @yummacss/core --latest",
-    "validate": "node scripts/validate-yummacss.mjs"
+    "validate": "node scripts/validate-yummacss.mjs",
+    "generate:registry": "node scripts/generate-registry.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.4.1",
