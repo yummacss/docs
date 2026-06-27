@@ -65,5 +65,8 @@
     "yummacss": "^3.25.0",
     "zod": "^4.4.3"
   },
-  "packageManager": "pnpm@11.5.1"
+  "packageManager": "pnpm@11.5.1",
+  "engines": {
+    "pnpm": ">=11"
+  }
 }
