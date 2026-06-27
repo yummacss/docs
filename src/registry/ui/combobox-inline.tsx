@@ -6,7 +6,7 @@ export default function ComboboxInline() {
   return (
     <div className="d-f fd-c g-2 c-slate-10 fs-sm">
       <label className="fw-500">Assign member</label>
-      <div className="d-f o-h fd-c g-0 w-64 bg-white bc-silver-3 bw-1 br-md bs-o-xs">
+      <div className="d-f o-h fd-c g-0 w-64 bg-white bc-silver-3 bw-1 br-lg bs-o-xs">
         <Combobox.Root inline items={users}>
           <div className="d-f ai-c g-2 px-3 bc-silver-3 bbw-1">
             <Search className="fs-0 w-4 h-4 c-slate-4" />
@@ -30,7 +30,7 @@ export default function ComboboxInline() {
               <Combobox.Item
                 key={user.avatar}
                 value={user.name}
-                className="d-f ai-c g-2 py-2 px-3 mx-1 c-slate-8 br-md fs-sm fw-500 us-none c-p bg-transparent"
+                className="d-f ai-c g-2 py-2 px-3 mx-1 c-slate-8 br-lg fs-sm fw-500 us-none c-p bg-transparent"
               >
                 <Avatar.Root className="d-if o-h ai-c jc-c w-6 h-6 bc-white br-9999 bw-1 us-none">
                   <Avatar.Image

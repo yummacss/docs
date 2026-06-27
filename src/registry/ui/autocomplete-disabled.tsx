@@ -13,7 +13,7 @@ export default function AutocompleteDisabled() {
         <Autocomplete.Input
           id="autocomplete-input-disabled"
           placeholder="Search team members"
-          className="h-10 w-64 pl-4 bg-white bc-silver-3 c-slate-4 bw-1 br-md fs-sm bs-o-xs"
+          className="h-10 w-64 pl-4 bg-white bc-silver-3 c-slate-4 bw-1 br-lg fs-sm bs-o-xs"
         />
       </div>
     </Autocomplete.Root>

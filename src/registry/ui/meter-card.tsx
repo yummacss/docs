@@ -3,9 +3,9 @@ import { Database } from "iconoir-react";
 
 export default function MeterCard() {
   return (
-    <Meter.Root className="d-f fd-c g-3 w-64 p-4 bg-white bc-silver-2 br-md bw-1 bs-o-xs" value={68}>
+    <Meter.Root className="d-f fd-c g-3 w-64 p-4 bg-white bc-silver-2 br-lg bw-1 bs-o-xs" value={68}>
       <div className="d-f ai-c g-3">
-        <span className="d-f ai-c jc-c w-8 h-8 bg-indigo-1 c-indigo br-md">
+        <span className="d-f ai-c jc-c w-8 h-8 bg-indigo-1 c-indigo br-lg">
           <Database className="w-4 h-4" />
         </span>
         <div className="d-f fd-c">

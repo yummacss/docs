@@ -13,7 +13,7 @@ export default function AlertDialogDestructive() {
     <AlertDialog.Root open={open} onOpenChange={setOpen}>
       <AlertDialog.Trigger
         render={
-          <Button className="bg-white d-if ai-c g-2 px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5">
+          <Button className="bg-white d-if ai-c g-2 px-3 py-2 bc-silver-2 c-slate-10 br-lg bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5">
             <Archive className="w-4 h-4" aria-hidden />
             Archive project
           </Button>
@@ -71,14 +71,14 @@ export default function AlertDialogDestructive() {
                 <div className="d-f jc-c g-3 px-4 pb-4 bg-white">
                   <AlertDialog.Close
                     render={
-                      <Button className="px-4 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5" />
+                      <Button className="px-4 py-2 bc-silver-2 c-slate-10 br-lg bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5" />
                     }
                   >
                     Cancel
                   </AlertDialog.Close>
                   <AlertDialog.Close
                     render={
-                      <Button className="px-6 py-2 bg-red h:bg-red-8 bc-red-7 c-white br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:oc-red-6 fv:oo-2" />
+                      <Button className="px-6 py-2 bg-red h:bg-red-8 bc-red-7 c-white br-lg bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:oc-red-6 fv:oo-2" />
                     }
                   >
                     Archive

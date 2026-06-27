@@ -14,7 +14,7 @@ export default function ToolbarFormatting() {
   };
 
   return (
-    <div className="d-f g-1 p-2 bg-white bc-silver-2 br-md bw-1">
+    <div className="d-f g-1 p-2 bg-white bc-silver-2 br-xxl bw-1">
       {[
         { value: "bold", Icon: Bold },
         { value: "italic", Icon: Italic },
@@ -27,7 +27,7 @@ export default function ToolbarFormatting() {
             key={value}
             onClick={() => toggle(value)}
             whileTap={{ scale: 0.92 }}
-            className={`d-f ai-c jc-c w-9 h-9 bw-0 br-md us-none c-p fv:oo-2 fv:oc-indigo-3 ${
+            className={`d-f ai-c jc-c w-9 h-9 bw-0 br-lg us-none c-p fv:oo-2 fv:oc-indigo-3 ${
               pressed
                 ? "bg-indigo-1 bc-indigo-2 c-indigo-7 bw-1"
                 : "bg-transparent c-slate-7 h:bg-silver-1 h:c-slate-10"

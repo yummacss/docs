@@ -12,7 +12,7 @@ export default function SkeletonStats() {
           <motion.div
             animate={{ opacity: [0.5, 1, 0.5] }}
             transition={{ duration: 1, repeat: Infinity, delay: i * 0.15 }}
-            className="w-10 h-10 bg-silver-2 br-md"
+            className="w-10 h-10 bg-silver-2 br-lg"
           />
           <motion.div
             animate={{ opacity: [0.5, 1, 0.5] }}

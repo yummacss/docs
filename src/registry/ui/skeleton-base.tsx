@@ -45,12 +45,12 @@ export default function SkeletonBase() {
         <motion.div
           animate={{ opacity: [0.5, 1, 0.5] }}
           transition={{ duration: 1, repeat: Infinity }}
-          className="h-8 w-20 bg-silver-2 br-md"
+          className="h-8 w-20 bg-silver-2 br-lg"
         />
         <motion.div
           animate={{ opacity: [0.5, 1, 0.5] }}
           transition={{ duration: 1, repeat: Infinity }}
-          className="h-8 w-24 bg-silver-2 br-md"
+          className="h-8 w-24 bg-silver-2 br-lg"
         />
       </div>
     </div>

@@ -8,7 +8,7 @@ export default function SkeletonFilters() {
       <motion.div
         animate={{ opacity: [0.5, 1, 0.5] }}
         transition={{ duration: 1, repeat: Infinity }}
-        className="h-10 w-100% bg-silver-2 br-md"
+        className="h-10 w-100% bg-silver-2 br-lg"
       />
       <div className="d-f g-2">
         <motion.div
@@ -36,7 +36,7 @@ export default function SkeletonFilters() {
         <motion.div
           animate={{ opacity: [0.5, 1, 0.5] }}
           transition={{ duration: 1, repeat: Infinity, delay: 0.25 }}
-          className="w-9 h-9 bg-silver-2 br-md fs-0"
+          className="w-9 h-9 bg-silver-2 br-lg fs-0"
         />
         <div className="d-f fd-c g-1 fg-1">
           <motion.div

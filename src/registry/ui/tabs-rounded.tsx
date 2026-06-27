@@ -10,7 +10,7 @@ export default function ExampleTabsRounded() {
     <Tabs.Root
       value={selected}
       onValueChange={setSelected}
-      className="w-fc bg-silver-1 br-md bw-1 bc-silver-2"
+      className="w-fc bg-silver-1 br-lg bw-1 bc-silver-2"
     >
       <Tabs.List className="d-f p-r g-1 p-1">
         {tabs.map((tab) => {
@@ -19,7 +19,7 @@ export default function ExampleTabsRounded() {
             <Tabs.Tab
               key={tab.value}
               value={tab.value}
-              className={`d-f p-r zi-10 fg-1 ai-c jc-c py-2 px-3 bg-transparent br-md us-none fv:oo--1 fv:oc-indigo ${
+              className={`d-f p-r zi-10 fg-1 ai-c jc-c py-2 px-3 bg-transparent br-lg us-none fv:oo--1 fv:oc-indigo ${
                 isSelected ? "c-slate-10" : "c-slate-8 h:c-slate-10"
               }`}
             >
@@ -28,7 +28,7 @@ export default function ExampleTabsRounded() {
           );
         })}
         <Tabs.Indicator
-          className="p-a l-0 zi-0 bg-white br-md bs-o-xs tp-a tdu-200 ttf-io"
+          className="p-a l-0 zi-0 bg-white br-lg bs-o-xs tp-a tdu-200 ttf-io"
           style={{
             translate: "var(--active-tab-left) 0",
             width: "var(--active-tab-width)",

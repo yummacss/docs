@@ -10,7 +10,7 @@ export default function MenuGrouped() {
 
   return (
     <Menu.Root open={open} onOpenChange={setOpen}>
-      <Menu.Trigger className="d-f ai-c g-2 px-3 py-2 h-fc bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-500 bs-o-xs tp-c tdu-150 ttf-io us-none c-p h:bg-silver-1/50 fv:oo--1 fv:oc-indigo-5">
+      <Menu.Trigger className="d-f ai-c g-2 px-3 py-2 h-fc bg-white bc-silver-2 c-slate-10 br-lg bw-1 fw-500 bs-o-xs tp-c tdu-150 ttf-io us-none c-p h:bg-silver-1/50 fv:oo--1 fv:oc-indigo-5">
         Settings <NavArrowDown className="w-3 h-3" />
       </Menu.Trigger>
 
@@ -27,7 +27,7 @@ export default function MenuGrouped() {
                     transition={{ duration: 0.15, ease: "easeOut" }}
                   />
                 }
-                className="py-1 w-52 bg-white bc-silver-2 c-slate-10 bw-1 br-md bs-o-xs"
+                className="py-1 w-52 bg-white bc-silver-2 c-slate-10 bw-1 br-xxl bs-o-xs"
               >
                 <Menu.Group>
                   <div className="px-3 py-1 fs-xs fw-600 c-slate-5 us-none">
@@ -35,7 +35,7 @@ export default function MenuGrouped() {
                   </div>
                   <Menu.Item
                     className={(state) =>
-                      `d-f ai-c g-3 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${
+                      `d-f ai-c g-3 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-xl mx-1 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
@@ -44,7 +44,7 @@ export default function MenuGrouped() {
                   </Menu.Item>
                   <Menu.Item
                     className={(state) =>
-                      `d-f ai-c g-3 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${
+                      `d-f ai-c g-3 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-xl mx-1 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
@@ -53,7 +53,7 @@ export default function MenuGrouped() {
                   </Menu.Item>
                   <Menu.Item
                     className={(state) =>
-                      `d-f ai-c g-3 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${
+                      `d-f ai-c g-3 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-xl mx-1 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
@@ -62,7 +62,7 @@ export default function MenuGrouped() {
                   </Menu.Item>
                   <Menu.Item
                     className={(state) =>
-                      `d-f ai-c g-3 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${
+                      `d-f ai-c g-3 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-xl mx-1 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
@@ -79,7 +79,7 @@ export default function MenuGrouped() {
                   </div>
                   <Menu.Item
                     className={(state) =>
-                      `d-f ai-c g-3 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${
+                      `d-f ai-c g-3 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-xl mx-1 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
@@ -88,7 +88,7 @@ export default function MenuGrouped() {
                   </Menu.Item>
                   <Menu.Item
                     className={(state) =>
-                      `d-f ai-c g-3 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${
+                      `d-f ai-c g-3 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-xl mx-1 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
@@ -97,7 +97,7 @@ export default function MenuGrouped() {
                   </Menu.Item>
                   <Menu.Item
                     className={(state) =>
-                      `d-f ai-c g-3 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${
+                      `d-f ai-c g-3 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-xl mx-1 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
@@ -106,7 +106,7 @@ export default function MenuGrouped() {
                   </Menu.Item>
                   <Menu.Item
                     className={(state) =>
-                      `d-f ai-c g-3 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 ${
+                      `d-f ai-c g-3 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-xl mx-1 ${
                         state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                       }`
                     }
@@ -120,7 +120,7 @@ export default function MenuGrouped() {
                 <Menu.Group>
                   <Menu.Item
                     className={(state) =>
-                      `d-f ai-c g-3 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-md mx-1 c-red ${
+                      `d-f ai-c g-3 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-xl mx-1 c-red ${
                         state.highlighted ? "bg-red-1/50" : "bg-transparent"
                       }`
                     }

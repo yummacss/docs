@@ -60,7 +60,7 @@ export default function OnboardingPagination() {
     >
       <AlertDialog.Trigger
         render={
-          <Button className="bg-white px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5" />
+          <Button className="bg-white px-3 py-2 bc-silver-2 c-slate-10 br-lg bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5" />
         }
       >
         Start your journey
@@ -125,7 +125,7 @@ export default function OnboardingPagination() {
                     type="button"
                     onClick={goPrev}
                     disabled={isFirst}
-                    className={`d-f ai-c jc-c w-8 h-8 bw-0 br-md us-none fv:oo--1 fv:oc-indigo-5 ${
+                    className={`d-f ai-c jc-c w-8 h-8 bw-0 br-lg us-none fv:oo--1 fv:oc-indigo-5 ${
                       isFirst
                         ? "c-slate-3"
                         : "c-slate-6 h:bg-silver-1 h:c-slate-10 c-p"
@@ -155,7 +155,7 @@ export default function OnboardingPagination() {
                   {isLast ? (
                     <AlertDialog.Close
                       render={
-                        <Button className="d-f ai-c jc-c w-8 h-8 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-md bw-1 bs-o-xs tp-c tdu-150 ttf-io us-none fv:oo-2 fv:oc-indigo-5" />
+                        <Button className="d-f ai-c jc-c w-8 h-8 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-lg bw-1 bs-o-xs tp-c tdu-150 ttf-io us-none fv:oo-2 fv:oc-indigo-5" />
                       }
                     >
                       <Check className="w-4 h-4" />
@@ -165,7 +165,7 @@ export default function OnboardingPagination() {
                       type="button"
                       onClick={goNext}
                       disabled={isLast}
-                      className={`d-f ai-c jc-c w-8 h-8 bw-0 br-md us-none fv:oo--1 fv:oc-indigo-5 ${
+                      className={`d-f ai-c jc-c w-8 h-8 bw-0 br-lg us-none fv:oo--1 fv:oc-indigo-5 ${
                         isLast
                           ? "c-slate-3"
                           : "c-slate-6 h:bg-silver-1 h:c-slate-10 c-p"

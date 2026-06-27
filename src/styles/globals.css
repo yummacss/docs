@@ -86,3 +86,7 @@ body {
   background-color: Highlight;
   color: HighlightText;
 }
+
+.docs-container {
+  max-width: clamp(40rem, 80vw, 96rem);
+}

@@ -62,8 +62,7 @@ export default function Navbar({
         style={{ backgroundColor: isLandingPage ? "transparent" : "#151724" }}
       >
         <div
-          className="mx-auto px-3 py-2"
-          style={{ maxWidth: "clamp(40rem, 80vw, 96rem)" }}
+          className="mx-auto px-3 py-2 docs-container"
         >
           <nav className="d-f ai-c jc-sb">
             <div className="d-f ai-c g-2">

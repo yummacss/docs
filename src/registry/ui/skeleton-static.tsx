@@ -14,8 +14,8 @@ export default function SkeletonStatic() {
         <div className="h-3 w-60% bg-silver-2 br-xs" />
       </div>
       <div className="d-f g-3">
-        <div className="h-8 w-20 bg-silver-2 br-md" />
-        <div className="h-8 w-24 bg-silver-2 br-md" />
+        <div className="h-8 w-20 bg-silver-2 br-lg" />
+        <div className="h-8 w-24 bg-silver-2 br-lg" />
       </div>
     </div>
   );

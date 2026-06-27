@@ -17,7 +17,7 @@ export default function PopoverPlacement() {
         >
           <Popover.Trigger
             className={(state) =>
-              `d-f ai-c jc-c h-10 px-3 bw-1 bc-silver-3 br-md bg-white c-slate-10 fs-sm us-none c-p h:bg-silver-1 fv:oo-2 fv:oc-indigo-5 ${
+              `d-f ai-c jc-c h-10 px-3 bw-1 bc-silver-3 br-lg bg-white c-slate-10 fs-sm us-none c-p h:bg-silver-1 fv:oo-2 fv:oc-indigo-5 ${
                 state.open ? "bg-silver-1" : ""
               }`
             }
@@ -37,7 +37,7 @@ export default function PopoverPlacement() {
                         transition={{ duration: 0.15, ease: "easeOut" }}
                       />
                     }
-                    className="px-4 py-3 w-48 bg-white bc-silver-2 c-slate-10 bw-1 br-md bs-o-xs"
+                    className="px-4 py-3 w-48 bg-white bc-silver-2 c-slate-10 bw-1 br-lg bs-o-xs"
                   >
                     <Popover.Title className="m-0 mb-1 c-slate-10 fs-sm fw-500">
                       {side.charAt(0).toUpperCase() + side.slice(1)}

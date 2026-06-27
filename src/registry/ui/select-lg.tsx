@@ -17,7 +17,7 @@ export default function SelectLg() {
       <Select.Root defaultValue={null} open={open} onOpenChange={setOpen}>
         <Select.Trigger
           id="select-lg"
-          className={`d-f ai-c jc-sb h-12 w-72 bw-1 bc-silver-3 br-md bg-white px-4 c-slate-10 us-none c-p bs-o-xs fv:oo--1 fv:oc-indigo-5 ${
+          className={`d-f ai-c jc-sb h-12 w-72 bw-1 bc-silver-3 br-lg bg-white px-4 c-slate-10 us-none c-p bs-o-xs fv:oo--1 fv:oc-indigo-5 ${
             open ? "bg-silver-1/50" : "bg-transparent"
           }`}
         >
@@ -51,7 +51,7 @@ export default function SelectLg() {
                       transition={{ duration: 0.15, ease: "easeOut" }}
                     />
                   }
-                  className="py-1 w-72 bg-white bc-silver-2 bw-1 br-md bs-o-xs"
+                  className="py-1 w-72 bg-white bc-silver-2 bw-1 br-lg bs-o-xs"
                 >
                   <Select.List className="p-r o-auto">
                     {statuses.map(({ label, value }) => (

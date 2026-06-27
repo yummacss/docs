@@ -39,7 +39,7 @@ export default function OnboardingStatic() {
     >
       <AlertDialog.Trigger
         render={
-          <Button className="bg-white px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5" />
+          <Button className="bg-white px-3 py-2 bc-silver-2 c-slate-10 br-lg bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5" />
         }
       >
         Start your journey
@@ -60,7 +60,7 @@ export default function OnboardingStatic() {
                   {!isFirst && (
                     <Button
                       onClick={goPrev}
-                      className="d-f ai-c jc-c w-8 h-8 bg-white bc-silver-2 c-slate-10 br-md bw-1 bs-o-xs tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5"
+                      className="d-f ai-c jc-c w-8 h-8 bg-white bc-silver-2 c-slate-10 br-lg bw-1 bs-o-xs tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5"
                     >
                       <ArrowLeft className="w-4 h-4" />
                     </Button>
@@ -68,7 +68,7 @@ export default function OnboardingStatic() {
                   {isLast ? (
                     <AlertDialog.Close
                       render={
-                        <Button className="d-f ai-c jc-c w-8 h-8 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-md bw-1 bs-o-xs tp-c tdu-150 ttf-io us-none fv:oo-2 fv:oc-indigo-5" />
+                        <Button className="d-f ai-c jc-c w-8 h-8 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-lg bw-1 bs-o-xs tp-c tdu-150 ttf-io us-none fv:oo-2 fv:oc-indigo-5" />
                       }
                     >
                       <Check className="w-4 h-4" />
@@ -76,7 +76,7 @@ export default function OnboardingStatic() {
                   ) : (
                     <Button
                       onClick={goNext}
-                      className="d-f ai-c jc-c w-8 h-8 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-md bw-1 bs-o-xs tp-c tdu-150 ttf-io us-none fv:oo-2 fv:oc-indigo-5"
+                      className="d-f ai-c jc-c w-8 h-8 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-lg bw-1 bs-o-xs tp-c tdu-150 ttf-io us-none fv:oo-2 fv:oc-indigo-5"
                     >
                       <ArrowRight className="w-4 h-4" />
                     </Button>

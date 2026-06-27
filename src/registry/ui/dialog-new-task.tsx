@@ -19,7 +19,7 @@ export default function DialogNewTask() {
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger
         render={
-          <Button className="bg-white px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5" />
+          <Button className="bg-white px-3 py-2 bc-silver-2 c-slate-10 br-lg bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5" />
         }
       >
         New task
@@ -68,7 +68,7 @@ export default function DialogNewTask() {
                       render={<input />}
                       placeholder="e.g. Redesign landing page"
                       aria-label="Task title"
-                      className="h-10 w-100% pl-3 bg-white bc-silver-3 c-slate-10 bw-1 br-md fs-md fv:oo--1 fv:oc-indigo-5"
+                      className="h-10 w-100% pl-3 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md fv:oo--1 fv:oc-indigo-5"
                     />
                   </div>
                   <div className="d-f fd-c g-2">
@@ -79,7 +79,7 @@ export default function DialogNewTask() {
                       render={<textarea />}
                       placeholder="Add details about this task..."
                       aria-label="Task description"
-                      className="h-20 w-100% pt-3 pl-3 bg-white bc-silver-3 c-slate-10 br-md bw-1 fs-md r-none fv:oo--1 fv:oc-indigo-5"
+                      className="h-20 w-100% pt-3 pl-3 bg-white bc-silver-3 c-slate-10 br-lg bw-1 fs-md r-none fv:oo--1 fv:oc-indigo-5"
                     />
                   </div>
                   <div className="d-f fd-c g-2">
@@ -90,7 +90,7 @@ export default function DialogNewTask() {
                       onOpenChange={setPriorityOpen}
                     >
                       <Select.Trigger
-                        className={`d-f ai-c jc-sb h-10 w-100% px-3 bg-white bc-silver-3 c-slate-10 bw-1 br-md fs-md us-none c-p fv:oo--1 fv:oc-indigo-5 ${
+                        className={`d-f ai-c jc-sb h-10 w-100% px-3 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md us-none c-p fv:oo--1 fv:oc-indigo-5 ${
                           priorityOpen ? "bg-silver-1/50" : "bg-transparent"
                         }`}
                       >
@@ -125,7 +125,7 @@ export default function DialogNewTask() {
                                     }}
                                   />
                                 }
-                                className="py-1 w-88 bg-white bc-silver-2 bw-1 br-md bs-o-xs"
+                                className="py-1 w-88 bg-white bc-silver-2 bw-1 br-lg bs-o-xs"
                               >
                                 <Select.List className="p-r o-auto">
                                   {priorities.map(({ label, value }) => (
@@ -133,7 +133,7 @@ export default function DialogNewTask() {
                                       key={value}
                                       value={value}
                                       className={(state) =>
-                                        `d-f ai-c g-2 py-2 px-3 fs-sm us-none c-p br-md mx-1 c-slate-10 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                                        `d-f ai-c g-2 py-2 px-3 fs-sm us-none c-p br-lg mx-1 c-slate-10 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
                                       }
                                     >
                                       <Select.ItemIndicator className="d-f ai-c">
@@ -162,7 +162,7 @@ export default function DialogNewTask() {
                       >
                         <Autocomplete.Input
                           placeholder="Name"
-                          className="h-10 w-100% pl-3 bg-white bc-silver-3 c-slate-10 bw-1 br-md fs-md fv:oo--1 fv:oc-indigo-5"
+                          className="h-10 w-100% pl-3 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md fv:oo--1 fv:oc-indigo-5"
                         />
                         <AnimatePresence>
                           {assigneeOpen && (
@@ -180,7 +180,7 @@ export default function DialogNewTask() {
                                     ease: "easeOut",
                                   }}
                                 >
-                                  <Autocomplete.Popup className="o-h w-42 bg-white bc-silver-2 c-slate-10 bw-1 br-md bs-o-xs">
+                                  <Autocomplete.Popup className="o-h w-42 bg-white bc-silver-2 c-slate-10 bw-1 br-lg bs-o-xs">
                                     <Autocomplete.List className="oy-auto max-h-48 py-1 ow-0">
                                       {(member: TeamMember) => (
                                         <Autocomplete.Item
@@ -189,7 +189,7 @@ export default function DialogNewTask() {
                                           render={(props, state) => (
                                             <div
                                               {...props}
-                                              className={`d-f ai-c g-2 py-2 px-3 mx-1 c-slate-10 br-md fs-sm us-none c-p ${
+                                              className={`d-f ai-c g-2 py-2 px-3 mx-1 c-slate-10 br-lg fs-sm us-none c-p ${
                                                 state.highlighted
                                                   ? "bg-silver-1/50"
                                                   : "bg-transparent"
@@ -232,7 +232,7 @@ export default function DialogNewTask() {
                       <Field.Control
                         render={<input type="date" />}
                         aria-label="Due date"
-                        className="h-10 w-100% min-w-0 pl-3 bg-white bc-silver-3 c-slate-10 bw-1 br-md fs-md fv:oo--1 fv:oc-indigo-5"
+                        className="h-10 w-100% min-w-0 pl-3 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md fv:oo--1 fv:oc-indigo-5"
                       />
                     </div>
                   </div>
@@ -240,14 +240,14 @@ export default function DialogNewTask() {
                 <div className="d-g gtc-2 g-3 px-4 py-4 bg-white">
                   <Dialog.Close
                     render={
-                      <Button className="px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5" />
+                      <Button className="px-3 py-2 bc-silver-2 c-slate-10 br-lg bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5" />
                     }
                   >
                     Cancel
                   </Dialog.Close>
                   <Dialog.Close
                     render={
-                      <Button className="px-3 py-2 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:oc-indigo-5 fv:oo-2" />
+                      <Button className="px-3 py-2 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-lg bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:oc-indigo-5 fv:oo-2" />
                     }
                   >
                     Create task

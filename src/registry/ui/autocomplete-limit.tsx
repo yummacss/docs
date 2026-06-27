@@ -21,7 +21,7 @@ export default function AutocompleteLimit() {
         <Autocomplete.Input
           id="limit-input"
           placeholder="Search projects…"
-          className="h-10 w-64 pl-4 bg-white bc-silver-3 c-slate-10 bw-1 br-md fs-md bs-o-xs fv:oo--1 fv:oc-indigo-5"
+          className="h-10 w-64 pl-4 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md bs-o-xs fv:oo--1 fv:oc-indigo-5"
         />
       </div>
 
@@ -35,7 +35,7 @@ export default function AutocompleteLimit() {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.15, ease: "easeOut" }}
               >
-                <Autocomplete.Popup className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-md bs-o-xs">
+                <Autocomplete.Popup className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-lg bs-o-xs">
                   <Autocomplete.List className="oy-auto max-h-72 py-1 ow-0">
                     {(item: Project) => (
                       <Autocomplete.Item

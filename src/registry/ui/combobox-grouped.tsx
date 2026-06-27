@@ -19,7 +19,7 @@ export default function ComboboxGrouped() {
           <Combobox.Input
             id="grouped-input"
             placeholder="Search by name or role..."
-            className="h-10 w-64 pl-4 pr-16 bg-white bc-silver-3 c-slate-10 bw-1 br-md fs-md bs-o-xs fv:oo--1 fv:oc-indigo-5"
+            className="h-10 w-64 pl-4 pr-16 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md bs-o-xs fv:oo--1 fv:oc-indigo-5"
           />
           <div className="d-f p-a r-2 b-0 ai-c jc-c h-10 c-slate-6">
             <Combobox.Clear
@@ -49,7 +49,7 @@ export default function ComboboxGrouped() {
                 transition={{ duration: 0.15, ease: "easeOut" }}
                 className="d-f ai-c"
               >
-                <Combobox.Popup className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-md bs-o-xs">
+                <Combobox.Popup className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-lg bs-o-xs">
                   <Combobox.List className="oy-auto max-h-72 py-1 ow-0">
                     {(group: TeamGroup, groupIndex: number) => (
                       <Combobox.Group key={group.value}>
