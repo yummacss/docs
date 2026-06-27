@@ -43,7 +43,7 @@ export default function Home() {
           maxWidth: "clamp(40rem, 80vw, 96rem)",
         }}
       >
-        <div className="w-100%" style={{ maxWidth: "72rem" }}>
+        <div className="w-100% max-w-288">
           <div className="d-g g-12 ai-fe @lg:gtc-2">
             <div>
               <h1 className="mb-6 fs-4xl fw-400 lh-2 ff-e @md:fs-5xl @lg:fs-6xl">
