@@ -10,7 +10,7 @@ export default function ToolbarStatic() {
   const [view, setView] = useState<string[]>(["grid"]);
 
   return (
-    <Toolbar.Root className="d-f ai-c g-1 p-2 bg-white bc-silver-2 br-md bw-1">
+    <Toolbar.Root className="d-f ai-c g-1 p-2 bg-white bc-silver-2 br-xxl bw-1">
       <ToggleGroup
         className="d-f g-1"
         value={view}
@@ -21,7 +21,7 @@ export default function ToolbarStatic() {
           value="grid"
           aria-label="Grid"
           className={(state) =>
-            `d-f w-9 h-9 ai-c jc-c bw-0 br-md us-none c-p fv:oo-2 fv:oc-indigo-3 ${
+            `d-f w-9 h-9 ai-c jc-c bw-0 br-lg us-none c-p fv:oo-2 fv:oc-indigo-3 ${
               state.pressed
               ? "bg-indigo-1 bc-indigo-2 c-indigo-7 bw-1"
               : "bg-transparent c-slate-7 h:bg-silver-1 h:c-slate-10"
@@ -34,7 +34,7 @@ export default function ToolbarStatic() {
           value="list"
           aria-label="List"
           className={(state) =>
-            `d-f w-9 h-9 ai-c jc-c bw-0 br-md us-none c-p fv:oo-2 fv:oc-indigo-3 ${
+            `d-f w-9 h-9 ai-c jc-c bw-0 br-lg us-none c-p fv:oo-2 fv:oc-indigo-3 ${
               state.pressed
               ? "bg-indigo-1 bc-indigo-2 c-indigo-7 bw-1"
               : "bg-transparent c-slate-7 h:bg-silver-1 h:c-slate-10"
@@ -47,7 +47,7 @@ export default function ToolbarStatic() {
           value="kanban"
           aria-label="Kanban"
           className={(state) =>
-            `d-f w-9 h-9 ai-c jc-c bw-0 br-md us-none c-p fv:oo-2 fv:oc-indigo-3 ${
+            `d-f w-9 h-9 ai-c jc-c bw-0 br-lg us-none c-p fv:oo-2 fv:oc-indigo-3 ${
               state.pressed
               ? "bg-indigo-1 bc-indigo-2 c-indigo-7 bw-1"
               : "bg-transparent c-slate-7 h:bg-silver-1 h:c-slate-10"
@@ -61,15 +61,15 @@ export default function ToolbarStatic() {
       <Toolbar.Separator className="w-px h-5 mx-1 bg-silver-3" />
 
       <Toolbar.Group className="d-f g-1" aria-label="Actions">
-        <Toolbar.Button className="d-f ai-c g-1 jc-c h-9 px-3 bg-transparent c-slate-7 br-md bw-0 fs-sm fw-500 us-none c-p h:bg-silver-1 h:c-slate-10 fv:oo-2 fv:oc-indigo-5">
+        <Toolbar.Button className="d-f ai-c g-1 jc-c h-9 px-3 bg-transparent c-slate-7 br-lg bw-0 fs-sm fw-500 us-none c-p h:bg-silver-1 h:c-slate-10 fv:oo-2 fv:oc-indigo-5">
           <Plus className="w-5 h-5" />
           New Task
         </Toolbar.Button>
-        <Toolbar.Button className="d-f ai-c g-1 jc-c h-9 px-3 bg-transparent c-slate-7 br-md bw-0 fs-sm fw-500 us-none c-p h:bg-silver-1 h:c-slate-10 fv:oo-2 fv:oc-indigo-5">
+        <Toolbar.Button className="d-f ai-c g-1 jc-c h-9 px-3 bg-transparent c-slate-7 br-lg bw-0 fs-sm fw-500 us-none c-p h:bg-silver-1 h:c-slate-10 fv:oo-2 fv:oc-indigo-5">
           <Sort className="w-5 h-5" />
           Sort
         </Toolbar.Button>
-        <Toolbar.Button className="d-f ai-c g-1 jc-c h-9 px-3 bg-transparent c-slate-7 br-md bw-0 fs-sm fw-500 us-none c-p h:bg-silver-1 h:c-slate-10 fv:oo-2 fv:oc-indigo-5">
+        <Toolbar.Button className="d-f ai-c g-1 jc-c h-9 px-3 bg-transparent c-slate-7 br-lg bw-0 fs-sm fw-500 us-none c-p h:bg-silver-1 h:c-slate-10 fv:oo-2 fv:oc-indigo-5">
           <Wrench className="w-5 h-5" />
           Settings
         </Toolbar.Button>
@@ -78,7 +78,7 @@ export default function ToolbarStatic() {
       <Toolbar.Separator className="w-px h-5 mx-1 bg-silver-3" />
 
       <Toolbar.Input
-        className="h-9 w-40 pl-3 bg-transparent bw-0 br-md fs-sm fv:oo-2 fv:oc-indigo-3"
+        className="h-9 w-40 pl-3 bg-transparent bw-0 br-lg fs-sm fv:oo-2 fv:oc-indigo-3"
         placeholder="Search tasks..."
         aria-label="Search tasks"
       />

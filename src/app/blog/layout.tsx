@@ -9,8 +9,7 @@ export default function BlogLayout({
     <div className="min-h-dvh bg-page c-white">
       <Navbar />
       <main
-        className="mx-auto px-6"
-        style={{ maxWidth: "clamp(40rem, 80vw, 96rem)" }}
+        className="mx-auto px-6 docs-container"
       >
         {children}
       </main>

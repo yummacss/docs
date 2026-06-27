@@ -57,7 +57,7 @@ export default function OnboardingChecklist() {
     >
       <AlertDialog.Trigger
         render={
-          <Button className="bg-white px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5" />
+          <Button className="bg-white px-3 py-2 bc-silver-2 c-slate-10 br-lg bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5" />
         }
       >
         Start your journey
@@ -102,7 +102,7 @@ export default function OnboardingChecklist() {
                     {!isFirst && (
                       <Button
                         onClick={goPrev}
-                        className="d-f ai-c jc-c w-8 h-8 bg-white bc-silver-2 c-slate-10 br-md bw-1 bs-o-xs tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5"
+                        className="d-f ai-c jc-c w-8 h-8 bg-white bc-silver-2 c-slate-10 br-lg bw-1 bs-o-xs tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5"
                       >
                         <ArrowLeft className="w-4 h-4" />
                       </Button>
@@ -110,7 +110,7 @@ export default function OnboardingChecklist() {
                     {isLast ? (
                       <AlertDialog.Close
                         render={
-                          <Button className="d-f ai-c jc-c w-8 h-8 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-md bw-1 bs-o-xs tp-c tdu-150 ttf-io us-none fv:oo-2 fv:oc-indigo-5" />
+                          <Button className="d-f ai-c jc-c w-8 h-8 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-lg bw-1 bs-o-xs tp-c tdu-150 ttf-io us-none fv:oo-2 fv:oc-indigo-5" />
                         }
                       >
                         <Check className="w-4 h-4" />
@@ -119,7 +119,7 @@ export default function OnboardingChecklist() {
                       <Button
                         onClick={goNext}
                         disabled={!allDone}
-                        className={`d-f ai-c jc-c w-8 h-8 br-md bw-1 bs-o-xs tp-c tdu-150 ttf-io us-none fv:oo-2 fv:oc-indigo-5 ${
+                        className={`d-f ai-c jc-c w-8 h-8 br-lg bw-1 bs-o-xs tp-c tdu-150 ttf-io us-none fv:oo-2 fv:oc-indigo-5 ${
                           allDone
                             ? "bg-indigo h:bg-indigo-8 bc-indigo-7 c-white"
                             : "bg-silver-1 bc-silver-2 c-slate-4"
@@ -164,7 +164,7 @@ export default function OnboardingChecklist() {
                                   key={task.id}
                                   type="button"
                                   onClick={() => toggleTask(task.id)}
-                                  className={`d-f ai-c g-2 px-3 py-2 w-100% br-md bw-0 fs-sm ta-l us-none c-p fv:oo-2 fv:oc-indigo-5 ${
+                                  className={`d-f ai-c g-2 px-3 py-2 w-100% br-lg bw-0 fs-sm ta-l us-none c-p fv:oo-2 fv:oc-indigo-5 ${
                                     isChecked
                                       ? "bg-green-1/30"
                                       : "bg-silver-1/50"

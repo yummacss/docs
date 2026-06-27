@@ -8,7 +8,7 @@ export default function FieldHelper() {
       </Field.Label>
       <Field.Control
         placeholder="TSK-000000"
-        className="h-10 w-64 pl-4 bg-white bc-silver-3 c-slate-10 bw-1 br-md fs-md bs-o-xs fv:oo--1 fv:oc-indigo-5"
+        className="h-10 w-64 pl-4 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md bs-o-xs fv:oo--1 fv:oc-indigo-5"
       />
       <Field.Description className="c-slate-6 fs-xs">
         Format: TSK followed by 6 digits

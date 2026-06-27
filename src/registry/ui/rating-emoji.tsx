@@ -35,7 +35,7 @@ export default function RatingEmoji() {
               onPressedChange={() => setSelected(i === selected ? -1 : i)}
               aria-label={emoji.label}
               className={(state) =>
-                `d-f ai-c jc-c w-12 h-12 bw-0 br-md us-none c-p fv:oo--1 fv:oc-indigo-5 ${
+                `d-f ai-c jc-c w-12 h-12 bw-0 br-lg us-none c-p fv:oo--1 fv:oc-indigo-5 ${
                   state.pressed
                     ? `bg-transparent ${emoji.color}`
                     : "bg-transparent c-slate-4 h:c-slate-6"

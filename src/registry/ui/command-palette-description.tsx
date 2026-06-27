@@ -25,7 +25,7 @@ export default function CommandPaletteDescription() {
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger
         render={
-          <Button className="bg-white d-f ai-c g-2 px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:oo-2 fv:oc-indigo-5" />
+          <Button className="bg-white d-f ai-c g-2 px-3 py-2 bc-silver-2 c-slate-10 br-lg bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:oo-2 fv:oc-indigo-5" />
         }
       >
         <Search className="w-4 h-4" />
@@ -80,14 +80,14 @@ export default function CommandPaletteDescription() {
                               value={item.id}
                               onClick={() => setOpen(false)}
                               className={(state: { highlighted: boolean }) =>
-                                `d-f ai-c g-2 py-2 px-2 mx-2 fs-sm us-none c-p br-md ${
+                                `d-f ai-c g-2 py-2 px-2 mx-2 fs-sm us-none c-p br-lg ${
                                   state.highlighted
                                     ? "bg-silver-1/50"
                                     : "bg-transparent"
                                 }`
                               }
                             >
-                              <div className="d-f ai-c jc-c w-8 h-8 bg-white bc-silver-2 c-slate-5 bw-1 br-md bs-o-xs">
+                              <div className="d-f ai-c jc-c w-8 h-8 bg-white bc-silver-2 c-slate-5 bw-1 br-lg bs-o-xs">
                                 <item.Icon className="fs-0 w-4 h-4" />
                               </div>
                               <div className="d-f fd-c">

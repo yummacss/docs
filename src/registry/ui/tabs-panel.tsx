@@ -37,7 +37,7 @@ export default function ExampleTabsPanel() {
         <Tabs.Panel
           key={tab.value}
           value={tab.value}
-          className="p-6 bg-white br-md bw-1 bc-silver-2"
+          className="p-6 bg-white br-lg bw-1 bc-silver-2"
         >
           <div>
             <h3 className="mb-1 c-slate-10 fw-600 fs-lg">{tab.panelTitle}</h3>

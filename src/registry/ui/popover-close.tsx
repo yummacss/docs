@@ -11,7 +11,7 @@ export default function PopoverClose() {
   return (
     <Popover.Root open={open} onOpenChange={setOpen}>
       <Popover.Trigger
-        className={`d-f ai-c jc-c w-10 h-10 bw-1 bc-silver-2 br-md bg-white c-slate-10 us-none c-p h:bg-silver-1 fv:oo-2 fv:oc-indigo-5 ${
+        className={`d-f ai-c jc-c w-10 h-10 bw-1 bc-silver-2 br-lg bg-white c-slate-10 us-none c-p h:bg-silver-1 fv:oo-2 fv:oc-indigo-5 ${
           open ? "bg-silver-1" : ""
         }`}
       >
@@ -30,7 +30,7 @@ export default function PopoverClose() {
                     transition={{ duration: 0.15, ease: "easeOut" }}
                   />
                 }
-                className="px-4 py-3 w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-md bs-o-xs"
+                className="px-4 py-3 w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-lg bs-o-xs"
               >
                 <div className="d-f ai-c jc-sb mb-1">
                   <Popover.Title className="m-0 c-slate-10 fs-sm fw-500">
@@ -40,7 +40,7 @@ export default function PopoverClose() {
                     render={
                       <button
                         type="button"
-                        className="d-f ai-c jc-c w-5 h-5 bg-transparent c-slate-5 bw-0 br-md c-p h:bg-silver-2 h:c-slate-8 fv:oo--1 fv:oc-indigo-5"
+                        className="d-f ai-c jc-c w-5 h-5 bg-transparent c-slate-5 bw-0 br-lg c-p h:bg-silver-2 h:c-slate-8 fv:oo--1 fv:oc-indigo-5"
                       >
                         <Xmark aria-hidden className="w-4 h-4" />
                       </button>

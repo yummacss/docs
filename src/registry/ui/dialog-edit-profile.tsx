@@ -20,7 +20,7 @@ export default function DialogEditProfile() {
           <motion.button
             type="button"
             {...(props as HTMLMotionProps<"button">)}
-            className="bg-white px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5"
+            className="bg-white px-3 py-2 bc-silver-2 c-slate-10 br-lg bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5"
             whileTap={{ scale: 0.9 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
           >
@@ -110,7 +110,7 @@ export default function DialogEditProfile() {
                         render={<input />}
                         defaultValue="John"
                         aria-label="First name"
-                        className="h-10 w-100% pl-3 bg-white bc-silver-3 c-slate-10 bw-1 br-md fs-md fv:oo--1 fv:oc-indigo-5"
+                        className="h-10 w-100% pl-3 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md fv:oo--1 fv:oc-indigo-5"
                       />
                     </div>
                     <div className="d-f fd-c g-2">
@@ -120,7 +120,7 @@ export default function DialogEditProfile() {
                       <Field.Control
                         render={<input />}
                         aria-label="Last name"
-                        className="h-10 w-100% pl-3 bg-white bc-silver-3 c-slate-10 bw-1 br-md fs-md fv:oo--1 fv:oc-indigo-5"
+                        className="h-10 w-100% pl-3 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md fv:oo--1 fv:oc-indigo-5"
                       />
                     </div>
                   </div>
@@ -130,7 +130,7 @@ export default function DialogEditProfile() {
                       render={<input />}
                       defaultValue="john"
                       aria-label="Username"
-                      className="h-10 w-100% pl-3 bg-white bc-silver-3 c-slate-10 bw-1 br-md fs-md fv:oo--1 fv:oc-indigo-5"
+                      className="h-10 w-100% pl-3 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md fv:oo--1 fv:oc-indigo-5"
                     />
                   </div>
                   <div className="d-f fd-c g-2">
@@ -154,7 +154,7 @@ export default function DialogEditProfile() {
                       render={<textarea />}
                       defaultValue="Lead developer working on the Sales Site and Dashboard projects."
                       aria-label="Bio"
-                      className="h-20 w-100% pt-3 pl-3 bg-white bc-silver-3 c-slate-10 br-md bw-1 fs-md r-none fv:oo--1 fv:oc-indigo-5"
+                      className="h-20 w-100% pt-3 pl-3 bg-white bc-silver-3 c-slate-10 br-lg bw-1 fs-md r-none fv:oo--1 fv:oc-indigo-5"
                     />
                   </div>
                 </div>
@@ -164,7 +164,7 @@ export default function DialogEditProfile() {
                       <motion.button
                         type="button"
                         {...(props as HTMLMotionProps<"button">)}
-                        className="px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5"
+                        className="px-3 py-2 bc-silver-2 c-slate-10 br-lg bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5"
                         whileTap={{ scale: 0.9 }}
                         transition={{ duration: 0.2, ease: "easeOut" }}
                       >
@@ -177,7 +177,7 @@ export default function DialogEditProfile() {
                       <motion.button
                         type="button"
                         {...(props as HTMLMotionProps<"button">)}
-                        className="px-3 py-2 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:oc-indigo-5 fv:oo-2"
+                        className="px-3 py-2 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-lg bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:oc-indigo-5 fv:oo-2"
                         whileTap={{ scale: 0.9 }}
                         transition={{ duration: 0.2, ease: "easeOut" }}
                       >

@@ -10,7 +10,7 @@ export default function SkeletonList() {
           <motion.div
             animate={{ opacity: [0.5, 1, 0.5] }}
             transition={{ duration: 1, repeat: Infinity, delay: i * 0.15 }}
-            className="w-9 h-9 bg-silver-2 br-md"
+            className="w-9 h-9 bg-silver-2 br-lg"
           />
           <div className="d-f fd-c g-1 fg-1">
             <motion.div

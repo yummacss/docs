@@ -20,7 +20,7 @@ export default function RatingStatic() {
               onPressedChange={() => setRating(star === rating ? 0 : star)}
               aria-label={`${star} star${star > 1 ? "s" : ""}`}
               className={(state) =>
-                `d-f ai-c jc-c w-9 h-9 bw-0 br-md us-none c-p fv:oo--1 fv:oc-indigo-5 ${
+                `d-f ai-c jc-c w-9 h-9 bw-0 br-lg us-none c-p fv:oo--1 fv:oc-indigo-5 ${
                   state.pressed
                     ? "bg-transparent c-yellow-5"
                     : "bg-transparent c-slate-4 h:c-slate-6"

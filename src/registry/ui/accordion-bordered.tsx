@@ -20,7 +20,7 @@ export default function AccordionBordered() {
           <Accordion.Item
             key={item.value}
             value={item.value}
-            className="bg-white bc-silver-3 bw-1 br-md"
+            className="bg-white bc-silver-3 bw-1 br-lg"
           >
             <Accordion.Header className="m-0">
               <Accordion.Trigger className="d-f ai-c jc-sb g-3 w-100% py-3 px-4 bg-transparent bw-0 br-sm ta-l c-p fv:oo-1 fv:oc-indigo-5">

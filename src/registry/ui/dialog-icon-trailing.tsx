@@ -14,7 +14,7 @@ export default function DialogIconTrailing() {
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger
         render={
-          <Button className="bg-white d-if ai-c g-2 px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5" />
+          <Button className="bg-white d-if ai-c g-2 px-3 py-2 bc-silver-2 c-slate-10 br-lg bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5" />
         }
       >
         Send invite
@@ -87,14 +87,14 @@ export default function DialogIconTrailing() {
                 <div className="d-g gtc-2 g-3 px-4 py-4 bg-white">
                   <Dialog.Close
                     render={
-                      <Button className="px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5" />
+                      <Button className="px-3 py-2 bc-silver-2 c-slate-10 br-lg bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5" />
                     }
                   >
                     Ignore
                   </Dialog.Close>
                   <Dialog.Close
                     render={
-                      <Button className="px-3 py-2 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:oc-indigo-5 fv:oo-2" />
+                      <Button className="px-3 py-2 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-lg bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:oc-indigo-5 fv:oo-2" />
                     }
                   >
                     Accept

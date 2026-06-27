@@ -13,7 +13,7 @@ export default function AlertDialogConfirmation() {
     <AlertDialog.Root open={open} onOpenChange={setOpen}>
       <AlertDialog.Trigger
         render={
-          <Button className="d-if ai-c px-3 py-2 bg-red h:bg-red-8 bc-red-7 c-white br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:oo-2 fv:oc-red-6" />
+          <Button className="d-if ai-c px-3 py-2 bg-red h:bg-red-8 bc-red-7 c-white br-lg bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:oo-2 fv:oc-red-6" />
         }
       >
         Delete account
@@ -68,7 +68,7 @@ export default function AlertDialogConfirmation() {
                 <div className="d-f jc-c px-4 pb-4 bg-white">
                   <AlertDialog.Close
                     render={
-                      <Button className="px-6 py-2 bg-red h:bg-red-8 bc-red-7 c-white br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:oc-red-6 fv:oo-2" />
+                      <Button className="px-6 py-2 bg-red h:bg-red-8 bc-red-7 c-white br-lg bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:oc-red-6 fv:oo-2" />
                     }
                   >
                     Confirm deletion

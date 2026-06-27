@@ -10,7 +10,7 @@ export default function MenuLg() {
 
   return (
     <Menu.Root open={open} onOpenChange={setOpen}>
-      <Menu.Trigger className="d-f ai-c g-2 px-4 py-3 h-fc bg-white bc-silver-2 c-slate-10 br-md bw-1 fw-500 bs-o-xs tp-c tdu-150 ttf-io us-none c-p h:bg-silver-1/50 fv:oo--1 fv:oc-indigo-5">
+      <Menu.Trigger className="d-f ai-c g-2 px-4 py-3 h-fc bg-white bc-silver-2 c-slate-10 br-lg bw-1 fw-500 bs-o-xs tp-c tdu-150 ttf-io us-none c-p h:bg-silver-1/50 fv:oo--1 fv:oc-indigo-5">
         Actions <NavArrowDown className="w-3 h-3" />
       </Menu.Trigger>
 
@@ -27,11 +27,11 @@ export default function MenuLg() {
                     transition={{ duration: 0.15, ease: "easeOut" }}
                   />
                 }
-                className="py-1 w-60 bg-white bc-silver-2 c-slate-10 bw-1 br-md bs-o-xs"
+                className="py-1 w-60 bg-white bc-silver-2 c-slate-10 bw-1 br-xxl bs-o-xs"
               >
                 <Menu.Item
                   className={(state) =>
-                    `d-f py-3 px-4 fs-md us-none c-p br-md mx-1 fw-500 ${
+                    `d-f py-3 px-4 fs-md us-none c-p br-xl mx-1 fw-500 ${
                       state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                     }`
                   }
@@ -40,7 +40,7 @@ export default function MenuLg() {
                 </Menu.Item>
                 <Menu.Item
                   className={(state) =>
-                    `d-f py-3 px-4 fs-md us-none c-p br-md mx-1 fw-500 ${
+                    `d-f py-3 px-4 fs-md us-none c-p br-xl mx-1 fw-500 ${
                       state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                     }`
                   }
@@ -49,7 +49,7 @@ export default function MenuLg() {
                 </Menu.Item>
                 <Menu.Item
                   className={(state) =>
-                    `d-f py-3 px-4 fs-md us-none c-p br-md mx-1 fw-500 ${
+                    `d-f py-3 px-4 fs-md us-none c-p br-xl mx-1 fw-500 ${
                       state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                     }`
                   }
@@ -58,7 +58,7 @@ export default function MenuLg() {
                 </Menu.Item>
                 <Menu.Item
                   className={(state) =>
-                    `d-f py-3 px-4 fs-md us-none c-p br-md mx-1 fw-500 ${
+                    `d-f py-3 px-4 fs-md us-none c-p br-xl mx-1 fw-500 ${
                       state.highlighted ? "bg-silver-1/50" : "bg-transparent"
                     }`
                   }

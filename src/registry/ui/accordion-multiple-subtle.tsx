@@ -21,7 +21,7 @@ export default function AccordionMultipleSubtle() {
           <Accordion.Item
             key={item.value}
             value={item.value}
-            className={`br-md ${isOpen ? "bg-indigo-1" : "bg-silver-1 h:bg-silver-2"}`}
+            className={`br-lg ${isOpen ? "bg-indigo-1" : "bg-silver-1 h:bg-silver-2"}`}
           >
             <Accordion.Header className="m-0">
               <Accordion.Trigger className="d-f ai-c jc-sb g-3 w-100% py-3 px-4 bg-transparent bw-0 br-sm ta-l c-p fv:oo-1 fv:oc-indigo-5">

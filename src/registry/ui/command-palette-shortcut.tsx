@@ -38,12 +38,12 @@ export default function CommandPaletteBase() {
     <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger
         render={
-          <Button className="bg-white d-f ai-c g-2 px-3 py-2 bc-silver-2 c-slate-10 br-md bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:oo-2 fv:oc-indigo-5" />
+          <Button className="bg-white d-f ai-c g-2 px-3 py-2 bc-silver-2 c-slate-10 br-lg bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:oo-2 fv:oc-indigo-5" />
         }
       >
         <Search className="w-4 h-4" />
         <span>Commands</span>
-        <kbd className="d-f ai-c g-1 px-1 py-1 ml-3 bc-silver-2 bw-1 c-slate-5 br-md fs-xs us-none">
+        <kbd className="d-f ai-c g-1 px-1 py-1 ml-3 bc-silver-2 bw-1 c-slate-5 br-lg fs-xs us-none">
           <KeyCommand className="w-3 h-3" />
           <Slash className="w-3 h-3" />
         </kbd>
@@ -97,7 +97,7 @@ export default function CommandPaletteBase() {
                               value={item.id}
                               onClick={() => setOpen(false)}
                               className={(state: { highlighted: boolean }) =>
-                                `d-f ai-c g-2 py-2 px-2 mx-2 fs-sm us-none c-p br-md ${
+                                `d-f ai-c g-2 py-2 px-2 mx-2 fs-sm us-none c-p br-lg ${
                                   state.highlighted
                                     ? "bg-silver-1/50"
                                     : "bg-transparent"

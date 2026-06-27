@@ -13,7 +13,7 @@ export default function ToolbarInput() {
   const [view, setView] = useState<string[]>(["grid"]);
 
   return (
-    <Toolbar.Root className="d-f ai-c g-1 p-2 bg-white bc-silver-2 br-md bw-1">
+    <Toolbar.Root className="d-f ai-c g-1 p-2 bg-white bc-silver-2 br-xxl bw-1">
       <ToggleGroup
         className="d-f g-1"
         value={view}
@@ -28,7 +28,7 @@ export default function ToolbarInput() {
               type="button"
               {...(props as HTMLMotionProps<"button">)}
               whileTap={{ scale: 0.92 }}
-              className={`d-f w-9 h-9 ai-c jc-c bw-0 br-md us-none c-p fv:oo-2 fv:oc-indigo-3 ${
+              className={`d-f w-9 h-9 ai-c jc-c bw-0 br-lg us-none c-p fv:oo-2 fv:oc-indigo-3 ${
                 state.pressed
                   ? "bg-indigo-1 bc-indigo-2 c-indigo-7 bw-1"
                   : "bg-transparent c-slate-7 h:bg-silver-1 h:c-slate-10"
@@ -46,7 +46,7 @@ export default function ToolbarInput() {
               type="button"
               {...(props as HTMLMotionProps<"button">)}
               whileTap={{ scale: 0.92 }}
-              className={`d-f w-9 h-9 ai-c jc-c bw-0 br-md us-none c-p fv:oo-2 fv:oc-indigo-3 ${
+              className={`d-f w-9 h-9 ai-c jc-c bw-0 br-lg us-none c-p fv:oo-2 fv:oc-indigo-3 ${
                 state.pressed
                   ? "bg-indigo-1 bc-indigo-2 c-indigo-7 bw-1"
                   : "bg-transparent c-slate-7 h:bg-silver-1 h:c-slate-10"
@@ -64,7 +64,7 @@ export default function ToolbarInput() {
               type="button"
               {...(props as HTMLMotionProps<"button">)}
               whileTap={{ scale: 0.92 }}
-              className={`d-f w-9 h-9 ai-c jc-c bw-0 br-md us-none c-p fv:oo-2 fv:oc-indigo-3 ${
+              className={`d-f w-9 h-9 ai-c jc-c bw-0 br-lg us-none c-p fv:oo-2 fv:oc-indigo-3 ${
                 state.pressed
                   ? "bg-indigo-1 bc-indigo-2 c-indigo-7 bw-1"
                   : "bg-transparent c-slate-7 h:bg-silver-1 h:c-slate-10"
@@ -86,7 +86,7 @@ export default function ToolbarInput() {
                 type="button"
                 {...(props as HTMLMotionProps<"button">)}
                 whileTap={{ scale: 0.92 }}
-                className="d-f ai-c jc-c w-9 h-9 bg-transparent c-slate-7 br-md bw-0 us-none c-p h:bg-silver-1 h:c-slate-10 fv:oo-2 fv:oc-indigo-3"
+                className="d-f ai-c jc-c w-9 h-9 bg-transparent c-slate-7 br-lg bw-0 us-none c-p h:bg-silver-1 h:c-slate-10 fv:oo-2 fv:oc-indigo-3"
               />
             )}
           >
@@ -102,7 +102,7 @@ export default function ToolbarInput() {
                 type="button"
                 {...(props as HTMLMotionProps<"button">)}
                 whileTap={{ scale: 0.92 }}
-                className="d-f ai-c jc-c w-9 h-9 bg-transparent c-slate-7 br-md bw-0 us-none c-p h:bg-silver-1 h:c-slate-10 fv:oo-2 fv:oc-indigo-3"
+                className="d-f ai-c jc-c w-9 h-9 bg-transparent c-slate-7 br-lg bw-0 us-none c-p h:bg-silver-1 h:c-slate-10 fv:oo-2 fv:oc-indigo-3"
               />
             )}
           >

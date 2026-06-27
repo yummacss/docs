@@ -21,7 +21,7 @@ export default function TextareaCharacterCount() {
         value={value}
         onChange={(e) => setValue(e.target.value)}
         placeholder="Describe the task..."
-        className="h-32 w-100% pt-3 pl-3 bg-white bc-silver-3 c-slate-10 br-md bw-1 fs-md bs-o-xs r-none fv:oo--1 fv:oc-indigo-5"
+        className="h-32 w-100% pt-3 pl-3 bg-white bc-silver-3 c-slate-10 br-lg bw-1 fs-md bs-o-xs r-none fv:oo--1 fv:oc-indigo-5"
       />
       <div className="d-f fd-c g-1">
         <div className="d-f jc-sb">

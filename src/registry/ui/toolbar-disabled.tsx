@@ -12,7 +12,7 @@ export default function ToolbarDisabled() {
   const [view, setView] = useState<string[]>(["grid"]);
 
   return (
-    <Toolbar.Root className="d-f ai-c g-1 p-2 bg-white bc-silver-2 br-md bw-1">
+    <Toolbar.Root className="d-f ai-c g-1 p-2 bg-white bc-silver-2 br-xxl bw-1">
       <ToggleGroup
         className="d-f g-1"
         value={view}
@@ -27,7 +27,7 @@ export default function ToolbarDisabled() {
               type="button"
               {...(props as HTMLMotionProps<"button">)}
               whileTap={{ scale: 0.92 }}
-              className={`d-f w-9 h-9 ai-c jc-c bw-0 br-md us-none c-p fv:oo-2 fv:oc-indigo-3 ${
+              className={`d-f w-9 h-9 ai-c jc-c bw-0 br-lg us-none c-p fv:oo-2 fv:oc-indigo-3 ${
                 state.pressed
                   ? "bg-indigo-1 bc-indigo-2 c-indigo-7 bw-1"
                   : "bg-transparent c-slate-7 h:bg-silver-1 h:c-slate-10"
@@ -45,7 +45,7 @@ export default function ToolbarDisabled() {
               type="button"
               {...(props as HTMLMotionProps<"button">)}
               whileTap={{ scale: 0.92 }}
-              className={`d-f w-9 h-9 ai-c jc-c bw-0 br-md us-none c-p fv:oo-2 fv:oc-indigo-3 ${
+              className={`d-f w-9 h-9 ai-c jc-c bw-0 br-lg us-none c-p fv:oo-2 fv:oc-indigo-3 ${
                 state.pressed
                   ? "bg-indigo-1 bc-indigo-2 c-indigo-7 bw-1"
                   : "bg-transparent c-slate-7 h:bg-silver-1 h:c-slate-10"
@@ -63,7 +63,7 @@ export default function ToolbarDisabled() {
               type="button"
               {...(props as HTMLMotionProps<"button">)}
               whileTap={{ scale: 0.92 }}
-              className={`d-f w-9 h-9 ai-c jc-c bw-0 br-md us-none c-p fv:oo-2 fv:oc-indigo-3 ${
+              className={`d-f w-9 h-9 ai-c jc-c bw-0 br-lg us-none c-p fv:oo-2 fv:oc-indigo-3 ${
                 state.pressed
                   ? "bg-indigo-1 bc-indigo-2 c-indigo-7 bw-1"
                   : "bg-transparent c-slate-7 h:bg-silver-1 h:c-slate-10"
@@ -83,7 +83,7 @@ export default function ToolbarDisabled() {
             type="button"
             {...(props as HTMLMotionProps<"button">)}
             whileTap={{ scale: 0.92 }}
-            className="d-f ai-c g-1 jc-c h-9 px-3 bg-transparent c-slate-7 br-md bw-0 fs-sm fw-500 us-none c-p h:bg-silver-1 h:c-slate-10 fv:oo-2 fv:oc-indigo-5"
+            className="d-f ai-c g-1 jc-c h-9 px-3 bg-transparent c-slate-7 br-lg bw-0 fs-sm fw-500 us-none c-p h:bg-silver-1 h:c-slate-10 fv:oo-2 fv:oc-indigo-5"
           />
         )}
       >
@@ -96,7 +96,7 @@ export default function ToolbarDisabled() {
             type="button"
             {...(props as HTMLMotionProps<"button">)}
             whileTap={{ scale: 0.92 }}
-            className="d-f ai-c g-1 jc-c h-9 px-3 bg-transparent c-slate-7 br-md bw-0 fs-sm fw-500 us-none c-p h:bg-silver-1 h:c-slate-10 fv:oo-2 fv:oc-indigo-5"
+            className="d-f ai-c g-1 jc-c h-9 px-3 bg-transparent c-slate-7 br-lg bw-0 fs-sm fw-500 us-none c-p h:bg-silver-1 h:c-slate-10 fv:oo-2 fv:oc-indigo-5"
           />
         )}
       >
@@ -109,7 +109,7 @@ export default function ToolbarDisabled() {
           <motion.button
             type="button"
             {...(props as HTMLMotionProps<"button">)}
-            className="d-f ai-c g-1 jc-c h-9 px-3 bg-transparent h:bg-transparent c-slate-7/50 br-md bw-0 fs-sm fw-500 us-none c-na o-50"
+            className="d-f ai-c g-1 jc-c h-9 px-3 bg-transparent h:bg-transparent c-slate-7/50 br-lg bw-0 fs-sm fw-500 us-none c-na o-50"
           />
         )}
       >
@@ -120,7 +120,7 @@ export default function ToolbarDisabled() {
       <Toolbar.Separator className="w-px h-5 mx-1 bg-silver-2" />
 
       <Toolbar.Input
-        className="h-9 w-40 pl-3 bg-transparent bw-0 br-md fs-sm fv:oo-2 fv:oc-indigo-3"
+        className="h-9 w-40 pl-3 bg-transparent bw-0 br-lg fs-sm fv:oo-2 fv:oc-indigo-3"
         placeholder="Search tasks..."
         aria-label="Search tasks"
       />
