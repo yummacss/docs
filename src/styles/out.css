@@ -1760,6 +1760,10 @@ summary {
   max-height: fit-content;
 }
 
+.max-w-288 {
+  max-width: 72rem;
+}
+
 .max-w-96 {
   max-width: 24rem;
 }
