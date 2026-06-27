@@ -46,7 +46,7 @@ export default function Home() {
           <div className="d-g g-12 ai-fe @lg:gtc-2">
             <div>
               <h1 className="mb-6 fs-4xl fw-400 lh-2 ff-e @md:fs-5xl @lg:fs-6xl">
-                If you know CSS, you already know Yumma CSS.
+                Know CSS? You know Yumma CSS.
               </h1>
               <p className="mb-8 c-white/70 fs-md lh-5 @md:fs-lg">
                 Class names derived from CSS property names by one rule. No
