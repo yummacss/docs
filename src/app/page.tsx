@@ -3,30 +3,29 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "@/components/ui/navbar";
 
-const tagline = "Type less. Style more.";
+const tagline = "If you know CSS, you already know Yumma CSS.";
+const description =
+  "Yumma CSS is a utility framework whose class names are derived from CSS property names by one rule. No invented vocabulary, no lookup tables: just CSS, compressed.";
 
 export const metadata: Metadata = {
-  title: `Yumma CSS - ${tagline}`,
-  description:
-    "Yumma CSS is an ergonomic CSS framework with abbreviated utility classes. Write d-f instead of flex, fw-600 instead of font-semibold. Faster styling, less typing.",
+  title: `Yumma CSS - Utility CSS with no new vocabulary`,
+  description,
   openGraph: {
-    title: `Yumma CSS - ${tagline}`,
-    description:
-      "Yumma CSS is an ergonomic CSS framework with abbreviated utility classes. Write d-f instead of flex, fw-600 instead of font-semibold. Faster styling, less typing.",
+    title: `Yumma CSS - Utility CSS with no new vocabulary`,
+    description,
     images: [
       {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: tagline,
+        alt: "Yumma CSS - Utility CSS with no new vocabulary",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `Yumma CSS - ${tagline}`,
-    description:
-      "Yumma CSS is an ergonomic CSS framework with abbreviated utility classes. Write d-f instead of flex, fw-600 instead of font-semibold. Faster styling, less typing.",
+    title: `Yumma CSS - Utility CSS with no new vocabulary`,
+    description,
     images: ["/og.png"],
   },
 };
@@ -47,16 +46,11 @@ export default function Home() {
           <div className="d-g g-12 ai-fe @lg:gtc-2">
             <div>
               <h1 className="mb-6 fs-4xl fw-400 lh-2 ff-e @md:fs-5xl @lg:fs-6xl">
-                Type less. Style more.
+                If you know CSS, you already know Yumma CSS.
               </h1>
               <p className="mb-8 c-white/70 fs-md lh-5 @md:fs-lg">
-                The ergonomic CSS framework with abbreviated utility classes.{" "}
-                <span className="c-white fs-sm @md:fs-md">d</span> not{" "}
-                <span className="c-white fs-sm @md:fs-md">display</span>,{" "}
-                <span className="c-white fs-sm @md:fs-md">fw</span> not{" "}
-                <span className="c-white fs-sm @md:fs-md">font-weight</span>,{" "}
-                <span className="c-white fs-sm @md:fs-md">g</span> not{" "}
-                <span className="c-white fs-sm @md:fs-md">gap</span>.
+                Class names derived from CSS property names by one rule. No
+                invented vocabulary, no lookup tables: just CSS, compressed.
               </p>
 
               <div className="d-f fw-w g-4 mb-12">

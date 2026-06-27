@@ -2799,10 +2799,6 @@ summary {
     font-size: 1.125rem;
   }
 
-  .\@md\:fs-md {
-    font-size: 1rem;
-  }
-
   .\@md\:gtc-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }

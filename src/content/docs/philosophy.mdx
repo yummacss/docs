@@ -4,7 +4,7 @@ title: Philosophy
 description: Why Yumma CSS maps class names directly to CSS properties.
 ---
 
-## Abbreviations, not aliases
+## Derivation, not aliasing
 
 Most utility frameworks introduce a vocabulary layer. Class names *represent* CSS values through human-readable aliases.
 
@@ -16,15 +16,15 @@ Most utility frameworks introduce a vocabulary layer. Class names *represent* CS
 <h1 class="d-if ai-c mbs-6 ml-4 c-black fw-600">Blog<h1>
 ```
 
-With abbreviations, you already know CSS, the class name is just an abbreviation of what you already know.
+With Yumma CSS, if you know CSS, you already know the class name. Each class is derived from the CSS property and value you would have written anyway.
 
 ## About semantics
 
 Semantic frameworks optimize for readability, `font-semibold` reads very naturally. But readability comes at a cost: you need to memorize a separate vocabulary on top of CSS. `font-semibold` doesn't tell you it's `font-weight: 600`. `items-center` doesn't tell you it's `align-items`, and so on and so forth.
 
-The abbreviation mental model tries to be a set of consistent and predictable micro patterns. Once you know that `jc` is `justify-content` and `c` is `center`, you know `jc-c` forever, and you also know `jc-fe` (flex-end), `jc-sb` (space-between), and every other value without looking anything up.
+The derivation rule is consistent and predictable. Once you know that `jc` is the initials of `justify-content` and `c` is the initial of `center`, you can derive `jc-c` without looking anything up. The same rule gives you `jc-fe` (flex-end), `jc-sb` (space-between), and every other value.
 
-There is no vocabulary to memorize on top of CSS. There is only CSS, abbreviated.
+There is no vocabulary to memorize on top of CSS. There is only CSS, compressed.
 
 ## How does it works?
 
@@ -48,9 +48,9 @@ Every class in Yumma CSS maps to exactly one CSS property.
 }
 ```
 
-## Smaller markup, same output
+## One class, one property
 
-Fewer characters per class means less noise in your markup. This also means smaller bundles.
+Every class maps to exactly one CSS property. The generated CSS is transparent and predictable by inspection.
 
 ```html
 // 1.1kB
@@ -65,7 +65,7 @@ Fewer characters per class means less noise in your markup. This also means smal
 - You prefer explicit values (`fw-600`) over semantic aliases (`font-semibold`).
 - You want predictable output without indirections.
 - You're building a design system where consistency and transparency matter.
-- You want a smaller, faster mental model.
+- You want no new vocabulary to memorize.
 
 ## When it may not fit
 
