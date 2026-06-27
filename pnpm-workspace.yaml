@@ -1,4 +1,0 @@
-minimumReleaseAgeExclude:
-  - '@yummacss/core@3.25.0'
-  - '@yummacss/nitro@3.25.0'
-  - yummacss@3.25.0
