@@ -5,20 +5,19 @@ import type { Metadata } from "next";
 import JsonLd from "@/components/json-ld";
 
 const description =
-  "Yumma CSS is an ergonomic CSS framework with abbreviated utility classes. Write d-f instead of flex, fw-600 instead of font-semibold. Faster styling, less typing.";
-const tagline = "Type less. Style more.";
+  "Yumma CSS is a utility framework whose class names are derived from CSS property names by one rule. No invented vocabulary, no lookup tables: just CSS, compressed.";
 
 export const metadata: Metadata = {
   title: {
-    default: `Yumma CSS - ${tagline}`,
+    default: "Yumma CSS - Utility CSS with no new vocabulary",
     template: "%s · Yumma CSS",
   },
   description,
   keywords: [
-    "abbreviated css",
-    "atomic css",
+    "utility css",
     "css framework",
-    "ergonomic css framework",
+    "derived class names",
+    "css-native",
     "utility classes",
   ],
   icons: {
@@ -33,13 +32,13 @@ export const metadata: Metadata = {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: `Yumma CSS - ${tagline}`,
+        alt: "Yumma CSS - Utility CSS with no new vocabulary",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `Yumma CSS - ${tagline}`,
+    title: "Yumma CSS - Utility CSS with no new vocabulary",
     description,
     images: ["/og.png"],
   },
