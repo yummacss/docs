@@ -11,6 +11,18 @@ const nextConfig = {
   async redirects() {
     return redirects;
   },
+  async rewrites() {
+    return [
+      {
+        source: "/docs/:slug.md",
+        destination: "/api/docs-md/:slug",
+      },
+      {
+        source: "/ui/components/:slug.md",
+        destination: "/api/ui-md/:slug",
+      },
+    ];
+  },
 };
 
 const withMDX = createMDX({
