@@ -1,30 +1,13 @@
 import { allDocs, allUis } from "content-collections";
-import { sidebarConfig, type SidebarSection } from "@/config/sidebar";
+import { sidebarConfig } from "@/config/sidebar";
 
 export const dynamic = "force-static";
 
 const BASE = "https://yummacss.com";
 
-function flattenSlugs(sections: SidebarSection[]): string[] {
-  const slugs: string[] = [];
-  for (const section of sections) {
-    for (const item of section.items) {
-      if (typeof item === "string") {
-        slugs.push(item);
-      } else {
-        slugs.push(...item.items);
-      }
-    }
-  }
-  return slugs;
-}
-
 export function GET() {
   const docMap = new Map(allDocs.map((d) => [d._meta.path, d]));
   const uiMap = new Map(allUis.map((u) => [u._meta.path, u]));
-
-  const docSlugs = flattenSlugs(sidebarConfig.docs);
-  const uiSlugs = flattenSlugs(sidebarConfig.ui);
 
   const lines: string[] = [
     "# Yumma CSS",
@@ -39,27 +22,44 @@ export function GET() {
     `UI Components: ${BASE}/ui`,
     `Full context: ${BASE}/llms-full.txt`,
     "",
-    "## Documentation",
-    "",
   ];
 
-  for (const slug of docSlugs) {
-    const doc = docMap.get(slug);
-    const title = doc?.title ?? slug;
-    const desc = doc?.description ? `: ${doc.description}` : "";
-    lines.push(`- [${title}](${BASE}/docs/${slug}.md)${desc}`);
+  for (const section of sidebarConfig.docs) {
+    lines.push(`## ${section.title}`, "");
+    for (const item of section.items) {
+      if (typeof item === "string") {
+        const doc = docMap.get(item);
+        const title = doc?.title ?? item;
+        const desc = doc?.description ? `: ${doc.description}` : "";
+        lines.push(`- [${title}](${BASE}/docs/${item}.md)${desc}`);
+      } else {
+        lines.push(`### ${item.title}`, "");
+        for (const slug of item.items) {
+          const doc = docMap.get(slug);
+          const title = doc?.title ?? slug;
+          const desc = doc?.description ? `: ${doc.description}` : "";
+          lines.push(`- [${title}](${BASE}/docs/${slug}.md)${desc}`);
+        }
+        lines.push("");
+      }
+    }
+    lines.push("");
   }
 
-  lines.push("", "## UI Components", "");
+  lines.push("## UI Components", "");
 
-  for (const slug of uiSlugs) {
-    const ui = uiMap.get(slug);
-    const title = ui?.title ?? slug;
-    const desc = ui?.description ? `: ${ui.description}` : "";
-    lines.push(`- [${title}](${BASE}/ui/components/${slug}.md)${desc}`);
+  for (const section of sidebarConfig.ui) {
+    lines.push(`### ${section.title}`, "");
+    for (const item of section.items) {
+      if (typeof item === "string") {
+        const ui = uiMap.get(item);
+        const title = ui?.title ?? item;
+        const desc = ui?.description ? `: ${ui.description}` : "";
+        lines.push(`- [${title}](${BASE}/ui/components/${item}.md)${desc}`);
+      }
+    }
+    lines.push("");
   }
-
-  lines.push("");
 
   return new Response(lines.join("\n"), {
     headers: {

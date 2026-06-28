@@ -24,7 +24,7 @@ export default function UILayout({ children }: { children: React.ReactNode }) {
       <Navbar showMobileDrawer />
 
       <main
-        className="zi-0 mx-auto px-6docs-container"
+        className="zi-0 mx-auto px-6 docs-container"
       >
         <div className="d-g gtc-1 g-8 @lg:gtc-12">
           <Sidebar variant="ui" />
