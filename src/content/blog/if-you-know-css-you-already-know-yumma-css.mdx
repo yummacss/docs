@@ -1,0 +1,48 @@
+---
+authors:
+- Renildo
+cover: if-you-know-css-you-already-know-yumma-css.png
+date: 2026-06-29
+description: "Tailwind's class names are readable, but they're not CSS. Three years ago I decided I wanted mine to trace back to CSS I already knew, so I built Yumma CSS."
+title: If You Know CSS, You Already Know Yumma CSS
+---
+
+Tailwind's class names are readable. `items-center` tells you what it does. But it's not CSS. It's Tailwind's own name for `align-items: center`, & that name doesn't always trace back cleanly. `gap-x-4` reads fine, but `gap-x` isn't a CSS property. `column-gap` is. Same with `shrink-0` for `flex-shrink: 0`, or `flex-col` for `flex-direction: column`. Every one of these is something you learn on top of CSS, not something CSS already taught you.
+
+I didn't want a second vocabulary. I wanted the one I already had to be enough. Three years ago that turned into Yumma CSS.
+
+## The rule
+
+Yumma CSS doesn't invent class names. It derives them from the CSS you already know, using one mechanical rule:
+
+- The prefix is the initials of the property's words.
+- The suffix is the initials of the value's words.
+
+```css
+/* display: flex;                  -> */ .d-f { … }
+/* justify-content: space-between; -> */ .jc-sb { … }
+/* align-items: center;            -> */ .ai-c { … }
+/* flex-direction: column;         -> */ .fd-c { … }
+/* column-gap: 1rem;               -> */ .cg-4 { … }
+/* margin-top: 1rem;               -> */ .mt-4 { … }
+```
+
+If you already think in CSS properties, you can guess most of these correctly before you've opened the docs. There's no separate naming system to hold in your head alongside the one you already have.
+
+## What it costs you
+
+I'm not going to pretend this is free.
+
+Yumma's numeric scale is curated, not arbitrary. Spacing & sizing run on a fixed `0.25rem` step from `0` to `96rem`, & that's it. There's no bracket syntax, no `w-[137px]`. If the value you want isn't on the scale, you don't get it, & that's deliberate: fewer one-off values floating around a codebase, more consistency by default. It's the same bet most design systems make when they limit themselves to tokens instead of arbitrary numbers.
+
+It also means this isn't a beginner's tool. If you don't already know what `justify-content` does, abbreviating it to `jc` doesn't help you. It just looks cryptic. Yumma CSS is for people who already think in CSS properties & want their classes to trace back to that knowledge directly, not for people learning CSS for the first time. I'm fine saying that plainly.
+
+## Where this leaves Tailwind
+
+This isn't an argument that Tailwind is worse. Its naming is genuinely good: readable, consistent, easy to skim. It's just a different design goal. Tailwind optimizes for names that read well on their own; Yumma CSS optimizes for names that map directly onto the property & value they produce. Both are reasonable things to want. I just happen to want the second one, for myself & for anyone else who'd rather not maintain two mental models of "what makes a margin."
+
+## Where it's at
+
+This is a solo project, three years in, still early. The [docs](https://www.yummacss.com/docs) walk through the full rule & the rest of the utilities, & the [playground](https://play.yummacss.com) lets you try it without installing anything.
+
+If you poke around & think the rule breaks somewhere, I'd genuinely like to hear where. That's more useful to me right now than a star.
