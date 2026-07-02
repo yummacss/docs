@@ -20,7 +20,7 @@ Initialize a configuration file in your project.
 pnpx yummacss init
 ```
 
-This creates a `yumma.config.mjs` file at your project root.
+This creates a `yumma.config.mjs` file at your project root. The same configuration file powers the CLI & the bundler plugins (`@yummacss/vite` & `@yummacss/postcss`).
 
 ```mjs title="yumma.config.mjs" mark={4-5}
 import { defineConfig } from "yummacss";
@@ -50,6 +50,11 @@ export default defineConfig({
 ### Output
 
 Specifies the output path for the compiled CSS file.
+
+<Hint icon="info">
+  Only the CLI uses `output`. The bundler plugins ignore it & inject the
+  generated CSS through the `@yummacss;` marker instead.
+</Hint>
 
 ```mjs title="yumma.config.mjs" mark={4}
 import { defineConfig } from "yummacss";

@@ -1,16 +1,127 @@
 ---
 order: 2
 title: Installation
-description: Install Yumma CSS using the CLI or CDN.
+description: Install Yumma CSS using a bundler plugin, the CLI, or CDN.
 ---
 
 ## Set up Yumma CSS
 
 Follow these steps to get started with Yumma CSS.
 
-### Use the CLI
+<Tabs defaultValue="vite">
+  <TabsList>
+    <TabsTab value="vite">With Vite</TabsTab>
+    <TabsTab value="nextjs">With Next.js</TabsTab>
+    <TabsTab value="cli">With CLI</TabsTab>
+    <TabsTab value="cdn">With CDN</TabsTab>
+  </TabsList>
 
-Install Yumma CSS with your favorite package manager:
+<TabsPanel value="vite">
+
+Use the `@yummacss/vite` plugin with Vite & Vite-based frameworks like SvelteKit, Astro, Nuxt, & Solid. Generated CSS is rebuilt automatically as you work.
+
+<Stepper>
+  <Step title="Install Yumma CSS">
+    ```bash
+    pnpm add yummacss @yummacss/vite -D
+    ```
+  </Step>
+
+  <Step title="Add the Plugin">
+    Register the plugin in your Vite configuration.
+
+    ```ts title="vite.config.ts" mark={2,5}
+    import { defineConfig } from "vite";
+    import yummacss from "@yummacss/vite";
+
+    export default defineConfig({
+      plugins: [yummacss()],
+    });
+    ```
+
+  </Step>
+
+  <Step title="Configure Sources">
+    Specify the locations/paths of your project files in the config file.
+
+    ```mjs title="yumma.config.mjs" mark={4}
+    import { defineConfig } from "yummacss";
+
+    export default defineConfig({
+      source: ["./src/**/*.{ts,tsx}"],
+    });
+    ```
+
+  </Step>
+
+  <Step title="Add the Marker">
+    Add the `@yummacss;` marker to your CSS entry file. The plugin replaces it with generated CSS.
+
+    ```css title="src/styles.css"
+    @yummacss;
+    ```
+
+  </Step>
+</Stepper>
+
+</TabsPanel>
+
+<TabsPanel value="nextjs">
+
+Use the `@yummacss/postcss` plugin with Next.js. It works with both Turbopack & Webpack through the built-in PostCSS support.
+
+<Stepper>
+  <Step title="Install Yumma CSS">
+    ```bash
+    pnpm add yummacss @yummacss/postcss -D
+    ```
+  </Step>
+
+  <Step title="Configure PostCSS">
+    Register the plugin in your PostCSS configuration.
+
+    ```mjs title="postcss.config.mjs" mark={3}
+    export default {
+      plugins: {
+        "@yummacss/postcss": {},
+      },
+    };
+    ```
+
+  </Step>
+
+  <Step title="Configure Sources">
+    Specify the locations/paths of your project files in the config file.
+
+    ```mjs title="yumma.config.mjs" mark={4}
+    import { defineConfig } from "yummacss";
+
+    export default defineConfig({
+      source: ["./src/**/*.{ts,tsx}"],
+    });
+    ```
+
+  </Step>
+
+  <Step title="Add the Marker">
+    Add the `@yummacss;` marker to your global CSS file. The plugin replaces it with generated CSS.
+
+    ```css title="globals.css"
+    @yummacss;
+    ```
+
+  </Step>
+</Stepper>
+
+<Hint icon="info">
+  The PostCSS plugin works anywhere PostCSS runs - not just Next.js.
+</Hint>
+
+</TabsPanel>
+
+<TabsPanel value="cli">
+
+Prefer generating a plain CSS file? Install Yumma CSS with your favorite package manager & use the CLI:
 
 <Stepper>
   <Step title="Install Yumma CSS">
@@ -52,7 +163,9 @@ Install Yumma CSS with your favorite package manager:
   </Step>
 </Stepper>
 
-### Use the CDN
+</TabsPanel>
+
+<TabsPanel value="cdn">
 
 Import Yumma CSS directly into your HTML file via CDN for quick prototyping.
 
@@ -76,3 +189,5 @@ Import Yumma CSS directly into your HTML file via CDN for quick prototyping.
   </Step>
 </Stepper>
 
+</TabsPanel>
+</Tabs>

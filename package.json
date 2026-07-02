@@ -10,7 +10,7 @@
   "scripts": {
     "build": "next build",
     "build:css": "yummacss build",
-    "dev": "concurrently \"next dev\" \"yummacss watch\"",
+    "dev": "next dev",
     "format": "biome format --write .",
     "generate:registry": "node scripts/generate-registry.mjs",
     "lint": "biome check .",
@@ -18,7 +18,7 @@
     "sort": "sort-package-json",
     "start": "next start",
     "update-yummacss": "pnpm up yummacss @yummacss/core --latest",
-    "validate": "node scripts/validate-yummacss.mjs"
+    "validate": "yummacss build && node scripts/validate-yummacss.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.6.0",
@@ -57,12 +57,18 @@
     "@types/react-dom": "^19.2.3",
     "@types/three": "^0.185.0",
     "@types/tinycolor2": "^1.4.6",
-    "concurrently": "^10.0.3",
+    "@yummacss/postcss": "^3.26.0",
     "remark-code-preview": "^1.2.6",
     "sort-package-json": "^4.0.0",
     "tsx": "^4.22.4",
     "typescript": "^6.0.3",
-    "yummacss": "^3.25.0",
+    "yummacss": "^3.26.0",
     "zod": "^4.4.3"
+  },
+  "pnpm": {
+    "overrides": {
+      "@yummacss/core": "^3.26.0",
+      "@yummacss/nitro": "^3.26.0"
+    }
   }
 }

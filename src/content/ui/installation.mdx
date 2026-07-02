@@ -34,16 +34,22 @@ If you're using Vite for your React project, follow these steps to get started.
     Install the core dependencies for Yumma UI.
 
     ```bash
-    pnpm add yummacss @base-ui/react iconoir-react motion 
+    pnpm add yummacss @yummacss/vite @base-ui/react iconoir-react motion
     ```
 
   </Step>
 
-  <Step title="Initialize Yumma CSS">
-    Create a configuration file in your project.
+  <Step title="Add the Plugin">
+    Register the Yumma CSS plugin in your Vite configuration.
 
-    ```bash
-    pnpm yummacss init
+    ```ts title="vite.config.ts" mark={3,7}
+    import react from "@vitejs/plugin-react";
+    import { defineConfig } from "vite";
+    import yummacss from "@yummacss/vite";
+
+    export default defineConfig({
+      plugins: [react(), yummacss()],
+    });
     ```
 
   </Step>
@@ -56,14 +62,17 @@ If you're using Vite for your React project, follow these steps to get started.
 
     export default defineConfig({
       source: ["./src/**/*.{ts,tsx}"],
-      output: "./src/styles.css",
     });
     ```
 
   </Step>
 
   <Step title="Import Styles">
-    Import the generated CSS file in your root entry file.
+    Create a CSS file containing the `@yummacss;` marker & import it in your root entry file. The plugin replaces the marker with generated CSS.
+
+    ```css title="src/styles.css"
+    @yummacss;
+    ```
 
     ```tsx mark={1}
     import "./styles.css";
@@ -101,16 +110,20 @@ The recommended way to use Yumma UI with Next.js is by using the App Router.
     Install the core dependencies for Yumma UI.
 
     ```bash
-    pnpm add yummacss @base-ui/react iconoir-react motion 
+    pnpm add yummacss @yummacss/postcss @base-ui/react iconoir-react motion
     ```
 
   </Step>
 
-  <Step title="Initialize Yumma CSS">
-    Create a configuration file in your project.
+  <Step title="Configure PostCSS">
+    Register the Yumma CSS plugin in your PostCSS configuration. It works with both Turbopack & Webpack.
 
-    ```bash
-    pnpm yummacss init
+    ```js title="postcss.config.mjs" mark={3}
+    export default {
+      plugins: {
+        "@yummacss/postcss": {},
+      },
+    };
     ```
 
   </Step>
@@ -123,18 +136,20 @@ The recommended way to use Yumma UI with Next.js is by using the App Router.
 
     export default defineConfig({
       source: ["./src/**/*.{ts,tsx}"],
-      output: "./src/styles.css",
-      normalize: true,
     });
     ```
 
   </Step>
 
   <Step title="Import Styles">
-    Import the generated CSS file in your root layout.
+    Create a global CSS file containing the `@yummacss;` marker & import it in your root layout. The plugin replaces the marker with generated CSS.
+
+    ```css title="globals.css"
+    @yummacss;
+    ```
 
     ```tsx mark={1}
-    import "./styles.css";
+    import "./globals.css";
 
     export default function RootLayout({ children }) {
       return (
@@ -147,4 +162,3 @@ The recommended way to use Yumma UI with Next.js is by using the App Router.
 
   </Step>
 </Stepper>
-
