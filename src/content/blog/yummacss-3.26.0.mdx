@@ -31,7 +31,7 @@ Use `@yummacss/postcss` with Next.js. It works with both Turbopack & Webpack thr
 npm install -D @yummacss/postcss
 ```
 
-```js "postcss.config.mjs"
+```js "postcss.config.mjs" mark={3}
 export default {
   plugins: {
     "@yummacss/postcss": {},
@@ -49,7 +49,7 @@ Use `@yummacss/vite` for Vite & every Vite-based framework — SvelteKit, Astro,
 npm install -D @yummacss/vite
 ```
 
-```js "vite.config.js"
+```js "vite.config.js" mark={1,5}
 import yummacss from "@yummacss/vite";
 import { defineConfig } from "vite";
 
