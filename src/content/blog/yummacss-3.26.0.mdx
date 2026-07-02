@@ -1,0 +1,84 @@
+---
+authors:
+- Renildo
+cover: /blog/yummacss-3.26.0.png
+date: 2026-07-02
+description: "First-party Vite & PostCSS plugins - one dev server, no second process."
+title: Yumma CSS 3.26
+---
+
+Yumma CSS 3.26 introduces first-party bundler plugins. Until now, using Yumma CSS with a framework meant running two processes side by side - your dev server & `yummacss watch` - usually glued together with `concurrently`. That workaround is gone.
+
+```json
+// Before
+"dev": "concurrently \"next dev --turbopack\" \"yummacss watch\""
+
+// After
+"dev": "next dev --turbopack"
+```
+
+Both plugins share the same mechanism. Add the `@yummacss;` marker to your CSS entry file & the plugin replaces it with generated CSS - rebuilt automatically as you edit your source files.
+
+```css
+/* globals.css */
+@yummacss;
+```
+
+## PostCSS Plugin
+
+Use `@yummacss/postcss` with Next.js - it works with both Turbopack & Webpack through the built-in PostCSS support, so there is no separate plugin per bundler.
+
+```bash
+npm install -D @yummacss/postcss
+```
+
+```js
+// postcss.config.mjs
+export default {
+  plugins: {
+    "@yummacss/postcss": {},
+  },
+};
+```
+
+That's it. New classes appear as you type, newly created files are picked up automatically, & `next build` generates the final CSS in the same pass.
+
+## Vite Plugin
+
+Use `@yummacss/vite` for Vite & every Vite-based framework - SvelteKit, Astro, Nuxt, Solid, & plain Vite.
+
+```bash
+npm install -D @yummacss/vite
+```
+
+```js
+// vite.config.js
+import yummacss from "@yummacss/vite";
+import { defineConfig } from "vite";
+
+export default defineConfig({
+  plugins: [yummacss()],
+});
+```
+
+Class changes hot-swap the generated CSS without a full page reload.
+
+## Existing Setups
+
+Nothing breaks. The CLI, `yumma.config.mjs`, & the `output` workflow keep working exactly as before - the plugins simply ignore `output` & inject the CSS through your bundler instead. Both dev servers also pick up edits to `yumma.config.mjs` without a restart.
+
+## What's Next: Class Validation
+
+Abbreviated utilities are easy to write, but they are also easy to get wrong - especially for AI models. LLMs love to mix in Tailwind syntax, writing `gap-4` when they mean `g-4`. The `llms.txt` routes help, but suggestions are not enforcement.
+
+We are working on a class validator that scans your source files & reports every class that Yumma CSS does not recognize. Run it in CI to catch typos, or let your AI agent run it as a feedback loop & fix its own hallucinations. We already use an early version of it to validate every class in these docs.
+
+## ICYMI: A Bigger Scale
+
+Yumma CSS 3.25 extended the spacing & sizing scale from `0-100` to `0-384` - up to `96rem`. This covers width & height (including `min-*` & `max-*` variants, `block-size`, & `inline-size`), `margin`, `padding`, insets, `gap` (including `column-gap` & `row-gap`), `flex-basis`, & `scroll-margin` / `scroll-padding`.
+
+```html
+<div class="w-384 px-160"></div>
+```
+
+Check the [changelog](https://github.com/yummacss/yummacss/blob/main/CHANGELOG.md) for the full list of changes.
