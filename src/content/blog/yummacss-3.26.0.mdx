@@ -9,11 +9,8 @@ title: Yumma CSS 3.26
 
 Yumma CSS 3.26 ships first-party bundler plugins. Before this release, you ran 2 processes side by side — your dev server & `yummacss watch` — usually glued together with `concurrently`. That workaround is gone.
 
-```json "package.json" del={2} ins={4}
-// Before
+```json "package.json" del={1} ins={2}
 "dev": "concurrently \"next dev --turbopack\" \"yummacss watch\""
-
-// After
 "dev": "next dev --turbopack"
 ```
 
@@ -57,12 +54,6 @@ export default defineConfig({
   plugins: [yummacss()],
 });
 ```
-
-Class changes hot-swap the generated CSS without a full page reload.
-
-## Existing Setups
-
-Everything keeps working. The CLI, `yumma.config.mjs`, & the `output` workflow work exactly as before — the plugins ignore `output` & inject the CSS through your bundler instead. Both dev servers also pick up edits to `yumma.config.mjs` without a restart.
 
 ## ICYMI: A Bigger Scale
 
