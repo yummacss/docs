@@ -171,7 +171,7 @@ export default function OnboardingChecklist() {
                                   }`}
                                 >
                                   <div
-                                    className={`d-f ai-c jc-c w-4 h-4 br-sm bw-1 flex-shrink-0 ${
+                                    className={`d-f ai-c jc-c w-4 h-4 br-sm bw-1 fs-0 ${
                                       isChecked
                                         ? "bg-green bc-green-5 c-white bw-0"
                                         : "bc-silver-3"

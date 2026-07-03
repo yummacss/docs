@@ -48,7 +48,7 @@ export default function PopoverColorPalette() {
                         setOpen(false);
                       }}
                       aria-label={color.label}
-                      className={`d-f ai-c jc-c w-8 h-8 br-9999 bw-0 cp ${color.bgClass}`}
+                      className={`d-f ai-c jc-c w-8 h-8 br-9999 bw-0 c-p ${color.bgClass}`}
                     >
                       {selected === color.value && (
                         <Check className="w-4 h-4 c-white" />
