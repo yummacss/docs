@@ -55,6 +55,25 @@ export default defineConfig({
 });
 ```
 
+## Validate Classes
+
+Abbreviated utilities are easy to write, but they are also easy to get wrong - especially for AI models. LLMs love to mix in Tailwind syntax, writing `gap-4` when they mean `g-4`. The new `@yummacss/validator` package scans your source files & reports every class that Yumma CSS does not recognize.
+
+```bash
+npx yummacss-validator
+```
+
+```
+Scanned 42 files and found 128 unique classes.
+Found 2 classes Yumma CSS does not recognize:
+ "gap-4"
+  - src/components/hero.tsx
+ "items-center"
+  - src/components/hero.tsx
+```
+
+Validity is checked against the Yumma CSS generator itself, so a class is valid exactly when it produces CSS - variants, opacity, negative values, custom theme colors, prefixes, & safelist entries are all understood. It exits with code `1` when unknown classes are found. Run it in CI to catch typos, or let your AI agent run it as a feedback loop & fix its own hallucinations. Use `--allow "my-custom-class"` for classes you define in your own CSS.
+
 ## ICYMI: A Bigger Scale
 
 Yumma CSS 3.25 extended the spacing & sizing scale from `0-100` to `0-384` - up to `96rem`. This covers width & height (including `min-*` & `max-*` variants, `block-size`, & `inline-size`), `margin`, `padding`, insets, `gap` (including `column-gap` & `row-gap`), `flex-basis`, & `scroll-margin` / `scroll-padding`.
