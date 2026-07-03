@@ -26,7 +26,7 @@ export default function CollapsibleStatic() {
       </Collapsible.Trigger>
 
       <Collapsible.Panel
-        className={`d-b o-h tp-all tdu-200 ttf-io ${open ? "h-auto o-1" : "h-0 o-0"}`}
+        className={`d-b o-h tp-a tdu-200 ttf-io ${open ? "h-auto o-1" : "h-0 o-0"}`}
       >
         <div className="d-f fd-c px-3 py-2 bg-white">
           {tasks.map((task) => (
