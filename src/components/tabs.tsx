@@ -41,7 +41,7 @@ export function TabsList({
 }: TabsListProps) {
   return (
     <BaseTabs.List
-      className={`d-f p-r zi-0 px-1 cg-1 bbw-1 bc-border ${className}`}
+      className={`d-f p-r zi-0 px-1 cg-1 bbw-1 bc-border ox-auto ${className}`}
       style={style}
       {...props}
     >
