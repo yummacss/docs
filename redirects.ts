@@ -14,12 +14,7 @@ const docsRedirects = [
     destination: "/docs/colors",
     permanent: true,
   },
-  {
-    source: "/docs/styling-elements",
-    destination: "/docs/philosophy",
-    permanent: true,
-  },
-];
+  philosophy];
 
 const blogRedirects = [
   {

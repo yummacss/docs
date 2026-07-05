@@ -7,7 +7,7 @@ export const sidebarConfig = {
   docs: [
     {
       title: "Get Started",
-      items: ["philosophy", "installation", "configuration", "ide-support"],
+      items: ["installation", "configuration", "ide-support"],
     },
     {
       title: "Handbook",
