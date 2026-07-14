@@ -14,6 +14,16 @@ const docsRedirects = [
     destination: "/docs/colors",
     permanent: true,
   },
+  {
+    source: "/docs/gtc",
+    destination: "/docs/grid-template-columns",
+    permanent: true,
+  },
+  {
+    source: "/docs/gtr",
+    destination: "/docs/grid-template-rows",
+    permanent: true,
+  },
 ];
 
 const blogRedirects = [
