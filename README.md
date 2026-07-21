@@ -2,7 +2,7 @@
 
 # Yumma CSS Docs
 
-[Yumma CSS](https://yummacss.com) is a utility framework whose class names are derived from CSS property names by one rule.
+[Yumma CSS](https://yummacss.com) is a utility framework whose class names are derived from CSS property names by one rule. `d-f` is `display: flex`, `jc-sb` is `justify-content: space-between`: initials of the property, initials of the value. If you know CSS, you already know Yumma CSS.
 
 [Documentation](https://yummacss.com/docs) • [Playground](https://play.yummacss.com) • [GitHub](https://github.com/yummacss/yummacss) • [X](https://x.com/yummacss)
 
