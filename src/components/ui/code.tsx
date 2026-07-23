@@ -36,16 +36,18 @@ export default function Code({ title, preview, children }: Props) {
   return (
     <div ref={ref} className="p-r o-h my-4 bc-border bg-surface bw-1">
       {title ? (
-        <div className="d-f ai-c jc-sb px-4 py-2 bc-border bg-surface bbw-1">
-          <span className="c-white/60 fs-xs ff-m">{title}</span>
-          <CopyButton copied={copied} onCopy={handleCopy} />
+        <div className="d-f ai-c bc-border bg-page bbw-1">
+          <div className="d-f ai-c px-6 py-2 bbw-2 bc-accent bg-surface">
+            <span className="c-accent fs-xs ff-m">{title}</span>
+          </div>
         </div>
-      ) : (
+      ) : null}
+      <div className="p-r">
         <div className="p-a t-2 r-2">
           <CopyButton copied={copied} onCopy={handleCopy} />
         </div>
-      )}
-      <pre className="ox-auto px-4 py-4 lh-5">{children}</pre>
+        <pre className="ox-auto px-4 py-4 lh-5">{children}</pre>
+      </div>
     </div>
   );
 }
