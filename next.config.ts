@@ -8,6 +8,14 @@ const nextConfig = {
   allowedDevOrigins: ["192.168.1.68"],
   reactStrictMode: true,
   pageExtensions: ["js", "jsx", "md", "mdx", "mjs", "ts", "tsx"],
+  typescript: {
+    // Type checking runs separately via `tsc --noEmit` / CI.
+    ignoreBuildErrors: true,
+  },
+  experimental: {
+    // Limit build workers to keep RAM usage in check (defaults to CPU count).
+    cpus: 4,
+  },
   async redirects() {
     return redirects;
   },

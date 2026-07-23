@@ -1,11 +1,7 @@
 import { allDocs } from "content-collections";
 import { type Category, categoryGetters } from "@/utils/yummacss";
 
-export const dynamicParams = false;
-
-export function generateStaticParams() {
-  return allDocs.map((doc) => ({ slug: doc._meta.path }));
-}
+export const dynamic = "force-dynamic";
 
 function buildReferenceTable(category: Category, name: string): string {
   try {
