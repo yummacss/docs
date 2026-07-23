@@ -36,10 +36,11 @@ export default function Code({ title, preview, children }: Props) {
   return (
     <div ref={ref} className="p-r o-h my-4 bc-border bg-surface bw-1">
       {title ? (
-        <div className="d-f ai-c bc-border bg-page bbw-1">
-          <div className="d-f ai-c px-6 py-2 bbw-2 bc-accent bg-surface">
+        <div className="d-f bc-border bg-page">
+          <div className="d-f ai-c px-6 py-2 brw-1 bc-border bg-surface">
             <span className="c-accent fs-xs ff-m">{title}</span>
           </div>
+          <div className="f-1 bbw-1 bc-border" />
         </div>
       ) : null}
       <div className="p-r">
