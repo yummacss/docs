@@ -10,6 +10,11 @@ const docsRedirects = [
     permanent: true,
   },
   {
+    source: "/docs/ide-support",
+    destination: "/docs/intellisense",
+    permanent: true,
+  },
+  {
     source: "/docs/colours",
     destination: "/docs/colors",
     permanent: true,

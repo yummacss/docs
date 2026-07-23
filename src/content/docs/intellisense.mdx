@@ -1,0 +1,90 @@
+---
+order: 3
+title: IntelliSense
+description: "Auto-completion, hover previews & diagnostics for Yumma CSS in your editor."
+---
+
+Get completions, hover previews, color swatches, conflict warnings & class sorting for Yumma CSS utility classes directly in your editor.
+
+<div className="d-g gtc-1 @sm:gtc-2 g-3 my-6">
+  <a href="https://marketplace.visualstudio.com/items?itemName=yumma-css.yummacss-intellisense" target="_blank" rel="noopener noreferrer" className="d-f ai-c g-3 p-4 bc-border bw-1 bg-surface h:bg-surface-8 tp-c tdu-150 fv:oc-white fv:ow-2">
+    <VisualStudioCode className="w-6 h-6" />
+    <div>
+      <div className="c-white fs-sm fw-500">Visual Studio Code</div>
+      <div className="c-white/60 fs-xs">Install from the marketplace</div>
+    </div>
+  </a>
+  <a href="https://open-vsx.org/extension/yumma-css/yummacss-intellisense" target="_blank" rel="noopener noreferrer" className="d-f ai-c g-3 p-4 bc-border bw-1 bg-surface h:bg-surface-8 tp-c tdu-150 fv:oc-white fv:ow-2">
+    <Cursor className="w-6 h-6" />
+    <div>
+      <div className="c-white fs-sm fw-500">Cursor</div>
+      <div className="c-white/60 fs-xs">Install from Open VSX</div>
+    </div>
+  </a>
+  <a href="https://github.com/yummacss/intellisense-zed" target="_blank" rel="noopener noreferrer" className="d-f ai-c g-3 p-4 bc-border bw-1 bg-surface h:bg-surface-8 tp-c tdu-150 fv:oc-white fv:ow-2">
+    <Zed className="w-6 h-6" />
+    <div>
+      <div className="c-white fs-sm fw-500">Zed</div>
+      <div className="c-white/60 fs-xs">In review, follow on GitHub</div>
+    </div>
+  </a>
+  <a href="https://open-vsx.org/extension/yumma-css/yummacss-intellisense" target="_blank" rel="noopener noreferrer" className="d-f ai-c g-3 p-4 bc-border bw-1 bg-surface h:bg-surface-8 tp-c tdu-150 fv:oc-white fv:ow-2">
+    <Windsurf className="w-6 h-6" />
+    <div>
+      <div className="c-white fs-sm fw-500">Other Editors</div>
+      <div className="c-white/60 fs-xs">VSCodium, Trae, Windsurf & Antigravity</div>
+    </div>
+  </a>
+</div>
+
+## Requirements
+
+Add a `yumma.config.mjs` file at your workspace root to activate the extension. It reloads automatically when the file changes.
+
+## Language Server
+
+Any LSP-compatible editor can run the Yumma CSS language server directly:
+
+```bash
+npx @yummacss/language-server --stdio
+```
+
+## Features
+
+### Completion
+
+Get auto-completion suggestions for every Yumma CSS utility class as you type, across HTML, JSX, TSX, Vue, Svelte, Astro, PHP & more.
+
+### Hover Previews
+
+View the exact CSS declaration behind any class by hovering over it.
+
+### Color Decorators
+
+See inline color swatches next to color utilities to spot the palette at a glance.
+
+### Conflict Detection
+
+Get real-time warnings when multiple classes set the same CSS property. For example, `bg-indigo bg-red` triggers a warning because both utilities set `background-color`. Conflicts are scoped per-variant, so `bg-red h:bg-indigo` doesn't conflict since they apply under different conditions.
+
+### Quick Fixes
+
+Resolve conflicts with 1-click quick fixes.
+
+### Class Sorting
+
+Keep utility classes in a consistent, readable order automatically.
+
+#### Sorting Order
+
+Classes are organized by category: Layout &rarr; Positioning &rarr; Flexbox/Grid &rarr; Box Model &rarr; Background &rarr; Colors &rarr; Border/Outline &rarr; Typography &rarr; Effects &rarr; Transition &rarr; Interactivity &rarr; Table &rarr; SVG.
+
+#### Variant Grouping
+
+Variant classes like `h:bg-red` stay grouped with their base utility instead of sorting independently. Orphan variants (those with no matching base class) move to the end of the class list.
+
+#### Triggering a Sort
+
+In VS Code, classes sort on save by default. Toggle this with the `yummacss.sortOnSave` setting, or run `Yumma CSS: Sort Classes` from the Command Palette (`Ctrl+Shift+P`) to sort manually.
+
+In Zed, run `editor: format` from the Command Palette.

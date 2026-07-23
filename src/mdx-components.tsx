@@ -4,6 +4,7 @@ import Baseline from "@/components/baseline";
 import ComponentPreview from "@/components/component-preview";
 import Hint from "@/components/hint";
 import HoverVariant from "@/components/hover-state";
+import { Cursor, VisualStudioCode, Windsurf, Zed } from "@/components/icons/editors";
 import NegativeValues from "@/components/negative-values";
 import OpacityModifier from "@/components/opacity-modifier";
 import Palette from "@/components/palette";
@@ -34,6 +35,7 @@ const components: MDXComponents = {
   Baseline,
   Code,
   ComponentPreview,
+  Cursor,
   Hint,
   HoverVariant,
   NegativeValues,
@@ -48,6 +50,9 @@ const components: MDXComponents = {
   TabsList,
   TabsPanel,
   TabsTab,
+  VisualStudioCode,
+  Windsurf,
+  Zed,
   h1: ({ children, ...props }) => {
     const id = props.id || generateId(children);
     return props.className ? (
