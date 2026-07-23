@@ -37,9 +37,13 @@ Get completions, hover previews, color swatches, conflict warnings & class sorti
   </a>
 </div>
 
+---
+
 ## Requirements
 
 Add a `yumma.config.mjs` file at your workspace root to activate the extension. It reloads automatically when the file changes.
+
+---
 
 ## Language Server
 
@@ -49,23 +53,25 @@ Any LSP-compatible editor can run the Yumma CSS language server directly:
 npx @yummacss/language-server --stdio
 ```
 
+---
+
 ## Features
 
 ### Completion
 
-Get auto-completion suggestions for every Yumma CSS utility class as you type, across HTML, JSX, TSX, Vue, Svelte, Astro, PHP & more.
+Get auto-completion suggestions for every utility class as you type.
 
 ### Hover Previews
 
-View the exact CSS declaration behind any class by hovering over it.
+View the exact CSS declaration behind any class.
 
 ### Color Decorators
 
-See inline color swatches next to color utilities to spot the palette at a glance.
+See inline color swatches next to color utilities.
 
 ### Conflict Detection
 
-Get real-time warnings when multiple classes set the same CSS property. For example, `bg-indigo bg-red` triggers a warning because both utilities set `background-color`. Conflicts are scoped per-variant, so `bg-red h:bg-indigo` doesn't conflict since they apply under different conditions.
+Get real-time warnings when multiple classes set the same CSS property, scoped per-variant. `bg-indigo bg-red` conflicts since both utilities set `background-color`, while `bg-red h:bg-indigo` doesn't since they apply under different conditions.
 
 ### Quick Fixes
 
@@ -73,18 +79,6 @@ Resolve conflicts with 1-click quick fixes.
 
 ### Class Sorting
 
-Keep utility classes in a consistent, readable order automatically.
+Keep classes in a consistent order by category: Layout &rarr; Positioning &rarr; Flexbox/Grid &rarr; Box Model &rarr; Background &rarr; Colors &rarr; Border/Outline &rarr; Typography &rarr; Effects &rarr; Transition &rarr; Interactivity &rarr; Table &rarr; SVG. Variants stay grouped with their base utility, & orphans move to the end.
 
-#### Sorting Order
-
-Classes are organized by category: Layout &rarr; Positioning &rarr; Flexbox/Grid &rarr; Box Model &rarr; Background &rarr; Colors &rarr; Border/Outline &rarr; Typography &rarr; Effects &rarr; Transition &rarr; Interactivity &rarr; Table &rarr; SVG.
-
-#### Variant Grouping
-
-Variant classes like `h:bg-red` stay grouped with their base utility instead of sorting independently. Orphan variants (those with no matching base class) move to the end of the class list.
-
-#### Triggering a Sort
-
-In VS Code, classes sort on save by default. Toggle this with the `yummacss.sortOnSave` setting, or run `Yumma CSS: Sort Classes` from the Command Palette (`Ctrl+Shift+P`) to sort manually.
-
-In Zed, run `editor: format` from the Command Palette.
+Sorting runs on save in VS Code (toggle with `yummacss.sortOnSave`), or on `editor: format` in Zed.
