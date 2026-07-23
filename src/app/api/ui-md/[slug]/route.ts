@@ -1,12 +1,6 @@
 import { allUis } from "content-collections";
 
-export const dynamicParams = false;
-
-export function generateStaticParams() {
-  return allUis
-    .filter((ui) => ui._meta.path !== "components")
-    .map((ui) => ({ slug: ui._meta.path }));
-}
+export const dynamic = "force-dynamic";
 
 function renderUiMarkdown(ui: {
   title: string;
@@ -34,7 +28,7 @@ export async function GET(
   { params }: { params: Promise<{ slug: string }> },
 ) {
   const { slug } = await params;
-  const ui = allUis.find((u) => u._meta.path === slug);
+  const ui = slug === "components" ? undefined : allUis.find((u) => u._meta.path === slug);
 
   if (!ui) {
     return new Response("Not found", { status: 404 });
