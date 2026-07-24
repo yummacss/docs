@@ -10,7 +10,7 @@ export default function CheckboxMd() {
           `d-f w-3 h-3 ai-c jc-c br-sm fv:oo-2 fv:oc-indigo-5 ${
             state.checked
               ? "bg-indigo"
-              : "bw-1 bc-silver-3 bg-transparent bs-o-xs"
+              : "bw-1 bc-silver-3 bg-transparent"
           }`
         }
       >

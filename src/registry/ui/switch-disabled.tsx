@@ -26,7 +26,7 @@ export default function SwitchDisabled() {
               transition={{ duration: 0.2, ease: "easeInOut" }}
             />
           }
-          className="w-4 h-3 bg-white br-9999 bs-o-xs"
+          className="w-4 h-3 bg-white br-9999"
         />
       </Switch.Root>
       <Field.Label

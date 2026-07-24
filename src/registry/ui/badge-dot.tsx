@@ -1,7 +1,7 @@
 export default function BadgeDot() {
   return (
     <div className="d-f fd-c g-6 ai-c">
-      <div className="d-f ai-c g-1 px-2 py-1 bg-white bc-red-2 br-sm bw-1 bs-o-xs">
+      <div className="d-f ai-c g-1 px-2 py-1 bg-white bc-red-2 br-sm bw-1">
         <span className="w-2 h-2 bg-red-4 br-9999" />
         <span className="c-red-4 fs-xs fw-500 us-none">Active</span>
       </div>

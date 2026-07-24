@@ -23,7 +23,7 @@ export default function TooltipSquircle() {
                     transition={{ duration: 0.2, ease: "easeOut" }}
                   />
                 }
-                className="px-3 py-2 bg-white bc-silver-2 c-slate-10 bw-1 br-3xl cs-s fs-sm bs-o-xs us-none"
+                className="px-3 py-2 bg-white bc-silver-2 c-slate-10 bw-1 br-3xl cs-s fs-sm us-none"
               >
                 3 unread notifications
               </Tooltip.Popup>

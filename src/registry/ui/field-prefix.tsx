@@ -8,7 +8,7 @@ export default function FieldPrefix() {
         Custom domain
       </label>
       <div className="d-f ai-c">
-        <div className="d-f ai-c jc-c px-3 h-10 bg-white bc-silver-3 c-slate-6 blr-lg byw-1 blw-1 fs-md bs-o-xs">
+        <div className="d-f ai-c jc-c px-3 h-10 bg-white bc-silver-3 c-slate-6 blr-lg byw-1 blw-1 fs-md">
           https://
         </div>
         <Separator className="w-px h-10 bg-silver-3" />
@@ -17,7 +17,7 @@ export default function FieldPrefix() {
           type="text"
           placeholder="yummacss.com/ui"
           aria-label="Custom domain"
-          className="h-10 w-56 pl-3 pr-4 bg-white bc-silver-3 c-slate-10 brr-lg byw-1 brw-1 fs-md bs-o-xs fv:oo--1 fv:oc-indigo-5"
+          className="h-10 w-56 pl-3 pr-4 bg-white bc-silver-3 c-slate-10 brr-lg byw-1 brw-1 fs-md fv:oo--1 fv:oc-indigo-5"
         />
       </div>
     </Field.Root>

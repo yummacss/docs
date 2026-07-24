@@ -20,7 +20,7 @@ export default function SelectSquircle() {
       <Select.Root defaultValue={null} open={open} onOpenChange={setOpen}>
         <Select.Trigger
           id="select-status-squircle"
-          className={`d-f ai-c jc-sb h-10 w-64 bw-1 bc-silver-3 br-xxl cs-s bg-white px-3 c-slate-10 us-none c-p bs-o-xs fv:oo--1 fv:oc-indigo-5 ${
+          className={`d-f ai-c jc-sb h-10 w-64 bw-1 bc-silver-3 br-xxl cs-s bg-white px-3 c-slate-10 us-none c-p fv:oo--1 fv:oc-indigo-5 ${
             open ? "bg-silver-2/50" : "bg-transparent"
           }`}
         >
@@ -54,7 +54,7 @@ export default function SelectSquircle() {
                       transition={{ duration: 0.15, ease: "easeOut" }}
                     />
                   }
-                  className="py-1 w-64 bg-white bc-silver-2 bw-1 br-3xl cs-s bs-o-xs"
+                  className="py-1 w-64 bg-white bc-silver-2 bw-1 br-3xl cs-s"
                 >
                   <Select.List className="p-r o-auto">
                     {statuses.map(({ label, value }) => (

@@ -4,7 +4,7 @@ export default function FileUploadSquare() {
   return (
     <section className="d-f fd-c ai-c g-3 w-100 bg-white bc-silver-2 bw-2 bs-d">
       <div className="d-f fd-c ai-c g-2 p-8 bg-white ta-c">
-        <div className="d-f ai-c jc-c w-10 h-10 bg-white bc-silver-2 bw-1 bs-o-xs">
+        <div className="d-f ai-c jc-c w-10 h-10 bg-white bc-silver-2 bw-1">
           <CloudUpload className="w-5 h-5 c-slate-6" />
         </div>
         <div className="d-f fd-c ai-c g-1">

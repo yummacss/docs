@@ -30,7 +30,7 @@ export default function PopoverClose() {
                     transition={{ duration: 0.15, ease: "easeOut" }}
                   />
                 }
-                className="px-4 py-3 w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-lg bs-o-xs"
+                className="px-4 py-3 w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-lg"
               >
                 <div className="d-f ai-c jc-sb mb-1">
                   <Popover.Title className="m-0 c-slate-10 fs-sm fw-500">

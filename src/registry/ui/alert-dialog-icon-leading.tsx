@@ -45,7 +45,7 @@ export default function AlertDialogIconLeading() {
                     transition={{ duration: 0.2, ease: "easeOut" }}
                   />
                 }
-                className="o-h p-r w-96 bg-white bc-silver-2 c-slate-12 br-xxl bw-1 bs-o-lg"
+                className="o-h p-r w-96 bg-white bc-silver-2 c-slate-12 br-xxl bw-1"
                 style={{ maxWidth: "90vw" }}
               >
                 <AlertDialog.Close

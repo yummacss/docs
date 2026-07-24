@@ -29,7 +29,7 @@ export default function ExampleTabsVertical() {
           );
         })}
         <Tabs.Indicator
-          className="p-a t-0 l-0 zi-0 bg-white br-lg bs-o-xs tp-a tdu-200 ttf-io"
+          className="p-a t-0 l-0 zi-0 bg-white br-lg tp-a tdu-200 ttf-io"
           style={{
             left: "var(--active-tab-left)",
             width: "var(--active-tab-width)",

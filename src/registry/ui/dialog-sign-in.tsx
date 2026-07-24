@@ -44,7 +44,7 @@ export default function DialogSignIn() {
                     transition={{ duration: 0.2, ease: "easeOut" }}
                   />
                 }
-                className="o-h p-r w-80 bg-white bc-silver-2 c-slate-12 br-xxl bw-1 bs-o-lg"
+                className="o-h p-r w-80 bg-white bc-silver-2 c-slate-12 br-xxl bw-1"
                 style={{ maxWidth: "90vw" }}
               >
                 <Dialog.Close
@@ -84,7 +84,7 @@ export default function DialogSignIn() {
                           `d-f w-4 h-4 ai-c jc-c br-sm fv:oo-1 fv:oc-indigo-5 ${
                             state.checked
                               ? "bg-indigo"
-                              : "bw-1 bc-silver-3 bg-transparent bs-o-xs"
+                              : "bw-1 bc-silver-3 bg-transparent"
                           }`
                         }
                       >

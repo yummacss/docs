@@ -89,7 +89,7 @@ export default function OnboardingPagination() {
                     transition={{ duration: 0.2, ease: "easeOut" }}
                   />
                 }
-                className="o-h p-r w-96 bg-white bc-silver-2 c-slate-12 br-xxl bw-1 bs-o-lg"
+                className="o-h p-r w-96 bg-white bc-silver-2 c-slate-12 br-xxl bw-1"
                 style={{ maxWidth: "90vw" }}
               >
                 <div className="px-8 pt-4 pb-6">
@@ -155,7 +155,7 @@ export default function OnboardingPagination() {
                   {isLast ? (
                     <AlertDialog.Close
                       render={
-                        <Button className="d-f ai-c jc-c w-8 h-8 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-lg bw-1 bs-o-xs tp-c tdu-150 ttf-io us-none fv:oo-2 fv:oc-indigo-5" />
+                        <Button className="d-f ai-c jc-c w-8 h-8 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-lg bw-1 tp-c tdu-150 ttf-io us-none fv:oo-2 fv:oc-indigo-5" />
                       }
                     >
                       <Check className="w-4 h-4" />

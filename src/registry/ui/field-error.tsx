@@ -12,7 +12,7 @@ export default function FieldError() {
           type="text"
           placeholder="Add a description..."
           aria-label="Add a description"
-          className="h-10 w-64 pl-4 pr-10 bg-white bc-red-5 c-slate-10 bw-1 br-lg fs-md bs-o-xs fv:oo--1 fv:oc-red-5"
+          className="h-10 w-64 pl-4 pr-10 bg-white bc-red-5 c-slate-10 bw-1 br-lg fs-md fv:oo--1 fv:oc-red-5"
         />
         <div className="d-f p-a r-3 ai-c jc-c c-red-5">
           <WarningTriangle className="w-4 h-4" />

@@ -25,7 +25,7 @@ export default function SwitchSm() {
               transition={{ duration: 0.2, ease: "easeInOut" }}
             />
           }
-          className="w-3 h-2 bg-white br-9999 bs-o-xs"
+          className="w-3 h-2 bg-white br-9999"
         />
       </Switch.Root>
       <Field.Label

@@ -14,7 +14,7 @@ export default function SelectDisabled() {
       <Select.Root defaultValue={"in-progress"} disabled>
         <Select.Trigger
           id="select-status-disabled"
-          className="d-f ai-c jc-sb h-10 w-64 bw-1 bc-silver-3 br-lg bg-white px-3 c-slate-4 us-none bs-o-xs"
+          className="d-f ai-c jc-sb h-10 w-64 bw-1 bc-silver-3 br-lg bg-white px-3 c-slate-4 us-none"
         >
           <Select.Value>
             <span className="min-w-0 o-h to-e ws-nw">

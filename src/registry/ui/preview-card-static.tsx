@@ -18,7 +18,7 @@ export default function PreviewCardStatic() {
 
       <PreviewCard.Portal>
         <PreviewCard.Positioner sideOffset={8}>
-          <PreviewCard.Popup className="d-f fd-c g-3 w-64 p-3 bg-white bc-silver-2 br-lg bw-1 bs-o-xs">
+          <PreviewCard.Popup className="d-f fd-c g-3 w-64 p-3 bg-white bc-silver-2 br-lg bw-1">
             <div className="d-f ai-c g-3">
               <div className="p-r">
                 <Avatar.Root className="d-if o-h ai-c jc-c w-10 h-10 bc-white br-9999 bw-1 va-m us-none">

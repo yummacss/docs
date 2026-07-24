@@ -55,7 +55,7 @@ export default function CommandPaletteSquircle() {
                     transition={{ duration: 0.2, ease: "easeOut" }}
                   />
                 }
-                className="o-h w-96 bg-white bc-silver-2 c-slate-12 bw-1 br-3xl cs-s bs-o-lg"
+                className="o-h w-96 bg-white bc-silver-2 c-slate-12 bw-1 br-3xl cs-s"
                 style={{ maxWidth: "90vw" }}
               >
                 <Combobox.Root inline items={commandGroups} autoHighlight>

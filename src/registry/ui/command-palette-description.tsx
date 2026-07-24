@@ -55,7 +55,7 @@ export default function CommandPaletteDescription() {
                     transition={{ duration: 0.2, ease: "easeOut" }}
                   />
                 }
-                className="o-h w-96 bg-white bc-silver-2 c-slate-12 br-xxl bw-1 bs-o-lg"
+                className="o-h w-96 bg-white bc-silver-2 c-slate-12 br-xxl bw-1"
                 style={{ maxWidth: "90vw" }}
               >
                 <Combobox.Root inline items={commandGroups} autoHighlight>
@@ -88,7 +88,7 @@ export default function CommandPaletteDescription() {
                                 }`
                               }
                             >
-                              <div className="d-f ai-c jc-c w-8 h-8 bg-white bc-silver-2 c-slate-5 bw-1 br-lg bs-i-sm">
+                              <div className="d-f ai-c jc-c w-8 h-8 bg-white bc-silver-2 c-slate-5 bw-1 br-lg">
                                 <item.Icon className="fs-0 w-4 h-4" />
                               </div>
                               <div className="d-f fd-c">

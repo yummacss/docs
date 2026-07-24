@@ -34,7 +34,7 @@ export default function PopoverColorPalette() {
                     transition={{ duration: 0.15, ease: "easeOut" }}
                   />
                 }
-                className="p-3 bg-white bc-silver-2 c-slate-10 bw-1 br-lg bs-o-xs"
+                className="p-3 bg-white bc-silver-2 c-slate-10 bw-1 br-lg"
               >
                 <Popover.Title className="mb-3 c-slate-10 fs-sm fw-500">
                   Accent color

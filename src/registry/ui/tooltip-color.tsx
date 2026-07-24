@@ -24,7 +24,7 @@ export default function TooltipColor() {
                         transition={{ duration: 0.2, ease: "easeOut" }}
                       />
                     }
-                    className="px-3 py-2 bg-indigo-7 c-white br-lg fs-sm bs-o-xs us-none"
+                    className="px-3 py-2 bg-indigo-7 c-white br-lg fs-sm us-none"
                   >
                     {label}
                   </Tooltip.Popup>

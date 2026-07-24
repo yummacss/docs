@@ -15,7 +15,7 @@ export default function SelectStatic() {
         <Select.Trigger
           id="select-status-static"
           className={(state) =>
-            `d-f ai-c jc-sb h-10 w-64 bw-1 bc-silver-3 br-lg bg-white px-3 c-slate-10 us-none c-p bs-o-xs fv:oo--1 fv:oc-indigo-5 ${
+            `d-f ai-c jc-sb h-10 w-64 bw-1 bc-silver-3 br-lg bg-white px-3 c-slate-10 us-none c-p fv:oo--1 fv:oc-indigo-5 ${
               state.open ? "bg-silver-2/50" : "bg-transparent"
             }`
           }
@@ -33,7 +33,7 @@ export default function SelectStatic() {
             alignItemWithTrigger={false}
             className="zi-10 p-0 ow-0 us-none"
           >
-            <Select.Popup className="py-1 w-64 bg-white bc-silver-2 bw-1 br-lg bs-o-xs">
+            <Select.Popup className="py-1 w-64 bg-white bc-silver-2 bw-1 br-lg">
               <Select.List className="p-r o-auto">
                 {statuses.map(({ label, value }) => (
                   <Select.Item

@@ -12,7 +12,7 @@ export default function MenuRadios() {
 
   return (
     <Menu.Root open={open} onOpenChange={setOpen}>
-      <Menu.Trigger className="d-f ai-c g-2 px-3 py-2 h-fc bg-white bc-silver-2 c-slate-10 br-lg bw-1 fw-500 bs-o-xs tp-c tdu-150 ttf-io us-none c-p h:bg-silver-1/50 fv:oo--1 fv:oc-indigo-5">
+      <Menu.Trigger className="d-f ai-c g-2 px-3 py-2 h-fc bg-white bc-silver-2 c-slate-10 br-lg bw-1 fw-500 tp-c tdu-150 ttf-io us-none c-p h:bg-silver-1/50 fv:oo--1 fv:oc-indigo-5">
         Sort <NavArrowDown className="w-3 h-3" />
       </Menu.Trigger>
 
@@ -29,7 +29,7 @@ export default function MenuRadios() {
                     transition={{ duration: 0.15, ease: "easeOut" }}
                   />
                 }
-                className="o-h py-1 w-52 bg-white bc-silver-2 c-slate-10 bw-1 br-xxl bs-o-xs"
+                className="o-h py-1 w-52 bg-white bc-silver-2 c-slate-10 bw-1 br-xxl"
               >
                 <div className="px-3 py-1 c-slate-5 fs-xs fw-500 ls-3">
                   Sort tasks
