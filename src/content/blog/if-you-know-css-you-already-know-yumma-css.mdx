@@ -7,18 +7,18 @@ description: "Class names in Yumma CSS trace back directly to the CSS property &
 title: If You Know CSS, You Already Know Yumma CSS
 ---
 
-Three years ago I fell in love with the idea of reusing CSS itself as the framework: no long class names, no memorizing specific utilities, no second vocabulary sitting on top of what I already knew.
+Three years ago, I started thinking about using CSS itself as a framework, and I really liked the idea. There'd be no need for long class names or specific utilities to be memorized, and it'd sit on top of what I already knew without creating a second vocabulary.
 
-Most utility-class systems name things after what they do: a class for centering, a class for spacing, a class for a direction. Those names read well on their own, but they're not CSS, & they don't always trace back to it cleanly. You learn them the way you'd learn any new vocabulary, on top of the CSS you already know, not from it.
+And before you say something like, "How is this better than Tailwind?" or "Why are you trying to recreate the wheel?" just bear with me for a second, okay?
 
-I wanted the vocabulary I already had to be enough. That turned into Yumma CSS.
+Most frameworks name things after what they do: a class for centering, a class for spacing, a class for a direction. Those names look good on their own, but they're not CSS, and they don't always link back to it cleanly. You might not even realize that you're forgetting how CSS actually looks and works.
 
 ## The rule
 
-Yumma CSS doesn't invent class names. It derives them from the CSS you already know, using one mechanical rule:
+Yumma CSS doesn't invent class names. It's based on the CSS you're already familiar with, following one simple rule:
 
-- The prefix is the initials of the property's words.
-- The suffix is the initials of the value's words.
+The prefix is just the property's initials.
+The suffix is short for "initials of the value's words."
 
 ```css
 /* display: flex;                  -> */ .d-f { … }
@@ -29,18 +29,10 @@ Yumma CSS doesn't invent class names. It derives them from the CSS you already k
 /* margin-top: 1rem;               -> */ .mt-4 { … }
 ```
 
-If you already think in CSS properties, you can guess most of these correctly before you've opened the docs. There's no separate naming system to hold in your head alongside the one you already have.
+If you're already familiar with CSS properties, you'll likely get most of these right without even opening the documentation. There's no separate naming system to keep in your head along with the one you already have.
 
-## What it costs you
+## How much it'll cost you
 
-I'm not going to pretend this is free.
+Yumma CSS numeric scale is curated, not random. The spacing and sizing run on a fixed step of 0.25rem from 0 to 96rem, and that's it. There's no bracket syntax or `w-[137px]`. If the value you're looking for isn't on the scale, you won't get it. 
 
-Yumma CSS numeric scale is curated, not arbitrary. Spacing & sizing run on a fixed `0.25rem` step from `0` to `96rem`, & that's it. There's no bracket syntax, no `w-[137px]`. If the value you want isn't on the scale, you don't get it, & that's deliberate: fewer one-off values floating around a codebase, more consistency by default. It's the same bet most design systems make when they limit themselves to tokens instead of arbitrary numbers.
-
-It also means this isn't a beginner's tool. If you don't already know what `justify-content` does, abbreviating it to `jc` doesn't help you. It just looks cryptic. Yumma CSS is for people who already think in CSS properties & want their classes to trace back to that knowledge directly, not for people learning CSS for the first time. I'm fine saying that plainly.
-
-## Where it's at
-
-This is a solo project, three years in, still early. The [docs](https://www.yummacss.com/docs) walk through the full rule & the rest of the utilities, & the [playground](https://play.yummacss.com) lets you try it without installing anything.
-
-If you poke around & think the rule breaks somewhere, I'd genuinely like to hear where. That's more useful to me right now than a star.
+It's also not a beginner's tool. If you don't already know what "justify-content" does, abbreviating it to "jc" won't help you. It just looks cryptic. For those of you who are already confident with CSS properties and want your classes to reflect that knowledge directly, Yumma CSS is the perfect fit. But if you're just starting out and learning CSS, it might not be the best choice for you. I'm okay with saying that out loud :)
