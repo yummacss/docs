@@ -8,10 +8,11 @@ interface Props {
   title?: string;
   lang?: string;
   preview?: boolean;
+  grouped?: boolean;
   children?: React.ReactNode;
 }
 
-export default function Code({ title, preview, children }: Props) {
+export default function Code({ title, preview, grouped, children }: Props) {
   const [copied, setCopied] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -31,6 +32,19 @@ export default function Code({ title, preview, children }: Props) {
           <CopyButton copied={copied} onCopy={handleCopy} />
         </div>
         <pre className="ox-auto px-4 py-4 ff-m lh-5">{children}</pre>
+      </div>
+    );
+  }
+
+  // Rendered inside a <CodeGroup>: the group supplies the frame and the tab
+  // (from this block's title), so drop the outer chrome and title bar here.
+  if (grouped) {
+    return (
+      <div ref={ref} className="p-r">
+        <div className="p-a t-2 r-2">
+          <CopyButton copied={copied} onCopy={handleCopy} />
+        </div>
+        <pre className="ox-auto px-4 py-4 lh-5">{children}</pre>
       </div>
     );
   }

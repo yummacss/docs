@@ -22,18 +22,50 @@ Yumma UI components are for pasting into your project, and you need to set up de
   <Step title="Create Project">
     Initialize a new React project with Vite.
 
-    ```bash
+    <CodeGroup>
+
+    ```bash title="pnpm"
     pnpm create vite my-app --template react-ts
     ```
+
+    ```bash title="npm"
+    npm create vite@latest my-app -- --template react-ts
+    ```
+
+    ```bash title="yarn"
+    yarn create vite my-app --template react-ts
+    ```
+
+    ```bash title="bun"
+    bun create vite my-app --template react-ts
+    ```
+
+    </CodeGroup>
 
   </Step>
 
   <Step title="Install Dependencies">
     Install the core dependencies for Yumma UI.
 
-    ```bash
+    <CodeGroup>
+
+    ```bash title="pnpm"
     pnpm add yummacss @yummacss/vite @base-ui/react iconoir-react motion
     ```
+
+    ```bash title="npm"
+    npm install yummacss @yummacss/vite @base-ui/react iconoir-react motion
+    ```
+
+    ```bash title="yarn"
+    yarn add yummacss @yummacss/vite @base-ui/react iconoir-react motion
+    ```
+
+    ```bash title="bun"
+    bun add yummacss @yummacss/vite @base-ui/react iconoir-react motion
+    ```
+
+    </CodeGroup>
 
   </Step>
 
@@ -68,11 +100,13 @@ Yumma UI components are for pasting into your project, and you need to set up de
   <Step title="Import Styles">
     Create a CSS file containing the `@yummacss;` marker & import it in your root entry file. The plugin replaces the marker with generated CSS.
 
+    <CodeGroup>
+
     ```css title="src/styles.css"
     @yummacss;
     ```
 
-    ```tsx mark={1}
+    ```tsx title="src/main.tsx" mark={1}
     import "./styles.css";
     import React from "react";
     import ReactDOM from "react-dom/client";
@@ -85,6 +119,8 @@ Yumma UI components are for pasting into your project, and you need to set up de
     );
     ```
 
+    </CodeGroup>
+
   </Step>
 </Stepper>
 
@@ -96,18 +132,50 @@ Yumma UI components are for pasting into your project, and you need to set up de
   <Step title="Create Project">
     Initialize a new Next.js project if you haven't already.
 
-    ```bash
-    pnpx create-next-app@latest my-app
+    <CodeGroup>
+
+    ```bash title="pnpm"
+    pnpm create next-app@latest my-app
     ```
+
+    ```bash title="npm"
+    npm create next-app@latest my-app
+    ```
+
+    ```bash title="yarn"
+    yarn create next-app my-app
+    ```
+
+    ```bash title="bun"
+    bun create next-app my-app
+    ```
+
+    </CodeGroup>
 
   </Step>
 
   <Step title="Install Dependencies">
     Install the core dependencies for Yumma UI.
 
-    ```bash
+    <CodeGroup>
+
+    ```bash title="pnpm"
     pnpm add yummacss @yummacss/postcss @base-ui/react iconoir-react motion
     ```
+
+    ```bash title="npm"
+    npm install yummacss @yummacss/postcss @base-ui/react iconoir-react motion
+    ```
+
+    ```bash title="yarn"
+    yarn add yummacss @yummacss/postcss @base-ui/react iconoir-react motion
+    ```
+
+    ```bash title="bun"
+    bun add yummacss @yummacss/postcss @base-ui/react iconoir-react motion
+    ```
+
+    </CodeGroup>
 
   </Step>
 
@@ -140,11 +208,13 @@ Yumma UI components are for pasting into your project, and you need to set up de
   <Step title="Import Styles">
     Create a global CSS file containing the `@yummacss;` marker & import it in your root layout. The plugin replaces the marker with generated CSS.
 
+    <CodeGroup>
+
     ```css title="globals.css"
     @yummacss;
     ```
 
-    ```tsx mark={1}
+    ```tsx title="layout.tsx" mark={1}
     import "./globals.css";
 
     export default function RootLayout({ children }) {
@@ -155,6 +225,8 @@ Yumma UI components are for pasting into your project, and you need to set up de
       );
     }
     ```
+
+    </CodeGroup>
 
   </Step>
 </Stepper>
