@@ -139,7 +139,6 @@ export const registry = {
   "combobox-base": () => import("./ui/combobox-base"),
   "combobox-disabled": () => import("./ui/combobox-disabled"),
   "combobox-grouped": () => import("./ui/combobox-grouped"),
-  "combobox-inline": () => import("./ui/combobox-inline"),
   "combobox-lg": () => import("./ui/combobox-lg"),
   "combobox-loading": () => import("./ui/combobox-loading"),
   "combobox-md": () => import("./ui/combobox-md"),

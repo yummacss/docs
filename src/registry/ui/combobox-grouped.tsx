@@ -13,7 +13,7 @@ export default function ComboboxGrouped() {
     <Combobox.Root items={teamGroups} open={open} onOpenChange={setOpen}>
       <div className="d-f p-r fd-c g-2 c-slate-10 fs-sm">
         <label htmlFor="grouped-input" className="fw-500">
-          Assign team member
+          Advanced search
         </label>
         <div className="p-r">
           <Combobox.Input

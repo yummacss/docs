@@ -11,7 +11,7 @@ export default function ComboboxDisabled() {
         <div className="p-r">
           <Combobox.Input
             id="user-input-disabled"
-            placeholder="Search team members"
+            placeholder="Search members"
             className="h-10 w-64 pl-4 pr-10 bg-white bc-silver-3 c-slate-4 bw-1 br-lg fs-sm bs-o-xs"
           />
           <div className="d-f p-a r-2 b-0 ai-c jc-c h-10 c-slate-6">
