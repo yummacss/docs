@@ -2,7 +2,7 @@ import { Field } from "@base-ui/react/field";
 
 export default function TextareaDisabled() {
   return (
-    <Field.Root className="d-f fd-c g-2 c-slate-10 fs-sm o-50 c-na" disabled>
+    <Field.Root className="d-f fd-c g-2 c-slate-10 fs-sm o-60 c-na" disabled>
       <Field.Label className="fw-500">Cancellation reason</Field.Label>
       <Field.Control
         render={<textarea />}

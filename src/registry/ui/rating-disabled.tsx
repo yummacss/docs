@@ -19,7 +19,7 @@ export default function RatingDisabled() {
               pressed={filled}
               disabled
               aria-label={`${star} star${star > 1 ? "s" : ""}`}
-              className={`d-f ai-c jc-c w-9 h-9 bw-0 br-lg us-none c-na o-50 ${
+              className={`d-f ai-c jc-c w-9 h-9 bw-0 br-lg us-none c-na o-60 ${
                 filled
                   ? "bg-transparent c-yellow-5"
                   : "bg-transparent c-slate-4"
