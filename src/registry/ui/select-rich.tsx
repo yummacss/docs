@@ -55,7 +55,7 @@ export default function SelectRich() {
                       transition={{ duration: 0.15, ease: "easeOut" }}
                     />
                   }
-                  className="py-1 w-68 bg-white bc-silver-2 bw-1 br-lg bs-o-xs"
+                  className="py-1 w-64 bg-white bc-silver-2 bw-1 br-lg bs-o-xs"
                 >
                   <Select.List className="p-r o-auto">
                     {members.map(({ name, role, avatar }) => (
