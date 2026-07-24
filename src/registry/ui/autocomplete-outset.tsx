@@ -5,19 +5,19 @@ import { Avatar } from "@base-ui/react/avatar";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 
-export default function AutocompleteLg() {
+export default function AutocompleteOutset() {
   const [open, setOpen] = useState(false);
 
   return (
     <Autocomplete.Root items={teamMembers} open={open} onOpenChange={setOpen}>
       <div className="d-f fd-c g-2">
-        <label htmlFor="autocomplete-input" className="c-slate-10 fs-sm fw-500">
+        <label htmlFor="autocomplete-input-outset" className="c-slate-10 fs-sm fw-500">
           Assign member
         </label>
         <Autocomplete.Input
-          id="autocomplete-input"
+          id="autocomplete-input-outset"
           placeholder="Search members"
-          className="h-12 w-72 pl-4 bg-white bc-silver-3 c-slate-12 bw-1 br-lg fs-md fv:oo--1 fv:oc-indigo-5"
+          className="h-10 w-64 pl-4 bg-white bc-silver-3 c-slate-12 bw-1 br-lg fs-md bs-o-xs fv:oo--1 fv:oc-indigo-5"
         />
       </div>
 
@@ -31,7 +31,7 @@ export default function AutocompleteLg() {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.15, ease: "easeOut" }}
               >
-                <Autocomplete.Popup className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-lg">
+                <Autocomplete.Popup className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-lg bs-o-xs">
                   <Autocomplete.List className="oy-auto max-h-72 py-1 ow-0">
                     {(member: TeamMember) => (
                       <Autocomplete.Item
