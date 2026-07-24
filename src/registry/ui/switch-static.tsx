@@ -18,7 +18,7 @@ export default function SwitchStatic() {
         }`}
       >
         <Switch.Thumb
-          className={`w-4 h-3 bg-white br-9999 bs-o-xs ${
+          className={`w-4 h-3 bg-white br-9999 ${
             checked ? "ml-3" : "ml-0"
           }`}
         />

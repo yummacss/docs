@@ -3,7 +3,7 @@ import { BadgeCheck } from "iconoir-react";
 export default function BadgeLg() {
   return (
     <div className="d-f ai-c g-3">
-      <div className="d-f ai-c g-1 px-3 py-1 bg-white bc-silver-2 br-sm bw-1 bs-o-xs">
+      <div className="d-f ai-c g-1 px-3 py-1 bg-white bc-silver-2 br-sm bw-1">
         <span className="c-slate-10 fs-md fw-500 us-none">Label</span>
       </div>
       <div className="d-f ai-c g-1 px-3 py-1 bg-indigo-1 br-sm">

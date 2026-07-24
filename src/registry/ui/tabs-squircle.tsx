@@ -28,7 +28,7 @@ export default function ExampleTabsSquircle() {
           );
         })}
         <Tabs.Indicator
-          className="p-a l-0 zi-0 bg-white br-xxl cs-s bs-o-xs tp-a tdu-200 ttf-io"
+          className="p-a l-0 zi-0 bg-white br-xxl cs-s tp-a tdu-200 ttf-io"
           style={{
             translate: "var(--active-tab-left) 0",
             width: "var(--active-tab-width)",

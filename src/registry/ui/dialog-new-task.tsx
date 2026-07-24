@@ -48,7 +48,7 @@ export default function DialogNewTask() {
                     transition={{ duration: 0.2, ease: "easeOut" }}
                   />
                 }
-                className="o-h p-r w-96 bg-white bc-silver-2 c-slate-12 br-xxl bw-1 bs-o-lg"
+                className="o-h p-r w-96 bg-white bc-silver-2 c-slate-12 br-xxl bw-1"
                 style={{ maxWidth: "90vw" }}
               >
                 <Dialog.Close
@@ -125,7 +125,7 @@ export default function DialogNewTask() {
                                     }}
                                   />
                                 }
-                                className="py-1 w-88 bg-white bc-silver-2 bw-1 br-lg bs-o-xs"
+                                className="py-1 w-88 bg-white bc-silver-2 bw-1 br-lg"
                               >
                                 <Select.List className="p-r o-auto">
                                   {priorities.map(({ label, value }) => (
@@ -180,7 +180,7 @@ export default function DialogNewTask() {
                                     ease: "easeOut",
                                   }}
                                 >
-                                  <Autocomplete.Popup className="o-h w-42 bg-white bc-silver-2 c-slate-10 bw-1 br-lg bs-o-xs">
+                                  <Autocomplete.Popup className="o-h w-42 bg-white bc-silver-2 c-slate-10 bw-1 br-lg">
                                     <Autocomplete.List className="oy-auto max-h-48 py-1 ow-0">
                                       {(member: TeamMember) => (
                                         <Autocomplete.Item

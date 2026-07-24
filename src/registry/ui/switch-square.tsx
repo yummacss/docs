@@ -25,7 +25,7 @@ export default function SwitchSquare() {
               transition={{ duration: 0.2, ease: "easeInOut" }}
             />
           }
-          className="w-4 h-3 bg-white bs-o-xs"
+          className="w-4 h-3 bg-white"
         />
       </Switch.Root>
       <Field.Label

@@ -30,7 +30,7 @@ export default function PopoverSquircle() {
                     transition={{ duration: 0.15, ease: "easeOut" }}
                   />
                 }
-                className="px-4 py-3 w-56 bg-white bc-silver-2 c-slate-10 bw-1 br-3xl cs-s bs-o-xs"
+                className="px-4 py-3 w-56 bg-white bc-silver-2 c-slate-10 bw-1 br-3xl cs-s"
               >
                 <Popover.Title className="m-0 mb-1 c-slate-10 fs-sm fw-500">
                   Notifications

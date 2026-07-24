@@ -36,7 +36,7 @@ export default function MenubarCheckboxes() {
                       transition={{ duration: 0.1, ease: "easeOut" }}
                     />
                   }
-                  className="py-1 w-52 bg-white bc-silver-2 c-slate-10 br-xxl bw-1 bs-o-xs"
+                  className="py-1 w-52 bg-white bc-silver-2 c-slate-10 br-xxl bw-1"
                 >
                   <div className="px-3 py-1 c-slate-5 fs-xs fw-500 ls-3">
                     Show views
@@ -133,7 +133,7 @@ export default function MenubarCheckboxes() {
                       transition={{ duration: 0.1, ease: "easeOut" }}
                     />
                   }
-                  className="py-1 w-52 bg-white bc-silver-2 c-slate-10 br-xxl bw-1 bs-o-xs"
+                  className="py-1 w-52 bg-white bc-silver-2 c-slate-10 br-xxl bw-1"
                 >
                   <Menu.CheckboxItem
                     defaultChecked
@@ -211,7 +211,7 @@ export default function MenubarCheckboxes() {
                       transition={{ duration: 0.1, ease: "easeOut" }}
                     />
                   }
-                  className="py-1 w-52 bg-white bc-silver-2 c-slate-10 br-xxl bw-1 bs-o-xs"
+                  className="py-1 w-52 bg-white bc-silver-2 c-slate-10 br-xxl bw-1"
                 >
                   <Menu.CheckboxItem
                     defaultChecked

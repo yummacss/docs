@@ -26,7 +26,7 @@ export default function ContextMenuSquircle() {
                     transition={{ duration: 0.15, ease: "easeOut" }}
                   />
                 }
-                className="py-1 w-52 bg-white bc-silver-2 c-slate-10 bw-1 br-3xl cs-s bs-o-xs"
+                className="py-1 w-52 bg-white bc-silver-2 c-slate-10 bw-1 br-3xl cs-s"
               >
                 <ContextMenu.Item
                   className={(state) =>

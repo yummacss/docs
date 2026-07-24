@@ -8,7 +8,7 @@ export default function TextareaHelper() {
         render={<textarea />}
         placeholder="Write your comment..."
         aria-label="Write your comment"
-        className="h-24 w-64 pt-3 pl-3 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md bs-o-xs r-none fv:oo--1 fv:oc-indigo-5"
+        className="h-24 w-64 pt-3 pl-3 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md r-none fv:oo--1 fv:oc-indigo-5"
       />
       <Field.Description className="c-slate-6 fs-xs">
         Be respectful and constructive

@@ -14,14 +14,14 @@ export default function ToggleColorPicker() {
     <ToggleGroup
       value={selected}
       onValueChange={setSelected}
-      className="d-f g-2 p-2 bg-white br-9999 bw-1 bc-silver-2 bs-o-md"
+      className="d-f g-2 p-2 bg-white br-9999 bw-1 bc-silver-2"
     >
       {colors.map((color) => (
         <Toggle
           key={color.value}
           value={color.value}
           aria-label={color.label}
-          className={`d-f w-9 h-9 ai-c jc-c bw-0 br-9999 us-none c-p bs-i-xl fv:oo-2 fv:oc-indigo-3 ${color.bgClass}`}
+          className={`d-f w-9 h-9 ai-c jc-c bw-0 br-9999 us-none c-p fv:oo-2 fv:oc-indigo-3 ${color.bgClass}`}
           render={(props, state) => (
             <motion.button
               type="button"

@@ -19,7 +19,7 @@ export default function ComboboxBase() {
           <Combobox.Input
             id="user-input"
             placeholder="Search members"
-            className="h-10 w-64 pl-4 pr-16 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md bs-o-xs fv:oo--1 fv:oc-indigo-5"
+            className="h-10 w-64 pl-4 pr-16 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md fv:oo--1 fv:oc-indigo-5"
           />
           <div className="d-f p-a r-2 b-0 ai-c jc-c h-10 c-slate-6">
             <Combobox.Clear
@@ -48,7 +48,7 @@ export default function ComboboxBase() {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.15, ease: "easeOut" }}
               >
-                <Combobox.Popup className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-lg bs-o-xs">
+                <Combobox.Popup className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-lg">
                   <Combobox.List className="oy-auto py-1 max-h-72 ow-0">
                     {(user: User) => (
                       <Combobox.Item

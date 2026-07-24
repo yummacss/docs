@@ -29,7 +29,7 @@ export default function ContextMenuRadios() {
                     transition={{ duration: 0.15, ease: "easeOut" }}
                   />
                 }
-                className="py-1 w-52 bg-white bc-silver-2 c-slate-10 bw-1 br-xxl bs-o-xs"
+                className="py-1 w-52 bg-white bc-silver-2 c-slate-10 bw-1 br-xxl"
               >
                 <div className="px-3 py-1 c-slate-5 fs-xs fw-500 ls-3">
                   Sort tasks

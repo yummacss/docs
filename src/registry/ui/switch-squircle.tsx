@@ -25,7 +25,7 @@ export default function SwitchSquircle() {
               transition={{ duration: 0.2, ease: "easeInOut" }}
             />
           }
-          className="w-4 h-3 bg-white br-xxl cs-s bs-o-xs"
+          className="w-4 h-3 bg-white br-xxl cs-s"
         />
       </Switch.Root>
       <Field.Label

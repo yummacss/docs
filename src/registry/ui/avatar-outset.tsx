@@ -1,0 +1,19 @@
+import { Avatar } from "@base-ui/react/avatar";
+
+export default function AvatarOutset() {
+  return (
+    <Avatar.Root className="d-if o-h ai-c jc-c w-12 h-12 bg-silver-1 bc-white br-9999 bw-1 bs-o-xs va-m us-none">
+      <Avatar.Image
+        src={userProfile.avatarUrl}
+        alt={userProfile.name}
+        className="of-c w-100% h-100%"
+      />
+    </Avatar.Root>
+  );
+}
+
+const userProfile = {
+  name: "John",
+  avatarUrl:
+    "https://api.dicebear.com/9.x/notionists/svg?seed=John&backgroundColor=DAF0B9",
+};

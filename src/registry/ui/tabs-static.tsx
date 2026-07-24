@@ -28,7 +28,7 @@ export default function TabsStatic() {
           );
         })}
         <Tabs.Indicator
-          className="p-a l-0 zi-0 bg-white br-9999 bs-o-xs"
+          className="p-a l-0 zi-0 bg-white br-9999"
           style={{
             translate: "var(--active-tab-left) 0",
             width: "var(--active-tab-width)",

@@ -16,7 +16,7 @@ export default function SliderSquare() {
         <Slider.Control className="d-f ai-c py-3 us-none ta-none">
           <Slider.Track className="p-r h-2 w-100% bg-silver-1">
             <Slider.Indicator className="bg-indigo" />
-            <Slider.Thumb className="w-5 h-5 bg-white bc-silver-3 bw-1 bs-o-sm fv:oo-2 fv:oc-indigo-5" />
+            <Slider.Thumb className="w-5 h-5 bg-white bc-silver-3 bw-1 fv:oo-2 fv:oc-indigo-5" />
           </Slider.Track>
         </Slider.Control>
       </Slider.Root>

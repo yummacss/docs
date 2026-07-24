@@ -4,7 +4,7 @@ import { Xmark } from "iconoir-react";
 export default function BadgeClose() {
   return (
     <div className="d-f fd-c g-6 ai-c">
-      <div className="d-f ai-c g-1 pl-3 pr-2 py-1 bg-white bc-silver-2 br-sm bw-1 bs-o-xs">
+      <div className="d-f ai-c g-1 pl-3 pr-2 py-1 bg-white bc-silver-2 br-sm bw-1">
         <span className="c-slate-10 fs-xs fw-500 us-none">Blocked</span>
         <Button className="d-f ai-c jc-c w-4 h-4 p-0 bg-transparent c-slate-6 br-sm h:bg-silver-2 fv:oo-2 fv:oc-indigo-5">
           <Xmark className="w-3 h-3 c-slate-6" />

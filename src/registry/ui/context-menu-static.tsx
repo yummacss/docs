@@ -16,7 +16,7 @@ export default function ContextMenuStatic() {
       {open && (
         <ContextMenu.Portal keepMounted>
           <ContextMenu.Positioner className="ow-0">
-            <ContextMenu.Popup className="py-1 w-52 bg-white bc-silver-2 c-slate-10 bw-1 br-xxl bs-o-xs">
+            <ContextMenu.Popup className="py-1 w-52 bg-white bc-silver-2 c-slate-10 bw-1 br-xxl">
               <ContextMenu.Item
                 className={(state) =>
                   `d-f ai-c g-2 py-2 pr-3 pl-2 fs-sm fw-500 us-none c-p br-xl mx-1 ${
