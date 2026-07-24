@@ -3,7 +3,7 @@ import { Lock } from "iconoir-react";
 
 export default function CollapsibleDisabled() {
   return (
-    <Collapsible.Root disabled className="d-f fd-c w-72 c-slate-10 o-50 c-na">
+    <Collapsible.Root disabled className="d-f fd-c w-72 c-slate-10 o-60 c-na">
       <Collapsible.Trigger className="d-f ai-c jc-sb g-3 w-100% py-3 px-3 bg-white bc-silver-3 bbw-1 ta-l">
         <span className="c-slate-6 fs-sm fw-500">Sprint 1 - Q1 2025</span>
         <Lock className="w-3 h-3 c-slate-5" />

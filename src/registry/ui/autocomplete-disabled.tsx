@@ -3,7 +3,7 @@ import { Autocomplete } from "@base-ui/react/autocomplete";
 export default function AutocompleteDisabled() {
   return (
     <Autocomplete.Root items={teamMembers} disabled>
-      <div className="d-f fd-c g-2 o-50 c-na">
+      <div className="d-f fd-c g-2 o-60 c-na">
         <label
           htmlFor="autocomplete-input-disabled"
           className="c-slate-10 fs-sm fw-500"

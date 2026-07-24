@@ -4,7 +4,7 @@ import { ArrowSeparateVertical } from "iconoir-react";
 export default function ComboboxDisabled() {
   return (
     <Combobox.Root items={users} disabled>
-      <div className="d-f p-r fd-c g-2 o-50 c-na c-slate-10 fs-sm">
+      <div className="d-f p-r fd-c g-2 o-60 c-na c-slate-10 fs-sm">
         <label htmlFor="user-input-disabled" className="fw-500">
           Assign member
         </label>

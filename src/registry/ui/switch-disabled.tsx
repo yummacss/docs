@@ -9,7 +9,7 @@ export default function SwitchDisabled() {
   const [checked, setChecked] = useState(false);
 
   return (
-    <Field.Root className="d-f ai-c g-2 o-50 c-na">
+    <Field.Root className="d-f ai-c g-2 o-60 c-na">
       <Switch.Root
         disabled
         id="switch-disabled"

@@ -4,7 +4,7 @@ import { ArrowSeparateVertical } from "iconoir-react";
 
 export default function SelectDisabled() {
   return (
-    <Field.Root className="d-f fd-c g-2 o-50 c-na">
+    <Field.Root className="d-f fd-c g-2 o-60 c-na">
       <label
         htmlFor="select-status-disabled"
         className="c-slate-10 fs-sm fw-500 us-none"

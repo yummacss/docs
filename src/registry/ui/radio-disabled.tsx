@@ -64,7 +64,7 @@ export default function RadioDisabled() {
         <p className="pl-6 c-slate-6 fs-xs fw-400">For serious users</p>
       </label>
 
-      <label className="d-f fd-c g-1 c-slate-6 fs-sm o-50 c-na">
+      <label className="d-f fd-c g-1 c-slate-6 fs-sm o-60 c-na">
         <div className="d-f ai-c g-2">
           <Radio.Root
             value="max"

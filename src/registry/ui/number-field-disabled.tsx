@@ -11,7 +11,7 @@ export default function NumberFieldDisabled() {
       id={id}
       defaultValue={4}
       disabled
-      className="d-f fd-c ai-fs g-2 o-50 c-na"
+      className="d-f fd-c ai-fs g-2 o-60 c-na"
     >
       <NumberField.ScrubArea className="c-er">
         <label htmlFor={id} className="c-slate-5 fs-sm fw-500 c-er">

@@ -4,7 +4,7 @@ import { Check } from "iconoir-react";
 export default function CheckboxDisabled() {
   return (
     <div className="d-f fd-c g-2">
-      <label className="d-f ai-c g-2 c-slate-10 fs-sm fw-500 o-50 c-na">
+      <label className="d-f ai-c g-2 c-slate-10 fs-sm fw-500 o-60 c-na">
         <Checkbox.Root
           disabled
           defaultChecked
@@ -23,7 +23,7 @@ export default function CheckboxDisabled() {
         Manage billing
       </label>
 
-      <label className="d-f ai-c g-2 c-slate-10 fs-sm fw-500 o-50 c-na">
+      <label className="d-f ai-c g-2 c-slate-10 fs-sm fw-500 o-60 c-na">
         <Checkbox.Root
           disabled
           className={(state) =>
