@@ -61,6 +61,9 @@ export default function SelectGrouped() {
                   <Select.List className="p-r o-auto">
                     {categories.map((group, groupIndex) => (
                       <Select.Group key={group.groupLabel}>
+                        <div className="px-3 pt-2 pb-1 fs-xs fw-500 c-slate-5 us-none">
+                          {group.groupLabel}
+                        </div>
                         {group.items.map(({ label, value }) => (
                           <Select.Item
                             key={value}
@@ -75,9 +78,6 @@ export default function SelectGrouped() {
                             <Select.ItemText>{label}</Select.ItemText>
                           </Select.Item>
                         ))}
-                        {groupIndex < categories.length - 1 && (
-                          <div className="w-100% h-px my-1 bg-silver-2" />
-                        )}
                       </Select.Group>
                     ))}
                   </Select.List>

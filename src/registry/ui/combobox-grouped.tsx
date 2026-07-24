@@ -53,6 +53,9 @@ export default function ComboboxGrouped() {
                   <Combobox.List className="oy-auto max-h-72 py-1 ow-0">
                     {(group: TeamGroup, groupIndex: number) => (
                       <Combobox.Group key={group.value}>
+                        <div className="px-3 pt-2 pb-1 fs-xs fw-500 c-slate-5 us-none">
+                          {group.value}
+                        </div>
                         {group.items.map((member) => (
                           <Combobox.Item
                             key={member.name}
@@ -86,9 +89,6 @@ export default function ComboboxGrouped() {
                             </Combobox.ItemIndicator>
                           </Combobox.Item>
                         ))}
-                        {groupIndex < teamGroups.length - 1 && (
-                          <div className="w-100% h-px my-1 bg-silver-2" />
-                        )}
                       </Combobox.Group>
                     )}
                   </Combobox.List>

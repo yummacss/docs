@@ -179,7 +179,7 @@ export default function MenubarDisabled() {
       </Menu.Root>
 
       <Menu.Root disabled>
-        <Menu.Trigger className="h-8 px-3 bg-transparent c-slate-4 o-50 us-none c-na">
+        <Menu.Trigger className="h-8 br-lg px-3 bg-transparent c-slate-4 fs-sm fw-500 o-50 us-none c-na">
           Roles
         </Menu.Trigger>
       </Menu.Root>
