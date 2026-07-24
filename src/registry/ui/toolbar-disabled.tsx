@@ -109,7 +109,7 @@ export default function ToolbarDisabled() {
           <motion.button
             type="button"
             {...(props as HTMLMotionProps<"button">)}
-            className="d-f ai-c g-1 jc-c h-9 px-3 bg-transparent h:bg-transparent c-slate-7/50 br-lg bw-0 fs-sm fw-500 us-none c-na o-50"
+            className="d-f ai-c g-1 jc-c h-9 px-3 bg-transparent h:bg-transparent c-slate-7 br-lg bw-0 fs-sm fw-500 us-none c-na o-50"
           />
         )}
       >

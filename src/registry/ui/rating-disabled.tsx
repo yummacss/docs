@@ -21,8 +21,8 @@ export default function RatingDisabled() {
               aria-label={`${star} star${star > 1 ? "s" : ""}`}
               className={`d-f ai-c jc-c w-9 h-9 bw-0 br-lg us-none c-na o-50 ${
                 filled
-                  ? "bg-transparent c-yellow-5/50"
-                  : "bg-transparent c-slate-4/50"
+                  ? "bg-transparent c-yellow-5"
+                  : "bg-transparent c-slate-4"
               }`}
             >
               <Star

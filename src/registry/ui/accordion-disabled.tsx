@@ -33,13 +33,13 @@ export default function AccordionDisabled() {
                 <div className="d-f ai-c g-3">
                   <span
                     className={`fs-sm fw-500 ${
-                      isDisabled ? "c-slate-4/50" : "c-slate-8"
+                      isDisabled ? "c-slate-4" : "c-slate-8"
                     }`}
                   >
                     {item.title}
                   </span>
                   {isDisabled && (
-                    <Lock className="w-3 h-3 c-slate-4/50" aria-hidden />
+                    <Lock className="w-3 h-3 c-slate-4" aria-hidden />
                   )}
                 </div>
                 <motion.span
@@ -49,7 +49,7 @@ export default function AccordionDisabled() {
                 >
                   <NavArrowDown
                     className={`fs-0 w-4 h-4 ${
-                      isDisabled ? "c-slate-4/50" : "c-slate-6"
+                      isDisabled ? "c-slate-4" : "c-slate-6"
                     }`}
                     aria-hidden
                   />

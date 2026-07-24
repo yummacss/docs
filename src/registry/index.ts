@@ -37,7 +37,6 @@ export const registry = {
   "autocomplete-auto-highlight": () => import("./ui/autocomplete-auto-highlight"),
   "autocomplete-base": () => import("./ui/autocomplete-base"),
   "autocomplete-disabled": () => import("./ui/autocomplete-disabled"),
-  "autocomplete-empty-state": () => import("./ui/autocomplete-empty-state"),
   "autocomplete-grouped": () => import("./ui/autocomplete-grouped"),
   "autocomplete-icon-leading": () => import("./ui/autocomplete-icon-leading"),
   "autocomplete-icon-trailing": () => import("./ui/autocomplete-icon-trailing"),
