@@ -24,7 +24,7 @@ export default function TabsCounters() {
               }`}
             >
               <span className="p-r zi-10 fs-sm fw-500">{tab.label}</span>
-              <span className="d-f ai-c jc-c h-5 px-2 br-9999 fs-xs fw-500 bg-silver-2 c-slate-6">
+              <span className="d-f ai-c jc-c h-5 px-2 br-9999 fs-xs fw-500 bg-silver-8 c-white">
                 {tab.count}
               </span>
             </Tabs.Tab>

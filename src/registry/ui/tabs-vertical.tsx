@@ -52,7 +52,6 @@ export default function ExampleTabsVertical() {
 
 const tabs = [
   { value: "general", label: "General" },
-  { value: "notifications", label: "Notifications" },
   { value: "integrations", label: "Integrations" },
   { value: "security", label: "Security" },
 ];
@@ -62,11 +61,6 @@ const content: Record<string, { title: string; description: string }> = {
     title: "General Settings",
     description:
       "Manage your workspace name, description, and default preferences for new projects.",
-  },
-  notifications: {
-    title: "Notification Preferences",
-    description:
-      "Configure email, Slack, and in-app notifications to stay updated on project activity.",
   },
   integrations: {
     title: "Integrations",
