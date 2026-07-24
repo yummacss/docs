@@ -159,6 +159,15 @@ export default function rehypeCode() {
             ? lineNode.properties.className
             : [];
           lineNode.properties.className = [...existing, ...extra.split(" ")];
+
+          if (
+            !lineNode.children ||
+            lineNode.children.every((c) => c.type === "text" && c.value === "")
+          ) {
+            lineNode.children = [
+              { type: "element", tagName: "br", properties: {}, children: [] },
+            ];
+          }
         });
       }
 

@@ -16,7 +16,9 @@ export default function Code({ title, preview, children }: Props) {
   const ref = useRef<HTMLDivElement>(null);
 
   const handleCopy = async () => {
-    const text = ref.current?.querySelector("pre")?.textContent ?? "";
+    // innerText reflects rendered line breaks from block-level line spans
+    // and <br> elements, unlike textContent (used for highlighted blocks).
+    const text = ref.current?.querySelector("pre")?.innerText ?? "";
     await navigator.clipboard.writeText(text);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
