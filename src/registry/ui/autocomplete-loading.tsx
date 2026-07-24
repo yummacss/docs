@@ -94,7 +94,7 @@ export default function AutocompleteLoading() {
                               {...props}
                               className={`d-f ai-c g-3 py-2 px-3 fs-sm us-none c-p br-md mx-1 c-slate-10 ${
                                 state.highlighted
-                                  ? "bg-silver-1/50"
+                                  ? "bg-silver-2/50"
                                   : "bg-transparent"
                               }`}
                             >

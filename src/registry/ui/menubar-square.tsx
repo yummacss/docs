@@ -17,7 +17,7 @@ export default function MenubarSquare() {
         <Menu.Trigger
           className={(state) =>
             `h-8 px-3 fs-sm fw-500 c-slate-10 us-none c-p bw-0 bg-transparent h:bg-silver-1/50 ${
-              state.open ? "bg-silver-1/50" : ""
+              state.open ? "bg-silver-2/50" : ""
             }`
           }
         >
@@ -40,21 +40,21 @@ export default function MenubarSquare() {
                 >
                   <Menu.Item
                     className={(state) =>
-                      `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p mx-1 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                      `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p mx-1 fw-500 ${state.highlighted ? "bg-silver-2/50" : "bg-transparent"}`
                     }
                   >
                     New task
                   </Menu.Item>
                   <Menu.Item
                     className={(state) =>
-                      `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p mx-1 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                      `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p mx-1 fw-500 ${state.highlighted ? "bg-silver-2/50" : "bg-transparent"}`
                     }
                   >
                     Import tasks
                   </Menu.Item>
                   <Menu.Item
                     className={(state) =>
-                      `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p mx-1 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                      `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p mx-1 fw-500 ${state.highlighted ? "bg-silver-2/50" : "bg-transparent"}`
                     }
                   >
                     Export tasks
@@ -70,7 +70,7 @@ export default function MenubarSquare() {
         <Menu.Trigger
           className={(state) =>
             `h-8 px-3 fs-sm fw-500 c-slate-10 us-none c-p bw-0 bg-transparent h:bg-silver-1/50 ${
-              state.open ? "bg-silver-1/50" : ""
+              state.open ? "bg-silver-2/50" : ""
             }`
           }
         >
@@ -93,21 +93,21 @@ export default function MenubarSquare() {
                 >
                   <Menu.Item
                     className={(state) =>
-                      `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p mx-1 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                      `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p mx-1 fw-500 ${state.highlighted ? "bg-silver-2/50" : "bg-transparent"}`
                     }
                   >
                     Assign task
                   </Menu.Item>
                   <Menu.Item
                     className={(state) =>
-                      `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p mx-1 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                      `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p mx-1 fw-500 ${state.highlighted ? "bg-silver-2/50" : "bg-transparent"}`
                     }
                   >
                     Reassign task
                   </Menu.Item>
                   <Menu.Item
                     className={(state) =>
-                      `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p mx-1 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                      `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p mx-1 fw-500 ${state.highlighted ? "bg-silver-2/50" : "bg-transparent"}`
                     }
                   >
                     Bulk assign
@@ -123,7 +123,7 @@ export default function MenubarSquare() {
         <Menu.Trigger
           className={(state) =>
             `h-8 px-3 fs-sm fw-500 c-slate-10 us-none c-p bw-0 bg-transparent h:bg-silver-1/50 ${
-              state.open ? "bg-silver-1/50" : ""
+              state.open ? "bg-silver-2/50" : ""
             }`
           }
         >
@@ -146,21 +146,21 @@ export default function MenubarSquare() {
                 >
                   <Menu.Item
                     className={(state) =>
-                      `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p mx-1 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                      `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p mx-1 fw-500 ${state.highlighted ? "bg-silver-2/50" : "bg-transparent"}`
                     }
                   >
                     Board view
                   </Menu.Item>
                   <Menu.Item
                     className={(state) =>
-                      `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p mx-1 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                      `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p mx-1 fw-500 ${state.highlighted ? "bg-silver-2/50" : "bg-transparent"}`
                     }
                   >
                     List view
                   </Menu.Item>
                   <Menu.Item
                     className={(state) =>
-                      `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p mx-1 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                      `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p mx-1 fw-500 ${state.highlighted ? "bg-silver-2/50" : "bg-transparent"}`
                     }
                   >
                     Keyframes view
@@ -176,7 +176,7 @@ export default function MenubarSquare() {
         <Menu.Trigger
           className={(state) =>
             `h-8 px-3 fs-sm fw-500 c-slate-10 us-none c-p bw-0 bg-transparent h:bg-silver-1/50 ${
-              state.open ? "bg-silver-1/50" : ""
+              state.open ? "bg-silver-2/50" : ""
             }`
           }
         >
@@ -199,14 +199,14 @@ export default function MenubarSquare() {
                 >
                   <Menu.Item
                     className={(state) =>
-                      `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p mx-1 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                      `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p mx-1 fw-500 ${state.highlighted ? "bg-silver-2/50" : "bg-transparent"}`
                     }
                   >
                     Keyboard shortcuts
                   </Menu.Item>
                   <Menu.Item
                     className={(state) =>
-                      `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p mx-1 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                      `d-f ai-c jc-sb g-4 px-3 py-2 fs-sm us-none c-p mx-1 fw-500 ${state.highlighted ? "bg-silver-2/50" : "bg-transparent"}`
                     }
                   >
                     Cheat sheet

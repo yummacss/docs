@@ -45,7 +45,7 @@ export default function AutocompleteSquare() {
                             {...props}
                             className={`d-f ai-c g-3 py-2 px-3 mx-1 c-slate-10 fs-sm us-none c-p ${
                               state.highlighted
-                                ? "bg-silver-1/50"
+                                ? "bg-silver-2/50"
                                 : "bg-transparent"
                             }`}
                           >

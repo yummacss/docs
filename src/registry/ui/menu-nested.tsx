@@ -55,7 +55,7 @@ export default function MenuNested() {
 
                 <Menu.Item
                   className={(state) =>
-                    `d-f ai-c g-3 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-xl mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                    `d-f ai-c g-3 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-xl mx-1 ${state.highlighted ? "bg-silver-2/50" : "bg-transparent"}`
                   }
                 >
                   <Edit className="fs-0 w-4 h-4 c-slate-5" />
@@ -64,7 +64,7 @@ export default function MenuNested() {
 
                 <Menu.Item
                   className={(state) =>
-                    `d-f ai-c g-3 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-xl mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                    `d-f ai-c g-3 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-xl mx-1 ${state.highlighted ? "bg-silver-2/50" : "bg-transparent"}`
                   }
                 >
                   <Copy className="fs-0 w-4 h-4 c-slate-5" />
@@ -73,7 +73,7 @@ export default function MenuNested() {
 
                 <Menu.Item
                   className={(state) =>
-                    `d-f ai-c g-3 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-xl mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                    `d-f ai-c g-3 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-xl mx-1 ${state.highlighted ? "bg-silver-2/50" : "bg-transparent"}`
                   }
                 >
                   <Bookmark className="fs-0 w-4 h-4 c-slate-5" />
@@ -82,7 +82,7 @@ export default function MenuNested() {
 
                 <Menu.Item
                   className={(state) =>
-                    `d-f ai-c g-3 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-xl mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                    `d-f ai-c g-3 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-xl mx-1 ${state.highlighted ? "bg-silver-2/50" : "bg-transparent"}`
                   }
                 >
                   <Pin className="fs-0 w-4 h-4 c-slate-5" />
@@ -97,7 +97,7 @@ export default function MenuNested() {
 
                 <Menu.Item
                   className={(state) =>
-                    `d-f ai-c g-3 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-xl mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                    `d-f ai-c g-3 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-xl mx-1 ${state.highlighted ? "bg-silver-2/50" : "bg-transparent"}`
                   }
                 >
                   <ShareIos className="fs-0 w-4 h-4 c-slate-5" />
@@ -106,7 +106,7 @@ export default function MenuNested() {
 
                 <Menu.Item
                   className={(state) =>
-                    `d-f ai-c g-3 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-xl mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                    `d-f ai-c g-3 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-xl mx-1 ${state.highlighted ? "bg-silver-2/50" : "bg-transparent"}`
                   }
                 >
                   <Link className="fs-0 w-4 h-4 c-slate-5" />
@@ -117,7 +117,7 @@ export default function MenuNested() {
                   <Menu.SubmenuTrigger
                     className={(state) =>
                       `d-f ai-c jc-sb g-2 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-xl mx-1 ${
-                        state.highlighted ? "bg-silver-1/50" : "bg-transparent"
+                        state.highlighted ? "bg-silver-2/50" : "bg-transparent"
                       }`
                     }
                   >
@@ -137,28 +137,28 @@ export default function MenuNested() {
                       <Menu.Popup className="py-1 w-52 bg-white bc-silver-2 c-slate-10 bw-1 br-xxl bs-o-xs">
                         <Menu.Item
                           className={(state) =>
-                            `d-f ai-c g-2 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-xl mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                            `d-f ai-c g-2 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-xl mx-1 ${state.highlighted ? "bg-silver-2/50" : "bg-transparent"}`
                           }
                         >
                           PDF
                         </Menu.Item>
                         <Menu.Item
                           className={(state) =>
-                            `d-f ai-c g-3 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-xl mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                            `d-f ai-c g-3 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-xl mx-1 ${state.highlighted ? "bg-silver-2/50" : "bg-transparent"}`
                           }
                         >
                           CSV
                         </Menu.Item>
                         <Menu.Item
                           className={(state) =>
-                            `d-f ai-c g-3 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-xl mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                            `d-f ai-c g-3 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-xl mx-1 ${state.highlighted ? "bg-silver-2/50" : "bg-transparent"}`
                           }
                         >
                           Markdown
                         </Menu.Item>
                         <Menu.Item
                           className={(state) =>
-                            `d-f ai-c g-3 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-xl mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                            `d-f ai-c g-3 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-xl mx-1 ${state.highlighted ? "bg-silver-2/50" : "bg-transparent"}`
                           }
                         >
                           Plain text
@@ -170,7 +170,7 @@ export default function MenuNested() {
 
                 <Menu.Item
                   className={(state) =>
-                    `d-f ai-c g-3 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-xl mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                    `d-f ai-c g-3 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-xl mx-1 ${state.highlighted ? "bg-silver-2/50" : "bg-transparent"}`
                   }
                 >
                   <PrintingPage className="fs-0 w-4 h-4 c-slate-5" />
@@ -183,7 +183,7 @@ export default function MenuNested() {
                   <Menu.SubmenuTrigger
                     className={(state) =>
                       `d-f ai-c jc-sb g-2 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-xl mx-1 ${
-                        state.highlighted ? "bg-silver-1/50" : "bg-transparent"
+                        state.highlighted ? "bg-silver-2/50" : "bg-transparent"
                       }`
                     }
                   >
@@ -205,7 +205,7 @@ export default function MenuNested() {
                           <Menu.Item
                             key={folder.name}
                             className={(state) =>
-                              `d-f ai-c g-2 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-xl mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                              `d-f ai-c g-2 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-xl mx-1 ${state.highlighted ? "bg-silver-2/50" : "bg-transparent"}`
                             }
                           >
                             {folder.name}
@@ -220,7 +220,7 @@ export default function MenuNested() {
                   <Menu.SubmenuTrigger
                     className={(state) =>
                       `d-f ai-c jc-sb g-2 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-xl mx-1 ${
-                        state.highlighted ? "bg-silver-1/50" : "bg-transparent"
+                        state.highlighted ? "bg-silver-2/50" : "bg-transparent"
                       }`
                     }
                   >
@@ -242,7 +242,7 @@ export default function MenuNested() {
                           <Menu.Item
                             key={`${member.name}-${member.role}`}
                             className={(state) =>
-                              `d-f ai-c g-3 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-xl mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                              `d-f ai-c g-3 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-xl mx-1 ${state.highlighted ? "bg-silver-2/50" : "bg-transparent"}`
                             }
                           >
                             <div className="p-r">
@@ -273,7 +273,7 @@ export default function MenuNested() {
 
                 <Menu.Item
                   className={(state) =>
-                    `d-f ai-c g-3 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-xl mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                    `d-f ai-c g-3 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-xl mx-1 ${state.highlighted ? "bg-silver-2/50" : "bg-transparent"}`
                   }
                 >
                   <Label className="fs-0 w-4 h-4 c-slate-5" />
@@ -282,7 +282,7 @@ export default function MenuNested() {
 
                 <Menu.Item
                   className={(state) =>
-                    `d-f ai-c g-3 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-xl mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                    `d-f ai-c g-3 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-xl mx-1 ${state.highlighted ? "bg-silver-2/50" : "bg-transparent"}`
                   }
                 >
                   <TriangleFlag className="fs-0 w-4 h-4 c-slate-5" />
@@ -293,7 +293,7 @@ export default function MenuNested() {
 
                 <Menu.Item
                   className={(state) =>
-                    `d-f ai-c g-3 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-xl mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                    `d-f ai-c g-3 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-xl mx-1 ${state.highlighted ? "bg-silver-2/50" : "bg-transparent"}`
                   }
                 >
                   <ClockRotateRight className="fs-0 w-4 h-4 c-slate-5" />
@@ -302,7 +302,7 @@ export default function MenuNested() {
 
                 <Menu.Item
                   className={(state) =>
-                    `d-f ai-c g-3 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-xl mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                    `d-f ai-c g-3 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-xl mx-1 ${state.highlighted ? "bg-silver-2/50" : "bg-transparent"}`
                   }
                 >
                   <BellOff className="fs-0 w-4 h-4 c-slate-5" />
@@ -311,7 +311,7 @@ export default function MenuNested() {
 
                 <Menu.Item
                   className={(state) =>
-                    `d-f ai-c g-3 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-xl mx-1 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                    `d-f ai-c g-3 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p br-xl mx-1 ${state.highlighted ? "bg-silver-2/50" : "bg-transparent"}`
                   }
                 >
                   <Archive className="fs-0 w-4 h-4 c-slate-5" />

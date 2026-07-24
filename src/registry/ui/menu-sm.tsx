@@ -32,7 +32,7 @@ export default function MenuSm() {
                 <Menu.Item
                   className={(state) =>
                     `d-f py-1 px-2 fs-xs us-none c-p br-xl mx-1 fw-500 ${
-                      state.highlighted ? "bg-silver-1/50" : "bg-transparent"
+                      state.highlighted ? "bg-silver-2/50" : "bg-transparent"
                     }`
                   }
                 >
@@ -41,7 +41,7 @@ export default function MenuSm() {
                 <Menu.Item
                   className={(state) =>
                     `d-f py-1 px-2 fs-xs us-none c-p br-xl mx-1 fw-500 ${
-                      state.highlighted ? "bg-silver-1/50" : "bg-transparent"
+                      state.highlighted ? "bg-silver-2/50" : "bg-transparent"
                     }`
                   }
                 >
@@ -50,7 +50,7 @@ export default function MenuSm() {
                 <Menu.Item
                   className={(state) =>
                     `d-f py-1 px-2 fs-xs us-none c-p br-xl mx-1 fw-500 ${
-                      state.highlighted ? "bg-silver-1/50" : "bg-transparent"
+                      state.highlighted ? "bg-silver-2/50" : "bg-transparent"
                     }`
                   }
                 >
@@ -59,7 +59,7 @@ export default function MenuSm() {
                 <Menu.Item
                   className={(state) =>
                     `d-f py-1 px-2 fs-xs us-none c-p br-xl mx-1 fw-500 ${
-                      state.highlighted ? "bg-silver-1/50" : "bg-transparent"
+                      state.highlighted ? "bg-silver-2/50" : "bg-transparent"
                     }`
                   }
                 >

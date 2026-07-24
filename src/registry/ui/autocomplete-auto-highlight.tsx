@@ -49,7 +49,7 @@ export default function AutocompleteAutoHighlight() {
                             {...props}
                             className={`d-f ai-c g-3 py-2 px-3 mx-1 c-slate-10 br-md fs-sm us-none c-p ${
                               state.highlighted
-                                ? "bg-silver-1/50"
+                                ? "bg-silver-2/50"
                                 : "bg-transparent"
                             }`}
                           >
