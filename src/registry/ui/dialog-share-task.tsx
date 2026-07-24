@@ -81,7 +81,7 @@ export default function DialogShareTask() {
                     >
                       <Select.Trigger
                         className={`d-f ai-c jc-sb h-10 w-100% px-3 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md us-none c-p fv:oo--1 fv:oc-indigo-5 ${
-                          permOpen ? "bg-silver-1/50" : "bg-transparent"
+                          permOpen ? "bg-silver-2/50" : "bg-transparent"
                         }`}
                       >
                         <Select.Value>
@@ -124,7 +124,7 @@ export default function DialogShareTask() {
                                       key={value}
                                       value={value}
                                       className={(state) =>
-                                        `d-f ai-c g-2 py-2 px-3 fs-sm us-none c-p br-lg mx-1 c-slate-10 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                                        `d-f ai-c g-2 py-2 px-3 fs-sm us-none c-p br-lg mx-1 c-slate-10 fw-500 ${state.highlighted ? "bg-silver-2/50" : "bg-transparent"}`
                                       }
                                     >
                                       <Select.ItemIndicator className="d-f ai-c">

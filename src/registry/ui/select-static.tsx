@@ -16,7 +16,7 @@ export default function SelectStatic() {
           id="select-status-static"
           className={(state) =>
             `d-f ai-c jc-sb h-10 w-64 bw-1 bc-silver-3 br-lg bg-white px-3 c-slate-10 us-none c-p bs-o-xs fv:oo--1 fv:oc-indigo-5 ${
-              state.open ? "bg-silver-1/50" : "bg-transparent"
+              state.open ? "bg-silver-2/50" : "bg-transparent"
             }`
           }
         >
@@ -40,7 +40,7 @@ export default function SelectStatic() {
                     key={value}
                     value={value}
                     className={(state) =>
-                      `d-f ai-c g-2 py-2 px-3 fs-sm us-none c-p br-md mx-1 c-slate-10 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                      `d-f ai-c g-2 py-2 px-3 fs-sm us-none c-p br-md mx-1 c-slate-10 fw-500 ${state.highlighted ? "bg-silver-2/50" : "bg-transparent"}`
                     }
                   >
                     <Select.ItemIndicator className="d-f ai-c">

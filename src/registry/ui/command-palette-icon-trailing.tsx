@@ -84,7 +84,7 @@ export default function CommandPaletteIconTrailing() {
                               className={(state: { highlighted: boolean }) =>
                                 `d-f ai-c g-2 py-2 px-2 mx-2 fs-sm us-none c-p br-lg ${
                                   state.highlighted
-                                    ? "bg-silver-1/50"
+                                    ? "bg-silver-2/50"
                                     : "bg-transparent"
                                 }`
                               }

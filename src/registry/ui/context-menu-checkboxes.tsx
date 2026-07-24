@@ -42,7 +42,7 @@ export default function ContextMenuCheckboxes() {
                   onCheckedChange={setAllTasks}
                   className={(state) =>
                     `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-xl mx-1 ${
-                      state.highlighted ? "bg-silver-1/50" : "bg-transparent"
+                      state.highlighted ? "bg-silver-2/50" : "bg-transparent"
                     }`
                   }
                 >
@@ -59,7 +59,7 @@ export default function ContextMenuCheckboxes() {
                   onCheckedChange={setAssigned}
                   className={(state) =>
                     `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-xl mx-1 ${
-                      state.highlighted ? "bg-silver-1/50" : "bg-transparent"
+                      state.highlighted ? "bg-silver-2/50" : "bg-transparent"
                     }`
                   }
                 >
@@ -76,7 +76,7 @@ export default function ContextMenuCheckboxes() {
                   onCheckedChange={setDueToday}
                   className={(state) =>
                     `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-xl mx-1 ${
-                      state.highlighted ? "bg-silver-1/50" : "bg-transparent"
+                      state.highlighted ? "bg-silver-2/50" : "bg-transparent"
                     }`
                   }
                 >
@@ -95,7 +95,7 @@ export default function ContextMenuCheckboxes() {
                   onCheckedChange={setMuted}
                   className={(state) =>
                     `d-f ai-c g-2 py-2 pl-3 pr-4 fs-sm fw-500 us-none c-p br-xl mx-1 ${
-                      state.highlighted ? "bg-silver-1/50" : "bg-transparent"
+                      state.highlighted ? "bg-silver-2/50" : "bg-transparent"
                     }`
                   }
                 >

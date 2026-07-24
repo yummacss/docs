@@ -32,7 +32,7 @@ export default function ContextMenuIcons() {
                 <ContextMenu.Item
                   className={(state) =>
                     `d-f ai-c g-2 py-2 pr-3 pl-2 fs-sm us-none c-p br-xl mx-1 fw-500 ${
-                      state.highlighted ? "bg-silver-1/50" : "bg-transparent"
+                      state.highlighted ? "bg-silver-2/50" : "bg-transparent"
                     }`
                   }
                 >
@@ -42,7 +42,7 @@ export default function ContextMenuIcons() {
                 <ContextMenu.Item
                   className={(state) =>
                     `d-f ai-c g-2 py-2 pr-3 pl-2 fs-sm us-none c-p br-xl mx-1 fw-500 ${
-                      state.highlighted ? "bg-silver-1/50" : "bg-transparent"
+                      state.highlighted ? "bg-silver-2/50" : "bg-transparent"
                     }`
                   }
                 >
@@ -52,7 +52,7 @@ export default function ContextMenuIcons() {
                 <ContextMenu.Item
                   className={(state) =>
                     `d-f ai-c g-2 py-2 pr-3 pl-2 fs-sm us-none c-p br-xl mx-1 fw-500 ${
-                      state.highlighted ? "bg-silver-1/50" : "bg-transparent"
+                      state.highlighted ? "bg-silver-2/50" : "bg-transparent"
                     }`
                   }
                 >
@@ -62,7 +62,7 @@ export default function ContextMenuIcons() {
                 <ContextMenu.Item
                   className={(state) =>
                     `d-f ai-c g-2 py-2 pr-3 pl-2 fs-sm us-none c-p br-xl mx-1 fw-500 ${
-                      state.highlighted ? "bg-silver-1/50" : "bg-transparent"
+                      state.highlighted ? "bg-silver-2/50" : "bg-transparent"
                     }`
                   }
                 >
@@ -73,7 +73,7 @@ export default function ContextMenuIcons() {
                 <ContextMenu.Item
                   className={(state) =>
                     `d-f ai-c g-2 py-2 pr-3 pl-2 fs-sm us-none c-p br-xl mx-1 fw-500 ${
-                      state.highlighted ? "bg-silver-1/50" : "bg-transparent"
+                      state.highlighted ? "bg-silver-2/50" : "bg-transparent"
                     }`
                   }
                 >
@@ -83,7 +83,7 @@ export default function ContextMenuIcons() {
                 <ContextMenu.Item
                   className={(state) =>
                     `d-f ai-c g-2 py-2 pr-3 pl-2 fs-sm us-none c-p br-xl mx-1 fw-500 ${
-                      state.highlighted ? "bg-silver-1/50" : "bg-transparent"
+                      state.highlighted ? "bg-silver-2/50" : "bg-transparent"
                     }`
                   }
                 >

@@ -18,7 +18,7 @@ export default function SelectSm() {
         <Select.Trigger
           id="select-sm"
           className={`d-f ai-c jc-sb h-8 w-56 bw-1 bc-silver-3 br-lg bg-white px-3 c-slate-10 us-none c-p bs-o-xs fv:oo--1 fv:oc-indigo-5 ${
-            open ? "bg-silver-1/50" : "bg-transparent"
+            open ? "bg-silver-2/50" : "bg-transparent"
           }`}
         >
           <Select.Value>
@@ -59,7 +59,7 @@ export default function SelectSm() {
                         key={value}
                         value={value}
                         className={(state) =>
-                          `d-f ai-c g-2 py-2 px-3 fs-sm us-none c-p br-md mx-1 c-slate-10 fw-500 ${state.highlighted ? "bg-silver-1/50" : "bg-transparent"}`
+                          `d-f ai-c g-2 py-2 px-3 fs-sm us-none c-p br-md mx-1 c-slate-10 fw-500 ${state.highlighted ? "bg-silver-2/50" : "bg-transparent"}`
                         }
                       >
                         <Select.ItemIndicator className="d-f ai-c">

@@ -13,7 +13,7 @@ export default function PopoverColorPalette() {
     <Popover.Root open={open} onOpenChange={setOpen}>
       <Popover.Trigger
         className={`d-f ai-c g-2 px-3 py-2 bw-1 bc-silver-2 br-lg bg-white c-slate-10 us-none c-p fv:oo-2 fv:oc-indigo-5 ${
-          open ? "bg-silver-1/50" : ""
+          open ? "bg-silver-2/50" : ""
         }`}
       >
         <span
