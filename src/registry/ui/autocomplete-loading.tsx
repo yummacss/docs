@@ -46,7 +46,7 @@ export default function AutocompleteLoading() {
           id="loading-input"
           placeholder="Project name or team..."
           onChange={handleInputChange}
-          className="h-10 w-64 pl-4 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md bs-o-xs fv:oo--1 fv:oc-indigo-5"
+          className="h-10 w-64 pl-4 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md fv:oo--1 fv:oc-indigo-5"
         />
       </div>
 
@@ -60,7 +60,7 @@ export default function AutocompleteLoading() {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.15, ease: "easeOut" }}
               >
-                <Autocomplete.Popup className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-lg bs-o-xs">
+                <Autocomplete.Popup className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-lg">
                   {loading && hasResults ? (
                     <div className="d-f fd-c g-3 py-3 px-4">
                       <div className="d-f ai-c g-3">
