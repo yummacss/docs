@@ -19,7 +19,7 @@ export default function AutocompleteSquircle() {
         </label>
         <Autocomplete.Input
           id="autocomplete-squircle-input"
-          placeholder="Search team members"
+          placeholder="Search members"
           className="h-10 w-64 pl-4 bg-white bc-silver-3 c-slate-12 bw-1 br-xxl cs-s fs-md bs-o-xs fv:oo--1 fv:oc-indigo-5"
         />
       </div>
