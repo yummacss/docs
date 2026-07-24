@@ -43,7 +43,7 @@ export default function CommandPaletteBase() {
       >
         <Search className="w-4 h-4" />
         <span>Commands</span>
-        <kbd className="d-f ai-c g-1 px-1 py-1 ml-3 bc-silver-2 bw-1 c-slate-5 br-lg fs-xs us-none">
+        <kbd className="d-f ai-c g-1 px-1 py-1 ml-3 bc-silver-2 bw-1 c-slate-5 br-md fs-xs us-none">
           <KeyCommand className="w-3 h-3" />
           <Slash className="w-3 h-3" />
         </kbd>

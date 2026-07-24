@@ -87,7 +87,7 @@ export default function CommandPaletteDescription() {
                                 }`
                               }
                             >
-                              <div className="d-f ai-c jc-c w-8 h-8 bg-white bc-silver-2 c-slate-5 bw-1 br-lg bs-o-xs">
+                              <div className="d-f ai-c jc-c w-8 h-8 bg-white bc-silver-2 c-slate-5 bw-1 br-lg bs-i-sm">
                                 <item.Icon className="fs-0 w-4 h-4" />
                               </div>
                               <div className="d-f fd-c">
