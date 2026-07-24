@@ -67,6 +67,7 @@ export default function CommandPaletteDescription() {
                       className="h-10 w-100% bg-transparent c-slate-10 fs-md"
                     />
                   </div>
+                  <div className="w-100% h-px bg-silver-2" />
                   <div>
                     <Combobox.List className="oy-auto max-h-72 py-1 ow-0">
                       {(group: CommandGroup, groupIndex: number) => (

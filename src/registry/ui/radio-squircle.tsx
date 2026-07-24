@@ -25,8 +25,7 @@ export default function RadioSquircle() {
           render={(props, _) => (
             <motion.span
               {...(props as HTMLMotionProps<"span">)}
-              whileTap={{ scale: 0.9 }}
-              transition={{ duration: 0.2, ease: "easeOut" }}
+
             >
               <Radio.Indicator
                 className={(state) =>
@@ -50,8 +49,7 @@ export default function RadioSquircle() {
           render={(props, _) => (
             <motion.span
               {...(props as HTMLMotionProps<"span">)}
-              whileTap={{ scale: 0.9 }}
-              transition={{ duration: 0.2, ease: "easeOut" }}
+
             >
               <Radio.Indicator
                 className={(state) =>
@@ -75,8 +73,7 @@ export default function RadioSquircle() {
           render={(props, _) => (
             <motion.span
               {...(props as HTMLMotionProps<"span">)}
-              whileTap={{ scale: 0.9 }}
-              transition={{ duration: 0.2, ease: "easeOut" }}
+
             >
               <Radio.Indicator
                 className={(state) =>
