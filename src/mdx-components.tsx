@@ -4,7 +4,12 @@ import Baseline from "@/components/baseline";
 import ComponentPreview from "@/components/component-preview";
 import Hint from "@/components/hint";
 import HoverVariant from "@/components/hover-state";
-import { Cursor, VisualStudioCode, Windsurf, Zed } from "@/components/icons/editors";
+import {
+  Cursor,
+  VisualStudioCode,
+  Windsurf,
+  Zed,
+} from "@/components/icons/editors";
 import NegativeValues from "@/components/negative-values";
 import OpacityModifier from "@/components/opacity-modifier";
 import Palette from "@/components/palette";
@@ -14,6 +19,7 @@ import ResponsiveVariant from "@/components/responsive-variant";
 import Stepper, { Step } from "@/components/stepper";
 import { Tabs, TabsList, TabsPanel, TabsTab } from "@/components/tabs";
 import Code from "@/components/ui/code";
+import CodeGroup from "@/components/ui/code-group";
 
 // generate IDs from heading text
 function generateId(children: React.ReactNode): string {
@@ -34,6 +40,7 @@ function generateId(children: React.ReactNode): string {
 const components: MDXComponents = {
   Baseline,
   Code,
+  CodeGroup,
   ComponentPreview,
   Cursor,
   Hint,
