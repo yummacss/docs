@@ -189,7 +189,6 @@ export const registry = {
   "context-menu-squircle": () => import("./ui/context-menu-squircle"),
   "context-menu-static": () => import("./ui/context-menu-static"),
   "dialog-base": () => import("./ui/dialog-base"),
-  "dialog-disabled": () => import("./ui/dialog-disabled"),
   "dialog-edit-profile": () => import("./ui/dialog-edit-profile"),
   "dialog-icon-leading": () => import("./ui/dialog-icon-leading"),
   "dialog-icon-trailing": () => import("./ui/dialog-icon-trailing"),
