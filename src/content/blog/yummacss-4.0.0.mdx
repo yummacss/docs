@@ -1,0 +1,123 @@
+---
+authors:
+  - Renildo
+date: 2026-07-25
+description: "A syntax that maps 1:1 to CSS"
+draft: true
+title: Yumma CSS 4.0
+---
+
+{/*
+  ============================================================================
+  DRAFT - `draft: true` above keeps this out of the blog listing, the RSS
+  feed, the sitemap, & the production route. It renders at
+  /blog/yummacss-4.0.0 in `next dev` only. Delete the flag to publish.
+
+  Purpose: accumulate v4 decisions & shipped work as they happen, so the
+  release post does not have to be reconstructed from memory at the end.
+
+  Protocol:
+  - A decision is made      -> add it to the Decision Log below.
+  - The feature ships       -> flip its status, write the real prose section,
+                               & add the CHANGELOG.md entry in the monorepo.
+  - The date above is a schema requirement, not a release date.
+  ============================================================================
+*/}
+
+## Decision Log
+
+Status is the source of truth. Nothing below is implemented yet.
+
+| # | Decision | Status |
+| --- | --- | --- |
+| 1 | Colon syntax - `d-f` becomes `d:f` | Decided |
+| 2 | Negative values - `m--4` becomes `m:-4` | Decided |
+| 3 | Scale steps stay on dashes - `bg:gray-1`, not `bg:gray:1` | Decided |
+| 4 | Variants stay prefixed - `h:c-blue`, not `c:blue:h` | Decided |
+| 5 | `:disabled` prefix `d` renamed to `di` | Decided |
+| 6 | Dark mode via `light-dark()` + semantic tokens | Decided |
+| 7 | Dark escape hatch is `@d:`, in the media-query namespace | Decided |
+| 8 | Opacity moves from hex-alpha to `color-mix()` | Decided - blocks #6 |
+| 9 | Output wrapped in `@layer` | Decided |
+| 10 | Container queries, without `container-name` | Decided |
+| 11 | `fr` variant for `gtc` / `gtr`, always `1fr` | Decided |
+| 12 | Codemod - `npx yumma migrate` | Decided |
+| 13 | Live config reload in dev | Decided |
+| 14 | Unknown-utility warnings suggesting the v4 spelling | Decided |
+| 15 | v3/v4 compat mode for one release | Open |
+
+### Open questions
+
+- **`subtle` token in light mode.** `gray-6` on white measures 3.66:1 - passes for
+  large text only, fails AA for body. Bump it, or document it as
+  placeholder/decorative only?
+- **`@d:` semantics.** Compile to `@media (prefers-color-scheme: dark)` (follows
+  the OS, ignores a manual toggle) or to `[data-theme="dark"]` (follows the
+  toggle, ignores the OS)? One selector cannot do both. Tokens are unaffected -
+  they work correctly either way.
+- **Compat mode (#15).** Accepting v3 & v4 syntax simultaneously for one release
+  turns the migration from a cliff into a ramp. Worth the parser complexity?
+
+### Knock-on work outside the monorepo
+
+- `intellisense-vscode` & `intellisense-zed` - class-detection patterns assume
+  the v3 shape & will not match `d:f`.
+- `eclipsa-vscode` & `eclipsa-zed` - unaffected, but worth a pass.
+- `@yummacss/canon` - the canon list is what AI tools & `validate()` check
+  against; it has to ship with v4 or every v4 class reads as unknown.
+- `docs` - every code example. Run the codemod here first; it is the largest
+  real corpus & has to be migrated anyway.
+
+---
+
+## Post draft
+
+Everything below is prose for the published post. Sections stay commented out
+until the feature actually ships.
+
+Yumma CSS 4.0 changes how every utility is written. `-` becomes `:` between a
+property & its value, which makes the class a compressed form of the
+declaration it generates.
+
+```html del={1} ins={2}
+<div class="d-f jc-c ai-c"></div>
+<div class="d:f jc:c ai:c"></div>
+```
+
+The rule is one line: `:` separates property from value, `-` subdivides a value.
+
+```html
+<div class="bg:gray-1 c:blue-4"></div>
+```
+
+Negative values stop being a special case. `m--4` was a parser artifact leaking
+into the API - `m:-4` is the declaration with the whitespace removed.
+
+```html del={1} ins={2}
+<div class="m--4"></div>
+<div class="m:-4"></div>
+```
+
+Variants keep their prefix position. `h:bg:gray-1` groups & sorts predictably,
+& `h:` stays greppable.
+
+{/* TODO(ship #12): migration section - npx yumma migrate, what it rewrites,
+    what it cannot rewrite (dynamically constructed class strings). */}
+
+{/* TODO(ship #6): dark mode section. Key points:
+    - theme colors accept { light, dark } & compile to light-dark()
+    - :root { color-scheme: light dark } is emitted automatically
+    - [data-theme] flips every token at once, no duplicated CSS, no FOUC
+    - native scrollbars & form controls follow for free
+    - 11-token vocabulary: page surface raised sunken fg muted subtle
+      line line-strong accent on-accent
+    - @d: is the escape hatch, not the main path */}
+
+{/* TODO(ship #9): @layer section - user CSS outside the layer wins without
+    !important. Note this changes cascade behaviour for existing overrides,
+    which is why it lands in a major. */}
+
+{/* TODO(ship #10, #11): container queries & the fr variant. */}
+
+Check the [changelog](https://github.com/yummacss/yummacss/blob/main/CHANGELOG.md)
+for the full list of changes.

@@ -59,6 +59,9 @@ const blog = defineCollection({
     date: z.string(),
     authors: z.array(z.string()),
     cover: z.string().optional(),
+    // Drafts render in dev so they can be previewed, & are excluded from
+    // every production surface. See SHOW_DRAFTS in src/utils/blog.ts.
+    draft: z.boolean().optional(),
     content: z.string(),
   }),
   transform: (doc) => ({

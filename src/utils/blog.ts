@@ -1,13 +1,29 @@
 import { allBlogs } from "content-collections";
 
+/**
+ * Posts with `draft: true` in their frontmatter are visible while developing
+ * so they can be previewed at their real URL, & hidden everywhere in
+ * production: the blog listing, the RSS feed, the sitemap, & the route itself
+ * (`dynamicParams = false` in blog/[slug]/page.tsx turns an unlisted slug into
+ * a 404 rather than rendering it on demand).
+ *
+ * Anything that surfaces posts publicly must go through `getAllBlogPosts()` or
+ * apply `isVisible` itself - reading `allBlogs` directly leaks drafts.
+ */
+export const SHOW_DRAFTS = process.env.NODE_ENV !== "production";
+
+export function isVisible(post: (typeof allBlogs)[number]): boolean {
+  return SHOW_DRAFTS || !post.draft;
+}
+
 export function getAllBlogSlugs(): string[] {
-  return allBlogs.map((post) => post._meta.path);
+  return allBlogs.filter(isVisible).map((post) => post._meta.path);
 }
 
 export function getAllBlogPosts() {
-  return [...allBlogs].sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
-  );
+  return allBlogs
+    .filter(isVisible)
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
 export function groupPostsByYear(

@@ -1,6 +1,7 @@
 import { allBlogs, allDocs, allUis } from "content-collections";
 import { statSync } from "fs";
 import type { MetadataRoute } from "next";
+import { isVisible } from "@/utils/blog";
 
 function getFileDate(slug: string, collection: string): Date {
   try {
@@ -29,7 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     }));
 
-  const blogUrls = allBlogs.map((post) => ({
+  const blogUrls = allBlogs.filter(isVisible).map((post) => ({
     url: `${baseUrl}/blog/${post._meta.path}`,
     lastModified: new Date(post.date),
     changeFrequency: "monthly" as const,
