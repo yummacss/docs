@@ -6,7 +6,7 @@ import { Avatar } from "@/components/avatar";
 import JsonLd from "@/components/json-ld";
 import TableOfContents from "@/components/ui/toc";
 import { getAuthor } from "@/utils/authors";
-import { formatDate } from "@/utils/blog";
+import { formatDate, isVisible } from "@/utils/blog";
 
 export async function generateMetadata({
   params,
@@ -132,7 +132,9 @@ export default async function BlogPostPage({
 }
 
 export function generateStaticParams() {
-  return allBlogs.map((post) => ({ slug: post._meta.path }));
+  // Combined with `dynamicParams = false` below, omitting drafts here makes a
+  // draft slug a 404 in production instead of being rendered on demand.
+  return allBlogs.filter(isVisible).map((post) => ({ slug: post._meta.path }));
 }
 
 export const dynamicParams = false;
