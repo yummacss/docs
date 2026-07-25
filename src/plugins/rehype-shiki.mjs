@@ -41,6 +41,26 @@ function transformerMetaPreserve() {
  */
 const shikiPluginInstance = rehypeShiki({
   theme: eclipsa,
+  // Without this, @shikijs/rehype falls back to `Object.keys(bundledLanguages)`
+  // and loads all 332 grammars into every build worker — the cause of the
+  // Vercel out-of-memory failures. This list is exactly the set of code fence
+  // languages used across the MDX content.
+  //
+  // Adding a fence in a new language means adding it here, otherwise Shiki
+  // throws "Language `x` not found" at build time.
+  langs: [
+    "bash",
+    "css",
+    "diff",
+    "html",
+    "js",
+    "json",
+    "jsx",
+    "mjs",
+    "scss",
+    "ts",
+    "tsx",
+  ],
   transformers: [
     transformerMetaPreserve(),
     transformerNotationDiff(),
