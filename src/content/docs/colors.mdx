@@ -81,6 +81,61 @@ Extend or override the default palette using the `theme.colors` configuration op
   </Step>
 </Stepper>
 
+## Dark Mode
+
+Dark mode is opt-in per color. Every color utility applies in both color schemes by default — to make one differ, define it as a light/dark pair instead of a single value. The pair compiles to CSS `light-dark()`.
+
+<Stepper>
+  <Step title="Pair a Color">
+    ```mjs title="yumma.config.mjs" mark={6}
+    import { defineConfig } from "yummacss";
+
+    export default defineConfig({
+      theme: {
+        colors: {
+          surface: { light: "#ffffff", dark: "#111214" },
+          blue: "#1a73e8", // unpaired colors are unchanged
+        },
+      },
+    });
+    ```
+  </Step>
+
+  <Step title="Use the Paired Color">
+    ```html "bg-surface"
+    <div className="bg-surface …"></div>
+    ```
+
+    ```css
+    background-color: light-dark(#ffffff, #111214);
+    ```
+
+    Both sides are scaled independently, so the whole shade scale comes along — `bg-surface-3` is the third light shade under a light scheme and the third dark shade under a dark one.
+  </Step>
+</Stepper>
+
+As soon as your theme contains a pair, Yumma CSS declares `color-scheme` for you, so the page follows the operating system preference with no further setup.
+
+```css
+:root {
+  color-scheme: light dark;
+}
+```
+
+To override that, use the `cs` utilities. `color-scheme` is an inherited property, so a single class flips every paired color beneath it — along with native scrollbars, form controls, and other built-in UI.
+
+```html "cs-ld" "cs-d" "cs-l"
+<html className="cs-ld"></html> <!-- follow the OS -->
+<html className="cs-d"></html>  <!-- force dark -->
+<div className="cs-l"></div>    <!-- force a light subtree -->
+```
+
+Opacity modifiers work on paired colors too, since opacity is applied with `color-mix()`.
+
+```html
+<div className="bg-surface/50 …"></div>
+```
+
 ## Custom Color Shades
 
 Override the default shade percentages using the `theme.colors.percentage` configuration option. The compiler automatically generates color shades (from 1 to 12) using the defined `percentage.light` and `percentage.dark` values.

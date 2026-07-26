@@ -37,6 +37,9 @@ body {
 }
 
 /* reset font and selection for component previews */
+/* TODO(3.29): the `color-scheme: light` below is now the `cs-l` utility.
+   Swap it onto the preview containers once the docs upgrade to 3.29 —
+   `cs-l` does not exist in 3.28.3 and would silently generate nothing. */
 [data-preview],
 [data-preview] *,
 [class*="-popup"],
