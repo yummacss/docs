@@ -1,0 +1,136 @@
+---
+authors:
+  - Renildo
+date: 2026-07-26
+description: "Dark mode with light-dark()"
+draft: true
+title: Yumma CSS 3.29
+---
+
+{/*
+  ============================================================================
+  DRAFT - `draft: true` keeps this out of the listing, RSS, sitemap & the
+  production route. Renders at /blog/yummacss-3.29.0 in `next dev` only.
+
+  Everything in this release is additive - no migration, no breaking change.
+  The master decision log lives in yummacss-4.0.0.mdx; items #6, #8 & #13
+  belong to this release.
+
+  Status:
+  - #8  color-mix() opacity ......... SHIPPED
+  - #6a paired theme colors ......... SHIPPED
+  - #6b token vocabulary ............ REJECTED (opt-in per color instead)
+  - #6c color-scheme emission ....... SHIPPED
+  - #13 live config reload .......... ALREADY SHIPPED in 3.26 (verified)
+  - #18 color-scheme utility ........ SHIPPED (cs-l / cs-d / cs-ld)
+  - #19 hover fixes ................. SHIPPED (negative / :: / opacity)
+
+  3.29 is CODE-COMPLETE. Remaining is documentation only:
+  - a docs page for paired colors & color-scheme
+  - swap the hand-written color-scheme block in docs globals.css for cs-l
+
+  canon needs no work: validateClasses runs the generator's own matching
+  rules, so cs-l / cs-d / cs-ld are canon automatically (verified).
+  ============================================================================
+*/}
+
+Yumma CSS 3.29 adds dark mode. No variant to write on every utility, no
+duplicated CSS, no flash of the wrong theme, & no JavaScript beyond flipping
+one attribute.
+
+## Paired Colors
+
+A theme color can now be a light/dark pair instead of a single value. The pair
+compiles to CSS `light-dark()`, which resolves per color scheme.
+
+```js "yumma.config.mjs" mark={5}
+export default defineConfig({
+  theme: {
+    colors: {
+      brand: "#bec6f2",
+      surface: { light: "#ffffff", dark: "#111214" },
+    },
+  },
+});
+```
+
+```html
+<div class="bg-surface"></div>
+```
+
+```css
+background-color: light-dark(#ffffff, #111214);
+```
+
+Both sides are scaled independently & paired step for step, so the whole scale
+comes along - `surface-3` is the third light shade under a light scheme & the
+third dark shade under a dark one. Plain string colors behave exactly as
+before.
+
+That is the whole feature. There is no token vocabulary to adopt & no variant
+to write on every utility. Every color you already use keeps applying in both
+schemes; pair only the ones you want to change.
+
+Yumma CSS declares `color-scheme` for you as soon as your theme contains a
+pair, so the page follows the operating system preference with no further
+setup.
+
+```css
+:root {
+  color-scheme: light dark;
+}
+```
+
+`color-scheme` is an ordinary inherited property, so a theme toggle is one
+class on whatever subtree you want to override - every paired color beneath it
+follows, & so do native scrollbars & form controls.
+
+```html
+<html class="cs-ld"></html>
+<html class="cs-d"></html>
+<div class="cs-l"></div>
+```
+
+`cs-ld` follows the operating system, `cs-d` & `cs-l` force a scheme. The `cs`
+prefix is shared with `corner-shape` - the value sets do not overlap, so
+`cs-s` is still a squircle.
+
+{/* TODO(ship #6): the token vocabulary - 11 tokens, all measured for WCAG AA
+    in both schemes:
+
+      page surface raised sunken | fg muted subtle | line line-strong
+      accent on-accent
+
+    subtle is light-dark(gray, gray-6) - 4.83 light / 5.13 dark. No single
+    value passes AA in both schemes, which is why every token is a pair. */}
+
+{/* TODO(ship #6): color-scheme emission & the toggle. This is the part that
+    prefers-color-scheme cannot do:
+
+    ```css
+    :root                { color-scheme: light dark; }
+    [data-theme="light"] { color-scheme: light; }
+    [data-theme="dark"]  { color-scheme: dark; }
+    ```
+
+    One attribute flips every light-dark() value in the document. Native
+    scrollbars & form controls follow for free. */}
+
+## Opacity now uses `color-mix()`
+
+The opacity suffix used to append a hex alpha pair to the color, which only
+worked on a 6-digit hex value. It now generates `color-mix()`, which accepts
+any color value.
+
+```css del={1} ins={2}
+background-color: #bec6f21a;
+background-color: color-mix(in srgb, #bec6f2 10%, transparent);
+```
+
+Nothing changes in your markup - `bg-accent/10` is still `bg-accent/10`. The
+practical difference is that opacity now works on colors that are not plain
+hex, which is what lets paired light/dark colors carry an opacity suffix at
+all.
+
+Check the [changelog](https://github.com/yummacss/yummacss/blob/main/CHANGELOG.md)
+for the full list of changes.
