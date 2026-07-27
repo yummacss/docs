@@ -9,13 +9,17 @@ const nextConfig = {
   reactStrictMode: true,
   pageExtensions: ["js", "jsx", "md", "mdx", "mjs", "ts", "tsx"],
   experimental: {
-    // Load-bearing: without this Next spawns one worker per core (11 on a dev
-    // machine), each holding its own copy of the module graph. That fits
-    // locally but exceeds the RAM in Vercel's build container, which kills the
-    // build with SIGKILL and an "Out of Memory" report rather than a useful
-    // error. Removing this line will break deploys while still building fine
-    // on your laptop.
-    cpus: 4,
+    // Caps the worker pools used for page-data collection and static
+    // generation. Without it Next spawns one worker per core - 11 on a dev
+    // machine - each holding its own copy of the module graph, which fits
+    // locally but not in a build container. Set to match Vercel's 2-core
+    // builder rather than the local core count.
+    //
+    // This does NOT address the Turbopack compile OOM: that happens earlier,
+    // during "Creating an optimized production build", and is driven by the
+    // ~450 dynamic imports in src/registry/index.ts each becoming its own
+    // chunk. Fixing that means compiling fewer chunks, not fewer workers.
+    cpus: 2,
   },
   async redirects() {
     return redirects;
