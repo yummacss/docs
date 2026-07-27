@@ -191,37 +191,49 @@ Vercel's builder is 2 cores / 8 GB. The build dies during "Creating an
 optimized production build" - the Turbopack compile, before page generation -
 so `experimental.cpus` cannot help; it only caps the later worker pools.
 
-Peak node RSS for a full local build, measured by sampling the process tree:
+Peak node RSS for a full local build, sampled from the process tree. **Treat
+these as unreliable** - see the warning below.
 
-| Configuration | Peak RSS | Effect |
-| --- | --- | --- |
-| Baseline (450 registry entries, Shiki, 11 grammars) | 10,086 MB | - |
-| Registry stubbed 450 -> 20 (606 chunks -> 44) | 8,822 MB | -12.5% |
-| Shiki disabled entirely | 3,561 MB | -65% |
-| Shiki with 1 grammar instead of 11 | 4,354 MB | -57% |
-| Shiki using the JS RegExp engine, 11 grammars | 9,698 MB | -4% |
+| Configuration | Peak RSS |
+| --- | --- |
+| Baseline (450 registry entries, Shiki, 11 grammars) | 10,086 MB |
+| Registry stubbed 450 -> 20 (606 chunks -> 44) | 8,822 MB |
+| Shiki disabled entirely | 3,561 MB |
+| Shiki with 1 grammar | 4,354 MB |
+| Shiki, JS RegExp engine, 11 grammars | 9,698 MB |
+| Pinned to 2 cores via processor affinity | 9,023 MB |
+| Shiki reduced to 6 distinct grammars | **11,904 MB** |
 
-Conclusions, so nobody re-runs these:
+**These were single runs, and the last row proves they are noisy.** Cutting
+grammars from 11 to 6 measured *higher* than the baseline, which is impossible
+as a real effect. Run-to-run variance is therefore at least ~18%, so every
+difference smaller than that - the registry, the JS engine, the grammar count -
+is inside the noise floor & means nothing. Only the Shiki-disabled result
+(-65%) is large enough to survive.
 
-- **The registry is not the cause.** Cutting 430 of 450 components saves ~1.2 GB
-  of ~10 GB. Moving the registry into a separate package would not help either:
-  the docs still bundle whatever they render, so packaging relocates the cost
-  rather than removing it.
-- **Shiki dominates locally**, scaling at roughly 570 MB per grammar - but that
-  is ~11 threads each loading every grammar, because Turbopack sizes its pool
-  to core count. On a 2-core builder the same work costs about a fifth, so
-  Shiki is probably not what fails on Vercel either.
-- **Local profiling does not transfer.** An 11-core dev machine and a 2-core
-  builder have different memory profiles; measure on something 2-core before
-  drawing conclusions.
-- **The JS RegExp engine is not worth it** - 4% for an engine swap that changes
-  highlighting behaviour. Tried and reverted.
+Anyone repeating this: run each configuration several times & compare medians,
+on a machine that resembles the 2-core builder. Peak RSS on a workstation with
+spare RAM is inflated anyway, because allocators & V8 grow lazily when memory
+is cheap.
+
+What can still be said:
+
+- **Shiki is a major cost** - disabling it drops peak by roughly two thirds.
+  Nothing finer-grained than that is established.
+- **The registry is not the cause**, or at least not measurably so. Moving it
+  into a separate package would not help regardless: the docs still bundle
+  whatever they render, so packaging relocates the cost rather than removing
+  it.
+- **Trimming grammars is unproven.** `js`/`mjs`/`cjs` share one grammar, as do
+  `bash`/`sh`/`shell`/`zsh`, so 11 ids are 10 distinct grammars; `jsx`, `json`,
+  `diff` & `ts` are 1-5 uses each & could go, but the measured effect was
+  noise.
 - **Never eliminated:** the failing build logs `Restored build cache from
   previous deployment`. A stale Turbopack cache is a known way to inflate build
   memory. Redeploy with "Use existing Build Cache" unchecked before touching
   code again.
-- If that fails, upgrade the build machine. No single code change measured here
-  gets under 8 GB, and the largest one means losing syntax highlighting.
+- **Splitting into two Vercel projects** (utility docs & UI docs) is the
+  free option that does not depend on any of these measurements being right.
 
 Reducing chunk count is still worth doing on its own merits - 606 chunks for 38
 component pages - but as cleanup, not as an OOM fix. The playground idea (one
