@@ -97,7 +97,7 @@ export default async function BlogPostPage({
               <Image
                 src={post.cover}
                 alt={post.title || "Blog cover"}
-                unoptimized
+                loading="eager"
                 width={1200}
                 height={630}
                 className="w-100% h-auto bg-surface us-none"
