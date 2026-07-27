@@ -1,38 +1,11 @@
 ---
 authors:
   - Renildo
-date: 2026-07-26
+cover: /blog/yummacss-3.29.0.png
+date: 2026-07-27
 description: "Dark mode with light-dark()"
-draft: true
 title: Yumma CSS 3.29
 ---
-
-{/*
-  ============================================================================
-  DRAFT - `draft: true` keeps this out of the listing, RSS, sitemap & the
-  production route. Renders at /blog/yummacss-3.29.0 in `next dev` only.
-
-  Everything in this release is additive - no migration, no breaking change.
-  The master decision log lives in yummacss-4.0.0.mdx; items #6, #8 & #13
-  belong to this release.
-
-  Status:
-  - #8  color-mix() opacity ......... SHIPPED
-  - #6a paired theme colors ......... SHIPPED
-  - #6b token vocabulary ............ REJECTED (opt-in per color instead)
-  - #6c color-scheme emission ....... SHIPPED
-  - #13 live config reload .......... ALREADY SHIPPED in 3.26 (verified)
-  - #18 color-scheme utility ........ SHIPPED (cs-l / cs-d / cs-ld)
-  - #19 hover fixes ................. SHIPPED (negative / :: / opacity)
-
-  3.29 is CODE-COMPLETE. Remaining is documentation only:
-  - a docs page for paired colors & color-scheme
-  - swap the hand-written color-scheme block in docs globals.css for cs-l
-
-  canon needs no work: validateClasses runs the generator's own matching
-  rules, so cs-l / cs-d / cs-ld are canon automatically (verified).
-  ============================================================================
-*/}
 
 Yumma CSS 3.29 adds dark mode. No variant to write on every utility, no
 duplicated CSS, no flash of the wrong theme, & no JavaScript beyond flipping
@@ -85,36 +58,22 @@ setup.
 class on whatever subtree you want to override - every paired color beneath it
 follows, & so do native scrollbars & form controls.
 
-```html
-<html class="cs-ld"></html>
-<html class="cs-d"></html>
-<div class="cs-l"></div>
+```html "cs-ld" "cs-d" "cs-l"
+<html class="cs-ld">
+  <!-- follows the operating system -->
+  <div class="cs-l">Always light</div>
+  <div class="cs-d">Always dark</div>
+</html>
 ```
 
-`cs-ld` follows the operating system, `cs-d` & `cs-l` force a scheme. The `cs`
-prefix is shared with `corner-shape` - the value sets do not overlap, so
-`cs-s` is still a squircle.
+`cs-ld` follows the operating system, & `cs-d` / `cs-l` force a scheme. Point a
+theme toggle at the `<html>` class & every paired color in the document
+follows. The `cs` prefix is shared with `corner-shape` - the value sets do not
+overlap, so `cs-s` is still a squircle.
 
-{/* TODO(ship #6): the token vocabulary - 11 tokens, all measured for WCAG AA
-    in both schemes:
-
-      page surface raised sunken | fg muted subtle | line line-strong
-      accent on-accent
-
-    subtle is light-dark(gray, gray-6) - 4.83 light / 5.13 dark. No single
-    value passes AA in both schemes, which is why every token is a pair. */}
-
-{/* TODO(ship #6): color-scheme emission & the toggle. This is the part that
-    prefers-color-scheme cannot do:
-
-    ```css
-    :root                { color-scheme: light dark; }
-    [data-theme="light"] { color-scheme: light; }
-    [data-theme="dark"]  { color-scheme: dark; }
-    ```
-
-    One attribute flips every light-dark() value in the document. Native
-    scrollbars & form controls follow for free. */}
+This is the part `prefers-color-scheme` cannot do: a media query cannot be
+overridden by a button, so a manual toggle would otherwise mean duplicating
+every rule.
 
 ## Opacity now uses `color-mix()`
 
@@ -131,6 +90,17 @@ Nothing changes in your markup - `bg-accent/10` is still `bg-accent/10`. The
 practical difference is that opacity now works on colors that are not plain
 hex, which is what lets paired light/dark colors carry an opacity suffix at
 all.
+
+```html
+<div class="bg-surface/50"></div>
+```
+
+## Editor Fixes
+
+Hovering a class in the editor returned nothing for negative values (`m--4`),
+pseudo elements (`s::bg-red`), & opacity suffixes (`bg-blue/50`). All three now
+show their CSS. A pseudo element is also no longer described as the pseudo
+class of the same name - `a::` is `:after`, `a:` is `:active`.
 
 Check the [changelog](https://github.com/yummacss/yummacss/blob/main/CHANGELOG.md)
 for the full list of changes.
