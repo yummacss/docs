@@ -1,0 +1,35 @@
+---
+order: 37
+title: Color Scheme
+description: Set which color schemes an element can be rendered in.
+---
+
+<Baseline path="css.properties.color-scheme" />
+
+<Reference category="color" name="color-scheme" />
+
+`color-scheme` is inherited, so setting it on `<html>` applies to the whole document — including native scrollbars, form controls & other built-in UI. Paired theme colors resolve against it, so a single class switches every one of them.
+
+```html "cs-ld" "cs-d" "cs-l"
+<html class="cs-ld">
+  <!-- follows the operating system -->
+  <div class="cs-l">Always light</div>
+  <div class="cs-d">Always dark</div>
+</html>
+```
+
+Yumma CSS declares `color-scheme: light dark` on `:root` automatically as soon as your theme contains a [paired color](/docs/colors#dark-mode), so the OS preference is respected without adding a class. Use these utilities to override it.
+
+<Hint icon="info">The `cs` prefix is shared with [Corner Shape](/docs/corner-shape). Their value sets do not overlap, so `cs-s` is still a squircle.</Hint>
+
+### Responsiveness
+
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
+
+<ResponsiveVariant category="color" name="color-scheme" />
+
+### Hover State
+
+Apply styles conditionally on hover using the `h:` prefix.
+
+<HoverVariant category="color" name="color-scheme" />

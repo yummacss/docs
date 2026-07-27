@@ -164,7 +164,7 @@ const components: MDXComponents = {
     props.className ? (
       <blockquote {...props}>{children}</blockquote>
     ) : (
-      <blockquote className="pl-2 bc-border blw-2" {...props}>
+      <blockquote className="pl-2 bc-accent bg-accent-dim/10 blw-2" {...props}>
         {children}
       </blockquote>
     ),
