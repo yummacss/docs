@@ -261,37 +261,7 @@ Refined the breakpoint system by removing the `xs` breakpoint & adjusting existi
 
 ## Container Rules
 
-Introduced the `cnt` class for containers with built-in media query rules for responsiveness.
+Introduced the `cnt` class for containers with built-in media query rules for responsiveness. It replaces v1.2's `cnn`, which was a fixed `1200px` maximum width with horizontal padding - `cnt` instead caps its width at each breakpoint.
 
-<Tabs defaultValue="v2.0">
-    <TabsList>
-        <TabsTab value="v2.0">v2.0</TabsTab>
-        <TabsTab value="v1.2">v1.2</TabsTab>
-    </TabsList>
-
-  <TabsPanel value="v2.0">
-    ```scss
-    .cnt {
-      width: 100%;
-      @each $bp, $bp_value in $yma-breakpoints {
-        @include breakpoint($bp_value) {
-          max-width: $bp_value;
-        }
-      }
-    }
-    ```
-  </TabsPanel>
-
-  <TabsPanel value="v1.2">
-    ```scss
-    .cnn {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-      box-sizing: border-box;
-    }
-    ```
-  </TabsPanel>
-</Tabs>
+The utility was later removed in [3.0](/blog/yummacss-3.0.0); see the [v2.0.0 release notes](https://github.com/yummacss/yummacss/releases/tag/v2.0.0) for the original implementation.
 
