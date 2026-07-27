@@ -158,6 +158,27 @@ export default defineConfig({
 });
 ```
 
+A color may also be a light/dark pair, which compiles to CSS `light-dark()` & resolves per color scheme. Both sides are scaled independently, so every shade of a paired color is itself a pair.
+
+```mjs title="yumma.config.mjs" mark={6}
+import { defineConfig } from "yummacss";
+
+export default defineConfig({
+  theme: {
+    colors: {
+      surface: { light: "#ffffff", dark: "#111214" },
+    },
+  },
+});
+```
+
+<Hint icon="info">
+  As soon as one color is paired, `color-scheme: light dark` is declared on
+  `:root` so the page follows the operating system. Override it with the
+  [Color Scheme](/docs/color-scheme) utilities. See [Dark Mode](/docs/colors#dark-mode)
+  for the full walkthrough.
+</Hint>
+
 #### Screens
 
 Define custom media query breakpoints or override existing ones.
