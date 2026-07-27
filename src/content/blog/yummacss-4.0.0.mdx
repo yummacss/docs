@@ -188,6 +188,37 @@ Nothing blocking. 3.29 is code-complete; what remains is documentation.
 - Mention `@yummacss/canon` in the `llms.txt` routes so agents know a validator
   exists. Likely the cheapest accuracy win available.
 
+**`node:fs` leaks into the browser bundle - START HERE NEXT**
+
+The playground has been failing to deploy since v3.26.0 & is serving a stale
+v3.26.0 build, which is why `cs-ld` & other 3.29 utilities have no completions
+or hover there. Merging the open update PR will not fix it; that PR's Vercel
+check fails for this reason.
+
+```text
+the chunking context does not support external modules (request: node:fs)
+Import traces: Client Component Browser: ./src/app/page.tsx
+```
+
+`play/src/app/page.tsx` is a client component that imports
+`@yummacss/intellisense`, which reaches `@yummacss/nitro`, which imports
+`node:fs`. Node-only code is therefore pulled into a browser bundle. The
+`loadConfig` / `scan` exports added around 3.26-3.28 are the likely entry
+point - the last successful play deploy was the v3.26.0 update, & every
+deploy since has errored.
+
+This is a package-boundary defect, not a play bug: the Monaco adapter in
+`@yummacss/intellisense` exists to run in browsers, so everything it can reach
+must be browser-safe. Fixing it means separating the Node-only surface
+(`loadConfig`, `scan`, anything touching `node:fs` or `tinyglobby`) from the
+browser-safe surface, probably behind separate entry points, then republishing.
+
+Related: exposing `yumma.config.mjs` in the playground needs config loading to
+work browser-side, which is the same boundary problem. Solve this first & that
+becomes reachable.
+
+Note `play`'s production branch is `release`, not `main`.
+
 **Docs coverage** (audited 2026-07-26)
 
 - `@yummacss/canon` is mentioned nowhere in the docs. Biggest gap - it is a CLI
@@ -196,14 +227,23 @@ Nothing blocking. 3.29 is code-complete; what remains is documentation.
   `border-{top,right,bottom,left}-color` (4), `scale-{x,y,z}` (3),
   `inset-{x,y}` (2). Base pages exist - these need `<Reference>` entries, not
   new pages.
-- `dark-mode.mdx` - own page, with `colors.mdx` keeping a short pointer.
-- `color-scheme.mdx` - new utility, needs the standard page. Blocked until the
-  docs upgrade to 3.29, since `<Reference>` reads from installed core.
+- ~~`dark-mode.mdx`~~ **DONE 2026-07-28.** Own page at order 5; `colors.mdx`
+  moved to order 4 & keeps a short pointer.
+- ~~`color-scheme.mdx`~~ **DONE 2026-07-28.** Standard auto-generated page;
+  `<Reference>` renders all three values now that the docs are on 3.29.
+- ~~`configuration.mdx` paired colors~~ **DONE 2026-07-28.**
+- ~~Dogfood `cs-*`~~ **DONE 2026-07-28.** `:root { color-scheme: dark }` is now
+  `cs-d` on `<html>` in `layout.tsx`. The preview block in `globals.css` stays
+  CSS on purpose: those selectors match Base UI portal elements rendered into
+  `<body>`, so they inherit nothing from the preview container & cannot be
+  reached by a class.
+- ~~`percentage` placement~~ **RESOLVED 2026-07-28 - the docs were wrong.**
+  Verified by generating `bg-brand-1` three ways: default `#dae9fb`,
+  `percentage` as a sibling of `colors` `#dae9fb` (identical, i.e. ignored),
+  `percentage` inside `colors` `#ffffff`. It belongs **inside** `colors`.
+  `colors.mdx` was wrong & is fixed; `configuration.mdx` was already correct.
 - `normalize.mdx` is hand-written; consider sourcing it from `@yummacss/nitro`
   so it cannot drift.
-- **Unverified:** `configuration.mdx` & `colors.mdx` document `percentage` as a
-  sibling of `colors`, but `generator.ts` destructures it *out of* `colors`. If
-  the code is right, both pages teach a no-op.
 
 **Docs build OOM on Vercel - measured 2026-07-27**
 
