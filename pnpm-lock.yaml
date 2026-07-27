@@ -46,8 +46,8 @@ importers:
         specifier: ^2.0.0
         version: 2.0.0(next@16.2.11(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react@19.2.8)
       '@yummacss/core':
-        specifier: ^3.27.0
-        version: 3.28.3
+        specifier: ^3.29.0
+        version: 3.29.0
       class-variance-authority:
         specifier: ^0.7.1
         version: 0.7.1
@@ -116,11 +116,11 @@ importers:
         specifier: ^1.4.6
         version: 1.4.6
       '@yummacss/canon':
-        specifier: ^3.28.3
-        version: 3.28.3
+        specifier: ^3.29.0
+        version: 3.29.0
       '@yummacss/postcss':
-        specifier: ^3.28.3
-        version: 3.28.3(postcss@8.4.31)
+        specifier: ^3.29.0
+        version: 3.29.0(postcss@8.4.31)
       remark-code-preview:
         specifier: ^1.2.6
         version: 1.2.6
@@ -134,8 +134,8 @@ importers:
         specifier: ^6.0.3
         version: 6.0.3
       yummacss:
-        specifier: ^3.28.3
-        version: 3.28.3
+        specifier: ^3.29.0
+        version: 3.29.0
       zod:
         specifier: ^4.4.3
         version: 4.4.3
@@ -991,18 +991,18 @@ packages:
       vue-router:
         optional: true
 
-  '@yummacss/canon@3.28.3':
-    resolution: {integrity: sha512-7ppHK4etKEw+WLw6liywJ2D2zOddi+CJ5cNiLaIfll5qoB7+bM//h3vcNEC09XppLdO2rGNQY53ubTIBEthHhw==}
+  '@yummacss/canon@3.29.0':
+    resolution: {integrity: sha512-DaiHqCj5y4p57s6dBS3uc7NUo2j7Vcq0/nyOaI50skm8qmhz7qMoshuIQZLcAaIAP7GPab2DvlcBTDurPzs3lQ==}
     hasBin: true
 
-  '@yummacss/core@3.28.3':
-    resolution: {integrity: sha512-wy24wXqLHlSFwEfthwD9Hk6fPNpYk3MYNKP+fwvVlM+vznF+Ky1EiyLvxpIN6ODrZnnxr6BUNR7CFEoqFuznpQ==}
+  '@yummacss/core@3.29.0':
+    resolution: {integrity: sha512-PW+XqpUSCzUe6DqVCLg3ZR8TUdK+S9v7ImLmlCz0HtEGQIbRBUHaJ37ZUna6HahjIhT02a8L1lcB6BTIm+7iVA==}
 
-  '@yummacss/nitro@3.28.3':
-    resolution: {integrity: sha512-G7JPixv1rxrvK3mcXMJXtddDJbD3q/rsbqE8Mb+CEoJb2dVxP+QAFU2KmDqQBYIysW++2/W7nQa5swfra+AfqA==}
+  '@yummacss/nitro@3.29.0':
+    resolution: {integrity: sha512-fxrzp/ajmnwByfH6ntzEEAXaXdxcvnpeyqHLrxycacAkSxr7pECYGSyHaVsj1rX+lcsVTwRSPXPwRPeDfaygMg==}
 
-  '@yummacss/postcss@3.28.3':
-    resolution: {integrity: sha512-w1A4rLAFrq0Y/Aaxr+5ajBuTKIhzDAESTVID5xzHpmoNz5OeElwEbBccoRg8dwkU1zvnVU7yFo8Zk5gF/kAgxA==}
+  '@yummacss/postcss@3.29.0':
+    resolution: {integrity: sha512-tv97tsmg+Aq0e2YVJmJBhBSY1VFKxyNIKLbeXeIdo1lzhy76kjq0wsijk/IWjNRmzhfKDSyhVm707QlcRXO+9w==}
     peerDependencies:
       postcss: ^8.0.0
 
@@ -1773,8 +1773,8 @@ packages:
     resolution: {integrity: sha512-4LCcse/U2MHZ63HAJVE+v71o7yOdIe4cZ70Wpf8D/IyjDKYQLV5GD46B+hSTjJsvV5PztjvHoU580EftxjDZFQ==}
     engines: {node: '>=12.20'}
 
-  yummacss@3.28.3:
-    resolution: {integrity: sha512-XyT4Pyuj0aZSxnsPsVdyU82QQwTsLqxkPvfdylNw841xcJS01DSI2gXq0pyDSEYqHE0xjcw2AwNBX1NNuo4ufw==}
+  yummacss@3.29.0:
+    resolution: {integrity: sha512-MylGSRWiDKlgFbWyyG4Rm8XB+8ANUn+9iszjm86HEhM2xzCSkUgYup6+r7WDjh6PV6v/SpBvpsRJFEp3/y2nvw==}
     hasBin: true
 
   zod@4.4.3:
@@ -2367,22 +2367,22 @@ snapshots:
       next: 16.2.11(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react: 19.2.8
 
-  '@yummacss/canon@3.28.3':
+  '@yummacss/canon@3.29.0':
     dependencies:
-      '@yummacss/nitro': 3.28.3
+      '@yummacss/nitro': 3.29.0
       tinyglobby: 0.2.17
 
-  '@yummacss/core@3.28.3': {}
+  '@yummacss/core@3.29.0': {}
 
-  '@yummacss/nitro@3.28.3':
+  '@yummacss/nitro@3.29.0':
     dependencies:
-      '@yummacss/core': 3.28.3
+      '@yummacss/core': 3.29.0
       tinyglobby: 0.2.17
       zod: 4.4.3
 
-  '@yummacss/postcss@3.28.3(postcss@8.4.31)':
+  '@yummacss/postcss@3.29.0(postcss@8.4.31)':
     dependencies:
-      '@yummacss/nitro': 3.28.3
+      '@yummacss/nitro': 3.29.0
       postcss: 8.4.31
 
   acorn-jsx@5.3.2(acorn@8.17.0):
@@ -3583,9 +3583,9 @@ snapshots:
 
   yocto-queue@1.2.2: {}
 
-  yummacss@3.28.3:
+  yummacss@3.29.0:
     dependencies:
-      '@yummacss/nitro': 3.28.3
+      '@yummacss/nitro': 3.29.0
 
   zod@4.4.3: {}
 
