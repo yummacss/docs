@@ -3,9 +3,8 @@
 
 @yummacss;
 
-:root {
-    color-scheme: dark;
-}
+/* The site's dark scheme is declared with the `cs-d` utility on <html> in
+   layout.tsx rather than here. */
 
 h1,
 h2,
@@ -37,9 +36,12 @@ body {
 }
 
 /* reset font and selection for component previews */
-/* TODO(3.29): the `color-scheme: light` below is now the `cs-l` utility.
-   Swap it onto the preview containers once the docs upgrade to 3.29 —
-   `cs-l` does not exist in 3.28.3 and would silently generate nothing. */
+/* This one stays as CSS rather than becoming the `cs-l` utility. Most of these
+   selectors match Base UI portal elements, which render into <body> rather
+   than inside the preview container - so they inherit nothing from it and
+   cannot be reached by adding a class. The rule also sets font-family for the
+   same set, so splitting only `color-scheme` out would mean maintaining the
+   selector list twice. */
 [data-preview],
 [data-preview] *,
 [class*="-popup"],
