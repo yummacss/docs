@@ -31,10 +31,47 @@ const docsRedirects = [
   },
 ];
 
+const RELEASE_TAG = "https://github.com/yummacss/yummacss/releases/tag";
+
+/**
+ * Release posts for minor versions were removed - the changelog & the GitHub
+ * release for each tag already carry that content, and maintaining a post per
+ * minor was not worth the time.
+ *
+ * Each one redirects to its own release rather than to a generic listing, so a
+ * bookmarked link still lands on the notes it pointed at. Every tag below is
+ * verified to exist.
+ */
+const removedReleasePosts = [
+  "0.1.0",
+  "1.1.0",
+  "1.2.0",
+  "2.1.0",
+  "3.1.0",
+  "3.2.0",
+  "3.3.0",
+  "3.4.0",
+  "3.5.0",
+  "3.6.0",
+  "3.7.0",
+  "3.9.0",
+  "3.10.0",
+  "3.11.0",
+  "3.15.0",
+  "3.16.0",
+  "3.20.0",
+  "3.21.0",
+  "3.22.0",
+  "3.23.0",
+  "3.26.0",
+];
+
 const blogRedirects = [
+  // `/blog/v0` pointed at `/blog/yummacss-0.1`, which never existed - the file
+  // was `yummacss-0.1.0`. It now resolves to that version's release.
   {
     source: "/blog/v0",
-    destination: "/blog/yummacss-0.1",
+    destination: `${RELEASE_TAG}/v0.1.0`,
     permanent: true,
   },
   {
@@ -44,7 +81,7 @@ const blogRedirects = [
   },
   {
     source: "/blog/v1",
-    destination: "/blog/yummacss-1.2.0",
+    destination: `${RELEASE_TAG}/v1.2.0`,
     permanent: true,
   },
   {
@@ -54,7 +91,7 @@ const blogRedirects = [
   },
   {
     source: "/blog/v2",
-    destination: "/blog/yummacss-2.1.0",
+    destination: `${RELEASE_TAG}/v2.1.0`,
     permanent: true,
   },
   {
@@ -67,6 +104,11 @@ const blogRedirects = [
     destination: "/blog/yummacss-3.0.0",
     permanent: true,
   },
+  ...removedReleasePosts.map((version) => ({
+    source: `/blog/yummacss-${version}`,
+    destination: `${RELEASE_TAG}/v${version}`,
+    permanent: true,
+  })),
 ];
 
 const uiRedirects = [
