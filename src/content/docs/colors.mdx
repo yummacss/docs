@@ -142,7 +142,7 @@ Override the default shade percentages using the `theme.colors.percentage` confi
 
 <Stepper>
   <Step title="Configure Custom Colors">
-    ```mjs title="yumma.config.mjs" mark={9-12}
+    ```mjs title="yumma.config.mjs" mark={8-11}
     import { defineConfig } from "yummacss";
 
     export default defineConfig({
@@ -150,10 +150,10 @@ Override the default shade percentages using the `theme.colors.percentage` confi
         colors: {
           background: "#f5f6f7",
           blue: "#1a73e8",
-        },
-        percentage: {
-          light: 16, // default is 14
-          dark: 16, // default is 14
+          percentage: {
+            light: 16, // default is 14
+            dark: 16, // default is 14
+          },
         },
       },
     });
