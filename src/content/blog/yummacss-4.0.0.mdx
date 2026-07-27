@@ -129,22 +129,42 @@ Nothing blocking. 3.29 is code-complete; what remains is documentation.
   Also fixed a latent ambiguity: `a` is `:active` as a pseudo class & `:after`
   as a pseudo element, and the old precedence would have reported `a::` as
   `:active`.
-- `intellisense-zed` PR has been open a long time - check whether it is waiting
-  on something.
-- **Release automation still needs hands.** After 3.29.0 published, the
-  `notify-downstream` dispatch to `intellisense-vscode` failed twice with a
-  network-level error the octokit client reports as a 500 - the same call to
-  `docs` & `play` succeeded, and the target repo is public, unarchived & has an
-  active `repository_dispatch` workflow, so the cause looks server-side rather
-  than configuration. Retrigger by hand with:
+- **Zed has no Yumma CSS support at all** - the extension was never published,
+  so nothing shipped in 3.29 (or any release) reaches Zed. `intellisense-zed`
+  is absent from `zed-industries/extensions`; the submission is
+  [PR #6731](https://github.com/zed-industries/extensions/pull/6731), open
+  since 2026-07-22 & labelled `needs author action`.
 
-  `gh api -X POST repos/yummacss/intellisense-vscode/dispatches -f event_type=yummacss-released -F 'client_payload[version]=v3.29.0'`
+  It is blocked on two things, neither of which is a real defect:
 
-  Separately, the `play` update PR did not auto-merge & sat waiting for
-  approval. Unverified guess worth checking first: `docs` has a
-  "Dependabot Auto-Merge" workflow that `play` may simply be missing. The point
-  of this pipeline is that a release needs no manual steps, so both of these
-  count as bugs in the automation, not chores.
+  1. A standing `CHANGES_REQUESTED` review asking for the extension ID to match
+     the publishing prerequisites. That was already done - `extension.toml` has
+     `id = "yummacss-intellisense"` - but the review was never dismissed, so
+     the label is stale.
+  2. A failing `package` check that is **not caused by this extension**. Zed's
+     CI pulled a corrupted pnpm binary: `pnpm: 1: This: not found`, i.e. the
+     downloaded file was an HTML error page. The run is dated 2026-07-13,
+     before the rename, so it is stale as well.
+
+  The PR content itself is correct: the `.gitmodules` entry & the
+  `extensions.toml` block both point at `yummacss/intellisense-zed` at version
+  `0.1.0`, matching `extension.toml`. Action needed is a comment confirming the
+  rename & asking for a re-review plus a re-run of `package` - not a code
+  change.
+- **`notify-downstream` fails for `intellisense-vscode` from CI.** After 3.29.0
+  published it failed twice with a network-level error octokit reports as a
+  500, while the identical call to `docs` & `play` succeeded. The same dispatch
+  run by hand from a laptop worked immediately, so it is not the payload, the
+  token, or the target repo. Watch it on the next release before attempting a
+  fix - one more data point decides whether it is intermittent. Manual
+  retrigger:
+
+  `gh api -X POST repos/yummacss/intellisense-vscode/dispatches -f event_type=yummacss-released -F 'client_payload[version]=v<version>'`
+
+- **Release workflows are now manually runnable.** `workflow_dispatch` was
+  added to `docs` & `play` update-yummacss, and to `intellisense-vscode`
+  update-and-release. Not being able to exercise a release path except by
+  releasing is how the dead `release` branch ref survived unnoticed.
 - **Extension versions now track Yumma CSS** rather than incrementing
   independently. `intellisense-vscode` jumps 0.11.53 -> 3.29.0 on the next
   release, automatically, via CI. Breaks SemVer by design; the extension is
