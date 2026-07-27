@@ -185,6 +185,49 @@ Nothing blocking. 3.29 is code-complete; what remains is documentation.
   sibling of `colors`, but `generator.ts` destructures it *out of* `colors`. If
   the code is right, both pages teach a no-op.
 
+**Docs build OOM on Vercel - measured 2026-07-27**
+
+Vercel's builder is 2 cores / 8 GB. The build dies during "Creating an
+optimized production build" - the Turbopack compile, before page generation -
+so `experimental.cpus` cannot help; it only caps the later worker pools.
+
+Peak node RSS for a full local build, measured by sampling the process tree:
+
+| Configuration | Peak RSS | Effect |
+| --- | --- | --- |
+| Baseline (450 registry entries, Shiki, 11 grammars) | 10,086 MB | - |
+| Registry stubbed 450 -> 20 (606 chunks -> 44) | 8,822 MB | -12.5% |
+| Shiki disabled entirely | 3,561 MB | -65% |
+| Shiki with 1 grammar instead of 11 | 4,354 MB | -57% |
+| Shiki using the JS RegExp engine, 11 grammars | 9,698 MB | -4% |
+
+Conclusions, so nobody re-runs these:
+
+- **The registry is not the cause.** Cutting 430 of 450 components saves ~1.2 GB
+  of ~10 GB. Moving the registry into a separate package would not help either:
+  the docs still bundle whatever they render, so packaging relocates the cost
+  rather than removing it.
+- **Shiki dominates locally**, scaling at roughly 570 MB per grammar - but that
+  is ~11 threads each loading every grammar, because Turbopack sizes its pool
+  to core count. On a 2-core builder the same work costs about a fifth, so
+  Shiki is probably not what fails on Vercel either.
+- **Local profiling does not transfer.** An 11-core dev machine and a 2-core
+  builder have different memory profiles; measure on something 2-core before
+  drawing conclusions.
+- **The JS RegExp engine is not worth it** - 4% for an engine swap that changes
+  highlighting behaviour. Tried and reverted.
+- **Never eliminated:** the failing build logs `Restored build cache from
+  previous deployment`. A stale Turbopack cache is a known way to inflate build
+  memory. Redeploy with "Use existing Build Cache" unchecked before touching
+  code again.
+- If that fails, upgrade the build machine. No single code change measured here
+  gets under 8 GB, and the largest one means losing syntax highlighting.
+
+Reducing chunk count is still worth doing on its own merits - 606 chunks for 38
+component pages - but as cleanup, not as an OOM fix. The playground idea (one
+live preview with a settings panel, replacing hundreds of prebuilt demos) is
+the version that would genuinely shrink the build.
+
 **Product ideas**
 
 - Colored box-shadows - 3.29 or 4.0?
