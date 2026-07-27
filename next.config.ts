@@ -8,6 +8,15 @@ const nextConfig = {
   allowedDevOrigins: ["192.168.1.68"],
   reactStrictMode: true,
   pageExtensions: ["js", "jsx", "md", "mdx", "mjs", "ts", "tsx"],
+  experimental: {
+    // Load-bearing: without this Next spawns one worker per core (11 on a dev
+    // machine), each holding its own copy of the module graph. That fits
+    // locally but exceeds the RAM in Vercel's build container, which kills the
+    // build with SIGKILL and an "Out of Memory" report rather than a useful
+    // error. Removing this line will break deploys while still building fine
+    // on your laptop.
+    cpus: 4,
+  },
   async redirects() {
     return redirects;
   },
