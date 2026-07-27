@@ -131,6 +131,20 @@ Nothing blocking. 3.29 is code-complete; what remains is documentation.
   `:active`.
 - `intellisense-zed` PR has been open a long time - check whether it is waiting
   on something.
+- **Release automation still needs hands.** After 3.29.0 published, the
+  `notify-downstream` dispatch to `intellisense-vscode` failed twice with a
+  network-level error the octokit client reports as a 500 - the same call to
+  `docs` & `play` succeeded, and the target repo is public, unarchived & has an
+  active `repository_dispatch` workflow, so the cause looks server-side rather
+  than configuration. Retrigger by hand with:
+
+  `gh api -X POST repos/yummacss/intellisense-vscode/dispatches -f event_type=yummacss-released -F 'client_payload[version]=v3.29.0'`
+
+  Separately, the `play` update PR did not auto-merge & sat waiting for
+  approval. Unverified guess worth checking first: `docs` has a
+  "Dependabot Auto-Merge" workflow that `play` may simply be missing. The point
+  of this pipeline is that a release needs no manual steps, so both of these
+  count as bugs in the automation, not chores.
 - **Extension versions now track Yumma CSS** rather than incrementing
   independently. `intellisense-vscode` jumps 0.11.53 -> 3.29.0 on the next
   release, automatically, via CI. Breaks SemVer by design; the extension is
