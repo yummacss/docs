@@ -66,7 +66,7 @@ export function GET() {
   const uiMap = new Map(allUis.map((u) => [u._meta.path, u]));
 
   const parts: string[] = [
-    "# Yumma CSS — Full Documentation",
+    "# Yumma CSS: Full Documentation",
     "",
     "Yumma CSS is a utility CSS framework derived directly from CSS property and value initials.",
     "Every class name maps to exactly one CSS property. If you know CSS, you already know Yumma CSS.",

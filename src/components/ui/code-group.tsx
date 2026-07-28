@@ -85,7 +85,7 @@ export default function CodeGroup({ children }: Props) {
                   setActive((i - 1 + panels.length) % panels.length);
                 }
               }}
-              className={`d-f ai-c px-6 py-2 brw-1 bc-border fs-xs ff-m ws-nw c-p a-none ${
+              className={`d-f ai-c px-6 py-2 brw-1 bc-border fs-sm ff-m ws-nw c-p a-none ${
                 selected
                   ? "c-accent bg-surface"
                   : "c-accent-dim bg-transparent bbw-1"

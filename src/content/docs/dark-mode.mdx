@@ -1,12 +1,12 @@
 ---
 order: 5
 title: Dark Mode
-description: "Opt into dark mode per color with light/dark pairs, compiled to CSS light-dark()."
+description: "Opt into dark mode per color with light/dark pairs."
 ---
 
-Dark mode is opt-in per color. Every color utility applies in both color schemes by default — to make one differ, define it as a light/dark pair instead of a single value. The pair compiles to CSS `light-dark()`, which resolves per color scheme.
+Every color utility applies in both color schemes by default. To make one differ, define it as a light/dark pair instead of a single value. The pair compiles to CSS `light-dark()`, which resolves per color scheme.
 
-There is no token vocabulary to adopt & no variant to write on every utility. Pair only the colors you want to change.
+> There is no token vocabulary to adopt & no variant to write on every utility. Pair only the colors you want to change.
 
 ## Pair a Color
 
@@ -21,7 +21,6 @@ There is no token vocabulary to adopt & no variant to write on every utility. Pa
       theme: {
         colors: {
           surface: { light: "#ffffff", dark: "#111214" },
-          blue: "#1a73e8", // unpaired colors are unchanged
         },
       },
     });
@@ -31,78 +30,33 @@ There is no token vocabulary to adopt & no variant to write on every utility. Pa
 
   <Step title="Use It">
     Nothing changes in your markup.
-
-    ```html "bg-surface"
+    <CodeGroup>
+    ```html title="page.tsx"
     <div className="bg-surface …"></div>
     ```
 
-    ```css
+    ```css title="output.css"
     background-color: light-dark(#ffffff, #111214);
     ```
+    </CodeGroup>
 
   </Step>
 </Stepper>
 
-Both sides are scaled independently & paired step for step, so the whole shade scale comes along — `bg-surface-3` is the third light shade under a light scheme & the third dark shade under a dark one.
-
-## Color Scheme
-
-As soon as your theme contains a pair, Yumma CSS declares `color-scheme` for you, so the page follows the operating system preference with no further setup.
-
-```css
-:root {
-  color-scheme: light dark;
-}
-```
-
-To override it, use the [Color Scheme](/docs/color-scheme) utilities. `color-scheme` is inherited, so a single class flips every paired color beneath it — along with native scrollbars, form controls & other built-in UI.
-
-```html "cs-ld" "cs-d" "cs-l"
-<html class="cs-ld">
-  <!-- follows the operating system -->
-  <div class="cs-l">Always light</div>
-  <div class="cs-d">Always dark</div>
-</html>
-```
-
-Point a theme toggle at the class on `<html>` & every paired color in the document follows.
-
-This is the part `prefers-color-scheme` cannot do: a media query cannot be overridden by a button, so a manual toggle would otherwise mean duplicating every rule.
+Both sides are scaled independently & paired step for step, so the whole shade scale comes along: `bg-surface-3` is the third light shade under a light scheme & the third dark shade under a dark one.
 
 ## Opacity
 
 Opacity modifiers work on paired colors, because opacity is applied with `color-mix()` rather than by appending hex alpha.
 
-```html
+<CodeGroup>
+```html title="page.tsx"
 <div className="bg-surface/50 …"></div>
 ```
 
-```css
-background-color: color-mix(in srgb, light-dark(#ffffff, #111214) 50%, transparent);
+```css title="output.css"
+.bg-surface\/50 {
+    background-color: color-mix(in srgb, light-dark(#ffffff, #111214) 50%, transparent);
+}
 ```
-
-## Building a Palette
-
-Pairs are ordinary theme colors, so you can name them for intent rather than hue & keep the rest of your palette literal.
-
-```mjs title="yumma.config.mjs"
-import { defineConfig } from "yummacss";
-
-export default defineConfig({
-  theme: {
-    colors: {
-      page: { light: "#ffffff", dark: "#111214" },
-      surface: { light: "#e7e8eb", dark: "#202226" },
-      fg: { light: "#111214", dark: "#e7e8eb" },
-      muted: { light: "#5c626e", dark: "#9499a4" },
-      line: { light: "#bec1c7", dark: "#2f3238" },
-    },
-  },
-});
-```
-
-<Hint icon="info">
-  Check both sides for contrast. A value that reads well on a light background
-  is often too faint on a dark one, so the pair rarely wants the same shade
-  twice.
-</Hint>
+</CodeGroup>
