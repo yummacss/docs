@@ -33,7 +33,7 @@ function transformerMetaPreserve() {
  * Cached plugin instance.
  *
  * rehypeShiki() internally calls createHighlighter() which loads language
- * grammars and theme data — an expensive operation. By building the plugin
+ * grammars and theme data, an expensive operation. By building the plugin
  * once at module evaluation time and returning the same instance on every
  * call, we avoid re-initialising Shiki for each of the 262 MDX files.
  *
@@ -42,7 +42,7 @@ function transformerMetaPreserve() {
 const shikiPluginInstance = rehypeShiki({
   theme: eclipsa,
   // Without this, @shikijs/rehype falls back to `Object.keys(bundledLanguages)`
-  // and loads all 332 grammars into every build worker — the cause of the
+  // and loads all 332 grammars into every build worker, the cause of the
   // Vercel out-of-memory failures. This list is exactly the set of code fence
   langs: ["bash", "css", "html", "js", "jsx", "mjs", "ts", "tsx"],
   transformers: [
@@ -54,6 +54,6 @@ const shikiPluginInstance = rehypeShiki({
 });
 
 export default function rehypeShikiPlugin(_options = {}) {
-  // Always return the same instance — options are baked in above.
+  // Always return the same instance; options are baked in above.
   return shikiPluginInstance;
 }
