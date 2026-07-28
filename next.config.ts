@@ -20,6 +20,25 @@ const nextConfig = {
     // ~450 dynamic imports in src/registry/index.ts each becoming its own
     // chunk. Fixing that means compiling fewer chunks, not fewer workers.
     cpus: 2,
+
+    // Defaults to true in build mode. Next's own description: "computes all
+    // possible paths through dynamic imports in the applications to figure
+    // out the modules needed at dynamic imports for every path."
+    //
+    // src/registry/index.ts holds 450 dynamic imports in one object, reached
+    // from component-preview.tsx & preview.tsx, so that path enumeration is
+    // the most expensive thing in the build. Turning it off trades slightly
+    // less optimal chunk loading for not enumerating 450 import paths.
+    //
+    // The build cache is NOT the cause. A deploy logging "Skipping build
+    // cache, deployment was triggered without cache" still died with SIGKILL
+    // during "Creating an optimized production build" on 2026-07-28.
+    turbopackClientSideNestedAsyncChunking: false,
+
+    // Production source maps are a large allocation during compile & this is
+    // a docs site, not an app worth debugging from prod stack traces. Re-enable
+    // to test whether the chunking flag above was sufficient on its own.
+    turbopackSourceMaps: false,
   },
   async redirects() {
     return redirects;
