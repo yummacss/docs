@@ -308,18 +308,29 @@ What can still be said:
   `bash`/`sh`/`shell`/`zsh`, so 11 ids are 10 distinct grammars; `jsx`, `json`,
   `diff` & `ts` are 1-5 uses each & could go, but the measured effect was
   noise.
-- **CAUSE CONFIRMED: the build cache.** Deploys succeed when "Use existing
-  Build Cache" is unchecked & fail when it is not, on identical commits. Every
-  failing log contains `Restored build cache from previous deployment`; that
-  line is absent from the ones that pass. This also explains why the same
-  commit could fail & then pass on retry, & why the local measurements above
-  were incoherent - the variable was never in the repo.
-- **Persistent fix:** set `VERCEL_FORCE_NO_BUILD_CACHE=1` as a Production
-  environment variable in the Vercel project. Confirm it took effect by
-  checking that `Restored build cache from previous deployment` no longer
-  appears in the build log. Documented fallbacks if it does not work: a deploy
-  hook with `?buildCache=false`, or `vercel deploy --force --prod`. There is no
-  `vercel.json` toggle for this.
+- ~~**CAUSE CONFIRMED: the build cache.**~~ **WRONG - FALSIFIED 2026-07-28.**
+  A deploy of commit `31c5c20` logged `Skipping build cache, deployment was
+  triggered without cache` at 10:21:26 & still died with SIGKILL at 10:22:32
+  during "Creating an optimized production build". The cache correlation was
+  real but not causal; it was noise of the same kind that produced the
+  incoherent table above. `VERCEL_FORCE_NO_BUILD_CACHE=1` does not fix this &
+  is not worth setting.
+- **Current hypothesis: nested async chunking over 450 dynamic imports.**
+  `experimental.turbopackClientSideNestedAsyncChunking` defaults to **true** in
+  build mode. Next's own description: "computes all possible paths through
+  dynamic imports in the applications to figure out the modules needed at
+  dynamic imports for every path." `src/registry/index.ts` holds 450 dynamic
+  imports in a single object, reached from `component-preview.tsx` &
+  `preview.tsx`. Set to `false` in `next.config.ts` on 2026-07-28, together
+  with `turbopackSourceMaps: false`. **Unverified** - a local build only proves
+  the config is accepted & the site still compiles; the 2-core builder is the
+  only real test.
+- **Not measured locally, deliberately.** Peak-RSS runs on a Windows
+  workstation carry the ~18% variance documented above & are inflated by spare
+  RAM, so they cannot separate these flags. One Vercel deploy settles it.
+- **Paid escape hatch, if it comes to that.** Vercel's larger build machines
+  are billed per CPU-minute ($0.0035/CPU-min; the 8-CPU Enhanced tier is
+  $0.028/min) on paid plans. Not free, so not the default answer.
 - **This buys headroom, it does not create it.** The build still sits near the
   memory ceiling; the cache was what pushed it over. As the docs grow the limit
   returns, so **splitting into two Vercel projects** (utility docs & UI docs)
