@@ -13,6 +13,7 @@ export const sidebarConfig = {
       title: "Handbook",
       items: [
         "colors",
+        "dark-mode",
         "normalize",
         "media-queries",
         "negative-values",
@@ -152,6 +153,7 @@ export const sidebarConfig = {
         "background-color",
         "border-color",
         "caret-color",
+        "color-scheme",
         "color",
         "fill",
         "outline-color",
