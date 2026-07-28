@@ -16,6 +16,7 @@ one attribute.
 A theme color can now be a light/dark pair instead of a single value. The pair
 compiles to CSS `light-dark()`, which resolves per color scheme.
 
+<CodeGroup>
 ```js "yumma.config.mjs" mark={5}
 export default defineConfig({
   theme: {
@@ -27,13 +28,16 @@ export default defineConfig({
 });
 ```
 
-```html
-<div class="bg-surface"></div>
+```tsx title="page.tsx"
+<body className="bg-surface"></body>
 ```
 
-```css
-background-color: light-dark(#ffffff, #111214);
+```css title="output.css"
+.bg-surface {
+    background-color: light-dark(#ffffff, #111214);
+}
 ```
+</CodeGroup>
 
 Both sides are scaled independently & paired step for step, so the whole scale
 comes along - `surface-3` is the third light shade under a light scheme & the
