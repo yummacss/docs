@@ -66,7 +66,7 @@ const withMDX = createMDX({
     ],
     rehypePlugins: [
       [path.resolve("src/plugins/rehype-registry.mjs"), {}],
-      [path.resolve("src/plugins/rehype-shiki.mjs"), {}],
+      // DIAGNOSTIC: Shiki disabled to isolate the OOM. Not for merge.
       path.resolve("src/plugins/rehype-code.mjs"),
     ],
   },
