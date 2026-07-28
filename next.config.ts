@@ -16,28 +16,19 @@ const nextConfig = {
     // builder rather than the local core count.
     //
     // This does NOT address the Turbopack compile OOM: that happens earlier,
-    // during "Creating an optimized production build", and is driven by the
-    // ~450 dynamic imports in src/registry/index.ts each becoming its own
-    // chunk. Fixing that means compiling fewer chunks, not fewer workers.
+    // during "Creating an optimized production build".
     cpus: 2,
 
-    // Defaults to true in build mode. Next's own description: "computes all
-    // possible paths through dynamic imports in the applications to figure
-    // out the modules needed at dynamic imports for every path."
+    // Both of these were set on 2026-07-28 to chase the OOM & NEITHER helped:
+    // the build still died at 49s with them applied (Next logs each with the
+    // boolean-false marker, so they were live, not rejected). The reasoning
+    // that once sat here - that enumerating the 450 dynamic imports in
+    // src/registry/index.ts was the most expensive thing in the build - was
+    // disproved: stubbing that file to 20 entries still OOMed.
     //
-    // src/registry/index.ts holds 450 dynamic imports in one object, reached
-    // from component-preview.tsx & preview.tsx, so that path enumeration is
-    // the most expensive thing in the build. Turning it off trades slightly
-    // less optimal chunk loading for not enumerating 450 import paths.
-    //
-    // The build cache is NOT the cause. A deploy logging "Skipping build
-    // cache, deployment was triggered without cache" still died with SIGKILL
-    // during "Creating an optimized production build" on 2026-07-28.
+    // Kept only because they are harmless & source maps are dead weight on a
+    // docs site. Neither is load-bearing; delete freely.
     turbopackClientSideNestedAsyncChunking: false,
-
-    // Production source maps are a large allocation during compile & this is
-    // a docs site, not an app worth debugging from prod stack traces. Re-enable
-    // to test whether the chunking flag above was sufficient on its own.
     turbopackSourceMaps: false,
   },
   async redirects() {
@@ -66,7 +57,12 @@ const withMDX = createMDX({
     ],
     rehypePlugins: [
       [path.resolve("src/plugins/rehype-registry.mjs"), {}],
-      // DIAGNOSTIC: Shiki disabled to isolate the OOM. Not for merge.
+      // TEMPORARY: rehype-shiki is disabled so the docs can deploy at all.
+      // Running any highlighter over the ~570 code blocks here OOMs the
+      // 2-core / 8 GB Vercel builder; removing it is the only configuration
+      // that has ever completed. Code blocks render unstyled until the
+      // prebuild-highlight step lands. See the 4.0 draft for the full log of
+      // what was ruled out.
       path.resolve("src/plugins/rehype-code.mjs"),
     ],
   },
