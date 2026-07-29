@@ -9,21 +9,43 @@ interface Props {
   lang?: string;
   preview?: boolean;
   grouped?: boolean;
+  /** Highlighted <pre> markup, produced on the server by code-block.tsx. */
+  html?: string;
+  /** Original source, used for copying so no markup can leak into it. */
+  raw?: string;
   children?: React.ReactNode;
 }
 
-export default function Code({ title, preview, grouped, children }: Props) {
+export default function Code({
+  title,
+  preview,
+  grouped,
+  html,
+  raw,
+  children,
+}: Props) {
   const [copied, setCopied] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
   const handleCopy = async () => {
-    // innerText reflects rendered line breaks from block-level line spans
-    // and <br> elements, unlike textContent (used for highlighted blocks).
-    const text = ref.current?.querySelector("pre")?.innerText ?? "";
+    // Prefer the original source. innerText is the fallback for the few
+    // blocks still rendered from children; it reflects rendered line breaks
+    // from block-level line spans and <br> elements, unlike textContent.
+    const text = raw ?? ref.current?.querySelector("pre")?.innerText ?? "";
     await navigator.clipboard.writeText(text);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
+
+  const body = html ? (
+    <div
+      // ff-m because this wrapper is a div: the old markup was a <pre>, which
+      // carried monospace implicitly.
+      className="ox-auto px-4 py-4 ff-m lh-5"
+      // biome-ignore lint/security/noDangerouslySetInnerHtml: server-generated Shiki output from repo-local source, never user input
+      dangerouslySetInnerHTML={{ __html: html }}
+    />
+  ) : null;
 
   if (preview) {
     return (
@@ -31,7 +53,7 @@ export default function Code({ title, preview, grouped, children }: Props) {
         <div className="p-a t-2 r-2">
           <CopyButton copied={copied} onCopy={handleCopy} />
         </div>
-        <pre className="ox-auto px-4 py-4 ff-m lh-5">{children}</pre>
+        {body ?? <pre className="ox-auto px-4 py-4 ff-m lh-5">{children}</pre>}
       </div>
     );
   }
@@ -44,7 +66,7 @@ export default function Code({ title, preview, grouped, children }: Props) {
         <div className="p-a t-2 r-2">
           <CopyButton copied={copied} onCopy={handleCopy} />
         </div>
-        <pre className="ox-auto px-4 py-4 lh-5">{children}</pre>
+        {body ?? <pre className="ox-auto px-4 py-4 lh-5">{children}</pre>}
       </div>
     );
   }
@@ -63,7 +85,7 @@ export default function Code({ title, preview, grouped, children }: Props) {
         <div className="p-a t-2 r-2">
           <CopyButton copied={copied} onCopy={handleCopy} />
         </div>
-        <pre className="ox-auto px-4 py-4 lh-5">{children}</pre>
+        {body ?? <pre className="ox-auto px-4 py-4 lh-5">{children}</pre>}
       </div>
     </div>
   );
