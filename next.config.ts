@@ -57,12 +57,6 @@ const withMDX = createMDX({
     ],
     rehypePlugins: [
       [path.resolve("src/plugins/rehype-registry.mjs"), {}],
-      // TEMPORARY: rehype-shiki is disabled so the docs can deploy at all.
-      // Running any highlighter over the ~570 code blocks here OOMs the
-      // 2-core / 8 GB Vercel builder; removing it is the only configuration
-      // that has ever completed. Code blocks render unstyled until the
-      // prebuild-highlight step lands. See the 4.0 draft for the full log of
-      // what was ruled out.
       path.resolve("src/plugins/rehype-code.mjs"),
     ],
   },
