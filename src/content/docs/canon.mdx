@@ -1,0 +1,176 @@
+---
+order: 4
+title: Canon
+description: "Validate every class in your project against the Yumma CSS canon with @yummacss/canon."
+---
+
+`@yummacss/canon` reports every class in your project that Yumma CSS does not recognize, with a suggestion when a close match exists. It catches typos, classes borrowed from other frameworks, & utilities that were renamed between versions.
+
+The canon is not a hand-maintained list. Canon validates against the generator itself, so variants, opacity modifiers, negative values, custom theme colors, prefixes & safelist entries are all understood without extra configuration.
+
+## Usage
+
+Run it with no setup:
+
+```bash
+npx @yummacss/canon
+```
+
+Or install it as a dev dependency & add a script:
+
+```bash
+npm install -D @yummacss/canon
+```
+
+```json title="package.json"
+{
+  "scripts": {
+    "validate": "yummacss-canon"
+  }
+}
+```
+
+The binary is named `yummacss-canon`, not `canon`.
+
+## Output
+
+When everything is recognized:
+
+```text
+Scanned 494 files and found 480 unique classes.
+All classes are valid.
+```
+
+When it finds something, each class is listed with the files it appears in:
+
+```text
+Scanned 128 files and found 214 unique classes.
+Found 3 classes Yumma CSS does not recognize:
+ "ai-st" - did you mean "ai-s"?
+  - src/components/hero.tsx
+ "bg-lead" - did you mean "bg-red"?
+  - src/components/card.tsx
+ "flex-center"
+  - src/components/layout.tsx
+Fix the classes above, or pass --allow "class-a,class-b" for custom classes.
+```
+
+Canon exits `0` when every class is valid & `1` when any class is unrecognized, so it works as a CI step without a wrapper.
+
+## Options
+
+| Flag | Alias | Description |
+| --- | --- | --- |
+| `--allow` | `-a` | Comma-separated class names to skip. |
+| `--config` | `-c` | Path to the config file, absolute or relative to the working directory. Defaults to `yumma.config.mjs`. |
+
+Use `--allow` for custom classes defined in your own CSS:
+
+```bash
+npx @yummacss/canon --allow "docs-container,brand-logo"
+```
+
+`--allow` accumulates, so repeating it is equivalent to one comma-separated list:
+
+```bash
+npx @yummacss/canon -a docs-container -a brand-logo
+```
+
+## What gets scanned
+
+Canon reads the `source` globs from your config, the same ones the generator uses. Within those files it only looks at class attribute contexts, not every string, so arbitrary hyphenated text is never reported as a class:
+
+```text
+class="..."             className="..."
+className={"..."}       className={`...`}
+cn("...")               clsx("...")
+classnames("...")       cva("...")
+```
+
+Two limits worth knowing:
+
+Template literal expressions cannot be validated statically. In `` className={`p-4 ${size}`} `` the `p-4` is checked & the `${size}` is skipped, so classes assembled at runtime are invisible to canon.
+
+Classes are validated against **your** config. A code example that shows a different project's config will be reported, because the custom colors in it do not exist in yours. This is correct behaviour rather than a false negative, but it means documentation & changelog files usually want a narrower `source` than the generator uses.
+
+## Narrowing the source
+
+Content files often contain class syntax from older versions that should not be validated. Pass a config inline through the API to scan only your application code:
+
+```js title="scripts/validate.mjs"
+import { validate } from "@yummacss/canon";
+import config from "../yumma.config.mjs";
+
+const result = await validate({
+  config: { ...config, source: ["./src/components/**/*.tsx"] },
+  allowlist: ["docs-container"],
+});
+
+if (result.invalid.length > 0) {
+  for (const { className, suggestion } of result.invalid) {
+    console.error(className, suggestion ? `-> ${suggestion}` : "");
+  }
+  process.exit(1);
+}
+```
+
+## API
+
+```js
+import { validate } from "@yummacss/canon";
+
+const result = await validate({ allowlist: ["docs-container"] });
+```
+
+### validate(options)
+
+| Option | Type | Description |
+| --- | --- | --- |
+| `cwd` | `string` | Directory to resolve the config file & source globs from. Defaults to `process.cwd()`. |
+| `configPath` | `string` | Path to the config file, absolute or relative to `cwd`. Defaults to `yumma.config.mjs`. |
+| `config` | `Config` | Inline configuration. When provided, no config file is read. |
+| `allowlist` | `string[]` | Class names to skip. |
+
+Resolves to a `ValidateResult`:
+
+| Property | Type | Description |
+| --- | --- | --- |
+| `files` | `number` | Number of source files scanned. |
+| `classes` | `number` | Number of unique class names found. |
+| `invalid` | `InvalidClass[]` | Unrecognized classes, sorted alphabetically. |
+
+Each entry in `invalid` carries the class name, the absolute paths of every file it appears in, & the closest valid class when one exists:
+
+| Property | Type | Description |
+| --- | --- | --- |
+| `className` | `string` | The unrecognized class. |
+| `files` | `string[]` | Absolute paths of the files it appears in. |
+| `suggestion` | `string \| undefined` | The closest valid class, e.g. `g-4` for `gap-4`. |
+
+Only `config` is available exclusively through the API. Everything else has a CLI equivalent.
+
+### extractClasses(content)
+
+Returns the set of class names found in a string, using the same class attribute contexts as `validate`. Useful for building project-specific rules on top of canon:
+
+```js
+import { readFileSync } from "node:fs";
+import { extractClasses } from "@yummacss/canon";
+
+const classes = extractClasses(readFileSync("src/components/card.tsx", "utf-8"));
+```
+
+It performs no validation, so it reports every class it finds, valid or not.
+
+## Use in CI
+
+Canon needs nothing beyond your config & source files, so the whole check is one step:
+
+```yaml title=".github/workflows/ci.yml"
+- run: npm install
+- run: npx yummacss-canon
+```
+
+## Editor integration
+
+Canon & [IntelliSense](/docs/intellisense) are built on the same validator, so a class flagged in one is flagged in the other. IntelliSense underlines it as you type; canon covers the cases an editor cannot, being files nobody has open & the pull request nobody has reviewed yet.

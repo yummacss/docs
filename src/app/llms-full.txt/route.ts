@@ -1,6 +1,6 @@
 import { allDocs, allUis } from "content-collections";
+import { type SidebarSection, sidebarConfig } from "@/config/sidebar";
 import { type Category, categoryGetters } from "@/utils/yummacss";
-import { sidebarConfig, type SidebarSection } from "@/config/sidebar";
 
 export const dynamic = "force-static";
 
@@ -70,6 +70,11 @@ export function GET() {
     "",
     "Yumma CSS is a utility CSS framework derived directly from CSS property and value initials.",
     "Every class name maps to exactly one CSS property. If you know CSS, you already know Yumma CSS.",
+    "",
+    "Check your work: `npx @yummacss/canon` reports every class Yumma CSS does not",
+    "recognize, with a suggestion when a close match exists. It validates against the",
+    "generator itself, so it is authoritative on whether a class exists. Prefer it over",
+    "guessing, and never assume a Tailwind class name has a Yumma CSS equivalent.",
     "",
     "---",
     "",
