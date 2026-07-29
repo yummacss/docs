@@ -1,8 +1,9 @@
 ---
 authors:
   - Renildo
-date: 2026-07-25
-description: "A syntax that maps 1:1 to CSS"
+cover: /blog/yummacss-4.0.0.png
+date: 2026-08-01
+description: "A colon syntax that maps 1:1 to CSS. Layered output, container queries & a codemod to migrate."
 draft: true
 title: Yumma CSS 4.0
 ---
@@ -41,7 +42,7 @@ Master index for 3.29 & 4.0.
 | 4 | Variants stay prefixed - `h:c-blue` | 4.0 | Decided |
 | 5 | `:disabled` prefix `d` renamed to `di` | 4.0 | Decided |
 | 6 | Dark mode via `light-dark()` + paired theme colors | 3.29 | **Shipped** |
-| 6b | Built-in semantic token vocabulary | - | **Rejected** |
+| 6b | Built-in semantic token vocabulary | - | _Rejected_ |
 | 7 | `@d:` dark escape-hatch variant | - | **Deferred** |
 | 8 | Opacity moves from hex-alpha to `color-mix()` | 3.29 | **Shipped** |
 | 9 | Output wrapped in `@layer` | 4.0 | Decided |
@@ -50,9 +51,9 @@ Master index for 3.29 & 4.0.
 | 12 | Codemod - `npx yumma migrate` | 4.0 | Decided - required |
 | 13 | Live config reload in dev | 3.26 | **Already shipped** |
 | 14 | Unknown-utility warnings suggesting the v4 spelling | 4.0 | Decided |
-| 15 | v3/v4 compat mode for one release | - | **Rejected** |
+| 15 | v3/v4 compat mode for one release | - | _Rejected_ |
 | 16 | Generate shades in OKLCH instead of sRGB | 4.0 | Decided |
-| 17 | Renumber the shade scale to 50/100/200 | - | **Rejected** |
+| 17 | Renumber the shade scale to 50/100/200 | - | _Rejected_ |
 | 18 | `color-scheme` utility - `cs-l` / `cs-d` / `cs-ld` | 3.29 | **Shipped** |
 | 19 | Hover fixes - negative values, `::`, opacity suffix | 3.29 | **Shipped** |
 
@@ -66,7 +67,7 @@ Master index for 3.29 & 4.0.
   `color-scheme`, the escape hatch is not needed yet. Design it when a real
   case appears; that case will also settle the notation.
 - **#11 dropped.** `gtc-1` … `gtc-16` already generate
-  `repeat(N, minmax(0, 1fr))`, and `gtc-s` / `gtr-s` already generate
+  `repeat(N, minmax(0, 1fr))`, & `gtc-s` / `gtr-s` already generate
   `subgrid`. A `fr` variant would differ from `gtc-1` only in `1fr` vs
   `minmax(0, 1fr)` - a real difference in shrink behaviour, but two
   near-identical classes is a footgun & `minmax(0, 1fr)` is usually wanted.
@@ -105,7 +106,7 @@ Master index for 3.29 & 4.0.
   library or hand-rolled matrices. Shade generation is now isolated inside
   `generateShades` so the swap stays contained.
 - **#17 rejected.** Renaming shades to 50/100/200 imports the identity 4.0
-  exists to move away from, breaks every class name, grows the codemod, and
+  exists to move away from, breaks every class name, grows the codemod, &
   renders nothing differently. The current 1-12 scale with an unnumbered base
   at the midpoint is monotonic & works.
 
@@ -116,9 +117,11 @@ Master index for 3.29 & 4.0.
 Everything below is prose for the published post. Sections stay commented out
 until the feature actually ships.
 
-Yumma CSS 4.0 changes how every utility is written. `-` becomes `:` between a
-property & its value, which makes the class a compressed form of the
-declaration it generates.
+## What's New in v4.0
+
+v4.0 changes how every utility is written. `-` becomes `:` between a property &
+its value, which makes the class a compressed form of the declaration it
+generates.
 
 ```html del={1} ins={2}
 <div class="d-f jc-c ai-c"></div>

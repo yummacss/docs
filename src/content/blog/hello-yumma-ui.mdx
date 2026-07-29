@@ -3,18 +3,29 @@ authors:
 - Renildo
 cover: /blog/hello-yumma-ui.png
 date: 2026-01-11
-description: "Public release of Yumma UI, a free component library for Yumma CSS."
+description: "Excited to launch Yumma UI, the first component library built using Yumma CSS & Base UI!"
 title: "Hello Yumma UI!"
 ---
 
-import Image from "next/image";
-
-
 ## What Is Yumma UI?
 
-Building polished UIs with utility CSS means rebuilding the same buttons, alerts, & layouts. Yumma UI provides production-ready blocks so you start from a real interface instead of an empty file.
+Building polished UIs with utility CSS means rebuilding the same buttons, alerts & layouts every time. Yumma UI provides production-ready blocks so you start from a real interface instead of an empty file.
 
----
+It ships 36 components with 450 ready-made examples, from a plain button through to command palettes, comboboxes & onboarding flows.
+
+## How It Is Built
+
+Every component is [Base UI](https://base-ui.com) underneath, styled entirely with Yumma CSS utilities.
+
+That split matters. Base UI handles the parts that are genuinely hard to get right: focus management, keyboard navigation, screen reader semantics & portal behavior. Yumma UI handles how it looks. You get accessible behavior without inheriting somebody else's design opinions.
+
+Because the styling is only utility classes, restyling a component is editing the class string. There is no theme object to learn, no CSS to override & no specificity fight.
+
+## Not a Dependency
+
+Yumma UI is not a package you install. You copy the component into your project & it becomes your code.
+
+That means no version to keep up with, no breaking change to absorb & no wrapper API standing between you & the markup. If a component is 90% right, change the other 10% directly instead of working around the parts you cannot reach.
 
 ## Get Started
 
@@ -22,9 +33,10 @@ Getting started with Yumma UI requires [Yumma CSS](/docs).
 
 <Stepper>
   <Step title="Install Yumma CSS">
-    Set up Yumma CSS in your project. 
-    ```bash 
-    pnpm add yummacss 
+    Set up Yumma CSS in your project.
+
+    ```bash
+    pnpm add yummacss
     ```
   </Step>
   <Step title="Browse Components">
@@ -35,11 +47,10 @@ Getting started with Yumma UI requires [Yumma CSS](/docs).
   </Step>
 </Stepper>
 
----
+Every component page shows a live preview with its full source next to it, so you can see what you are copying before you take it.
 
 ## Start Building Today
 
 Yumma UI gives you production-ready components. Skip the setup & focus on what makes your project unique.
 
 Browse [components](/ui) to get started.
-
