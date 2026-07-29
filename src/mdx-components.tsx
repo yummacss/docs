@@ -1,15 +1,18 @@
 ﻿import type { MDXComponents } from "mdx/types";
 import Image from "next/image";
 import Baseline from "@/components/baseline";
+import Changelog from "@/components/changelog";
 import ComponentPreview from "@/components/component-preview";
+import FileTree from "@/components/file-tree";
 import Hint from "@/components/hint";
 import HoverVariant from "@/components/hover-state";
 import {
   Cursor,
+  GitHub,
   VisualStudioCode,
   Windsurf,
   Zed,
-} from "@/components/icons/editors";
+} from "@/components/icons/icons";
 import NegativeValues from "@/components/negative-values";
 import OpacityModifier from "@/components/opacity-modifier";
 import Palette from "@/components/palette";
@@ -39,10 +42,13 @@ function generateId(children: React.ReactNode): string {
 
 const components: MDXComponents = {
   Baseline,
+  Changelog,
   Code,
   CodeGroup,
   ComponentPreview,
   Cursor,
+  FileTree,
+  GitHub,
   Hint,
   HoverVariant,
   NegativeValues,

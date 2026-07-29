@@ -3,15 +3,19 @@ authors:
 - Renildo
 cover: /blog/yummacss-2.0.0.png
 date: 2024-08-12
-description: "We're excited to announce the release of Yumma CSS v2.0.0! This new update is full of new features, big improvements, a redesigned source code, and of course, some important fixes."
+description: "Source code rewritten. New utilities. New Silver color option. QoL changes & fixes."
 title: Yumma CSS 2.0
 ---
 
-## All-New Utilities
+## What's New in v2.0
+
+The source was rewritten from scratch. On top of that, this release adds a color, widens media query support & fills most of the remaining gaps in the utility set.
+
+### All-New Utilities
 
 Continuous utility expansion remains a priority. This major release introduces several new tools for design control.
 
-### Accent Color
+#### Accent Color
 
 ```html "ac-(value)"
 <input class="ac-red" type="checkbox" checked />
@@ -19,7 +23,7 @@ Continuous utility expansion remains a priority. This major release introduces s
 <input class="ac-yellow" type="checkbox" checked />
 ```
 
-### New Silver Color Palette
+#### New Silver Color Palette
 
 <Palette
   data={[
@@ -30,56 +34,31 @@ Continuous utility expansion remains a priority. This major release introduces s
   ]}
 />
 
-### Aspect Ratio
+#### Aspect Ratio
 
-| Utility   | Property              |
-| --------- | --------------------- |
-| `ar-s`    | `aspect-ratio: 1/1;`  |
-| `ar-l`    | `aspect-ratio: 16/9;` |
-| `ar-auto` | `aspect-ratio: auto;` |
+`ar-s` is square, `ar-l` is 16/9 & `ar-auto` restores the default.
 
-### Backdrop Filter
+#### Backdrop Filter
 
-| Utility     | Property                       |
-| ----------- | ------------------------------ |
-| `bf-b-none` | `backdrop-filter: blur(0px);`  |
-| `bf-b-xs`   | `backdrop-filter: blur(4px);`  |
-| `bf-b-sm`   | `backdrop-filter: blur(8px);`  |
-| `bf-b-md`   | `backdrop-filter: blur(16px);` |
-| `bf-b-lg`   | `backdrop-filter: blur(32px);` |
-| `bf-b-xl`   | `backdrop-filter: blur(64px);` |
+Blur steps from `bf-b-none` through `bf-b-xs`, `bf-b-sm`, `bf-b-md`, `bf-b-lg` & `bf-b-xl`, doubling at each step from 4px to 64px.
 
-### Border Collapse
+#### Border Collapse
 
-| Utility | Property                     |
-| ------- | ---------------------------- |
-| `bc-c`  | `border-collapse: collapse;` |
-| `bc-s`  | `border-collapse: separate;` |
+`bc-c` collapses table borders, `bc-s` separates them.
 
-### Border Style
+#### Border Style
 
-| Utility  | Property                |
-| -------- | ----------------------- |
-| `b-none` | `border-style: none;`   |
-| `b-d`    | `border-style: dashed;` |
-| `b-h`    | `border-style: hidden;` |
-| `b-s`    | `border-style: solid;`  |
+`b-none`, `b-d` for dashed, `b-h` for hidden & `b-s` for solid.
 
-### Caption Side
+#### Caption Side
 
-| Utility | Property                |
-| ------- | ----------------------- |
-| `cs-b`  | `caption-side: bottom;` |
-| `cs-t`  | `caption-side: top;`    |
+`cs-t` & `cs-b` place a table caption above or below.
 
-### Font Style
+#### Font Style
 
-| Utility | Property              |
-| ------- | --------------------- |
-| `fs-i`  | `font-style: italic;` |
-| `fs-n`  | `font-style: normal;` |
+`fs-i` is italic, `fs-n` is normal.
 
-### Gap
+#### Gap
 
 Reworked the Gap utilities for more intuitive layout controls.
 
@@ -87,37 +66,22 @@ Reworked the Gap utilities for more intuitive layout controls.
 <div class="g-[0/16]">…</div>
 ```
 
-### Grid
+#### Grid
 
 ```html "gc-s-(value) gce-(value) gcs-(value)" "gr-s-(value) gre-(value) grs-(value)"
 <div class="gc-s-(value) gce-(value) gcs-(value)">…</div>
 <div class="gr-s-(value) gre-(value) grs-(value)">…</div>
 ```
 
-### Object Fit
+#### Object Fit
 
-| Utility   | Property                  |
-| --------- | ------------------------- |
-| `of-c`    | `object-fit: cover;`      |
-| `of-f`    | `object-fit: fill;`       |
-| `of-none` | `object-fit: none;`       |
-| `of-sd`   | `object-fit: scale-down;` |
+`of-c` covers, `of-f` fills, `of-sd` scales down & `of-none` leaves the image at its own size.
 
-### Object Position
+#### Object Position
 
-| Utility   | Property                         |
-| --------- | -------------------------------- |
-| `op-b`    | `object-position: bottom;`       |
-| `op-c`    | `object-position: center;`       |
-| `op-lb`   | `object-position: left bottom;`  |
-| `op-left` | `object-position: left;`         |
-| `op-lt`   | `object-position: left top;`     |
-| `op-r`    | `object-position: right;`        |
-| `op-rb`   | `object-position: right bottom;` |
-| `op-rt`   | `object-position: right top;`    |
-| `op-t`    | `object-position: top;`          |
+Nine positions: `op-t`, `op-b`, `op-left`, `op-r` & `op-c` for the edges & center, plus the corners as `op-lt`, `op-lb`, `op-rt` & `op-rb`.
 
-### Outline Color
+#### Outline Color
 
 ```html "oc-(value)"
 <div class="o-4 oc-indigo-6 os-s"></div>
@@ -125,47 +89,34 @@ Reworked the Gap utilities for more intuitive layout controls.
 <div class="o-4 oc-pink-6 os-s"></div>
 ```
 
-### Outline Offset
+#### Outline Offset
 
 ```html
 <div class="oo-[0/4]">…</div>
 ```
 
-### Outline Style
+#### Outline Style
 
-| Utility   | Property                 |
-| --------- | ------------------------ |
-| `os-none` | `outline-style: none;`   |
-| `os-d`    | `outline-style: dashed;` |
-| `os-h`    | `outline-style: hidden;` |
-| `os-s`    | `outline-style: solid;`  |
+`os-none`, `os-d`, `os-h` & `os-s`, matching the border style names.
 
-### Outline Width
+#### Outline Width
 
 ```html
 <div class="ow-[0/4]">…</div>
 ```
 
-### Spacing X
+#### Spacing X & Y
 
 ```html
 <div class="s-x-(value)">…</div>
-```
-
-### Spacing Y
-
-```html
 <div class="s-y-(value)">…</div>
 ```
 
-### Table Layout
+#### Table Layout
 
-| Utility   | Property               |
-| --------- | ---------------------- |
-| `tl-auto` | `table-layout: auto;`  |
-| `tl-f`    | `table-layout: fixed;` |
+`tl-auto` sizes columns to their content, `tl-f` fixes them.
 
-### Text Decoration Color
+#### Text Decoration Color
 
 ```html "tdc-(value)"
 <p class="tdc-red td-u">Red Underline</p>
@@ -173,26 +124,15 @@ Reworked the Gap utilities for more intuitive layout controls.
 <p class="tdc-blue td-u">Blue Underline</p>
 ```
 
-### Text Decoration Style
+#### Text Decoration Style
 
-| Utility    | Property                         |
-| ---------- | -------------------------------- |
-| `tds-none` | `text-decoration-style: none;`   |
-| `tds-d`    | `text-decoration-style: dashed;` |
-| `tds-h`    | `text-decoration-style: hidden;` |
-| `tds-s`    | `text-decoration-style: solid;`  |
+`tds-none`, `tds-d`, `tds-h` & `tds-s`.
 
-### Text Decoration Thickness
+#### Text Decoration Thickness
 
-| Utility    | Property                                |
-| ---------- | --------------------------------------- |
-| `tdt-auto` | `text-decoration-thickness: auto;`      |
-| `tdt-ff`   | `text-decoration-thickness: from-font;` |
-| `tdt-0`    | `text-decoration-thickness: 0px;`       |
-| `tdt-1`    | `text-decoration-thickness: 4px;`       |
-| `tdt-2`    | `text-decoration-thickness: 8px;`       |
-| `tdt-3`    | `text-decoration-thickness: 12px;`      |
-| `tdt-4`    | `text-decoration-thickness: 16px;`      |
+`tdt-auto` & `tdt-ff` follow the font. `tdt-0` through `tdt-4` step from 0 to 16px.
+
+---
 
 ## Base Styles
 
@@ -218,6 +158,8 @@ Disable default base styles by importing `yumma-core.css` instead of `yumma.css`
 />
 ```
 
+---
+
 ## Media Queries
 
 Media query support is now available across nearly all Yumma CSS utilities for better responsiveness.
@@ -232,7 +174,9 @@ Media query support is now available across nearly all Yumma CSS utilities for b
 </div>
 ```
 
-## Breakpoints Changes
+---
+
+## Breakpoint Changes
 
 Refined the breakpoint system by removing the `xs` breakpoint & adjusting existing values.
 
@@ -242,26 +186,25 @@ Refined the breakpoint system by removing the `xs` breakpoint & adjusting existi
         <TabsTab value="v1.2">v1.2</TabsTab>
     </TabsList>
 
-<TabsPanel value="v2.0">
-  | Utility | Property | |---------|--------------------| | `sm` | `min-width:
-  640px;` | | `md` | `min-width: 768px;` | | `lg` | `min-width: 1024px;` | |
-  `xl` | `min-width: 1280px;` | | `xxl` | `min-width: 1536px;` |
-</TabsPanel>
+    <TabsPanel value="v2.0">
+        | Utility | Property            |
+        |---------|---------------------|
+        | `sm`    | `min-width: 640px;` |
+        | `md`    | `min-width: 768px;` |
+        | `lg`    | `min-width: 1024px;`|
+        | `xl`    | `min-width: 1280px;`|
+        | `xxl`   | `min-width: 1536px;`|
+    </TabsPanel>
 
-  <TabsPanel value="v1.2">
-| Utility | Property           |
-|---------|--------------------|
-| `xs`     | `min-width: 0;`     |
-| `sm`     | `min-width: 480px;` |
-| `md`     | `min-width: 720px;` |
-| `lg`     | `min-width: 960px;` |
-| `xl`     | `min-width: 1200px;` |
-  </TabsPanel>
+    <TabsPanel value="v1.2">
+        | Utility | Property             |
+        |---------|----------------------|
+        | `xs`    | `min-width: 0;`      |
+        | `sm`    | `min-width: 480px;`  |
+        | `md`    | `min-width: 720px;`  |
+        | `lg`    | `min-width: 960px;`  |
+        | `xl`    | `min-width: 1200px;` |
+    </TabsPanel>
 </Tabs>
 
-## Container Rules
-
-Introduced the `cnt` class for containers with built-in media query rules for responsiveness. It replaces v1.2's `cnn`, which was a fixed `1200px` maximum width with horizontal padding - `cnt` instead caps its width at each breakpoint.
-
-The utility was later removed in [3.0](/blog/yummacss-3.0.0); see the [v2.0.0 release notes](https://github.com/yummacss/yummacss/releases/tag/v2.0.0) for the original implementation.
-
+<Changelog version="2.0.0" />

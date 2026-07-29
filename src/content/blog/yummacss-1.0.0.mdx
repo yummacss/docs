@@ -3,54 +3,76 @@ authors:
 - Renildo
 cover: /blog/yummacss-1.0.0.png
 date: 2024-01-03
-description: "After a few months of development, we're ready to release the first major version. In this release, we're focusing on implementing a few utilities and, more importantly, on improving the overall experience of using Yumma CSS."
+description: "New utilities. New Lead color option & QoL changes."
 title: Yumma CSS 1.0
 ---
 
-## All-New Utilities
+## What's New in v1.0
 
-Added new utilities to expand CSS property coverage.
+The first major release. Seventeen new utility families, a shorter syntax for `display` & hover, & a new color for single-theme projects.
 
-### Align Items
+### All-New Utilities
 
-| Utility | Property                       |
-| ------- | ------------------------------ |
-| `ai-fs` | `align-items: flex-start;`     |
-| `ai-fe` | `align-items: flex-end;`       |
-| `jc-e`  | `justify-content: end;`        |
-| `jc-fs` | `justify-content: flex-start;` |
-| `jc-fe` | `justify-content: flex-end;`   |
-| `jc-l`  | `justify-content: left;`       |
-| `jc-r`  | `justify-content: right;`      |
-| `jc-n`  | `justify-content: normal;`     |
-| `jc-s`  | `justify-content: stretch;`    |
+Seventeen families landed at once, covering layout, typography & interaction.
 
-### Display
+Layout & grid got `align-content`, `align-self`, `justify-items`, `justify-self`, `flex-basis`, `flex-grow`, `grid-auto-columns`, `grid-auto-flow` & `grid-auto-rows`.
 
-| Utility | Property              |
-| ------- | --------------------- |
-| `d-fr`  | `display: flow-root;` |
+Typography got `font-family`, `list-style-type` & `text-decoration`.
 
-### Float
+Interaction got `appearance`, `caret-color`, `cursor`, `pointer-events` & `user-select`.
 
-| Utility | Property               |
-| ------- | ---------------------- |
-| `f-is`  | `float: inline-start;` |
-| `f-ie`  | `float: inline-end;`   |
+### New Values
 
-### Text Align
+Existing utilities picked up the values they were missing.
 
-| Utility | Property                          |
-| ------- | --------------------------------- |
-| `ta-ja` | `text-align: justify-all;`        |
-| `ta-mp` | `text-align: match-parent;`       |
-| `tdl-o` | `text-decoration-line: overline;` |
+`align-items` gained `flex-start` & `flex-end`. `justify-content` gained `end`, `flex-start`, `flex-end`, `left`, `right`, `normal` & `stretch`.
+
+```html "ai-fs" "jc-s"
+<div class="ai-fs jc-s">…</div>
+```
+
+`display` gained `flow-root`.
+
+```html "d-fr"
+<div class="d-fr">…</div>
+```
+
+`float` gained the inline directions, `inline-start` & `inline-end`.
+
+```html "f-is" "f-ie"
+<div class="f-is">…</div>
+<div class="f-ie">…</div>
+```
+
+`text-align` gained `justify-all` & `match-parent`.
+
+```html "ta-ja" "ta-mp"
+<p class="ta-ja">…</p>
+<p class="ta-mp">…</p>
+```
+
+`text-decoration-line` gained `overline`.
+
+```html "tdl-o"
+<p class="tdl-o">…</p>
+```
+
+---
+
+## Axis Shorthands
+
+Margin & padding got axis shorthands, so a matching pair of sides is one class instead of two.
+
+```html del={1} ins={2}
+<div class="ml-4 mr-4 pt-2 pb-2">…</div>
+<div class="mx-4 py-2">…</div>
+```
 
 ---
 
 ## Viewport Expansion
 
-Added viewport support for **height** & **width** utilities.
+Height & width utilities accept viewport values.
 
 ```html "md:h-auto" "md:w-auto"
 <div class="w-10 h-10 … md:w-auto md:h-auto">…</div>
@@ -60,27 +82,47 @@ Added viewport support for **height** & **width** utilities.
 
 ## New Lead Color Palette
 
-Introduced the **lead** color variant for single-theme applications.
+A neutral built for single-theme applications.
 
-| Color  | Value     |
-| ------ | --------- |
-| `Lead` | `#3f3f4e` |
+<Palette
+  data={[
+    {
+      name: "Lead",
+      color: "#3f3f4e",
+    },
+  ]}
+/>
+
+```html "bg-lead"
+<div class="bg-lead"></div>
+```
 
 ---
 
 ## Syntax Changes
 
-Refined utility syntax for improved consistency.
+### Display
+
+`display` drops to a single letter, matching the property-initials rule the rest of the framework already followed.
 
 ```html del={1} ins={2}
-<div class="dis-(value)"></div>
-<div class="d-(value)"></div>
+<div class="dis-f"></div>
+<div class="d-f"></div>
 ```
 
-Relocated hover state prefixes to the start of utilities for better readability.
+### Hover Variants
+
+Hover moves from the middle of the class to the front, so the variant reads first & groups predictably.
 
 ```html del={1} ins={2}
 <div class="bg-h-blue"></div>
 <div class="h:bg-blue"></div>
 ```
 
+---
+
+## Removals
+
+`break-all` & `keep-all` are gone from `overflow-wrap`, the `nav-l` component was dropped, & the `greet()` helper is now `showVer()`.
+
+<Changelog version="1.0.0" />
