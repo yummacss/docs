@@ -39,7 +39,9 @@ export default function Code({
 
   const body = html ? (
     <div
-      className="ox-auto px-4 py-4 lh-5"
+      // ff-m because this wrapper is a div: the old markup was a <pre>, which
+      // carried monospace implicitly.
+      className="ox-auto px-4 py-4 ff-m lh-5"
       // biome-ignore lint/security/noDangerouslySetInnerHtml: server-generated Shiki output from repo-local source, never user input
       dangerouslySetInnerHTML={{ __html: html }}
     />

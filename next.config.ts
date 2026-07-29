@@ -15,21 +15,7 @@ const nextConfig = {
     // locally but not in a build container. Set to match Vercel's 2-core
     // builder rather than the local core count.
     //
-    // This does NOT address the Turbopack compile OOM: that happens earlier,
-    // during "Creating an optimized production build".
     cpus: 2,
-
-    // Both of these were set on 2026-07-28 to chase the OOM & NEITHER helped:
-    // the build still died at 49s with them applied (Next logs each with the
-    // boolean-false marker, so they were live, not rejected). The reasoning
-    // that once sat here - that enumerating the 450 dynamic imports in
-    // src/registry/index.ts was the most expensive thing in the build - was
-    // disproved: stubbing that file to 20 entries still OOMed.
-    //
-    // Kept only because they are harmless & source maps are dead weight on a
-    // docs site. Neither is load-bearing; delete freely.
-    turbopackClientSideNestedAsyncChunking: false,
-    turbopackSourceMaps: false,
   },
   async redirects() {
     return redirects;
