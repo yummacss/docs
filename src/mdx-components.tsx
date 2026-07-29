@@ -21,7 +21,7 @@ import Reference from "@/components/reference";
 import ResponsiveVariant from "@/components/responsive-variant";
 import Stepper, { Step } from "@/components/stepper";
 import { Tabs, TabsList, TabsPanel, TabsTab } from "@/components/tabs";
-import Code from "@/components/ui/code";
+import Code from "@/components/ui/code-block";
 import CodeGroup from "@/components/ui/code-group";
 
 // generate IDs from heading text
