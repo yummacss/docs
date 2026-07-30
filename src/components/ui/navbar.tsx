@@ -61,9 +61,7 @@ export default function Navbar({
         className={clsx(navbarVariants({ variant }), className, "zi-10")}
         style={{ backgroundColor: isLandingPage ? "transparent" : "#151724" }}
       >
-        <div
-          className="mx-auto px-3 py-2 docs-container"
-        >
+        <div className="mx-auto px-3 py-2 docs-container">
           <nav className="d-f ai-c jc-sb">
             <div className="d-f ai-c g-2">
               <Link href="/" className="fv:oc-white fv:ow-2">
@@ -83,6 +81,11 @@ export default function Navbar({
                       href: "/ui/installation",
                       label: "Components",
                       prefix: "/ui",
+                    },
+                    {
+                      href: "/releases",
+                      label: "Releases",
+                      prefix: "/releases",
                     },
                     {
                       href: "https://play.yummacss.com",
