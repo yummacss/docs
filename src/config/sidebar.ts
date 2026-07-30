@@ -27,10 +27,6 @@ export const sidebarConfig = {
       items: ["installation", "configuration"],
     },
     {
-      title: "Packages",
-      items: ["intellisense", "canon"],
-    },
-    {
       title: "Customization",
       items: ["colors", "theming", "dark-mode"],
     },
@@ -46,6 +42,13 @@ export const sidebarConfig = {
         "pseudo-elements",
         "nested-variants",
       ],
+    },
+    // Below the conceptual pages on purpose. These are separate packages
+    // nobody needs in order to use Yumma CSS, & sitting directly under Get
+    // Started read as a third setup step.
+    {
+      title: "Packages",
+      items: ["intellisense", "canon"],
     },
     {
       title: "Background",
