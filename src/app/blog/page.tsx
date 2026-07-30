@@ -33,11 +33,12 @@ export default async function BlogPage() {
   const years = Array.from(postsByYear.keys()).sort((a, b) => b - a);
 
   return (
-    // The grid comes from the layout. Docs & UI land their content in columns
-    // 4-9 because a gc-s-3 sidebar occupies 1-3 first; with no sidebar here,
-    // the same columns are set explicitly. The TOC auto-places into 10-12.
+    // The grid comes from the layout. Docs & UI give columns 1-3 to a sidebar;
+    // the blog has none, so the listing spans 1-9 rather than leaving that
+    // space empty. The TOC auto-places into 10-12 after it. That is ~724px of
+    // content at 1280 instead of the 472px a docs page gets.
     <>
-      <div className="mb-16 pt-12 @lg:gcs-4 @lg:gce-10">
+      <div className="mb-16 pt-12 @lg:gc-s-9">
         {/* `ff-e` is explicit: Esteban only applies inside <article> or via the
             class, and this page is not an article. */}
         <div className="my-8">
@@ -75,17 +76,23 @@ export default async function BlogPage() {
                           <h3 className="mb-4 c-white fs-xxl fw-400">
                             {post.title}
                           </h3>
-                          <p className="mb-4 c-white/70 lh-5">
+                          {/* The container grows to 96rem, so without a cap
+                              the description reaches ~84 characters at 1600px
+                              and keeps going. 32rem holds it near 64. */}
+                          <p className="mb-4 max-w-xs c-white/70 lh-5">
                             {post.description}
                           </p>
                           <div className="d-f ai-c g-2 c-white/50 fs-sm">
                             <span>{formatDate(post.date)}</span>
                           </div>
                         </div>
-                        {/* Cover is sized against the docs measure, not the old
-                          64rem column: 16rem left the title only 184px. */}
+                        {/* 14rem only at @xl, not @lg: at @lg the TOC appears
+                          and takes three columns, so bumping the cover at the
+                          same breakpoint squeezed the description to ~40
+                          characters at exactly 1024px. Waiting until 80rem
+                          keeps every width between 45 and 75. */}
                         {post.cover && (
-                          <div className="@sm:w-40 @sm:fs-0">
+                          <div className="@sm:w-40 @sm:fs-0 @xl:w-56">
                             <div className="o-h b-1 bc-border bg-white/10">
                               <Image
                                 src={post.cover}
