@@ -32,6 +32,17 @@ jobs:
       - name: Update yummacss packages
         run: pnpm up yummacss @yummacss/core --latest
 
+      # The /releases page reads this file from disk. Copying it here rather
+      # than fetching during `next build` keeps the build offline &
+      # reproducible, and means the changelog arrives in the same reviewable PR
+      # as the version bump instead of appearing silently in production.
+      - name: Sync the changelog
+        run: |
+          curl -fsSL \
+            https://raw.githubusercontent.com/yummacss/yummacss/main/CHANGELOG.md \
+            -o src/data/changelog.md
+          test -s src/data/changelog.md
+
       - name: Open PR
         id: pr
         uses: peter-evans/create-pull-request@v8
