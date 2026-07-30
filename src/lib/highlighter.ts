@@ -10,10 +10,12 @@ import { createJavaScriptRegexEngine } from "@shikijs/engine-javascript";
 import css from "@shikijs/langs/css";
 import html from "@shikijs/langs/html";
 import javascript from "@shikijs/langs/javascript";
+import json from "@shikijs/langs/json";
 import jsx from "@shikijs/langs/jsx";
 import shellscript from "@shikijs/langs/shellscript";
 import tsx from "@shikijs/langs/tsx";
 import typescript from "@shikijs/langs/typescript";
+import yaml from "@shikijs/langs/yaml";
 import {
   transformerNotationDiff,
   transformerNotationHighlight,
@@ -34,7 +36,7 @@ const THEME_NAME = eclipsa.name ?? "eclipsa";
  *
  * The bundled entry carries an index of all 332 grammars & spins up an
  * Oniguruma WASM instance per highlighter; `langs` narrowed what was tokenized
- * but never what was loaded. Only the 7 grammars the site actually uses are
+ * but never what was loaded. Only the 9 grammars the site actually uses are
  * imported here, and the JS regex engine means no WASM at all. Output is
  * byte-identical to the bundled path, verified across ts, css, html, bash,
  * tsx & mjs.
@@ -45,9 +47,20 @@ function get(): HighlighterCore {
   if (!highlighter) {
     highlighter = createHighlighterCoreSync({
       themes: [theme],
-      // js & mjs alias to javascript; bash aliases to shellscript. The aliases
-      // come from the grammar files, so the canonical set is enough.
-      langs: [html, css, tsx, typescript, javascript, jsx, shellscript],
+      // js & mjs alias to javascript; bash aliases to shellscript; yml aliases
+      // to yaml. The aliases come from the grammar files, so the canonical set
+      // is enough.
+      langs: [
+        html,
+        css,
+        tsx,
+        typescript,
+        javascript,
+        jsx,
+        shellscript,
+        json,
+        yaml,
+      ],
       engine: createJavaScriptRegexEngine(),
     });
   }
