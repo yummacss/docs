@@ -8,7 +8,6 @@ export default defineConfig({
     "./src/mdx-components.tsx",
     "./src/registry/**/*.tsx",
   ],
-  output: "./src/styles/out.css",
   safelist: [
     "mx--4",
     "bg-accent-dim/10",

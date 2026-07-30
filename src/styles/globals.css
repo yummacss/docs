@@ -1,10 +1,8 @@
 @import "@fontsource/esteban";
 @import "@fontsource/ia-writer-quattro";
 
+/* biome-ignore lint/suspicious/noUnknownAtRules: Yumma CSS is being injected here */
 @yummacss;
-
-/* The site's dark scheme is declared with the `cs-d` utility on <html> in
-   layout.tsx rather than here. */
 
 h1,
 h2,
