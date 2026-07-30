@@ -1,24 +1,22 @@
 ---
 title: "@yummacss/canon"
-description: "Validate every class in your project against the Yumma CSS canon with @yummacss/canon."
+description: "Validate each class in your project."
 ---
 
-`@yummacss/canon` reports every class in your project that Yumma CSS does not recognize, with a suggestion when a close match exists. It catches typos, classes borrowed from other frameworks, & utilities that were renamed between versions.
+**Optional.** Yumma CSS generates the same CSS with or without it. Reach for canon when you want the check, not to get started.
 
-The canon is not a hand-maintained list. Canon validates against the generator itself, so variants, opacity modifiers, negative values, custom theme colors, prefixes & safelist entries are all understood without extra configuration.
+The `@yummacss/canon` tool reports any class in your project that it doesn't recognize and suggests a close match when one exists. 
+
+It detects typos, borrowed classes, and renamed utilities. 
+
+It works with the generator, so variants, opacity modifiers, negative values, custom colors, `prefixes` and `safelist` entries work without extra configuration.
 
 ## Usage
 
 Run it with no setup:
 
 ```bash
-npx @yummacss/canon
-```
-
-Or install it as a dev dependency & add a script:
-
-```bash
-npm install -D @yummacss/canon
+pnpx @yummacss/canon
 ```
 
 ```json title="package.json"
