@@ -9,6 +9,7 @@ Yumma CSS ships no token vocabulary. There is no `bg-primary` & no `c-foreground
 
 `bg-gray-11` says what a color **is**. `bg-surface` says what it is **for**. Both compile to the same declaration, but only one survives a redesign: restyling every card becomes a single config edit instead of a find & replace across every file.
 
+<CodeGroup>
 ```mjs title="yumma.config.mjs" mark={5-8}
 import { defineConfig } from "yummacss";
 
@@ -24,17 +25,18 @@ export default defineConfig({
 });
 ```
 
-```html
-<div class="bg-surface bc-border bw-1 …">
-  <a href="/docs" class="c-accent">Documentation</a>
+```html title="page.tsx"
+<div className="bg-surface bc-border bw-1 …">
+  <a href="/docs" className="c-accent">Documentation</a>
 </div>
 ```
+</CodeGroup>
 
 Semantic colors are ordinary color families, not a separate concept. Everything that works on a built-in color works here: the generated shades & the opacity modifiers.
 
 ```html
-<div class="bg-surface-8 …"></div>
-<div class="bg-accent/10 …"></div>
+<div className="bg-surface-8 …"></div>
+<div className="bg-accent/10 …"></div>
 ```
 
 ## Choose Names That Describe Roles
