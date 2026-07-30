@@ -153,10 +153,24 @@ export function decorateCodeHast(pre, meta, title) {
       }
 
       if (!lineNode.properties) lineNode.properties = {};
-      const existing = Array.isArray(lineNode.properties.className)
-        ? lineNode.properties.className
-        : [];
-      lineNode.properties.className = [...existing, ...extra.split(" ")];
+      const props = lineNode.properties;
+
+      // Shiki writes `class` as a raw string, not hast's canonical
+      // `className`. Setting `className` alongside it serialises TWO class
+      // attributes (`<span class="line" class="d-b">`); the browser keeps the
+      // first & silently drops the rest, so the decoration never applied. The
+      // \n nodes are already gone by then, leaving the block with neither
+      // newlines nor display:block, which collapsed every marked fence onto
+      // one line. Fold both sources into `className` & drop `class`.
+      const asList = (v) =>
+        Array.isArray(v)
+          ? v
+          : typeof v === "string"
+            ? v.split(/\s+/).filter(Boolean)
+            : [];
+      const existing = [...asList(props.class), ...asList(props.className)];
+      delete props.class;
+      props.className = [...existing, ...extra.split(" ")];
 
       if (
         !lineNode.children ||
