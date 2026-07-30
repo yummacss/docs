@@ -7,7 +7,6 @@ import Hint from "@/components/hint";
 import HoverVariant from "@/components/hover-state";
 import {
   Cursor,
-  GitHub,
   VisualStudioCode,
   Windsurf,
   Zed,
@@ -46,7 +45,6 @@ const components: MDXComponents = {
   ComponentPreview,
   Cursor,
   FileTree,
-  GitHub,
   Hint,
   HoverVariant,
   NegativeValues,
