@@ -38,7 +38,17 @@ function pagesIn(directory) {
     .map((file) => file.replace(/\.mdx$/, ""));
 }
 
-const config = readFileSync(join(root, "src/config/sidebar.ts"), "utf-8");
+const source = readFileSync(join(root, "src/config/sidebar.ts"), "utf-8");
+
+// Only the sidebarConfig object maps slugs to pages. Anything else in the file
+// - the interfaces, or link lists like docsLinks - holds routes rather than
+// page slugs & must not be read as one.
+const configStart = source.indexOf("export const sidebarConfig");
+if (configStart === -1) {
+  console.error("Could not find `export const sidebarConfig` to check.");
+  process.exit(1);
+}
+const config = source.slice(configStart);
 
 const collections = [
   {

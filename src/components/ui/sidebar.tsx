@@ -1,5 +1,5 @@
 import { allDocs, allUis } from "content-collections";
-import { sidebarConfig } from "@/config/sidebar";
+import { docsLinks, sidebarConfig } from "@/config/sidebar";
 import SidebarNav from "./sidebar-nav";
 
 interface Props {
@@ -28,5 +28,11 @@ export default function Sidebar({ variant }: Props) {
     }),
   }));
 
-  return <SidebarNav sections={sections} basePath={basePath} />;
+  return (
+    <SidebarNav
+      sections={sections}
+      basePath={basePath}
+      links={variant === "docs" ? docsLinks : undefined}
+    />
+  );
 }
