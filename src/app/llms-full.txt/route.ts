@@ -1,6 +1,6 @@
 import { allDocs, allUis } from "content-collections";
 import { type SidebarSection, sidebarConfig } from "@/config/sidebar";
-import { type Category, categoryGetters } from "@/utils/yummacss";
+import { mdxToMarkdown } from "@/utils/mdx-markdown";
 
 export const dynamic = "force-static";
 
@@ -13,52 +13,6 @@ function flattenSlugs(sections: SidebarSection[]): string[] {
     }
   }
   return slugs;
-}
-
-function buildReferenceTable(category: Category, name: string): string {
-  try {
-    const getter = categoryGetters[category];
-    if (!getter) return "";
-    const utils = getter();
-    const util = utils[name];
-    if (!util) return "";
-    const rows = Object.entries(util.values as Record<string, string>).map(
-      ([suffix, value]) => {
-        const cls = suffix === "" ? util.prefix : `${util.prefix}-${suffix}`;
-        const props = (util.properties as string[]).join(", ");
-        return `| \`${cls}\` | ${props} | \`${value}\` |`;
-      },
-    );
-    return [
-      "| Class | Properties | Value |",
-      "|-------|------------|-------|",
-      ...rows,
-    ].join("\n");
-  } catch {
-    return "";
-  }
-}
-
-function renderDocBody(content: string): string {
-  return content
-    .replace(
-      /<Reference\s+category="([^"]+)"\s+name="([^"]+)"\s*\/>/g,
-      (_, cat, nm) => buildReferenceTable(cat as Category, nm),
-    )
-    .replace(
-      /<Reference\s+name="([^"]+)"\s+category="([^"]+)"\s*\/>/g,
-      (_, nm, cat) => buildReferenceTable(cat as Category, nm),
-    )
-    .replace(/<[A-Z][A-Za-z]*(\s[^>]*)?\s*\/>/g, "")
-    .replace(/\n{3,}/g, "\n\n")
-    .trim();
-}
-
-function renderUiBody(content: string): string {
-  return content
-    .replace(/<[A-Z][A-Za-z]*(\s[^>]*)?\s*\/>/g, "")
-    .replace(/\n{3,}/g, "\n\n")
-    .trim();
 }
 
 export function GET() {
@@ -85,7 +39,7 @@ export function GET() {
     if (!doc) continue;
     parts.push(`# ${doc.title}`);
     if (doc.description) parts.push("", doc.description);
-    const body = renderDocBody(doc.content ?? "");
+    const body = mdxToMarkdown(doc.content ?? "");
     if (body) parts.push("", body);
     parts.push("", "---", "");
   }
@@ -97,7 +51,7 @@ export function GET() {
     if (!ui) continue;
     parts.push(`# ${ui.title}`);
     if (ui.description) parts.push("", ui.description);
-    const body = renderUiBody(ui.content ?? "");
+    const body = mdxToMarkdown(ui.content ?? "");
     if (body) parts.push("", body);
     parts.push("", "---", "");
   }
