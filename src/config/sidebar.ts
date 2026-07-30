@@ -3,11 +3,28 @@ export interface SidebarSection {
   items: (string | { title: string; items: string[] })[];
 }
 
+export interface SidebarLink {
+  title: string;
+  href: string;
+}
+
+/**
+ * Links rendered at the end of the docs nav.
+ *
+ * Kept out of `sidebarConfig` on purpose: that maps slugs to content pages &
+ * everything reading it - prev/next, llms.txt, llms-full.txt & the build-time
+ * sidebar check - expects every entry to resolve to an `.mdx` file. These are
+ * routes, not pages, so they are only ever rendered by the nav.
+ */
+export const docsLinks: SidebarLink[] = [
+  { title: "llms.txt", href: "/llms.txt" },
+];
+
 export const sidebarConfig = {
   docs: [
     {
       title: "Get Started",
-      items: ["installation", "configuration", "llms"],
+      items: ["installation", "configuration"],
     },
     {
       title: "Packages",

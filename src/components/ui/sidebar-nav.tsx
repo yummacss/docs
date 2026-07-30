@@ -1,11 +1,18 @@
 "use client";
 
+import { ArrowUpRight } from "iconoir-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 interface NavItem {
   slug: string;
   title: string;
+}
+
+/** A route rather than a content page, so it carries its own href. */
+interface NavLink {
+  title: string;
+  href: string;
 }
 
 interface NavGroup {
@@ -21,9 +28,10 @@ interface NavSection {
 interface Props {
   sections: NavSection[];
   basePath: string;
+  links?: NavLink[];
 }
 
-export default function SidebarNav({ sections, basePath }: Props) {
+export default function SidebarNav({ sections, basePath, links }: Props) {
   const pathname = usePathname();
 
   return (
@@ -78,6 +86,27 @@ export default function SidebarNav({ sections, basePath }: Props) {
             </ul>
           </div>
         ))}
+
+        {links && links.length > 0 && (
+          <div className="d-f fd-c g-3">
+            <h3 className="c-silver-8 fs-xs ls-2 tt-u">Resources</h3>
+            <ul className="d-f fd-c g-2">
+              {links.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="d-if ai-c g-2 c-white/70 fs-sm us-none h:c-accent fv:oc-white fv:oo-2 fv:ow-2"
+                  >
+                    {link.title}
+                    <ArrowUpRight className="w-3 h-3 c-white/40" />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
     </aside>
   );
