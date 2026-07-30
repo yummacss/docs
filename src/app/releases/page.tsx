@@ -1,5 +1,6 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
+import { Github, Page } from "iconoir-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { parseChangelog, type Release } from "@/utils/changelog";
@@ -118,69 +119,112 @@ function formatDate(value?: string): string | null {
   });
 }
 
+/**
+ * Added & Removed borrow the diff colours the code blocks already use, so the
+ * palette says the same thing in both places. Changed & Fixed stay neutral:
+ * colouring all four would make every release a rainbow & mean nothing.
+ */
+const GROUP_COLORS: Record<string, string> = {
+  Added: "c-diff-add",
+  Removed: "c-diff-remove",
+};
+
 export default function ReleasesPage() {
   const all = releases();
 
   return (
     <div className="py-20">
-      <header className="mb-12">
-        <h1 className="mb-2 c-white fs-4xl fw-400 @lg:fs-5xl">Releases</h1>
-        <p className="c-white/70 fs-lg lh-5">
-          Every Yumma CSS release, newest first. Sourced from the{" "}
+      <header className="mb-16">
+        <h1 className="mb-3 c-white fs-4xl fw-400 lh-1 ff-e @lg:fs-5xl">
+          Releases
+        </h1>
+        <p className="mb-6 c-white/70 fs-lg lh-5">
+          Every Yumma CSS release, newest first.
+        </p>
+        <div className="d-f ai-c g-4 fw-w">
+          <Link
+            href="/releases.md"
+            className="d-if ai-c g-2 c-white/70 fs-sm td-none h:c-white fv:oc-white fv:ow-2"
+          >
+            <Page className="w-4 h-4" />
+            View as markdown
+          </Link>
           <a
             href="https://github.com/yummacss/yummacss/blob/main/CHANGELOG.md"
             target="_blank"
             rel="noreferrer"
-            className="c-accent h:td-u fv:oc-white fv:ow-2"
+            className="d-if ai-c g-2 c-white/70 fs-sm td-none h:c-white fv:oc-white fv:ow-2"
           >
-            monorepo changelog
+            <Github className="w-4 h-4" />
+            Full changelog
           </a>
-          , also available as{" "}
-          <Link
-            href="/releases.md"
-            className="c-accent h:td-u fv:oc-white fv:ow-2"
-          >
-            plain markdown
-          </Link>
-          .
-        </p>
+        </div>
       </header>
 
-      <div className="d-f fd-c g-12">
-        {all.map((release) => {
+      <div className="d-f fd-c">
+        {all.map((release, index) => {
           const date = formatDate(release.date);
-          return (
-            <section key={release.version} className="d-f fd-c g-4">
-              <div className="d-f ai-c g-3 fw-w">
-                <h2 id={release.version} className="c-white fs-xxl fw-500 lh-1">
-                  {release.url ? (
-                    <a
-                      href={release.url}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="c-white h:c-accent fv:oc-white fv:ow-2"
-                    >
-                      {release.version}
-                    </a>
-                  ) : (
-                    release.version
-                  )}
-                </h2>
-                {date && <span className="c-white/50 fs-sm">{date}</span>}
-              </div>
+          const isLatest = index === 0;
 
-              {release.groups.map((group) => (
-                <div key={group.title} className="d-f fd-c g-2">
-                  <h3 className="c-silver-8 fs-xs ls-2 tt-u">{group.title}</h3>
-                  <ul className="d-f fd-c g-2 ml-4 lst-d">
-                    {group.entries.map((entry) => (
-                      <li key={entry.slice(0, 80)} className="c-white/80">
-                        {inline(entry, release.version)}
-                      </li>
-                    ))}
-                  </ul>
+          return (
+            <section
+              key={release.version}
+              className="d-f p-r g-6 pb-10 bc-border blw-1"
+            >
+              {/* Square marker rather than a dot: every angle on this site is sharp. */}
+              <span className="p-a t-1 bg-accent-dim w-2 h-2 ml--1" />
+
+              <div className="d-f fd-c g-4 pl-6 w-100%">
+                <div className="d-f fd-c g-2">
+                  {date && <span className="c-white/50 fs-sm">{date}</span>}
+                  <div className="d-f ai-c g-3 fw-w">
+                    <h2
+                      id={release.version}
+                      className="c-white fs-xxl fw-400 lh-1 ff-e"
+                    >
+                      {release.url ? (
+                        <a
+                          href={release.url}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="c-white td-none h:c-accent fv:oc-white fv:ow-2"
+                        >
+                          {release.version}
+                        </a>
+                      ) : (
+                        release.version
+                      )}
+                    </h2>
+                    {isLatest && (
+                      <span className="px-2 py-1 bc-accent-dim/50 bg-accent-dim/10 c-accent bw-1 fs-xs ls-2 tt-u">
+                        Latest
+                      </span>
+                    )}
+                  </div>
                 </div>
-              ))}
+
+                <div className="d-f fd-c g-5 p-6 bc-border bg-surface bw-1">
+                  {release.groups.map((group) => (
+                    <div key={group.title} className="d-f fd-c g-3">
+                      <h3
+                        className={`fs-xs ls-2 tt-u ${GROUP_COLORS[group.title] ?? "c-silver-8"}`}
+                      >
+                        {group.title}
+                      </h3>
+                      <ul className="d-f fd-c g-3">
+                        {group.entries.map((entry) => (
+                          <li
+                            key={entry.slice(0, 80)}
+                            className="c-white/80 fs-sm lh-5"
+                          >
+                            {inline(entry, release.version)}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </section>
           );
         })}
