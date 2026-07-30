@@ -56,6 +56,8 @@ Master index for 3.29 & 4.0.
 | 17 | Renumber the shade scale to 50/100/200 | - | _Rejected_ |
 | 18 | `color-scheme` utility - `cs-l` / `cs-d` / `cs-ld` | 3.29 | **Shipped** |
 | 19 | Hover fixes - negative values, `::`, opacity suffix | 3.29 | **Shipped** |
+| 20 | Drop pseudo-class stacking (`f:h:`), keep every other stack | 4.0 | Decided |
+| 21 | Warn on stacked media queries (`@sm:@lg:`) | 4.0 | Open |
 
 ### Why the colon, in one place
 
@@ -126,6 +128,33 @@ release weeks after the first.
   cannot parse `oklch()` or `lch()` at all, so it also needs a new colour
   library or hand-rolled matrices. Shade generation is now isolated inside
   `generateShades` so the swap stays contained.
+- **#20 decided: drop pseudo-class stacking, keep everything else.** Measured
+  against the generator rather than argued from taste. Every stack compiles
+  correctly today & order in the chain is irrelevant, since each prefix is
+  resolved by what it is: `@sm:h:bg-red` & `h:@sm:bg-red` produce the same rule.
+  The combinations worth keeping all pair *different kinds* of condition -
+  `@sm:h:` (media + state), `h:s::` (state + pseudo element), `@sm:s::`, & any
+  of those plus an opacity suffix. Two pseudo classes are the one case that
+  pairs a kind with itself, and it compiles to a both-at-once selector:
+  `f:h:bg-red` is `:focus:hover`, matching only an element focused **and**
+  hovered simultaneously. Nobody wants that; they want either state to trigger,
+  which is two utilities.
+
+  Dropping it is free. A scan of every real corpus - `docs/src`, the 450-file
+  registry, `play/src` - found **zero** uses, there are **no tests** covering
+  it, and it appears in no documentation. So there is nothing to migrate, no
+  test to delete, and no codemod case to write. It removes parser surface at
+  genuinely zero cost.
+
+  Removal is 4.0 only. It is unused & undocumented, but stripping it from the v3
+  parser would still be a breaking change shipped in a patch.
+- **#21 raised, open.** Two stacked media queries silently lose all but the
+  last. `@sm:@lg:bg-red` compiles to `@media (min-width: 64rem)` with `@sm`
+  discarded & no warning. It is arguably reasonable - two `min-width` bounds
+  describe one range - but the silence is the problem, since the class name says
+  something the CSS does not do. Natural home is the #14 unknown-utility warning
+  work, and canon should probably flag it too. Documented as a footgun in
+  [Nested Variants](/docs/nested-variants) in the meantime.
 - **#17 rejected.** Renaming shades to 50/100/200 imports the identity 4.0
   exists to move away from, breaks every class name, grows the codemod, &
   renders nothing differently. The current 1-12 scale with an unnumbered base
