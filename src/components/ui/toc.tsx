@@ -1,13 +1,14 @@
 "use client";
 
+import { Separator } from "@base-ui/react";
 import { allUis } from "content-collections";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import ApiReference from "@/components/ui/api-reference";
+import ChangelogLink from "@/components/ui/changelog-link";
 import EditPage from "@/components/ui/edit-page";
 import ViewMarkdown from "@/components/ui/view-markdown";
-import { Separator } from "@base-ui/react";
 
 interface TocItem {
   id: string;
@@ -70,14 +71,18 @@ export default function TableOfContents() {
               </li>
             ))}
           </ul>
-          {!isBlogPost && (
-            <div className="d-f fd-c g-3 mt-8 pt-8">
-              <EditPage />
-              <ViewMarkdown />
-              <Separator />
-              {currentUI?.primitive && <ApiReference />}
-            </div>
-          )}
+          <div className="d-f fd-c g-3 mt-8 pt-8">
+            {isBlogPost ? (
+              <ChangelogLink />
+            ) : (
+              <>
+                <EditPage />
+                <ViewMarkdown />
+                <Separator />
+                {currentUI?.primitive && <ApiReference />}
+              </>
+            )}
+          </div>
         </div>
       </div>
     </aside>
