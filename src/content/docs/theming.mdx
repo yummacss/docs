@@ -1,0 +1,99 @@
+---
+order: 6
+title: Theming
+description: "Name colors for their role so a redesign stays one config edit."
+---
+
+Yumma CSS ships no token vocabulary. There is no `bg-primary` & no `c-foreground` to adopt, because a framework cannot know which roles your design actually has. What it gives you is `theme.colors`, which is enough to define them yourself.
+
+## Name Colors by Role
+
+`bg-gray-11` says what a color **is**. `bg-surface` says what it is **for**. Both compile to the same declaration, but only one survives a redesign: restyling every card becomes a single config edit instead of a find & replace across every file.
+
+```mjs title="yumma.config.mjs" mark={5-8}
+import { defineConfig } from "yummacss";
+
+export default defineConfig({
+  theme: {
+    colors: {
+      page: "#151724",
+      surface: "#1a1d2e",
+      border: "#232741",
+      accent: "#bec6f2",
+    },
+  },
+});
+```
+
+```html
+<div class="bg-surface bc-border bw-1 …">
+  <a href="/docs" class="c-accent">Documentation</a>
+</div>
+```
+
+Semantic colors are ordinary color families, not a separate concept. Everything that works on a built-in color works here: the generated shades & the opacity modifiers.
+
+```html
+<div class="bg-surface-8 …"></div>
+<div class="bg-accent/10 …"></div>
+```
+
+## Choose Names That Describe Roles
+
+The names are yours, so the only rule that matters is that they survive a change of mind. `surface` keeps working after you switch from a blue-grey theme to a warm one; `dark-blue` does not.
+
+| Prefer | Avoid | Why |
+| --- | --- | --- |
+| `surface` | `dark-blue` | The role outlives the value. |
+| `border` | `gray-11` | Says what it is for. |
+| `accent` | `indigo-brand` | Survives a rebrand. |
+| `code` | `purple` | Names the thing being styled. |
+
+## This Site Is the Example
+
+These docs define eight semantic colors & use nothing else:
+
+```mjs title="yumma.config.mjs"
+colors: {
+  "accent-dim": "#9aa5ef",
+  "diff-add": "#a8e1ad",
+  "diff-remove": "#e1a8a8",
+  accent: "#bec6f2",
+  border: "#232741",
+  code: "#dda2f6",
+  page: "#151724",
+  surface: "#1a1d2e",
+}
+```
+
+Note that none of them is a light/dark pair. This site renders in a single scheme, so pairing would add nothing. **Naming colors semantically & opting into dark mode are independent decisions** - do either, both, or neither.
+
+## Pair a Color When One Value Cannot Serve Both Schemes
+
+If you do support both schemes, a role often cannot be one value. A quiet text color is the usual case, & the numbers are unforgiving. Measured against the built-in gray scale, neither candidate clears the 4.5:1 WCAG AA threshold for body text on its own:
+
+| Value | On | Contrast |
+| --- | --- | --- |
+| `gray-6` (`#808692`) | white | 3.67:1 |
+| `gray` (`#6b7280`) | `gray-12` (`#111214`) | 3.88:1 |
+
+Defining it as a pair resolves it, because each scheme gets the value that suits it. The darker value goes on the light side:
+
+```mjs title="yumma.config.mjs"
+colors: {
+  subtle: { light: "#6b7280", dark: "#808692" },
+}
+```
+
+| Scheme | Value | On | Contrast |
+| --- | --- | --- | --- |
+| Light | `#6b7280` | white | 4.86:1 |
+| Dark | `#808692` | `#111214` | 5.13:1 |
+
+Both pass, while still reading as quieter than the surrounding text.
+
+Pair only the colors that need it. See [Dark Mode](/docs/dark-mode) for how pairs compile & how they interact with shades & opacity.
+
+## Nothing Here Is Built In
+
+Every name on this page is a convention, not an API. Yumma CSS deliberately does not ship a `page` / `surface` / `fg` vocabulary: it would claim namespace across every color utility & impose a design system on someone who only wanted one color to change. The recipe is documented so you can adopt as much of it as you find useful, & ignore the rest.
