@@ -1,5 +1,6 @@
 import { allUis } from "content-collections";
 import { mdxToMarkdown } from "@/utils/mdx-markdown";
+import { resolveRegistrySource } from "@/utils/registry-source";
 
 export const dynamic = "force-dynamic";
 
@@ -8,7 +9,12 @@ function renderUiMarkdown(ui: {
   description?: string;
   content?: string;
 }): string {
-  const body = mdxToMarkdown(ui.content ?? "");
+  // Without the resolver every <ComponentPreview registryId="..." /> is dropped
+  // and the page serves headings with no component source, which is the whole
+  // reason an agent would read a UI page.
+  const body = mdxToMarkdown(ui.content ?? "", {
+    resolveRegistry: resolveRegistrySource,
+  });
 
   const lines = [`# ${ui.title}`, ""];
   if (ui.description) lines.push(ui.description, "");

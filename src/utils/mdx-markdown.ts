@@ -43,6 +43,21 @@ type Node =
   | { kind: "lines"; lines: string[] }
   | { kind: "component"; name: string; attrs: string; children: Node[] };
 
+/**
+ * Looks up the source behind a `registryId`, returning null when there is none.
+ *
+ * Injected rather than read here on purpose. The registry lives on disk, and a
+ * `node:fs` import in this module would make it unsafe to reach from a
+ * component: that exact leak took the playground down & failed the first
+ * attempt at the docs OOM fix. Keeping the read in the route handler means this
+ * file stays client-safe by construction rather than by luck.
+ */
+export type RegistryResolver = (registryId: string) => string | null;
+
+interface RenderOptions {
+  resolveRegistry?: RegistryResolver;
+}
+
 function parseAttrs(attrs: string): Record<string, string> {
   const parsed: Record<string, string> = {};
   for (const [, key, value] of attrs.matchAll(ATTRIBUTE)) {
@@ -230,6 +245,7 @@ function buildReferenceTable(category: Category, name: string): string[] {
 
 function renderComponent(
   node: Extract<Node, { kind: "component" }>,
+  options: RenderOptions,
   stepNumber?: number,
 ): string[] {
   const attrs = parseAttrs(node.attrs);
@@ -240,7 +256,18 @@ function renderComponent(
     return buildReferenceTable(category as Category, name);
   }
 
-  const children = render(node.children, node.name === "Stepper");
+  // `<ComponentPreview registryId="button-base" />` has no children, so it used
+  // to fall through to the "nothing to unwrap" case & vanish. That is why the
+  // UI pages served prose with no component source at all: /ui/components/
+  // button.md was 965 bytes with zero code fences. The registry file IS the
+  // content of these pages, so it becomes a fenced block.
+  if (attrs.registryId && options.resolveRegistry) {
+    const source = options.resolveRegistry(attrs.registryId);
+    if (!source) return [];
+    return fencedBlock(source, "tsx");
+  }
+
+  const children = render(node.children, options, node.name === "Stepper");
 
   // A step title names the step, so it survives even an empty step.
   if (node.name === "Step" && attrs.title) {
@@ -273,7 +300,26 @@ function renderComponent(
   return children;
 }
 
-function render(nodes: Node[], numberSteps = false): string[] {
+/**
+ * Wraps source in a fence long enough to contain it. A registry file could
+ * itself hold a fenced example, and a plain ``` would end the block early.
+ */
+function fencedBlock(source: string, lang: string): string[] {
+  const body = source.replace(/\r\n/g, "\n").replace(/\s+$/, "");
+  const longest = Math.max(
+    0,
+    ...[...body.matchAll(/^\s*(`{3,})/gm)].map((m) => m[1].length),
+  );
+  const fence = "`".repeat(Math.max(3, longest + 1));
+
+  return [`${fence}${lang}`, ...body.split("\n"), fence];
+}
+
+function render(
+  nodes: Node[],
+  options: RenderOptions,
+  numberSteps = false,
+): string[] {
   const out: string[] = [];
   let step = 0;
 
@@ -285,7 +331,11 @@ function render(nodes: Node[], numberSteps = false): string[] {
 
     if (numberSteps && node.name === "Step") step++;
 
-    const block = renderComponent(node, numberSteps ? step : undefined);
+    const block = renderComponent(
+      node,
+      options,
+      numberSteps ? step : undefined,
+    );
     if (!block.length) continue;
 
     // Unwrapping can butt a block up against its neighbour, so keep the blank
@@ -319,11 +369,14 @@ function collapseBlankLines(lines: string[]): string[] {
   return out;
 }
 
-export function mdxToMarkdown(content: string): string {
+export function mdxToMarkdown(
+  content: string,
+  options: RenderOptions = {},
+): string {
   // Some content files are authored with CRLF. Normalizing first keeps the
   // served markdown from mixing them with the lines rendered here.
   const source = content.replace(/\r\n/g, "\n").split("\n");
-  const lines = collapseBlankLines(render(parse(source)));
+  const lines = collapseBlankLines(render(parse(source), options));
 
   return lines.join("\n").trim();
 }

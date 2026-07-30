@@ -30,6 +30,10 @@ const nextConfig = {
         source: "/ui/components/:slug.md",
         destination: "/api/ui-md/:slug",
       },
+      {
+        source: "/blog/:slug.md",
+        destination: "/api/blog-md/:slug",
+      },
     ];
   },
 };
