@@ -1,11 +1,6 @@
 @import "@fontsource/esteban";
 @import "@fontsource/ia-writer-quattro";
 
-@yummacss;
-
-/* The site's dark scheme is declared with the `cs-d` utility on <html> in
-   layout.tsx rather than here. */
-
 h1,
 h2,
 h3,
