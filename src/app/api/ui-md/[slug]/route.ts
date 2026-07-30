@@ -1,4 +1,5 @@
 import { allUis } from "content-collections";
+import { mdxToMarkdown } from "@/utils/mdx-markdown";
 
 export const dynamic = "force-dynamic";
 
@@ -7,14 +8,7 @@ function renderUiMarkdown(ui: {
   description?: string;
   content?: string;
 }): string {
-  const raw = ui.content ?? "";
-
-  const body = raw
-    // Strip all JSX component tags (self-closing)
-    .replace(/<[A-Z][A-Za-z]*(\s[^>]*)?\s*\/>/g, "")
-    // Clean up excessive blank lines
-    .replace(/\n{3,}/g, "\n\n")
-    .trim();
+  const body = mdxToMarkdown(ui.content ?? "");
 
   const lines = [`# ${ui.title}`, ""];
   if (ui.description) lines.push(ui.description, "");
@@ -28,7 +22,10 @@ export async function GET(
   { params }: { params: Promise<{ slug: string }> },
 ) {
   const { slug } = await params;
-  const ui = slug === "components" ? undefined : allUis.find((u) => u._meta.path === slug);
+  const ui =
+    slug === "components"
+      ? undefined
+      : allUis.find((u) => u._meta.path === slug);
 
   if (!ui) {
     return new Response("Not found", { status: 404 });
