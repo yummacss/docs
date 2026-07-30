@@ -83,11 +83,6 @@ export default function Navbar({
                       prefix: "/ui",
                     },
                     {
-                      href: "/releases",
-                      label: "Releases",
-                      prefix: "/releases",
-                    },
-                    {
                       href: "https://play.yummacss.com",
                       label: "Playground",
                       external: true,
