@@ -15,14 +15,15 @@ export const sidebarConfig = {
     },
     {
       title: "Handbook",
+      items: ["colors", "dark-mode", "normalize", "negative-values"],
+    },
+    {
+      title: "Variants",
       items: [
-        "colors",
-        "dark-mode",
-        "normalize",
         "media-queries",
-        "negative-values",
         "pseudo-classes",
         "pseudo-elements",
+        "nested-variants",
       ],
     },
     {
