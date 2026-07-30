@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import TableOfContents from "@/components/ui/toc";
 import { formatDate, getAllBlogPosts, groupPostsByYear } from "@/utils/blog";
 
 export const metadata: Metadata = {
@@ -32,10 +33,10 @@ export default async function BlogPage() {
   const years = Array.from(postsByYear.keys()).sort((a, b) => b - a);
 
   return (
-    // Same 12-column frame the docs & UI layouts use, so the listing lands in
-    // columns 4-9: the exact measure and left edge of a docs page. The blog
-    // post route keeps its own layout & is untouched.
-    <div className="d-g gtc-1 g-8 @lg:gtc-12">
+    // The grid comes from the layout. Docs & UI land their content in columns
+    // 4-9 because a gc-s-3 sidebar occupies 1-3 first; with no sidebar here,
+    // the same columns are set explicitly. The TOC auto-places into 10-12.
+    <>
       <div className="mb-16 pt-12 @lg:gcs-4 @lg:gce-10">
         {/* `ff-e` is explicit: Esteban only applies inside <article> or via the
             class, and this page is not an article. */}
@@ -50,7 +51,14 @@ export default async function BlogPage() {
           {years.map((year, yearIndex) => (
             <div key={year}>
               <div className="mb-16">
-                <h2 className="mb-8 c-white ff-e fs-4xl fw-400">{year}</h2>
+                {/* `id` is load-bearing: toc.tsx collects `main h2` elements
+                    that have one, which is how the years reach the sidebar. */}
+                <h2
+                  id={String(year)}
+                  className="mb-8 c-white ff-e fs-4xl fw-400"
+                >
+                  {year}
+                </h2>
 
                 {postsByYear.get(year)?.map((post) => (
                   <article key={post._meta.path} className="mb-12">
@@ -103,6 +111,8 @@ export default async function BlogPage() {
           ))}
         </div>
       </div>
-    </div>
+
+      <TableOfContents />
+    </>
   );
 }
