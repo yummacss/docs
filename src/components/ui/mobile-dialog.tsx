@@ -1,5 +1,5 @@
 import { allDocs, allUis } from "content-collections";
-import { sidebarConfig } from "@/config/sidebar";
+import { docsLinks, sidebarConfig } from "@/config/sidebar";
 import MobileDialogNav from "./mobile-dialog-nav";
 
 interface Props {
@@ -49,9 +49,20 @@ export default function MobileDialog({ isOpen, onClose, routeType }: Props) {
       .filter((i) => i.href),
   }));
 
+  const resourceSection =
+    routeType === "docs"
+      ? [
+          {
+            title: "Resources",
+            _key: "docs::resources",
+            items: docsLinks.map((link) => ({ ...link, external: true })),
+          },
+        ]
+      : [];
+
   return (
     <MobileDialogNav
-      sections={[topNav, ...sidebarSections]}
+      sections={[topNav, ...sidebarSections, ...resourceSection]}
       isOpen={isOpen}
       onClose={onClose}
     />
