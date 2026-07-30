@@ -1,8 +1,8 @@
 "use client";
 
+import { Github } from "iconoir-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { GitHub } from "@/components/icons/icons";
 
 /**
  * Linked as a file rather than an anchor.
@@ -29,7 +29,7 @@ export default function ChangelogLink() {
       rel="noreferrer"
       className="d-if ai-c g-2 w-fc c-white/70 fs-sm td-none h:c-white fv:oc-white fv:ow-2"
     >
-      <GitHub className="w-4 h-4" />
+      <Github className="w-4 h-4" />
       View the changelog
     </Link>
   );
