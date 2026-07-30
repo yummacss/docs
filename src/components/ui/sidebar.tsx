@@ -16,21 +16,13 @@ export default function Sidebar({ variant }: Props) {
     entries: section.items.map((item) => {
       if (typeof item === "string") {
         const doc = collection.find((c) => c._meta.path === item);
-        return {
-          slug: item,
-          title: doc?.title ?? item,
-          updated: (doc as { updated?: boolean })?.updated,
-        };
+        return { slug: item, title: doc?.title ?? item };
       }
       return {
         title: item.title,
         items: item.items.map((slug) => {
           const doc = collection.find((c) => c._meta.path === slug);
-          return {
-            slug,
-            title: doc?.title ?? slug,
-            updated: (doc as { updated?: boolean })?.updated,
-          };
+          return { slug, title: doc?.title ?? slug };
         }),
       };
     }),
