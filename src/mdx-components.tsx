@@ -1,7 +1,6 @@
 ﻿import type { MDXComponents } from "mdx/types";
 import Image from "next/image";
 import Baseline from "@/components/baseline";
-import Changelog from "@/components/changelog";
 import ComponentPreview from "@/components/component-preview";
 import FileTree from "@/components/file-tree";
 import Hint from "@/components/hint";
@@ -42,7 +41,6 @@ function generateId(children: React.ReactNode): string {
 
 const components: MDXComponents = {
   Baseline,
-  Changelog,
   Code,
   CodeGroup,
   ComponentPreview,
