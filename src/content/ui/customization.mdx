@@ -45,19 +45,23 @@ export default defineConfig({
 });
 ```
 
-## Overriding Color Shades
+## Adjusting Shade Steps
 
-If you want to override specific shades of an existing color, you can do so by providing new values for those shades in the `theme.colors` configuration. For example, to change the `blue-5` shade:
+Every color family generates 13 shades from its base value. `percentage` controls how far each step mixes toward white or black, so raising it spreads the scale wider & lowering it tightens it.
 
-```mjs title="yumma.config.mjs" mark={5-8}
+```mjs title="yumma.config.mjs" mark={6-9}
 import { defineConfig } from "yummacss";
 
 export default defineConfig({
   theme: {
-    percentage: {
-      light: 16, // default is 14
-      dark: 16, // default is 14
+    colors: {
+      percentage: {
+        light: 16, // default is 14
+        dark: 16, // default is 14
+      },
     },
   },
 });
 ```
+
+`percentage` belongs **inside** `colors`, not beside it. Placed as a sibling it is silently ignored & every shade keeps its default value.
