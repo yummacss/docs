@@ -1,5 +1,13 @@
 @import "@fontsource/esteban";
-@import "@fontsource/ia-writer-quattro";
+
+/* Quattro's bare entry declares 400 only, so every `fw-500`/`fw-600`/`fw-700`
+   on the site was faux bold & every `<em>` a synthetic oblique. These are the
+   real faces. Latin only, matching the scope of the bare entry. Esteban has no
+   bold to import; it ships 400 alone. */
+@import "@fontsource/ia-writer-quattro/latin-400.css";
+@import "@fontsource/ia-writer-quattro/latin-400-italic.css";
+@import "@fontsource/ia-writer-quattro/latin-700.css";
+@import "@fontsource/ia-writer-quattro/latin-700-italic.css";
 
 @yummacss;
 
