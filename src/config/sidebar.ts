@@ -43,13 +43,6 @@ export const sidebarConfig = {
         "nested-variants",
       ],
     },
-    // Below the conceptual pages on purpose. These are separate packages
-    // nobody needs in order to use Yumma CSS, & sitting directly under Get
-    // Started read as a third setup step.
-    {
-      title: "Packages",
-      items: ["intellisense", "canon"],
-    },
     {
       title: "Background",
       items: [
@@ -359,6 +352,13 @@ export const sidebarConfig = {
           ],
         },
       ],
+    },
+    // Last, directly above the Resources links. These are separate packages
+    // nobody needs in order to use Yumma CSS, & sitting near Get Started they
+    // read as a third setup step.
+    {
+      title: "Packages",
+      items: ["intellisense", "canon"],
     },
   ] satisfies SidebarSection[],
   ui: [
