@@ -14,8 +14,12 @@ export const sidebarConfig = {
       items: ["intellisense", "canon"],
     },
     {
+      title: "Customization",
+      items: ["colors", "theming", "dark-mode"],
+    },
+    {
       title: "Handbook",
-      items: ["colors", "dark-mode", "normalize", "negative-values"],
+      items: ["normalize", "negative-values"],
     },
     {
       title: "Variants",
