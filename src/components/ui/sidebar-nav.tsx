@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation";
 interface NavItem {
   slug: string;
   title: string;
-  updated?: boolean;
 }
 
 interface NavGroup {
@@ -48,9 +47,6 @@ export default function SidebarNav({ sections, basePath }: Props) {
                         className={`d-if ai-c g-3 fs-sm us-none fv:oc-white fv:oo-2 fv:ow-2 ${isActive ? "c-accent td-u tds-d" : "c-white/70 h:c-accent"}`}
                       >
                         {entry.title}
-                        {entry.updated && (
-                          <span className="w-2 h-2 ml-auto bg-accent" />
-                        )}
                       </Link>
                     </li>
                   );
@@ -71,9 +67,6 @@ export default function SidebarNav({ sections, basePath }: Props) {
                               className={`d-if ai-c g-3 fs-sm us-none fv:oc-white fv:oo-2 fv:ow-2 ${isActive ? "c-accent td-u tds-d" : "c-white/70 h:c-accent"}`}
                             >
                               {child.title}
-                              {child.updated && (
-                                <span className="w-2 h-2 ml-auto bg-accent" />
-                              )}
                             </Link>
                           </li>
                         );

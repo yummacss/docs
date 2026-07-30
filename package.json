@@ -8,7 +8,8 @@
   "author": "John Pereira",
   "type": "module",
   "scripts": {
-    "build": "next build",
+    "build": "node scripts/check-sidebar.mjs && next build",
+    "check-sidebar": "node scripts/check-sidebar.mjs",
     "check-types": "tsc --noEmit",
     "dev": "next dev",
     "format": "biome format --write .",
