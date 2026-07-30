@@ -50,9 +50,17 @@ Add a `yumma.config.mjs` file at your workspace root to activate the extension. 
 
 Any LSP-compatible editor can run the Yumma CSS language server directly:
 
-```bash
+<CodeGroup>
+
+```bash title="pnpm"
+pnpm dlx @yummacss/language-server --stdio
+```
+
+```bash title="npm"
 npx @yummacss/language-server --stdio
 ```
+
+</CodeGroup>
 
 ---
 
