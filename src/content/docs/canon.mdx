@@ -15,9 +15,17 @@ It works with the generator, so variants, opacity modifiers, negative values, cu
 
 Run it with no setup:
 
-```bash
-pnpx @yummacss/canon
+<CodeGroup>
+
+```bash title="pnpm"
+pnpm dlx @yummacss/canon
 ```
+
+```bash title="npm"
+npx @yummacss/canon
+```
+
+</CodeGroup>
 
 ```json title="package.json"
 {
@@ -63,15 +71,31 @@ Canon exits `0` when every class is valid & `1` when any class is unrecognized, 
 
 Use `--allow` for custom classes defined in your own CSS:
 
-```bash
+<CodeGroup>
+
+```bash title="pnpm"
+pnpm dlx @yummacss/canon --allow "docs-container,brand-logo"
+```
+
+```bash title="npm"
 npx @yummacss/canon --allow "docs-container,brand-logo"
 ```
 
+</CodeGroup>
+
 `--allow` accumulates, so repeating it is equivalent to one comma-separated list:
 
-```bash
+<CodeGroup>
+
+```bash title="pnpm"
+pnpm dlx @yummacss/canon -a docs-container -a brand-logo
+```
+
+```bash title="npm"
 npx @yummacss/canon -a docs-container -a brand-logo
 ```
+
+</CodeGroup>
 
 ## What gets scanned
 
