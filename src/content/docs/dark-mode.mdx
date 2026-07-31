@@ -28,7 +28,7 @@ Every color utility applies in both color schemes by default. To make one differ
   <Step title="Use It">
     Nothing changes in your markup.
     <CodeGroup>
-    ```html title="page.tsx"
+    ```tsx title="page.tsx"
     <div className="bg-surface …"></div>
     ```
 
@@ -47,7 +47,7 @@ Both sides are scaled independently & paired step for step, so the whole shade s
 Opacity modifiers work on paired colors, because opacity is applied with `color-mix()` rather than by appending hex alpha.
 
 <CodeGroup>
-```html title="page.tsx"
+```tsx title="page.tsx"
 <div className="bg-surface/50 …"></div>
 ```
 

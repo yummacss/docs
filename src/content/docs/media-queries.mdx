@@ -7,7 +7,7 @@ description: Use media queries to create responsive layouts.
 
 By default, all base utilities support responsive variants. Use breakpoints like `@sm:*`, `@md:*`, `@lg:*`, `@xl:*` & `@xxl:*` to apply specific rules to different screen sizes.
 
-```html ins={2} del={1}
+```tsx ins={2} del={1}
 <h1 className="… @sm:ta-c">Good evening!</h1>
 <h1 className="ta-c … @sm:ta-l">Good evening!</h1>
 ```
@@ -43,7 +43,7 @@ You can extend or override the default media query breakpoints using the `theme.
 
   <Step title="Use Custom Breakpoints">
     The bundler plugins pick up config changes automatically. If you use `yummacss watch`, restart it to see the changes.
-    ```html "@3xl:d-b"
+    ```tsx "@3xl:d-b"
     <div className="d-none @3xl:d-b"></div>
     ```
   </Step>
@@ -69,8 +69,8 @@ The `@pc:*` variant targets devices with a coarse pointer (typically touch scree
   Activates on touch-enabled devices with coarse pointer input.
 </Hint>
 
-```html "@pc:p-6"
-<button type="button" class="p-4 bg-indigo c-white @pc:p-6">
+```tsx "@pc:p-6"
+<button type="button" className="p-4 bg-indigo c-white @pc:p-6">
   Larger padding on touch devices
 </button>
 ```

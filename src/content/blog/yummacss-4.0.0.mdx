@@ -173,23 +173,23 @@ v4.0 changes how every utility is written. `-` becomes `:` between a property &
 its value, which makes the class a compressed form of the declaration it
 generates.
 
-```html del={1} ins={2}
-<div class="d-f jc-c ai-c"></div>
-<div class="d:f jc:c ai:c"></div>
+```tsx del={1} ins={2}
+<div className="d-f jc-c ai-c"></div>
+<div className="d:f jc:c ai:c"></div>
 ```
 
 The rule is one line: `:` separates property from value, `-` subdivides a value.
 
-```html
-<div class="bg:gray-1 c:blue-4"></div>
+```tsx
+<div className="bg:gray-1 c:blue-4"></div>
 ```
 
 Negative values stop being a special case. `m--4` was a parser artifact leaking
 into the API - `m:-4` is the declaration with the whitespace removed.
 
-```html del={1} ins={2}
-<div class="m--4"></div>
-<div class="m:-4"></div>
+```tsx del={1} ins={2}
+<div className="m--4"></div>
+<div className="m:-4"></div>
 ```
 
 Variants keep their prefix position. `h:bg:gray-1` groups & sorts predictably,
