@@ -67,22 +67,21 @@ Previous versions required importing large CSS files. v3.0 introduces a CLI that
   <Step title="Write CSS">
     Start using Yumma CSS utilities in your markup to generate CSS with the CLI.
 
-    ```html mark={7, 11-16}
-    <!DOCTYPE html>
+    ```tsx mark={6, 10-15}
     <html lang="en">
 
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charSet="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="/src/out.css" />
     </head>
 
     <body>
-      <div class="b-1 bs-sm p-4 bg-white bc-silver-2 rad-2">
-          <h1 class="fw-600 fs-lg tc-indigo">Hello 👋, name's Renildo.</h1>
-          <p class="tc-gray-7">I'm the Founder of Yumma CSS!</p>
+      <div className="b-1 bs-sm p-4 bg-white bc-silver-2 rad-2">
+          <h1 className="fw-600 fs-lg tc-indigo">Hello 👋, name's Renildo.</h1>
+          <p className="tc-gray-7">I'm the Founder of Yumma CSS!</p>
 
-          <button class="mt-6 px-4 py-1 bg-indigo h:bg-indigo-7 fs-sm tc-white">GitHub</button>
+          <button className="mt-6 px-4 py-1 bg-indigo h:bg-indigo-7 fs-sm tc-white">GitHub</button>
       </div>
     </body>
 
@@ -278,9 +277,9 @@ The full utility set remains available in the distribution folder for manual imp
 In v3.0, both the light (`l-`) & dark (`d-`) characters are being removed across all color utilities. As a result, the range used to determine a color's shade was also adjusted.
 
 <div className="p-4">
-  ```html del={1} ins={2}
-  <button class="bg-l-indigo-6 h:bg-d-indigo-1">Button</button>
-  <button class="bg-indigo-1 h:bg-indigo-7">Button</button>
+  ```tsx del={1} ins={2}
+  <button className="bg-l-indigo-6 h:bg-d-indigo-1">Button</button>
+  <button className="bg-indigo-1 h:bg-indigo-7">Button</button>
   ```
 </div>
 
@@ -425,101 +424,101 @@ We're renaming several utilities to align with our default naming convention.
 
 ### Align Content
 
-```html del={1} ins={2}
-<div class="ac-s …"></div>
-<div class="ac-st …"></div>
+```tsx del={1} ins={2}
+<div className="ac-s …"></div>
+<div className="ac-st …"></div>
 ```
 
 ### Align Items
 
-```html del={1} ins={2}
-<div class="ai-s …"></div>
-<div class="ai-st …"></div>
+```tsx del={1} ins={2}
+<div className="ai-s …"></div>
+<div className="ai-st …"></div>
 ```
 
 ### Align Self
 
-```html del={1} ins={2}
-<div class="as-s …"></div>
-<div class="as-st …"></div>
+```tsx del={1} ins={2}
+<div className="as-s …"></div>
+<div className="as-st …"></div>
 ```
 
 ### Justify Content
 
-```html del={1} ins={2}
-<div class="jc-s …"></div>
-<div class="jc-st …"></div>
+```tsx del={1} ins={2}
+<div className="jc-s …"></div>
+<div className="jc-st …"></div>
 ```
 
 ### Border Bottom Radius
 
-```html del={1} ins={2}
-<button class="b-1 bg-black rad-bl-2 rad-br-2 tc-white">Subscribe</button>
-<button class="b-1 bg-black rad-b-2 tc-white">Subscribe</button>
+```tsx del={1} ins={2}
+<button className="b-1 bg-black rad-bl-2 rad-br-2 tc-white">Subscribe</button>
+<button className="b-1 bg-black rad-b-2 tc-white">Subscribe</button>
 ```
 
 ### Border Left Radius
 
-```html del={1} ins={2}
-<button class="b-1 bg-black rad-bl-2 rad-tl-2 tc-white">Subscribe</button>
-<button class="b-1 bg-black rad-l-2 tc-white">Subscribe</button>
+```tsx del={1} ins={2}
+<button className="b-1 bg-black rad-bl-2 rad-tl-2 tc-white">Subscribe</button>
+<button className="b-1 bg-black rad-l-2 tc-white">Subscribe</button>
 ```
 
 ### Border Right Radius
 
-```html del={1} ins={2}
-<button class="b-1 bg-black rad-br-2 rad-tr-2 tc-white">Subscribe</button>
-<button class="b-1 bg-black rad-r-2 tc-white">Subscribe</button>
+```tsx del={1} ins={2}
+<button className="b-1 bg-black rad-br-2 rad-tr-2 tc-white">Subscribe</button>
+<button className="b-1 bg-black rad-r-2 tc-white">Subscribe</button>
 ```
 
 ### Border Top Radius
 
-```html del={1} ins={2}
-<button class="b-1 bg-black rad-tl-2 rad-tr-2 tc-white">Subscribe</button>
-<button class="b-1 bg-black rad-t-2 tc-white">Subscribe</button>
+```tsx del={1} ins={2}
+<button className="b-1 bg-black rad-tl-2 rad-tr-2 tc-white">Subscribe</button>
+<button className="b-1 bg-black rad-t-2 tc-white">Subscribe</button>
 ```
 
 ### Top / Right / Bottom / Left
 
-```html del={1-5} ins={6-10}
-<div class="dir-b">…</div>
-<div class="dir-i">…</div>
-<div class="dir-l">…</div>
-<div class="dir-r">…</div>
-<div class="dir-t">…</div>
-<div class="bo-">…</div>
-<div class="i-">…</div>
-<div class="l-">…</div>
-<div class="r-">…</div>
-<div class="t-">…</div>
+```tsx del={1-5} ins={6-10}
+<div className="dir-b">…</div>
+<div className="dir-i">…</div>
+<div className="dir-l">…</div>
+<div className="dir-r">…</div>
+<div className="dir-t">…</div>
+<div className="bo-">…</div>
+<div className="i-">…</div>
+<div className="l-">…</div>
+<div className="r-">…</div>
+<div className="t-">…</div>
 ```
 
 ### Columns
 
-```html del={1} ins={2}
-<div class="cols-(value) …"></div>
-<div class="c-(value) …"></div>
+```tsx del={1} ins={2}
+<div className="cols-(value) …"></div>
+<div className="c-(value) …"></div>
 ```
 
 ### Dimension
 
-```html del={1} ins={2}
-<div class="dim-(value) …"></div>
-<div class="d-(value) …"></div>
+```tsx del={1} ins={2}
+<div className="dim-(value) …"></div>
+<div className="d-(value) …"></div>
 ```
 
 ### Max Dimension
 
-```html del={1} ins={2}
-<div class="max-dim-(value) …"></div>
-<div class="max-d-(value) …"></div>
+```tsx del={1} ins={2}
+<div className="max-dim-(value) …"></div>
+<div className="max-d-(value) …"></div>
 ```
 
 ### Min Dimension
 
-```html del={1} ins={2}
-<div class="min-dim-(value) …"></div>
-<div class="min-d-(value) …"></div>
+```tsx del={1} ins={2}
+<div className="min-dim-(value) …"></div>
+<div className="min-d-(value) …"></div>
 ```
 
 ### Font Size
@@ -581,65 +580,65 @@ We're renaming several utilities to align with our default naming convention.
 
 ### Overflow
 
-```html del={1} ins={2}
-<div class="ovf-(value) …"></div>
-<div class="o-(value) …"></div>
+```tsx del={1} ins={2}
+<div className="ovf-(value) …"></div>
+<div className="o-(value) …"></div>
 ```
 
 ### Overflow X
 
-```html del={1} ins={2}
-<div class="ovf-x-(value) …"></div>
-<div class="o-x-(value) …"></div>
+```tsx del={1} ins={2}
+<div className="ovf-x-(value) …"></div>
+<div className="o-x-(value) …"></div>
 ```
 
 ### Overflow Y
 
-```html del={1} ins={2}
-<div class="ovf-y-(value) …"></div>
-<div class="o-y-(value)…"></div>
+```tsx del={1} ins={2}
+<div className="ovf-y-(value) …"></div>
+<div className="o-y-(value)…"></div>
 ```
 
 ### Float
 
-```html del={1} ins={2}
-<div class="flo-(value) …"></div>
-<div class="fl-(value) …"></div>
+```tsx del={1} ins={2}
+<div className="flo-(value) …"></div>
+<div className="fl-(value) …"></div>
 ```
 
 ### Dimension, Height & Width
 
-```html del={1-3} ins={4-6}
-<div class="d-1/1 …"></div>
-<div class="h-1/1 …"></div>
-<div class="w-1/1 …"></div>
-<div class="d-dvh …"></div>
-<div class="h-dvh …"></div>
-<div class="w-dvh …"></div>
+```tsx del={1-3} ins={4-6}
+<div className="d-1/1 …"></div>
+<div className="h-1/1 …"></div>
+<div className="w-1/1 …"></div>
+<div className="d-dvh …"></div>
+<div className="h-dvh …"></div>
+<div className="w-dvh …"></div>
 ```
 
 ### Removed Container Utility
 
-```html del="cnt"
-<div class="cnt"></div>
+```tsx del="cnt"
+<div className="cnt"></div>
 ```
 
 ### Removed Insert Utility
 
-```html del={1} ins={2}
-<div class="ins …"></div>
-<div class="d-f ai-c jc-c …"></div>
+```tsx del={1} ins={2}
+<div className="ins …"></div>
+<div className="d-f ai-c jc-c …"></div>
 ```
 
 ### Removed Spacing X Utilities
 
 Row Gap utilities can replace **Spacing X** in most cases, especially when combined with `d-f` (`display: flex`) or `d-if` (`display: inline-flex`).
 
-```html "cg-8"
-<div class="d-if fd-r cg-8 tc-white">
-  <div class="d-f d-16 ai-c jc-c bg-indigo"></div>
-  <div class="d-f d-16 ai-c jc-c bg-indigo"></div>
-  <div class="d-f d-16 ai-c jc-c bg-indigo"></div>
+```tsx "cg-8"
+<div className="d-if fd-r cg-8 tc-white">
+  <div className="d-f d-16 ai-c jc-c bg-indigo"></div>
+  <div className="d-f d-16 ai-c jc-c bg-indigo"></div>
+  <div className="d-f d-16 ai-c jc-c bg-indigo"></div>
 </div>
 ```
 
@@ -647,11 +646,11 @@ Row Gap utilities can replace **Spacing X** in most cases, especially when combi
 
 The same applies to **Column Gap** utilities.
 
-```html "rg-8"
-<div class="d-if fd-c rg-8">
-  <div class="d-f d-16 ai-c jc-c bg-indigo"></div>
-  <div class="d-f d-16 ai-c jc-c bg-indigo"></div>
-  <div class="d-f d-16 ai-c jc-c bg-indigo"></div>
+```tsx "rg-8"
+<div className="d-if fd-c rg-8">
+  <div className="d-f d-16 ai-c jc-c bg-indigo"></div>
+  <div className="d-f d-16 ai-c jc-c bg-indigo"></div>
+  <div className="d-f d-16 ai-c jc-c bg-indigo"></div>
 </div>
 ```
 
@@ -659,8 +658,8 @@ The same applies to **Column Gap** utilities.
 
 Turns out it wasn't very useful at all.
 
-```html del={1-3}
-<div class="h-1/2 …"></div>
-<div class="w-1/2 …"></div>
-<div class="d-1/2 …"></div>
+```tsx del={1-3}
+<div className="h-1/2 …"></div>
+<div className="w-1/2 …"></div>
+<div className="d-1/2 …"></div>
 ```

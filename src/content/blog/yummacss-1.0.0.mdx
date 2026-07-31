@@ -27,34 +27,34 @@ Existing utilities picked up the values they were missing.
 
 `align-items` gained `flex-start` & `flex-end`. `justify-content` gained `end`, `flex-start`, `flex-end`, `left`, `right`, `normal` & `stretch`.
 
-```html "ai-fs" "jc-s"
-<div class="ai-fs jc-s">…</div>
+```tsx "ai-fs" "jc-s"
+<div className="ai-fs jc-s">…</div>
 ```
 
 `display` gained `flow-root`.
 
-```html "d-fr"
-<div class="d-fr">…</div>
+```tsx "d-fr"
+<div className="d-fr">…</div>
 ```
 
 `float` gained the inline directions, `inline-start` & `inline-end`.
 
-```html "f-is" "f-ie"
-<div class="f-is">…</div>
-<div class="f-ie">…</div>
+```tsx "f-is" "f-ie"
+<div className="f-is">…</div>
+<div className="f-ie">…</div>
 ```
 
 `text-align` gained `justify-all` & `match-parent`.
 
-```html "ta-ja" "ta-mp"
-<p class="ta-ja">…</p>
-<p class="ta-mp">…</p>
+```tsx "ta-ja" "ta-mp"
+<p className="ta-ja">…</p>
+<p className="ta-mp">…</p>
 ```
 
 `text-decoration-line` gained `overline`.
 
-```html "tdl-o"
-<p class="tdl-o">…</p>
+```tsx "tdl-o"
+<p className="tdl-o">…</p>
 ```
 
 ---
@@ -63,9 +63,9 @@ Existing utilities picked up the values they were missing.
 
 Margin & padding got axis shorthands, so a matching pair of sides is one class instead of two.
 
-```html del={1} ins={2}
-<div class="ml-4 mr-4 pt-2 pb-2">…</div>
-<div class="mx-4 py-2">…</div>
+```tsx del={1} ins={2}
+<div className="ml-4 mr-4 pt-2 pb-2">…</div>
+<div className="mx-4 py-2">…</div>
 ```
 
 ---
@@ -74,8 +74,8 @@ Margin & padding got axis shorthands, so a matching pair of sides is one class i
 
 Height & width utilities accept viewport values.
 
-```html "md:h-auto" "md:w-auto"
-<div class="w-10 h-10 … md:w-auto md:h-auto">…</div>
+```tsx "md:h-auto" "md:w-auto"
+<div className="w-10 h-10 … md:w-auto md:h-auto">…</div>
 ```
 
 ---
@@ -93,8 +93,8 @@ A neutral built for single-theme applications.
   ]}
 />
 
-```html "bg-lead"
-<div class="bg-lead"></div>
+```tsx "bg-lead"
+<div className="bg-lead"></div>
 ```
 
 ---
@@ -105,18 +105,18 @@ A neutral built for single-theme applications.
 
 `display` drops to a single letter, matching the property-initials rule the rest of the framework already followed.
 
-```html del={1} ins={2}
-<div class="dis-f"></div>
-<div class="d-f"></div>
+```tsx del={1} ins={2}
+<div className="dis-f"></div>
+<div className="d-f"></div>
 ```
 
 ### Hover Variants
 
 Hover moves from the middle of the class to the front, so the variant reads first & groups predictably.
 
-```html del={1} ins={2}
-<div class="bg-h-blue"></div>
-<div class="h:bg-blue"></div>
+```tsx del={1} ins={2}
+<div className="bg-h-blue"></div>
+<div className="h:bg-blue"></div>
 ```
 
 ---

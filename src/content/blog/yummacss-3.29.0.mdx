@@ -47,11 +47,11 @@ Yumma CSS declares `color-scheme: light dark` on `:root` as soon as your theme h
 
 It is an inherited property, so a theme toggle is one class on whatever subtree you want to override. Native scrollbars & form controls follow along too.
 
-```html "cs-ld" "cs-d" "cs-l"
-<html class="cs-ld">
-  <!-- follows the operating system -->
-  <div class="cs-l">Always light</div>
-  <div class="cs-d">Always dark</div>
+```tsx "cs-ld" "cs-d" "cs-l"
+<html className="cs-ld">
+  {/* follows the operating system */}
+  <div className="cs-l">Always light</div>
+  <div className="cs-d">Always dark</div>
 </html>
 ```
 
