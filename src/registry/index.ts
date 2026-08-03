@@ -473,14 +473,21 @@ export function getRegistryImport(id: string): RegistryImport | null {
 
 export interface RegistryProp {
   name: string;
-  type: "enum" | "boolean" | "string" | "number";
+  /**
+   * The kind of control, not the TypeScript type. `none` covers everything a
+   * JSON schema cannot offer a control for - a ReactNode, an array of objects -
+   * which the props table still documents via `typeName`.
+   */
+  type: "enum" | "boolean" | "string" | "number" | "none";
+  /** Shown in the Type column instead of `type`, when the two differ. */
+  typeName?: string;
   values?: string[];
   default?: string | boolean | number;
   /**
    * A representative value for the demo, for a prop the component cannot
    * sensibly default. `default` stays the truth the props table reports.
    */
-  example?: string | boolean | number;
+  example?: unknown;
   description?: string;
 }
 
@@ -492,6 +499,7 @@ export interface RegistryMeta {
 }
 
 export const registryMeta = {
+  "autocomplete": () => import("./meta/autocomplete.json"),
   "avatar": () => import("./meta/avatar.json"),
   "button": () => import("./meta/button.json"),
   "skeleton": () => import("./meta/skeleton.json"),

@@ -23,6 +23,13 @@
       "description": "Corner radius."
     },
     {
+      "name": "shadow",
+      "type": "enum",
+      "values": ["none", "inset", "outset"],
+      "default": "none",
+      "description": "Depth. `inset` reads as a pressed control, `outset` as a raised one."
+    },
+    {
       "name": "loading",
       "type": "boolean",
       "default": false,

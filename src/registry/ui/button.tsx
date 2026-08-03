@@ -4,6 +4,7 @@ import type { ComponentProps, ReactNode } from "react";
 type Variant = "primary" | "secondary" | "subtle" | "ghost" | "danger" | "link";
 type Size = "sm" | "md" | "lg";
 type Shape = "rounded" | "square" | "pill";
+type Shadow = "none" | "inset" | "outset";
 
 // Plain lookups rather than cva: a copied component should not drag a class
 // utility into your package.json to do what an object literal already does.
@@ -40,10 +41,17 @@ const SHAPES: Record<Shape, string> = {
   pill: "br-9999",
 };
 
+const SHADOWS: Record<Shadow, string> = {
+  none: "",
+  inset: "bs-i-sm",
+  outset: "bs-o-xs",
+};
+
 export interface ButtonProps extends ComponentProps<typeof Button> {
   variant?: Variant;
   size?: Size;
   shape?: Shape;
+  shadow?: Shadow;
   /** Dims the button and blocks interaction while an action is in flight. */
   loading?: boolean;
   /** Square padding, for a button whose only child is an icon. */
@@ -55,6 +63,7 @@ export default function ButtonBase({
   variant = "primary",
   size = "md",
   shape = "rounded",
+  shadow = "none",
   loading = false,
   iconOnly = false,
   disabled,
@@ -69,6 +78,7 @@ export default function ButtonBase({
     VARIANTS[variant],
     iconOnly ? ICON_ONLY[size] : SIZES[size],
     SHAPES[shape],
+    SHADOWS[shadow],
     inactive ? "o-60 c-na" : "c-p",
     className,
   ]

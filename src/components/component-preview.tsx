@@ -23,7 +23,7 @@ interface Props {
   children?: ReactNode;
 }
 
-type DemoProps = Record<string, string | boolean | number | undefined>;
+type DemoProps = Record<string, unknown>;
 
 export default function ComponentPreview({
   registryId,
