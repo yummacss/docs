@@ -8,6 +8,7 @@ export type TokenKind =
   | "argument"
   | "flag"
   // JSX, for the usage snippet.
+  | "keyword"
   | "punctuation"
   | "tag"
   | "attribute"
@@ -40,6 +41,7 @@ export const TOKEN_COLORS: Record<TokenKind, string> = {
   command: "#F5FAFF",
   argument: "#BEC6F2",
   flag: "#DDA2F6",
+  keyword: "#9595E3",
   punctuation: "#B9BED5",
   tag: "#85B1E0",
   attribute: "#DDA2F6",
@@ -164,6 +166,22 @@ export function buildUsage(
   values: Record<string, unknown>,
 ): Token[] {
   const name = componentName(id);
+
+  // The import, because a snippet you can copy but not run is not a snippet.
+  // `components/ui` and the `@/` alias are what `yummaui init` defaults to, so
+  // this is the path the file lands at unless you told it otherwise.
+  const tokens: Draft[] = [
+    { kind: "keyword", text: "import" },
+    { kind: "text", text: " " },
+    { kind: "tag", text: name },
+    { kind: "text", text: " " },
+    { kind: "keyword", text: "from" },
+    { kind: "text", text: " " },
+    { kind: "string", text: `"@/components/ui/${id}"` },
+    { kind: "punctuation", text: ";" },
+    { kind: "text", text: "\n\n" },
+  ];
+
   const props = meta.props.filter((prop) => {
     const value = values[prop.name];
     if (value === undefined || value === "") return false;
@@ -172,10 +190,7 @@ export function buildUsage(
     return value !== prop.default;
   });
 
-  const tokens: Draft[] = [
-    { kind: "punctuation", text: "<" },
-    { kind: "tag", text: name },
-  ];
+  tokens.push({ kind: "punctuation", text: "<" }, { kind: "tag", text: name });
 
   for (const prop of props) {
     tokens.push({ kind: "text", text: "\n  " });
