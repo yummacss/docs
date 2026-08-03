@@ -1,4 +1,4 @@
-import { Avatar as BaseAvatar } from "@base-ui/react/avatar";
+import { Avatar } from "@base-ui/react/avatar";
 import { CheckCircle, User } from "iconoir-react";
 
 type Size = "sm" | "md" | "lg";
@@ -60,7 +60,7 @@ export interface AvatarProps {
   className?: string;
 }
 
-export default function Avatar({
+export default function AvatarBase({
   src,
   name,
   size = "md",
@@ -76,20 +76,20 @@ export default function Avatar({
   return (
     // The root clips its children, so the badges have to sit outside it.
     <span className="d-if p-r va-m">
-      <BaseAvatar.Root className={classes}>
+      <Avatar.Root className={classes}>
         {src && (
-          <BaseAvatar.Image
+          <Avatar.Image
             src={src}
             alt={name ?? ""}
             className="of-c w-100% h-100%"
           />
         )}
-        <BaseAvatar.Fallback
+        <Avatar.Fallback
           className={`d-f ai-c jc-c w-100% h-100% c-slate-9 fw-500 ${INITIAL_SIZES[size]}`}
         >
           {name ? initials(name) : <User className={ICON_SIZES[size]} />}
-        </BaseAvatar.Fallback>
-      </BaseAvatar.Root>
+        </Avatar.Fallback>
+      </Avatar.Root>
 
       {status !== "none" && (
         <span

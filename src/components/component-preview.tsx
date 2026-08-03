@@ -8,7 +8,13 @@ import {
   getRegistryMeta,
   getRegistryTarget,
 } from "@/registry";
-import { buildInstall, TOKEN_COLORS, tokensToText } from "@/utils/install";
+import {
+  buildInstall,
+  buildUsage,
+  TOKEN_COLORS,
+  type Token,
+  tokensToText,
+} from "@/utils/snippet";
 
 interface Props {
   registryId?: string;
@@ -35,6 +41,10 @@ export default function ComponentPreview({
   const [demo, setDemo] = useState<{ props: DemoProps; children?: string }>({
     props: {},
   });
+  // The base entry of a migrated component *is* the implementation, so showing
+  // its source here answers a question nobody asked under `### Base`. Usage is
+  // the answer; the implementation stays in the registry JSON & the `.md` route.
+  const [usage, setUsage] = useState<Token[] | null>(null);
   const actualId = registryId || id;
 
   useEffect(() => {
@@ -48,6 +58,8 @@ export default function ComponentPreview({
     const importMeta = getRegistryMeta(actualId);
     if (!importMeta) return;
 
+    const target = getRegistryTarget(actualId);
+
     importMeta().then((module) => {
       const meta = module.default;
       const props: DemoProps = {};
@@ -56,6 +68,9 @@ export default function ComponentPreview({
         if (value !== undefined) props[prop.name] = value;
       }
       setDemo({ props, children: meta.children });
+      if (target.variant === "base") {
+        setUsage(buildUsage(target.component, meta, props));
+      }
     });
   }, [actualId]);
 
@@ -81,22 +96,24 @@ export default function ComponentPreview({
         {showCode ? "Hide code" : "Show code"}
       </Toggle>
 
-      {showCode && children}
+      {showCode && (usage ? <TokenBlock tokens={usage} /> : children)}
     </div>
   );
 }
 
-/**
- * How you actually get this variant, directly under the thing it draws.
- *
- * Chrome copied from `Code`, down to the copy button's position, because a
- * second style of code block on the same page would only be a thing to look at
- * twice.
- */
+/** How you actually get this variant, directly under the thing it draws. */
 function InstallCommand({ registryId }: { registryId: string }) {
-  const [copied, setCopied] = useState(false);
   const { component, variant } = getRegistryTarget(registryId);
-  const tokens = buildInstall(component, variant);
+  return <TokenBlock tokens={buildInstall(component, variant)} />;
+}
+
+/**
+ * A hand-highlighted block, framed like `Code` down to the copy button's
+ * position, because a second style of code block on the same page would only be
+ * a thing to look at twice.
+ */
+function TokenBlock({ tokens }: { tokens: Token[] }) {
+  const [copied, setCopied] = useState(false);
 
   const copy = async () => {
     // A denied clipboard permission rejects, and an unhandled rejection here
