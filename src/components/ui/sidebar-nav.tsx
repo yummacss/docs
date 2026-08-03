@@ -29,13 +29,23 @@ interface Props {
   sections: NavSection[];
   basePath: string;
   links?: NavLink[];
+  /**
+   * The column this nav occupies. `/docs` & `/blog` place it by spanning a
+   * 12-column grid; `/ui` uses explicit tracks & so must not span at all.
+   */
+  className?: string;
 }
 
-export default function SidebarNav({ sections, basePath, links }: Props) {
+export default function SidebarNav({
+  sections,
+  basePath,
+  links,
+  className = "d-none @lg:d-b @lg:gc-s-3",
+}: Props) {
   const pathname = usePathname();
 
   return (
-    <aside className="d-none @lg:d-b @lg:gc-s-3">
+    <aside className={className}>
       <div
         className="d-f p-st t-20 oy-auto fd-c g-8 pb-12"
         style={{ maxHeight: "calc(100dvh - 5rem)" }}

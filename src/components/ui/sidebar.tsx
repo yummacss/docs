@@ -33,6 +33,7 @@ export default function Sidebar({ variant }: Props) {
       sections={sections}
       basePath={basePath}
       links={variant === "docs" ? docsLinks : undefined}
+      className={variant === "ui" ? "d-none @lg:d-b" : undefined}
     />
   );
 }

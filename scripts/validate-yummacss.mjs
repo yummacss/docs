@@ -8,7 +8,13 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.join(__dirname, "..");
 
 // Custom classes defined in the docs' own CSS.
-const ALLOWLIST = ["docs-container", "ff-e"];
+const ALLOWLIST = [
+  "docs-container",
+  "ff-e",
+  "props-panel",
+  "ui-container",
+  "ui-layout",
+];
 
 // Only UI code is validated - content/**/*.mdx contains historical
 // class syntax in old release posts.
