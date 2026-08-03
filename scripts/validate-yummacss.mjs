@@ -36,7 +36,9 @@ let failed = false;
 
 if (result.invalid.length > 0) {
   failed = true;
-  console.log(`❌ Found ${result.invalid.length} classes that are not canon:\n`);
+  console.log(
+    `❌ Found ${result.invalid.length} classes that are not canon:\n`,
+  );
   for (const { className, files } of result.invalid) {
     console.log(`  "${className}" found in:`);
     for (const file of files) {
@@ -136,7 +138,8 @@ function classesInStringLiterals(source) {
   // Inside a class map even a single token is a class, which is the case that
   // let `br-0` in as `br-none` unnoticed.
   for (const region of classMapRegions(source)) {
-    for (const [, literal] of region.matchAll(/"([^"\n]*)"/g)) consider(literal);
+    for (const [, literal] of region.matchAll(/"([^"\n]*)"/g))
+      consider(literal);
   }
 
   return found;
