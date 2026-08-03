@@ -3,7 +3,11 @@ import { Toggle } from "@base-ui/react/toggle";
 import type { ComponentType } from "react";
 import { lazy, type ReactNode, Suspense, useEffect, useState } from "react";
 import { CopyButton } from "@/components/ui/code";
-import { getRegistryImport, getRegistryMeta } from "@/registry";
+import {
+  getRegistryImport,
+  getRegistryMeta,
+  getRegistryTarget,
+} from "@/registry";
 import { buildInstall, TOKEN_COLORS, tokensToText } from "@/utils/install";
 
 interface Props {
@@ -91,7 +95,8 @@ export default function ComponentPreview({
  */
 function InstallCommand({ registryId }: { registryId: string }) {
   const [copied, setCopied] = useState(false);
-  const tokens = buildInstall(registryId);
+  const { component, variant } = getRegistryTarget(registryId);
+  const tokens = buildInstall(component, variant);
 
   const copy = async () => {
     // A denied clipboard permission rejects, and an unhandled rejection here

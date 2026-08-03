@@ -24,6 +24,7 @@ import {
   writeFileSync,
 } from "node:fs";
 import { basename, join } from "node:path";
+import { componentSlugs, splitId } from "./lib/registry-ids.mjs";
 
 const cwd = process.cwd();
 const uiDir = join(cwd, "src/registry/ui");
@@ -60,11 +61,7 @@ function dependenciesOf(source) {
   }));
 }
 
-// Longest slug first so `checkbox-group` wins over `checkbox`.
-const slugs = readdirSync(contentDir)
-  .filter((f) => f.endsWith(".mdx"))
-  .map((f) => basename(f, ".mdx"))
-  .sort((a, b) => b.length - a.length);
+const slugs = componentSlugs(contentDir);
 
 /**
  * The prop schema, if this component has one.
@@ -103,19 +100,16 @@ const components = new Map();
 let orphans = 0;
 
 for (const id of ids) {
-  const slug = slugs.find((s) => id === s || id.startsWith(`${s}-`));
-  if (!slug) {
-    // A registry file no page references. Emitted anyway so `add <id>` still
-    // works, but counted so it cannot rot silently.
-    orphans++;
-  }
+  const { component, variant, orphan } = splitId(id, slugs);
+  // A registry file no page references. Emitted anyway, but counted so it
+  // cannot rot silently.
+  if (orphan) orphans++;
 
   const source = readFileSync(join(uiDir, `${id}.tsx`), "utf8");
-  const variant = slug && id !== slug ? id.slice(slug.length + 1) : "base";
 
   const entry = {
     id,
-    component: slug ?? id,
+    component,
     variant,
     // summary / props / children, when the component has a declared API.
     ...(metaOf(id) ?? {}),
@@ -141,16 +135,16 @@ for (const id of ids) {
     `${JSON.stringify(entry, null, 2)}\n`,
   );
 
-  if (slug) {
-    if (!components.has(slug)) {
-      components.set(slug, {
-        component: slug,
-        title: titleOf(slug),
+  if (!orphan) {
+    if (!components.has(component)) {
+      components.set(component, {
+        component,
+        title: titleOf(component),
         base: null,
         variants: [],
       });
     }
-    const group = components.get(slug);
+    const group = components.get(component);
     if (variant === "base") group.base = id;
     else group.variants.push(variant);
   }
