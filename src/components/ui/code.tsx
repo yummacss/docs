@@ -91,7 +91,10 @@ export default function Code({
   );
 }
 
-function CopyButton({
+/**
+ * Exported so the /ui playground's code panel is the same button, not a lookalike.
+ */
+export function CopyButton({
   copied,
   onCopy,
 }: {
