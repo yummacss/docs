@@ -101,8 +101,20 @@ export function buildInstall(component: string, variant: string): Token[] {
   return identify(parts);
 }
 
-function attribute(prop: RegistryProp, value: PropValue): Draft[] {
+function attribute(prop: RegistryProp, value: unknown): Draft[] {
   const name: Draft = { kind: "attribute", text: prop.name };
+
+  // An array or an object has no readable inline spelling, so the snippet names
+  // it: `items={items}` rather than four screens of seed data.
+  if (typeof value === "object" && value !== null) {
+    return [
+      name,
+      { kind: "operator", text: "=" },
+      { kind: "brace", text: "{" },
+      { kind: "value", text: prop.name },
+      { kind: "brace", text: "}" },
+    ];
+  }
 
   // A bare attribute is `true`; JSX has no shorthand for the other one.
   if (typeof value === "boolean") {
@@ -149,12 +161,14 @@ function attribute(prop: RegistryProp, value: PropValue): Draft[] {
 export function buildUsage(
   id: string,
   meta: RegistryMeta,
-  values: Record<string, PropValue | undefined>,
+  values: Record<string, unknown>,
 ): Token[] {
   const name = componentName(id);
   const props = meta.props.filter((prop) => {
     const value = values[prop.name];
     if (value === undefined || value === "") return false;
+    // An array or an object has no useful inline JSX spelling, so it is named
+    // rather than dumped: `items={items}` beats four screens of seed data.
     return value !== prop.default;
   });
 
@@ -165,7 +179,7 @@ export function buildUsage(
 
   for (const prop of props) {
     tokens.push({ kind: "text", text: "\n  " });
-    tokens.push(...attribute(prop, values[prop.name] as PropValue));
+    tokens.push(...attribute(prop, values[prop.name]));
   }
 
   // A component whose schema declares no children slot is written self-closing,

@@ -229,8 +229,11 @@ function buildPropsTable(meta: RegistryMeta): string[] {
   if (!meta.props?.length) return [];
 
   const rows = meta.props.map((prop) => {
-    const type =
-      prop.type === "enum" && prop.values
+    // `typeName` carries the real TypeScript type for anything the schema has
+    // no control for, where `type` would only say `none`.
+    const type = prop.typeName
+      ? `\`${prop.typeName}\``
+      : prop.type === "enum" && prop.values
         ? prop.values.map((value) => `\`"${value}"\``).join(" \\| ")
         : `\`${prop.type}\``;
     const fallback =

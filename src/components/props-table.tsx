@@ -70,8 +70,12 @@ export default function PropsTable({ registryId }: { registryId: string }) {
   );
 }
 
-/** An enum reads as its own values; everything else as its TypeScript type. */
+/**
+ * An enum reads as its own values. `typeName` covers everything the schema
+ * cannot offer a control for, where `type` would only say `none`.
+ */
 function typeOf(prop: RegistryProp): string {
+  if (prop.typeName) return prop.typeName;
   if (prop.type === "enum" && prop.values) return prop.values.join(" | ");
   return prop.type;
 }
