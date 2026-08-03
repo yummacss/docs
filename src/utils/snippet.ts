@@ -115,11 +115,56 @@ export function buildInstall(
   return identify(parts);
 }
 
+const IDENTIFIER = /^[A-Za-z_$][A-Za-z0-9_$]*$/;
+
+/**
+ * A JavaScript object literal, not JSON: unquoted keys where they are valid
+ * identifiers, because the snippet is meant to be pasted into a `.tsx` file.
+ */
+function literal(value: unknown, indent: string): Draft[] {
+  if (typeof value === "string") {
+    return [{ kind: "string", text: JSON.stringify(value) }];
+  }
+  if (value === null || typeof value !== "object") {
+    return [{ kind: "value", text: String(value) }];
+  }
+
+  const inner = `${indent}  `;
+
+  if (Array.isArray(value)) {
+    const tokens: Draft[] = [{ kind: "punctuation", text: "[" }];
+    for (const item of value) {
+      tokens.push({ kind: "text", text: `\n${inner}` });
+      tokens.push(...literal(item, inner));
+      tokens.push({ kind: "punctuation", text: "," });
+    }
+    tokens.push({ kind: "text", text: `\n${indent}` });
+    tokens.push({ kind: "punctuation", text: "]" });
+    return tokens;
+  }
+
+  const tokens: Draft[] = [{ kind: "punctuation", text: "{" }];
+  for (const [key, item] of Object.entries(value)) {
+    tokens.push({ kind: "text", text: `\n${inner}` });
+    tokens.push({
+      kind: "tag",
+      text: IDENTIFIER.test(key) ? key : JSON.stringify(key),
+    });
+    tokens.push({ kind: "punctuation", text: ": " });
+    tokens.push(...literal(item, inner));
+    tokens.push({ kind: "punctuation", text: "," });
+  }
+  tokens.push({ kind: "text", text: `\n${indent}` });
+  tokens.push({ kind: "punctuation", text: "}" });
+  return tokens;
+}
+
 function attribute(prop: RegistryProp, value: unknown): Draft[] {
   const name: Draft = { kind: "attribute", text: prop.name };
 
-  // An array or an object has no readable inline spelling, so the snippet names
-  // it: `items={items}` rather than four screens of seed data.
+  // An array or an object is declared above the element & referenced by name.
+  // Spelling it inline would be unreadable; leaving it as `items={items}` with
+  // nothing declared would be a snippet the reader's editor rejects.
   if (typeof value === "object" && value !== null) {
     return [
       name,
@@ -197,10 +242,26 @@ export function buildUsage(
   const props = meta.props.filter((prop) => {
     const value = values[prop.name];
     if (value === undefined || value === "") return false;
-    // An array or an object has no useful inline JSX spelling, so it is named
-    // rather than dumped: `items={items}` beats four screens of seed data.
     return value !== prop.default;
   });
+
+  // Whatever the element references by name has to exist above it, or the
+  // snippet is one an editor underlines the moment it is pasted.
+  for (const prop of props) {
+    const value = values[prop.name];
+    if (typeof value !== "object" || value === null) continue;
+    tokens.push(
+      { kind: "keyword", text: "const" },
+      { kind: "text", text: " " },
+      { kind: "tag", text: prop.name },
+      { kind: "text", text: " " },
+      { kind: "operator", text: "=" },
+      { kind: "text", text: " " },
+      ...literal(value, ""),
+      { kind: "punctuation", text: ";" },
+      { kind: "text", text: "\n\n" },
+    );
+  }
 
   tokens.push({ kind: "punctuation", text: "<" }, { kind: "tag", text: name });
 
