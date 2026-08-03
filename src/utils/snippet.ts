@@ -67,6 +67,10 @@ export function componentName(id: string): string {
     .join("");
 }
 
+/** pnpm first, npm second, everywhere on the site. `pnpx` does not exist. */
+export const PACKAGE_MANAGERS = ["pnpm", "npm"] as const;
+export type PackageManager = (typeof PACKAGE_MANAGERS)[number];
+
 /**
  * The install command for one registry entry.
  *
@@ -74,15 +78,23 @@ export function componentName(id: string): string {
  * component against `/ui/r/index.json` and takes `--variant` separately, so
  * `add button-danger` is not a command - it exits 1 with "Unknown component".
  * The registry id is only how the files are keyed.
- *
- * pnpm only: it is the first tab everywhere else on the site, and a two-fence
- * CodeGroup under every preview would be more chrome than the command deserves.
  */
-export function buildInstall(component: string, variant: string): Token[] {
+export function buildInstall(
+  component: string,
+  variant: string,
+  manager: PackageManager = "pnpm",
+): Token[] {
+  const runner: Draft[] =
+    manager === "pnpm"
+      ? [
+          { kind: "command", text: "pnpm" },
+          { kind: "text", text: " " },
+          { kind: "argument", text: "dlx" },
+        ]
+      : [{ kind: "command", text: "npx" }];
+
   const parts: Draft[] = [
-    { kind: "command", text: "pnpm" },
-    { kind: "text", text: " " },
-    { kind: "argument", text: "dlx" },
+    ...runner,
     { kind: "text", text: " " },
     { kind: "argument", text: "yummaui" },
     { kind: "text", text: " " },

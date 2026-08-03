@@ -71,15 +71,5 @@
 		"typescript": "^6.0.3",
 		"yummacss": "^3.29.0",
 		"zod": "^4.4.3"
-	},
-	"pnpm": {
-		"overrides": {
-			"@yummacss/core": "^3.27.0",
-			"@yummacss/nitro": "^3.27.0"
-		},
-		"ignoredBuiltDependencies": [
-			"esbuild",
-			"sharp"
-		]
 	}
 }

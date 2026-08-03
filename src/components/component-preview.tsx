@@ -1,8 +1,16 @@
 "use client";
 import { Toggle } from "@base-ui/react/toggle";
 import type { ComponentType } from "react";
-import { lazy, type ReactNode, Suspense, useEffect, useState } from "react";
+import {
+  lazy,
+  type ReactNode,
+  Suspense,
+  useEffect,
+  useId,
+  useState,
+} from "react";
 import { CopyButton } from "@/components/ui/code";
+import CodeTabs from "@/components/ui/code-tabs";
 import {
   getRegistryImport,
   getRegistryMeta,
@@ -11,6 +19,8 @@ import {
 import {
   buildInstall,
   buildUsage,
+  PACKAGE_MANAGERS,
+  type PackageManager,
   TOKEN_COLORS,
   type Token,
   tokensToText,
@@ -101,10 +111,39 @@ export default function ComponentPreview({
   );
 }
 
-/** How you actually get this variant, directly under the thing it draws. */
+/**
+ * How you actually get this variant, directly under the thing it draws.
+ *
+ * Two tabs, pnpm then npm, because that is the convention for every install
+ * command on the site. Generated rather than authored: a hand-written
+ * `<CodeGroup>` under each of 431 previews is the same two lines 431 times, and
+ * the component id is already here.
+ */
 function InstallCommand({ registryId }: { registryId: string }) {
   const { component, variant } = getRegistryTarget(registryId);
-  return <TokenBlock tokens={buildInstall(component, variant)} />;
+  const [manager, setManager] = useState<PackageManager>("pnpm");
+  const groupId = useId();
+
+  return (
+    <div className="bc-border btw-1">
+      <CodeTabs
+        idPrefix={groupId}
+        active={manager}
+        onSelect={setManager}
+        tabs={PACKAGE_MANAGERS.map((id) => ({ id, label: id }))}
+      />
+      <div
+        role="tabpanel"
+        id={`${groupId}-panel-${manager}`}
+        aria-labelledby={`${groupId}-tab-${manager}`}
+      >
+        <TokenBlock
+          tokens={buildInstall(component, variant, manager)}
+          className=""
+        />
+      </div>
+    </div>
+  );
 }
 
 /**
@@ -112,7 +151,14 @@ function InstallCommand({ registryId }: { registryId: string }) {
  * position, because a second style of code block on the same page would only be
  * a thing to look at twice.
  */
-function TokenBlock({ tokens }: { tokens: Token[] }) {
+function TokenBlock({
+  tokens,
+  className = "bc-border btw-1",
+}: {
+  tokens: Token[];
+  /** The frame is the caller's, so a block under a tab strip adds no second rule. */
+  className?: string;
+}) {
   const [copied, setCopied] = useState(false);
 
   const copy = async () => {
@@ -128,7 +174,7 @@ function TokenBlock({ tokens }: { tokens: Token[] }) {
   };
 
   return (
-    <div className="p-r bc-border bg-surface btw-1">
+    <div className={`p-r bg-surface ${className}`}>
       <div className="p-a t-2 r-2">
         <CopyButton copied={copied} onCopy={copy} />
       </div>
