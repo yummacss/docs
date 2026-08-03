@@ -2,9 +2,11 @@
 
 import { existsSync, readdirSync, writeFileSync } from "node:fs";
 import { basename, join } from "node:path";
+import { componentSlugs, splitId } from "./lib/registry-ids.mjs";
 
 const cwd = process.cwd();
 const uiDir = join(cwd, "src/registry/ui");
+const contentDir = join(cwd, "src/content/ui");
 const outFile = join(cwd, "src/registry/index.ts");
 
 function getIds(dir) {
@@ -31,6 +33,17 @@ const metaIds = existsSync(metaDir)
 
 const metaLines = metaIds
   .map((id) => `  "${id}": () => import("./meta/${id}.json"),`)
+  .join("\n");
+
+// What `yummaui add` actually addresses. The id is how registry files are keyed;
+// the CLI takes the component by name & the variant as a flag, so the docs need
+// the split to print a command that runs.
+const slugs = componentSlugs(contentDir);
+const targetLines = uiIds
+  .map((id) => {
+    const { component, variant } = splitId(id, slugs);
+    return `  "${id}": { component: "${component}", variant: "${variant}" },`;
+  })
   .join("\n");
 
 const output = `/**
@@ -85,6 +98,24 @@ export type MetaImport = () => Promise<{ default: RegistryMeta }>;
 
 export function getRegistryMeta(id: string): MetaImport | null {
   return (registryMeta as Record<string, MetaImport>)[id] ?? null;
+}
+
+// ---------------------------------------------------------------------------
+// What \`yummaui add\` addresses
+// ---------------------------------------------------------------------------
+
+export interface RegistryTarget {
+  component: string;
+  /** \`"base"\` means no \`--variant\` flag. */
+  variant: string;
+}
+
+export const registryTargets: Record<string, RegistryTarget> = {
+${targetLines}
+};
+
+export function getRegistryTarget(id: string): RegistryTarget {
+  return registryTargets[id] ?? { component: id, variant: "base" };
 }
 `;
 
