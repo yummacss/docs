@@ -63,6 +63,8 @@ export interface AutocompleteProps {
   items: AutocompleteItem[];
   /** Field label above the input. Omit it and the input is labelled by `placeholder`. */
   label?: string;
+  /** A line under the input, for what the field expects rather than what it is. */
+  description?: string;
   placeholder?: string;
   size?: Size;
   shape?: Shape;
@@ -85,6 +87,7 @@ export interface AutocompleteProps {
 export default function AutocompleteBase({
   items,
   label,
+  description,
   placeholder = "Search",
   size = "md",
   shape = "rounded",
@@ -199,6 +202,7 @@ export default function AutocompleteBase({
             className={inputClasses}
           />
         </div>
+        {description && <p className="m-0 c-slate-6 fs-xs">{description}</p>}
       </div>
 
       <AnimatePresence>

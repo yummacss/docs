@@ -36,6 +36,11 @@
       "description": "Field label above the input. Leave it out and the input is described by its placeholder alone."
     },
     {
+      "name": "description",
+      "type": "string",
+      "description": "A line under the input, for what the field expects rather than a restatement of the label."
+    },
+    {
       "name": "placeholder",
       "type": "string",
       "default": "Search",

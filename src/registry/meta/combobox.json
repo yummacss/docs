@@ -1,0 +1,107 @@
+{
+  "summary": "A filtering input that commits to a selection, in three sizes, three shapes and three shadows, single or multiple with removable chips.",
+  "props": [
+    {
+      "name": "items",
+      "type": "none",
+      "typeName": "ComboboxItem[]",
+      "example": [
+        {
+          "label": "Adrian",
+          "description": "Product Designer",
+          "avatar": "https://api.dicebear.com/9.x/notionists/svg?seed=Adrian&backgroundColor=FFD4DE"
+        },
+        {
+          "label": "Aidan",
+          "description": "Frontend Developer",
+          "avatar": "https://api.dicebear.com/9.x/notionists/svg?seed=Aidan&backgroundColor=FFD4DE"
+        },
+        {
+          "label": "Jade",
+          "description": "Backend Developer",
+          "avatar": "https://api.dicebear.com/9.x/notionists/svg?seed=Jade&backgroundColor=DAF0B9"
+        }
+      ],
+      "description": "What to choose from. Same shape as Autocomplete's: `label` is matched and shown, `description` and `avatar` are optional."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "example": "Assign member",
+      "description": "Field label above the input."
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "A line under the input, for what the field expects rather than a restatement of the label."
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "default": "Search",
+      "description": "Placeholder text."
+    },
+    {
+      "name": "size",
+      "type": "enum",
+      "values": ["sm", "md", "lg"],
+      "default": "md",
+      "description": "Height and width of the input. The popup and the trigger column follow it."
+    },
+    {
+      "name": "shape",
+      "type": "enum",
+      "values": ["rounded", "square", "squircle"],
+      "default": "rounded",
+      "description": "Corner radius, applied to the input and the popup together. `squircle` uses `corner-shape`."
+    },
+    {
+      "name": "shadow",
+      "type": "enum",
+      "values": ["none", "inset", "outset"],
+      "default": "none",
+      "description": "Depth on the input. `inset` reads as a well, `outset` as a raised control."
+    },
+    {
+      "name": "multiple",
+      "type": "boolean",
+      "default": false,
+      "description": "Allows more than one selection. Choices become removable chips under the input."
+    },
+    {
+      "name": "clearable",
+      "type": "boolean",
+      "default": true,
+      "description": "A clear button beside the trigger. Ignored when `multiple`, where each chip removes itself and a clear-all would be a second way to do the same thing at a different scale."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "default": false,
+      "description": "Blocks interaction and dims the field."
+    },
+    {
+      "name": "loading",
+      "type": "boolean",
+      "default": false,
+      "description": "Replaces the results with a loading row, for an async source. The fetching itself is yours; this is only the state."
+    },
+    {
+      "name": "animate",
+      "type": "boolean",
+      "default": true,
+      "description": "Fades the popup in and out. Turn it off for a static popup, or when the user has asked for reduced motion."
+    },
+    {
+      "name": "emptyMessage",
+      "type": "string",
+      "default": "No results found.",
+      "description": "Shown when nothing matches."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "description": "Appended to the input's classes, so any Yumma CSS utility you pass wins."
+    }
+  ]
+}
