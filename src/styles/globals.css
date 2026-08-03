@@ -18,7 +18,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: system-ui, sans-serif;
+  font-family: system-ui, sans-serif;
 }
 
 article h1,
@@ -28,17 +28,17 @@ article h4,
 article h5,
 article h6,
 .ff-e {
-    font-family: "Esteban", serif;
+  font-family: "Esteban", serif;
 }
 
 body {
-    font-family: "iA Writer Quattro", sans-serif;
+  font-family: "iA Writer Quattro", sans-serif;
 }
 
 /* Base UI portals wrap their children in a `<div data-base-ui-portal>` element appended to <body>.
    Lift every direct child (backdrop, internal backdrop, popup wrapper) above the navbar (z-index: 10). */
 [data-base-ui-portal] > * {
-    z-index: 20;
+  z-index: 20;
 }
 
 /* reset font and selection for component previews */
@@ -66,15 +66,15 @@ body {
 [role="menubar"] *,
 [role="navigation"],
 [role="navigation"] * {
-    color-scheme: light;
-    font-family:
-        system-ui,
-        -apple-system,
-        Segoe UI,
-        Roboto,
-        Helvetica,
-        Arial,
-        sans-serif;
+  color-scheme: light;
+  font-family:
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 [data-preview]::selection,
@@ -95,10 +95,48 @@ body {
 [role="menubar"] *::selection,
 [role="navigation"]::selection,
 [role="navigation"] *::selection {
-    background-color: Highlight;
-    color: HighlightText;
+  background-color: Highlight;
+  color: HighlightText;
 }
 
 .docs-container {
-    max-width: clamp(40rem, 80vw, 96rem);
+  max-width: clamp(40rem, 80vw, 96rem);
+}
+
+/* A /ui page is one component rather than prose, so it spends the width on the
+   preview: fixed tracks for the nav & the props panel, everything left over for
+   the stage. `docs-container`'s twelve equal columns are right for a document
+   and wrong for a stage, where the middle should grow and the sides should not. */
+.ui-container {
+  max-width: 120rem;
+}
+
+.ui-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2rem;
+}
+
+@media (min-width: 64rem) {
+  .ui-layout {
+    grid-template-columns: 14rem minmax(0, 1fr);
+  }
+
+  /* A component with no prop schema renders no panel, and a reserved-but-empty
+     third of the page would be worse than no column at all. `:has` asks the
+     layout the same question the panel already answers, so neither has to
+     branch on it. */
+  .ui-layout:has(.props-panel) {
+    grid-template-columns: 14rem minmax(0, 1fr) clamp(18rem, 22vw, 26rem);
+  }
+
+  /* Sticky only once there is a column to stick in. Below this the panel
+     stacks under the page, where a capped height with its own scrollbar
+     would be wrong, and an inline style cannot be made conditional. */
+  .props-panel {
+    position: sticky;
+    top: 5rem;
+    max-height: calc(100dvh - 5rem); /* add this this use case to v4    */
+    overflow-y: auto;
+  }
 }
