@@ -2,7 +2,9 @@
 import { Toggle } from "@base-ui/react/toggle";
 import type { ComponentType } from "react";
 import { lazy, type ReactNode, Suspense, useEffect, useState } from "react";
-import { getRegistryImport } from "@/registry";
+import { CopyButton } from "@/components/ui/code";
+import { getRegistryImport, getRegistryMeta } from "@/registry";
+import { buildInstall, TOKEN_COLORS, tokensToText } from "@/utils/install";
 
 interface Props {
   registryId?: string;
@@ -10,6 +12,8 @@ interface Props {
   className?: string;
   children?: ReactNode;
 }
+
+type DemoProps = Record<string, string | boolean | number | undefined>;
 
 export default function ComponentPreview({
   registryId,
@@ -19,16 +23,36 @@ export default function ComponentPreview({
 }: Props) {
   const [showCode, setShowCode] = useState(false);
   const [RegistryComponent, setRegistryComponent] =
-    useState<ComponentType<object> | null>(null);
+    useState<ComponentType<DemoProps> | null>(null);
+  // A prop-driven component rendered with no props at all is an empty shell:
+  // <Button /> has no label, <Avatar /> has no image. Its own schema already
+  // says what a representative instance looks like, so the preview uses that.
+  // A component with no schema gets nothing extra, exactly as before.
+  const [demo, setDemo] = useState<{ props: DemoProps; children?: string }>({
+    props: {},
+  });
   const actualId = registryId || id;
 
   useEffect(() => {
-    if (actualId) {
-      const importFn = getRegistryImport(actualId);
-      if (importFn) {
-        setRegistryComponent(() => lazy(importFn));
-      }
+    if (!actualId) return;
+
+    const importFn = getRegistryImport(actualId);
+    if (importFn) {
+      setRegistryComponent(() => lazy(importFn));
     }
+
+    const importMeta = getRegistryMeta(actualId);
+    if (!importMeta) return;
+
+    importMeta().then((module) => {
+      const meta = module.default;
+      const props: DemoProps = {};
+      for (const prop of meta.props) {
+        const value = prop.example ?? prop.default;
+        if (value !== undefined) props[prop.name] = value;
+      }
+      setDemo({ props, children: meta.children });
+    });
   }, [actualId]);
 
   return (
@@ -36,20 +60,65 @@ export default function ComponentPreview({
       <Suspense fallback={null}>
         {RegistryComponent ? (
           <div data-preview className="d-f p-r ox-auto ai-c jc-c p-10 bg-white">
-            <RegistryComponent />
+            <RegistryComponent {...demo.props}>
+              {demo.children}
+            </RegistryComponent>
           </div>
         ) : null}
       </Suspense>
 
+      {actualId && <InstallCommand registryId={actualId} />}
+
       <Toggle
         pressed={showCode}
         onPressedChange={setShowCode}
-        className="d-f ai-c jc-c w-100% h-8 bc-border bg-surface c-accent bw-0 bbw-1 fs-sm fw-500 tp-c tdu-150 ttf-io us-none fv:oc-white fv:ow-2"
+        className="d-f ai-c jc-c w-100% h-8 bc-border bg-surface c-accent bw-0 btw-1 fs-sm fw-500 tp-c tdu-150 ttf-io us-none fv:oc-white fv:ow-2"
       >
         {showCode ? "Hide code" : "Show code"}
       </Toggle>
 
       {showCode && children}
+    </div>
+  );
+}
+
+/**
+ * How you actually get this variant, directly under the thing it draws.
+ *
+ * Chrome copied from `Code`, down to the copy button's position, because a
+ * second style of code block on the same page would only be a thing to look at
+ * twice.
+ */
+function InstallCommand({ registryId }: { registryId: string }) {
+  const [copied, setCopied] = useState(false);
+  const tokens = buildInstall(registryId);
+
+  const copy = async () => {
+    // A denied clipboard permission rejects, and an unhandled rejection here
+    // would take the confirmation down with it rather than just the copy.
+    try {
+      await navigator.clipboard.writeText(tokensToText(tokens));
+    } catch {
+      return;
+    }
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  return (
+    <div className="p-r bc-border bg-surface btw-1">
+      <div className="p-a t-2 r-2">
+        <CopyButton copied={copied} onCopy={copy} />
+      </div>
+      <pre className="ox-auto px-4 py-3 ff-m lh-5">
+        <code>
+          {tokens.map((token) => (
+            <span key={token.id} style={{ color: TOKEN_COLORS[token.kind] }}>
+              {token.text}
+            </span>
+          ))}
+        </code>
+      </pre>
     </div>
   );
 }

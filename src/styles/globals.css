@@ -77,16 +77,6 @@ body {
     sans-serif;
 }
 
-/* The reset above reaches Base UI portals by role, because they render into
-   <body> rather than inside the preview. That also catches the docs' own
-   popups, which are chrome & want the site's scheme and font. Marking them is
-   cheaper than adding `:not()` to eighteen selectors. */
-[data-chrome],
-[data-chrome] * {
-  color-scheme: dark;
-  font-family: inherit;
-}
-
 [data-preview]::selection,
 [data-preview] *::selection,
 [class*="-popup"]::selection,
@@ -111,16 +101,4 @@ body {
 
 .docs-container {
   max-width: clamp(40rem, 80vw, 96rem);
-}
-
-/* The /ui props panel. Sticky only once there is a column to stick in: below
-   this the panel stacks under the page, where a capped height with its own
-   scrollbar would be wrong, and an inline style cannot be made conditional. */
-@media (min-width: 64rem) {
-  .props-panel {
-    position: sticky;
-    top: 5rem;
-    max-height: calc(100dvh - 5rem); /* add this this use case to v4    */
-    overflow-y: auto;
-  }
 }
