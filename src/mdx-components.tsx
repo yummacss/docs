@@ -1,7 +1,6 @@
 ﻿import type { MDXComponents } from "mdx/types";
 import Image from "next/image";
 import Baseline from "@/components/baseline";
-import ComponentPlayground from "@/components/component-playground";
 import ComponentPreview from "@/components/component-preview";
 import FileTree from "@/components/file-tree";
 import Hint from "@/components/hint";
@@ -16,6 +15,7 @@ import NegativeValues from "@/components/negative-values";
 import OpacityModifier from "@/components/opacity-modifier";
 import Palette from "@/components/palette";
 import Preview from "@/components/preview";
+import PropsTable from "@/components/props-table";
 import Reference from "@/components/reference";
 import ResponsiveVariant from "@/components/responsive-variant";
 import Stepper, { Step } from "@/components/stepper";
@@ -43,8 +43,8 @@ const components: MDXComponents = {
   Baseline,
   Code,
   CodeGroup,
-  ComponentPlayground,
   ComponentPreview,
+  PropsTable,
   Cursor,
   FileTree,
   Hint,

@@ -293,18 +293,23 @@ function renderComponent(
   // UI pages served prose with no component source at all: /ui/components/
   // button.md was 965 bytes with zero code fences. The registry file IS the
   // content of these pages, so it becomes a fenced block.
+  // `<PropsTable registryId="button" />` renders from the schema in React, so
+  // it is invisible here. Without this a reader of the `.md` gets the whole
+  // implementation and no statement of the API it exposes.
+  if (node.name === "PropsTable" && attrs.registryId && options.resolveMeta) {
+    const meta = options.resolveMeta(attrs.registryId);
+    return meta ? buildPropsTable(meta) : [];
+  }
+
+  // `<ComponentPreview registryId="button-base" />` has no children, so it used
+  // to fall through to the "nothing to unwrap" case & vanish. That is why the
+  // UI pages served prose with no component source at all: /ui/components/
+  // button.md was 965 bytes with zero code fences. The registry file IS the
+  // content of these pages, so it becomes a fenced block.
   if (attrs.registryId && options.resolveRegistry) {
     const source = options.resolveRegistry(attrs.registryId);
     if (!source) return [];
-
-    // The props table on the page is rendered from the schema by React, so it
-    // is invisible here. A reader of the `.md` would otherwise get the whole
-    // implementation and no statement of the API it exposes.
-    const meta = options.resolveMeta?.(attrs.registryId);
-    const table = meta ? buildPropsTable(meta) : [];
-    return table.length
-      ? [...fencedBlock(source, "tsx"), "", ...table]
-      : fencedBlock(source, "tsx");
+    return fencedBlock(source, "tsx");
   }
 
   const children = render(node.children, options, node.name === "Stepper");
