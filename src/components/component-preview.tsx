@@ -31,6 +31,12 @@ interface Props {
   registryId?: string;
   id?: string;
   className?: string;
+  /**
+   * Start the snippet's collapsible regions open. Fixture data is folded by
+   * default because the component is the point, but a page whose whole subject
+   * *is* the data shape should say so rather than make the reader click.
+   */
+  expanded?: boolean;
   children?: ReactNode;
 }
 
@@ -40,6 +46,7 @@ export default function ComponentPreview({
   registryId,
   id,
   className,
+  expanded = false,
   children,
 }: Props) {
   const [showCode, setShowCode] = useState(false);
@@ -107,7 +114,8 @@ export default function ComponentPreview({
         {showCode ? "Hide code" : "Show code"}
       </Toggle>
 
-      {showCode && (usage ? <TokenBlock tokens={usage} /> : children)}
+      {showCode &&
+        (usage ? <TokenBlock tokens={usage} expanded={expanded} /> : children)}
     </div>
   );
 }
@@ -155,10 +163,12 @@ function InstallCommand({ registryId }: { registryId: string }) {
 function TokenBlock({
   tokens,
   className = "bc-border btw-1",
+  expanded = false,
 }: {
   tokens: Token[];
   /** The frame is the caller's, so a block under a tab strip adds no second rule. */
   className?: string;
+  expanded?: boolean;
 }) {
   const [copied, setCopied] = useState(false);
 
@@ -181,7 +191,7 @@ function TokenBlock({
       </div>
       <pre className="ox-auto px-4 py-3 ff-m lh-5">
         <code>
-          <Folded tokens={tokens} />
+          <Folded tokens={tokens} expanded={expanded} />
         </code>
       </pre>
     </div>
@@ -197,8 +207,22 @@ function TokenBlock({
  * the code readable, so a four-item fixture does not push the element it feeds
  * off the screen.
  */
-function Folded({ tokens }: { tokens: Token[] }) {
-  const [open, setOpen] = useState<string[]>([]);
+function Folded({
+  tokens,
+  expanded = false,
+}: {
+  tokens: Token[];
+  expanded?: boolean;
+}) {
+  const [open, setOpen] = useState<string[]>(() =>
+    expanded
+      ? [
+          ...new Set(
+            tokens.flatMap((token) => (token.fold ? [token.fold] : [])),
+          ),
+        ]
+      : [],
+  );
   const output: React.ReactNode[] = [];
 
   const toggle = (region: string) =>
