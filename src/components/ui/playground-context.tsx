@@ -20,9 +20,6 @@ interface Playground {
   setValue: (name: string, value: PropValue) => void;
   /** Called by the stage to say which component the panel is describing. */
   register: (registryId: string | null) => void;
-  /** Dark preview surface. The docs chrome is dark either way. */
-  dark: boolean;
-  setDark: (dark: boolean) => void;
 }
 
 const PlaygroundContext = createContext<Playground | null>(null);
@@ -44,7 +41,6 @@ export function PlaygroundProvider({
   const [registryId, setRegistryId] = useState<string | null>(null);
   const [meta, setMeta] = useState<RegistryMeta | null>(null);
   const [values, setValues] = useState<PropValues>({});
-  const [dark, setDark] = useState(false);
 
   useEffect(() => {
     if (!registryId) {
@@ -94,8 +90,8 @@ export function PlaygroundProvider({
   }, []);
 
   const value = useMemo(
-    () => ({ registryId, meta, values, setValue, register, dark, setDark }),
-    [registryId, meta, values, setValue, register, dark],
+    () => ({ registryId, meta, values, setValue, register }),
+    [registryId, meta, values, setValue, register],
   );
 
   return (

@@ -77,6 +77,16 @@ body {
     sans-serif;
 }
 
+/* The reset above reaches Base UI portals by role, because they render into
+   <body> rather than inside the preview. That also catches the docs' own
+   popups, which are chrome & want the site's scheme and font. Marking them is
+   cheaper than adding `:not()` to eighteen selectors. */
+[data-chrome],
+[data-chrome] * {
+  color-scheme: dark;
+  font-family: inherit;
+}
+
 [data-preview]::selection,
 [data-preview] *::selection,
 [class*="-popup"]::selection,
@@ -103,36 +113,10 @@ body {
   max-width: clamp(40rem, 80vw, 96rem);
 }
 
-/* A /ui page is one component rather than prose, so it spends the width on the
-   preview: fixed tracks for the nav & the props panel, everything left over for
-   the stage. `docs-container`'s twelve equal columns are right for a document
-   and wrong for a stage, where the middle should grow and the sides should not. */
-.ui-container {
-  max-width: 120rem;
-}
-
-.ui-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 2rem;
-}
-
+/* The /ui props panel. Sticky only once there is a column to stick in: below
+   this the panel stacks under the page, where a capped height with its own
+   scrollbar would be wrong, and an inline style cannot be made conditional. */
 @media (min-width: 64rem) {
-  .ui-layout {
-    grid-template-columns: 14rem minmax(0, 1fr);
-  }
-
-  /* A component with no prop schema renders no panel, and a reserved-but-empty
-     third of the page would be worse than no column at all. `:has` asks the
-     layout the same question the panel already answers, so neither has to
-     branch on it. */
-  .ui-layout:has(.props-panel) {
-    grid-template-columns: 14rem minmax(0, 1fr) clamp(18rem, 22vw, 26rem);
-  }
-
-  /* Sticky only once there is a column to stick in. Below this the panel
-     stacks under the page, where a capped height with its own scrollbar
-     would be wrong, and an inline style cannot be made conditional. */
   .props-panel {
     position: sticky;
     top: 5rem;

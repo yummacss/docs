@@ -24,15 +24,16 @@ export default function UILayout({ children }: { children: React.ReactNode }) {
     <div className="min-h-dvh">
       <Navbar showMobileDrawer />
 
-      <main className="zi-0 mx-auto px-6 ui-container">
-        {/* A UI page is one component, so the right column carries its props
-            rather than a list of its own headings. `/docs` & `/blog` keep the
-            anchor table of contents; only this section trades it away. */}
+      <main className="zi-0 mx-auto px-6 docs-container">
+        {/* The same container & grid as `/docs`: only the right column differs.
+            A UI page is one component, so that column carries its props rather
+            than a list of the page's own headings. `/docs` & `/blog` keep the
+            anchor table of contents. */}
         <PlaygroundProvider>
-          <div className="ui-layout">
+          <div className="d-g gtc-1 g-8 @lg:gtc-12">
             <Sidebar variant="ui" />
 
-            <div className="pt-12">
+            <div className="pt-12 @lg:gc-s-6">
               <article>{children}</article>
             </div>
 
