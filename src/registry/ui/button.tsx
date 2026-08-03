@@ -3,13 +3,16 @@ import type { ComponentProps, ReactNode } from "react";
 
 type Variant = "primary" | "secondary" | "subtle" | "ghost" | "danger" | "link";
 type Size = "sm" | "md" | "lg";
-type Shape = "rounded" | "square" | "pill";
+type Shape = "rounded" | "square" | "squircle" | "pill";
 type Shadow = "none" | "inset" | "outset";
 
 // Plain lookups rather than cva: a copied component should not drag a class
 // utility into your package.json to do what an object literal already does.
-const BASE =
-  "d-if ai-c jc-c g-2 bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:oo-2";
+const BASE = "d-if ai-c jc-c g-2 bw-1 fw-500 us-none fv:oo-2";
+
+// Split out of BASE so it can be switched off, the same `animate` prop Skeleton
+// and Autocomplete carry.
+const MOTION = "tp-c tdu-150 ttf-io";
 
 const VARIANTS: Record<Variant, string> = {
   primary: "bg-indigo h:bg-indigo-8 bc-indigo-7 c-white fv:oc-indigo-3",
@@ -38,6 +41,7 @@ const ICON_ONLY: Record<Size, string> = {
 const SHAPES: Record<Shape, string> = {
   rounded: "br-lg",
   square: "br-0",
+  squircle: "br-xxl cs-s",
   pill: "br-9999",
 };
 
@@ -56,6 +60,8 @@ export interface ButtonProps extends ComponentProps<typeof Button> {
   loading?: boolean;
   /** Square padding, for a button whose only child is an icon. */
   iconOnly?: boolean;
+  /** The hover & focus transition. */
+  animate?: boolean;
   children?: ReactNode;
 }
 
@@ -66,6 +72,7 @@ export default function ButtonBase({
   shadow = "none",
   loading = false,
   iconOnly = false,
+  animate = true,
   disabled,
   className,
   children,
@@ -75,6 +82,7 @@ export default function ButtonBase({
 
   const classes = [
     BASE,
+    animate ? MOTION : "",
     VARIANTS[variant],
     iconOnly ? ICON_ONLY[size] : SIZES[size],
     SHAPES[shape],

@@ -1,5 +1,5 @@
 {
-  "summary": "A primary action, in six variants, three sizes and three shapes, with optional loading and icon-only states.",
+  "summary": "A primary action, in six variants, three sizes and four shapes, with optional shadow, loading and icon-only states.",
   "props": [
     {
       "name": "variant",
@@ -18,9 +18,9 @@
     {
       "name": "shape",
       "type": "enum",
-      "values": ["rounded", "square", "pill"],
+      "values": ["rounded", "square", "squircle", "pill"],
       "default": "rounded",
-      "description": "Corner radius."
+      "description": "Corner radius. `squircle` uses `corner-shape`, which degrades to a rounded square where that is unsupported."
     },
     {
       "name": "shadow",
@@ -46,6 +46,12 @@
       "type": "boolean",
       "default": false,
       "description": "Blocks interaction and dims the button."
+    },
+    {
+      "name": "animate",
+      "type": "boolean",
+      "default": true,
+      "description": "The hover and focus transition. Turn it off for a static button, or when the user has asked for reduced motion."
     },
     {
       "name": "className",
