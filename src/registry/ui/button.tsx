@@ -1,4 +1,4 @@
-import { Button as BaseButton } from "@base-ui/react/button";
+import { Button } from "@base-ui/react/button";
 import type { ComponentProps, ReactNode } from "react";
 
 type Variant = "primary" | "secondary" | "subtle" | "ghost" | "danger" | "link";
@@ -40,7 +40,7 @@ const SHAPES: Record<Shape, string> = {
   pill: "br-9999",
 };
 
-export interface ButtonProps extends ComponentProps<typeof BaseButton> {
+export interface ButtonProps extends ComponentProps<typeof Button> {
   variant?: Variant;
   size?: Size;
   shape?: Shape;
@@ -51,7 +51,7 @@ export interface ButtonProps extends ComponentProps<typeof BaseButton> {
   children?: ReactNode;
 }
 
-export default function Button({
+export default function ButtonBase({
   variant = "primary",
   size = "md",
   shape = "rounded",
@@ -76,7 +76,7 @@ export default function Button({
     .join(" ");
 
   return (
-    <BaseButton
+    <Button
       className={classes}
       disabled={inactive}
       // To a screen reader `loading` is a busy state, not a disabled one.
@@ -84,6 +84,6 @@ export default function Button({
       {...props}
     >
       {children}
-    </BaseButton>
+    </Button>
   );
 }

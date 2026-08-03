@@ -1,6 +1,6 @@
 import { CloudUpload } from "iconoir-react";
 
-export default function FileUpload() {
+export default function FileUploadBase() {
   return (
     <section className="d-f fd-c ai-c g-3 w-100 bg-white bc-silver-2 br-xxl bw-2 bs-d">
       <div className="d-f fd-c ai-c g-2 p-8 bg-white ta-c">

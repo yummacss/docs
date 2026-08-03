@@ -31,7 +31,7 @@ export interface SkeletonProps {
   className?: string;
 }
 
-export default function Skeleton({
+export default function SkeletonBase({
   shape = "line",
   tone = "default",
   animate = true,
