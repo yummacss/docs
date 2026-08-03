@@ -22,7 +22,8 @@ interface Props {
   label?: string;
 }
 
-type Values = Record<string, string | boolean>;
+type Value = string | boolean | number;
+type Values = Record<string, Value>;
 
 /**
  * One live component with controls, in place of a row of static previews.
@@ -49,18 +50,20 @@ export default function ComponentPlayground({ registryId, label }: Props) {
       const loaded = module.default;
       setMeta(loaded);
       // Start from the component's own defaults so the first render is the
-      // component as it ships, not an arbitrary configuration.
+      // component as it ships, not an arbitrary configuration. `example` covers
+      // the props it cannot default, like the image an Avatar has to be given.
       const initial: Values = {};
       for (const prop of loaded.props) {
-        if (prop.default !== undefined && prop.type !== "string") {
-          initial[prop.name] = prop.default;
-        }
+        const start = prop.example ?? prop.default;
+        if (start !== undefined) initial[prop.name] = start;
       }
       setValues(initial);
     });
   }, [registryId]);
 
-  const text = label ?? meta?.examples?.[0]?.label ?? "Label";
+  // A component that declares no children slot is written self-closing, so the
+  // snippet matches how it is actually used rather than inventing a text child.
+  const text = label ?? meta?.children;
 
   // Only props that differ from their default reach the snippet, which is what
   // keeps it copy-pasteable rather than a dump of every option.
@@ -70,62 +73,113 @@ export default function ComponentPlayground({ registryId, label }: Props) {
     const attrs = meta.props
       .filter((prop) => {
         const value = values[prop.name];
-        return value !== undefined && value !== prop.default && value !== "";
+        if (value === undefined || value === "") return false;
+        return value !== prop.default;
       })
-      .map((prop) => {
-        const value = values[prop.name];
-        return typeof value === "boolean"
-          ? value
-            ? prop.name
-            : `${prop.name}={false}`
-          : `${prop.name}="${value}"`;
-      });
+      .map((prop) => attribute(prop, values[prop.name] as Value));
 
     const open = attrs.length
-      ? `<${name}\n  ${attrs.join("\n  ")}\n>`
-      : `<${name}>`;
-    return `${open}${attrs.length ? "\n  " : ""}${text}${attrs.length ? "\n" : ""}</${name}>`;
+      ? `<${name}\n  ${attrs.join("\n  ")}`
+      : `<${name}`;
+    if (text === undefined) return attrs.length ? `${open}\n/>` : `${open} />`;
+    return attrs.length
+      ? `${open}\n>\n  ${text}\n</${name}>`
+      : `${open}>${text}</${name}>`;
   }, [meta, values, registryId, text]);
 
   if (!Component) return null;
 
   return (
-    <div className="d-g gtc-1 mb-8 bc-border bw-1 @lg:gtc-3">
-      <div className="@lg:gc-s-2">
-        <div
-          data-preview
-          className="d-f p-r ai-c jc-c p-12 bg-white"
-          style={{ minHeight: "12rem" }}
-        >
-          <Suspense fallback={null}>
-            <Component {...values}>{text}</Component>
-          </Suspense>
+    <div className="mb-8">
+      <div className="d-g gtc-1 bc-border bw-1 @lg:gtc-3">
+        <div className="@lg:gc-s-2">
+          <div
+            data-preview
+            className="d-f p-r ai-c jc-c p-12 bg-white"
+            style={{ minHeight: "12rem" }}
+          >
+            <Suspense fallback={null}>
+              <Component {...values}>{text}</Component>
+            </Suspense>
+          </div>
+
+          {meta && (
+            <pre className="ox-auto p-4 bg-surface bc-border btw-1 fs-sm">
+              <code>{snippet}</code>
+            </pre>
+          )}
         </div>
 
         {meta && (
-          <pre className="ox-auto p-4 bg-surface bc-border btw-1 fs-sm">
-            <code>{snippet}</code>
-          </pre>
+          <aside className="p-6 bc-border btw-1 @lg:blw-1 @lg:btw-0">
+            <h4 className="mb-4 c-silver-8 fs-xs fw-600 ls-2 tt-u">Props</h4>
+            <div className="d-f fd-c g-4">
+              {meta.props.map((prop) => (
+                <Control
+                  key={prop.name}
+                  prop={prop}
+                  value={values[prop.name]}
+                  onChange={(next) =>
+                    setValues((current) => ({ ...current, [prop.name]: next }))
+                  }
+                />
+              ))}
+            </div>
+          </aside>
         )}
       </div>
 
-      {meta && (
-        <aside className="p-6 bc-border btw-1 @lg:blw-1 @lg:btw-0">
-          <h4 className="mb-4 c-silver-8 fs-xs fw-600 ls-2 tt-u">Props</h4>
-          <div className="d-f fd-c g-4">
-            {meta.props.map((prop) => (
-              <Control
-                key={prop.name}
-                prop={prop}
-                value={values[prop.name]}
-                onChange={(next) =>
-                  setValues((current) => ({ ...current, [prop.name]: next }))
-                }
-              />
+      {meta && <PropsTable props={meta.props} />}
+    </div>
+  );
+}
+
+/**
+ * The same schema as a reference table. `className` has no control but does
+ * belong here, and the type column is where an enum's full set of values is
+ * readable rather than hidden behind a `<select>`.
+ */
+function PropsTable({ props }: { props: RegistryProp[] }) {
+  return (
+    <div className="ox-auto mt-6">
+      <table className="w-100% bc-border bg-transparent bc-c">
+        <thead className="bg-surface">
+          <tr>
+            {["Prop", "Type", "Default", "Description"].map((heading) => (
+              <th
+                key={heading}
+                className="px-4 py-2 bc-border c-white bw-1 ta-l fw-500"
+              >
+                {heading}
+              </th>
             ))}
-          </div>
-        </aside>
-      )}
+          </tr>
+        </thead>
+        <tbody>
+          {props.map((prop) => (
+            <tr key={prop.name}>
+              <td className="px-4 py-2 bc-border bw-1 va-t ws-nw">
+                <code className="c-code fs-md ff-m">{prop.name}</code>
+              </td>
+              <td className="px-4 py-2 bc-border bw-1 va-t">
+                <code className="c-white/50 fs-sm ff-m">{typeOf(prop)}</code>
+              </td>
+              <td className="px-4 py-2 bc-border bw-1 va-t ws-nw">
+                {prop.default === undefined ? (
+                  <span className="c-white/30">-</span>
+                ) : (
+                  <code className="c-white/50 fs-sm ff-m">
+                    {JSON.stringify(prop.default)}
+                  </code>
+                )}
+              </td>
+              <td className="px-4 py-2 bc-border c-white/80 bw-1 va-t">
+                {describe(prop.description)}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }
@@ -136,12 +190,14 @@ function Control({
   onChange,
 }: {
   prop: RegistryProp;
-  value: string | boolean | undefined;
-  onChange: (next: string | boolean) => void;
+  value: Value | undefined;
+  onChange: (next: Value) => void;
 }) {
   // `className` is free text with no useful control, and showing an empty input
-  // for it would imply the others are similarly open-ended.
-  if (prop.type === "string") return null;
+  // for it would imply the enum controls are similarly open-ended.
+  if (prop.name === "className") return null;
+
+  const field = "w-40 px-2 py-1 bc-border bg-surface c-white bw-1 fs-sm";
 
   return (
     <div className="d-f ai-c jc-sb g-4">
@@ -161,12 +217,12 @@ function Control({
             style={{ transform: value ? "translateX(0.9rem)" : "none" }}
           />
         </Toggle>
-      ) : (
+      ) : prop.type === "enum" ? (
         <select
           id={`ctl-${prop.name}`}
           value={String(value ?? "")}
           onChange={(event) => onChange(event.target.value)}
-          className="px-2 py-1 bc-border bg-surface c-white bw-1 fs-sm c-p fv:oo-2 fv:oc-accent"
+          className={`${field} c-p fv:oo-2 fv:oc-accent`}
         >
           {prop.values?.map((option) => (
             <option key={option} value={option}>
@@ -174,9 +230,64 @@ function Control({
             </option>
           ))}
         </select>
+      ) : (
+        <input
+          id={`ctl-${prop.name}`}
+          type={prop.type === "number" ? "number" : "text"}
+          step={prop.type === "number" ? 0.05 : undefined}
+          value={String(value ?? "")}
+          onChange={(event) =>
+            onChange(
+              prop.type === "number"
+                ? Number(event.target.value)
+                : event.target.value,
+            )
+          }
+          className={`${field} fv:oo-2 fv:oc-accent`}
+        />
       )}
     </div>
   );
+}
+
+/** `variant="danger"`, `loading`, `delay={0.15}` - JSX, not JSON. */
+function attribute(prop: RegistryProp, value: Value): string {
+  if (typeof value === "boolean") {
+    return value ? prop.name : `${prop.name}={false}`;
+  }
+  if (typeof value === "number") return `${prop.name}={${value}}`;
+  return `${prop.name}="${value}"`;
+}
+
+/**
+ * Schema descriptions are written as markdown, and the only markup any of them
+ * needs is inline code. Rendering the backticks rather than a markdown pipeline
+ * keeps the schema readable as prose in the JSON file.
+ */
+function describe(text: string | undefined) {
+  if (!text) return null;
+  return text
+    .split("`")
+    .map((value, index) => ({
+      id: `${index}-${value}`,
+      value,
+      code: index % 2,
+    }))
+    .map((segment) =>
+      segment.code ? (
+        <code key={segment.id} className="c-code fs-sm ff-m">
+          {segment.value}
+        </code>
+      ) : (
+        segment.value
+      ),
+    );
+}
+
+/** An enum reads as its own values; everything else as its TypeScript type. */
+function typeOf(prop: RegistryProp): string {
+  if (prop.type === "enum" && prop.values) return prop.values.join(" | ");
+  return prop.type;
 }
 
 /** `alert-dialog` -> `AlertDialog`, matching the component's exported name. */

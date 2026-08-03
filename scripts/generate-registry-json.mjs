@@ -15,7 +15,14 @@
  * the diff on every component edit for no benefit.
  */
 
-import { existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import {
+  existsSync,
+  mkdirSync,
+  readdirSync,
+  readFileSync,
+  rmSync,
+  writeFileSync,
+} from "node:fs";
 import { basename, join } from "node:path";
 
 const cwd = process.cwd();
@@ -68,15 +75,15 @@ const slugs = readdirSync(contentDir)
  * generated snippet & anything else that needs to know the API.
  */
 function metaOf(id) {
-	const file = join(metaDir, `${id}.json`);
-	if (!existsSync(file)) return null;
-	try {
-		return JSON.parse(readFileSync(file, "utf8"));
-	} catch (error) {
-		// A broken schema should fail the build rather than silently ship a
-		// component whose controls have quietly vanished.
-		throw new Error(`Invalid registry meta for "${id}": ${error.message}`);
-	}
+  const file = join(metaDir, `${id}.json`);
+  if (!existsSync(file)) return null;
+  try {
+    return JSON.parse(readFileSync(file, "utf8"));
+  } catch (error) {
+    // A broken schema should fail the build rather than silently ship a
+    // component whose controls have quietly vanished.
+    throw new Error(`Invalid registry meta for "${id}": ${error.message}`);
+  }
 }
 
 function titleOf(slug) {
@@ -110,7 +117,7 @@ for (const id of ids) {
     id,
     component: slug ?? id,
     variant,
-    // summary / props / examples, when the component has a declared API.
+    // summary / props / children, when the component has a declared API.
     ...(metaOf(id) ?? {}),
     // 294 of 450 carry the directive. A Vite consumer ignores it; a Next App
     // Router consumer needs it, and stripping it would break them.
@@ -129,11 +136,19 @@ for (const id of ids) {
     ],
   };
 
-  writeFileSync(join(outDir, `${id}.json`), `${JSON.stringify(entry, null, 2)}\n`);
+  writeFileSync(
+    join(outDir, `${id}.json`),
+    `${JSON.stringify(entry, null, 2)}\n`,
+  );
 
   if (slug) {
     if (!components.has(slug)) {
-      components.set(slug, { component: slug, title: titleOf(slug), base: null, variants: [] });
+      components.set(slug, {
+        component: slug,
+        title: titleOf(slug),
+        base: null,
+        variants: [],
+      });
     }
     const group = components.get(slug);
     if (variant === "base") group.base = id;

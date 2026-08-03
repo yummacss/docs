@@ -1,0 +1,36 @@
+{
+  "summary": "A placeholder for content that has not arrived yet, in three shapes and two tones, with a pulse you can stagger or switch off.",
+  "props": [
+    {
+      "name": "shape",
+      "type": "enum",
+      "values": ["line", "block", "circle"],
+      "default": "line",
+      "description": "Corner radius, plus a default size: `line` for text, `block` for a control or thumbnail, `circle` for an avatar. Override the size with `className`."
+    },
+    {
+      "name": "tone",
+      "type": "enum",
+      "values": ["default", "subtle"],
+      "default": "default",
+      "description": "`subtle` is one step lighter, for the secondary line in a pair."
+    },
+    {
+      "name": "animate",
+      "type": "boolean",
+      "default": true,
+      "description": "The pulse. Turn it off for a static placeholder, or when the user has asked for reduced motion."
+    },
+    {
+      "name": "delay",
+      "type": "number",
+      "default": 0,
+      "description": "Seconds to offset the pulse by. Stagger a list with `delay={index * 0.15}` so its rows do not beat in unison."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "description": "Appended after the generated classes, so the width and height you pass win over the shape's defaults."
+    }
+  ]
+}
