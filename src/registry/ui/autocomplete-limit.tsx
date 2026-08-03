@@ -95,5 +95,5 @@ const Projects: Project[] = [
   { name: "Analytics Dashboard", status: "In Progress", color: "bg-indigo-4" },
   { name: "Auth Service", status: "Active", color: "bg-lime-4" },
   { name: "Billing Portal", status: "Backlog", color: "bg-blue-4" },
-  { name: "Admin Panel", status: "In Progress", color: "bg-rose-4" },
+  { name: "Admin Panel", status: "In Progress", color: "bg-red-4" },
 ];
