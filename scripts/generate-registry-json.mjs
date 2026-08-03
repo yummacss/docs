@@ -20,6 +20,7 @@ import { basename, join } from "node:path";
 
 const cwd = process.cwd();
 const uiDir = join(cwd, "src/registry/ui");
+const metaDir = join(cwd, "src/registry/meta");
 const contentDir = join(cwd, "src/content/ui");
 const outDir = join(cwd, "public/ui/r");
 
@@ -58,6 +59,26 @@ const slugs = readdirSync(contentDir)
   .map((f) => basename(f, ".mdx"))
   .sort((a, b) => b.length - a.length);
 
+/**
+ * The prop schema, if this component has one.
+ *
+ * Kept beside the component rather than exported from it, because the file is
+ * copied verbatim into someone's project and metadata has no business shipping
+ * with it. One schema then feeds the docs controls, the props table, the
+ * generated snippet & anything else that needs to know the API.
+ */
+function metaOf(id) {
+	const file = join(metaDir, `${id}.json`);
+	if (!existsSync(file)) return null;
+	try {
+		return JSON.parse(readFileSync(file, "utf8"));
+	} catch (error) {
+		// A broken schema should fail the build rather than silently ship a
+		// component whose controls have quietly vanished.
+		throw new Error(`Invalid registry meta for "${id}": ${error.message}`);
+	}
+}
+
 function titleOf(slug) {
   const raw = readFileSync(join(contentDir, `${slug}.mdx`), "utf8");
   return raw.match(/^title:\s*["']?(.+?)["']?\s*$/m)?.[1] ?? slug;
@@ -89,6 +110,8 @@ for (const id of ids) {
     id,
     component: slug ?? id,
     variant,
+    // summary / props / examples, when the component has a declared API.
+    ...(metaOf(id) ?? {}),
     // 294 of 450 carry the directive. A Vite consumer ignores it; a Next App
     // Router consumer needs it, and stripping it would break them.
     useClient: /^\s*["']use client["']/.test(source),
