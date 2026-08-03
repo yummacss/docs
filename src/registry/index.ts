@@ -466,3 +466,31 @@ export type RegistryImport = () => Promise<{ default: React.ComponentType<object
 export function getRegistryImport(id: string): RegistryImport | null {
   return (registry as Record<string, RegistryImport>)[id] ?? null;
 }
+
+// ---------------------------------------------------------------------------
+// Prop schemas, for components that have a real API
+// ---------------------------------------------------------------------------
+
+export interface RegistryProp {
+  name: string;
+  type: "enum" | "boolean" | "string";
+  values?: string[];
+  default?: string | boolean;
+  description?: string;
+}
+
+export interface RegistryMeta {
+  summary?: string;
+  props: RegistryProp[];
+  examples?: { label: string; props: Record<string, unknown> }[];
+}
+
+export const registryMeta = {
+  "button": () => import("./meta/button.json"),
+} as const;
+
+export type MetaImport = () => Promise<{ default: RegistryMeta }>;
+
+export function getRegistryMeta(id: string): MetaImport | null {
+  return (registryMeta as Record<string, MetaImport>)[id] ?? null;
+}

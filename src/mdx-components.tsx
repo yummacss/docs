@@ -1,6 +1,7 @@
 ﻿import type { MDXComponents } from "mdx/types";
 import Image from "next/image";
 import Baseline from "@/components/baseline";
+import ComponentPlayground from "@/components/component-playground";
 import ComponentPreview from "@/components/component-preview";
 import FileTree from "@/components/file-tree";
 import Hint from "@/components/hint";
@@ -42,6 +43,7 @@ const components: MDXComponents = {
   Baseline,
   Code,
   CodeGroup,
+  ComponentPlayground,
   ComponentPreview,
   Cursor,
   FileTree,
