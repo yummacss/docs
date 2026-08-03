@@ -1,3 +1,4 @@
+import type { RegistryMeta } from "@/registry";
 import { type Category, categoryGetters } from "@/utils/yummacss";
 
 /**
@@ -54,8 +55,15 @@ type Node =
  */
 export type RegistryResolver = (registryId: string) => string | null;
 
+/**
+ * Looks up the prop schema behind a `registryId`. Same injection rule as
+ * `RegistryResolver`, and same reason.
+ */
+export type MetaResolver = (registryId: string) => RegistryMeta | null;
+
 interface RenderOptions {
   resolveRegistry?: RegistryResolver;
+  resolveMeta?: MetaResolver;
 }
 
 function parseAttrs(attrs: string): Record<string, string> {
@@ -216,6 +224,30 @@ function parse(lines: string[]): Node[] {
   return nodes;
 }
 
+/** The same schema the controls & the props table use, as markdown. */
+function buildPropsTable(meta: RegistryMeta): string[] {
+  if (!meta.props?.length) return [];
+
+  const rows = meta.props.map((prop) => {
+    const type =
+      prop.type === "enum" && prop.values
+        ? prop.values.map((value) => `\`"${value}"\``).join(" \\| ")
+        : `\`${prop.type}\``;
+    const fallback =
+      prop.default === undefined ? "-" : `\`${JSON.stringify(prop.default)}\``;
+    // A pipe inside a cell would end the column early.
+    const description = (prop.description ?? "").replaceAll("|", "\\|");
+    return `| \`${prop.name}\` | ${type} | ${fallback} | ${description} |`;
+  });
+
+  return [
+    ...(meta.summary ? [meta.summary, ""] : []),
+    "| Prop | Type | Default | Description |",
+    "|------|------|---------|-------------|",
+    ...rows,
+  ];
+}
+
 function buildReferenceTable(category: Category, name: string): string[] {
   try {
     const getter = categoryGetters[category];
@@ -264,7 +296,15 @@ function renderComponent(
   if (attrs.registryId && options.resolveRegistry) {
     const source = options.resolveRegistry(attrs.registryId);
     if (!source) return [];
-    return fencedBlock(source, "tsx");
+
+    // The props table on the page is rendered from the schema by React, so it
+    // is invisible here. A reader of the `.md` would otherwise get the whole
+    // implementation and no statement of the API it exposes.
+    const meta = options.resolveMeta?.(attrs.registryId);
+    const table = meta ? buildPropsTable(meta) : [];
+    return table.length
+      ? [...fencedBlock(source, "tsx"), "", ...table]
+      : fencedBlock(source, "tsx");
   }
 
   const children = render(node.children, options, node.name === "Stepper");

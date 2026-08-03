@@ -2,57 +2,56 @@
 
 import { motion } from "motion/react";
 
-export default function SkeletonBase() {
+type Shape = "line" | "block" | "circle";
+type Tone = "default" | "subtle";
+
+// Plain lookups rather than cva: a copied component should not drag a class
+// utility into your package.json to do what an object literal already does.
+//
+// Each shape carries a default size so a bare <Skeleton /> is visible. Anything
+// you pass in className lands after these and wins.
+const SHAPES: Record<Shape, string> = {
+  line: "h-3 w-100% br-xs",
+  block: "h-8 w-24 br-lg",
+  circle: "w-10 h-10 br-9999",
+};
+
+const TONES: Record<Tone, string> = {
+  default: "bg-silver-2",
+  subtle: "bg-silver-1",
+};
+
+export interface SkeletonProps {
+  shape?: Shape;
+  tone?: Tone;
+  /** The pulse. Turn it off for a static placeholder. */
+  animate?: boolean;
+  /** Seconds to offset the pulse, so rows in a list do not beat in unison. */
+  delay?: number;
+  className?: string;
+}
+
+export default function Skeleton({
+  shape = "line",
+  tone = "default",
+  animate = true,
+  delay = 0,
+  className,
+}: SkeletonProps) {
+  const classes = [SHAPES[shape], TONES[tone], className]
+    .filter(Boolean)
+    .join(" ");
+
+  // A placeholder has nothing to announce. The region that swaps it for real
+  // content owns aria-busy; every bar reading itself out would be noise.
+  if (!animate) return <div aria-hidden className={classes} />;
+
   return (
-    <div className="d-f fd-c g-5 p-8 h-56">
-      <div className="d-f ai-c g-4">
-        <motion.div
-          animate={{ opacity: [0.5, 1, 0.5] }}
-          transition={{ duration: 1, repeat: Infinity }}
-          className="w-10 h-10 bg-silver-2 br-9999"
-        />
-        <div className="d-f fd-c g-2 fg-1">
-          <motion.div
-            animate={{ opacity: [0.5, 1, 0.5] }}
-            transition={{ duration: 1, repeat: Infinity }}
-            className="h-4 w-48 bg-silver-2 br-sm"
-          />
-          <motion.div
-            animate={{ opacity: [0.5, 1, 0.5] }}
-            transition={{ duration: 1, repeat: Infinity }}
-            className="h-3 w-32 bg-silver-1 br-xs"
-          />
-        </div>
-      </div>
-      <div className="d-f fd-c g-3">
-        <motion.div
-          animate={{ opacity: [0.5, 1, 0.5] }}
-          transition={{ duration: 1, repeat: Infinity }}
-          className="h-3 w-100% bg-silver-2 br-xs"
-        />
-        <motion.div
-          animate={{ opacity: [0.5, 1, 0.5] }}
-          transition={{ duration: 1, repeat: Infinity }}
-          className="h-3 w-80% bg-silver-2 br-xs"
-        />
-        <motion.div
-          animate={{ opacity: [0.5, 1, 0.5] }}
-          transition={{ duration: 1, repeat: Infinity }}
-          className="h-3 w-60% bg-silver-2 br-xs"
-        />
-      </div>
-      <div className="d-f g-3">
-        <motion.div
-          animate={{ opacity: [0.5, 1, 0.5] }}
-          transition={{ duration: 1, repeat: Infinity }}
-          className="h-8 w-20 bg-silver-2 br-lg"
-        />
-        <motion.div
-          animate={{ opacity: [0.5, 1, 0.5] }}
-          transition={{ duration: 1, repeat: Infinity }}
-          className="h-8 w-24 bg-silver-2 br-lg"
-        />
-      </div>
-    </div>
+    <motion.div
+      aria-hidden
+      animate={{ opacity: [0.5, 1, 0.5] }}
+      transition={{ duration: 1, repeat: Infinity, delay }}
+      className={classes}
+    />
   );
 }

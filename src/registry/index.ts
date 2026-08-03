@@ -473,20 +473,28 @@ export function getRegistryImport(id: string): RegistryImport | null {
 
 export interface RegistryProp {
   name: string;
-  type: "enum" | "boolean" | "string";
+  type: "enum" | "boolean" | "string" | "number";
   values?: string[];
-  default?: string | boolean;
+  default?: string | boolean | number;
+  /**
+   * A representative value for the demo, for a prop the component cannot
+   * sensibly default. `default` stays the truth the props table reports.
+   */
+  example?: string | boolean | number;
   description?: string;
 }
 
 export interface RegistryMeta {
   summary?: string;
   props: RegistryProp[];
-  examples?: { label: string; props: Record<string, unknown> }[];
+  /** Default text for components that take children. Absent means they do not. */
+  children?: string;
 }
 
 export const registryMeta = {
+  "avatar": () => import("./meta/avatar.json"),
   "button": () => import("./meta/button.json"),
+  "skeleton": () => import("./meta/skeleton.json"),
 } as const;
 
 export type MetaImport = () => Promise<{ default: RegistryMeta }>;

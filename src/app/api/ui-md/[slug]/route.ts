@@ -1,6 +1,9 @@
 import { allUis } from "content-collections";
 import { mdxToMarkdown } from "@/utils/mdx-markdown";
-import { resolveRegistrySource } from "@/utils/registry-source";
+import {
+  resolveRegistryMeta,
+  resolveRegistrySource,
+} from "@/utils/registry-source";
 
 export const dynamic = "force-dynamic";
 
@@ -14,6 +17,7 @@ function renderUiMarkdown(ui: {
   // reason an agent would read a UI page.
   const body = mdxToMarkdown(ui.content ?? "", {
     resolveRegistry: resolveRegistrySource,
+    resolveMeta: resolveRegistryMeta,
   });
 
   const lines = [`# ${ui.title}`, ""];
