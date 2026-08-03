@@ -1,4 +1,5 @@
 "use client";
+import { Button } from "@base-ui/react";
 import { Toggle } from "@base-ui/react/toggle";
 import type { ComponentType } from "react";
 import {
@@ -207,18 +208,26 @@ function Folded({ tokens }: { tokens: Token[] }) {
         : [...current, region],
     );
 
+  const write = (token: Token) => (
+    <span key={token.id} style={{ color: TOKEN_COLORS[token.kind] }}>
+      {token.text}
+    </span>
+  );
+
   for (let i = 0; i < tokens.length; i++) {
-    const token = tokens[i];
-    const region = token.fold;
+    const region = tokens[i].fold;
 
     if (!region) {
-      output.push(
-        <span key={token.id} style={{ color: TOKEN_COLORS[token.kind] }}>
-          {token.text}
-        </span>,
-      );
+      output.push(write(tokens[i]));
       continue;
     }
+
+    // Take the whole region in one go. Emitting the control per token is how it
+    // turned into a row of ellipses, and it left no path that rendered the body.
+    const body: Token[] = [];
+    while (i < tokens.length && tokens[i].fold === region)
+      body.push(tokens[i++]);
+    i--;
 
     const expanded = open.includes(region);
 
@@ -226,9 +235,8 @@ function Folded({ tokens }: { tokens: Token[] }) {
     // clicked to open is what you click to close. No frame and no fill: it is
     // punctuation that happens to be interactive.
     output.push(
-      <button
-        key={`${token.id}-fold`}
-        type="button"
+      <Button
+        key={`${region}-fold`}
         aria-expanded={expanded}
         aria-label={`${expanded ? "Collapse" : "Expand"} ${region}`}
         onClick={() => toggle(region)}
@@ -241,14 +249,10 @@ function Folded({ tokens }: { tokens: Token[] }) {
         }`}
       >
         ...
-      </button>,
+      </Button>,
     );
 
-    // Closed: skip the body the control stands in for. Open: fall through and
-    // let it render, with the control left in place as the way back.
-    if (!expanded) {
-      while (i + 1 < tokens.length && tokens[i + 1].fold === region) i++;
-    }
+    if (expanded) for (const token of body) output.push(write(token));
   }
 
   return <>{output}</>;
