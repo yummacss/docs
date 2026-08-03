@@ -200,10 +200,18 @@ function Folded({ tokens }: { tokens: Token[] }) {
   const [open, setOpen] = useState<string[]>([]);
   const output: React.ReactNode[] = [];
 
+  const toggle = (region: string) =>
+    setOpen((current) =>
+      current.includes(region)
+        ? current.filter((name) => name !== region)
+        : [...current, region],
+    );
+
   for (let i = 0; i < tokens.length; i++) {
     const token = tokens[i];
+    const region = token.fold;
 
-    if (!token.fold || open.includes(token.fold)) {
+    if (!region) {
       output.push(
         <span key={token.id} style={{ color: TOKEN_COLORS[token.kind] }}>
           {token.text}
@@ -212,22 +220,35 @@ function Folded({ tokens }: { tokens: Token[] }) {
       continue;
     }
 
-    // A closed region collapses to one control. Skip past the rest of it.
-    const region = token.fold;
-    while (i + 1 < tokens.length && tokens[i + 1].fold === region) i++;
+    const expanded = open.includes(region);
 
+    // The control sits at the region's origin in both states, so whatever you
+    // clicked to open is what you click to close. No frame and no fill: it is
+    // punctuation that happens to be interactive.
     output.push(
       <button
-        key={token.id}
+        key={`${token.id}-fold`}
         type="button"
-        aria-expanded={false}
-        aria-label={`Expand ${region}`}
-        onClick={() => setOpen((current) => [...current, region])}
-        className="d-if px-2 mx-1 bc-border bg-page c-white/50 bw-1 fs-xs ff-m va-m c-p h:c-white fv:oo-2 fv:oc-accent"
+        aria-expanded={expanded}
+        aria-label={`${expanded ? "Collapse" : "Expand"} ${region}`}
+        onClick={() => toggle(region)}
+        // A button does not inherit type, and `<code>` sets its own size, so
+        // without this the ellipsis is a slightly different monospace at a
+        // slightly different size from the code it sits inside.
+        style={{ font: "inherit" }}
+        className={`d-if p-0 bg-transparent bw-0 va-b c-p a-none fv:oo-2 fv:oc-accent ${
+          expanded ? "c-white/25 h:c-white/60" : "c-white/40 h:c-white"
+        }`}
       >
         ...
       </button>,
     );
+
+    // Closed: skip the body the control stands in for. Open: fall through and
+    // let it render, with the control left in place as the way back.
+    if (!expanded) {
+      while (i + 1 < tokens.length && tokens[i + 1].fold === region) i++;
+    }
   }
 
   return <>{output}</>;
