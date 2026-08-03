@@ -236,7 +236,6 @@ export const sidebarConfig = {
             "grid-row-end",
             "grid-row-span",
             "grid-row-start",
-            
             "grid-template-columns",
             "grid-template-rows",
             "place-content",
