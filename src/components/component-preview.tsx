@@ -180,13 +180,55 @@ function TokenBlock({
       </div>
       <pre className="ox-auto px-4 py-3 ff-m lh-5">
         <code>
-          {tokens.map((token) => (
-            <span key={token.id} style={{ color: TOKEN_COLORS[token.kind] }}>
-              {token.text}
-            </span>
-          ))}
+          <Folded tokens={tokens} />
         </code>
       </pre>
     </div>
   );
+}
+
+/**
+ * Renders the token stream with collapsible regions, the way an editor's gutter
+ * arrow collapses a block.
+ *
+ * Folding hides nothing: every token is still in the stream & the copy button
+ * takes the whole snippet regardless of what is open. It only keeps the shape of
+ * the code readable, so a four-item fixture does not push the element it feeds
+ * off the screen.
+ */
+function Folded({ tokens }: { tokens: Token[] }) {
+  const [open, setOpen] = useState<string[]>([]);
+  const output: React.ReactNode[] = [];
+
+  for (let i = 0; i < tokens.length; i++) {
+    const token = tokens[i];
+
+    if (!token.fold || open.includes(token.fold)) {
+      output.push(
+        <span key={token.id} style={{ color: TOKEN_COLORS[token.kind] }}>
+          {token.text}
+        </span>,
+      );
+      continue;
+    }
+
+    // A closed region collapses to one control. Skip past the rest of it.
+    const region = token.fold;
+    while (i + 1 < tokens.length && tokens[i + 1].fold === region) i++;
+
+    output.push(
+      <button
+        key={token.id}
+        type="button"
+        aria-expanded={false}
+        aria-label={`Expand ${region}`}
+        onClick={() => setOpen((current) => [...current, region])}
+        className="d-if px-2 mx-1 bc-border bg-page c-white/50 bw-1 fs-xs ff-m va-m c-p h:c-white fv:oo-2 fv:oc-accent"
+      >
+        ...
+      </button>,
+    );
+  }
+
+  return <>{output}</>;
 }

@@ -23,6 +23,12 @@ export interface Token {
   text: string;
   /** Tokens are positional, so identity is position. */
   id: string;
+  /**
+   * Name of the collapsible region this token belongs to, if any. Consecutive
+   * tokens sharing a name fold together, the way an editor's gutter arrow
+   * collapses a block.
+   */
+  fold?: string;
 }
 
 type Draft = Omit<Token, "id">;
@@ -245,24 +251,6 @@ export function buildUsage(
     return value !== prop.default;
   });
 
-  // Whatever the element references by name has to exist above it, or the
-  // snippet is one an editor underlines the moment it is pasted.
-  for (const prop of props) {
-    const value = values[prop.name];
-    if (typeof value !== "object" || value === null) continue;
-    tokens.push(
-      { kind: "keyword", text: "const" },
-      { kind: "text", text: " " },
-      { kind: "tag", text: prop.name },
-      { kind: "text", text: " " },
-      { kind: "operator", text: "=" },
-      { kind: "text", text: " " },
-      ...literal(value, ""),
-      { kind: "punctuation", text: ";" },
-      { kind: "text", text: "\n\n" },
-    );
-  }
-
   tokens.push({ kind: "punctuation", text: "<" }, { kind: "tag", text: name });
 
   for (const prop of props) {
@@ -274,22 +262,64 @@ export function buildUsage(
   // so the snippet matches how it is actually used.
   if (meta.children === undefined) {
     tokens.push({ kind: "punctuation", text: props.length ? "\n/>" : " />" });
-    return identify(tokens);
-  }
-
-  if (props.length) {
-    tokens.push({ kind: "punctuation", text: "\n>" });
-    tokens.push({ kind: "text", text: `\n  ${meta.children}\n` });
   } else {
+    if (props.length) {
+      tokens.push({ kind: "punctuation", text: "\n>" });
+      tokens.push({ kind: "text", text: `\n  ${meta.children}\n` });
+    } else {
+      tokens.push({ kind: "punctuation", text: ">" });
+      tokens.push({ kind: "text", text: meta.children });
+    }
+
+    tokens.push({ kind: "punctuation", text: "</" });
+    tokens.push({ kind: "tag", text: name });
     tokens.push({ kind: "punctuation", text: ">" });
-    tokens.push({ kind: "text", text: meta.children });
   }
 
-  tokens.push({ kind: "punctuation", text: "</" });
-  tokens.push({ kind: "tag", text: name });
-  tokens.push({ kind: "punctuation", text: ">" });
+  return identify([...tokens, ...declarations(props, values)]);
+}
 
-  return identify(tokens);
+/**
+ * Fixture data, below the element rather than above it.
+ *
+ * The component is what you came to read; the data is what it happens to be fed.
+ * Every registry file already puts its own fixtures last for the same reason,
+ * and it stays valid because the array is only evaluated when the component
+ * renders, not when the module loads.
+ *
+ * The body is marked foldable so the default view is one line, `const items =
+ * [ ... ];`. Folding hides nothing: the tokens are all still there & the copy
+ * button takes the whole snippet either way.
+ */
+function declarations(
+  props: RegistryProp[],
+  values: Record<string, unknown>,
+): Draft[] {
+  const tokens: Draft[] = [];
+
+  for (const prop of props) {
+    const value = values[prop.name];
+    if (typeof value !== "object" || value === null) continue;
+
+    const body = literal(value, "");
+    // Everything between the opening and closing bracket, which is what an
+    // editor's gutter arrow would collapse.
+    for (const token of body.slice(1, -1)) token.fold = prop.name;
+
+    tokens.push(
+      { kind: "text", text: "\n\n" },
+      { kind: "keyword", text: "const" },
+      { kind: "text", text: " " },
+      { kind: "tag", text: prop.name },
+      { kind: "text", text: " " },
+      { kind: "operator", text: "=" },
+      { kind: "text", text: " " },
+      ...body,
+      { kind: "punctuation", text: ";" },
+    );
+  }
+
+  return tokens;
 }
 
 export function tokensToText(tokens: Token[]): string {
