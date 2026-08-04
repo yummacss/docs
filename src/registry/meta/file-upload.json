@@ -1,0 +1,66 @@
+{
+  "summary": "A drop zone for files, in three shapes, dashed or solid, with an error state and an optional line for formats and limits.",
+  "props": [
+    {
+      "name": "label",
+      "type": "string",
+      "default": "Upload files",
+      "description": "The clickable part of the prompt, before \"or drag and drop\"."
+    },
+    {
+      "name": "hint",
+      "type": "string",
+      "default": "Drag and drop files here",
+      "description": "The quieter line under the prompt, for what this zone accepts."
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "A line outside the zone, for formats and limits. When `error` is set, say what went wrong here: the red border alone does not."
+    },
+    {
+      "name": "icon",
+      "type": "none",
+      "typeName": "ReactNode",
+      "description": "Replaces the cloud glyph in the tile. It is sized and coloured by the zone, so pass the glyph and nothing else."
+    },
+    {
+      "name": "shape",
+      "type": "enum",
+      "values": ["rounded", "square", "squircle"],
+      "default": "rounded",
+      "description": "Corner radius. `squircle` uses `corner-shape`, which degrades to a rounded square where that is unsupported."
+    },
+    {
+      "name": "shadow",
+      "type": "enum",
+      "values": ["none", "inset", "outset"],
+      "default": "none",
+      "description": "Depth on the icon tile, not on the zone: a drop target with a drop shadow reads as a card you cannot drop into."
+    },
+    {
+      "name": "border",
+      "type": "enum",
+      "values": ["dashed", "solid"],
+      "default": "dashed",
+      "description": "`dashed` is the drop-zone convention and carries the extra width it needs to read as one. `solid` is a heavier, more permanent box, so it stays thin."
+    },
+    {
+      "name": "error",
+      "type": "boolean",
+      "default": false,
+      "description": "Turns the border, tile and text red. Crosses with `border`, so a solid zone can be in error too."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "default": false,
+      "description": "Blocks interaction, dims the zone and fills it, so it reads as unavailable rather than merely empty."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "description": "Appended to the zone's classes, so any Yumma CSS utility you pass wins."
+    }
+  ]
+}
