@@ -1,0 +1,55 @@
+{
+  "summary": "A hover-triggered card, in three shapes with an optional shadow.",
+  "props": [
+    {
+      "name": "trigger",
+      "type": "none",
+      "typeName": "ReactNode",
+      "example": "John",
+      "description": "The inline content that opens the card on hover or focus."
+    },
+    {
+      "name": "defaultOpen",
+      "type": "boolean",
+      "default": false,
+      "description": "Starting state when you are not controlling it. Pair `open` with `onOpenChange` instead if you are."
+    },
+    {
+      "name": "open",
+      "type": "boolean",
+      "description": "Controlled state."
+    },
+    {
+      "name": "onOpenChange",
+      "type": "none",
+      "typeName": "(open: boolean) => void",
+      "description": "Called with the new state. Required for a controlled preview card."
+    },
+    {
+      "name": "shape",
+      "type": "enum",
+      "values": ["rounded", "square", "squircle"],
+      "default": "rounded",
+      "description": "Corner radius on the card. `squircle` uses `corner-shape`, which degrades to a rounded square where that is unsupported."
+    },
+    {
+      "name": "shadow",
+      "type": "enum",
+      "values": ["none", "inset", "outset"],
+      "default": "none",
+      "description": "Depth on the card. `inset` reads as a well, `outset` as a raised control."
+    },
+    {
+      "name": "animate",
+      "type": "boolean",
+      "default": true,
+      "description": "The card's fade in/out. Turn it off for an instant appearance, or when the user has asked for reduced motion."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "description": "Appended to the trigger's classes, so any Yumma CSS utility you pass wins."
+    }
+  ],
+  "children": "Card content goes here."
+}
