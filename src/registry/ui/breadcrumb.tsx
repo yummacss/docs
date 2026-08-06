@@ -1,23 +1,120 @@
 import { NavArrowRight } from "iconoir-react";
+import type { ReactNode } from "react";
 
-export default function BreadcrumbBase() {
+type Shape = "rounded" | "square" | "squircle";
+type Shadow = "none" | "inset" | "outset";
+type Size = "sm" | "md" | "lg";
+type Separator = "chevron" | "slash";
+
+const SIZES: Record<Size, string> = {
+  sm: "fs-xs",
+  md: "fs-sm",
+  lg: "fs-md",
+};
+
+const SHAPES: Record<Shape, string> = {
+  rounded: "br-lg",
+  square: "",
+  squircle: "br-xxl cs-s",
+};
+
+const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
+  inset: "bs-i-sm",
+  outset: "bs-o-xs",
+};
+
+export interface BreadcrumbItem {
+  /** Visible text, and the accessible name when `iconOnly` is set. */
+  label: string;
+  href?: string;
+  /** Leads the label on a link item, trails it on the current page. */
+  icon?: ReactNode;
+  /** Hides the visible label on a link item, keeping it as the accessible name. */
+  iconOnly?: boolean;
+}
+
+export interface BreadcrumbProps {
+  items: BreadcrumbItem[];
+  /** Wraps the trail in a bordered card. */
+  bordered?: boolean;
+  /** Only visible when `bordered` is set. */
+  shape?: Shape;
+  /** Only visible when `bordered` is set. */
+  shadow?: Shadow;
+  size?: Size;
+  separator?: Separator;
+  className?: string;
+}
+
+export default function BreadcrumbBase({
+  items,
+  bordered = false,
+  shape = "rounded",
+  shadow = "none",
+  size = "md",
+  separator = "chevron",
+  className,
+}: BreadcrumbProps) {
+  const navClasses = [
+    "d-f ai-c g-2",
+    bordered ? "px-3 py-2 bg-white bc-silver-2 bw-1" : "",
+    bordered ? SHAPES[shape] : "",
+    bordered && shadow !== "none" ? SHADOWS[shadow] : "",
+    className,
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  const labelClasses = [SIZES[size], "fw-400"].filter(Boolean).join(" ");
+  const currentClasses = [SIZES[size], "fw-500 c-indigo"]
+    .filter(Boolean)
+    .join(" ");
+
   return (
-    <nav aria-label="Breadcrumb" className="d-f ai-c g-2">
-      <a href="#" className="c-slate-6 h:c-slate-10 fv:oo-2 fv:oc-indigo-5">
-        <span className="fs-sm fw-400">Home</span>
-      </a>
-      <NavArrowRight className="w-4 h-4 c-slate-4" />
-      <a href="#" className="c-slate-6 h:c-slate-10 fv:oo-2 fv:oc-indigo-5">
-        <span className="fs-sm fw-400">Projects</span>
-      </a>
-      <NavArrowRight className="w-4 h-4 c-slate-4" />
-      <a href="#" className="c-slate-6 h:c-slate-10 fv:oo-2 fv:oc-indigo-5">
-        <span className="fs-sm fw-400">Team</span>
-      </a>
-      <NavArrowRight className="w-4 h-4 c-slate-4" />
-      <span className="c-indigo fs-sm fw-500" aria-current="page">
-        Board
-      </span>
+    <nav aria-label="Breadcrumb" className={navClasses}>
+      {items.map((item, index) => {
+        const isLast = index === items.length - 1;
+
+        const linkClasses = [
+          item.icon ? "d-f ai-c g-2" : "",
+          "c-slate-6 h:c-slate-10 fv:oo-2 fv:oc-indigo-5",
+        ]
+          .filter(Boolean)
+          .join(" ");
+
+        return (
+          <span key={item.label} className="d-f ai-c g-2">
+            {isLast ? (
+              <span
+                className={["d-f ai-c g-1", currentClasses].join(" ")}
+                aria-current="page"
+              >
+                {item.label}
+                {item.icon}
+              </span>
+            ) : (
+              <a
+                href={item.href ?? "#"}
+                className={linkClasses}
+                aria-label={item.iconOnly ? item.label : undefined}
+              >
+                {item.icon}
+                {!item.iconOnly && (
+                  <span className={labelClasses}>{item.label}</span>
+                )}
+              </a>
+            )}
+            {!isLast &&
+              (separator === "chevron" ? (
+                <NavArrowRight className="w-4 h-4 c-slate-4" />
+              ) : (
+                <span className="c-slate-4" aria-hidden="true">
+                  /
+                </span>
+              ))}
+          </span>
+        );
+      })}
     </nav>
   );
 }
