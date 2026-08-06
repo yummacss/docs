@@ -150,16 +150,6 @@ export const registry = {
   "toggle": () => import("./ui/toggle"),
   "toolbar-input": () => import("./ui/toolbar-input"),
   "toolbar": () => import("./ui/toolbar"),
-  "tooltip-arrow": () => import("./ui/tooltip-arrow"),
-  "tooltip-close": () => import("./ui/tooltip-close"),
-  "tooltip-color": () => import("./ui/tooltip-color"),
-  "tooltip-hover": () => import("./ui/tooltip-hover"),
-  "tooltip-inset": () => import("./ui/tooltip-inset"),
-  "tooltip-outset": () => import("./ui/tooltip-outset"),
-  "tooltip-placement": () => import("./ui/tooltip-placement"),
-  "tooltip-square": () => import("./ui/tooltip-square"),
-  "tooltip-squircle": () => import("./ui/tooltip-squircle"),
-  "tooltip-static": () => import("./ui/tooltip-static"),
   "tooltip": () => import("./ui/tooltip"),
 } as const;
 
@@ -243,6 +233,7 @@ export const registryMeta = {
   "textarea": () => import("./meta/textarea.json"),
   "toggle": () => import("./meta/toggle.json"),
   "toolbar": () => import("./meta/toolbar.json"),
+  "tooltip": () => import("./meta/tooltip.json"),
 } as const;
 
 export type MetaImport = () => Promise<{ default: RegistryMeta }>;
@@ -404,16 +395,6 @@ export const registryTargets: Record<string, RegistryTarget> = {
   "toggle": { component: "toggle", variant: "base" },
   "toolbar-input": { component: "toolbar", variant: "input" },
   "toolbar": { component: "toolbar", variant: "base" },
-  "tooltip-arrow": { component: "tooltip", variant: "arrow" },
-  "tooltip-close": { component: "tooltip", variant: "close" },
-  "tooltip-color": { component: "tooltip", variant: "color" },
-  "tooltip-hover": { component: "tooltip", variant: "hover" },
-  "tooltip-inset": { component: "tooltip", variant: "inset" },
-  "tooltip-outset": { component: "tooltip", variant: "outset" },
-  "tooltip-placement": { component: "tooltip", variant: "placement" },
-  "tooltip-square": { component: "tooltip", variant: "square" },
-  "tooltip-squircle": { component: "tooltip", variant: "squircle" },
-  "tooltip-static": { component: "tooltip", variant: "static" },
   "tooltip": { component: "tooltip", variant: "base" },
 };
 
