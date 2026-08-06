@@ -85,7 +85,9 @@ export default function TableOfContents() {
                 <EditPage />
                 <ViewMarkdown />
                 <Separator />
-                {currentUI?.primitive && <ApiReference />}
+                {currentUI?.primitive && (
+                  <ApiReference primitive={currentUI.primitive} />
+                )}
               </>
             )}
           </div>

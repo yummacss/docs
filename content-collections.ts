@@ -32,7 +32,7 @@ const ui = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string().optional(),
-    primitive: z.boolean().optional(),
+    primitive: z.union([z.boolean(), z.string()]).optional(),
     content: z.string().optional(),
   }),
   transform: (doc) => ({

@@ -4,6 +4,16 @@ import { PageStar } from "iconoir-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+interface ApiReferenceProps {
+  /**
+   * `true` derives the Base UI slug from the current page's own route, which
+   * only works when the two names match (Switch -> switch). Pass the real
+   * Base UI slug as a string when they diverge - Textarea is built on
+   * Field's `render` prop, not a "Textarea" primitive, which doesn't exist.
+   */
+  primitive: boolean | string;
+}
+
 /**
  * A link to the Base UI primitive this component is built on.
  *
@@ -13,12 +23,13 @@ import { usePathname } from "next/navigation";
  * you own it. The label says "Base UI primitive" rather than "API reference"
  * precisely so the two are not mistaken for each other.
  *
- * Rendered only for pages with `primitive: true` in their frontmatter.
+ * Rendered only for pages with `primitive` set in their frontmatter.
  */
-export default function ApiReference() {
+export default function ApiReference({ primitive }: ApiReferenceProps) {
   const pathname = usePathname();
-  let slug = pathname.replace(/^\/ui\/components\//, "");
-  slug = slug.replace(/^\/ui\//, "").replace(/\/$/, "");
+  let routeSlug = pathname.replace(/^\/ui\/components\//, "");
+  routeSlug = routeSlug.replace(/^\/ui\//, "").replace(/\/$/, "");
+  const slug = typeof primitive === "string" ? primitive : routeSlug;
   const url = `https://base-ui.com/react/components/${slug}#api-reference`;
 
   return (
