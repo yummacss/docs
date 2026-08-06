@@ -1,0 +1,58 @@
+{
+  "summary": "A two-state icon button, in three shapes, with an optional press animation.",
+  "props": [
+    {
+      "name": "icon",
+      "type": "none",
+      "typeName": "ReactNode",
+      "description": "Shown while not pressed."
+    },
+    {
+      "name": "pressedIcon",
+      "type": "none",
+      "typeName": "ReactNode",
+      "description": "Shown while pressed."
+    },
+    {
+      "name": "defaultPressed",
+      "type": "boolean",
+      "default": false,
+      "description": "Starting state when you are not controlling it. Pair `pressed` with `onPressedChange` instead if you are."
+    },
+    {
+      "name": "pressed",
+      "type": "boolean",
+      "description": "Controlled state."
+    },
+    {
+      "name": "onPressedChange",
+      "type": "none",
+      "typeName": "(pressed: boolean) => void",
+      "description": "Called with the new state. Required for a controlled toggle."
+    },
+    {
+      "name": "shape",
+      "type": "enum",
+      "values": ["rounded", "square", "squircle"],
+      "default": "rounded",
+      "description": "Corner radius. `squircle` uses `corner-shape`, which degrades to a rounded square where that is unsupported."
+    },
+    {
+      "name": "animate",
+      "type": "boolean",
+      "default": true,
+      "description": "The press-scale animation. Turn it off for an instant press, or when the user has asked for reduced motion."
+    },
+    {
+      "name": "aria-label",
+      "type": "string",
+      "example": "Toggle theme",
+      "description": "The button has no visible text, so this is the only accessible name it gets. Set it every time."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "description": "Appended to the button's classes, so any Yumma CSS utility you pass wins."
+    }
+  ]
+}

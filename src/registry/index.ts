@@ -310,9 +310,6 @@ export const registry = {
   "textarea": () => import("./ui/textarea"),
   "toggle-color-picker": () => import("./ui/toggle-color-picker"),
   "toggle-group": () => import("./ui/toggle-group"),
-  "toggle-square": () => import("./ui/toggle-square"),
-  "toggle-squircle": () => import("./ui/toggle-squircle"),
-  "toggle-static": () => import("./ui/toggle-static"),
   "toggle": () => import("./ui/toggle"),
   "toolbar-disabled": () => import("./ui/toolbar-disabled"),
   "toolbar-formatting": () => import("./ui/toolbar-formatting"),
@@ -391,6 +388,7 @@ export const registryMeta = {
   "slider": () => import("./meta/slider.json"),
   "switch": () => import("./meta/switch.json"),
   "textarea": () => import("./meta/textarea.json"),
+  "toggle": () => import("./meta/toggle.json"),
 } as const;
 
 export type MetaImport = () => Promise<{ default: RegistryMeta }>;
@@ -712,9 +710,6 @@ export const registryTargets: Record<string, RegistryTarget> = {
   "textarea": { component: "textarea", variant: "base" },
   "toggle-color-picker": { component: "toggle", variant: "color-picker" },
   "toggle-group": { component: "toggle", variant: "group" },
-  "toggle-square": { component: "toggle", variant: "square" },
-  "toggle-squircle": { component: "toggle", variant: "squircle" },
-  "toggle-static": { component: "toggle", variant: "static" },
   "toggle": { component: "toggle", variant: "base" },
   "toolbar-disabled": { component: "toolbar", variant: "disabled" },
   "toolbar-formatting": { component: "toolbar", variant: "formatting" },
