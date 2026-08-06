@@ -1,0 +1,71 @@
+{
+  "summary": "A tab list with a sliding indicator, horizontal or vertical, in three sizes and four shapes, with optional icons, counters and panels.",
+  "props": [
+    {
+      "name": "items",
+      "type": "none",
+      "typeName": "TabItem[]",
+      "example": [
+        { "value": "subscriptions", "label": "Subscriptions" },
+        { "value": "invoices", "label": "Invoices" },
+        { "value": "payments", "label": "Payments" }
+      ],
+      "description": "Each tab's `value` and `label`, plus optional `icon`, `iconOnly`, `count`, `disabled` and `panel`. `label` stays the accessible name when `iconOnly` hides it."
+    },
+    {
+      "name": "defaultValue",
+      "type": "string",
+      "description": "The tab selected on first render. Falls back to the first item. Pair `value` with `onValueChange` instead if you are controlling it."
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "description": "Controlled selection."
+    },
+    {
+      "name": "onValueChange",
+      "type": "none",
+      "typeName": "(value: string) => void",
+      "description": "Called with the newly selected tab's `value`."
+    },
+    {
+      "name": "orientation",
+      "type": "enum",
+      "values": ["horizontal", "vertical"],
+      "default": "horizontal",
+      "description": "`vertical` stacks the tabs and sits any panels beside them rather than below."
+    },
+    {
+      "name": "size",
+      "type": "enum",
+      "values": ["sm", "md", "lg"],
+      "default": "md",
+      "description": "Tab padding and label size together."
+    },
+    {
+      "name": "shape",
+      "type": "enum",
+      "values": ["pill", "rounded", "square", "squircle"],
+      "default": "pill",
+      "description": "Corner radius on the list, the tabs and the indicator. The list takes one step more than the tabs inside it, so a tab's corner never pokes past the container's."
+    },
+    {
+      "name": "iconPosition",
+      "type": "enum",
+      "values": ["leading", "trailing"],
+      "default": "leading",
+      "description": "Which end of a tab its `icon` sits at. Ignored when `iconOnly` is set."
+    },
+    {
+      "name": "animate",
+      "type": "boolean",
+      "default": true,
+      "description": "The indicator's slide between tabs. Turn it off for an instant jump, or when the user has asked for reduced motion."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "description": "Appended to the root's classes, so any Yumma CSS utility you pass wins."
+    }
+  ]
+}

@@ -27,6 +27,8 @@ export default defineConfig({
     "ro-90",
     // Menu: same scanner gap again.
     "h-fc",
+    // Tabs: and again.
+    "tp-a",
   ],
   theme: {
     colors: {
