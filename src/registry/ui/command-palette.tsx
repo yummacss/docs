@@ -3,149 +3,223 @@
 import { Button } from "@base-ui/react/button";
 import { Combobox } from "@base-ui/react/combobox";
 import { Dialog } from "@base-ui/react/dialog";
-import {
-  Activity,
-  Folder,
-  OpenBook,
-  Page,
-  PagePlus,
-  PageSearch,
-  Search,
-  StatUp,
-  User,
-  Wrench,
-} from "iconoir-react";
+import { Search } from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
+import type { ReactNode } from "react";
 import { useState } from "react";
 
-export default function CommandPaletteBase() {
-  const [open, setOpen] = useState(false);
+type Shape = "rounded" | "square" | "squircle";
+type Shadow = "none" | "inset" | "outset";
+type IconPosition = "leading" | "trailing";
 
-  return (
-    <Dialog.Root open={open} onOpenChange={setOpen}>
-      <Dialog.Trigger
-        render={
-          <Button className="bg-white d-f ai-c g-2 px-3 py-2 bc-silver-2 c-slate-10 br-lg bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:oo-2 fv:oc-indigo-5" />
-        }
-      >
-        <Search className="w-4 h-4" />
-        <span>Commands</span>
-      </Dialog.Trigger>
-      <AnimatePresence>
-        {open && (
-          <Dialog.Portal keepMounted>
-            <Dialog.Backdrop
-              render={
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.2, ease: "easeOut" }}
-                />
-              }
-              className="p-f i-0 min-h-dvh bg-black/5 bf-b-xs"
-            />
-            <div className="d-f p-f i-0 ai-c jc-c">
-              <Dialog.Popup
-                render={
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
-                    transition={{ duration: 0.2, ease: "easeOut" }}
-                  />
-                }
-                className="o-h w-96 bg-white bc-silver-2 c-slate-12 br-xxl bw-1"
-                style={{ maxWidth: "90vw" }}
-              >
-                <Combobox.Root inline items={commandGroups} autoHighlight>
-                  <div className="d-f ai-c g-2 px-4 py-1">
-                    <Search className="fs-0 w-5 h-5 c-slate-4" />
-                    <Combobox.Input
-                      placeholder="Search commands..."
-                      autoFocus
-                      className="h-10 w-100% bg-transparent c-slate-10 fs-md"
-                    />
-                  </div>
-                  <div className="w-100% h-px bg-silver-2" />
-                  <div>
-                    <Combobox.List className="oy-auto max-h-72 py-1 ow-0">
-                      {(group: CommandGroup, groupIndex: number) => (
-                        <Combobox.Group key={group.label}>
-                          <div className="px-4 pt-2 pb-1 c-slate-5 fs-xs fw-500">
-                            {group.label}
-                          </div>
-                          {group.items.map((item) => (
-                            <Combobox.Item
-                              key={item.id}
-                              value={item.id}
-                              onClick={() => setOpen(false)}
-                              className={(state: { highlighted: boolean }) =>
-                                `d-f ai-c g-2 py-2 px-2 mx-2 fs-sm us-none c-p br-lg ${
-                                  state.highlighted
-                                    ? "bg-silver-2/50"
-                                    : "bg-transparent"
-                                }`
-                              }
-                            >
-                              <item.Icon className="fs-0 w-4 h-4 c-slate-5" />
-                              <span className="c-slate-10 fw-500">
-                                {item.label}
-                              </span>
-                            </Combobox.Item>
-                          ))}
-                          {groupIndex < commandGroups.length - 1 && (
-                            <div className="w-100% h-px my-1 bg-silver-2" />
-                          )}
-                        </Combobox.Group>
-                      )}
-                    </Combobox.List>
-                    <Combobox.Empty className="c-slate-6 fs-sm">
-                      <div className="py-8 px-4 ta-c fs-sm">
-                        No commands found.
-                      </div>
-                    </Combobox.Empty>
-                  </div>
-                </Combobox.Root>
-              </Dialog.Popup>
-            </div>
-          </Dialog.Portal>
-        )}
-      </AnimatePresence>
-    </Dialog.Root>
-  );
-}
+const POPUP_SHAPES: Record<Shape, string> = {
+  rounded: "br-xxl",
+  square: "",
+  squircle: "br-3xl cs-s",
+};
 
-interface CommandItem {
+const ITEM_SHAPES: Record<Shape, string> = {
+  rounded: "br-lg",
+  square: "",
+  squircle: "br-xxl cs-s",
+};
+
+const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
+  inset: "bs-i-sm",
+  outset: "bs-o-xs",
+};
+
+export interface CommandItem {
   id: string;
   label: string;
+  /** A second line under the label. */
+  description?: string;
+  /** Shown in a key cap at the far end, e.g. `"⌘K"`. */
   shortcut?: string;
-  Icon: React.ComponentType<{ className?: string }>;
+  icon?: ReactNode;
+  onSelect?: () => void;
 }
 
-interface CommandGroup {
+export interface CommandGroup {
   label: string;
   items: CommandItem[];
 }
 
-const commandGroups: CommandGroup[] = [
-  {
-    label: "Actions",
-    items: [
-      { id: "new-doc", label: "New doc", Icon: PagePlus },
-      { id: "drafts", label: "Drafts", Icon: Page },
-      { id: "templates", label: "Templates", Icon: Folder },
-    ],
-  },
-  {
-    label: "Pages",
-    items: [
-      { id: "knowledge-base", label: "Knowledge base", Icon: PageSearch },
-      { id: "published", label: "Published pages", Icon: OpenBook },
-      { id: "analytics", label: "Analytics", Icon: StatUp },
-      { id: "settings", label: "Settings", Icon: Wrench },
-      { id: "team-docs", label: "Team docs", Icon: User },
-      { id: "activity", label: "Activity", Icon: Activity },
-    ],
-  },
-];
+export interface CommandPaletteProps {
+  /** The trigger button's label. */
+  trigger: ReactNode;
+  groups: CommandGroup[];
+  placeholder?: string;
+  /** Shown when the query matches nothing. */
+  emptyMessage?: string;
+  /** Which end of an item its `icon` sits at. A `shortcut` always trails. */
+  iconPosition?: IconPosition;
+  shape?: Shape;
+  shadow?: Shadow;
+  /** The backdrop's fade and the popup's scale-in. */
+  animate?: boolean;
+  className?: string;
+}
+
+export default function CommandPaletteBase({
+  trigger,
+  groups,
+  placeholder = "Search commands...",
+  emptyMessage = "No commands found.",
+  iconPosition = "leading",
+  shape = "rounded",
+  shadow = "none",
+  animate = true,
+  className,
+}: CommandPaletteProps) {
+  const [open, setOpen] = useState(false);
+
+  const triggerClasses = [
+    "bg-white d-f ai-c g-2 px-3 py-2 bc-silver-2 c-slate-10 bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:oo-2 fv:oc-indigo-5",
+    ITEM_SHAPES[shape],
+    className,
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  const popupClasses = [
+    "o-h w-96 bg-white bc-silver-2 c-slate-12 bw-1",
+    POPUP_SHAPES[shape],
+    shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  const itemClasses = (spread: boolean) => (state: { highlighted: boolean }) =>
+    [
+      "d-f ai-c g-2 py-2 px-2 mx-2 fs-sm us-none c-p",
+      spread ? "jc-sb" : "",
+      ITEM_SHAPES[shape],
+      state.highlighted ? "bg-silver-2/50" : "bg-transparent",
+    ]
+      .filter(Boolean)
+      .join(" ");
+
+  const popup = (
+    <Dialog.Portal keepMounted>
+      <Dialog.Backdrop
+        render={
+          animate ? (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+            />
+          ) : undefined
+        }
+        className="p-f i-0 min-h-dvh bg-black/5 bf-b-xs"
+      />
+      <div className="d-f p-f i-0 ai-c jc-c">
+        <Dialog.Popup
+          render={
+            animate ? (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.2, ease: "easeOut" }}
+              />
+            ) : undefined
+          }
+          className={popupClasses}
+          style={{ maxWidth: "90vw" }}
+        >
+          <Combobox.Root inline items={groups} autoHighlight>
+            <div className="d-f ai-c g-2 px-4 py-1">
+              <Search className="fs-0 w-5 h-5 c-slate-4" />
+              <Combobox.Input
+                placeholder={placeholder}
+                autoFocus
+                className="h-10 w-100% bg-transparent c-slate-10 fs-md"
+              />
+            </div>
+            <div className="w-100% h-px bg-silver-2" />
+            <div>
+              <Combobox.List className="oy-auto max-h-72 py-1 ow-0">
+                {(group: CommandGroup, groupIndex: number) => (
+                  <Combobox.Group key={group.label}>
+                    <div className="px-4 pt-2 pb-1 c-slate-5 fs-xs fw-500">
+                      {group.label}
+                    </div>
+                    {group.items.map((item) => {
+                      const trailing =
+                        Boolean(item.shortcut) ||
+                        (Boolean(item.icon) && iconPosition === "trailing");
+
+                      return (
+                        <Combobox.Item
+                          key={item.id}
+                          value={item.id}
+                          onClick={() => {
+                            item.onSelect?.();
+                            setOpen(false);
+                          }}
+                          className={itemClasses(trailing)}
+                        >
+                          {item.icon && iconPosition === "leading" && (
+                            <span className="d-f fs-0 c-slate-5">
+                              {item.icon}
+                            </span>
+                          )}
+
+                          <span className="d-f fd-c fg-1">
+                            <span className="c-slate-10 fw-500">
+                              {item.label}
+                            </span>
+                            {item.description && (
+                              <span className="c-slate-5 fs-xs">
+                                {item.description}
+                              </span>
+                            )}
+                          </span>
+
+                          {item.icon && iconPosition === "trailing" && (
+                            <span className="d-f fs-0 c-slate-5">
+                              {item.icon}
+                            </span>
+                          )}
+                          {item.shortcut && (
+                            <span className="d-f ai-c g-1 px-1 py-1 ml-3 bc-silver-2 bw-1 c-slate-5 br-md fs-xs us-none">
+                              {item.shortcut}
+                            </span>
+                          )}
+                        </Combobox.Item>
+                      );
+                    })}
+                    {groupIndex < groups.length - 1 && (
+                      <div className="w-100% h-px my-1 bg-silver-2" />
+                    )}
+                  </Combobox.Group>
+                )}
+              </Combobox.List>
+              <Combobox.Empty className="c-slate-6 fs-sm">
+                <div className="py-8 px-4 ta-c fs-sm">{emptyMessage}</div>
+              </Combobox.Empty>
+            </div>
+          </Combobox.Root>
+        </Dialog.Popup>
+      </div>
+    </Dialog.Portal>
+  );
+
+  return (
+    <Dialog.Root open={open} onOpenChange={setOpen}>
+      <Dialog.Trigger render={<Button className={triggerClasses} />}>
+        <Search className="w-4 h-4" />
+        <span>{trigger}</span>
+      </Dialog.Trigger>
+
+      {animate ? (
+        <AnimatePresence>{open && popup}</AnimatePresence>
+      ) : (
+        open && popup
+      )}
+    </Dialog.Root>
+  );
+}

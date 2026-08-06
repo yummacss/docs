@@ -1,0 +1,80 @@
+{
+  "summary": "A searchable command dialog, grouped, with optional per-item descriptions, shortcuts and icons.",
+  "props": [
+    {
+      "name": "trigger",
+      "type": "none",
+      "typeName": "ReactNode",
+      "example": "Commands",
+      "description": "The trigger button's label. A search glyph is always drawn beside it."
+    },
+    {
+      "name": "groups",
+      "type": "none",
+      "typeName": "CommandGroup[]",
+      "example": [
+        {
+          "label": "Actions",
+          "items": [
+            { "id": "new-doc", "label": "New doc", "shortcut": "N" },
+            { "id": "drafts", "label": "Drafts" },
+            { "id": "templates", "label": "Templates" }
+          ]
+        },
+        {
+          "label": "Pages",
+          "items": [
+            { "id": "knowledge-base", "label": "Knowledge base" },
+            { "id": "analytics", "label": "Analytics" },
+            { "id": "settings", "label": "Settings" }
+          ]
+        }
+      ],
+      "description": "Each group's `label` and its `items`. An item takes `id`, `label`, and optional `description`, `shortcut`, `icon` and `onSelect`. A divider is drawn between groups automatically."
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "default": "Search commands...",
+      "description": "The search input's placeholder."
+    },
+    {
+      "name": "emptyMessage",
+      "type": "string",
+      "default": "No commands found.",
+      "description": "Shown when the query matches nothing."
+    },
+    {
+      "name": "iconPosition",
+      "type": "enum",
+      "values": ["leading", "trailing"],
+      "default": "leading",
+      "description": "Which end of an item its `icon` sits at. A `shortcut` always trails regardless."
+    },
+    {
+      "name": "shape",
+      "type": "enum",
+      "values": ["rounded", "square", "squircle"],
+      "default": "rounded",
+      "description": "Corner radius on the trigger, the popup and its items."
+    },
+    {
+      "name": "shadow",
+      "type": "enum",
+      "values": ["none", "inset", "outset"],
+      "default": "none",
+      "description": "Depth on the popup."
+    },
+    {
+      "name": "animate",
+      "type": "boolean",
+      "default": true,
+      "description": "The backdrop's fade and the popup's scale-in. Turn it off for an instant palette, or when the user has asked for reduced motion."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "description": "Appended to the trigger's classes, so any Yumma CSS utility you pass wins."
+    }
+  ]
+}
