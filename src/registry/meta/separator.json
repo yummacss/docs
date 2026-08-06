@@ -1,0 +1,36 @@
+{
+  "summary": "A horizontal divider, plain, or with a clickable icon or a text label in the middle.",
+  "props": [
+    {
+      "name": "icon",
+      "type": "none",
+      "typeName": "ReactNode",
+      "description": "Renders as a clickable button in the middle, sized & shaped to match. Wins over `label` if both are set."
+    },
+    {
+      "name": "onIconClick",
+      "type": "none",
+      "typeName": "() => void",
+      "description": "Called when the icon button is pressed."
+    },
+    {
+      "name": "label",
+      "type": "none",
+      "typeName": "ReactNode",
+      "example": "or",
+      "description": "Renders as plain text in the middle. Ignored if `icon` is set."
+    },
+    {
+      "name": "shape",
+      "type": "enum",
+      "values": ["rounded", "square", "squircle", "circle"],
+      "default": "rounded",
+      "description": "Corner radius on the icon button. Only visible alongside `icon`."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "description": "Appended to the separator's (or wrapper's, when `icon`/`label` is set) classes, so any Yumma CSS utility you pass wins."
+    }
+  ]
+}
