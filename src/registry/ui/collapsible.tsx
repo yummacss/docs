@@ -1,78 +1,190 @@
 "use client";
 
 import { Collapsible } from "@base-ui/react/collapsible";
-import {
-  Circle,
-  DoubleCheck,
-  NavArrowRight,
-  SystemRestart,
-} from "iconoir-react";
+import { Lock, Minus, NavArrowRight, Plus } from "iconoir-react";
 import { type HTMLMotionProps, motion } from "motion/react";
+import type { ReactNode } from "react";
 import { useState } from "react";
 
-export default function CollapsibleBase() {
-  const [open, setOpen] = useState(false);
+// No demo ever showed a rounded trigger - the undecorated default has no
+// radius at all, so "square" (not "rounded") is the real baseline here.
+type Shape = "square" | "squircle";
+type Icon = "chevron" | "plus-minus";
+type IconPosition = "leading" | "trailing";
+
+const SHAPES: Record<Shape, string> = {
+  square: "",
+  squircle: "br-xxl cs-s",
+};
+
+export interface CollapsibleProps {
+  /** The trigger's label. */
+  trigger: ReactNode;
+  /** The panel's content. */
+  children: ReactNode;
+  defaultOpen?: boolean;
+  open?: boolean;
+  onOpenChange?: (open: boolean) => void;
+  /** Locks the panel open, replaces the icon with a lock & blocks toggling. */
+  disabled?: boolean;
+  shape?: Shape;
+  icon?: Icon;
+  iconPosition?: IconPosition;
+  /** The icon's rotation & the panel's height/opacity animation. */
+  animate?: boolean;
+  className?: string;
+}
+
+export default function CollapsibleBase({
+  trigger,
+  children,
+  defaultOpen,
+  open: controlledOpen,
+  onOpenChange,
+  disabled = false,
+  shape = "square",
+  icon = "chevron",
+  iconPosition = "trailing",
+  animate = true,
+  className,
+}: CollapsibleProps) {
+  const [internalOpen, setInternalOpen] = useState(
+    defaultOpen ?? controlledOpen ?? false,
+  );
+  const open = controlledOpen ?? internalOpen;
+
+  const handleOpenChange = (next: boolean) => {
+    setInternalOpen(next);
+    onOpenChange?.(next);
+  };
+
+  const rootClasses = [
+    "d-f fd-c w-72 c-slate-10",
+    disabled ? "o-60 c-na" : "",
+    className,
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  const triggerClasses = [
+    "d-f ai-c jc-sb g-3 w-100% py-3 px-3 bg-white bc-silver-3 bbw-1 ta-l",
+    SHAPES[shape],
+    disabled ? "" : "c-p fv:oo-1 fv:oc-indigo-5",
+    !animate && !disabled ? "h:bg-silver-1/50" : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  const panelContentClasses = "d-f fd-c px-3 py-2 bg-white";
+
+  const glyph = disabled ? (
+    <Lock className="w-3 h-3 c-slate-5" />
+  ) : icon === "chevron" ? (
+    <ChevronGlyph open={open} animate={animate} />
+  ) : (
+    <PlusMinusGlyph open={open} animate={animate} />
+  );
 
   return (
     <Collapsible.Root
       open={open}
-      onOpenChange={setOpen}
-      className="d-f fd-c w-72 c-slate-10"
+      onOpenChange={handleOpenChange}
+      disabled={disabled}
+      className={rootClasses}
     >
-      <Collapsible.Trigger className="d-f ai-c jc-sb g-3 w-100% py-3 px-3 bg-white bc-silver-3 bbw-1 ta-l c-p fv:oo-1 fv:oc-indigo-5">
-        <span className="c-slate-8 fs-sm fw-500">Implement user dashboard</span>
-        <motion.span
-          animate={{ rotate: open ? 90 : 0 }}
-          transition={{ duration: 0.15, ease: "easeOut" }}
-          className="d-f"
-        >
-          <NavArrowRight className="w-4 h-4 c-slate-5" />
-        </motion.span>
+      <Collapsible.Trigger className={triggerClasses}>
+        {iconPosition === "leading" && !disabled && glyph}
+        <span className="c-slate-8 fs-sm fw-500">{trigger}</span>
+        {(iconPosition === "trailing" || disabled) && glyph}
       </Collapsible.Trigger>
 
-      <Collapsible.Panel
-        keepMounted
-        render={(props) => (
-          <motion.div
-            {...(props as HTMLMotionProps<"div">)}
-            initial={false}
-            animate={
-              open ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }
-            }
-            transition={{ duration: 0.2, ease: "easeOut" }}
-            className="d-b o-h"
-          />
-        )}
-      >
-        <div className="d-f fd-c px-3 py-2 bg-white">
-          {tasks.map((task) => (
-            <div key={task.id} className="d-f ai-c g-2 py-2">
-              {task.status === "done" ? (
-                <DoubleCheck className="w-4 h-4 c-mint" />
-              ) : task.status === "in-progress" ? (
-                <SystemRestart className="w-4 h-4 c-yellow" />
-              ) : (
-                <Circle className="w-4 h-4 c-slate-4" />
-              )}
-              <span
-                className={`fs-sm ${
-                  task.status === "done" ? "c-slate-5 tdl-lt" : "c-slate-8"
-                }`}
-              >
-                {task.name}
-              </span>
-            </div>
-          ))}
-        </div>
-      </Collapsible.Panel>
+      {disabled ? (
+        <Collapsible.Panel keepMounted className="d-b o-h h-auto">
+          <div className={panelContentClasses}>{children}</div>
+        </Collapsible.Panel>
+      ) : animate ? (
+        <Collapsible.Panel
+          keepMounted
+          render={(props) => (
+            <motion.div
+              {...(props as HTMLMotionProps<"div">)}
+              initial={false}
+              animate={
+                open
+                  ? { height: "auto", opacity: 1 }
+                  : { height: 0, opacity: 0 }
+              }
+              transition={{ duration: 0.2, ease: "easeOut" }}
+              className="d-b o-h"
+            />
+          )}
+        >
+          <div className={panelContentClasses}>{children}</div>
+        </Collapsible.Panel>
+      ) : (
+        <Collapsible.Panel
+          className={[
+            "d-b o-h tp-a tdu-200 ttf-io",
+            open ? "h-auto o-100" : "h-0 o-0",
+          ].join(" ")}
+        >
+          <div className={panelContentClasses}>{children}</div>
+        </Collapsible.Panel>
+      )}
     </Collapsible.Root>
   );
 }
 
-const tasks = [
-  { id: 1, name: "Design wireframes", status: "done" },
-  { id: 2, name: "Set up API routes", status: "done" },
-  { id: 3, name: "Build chart component", status: "in-progress" },
-  { id: 4, name: "Write integration tests", status: "todo" },
-  { id: 5, name: "Deploy to staging", status: "todo" },
-];
+function ChevronGlyph({ open, animate }: { open: boolean; animate: boolean }) {
+  if (!animate) {
+    return (
+      <NavArrowRight
+        className={[
+          "w-4 h-4 c-slate-5 tp-t tdu-150 ttf-io",
+          open ? "ro-90" : "ro-0",
+        ]
+          .filter(Boolean)
+          .join(" ")}
+      />
+    );
+  }
+
+  return (
+    <motion.span
+      animate={{ rotate: open ? 90 : 0 }}
+      transition={{ duration: 0.15, ease: "easeOut" }}
+      className="d-f"
+    >
+      <NavArrowRight className="w-4 h-4 c-slate-5" />
+    </motion.span>
+  );
+}
+
+function PlusMinusGlyph({
+  open,
+  animate,
+}: {
+  open: boolean;
+  animate: boolean;
+}) {
+  const icon = open ? (
+    <Minus className="w-4 h-4 c-slate-5" aria-hidden />
+  ) : (
+    <Plus className="w-4 h-4 c-slate-5" aria-hidden />
+  );
+
+  if (!animate) {
+    return icon;
+  }
+
+  return (
+    <motion.span
+      initial={false}
+      animate={{ rotate: open ? 90 : 0 }}
+      transition={{ duration: 0.15, ease: "easeInOut" }}
+      className="d-f"
+    >
+      {icon}
+    </motion.span>
+  );
+}

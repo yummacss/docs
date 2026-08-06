@@ -21,6 +21,10 @@ export default defineConfig({
     "c-indigo-6",
     "c-indigo-9",
     "ro-36",
+    // Collapsible: same scanner gap, different file - see NOTES.md.
+    "o-100",
+    "tp-t",
+    "ro-90",
   ],
   theme: {
     colors: {
