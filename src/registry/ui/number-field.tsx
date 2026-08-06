@@ -2,27 +2,139 @@
 
 import { NumberField } from "@base-ui/react/number-field";
 import { Minus, Plus } from "iconoir-react";
+import type { ComponentProps } from "react";
 import { useId } from "react";
 
-export default function NumberFieldBase() {
+type Size = "sm" | "md" | "lg";
+type Shape = "rounded" | "square" | "squircle";
+type Shadow = "none" | "inset" | "outset";
+
+// Plain lookups rather than cva: a copied component should not drag a class
+// utility into your package.json to do what an object literal already does.
+const BUTTON =
+  "d-f ai-c jc-c bg-white bc-silver-3 c-slate-10 byw-1 us-none c-p h:bg-silver-1/50 a:bg-silver-2";
+
+const BUTTON_SIZES: Record<Size, string> = {
+  sm: "w-8 h-8",
+  md: "w-10 h-10",
+  lg: "w-12 h-12",
+};
+
+const INPUT_SIZES: Record<Size, string> = {
+  sm: "h-8 w-28 fs-sm",
+  md: "h-10 w-32 fs-md",
+  lg: "h-12 w-36 fs-lg",
+};
+
+const ICON_SIZES: Record<Size, string> = {
+  sm: "w-3 h-3",
+  md: "w-3 h-3",
+  lg: "w-4 h-4",
+};
+
+// Only the group's outer edges take a shape - the two buttons meet the input
+// with no seam between them, so a middle radius would never be seen.
+const DECREMENT_SHAPES: Record<Shape, string> = {
+  rounded: "blr-lg",
+  square: "",
+  squircle: "blr-xxl cs-s",
+};
+
+const INCREMENT_SHAPES: Record<Shape, string> = {
+  rounded: "brr-lg",
+  square: "",
+  squircle: "brr-xxl cs-s",
+};
+
+const SHADOWS: Record<Shadow, string> = {
+  none: "",
+  inset: "bs-i-sm",
+  outset: "bs-o-xs",
+};
+
+export interface NumberFieldProps
+  extends Omit<ComponentProps<typeof NumberField.Root>, "className" | "id"> {
+  label?: string;
+  /** Appends a red asterisk to the label & sets the input's native `required` attribute. */
+  required?: boolean;
+  /** A line under the control, for context on what the number means. */
+  description?: string;
+  size?: Size;
+  shape?: Shape;
+  shadow?: Shadow;
+  /** Appended to the input's classes, so any Yumma CSS utility you pass wins. */
+  className?: string;
+}
+
+export default function NumberFieldBase({
+  label,
+  required = false,
+  description,
+  size = "md",
+  shape = "rounded",
+  shadow = "none",
+  disabled = false,
+  className,
+  ...props
+}: NumberFieldProps) {
   const id = useId();
+
+  const decrementClasses = [
+    BUTTON,
+    BUTTON_SIZES[size],
+    "blw-1",
+    DECREMENT_SHAPES[shape],
+    SHADOWS[shadow],
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  const incrementClasses = [
+    BUTTON,
+    BUTTON_SIZES[size],
+    "brw-1",
+    INCREMENT_SHAPES[shape],
+    SHADOWS[shadow],
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  const inputClasses = [
+    "bg-white bc-silver-3 c-slate-10 byw-1 ta-c",
+    INPUT_SIZES[size],
+    SHADOWS[shadow],
+    className,
+  ]
+    .filter(Boolean)
+    .join(" ");
+
   return (
-    <NumberField.Root id={id} defaultValue={4} className="d-f fd-c ai-fs g-2">
-      <NumberField.ScrubArea className="c-er">
-        <label htmlFor={id} className="c-slate-10 fs-sm fw-500 c-er">
-          Quantity
-        </label>
-      </NumberField.ScrubArea>
+    <NumberField.Root
+      id={id}
+      disabled={disabled}
+      className={`d-f fd-c ai-fs g-2 ${disabled ? "o-60 c-na" : ""}`}
+      {...props}
+    >
+      {label && (
+        <NumberField.ScrubArea className="c-er">
+          <label htmlFor={id} className="c-slate-10 fs-sm fw-500 c-er">
+            {label}
+            {required && <span className="c-red-5"> *</span>}
+          </label>
+        </NumberField.ScrubArea>
+      )}
 
       <NumberField.Group className="d-f fw:oo--1 fw:oc-indigo-5">
-        <NumberField.Decrement className="d-f ai-c jc-c w-10 h-10 bg-white bc-silver-3 c-slate-10 blr-lg byw-1 blw-1 us-none c-p h:bg-silver-1/50 a:bg-silver-2">
-          <Minus className="w-3 h-3" />
+        <NumberField.Decrement className={decrementClasses}>
+          <Minus className={ICON_SIZES[size]} />
         </NumberField.Decrement>
-        <NumberField.Input className="h-10 w-32 bg-white bc-silver-3 c-slate-10 byw-1 ta-c fs-md" />
-        <NumberField.Increment className="d-f ai-c jc-c w-10 h-10 bg-white bc-silver-3 c-slate-10 brr-lg byw-1 brw-1 us-none c-p h:bg-silver-1/50 a:bg-silver-2">
-          <Plus className="w-3 h-3" />
+        <NumberField.Input required={required} className={inputClasses} />
+        <NumberField.Increment className={incrementClasses}>
+          <Plus className={ICON_SIZES[size]} />
         </NumberField.Increment>
       </NumberField.Group>
+
+      {description && <p className="m-0 c-slate-6 fs-xs">{description}</p>}
     </NumberField.Root>
   );
 }
