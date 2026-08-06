@@ -3,127 +3,276 @@
 import { Toggle } from "@base-ui/react/toggle";
 import { ToggleGroup } from "@base-ui/react/toggle-group";
 import { Toolbar } from "@base-ui/react/toolbar";
-import { KanbanBoard, List, Plus, Sort, Table, Wrench } from "iconoir-react";
-import { motion } from "motion/react";
 import type { HTMLMotionProps } from "motion/react";
+import { motion } from "motion/react";
+import type { ReactNode } from "react";
 import { useState } from "react";
 
-export default function ToolbarBase() {
-  const [view, setView] = useState<string[]>(["grid"]);
+type Shape = "rounded" | "square" | "squircle";
+type Shadow = "none" | "inset" | "outset";
+
+const ROOT_SHAPES: Record<Shape, string> = {
+  rounded: "br-xxl",
+  square: "",
+  squircle: "br-3xl cs-s",
+};
+
+const CONTROL_SHAPES: Record<Shape, string> = {
+  rounded: "br-lg",
+  square: "",
+  squircle: "br-xxl cs-s",
+};
+
+const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
+  inset: "bs-i-sm",
+  outset: "bs-o-xs",
+};
+
+export interface ToolbarButtonItem {
+  type?: "button";
+  label?: string;
+  icon?: ReactNode;
+  /** Square button showing only the icon. `label` becomes its `aria-label`. */
+  iconOnly?: boolean;
+  disabled?: boolean;
+  onClick?: () => void;
+}
+
+export interface ToolbarSeparatorItem {
+  type: "separator";
+}
+
+export interface ToolbarToggleOption {
+  value: string;
+  /** The toggle's `aria-label` - these are always icon-only. */
+  label: string;
+  icon: ReactNode;
+}
+
+export interface ToolbarTogglesItem {
+  type: "toggles";
+  options: ToolbarToggleOption[];
+  value?: string[];
+  defaultValue?: string[];
+  onValueChange?: (value: string[]) => void;
+  /** Names the group for assistive tech. */
+  label?: string;
+}
+
+export interface ToolbarInputItem {
+  type: "input";
+  placeholder?: string;
+  /** The input has no visible label, so this is its only accessible name. */
+  label: string;
+}
+
+export interface ToolbarLinkItem {
+  type: "link";
+  label: string;
+  href: string;
+  icon?: ReactNode;
+}
+
+export type ToolbarItem =
+  | ToolbarButtonItem
+  | ToolbarSeparatorItem
+  | ToolbarTogglesItem
+  | ToolbarInputItem
+  | ToolbarLinkItem;
+
+export interface ToolbarProps {
+  items: ToolbarItem[];
+  shape?: Shape;
+  shadow?: Shadow;
+  /** The press-scale on buttons and toggles. */
+  animate?: boolean;
+  className?: string;
+}
+
+export default function ToolbarBase({
+  items,
+  shape = "rounded",
+  shadow = "none",
+  animate = true,
+  className,
+}: ToolbarProps) {
+  const shadowClass =
+    shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "";
+
+  const rootClasses = [
+    "d-f ai-c g-1 p-2 bg-white bc-silver-2 bw-1",
+    ROOT_SHAPES[shape],
+    shadowClass,
+    className,
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  const control = CONTROL_SHAPES[shape];
 
   return (
-    <Toolbar.Root className="d-f ai-c g-1 p-2 bg-white bc-silver-2 br-xxl bw-1">
-      <ToggleGroup
-        className="d-f g-1"
-        value={view}
-        onValueChange={(v) => setView(v)}
-        aria-label="View"
-      >
-        <Toggle
-          value="grid"
-          aria-label="Grid"
-          render={(props, state) => (
-            <motion.button
-              type="button"
-              {...(props as HTMLMotionProps<"button">)}
-              whileTap={{ scale: 0.92 }}
-              className={`d-f w-9 h-9 ai-c jc-c bw-0 br-lg us-none c-p fv:oo-2 fv:oc-indigo-3 ${
-                state.pressed
-                  ? "bg-indigo-1 bc-indigo-2 c-indigo-7 bw-1"
-                  : "bg-transparent c-slate-7 h:bg-silver-1 h:c-slate-10"
-              }`}
+    <Toolbar.Root className={rootClasses}>
+      {items.map((item, index) => {
+        const key = `item-${index}`;
+
+        if ("type" in item && item.type === "separator") {
+          return (
+            <Toolbar.Separator
+              key={key}
+              className="w-px h-5 mx-1 bg-silver-2"
+            />
+          );
+        }
+
+        if ("type" in item && item.type === "toggles") {
+          return (
+            <ToolbarToggles
+              key={key}
+              item={item}
+              control={control}
+              animate={animate}
+            />
+          );
+        }
+
+        if ("type" in item && item.type === "input") {
+          return (
+            <Toolbar.Input
+              key={key}
+              className={[
+                "h-9 w-40 pl-3 bg-transparent bw-0 fs-sm fv:oo-2 fv:oc-indigo-3",
+                control,
+              ]
+                .filter(Boolean)
+                .join(" ")}
+              placeholder={item.placeholder}
+              aria-label={item.label}
+            />
+          );
+        }
+
+        if ("type" in item && item.type === "link") {
+          return (
+            <Toolbar.Link
+              key={key}
+              href={item.href}
+              className={[
+                "d-f ai-c g-1 h-9 px-3 c-slate-7 fs-sm fw-500 td-none h:c-slate-10 fv:oo-2 fv:oc-indigo-3",
+                control,
+              ]
+                .filter(Boolean)
+                .join(" ")}
             >
-              <Table className="w-5 h-5" />
-            </motion.button>
-          )}
-        />
-        <Toggle
-          value="list"
-          aria-label="List"
-          render={(props, state) => (
-            <motion.button
-              type="button"
-              {...(props as HTMLMotionProps<"button">)}
-              whileTap={{ scale: 0.92 }}
-              className={`d-f w-9 h-9 ai-c jc-c bw-0 br-lg us-none c-p fv:oo-2 fv:oc-indigo-3 ${
-                state.pressed
-                  ? "bg-indigo-1 bc-indigo-2 c-indigo-7 bw-1"
-                  : "bg-transparent c-slate-7 h:bg-silver-1 h:c-slate-10"
-              }`}
-            >
-              <List className="w-5 h-5" />
-            </motion.button>
-          )}
-        />
-        <Toggle
-          value="kanban"
-          aria-label="Kanban"
-          render={(props, state) => (
-            <motion.button
-              type="button"
-              {...(props as HTMLMotionProps<"button">)}
-              whileTap={{ scale: 0.92 }}
-              className={`d-f w-9 h-9 ai-c jc-c bw-0 br-lg us-none c-p fv:oo-2 fv:oc-indigo-3 ${
-                state.pressed
-                  ? "bg-indigo-1 bc-indigo-2 c-indigo-7 bw-1"
-                  : "bg-transparent c-slate-7 h:bg-silver-1 h:c-slate-10"
-              }`}
-            >
-              <KanbanBoard className="w-5 h-5" />
-            </motion.button>
-          )}
-        />
-      </ToggleGroup>
+              {item.icon}
+              {item.label}
+            </Toolbar.Link>
+          );
+        }
 
-      <Toolbar.Separator className="w-px h-5 mx-1 bg-silver-2" />
+        const button = item as ToolbarButtonItem;
+        const buttonClasses = [
+          "d-f ai-c jc-c bg-transparent c-slate-7 bw-0 us-none fv:oo-2 fv:oc-indigo-5",
+          button.iconOnly ? "w-9 h-9" : "g-1 h-9 px-3 fs-sm fw-500",
+          control,
+          button.disabled ? "o-60 c-na" : "c-p h:bg-silver-1 h:c-slate-10",
+        ]
+          .filter(Boolean)
+          .join(" ");
 
-      <Toolbar.Button
-        render={(props) => (
-          <motion.button
-            type="button"
-            {...(props as HTMLMotionProps<"button">)}
-            whileTap={{ scale: 0.92 }}
-            className="d-f ai-c g-1 jc-c h-9 px-3 bg-transparent c-slate-7 br-lg bw-0 fs-sm fw-500 us-none c-p h:bg-silver-1 h:c-slate-10 fv:oo-2 fv:oc-indigo-5"
-          />
-        )}
-      >
-        <Plus className="w-5 h-5" />
-        New Task
-      </Toolbar.Button>
-      <Toolbar.Button
-        render={(props) => (
-          <motion.button
-            type="button"
-            {...(props as HTMLMotionProps<"button">)}
-            whileTap={{ scale: 0.92 }}
-            className="d-f ai-c g-1 jc-c h-9 px-3 bg-transparent c-slate-7 br-lg bw-0 fs-sm fw-500 us-none c-p h:bg-silver-1 h:c-slate-10 fv:oo-2 fv:oc-indigo-5"
-          />
-        )}
-      >
-        <Sort className="w-5 h-5" />
-        Sort
-      </Toolbar.Button>
-      <Toolbar.Button
-        render={(props) => (
-          <motion.button
-            type="button"
-            {...(props as HTMLMotionProps<"button">)}
-            whileTap={{ scale: 0.92 }}
-            className="d-f ai-c g-1 jc-c h-9 px-3 bg-transparent c-slate-7 br-lg bw-0 fs-sm fw-500 us-none c-p h:bg-silver-1 h:c-slate-10 fv:oo-2 fv:oc-indigo-5"
-          />
-        )}
-      >
-        <Wrench className="w-5 h-5" />
-        Settings
-      </Toolbar.Button>
-
-      <Toolbar.Separator className="w-px h-5 mx-1 bg-silver-2" />
-
-      <Toolbar.Input
-        className="h-9 w-40 pl-3 bg-transparent bw-0 br-lg fs-sm fv:oo-2 fv:oc-indigo-3"
-        placeholder="Search tasks..."
-        aria-label="Search tasks"
-      />
+        return (
+          <Toolbar.Button
+            key={key}
+            disabled={button.disabled}
+            onClick={button.onClick}
+            aria-label={button.iconOnly ? button.label : undefined}
+            render={
+              animate && !button.disabled
+                ? (props) => (
+                    <motion.button
+                      type="button"
+                      {...(props as HTMLMotionProps<"button">)}
+                      whileTap={{ scale: 0.92 }}
+                      className={buttonClasses}
+                    />
+                  )
+                : undefined
+            }
+            className={animate && !button.disabled ? undefined : buttonClasses}
+          >
+            {button.icon}
+            {!button.iconOnly && button.label}
+          </Toolbar.Button>
+        );
+      })}
     </Toolbar.Root>
+  );
+}
+
+/** Split out so the group can hold its own value when uncontrolled. */
+function ToolbarToggles({
+  item,
+  control,
+  animate,
+}: {
+  item: ToolbarTogglesItem;
+  control: string;
+  animate: boolean;
+}) {
+  const [internalValue, setInternalValue] = useState<string[]>(
+    item.defaultValue ?? item.value ?? [],
+  );
+  const value = item.value ?? internalValue;
+
+  const handleChange = (next: string[]) => {
+    setInternalValue(next);
+    item.onValueChange?.(next);
+  };
+
+  const toggleClasses = (pressed: boolean) =>
+    [
+      "d-f w-9 h-9 ai-c jc-c bw-0 us-none c-p fv:oo-2 fv:oc-indigo-3",
+      control,
+      pressed
+        ? "bg-indigo-1 bc-indigo-2 c-indigo-7 bw-1"
+        : "bg-transparent c-slate-7 h:bg-silver-1 h:c-slate-10",
+    ]
+      .filter(Boolean)
+      .join(" ");
+
+  return (
+    <ToggleGroup
+      className="d-f g-1"
+      value={value}
+      onValueChange={handleChange}
+      aria-label={item.label}
+    >
+      {item.options.map((option) => (
+        <Toggle
+          key={option.value}
+          value={option.value}
+          aria-label={option.label}
+          render={
+            animate
+              ? (props, state) => (
+                  <motion.button
+                    type="button"
+                    {...(props as HTMLMotionProps<"button">)}
+                    whileTap={{ scale: 0.92 }}
+                    className={toggleClasses(state.pressed)}
+                  />
+                )
+              : (props, state) => (
+                  <button
+                    type="button"
+                    {...props}
+                    className={toggleClasses(state.pressed)}
+                  />
+                )
+          }
+        >
+          {option.icon}
+        </Toggle>
+      ))}
+    </ToggleGroup>
   );
 }
