@@ -1,48 +1,176 @@
 "use client";
 
 import { Popover } from "@base-ui/react/popover";
-import { BellNotification } from "iconoir-react";
+import { Xmark } from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
+import type { ReactNode } from "react";
 import { useState } from "react";
 
-export default function PopoverBase() {
+type Side = "top" | "right" | "bottom" | "left";
+type Shape = "rounded" | "square" | "squircle";
+type Shadow = "none" | "inset" | "outset";
+
+const TRIGGER_SHAPES: Record<Shape, string> = {
+  rounded: "br-lg",
+  square: "",
+  squircle: "br-xxl cs-s",
+};
+
+const POPUP_SHAPES: Record<Shape, string> = {
+  rounded: "br-lg",
+  square: "",
+  squircle: "br-3xl cs-s",
+};
+
+const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
+  inset: "bs-i-sm",
+  outset: "bs-o-xs",
+};
+
+export interface PopoverProps {
+  /** The trigger's content - an icon, usually. */
+  trigger: ReactNode;
+  /** Names the trigger for assistive tech, since it is often icon-only. */
+  triggerLabel?: string;
+  title: string;
+  description?: ReactNode;
+  /** Extra content below the description. */
+  children?: ReactNode;
+  side?: Side;
+  /** Gap between trigger and popup, in pixels. */
+  sideOffset?: number;
+  /** A pointer notched into the popup's edge, aimed back at the trigger. */
+  arrow?: boolean;
+  /** Opens on hover as well as click. */
+  openOnHover?: boolean;
+  /** How long to wait before a hover opens it, in ms. */
+  delay?: number;
+  /** An X beside the title. */
+  showClose?: boolean;
+  shape?: Shape;
+  shadow?: Shadow;
+  /** The popup's scale-in. */
+  animate?: boolean;
+  className?: string;
+}
+
+export default function PopoverBase({
+  trigger,
+  triggerLabel,
+  title,
+  description,
+  children,
+  side = "bottom",
+  sideOffset = 8,
+  arrow = false,
+  openOnHover = false,
+  delay = 300,
+  showClose = false,
+  shape = "rounded",
+  shadow = "none",
+  animate = true,
+  className,
+}: PopoverProps) {
   const [open, setOpen] = useState(false);
+
+  const triggerClasses = [
+    "d-f ai-c jc-c w-10 h-10 bw-1 bc-silver-2 bg-white c-slate-10 us-none c-p h:bg-silver-1 fv:oo-2 fv:oc-indigo-5",
+    TRIGGER_SHAPES[shape],
+    open ? "bg-silver-1" : "",
+    className,
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  const popupClasses = [
+    "px-4 py-3 w-56 bg-white bc-silver-2 c-slate-10 bw-1",
+    POPUP_SHAPES[shape],
+    shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "",
+    arrow ? "p-r" : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  const body = (
+    <>
+      {arrow && (
+        // Base UI's Arrow re-aims itself per side, unlike the hand-positioned
+        // SVG in the original demo, which only ever pointed up.
+        <Popover.Arrow className="d-f w-4 h-2 c-silver-2">
+          <svg viewBox="0 0 10 5" width="16" height="8">
+            <title>Arrow</title>
+            <path
+              d="M0 5 L5 0 L10 5"
+              fill="white"
+              stroke="currentColor"
+              strokeWidth="1"
+            />
+          </svg>
+        </Popover.Arrow>
+      )}
+
+      <div className="d-f ai-s jc-sb g-3">
+        <Popover.Title className="m-0 mb-1 c-slate-10 fs-sm fw-500">
+          {title}
+        </Popover.Title>
+        {showClose && (
+          <Popover.Close
+            className="d-f ai-c jc-c w-5 h-5 bg-transparent c-slate-5 bw-0 br-lg c-p h:bg-silver-2 h:c-slate-8 fv:oo--1 fv:oc-indigo-5"
+            aria-label="Close"
+          >
+            <Xmark aria-hidden className="w-4 h-4" />
+          </Popover.Close>
+        )}
+      </div>
+
+      {description && (
+        <Popover.Description className="m-0 c-slate-8 fs-xs">
+          {description}
+        </Popover.Description>
+      )}
+
+      {children}
+    </>
+  );
+
+  const popup = (
+    <Popover.Portal keepMounted>
+      <Popover.Positioner side={side} sideOffset={sideOffset}>
+        <Popover.Popup
+          render={
+            animate ? (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.15, ease: "easeOut" }}
+              />
+            ) : undefined
+          }
+          className={popupClasses}
+        >
+          {body}
+        </Popover.Popup>
+      </Popover.Positioner>
+    </Popover.Portal>
+  );
 
   return (
     <Popover.Root open={open} onOpenChange={setOpen}>
       <Popover.Trigger
-        className={`d-f ai-c jc-c w-10 h-10 bw-1 bc-silver-2 br-lg bg-white c-slate-10 us-none c-p h:bg-silver-1 fv:oo-2 fv:oc-indigo-5 ${
-          open ? "bg-silver-1" : ""
-        }`}
+        className={triggerClasses}
+        aria-label={triggerLabel}
+        openOnHover={openOnHover}
+        delay={openOnHover ? delay : undefined}
       >
-        <BellNotification aria-label="Notifications" className="w-5 h-5" />
+        {trigger}
       </Popover.Trigger>
-      <AnimatePresence>
-        {open && (
-          <Popover.Portal keepMounted>
-            <Popover.Positioner sideOffset={8}>
-              <Popover.Popup
-                render={
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
-                    transition={{ duration: 0.15, ease: "easeOut" }}
-                  />
-                }
-                className="px-4 py-3 w-56 bg-white bc-silver-2 c-slate-10 bw-1 br-lg"
-              >
-                <Popover.Title className="m-0 mb-1 c-slate-10 fs-sm fw-500">
-                  Notifications
-                </Popover.Title>
-                <Popover.Description className="m-0 c-slate-8 fs-xs">
-                  Review your recent alerts and updates.
-                </Popover.Description>
-              </Popover.Popup>
-            </Popover.Positioner>
-          </Popover.Portal>
-        )}
-      </AnimatePresence>
+
+      {animate ? (
+        <AnimatePresence>{open && popup}</AnimatePresence>
+      ) : (
+        open && popup
+      )}
     </Popover.Root>
   );
 }

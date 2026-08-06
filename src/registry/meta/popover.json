@@ -1,0 +1,98 @@
+{
+  "summary": "A click- or hover-triggered popup with a title and description, positionable on any side, with an optional arrow and close button.",
+  "props": [
+    {
+      "name": "trigger",
+      "type": "none",
+      "typeName": "ReactNode",
+      "description": "The trigger's content - an icon, usually. Pair it with `triggerLabel` when there is no text."
+    },
+    {
+      "name": "triggerLabel",
+      "type": "string",
+      "example": "Notifications",
+      "description": "The trigger's `aria-label`. An icon-only trigger has no accessible name without it."
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "example": "Notifications",
+      "description": "The popup's heading, wired up by Base UI's own Popover.Title."
+    },
+    {
+      "name": "description",
+      "type": "none",
+      "typeName": "ReactNode",
+      "example": "Review your recent alerts and updates.",
+      "description": "The body text, wired up by Base UI's own Popover.Description."
+    },
+    {
+      "name": "children",
+      "type": "none",
+      "typeName": "ReactNode",
+      "description": "Extra content below the description - a swatch grid, say. Style it yourself."
+    },
+    {
+      "name": "side",
+      "type": "enum",
+      "values": ["top", "right", "bottom", "left"],
+      "default": "bottom",
+      "description": "Which side of the trigger the popup opens on. It flips automatically if there is no room."
+    },
+    {
+      "name": "sideOffset",
+      "type": "number",
+      "default": 8,
+      "description": "Gap between the trigger and the popup, in pixels."
+    },
+    {
+      "name": "arrow",
+      "type": "boolean",
+      "default": false,
+      "description": "A pointer notched into the popup's edge, aimed back at the trigger. It re-aims itself when `side` changes."
+    },
+    {
+      "name": "openOnHover",
+      "type": "boolean",
+      "default": false,
+      "description": "Opens on hover as well as click. Consider that a popup which opens on hover is hard to reach on touch."
+    },
+    {
+      "name": "delay",
+      "type": "number",
+      "default": 300,
+      "description": "How long a hover must rest before the popup opens, in ms. Ignored unless `openOnHover` is set."
+    },
+    {
+      "name": "showClose",
+      "type": "boolean",
+      "default": false,
+      "description": "An X beside the title. Clicking outside dismisses it either way."
+    },
+    {
+      "name": "shape",
+      "type": "enum",
+      "values": ["rounded", "square", "squircle"],
+      "default": "rounded",
+      "description": "Corner radius on the trigger and the popup."
+    },
+    {
+      "name": "shadow",
+      "type": "enum",
+      "values": ["none", "inset", "outset"],
+      "default": "none",
+      "description": "Depth on the popup."
+    },
+    {
+      "name": "animate",
+      "type": "boolean",
+      "default": true,
+      "description": "The popup's scale-in. Turn it off for an instant popup, or when the user has asked for reduced motion."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "description": "Appended to the trigger's classes, so any Yumma CSS utility you pass wins."
+    }
+  ]
+}
