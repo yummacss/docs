@@ -126,6 +126,7 @@ export default function MenubarBase({
   const barClasses = [
     "d-f g-1 p-1 bg-white bc-silver-2 bw-1",
     BAR_SHAPES[shape],
+    shadowClass,
     className,
   ]
     .filter(Boolean)
@@ -143,7 +144,6 @@ export default function MenubarBase({
     [
       "h-8 px-3 fs-sm fw-500 us-none bw-0 bg-transparent",
       TRIGGER_SHAPES[shape],
-      shadowClass,
       disabled ? "c-slate-4 o-60 c-na" : "c-slate-10 c-p h:bg-silver-1/50",
       !disabled && state.open ? "bg-silver-2/50" : "",
     ]
