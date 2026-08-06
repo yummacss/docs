@@ -35,14 +35,14 @@ export interface FileUploadProps {
   label?: string;
   /** The quieter line under it, for what this zone accepts. */
   hint?: string;
-  /** A line outside the zone, for formats and limits. */
+  /** A line outside the zone, for formats and limits. Replaced by `error` when it is set. */
   description?: string;
   icon?: ReactNode;
   shape?: Shape;
   shadow?: Shadow;
   border?: Border;
-  /** Turns the zone red. Pair it with `description` saying what went wrong. */
-  error?: boolean;
+  /** Turns the zone red, tile and text included, & shows this message in place of `description`. */
+  error?: string;
   disabled?: boolean;
   className?: string;
 }
@@ -55,10 +55,12 @@ export default function FileUploadBase({
   shape = "rounded",
   shadow = "none",
   border = "dashed",
-  error = false,
+  error,
   disabled = false,
   className,
 }: FileUploadProps) {
+  const message = error ?? description;
+
   const zone = [
     ZONE,
     SHAPES[shape],
@@ -94,8 +96,12 @@ export default function FileUploadBase({
         </div>
       </div>
 
-      {description && (
-        <p className="w-100% m-0 pb-6 c-slate-6 fs-xs ta-c">{description}</p>
+      {message && (
+        <p
+          className={`w-100% m-0 pb-6 fs-xs ta-c ${error ? "c-red-5" : "c-slate-6"}`}
+        >
+          {message}
+        </p>
       )}
     </section>
   );

@@ -1,0 +1,89 @@
+{
+  "summary": "A labelled input, in three sizes, three shapes and three shadows, with an optional icon and error or success states.",
+  "props": [
+    {
+      "name": "label",
+      "type": "string",
+      "example": "Project name",
+      "description": "Text above the control. `Field.Root` and `Field.Label` associate it automatically, so no `id`/`htmlFor` bookkeeping is needed."
+    },
+    {
+      "name": "required",
+      "type": "boolean",
+      "default": false,
+      "description": "Appends a red asterisk to the label & sets the control's native `required` attribute."
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "A line under the control, for format or context. Replaced by `error` or `success` when either is set."
+    },
+    {
+      "name": "error",
+      "type": "string",
+      "description": "Red border, a warning icon & this message in place of `description`. Wins over `success` if both are set."
+    },
+    {
+      "name": "success",
+      "type": "string",
+      "description": "Green border, a check icon & this message in place of `description`."
+    },
+    {
+      "name": "size",
+      "type": "enum",
+      "values": ["sm", "md", "lg"],
+      "default": "md",
+      "description": "Height and width of the control."
+    },
+    {
+      "name": "shape",
+      "type": "enum",
+      "values": ["rounded", "square", "squircle"],
+      "default": "rounded",
+      "description": "Corner radius. `squircle` uses `corner-shape`, which degrades to a rounded square where that is unsupported."
+    },
+    {
+      "name": "shadow",
+      "type": "enum",
+      "values": ["none", "inset", "outset"],
+      "default": "none",
+      "description": "Depth on the control. `inset` reads as a well, `outset` as a raised control."
+    },
+    {
+      "name": "icon",
+      "type": "none",
+      "typeName": "ReactNode",
+      "description": "Any icon. It is positioned over the control, so pass the glyph and nothing else. Hidden once `error` or `success` is set, which claim the trailing slot for their own icon."
+    },
+    {
+      "name": "iconSide",
+      "type": "enum",
+      "values": ["leading", "trailing"],
+      "default": "leading",
+      "description": "Which end `icon` sits at."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "default": false,
+      "description": "Blocks interaction and dims the whole field, label included."
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "example": "Enter project name",
+      "description": "Placeholder text."
+    },
+    {
+      "name": "type",
+      "type": "string",
+      "default": "text",
+      "description": "Native input type. For a password field with a visibility toggle, see the Password recipe rather than `type=\"password\"` here."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "description": "Appended to the control's classes, so any Yumma CSS utility you pass wins."
+    }
+  ]
+}

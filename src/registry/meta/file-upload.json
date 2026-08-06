@@ -1,5 +1,5 @@
 {
-  "summary": "A drop zone for files, in three shapes, dashed or solid, with an error state and an optional line for formats and limits.",
+  "summary": "A drop zone for files, in three shapes, dashed or solid, with an error message and an optional line for formats and limits.",
   "props": [
     {
       "name": "label",
@@ -16,7 +16,7 @@
     {
       "name": "description",
       "type": "string",
-      "description": "A line outside the zone, for formats and limits. When `error` is set, say what went wrong here: the red border alone does not."
+      "description": "A line outside the zone, for formats and limits. Replaced by `error`'s message when it is set."
     },
     {
       "name": "icon",
@@ -47,9 +47,8 @@
     },
     {
       "name": "error",
-      "type": "boolean",
-      "default": false,
-      "description": "Turns the border, tile and text red. Crosses with `border`, so a solid zone can be in error too."
+      "type": "string",
+      "description": "Turns the border, tile and text red & shows this message in place of `description`. Crosses with `border`, so a solid zone can be in error too."
     },
     {
       "name": "disabled",
