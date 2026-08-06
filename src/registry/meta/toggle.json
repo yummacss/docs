@@ -5,13 +5,15 @@
       "name": "icon",
       "type": "none",
       "typeName": "ReactNode",
-      "description": "Shown while not pressed."
+      "description": "Shown while not pressed.",
+      "exampleIcon": "SunLight"
     },
     {
       "name": "pressedIcon",
       "type": "none",
       "typeName": "ReactNode",
-      "description": "Shown while pressed."
+      "description": "Shown while pressed.",
+      "exampleIcon": "HalfMoon"
     },
     {
       "name": "defaultPressed",

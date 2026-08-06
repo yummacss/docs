@@ -1,6 +1,17 @@
 "use client";
 import { Button } from "@base-ui/react";
 import { Toggle } from "@base-ui/react/toggle";
+import {
+  BellNotification,
+  Bookmark,
+  Check,
+  HalfMoon,
+  Mail,
+  Star,
+  SunLight,
+  Trash,
+  User,
+} from "iconoir-react";
 import type { ComponentType } from "react";
 import {
   lazy,
@@ -42,6 +53,27 @@ interface Props {
 
 type DemoProps = Record<string, unknown>;
 
+/**
+ * Icons a schema may name via `exampleIcon`, so a component whose only visible
+ * content is an icon does not demo itself as an empty box.
+ *
+ * Curated rather than a dynamic `icons[name]` lookup: indexing the package by a
+ * runtime string would defeat tree-shaking & pull every iconoir glyph into the
+ * client bundle. Adding one here is a two-line change; making it dynamic is a
+ * megabyte.
+ */
+const EXAMPLE_ICONS: Record<string, ComponentType<{ className?: string }>> = {
+  BellNotification,
+  Bookmark,
+  Check,
+  HalfMoon,
+  Mail,
+  Star,
+  SunLight,
+  Trash,
+  User,
+};
+
 export default function ComponentPreview({
   registryId,
   id,
@@ -82,6 +114,13 @@ export default function ComponentPreview({
       const meta = module.default;
       const props: DemoProps = {};
       for (const prop of meta.props) {
+        if (prop.exampleIcon) {
+          const Icon = EXAMPLE_ICONS[prop.exampleIcon];
+          if (Icon) {
+            props[prop.name] = <Icon className="w-5 h-5" />;
+            continue;
+          }
+        }
         const value = prop.example ?? prop.default;
         if (value !== undefined) props[prop.name] = value;
       }
