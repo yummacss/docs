@@ -3,37 +3,138 @@
 import { Field } from "@base-ui/react/field";
 import { Switch } from "@base-ui/react/switch";
 import { motion } from "motion/react";
-import { useState } from "react";
+import { type ReactNode, useId, useState } from "react";
 
-export default function SwitchBase() {
-  const [checked, setChecked] = useState(true);
+type Size = "sm" | "md" | "lg";
+type Shape = "rounded" | "square" | "squircle";
+
+interface SizeSpec {
+  track: string;
+  thumb: string;
+  /** Pixels the thumb travels, matching the track's own width & padding. */
+  travel: number;
+  /**
+   * The same travel, as a static margin class for the non-animated case.
+   * `ml-${n}` cannot be built from `travel` at runtime - Yumma CSS reads class
+   * names statically out of the source, so a computed string is invisible to it.
+   */
+  travelClass: string;
+}
+
+const SIZES: Record<Size, SizeSpec> = {
+  sm: { track: "h-4 w-7", thumb: "w-3 h-2", travel: 8, travelClass: "ml-2" },
+  md: { track: "h-5 w-9", thumb: "w-4 h-3", travel: 12, travelClass: "ml-3" },
+  lg: { track: "h-6 w-11", thumb: "w-5 h-4", travel: 16, travelClass: "ml-4" },
+};
+
+const SHAPES: Record<Shape, string> = {
+  rounded: "br-9999",
+  square: "",
+  squircle: "br-xxl cs-s",
+};
+
+export interface SwitchProps {
+  label?: string;
+  /** A line under the label, for the consequence of turning it on. */
+  description?: string;
+  defaultChecked?: boolean;
+  checked?: boolean;
+  onCheckedChange?: (checked: boolean) => void;
+  /** Shown on the track, revealed as the thumb slides past it when checked. */
+  icon?: ReactNode;
+  size?: Size;
+  shape?: Shape;
+  disabled?: boolean;
+  animate?: boolean;
+  className?: string;
+}
+
+export default function SwitchBase({
+  label,
+  description,
+  defaultChecked,
+  checked: controlledChecked,
+  onCheckedChange,
+  icon,
+  size = "md",
+  shape = "rounded",
+  disabled = false,
+  animate = true,
+  className,
+}: SwitchProps) {
+  const [internalChecked, setInternalChecked] = useState(
+    defaultChecked ?? controlledChecked ?? false,
+  );
+  const checked = controlledChecked ?? internalChecked;
+  const id = useId();
+  const { track, thumb, travel, travelClass } = SIZES[size];
+
+  const handleChange = (next: boolean) => {
+    setInternalChecked(next);
+    onCheckedChange?.(next);
+  };
+
+  const trackClasses = [
+    "p-r d-f ai-c m-0 px-1 tp-c tdu-150 ttf-io fv:oo-2 fv:oc-indigo-3",
+    track,
+    SHAPES[shape],
+    checked ? "bg-indigo" : "bg-silver-1",
+    disabled ? "" : "c-p",
+    className,
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  const thumbClasses = ["bg-white", thumb, SHAPES[shape]]
+    .filter(Boolean)
+    .join(" ");
 
   return (
-    <Field.Root className="d-f ai-c g-2">
-      <Switch.Root
-        id="switch-unsubscribe"
-        checked={checked}
-        onCheckedChange={setChecked}
-        className={`p-r d-f ai-c h-5 w-9 br-9999 m-0 px-1 c-p tp-c tdu-150 ttf-io fv:oo-2 fv:oc-indigo-3 ${
-          checked ? "bg-indigo" : "bg-silver-1"
-        }`}
-      >
-        <Switch.Thumb
-          render={
-            <motion.span
-              animate={{ x: checked ? 12 : 0 }}
-              transition={{ duration: 0.2, ease: "easeInOut" }}
-            />
-          }
-          className="w-4 h-3 bg-white br-9999"
-        />
-      </Switch.Root>
-      <Field.Label
-        htmlFor="switch-unsubscribe"
-        className="c-slate-10 fs-sm fw-500 us-none c-p"
-      >
-        Unsubscribe email
-      </Field.Label>
+    <Field.Root
+      className={`d-f fd-c g-1 ${disabled ? "o-60 c-na" : ""}`}
+      disabled={disabled}
+    >
+      <div className="d-f ai-c g-2">
+        <Switch.Root
+          id={id}
+          checked={checked}
+          onCheckedChange={handleChange}
+          className={trackClasses}
+        >
+          {icon && checked && (
+            <span className="d-f p-a l-1 ai-c jc-c w-3 h-3 c-white">
+              {icon}
+            </span>
+          )}
+          <Switch.Thumb
+            render={
+              animate ? (
+                <motion.span
+                  animate={{ x: checked ? travel : 0 }}
+                  transition={{ duration: 0.2, ease: "easeInOut" }}
+                />
+              ) : undefined
+            }
+            className={
+              animate
+                ? thumbClasses
+                : `${thumbClasses} ${checked ? travelClass : "ml-0"}`
+            }
+          />
+        </Switch.Root>
+        {label && (
+          <Field.Label
+            htmlFor={id}
+            className={`c-slate-10 fs-sm fw-500 us-none ${disabled ? "" : "c-p"}`}
+          >
+            {label}
+          </Field.Label>
+        )}
+      </div>
+
+      {description && (
+        <p className="pl-12 m-0 c-slate-6 fs-xs fw-400">{description}</p>
+      )}
     </Field.Root>
   );
 }
