@@ -8,25 +8,6 @@
 // ---------------------------------------------------------------------------
 
 export const registry = {
-  "accordion-bordered": () => import("./ui/accordion-bordered"),
-  "accordion-default-open": () => import("./ui/accordion-default-open"),
-  "accordion-disabled": () => import("./ui/accordion-disabled"),
-  "accordion-ghost": () => import("./ui/accordion-ghost"),
-  "accordion-icon-leading": () => import("./ui/accordion-icon-leading"),
-  "accordion-icon-trailing": () => import("./ui/accordion-icon-trailing"),
-  "accordion-inset": () => import("./ui/accordion-inset"),
-  "accordion-multiple-bordered": () => import("./ui/accordion-multiple-bordered"),
-  "accordion-multiple-default-open": () => import("./ui/accordion-multiple-default-open"),
-  "accordion-multiple-ghost": () => import("./ui/accordion-multiple-ghost"),
-  "accordion-multiple-icons-left": () => import("./ui/accordion-multiple-icons-left"),
-  "accordion-multiple-subtle": () => import("./ui/accordion-multiple-subtle"),
-  "accordion-multiple": () => import("./ui/accordion-multiple"),
-  "accordion-no-separator": () => import("./ui/accordion-no-separator"),
-  "accordion-outset": () => import("./ui/accordion-outset"),
-  "accordion-square": () => import("./ui/accordion-square"),
-  "accordion-squircle": () => import("./ui/accordion-squircle"),
-  "accordion-static": () => import("./ui/accordion-static"),
-  "accordion-subtle": () => import("./ui/accordion-subtle"),
   "accordion": () => import("./ui/accordion"),
   "alert-dialog-confirmation": () => import("./ui/alert-dialog-confirmation"),
   "alert-dialog-destructive": () => import("./ui/alert-dialog-destructive"),
@@ -374,6 +355,7 @@ export interface RegistryMeta {
 }
 
 export const registryMeta = {
+  "accordion": () => import("./meta/accordion.json"),
   "autocomplete": () => import("./meta/autocomplete.json"),
   "avatar": () => import("./meta/avatar.json"),
   "button": () => import("./meta/button.json"),
@@ -408,25 +390,6 @@ export interface RegistryTarget {
 }
 
 export const registryTargets: Record<string, RegistryTarget> = {
-  "accordion-bordered": { component: "accordion", variant: "bordered" },
-  "accordion-default-open": { component: "accordion", variant: "default-open" },
-  "accordion-disabled": { component: "accordion", variant: "disabled" },
-  "accordion-ghost": { component: "accordion", variant: "ghost" },
-  "accordion-icon-leading": { component: "accordion", variant: "icon-leading" },
-  "accordion-icon-trailing": { component: "accordion", variant: "icon-trailing" },
-  "accordion-inset": { component: "accordion", variant: "inset" },
-  "accordion-multiple-bordered": { component: "accordion", variant: "multiple-bordered" },
-  "accordion-multiple-default-open": { component: "accordion", variant: "multiple-default-open" },
-  "accordion-multiple-ghost": { component: "accordion", variant: "multiple-ghost" },
-  "accordion-multiple-icons-left": { component: "accordion", variant: "multiple-icons-left" },
-  "accordion-multiple-subtle": { component: "accordion", variant: "multiple-subtle" },
-  "accordion-multiple": { component: "accordion", variant: "multiple" },
-  "accordion-no-separator": { component: "accordion", variant: "no-separator" },
-  "accordion-outset": { component: "accordion", variant: "outset" },
-  "accordion-square": { component: "accordion", variant: "square" },
-  "accordion-squircle": { component: "accordion", variant: "squircle" },
-  "accordion-static": { component: "accordion", variant: "static" },
-  "accordion-subtle": { component: "accordion", variant: "subtle" },
   "accordion": { component: "accordion", variant: "base" },
   "alert-dialog-confirmation": { component: "alert-dialog", variant: "confirmation" },
   "alert-dialog-destructive": { component: "alert-dialog", variant: "destructive" },

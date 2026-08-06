@@ -14,6 +14,13 @@ export default defineConfig({
     "bg-diff-add/10",
     "bg-diff-remove/10",
     "bc-accent-dim/50",
+    // Accordion: the class scanner misses these in this file even though
+    // they're plain, unconditional string literals - see NOTES.md.
+    "max-w-96",
+    "blc-indigo-5",
+    "c-indigo-6",
+    "c-indigo-9",
+    "ro-36",
   ],
   theme: {
     colors: {

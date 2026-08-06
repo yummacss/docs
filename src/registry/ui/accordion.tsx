@@ -1,60 +1,253 @@
 "use client";
 
 import { Accordion } from "@base-ui/react/accordion";
-import { NavArrowDown } from "iconoir-react";
+import { Lock, Minus, NavArrowDown, Plus } from "iconoir-react";
 import { type HTMLMotionProps, motion } from "motion/react";
+import type { ReactNode } from "react";
 import { useState } from "react";
 
-export default function AccordionBase() {
-  const [value, setValue] = useState<string[]>([]);
+type Variant = "default" | "bordered" | "ghost" | "subtle";
+type Shape = "rounded" | "square" | "squircle";
+type Shadow = "none" | "inset" | "outset";
+type Icon = "chevron" | "plus-minus";
+type IconPosition = "leading" | "trailing";
+
+export interface AccordionItem {
+  value: string;
+  title: string;
+  content: ReactNode;
+  disabled?: boolean;
+}
+
+const SHAPES: Record<Shape, { item: string; trigger: string }> = {
+  rounded: { item: "br-lg", trigger: "br-sm" },
+  square: { item: "", trigger: "" },
+  squircle: { item: "br-xxl cs-s", trigger: "br-xxl cs-s" },
+};
+
+const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
+  inset: "bs-i-sm",
+  outset: "bs-o-xs",
+};
+
+export interface AccordionProps {
+  items: AccordionItem[];
+  variant?: Variant;
+  /** Corner radius on `bordered` items. Other variants use a fixed radius. */
+  shape?: Shape;
+  /** Wraps the whole list in a card. Only applies to the `default` variant. */
+  shadow?: Shadow;
+  /** The divider between items. Only visible on the `default` variant. */
+  separator?: boolean;
+  icon?: Icon;
+  iconPosition?: IconPosition;
+  /** Allow more than one item open at once. */
+  multiple?: boolean;
+  defaultValue?: string[];
+  value?: string[];
+  onValueChange?: (value: string[]) => void;
+  /** The chevron's rotation & the panel's height/opacity animation. */
+  animate?: boolean;
+  className?: string;
+}
+
+export default function AccordionBase({
+  items,
+  variant = "default",
+  shape = "rounded",
+  shadow = "none",
+  separator = true,
+  icon = "chevron",
+  iconPosition = "trailing",
+  multiple = false,
+  defaultValue,
+  value: controlledValue,
+  onValueChange,
+  animate = true,
+  className,
+}: AccordionProps) {
+  const [internalValue, setInternalValue] = useState<string[]>(
+    defaultValue ?? controlledValue ?? [],
+  );
+  const value = controlledValue ?? internalValue;
+
+  const handleValueChange = (next: string[]) => {
+    setInternalValue(next);
+    onValueChange?.(next);
+  };
+
+  const isCard = variant === "default" && shadow !== "none";
+
+  const rootClasses = [
+    "d-f fd-c w-100% max-w-96",
+    variant === "bordered" || variant === "subtle" ? "g-2" : "",
+    isCard
+      ? ["bg-white br-lg bw-1 bc-silver-2", SHADOWS[shadow]]
+          .filter(Boolean)
+          .join(" ")
+      : "",
+    className,
+  ]
+    .filter(Boolean)
+    .join(" ");
 
   return (
     <Accordion.Root
-      className="d-f fd-c w-100% max-w-96"
+      className={rootClasses}
       value={value}
-      onValueChange={setValue}
+      onValueChange={handleValueChange}
+      multiple={multiple}
     >
-      {faqs.map((item, index) => {
+      {items.map((item, index) => {
         const isOpen = value.includes(item.value);
+        const isLast = index === items.length - 1;
+
+        const itemClasses =
+          variant === "bordered"
+            ? ["bg-white bc-silver-3 bw-1", SHAPES[shape].item]
+                .filter(Boolean)
+                .join(" ")
+            : variant === "ghost"
+              ? [
+                  "blw-2 pl-4",
+                  isOpen ? "blc-indigo-5" : "blc-silver-3",
+                  isLast ? "" : "mb-3",
+                ]
+                  .filter(Boolean)
+                  .join(" ")
+              : variant === "subtle"
+                ? [
+                    "br-lg",
+                    isOpen ? "bg-indigo-1" : "bg-silver-1 h:bg-silver-2",
+                  ]
+                    .filter(Boolean)
+                    .join(" ")
+                : separator && !isLast
+                  ? "bbw-1 bc-silver-3"
+                  : "";
+
+        const triggerRadius =
+          variant === "bordered" ? SHAPES[shape].trigger : "br-sm";
+        const triggerPadX =
+          variant === "bordered" ? "px-4" : isCard ? "px-4" : "px-0";
+        const triggerPadY =
+          variant === "ghost"
+            ? "py-2"
+            : variant === "default" && !separator
+              ? "py-3"
+              : "py-4";
+        const panelPadX = variant === "bordered" || isCard ? "px-4" : "";
+
+        const titleColor = item.disabled
+          ? "c-slate-4"
+          : variant === "ghost"
+            ? isOpen
+              ? "c-indigo-6"
+              : "c-slate-8"
+            : variant === "subtle"
+              ? isOpen
+                ? "c-indigo-7"
+                : "c-slate-8"
+              : "c-slate-8";
+        const contentColor =
+          variant === "subtle" && isOpen ? "c-indigo-9" : "c-slate-6";
+        const panelClasses = ["m-0 pb-4", panelPadX, "fs-sm lh-4", contentColor]
+          .filter(Boolean)
+          .join(" ");
+        const glyphColor = item.disabled
+          ? "c-slate-4"
+          : variant === "ghost"
+            ? isOpen
+              ? "c-indigo-5"
+              : "c-slate-6"
+            : variant === "subtle" && isOpen
+              ? "c-indigo-5"
+              : "c-slate-6";
+
         return (
           <Accordion.Item
             key={item.value}
             value={item.value}
-            className={index === faqs.length - 1 ? "" : "bbw-1 bc-silver-3"}
+            disabled={item.disabled}
+            className={itemClasses}
           >
             <Accordion.Header className="m-0">
-              <Accordion.Trigger className="d-f ai-c jc-sb g-3 w-100% py-4 px-0 bg-transparent bw-0 br-sm ta-l c-p fv:oo-1 fv:oc-indigo-5">
-                <span className="c-slate-8 fs-sm fw-500">{item.title}</span>
-                <motion.span
-                  animate={{ rotate: isOpen ? 180 : 0 }}
-                  transition={{ duration: 0.15, ease: "easeInOut" }}
-                  className="d-f"
-                >
-                  <NavArrowDown
-                    className="fs-0 w-4 h-4 c-slate-6"
-                    aria-hidden
+              <Accordion.Trigger
+                className={[
+                  "d-f ai-c",
+                  iconPosition === "trailing" ? "jc-sb" : "",
+                  "g-3 w-100%",
+                  triggerPadY,
+                  triggerPadX,
+                  "bg-transparent bw-0",
+                  triggerRadius,
+                  "ta-l",
+                  item.disabled ? "c-na o-60" : "c-p",
+                  "fv:oo-1 fv:oc-indigo-5",
+                ]
+                  .filter(Boolean)
+                  .join(" ")}
+              >
+                {icon === "plus-minus" && iconPosition === "leading" && (
+                  <PlusMinusGlyph
+                    isOpen={isOpen}
+                    animate={animate}
+                    className={glyphColor}
                   />
-                </motion.span>
+                )}
+                <div className="d-f ai-c g-3">
+                  <span
+                    className={["fs-sm fw-500", titleColor]
+                      .filter(Boolean)
+                      .join(" ")}
+                  >
+                    {item.title}
+                  </span>
+                  {item.disabled && (
+                    <Lock className="w-3 h-3 c-slate-4" aria-hidden />
+                  )}
+                </div>
+                {icon === "chevron" ? (
+                  <ChevronGlyph
+                    isOpen={isOpen}
+                    animate={animate}
+                    className={glyphColor}
+                  />
+                ) : (
+                  iconPosition === "trailing" && (
+                    <PlusMinusGlyph
+                      isOpen={isOpen}
+                      animate={animate}
+                      className={glyphColor}
+                    />
+                  )
+                )}
               </Accordion.Trigger>
             </Accordion.Header>
-            <Accordion.Panel
-              keepMounted
-              render={(props) => (
-                <motion.div
-                  {...(props as HTMLMotionProps<"div">)}
-                  initial={false}
-                  animate={
-                    isOpen
-                      ? { height: "auto", opacity: 1 }
-                      : { height: 0, opacity: 0 }
-                  }
-                  transition={{ duration: 0.2, ease: "easeOut" }}
-                  className="d-b o-h"
-                />
-              )}
-            >
-              <p className="m-0 pb-4 c-slate-6 fs-sm lh-4">{item.content}</p>
-            </Accordion.Panel>
+            {animate ? (
+              <Accordion.Panel
+                keepMounted
+                render={(props) => (
+                  <motion.div
+                    {...(props as HTMLMotionProps<"div">)}
+                    initial={false}
+                    animate={
+                      isOpen
+                        ? { height: "auto", opacity: 1 }
+                        : { height: 0, opacity: 0 }
+                    }
+                    transition={{ duration: 0.2, ease: "easeOut" }}
+                    className="d-b o-h"
+                  />
+                )}
+              >
+                <p className={panelClasses}>{item.content}</p>
+              </Accordion.Panel>
+            ) : (
+              <Accordion.Panel>
+                <p className={panelClasses}>{item.content}</p>
+              </Accordion.Panel>
+            )}
           </Accordion.Item>
         );
       })}
@@ -62,23 +255,68 @@ export default function AccordionBase() {
   );
 }
 
-const faqs = [
-  {
-    value: "access",
-    title: "How do I control team access?",
-    content:
-      "Go to Team Settings to manage roles. Assign Admin, Member, or Viewer roles. You can also set project-specific permissions for each team member.",
-  },
-  {
-    value: "notifications",
-    title: "How do I customize notifications?",
-    content:
-      "Visit Settings > Notifications. Choose what triggers email or in-app alerts. Filter by project, mention, or task status updates.",
-  },
-  {
-    value: "sprints",
-    title: "How do I manage sprints?",
-    content:
-      "Create sprints from the Sprint page. Assign tasks from the backlog to the current sprint. Track progress with the burndown chart.",
-  },
-];
+function ChevronGlyph({
+  isOpen,
+  animate,
+  className,
+}: {
+  isOpen: boolean;
+  animate: boolean;
+  className: string;
+}) {
+  if (!animate) {
+    return (
+      <NavArrowDown
+        className={["fs-0 w-4 h-4", isOpen ? "ro-36" : "ro-0", className]
+          .filter(Boolean)
+          .join(" ")}
+        aria-hidden
+      />
+    );
+  }
+
+  return (
+    <motion.span
+      animate={{ rotate: isOpen ? 180 : 0 }}
+      transition={{ duration: 0.15, ease: "easeInOut" }}
+      className="d-f"
+    >
+      <NavArrowDown
+        className={["fs-0 w-4 h-4", className].filter(Boolean).join(" ")}
+        aria-hidden
+      />
+    </motion.span>
+  );
+}
+
+function PlusMinusGlyph({
+  isOpen,
+  animate,
+  className,
+}: {
+  isOpen: boolean;
+  animate: boolean;
+  className: string;
+}) {
+  const glyphClasses = ["fs-0 w-4 h-4", className].filter(Boolean).join(" ");
+  const icon = isOpen ? (
+    <Minus className={glyphClasses} aria-hidden />
+  ) : (
+    <Plus className={glyphClasses} aria-hidden />
+  );
+
+  if (!animate) {
+    return icon;
+  }
+
+  return (
+    <motion.span
+      initial={false}
+      animate={{ rotate: isOpen ? 90 : 0 }}
+      transition={{ duration: 0.15, ease: "easeInOut" }}
+      className="d-f"
+    >
+      {icon}
+    </motion.span>
+  );
+}
