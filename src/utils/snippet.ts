@@ -168,6 +168,21 @@ function literal(value: unknown, indent: string): Draft[] {
 function attribute(prop: RegistryProp, value: unknown): Draft[] {
   const name: Draft = { kind: "attribute", text: prop.name };
 
+  // An icon prop is spelled inline as the JSX it actually is. It has to come
+  // before the object branch below, because a React element *is* an object &
+  // would otherwise print as `icon={icon}` referencing nothing.
+  if (prop.exampleIcon) {
+    return [
+      name,
+      { kind: "operator", text: "=" },
+      { kind: "brace", text: "{" },
+      { kind: "punctuation", text: "<" },
+      { kind: "tag", text: prop.exampleIcon },
+      { kind: "punctuation", text: " />" },
+      { kind: "brace", text: "}" },
+    ];
+  }
+
   // An array or an object is declared above the element & referenced by name.
   // Spelling it inline would be unreadable; leaving it as `items={items}` with
   // nothing declared would be a snippet the reader's editor rejects.
@@ -242,7 +257,7 @@ export function buildUsage(
     { kind: "text", text: " " },
     { kind: "string", text: `"@/components/ui/${id}"` },
     { kind: "punctuation", text: ";" },
-    { kind: "text", text: "\n\n" },
+    { kind: "text", text: "\n" },
   ];
 
   const props = meta.props.filter((prop) => {
@@ -250,6 +265,34 @@ export function buildUsage(
     if (value === undefined || value === "") return false;
     return value !== prop.default;
   });
+
+  // Icons the snippet is about to spell inline need importing too, or the
+  // thing you copied does not compile.
+  const icons = [
+    ...new Set(
+      props.flatMap((prop) => (prop.exampleIcon ? [prop.exampleIcon] : [])),
+    ),
+  ].sort();
+
+  if (icons.length) {
+    tokens.push(
+      { kind: "keyword", text: "import" },
+      { kind: "text", text: " " },
+      { kind: "brace", text: "{" },
+      { kind: "text", text: " " },
+      { kind: "tag", text: icons.join(", ") },
+      { kind: "text", text: " " },
+      { kind: "brace", text: "}" },
+      { kind: "text", text: " " },
+      { kind: "keyword", text: "from" },
+      { kind: "text", text: " " },
+      { kind: "string", text: '"iconoir-react"' },
+      { kind: "punctuation", text: ";" },
+      { kind: "text", text: "\n" },
+    );
+  }
+
+  tokens.push({ kind: "text", text: "\n" });
 
   tokens.push({ kind: "punctuation", text: "<" }, { kind: "tag", text: name });
 
@@ -300,6 +343,10 @@ function declarations(
   for (const prop of props) {
     const value = values[prop.name];
     if (typeof value !== "object" || value === null) continue;
+    // An icon was already spelled inline as JSX. It is a React element, so it
+    // is an object, but declaring `const icon = {...}` for it would dump the
+    // element's internals into the snippet & contradict the attribute above it.
+    if (prop.exampleIcon) continue;
 
     const body = literal(value, "");
     // Everything between the opening and closing bracket, which is what an

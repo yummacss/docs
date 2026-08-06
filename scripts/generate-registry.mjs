@@ -87,6 +87,16 @@ export interface RegistryProp {
    * sensibly default. \`default\` stays the truth the props table reports.
    */
   example?: unknown;
+  /**
+   * An iconoir icon name, for a \`ReactNode\` prop that JSON cannot express.
+   * Without this a component whose only visible content is an icon - Popover's
+   * trigger, Toggle's face - demos itself as an empty box. The preview resolves
+   * it to a real element & the usage snippet prints it as JSX plus its import,
+   * so the copied code compiles. Names must exist in \`EXAMPLE_ICONS\` in
+   * \`component-preview.tsx\`, a curated map rather than a dynamic lookup so the
+   * bundler can still shake the icon set.
+   */
+  exampleIcon?: string;
   description?: string;
 }
 
