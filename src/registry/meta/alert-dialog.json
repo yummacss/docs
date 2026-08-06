@@ -1,0 +1,106 @@
+{
+  "summary": "A confirmation dialog with a badge, title, description and a cancel/confirm pair, in two tones.",
+  "props": [
+    {
+      "name": "trigger",
+      "type": "none",
+      "typeName": "ReactNode",
+      "example": "Remove member",
+      "description": "The trigger button's label."
+    },
+    {
+      "name": "triggerIcon",
+      "type": "none",
+      "typeName": "ReactNode",
+      "description": "A glyph beside the trigger's label."
+    },
+    {
+      "name": "triggerIconPosition",
+      "type": "enum",
+      "values": ["leading", "trailing"],
+      "default": "leading",
+      "description": "Which end of the trigger `triggerIcon` sits at."
+    },
+    {
+      "name": "triggerTone",
+      "type": "enum",
+      "values": ["danger", "neutral"],
+      "default": "danger",
+      "description": "The trigger's own colour, independent of the dialog's `tone` - a neutral button can still open a destructive dialog."
+    },
+    {
+      "name": "icon",
+      "type": "none",
+      "typeName": "ReactNode",
+      "description": "The glyph in the badge above the title. No badge renders without one."
+    },
+    {
+      "name": "tone",
+      "type": "enum",
+      "values": ["danger", "neutral"],
+      "default": "danger",
+      "description": "Colours the badge and the confirm button together."
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "example": "Remove member?",
+      "description": "The dialog's heading, wired up by Base UI's own AlertDialog.Title."
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "example": "This will remove Sarah from the team and revoke all project access.",
+      "description": "The body text, wired up by Base UI's own AlertDialog.Description."
+    },
+    {
+      "name": "cancelLabel",
+      "type": "string",
+      "default": "Cancel",
+      "description": "The dismissing button's label."
+    },
+    {
+      "name": "confirmLabel",
+      "type": "string",
+      "example": "Remove",
+      "description": "The confirming button's label."
+    },
+    {
+      "name": "onConfirm",
+      "type": "none",
+      "typeName": "() => void",
+      "description": "Called when the confirm button is pressed. The dialog closes either way."
+    },
+    {
+      "name": "showClose",
+      "type": "boolean",
+      "default": true,
+      "description": "The X in the corner. The Cancel button remains either way, so turning this off never traps anyone."
+    },
+    {
+      "name": "shape",
+      "type": "enum",
+      "values": ["rounded", "square", "squircle"],
+      "default": "rounded",
+      "description": "Corner radius on the popup, the badge and the buttons. `square` squares off the badge too."
+    },
+    {
+      "name": "shadow",
+      "type": "enum",
+      "values": ["none", "inset", "outset"],
+      "default": "none",
+      "description": "Depth on the popup."
+    },
+    {
+      "name": "animate",
+      "type": "boolean",
+      "default": true,
+      "description": "The backdrop's fade and the popup's scale-in. Turn it off for an instant dialog, or when the user has asked for reduced motion."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "description": "Appended to the trigger's classes, so any Yumma CSS utility you pass wins."
+    }
+  ]
+}

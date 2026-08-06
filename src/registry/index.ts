@@ -9,15 +9,6 @@
 
 export const registry = {
   "accordion": () => import("./ui/accordion"),
-  "alert-dialog-confirmation": () => import("./ui/alert-dialog-confirmation"),
-  "alert-dialog-destructive": () => import("./ui/alert-dialog-destructive"),
-  "alert-dialog-icon-leading": () => import("./ui/alert-dialog-icon-leading"),
-  "alert-dialog-icon-trailing": () => import("./ui/alert-dialog-icon-trailing"),
-  "alert-dialog-inset": () => import("./ui/alert-dialog-inset"),
-  "alert-dialog-outset": () => import("./ui/alert-dialog-outset"),
-  "alert-dialog-square": () => import("./ui/alert-dialog-square"),
-  "alert-dialog-squircle": () => import("./ui/alert-dialog-squircle"),
-  "alert-dialog-static": () => import("./ui/alert-dialog-static"),
   "alert-dialog": () => import("./ui/alert-dialog"),
   "autocomplete-auto-highlight": () => import("./ui/autocomplete-auto-highlight"),
   "autocomplete-disabled": () => import("./ui/autocomplete-disabled"),
@@ -228,6 +219,7 @@ export interface RegistryMeta {
 
 export const registryMeta = {
   "accordion": () => import("./meta/accordion.json"),
+  "alert-dialog": () => import("./meta/alert-dialog.json"),
   "autocomplete": () => import("./meta/autocomplete.json"),
   "avatar": () => import("./meta/avatar.json"),
   "badge": () => import("./meta/badge.json"),
@@ -275,15 +267,6 @@ export interface RegistryTarget {
 
 export const registryTargets: Record<string, RegistryTarget> = {
   "accordion": { component: "accordion", variant: "base" },
-  "alert-dialog-confirmation": { component: "alert-dialog", variant: "confirmation" },
-  "alert-dialog-destructive": { component: "alert-dialog", variant: "destructive" },
-  "alert-dialog-icon-leading": { component: "alert-dialog", variant: "icon-leading" },
-  "alert-dialog-icon-trailing": { component: "alert-dialog", variant: "icon-trailing" },
-  "alert-dialog-inset": { component: "alert-dialog", variant: "inset" },
-  "alert-dialog-outset": { component: "alert-dialog", variant: "outset" },
-  "alert-dialog-square": { component: "alert-dialog", variant: "square" },
-  "alert-dialog-squircle": { component: "alert-dialog", variant: "squircle" },
-  "alert-dialog-static": { component: "alert-dialog", variant: "static" },
   "alert-dialog": { component: "alert-dialog", variant: "base" },
   "autocomplete-auto-highlight": { component: "autocomplete", variant: "auto-highlight" },
   "autocomplete-disabled": { component: "autocomplete", variant: "disabled" },
