@@ -24,6 +24,7 @@ import {
   writeFileSync,
 } from "node:fs";
 import { basename, join } from "node:path";
+import { isBlock } from "./lib/registry-blocks.mjs";
 import { componentSlugs, splitId } from "./lib/registry-ids.mjs";
 
 const cwd = process.cwd();
@@ -116,6 +117,7 @@ mkdirSync(outDir, { recursive: true });
 
 const idSet = new Set(ids);
 const components = new Map();
+const blocks = [];
 let orphans = 0;
 
 for (const id of ids) {
@@ -126,10 +128,17 @@ for (const id of ids) {
 
   const source = readFileSync(join(uiDir, `${id}.tsx`), "utf8");
 
+  // `component` is the thing `add <name>` installs; `block` is a composition
+  // installed under its own id; `example` only demonstrates a prop and is not
+  // installable at all - you get it by passing that prop to the component.
+  const kind =
+    variant === "base" ? "component" : isBlock(id) ? "block" : "example";
+
   const entry = {
     id,
     component,
     variant,
+    kind,
     // summary / props / children, when the component has a declared API.
     ...(metaOf(id) ?? {}),
     // 294 of 450 carry the directive. A Vite consumer ignores it; a Next App
@@ -160,33 +169,42 @@ for (const id of ids) {
         component,
         title: titleOf(component),
         base: null,
-        variants: [],
+        fallback: null,
       });
     }
     const group = components.get(component);
     if (variant === "base") group.base = id;
-    else group.variants.push(variant);
+    // Remembered only so a component with no `-base` file still resolves.
+    else if (!group.fallback) group.fallback = id;
+
+    if (kind === "block") blocks.push({ id, component });
   }
 }
 
 // A group with no `-base` file has nothing for a bare `add <component>` to
-// resolve to, so fall back to its first variant rather than failing at runtime.
+// resolve to, so fall back to its first other file rather than failing at
+// runtime.
 const index = [...components.values()]
   .sort((a, b) => a.component.localeCompare(b.component))
-  .map((g) => ({
-    ...g,
-    base: g.base ?? `${g.component}-${g.variants[0]}`,
-    variants: g.variants.sort(),
-  }));
+  .map(({ fallback, ...g }) => ({ ...g, base: g.base ?? fallback }));
 
 writeFileSync(
   join(outDir, "index.json"),
-  `${JSON.stringify({ components: index, generated: ids.length }, null, 2)}\n`,
+  `${JSON.stringify(
+    {
+      components: index,
+      blocks: blocks.sort((a, b) => a.id.localeCompare(b.id)),
+      generated: ids.length,
+    },
+    null,
+    2,
+  )}\n`,
 );
 
 const missingBase = index.filter((g) => !g.base).length;
+const examples = ids.length - index.length - blocks.length - orphans;
 console.log(
-  `registry json: ${ids.length} variants, ${index.length} components -> public/ui/r/`,
+  `registry json: ${index.length} components, ${blocks.length} blocks, ${examples} examples -> public/ui/r/`,
 );
-if (orphans) console.log(`  ${orphans} variant(s) match no /ui page`);
+if (orphans) console.log(`  ${orphans} file(s) match no /ui page`);
 if (missingBase) console.log(`  ${missingBase} component(s) have no base`);

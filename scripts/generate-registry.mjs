@@ -2,6 +2,7 @@
 
 import { existsSync, readdirSync, writeFileSync } from "node:fs";
 import { basename, join } from "node:path";
+import { isBlock } from "./lib/registry-blocks.mjs";
 import { componentSlugs, splitId } from "./lib/registry-ids.mjs";
 
 const cwd = process.cwd();
@@ -42,7 +43,12 @@ const slugs = componentSlugs(contentDir);
 const targetLines = uiIds
   .map((id) => {
     const { component, variant } = splitId(id, slugs);
-    return `  "${id}": { component: "${component}", variant: "${variant}" },`;
+    const kind =
+      variant === "base" ? "component" : isBlock(id) ? "block" : "example";
+    // A block installs under its own id; everything else installs the
+    // component, because an example is a prop you pass, not a file you copy.
+    const install = kind === "block" ? id : component;
+    return `  "${id}": { component: "${component}", variant: "${variant}", kind: "${kind}", install: "${install}" },`;
   })
   .join("\n");
 
@@ -123,8 +129,16 @@ export function getRegistryMeta(id: string): MetaImport | null {
 
 export interface RegistryTarget {
   component: string;
-  /** \`"base"\` means no \`--variant\` flag. */
+  /** \`"base"\` for the component itself. */
   variant: string;
+  /**
+   * \`component\` is the props-driven unit \`add <name>\` installs. \`block\` is a
+   * composition installed under its own id. \`example\` only demonstrates a
+   * prop, so there is nothing to install - you pass that prop instead.
+   */
+  kind: "component" | "block" | "example";
+  /** The name to pass to \`yummaui add\`. */
+  install: string;
 }
 
 export const registryTargets: Record<string, RegistryTarget> = {
@@ -132,7 +146,14 @@ ${targetLines}
 };
 
 export function getRegistryTarget(id: string): RegistryTarget {
-  return registryTargets[id] ?? { component: id, variant: "base" };
+  return (
+    registryTargets[id] ?? {
+      component: id,
+      variant: "base",
+      kind: "component",
+      install: id,
+    }
+  );
 }
 `;
 

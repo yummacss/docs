@@ -198,7 +198,7 @@ export default function ComponentPreview({
  * the component id is already here.
  */
 function InstallCommand({ registryId }: { registryId: string }) {
-  const { component, variant } = getRegistryTarget(registryId);
+  const { install } = getRegistryTarget(registryId);
   const [manager, setManager] = useState<PackageManager>("pnpm");
   const groupId = useId();
 
@@ -216,7 +216,7 @@ function InstallCommand({ registryId }: { registryId: string }) {
         aria-labelledby={`${groupId}-tab-${manager}`}
       >
         <TokenBlock
-          tokens={buildInstall(component, variant, manager)}
+          tokens={buildInstall(install, manager)}
           className=""
         />
       </div>
