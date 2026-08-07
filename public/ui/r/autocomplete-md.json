@@ -1,0 +1,17 @@
+{
+  "id": "autocomplete-md",
+  "component": "autocomplete",
+  "variant": "md",
+  "useClient": false,
+  "dependencies": [],
+  "registryDependencies": [
+    "autocomplete"
+  ],
+  "files": [
+    {
+      "path": "autocomplete-md.tsx",
+      "target": "components/ui/autocomplete-md.tsx",
+      "content": "import Autocomplete, { type AutocompleteItem } from \"./autocomplete\";\n\nexport default function AutocompleteMd() {\n  return (\n    <Autocomplete\n      items={roles}\n      label=\"Filter by role\"\n      placeholder=\"Filter by role...\"\n      size=\"md\"\n    />\n  );\n}\n\nconst roles: AutocompleteItem[] = [\n  {\n    label: \"Developer\",\n    description: \"8 members\",\n    icon: <Initial letter=\"D\" />,\n  },\n  { label: \"Designer\", description: \"4 members\", icon: <Initial letter=\"D\" /> },\n  {\n    label: \"Product Manager\",\n    description: \"2 members\",\n    icon: <Initial letter=\"P\" />,\n  },\n  {\n    label: \"QA Engineer\",\n    description: \"3 members\",\n    icon: <Initial letter=\"Q\" />,\n  },\n  { label: \"DevOps\", description: \"2 members\", icon: <Initial letter=\"D\" /> },\n  {\n    label: \"Data Analyst\",\n    description: \"2 members\",\n    icon: <Initial letter=\"D\" />,\n  },\n  {\n    label: \"UX Researcher\",\n    description: \"3 members\",\n    icon: <Initial letter=\"U\" />,\n  },\n  {\n    label: \"Technical Writer\",\n    description: \"1 member\",\n    icon: <Initial letter=\"T\" />,\n  },\n  {\n    label: \"Scrum Master\",\n    description: \"1 member\",\n    icon: <Initial letter=\"S\" />,\n  },\n  {\n    label: \"Engineering Lead\",\n    description: \"2 members\",\n    icon: <Initial letter=\"E\" />,\n  },\n];\n\nfunction Initial({ letter }: { letter: string }) {\n  return (\n    <span className=\"d-f ai-c jc-c w-6 h-6 br-9999 bg-indigo-1 c-indigo fs-xs fw-500\">\n      {letter}\n    </span>\n  );\n}\n"
+    }
+  ]
+}

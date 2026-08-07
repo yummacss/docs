@@ -1,0 +1,19 @@
+{
+  "id": "dialog-sign-in",
+  "component": "dialog",
+  "variant": "sign-in",
+  "useClient": false,
+  "dependencies": [],
+  "registryDependencies": [
+    "checkbox",
+    "dialog",
+    "field"
+  ],
+  "files": [
+    {
+      "path": "dialog-sign-in.tsx",
+      "target": "components/ui/dialog-sign-in.tsx",
+      "content": "import Checkbox from \"./checkbox\";\nimport Dialog from \"./dialog\";\nimport Field from \"./field\";\n\nexport default function DialogSignIn() {\n  return (\n    <Dialog trigger=\"Sign in\" title=\"Sign in\" confirmLabel=\"Sign in\">\n      <div className=\"d-f fd-c g-4\">\n        <Field\n          fullWidth\n          type=\"email\"\n          label=\"Email\"\n          placeholder=\"you@company.com\"\n        />\n        <Field\n          fullWidth\n          type=\"password\"\n          label=\"Password\"\n          placeholder=\"••••••••\"\n        />\n        <div className=\"d-g g-3 @sm:gtc-2\">\n          <Checkbox defaultChecked label=\"Remember me\" />\n          <div className=\"ta-r\">\n            <a href=\"#\" className=\"c-indigo fs-sm td-none h:td-u\">\n              Forgot password?\n            </a>\n          </div>\n        </div>\n      </div>\n    </Dialog>\n  );\n}\n"
+    }
+  ]
+}

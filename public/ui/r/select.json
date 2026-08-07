@@ -1,0 +1,166 @@
+{
+  "id": "select",
+  "component": "select",
+  "variant": "base",
+  "summary": "A choice from a closed list, in three sizes, three shapes and three shadows, with an optional icon on the trigger and an avatar per option.",
+  "props": [
+    {
+      "name": "options",
+      "type": "none",
+      "typeName": "SelectOption[]",
+      "example": [
+        {
+          "value": "todo",
+          "label": "To Do"
+        },
+        {
+          "value": "in-progress",
+          "label": "In Progress"
+        },
+        {
+          "value": "done",
+          "label": "Done"
+        },
+        {
+          "value": "blocked",
+          "label": "Blocked"
+        }
+      ],
+      "description": "The choices. `value` and `label` are required; `description` and `avatar` are optional per option. The shape is fixed rather than generic because you own the file: data that does not fit is an edit to the option body, not an API."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "example": "Task Status",
+      "description": "Text above the trigger."
+    },
+    {
+      "name": "required",
+      "type": "boolean",
+      "default": false,
+      "description": "Appends a red asterisk to the label & sets the trigger's native `required` attribute."
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "A line under the control, for context on what the choice means."
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "default": "Select...",
+      "description": "Shown on the trigger before anything is selected."
+    },
+    {
+      "name": "defaultValue",
+      "type": "string",
+      "description": "The option selected when you are not controlling it. Pair `value` with `onValueChange` instead if you are."
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "description": "Controlled selection."
+    },
+    {
+      "name": "onValueChange",
+      "type": "none",
+      "typeName": "(value: string | null) => void",
+      "description": "Called with the newly selected value, or `null` if the selection was cleared. Required for a controlled select."
+    },
+    {
+      "name": "size",
+      "type": "enum",
+      "values": [
+        "sm",
+        "md",
+        "lg"
+      ],
+      "default": "md",
+      "description": "Height and width of the trigger. The popup follows it."
+    },
+    {
+      "name": "shape",
+      "type": "enum",
+      "values": [
+        "rounded",
+        "square",
+        "squircle"
+      ],
+      "default": "rounded",
+      "description": "Corner radius, applied to the trigger and the popup together. `squircle` uses `corner-shape`."
+    },
+    {
+      "name": "shadow",
+      "type": "enum",
+      "values": [
+        "none",
+        "inset",
+        "outset"
+      ],
+      "default": "none",
+      "description": "Depth on the trigger. `inset` reads as a well, `outset` as a raised control."
+    },
+    {
+      "name": "icon",
+      "type": "none",
+      "typeName": "ReactNode",
+      "description": "A single icon fixed on the trigger, not per option - for the per-option kind, give an option an `avatar` instead."
+    },
+    {
+      "name": "iconSide",
+      "type": "enum",
+      "values": [
+        "leading",
+        "trailing"
+      ],
+      "default": "leading",
+      "description": "Which side `icon` sits on. Trailing sits just before the chevron."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "default": false,
+      "description": "Blocks interaction and dims the whole control, label included."
+    },
+    {
+      "name": "animate",
+      "type": "boolean",
+      "default": true,
+      "description": "Fades and scales the popup in and out. Turn it off for a static popup, or when the user has asked for reduced motion."
+    },
+    {
+      "name": "fullWidth",
+      "type": "boolean",
+      "default": false,
+      "description": "Fills the width of the parent instead of `size`'s fixed width, for a select inside a form column that isn't a fixed size itself - a dialog, say."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "description": "Appended to the trigger's classes, so any Yumma CSS utility you pass wins."
+    }
+  ],
+  "useClient": true,
+  "dependencies": [
+    {
+      "name": "@base-ui/react",
+      "version": "^1.7.0"
+    },
+    {
+      "name": "iconoir-react",
+      "version": "^7.11.1"
+    },
+    {
+      "name": "motion",
+      "version": "^13.0.0"
+    }
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "select.tsx",
+      "target": "components/ui/select.tsx",
+      "content": "\"use client\";\n\nimport { Avatar } from \"@base-ui/react/avatar\";\nimport { Field } from \"@base-ui/react/field\";\nimport { Select } from \"@base-ui/react/select\";\nimport { ArrowSeparateVertical, Check } from \"iconoir-react\";\nimport { AnimatePresence, motion } from \"motion/react\";\nimport { type ReactNode, useId, useState } from \"react\";\n\ntype Size = \"sm\" | \"md\" | \"lg\";\ntype Shape = \"rounded\" | \"square\" | \"squircle\";\ntype Shadow = \"none\" | \"inset\" | \"outset\";\ntype IconSide = \"leading\" | \"trailing\";\n\n/**\n * The option shape this component renders. Fixed rather than generic, the\n * same as Autocomplete, Combobox & Radio: you own the file, so data that does\n * not fit is an edit to the option body below rather than a type parameter on\n * every call site.\n */\nexport interface SelectOption {\n  value: string;\n  label: string;\n  description?: string;\n  avatar?: string;\n}\n\n/**\n * A labelled section of options. Base UI's own `items` prop already accepts\n * this shape - an array of `{ items }` groups instead of a flat array - so\n * grouping needs no extra prop here, only a render branch for the heading.\n */\nexport interface SelectGroup {\n  group: string;\n  items: SelectOption[];\n}\n\nconst TRIGGER =\n  \"d-f ai-c jc-sb bw-1 bc-silver-3 bg-white c-slate-10 us-none c-p fv:oo--1 fv:oc-indigo-5\";\n\nconst SIZES: Record<Size, string> = {\n  sm: \"h-8 w-56 px-3\",\n  md: \"h-10 w-64 px-3\",\n  lg: \"h-12 w-72 px-4\",\n};\n\n// `fullWidth` needs the height & padding without the fixed width.\nconst HEIGHTS: Record<Size, string> = {\n  sm: \"h-8 px-3\",\n  md: \"h-10 px-3\",\n  lg: \"h-12 px-4\",\n};\n\nconst POPUP_SIZES: Record<Size, string> = {\n  sm: \"w-56\",\n  md: \"w-64\",\n  lg: \"w-72\",\n};\n\nconst SHAPES: Record<Shape, string> = {\n  rounded: \"br-lg\",\n  square: \"\",\n  squircle: \"br-xxl cs-s\",\n};\n\nconst SHADOWS: Record<Shadow, string> = {\n  none: \"\",\n  inset: \"bs-i-sm\",\n  outset: \"bs-o-xs\",\n};\n\nfunction isGroupEntry(entry: SelectOption | SelectGroup): entry is SelectGroup {\n  return \"items\" in entry;\n}\n\nfunction flattenOptions(\n  options: SelectOption[] | SelectGroup[],\n): SelectOption[] {\n  return options.flatMap((entry) =>\n    isGroupEntry(entry) ? entry.items : [entry],\n  );\n}\n\nfunction renderOption(option: SelectOption) {\n  return (\n    <Select.Item\n      key={option.value}\n      value={option.value}\n      className={(state) =>\n        `d-f ai-c g-3 py-2 px-3 mx-1 br-md fs-sm fw-500 us-none c-p c-slate-10 ${\n          state.highlighted ? \"bg-silver-2/50\" : \"bg-transparent\"\n        }`\n      }\n    >\n      <Select.ItemIndicator className=\"d-f ai-c\">\n        <Check className=\"w-4 h-4\" />\n      </Select.ItemIndicator>\n      {option.avatar && (\n        <Avatar.Root className=\"d-if o-h ai-c jc-c w-6 h-6 bc-white br-9999 bw-1 va-m us-none\">\n          <Avatar.Image\n            src={option.avatar}\n            alt=\"\"\n            className=\"of-c w-100% h-100%\"\n          />\n          <Avatar.Fallback className=\"d-f ai-c jc-c w-100% h-100% c-slate-8 fs-xs\">\n            {option.label[0]}\n          </Avatar.Fallback>\n        </Avatar.Root>\n      )}\n      <div className=\"d-f fd-c\">\n        <Select.ItemText>{option.label}</Select.ItemText>\n        {option.description && (\n          <span className=\"c-slate-5 fs-xs\">{option.description}</span>\n        )}\n      </div>\n    </Select.Item>\n  );\n}\n\nexport interface SelectProps {\n  options: SelectOption[] | SelectGroup[];\n  label?: string;\n  /** Appends a red asterisk to the label & sets the trigger's native `required` attribute. */\n  required?: boolean;\n  /** A line under the control, for context on what the choice means. */\n  description?: string;\n  placeholder?: string;\n  defaultValue?: string | null;\n  value?: string | null;\n  /** Called with the newly selected value, or `null` if the selection was cleared. */\n  onValueChange?: (value: string | null) => void;\n  size?: Size;\n  shape?: Shape;\n  shadow?: Shadow;\n  /** Any icon, fixed on the trigger. Not per option - for the per-option kind, use `avatar`. */\n  icon?: ReactNode;\n  iconSide?: IconSide;\n  disabled?: boolean;\n  animate?: boolean;\n  /** Fills the width of the parent instead of `size`'s fixed width, for a select inside a form column that isn't a fixed size itself - a dialog, say. */\n  fullWidth?: boolean;\n  className?: string;\n}\n\nexport default function SelectBase({\n  options,\n  label,\n  required = false,\n  description,\n  placeholder = \"Select...\",\n  defaultValue = null,\n  value,\n  onValueChange,\n  size = \"md\",\n  shape = \"rounded\",\n  shadow = \"none\",\n  icon,\n  iconSide = \"leading\",\n  disabled = false,\n  animate = true,\n  fullWidth = false,\n  className,\n}: SelectProps) {\n  const [open, setOpen] = useState(false);\n  const id = useId();\n\n  const triggerClasses = [\n    TRIGGER,\n    fullWidth ? `${HEIGHTS[size]} w-100%` : SIZES[size],\n    SHAPES[shape],\n    SHADOWS[shadow],\n    open ? \"bg-silver-2/50\" : \"bg-transparent\",\n    className,\n  ]\n    .filter(Boolean)\n    .join(\" \");\n\n  const iconEl = icon && (\n    <span className=\"d-f ai-c c-slate-5\" aria-hidden>\n      {icon}\n    </span>\n  );\n\n  const flatOptions = flattenOptions(options);\n\n  const value_ = (\n    <Select.Value>\n      {(selected: string) => (\n        <span className=\"min-w-0 o-h to-e ws-nw\">\n          {selected\n            ? (flatOptions.find((o) => o.value === selected)?.label ?? selected)\n            : placeholder}\n        </span>\n      )}\n    </Select.Value>\n  );\n\n  const arrow = (\n    <Select.Icon className=\"d-f c-slate-8\">\n      <ArrowSeparateVertical className=\"w-4 h-4\" />\n    </Select.Icon>\n  );\n\n  const popup = (\n    <Select.Popup\n      className={`o-h py-1 bg-white bc-silver-2 bw-1 ${POPUP_SIZES[size]} ${SHAPES[shape]}`}\n    >\n      <Select.List className=\"p-r o-auto\">\n        {options.map((entry) =>\n          isGroupEntry(entry) ? (\n            <Select.Group key={entry.group}>\n              <Select.GroupLabel className=\"px-3 pt-2 pb-1 fs-xs fw-500 c-slate-5 us-none\">\n                {entry.group}\n              </Select.GroupLabel>\n              {entry.items.map(renderOption)}\n            </Select.Group>\n          ) : (\n            renderOption(entry)\n          ),\n        )}\n      </Select.List>\n    </Select.Popup>\n  );\n\n  return (\n    <Field.Root className={`d-f fd-c g-2 ${disabled ? \"o-60 c-na\" : \"\"}`}>\n      {label && (\n        <label htmlFor={id} className=\"c-slate-10 fs-sm fw-500 us-none\">\n          {label}\n          {required && <span className=\"c-red-5\"> *</span>}\n        </label>\n      )}\n\n      <Select.Root\n        // Select.Root's own `items` type is a union of three shapes; TS\n        // cannot narrow our `SelectOption[] | SelectGroup[]` into it even\n        // though both members are already covered.\n        items={options as SelectOption[]}\n        defaultValue={defaultValue}\n        value={value}\n        onValueChange={onValueChange}\n        open={open}\n        onOpenChange={setOpen}\n        disabled={disabled}\n        required={required}\n      >\n        <Select.Trigger id={id} className={triggerClasses}>\n          {icon && iconSide === \"leading\" && (\n            <span className=\"d-f ai-c g-2\">\n              {iconEl}\n              {value_}\n            </span>\n          )}\n          {(!icon || iconSide !== \"leading\") && value_}\n          {icon && iconSide === \"trailing\" ? (\n            <span className=\"d-f ai-c g-1\">\n              {iconEl}\n              {arrow}\n            </span>\n          ) : (\n            arrow\n          )}\n        </Select.Trigger>\n\n        <AnimatePresence>\n          {open && (\n            <Select.Portal>\n              <Select.Positioner\n                sideOffset={8}\n                alignItemWithTrigger={false}\n                className=\"zi-10 p-0 ow-0 us-none\"\n              >\n                {animate ? (\n                  <motion.div\n                    initial={{ opacity: 0, scale: 0.95 }}\n                    animate={{ opacity: 1, scale: 1 }}\n                    exit={{ opacity: 0, scale: 0.95 }}\n                    transition={{ duration: 0.15, ease: \"easeOut\" }}\n                  >\n                    {popup}\n                  </motion.div>\n                ) : (\n                  popup\n                )}\n              </Select.Positioner>\n            </Select.Portal>\n          )}\n        </AnimatePresence>\n      </Select.Root>\n\n      {description && <p className=\"m-0 c-slate-6 fs-xs\">{description}</p>}\n    </Field.Root>\n  );\n}\n"
+    }
+  ]
+}

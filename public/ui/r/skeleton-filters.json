@@ -1,0 +1,20 @@
+{
+  "id": "skeleton-filters",
+  "component": "skeleton",
+  "variant": "filters",
+  "useClient": true,
+  "dependencies": [
+    {
+      "name": "motion",
+      "version": "^13.0.0"
+    }
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "skeleton-filters.tsx",
+      "target": "components/ui/skeleton-filters.tsx",
+      "content": "\"use client\";\n\nimport { motion } from \"motion/react\";\n\nexport default function SkeletonFilters() {\n  return (\n    <div className=\"d-f fd-c g-4 p-8 h-56\">\n      <motion.div\n        animate={{ opacity: [0.5, 1, 0.5] }}\n        transition={{ duration: 1, repeat: Infinity }}\n        className=\"h-10 w-100% bg-silver-2 br-lg\"\n      />\n      <div className=\"d-f g-2\">\n        <motion.div\n          animate={{ opacity: [0.5, 1, 0.5] }}\n          transition={{ duration: 1, repeat: Infinity, delay: 0.05 }}\n          className=\"h-6 w-16 bg-silver-2 br-9999\"\n        />\n        <motion.div\n          animate={{ opacity: [0.5, 1, 0.5] }}\n          transition={{ duration: 1, repeat: Infinity, delay: 0.1 }}\n          className=\"h-6 w-20 bg-silver-2 br-9999\"\n        />\n        <motion.div\n          animate={{ opacity: [0.5, 1, 0.5] }}\n          transition={{ duration: 1, repeat: Infinity, delay: 0.15 }}\n          className=\"h-6 w-14 bg-silver-2 br-9999\"\n        />\n      </div>\n      <motion.div\n        animate={{ opacity: [0.5, 1, 0.5] }}\n        transition={{ duration: 1, repeat: Infinity, delay: 0.2 }}\n        className=\"h-3 w-24 bg-silver-1 br-xs\"\n      />\n      <div className=\"d-f ai-c g-4\">\n        <motion.div\n          animate={{ opacity: [0.5, 1, 0.5] }}\n          transition={{ duration: 1, repeat: Infinity, delay: 0.25 }}\n          className=\"w-9 h-9 bg-silver-2 br-lg fs-0\"\n        />\n        <div className=\"d-f fd-c g-1 fg-1\">\n          <motion.div\n            animate={{ opacity: [0.5, 1, 0.5] }}\n            transition={{ duration: 1, repeat: Infinity, delay: 0.25 }}\n            className=\"h-3 w-48 bg-silver-2 br-xs\"\n          />\n          <motion.div\n            animate={{ opacity: [0.5, 1, 0.5] }}\n            transition={{ duration: 1, repeat: Infinity, delay: 0.25 }}\n            className=\"h-2 w-32 bg-silver-1 br-xs\"\n          />\n        </div>\n      </div>\n    </div>\n  );\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id": "checkbox-parent",
+  "component": "checkbox",
+  "variant": "parent",
+  "useClient": true,
+  "dependencies": [
+    {
+      "name": "@base-ui/react",
+      "version": "^1.7.0"
+    }
+  ],
+  "registryDependencies": [
+    "checkbox"
+  ],
+  "files": [
+    {
+      "path": "checkbox-parent.tsx",
+      "target": "components/ui/checkbox-parent.tsx",
+      "content": "\"use client\";\n\nimport { CheckboxGroup } from \"@base-ui/react/checkbox-group\";\nimport { useId, useState } from \"react\";\nimport Checkbox from \"./checkbox\";\n\nexport default function CheckboxParent() {\n  const id = useId();\n  const [value, setValue] = useState<string[]>([]);\n\n  return (\n    <CheckboxGroup\n      aria-labelledby={id}\n      value={value}\n      onValueChange={setValue}\n      allValues={permissions}\n      className=\"d-f fd-c g-2 c-slate-10\"\n    >\n      <div id={id}>\n        <Checkbox name=\"permissions\" parent label=\"Project permissions\" />\n      </div>\n      <div className=\"d-f fd-c g-2 ml-6\">\n        <Checkbox value=\"read\" label=\"Read\" />\n        <Checkbox value=\"write\" label=\"Write\" />\n        <Checkbox value=\"delete\" label=\"Delete\" />\n      </div>\n    </CheckboxGroup>\n  );\n}\n\nconst permissions = [\"read\", \"write\", \"delete\"];\n"
+    }
+  ]
+}

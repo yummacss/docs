@@ -1,0 +1,22 @@
+{
+  "id": "popover-color-palette",
+  "component": "popover",
+  "variant": "color-palette",
+  "useClient": true,
+  "dependencies": [
+    {
+      "name": "iconoir-react",
+      "version": "^7.11.1"
+    }
+  ],
+  "registryDependencies": [
+    "popover"
+  ],
+  "files": [
+    {
+      "path": "popover-color-palette.tsx",
+      "target": "components/ui/popover-color-palette.tsx",
+      "content": "\"use client\";\n\nimport { Check } from \"iconoir-react\";\nimport { useState } from \"react\";\nimport Popover from \"./popover\";\n\nexport default function PopoverColorPalette() {\n  const [open, setOpen] = useState(false);\n  const [selected, setSelected] = useState(\"indigo\");\n\n  return (\n    <Popover\n      open={open}\n      onOpenChange={setOpen}\n      triggerVariant=\"label\"\n      title=\"Accent color\"\n      trigger={\n        <>\n          <span\n            className={`w-4 h-4 br-9999 ${colors.find((c) => c.value === selected)?.bgClass}`}\n          />\n          <span className=\"fs-sm fw-500\">Accent</span>\n        </>\n      }\n    >\n      <div className=\"d-g gtc-5 g-2\">\n        {colors.map((color) => (\n          <button\n            key={color.value}\n            type=\"button\"\n            onClick={() => {\n              setSelected(color.value);\n              setOpen(false);\n            }}\n            aria-label={color.label}\n            className={`d-f ai-c jc-c w-8 h-8 br-9999 bw-0 c-p ${color.bgClass}`}\n          >\n            {selected === color.value && (\n              <Check className=\"w-4 h-4 c-white\" />\n            )}\n          </button>\n        ))}\n      </div>\n    </Popover>\n  );\n}\n\nconst colors = [\n  { value: \"red\", label: \"Red\", bgClass: \"bg-red\" },\n  { value: \"coral\", label: \"Coral\", bgClass: \"bg-coral\" },\n  { value: \"yellow\", label: \"Yellow\", bgClass: \"bg-yellow\" },\n  { value: \"lime\", label: \"Lime\", bgClass: \"bg-lime\" },\n  { value: \"mint\", label: \"Mint\", bgClass: \"bg-mint\" },\n  { value: \"cyan\", label: \"Cyan\", bgClass: \"bg-cyan\" },\n  { value: \"blue\", label: \"Blue\", bgClass: \"bg-blue\" },\n  { value: \"indigo\", label: \"Indigo\", bgClass: \"bg-indigo\" },\n  { value: \"violet\", label: \"Violet\", bgClass: \"bg-violet\" },\n  { value: \"magenta\", label: \"Magenta\", bgClass: \"bg-magenta\" },\n];\n"
+    }
+  ]
+}

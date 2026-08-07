@@ -1,0 +1,101 @@
+{
+  "id": "button",
+  "component": "button",
+  "variant": "base",
+  "summary": "A primary action, in six variants, three sizes and four shapes, with optional shadow, loading and icon-only states.",
+  "props": [
+    {
+      "name": "variant",
+      "type": "enum",
+      "values": [
+        "primary",
+        "secondary",
+        "subtle",
+        "ghost",
+        "danger",
+        "link"
+      ],
+      "default": "primary",
+      "description": "Visual weight. `primary` for the main action on a view, `danger` for destructive ones."
+    },
+    {
+      "name": "size",
+      "type": "enum",
+      "values": [
+        "sm",
+        "md",
+        "lg"
+      ],
+      "default": "md",
+      "description": "Padding and text size."
+    },
+    {
+      "name": "shape",
+      "type": "enum",
+      "values": [
+        "rounded",
+        "square",
+        "squircle",
+        "pill"
+      ],
+      "default": "rounded",
+      "description": "Corner radius. `squircle` uses `corner-shape`, which degrades to a rounded square where that is unsupported."
+    },
+    {
+      "name": "shadow",
+      "type": "enum",
+      "values": [
+        "none",
+        "inset",
+        "outset"
+      ],
+      "default": "none",
+      "description": "Depth. `inset` reads as a pressed control, `outset` as a raised one."
+    },
+    {
+      "name": "loading",
+      "type": "boolean",
+      "default": false,
+      "description": "Dims the button and blocks interaction. Sets `aria-busy` rather than `disabled`, because to a screen reader a busy control is not an unavailable one."
+    },
+    {
+      "name": "iconOnly",
+      "type": "boolean",
+      "default": false,
+      "description": "Equal padding on both axes, for a button whose only child is an icon. Pair it with an `aria-label`."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "default": false,
+      "description": "Blocks interaction and dims the button."
+    },
+    {
+      "name": "animate",
+      "type": "boolean",
+      "default": true,
+      "description": "The hover and focus transition. Turn it off for a static button, or when the user has asked for reduced motion."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "description": "Appended after the generated classes, so any Yumma CSS utility you pass wins."
+    }
+  ],
+  "children": "Label",
+  "useClient": false,
+  "dependencies": [
+    {
+      "name": "@base-ui/react",
+      "version": "^1.7.0"
+    }
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "button.tsx",
+      "target": "components/ui/button.tsx",
+      "content": "import { Button } from \"@base-ui/react/button\";\nimport type { ComponentProps, ReactNode } from \"react\";\n\ntype Variant = \"primary\" | \"secondary\" | \"subtle\" | \"ghost\" | \"danger\" | \"link\";\ntype Size = \"sm\" | \"md\" | \"lg\";\ntype Shape = \"rounded\" | \"square\" | \"squircle\" | \"pill\";\ntype Shadow = \"none\" | \"inset\" | \"outset\";\n\n// Plain lookups rather than cva: a copied component should not drag a class\n// utility into your package.json to do what an object literal already does.\nconst BASE = \"d-if ai-c jc-c g-2 bw-1 fw-500 us-none fv:oo-2\";\n\n// Split out of BASE so it can be switched off, the same `animate` prop Skeleton\n// and Autocomplete carry.\nconst MOTION = \"tp-c tdu-150 ttf-io\";\n\nconst VARIANTS: Record<Variant, string> = {\n  primary: \"bg-indigo h:bg-indigo-8 bc-indigo-7 c-white fv:oc-indigo-3\",\n  secondary: \"bg-white bc-silver-2 c-slate-10 h:bg-silver-1/50 fv:oc-indigo-3\",\n  subtle: \"bg-silver-1 bc-transparent c-slate-7 h:bg-silver-2 fv:oc-indigo-3\",\n  ghost:\n    \"bg-transparent bc-transparent c-slate-10 h:bg-silver-1/50 h:c-slate-7 fv:oc-indigo-3\",\n  danger: \"bg-red h:bg-red-8 bc-red-7 c-white fv:oc-red-3\",\n  link: \"bg-transparent bc-transparent c-slate-10 tuo-2 h:td-u fv:oc-indigo-3\",\n};\n\nconst SIZES: Record<Size, string> = {\n  sm: \"px-2 py-1 fs-sm\",\n  md: \"px-3 py-2 fs-md\",\n  lg: \"px-4 py-3 fs-lg\",\n};\n\n// An icon-only button needs equal padding on both axes, or it reads as a\n// stretched rectangle around a square glyph.\nconst ICON_ONLY: Record<Size, string> = {\n  sm: \"p-1\",\n  md: \"p-2\",\n  lg: \"p-3\",\n};\n\nconst SHAPES: Record<Shape, string> = {\n  rounded: \"br-lg\",\n  square: \"br-0\",\n  squircle: \"br-xxl cs-s\",\n  pill: \"br-9999\",\n};\n\nconst SHADOWS: Record<Shadow, string> = {\n  none: \"\",\n  inset: \"bs-i-sm\",\n  outset: \"bs-o-xs\",\n};\n\nexport interface ButtonProps extends ComponentProps<typeof Button> {\n  variant?: Variant;\n  size?: Size;\n  shape?: Shape;\n  shadow?: Shadow;\n  /** Dims the button and blocks interaction while an action is in flight. */\n  loading?: boolean;\n  /** Square padding, for a button whose only child is an icon. */\n  iconOnly?: boolean;\n  /** The hover & focus transition. */\n  animate?: boolean;\n  children?: ReactNode;\n}\n\nexport default function ButtonBase({\n  variant = \"primary\",\n  size = \"md\",\n  shape = \"rounded\",\n  shadow = \"none\",\n  loading = false,\n  iconOnly = false,\n  animate = true,\n  disabled,\n  className,\n  children,\n  ...props\n}: ButtonProps) {\n  const inactive = disabled || loading;\n\n  const classes = [\n    BASE,\n    animate ? MOTION : \"\",\n    VARIANTS[variant],\n    iconOnly ? ICON_ONLY[size] : SIZES[size],\n    SHAPES[shape],\n    SHADOWS[shadow],\n    inactive ? \"o-60 c-na\" : \"c-p\",\n    className,\n  ]\n    .filter(Boolean)\n    .join(\" \");\n\n  return (\n    <Button\n      className={classes}\n      disabled={inactive}\n      // To a screen reader `loading` is a busy state, not a disabled one.\n      aria-busy={loading || undefined}\n      {...props}\n    >\n      {children}\n    </Button>\n  );\n}\n"
+    }
+  ]
+}

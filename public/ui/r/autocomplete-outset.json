@@ -1,0 +1,17 @@
+{
+  "id": "autocomplete-outset",
+  "component": "autocomplete",
+  "variant": "outset",
+  "useClient": false,
+  "dependencies": [],
+  "registryDependencies": [
+    "autocomplete"
+  ],
+  "files": [
+    {
+      "path": "autocomplete-outset.tsx",
+      "target": "components/ui/autocomplete-outset.tsx",
+      "content": "import Autocomplete from \"./autocomplete\";\n\nexport default function AutocompleteOutset() {\n  return (\n    <Autocomplete\n      items={teamMembers}\n      label=\"Assign member\"\n      placeholder=\"Search members\"\n      shadow=\"outset\"\n    />\n  );\n}\n\ninterface TeamMember {\n  label: string;\n  description: string;\n  avatar: string;\n}\n\nconst teamMembers: TeamMember[] = [\n  {\n    label: \"Adrian\",\n    description: \"Product Designer\",\n    avatar:\n      \"https://api.dicebear.com/9.x/notionists/svg?seed=Adrian&backgroundColor=FFD4DE\",\n  },\n  {\n    label: \"Aidan\",\n    description: \"Frontend Developer\",\n    avatar:\n      \"https://api.dicebear.com/9.x/notionists/svg?seed=Aidan&backgroundColor=FFD4DE\",\n  },\n  {\n    label: \"Jade\",\n    description: \"Backend Developer\",\n    avatar:\n      \"https://api.dicebear.com/9.x/notionists/svg?seed=Jade&backgroundColor=DAF0B9\",\n  },\n  {\n    label: \"Jessica\",\n    description: \"UX Researcher\",\n    avatar:\n      \"https://api.dicebear.com/9.x/notionists/svg?seed=Jessica&backgroundColor=DAF0B9\",\n  },\n  {\n    label: \"Jocelyn\",\n    description: \"QA Engineer\",\n    avatar:\n      \"https://api.dicebear.com/9.x/notionists/svg?seed=Jocelyn&backgroundColor=DAF0B9\",\n  },\n  {\n    label: \"John\",\n    description: \"Product Manager\",\n    avatar:\n      \"https://api.dicebear.com/9.x/notionists/svg?seed=John&backgroundColor=DAF0B9\",\n  },\n  {\n    label: \"Katherine\",\n    description: \"DevOps Engineer\",\n    avatar:\n      \"https://api.dicebear.com/9.x/notionists/svg?seed=Katherine&backgroundColor=F4C8FA\",\n  },\n  {\n    label: \"Liam\",\n    description: \"Engineering Lead\",\n    avatar:\n      \"https://api.dicebear.com/9.x/notionists/svg?seed=Liam&backgroundColor=D0D1FB\",\n  },\n  {\n    label: \"Liliana\",\n    description: \"Data Analyst\",\n    avatar:\n      \"https://api.dicebear.com/9.x/notionists/svg?seed=Liliana&backgroundColor=DCCEFC\",\n  },\n  {\n    label: \"Maria\",\n    description: \"Frontend Developer\",\n    avatar:\n      \"https://api.dicebear.com/9.x/notionists/svg?seed=Maria&backgroundColor=DCCEFC\",\n  },\n  {\n    label: \"Melanie\",\n    description: \"Backend Developer\",\n    avatar:\n      \"https://api.dicebear.com/9.x/notionists/svg?seed=Melanie&backgroundColor=DCCEFC\",\n  },\n  {\n    label: \"Noah\",\n    description: \"Product Designer\",\n    avatar:\n      \"https://api.dicebear.com/9.x/notionists/svg?seed=Noah&backgroundColor=D0D1FB\",\n  },\n];\n"
+    }
+  ]
+}

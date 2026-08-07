@@ -1,0 +1,20 @@
+{
+  "id": "skeleton-activity",
+  "component": "skeleton",
+  "variant": "activity",
+  "useClient": true,
+  "dependencies": [
+    {
+      "name": "motion",
+      "version": "^13.0.0"
+    }
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "skeleton-activity.tsx",
+      "target": "components/ui/skeleton-activity.tsx",
+      "content": "\"use client\";\n\nimport { motion } from \"motion/react\";\n\nconst ENTRIES = Array.from({ length: 4 }, (_, i) => ({ id: `activity-${i}` }));\n\nexport default function SkeletonActivity() {\n  return (\n    <div className=\"d-f fd-c g-4 p-8 h-56\">\n      {ENTRIES.map((entry, i) => (\n        <div key={entry.id} className=\"d-f ai-c g-4\">\n          <motion.div\n            animate={{ opacity: [0.5, 1, 0.5] }}\n            transition={{ duration: 1, repeat: Infinity, delay: i * 0.15 }}\n            className=\"w-9 h-9 bg-silver-2 br-9999 fs-0\"\n          />\n          <div className=\"d-f fd-c g-1 fg-1\">\n            <motion.div\n              animate={{ opacity: [0.5, 1, 0.5] }}\n              transition={{ duration: 1, repeat: Infinity, delay: i * 0.15 }}\n              className=\"h-3 w-48 bg-silver-2 br-xs\"\n            />\n            <motion.div\n              animate={{ opacity: [0.5, 1, 0.5] }}\n              transition={{ duration: 1, repeat: Infinity, delay: i * 0.15 }}\n              className=\"h-2 w-32 bg-silver-1 br-xs\"\n            />\n          </div>\n        </div>\n      ))}\n    </div>\n  );\n}\n"
+    }
+  ]
+}

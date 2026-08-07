@@ -1,0 +1,109 @@
+{
+  "id": "empty-state",
+  "component": "empty-state",
+  "variant": "base",
+  "summary": "A placeholder for an empty list, with an optional badge icon and up to two actions.",
+  "props": [
+    {
+      "name": "icon",
+      "type": "none",
+      "typeName": "ReactNode",
+      "exampleIcon": "User",
+      "description": "The glyph in the badge. No badge renders without one."
+    },
+    {
+      "name": "iconTone",
+      "type": "enum",
+      "values": [
+        "accent",
+        "neutral"
+      ],
+      "default": "accent",
+      "description": "`accent` for an invitation to act, `neutral` for a plain absence - nothing found, nothing to do."
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "example": "No members found",
+      "description": "The heading."
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "example": "Invite team members to collaborate on projects.",
+      "description": "A line under the title."
+    },
+    {
+      "name": "primaryLabel",
+      "type": "string",
+      "example": "Invite users",
+      "description": "The filled button. Omit it for a state with nothing to do."
+    },
+    {
+      "name": "primaryIcon",
+      "type": "none",
+      "typeName": "ReactNode",
+      "description": "A glyph before the primary label."
+    },
+    {
+      "name": "onPrimary",
+      "type": "none",
+      "typeName": "() => void",
+      "description": "Called when the primary button is pressed."
+    },
+    {
+      "name": "secondaryLabel",
+      "type": "string",
+      "example": "Learn more",
+      "description": "The outlined button beside the primary one."
+    },
+    {
+      "name": "onSecondary",
+      "type": "none",
+      "typeName": "() => void",
+      "description": "Called when the secondary button is pressed."
+    },
+    {
+      "name": "shape",
+      "type": "enum",
+      "values": [
+        "rounded",
+        "square",
+        "squircle"
+      ],
+      "default": "rounded",
+      "description": "Corner radius on the badge."
+    },
+    {
+      "name": "shadow",
+      "type": "enum",
+      "values": [
+        "none",
+        "inset",
+        "outset"
+      ],
+      "default": "none",
+      "description": "Wraps the whole block in a card. `none` renders it bare, with no card at all."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "description": "Appended to the root's classes, so any Yumma CSS utility you pass wins."
+    }
+  ],
+  "useClient": false,
+  "dependencies": [
+    {
+      "name": "@base-ui/react",
+      "version": "^1.7.0"
+    }
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "empty-state.tsx",
+      "target": "components/ui/empty-state.tsx",
+      "content": "import { Button } from \"@base-ui/react/button\";\nimport type { ReactNode } from \"react\";\n\ntype IconTone = \"accent\" | \"neutral\";\ntype Shape = \"rounded\" | \"square\" | \"squircle\";\ntype Shadow = \"none\" | \"inset\" | \"outset\";\n\nconst BADGE_SHAPES: Record<Shape, string> = {\n  rounded: \"br-lg\",\n  square: \"\",\n  squircle: \"br-xxl cs-s\",\n};\n\nconst SHADOWS: Record<Exclude<Shadow, \"none\">, string> = {\n  inset: \"bs-i-sm\",\n  outset: \"bs-o-xs\",\n};\n\nconst ICON_TONES: Record<IconTone, string> = {\n  accent: \"c-indigo\",\n  neutral: \"c-slate-5\",\n};\n\nconst BUTTON_BASE =\n  \"d-if ai-c px-3 py-2 bw-1 fw-500 tp-c tdu-150 ttf-io us-none c-p fv:oo-2 fv:oc-indigo-5\";\n\nexport interface EmptyStateProps {\n  /** The glyph in the badge. No badge renders without one. */\n  icon?: ReactNode;\n  /** `accent` for an invitation to act, `neutral` for a plain absence. */\n  iconTone?: IconTone;\n  title: string;\n  description?: string;\n  /** The filled button. Omit for a state with nothing to do. */\n  primaryLabel?: string;\n  primaryIcon?: ReactNode;\n  onPrimary?: () => void;\n  /** The outlined button beside it. */\n  secondaryLabel?: string;\n  onSecondary?: () => void;\n  /** Corner radius on the badge. */\n  shape?: Shape;\n  /** Wraps the whole block in a card. `none` renders it bare. */\n  shadow?: Shadow;\n  className?: string;\n}\n\nexport default function EmptyStateBase({\n  icon,\n  iconTone = \"accent\",\n  title,\n  description,\n  primaryLabel,\n  primaryIcon,\n  onPrimary,\n  secondaryLabel,\n  onSecondary,\n  shape = \"rounded\",\n  shadow = \"none\",\n  className,\n}: EmptyStateProps) {\n  const isCard = shadow !== \"none\";\n  const hasActions = Boolean(primaryLabel || secondaryLabel);\n\n  // Text on its own sits tight; a badge or buttons need room to breathe.\n  const gap = icon || hasActions ? \"g-4\" : \"g-1\";\n\n  const rootClasses = [\n    \"d-f fd-c ai-c jc-c p-8\",\n    gap,\n    isCard ? \"bg-white bc-silver-2 br-lg bw-1\" : \"\",\n    shadow === \"inset\" || shadow === \"outset\" ? SHADOWS[shadow] : \"\",\n    className,\n  ]\n    .filter(Boolean)\n    .join(\" \");\n\n  const badgeClasses = [\n    \"d-f ai-c jc-c w-10 h-10 bg-white bc-silver-3 bw-1\",\n    ICON_TONES[iconTone],\n    BADGE_SHAPES[shape],\n  ]\n    .filter(Boolean)\n    .join(\" \");\n\n  return (\n    <div className={rootClasses}>\n      {icon && <div className={badgeClasses}>{icon}</div>}\n\n      <div className=\"d-f fd-c ai-c g-1 ta-c\">\n        <span className=\"c-slate-10 fs-md fw-500\">{title}</span>\n        {description && <span className=\"c-slate-6 fs-sm\">{description}</span>}\n      </div>\n\n      {hasActions && (\n        <div className=\"d-f g-3\">\n          {secondaryLabel && (\n            <Button\n              onClick={onSecondary}\n              className={[\n                BUTTON_BASE,\n                \"bg-white bc-silver-2 c-slate-10 br-lg h:bg-silver-1/50\",\n              ].join(\" \")}\n            >\n              {secondaryLabel}\n            </Button>\n          )}\n          {primaryLabel && (\n            <Button\n              onClick={onPrimary}\n              className={[\n                BUTTON_BASE,\n                \"g-2 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-lg\",\n              ].join(\" \")}\n            >\n              {primaryIcon}\n              {primaryLabel}\n            </Button>\n          )}\n        </div>\n      )}\n    </div>\n  );\n}\n"
+    }
+  ]
+}

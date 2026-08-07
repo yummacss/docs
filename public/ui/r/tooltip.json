@@ -1,0 +1,129 @@
+{
+  "id": "tooltip",
+  "component": "tooltip",
+  "variant": "base",
+  "summary": "A hover tooltip, light or dark, positionable on any side, with an optional arrow.",
+  "props": [
+    {
+      "name": "trigger",
+      "type": "none",
+      "typeName": "ReactNode",
+      "exampleIcon": "BellNotification",
+      "description": "The trigger's content - an icon, usually. Pair it with `triggerLabel` when there is no text."
+    },
+    {
+      "name": "triggerLabel",
+      "type": "string",
+      "example": "Notifications",
+      "description": "The trigger's `aria-label`. An icon-only trigger has no accessible name without it."
+    },
+    {
+      "name": "triggerTone",
+      "type": "enum",
+      "values": [
+        "neutral",
+        "danger"
+      ],
+      "default": "neutral",
+      "description": "The trigger's colour. `danger` reads red, for a destructive action."
+    },
+    {
+      "name": "content",
+      "type": "none",
+      "typeName": "ReactNode",
+      "example": "3 unread notifications",
+      "description": "The tooltip's text."
+    },
+    {
+      "name": "side",
+      "type": "enum",
+      "values": [
+        "top",
+        "right",
+        "bottom",
+        "left"
+      ],
+      "default": "top",
+      "description": "Which side of the trigger the tooltip opens on. It flips automatically if there is no room."
+    },
+    {
+      "name": "sideOffset",
+      "type": "number",
+      "default": 8,
+      "description": "Gap between the trigger and the tooltip, in pixels."
+    },
+    {
+      "name": "tone",
+      "type": "enum",
+      "values": [
+        "light",
+        "dark"
+      ],
+      "default": "light",
+      "description": "`light` is a bordered white card; `dark` is a solid indigo chip with no border."
+    },
+    {
+      "name": "arrow",
+      "type": "boolean",
+      "default": false,
+      "description": "A pointer notched into the tooltip's edge, aimed back at the trigger. It re-aims itself when `side` changes."
+    },
+    {
+      "name": "delay",
+      "type": "number",
+      "description": "How long a hover must rest before it opens, in ms. Base UI's own default applies when unset."
+    },
+    {
+      "name": "shape",
+      "type": "enum",
+      "values": [
+        "rounded",
+        "square",
+        "squircle"
+      ],
+      "default": "rounded",
+      "description": "Corner radius on the tooltip."
+    },
+    {
+      "name": "shadow",
+      "type": "enum",
+      "values": [
+        "none",
+        "inset",
+        "outset"
+      ],
+      "default": "none",
+      "description": "Depth on the tooltip."
+    },
+    {
+      "name": "animate",
+      "type": "boolean",
+      "default": true,
+      "description": "The tooltip's fade and rise. Turn it off for an instant tooltip, or when the user has asked for reduced motion."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "description": "Appended to the trigger's classes, so any Yumma CSS utility you pass wins."
+    }
+  ],
+  "useClient": true,
+  "dependencies": [
+    {
+      "name": "@base-ui/react",
+      "version": "^1.7.0"
+    },
+    {
+      "name": "motion",
+      "version": "^13.0.0"
+    }
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "tooltip.tsx",
+      "target": "components/ui/tooltip.tsx",
+      "content": "\"use client\";\n\nimport { Tooltip } from \"@base-ui/react/tooltip\";\nimport { AnimatePresence, motion } from \"motion/react\";\nimport type { ReactNode } from \"react\";\n\ntype Side = \"top\" | \"right\" | \"bottom\" | \"left\";\ntype Tone = \"light\" | \"dark\";\ntype TriggerTone = \"neutral\" | \"danger\";\ntype Shape = \"rounded\" | \"square\" | \"squircle\";\ntype Shadow = \"none\" | \"inset\" | \"outset\";\n\nconst SHAPES: Record<Shape, string> = {\n  rounded: \"br-lg\",\n  square: \"\",\n  squircle: \"br-3xl cs-s\",\n};\n\nconst SHADOWS: Record<Exclude<Shadow, \"none\">, string> = {\n  inset: \"bs-i-sm\",\n  outset: \"bs-o-xs\",\n};\n\nconst TONES: Record<Tone, string> = {\n  light: \"bg-white bc-silver-2 c-slate-10 bw-1\",\n  dark: \"bg-indigo-7 c-white\",\n};\n\nconst TRIGGER_TONES: Record<TriggerTone, string> = {\n  neutral: \"c-slate-8 h:c-slate-12 fv:oc-indigo-5\",\n  danger: \"c-red-7 h:c-red-8 fv:oc-red-6\",\n};\n\nexport interface TooltipProps {\n  /** The trigger's content - an icon, usually. */\n  trigger: ReactNode;\n  /** Names the trigger for assistive tech, since it is often icon-only. */\n  triggerLabel?: string;\n  triggerTone?: TriggerTone;\n  /** The tooltip's text. */\n  content: ReactNode;\n  side?: Side;\n  /** Gap between trigger and tooltip, in pixels. */\n  sideOffset?: number;\n  tone?: Tone;\n  /** A pointer notched into the tooltip's edge, aimed back at the trigger. */\n  arrow?: boolean;\n  /** How long a hover must rest before it opens, in ms. */\n  delay?: number;\n  shape?: Shape;\n  shadow?: Shadow;\n  /** The tooltip's fade & rise. */\n  animate?: boolean;\n  className?: string;\n}\n\nexport default function TooltipBase({\n  trigger,\n  triggerLabel,\n  triggerTone = \"neutral\",\n  content,\n  side = \"top\",\n  sideOffset = 8,\n  tone = \"light\",\n  arrow = false,\n  delay,\n  shape = \"rounded\",\n  shadow = \"none\",\n  animate = true,\n  className,\n}: TooltipProps) {\n  const triggerClasses = [\n    \"d-f ai-c jc-c bg-transparent bw-0 c-p fv:oo-2\",\n    TRIGGER_TONES[triggerTone],\n    className,\n  ]\n    .filter(Boolean)\n    .join(\" \");\n\n  const popupClasses = [\n    \"px-3 py-2 fs-sm us-none\",\n    TONES[tone],\n    SHAPES[shape],\n    shadow === \"inset\" || shadow === \"outset\" ? SHADOWS[shadow] : \"\",\n  ]\n    .filter(Boolean)\n    .join(\" \");\n\n  const popup = (\n    <Tooltip.Popup\n      render={\n        animate ? (\n          <motion.div\n            initial={{ opacity: 0, y: 4 }}\n            animate={{ opacity: 1, y: 0 }}\n            exit={{ opacity: 0, y: 4 }}\n            transition={{ duration: 0.2, ease: \"easeOut\" }}\n          />\n        ) : undefined\n      }\n      className={popupClasses}\n    >\n      {arrow && (\n        // Base UI's Arrow re-aims per side, unlike the demo's hand-placed SVG.\n        <Tooltip.Arrow className=\"d-f w-4 h-2 c-silver-2\">\n          <svg viewBox=\"0 0 10 5\" width=\"16\" height=\"8\">\n            <title>Arrow</title>\n            <path\n              d=\"M0 5 L5 0 L10 5\"\n              fill=\"currentColor\"\n              stroke=\"currentColor\"\n              strokeWidth=\"1\"\n            />\n          </svg>\n        </Tooltip.Arrow>\n      )}\n      {content}\n    </Tooltip.Popup>\n  );\n\n  return (\n    // `delay` belongs to the Provider, not the Root, in Base UI 1.7.\n    <Tooltip.Provider delay={delay}>\n      <Tooltip.Root>\n        <Tooltip.Trigger className={triggerClasses} aria-label={triggerLabel}>\n          {trigger}\n        </Tooltip.Trigger>\n        <Tooltip.Portal>\n          <Tooltip.Positioner side={side} sideOffset={sideOffset}>\n            {animate ? <AnimatePresence>{popup}</AnimatePresence> : popup}\n          </Tooltip.Positioner>\n        </Tooltip.Portal>\n      </Tooltip.Root>\n    </Tooltip.Provider>\n  );\n}\n"
+    }
+  ]
+}

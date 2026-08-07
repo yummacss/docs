@@ -1,0 +1,61 @@
+{
+  "id": "skeleton",
+  "component": "skeleton",
+  "variant": "base",
+  "summary": "A placeholder for content that has not arrived yet, in three shapes and two tones, with a pulse you can stagger or switch off.",
+  "props": [
+    {
+      "name": "shape",
+      "type": "enum",
+      "values": [
+        "line",
+        "block",
+        "circle"
+      ],
+      "default": "line",
+      "description": "Corner radius, plus a default size: `line` for text, `block` for a control or thumbnail, `circle` for an avatar. Override the size with `className`."
+    },
+    {
+      "name": "tone",
+      "type": "enum",
+      "values": [
+        "default",
+        "subtle"
+      ],
+      "default": "default",
+      "description": "`subtle` is one step lighter, for the secondary line in a pair."
+    },
+    {
+      "name": "animate",
+      "type": "boolean",
+      "default": true,
+      "description": "The pulse. Turn it off for a static placeholder, or when the user has asked for reduced motion."
+    },
+    {
+      "name": "delay",
+      "type": "number",
+      "default": 0,
+      "description": "Seconds to offset the pulse by. Stagger a list with `delay={index * 0.15}` so its rows do not beat in unison."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "description": "Appended after the generated classes, so the width and height you pass win over the shape's defaults."
+    }
+  ],
+  "useClient": true,
+  "dependencies": [
+    {
+      "name": "motion",
+      "version": "^13.0.0"
+    }
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "skeleton.tsx",
+      "target": "components/ui/skeleton.tsx",
+      "content": "\"use client\";\n\nimport { motion } from \"motion/react\";\n\ntype Shape = \"line\" | \"block\" | \"circle\";\ntype Tone = \"default\" | \"subtle\";\n\n// Plain lookups rather than cva: a copied component should not drag a class\n// utility into your package.json to do what an object literal already does.\n//\n// Each shape carries a default size so a bare <Skeleton /> is visible. Anything\n// you pass in className lands after these and wins.\nconst SHAPES: Record<Shape, string> = {\n  line: \"h-3 w-100% br-xs\",\n  block: \"h-8 w-24 br-lg\",\n  circle: \"w-10 h-10 br-9999\",\n};\n\nconst TONES: Record<Tone, string> = {\n  default: \"bg-silver-2\",\n  subtle: \"bg-silver-1\",\n};\n\nexport interface SkeletonProps {\n  shape?: Shape;\n  tone?: Tone;\n  /** The pulse. Turn it off for a static placeholder. */\n  animate?: boolean;\n  /** Seconds to offset the pulse, so rows in a list do not beat in unison. */\n  delay?: number;\n  className?: string;\n}\n\nexport default function SkeletonBase({\n  shape = \"line\",\n  tone = \"default\",\n  animate = true,\n  delay = 0,\n  className,\n}: SkeletonProps) {\n  const classes = [SHAPES[shape], TONES[tone], className]\n    .filter(Boolean)\n    .join(\" \");\n\n  // A placeholder has nothing to announce. The region that swaps it for real\n  // content owns aria-busy; every bar reading itself out would be noise.\n  if (!animate) return <div aria-hidden className={classes} />;\n\n  return (\n    <motion.div\n      aria-hidden\n      animate={{ opacity: [0.5, 1, 0.5] }}\n      transition={{ duration: 1, repeat: Infinity, delay }}\n      className={classes}\n    />\n  );\n}\n"
+    }
+  ]
+}

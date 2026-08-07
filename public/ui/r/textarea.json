@@ -1,0 +1,93 @@
+{
+  "id": "textarea",
+  "component": "textarea",
+  "variant": "base",
+  "summary": "A multi-line text field, in three shapes and three shadows, with an optional character counter and error or success states.",
+  "props": [
+    {
+      "name": "label",
+      "type": "string",
+      "example": "Message",
+      "description": "Text above the control. `Field.Root` and `Field.Label` associate it automatically, so no `id`/`htmlFor` bookkeeping is needed."
+    },
+    {
+      "name": "required",
+      "type": "boolean",
+      "default": false,
+      "description": "Appends a red asterisk to the label & sets the control's native `required` attribute."
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "A line under the control, for format or context. Replaced by `error` or `success` when either is set."
+    },
+    {
+      "name": "error",
+      "type": "string",
+      "description": "Red border, a warning icon & this message in place of `description`. Wins over `success` if both are set."
+    },
+    {
+      "name": "success",
+      "type": "string",
+      "description": "Green border, a check icon & this message in place of `description`."
+    },
+    {
+      "name": "maxLength",
+      "type": "number",
+      "example": 200,
+      "description": "Sets the control's native character limit and shows a live remaining-character counter with a progress bar underneath. The counter turns red once 20 characters remain."
+    },
+    {
+      "name": "shape",
+      "type": "enum",
+      "values": [
+        "rounded",
+        "square",
+        "squircle"
+      ],
+      "default": "rounded",
+      "description": "Corner radius. `squircle` uses `corner-shape`, which degrades to a rounded square where that is unsupported."
+    },
+    {
+      "name": "shadow",
+      "type": "enum",
+      "values": [
+        "none",
+        "inset",
+        "outset"
+      ],
+      "default": "none",
+      "description": "Depth on the control. `inset` reads as a well, `outset` as a raised control."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "default": false,
+      "description": "Blocks interaction and dims the whole field, label included."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "description": "Appended to the control's classes, so any Yumma CSS utility you pass wins."
+    }
+  ],
+  "useClient": true,
+  "dependencies": [
+    {
+      "name": "@base-ui/react",
+      "version": "^1.7.0"
+    },
+    {
+      "name": "iconoir-react",
+      "version": "^7.11.1"
+    }
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "textarea.tsx",
+      "target": "components/ui/textarea.tsx",
+      "content": "\"use client\";\n\nimport { Field } from \"@base-ui/react/field\";\nimport { Check, WarningTriangle } from \"iconoir-react\";\nimport type { ChangeEvent, ComponentProps } from \"react\";\nimport { useState } from \"react\";\n\ntype Shape = \"rounded\" | \"square\" | \"squircle\";\ntype Shadow = \"none\" | \"inset\" | \"outset\";\ntype Status = \"default\" | \"error\" | \"success\";\n\nconst SHAPES: Record<Shape, string> = {\n  rounded: \"br-lg\",\n  square: \"\",\n  squircle: \"br-xxl cs-s\",\n};\n\nconst SHADOWS: Record<Shadow, string> = {\n  none: \"\",\n  inset: \"bs-i-sm\",\n  outset: \"bs-o-xs\",\n};\n\nconst STATUS_BORDER: Record<Status, string> = {\n  default: \"bc-silver-3\",\n  error: \"bc-red-5\",\n  success: \"bc-green-5\",\n};\n\nconst STATUS_RING: Record<Status, string> = {\n  default: \"fv:oc-indigo-5\",\n  error: \"fv:oc-red-5\",\n  success: \"fv:oc-green-5\",\n};\n\n// The icon and the message read at different weights: the icon is the accent\n// colour, the message text is one step darker so a paragraph of it stays\n// legible. Same split as Field.\nconst STATUS_ICON: Record<Status, string> = {\n  default: \"\",\n  error: \"c-red-5\",\n  success: \"c-green-5\",\n};\n\nconst STATUS_MESSAGE: Record<Status, string> = {\n  default: \"c-slate-6\",\n  error: \"c-red-5\",\n  success: \"c-green-6\",\n};\n\n// Warns at the same remaining count regardless of maxLength's size: \"running\n// low\" reads the same at 20 characters left whether the limit is 200 or 2,000.\nconst WARN_AT = 20;\n\nexport interface TextareaProps\n  extends Omit<ComponentProps<\"textarea\">, \"className\" | \"onChange\"> {\n  label?: string;\n  /** Appends a red asterisk to the label & sets the control's native `required` attribute. */\n  required?: boolean;\n  /** A line under the control, for format or context. */\n  description?: string;\n  /**\n   * Red border, a warning icon & this message in place of `description`.\n   * Wins over `success` if both are set.\n   */\n  error?: string;\n  /** Green border, a check icon & this message in place of `description`. */\n  success?: string;\n  /** Shows a live remaining-character counter & progress bar under the control. */\n  maxLength?: number;\n  shape?: Shape;\n  shadow?: Shadow;\n  onChange?: (event: ChangeEvent<HTMLTextAreaElement>) => void;\n  className?: string;\n}\n\nexport default function TextareaBase({\n  label,\n  required = false,\n  description,\n  error,\n  success,\n  maxLength,\n  shape = \"rounded\",\n  shadow = \"none\",\n  disabled,\n  className,\n  onChange,\n  defaultValue,\n  value: controlledValue,\n  ...props\n}: TextareaProps) {\n  const [internalValue, setInternalValue] = useState(\n    String(defaultValue ?? controlledValue ?? \"\"),\n  );\n  const value = String(controlledValue ?? internalValue);\n\n  const handleChange = (event: ChangeEvent<HTMLTextAreaElement>) => {\n    setInternalValue(event.target.value);\n    onChange?.(event);\n  };\n\n  const status: Status = error ? \"error\" : success ? \"success\" : \"default\";\n  const message = error ?? success ?? description;\n\n  const showCounter = maxLength !== undefined;\n  const remaining = showCounter ? maxLength - value.length : 0;\n  const percent = showCounter\n    ? Math.min((value.length / maxLength) * 100, 100)\n    : 0;\n  const warn = showCounter && remaining <= WARN_AT;\n\n  const controlClasses = [\n    \"h-24 w-64 pt-3 pl-3 bg-white c-slate-10 bw-1 fs-md r-none fv:oo--1\",\n    showCounter || status !== \"default\" ? \"pr-10\" : \"pr-3\",\n    SHAPES[shape],\n    SHADOWS[shadow],\n    STATUS_BORDER[status],\n    STATUS_RING[status],\n    className,\n  ]\n    .filter(Boolean)\n    .join(\" \");\n\n  return (\n    <Field.Root\n      disabled={disabled}\n      className={`d-f fd-c g-2 ${disabled ? \"o-60 c-na\" : \"\"}`}\n    >\n      {label && (\n        <Field.Label className=\"c-slate-10 fs-sm fw-500\">\n          {label}\n          {required && <span className=\"c-red-5\"> *</span>}\n        </Field.Label>\n      )}\n\n      <div className=\"d-f p-r ai-s\">\n        {/* Field.Control's props are typed against its default rendered\n            element (input), not against the textarea passed via `render`, so\n            every native event handler here conflicts at the type level even\n            though each is correct at runtime - cast at the boundary rather\n            than fighting Base UI's generics prop by prop. */}\n        <Field.Control\n          render={<textarea />}\n          value={value}\n          maxLength={maxLength}\n          required={required}\n          className={controlClasses}\n          {...(props as ComponentProps<typeof Field.Control>)}\n          onChange={\n            handleChange as unknown as ComponentProps<\n              typeof Field.Control\n            >[\"onChange\"]\n          }\n        />\n        {status !== \"default\" && (\n          <span className={`d-f p-a r-3 t-3 ai-c jc-c ${STATUS_ICON[status]}`}>\n            {status === \"error\" ? (\n              <WarningTriangle className=\"w-4 h-4\" />\n            ) : (\n              <Check className=\"w-4 h-4\" />\n            )}\n          </span>\n        )}\n      </div>\n\n      {message && (\n        <p className={`m-0 fs-xs ${STATUS_MESSAGE[status]}`}>{message}</p>\n      )}\n\n      {showCounter && (\n        <div className=\"d-f fd-c g-1\">\n          <div className=\"d-f jc-sb\">\n            <span className=\"c-slate-5 fs-xs\">\n              {remaining} characters remaining\n            </span>\n            <span className={`fs-xs fw-500 ${warn ? \"c-red\" : \"c-slate-5\"}`}>\n              {value.length} / {maxLength}\n            </span>\n          </div>\n          <div className=\"w-100% h-1 bg-silver-2 br-9999 o-h\">\n            <div\n              className={`h-100% br-9999 ${warn ? \"bg-red\" : \"bg-indigo\"}`}\n              style={{ width: `${percent}%` }}\n            />\n          </div>\n        </div>\n      )}\n    </Field.Root>\n  );\n}\n"
+    }
+  ]
+}

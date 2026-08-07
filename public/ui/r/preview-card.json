@@ -1,0 +1,85 @@
+{
+  "id": "preview-card",
+  "component": "preview-card",
+  "variant": "base",
+  "summary": "A hover-triggered card, in three shapes with an optional shadow.",
+  "props": [
+    {
+      "name": "trigger",
+      "type": "none",
+      "typeName": "ReactNode",
+      "example": "John",
+      "description": "The inline content that opens the card on hover or focus."
+    },
+    {
+      "name": "defaultOpen",
+      "type": "boolean",
+      "default": false,
+      "description": "Starting state when you are not controlling it. Pair `open` with `onOpenChange` instead if you are."
+    },
+    {
+      "name": "open",
+      "type": "boolean",
+      "description": "Controlled state."
+    },
+    {
+      "name": "onOpenChange",
+      "type": "none",
+      "typeName": "(open: boolean) => void",
+      "description": "Called with the new state. Required for a controlled preview card."
+    },
+    {
+      "name": "shape",
+      "type": "enum",
+      "values": [
+        "rounded",
+        "square",
+        "squircle"
+      ],
+      "default": "rounded",
+      "description": "Corner radius on the card. `squircle` uses `corner-shape`, which degrades to a rounded square where that is unsupported."
+    },
+    {
+      "name": "shadow",
+      "type": "enum",
+      "values": [
+        "none",
+        "inset",
+        "outset"
+      ],
+      "default": "none",
+      "description": "Depth on the card. `inset` reads as a well, `outset` as a raised control."
+    },
+    {
+      "name": "animate",
+      "type": "boolean",
+      "default": true,
+      "description": "The card's fade in/out. Turn it off for an instant appearance, or when the user has asked for reduced motion."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "description": "Appended to the trigger's classes, so any Yumma CSS utility you pass wins."
+    }
+  ],
+  "children": "Card content goes here.",
+  "useClient": true,
+  "dependencies": [
+    {
+      "name": "@base-ui/react",
+      "version": "^1.7.0"
+    },
+    {
+      "name": "motion",
+      "version": "^13.0.0"
+    }
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "preview-card.tsx",
+      "target": "components/ui/preview-card.tsx",
+      "content": "\"use client\";\n\nimport { PreviewCard } from \"@base-ui/react/preview-card\";\nimport { motion } from \"motion/react\";\nimport type { ReactNode } from \"react\";\n\ntype Shape = \"rounded\" | \"square\" | \"squircle\";\ntype Shadow = \"none\" | \"inset\" | \"outset\";\n\nconst SHAPES: Record<Shape, string> = {\n  rounded: \"br-lg\",\n  square: \"\",\n  squircle: \"br-xxl cs-s\",\n};\n\nconst SHADOWS: Record<Exclude<Shadow, \"none\">, string> = {\n  inset: \"bs-i-sm\",\n  outset: \"bs-o-xs\",\n};\n\nexport interface PreviewCardProps {\n  /** The inline content that opens the card on hover. */\n  trigger: ReactNode;\n  /** The card's content. */\n  children: ReactNode;\n  defaultOpen?: boolean;\n  open?: boolean;\n  onOpenChange?: (open: boolean) => void;\n  shape?: Shape;\n  shadow?: Shadow;\n  /** The card's fade in/out. */\n  animate?: boolean;\n  /** Appended to the trigger's classes, so any Yumma CSS utility you pass wins. */\n  className?: string;\n}\n\nexport default function PreviewCardBase({\n  trigger,\n  children,\n  defaultOpen,\n  open,\n  onOpenChange,\n  shape = \"rounded\",\n  shadow = \"none\",\n  animate = true,\n  className,\n}: PreviewCardProps) {\n  const popupClasses = [\n    \"d-f fd-c g-3 w-64 p-3 bg-white bc-silver-2 bw-1 c-slate-10 fs-sm\",\n    SHAPES[shape],\n    shadow === \"inset\" || shadow === \"outset\" ? SHADOWS[shadow] : \"\",\n  ]\n    .filter(Boolean)\n    .join(\" \");\n\n  return (\n    <PreviewCard.Root\n      defaultOpen={defaultOpen}\n      open={open}\n      onOpenChange={onOpenChange}\n    >\n      <PreviewCard.Trigger\n        className={(state) =>\n          [\n            \"c-indigo c-p fw-500 td-none h:td-u fv:td-u\",\n            state.open ? \"td-u\" : \"\",\n            className,\n          ]\n            .filter(Boolean)\n            .join(\" \")\n        }\n      >\n        {trigger}\n      </PreviewCard.Trigger>\n\n      <PreviewCard.Portal>\n        <PreviewCard.Positioner sideOffset={8}>\n          <PreviewCard.Popup\n            render={\n              animate ? (\n                <motion.div\n                  initial={{ opacity: 0 }}\n                  animate={{ opacity: 1 }}\n                  exit={{ opacity: 0 }}\n                  transition={{ duration: 0.15, ease: \"easeOut\" }}\n                />\n              ) : undefined\n            }\n            className={popupClasses}\n          >\n            {children}\n          </PreviewCard.Popup>\n        </PreviewCard.Positioner>\n      </PreviewCard.Portal>\n    </PreviewCard.Root>\n  );\n}\n"
+    }
+  ]
+}

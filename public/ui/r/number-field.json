@@ -1,0 +1,110 @@
+{
+  "id": "number-field",
+  "component": "number-field",
+  "variant": "base",
+  "summary": "A number input with increment and decrement buttons, in three sizes, three shapes and three shadows.",
+  "props": [
+    {
+      "name": "label",
+      "type": "string",
+      "example": "Quantity",
+      "description": "Text above the control. Also a scrub area: drag left or right on it to change the value."
+    },
+    {
+      "name": "required",
+      "type": "boolean",
+      "default": false,
+      "description": "Appends a red asterisk to the label & sets the input's native `required` attribute."
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "A line under the control, for context on what the number means."
+    },
+    {
+      "name": "defaultValue",
+      "type": "number",
+      "example": 4,
+      "description": "Starting value when you are not controlling it. Pair `value` with `onValueChange` instead if you are."
+    },
+    {
+      "name": "min",
+      "type": "number",
+      "description": "Lower bound. The decrement button disables at it."
+    },
+    {
+      "name": "max",
+      "type": "number",
+      "description": "Upper bound. The increment button disables at it."
+    },
+    {
+      "name": "step",
+      "type": "number",
+      "default": 1,
+      "description": "Amount each click of increment or decrement changes the value by."
+    },
+    {
+      "name": "size",
+      "type": "enum",
+      "values": [
+        "sm",
+        "md",
+        "lg"
+      ],
+      "default": "md",
+      "description": "Height of the buttons and the input together. The icon inside the buttons grows only at `lg`."
+    },
+    {
+      "name": "shape",
+      "type": "enum",
+      "values": [
+        "rounded",
+        "square",
+        "squircle"
+      ],
+      "default": "rounded",
+      "description": "Corner radius on the group's outer edges. `squircle` uses `corner-shape`, which degrades to a rounded square where that is unsupported."
+    },
+    {
+      "name": "shadow",
+      "type": "enum",
+      "values": [
+        "none",
+        "inset",
+        "outset"
+      ],
+      "default": "none",
+      "description": "Depth across the buttons and the input. `inset` reads as a well, `outset` as a raised control."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "default": false,
+      "description": "Blocks interaction and dims the whole control, label included."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "description": "Appended to the input's classes, so any Yumma CSS utility you pass wins."
+    }
+  ],
+  "useClient": true,
+  "dependencies": [
+    {
+      "name": "@base-ui/react",
+      "version": "^1.7.0"
+    },
+    {
+      "name": "iconoir-react",
+      "version": "^7.11.1"
+    }
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "number-field.tsx",
+      "target": "components/ui/number-field.tsx",
+      "content": "\"use client\";\n\nimport { NumberField } from \"@base-ui/react/number-field\";\nimport { Minus, Plus } from \"iconoir-react\";\nimport type { ComponentProps } from \"react\";\nimport { useId } from \"react\";\n\ntype Size = \"sm\" | \"md\" | \"lg\";\ntype Shape = \"rounded\" | \"square\" | \"squircle\";\ntype Shadow = \"none\" | \"inset\" | \"outset\";\n\n// Plain lookups rather than cva: a copied component should not drag a class\n// utility into your package.json to do what an object literal already does.\nconst BUTTON =\n  \"d-f ai-c jc-c bg-white bc-silver-3 c-slate-10 byw-1 us-none c-p h:bg-silver-1/50 a:bg-silver-2\";\n\nconst BUTTON_SIZES: Record<Size, string> = {\n  sm: \"w-8 h-8\",\n  md: \"w-10 h-10\",\n  lg: \"w-12 h-12\",\n};\n\nconst INPUT_SIZES: Record<Size, string> = {\n  sm: \"h-8 w-28 fs-sm\",\n  md: \"h-10 w-32 fs-md\",\n  lg: \"h-12 w-36 fs-lg\",\n};\n\nconst ICON_SIZES: Record<Size, string> = {\n  sm: \"w-3 h-3\",\n  md: \"w-3 h-3\",\n  lg: \"w-4 h-4\",\n};\n\n// Only the group's outer edges take a shape - the two buttons meet the input\n// with no seam between them, so a middle radius would never be seen.\nconst DECREMENT_SHAPES: Record<Shape, string> = {\n  rounded: \"blr-lg\",\n  square: \"\",\n  squircle: \"blr-xxl cs-s\",\n};\n\nconst INCREMENT_SHAPES: Record<Shape, string> = {\n  rounded: \"brr-lg\",\n  square: \"\",\n  squircle: \"brr-xxl cs-s\",\n};\n\nconst SHADOWS: Record<Shadow, string> = {\n  none: \"\",\n  inset: \"bs-i-sm\",\n  outset: \"bs-o-xs\",\n};\n\nexport interface NumberFieldProps\n  extends Omit<ComponentProps<typeof NumberField.Root>, \"className\" | \"id\"> {\n  label?: string;\n  /** Appends a red asterisk to the label & sets the input's native `required` attribute. */\n  required?: boolean;\n  /** A line under the control, for context on what the number means. */\n  description?: string;\n  size?: Size;\n  shape?: Shape;\n  shadow?: Shadow;\n  /** Appended to the input's classes, so any Yumma CSS utility you pass wins. */\n  className?: string;\n}\n\nexport default function NumberFieldBase({\n  label,\n  required = false,\n  description,\n  size = \"md\",\n  shape = \"rounded\",\n  shadow = \"none\",\n  disabled = false,\n  className,\n  ...props\n}: NumberFieldProps) {\n  const id = useId();\n\n  const decrementClasses = [\n    BUTTON,\n    BUTTON_SIZES[size],\n    \"blw-1\",\n    DECREMENT_SHAPES[shape],\n    SHADOWS[shadow],\n  ]\n    .filter(Boolean)\n    .join(\" \");\n\n  const incrementClasses = [\n    BUTTON,\n    BUTTON_SIZES[size],\n    \"brw-1\",\n    INCREMENT_SHAPES[shape],\n    SHADOWS[shadow],\n  ]\n    .filter(Boolean)\n    .join(\" \");\n\n  const inputClasses = [\n    \"bg-white bc-silver-3 c-slate-10 byw-1 ta-c\",\n    INPUT_SIZES[size],\n    SHADOWS[shadow],\n    className,\n  ]\n    .filter(Boolean)\n    .join(\" \");\n\n  return (\n    <NumberField.Root\n      id={id}\n      disabled={disabled}\n      className={`d-f fd-c ai-fs g-2 ${disabled ? \"o-60 c-na\" : \"\"}`}\n      {...props}\n    >\n      {label && (\n        <NumberField.ScrubArea className=\"c-er\">\n          <label htmlFor={id} className=\"c-slate-10 fs-sm fw-500 c-er\">\n            {label}\n            {required && <span className=\"c-red-5\"> *</span>}\n          </label>\n        </NumberField.ScrubArea>\n      )}\n\n      <NumberField.Group className=\"d-f fw:oo--1 fw:oc-indigo-5\">\n        <NumberField.Decrement className={decrementClasses}>\n          <Minus className={ICON_SIZES[size]} />\n        </NumberField.Decrement>\n        <NumberField.Input required={required} className={inputClasses} />\n        <NumberField.Increment className={incrementClasses}>\n          <Plus className={ICON_SIZES[size]} />\n        </NumberField.Increment>\n      </NumberField.Group>\n\n      {description && <p className=\"m-0 c-slate-6 fs-xs\">{description}</p>}\n    </NumberField.Root>\n  );\n}\n"
+    }
+  ]
+}
