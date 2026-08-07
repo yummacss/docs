@@ -63,6 +63,26 @@
       "description": "Which end `icon` sits at."
     },
     {
+      "name": "iconInteractive",
+      "type": "boolean",
+      "default": false,
+      "description": "Lets `icon` receive pointer events, for an inline button - a clear or reveal toggle - instead of a decorative glyph."
+    },
+    {
+      "name": "prefixNode",
+      "type": "none",
+      "typeName": "ReactNode",
+      "example": "https://",
+      "description": "Static content flush against the control's leading edge, like a URL scheme. Mutually exclusive with `icon`/`suffix` in practice - each claims the same row."
+    },
+    {
+      "name": "suffix",
+      "type": "none",
+      "typeName": "ReactNode",
+      "example": ".com",
+      "description": "Static content flush against the control's trailing edge, like a domain suffix."
+    },
+    {
       "name": "disabled",
       "type": "boolean",
       "default": false,

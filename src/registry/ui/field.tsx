@@ -18,6 +18,10 @@ const SIZES: Record<Size, string> = {
   lg: "h-12 w-72",
 };
 
+// `prefixNode`/`suffix` need the control's height without its width, since the
+// affix box takes its own share of the row instead.
+const HEIGHTS: Record<Size, string> = { sm: "h-8", md: "h-10", lg: "h-12" };
+
 const SHAPES: Record<Shape, string> = {
   rounded: "br-lg",
   square: "br-0",
@@ -86,6 +90,12 @@ export interface FieldProps
    */
   icon?: ReactNode;
   iconSide?: IconSide;
+  /** Lets `icon` receive pointer events, for an inline button (a clear or reveal toggle) instead of a decorative glyph. */
+  iconInteractive?: boolean;
+  /** Static content flush against the control's leading edge, like a URL scheme. Mutually exclusive with `icon`/`suffix` in practice - each claims the same row. */
+  prefixNode?: ReactNode;
+  /** Static content flush against the control's trailing edge, like a domain suffix. */
+  suffix?: ReactNode;
 }
 
 export default function FieldBase({
@@ -98,6 +108,9 @@ export default function FieldBase({
   shadow = "none",
   icon,
   iconSide = "leading",
+  iconInteractive = false,
+  prefixNode,
+  suffix,
   disabled,
   required,
   className,
@@ -107,6 +120,7 @@ export default function FieldBase({
   const message = error ?? success ?? description;
   const showDecorativeIcon = Boolean(icon) && status === "default";
   const activeSide: IconSide = status === "default" ? iconSide : "trailing";
+  const hasAffix = Boolean(prefixNode) || Boolean(suffix);
 
   const controlClasses = [
     "bg-white c-slate-10 bw-1 fs-md fv:oo--1",
@@ -123,6 +137,25 @@ export default function FieldBase({
     .filter(Boolean)
     .join(" ");
 
+  // Flush against `prefixNode`/`suffix`: only the outer edge rounds, and the
+  // shared seam carries no border of its own so the two segments read as one
+  // control rather than two boxes glued together.
+  const affixControlClasses = [
+    "fg-1 bg-white bc-silver-3 c-slate-10 byw-1 fs-md fv:oo--1",
+    HEIGHTS[size],
+    STATUS_RING[status],
+    prefixNode && suffix
+      ? "pl-3 pr-3"
+      : prefixNode
+        ? "pl-3 pr-4 brr-lg brw-1"
+        : "pl-4 pr-3 blr-lg blw-1",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  const affixBoxClasses =
+    "d-f ai-c jc-c px-3 bg-white bc-silver-3 c-slate-6 byw-1 fs-md";
+
   return (
     <Field.Root
       disabled={disabled}
@@ -135,29 +168,47 @@ export default function FieldBase({
         </Field.Label>
       )}
 
-      <div className="d-f p-r ai-c">
-        {showDecorativeIcon && (
-          <span
-            className={`d-f p-a ai-c c-slate-5 pe-none ${iconSide === "leading" ? "l-3" : "r-3"}`}
-          >
-            {icon}
-          </span>
-        )}
-        <Field.Control
-          required={required}
-          className={controlClasses}
-          {...props}
-        />
-        {status !== "default" && (
-          <span className={`d-f p-a r-3 ai-c pe-none ${STATUS_ICON[status]}`}>
-            {status === "error" ? (
-              <WarningTriangle className="w-4 h-4" />
-            ) : (
-              <Check className="w-4 h-4" />
-            )}
-          </span>
-        )}
-      </div>
+      {hasAffix ? (
+        <div className="d-f ai-c">
+          {prefixNode && (
+            <div className={`${affixBoxClasses} blr-lg blw-1`}>{prefixNode}</div>
+          )}
+          <Field.Control
+            required={required}
+            className={affixControlClasses}
+            {...props}
+          />
+          {suffix && (
+            <div className={`${affixBoxClasses} brr-lg brw-1`}>{suffix}</div>
+          )}
+        </div>
+      ) : (
+        <div className="d-f p-r ai-c">
+          {showDecorativeIcon && (
+            <span
+              className={`d-f p-a ai-c c-slate-5 ${iconInteractive ? "" : "pe-none"} ${iconSide === "leading" ? "l-3" : "r-3"}`}
+            >
+              {icon}
+            </span>
+          )}
+          <Field.Control
+            required={required}
+            className={controlClasses}
+            {...props}
+          />
+          {status !== "default" && (
+            <span
+              className={`d-f p-a r-3 ai-c pe-none ${STATUS_ICON[status]}`}
+            >
+              {status === "error" ? (
+                <WarningTriangle className="w-4 h-4" />
+              ) : (
+                <Check className="w-4 h-4" />
+              )}
+            </span>
+          )}
+        </div>
+      )}
 
       {message && (
         <Field.Description className={`fs-xs ${STATUS_MESSAGE[status]}`}>
