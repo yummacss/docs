@@ -1,6 +1,3 @@
-"use client";
-
-import { Autocomplete } from "@base-ui/react/autocomplete";
 import {
   BellNotification,
   Globe,
@@ -9,85 +6,28 @@ import {
   Search,
   Wrench,
 } from "iconoir-react";
-import { AnimatePresence, motion } from "motion/react";
-import { type ComponentType, useState } from "react";
+import Autocomplete, { type AutocompleteItem } from "./autocomplete";
 
 export default function AutocompleteIcon() {
-  const [open, setOpen] = useState(false);
-
   return (
-    <Autocomplete.Root items={settings} open={open} onOpenChange={setOpen}>
-      <div className="d-f fd-c g-2">
-        <label htmlFor="icon-input" className="c-slate-10 fs-sm fw-500">
-          Search settings
-        </label>
-        <div className="d-f p-r ai-c">
-          <Search className="p-a l-3 w-4 h-4 c-slate-5" />
-          <Autocomplete.Input
-            id="icon-input"
-            placeholder="Account, Privacy, & more"
-            className="h-10 w-64 pl-10 pr-4 bg-white bc-silver-3 c-slate-10 bw-1 br-lg fs-md fv:oo--1 fv:oc-indigo-5"
-          />
-        </div>
-      </div>
-
-      <AnimatePresence>
-        {open && (
-          <Autocomplete.Portal keepMounted>
-            <Autocomplete.Positioner className="ow-0" sideOffset={8}>
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.15, ease: "easeOut" }}
-              >
-                <Autocomplete.Popup className="o-h w-64 bg-white bc-silver-2 c-slate-10 bw-1 br-lg">
-                  <Autocomplete.List className="oy-auto max-h-72 py-1 ow-0">
-                    {(item: Setting) => (
-                      <Autocomplete.Item
-                        key={item.label}
-                        value={item.label}
-                        render={(props, state) => (
-                          <div
-                            {...props}
-                            className={`d-f ai-c g-3 py-2 px-3 fs-sm us-none c-p br-md mx-1 c-slate-10 ${
-                              state.highlighted
-                                ? "bg-silver-2/50"
-                                : "bg-transparent"
-                            }`}
-                          >
-                            <item.icon className="w-4 h-4 c-slate-5" />
-                            <span className="min-w-0 o-h fw-500 to-e ws-nw">{item.label}</span>
-                          </div>
-                        )}
-                      />
-                    )}
-                  </Autocomplete.List>
-                  <Autocomplete.Empty className="c-slate-6 fs-sm">
-                    <div className="pt-2 pb-3 px-4 us-none">
-                      No settings found.
-                    </div>
-                  </Autocomplete.Empty>
-                </Autocomplete.Popup>
-              </motion.div>
-            </Autocomplete.Positioner>
-          </Autocomplete.Portal>
-        )}
-      </AnimatePresence>
-    </Autocomplete.Root>
+    <Autocomplete
+      items={settings}
+      label="Search settings"
+      placeholder="Account, Privacy, & more"
+      icon={<Search className="w-4 h-4" />}
+      emptyMessage="No settings found."
+    />
   );
 }
 
-type Setting = {
-  label: string;
-  icon: ComponentType<{ className?: string }>;
-};
-
-const settings: Setting[] = [
-  { label: "Account Settings", icon: Wrench },
-  { label: "Privacy & Security", icon: Key },
-  { label: "Notifications", icon: BellNotification },
-  { label: "Language & Region", icon: Globe },
-  { label: "Blocked Accounts", icon: Key },
-  { label: "Help Center", icon: HelpCircle },
+const settings: AutocompleteItem[] = [
+  { label: "Account Settings", icon: <Wrench className="w-4 h-4" /> },
+  { label: "Privacy & Security", icon: <Key className="w-4 h-4" /> },
+  {
+    label: "Notifications",
+    icon: <BellNotification className="w-4 h-4" />,
+  },
+  { label: "Language & Region", icon: <Globe className="w-4 h-4" /> },
+  { label: "Blocked Accounts", icon: <Key className="w-4 h-4" /> },
+  { label: "Help Center", icon: <HelpCircle className="w-4 h-4" /> },
 ];

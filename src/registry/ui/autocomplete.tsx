@@ -21,6 +21,18 @@ export interface AutocompleteItem {
   label: string;
   description?: string;
   avatar?: string;
+  /** A leading glyph instead of `avatar`, for a source with no picture. */
+  icon?: ReactNode;
+}
+
+/**
+ * A labelled section of items. Base UI's own `items` prop already accepts
+ * this shape - an array of `{ items }` groups instead of a flat array - so
+ * grouping needs no extra prop here, only a render branch for the heading.
+ */
+export interface AutocompleteGroup {
+  group: string;
+  items: AutocompleteItem[];
 }
 
 // Plain lookups rather than cva: a copied component should not drag a class
@@ -60,9 +72,9 @@ const ICON_PADDING: Record<IconSide, string> = {
 };
 
 export interface AutocompleteProps {
-  items: AutocompleteItem[];
+  items: AutocompleteItem[] | AutocompleteGroup[];
   /** Field label above the input. Omit it and the input is labelled by `placeholder`. */
-  label?: string;
+  label?: ReactNode;
   /** A line under the input, for what the field expects rather than what it is. */
   description?: string;
   placeholder?: string;
@@ -81,7 +93,57 @@ export interface AutocompleteProps {
   limit?: number;
   animate?: boolean;
   emptyMessage?: string;
+  /** Fires as the user types. Base UI still filters `items` on its own; this is only for driving something external, like a debounced `loading` state. */
+  onQueryChange?: (value: string) => void;
   className?: string;
+}
+
+function isGroupEntry(
+  entry: AutocompleteItem | AutocompleteGroup,
+): entry is AutocompleteGroup {
+  return "items" in entry;
+}
+
+function renderItem(item: AutocompleteItem) {
+  return (
+    <Autocomplete.Item
+      key={item.label}
+      value={item.label}
+      render={(props, state) => (
+        <div
+          {...props}
+          className={`d-f ai-c g-3 py-2 px-3 mx-1 c-slate-10 br-md fs-sm us-none c-p ${
+            state.highlighted ? "bg-silver-2/50" : "bg-transparent"
+          }`}
+        >
+          {item.icon ? (
+            <span className="d-f fs-0 ai-c jc-c w-6 h-6 c-slate-5">
+              {item.icon}
+            </span>
+          ) : (
+            item.avatar && (
+              <Avatar.Root className="fs-0 w-6 h-6 bc-white br-9999 bw-1">
+                <Avatar.Image
+                  src={item.avatar}
+                  alt=""
+                  className="of-c w-100% h-100% br-9999"
+                />
+                <Avatar.Fallback className="d-f ai-c jc-c w-100% h-100% bg-silver-2 c-slate-8 fs-xs">
+                  {item.label[0]}
+                </Avatar.Fallback>
+              </Avatar.Root>
+            )
+          )}
+          <div className="d-f fd-c min-w-0">
+            <span className="o-h fw-500 to-e ws-nw">{item.label}</span>
+            {item.description && (
+              <span className="c-slate-6 fs-xs">{item.description}</span>
+            )}
+          </div>
+        </div>
+      )}
+    />
+  );
 }
 
 export default function AutocompleteBase({
@@ -100,6 +162,7 @@ export default function AutocompleteBase({
   limit = 0,
   animate = true,
   emptyMessage = "No results found.",
+  onQueryChange,
   className,
 }: AutocompleteProps) {
   const [open, setOpen] = useState(false);
@@ -125,43 +188,18 @@ export default function AutocompleteBase({
       ) : (
         <>
           <Autocomplete.List className="oy-auto max-h-72 py-1 ow-0">
-            {(item: AutocompleteItem) => (
-              <Autocomplete.Item
-                key={item.label}
-                value={item.label}
-                render={(props, state) => (
-                  <div
-                    {...props}
-                    className={`d-f ai-c g-3 py-2 px-3 mx-1 c-slate-10 br-md fs-sm us-none c-p ${
-                      state.highlighted ? "bg-silver-2/50" : "bg-transparent"
-                    }`}
-                  >
-                    {item.avatar && (
-                      <Avatar.Root className="fs-0 w-6 h-6 bc-white br-9999 bw-1">
-                        <Avatar.Image
-                          src={item.avatar}
-                          alt=""
-                          className="of-c w-100% h-100% br-9999"
-                        />
-                        <Avatar.Fallback className="d-f ai-c jc-c w-100% h-100% bg-silver-2 c-slate-8 fs-xs">
-                          {item.label[0]}
-                        </Avatar.Fallback>
-                      </Avatar.Root>
-                    )}
-                    <div className="d-f fd-c min-w-0">
-                      <span className="o-h fw-500 to-e ws-nw">
-                        {item.label}
-                      </span>
-                      {item.description && (
-                        <span className="c-slate-6 fs-xs">
-                          {item.description}
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                )}
-              />
-            )}
+            {(entry: AutocompleteItem | AutocompleteGroup) =>
+              isGroupEntry(entry) ? (
+                <Autocomplete.Group key={entry.group}>
+                  <Autocomplete.GroupLabel className="px-3 pt-2 pb-1 fs-xs fw-500 c-slate-5 us-none">
+                    {entry.group}
+                  </Autocomplete.GroupLabel>
+                  {entry.items.map(renderItem)}
+                </Autocomplete.Group>
+              ) : (
+                renderItem(entry)
+              )
+            }
           </Autocomplete.List>
           <Autocomplete.Empty className="c-slate-6 fs-sm">
             <div className="pt-2 pb-3 px-4 us-none">{emptyMessage}</div>
@@ -173,9 +211,12 @@ export default function AutocompleteBase({
 
   return (
     <Autocomplete.Root
-      items={items}
+      // Base UI's own overloads pick one shape or the other; they do not
+      // compose over a union, even though it handles both at runtime.
+      items={items as AutocompleteItem[]}
       open={open}
       onOpenChange={setOpen}
+      onValueChange={onQueryChange}
       disabled={disabled}
       autoHighlight={autoHighlight}
       // Base UI treats the absence of a limit as "all", so 0 has to become

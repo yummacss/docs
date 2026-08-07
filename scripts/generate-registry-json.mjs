@@ -61,6 +61,24 @@ function dependenciesOf(source) {
   }));
 }
 
+/**
+ * `./autocomplete` -> `autocomplete`, when that id is another registry file.
+ *
+ * A demo file imports its component this way rather than by full path, and
+ * the same specifier resolves after `add` copies both files flat into
+ * `componentsDir`, so nothing about the import has to change between the
+ * docs and a consumer's project.
+ */
+function registryDependenciesOf(source, id, allIds) {
+  const found = new Set();
+  for (const [, spec] of source.matchAll(/from\s+["']([^"']+)["']/g)) {
+    if (!spec.startsWith("./")) continue;
+    const dep = spec.slice(2);
+    if (dep !== id && allIds.has(dep)) found.add(dep);
+  }
+  return [...found].sort();
+}
+
 const slugs = componentSlugs(contentDir);
 
 /**
@@ -96,6 +114,7 @@ const ids = readdirSync(uiDir)
 if (existsSync(outDir)) rmSync(outDir, { recursive: true, force: true });
 mkdirSync(outDir, { recursive: true });
 
+const idSet = new Set(ids);
 const components = new Map();
 let orphans = 0;
 
@@ -117,10 +136,10 @@ for (const id of ids) {
     // Router consumer needs it, and stripping it would break them.
     useClient: /^\s*["']use client["']/.test(source),
     dependencies: dependenciesOf(source),
-    // Nothing in the registry imports anything local, verified across all 450
-    // files, so this is always empty. Kept so the CLI never has to special-case
-    // its absence if that ever changes.
-    registryDependencies: [],
+    // A demo importing the component it demonstrates, e.g. `autocomplete-inset`
+    // importing `autocomplete`. The CLI resolves these transitively, so `add
+    // autocomplete-inset` also writes `autocomplete.tsx`.
+    registryDependencies: registryDependenciesOf(source, id, idSet),
     files: [
       {
         path: `${id}.tsx`,
