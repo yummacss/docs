@@ -48,9 +48,9 @@
     {
       "name": "indicator",
       "type": "enum",
-      "values": ["count", "progress"],
+      "values": ["count", "progress", "dots"],
       "default": "count",
-      "description": "`count` reads \"1 / 3\" in the header. `progress` draws a filling bar under the slide instead."
+      "description": "`count` reads \"1 / 3\" in the header. `progress` draws a filling bar under the slide instead. `dots` moves navigation to a bottom row of step dots between prev/next arrows."
     },
     {
       "name": "dismissible",
