@@ -15,6 +15,13 @@
       "description": "The trigger's `aria-label`. An icon-only trigger has no accessible name without it."
     },
     {
+      "name": "triggerVariant",
+      "type": "enum",
+      "values": ["icon", "label"],
+      "default": "icon",
+      "description": "`icon` is a fixed square for a glyph alone; `label` gives the trigger room to pair an icon with text."
+    },
+    {
       "name": "title",
       "type": "string",
       "example": "Notifications",
@@ -63,6 +70,17 @@
       "type": "number",
       "default": 300,
       "description": "How long a hover must rest before the popup opens, in ms. Ignored unless `openOnHover` is set."
+    },
+    {
+      "name": "open",
+      "type": "boolean",
+      "description": "Controlled open state, for closing the popup from inside `children` - after a selection, say. Uncontrolled (the default) if omitted."
+    },
+    {
+      "name": "onOpenChange",
+      "type": "none",
+      "typeName": "(open: boolean) => void",
+      "description": "Called whenever the popup opens or closes, controlled or not."
     },
     {
       "name": "showClose",

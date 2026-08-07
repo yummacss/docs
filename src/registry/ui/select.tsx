@@ -25,6 +25,16 @@ export interface SelectOption {
   avatar?: string;
 }
 
+/**
+ * A labelled section of options. Base UI's own `items` prop already accepts
+ * this shape - an array of `{ items }` groups instead of a flat array - so
+ * grouping needs no extra prop here, only a render branch for the heading.
+ */
+export interface SelectGroup {
+  group: string;
+  items: SelectOption[];
+}
+
 const TRIGGER =
   "d-f ai-c jc-sb bw-1 bc-silver-3 bg-white c-slate-10 us-none c-p fv:oo--1 fv:oc-indigo-5";
 
@@ -52,8 +62,54 @@ const SHADOWS: Record<Shadow, string> = {
   outset: "bs-o-xs",
 };
 
+function isGroupEntry(
+  entry: SelectOption | SelectGroup,
+): entry is SelectGroup {
+  return "items" in entry;
+}
+
+function flattenOptions(
+  options: SelectOption[] | SelectGroup[],
+): SelectOption[] {
+  return options.flatMap((entry) =>
+    isGroupEntry(entry) ? entry.items : [entry],
+  );
+}
+
+function renderOption(option: SelectOption) {
+  return (
+    <Select.Item
+      key={option.value}
+      value={option.value}
+      className={(state) =>
+        `d-f ai-c g-3 py-2 px-3 mx-1 br-md fs-sm fw-500 us-none c-p c-slate-10 ${
+          state.highlighted ? "bg-silver-2/50" : "bg-transparent"
+        }`
+      }
+    >
+      <Select.ItemIndicator className="d-f ai-c">
+        <Check className="w-4 h-4" />
+      </Select.ItemIndicator>
+      {option.avatar && (
+        <Avatar.Root className="d-if o-h ai-c jc-c w-6 h-6 bc-white br-9999 bw-1 va-m us-none">
+          <Avatar.Image src={option.avatar} alt="" className="of-c w-100% h-100%" />
+          <Avatar.Fallback className="d-f ai-c jc-c w-100% h-100% c-slate-8 fs-xs">
+            {option.label[0]}
+          </Avatar.Fallback>
+        </Avatar.Root>
+      )}
+      <div className="d-f fd-c">
+        <Select.ItemText>{option.label}</Select.ItemText>
+        {option.description && (
+          <span className="c-slate-5 fs-xs">{option.description}</span>
+        )}
+      </div>
+    </Select.Item>
+  );
+}
+
 export interface SelectProps {
-  options: SelectOption[];
+  options: SelectOption[] | SelectGroup[];
   label?: string;
   /** Appends a red asterisk to the label & sets the trigger's native `required` attribute. */
   required?: boolean;
@@ -113,12 +169,15 @@ export default function SelectBase({
     </span>
   );
 
+  const flatOptions = flattenOptions(options);
+
   const value_ = (
     <Select.Value>
       {(selected: string) => (
         <span className="min-w-0 o-h to-e ws-nw">
           {selected
-            ? (options.find((o) => o.value === selected)?.label ?? selected)
+            ? (flatOptions.find((o) => o.value === selected)?.label ??
+              selected)
             : placeholder}
         </span>
       )}
@@ -136,39 +195,18 @@ export default function SelectBase({
       className={`o-h py-1 bg-white bc-silver-2 bw-1 ${POPUP_SIZES[size]} ${SHAPES[shape]}`}
     >
       <Select.List className="p-r o-auto">
-        {options.map((option) => (
-          <Select.Item
-            key={option.value}
-            value={option.value}
-            className={(state) =>
-              `d-f ai-c g-3 py-2 px-3 mx-1 br-md fs-sm fw-500 us-none c-p c-slate-10 ${
-                state.highlighted ? "bg-silver-2/50" : "bg-transparent"
-              }`
-            }
-          >
-            <Select.ItemIndicator className="d-f ai-c">
-              <Check className="w-4 h-4" />
-            </Select.ItemIndicator>
-            {option.avatar && (
-              <Avatar.Root className="d-if o-h ai-c jc-c w-6 h-6 bc-white br-9999 bw-1 va-m us-none">
-                <Avatar.Image
-                  src={option.avatar}
-                  alt=""
-                  className="of-c w-100% h-100%"
-                />
-                <Avatar.Fallback className="d-f ai-c jc-c w-100% h-100% c-slate-8 fs-xs">
-                  {option.label[0]}
-                </Avatar.Fallback>
-              </Avatar.Root>
-            )}
-            <div className="d-f fd-c">
-              <Select.ItemText>{option.label}</Select.ItemText>
-              {option.description && (
-                <span className="c-slate-5 fs-xs">{option.description}</span>
-              )}
-            </div>
-          </Select.Item>
-        ))}
+        {options.map((entry) =>
+          isGroupEntry(entry) ? (
+            <Select.Group key={entry.group}>
+              <Select.GroupLabel className="px-3 pt-2 pb-1 fs-xs fw-500 c-slate-5 us-none">
+                {entry.group}
+              </Select.GroupLabel>
+              {entry.items.map(renderOption)}
+            </Select.Group>
+          ) : (
+            renderOption(entry)
+          ),
+        )}
       </Select.List>
     </Select.Popup>
   );
@@ -183,7 +221,10 @@ export default function SelectBase({
       )}
 
       <Select.Root
-        items={options}
+        // Select.Root's own `items` type is a union of three shapes; TS
+        // cannot narrow our `SelectOption[] | SelectGroup[]` into it even
+        // though both members are already covered.
+        items={options as SelectOption[]}
         defaultValue={defaultValue}
         value={value}
         onValueChange={onValueChange}

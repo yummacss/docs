@@ -1,8 +1,10 @@
 "use client";
 
+import { NumberField } from "@base-ui/react/number-field";
 import { Toggle } from "@base-ui/react/toggle";
 import { ToggleGroup } from "@base-ui/react/toggle-group";
 import { Toolbar } from "@base-ui/react/toolbar";
+import { Minus, Plus } from "iconoir-react";
 import type { HTMLMotionProps } from "motion/react";
 import { motion } from "motion/react";
 import type { ReactNode } from "react";
@@ -73,12 +75,24 @@ export interface ToolbarLinkItem {
   icon?: ReactNode;
 }
 
+export interface ToolbarNumberItem {
+  type: "number";
+  defaultValue?: number;
+  value?: number;
+  onValueChange?: (value: number) => void;
+  min?: number;
+  max?: number;
+  /** The stepper has no visible label, so this is its only accessible name. */
+  label: string;
+}
+
 export type ToolbarItem =
   | ToolbarButtonItem
   | ToolbarSeparatorItem
   | ToolbarTogglesItem
   | ToolbarInputItem
-  | ToolbarLinkItem;
+  | ToolbarLinkItem
+  | ToolbarNumberItem;
 
 export interface ToolbarProps {
   items: ToolbarItem[];
@@ -148,6 +162,70 @@ export default function ToolbarBase({
               placeholder={item.placeholder}
               aria-label={item.label}
             />
+          );
+        }
+
+        if ("type" in item && item.type === "number") {
+          const stepClasses = [
+            "d-f ai-c jc-c w-9 h-9 bg-transparent c-slate-7 bw-0 us-none c-p h:bg-silver-1 h:c-slate-10 fv:oo-2 fv:oc-indigo-3",
+            control,
+          ]
+            .filter(Boolean)
+            .join(" ");
+
+          return (
+            <NumberField.Root
+              key={key}
+              defaultValue={item.defaultValue}
+              value={item.value}
+              onValueChange={(value) =>
+                item.onValueChange?.(value ?? item.min ?? 0)
+              }
+              min={item.min}
+              max={item.max}
+              aria-label={item.label}
+            >
+              <NumberField.Group className="d-f ai-c">
+                <NumberField.Decrement
+                  render={
+                    animate
+                      ? (props) => (
+                          <motion.button
+                            type="button"
+                            {...(props as HTMLMotionProps<"button">)}
+                            whileTap={{ scale: 0.92 }}
+                            className={stepClasses}
+                          />
+                        )
+                      : undefined
+                  }
+                  className={animate ? undefined : stepClasses}
+                >
+                  <Minus className="w-5 h-5" />
+                </NumberField.Decrement>
+                <Toolbar.Input
+                  render={<NumberField.Input />}
+                  className="w-16 bg-transparent c-slate-10 bw-0 ta-c fs-sm fw-500 fv:oo-2 fv:oc-indigo-3"
+                />
+                <NumberField.Increment
+                  render={
+                    animate
+                      ? (props) => (
+                          <motion.button
+                            type="button"
+                            {...(props as HTMLMotionProps<"button">)}
+                            whileTap={{ scale: 0.92 }}
+                            className={stepClasses}
+                          />
+                        )
+                      : undefined
+                  }
+                  className={animate ? undefined : stepClasses}
+                >
+                  <Plus className="w-5 h-5" />
+                </NumberField.Increment>
+              </NumberField.Group>
+            </NumberField.Root>
           );
         }
 
