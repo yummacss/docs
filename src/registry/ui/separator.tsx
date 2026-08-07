@@ -11,6 +11,8 @@ const SHAPES: Record<Shape, string> = {
   circle: "br-9999",
 };
 
+type Orientation = "horizontal" | "vertical";
+
 export interface SeparatorProps {
   /** Renders as a clickable button in the middle, sized & shaped to match. */
   icon?: ReactNode;
@@ -19,6 +21,8 @@ export interface SeparatorProps {
   label?: ReactNode;
   /** Only visible alongside `icon`. */
   shape?: Shape;
+  /** A vertical rule for a row layout, like a button group. Ignored alongside `icon` or `label`, which are a horizontal-only pattern. */
+  orientation?: Orientation;
   className?: string;
 }
 
@@ -27,12 +31,18 @@ export default function SeparatorBase({
   onIconClick,
   label,
   shape = "rounded",
+  orientation = "horizontal",
   className,
 }: SeparatorProps) {
   if (!icon && !label) {
     return (
       <Separator
-        className={["h-px w-100% bg-silver-2", className]
+        orientation={orientation}
+        className={[
+          orientation === "vertical" ? "w-px h-100%" : "h-px w-100%",
+          "bg-silver-2",
+          className,
+        ]
           .filter(Boolean)
           .join(" ")}
       />
