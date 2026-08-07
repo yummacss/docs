@@ -9,6 +9,15 @@ import { useState } from "react";
 type Side = "top" | "right" | "bottom" | "left";
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
+type TriggerVariant = "icon" | "label";
+
+// `icon` is a fixed square for a glyph alone; `label` gives it room to sit
+// beside text instead, for a trigger like "[swatch] Accent" rather than an
+// icon button.
+const TRIGGER_VARIANTS: Record<TriggerVariant, string> = {
+  icon: "w-10 h-10",
+  label: "px-3 py-2 g-2",
+};
 
 const TRIGGER_SHAPES: Record<Shape, string> = {
   rounded: "br-lg",
@@ -32,6 +41,8 @@ export interface PopoverProps {
   trigger: ReactNode;
   /** Names the trigger for assistive tech, since it is often icon-only. */
   triggerLabel?: string;
+  /** `icon` is a fixed square; `label` gives the trigger room to pair an icon with text. */
+  triggerVariant?: TriggerVariant;
   title: string;
   description?: ReactNode;
   /** Extra content below the description. */
@@ -45,6 +56,9 @@ export interface PopoverProps {
   openOnHover?: boolean;
   /** How long to wait before a hover opens it, in ms. */
   delay?: number;
+  /** Controlled open state, for closing the popup from inside `children` - after a selection, say. Uncontrolled (the default) if omitted. */
+  open?: boolean;
+  onOpenChange?: (open: boolean) => void;
   /** An X beside the title. */
   showClose?: boolean;
   shape?: Shape;
@@ -57,6 +71,7 @@ export interface PopoverProps {
 export default function PopoverBase({
   trigger,
   triggerLabel,
+  triggerVariant = "icon",
   title,
   description,
   children,
@@ -65,16 +80,24 @@ export default function PopoverBase({
   arrow = false,
   openOnHover = false,
   delay = 300,
+  open: controlledOpen,
+  onOpenChange,
   showClose = false,
   shape = "rounded",
   shadow = "none",
   animate = true,
   className,
 }: PopoverProps) {
-  const [open, setOpen] = useState(false);
+  const [uncontrolledOpen, setUncontrolledOpen] = useState(false);
+  const open = controlledOpen ?? uncontrolledOpen;
+  const setOpen = (next: boolean) => {
+    if (controlledOpen === undefined) setUncontrolledOpen(next);
+    onOpenChange?.(next);
+  };
 
   const triggerClasses = [
-    "d-f ai-c jc-c w-10 h-10 bw-1 bc-silver-2 bg-white c-slate-10 us-none c-p h:bg-silver-1 fv:oo-2 fv:oc-indigo-5",
+    "d-f ai-c jc-c bw-1 bc-silver-2 bg-white c-slate-10 us-none c-p h:bg-silver-1 fv:oo-2 fv:oc-indigo-5",
+    TRIGGER_VARIANTS[triggerVariant],
     TRIGGER_SHAPES[shape],
     open ? "bg-silver-1" : "",
     className,
