@@ -117,6 +117,12 @@
       "description": "Shown when nothing matches."
     },
     {
+      "name": "fullWidth",
+      "type": "boolean",
+      "default": false,
+      "description": "Fills the width of the parent instead of `size`'s fixed width, for an input inside a form column that isn't a fixed size itself - a dialog, say."
+    },
+    {
       "name": "className",
       "type": "string",
       "description": "Appended to the input's classes, so any Yumma CSS utility you pass wins."

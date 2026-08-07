@@ -22,6 +22,26 @@
       "description": "Which end of the trigger `triggerIcon` sits at."
     },
     {
+      "name": "triggerTone",
+      "type": "enum",
+      "values": ["neutral", "danger"],
+      "default": "neutral",
+      "description": "Color: `neutral` or `danger`, for a destructive confirmation."
+    },
+    {
+      "name": "triggerSize",
+      "type": "enum",
+      "values": ["sm", "md"],
+      "default": "md",
+      "description": "Footprint: `md` or `sm`, for a trigger nested inside other content, like a row action."
+    },
+    {
+      "name": "onTriggerClick",
+      "type": "none",
+      "typeName": "() => void",
+      "description": "Fires when the trigger is pressed, before the dialog opens - for capturing which row triggered it, say, in a dialog reused across a list."
+    },
+    {
       "name": "header",
       "type": "none",
       "typeName": "ReactNode",
@@ -63,6 +83,13 @@
       "type": "none",
       "typeName": "() => void",
       "description": "Called when the confirm button is pressed. The dialog closes either way."
+    },
+    {
+      "name": "confirmTone",
+      "type": "enum",
+      "values": ["primary", "danger"],
+      "default": "primary",
+      "description": "Color of the confirm button: `primary` or `danger`, for a destructive action like a delete."
     },
     {
       "name": "showClose",

@@ -46,6 +46,9 @@ const SIZES: Record<Size, string> = {
   lg: "h-12 w-72",
 };
 
+// `fullWidth` needs the height without the fixed width.
+const HEIGHTS: Record<Size, string> = { sm: "h-8", md: "h-10", lg: "h-12" };
+
 // The popup tracks the input's width, or it reads as a different control.
 const POPUP_SIZES: Record<Size, string> = {
   sm: "w-56",
@@ -95,6 +98,8 @@ export interface AutocompleteProps {
   emptyMessage?: string;
   /** Fires as the user types. Base UI still filters `items` on its own; this is only for driving something external, like a debounced `loading` state. */
   onQueryChange?: (value: string) => void;
+  /** Fills the width of the parent instead of `size`'s fixed width, for an input inside a form column that isn't a fixed size itself - a dialog, say. */
+  fullWidth?: boolean;
   className?: string;
 }
 
@@ -163,6 +168,7 @@ export default function AutocompleteBase({
   animate = true,
   emptyMessage = "No results found.",
   onQueryChange,
+  fullWidth = false,
   className,
 }: AutocompleteProps) {
   const [open, setOpen] = useState(false);
@@ -170,7 +176,7 @@ export default function AutocompleteBase({
 
   const inputClasses = [
     INPUT,
-    SIZES[size],
+    fullWidth ? `${HEIGHTS[size]} w-100%` : SIZES[size],
     SHAPES[shape],
     SHADOWS[shadow],
     icon ? ICON_PADDING[iconSide] : "pl-4",

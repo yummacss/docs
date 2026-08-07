@@ -44,6 +44,13 @@ const SIZES: Record<Size, string> = {
   lg: "h-12 w-72 px-4",
 };
 
+// `fullWidth` needs the height & padding without the fixed width.
+const HEIGHTS: Record<Size, string> = {
+  sm: "h-8 px-3",
+  md: "h-10 px-3",
+  lg: "h-12 px-4",
+};
+
 const POPUP_SIZES: Record<Size, string> = {
   sm: "w-56",
   md: "w-64",
@@ -62,9 +69,7 @@ const SHADOWS: Record<Shadow, string> = {
   outset: "bs-o-xs",
 };
 
-function isGroupEntry(
-  entry: SelectOption | SelectGroup,
-): entry is SelectGroup {
+function isGroupEntry(entry: SelectOption | SelectGroup): entry is SelectGroup {
   return "items" in entry;
 }
 
@@ -92,7 +97,11 @@ function renderOption(option: SelectOption) {
       </Select.ItemIndicator>
       {option.avatar && (
         <Avatar.Root className="d-if o-h ai-c jc-c w-6 h-6 bc-white br-9999 bw-1 va-m us-none">
-          <Avatar.Image src={option.avatar} alt="" className="of-c w-100% h-100%" />
+          <Avatar.Image
+            src={option.avatar}
+            alt=""
+            className="of-c w-100% h-100%"
+          />
           <Avatar.Fallback className="d-f ai-c jc-c w-100% h-100% c-slate-8 fs-xs">
             {option.label[0]}
           </Avatar.Fallback>
@@ -128,6 +137,8 @@ export interface SelectProps {
   iconSide?: IconSide;
   disabled?: boolean;
   animate?: boolean;
+  /** Fills the width of the parent instead of `size`'s fixed width, for a select inside a form column that isn't a fixed size itself - a dialog, say. */
+  fullWidth?: boolean;
   className?: string;
 }
 
@@ -147,6 +158,7 @@ export default function SelectBase({
   iconSide = "leading",
   disabled = false,
   animate = true,
+  fullWidth = false,
   className,
 }: SelectProps) {
   const [open, setOpen] = useState(false);
@@ -154,7 +166,7 @@ export default function SelectBase({
 
   const triggerClasses = [
     TRIGGER,
-    SIZES[size],
+    fullWidth ? `${HEIGHTS[size]} w-100%` : SIZES[size],
     SHAPES[shape],
     SHADOWS[shadow],
     open ? "bg-silver-2/50" : "bg-transparent",
@@ -176,8 +188,7 @@ export default function SelectBase({
       {(selected: string) => (
         <span className="min-w-0 o-h to-e ws-nw">
           {selected
-            ? (flatOptions.find((o) => o.value === selected)?.label ??
-              selected)
+            ? (flatOptions.find((o) => o.value === selected)?.label ?? selected)
             : placeholder}
         </span>
       )}
