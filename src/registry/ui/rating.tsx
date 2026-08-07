@@ -6,47 +6,119 @@ import type { HTMLMotionProps } from "motion/react";
 import { motion } from "motion/react";
 import { useState } from "react";
 
-export default function RatingBase() {
-  const [rating, setRating] = useState(0);
+type Shadow = "none" | "inset" | "outset";
+
+// The shadow lands on each star, not on a surrounding card - there is no card
+// here, and both shadow demos styled the stars themselves.
+const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
+  inset: "bg-white bc-silver-2 bw-1 bs-i-sm",
+  outset: "bg-white bc-silver-2 bw-1 bs-o-xs",
+};
+
+export interface RatingProps {
+  label?: string;
+  /** How many stars to draw. */
+  count?: number;
+  defaultValue?: number;
+  value?: number;
+  onValueChange?: (value: number) => void;
+  disabled?: boolean;
+  shadow?: Shadow;
+  /** The press-scale on each star. */
+  animate?: boolean;
+  /** Shown under the stars once nothing is selected. */
+  emptyHint?: string;
+  className?: string;
+}
+
+export default function RatingBase({
+  label,
+  count = 5,
+  defaultValue,
+  value: controlledValue,
+  onValueChange,
+  disabled = false,
+  shadow = "none",
+  animate = true,
+  emptyHint = "Click to rate",
+  className,
+}: RatingProps) {
+  const [internalValue, setInternalValue] = useState(
+    defaultValue ?? controlledValue ?? 0,
+  );
+  const value = controlledValue ?? internalValue;
+
+  const handleChange = (next: number) => {
+    setInternalValue(next);
+    onValueChange?.(next);
+  };
+
+  const shadowClass =
+    shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "";
+
+  const starClasses = (pressed: boolean) =>
+    [
+      "d-f ai-c jc-c w-9 h-9 br-lg us-none",
+      shadowClass || "bw-0",
+      disabled
+        ? "c-na o-60"
+        : "c-p fv:oo--1 fv:oc-indigo-5",
+      pressed ? "c-yellow-5" : "c-slate-4",
+      !disabled && !pressed ? "h:c-slate-6" : "",
+      shadowClass ? "" : "bg-transparent",
+    ]
+      .filter(Boolean)
+      .join(" ");
 
   return (
-    <div className="d-f fd-c ai-c jc-c g-4 p-8 h-56">
-      <span className="c-slate-10 fs-sm fw-500">Rate this project</span>
+    <div
+      className={["d-f fd-c ai-c jc-c g-4 p-8 h-56", className]
+        .filter(Boolean)
+        .join(" ")}
+    >
+      {label && <span className="c-slate-10 fs-sm fw-500">{label}</span>}
+
       <div className="d-f g-1">
-        {[1, 2, 3, 4, 5].map((star) => {
-          const filled = star <= rating;
+        {Array.from({ length: count }, (_, index) => index + 1).map((star) => {
+          const filled = star <= value;
+          const icon = (
+            <Star
+              className="w-6 h-6"
+              style={{ fill: filled ? "currentColor" : "none" }}
+            />
+          );
+
           return (
             <Toggle
               key={star}
               pressed={filled}
-              onPressedChange={() => setRating(star === rating ? 0 : star)}
+              disabled={disabled}
+              onPressedChange={() => handleChange(star === value ? 0 : star)}
               aria-label={`${star} star${star > 1 ? "s" : ""}`}
-              className={(state) =>
-                `d-f ai-c jc-c w-9 h-9 bw-0 br-lg us-none c-p fv:oo--1 fv:oc-indigo-5 ${
-                  state.pressed
-                    ? "bg-transparent c-yellow-5"
-                    : "bg-transparent c-slate-4 h:c-slate-6"
-                }`
+              className={starClasses(filled)}
+              render={
+                animate && !disabled
+                  ? (props) => (
+                      <motion.button
+                        type="button"
+                        {...(props as HTMLMotionProps<"button">)}
+                        whileTap={{ scale: 0.9 }}
+                        transition={{ duration: 0.2, ease: "easeOut" }}
+                      >
+                        {icon}
+                      </motion.button>
+                    )
+                  : undefined
               }
-              render={(props, state) => (
-                <motion.button
-                  type="button"
-                  {...(props as HTMLMotionProps<"button">)}
-                  whileTap={{ scale: 0.9 }}
-                  transition={{ duration: 0.2, ease: "easeOut" }}
-                >
-                  <Star
-                    className="w-6 h-6"
-                    style={{ fill: state.pressed ? "currentColor" : "none" }}
-                  />
-                </motion.button>
-              )}
-            />
+            >
+              {animate && !disabled ? undefined : icon}
+            </Toggle>
           );
         })}
       </div>
+
       <span className="c-slate-6 fs-xs">
-        {rating > 0 ? `${rating} / 5` : "Click to rate"}
+        {value > 0 ? `${value} / ${count}` : emptyHint}
       </span>
     </div>
   );
