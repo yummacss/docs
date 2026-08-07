@@ -1,0 +1,15 @@
+{
+  "id": "skeleton-static",
+  "component": "skeleton",
+  "variant": "static",
+  "useClient": false,
+  "dependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "skeleton-static.tsx",
+      "target": "components/ui/skeleton-static.tsx",
+      "content": "export default function SkeletonStatic() {\n  return (\n    <div className=\"d-f fd-c g-5 p-8 h-56\">\n      <div className=\"d-f ai-c g-4\">\n        <div className=\"w-10 h-10 bg-silver-2 br-9999\" />\n        <div className=\"d-f fd-c g-2 fg-1\">\n          <div className=\"h-4 w-48 bg-silver-2 br-sm\" />\n          <div className=\"h-3 w-32 bg-silver-1 br-xs\" />\n        </div>\n      </div>\n      <div className=\"d-f fd-c g-3\">\n        <div className=\"h-3 w-100% bg-silver-2 br-xs\" />\n        <div className=\"h-3 w-80% bg-silver-2 br-xs\" />\n        <div className=\"h-3 w-60% bg-silver-2 br-xs\" />\n      </div>\n      <div className=\"d-f g-3\">\n        <div className=\"h-8 w-20 bg-silver-2 br-lg\" />\n        <div className=\"h-8 w-24 bg-silver-2 br-lg\" />\n      </div>\n    </div>\n  );\n}\n"
+    }
+  ]
+}

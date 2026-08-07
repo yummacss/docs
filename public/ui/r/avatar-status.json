@@ -1,0 +1,17 @@
+{
+  "id": "avatar-status",
+  "component": "avatar",
+  "variant": "status",
+  "useClient": false,
+  "dependencies": [],
+  "registryDependencies": [
+    "avatar"
+  ],
+  "files": [
+    {
+      "path": "avatar-status.tsx",
+      "target": "components/ui/avatar-status.tsx",
+      "content": "import Avatar from \"./avatar\";\n\nexport default function AvatarStatus() {\n  return (\n    <div className=\"d-f ai-c g-4\">\n      {statusMembers.map((member) => (\n        <Avatar\n          key={member.avatarUrl}\n          src={member.avatarUrl}\n          name={member.name}\n          status={member.status}\n        />\n      ))}\n    </div>\n  );\n}\n\nconst statusMembers = [\n  {\n    name: \"Adrian\",\n    avatarUrl:\n      \"https://api.dicebear.com/9.x/notionists/svg?seed=Adrian&backgroundColor=FFD4DE\",\n    status: \"online\" as const,\n  },\n  {\n    name: \"Aidan\",\n    avatarUrl:\n      \"https://api.dicebear.com/9.x/notionists/svg?seed=Aidan&backgroundColor=FFD4DE\",\n    status: \"offline\" as const,\n  },\n  {\n    name: \"Jade\",\n    avatarUrl:\n      \"https://api.dicebear.com/9.x/notionists/svg?seed=Jade&backgroundColor=DAF0B9\",\n    status: \"busy\" as const,\n  },\n];\n"
+    }
+  ]
+}

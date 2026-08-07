@@ -1,0 +1,20 @@
+{
+  "id": "rating-readonly",
+  "component": "rating",
+  "variant": "readonly",
+  "useClient": false,
+  "dependencies": [
+    {
+      "name": "iconoir-react",
+      "version": "^7.11.1"
+    }
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "rating-readonly.tsx",
+      "target": "components/ui/rating-readonly.tsx",
+      "content": "import { Star } from \"iconoir-react\";\n\nexport default function RatingReadonly() {\n  return (\n    <div className=\"d-f fd-c ai-c jc-c g-4 p-8 h-56\">\n      <span className=\"c-slate-10 fs-sm fw-500\">Project rating</span>\n      <div className=\"d-f ai-c g-3\">\n        <span className=\"c-slate-10 fw-500 fs-xxl\">4.2</span>\n        <div className=\"d-f g-1\">\n          {[1, 2, 3, 4, 5].map((star) => (\n            <Star\n              key={star}\n              className={`w-5 h-5 ${star <= 4 ? \"c-yellow-5\" : \"c-slate-4\"}`}\n              style={{ fill: star <= 4 ? \"currentColor\" : \"none\" }}\n            />\n          ))}\n        </div>\n      </div>\n      <span className=\"c-slate-6 fs-xs\">Average of 24 reviews</span>\n    </div>\n  );\n}\n"
+    }
+  ]
+}

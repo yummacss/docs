@@ -1,0 +1,22 @@
+{
+  "id": "autocomplete-icon",
+  "component": "autocomplete",
+  "variant": "icon",
+  "useClient": false,
+  "dependencies": [
+    {
+      "name": "iconoir-react",
+      "version": "^7.11.1"
+    }
+  ],
+  "registryDependencies": [
+    "autocomplete"
+  ],
+  "files": [
+    {
+      "path": "autocomplete-icon.tsx",
+      "target": "components/ui/autocomplete-icon.tsx",
+      "content": "import {\n  BellNotification,\n  Globe,\n  HelpCircle,\n  Key,\n  Search,\n  Wrench,\n} from \"iconoir-react\";\nimport Autocomplete, { type AutocompleteItem } from \"./autocomplete\";\n\nexport default function AutocompleteIcon() {\n  return (\n    <Autocomplete\n      items={settings}\n      label=\"Search settings\"\n      placeholder=\"Account, Privacy, & more\"\n      icon={<Search className=\"w-4 h-4\" />}\n      emptyMessage=\"No settings found.\"\n    />\n  );\n}\n\nconst settings: AutocompleteItem[] = [\n  { label: \"Account Settings\", icon: <Wrench className=\"w-4 h-4\" /> },\n  { label: \"Privacy & Security\", icon: <Key className=\"w-4 h-4\" /> },\n  {\n    label: \"Notifications\",\n    icon: <BellNotification className=\"w-4 h-4\" />,\n  },\n  { label: \"Language & Region\", icon: <Globe className=\"w-4 h-4\" /> },\n  { label: \"Blocked Accounts\", icon: <Key className=\"w-4 h-4\" /> },\n  { label: \"Help Center\", icon: <HelpCircle className=\"w-4 h-4\" /> },\n];\n"
+    }
+  ]
+}

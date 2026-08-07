@@ -1,0 +1,22 @@
+{
+  "id": "checkbox-group-label",
+  "component": "checkbox",
+  "variant": "group-label",
+  "useClient": true,
+  "dependencies": [
+    {
+      "name": "@base-ui/react",
+      "version": "^1.7.0"
+    }
+  ],
+  "registryDependencies": [
+    "checkbox"
+  ],
+  "files": [
+    {
+      "path": "checkbox-group-label.tsx",
+      "target": "components/ui/checkbox-group-label.tsx",
+      "content": "\"use client\";\n\nimport { CheckboxGroup } from \"@base-ui/react/checkbox-group\";\nimport { useId } from \"react\";\nimport Checkbox from \"./checkbox\";\n\nexport default function CheckboxGroupLabel() {\n  const id = useId();\n\n  return (\n    <CheckboxGroup\n      aria-labelledby={id}\n      defaultValue={[\"email\"]}\n      className=\"d-f fd-c g-2 ai-fs c-slate-10\"\n    >\n      <div className=\"fs-xs fw-600 c-slate-5 us-none\" id={id}>\n        Task actions\n      </div>\n      <Checkbox name=\"notifications\" value=\"email\" label=\"Edit task\" />\n      <Checkbox name=\"notifications\" value=\"sms\" label=\"Delete task\" />\n      <Checkbox name=\"notifications\" value=\"push\" label=\"Assign member\" />\n    </CheckboxGroup>\n  );\n}\n"
+    }
+  ]
+}

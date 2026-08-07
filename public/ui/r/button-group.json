@@ -1,0 +1,18 @@
+{
+  "id": "button-group",
+  "component": "button",
+  "variant": "group",
+  "useClient": false,
+  "dependencies": [],
+  "registryDependencies": [
+    "button",
+    "separator"
+  ],
+  "files": [
+    {
+      "path": "button-group.tsx",
+      "target": "components/ui/button-group.tsx",
+      "content": "import Button from \"./button\";\nimport Separator from \"./separator\";\n\nexport default function ButtonGroup() {\n  return (\n    <div className=\"d-f br-lg o-h bw-1 bc-silver-2\">\n      <Button variant=\"ghost\" size=\"sm\" shape=\"square\" style={{ flex: 1 }}>\n        Day\n      </Button>\n      <Separator orientation=\"vertical\" />\n      <Button variant=\"ghost\" size=\"sm\" shape=\"square\" style={{ flex: 1 }}>\n        Month\n      </Button>\n      <Separator orientation=\"vertical\" />\n      <Button variant=\"ghost\" size=\"sm\" shape=\"square\" style={{ flex: 1 }}>\n        Year\n      </Button>\n    </div>\n  );\n}\n"
+    }
+  ]
+}

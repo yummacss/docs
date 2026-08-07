@@ -1,0 +1,26 @@
+{
+  "id": "toggle-color-picker",
+  "component": "toggle",
+  "variant": "color-picker",
+  "useClient": true,
+  "dependencies": [
+    {
+      "name": "@base-ui/react",
+      "version": "^1.7.0"
+    },
+    {
+      "name": "iconoir-react",
+      "version": "^7.11.1"
+    }
+  ],
+  "registryDependencies": [
+    "toggle"
+  ],
+  "files": [
+    {
+      "path": "toggle-color-picker.tsx",
+      "target": "components/ui/toggle-color-picker.tsx",
+      "content": "\"use client\";\n\nimport { ToggleGroup } from \"@base-ui/react/toggle-group\";\nimport { Check } from \"iconoir-react\";\nimport { useState } from \"react\";\nimport Toggle from \"./toggle\";\n\nexport default function ToggleColorPicker() {\n  const [selected, setSelected] = useState([\"blue\"]);\n\n  return (\n    <ToggleGroup\n      value={selected}\n      onValueChange={setSelected}\n      className=\"d-f g-2 p-2 bg-white br-9999 bw-1 bc-silver-2\"\n    >\n      {colors.map((color) => (\n        <Toggle\n          key={color.value}\n          value={color.value}\n          aria-label={color.label}\n          size=\"sm\"\n          swatchClassName={color.bgClass}\n          pressedIcon={<Check className=\"w-4 h-4 c-white\" />}\n        />\n      ))}\n    </ToggleGroup>\n  );\n}\n\nconst colors = [\n  { value: \"red\", label: \"Red\", bgClass: \"bg-red\" },\n  { value: \"orange\", label: \"Orange\", bgClass: \"bg-orange\" },\n  { value: \"yellow\", label: \"Yellow\", bgClass: \"bg-yellow\" },\n  { value: \"lime\", label: \"Lime\", bgClass: \"bg-lime\" },\n  { value: \"green\", label: \"Green\", bgClass: \"bg-green\" },\n  { value: \"cyan\", label: \"Cyan\", bgClass: \"bg-cyan\" },\n  { value: \"blue\", label: \"Blue\", bgClass: \"bg-blue\" },\n  { value: \"indigo\", label: \"Indigo\", bgClass: \"bg-indigo\" },\n  { value: \"violet\", label: \"Violet\", bgClass: \"bg-violet\" },\n  { value: \"coral\", label: \"Coral\", bgClass: \"bg-coral\" },\n];\n"
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "id": "menubar",
+  "component": "menubar",
+  "variant": "base",
+  "summary": "An application menu bar: a row of dropdown menus, each built from the same item list as Menu.",
+  "props": [
+    {
+      "name": "menus",
+      "type": "none",
+      "typeName": "MenubarMenu[]",
+      "example": [
+        {
+          "label": "Project",
+          "items": [
+            {
+              "label": "New task"
+            },
+            {
+              "label": "Import tasks"
+            },
+            {
+              "label": "Export tasks"
+            }
+          ]
+        },
+        {
+          "label": "Assign",
+          "items": [
+            {
+              "label": "Assign task"
+            },
+            {
+              "label": "Reassign task"
+            },
+            {
+              "label": "Bulk assign"
+            }
+          ]
+        },
+        {
+          "label": "View",
+          "items": [
+            {
+              "label": "Board view"
+            },
+            {
+              "label": "List view"
+            },
+            {
+              "label": "Keyframes view"
+            }
+          ]
+        }
+      ],
+      "description": "Each menu's `label`, its `items`, and an optional `disabled`. Every menu owns its own open state, so opening one closes the last."
+    },
+    {
+      "name": "shape",
+      "type": "enum",
+      "values": [
+        "rounded",
+        "square",
+        "squircle"
+      ],
+      "default": "rounded",
+      "description": "Corner radius on the bar, its buttons, the popups and their items together."
+    },
+    {
+      "name": "shadow",
+      "type": "enum",
+      "values": [
+        "none",
+        "inset",
+        "outset"
+      ],
+      "default": "none",
+      "description": "Depth on the bar and its popups. Not on the individual buttons inside the bar - they are transparent, so a shadow on each one reads as noise."
+    },
+    {
+      "name": "iconPosition",
+      "type": "enum",
+      "values": [
+        "leading",
+        "trailing"
+      ],
+      "default": "leading",
+      "description": "Which end of an item its `icon` sits at. A `shortcut` always trails regardless."
+    },
+    {
+      "name": "animate",
+      "type": "boolean",
+      "default": true,
+      "description": "The popups' fade in/out. Turn it off for instant menus, or when the user has asked for reduced motion."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "description": "Appended to the bar's classes, so any Yumma CSS utility you pass wins."
+    }
+  ],
+  "useClient": true,
+  "dependencies": [
+    {
+      "name": "@base-ui/react",
+      "version": "^1.7.0"
+    },
+    {
+      "name": "iconoir-react",
+      "version": "^7.11.1"
+    },
+    {
+      "name": "motion",
+      "version": "^13.0.0"
+    }
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "menubar.tsx",
+      "target": "components/ui/menubar.tsx",
+      "content": "\"use client\";\n\nimport { Menu } from \"@base-ui/react/menu\";\nimport { Menubar } from \"@base-ui/react/menubar\";\nimport { Check, Circle, KeyCommand, NavArrowRight } from \"iconoir-react\";\nimport { AnimatePresence, motion } from \"motion/react\";\nimport type { ReactNode } from \"react\";\nimport { useState } from \"react\";\n\ntype Shape = \"rounded\" | \"square\" | \"squircle\";\ntype Shadow = \"none\" | \"inset\" | \"outset\";\ntype IconPosition = \"leading\" | \"trailing\";\n\nconst BAR_SHAPES: Record<Shape, string> = {\n  rounded: \"br-lg\",\n  square: \"\",\n  squircle: \"br-xxl cs-s\",\n};\n\nconst TRIGGER_SHAPES: Record<Shape, string> = {\n  rounded: \"br-lg\",\n  square: \"\",\n  squircle: \"br-xxl cs-s\",\n};\n\nconst POPUP_SHAPES: Record<Shape, string> = {\n  rounded: \"br-xxl\",\n  square: \"\",\n  squircle: \"br-3xl cs-s\",\n};\n\nconst ITEM_SHAPES: Record<Shape, string> = {\n  rounded: \"br-xl\",\n  square: \"\",\n  squircle: \"br-xxl cs-s\",\n};\n\nconst SHADOWS: Record<Exclude<Shadow, \"none\">, string> = {\n  inset: \"bs-i-sm\",\n  outset: \"bs-o-xs\",\n};\n\nexport interface MenubarAction {\n  type?: \"item\";\n  label: string;\n  icon?: ReactNode;\n  /** The letter beside a command glyph, e.g. `\"E\"` for Cmd+E. */\n  shortcut?: string;\n  /** Red text, and a red highlight instead of the neutral one. */\n  destructive?: boolean;\n  disabled?: boolean;\n  onClick?: () => void;\n}\n\nexport interface MenubarSeparator {\n  type: \"separator\";\n}\n\n/** A semantic `role=\"group\"` block, with an optional heading above it. */\nexport interface MenubarGroup {\n  type: \"group\";\n  label?: string;\n  items: MenubarItem[];\n}\n\nexport interface MenubarCheckbox {\n  type: \"checkbox\";\n  label: string;\n  checked: boolean;\n  onCheckedChange?: (checked: boolean) => void;\n  disabled?: boolean;\n}\n\nexport interface MenubarRadio {\n  type: \"radio\";\n  value: string;\n  onValueChange?: (value: string) => void;\n  options: { value: string; label: string }[];\n}\n\nexport interface MenubarSubmenu {\n  type: \"submenu\";\n  label: string;\n  icon?: ReactNode;\n  items: MenubarItem[];\n}\n\nexport type MenubarItem =\n  | MenubarAction\n  | MenubarSeparator\n  | MenubarGroup\n  | MenubarCheckbox\n  | MenubarRadio\n  | MenubarSubmenu;\n\nexport interface MenubarMenu {\n  /** The bar button's label. */\n  label: string;\n  items: MenubarItem[];\n  /** Dims this one button & stops it opening. The rest of the bar is unaffected. */\n  disabled?: boolean;\n}\n\nexport interface MenubarProps {\n  menus: MenubarMenu[];\n  shape?: Shape;\n  shadow?: Shadow;\n  /** Which end of an item its `icon` sits at. Shortcuts always trail. */\n  iconPosition?: IconPosition;\n  /** The popups' fade in/out. */\n  animate?: boolean;\n  className?: string;\n}\n\nexport default function MenubarBase({\n  menus,\n  shape = \"rounded\",\n  shadow = \"none\",\n  iconPosition = \"leading\",\n  animate = true,\n  className,\n}: MenubarProps) {\n  const shadowClass =\n    shadow === \"inset\" || shadow === \"outset\" ? SHADOWS[shadow] : \"\";\n\n  const barClasses = [\n    \"d-f g-1 p-1 bg-white bc-silver-2 bw-1\",\n    BAR_SHAPES[shape],\n    shadowClass,\n    className,\n  ]\n    .filter(Boolean)\n    .join(\" \");\n\n  const popupClasses = [\n    \"py-1 w-52 bg-white bc-silver-2 c-slate-10 bw-1\",\n    POPUP_SHAPES[shape],\n    shadowClass,\n  ]\n    .filter(Boolean)\n    .join(\" \");\n\n  const triggerClasses = (disabled: boolean) => (state: { open: boolean }) =>\n    [\n      \"h-8 px-3 fs-sm fw-500 us-none bw-0 bg-transparent\",\n      TRIGGER_SHAPES[shape],\n      disabled ? \"c-slate-4 o-60 c-na\" : \"c-slate-10 c-p h:bg-silver-1/50\",\n      !disabled && state.open ? \"bg-silver-2/50\" : \"\",\n    ]\n      .filter(Boolean)\n      .join(\" \");\n\n  const itemClasses =\n    (destructive: boolean, spread: boolean) =>\n    (state: { highlighted: boolean }) =>\n      [\n        \"d-f ai-c g-2 py-2 pl-2 pr-3 fs-sm us-none c-p mx-1 fw-500\",\n        spread ? \"jc-sb\" : \"\",\n        ITEM_SHAPES[shape],\n        destructive ? \"c-red\" : \"\",\n        state.highlighted\n          ? destructive\n            ? \"bg-red-1/50\"\n            : \"bg-silver-2/50\"\n          : \"bg-transparent\",\n      ]\n        .filter(Boolean)\n        .join(\" \");\n\n  const renderItems = (list: MenubarItem[], keyPrefix: string) =>\n    list.map((item, index) => {\n      const key = `${keyPrefix}-${index}`;\n\n      if (\"type\" in item && item.type === \"separator\") {\n        return (\n          <Menu.Separator key={key} className=\"my-1 w-100% h-px bg-silver-2\" />\n        );\n      }\n\n      if (\"type\" in item && item.type === \"group\") {\n        return (\n          <Menu.Group key={key}>\n            {item.label && (\n              <div className=\"px-3 py-1 fs-xs fw-600 c-slate-5 us-none\">\n                {item.label}\n              </div>\n            )}\n            {renderItems(item.items, key)}\n          </Menu.Group>\n        );\n      }\n\n      if (\"type\" in item && item.type === \"checkbox\") {\n        return (\n          <Menu.CheckboxItem\n            key={key}\n            checked={item.checked}\n            onCheckedChange={item.onCheckedChange}\n            disabled={item.disabled}\n            className={itemClasses(false, false)}\n          >\n            <span className=\"d-f ai-c jc-c fs-0 w-4 h-4 bc-silver-3 br-sm bw-1\">\n              <Menu.CheckboxItemIndicator>\n                <Check className=\"w-3 h-3 c-indigo\" />\n              </Menu.CheckboxItemIndicator>\n            </span>\n            {item.label}\n          </Menu.CheckboxItem>\n        );\n      }\n\n      if (\"type\" in item && item.type === \"radio\") {\n        return (\n          <Menu.RadioGroup\n            key={key}\n            value={item.value}\n            onValueChange={item.onValueChange}\n          >\n            {item.options.map((option) => (\n              <Menu.RadioItem\n                key={option.value}\n                value={option.value}\n                className={itemClasses(false, false)}\n              >\n                <span className=\"d-f ai-c jc-c fs-0 w-4 h-4 bc-silver-3 br-9999 bw-1\">\n                  <Menu.RadioItemIndicator>\n                    <Circle\n                      className=\"w-2 h-2 c-indigo\"\n                      style={{ fill: \"currentColor\" }}\n                    />\n                  </Menu.RadioItemIndicator>\n                </span>\n                {option.label}\n              </Menu.RadioItem>\n            ))}\n          </Menu.RadioGroup>\n        );\n      }\n\n      if (\"type\" in item && item.type === \"submenu\") {\n        return (\n          <Menu.SubmenuRoot key={key}>\n            <Menu.SubmenuTrigger className={itemClasses(false, true)}>\n              {item.icon && (\n                <span className=\"d-f fs-0 c-slate-5\">{item.icon}</span>\n              )}\n              <span className=\"fg-1\">{item.label}</span>\n              <NavArrowRight className=\"fs-0 w-4 h-4 c-slate-4\" />\n            </Menu.SubmenuTrigger>\n\n            <Menu.Portal>\n              <Menu.Positioner\n                className=\"ow-0\"\n                sideOffset={-4}\n                alignOffset={-4}\n              >\n                <Menu.Popup className={popupClasses}>\n                  {renderItems(item.items, key)}\n                </Menu.Popup>\n              </Menu.Positioner>\n            </Menu.Portal>\n          </Menu.SubmenuRoot>\n        );\n      }\n\n      const action = item as MenubarAction;\n      const destructive = Boolean(action.destructive);\n      const trailing =\n        Boolean(action.shortcut) ||\n        (Boolean(action.icon) && iconPosition === \"trailing\");\n\n      return (\n        <Menu.Item\n          key={key}\n          disabled={action.disabled}\n          onClick={action.onClick}\n          className={itemClasses(destructive, trailing)}\n        >\n          {action.icon && iconPosition === \"leading\" && (\n            <span className=\"d-f fs-0 c-slate-5\">{action.icon}</span>\n          )}\n          {trailing ? (\n            <span className=\"fg-1\">{action.label}</span>\n          ) : (\n            action.label\n          )}\n          {action.icon && iconPosition === \"trailing\" && (\n            <span className=\"d-f fs-0 c-slate-5\">{action.icon}</span>\n          )}\n          {action.shortcut && (\n            <span\n              className={[\n                \"d-f ai-c g-1 ml-4 fw-400 fs-xs\",\n                destructive ? \"c-red\" : \"c-slate-6\",\n              ]\n                .filter(Boolean)\n                .join(\" \")}\n            >\n              <KeyCommand className=\"w-3 h-3\" />\n              <span>{action.shortcut}</span>\n            </span>\n          )}\n        </Menu.Item>\n      );\n    });\n\n  return (\n    <Menubar className={barClasses}>\n      {menus.map((menu) => (\n        <MenubarEntry\n          key={menu.label}\n          menu={menu}\n          animate={animate}\n          popupClasses={popupClasses}\n          triggerClasses={triggerClasses}\n          renderItems={renderItems}\n        />\n      ))}\n    </Menubar>\n  );\n}\n\n/**\n * One button in the bar. Split out so each menu owns its open state - a single\n * shared `open` would let two popups be open at once, or need an id to tell\n * them apart.\n */\nfunction MenubarEntry({\n  menu,\n  animate,\n  popupClasses,\n  triggerClasses,\n  renderItems,\n}: {\n  menu: MenubarMenu;\n  animate: boolean;\n  popupClasses: string;\n  triggerClasses: (disabled: boolean) => (state: { open: boolean }) => string;\n  renderItems: (list: MenubarItem[], keyPrefix: string) => ReactNode;\n}) {\n  const [open, setOpen] = useState(false);\n  const disabled = Boolean(menu.disabled);\n\n  const popup = (\n    <Menu.Portal keepMounted>\n      <Menu.Positioner className=\"ow-0\" sideOffset={8}>\n        <Menu.Popup\n          render={\n            animate ? (\n              <motion.div\n                initial={{ opacity: 0 }}\n                animate={{ opacity: 1 }}\n                exit={{ opacity: 0 }}\n                transition={{ duration: 0.15, ease: \"easeOut\" }}\n              />\n            ) : undefined\n          }\n          className={popupClasses}\n        >\n          {renderItems(menu.items, menu.label)}\n        </Menu.Popup>\n      </Menu.Positioner>\n    </Menu.Portal>\n  );\n\n  return (\n    <Menu.Root open={open} onOpenChange={setOpen} disabled={disabled}>\n      <Menu.Trigger className={triggerClasses(disabled)}>\n        {menu.label}\n      </Menu.Trigger>\n\n      {animate ? (\n        <AnimatePresence>{open && popup}</AnimatePresence>\n      ) : (\n        open && popup\n      )}\n    </Menu.Root>\n  );\n}\n"
+    }
+  ]
+}

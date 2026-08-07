@@ -1,0 +1,22 @@
+{
+  "id": "button-icon-trailing",
+  "component": "button",
+  "variant": "icon-trailing",
+  "useClient": false,
+  "dependencies": [
+    {
+      "name": "iconoir-react",
+      "version": "^7.11.1"
+    }
+  ],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "button-icon-trailing.tsx",
+      "target": "components/ui/button-icon-trailing.tsx",
+      "content": "import { UserPlus } from \"iconoir-react\";\nimport Button from \"./button\";\n\nexport default function ButtonIconTrailing() {\n  return (\n    <div className=\"d-f fd-c g-6 ai-c\">\n      <Button variant=\"primary\">\n        Add member\n        <UserPlus className=\"w-4 h-4\" />\n      </Button>\n      <Button variant=\"secondary\">\n        Add member\n        <UserPlus className=\"w-4 h-4\" />\n      </Button>\n      <Button variant=\"subtle\">\n        Add member\n        <UserPlus className=\"w-4 h-4\" />\n      </Button>\n    </div>\n  );\n}\n"
+    }
+  ]
+}

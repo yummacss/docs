@@ -1,0 +1,17 @@
+{
+  "id": "avatar-icon-fallback",
+  "component": "avatar",
+  "variant": "icon-fallback",
+  "useClient": false,
+  "dependencies": [],
+  "registryDependencies": [
+    "avatar"
+  ],
+  "files": [
+    {
+      "path": "avatar-icon-fallback.tsx",
+      "target": "components/ui/avatar-icon-fallback.tsx",
+      "content": "import Avatar, { type AvatarProps } from \"./avatar\";\n\nexport default function AvatarIconFallback() {\n  return (\n    <div className=\"d-f ai-c g-4\">\n      {tints.map((tint) => (\n        <Avatar key={tint} tint={tint} />\n      ))}\n    </div>\n  );\n}\n\nconst tints: NonNullable<AvatarProps[\"tint\"]>[] = [\"lime\", \"cyan\", \"indigo\"];\n"
+    }
+  ]
+}

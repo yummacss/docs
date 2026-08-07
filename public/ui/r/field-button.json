@@ -1,0 +1,30 @@
+{
+  "id": "field-button",
+  "component": "field",
+  "variant": "button",
+  "useClient": false,
+  "dependencies": [
+    {
+      "name": "@base-ui/react",
+      "version": "^1.7.0"
+    },
+    {
+      "name": "iconoir-react",
+      "version": "^7.11.1"
+    },
+    {
+      "name": "motion",
+      "version": "^13.0.0"
+    }
+  ],
+  "registryDependencies": [
+    "field"
+  ],
+  "files": [
+    {
+      "path": "field-button.tsx",
+      "target": "components/ui/field-button.tsx",
+      "content": "import { Button } from \"@base-ui/react/button\";\nimport { Search } from \"iconoir-react\";\nimport type { HTMLMotionProps } from \"motion/react\";\nimport { motion } from \"motion/react\";\nimport Field from \"./field\";\n\nexport default function FieldButton() {\n  return (\n    <Field\n      label=\"Search tasks\"\n      placeholder=\"Search tasks...\"\n      iconSide=\"trailing\"\n      iconInteractive\n      icon={\n        <Button\n          aria-label=\"Search\"\n          className=\"d-f ai-c jc-c w-8 h-8 bg-silver-1 c-slate-6 bw-0 br-lg us-none c-p h:bg-silver-2 h:c-slate-10 fv:oo-2 fv:oc-indigo-5\"\n          render={(props) => (\n            <motion.button\n              type=\"button\"\n              {...(props as HTMLMotionProps<\"button\">)}\n              whileTap={{ scale: 0.9 }}\n              transition={{ duration: 0.2, ease: \"easeOut\" }}\n            />\n          )}\n        >\n          <Search className=\"w-4 h-4\" />\n        </Button>\n      }\n    />\n  );\n}\n"
+    }
+  ]
+}

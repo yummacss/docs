@@ -1,0 +1,17 @@
+{
+  "id": "avatar-square",
+  "component": "avatar",
+  "variant": "square",
+  "useClient": false,
+  "dependencies": [],
+  "registryDependencies": [
+    "avatar"
+  ],
+  "files": [
+    {
+      "path": "avatar-square.tsx",
+      "target": "components/ui/avatar-square.tsx",
+      "content": "import Avatar from \"./avatar\";\n\nexport default function AvatarSquare() {\n  return <Avatar src={userProfile.avatarUrl} name={userProfile.name} shape=\"square\" />;\n}\n\nconst userProfile = {\n  name: \"John\",\n  avatarUrl:\n    \"https://api.dicebear.com/9.x/notionists/svg?seed=John&backgroundColor=DAF0B9\",\n};\n"
+    }
+  ]
+}

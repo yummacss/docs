@@ -1,0 +1,17 @@
+{
+  "id": "field-suffix",
+  "component": "field",
+  "variant": "suffix",
+  "useClient": false,
+  "dependencies": [],
+  "registryDependencies": [
+    "field"
+  ],
+  "files": [
+    {
+      "path": "field-suffix.tsx",
+      "target": "components/ui/field-suffix.tsx",
+      "content": "import Field from \"./field\";\n\nexport default function FieldSuffix() {\n  return <Field label=\"Email\" placeholder=\"john@yummaui\" suffix=\".com\" />;\n}\n"
+    }
+  ]
+}

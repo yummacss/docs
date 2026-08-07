@@ -1,0 +1,17 @@
+{
+  "id": "autocomplete-limit",
+  "component": "autocomplete",
+  "variant": "limit",
+  "useClient": false,
+  "dependencies": [],
+  "registryDependencies": [
+    "autocomplete"
+  ],
+  "files": [
+    {
+      "path": "autocomplete-limit.tsx",
+      "target": "components/ui/autocomplete-limit.tsx",
+      "content": "import Autocomplete, { type AutocompleteItem } from \"./autocomplete\";\n\nexport default function AutocompleteLimit() {\n  return (\n    <Autocomplete\n      items={projects}\n      label=\"Switch project\"\n      placeholder=\"Search projects…\"\n      limit={5}\n    />\n  );\n}\n\nconst projects: AutocompleteItem[] = [\n  {\n    label: \"Storefront Redesign\",\n    description: \"In Progress\",\n    icon: <Swatch className=\"bg-cyan-4\" letter=\"S\" />,\n  },\n  {\n    label: \"API v3 Migration\",\n    description: \"Review\",\n    icon: <Swatch className=\"bg-violet-4\" letter=\"A\" />,\n  },\n  {\n    label: \"Design System\",\n    description: \"Active\",\n    icon: <Swatch className=\"bg-coral-4\" letter=\"D\" />,\n  },\n  {\n    label: \"Mobile App\",\n    description: \"Planning\",\n    icon: <Swatch className=\"bg-magenta-4\" letter=\"M\" />,\n  },\n  {\n    label: \"Analytics Dashboard\",\n    description: \"In Progress\",\n    icon: <Swatch className=\"bg-indigo-4\" letter=\"A\" />,\n  },\n  {\n    label: \"Auth Service\",\n    description: \"Active\",\n    icon: <Swatch className=\"bg-lime-4\" letter=\"A\" />,\n  },\n  {\n    label: \"Billing Portal\",\n    description: \"Backlog\",\n    icon: <Swatch className=\"bg-blue-4\" letter=\"B\" />,\n  },\n  {\n    label: \"Admin Panel\",\n    description: \"In Progress\",\n    icon: <Swatch className=\"bg-red-4\" letter=\"A\" />,\n  },\n];\n\nfunction Swatch({ className, letter }: { className: string; letter: string }) {\n  return (\n    <span\n      className={`d-if ai-c jc-c w-6 h-6 br-sm fs-xs fw-500 c-white ${className}`}\n    >\n      {letter}\n    </span>\n  );\n}\n"
+    }
+  ]
+}

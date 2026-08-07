@@ -1,0 +1,20 @@
+{
+  "id": "dialog-new-task",
+  "component": "dialog",
+  "variant": "new-task",
+  "useClient": false,
+  "dependencies": [],
+  "registryDependencies": [
+    "autocomplete",
+    "dialog",
+    "field",
+    "select"
+  ],
+  "files": [
+    {
+      "path": "dialog-new-task.tsx",
+      "target": "components/ui/dialog-new-task.tsx",
+      "content": "import Autocomplete from \"./autocomplete\";\nimport Dialog from \"./dialog\";\nimport Field from \"./field\";\nimport Select from \"./select\";\n\nexport default function DialogNewTask() {\n  return (\n    <Dialog trigger=\"New task\" title=\"New task\" confirmLabel=\"Create task\">\n      <div className=\"d-f fd-c g-4\">\n        <Field\n          fullWidth\n          label=\"Title\"\n          placeholder=\"e.g. Redesign landing page\"\n        />\n        <Field\n          multiline\n          label=\"Description\"\n          placeholder=\"Add details about this task...\"\n        />\n        <Select\n          fullWidth\n          options={priorities}\n          label=\"Priority\"\n          placeholder=\"Select priority...\"\n          defaultValue=\"medium\"\n        />\n        <div className=\"d-g g-3 @sm:gtc-2\">\n          <Autocomplete\n            fullWidth\n            items={teamMembers}\n            label=\"Assignee\"\n            placeholder=\"Name\"\n          />\n          <Field fullWidth type=\"date\" label=\"Due date\" />\n        </div>\n      </div>\n    </Dialog>\n  );\n}\n\nconst priorities = [\n  { label: \"Low\", value: \"low\" },\n  { label: \"Medium\", value: \"medium\" },\n  { label: \"High\", value: \"high\" },\n  { label: \"Urgent\", value: \"urgent\" },\n];\n\nconst teamMembers = [\n  {\n    label: \"John\",\n    description: \"Product Designer\",\n    avatar:\n      \"https://api.dicebear.com/9.x/notionists/svg?seed=John&backgroundColor=DAF0B9\",\n  },\n  {\n    label: \"Melanie\",\n    description: \"Frontend Developer\",\n    avatar:\n      \"https://api.dicebear.com/9.x/notionists/svg?seed=Melanie&backgroundColor=DCCEFC\",\n  },\n  {\n    label: \"Noah\",\n    description: \"Backend Developer\",\n    avatar:\n      \"https://api.dicebear.com/9.x/notionists/svg?seed=Noah&backgroundColor=D0D1FB\",\n  },\n  {\n    label: \"Riley\",\n    description: \"Product Manager\",\n    avatar:\n      \"https://api.dicebear.com/9.x/notionists/svg?seed=Riley&backgroundColor=F4C8FA\",\n  },\n  {\n    label: \"Adrian\",\n    description: \"QA Engineer\",\n    avatar:\n      \"https://api.dicebear.com/9.x/notionists/svg?seed=Adrian&backgroundColor=FFD4DE\",\n  },\n  {\n    label: \"Maria\",\n    description: \"Engineering Lead\",\n    avatar:\n      \"https://api.dicebear.com/9.x/notionists/svg?seed=Maria&backgroundColor=DCCEFC\",\n  },\n];\n"
+    }
+  ]
+}

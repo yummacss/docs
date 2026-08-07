@@ -1,0 +1,111 @@
+{
+  "id": "checkbox",
+  "component": "checkbox",
+  "variant": "base",
+  "summary": "A single tick box with its label, in three sizes, three shapes and three shadows, with indeterminate, disabled and read-only states.",
+  "props": [
+    {
+      "name": "label",
+      "type": "string",
+      "example": "Mark task as complete",
+      "description": "The text beside the box. The whole thing is one `<label>`, so clicking the text toggles it."
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "A second line under the label, indented to line up with it. Use it for the consequence of ticking the box, not for a restatement of the label."
+    },
+    {
+      "name": "size",
+      "type": "enum",
+      "values": [
+        "sm",
+        "md",
+        "lg"
+      ],
+      "default": "md",
+      "description": "Box, tick and label together. The description's indent follows, so it stays aligned with the label at every size."
+    },
+    {
+      "name": "shape",
+      "type": "enum",
+      "values": [
+        "rounded",
+        "square",
+        "squircle"
+      ],
+      "default": "rounded",
+      "description": "Corner radius. `squircle` uses `corner-shape`, which degrades to a rounded square where that is unsupported."
+    },
+    {
+      "name": "shadow",
+      "type": "enum",
+      "values": [
+        "none",
+        "inset",
+        "outset"
+      ],
+      "default": "none",
+      "description": "Depth on the box. `inset` reads as a well, `outset` as a raised control."
+    },
+    {
+      "name": "defaultChecked",
+      "type": "boolean",
+      "default": false,
+      "description": "Starting state when you are not controlling it. Pair `checked` with `onCheckedChange` instead if you are."
+    },
+    {
+      "name": "checked",
+      "type": "boolean",
+      "description": "Controlled state. Passing it without `onCheckedChange` gives a box that cannot be ticked; `readOnly` is the honest way to say that."
+    },
+    {
+      "name": "onCheckedChange",
+      "type": "none",
+      "typeName": "(checked: boolean) => void",
+      "description": "Called with the new state. Required for a controlled checkbox."
+    },
+    {
+      "name": "indeterminate",
+      "type": "boolean",
+      "default": false,
+      "description": "Neither on nor off, for a parent whose children disagree. Draws a dash in a filled box, because an empty box would read as \"off\", which is the one thing it does not mean."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "default": false,
+      "description": "Blocks interaction and dims the whole row, label included."
+    },
+    {
+      "name": "readOnly",
+      "type": "boolean",
+      "default": false,
+      "description": "Shows a value without offering to change it. Unlike `disabled` it stays focusable and is not dimmed, so it can still be read."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "description": "Appended to the box's classes, so any Yumma CSS utility you pass wins."
+    }
+  ],
+  "useClient": false,
+  "dependencies": [
+    {
+      "name": "@base-ui/react",
+      "version": "^1.7.0"
+    },
+    {
+      "name": "iconoir-react",
+      "version": "^7.11.1"
+    }
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "checkbox.tsx",
+      "target": "components/ui/checkbox.tsx",
+      "content": "import { Checkbox } from \"@base-ui/react/checkbox\";\nimport { Check, Minus } from \"iconoir-react\";\nimport type { ComponentProps, ReactNode } from \"react\";\n\ntype Size = \"sm\" | \"md\" | \"lg\";\ntype Shape = \"rounded\" | \"square\" | \"squircle\";\ntype Shadow = \"none\" | \"inset\" | \"outset\";\n\n// Plain lookups rather than cva: a copied component should not drag a class\n// utility into your package.json to do what an object literal already does.\nconst BOX = \"d-f ai-c jc-c fs-0 fv:oo-2 fv:oc-indigo-5\";\n\nconst SIZES: Record<Size, string> = {\n  sm: \"w-3 h-3\",\n  md: \"w-4 h-4\",\n  lg: \"w-5 h-5\",\n};\n\nconst ICON_SIZES: Record<Size, string> = {\n  sm: \"w-2 h-2\",\n  md: \"w-3 h-3\",\n  lg: \"w-4 h-4\",\n};\n\nconst LABEL_SIZES: Record<Size, string> = {\n  sm: \"fs-xs\",\n  md: \"fs-sm\",\n  lg: \"fs-md\",\n};\n\n// The description lines up with the label, not the box, so it has to clear the\n// box plus the gap: 0.75/1/1.25rem of box and 0.5rem of gap.\nconst DESCRIPTION_INDENT: Record<Size, string> = {\n  sm: \"ml-5\",\n  md: \"ml-6\",\n  lg: \"ml-7\",\n};\n\nconst SHAPES: Record<Shape, string> = {\n  rounded: \"br-sm\",\n  square: \"br-0\",\n  squircle: \"br-xxl cs-s\",\n};\n\nconst SHADOWS: Record<Shadow, string> = {\n  none: \"\",\n  inset: \"bs-i-sm\",\n  outset: \"bs-o-xs\",\n};\n\nconst CHECKED = \"bg-indigo\";\nconst UNCHECKED = \"bw-1 bc-silver-3 bg-transparent\";\n\nexport interface CheckboxProps\n  extends Omit<ComponentProps<typeof Checkbox.Root>, \"className\"> {\n  label?: ReactNode;\n  /** A second line under the label, for the consequence of ticking it. */\n  description?: string;\n  size?: Size;\n  shape?: Shape;\n  shadow?: Shadow;\n  className?: string;\n}\n\nexport default function CheckboxBase({\n  label,\n  description,\n  size = \"md\",\n  shape = \"rounded\",\n  shadow = \"none\",\n  disabled = false,\n  className,\n  ...props\n}: CheckboxProps) {\n  return (\n    <label\n      className={`d-f fd-c g-1 c-slate-10 us-none ${\n        disabled ? \"o-60 c-na\" : \"c-p\"\n      }`}\n    >\n      <span className={`d-f ai-c g-2 fw-500 ${LABEL_SIZES[size]}`}>\n        <Checkbox.Root\n          disabled={disabled}\n          className={(state) =>\n            [\n              BOX,\n              SIZES[size],\n              SHAPES[shape],\n              SHADOWS[shadow],\n              // Indeterminate is a filled box too: an empty one would read as\n              // \"off\", which is the one thing it does not mean.\n              state.checked || state.indeterminate ? CHECKED : UNCHECKED,\n              className,\n            ]\n              .filter(Boolean)\n              .join(\" \")\n          }\n          {...props}\n        >\n          <Checkbox.Indicator\n            className=\"d-f c-white\"\n            render={(indicatorProps, state) => (\n              <span {...indicatorProps}>\n                {state.indeterminate ? (\n                  <Minus className={ICON_SIZES[size]} />\n                ) : (\n                  <Check className={ICON_SIZES[size]} />\n                )}\n              </span>\n            )}\n          />\n        </Checkbox.Root>\n        {label}\n      </span>\n\n      {description && (\n        <span className={`c-slate-6 fs-xs ${DESCRIPTION_INDENT[size]}`}>\n          {description}\n        </span>\n      )}\n    </label>\n  );\n}\n"
+    }
+  ]
+}
