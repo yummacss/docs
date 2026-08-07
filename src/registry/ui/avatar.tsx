@@ -1,13 +1,27 @@
 import { Avatar } from "@base-ui/react/avatar";
 import { CheckCircle, User } from "iconoir-react";
+import type { ReactNode } from "react";
 
 type Size = "sm" | "md" | "lg";
 type Shape = "circle" | "square" | "squircle";
 type Status = "none" | "online" | "offline" | "busy";
+type Tint = "lime" | "cyan" | "indigo";
 
 // Plain lookups rather than cva: a copied component should not drag a class
 // utility into your package.json to do what an object literal already does.
-const ROOT = "d-if o-h ai-c jc-c bg-silver-1 bc-white bw-1 va-m us-none";
+const ROOT = "d-if o-h ai-c jc-c va-m us-none";
+
+// Yumma CSS has no arbitrary-value escape hatch and no `!important` modifier,
+// so a caller-supplied `bg-*`/`c-*` in `className` cannot reliably beat the
+// one this component already applies - stylesheet order decides ties, not
+// class-attribute order. `tint` picks one of a fixed set instead, applied by
+// the component itself so there is never a competing pair of classes for the
+// same property in the same element.
+const TINTS: Record<Tint, { bg: string; fg: string }> = {
+  lime: { bg: "bg-lime-2 bc-lime-3", fg: "c-lime" },
+  cyan: { bg: "bg-cyan-2 bc-cyan-3", fg: "c-cyan" },
+  indigo: { bg: "bg-indigo-2 bc-indigo-3", fg: "c-indigo" },
+};
 
 const SIZES: Record<Size, string> = {
   sm: "w-8 h-8",
@@ -57,6 +71,12 @@ export interface AvatarProps {
   status?: Status;
   /** A verification check, top right, so it never collides with `status`. */
   verified?: boolean;
+  /** Overrides the auto-computed initials/icon, for content neither covers - a "+3" overflow tile. */
+  fallback?: ReactNode;
+  /** A background/foreground pairing for the fallback tile, instead of the neutral default. */
+  tint?: Tint;
+  /** Extra overlay content positioned over the avatar, like an edit button. */
+  children?: ReactNode;
   className?: string;
 }
 
@@ -67,9 +87,26 @@ export default function AvatarBase({
   shape = "circle",
   status = "none",
   verified = false,
+  fallback,
+  tint,
+  children,
   className,
 }: AvatarProps) {
-  const classes = [ROOT, SIZES[size], SHAPES[shape], className]
+  const classes = [
+    ROOT,
+    SIZES[size],
+    SHAPES[shape],
+    tint ? `${TINTS[tint].bg} bw-1` : "bg-silver-1 bc-white bw-1",
+    className,
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  const fallbackClasses = [
+    "d-f ai-c jc-c w-100% h-100% fw-500",
+    INITIAL_SIZES[size],
+    tint ? TINTS[tint].fg : "c-slate-9",
+  ]
     .filter(Boolean)
     .join(" ");
 
@@ -84,10 +121,9 @@ export default function AvatarBase({
             className="of-c w-100% h-100%"
           />
         )}
-        <Avatar.Fallback
-          className={`d-f ai-c jc-c w-100% h-100% c-slate-9 fw-500 ${INITIAL_SIZES[size]}`}
-        >
-          {name ? initials(name) : <User className={ICON_SIZES[size]} />}
+        <Avatar.Fallback className={fallbackClasses}>
+          {fallback ??
+            (name ? initials(name) : <User className={ICON_SIZES[size]} />)}
         </Avatar.Fallback>
       </Avatar.Root>
 
@@ -108,6 +144,8 @@ export default function AvatarBase({
           <CheckCircle className="w-100% h-100% c-indigo" />
         </span>
       )}
+
+      {children}
     </span>
   );
 }

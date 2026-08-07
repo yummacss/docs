@@ -1,15 +1,7 @@
-import { Avatar } from "@base-ui/react/avatar";
+import Avatar from "./avatar";
 
 export default function AvatarSquircle() {
-  return (
-    <Avatar.Root className="d-if o-h ai-c jc-c w-12 h-12 bg-silver-1 bc-white br-xxl cs-s bw-1 va-m us-none">
-      <Avatar.Image
-        src={userProfile.avatarUrl}
-        alt={userProfile.name}
-        className="of-c w-100% h-100%"
-      />
-    </Avatar.Root>
-  );
+  return <Avatar src={userProfile.avatarUrl} name={userProfile.name} shape="squircle" />;
 }
 
 const userProfile = {
