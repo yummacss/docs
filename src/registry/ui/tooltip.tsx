@@ -45,7 +45,11 @@ export interface TooltipProps {
   tone?: Tone;
   /** A pointer notched into the tooltip's edge, aimed back at the trigger. */
   arrow?: boolean;
-  /** How long a hover must rest before it opens, in ms. */
+  /**
+   * How long a hover must rest before it opens, in ms. Defaulted here rather
+   * than left to Base UI: an inherited delay long enough to notice reads as
+   * a broken tooltip, and the component should not make you discover that.
+   */
   delay?: number;
   shape?: Shape;
   shadow?: Shadow;
@@ -63,7 +67,7 @@ export default function TooltipBase({
   sideOffset = 8,
   tone = "light",
   arrow = false,
-  delay,
+  delay = 300,
   shape = "rounded",
   shadow = "none",
   animate = true,
