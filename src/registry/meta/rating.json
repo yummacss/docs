@@ -1,0 +1,63 @@
+{
+  "summary": "A star rating input, with an optional shadow on each star.",
+  "props": [
+    {
+      "name": "label",
+      "type": "string",
+      "example": "Rate this project",
+      "description": "Text above the stars."
+    },
+    {
+      "name": "count",
+      "type": "number",
+      "default": 5,
+      "description": "How many stars to draw."
+    },
+    {
+      "name": "defaultValue",
+      "type": "number",
+      "description": "The rating on first render. Pair `value` with `onValueChange` instead if you are controlling it."
+    },
+    {
+      "name": "value",
+      "type": "number",
+      "description": "Controlled rating."
+    },
+    {
+      "name": "onValueChange",
+      "type": "none",
+      "typeName": "(value: number) => void",
+      "description": "Called with the new rating. Pressing the current rating again clears it to 0."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "default": false,
+      "description": "Blocks interaction and dims the stars."
+    },
+    {
+      "name": "shadow",
+      "type": "enum",
+      "values": ["none", "inset", "outset"],
+      "default": "none",
+      "description": "Depth on each star, which becomes a bordered chip. There is no surrounding card - this is what both shadow demos did."
+    },
+    {
+      "name": "animate",
+      "type": "boolean",
+      "default": true,
+      "description": "The press-scale on each star. Turn it off for static stars, or when the user has asked for reduced motion."
+    },
+    {
+      "name": "emptyHint",
+      "type": "string",
+      "default": "Click to rate",
+      "description": "Shown under the stars while nothing is selected. Once a rating is set it reads `3 / 5`."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "description": "Appended to the root's classes, so any Yumma CSS utility you pass wins."
+    }
+  ]
+}
