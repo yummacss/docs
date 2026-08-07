@@ -1,27 +1,124 @@
 import { Button } from "@base-ui/react/button";
-import { Plus, UserPlus } from "iconoir-react";
+import type { ReactNode } from "react";
 
-export default function EmptyStateBase() {
+type IconTone = "accent" | "neutral";
+type Shape = "rounded" | "square" | "squircle";
+type Shadow = "none" | "inset" | "outset";
+
+const BADGE_SHAPES: Record<Shape, string> = {
+  rounded: "br-lg",
+  square: "",
+  squircle: "br-xxl cs-s",
+};
+
+const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
+  inset: "bs-i-sm",
+  outset: "bs-o-xs",
+};
+
+const ICON_TONES: Record<IconTone, string> = {
+  accent: "c-indigo",
+  neutral: "c-slate-5",
+};
+
+const BUTTON_BASE =
+  "d-if ai-c px-3 py-2 bw-1 fw-500 tp-c tdu-150 ttf-io us-none c-p fv:oo-2 fv:oc-indigo-5";
+
+export interface EmptyStateProps {
+  /** The glyph in the badge. No badge renders without one. */
+  icon?: ReactNode;
+  /** `accent` for an invitation to act, `neutral` for a plain absence. */
+  iconTone?: IconTone;
+  title: string;
+  description?: string;
+  /** The filled button. Omit for a state with nothing to do. */
+  primaryLabel?: string;
+  primaryIcon?: ReactNode;
+  onPrimary?: () => void;
+  /** The outlined button beside it. */
+  secondaryLabel?: string;
+  onSecondary?: () => void;
+  /** Corner radius on the badge. */
+  shape?: Shape;
+  /** Wraps the whole block in a card. `none` renders it bare. */
+  shadow?: Shadow;
+  className?: string;
+}
+
+export default function EmptyStateBase({
+  icon,
+  iconTone = "accent",
+  title,
+  description,
+  primaryLabel,
+  primaryIcon,
+  onPrimary,
+  secondaryLabel,
+  onSecondary,
+  shape = "rounded",
+  shadow = "none",
+  className,
+}: EmptyStateProps) {
+  const isCard = shadow !== "none";
+  const hasActions = Boolean(primaryLabel || secondaryLabel);
+
+  // Text on its own sits tight; a badge or buttons need room to breathe.
+  const gap = icon || hasActions ? "g-4" : "g-1";
+
+  const rootClasses = [
+    "d-f fd-c ai-c jc-c p-8",
+    gap,
+    isCard ? "bg-white bc-silver-2 br-lg bw-1" : "",
+    shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "",
+    className,
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  const badgeClasses = [
+    "d-f ai-c jc-c w-10 h-10 bg-white bc-silver-3 bw-1",
+    ICON_TONES[iconTone],
+    BADGE_SHAPES[shape],
+  ]
+    .filter(Boolean)
+    .join(" ");
+
   return (
-    <div className="d-f fd-c ai-c jc-c g-4 p-8">
-      <div className="d-f ai-c jc-c w-10 h-10 bg-white bc-silver-3 c-indigo br-lg bw-1">
-        <UserPlus className="w-5 h-5" />
-      </div>
+    <div className={rootClasses}>
+      {icon && <div className={badgeClasses}>{icon}</div>}
+
       <div className="d-f fd-c ai-c g-1 ta-c">
-        <span className="c-slate-10 fs-md fw-500">No members found</span>
-        <span className="c-slate-6 fs-sm">
-          Invite team members to collaborate on projects.
-        </span>
+        <span className="c-slate-10 fs-md fw-500">{title}</span>
+        {description && <span className="c-slate-6 fs-sm">{description}</span>}
       </div>
-      <div className="d-f g-3">
-        <Button className="d-if ai-c px-3 py-2 bg-white bc-silver-2 c-slate-10 br-lg bw-1 fw-500 tp-c tdu-150 ttf-io us-none c-p h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5">
-          Learn more
-        </Button>
-        <Button className="d-if ai-c g-2 px-3 py-2 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-lg bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:oo-2 fv:oc-indigo-5">
-          <Plus className="w-4 h-4" />
-          Invite users
-        </Button>
-      </div>
+
+      {hasActions && (
+        <div className="d-f g-3">
+          {secondaryLabel && (
+            <Button
+              onClick={onSecondary}
+              className={[
+                BUTTON_BASE,
+                "bg-white bc-silver-2 c-slate-10 br-lg h:bg-silver-1/50",
+              ].join(" ")}
+            >
+              {secondaryLabel}
+            </Button>
+          )}
+          {primaryLabel && (
+            <Button
+              onClick={onPrimary}
+              className={[
+                BUTTON_BASE,
+                "g-2 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-lg",
+              ].join(" ")}
+            >
+              {primaryIcon}
+              {primaryLabel}
+            </Button>
+          )}
+        </div>
+      )}
     </div>
   );
 }
