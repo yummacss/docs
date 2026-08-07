@@ -72,14 +72,12 @@
       "name": "prefixNode",
       "type": "none",
       "typeName": "ReactNode",
-      "example": "https://",
       "description": "Static content flush against the control's leading edge, like a URL scheme. Mutually exclusive with `icon`/`suffix` in practice - each claims the same row."
     },
     {
       "name": "suffix",
       "type": "none",
       "typeName": "ReactNode",
-      "example": ".com",
       "description": "Static content flush against the control's trailing edge, like a domain suffix."
     },
     {
