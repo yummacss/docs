@@ -1,5 +1,6 @@
 import { Checkbox } from "@base-ui/react/checkbox";
 import { Check, Minus } from "iconoir-react";
+import type { ComponentProps } from "react";
 
 type Size = "sm" | "md" | "lg";
 type Shape = "rounded" | "square" | "squircle";
@@ -50,21 +51,14 @@ const SHADOWS: Record<Shadow, string> = {
 const CHECKED = "bg-indigo";
 const UNCHECKED = "bw-1 bc-silver-3 bg-transparent";
 
-export interface CheckboxProps {
+export interface CheckboxProps
+  extends Omit<ComponentProps<typeof Checkbox.Root>, "className"> {
   label?: string;
   /** A second line under the label, for the consequence of ticking it. */
   description?: string;
   size?: Size;
   shape?: Shape;
   shadow?: Shadow;
-  defaultChecked?: boolean;
-  checked?: boolean;
-  onCheckedChange?: (checked: boolean) => void;
-  /** Neither on nor off, for a parent whose children disagree. */
-  indeterminate?: boolean;
-  disabled?: boolean;
-  /** Shows a value without offering to change it. Still reachable & readable. */
-  readOnly?: boolean;
   className?: string;
 }
 
@@ -74,13 +68,9 @@ export default function CheckboxBase({
   size = "md",
   shape = "rounded",
   shadow = "none",
-  defaultChecked,
-  checked,
-  onCheckedChange,
-  indeterminate = false,
   disabled = false,
-  readOnly = false,
   className,
+  ...props
 }: CheckboxProps) {
   return (
     <label
@@ -90,12 +80,7 @@ export default function CheckboxBase({
     >
       <span className={`d-f ai-c g-2 fw-500 ${LABEL_SIZES[size]}`}>
         <Checkbox.Root
-          defaultChecked={defaultChecked}
-          checked={checked}
-          onCheckedChange={onCheckedChange}
-          indeterminate={indeterminate}
           disabled={disabled}
-          readOnly={readOnly}
           className={(state) =>
             [
               BOX,
@@ -110,14 +95,20 @@ export default function CheckboxBase({
               .filter(Boolean)
               .join(" ")
           }
+          {...props}
         >
-          <Checkbox.Indicator className="d-f c-white">
-            {indeterminate ? (
-              <Minus className={ICON_SIZES[size]} />
-            ) : (
-              <Check className={ICON_SIZES[size]} />
+          <Checkbox.Indicator
+            className="d-f c-white"
+            render={(indicatorProps, state) => (
+              <span {...indicatorProps}>
+                {state.indeterminate ? (
+                  <Minus className={ICON_SIZES[size]} />
+                ) : (
+                  <Check className={ICON_SIZES[size]} />
+                )}
+              </span>
             )}
-          </Checkbox.Indicator>
+          />
         </Checkbox.Root>
         {label}
       </span>

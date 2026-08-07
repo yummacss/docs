@@ -1,9 +1,8 @@
 "use client";
 
-import { Checkbox } from "@base-ui/react/checkbox";
 import { CheckboxGroup } from "@base-ui/react/checkbox-group";
-import { Check, Minus } from "iconoir-react";
 import { useId, useState } from "react";
+import Checkbox from "./checkbox";
 
 export default function CheckboxParent() {
   const id = useId();
@@ -17,88 +16,13 @@ export default function CheckboxParent() {
       allValues={permissions}
       className="d-f fd-c g-2 c-slate-10"
     >
-      <label className="d-f ai-c g-2 fs-sm fw-500" id={id}>
-        <Checkbox.Root
-          name="permissions"
-          parent
-          className={(state) =>
-            `d-f w-4 h-4 ai-c jc-c br-sm fv:oo-2 fv:oc-indigo-5 ${
-              state.checked || state.indeterminate
-                ? "bg-indigo"
-                : "bw-1 bc-silver-3 bg-transparent"
-            }`
-          }
-        >
-          <Checkbox.Indicator
-            className="d-f c-white"
-            render={(props, state) => (
-              <span {...props}>
-                {state.indeterminate ? (
-                  <Minus className="w-3 h-3" />
-                ) : (
-                  <Check className="w-3 h-3" />
-                )}
-              </span>
-            )}
-          />
-        </Checkbox.Root>
-        Project permissions
-      </label>
-
+      <div id={id}>
+        <Checkbox name="permissions" parent label="Project permissions" />
+      </div>
       <div className="d-f fd-c g-2 ml-6">
-        <label className="d-f ai-c g-2 fs-sm fw-500">
-          <Checkbox.Root
-            value="read"
-            className={(state) =>
-              `d-f w-4 h-4 ai-c jc-c br-sm fv:oo-2 fv:oc-indigo-5 ${
-                state.checked
-                  ? "bg-indigo"
-                  : "bw-1 bc-silver-3 bg-transparent"
-              }`
-            }
-          >
-            <Checkbox.Indicator className="d-f c-white">
-              <Check className="w-3 h-3" />
-            </Checkbox.Indicator>
-          </Checkbox.Root>
-          Read
-        </label>
-
-        <label className="d-f ai-c g-2 fs-sm fw-500">
-          <Checkbox.Root
-            value="write"
-            className={(state) =>
-              `d-f w-4 h-4 ai-c jc-c br-sm fv:oo-2 fv:oc-indigo-5 ${
-                state.checked
-                  ? "bg-indigo"
-                  : "bw-1 bc-silver-3 bg-transparent"
-              }`
-            }
-          >
-            <Checkbox.Indicator className="d-f c-white">
-              <Check className="w-3 h-3" />
-            </Checkbox.Indicator>
-          </Checkbox.Root>
-          Write
-        </label>
-
-        <label className="d-f ai-c g-2 fs-sm fw-500">
-          <Checkbox.Root
-            value="delete"
-            className={(state) =>
-              `d-f w-4 h-4 ai-c jc-c br-sm fv:oo-2 fv:oc-indigo-5 ${
-                state.checked
-                  ? "bg-indigo"
-                  : "bw-1 bc-silver-3 bg-transparent"
-              }`
-            }
-          >
-            <Checkbox.Indicator className="d-f c-white">
-              <Check className="w-3 h-3" />
-            </Checkbox.Indicator>
-          </Checkbox.Root>
-          Delete
-        </label>
+        <Checkbox value="read" label="Read" />
+        <Checkbox value="write" label="Write" />
+        <Checkbox value="delete" label="Delete" />
       </div>
     </CheckboxGroup>
   );
