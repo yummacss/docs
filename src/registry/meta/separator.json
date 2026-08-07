@@ -1,6 +1,13 @@
 {
-  "summary": "A horizontal divider, plain, or with a clickable icon or a text label in the middle.",
+  "summary": "A horizontal or vertical divider, plain, or with a clickable icon or a text label in the middle.",
   "props": [
+    {
+      "name": "orientation",
+      "type": "enum",
+      "values": ["horizontal", "vertical"],
+      "default": "horizontal",
+      "description": "A vertical rule for a row layout, like a button group. Ignored alongside `icon` or `label`, which are a horizontal-only pattern."
+    },
     {
       "name": "icon",
       "type": "none",
