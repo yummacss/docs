@@ -31,6 +31,7 @@ import {
 import {
   buildInstall,
   buildUsage,
+  iconMarker,
   PACKAGE_MANAGERS,
   type PackageManager,
   TOKEN_COLORS,
@@ -73,6 +74,32 @@ const EXAMPLE_ICONS: Record<string, ComponentType<{ className?: string }>> = {
   Trash,
   User,
 };
+
+/**
+ * Turns every `{ "$icon": "Star" }` marker nested in an example into the glyph
+ * it names, so an icon inside an array of items - a tour step, a menu entry -
+ * is not stuck being the one thing JSON cannot hold.
+ *
+ * The raw example is kept for the snippet, which spells the same marker as
+ * `<Star />`, so this walk only ever feeds the rendered preview.
+ */
+function resolveIcons(value: unknown): unknown {
+  const name = iconMarker(value);
+  if (name) {
+    const Icon = EXAMPLE_ICONS[name];
+    return Icon ? <Icon className="w-6 h-6" /> : undefined;
+  }
+  if (Array.isArray(value)) return value.map(resolveIcons);
+  if (typeof value === "object" && value !== null) {
+    // A React element is an object too, and recursing into its internals would
+    // shred it.
+    if ("$$typeof" in value) return value;
+    return Object.fromEntries(
+      Object.entries(value).map(([key, item]) => [key, resolveIcons(item)]),
+    );
+  }
+  return value;
+}
 
 export default function ComponentPreview({
   registryId,
@@ -124,7 +151,10 @@ export default function ComponentPreview({
         const value = prop.example ?? prop.default;
         if (value !== undefined) props[prop.name] = value;
       }
-      setDemo({ props, children: meta.children });
+      setDemo({
+        props: resolveIcons(props) as DemoProps,
+        children: meta.children,
+      });
       if (target.variant === "base") {
         setUsage(buildUsage(target.component, meta, props));
       }

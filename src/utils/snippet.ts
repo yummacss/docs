@@ -127,12 +127,45 @@ const IDENTIFIER = /^[A-Za-z_$][A-Za-z0-9_$]*$/;
  * A JavaScript object literal, not JSON: unquoted keys where they are valid
  * identifiers, because the snippet is meant to be pasted into a `.tsx` file.
  */
+/** The icon name a `{ "$icon": "Star" }` marker carries, or null. */
+export function iconMarker(value: unknown): string | null {
+  if (typeof value !== "object" || value === null || Array.isArray(value)) {
+    return null;
+  }
+  const keys = Object.keys(value);
+  if (keys.length !== 1 || keys[0] !== "$icon") return null;
+  const name = (value as { $icon: unknown }).$icon;
+  return typeof name === "string" ? name : null;
+}
+
+/** Every icon name marked anywhere inside an example value. */
+function markedIcons(value: unknown): string[] {
+  const name = iconMarker(value);
+  if (name) return [name];
+  if (Array.isArray(value)) return value.flatMap(markedIcons);
+  if (typeof value === "object" && value !== null) {
+    return Object.values(value).flatMap(markedIcons);
+  }
+  return [];
+}
+
 function literal(value: unknown, indent: string): Draft[] {
   if (typeof value === "string") {
     return [{ kind: "string", text: JSON.stringify(value) }];
   }
   if (value === null || typeof value !== "object") {
     return [{ kind: "value", text: String(value) }];
+  }
+
+  // `{ "$icon": "Star" }` nested anywhere in an example stands for a glyph the
+  // schema cannot spell in JSON. It prints as the JSX it means.
+  const iconName = iconMarker(value);
+  if (iconName) {
+    return [
+      { kind: "punctuation", text: "<" },
+      { kind: "tag", text: iconName },
+      { kind: "punctuation", text: " />" },
+    ];
   }
 
   const inner = `${indent}  `;
@@ -270,7 +303,10 @@ export function buildUsage(
   // thing you copied does not compile.
   const icons = [
     ...new Set(
-      props.flatMap((prop) => (prop.exampleIcon ? [prop.exampleIcon] : [])),
+      props.flatMap((prop) => [
+        ...(prop.exampleIcon ? [prop.exampleIcon] : []),
+        ...markedIcons(values[prop.name]),
+      ]),
     ),
   ].sort();
 
