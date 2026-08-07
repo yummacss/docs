@@ -57,7 +57,8 @@
     {
       "name": "delay",
       "type": "number",
-      "description": "How long a hover must rest before it opens, in ms. Base UI's own default applies when unset."
+      "default": 300,
+      "description": "How long a hover must rest before it opens, in ms. Set to `0` to open on contact."
     },
     {
       "name": "shape",
