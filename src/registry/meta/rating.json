@@ -11,7 +11,13 @@
       "name": "count",
       "type": "number",
       "default": 5,
-      "description": "How many stars to draw."
+      "description": "How many stars to draw. Ignored when `icons` is set."
+    },
+    {
+      "name": "icons",
+      "type": "none",
+      "typeName": "RatingIcon[]",
+      "description": "A custom icon set, for a single-choice picker instead of N stars. When set, `value`/`defaultValue` index into it (0-based, `-1` for none) rather than counting filled stars, and `count`/`shadow` are ignored."
     },
     {
       "name": "defaultValue",
@@ -53,6 +59,12 @@
       "type": "string",
       "default": "Click to rate",
       "description": "Shown under the stars while nothing is selected. Once a rating is set it reads `3 / 5`."
+    },
+    {
+      "name": "children",
+      "type": "none",
+      "typeName": "ReactNode",
+      "description": "Extra content below the hint text, like a feedback field."
     },
     {
       "name": "className",
