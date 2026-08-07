@@ -85,9 +85,13 @@ export type PackageManager = (typeof PACKAGE_MANAGERS)[number];
  * `add button-danger` is not a command - it exits 1 with "Unknown component".
  * The registry id is only how the files are keyed.
  */
+/**
+ * `name` is what `yummaui add` takes: a component, or a block's own id. An
+ * example has no install of its own - it resolves to its component, because
+ * the difference between the two is a prop you pass, not a file you copy.
+ */
 export function buildInstall(
-  component: string,
-  variant: string,
+  name: string,
   manager: PackageManager = "pnpm",
 ): Token[] {
   const runner: Draft[] =
@@ -106,17 +110,8 @@ export function buildInstall(
     { kind: "text", text: " " },
     { kind: "argument", text: "add" },
     { kind: "text", text: " " },
-    { kind: "argument", text: component },
+    { kind: "argument", text: name },
   ];
-
-  if (variant !== "base") {
-    parts.push(
-      { kind: "text", text: " " },
-      { kind: "flag", text: "--variant" },
-      { kind: "text", text: " " },
-      { kind: "argument", text: variant },
-    );
-  }
 
   return identify(parts);
 }
