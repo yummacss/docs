@@ -96,6 +96,10 @@ export interface FieldProps
   prefixNode?: ReactNode;
   /** Static content flush against the control's trailing edge, like a domain suffix. */
   suffix?: ReactNode;
+  /** Renders a `<textarea>` instead of an `<input>`, for a message or description field. Ignored alongside `icon`/`prefixNode`/`suffix`. */
+  multiline?: boolean;
+  /** Fills the width of the parent instead of `size`'s fixed width, for a field inside a form column that isn't a fixed size itself - a dialog, say. */
+  fullWidth?: boolean;
 }
 
 export default function FieldBase({
@@ -111,6 +115,8 @@ export default function FieldBase({
   iconInteractive = false,
   prefixNode,
   suffix,
+  multiline = false,
+  fullWidth = false,
   disabled,
   required,
   className,
@@ -124,7 +130,7 @@ export default function FieldBase({
 
   const controlClasses = [
     "bg-white c-slate-10 bw-1 fs-md fv:oo--1",
-    SIZES[size],
+    fullWidth ? `${HEIGHTS[size]} w-100%` : SIZES[size],
     SHAPES[shape],
     SHADOWS[shadow],
     STATUS_BORDER[status],
@@ -156,6 +162,17 @@ export default function FieldBase({
   const affixBoxClasses =
     "d-f ai-c jc-c px-3 bg-white bc-silver-3 c-slate-6 byw-1 fs-md";
 
+  const multilineClasses = [
+    "h-20 w-100% pt-3 pl-4 pr-4 r-none bg-white c-slate-10 bw-1 fs-md fv:oo--1",
+    SHAPES[shape],
+    SHADOWS[shadow],
+    STATUS_BORDER[status],
+    STATUS_RING[status],
+    className,
+  ]
+    .filter(Boolean)
+    .join(" ");
+
   return (
     <Field.Root
       disabled={disabled}
@@ -168,10 +185,19 @@ export default function FieldBase({
         </Field.Label>
       )}
 
-      {hasAffix ? (
+      {multiline ? (
+        <Field.Control
+          render={<textarea />}
+          required={required}
+          className={multilineClasses}
+          {...props}
+        />
+      ) : hasAffix ? (
         <div className="d-f ai-c">
           {prefixNode && (
-            <div className={`${affixBoxClasses} blr-lg blw-1`}>{prefixNode}</div>
+            <div className={`${affixBoxClasses} blr-lg blw-1`}>
+              {prefixNode}
+            </div>
           )}
           <Field.Control
             required={required}
@@ -197,9 +223,7 @@ export default function FieldBase({
             {...props}
           />
           {status !== "default" && (
-            <span
-              className={`d-f p-a r-3 ai-c pe-none ${STATUS_ICON[status]}`}
-            >
+            <span className={`d-f p-a r-3 ai-c pe-none ${STATUS_ICON[status]}`}>
               {status === "error" ? (
                 <WarningTriangle className="w-4 h-4" />
               ) : (

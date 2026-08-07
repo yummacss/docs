@@ -10,6 +10,9 @@ import { useState } from "react";
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 type IconPosition = "leading" | "trailing";
+type TriggerTone = "neutral" | "danger";
+type TriggerSize = "sm" | "md";
+type ConfirmTone = "primary" | "danger";
 
 const POPUP_SHAPES: Record<Shape, string> = {
   rounded: "br-xxl",
@@ -28,7 +31,7 @@ const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
   outset: "bs-o-xs",
 };
 
-const BUTTON_BASE = "px-3 py-2 bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:oo-2";
+const BUTTON_BASE = "bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:oo-2";
 
 const NEUTRAL_BUTTON =
   "bg-white bc-silver-2 c-slate-10 h:bg-silver-1/50 fv:oc-indigo-5";
@@ -36,11 +39,32 @@ const NEUTRAL_BUTTON =
 const PRIMARY_BUTTON =
   "bg-indigo h:bg-indigo-8 bc-indigo-7 c-white fv:oc-indigo-5";
 
+const TRIGGER_TONES: Record<TriggerTone, string> = {
+  neutral: NEUTRAL_BUTTON,
+  danger: "bg-red h:bg-red-8 bc-red-7 c-white fv:oc-red-6",
+};
+
+const CONFIRM_TONES: Record<ConfirmTone, string> = {
+  primary: PRIMARY_BUTTON,
+  danger: "bg-red h:bg-red-8 bc-red-7 c-white fv:oc-red-6",
+};
+
+const TRIGGER_SIZES: Record<TriggerSize, string> = {
+  sm: "px-2 py-1 fs-xs",
+  md: "px-3 py-2",
+};
+
 export interface DialogProps {
   /** The trigger button's label. */
   trigger: ReactNode;
   triggerIcon?: ReactNode;
   triggerIconPosition?: IconPosition;
+  /** Color: `neutral` (default) or `danger`, for a destructive confirmation. */
+  triggerTone?: TriggerTone;
+  /** Footprint: `md` (default) or `sm`, for a trigger nested inside other content, like a row action. */
+  triggerSize?: TriggerSize;
+  /** Fires when the trigger is pressed, before the dialog opens - for capturing which row triggered it, say, in a dialog reused across a list. */
+  onTriggerClick?: () => void;
   /** Content above the title - an avatar block, say. */
   header?: ReactNode;
   title: string;
@@ -51,6 +75,8 @@ export interface DialogProps {
   /** No footer renders without this. */
   confirmLabel?: string;
   onConfirm?: () => void;
+  /** Color of the confirm button: `neutral` (default) or `danger`, for a destructive action like a delete. */
+  confirmTone?: ConfirmTone;
   /** The X in the corner. */
   showClose?: boolean;
   shape?: Shape;
@@ -64,6 +90,9 @@ export default function DialogBase({
   trigger,
   triggerIcon,
   triggerIconPosition = "leading",
+  triggerTone = "neutral",
+  triggerSize = "md",
+  onTriggerClick,
   header,
   title,
   description,
@@ -71,6 +100,7 @@ export default function DialogBase({
   cancelLabel = "Cancel",
   confirmLabel,
   onConfirm,
+  confirmTone = "primary",
   showClose = true,
   shape = "rounded",
   shadow = "none",
@@ -82,8 +112,9 @@ export default function DialogBase({
   const triggerClasses = [
     "d-if ai-c g-2",
     BUTTON_BASE,
+    TRIGGER_SIZES[triggerSize],
     BUTTON_SHAPES[shape],
-    NEUTRAL_BUTTON,
+    TRIGGER_TONES[triggerTone],
     className,
   ]
     .filter(Boolean)
@@ -97,11 +128,21 @@ export default function DialogBase({
     .filter(Boolean)
     .join(" ");
 
-  const cancelClasses = [BUTTON_BASE, BUTTON_SHAPES[shape], NEUTRAL_BUTTON]
+  const cancelClasses = [
+    BUTTON_BASE,
+    TRIGGER_SIZES.md,
+    BUTTON_SHAPES[shape],
+    NEUTRAL_BUTTON,
+  ]
     .filter(Boolean)
     .join(" ");
 
-  const confirmClasses = [BUTTON_BASE, BUTTON_SHAPES[shape], PRIMARY_BUTTON]
+  const confirmClasses = [
+    BUTTON_BASE,
+    TRIGGER_SIZES.md,
+    BUTTON_SHAPES[shape],
+    CONFIRM_TONES[confirmTone],
+  ]
     .filter(Boolean)
     .join(" ");
 
@@ -188,7 +229,10 @@ export default function DialogBase({
 
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
-      <Dialog.Trigger render={<Button className={triggerClasses} />}>
+      <Dialog.Trigger
+        onClick={onTriggerClick}
+        render={<Button className={triggerClasses} />}
+      >
         {triggerIcon && triggerIconPosition === "leading" && triggerIcon}
         {trigger}
         {triggerIcon && triggerIconPosition === "trailing" && triggerIcon}

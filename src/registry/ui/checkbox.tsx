@@ -1,6 +1,6 @@
 import { Checkbox } from "@base-ui/react/checkbox";
 import { Check, Minus } from "iconoir-react";
-import type { ComponentProps } from "react";
+import type { ComponentProps, ReactNode } from "react";
 
 type Size = "sm" | "md" | "lg";
 type Shape = "rounded" | "square" | "squircle";
@@ -53,7 +53,7 @@ const UNCHECKED = "bw-1 bc-silver-3 bg-transparent";
 
 export interface CheckboxProps
   extends Omit<ComponentProps<typeof Checkbox.Root>, "className"> {
-  label?: string;
+  label?: ReactNode;
   /** A second line under the label, for the consequence of ticking it. */
   description?: string;
   size?: Size;
