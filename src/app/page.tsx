@@ -3,28 +3,28 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "@/components/ui/navbar";
 
-const tagline = "If you know CSS, you already know Yumma CSS.";
+const title = "Yumma CSS - Utility CSS that maps 1:1 to CSS properties";
 const description =
-  "Yumma CSS is a utility framework whose class names are derived from CSS property names by one rule. No invented vocabulary, no lookup tables: just CSS, compressed.";
+  "Every Yumma CSS class is one CSS property and one value from a fixed scale. There is an abbreviation table to learn - and what you learn is CSS.";
 
 export const metadata: Metadata = {
-  title: `Yumma CSS - Utility CSS with no new vocabulary`,
+  title,
   description,
   openGraph: {
-    title: `Yumma CSS - Utility CSS with no new vocabulary`,
+    title,
     description,
     images: [
       {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: "Yumma CSS - Utility CSS with no new vocabulary",
+        alt: title,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `Yumma CSS - Utility CSS with no new vocabulary`,
+    title,
     description,
     images: ["/og.png"],
   },
@@ -46,19 +46,34 @@ export default function Home() {
           <div className="d-g g-12 ai-fe @lg:gtc-2">
             <div>
               <h1 className="mb-6 fs-4xl fw-400 lh-2 ff-e @md:fs-5xl @lg:fs-6xl">
-                Know CSS? You know Yumma CSS.
+                One class. One CSS property.
               </h1>
+              <p className="mb-6 c-white/70 fs-md lh-5 @md:fs-lg">
+                <code className="c-code">d-f</code> is{" "}
+                <code className="c-code">display: flex</code>.{" "}
+                <code className="c-code">jc-sb</code> is{" "}
+                <code className="c-code">justify-content: space-between</code>.
+                Initials of the property, initials of the value, drawn from a
+                fixed scale.
+              </p>
               <p className="mb-8 c-white/70 fs-md lh-5 @md:fs-lg">
-                Class names derived from CSS property names by one rule. No
-                invented vocabulary, no lookup tables: just CSS, compressed.
+                There is an abbreviation table to learn. What you learn is CSS
+                &mdash; so it still works the day you write a stylesheet by
+                hand.
               </p>
 
               <div className="d-f fw-w g-4 mb-12">
-                <Link
-                  href="/docs/installation"
+                <a
+                  href="https://play.yummacss.com"
                   className="px-6 py-3 bg-white c-black fs-md fw-600 us-none"
                 >
-                  Get started
+                  Try it in the browser
+                </a>
+                <Link
+                  href="/docs/why-yumma-css"
+                  className="px-6 py-3 c-white fw-600 fs-md us-none fv:oc-white fv:ow-2"
+                >
+                  Why Yumma CSS?
                 </Link>
                 <Link
                   href="/ui/installation"
@@ -68,6 +83,22 @@ export default function Home() {
                   Components
                 </Link>
               </div>
+            </div>
+
+            {/*
+             * The playground, not the install page, is the primary call to
+             * action: nobody adds a build-time dependency to find out what a
+             * framework's class names look like. `loading="lazy"` keeps the
+             * embed off the critical path, since it boots Monaco.
+             */}
+            <div className="o-h w-100% bw-1 bc-border bg-surface">
+              <iframe
+                src="https://play.yummacss.com/embed"
+                title="Yumma CSS playground"
+                loading="lazy"
+                className="d-b w-100% bw-0"
+                style={{ height: "clamp(24rem, 60vh, 34rem)" }}
+              />
             </div>
           </div>
         </div>
