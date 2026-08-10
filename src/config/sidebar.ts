@@ -24,7 +24,12 @@ export const sidebarConfig = {
   docs: [
     {
       title: "Get Started",
-      items: ["installation", "configuration"],
+      items: [
+        "why-yumma-css",
+        "installation",
+        "configuration",
+        "from-tailwind",
+      ],
     },
     {
       title: "Customization",
@@ -32,7 +37,7 @@ export const sidebarConfig = {
     },
     {
       title: "Handbook",
-      items: ["normalize", "negative-values"],
+      items: ["naming", "normalize", "negative-values"],
     },
     {
       title: "Variants",
