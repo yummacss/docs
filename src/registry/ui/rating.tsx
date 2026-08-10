@@ -42,6 +42,12 @@ export interface RatingProps {
   value?: number;
   onValueChange?: (value: number) => void;
   disabled?: boolean;
+  /**
+   * A rating that only reports one - an average, someone else's score. It draws
+   * at full strength and stays out of the tab order, which is the difference
+   * from `disabled`: that one dims, because it means "you could, but not now".
+   */
+  readOnly?: boolean;
   shadow?: Shadow;
   /** The press-scale on each star. */
   animate?: boolean;
@@ -60,6 +66,7 @@ export default function RatingBase({
   value: controlledValue,
   onValueChange,
   disabled = false,
+  readOnly = false,
   shadow = "none",
   animate = true,
   emptyHint = "Click to rate",
@@ -83,11 +90,10 @@ export default function RatingBase({
     [
       "d-f ai-c jc-c w-9 h-9 br-lg us-none",
       shadowClass || "bw-0",
-      disabled
-        ? "c-na o-60"
-        : "c-p fv:oo--1 fv:oc-indigo-5",
+      disabled ? "c-na o-60" : "",
+      !disabled && !readOnly ? "c-p fv:oo--1 fv:oc-indigo-5" : "",
       pressed ? "c-yellow-5" : "c-slate-4",
-      !disabled && !pressed ? "h:c-slate-6" : "",
+      !disabled && !readOnly && !pressed ? "h:c-slate-6" : "",
       shadowClass ? "" : "bg-transparent",
     ]
       .filter(Boolean)
@@ -111,7 +117,11 @@ export default function RatingBase({
     >
       {label && <span className="c-slate-10 fs-sm fw-500">{label}</span>}
 
-      <div className={`d-f ${icons ? "g-3" : "g-1"}`}>
+      <Row
+        className={`d-f ${icons ? "g-3" : "g-1"}`}
+        readOnly={readOnly}
+        label={`${value} out of ${count} stars`}
+      >
         {icons
           ? icons.map((option, index) => {
               const active = index === value;
@@ -120,9 +130,7 @@ export default function RatingBase({
                   key={option.label}
                   pressed={active}
                   disabled={disabled}
-                  onPressedChange={() =>
-                    handleChange(active ? -1 : index)
-                  }
+                  onPressedChange={() => handleChange(active ? -1 : index)}
                   aria-label={option.label}
                   className={iconClasses(option, active)}
                   render={
@@ -154,6 +162,14 @@ export default function RatingBase({
                   />
                 );
 
+                if (readOnly) {
+                  return (
+                    <span key={star} className={starClasses(filled)}>
+                      {icon}
+                    </span>
+                  );
+                }
+
                 return (
                   <Toggle
                     key={star}
@@ -184,7 +200,7 @@ export default function RatingBase({
                 );
               },
             )}
-      </div>
+      </Row>
 
       <span className="c-slate-6 fs-xs">
         {icons
@@ -199,4 +215,33 @@ export default function RatingBase({
       {children}
     </div>
   );
+}
+
+/**
+ * The row the stars sit in.
+ *
+ * Read-only, they are one picture of a number rather than a set of controls, so
+ * the row is announced once and nothing inside it is reachable. Interactive,
+ * each star speaks for itself and the row should stay out of the way, which is
+ * why this is two elements rather than one with a conditional role.
+ */
+function Row({
+  className,
+  readOnly,
+  label,
+  children,
+}: {
+  className: string;
+  readOnly: boolean;
+  label: string;
+  children: ReactNode;
+}) {
+  if (readOnly) {
+    return (
+      <div role="img" aria-label={label} className={className}>
+        {children}
+      </div>
+    );
+  }
+  return <div className={className}>{children}</div>;
 }
