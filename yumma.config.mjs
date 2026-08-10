@@ -9,7 +9,11 @@ export default defineConfig({
     "./src/registry/**/*.tsx",
   ],
   safelist: [
+    // `src/lib/code-decorate.mjs` writes class names but is not in `source`
+    // above, so everything it emits has to be listed here. Adding the file to
+    // `source` was tried & the scanner still did not pick it up.
     "mx--4",
+    "d-i",
     "bg-accent-dim/10",
     "bg-diff-add/10",
     "bg-diff-remove/10",

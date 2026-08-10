@@ -16,17 +16,46 @@
         {
           "label": "Actions",
           "items": [
-            { "id": "new-doc", "label": "New doc", "shortcut": "N" },
-            { "id": "drafts", "label": "Drafts" },
-            { "id": "templates", "label": "Templates" }
+            {
+              "id": "new-doc",
+              "label": "New doc",
+              "icon": { "$icon": "PagePlus", "size": "w-4 h-4" },
+              "shortcut": "⌘N"
+            },
+            {
+              "id": "drafts",
+              "label": "Drafts",
+              "icon": { "$icon": "Page", "size": "w-4 h-4" },
+              "shortcut": "⌘D"
+            },
+            {
+              "id": "templates",
+              "label": "Templates",
+              "icon": { "$icon": "Folder", "size": "w-4 h-4" }
+            }
           ]
         },
         {
           "label": "Pages",
           "items": [
-            { "id": "knowledge-base", "label": "Knowledge base" },
-            { "id": "analytics", "label": "Analytics" },
-            { "id": "settings", "label": "Settings" }
+            {
+              "id": "knowledge-base",
+              "label": "Knowledge base",
+              "icon": { "$icon": "PageSearch", "size": "w-4 h-4" },
+              "description": "Everything the team has written down"
+            },
+            {
+              "id": "analytics",
+              "label": "Analytics",
+              "icon": { "$icon": "StatUp", "size": "w-4 h-4" },
+              "description": "Views, referrers and search terms"
+            },
+            {
+              "id": "settings",
+              "label": "Settings",
+              "icon": { "$icon": "Wrench", "size": "w-4 h-4" },
+              "description": "Workspace, members and billing"
+            }
           ]
         }
       ],

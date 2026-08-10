@@ -102,3 +102,20 @@ body {
 .docs-container {
   max-width: clamp(40rem, 80vw, 96rem);
 }
+
+/* A folded fixture inside a code block. The `...` is punctuation that happens
+   to be interactive, so the disclosure triangle goes; and a closed <details>
+   must not leave its own line behind, or a folded region costs the blank line
+   it was meant to save. Both are ::marker/state selectors, which no utility
+   reaches. */
+[data-fold] > summary {
+  list-style: none;
+}
+
+[data-fold] > summary::-webkit-details-marker {
+  display: none;
+}
+
+[data-fold]:not([open]) > summary {
+  display: inline;
+}

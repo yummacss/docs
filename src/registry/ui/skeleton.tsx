@@ -7,13 +7,20 @@ type Tone = "default" | "subtle";
 
 // Plain lookups rather than cva: a copied component should not drag a class
 // utility into your package.json to do what an object literal already does.
-//
-// Each shape carries a default size so a bare <Skeleton /> is visible. Anything
-// you pass in className lands after these and wins.
-const SHAPES: Record<Shape, string> = {
-  line: "h-3 w-100% br-xs",
-  block: "h-8 w-24 br-lg",
-  circle: "w-10 h-10 br-9999",
+const RADII: Record<Shape, string> = {
+  line: "br-xs",
+  block: "br-lg",
+  circle: "br-9999",
+};
+
+// Each shape carries a default size so a bare <Skeleton /> is visible. `size`
+// *replaces* this rather than being appended to it: a second width class in the
+// output would not reliably win, because which of two utilities applies is
+// decided by the stylesheet's rule order & not by their order in the attribute.
+const SIZES: Record<Shape, string> = {
+  line: "h-3 w-100%",
+  block: "h-8 w-24",
+  circle: "w-10 h-10",
 };
 
 const TONES: Record<Tone, string> = {
@@ -24,6 +31,12 @@ const TONES: Record<Tone, string> = {
 export interface SkeletonProps {
   shape?: Shape;
   tone?: Tone;
+  /**
+   * Replaces the shape's default size, as literal width & height utilities:
+   * `"w-9 h-9"`. Written out rather than composed from a scale value, so the
+   * class scanner can see it in your source.
+   */
+  size?: string;
   /** The pulse. Turn it off for a static placeholder. */
   animate?: boolean;
   /** Seconds to offset the pulse, so rows in a list do not beat in unison. */
@@ -34,11 +47,12 @@ export interface SkeletonProps {
 export default function SkeletonBase({
   shape = "line",
   tone = "default",
+  size,
   animate = true,
   delay = 0,
   className,
 }: SkeletonProps) {
-  const classes = [SHAPES[shape], TONES[tone], className]
+  const classes = [RADII[shape], size ?? SIZES[shape], TONES[tone], className]
     .filter(Boolean)
     .join(" ");
 

@@ -32,12 +32,14 @@
       "type": "enum",
       "values": ["none", "online", "offline", "busy"],
       "default": "none",
+      "example": "online",
       "description": "A presence dot in the bottom right corner. It carries meaning, so it is labelled for screen readers rather than left decorative."
     },
     {
       "name": "verified",
       "type": "boolean",
       "default": false,
+      "example": true,
       "description": "A verification check in the top right corner. It sits opposite `status` so the two can be shown together."
     },
     {

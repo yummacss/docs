@@ -42,6 +42,12 @@
       "description": "Blocks interaction and dims the stars."
     },
     {
+      "name": "readOnly",
+      "type": "boolean",
+      "default": false,
+      "description": "A rating that only reports one - an average, someone else's score. It draws at full strength and stays out of the tab order, announced once as a single value rather than as five controls. That is the difference from `disabled`, which dims, because it means \"you could, but not now\"."
+    },
+    {
       "name": "shadow",
       "type": "enum",
       "values": ["none", "inset", "outset"],

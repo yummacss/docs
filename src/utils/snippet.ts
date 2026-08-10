@@ -73,48 +73,11 @@ export function componentName(id: string): string {
     .join("");
 }
 
-/** pnpm first, npm second, everywhere on the site. `pnpx` does not exist. */
-export const PACKAGE_MANAGERS = ["pnpm", "npm"] as const;
-export type PackageManager = (typeof PACKAGE_MANAGERS)[number];
-
-/**
- * The install command for one registry entry.
- *
- * **The variant is a flag, not part of the name.** `yummaui add` resolves the
- * component against `/ui/r/index.json` and takes `--variant` separately, so
- * `add button-danger` is not a command - it exits 1 with "Unknown component".
- * The registry id is only how the files are keyed.
- */
-/**
- * `name` is what `yummaui add` takes: a component, or a block's own id. An
- * example has no install of its own - it resolves to its component, because
- * the difference between the two is a prop you pass, not a file you copy.
- */
-export function buildInstall(
-  name: string,
-  manager: PackageManager = "pnpm",
-): Token[] {
-  const runner: Draft[] =
-    manager === "pnpm"
-      ? [
-          { kind: "command", text: "pnpm" },
-          { kind: "text", text: " " },
-          { kind: "argument", text: "dlx" },
-        ]
-      : [{ kind: "command", text: "npx" }];
-
-  const parts: Draft[] = [
-    ...runner,
-    { kind: "text", text: " " },
-    { kind: "argument", text: "yummaui" },
-    { kind: "text", text: " " },
-    { kind: "argument", text: "add" },
-    { kind: "text", text: " " },
-    { kind: "argument", text: name },
-  ];
-
-  return identify(parts);
-}
+// The install command used to be built here, per preview. It is an authored
+// `<CodeGroup>` in a page's own `## Installation` section now, so it lands in
+// the table of contents and can be linked to - and pnpm/npm tabbing is the
+// same implementation as every other install block on the site rather than a
+// second one. Nothing generates install tokens any more.
 
 const IDENTIFIER = /^[A-Za-z_$][A-Za-z0-9_$]*$/;
 
@@ -122,21 +85,32 @@ const IDENTIFIER = /^[A-Za-z_$][A-Za-z0-9_$]*$/;
  * A JavaScript object literal, not JSON: unquoted keys where they are valid
  * identifiers, because the snippet is meant to be pasted into a `.tsx` file.
  */
-/** The icon name a `{ "$icon": "Star" }` marker carries, or null. */
-export function iconMarker(value: unknown): string | null {
+/**
+ * The icon a `{ "$icon": "Star" }` marker carries, or null.
+ *
+ * An optional `size` rides along, because a glyph's size belongs to the slot it
+ * sits in rather than to the mechanism: a tour's step badge wants 24px & a
+ * command palette's list row wants 16px, and neither is a default the other
+ * could live with.
+ */
+export function iconMarker(
+  value: unknown,
+): { name: string; size?: string } | null {
   if (typeof value !== "object" || value === null || Array.isArray(value)) {
     return null;
   }
   const keys = Object.keys(value);
-  if (keys.length !== 1 || keys[0] !== "$icon") return null;
-  const name = (value as { $icon: unknown }).$icon;
-  return typeof name === "string" ? name : null;
+  if (!keys.includes("$icon")) return null;
+  if (keys.some((key) => key !== "$icon" && key !== "size")) return null;
+  const { $icon: name, size } = value as { $icon: unknown; size?: unknown };
+  if (typeof name !== "string") return null;
+  return { name, size: typeof size === "string" ? size : undefined };
 }
 
 /** Every icon name marked anywhere inside an example value. */
 function markedIcons(value: unknown): string[] {
-  const name = iconMarker(value);
-  if (name) return [name];
+  const marker = iconMarker(value);
+  if (marker) return [marker.name];
   if (Array.isArray(value)) return value.flatMap(markedIcons);
   if (typeof value === "object" && value !== null) {
     return Object.values(value).flatMap(markedIcons);
@@ -154,13 +128,22 @@ function literal(value: unknown, indent: string): Draft[] {
 
   // `{ "$icon": "Star" }` nested anywhere in an example stands for a glyph the
   // schema cannot spell in JSON. It prints as the JSX it means.
-  const iconName = iconMarker(value);
-  if (iconName) {
-    return [
+  const marker = iconMarker(value);
+  if (marker) {
+    const tokens: Draft[] = [
       { kind: "punctuation", text: "<" },
-      { kind: "tag", text: iconName },
-      { kind: "punctuation", text: " />" },
+      { kind: "tag", text: marker.name },
     ];
+    if (marker.size) {
+      tokens.push(
+        { kind: "text", text: " " },
+        { kind: "attribute", text: "className" },
+        { kind: "operator", text: "=" },
+        { kind: "string", text: JSON.stringify(marker.size) },
+      );
+    }
+    tokens.push({ kind: "punctuation", text: " />" });
+    return tokens;
   }
 
   const inner = `${indent}  `;

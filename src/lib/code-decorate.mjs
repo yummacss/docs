@@ -111,6 +111,69 @@ const LINE_CLASSES = "d-b mx--4 px-4";
 const WORD_CLASSES = "bg-accent-dim/10 bw-1 bc-accent-dim/50";
 
 /**
+ * Collapse the given 1-based lines behind a `...` control, in place.
+ *
+ * `<details>` rather than a client component, because this block is a server-
+ * rendered HTML string by the time it gets here: giving it state would mean
+ * shipping a parser to the browser to find the regions again. The disclosure
+ * triangle is dropped in globals.css, which is a selector problem no utility
+ * can reach.
+ *
+ * Folding hides nothing. Every token stays in the document, so find-in-page
+ * still reaches it & the copy button, which reads the raw source rather than
+ * this tree, takes the whole file either way.
+ */
+function foldRegions(codeEl, foldLines) {
+  const children = codeEl.children ?? [];
+
+  // Shiki emits one span per line with the newline as a sibling text node, so a
+  // line and its terminator have to travel together or the fold eats the breaks.
+  const lines = [];
+  for (const child of children) {
+    if (child.type === "element" && child.tagName === "span") {
+      lines.push([child]);
+    } else if (lines.length) {
+      lines[lines.length - 1].push(child);
+    }
+  }
+  if (!lines.length) return;
+
+  const output = [];
+  for (let i = 0; i < lines.length; i++) {
+    if (!foldLines.has(i + 1)) {
+      output.push(...lines[i]);
+      continue;
+    }
+
+    // Take the whole contiguous run in one go, so a region gets one control
+    // rather than one per line.
+    const body = [];
+    while (i < lines.length && foldLines.has(i + 1)) body.push(...lines[i++]);
+    i--;
+
+    output.push({
+      type: "element",
+      tagName: "details",
+      properties: { className: ["d-i"], "data-fold": "" },
+      children: [
+        {
+          type: "element",
+          tagName: "summary",
+          properties: {
+            className: ["d-i", "c-p", "us-none", "c-white/40", "h:c-white"],
+          },
+          children: [{ type: "text", value: "..." }],
+        },
+        { type: "text", value: "\n" },
+        ...body,
+      ],
+    });
+  }
+
+  codeEl.children = output;
+}
+
+/**
  * Apply line & word decoration to a highlighted <pre> hast node, in place.
  *
  * @param {object} pre  hast element for the <pre> Shiki produced
@@ -124,6 +187,7 @@ export function decorateCodeHast(pre, meta, title) {
   const markLines = parseRanges(meta, "mark");
   const delLines = parseRanges(meta, "del");
   const insLines = parseRanges(meta, "ins");
+  const foldLines = parseRanges(meta, "fold");
   const words = parseWords(meta, title);
   const hasLineHighlight = markLines.size || delLines.size || insLines.size;
 
@@ -182,6 +246,8 @@ export function decorateCodeHast(pre, meta, title) {
       }
     });
   }
+
+  if (foldLines.size) foldRegions(codeEl, foldLines);
 
   if (words.length) {
     highlightWordsInNode(codeEl, words, WORD_CLASSES);

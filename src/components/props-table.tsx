@@ -106,7 +106,7 @@ export default function PropsTable({ registryId }: { registryId: string }) {
                   <tr>
                     <td
                       colSpan={3}
-                      className="px-4 pt-0 pb-3 bc-border c-white/80 bw-1"
+                      className="px-4 pt-2 pb-3 bc-border c-white/80 bw-1"
                     >
                       <div className="pl-5">{describe(prop.description)}</div>
                     </td>

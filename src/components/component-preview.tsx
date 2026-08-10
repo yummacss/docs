@@ -5,35 +5,30 @@ import {
   BellNotification,
   Bookmark,
   Check,
+  Folder,
   HalfMoon,
   Mail,
+  Page,
+  PagePlus,
+  PageSearch,
   Star,
+  StatUp,
   SunLight,
   Trash,
   User,
+  Wrench,
 } from "iconoir-react";
 import type { ComponentType } from "react";
-import {
-  lazy,
-  type ReactNode,
-  Suspense,
-  useEffect,
-  useId,
-  useState,
-} from "react";
+import { lazy, type ReactNode, Suspense, useEffect, useState } from "react";
 import { CopyButton } from "@/components/ui/code";
-import CodeTabs from "@/components/ui/code-tabs";
 import {
   getRegistryImport,
   getRegistryMeta,
   getRegistryTarget,
 } from "@/registry";
 import {
-  buildInstall,
   buildUsage,
   iconMarker,
-  PACKAGE_MANAGERS,
-  type PackageManager,
   TOKEN_COLORS,
   type Token,
   tokensToText,
@@ -67,12 +62,18 @@ const EXAMPLE_ICONS: Record<string, ComponentType<{ className?: string }>> = {
   BellNotification,
   Bookmark,
   Check,
+  Folder,
   HalfMoon,
   Mail,
+  Page,
+  PagePlus,
+  PageSearch,
   Star,
+  StatUp,
   SunLight,
   Trash,
   User,
+  Wrench,
 };
 
 /**
@@ -84,10 +85,10 @@ const EXAMPLE_ICONS: Record<string, ComponentType<{ className?: string }>> = {
  * `<Star />`, so this walk only ever feeds the rendered preview.
  */
 function resolveIcons(value: unknown): unknown {
-  const name = iconMarker(value);
-  if (name) {
-    const Icon = EXAMPLE_ICONS[name];
-    return Icon ? <Icon className="w-6 h-6" /> : undefined;
+  const marker = iconMarker(value);
+  if (marker) {
+    const Icon = EXAMPLE_ICONS[marker.name];
+    return Icon ? <Icon className={marker.size ?? "w-6 h-6"} /> : undefined;
   }
   if (Array.isArray(value)) return value.map(resolveIcons);
   if (typeof value === "object" && value !== null) {
@@ -173,8 +174,6 @@ export default function ComponentPreview({
         ) : null}
       </Suspense>
 
-      {actualId && <InstallCommand registryId={actualId} />}
-
       <Toggle
         pressed={showCode}
         onPressedChange={setShowCode}
@@ -185,41 +184,6 @@ export default function ComponentPreview({
 
       {showCode &&
         (usage ? <TokenBlock tokens={usage} expanded={expanded} /> : children)}
-    </div>
-  );
-}
-
-/**
- * How you actually get this variant, directly under the thing it draws.
- *
- * Two tabs, pnpm then npm, because that is the convention for every install
- * command on the site. Generated rather than authored: a hand-written
- * `<CodeGroup>` under each of 431 previews is the same two lines 431 times, and
- * the component id is already here.
- */
-function InstallCommand({ registryId }: { registryId: string }) {
-  const { install } = getRegistryTarget(registryId);
-  const [manager, setManager] = useState<PackageManager>("pnpm");
-  const groupId = useId();
-
-  return (
-    <div className="bc-border btw-1">
-      <CodeTabs
-        idPrefix={groupId}
-        active={manager}
-        onSelect={setManager}
-        tabs={PACKAGE_MANAGERS.map((id) => ({ id, label: id }))}
-      />
-      <div
-        role="tabpanel"
-        id={`${groupId}-panel-${manager}`}
-        aria-labelledby={`${groupId}-tab-${manager}`}
-      >
-        <TokenBlock
-          tokens={buildInstall(install, manager)}
-          className=""
-        />
-      </div>
     </div>
   );
 }

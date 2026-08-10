@@ -27,7 +27,7 @@ const TONES: Record<Tone, string> = {
 };
 
 const TRIGGER_TONES: Record<TriggerTone, string> = {
-  neutral: "c-slate-8 h:c-slate-12 fv:oc-indigo-5",
+  neutral: "c-slate-8 h:c-slate-10 fv:oc-indigo-5",
   danger: "c-red-7 h:c-red-8 fv:oc-red-6",
 };
 

@@ -121,7 +121,7 @@ export default function DialogBase({
     .join(" ");
 
   const popupClasses = [
-    "o-h p-r w-96 bg-white bc-silver-2 c-slate-12 bw-1",
+    "o-h p-r w-96 bg-white bc-silver-2 c-slate-10 bw-1",
     POPUP_SHAPES[shape],
     shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "",
   ]
