@@ -1,0 +1,166 @@
+---
+title: Coming from Tailwind
+description: "A translation table from the most common Tailwind classes to Yumma CSS, and the four differences that actually matter."
+---
+
+## What Carries Over
+
+If you know Tailwind, most of the workflow transfers unchanged: utilities in the markup, variants as prefixes, a config file, a build step that scans your source.
+
+The **spacing scale is identical**. Both frameworks use `0.25rem` steps, so `p-4` is `1rem` in Tailwind and `1rem` in Yumma CSS. Every spacing, sizing and gap number you already have in your head is still correct.
+
+## What Changes
+
+Four things, and they account for nearly every surprise.
+
+1. **Class names abbreviate the CSS property**, not a concept. `text-lg` and `text-red-500` become `fs-lg` and `c-red` — different prefixes, because they are different properties.
+2. **Variants use punctuation.** Breakpoints are `@`, states are `:`. `md:flex` becomes `@md:d-f`; `hover:bg-white` becomes `h:bg-white`.
+3. **There are no arbitrary values.** No `p-[13px]`. Use the scale, or write CSS.
+4. **Some prefixes are shared between properties** and resolved by the value. `o-50` is opacity, `o-h` is overflow. See [the naming rule](/docs/naming#where-the-rule-bends).
+
+## Translation Table
+
+### Layout
+
+| Tailwind | Yumma CSS | CSS |
+| -------- | --------- | --- |
+| `flex` | `d-f` | `display: flex` |
+| `grid` | `d-g` | `display: grid` |
+| `block` | `d-b` | `display: block` |
+| `inline-flex` | `d-if` | `display: inline-flex` |
+| `hidden` | `d-none` | `display: none` |
+| `flex-col` | `fd-c` | `flex-direction: column` |
+| `items-center` | `ai-c` | `align-items: center` |
+| `items-start` | `ai-fs` | `align-items: flex-start` |
+| `justify-between` | `jc-sb` | `justify-content: space-between` |
+| `justify-center` | `jc-c` | `justify-content: center` |
+| `grid-cols-3` | `gtc-3` | `grid-template-columns` |
+| `flex-1` | `f-1` | `flex: 1` |
+| `grow` | `fg-1` | `flex-grow: 1` |
+
+### Spacing
+
+| Tailwind | Yumma CSS | CSS |
+| -------- | --------- | --- |
+| `p-4` | `p-4` | `padding: 1rem` |
+| `px-4` | `px-4` | `padding-inline: 1rem` |
+| `py-4` | `py-4` | `padding-block: 1rem` |
+| `m-4` | `m-4` | `margin: 1rem` |
+| `mx-auto` | `mx-auto` | `margin-inline: auto` |
+| `gap-4` | `g-4` | `gap: 1rem` |
+| `gap-x-4` | `cg-4` | `column-gap: 1rem` |
+| `gap-y-4` | `rg-4` | `row-gap: 1rem` |
+
+<Hint icon="info">
+  `gap-x` is the clearest example of the difference in approach. There is no
+  `gap-x` property in CSS — the property is `column-gap`, which is what
+  `cg-4` says.
+</Hint>
+
+### Sizing
+
+| Tailwind | Yumma CSS | CSS |
+| -------- | --------- | --- |
+| `w-full` | `w-100%` | `width: 100%` |
+| `w-64` | `w-64` | `width: 16rem` |
+| `h-screen` | `h-dvh` | `height: 100dvh` |
+| `min-h-screen` | `min-h-dvh` | `min-height: 100dvh` |
+| `max-w-lg` | `max-w-lg` | `max-width: 64rem` |
+| `w-auto` | `w-auto` | `width: auto` |
+
+### Typography
+
+| Tailwind | Yumma CSS | CSS |
+| -------- | --------- | --- |
+| `text-base` | `fs-md` | `font-size` |
+| `text-lg` | `fs-lg` | `font-size` |
+| `font-semibold` | `fw-600` | `font-weight: 600` |
+| `text-red-500` | `c-red` | `color` |
+| `text-center` | `ta-c` | `text-align: center` |
+| `uppercase` | `tt-u` | `text-transform: uppercase` |
+| `leading-5` | `lh-5` | `line-height` |
+| `tracking-tight` | `ls-1` | `letter-spacing` |
+| `truncate` | `to-e` | `text-overflow: ellipsis` |
+| `whitespace-nowrap` | `ws-nw` | `white-space: nowrap` |
+
+### Backgrounds & Borders
+
+| Tailwind | Yumma CSS | CSS |
+| -------- | --------- | --- |
+| `bg-white` | `bg-white` | `background-color` |
+| `bg-red-500` | `bg-red` | `background-color` |
+| `border` | `bw-1` | `border-width: 1px` |
+| `border-gray-200` | `bc-gray-2` | `border-color` |
+| `rounded-md` | `br-md` | `border-radius` |
+| `rounded-full` | `br-9999` | `border-radius: 9999px` |
+| `shadow-md` | `bs-o-md` | `box-shadow` |
+| `shadow-inner` | `bs-i-md` | `box-shadow` (inset) |
+
+### Positioning & Effects
+
+| Tailwind | Yumma CSS | CSS |
+| -------- | --------- | --- |
+| `relative` | `p-r` | `position: relative` |
+| `absolute` | `p-a` | `position: absolute` |
+| `sticky` | `p-st` | `position: sticky` |
+| `top-0` | `t-0` | `top: 0` |
+| `-ml-4` | `ml--4` | `margin-left: -1rem` |
+| `z-10` | `zi-10` | `z-index: 10` |
+| `overflow-hidden` | `o-h` | `overflow: hidden` |
+| `opacity-50` | `o-50` | `opacity: 50%` |
+| `invisible` | `v-h` | `visibility: hidden` |
+| `cursor-pointer` | `c-p` | `cursor: pointer` |
+| `select-none` | `us-none` | `user-select: none` |
+| `object-cover` | `of-c` | `object-fit: cover` |
+| `duration-150` | `tdu-150` | `transition-duration: 150ms` |
+
+### Variants
+
+| Tailwind | Yumma CSS |
+| -------- | --------- |
+| `md:flex` | `@md:d-f` |
+| `lg:grid-cols-3` | `@lg:gtc-3` |
+| `hover:bg-white` | `h:bg-white` |
+| `focus:outline-none` | `f:ow-0` |
+| `active:scale-95` | `a:s-90` |
+| `before:block` | `b::d-b` |
+| `dark:bg-black` | See [dark mode](/docs/dark-mode) |
+
+<Hint icon="warning">
+  `before:content-['…']` has no equivalent. Arbitrary values are the one
+  Tailwind feature with no Yumma CSS counterpart, and generated content is
+  where you will hit it first. Write that rule in a stylesheet.
+</Hint>
+
+Breakpoints are `@`-prefixed and mobile-first, exactly as in Tailwind: [media queries](/docs/media-queries). State variants are single letters: [pseudo-classes](/docs/pseudo-classes), [pseudo-elements](/docs/pseudo-elements).
+
+## Migrating An Existing Project
+
+There is no codemod, and writing one would be a bad idea — the shared-prefix rows above need a human to check the value, and a mechanical rewrite will silently produce `o-50` where you meant overflow.
+
+A workable order:
+
+<Stepper>
+  <Step title="Run both frameworks side by side">
+    Nothing stops you from generating both stylesheets during a migration.
+    Yumma CSS only emits rules for classes it finds in your configured
+    `source` globs.
+  </Step>
+
+  <Step title="Convert one component at a time">
+    Start with something small and self-contained. The
+    [IntelliSense extensions](/docs/intellisense) autocomplete and show the
+    resolved property on hover, which is most of the translation work.
+  </Step>
+
+  <Step title="Add the validator to CI">
+    [`yummacss-canon`](/docs/canon) fails the build on any class that is not
+    in the canon. This catches half-converted markup, typos, and Tailwind
+    classes left behind — and it is also what stops an LLM from inventing
+    utilities that do not exist.
+  </Step>
+</Stepper>
+
+## Try Before Committing
+
+The [playground](https://play.yummacss.com) compiles in the browser and shows the generated CSS. Paste a component and rewrite it there first — it is the cheapest way to find out whether the notation suits you.

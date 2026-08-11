@@ -1,0 +1,72 @@
+---
+title: Why Yumma CSS
+description: "The case for a utility framework whose vocabulary is CSS itself - and the cases where you should use something else."
+---
+
+## The Short Version
+
+Utility CSS solved a real problem. The cost it quietly introduced is that the vocabulary you spend all day rehearsing is the framework's, not the platform's.
+
+Yumma CSS keeps the utility workflow and changes the vocabulary back. Every class is an abbreviation of a CSS property and a value from a fixed scale. Nothing else.
+
+## The Argument
+
+### The abstraction is the whole point, and also the problem
+
+Write `grid-cols-3` a thousand times and you have rehearsed `grid-cols-3` a thousand times. The property it compiles to — `grid-template-columns` — appears nowhere in the loop. The same goes for `gap-x-4`: there is no `gap-x` property in CSS, it is `column-gap`. And `text-red-500` sets `color`, while `text-lg` sets `font-size`; one prefix, two unrelated properties, neither of them named `text`.
+
+None of that is a bug. It is a deliberate, coherent design that optimises for how people think about layout rather than how the spec is organised. It works.
+
+But the knowledge it builds is framework-shaped. It transfers to the next project that uses the same framework, and stops there. Plenty of competent developers can build a full responsive layout from memory and then stall on a plain stylesheet, because the thing they know fluently is a naming scheme rather than a language.
+
+### Yumma CSS points at the spec instead of away from it
+
+`gtc-3` is `grid-template-columns`. `cg-4` is `column-gap`. `c-red-5` is `color`; `fs-lg` is `font-size`. The abbreviations are terse, but every one of them is a pointer to a property that exists in CSS and behaves the way MDN says it does.
+
+The practical consequence: the mental model you build while shipping is the mental model you need when there is no framework. You are not learning Yumma CSS instead of CSS — you are learning CSS in a compressed notation.
+
+<Hint icon="info">
+  This is also why the class list is so long. Yumma CSS does not decide which
+  parts of CSS are worth exposing; it exposes properties. See [the naming
+  rule](/docs/naming) for how the mapping works, including where it bends.
+</Hint>
+
+### Scales, not arbitrary values
+
+Yumma CSS has no arbitrary value syntax. There is no `p-[13px]`. Spacing, sizing, radii, weights and colors come from predefined scales, and [custom colors](/docs/colors) are declared once in `yumma.config.mjs`.
+
+This is a constraint, and it is meant as one. An escape hatch that is always available is an escape hatch that gets used, and a design system with an always-available escape hatch is a suggestion. If you need a value the scale does not have, the answer is a stylesheet or a config change — both of which leave a trace someone can review.
+
+## Honest Trade-Offs
+
+Yumma CSS is a small project. Choosing it means giving up things that are worth real money to a team, and any comparison that skips them is not worth reading.
+
+| You lose | Detail |
+| -------- | ------ |
+| Ecosystem | Tailwind has component libraries, templates, plugins and design tools built for it. Yumma CSS has [Yumma UI](/ui/installation) and nothing else. |
+| Hiring | A developer who already knows Tailwind is a developer you do not have to train. Nobody arrives knowing Yumma CSS. |
+| LLM familiarity | Models write Tailwind fluently and hallucinate Yumma CSS. The [`yummacss-canon` validator](/docs/canon) exists precisely because of this, and it catches invented classes in CI — but it is a mitigation, not parity. |
+| Answers | Every Tailwind question has been asked and answered somewhere. Yours may not have been. |
+| Stability of scale | Prefixes are shared between properties, which constrains what can be added later. See [where the rule bends](/docs/naming#where-the-rule-bends). |
+
+## When You Should Not Use This
+
+Use Tailwind, or plain CSS, if:
+
+- **You are staffing a team.** The hiring and onboarding argument beats the pedagogy argument at almost any headcount above one.
+- **You depend on the ecosystem.** If your plan involves a Tailwind component library or template, that plan is worth more than a naming scheme.
+- **Your team already knows CSS well.** The main benefit here is retention, and retention is not a problem you have.
+- **You need arbitrary values.** Yumma CSS deliberately does not have them.
+
+## When It Is A Good Fit
+
+- **You are learning CSS, or teaching it.** The notation rehearses real property names, so the practice compounds.
+- **You are one developer, or a small team that agrees.** The ecosystem cost is proportional to how many people it inconveniences.
+- **You want a closed design system.** No arbitrary values means the scale is the scale.
+- **You already know CSS and want less typing.** `jc-sb` over `justify-content: space-between`, without adopting a second vocabulary to get it.
+
+## Try It First
+
+There is no install. The [playground](https://play.yummacss.com) runs the real compiler in the browser and shows the generated CSS for anything you type — which is also the fastest way to check whether the naming scheme feels right to you or actively annoys you.
+
+Both reactions are common, and it is better to find out in five minutes than after a migration.
