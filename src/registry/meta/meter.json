@@ -34,7 +34,7 @@
       "name": "icon",
       "type": "none",
       "typeName": "ReactNode",
-      "description": "A leading avatar. Setting this switches the header to a grouped icon+label+description block & moves the value display below the track instead of beside the label."
+      "description": "A leading avatar. Setting this switches the header to a grouped icon+label+description block & moves the value display below the track instead of beside the label. It sits in a fixed 32px tile that colors the glyph but does not resize it, so pass one sized to fit (`w-4 h-4`)."
     },
     {
       "name": "color",
@@ -59,7 +59,7 @@
     {
       "name": "className",
       "type": "string",
-      "description": "Appended to the root's classes, so any Yumma CSS utility you pass wins."
+      "description": "Appended to the root's classes, for anything the component leaves unset - a margin, `fs-0` in a flex row. It will not reliably override what the component already sets: which of two utilities wins is decided by the stylesheet's rule order, not by the order you write them."
     }
   ]
 }
