@@ -13,7 +13,7 @@ The **spacing scale is identical**. Both frameworks use `0.25rem` steps, so `p-4
 
 Four things, and they account for nearly every surprise.
 
-1. **Class names abbreviate the CSS property**, not a concept. `text-lg` and `text-red-500` become `fs-lg` and `c-red` — different prefixes, because they are different properties.
+1. **Class names abbreviate the CSS property**, not a concept. `text-lg` and `text-red-500` become `fs-lg` and `c-red` - different prefixes, because they are different properties.
 2. **Variants use punctuation.** Breakpoints are `@`, states are `:`. `md:flex` becomes `@md:d-f`; `hover:bg-white` becomes `h:bg-white`.
 3. **There are no arbitrary values.** No `p-[13px]`. Use the scale, or write CSS.
 4. **Some prefixes are shared between properties** and resolved by the value. `o-50` is opacity, `o-h` is overflow. See [the naming rule](/docs/naming#where-the-rule-bends).
@@ -53,7 +53,7 @@ Four things, and they account for nearly every surprise.
 
 <Hint icon="info">
   `gap-x` is the clearest example of the difference in approach. There is no
-  `gap-x` property in CSS — the property is `column-gap`, which is what
+  `gap-x` property in CSS - the property is `column-gap`, which is what
   `cg-4` says.
 </Hint>
 
@@ -136,7 +136,7 @@ Breakpoints are `@`-prefixed and mobile-first, exactly as in Tailwind: [media qu
 
 ## Migrating An Existing Project
 
-There is no codemod, and writing one would be a bad idea — the shared-prefix rows above need a human to check the value, and a mechanical rewrite will silently produce `o-50` where you meant overflow.
+There is no codemod, and writing one would be a bad idea - the shared-prefix rows above need a human to check the value, and a mechanical rewrite will silently produce `o-50` where you meant overflow.
 
 A workable order:
 
@@ -156,11 +156,11 @@ A workable order:
   <Step title="Add the validator to CI">
     [`yummacss-canon`](/docs/canon) fails the build on any class that is not
     in the canon. This catches half-converted markup, typos, and Tailwind
-    classes left behind — and it is also what stops an LLM from inventing
+    classes left behind - and it is also what stops an LLM from inventing
     utilities that do not exist.
   </Step>
 </Stepper>
 
 ## Try Before Committing
 
-The [playground](https://play.yummacss.com) compiles in the browser and shows the generated CSS. Paste a component and rewrite it there first — it is the cheapest way to find out whether the notation suits you.
+The [playground](https://play.yummacss.com) compiles in the browser and shows the generated CSS. Paste a component and rewrite it there first - it is the cheapest way to find out whether the notation suits you.
