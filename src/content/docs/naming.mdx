@@ -16,7 +16,7 @@ text-transform: uppercase;            /* tt-u  */
 
 Values that are numbers or scales keep their scale position instead of initials: `p-4`, `fs-lg`, `fw-600`, `zi-10`. Values that are single words with no useful abbreviation keep the word: `d-none`, `pe-auto`, `bs-none`.
 
-That is the entire rule. Every class resolves to exactly one CSS property — there is no class that sets three properties at once, and no class whose name refers to a concept that does not exist in CSS.
+That is the entire rule. Every class resolves to exactly one CSS property - there is no class that sets three properties at once, and no class whose name refers to a concept that does not exist in CSS.
 
 ## What This Buys You
 
@@ -61,7 +61,7 @@ The value sets on either side of each row are disjoint, so no class is ambiguous
 
 ### 2. Logical properties fall back to axis letters
 
-`block-size` and `inline-size` would both want prefixes that were already taken — `bs` by four properties, `is` by `isolation`. They use the axis instead:
+`block-size` and `inline-size` would both want prefixes that were already taken - `bs` by four properties, `is` by `isolation`. They use the axis instead:
 
 | Class prefix | Property |
 | ------------ | -------- |
@@ -70,15 +70,15 @@ The value sets on either side of each row are disjoint, so no class is ambiguous
 | `max-ys` | `max-block-size` |
 | `max-xs` | `max-inline-size` |
 
-These are the clearest exception to "initials of the property". They are mnemonic — the block axis is the y axis in a horizontal writing mode — but they are not derived.
+These are the clearest exception to "initials of the property". They are mnemonic - the block axis is the y axis in a horizontal writing mode - but they are not derived.
 
 ### 3. A few value names are chosen, not derived
 
-`font-family` takes `ff-d`, `ff-m`, `ff-s` — default, mono, serif. `default` is not a CSS value; it is the stack Yumma CSS ships. Colors are likewise a supplied scale (`red-1` … `red-5`), not CSS keywords.
+`font-family` takes `ff-d`, `ff-m`, `ff-s` - default, mono, serif. `default` is not a CSS value; it is the stack Yumma CSS ships. Colors are likewise a supplied scale (`red-1` … `red-5`), not CSS keywords.
 
 ### 4. Collisions can cost a value
 
-Sharing a prefix constrains what can be added later. `color-scheme` ships `cs-l`, `cs-d` and `cs-ld`, but not `normal` — `cs-n` was already `corner-shape: notch`. The value is genuinely unavailable, not merely renamed.
+Sharing a prefix constrains what can be added later. `color-scheme` ships `cs-l`, `cs-d` and `cs-ld`, but not `normal` - `cs-n` was already `corner-shape: notch`. The value is genuinely unavailable, not merely renamed.
 
 This is the real long-term cost of the scheme, and it is why the prefix table is worth understanding rather than memorising.
 
