@@ -25,7 +25,7 @@ export const sidebarConfig = {
     {
       title: "Get Started",
       items: [
-        "why-yumma-css",
+        "why",
         "installation",
         "configuration",
         "from-tailwind",
