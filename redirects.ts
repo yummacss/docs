@@ -10,6 +10,14 @@ const docsRedirects = [
     permanent: true,
   },
   {
+    // The published yummacss README and the npm package description both point
+    // at the old slug, and neither can be changed retroactively for versions
+    // already on the registry.
+    source: "/docs/why-yumma-css",
+    destination: "/docs/why",
+    permanent: true,
+  },
+  {
     source: "/docs/ide-support",
     destination: "/docs/intellisense",
     permanent: true,
