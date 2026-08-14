@@ -10,11 +10,21 @@ const docsRedirects = [
     permanent: true,
   },
   {
-    // The published yummacss README and the npm package description both point
-    // at the old slug, and neither can be changed retroactively for versions
-    // already on the registry.
+    // Both slugs shipped, and the published yummacss README plus the npm
+    // package description still link to them. Neither can be edited for
+    // versions already on the registry, so these have to keep resolving.
     source: "/docs/why-yumma-css",
-    destination: "/docs/why",
+    destination: "/docs/installation",
+    permanent: true,
+  },
+  {
+    source: "/docs/why",
+    destination: "/docs/installation",
+    permanent: true,
+  },
+  {
+    source: "/docs/from-tailwind",
+    destination: "/docs/installation",
     permanent: true,
   },
   {
