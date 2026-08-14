@@ -10,24 +10,6 @@ const docsRedirects = [
     permanent: true,
   },
   {
-    // Both slugs shipped, and the published yummacss README plus the npm
-    // package description still link to them. Neither can be edited for
-    // versions already on the registry, so these have to keep resolving.
-    source: "/docs/why-yumma-css",
-    destination: "/docs/installation",
-    permanent: true,
-  },
-  {
-    source: "/docs/why",
-    destination: "/docs/installation",
-    permanent: true,
-  },
-  {
-    source: "/docs/from-tailwind",
-    destination: "/docs/installation",
-    permanent: true,
-  },
-  {
     source: "/docs/ide-support",
     destination: "/docs/intellisense",
     permanent: true,
