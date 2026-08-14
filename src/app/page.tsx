@@ -1,4 +1,4 @@
-import { ComponentSolid } from "iconoir-react";
+import { NavArrowRight } from "iconoir-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "@/components/ui/navbar";
@@ -45,60 +45,42 @@ export default function Home() {
         <div className="w-100% max-w-288">
           <div className="d-g g-12 ai-fe @lg:gtc-2">
             <div>
+              <Link
+                href="/ui/installation"
+                className="d-if ai-c g-2 px-3 py-1 mb-6 bc-border bg-surface c-white/70 bw-1 fs-sm us-none h:c-white fv:oc-white fv:ow-2"
+              >
+                Yumma UI is here
+                <NavArrowRight className="w-4 h-4" />
+              </Link>
+
               <h1 className="mb-6 fs-4xl fw-400 lh-2 ff-e @md:fs-5xl @lg:fs-6xl">
                 One class. One CSS property.
               </h1>
-              <p className="mb-6 c-white/70 fs-md lh-5 @md:fs-lg">
-                <code className="c-code">d-f</code> is{" "}
-                <code className="c-code">display: flex</code>.{" "}
-                <code className="c-code">jc-sb</code> is{" "}
-                <code className="c-code">justify-content: space-between</code>.
-                Initials of the property, initials of the value, drawn from a
-                fixed scale.
-              </p>
               <p className="mb-8 c-white/70 fs-md lh-5 @md:fs-lg">
-                There is an abbreviation table to learn. What you learn is CSS
-                &mdash; so it still works the day you write a stylesheet by
-                hand.
+                Initials of the property, initials of the value, drawn from a
+                fixed scale. There is a table to learn, and what you learn is
+                CSS.
               </p>
 
+              {/*
+               * Two buttons, not three: at this column width a third wraps and
+               * orphans itself onto its own line. Docs and Components both
+               * stay in the navbar, where they already are.
+               */}
               <div className="d-f fw-w g-4 mb-12">
-                <a
-                  href="https://play.yummacss.com"
-                  className="px-6 py-3 bg-white c-black fs-md fw-600 us-none"
-                >
-                  Try it in the browser
-                </a>
                 <Link
-                  href="/docs/why-yumma-css"
-                  className="px-6 py-3 c-white fw-600 fs-md us-none fv:oc-white fv:ow-2"
+                  href="/docs/why"
+                  className="px-6 py-3 bg-white c-black fs-md fw-600 us-none"
                 >
                   Why Yumma CSS?
                 </Link>
-                <Link
-                  href="/ui/installation"
-                  className="d-f ai-c g-2 px-6 py-3 c-white fw-600 fs-md us-none fv:oc-white fv:ow-2"
+                <a
+                  href="https://play.yummacss.com"
+                  className="px-6 py-3 c-white fw-600 fs-md us-none fv:oc-white fv:ow-2"
                 >
-                  <ComponentSolid className="w-5 h-5" />
-                  Components
-                </Link>
+                  Try now
+                </a>
               </div>
-            </div>
-
-            {/*
-             * The playground, not the install page, is the primary call to
-             * action: nobody adds a build-time dependency to find out what a
-             * framework's class names look like. `loading="lazy"` keeps the
-             * embed off the critical path, since it boots Monaco.
-             */}
-            <div className="o-h w-100% bw-1 bc-border bg-surface">
-              <iframe
-                src="https://play.yummacss.com/embed"
-                title="Yumma CSS playground"
-                loading="lazy"
-                className="d-b w-100% bw-0"
-                style={{ height: "clamp(24rem, 60vh, 34rem)" }}
-              />
             </div>
           </div>
         </div>
