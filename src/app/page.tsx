@@ -46,10 +46,10 @@ export default function Home() {
           <div className="d-g g-12 ai-fe @lg:gtc-2">
             <div>
               <Link
-                href="/docs/why-yumma-css"
+                href="/ui/installation"
                 className="d-if ai-c g-2 px-3 py-1 mb-6 bc-border bg-surface c-white/70 bw-1 fs-sm us-none h:c-white fv:oc-white fv:ow-2"
               >
-                Why Yumma CSS?
+                Yumma UI is here
                 <NavArrowRight className="w-4 h-4" />
               </Link>
 
