@@ -1,3 +1,4 @@
+import { NavArrowRight } from "iconoir-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "@/components/ui/navbar";
@@ -44,6 +45,14 @@ export default function Home() {
         <div className="w-100% max-w-288">
           <div className="d-g g-12 ai-fe @lg:gtc-2">
             <div>
+              <Link
+                href="/docs/why-yumma-css"
+                className="d-if ai-c g-2 px-3 py-1 mb-6 bc-border bg-surface c-white/70 bw-1 fs-sm us-none h:c-white fv:oc-white fv:ow-2"
+              >
+                Why Yumma CSS?
+                <NavArrowRight className="w-4 h-4" />
+              </Link>
+
               <h1 className="mb-6 fs-4xl fw-400 lh-2 ff-e @md:fs-5xl @lg:fs-6xl">
                 One class. One CSS property.
               </h1>
@@ -69,7 +78,7 @@ export default function Home() {
                   href="https://play.yummacss.com"
                   className="px-6 py-3 c-white fw-600 fs-md us-none fv:oc-white fv:ow-2"
                 >
-                  Try it in the browser
+                  Try now
                 </a>
               </div>
             </div>
