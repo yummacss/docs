@@ -24,12 +24,7 @@ export const sidebarConfig = {
   docs: [
     {
       title: "Get Started",
-      items: [
-        "why",
-        "installation",
-        "configuration",
-        "from-tailwind",
-      ],
+      items: ["installation", "configuration"],
     },
     {
       title: "Customization",
