@@ -73,7 +73,7 @@ export default function Home() {
                   href="/docs/why-yumma-css"
                   className="px-6 py-3 c-white fw-600 fs-md us-none fv:oc-white fv:ow-2"
                 >
-                  Why Yumma CSS?
+                  Get started
                 </Link>
                 <Link
                   href="/ui/installation"
