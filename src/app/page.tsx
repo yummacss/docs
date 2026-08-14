@@ -46,10 +46,10 @@ export default function Home() {
           <div className="d-g g-12 ai-fe @lg:gtc-2">
             <div>
               <Link
-                href="/docs/why-yumma-css"
+                href="/ui/installation"
                 className="d-if ai-c g-2 px-3 py-1 mb-6 bc-border bg-surface c-white/70 bw-1 fs-sm us-none h:c-white fv:oc-white fv:ow-2"
               >
-                Why Yumma CSS?
+                Yumma UI is here
                 <NavArrowRight className="w-4 h-4" />
               </Link>
 
@@ -64,15 +64,15 @@ export default function Home() {
 
               {/*
                * Two buttons, not three: at this column width a third wraps and
-               * orphans itself onto its own line. Components stays in the
-               * navbar, where it already is.
+               * orphans itself onto its own line. Docs and Components both
+               * stay in the navbar, where they already are.
                */}
               <div className="d-f fw-w g-4 mb-12">
                 <Link
-                  href="/docs/installation"
+                  href="/docs/why"
                   className="px-6 py-3 bg-white c-black fs-md fw-600 us-none"
                 >
-                  Get started
+                  Why Yumma CSS?
                 </Link>
                 <a
                   href="https://play.yummacss.com"
