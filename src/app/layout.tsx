@@ -5,11 +5,11 @@ import type { Metadata } from "next";
 import JsonLd from "@/components/json-ld";
 
 const description =
-  "Yumma CSS is a utility framework whose class names are derived from CSS property names by one rule. No invented vocabulary, no lookup tables: just CSS, compressed.";
+  "Fixed scales for spacing, colors, type and radius. No arbitrary values to drift.";
 
 export const metadata: Metadata = {
   title: {
-    default: "Yumma CSS - Utility CSS with no new vocabulary",
+    default: "Yumma CSS - Get faster at CSS while you use it",
     template: "%s · Yumma CSS",
   },
   description,
@@ -32,13 +32,13 @@ export const metadata: Metadata = {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: "Yumma CSS - Utility CSS with no new vocabulary",
+        alt: "Yumma CSS - Get faster at CSS while you use it",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Yumma CSS - Utility CSS with no new vocabulary",
+    title: "Yumma CSS - Get faster at CSS while you use it",
     description,
     images: ["/og.png"],
   },
