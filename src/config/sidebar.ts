@@ -32,7 +32,7 @@ export const sidebarConfig = {
     },
     {
       title: "Handbook",
-      items: ["naming", "normalize", "negative-values"],
+      items: ["naming-convention", "normalize", "negative-values"],
     },
     {
       title: "Variants",
