@@ -10,6 +10,11 @@ const docsRedirects = [
     permanent: true,
   },
   {
+    source: "/docs/naming",
+    destination: "/docs/naming-convention",
+    permanent: true,
+  },
+  {
     source: "/docs/ide-support",
     destination: "/docs/intellisense",
     permanent: true,
