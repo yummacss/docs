@@ -5,7 +5,8 @@ description: "Stack variants to apply a utility under more than one condition."
 
 Variants stack. Chain their prefixes on a single utility & every condition has to hold for the declaration to apply.
 
-```tsx "@sm:h:bg-red"
+<CodeGroup>
+```tsx title="button.tsx" "@sm:h:bg-red"
 <button type="button" className="bg-indigo @sm:h:bg-red">Hover me</button>
 ```
 
@@ -16,6 +17,7 @@ Variants stack. Chain their prefixes on a single utility & every condition has t
   }
 }
 ```
+</CodeGroup>
 
 The media query wraps the rule & the pseudo class lands on the selector, so the background changes on hover only above `40rem`.
 
