@@ -1,100 +1,61 @@
 ---
 title: Naming Convention
-description: "How are Yumma CSS class names derived from CSS property names"
+description: "How Yumma CSS class names map to CSS property names."
 ---
 
-## One Rule
+## The Rule
 
-A Yumma CSS class is the initials of the CSS property, a dash, then the initials of the value.
+A class is the initials of the CSS property, a dash, then the initials of the value.
 
 ```css
-display: flex;                        /* d-f   */
-justify-content: space-between;       /* jc-sb */
-grid-template-columns: repeat(3, …);  /* gtc-3 */
-text-transform: uppercase;            /* tt-u  */
+display: flex;                   /* d-f   */
+justify-content: space-between;  /* jc-sb */
+text-transform: uppercase;       /* tt-u  */
 ```
 
-Values that are numbers or scales keep their scale position instead of initials: `p-4`, `fs-lg`, `fw-600`, `zi-10`. Values that are single words with no useful abbreviation keep the word: `d-none`, `pe-auto`, `bs-none`.
+Every class resolves to exactly one property.
 
-That is the entire rule. Every class resolves to exactly one CSS property - there is no class that sets three properties at once, and no class whose name refers to a concept that does not exist in CSS.
+## Values
 
-## What This Buys You
+Numbers & scales keep their position instead of their initials.
 
-The property name underneath is the real one. A developer who writes `gtc-3` every day is rehearsing `grid-template-columns`; the abbreviation is a pointer to the spec, not a replacement for it. When you open a plain stylesheet, the vocabulary you have been using is still the vocabulary that works.
+```tsx
+<div className="p-4 fs-lg fw-600 zi-10 …"></div>
+```
 
-## Where The Rule Bends
+Single words with no useful abbreviation keep the word.
 
-Initials are not unique, and CSS has more properties than there are short letter combinations. Four things follow from that, and it is better to know them now than to discover them at 2am.
+```tsx
+<div className="d-none pe-auto bs-none …"></div>
+```
 
-### 1. Some prefixes are shared
+## Shared Prefixes
 
-Yumma CSS defines 239 utilities. Seventeen prefixes are shared between two or more properties, and are disambiguated by the value, not the prefix:
+CSS has more properties than there are short letter pairs, so a few prefixes serve more than one property. The value tells them apart.
 
-| Prefix | Properties | Told apart by |
-| ------ | ---------- | ------------- |
-| `fs`   | `field-sizing`, `flex-shrink`, `font-size`, `font-style` | `fs-c` / `fs-0` / `fs-lg` / `fs-i` |
-| `bs`   | `background-size`, `border-spacing`, `border-style`, `box-sizing` | `bs-co` / `bs-2` / `bs-d` / `bs-bb` |
-| `bc`   | `background-clip`, `border-collapse`, `border-color` | `bc-pb` / `bc-c` / `bc-red-1` |
-| `br`   | `background-repeat`, `border-radius` | `br-nr` / `br-md` |
-| `p`    | `padding`, `position` | `p-4` / `p-a` |
-| `c`    | `color`, `cursor` | `c-white` / `c-p` |
-| `o`    | `opacity`, `overflow` | `o-50` / `o-h` |
-| `f`    | `fill`, `flex` | `f-red-1` / `f-1` |
-| `s`    | `stroke`, `scale` | `s-blue-2` / `s-90` |
-| `r`    | `resize`, `right` | `r-h` / `r-4` |
-| `td`   | `text-decoration`, `transition-delay` | `td-u` / `td-150` |
-| `ta`   | `text-align`, `touch-action` | `ta-c` / `ta-pz` |
-| `to`   | `text-overflow`, `text-orientation` | `to-e` / `to-sr` |
-| `ow`   | `outline-width`, `overflow-wrap` | `ow-2` / `ow-bw` |
-| `fw`   | `flex-wrap`, `font-weight` | `fw-nw` / `fw-600` |
-| `ac`   | `accent-color`, `align-content` | `ac-mint-2` / `ac-sb` |
-| `cs`   | `color-scheme`, `corner-shape` | `cs-ld` / `cs-r` |
+| Class     | Property   |
+| --------- | ---------- |
+| `o-50`    | `opacity`  |
+| `o-h`     | `overflow` |
+| `p-4`     | `padding`  |
+| `p-a`     | `position` |
+| `c-white` | `color`    |
+| `c-p`     | `cursor`   |
 
-The value sets on either side of each row are disjoint, so no class is ambiguous. But reading `o-h` correctly means knowing that `overflow` owns the keywords and `opacity` owns the numbers. That is a lookup, and pretending otherwise would be dishonest.
+The two value sets never overlap, so no class is ambiguous.
 
 <Hint icon="info">
-  This is what the editor tooling is for. The [IntelliSense
-  extensions](/docs/intellisense) and the language server show the resolved
-  property on hover, so you rarely have to hold the table in your head while
-  writing.
+  The [IntelliSense extensions](/docs/intellisense) show the resolved property
+  on hover, so you rarely have to remember which prefix is shared.
 </Hint>
 
-### 2. Logical properties fall back to axis letters
+## Exceptions
 
-`block-size` and `inline-size` would both want prefixes that were already taken - `bs` by four properties, `is` by `isolation`. They use the axis instead:
+`block-size` & `inline-size` use their axis, because `bs` & `is` were already taken.
 
-| Class prefix | Property |
-| ------------ | -------- |
-| `ys` | `block-size` |
-| `xs` | `inline-size` |
-| `max-ys` | `max-block-size` |
-| `max-xs` | `max-inline-size` |
+| Class prefix | Property      |
+| ------------ | ------------- |
+| `ys`         | `block-size`  |
+| `xs`         | `inline-size` |
 
-These are the clearest exception to "initials of the property". They are mnemonic - the block axis is the y axis in a horizontal writing mode - but they are not derived.
-
-### 3. A few value names are chosen, not derived
-
-`font-family` takes `ff-d`, `ff-m`, `ff-s` - default, mono, serif. `default` is not a CSS value; it is the stack Yumma CSS ships. Colors are likewise a supplied scale (`red-1` … `red-5`), not CSS keywords.
-
-### 4. Collisions can cost a value
-
-Sharing a prefix constrains what can be added later. `color-scheme` ships `cs-l`, `cs-d` and `cs-ld`, but not `normal` - `cs-n` was already `corner-shape: notch`. The value is genuinely unavailable, not merely renamed.
-
-This is the real long-term cost of the scheme, and it is why the prefix table is worth understanding rather than memorising.
-
-## A Note On Theme Colors
-
-Five prefixes pair a color utility with a keyword utility: `c`, `f`, `s`, `ac` and `bc`. Because the two are told apart by value, a [custom theme color](/docs/colors) whose name collides with a keyword on the other side will shadow it.
-
-```mjs title="yumma.config.mjs"
-export default defineConfig({
-  theme: {
-    colors: {
-      // `ac-sb` is already `align-content: space-between`.
-      sb: "#bec6f2",
-    },
-  },
-});
-```
-
-Name theme colors with words (`accent`, `surface`, `border`) and this never comes up. The [`yummacss-canon` validator](/docs/canon) reports the collision if it does.
+A shared prefix also limits what can be added later. `color-scheme` ships `cs-l`, `cs-d` & `cs-ld`, but not `normal`, because `cs-n` is already `corner-shape: notch`.
