@@ -3,9 +3,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "@/components/ui/navbar";
 
-const title = "Yumma CSS - Utility CSS that maps 1:1 to CSS properties";
+const title = "Yumma CSS - Get faster at CSS while you use it";
 const description =
-  "Every Yumma CSS class is one CSS property and one value from a fixed scale. There is an abbreviation table to learn - and what you learn is CSS.";
+  "Fixed scales for spacing, colors, type and radius. No arbitrary values to drift.";
 
 export const metadata: Metadata = {
   title,
@@ -57,7 +57,8 @@ export default function Home() {
                 Get faster at CSS while you use it.
               </h1>
               <p className="mb-8 c-white/70 fs-md lh-5 @md:fs-lg">
-                Fixed scales for spacing, colors, type and radius. No arbitrary values to drift.
+                Fixed scales for spacing, colors, type and radius. No arbitrary
+                values to drift.
               </p>
 
               <div className="d-f fw-w g-4 mb-12">
