@@ -54,19 +54,12 @@ export default function Home() {
               </Link>
 
               <h1 className="mb-6 fs-4xl fw-400 lh-2 ff-e @md:fs-5xl @lg:fs-6xl">
-                One class. One CSS property.
+                Get faster at CSS while you use it.
               </h1>
               <p className="mb-8 c-white/70 fs-md lh-5 @md:fs-lg">
-                Initials of the property, initials of the value, drawn from a
-                fixed scale. There is a table to learn, and what you learn is
-                CSS.
+                Fixed scales for spacing, colors, type and radius. No arbitrary values to drift.
               </p>
 
-              {/*
-               * Two buttons, not three: at this column width a third wraps and
-               * orphans itself onto its own line. Docs and Components both
-               * stay in the navbar, where they already are.
-               */}
               <div className="d-f fw-w g-4 mb-12">
                 <Link
                   href="/docs/installation"
