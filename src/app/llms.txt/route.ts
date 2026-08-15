@@ -13,7 +13,7 @@ export function GET() {
     "# Yumma CSS",
     "",
     "> Yumma CSS is a utility CSS framework derived directly from CSS property and value initials.",
-    "> Every class name maps to exactly one CSS property. If you know CSS, you already know Yumma CSS.",
+    "> Every class name maps to exactly one CSS property, drawn from a fixed scale.",
     "> Prefix = initials of the CSS property (e.g. `jc` for `justify-content`).",
     "> Suffix = initials of the value (e.g. `sb` for `space-between`).",
     "> So `jc-sb` means `justify-content: space-between`.",
