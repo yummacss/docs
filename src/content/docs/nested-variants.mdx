@@ -6,7 +6,8 @@ description: "Stack variants to apply a utility under more than one condition."
 Variants stack. Chain their prefixes on a single utility & every condition has to hold for the declaration to apply.
 
 <CodeGroup>
-```tsx title="button.tsx" "@sm:h:bg-red"
+
+```tsx title="page.tsx" "@sm:h:bg-red"
 <button type="button" className="bg-indigo @sm:h:bg-red">Hover me</button>
 ```
 
@@ -17,6 +18,8 @@ Variants stack. Chain their prefixes on a single utility & every condition has t
   }
 }
 ```
+</CodeGroup>
+
 </CodeGroup>
 
 The media query wraps the rule & the pseudo class lands on the selector, so the background changes on hover only above `40rem`.
@@ -45,7 +48,9 @@ The most valuable pairing. Hover is unreliable on touch, so gating a hover style
 
 ### Pseudo Class & Pseudo Element
 
-```tsx "h:s::bg-indigo"
+<CodeGroup>
+
+```tsx title="page.tsx" "h:s::bg-indigo"
 <p className="h:s::bg-indigo">Hover this text, then select it.</p>
 ```
 
@@ -54,6 +59,8 @@ The most valuable pairing. Hover is unreliable on touch, so gating a hover style
   background-color: #6366f1;
 }
 ```
+
+</CodeGroup>
 
 ### Media Query & Pseudo Element
 
@@ -65,7 +72,9 @@ The most valuable pairing. Hover is unreliable on touch, so gating a hover style
 
 An opacity modifier is a suffix rather than a prefix, so it combines with any stack.
 
-```tsx "@sm:h:bg-red/50"
+<CodeGroup>
+
+```tsx title="page.tsx" "@sm:h:bg-red/50"
 <div className="@sm:h:bg-red/50 …"></div>
 ```
 
@@ -77,11 +86,15 @@ An opacity modifier is a suffix rather than a prefix, so it combines with any st
 }
 ```
 
+</CodeGroup>
+
 ## Two Media Queries Do Not Stack
 
 A breakpoint is a `min-width`, so two of them describe one range with a single lower bound. Yumma CSS keeps the last prefix in the chain & silently drops the rest.
 
-```tsx "@sm:@lg:bg-red"
+<CodeGroup>
+
+```tsx title="page.tsx" "@sm:@lg:bg-red"
 <div className="@sm:@lg:bg-red …"></div>
 ```
 
@@ -92,6 +105,8 @@ A breakpoint is a `min-width`, so two of them describe one range with a single l
   }
 }
 ```
+
+</CodeGroup>
 
 `@sm` is gone & nothing warns you. Write the breakpoint you mean, `@lg:bg-red`.
 
