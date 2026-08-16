@@ -40,7 +40,7 @@
       "name": "icon",
       "type": "none",
       "typeName": "ReactNode",
-      "description": "Any icon. Pass the glyph and nothing else - it is sized and colored to match the badge automatically."
+      "description": "Any icon. The slot is sized to the badge and the color is inherited, but a glyph that carries its own width and height keeps them - pass it at the badge's icon size (`w-3 h-3` on `sm` and `md`, `w-4 h-4` on `lg`)."
     },
     {
       "name": "iconPosition",
@@ -70,7 +70,7 @@
     {
       "name": "className",
       "type": "string",
-      "description": "Appended to the badge's classes, so any Yumma CSS utility you pass wins."
+      "description": "Appended to the badge's classes, for anything the component leaves unset - a margin, `fs-0` in a flex row. It will not reliably override what the component already sets: which of two utilities wins is decided by the stylesheet's rule order, not by the order you write them. Use `size` for the dimensions."
     }
   ],
   "children": "Label"
