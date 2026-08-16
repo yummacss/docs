@@ -1,0 +1,61 @@
+---
+title: Naming Convention
+description: "How Yumma CSS class names map to CSS property names."
+---
+
+## The Rule
+
+A class is the initials of the CSS property, a dash, then the initials of the value.
+
+```css
+display: flex;                   /* d-f   */
+justify-content: space-between;  /* jc-sb */
+text-transform: uppercase;       /* tt-u  */
+```
+
+Every class resolves to exactly one property.
+
+## Values
+
+Numbers & scales keep their position instead of their initials.
+
+```tsx
+<div className="p-4 fs-lg fw-600 zi-10 …"></div>
+```
+
+Single words with no useful abbreviation keep the word.
+
+```tsx
+<div className="d-none pe-auto bs-none …"></div>
+```
+
+## Shared Prefixes
+
+CSS has more properties than there are short letter pairs, so a few prefixes serve more than one property. The value tells them apart.
+
+| Class     | Property   |
+| --------- | ---------- |
+| `o-50`    | `opacity`  |
+| `o-h`     | `overflow` |
+| `p-4`     | `padding`  |
+| `p-a`     | `position` |
+| `c-white` | `color`    |
+| `c-p`     | `cursor`   |
+
+The two value sets never overlap, so no class is ambiguous.
+
+<Hint icon="info">
+  The [IntelliSense extensions](/docs/intellisense) show the resolved property
+  on hover, so you rarely have to remember which prefix is shared.
+</Hint>
+
+## Exceptions
+
+`block-size` & `inline-size` use their axis, because `bs` & `is` were already taken.
+
+| Class prefix | Property      |
+| ------------ | ------------- |
+| `ys`         | `block-size`  |
+| `xs`         | `inline-size` |
+
+A shared prefix also limits what can be added later. `color-scheme` ships `cs-l`, `cs-d` & `cs-ld`, but not `normal`, because `cs-n` is already `corner-shape: notch`.

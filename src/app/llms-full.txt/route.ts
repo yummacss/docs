@@ -23,7 +23,7 @@ export function GET() {
     "# Yumma CSS: Full Documentation",
     "",
     "Yumma CSS is a utility CSS framework derived directly from CSS property and value initials.",
-    "Every class name maps to exactly one CSS property. If you know CSS, you already know Yumma CSS.",
+    "Every class name maps to exactly one CSS property, drawn from a fixed scale.",
     "",
     "Check your work: `npx @yummacss/canon` reports every class Yumma CSS does not",
     "recognize, with a suggestion when a close match exists. It validates against the",

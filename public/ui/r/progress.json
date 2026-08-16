@@ -1,0 +1,75 @@
+{
+  "id": "progress",
+  "component": "progress",
+  "variant": "base",
+  "kind": "component",
+  "summary": "A labelled progress bar, determinate or indeterminate, in three shapes with an optional card shadow.",
+  "props": [
+    {
+      "name": "value",
+      "type": "none",
+      "typeName": "number | null",
+      "example": 68,
+      "description": "The current value, 0-100. Pass `null` for an indeterminate, always-animated sliding bar - there's no fill level to show, so the schema here can't demo it, but the prop accepts it."
+    },
+    {
+      "name": "label",
+      "type": "none",
+      "typeName": "ReactNode",
+      "example": "Sprint progress",
+      "description": "Text above the track, correctly wired to it via Base UI's own Progress.Label."
+    },
+    {
+      "name": "shape",
+      "type": "enum",
+      "values": [
+        "rounded",
+        "square",
+        "squircle"
+      ],
+      "default": "rounded",
+      "description": "Corner radius on both the track and the indicator."
+    },
+    {
+      "name": "shadow",
+      "type": "enum",
+      "values": [
+        "none",
+        "inset",
+        "outset"
+      ],
+      "default": "none",
+      "description": "Wraps the bar in a padded card. `none` renders it bare, with no card at all."
+    },
+    {
+      "name": "animate",
+      "type": "boolean",
+      "default": true,
+      "description": "The indicator's width transition as `value` changes. Indeterminate progress always animates regardless of this."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "description": "Appended to the root's classes, for anything the component leaves unset - a margin, `fs-0` in a flex row. It will not reliably override what the component already sets: which of two utilities wins is decided by the stylesheet's rule order, not by the order you write them."
+    }
+  ],
+  "useClient": true,
+  "dependencies": [
+    {
+      "name": "@base-ui/react",
+      "version": "^1.7.0"
+    },
+    {
+      "name": "motion",
+      "version": "^13.1.0"
+    }
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "progress.tsx",
+      "target": "components/ui/progress.tsx",
+      "content": "\"use client\";\n\nimport { Progress } from \"@base-ui/react/progress\";\nimport { motion } from \"motion/react\";\nimport type { ReactNode } from \"react\";\n\ntype Shape = \"rounded\" | \"square\" | \"squircle\";\ntype Shadow = \"none\" | \"inset\" | \"outset\";\n\nconst SHAPES: Record<Shape, string> = {\n  rounded: \"br-9999\",\n  square: \"\",\n  squircle: \"br-xxl cs-s\",\n};\n\nconst SHADOWS: Record<Exclude<Shadow, \"none\">, string> = {\n  inset: \"bs-i-sm\",\n  outset: \"bs-o-xs\",\n};\n\nexport interface ProgressProps {\n  /** `null` renders an indeterminate, always-animated sliding bar. */\n  value: number | null;\n  label: ReactNode;\n  shape?: Shape;\n  /** Wraps the meter in a padded card. `none` renders it bare. */\n  shadow?: Shadow;\n  /** The indicator's width transition. Indeterminate progress always\n   * animates regardless of this - a static indeterminate bar can't\n   * communicate anything, since it has no fill level to show. */\n  animate?: boolean;\n  className?: string;\n}\n\nexport default function ProgressBase({\n  value,\n  label,\n  shape = \"rounded\",\n  shadow = \"none\",\n  animate = true,\n  className,\n}: ProgressProps) {\n  const isCard = shadow !== \"none\";\n  const isIndeterminate = value === null;\n\n  const rootClasses = [\n    \"d-f fd-c g-2 w-64\",\n    isCard ? \"p-4 bg-white bc-silver-2 br-lg bw-1\" : \"\",\n    shadow === \"inset\" || shadow === \"outset\" ? SHADOWS[shadow] : \"\",\n    className,\n  ]\n    .filter(Boolean)\n    .join(\" \");\n\n  const trackClasses = [\"o-h h-2 bg-silver-2\", SHAPES[shape]]\n    .filter(Boolean)\n    .join(\" \");\n\n  return (\n    <Progress.Root className={rootClasses} value={value}>\n      <div className=\"d-f jc-sb ai-c\">\n        <Progress.Label className=\"c-slate-10 fs-sm fw-500\">\n          {label}\n        </Progress.Label>\n        <Progress.Value className=\"c-slate-8 fs-sm\" />\n      </div>\n      <Progress.Track className={trackClasses}>\n        {isIndeterminate ? (\n          <Progress.Indicator\n            render={\n              <motion.div\n                initial={{ x: \"-100%\" }}\n                animate={{ x: \"100%\" }}\n                transition={{\n                  duration: 1,\n                  repeat: Infinity,\n                  ease: \"easeInOut\",\n                }}\n                className={[\"h-100% bg-indigo\", SHAPES[shape]]\n                  .filter(Boolean)\n                  .join(\" \")}\n              />\n            }\n            className=\"h-100%\"\n          />\n        ) : (\n          <Progress.Indicator\n            render={\n              animate ? (\n                <motion.div\n                  animate={{ width: `${value}%` }}\n                  transition={{ duration: 0.5, ease: \"easeOut\" }}\n                />\n              ) : undefined\n            }\n            className={(state) =>\n              [\n                \"h-100%\",\n                SHAPES[shape],\n                state.status === \"complete\" ? \"bg-green\" : \"bg-indigo\",\n              ]\n                .filter(Boolean)\n                .join(\" \")\n            }\n          />\n        )}\n      </Progress.Track>\n    </Progress.Root>\n  );\n}\n"
+    }
+  ]
+}

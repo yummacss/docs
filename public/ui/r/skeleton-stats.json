@@ -1,0 +1,18 @@
+{
+  "id": "skeleton-stats",
+  "component": "skeleton",
+  "variant": "stats",
+  "kind": "example",
+  "useClient": false,
+  "dependencies": [],
+  "registryDependencies": [
+    "skeleton"
+  ],
+  "files": [
+    {
+      "path": "skeleton-stats.tsx",
+      "target": "components/ui/skeleton-stats.tsx",
+      "content": "import Skeleton from \"./skeleton\";\n\nconst CARDS = Array.from({ length: 3 }, (_, i) => ({ id: `card-${i}` }));\n\nexport default function SkeletonStats() {\n  return (\n    <div className=\"d-f g-6 p-8 h-56\">\n      {CARDS.map((card, column) => (\n        <div key={card.id} className=\"d-f fd-c ai-c jc-c g-3 fg-1\">\n          <Skeleton shape=\"block\" size=\"w-10 h-10\" delay={column * 0.15} />\n          <Skeleton size=\"h-6 w-16\" delay={column * 0.15} />\n          <Skeleton tone=\"subtle\" size=\"h-3 w-12\" delay={column * 0.15} />\n        </div>\n      ))}\n    </div>\n  );\n}\n"
+    }
+  ]
+}

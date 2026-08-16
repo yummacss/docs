@@ -1,0 +1,18 @@
+{
+  "id": "autocomplete-helper",
+  "component": "autocomplete",
+  "variant": "helper",
+  "kind": "example",
+  "useClient": false,
+  "dependencies": [],
+  "registryDependencies": [
+    "autocomplete"
+  ],
+  "files": [
+    {
+      "path": "autocomplete-helper.tsx",
+      "target": "components/ui/autocomplete-helper.tsx",
+      "content": "import Autocomplete, { type AutocompleteItem } from \"./autocomplete\";\n\nexport default function AutocompleteHelper() {\n  return (\n    <Autocomplete\n      items={teamMembers}\n      label={\n        <>\n          Assign member <span className=\"c-red-5\">*</span>\n        </>\n      }\n      placeholder=\"Search members\"\n      description=\"Only project members can be assigned.\"\n    />\n  );\n}\n\nconst teamMembers: AutocompleteItem[] = [\n  \"Adrian\",\n  \"Aidan\",\n  \"Jade\",\n  \"Jessica\",\n  \"Jocelyn\",\n  \"John\",\n  \"Katherine\",\n  \"Liam\",\n  \"Liliana\",\n  \"Maria\",\n  \"Melanie\",\n  \"Noah\",\n].map((label) => ({ label }));\n"
+    }
+  ]
+}

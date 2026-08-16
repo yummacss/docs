@@ -1,0 +1,18 @@
+{
+  "id": "combobox-grouped",
+  "component": "combobox",
+  "variant": "grouped",
+  "kind": "example",
+  "useClient": false,
+  "dependencies": [],
+  "registryDependencies": [
+    "combobox"
+  ],
+  "files": [
+    {
+      "path": "combobox-grouped.tsx",
+      "target": "components/ui/combobox-grouped.tsx",
+      "content": "import Combobox, { type ComboboxGroup } from \"./combobox\";\n\nexport default function ComboboxGrouped() {\n  return (\n    <Combobox\n      items={teamGroups}\n      label=\"Advanced search\"\n      placeholder=\"Search by name or role...\"\n      emptyMessage=\"No members found.\"\n    />\n  );\n}\n\nconst teamGroups: ComboboxGroup[] = [\n  {\n    group: \"Frontend\",\n    items: [\n      {\n        label: \"John\",\n        description: \"Frontend Developer\",\n        avatar:\n          \"https://api.dicebear.com/9.x/notionists/svg?seed=John&backgroundColor=DAF0B9\",\n      },\n      {\n        label: \"Noah\",\n        description: \"UI Engineer\",\n        avatar:\n          \"https://api.dicebear.com/9.x/notionists/svg?seed=Noah&backgroundColor=D0D1FB\",\n      },\n      {\n        label: \"Melanie\",\n        description: \"React Developer\",\n        avatar:\n          \"https://api.dicebear.com/9.x/notionists/svg?seed=Melanie&backgroundColor=DCCEFC\",\n      },\n    ],\n  },\n  {\n    group: \"Backend\",\n    items: [\n      {\n        label: \"Adrian\",\n        description: \"Backend Developer\",\n        avatar:\n          \"https://api.dicebear.com/9.x/notionists/svg?seed=Adrian&backgroundColor=FFD4DE\",\n      },\n      {\n        label: \"Maria\",\n        description: \"API Engineer\",\n        avatar:\n          \"https://api.dicebear.com/9.x/notionists/svg?seed=Maria&backgroundColor=DCCEFC\",\n      },\n      {\n        label: \"Liam\",\n        description: \"Node.js Developer\",\n        avatar:\n          \"https://api.dicebear.com/9.x/notionists/svg?seed=Liam&backgroundColor=D0D1FB\",\n      },\n    ],\n  },\n  {\n    group: \"DevOps\",\n    items: [\n      {\n        label: \"Jessica\",\n        description: \"DevOps Engineer\",\n        avatar:\n          \"https://api.dicebear.com/9.x/notionists/svg?seed=Jessica&backgroundColor=DAF0B9\",\n      },\n      {\n        label: \"Aiden\",\n        description: \"SRE\",\n        avatar:\n          \"https://api.dicebear.com/9.x/notionists/svg?seed=Aiden&backgroundColor=B4E9F2\",\n      },\n      {\n        label: \"Wyatt\",\n        description: \"Platform Engineer\",\n        avatar:\n          \"https://api.dicebear.com/9.x/notionists/svg?seed=Wyatt&backgroundColor=FFD4DE\",\n      },\n    ],\n  },\n];\n"
+    }
+  ]
+}

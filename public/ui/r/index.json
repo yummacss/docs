@@ -1,0 +1,287 @@
+{
+  "components": [
+    {
+      "component": "accordion",
+      "title": "Accordion",
+      "base": "accordion"
+    },
+    {
+      "component": "alert-dialog",
+      "title": "Alert Dialog",
+      "base": "alert-dialog"
+    },
+    {
+      "component": "autocomplete",
+      "title": "Autocomplete",
+      "base": "autocomplete"
+    },
+    {
+      "component": "avatar",
+      "title": "Avatar",
+      "base": "avatar"
+    },
+    {
+      "component": "badge",
+      "title": "Badge",
+      "base": "badge"
+    },
+    {
+      "component": "breadcrumb",
+      "title": "Breadcrumb",
+      "base": "breadcrumb"
+    },
+    {
+      "component": "button",
+      "title": "Button",
+      "base": "button"
+    },
+    {
+      "component": "checkbox",
+      "title": "Checkbox",
+      "base": "checkbox"
+    },
+    {
+      "component": "collapsible",
+      "title": "Collapsible",
+      "base": "collapsible"
+    },
+    {
+      "component": "combobox",
+      "title": "Combobox",
+      "base": "combobox"
+    },
+    {
+      "component": "command-palette",
+      "title": "Command Palette",
+      "base": "command-palette"
+    },
+    {
+      "component": "context-menu",
+      "title": "Context Menu",
+      "base": "context-menu"
+    },
+    {
+      "component": "dialog",
+      "title": "Dialog",
+      "base": "dialog"
+    },
+    {
+      "component": "empty-state",
+      "title": "Empty State",
+      "base": "empty-state"
+    },
+    {
+      "component": "field",
+      "title": "Field",
+      "base": "field"
+    },
+    {
+      "component": "file-upload",
+      "title": "File Upload",
+      "base": "file-upload"
+    },
+    {
+      "component": "menu",
+      "title": "Menu",
+      "base": "menu"
+    },
+    {
+      "component": "menubar",
+      "title": "Menubar",
+      "base": "menubar"
+    },
+    {
+      "component": "meter",
+      "title": "Meter",
+      "base": "meter"
+    },
+    {
+      "component": "number-field",
+      "title": "Number Field",
+      "base": "number-field"
+    },
+    {
+      "component": "onboarding",
+      "title": "Onboarding",
+      "base": "onboarding"
+    },
+    {
+      "component": "popover",
+      "title": "Popover",
+      "base": "popover"
+    },
+    {
+      "component": "preview-card",
+      "title": "Preview Card",
+      "base": "preview-card"
+    },
+    {
+      "component": "progress",
+      "title": "Progress",
+      "base": "progress"
+    },
+    {
+      "component": "radio",
+      "title": "Radio",
+      "base": "radio"
+    },
+    {
+      "component": "rating",
+      "title": "Rating",
+      "base": "rating"
+    },
+    {
+      "component": "select",
+      "title": "Select",
+      "base": "select"
+    },
+    {
+      "component": "separator",
+      "title": "Separator",
+      "base": "separator"
+    },
+    {
+      "component": "skeleton",
+      "title": "Skeleton",
+      "base": "skeleton"
+    },
+    {
+      "component": "slider",
+      "title": "Slider",
+      "base": "slider"
+    },
+    {
+      "component": "switch",
+      "title": "Switch",
+      "base": "switch"
+    },
+    {
+      "component": "tabs",
+      "title": "Tabs",
+      "base": "tabs"
+    },
+    {
+      "component": "textarea",
+      "title": "Textarea",
+      "base": "textarea"
+    },
+    {
+      "component": "toggle",
+      "title": "Toggle",
+      "base": "toggle"
+    },
+    {
+      "component": "toolbar",
+      "title": "Toolbar",
+      "base": "toolbar"
+    },
+    {
+      "component": "tooltip",
+      "title": "Tooltip",
+      "base": "tooltip"
+    }
+  ],
+  "blocks": [
+    {
+      "id": "autocomplete-loading",
+      "component": "autocomplete"
+    },
+    {
+      "id": "avatar-edit",
+      "component": "avatar"
+    },
+    {
+      "id": "avatar-stacked",
+      "component": "avatar"
+    },
+    {
+      "id": "button-group",
+      "component": "button"
+    },
+    {
+      "id": "button-group-icon",
+      "component": "button"
+    },
+    {
+      "id": "button-group-pill",
+      "component": "button"
+    },
+    {
+      "id": "button-group-pill-label",
+      "component": "button"
+    },
+    {
+      "id": "checkbox-group-label",
+      "component": "checkbox"
+    },
+    {
+      "id": "checkbox-group-nested-parent",
+      "component": "checkbox"
+    },
+    {
+      "id": "checkbox-parent",
+      "component": "checkbox"
+    },
+    {
+      "id": "dialog-edit-profile",
+      "component": "dialog"
+    },
+    {
+      "id": "dialog-nested",
+      "component": "dialog"
+    },
+    {
+      "id": "dialog-new-task",
+      "component": "dialog"
+    },
+    {
+      "id": "dialog-send-invite",
+      "component": "dialog"
+    },
+    {
+      "id": "dialog-share-task",
+      "component": "dialog"
+    },
+    {
+      "id": "dialog-sign-in",
+      "component": "dialog"
+    },
+    {
+      "id": "dialog-sign-up",
+      "component": "dialog"
+    },
+    {
+      "id": "field-button",
+      "component": "field"
+    },
+    {
+      "id": "field-password",
+      "component": "field"
+    },
+    {
+      "id": "popover-color-palette",
+      "component": "popover"
+    },
+    {
+      "id": "preview-card-compact",
+      "component": "preview-card"
+    },
+    {
+      "id": "preview-card-multiple",
+      "component": "preview-card"
+    },
+    {
+      "id": "rating-feedback",
+      "component": "rating"
+    },
+    {
+      "id": "toggle-color-picker",
+      "component": "toggle"
+    },
+    {
+      "id": "toggle-group",
+      "component": "toggle"
+    }
+  ],
+  "generated": 86
+}

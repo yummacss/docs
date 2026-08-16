@@ -1,0 +1,20 @@
+{
+  "id": "dialog-sign-up",
+  "component": "dialog",
+  "variant": "sign-up",
+  "kind": "block",
+  "useClient": false,
+  "dependencies": [],
+  "registryDependencies": [
+    "checkbox",
+    "dialog",
+    "field"
+  ],
+  "files": [
+    {
+      "path": "dialog-sign-up.tsx",
+      "target": "components/ui/dialog-sign-up.tsx",
+      "content": "import Checkbox from \"./checkbox\";\nimport Dialog from \"./dialog\";\nimport Field from \"./field\";\n\nexport default function DialogSignUp() {\n  return (\n    <Dialog\n      trigger=\"Sign up\"\n      title=\"Create account\"\n      confirmLabel=\"Create account\"\n    >\n      <div className=\"d-f fd-c g-4\">\n        <Field fullWidth label=\"Full name\" placeholder=\"John Smith\" />\n        <Field\n          fullWidth\n          type=\"email\"\n          label=\"Email\"\n          placeholder=\"you@company.com\"\n        />\n        <div className=\"d-g g-3 @sm:gtc-2\">\n          <Field\n            fullWidth\n            type=\"password\"\n            label=\"Password\"\n            placeholder=\"••••••••\"\n          />\n          <Field\n            fullWidth\n            type=\"password\"\n            label=\"Confirm\"\n            placeholder=\"••••••••\"\n          />\n        </div>\n        <Checkbox\n          label={\n            <>\n              I agree to the{\" \"}\n              <a href=\"#\" className=\"c-indigo td-none h:td-u\">\n                Terms of Service\n              </a>\n            </>\n          }\n        />\n      </div>\n    </Dialog>\n  );\n}\n"
+    }
+  ]
+}

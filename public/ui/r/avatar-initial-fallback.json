@@ -1,0 +1,18 @@
+{
+  "id": "avatar-initial-fallback",
+  "component": "avatar",
+  "variant": "initial-fallback",
+  "kind": "example",
+  "useClient": false,
+  "dependencies": [],
+  "registryDependencies": [
+    "avatar"
+  ],
+  "files": [
+    {
+      "path": "avatar-initial-fallback.tsx",
+      "target": "components/ui/avatar-initial-fallback.tsx",
+      "content": "import Avatar, { type AvatarProps } from \"./avatar\";\n\nexport default function AvatarFallbackInitial() {\n  return (\n    <div className=\"d-f ai-c g-4\">\n      {tints.map((tint) => (\n        <Avatar key={tint} fallback=\"ME\" tint={tint} />\n      ))}\n    </div>\n  );\n}\n\nconst tints: NonNullable<AvatarProps[\"tint\"]>[] = [\"lime\", \"cyan\", \"indigo\"];\n"
+    }
+  ]
+}

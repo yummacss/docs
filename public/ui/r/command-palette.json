@@ -1,0 +1,165 @@
+{
+  "id": "command-palette",
+  "component": "command-palette",
+  "variant": "base",
+  "kind": "component",
+  "summary": "A searchable command dialog, grouped, with optional per-item descriptions, shortcuts and icons.",
+  "props": [
+    {
+      "name": "trigger",
+      "type": "none",
+      "typeName": "ReactNode",
+      "example": "Commands",
+      "description": "The trigger button's label. A search glyph is always drawn beside it."
+    },
+    {
+      "name": "groups",
+      "type": "none",
+      "typeName": "CommandGroup[]",
+      "example": [
+        {
+          "label": "Actions",
+          "items": [
+            {
+              "id": "new-doc",
+              "label": "New doc",
+              "icon": {
+                "$icon": "PagePlus",
+                "size": "w-4 h-4"
+              },
+              "shortcut": "⌘N"
+            },
+            {
+              "id": "drafts",
+              "label": "Drafts",
+              "icon": {
+                "$icon": "Page",
+                "size": "w-4 h-4"
+              },
+              "shortcut": "⌘D"
+            },
+            {
+              "id": "templates",
+              "label": "Templates",
+              "icon": {
+                "$icon": "Folder",
+                "size": "w-4 h-4"
+              }
+            }
+          ]
+        },
+        {
+          "label": "Pages",
+          "items": [
+            {
+              "id": "knowledge-base",
+              "label": "Knowledge base",
+              "icon": {
+                "$icon": "PageSearch",
+                "size": "w-4 h-4"
+              },
+              "description": "Everything the team has written down"
+            },
+            {
+              "id": "analytics",
+              "label": "Analytics",
+              "icon": {
+                "$icon": "StatUp",
+                "size": "w-4 h-4"
+              },
+              "description": "Views, referrers and search terms"
+            },
+            {
+              "id": "settings",
+              "label": "Settings",
+              "icon": {
+                "$icon": "Wrench",
+                "size": "w-4 h-4"
+              },
+              "description": "Workspace, members and billing"
+            }
+          ]
+        }
+      ],
+      "description": "Each group's `label` and its `items`. An item takes `id`, `label`, and optional `description`, `shortcut`, `icon` and `onSelect`. A divider is drawn between groups automatically."
+    },
+    {
+      "name": "placeholder",
+      "type": "string",
+      "default": "Search commands...",
+      "description": "The search input's placeholder."
+    },
+    {
+      "name": "emptyMessage",
+      "type": "string",
+      "default": "No commands found.",
+      "description": "Shown when the query matches nothing."
+    },
+    {
+      "name": "iconPosition",
+      "type": "enum",
+      "values": [
+        "leading",
+        "trailing"
+      ],
+      "default": "leading",
+      "description": "Which end of an item its `icon` sits at. A `shortcut` always trails regardless."
+    },
+    {
+      "name": "shape",
+      "type": "enum",
+      "values": [
+        "rounded",
+        "square",
+        "squircle"
+      ],
+      "default": "rounded",
+      "description": "Corner radius on the trigger, the popup and its items."
+    },
+    {
+      "name": "shadow",
+      "type": "enum",
+      "values": [
+        "none",
+        "inset",
+        "outset"
+      ],
+      "default": "none",
+      "description": "Depth on the popup."
+    },
+    {
+      "name": "animate",
+      "type": "boolean",
+      "default": true,
+      "description": "The backdrop's fade and the popup's scale-in. Turn it off for an instant palette, or when the user has asked for reduced motion."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "description": "Appended to the trigger's classes, for anything the component leaves unset - a margin, `fs-0` in a flex row. It will not reliably override what the component already sets: which of two utilities wins is decided by the stylesheet's rule order, not by the order you write them."
+    }
+  ],
+  "useClient": true,
+  "dependencies": [
+    {
+      "name": "@base-ui/react",
+      "version": "^1.7.0"
+    },
+    {
+      "name": "iconoir-react",
+      "version": "^7.12.1"
+    },
+    {
+      "name": "motion",
+      "version": "^13.1.0"
+    }
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "command-palette.tsx",
+      "target": "components/ui/command-palette.tsx",
+      "content": "\"use client\";\n\nimport { Button } from \"@base-ui/react/button\";\nimport { Combobox } from \"@base-ui/react/combobox\";\nimport { Dialog } from \"@base-ui/react/dialog\";\nimport { Search } from \"iconoir-react\";\nimport { AnimatePresence, motion } from \"motion/react\";\nimport type { ReactNode } from \"react\";\nimport { useState } from \"react\";\n\ntype Shape = \"rounded\" | \"square\" | \"squircle\";\ntype Shadow = \"none\" | \"inset\" | \"outset\";\ntype IconPosition = \"leading\" | \"trailing\";\n\nconst POPUP_SHAPES: Record<Shape, string> = {\n  rounded: \"br-xxl\",\n  square: \"\",\n  squircle: \"br-3xl cs-s\",\n};\n\nconst ITEM_SHAPES: Record<Shape, string> = {\n  rounded: \"br-lg\",\n  square: \"\",\n  squircle: \"br-xxl cs-s\",\n};\n\nconst SHADOWS: Record<Exclude<Shadow, \"none\">, string> = {\n  inset: \"bs-i-sm\",\n  outset: \"bs-o-xs\",\n};\n\nexport interface CommandItem {\n  id: string;\n  label: string;\n  /** A second line under the label. */\n  description?: string;\n  /** Shown in a key cap at the far end, e.g. `\"⌘K\"`. */\n  shortcut?: string;\n  icon?: ReactNode;\n  onSelect?: () => void;\n}\n\nexport interface CommandGroup {\n  label: string;\n  items: CommandItem[];\n}\n\nexport interface CommandPaletteProps {\n  /** The trigger button's label. */\n  trigger: ReactNode;\n  groups: CommandGroup[];\n  placeholder?: string;\n  /** Shown when the query matches nothing. */\n  emptyMessage?: string;\n  /** Which end of an item its `icon` sits at. A `shortcut` always trails. */\n  iconPosition?: IconPosition;\n  shape?: Shape;\n  shadow?: Shadow;\n  /** The backdrop's fade and the popup's scale-in. */\n  animate?: boolean;\n  className?: string;\n}\n\nexport default function CommandPaletteBase({\n  trigger,\n  groups,\n  placeholder = \"Search commands...\",\n  emptyMessage = \"No commands found.\",\n  iconPosition = \"leading\",\n  shape = \"rounded\",\n  shadow = \"none\",\n  animate = true,\n  className,\n}: CommandPaletteProps) {\n  const [open, setOpen] = useState(false);\n\n  const triggerClasses = [\n    \"bg-white d-f ai-c g-2 px-3 py-2 bc-silver-2 c-slate-10 bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:oo-2 fv:oc-indigo-5\",\n    ITEM_SHAPES[shape],\n    className,\n  ]\n    .filter(Boolean)\n    .join(\" \");\n\n  const popupClasses = [\n    \"o-h w-96 bg-white bc-silver-2 c-slate-10 bw-1\",\n    POPUP_SHAPES[shape],\n    shadow === \"inset\" || shadow === \"outset\" ? SHADOWS[shadow] : \"\",\n  ]\n    .filter(Boolean)\n    .join(\" \");\n\n  const itemClasses = (spread: boolean) => (state: { highlighted: boolean }) =>\n    [\n      \"d-f ai-c g-2 py-2 px-2 mx-2 fs-sm us-none c-p\",\n      spread ? \"jc-sb\" : \"\",\n      ITEM_SHAPES[shape],\n      state.highlighted ? \"bg-silver-2/50\" : \"bg-transparent\",\n    ]\n      .filter(Boolean)\n      .join(\" \");\n\n  const popup = (\n    <Dialog.Portal keepMounted>\n      <Dialog.Backdrop\n        render={\n          animate ? (\n            <motion.div\n              initial={{ opacity: 0 }}\n              animate={{ opacity: 1 }}\n              exit={{ opacity: 0 }}\n              transition={{ duration: 0.2, ease: \"easeOut\" }}\n            />\n          ) : undefined\n        }\n        className=\"p-f i-0 min-h-dvh bg-black/5 bf-b-xs\"\n      />\n      <div className=\"d-f p-f i-0 ai-c jc-c\">\n        <Dialog.Popup\n          render={\n            animate ? (\n              <motion.div\n                initial={{ opacity: 0, scale: 0.95 }}\n                animate={{ opacity: 1, scale: 1 }}\n                exit={{ opacity: 0, scale: 0.95 }}\n                transition={{ duration: 0.2, ease: \"easeOut\" }}\n              />\n            ) : undefined\n          }\n          className={popupClasses}\n          style={{ maxWidth: \"90vw\" }}\n        >\n          <Combobox.Root inline items={groups} autoHighlight>\n            <div className=\"d-f ai-c g-2 px-4 py-1\">\n              <Search className=\"fs-0 w-5 h-5 c-slate-4\" />\n              <Combobox.Input\n                placeholder={placeholder}\n                autoFocus\n                className=\"h-10 w-100% bg-transparent c-slate-10 fs-md\"\n              />\n            </div>\n            <div className=\"w-100% h-px bg-silver-2\" />\n            <div>\n              <Combobox.List className=\"oy-auto max-h-72 py-1 ow-0\">\n                {(group: CommandGroup, groupIndex: number) => (\n                  <Combobox.Group key={group.label}>\n                    <div className=\"px-4 pt-2 pb-1 c-slate-5 fs-xs fw-500\">\n                      {group.label}\n                    </div>\n                    {group.items.map((item) => {\n                      const trailing =\n                        Boolean(item.shortcut) ||\n                        (Boolean(item.icon) && iconPosition === \"trailing\");\n\n                      return (\n                        <Combobox.Item\n                          key={item.id}\n                          value={item.id}\n                          onClick={() => {\n                            item.onSelect?.();\n                            setOpen(false);\n                          }}\n                          className={itemClasses(trailing)}\n                        >\n                          {item.icon && iconPosition === \"leading\" && (\n                            <span className=\"d-f fs-0 c-slate-5\">\n                              {item.icon}\n                            </span>\n                          )}\n\n                          <span className=\"d-f fd-c fg-1\">\n                            <span className=\"c-slate-10 fw-500\">\n                              {item.label}\n                            </span>\n                            {item.description && (\n                              <span className=\"c-slate-5 fs-xs\">\n                                {item.description}\n                              </span>\n                            )}\n                          </span>\n\n                          {item.icon && iconPosition === \"trailing\" && (\n                            <span className=\"d-f fs-0 c-slate-5\">\n                              {item.icon}\n                            </span>\n                          )}\n                          {item.shortcut && (\n                            <span className=\"d-f ai-c g-1 px-1 py-1 ml-3 bc-silver-2 bw-1 c-slate-5 br-md fs-xs us-none\">\n                              {item.shortcut}\n                            </span>\n                          )}\n                        </Combobox.Item>\n                      );\n                    })}\n                    {groupIndex < groups.length - 1 && (\n                      <div className=\"w-100% h-px my-1 bg-silver-2\" />\n                    )}\n                  </Combobox.Group>\n                )}\n              </Combobox.List>\n              <Combobox.Empty className=\"c-slate-6 fs-sm\">\n                <div className=\"py-8 px-4 ta-c fs-sm\">{emptyMessage}</div>\n              </Combobox.Empty>\n            </div>\n          </Combobox.Root>\n        </Dialog.Popup>\n      </div>\n    </Dialog.Portal>\n  );\n\n  return (\n    <Dialog.Root open={open} onOpenChange={setOpen}>\n      <Dialog.Trigger render={<Button className={triggerClasses} />}>\n        <Search className=\"w-4 h-4\" />\n        <span>{trigger}</span>\n      </Dialog.Trigger>\n\n      {animate ? (\n        <AnimatePresence>{open && popup}</AnimatePresence>\n      ) : (\n        open && popup\n      )}\n    </Dialog.Root>\n  );\n}\n"
+    }
+  ]
+}

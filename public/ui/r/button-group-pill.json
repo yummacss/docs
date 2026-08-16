@@ -1,0 +1,24 @@
+{
+  "id": "button-group-pill",
+  "component": "button",
+  "variant": "group-pill",
+  "kind": "block",
+  "useClient": false,
+  "dependencies": [
+    {
+      "name": "iconoir-react",
+      "version": "^7.12.1"
+    }
+  ],
+  "registryDependencies": [
+    "button",
+    "separator"
+  ],
+  "files": [
+    {
+      "path": "button-group-pill.tsx",
+      "target": "components/ui/button-group-pill.tsx",
+      "content": "import { ThumbsDown, ThumbsUp } from \"iconoir-react\";\nimport Button from \"./button\";\nimport Separator from \"./separator\";\n\nexport default function ButtonGroupPill() {\n  return (\n    <div className=\"d-f ai-c g-0 p-1 w-fc bg-white bc-silver-2 bw-1 br-9999\">\n      <Button variant=\"ghost\" size=\"md\" shape=\"pill\" iconOnly>\n        <ThumbsUp className=\"w-4 h-4\" />\n      </Button>\n      <Separator orientation=\"vertical\" className=\"my-1 mx-1\" />\n      <Button variant=\"ghost\" size=\"md\" shape=\"pill\" iconOnly>\n        <ThumbsDown className=\"w-4 h-4\" />\n      </Button>\n    </div>\n  );\n}\n"
+    }
+  ]
+}

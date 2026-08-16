@@ -1,0 +1,18 @@
+{
+  "id": "skeleton-filters",
+  "component": "skeleton",
+  "variant": "filters",
+  "kind": "example",
+  "useClient": false,
+  "dependencies": [],
+  "registryDependencies": [
+    "skeleton"
+  ],
+  "files": [
+    {
+      "path": "skeleton-filters.tsx",
+      "target": "components/ui/skeleton-filters.tsx",
+      "content": "import Skeleton from \"./skeleton\";\n\nexport default function SkeletonFilters() {\n  return (\n    <div className=\"d-f fd-c g-4 p-8 h-56\">\n      <Skeleton shape=\"block\" size=\"h-10 w-100%\" />\n      <div className=\"d-f g-2\">\n        <Skeleton shape=\"circle\" size=\"h-6 w-16\" delay={0.05} />\n        <Skeleton shape=\"circle\" size=\"h-6 w-20\" delay={0.1} />\n        <Skeleton shape=\"circle\" size=\"h-6 w-14\" delay={0.15} />\n      </div>\n      <Skeleton tone=\"subtle\" size=\"h-3 w-24\" delay={0.2} />\n      <div className=\"d-f ai-c g-4\">\n        <Skeleton shape=\"block\" size=\"w-9 h-9\" delay={0.25} className=\"fs-0\" />\n        <div className=\"d-f fd-c g-1 fg-1\">\n          <Skeleton size=\"h-3 w-48\" delay={0.25} />\n          <Skeleton tone=\"subtle\" size=\"h-2 w-32\" delay={0.25} />\n        </div>\n      </div>\n    </div>\n  );\n}\n"
+    }
+  ]
+}

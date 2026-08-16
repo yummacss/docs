@@ -1,0 +1,153 @@
+{
+  "id": "accordion",
+  "component": "accordion",
+  "variant": "base",
+  "kind": "component",
+  "summary": "A vertically stacked set of collapsible panels, in four variants, with single or multiple selection.",
+  "props": [
+    {
+      "name": "items",
+      "type": "none",
+      "typeName": "AccordionItem[]",
+      "example": [
+        {
+          "value": "access",
+          "title": "How do I control team access?",
+          "content": "Go to Team Settings to manage roles. Assign Admin, Member, or Viewer roles."
+        },
+        {
+          "value": "notifications",
+          "title": "How do I customize notifications?",
+          "content": "Visit Settings > Notifications. Choose what triggers email or in-app alerts."
+        },
+        {
+          "value": "sprints",
+          "title": "How do I manage sprints?",
+          "content": "Create sprints from the Sprint page. Track progress with the burndown chart."
+        }
+      ],
+      "description": "Each item's `value`, `title`, `content` and optional `disabled`. `value` is what `defaultValue`/`value` reference to control which items are open."
+    },
+    {
+      "name": "variant",
+      "type": "enum",
+      "values": [
+        "default",
+        "bordered",
+        "ghost",
+        "subtle"
+      ],
+      "default": "default",
+      "description": "`default` is a plain list divided by `separator`. `bordered` boxes each item. `ghost` marks the open item with a left border. `subtle` fills the open item's background."
+    },
+    {
+      "name": "shape",
+      "type": "enum",
+      "values": [
+        "rounded",
+        "square",
+        "squircle"
+      ],
+      "default": "rounded",
+      "description": "Corner radius on `bordered` items. The other variants use a fixed radius, since no shape was ever paired with them."
+    },
+    {
+      "name": "shadow",
+      "type": "enum",
+      "values": [
+        "none",
+        "inset",
+        "outset"
+      ],
+      "default": "none",
+      "description": "Wraps the whole list in a card. Only applies to the `default` variant."
+    },
+    {
+      "name": "separator",
+      "type": "boolean",
+      "default": true,
+      "description": "The divider between items. Only visible on the `default` variant."
+    },
+    {
+      "name": "icon",
+      "type": "enum",
+      "values": [
+        "chevron",
+        "plus-minus"
+      ],
+      "default": "chevron",
+      "description": "`chevron` rotates one glyph 180°. `plus-minus` swaps between two glyphs with a small rotation flourish."
+    },
+    {
+      "name": "iconPosition",
+      "type": "enum",
+      "values": [
+        "leading",
+        "trailing"
+      ],
+      "default": "trailing",
+      "description": "Which end of the trigger the icon sits at."
+    },
+    {
+      "name": "multiple",
+      "type": "boolean",
+      "default": false,
+      "description": "Allow more than one item open at once. Off keeps opening one item closed the rest."
+    },
+    {
+      "name": "defaultValue",
+      "type": "none",
+      "typeName": "string[]",
+      "example": [
+        "notifications"
+      ],
+      "description": "Which items start open, by `value`. Pair `value` with `onValueChange` instead if you are controlling it."
+    },
+    {
+      "name": "value",
+      "type": "none",
+      "typeName": "string[]",
+      "description": "Controlled open items, by `value`."
+    },
+    {
+      "name": "onValueChange",
+      "type": "none",
+      "typeName": "(value: string[]) => void",
+      "description": "Called with the new open items. Required for a controlled accordion."
+    },
+    {
+      "name": "animate",
+      "type": "boolean",
+      "default": true,
+      "description": "The icon's rotation & the panel's height/opacity animation. Turn it off for an instant expand/collapse, or when the user has asked for reduced motion."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "description": "Appended to the list's classes, for anything the component leaves unset - a margin, `fs-0` in a flex row. It will not reliably override what the component already sets: which of two utilities wins is decided by the stylesheet's rule order, not by the order you write them."
+    }
+  ],
+  "useClient": true,
+  "dependencies": [
+    {
+      "name": "@base-ui/react",
+      "version": "^1.7.0"
+    },
+    {
+      "name": "iconoir-react",
+      "version": "^7.12.1"
+    },
+    {
+      "name": "motion",
+      "version": "^13.1.0"
+    }
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "accordion.tsx",
+      "target": "components/ui/accordion.tsx",
+      "content": "\"use client\";\n\nimport { Accordion } from \"@base-ui/react/accordion\";\nimport { Lock, Minus, NavArrowDown, Plus } from \"iconoir-react\";\nimport { type HTMLMotionProps, motion } from \"motion/react\";\nimport type { ReactNode } from \"react\";\nimport { useState } from \"react\";\n\ntype Variant = \"default\" | \"bordered\" | \"ghost\" | \"subtle\";\ntype Shape = \"rounded\" | \"square\" | \"squircle\";\ntype Shadow = \"none\" | \"inset\" | \"outset\";\ntype Icon = \"chevron\" | \"plus-minus\";\ntype IconPosition = \"leading\" | \"trailing\";\n\nexport interface AccordionItem {\n  value: string;\n  title: string;\n  content: ReactNode;\n  disabled?: boolean;\n}\n\nconst SHAPES: Record<Shape, { item: string; trigger: string }> = {\n  rounded: { item: \"br-lg\", trigger: \"br-sm\" },\n  square: { item: \"\", trigger: \"\" },\n  squircle: { item: \"br-xxl cs-s\", trigger: \"br-xxl cs-s\" },\n};\n\nconst SHADOWS: Record<Exclude<Shadow, \"none\">, string> = {\n  inset: \"bs-i-sm\",\n  outset: \"bs-o-xs\",\n};\n\nexport interface AccordionProps {\n  items: AccordionItem[];\n  variant?: Variant;\n  /** Corner radius on `bordered` items. Other variants use a fixed radius. */\n  shape?: Shape;\n  /** Wraps the whole list in a card. Only applies to the `default` variant. */\n  shadow?: Shadow;\n  /** The divider between items. Only visible on the `default` variant. */\n  separator?: boolean;\n  icon?: Icon;\n  iconPosition?: IconPosition;\n  /** Allow more than one item open at once. */\n  multiple?: boolean;\n  defaultValue?: string[];\n  value?: string[];\n  onValueChange?: (value: string[]) => void;\n  /** The chevron's rotation & the panel's height/opacity animation. */\n  animate?: boolean;\n  className?: string;\n}\n\nexport default function AccordionBase({\n  items,\n  variant = \"default\",\n  shape = \"rounded\",\n  shadow = \"none\",\n  separator = true,\n  icon = \"chevron\",\n  iconPosition = \"trailing\",\n  multiple = false,\n  defaultValue,\n  value: controlledValue,\n  onValueChange,\n  animate = true,\n  className,\n}: AccordionProps) {\n  const [internalValue, setInternalValue] = useState<string[]>(\n    defaultValue ?? controlledValue ?? [],\n  );\n  const value = controlledValue ?? internalValue;\n\n  const handleValueChange = (next: string[]) => {\n    setInternalValue(next);\n    onValueChange?.(next);\n  };\n\n  const isCard = variant === \"default\" && shadow !== \"none\";\n\n  const rootClasses = [\n    \"d-f fd-c w-100% max-w-96\",\n    variant === \"bordered\" || variant === \"subtle\" ? \"g-2\" : \"\",\n    isCard\n      ? [\"bg-white br-lg bw-1 bc-silver-2\", SHADOWS[shadow]]\n          .filter(Boolean)\n          .join(\" \")\n      : \"\",\n    className,\n  ]\n    .filter(Boolean)\n    .join(\" \");\n\n  return (\n    <Accordion.Root\n      className={rootClasses}\n      value={value}\n      onValueChange={handleValueChange}\n      multiple={multiple}\n    >\n      {items.map((item, index) => {\n        const isOpen = value.includes(item.value);\n        const isLast = index === items.length - 1;\n\n        const itemClasses =\n          variant === \"bordered\"\n            ? [\"bg-white bc-silver-3 bw-1\", SHAPES[shape].item]\n                .filter(Boolean)\n                .join(\" \")\n            : variant === \"ghost\"\n              ? [\n                  \"blw-2 pl-4\",\n                  isOpen ? \"blc-indigo-5\" : \"blc-silver-3\",\n                  isLast ? \"\" : \"mb-3\",\n                ]\n                  .filter(Boolean)\n                  .join(\" \")\n              : variant === \"subtle\"\n                ? [\n                    \"br-lg\",\n                    isOpen ? \"bg-indigo-1\" : \"bg-silver-1 h:bg-silver-2\",\n                  ]\n                    .filter(Boolean)\n                    .join(\" \")\n                : separator && !isLast\n                  ? \"bbw-1 bc-silver-3\"\n                  : \"\";\n\n        const triggerRadius =\n          variant === \"bordered\" ? SHAPES[shape].trigger : \"br-sm\";\n        const triggerPadX =\n          variant === \"bordered\" ? \"px-4\" : isCard ? \"px-4\" : \"px-0\";\n        const triggerPadY =\n          variant === \"ghost\"\n            ? \"py-2\"\n            : variant === \"default\" && !separator\n              ? \"py-3\"\n              : \"py-4\";\n        const panelPadX = variant === \"bordered\" || isCard ? \"px-4\" : \"\";\n\n        const titleColor = item.disabled\n          ? \"c-slate-4\"\n          : variant === \"ghost\"\n            ? isOpen\n              ? \"c-indigo-6\"\n              : \"c-slate-8\"\n            : variant === \"subtle\"\n              ? isOpen\n                ? \"c-indigo-7\"\n                : \"c-slate-8\"\n              : \"c-slate-8\";\n        const contentColor =\n          variant === \"subtle\" && isOpen ? \"c-indigo-9\" : \"c-slate-6\";\n        const panelClasses = [\"m-0 pb-4\", panelPadX, \"fs-sm lh-4\", contentColor]\n          .filter(Boolean)\n          .join(\" \");\n        const glyphColor = item.disabled\n          ? \"c-slate-4\"\n          : variant === \"ghost\"\n            ? isOpen\n              ? \"c-indigo-5\"\n              : \"c-slate-6\"\n            : variant === \"subtle\" && isOpen\n              ? \"c-indigo-5\"\n              : \"c-slate-6\";\n\n        return (\n          <Accordion.Item\n            key={item.value}\n            value={item.value}\n            disabled={item.disabled}\n            className={itemClasses}\n          >\n            <Accordion.Header className=\"m-0\">\n              <Accordion.Trigger\n                className={[\n                  \"d-f ai-c\",\n                  iconPosition === \"trailing\" ? \"jc-sb\" : \"\",\n                  \"g-3 w-100%\",\n                  triggerPadY,\n                  triggerPadX,\n                  \"bg-transparent bw-0\",\n                  triggerRadius,\n                  \"ta-l\",\n                  item.disabled ? \"c-na o-60\" : \"c-p\",\n                  \"fv:oo-1 fv:oc-indigo-5\",\n                ]\n                  .filter(Boolean)\n                  .join(\" \")}\n              >\n                {icon === \"plus-minus\" && iconPosition === \"leading\" && (\n                  <PlusMinusGlyph\n                    isOpen={isOpen}\n                    animate={animate}\n                    className={glyphColor}\n                  />\n                )}\n                <div className=\"d-f ai-c g-3\">\n                  <span\n                    className={[\"fs-sm fw-500\", titleColor]\n                      .filter(Boolean)\n                      .join(\" \")}\n                  >\n                    {item.title}\n                  </span>\n                  {item.disabled && (\n                    <Lock className=\"w-3 h-3 c-slate-4\" aria-hidden />\n                  )}\n                </div>\n                {icon === \"chevron\" ? (\n                  <ChevronGlyph\n                    isOpen={isOpen}\n                    animate={animate}\n                    className={glyphColor}\n                  />\n                ) : (\n                  iconPosition === \"trailing\" && (\n                    <PlusMinusGlyph\n                      isOpen={isOpen}\n                      animate={animate}\n                      className={glyphColor}\n                    />\n                  )\n                )}\n              </Accordion.Trigger>\n            </Accordion.Header>\n            {animate ? (\n              <Accordion.Panel\n                keepMounted\n                render={(props) => (\n                  <motion.div\n                    {...(props as HTMLMotionProps<\"div\">)}\n                    initial={false}\n                    animate={\n                      isOpen\n                        ? { height: \"auto\", opacity: 1 }\n                        : { height: 0, opacity: 0 }\n                    }\n                    transition={{ duration: 0.2, ease: \"easeOut\" }}\n                    className=\"d-b o-h\"\n                  />\n                )}\n              >\n                <p className={panelClasses}>{item.content}</p>\n              </Accordion.Panel>\n            ) : (\n              <Accordion.Panel>\n                <p className={panelClasses}>{item.content}</p>\n              </Accordion.Panel>\n            )}\n          </Accordion.Item>\n        );\n      })}\n    </Accordion.Root>\n  );\n}\n\nfunction ChevronGlyph({\n  isOpen,\n  animate,\n  className,\n}: {\n  isOpen: boolean;\n  animate: boolean;\n  className: string;\n}) {\n  if (!animate) {\n    return (\n      <NavArrowDown\n        className={[\"fs-0 w-4 h-4\", isOpen ? \"ro-36\" : \"ro-0\", className]\n          .filter(Boolean)\n          .join(\" \")}\n        aria-hidden\n      />\n    );\n  }\n\n  return (\n    <motion.span\n      animate={{ rotate: isOpen ? 180 : 0 }}\n      transition={{ duration: 0.15, ease: \"easeInOut\" }}\n      className=\"d-f\"\n    >\n      <NavArrowDown\n        className={[\"fs-0 w-4 h-4\", className].filter(Boolean).join(\" \")}\n        aria-hidden\n      />\n    </motion.span>\n  );\n}\n\nfunction PlusMinusGlyph({\n  isOpen,\n  animate,\n  className,\n}: {\n  isOpen: boolean;\n  animate: boolean;\n  className: string;\n}) {\n  const glyphClasses = [\"fs-0 w-4 h-4\", className].filter(Boolean).join(\" \");\n  const icon = isOpen ? (\n    <Minus className={glyphClasses} aria-hidden />\n  ) : (\n    <Plus className={glyphClasses} aria-hidden />\n  );\n\n  if (!animate) {\n    return icon;\n  }\n\n  return (\n    <motion.span\n      initial={false}\n      animate={{ rotate: isOpen ? 90 : 0 }}\n      transition={{ duration: 0.15, ease: \"easeInOut\" }}\n      className=\"d-f\"\n    >\n      {icon}\n    </motion.span>\n  );\n}\n"
+    }
+  ]
+}

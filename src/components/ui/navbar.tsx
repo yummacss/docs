@@ -121,27 +121,6 @@ export default function Navbar({
                 </kbd>
               </Button>
 
-              <div className="d-none ai-c g-4 ml-2 @md:d-f">
-                <Link
-                  href="https://npmx.dev/package/yummacss"
-                  className="d-f ai-c g-1 c-white/70 fs-xs h:c-white fv:oc-white fv:ow-2"
-                  target="_blank"
-                >
-                  <NpmSquare className="w-4 h-4" />
-                  <span className="tw-b">
-                    v{pkg.devDependencies.yummacss.replace("^", "")}
-                  </span>
-                </Link>
-                <Link
-                  href="https://github.com/yummacss/yummacss"
-                  className="d-f ai-c g-1 c-white/70 fs-xs h:c-white fv:oc-white fv:ow-2"
-                  target="_blank"
-                >
-                  <Github className="w-4 h-4" />
-                  <span>GitHub</span>
-                </Link>
-              </div>
-
               {showMobileDrawer && (
                 <Button
                   type="button"
@@ -161,6 +140,17 @@ export default function Navbar({
                   </div>
                 </Button>
               )}
+
+              <div className="d-none ai-c g-4 ml-2 @md:d-f">
+                <Link
+                  href="https://github.com/yummacss/yummacss"
+                  className="d-f ai-c g-1 c-white/70 fs-xs h:c-white fv:oc-white fv:ow-2"
+                  target="_blank"
+                >
+                  <Github className="w-4 h-4 f-white/70" />
+                  <span>GitHub</span>
+                </Link>
+              </div>
             </div>
           </nav>
         </div>
