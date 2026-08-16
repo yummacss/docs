@@ -357,7 +357,7 @@ export const sidebarConfig = {
     // nobody needs in order to use Yumma CSS, & sitting near Get Started they
     // read as a third setup step.
     {
-      title: "Packages",
+      title: "Utils",
       items: ["intellisense", "canon"],
     },
   ] satisfies SidebarSection[],
