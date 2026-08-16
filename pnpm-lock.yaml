@@ -42,7 +42,7 @@ importers:
         specifier: ^4.4.3
         version: 4.4.3
       '@shikijs/transformers':
-        specifier: ^4.4.3
+        specifier: 4.4.3
         version: 4.4.3
       '@vercel/analytics':
         specifier: ^2.0.1
