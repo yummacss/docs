@@ -44,9 +44,7 @@ export interface MenubarAction {
   type?: "item";
   label: string;
   icon?: ReactNode;
-  /** The letter beside a command glyph, e.g. `"E"` for Cmd+E. */
   shortcut?: string;
-  /** Red text, and a red highlight instead of the neutral one. */
   destructive?: boolean;
   disabled?: boolean;
   onClick?: () => void;
@@ -56,7 +54,6 @@ export interface MenubarSeparator {
   type: "separator";
 }
 
-/** A semantic `role="group"` block, with an optional heading above it. */
 export interface MenubarGroup {
   type: "group";
   label?: string;
@@ -94,10 +91,8 @@ export type MenubarItem =
   | MenubarSubmenu;
 
 export interface MenubarMenu {
-  /** The bar button's label. */
   label: string;
   items: MenubarItem[];
-  /** Dims this one button & stops it opening. The rest of the bar is unaffected. */
   disabled?: boolean;
 }
 
@@ -105,9 +100,7 @@ export interface MenubarProps {
   menus: MenubarMenu[];
   shape?: Shape;
   shadow?: Shadow;
-  /** Which end of an item its `icon` sits at. Shortcuts always trail. */
   iconPosition?: IconPosition;
-  /** The popups' fade in/out. */
   animate?: boolean;
   className?: string;
 }
@@ -320,11 +313,6 @@ export default function MenubarBase({
   );
 }
 
-/**
- * One button in the bar. Split out so each menu owns its open state - a single
- * shared `open` would let two popups be open at once, or need an id to tell
- * them apart.
- */
 function MenubarEntry({
   menu,
   animate,

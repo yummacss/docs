@@ -1,9 +1,4 @@
-import {
-  BoxIso,
-  Community,
-  PeaceHand,
-  SparksSolid,
-} from "iconoir-react";
+import { BoxIso, Community, PeaceHand, SparksSolid } from "iconoir-react";
 import Onboarding, { type OnboardingStep } from "./onboarding";
 
 export default function OnboardingPagination() {

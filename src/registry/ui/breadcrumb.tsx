@@ -24,22 +24,16 @@ const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
 };
 
 export interface BreadcrumbItem {
-  /** Visible text, and the accessible name when `iconOnly` is set. */
   label: string;
   href?: string;
-  /** Leads the label on a link item, trails it on the current page. */
   icon?: ReactNode;
-  /** Hides the visible label on a link item, keeping it as the accessible name. */
   iconOnly?: boolean;
 }
 
 export interface BreadcrumbProps {
   items: BreadcrumbItem[];
-  /** Wraps the trail in a bordered card. */
   bordered?: boolean;
-  /** Only visible when `bordered` is set. */
   shape?: Shape;
-  /** Only visible when `bordered` is set. */
   shadow?: Shadow;
   size?: Size;
   separator?: Separator;

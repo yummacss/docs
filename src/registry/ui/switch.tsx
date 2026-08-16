@@ -11,13 +11,7 @@ type Shape = "rounded" | "square" | "squircle";
 interface SizeSpec {
   track: string;
   thumb: string;
-  /** Pixels the thumb travels, matching the track's own width & padding. */
   travel: number;
-  /**
-   * The same travel, as a static margin class for the non-animated case.
-   * `ml-${n}` cannot be built from `travel` at runtime - Yumma CSS reads class
-   * names statically out of the source, so a computed string is invisible to it.
-   */
   travelClass: string;
 }
 
@@ -35,12 +29,10 @@ const SHAPES: Record<Shape, string> = {
 
 export interface SwitchProps {
   label?: string;
-  /** A line under the label, for the consequence of turning it on. */
   description?: string;
   defaultChecked?: boolean;
   checked?: boolean;
   onCheckedChange?: (checked: boolean) => void;
-  /** Shown on the track, revealed as the thumb slides past it when checked. */
   icon?: ReactNode;
   size?: Size;
   shape?: Shape;

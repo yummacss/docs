@@ -26,9 +26,6 @@ const SIZES: Record<Size, { pad: string; text: string; icon: string }> = {
   lg: { pad: "px-3 py-1", text: "fs-md", icon: "w-4 h-4" },
 };
 
-// Subtle & solid tint every accessory to the badge's own color; outline
-// stays neutral regardless of color, matching every demo but one (a stray
-// color-tinted outline on the original dot variant, standardized away).
 const SUBTLE_BG: Record<Color, string> = {
   slate: "bg-slate-1",
   indigo: "bg-indigo-1",
@@ -104,23 +101,14 @@ const SUBTLE_HOVER: Record<Color, string> = {
 export interface BadgeProps {
   children: ReactNode;
   tone?: Tone;
-  /** Only visible on the `subtle` & `solid` tones - `outline` stays neutral. */
   color?: Color;
   shape?: Shape;
   size?: Size;
   shadow?: Shadow;
   icon?: ReactNode;
   iconPosition?: IconPosition;
-  /** A small leading status indicator, tinted to `color`. */
   dot?: boolean;
-  /**
-   * A trailing numeric badge. Always attention-red on `outline`, tinted to
-   * `color` on `subtle` & `solid` - a notification count reads the same
-   * regardless of the parent badge's own color, until the badge itself
-   * commits to a color.
-   */
   count?: string | number;
-  /** Renders a trailing close button, calling this when pressed. */
   onClose?: () => void;
   className?: string;
 }
@@ -167,11 +155,6 @@ export default function BadgeBase({
     .filter(Boolean)
     .join(" ");
 
-  // `d-if` so the size classes describe a real box - width & height do
-  // nothing on a plain inline span, which is what this slot used to be, so
-  // the entry in SIZES was never applied to anything. `fs-0` stops a long
-  // label compressing it. The glyph keeps its own dimensions either way; see
-  // the note on `icon` in meta/badge.json.
   const iconClasses = ["d-if ai-c jc-c fs-0", iconSize, contentColor]
     .filter(Boolean)
     .join(" ");

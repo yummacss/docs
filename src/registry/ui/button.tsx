@@ -6,12 +6,8 @@ type Size = "sm" | "md" | "lg";
 type Shape = "rounded" | "square" | "squircle" | "pill";
 type Shadow = "none" | "inset" | "outset";
 
-// Plain lookups rather than cva: a copied component should not drag a class
-// utility into your package.json to do what an object literal already does.
 const BASE = "d-if ai-c jc-c g-2 bw-1 fw-500 us-none fv:oo-2";
 
-// Split out of BASE so it can be switched off, the same `animate` prop Skeleton
-// and Autocomplete carry.
 const MOTION = "tp-c tdu-150 ttf-io";
 
 const VARIANTS: Record<Variant, string> = {
@@ -30,8 +26,6 @@ const SIZES: Record<Size, string> = {
   lg: "px-4 py-3 fs-lg",
 };
 
-// An icon-only button needs equal padding on both axes, or it reads as a
-// stretched rectangle around a square glyph.
 const ICON_ONLY: Record<Size, string> = {
   sm: "p-1",
   md: "p-2",
@@ -56,11 +50,8 @@ export interface ButtonProps extends ComponentProps<typeof Button> {
   size?: Size;
   shape?: Shape;
   shadow?: Shadow;
-  /** Dims the button and blocks interaction while an action is in flight. */
   loading?: boolean;
-  /** Square padding, for a button whose only child is an icon. */
   iconOnly?: boolean;
-  /** The hover & focus transition. */
   animate?: boolean;
   children?: ReactNode;
 }
@@ -97,7 +88,6 @@ export default function ButtonBase({
     <Button
       className={classes}
       disabled={inactive}
-      // To a screen reader `loading` is a busy state, not a disabled one.
       aria-busy={loading || undefined}
       {...props}
     >

@@ -9,8 +9,6 @@ type Size = "sm" | "md" | "lg";
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 
-// Plain lookups rather than cva: a copied component should not drag a class
-// utility into your package.json to do what an object literal already does.
 const BUTTON =
   "d-f ai-c jc-c bg-white bc-silver-3 c-slate-10 byw-1 us-none c-p h:bg-silver-1/50 a:bg-silver-2";
 
@@ -32,8 +30,6 @@ const ICON_SIZES: Record<Size, string> = {
   lg: "w-4 h-4",
 };
 
-// Only the group's outer edges take a shape - the two buttons meet the input
-// with no seam between them, so a middle radius would never be seen.
 const DECREMENT_SHAPES: Record<Shape, string> = {
   rounded: "blr-lg",
   square: "",
@@ -55,14 +51,14 @@ const SHADOWS: Record<Shadow, string> = {
 export interface NumberFieldProps
   extends Omit<ComponentProps<typeof NumberField.Root>, "className" | "id"> {
   label?: string;
-  /** Appends a red asterisk to the label & sets the input's native `required` attribute. */
+
   required?: boolean;
-  /** A line under the control, for context on what the number means. */
+
   description?: string;
   size?: Size;
   shape?: Shape;
   shadow?: Shadow;
-  /** Appended to the input's classes, so any Yumma CSS utility you pass wins. */
+
   className?: string;
 }
 

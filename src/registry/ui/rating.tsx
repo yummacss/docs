@@ -9,20 +9,12 @@ import { useState } from "react";
 
 type Shadow = "none" | "inset" | "outset";
 
-/**
- * One option in a single-choice picker - a mood, a face - instead of a
- * repeated star. Distinct from the star mode: exactly one of these is ever
- * "on" at a time, rather than N filled up to a value.
- */
 export interface RatingIcon {
   icon: ReactNode;
   label: string;
-  /** Text color while this is the selected option. */
   activeClassName?: string;
 }
 
-// The shadow lands on each star, not on a surrounding card - there is no card
-// here, and both shadow demos styled the stars themselves.
 const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
   inset: "bg-white bc-silver-2 bw-1 bs-i-sm",
   outset: "bg-white bc-silver-2 bw-1 bs-o-xs",
@@ -30,30 +22,16 @@ const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
 
 export interface RatingProps {
   label?: string;
-  /** How many stars to draw. Ignored when `icons` is set. */
   count?: number;
-  /**
-   * A custom icon set, for a single-choice picker instead of N stars. When
-   * set, `value`/`defaultValue` index into it (0-based, `-1` for none) rather
-   * than counting filled stars, and `count`/`shadow` are ignored.
-   */
   icons?: RatingIcon[];
   defaultValue?: number;
   value?: number;
   onValueChange?: (value: number) => void;
   disabled?: boolean;
-  /**
-   * A rating that only reports one - an average, someone else's score. It draws
-   * at full strength and stays out of the tab order, which is the difference
-   * from `disabled`: that one dims, because it means "you could, but not now".
-   */
   readOnly?: boolean;
   shadow?: Shadow;
-  /** The press-scale on each star. */
   animate?: boolean;
-  /** Shown under the stars once nothing is selected. */
   emptyHint?: string;
-  /** Extra content below the hint text, like a feedback field. */
   children?: ReactNode;
   className?: string;
 }
@@ -217,14 +195,6 @@ export default function RatingBase({
   );
 }
 
-/**
- * The row the stars sit in.
- *
- * Read-only, they are one picture of a number rather than a set of controls, so
- * the row is announced once and nothing inside it is reachable. Interactive,
- * each star speaks for itself and the row should stay out of the way, which is
- * why this is two elements rather than one with a conditional role.
- */
 function Row({
   className,
   readOnly,

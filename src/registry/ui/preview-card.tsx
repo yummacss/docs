@@ -19,18 +19,14 @@ const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
 };
 
 export interface PreviewCardProps {
-  /** The inline content that opens the card on hover. */
   trigger: ReactNode;
-  /** The card's content. */
   children: ReactNode;
   defaultOpen?: boolean;
   open?: boolean;
   onOpenChange?: (open: boolean) => void;
   shape?: Shape;
   shadow?: Shadow;
-  /** The card's fade in/out. */
   animate?: boolean;
-  /** Appended to the trigger's classes, so any Yumma CSS utility you pass wins. */
   className?: string;
 }
 

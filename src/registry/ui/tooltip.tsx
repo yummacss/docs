@@ -32,28 +32,17 @@ const TRIGGER_TONES: Record<TriggerTone, string> = {
 };
 
 export interface TooltipProps {
-  /** The trigger's content - an icon, usually. */
   trigger: ReactNode;
-  /** Names the trigger for assistive tech, since it is often icon-only. */
   triggerLabel?: string;
   triggerTone?: TriggerTone;
-  /** The tooltip's text. */
   content: ReactNode;
   side?: Side;
-  /** Gap between trigger and tooltip, in pixels. */
   sideOffset?: number;
   tone?: Tone;
-  /** A pointer notched into the tooltip's edge, aimed back at the trigger. */
   arrow?: boolean;
-  /**
-   * How long a hover must rest before it opens, in ms. Defaulted here rather
-   * than left to Base UI: an inherited delay long enough to notice reads as
-   * a broken tooltip, and the component should not make you discover that.
-   */
   delay?: number;
   shape?: Shape;
   shadow?: Shadow;
-  /** The tooltip's fade & rise. */
   animate?: boolean;
   className?: string;
 }
@@ -105,7 +94,6 @@ export default function TooltipBase({
       className={popupClasses}
     >
       {arrow && (
-        // Base UI's Arrow re-aims per side, unlike the demo's hand-placed SVG.
         <Tooltip.Arrow className="d-f w-4 h-2 c-silver-2">
           <svg viewBox="0 0 10 5" width="16" height="8">
             <title>Arrow</title>
@@ -123,7 +111,6 @@ export default function TooltipBase({
   );
 
   return (
-    // `delay` belongs to the Provider, not the Root, in Base UI 1.7.
     <Tooltip.Provider delay={delay}>
       <Tooltip.Root>
         <Tooltip.Trigger className={triggerClasses} aria-label={triggerLabel}>

@@ -14,14 +14,10 @@ const SHAPES: Record<Shape, string> = {
 type Orientation = "horizontal" | "vertical";
 
 export interface SeparatorProps {
-  /** Renders as a clickable button in the middle, sized & shaped to match. */
   icon?: ReactNode;
   onIconClick?: () => void;
-  /** Renders as plain text in the middle. Ignored if `icon` is set. */
   label?: ReactNode;
-  /** Only visible alongside `icon`. */
   shape?: Shape;
-  /** A vertical rule for a row layout, like a button group. Ignored alongside `icon` or `label`, which are a horizontal-only pattern. */
   orientation?: Orientation;
   className?: string;
 }

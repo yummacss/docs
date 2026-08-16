@@ -48,25 +48,18 @@ export interface OnboardingStep {
   icon: ReactNode;
   title: string;
   description: string;
-  /** A checklist below the description. Its own step cannot be left until every task is checked. */
   tasks?: OnboardingTask[];
 }
 
 export interface OnboardingProps {
-  /** The trigger button's label. */
   trigger: ReactNode;
-  /** A glyph beside the trigger's label. */
   triggerIcon?: ReactNode;
-  /** Which end of the trigger its `triggerIcon` sits at. */
   iconPosition?: IconPosition;
   steps: OnboardingStep[];
-  /** `count` reads "1 / 3", `progress` draws a filling bar under the slide, `dots` moves navigation to a bottom row of step dots. */
   indicator?: Indicator;
-  /** An X in the corner, so the tour can be skipped. */
   dismissible?: boolean;
   shape?: Shape;
   shadow?: Shadow;
-  /** The slide transition and the popup's scale-in. */
   animate?: boolean;
   className?: string;
 }
@@ -93,10 +86,7 @@ export default function OnboardingBase({
   const isLast = page === steps.length - 1;
   const doneCount = checked[page]?.size ?? 0;
   const allTasksDone = !step.tasks || doneCount >= step.tasks.length;
-  // A checklist step's height varies with its task count, so the fixed slide
-  // height (sized for a title + description alone) has to give way to a
-  // layout animation instead, across every step - switching per-step would
-  // make the popup jump exactly when it shouldn't.
+
   const hasAnyTasks = steps.some((s) => (s.tasks?.length ?? 0) > 0);
 
   const go = (next: number) => {
@@ -240,10 +230,7 @@ export default function OnboardingBase({
               </span>
               <div className="d-f g-2">
                 {!isFirst && (
-                  <Button
-                    onClick={() => go(page - 1)}
-                    className={backClasses}
-                  >
+                  <Button onClick={() => go(page - 1)} className={backClasses}>
                     <ArrowLeft className="w-4 h-4" />
                   </Button>
                 )}
@@ -271,7 +258,10 @@ export default function OnboardingBase({
               className={`d-f o-h fd-c ai-c ta-c ${hasAnyTasks ? "" : "jc-c h-48"}`}
             >
               {animate ? (
-                <AnimatePresence mode={hasAnyTasks ? "popLayout" : "wait"} custom={direction}>
+                <AnimatePresence
+                  mode={hasAnyTasks ? "popLayout" : "wait"}
+                  custom={direction}
+                >
                   <motion.div
                     key={page}
                     custom={direction}
@@ -322,7 +312,10 @@ export default function OnboardingBase({
               >
                 <ArrowLeft className="w-4 h-4" />
               </button>
-              <Tabs.Root value={String(page)} onValueChange={(v) => go(Number(v))}>
+              <Tabs.Root
+                value={String(page)}
+                onValueChange={(v) => go(Number(v))}
+              >
                 <Tabs.List className="d-f g-2 jc-c">
                   {steps.map((_, index) => (
                     <Tabs.Tab

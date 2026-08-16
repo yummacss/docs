@@ -25,22 +25,16 @@ const BUTTON_BASE =
   "d-if ai-c px-3 py-2 bw-1 fw-500 tp-c tdu-150 ttf-io us-none c-p fv:oo-2 fv:oc-indigo-5";
 
 export interface EmptyStateProps {
-  /** The glyph in the badge. No badge renders without one. */
   icon?: ReactNode;
-  /** `accent` for an invitation to act, `neutral` for a plain absence. */
   iconTone?: IconTone;
   title: string;
   description?: string;
-  /** The filled button. Omit for a state with nothing to do. */
   primaryLabel?: string;
   primaryIcon?: ReactNode;
   onPrimary?: () => void;
-  /** The outlined button beside it. */
   secondaryLabel?: string;
   onSecondary?: () => void;
-  /** Corner radius on the badge. */
   shape?: Shape;
-  /** Wraps the whole block in a card. `none` renders it bare. */
   shadow?: Shadow;
   className?: string;
 }
@@ -62,7 +56,6 @@ export default function EmptyStateBase({
   const isCard = shadow !== "none";
   const hasActions = Boolean(primaryLabel || secondaryLabel);
 
-  // Text on its own sits tight; a badge or buttons need room to breathe.
   const gap = icon || hasActions ? "g-4" : "g-1";
 
   const rootClasses = [

@@ -22,10 +22,6 @@ const SIZES: Record<Size, string> = {
   md: "w-12 h-12",
 };
 
-// `accent` is a standalone toggle: bordered and tinted even unpressed, since
-// nothing else marks it as interactive. `ghost` is for one that already sits
-// inside a bordered group (a toolbar) - plain until pressed, or every toggle
-// in the row would carry its own redundant border.
 const TONES: Record<Tone, { pressed: string; unpressed: string }> = {
   accent: {
     pressed: "bg-indigo bc-indigo-6 c-white",
@@ -40,9 +36,8 @@ const TONES: Record<Tone, { pressed: string; unpressed: string }> = {
 export interface ToggleProps
   extends Omit<ComponentProps<"button">, "className" | "value">,
     Pick<ComponentProps<typeof Toggle>, "value"> {
-  /** Shown while not pressed. */
   icon?: ReactNode;
-  /** Shown while pressed. */
+
   pressedIcon?: ReactNode;
   defaultPressed?: boolean;
   pressed?: boolean;
@@ -50,13 +45,9 @@ export interface ToggleProps
   shape?: Shape;
   size?: Size;
   tone?: Tone;
-  /**
-   * Replaces `tone` entirely rather than adding to it, for a color-picker
-   * swatch where the color IS the toggle and stays constant whether pressed
-   * or not - `pressedIcon` is what shows selection there, not a color change.
-   */
+
   swatchClassName?: string;
-  /** The press-scale animation. Off for an instant toggle, or reduced motion. */
+
   animate?: boolean;
   className?: string;
 }
@@ -76,10 +67,6 @@ export default function ToggleBase({
   value,
   ...props
 }: ToggleProps) {
-  // Inside a ToggleGroup, Base UI derives `pressed` from the group's own
-  // value array; passing `pressed` here - even uncontrolled, even `false` -
-  // would override that and break group membership. Standalone (no `value`),
-  // this component owns pressed state itself so the caller does not have to.
   const grouped = value !== undefined;
   const [internalPressed, setInternalPressed] = useState(
     defaultPressed ?? false,

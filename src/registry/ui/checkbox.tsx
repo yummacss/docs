@@ -6,8 +6,6 @@ type Size = "sm" | "md" | "lg";
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 
-// Plain lookups rather than cva: a copied component should not drag a class
-// utility into your package.json to do what an object literal already does.
 const BOX = "d-f ai-c jc-c fs-0 fv:oo-2 fv:oc-indigo-5";
 
 const SIZES: Record<Size, string> = {
@@ -28,8 +26,6 @@ const LABEL_SIZES: Record<Size, string> = {
   lg: "fs-md",
 };
 
-// The description lines up with the label, not the box, so it has to clear the
-// box plus the gap: 0.75/1/1.25rem of box and 0.5rem of gap.
 const DESCRIPTION_INDENT: Record<Size, string> = {
   sm: "ml-5",
   md: "ml-6",
@@ -54,7 +50,7 @@ const UNCHECKED = "bw-1 bc-silver-3 bg-transparent";
 export interface CheckboxProps
   extends Omit<ComponentProps<typeof Checkbox.Root>, "className"> {
   label?: ReactNode;
-  /** A second line under the label, for the consequence of ticking it. */
+
   description?: string;
   size?: Size;
   shape?: Shape;
@@ -87,8 +83,7 @@ export default function CheckboxBase({
               SIZES[size],
               SHAPES[shape],
               SHADOWS[shadow],
-              // Indeterminate is a filled box too: an empty one would read as
-              // "off", which is the one thing it does not mean.
+
               state.checked || state.indeterminate ? CHECKED : UNCHECKED,
               className,
             ]

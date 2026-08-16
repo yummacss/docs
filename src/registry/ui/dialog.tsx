@@ -55,33 +55,23 @@ const TRIGGER_SIZES: Record<TriggerSize, string> = {
 };
 
 export interface DialogProps {
-  /** The trigger button's label. */
   trigger: ReactNode;
   triggerIcon?: ReactNode;
   triggerIconPosition?: IconPosition;
-  /** Color: `neutral` (default) or `danger`, for a destructive confirmation. */
   triggerTone?: TriggerTone;
-  /** Footprint: `md` (default) or `sm`, for a trigger nested inside other content, like a row action. */
   triggerSize?: TriggerSize;
-  /** Fires when the trigger is pressed, before the dialog opens - for capturing which row triggered it, say, in a dialog reused across a list. */
   onTriggerClick?: () => void;
-  /** Content above the title - an avatar block, say. */
   header?: ReactNode;
   title: string;
   description?: ReactNode;
-  /** The body, below the description. */
   children?: ReactNode;
   cancelLabel?: string;
-  /** No footer renders without this. */
   confirmLabel?: string;
   onConfirm?: () => void;
-  /** Color of the confirm button: `neutral` (default) or `danger`, for a destructive action like a delete. */
   confirmTone?: ConfirmTone;
-  /** The X in the corner. */
   showClose?: boolean;
   shape?: Shape;
   shadow?: Shadow;
-  /** The backdrop's fade and the popup's scale-in. */
   animate?: boolean;
   className?: string;
 }

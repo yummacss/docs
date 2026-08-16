@@ -10,33 +10,18 @@ type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 type IconSide = "leading" | "trailing";
 
-/**
- * The item shape this component renders.
- *
- * Deliberately fixed rather than generic. You own this file, so data that does
- * not fit is a five-line edit to the item body below - cheaper than a render
- * prop and a type parameter on every call site.
- */
 export interface AutocompleteItem {
   label: string;
   description?: string;
   avatar?: string;
-  /** A leading glyph instead of `avatar`, for a source with no picture. */
   icon?: ReactNode;
 }
 
-/**
- * A labelled section of items. Base UI's own `items` prop already accepts
- * this shape - an array of `{ items }` groups instead of a flat array - so
- * grouping needs no extra prop here, only a render branch for the heading.
- */
 export interface AutocompleteGroup {
   group: string;
   items: AutocompleteItem[];
 }
 
-// Plain lookups rather than cva: a copied component should not drag a class
-// utility into your package.json to do what an object literal already does.
 const INPUT =
   "bg-white bc-silver-3 c-slate-10 bw-1 fs-md fv:oo--1 fv:oc-indigo-5";
 
@@ -46,10 +31,8 @@ const SIZES: Record<Size, string> = {
   lg: "h-12 w-72",
 };
 
-// `fullWidth` needs the height without the fixed width.
 const HEIGHTS: Record<Size, string> = { sm: "h-8", md: "h-10", lg: "h-12" };
 
-// The popup tracks the input's width, or it reads as a different control.
 const POPUP_SIZES: Record<Size, string> = {
   sm: "w-56",
   md: "w-64",
@@ -68,7 +51,6 @@ const SHADOWS: Record<Shadow, string> = {
   outset: "bs-o-xs",
 };
 
-// An icon sits over the input, so the text has to start after it.
 const ICON_PADDING: Record<IconSide, string> = {
   leading: "pl-10 pr-4",
   trailing: "pl-4 pr-10",
@@ -76,29 +58,21 @@ const ICON_PADDING: Record<IconSide, string> = {
 
 export interface AutocompleteProps {
   items: AutocompleteItem[] | AutocompleteGroup[];
-  /** Field label above the input. Omit it and the input is labelled by `placeholder`. */
   label?: ReactNode;
-  /** A line under the input, for what the field expects rather than what it is. */
   description?: string;
   placeholder?: string;
   size?: Size;
   shape?: Shape;
   shadow?: Shadow;
-  /** Any icon; it is positioned for you. */
   icon?: ReactNode;
   iconSide?: IconSide;
   disabled?: boolean;
-  /** Shows a loading row in place of results, for an async source. */
   loading?: boolean;
-  /** Highlights the first match as you type, so Enter takes it. */
   autoHighlight?: boolean;
-  /** Cap on how many matches are listed. `0` lists them all. */
   limit?: number;
   animate?: boolean;
   emptyMessage?: string;
-  /** Fires as the user types. Base UI still filters `items` on its own; this is only for driving something external, like a debounced `loading` state. */
   onQueryChange?: (value: string) => void;
-  /** Fills the width of the parent instead of `size`'s fixed width, for an input inside a form column that isn't a fixed size itself - a dialog, say. */
   fullWidth?: boolean;
   className?: string;
 }
@@ -217,16 +191,12 @@ export default function AutocompleteBase({
 
   return (
     <Autocomplete.Root
-      // Base UI's own overloads pick one shape or the other; they do not
-      // compose over a union, even though it handles both at runtime.
       items={items as AutocompleteItem[]}
       open={open}
       onOpenChange={setOpen}
       onValueChange={onQueryChange}
       disabled={disabled}
       autoHighlight={autoHighlight}
-      // Base UI treats the absence of a limit as "all", so 0 has to become
-      // undefined rather than being passed through as a cap of nothing.
       limit={limit > 0 ? limit : undefined}
     >
       <div className={`d-f fd-c g-2 ${disabled ? "o-60 c-na" : ""}`}>

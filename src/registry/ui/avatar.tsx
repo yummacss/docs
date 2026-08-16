@@ -7,16 +7,8 @@ type Shape = "circle" | "square" | "squircle";
 type Status = "none" | "online" | "offline" | "busy";
 type Tint = "lime" | "cyan" | "indigo";
 
-// Plain lookups rather than cva: a copied component should not drag a class
-// utility into your package.json to do what an object literal already does.
 const ROOT = "d-if o-h ai-c jc-c va-m us-none";
 
-// Yumma CSS has no arbitrary-value escape hatch and no `!important` modifier,
-// so a caller-supplied `bg-*`/`c-*` in `className` cannot reliably beat the
-// one this component already applies - stylesheet order decides ties, not
-// class-attribute order. `tint` picks one of a fixed set instead, applied by
-// the component itself so there is never a competing pair of classes for the
-// same property in the same element.
 const TINTS: Record<Tint, { bg: string; fg: string }> = {
   lime: { bg: "bg-lime-2 bc-lime-3", fg: "c-lime" },
   cyan: { bg: "bg-cyan-2 bc-cyan-3", fg: "c-cyan" },
@@ -41,8 +33,6 @@ const ICON_SIZES: Record<Size, string> = {
   lg: "w-7 h-7",
 };
 
-// The badge tracks the avatar so it stays legible, but stops growing at md: a
-// status dot large enough to read is already large enough at every size above.
 const BADGE_SIZES: Record<Size, string> = {
   sm: "w-3 h-3",
   md: "w-4 h-4",
@@ -63,19 +53,13 @@ const STATUSES: Record<Exclude<Status, "none">, string> = {
 
 export interface AvatarProps {
   src?: string;
-  /** Alt text, and the source of the initials shown when there is no image. */
   name?: string;
   size?: Size;
   shape?: Shape;
-  /** A presence dot, bottom right. */
   status?: Status;
-  /** A verification check, top right, so it never collides with `status`. */
   verified?: boolean;
-  /** Overrides the auto-computed initials/icon, for content neither covers - a "+3" overflow tile. */
   fallback?: ReactNode;
-  /** A background/foreground pairing for the fallback tile, instead of the neutral default. */
   tint?: Tint;
-  /** Extra overlay content positioned over the avatar, like an edit button. */
   children?: ReactNode;
   className?: string;
 }
@@ -111,7 +95,6 @@ export default function AvatarBase({
     .join(" ");
 
   return (
-    // The root clips its children, so the badges have to sit outside it.
     <span className="d-if p-r va-m">
       <Avatar.Root className={classes}>
         {src && (
@@ -150,7 +133,6 @@ export default function AvatarBase({
   );
 }
 
-/** "Ada Lovelace" -> "AL". Two letters at most; more stops fitting. */
 function initials(name: string): string {
   return name
     .trim()

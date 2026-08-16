@@ -8,8 +8,7 @@ export default function AutocompleteLoading() {
 
   useEffect(() => {
     if (!loading) return;
-    // Simulates network latency: Base UI has already filtered `items` by the
-    // time this fires, so the delay is purely the loading row's dwell time.
+
     const timeout = setTimeout(() => setLoading(false), 500);
     return () => clearTimeout(timeout);
   }, [loading]);

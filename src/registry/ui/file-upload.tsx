@@ -5,8 +5,6 @@ type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 type Border = "dashed" | "solid";
 
-// Plain lookups rather than cva: a copied component should not drag a class
-// utility into your package.json to do what an object literal already does.
 const ZONE = "d-f fd-c ai-c g-3 w-100 bg-white";
 
 const SHAPES: Record<Shape, string> = {
@@ -15,15 +13,11 @@ const SHAPES: Record<Shape, string> = {
   squircle: "br-3xl cs-s",
 };
 
-// A dashed edge is the drop-zone convention & needs the extra width to read as
-// one. A solid edge is a heavier, more permanent-looking box, so it stays thin.
 const BORDERS: Record<Border, string> = {
   dashed: "bw-2 bs-d",
   solid: "bw-1",
 };
 
-// The shadow is on the icon tile rather than the zone: a drop target with a
-// drop shadow reads as a card you cannot drop into.
 const SHADOWS: Record<Shadow, string> = {
   none: "",
   inset: "bs-i-sm",
@@ -31,17 +25,13 @@ const SHADOWS: Record<Shadow, string> = {
 };
 
 export interface FileUploadProps {
-  /** The clickable part of the prompt, before "or drag and drop". */
   label?: string;
-  /** The quieter line under it, for what this zone accepts. */
   hint?: string;
-  /** A line outside the zone, for formats and limits. Replaced by `error` when it is set. */
   description?: string;
   icon?: ReactNode;
   shape?: Shape;
   shadow?: Shadow;
   border?: Border;
-  /** Turns the zone red, tile and text included, & shows this message in place of `description`. */
   error?: string;
   disabled?: boolean;
   className?: string;

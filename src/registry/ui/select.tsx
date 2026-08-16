@@ -12,12 +12,6 @@ type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 type IconSide = "leading" | "trailing";
 
-/**
- * The option shape this component renders. Fixed rather than generic, the
- * same as Autocomplete, Combobox & Radio: you own the file, so data that does
- * not fit is an edit to the option body below rather than a type parameter on
- * every call site.
- */
 export interface SelectOption {
   value: string;
   label: string;
@@ -25,11 +19,6 @@ export interface SelectOption {
   avatar?: string;
 }
 
-/**
- * A labelled section of options. Base UI's own `items` prop already accepts
- * this shape - an array of `{ items }` groups instead of a flat array - so
- * grouping needs no extra prop here, only a render branch for the heading.
- */
 export interface SelectGroup {
   group: string;
   items: SelectOption[];
@@ -44,7 +33,6 @@ const SIZES: Record<Size, string> = {
   lg: "h-12 w-72 px-4",
 };
 
-// `fullWidth` needs the height & padding without the fixed width.
 const HEIGHTS: Record<Size, string> = {
   sm: "h-8 px-3",
   md: "h-10 px-3",
@@ -120,24 +108,19 @@ function renderOption(option: SelectOption) {
 export interface SelectProps {
   options: SelectOption[] | SelectGroup[];
   label?: string;
-  /** Appends a red asterisk to the label & sets the trigger's native `required` attribute. */
   required?: boolean;
-  /** A line under the control, for context on what the choice means. */
   description?: string;
   placeholder?: string;
   defaultValue?: string | null;
   value?: string | null;
-  /** Called with the newly selected value, or `null` if the selection was cleared. */
   onValueChange?: (value: string | null) => void;
   size?: Size;
   shape?: Shape;
   shadow?: Shadow;
-  /** Any icon, fixed on the trigger. Not per option - for the per-option kind, use `avatar`. */
   icon?: ReactNode;
   iconSide?: IconSide;
   disabled?: boolean;
   animate?: boolean;
-  /** Fills the width of the parent instead of `size`'s fixed width, for a select inside a form column that isn't a fixed size itself - a dialog, say. */
   fullWidth?: boolean;
   className?: string;
 }
@@ -232,9 +215,6 @@ export default function SelectBase({
       )}
 
       <Select.Root
-        // Select.Root's own `items` type is a union of three shapes; TS
-        // cannot narrow our `SelectOption[] | SelectGroup[]` into it even
-        // though both members are already covered.
         items={options as SelectOption[]}
         defaultValue={defaultValue}
         value={value}
