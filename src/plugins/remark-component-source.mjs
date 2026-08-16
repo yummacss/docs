@@ -77,10 +77,29 @@ export default function remarkComponentSource() {
 
       const folds = fixtureRanges(content);
 
+      /**
+       * Which file you are looking at.
+       *
+       * Without this the page shows two blocks that disagree about the same
+       * import - the usage snippet above says `@/components/ui/button`, this
+       * source says `./button` - and they read as drift. They are both right:
+       * the snippet goes in a file of yours, while this file is *written into*
+       * `components/ui/` by `yummaui add`, where `./button` resolves to its
+       * neighbour. The `./` form is also load-bearing, since
+       * `generate-registry-json.mjs` builds `registryDependencies` by matching
+       * `from "./<id>"`. Naming both files is the whole fix; nothing about the
+       * imports should change.
+       *
+       * `components/ui` is `yummaui init`'s default (`ui/src/commands/init.ts`)
+       * and base ids carry no `-base` suffix, so the target is always
+       * `<id>.tsx` - the same name `targetFileName` resolves to in the CLI.
+       */
+      const target = `components/ui/${registryId}.tsx`;
+
       node.children.push({
         type: "code",
         lang: ext || "tsx",
-        meta: folds ? `preview fold={${folds}}` : "preview",
+        meta: `preview title="${target}"${folds ? ` fold={${folds}}` : ""}`,
         value: content,
       });
     });
