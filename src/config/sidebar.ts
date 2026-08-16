@@ -353,12 +353,12 @@ export const sidebarConfig = {
         },
       ],
     },
-    // Last, directly above the Resources links. These are separate packages
-    // nobody needs in order to use Yumma CSS, & sitting near Get Started they
-    // read as a third setup step.
+    // Last, directly above the Resources links. This is a separate package
+    // nobody needs in order to use Yumma CSS, & sitting near Get Started it
+    // would read as a third setup step.
     {
       title: "Packages",
-      items: ["intellisense", "canon"],
+      items: ["canon"],
     },
   ] satisfies SidebarSection[],
   ui: [
