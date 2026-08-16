@@ -1,0 +1,77 @@
+{
+  "summary": "A single tick box with its label, in three sizes, three shapes and three shadows, with indeterminate, disabled and read-only states.",
+  "props": [
+    {
+      "name": "label",
+      "type": "string",
+      "example": "Mark task as complete",
+      "description": "The text beside the box. The whole thing is one `<label>`, so clicking the text toggles it."
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "A second line under the label, indented to line up with it. Use it for the consequence of ticking the box, not for a restatement of the label."
+    },
+    {
+      "name": "size",
+      "type": "enum",
+      "values": ["sm", "md", "lg"],
+      "default": "md",
+      "description": "Box, tick and label together. The description's indent follows, so it stays aligned with the label at every size."
+    },
+    {
+      "name": "shape",
+      "type": "enum",
+      "values": ["rounded", "square", "squircle"],
+      "default": "rounded",
+      "description": "Corner radius. `squircle` uses `corner-shape`, which degrades to a rounded square where that is unsupported."
+    },
+    {
+      "name": "shadow",
+      "type": "enum",
+      "values": ["none", "inset", "outset"],
+      "default": "none",
+      "description": "Depth on the box. `inset` reads as a well, `outset` as a raised control."
+    },
+    {
+      "name": "defaultChecked",
+      "type": "boolean",
+      "default": false,
+      "description": "Starting state when you are not controlling it. Pair `checked` with `onCheckedChange` instead if you are."
+    },
+    {
+      "name": "checked",
+      "type": "boolean",
+      "description": "Controlled state. Passing it without `onCheckedChange` gives a box that cannot be ticked; `readOnly` is the honest way to say that."
+    },
+    {
+      "name": "onCheckedChange",
+      "type": "none",
+      "typeName": "(checked: boolean) => void",
+      "description": "Called with the new state. Required for a controlled checkbox."
+    },
+    {
+      "name": "indeterminate",
+      "type": "boolean",
+      "default": false,
+      "description": "Neither on nor off, for a parent whose children disagree. Draws a dash in a filled box, because an empty box would read as \"off\", which is the one thing it does not mean."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "default": false,
+      "description": "Blocks interaction and dims the whole row, label included."
+    },
+    {
+      "name": "readOnly",
+      "type": "boolean",
+      "default": false,
+      "description": "Shows a value without offering to change it. Unlike `disabled` it stays focusable and is not dimmed, so it can still be read."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "description": "Appended to the box's classes, so any Yumma CSS utility you pass wins."
+    }
+  ]
+}

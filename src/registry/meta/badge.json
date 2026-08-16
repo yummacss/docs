@@ -1,0 +1,77 @@
+{
+  "summary": "A small status label, in three tones, six colors, four shapes and three sizes, with an optional dot, icon, count or close button.",
+  "props": [
+    {
+      "name": "tone",
+      "type": "enum",
+      "values": ["outline", "subtle", "solid"],
+      "default": "outline",
+      "description": "`outline` is a neutral bordered badge regardless of `color`. `subtle` and `solid` tint every part of the badge, including the dot, count and close button, to `color`."
+    },
+    {
+      "name": "color",
+      "type": "enum",
+      "values": ["slate", "indigo", "red", "green", "yellow", "orange"],
+      "default": "indigo",
+      "description": "Only visible on the `subtle` & `solid` tones - `outline` stays neutral regardless of what this is set to."
+    },
+    {
+      "name": "shape",
+      "type": "enum",
+      "values": ["square", "rounded", "pill", "squircle"],
+      "default": "rounded",
+      "description": "Corner radius. `squircle` uses `corner-shape`, which degrades to a rounded square where that is unsupported."
+    },
+    {
+      "name": "size",
+      "type": "enum",
+      "values": ["sm", "md", "lg"],
+      "default": "md",
+      "description": "Padding, text size and icon size together."
+    },
+    {
+      "name": "shadow",
+      "type": "enum",
+      "values": ["none", "inset", "outset"],
+      "default": "none",
+      "description": "Depth on the badge. `inset` reads as a well, `outset` as a raised chip."
+    },
+    {
+      "name": "icon",
+      "type": "none",
+      "typeName": "ReactNode",
+      "description": "Any icon. Pass the glyph and nothing else - it is sized and colored to match the badge automatically."
+    },
+    {
+      "name": "iconPosition",
+      "type": "enum",
+      "values": ["leading", "trailing"],
+      "default": "leading",
+      "description": "Which end `icon` sits at."
+    },
+    {
+      "name": "dot",
+      "type": "boolean",
+      "default": false,
+      "description": "A small leading status indicator, tinted to `color`. Typically used alone, without `icon`."
+    },
+    {
+      "name": "count",
+      "type": "none",
+      "typeName": "string | number",
+      "description": "A trailing numeric badge. Reads as attention-red on `outline` regardless of `color`, since a notification count usually means the same thing no matter the parent badge's own theme."
+    },
+    {
+      "name": "onClose",
+      "type": "none",
+      "typeName": "() => void",
+      "description": "Renders a trailing close button & calls this when it's pressed. The badge itself does not track dismissed state - remove it from whatever list renders it."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "description": "Appended to the badge's classes, so any Yumma CSS utility you pass wins."
+    }
+  ],
+  "children": "Label"
+}

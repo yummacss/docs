@@ -1,0 +1,51 @@
+{
+  "summary": "A user's picture, in three sizes and three shapes, falling back to their initials and then to an icon, with optional presence and verification badges.",
+  "props": [
+    {
+      "name": "src",
+      "type": "string",
+      "example": "https://api.dicebear.com/9.x/notionists/svg?seed=Ada&backgroundColor=DAF0B9",
+      "description": "The image. Leave it out, or let it fail, and the fallback takes over."
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "example": "Ada Lovelace",
+      "description": "Alt text for the image, and the source of the initials when there is no image. Without it the fallback is a generic person icon."
+    },
+    {
+      "name": "size",
+      "type": "enum",
+      "values": ["sm", "md", "lg"],
+      "default": "md",
+      "description": "Diameter, and the size of the initials or icon inside it."
+    },
+    {
+      "name": "shape",
+      "type": "enum",
+      "values": ["circle", "square", "squircle"],
+      "default": "circle",
+      "description": "Corner radius. `squircle` uses `corner-shape`, which degrades to a rounded square where that is unsupported."
+    },
+    {
+      "name": "status",
+      "type": "enum",
+      "values": ["none", "online", "offline", "busy"],
+      "default": "none",
+      "example": "online",
+      "description": "A presence dot in the bottom right corner. It carries meaning, so it is labelled for screen readers rather than left decorative."
+    },
+    {
+      "name": "verified",
+      "type": "boolean",
+      "default": false,
+      "example": true,
+      "description": "A verification check in the top right corner. It sits opposite `status` so the two can be shown together."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "description": "Appended after the generated classes, so any Yumma CSS utility you pass wins."
+    }
+  ]
+}

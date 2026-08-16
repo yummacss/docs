@@ -1,0 +1,41 @@
+{
+  "summary": "A placeholder for content that has not arrived yet, in three shapes and two tones, with a pulse you can stagger or switch off.",
+  "props": [
+    {
+      "name": "shape",
+      "type": "enum",
+      "values": ["line", "block", "circle"],
+      "default": "line",
+      "description": "Corner radius, plus a default size: `line` for text, `block` for a control or thumbnail, `circle` for an avatar. Change the size with `size`."
+    },
+    {
+      "name": "size",
+      "type": "string",
+      "description": "Replaces the shape's default size, as literal width and height utilities: `\"w-9 h-9\"`. It replaces rather than adds to them, because a second width class would not reliably win - which of two utilities applies is decided by the stylesheet's rule order, not by their order in the attribute. Spelled out in full rather than built from a scale value, so the class scanner can see it in your source."
+    },
+    {
+      "name": "tone",
+      "type": "enum",
+      "values": ["default", "subtle"],
+      "default": "default",
+      "description": "`subtle` is one step lighter, for the secondary line in a pair."
+    },
+    {
+      "name": "animate",
+      "type": "boolean",
+      "default": true,
+      "description": "The pulse. Turn it off for a static placeholder, or when the user has asked for reduced motion."
+    },
+    {
+      "name": "delay",
+      "type": "number",
+      "default": 0,
+      "description": "Seconds to offset the pulse by. Stagger a list with `delay={index * 0.15}` so its rows do not beat in unison."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "description": "Appended after the generated classes, for anything the component leaves unset - a margin, `fs-0` in a flex row. Use `size` for the width and height, which the component already sets."
+    }
+  ]
+}

@@ -36,7 +36,9 @@ let failed = false;
 
 if (result.invalid.length > 0) {
   failed = true;
-  console.log(`❌ Found ${result.invalid.length} classes that are not canon:\n`);
+  console.log(
+    `❌ Found ${result.invalid.length} classes that are not canon:\n`,
+  );
   for (const { className, files } of result.invalid) {
     console.log(`  "${className}" found in:`);
     for (const file of files) {
@@ -76,6 +78,116 @@ function getAllTsxFiles(dir) {
     }
   }
   return files;
+}
+
+// 3. Classes held in object literals rather than className attributes.
+//
+//    `extractClasses` reads class attributes, which is right for demo files but
+//    blind to a prop-driven component, where the classes live in a lookup:
+//
+//      const SHAPES = { rounded: "br-lg", square: "br-0" };
+//
+//    Nothing in that map is inside a className, so canon never saw it and
+//    `br-none` sat there generating no CSS while validation reported clean.
+//    Every component with a real prop API has this shape, so the whole registry
+//    would drift out of validation as it migrates.
+const LOOKS_LIKE_CLASS = /^[a-z@][a-z0-9@:/%.-]*$/i;
+
+/** The body of every `const UPPER_SNAKE = ...` declaration, where class maps live. */
+function classMapRegions(source) {
+  const regions = [];
+  for (const match of source.matchAll(/const\s+[A-Z][A-Z0-9_]*[^=]*=\s*/g)) {
+    const start = match.index + match[0].length;
+    if (source[start] === "{") {
+      let depth = 0;
+      for (let i = start; i < source.length; i++) {
+        if (source[i] === "{") depth++;
+        else if (source[i] === "}" && --depth === 0) {
+          regions.push(source.slice(start, i + 1));
+          break;
+        }
+      }
+    } else {
+      regions.push(source.slice(start, source.indexOf(";", start) + 1));
+    }
+  }
+  return regions;
+}
+
+function classesInStringLiterals(source) {
+  const found = new Set();
+
+  const consider = (literal) => {
+    const tokens = literal.split(/\s+/).filter(Boolean);
+    for (const token of tokens) {
+      if (LOOKS_LIKE_CLASS.test(token) && /[-:]/.test(token)) found.add(token);
+    }
+  };
+
+  // A multi-token string is a class list only if every token looks like one.
+  // Requiring all of them is what keeps prose out: "Filter by project, mention,
+  // or task status updates" contains `in-app`, which passes on its own.
+  for (const [, literal] of source.matchAll(/"([^"\n]*)"/g)) {
+    const tokens = literal.trim().split(/\s+/).filter(Boolean);
+    if (tokens.length < 2) continue;
+    if (tokens.every((t) => LOOKS_LIKE_CLASS.test(t) && /[-:]/.test(t))) {
+      consider(literal);
+    }
+  }
+
+  // Inside a class map even a single token is a class, which is the case that
+  // let `br-0` in as `br-none` unnoticed.
+  for (const region of classMapRegions(source)) {
+    for (const [, literal] of region.matchAll(/"([^"\n]*)"/g))
+      consider(literal);
+  }
+
+  return found;
+}
+
+const literalOwners = new Map();
+for (const file of getAllTsxFiles(path.join(rootDir, "src/registry"))) {
+  for (const cls of classesInStringLiterals(fs.readFileSync(file, "utf-8"))) {
+    const owners = literalOwners.get(cls) ?? [];
+    owners.push(path.relative(rootDir, file));
+    literalOwners.set(cls, owners);
+  }
+}
+
+// `validate` only scans source globs, so the candidates are written into one
+// throwaway file with a real class attribute & scanned there.
+const scratch = path.join(rootDir, ".canon-literals");
+fs.mkdirSync(scratch, { recursive: true });
+fs.writeFileSync(
+  path.join(scratch, "literals.tsx"),
+  `export const x = <div className="${[...literalOwners.keys()].join(" ")}" />;\n`,
+);
+
+let literalResult;
+try {
+  literalResult = await validate({
+    cwd: rootDir,
+    config: { ...config, source: ["./.canon-literals/literals.tsx"] },
+    allowlist: ALLOWLIST,
+  });
+} finally {
+  fs.rmSync(scratch, { recursive: true, force: true });
+}
+
+if (literalResult.invalid.length > 0) {
+  failed = true;
+  console.log(
+    `\n❌ Found ${literalResult.invalid.length} invalid classes in registry object literals:\n`,
+  );
+  for (const { className } of literalResult.invalid) {
+    console.log(`  "${className}" found in:`);
+    for (const file of literalOwners.get(className) ?? []) {
+      console.log(`    - ${file}`);
+    }
+  }
+  console.log(
+    "\n⚠️  These sit outside a className attribute, so the normal scan cannot see them.",
+  );
 }
 
 const registryIssues = new Map();

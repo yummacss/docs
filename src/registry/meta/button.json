@@ -1,0 +1,63 @@
+{
+  "summary": "A primary action, in six variants, three sizes and four shapes, with optional shadow, loading and icon-only states.",
+  "props": [
+    {
+      "name": "variant",
+      "type": "enum",
+      "values": ["primary", "secondary", "subtle", "ghost", "danger", "link"],
+      "default": "primary",
+      "description": "Visual weight. `primary` for the main action on a view, `danger` for destructive ones."
+    },
+    {
+      "name": "size",
+      "type": "enum",
+      "values": ["sm", "md", "lg"],
+      "default": "md",
+      "description": "Padding and text size."
+    },
+    {
+      "name": "shape",
+      "type": "enum",
+      "values": ["rounded", "square", "squircle", "pill"],
+      "default": "rounded",
+      "description": "Corner radius. `squircle` uses `corner-shape`, which degrades to a rounded square where that is unsupported."
+    },
+    {
+      "name": "shadow",
+      "type": "enum",
+      "values": ["none", "inset", "outset"],
+      "default": "none",
+      "description": "Depth. `inset` reads as a pressed control, `outset` as a raised one."
+    },
+    {
+      "name": "loading",
+      "type": "boolean",
+      "default": false,
+      "description": "Dims the button and blocks interaction. Sets `aria-busy` rather than `disabled`, because to a screen reader a busy control is not an unavailable one."
+    },
+    {
+      "name": "iconOnly",
+      "type": "boolean",
+      "default": false,
+      "description": "Equal padding on both axes, for a button whose only child is an icon. Pair it with an `aria-label`."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "default": false,
+      "description": "Blocks interaction and dims the button."
+    },
+    {
+      "name": "animate",
+      "type": "boolean",
+      "default": true,
+      "description": "The hover and focus transition. Turn it off for a static button, or when the user has asked for reduced motion."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "description": "Appended after the generated classes, so any Yumma CSS utility you pass wins."
+    }
+  ],
+  "children": "Label"
+}

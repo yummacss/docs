@@ -1,0 +1,90 @@
+{
+  "summary": "A value between a min and a max, one thumb or two for a range, in three shapes and three thumb shadows.",
+  "props": [
+    {
+      "name": "label",
+      "type": "string",
+      "example": "Brightness",
+      "description": "Text beside the value, above the track."
+    },
+    {
+      "name": "required",
+      "type": "boolean",
+      "default": false,
+      "description": "Appends a red asterisk to the label."
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "A line under the control, for context on what the value means."
+    },
+    {
+      "name": "defaultValue",
+      "type": "none",
+      "typeName": "number | number[]",
+      "example": 50,
+      "description": "A single number for one thumb, or a two-item array for a range with two. Whichever shape you start with is the shape the slider keeps - it does not switch thumb count at runtime."
+    },
+    {
+      "name": "value",
+      "type": "none",
+      "typeName": "number | number[]",
+      "description": "Controlled value, same shape rule as `defaultValue`."
+    },
+    {
+      "name": "onValueChange",
+      "type": "none",
+      "typeName": "(value: number | number[]) => void",
+      "description": "Called with the new value on every change. Required for a controlled slider."
+    },
+    {
+      "name": "min",
+      "type": "number",
+      "default": 0,
+      "description": "Lower bound."
+    },
+    {
+      "name": "max",
+      "type": "number",
+      "default": 100,
+      "description": "Upper bound."
+    },
+    {
+      "name": "step",
+      "type": "number",
+      "default": 1,
+      "description": "Amount each keyboard press or drag increment changes the value by."
+    },
+    {
+      "name": "shape",
+      "type": "enum",
+      "values": ["rounded", "square", "squircle"],
+      "default": "rounded",
+      "description": "Corner radius, applied to the track, the indicator and the thumb together. `squircle` uses `corner-shape`."
+    },
+    {
+      "name": "shadow",
+      "type": "enum",
+      "values": ["none", "inset", "outset"],
+      "default": "none",
+      "description": "Depth on the thumb only. The track and indicator are flush with the control, so a shadow on them would read as a stray line rather than depth."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "default": false,
+      "description": "Blocks interaction and dims the control."
+    },
+    {
+      "name": "formatValue",
+      "type": "none",
+      "typeName": "(value: number | number[]) => ReactNode",
+      "description": "How the value is shown beside the label. Defaults to `50%` for one thumb, `20 - 80` for a range; override for currency, units, or anything else."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "description": "Appended to the outer wrapper's classes, so any Yumma CSS utility you pass wins."
+    }
+  ]
+}

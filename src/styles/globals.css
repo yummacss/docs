@@ -18,7 +18,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: system-ui, sans-serif;
+  font-family: system-ui, sans-serif;
 }
 
 article h1,
@@ -28,17 +28,17 @@ article h4,
 article h5,
 article h6,
 .ff-e {
-    font-family: "Esteban", serif;
+  font-family: "Esteban", serif;
 }
 
 body {
-    font-family: "iA Writer Quattro", sans-serif;
+  font-family: "iA Writer Quattro", sans-serif;
 }
 
 /* Base UI portals wrap their children in a `<div data-base-ui-portal>` element appended to <body>.
    Lift every direct child (backdrop, internal backdrop, popup wrapper) above the navbar (z-index: 10). */
 [data-base-ui-portal] > * {
-    z-index: 20;
+  z-index: 20;
 }
 
 /* reset font and selection for component previews */
@@ -66,15 +66,15 @@ body {
 [role="menubar"] *,
 [role="navigation"],
 [role="navigation"] * {
-    color-scheme: light;
-    font-family:
-        system-ui,
-        -apple-system,
-        Segoe UI,
-        Roboto,
-        Helvetica,
-        Arial,
-        sans-serif;
+  color-scheme: light;
+  font-family:
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
 [data-preview]::selection,
@@ -95,10 +95,27 @@ body {
 [role="menubar"] *::selection,
 [role="navigation"]::selection,
 [role="navigation"] *::selection {
-    background-color: Highlight;
-    color: HighlightText;
+  background-color: Highlight;
+  color: HighlightText;
 }
 
 .docs-container {
-    max-width: clamp(40rem, 80vw, 96rem);
+  max-width: clamp(40rem, 80vw, 96rem);
+}
+
+/* A folded fixture inside a code block. The `...` is punctuation that happens
+   to be interactive, so the disclosure triangle goes; and a closed <details>
+   must not leave its own line behind, or a folded region costs the blank line
+   it was meant to save. Both are ::marker/state selectors, which no utility
+   reaches. */
+[data-fold] > summary {
+  list-style: none;
+}
+
+[data-fold] > summary::-webkit-details-marker {
+  display: none;
+}
+
+[data-fold]:not([open]) > summary {
+  display: inline;
 }

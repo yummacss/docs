@@ -1,3 +1,4 @@
+import type { RegistryMeta } from "@/registry";
 import { type Category, categoryGetters } from "@/utils/yummacss";
 
 /**
@@ -54,8 +55,15 @@ type Node =
  */
 export type RegistryResolver = (registryId: string) => string | null;
 
+/**
+ * Looks up the prop schema behind a `registryId`. Same injection rule as
+ * `RegistryResolver`, and same reason.
+ */
+export type MetaResolver = (registryId: string) => RegistryMeta | null;
+
 interface RenderOptions {
   resolveRegistry?: RegistryResolver;
+  resolveMeta?: MetaResolver;
 }
 
 function parseAttrs(attrs: string): Record<string, string> {
@@ -216,6 +224,33 @@ function parse(lines: string[]): Node[] {
   return nodes;
 }
 
+/** The same schema the controls & the props table use, as markdown. */
+function buildPropsTable(meta: RegistryMeta): string[] {
+  if (!meta.props?.length) return [];
+
+  const rows = meta.props.map((prop) => {
+    // `typeName` carries the real TypeScript type for anything the schema has
+    // no control for, where `type` would only say `none`.
+    const type = prop.typeName
+      ? `\`${prop.typeName}\``
+      : prop.type === "enum" && prop.values
+        ? prop.values.map((value) => `\`"${value}"\``).join(" \\| ")
+        : `\`${prop.type}\``;
+    const fallback =
+      prop.default === undefined ? "-" : `\`${JSON.stringify(prop.default)}\``;
+    // A pipe inside a cell would end the column early.
+    const description = (prop.description ?? "").replaceAll("|", "\\|");
+    return `| \`${prop.name}\` | ${type} | ${fallback} | ${description} |`;
+  });
+
+  return [
+    ...(meta.summary ? [meta.summary, ""] : []),
+    "| Prop | Type | Default | Description |",
+    "|------|------|---------|-------------|",
+    ...rows,
+  ];
+}
+
 function buildReferenceTable(category: Category, name: string): string[] {
   try {
     const getter = categoryGetters[category];
@@ -254,6 +289,19 @@ function renderComponent(
     const { category, name } = attrs;
     if (!category || !name) return [];
     return buildReferenceTable(category as Category, name);
+  }
+
+  // `<ComponentPreview registryId="button-base" />` has no children, so it used
+  // to fall through to the "nothing to unwrap" case & vanish. That is why the
+  // UI pages served prose with no component source at all: /ui/components/
+  // button.md was 965 bytes with zero code fences. The registry file IS the
+  // content of these pages, so it becomes a fenced block.
+  // `<PropsTable registryId="button" />` renders from the schema in React, so
+  // it is invisible here. Without this a reader of the `.md` gets the whole
+  // implementation and no statement of the API it exposes.
+  if (node.name === "PropsTable" && attrs.registryId && options.resolveMeta) {
+    const meta = options.resolveMeta(attrs.registryId);
+    return meta ? buildPropsTable(meta) : [];
   }
 
   // `<ComponentPreview registryId="button-base" />` has no children, so it used

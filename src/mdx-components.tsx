@@ -15,6 +15,7 @@ import NegativeValues from "@/components/negative-values";
 import OpacityModifier from "@/components/opacity-modifier";
 import Palette from "@/components/palette";
 import Preview from "@/components/preview";
+import PropsTable from "@/components/props-table";
 import Reference from "@/components/reference";
 import ResponsiveVariant from "@/components/responsive-variant";
 import Stepper, { Step } from "@/components/stepper";
@@ -43,6 +44,7 @@ const components: MDXComponents = {
   Code,
   CodeGroup,
   ComponentPreview,
+  PropsTable,
   Cursor,
   FileTree,
   Hint,

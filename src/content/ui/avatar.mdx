@@ -4,13 +4,27 @@ title: Avatar
 description: "Display user profile images & fallbacks."
 ---
 
+## Installation
+
+<CodeGroup>
+
+```bash title="pnpm"
+pnpm dlx yummaui add avatar
+```
+
+```bash title="npm"
+npx yummaui add avatar
+```
+
+</CodeGroup>
+
 ## Core Examples
 
 Accessible React components with Base UI and Yumma CSS.
 
 ### Base
 
-<ComponentPreview registryId="avatar-base" />
+<ComponentPreview registryId="avatar" />
 
 ---
 
@@ -24,45 +38,23 @@ Accessible React components with Base UI and Yumma CSS.
 
 <ComponentPreview registryId="avatar-initial-fallback" />
 
----
+## Stack Examples
 
-## Shape Examples
+How avatars overlap, and how far, which no prop can state.
 
-Shapes from sharp to fully rounded.
+### Stacked
 
-### Square
-
-<ComponentPreview registryId="avatar-square" />
+<ComponentPreview registryId="avatar-stacked" />
 
 ---
 
-### Squircle
+### Stack Compact
 
-<ComponentPreview registryId="avatar-squircle" />
-
----
-
-## Size Examples
-
-Sizes from compact to large.
-
-### Large
-
-<ComponentPreview registryId="avatar-lg" />
-
-### Medium
-
-<ComponentPreview registryId="avatar-md" />
-
-### Small
-
-<ComponentPreview registryId="avatar-sm" />
-
----
+<ComponentPreview registryId="avatar-stack-compact" />
 
 ## More Examples
 
-Additional variants and interactive states.
+Compositions the props cannot reach on their own.
 
 ### Detailed
 
@@ -74,26 +66,6 @@ Additional variants and interactive states.
 
 <ComponentPreview registryId="avatar-edit" />
 
----
+## API Reference
 
-### Stack Compact
-
-<ComponentPreview registryId="avatar-stack-compact" />
-
----
-
-### Stacked
-
-<ComponentPreview registryId="avatar-stacked" />
-
----
-
-### Status
-
-<ComponentPreview registryId="avatar-status" />
-
----
-
-### Verified
-
-<ComponentPreview registryId="avatar-verified" />
+<PropsTable registryId="avatar" />

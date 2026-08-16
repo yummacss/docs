@@ -1,0 +1,76 @@
+{
+  "summary": "A number input with increment and decrement buttons, in three sizes, three shapes and three shadows.",
+  "props": [
+    {
+      "name": "label",
+      "type": "string",
+      "example": "Quantity",
+      "description": "Text above the control. Also a scrub area: drag left or right on it to change the value."
+    },
+    {
+      "name": "required",
+      "type": "boolean",
+      "default": false,
+      "description": "Appends a red asterisk to the label & sets the input's native `required` attribute."
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "A line under the control, for context on what the number means."
+    },
+    {
+      "name": "defaultValue",
+      "type": "number",
+      "example": 4,
+      "description": "Starting value when you are not controlling it. Pair `value` with `onValueChange` instead if you are."
+    },
+    {
+      "name": "min",
+      "type": "number",
+      "description": "Lower bound. The decrement button disables at it."
+    },
+    {
+      "name": "max",
+      "type": "number",
+      "description": "Upper bound. The increment button disables at it."
+    },
+    {
+      "name": "step",
+      "type": "number",
+      "default": 1,
+      "description": "Amount each click of increment or decrement changes the value by."
+    },
+    {
+      "name": "size",
+      "type": "enum",
+      "values": ["sm", "md", "lg"],
+      "default": "md",
+      "description": "Height of the buttons and the input together. The icon inside the buttons grows only at `lg`."
+    },
+    {
+      "name": "shape",
+      "type": "enum",
+      "values": ["rounded", "square", "squircle"],
+      "default": "rounded",
+      "description": "Corner radius on the group's outer edges. `squircle` uses `corner-shape`, which degrades to a rounded square where that is unsupported."
+    },
+    {
+      "name": "shadow",
+      "type": "enum",
+      "values": ["none", "inset", "outset"],
+      "default": "none",
+      "description": "Depth across the buttons and the input. `inset` reads as a well, `outset` as a raised control."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "default": false,
+      "description": "Blocks interaction and dims the whole control, label included."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "description": "Appended to the input's classes, so any Yumma CSS utility you pass wins."
+    }
+  ]
+}

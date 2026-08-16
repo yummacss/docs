@@ -1,0 +1,77 @@
+{
+  "summary": "A right-click menu built from an item list: actions, checkboxes, radios, groups, separators and nested submenus.",
+  "props": [
+    {
+      "name": "trigger",
+      "type": "none",
+      "typeName": "ReactNode",
+      "example": "Right-click task",
+      "description": "The right-clickable area's label."
+    },
+    {
+      "name": "items",
+      "type": "none",
+      "typeName": "ContextMenuItem[]",
+      "example": [
+        { "label": "Edit" },
+        { "label": "Duplicate" },
+        { "label": "Bookmark" },
+        { "label": "Pin to top" },
+        { "type": "separator" },
+        { "label": "Archive" },
+        { "type": "separator" },
+        { "label": "Delete", "destructive": true }
+      ],
+      "description": "A discriminated union. `{ label }` is a plain action (plus optional `icon`, `shortcut`, `destructive`, `disabled`, `onClick`). `{ type: \"separator\" }` divides. `{ type: \"group\", label?, items }` wraps a `role=\"group\"` block under a heading. `{ type: \"checkbox\", label, checked, onCheckedChange }` and `{ type: \"radio\", value, onValueChange, options }` are the stateful kinds. `{ type: \"submenu\", label, items }` nests, recursively."
+    },
+    {
+      "name": "shape",
+      "type": "enum",
+      "values": ["rounded", "square", "squircle"],
+      "default": "rounded",
+      "description": "Corner radius on the trigger, popup and items together. `squircle` steps the popup & item radius up one and adds `corner-shape`."
+    },
+    {
+      "name": "shadow",
+      "type": "enum",
+      "values": ["none", "inset", "outset"],
+      "default": "none",
+      "description": "Depth on both the trigger and the popup."
+    },
+    {
+      "name": "iconPosition",
+      "type": "enum",
+      "values": ["leading", "trailing"],
+      "default": "leading",
+      "description": "Which end of an item its `icon` sits at. A `shortcut` always trails regardless."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "default": false,
+      "description": "Blocks the menu from opening at all & dims the trigger."
+    },
+    {
+      "name": "open",
+      "type": "boolean",
+      "description": "Controlled state. There is no `defaultOpen` - a context menu that starts open before anyone right-clicks was never demonstrated & makes no sense."
+    },
+    {
+      "name": "onOpenChange",
+      "type": "none",
+      "typeName": "(open: boolean) => void",
+      "description": "Called with the new state. Required for a controlled menu."
+    },
+    {
+      "name": "animate",
+      "type": "boolean",
+      "default": true,
+      "description": "The popup's fade in/out. Turn it off for an instant appearance, or when the user has asked for reduced motion."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "description": "Appended to the trigger's classes, so any Yumma CSS utility you pass wins."
+    }
+  ]
+}

@@ -1,0 +1,277 @@
+"use client";
+
+import { Autocomplete } from "@base-ui/react/autocomplete";
+import { Avatar } from "@base-ui/react/avatar";
+import { AnimatePresence, motion } from "motion/react";
+import { type ReactNode, useId, useState } from "react";
+
+type Size = "sm" | "md" | "lg";
+type Shape = "rounded" | "square" | "squircle";
+type Shadow = "none" | "inset" | "outset";
+type IconSide = "leading" | "trailing";
+
+/**
+ * The item shape this component renders.
+ *
+ * Deliberately fixed rather than generic. You own this file, so data that does
+ * not fit is a five-line edit to the item body below - cheaper than a render
+ * prop and a type parameter on every call site.
+ */
+export interface AutocompleteItem {
+  label: string;
+  description?: string;
+  avatar?: string;
+  /** A leading glyph instead of `avatar`, for a source with no picture. */
+  icon?: ReactNode;
+}
+
+/**
+ * A labelled section of items. Base UI's own `items` prop already accepts
+ * this shape - an array of `{ items }` groups instead of a flat array - so
+ * grouping needs no extra prop here, only a render branch for the heading.
+ */
+export interface AutocompleteGroup {
+  group: string;
+  items: AutocompleteItem[];
+}
+
+// Plain lookups rather than cva: a copied component should not drag a class
+// utility into your package.json to do what an object literal already does.
+const INPUT =
+  "bg-white bc-silver-3 c-slate-10 bw-1 fs-md fv:oo--1 fv:oc-indigo-5";
+
+const SIZES: Record<Size, string> = {
+  sm: "h-8 w-56",
+  md: "h-10 w-64",
+  lg: "h-12 w-72",
+};
+
+// `fullWidth` needs the height without the fixed width.
+const HEIGHTS: Record<Size, string> = { sm: "h-8", md: "h-10", lg: "h-12" };
+
+// The popup tracks the input's width, or it reads as a different control.
+const POPUP_SIZES: Record<Size, string> = {
+  sm: "w-56",
+  md: "w-64",
+  lg: "w-72",
+};
+
+const SHAPES: Record<Shape, string> = {
+  rounded: "br-lg",
+  square: "br-0",
+  squircle: "br-xxl cs-s",
+};
+
+const SHADOWS: Record<Shadow, string> = {
+  none: "",
+  inset: "bs-i-sm",
+  outset: "bs-o-xs",
+};
+
+// An icon sits over the input, so the text has to start after it.
+const ICON_PADDING: Record<IconSide, string> = {
+  leading: "pl-10 pr-4",
+  trailing: "pl-4 pr-10",
+};
+
+export interface AutocompleteProps {
+  items: AutocompleteItem[] | AutocompleteGroup[];
+  /** Field label above the input. Omit it and the input is labelled by `placeholder`. */
+  label?: ReactNode;
+  /** A line under the input, for what the field expects rather than what it is. */
+  description?: string;
+  placeholder?: string;
+  size?: Size;
+  shape?: Shape;
+  shadow?: Shadow;
+  /** Any icon; it is positioned for you. */
+  icon?: ReactNode;
+  iconSide?: IconSide;
+  disabled?: boolean;
+  /** Shows a loading row in place of results, for an async source. */
+  loading?: boolean;
+  /** Highlights the first match as you type, so Enter takes it. */
+  autoHighlight?: boolean;
+  /** Cap on how many matches are listed. `0` lists them all. */
+  limit?: number;
+  animate?: boolean;
+  emptyMessage?: string;
+  /** Fires as the user types. Base UI still filters `items` on its own; this is only for driving something external, like a debounced `loading` state. */
+  onQueryChange?: (value: string) => void;
+  /** Fills the width of the parent instead of `size`'s fixed width, for an input inside a form column that isn't a fixed size itself - a dialog, say. */
+  fullWidth?: boolean;
+  className?: string;
+}
+
+function isGroupEntry(
+  entry: AutocompleteItem | AutocompleteGroup,
+): entry is AutocompleteGroup {
+  return "items" in entry;
+}
+
+function renderItem(item: AutocompleteItem) {
+  return (
+    <Autocomplete.Item
+      key={item.label}
+      value={item.label}
+      render={(props, state) => (
+        <div
+          {...props}
+          className={`d-f ai-c g-3 py-2 px-3 mx-1 c-slate-10 br-md fs-sm us-none c-p ${
+            state.highlighted ? "bg-silver-2/50" : "bg-transparent"
+          }`}
+        >
+          {item.icon ? (
+            <span className="d-f fs-0 ai-c jc-c w-6 h-6 c-slate-5">
+              {item.icon}
+            </span>
+          ) : (
+            item.avatar && (
+              <Avatar.Root className="fs-0 w-6 h-6 bc-white br-9999 bw-1">
+                <Avatar.Image
+                  src={item.avatar}
+                  alt=""
+                  className="of-c w-100% h-100% br-9999"
+                />
+                <Avatar.Fallback className="d-f ai-c jc-c w-100% h-100% bg-silver-2 c-slate-8 fs-xs">
+                  {item.label[0]}
+                </Avatar.Fallback>
+              </Avatar.Root>
+            )
+          )}
+          <div className="d-f fd-c min-w-0">
+            <span className="o-h fw-500 to-e ws-nw">{item.label}</span>
+            {item.description && (
+              <span className="c-slate-6 fs-xs">{item.description}</span>
+            )}
+          </div>
+        </div>
+      )}
+    />
+  );
+}
+
+export default function AutocompleteBase({
+  items,
+  label,
+  description,
+  placeholder = "Search",
+  size = "md",
+  shape = "rounded",
+  shadow = "none",
+  icon,
+  iconSide = "leading",
+  disabled = false,
+  loading = false,
+  autoHighlight = false,
+  limit = 0,
+  animate = true,
+  emptyMessage = "No results found.",
+  onQueryChange,
+  fullWidth = false,
+  className,
+}: AutocompleteProps) {
+  const [open, setOpen] = useState(false);
+  const id = useId();
+
+  const inputClasses = [
+    INPUT,
+    fullWidth ? `${HEIGHTS[size]} w-100%` : SIZES[size],
+    SHAPES[shape],
+    SHADOWS[shadow],
+    icon ? ICON_PADDING[iconSide] : "pl-4",
+    className,
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  const popup = (
+    <Autocomplete.Popup
+      className={`o-h bg-white bc-silver-2 c-slate-10 bw-1 ${POPUP_SIZES[size]} ${SHAPES[shape]}`}
+    >
+      {loading ? (
+        <div className="py-3 px-4 c-slate-6 fs-sm us-none">Loading...</div>
+      ) : (
+        <>
+          <Autocomplete.List className="oy-auto max-h-72 py-1 ow-0">
+            {(entry: AutocompleteItem | AutocompleteGroup) =>
+              isGroupEntry(entry) ? (
+                <Autocomplete.Group key={entry.group}>
+                  <Autocomplete.GroupLabel className="px-3 pt-2 pb-1 fs-xs fw-500 c-slate-5 us-none">
+                    {entry.group}
+                  </Autocomplete.GroupLabel>
+                  {entry.items.map(renderItem)}
+                </Autocomplete.Group>
+              ) : (
+                renderItem(entry)
+              )
+            }
+          </Autocomplete.List>
+          <Autocomplete.Empty className="c-slate-6 fs-sm">
+            <div className="pt-2 pb-3 px-4 us-none">{emptyMessage}</div>
+          </Autocomplete.Empty>
+        </>
+      )}
+    </Autocomplete.Popup>
+  );
+
+  return (
+    <Autocomplete.Root
+      // Base UI's own overloads pick one shape or the other; they do not
+      // compose over a union, even though it handles both at runtime.
+      items={items as AutocompleteItem[]}
+      open={open}
+      onOpenChange={setOpen}
+      onValueChange={onQueryChange}
+      disabled={disabled}
+      autoHighlight={autoHighlight}
+      // Base UI treats the absence of a limit as "all", so 0 has to become
+      // undefined rather than being passed through as a cap of nothing.
+      limit={limit > 0 ? limit : undefined}
+    >
+      <div className={`d-f fd-c g-2 ${disabled ? "o-60 c-na" : ""}`}>
+        {label && (
+          <label htmlFor={id} className="c-slate-10 fs-sm fw-500">
+            {label}
+          </label>
+        )}
+        <div className="d-f p-r ai-c">
+          {icon && (
+            <span
+              className={`d-f p-a ai-c c-slate-5 pe-none ${iconSide === "leading" ? "l-3" : "r-3"}`}
+            >
+              {icon}
+            </span>
+          )}
+          <Autocomplete.Input
+            id={id}
+            placeholder={placeholder}
+            className={inputClasses}
+          />
+        </div>
+        {description && <p className="m-0 c-slate-6 fs-xs">{description}</p>}
+      </div>
+
+      <AnimatePresence>
+        {open && (
+          <Autocomplete.Portal keepMounted>
+            <Autocomplete.Positioner className="ow-0" sideOffset={8}>
+              {animate ? (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.15, ease: "easeOut" }}
+                >
+                  {popup}
+                </motion.div>
+              ) : (
+                popup
+              )}
+            </Autocomplete.Positioner>
+          </Autocomplete.Portal>
+        )}
+      </AnimatePresence>
+    </Autocomplete.Root>
+  );
+}

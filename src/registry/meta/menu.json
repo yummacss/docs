@@ -1,0 +1,80 @@
+{
+  "summary": "A dropdown menu built from an item list: actions, checkboxes, radios, groups, separators and nested submenus, in three sizes.",
+  "props": [
+    {
+      "name": "trigger",
+      "type": "none",
+      "typeName": "ReactNode",
+      "example": "Actions",
+      "description": "The button's content. Pass a chevron yourself if you want one - it is not added for you, so an avatar, a name and an icon compose as freely as a plain string."
+    },
+    {
+      "name": "items",
+      "type": "none",
+      "typeName": "MenuItem[]",
+      "example": [
+        { "label": "Edit" },
+        { "label": "Duplicate" },
+        { "label": "Bookmark" },
+        { "label": "Pin to top" }
+      ],
+      "description": "A discriminated union. `{ label }` is a plain action (plus optional `icon`, `shortcut`, `destructive`, `disabled`, `onClick`). `{ type: \"separator\" }` divides. `{ type: \"group\", label?, items }` wraps a `role=\"group\"` block under a heading. `{ type: \"checkbox\", label, checked, onCheckedChange }` and `{ type: \"radio\", value, onValueChange, options }` are the stateful kinds. `{ type: \"submenu\", label, icon?, items }` nests, recursively."
+    },
+    {
+      "name": "size",
+      "type": "enum",
+      "values": ["sm", "md", "lg"],
+      "default": "md",
+      "description": "Trigger padding, popup width, item padding and item text size together."
+    },
+    {
+      "name": "shape",
+      "type": "enum",
+      "values": ["rounded", "square", "squircle"],
+      "default": "rounded",
+      "description": "Corner radius on the trigger, popup and items together. `squircle` steps the popup & item radius up one and adds `corner-shape`."
+    },
+    {
+      "name": "shadow",
+      "type": "enum",
+      "values": ["none", "inset", "outset"],
+      "default": "none",
+      "description": "Depth on both the trigger and the popup."
+    },
+    {
+      "name": "iconPosition",
+      "type": "enum",
+      "values": ["leading", "trailing"],
+      "default": "leading",
+      "description": "Which end of an item its `icon` sits at. A `shortcut` always trails regardless."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "default": false,
+      "description": "Blocks the menu from opening at all & dims the trigger."
+    },
+    {
+      "name": "open",
+      "type": "boolean",
+      "description": "Controlled state. There is no `defaultOpen` - a dropdown that starts open before anyone presses its trigger was never demonstrated."
+    },
+    {
+      "name": "onOpenChange",
+      "type": "none",
+      "typeName": "(open: boolean) => void",
+      "description": "Called with the new state. Required for a controlled menu."
+    },
+    {
+      "name": "animate",
+      "type": "boolean",
+      "default": true,
+      "description": "The popup's fade and the trigger's hover transition. Turn it off for an instant menu, or when the user has asked for reduced motion."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "description": "Appended to the trigger's classes, so any Yumma CSS utility you pass wins."
+    }
+  ]
+}

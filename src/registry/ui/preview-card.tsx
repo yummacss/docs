@@ -1,0 +1,97 @@
+"use client";
+
+import { PreviewCard } from "@base-ui/react/preview-card";
+import { motion } from "motion/react";
+import type { ReactNode } from "react";
+
+type Shape = "rounded" | "square" | "squircle";
+type Shadow = "none" | "inset" | "outset";
+
+const SHAPES: Record<Shape, string> = {
+  rounded: "br-lg",
+  square: "",
+  squircle: "br-xxl cs-s",
+};
+
+const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
+  inset: "bs-i-sm",
+  outset: "bs-o-xs",
+};
+
+export interface PreviewCardProps {
+  /** The inline content that opens the card on hover. */
+  trigger: ReactNode;
+  /** The card's content. */
+  children: ReactNode;
+  defaultOpen?: boolean;
+  open?: boolean;
+  onOpenChange?: (open: boolean) => void;
+  shape?: Shape;
+  shadow?: Shadow;
+  /** The card's fade in/out. */
+  animate?: boolean;
+  /** Appended to the trigger's classes, so any Yumma CSS utility you pass wins. */
+  className?: string;
+}
+
+export default function PreviewCardBase({
+  trigger,
+  children,
+  defaultOpen,
+  open,
+  onOpenChange,
+  shape = "rounded",
+  shadow = "none",
+  animate = true,
+  className,
+}: PreviewCardProps) {
+  const popupClasses = [
+    "d-f fd-c g-3 w-64 p-3 bg-white bc-silver-2 bw-1 c-slate-10 fs-sm",
+    SHAPES[shape],
+    shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  return (
+    <PreviewCard.Root
+      defaultOpen={defaultOpen}
+      open={open}
+      onOpenChange={onOpenChange}
+    >
+      <PreviewCard.Trigger
+        className={(state) =>
+          [
+            "c-indigo c-p fw-500 td-none h:td-u fv:td-u",
+            state.open ? "td-u" : "",
+            className,
+          ]
+            .filter(Boolean)
+            .join(" ")
+        }
+      >
+        {trigger}
+      </PreviewCard.Trigger>
+
+      <PreviewCard.Portal>
+        <PreviewCard.Positioner sideOffset={8}>
+          <PreviewCard.Popup
+            render={
+              animate ? (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.15, ease: "easeOut" }}
+                />
+              ) : undefined
+            }
+            className={popupClasses}
+          >
+            {children}
+          </PreviewCard.Popup>
+        </PreviewCard.Positioner>
+      </PreviewCard.Portal>
+    </PreviewCard.Root>
+  );
+}

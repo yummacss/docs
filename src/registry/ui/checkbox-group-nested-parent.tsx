@@ -1,9 +1,8 @@
 "use client";
 
-import { Checkbox } from "@base-ui/react/checkbox";
 import { CheckboxGroup } from "@base-ui/react/checkbox-group";
-import { Check, Minus } from "iconoir-react";
 import { useId, useState } from "react";
+import Checkbox from "./checkbox";
 
 export default function CheckboxGroupNestedParent() {
   const analyticsId = useId();
@@ -20,73 +19,12 @@ export default function CheckboxGroupNestedParent() {
         allValues={["view_tasks", "create_tasks"]}
         className="d-f fd-c g-2"
       >
-        <label
-          className="d-f ai-c g-2 fs-xs fw-600 c-slate-5 us-none"
-          id={analyticsId}
-        >
-          <Checkbox.Root
-            name="analytics"
-            parent
-            className={(state) =>
-              `d-f w-4 h-4 ai-c jc-c br-sm fv:oo-2 fv:oc-indigo-5 ${
-                state.checked || state.indeterminate
-                  ? "bg-indigo"
-                  : "bw-1 bc-silver-3 bg-transparent"
-              }`
-            }
-          >
-            <Checkbox.Indicator
-              className="d-f c-white"
-              render={(props, state) => (
-                <span {...props}>
-                  {state.indeterminate ? (
-                    <Minus className="w-3 h-3" />
-                  ) : (
-                    <Check className="w-3 h-3" />
-                  )}
-                </span>
-              )}
-            />
-          </Checkbox.Root>
-          Sprint planning
-        </label>
-
+        <div id={analyticsId}>
+          <Checkbox name="analytics" parent label="Sprint planning" />
+        </div>
         <div className="d-f fd-c g-2 ml-6">
-          <label className="d-f ai-c g-2 fs-sm fw-500">
-            <Checkbox.Root
-              value="view_tasks"
-              className={(state) =>
-                `d-f w-4 h-4 ai-c jc-c br-sm fv:oo-2 fv:oc-indigo-5 ${
-                  state.checked
-                    ? "bg-indigo"
-                    : "bw-1 bc-silver-3 bg-transparent"
-                }`
-              }
-            >
-              <Checkbox.Indicator className="d-f c-white">
-                <Check className="w-3 h-3" />
-              </Checkbox.Indicator>
-            </Checkbox.Root>
-            View tasks
-          </label>
-
-          <label className="d-f ai-c g-2 fs-sm fw-500">
-            <Checkbox.Root
-              value="create_tasks"
-              className={(state) =>
-                `d-f w-4 h-4 ai-c jc-c br-sm fv:oo-2 fv:oc-indigo-5 ${
-                  state.checked
-                    ? "bg-indigo"
-                    : "bw-1 bc-silver-3 bg-transparent"
-                }`
-              }
-            >
-              <Checkbox.Indicator className="d-f c-white">
-                <Check className="w-3 h-3" />
-              </Checkbox.Indicator>
-            </Checkbox.Root>
-            Create tasks
-          </label>
+          <Checkbox value="view_tasks" label="View tasks" />
+          <Checkbox value="create_tasks" label="Create tasks" />
         </div>
       </CheckboxGroup>
 
@@ -97,73 +35,12 @@ export default function CheckboxGroupNestedParent() {
         allValues={["edit_sprint", "delete_sprint"]}
         className="d-f fd-c g-2"
       >
-        <label
-          className="d-f ai-c g-2 fs-xs fw-600 c-slate-5 us-none"
-          id={moderationId}
-        >
-          <Checkbox.Root
-            name="moderation"
-            parent
-            className={(state) =>
-              `d-f w-4 h-4 ai-c jc-c br-sm fv:oo-2 fv:oc-indigo-5 ${
-                state.checked || state.indeterminate
-                  ? "bg-indigo"
-                  : "bw-1 bc-silver-3 bg-transparent"
-              }`
-            }
-          >
-            <Checkbox.Indicator
-              className="d-f c-white"
-              render={(props, state) => (
-                <span {...props}>
-                  {state.indeterminate ? (
-                    <Minus className="w-3 h-3" />
-                  ) : (
-                    <Check className="w-3 h-3" />
-                  )}
-                </span>
-              )}
-            />
-          </Checkbox.Root>
-          Sprint management
-        </label>
-
+        <div id={moderationId}>
+          <Checkbox name="moderation" parent label="Sprint management" />
+        </div>
         <div className="d-f fd-c g-2 ml-6">
-          <label className="d-f ai-c g-2 fs-sm fw-500">
-            <Checkbox.Root
-              value="edit_sprint"
-              className={(state) =>
-                `d-f w-4 h-4 ai-c jc-c br-sm fv:oo-2 fv:oc-indigo-5 ${
-                  state.checked
-                    ? "bg-indigo"
-                    : "bw-1 bc-silver-3 bg-transparent"
-                }`
-              }
-            >
-              <Checkbox.Indicator className="d-f c-white">
-                <Check className="w-3 h-3" />
-              </Checkbox.Indicator>
-            </Checkbox.Root>
-            Edit sprint
-          </label>
-
-          <label className="d-f ai-c g-2 fs-sm fw-500">
-            <Checkbox.Root
-              value="delete_sprint"
-              className={(state) =>
-                `d-f w-4 h-4 ai-c jc-c br-sm fv:oo-2 fv:oc-indigo-5 ${
-                  state.checked
-                    ? "bg-indigo"
-                    : "bw-1 bc-silver-3 bg-transparent"
-                }`
-              }
-            >
-              <Checkbox.Indicator className="d-f c-white">
-                <Check className="w-3 h-3" />
-              </Checkbox.Indicator>
-            </Checkbox.Root>
-            Delete sprint
-          </label>
+          <Checkbox value="edit_sprint" label="Edit sprint" />
+          <Checkbox value="delete_sprint" label="Delete sprint" />
         </div>
       </CheckboxGroup>
     </div>

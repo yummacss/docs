@@ -1,0 +1,63 @@
+{
+  "summary": "A multi-line text field, in three shapes and three shadows, with an optional character counter and error or success states.",
+  "props": [
+    {
+      "name": "label",
+      "type": "string",
+      "example": "Message",
+      "description": "Text above the control. `Field.Root` and `Field.Label` associate it automatically, so no `id`/`htmlFor` bookkeeping is needed."
+    },
+    {
+      "name": "required",
+      "type": "boolean",
+      "default": false,
+      "description": "Appends a red asterisk to the label & sets the control's native `required` attribute."
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "A line under the control, for format or context. Replaced by `error` or `success` when either is set."
+    },
+    {
+      "name": "error",
+      "type": "string",
+      "description": "Red border, a warning icon & this message in place of `description`. Wins over `success` if both are set."
+    },
+    {
+      "name": "success",
+      "type": "string",
+      "description": "Green border, a check icon & this message in place of `description`."
+    },
+    {
+      "name": "maxLength",
+      "type": "number",
+      "example": 200,
+      "description": "Sets the control's native character limit and shows a live remaining-character counter with a progress bar underneath. The counter turns red once 20 characters remain."
+    },
+    {
+      "name": "shape",
+      "type": "enum",
+      "values": ["rounded", "square", "squircle"],
+      "default": "rounded",
+      "description": "Corner radius. `squircle` uses `corner-shape`, which degrades to a rounded square where that is unsupported."
+    },
+    {
+      "name": "shadow",
+      "type": "enum",
+      "values": ["none", "inset", "outset"],
+      "default": "none",
+      "description": "Depth on the control. `inset` reads as a well, `outset` as a raised control."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "default": false,
+      "description": "Blocks interaction and dims the whole field, label included."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "description": "Appended to the control's classes, so any Yumma CSS utility you pass wins."
+    }
+  ]
+}
