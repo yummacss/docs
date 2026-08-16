@@ -167,7 +167,14 @@ export default function BadgeBase({
     .filter(Boolean)
     .join(" ");
 
-  const iconClasses = [iconSize, contentColor].filter(Boolean).join(" ");
+  // `d-if` so the size classes describe a real box - width & height do
+  // nothing on a plain inline span, which is what this slot used to be, so
+  // the entry in SIZES was never applied to anything. `fs-0` stops a long
+  // label compressing it. The glyph keeps its own dimensions either way; see
+  // the note on `icon` in meta/badge.json.
+  const iconClasses = ["d-if ai-c jc-c fs-0", iconSize, contentColor]
+    .filter(Boolean)
+    .join(" ");
 
   const dotClasses = [
     "w-2 h-2 br-9999",

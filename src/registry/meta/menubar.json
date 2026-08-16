@@ -63,7 +63,7 @@
     {
       "name": "className",
       "type": "string",
-      "description": "Appended to the bar's classes, so any Yumma CSS utility you pass wins."
+      "description": "Appended to the bar's classes, for anything the component leaves unset - a margin, `fs-0` in a flex row. It will not reliably override what the component already sets: which of two utilities wins is decided by the stylesheet's rule order, not by the order you write them."
     }
   ]
 }

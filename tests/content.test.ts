@@ -30,20 +30,15 @@ const uiPages = contentPages("ui");
  * In the registry but previewed on no page. Not necessarily wrong - a variant
  * can exist before it is documented - but the set should move deliberately.
  * Wire one up or delete it, then update this list.
+ *
+ * Empty since the `feat/yumma-ui` merge. All eleven entries it used to hold
+ * were deleted outright by the curation pass, not wired up: each was a single
+ * enumerable prop the API reference table already states (`select-icon-leading`
+ * is `iconSide`, `collapsible-square` is `shape`), and `select-bordered` was
+ * byte-identical to its base. An orphan appearing here again is a real signal
+ * now that the baseline is zero.
  */
-const KNOWN_UNLISTED = [
-  "autocomplete-icon",
-  "checkbox-readonly",
-  "collapsible-icon-leading",
-  "collapsible-icon-trailing",
-  "collapsible-square",
-  "collapsible-squircle",
-  "preview-card-default-open",
-  "progress-meter",
-  "select-bordered",
-  "select-icon-leading",
-  "select-icon-trailing",
-].sort();
+const KNOWN_UNLISTED: string[] = [];
 
 function referencedIds(): Set<string> {
   const ids = new Set<string>();
