@@ -1,0 +1,89 @@
+{
+  "summary": "A hover tooltip, light or dark, positionable on any side, with an optional arrow.",
+  "props": [
+    {
+      "name": "trigger",
+      "type": "none",
+      "typeName": "ReactNode",
+      "exampleIcon": "BellNotification",
+      "description": "The trigger's content - an icon, usually. Pair it with `triggerLabel` when there is no text."
+    },
+    {
+      "name": "triggerLabel",
+      "type": "string",
+      "example": "Notifications",
+      "description": "The trigger's `aria-label`. An icon-only trigger has no accessible name without it."
+    },
+    {
+      "name": "triggerTone",
+      "type": "enum",
+      "values": ["neutral", "danger"],
+      "default": "neutral",
+      "description": "The trigger's colour. `danger` reads red, for a destructive action."
+    },
+    {
+      "name": "content",
+      "type": "none",
+      "typeName": "ReactNode",
+      "example": "3 unread notifications",
+      "description": "The tooltip's text."
+    },
+    {
+      "name": "side",
+      "type": "enum",
+      "values": ["top", "right", "bottom", "left"],
+      "default": "top",
+      "description": "Which side of the trigger the tooltip opens on. It flips automatically if there is no room."
+    },
+    {
+      "name": "sideOffset",
+      "type": "number",
+      "default": 8,
+      "description": "Gap between the trigger and the tooltip, in pixels."
+    },
+    {
+      "name": "tone",
+      "type": "enum",
+      "values": ["light", "dark"],
+      "default": "light",
+      "description": "`light` is a bordered white card; `dark` is a solid indigo chip with no border."
+    },
+    {
+      "name": "arrow",
+      "type": "boolean",
+      "default": false,
+      "description": "A pointer notched into the tooltip's edge, aimed back at the trigger. It re-aims itself when `side` changes."
+    },
+    {
+      "name": "delay",
+      "type": "number",
+      "default": 300,
+      "description": "How long a hover must rest before it opens, in ms. Set to `0` to open on contact."
+    },
+    {
+      "name": "shape",
+      "type": "enum",
+      "values": ["rounded", "square", "squircle"],
+      "default": "rounded",
+      "description": "Corner radius on the tooltip."
+    },
+    {
+      "name": "shadow",
+      "type": "enum",
+      "values": ["none", "inset", "outset"],
+      "default": "none",
+      "description": "Depth on the tooltip."
+    },
+    {
+      "name": "animate",
+      "type": "boolean",
+      "default": true,
+      "description": "The tooltip's fade and rise. Turn it off for an instant tooltip, or when the user has asked for reduced motion."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "description": "Appended to the trigger's classes, so any Yumma CSS utility you pass wins."
+    }
+  ]
+}

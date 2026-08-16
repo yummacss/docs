@@ -1,0 +1,81 @@
+{
+  "summary": "A star rating input, with an optional shadow on each star.",
+  "props": [
+    {
+      "name": "label",
+      "type": "string",
+      "example": "Rate this project",
+      "description": "Text above the stars."
+    },
+    {
+      "name": "count",
+      "type": "number",
+      "default": 5,
+      "description": "How many stars to draw. Ignored when `icons` is set."
+    },
+    {
+      "name": "icons",
+      "type": "none",
+      "typeName": "RatingIcon[]",
+      "description": "A custom icon set, for a single-choice picker instead of N stars. When set, `value`/`defaultValue` index into it (0-based, `-1` for none) rather than counting filled stars, and `count`/`shadow` are ignored."
+    },
+    {
+      "name": "defaultValue",
+      "type": "number",
+      "description": "The rating on first render. Pair `value` with `onValueChange` instead if you are controlling it."
+    },
+    {
+      "name": "value",
+      "type": "number",
+      "description": "Controlled rating."
+    },
+    {
+      "name": "onValueChange",
+      "type": "none",
+      "typeName": "(value: number) => void",
+      "description": "Called with the new rating. Pressing the current rating again clears it to 0."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "default": false,
+      "description": "Blocks interaction and dims the stars."
+    },
+    {
+      "name": "readOnly",
+      "type": "boolean",
+      "default": false,
+      "description": "A rating that only reports one - an average, someone else's score. It draws at full strength and stays out of the tab order, announced once as a single value rather than as five controls. That is the difference from `disabled`, which dims, because it means \"you could, but not now\"."
+    },
+    {
+      "name": "shadow",
+      "type": "enum",
+      "values": ["none", "inset", "outset"],
+      "default": "none",
+      "description": "Depth on each star, which becomes a bordered chip. There is no surrounding card - this is what both shadow demos did."
+    },
+    {
+      "name": "animate",
+      "type": "boolean",
+      "default": true,
+      "description": "The press-scale on each star. Turn it off for static stars, or when the user has asked for reduced motion."
+    },
+    {
+      "name": "emptyHint",
+      "type": "string",
+      "default": "Click to rate",
+      "description": "Shown under the stars while nothing is selected. Once a rating is set it reads `3 / 5`."
+    },
+    {
+      "name": "children",
+      "type": "none",
+      "typeName": "ReactNode",
+      "description": "Extra content below the hint text, like a feedback field."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "description": "Appended to the root's classes, so any Yumma CSS utility you pass wins."
+    }
+  ]
+}

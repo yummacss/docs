@@ -9,6 +9,7 @@ import {
   useId,
   useState,
 } from "react";
+import CodeTabs from "@/components/ui/code-tabs";
 
 interface CodeChildProps {
   title?: string;
@@ -58,45 +59,15 @@ export default function CodeGroup({ children }: Props) {
 
   return (
     <div className="p-r o-h my-4 bc-border bg-surface bw-1">
-      <div
-        role="tablist"
-        aria-orientation="horizontal"
-        className="d-f bc-border bg-page ox-auto"
-      >
-        {panels.map((child, i) => {
-          const selected = i === current;
-          return (
-            <button
-              // biome-ignore lint/suspicious/noArrayIndexKey: authored code blocks are static and never reorder
-              key={`${groupId}-tab-${i}`}
-              type="button"
-              role="tab"
-              id={`${groupId}-tab-${i}`}
-              aria-selected={selected}
-              aria-controls={`${groupId}-panel-${i}`}
-              tabIndex={selected ? 0 : -1}
-              onClick={() => setActive(i)}
-              onKeyDown={(e) => {
-                if (e.key === "ArrowRight") {
-                  e.preventDefault();
-                  setActive((i + 1) % panels.length);
-                } else if (e.key === "ArrowLeft") {
-                  e.preventDefault();
-                  setActive((i - 1 + panels.length) % panels.length);
-                }
-              }}
-              className={`d-f ai-c px-6 py-2 brw-1 bc-border fs-sm ff-m ws-nw c-p a-none ${
-                selected
-                  ? "c-accent bg-surface"
-                  : "c-accent-dim bg-transparent bbw-1"
-              }`}
-            >
-              {labelFor(child, i)}
-            </button>
-          );
-        })}
-        <div className="f-1 bbw-1 bc-border" />
-      </div>
+      <CodeTabs
+        idPrefix={groupId}
+        active={String(current)}
+        onSelect={(id) => setActive(Number(id))}
+        tabs={panels.map((child, i) => ({
+          id: String(i),
+          label: labelFor(child, i),
+        }))}
+      />
       <div
         role="tabpanel"
         id={`${groupId}-panel-${current}`}

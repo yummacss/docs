@@ -1,0 +1,110 @@
+"use client";
+
+import { Progress } from "@base-ui/react/progress";
+import { motion } from "motion/react";
+import type { ReactNode } from "react";
+
+type Shape = "rounded" | "square" | "squircle";
+type Shadow = "none" | "inset" | "outset";
+
+const SHAPES: Record<Shape, string> = {
+  rounded: "br-9999",
+  square: "",
+  squircle: "br-xxl cs-s",
+};
+
+const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
+  inset: "bs-i-sm",
+  outset: "bs-o-xs",
+};
+
+export interface ProgressProps {
+  /** `null` renders an indeterminate, always-animated sliding bar. */
+  value: number | null;
+  label: ReactNode;
+  shape?: Shape;
+  /** Wraps the meter in a padded card. `none` renders it bare. */
+  shadow?: Shadow;
+  /** The indicator's width transition. Indeterminate progress always
+   * animates regardless of this - a static indeterminate bar can't
+   * communicate anything, since it has no fill level to show. */
+  animate?: boolean;
+  className?: string;
+}
+
+export default function ProgressBase({
+  value,
+  label,
+  shape = "rounded",
+  shadow = "none",
+  animate = true,
+  className,
+}: ProgressProps) {
+  const isCard = shadow !== "none";
+  const isIndeterminate = value === null;
+
+  const rootClasses = [
+    "d-f fd-c g-2 w-64",
+    isCard ? "p-4 bg-white bc-silver-2 br-lg bw-1" : "",
+    shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "",
+    className,
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  const trackClasses = ["o-h h-2 bg-silver-2", SHAPES[shape]]
+    .filter(Boolean)
+    .join(" ");
+
+  return (
+    <Progress.Root className={rootClasses} value={value}>
+      <div className="d-f jc-sb ai-c">
+        <Progress.Label className="c-slate-10 fs-sm fw-500">
+          {label}
+        </Progress.Label>
+        <Progress.Value className="c-slate-8 fs-sm" />
+      </div>
+      <Progress.Track className={trackClasses}>
+        {isIndeterminate ? (
+          <Progress.Indicator
+            render={
+              <motion.div
+                initial={{ x: "-100%" }}
+                animate={{ x: "100%" }}
+                transition={{
+                  duration: 1,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className={["h-100% bg-indigo", SHAPES[shape]]
+                  .filter(Boolean)
+                  .join(" ")}
+              />
+            }
+            className="h-100%"
+          />
+        ) : (
+          <Progress.Indicator
+            render={
+              animate ? (
+                <motion.div
+                  animate={{ width: `${value}%` }}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
+                />
+              ) : undefined
+            }
+            className={(state) =>
+              [
+                "h-100%",
+                SHAPES[shape],
+                state.status === "complete" ? "bg-green" : "bg-indigo",
+              ]
+                .filter(Boolean)
+                .join(" ")
+            }
+          />
+        )}
+      </Progress.Track>
+    </Progress.Root>
+  );
+}

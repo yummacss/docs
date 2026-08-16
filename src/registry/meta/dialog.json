@@ -1,0 +1,126 @@
+{
+  "summary": "A modal dialog with a title, optional description and body, and an optional cancel/confirm pair.",
+  "props": [
+    {
+      "name": "trigger",
+      "type": "none",
+      "typeName": "ReactNode",
+      "example": "Request access",
+      "description": "The trigger button's label."
+    },
+    {
+      "name": "triggerIcon",
+      "type": "none",
+      "typeName": "ReactNode",
+      "description": "A glyph beside the trigger's label."
+    },
+    {
+      "name": "triggerIconPosition",
+      "type": "enum",
+      "values": ["leading", "trailing"],
+      "default": "leading",
+      "description": "Which end of the trigger `triggerIcon` sits at."
+    },
+    {
+      "name": "triggerTone",
+      "type": "enum",
+      "values": ["neutral", "danger"],
+      "default": "neutral",
+      "description": "Color: `neutral` or `danger`, for a destructive confirmation."
+    },
+    {
+      "name": "triggerSize",
+      "type": "enum",
+      "values": ["sm", "md"],
+      "default": "md",
+      "description": "Footprint: `md` or `sm`, for a trigger nested inside other content, like a row action."
+    },
+    {
+      "name": "onTriggerClick",
+      "type": "none",
+      "typeName": "() => void",
+      "description": "Fires when the trigger is pressed, before the dialog opens - for capturing which row triggered it, say, in a dialog reused across a list."
+    },
+    {
+      "name": "header",
+      "type": "none",
+      "typeName": "ReactNode",
+      "description": "Content above the title - an avatar and name block, say. Centred in its own padded row."
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "example": "Invitation request",
+      "description": "The dialog's heading, wired up by Base UI's own Dialog.Title."
+    },
+    {
+      "name": "description",
+      "type": "none",
+      "typeName": "ReactNode",
+      "example": "Your Sales Site project now has a pending collaboration request from John.",
+      "description": "The body text, wired up by Base UI's own Dialog.Description."
+    },
+    {
+      "name": "children",
+      "type": "none",
+      "typeName": "ReactNode",
+      "description": "The body, below the description. Form fields and anything else go here - style them yourself."
+    },
+    {
+      "name": "cancelLabel",
+      "type": "string",
+      "default": "Cancel",
+      "description": "The dismissing button's label."
+    },
+    {
+      "name": "confirmLabel",
+      "type": "string",
+      "example": "Accept",
+      "description": "The confirming button's label. No footer renders without this, so an informational dialog closes by its X alone."
+    },
+    {
+      "name": "onConfirm",
+      "type": "none",
+      "typeName": "() => void",
+      "description": "Called when the confirm button is pressed. The dialog closes either way."
+    },
+    {
+      "name": "confirmTone",
+      "type": "enum",
+      "values": ["primary", "danger"],
+      "default": "primary",
+      "description": "Color of the confirm button: `primary` or `danger`, for a destructive action like a delete."
+    },
+    {
+      "name": "showClose",
+      "type": "boolean",
+      "default": true,
+      "description": "The X in the corner."
+    },
+    {
+      "name": "shape",
+      "type": "enum",
+      "values": ["rounded", "square", "squircle"],
+      "default": "rounded",
+      "description": "Corner radius on the popup and its buttons."
+    },
+    {
+      "name": "shadow",
+      "type": "enum",
+      "values": ["none", "inset", "outset"],
+      "default": "none",
+      "description": "Depth on the popup."
+    },
+    {
+      "name": "animate",
+      "type": "boolean",
+      "default": true,
+      "description": "The backdrop's fade and the popup's scale-in. Turn it off for an instant dialog, or when the user has asked for reduced motion."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "description": "Appended to the trigger's classes, so any Yumma CSS utility you pass wins."
+    }
+  ]
+}

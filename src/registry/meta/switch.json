@@ -1,0 +1,71 @@
+{
+  "summary": "An on/off control, in three sizes and three shapes, with an optional icon revealed on the track.",
+  "props": [
+    {
+      "name": "label",
+      "type": "string",
+      "example": "Unsubscribe email",
+      "description": "Text beside the track."
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "A line under the label, for the consequence of turning it on."
+    },
+    {
+      "name": "defaultChecked",
+      "type": "boolean",
+      "default": false,
+      "example": true,
+      "description": "Starting state when you are not controlling it. Pair `checked` with `onCheckedChange` instead if you are."
+    },
+    {
+      "name": "checked",
+      "type": "boolean",
+      "description": "Controlled state."
+    },
+    {
+      "name": "onCheckedChange",
+      "type": "none",
+      "typeName": "(checked: boolean) => void",
+      "description": "Called with the new state. Required for a controlled switch."
+    },
+    {
+      "name": "icon",
+      "type": "none",
+      "typeName": "ReactNode",
+      "description": "Shown on the track, revealed as the thumb slides past it once checked. Absent from the DOM while unchecked, not just hidden."
+    },
+    {
+      "name": "size",
+      "type": "enum",
+      "values": ["sm", "md", "lg"],
+      "default": "md",
+      "description": "Track and thumb together."
+    },
+    {
+      "name": "shape",
+      "type": "enum",
+      "values": ["rounded", "square", "squircle"],
+      "default": "rounded",
+      "description": "Corner radius, applied to the track and the thumb together. `squircle` uses `corner-shape`."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "default": false,
+      "description": "Blocks interaction and dims the whole control, label included."
+    },
+    {
+      "name": "animate",
+      "type": "boolean",
+      "default": true,
+      "description": "The thumb's slide when the state changes. Turn it off for an instant jump, or when the user has asked for reduced motion."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "description": "Appended to the track's classes, so any Yumma CSS utility you pass wins."
+    }
+  ]
+}

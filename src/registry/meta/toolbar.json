@@ -1,0 +1,42 @@
+{
+  "summary": "A toolbar with roving focus, built from an item list: buttons, icon toggles, separators, an input and links.",
+  "props": [
+    {
+      "name": "items",
+      "type": "none",
+      "typeName": "ToolbarItem[]",
+      "example": [
+        { "label": "New Task" },
+        { "label": "Sort" },
+        { "type": "separator" },
+        { "type": "input", "label": "Search tasks", "placeholder": "Search tasks..." }
+      ],
+      "description": "A discriminated union. `{ label }` is a button (plus optional `icon`, `iconOnly`, `disabled`, `onClick`). `{ type: \"separator\" }` divides. `{ type: \"toggles\", options }` is an icon toggle group. `{ type: \"input\", label }` and `{ type: \"link\", label, href }` are the remaining kinds."
+    },
+    {
+      "name": "shape",
+      "type": "enum",
+      "values": ["rounded", "square", "squircle"],
+      "default": "rounded",
+      "description": "Corner radius on the bar and every control inside it. The bar takes one step more than its controls."
+    },
+    {
+      "name": "shadow",
+      "type": "enum",
+      "values": ["none", "inset", "outset"],
+      "default": "none",
+      "description": "Depth on the bar."
+    },
+    {
+      "name": "animate",
+      "type": "boolean",
+      "default": true,
+      "description": "The press-scale on buttons and toggles. Turn it off for static controls, or when the user has asked for reduced motion."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "description": "Appended to the bar's classes, so any Yumma CSS utility you pass wins."
+    }
+  ]
+}

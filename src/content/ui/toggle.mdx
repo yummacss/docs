@@ -4,50 +4,43 @@ title: Toggle
 description: "Switch between on & off states, and group them with single or multiple selection."
 ---
 
+## Installation
+
+<CodeGroup>
+
+```bash title="pnpm"
+pnpm dlx yummaui add toggle
+```
+
+```bash title="npm"
+npx yummaui add toggle
+```
+
+</CodeGroup>
+
 ## Core Examples
 
 Accessible React components with Base UI and Yumma CSS.
 
 ### Base
 
-<ComponentPreview registryId="toggle-base" />
-
----
+<ComponentPreview registryId="toggle" />
 
 ## Group Examples
 
-Groups, nesting, and parent-child relationships.
+Compositions the props cannot reach: multiple toggles sharing selection state
+through `ToggleGroup`.
 
-### Group Base
+### Group
 
-<ComponentPreview registryId="toggle-group-base" />
-
----
-
-## Shape Examples
-
-Shapes from sharp to fully rounded.
-
-### Square
-
-<ComponentPreview registryId="toggle-square" />
+<ComponentPreview registryId="toggle-group" />
 
 ---
-
-### Squircle
-
-<ComponentPreview registryId="toggle-squircle" />
-
----
-
-## More Examples
-
-Additional variants and interactive states.
 
 ### Color Picker
 
 <ComponentPreview registryId="toggle-color-picker" />
 
-### Static
+## API Reference
 
-<ComponentPreview registryId="toggle-static" />
+<PropsTable registryId="toggle" />

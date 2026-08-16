@@ -9,11 +9,30 @@ export default defineConfig({
     "./src/registry/**/*.tsx",
   ],
   safelist: [
+    // `src/lib/code-decorate.mjs` writes class names but is not in `source`
+    // above, so everything it emits has to be listed here. Adding the file to
+    // `source` was tried & the scanner still did not pick it up.
     "mx--4",
+    "d-i",
     "bg-accent-dim/10",
     "bg-diff-add/10",
     "bg-diff-remove/10",
     "bc-accent-dim/50",
+    // Accordion: the class scanner misses these in this file even though
+    // they're plain, unconditional string literals - see NOTES.md.
+    "max-w-96",
+    "blc-indigo-5",
+    "c-indigo-6",
+    "c-indigo-9",
+    "ro-36",
+    // Collapsible: same scanner gap, different file - see NOTES.md.
+    "o-100",
+    "tp-t",
+    "ro-90",
+    // Menu: same scanner gap again.
+    "h-fc",
+    // Tabs: and again.
+    "tp-a",
   ],
   theme: {
     colors: {

@@ -1,11 +1,9 @@
 "use client";
 
-import { Toggle } from "@base-ui/react/toggle";
 import { ToggleGroup } from "@base-ui/react/toggle-group";
 import { Check } from "iconoir-react";
-import type { HTMLMotionProps } from "motion/react";
-import { motion } from "motion/react";
 import { useState } from "react";
+import Toggle from "./toggle";
 
 export default function ToggleColorPicker() {
   const [selected, setSelected] = useState(["blue"]);
@@ -21,25 +19,9 @@ export default function ToggleColorPicker() {
           key={color.value}
           value={color.value}
           aria-label={color.label}
-          className={`d-f w-9 h-9 ai-c jc-c bw-0 br-9999 us-none c-p fv:oo-2 fv:oc-indigo-3 ${color.bgClass}`}
-          render={(props, state) => (
-            <motion.button
-              type="button"
-              {...(props as HTMLMotionProps<"button">)}
-              whileTap={{ scale: 0.9 }}
-              transition={{ duration: 0.2, ease: "easeOut" }}
-            >
-              {state.pressed && (
-                <motion.span
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ duration: 0.15, ease: "easeOut" }}
-                >
-                  <Check className="w-4 h-4 c-white" />
-                </motion.span>
-              )}
-            </motion.button>
-          )}
+          size="sm"
+          swatchClassName={color.bgClass}
+          pressedIcon={<Check className="w-4 h-4 c-white" />}
         />
       ))}
     </ToggleGroup>

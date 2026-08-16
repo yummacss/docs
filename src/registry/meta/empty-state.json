@@ -1,0 +1,80 @@
+{
+  "summary": "A placeholder for an empty list, with an optional badge icon and up to two actions.",
+  "props": [
+    {
+      "name": "icon",
+      "type": "none",
+      "typeName": "ReactNode",
+      "exampleIcon": "User",
+      "description": "The glyph in the badge. No badge renders without one."
+    },
+    {
+      "name": "iconTone",
+      "type": "enum",
+      "values": ["accent", "neutral"],
+      "default": "accent",
+      "description": "`accent` for an invitation to act, `neutral` for a plain absence - nothing found, nothing to do."
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "example": "No members found",
+      "description": "The heading."
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "example": "Invite team members to collaborate on projects.",
+      "description": "A line under the title."
+    },
+    {
+      "name": "primaryLabel",
+      "type": "string",
+      "example": "Invite users",
+      "description": "The filled button. Omit it for a state with nothing to do."
+    },
+    {
+      "name": "primaryIcon",
+      "type": "none",
+      "typeName": "ReactNode",
+      "description": "A glyph before the primary label."
+    },
+    {
+      "name": "onPrimary",
+      "type": "none",
+      "typeName": "() => void",
+      "description": "Called when the primary button is pressed."
+    },
+    {
+      "name": "secondaryLabel",
+      "type": "string",
+      "example": "Learn more",
+      "description": "The outlined button beside the primary one."
+    },
+    {
+      "name": "onSecondary",
+      "type": "none",
+      "typeName": "() => void",
+      "description": "Called when the secondary button is pressed."
+    },
+    {
+      "name": "shape",
+      "type": "enum",
+      "values": ["rounded", "square", "squircle"],
+      "default": "rounded",
+      "description": "Corner radius on the badge."
+    },
+    {
+      "name": "shadow",
+      "type": "enum",
+      "values": ["none", "inset", "outset"],
+      "default": "none",
+      "description": "Wraps the whole block in a card. `none` renders it bare, with no card at all."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "description": "Appended to the root's classes, so any Yumma CSS utility you pass wins."
+    }
+  ]
+}

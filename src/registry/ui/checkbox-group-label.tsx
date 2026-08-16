@@ -1,9 +1,8 @@
 "use client";
 
-import { Checkbox } from "@base-ui/react/checkbox";
 import { CheckboxGroup } from "@base-ui/react/checkbox-group";
-import { Check } from "iconoir-react";
 import { useId } from "react";
+import Checkbox from "./checkbox";
 
 export default function CheckboxGroupLabel() {
   const id = useId();
@@ -17,63 +16,9 @@ export default function CheckboxGroupLabel() {
       <div className="fs-xs fw-600 c-slate-5 us-none" id={id}>
         Task actions
       </div>
-
-      <label className="d-f ai-c g-2 fs-sm fw-500">
-        <Checkbox.Root
-          name="notifications"
-          value="email"
-          className={(state) =>
-            `d-f w-4 h-4 ai-c jc-c br-sm fv:oo-2 fv:oc-indigo-5 ${
-              state.checked
-                ? "bg-indigo"
-                : "bw-1 bc-silver-3 bg-transparent"
-            }`
-          }
-        >
-          <Checkbox.Indicator className="d-f c-white">
-            <Check className="w-3 h-3" />
-          </Checkbox.Indicator>
-        </Checkbox.Root>
-        Edit task
-      </label>
-
-      <label className="d-f ai-c g-2 fs-sm fw-500">
-        <Checkbox.Root
-          name="notifications"
-          value="sms"
-          className={(state) =>
-            `d-f w-4 h-4 ai-c jc-c br-sm fv:oo-2 fv:oc-indigo-5 ${
-              state.checked
-                ? "bg-indigo"
-                : "bw-1 bc-silver-3 bg-transparent"
-            }`
-          }
-        >
-          <Checkbox.Indicator className="d-f c-white">
-            <Check className="w-3 h-3" />
-          </Checkbox.Indicator>
-        </Checkbox.Root>
-        Delete task
-      </label>
-
-      <label className="d-f ai-c g-2 fs-sm fw-500">
-        <Checkbox.Root
-          name="notifications"
-          value="push"
-          className={(state) =>
-            `d-f w-4 h-4 ai-c jc-c br-sm fv:oo-2 fv:oc-indigo-5 ${
-              state.checked
-                ? "bg-indigo"
-                : "bw-1 bc-silver-3 bg-transparent"
-            }`
-          }
-        >
-          <Checkbox.Indicator className="d-f c-white">
-            <Check className="w-3 h-3" />
-          </Checkbox.Indicator>
-        </Checkbox.Root>
-        Assign member
-      </label>
+      <Checkbox name="notifications" value="email" label="Edit task" />
+      <Checkbox name="notifications" value="sms" label="Delete task" />
+      <Checkbox name="notifications" value="push" label="Assign member" />
     </CheckboxGroup>
   );
 }

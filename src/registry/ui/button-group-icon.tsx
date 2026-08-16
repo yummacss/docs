@@ -1,19 +1,19 @@
-import { Button } from "@base-ui/react/button";
-import { Separator } from "@base-ui/react/separator";
 import { Bold, Italic, Underline } from "iconoir-react";
+import Button from "./button";
+import Separator from "./separator";
 
 export default function ButtonGroupIcon() {
   return (
     <div className="d-f o-h bc-silver-2 br-lg bw-1">
-      <Button className="d-f ai-c jc-c w-10 h-10 bg-white c-slate-10 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-3">
+      <Button variant="ghost" size="lg" shape="square" iconOnly>
         <Bold className="w-4 h-4" />
       </Button>
-      <Separator orientation="vertical" className="w-px bg-silver-3" />
-      <Button className="d-f ai-c jc-c w-10 h-10 bg-white c-slate-10 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-3">
+      <Separator orientation="vertical" />
+      <Button variant="ghost" size="lg" shape="square" iconOnly>
         <Italic className="w-4 h-4" />
       </Button>
-      <Separator orientation="vertical" className="w-px bg-silver-3" />
-      <Button className="d-f ai-c jc-c w-10 h-10 bg-white c-slate-10 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-3">
+      <Separator orientation="vertical" />
+      <Button variant="ghost" size="lg" shape="square" iconOnly>
         <Underline className="w-4 h-4" />
       </Button>
     </div>

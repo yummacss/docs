@@ -1,0 +1,322 @@
+"use client";
+
+import { Accordion } from "@base-ui/react/accordion";
+import { Lock, Minus, NavArrowDown, Plus } from "iconoir-react";
+import { type HTMLMotionProps, motion } from "motion/react";
+import type { ReactNode } from "react";
+import { useState } from "react";
+
+type Variant = "default" | "bordered" | "ghost" | "subtle";
+type Shape = "rounded" | "square" | "squircle";
+type Shadow = "none" | "inset" | "outset";
+type Icon = "chevron" | "plus-minus";
+type IconPosition = "leading" | "trailing";
+
+export interface AccordionItem {
+  value: string;
+  title: string;
+  content: ReactNode;
+  disabled?: boolean;
+}
+
+const SHAPES: Record<Shape, { item: string; trigger: string }> = {
+  rounded: { item: "br-lg", trigger: "br-sm" },
+  square: { item: "", trigger: "" },
+  squircle: { item: "br-xxl cs-s", trigger: "br-xxl cs-s" },
+};
+
+const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
+  inset: "bs-i-sm",
+  outset: "bs-o-xs",
+};
+
+export interface AccordionProps {
+  items: AccordionItem[];
+  variant?: Variant;
+  /** Corner radius on `bordered` items. Other variants use a fixed radius. */
+  shape?: Shape;
+  /** Wraps the whole list in a card. Only applies to the `default` variant. */
+  shadow?: Shadow;
+  /** The divider between items. Only visible on the `default` variant. */
+  separator?: boolean;
+  icon?: Icon;
+  iconPosition?: IconPosition;
+  /** Allow more than one item open at once. */
+  multiple?: boolean;
+  defaultValue?: string[];
+  value?: string[];
+  onValueChange?: (value: string[]) => void;
+  /** The chevron's rotation & the panel's height/opacity animation. */
+  animate?: boolean;
+  className?: string;
+}
+
+export default function AccordionBase({
+  items,
+  variant = "default",
+  shape = "rounded",
+  shadow = "none",
+  separator = true,
+  icon = "chevron",
+  iconPosition = "trailing",
+  multiple = false,
+  defaultValue,
+  value: controlledValue,
+  onValueChange,
+  animate = true,
+  className,
+}: AccordionProps) {
+  const [internalValue, setInternalValue] = useState<string[]>(
+    defaultValue ?? controlledValue ?? [],
+  );
+  const value = controlledValue ?? internalValue;
+
+  const handleValueChange = (next: string[]) => {
+    setInternalValue(next);
+    onValueChange?.(next);
+  };
+
+  const isCard = variant === "default" && shadow !== "none";
+
+  const rootClasses = [
+    "d-f fd-c w-100% max-w-96",
+    variant === "bordered" || variant === "subtle" ? "g-2" : "",
+    isCard
+      ? ["bg-white br-lg bw-1 bc-silver-2", SHADOWS[shadow]]
+          .filter(Boolean)
+          .join(" ")
+      : "",
+    className,
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  return (
+    <Accordion.Root
+      className={rootClasses}
+      value={value}
+      onValueChange={handleValueChange}
+      multiple={multiple}
+    >
+      {items.map((item, index) => {
+        const isOpen = value.includes(item.value);
+        const isLast = index === items.length - 1;
+
+        const itemClasses =
+          variant === "bordered"
+            ? ["bg-white bc-silver-3 bw-1", SHAPES[shape].item]
+                .filter(Boolean)
+                .join(" ")
+            : variant === "ghost"
+              ? [
+                  "blw-2 pl-4",
+                  isOpen ? "blc-indigo-5" : "blc-silver-3",
+                  isLast ? "" : "mb-3",
+                ]
+                  .filter(Boolean)
+                  .join(" ")
+              : variant === "subtle"
+                ? [
+                    "br-lg",
+                    isOpen ? "bg-indigo-1" : "bg-silver-1 h:bg-silver-2",
+                  ]
+                    .filter(Boolean)
+                    .join(" ")
+                : separator && !isLast
+                  ? "bbw-1 bc-silver-3"
+                  : "";
+
+        const triggerRadius =
+          variant === "bordered" ? SHAPES[shape].trigger : "br-sm";
+        const triggerPadX =
+          variant === "bordered" ? "px-4" : isCard ? "px-4" : "px-0";
+        const triggerPadY =
+          variant === "ghost"
+            ? "py-2"
+            : variant === "default" && !separator
+              ? "py-3"
+              : "py-4";
+        const panelPadX = variant === "bordered" || isCard ? "px-4" : "";
+
+        const titleColor = item.disabled
+          ? "c-slate-4"
+          : variant === "ghost"
+            ? isOpen
+              ? "c-indigo-6"
+              : "c-slate-8"
+            : variant === "subtle"
+              ? isOpen
+                ? "c-indigo-7"
+                : "c-slate-8"
+              : "c-slate-8";
+        const contentColor =
+          variant === "subtle" && isOpen ? "c-indigo-9" : "c-slate-6";
+        const panelClasses = ["m-0 pb-4", panelPadX, "fs-sm lh-4", contentColor]
+          .filter(Boolean)
+          .join(" ");
+        const glyphColor = item.disabled
+          ? "c-slate-4"
+          : variant === "ghost"
+            ? isOpen
+              ? "c-indigo-5"
+              : "c-slate-6"
+            : variant === "subtle" && isOpen
+              ? "c-indigo-5"
+              : "c-slate-6";
+
+        return (
+          <Accordion.Item
+            key={item.value}
+            value={item.value}
+            disabled={item.disabled}
+            className={itemClasses}
+          >
+            <Accordion.Header className="m-0">
+              <Accordion.Trigger
+                className={[
+                  "d-f ai-c",
+                  iconPosition === "trailing" ? "jc-sb" : "",
+                  "g-3 w-100%",
+                  triggerPadY,
+                  triggerPadX,
+                  "bg-transparent bw-0",
+                  triggerRadius,
+                  "ta-l",
+                  item.disabled ? "c-na o-60" : "c-p",
+                  "fv:oo-1 fv:oc-indigo-5",
+                ]
+                  .filter(Boolean)
+                  .join(" ")}
+              >
+                {icon === "plus-minus" && iconPosition === "leading" && (
+                  <PlusMinusGlyph
+                    isOpen={isOpen}
+                    animate={animate}
+                    className={glyphColor}
+                  />
+                )}
+                <div className="d-f ai-c g-3">
+                  <span
+                    className={["fs-sm fw-500", titleColor]
+                      .filter(Boolean)
+                      .join(" ")}
+                  >
+                    {item.title}
+                  </span>
+                  {item.disabled && (
+                    <Lock className="w-3 h-3 c-slate-4" aria-hidden />
+                  )}
+                </div>
+                {icon === "chevron" ? (
+                  <ChevronGlyph
+                    isOpen={isOpen}
+                    animate={animate}
+                    className={glyphColor}
+                  />
+                ) : (
+                  iconPosition === "trailing" && (
+                    <PlusMinusGlyph
+                      isOpen={isOpen}
+                      animate={animate}
+                      className={glyphColor}
+                    />
+                  )
+                )}
+              </Accordion.Trigger>
+            </Accordion.Header>
+            {animate ? (
+              <Accordion.Panel
+                keepMounted
+                render={(props) => (
+                  <motion.div
+                    {...(props as HTMLMotionProps<"div">)}
+                    initial={false}
+                    animate={
+                      isOpen
+                        ? { height: "auto", opacity: 1 }
+                        : { height: 0, opacity: 0 }
+                    }
+                    transition={{ duration: 0.2, ease: "easeOut" }}
+                    className="d-b o-h"
+                  />
+                )}
+              >
+                <p className={panelClasses}>{item.content}</p>
+              </Accordion.Panel>
+            ) : (
+              <Accordion.Panel>
+                <p className={panelClasses}>{item.content}</p>
+              </Accordion.Panel>
+            )}
+          </Accordion.Item>
+        );
+      })}
+    </Accordion.Root>
+  );
+}
+
+function ChevronGlyph({
+  isOpen,
+  animate,
+  className,
+}: {
+  isOpen: boolean;
+  animate: boolean;
+  className: string;
+}) {
+  if (!animate) {
+    return (
+      <NavArrowDown
+        className={["fs-0 w-4 h-4", isOpen ? "ro-36" : "ro-0", className]
+          .filter(Boolean)
+          .join(" ")}
+        aria-hidden
+      />
+    );
+  }
+
+  return (
+    <motion.span
+      animate={{ rotate: isOpen ? 180 : 0 }}
+      transition={{ duration: 0.15, ease: "easeInOut" }}
+      className="d-f"
+    >
+      <NavArrowDown
+        className={["fs-0 w-4 h-4", className].filter(Boolean).join(" ")}
+        aria-hidden
+      />
+    </motion.span>
+  );
+}
+
+function PlusMinusGlyph({
+  isOpen,
+  animate,
+  className,
+}: {
+  isOpen: boolean;
+  animate: boolean;
+  className: string;
+}) {
+  const glyphClasses = ["fs-0 w-4 h-4", className].filter(Boolean).join(" ");
+  const icon = isOpen ? (
+    <Minus className={glyphClasses} aria-hidden />
+  ) : (
+    <Plus className={glyphClasses} aria-hidden />
+  );
+
+  if (!animate) {
+    return icon;
+  }
+
+  return (
+    <motion.span
+      initial={false}
+      animate={{ rotate: isOpen ? 90 : 0 }}
+      transition={{ duration: 0.15, ease: "easeInOut" }}
+      className="d-f"
+    >
+      {icon}
+    </motion.span>
+  );
+}

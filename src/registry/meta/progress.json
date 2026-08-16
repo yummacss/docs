@@ -1,0 +1,44 @@
+{
+  "summary": "A labelled progress bar, determinate or indeterminate, in three shapes with an optional card shadow.",
+  "props": [
+    {
+      "name": "value",
+      "type": "none",
+      "typeName": "number | null",
+      "example": 68,
+      "description": "The current value, 0-100. Pass `null` for an indeterminate, always-animated sliding bar - there's no fill level to show, so the schema here can't demo it, but the prop accepts it."
+    },
+    {
+      "name": "label",
+      "type": "none",
+      "typeName": "ReactNode",
+      "example": "Sprint progress",
+      "description": "Text above the track, correctly wired to it via Base UI's own Progress.Label."
+    },
+    {
+      "name": "shape",
+      "type": "enum",
+      "values": ["rounded", "square", "squircle"],
+      "default": "rounded",
+      "description": "Corner radius on both the track and the indicator."
+    },
+    {
+      "name": "shadow",
+      "type": "enum",
+      "values": ["none", "inset", "outset"],
+      "default": "none",
+      "description": "Wraps the bar in a padded card. `none` renders it bare, with no card at all."
+    },
+    {
+      "name": "animate",
+      "type": "boolean",
+      "default": true,
+      "description": "The indicator's width transition as `value` changes. Indeterminate progress always animates regardless of this."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "description": "Appended to the root's classes, so any Yumma CSS utility you pass wins."
+    }
+  ]
+}

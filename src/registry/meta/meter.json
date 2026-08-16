@@ -1,0 +1,65 @@
+{
+  "summary": "A labelled progress meter, in four colors, with an optional icon, description and card shadow.",
+  "props": [
+    {
+      "name": "value",
+      "type": "number",
+      "example": 68,
+      "description": "The current value."
+    },
+    {
+      "name": "min",
+      "type": "number",
+      "description": "Defaults to Base UI's own Meter minimum (0)."
+    },
+    {
+      "name": "max",
+      "type": "number",
+      "description": "Defaults to Base UI's own Meter maximum (100)."
+    },
+    {
+      "name": "label",
+      "type": "none",
+      "typeName": "ReactNode",
+      "example": "Storage used",
+      "description": "Text above the track, correctly wired to it via Base UI's own Meter.Label."
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "example": "3.2 GB of 10 GB",
+      "description": "A line under the label. Only shown alongside `icon` - without one there is no header block for it to sit in."
+    },
+    {
+      "name": "icon",
+      "type": "none",
+      "typeName": "ReactNode",
+      "description": "A leading avatar. Setting this switches the header to a grouped icon+label+description block & moves the value display below the track instead of beside the label."
+    },
+    {
+      "name": "color",
+      "type": "enum",
+      "values": ["yellow", "indigo", "red", "green"],
+      "default": "yellow",
+      "description": "The indicator's fill color."
+    },
+    {
+      "name": "shadow",
+      "type": "enum",
+      "values": ["none", "inset", "outset"],
+      "default": "none",
+      "description": "Wraps the meter in a padded card. `none` renders it bare, with no card at all."
+    },
+    {
+      "name": "animate",
+      "type": "boolean",
+      "default": true,
+      "description": "The indicator's width transition as `value` changes."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "description": "Appended to the root's classes, so any Yumma CSS utility you pass wins."
+    }
+  ]
+}

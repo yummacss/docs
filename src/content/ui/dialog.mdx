@@ -1,8 +1,22 @@
 ---
 primitive: true
 title: Dialog
-description: Display modal content over your application.
+description: Display modal dialogs over your application.
 ---
+
+## Installation
+
+<CodeGroup>
+
+```bash title="pnpm"
+pnpm dlx yummaui add dialog
+```
+
+```bash title="npm"
+npx yummaui add dialog
+```
+
+</CodeGroup>
 
 ## Core Examples
 
@@ -10,75 +24,33 @@ Accessible React components with Base UI and Yumma CSS.
 
 ### Base
 
-<ComponentPreview registryId="dialog-base" />
-
----
-
-### Nested
-
-<ComponentPreview registryId="dialog-nested" />
-
----
-
-## Icon Examples
-
-Icon-only buttons and decorative configurations.
-
-### Leading
-
-<ComponentPreview registryId="dialog-icon-leading" />
-
-### Trailing
-
-<ComponentPreview registryId="dialog-icon-trailing" />
-
----
-
-## Shadow Examples
-
-Different box-shadow variants for depth and elevation.
-
-### Inset
-
-<ComponentPreview registryId="dialog-inset" />
-
----
-
-### Outset
-
-<ComponentPreview registryId="dialog-outset" />
-
----
-
-## Shape Examples
-
-Shapes from sharp to fully rounded.
-
-### Square
-
-<ComponentPreview registryId="dialog-square" />
-
----
-
-### Squircle
-
-<ComponentPreview registryId="dialog-squircle" />
-
----
+<ComponentPreview registryId="dialog" />
 
 ## More Examples
 
-Additional variants and interactive states.
+Compositions the props cannot reach.
 
-### Edit Profile
+### Sign In
 
-<ComponentPreview registryId="dialog-edit-profile" />
+<ComponentPreview registryId="dialog-sign-in" />
+
+---
+
+### Sign Up
+
+<ComponentPreview registryId="dialog-sign-up" />
 
 ---
 
 ### New Task
 
 <ComponentPreview registryId="dialog-new-task" />
+
+---
+
+### Edit Profile
+
+<ComponentPreview registryId="dialog-edit-profile" />
 
 ---
 
@@ -94,18 +66,10 @@ Additional variants and interactive states.
 
 ---
 
-### Sign In
+### Nested
 
-<ComponentPreview registryId="dialog-sign-in" />
+<ComponentPreview registryId="dialog-nested" />
 
----
+## API Reference
 
-### Sign Up
-
-<ComponentPreview registryId="dialog-sign-up" />
-
----
-
-### Static
-
-<ComponentPreview registryId="dialog-static" />
+<PropsTable registryId="dialog" />

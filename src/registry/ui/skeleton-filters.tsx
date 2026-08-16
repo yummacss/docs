@@ -1,54 +1,20 @@
-"use client";
-
-import { motion } from "motion/react";
+import Skeleton from "./skeleton";
 
 export default function SkeletonFilters() {
   return (
     <div className="d-f fd-c g-4 p-8 h-56">
-      <motion.div
-        animate={{ opacity: [0.5, 1, 0.5] }}
-        transition={{ duration: 1, repeat: Infinity }}
-        className="h-10 w-100% bg-silver-2 br-lg"
-      />
+      <Skeleton shape="block" size="h-10 w-100%" />
       <div className="d-f g-2">
-        <motion.div
-          animate={{ opacity: [0.5, 1, 0.5] }}
-          transition={{ duration: 1, repeat: Infinity, delay: 0.05 }}
-          className="h-6 w-16 bg-silver-2 br-9999"
-        />
-        <motion.div
-          animate={{ opacity: [0.5, 1, 0.5] }}
-          transition={{ duration: 1, repeat: Infinity, delay: 0.1 }}
-          className="h-6 w-20 bg-silver-2 br-9999"
-        />
-        <motion.div
-          animate={{ opacity: [0.5, 1, 0.5] }}
-          transition={{ duration: 1, repeat: Infinity, delay: 0.15 }}
-          className="h-6 w-14 bg-silver-2 br-9999"
-        />
+        <Skeleton shape="circle" size="h-6 w-16" delay={0.05} />
+        <Skeleton shape="circle" size="h-6 w-20" delay={0.1} />
+        <Skeleton shape="circle" size="h-6 w-14" delay={0.15} />
       </div>
-      <motion.div
-        animate={{ opacity: [0.5, 1, 0.5] }}
-        transition={{ duration: 1, repeat: Infinity, delay: 0.2 }}
-        className="h-3 w-24 bg-silver-1 br-xs"
-      />
+      <Skeleton tone="subtle" size="h-3 w-24" delay={0.2} />
       <div className="d-f ai-c g-4">
-        <motion.div
-          animate={{ opacity: [0.5, 1, 0.5] }}
-          transition={{ duration: 1, repeat: Infinity, delay: 0.25 }}
-          className="w-9 h-9 bg-silver-2 br-lg fs-0"
-        />
+        <Skeleton shape="block" size="w-9 h-9" delay={0.25} className="fs-0" />
         <div className="d-f fd-c g-1 fg-1">
-          <motion.div
-            animate={{ opacity: [0.5, 1, 0.5] }}
-            transition={{ duration: 1, repeat: Infinity, delay: 0.25 }}
-            className="h-3 w-48 bg-silver-2 br-xs"
-          />
-          <motion.div
-            animate={{ opacity: [0.5, 1, 0.5] }}
-            transition={{ duration: 1, repeat: Infinity, delay: 0.25 }}
-            className="h-2 w-32 bg-silver-1 br-xs"
-          />
+          <Skeleton size="h-3 w-48" delay={0.25} />
+          <Skeleton tone="subtle" size="h-2 w-32" delay={0.25} />
         </div>
       </div>
     </div>
