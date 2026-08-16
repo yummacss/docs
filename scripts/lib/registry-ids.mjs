@@ -4,11 +4,15 @@ import { basename } from "node:path";
 /**
  * Splitting a registry id into the component and variant the CLI addresses.
  *
- * `yummaui add` resolves the **component** name against `/ui/r/index.json` and
- * takes the variant as a flag, so `add button-danger` is not a command: it is
- * `add button --variant danger`. The id is only how the registry files are
- * keyed. Two generators and the docs all need the same split, so it lives here
- * rather than being written out three times & drifting.
+ * `yummaui add` resolves a name against `/ui/r/index.json` as either a
+ * component or a block, so `add button-danger` is not a command - a variant
+ * only demonstrates a prop and has no file of its own to install. The id is
+ * only how the registry files are keyed. Two generators and the docs all need
+ * the same split, so it lives here rather than being written out three times &
+ * drifting.
+ *
+ * (This used to say the variant was a flag: `add button --variant danger`.
+ * `--variant` was never wired and was removed in `ui@815d2f9`.)
  */
 
 /** Longest slug first so `checkbox-group` wins over `checkbox`. */
