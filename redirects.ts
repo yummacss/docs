@@ -14,9 +14,22 @@ const docsRedirects = [
     destination: "/docs/naming-convention",
     permanent: true,
   },
+  // IntelliSense was retired 2026-08-16; canon covers the validation half.
+  // `/docs/ide-support` already redirected here, so leaving it pointed at the
+  // deleted page would have turned an existing permanent redirect into a 404.
   {
     source: "/docs/ide-support",
-    destination: "/docs/intellisense",
+    destination: "/docs/canon",
+    permanent: true,
+  },
+  {
+    source: "/docs/intellisense",
+    destination: "/docs/canon",
+    permanent: true,
+  },
+  {
+    source: "/blog/yummacss-intellisense",
+    destination: "/docs/canon",
     permanent: true,
   },
   {
