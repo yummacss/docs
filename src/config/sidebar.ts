@@ -358,7 +358,7 @@ export const sidebarConfig = {
     // would read as a third setup step.
     {
       title: "Utils",
-      items: ["canon"],
+      items: ["packages", "canon"],
     },
   ] satisfies SidebarSection[],
   ui: [
