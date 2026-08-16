@@ -13,30 +13,20 @@ const SHAPES: Record<Shape, string> = {
   squircle: "br-xxl cs-s",
 };
 
-// Only the thumb carries it - a track and an indicator are flush with the
-// control, so a shadow on them would read as a stray line rather than depth.
 const SHADOWS: Record<Shadow, string> = {
   none: "",
   inset: "bs-i-sm",
   outset: "bs-o-xs",
 };
 
-/** `50` -> `"50%"`; `[20, 80]` -> `"20 - 80"`. Override for currency, units, anything else. */
 function defaultFormat(value: Value): ReactNode {
   return Array.isArray(value) ? `${value[0]} - ${value[1]}` : `${value}%`;
 }
 
 export interface SliderProps {
   label?: string;
-  /** Appends a red asterisk to the label. */
   required?: boolean;
-  /** A line under the control, for context on what the value means. */
   description?: string;
-  /**
-   * A single number for one thumb, or a two-item array for a range with two.
-   * Whichever shape you start with is the shape the slider keeps - it does not
-   * switch thumb count at runtime.
-   */
   defaultValue?: Value;
   value?: Value;
   onValueChange?: (value: Value) => void;
@@ -46,7 +36,6 @@ export interface SliderProps {
   shape?: Shape;
   shadow?: Shadow;
   disabled?: boolean;
-  /** How the value(s) are shown beside the label. Defaults to `defaultFormat`. */
   formatValue?: (value: Value) => ReactNode;
   className?: string;
 }
@@ -115,8 +104,6 @@ export default function SliderBase({
             <Slider.Indicator className={`bg-indigo ${SHAPES[shape]}`} />
             {isRange ? (
               value.map((_, index) => (
-                // Range thumbs have no other identity than position, so the
-                // index is the only key that exists.
                 // biome-ignore lint/suspicious/noArrayIndexKey: positional by design
                 <Slider.Thumb key={index} className={thumbClasses} />
               ))

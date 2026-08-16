@@ -21,14 +21,10 @@ export interface MeterProps {
   min?: number;
   max?: number;
   label: ReactNode;
-  /** A line under the label. Only shown alongside `icon`. */
   description?: string;
-  /** A leading avatar. Moves the value display below the track when set. */
   icon?: ReactNode;
   color?: Color;
-  /** Wraps the meter in a padded card. `none` renders it bare. */
   shadow?: Shadow;
-  /** The indicator's width transition. */
   animate?: boolean;
   className?: string;
 }

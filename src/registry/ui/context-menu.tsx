@@ -10,8 +10,6 @@ type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 type IconPosition = "leading" | "trailing";
 
-// The trigger is identical for rounded & squircle in every demo - only the
-// popup and its items take the extra radius step for squircle.
 const TRIGGER_SHAPES: Record<Shape, string> = {
   rounded: "br-xxl cs-s",
   square: "",
@@ -39,9 +37,7 @@ export interface ContextMenuAction {
   type?: "item";
   label: string;
   icon?: ReactNode;
-  /** The letter beside a command glyph, e.g. `"E"` for Cmd+E. */
   shortcut?: string;
-  /** Red text, and a red highlight instead of the neutral one. */
   destructive?: boolean;
   disabled?: boolean;
   onClick?: () => void;
@@ -51,7 +47,6 @@ export interface ContextMenuSeparator {
   type: "separator";
 }
 
-/** A semantic `role="group"` block, with an optional heading above it. */
 export interface ContextMenuGroup {
   type: "group";
   label?: string;
@@ -88,18 +83,14 @@ export type ContextMenuItem =
   | ContextMenuSubmenu;
 
 export interface ContextMenuProps {
-  /** The right-clickable area's label. */
   trigger: ReactNode;
   items: ContextMenuItem[];
   shape?: Shape;
   shadow?: Shadow;
-  /** Which end of an item its `icon` sits at. Shortcuts always trail. */
   iconPosition?: IconPosition;
-  /** Blocks the menu from opening at all & dims the trigger. */
   disabled?: boolean;
   open?: boolean;
   onOpenChange?: (open: boolean) => void;
-  /** The popup's fade in/out. */
   animate?: boolean;
   className?: string;
 }
@@ -260,8 +251,7 @@ export default function ContextMenuBase({
 
       const action = item as ContextMenuAction;
       const destructive = Boolean(action.destructive);
-      // A trailing icon or a shortcut pushes the label & the accessory to
-      // opposite ends; a leading icon just sits in the row.
+
       const trailing =
         Boolean(action.shortcut) ||
         (Boolean(action.icon) && iconPosition === "trailing");

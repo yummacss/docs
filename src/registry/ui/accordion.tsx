@@ -33,20 +33,15 @@ const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
 export interface AccordionProps {
   items: AccordionItem[];
   variant?: Variant;
-  /** Corner radius on `bordered` items. Other variants use a fixed radius. */
   shape?: Shape;
-  /** Wraps the whole list in a card. Only applies to the `default` variant. */
   shadow?: Shadow;
-  /** The divider between items. Only visible on the `default` variant. */
   separator?: boolean;
   icon?: Icon;
   iconPosition?: IconPosition;
-  /** Allow more than one item open at once. */
   multiple?: boolean;
   defaultValue?: string[];
   value?: string[];
   onValueChange?: (value: string[]) => void;
-  /** The chevron's rotation & the panel's height/opacity animation. */
   animate?: boolean;
   className?: string;
 }

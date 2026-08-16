@@ -11,12 +11,6 @@ type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 type IconSide = "leading" | "trailing";
 
-/**
- * The option shape this component renders. Fixed rather than generic, the
- * same as Autocomplete & Combobox: you own the file, so data that does not
- * fit is an edit to the option body below rather than a type parameter on
- * every call site.
- */
 export interface RadioOption {
   value: string;
   label: string;
@@ -50,8 +44,6 @@ const SHAPES: Record<Shape, string> = {
   squircle: "br-xxl cs-s",
 };
 
-// Only the unchecked circle gets it - a solid indigo fill reads as depth
-// already, and stacking a shadow on top of it muddies the colour.
 const SHADOWS: Record<Shadow, string> = {
   none: "",
   inset: "bs-i-sm",
@@ -60,11 +52,6 @@ const SHADOWS: Record<Shadow, string> = {
 
 export interface RadioProps {
   options: RadioOption[];
-  /**
-   * A caption above the group, correctly wired to it via `aria-labelledby`.
-   * Without one the group has no accessible name at all - pass this rather
-   * than leaving it out.
-   */
   label?: string;
   defaultValue?: string;
   value?: string;
@@ -72,7 +59,6 @@ export interface RadioProps {
   size?: Size;
   shape?: Shape;
   shadow?: Shadow;
-  /** Any icon per option; positioned for you. */
   iconSide?: IconSide;
   disabled?: boolean;
   animate?: boolean;

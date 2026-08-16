@@ -34,7 +34,6 @@ export interface ToolbarButtonItem {
   type?: "button";
   label?: string;
   icon?: ReactNode;
-  /** Square button showing only the icon. `label` becomes its `aria-label`. */
   iconOnly?: boolean;
   disabled?: boolean;
   onClick?: () => void;
@@ -46,7 +45,6 @@ export interface ToolbarSeparatorItem {
 
 export interface ToolbarToggleOption {
   value: string;
-  /** The toggle's `aria-label` - these are always icon-only. */
   label: string;
   icon: ReactNode;
 }
@@ -57,14 +55,12 @@ export interface ToolbarTogglesItem {
   value?: string[];
   defaultValue?: string[];
   onValueChange?: (value: string[]) => void;
-  /** Names the group for assistive tech. */
   label?: string;
 }
 
 export interface ToolbarInputItem {
   type: "input";
   placeholder?: string;
-  /** The input has no visible label, so this is its only accessible name. */
   label: string;
 }
 
@@ -82,7 +78,6 @@ export interface ToolbarNumberItem {
   onValueChange?: (value: number) => void;
   min?: number;
   max?: number;
-  /** The stepper has no visible label, so this is its only accessible name. */
   label: string;
 }
 
@@ -98,7 +93,6 @@ export interface ToolbarProps {
   items: ToolbarItem[];
   shape?: Shape;
   shadow?: Shadow;
-  /** The press-scale on buttons and toggles. */
   animate?: boolean;
   className?: string;
 }
@@ -286,7 +280,6 @@ export default function ToolbarBase({
   );
 }
 
-/** Split out so the group can hold its own value when uncontrolled. */
 function ToolbarToggles({
   item,
   control,

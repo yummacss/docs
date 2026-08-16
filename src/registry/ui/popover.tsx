@@ -11,9 +11,6 @@ type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 type TriggerVariant = "icon" | "label";
 
-// `icon` is a fixed square for a glyph alone; `label` gives it room to sit
-// beside text instead, for a trigger like "[swatch] Accent" rather than an
-// icon button.
 const TRIGGER_VARIANTS: Record<TriggerVariant, string> = {
   icon: "w-10 h-10",
   label: "px-3 py-2 g-2",
@@ -37,33 +34,22 @@ const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
 };
 
 export interface PopoverProps {
-  /** The trigger's content - an icon, usually. */
   trigger: ReactNode;
-  /** Names the trigger for assistive tech, since it is often icon-only. */
   triggerLabel?: string;
-  /** `icon` is a fixed square; `label` gives the trigger room to pair an icon with text. */
   triggerVariant?: TriggerVariant;
   title: string;
   description?: ReactNode;
-  /** Extra content below the description. */
   children?: ReactNode;
   side?: Side;
-  /** Gap between trigger and popup, in pixels. */
   sideOffset?: number;
-  /** A pointer notched into the popup's edge, aimed back at the trigger. */
   arrow?: boolean;
-  /** Opens on hover as well as click. */
   openOnHover?: boolean;
-  /** How long to wait before a hover opens it, in ms. */
   delay?: number;
-  /** Controlled open state, for closing the popup from inside `children` - after a selection, say. Uncontrolled (the default) if omitted. */
   open?: boolean;
   onOpenChange?: (open: boolean) => void;
-  /** An X beside the title. */
   showClose?: boolean;
   shape?: Shape;
   shadow?: Shadow;
-  /** The popup's scale-in. */
   animate?: boolean;
   className?: string;
 }
@@ -117,8 +103,6 @@ export default function PopoverBase({
   const body = (
     <>
       {arrow && (
-        // Base UI's Arrow re-aims itself per side, unlike the hand-positioned
-        // SVG in the original demo, which only ever pointed up.
         <Popover.Arrow className="d-f w-4 h-2 c-silver-2">
           <svg viewBox="0 0 10 5" width="16" height="8">
             <title>Arrow</title>

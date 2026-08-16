@@ -33,9 +33,6 @@ const STATUS_RING: Record<Status, string> = {
   success: "fv:oc-green-5",
 };
 
-// The icon and the message read at different weights: the icon is the accent
-// colour, the message text is one step darker so a paragraph of it stays
-// legible. Same split as Field.
 const STATUS_ICON: Record<Status, string> = {
   default: "",
   error: "c-red-5",
@@ -48,25 +45,20 @@ const STATUS_MESSAGE: Record<Status, string> = {
   success: "c-green-6",
 };
 
-// Warns at the same remaining count regardless of maxLength's size: "running
-// low" reads the same at 20 characters left whether the limit is 200 or 2,000.
 const WARN_AT = 20;
 
 export interface TextareaProps
   extends Omit<ComponentProps<"textarea">, "className" | "onChange"> {
   label?: string;
-  /** Appends a red asterisk to the label & sets the control's native `required` attribute. */
+
   required?: boolean;
-  /** A line under the control, for format or context. */
+
   description?: string;
-  /**
-   * Red border, a warning icon & this message in place of `description`.
-   * Wins over `success` if both are set.
-   */
+
   error?: string;
-  /** Green border, a check icon & this message in place of `description`. */
+
   success?: string;
-  /** Shows a live remaining-character counter & progress bar under the control. */
+
   maxLength?: number;
   shape?: Shape;
   shadow?: Shadow;
@@ -135,11 +127,7 @@ export default function TextareaBase({
       )}
 
       <div className="d-f p-r ai-s">
-        {/* Field.Control's props are typed against its default rendered
-            element (input), not against the textarea passed via `render`, so
-            every native event handler here conflicts at the type level even
-            though each is correct at runtime - cast at the boundary rather
-            than fighting Base UI's generics prop by prop. */}
+        {}
         <Field.Control
           render={<textarea />}
           value={value}

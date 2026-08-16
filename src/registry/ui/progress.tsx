@@ -19,15 +19,10 @@ const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
 };
 
 export interface ProgressProps {
-  /** `null` renders an indeterminate, always-animated sliding bar. */
   value: number | null;
   label: ReactNode;
   shape?: Shape;
-  /** Wraps the meter in a padded card. `none` renders it bare. */
   shadow?: Shadow;
-  /** The indicator's width transition. Indeterminate progress always
-   * animates regardless of this - a static indeterminate bar can't
-   * communicate anything, since it has no fill level to show. */
   animate?: boolean;
   className?: string;
 }

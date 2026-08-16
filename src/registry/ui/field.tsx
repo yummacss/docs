@@ -10,16 +10,12 @@ type Shadow = "none" | "inset" | "outset";
 type IconSide = "leading" | "trailing";
 type Status = "default" | "error" | "success";
 
-// Plain lookups rather than cva: a copied component should not drag a class
-// utility into your package.json to do what an object literal already does.
 const SIZES: Record<Size, string> = {
   sm: "h-8 w-56",
   md: "h-10 w-64",
   lg: "h-12 w-72",
 };
 
-// `prefixNode`/`suffix` need the control's height without its width, since the
-// affix box takes its own share of the row instead.
 const HEIGHTS: Record<Size, string> = { sm: "h-8", md: "h-10", lg: "h-12" };
 
 const SHAPES: Record<Shape, string> = {
@@ -34,10 +30,6 @@ const SHADOWS: Record<Shadow, string> = {
   outset: "bs-o-xs",
 };
 
-// An icon sits over the control, so the text has to start after it. The status
-// icon always claims the trailing slot - a decorative icon placed there too
-// would collide with it, which is why `icon` is hidden once `error` or
-// `success` is set.
 const ICON_PADDING: Record<IconSide, string> = {
   leading: "pl-10 pr-4",
   trailing: "pl-4 pr-10",
@@ -55,8 +47,6 @@ const STATUS_RING: Record<Status, string> = {
   success: "fv:oc-green-5",
 };
 
-// The icon and the message read at different weights: the icon is the accent
-// colour, the message text is one step darker so a paragraph of it stays legible.
 const STATUS_ICON: Record<Status, string> = {
   default: "",
   error: "c-red-5",
@@ -72,33 +62,27 @@ const STATUS_MESSAGE: Record<Status, string> = {
 export interface FieldProps
   extends Omit<ComponentProps<typeof Field.Control>, "size"> {
   label?: string;
-  /** A line under the control, for format or context. */
+
   description?: string;
-  /**
-   * Red border, a warning icon & this message in place of `description`.
-   * Wins over `success` if both are set.
-   */
+
   error?: string;
-  /** Green border, a check icon & this message in place of `description`. */
+
   success?: string;
   size?: Size;
   shape?: Shape;
   shadow?: Shadow;
-  /**
-   * Any icon; it is positioned for you. Hidden once `error` or `success` is
-   * set, which claim the trailing slot for their own icon.
-   */
+
   icon?: ReactNode;
   iconSide?: IconSide;
-  /** Lets `icon` receive pointer events, for an inline button (a clear or reveal toggle) instead of a decorative glyph. */
+
   iconInteractive?: boolean;
-  /** Static content flush against the control's leading edge, like a URL scheme. Mutually exclusive with `icon`/`suffix` in practice - each claims the same row. */
+
   prefixNode?: ReactNode;
-  /** Static content flush against the control's trailing edge, like a domain suffix. */
+
   suffix?: ReactNode;
-  /** Renders a `<textarea>` instead of an `<input>`, for a message or description field. Ignored alongside `icon`/`prefixNode`/`suffix`. */
+
   multiline?: boolean;
-  /** Fills the width of the parent instead of `size`'s fixed width, for a field inside a form column that isn't a fixed size itself - a dialog, say. */
+
   fullWidth?: boolean;
 }
 
@@ -143,9 +127,6 @@ export default function FieldBase({
     .filter(Boolean)
     .join(" ");
 
-  // Flush against `prefixNode`/`suffix`: only the outer edge rounds, and the
-  // shared seam carries no border of its own so the two segments read as one
-  // control rather than two boxes glued together.
   const affixControlClasses = [
     "fg-1 bg-white bc-silver-3 c-slate-10 byw-1 fs-md fv:oo--1",
     HEIGHTS[size],

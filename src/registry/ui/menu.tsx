@@ -18,9 +18,6 @@ interface SizeSpec {
   text: string;
 }
 
-// `md` is the base demo's own scale. The separate `menu-md` demo sat between
-// `sm` and base with its own third set of values, which made the published
-// scale four steps with no default - dropped in favour of a monotonic three.
 const SIZES: Record<Size, SizeSpec> = {
   sm: { trigger: "px-2 py-1", popup: "w-44", item: "py-1 px-2", text: "fs-xs" },
   md: {
@@ -59,9 +56,7 @@ export interface MenuAction {
   type?: "item";
   label: string;
   icon?: ReactNode;
-  /** The letter beside a command glyph, e.g. `"E"` for Cmd+E. */
   shortcut?: string;
-  /** Red text, and a red highlight instead of the neutral one. */
   destructive?: boolean;
   disabled?: boolean;
   onClick?: () => void;
@@ -71,7 +66,6 @@ export interface MenuSeparator {
   type: "separator";
 }
 
-/** A semantic `role="group"` block, with an optional heading above it. */
 export interface MenuGroup {
   type: "group";
   label?: string;
@@ -96,7 +90,6 @@ export interface MenuRadio {
 export interface MenuSubmenu {
   type: "submenu";
   label: string;
-  /** Leads the label, the same way an action item's `icon` does. */
   icon?: ReactNode;
   items: MenuItem[];
 }
@@ -110,19 +103,15 @@ export type MenuItem =
   | MenuSubmenu;
 
 export interface MenuProps {
-  /** The button's content. Pass a chevron yourself if you want one. */
   trigger: ReactNode;
   items: MenuItem[];
   size?: Size;
   shape?: Shape;
   shadow?: Shadow;
-  /** Which end of an item its `icon` sits at. Shortcuts always trail. */
   iconPosition?: IconPosition;
-  /** Blocks the menu from opening at all & dims the trigger. */
   disabled?: boolean;
   open?: boolean;
   onOpenChange?: (open: boolean) => void;
-  /** The popup's fade & the trigger's hover transition. */
   animate?: boolean;
   className?: string;
 }

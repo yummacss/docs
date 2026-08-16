@@ -6,8 +6,6 @@ import { type HTMLMotionProps, motion } from "motion/react";
 import type { ReactNode } from "react";
 import { useState } from "react";
 
-// No demo ever showed a rounded trigger - the undecorated default has no
-// radius at all, so "square" (not "rounded") is the real baseline here.
 type Shape = "square" | "squircle";
 type Icon = "chevron" | "plus-minus";
 type IconPosition = "leading" | "trailing";
@@ -18,19 +16,15 @@ const SHAPES: Record<Shape, string> = {
 };
 
 export interface CollapsibleProps {
-  /** The trigger's label. */
   trigger: ReactNode;
-  /** The panel's content. */
   children: ReactNode;
   defaultOpen?: boolean;
   open?: boolean;
   onOpenChange?: (open: boolean) => void;
-  /** Locks the panel open, replaces the icon with a lock & blocks toggling. */
   disabled?: boolean;
   shape?: Shape;
   icon?: Icon;
   iconPosition?: IconPosition;
-  /** The icon's rotation & the panel's height/opacity animation. */
   animate?: boolean;
   className?: string;
 }

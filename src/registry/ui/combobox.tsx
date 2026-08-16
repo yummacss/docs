@@ -11,29 +11,17 @@ type Size = "sm" | "md" | "lg";
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 
-/**
- * The item shape this component renders. Fixed rather than generic, the same as
- * Autocomplete: you own the file, so data that does not fit is an edit to the
- * item body below rather than a type parameter on every call site.
- */
 export interface ComboboxItem {
   label: string;
   description?: string;
   avatar?: string;
 }
 
-/**
- * A labelled section of items. Base UI's own `items` prop already accepts
- * this shape - an array of `{ items }` groups instead of a flat array - so
- * grouping needs no extra prop here, only a render branch for the heading.
- */
 export interface ComboboxGroup {
   group: string;
   items: ComboboxItem[];
 }
 
-// Plain lookups rather than cva: a copied component should not drag a class
-// utility into your package.json to do what an object literal already does.
 const INPUT =
   "pl-4 pr-16 bg-white bc-silver-3 c-slate-10 bw-1 fs-md fv:oo--1 fv:oc-indigo-5";
 
@@ -43,14 +31,12 @@ const SIZES: Record<Size, string> = {
   lg: "h-12 w-72",
 };
 
-// The popup tracks the input's width, or it reads as a different control.
 const POPUP_SIZES: Record<Size, string> = {
   sm: "w-56",
   md: "w-64",
   lg: "w-72",
 };
 
-// The trigger column is centred against the input, so it has to match its height.
 const ACTION_HEIGHTS: Record<Size, string> = {
   sm: "h-8",
   md: "h-10",
@@ -75,18 +61,14 @@ const ACTION =
 export interface ComboboxProps {
   items: ComboboxItem[] | ComboboxGroup[];
   label?: ReactNode;
-  /** A line under the input, for what the field expects rather than what it is. */
   description?: string;
   placeholder?: string;
   size?: Size;
   shape?: Shape;
   shadow?: Shadow;
-  /** Selections become removable chips under the input. */
   multiple?: boolean;
-  /** A clear button. Ignored when `multiple`, where each chip removes itself. */
   clearable?: boolean;
   disabled?: boolean;
-  /** Replaces the results with a loading row, for an async source. */
   loading?: boolean;
   animate?: boolean;
   emptyMessage?: string;
@@ -112,7 +94,11 @@ function renderItem(item: ComboboxItem) {
     >
       {item.avatar && (
         <Avatar.Root className="d-if o-h ai-c jc-c w-6 h-6 bc-white br-9999 bw-1 us-none">
-          <Avatar.Image src={item.avatar} alt="" className="of-c w-100% h-100%" />
+          <Avatar.Image
+            src={item.avatar}
+            alt=""
+            className="of-c w-100% h-100%"
+          />
           <Avatar.Fallback className="d-f ai-c jc-c w-100% h-100% c-slate-8 fs-xs">
             {item.label[0]}
           </Avatar.Fallback>
@@ -190,8 +176,6 @@ export default function ComboboxBase({
 
   return (
     <Combobox.Root
-      // Base UI's own overloads pick one shape or the other; they do not
-      // compose over a union, even though it handles both at runtime.
       items={items as ComboboxItem[]}
       open={open}
       onOpenChange={setOpen}
@@ -216,8 +200,7 @@ export default function ComboboxBase({
           <div
             className={`d-f p-a r-2 b-0 ai-c jc-c c-slate-6 ${ACTION_HEIGHTS[size]}`}
           >
-            {/* Each chip removes itself when multiple, so a clear-all here would
-                be a second way to do the same thing at a different scale. */}
+            {}
             {clearable && !multiple && (
               <Combobox.Clear className={ACTION} aria-label="Clear selection">
                 <Xmark className="w-4 h-4" />

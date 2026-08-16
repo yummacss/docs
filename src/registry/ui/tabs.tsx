@@ -15,8 +15,6 @@ const SIZES: Record<Size, { tab: string; text: string }> = {
   lg: { tab: "py-3 px-4", text: "fs-md" },
 };
 
-// The list takes one radius step more than the tabs sitting inside it, so the
-// tab's corner never pokes past the container's.
 const LIST_SHAPES: Record<Shape, string> = {
   pill: "br-9999",
   rounded: "br-lg",
@@ -33,14 +31,11 @@ const TAB_SHAPES: Record<Shape, string> = {
 
 export interface TabItem {
   value: string;
-  /** Also the accessible name when `iconOnly` hides it. */
   label: string;
   icon?: ReactNode;
-  /** Hides the label text, keeping it as the tab's `aria-label`. */
   iconOnly?: boolean;
   count?: string | number;
   disabled?: boolean;
-  /** Rendered in a panel below (or beside) the list. Style it yourself. */
   panel?: ReactNode;
 }
 
@@ -52,9 +47,7 @@ export interface TabsProps {
   orientation?: Orientation;
   size?: Size;
   shape?: Shape;
-  /** Which end of a tab its `icon` sits at. */
   iconPosition?: IconPosition;
-  /** The indicator's slide between tabs. */
   animate?: boolean;
   className?: string;
 }
@@ -89,9 +82,6 @@ export default function TabsBase({
     .filter(Boolean)
     .join(" ");
 
-  // The chrome lives on the list, not the root. The original demos split it
-  // three ways - root for the bare list, list for the panelled one, list again
-  // for the vertical one - which rendered the same box each time.
   const listClasses = [
     "d-f p-r g-1 p-1 w-fc bg-silver-1 bw-1 bc-silver-2",
     LIST_SHAPES[shape],
@@ -165,9 +155,7 @@ export default function TabsBase({
           );
         })}
 
-        {/* One translate covers both axes, so the indicator is composited
-            rather than laid out on every change. The originals animated
-            `left`/`top` for vertical and translate for horizontal. */}
+        {}
         <Tabs.Indicator
           className={indicatorClasses}
           style={{

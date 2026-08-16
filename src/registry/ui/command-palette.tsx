@@ -32,9 +32,7 @@ const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
 export interface CommandItem {
   id: string;
   label: string;
-  /** A second line under the label. */
   description?: string;
-  /** Shown in a key cap at the far end, e.g. `"⌘K"`. */
   shortcut?: string;
   icon?: ReactNode;
   onSelect?: () => void;
@@ -46,17 +44,13 @@ export interface CommandGroup {
 }
 
 export interface CommandPaletteProps {
-  /** The trigger button's label. */
   trigger: ReactNode;
   groups: CommandGroup[];
   placeholder?: string;
-  /** Shown when the query matches nothing. */
   emptyMessage?: string;
-  /** Which end of an item its `icon` sits at. A `shortcut` always trails. */
   iconPosition?: IconPosition;
   shape?: Shape;
   shadow?: Shadow;
-  /** The backdrop's fade and the popup's scale-in. */
   animate?: boolean;
   className?: string;
 }

@@ -18,8 +18,6 @@ const POPUP_SHAPES: Record<Shape, string> = {
   squircle: "br-3xl cs-s",
 };
 
-// The badge is a circle at `rounded`, not a rounded rectangle - it holds a
-// single glyph, so it takes the full radius rather than the button's step.
 const BADGE_SHAPES: Record<Shape, string> = {
   rounded: "br-9999",
   square: "",
@@ -48,26 +46,20 @@ const TONE_BADGE: Record<Tone, string> = {
 };
 
 export interface AlertDialogProps {
-  /** The trigger button's label. */
   trigger: ReactNode;
   triggerIcon?: ReactNode;
   triggerIconPosition?: IconPosition;
-  /** The trigger's own colour, independent of the dialog's `tone`. */
   triggerTone?: Tone;
-  /** The glyph in the badge above the title. */
   icon?: ReactNode;
-  /** Colours the badge and the confirm button. */
   tone?: Tone;
   title: string;
   description: string;
   cancelLabel?: string;
   confirmLabel: string;
   onConfirm?: () => void;
-  /** The X in the corner. The Cancel button remains either way. */
   showClose?: boolean;
   shape?: Shape;
   shadow?: Shadow;
-  /** The backdrop's fade and the popup's scale-in. */
   animate?: boolean;
   className?: string;
 }
