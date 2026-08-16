@@ -20,7 +20,7 @@ import {
 } from "iconoir-react";
 import type { ComponentType } from "react";
 import { lazy, type ReactNode, Suspense, useEffect, useState } from "react";
-import { CopyButton } from "@/components/ui/code";
+import { CopyButton, TitleBar } from "@/components/ui/code";
 import {
   getRegistryImport,
   getRegistryMeta,
@@ -183,7 +183,14 @@ export default function ComponentPreview({
       </Toggle>
 
       {showCode &&
-        (usage ? <TokenBlock tokens={usage} expanded={expanded} /> : children)}
+        (usage ? (
+          // A file of yours, which is why this imports through the `@/` alias
+          // while the registry source below imports `./`. `page.tsx` is the
+          // placeholder the docs already use for the consumer's own file.
+          <TokenBlock tokens={usage} expanded={expanded} title="page.tsx" />
+        ) : (
+          children
+        ))}
     </div>
   );
 }
@@ -197,11 +204,14 @@ function TokenBlock({
   tokens,
   className = "bc-border btw-1",
   expanded = false,
+  title,
 }: {
   tokens: Token[];
   /** The frame is the caller's, so a block under a tab strip adds no second rule. */
   className?: string;
   expanded?: boolean;
+  /** Which file this belongs in. Same bar `Code` renders, for the same reason. */
+  title?: string;
 }) {
   const [copied, setCopied] = useState(false);
 
@@ -218,15 +228,20 @@ function TokenBlock({
   };
 
   return (
-    <div className={`p-r bg-surface ${className}`}>
-      <div className="p-a t-2 r-2">
-        <CopyButton copied={copied} onCopy={copy} />
+    <div className={`bg-surface ${className}`}>
+      <TitleBar title={title} />
+      {/* `p-r` moved off the outer element so the copy button anchors to the
+          code, not to the title bar above it - the same nesting `Code` uses. */}
+      <div className="p-r">
+        <div className="p-a t-2 r-2">
+          <CopyButton copied={copied} onCopy={copy} />
+        </div>
+        <pre className="ox-auto px-4 py-3 ff-m lh-5">
+          <code>
+            <Folded tokens={tokens} expanded={expanded} />
+          </code>
+        </pre>
       </div>
-      <pre className="ox-auto px-4 py-3 ff-m lh-5">
-        <code>
-          <Folded tokens={tokens} expanded={expanded} />
-        </code>
-      </pre>
     </div>
   );
 }
