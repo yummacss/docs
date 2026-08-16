@@ -1,0 +1,23 @@
+{
+  "id": "button-favorite",
+  "component": "button",
+  "variant": "favorite",
+  "kind": "example",
+  "useClient": false,
+  "dependencies": [
+    {
+      "name": "iconoir-react",
+      "version": "^7.12.1"
+    }
+  ],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "button-favorite.tsx",
+      "target": "components/ui/button-favorite.tsx",
+      "content": "import { StarSolid } from \"iconoir-react\";\nimport Button from \"./button\";\n\nexport default function ButtonStar() {\n  return (\n    <Button variant=\"ghost\">\n      <StarSolid className=\"w-4 h-4 c-yellow-5\" />\n      24\n    </Button>\n  );\n}\n"
+    }
+  ]
+}

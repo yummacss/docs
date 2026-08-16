@@ -1,0 +1,87 @@
+{
+  "id": "toolbar",
+  "component": "toolbar",
+  "variant": "base",
+  "kind": "component",
+  "summary": "A toolbar with roving focus, built from an item list: buttons, icon toggles, separators, an input and links.",
+  "props": [
+    {
+      "name": "items",
+      "type": "none",
+      "typeName": "ToolbarItem[]",
+      "example": [
+        {
+          "label": "New Task"
+        },
+        {
+          "label": "Sort"
+        },
+        {
+          "type": "separator"
+        },
+        {
+          "type": "input",
+          "label": "Search tasks",
+          "placeholder": "Search tasks..."
+        }
+      ],
+      "description": "A discriminated union. `{ label }` is a button (plus optional `icon`, `iconOnly`, `disabled`, `onClick`). `{ type: \"separator\" }` divides. `{ type: \"toggles\", options }` is an icon toggle group. `{ type: \"input\", label }` and `{ type: \"link\", label, href }` are the remaining kinds."
+    },
+    {
+      "name": "shape",
+      "type": "enum",
+      "values": [
+        "rounded",
+        "square",
+        "squircle"
+      ],
+      "default": "rounded",
+      "description": "Corner radius on the bar and every control inside it. The bar takes one step more than its controls."
+    },
+    {
+      "name": "shadow",
+      "type": "enum",
+      "values": [
+        "none",
+        "inset",
+        "outset"
+      ],
+      "default": "none",
+      "description": "Depth on the bar."
+    },
+    {
+      "name": "animate",
+      "type": "boolean",
+      "default": true,
+      "description": "The press-scale on buttons and toggles. Turn it off for static controls, or when the user has asked for reduced motion."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "description": "Appended to the bar's classes, for anything the component leaves unset - a margin, `fs-0` in a flex row. It will not reliably override what the component already sets: which of two utilities wins is decided by the stylesheet's rule order, not by the order you write them."
+    }
+  ],
+  "useClient": true,
+  "dependencies": [
+    {
+      "name": "@base-ui/react",
+      "version": "^1.7.0"
+    },
+    {
+      "name": "iconoir-react",
+      "version": "^7.12.1"
+    },
+    {
+      "name": "motion",
+      "version": "^13.1.0"
+    }
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "toolbar.tsx",
+      "target": "components/ui/toolbar.tsx",
+      "content": "\"use client\";\n\nimport { NumberField } from \"@base-ui/react/number-field\";\nimport { Toggle } from \"@base-ui/react/toggle\";\nimport { ToggleGroup } from \"@base-ui/react/toggle-group\";\nimport { Toolbar } from \"@base-ui/react/toolbar\";\nimport { Minus, Plus } from \"iconoir-react\";\nimport type { HTMLMotionProps } from \"motion/react\";\nimport { motion } from \"motion/react\";\nimport type { ReactNode } from \"react\";\nimport { useState } from \"react\";\n\ntype Shape = \"rounded\" | \"square\" | \"squircle\";\ntype Shadow = \"none\" | \"inset\" | \"outset\";\n\nconst ROOT_SHAPES: Record<Shape, string> = {\n  rounded: \"br-xxl\",\n  square: \"\",\n  squircle: \"br-3xl cs-s\",\n};\n\nconst CONTROL_SHAPES: Record<Shape, string> = {\n  rounded: \"br-lg\",\n  square: \"\",\n  squircle: \"br-xxl cs-s\",\n};\n\nconst SHADOWS: Record<Exclude<Shadow, \"none\">, string> = {\n  inset: \"bs-i-sm\",\n  outset: \"bs-o-xs\",\n};\n\nexport interface ToolbarButtonItem {\n  type?: \"button\";\n  label?: string;\n  icon?: ReactNode;\n  /** Square button showing only the icon. `label` becomes its `aria-label`. */\n  iconOnly?: boolean;\n  disabled?: boolean;\n  onClick?: () => void;\n}\n\nexport interface ToolbarSeparatorItem {\n  type: \"separator\";\n}\n\nexport interface ToolbarToggleOption {\n  value: string;\n  /** The toggle's `aria-label` - these are always icon-only. */\n  label: string;\n  icon: ReactNode;\n}\n\nexport interface ToolbarTogglesItem {\n  type: \"toggles\";\n  options: ToolbarToggleOption[];\n  value?: string[];\n  defaultValue?: string[];\n  onValueChange?: (value: string[]) => void;\n  /** Names the group for assistive tech. */\n  label?: string;\n}\n\nexport interface ToolbarInputItem {\n  type: \"input\";\n  placeholder?: string;\n  /** The input has no visible label, so this is its only accessible name. */\n  label: string;\n}\n\nexport interface ToolbarLinkItem {\n  type: \"link\";\n  label: string;\n  href: string;\n  icon?: ReactNode;\n}\n\nexport interface ToolbarNumberItem {\n  type: \"number\";\n  defaultValue?: number;\n  value?: number;\n  onValueChange?: (value: number) => void;\n  min?: number;\n  max?: number;\n  /** The stepper has no visible label, so this is its only accessible name. */\n  label: string;\n}\n\nexport type ToolbarItem =\n  | ToolbarButtonItem\n  | ToolbarSeparatorItem\n  | ToolbarTogglesItem\n  | ToolbarInputItem\n  | ToolbarLinkItem\n  | ToolbarNumberItem;\n\nexport interface ToolbarProps {\n  items: ToolbarItem[];\n  shape?: Shape;\n  shadow?: Shadow;\n  /** The press-scale on buttons and toggles. */\n  animate?: boolean;\n  className?: string;\n}\n\nexport default function ToolbarBase({\n  items,\n  shape = \"rounded\",\n  shadow = \"none\",\n  animate = true,\n  className,\n}: ToolbarProps) {\n  const shadowClass =\n    shadow === \"inset\" || shadow === \"outset\" ? SHADOWS[shadow] : \"\";\n\n  const rootClasses = [\n    \"d-f ai-c g-1 p-2 bg-white bc-silver-2 bw-1\",\n    ROOT_SHAPES[shape],\n    shadowClass,\n    className,\n  ]\n    .filter(Boolean)\n    .join(\" \");\n\n  const control = CONTROL_SHAPES[shape];\n\n  return (\n    <Toolbar.Root className={rootClasses}>\n      {items.map((item, index) => {\n        const key = `item-${index}`;\n\n        if (\"type\" in item && item.type === \"separator\") {\n          return (\n            <Toolbar.Separator\n              key={key}\n              className=\"w-px h-5 mx-1 bg-silver-2\"\n            />\n          );\n        }\n\n        if (\"type\" in item && item.type === \"toggles\") {\n          return (\n            <ToolbarToggles\n              key={key}\n              item={item}\n              control={control}\n              animate={animate}\n            />\n          );\n        }\n\n        if (\"type\" in item && item.type === \"input\") {\n          return (\n            <Toolbar.Input\n              key={key}\n              className={[\n                \"h-9 w-40 pl-3 bg-transparent bw-0 fs-sm fv:oo-2 fv:oc-indigo-3\",\n                control,\n              ]\n                .filter(Boolean)\n                .join(\" \")}\n              placeholder={item.placeholder}\n              aria-label={item.label}\n            />\n          );\n        }\n\n        if (\"type\" in item && item.type === \"number\") {\n          const stepClasses = [\n            \"d-f ai-c jc-c w-9 h-9 bg-transparent c-slate-7 bw-0 us-none c-p h:bg-silver-1 h:c-slate-10 fv:oo-2 fv:oc-indigo-3\",\n            control,\n          ]\n            .filter(Boolean)\n            .join(\" \");\n\n          return (\n            <NumberField.Root\n              key={key}\n              defaultValue={item.defaultValue}\n              value={item.value}\n              onValueChange={(value) =>\n                item.onValueChange?.(value ?? item.min ?? 0)\n              }\n              min={item.min}\n              max={item.max}\n              aria-label={item.label}\n            >\n              <NumberField.Group className=\"d-f ai-c\">\n                <NumberField.Decrement\n                  render={\n                    animate\n                      ? (props) => (\n                          <motion.button\n                            type=\"button\"\n                            {...(props as HTMLMotionProps<\"button\">)}\n                            whileTap={{ scale: 0.92 }}\n                            className={stepClasses}\n                          />\n                        )\n                      : undefined\n                  }\n                  className={animate ? undefined : stepClasses}\n                >\n                  <Minus className=\"w-5 h-5\" />\n                </NumberField.Decrement>\n                <Toolbar.Input\n                  render={<NumberField.Input />}\n                  className=\"w-16 bg-transparent c-slate-10 bw-0 ta-c fs-sm fw-500 fv:oo-2 fv:oc-indigo-3\"\n                />\n                <NumberField.Increment\n                  render={\n                    animate\n                      ? (props) => (\n                          <motion.button\n                            type=\"button\"\n                            {...(props as HTMLMotionProps<\"button\">)}\n                            whileTap={{ scale: 0.92 }}\n                            className={stepClasses}\n                          />\n                        )\n                      : undefined\n                  }\n                  className={animate ? undefined : stepClasses}\n                >\n                  <Plus className=\"w-5 h-5\" />\n                </NumberField.Increment>\n              </NumberField.Group>\n            </NumberField.Root>\n          );\n        }\n\n        if (\"type\" in item && item.type === \"link\") {\n          return (\n            <Toolbar.Link\n              key={key}\n              href={item.href}\n              className={[\n                \"d-f ai-c g-1 h-9 px-3 c-slate-7 fs-sm fw-500 td-none h:c-slate-10 fv:oo-2 fv:oc-indigo-3\",\n                control,\n              ]\n                .filter(Boolean)\n                .join(\" \")}\n            >\n              {item.icon}\n              {item.label}\n            </Toolbar.Link>\n          );\n        }\n\n        const button = item as ToolbarButtonItem;\n        const buttonClasses = [\n          \"d-f ai-c jc-c bg-transparent c-slate-7 bw-0 us-none fv:oo-2 fv:oc-indigo-5\",\n          button.iconOnly ? \"w-9 h-9\" : \"g-1 h-9 px-3 fs-sm fw-500\",\n          control,\n          button.disabled ? \"o-60 c-na\" : \"c-p h:bg-silver-1 h:c-slate-10\",\n        ]\n          .filter(Boolean)\n          .join(\" \");\n\n        return (\n          <Toolbar.Button\n            key={key}\n            disabled={button.disabled}\n            onClick={button.onClick}\n            aria-label={button.iconOnly ? button.label : undefined}\n            render={\n              animate && !button.disabled\n                ? (props) => (\n                    <motion.button\n                      type=\"button\"\n                      {...(props as HTMLMotionProps<\"button\">)}\n                      whileTap={{ scale: 0.92 }}\n                      className={buttonClasses}\n                    />\n                  )\n                : undefined\n            }\n            className={animate && !button.disabled ? undefined : buttonClasses}\n          >\n            {button.icon}\n            {!button.iconOnly && button.label}\n          </Toolbar.Button>\n        );\n      })}\n    </Toolbar.Root>\n  );\n}\n\n/** Split out so the group can hold its own value when uncontrolled. */\nfunction ToolbarToggles({\n  item,\n  control,\n  animate,\n}: {\n  item: ToolbarTogglesItem;\n  control: string;\n  animate: boolean;\n}) {\n  const [internalValue, setInternalValue] = useState<string[]>(\n    item.defaultValue ?? item.value ?? [],\n  );\n  const value = item.value ?? internalValue;\n\n  const handleChange = (next: string[]) => {\n    setInternalValue(next);\n    item.onValueChange?.(next);\n  };\n\n  const toggleClasses = (pressed: boolean) =>\n    [\n      \"d-f w-9 h-9 ai-c jc-c bw-0 us-none c-p fv:oo-2 fv:oc-indigo-3\",\n      control,\n      pressed\n        ? \"bg-indigo-1 bc-indigo-2 c-indigo-7 bw-1\"\n        : \"bg-transparent c-slate-7 h:bg-silver-1 h:c-slate-10\",\n    ]\n      .filter(Boolean)\n      .join(\" \");\n\n  return (\n    <ToggleGroup\n      className=\"d-f g-1\"\n      value={value}\n      onValueChange={handleChange}\n      aria-label={item.label}\n    >\n      {item.options.map((option) => (\n        <Toggle\n          key={option.value}\n          value={option.value}\n          aria-label={option.label}\n          render={\n            animate\n              ? (props, state) => (\n                  <motion.button\n                    type=\"button\"\n                    {...(props as HTMLMotionProps<\"button\">)}\n                    whileTap={{ scale: 0.92 }}\n                    className={toggleClasses(state.pressed)}\n                  />\n                )\n              : (props, state) => (\n                  <button\n                    type=\"button\"\n                    {...props}\n                    className={toggleClasses(state.pressed)}\n                  />\n                )\n          }\n        >\n          {option.icon}\n        </Toggle>\n      ))}\n    </ToggleGroup>\n  );\n}\n"
+    }
+  ]
+}

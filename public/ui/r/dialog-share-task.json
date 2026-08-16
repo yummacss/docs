@@ -1,0 +1,20 @@
+{
+  "id": "dialog-share-task",
+  "component": "dialog",
+  "variant": "share-task",
+  "kind": "block",
+  "useClient": false,
+  "dependencies": [],
+  "registryDependencies": [
+    "dialog",
+    "field",
+    "select"
+  ],
+  "files": [
+    {
+      "path": "dialog-share-task.tsx",
+      "target": "components/ui/dialog-share-task.tsx",
+      "content": "import Dialog from \"./dialog\";\nimport Field from \"./field\";\nimport Select from \"./select\";\n\nexport default function DialogShareTask() {\n  return (\n    <Dialog trigger=\"Share task\" title=\"Share task\" confirmLabel=\"Share\">\n      <div className=\"d-f fd-c g-4\">\n        <Field\n          fullWidth\n          label=\"Team member\"\n          placeholder=\"Search by name or email...\"\n        />\n        <Select\n          fullWidth\n          options={permissions}\n          label=\"Permission level\"\n          placeholder=\"Select permission...\"\n          defaultValue=\"can-view\"\n        />\n        <Field\n          multiline\n          label=\"Note (optional)\"\n          placeholder=\"Add a note about this task...\"\n        />\n      </div>\n    </Dialog>\n  );\n}\n\nconst permissions = [\n  { label: \"Can view\", value: \"can-view\" },\n  { label: \"Can edit\", value: \"can-edit\" },\n  { label: \"Can manage\", value: \"can-manage\" },\n];\n"
+    }
+  ]
+}

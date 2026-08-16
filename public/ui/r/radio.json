@@ -1,0 +1,131 @@
+{
+  "id": "radio",
+  "component": "radio",
+  "variant": "base",
+  "kind": "component",
+  "summary": "A single choice from a group, in three sizes, three shapes and three shadows, with an optional description and icon per option.",
+  "props": [
+    {
+      "name": "options",
+      "type": "none",
+      "typeName": "RadioOption[]",
+      "example": [
+        {
+          "value": "free",
+          "label": "Free plan"
+        },
+        {
+          "value": "pro",
+          "label": "Pro plan"
+        },
+        {
+          "value": "max",
+          "label": "Max plan"
+        }
+      ],
+      "description": "The choices. `value` and `label` are required; `description` and `icon` are optional per option. The shape is fixed rather than generic because you own the file: data that does not fit is an edit to the option body, not an API."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "example": "Choose a plan",
+      "description": "A caption above the group, correctly wired to it via `aria-labelledby`. Without one the group has no accessible name at all."
+    },
+    {
+      "name": "defaultValue",
+      "type": "string",
+      "example": "free",
+      "description": "The option selected when you are not controlling the group. Pair `value` with `onValueChange` instead if you are."
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "description": "Controlled selection."
+    },
+    {
+      "name": "onValueChange",
+      "type": "none",
+      "typeName": "(value: string) => void",
+      "description": "Called with the newly selected value. Required for a controlled group."
+    },
+    {
+      "name": "size",
+      "type": "enum",
+      "values": [
+        "sm",
+        "md",
+        "lg"
+      ],
+      "default": "md",
+      "description": "The circle, the dot and the label together."
+    },
+    {
+      "name": "shape",
+      "type": "enum",
+      "values": [
+        "rounded",
+        "square",
+        "squircle"
+      ],
+      "default": "rounded",
+      "description": "Corner radius. `squircle` uses `corner-shape`, which degrades to a rounded square where that is unsupported."
+    },
+    {
+      "name": "shadow",
+      "type": "enum",
+      "values": [
+        "none",
+        "inset",
+        "outset"
+      ],
+      "default": "none",
+      "description": "Depth on an unselected circle. A selected one is already a solid fill, so it does not carry the shadow - stacking one on top muddies the colour."
+    },
+    {
+      "name": "iconSide",
+      "type": "enum",
+      "values": [
+        "leading",
+        "trailing"
+      ],
+      "default": "leading",
+      "description": "Which side each option's `icon` sits on, when it has one."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "default": false,
+      "description": "Blocks interaction and dims every option."
+    },
+    {
+      "name": "animate",
+      "type": "boolean",
+      "default": true,
+      "description": "The dot's transition when selection changes. Turn it off for a static group, or when the user has asked for reduced motion."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "description": "Appended to the group's classes, for anything the component leaves unset - a margin, `fs-0` in a flex row. It will not reliably override what the component already sets: which of two utilities wins is decided by the stylesheet's rule order, not by the order you write them. Use `size` for the dimensions."
+    }
+  ],
+  "useClient": true,
+  "dependencies": [
+    {
+      "name": "@base-ui/react",
+      "version": "^1.7.0"
+    },
+    {
+      "name": "motion",
+      "version": "^13.1.0"
+    }
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "radio.tsx",
+      "target": "components/ui/radio.tsx",
+      "content": "\"use client\";\n\nimport { Radio } from \"@base-ui/react/radio\";\nimport { RadioGroup } from \"@base-ui/react/radio-group\";\nimport type { HTMLMotionProps } from \"motion/react\";\nimport { motion } from \"motion/react\";\nimport { type ReactNode, useId } from \"react\";\n\ntype Size = \"sm\" | \"md\" | \"lg\";\ntype Shape = \"rounded\" | \"square\" | \"squircle\";\ntype Shadow = \"none\" | \"inset\" | \"outset\";\ntype IconSide = \"leading\" | \"trailing\";\n\n/**\n * The option shape this component renders. Fixed rather than generic, the\n * same as Autocomplete & Combobox: you own the file, so data that does not\n * fit is an edit to the option body below rather than a type parameter on\n * every call site.\n */\nexport interface RadioOption {\n  value: string;\n  label: string;\n  description?: string;\n  icon?: ReactNode;\n}\n\nconst BASE = \"d-f ai-c jc-c p-0 m-0 fv:oo-2 fv:oc-indigo-5\";\n\nconst SIZES: Record<Size, string> = {\n  sm: \"w-3 h-3\",\n  md: \"w-4 h-4\",\n  lg: \"w-5 h-5\",\n};\n\nconst DOT_SIZES: Record<Size, string> = {\n  sm: \"w-1 h-1\",\n  md: \"w-2 h-2\",\n  lg: \"w-3 h-3\",\n};\n\nconst LABEL_SIZES: Record<Size, string> = {\n  sm: \"fs-xs\",\n  md: \"fs-sm\",\n  lg: \"fs-md\",\n};\n\nconst SHAPES: Record<Shape, string> = {\n  rounded: \"br-9999\",\n  square: \"\",\n  squircle: \"br-xxl cs-s\",\n};\n\n// Only the unchecked circle gets it - a solid indigo fill reads as depth\n// already, and stacking a shadow on top of it muddies the colour.\nconst SHADOWS: Record<Shadow, string> = {\n  none: \"\",\n  inset: \"bs-i-sm\",\n  outset: \"bs-o-xs\",\n};\n\nexport interface RadioProps {\n  options: RadioOption[];\n  /**\n   * A caption above the group, correctly wired to it via `aria-labelledby`.\n   * Without one the group has no accessible name at all - pass this rather\n   * than leaving it out.\n   */\n  label?: string;\n  defaultValue?: string;\n  value?: string;\n  onValueChange?: (value: string) => void;\n  size?: Size;\n  shape?: Shape;\n  shadow?: Shadow;\n  /** Any icon per option; positioned for you. */\n  iconSide?: IconSide;\n  disabled?: boolean;\n  animate?: boolean;\n  className?: string;\n}\n\nexport default function RadioBase({\n  options,\n  label,\n  defaultValue,\n  value,\n  onValueChange,\n  size = \"md\",\n  shape = \"rounded\",\n  shadow = \"none\",\n  iconSide = \"leading\",\n  disabled = false,\n  animate = true,\n  className,\n}: RadioProps) {\n  const labelId = useId();\n\n  const dotClasses = (checked: boolean) =>\n    checked ? `${DOT_SIZES[size]} ${SHAPES[shape]} bg-white` : \"d-none\";\n\n  return (\n    <div className=\"d-f fd-c g-2\">\n      {label && (\n        <div id={labelId} className=\"fs-xs fw-600 c-slate-5 us-none\">\n          {label}\n        </div>\n      )}\n\n      <RadioGroup\n        aria-labelledby={label ? labelId : undefined}\n        defaultValue={defaultValue}\n        value={value}\n        onValueChange={onValueChange}\n        disabled={disabled}\n        className={`d-f fd-c g-3 ai-fs ${className ?? \"\"}`}\n      >\n        {options.map((option) => {\n          const rootClasses = (checked: boolean) =>\n            [\n              BASE,\n              SIZES[size],\n              SHAPES[shape],\n              checked\n                ? \"bg-indigo\"\n                : `bg-white bw-1 bc-silver-3 ${SHADOWS[shadow]}`,\n            ]\n              .filter(Boolean)\n              .join(\" \");\n\n          const indicator = (\n            <Radio.Indicator className={(state) => dotClasses(state.checked)} />\n          );\n\n          return (\n            <label\n              key={option.value}\n              className={`d-f fd-c g-1 fw-500 ${LABEL_SIZES[size]} ${\n                disabled ? \"o-60 c-na\" : \"c-slate-10 c-p\"\n              }`}\n            >\n              <div className=\"d-f ai-c g-2\">\n                {option.icon && iconSide === \"leading\" && (\n                  <span className=\"d-f ai-c c-slate-5\">{option.icon}</span>\n                )}\n                <Radio.Root\n                  value={option.value}\n                  className={(state) => rootClasses(state.checked)}\n                  render={\n                    animate\n                      ? (props, _) => (\n                          <motion.span {...(props as HTMLMotionProps<\"span\">)}>\n                            {indicator}\n                          </motion.span>\n                        )\n                      : undefined\n                  }\n                >\n                  {animate ? undefined : indicator}\n                </Radio.Root>\n                <span>{option.label}</span>\n                {option.icon && iconSide === \"trailing\" && (\n                  <span className=\"d-f ai-c c-slate-5 ml-auto\">\n                    {option.icon}\n                  </span>\n                )}\n              </div>\n              {option.description && (\n                <p className=\"pl-6 m-0 c-slate-6 fs-xs fw-400\">\n                  {option.description}\n                </p>\n              )}\n            </label>\n          );\n        })}\n      </RadioGroup>\n    </div>\n  );\n}\n"
+    }
+  ]
+}

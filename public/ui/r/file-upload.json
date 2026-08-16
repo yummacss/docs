@@ -1,0 +1,95 @@
+{
+  "id": "file-upload",
+  "component": "file-upload",
+  "variant": "base",
+  "kind": "component",
+  "summary": "A drop zone for files, in three shapes, dashed or solid, with an error message and an optional line for formats and limits.",
+  "props": [
+    {
+      "name": "label",
+      "type": "string",
+      "default": "Upload files",
+      "description": "The clickable part of the prompt, before \"or drag and drop\"."
+    },
+    {
+      "name": "hint",
+      "type": "string",
+      "default": "Drag and drop files here",
+      "description": "The quieter line under the prompt, for what this zone accepts."
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "A line outside the zone, for formats and limits. Replaced by `error`'s message when it is set."
+    },
+    {
+      "name": "icon",
+      "type": "none",
+      "typeName": "ReactNode",
+      "description": "Replaces the cloud glyph in the tile. It is sized and coloured by the zone, so pass the glyph and nothing else."
+    },
+    {
+      "name": "shape",
+      "type": "enum",
+      "values": [
+        "rounded",
+        "square",
+        "squircle"
+      ],
+      "default": "rounded",
+      "description": "Corner radius. `squircle` uses `corner-shape`, which degrades to a rounded square where that is unsupported."
+    },
+    {
+      "name": "shadow",
+      "type": "enum",
+      "values": [
+        "none",
+        "inset",
+        "outset"
+      ],
+      "default": "none",
+      "description": "Depth on the icon tile, not on the zone: a drop target with a drop shadow reads as a card you cannot drop into."
+    },
+    {
+      "name": "border",
+      "type": "enum",
+      "values": [
+        "dashed",
+        "solid"
+      ],
+      "default": "dashed",
+      "description": "`dashed` is the drop-zone convention and carries the extra width it needs to read as one. `solid` is a heavier, more permanent box, so it stays thin."
+    },
+    {
+      "name": "error",
+      "type": "string",
+      "description": "Turns the border, tile and text red & shows this message in place of `description`. Crosses with `border`, so a solid zone can be in error too."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "default": false,
+      "description": "Blocks interaction, dims the zone and fills it, so it reads as unavailable rather than merely empty."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "description": "Appended to the zone's classes, for anything the component leaves unset - a margin, `fs-0` in a flex row. It will not reliably override what the component already sets: which of two utilities wins is decided by the stylesheet's rule order, not by the order you write them."
+    }
+  ],
+  "useClient": false,
+  "dependencies": [
+    {
+      "name": "iconoir-react",
+      "version": "^7.12.1"
+    }
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "file-upload.tsx",
+      "target": "components/ui/file-upload.tsx",
+      "content": "import { CloudUpload } from \"iconoir-react\";\nimport type { ReactNode } from \"react\";\n\ntype Shape = \"rounded\" | \"square\" | \"squircle\";\ntype Shadow = \"none\" | \"inset\" | \"outset\";\ntype Border = \"dashed\" | \"solid\";\n\n// Plain lookups rather than cva: a copied component should not drag a class\n// utility into your package.json to do what an object literal already does.\nconst ZONE = \"d-f fd-c ai-c g-3 w-100 bg-white\";\n\nconst SHAPES: Record<Shape, string> = {\n  rounded: \"br-xxl\",\n  square: \"br-0\",\n  squircle: \"br-3xl cs-s\",\n};\n\n// A dashed edge is the drop-zone convention & needs the extra width to read as\n// one. A solid edge is a heavier, more permanent-looking box, so it stays thin.\nconst BORDERS: Record<Border, string> = {\n  dashed: \"bw-2 bs-d\",\n  solid: \"bw-1\",\n};\n\n// The shadow is on the icon tile rather than the zone: a drop target with a\n// drop shadow reads as a card you cannot drop into.\nconst SHADOWS: Record<Shadow, string> = {\n  none: \"\",\n  inset: \"bs-i-sm\",\n  outset: \"bs-o-xs\",\n};\n\nexport interface FileUploadProps {\n  /** The clickable part of the prompt, before \"or drag and drop\". */\n  label?: string;\n  /** The quieter line under it, for what this zone accepts. */\n  hint?: string;\n  /** A line outside the zone, for formats and limits. Replaced by `error` when it is set. */\n  description?: string;\n  icon?: ReactNode;\n  shape?: Shape;\n  shadow?: Shadow;\n  border?: Border;\n  /** Turns the zone red, tile and text included, & shows this message in place of `description`. */\n  error?: string;\n  disabled?: boolean;\n  className?: string;\n}\n\nexport default function FileUploadBase({\n  label = \"Upload files\",\n  hint = \"Drag and drop files here\",\n  description,\n  icon,\n  shape = \"rounded\",\n  shadow = \"none\",\n  border = \"dashed\",\n  error,\n  disabled = false,\n  className,\n}: FileUploadProps) {\n  const message = error ?? description;\n\n  const zone = [\n    ZONE,\n    SHAPES[shape],\n    BORDERS[border],\n    error ? \"bc-red-5\" : \"bc-silver-2\",\n    disabled ? \"bg-silver-1/50 o-60 c-na\" : \"\",\n    className,\n  ]\n    .filter(Boolean)\n    .join(\" \");\n\n  return (\n    <section className={zone}>\n      <div className=\"d-f fd-c ai-c g-2 p-8 ta-c\">\n        <div\n          className={`d-f ai-c jc-c w-10 h-10 br-lg bw-1 ${SHADOWS[shadow]} ${\n            error ? \"bg-red-1/50 bc-red-5\" : \"bg-white bc-silver-2\"\n          }`}\n        >\n          {icon ?? (\n            <CloudUpload\n              className={`w-5 h-5 ${error ? \"c-red-5\" : \"c-slate-6\"}`}\n            />\n          )}\n        </div>\n        <div className=\"d-f fd-c ai-c g-1\">\n          <span className={`fs-sm fw-500 ${error ? \"c-red-5\" : \"c-slate-10\"}`}>\n            <a className=\"c-indigo td-none c-p\">{label}</a> or drag and drop\n          </span>\n          <span className={`fs-xs fw-400 ${error ? \"c-red-5\" : \"c-slate-6\"}`}>\n            {hint}\n          </span>\n        </div>\n      </div>\n\n      {message && (\n        <p\n          className={`w-100% m-0 pb-6 fs-xs ta-c ${error ? \"c-red-5\" : \"c-slate-6\"}`}\n        >\n          {message}\n        </p>\n      )}\n    </section>\n  );\n}\n"
+    }
+  ]
+}

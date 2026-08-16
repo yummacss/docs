@@ -1,0 +1,67 @@
+{
+  "id": "skeleton",
+  "component": "skeleton",
+  "variant": "base",
+  "kind": "component",
+  "summary": "A placeholder for content that has not arrived yet, in three shapes and two tones, with a pulse you can stagger or switch off.",
+  "props": [
+    {
+      "name": "shape",
+      "type": "enum",
+      "values": [
+        "line",
+        "block",
+        "circle"
+      ],
+      "default": "line",
+      "description": "Corner radius, plus a default size: `line` for text, `block` for a control or thumbnail, `circle` for an avatar. Change the size with `size`."
+    },
+    {
+      "name": "size",
+      "type": "string",
+      "description": "Replaces the shape's default size, as literal width and height utilities: `\"w-9 h-9\"`. It replaces rather than adds to them, because a second width class would not reliably win - which of two utilities applies is decided by the stylesheet's rule order, not by their order in the attribute. Spelled out in full rather than built from a scale value, so the class scanner can see it in your source."
+    },
+    {
+      "name": "tone",
+      "type": "enum",
+      "values": [
+        "default",
+        "subtle"
+      ],
+      "default": "default",
+      "description": "`subtle` is one step lighter, for the secondary line in a pair."
+    },
+    {
+      "name": "animate",
+      "type": "boolean",
+      "default": true,
+      "description": "The pulse. Turn it off for a static placeholder, or when the user has asked for reduced motion."
+    },
+    {
+      "name": "delay",
+      "type": "number",
+      "default": 0,
+      "description": "Seconds to offset the pulse by. Stagger a list with `delay={index * 0.15}` so its rows do not beat in unison."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "description": "Appended after the generated classes, for anything the component leaves unset - a margin, `fs-0` in a flex row. Use `size` for the width and height, which the component already sets."
+    }
+  ],
+  "useClient": true,
+  "dependencies": [
+    {
+      "name": "motion",
+      "version": "^13.1.0"
+    }
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "skeleton.tsx",
+      "target": "components/ui/skeleton.tsx",
+      "content": "\"use client\";\n\nimport { motion } from \"motion/react\";\n\ntype Shape = \"line\" | \"block\" | \"circle\";\ntype Tone = \"default\" | \"subtle\";\n\n// Plain lookups rather than cva: a copied component should not drag a class\n// utility into your package.json to do what an object literal already does.\nconst RADII: Record<Shape, string> = {\n  line: \"br-xs\",\n  block: \"br-lg\",\n  circle: \"br-9999\",\n};\n\n// Each shape carries a default size so a bare <Skeleton /> is visible. `size`\n// *replaces* this rather than being appended to it: a second width class in the\n// output would not reliably win, because which of two utilities applies is\n// decided by the stylesheet's rule order & not by their order in the attribute.\nconst SIZES: Record<Shape, string> = {\n  line: \"h-3 w-100%\",\n  block: \"h-8 w-24\",\n  circle: \"w-10 h-10\",\n};\n\nconst TONES: Record<Tone, string> = {\n  default: \"bg-silver-2\",\n  subtle: \"bg-silver-1\",\n};\n\nexport interface SkeletonProps {\n  shape?: Shape;\n  tone?: Tone;\n  /**\n   * Replaces the shape's default size, as literal width & height utilities:\n   * `\"w-9 h-9\"`. Written out rather than composed from a scale value, so the\n   * class scanner can see it in your source.\n   */\n  size?: string;\n  /** The pulse. Turn it off for a static placeholder. */\n  animate?: boolean;\n  /** Seconds to offset the pulse, so rows in a list do not beat in unison. */\n  delay?: number;\n  className?: string;\n}\n\nexport default function SkeletonBase({\n  shape = \"line\",\n  tone = \"default\",\n  size,\n  animate = true,\n  delay = 0,\n  className,\n}: SkeletonProps) {\n  const classes = [RADII[shape], size ?? SIZES[shape], TONES[tone], className]\n    .filter(Boolean)\n    .join(\" \");\n\n  // A placeholder has nothing to announce. The region that swaps it for real\n  // content owns aria-busy; every bar reading itself out would be noise.\n  if (!animate) return <div aria-hidden className={classes} />;\n\n  return (\n    <motion.div\n      aria-hidden\n      animate={{ opacity: [0.5, 1, 0.5] }}\n      transition={{ duration: 1, repeat: Infinity, delay }}\n      className={classes}\n    />\n  );\n}\n"
+    }
+  ]
+}

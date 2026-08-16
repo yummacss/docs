@@ -1,0 +1,20 @@
+{
+  "id": "dialog-send-invite",
+  "component": "dialog",
+  "variant": "send-invite",
+  "kind": "block",
+  "useClient": false,
+  "dependencies": [],
+  "registryDependencies": [
+    "dialog",
+    "field",
+    "select"
+  ],
+  "files": [
+    {
+      "path": "dialog-send-invite.tsx",
+      "target": "components/ui/dialog-send-invite.tsx",
+      "content": "import Dialog from \"./dialog\";\nimport Field from \"./field\";\nimport Select from \"./select\";\n\nexport default function DialogSendInvite() {\n  return (\n    <Dialog\n      trigger=\"Send invite\"\n      title=\"Send invite\"\n      confirmLabel=\"Send invite\"\n    >\n      <div className=\"d-f fd-c g-4\">\n        <Field\n          fullWidth\n          type=\"email\"\n          label=\"Email address\"\n          placeholder=\"colleague@company.com\"\n        />\n        <Select\n          fullWidth\n          options={roles}\n          label=\"Role\"\n          placeholder=\"Select role...\"\n          defaultValue=\"viewer\"\n        />\n        <Field\n          multiline\n          label=\"Message (optional)\"\n          placeholder=\"Add a personal note to your invitation...\"\n        />\n      </div>\n    </Dialog>\n  );\n}\n\nconst roles = [\n  { label: \"Admin\", value: \"admin\" },\n  { label: \"Editor\", value: \"editor\" },\n  { label: \"Viewer\", value: \"viewer\" },\n];\n"
+    }
+  ]
+}

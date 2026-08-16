@@ -1,30 +1,30 @@
-import { ComponentSolid } from "iconoir-react";
+import { NavArrowRight } from "iconoir-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "@/components/ui/navbar";
 
-const tagline = "If you know CSS, you already know Yumma CSS.";
+const title = "Yumma CSS - Get faster at CSS while you use it";
 const description =
-  "Yumma CSS is a utility framework whose class names are derived from CSS property names by one rule. No invented vocabulary, no lookup tables: just CSS, compressed.";
+  "Fixed scales for spacing, colors, type and radius. No arbitrary values to drift.";
 
 export const metadata: Metadata = {
-  title: `Yumma CSS - Utility CSS with no new vocabulary`,
+  title,
   description,
   openGraph: {
-    title: `Yumma CSS - Utility CSS with no new vocabulary`,
+    title,
     description,
     images: [
       {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: "Yumma CSS - Utility CSS with no new vocabulary",
+        alt: title,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `Yumma CSS - Utility CSS with no new vocabulary`,
+    title,
     description,
     images: ["/og.png"],
   },
@@ -45,12 +45,20 @@ export default function Home() {
         <div className="w-100% max-w-288">
           <div className="d-g g-12 ai-fe @lg:gtc-2">
             <div>
+              <Link
+                href="/ui/installation"
+                className="d-if ai-c g-2 px-3 py-1 mb-6 bc-border bg-surface c-white/70 bw-1 fs-sm us-none h:c-white fv:oc-white fv:ow-2"
+              >
+                Yumma UI is here
+                <NavArrowRight className="w-4 h-4" />
+              </Link>
+
               <h1 className="mb-6 fs-4xl fw-400 lh-2 ff-e @md:fs-5xl @lg:fs-6xl">
-                Know CSS? You know Yumma CSS.
+                Get faster at CSS while you use it.
               </h1>
               <p className="mb-8 c-white/70 fs-md lh-5 @md:fs-lg">
-                Class names derived from CSS property names by one rule. No
-                invented vocabulary, no lookup tables: just CSS, compressed.
+                Fixed scales for spacing, colors, type and radius. No arbitrary
+                values to drift.
               </p>
 
               <div className="d-f fw-w g-4 mb-12">
@@ -60,13 +68,12 @@ export default function Home() {
                 >
                   Get started
                 </Link>
-                <Link
-                  href="/ui/installation"
-                  className="d-f ai-c g-2 px-6 py-3 c-white fw-600 fs-md us-none fv:oc-white fv:ow-2"
+                <a
+                  href="https://play.yummacss.com"
+                  className="px-6 py-3 c-white fw-600 fs-md us-none fv:oc-white fv:ow-2"
                 >
-                  <ComponentSolid className="w-5 h-5" />
-                  Components
-                </Link>
+                  Try now
+                </a>
               </div>
             </div>
           </div>

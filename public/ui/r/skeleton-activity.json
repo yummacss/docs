@@ -1,0 +1,18 @@
+{
+  "id": "skeleton-activity",
+  "component": "skeleton",
+  "variant": "activity",
+  "kind": "example",
+  "useClient": false,
+  "dependencies": [],
+  "registryDependencies": [
+    "skeleton"
+  ],
+  "files": [
+    {
+      "path": "skeleton-activity.tsx",
+      "target": "components/ui/skeleton-activity.tsx",
+      "content": "import Skeleton from \"./skeleton\";\n\nconst ENTRIES = Array.from({ length: 4 }, (_, i) => ({ id: `activity-${i}` }));\n\nexport default function SkeletonActivity() {\n  return (\n    <div className=\"d-f fd-c g-4 p-8 h-56\">\n      {ENTRIES.map((entry, row) => (\n        <div key={entry.id} className=\"d-f ai-c g-4\">\n          <Skeleton\n            shape=\"circle\"\n            size=\"w-9 h-9\"\n            delay={row * 0.15}\n            className=\"fs-0\"\n          />\n          <div className=\"d-f fd-c g-1 fg-1\">\n            <Skeleton size=\"h-3 w-48\" delay={row * 0.15} />\n            <Skeleton tone=\"subtle\" size=\"h-2 w-32\" delay={row * 0.15} />\n          </div>\n        </div>\n      ))}\n    </div>\n  );\n}\n"
+    }
+  ]
+}

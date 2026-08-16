@@ -1,0 +1,114 @@
+{
+  "id": "tabs",
+  "component": "tabs",
+  "variant": "base",
+  "kind": "component",
+  "summary": "A tab list with a sliding indicator, horizontal or vertical, in three sizes and four shapes, with optional icons, counters and panels.",
+  "props": [
+    {
+      "name": "items",
+      "type": "none",
+      "typeName": "TabItem[]",
+      "example": [
+        {
+          "value": "subscriptions",
+          "label": "Subscriptions"
+        },
+        {
+          "value": "invoices",
+          "label": "Invoices"
+        },
+        {
+          "value": "payments",
+          "label": "Payments"
+        }
+      ],
+      "description": "Each tab's `value` and `label`, plus optional `icon`, `iconOnly`, `count`, `disabled` and `panel`. `label` stays the accessible name when `iconOnly` hides it."
+    },
+    {
+      "name": "defaultValue",
+      "type": "string",
+      "description": "The tab selected on first render. Falls back to the first item. Pair `value` with `onValueChange` instead if you are controlling it."
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "description": "Controlled selection."
+    },
+    {
+      "name": "onValueChange",
+      "type": "none",
+      "typeName": "(value: string) => void",
+      "description": "Called with the newly selected tab's `value`."
+    },
+    {
+      "name": "orientation",
+      "type": "enum",
+      "values": [
+        "horizontal",
+        "vertical"
+      ],
+      "default": "horizontal",
+      "description": "`vertical` stacks the tabs and sits any panels beside them rather than below."
+    },
+    {
+      "name": "size",
+      "type": "enum",
+      "values": [
+        "sm",
+        "md",
+        "lg"
+      ],
+      "default": "md",
+      "description": "Tab padding and label size together."
+    },
+    {
+      "name": "shape",
+      "type": "enum",
+      "values": [
+        "pill",
+        "rounded",
+        "square",
+        "squircle"
+      ],
+      "default": "pill",
+      "description": "Corner radius on the list, the tabs and the indicator. The list takes one step more than the tabs inside it, so a tab's corner never pokes past the container's."
+    },
+    {
+      "name": "iconPosition",
+      "type": "enum",
+      "values": [
+        "leading",
+        "trailing"
+      ],
+      "default": "leading",
+      "description": "Which end of a tab its `icon` sits at. Ignored when `iconOnly` is set."
+    },
+    {
+      "name": "animate",
+      "type": "boolean",
+      "default": true,
+      "description": "The indicator's slide between tabs. Turn it off for an instant jump, or when the user has asked for reduced motion."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "description": "Appended to the root's classes, for anything the component leaves unset - a margin, `fs-0` in a flex row. It will not reliably override what the component already sets: which of two utilities wins is decided by the stylesheet's rule order, not by the order you write them. Use `size` for the dimensions."
+    }
+  ],
+  "useClient": true,
+  "dependencies": [
+    {
+      "name": "@base-ui/react",
+      "version": "^1.7.0"
+    }
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "tabs.tsx",
+      "target": "components/ui/tabs.tsx",
+      "content": "\"use client\";\n\nimport { Tabs } from \"@base-ui/react/tabs\";\nimport type { ReactNode } from \"react\";\nimport { useState } from \"react\";\n\ntype Orientation = \"horizontal\" | \"vertical\";\ntype Size = \"sm\" | \"md\" | \"lg\";\ntype Shape = \"pill\" | \"rounded\" | \"square\" | \"squircle\";\ntype IconPosition = \"leading\" | \"trailing\";\n\nconst SIZES: Record<Size, { tab: string; text: string }> = {\n  sm: { tab: \"py-1 px-2\", text: \"fs-xs\" },\n  md: { tab: \"py-2 px-3\", text: \"fs-sm\" },\n  lg: { tab: \"py-3 px-4\", text: \"fs-md\" },\n};\n\n// The list takes one radius step more than the tabs sitting inside it, so the\n// tab's corner never pokes past the container's.\nconst LIST_SHAPES: Record<Shape, string> = {\n  pill: \"br-9999\",\n  rounded: \"br-lg\",\n  square: \"\",\n  squircle: \"br-3xl cs-s\",\n};\n\nconst TAB_SHAPES: Record<Shape, string> = {\n  pill: \"br-9999\",\n  rounded: \"br-lg\",\n  square: \"\",\n  squircle: \"br-xxl cs-s\",\n};\n\nexport interface TabItem {\n  value: string;\n  /** Also the accessible name when `iconOnly` hides it. */\n  label: string;\n  icon?: ReactNode;\n  /** Hides the label text, keeping it as the tab's `aria-label`. */\n  iconOnly?: boolean;\n  count?: string | number;\n  disabled?: boolean;\n  /** Rendered in a panel below (or beside) the list. Style it yourself. */\n  panel?: ReactNode;\n}\n\nexport interface TabsProps {\n  items: TabItem[];\n  defaultValue?: string;\n  value?: string;\n  onValueChange?: (value: string) => void;\n  orientation?: Orientation;\n  size?: Size;\n  shape?: Shape;\n  /** Which end of a tab its `icon` sits at. */\n  iconPosition?: IconPosition;\n  /** The indicator's slide between tabs. */\n  animate?: boolean;\n  className?: string;\n}\n\nexport default function TabsBase({\n  items,\n  defaultValue,\n  value: controlledValue,\n  onValueChange,\n  orientation = \"horizontal\",\n  size = \"md\",\n  shape = \"pill\",\n  iconPosition = \"leading\",\n  animate = true,\n  className,\n}: TabsProps) {\n  const [internalValue, setInternalValue] = useState(\n    defaultValue ?? controlledValue ?? items[0]?.value,\n  );\n  const value = controlledValue ?? internalValue;\n\n  const handleValueChange = (next: string) => {\n    setInternalValue(next);\n    onValueChange?.(next);\n  };\n\n  const spec = SIZES[size];\n  const isVertical = orientation === \"vertical\";\n  const hasPanels = items.some((item) => item.panel !== undefined);\n\n  const rootClasses = [isVertical ? \"d-f ai-s g-4\" : \"w-fc\", className]\n    .filter(Boolean)\n    .join(\" \");\n\n  // The chrome lives on the list, not the root. The original demos split it\n  // three ways - root for the bare list, list for the panelled one, list again\n  // for the vertical one - which rendered the same box each time.\n  const listClasses = [\n    \"d-f p-r g-1 p-1 w-fc bg-silver-1 bw-1 bc-silver-2\",\n    LIST_SHAPES[shape],\n    isVertical ? \"fd-c\" : \"\",\n    hasPanels && !isVertical ? \"mb-6\" : \"\",\n  ]\n    .filter(Boolean)\n    .join(\" \");\n\n  const indicatorClasses = [\n    \"p-a l-0 t-0 zi-0 bg-white\",\n    TAB_SHAPES[shape],\n    animate ? \"tp-a tdu-200 ttf-io\" : \"\",\n  ]\n    .filter(Boolean)\n    .join(\" \");\n\n  return (\n    <Tabs.Root\n      value={value}\n      onValueChange={handleValueChange}\n      orientation={orientation}\n      className={rootClasses}\n    >\n      <Tabs.List className={listClasses}>\n        {items.map((item) => {\n          const isSelected = value === item.value;\n\n          const tabClasses = [\n            \"p-r zi-10 fg-1 d-f ai-c jc-c bg-transparent us-none fv:oo--1 fv:oc-indigo\",\n            item.icon && !item.iconOnly ? \"g-2\" : \"\",\n            item.count !== undefined ? \"g-2\" : \"\",\n            spec.tab,\n            TAB_SHAPES[shape],\n            item.disabled\n              ? \"c-slate-5 o-60 c-na\"\n              : isSelected\n                ? \"c-slate-10\"\n                : \"c-slate-8 h:c-slate-10\",\n          ]\n            .filter(Boolean)\n            .join(\" \");\n\n          const labelClasses = [\"p-r zi-10 fw-500\", spec.text]\n            .filter(Boolean)\n            .join(\" \");\n\n          return (\n            <Tabs.Tab\n              key={item.value}\n              value={item.value}\n              disabled={item.disabled}\n              className={tabClasses}\n              aria-label={item.iconOnly ? item.label : undefined}\n            >\n              {item.icon && iconPosition === \"leading\" && (\n                <span className=\"d-f p-r zi-10\">{item.icon}</span>\n              )}\n              {!item.iconOnly && (\n                <span className={labelClasses}>{item.label}</span>\n              )}\n              {item.icon && iconPosition === \"trailing\" && (\n                <span className=\"d-f p-r zi-10\">{item.icon}</span>\n              )}\n              {item.count !== undefined && (\n                <span className=\"d-f p-r zi-10 ai-c jc-c h-5 px-2 br-9999 fs-xs fw-500 bg-silver-8 c-white\">\n                  {item.count}\n                </span>\n              )}\n            </Tabs.Tab>\n          );\n        })}\n\n        {/* One translate covers both axes, so the indicator is composited\n            rather than laid out on every change. The originals animated\n            `left`/`top` for vertical and translate for horizontal. */}\n        <Tabs.Indicator\n          className={indicatorClasses}\n          style={{\n            translate: \"var(--active-tab-left) var(--active-tab-top)\",\n            width: \"var(--active-tab-width)\",\n            height: \"var(--active-tab-height)\",\n          }}\n        />\n      </Tabs.List>\n\n      {hasPanels &&\n        items.map((item) => (\n          <Tabs.Panel key={item.value} value={item.value}>\n            {item.panel}\n          </Tabs.Panel>\n        ))}\n    </Tabs.Root>\n  );\n}\n"
+    }
+  ]
+}
