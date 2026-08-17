@@ -23,7 +23,7 @@ export default function EditPage() {
       className="d-if ai-c g-2 w-fc c-white/70 fs-sm td-none h:c-white fv:oc-white fv:ow-2"
     >
       <PageEdit className="w-4 h-4" />
-      Edit this page
+      Edit page
     </Link>
   );
 }
