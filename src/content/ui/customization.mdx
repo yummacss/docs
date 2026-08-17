@@ -1,66 +1,56 @@
 ---
 title: Customization
-description: Customize Yumma UI components to fit your design system.
+description: Props, className & the file you own.
 ---
 
-## Atomic customization
+Every Yumma UI component gives you three levels of control, in the order you should reach for them: **props**, then `className`, then the file itself.
 
-Yumma UI is built with a strictly atomic philosophy. Unlike other component libraries that use semantic tokens (`primary`, `secondary`, etc.) or complex theme objects, Yumma UI components are styled using direct atomic classes from **Yumma CSS**.
+## Props first
 
-This means customization is as simple as changing a class name:
-
-```tsx
-<Button className="bg-blue-5 c-white h:bg-blue-6">Click Me</Button>
-```
-
-### Flexible by Design
-
-## Component Slots
-
-Most Yumma UI components are built using [Base UI](https://base-ui.com), which provides a clear "slot" system for deep customization. This allows you to style every single part of a component independently.
-
-For example, in a Dialog component, you might have slots for the `Backdrop`, `Content`, and `Close` button:
+Each component's API Reference table lists everything it accepts. Props are the reliable way to change a component, because the component applies them itself — there is no question of one class beating another.
 
 ```tsx
-<Dialog>
-  <DialogBackdrop className="bg-black/50" />
-  <DialogContent className="p-6 bg-zinc-9 br-md"></DialogContent>
-</Dialog>
+<Badge tone="subtle" color="green" size="lg" shape="pill">
+  Shipped
+</Badge>
 ```
 
-## Extending Colors
+Reach for the table before anything else. Most of what people try to do with `className` already exists as a prop.
 
-You can extend or override the default color palette using the `theme.colors` configuration in `yumma.config.mjs`. This allows you to introduce brand-specific colors while maintaining the atomic approach.
+## className, and what it cannot do
 
-```mjs title="yumma.config.mjs" mark={5-7}
-import { defineConfig } from "yummacss";
+`className` is appended to the component's own classes. It is the right tool for anything the component leaves unset — a margin, `fs-0` in a flex row, positioning within your layout:
 
-export default defineConfig({
-  theme: {
-    colors: {
-      purple: "#9333EA", // add 'purple' as a new color
-    },
-  },
-});
+```tsx
+<Badge className="ml-2">Shipped</Badge>
 ```
 
-## Adjusting Shade Steps
+It is **not** a reliable way to override something the component already sets. Which of two utilities wins is decided by the generated stylesheet's rule order, not by the order you write them, and Yumma CSS has no `!important` escape hatch to force the issue:
 
-Every color family generates 13 shades from its base value. `percentage` controls how far each step mixes toward white or black, so raising it spreads the scale wider & lowering it tightens it.
+```tsx
+// Badge already sets a background. This may or may not win.
+<Badge className="bg-blue-5">Shipped</Badge>
 
-```mjs title="yumma.config.mjs" mark={6-9}
-import { defineConfig } from "yummacss";
-
-export default defineConfig({
-  theme: {
-    colors: {
-      percentage: {
-        light: 16, // default is 14
-        dark: 16, // default is 14
-      },
-    },
-  },
-});
+// Say it with the prop instead.
+<Badge tone="solid" color="indigo">Shipped</Badge>
 ```
 
-`percentage` belongs **inside** `colors`, not beside it. Placed as a sibling it is silently ignored & every shade keeps its default value.
+Where a component genuinely needs a per-instance override of something it already sets, it exposes a prop for exactly that rather than leaving you to fight the cascade. Skeleton's `size` replaces the shape's default dimensions instead of competing with them, and takes literal utilities so the class scanner can still see them in your source:
+
+```tsx
+<Skeleton shape="circle" size="w-9 h-9" />
+```
+
+Toggle's `swatchClassName` works the same way, replacing `tone` for a color-picker swatch.
+
+## The file is yours
+
+`yummaui add` copies a real file into your project — it is not a dependency, and nothing overwrites it later. When props and `className` are not enough, edit it.
+
+This is the level to use for anything structural: changing the markup, swapping an icon set, dropping an animation, or wiring in behaviour the component does not have. Each component is a single self-contained file, so there is no shared abstraction to work around.
+
+Components are built on [Base UI](https://base-ui.com), so the primitive underneath is documented there — useful the moment you start editing. Pages built on a primitive link to it directly.
+
+## Colors and theme
+
+Component colors come from Yumma CSS, so they are configured in `yumma.config.mjs` rather than anywhere in Yumma UI. Adding a brand color or changing how shades are generated is covered in [Colors](/docs/colors) and [Configuration](/docs/configuration).
