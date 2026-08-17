@@ -34,8 +34,6 @@ Yumma CSS is part of a growing ecosystem of tools and complementary projects:
 <br/>
 **[Yumma CSS Playground:](https://play.yummacss.com)** An interactive environment to experiment with Yumma CSS utilities right in your browser.
 <br/>
-**[Yumma CSS IntelliSense:](https://marketplace.visualstudio.com/items?itemName=yumma-css.yummacss-intellisense)** VS Code extension that provides auto-completion, hover previews, and smart diagnostics.
-<br/>
 **[Eclipsa:](https://marketplace.visualstudio.com/items?itemName=yumma-css.eclipsa)** A dark VS Code theme crafted for readability and style.
 
 ## License
