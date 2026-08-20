@@ -1,6 +1,6 @@
 import { allDocs, allUis } from "content-collections";
-import { mergedUtilityPages } from "@/config/merged-pages";
 import { COLOR_FAMILIES, generateShades, SHADE_LABELS } from "./colors";
+import { extractProperties } from "./doc-properties";
 
 export interface SearchItem {
   title: string;
@@ -25,20 +25,22 @@ const COMPONENT_ITEMS: SearchItem[] = allUis.map((ui) => ({
 }));
 
 /**
- * The utility pages merged into a root property still need to be findable by
- * their CSS property name. Search indexes pages, not headings, so each merged
- * page gets a synthetic entry pointing at the anchor its content moved to -
- * the same mechanism `generateColorItems` uses for shades.
+ * A merged page documents several properties, and search indexes pages rather
+ * than headings, so each property gets its own entry pointing at the heading
+ * it lives under. Same mechanism `generateColorItems` uses for shades.
  *
- * Headings on the page stay Title Case; these entries carry the raw property
- * name, which is what someone actually types.
+ * Headings stay Title Case for Esteban; these carry the raw CSS property name,
+ * which is what someone actually types. Both come from the page itself via
+ * `extractProperties`, so neither can drift from the other.
  */
-const MERGED_ITEMS: SearchItem[] = mergedUtilityPages.map(
-  ({ slug, root, anchor }) => ({
-    title: slug,
-    path: `/docs/${root}#${anchor}`,
-    category: "docs" as const,
-  }),
+const MERGED_ITEMS: SearchItem[] = allDocs.flatMap((doc) =>
+  extractProperties(doc.content ?? "")
+    .filter((p) => p.name !== doc.slug)
+    .map((p) => ({
+      title: p.name,
+      path: `/docs/${doc.slug}#${p.anchor}`,
+      category: "docs" as const,
+    })),
 );
 
 function generateColorItems(): SearchItem[] {
