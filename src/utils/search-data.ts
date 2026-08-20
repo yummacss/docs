@@ -1,4 +1,5 @@
 import { allDocs, allUis } from "content-collections";
+import { mergedUtilityPages } from "@/config/merged-pages";
 import { COLOR_FAMILIES, generateShades, SHADE_LABELS } from "./colors";
 
 export interface SearchItem {
@@ -22,6 +23,23 @@ const COMPONENT_ITEMS: SearchItem[] = allUis.map((ui) => ({
   path: `/ui/components/${ui._meta.path}`,
   category: "ui-components" as const,
 }));
+
+/**
+ * The utility pages merged into a root property still need to be findable by
+ * their CSS property name. Search indexes pages, not headings, so each merged
+ * page gets a synthetic entry pointing at the anchor its content moved to -
+ * the same mechanism `generateColorItems` uses for shades.
+ *
+ * Headings on the page stay Title Case; these entries carry the raw property
+ * name, which is what someone actually types.
+ */
+const MERGED_ITEMS: SearchItem[] = mergedUtilityPages.map(
+  ({ slug, root, anchor }) => ({
+    title: slug,
+    path: `/docs/${root}#${anchor}`,
+    category: "docs" as const,
+  }),
+);
 
 function generateColorItems(): SearchItem[] {
   const items: SearchItem[] = [];
@@ -47,6 +65,7 @@ const COLOR_ITEMS = generateColorItems();
 
 export const SEARCH_DATA: SearchItem[] = [
   ...DOCS_ITEMS,
+  ...MERGED_ITEMS,
   ...COMPONENT_ITEMS,
   ...COLOR_ITEMS,
 ];
