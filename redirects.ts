@@ -1,3 +1,5 @@
+import { mergedUtilityPages } from "./src/config/merged-pages";
+
 const docsRedirects = [
   {
     source: "/docs",
@@ -51,6 +53,14 @@ const docsRedirects = [
     permanent: true,
   },
 ];
+
+// The 80 utility pages merged into their root property. Each lands on the
+// heading its content moved to, so an old bookmark keeps its exact section.
+const mergedRedirects = mergedUtilityPages.map(({ slug, root, anchor }) => ({
+  source: `/docs/${slug}`,
+  destination: `/docs/${root}#${anchor}`,
+  permanent: true,
+}));
 
 const RELEASE_TAG = "https://github.com/yummacss/yummacss/releases/tag";
 
@@ -193,4 +203,9 @@ const uiRedirects = [
   })),
 ];
 
-export const redirects = [...docsRedirects, ...blogRedirects, ...uiRedirects];
+export const redirects = [
+  ...docsRedirects,
+  ...mergedRedirects,
+  ...blogRedirects,
+  ...uiRedirects,
+];
