@@ -1,4 +1,6 @@
-import { mergedUtilityPages } from "./src/config/merged-pages";
+import { readdirSync, readFileSync } from "node:fs";
+import { join } from "node:path";
+import { extractProperties } from "./src/utils/doc-properties";
 
 const docsRedirects = [
   {
@@ -54,13 +56,34 @@ const docsRedirects = [
   },
 ];
 
-// The 80 utility pages merged into their root property. Each lands on the
-// heading its content moved to, so an old bookmark keeps its exact section.
-const mergedRedirects = mergedUtilityPages.map(({ slug, root, anchor }) => ({
-  source: `/docs/${slug}`,
-  destination: `/docs/${root}#${anchor}`,
-  permanent: true,
-}));
+/**
+ * Utility pages merged into a root property keep their old URLs working.
+ *
+ * Derived from the pages themselves rather than from a list: every merged page
+ * documents what it absorbed as `## Heading` + `<Reference name>`, so a
+ * property added to a page gets its redirect with nothing else to update. A
+ * property whose page still exists is skipped, since that URL is not retired.
+ */
+const DOCS_DIR = join(process.cwd(), "src/content/docs");
+
+function mergedPageRedirects() {
+  const files = readdirSync(DOCS_DIR).filter((f) => f.endsWith(".mdx"));
+  const pages = new Set(files.map((f) => f.replace(/\.mdx$/, "")));
+
+  return files.flatMap((file) => {
+    const root = file.replace(/\.mdx$/, "");
+    const content = readFileSync(join(DOCS_DIR, file), "utf8");
+    return extractProperties(content)
+      .filter(({ name }) => !pages.has(name))
+      .map(({ name, anchor }) => ({
+        source: `/docs/${name}`,
+        destination: `/docs/${root}#${anchor}`,
+        permanent: true,
+      }));
+  });
+}
+
+const mergedRedirects = mergedPageRedirects();
 
 const RELEASE_TAG = "https://github.com/yummacss/yummacss/releases/tag";
 
