@@ -90,8 +90,8 @@ importers:
         specifier: ^5.1.0
         version: 5.1.0
       web-features:
-        specifier: ^3.34.3
-        version: 3.34.3
+        specifier: ^3.35.0
+        version: 3.35.0
     devDependencies:
       '@biomejs/biome':
         specifier: 2.5.8
@@ -2249,8 +2249,8 @@ packages:
       jsdom:
         optional: true
 
-  web-features@3.34.3:
-    resolution: {integrity: sha512-eXdaGO8JSiLLC5/tLOeDiH0EVIbuD8NExMDAziU0frr9JRdiEKqyOsTeEZDtmCXbazEI3mB+plYO4oMYOj1/Dg==}
+  web-features@3.35.0:
+    resolution: {integrity: sha512-/cYBWyzX76WdnvrTiMdmRG0EVZviQfH5U04zvoTrrYRvH7K7pD68YMx8VE3xK2fydaZq0WtEtvuCV30aHl9b1Q==}
 
   why-is-node-running@2.3.0:
     resolution: {integrity: sha512-hUrmaWBdVDcxvYqnyh09zunKzROWjbZTiNy8dBEjkS7ehEDQibXJ7XvlmtbwuTclUiIyN+CyXQD4Vmko8fNm8w==}
@@ -4405,7 +4405,7 @@ snapshots:
     transitivePeerDependencies:
       - msw
 
-  web-features@3.34.3: {}
+  web-features@3.35.0: {}
 
   why-is-node-running@2.3.0:
     dependencies:
