@@ -1,4 +1,4 @@
-import { type Category, getPrefix } from "../utils/yummacss";
+import { type Category, getPrefix, sampleValues } from "../utils/yummacss";
 
 interface Props {
   category: Category;
@@ -26,17 +26,20 @@ const breakpoints = [
 
 export default function ResponsiveVariant({ category, name }: Props) {
   const prefix = getPrefix(category, name);
+  // One real value per breakpoint, so the four cards read as four different
+  // choices rather than the same placeholder four times.
+  const values = sampleValues(category, name, breakpoints.length);
 
   return (
     <div className="d-g gtc-1 g-3 mb-6 @sm:gtc-2">
-      {breakpoints.map((bp) => (
+      {breakpoints.map((bp, i) => (
         <div
           key={bp.prefix}
           className="d-f ai-c g-3 p-3 bc-border bg-surface bw-1"
         >
           <div className="f-1">
             <code className="d-b mb-1 c-code fs-sm">
-              {bp.prefix}:{prefix}-(value)
+              {bp.prefix}:{prefix}-{values[i] ?? values[0] ?? "(value)"}
             </code>
             <div className="d-f ai-c jc-sb">
               <span className="c-white/70 fs-xs">{bp.label}</span>
