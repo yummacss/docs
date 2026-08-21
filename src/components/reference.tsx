@@ -4,7 +4,11 @@ import { Button, Input } from "@base-ui/react";
 import { Accordion } from "@base-ui/react/accordion";
 import { Plus, Search } from "iconoir-react";
 import { useState } from "react";
-import { type Category, categoryGetters } from "../utils/yummacss";
+import {
+  type Category,
+  categoryGetters,
+  sampleValues,
+} from "../utils/yummacss";
 
 interface Props {
   category: Category;
@@ -53,6 +57,10 @@ export default function Reference({ category, name }: Props) {
     console.error("Failed to get utility:", err);
   }
 
+  const examples = sampleValues(category, name, 3).map((v) =>
+    v === "" ? basePrefix : `${basePrefix}-${v}`,
+  );
+
   if (variants.length === 0) {
     return (
       <div className="p-4 mb-6 bg-surface c-white/60 ta-c">
@@ -89,7 +97,14 @@ export default function Reference({ category, name }: Props) {
                   className="d-f ai-c jc-sb g-4 w-100% py-3 px-4 m-0 bg-transparent c-white bw-0 ta-l fw-600 fs-sm c-p us-none"
                 >
                   <span className="d-f ai-c g-2">
-                    <code className="c-code ff-m">{utilityPrefix}-(value)</code>
+                    {/* Real classes rather than a placeholder: the header is
+                        all you see while the group is collapsed, so it should
+                        show what the utility actually looks like in use. */}
+                    <code className="c-code ff-m">
+                      {examples.length > 0
+                        ? examples.join("  ")
+                        : `${utilityPrefix}-(value)`}
+                    </code>
                     <span
                       className="px-2 py-1 bg-border fs-xs fw-600"
                       style={{ color: "#8892c2" }}

@@ -1,7 +1,7 @@
 "use client";
 
 import { RulerMinus } from "iconoir-react";
-import { type Category, getPrefix } from "../utils/yummacss";
+import { type Category, getPrefix, sampleValues } from "../utils/yummacss";
 
 interface Props {
   category: Category;
@@ -10,6 +10,7 @@ interface Props {
 
 export default function NegativeValues({ category, name }: Props) {
   const prefix = getPrefix(category, name);
+  const value = sampleValues(category, name, 1)[0] ?? "(value)";
 
   return (
     <div className="mb-6 p-4 bc-border bg-surface bw-1">
@@ -25,7 +26,9 @@ export default function NegativeValues({ category, name }: Props) {
 
       <div className="d-f ai-c g-2 p-3 bg-page">
         <span className="c-white/50 fs-xs">Syntax:</span>
-        <code className="c-code fs-sm">{prefix}--(value)</code>
+        <code className="c-code fs-sm">
+          {prefix}--{value}
+        </code>
       </div>
     </div>
   );
