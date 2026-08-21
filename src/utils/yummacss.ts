@@ -86,3 +86,46 @@ export function sampleValues(
 
   return [...new Set(pool)].slice(0, count);
 }
+
+/**
+ * A short summary of everything a utility accepts, for a collapsed header.
+ *
+ * The point is that nothing looks excluded. A header reading `m-4  m-8  m-12`
+ * invites the reader to think `m-23` is not a class, when the scale runs to
+ * 384. So a numeric run is shown as a span rather than as examples, and a
+ * short list is shown in full, because listing five values leaves no doubt.
+ *
+ * Long named sets (`color` has 251) fall back to the first few. The utility
+ * count sits next to this in the header & the full list is one click away, so
+ * the summary never has to carry all of it.
+ */
+export function summarizeClasses(category: Category, name: string): string[] {
+  const values = getValues(category, name);
+  if (values.length === 0) return [];
+
+  const prefix = getPrefix(category, name);
+  const cls = (v: string) => (v === "" ? prefix : `${prefix}-${v}`);
+
+  // Short enough to state completely.
+  if (values.length <= 6) return values.map(cls);
+
+  const numeric = values.filter((v) => /^\d+$/.test(v));
+  const named = values.filter((v) => !/^\d+$/.test(v));
+  const out: string[] = [];
+
+  if (numeric.length > 2) {
+    out.push(`${cls(numeric[0] as string)} … ${cls(numeric.at(-1) as string)}`);
+  } else {
+    out.push(...numeric.map(cls));
+  }
+
+  // Named values alongside a scale are usually a handful (`auto`, `px`), and
+  // worth naming because nobody would guess them from the range.
+  const limit = numeric.length > 2 ? 2 : 3;
+  out.push(...named.slice(0, limit).map(cls));
+
+  // A trailing ellipsis whenever something was left out, so three examples
+  // never read as the complete set. The count beside it says how many.
+  if (named.length > limit) out.push("…");
+  return out;
+}
