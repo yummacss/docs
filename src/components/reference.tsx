@@ -7,7 +7,7 @@ import { useState } from "react";
 import {
   type Category,
   categoryGetters,
-  sampleValues,
+  summarizeClasses,
 } from "../utils/yummacss";
 
 interface Props {
@@ -57,9 +57,7 @@ export default function Reference({ category, name }: Props) {
     console.error("Failed to get utility:", err);
   }
 
-  const examples = sampleValues(category, name, 3).map((v) =>
-    v === "" ? basePrefix : `${basePrefix}-${v}`,
-  );
+  const summary = summarizeClasses(category, name);
 
   if (variants.length === 0) {
     return (
@@ -97,12 +95,13 @@ export default function Reference({ category, name }: Props) {
                   className="d-f ai-c jc-sb g-4 w-100% py-3 px-4 m-0 bg-transparent c-white bw-0 ta-l fw-600 fs-sm c-p us-none"
                 >
                   <span className="d-f ai-c g-2">
-                    {/* Real classes rather than a placeholder: the header is
-                        all you see while the group is collapsed, so it should
-                        show what the utility actually looks like in use. */}
+                    {/* The header is all you see while the group is collapsed,
+                        so it states the whole range rather than a few
+                        examples: `m-4 m-8 m-12` would suggest m-23 is not a
+                        class, when the scale runs to 384. */}
                     <code className="c-code ff-m">
-                      {examples.length > 0
-                        ? examples.join("  ")
+                      {summary.length > 0
+                        ? summary.join("  ")
                         : `${utilityPrefix}-(value)`}
                     </code>
                     <span
