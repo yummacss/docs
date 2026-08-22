@@ -58,7 +58,9 @@ export default function Code({
           <div className="p-a t-2 r-2">
             <CopyButton copied={copied} onCopy={handleCopy} />
           </div>
-          {body ?? <pre className="ox-auto px-4 py-4 ff-m lh-5">{children}</pre>}
+          {body ?? (
+            <pre className="ox-auto px-4 py-4 ff-m lh-5">{children}</pre>
+          )}
         </div>
       </div>
     );

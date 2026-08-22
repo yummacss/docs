@@ -1,5 +1,7 @@
 "use client";
 
+import { Button } from "@base-ui/react";
+
 /**
  * The tab strip above a code block.
  *
@@ -29,9 +31,8 @@ export default function CodeTabs<T extends string>({
       {tabs.map((tab, index) => {
         const selected = tab.id === active;
         return (
-          <button
+          <Button
             key={tab.id}
-            type="button"
             role="tab"
             id={`${idPrefix}-tab-${tab.id}`}
             aria-selected={selected}
@@ -54,7 +55,7 @@ export default function CodeTabs<T extends string>({
             }`}
           >
             {tab.label}
-          </button>
+          </Button>
         );
       })}
       <div className="f-1 bbw-1 bc-border" />

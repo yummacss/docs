@@ -293,7 +293,9 @@ export function getReferenceData(
     case "pseudo-element":
       return fromVariants(
         variants?.pseudoElements,
-        (v) => `${v.prefix}:${base}`,
+        // `::`, not `:`. The generator checks the pseudo-element form first
+        // for exactly this reason: `b:` is a pseudo class, `b::` is ::before.
+        (v) => `${v.prefix}::${base}`,
         "pseudo elements",
       );
 

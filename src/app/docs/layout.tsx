@@ -11,8 +11,7 @@ export default function DocsLayout({
     <div className="min-h-dvh c-white">
       <Navbar showMobileDrawer />
 
-      <main
-        className="is-i mx-auto px-6 docs-container">
+      <main className="is-i mx-auto px-6 docs-container">
         <div className="d-g gtc-1 g-8 @lg:gtc-12">
           <Sidebar variant="docs" />
 

@@ -149,9 +149,8 @@ export default function OnboardingBase({
           {step.tasks.map((task) => {
             const isChecked = checked[page]?.has(task.id) ?? false;
             return (
-              <button
+              <Button
                 key={task.id}
-                type="button"
                 onClick={() => toggleTask(task.id)}
                 className={`d-f ai-c g-2 px-3 py-2 w-100% br-lg bw-0 fs-sm ta-l us-none c-p fv:oo-2 fv:oc-indigo-5 ${
                   isChecked ? "bg-green-1/30" : "bg-silver-1/50"
@@ -169,7 +168,7 @@ export default function OnboardingBase({
                 <span className={isChecked ? "c-green-7" : "c-slate-10"}>
                   {task.label}
                 </span>
-              </button>
+              </Button>
             );
           })}
         </div>
@@ -299,8 +298,7 @@ export default function OnboardingBase({
 
           {indicator === "dots" && (
             <div className="d-f ai-c jc-c g-4 pb-8">
-              <button
-                type="button"
+              <Button
                 onClick={() => go(page - 1)}
                 disabled={isFirst}
                 className={`d-f ai-c jc-c w-8 h-8 bw-0 br-lg us-none fv:oo--1 fv:oc-indigo-5 ${
@@ -311,7 +309,7 @@ export default function OnboardingBase({
                 aria-label="Previous"
               >
                 <ArrowLeft className="w-4 h-4" />
-              </button>
+              </Button>
               <Tabs.Root
                 value={String(page)}
                 onValueChange={(v) => go(Number(v))}
@@ -337,8 +335,7 @@ export default function OnboardingBase({
                   <Check className="w-4 h-4" />
                 </AlertDialog.Close>
               ) : (
-                <button
-                  type="button"
+                <Button
                   onClick={() => go(page + 1)}
                   disabled={!allTasksDone}
                   className={`d-f ai-c jc-c w-8 h-8 bw-0 br-lg us-none fv:oo--1 fv:oc-indigo-5 ${
@@ -349,7 +346,7 @@ export default function OnboardingBase({
                   aria-label="Next"
                 >
                   <ArrowRight className="w-4 h-4" />
-                </button>
+                </Button>
               )}
             </div>
           )}

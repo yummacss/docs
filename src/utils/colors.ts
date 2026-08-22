@@ -35,11 +35,12 @@ export const LEGACY_SHADE_LABELS = [
   "6",
 ];
 
-export const COLOR_FAMILIES: { name: string; color: string }[] =
-  Object.entries(colorTheme).map(([name, color]) => ({
-    name: name.charAt(0).toUpperCase() + name.slice(1),
-    color,
-  }));
+export const COLOR_FAMILIES: { name: string; color: string }[] = Object.entries(
+  colorTheme,
+).map(([name, color]) => ({
+  name: name.charAt(0).toUpperCase() + name.slice(1),
+  color,
+}));
 
 export function getBorderColor(color: string): string {
   const luminance = tinycolor(color).getLuminance();
