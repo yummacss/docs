@@ -3,8 +3,6 @@ title: "@yummacss/runtime"
 description: "Generate CSS in the browser, with no build step."
 ---
 
-Generates CSS in the browser, with no build step & no Node. Drop in a `<script>` tag & the classes on the page start working.
-
 ## Usage
 
 ```html title="index.html" mark={4}
@@ -23,8 +21,4 @@ There is nothing else to set up. No config file, no marker in a stylesheet, no i
 
 ## When To Use It
 
-This is the right choice for a single HTML file, a CodePen, or anything static where a build pipeline would be more setup than the page itself.
-
-It is the wrong choice for an application you ship. Generation happens on every page load rather than once at build time, so every visitor pays for work a plugin would have done ahead of time. Reach for [`@yummacss/vite`](/docs/vite) or [`@yummacss/postcss`](/docs/postcss) as soon as you have somewhere to put one.
-
-The [playground](https://play.yummacss.com) runs on it, which is the clearest demonstration of what it does.
+You can use this for a single HTML file, a CodePen, or anything static where a build pipeline would be more trouble than it's worth, or if you just want to try things out, create quick design prototypes and test new ideas.
