@@ -27,10 +27,7 @@ export function getPrefix(category: Category, name: string): string {
   try {
     const getter = categoryGetters[category];
     if (!getter) return name;
-
-    const utils = getter();
-    const util = utils[name];
-
+    const util = getter()[name];
     return util ? util.prefix : name;
   } catch (err) {
     console.error(`Failed to get prefix for ${category}:${name}`, err);
@@ -41,8 +38,8 @@ export function getPrefix(category: Category, name: string): string {
 /**
  * Every value a utility accepts, straight from `@yummacss/core`.
  *
- * `getPrefix` above already loads the whole definition and throws this away,
- * which is why the variant components could only print `(value)` placeholders.
+ * The reference table reads these directly, so a value added to the framework
+ * shows up in the docs without anyone editing a page.
  */
 export function getValues(category: Category, name: string): string[] {
   try {
@@ -56,35 +53,135 @@ export function getValues(category: Category, name: string): string[] {
   }
 }
 
-/**
- * Numeric scales run to 400-odd entries, so a sample stands in for the whole
- * scale. These are spread rather than sequential: four cards reading `m-4`,
- * `m-8`, `m-12`, `m-16` show that the value is yours to choose, which four
- * cards reading `m-0`, `m-1`, `m-2`, `m-3` do not.
- */
-const PREFERRED = ["4", "8", "12", "16", "24", "32"];
+export interface VariantEntry {
+  prefix: string;
+  value: string;
+}
+
+export interface Variants {
+  pseudoClasses?: VariantEntry[];
+  pseudoElements?: VariantEntry[];
+  mediaQueries?: VariantEntry[];
+  opacity?: VariantEntry[];
+}
 
 /**
- * A few real values for a utility, for documentation that can be copied.
+ * The variants a utility accepts, straight from its definition.
  *
- * Enumerated utilities have few enough values to take from the front:
- * `align-items` has five, and `ai-b` is as good an example as any. Numeric
- * scales get the spread above, falling back to whatever the utility has when
- * it does not carry those keys.
+ * The docs used to hardcode four breakpoints & one pseudo-class, so `xl:`,
+ * `pc:`, the other fifteen pseudo-classes & all four pseudo-elements went
+ * undocumented. Reading the definition means a variant added to the framework
+ * shows up here without anyone remembering to add it.
  */
-export function sampleValues(
-  category: Category,
-  name: string,
-  count: number,
-): string[] {
+export function getVariants(category: Category, name: string): Variants {
+  try {
+    const getter = categoryGetters[category];
+    if (!getter) return {};
+    const util = getter()[name];
+    return (util?.variants ?? {}) as Variants satisfies Variants;
+  } catch (err) {
+    console.error(`Failed to get variants for ${category}:${name}`, err);
+    return {};
+  }
+}
+
+export interface Scale {
+  /** Lowest & highest keys in the run, e.g. 0 and 384. */
+  min: number;
+  max: number;
+  /** What one step is worth, e.g. `.25rem`. */
+  step: string;
+  /** The unit every value in the run carries, e.g. `rem`. */
+  unit: string;
+  /** The multiplier one step is worth, e.g. 0.25. */
+  factor: number;
+}
+
+export interface ValueShape {
+  /** A contiguous, linear numeric run. Stated as a rule, never enumerated. */
+  scale: Scale | null;
+  /** Numeric keys that do not form such a run: opacity, z-index. */
+  sparse: string[];
+  /** Everything else: `auto`, `px`, `f`, `red-1`. Nobody can guess these. */
+  named: string[];
+}
+
+const NUMBER = /^-?[\d.]+/;
+
+function split(value: string): { n: number; unit: string } | null {
+  const match = NUMBER.exec(value.trim());
+  if (!match) return null;
+  return { n: Number(match[0]), unit: value.trim().slice(match[0].length) };
+}
+
+/**
+ * Sorts a utility's values into the three kinds that want different treatment.
+ *
+ * A scale like `margin` is 385 rows of a multiplication table: `m-23` is
+ * 23 × .25rem, and rendering all of it says less than stating the rule does,
+ * because nobody scrolls 385 rows. Stating it also answers the question the
+ * rows leave open, which is whether `m-23` exists at all.
+ *
+ * The run has to be both contiguous & linear to qualify. `opacity` steps by
+ * ten & `z-index` by tens, so neither collapses to a rule and both stay
+ * enumerated.
+ */
+export function describeValues(category: Category, name: string): ValueShape {
   const values = getValues(category, name);
-  if (values.length === 0) return [];
+  const empty: ValueShape = { scale: null, sparse: [], named: [] };
+  if (values.length === 0) return empty;
 
-  const preferred = PREFERRED.filter((v) => values.includes(v));
-  const pool =
-    preferred.length >= count ? preferred : [...preferred, ...values];
+  const getter = categoryGetters[category];
+  const util = getter?.()[name];
+  if (!util) return empty;
 
-  return [...new Set(pool)].slice(0, count);
+  const numeric = values
+    .filter((v) => /^\d+$/.test(v))
+    .sort((a, b) => Number(a) - Number(b));
+  const named = values.filter((v) => !/^\d+$/.test(v));
+
+  // Too few to be a scale worth collapsing; listing them is clearer.
+  if (numeric.length <= 8) return { scale: null, sparse: numeric, named };
+
+  const nums = numeric.map(Number);
+  const contiguous = nums.every(
+    (v, i) => i === 0 || v === (nums[i - 1] ?? 0) + 1,
+  );
+  if (!contiguous) return { scale: null, sparse: numeric, named };
+
+  const one = split(util.values["1"] ?? "");
+  if (!one || one.n === 0) return { scale: null, sparse: numeric, named };
+
+  // Linear, or the rule would lie about the values in between.
+  const linear = numeric.every((key) => {
+    const parsed = split(util.values[key] ?? "");
+    if (!parsed) return Number(key) === 0;
+    if (parsed.unit !== one.unit && Number(key) !== 0) return false;
+    return Math.abs(parsed.n - Number(key) * one.n) < 1e-6;
+  });
+  if (!linear) return { scale: null, sparse: numeric, named };
+
+  return {
+    scale: {
+      min: nums[0] as number,
+      max: nums.at(-1) as number,
+      step: util.values["1"] as string,
+      unit: one.unit,
+      factor: one.n,
+    },
+    sparse: [],
+    named,
+  };
+}
+
+/**
+ * Resolves any point on a scale, so a reader can check a value the page never
+ * had to print. `m-23` is the whole reason the scale is a rule.
+ */
+export function resolveScale(scale: Scale, n: number): string | null {
+  if (!Number.isInteger(n) || n < scale.min || n > scale.max) return null;
+  const value = Number((n * scale.factor).toFixed(6));
+  return `${value}${scale.unit}`;
 }
 
 /**
