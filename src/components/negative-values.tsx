@@ -1,7 +1,11 @@
-"use client";
-
-import { RulerMinus } from "iconoir-react";
-import { type Category, getPrefix } from "../utils/yummacss";
+import {
+  type Category,
+  getPrefix,
+  getProperties,
+  getValue,
+  sampleValues,
+} from "../utils/yummacss";
+import VariantList from "./variant-list";
 
 interface Props {
   category: Category;
@@ -10,23 +14,34 @@ interface Props {
 
 export default function NegativeValues({ category, name }: Props) {
   const prefix = getPrefix(category, name);
+  const property = getProperties(category, name)[0] ?? "";
+
+  // Real values off the utility's own scale, each with what it resolves to, so
+  // the `--` syntax is shown working rather than described in the abstract.
+  const rows = sampleValues(category, name, 4).flatMap((key) => {
+    const value = getValue(category, name, key);
+    if (!value || value === "0") return [];
+    return [
+      {
+        className: `${prefix}--${key}`,
+        detail: `${property}: -${value};`,
+      },
+    ];
+  });
 
   return (
-    <div className="mb-6 p-4 bc-border bg-surface bw-1">
-      <div className="d-f ai-c g-3 mb-3">
-        <div className="d-f ai-c jc-c fs-0 p-2 bg-border c-accent-dim">
-          <RulerMinus className="w-5 h-5" />
-        </div>
-        <p className="c-white/70 fs-sm">
-          Use the <code className="px-1 bg-border c-code">--</code> syntax to
-          apply negative numeric values.
-        </p>
-      </div>
-
-      <div className="d-f ai-c g-2 p-3 bg-page">
-        <span className="c-white/50 fs-xs">Syntax:</span>
-        <code className="c-code fs-sm">{prefix}--(value)</code>
-      </div>
-    </div>
+    <VariantList
+      rows={rows}
+      description={
+        <>
+          Double the hyphen to negate any numeric value on the scale, so{" "}
+          <code className="px-1 bg-border c-code">{prefix}--</code> takes the
+          same range <code className="px-1 bg-border c-code">{prefix}-</code>{" "}
+          does.
+        </>
+      }
+      href="/docs/negative-values"
+      linkText="Negative Values"
+    />
   );
 }

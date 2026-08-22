@@ -1,32 +1,49 @@
-"use client";
-
-import { CursorPointer } from "iconoir-react";
-import { type Category, getPrefix } from "../utils/yummacss";
+import {
+  type Category,
+  getPrefix,
+  getVariants,
+  sampleValues,
+} from "../utils/yummacss";
+import VariantList from "./variant-list";
 
 interface Props {
   category: Category;
   name: string;
 }
 
+/**
+ * The interactive states, which is what a reader on a utility page is after.
+ *
+ * The full set of sixteen belongs on the pseudo-classes page: `:empty` and
+ * `:indeterminate` are worth knowing about, but not worth repeating under a
+ * "Hover State" heading on a hundred and thirty pages.
+ */
+const INTERACTIVE = ["h", "f", "a", "fv", "fw"];
+
 export default function HoverVariant({ category, name }: Props) {
   const prefix = getPrefix(category, name);
+  const value = sampleValues(category, name, 1)[0];
+  const base = value ? `${prefix}-${value}` : prefix;
+
+  const pseudoClasses = getVariants(category, name).pseudoClasses ?? [];
+  const rows = INTERACTIVE.flatMap((wanted) => {
+    const entry = pseudoClasses.find((p) => p.prefix === wanted);
+    return entry
+      ? [{ className: `${entry.prefix}:${base}`, detail: entry.value }]
+      : [];
+  });
 
   return (
-    <div className="mb-6 p-4 bc-border bg-surface bw-1">
-      <div className="d-f ai-c g-3 mb-3">
-        <div className="d-f ai-c jc-c fs-0 p-2 bg-border c-accent-dim">
-          <CursorPointer className="w-5 h-5" />
-        </div>
-        <p className="c-white/70 fs-sm">
-          Add the <code className="px-1 bg-border c-code">h:</code> prefix to
-          apply styles only when the user hovers over the element.
-        </p>
-      </div>
-
-      <div className="d-f ai-c g-2 p-3 bg-page">
-        <span className="c-white/50 fs-xs">Syntax:</span>
-        <code className="c-code fs-sm">h:{prefix}-(value)</code>
-      </div>
-    </div>
+    <VariantList
+      rows={rows}
+      description={
+        <>
+          Prefix <code className="px-1 bg-border c-code">{base}</code> with a
+          state to apply it only while that state matches.
+        </>
+      }
+      href="/docs/pseudo-classes"
+      linkText={`All ${pseudoClasses.length} Pseudo Classes`}
+    />
   );
 }

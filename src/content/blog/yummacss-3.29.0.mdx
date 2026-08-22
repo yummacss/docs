@@ -59,7 +59,7 @@ It is an inherited property, so a theme toggle is one class on whatever subtree 
 
 This is the part `prefers-color-scheme` cannot do. A media query cannot be overridden by a button, so a manual toggle would otherwise mean duplicating every rule.
 
-## Opacity now uses `color-mix()`
+## Opacity Now Uses `color-mix()`
 
 The opacity suffix is used to add a hex alpha pair to the color, but it only worked on a 6-digit hex value. It now generates `color-mix()`, which accepts any color value.
 
