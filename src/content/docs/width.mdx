@@ -17,22 +17,20 @@ description: Set the width for an element.
 
 <Reference category="boxModel" name="min-width" />
 
-## Responsiveness
+## Media Queries
 
-Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
+Prefix a class with a breakpoint to apply it from that width up.
 
-Target viewport sizes with breakpoint prefixes.
+<Reference category="boxModel" name="width" variant="media" />
 
-<ResponsiveVariant category="boxModel" name="width" />
+## Pseudo Classes
 
-## Hover State
+Prefix a class with a state to apply it only while that state matches.
 
-Apply styles conditionally on hover using the `h:` prefix.
-
-<HoverVariant category="boxModel" name="width" />
+<Reference category="boxModel" name="width" variant="pseudo-class" />
 
 ## Negative Values
 
 Use negative variants to apply negative width values.
 
-<NegativeValues category="boxModel" name="width" />
+<Reference category="boxModel" name="width" variant="negative" />

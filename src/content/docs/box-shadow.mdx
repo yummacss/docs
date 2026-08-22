@@ -8,27 +8,27 @@ description: Set the box shadow for an element.
 <Reference category="effect" name="box-shadow-outset" />
 <Reference category="effect" name="box-shadow-inset" />
 
-### Responsiveness
+### Media Queries
 
-Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
-
-#### Outset
-
-<ResponsiveVariant category="effect" name="box-shadow-outset" />
-
-#### Inset
-
-<ResponsiveVariant category="effect" name="box-shadow-inset" />
-
-### Hover State
-
-Apply styles conditionally on hover using the `h:` prefix.
+Prefix a class with a breakpoint to apply it from that width up. Styles apply from the breakpoint & up.
 
 #### Outset
 
-<HoverVariant category="effect" name="box-shadow-outset" />
+<Reference category="effect" name="box-shadow-outset" variant="media" />
 
 #### Inset
 
-<HoverVariant category="effect" name="box-shadow-inset" />
+<Reference category="effect" name="box-shadow-inset" variant="media" />
+
+### Pseudo Classes
+
+Prefix a class with a state to apply it only while that state matches.
+
+#### Outset
+
+<Reference category="effect" name="box-shadow-outset" variant="pseudo-class" />
+
+#### Inset
+
+<Reference category="effect" name="box-shadow-inset" variant="pseudo-class" />
 
