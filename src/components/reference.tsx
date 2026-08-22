@@ -21,7 +21,13 @@ interface Props {
   variant?: ReferenceVariant;
 }
 
-const DEFAULT_ACCORDION_VALUE = ["reference-item"];
+/**
+ * The utility's own classes are the point of the page, so that block opens.
+ * The variant blocks are reference material you go looking for, and a page
+ * with eleven utilities would otherwise open thirty-three tables at once.
+ */
+const OPEN = ["reference-item"];
+const CLOSED: string[] = [];
 
 export default function Reference({ category, name, variant }: Props) {
   const [search, setSearch] = useState("");
@@ -51,7 +57,7 @@ export default function Reference({ category, name, variant }: Props) {
   return (
     <div className="o-h mb-6 bc-border bg-surface bw-1">
       <Accordion.Root
-        defaultValue={DEFAULT_ACCORDION_VALUE}
+        defaultValue={variant ? CLOSED : OPEN}
         className="d-f fd-c w-100%"
       >
         <Accordion.Item value="reference-item" className="bw-0">
