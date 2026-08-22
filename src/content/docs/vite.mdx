@@ -9,36 +9,47 @@ Reach for this first if your project already uses Vite. It also covers the frame
 
 ## Usage
 
-<CodeGroup>
+<Stepper>
+  <Step title="Install the Plugin">
+    <CodeGroup>
 
-```bash title="pnpm"
-pnpm add -D @yummacss/vite
-```
+    ```bash title="pnpm"
+    pnpm add -D @yummacss/vite
+    ```
 
-```bash title="npm"
-npm install -D @yummacss/vite
-```
+    ```bash title="npm"
+    npm install -D @yummacss/vite
+    ```
 
-</CodeGroup>
+    </CodeGroup>
 
-Register it in your Vite configuration:
+  </Step>
 
-```ts title="vite.config.ts" mark={2,5}
-import { defineConfig } from "vite";
-import yummacss from "@yummacss/vite";
+  <Step title="Register It">
+    Add the plugin to your Vite configuration.
 
-export default defineConfig({
-  plugins: [yummacss()],
-});
-```
+    ```ts title="vite.config.ts" mark={2,5}
+    import { defineConfig } from "vite";
+    import yummacss from "@yummacss/vite";
 
-Then add the `@yummacss;` marker to your CSS entry file. The plugin replaces it with the generated CSS:
+    export default defineConfig({
+      plugins: [yummacss()],
+    });
+    ```
 
-```css title="src/styles.css"
-@yummacss;
-```
+  </Step>
 
-[Installation](/docs/installation) walks through the whole setup, including the config file.
+  <Step title="Add the Marker">
+    Put `@yummacss;` in your CSS entry file. The plugin replaces it with the generated CSS.
+
+    ```css title="src/styles.css"
+    @yummacss;
+    ```
+
+    [Installation](/docs/installation) walks through the whole setup, including the config file.
+
+  </Step>
+</Stepper>
 
 ## Options
 
