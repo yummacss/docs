@@ -59,7 +59,7 @@ Master index for 3.29 & 4.0.
 | 20 | Drop pseudo-class stacking (`f:h:`), keep every other stack | 4.0 | Decided |
 | 21 | Warn on stacked media queries (`@sm:@lg:`) | 4.0 | Open |
 
-### Why the colon, in one place
+### Why the Colon, in One Place
 
 The point of 4.0 is to close the distance to vanilla CSS. `d:f` reads as
 `display: flex` with the whitespace removed; `d-f` does not read as anything.
@@ -84,7 +84,7 @@ release weeks after the first.
 
 - **#7 deferred.** `@` means "compiles to an `@media` wrapper" (`@sm`, `@pc`).
   That is only honest if the variant compiles to
-  `@media (prefers-color-scheme: dark)` - but the useful behaviour is
+  `@media (prefers-color-scheme: dark)`, but the useful behavior is
   following a manual toggle, which is a selector, not an at-rule. Since the
   token layer already handles both OS preference & manual toggle via
   `color-scheme`, the escape hatch is not needed yet. Design it when a real
@@ -92,7 +92,7 @@ release weeks after the first.
 - **#11 dropped.** `gtc-1` … `gtc-16` already generate
   `repeat(N, minmax(0, 1fr))`, & `gtc-s` / `gtr-s` already generate
   `subgrid`. A `fr` variant would differ from `gtc-1` only in `1fr` vs
-  `minmax(0, 1fr)` - a real difference in shrink behaviour, but two
+  `minmax(0, 1fr)`, a real difference in shrink behavior, but two
   near-identical classes is a footgun & `minmax(0, 1fr)` is usually wanted.
 - **#15 rejected.** Clean break, no dual-syntax parser. The user base is one
   person who will be migrated by hand. The codemod (#12) is still required.
@@ -107,7 +107,7 @@ release weeks after the first.
   has, & a user who wants a specific color to differ in dark mode defines it as
   a pair. Shipping 11 opinionated names would claim namespace & impose a design
   system on people who only wanted one color to change. The token table from
-  the earlier draft is still a sound recipe - it belongs in the docs as an
+  the earlier draft is still a sound recipe. It belongs in the docs as an
   example, not in core.
 - **#13 needs no work.** Verified against a running `next dev`: editing
   `yumma.config.mjs` propagates to the served CSS in roughly ten seconds with
@@ -119,13 +119,13 @@ release weeks after the first.
   color that cannot be shortened to three digits when grepping generated
   output, or the change looks like it never happened.
 - **#16 OKLCH, deferred to 4.0.** Shades are mixed toward white & black in
-  sRGB. Hue holds up well - under 10 degrees of drift across every default hue
-  - but lightness spacing collapses on light-native hues. Measured spread
+  sRGB. Hue holds up well, under 10 degrees of drift across every default hue, but
+  lightness spacing collapses on light-native hues. Measured spread
   between the largest & smallest step: blue 23%, red 103%, magenta 160%,
   cyan 226%, lime 261%, **yellow 460%**. So `yellow-1` through `yellow-6` are
   nearly indistinguishable while the dark end plummets. OKLCH fixes this, but
   it changes every generated color value, which is major-only. `tinycolor2`
-  cannot parse `oklch()` or `lch()` at all, so it also needs a new colour
+  cannot parse `oklch()` or `lch()` at all, so it also needs a new color
   library or hand-rolled matrices. Shade generation is now isolated inside
   `generateShades` so the swap stays contained.
 - **#20 decided: drop pseudo-class stacking, keep everything else.** Measured
@@ -150,8 +150,8 @@ release weeks after the first.
   parser would still be a breaking change shipped in a patch.
 - **#21 raised, open.** Two stacked media queries silently lose all but the
   last. `@sm:@lg:bg-red` compiles to `@media (min-width: 64rem)` with `@sm`
-  discarded & no warning. It is arguably reasonable - two `min-width` bounds
-  describe one range - but the silence is the problem, since the class name says
+  discarded & no warning. It is arguably reasonable, since two `min-width` bounds describe one range,
+  but the silence is the problem, since the class name says
   something the CSS does not do. Natural home is the #14 unknown-utility warning
   work, and canon should probably flag it too. Documented as a footgun in
   [Nested Variants](/docs/nested-variants) in the meantime.
@@ -162,7 +162,7 @@ release weeks after the first.
 
 ---
 
-## Post draft
+## Post Draft
 
 Everything below is prose for the published post. Sections stay commented out
 until the feature actually ships.
@@ -185,7 +185,7 @@ The rule is one line: `:` separates property from value, `-` subdivides a value.
 ```
 
 Negative values stop being a special case. `m--4` was a parser artifact leaking
-into the API - `m:-4` is the declaration with the whitespace removed.
+into the API: `m:-4` is the declaration with the whitespace removed.
 
 ```tsx del={1} ins={2}
 <div className="m--4"></div>
@@ -195,12 +195,12 @@ into the API - `m:-4` is the declaration with the whitespace removed.
 Variants keep their prefix position. `h:bg:gray-1` groups & sorts predictably,
 & `h:` stays greppable.
 
-{/* TODO(ship #12): migration section - npx yumma migrate, what it rewrites,
+{/* TODO(ship #12): migration section: npx yumma migrate, what it rewrites,
     what it cannot rewrite (dynamically constructed class strings). There is
     no compat mode: 3.x syntax stops working in 4.0. */}
 
-{/* TODO(ship #9): @layer section - user CSS outside the layer wins without
-    !important. Note this changes cascade behaviour for existing overrides,
+{/* TODO(ship #9): @layer section: user CSS outside the layer wins without
+    !important. Note this changes cascade behavior for existing overrides,
     which is why it lands in a major. */}
 
 {/* TODO(ship #10): container queries. container-type & unnamed @container
