@@ -45,7 +45,7 @@ export interface ReferenceData {
   /** Everything the block accepts, for the collapsed header. */
   summary: string[];
   rows: ReferenceRow[];
-  /** What the rows are, for the count badge: `utilities`, `breakpoints`. */
+  /** What the rows are, for the count badge: `utilities`, `media queries`. */
   noun: string;
 }
 
@@ -92,6 +92,29 @@ export function getValues(category: Category, name: string): string[] {
   }
 }
 
+const SUMMARY_BUDGET = 56;
+
+/**
+ * Trims a summary to one line. Six classes is a short list when they read
+ * `@sm:m-4` & a wrapped paragraph when they read `@sm:ac-indigo-8`, so the
+ * limit is the width they take up rather than how many there are.
+ */
+function oneLine(parts: string[]): string[] {
+  const out: string[] = [];
+  let width = 0;
+
+  for (const part of parts) {
+    if (out.length > 0 && width + part.length + 2 > SUMMARY_BUDGET) {
+      out.push("…");
+      break;
+    }
+    out.push(part);
+    width += part.length + 2;
+  }
+
+  return out;
+}
+
 /**
  * A short summary of everything a block accepts, for the collapsed header.
  *
@@ -101,7 +124,7 @@ export function getValues(category: Category, name: string): string[] {
  * short list is shown in full, because listing five values leaves no doubt.
  */
 function summarize(classNames: string[]): string[] {
-  if (classNames.length <= 6) return classNames;
+  if (classNames.length <= 6) return oneLine(classNames);
 
   // Only a run varying by a trailing number on a shared stem is a scale, so
   // `m-0 … m-384` folds while `a:m-4  c:m-4` stays a list of sixteen states
@@ -129,7 +152,7 @@ function summarize(classNames: string[]): string[] {
   // A trailing ellipsis whenever something was left out, so three examples
   // never read as the complete set. The count beside it says how many.
   if (named.length > limit) out.push("…");
-  return out;
+  return oneLine(out);
 }
 
 /**
@@ -200,7 +223,8 @@ export function getReferenceData(
       return fromVariants(
         variants?.mediaQueries,
         (v) => `@${v.prefix}:${base}`,
-        "breakpoints",
+        // Not "breakpoints": `@pc` is `(pointer: coarse)`, which has no width.
+        "media queries",
       );
 
     case "pseudo-class":
