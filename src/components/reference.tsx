@@ -74,7 +74,7 @@ export default function Reference({ category, name, variant }: Props) {
                         examples: `m-4 m-8 m-12` would suggest m-23 is not a
                         class, when the scale runs to 384. */}
                     <code className="c-code ff-m">
-                      {data.summary.join("  ")}
+                      {data.summary.join(", ")}
                     </code>
                     <span
                       className="px-2 py-1 bg-border fs-xs fw-600"
