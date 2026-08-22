@@ -11,7 +11,7 @@ A set of ready-to-use UI components based on [Base UI](https://base-ui.com/) for
 
 ## Getting Started
 
-Yumma UI components are for pasting into your project, and you need to set up dependencies and configuration to ensure correct functioning.
+Yumma UI components are copied into your project rather than installed as a dependency — once a component is in your codebase, it is yours to edit. Set up Yumma CSS first, then use the CLI to copy in whatever you need.
 
 ---
 
@@ -105,6 +105,27 @@ Yumma UI components are for pasting into your project, and you need to set up de
     </CodeGroup>
 
   </Step>
+
+  <Step title="Add Components">
+    Set up `yummaui.json`, then copy in whatever you need. `init` detects your framework, package manager & import alias, and asks where components should live.
+
+    <CodeGroup>
+
+    ```bash title="pnpm"
+    pnpm dlx yummaui init
+    pnpm dlx yummaui add button
+    ```
+
+    ```bash title="npm"
+    npx yummaui init
+    npx yummaui add button
+    ```
+
+    </CodeGroup>
+
+    Each component lands as a single file you own. Run `yummaui list` to see everything available.
+
+  </Step>
 </Stepper>
 
 ---
@@ -194,6 +215,27 @@ Yumma UI components are for pasting into your project, and you need to set up de
     ```
 
     </CodeGroup>
+
+  </Step>
+
+  <Step title="Add Components">
+    Set up `yummaui.json`, then copy in whatever you need. `init` detects your framework, package manager & import alias, and asks where components should live.
+
+    <CodeGroup>
+
+    ```bash title="pnpm"
+    pnpm dlx yummaui init
+    pnpm dlx yummaui add button
+    ```
+
+    ```bash title="npm"
+    npx yummaui init
+    npx yummaui add button
+    ```
+
+    </CodeGroup>
+
+    Each component lands as a single file you own. Run `yummaui list` to see everything available.
 
   </Step>
 </Stepper>

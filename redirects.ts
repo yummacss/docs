@@ -1,3 +1,7 @@
+import { readdirSync, readFileSync } from "node:fs";
+import { join } from "node:path";
+import { extractProperties } from "./src/utils/doc-properties";
+
 const docsRedirects = [
   {
     source: "/docs",
@@ -14,9 +18,25 @@ const docsRedirects = [
     destination: "/docs/naming-convention",
     permanent: true,
   },
+  // IntelliSense was retired 2026-08-16; canon covers the validation half.
+  // `/docs/ide-support` already redirected here, so leaving it pointed at the
+  // deleted page would have turned an existing permanent redirect into a 404.
   {
     source: "/docs/ide-support",
-    destination: "/docs/intellisense",
+    destination: "/docs/canon",
+    permanent: true,
+  },
+  // Lands on the packages index rather than canon: someone arriving from an
+  // IntelliSense link wants to know what is available now, not one specific
+  // tool.
+  {
+    source: "/docs/intellisense",
+    destination: "/docs/packages",
+    permanent: true,
+  },
+  {
+    source: "/blog/yummacss-intellisense",
+    destination: "/docs/canon",
     permanent: true,
   },
   {
@@ -35,6 +55,35 @@ const docsRedirects = [
     permanent: true,
   },
 ];
+
+/**
+ * Utility pages merged into a root property keep their old URLs working.
+ *
+ * Derived from the pages themselves rather than from a list: every merged page
+ * documents what it absorbed as `## Heading` + `<Reference name>`, so a
+ * property added to a page gets its redirect with nothing else to update. A
+ * property whose page still exists is skipped, since that URL is not retired.
+ */
+const DOCS_DIR = join(process.cwd(), "src/content/docs");
+
+function mergedPageRedirects() {
+  const files = readdirSync(DOCS_DIR).filter((f) => f.endsWith(".mdx"));
+  const pages = new Set(files.map((f) => f.replace(/\.mdx$/, "")));
+
+  return files.flatMap((file) => {
+    const root = file.replace(/\.mdx$/, "");
+    const content = readFileSync(join(DOCS_DIR, file), "utf8");
+    return extractProperties(content)
+      .filter(({ name }) => !pages.has(name))
+      .map(({ name, anchor }) => ({
+        source: `/docs/${name}`,
+        destination: `/docs/${root}#${anchor}`,
+        permanent: true,
+      }));
+  });
+}
+
+const mergedRedirects = mergedPageRedirects();
 
 const RELEASE_TAG = "https://github.com/yummacss/yummacss/releases/tag";
 
@@ -122,19 +171,22 @@ const uiRedirects = [
     destination: "/ui/components/customization",
     permanent: true,
   },
+  // These three pointed at `/ui/installation`, which is not a route: /ui pages
+  // render under `/ui/components/[slug]`. Every one of them - including the
+  // bare `/ui` anyone would type - redirected straight into a 404.
   {
     source: "/ui/components",
-    destination: "/ui/installation",
+    destination: "/ui/components/installation",
     permanent: true,
   },
   {
     source: "/components",
-    destination: "/ui/installation",
+    destination: "/ui/components/installation",
     permanent: true,
   },
   {
     source: "/ui",
-    destination: "/ui/installation",
+    destination: "/ui/components/installation",
     permanent: true,
   },
   ...[
@@ -174,4 +226,9 @@ const uiRedirects = [
   })),
 ];
 
-export const redirects = [...docsRedirects, ...blogRedirects, ...uiRedirects];
+export const redirects = [
+  ...docsRedirects,
+  ...mergedRedirects,
+  ...blogRedirects,
+  ...uiRedirects,
+];

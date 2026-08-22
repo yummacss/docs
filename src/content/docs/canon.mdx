@@ -192,6 +192,6 @@ Canon needs nothing beyond your config & source files, so the whole check is one
 - run: npx yummacss-canon
 ```
 
-## Editor integration
+## Where canon runs
 
-Canon & [IntelliSense](/docs/intellisense) are built on the same validator, so a class flagged in one is flagged in the other. IntelliSense underlines it as you type; canon covers the cases an editor cannot, being files nobody has open & the pull request nobody has reviewed yet.
+An editor only ever checks the file someone has open. Canon checks the ones nobody has open & the pull request nobody has reviewed yet, which is where an invalid class survives long enough to reach production.

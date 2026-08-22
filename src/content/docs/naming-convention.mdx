@@ -23,11 +23,13 @@ Numbers & scales keep their position instead of their initials.
 <div className="p-4 fs-lg fw-600 zi-10 …"></div>
 ```
 
-Single words with no useful abbreviation keep the word.
+`none` & `auto` are never abbreviated. Every other value shortens to its initials, but these two keep their full spelling in every utility that accepts them. Reserving both words stops them colliding with the initials of other values under a shared prefix.
 
 ```tsx
-<div className="d-none pe-auto bs-none …"></div>
+<div className="d-none pe-auto ob-none sb-auto …"></div>
 ```
+
+Two utilities predate the rule & still abbreviate: `tt-n` for `text-transform: none`, and `tl-a` for `table-layout: auto`. Both become `tt-none` & `tl-auto` in 4.0.
 
 ## Shared Prefixes
 
@@ -45,8 +47,8 @@ CSS has more properties than there are short letter pairs, so a few prefixes ser
 The two value sets never overlap, so no class is ambiguous.
 
 <Hint icon="info">
-  The [IntelliSense extensions](/docs/intellisense) show the resolved property
-  on hover, so you rarely have to remember which prefix is shared.
+  The [playground](https://play.yummacss.com) shows the resolved property on
+  hover, so you rarely have to remember which prefix is shared.
 </Hint>
 
 ## Exceptions

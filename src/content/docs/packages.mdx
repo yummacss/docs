@@ -1,0 +1,61 @@
+---
+title: "Packages"
+description: "Every package Yumma CSS publishes, and when to reach for one."
+---
+
+Most projects need two things: `yummacss` itself, and whichever integration matches the build tool. Everything else on this page is optional & can be added later without changing what you have already written.
+
+| Package | For |
+| --- | --- |
+| `yummacss` | The framework & its CLI. Everything else is optional. |
+| `@yummacss/vite` | Vite, & Vite-based frameworks. |
+| `@yummacss/postcss` | Next.js, & anything else running PostCSS. |
+| `@yummacss/runtime` | A `<script>` tag, with no build step at all. |
+| `@yummacss/canon` | Catching classes that do not exist. |
+| `@yummacss/core` | Reading the utility definitions programmatically. |
+
+## yummacss
+
+The framework. Install it once & pick an integration below; the CLI can also generate CSS on its own, which is the shortest path to trying it.
+
+See [Installation](/docs/installation) to set it up.
+
+## @yummacss/vite
+
+The Vite plugin, for Vite & the frameworks built on it — SvelteKit, Astro, Nuxt & Solid. CSS is regenerated as you work, so there is nothing to re-run.
+
+Reach for this first if your project already uses Vite. See [Installation](/docs/installation).
+
+## @yummacss/postcss
+
+The PostCSS plugin, for Next.js & anything else with PostCSS in its pipeline. It works through Turbopack & Webpack alike, since both go through the same built-in PostCSS support.
+
+See [Installation](/docs/installation).
+
+## @yummacss/runtime
+
+Generates CSS in the browser, with no build step & no Node. Drop in a `<script>` tag & the classes on the page start working.
+
+This is the right choice for a single HTML file, a CodePen, or anything static where a build pipeline would be more setup than the page itself. It is not the right choice for a real application: the generation happens on every load rather than once at build time. Use a plugin above when you have somewhere to put one.
+
+The [playground](https://play.yummacss.com) runs on it, which is the clearest demonstration of what it does.
+
+## @yummacss/canon
+
+**Optional.** Reports any class in your project that Yumma CSS does not recognize, and suggests a close match when one exists — typos, borrowed Tailwind classes, utilities renamed between versions.
+
+It reads the same definitions the generator does, so variants, opacity modifiers, negative values, custom colors, `prefixes` & `safelist` entries all validate without extra configuration. Useful in CI, where it catches the files nobody has open.
+
+See [`@yummacss/canon`](/docs/canon).
+
+## @yummacss/core
+
+The utility definitions themselves — every prefix, its CSS properties & its accepted values. Installed automatically as a dependency; you only need it directly if you are building something that has to know what Yumma CSS can generate, such as an editor integration or a custom validator.
+
+## Yumma UI
+
+Components rather than utilities, with its own CLI & documentation. See [Yumma UI](/ui/components/installation).
+
+## Internal packages
+
+`@yummacss/nitro` is the generation engine every other package is built on. It is published so those packages can depend on it, not for direct use, and its API changes whenever the generator does. Nothing here needs you to install it.
