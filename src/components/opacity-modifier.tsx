@@ -1,7 +1,10 @@
-"use client";
-
-import { UnionAlt } from "iconoir-react";
-import { type Category, getPrefix } from "../utils/yummacss";
+import {
+  type Category,
+  getPrefix,
+  getVariants,
+  sampleValues,
+} from "../utils/yummacss";
+import VariantList from "./variant-list";
 
 interface Props {
   category: Category;
@@ -10,23 +13,27 @@ interface Props {
 
 export default function OpacityModifier({ category, name }: Props) {
   const prefix = getPrefix(category, name);
+  const value = sampleValues(category, name, 1)[0];
+  const base = value ? `${prefix}-${value}` : prefix;
+
+  // The full set, because this is where a guess goes wrong: the steps are
+  // fives and they stop at 95, which no amount of `(opacity)` would tell you.
+  const rows = (getVariants(category, name).opacity ?? []).map((entry) => ({
+    className: `${base}/${entry.prefix}`,
+    detail: entry.value,
+  }));
 
   return (
-    <div className="mb-6 p-4 bc-border bg-surface bw-1">
-      <div className="d-f ai-c g-3 mb-3">
-        <div className="d-f ai-c jc-c fs-0 p-2 bg-border c-accent-dim">
-          <UnionAlt className="w-5 h-5" />
-        </div>
-        <p className="c-white/70 fs-sm">
-          Append <code className="px-1 bg-border c-code">/(opacity)</code> to
-          any color utility to control its transparency level.
-        </p>
-      </div>
-
-      <div className="d-f ai-c g-2 p-3 bg-page">
-        <span className="c-white/50 fs-xs">Syntax:</span>
-        <code className="c-code fs-sm">{prefix}-(color)/(opacity)</code>
-      </div>
-    </div>
+    <VariantList
+      rows={rows}
+      description={
+        <>
+          Append <code className="px-1 bg-border c-code">/</code> and a step to
+          any value to set its transparency.
+        </>
+      }
+      href="/docs/colors"
+      linkText="Colors"
+    />
   );
 }

@@ -56,6 +56,67 @@ export function getValues(category: Category, name: string): string[] {
   }
 }
 
+/** What a single value compiles to, e.g. `4` -> `1rem`. */
+export function getValue(
+  category: Category,
+  name: string,
+  key: string,
+): string | undefined {
+  try {
+    const getter = categoryGetters[category];
+    return getter?.()[name]?.values[key];
+  } catch (err) {
+    console.error(`Failed to get value for ${category}:${name}`, err);
+    return undefined;
+  }
+}
+
+/** The CSS properties a utility sets, e.g. `["margin"]`. */
+export function getProperties(
+  category: Category,
+  name: string,
+): readonly string[] {
+  try {
+    const getter = categoryGetters[category];
+    return getter?.()[name]?.properties ?? [];
+  } catch (err) {
+    console.error(`Failed to get properties for ${category}:${name}`, err);
+    return [];
+  }
+}
+
+export interface VariantEntry {
+  prefix: string;
+  value: string;
+}
+
+export interface Variants {
+  pseudoClasses?: VariantEntry[];
+  pseudoElements?: VariantEntry[];
+  mediaQueries?: VariantEntry[];
+  opacity?: VariantEntry[];
+}
+
+/**
+ * The variants a utility accepts, straight from its definition.
+ *
+ * The pages hardcoded four breakpoints & one pseudo-class, so `@xl`, `@pc`,
+ * the other fifteen pseudo-classes & all four pseudo-elements went
+ * undocumented. Reading the definition means a variant added to the framework
+ * shows up without anyone remembering to add it.
+ */
+export function getVariants(category: Category, name: string): Variants {
+  try {
+    const getter = categoryGetters[category];
+    if (!getter) return {};
+    const util = getter()[name];
+    return (util?.variants ?? {}) as Variants;
+  } catch (err) {
+    console.error(`Failed to get variants for ${category}:${name}`, err);
+    return {};
+  }
+}
+
 /**
  * Numeric scales run to 400-odd entries, so a sample stands in for the whole
  * scale. These are spread rather than sequential: four cards reading `m-4`,
