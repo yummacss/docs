@@ -1,15 +1,11 @@
 ---
 title: "@yummacss/canon"
-description: "Validate each class in your project."
+description: "An optional utility class validator for your Yumma CSS project."
 ---
 
-**Optional.** Yumma CSS generates the same CSS with or without it. Reach for canon when you want the check, not to get started.
+> The `@yummacss/canon` tool reports any class in your project that it does not recognize and suggests a close match when one exists. 
 
-The `@yummacss/canon` tool reports any class in your project that it does not recognize and suggests a close match when one exists.
-
-It detects typos, borrowed classes, and renamed utilities.
-
-It works with the generator, so variants, opacity modifiers, negative values, custom colors, `prefixes` and `safelist` entries work without extra configuration.
+> It works with the generator, so variants, opacity modifiers, negative values, custom colors, `prefixes` and `safelist` entries work without extra configuration.
 
 ## Usage
 
@@ -143,7 +139,7 @@ import { validate } from "@yummacss/canon";
 const result = await validate({ allowlist: ["docs-container"] });
 ```
 
-### validate(options)
+### validate()
 
 | Option | Type | Description |
 | --- | --- | --- |
@@ -170,7 +166,7 @@ Each entry in `invalid` carries the class name, the absolute paths of every file
 
 Only `config` is available exclusively through the API. Everything else has a CLI equivalent.
 
-### extractClasses(content)
+### extractClasses()
 
 Returns the set of class names found in a string, using the same class attribute contexts as `validate`. Useful for building project-specific rules on top of canon:
 
@@ -191,7 +187,3 @@ Canon needs nothing beyond your config & source files, so the whole check is one
 - run: npm install
 - run: npx yummacss-canon
 ```
-
-## Where Canon Runs
-
-An editor only ever checks the file someone has open. Canon checks the ones nobody has open & the pull request nobody has reviewed yet, which is where an invalid class survives long enough to reach production.
