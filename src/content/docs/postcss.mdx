@@ -7,35 +7,46 @@ The PostCSS plugin, for Next.js & anything else with PostCSS in its pipeline. It
 
 ## Usage
 
-<CodeGroup>
+<Stepper>
+  <Step title="Install the Plugin">
+    <CodeGroup>
 
-```bash title="pnpm"
-pnpm add -D @yummacss/postcss
-```
+    ```bash title="pnpm"
+    pnpm add -D @yummacss/postcss
+    ```
 
-```bash title="npm"
-npm install -D @yummacss/postcss
-```
+    ```bash title="npm"
+    npm install -D @yummacss/postcss
+    ```
 
-</CodeGroup>
+    </CodeGroup>
 
-Register it in your PostCSS configuration:
+  </Step>
 
-```js title="postcss.config.mjs" mark={3}
-export default {
-  plugins: {
-    "@yummacss/postcss": {},
-  },
-};
-```
+  <Step title="Register It">
+    Add the plugin to your PostCSS configuration. It works through Turbopack & Webpack alike.
 
-Then add the `@yummacss;` marker to your global CSS file. The plugin replaces it with the generated CSS:
+    ```js title="postcss.config.mjs" mark={3}
+    export default {
+      plugins: {
+        "@yummacss/postcss": {},
+      },
+    };
+    ```
 
-```css title="globals.css"
-@yummacss;
-```
+  </Step>
 
-[Installation](/docs/installation) walks through the whole setup, including the config file.
+  <Step title="Add the Marker">
+    Put `@yummacss;` in your global CSS file. The plugin replaces it with the generated CSS.
+
+    ```css title="globals.css"
+    @yummacss;
+    ```
+
+    [Installation](/docs/installation) walks through the whole setup, including the config file.
+
+  </Step>
+</Stepper>
 
 ## Options
 
