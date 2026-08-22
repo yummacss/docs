@@ -5,9 +5,9 @@ description: Props, className & the file you own.
 
 Every Yumma UI component gives you three levels of control, in the order you should reach for them: **props**, then `className`, then the file itself.
 
-## Props first
+## Props First
 
-Each component's API Reference table lists everything it accepts. Props are the reliable way to change a component, because the component applies them itself — there is no question of one class beating another.
+Each component's API Reference table lists everything it accepts. Props are the reliable way to change a component, because the component applies them itself. There is no question of one class beating another.
 
 ```tsx
 <Badge tone="subtle" color="green" size="lg" shape="pill">
@@ -17,9 +17,9 @@ Each component's API Reference table lists everything it accepts. Props are the 
 
 Reach for the table before anything else. Most of what people try to do with `className` already exists as a prop.
 
-## className, and what it cannot do
+## What `className` Can and Cannot Do
 
-`className` is appended to the component's own classes. It is the right tool for anything the component leaves unset — a margin, `fs-0` in a flex row, positioning within your layout:
+`className` is appended to the component's own classes. It is the right tool for anything the component leaves unset: a margin, `fs-0` in a flex row, positioning within your layout:
 
 ```tsx
 <Badge className="ml-2">Shipped</Badge>
@@ -43,14 +43,14 @@ Where a component genuinely needs a per-instance override of something it alread
 
 Toggle's `swatchClassName` works the same way, replacing `tone` for a color-picker swatch.
 
-## The file is yours
+## The File Is Yours
 
-`yummaui add` copies a real file into your project — it is not a dependency, and nothing overwrites it later. When props and `className` are not enough, edit it.
+`yummaui add` copies a real file into your project, and nothing overwrites it later. When props & `className` are not enough, edit it.
 
-This is the level to use for anything structural: changing the markup, swapping an icon set, dropping an animation, or wiring in behaviour the component does not have. Each component is a single self-contained file, so there is no shared abstraction to work around.
+This is the level to use for anything structural: changing the markup, swapping an icon set, dropping an animation, or wiring in behavior the component does not have. Each component is a single self-contained file, so there is no shared abstraction to work around.
 
-Components are built on [Base UI](https://base-ui.com), so the primitive underneath is documented there — useful the moment you start editing. Pages built on a primitive link to it directly.
+Components are built on [Base UI](https://base-ui.com), so the primitive underneath is documented there, which matters the moment you start editing. Pages built on a primitive link to it directly.
 
-## Colors and theme
+## Colors & Theme
 
 Component colors come from Yumma CSS, so they are configured in `yumma.config.mjs` rather than anywhere in Yumma UI. Adding a brand color or changing how shades are generated is covered in [Colors](/docs/colors) and [Configuration](/docs/configuration).
