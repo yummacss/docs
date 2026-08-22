@@ -1,0 +1,76 @@
+---
+title: "@yummacss/core"
+description: "Read the utility definitions programmatically."
+---
+
+The utility definitions themselves: every prefix, the CSS properties it sets, the values it accepts & the variants that apply to it.
+
+It is installed automatically as a dependency of `yummacss`, so you only need it directly when you are building something that has to know what Yumma CSS can generate. An editor integration, a custom validator, or a documentation site.
+
+## Usage
+
+<CodeGroup>
+
+```bash title="pnpm"
+pnpm add @yummacss/core
+```
+
+```bash title="npm"
+npm install @yummacss/core
+```
+
+</CodeGroup>
+
+Each export is a function returning the definitions for one category:
+
+```js
+import { boxModelUtils, colorUtils, coreUtils } from "@yummacss/core";
+
+const boxModel = boxModelUtils();
+const colors = colorUtils();
+const everything = coreUtils();
+```
+
+## Categories
+
+`coreUtils()` returns all of them at once. The rest return one category each:
+
+```text
+backgroundUtils    flexboxUtils        outlineUtils
+borderUtils        fontUtils           positioningUtils
+boxModelUtils      gridUtils           textUtils
+colorUtils         interactivityUtils  transformUtils
+effectUtils        layoutUtils         transitionUtils
+```
+
+Two more exports carry the defaults rather than the utilities: `colorTheme` is the color palette & `defaultMediaQueries` is the breakpoint set.
+
+## Shape Of A Definition
+
+Each category is keyed by utility name, and each definition looks like this:
+
+```js
+const { margin } = boxModelUtils();
+
+margin.prefix; // "m"
+margin.properties; // ["margin"]
+margin.slug; // "margin"
+margin.values; // { "0": "0", "1": ".25rem", … "auto": "auto", "px": "1px" }
+margin.variants; // { pseudoClasses, pseudoElements, mediaQueries }
+```
+
+`values` is the whole accepted set, keyed by the suffix that follows the prefix. So `m-4` is `margin.values["4"]`, and any key absent from that object is not a class.
+
+`variants` carries what can prefix the utility. Color utilities also get an `opacity` entry, which is what makes `c-red-1/50` valid where `m-4/50` is not:
+
+```js
+const { color } = colorUtils();
+
+Object.keys(color.variants); // ["mediaQueries", "opacity", "pseudoClasses", "pseudoElements"]
+```
+
+## Where It Is Used
+
+These pages are built on it. Every class listed in a reference block on this site is read out of `values` at build time rather than typed into the page, which is why a value added to the framework appears in the docs without anyone editing an `.mdx` file.
+
+[`@yummacss/canon`](/docs/canon) reads the same definitions to decide whether a class in your project is real.

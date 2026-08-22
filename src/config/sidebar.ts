@@ -257,7 +257,7 @@ export const sidebarConfig = {
     // would read as a third setup step.
     {
       title: "Utils",
-      items: ["packages", "canon"],
+      items: ["vite", "postcss", "runtime", "canon", "core"],
     },
   ] satisfies SidebarSection[],
   ui: [
