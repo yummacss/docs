@@ -57,9 +57,10 @@ Master index for 3.29 & 4.0.
 | 18 | `color-scheme` utility - `cs-l` / `cs-d` / `cs-ld` | 3.29 | **Shipped** |
 | 19 | Hover fixes - negative values, `::`, opacity suffix | 3.29 | **Shipped** |
 | 20 | Drop pseudo-class stacking (`f:h:`), keep every other stack | 4.0 | Decided |
-| 21 | Warn on stacked media queries (`@sm:@lg:`) | 4.0 | Open |
+| 21 | Warn on stacked media queries (`@sm:@lg:`) | 4.0 | Decided |
 | 22 | `tt-n` becomes `tt:none`, `tl-a` becomes `tl:auto` | 4.0 | Decided |
 | 23 | Custom fonts in `theme.fonts` | 4.0 | Decided |
+| 24 | Only properties that take a negative may be negated | 4.0 | Decided |
 
 ### Why the Colon, in One Place
 
@@ -189,7 +190,7 @@ release weeks after the first.
   is not finished. Two places have to learn the entry at the same time: the
   codemod, or `ff-e` is skipped during the rewrite, and canon, or it reports
   the class the config just legitimized.
-- **#21 raised, open.** Two stacked media queries silently lose all but the
+- **#21 decided: warn.** Two stacked media queries silently lose all but the
   last. `@sm:@lg:bg-red` compiles to `@media (min-width: 64rem)` with `@sm`
   discarded & no warning. It is arguably reasonable, since two `min-width` bounds describe one range,
   but the silence is the problem, since the class name says
