@@ -26,12 +26,17 @@ const docsRedirects = [
     destination: "/docs/canon",
     permanent: true,
   },
-  // Lands on the packages index rather than canon: someone arriving from an
-  // IntelliSense link wants to know what is available now, not one specific
-  // tool.
   {
     source: "/docs/intellisense",
-    destination: "/docs/packages",
+    destination: "/docs/canon",
+    permanent: true,
+  },
+  // The packages index was split into a page per package. Installation is
+  // where someone landing here is trying to get to: it picks the integration
+  // for them rather than making them choose off a list.
+  {
+    source: "/docs/packages",
+    destination: "/docs/installation",
     permanent: true,
   },
   {
