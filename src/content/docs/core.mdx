@@ -9,68 +9,35 @@ It is installed automatically as a dependency of `yummacss`, so you only need it
 
 ## Usage
 
-<CodeGroup>
+<Stepper>
+  <Step title="Install the Package">
+    It arrives automatically with `yummacss`, so this is only needed when you depend on it directly.
 
-```bash title="pnpm"
-pnpm add @yummacss/core
-```
+    <CodeGroup>
 
-```bash title="npm"
-npm install @yummacss/core
-```
+    ```bash title="pnpm"
+    pnpm add @yummacss/core
+    ```
 
-</CodeGroup>
+    ```bash title="npm"
+    npm install @yummacss/core
+    ```
 
-Each export is a function returning the definitions for one category:
+    </CodeGroup>
 
-```js
-import { boxModelUtils, colorUtils, coreUtils } from "@yummacss/core";
+  </Step>
 
-const boxModel = boxModelUtils();
-const colors = colorUtils();
-const everything = coreUtils();
-```
+  <Step title="Read a Category">
+    Each export is a function returning the definitions for one category.
 
-## Categories
+    ```js
+    import { boxModelUtils, colorUtils, coreUtils } from "@yummacss/core";
 
-`coreUtils()` returns all of them at once. The rest return one category each:
+    const boxModel = boxModelUtils();
+    const colors = colorUtils();
+    const everything = coreUtils();
+    ```
 
-```text
-backgroundUtils    flexboxUtils        outlineUtils
-borderUtils        fontUtils           positioningUtils
-boxModelUtils      gridUtils           textUtils
-colorUtils         interactivityUtils  transformUtils
-effectUtils        layoutUtils         transitionUtils
-```
+  </Step>
+</Stepper>
 
-Two more exports carry the defaults rather than the utilities: `colorTheme` is the color palette & `defaultMediaQueries` is the breakpoint set.
-
-## Shape Of A Definition
-
-Each category is keyed by utility name, and each definition looks like this:
-
-```js
-const { margin } = boxModelUtils();
-
-margin.prefix; // "m"
-margin.properties; // ["margin"]
-margin.slug; // "margin"
-margin.values; // { "0": "0", "1": ".25rem", … "auto": "auto", "px": "1px" }
-margin.variants; // { pseudoClasses, pseudoElements, mediaQueries }
-```
-
-`values` is the whole accepted set, keyed by the suffix that follows the prefix. So `m-4` is `margin.values["4"]`, and any key absent from that object is not a class.
-
-`variants` carries what can prefix the utility. Color utilities also get an `opacity` entry, which is what makes `c-red-1/50` valid where `m-4/50` is not:
-
-```js
-const { color } = colorUtils();
-
-Object.keys(color.variants); // ["mediaQueries", "opacity", "pseudoClasses", "pseudoElements"]
-```
-
-## Where It Is Used
-
-These pages are built on it. Every class listed in a reference block on this site is read out of `values` at build time rather than typed into the page, which is why a value added to the framework appears in the docs without anyone editing an `.mdx` file.
-
-[`@yummacss/canon`](/docs/canon) reads the same definitions to decide whether a class in your project is real.
