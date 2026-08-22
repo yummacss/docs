@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@base-ui/react";
 import { NumberField } from "@base-ui/react/number-field";
 import { Toggle } from "@base-ui/react/toggle";
 import { ToggleGroup } from "@base-ui/react/toggle-group";
@@ -333,11 +334,7 @@ function ToolbarToggles({
                   />
                 )
               : (props, state) => (
-                  <button
-                    type="button"
-                    {...props}
-                    className={toggleClasses(state.pressed)}
-                  />
+                  <Button {...props} className={toggleClasses(state.pressed)} />
                 )
           }
         >
