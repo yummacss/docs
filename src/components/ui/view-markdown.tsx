@@ -8,10 +8,7 @@ export default function ViewMarkdown() {
   const pathname = usePathname();
   let mdPath = pathname.replace(/\/$/, "");
 
-  if (
-    mdPath.startsWith("/ui/components/") &&
-    mdPath !== "/ui/components"
-  ) {
+  if (mdPath.startsWith("/ui/components/") && mdPath !== "/ui/components") {
     const slug = mdPath.replace(/^\/ui\/components\//, "");
     mdPath = `/ui/components/${slug}.md`;
   } else if (mdPath.startsWith("/docs/") && mdPath !== "/docs") {
