@@ -41,9 +41,24 @@ export interface ReferenceRow {
   details: string[];
 }
 
+/**
+ * One piece of a collapsed header.
+ *
+ * The header mixes two kinds of text, and they are not the same thing: the
+ * classes are what you would type, the separators & the elision marker are
+ * the docs talking about them. They render in different colors, so the header
+ * is split here rather than joined into one string.
+ */
+export interface SummaryToken {
+  /** Stable across renders. Separators repeat, so the text alone will not do. */
+  id: string;
+  text: string;
+  punctuation?: boolean;
+}
+
 export interface ReferenceData {
   /** Everything the block accepts, for the collapsed header. */
-  summary: string[];
+  summary: SummaryToken[];
   rows: ReferenceRow[];
   /** What the rows are, for the count badge: `utilities`, `media queries`. */
   noun: string;
@@ -155,6 +170,43 @@ function summarize(classNames: string[]): string[] {
   return oneLine(out);
 }
 
+const SEPARATOR = ", ";
+const ELISION = " … ";
+
+/**
+ * Splits a summary into classes & the punctuation between them.
+ *
+ * A run arrives as one string, `m-0 … m-384`, because the width budget has to
+ * measure it whole. It comes apart here so the ellipsis inside it is dimmed
+ * for the same reason the commas are.
+ */
+function tokenize(parts: string[]): SummaryToken[] {
+  const out: SummaryToken[] = [];
+  const push = (text: string, punctuation?: boolean) =>
+    out.push({ id: `${out.length}:${text}`, text, punctuation });
+
+  parts.forEach((part, index) => {
+    if (index > 0) push(SEPARATOR, true);
+
+    if (part === "…") {
+      push(part, true);
+      return;
+    }
+
+    const [from, to] = part.split(ELISION);
+    if (to === undefined) {
+      push(part);
+      return;
+    }
+
+    push(from as string);
+    push(ELISION, true);
+    push(to);
+  });
+
+  return out;
+}
+
 /**
  * One real class off the utility's own scale, to hang variant prefixes on.
  *
@@ -215,7 +267,11 @@ export function getReferenceData(
       className: toClass(entry),
       details: [entry.value],
     }));
-    return { summary: summarize(rows.map((r) => r.className)), rows, noun };
+    return {
+      summary: tokenize(summarize(rows.map((r) => r.className))),
+      rows,
+      noun,
+    };
   };
 
   switch (variant) {
@@ -258,7 +314,7 @@ export function getReferenceData(
         }));
       if (rows.length === 0) return null;
       return {
-        summary: summarize(rows.map((r) => r.className)),
+        summary: tokenize(summarize(rows.map((r) => r.className))),
         rows,
         noun: "utilities",
       };
@@ -271,7 +327,7 @@ export function getReferenceData(
       }));
       if (rows.length === 0) return null;
       return {
-        summary: summarize(rows.map((r) => r.className)),
+        summary: tokenize(summarize(rows.map((r) => r.className))),
         rows,
         noun: "utilities",
       };
