@@ -7,22 +7,20 @@ description: Set the depth scale for an element.
 
 <Reference category="transform" name="scale-z" />
 
-### Responsiveness
+### Media Queries
 
-Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
+Prefix a class with a breakpoint to apply it from that width up.
 
-Target viewport sizes with breakpoint prefixes.
+<Reference category="transform" name="scale-z" variant="media" />
 
-<ResponsiveVariant category="transform" name="scale-z" />
+### Pseudo Classes
 
-### Hover State
+Prefix a class with a state to apply it only while that state matches.
 
-Apply styles conditionally on hover using the `h:` prefix.
-
-<HoverVariant category="transform" name="scale-z" />
+<Reference category="transform" name="scale-z" variant="pseudo-class" />
 
 ### Negative Values
 
 Use negative variants to flip and scale in the opposite direction.
 
-<NegativeValues category="transform" name="scale-z" />
+<Reference category="transform" name="scale-z" variant="negative" />

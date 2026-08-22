@@ -1,65 +1,43 @@
-﻿"use client";
+"use client";
 
 import { Button, Input } from "@base-ui/react";
 import { Accordion } from "@base-ui/react/accordion";
 import { Plus, Search } from "iconoir-react";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import {
   type Category,
-  categoryGetters,
-  summarizeClasses,
+  getReferenceData,
+  type ReferenceVariant,
 } from "../utils/yummacss";
 
 interface Props {
   category: Category;
   name: string;
+  /**
+   * Which classes to list. Omitted lists the utility's own; the rest list the
+   * variants it accepts. Every mode is this same table over a different row
+   * set, which is why they are one component & not five.
+   */
+  variant?: ReferenceVariant;
 }
 
-const DEFAULT_ACCORDION_VALUE = ["reference-item"];
+/**
+ * The utility's own classes are the point of the page, so that block opens.
+ * The variant blocks are reference material you go looking for, and a page
+ * with eleven utilities would otherwise open thirty-three tables at once.
+ */
+const OPEN = ["reference-item"];
+const CLOSED: string[] = [];
 
-export default function Reference({ category, name }: Props) {
+export default function Reference({ category, name, variant }: Props) {
   const [search, setSearch] = useState("");
 
-  let basePrefix = name;
-  const variants: Array<{
-    prefix: string;
-    properties: readonly string[];
-    value: string;
-  }> = [];
+  const data = useMemo(
+    () => getReferenceData(category, name, variant),
+    [category, name, variant],
+  );
 
-  try {
-    if (!category || !name) {
-      throw new Error("Missing props: category and name are required");
-    }
-
-    const getter = categoryGetters[category];
-    if (!getter) {
-      throw new Error(`Unknown category: ${category}`);
-    }
-
-    const utils = getter();
-    const util = utils[name];
-
-    if (util) {
-      basePrefix = util.prefix;
-      Object.entries(util.values).forEach(([suffix, value]) => {
-        const prefix = suffix === "" ? util.prefix : `${util.prefix}-${suffix}`;
-        const properties = util.properties;
-
-        variants.push({
-          prefix,
-          properties,
-          value,
-        });
-      });
-    }
-  } catch (err) {
-    console.error("Failed to get utility:", err);
-  }
-
-  const summary = summarizeClasses(category, name);
-
-  if (variants.length === 0) {
+  if (!data) {
     return (
       <div className="p-4 mb-6 bg-surface c-white/60 ta-c">
         Something went wrong while fetching the data.
@@ -67,23 +45,19 @@ export default function Reference({ category, name }: Props) {
     );
   }
 
-  const filtered = search
-    ? variants.filter(
-        (v) =>
-          v.prefix.toLowerCase().includes(search.toLowerCase()) ||
-          v.value.toLowerCase().includes(search.toLowerCase()) ||
-          v.properties.some((p) =>
-            p.toLowerCase().includes(search.toLowerCase()),
-          ),
+  const query = search.trim().toLowerCase();
+  const filtered = query
+    ? data.rows.filter(
+        (row) =>
+          row.className.toLowerCase().includes(query) ||
+          row.details.some((d) => d.toLowerCase().includes(query)),
       )
-    : variants;
-
-  const utilityPrefix = basePrefix;
+    : data.rows;
 
   return (
     <div className="o-h mb-6 bc-border bg-surface bw-1">
       <Accordion.Root
-        defaultValue={DEFAULT_ACCORDION_VALUE}
+        defaultValue={variant ? CLOSED : OPEN}
         className="d-f fd-c w-100%"
       >
         <Accordion.Item value="reference-item" className="bw-0">
@@ -94,21 +68,19 @@ export default function Reference({ category, name }: Props) {
                   {...triggerProps}
                   className="d-f ai-c jc-sb g-4 w-100% py-3 px-4 m-0 bg-transparent c-white bw-0 ta-l fw-600 fs-sm c-p us-none"
                 >
-                  <span className="d-f ai-c g-2">
+                  <span className="d-f ai-c g-2 fw-w">
                     {/* The header is all you see while the group is collapsed,
                         so it states the whole range rather than a few
                         examples: `m-4 m-8 m-12` would suggest m-23 is not a
                         class, when the scale runs to 384. */}
                     <code className="c-code ff-m">
-                      {summary.length > 0
-                        ? summary.join("  ")
-                        : `${utilityPrefix}-(value)`}
+                      {data.summary.join("  ")}
                     </code>
                     <span
                       className="px-2 py-1 bg-border fs-xs fw-600"
                       style={{ color: "#8892c2" }}
                     >
-                      {variants.length} utilities
+                      {data.rows.length} {data.noun}
                     </span>
                   </span>
                   <Plus
@@ -132,30 +104,31 @@ export default function Reference({ category, name }: Props) {
                   />
                   {search && (
                     <span className="fs-0 c-white/30 fs-xs ws-nw">
-                      {filtered.length}/{variants.length}
+                      {filtered.length}/{data.rows.length}
                     </span>
                   )}
                 </div>
 
                 <div className="d-f fd-c g-1">
                   {filtered.length > 0 ? (
-                    filtered.map((variant, index) => (
+                    filtered.map((row, index) => (
                       <div
-                        key={variant.prefix}
-                        className={`d-f ai-c jc-sb py-2 px-0 ${
+                        key={row.className}
+                        className={`d-f ai-c jc-sb g-4 py-2 px-0 ${
                           index < filtered.length - 1 ? "bbw-1 bc-border" : ""
                         }`}
                       >
-                        <code className="c-code fs-sm">{variant.prefix}</code>
+                        <code className="c-code fs-sm ws-nw">
+                          {row.className}
+                        </code>
                         <div className="d-f fd-c ai-fe">
-                          {variant.properties.map((prop) => (
+                          {row.details.map((detail) => (
                             <code
-                              key={prop}
-                              className="fs-xs"
+                              key={detail}
+                              className="fs-xs ta-r"
                               style={{ color: "#b9bed5" }}
                             >
-                              {prop}: {variant.value}
-                              {`;`}
+                              {detail}
                             </code>
                           ))}
                         </div>
