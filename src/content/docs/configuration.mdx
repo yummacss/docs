@@ -5,7 +5,7 @@ description: Configure Yumma CSS for your project.
 
 ## Install the CLI
 
-Yumma CSS includes the Yumma CLI, a powerful tool for generating production-ready styles.
+Yumma CSS includes the Yumma CLI, which generates production-ready styles.
 
 <CodeGroup>
 
@@ -19,7 +19,7 @@ npm install yummacss -D
 
 </CodeGroup>
 
-## Set up
+## Set Up
 
 Initialize a configuration file in your project.
 
@@ -104,7 +104,7 @@ export default defineConfig({
 ```
 
 <Hint icon="info">
-  When a prefix is set, all utilities must include it-including entries in the
+  When a prefix is set, all utilities must include it, including entries in the
   `safelist`. For example, if your prefix is `ui`, use `ui-bg-red` instead of
   `bg-red`.
 </Hint>
@@ -119,7 +119,7 @@ Extends or overrides default design tokens.
 
 #### Colors
 
-Define custom color families. The compiler automatically generates shades (from 0 to 9) unless a full palette is explicitly provided.
+Define custom color families. The compiler automatically generates a 13-step scale (the base, plus shades `1` to `12`) unless a full palette is explicitly provided.
 
 <Hint icon="info">
   Use `percentage` to control how much the shade is lightened or darkened.
@@ -189,8 +189,8 @@ An array of utility classes that should always be generated in the final CSS out
 
 <Hint icon="info">
   Use `safelist` for classes generated dynamically at runtime. For example, in
-  React, a template literal like `d-f` cannot be detected by
-  the file scanner, making a safelist necessary.
+  React, a class assembled at runtime such as `` `d-${direction}` `` cannot be
+  detected by the file scanner, making a safelist necessary.
 </Hint>
 
 ```mjs title="yumma.config.mjs" mark={4}
@@ -234,8 +234,8 @@ Running the `build` or `watch` command generates the following CSS:
 The Yumma CSS CLI provides commands to manage your project.
 
 <Hint icon="info">
-  Create a `yumma.config.mjs` file before running these commands. If you
-  haven't, run `yummacss init`.
+  Create a `yumma.config.mjs` file before running these commands. If there is
+  none, run `yummacss init`.
 </Hint>
 
 ### Build

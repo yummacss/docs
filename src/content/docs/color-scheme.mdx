@@ -9,14 +9,14 @@ description: Set which color schemes an element can be rendered in.
 
 > Yumma CSS declares `color-scheme: light dark` on `:root` automatically as soon as your theme contains a paired color. Use these utilities to override it.
 
-### Responsiveness
+### Media Queries
 
-Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
+Prefix a class with a breakpoint to apply it from that width up. Styles apply from the breakpoint & up.
 
-<ResponsiveVariant category="color" name="color-scheme" />
+<Reference category="color" name="color-scheme" variant="media" />
 
-### Hover State
+### Pseudo Classes
 
-Apply styles conditionally on hover using the `h:` prefix.
+Prefix a class with a state to apply it only while that state matches.
 
-<HoverVariant category="color" name="color-scheme" />
+<Reference category="color" name="color-scheme" variant="pseudo-class" />
