@@ -58,6 +58,8 @@ Master index for 3.29 & 4.0.
 | 19 | Hover fixes - negative values, `::`, opacity suffix | 3.29 | **Shipped** |
 | 20 | Drop pseudo-class stacking (`f:h:`), keep every other stack | 4.0 | Decided |
 | 21 | Warn on stacked media queries (`@sm:@lg:`) | 4.0 | Open |
+| 22 | `tt-n` becomes `tt:none`, `tl-a` becomes `tl:auto` | 4.0 | Decided |
+| 23 | Custom fonts in `theme.fontFamily` | 4.0 | Open |
 
 ### Why the Colon, in One Place
 
@@ -148,6 +150,18 @@ release weeks after the first.
 
   Removal is 4.0 only. It is unused & undocumented, but stripping it from the v3
   parser would still be a breaking change shipped in a patch.
+- **#22 decided.** [Naming Convention](/docs/naming-convention) already tells
+  readers that `none` & `auto` are never abbreviated, and names these two as
+  the exceptions that change in 4.0. The rule was on the site before it was in
+  this table, so this row records what the page already promises. `tt-n` reads
+  as nothing at all, & the codemod rewrites both.
+- **#23 raised, open.** `theme` takes `colors` & `screens`, so a project's
+  palette & breakpoints are first-class, but there is no font entry. That is
+  why the docs site defines `.ff-e` as hand-written CSS in `globals.css`
+  rather than configuring Esteban: the class works, it is simply not a
+  generated one, so canon reports it & every consumer has to allowlist it. A
+  `fontFamily` record keyed the same way `colors` is would make `ff-e` a real
+  utility. Shape & shade-equivalent behavior still to be decided.
 - **#21 raised, open.** Two stacked media queries silently lose all but the
   last. `@sm:@lg:bg-red` compiles to `@media (min-width: 64rem)` with `@sm`
   discarded & no warning. It is arguably reasonable, since two `min-width` bounds describe one range,
