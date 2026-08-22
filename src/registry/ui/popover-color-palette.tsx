@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@base-ui/react";
 import { Check } from "iconoir-react";
 import { useState } from "react";
 import Popover from "./popover";
@@ -25,9 +26,8 @@ export default function PopoverColorPalette() {
     >
       <div className="d-g gtc-5 g-2">
         {colors.map((color) => (
-          <button
+          <Button
             key={color.value}
-            type="button"
             onClick={() => {
               setSelected(color.value);
               setOpen(false);
@@ -36,7 +36,7 @@ export default function PopoverColorPalette() {
             className={`d-f ai-c jc-c w-8 h-8 br-9999 bw-0 c-p ${color.bgClass}`}
           >
             {selected === color.value && <Check className="w-4 h-4 c-white" />}
-          </button>
+          </Button>
         ))}
       </div>
     </Popover>

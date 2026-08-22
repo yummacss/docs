@@ -1,3 +1,4 @@
+import { Button } from "@base-ui/react";
 import { Xmark } from "iconoir-react";
 import type { ReactNode } from "react";
 
@@ -206,9 +207,9 @@ export default function BadgeBase({
       )}
       {count !== undefined && <span className={countClasses}>{count}</span>}
       {onClose && (
-        <button type="button" onClick={onClose} className={closeButtonClasses}>
+        <Button type="button" onClick={onClose} className={closeButtonClasses}>
           <Xmark className={iconSize} />
-        </button>
+        </Button>
       )}
     </span>
   );
