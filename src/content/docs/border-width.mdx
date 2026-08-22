@@ -7,7 +7,7 @@ description: Set the width for element borders.
 
 ## Border Width
 
-<Reference category="border" name="border-width" negative />
+<Reference category="border" name="border-width" />
 
 ## Border Block Width
 
@@ -32,3 +32,23 @@ description: Set the width for element borders.
 ## Border Top Width
 
 <Reference category="border" name="border-top-width" />
+
+## Responsiveness
+
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
+
+Target viewport sizes with breakpoint prefixes.
+
+<ResponsiveVariant category="border" name="border-width" />
+
+## Hover State
+
+Apply styles conditionally on hover using the `h:` prefix.
+
+<HoverVariant category="border" name="border-width" />
+
+## Negative Values
+
+Use negative variants to apply negative border width values.
+
+<NegativeValues category="border" name="border-width" />

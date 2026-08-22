@@ -4,16 +4,20 @@ import Baseline from "@/components/baseline";
 import ComponentPreview from "@/components/component-preview";
 import FileTree from "@/components/file-tree";
 import Hint from "@/components/hint";
+import HoverVariant from "@/components/hover-state";
 import {
   Cursor,
   VisualStudioCode,
   Windsurf,
   Zed,
 } from "@/components/icons/icons";
+import NegativeValues from "@/components/negative-values";
+import OpacityModifier from "@/components/opacity-modifier";
 import Palette from "@/components/palette";
 import Preview from "@/components/preview";
 import PropsTable from "@/components/props-table";
 import Reference from "@/components/reference";
+import ResponsiveVariant from "@/components/responsive-variant";
 import Stepper, { Step } from "@/components/stepper";
 import { Tabs, TabsList, TabsPanel, TabsTab } from "@/components/tabs";
 import Code from "@/components/ui/code-block";
@@ -44,9 +48,13 @@ const components: MDXComponents = {
   Cursor,
   FileTree,
   Hint,
+  HoverVariant,
+  NegativeValues,
+  OpacityModifier,
   Palette,
   Preview,
   Reference,
+  ResponsiveVariant,
   Step,
   Stepper,
   Tabs,

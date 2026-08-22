@@ -5,7 +5,27 @@ description: "Set the scroll margin for snapping & alignment."
 
 <Baseline path="css.properties.scroll-margin" />
 
-<Reference category="interactivity" name="scroll-margin" negative />
+<Reference category="interactivity" name="scroll-margin" />
+
+### Responsiveness
+
+Use breakpoint prefixes to target different screen sizes. Styles apply from the breakpoint & up.
+
+Target viewport sizes with breakpoint prefixes.
+
+<ResponsiveVariant category="interactivity" name="scroll-margin" />
+
+### Hover State
+
+Apply styles conditionally on hover using the `h:` prefix.
+
+<HoverVariant category="interactivity" name="scroll-margin" />
+
+### Negative Values
+
+Use negative variants to apply negative scroll margins.
+
+<NegativeValues category="interactivity" name="scroll-margin" />
 
 ## Single Sides
 
@@ -62,3 +82,4 @@ Use logical properties to adapt to the document's writing mode & direction.
 <Baseline path="css.properties.scroll-margin-inline-end" />
 
 <Reference category="interactivity" name="scroll-margin-inline-end" />
+
