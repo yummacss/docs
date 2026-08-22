@@ -29,15 +29,18 @@ const COMPONENT_ITEMS: SearchItem[] = allUis.map((ui) => ({
  * than headings, so each property gets its own entry pointing at the heading
  * it lives under. Same mechanism `generateColorItems` uses for shades.
  *
- * Headings stay Title Case for Esteban; these carry the raw CSS property name,
- * which is what someone actually types. Both come from the page itself via
- * `extractProperties`, so neither can drift from the other.
+ * The two halves do different jobs. `title` is the heading as rendered, so a
+ * result reads `Margin Block` like every other row rather than dropping into
+ * kebab-case; `description` is the CSS property, so typing `margin-block`
+ * still finds it & the reader can confirm which property they landed on. Both
+ * come from the page itself via `extractProperties`, so neither can drift.
  */
 const MERGED_ITEMS: SearchItem[] = allDocs.flatMap((doc) =>
   extractProperties(doc.content ?? "")
     .filter((p) => p.name !== doc.slug)
     .map((p) => ({
-      title: p.name,
+      title: p.title,
+      description: p.name,
       path: `/docs/${doc.slug}#${p.anchor}`,
       category: "docs" as const,
     })),
@@ -90,14 +93,20 @@ export function filterSearchResults(query: string): SearchItem[] {
   const colors = matches.filter((item) => item.category === "colors");
   const others = matches.filter((item) => item.category !== "colors");
 
+  // A property entry is titled `Margin Block` & described `margin-block`, so
+  // the kebab-case name someone types only ever matches the description. Rank
+  // on whichever half leads with the query, or an exact property name sorts
+  // alphabetically among everything else that merely contains it.
+  const leadsWith = (item: SearchItem) =>
+    item.title.toLowerCase().startsWith(lowerQuery) ||
+    (item.description?.toLowerCase().startsWith(lowerQuery) ?? false);
+
   others.sort((a, b) => {
-    const aTitle = a.title.toLowerCase();
-    const bTitle = b.title.toLowerCase();
-    const aStartsWith = aTitle.startsWith(lowerQuery);
-    const bStartsWith = bTitle.startsWith(lowerQuery);
-    if (aStartsWith && !bStartsWith) return -1;
-    if (!aStartsWith && bStartsWith) return 1;
-    return aTitle.localeCompare(bTitle);
+    const aLeads = leadsWith(a);
+    const bLeads = leadsWith(b);
+    if (aLeads && !bLeads) return -1;
+    if (!aLeads && bLeads) return 1;
+    return a.title.toLowerCase().localeCompare(b.title.toLowerCase());
   });
 
   return [...others, ...colors];
