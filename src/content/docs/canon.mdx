@@ -5,9 +5,9 @@ description: "Validate each class in your project."
 
 **Optional.** Yumma CSS generates the same CSS with or without it. Reach for canon when you want the check, not to get started.
 
-The `@yummacss/canon` tool reports any class in your project that it doesn't recognize and suggests a close match when one exists. 
+The `@yummacss/canon` tool reports any class in your project that it does not recognize and suggests a close match when one exists.
 
-It detects typos, borrowed classes, and renamed utilities. 
+It detects typos, borrowed classes, and renamed utilities.
 
 It works with the generator, so variants, opacity modifiers, negative values, custom colors, `prefixes` and `safelist` entries work without extra configuration.
 
@@ -97,7 +97,7 @@ npx @yummacss/canon -a docs-container -a brand-logo
 
 </CodeGroup>
 
-## What gets scanned
+## What Gets Scanned
 
 Canon reads the `source` globs from your config, the same ones the generator uses. Within those files it only looks at class attribute contexts, not every string, so arbitrary hyphenated text is never reported as a class:
 
@@ -112,9 +112,9 @@ Two limits worth knowing:
 
 Template literal expressions cannot be validated statically. In `` className={`p-4 ${size}`} `` the `p-4` is checked & the `${size}` is skipped, so classes assembled at runtime are invisible to canon.
 
-Classes are validated against **your** config. A code example that shows a different project's config will be reported, because the custom colors in it do not exist in yours. This is correct behaviour rather than a false negative, but it means documentation & changelog files usually want a narrower `source` than the generator uses.
+Classes are validated against **your** config. A code example that shows a different project's config will be reported, because the custom colors in it do not exist in yours. This is correct behavior rather than a false negative, but it means documentation & changelog files usually want a narrower `source` than the generator uses.
 
-## Narrowing the source
+## Narrowing the Source
 
 Content files often contain class syntax from older versions that should not be validated. Pass a config inline through the API to scan only your application code:
 
@@ -192,6 +192,6 @@ Canon needs nothing beyond your config & source files, so the whole check is one
 - run: npx yummacss-canon
 ```
 
-## Where canon runs
+## Where Canon Runs
 
 An editor only ever checks the file someone has open. Canon checks the ones nobody has open & the pull request nobody has reviewed yet, which is where an invalid class survives long enough to reach production.
