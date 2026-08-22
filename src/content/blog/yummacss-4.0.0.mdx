@@ -59,7 +59,7 @@ Master index for 3.29 & 4.0.
 | 20 | Drop pseudo-class stacking (`f:h:`), keep every other stack | 4.0 | Decided |
 | 21 | Warn on stacked media queries (`@sm:@lg:`) | 4.0 | Open |
 | 22 | `tt-n` becomes `tt:none`, `tl-a` becomes `tl:auto` | 4.0 | Decided |
-| 23 | Custom fonts in `theme.fontFamily` | 4.0 | Open |
+| 23 | Custom fonts in `theme.fonts` | 4.0 | Decided |
 
 ### Why the Colon, in One Place
 
@@ -155,13 +155,40 @@ release weeks after the first.
   the exceptions that change in 4.0. The rule was on the site before it was in
   this table, so this row records what the page already promises. `tt-n` reads
   as nothing at all, & the codemod rewrites both.
-- **#23 raised, open.** `theme` takes `colors` & `screens`, so a project's
-  palette & breakpoints are first-class, but there is no font entry. That is
-  why the docs site defines `.ff-e` as hand-written CSS in `globals.css`
-  rather than configuring Esteban: the class works, it is simply not a
-  generated one, so canon reports it & every consumer has to allowlist it. A
-  `fontFamily` record keyed the same way `colors` is would make `ff-e` a real
-  utility. Shape & shade-equivalent behavior still to be decided.
+- **#23 decided: `theme.fonts`.** `theme` takes `colors` & `screens`, so a
+  project's palette & breakpoints are first-class, but there is no font entry.
+  That is why the docs site defines `.ff-e` as hand-written CSS in
+  `globals.css` rather than configuring Esteban: the class works, it is simply
+  not a generated one, so canon reports it & every consumer has to allowlist
+  it.
+
+  A record keyed the way `colors` is, where the key becomes the value after
+  the colon:
+
+  ```js title="yumma.config.mjs"
+  export default defineConfig({
+    theme: {
+      fonts: {
+        e: ["Esteban", "serif"],
+        m: ["iA Writer Quattro", "sans-serif"],
+      },
+    },
+  });
+  ```
+
+  Each key generates `ff:<key>`, so `ff:e` becomes
+  `font-family: "Esteban", serif`. An array is the stack in order & a string
+  is a one-entry stack. Keys replace the defaults they collide with rather
+  than merging, which is what `colors` already does.
+
+  No shade-equivalent behavior: a font has no scale to derive, so unlike a
+  color it generates exactly one utility per key.
+
+  The migration is the acceptance test. `.ff-e` comes out of `globals.css` &
+  goes into the config, and if the docs site cannot drop that rule the feature
+  is not finished. Two places have to learn the entry at the same time: the
+  codemod, or `ff-e` is skipped during the rewrite, and canon, or it reports
+  the class the config just legitimized.
 - **#21 raised, open.** Two stacked media queries silently lose all but the
   last. `@sm:@lg:bg-red` compiles to `@media (min-width: 64rem)` with `@sm`
   discarded & no warning. It is arguably reasonable, since two `min-width` bounds describe one range,
