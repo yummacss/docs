@@ -1,0 +1,63 @@
+---
+title: "@yummacss/vite"
+description: "Generate CSS through Vite."
+---
+
+The Vite plugin. CSS is regenerated as you work, so there is nothing to re-run.
+
+Reach for this first if your project already uses Vite. It also covers the frameworks built on Vite: SvelteKit, Astro, Nuxt & Solid all go through the same plugin.
+
+## Usage
+
+<CodeGroup>
+
+```bash title="pnpm"
+pnpm add -D @yummacss/vite
+```
+
+```bash title="npm"
+npm install -D @yummacss/vite
+```
+
+</CodeGroup>
+
+Register it in your Vite configuration:
+
+```ts title="vite.config.ts" mark={2,5}
+import { defineConfig } from "vite";
+import yummacss from "@yummacss/vite";
+
+export default defineConfig({
+  plugins: [yummacss()],
+});
+```
+
+Then add the `@yummacss;` marker to your CSS entry file. The plugin replaces it with the generated CSS:
+
+```css title="src/styles.css"
+@yummacss;
+```
+
+[Installation](/docs/installation) walks through the whole setup, including the config file.
+
+## Options
+
+| Option | Type | Default | Description |
+| --- | --- | --- | --- |
+| `config` | `Config` | | Inline configuration. When provided, no config file is read. |
+| `configPath` | `string` | `yumma.config.mjs` | Path to the config file. |
+
+Passing `config` inline is useful when the configuration has to be computed, such as a monorepo package that derives its `source` globs from its own location:
+
+```ts title="vite.config.ts"
+import { defineConfig } from "vite";
+import yummacss from "@yummacss/vite";
+
+export default defineConfig({
+  plugins: [
+    yummacss({
+      config: { source: ["./src/**/*.tsx"] },
+    }),
+  ],
+});
+```

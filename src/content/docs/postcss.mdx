@@ -1,0 +1,56 @@
+---
+title: "@yummacss/postcss"
+description: "Generate CSS through PostCSS."
+---
+
+The PostCSS plugin, for Next.js & anything else with PostCSS in its pipeline. It works through Turbopack & Webpack alike, since both go through the same built-in PostCSS support.
+
+## Usage
+
+<CodeGroup>
+
+```bash title="pnpm"
+pnpm add -D @yummacss/postcss
+```
+
+```bash title="npm"
+npm install -D @yummacss/postcss
+```
+
+</CodeGroup>
+
+Register it in your PostCSS configuration:
+
+```js title="postcss.config.mjs" mark={3}
+export default {
+  plugins: {
+    "@yummacss/postcss": {},
+  },
+};
+```
+
+Then add the `@yummacss;` marker to your global CSS file. The plugin replaces it with the generated CSS:
+
+```css title="globals.css"
+@yummacss;
+```
+
+[Installation](/docs/installation) walks through the whole setup, including the config file.
+
+## Options
+
+| Option | Type | Default | Description |
+| --- | --- | --- | --- |
+| `config` | `Config` | | Inline configuration. When provided, no config file is read. |
+| `configPath` | `string` | `yumma.config.mjs` | Path to the config file. |
+| `cwd` | `string` | `process.cwd()` | Directory to resolve the config file & source globs from. |
+
+`cwd` is the one option the Vite plugin does not have. PostCSS is often run from a directory other than the project root, and the `source` globs are relative to the config file rather than to wherever the process started:
+
+```js title="postcss.config.mjs"
+export default {
+  plugins: {
+    "@yummacss/postcss": { cwd: import.meta.dirname },
+  },
+};
+```
