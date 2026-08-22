@@ -3,9 +3,13 @@ title: "@yummacss/canon"
 description: "An optional utility class validator for your Yumma CSS project."
 ---
 
-> The `@yummacss/canon` tool reports any class in your project that it does not recognize and suggests a close match when one exists. 
+:::note[Optional]
+Yumma CSS generates the same CSS with or without it. Reach for canon when you want the check, not to get started.
+:::
 
-> It works with the generator, so variants, opacity modifiers, negative values, custom colors, `prefixes` and `safelist` entries work without extra configuration.
+The `@yummacss/canon` tool reports any class in your project that it does not recognize and suggests a close match when one exists.
+
+It works with the generator, so variants, opacity modifiers, negative values, custom colors, `prefixes` & `safelist` entries work without extra configuration.
 
 ## Usage
 
@@ -56,7 +60,9 @@ Found 3 classes Yumma CSS does not recognize:
 Fix the classes above, or pass --allow "class-a,class-b" for custom classes.
 ```
 
+:::success[Exit codes]
 Canon exits `0` when every class is valid & `1` when any class is unrecognized, so it works as a CI step without a wrapper.
+:::
 
 ## Options
 
@@ -106,7 +112,9 @@ classnames("...")       cva("...")
 
 Two limits worth knowing:
 
+:::warning[Runtime classes are invisible]
 Template literal expressions cannot be validated statically. In `` className={`p-4 ${size}`} `` the `p-4` is checked & the `${size}` is skipped, so classes assembled at runtime are invisible to canon.
+:::
 
 Classes are validated against **your** config. A code example that shows a different project's config will be reported, because the custom colors in it do not exist in yours. This is correct behavior rather than a false negative, but it means documentation & changelog files usually want a narrower `source` than the generator uses.
 

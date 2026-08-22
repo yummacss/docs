@@ -1,5 +1,6 @@
-﻿import type { MDXComponents } from "mdx/types";
+import type { MDXComponents } from "mdx/types";
 import Image from "next/image";
+import Admonition from "@/components/admonition";
 import Baseline from "@/components/baseline";
 import ComponentPreview from "@/components/component-preview";
 import FileTree from "@/components/file-tree";
@@ -36,6 +37,7 @@ function generateId(children: React.ReactNode): string {
 }
 
 const components: MDXComponents = {
+  Admonition,
   Baseline,
   Code,
   CodeGroup,

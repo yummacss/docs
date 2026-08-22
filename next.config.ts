@@ -43,6 +43,9 @@ const withMDX = createMDX({
     remarkPlugins: [
       "remark-frontmatter",
       "remark-gfm",
+      // Directive parsing has to run before the mapping below sees the nodes.
+      "remark-directive",
+      path.resolve("src/plugins/remark-admonition.mjs"),
       path.resolve("src/plugins/remark-component-source.mjs"),
     ],
     rehypePlugins: [
