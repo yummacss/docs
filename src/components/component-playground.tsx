@@ -36,10 +36,9 @@ import {
   useMemo,
   useState,
 } from "react";
+import { PlaygroundRailPortal } from "@/components/playground-rail";
 import { TokenBlock } from "@/components/token-block";
 import ApiReference from "@/components/ui/api-reference";
-import EditPage from "@/components/ui/edit-page";
-import ViewMarkdown from "@/components/ui/view-markdown";
 import {
   getRegistryImport,
   getRegistryMeta,
@@ -224,32 +223,27 @@ export default function ComponentPlayground({
   const currentUI = allUis.find((ui) => ui._meta.path === pageSlug);
 
   return (
-    <div className="d-f fd-c @lg:fd-r g-8 mb-6">
-      <div className="f-1 min-w-0">
-        <div className="bc-border bw-1">
-          <Suspense fallback={null}>
-            {RegistryComponent ? (
-              <div
-                data-preview
-                className="d-f p-r ox-auto ai-c jc-c p-10 bg-white"
-              >
-                <RegistryComponent {...demoProps}>
-                  {meta?.children}
-                </RegistryComponent>
-              </div>
-            ) : null}
-          </Suspense>
-          {usage && <TokenBlock tokens={usage} title="page.tsx" />}
-        </div>
+    <>
+      <div className="mb-6 bc-border bw-1">
+        <Suspense fallback={null}>
+          {RegistryComponent ? (
+            <div
+              data-preview
+              className="d-f p-r ox-auto ai-c jc-c p-10 bg-white"
+            >
+              <RegistryComponent {...demoProps}>
+                {meta?.children}
+              </RegistryComponent>
+            </div>
+          ) : null}
+        </Suspense>
+        {usage && <TokenBlock tokens={usage} title="page.tsx" />}
       </div>
 
-      <aside className="w-100% @lg:w-72 fs-0">
-        <div
-          className="d-f fd-c g-0 bc-border bw-1 bg-page @lg:p-st @lg:t-20"
-          style={{ maxHeight: "calc(100dvh - 5rem)" }}
-        >
-          <div className="d-f ai-c jc-sb g-3 px-4 py-3 bbw-1 bc-border">
-            <h2 className="m-0 c-white fs-sm fw-500 ls-1 tt-u">Props</h2>
+      <PlaygroundRailPortal>
+        <div className="px-8 pb-12">
+          <div className="d-f ai-c jc-sb g-3 mb-4">
+            <h3 className="m-0 c-silver-8 fs-xs fw-600 ls-2 tt-u">Props</h3>
             <Button
               type="button"
               onClick={reset}
@@ -261,58 +255,54 @@ export default function ComponentPlayground({
             </Button>
           </div>
 
-          <div className="f-1 oy-auto ob-c px-4 py-3">
-            <ul className="d-f fd-c g-4 m-0 p-0">
-              {playableProps.map((prop) => (
-                <li key={prop.name} className="d-f fd-c g-2">
-                  <PropRow
-                    prop={prop}
-                    value={values[prop.name]}
-                    open={openDesc.has(prop.name)}
-                    onToggle={() => toggleDesc(prop.name)}
-                    onChange={(value) => setProp(prop.name, value)}
-                  />
-                </li>
-              ))}
-            </ul>
+          <ul className="d-f fd-c g-4 m-0 p-0">
+            {playableProps.map((prop) => (
+              <li key={prop.name} className="d-f fd-c g-2">
+                <PropRow
+                  prop={prop}
+                  value={values[prop.name]}
+                  open={openDesc.has(prop.name)}
+                  onToggle={() => toggleDesc(prop.name)}
+                  onChange={(value) => setProp(prop.name, value)}
+                />
+              </li>
+            ))}
+          </ul>
 
-            {fixedProps.length > 0 && (
-              <>
-                <div className="d-f ai-c g-3 mt-6 mb-4">
-                  <div className="f-1 bbw-1 bc-border" />
-                  <span className="c-silver-8 fs-xs ls-2 tt-u ws-nw">
-                    Not controllable
-                  </span>
-                  <div className="f-1 bbw-1 bc-border" />
-                </div>
-                <ul className="d-f fd-c g-4 m-0 p-0">
-                  {fixedProps.map((prop) => (
-                    <li key={prop.name} className="d-f fd-c g-2">
-                      <PropRow
-                        prop={prop}
-                        value={undefined}
-                        open={openDesc.has(prop.name)}
-                        onToggle={() => toggleDesc(prop.name)}
-                        onChange={() => {}}
-                      />
-                    </li>
-                  ))}
-                </ul>
-              </>
-            )}
-          </div>
+          {fixedProps.length > 0 && (
+            <>
+              <div className="d-f ai-c g-3 mt-6 mb-4">
+                <div className="f-1 bbw-1 bc-border" />
+                <span className="c-silver-8 fs-xs ls-2 tt-u ws-nw">
+                  Not controllable
+                </span>
+                <div className="f-1 bbw-1 bc-border" />
+              </div>
+              <ul className="d-f fd-c g-4 m-0 p-0">
+                {fixedProps.map((prop) => (
+                  <li key={prop.name} className="d-f fd-c g-2">
+                    <PropRow
+                      prop={prop}
+                      value={undefined}
+                      open={openDesc.has(prop.name)}
+                      onToggle={() => toggleDesc(prop.name)}
+                      onChange={() => {}}
+                    />
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
 
-          <div className="d-f fd-c g-3 px-4 py-4 btw-1 bc-border">
-            <EditPage />
-            <ViewMarkdown />
-            <Separator />
-            {currentUI?.primitive && (
+          {currentUI?.primitive && (
+            <div className="d-f fd-c g-3 mt-8 pt-8">
+              <Separator />
               <ApiReference primitive={currentUI.primitive} />
-            )}
-          </div>
+            </div>
+          )}
         </div>
-      </aside>
-    </div>
+      </PlaygroundRailPortal>
+    </>
   );
 }
 
@@ -387,12 +377,12 @@ function PropWidget({
         id={id}
         checked={checked}
         onCheckedChange={onChange}
-        className={`p-r d-f ai-c fs-0 w-8 h-4 px-1 br-9999 bw-0 tp-c tdu-150 ttf-io c-p fv:oc-white fv:ow-2 ${
+        className={`p-r d-f ai-c fs-0 w-8 h-4 px-1 bw-0 tp-c tdu-150 ttf-io c-p fv:oc-white fv:ow-2 ${
           checked ? "bg-accent-dim" : "bg-border"
         }`}
       >
         <Switch.Thumb
-          className={`w-3 h-3 br-9999 bg-white tp-t tdu-150 ttf-io ${
+          className={`w-3 h-3 bg-white tp-t tdu-150 ttf-io ${
             checked ? "ml-3" : "ml-0"
           }`}
         />
@@ -403,7 +393,7 @@ function PropWidget({
   if (prop.type === "enum" && prop.values) {
     if (prop.values.length <= 3) {
       return (
-        <div className="d-f ai-c g-0 bc-border bw-1 br-md o-h">
+        <div className="d-f ai-c g-0 bc-border bw-1 o-h">
           {prop.values.map((option) => {
             const active = value === option;
             return (
@@ -435,7 +425,7 @@ function PropWidget({
       >
         <Select.Trigger
           id={id}
-          className="d-f ai-c jc-sb g-2 pl-2 pr-2 py-1 bg-surface bc-border c-white bw-1 br-md fs-xs ff-m us-none c-p fv:oc-white fv:ow-2"
+          className="d-f ai-c jc-sb g-2 pl-2 pr-2 py-1 bg-surface bc-border c-white bw-1 fs-xs ff-m us-none c-p fv:oc-white fv:ow-2"
         >
           <Select.Value />
           <Select.Icon className="d-f c-white/40">
@@ -444,14 +434,14 @@ function PropWidget({
         </Select.Trigger>
         <Select.Portal>
           <Select.Positioner sideOffset={4} className="zi-10">
-            <Select.Popup className="o-h py-1 bg-surface bc-border bw-1 br-md">
+            <Select.Popup className="o-h py-1 bg-surface bc-border bw-1">
               <Select.List>
                 {prop.values.map((option) => (
                   <Select.Item
                     key={option}
                     value={option}
                     className={(state) =>
-                      `d-f ai-c g-2 px-3 py-1 mx-1 br-md fs-xs ff-m us-none c-p ${
+                      `d-f ai-c g-2 px-3 py-1 mx-1 fs-xs ff-m us-none c-p ${
                         state.highlighted
                           ? "bg-white/8 c-white"
                           : "bg-transparent c-white/70"
@@ -482,7 +472,7 @@ function PropWidget({
         }}
         className="d-f ai-c"
       >
-        <NumberField.Input className="w-16 px-2 py-1 bg-surface bc-border c-white bw-1 br-md fs-xs ff-m fv:oc-white fv:ow-2" />
+        <NumberField.Input className="w-16 px-2 py-1 bg-surface bc-border c-white bw-1 fs-xs ff-m fv:oc-white fv:ow-2" />
       </NumberField.Root>
     );
   }
@@ -494,7 +484,7 @@ function PropWidget({
         value={typeof value === "string" ? value : ""}
         onValueChange={onChange}
         placeholder={prop.name === "className" ? "e.g. mt-4" : undefined}
-        className="w-28 px-2 py-1 bg-surface bc-border c-white bw-1 br-md fs-xs ff-m fv:oc-white fv:ow-2"
+        className="w-28 px-2 py-1 bg-surface bc-border c-white bw-1 fs-xs ff-m fv:oc-white fv:ow-2"
       />
     </Field.Root>
   );

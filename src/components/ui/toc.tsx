@@ -7,9 +7,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import ApiReference from "@/components/ui/api-reference";
 import ChangelogLink from "@/components/ui/changelog-link";
-import EditPage from "@/components/ui/edit-page";
 import RssLink from "@/components/ui/rss-link";
-import ViewMarkdown from "@/components/ui/view-markdown";
 
 interface TocItem {
   id: string;
@@ -80,16 +78,12 @@ export default function TableOfContents() {
               <RssLink />
             ) : isBlogPost ? (
               <ChangelogLink />
-            ) : (
+            ) : currentUI?.primitive ? (
               <>
-                <EditPage />
-                <ViewMarkdown />
                 <Separator />
-                {currentUI?.primitive && (
-                  <ApiReference primitive={currentUI.primitive} />
-                )}
+                <ApiReference primitive={currentUI.primitive} />
               </>
-            )}
+            ) : null}
           </div>
         </div>
       </div>
