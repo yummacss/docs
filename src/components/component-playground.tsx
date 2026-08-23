@@ -1,10 +1,11 @@
 "use client";
 
-import { Button } from "@base-ui/react";
+import { Button, Separator } from "@base-ui/react";
 import { Field } from "@base-ui/react/field";
 import { NumberField } from "@base-ui/react/number-field";
 import { Select } from "@base-ui/react/select";
 import { Switch } from "@base-ui/react/switch";
+import { allUis } from "content-collections";
 import {
   BellNotification,
   Bookmark,
@@ -24,6 +25,7 @@ import {
   User,
   Wrench,
 } from "iconoir-react";
+import { usePathname } from "next/navigation";
 import type { ComponentType } from "react";
 import {
   lazy,
@@ -35,6 +37,9 @@ import {
   useState,
 } from "react";
 import { TokenBlock } from "@/components/token-block";
+import ApiReference from "@/components/ui/api-reference";
+import EditPage from "@/components/ui/edit-page";
+import ViewMarkdown from "@/components/ui/view-markdown";
 import {
   getRegistryImport,
   getRegistryMeta,
@@ -213,6 +218,11 @@ export default function ComponentPlayground({
   const playableProps = meta?.props.filter(isPlayable) ?? [];
   const fixedProps = meta?.props.filter((prop) => !isPlayable(prop)) ?? [];
 
+  const pathname = usePathname() ?? "";
+  let pageSlug = pathname.replace(/^\/ui\/components\//, "");
+  pageSlug = pageSlug.replace(/^\/ui\//, "").replace(/\/$/, "");
+  const currentUI = allUis.find((ui) => ui._meta.path === pageSlug);
+
   return (
     <div className="d-f fd-c @lg:fd-r g-8 mb-6">
       <div className="f-1 min-w-0">
@@ -251,7 +261,7 @@ export default function ComponentPlayground({
             </Button>
           </div>
 
-          <div className="oy-auto ob-c px-4 py-3">
+          <div className="f-1 oy-auto ob-c px-4 py-3">
             <ul className="d-f fd-c g-4 m-0 p-0">
               {playableProps.map((prop) => (
                 <li key={prop.name} className="d-f fd-c g-2">
@@ -289,6 +299,15 @@ export default function ComponentPlayground({
                   ))}
                 </ul>
               </>
+            )}
+          </div>
+
+          <div className="d-f fd-c g-3 px-4 py-4 btw-1 bc-border">
+            <EditPage />
+            <ViewMarkdown />
+            <Separator />
+            {currentUI?.primitive && (
+              <ApiReference primitive={currentUI.primitive} />
             )}
           </div>
         </div>
