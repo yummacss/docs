@@ -1,9 +1,7 @@
 import { allUis } from "content-collections";
 import type { Metadata } from "next";
-import Link from "next/link";
 import JsonLd from "@/components/json-ld";
 import Pagination from "@/components/ui/pagination";
-import { PLAYGROUND_IDS } from "@/config/playground";
 import { getUINavigation } from "@/utils/pagination";
 
 export async function generateMetadata({
@@ -65,14 +63,6 @@ export default async function Page({
           </div>
           {ui.description && (
             <p className="c-white/70 fs-lg">{ui.description}</p>
-          )}
-          {PLAYGROUND_IDS.includes(slug) && (
-            <Link
-              href={`/ui/playground?component=${slug}`}
-              className="d-if ai-c g-1 c-accent fs-sm us-none h:c-accent-4 fv:oc-white fv:oo-2 fv:ow-2"
-            >
-              Try it in the playground
-            </Link>
           )}
         </div>
       )}

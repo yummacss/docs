@@ -2,12 +2,22 @@
 import { Button } from "@base-ui/react";
 import { Toggle } from "@base-ui/react/toggle";
 import type { ComponentType } from "react";
-import { lazy, type ReactNode, Suspense, useEffect, useState } from "react";
+import {
+  lazy,
+  type ReactNode,
+  Suspense,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
+import PropControl, { isPlayableProp } from "@/components/prop-control";
 import { CopyButton, TitleBar } from "@/components/ui/code";
+import { INTERACTIVE_PREVIEW_IDS } from "@/config/interactive-preview";
 import {
   getRegistryImport,
   getRegistryMeta,
   getRegistryTarget,
+  type RegistryMeta,
 } from "@/registry";
 import { EXAMPLE_ICONS, resolveIcons } from "@/utils/example-icons";
 import {
@@ -42,20 +52,26 @@ export default function ComponentPreview({
   const [showCode, setShowCode] = useState(false);
   const [RegistryComponent, setRegistryComponent] =
     useState<ComponentType<DemoProps> | null>(null);
-  // A prop-driven component rendered with no props at all is an empty shell:
-  // <Button /> has no label, <Avatar /> has no image. Its own schema already
-  // says what a representative instance looks like, so the preview uses that.
-  // A component with no schema gets nothing extra, exactly as before.
-  const [demo, setDemo] = useState<{ props: DemoProps; children?: string }>({
-    props: {},
-  });
-  // The base entry of a migrated component *is* the implementation, so showing
-  // its source here answers a question nobody asked under `### Base`. Usage is
-  // the answer; the implementation stays in the registry JSON & the `.md` route.
-  const [usage, setUsage] = useState<Token[] | null>(null);
+  const [meta, setMeta] = useState<RegistryMeta | null>(null);
+  // Split in two because an icon marker needs to stay `{ "$icon": "Star" }`
+  // for the snippet - `attribute()` in `utils/snippet.ts` spells that as JSX
+  // itself - but the canvas needs the real element. `values` never holds
+  // either: the control strip only ever drives `enum`/`boolean`/`string`/
+  // `number` props, so it is safe to feed to both unchanged.
+  const [rawProps, setRawProps] = useState<DemoProps>({});
+  const [resolvedProps, setResolvedProps] = useState<DemoProps>({});
+  const [values, setValues] = useState<DemoProps>({});
   const actualId = registryId || id;
+  const interactive = Boolean(
+    actualId && INTERACTIVE_PREVIEW_IDS.includes(actualId),
+  );
 
   useEffect(() => {
+    setMeta(null);
+    setRegistryComponent(null);
+    setRawProps({});
+    setResolvedProps({});
+    setValues({});
     if (!actualId) return;
 
     const importFn = getRegistryImport(actualId);
@@ -66,43 +82,88 @@ export default function ComponentPreview({
     const importMeta = getRegistryMeta(actualId);
     if (!importMeta) return;
 
-    const target = getRegistryTarget(actualId);
-
     importMeta().then((module) => {
-      const meta = module.default;
-      const props: DemoProps = {};
-      for (const prop of meta.props) {
+      const nextMeta = module.default;
+      const raw: DemoProps = {};
+      const resolved: DemoProps = {};
+      const editable: DemoProps = {};
+
+      for (const prop of nextMeta.props) {
+        if (interactive && isPlayableProp(prop)) {
+          const fallback = prop.type === "boolean" ? false : "";
+          editable[prop.name] = prop.default ?? prop.example ?? fallback;
+          continue;
+        }
+
         if (prop.exampleIcon) {
           const Icon = EXAMPLE_ICONS[prop.exampleIcon];
           if (Icon) {
-            props[prop.name] = <Icon className="w-5 h-5" />;
-            continue;
+            const element = <Icon className="w-5 h-5" />;
+            raw[prop.name] = element;
+            resolved[prop.name] = element;
           }
+          continue;
         }
+
         const value = prop.example ?? prop.default;
-        if (value !== undefined) props[prop.name] = value;
+        if (value !== undefined) {
+          raw[prop.name] = value;
+          resolved[prop.name] = resolveIcons(value);
+        }
       }
-      setDemo({
-        props: resolveIcons(props) as DemoProps,
-        children: meta.children,
-      });
-      if (target.variant === "base") {
-        setUsage(buildUsage(target.component, meta, props));
-      }
+
+      setMeta(nextMeta);
+      setRawProps(raw);
+      setResolvedProps(resolved);
+      setValues(editable);
     });
-  }, [actualId]);
+  }, [actualId, interactive]);
+
+  const demoProps = useMemo(
+    () => ({ ...resolvedProps, ...values }),
+    [resolvedProps, values],
+  );
+
+  // The base entry of a migrated component *is* the implementation, so showing
+  // its source here answers a question nobody asked under `### Base`. Usage is
+  // the answer; the implementation stays in the registry JSON & the `.md` route.
+  const usage = useMemo(() => {
+    if (!actualId || !meta) return null;
+    const target = getRegistryTarget(actualId);
+    if (target.variant !== "base") return null;
+    return buildUsage(target.component, meta, { ...rawProps, ...values });
+  }, [actualId, meta, rawProps, values]);
+
+  const controls = interactive
+    ? (meta?.props.filter(isPlayableProp) ?? [])
+    : [];
 
   return (
     <div className={`mb-6 bc-border bw-1 ${className || ""}`}>
       <Suspense fallback={null}>
         {RegistryComponent ? (
           <div data-preview className="d-f p-r ox-auto ai-c jc-c p-10 bg-white">
-            <RegistryComponent {...demo.props}>
-              {demo.children}
+            <RegistryComponent {...demoProps}>
+              {meta?.children}
             </RegistryComponent>
           </div>
         ) : null}
       </Suspense>
+
+      {controls.length > 0 && (
+        <div className="d-f fw-w ai-c g-4 px-4 py-3 btw-1 bc-border bg-page">
+          {controls.map((prop) => (
+            <PropControl
+              key={prop.name}
+              prop={prop}
+              value={values[prop.name]}
+              onChange={(value) =>
+                setValues((current) => ({ ...current, [prop.name]: value }))
+              }
+            />
+          ))}
+        </div>
+      )}
 
       <Toggle
         pressed={showCode}
