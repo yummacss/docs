@@ -3,7 +3,9 @@
 import { Button } from "@base-ui/react";
 import { NavArrowDown } from "iconoir-react";
 import { Fragment, useEffect, useState } from "react";
+import PropDescription from "@/components/prop-description";
 import * as registry from "@/registry";
+import { typeOf } from "@/utils/props";
 
 /**
  * A component's prop API, from the same `src/registry/meta/<id>.json` that
@@ -104,7 +106,9 @@ export default function PropsTable({ registryId }: { registryId: string }) {
                       colSpan={3}
                       className="px-4 pt-2 pb-3 bc-border c-white/80 bw-1"
                     >
-                      <div className="pl-5">{describe(prop.description)}</div>
+                      <div className="pl-5">
+                        <PropDescription text={prop.description} />
+                      </div>
                     </td>
                   </tr>
                 )}
@@ -115,39 +119,4 @@ export default function PropsTable({ registryId }: { registryId: string }) {
       </table>
     </div>
   );
-}
-
-/**
- * An enum reads as its own values. `typeName` covers everything the schema
- * cannot offer a control for, where `type` would only say `none`.
- */
-function typeOf(prop: registry.RegistryProp): string {
-  if (prop.typeName) return prop.typeName;
-  if (prop.type === "enum" && prop.values) return prop.values.join(" | ");
-  return prop.type;
-}
-
-/**
- * Schema descriptions are written as markdown, and the only markup any of them
- * needs is inline code. Rendering the backticks rather than a markdown pipeline
- * keeps the schema readable as prose in the JSON file.
- */
-function describe(text: string | undefined) {
-  if (!text) return null;
-  return text
-    .split("`")
-    .map((value, index) => ({
-      id: `${index}-${value}`,
-      value,
-      code: index % 2,
-    }))
-    .map((segment) =>
-      segment.code ? (
-        <code key={segment.id} className="c-code fs-sm ff-m">
-          {segment.value}
-        </code>
-      ) : (
-        segment.value
-      ),
-    );
 }
