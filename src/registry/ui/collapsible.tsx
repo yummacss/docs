@@ -135,7 +135,7 @@ function ChevronGlyph({ open, animate }: { open: boolean; animate: boolean }) {
       <NavArrowRight
         className={[
           "w-4 h-4 c-slate-5 tp-t tdu-150 ttf-io",
-          open ? "ro-90" : "ro-0",
+          open ? "ro-18" : "ro-0",
         ]
           .filter(Boolean)
           .join(" ")}
