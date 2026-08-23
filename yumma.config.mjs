@@ -33,6 +33,11 @@ export default defineConfig({
     "h-fc",
     // Tabs: and again.
     "tp-a",
+    // Playground control panel: same scanner gap, `accent-dim` again - see
+    // NOTES.md. Only the bare form needed listing; `/10` and `/50` opacity
+    // variants above already covered `bg-accent-dim` and `bc-accent-dim`
+    // elsewhere, but not this plain one.
+    "bg-accent-dim",
   ],
   theme: {
     colors: {
