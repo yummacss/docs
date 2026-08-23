@@ -22,7 +22,8 @@ const registryIds = new Set(
 );
 
 /** Both prop spellings the component accepts - see component-preview.tsx. */
-const PREVIEW_ID = /<ComponentPreview[^>]*?\b(?:registryId|id)="([^"]+)"/g;
+const PREVIEW_ID =
+  /<(?:ComponentPreview|ComponentPlayground)[^>]*?\b(?:registryId|id)="([^"]+)"/g;
 
 const uiPages = contentPages("ui");
 
@@ -31,14 +32,16 @@ const uiPages = contentPages("ui");
  * can exist before it is documented - but the set should move deliberately.
  * Wire one up or delete it, then update this list.
  *
- * Empty since the `feat/yumma-ui` merge. All eleven entries it used to hold
- * were deleted outright by the curation pass, not wired up: each was a single
- * enumerable prop the API reference table already states (`select-icon-leading`
- * is `iconSide`, `collapsible-square` is `shape`), and `select-bordered` was
- * byte-identical to its base. An orphan appearing here again is a real signal
- * now that the baseline is zero.
+ * The button-group* entries were cut from `button.mdx` when the Base demo
+ * became a live playground (layout F). They stay in the registry; the page
+ * just no longer shows them.
  */
-const KNOWN_UNLISTED: string[] = [];
+const KNOWN_UNLISTED: string[] = [
+  "button-group",
+  "button-group-icon",
+  "button-group-pill",
+  "button-group-pill-label",
+];
 
 function referencedIds(): Set<string> {
   const ids = new Set<string>();
