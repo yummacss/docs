@@ -50,7 +50,11 @@
     {
       "name": "shadow",
       "type": "enum",
-      "values": ["none", "inset", "outset"],
+      "values": [
+        "none",
+        "inset",
+        "outset"
+      ],
       "default": "none",
       "description": "Depth on each star, which becomes a bordered chip. There is no surrounding card - this is what both shadow demos did."
     },
@@ -71,11 +75,6 @@
       "type": "none",
       "typeName": "ReactNode",
       "description": "Extra content below the hint text, like a feedback field."
-    },
-    {
-      "name": "className",
-      "type": "string",
-      "description": "Appended to the root's classes, for anything the component leaves unset - a margin, `fs-0` in a flex row. It will not reliably override what the component already sets: which of two utilities wins is decided by the stylesheet's rule order, not by the order you write them."
     }
   ]
 }

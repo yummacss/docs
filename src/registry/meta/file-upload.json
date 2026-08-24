@@ -27,21 +27,32 @@
     {
       "name": "shape",
       "type": "enum",
-      "values": ["rounded", "square", "squircle"],
+      "values": [
+        "rounded",
+        "square",
+        "squircle"
+      ],
       "default": "rounded",
       "description": "Corner radius. `squircle` uses `corner-shape`, which degrades to a rounded square where that is unsupported."
     },
     {
       "name": "shadow",
       "type": "enum",
-      "values": ["none", "inset", "outset"],
+      "values": [
+        "none",
+        "inset",
+        "outset"
+      ],
       "default": "none",
       "description": "Depth on the icon tile, not on the zone: a drop target with a drop shadow reads as a card you cannot drop into."
     },
     {
       "name": "border",
       "type": "enum",
-      "values": ["dashed", "solid"],
+      "values": [
+        "dashed",
+        "solid"
+      ],
       "default": "dashed",
       "description": "`dashed` is the drop-zone convention and carries the extra width it needs to read as one. `solid` is a heavier, more permanent box, so it stays thin."
     },
@@ -55,11 +66,6 @@
       "type": "boolean",
       "default": false,
       "description": "Blocks interaction, dims the zone and fills it, so it reads as unavailable rather than merely empty."
-    },
-    {
-      "name": "className",
-      "type": "string",
-      "description": "Appended to the zone's classes, for anything the component leaves unset - a margin, `fs-0` in a flex row. It will not reliably override what the component already sets: which of two utilities wins is decided by the stylesheet's rule order, not by the order you write them."
     }
   ]
 }

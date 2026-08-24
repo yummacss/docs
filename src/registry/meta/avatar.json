@@ -16,21 +16,34 @@
     {
       "name": "size",
       "type": "enum",
-      "values": ["sm", "md", "lg"],
+      "values": [
+        "sm",
+        "md",
+        "lg"
+      ],
       "default": "md",
       "description": "Diameter, and the size of the initials or icon inside it."
     },
     {
       "name": "shape",
       "type": "enum",
-      "values": ["circle", "square", "squircle"],
+      "values": [
+        "circle",
+        "square",
+        "squircle"
+      ],
       "default": "circle",
       "description": "Corner radius. `squircle` uses `corner-shape`, which degrades to a rounded square where that is unsupported."
     },
     {
       "name": "status",
       "type": "enum",
-      "values": ["none", "online", "offline", "busy"],
+      "values": [
+        "none",
+        "online",
+        "offline",
+        "busy"
+      ],
       "default": "none",
       "example": "online",
       "description": "A presence dot in the bottom right corner. It carries meaning, so it is labelled for screen readers rather than left decorative."
@@ -41,11 +54,6 @@
       "default": false,
       "example": true,
       "description": "A verification check in the top right corner. It sits opposite `status` so the two can be shown together."
-    },
-    {
-      "name": "className",
-      "type": "string",
-      "description": "Appended after the generated classes, for anything the component leaves unset - a margin, `fs-0` in a flex row. It will not reliably override what the component already sets: which of two utilities wins is decided by the stylesheet's rule order, not by the order you write them. Use `size` for the dimensions."
     }
   ]
 }
