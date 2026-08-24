@@ -86,7 +86,7 @@
       "description": "Blocks interaction and dims the button."
     },
     {
-      "name": "animate",
+      "name": "transition",
       "type": "boolean",
       "default": true,
       "description": "The hover and focus transition. Turn it off for a static button, or when the user has asked for reduced motion."
