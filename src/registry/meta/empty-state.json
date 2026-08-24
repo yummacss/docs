@@ -11,7 +11,10 @@
     {
       "name": "iconTone",
       "type": "enum",
-      "values": ["accent", "neutral"],
+      "values": [
+        "accent",
+        "neutral"
+      ],
       "default": "accent",
       "description": "`accent` for an invitation to act, `neutral` for a plain absence - nothing found, nothing to do."
     },
@@ -60,21 +63,24 @@
     {
       "name": "shape",
       "type": "enum",
-      "values": ["rounded", "square", "squircle"],
+      "values": [
+        "rounded",
+        "square",
+        "squircle"
+      ],
       "default": "rounded",
       "description": "Corner radius on the badge."
     },
     {
       "name": "shadow",
       "type": "enum",
-      "values": ["none", "inset", "outset"],
+      "values": [
+        "none",
+        "inset",
+        "outset"
+      ],
       "default": "none",
       "description": "Wraps the whole block in a card. `none` renders it bare, with no card at all."
-    },
-    {
-      "name": "className",
-      "type": "string",
-      "description": "Appended to the root's classes, for anything the component leaves unset - a margin, `fs-0` in a flex row. It will not reliably override what the component already sets: which of two utilities wins is decided by the stylesheet's rule order, not by the order you write them."
     }
   ]
 }

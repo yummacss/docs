@@ -24,6 +24,13 @@ const registryIds = new Set(
 /** Both prop spellings the component accepts - see component-preview.tsx. */
 const PREVIEW_ID = /<ComponentPreview[^>]*?\b(?:registryId|id)="([^"]+)"/g;
 
+/**
+ * The playground takes no id. Its component is the page's own slug, decided by
+ * the route so that the stage and the controls in the rail cannot end up on two
+ * different components. That makes the page's slug the reference.
+ */
+const PLAYGROUND = /<ComponentPlayground\b/;
+
 const uiPages = contentPages("ui");
 
 /**
@@ -38,15 +45,31 @@ const uiPages = contentPages("ui");
  * byte-identical to its base. An orphan appearing here again is a real signal
  * now that the baseline is zero.
  */
-const KNOWN_UNLISTED: string[] = [];
+const KNOWN_UNLISTED: string[] = [
+  // Button's group blocks. Cut from the page when it became a playground: four
+  // previews of the same component wearing different wrappers were the bulk of
+  // its length, and none of them said anything the controls do not. They stay
+  // in the registry because `yummaui add button-group` is a published entry
+  // point, and deleting the files would break it for anyone already using one.
+  //
+  // Its icon examples were cut too & are not here, because they were deleted
+  // rather than unlisted: `icon` and `iconSide` are props now, so the controls
+  // reach what those two files were demonstrating, and neither had an install
+  // entry point of its own.
+  "button-group",
+  "button-group-icon",
+  "button-group-pill",
+  "button-group-pill-label",
+];
 
 function referencedIds(): Set<string> {
   const ids = new Set<string>();
 
-  for (const { source } of uiPages) {
+  for (const { slug, source } of uiPages) {
     for (const [, id] of source.matchAll(PREVIEW_ID)) {
       ids.add(id);
     }
+    if (PLAYGROUND.test(source)) ids.add(slug);
   }
 
   return ids;
@@ -94,5 +117,31 @@ describe("Yumma UI content", () => {
 
   it("finds at least one preview", () => {
     expect(referencedIds().size).toBeGreaterThan(0);
+  });
+
+  it("flags a playground page in its own frontmatter", () => {
+    // The rail is rendered from the route, the stage from the MDX. The flag is
+    // what keeps them in step: without it a page that still shows a static
+    // preview would get a rail full of controls that move nothing.
+    const mismatched = uiPages
+      .filter(({ source }) => {
+        const frontmatter = source.match(/^---\n([\s\S]*?)\n---/);
+        const flagged = /^playground:\s*true\s*$/m.test(frontmatter?.[1] ?? "");
+        return flagged !== PLAYGROUND.test(source);
+      })
+      .map(({ slug }) => slug);
+
+    expect(mismatched).toEqual([]);
+  });
+
+  it("puts a playground only where a schema backs it", () => {
+    // A playground on a page the registry has no schema for renders nothing
+    // at all, the same silent failure a mistyped `registryId` used to cause.
+    const unbacked = uiPages
+      .filter(({ source }) => PLAYGROUND.test(source))
+      .filter(({ slug }) => !registryIds.has(slug))
+      .map(({ slug }) => slug);
+
+    expect(unbacked).toEqual([]);
   });
 });

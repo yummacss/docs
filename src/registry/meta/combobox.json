@@ -44,21 +44,33 @@
     {
       "name": "size",
       "type": "enum",
-      "values": ["sm", "md", "lg"],
+      "values": [
+        "sm",
+        "md",
+        "lg"
+      ],
       "default": "md",
       "description": "Height and width of the input. The popup and the trigger column follow it."
     },
     {
       "name": "shape",
       "type": "enum",
-      "values": ["rounded", "square", "squircle"],
+      "values": [
+        "rounded",
+        "square",
+        "squircle"
+      ],
       "default": "rounded",
       "description": "Corner radius, applied to the input and the popup together. `squircle` uses `corner-shape`."
     },
     {
       "name": "shadow",
       "type": "enum",
-      "values": ["none", "inset", "outset"],
+      "values": [
+        "none",
+        "inset",
+        "outset"
+      ],
       "default": "none",
       "description": "Depth on the input. `inset` reads as a well, `outset` as a raised control."
     },
@@ -97,11 +109,6 @@
       "type": "string",
       "default": "No results found.",
       "description": "Shown when nothing matches."
-    },
-    {
-      "name": "className",
-      "type": "string",
-      "description": "Appended to the input's classes, for anything the component leaves unset - a margin, `fs-0` in a flex row. It will not reliably override what the component already sets: which of two utilities wins is decided by the stylesheet's rule order, not by the order you write them. Use `size` for the dimensions."
     }
   ]
 }

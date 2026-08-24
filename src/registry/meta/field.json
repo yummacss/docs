@@ -31,21 +31,33 @@
     {
       "name": "size",
       "type": "enum",
-      "values": ["sm", "md", "lg"],
+      "values": [
+        "sm",
+        "md",
+        "lg"
+      ],
       "default": "md",
       "description": "Height and width of the control."
     },
     {
       "name": "shape",
       "type": "enum",
-      "values": ["rounded", "square", "squircle"],
+      "values": [
+        "rounded",
+        "square",
+        "squircle"
+      ],
       "default": "rounded",
       "description": "Corner radius. `squircle` uses `corner-shape`, which degrades to a rounded square where that is unsupported."
     },
     {
       "name": "shadow",
       "type": "enum",
-      "values": ["none", "inset", "outset"],
+      "values": [
+        "none",
+        "inset",
+        "outset"
+      ],
       "default": "none",
       "description": "Depth on the control. `inset` reads as a well, `outset` as a raised control."
     },
@@ -58,7 +70,10 @@
     {
       "name": "iconSide",
       "type": "enum",
-      "values": ["leading", "trailing"],
+      "values": [
+        "leading",
+        "trailing"
+      ],
       "default": "leading",
       "description": "Which end `icon` sits at."
     },
@@ -109,11 +124,6 @@
       "type": "string",
       "default": "text",
       "description": "Native input type. For a password field with a visibility toggle, see the Password recipe rather than `type=\"password\"` here."
-    },
-    {
-      "name": "className",
-      "type": "string",
-      "description": "Appended to the control's classes, for anything the component leaves unset - a margin, `fs-0` in a flex row. It will not reliably override what the component already sets: which of two utilities wins is decided by the stylesheet's rule order, not by the order you write them. Use `size` for the dimensions."
     }
   ]
 }
