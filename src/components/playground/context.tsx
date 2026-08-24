@@ -83,7 +83,5 @@ export function PlaygroundProvider({
     [id, meta, values, setValue, reset, dirty],
   );
 
-  return (
-    <PlaygroundContext value={playground}>{children}</PlaygroundContext>
-  );
+  return <PlaygroundContext value={playground}>{children}</PlaygroundContext>;
 }

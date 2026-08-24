@@ -38,7 +38,11 @@ export default function ComponentPlayground() {
     Object.entries(values).filter(([, value]) => value !== ""),
   );
 
-  const usage = buildUsage(getRegistryTarget(playground.id).component, meta, set);
+  const usage = buildUsage(
+    getRegistryTarget(playground.id).component,
+    meta,
+    set,
+  );
 
   return (
     <div className="mb-8 bc-border bw-1">
