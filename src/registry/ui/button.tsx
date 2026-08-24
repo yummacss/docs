@@ -5,6 +5,7 @@ type Variant = "primary" | "secondary" | "subtle" | "ghost" | "danger" | "link";
 type Size = "sm" | "md" | "lg";
 type Shape = "rounded" | "square" | "squircle" | "pill";
 type Shadow = "none" | "inset" | "outset";
+type IconPosition = "leading" | "trailing";
 
 const BASE = "d-if ai-c jc-c g-2 bw-1 fw-500 us-none fv:oo-2";
 
@@ -52,7 +53,9 @@ export interface ButtonProps extends ComponentProps<typeof Button> {
   shadow?: Shadow;
   loading?: boolean;
   iconOnly?: boolean;
-  animate?: boolean;
+  icon?: ReactNode;
+  iconPosition?: IconPosition;
+  transition?: boolean;
   children?: ReactNode;
 }
 
@@ -63,7 +66,9 @@ export default function ButtonBase({
   shadow = "none",
   loading = false,
   iconOnly = false,
-  animate = true,
+  icon,
+  iconPosition = "leading",
+  transition = true,
   disabled,
   className,
   children,
@@ -73,7 +78,7 @@ export default function ButtonBase({
 
   const classes = [
     BASE,
-    animate ? MOTION : "",
+    transition ? MOTION : "",
     VARIANTS[variant],
     iconOnly ? ICON_ONLY[size] : SIZES[size],
     SHAPES[shape],
@@ -84,6 +89,12 @@ export default function ButtonBase({
     .filter(Boolean)
     .join(" ");
 
+  const iconEl = icon && (
+    <span className="d-f ai-c fs-0" aria-hidden>
+      {icon}
+    </span>
+  );
+
   return (
     <Button
       className={classes}
@@ -91,7 +102,9 @@ export default function ButtonBase({
       aria-busy={loading || undefined}
       {...props}
     >
+      {icon && iconPosition === "leading" && iconEl}
       {children}
+      {icon && iconPosition === "trailing" && iconEl}
     </Button>
   );
 }

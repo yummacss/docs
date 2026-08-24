@@ -42,13 +42,26 @@
       "description": "Equal padding on both axes, for a button whose only child is an icon. Pair it with an `aria-label`."
     },
     {
+      "name": "icon",
+      "type": "none",
+      "typeName": "ReactNode",
+      "description": "An optional icon beside the label. Pass it at `w-4 h-4` for the default size scale."
+    },
+    {
+      "name": "iconPosition",
+      "type": "enum",
+      "values": ["leading", "trailing"],
+      "default": "leading",
+      "description": "Which end `icon` sits at."
+    },
+    {
       "name": "disabled",
       "type": "boolean",
       "default": false,
       "description": "Blocks interaction and dims the button."
     },
     {
-      "name": "animate",
+      "name": "transition",
       "type": "boolean",
       "default": true,
       "description": "The hover and focus transition. Turn it off for a static button, or when the user has asked for reduced motion."
