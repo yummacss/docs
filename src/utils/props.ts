@@ -13,10 +13,14 @@ export function typeOf(prop: RegistryProp): string {
 /**
  * Whether the playground can offer a widget for this prop.
  *
- * A callback, a `ReactNode` slot or an array of fixture objects has no control
- * a reader could sensibly operate, and the schema marks all of those `none`.
- * They are still part of the API, so the rail lists them either way.
+ * A callback or an array of fixture objects has no control a reader could
+ * sensibly operate, and the schema marks those `none`. They are still part of
+ * the API, so the rail lists them either way.
+ *
+ * A slot with an `exampleIcon` is the exception. It is a `ReactNode` too, but
+ * the schema names a glyph for it, which is enough to answer the only question
+ * a control could ask of a slot: is there something in it.
  */
 export function isControllable(prop: RegistryProp): boolean {
-  return prop.type !== "none";
+  return prop.type !== "none" || Boolean(prop.exampleIcon);
 }

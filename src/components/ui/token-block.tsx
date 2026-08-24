@@ -50,7 +50,10 @@ export default function TokenBlock({
         <div className="p-a t-2 r-2">
           <CopyButton copied={copied} onCopy={copy} />
         </div>
-        <pre className="ox-auto px-4 py-3 ff-m lh-5">
+        {/* Attributes sit on the element's own line now, so a component with
+            several changed props makes a long one. Wrapping keeps all of it
+            visible; a horizontal scrollbar would hide the closing tag. */}
+        <pre className="ox-auto px-4 py-3 ff-m lh-5 ws-pw">
           <code>
             <Folded tokens={tokens} expanded={expanded} />
           </code>
