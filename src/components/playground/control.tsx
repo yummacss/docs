@@ -31,7 +31,9 @@ export default function Control({ prop, value, onChange }: Props) {
     return (
       <Box
         checked={value !== undefined && value !== null}
-        onCheckedChange={(next) => onChange(next ? exampleIcon(prop.exampleIcon ?? "") : undefined)}
+        onCheckedChange={(next) =>
+          onChange(next ? exampleIcon(prop.exampleIcon ?? "") : undefined)
+        }
         label={prop.name}
       />
     );
