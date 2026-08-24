@@ -1,8 +1,8 @@
 "use client";
 
-import { PageStar } from "iconoir-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { BaseUI } from "@/components/icons/icons";
 
 interface ApiReferenceProps {
   /**
@@ -39,7 +39,7 @@ export default function ApiReference({ primitive }: ApiReferenceProps) {
       rel="noopener noreferrer"
       className="d-if ai-c g-2 w-fc c-white/70 fs-sm td-none h:c-white fv:oc-white fv:ow-2"
     >
-      <PageStar className="w-4 h-4" />
+      <BaseUI className="w-4 h-4" />
       Base UI primitive
     </Link>
   );

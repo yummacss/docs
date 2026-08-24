@@ -13,38 +13,61 @@
       "type": "none",
       "typeName": "MenuItem[]",
       "example": [
-        { "label": "Edit" },
-        { "label": "Duplicate" },
-        { "label": "Bookmark" },
-        { "label": "Pin to top" }
+        {
+          "label": "Edit"
+        },
+        {
+          "label": "Duplicate"
+        },
+        {
+          "label": "Bookmark"
+        },
+        {
+          "label": "Pin to top"
+        }
       ],
       "description": "A discriminated union. `{ label }` is a plain action (plus optional `icon`, `shortcut`, `destructive`, `disabled`, `onClick`). `{ type: \"separator\" }` divides. `{ type: \"group\", label?, items }` wraps a `role=\"group\"` block under a heading. `{ type: \"checkbox\", label, checked, onCheckedChange }` and `{ type: \"radio\", value, onValueChange, options }` are the stateful kinds. `{ type: \"submenu\", label, icon?, items }` nests, recursively."
     },
     {
       "name": "size",
       "type": "enum",
-      "values": ["sm", "md", "lg"],
+      "values": [
+        "sm",
+        "md",
+        "lg"
+      ],
       "default": "md",
       "description": "Trigger padding, popup width, item padding and item text size together."
     },
     {
       "name": "shape",
       "type": "enum",
-      "values": ["rounded", "square", "squircle"],
+      "values": [
+        "rounded",
+        "square",
+        "squircle"
+      ],
       "default": "rounded",
       "description": "Corner radius on the trigger, popup and items together. `squircle` steps the popup & item radius up one and adds `corner-shape`."
     },
     {
       "name": "shadow",
       "type": "enum",
-      "values": ["none", "inset", "outset"],
+      "values": [
+        "none",
+        "inset",
+        "outset"
+      ],
       "default": "none",
       "description": "Depth on both the trigger and the popup."
     },
     {
       "name": "iconPosition",
       "type": "enum",
-      "values": ["leading", "trailing"],
+      "values": [
+        "leading",
+        "trailing"
+      ],
       "default": "leading",
       "description": "Which end of an item its `icon` sits at. A `shortcut` always trails regardless."
     },
@@ -70,11 +93,6 @@
       "type": "boolean",
       "default": true,
       "description": "The popup's fade and the trigger's hover transition. Turn it off for an instant menu, or when the user has asked for reduced motion."
-    },
-    {
-      "name": "className",
-      "type": "string",
-      "description": "Appended to the trigger's classes, for anything the component leaves unset - a margin, `fs-0` in a flex row. It will not reliably override what the component already sets: which of two utilities wins is decided by the stylesheet's rule order, not by the order you write them. Use `size` for the dimensions."
     }
   ]
 }

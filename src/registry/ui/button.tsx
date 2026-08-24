@@ -5,6 +5,7 @@ type Variant = "primary" | "secondary" | "subtle" | "ghost" | "danger" | "link";
 type Size = "sm" | "md" | "lg";
 type Shape = "rounded" | "square" | "squircle" | "pill";
 type Shadow = "none" | "inset" | "outset";
+type IconSide = "leading" | "trailing";
 
 const BASE = "d-if ai-c jc-c g-2 bw-1 fw-500 us-none fv:oo-2";
 
@@ -51,6 +52,8 @@ export interface ButtonProps extends ComponentProps<typeof Button> {
   shape?: Shape;
   shadow?: Shadow;
   loading?: boolean;
+  icon?: ReactNode;
+  iconSide?: IconSide;
   iconOnly?: boolean;
   animate?: boolean;
   children?: ReactNode;
@@ -62,6 +65,8 @@ export default function ButtonBase({
   shape = "rounded",
   shadow = "none",
   loading = false,
+  icon,
+  iconSide = "leading",
   iconOnly = false,
   animate = true,
   disabled,
@@ -91,7 +96,9 @@ export default function ButtonBase({
       aria-busy={loading || undefined}
       {...props}
     >
+      {iconSide === "leading" && icon}
       {children}
+      {iconSide === "trailing" && icon}
     </Button>
   );
 }
