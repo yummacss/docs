@@ -1,0 +1,178 @@
+"use client";
+
+import { type ReactNode, useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
+
+/**
+ * A preview in its own document.
+ *
+ * A component rendered straight into this page shares its document, which is
+ * how a modal's backdrop came to cover the controls that drive it: Base UI
+ * portals to `document.body` and marks the rest inert, and "the rest" was the
+ * whole site. Inside a frame, `body` is the frame's body, so the backdrop
+ * covers the preview and nothing else.
+ *
+ * It also stops the docs' own styling reaching the component. That reset used
+ * to be a screenful of `[data-preview]`, `[role="dialog"]`, `[class*="-popup"]`
+ * selectors in `globals.css`, all of it there because portalled elements land
+ * outside the preview container & inherit from the page instead. A frame has
+ * no outside.
+ *
+ * One React tree throughout: the children are portalled in, so context, state
+ * and event handlers cross the boundary exactly as they would in place.
+ */
+
+/**
+ * Everything the component needs, and nothing the docs chrome brings.
+ *
+ * `html` and `body` are pinned to the frame's height so the content can be
+ * centred in it. The measured element is the root below, never the body:
+ * measuring a body that fills its frame and then sizing the frame from that
+ * measurement is a loop, and the frames grew to 1400px before this was split.
+ */
+const RESET = `
+  html, body { height: 100%; }
+  html { color-scheme: light; }
+  body {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica,
+      Arial, sans-serif;
+  }
+  #root { padding: 2.5rem; }
+`;
+
+/**
+ * The page's CSS as text, read once and shared by every frame.
+ *
+ * Cloning the `<link>` elements was the obvious way & it makes each frame
+ * re-request the stylesheet and every font file behind it. Same-origin sheets
+ * can be read instead, so a frame costs one parse and no network at all. The
+ * fonts are never fetched: nothing inside a frame asks for them.
+ */
+let sheet: string | null = null;
+
+function pageStyles(): string {
+  if (sheet !== null) return sheet;
+
+  const parts: string[] = [];
+  for (const style of document.styleSheets) {
+    try {
+      for (const rule of style.cssRules) parts.push(rule.cssText);
+    } catch {
+      // Cross-origin, so its rules cannot be read. Nothing the components use
+      // is served that way, and a missing rule is better than a thrown frame.
+    }
+  }
+
+  sheet = parts.join("\n");
+  return sheet;
+}
+
+interface Props {
+  children: ReactNode;
+  /** Room for the component before its own height is known. */
+  minHeight?: number;
+  className?: string;
+}
+
+export default function PreviewFrame({
+  children,
+  minHeight = 240,
+  className = "",
+}: Props) {
+  const holder = useRef<HTMLDivElement>(null);
+  const frame = useRef<HTMLIFrameElement>(null);
+  // A page can carry seven previews. Building seven documents before the
+  // reader has scrolled to the second one is the cost this avoids.
+  const [near, setNear] = useState(false);
+  const [body, setBody] = useState<HTMLElement | null>(null);
+  const [height, setHeight] = useState(minHeight);
+
+  useEffect(() => {
+    const element = holder.current;
+    if (!element) return;
+
+    if (typeof IntersectionObserver === "undefined") {
+      setNear(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          setNear(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "400px" },
+    );
+
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!near) return;
+    const element = frame.current;
+    if (!element) return;
+
+    const attach = () => {
+      const target = element.contentDocument;
+      if (!target?.body) return;
+      if (target.getElementById("root")) return;
+
+      const page = target.createElement("style");
+      page.textContent = pageStyles();
+      const base = target.createElement("style");
+      base.textContent = RESET;
+      target.head.append(page, base);
+
+      const root = target.createElement("div");
+      root.id = "root";
+      target.body.append(root);
+
+      setBody(root);
+    };
+
+    // Same-origin `about:blank` is usually ready on mount, but Safari resolves
+    // it a tick later, so both paths are covered.
+    attach();
+    element.addEventListener("load", attach);
+    return () => element.removeEventListener("load", attach);
+  }, [near]);
+
+  useEffect(() => {
+    if (!body) return;
+
+    const measure = () =>
+      setHeight(Math.max(minHeight, Math.ceil(body.scrollHeight)));
+
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(body);
+    return () => observer.disconnect();
+  }, [body, minHeight]);
+
+  return (
+    <div ref={holder} className={className} style={{ minHeight }}>
+      {near && (
+        <iframe
+          ref={frame}
+          title="Component preview"
+          // No `src`: the document is built here rather than fetched, which is
+          // what keeps a frame cheaper than a page.
+          className="d-b w-100% bw-0"
+          style={{ height }}
+        />
+      )}
+      {/* Outside the element, not between its tags: the portal renders into
+          the frame's body, and an `<iframe>` with React children would put
+          them in the host document instead. */}
+      {body && createPortal(children, body)}
+    </div>
+  );
+}

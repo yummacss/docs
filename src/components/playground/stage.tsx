@@ -3,6 +3,7 @@
 import type { ComponentType } from "react";
 import { lazy, Suspense, useMemo } from "react";
 import { usePlayground } from "@/components/playground/context";
+import PreviewFrame from "@/components/preview-frame";
 import TokenBlock from "@/components/ui/token-block";
 import { getRegistryImport, getRegistryTarget } from "@/registry";
 import { type DemoProps, resolveIcons } from "@/utils/demo";
@@ -46,16 +47,15 @@ export default function ComponentPlayground() {
 
   return (
     <div className="mb-8 bc-border bw-1">
-      <Suspense fallback={null}>
-        <div
-          data-preview
-          className="d-f p-r ox-auto ai-c jc-c p-10 min-h-64 bg-white"
-        >
+      {/* Tall enough that a modal opening inside the frame is not clipped by
+          it. The frame grows past this whenever the component is taller. */}
+      <PreviewFrame minHeight={384}>
+        <Suspense fallback={null}>
           <Component {...(resolveIcons(set) as DemoProps)}>
             {meta.children}
           </Component>
-        </div>
-      </Suspense>
+        </Suspense>
+      </PreviewFrame>
 
       {/* Directly under the stage, because the whole point of touching a
           control is to see what it does to the code you would copy. A file of
