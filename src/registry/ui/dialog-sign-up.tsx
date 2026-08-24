@@ -2,9 +2,14 @@ import Checkbox from "./checkbox";
 import Dialog from "./dialog";
 import Field from "./field";
 
-export default function DialogSignUp() {
+export default function DialogSignUp({
+  container,
+}: {
+  /** Portal target, so a popup opened in a framed preview stays in the frame. */
+  container?: HTMLElement | null;
+}) {
   return (
-    <Dialog
+    <Dialog container={container}
       trigger="Sign up"
       title="Create account"
       confirmLabel="Create account"

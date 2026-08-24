@@ -52,6 +52,12 @@ export interface OnboardingStep {
 }
 
 export interface OnboardingProps {
+  /**
+   * Where the popup is rendered. Defaults to `document.body`, which is right
+   * almost always; pass an element to portal somewhere else - inside a frame,
+   * or inside a container that owns its own stacking context.
+   */
+  container?: HTMLElement | null;
   trigger: ReactNode;
   triggerIcon?: ReactNode;
   iconPosition?: IconPosition;
@@ -75,6 +81,7 @@ export default function OnboardingBase({
   shadow = "none",
   animate = true,
   className,
+  container,
 }: OnboardingProps) {
   const [open, setOpen] = useState(false);
   const [page, setPage] = useState(0);
@@ -177,7 +184,7 @@ export default function OnboardingBase({
   );
 
   const popup = (
-    <AlertDialog.Portal keepMounted>
+    <AlertDialog.Portal container={container} keepMounted>
       <AlertDialog.Backdrop
         render={
           animate ? (

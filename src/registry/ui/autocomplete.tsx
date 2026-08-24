@@ -57,6 +57,12 @@ const ICON_PADDING: Record<IconSide, string> = {
 };
 
 export interface AutocompleteProps {
+  /**
+   * Where the popup is rendered. Defaults to `document.body`, which is right
+   * almost always; pass an element to portal somewhere else - inside a frame,
+   * or inside a container that owns its own stacking context.
+   */
+  container?: HTMLElement | null;
   items: AutocompleteItem[] | AutocompleteGroup[];
   label?: ReactNode;
   description?: string;
@@ -144,6 +150,7 @@ export default function AutocompleteBase({
   onQueryChange,
   fullWidth = false,
   className,
+  container,
 }: AutocompleteProps) {
   const [open, setOpen] = useState(false);
   const id = useId();
@@ -224,7 +231,7 @@ export default function AutocompleteBase({
 
       <AnimatePresence>
         {open && (
-          <Autocomplete.Portal keepMounted>
+          <Autocomplete.Portal container={container} keepMounted>
             <Autocomplete.Positioner className="ow-0" sideOffset={8}>
               {animate ? (
                 <motion.div

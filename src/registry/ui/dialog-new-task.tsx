@@ -3,9 +3,14 @@ import Dialog from "./dialog";
 import Field from "./field";
 import Select from "./select";
 
-export default function DialogNewTask() {
+export default function DialogNewTask({
+  container,
+}: {
+  /** Portal target, so a popup opened in a framed preview stays in the frame. */
+  container?: HTMLElement | null;
+}) {
   return (
-    <Dialog trigger="New task" title="New task" confirmLabel="Create task">
+    <Dialog container={container} trigger="New task" title="New task" confirmLabel="Create task">
       <div className="d-f fd-c g-4">
         <Field
           fullWidth
@@ -17,7 +22,7 @@ export default function DialogNewTask() {
           label="Description"
           placeholder="Add details about this task..."
         />
-        <Select
+        <Select container={container}
           fullWidth
           options={priorities}
           label="Priority"
@@ -25,7 +30,7 @@ export default function DialogNewTask() {
           defaultValue="medium"
         />
         <div className="d-g g-3 @sm:gtc-2">
-          <Autocomplete
+          <Autocomplete container={container}
             fullWidth
             items={teamMembers}
             label="Assignee"

@@ -3,7 +3,9 @@
 import type { ComponentType } from "react";
 import { lazy, Suspense, useMemo } from "react";
 import { usePlayground } from "@/components/playground/context";
-import PreviewFrame from "@/components/preview-frame";
+import PreviewFrame, {
+  usePreviewContainer,
+} from "@/components/preview-frame";
 import TokenBlock from "@/components/ui/token-block";
 import { getRegistryImport, getRegistryTarget } from "@/registry";
 import { type DemoProps, resolveIcons } from "@/utils/demo";
@@ -51,9 +53,13 @@ export default function ComponentPlayground() {
           it. The frame grows past this whenever the component is taller. */}
       <PreviewFrame minHeight={384}>
         <Suspense fallback={null}>
-          <Component {...(resolveIcons(set) as DemoProps)}>
+          <Mounted
+            Component={Component}
+            props={resolveIcons(set) as DemoProps}
+            portals={meta.props.some((prop) => prop.name === "container")}
+          >
             {meta.children}
-          </Component>
+          </Mounted>
         </Suspense>
       </PreviewFrame>
 
@@ -62,5 +68,33 @@ export default function ComponentPlayground() {
           yours, which is why `buildUsage` imports through the `@/` alias. */}
       <TokenBlock tokens={usage} title="page.tsx" />
     </div>
+  );
+}
+
+/**
+ * The component, inside the frame, holding a portal target if it wants one.
+ *
+ * `container` is read here rather than passed down because the context it
+ * comes from is only populated on the frame's side of the portal. The schema
+ * decides whether to pass it: on a component with no popup it would reach the
+ * DOM as an unknown attribute.
+ */
+function Mounted({
+  Component,
+  props,
+  portals,
+  children,
+}: {
+  Component: ComponentType<DemoProps>;
+  props: DemoProps;
+  portals: boolean;
+  children?: string;
+}) {
+  const container = usePreviewContainer();
+
+  return (
+    <Component {...props} {...(portals ? { container } : {})}>
+      {children}
+    </Component>
   );
 }

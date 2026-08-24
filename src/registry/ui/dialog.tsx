@@ -55,6 +55,12 @@ const TRIGGER_SIZES: Record<TriggerSize, string> = {
 };
 
 export interface DialogProps {
+  /**
+   * Where the popup is rendered. Defaults to `document.body`, which is right
+   * almost always; pass an element to portal somewhere else - inside a frame,
+   * or inside a container that owns its own stacking context.
+   */
+  container?: HTMLElement | null;
   trigger: ReactNode;
   triggerIcon?: ReactNode;
   triggerIconPosition?: IconPosition;
@@ -96,6 +102,7 @@ export default function DialogBase({
   shadow = "none",
   animate = true,
   className,
+  container,
 }: DialogProps) {
   const [open, setOpen] = useState(false);
 
@@ -137,7 +144,7 @@ export default function DialogBase({
     .join(" ");
 
   const popup = (
-    <Dialog.Portal keepMounted>
+    <Dialog.Portal container={container} keepMounted>
       <Dialog.Backdrop
         render={
           animate ? (

@@ -41,62 +41,6 @@ body {
   z-index: 20;
 }
 
-/* Base UI portals render into <body>, so they land in this document even when
-   the preview that opened them is inside a frame. They inherit the docs theme
-   from here & cannot be reached by adding a class, which is why this is still
-   CSS rather than the `cs-l` utility.
-
-   The `[data-preview]` selectors this block used to carry are gone: a preview
-   has its own document now, and `preview-frame.tsx` sets both of these on its
-   `body`. What is left is only the portalled half, and that goes too once the
-   overlay components forward a portal `container`. */
-[class*="-popup"],
-[class*="-popup"] *,
-[class*="-backdrop"],
-[class*="-backdrop"] *,
-[role="dialog"],
-[role="dialog"] *,
-[role="alertdialog"],
-[role="alertdialog"] *,
-[role="listbox"],
-[role="listbox"] *,
-[role="menu"],
-[role="menu"] *,
-[role="menubar"],
-[role="menubar"] *,
-[role="navigation"],
-[role="navigation"] * {
-  color-scheme: light;
-  font-family:
-    system-ui,
-    -apple-system,
-    Segoe UI,
-    Roboto,
-    Helvetica,
-    Arial,
-    sans-serif;
-}
-
-[class*="-popup"]::selection,
-[class*="-popup"] *::selection,
-[class*="-backdrop"]::selection,
-[class*="-backdrop"] *::selection,
-[role="dialog"]::selection,
-[role="dialog"] *::selection,
-[role="alertdialog"]::selection,
-[role="alertdialog"] *::selection,
-[role="listbox"]::selection,
-[role="listbox"] *::selection,
-[role="menu"]::selection,
-[role="menu"] *::selection,
-[role="menubar"]::selection,
-[role="menubar"] *::selection,
-[role="navigation"]::selection,
-[role="navigation"] *::selection {
-  background-color: Highlight;
-  color: HighlightText;
-}
-
 .docs-container {
   max-width: clamp(40rem, 80vw, 96rem);
 }
