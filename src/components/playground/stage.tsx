@@ -18,15 +18,19 @@ import { buildUsage } from "@/utils/snippet";
 export default function ComponentPlayground() {
   const playground = usePlayground();
 
+  // Keyed on the id alone. Depending on the whole playground rebuilt `lazy()`
+  // on every keystroke, which handed Suspense a component it had never seen
+  // and blanked the stage until the import resolved again.
+  const id = playground?.id;
   const Component = useMemo(() => {
-    if (!playground) return null;
-    const importFn = getRegistryImport(playground.id);
+    if (!id) return null;
+    const importFn = getRegistryImport(id);
     return importFn ? lazy(importFn) : null;
-  }, [playground]);
+  }, [id]);
 
   if (!playground?.meta || !Component) return null;
 
-  const { id, meta, values } = playground;
+  const { meta, values } = playground;
 
   // An empty text field means the prop was left alone, not that it was set to
   // the empty string, so it never reaches the component.
@@ -34,7 +38,7 @@ export default function ComponentPlayground() {
     Object.entries(values).filter(([, value]) => value !== ""),
   );
 
-  const usage = buildUsage(getRegistryTarget(id).component, meta, set);
+  const usage = buildUsage(getRegistryTarget(playground.id).component, meta, set);
 
   return (
     <div className="mb-8 bc-border bw-1">

@@ -13,6 +13,7 @@ import {
   SunLight,
   Trash,
   User,
+  UserPlus,
   Wrench,
 } from "iconoir-react";
 import type { ComponentType } from "react";
@@ -48,8 +49,21 @@ export const EXAMPLE_ICONS: Record<
   SunLight,
   Trash,
   User,
+  UserPlus,
   Wrench,
 };
+
+/**
+ * The glyph a schema names, at the size a slot inside a component wants.
+ *
+ * Shared with the playground, where a checkbox puts this same element into the
+ * slot or takes it out again: the control for a `ReactNode` is not which glyph
+ * but whether there is one.
+ */
+export function exampleIcon(name: string) {
+  const Icon = EXAMPLE_ICONS[name];
+  return Icon ? <Icon className="w-5 h-5" /> : undefined;
+}
 
 /**
  * What a representative instance of a component looks like, from its own
@@ -64,10 +78,15 @@ export function seedValues(meta: RegistryMeta): DemoProps {
   const values: DemoProps = {};
 
   for (const prop of meta.props) {
+    // An explicit `null` example is a slot the demo starts empty. Without it
+    // an optional icon would be on before anyone asked for one, and the
+    // snippet would open with a glyph the component does not default to.
+    if (prop.example === null) continue;
+
     if (prop.exampleIcon) {
-      const Icon = EXAMPLE_ICONS[prop.exampleIcon];
-      if (Icon) {
-        values[prop.name] = <Icon className="w-5 h-5" />;
+      const icon = exampleIcon(prop.exampleIcon);
+      if (icon) {
+        values[prop.name] = icon;
         continue;
       }
     }

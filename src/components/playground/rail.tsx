@@ -1,17 +1,15 @@
 "use client";
 
-import { Separator } from "@base-ui/react";
 import { allUis } from "content-collections";
 import { NavArrowDown } from "iconoir-react";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import Control from "@/components/playground/control";
 import { usePlayground } from "@/components/playground/context";
+import Control from "@/components/playground/control";
+import Install from "@/components/playground/install";
 import PropDescription from "@/components/prop-description";
 import ApiReference from "@/components/ui/api-reference";
-import EditPage from "@/components/ui/edit-page";
-import ViewMarkdown from "@/components/ui/view-markdown";
-import type { RegistryProp } from "@/registry";
+import { getRegistryTarget, type RegistryProp } from "@/registry";
 import { isControllable, typeOf } from "@/utils/props";
 
 /**
@@ -52,8 +50,10 @@ export default function PlaygroundRail() {
     <aside className="bc-border btw-1 @lg:btw-0 @lg:blw-1 @lg:gc-s-3">
       <div className="playground-rail">
         <div className="pt-8 px-6 pb-12 @lg:pt-0">
+          {playground && <Install id={getRegistryTarget(playground.id).install} />}
+
           <div className="d-f ai-c jc-sb g-2 mb-3">
-            <h3 className="c-silver-8 fs-xs fw-600 ls-2 tt-u">Props</h3>
+            <h3 className="c-silver-8 fs-xs fw-600 ls-2 tt-u">Component API</h3>
             {playground?.dirty && (
               <button
                 type="button"
@@ -102,17 +102,14 @@ export default function PlaygroundRail() {
             </>
           )}
 
-          {/* These used to sit under the table of contents this rail replaced.
-              Every component page sets `primitive`, so these are exactly the
-              pages that would otherwise lose the link out to Base UI. */}
-          <div className="d-f fd-c g-3 mt-8 pt-8">
-            <EditPage />
-            <ViewMarkdown />
-            <Separator />
-            {currentUI?.primitive && (
+          {/* The primitive underneath, which is what you want the moment you
+              edit the file you copied. Every component page sets `primitive`,
+              so this rail is exactly where it belongs. */}
+          {currentUI?.primitive && (
+            <div className="mt-8 pt-8 bc-border btw-1">
               <ApiReference primitive={currentUI.primitive} />
-            )}
-          </div>
+            </div>
+          )}
         </div>
       </div>
     </aside>

@@ -51,6 +51,11 @@ const KNOWN_UNLISTED: string[] = [
   // its length, and none of them said anything the controls do not. They stay
   // in the registry because `yummaui add button-group` is a published entry
   // point, and deleting the files would break it for anyone already using one.
+  //
+  // Its icon examples were cut too & are not here, because they were deleted
+  // rather than unlisted: `icon` and `iconSide` are props now, so the controls
+  // reach what those two files were demonstrating, and neither had an install
+  // entry point of its own.
   "button-group",
   "button-group-icon",
   "button-group-pill",
