@@ -4,17 +4,26 @@ import Button from "./button";
 export default function ButtonIconTrailing() {
   return (
     <div className="d-f fd-c g-6 ai-c">
-      <Button variant="primary">
+      <Button
+        variant="primary"
+        icon={<UserPlus className="w-4 h-4" />}
+        iconPosition="trailing"
+      >
         Add member
-        <UserPlus className="w-4 h-4" />
       </Button>
-      <Button variant="secondary">
+      <Button
+        variant="secondary"
+        icon={<UserPlus className="w-4 h-4" />}
+        iconPosition="trailing"
+      >
         Add member
-        <UserPlus className="w-4 h-4" />
       </Button>
-      <Button variant="subtle">
+      <Button
+        variant="subtle"
+        icon={<UserPlus className="w-4 h-4" />}
+        iconPosition="trailing"
+      >
         Add member
-        <UserPlus className="w-4 h-4" />
       </Button>
     </div>
   );
