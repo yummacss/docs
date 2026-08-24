@@ -41,15 +41,15 @@ body {
   z-index: 20;
 }
 
-/* reset font and selection for component previews */
-/* This one stays as CSS rather than becoming the `cs-l` utility. Most of these
-   selectors match Base UI portal elements, which render into <body> rather
-   than inside the preview container - so they inherit nothing from it and
-   cannot be reached by adding a class. The rule also sets font-family for the
-   same set, so splitting only `color-scheme` out would mean maintaining the
-   selector list twice. */
-[data-preview],
-[data-preview] *,
+/* Base UI portals render into <body>, so they land in this document even when
+   the preview that opened them is inside a frame. They inherit the docs theme
+   from here & cannot be reached by adding a class, which is why this is still
+   CSS rather than the `cs-l` utility.
+
+   The `[data-preview]` selectors this block used to carry are gone: a preview
+   has its own document now, and `preview-frame.tsx` sets both of these on its
+   `body`. What is left is only the portalled half, and that goes too once the
+   overlay components forward a portal `container`. */
 [class*="-popup"],
 [class*="-popup"] *,
 [class*="-backdrop"],
@@ -77,8 +77,6 @@ body {
     sans-serif;
 }
 
-[data-preview]::selection,
-[data-preview] *::selection,
 [class*="-popup"]::selection,
 [class*="-popup"] *::selection,
 [class*="-backdrop"]::selection,

@@ -2,6 +2,7 @@
 import { Toggle } from "@base-ui/react/toggle";
 import type { ComponentType } from "react";
 import { lazy, type ReactNode, Suspense, useEffect, useState } from "react";
+import PreviewFrame from "@/components/preview-frame";
 import TokenBlock from "@/components/ui/token-block";
 import {
   getRegistryImport,
@@ -76,15 +77,15 @@ export default function ComponentPreview({
 
   return (
     <div className={`mb-6 bc-border bw-1 ${className || ""}`}>
-      <Suspense fallback={null}>
-        {RegistryComponent ? (
-          <div data-preview className="d-f p-r ox-auto ai-c jc-c p-10 bg-white">
+      {RegistryComponent ? (
+        <PreviewFrame minHeight={200}>
+          <Suspense fallback={null}>
             <RegistryComponent {...demo.props}>
               {demo.children}
             </RegistryComponent>
-          </div>
-        ) : null}
-      </Suspense>
+          </Suspense>
+        </PreviewFrame>
+      ) : null}
 
       <Toggle
         pressed={showCode}
