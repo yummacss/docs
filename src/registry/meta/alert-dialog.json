@@ -17,14 +17,20 @@
     {
       "name": "triggerIconPosition",
       "type": "enum",
-      "values": ["leading", "trailing"],
+      "values": [
+        "leading",
+        "trailing"
+      ],
       "default": "leading",
       "description": "Which end of the trigger `triggerIcon` sits at."
     },
     {
       "name": "triggerTone",
       "type": "enum",
-      "values": ["danger", "neutral"],
+      "values": [
+        "danger",
+        "neutral"
+      ],
       "default": "danger",
       "description": "The trigger's own colour, independent of the dialog's `tone` - a neutral button can still open a destructive dialog."
     },
@@ -37,7 +43,10 @@
     {
       "name": "tone",
       "type": "enum",
-      "values": ["danger", "neutral"],
+      "values": [
+        "danger",
+        "neutral"
+      ],
       "default": "danger",
       "description": "Colours the badge and the confirm button together."
     },
@@ -80,14 +89,22 @@
     {
       "name": "shape",
       "type": "enum",
-      "values": ["rounded", "square", "squircle"],
+      "values": [
+        "rounded",
+        "square",
+        "squircle"
+      ],
       "default": "rounded",
       "description": "Corner radius on the popup, the badge and the buttons. `square` squares off the badge too."
     },
     {
       "name": "shadow",
       "type": "enum",
-      "values": ["none", "inset", "outset"],
+      "values": [
+        "none",
+        "inset",
+        "outset"
+      ],
       "default": "none",
       "description": "Depth on the popup."
     },
@@ -96,11 +113,6 @@
       "type": "boolean",
       "default": true,
       "description": "The backdrop's fade and the popup's scale-in. Turn it off for an instant dialog, or when the user has asked for reduced motion."
-    },
-    {
-      "name": "className",
-      "type": "string",
-      "description": "Appended to the trigger's classes, for anything the component leaves unset - a margin, `fs-0` in a flex row. It will not reliably override what the component already sets: which of two utilities wins is decided by the stylesheet's rule order, not by the order you write them."
     }
   ]
 }

@@ -14,6 +14,10 @@ export default defineConfig({
     // `source` was tried & the scanner still did not pick it up.
     "mx--4",
     "d-i",
+    // The playground's checked checkbox. `bc-accent-dim` generates from the
+    // same string literal & this one does not, which is the scanner gap again
+    // rather than anything about the class.
+    "bg-accent-dim",
     "bg-accent-dim/10",
     "bg-diff-add/10",
     "bg-diff-remove/10",

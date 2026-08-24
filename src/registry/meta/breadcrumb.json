@@ -6,10 +6,21 @@
       "type": "none",
       "typeName": "BreadcrumbItem[]",
       "example": [
-        { "label": "Home", "href": "#" },
-        { "label": "Projects", "href": "#" },
-        { "label": "Team", "href": "#" },
-        { "label": "Board" }
+        {
+          "label": "Home",
+          "href": "#"
+        },
+        {
+          "label": "Projects",
+          "href": "#"
+        },
+        {
+          "label": "Team",
+          "href": "#"
+        },
+        {
+          "label": "Board"
+        }
       ],
       "description": "Each item's `label`, `href`, optional `icon` and `iconOnly`. The last item is always rendered as the current page - a plain span with `aria-current=\"page\"`, never a link - regardless of whether it has an `href`."
     },
@@ -22,35 +33,45 @@
     {
       "name": "shape",
       "type": "enum",
-      "values": ["rounded", "square", "squircle"],
+      "values": [
+        "rounded",
+        "square",
+        "squircle"
+      ],
       "default": "rounded",
       "description": "Corner radius. Only visible when `bordered` is set."
     },
     {
       "name": "shadow",
       "type": "enum",
-      "values": ["none", "inset", "outset"],
+      "values": [
+        "none",
+        "inset",
+        "outset"
+      ],
       "default": "none",
       "description": "Depth on the card. Only visible when `bordered` is set."
     },
     {
       "name": "size",
       "type": "enum",
-      "values": ["sm", "md", "lg"],
+      "values": [
+        "sm",
+        "md",
+        "lg"
+      ],
       "default": "md",
       "description": "Text size of every item."
     },
     {
       "name": "separator",
       "type": "enum",
-      "values": ["chevron", "slash"],
+      "values": [
+        "chevron",
+        "slash"
+      ],
       "default": "chevron",
       "description": "The mark between items."
-    },
-    {
-      "name": "className",
-      "type": "string",
-      "description": "Appended to the trail's classes, for anything the component leaves unset - a margin, `fs-0` in a flex row. It will not reliably override what the component already sets: which of two utilities wins is decided by the stylesheet's rule order, not by the order you write them. Use `size` for the dimensions."
     }
   ]
 }

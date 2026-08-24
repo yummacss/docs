@@ -58,14 +58,22 @@
     {
       "name": "shape",
       "type": "enum",
-      "values": ["rounded", "square", "squircle"],
+      "values": [
+        "rounded",
+        "square",
+        "squircle"
+      ],
       "default": "rounded",
       "description": "Corner radius, applied to the track, the indicator and the thumb together. `squircle` uses `corner-shape`."
     },
     {
       "name": "shadow",
       "type": "enum",
-      "values": ["none", "inset", "outset"],
+      "values": [
+        "none",
+        "inset",
+        "outset"
+      ],
       "default": "none",
       "description": "Depth on the thumb only. The track and indicator are flush with the control, so a shadow on them would read as a stray line rather than depth."
     },
@@ -80,11 +88,6 @@
       "type": "none",
       "typeName": "(value: number | number[]) => ReactNode",
       "description": "How the value is shown beside the label. Defaults to `50%` for one thumb, `20 - 80` for a range; override for currency, units, or anything else."
-    },
-    {
-      "name": "className",
-      "type": "string",
-      "description": "Appended to the outer wrapper's classes, for anything the component leaves unset - a margin, `fs-0` in a flex row. It will not reliably override what the component already sets: which of two utilities wins is decided by the stylesheet's rule order, not by the order you write them."
     }
   ]
 }

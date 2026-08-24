@@ -6,9 +6,18 @@
       "type": "none",
       "typeName": "TabItem[]",
       "example": [
-        { "value": "subscriptions", "label": "Subscriptions" },
-        { "value": "invoices", "label": "Invoices" },
-        { "value": "payments", "label": "Payments" }
+        {
+          "value": "subscriptions",
+          "label": "Subscriptions"
+        },
+        {
+          "value": "invoices",
+          "label": "Invoices"
+        },
+        {
+          "value": "payments",
+          "label": "Payments"
+        }
       ],
       "description": "Each tab's `value` and `label`, plus optional `icon`, `iconOnly`, `count`, `disabled` and `panel`. `label` stays the accessible name when `iconOnly` hides it."
     },
@@ -31,28 +40,43 @@
     {
       "name": "orientation",
       "type": "enum",
-      "values": ["horizontal", "vertical"],
+      "values": [
+        "horizontal",
+        "vertical"
+      ],
       "default": "horizontal",
       "description": "`vertical` stacks the tabs and sits any panels beside them rather than below."
     },
     {
       "name": "size",
       "type": "enum",
-      "values": ["sm", "md", "lg"],
+      "values": [
+        "sm",
+        "md",
+        "lg"
+      ],
       "default": "md",
       "description": "Tab padding and label size together."
     },
     {
       "name": "shape",
       "type": "enum",
-      "values": ["pill", "rounded", "square", "squircle"],
+      "values": [
+        "pill",
+        "rounded",
+        "square",
+        "squircle"
+      ],
       "default": "pill",
       "description": "Corner radius on the list, the tabs and the indicator. The list takes one step more than the tabs inside it, so a tab's corner never pokes past the container's."
     },
     {
       "name": "iconPosition",
       "type": "enum",
-      "values": ["leading", "trailing"],
+      "values": [
+        "leading",
+        "trailing"
+      ],
       "default": "leading",
       "description": "Which end of a tab its `icon` sits at. Ignored when `iconOnly` is set."
     },
@@ -61,11 +85,6 @@
       "type": "boolean",
       "default": true,
       "description": "The indicator's slide between tabs. Turn it off for an instant jump, or when the user has asked for reduced motion."
-    },
-    {
-      "name": "className",
-      "type": "string",
-      "description": "Appended to the root's classes, for anything the component leaves unset - a margin, `fs-0` in a flex row. It will not reliably override what the component already sets: which of two utilities wins is decided by the stylesheet's rule order, not by the order you write them. Use `size` for the dimensions."
     }
   ]
 }

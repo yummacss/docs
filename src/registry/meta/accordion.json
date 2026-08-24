@@ -27,21 +27,34 @@
     {
       "name": "variant",
       "type": "enum",
-      "values": ["default", "bordered", "ghost", "subtle"],
+      "values": [
+        "default",
+        "bordered",
+        "ghost",
+        "subtle"
+      ],
       "default": "default",
       "description": "`default` is a plain list divided by `separator`. `bordered` boxes each item. `ghost` marks the open item with a left border. `subtle` fills the open item's background."
     },
     {
       "name": "shape",
       "type": "enum",
-      "values": ["rounded", "square", "squircle"],
+      "values": [
+        "rounded",
+        "square",
+        "squircle"
+      ],
       "default": "rounded",
       "description": "Corner radius on `bordered` items. The other variants use a fixed radius, since no shape was ever paired with them."
     },
     {
       "name": "shadow",
       "type": "enum",
-      "values": ["none", "inset", "outset"],
+      "values": [
+        "none",
+        "inset",
+        "outset"
+      ],
       "default": "none",
       "description": "Wraps the whole list in a card. Only applies to the `default` variant."
     },
@@ -54,14 +67,20 @@
     {
       "name": "icon",
       "type": "enum",
-      "values": ["chevron", "plus-minus"],
+      "values": [
+        "chevron",
+        "plus-minus"
+      ],
       "default": "chevron",
-      "description": "`chevron` rotates one glyph 180°. `plus-minus` swaps between two glyphs with a small rotation flourish."
+      "description": "`chevron` rotates one glyph 180\u00b0. `plus-minus` swaps between two glyphs with a small rotation flourish."
     },
     {
       "name": "iconPosition",
       "type": "enum",
-      "values": ["leading", "trailing"],
+      "values": [
+        "leading",
+        "trailing"
+      ],
       "default": "trailing",
       "description": "Which end of the trigger the icon sits at."
     },
@@ -75,7 +94,9 @@
       "name": "defaultValue",
       "type": "none",
       "typeName": "string[]",
-      "example": ["notifications"],
+      "example": [
+        "notifications"
+      ],
       "description": "Which items start open, by `value`. Pair `value` with `onValueChange` instead if you are controlling it."
     },
     {
@@ -95,11 +116,6 @@
       "type": "boolean",
       "default": true,
       "description": "The icon's rotation & the panel's height/opacity animation. Turn it off for an instant expand/collapse, or when the user has asked for reduced motion."
-    },
-    {
-      "name": "className",
-      "type": "string",
-      "description": "Appended to the list's classes, for anything the component leaves unset - a margin, `fs-0` in a flex row. It will not reliably override what the component already sets: which of two utilities wins is decided by the stylesheet's rule order, not by the order you write them."
     }
   ]
 }

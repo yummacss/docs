@@ -13,35 +13,63 @@
       "type": "none",
       "typeName": "ContextMenuItem[]",
       "example": [
-        { "label": "Edit" },
-        { "label": "Duplicate" },
-        { "label": "Bookmark" },
-        { "label": "Pin to top" },
-        { "type": "separator" },
-        { "label": "Archive" },
-        { "type": "separator" },
-        { "label": "Delete", "destructive": true }
+        {
+          "label": "Edit"
+        },
+        {
+          "label": "Duplicate"
+        },
+        {
+          "label": "Bookmark"
+        },
+        {
+          "label": "Pin to top"
+        },
+        {
+          "type": "separator"
+        },
+        {
+          "label": "Archive"
+        },
+        {
+          "type": "separator"
+        },
+        {
+          "label": "Delete",
+          "destructive": true
+        }
       ],
       "description": "A discriminated union. `{ label }` is a plain action (plus optional `icon`, `shortcut`, `destructive`, `disabled`, `onClick`). `{ type: \"separator\" }` divides. `{ type: \"group\", label?, items }` wraps a `role=\"group\"` block under a heading. `{ type: \"checkbox\", label, checked, onCheckedChange }` and `{ type: \"radio\", value, onValueChange, options }` are the stateful kinds. `{ type: \"submenu\", label, items }` nests, recursively."
     },
     {
       "name": "shape",
       "type": "enum",
-      "values": ["rounded", "square", "squircle"],
+      "values": [
+        "rounded",
+        "square",
+        "squircle"
+      ],
       "default": "rounded",
       "description": "Corner radius on the trigger, popup and items together. `squircle` steps the popup & item radius up one and adds `corner-shape`."
     },
     {
       "name": "shadow",
       "type": "enum",
-      "values": ["none", "inset", "outset"],
+      "values": [
+        "none",
+        "inset",
+        "outset"
+      ],
       "default": "none",
       "description": "Depth on both the trigger and the popup."
     },
     {
       "name": "iconPosition",
       "type": "enum",
-      "values": ["leading", "trailing"],
+      "values": [
+        "leading",
+        "trailing"
+      ],
       "default": "leading",
       "description": "Which end of an item its `icon` sits at. A `shortcut` always trails regardless."
     },
@@ -67,11 +95,6 @@
       "type": "boolean",
       "default": true,
       "description": "The popup's fade in/out. Turn it off for an instant appearance, or when the user has asked for reduced motion."
-    },
-    {
-      "name": "className",
-      "type": "string",
-      "description": "Appended to the trigger's classes, for anything the component leaves unset - a margin, `fs-0` in a flex row. It will not reliably override what the component already sets: which of two utilities wins is decided by the stylesheet's rule order, not by the order you write them."
     }
   ]
 }
