@@ -35,21 +35,31 @@
     {
       "name": "shape",
       "type": "enum",
-      "values": ["rounded", "square", "squircle"],
+      "values": [
+        "rounded",
+        "square",
+        "squircle"
+      ],
       "default": "rounded",
       "description": "Corner radius. `squircle` uses `corner-shape`, which degrades to a rounded square where that is unsupported."
     },
     {
       "name": "size",
       "type": "enum",
-      "values": ["sm", "md"],
+      "values": [
+        "sm",
+        "md"
+      ],
       "default": "md",
       "description": "The button's footprint."
     },
     {
       "name": "tone",
       "type": "enum",
-      "values": ["accent", "ghost"],
+      "values": [
+        "accent",
+        "ghost"
+      ],
       "default": "accent",
       "description": "`accent` is a standalone toggle: bordered and tinted even unpressed. `ghost` is for one that already sits inside a bordered group - plain until pressed."
     },
@@ -74,11 +84,6 @@
       "type": "string",
       "example": "Toggle theme",
       "description": "The button has no visible text, so this is the only accessible name it gets. Set it every time."
-    },
-    {
-      "name": "className",
-      "type": "string",
-      "description": "Appended to the button's classes, for anything the component leaves unset - a margin, `fs-0` in a flex row. It will not reliably override what the component already sets: which of two utilities wins is decided by the stylesheet's rule order, not by the order you write them. Use `size` for the dimensions and `swatchClassName` for the swatch color."
     }
   ]
 }

@@ -9,25 +9,43 @@
         {
           "label": "Project",
           "items": [
-            { "label": "New task" },
-            { "label": "Import tasks" },
-            { "label": "Export tasks" }
+            {
+              "label": "New task"
+            },
+            {
+              "label": "Import tasks"
+            },
+            {
+              "label": "Export tasks"
+            }
           ]
         },
         {
           "label": "Assign",
           "items": [
-            { "label": "Assign task" },
-            { "label": "Reassign task" },
-            { "label": "Bulk assign" }
+            {
+              "label": "Assign task"
+            },
+            {
+              "label": "Reassign task"
+            },
+            {
+              "label": "Bulk assign"
+            }
           ]
         },
         {
           "label": "View",
           "items": [
-            { "label": "Board view" },
-            { "label": "List view" },
-            { "label": "Keyframes view" }
+            {
+              "label": "Board view"
+            },
+            {
+              "label": "List view"
+            },
+            {
+              "label": "Keyframes view"
+            }
           ]
         }
       ],
@@ -36,21 +54,32 @@
     {
       "name": "shape",
       "type": "enum",
-      "values": ["rounded", "square", "squircle"],
+      "values": [
+        "rounded",
+        "square",
+        "squircle"
+      ],
       "default": "rounded",
       "description": "Corner radius on the bar, its buttons, the popups and their items together."
     },
     {
       "name": "shadow",
       "type": "enum",
-      "values": ["none", "inset", "outset"],
+      "values": [
+        "none",
+        "inset",
+        "outset"
+      ],
       "default": "none",
       "description": "Depth on the bar and its popups. Not on the individual buttons inside the bar - they are transparent, so a shadow on each one reads as noise."
     },
     {
       "name": "iconPosition",
       "type": "enum",
-      "values": ["leading", "trailing"],
+      "values": [
+        "leading",
+        "trailing"
+      ],
       "default": "leading",
       "description": "Which end of an item its `icon` sits at. A `shortcut` always trails regardless."
     },
@@ -59,11 +88,6 @@
       "type": "boolean",
       "default": true,
       "description": "The popups' fade in/out. Turn it off for instant menus, or when the user has asked for reduced motion."
-    },
-    {
-      "name": "className",
-      "type": "string",
-      "description": "Appended to the bar's classes, for anything the component leaves unset - a margin, `fs-0` in a flex row. It will not reliably override what the component already sets: which of two utilities wins is decided by the stylesheet's rule order, not by the order you write them."
     }
   ]
 }
