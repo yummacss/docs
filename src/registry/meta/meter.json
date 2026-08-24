@@ -39,14 +39,23 @@
     {
       "name": "color",
       "type": "enum",
-      "values": ["yellow", "indigo", "red", "green"],
+      "values": [
+        "yellow",
+        "indigo",
+        "red",
+        "green"
+      ],
       "default": "yellow",
       "description": "The indicator's fill color."
     },
     {
       "name": "shadow",
       "type": "enum",
-      "values": ["none", "inset", "outset"],
+      "values": [
+        "none",
+        "inset",
+        "outset"
+      ],
       "default": "none",
       "description": "Wraps the meter in a padded card. `none` renders it bare, with no card at all."
     },
@@ -55,11 +64,6 @@
       "type": "boolean",
       "default": true,
       "description": "The indicator's width transition as `value` changes."
-    },
-    {
-      "name": "className",
-      "type": "string",
-      "description": "Appended to the root's classes, for anything the component leaves unset - a margin, `fs-0` in a flex row. It will not reliably override what the component already sets: which of two utilities wins is decided by the stylesheet's rule order, not by the order you write them."
     }
   ]
 }

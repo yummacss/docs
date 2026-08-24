@@ -4,7 +4,11 @@
     {
       "name": "shape",
       "type": "enum",
-      "values": ["line", "block", "circle"],
+      "values": [
+        "line",
+        "block",
+        "circle"
+      ],
       "default": "line",
       "description": "Corner radius, plus a default size: `line` for text, `block` for a control or thumbnail, `circle` for an avatar. Change the size with `size`."
     },
@@ -16,7 +20,10 @@
     {
       "name": "tone",
       "type": "enum",
-      "values": ["default", "subtle"],
+      "values": [
+        "default",
+        "subtle"
+      ],
       "default": "default",
       "description": "`subtle` is one step lighter, for the secondary line in a pair."
     },
@@ -31,11 +38,6 @@
       "type": "number",
       "default": 0,
       "description": "Seconds to offset the pulse by. Stagger a list with `delay={index * 0.15}` so its rows do not beat in unison."
-    },
-    {
-      "name": "className",
-      "type": "string",
-      "description": "Appended after the generated classes, for anything the component leaves unset - a margin, `fs-0` in a flex row. Use `size` for the width and height, which the component already sets."
     }
   ]
 }

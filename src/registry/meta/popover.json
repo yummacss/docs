@@ -17,7 +17,10 @@
     {
       "name": "triggerVariant",
       "type": "enum",
-      "values": ["icon", "label"],
+      "values": [
+        "icon",
+        "label"
+      ],
       "default": "icon",
       "description": "`icon` is a fixed square for a glyph alone; `label` gives the trigger room to pair an icon with text."
     },
@@ -43,7 +46,12 @@
     {
       "name": "side",
       "type": "enum",
-      "values": ["top", "right", "bottom", "left"],
+      "values": [
+        "top",
+        "right",
+        "bottom",
+        "left"
+      ],
       "default": "bottom",
       "description": "Which side of the trigger the popup opens on. It flips automatically if there is no room."
     },
@@ -91,14 +99,22 @@
     {
       "name": "shape",
       "type": "enum",
-      "values": ["rounded", "square", "squircle"],
+      "values": [
+        "rounded",
+        "square",
+        "squircle"
+      ],
       "default": "rounded",
       "description": "Corner radius on the trigger and the popup."
     },
     {
       "name": "shadow",
       "type": "enum",
-      "values": ["none", "inset", "outset"],
+      "values": [
+        "none",
+        "inset",
+        "outset"
+      ],
       "default": "none",
       "description": "Depth on the popup."
     },
@@ -107,11 +123,6 @@
       "type": "boolean",
       "default": true,
       "description": "The popup's scale-in. Turn it off for an instant popup, or when the user has asked for reduced motion."
-    },
-    {
-      "name": "className",
-      "type": "string",
-      "description": "Appended to the trigger's classes, for anything the component leaves unset - a margin, `fs-0` in a flex row. It will not reliably override what the component already sets: which of two utilities wins is decided by the stylesheet's rule order, not by the order you write them."
     }
   ]
 }

@@ -4,35 +4,59 @@
     {
       "name": "tone",
       "type": "enum",
-      "values": ["outline", "subtle", "solid"],
+      "values": [
+        "outline",
+        "subtle",
+        "solid"
+      ],
       "default": "outline",
       "description": "`outline` is a neutral bordered badge regardless of `color`. `subtle` and `solid` tint every part of the badge, including the dot, count and close button, to `color`."
     },
     {
       "name": "color",
       "type": "enum",
-      "values": ["slate", "indigo", "red", "green", "yellow", "orange"],
+      "values": [
+        "slate",
+        "indigo",
+        "red",
+        "green",
+        "yellow",
+        "orange"
+      ],
       "default": "indigo",
       "description": "Only visible on the `subtle` & `solid` tones - `outline` stays neutral regardless of what this is set to."
     },
     {
       "name": "shape",
       "type": "enum",
-      "values": ["square", "rounded", "pill", "squircle"],
+      "values": [
+        "square",
+        "rounded",
+        "pill",
+        "squircle"
+      ],
       "default": "rounded",
       "description": "Corner radius. `squircle` uses `corner-shape`, which degrades to a rounded square where that is unsupported."
     },
     {
       "name": "size",
       "type": "enum",
-      "values": ["sm", "md", "lg"],
+      "values": [
+        "sm",
+        "md",
+        "lg"
+      ],
       "default": "md",
       "description": "Padding, text size and icon size together."
     },
     {
       "name": "shadow",
       "type": "enum",
-      "values": ["none", "inset", "outset"],
+      "values": [
+        "none",
+        "inset",
+        "outset"
+      ],
       "default": "none",
       "description": "Depth on the badge. `inset` reads as a well, `outset` as a raised chip."
     },
@@ -45,7 +69,10 @@
     {
       "name": "iconPosition",
       "type": "enum",
-      "values": ["leading", "trailing"],
+      "values": [
+        "leading",
+        "trailing"
+      ],
       "default": "leading",
       "description": "Which end `icon` sits at."
     },
@@ -66,11 +93,6 @@
       "type": "none",
       "typeName": "() => void",
       "description": "Renders a trailing close button & calls this when it's pressed. The badge itself does not track dismissed state - remove it from whatever list renders it."
-    },
-    {
-      "name": "className",
-      "type": "string",
-      "description": "Appended to the badge's classes, for anything the component leaves unset - a margin, `fs-0` in a flex row. It will not reliably override what the component already sets: which of two utilities wins is decided by the stylesheet's rule order, not by the order you write them. Use `size` for the dimensions."
     }
   ],
   "children": "Label"

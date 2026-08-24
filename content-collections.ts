@@ -33,6 +33,12 @@ const ui = defineCollection({
     title: z.string(),
     description: z.string().optional(),
     primitive: z.union([z.boolean(), z.string()]).optional(),
+    // Whether the page drives its component from the controls in the right
+    // rail instead of listing a props table. Opt-in per page: the rail is
+    // wired to `<ComponentPlayground />`, so showing it beside a page that
+    // still renders a static preview would give a reader controls that do
+    // nothing.
+    playground: z.boolean().optional(),
     content: z.string().optional(),
   }),
   transform: (doc) => ({

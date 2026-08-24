@@ -310,24 +310,21 @@ export function buildUsage(
 
   tokens.push({ kind: "punctuation", text: "<" }, { kind: "tag", text: name });
 
+  // Attributes stay on the element's own line. A prop per line turned three
+  // changed values into a seven-line block, and the snippet is a thing you
+  // copy rather than a thing you read down.
   for (const prop of props) {
-    tokens.push({ kind: "text", text: "\n  " });
+    tokens.push({ kind: "text", text: " " });
     tokens.push(...attribute(prop, values[prop.name]));
   }
 
   // A component whose schema declares no children slot is written self-closing,
   // so the snippet matches how it is actually used.
   if (meta.children === undefined) {
-    tokens.push({ kind: "punctuation", text: props.length ? "\n/>" : " />" });
+    tokens.push({ kind: "punctuation", text: " />" });
   } else {
-    if (props.length) {
-      tokens.push({ kind: "punctuation", text: "\n>" });
-      tokens.push({ kind: "text", text: `\n  ${meta.children}\n` });
-    } else {
-      tokens.push({ kind: "punctuation", text: ">" });
-      tokens.push({ kind: "text", text: meta.children });
-    }
-
+    tokens.push({ kind: "punctuation", text: ">" });
+    tokens.push({ kind: "text", text: meta.children });
     tokens.push({ kind: "punctuation", text: "</" });
     tokens.push({ kind: "tag", text: name });
     tokens.push({ kind: "punctuation", text: ">" });

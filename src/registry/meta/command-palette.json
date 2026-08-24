@@ -19,19 +19,28 @@
             {
               "id": "new-doc",
               "label": "New doc",
-              "icon": { "$icon": "PagePlus", "size": "w-4 h-4" },
-              "shortcut": "⌘N"
+              "icon": {
+                "$icon": "PagePlus",
+                "size": "w-4 h-4"
+              },
+              "shortcut": "\u2318N"
             },
             {
               "id": "drafts",
               "label": "Drafts",
-              "icon": { "$icon": "Page", "size": "w-4 h-4" },
-              "shortcut": "⌘D"
+              "icon": {
+                "$icon": "Page",
+                "size": "w-4 h-4"
+              },
+              "shortcut": "\u2318D"
             },
             {
               "id": "templates",
               "label": "Templates",
-              "icon": { "$icon": "Folder", "size": "w-4 h-4" }
+              "icon": {
+                "$icon": "Folder",
+                "size": "w-4 h-4"
+              }
             }
           ]
         },
@@ -41,19 +50,28 @@
             {
               "id": "knowledge-base",
               "label": "Knowledge base",
-              "icon": { "$icon": "PageSearch", "size": "w-4 h-4" },
+              "icon": {
+                "$icon": "PageSearch",
+                "size": "w-4 h-4"
+              },
               "description": "Everything the team has written down"
             },
             {
               "id": "analytics",
               "label": "Analytics",
-              "icon": { "$icon": "StatUp", "size": "w-4 h-4" },
+              "icon": {
+                "$icon": "StatUp",
+                "size": "w-4 h-4"
+              },
               "description": "Views, referrers and search terms"
             },
             {
               "id": "settings",
               "label": "Settings",
-              "icon": { "$icon": "Wrench", "size": "w-4 h-4" },
+              "icon": {
+                "$icon": "Wrench",
+                "size": "w-4 h-4"
+              },
               "description": "Workspace, members and billing"
             }
           ]
@@ -76,21 +94,32 @@
     {
       "name": "iconPosition",
       "type": "enum",
-      "values": ["leading", "trailing"],
+      "values": [
+        "leading",
+        "trailing"
+      ],
       "default": "leading",
       "description": "Which end of an item its `icon` sits at. A `shortcut` always trails regardless."
     },
     {
       "name": "shape",
       "type": "enum",
-      "values": ["rounded", "square", "squircle"],
+      "values": [
+        "rounded",
+        "square",
+        "squircle"
+      ],
       "default": "rounded",
       "description": "Corner radius on the trigger, the popup and its items."
     },
     {
       "name": "shadow",
       "type": "enum",
-      "values": ["none", "inset", "outset"],
+      "values": [
+        "none",
+        "inset",
+        "outset"
+      ],
       "default": "none",
       "description": "Depth on the popup."
     },
@@ -99,11 +128,6 @@
       "type": "boolean",
       "default": true,
       "description": "The backdrop's fade and the popup's scale-in. Turn it off for an instant palette, or when the user has asked for reduced motion."
-    },
-    {
-      "name": "className",
-      "type": "string",
-      "description": "Appended to the trigger's classes, for anything the component leaves unset - a margin, `fs-0` in a flex row. It will not reliably override what the component already sets: which of two utilities wins is decided by the stylesheet's rule order, not by the order you write them."
     }
   ]
 }

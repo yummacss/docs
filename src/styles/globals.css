@@ -103,6 +103,20 @@ body {
   max-width: clamp(40rem, 80vw, 96rem);
 }
 
+/* The playground's controls, which stand beside the article rather than under
+   it once there is a column to stand in. Hand-written because the capped height
+   is a calculation, and because it has to stop applying below the breakpoint:
+   on a phone the rail stacks under the article, where a max height would put
+   the last of a component's props inside a second scrollbar. */
+@media (min-width: 64rem) {
+  .playground-rail {
+    position: sticky;
+    top: 5rem;
+    max-height: calc(100dvh - 5rem);
+    overflow-y: auto;
+  }
+}
+
 /* A folded fixture inside a code block. The `...` is punctuation that happens
    to be interactive, so the disclosure triangle goes; and a closed <details>
    must not leave its own line behind, or a folded region costs the blank line

@@ -6,9 +6,15 @@
       "type": "none",
       "typeName": "ToolbarItem[]",
       "example": [
-        { "label": "New Task" },
-        { "label": "Sort" },
-        { "type": "separator" },
+        {
+          "label": "New Task"
+        },
+        {
+          "label": "Sort"
+        },
+        {
+          "type": "separator"
+        },
         {
           "type": "input",
           "label": "Search tasks",
@@ -20,14 +26,22 @@
     {
       "name": "shape",
       "type": "enum",
-      "values": ["rounded", "square", "squircle"],
+      "values": [
+        "rounded",
+        "square",
+        "squircle"
+      ],
       "default": "rounded",
       "description": "Corner radius on the bar and every control inside it. The bar takes one step more than its controls."
     },
     {
       "name": "shadow",
       "type": "enum",
-      "values": ["none", "inset", "outset"],
+      "values": [
+        "none",
+        "inset",
+        "outset"
+      ],
       "default": "none",
       "description": "Depth on the bar."
     },
@@ -36,11 +50,6 @@
       "type": "boolean",
       "default": true,
       "description": "The press-scale on buttons and toggles. Turn it off for static controls, or when the user has asked for reduced motion."
-    },
-    {
-      "name": "className",
-      "type": "string",
-      "description": "Appended to the bar's classes, for anything the component leaves unset - a margin, `fs-0` in a flex row. It will not reliably override what the component already sets: which of two utilities wins is decided by the stylesheet's rule order, not by the order you write them."
     }
   ]
 }
