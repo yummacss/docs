@@ -19,6 +19,12 @@ const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
 };
 
 export interface PreviewCardProps {
+  /**
+   * Where the popup is rendered. Defaults to `document.body`, which is right
+   * almost always; pass an element to portal somewhere else - inside a frame,
+   * or inside a container that owns its own stacking context.
+   */
+  container?: HTMLElement | null;
   trigger: ReactNode;
   children: ReactNode;
   defaultOpen?: boolean;
@@ -40,6 +46,7 @@ export default function PreviewCardBase({
   shadow = "none",
   animate = true,
   className,
+  container,
 }: PreviewCardProps) {
   const popupClasses = [
     "d-f fd-c g-3 w-64 p-3 bg-white bc-silver-2 bw-1 c-slate-10 fs-sm",
@@ -69,7 +76,7 @@ export default function PreviewCardBase({
         {trigger}
       </PreviewCard.Trigger>
 
-      <PreviewCard.Portal>
+      <PreviewCard.Portal container={container}>
         <PreviewCard.Positioner sideOffset={8}>
           <PreviewCard.Popup
             render={

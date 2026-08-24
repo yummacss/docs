@@ -1,10 +1,15 @@
 import PreviewCard from "./preview-card";
 
-export default function PreviewCardProject() {
+export default function PreviewCardProject({
+  container,
+}: {
+  /** Portal target, so a popup opened in a framed preview stays in the frame. */
+  container?: HTMLElement | null;
+}) {
   return (
     <p className="m-0 c-slate-10 fs-sm">
       View{" "}
-      <PreviewCard trigger="Acme Website">
+      <PreviewCard container={container} trigger="Acme Website">
         <div className="d-f fd-c g-1">
           <span className="c-slate-10 fs-md fw-500">Acme Website</span>
         </div>

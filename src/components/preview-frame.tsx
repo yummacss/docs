@@ -1,6 +1,13 @@
 "use client";
 
-import { type ReactNode, useEffect, useRef, useState } from "react";
+import {
+  createContext,
+  type ReactNode,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { createPortal } from "react-dom";
 
 /**
@@ -70,6 +77,20 @@ function pageStyles(): string {
 
   sheet = parts.join("\n");
   return sheet;
+}
+
+/**
+ * The frame's root, for a component that portals.
+ *
+ * Base UI resolves a portal against the top-level `document.body`, not the
+ * document its trigger happens to be in, so a modal opened inside a frame
+ * still lands on the page & still covers the controls driving it. Its Portal
+ * parts take a `container`, and this is how the preview finds one to pass.
+ */
+const ContainerContext = createContext<HTMLElement | null>(null);
+
+export function usePreviewContainer() {
+  return useContext(ContainerContext);
 }
 
 interface Props {
@@ -172,7 +193,11 @@ export default function PreviewFrame({
       {/* Outside the element, not between its tags: the portal renders into
           the frame's body, and an `<iframe>` with React children would put
           them in the host document instead. */}
-      {body && createPortal(children, body)}
+      {body &&
+        createPortal(
+          <ContainerContext value={body}>{children}</ContainerContext>,
+          body,
+        )}
     </div>
   );
 }

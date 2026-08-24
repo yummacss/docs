@@ -2,7 +2,9 @@
 import { Toggle } from "@base-ui/react/toggle";
 import type { ComponentType } from "react";
 import { lazy, type ReactNode, Suspense, useEffect, useState } from "react";
-import PreviewFrame from "@/components/preview-frame";
+import PreviewFrame, {
+  usePreviewContainer,
+} from "@/components/preview-frame";
 import TokenBlock from "@/components/ui/token-block";
 import {
   getRegistryImport,
@@ -46,6 +48,9 @@ export default function ComponentPreview({
   // its source here answers a question nobody asked under `### Base`. Usage is
   // the answer; the implementation stays in the registry JSON & the `.md` route.
   const [usage, setUsage] = useState<Token[] | null>(null);
+  // Whether this preview needs a portal target. Read from the component's own
+  // schema rather than the variant's, since a variant has none of its own.
+  const [portals, setPortals] = useState(false);
   const actualId = registryId || id;
 
   useEffect(() => {
@@ -56,10 +61,14 @@ export default function ComponentPreview({
       setRegistryComponent(() => lazy(importFn));
     }
 
+    const target = getRegistryTarget(actualId);
+
+    getRegistryMeta(target.component)?.().then((module) => {
+      setPortals(module.default.props.some((prop) => prop.name === "container"));
+    });
+
     const importMeta = getRegistryMeta(actualId);
     if (!importMeta) return;
-
-    const target = getRegistryTarget(actualId);
 
     importMeta().then((module) => {
       const meta = module.default;
@@ -80,9 +89,13 @@ export default function ComponentPreview({
       {RegistryComponent ? (
         <PreviewFrame minHeight={200}>
           <Suspense fallback={null}>
-            <RegistryComponent {...demo.props}>
+            <Mounted
+              Component={RegistryComponent}
+              props={demo.props}
+              portals={portals}
+            >
               {demo.children}
-            </RegistryComponent>
+            </Mounted>
           </Suspense>
         </PreviewFrame>
       ) : null}
@@ -105,5 +118,32 @@ export default function ComponentPreview({
           children
         ))}
     </div>
+  );
+}
+
+/**
+ * The component, inside the frame, holding a portal target if it takes one.
+ *
+ * The context is only populated on the frame's side of the portal, so it has
+ * to be read from a component that renders there. Passing `container` to a
+ * component with no popup would put an unknown attribute on the DOM.
+ */
+function Mounted({
+  Component,
+  props,
+  portals,
+  children,
+}: {
+  Component: ComponentType<DemoProps>;
+  props: DemoProps;
+  portals: boolean;
+  children?: string;
+}) {
+  const container = usePreviewContainer();
+
+  return (
+    <Component {...props} {...(portals ? { container } : {})}>
+      {children}
+    </Component>
   );
 }

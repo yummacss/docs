@@ -34,6 +34,12 @@ const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
 };
 
 export interface PopoverProps {
+  /**
+   * Where the popup is rendered. Defaults to `document.body`, which is right
+   * almost always; pass an element to portal somewhere else - inside a frame,
+   * or inside a container that owns its own stacking context.
+   */
+  container?: HTMLElement | null;
   trigger: ReactNode;
   triggerLabel?: string;
   triggerVariant?: TriggerVariant;
@@ -73,6 +79,7 @@ export default function PopoverBase({
   shadow = "none",
   animate = true,
   className,
+  container,
 }: PopoverProps) {
   const [uncontrolledOpen, setUncontrolledOpen] = useState(false);
   const open = controlledOpen ?? uncontrolledOpen;
@@ -141,7 +148,7 @@ export default function PopoverBase({
   );
 
   const popup = (
-    <Popover.Portal keepMounted>
+    <Popover.Portal container={container} keepMounted>
       <Popover.Positioner side={side} sideOffset={sideOffset}>
         <Popover.Popup
           render={

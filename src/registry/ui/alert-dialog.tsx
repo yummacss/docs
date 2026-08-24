@@ -46,6 +46,12 @@ const TONE_BADGE: Record<Tone, string> = {
 };
 
 export interface AlertDialogProps {
+  /**
+   * Where the popup is rendered. Defaults to `document.body`, which is right
+   * almost always; pass an element to portal somewhere else - inside a frame,
+   * or inside a container that owns its own stacking context.
+   */
+  container?: HTMLElement | null;
   trigger: ReactNode;
   triggerIcon?: ReactNode;
   triggerIconPosition?: IconPosition;
@@ -81,6 +87,7 @@ export default function AlertDialogBase({
   shadow = "none",
   animate = true,
   className,
+  container,
 }: AlertDialogProps) {
   const [open, setOpen] = useState(false);
 
@@ -129,7 +136,7 @@ export default function AlertDialogBase({
     .join(" ");
 
   const popup = (
-    <AlertDialog.Portal keepMounted>
+    <AlertDialog.Portal container={container} keepMounted>
       <AlertDialog.Backdrop
         render={
           animate ? (

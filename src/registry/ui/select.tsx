@@ -106,6 +106,12 @@ function renderOption(option: SelectOption) {
 }
 
 export interface SelectProps {
+  /**
+   * Where the popup is rendered. Defaults to `document.body`, which is right
+   * almost always; pass an element to portal somewhere else - inside a frame,
+   * or inside a container that owns its own stacking context.
+   */
+  container?: HTMLElement | null;
   options: SelectOption[] | SelectGroup[];
   label?: string;
   required?: boolean;
@@ -143,6 +149,7 @@ export default function SelectBase({
   animate = true,
   fullWidth = false,
   className,
+  container,
 }: SelectProps) {
   const [open, setOpen] = useState(false);
   const id = useId();
@@ -244,7 +251,7 @@ export default function SelectBase({
 
         <AnimatePresence>
           {open && (
-            <Select.Portal>
+            <Select.Portal container={container}>
               <Select.Positioner
                 sideOffset={8}
                 alignItemWithTrigger={false}
