@@ -40,13 +40,18 @@ export default defineConfig({
   ],
   theme: {
     colors: {
-      // Same keys as before the theme switcher — only light/dark pairs added.
+      // Dark values = original docs palette (untouched). Light values are pairs
+      // only. `white` / `black` are built-ins the site already used (c-white,
+      // bg-white, c-black); pairing them keeps light mode working without a
+      // new token name.
       accent: { light: "#232741", dark: "#bec6f2" },
       "accent-dim": { light: "#64748b", dark: "#9aa5ef" },
       border: { light: "#cbd5e1", dark: "#232741" },
       code: { light: "#9aa5ef", dark: "#dda2f6" },
       page: { light: "#ffffff", dark: "#151724" },
       surface: { light: "#f1f5f9", dark: "#1a1d2e" },
+      white: { light: "#232741", dark: "#ffffff" },
+      black: { light: "#ffffff", dark: "#000000" },
       "diff-add": "#a8e1ad",
       "diff-remove": "#e1a8a8",
     },

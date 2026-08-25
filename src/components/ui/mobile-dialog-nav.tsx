@@ -70,7 +70,7 @@ export default function MobileDialogNav({ sections, isOpen, onClose }: Props) {
                   </div>
                   <Dialog.Close
                     aria-label="Close menu"
-                    className="d-f ai-c jc-c h-8 px-3 bc-border bg-surface h:bg-surface-8 c-accent bw-1 bf-b-sm fv:oc-accent fv:ow-2"
+                    className="d-f ai-c jc-c h-8 px-3 bc-border bg-surface h:bg-surface-8 c-white bw-1 bf-b-sm fv:oc-white fv:ow-2"
                   >
                     <Xmark className="w-4 h-4" />
                   </Dialog.Close>

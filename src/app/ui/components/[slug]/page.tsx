@@ -54,7 +54,7 @@ export default async function Page({
       {ui && (
         <div className="my-8" data-meta>
           <div className="d-f ai-c jc-sb mb-2">
-            <h1 className="c-accent fs-4xl fw-400">{ui.title}</h1>
+            <h1 className="c-white fs-4xl fw-400">{ui.title}</h1>
             <Pagination
               previous={navigation.previous}
               next={navigation.next}

@@ -70,7 +70,7 @@ export default async function BlogPostPage({
             <span>{formatDate(post?.date || "")}</span>
           </div>
 
-          <h1 className="mb-2 c-accent fs-4xl fw-400 @lg:fs-5xl">{post?.title}</h1>
+          <h1 className="mb-2 c-white fs-4xl fw-400 @lg:fs-5xl">{post?.title}</h1>
 
           <p className="mb-6 c-accent-dim fs-lg lh-5">{post?.description}</p>
 
