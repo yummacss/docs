@@ -3,6 +3,8 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import JsonLd from "@/components/json-ld";
+import { ThemeProvider } from "@/components/theme-provider";
+import { themeInitScript } from "@/lib/theme";
 
 const description =
   "Fixed scales for spacing, colors, type and radius. No arbitrary values to drift.";
@@ -54,34 +56,41 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      className="cs-d sb-s spt-20 s::bg-accent-dim/10"
+      className="cs-ld sb-s spt-20 s::bg-accent-dim/10"
       lang="en"
       data-scroll-behavior="smooth"
+      suppressHydrationWarning
     >
-      <body className="bg-page">
-        {children}
-        <Analytics />
-        <SpeedInsights />
-        <JsonLd
-          data={{
-            "@context": "https://schema.org",
-            "@type": "WebSite",
-            name: "Yumma CSS",
-            url: "https://yummacss.com",
-            description,
-          }}
-        />
-        <JsonLd
-          data={{
-            "@context": "https://schema.org",
-            "@type": "SoftwareApplication",
-            name: "Yumma CSS",
-            applicationCategory: "DeveloperApplication",
-            operatingSystem: "Any",
-            description,
-            url: "https://yummacss.com",
-          }}
-        />
+      <head>
+        {/* biome-ignore lint/security/noDangerouslySetInnerHtml: static theme bootstrap, not user input */}
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
+      <body className="bg-page c-foreground">
+        <ThemeProvider>
+          {children}
+          <Analytics />
+          <SpeedInsights />
+          <JsonLd
+            data={{
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "Yumma CSS",
+              url: "https://yummacss.com",
+              description,
+            }}
+          />
+          <JsonLd
+            data={{
+              "@context": "https://schema.org",
+              "@type": "SoftwareApplication",
+              name: "Yumma CSS",
+              applicationCategory: "DeveloperApplication",
+              operatingSystem: "Any",
+              description,
+              url: "https://yummacss.com",
+            }}
+          />
+        </ThemeProvider>
       </body>
     </html>
   );

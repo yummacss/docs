@@ -20,7 +20,7 @@ export default function EditPage() {
   return (
     <Link
       href={url}
-      className="d-if ai-c g-2 w-fc c-white/70 fs-sm td-none h:c-white fv:oc-white fv:ow-2"
+      className="d-if ai-c g-2 w-fc c-foreground/70 fs-sm td-none h:c-foreground fv:oc-foreground fv:ow-2"
     >
       <PageEdit className="w-4 h-4" />
       Edit page

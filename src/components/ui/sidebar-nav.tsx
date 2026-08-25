@@ -55,7 +55,7 @@ export default function SidebarNav({ sections, basePath, links }: Props) {
                     <li key={entry.slug}>
                       <Link
                         href={href}
-                        className={`d-if ai-c g-3 fs-sm us-none fv:oc-white fv:oo-2 fv:ow-2 ${isActive ? "c-accent td-u tds-d" : "c-white/70 h:c-accent"}`}
+                        className={`d-if ai-c g-3 fs-sm us-none fv:oc-foreground fv:oo-2 fv:ow-2 ${isActive ? "c-accent td-u tds-d" : "c-foreground/70 h:c-accent"}`}
                       >
                         {entry.title}
                       </Link>
@@ -75,7 +75,7 @@ export default function SidebarNav({ sections, basePath, links }: Props) {
                           <li key={child.slug}>
                             <Link
                               href={href}
-                              className={`d-if ai-c g-3 fs-sm us-none fv:oc-white fv:oo-2 fv:ow-2 ${isActive ? "c-accent td-u tds-d" : "c-white/70 h:c-accent"}`}
+                              className={`d-if ai-c g-3 fs-sm us-none fv:oc-foreground fv:oo-2 fv:ow-2 ${isActive ? "c-accent td-u tds-d" : "c-foreground/70 h:c-accent"}`}
                             >
                               {child.title}
                             </Link>
@@ -100,10 +100,10 @@ export default function SidebarNav({ sections, basePath, links }: Props) {
                     href={link.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="d-if ai-c g-2 c-white/70 fs-sm us-none h:c-accent fv:oc-white fv:oo-2 fv:ow-2"
+                    className="d-if ai-c g-2 c-foreground/70 fs-sm us-none h:c-accent fv:oc-foreground fv:oo-2 fv:ow-2"
                   >
                     {link.title}
-                    <ArrowUpRight className="w-3 h-3 c-white/40" />
+                    <ArrowUpRight className="w-3 h-3 c-foreground/40" />
                   </Link>
                 </li>
               ))}
