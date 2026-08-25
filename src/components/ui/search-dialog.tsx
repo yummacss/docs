@@ -210,7 +210,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                                 setSelectedIndex(currentIndex)
                               }
                               className={`d-f b-0 ai-c g-3 w-100% px-3 py-2 ta-l c-p ${
-                                isSelected ? "bg-border" : "bg-transparent"
+                                isSelected ? "bg-surface" : "bg-transparent"
                               }`}
                             >
                               {item.category === "colors" && item.color ? (
