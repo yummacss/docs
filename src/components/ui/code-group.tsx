@@ -11,6 +11,7 @@ import {
 } from "react";
 import { CopyButton } from "@/components/ui/code";
 import CodeTabs from "@/components/ui/code-tabs";
+import { useCodeFrame } from "@/lib/use-code-frame";
 
 interface CodeChildProps {
   title?: string;
@@ -53,6 +54,7 @@ export default function CodeGroup({ children }: Props) {
   const [active, setActive] = useState(0);
   const [copied, setCopied] = useState(false);
   const groupId = useId();
+  const frame = useCodeFrame();
 
   if (panels.length === 0) return null;
 
@@ -74,7 +76,7 @@ export default function CodeGroup({ children }: Props) {
   };
 
   return (
-    <div className="cs-d o-h my-4 bc-border bg-surface bw-1">
+    <div className={frame.frame}>
       <CodeTabs
         idPrefix={groupId}
         active={String(current)}

@@ -2,6 +2,7 @@
 
 import { Button } from "@base-ui/react";
 import type { ReactNode } from "react";
+import { useCodeFrame } from "@/lib/use-code-frame";
 
 /**
  * The tab strip above a code block.
@@ -26,8 +27,10 @@ export default function CodeTabs<T extends string>({
   idPrefix: string;
   action?: ReactNode;
 }) {
+  const frame = useCodeFrame();
+
   return (
-    <div className="d-f bc-border bg-page">
+    <div className={frame.tabBar}>
       <div
         role="tablist"
         aria-orientation="horizontal"
@@ -54,9 +57,7 @@ export default function CodeTabs<T extends string>({
                 }
               }}
               className={`d-f ai-c px-6 py-2 brw-1 bc-border fs-sm ff-m ws-nw c-p a-none ${
-                selected
-                  ? "c-accent bg-surface"
-                  : "c-accent-dim bg-transparent bbw-1"
+                selected ? frame.tabSelected : frame.tabUnselected
               }`}
             >
               {tab.label}
