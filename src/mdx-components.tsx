@@ -3,7 +3,6 @@ import Image from "next/image";
 import Admonition from "@/components/admonition";
 import Baseline from "@/components/baseline";
 import ComponentPreview from "@/components/component-preview";
-import ComponentPlayground from "@/components/playground/stage";
 import FileTree from "@/components/file-tree";
 import Hint from "@/components/hint";
 import {
@@ -13,6 +12,7 @@ import {
   Zed,
 } from "@/components/icons/icons";
 import Palette from "@/components/palette";
+import ComponentPlayground from "@/components/playground/stage";
 import Preview from "@/components/preview";
 import PropsTable from "@/components/props-table";
 import Reference from "@/components/reference";
@@ -132,7 +132,7 @@ const components: MDXComponents = {
     props.className ? (
       <a {...props}>{children}</a>
     ) : (
-      <a className="c-accent h:td-u fv:oc-white fv:ow-2" {...props}>
+      <a className="c-white/80 h:c-accent h:td-u fv:oc-accent fv:ow-2" {...props}>
         {children}
       </a>
     ),

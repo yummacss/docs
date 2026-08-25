@@ -42,7 +42,7 @@ export default function TokenBlock({
   };
 
   return (
-    <div className={`bg-surface ${className}`}>
+    <div className={`cs-d bg-surface ${className}`}>
       <TitleBar
         title={title}
         action={<CopyButton copied={copied} onCopy={copy} />}

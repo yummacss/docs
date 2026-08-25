@@ -3,13 +3,13 @@
 import { Button } from "@base-ui/react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { clsx } from "clsx";
-import { Github, Menu, NpmSquare, Search, Xmark } from "iconoir-react";
+import { Github, Menu, Search, Xmark } from "iconoir-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { lazy, type ReactNode, Suspense, useEffect, useState } from "react";
-import pkg from "../../../package.json";
 import { YummaCSSDark } from "../icons/yummacss-dark";
 import { SearchDialog } from "./search-dialog";
+import ThemeSwitcher from "./theme-switcher";
 
 const MobileDialog = lazy(() => import("./mobile-dialog"));
 
@@ -58,13 +58,17 @@ export default function Navbar({
   return (
     <>
       <header
-        className={clsx(navbarVariants({ variant }), className, "zi-10")}
-        style={{ backgroundColor: isLandingPage ? "transparent" : "#151724" }}
+        className={clsx(
+          navbarVariants({ variant }),
+          className,
+          "zi-10 bg-page",
+        )}
+        style={isLandingPage ? { backgroundColor: "transparent" } : undefined}
       >
         <div className="mx-auto px-3 py-2 docs-container">
           <nav className="d-f ai-c jc-sb">
             <div className="d-f ai-c g-2">
-              <Link href="/" className="fv:oc-white fv:ow-2">
+              <Link href="/" className="fv:oc-accent fv:ow-2">
                 <YummaCSSDark className="d-b h-8 w-auto" />
               </Link>
             </div>
@@ -97,10 +101,8 @@ export default function Navbar({
                         href={link.href}
                         target={link.external ? "_blank" : undefined}
                         rel={link.external ? "noopener noreferrer" : undefined}
-                        className={`fs-sm fv:oc-white fv:ow-2 ${
-                          isActive
-                            ? "c-accent td-u tds-d"
-                            : "c-white/70 h:c-accent"
+                        className={`fs-sm fv:oc-accent fv:ow-2 ${
+                          isActive ? "c-accent td-u tds-d" : "c-white/80 h:c-accent"
                         }`}
                       >
                         {link.label}
@@ -113,7 +115,7 @@ export default function Navbar({
               <Button
                 type="button"
                 onClick={() => setSearchOpen(true)}
-                className="d-f ai-c jc-c g-2 h-8 px-3 bc-border bg-surface a:bg-surface-7 c-white bw-1 fs-sm bf-b-sm @lg:px-4 fv:oc-white fv:ow-2"
+                className="d-f ai-c jc-c g-2 h-8 px-3 bc-border bg-surface a:bg-surface-7 c-white h:c-white bw-1 fs-sm bf-b-sm @lg:px-4 fv:oc-white fv:ow-2"
               >
                 <Search className="w-4 h-4" />
                 <kbd className="d-none c-white/70 fs-xs us-none @lg:d-b">
@@ -125,7 +127,7 @@ export default function Navbar({
                 <Button
                   type="button"
                   onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-                  className="d-f p-r ai-c jc-c h-8 px-3 bc-border bg-surface h:bg-surface-8 c-white bw-1 bf-b-sm @lg:d-none fv:oc-white fv:ow-2"
+                  className="d-f p-r ai-c jc-c h-8 px-3 bc-border bg-surface h:bg-surface-8 c-white h:c-white bw-1 bf-b-sm @lg:d-none fv:oc-white fv:ow-2"
                   aria-label={isSidebarOpen ? "Close menu" : "Open menu"}
                 >
                   <div className="d-f p-r ai-c jc-c w-4 h-4">
@@ -141,13 +143,15 @@ export default function Navbar({
                 </Button>
               )}
 
+              <ThemeSwitcher />
+
               <div className="d-none ai-c g-4 ml-2 @md:d-f">
                 <Link
                   href="https://github.com/yummacss/yummacss"
-                  className="d-f ai-c g-1 c-white/70 fs-xs h:c-white fv:oc-white fv:ow-2"
+                  className="d-f ai-c g-1 c-white/80 fs-xs h:c-accent fv:oc-accent fv:ow-2"
                   target="_blank"
                 >
-                  <Github className="w-4 h-4 f-white/70" />
+                  <Github className="w-4 h-4 f-white/80 h:f-accent" />
                   <span>GitHub</span>
                 </Link>
               </div>

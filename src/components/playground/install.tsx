@@ -46,7 +46,7 @@ export default function Install({ id }: { id: string }) {
               className={`px-2 py-1 bg-transparent bw-1 ff-m fs-xs c-p tp-c tdu-150 fv:oo--1 fv:oc-accent ${
                 manager === name
                   ? "bc-accent-dim c-accent"
-                  : "bc-border c-white/40 h:c-white/70"
+                  : "bc-border c-accent-dim h:c-accent-dim"
               }`}
             >
               {name}
@@ -58,8 +58,8 @@ export default function Install({ id }: { id: string }) {
       {/* The copy control sits under the command rather than beside it. The
           rail is narrower than `pnpm dlx yummaui add button`, so anything
           sharing that line lands on top of the last word. */}
-      <div className="p-2 bc-border bg-surface bw-1">
-        <code className="d-b c-white/70 fs-xs ff-m ws-pw">{command}</code>
+      <div className="cs-d p-2 bc-border bg-surface bw-1">
+        <code className="d-b c-accent-dim fs-xs ff-m ws-pw">{command}</code>
         <div className="d-f jc-fe mt-1">
           <CopyButton copied={copied} onCopy={copy} />
         </div>
