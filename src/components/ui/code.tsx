@@ -102,7 +102,7 @@ export function TitleBar({
   if (!title && !action) return null;
 
   return (
-    <div className="d-f ai-stretch bc-border bg-page min-h-10">
+    <div className="d-f bc-border bg-page">
       {title ? (
         <div className="d-f ai-c px-6 py-2 brw-1 bc-border bg-surface">
           <span className="c-accent fs-xs ff-m">{title}</span>
@@ -110,7 +110,7 @@ export function TitleBar({
       ) : null}
       <div className="f-1 bbw-1 bc-border" />
       {action ? (
-        <div className="d-f ai-c px-2 py-2 bbw-1 bc-border">{action}</div>
+        <div className="d-f ai-c px-2 bbw-1 bc-border">{action}</div>
       ) : null}
     </div>
   );
