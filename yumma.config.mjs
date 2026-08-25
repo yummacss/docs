@@ -40,14 +40,17 @@ export default defineConfig({
   ],
   theme: {
     colors: {
-      // Dark side is the docs' original palette. Light side is the pair so
-      // color-scheme utilities can switch the page without rewriting classes.
-      accent: { light: "#2563eb", dark: "#bec6f2" },
-      "accent-dim": { light: "#64748b", dark: "#9aa5ef" },
-      border: { light: "#cbd5e1", dark: "#232741" },
-      code: "#dda2f6",
+      // Dark values are the pre-theme-switcher docs palette, unchanged.
+      // Only page / code / accent / ink pair for light mode. Surface & border
+      // stay dark in both schemes so chrome stands out on a white page.
+      accent: { light: "#f1f5f9", dark: "#bec6f2" },
+      "accent-dim": "#9aa5ef",
+      border: "#232741",
+      code: { light: "#9aa5ef", dark: "#dda2f6" },
+      // Headings: white on dark (as before), #1a1d2e on light.
+      ink: { light: "#1a1d2e", dark: "#ffffff" },
       page: { light: "#ffffff", dark: "#151724" },
-      surface: { light: "#f1f5f9", dark: "#1a1d2e" },
+      surface: "#1a1d2e",
       "diff-add": "#a8e1ad",
       "diff-remove": "#e1a8a8",
     },
