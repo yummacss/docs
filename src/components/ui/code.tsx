@@ -3,7 +3,10 @@
 import { Button } from "@base-ui/react";
 import { Check, Copy } from "iconoir-react";
 import { type ReactNode, useRef, useState } from "react";
-import { useCodeFrame } from "@/lib/use-code-frame";
+
+/** Code blocks always render in dark scheme — familiar eclipsa chrome on every page mode. */
+const FRAME = "cs-d o-h my-4 bc-border bg-surface bw-1";
+const FRAME_PREVIEW = "cs-d bg-surface";
 
 interface Props {
   title?: string;
@@ -27,7 +30,6 @@ export default function Code({
 }: Props) {
   const [copied, setCopied] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
-  const frame = useCodeFrame();
 
   const handleCopy = async () => {
     // Prefer the original source. innerText is the fallback for the few
@@ -56,7 +58,7 @@ export default function Code({
       // The title sits outside the scroll box on purpose: which file you are
       // reading has to stay put while the source scrolls under it, and these
       // blocks are capped at max-h-80 precisely because they are long.
-      <div ref={ref} className={frame.framePreview}>
+      <div ref={ref} className={FRAME_PREVIEW}>
         <TitleBar title={title} action={copyAction} />
         <div className="oy-auto max-h-80">
           {body ?? (
@@ -78,7 +80,7 @@ export default function Code({
   }
 
   return (
-    <div ref={ref} className={frame.frame}>
+    <div ref={ref} className={FRAME}>
       <TitleBar title={title} action={copyAction} />
       {body ?? <pre className="ox-auto px-4 py-4 lh-5">{children}</pre>}
     </div>
@@ -102,7 +104,6 @@ export function TitleBar({
   action?: ReactNode;
 }) {
   if (!title && !action) return null;
-  const frame = useCodeFrame();
 
   // Titled cells size the bar with py-2 + fs-xs. A copy-only bar has no title
   // cell, so park the same vertical footprint in a zero-width anchor instead
@@ -117,10 +118,10 @@ export function TitleBar({
   );
 
   return (
-    <div className={frame.tabBar}>
+    <div className="d-f bc-border bg-page">
       {title ? (
-        <div className={frame.tabActive}>
-          <span className={frame.titleText}>{title}</span>
+        <div className="d-f ai-c px-6 py-2 brw-1 bc-border bg-surface">
+          <span className="c-accent fs-xs ff-m">{title}</span>
         </div>
       ) : (
         heightAnchor
@@ -143,12 +144,10 @@ export function CopyButton({
   copied: boolean;
   onCopy: () => void;
 }) {
-  const frame = useCodeFrame();
-
   return (
     <Button
       onClick={onCopy}
-      className={frame.copyButton}
+      className="d-f ai-c g-1 px-2 py-1 c-accent h:c-accent-4 fv:oc-accent fv:ow-2"
       aria-label="Copy code"
     >
       {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
