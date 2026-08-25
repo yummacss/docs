@@ -27,7 +27,7 @@ export default function CodeTabs<T extends string>({
   action?: ReactNode;
 }) {
   return (
-    <div className="d-f bc-border bg-page">
+    <div className="d-f ai-stretch bc-border bg-page min-h-10">
       <div
         role="tablist"
         aria-orientation="horizontal"
@@ -66,7 +66,7 @@ export default function CodeTabs<T extends string>({
         <div className="f-1 bbw-1 bc-border" />
       </div>
       {action ? (
-        <div className="d-f ai-c px-2 bbw-1 bc-border">{action}</div>
+        <div className="d-f ai-c px-2 py-2 bbw-1 bc-border">{action}</div>
       ) : null}
     </div>
   );

@@ -49,7 +49,7 @@ export function Step({
       <div className="d-f ai-c mb-2">
         <p className="c-white">{title}</p>
       </div>
-      <div className="my-5 c-accent-dim">{children}</div>
+      <div className="my-5 c-white/80">{children}</div>
     </li>
   );
 }

@@ -124,7 +124,7 @@ const components: MDXComponents = {
     props.className ? (
       <p {...props}>{children}</p>
     ) : (
-      <p className="my-4 c-accent-dim" {...props}>
+      <p className="my-4 c-white/80" {...props}>
         {children}
       </p>
     ),
@@ -132,7 +132,7 @@ const components: MDXComponents = {
     props.className ? (
       <a {...props}>{children}</a>
     ) : (
-      <a className="c-accent-dim h:td-u fv:oc-accent-dim fv:ow-2" {...props}>
+      <a className="c-accent h:td-u fv:oc-white fv:ow-2" {...props}>
         {children}
       </a>
     ),
@@ -156,7 +156,7 @@ const components: MDXComponents = {
     props.className ? (
       <li {...props}>{children}</li>
     ) : (
-      <li className="my-2 c-accent-dim" {...props}>
+      <li className="my-2 c-white/80" {...props}>
         {children}
       </li>
     ),
@@ -204,7 +204,7 @@ const components: MDXComponents = {
     props.className ? (
       <td {...props}>{children}</td>
     ) : (
-      <td className="px-4 py-2 bc-border c-accent-dim bw-1" {...props}>
+      <td className="px-4 py-2 bc-border c-white/80 bw-1" {...props}>
         {children}
       </td>
     ),

@@ -43,7 +43,7 @@ export default async function BlogPage() {
             class, and this page is not an article. */}
         <div className="my-8">
           <h1 className="mb-2 c-white ff-e fs-4xl fw-400">Blog Articles</h1>
-          <p className="c-accent-dim fs-lg">
+          <p className="c-white/70 fs-lg">
             The latest updates & articles from Yumma CSS.
           </p>
         </div>
@@ -76,10 +76,10 @@ export default async function BlogPage() {
                           {/* The container grows to 96rem, so without a cap
                               the description reaches ~84 characters at 1600px
                               and keeps going. 32rem holds it near 64. */}
-                          <p className="mb-4 max-w-xs c-accent-dim lh-5">
+                          <p className="mb-4 max-w-xs c-white/70 lh-5">
                             {post.description}
                           </p>
-                          <div className="d-f ai-c g-2 c-accent-dim fs-sm">
+                          <div className="d-f ai-c g-2 c-white/50 fs-sm">
                             <span>{formatDate(post.date)}</span>
                           </div>
                         </div>
