@@ -134,8 +134,3 @@ body {
   display: inline;
 }
 
-/* Component preview stages always use a literal white canvas. `bg-white` cannot
-   be used here: the paired `white` token is heading ink in light mode. */
-[data-preview] {
-  background-color: #ffffff;
-}

@@ -26,12 +26,7 @@ const registryDir = join(rootDir, "src/registry");
 
 /** Theme colors that exist here and would not exist in a consumer's project. */
 const docsOnlyColors = Object.keys(config.theme?.colors ?? {}).filter(
-  (color) =>
-    color !== "percentage" &&
-    // Built-ins may be overridden with light/dark pairs for the docs chrome;
-    // registry components still mean the platform colors when pasted elsewhere.
-    color !== "white" &&
-    color !== "black",
+  (color) => color !== "percentage",
 );
 
 /** Strip variants and the opacity modifier down to the bare utility. */

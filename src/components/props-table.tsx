@@ -52,7 +52,7 @@ export default function PropsTable({ registryId }: { registryId: string }) {
             {["Prop", "Type", "Default"].map((heading) => (
               <th
                 key={heading}
-                className="px-4 py-2 bc-border c-white bw-1 ta-l fw-500"
+                className="px-4 py-2 bc-border c-foreground bw-1 ta-l fw-500"
               >
                 {heading}
               </th>
@@ -74,27 +74,27 @@ export default function PropsTable({ registryId }: { registryId: string }) {
                         className="d-f ai-c g-2 px-4 py-2 w-100% bg-transparent bw-0 c-p ta-l fv:oo--1 fv:oc-indigo-5"
                       >
                         <NavArrowDown
-                          className={`fs-0 w-3 h-3 c-white/40 tp-c tdu-150 ${isOpen ? "ro-36" : ""}`}
+                          className={`fs-0 w-3 h-3 c-foreground/40 tp-c tdu-150 ${isOpen ? "ro-36" : ""}`}
                           aria-hidden
                         />
-                        <code className="c-white fs-md ff-m">{prop.name}</code>
+                        <code className="c-foreground fs-md ff-m">{prop.name}</code>
                       </Button>
                     ) : (
                       <div className="px-4 py-2">
-                        <code className="c-white fs-md ff-m">{prop.name}</code>
+                        <code className="c-foreground fs-md ff-m">{prop.name}</code>
                       </div>
                     )}
                   </td>
                   <td className="px-4 py-2 bc-border bw-1 va-t">
-                    <code className="c-white/50 fs-sm ff-m">
+                    <code className="c-foreground/50 fs-sm ff-m">
                       {typeOf(prop)}
                     </code>
                   </td>
                   <td className="px-4 py-2 bc-border bw-1 va-t ws-nw">
                     {prop.default === undefined ? (
-                      <span className="c-white/30">-</span>
+                      <span className="c-foreground/30">-</span>
                     ) : (
-                      <code className="c-white/50 fs-sm ff-m">
+                      <code className="c-foreground/50 fs-sm ff-m">
                         {JSON.stringify(prop.default)}
                       </code>
                     )}
@@ -104,7 +104,7 @@ export default function PropsTable({ registryId }: { registryId: string }) {
                   <tr>
                     <td
                       colSpan={3}
-                      className="px-4 pt-2 pb-3 bc-border c-white/80 bw-1"
+                      className="px-4 pt-2 pb-3 bc-border c-foreground/80 bw-1"
                     >
                       <div className="pl-5">
                         <PropDescription text={prop.description} />
