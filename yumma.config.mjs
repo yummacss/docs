@@ -40,18 +40,16 @@ export default defineConfig({
   ],
   theme: {
     colors: {
-      // Same paired palette as github.com/rrenildopereiraa/snippets —
-      // light/dark pairs + Yumma CSS color-scheme utilities on <html>.
+      // Dark side is the docs' original palette. Light side is the pair so
+      // color-scheme utilities can switch the page without rewriting classes.
       accent: { light: "#2563eb", dark: "#bec6f2" },
-      "accent-dim": { light: "#64748b", dark: "#b9bed5" },
-      "on-accent": { light: "#ffffff", dark: "#21243f" },
-      border: { light: "#cbd5e1", dark: "#31365e" },
-      code: "#2563eb",
-      page: { light: "#ffffff", dark: "#21243f" },
-      surface: { light: "#f1f5f9", dark: "#1e2039" },
-      "diff-add": "#86efac",
-      "diff-remove": "#fca5a5",
-      warning: "#fcd34d",
+      "accent-dim": { light: "#64748b", dark: "#9aa5ef" },
+      border: { light: "#cbd5e1", dark: "#232741" },
+      code: "#dda2f6",
+      page: { light: "#ffffff", dark: "#151724" },
+      surface: { light: "#f1f5f9", dark: "#1a1d2e" },
+      "diff-add": "#a8e1ad",
+      "diff-remove": "#e1a8a8",
     },
   },
 });

@@ -54,7 +54,7 @@ export default function Code({
       // The title sits outside the scroll box on purpose: which file you are
       // reading has to stay put while the source scrolls under it, and these
       // blocks are capped at max-h-80 precisely because they are long.
-      <div ref={ref} className="bg-surface">
+      <div ref={ref} className="cs-d bg-surface">
         <TitleBar title={title} action={copyAction} />
         <div className="oy-auto max-h-80">
           {body ?? (
@@ -76,7 +76,7 @@ export default function Code({
   }
 
   return (
-    <div ref={ref} className="o-h my-4 bc-border bg-surface bw-1">
+    <div ref={ref} className="cs-d o-h my-4 bc-border bg-surface bw-1">
       <TitleBar title={title} action={copyAction} />
       {body ?? <pre className="ox-auto px-4 py-4 lh-5">{children}</pre>}
     </div>
