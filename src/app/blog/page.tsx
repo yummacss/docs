@@ -42,7 +42,7 @@ export default async function BlogPage() {
         {/* `ff-e` is explicit: Esteban only applies inside <article> or via the
             class, and this page is not an article. */}
         <div className="my-8">
-          <h1 className="mb-2 c-accent ff-e fs-4xl fw-400">Blog Articles</h1>
+          <h1 className="mb-2 c-white ff-e fs-4xl fw-400">Blog Articles</h1>
           <p className="c-accent-dim fs-lg">
             The latest updates & articles from Yumma CSS.
           </p>
@@ -54,7 +54,7 @@ export default async function BlogPage() {
               <div className="mb-16">
                 {/* `id` is load-bearing: toc.tsx collects `main h2` elements
                     that have one, which is how the years reach the sidebar. */}
-                <h2 id={String(year)} className="mb-8 c-accent ff-e fs-4xl fw-400">
+                <h2 id={String(year)} className="mb-8 c-white ff-e fs-4xl fw-400">
                   {year}
                 </h2>
 
@@ -70,7 +70,7 @@ export default async function BlogPage() {
                         nine of those made the page enormous. */}
                       <div className="d-f fd-c g-6 @sm:fd-r">
                         <div className="@sm:f-1">
-                          <h3 className="mb-4 c-accent fs-xxl fw-400">
+                          <h3 className="mb-4 c-white fs-xxl fw-400">
                             {post.title}
                           </h3>
                           {/* The container grows to 96rem, so without a cap
