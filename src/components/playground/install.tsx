@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { CopyButton } from "@/components/ui/code";
-import { useCodeFrame } from "@/lib/use-code-frame";
 
 /**
  * The install command, in the rail rather than in the page.
@@ -21,7 +20,6 @@ type Manager = keyof typeof MANAGERS;
 export default function Install({ id }: { id: string }) {
   const [manager, setManager] = useState<Manager>("pnpm");
   const [copied, setCopied] = useState(false);
-  const frame = useCodeFrame();
   const command = MANAGERS[manager](id);
 
   const copy = async () => {
@@ -60,7 +58,7 @@ export default function Install({ id }: { id: string }) {
       {/* The copy control sits under the command rather than beside it. The
           rail is narrower than `pnpm dlx yummaui add button`, so anything
           sharing that line lands on top of the last word. */}
-      <div className={`p-2 bc-border bg-page bw-1 ${frame.isLight ? "" : "cs-d bg-surface"}`}>
+      <div className="cs-d p-2 bc-border bg-surface bw-1">
         <code className="d-b c-accent-dim fs-xs ff-m ws-pw">{command}</code>
         <div className="d-f jc-fe mt-1">
           <CopyButton copied={copied} onCopy={copy} />

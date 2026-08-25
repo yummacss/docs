@@ -3,7 +3,6 @@
 import { Button } from "@base-ui/react";
 import { useState } from "react";
 import { CopyButton, TitleBar } from "@/components/ui/code";
-import { useCodeFrame } from "@/lib/use-code-frame";
 import { TOKEN_COLORS, type Token, tokensToText } from "@/utils/snippet";
 
 /**
@@ -29,7 +28,6 @@ export default function TokenBlock({
   title?: string;
 }) {
   const [copied, setCopied] = useState(false);
-  const frame = useCodeFrame();
 
   const copy = async () => {
     // A denied clipboard permission rejects, and an unhandled rejection here
@@ -44,7 +42,7 @@ export default function TokenBlock({
   };
 
   return (
-    <div className={`${frame.frameInline} ${className}`}>
+    <div className={`cs-d bg-surface ${className}`}>
       <TitleBar
         title={title}
         action={<CopyButton copied={copied} onCopy={copy} />}

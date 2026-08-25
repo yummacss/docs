@@ -133,25 +133,3 @@ body {
 [data-fold]:not([open]) > summary {
   display: inline;
 }
-
-/* Dual-theme Shiki output (snippets Light + docs eclipsa). Token colors follow
-   the site scheme via cs-l / cs-d / cs-ld on <html>. */
-.shiki,
-.shiki span {
-  color: var(--shiki-light);
-  background-color: var(--shiki-light-bg);
-}
-
-html.cs-d .shiki,
-html.cs-d .shiki span {
-  color: var(--shiki-dark);
-  background-color: var(--shiki-dark-bg);
-}
-
-@media (prefers-color-scheme: dark) {
-  html.cs-ld .shiki,
-  html.cs-ld .shiki span {
-    color: var(--shiki-dark);
-    background-color: var(--shiki-dark-bg);
-  }
-}
