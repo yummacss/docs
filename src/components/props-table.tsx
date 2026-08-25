@@ -77,11 +77,11 @@ export default function PropsTable({ registryId }: { registryId: string }) {
                           className={`fs-0 w-3 h-3 c-white/40 tp-c tdu-150 ${isOpen ? "ro-36" : ""}`}
                           aria-hidden
                         />
-                        <code className="c-code fs-md ff-m">{prop.name}</code>
+                        <code className="c-white fs-md ff-m">{prop.name}</code>
                       </Button>
                     ) : (
                       <div className="px-4 py-2">
-                        <code className="c-code fs-md ff-m">{prop.name}</code>
+                        <code className="c-white fs-md ff-m">{prop.name}</code>
                       </div>
                     )}
                   </td>
