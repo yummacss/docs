@@ -160,7 +160,7 @@ function foldRegions(codeEl, foldLines) {
           type: "element",
           tagName: "summary",
           properties: {
-            className: ["d-i", "c-p", "us-none", "c-white/40", "h:c-white"],
+            className: ["d-i", "c-p", "us-none", "c-foreground/40", "h:c-foreground"],
           },
           children: [{ type: "text", value: "..." }],
         },
