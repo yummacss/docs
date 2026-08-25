@@ -34,10 +34,7 @@ export default function Palette({
           }}
         >
           {scale.map((label) => (
-            <div
-              key={`header-${label}`}
-              className="d-f ai-c jc-c c-white fs-sm"
-            >
+            <div key={`header-${label}`} className="d-f ai-c jc-c c-white fs-sm">
               {label}
             </div>
           ))}
@@ -144,15 +141,9 @@ function ColorSwatch({
           >
             <svg
               viewBox="0 0 10 5"
-              className="p-a b--2 l-50% ml--2 w-4 h-2"
-              style={{ fill: "#1a1d2e" }}
+              className="p-a b--2 l-50% ml--2 w-4 h-2 c-surface"
             >
-              <path
-                d="M0 0 L5 5 L10 0"
-                fill="#1a1d2e"
-                stroke="#232741"
-                strokeWidth="1"
-              />
+              <path d="M0 0 L5 5 L10 0" fill="currentColor" />
             </svg>
             {showCopied ? "Copied!" : `${name} ${label}`}
           </Tooltip.Popup>

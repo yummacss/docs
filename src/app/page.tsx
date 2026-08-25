@@ -32,7 +32,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="p-r min-h-dvh c-white">
+    <div className="p-r min-h-dvh">
       <Navbar variant="transparent" />
 
       <div
@@ -53,7 +53,7 @@ export default function Home() {
                 <NavArrowRight className="w-4 h-4" />
               </Link>
 
-              <h1 className="mb-6 fs-4xl fw-400 lh-2 ff-e @md:fs-5xl @lg:fs-6xl">
+              <h1 className="mb-6 c-white fs-4xl fw-400 lh-2 ff-e @md:fs-5xl @lg:fs-6xl">
                 Get faster at CSS while you use it.
               </h1>
               <p className="mb-8 c-white/70 fs-md lh-5 @md:fs-lg">

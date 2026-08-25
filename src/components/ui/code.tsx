@@ -4,6 +4,10 @@ import { Button } from "@base-ui/react";
 import { Check, Copy } from "iconoir-react";
 import { type ReactNode, useRef, useState } from "react";
 
+/** Code blocks always render in dark scheme — familiar eclipsa chrome on every page mode. */
+const FRAME = "cs-d o-h my-4 bc-border bg-surface bw-1";
+const FRAME_PREVIEW = "cs-d bg-surface";
+
 interface Props {
   title?: string;
   lang?: string;
@@ -54,7 +58,7 @@ export default function Code({
       // The title sits outside the scroll box on purpose: which file you are
       // reading has to stay put while the source scrolls under it, and these
       // blocks are capped at max-h-80 precisely because they are long.
-      <div ref={ref} className="bg-surface">
+      <div ref={ref} className={FRAME_PREVIEW}>
         <TitleBar title={title} action={copyAction} />
         <div className="oy-auto max-h-80">
           {body ?? (
@@ -76,7 +80,7 @@ export default function Code({
   }
 
   return (
-    <div ref={ref} className="o-h my-4 bc-border bg-surface bw-1">
+    <div ref={ref} className={FRAME}>
       <TitleBar title={title} action={copyAction} />
       {body ?? <pre className="ox-auto px-4 py-4 lh-5">{children}</pre>}
     </div>
@@ -101,13 +105,27 @@ export function TitleBar({
 }) {
   if (!title && !action) return null;
 
+  // Titled cells size the bar with py-2 + fs-xs. A copy-only bar has no title
+  // cell, so park the same vertical footprint in a zero-width anchor instead
+  // of padding the action cell — that kept growing the bar past production.
+  const heightAnchor = (
+    <div
+      className="d-f ai-c py-2 w-0 o-h pe-none invisible"
+      aria-hidden="true"
+    >
+      <span className="fs-xs ff-m">{"\u200b"}</span>
+    </div>
+  );
+
   return (
     <div className="d-f bc-border bg-page">
       {title ? (
         <div className="d-f ai-c px-6 py-2 brw-1 bc-border bg-surface">
           <span className="c-accent fs-xs ff-m">{title}</span>
         </div>
-      ) : null}
+      ) : (
+        heightAnchor
+      )}
       <div className="f-1 bbw-1 bc-border" />
       {action ? (
         <div className="d-f ai-c px-2 bbw-1 bc-border">{action}</div>
@@ -129,7 +147,7 @@ export function CopyButton({
   return (
     <Button
       onClick={onCopy}
-      className="d-f ai-c g-1 px-2 py-1 c-accent h:c-accent-4 fv:oc-white fv:ow-2"
+      className="d-f ai-c g-1 px-2 py-1 c-accent h:c-accent-4 fv:oc-accent fv:ow-2"
       aria-label="Copy code"
     >
       {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}

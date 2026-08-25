@@ -54,10 +54,7 @@ export default async function BlogPage() {
               <div className="mb-16">
                 {/* `id` is load-bearing: toc.tsx collects `main h2` elements
                     that have one, which is how the years reach the sidebar. */}
-                <h2
-                  id={String(year)}
-                  className="mb-8 c-white ff-e fs-4xl fw-400"
-                >
+                <h2 id={String(year)} className="mb-8 c-white ff-e fs-4xl fw-400">
                   {year}
                 </h2>
 
@@ -65,7 +62,7 @@ export default async function BlogPage() {
                   <article key={post._meta.path} className="mb-12">
                     <Link
                       href={`/blog/${post._meta.path}`}
-                      className="d-b fv:oc-white fv:ow-2"
+                      className="d-b fv:oc-accent fv:ow-2"
                     >
                       {/* Goes side by side at @sm, not @lg: by 40rem the column
                         is already ~592px, which fits a 10rem cover beside the
