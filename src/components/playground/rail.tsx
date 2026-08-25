@@ -136,7 +136,7 @@ function Row({
   onToggle: () => void;
   children: React.ReactNode;
 }) {
-  const name = <code className="c-white fs-xs ff-m">{prop.name}</code>;
+  const name = <code className="c-foreground fs-xs ff-m">{prop.name}</code>;
 
   return (
     <div className="py-2 bc-border bbw-1">

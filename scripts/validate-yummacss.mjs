@@ -50,7 +50,7 @@ if (result.invalid.length > 0) {
 // 2. Registry components must only use built-in Yumma CSS colors,
 //    not docs-specific theme tokens.
 const CUSTOM_THEME_COLORS = Object.keys(config.theme?.colors ?? {}).filter(
-  (color) => color !== "percentage" && color !== "white" && color !== "black",
+  (color) => color !== "percentage",
 );
 
 function usesCustomThemeColor(cls) {

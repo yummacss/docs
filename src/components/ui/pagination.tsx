@@ -22,7 +22,7 @@ export default function Pagination({ previous, next, basePath }: Props) {
           nativeButton={false}
           render={<Link href={`${basePath}/${previous.slug}`} />}
           aria-label={`Previous: ${previous.title}`}
-          className="d-f ai-c jc-c w-8 h-8 bc-border bg-surface a:bg-surface-7 c-white h:c-white bw-1 fv:oc-white fv:oo-2"
+          className="d-f ai-c jc-c w-8 h-8 bc-border bg-surface a:bg-surface-7 c-foreground h:c-foreground bw-1 fv:oc-foreground fv:oo-2"
         >
           <NavArrowLeft className="w-4 h-4" />
         </Button>
@@ -33,7 +33,7 @@ export default function Pagination({ previous, next, basePath }: Props) {
           nativeButton={false}
           render={<Link href={`${basePath}/${next.slug}`} />}
           aria-label={`Next: ${next.title}`}
-          className="d-f ai-c jc-c w-8 h-8 bc-border bg-surface a:bg-surface-7 c-white h:c-white bw-1 fv:oc-white fv:oo-2"
+          className="d-f ai-c jc-c w-8 h-8 bc-border bg-surface a:bg-surface-7 c-foreground h:c-foreground bw-1 fv:oc-foreground fv:oo-2"
         >
           <NavArrowRight className="w-4 h-4" />
         </Button>

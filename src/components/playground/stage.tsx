@@ -49,7 +49,7 @@ export default function ComponentPlayground() {
       <Suspense fallback={null}>
         <div
           data-preview
-          className="d-f p-r ox-auto ai-c jc-c p-10 min-h-64"
+          className="d-f p-r ox-auto ai-c jc-c p-10 min-h-64 bg-white"
         >
           <Component {...(resolveIcons(set) as DemoProps)}>
             {meta.children}
