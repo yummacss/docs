@@ -132,7 +132,7 @@ const components: MDXComponents = {
     props.className ? (
       <a {...props}>{children}</a>
     ) : (
-      <a className="c-accent h:td-u fv:oc-white fv:ow-2" {...props}>
+      <a className="c-white/80 h:c-accent h:td-u fv:oc-accent fv:ow-2" {...props}>
         {children}
       </a>
     ),

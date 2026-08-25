@@ -114,10 +114,10 @@ export default function MobileDialogNav({ sections, isOpen, onClose }: Props) {
                                   }
                                   className={[
                                     "d-if ai-c g-3 w-100% py-2 px-3 fs-md us-none",
-                                    "fv:oc-white fv:oo-2 fv:ow-2",
+                                    "fv:oc-accent fv:oo-2 fv:ow-2",
                                     isActive
                                       ? "c-accent bg-surface"
-                                      : "c-white/70 h:c-accent h:bg-surface",
+                                      : "c-white/80 h:c-accent h:bg-surface",
                                   ].join(" ")}
                                 >
                                   {item.title}

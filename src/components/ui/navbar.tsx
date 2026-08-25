@@ -101,8 +101,8 @@ export default function Navbar({
                         href={link.href}
                         target={link.external ? "_blank" : undefined}
                         rel={link.external ? "noopener noreferrer" : undefined}
-                        className={`fs-sm fv:oc-white fv:ow-2 ${
-                          isActive ? "c-accent td-u tds-d" : "c-white/70 h:c-accent"
+                        className={`fs-sm fv:oc-accent fv:ow-2 ${
+                          isActive ? "c-accent td-u tds-d" : "c-white/80 h:c-accent"
                         }`}
                       >
                         {link.label}
@@ -148,10 +148,10 @@ export default function Navbar({
               <div className="d-none ai-c g-4 ml-2 @md:d-f">
                 <Link
                   href="https://github.com/yummacss/yummacss"
-                  className="d-f ai-c g-1 c-white/70 fs-xs h:c-white fv:oc-white fv:ow-2"
+                  className="d-f ai-c g-1 c-white/80 fs-xs h:c-accent fv:oc-accent fv:ow-2"
                   target="_blank"
                 >
-                  <Github className="w-4 h-4 f-accent-dim" />
+                  <Github className="w-4 h-4 f-white/80 h:f-accent" />
                   <span>GitHub</span>
                 </Link>
               </div>
