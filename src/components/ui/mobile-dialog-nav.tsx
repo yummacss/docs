@@ -70,7 +70,7 @@ export default function MobileDialogNav({ sections, isOpen, onClose }: Props) {
                   </div>
                   <Dialog.Close
                     aria-label="Close menu"
-                    className="d-f ai-c jc-c h-8 px-3 bc-border bg-surface h:bg-surface-8 c-ink bw-1 bf-b-sm fv:oc-ink fv:ow-2"
+                    className="d-f ai-c jc-c h-8 px-3 bc-border bg-surface h:bg-surface-8 c-accent bw-1 bf-b-sm fv:oc-accent fv:ow-2"
                   >
                     <Xmark className="w-4 h-4" />
                   </Dialog.Close>
@@ -114,10 +114,10 @@ export default function MobileDialogNav({ sections, isOpen, onClose }: Props) {
                                   }
                                   className={[
                                     "d-if ai-c g-3 w-100% py-2 px-3 fs-md us-none",
-                                    "fv:oc-ink fv:oo-2 fv:ow-2",
+                                    "fv:oc-accent fv:oo-2 fv:ow-2",
                                     isActive
-                                      ? "c-ink bg-surface"
-                                      : "c-accent-dim h:c-ink h:bg-surface",
+                                      ? "c-accent bg-surface"
+                                      : "c-accent-dim h:c-accent h:bg-surface",
                                   ].join(" ")}
                                 >
                                   {item.title}

@@ -163,7 +163,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                 onKeyDown={handleKeyDown}
               >
                 <div className="d-f ai-c g-3 px-4 py-3 bc-border bbw-1">
-                  <Search className="w-5 h-5 c-ink" />
+                  <Search className="w-5 h-5 c-accent" />
                   <Input
                     ref={inputRef}
                     type="text"
@@ -174,7 +174,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                       setSelectedIndex(0);
                     }}
                     autoFocus
-                    className="f-1 bg-transparent c-ink os-none fs-md"
+                    className="f-1 bg-transparent c-accent os-none fs-md"
                   />
                 </div>
 
@@ -189,7 +189,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
 
                     return (
                       <div key={category} className="mb-2">
-                        <div className="px-2 py-1 c-ink fs-xs tt-u ls-3">
+                        <div className="px-2 py-1 c-accent fs-xs tt-u ls-3">
                           {label}
                         </div>
                         {items.map((item) => {
@@ -226,7 +226,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                               )}
 
                               <div className="f-1 min-w-0">
-                                <div className="o-h c-ink fs-md tw-n to-e ws-nw">
+                                <div className="o-h c-accent fs-md tw-n to-e ws-nw">
                                   {item.title}
                                 </div>
                                 {item.description && (

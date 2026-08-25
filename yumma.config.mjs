@@ -40,13 +40,11 @@ export default defineConfig({
   ],
   theme: {
     colors: {
-      // Dark side = original docs palette. Light side pairs chrome so buttons,
-      // borders, tables & steppers follow the page; code blocks keep `cs-d`.
-      accent: { light: "#f1f5f9", dark: "#bec6f2" },
+      // Same keys as before the theme switcher — only light/dark pairs added.
+      accent: { light: "#232741", dark: "#bec6f2" },
       "accent-dim": { light: "#64748b", dark: "#9aa5ef" },
       border: { light: "#cbd5e1", dark: "#232741" },
       code: { light: "#9aa5ef", dark: "#dda2f6" },
-      ink: { light: "#232741", dark: "#ffffff" },
       page: { light: "#ffffff", dark: "#151724" },
       surface: { light: "#f1f5f9", dark: "#1a1d2e" },
       "diff-add": "#a8e1ad",

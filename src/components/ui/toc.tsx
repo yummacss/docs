@@ -68,7 +68,7 @@ export default function TableOfContents() {
               <li key={heading.id}>
                 <Link
                   href={`#${heading.id}`}
-                  className={`c-accent-dim h:c-ink fv:oc-ink fv:ow-2 ${heading.level === 3 ? "ml-4" : ""}`}
+                  className={`c-accent-dim h:c-accent fv:oc-accent fv:ow-2 ${heading.level === 3 ? "ml-4" : ""}`}
                 >
                   {heading.text}
                 </Link>

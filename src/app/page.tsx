@@ -47,13 +47,13 @@ export default function Home() {
             <div>
               <Link
                 href="/ui/installation"
-                className="d-if ai-c g-2 px-3 py-1 mb-6 bc-border bg-surface c-accent-dim bw-1 fs-sm us-none h:c-ink fv:oc-ink fv:ow-2"
+                className="d-if ai-c g-2 px-3 py-1 mb-6 bc-border bg-surface c-accent-dim bw-1 fs-sm us-none h:c-accent fv:oc-accent fv:ow-2"
               >
                 Yumma UI is here
                 <NavArrowRight className="w-4 h-4" />
               </Link>
 
-              <h1 className="mb-6 c-ink fs-4xl fw-400 lh-2 ff-e @md:fs-5xl @lg:fs-6xl">
+              <h1 className="mb-6 c-accent fs-4xl fw-400 lh-2 ff-e @md:fs-5xl @lg:fs-6xl">
                 Get faster at CSS while you use it.
               </h1>
               <p className="mb-8 c-accent-dim fs-md lh-5 @md:fs-lg">
@@ -64,13 +64,13 @@ export default function Home() {
               <div className="d-f fw-w g-4 mb-12">
                 <Link
                   href="/docs/installation"
-                  className="px-6 py-3 bg-ink c-page fs-md fw-600 us-none"
+                  className="px-6 py-3 bg-accent c-page fs-md fw-600 us-none"
                 >
                   Get started
                 </Link>
                 <a
                   href="https://play.yummacss.com"
-                  className="px-6 py-3 c-ink fw-600 fs-md us-none fv:oc-ink fv:ow-2"
+                  className="px-6 py-3 c-accent fw-600 fs-md us-none fv:oc-accent fv:ow-2"
                 >
                   Try now
                 </a>
