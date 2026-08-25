@@ -42,8 +42,8 @@ export default async function BlogPage() {
         {/* `ff-e` is explicit: Esteban only applies inside <article> or via the
             class, and this page is not an article. */}
         <div className="my-8">
-          <h1 className="mb-2 c-white ff-e fs-4xl fw-400">Blog Articles</h1>
-          <p className="c-white/70 fs-lg">
+          <h1 className="mb-2 c-foreground ff-e fs-4xl fw-400">Blog Articles</h1>
+          <p className="c-foreground/70 fs-lg">
             The latest updates & articles from Yumma CSS.
           </p>
         </div>
@@ -54,7 +54,7 @@ export default async function BlogPage() {
               <div className="mb-16">
                 {/* `id` is load-bearing: toc.tsx collects `main h2` elements
                     that have one, which is how the years reach the sidebar. */}
-                <h2 id={String(year)} className="mb-8 c-white ff-e fs-4xl fw-400">
+                <h2 id={String(year)} className="mb-8 c-foreground ff-e fs-4xl fw-400">
                   {year}
                 </h2>
 
@@ -70,16 +70,16 @@ export default async function BlogPage() {
                         nine of those made the page enormous. */}
                       <div className="d-f fd-c g-6 @sm:fd-r">
                         <div className="@sm:f-1">
-                          <h3 className="mb-4 c-white fs-xxl fw-400">
+                          <h3 className="mb-4 c-foreground fs-xxl fw-400">
                             {post.title}
                           </h3>
                           {/* The container grows to 96rem, so without a cap
                               the description reaches ~84 characters at 1600px
                               and keeps going. 32rem holds it near 64. */}
-                          <p className="mb-4 max-w-xs c-white/70 lh-5">
+                          <p className="mb-4 max-w-xs c-foreground/70 lh-5">
                             {post.description}
                           </p>
-                          <div className="d-f ai-c g-2 c-white/50 fs-sm">
+                          <div className="d-f ai-c g-2 c-foreground/50 fs-sm">
                             <span>{formatDate(post.date)}</span>
                           </div>
                         </div>

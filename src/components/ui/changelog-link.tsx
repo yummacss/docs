@@ -27,7 +27,7 @@ export default function ChangelogLink() {
       href={CHANGELOG_URL}
       target="_blank"
       rel="noreferrer"
-      className="d-if ai-c g-2 w-fc c-white/80 fs-sm td-none h:c-accent fv:oc-accent fv:ow-2"
+      className="d-if ai-c g-2 w-fc c-foreground/80 fs-sm td-none h:c-accent fv:oc-accent fv:ow-2"
     >
       <Github className="w-4 h-4" />
       View the changelog

@@ -5,7 +5,7 @@ import type { ComponentType } from "react";
 import { lazy, Suspense, useEffect, useState } from "react";
 import { getRegistryImport } from "@/registry";
 
-const previewVariants = cva("bg-white btw-1 brw-1 blw-1", {
+const previewVariants = cva("btw-1 brw-1 blw-1", {
   variants: {
     variant: {
       centered: "d-f ai-c jc-c p-10",
@@ -49,7 +49,7 @@ export default function Preview({
   return (
     <div
       data-preview
-      className={`${clsx(previewVariants({ variant }), className)} bc-border`}
+      className={`${clsx(previewVariants({ variant }), className)} bc-border bg-white`}
     >
       <Suspense fallback={null}>
         {RegistryComponent ? <RegistryComponent /> : children}

@@ -106,9 +106,9 @@ export default function Baseline({ path }: Props) {
       <div className="mb-4">
         <div className="d-f ai-c g-2 mb-2">
           <StatusIcon className={`${statusColor} w-5 h-5`} />
-          <h3 className="c-white fs-lg fw-500">{statusLabel}</h3>
+          <h3 className="c-foreground fs-lg fw-500">{statusLabel}</h3>
         </div>
-        <p className="c-white/70">{statusDescription}</p>
+        <p className="c-foreground/70">{statusDescription}</p>
       </div>
 
       <div className="d-g g-4 gtc-1 @sm:gtc-2 @md:gtc-4">
@@ -125,13 +125,13 @@ export default function Baseline({ path }: Props) {
             </div>
             <div className="d-f fd-c">
               <span
-                className="c-white/80"
+                className="c-foreground/80"
                 style={{ opacity: !browser.supported ? 0.5 : 1 }}
               >
                 {browser.name}
               </span>
               {browser.desktopOnly && (
-                <span className="c-white/50 fs-xs">Desktop only</span>
+                <span className="c-foreground/50 fs-xs">Desktop only</span>
               )}
             </div>
           </div>

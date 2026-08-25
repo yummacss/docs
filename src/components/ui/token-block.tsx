@@ -130,7 +130,7 @@ function Folded({
         // slightly different size from the code it sits inside.
         style={{ font: "inherit" }}
         className={`d-if p-0 bg-transparent bw-0 va-b c-p a-none fv:oo-2 fv:oc-accent ${
-          isOpen ? "c-white/25 h:c-white/60" : "c-white/40 h:c-white"
+          isOpen ? "c-foreground/25 h:c-foreground/60" : "c-foreground/40 h:c-foreground"
         }`}
       >
         ...
