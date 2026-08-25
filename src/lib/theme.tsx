@@ -1,5 +1,10 @@
 "use client";
 
+/**
+ * Docs-site theme context. Mirrors github.com/rrenildopereiraa/snippets
+ * `src/lib/chrome-theme.tsx`: paired Yumma CSS colors, `cs-l` / `cs-d` /
+ * `cs-ld` on <html>, localStorage persistence, light → dark → auto cycle.
+ */
 import {
   createContext,
   type ReactNode,
@@ -43,6 +48,11 @@ function readOsTheme(): ResolvedTheme {
 
 /** Blocking script for <head> so the first paint already uses the stored scheme. */
 export const themeInitScript = `(function(){try{var k=${JSON.stringify(THEME_STORAGE_KEY)};var s=localStorage.getItem(k);var m=s==="light"||s==="dark"?s:"auto";var c={light:"cs-l",dark:"cs-d",auto:"cs-ld"};var r=document.documentElement;r.classList.remove("cs-l","cs-d","cs-ld");r.classList.add(c[m]);}catch(e){}})();`;
+
+/** Same role as snippets' `initChromeMode()` — applied via inline script in Next.js. */
+export function initTheme() {
+  applyThemeClass(readStoredTheme());
+}
 
 const ThemeContext = createContext<{
   mode: ThemeMode;

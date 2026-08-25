@@ -89,7 +89,7 @@ export default function ComponentPreview({
       <Toggle
         pressed={showCode}
         onPressedChange={setShowCode}
-        className="d-f ai-c jc-c w-100% h-8 bc-border bg-surface c-accent bw-0 btw-1 fs-sm fw-500 tp-c tdu-150 ttf-io us-none fv:oc-foreground fv:ow-2"
+        className="d-f ai-c jc-c w-100% h-8 bc-border bg-surface c-accent bw-0 btw-1 fs-sm fw-500 tp-c tdu-150 ttf-io us-none fv:oc-accent fv:ow-2"
       >
         {showCode ? "Hide code" : "Show code"}
       </Toggle>

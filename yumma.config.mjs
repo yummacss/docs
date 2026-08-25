@@ -40,17 +40,18 @@ export default defineConfig({
   ],
   theme: {
     colors: {
-      // Paired colors follow the OS by default; override with `cs-l` / `cs-d`
-      // / `cs-ld` on <html>. Same palette as snippets.renildo.dev.
+      // Same paired palette as github.com/rrenildopereiraa/snippets —
+      // light/dark pairs + Yumma CSS color-scheme utilities on <html>.
       accent: { light: "#2563eb", dark: "#bec6f2" },
       "accent-dim": { light: "#64748b", dark: "#b9bed5" },
+      "on-accent": { light: "#ffffff", dark: "#21243f" },
       border: { light: "#cbd5e1", dark: "#31365e" },
       code: "#2563eb",
-      foreground: { light: "#0f172a", dark: "#f8fafc" },
       page: { light: "#ffffff", dark: "#21243f" },
       surface: { light: "#f1f5f9", dark: "#1e2039" },
       "diff-add": "#86efac",
       "diff-remove": "#fca5a5",
+      warning: "#fcd34d",
     },
   },
 });

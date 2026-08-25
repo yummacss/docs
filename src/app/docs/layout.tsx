@@ -8,7 +8,7 @@ export default function DocsLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-dvh c-foreground">
+    <div className="min-h-dvh">
       <Navbar showMobileDrawer />
 
       <main className="is-i mx-auto px-6 docs-container">

@@ -36,7 +36,7 @@ export default function Palette({
           {scale.map((label) => (
             <div
               key={`header-${label}`}
-              className="d-f ai-c jc-c c-foreground fs-sm"
+              className="d-f ai-c jc-c c-accent fs-sm"
             >
               {label}
             </div>
@@ -55,7 +55,7 @@ export default function Palette({
             key={colorItem.name}
             className="d-f fd-c g-1 ai-c @md:ai-c @md:fd-r"
           >
-            <p className="d-f ai-c c-foreground ws-nw o-h fs-sm @md:w-24 @md:min-w-24 @md:mr-2">
+            <p className="d-f ai-c c-accent ws-nw o-h fs-sm @md:w-24 @md:min-w-24 @md:mr-2">
               {colorItem.name}
             </p>
             <div
@@ -131,7 +131,7 @@ function ColorSwatch({
       <Tooltip.Portal>
         <Tooltip.Positioner sideOffset={10}>
           <Tooltip.Popup
-            className="d-f p-r fd-c px-2 py-1 bc-border bg-surface c-foreground bw-1 fs-xs"
+            className="d-f p-r fd-c px-2 py-1 bc-border bg-surface c-accent bw-1 fs-xs"
             style={{
               transformOrigin: "bottom center",
               transition: !showCopied
@@ -147,7 +147,6 @@ function ColorSwatch({
               className="p-a b--2 l-50% ml--2 w-4 h-2 c-surface"
             >
               <path d="M0 0 L5 5 L10 0" fill="currentColor" />
-            </svg>
             </svg>
             {showCopied ? "Copied!" : `${name} ${label}`}
           </Tooltip.Popup>
