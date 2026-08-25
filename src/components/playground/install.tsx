@@ -58,7 +58,7 @@ export default function Install({ id }: { id: string }) {
       {/* The copy control sits under the command rather than beside it. The
           rail is narrower than `pnpm dlx yummaui add button`, so anything
           sharing that line lands on top of the last word. */}
-      <div className="p-2 bc-border bg-surface bw-1">
+      <div className="cs-d p-2 bc-border bg-surface bw-1">
         <code className="d-b c-accent-dim fs-xs ff-m ws-pw">{command}</code>
         <div className="d-f jc-fe mt-1">
           <CopyButton copied={copied} onCopy={copy} />

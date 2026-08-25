@@ -17,7 +17,7 @@ const MODE_TOOLTIP: Record<ThemeMode, string> = {
 };
 
 /**
- * Cycles light → dark → auto, matching snippets.renildo.dev's status bar control.
+ * Cycles light → dark → auto. Same chrome as the search / mobile menu buttons.
  */
 export default function ThemeSwitcher() {
   const { mode, cycleMode } = useTheme();
@@ -29,7 +29,7 @@ export default function ThemeSwitcher() {
       onClick={cycleMode}
       aria-label={MODE_TOOLTIP[mode]}
       title={MODE_TOOLTIP[mode]}
-      className="d-f ai-c jc-c px-3 py-1 bg-transparent bw-0 c-p c-accent-dim h:c-accent h:bg-page fv:os-s fv:oo--2 fv:oc-accent"
+      className="d-f ai-c jc-c h-8 px-3 bc-border bg-surface h:bg-surface-8 c-accent-dim h:c-accent bw-1 bf-b-sm fv:oc-accent fv:ow-2"
     >
       <Icon className="w-4 h-4" aria-hidden />
     </Button>

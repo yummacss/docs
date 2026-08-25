@@ -64,7 +64,7 @@ export default function Home() {
               <div className="d-f fw-w g-4 mb-12">
                 <Link
                   href="/docs/installation"
-                  className="px-6 py-3 bg-accent c-on-accent fs-md fw-600 us-none"
+                  className="px-6 py-3 bg-accent c-page fs-md fw-600 us-none"
                 >
                   Get started
                 </Link>
