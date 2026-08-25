@@ -67,7 +67,7 @@ const components: MDXComponents = {
         {children}
       </h1>
     ) : (
-      <h1 id={id} className="mb-4 c-ink fs-4xl fw-400 lh-1" {...props}>
+      <h1 id={id} className="mb-4 c-accent fs-4xl fw-400 lh-1" {...props}>
         {children}
       </h1>
     );
@@ -79,7 +79,7 @@ const components: MDXComponents = {
         {children}
       </h2>
     ) : (
-      <h2 id={id} className="mt-12 mb-4 c-ink fs-xxl fw-400 lh-1" {...props}>
+      <h2 id={id} className="mt-12 mb-4 c-accent fs-xxl fw-400 lh-1" {...props}>
         {children}
       </h2>
     );
@@ -91,7 +91,7 @@ const components: MDXComponents = {
         {children}
       </h3>
     ) : (
-      <h3 id={id} className="mt-8 mb-4 c-ink fs-xl fw-400 lh-1" {...props}>
+      <h3 id={id} className="mt-8 mb-4 c-accent fs-xl fw-400 lh-1" {...props}>
         {children}
       </h3>
     );
@@ -100,7 +100,7 @@ const components: MDXComponents = {
     props.className ? (
       <h4 {...props}>{children}</h4>
     ) : (
-      <h4 className="mt-6 my-3 c-ink fs-lg fw-500 lh-1" {...props}>
+      <h4 className="mt-6 my-3 c-accent fs-lg fw-500 lh-1" {...props}>
         {children}
       </h4>
     ),
@@ -108,7 +108,7 @@ const components: MDXComponents = {
     props.className ? (
       <h5 {...props}>{children}</h5>
     ) : (
-      <h5 className="mt-4 my-3 c-ink fs-md fw-500 lh-1" {...props}>
+      <h5 className="mt-4 my-3 c-accent fs-md fw-500 lh-1" {...props}>
         {children}
       </h5>
     ),
@@ -116,7 +116,7 @@ const components: MDXComponents = {
     props.className ? (
       <h6 {...props}>{children}</h6>
     ) : (
-      <h6 className="mt-4 my-2 c-ink fs-sm fw-500 lh-1" {...props}>
+      <h6 className="mt-4 my-2 c-accent fs-sm fw-500 lh-1" {...props}>
         {children}
       </h6>
     ),
@@ -196,7 +196,7 @@ const components: MDXComponents = {
     props.className ? (
       <th {...props}>{children}</th>
     ) : (
-      <th className="px-4 py-2 bc-border c-ink bw-1 ta-l fw-500" {...props}>
+      <th className="px-4 py-2 bc-border c-accent bw-1 ta-l fw-500" {...props}>
         {children}
       </th>
     ),

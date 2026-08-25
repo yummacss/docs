@@ -44,10 +44,10 @@ export function Step({
   return (
     <li className={isLast ? "ml-8" : "mb-10 ml-8"}>
       <div className="d-f p-a l--3 ai-c jc-c w-6 h-6 bc-border bg-surface bw-1">
-        <span className="c-ink fs-xs">{stepNumber}</span>
+        <span className="c-accent fs-xs">{stepNumber}</span>
       </div>
       <div className="d-f ai-c mb-2">
-        <p className="c-ink">{title}</p>
+        <p className="c-accent">{title}</p>
       </div>
       <div className="my-5 c-accent-dim">{children}</div>
     </li>

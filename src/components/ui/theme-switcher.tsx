@@ -29,7 +29,7 @@ export default function ThemeSwitcher() {
       onClick={cycleMode}
       aria-label={MODE_TOOLTIP[mode]}
       title={MODE_TOOLTIP[mode]}
-      className="d-f ai-c jc-c h-8 px-3 bc-border bg-surface h:bg-surface-8 c-accent-dim h:c-ink bw-1 bf-b-sm fv:oc-ink fv:ow-2"
+      className="d-f ai-c jc-c h-8 px-3 bc-border bg-surface h:bg-surface-8 c-accent-dim h:c-accent bw-1 bf-b-sm fv:oc-accent fv:ow-2"
     >
       <Icon className="w-4 h-4" aria-hidden />
     </Button>
