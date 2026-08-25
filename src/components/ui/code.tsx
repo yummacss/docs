@@ -101,13 +101,27 @@ export function TitleBar({
 }) {
   if (!title && !action) return null;
 
+  // Titled cells size the bar with py-2 + fs-xs. A copy-only bar has no title
+  // cell, so park the same vertical footprint in a zero-width anchor instead
+  // of padding the action cell — that kept growing the bar past production.
+  const heightAnchor = (
+    <div
+      className="d-f ai-c py-2 w-0 o-h pe-none invisible"
+      aria-hidden="true"
+    >
+      <span className="fs-xs ff-m">{"\u200b"}</span>
+    </div>
+  );
+
   return (
     <div className="d-f bc-border bg-page">
       {title ? (
         <div className="d-f ai-c px-6 py-2 brw-1 bc-border bg-surface">
           <span className="c-accent fs-xs ff-m">{title}</span>
         </div>
-      ) : null}
+      ) : (
+        heightAnchor
+      )}
       <div className="f-1 bbw-1 bc-border" />
       {action ? (
         <div className="d-f ai-c px-2 bbw-1 bc-border">{action}</div>
