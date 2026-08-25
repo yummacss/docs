@@ -60,16 +60,15 @@ button {
 /* Mockup chrome: floating label so reviewers know which direction */
 .mock-label {
   position: fixed;
-  top: 12px;
-  left: 50%;
+  right: 16px;
+  bottom: 16px;
   z-index: 100;
-  transform: translateX(-50%);
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 6px 12px;
+  padding: 8px 12px;
   border: 1px solid var(--border);
-  background: rgba(21, 23, 36, 0.88);
+  background: rgba(21, 23, 36, 0.92);
   backdrop-filter: blur(8px);
   color: var(--faint);
   font-size: 12px;
