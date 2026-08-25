@@ -62,7 +62,7 @@ export default async function Page({
             />
           </div>
           {doc.description && (
-            <p className="c-accent-dim fs-lg">{doc.description}</p>
+            <p className="c-white/70 fs-lg">{doc.description}</p>
           )}
         </div>
       )}

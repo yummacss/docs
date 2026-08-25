@@ -65,7 +65,7 @@ export default function RootLayout({
         {/* biome-ignore lint/security/noDangerouslySetInnerHtml: static theme bootstrap, not user input */}
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
-      <body className="bg-page c-accent-dim">
+      <body className="bg-page">
         <ThemeProvider>
           {children}
           <Analytics />

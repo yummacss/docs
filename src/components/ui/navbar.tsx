@@ -101,8 +101,8 @@ export default function Navbar({
                         href={link.href}
                         target={link.external ? "_blank" : undefined}
                         rel={link.external ? "noopener noreferrer" : undefined}
-                        className={`fs-sm fv:oc-accent fv:ow-2 ${
-                          isActive ? "c-accent td-u tds-d" : "c-accent-dim h:c-accent"
+                        className={`fs-sm fv:oc-white fv:ow-2 ${
+                          isActive ? "c-accent td-u tds-d" : "c-white/70 h:c-accent"
                         }`}
                       >
                         {link.label}
@@ -118,7 +118,7 @@ export default function Navbar({
                 className="d-f ai-c jc-c g-2 h-8 px-3 bc-border bg-surface a:bg-surface-7 c-white h:c-white bw-1 fs-sm bf-b-sm @lg:px-4 fv:oc-white fv:ow-2"
               >
                 <Search className="w-4 h-4" />
-                <kbd className="d-none c-accent-dim fs-xs us-none @lg:d-b">
+                <kbd className="d-none c-white/70 fs-xs us-none @lg:d-b">
                   Ctrl + K
                 </kbd>
               </Button>
