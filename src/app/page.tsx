@@ -32,7 +32,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="p-r min-h-dvh c-white">
+    <div className="p-r min-h-dvh c-foreground">
       <Navbar variant="transparent" />
 
       <div
@@ -47,7 +47,7 @@ export default function Home() {
             <div>
               <Link
                 href="/ui/installation"
-                className="d-if ai-c g-2 px-3 py-1 mb-6 bc-border bg-surface c-white/70 bw-1 fs-sm us-none h:c-white fv:oc-white fv:ow-2"
+                className="d-if ai-c g-2 px-3 py-1 mb-6 bc-border bg-surface c-foreground/70 bw-1 fs-sm us-none h:c-foreground fv:oc-foreground fv:ow-2"
               >
                 Yumma UI is here
                 <NavArrowRight className="w-4 h-4" />
@@ -56,7 +56,7 @@ export default function Home() {
               <h1 className="mb-6 fs-4xl fw-400 lh-2 ff-e @md:fs-5xl @lg:fs-6xl">
                 Get faster at CSS while you use it.
               </h1>
-              <p className="mb-8 c-white/70 fs-md lh-5 @md:fs-lg">
+              <p className="mb-8 c-foreground/70 fs-md lh-5 @md:fs-lg">
                 Fixed scales for spacing, colors, type and radius. No arbitrary
                 values to drift.
               </p>
@@ -64,13 +64,13 @@ export default function Home() {
               <div className="d-f fw-w g-4 mb-12">
                 <Link
                   href="/docs/installation"
-                  className="px-6 py-3 bg-white c-black fs-md fw-600 us-none"
+                  className="px-6 py-3 bg-foreground c-page fs-md fw-600 us-none"
                 >
                   Get started
                 </Link>
                 <a
                   href="https://play.yummacss.com"
-                  className="px-6 py-3 c-white fw-600 fs-md us-none fv:oc-white fv:ow-2"
+                  className="px-6 py-3 c-foreground fw-600 fs-md us-none fv:oc-foreground fv:ow-2"
                 >
                   Try now
                 </a>

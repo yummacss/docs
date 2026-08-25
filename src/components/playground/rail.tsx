@@ -60,7 +60,7 @@ export default function PlaygroundRail() {
               <button
                 type="button"
                 onClick={playground.reset}
-                className="p-0 bg-transparent c-white/40 bw-0 fs-xs c-p h:c-white fv:oc-white fv:ow-2"
+                className="p-0 bg-transparent c-foreground/40 bw-0 fs-xs c-p h:c-foreground fv:oc-foreground fv:ow-2"
               >
                 Reset
               </button>
@@ -96,7 +96,7 @@ export default function PlaygroundRail() {
                 >
                   {/* The type stands where the widget would. A slot or a
                       callback has no value a reader could pick. */}
-                  <code className="fs-0 c-white/25 fs-xs ff-m">
+                  <code className="fs-0 c-foreground/25 fs-xs ff-m">
                     {typeOf(prop)}
                   </code>
                 </Row>
@@ -152,7 +152,7 @@ function Row({
             <NavArrowDown
               aria-hidden
               className={`fs-0 w-3 h-3 tp-c tdu-150 ${
-                open ? "ro-36 c-accent" : "c-white/25"
+                open ? "ro-36 c-accent" : "c-foreground/25"
               }`}
             />
           </button>
@@ -163,7 +163,7 @@ function Row({
       </div>
 
       {open && (
-        <div className="mt-2 c-white/60 fs-sm lh-4">
+        <div className="mt-2 c-foreground/60 fs-sm lh-4">
           <PropDescription text={prop.description} />
         </div>
       )}

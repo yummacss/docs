@@ -129,7 +129,7 @@ export function CopyButton({
   return (
     <Button
       onClick={onCopy}
-      className="d-f ai-c g-1 px-2 py-1 c-accent h:c-accent-4 fv:oc-white fv:ow-2"
+      className="d-f ai-c g-1 px-2 py-1 c-accent h:c-accent-4 fv:oc-foreground fv:ow-2"
       aria-label="Copy code"
     >
       {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}

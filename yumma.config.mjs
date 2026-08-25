@@ -40,14 +40,17 @@ export default defineConfig({
   ],
   theme: {
     colors: {
-      "accent-dim": "#9aa5ef",
-      "diff-add": "#a8e1ad",
-      "diff-remove": "#e1a8a8",
-      accent: "#bec6f2",
-      border: "#232741",
-      code: "#dda2f6",
-      page: "#151724",
-      surface: "#1a1d2e",
+      // Paired colors follow the OS by default; override with `cs-l` / `cs-d`
+      // / `cs-ld` on <html>. Same palette as snippets.renildo.dev.
+      accent: { light: "#2563eb", dark: "#bec6f2" },
+      "accent-dim": { light: "#64748b", dark: "#b9bed5" },
+      border: { light: "#cbd5e1", dark: "#31365e" },
+      code: "#2563eb",
+      foreground: { light: "#0f172a", dark: "#f8fafc" },
+      page: { light: "#ffffff", dark: "#21243f" },
+      surface: { light: "#f1f5f9", dark: "#1e2039" },
+      "diff-add": "#86efac",
+      "diff-remove": "#fca5a5",
     },
   },
 });
