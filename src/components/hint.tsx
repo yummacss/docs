@@ -50,7 +50,7 @@ export default function Hint({ icon, children }: Props) {
       <span className="d-f ai-c fs-0 p-1 bc-border bg-surface c-accent bw-1">
         <Icon className="w-5 h-5" />
       </span>
-      <span className="c-foreground/80">{children}</span>
+      <span className="c-accent-dim">{children}</span>
     </div>
   );
 }

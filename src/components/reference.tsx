@@ -39,7 +39,7 @@ export default function Reference({ category, name, variant }: Props) {
 
   if (!data) {
     return (
-      <div className="p-4 mb-6 bg-surface c-foreground/60 ta-c">
+      <div className="p-4 mb-6 bg-surface c-accent-dim ta-c">
         Something went wrong while fetching the data.
       </div>
     );
@@ -66,7 +66,7 @@ export default function Reference({ category, name, variant }: Props) {
               render={(triggerProps, { open }) => (
                 <Button
                   {...triggerProps}
-                  className="d-f ai-c jc-sb g-4 w-100% py-3 px-4 m-0 bg-transparent c-foreground bw-0 ta-l fw-600 fs-sm c-p us-none"
+                  className="d-f ai-c jc-sb g-4 w-100% py-3 px-4 m-0 bg-transparent c-accent bw-0 ta-l fw-600 fs-sm c-p us-none"
                 >
                   <span className="d-f ai-c g-2 fw-w">
                     {/* The header is all you see while the group is collapsed,
@@ -77,7 +77,7 @@ export default function Reference({ category, name, variant }: Props) {
                       {data.summary.map((token) => (
                         <span
                           key={token.id}
-                          className={token.punctuation ? "c-foreground/40" : ""}
+                          className={token.punctuation ? "c-accent-dim" : ""}
                         >
                           {token.text}
                         </span>
@@ -91,29 +91,29 @@ export default function Reference({ category, name, variant }: Props) {
                     </span>
                   </span>
                   <Plus
-                    className={`fs-0 w-4 h-4 tp-c tdu-200 ttf-io ${open ? "ro-9 c-foreground" : "ro-0 c-foreground/60"}`}
+                    className={`fs-0 w-4 h-4 tp-c tdu-200 ttf-io ${open ? "ro-9 c-accent" : "ro-0 c-accent-dim"}`}
                   />
                 </Button>
               )}
             />
           </Accordion.Header>
-          <Accordion.Panel className="o-h c-foreground/70 fs-sm lh-4">
+          <Accordion.Panel className="o-h c-accent-dim fs-sm lh-4">
             <div className="px-4 pb-4">
               <div className="oy-auto max-h-52">
                 {/* Sticky: the list runs to hundreds of rows, and remembering
                     the filter exists halfway down should not mean scrolling
                     back to the top to reach it. */}
                 <div className="d-f p-st t-0 zi-10 ai-c g-2 mb-2 pt-1 pb-2 bc-border bbw-1 bg-surface">
-                  <Search className="fs-0 w-4 h-4 c-foreground/30" />
+                  <Search className="fs-0 w-4 h-4 c-accent/30" />
                   <Input
                     type="text"
                     placeholder="Filter..."
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
-                    className="w-100% bg-transparent c-foreground/70 bw-0 fs-md"
+                    className="w-100% bg-transparent c-accent-dim bw-0 fs-md"
                   />
                   {search && (
-                    <span className="fs-0 c-foreground/30 fs-xs ws-nw">
+                    <span className="fs-0 c-accent/30 fs-xs ws-nw">
                       {filtered.length}/{data.rows.length}
                     </span>
                   )}
@@ -145,7 +145,7 @@ export default function Reference({ category, name, variant }: Props) {
                       </div>
                     ))
                   ) : (
-                    <div className="py-2 c-foreground/40 fs-xs ta-c">
+                    <div className="py-2 c-accent-dim fs-xs ta-c">
                       No utilities match "{search}"
                     </div>
                   )}

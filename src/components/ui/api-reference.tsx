@@ -37,7 +37,7 @@ export default function ApiReference({ primitive }: ApiReferenceProps) {
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className="d-if ai-c g-2 w-fc c-foreground/70 fs-sm td-none h:c-foreground fv:oc-foreground fv:ow-2"
+      className="d-if ai-c g-2 w-fc c-accent-dim fs-sm td-none h:c-accent fv:oc-accent fv:ow-2"
     >
       <BaseUI className="w-4 h-4" />
       Base UI primitive

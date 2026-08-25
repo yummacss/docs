@@ -21,7 +21,7 @@ export default function ViewMarkdown() {
   return (
     <Link
       href={mdPath}
-      className="d-if ai-c g-2 w-fc c-foreground/70 fs-sm td-none h:c-foreground fv:oc-foreground fv:ow-2"
+      className="d-if ai-c g-2 w-fc c-accent-dim fs-sm td-none h:c-accent fv:oc-accent fv:ow-2"
     >
       <Page className="w-4 h-4" />
       View markdown

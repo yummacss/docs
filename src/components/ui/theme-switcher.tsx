@@ -10,12 +10,15 @@ const MODE_ICON = {
   auto: Computer,
 } as const;
 
-const MODE_LABEL: Record<ThemeMode, string> = {
+const MODE_TOOLTIP: Record<ThemeMode, string> = {
   light: "Light theme — click for dark",
   dark: "Dark theme — click for auto",
   auto: "Auto theme (follows OS) — click for light",
 };
 
+/**
+ * Cycles light → dark → auto, matching snippets.renildo.dev's status bar control.
+ */
 export default function ThemeSwitcher() {
   const { mode, cycleMode } = useTheme();
   const Icon = MODE_ICON[mode];
@@ -24,9 +27,9 @@ export default function ThemeSwitcher() {
     <Button
       type="button"
       onClick={cycleMode}
-      aria-label={MODE_LABEL[mode]}
-      title={MODE_LABEL[mode]}
-      className="d-f ai-c jc-c h-8 w-8 bc-border bg-surface h:bg-surface-8 c-accent-dim h:c-accent bw-1 bf-b-sm fv:oc-accent fv:ow-2"
+      aria-label={MODE_TOOLTIP[mode]}
+      title={MODE_TOOLTIP[mode]}
+      className="d-f ai-c jc-c px-3 py-1 bg-transparent bw-0 c-p c-accent-dim h:c-accent h:bg-page fv:os-s fv:oo--2 fv:oc-accent"
     >
       <Icon className="w-4 h-4" aria-hidden />
     </Button>

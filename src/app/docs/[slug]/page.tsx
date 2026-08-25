@@ -54,7 +54,7 @@ export default async function Page({
       {doc && (
         <div className="my-8" data-meta>
           <div className="d-f ai-c jc-sb mb-2">
-            <h1 className="c-foreground fs-4xl fw-400">{doc.title}</h1>
+            <h1 className="c-accent fs-4xl fw-400">{doc.title}</h1>
             <Pagination
               previous={navigation.previous}
               next={navigation.next}
@@ -62,7 +62,7 @@ export default async function Page({
             />
           </div>
           {doc.description && (
-            <p className="c-foreground/70 fs-lg">{doc.description}</p>
+            <p className="c-accent-dim fs-lg">{doc.description}</p>
           )}
         </div>
       )}
