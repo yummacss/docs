@@ -46,7 +46,7 @@ export default defineConfig({
       "accent-dim": { light: "#64748b", dark: "#9aa5ef" },
       border: { light: "#cbd5e1", dark: "#232741" },
       code: { light: "#9aa5ef", dark: "#dda2f6" },
-      ink: { light: "#1a1d2e", dark: "#ffffff" },
+      ink: { light: "#232741", dark: "#ffffff" },
       page: { light: "#ffffff", dark: "#151724" },
       surface: { light: "#f1f5f9", dark: "#1a1d2e" },
       "diff-add": "#a8e1ad",
