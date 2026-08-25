@@ -27,9 +27,12 @@ import { decorateCodeHast } from "@/lib/code-decorate.mjs";
 // client chunks via mdx-components, and a node:fs import there is exactly the
 // leak that kept the playground from deploying.
 import eclipsa from "@/themes/eclipsa.json";
+import light from "@/themes/light.json";
 
-const theme = eclipsa as unknown as ThemeRegistrationAny;
-const THEME_NAME = eclipsa.name ?? "eclipsa";
+const darkTheme = eclipsa as unknown as ThemeRegistrationAny;
+const lightTheme = light as unknown as ThemeRegistrationAny;
+const DARK_THEME_NAME = eclipsa.name ?? "eclipsa";
+const LIGHT_THEME_NAME = light.name ?? "Light";
 
 /**
  * The fine-grained core, not `@shikijs/rehype`.
@@ -46,7 +49,7 @@ let highlighter: HighlighterCore | null = null;
 function get(): HighlighterCore {
   if (!highlighter) {
     highlighter = createHighlighterCoreSync({
-      themes: [theme],
+      themes: [darkTheme, lightTheme],
       // js & mjs alias to javascript; bash aliases to shellscript; yml aliases
       // to yaml. The aliases come from the grammar files, so the canonical set
       // is enough.
@@ -88,7 +91,8 @@ export function highlight(
 
   const hast: Root = shiki.codeToHast(code, {
     lang: resolved,
-    theme: THEME_NAME,
+    themes: { light: LIGHT_THEME_NAME, dark: DARK_THEME_NAME },
+    defaultColor: false,
     meta: { __raw: meta ?? "" },
     transformers: [
       transformerNotationDiff(),
