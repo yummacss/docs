@@ -78,7 +78,7 @@ export default function ComponentPreview({
     <div className={`mb-6 bc-border bw-1 ${className || ""}`}>
       <Suspense fallback={null}>
         {RegistryComponent ? (
-          <div data-preview className="d-f p-r ox-auto ai-c jc-c p-10 bg-white">
+          <div data-preview className="d-f p-r ox-auto ai-c jc-c p-10">
             <RegistryComponent {...demo.props}>
               {demo.children}
             </RegistryComponent>
