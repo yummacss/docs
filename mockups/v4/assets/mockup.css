@@ -1,0 +1,257 @@
+/* Shared tokens for Yumma CSS v4 landing mockups.
+   Mirrors yumma.config.mjs + current site chrome. */
+
+:root {
+  --page: #151724;
+  --surface: #1a1d2e;
+  --border: #232741;
+  --accent: #bec6f2;
+  --accent-dim: #9aa5ef;
+  --indigo: #413cb8;
+  --indigo-deep: #2e2a8a;
+  --white: #ffffff;
+  --muted: rgba(255, 255, 255, 0.7);
+  --faint: rgba(255, 255, 255, 0.5);
+  --display: "Esteban", "Iowan Old Style", "Palatino Linotype", Palatino, serif;
+  --body: "iA Writer Quattro", "IBM Plex Mono", "SFMono-Regular", ui-monospace,
+    monospace;
+  --max: clamp(40rem, 80vw, 96rem);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: var(--body);
+  background: var(--page);
+  color: var(--white);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border: 0;
+  background: none;
+  color: inherit;
+}
+
+.ff-e {
+  font-family: var(--display);
+  font-weight: 400;
+}
+
+/* Mockup chrome: floating label so reviewers know which direction */
+.mock-label {
+  position: fixed;
+  top: 12px;
+  left: 50%;
+  z-index: 100;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  background: rgba(21, 23, 36, 0.88);
+  backdrop-filter: blur(8px);
+  color: var(--faint);
+  font-size: 12px;
+  letter-spacing: 0.02em;
+}
+
+.mock-label strong {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.mock-label a {
+  color: var(--muted);
+}
+
+.mock-label a:hover {
+  color: var(--accent);
+}
+
+/* Shared nav */
+.nav {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 20px 24px;
+}
+
+.nav-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.nav-brand svg {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.nav-links {
+  display: none;
+  align-items: center;
+  gap: 20px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-ghost {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.nav-ghost:hover {
+  color: var(--accent);
+}
+
+@media (min-width: 900px) {
+  .nav-links {
+    display: flex;
+  }
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  font-size: 15px;
+  font-weight: 700;
+  transition: transform 0.35s var(--ease), background 0.25s ease,
+    color 0.25s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  background: var(--white);
+  color: #000;
+}
+
+.btn-primary:hover {
+  background: var(--accent);
+  color: #151724;
+}
+
+.btn-ghost {
+  color: var(--white);
+}
+
+.btn-ghost:hover {
+  color: var(--accent);
+}
+
+/* Motion primitives */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(1.5%, -1.2%, 0) rotate(0.6deg);
+  }
+}
+
+@keyframes hatch-shift {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 48px 48px;
+  }
+}
+
+@keyframes soft-pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}
+
+.rise-1 {
+  animation: rise 0.9s var(--ease) both;
+}
+.rise-2 {
+  animation: rise 0.9s var(--ease) 0.12s both;
+}
+.rise-3 {
+  animation: rise 0.9s var(--ease) 0.24s both;
+}
+.rise-4 {
+  animation: rise 0.9s var(--ease) 0.36s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>03 Blueprint - Yumma CSS v4 mockup</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Esteban&family=IBM+Plex+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/mockup.css" />
+    <style>
+      :root {
+        --body: "IBM Plex Mono", ui-monospace, monospace;
+      }
+
+      .page {
+        position: relative;
+        min-height: 100dvh;
+        overflow: hidden;
+        background: #12141f;
+      }
+
+      .blueprint {
+        position: absolute;
+        inset: 0;
+        background-color: #12141f;
+        background-image:
+          repeating-linear-gradient(
+            -45deg,
+            transparent,
+            transparent 17px,
+            rgba(190, 198, 242, 0.12) 17px,
+            rgba(190, 198, 242, 0.12) 18px
+          ),
+          radial-gradient(
+            80% 70% at 75% 40%,
+            rgba(65, 60, 184, 0.35) 0%,
+            transparent 60%
+          );
+        animation: hatch-shift 40s linear infinite;
+      }
+
+      .blueprint::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          105deg,
+          rgba(18, 20, 31, 0.97) 0%,
+          rgba(18, 20, 31, 0.88) 42%,
+          rgba(18, 20, 31, 0.35) 68%,
+          rgba(18, 20, 31, 0.15) 100%
+        );
+      }
+
+      .scale-art {
+        position: absolute;
+        right: 6%;
+        top: 50%;
+        transform: translateY(-50%);
+        width: min(42vw, 480px);
+        z-index: 1;
+        animation: fade 1.2s var(--ease) both, drift 16s ease-in-out infinite;
+      }
+
+      .scale-art svg {
+        width: 100%;
+        height: auto;
+      }
+
+      .content {
+        position: relative;
+        z-index: 2;
+        min-height: 100dvh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .hero {
+        flex: 1;
+        display: flex;
+        align-items: flex-end;
+        max-width: var(--max);
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 24px 72px;
+      }
+
+      .hero-copy {
+        max-width: 34rem;
+        padding-bottom: 8px;
+      }
+
+      .brand-line {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 28px;
+      }
+
+      .brand-line svg {
+        width: 44px;
+        height: 44px;
+      }
+
+      .brand-line strong {
+        font-size: clamp(1.4rem, 3vw, 1.85rem);
+        font-weight: 700;
+      }
+
+      h1 {
+        margin: 0 0 18px;
+        font-family: var(--display);
+        font-size: clamp(2.5rem, 5.5vw, 4.2rem);
+        font-weight: 400;
+        line-height: 1.05;
+      }
+
+      .sub {
+        margin: 0 0 32px;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.65;
+        max-width: 27rem;
+      }
+
+      .cta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      @media (max-width: 800px) {
+        .scale-art {
+          right: -10%;
+          top: 18%;
+          transform: none;
+          width: 70vw;
+          opacity: 0.4;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="mock-label">
+      <strong>03</strong> Blueprint
+      <a href="./index.html">All mockups</a>
+      <a href="./04-editorial.html">Next →</a>
+    </div>
+
+    <div class="page">
+      <div class="blueprint" aria-hidden="true"></div>
+
+      <div class="scale-art" aria-hidden="true">
+        <!-- Interlock mark as geometric product art -->
+        <svg viewBox="0 0 240 240" fill="none">
+          <rect
+            x="24"
+            y="28"
+            width="96"
+            height="96"
+            fill="#413cb8"
+            opacity="0.95"
+          />
+          <rect
+            x="24"
+            y="28"
+            width="96"
+            height="48"
+            fill="#2e2a8a"
+          />
+          <circle cx="156" cy="156" r="72" fill="#fff" />
+          <circle cx="156" cy="156" r="44" fill="#413cb8" />
+          <circle cx="176" cy="136" r="28" fill="#fff" />
+          <path
+            stroke="rgba(190,198,242,0.45)"
+            stroke-width="1"
+            d="M24 140h70M100 28v70M120 156h96M156 84v72"
+          />
+        </svg>
+      </div>
+
+      <div class="content">
+        <header class="nav">
+          <a class="nav-brand" href="./index.html">
+            <svg viewBox="0 0 48 48" aria-hidden="true">
+              <path
+                fill="#413cb8"
+                d="M8 6h20v14H18v10H8V6zm22 12c8.28 0 15 6.72 15 15s-6.72 15-15 15-15-6.72-15-15h10c0 2.76 2.24 5 5 5s5-2.24 5-5-2.24-5-5-5V18z"
+              />
+            </svg>
+            <span>Yumma CSS</span>
+          </a>
+          <nav class="nav-links">
+            <a href="#">Docs</a>
+            <a href="#">Blog</a>
+            <a href="#">Components</a>
+            <a href="#">Playground</a>
+          </nav>
+          <div class="nav-actions">
+            <a class="nav-ghost" href="#">GitHub</a>
+          </div>
+        </header>
+
+        <main class="hero">
+          <div class="hero-copy">
+            <div class="brand-line rise-1">
+              <svg viewBox="0 0 48 48" aria-hidden="true">
+                <path
+                  fill="#413cb8"
+                  d="M8 6h20v14H18v10H8V6zm22 12c8.28 0 15 6.72 15 15s-6.72 15-15 15-15-6.72-15-15h10c0 2.76 2.24 5 5 5s5-2.24 5-5-2.24-5-5-5V18z"
+                />
+              </svg>
+              <strong>Yumma CSS</strong>
+            </div>
+            <h1 class="rise-2">Get faster at CSS while you use it.</h1>
+            <p class="sub rise-3">
+              Fixed scales for spacing, colors, type and radius. No arbitrary
+              values to drift.
+            </p>
+            <div class="cta rise-4">
+              <a class="btn btn-primary" href="#">Get started</a>
+              <a class="btn btn-ghost" href="#">Try now</a>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>01 Familiar evolution - Yumma CSS v4 mockup</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Esteban&family=IBM+Plex+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/mockup.css" />
+    <style>
+      :root {
+        --body: "IBM Plex Mono", ui-monospace, monospace;
+      }
+
+      .page {
+        position: relative;
+        min-height: 100dvh;
+        overflow: hidden;
+        background:
+          radial-gradient(
+            120% 80% at 85% 15%,
+            rgba(65, 60, 184, 0.28) 0%,
+            transparent 55%
+          ),
+          radial-gradient(
+            90% 60% at 10% 90%,
+            rgba(190, 198, 242, 0.08) 0%,
+            transparent 50%
+          ),
+          var(--page);
+      }
+
+      .hatch {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0.18;
+        background-image: repeating-linear-gradient(
+          -45deg,
+          transparent,
+          transparent 11px,
+          rgba(190, 198, 242, 0.35) 11px,
+          rgba(190, 198, 242, 0.35) 12px
+        );
+        animation: hatch-shift 28s linear infinite;
+        mask-image: linear-gradient(
+          105deg,
+          transparent 35%,
+          #000 62%,
+          #000 100%
+        );
+      }
+
+      .mark-plane {
+        position: absolute;
+        right: -8%;
+        top: 8%;
+        width: min(58vw, 640px);
+        aspect-ratio: 1;
+        pointer-events: none;
+        opacity: 0.92;
+        animation: drift 14s ease-in-out infinite, fade 1.2s var(--ease) both;
+      }
+
+      .mark-plane svg {
+        width: 100%;
+        height: 100%;
+      }
+
+      .hero {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: flex-end;
+        min-height: calc(100dvh - 72px);
+        max-width: var(--max);
+        margin: 0 auto;
+        padding: 0 24px 64px;
+      }
+
+      .hero-copy {
+        max-width: 36rem;
+      }
+
+      .brand-line {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 28px;
+        font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+        font-weight: 700;
+        letter-spacing: -0.01em;
+      }
+
+      .brand-line svg {
+        width: 40px;
+        height: 40px;
+      }
+
+      h1 {
+        margin: 0 0 20px;
+        font-family: var(--display);
+        font-size: clamp(2.6rem, 6vw, 4.5rem);
+        font-weight: 400;
+        line-height: 1.05;
+      }
+
+      .sub {
+        margin: 0 0 32px;
+        color: var(--muted);
+        font-size: clamp(1rem, 1.6vw, 1.15rem);
+        line-height: 1.6;
+        max-width: 28rem;
+      }
+
+      .cta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      @media (max-width: 800px) {
+        .mark-plane {
+          right: -20%;
+          top: auto;
+          bottom: 38%;
+          width: 70vw;
+          opacity: 0.35;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="mock-label">
+      <strong>01</strong> Familiar evolution
+      <a href="./index.html">All mockups</a>
+      <a href="./02-mark-plane.html">Next →</a>
+    </div>
+
+    <div class="page">
+      <div class="hatch" aria-hidden="true"></div>
+      <div class="mark-plane" aria-hidden="true">
+        <svg viewBox="0 0 48 48">
+          <circle cx="24" cy="24" r="22" fill="#fff" />
+          <circle cx="24" cy="24" r="14" fill="#413cb8" />
+          <circle cx="29.5" cy="18.5" r="9.5" fill="#fff" />
+        </svg>
+      </div>
+
+      <header class="nav">
+        <a class="nav-brand" href="./index.html">
+          <svg viewBox="0 0 48 48" aria-hidden="true">
+            <circle cx="24" cy="24" r="22" fill="#fff" />
+            <circle cx="24" cy="24" r="14" fill="#413cb8" />
+            <circle cx="29.5" cy="18.5" r="9.5" fill="#fff" />
+          </svg>
+          <span>Yumma CSS</span>
+        </a>
+        <nav class="nav-links">
+          <a href="#">Docs</a>
+          <a href="#">Blog</a>
+          <a href="#">Components</a>
+          <a href="#">Playground</a>
+        </nav>
+        <div class="nav-actions">
+          <a class="nav-ghost" href="#">GitHub</a>
+        </div>
+      </header>
+
+      <main class="hero">
+        <div class="hero-copy">
+          <div class="brand-line rise-1">
+            <svg viewBox="0 0 48 48" aria-hidden="true">
+              <circle cx="24" cy="24" r="22" fill="#fff" />
+              <circle cx="24" cy="24" r="14" fill="#413cb8" />
+              <circle cx="29.5" cy="18.5" r="9.5" fill="#fff" />
+            </svg>
+            Yumma CSS
+          </div>
+          <h1 class="rise-2">Get faster at CSS while you use it.</h1>
+          <p class="sub rise-3">
+            Fixed scales for spacing, colors, type and radius. No arbitrary
+            values to drift.
+          </p>
+          <div class="cta rise-4">
+            <a class="btn btn-primary" href="#">Get started</a>
+            <a class="btn btn-ghost" href="#">Try now</a>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

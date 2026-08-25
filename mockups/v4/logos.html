@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Logo board - Yumma CSS v4 mockup</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Esteban&family=IBM+Plex+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/mockup.css" />
+    <style>
+      :root {
+        --body: "IBM Plex Mono", ui-monospace, monospace;
+      }
+
+      .wrap {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 72px 24px 96px;
+      }
+
+      h1 {
+        margin: 0 0 12px;
+        font-family: var(--display);
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 400;
+      }
+
+      .lede {
+        margin: 0 0 48px;
+        color: var(--muted);
+        max-width: 38rem;
+        font-size: 14px;
+        line-height: 1.65;
+      }
+
+      h2 {
+        margin: 48px 0 16px;
+        font-family: var(--display);
+        font-size: 1.5rem;
+        font-weight: 400;
+      }
+
+      .note {
+        margin: 0 0 20px;
+        color: var(--faint);
+        font-size: 13px;
+        line-height: 1.55;
+        max-width: 40rem;
+      }
+
+      .row {
+        display: grid;
+        gap: 12px;
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      }
+
+      .cell {
+        border: 1px solid var(--border);
+        background: var(--surface);
+        padding: 24px 16px 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+        min-height: 180px;
+      }
+
+      .cell.light {
+        background: #f4f4f7;
+        color: #151724;
+      }
+
+      .cell svg {
+        width: 64px;
+        height: 64px;
+      }
+
+      .cell.sm svg {
+        width: 28px;
+        height: 28px;
+      }
+
+      .cell.lg svg {
+        width: 96px;
+        height: 96px;
+      }
+
+      .cell .meta {
+        text-align: center;
+      }
+
+      .cell .name {
+        display: block;
+        font-size: 13px;
+        font-weight: 700;
+        margin-bottom: 4px;
+      }
+
+      .cell .why {
+        display: block;
+        color: var(--faint);
+        font-size: 11px;
+        line-height: 1.45;
+      }
+
+      .cell.light .why {
+        color: #5a5d72;
+      }
+
+      .lockup {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 18px;
+        font-weight: 700;
+      }
+
+      .lockup svg {
+        width: 36px;
+        height: 36px;
+      }
+
+      .compare {
+        display: grid;
+        gap: 12px;
+      }
+
+      @media (min-width: 720px) {
+        .compare {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      .compare .panel {
+        border: 1px solid var(--border);
+        padding: 28px;
+        background: var(--surface);
+      }
+
+      .compare .panel h3 {
+        margin: 0 0 20px;
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--accent);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .current-mark {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .current-mark svg {
+        width: 56px;
+        height: 56px;
+      }
+
+      .current-mark p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="mock-label">
+      <strong>Logos</strong> v4 mark explorations
+      <a href="./index.html">All mockups</a>
+      <a href="./01-familiar.html">Landings →</a>
+    </div>
+
+    <main class="wrap">
+      <h1 class="rise-1">Logo board</h1>
+      <p class="lede rise-2">
+        Reference energy: modular geometry and negative space (Notion-adjacent
+        feel). Constraint: do not recreate the square / pie-circle / triangle
+        lockup. Keep indigo <code>#413cb8</code> and the circular DNA of the
+        current mark where it still fits.
+      </p>
+
+      <section class="rise-3">
+        <h2>Today vs direction</h2>
+        <div class="compare">
+          <div class="panel">
+            <h3>Current</h3>
+            <div class="current-mark">
+              <!-- Existing logo-dark path simplified -->
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <circle cx="12" cy="12" r="11" fill="white" />
+                <path
+                  d="M3 12C3 7.00909 7.00909 3 12 3C16.9909 3 21 7.00909 21 12C21 16.9909 16.9909 21 12 21C7.00909 21 3 16.9909 3 12ZM12 4.63636C7.90909 4.63636 4.63636 7.90909 4.63636 12C4.63636 16.0909 7.90909 19.3636 12 19.3636C16.0909 19.3636 19.3636 16.0909 19.3636 12C19.3636 7.90909 16.0909 4.63636 12 4.63636ZM15.4364 7.90909C15.1091 7.90909 14.7818 8.07273 14.5364 8.31818L8.23636 14.6182C8.07273 14.7818 7.90909 15.1091 7.90909 15.4364C7.90909 15.7636 8.07273 16.1727 8.4 16.4182C9.38182 17.2364 10.6909 17.7273 12 17.7273C13.5545 17.7273 14.9455 17.1545 16.0091 16.0091C17.0727 14.9455 17.7273 13.4727 17.7273 12C17.7273 10.6909 17.2364 9.38182 16.4182 8.4C16.1727 8.07273 15.8455 7.90909 15.4364 7.90909Z"
+                  fill="#413cb8"
+                />
+              </svg>
+              <p>
+                Circle with diagonal crescent slice. Recognizable, a bit busy at
+                16px.
+              </p>
+            </div>
+          </div>
+          <div class="panel">
+            <h3>Recommended default in mockups</h3>
+            <div class="current-mark">
+              <svg viewBox="0 0 48 48" aria-hidden="true">
+                <circle cx="24" cy="24" r="22" fill="#fff" />
+                <circle cx="24" cy="24" r="14" fill="#413cb8" />
+                <circle cx="29.5" cy="18.5" r="9.5" fill="#fff" />
+              </svg>
+              <p>
+                <strong style="color: #fff">Offset</strong> - same crescent
+                story, fewer nodes, clearer at small sizes. Easy evolution.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="rise-4">
+        <h2>Candidates on dark</h2>
+        <p class="note">
+          Primary surface for the docs site. Favicons and nav live here.
+        </p>
+        <div class="row" id="dark-row"></div>
+      </section>
+
+      <section>
+        <h2>Candidates on light</h2>
+        <p class="note">
+          For apple-touch, light UI kit chrome, and print. Marks without a white
+          disc use indigo directly.
+        </p>
+        <div class="row" id="light-row"></div>
+      </section>
+
+      <section>
+        <h2>Size stress</h2>
+        <p class="note">16 / 28 / 64 / 96 - Offset and Arcs hold up best.</p>
+        <div class="row" id="size-row"></div>
+      </section>
+
+      <section>
+        <h2>Wordmark lockups</h2>
+        <p class="note">How the mark sits next to “Yumma CSS” in nav and hero.</p>
+        <div class="row" id="lockup-row"></div>
+      </section>
+    </main>
+
+    <script>
+      const marks = [
+        {
+          id: "offset",
+          name: "Offset",
+          why: "Evolved crescent. Cleaner silhouette.",
+          dark: `<circle cx="24" cy="24" r="22" fill="#fff"/><circle cx="24" cy="24" r="14" fill="#413cb8"/><circle cx="29.5" cy="18.5" r="9.5" fill="#fff"/>`,
+          light: `<circle cx="24" cy="24" r="22" fill="#413cb8"/><circle cx="29.5" cy="18.5" r="9.5" fill="#f4f4f7"/>`,
+        },
+        {
+          id: "chord",
+          name: "Chord",
+          why: "Closest to today. Parallel read as scales.",
+          dark: `<circle cx="24" cy="24" r="22" fill="#fff"/><path fill="#413cb8" d="M24 6c-9.94 0-18 8.06-18 18s8.06 18 18 18 18-8.06 18-18S33.94 6 24 6zm0 4c7.73 0 14 6.27 14 14s-6.27 14-14 14S10 31.73 10 24 16.27 10 24 10zm7.2 5.2c-.55 0-1.05.22-1.42.59L14.79 30.78c-.37.37-.59.87-.59 1.42 0 .6.28 1.18.76 1.55A13.9 13.9 0 0 0 24 36c3.7 0 7.05-1.44 9.55-3.79A13.9 13.9 0 0 0 38 24c0-3.4-1.22-6.52-3.24-8.95-.4-.5-.97-.85-1.56-.85z"/>`,
+          light: `<path fill="#413cb8" d="M24 2C11.85 2 2 11.85 2 24s9.85 22 22 22 22-9.85 22-22S36.15 2 24 2zm7.2 13.2c-.55 0-1.05.22-1.42.59L14.79 30.78c-.37.37-.59.87-.59 1.42 0 .6.28 1.18.76 1.55A13.9 13.9 0 0 0 24 36c3.7 0 7.05-1.44 9.55-3.79A13.9 13.9 0 0 0 38 24c0-3.4-1.22-6.52-3.24-8.95-.4-.5-.97-.85-1.56-.85z"/>`,
+        },
+        {
+          id: "arcs",
+          name: "Arcs",
+          why: "Nested scales. Strong product metaphor.",
+          dark: `<circle cx="24" cy="24" r="22" fill="#fff"/><path fill="#413cb8" fill-rule="evenodd" d="M24 8c8.84 0 16 7.16 16 16s-7.16 16-16 16S8 32.84 8 24 15.16 8 24 8zm0 5c6.08 0 11 4.92 11 11s-4.92 11-11 11S13 30.08 13 24s4.92-11 11-11zm0 5c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6 2.69-6 6-6zm0 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>`,
+          light: `<path fill="#413cb8" fill-rule="evenodd" d="M24 2C11.85 2 2 11.85 2 24s9.85 22 22 22 22-9.85 22-22S36.15 2 24 2zm0 8c7.73 0 14 6.27 14 14s-6.27 14-14 14S10 31.73 10 24 16.27 10 24 10zm0 5c4.97 0 9 4.03 9 9s-4.03 9-9 9-9-4.03-9-9 4.03-9 9-9zm0 5a4 4 0 1 1 0 8 4 4 0 0 1 0-8z"/>`,
+        },
+        {
+          id: "ymark",
+          name: "Y-mark",
+          why: "Hidden Y in the cut. More letterform.",
+          dark: `<circle cx="24" cy="24" r="22" fill="#fff"/><path fill="#413cb8" d="M24 6C14.06 6 6 14.06 6 24s8.06 18 18 18 18-8.06 18-18S33.94 6 24 6zm0 4c7.73 0 14 6.27 14 14 0 2.8-.83 5.4-2.25 7.56L24 24.2 12.25 31.56A13.9 13.9 0 0 1 10 24c0-7.73 6.27-14 14-14zm-2 16.55 8.9 9.7A13.9 13.9 0 0 1 24 38c-2.5 0-4.84-.66-6.88-1.8L22 26.55zm4 0 4.88 9.65c-1.4.76-2.98 1.28-4.68 1.5L26 26.55z"/>`,
+          light: `<path fill="#413cb8" d="M24 2C11.85 2 2 11.85 2 24s9.85 22 22 22 22-9.85 22-22S36.15 2 24 2zm12.75 29.56L24 24.2 11.25 31.56A19.9 19.9 0 0 1 24 6c9.3 0 17.05 6.37 19.2 15H33.5c-1.1 0-2 .9-2 2v8.56z"/>`,
+        },
+        {
+          id: "interlock",
+          name: "Interlock",
+          why: "Modular without the Notion trio.",
+          dark: `<path fill="#413cb8" d="M8 6h20v14H18v10H8V6zm22 12c8.28 0 15 6.72 15 15s-6.72 15-15 15-15-6.72-15-15h10c0 2.76 2.24 5 5 5s5-2.24 5-5-2.24-5-5-5V18z"/>`,
+          light: `<path fill="#413cb8" d="M8 6h20v14H18v10H8V6zm22 12c8.28 0 15 6.72 15 15s-6.72 15-15 15-15-6.72-15-15h10c0 2.76 2.24 5 5 5s5-2.24 5-5-2.24-5-5-5V18z"/>`,
+        },
+        {
+          id: "lattice",
+          name: "Lattice",
+          why: "Utility grid. Furthest from current.",
+          dark: `<path fill="#413cb8" d="M4 4h18v18H4V4zm22 0h18v8H26V4zm0 12h8v18h-8V16zM4 26h8v18H4V26zm12 8h18v10H16V34zm22-8h6v22h-6V26z"/>`,
+          light: `<path fill="#413cb8" d="M4 4h18v18H4V4zm22 0h18v8H26V4zm0 12h8v18h-8V16zM4 26h8v18H4V26zm12 8h18v10H16V34zm22-8h6v22h-6V26z"/>`,
+        },
+      ];
+
+      function cell(m, mode) {
+        const svg = mode === "light" ? m.light : m.dark;
+        return `<div class="cell ${mode === "light" ? "light" : ""}">
+          <svg viewBox="0 0 48 48" aria-hidden="true">${svg}</svg>
+          <div class="meta">
+            <span class="name">${m.name}</span>
+            <span class="why">${m.why}</span>
+          </div>
+        </div>`;
+      }
+
+      document.getElementById("dark-row").innerHTML = marks
+        .map((m) => cell(m, "dark"))
+        .join("");
+      document.getElementById("light-row").innerHTML = marks
+        .map((m) => cell(m, "light"))
+        .join("");
+
+      const sizes = [
+        { cls: "sm", label: "28px" },
+        { cls: "", label: "64px" },
+        { cls: "lg", label: "96px" },
+      ];
+      const sizeMarks = [marks[0], marks[2], marks[4]];
+      document.getElementById("size-row").innerHTML = sizeMarks
+        .flatMap((m) =>
+          sizes.map(
+            (s) => `<div class="cell ${s.cls}">
+              <svg viewBox="0 0 48 48">${m.dark}</svg>
+              <div class="meta"><span class="name">${m.name}</span><span class="why">${s.label}</span></div>
+            </div>`
+          )
+        )
+        .join("");
+
+      document.getElementById("lockup-row").innerHTML = marks
+        .slice(0, 4)
+        .map(
+          (m) => `<div class="cell" style="align-items:flex-start;min-height:auto">
+            <div class="lockup">
+              <svg viewBox="0 0 48 48">${m.dark}</svg>
+              Yumma CSS
+            </div>
+            <span class="why">${m.name}</span>
+          </div>`
+        )
+        .join("");
+    </script>
+  </body>
+</html>

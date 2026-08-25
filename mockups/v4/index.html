@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Yumma CSS v4 - Landing mockups</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Esteban&display=swap"
+      rel="stylesheet"
+    />
+    <!-- iA Writer Quattro approximation via IBM Plex Mono for standalone mockups -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/mockup.css" />
+    <style>
+      :root {
+        --body: "IBM Plex Mono", ui-monospace, monospace;
+      }
+
+      .gallery {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 72px 24px 96px;
+      }
+
+      .gallery-intro {
+        max-width: 40rem;
+        margin-bottom: 56px;
+      }
+
+      .gallery-intro .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 28px;
+        font-size: 18px;
+        font-weight: 700;
+      }
+
+      .gallery-intro .brand svg {
+        width: 36px;
+        height: 36px;
+      }
+
+      .gallery-intro h1 {
+        margin: 0 0 16px;
+        font-family: var(--display);
+        font-size: clamp(2.4rem, 5vw, 3.6rem);
+        font-weight: 400;
+        line-height: 1.1;
+      }
+
+      .gallery-intro p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.65;
+      }
+
+      .section {
+        margin-top: 64px;
+      }
+
+      .section h2 {
+        margin: 0 0 8px;
+        font-family: var(--display);
+        font-size: 1.75rem;
+        font-weight: 400;
+      }
+
+      .section .lede {
+        margin: 0 0 28px;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.6;
+        max-width: 36rem;
+      }
+
+      .grid {
+        display: grid;
+        gap: 16px;
+      }
+
+      @media (min-width: 720px) {
+        .grid.cols-2 {
+          grid-template-columns: 1fr 1fr;
+        }
+        .grid.cols-3 {
+          grid-template-columns: 1fr 1fr 1fr;
+        }
+      }
+
+      .tile {
+        display: block;
+        border: 1px solid var(--border);
+        background: linear-gradient(
+          160deg,
+          var(--surface) 0%,
+          var(--page) 100%
+        );
+        padding: 20px;
+        transition: border-color 0.25s ease, transform 0.35s var(--ease);
+      }
+
+      .tile:hover {
+        border-color: var(--accent-dim);
+        transform: translateY(-2px);
+      }
+
+      .tile-kicker {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--accent);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .tile h3 {
+        margin: 0 0 8px;
+        font-size: 16px;
+        font-weight: 700;
+      }
+
+      .tile p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.55;
+      }
+
+      .tile-preview {
+        margin: -20px -20px 16px;
+        height: 140px;
+        border-bottom: 1px solid var(--border);
+        background: var(--page);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .tile-preview iframe {
+        width: 1440px;
+        height: 900px;
+        border: 0;
+        transform: scale(0.22);
+        transform-origin: top left;
+        pointer-events: none;
+      }
+
+      .logo-board {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 12px;
+      }
+
+      .logo-cell {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        padding: 20px 12px;
+        border: 1px solid var(--border);
+        background: var(--surface);
+      }
+
+      .logo-cell svg {
+        width: 56px;
+        height: 56px;
+      }
+
+      .logo-cell span {
+        color: var(--faint);
+        font-size: 11px;
+        text-align: center;
+      }
+
+      .notes {
+        margin-top: 72px;
+        padding-top: 32px;
+        border-top: 1px solid var(--border);
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.65;
+        max-width: 40rem;
+      }
+
+      .notes h2 {
+        margin: 0 0 12px;
+        font-family: var(--display);
+        font-size: 1.4rem;
+        color: var(--white);
+        font-weight: 400;
+      }
+
+      .notes ul {
+        margin: 0;
+        padding-left: 1.1rem;
+      }
+
+      .notes li {
+        margin-bottom: 6px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Inline logo defs for the index -->
+    <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true">
+      <symbol id="logo-offset" viewBox="0 0 48 48">
+        <circle cx="24" cy="24" r="22" fill="#fff" />
+        <circle cx="24" cy="24" r="14" fill="#413cb8" />
+        <circle cx="29.5" cy="18.5" r="9.5" fill="#fff" />
+      </symbol>
+    </svg>
+
+    <main class="gallery">
+      <div class="gallery-intro rise-1">
+        <div class="brand">
+          <svg viewBox="0 0 48 48" aria-hidden="true">
+            <use href="#logo-offset" />
+          </svg>
+          Yumma CSS
+        </div>
+        <h1>v4 landing directions</h1>
+        <p>
+          Static HTML mockups only. Same dark chrome, Esteban headlines, and
+          indigo mark DNA as today. New logo ideas borrow the modular / geometric
+          energy of the Notion reference without copying its three-shape lockup.
+        </p>
+      </div>
+
+      <section class="section rise-2">
+        <h2>Landing compositions</h2>
+        <p class="lede">
+          Each first viewport is one composition: brand, one headline, one
+          sentence, CTAs, and a dominant visual plane. Open full-page to review.
+        </p>
+        <div class="grid cols-2">
+          <a class="tile" href="./01-familiar.html">
+            <div class="tile-preview">
+              <iframe src="./01-familiar.html" title="Familiar evolution preview" tabindex="-1"></iframe>
+            </div>
+            <span class="tile-kicker">Direction 01</span>
+            <h3>Familiar evolution</h3>
+            <p>
+              Bottom-anchored hero like today, with atmospheric hatch and a
+              larger brand signal. Closest path if you want continuity.
+            </p>
+          </a>
+          <a class="tile" href="./02-mark-plane.html">
+            <div class="tile-preview">
+              <iframe src="./02-mark-plane.html" title="Mark as plane preview" tabindex="-1"></iframe>
+            </div>
+            <span class="tile-kicker">Direction 02</span>
+            <h3>Mark as plane</h3>
+            <p>
+              Full-bleed logo as the hero image. Brand name is the display
+              line. Feels new while keeping the circular mark language.
+            </p>
+          </a>
+          <a class="tile" href="./03-blueprint.html">
+            <div class="tile-preview">
+              <iframe src="./03-blueprint.html" title="Blueprint preview" tabindex="-1"></iframe>
+            </div>
+            <span class="tile-kicker">Direction 03</span>
+            <h3>Blueprint</h3>
+            <p>
+              Pulls the diagonal stripe motif from OG art into the live page.
+              Utility / scale story without a product screenshot.
+            </p>
+          </a>
+          <a class="tile" href="./04-editorial.html">
+            <div class="tile-preview">
+              <iframe src="./04-editorial.html" title="Editorial preview" tabindex="-1"></iframe>
+            </div>
+            <span class="tile-kicker">Direction 04</span>
+            <h3>Editorial wordmark</h3>
+            <p>
+              Oversized Esteban wordmark as the brand hero. Mark sits as a
+              quiet geometric anchor, not a floating badge.
+            </p>
+          </a>
+        </div>
+      </section>
+
+      <section class="section rise-3">
+        <h2>Logo board</h2>
+        <p class="lede">
+          Six marks. All keep indigo on dark. None use Notion’s square + pie-circle +
+          triangle arrangement. Open the board for sizes and on-light tests.
+        </p>
+        <p style="margin: 0 0 20px">
+          <a class="btn btn-primary" href="./logos.html">Open logo board</a>
+        </p>
+        <div class="logo-board" id="logo-preview"></div>
+      </section>
+
+      <section class="notes rise-4">
+        <h2>What stays familiar</h2>
+        <ul>
+          <li>Page <code>#151724</code>, accent <code>#bec6f2</code>, indigo <code>#413cb8</code></li>
+          <li>Esteban display + mono body (Quattro on the real site)</li>
+          <li>Sharp corners, solid white primary CTA, ghost secondary</li>
+          <li>Dark-only marketing chrome</li>
+          <li>Short second-person copy voice</li>
+        </ul>
+      </section>
+    </main>
+
+    <script>
+      const marks = [
+        { id: "offset", label: "Offset" },
+        { id: "chord", label: "Chord" },
+        { id: "arcs", label: "Arcs" },
+        { id: "ymark", label: "Y-mark" },
+        { id: "interlock", label: "Interlock" },
+        { id: "lattice", label: "Lattice" },
+      ];
+
+      const svgs = {
+        offset: `<circle cx="24" cy="24" r="22" fill="#fff"/><circle cx="24" cy="24" r="14" fill="#413cb8"/><circle cx="29.5" cy="18.5" r="9.5" fill="#fff"/>`,
+        chord: `<circle cx="24" cy="24" r="22" fill="#fff"/><path fill="#413cb8" d="M24 6c-9.94 0-18 8.06-18 18s8.06 18 18 18 18-8.06 18-18S33.94 6 24 6zm0 4c7.73 0 14 6.27 14 14s-6.27 14-14 14S10 31.73 10 24 16.27 10 24 10zm7.2 5.2c-.55 0-1.05.22-1.42.59L14.79 30.78c-.37.37-.59.87-.59 1.42 0 .6.28 1.18.76 1.55A13.9 13.9 0 0 0 24 36c3.7 0 7.05-1.44 9.55-3.79A13.9 13.9 0 0 0 38 24c0-3.4-1.22-6.52-3.24-8.95-.4-.5-.97-.85-1.56-.85z"/>`,
+        arcs: `<circle cx="24" cy="24" r="22" fill="#fff"/><path fill="#413cb8" fill-rule="evenodd" d="M24 8c8.84 0 16 7.16 16 16s-7.16 16-16 16S8 32.84 8 24 15.16 8 24 8zm0 5c6.08 0 11 4.92 11 11s-4.92 11-11 11S13 30.08 13 24s4.92-11 11-11zm0 5c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6 2.69-6 6-6zm0 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>`,
+        ymark: `<circle cx="24" cy="24" r="22" fill="#fff"/><path fill="#413cb8" d="M24 6C14.06 6 6 14.06 6 24s8.06 18 18 18 18-8.06 18-18S33.94 6 24 6zm0 4c7.73 0 14 6.27 14 14 0 2.8-.83 5.4-2.25 7.56L24 24.2 12.25 31.56A13.9 13.9 0 0 1 10 24c0-7.73 6.27-14 14-14zm-2 16.55 8.9 9.7A13.9 13.9 0 0 1 24 38c-2.5 0-4.84-.66-6.88-1.8L22 26.55zm4 0 4.88 9.65c-1.4.76-2.98 1.28-4.68 1.5L26 26.55z"/>`,
+        interlock: `<path fill="#413cb8" d="M8 6h20v14H18v10H8V6zm22 12c8.28 0 15 6.72 15 15s-6.72 15-15 15-15-6.72-15-15h10c0 2.76 2.24 5 5 5s5-2.24 5-5-2.24-5-5-5V18z"/>`,
+        lattice: `<path fill="#413cb8" d="M4 4h18v18H4V4zm22 0h18v8H26V4zm0 12h8v18h-8V16zM4 26h8v18H4V26zm12 8h18v10H16V34zm22-8h6v22h-6V26z"/>`,
+      };
+
+      const root = document.getElementById("logo-preview");
+      root.innerHTML = marks
+        .map(
+          (m) => `
+        <div class="logo-cell">
+          <svg viewBox="0 0 48 48" aria-hidden="true">${svgs[m.id]}</svg>
+          <span>${m.label}</span>
+        </div>`
+        )
+        .join("");
+    </script>
+  </body>
+</html>
