@@ -63,16 +63,14 @@ export default async function BlogPostPage({
       <article className="py-8 @lg:gc-s-8">
         <header className="mb-12">
           <div className="d-f ai-c g-2 mb-4 mt-16 c-accent-dim fs-sm">
-            <Link href="/blog" className="h:c-accent fv:oc-accent fv:ow-2">
+            <Link href="/blog" className="h:c-ink fv:oc-ink fv:ow-2">
               Blog
             </Link>
             <span>/</span>
             <span>{formatDate(post?.date || "")}</span>
           </div>
 
-          <h1 className="mb-2 c-accent fs-4xl fw-400 @lg:fs-5xl">
-            {post?.title}
-          </h1>
+          <h1 className="mb-2 c-ink fs-4xl fw-400 @lg:fs-5xl">{post?.title}</h1>
 
           <p className="mb-6 c-accent-dim fs-lg lh-5">{post?.description}</p>
 
@@ -84,7 +82,7 @@ export default async function BlogPostPage({
                   href={author.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="c-accent-dim h:c-accent fv:oc-accent fv:ow-2"
+                  className="c-accent-dim h:c-ink fv:oc-ink fv:ow-2"
                 >
                   {author.name}
                 </Link>

@@ -102,9 +102,7 @@ export default function Navbar({
                         target={link.external ? "_blank" : undefined}
                         rel={link.external ? "noopener noreferrer" : undefined}
                         className={`fs-sm fv:oc-accent fv:ow-2 ${
-                          isActive
-                            ? "c-accent td-u tds-d"
-                            : "c-accent-dim h:c-accent"
+                          isActive ? "c-ink td-u tds-d" : "c-accent-dim h:c-ink"
                         }`}
                       >
                         {link.label}
@@ -150,7 +148,7 @@ export default function Navbar({
               <div className="d-none ai-c g-4 ml-2 @md:d-f">
                 <Link
                   href="https://github.com/yummacss/yummacss"
-                  className="d-f ai-c g-1 c-accent-dim fs-xs h:c-accent fv:oc-accent fv:ow-2"
+                  className="d-f ai-c g-1 c-accent-dim fs-xs h:c-ink fv:oc-ink fv:ow-2"
                   target="_blank"
                 >
                   <Github className="w-4 h-4 f-accent-dim" />
