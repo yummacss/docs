@@ -10,6 +10,16 @@ import { buildUsage } from "@/utils/snippet";
 
 const PREVIEW_SHELL = "d-f p-r ox-auto ai-c jc-c p-10 min-h-64 bg-white";
 
+function PreviewFrame({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="mb-8 bc-border bw-1">
+      <div data-preview className={PREVIEW_SHELL}>
+        {children}
+      </div>
+    </div>
+  );
+}
+
 /** Live preview and usage snippet; id comes from route via PlaygroundProvider. */
 export default function ComponentPlayground() {
   const playground = usePlayground();
@@ -22,7 +32,22 @@ export default function ComponentPlayground() {
     return importFn ? lazy(importFn) : null;
   }, [id]);
 
-  if (!playground?.meta || !Component) return null;
+  // Keep the preview shell while meta/chunk load so pagination does not collapse.
+  if (!Component) {
+    return (
+      <PreviewFrame>
+        <PreviewSpinner />
+      </PreviewFrame>
+    );
+  }
+
+  if (!playground?.meta) {
+    return (
+      <PreviewFrame>
+        <PreviewSpinner />
+      </PreviewFrame>
+    );
+  }
 
   const { meta, values } = playground;
 
