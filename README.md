@@ -2,7 +2,7 @@
 
 # www.yummacss.com
 
-[Yumma CSS](https://yummacss.com) is a utility framework built on CSS property names. `d-f` is `display: flex`, `jc-sb` is `justify-content: space-between`: initials of the property, initials of the value, drawn from a fixed scale.
+An atomic CSS framework.
 
 [Documentation](https://yummacss.com/docs) • [Playground](https://play.yummacss.com) • [GitHub](https://github.com/yummacss/yummacss) • [X](https://x.com/yummacss)
 
