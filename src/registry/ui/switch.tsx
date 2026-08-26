@@ -40,7 +40,7 @@ export interface SwitchProps {
   animate?: boolean;
   className?: string;
   ariaLabel?: string;
-  /** Rail track: diff-add when on, diff-remove when off; white thumb. */
+  /** Rail track: navbar button chrome (surface / surface-7) + white thumb. */
   tone?: "default" | "surface";
 }
 
@@ -72,13 +72,12 @@ export default function SwitchBase({
   };
 
   const trackClasses = [
-    "p-r d-f ai-c m-0 px-1 tp-c tdu-150 ttf-io fv:oo-2 fv:oc-indigo-3",
+    "p-r d-f ai-c m-0 px-1 tp-c tdu-150 ttf-io fv:oo-2",
+    tone === "surface" ? "fv:oc-white" : "fv:oc-indigo-3",
     track,
     SHAPES[shape],
     tone === "surface"
-      ? checked
-        ? "bg-diff-add"
-        : "bg-diff-remove"
+      ? `bc-border bw-1 ${checked ? "bg-surface-7" : "bg-surface"}`
       : checked
         ? "bg-indigo"
         : "bg-silver-1",
