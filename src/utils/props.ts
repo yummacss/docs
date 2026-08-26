@@ -7,7 +7,7 @@ export function typeOf(prop: RegistryProp): string {
   return prop.type;
 }
 
-/** Whether the playground can offer a widget for this prop. */
+/** Enums, booleans, and icon slots only - not strings/numbers. */
 export function isControllable(prop: RegistryProp): boolean {
   if (prop.exampleIcon) return true;
   return prop.type === "enum" || prop.type === "boolean";

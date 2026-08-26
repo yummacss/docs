@@ -33,14 +33,10 @@ export default async function BlogPage() {
   const years = Array.from(postsByYear.keys()).sort((a, b) => b - a);
 
   return (
-    // The grid comes from the layout. Docs & UI give columns 1-3 to a sidebar;
-    // the blog has none, so the listing spans 1-9 rather than leaving that
-    // space empty. The TOC auto-places into 10-12 after it. That is ~724px of
-    // content at 1280 instead of the 472px a docs page gets.
+    // Blog has no sidebar: listing spans cols 1-9; TOC takes 10-12.
     <>
       <div className="mb-16 pt-12 @lg:gc-s-9">
-        {/* `ff-e` is explicit: Esteban only applies inside <article> or via the
-            class, and this page is not an article. */}
+        {/* Esteban only applies inside <article> or via ff-e. */}
         <div className="my-8">
           <h1 className="mb-2 c-foreground ff-e fs-4xl fw-400">Blog Articles</h1>
           <p className="c-foreground/70 fs-lg">
@@ -52,8 +48,7 @@ export default async function BlogPage() {
           {years.map((year, yearIndex) => (
             <div key={year}>
               <div className="mb-16">
-                {/* `id` is load-bearing: toc.tsx collects `main h2` elements
-                    that have one, which is how the years reach the sidebar. */}
+                {/* toc.tsx indexes main h2 elements that have an id. */}
                 <h2 id={String(year)} className="mb-8 c-foreground ff-e fs-4xl fw-400">
                   {year}
                 </h2>
@@ -64,18 +59,13 @@ export default async function BlogPage() {
                       href={`/blog/${post._meta.path}`}
                       className="d-b fv:oc-accent fv:ow-2"
                     >
-                      {/* Goes side by side at @sm, not @lg: by 40rem the column
-                        is already ~592px, which fits a 10rem cover beside the
-                        text. Waiting for @lg left the cover full width, and
-                        nine of those made the page enormous. */}
+                      {/* Side-by-side from @sm so covers are not full-width. */}
                       <div className="d-f fd-c g-6 @sm:fd-r">
                         <div className="@sm:f-1">
                           <h3 className="mb-4 c-foreground fs-xxl fw-400">
                             {post.title}
                           </h3>
-                          {/* The container grows to 96rem, so without a cap
-                              the description reaches ~84 characters at 1600px
-                              and keeps going. 32rem holds it near 64. */}
+                          {/* Cap description width; the container grows to 96rem. */}
                           <p className="mb-4 max-w-xs c-foreground/70 lh-5">
                             {post.description}
                           </p>
@@ -83,11 +73,7 @@ export default async function BlogPage() {
                             <span>{formatDate(post.date)}</span>
                           </div>
                         </div>
-                        {/* 14rem only at @xl, not @lg: at @lg the TOC appears
-                          and takes three columns, so bumping the cover at the
-                          same breakpoint squeezed the description to ~40
-                          characters at exactly 1024px. Waiting until 80rem
-                          keeps every width between 45 and 75. */}
+                        {/* Grow cover at @xl only; @lg already loses cols to TOC. */}
                         {post.cover && (
                           <div className="@sm:w-40 @sm:fs-0 @xl:w-56">
                             <div className="o-h b-1 bc-border bg-white/10">
