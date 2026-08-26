@@ -3,14 +3,7 @@ import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { contentPages, rootDir } from "./helpers";
 
-/**
- * The link between a Yumma UI doc page and the component it previews is a
- * string id, checked by nobody. A typo in `registryId` makes
- * `<ComponentPreview>` render an empty box - `getRegistryImport` returns null
- * and the Suspense boundary falls through to nothing - so the page still
- * builds and still deploys, just without the component on it.
- */
-
+/** `registryId` typos render empty previews; this suite catches them. */
 const indexPath = join(rootDir, "src/registry/index.ts");
 
 const registryIds = new Set(
@@ -24,38 +17,14 @@ const registryIds = new Set(
 /** Both prop spellings the component accepts - see component-preview.tsx. */
 const PREVIEW_ID = /<ComponentPreview[^>]*?\b(?:registryId|id)="([^"]+)"/g;
 
-/**
- * The playground takes no id. Its component is the page's own slug, decided by
- * the route so that the stage and the controls in the rail cannot end up on two
- * different components. That makes the page's slug the reference.
- */
+/** Playground pages use the route slug, not `registryId`. */
 const PLAYGROUND = /<ComponentPlayground\b/;
 
 const uiPages = contentPages("ui");
 
-/**
- * In the registry but previewed on no page. Not necessarily wrong - a variant
- * can exist before it is documented - but the set should move deliberately.
- * Wire one up or delete it, then update this list.
- *
- * Empty since the `feat/yumma-ui` merge. All eleven entries it used to hold
- * were deleted outright by the curation pass, not wired up: each was a single
- * enumerable prop the API reference table already states (`select-icon-leading`
- * is `iconSide`, `collapsible-square` is `shape`), and `select-bordered` was
- * byte-identical to its base. An orphan appearing here again is a real signal
- * now that the baseline is zero.
- */
+/** Registry files intentionally not previewed on any page yet. */
 const KNOWN_UNLISTED: string[] = [
-  // Button's group blocks. Cut from the page when it became a playground: four
-  // previews of the same component wearing different wrappers were the bulk of
-  // its length, and none of them said anything the controls do not. They stay
-  // in the registry because `yummaui add button-group` is a published entry
-  // point, and deleting the files would break it for anyone already using one.
-  //
-  // Its icon examples were cut too & are not here, because they were deleted
-  // rather than unlisted: `icon` and `iconSide` are props now, so the controls
-  // reach what those two files were demonstrating, and neither had an install
-  // entry point of its own.
+  // Button group blocks: install entry points, not playground demos.
   "button-group",
   "button-group-icon",
   "button-group-pill",
@@ -120,9 +89,7 @@ describe("Yumma UI content", () => {
   });
 
   it("flags a playground page in its own frontmatter", () => {
-    // The rail is rendered from the route, the stage from the MDX. The flag is
-    // what keeps them in step: without it a page that still shows a static
-    // preview would get a rail full of controls that move nothing.
+    // `playground: true` must match presence of ComponentPlayground in MDX.
     const mismatched = uiPages
       .filter(({ source }) => {
         const frontmatter = source.match(/^---\n([\s\S]*?)\n---/);
@@ -135,8 +102,7 @@ describe("Yumma UI content", () => {
   });
 
   it("puts a playground only where a schema backs it", () => {
-    // A playground on a page the registry has no schema for renders nothing
-    // at all, the same silent failure a mistyped `registryId` used to cause.
+    // Playground requires a registry schema under the page slug.
     const unbacked = uiPages
       .filter(({ source }) => PLAYGROUND.test(source))
       .filter(({ slug }) => !registryIds.has(slug))

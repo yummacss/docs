@@ -4,14 +4,7 @@ import { Github } from "iconoir-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-/**
- * Linked as a file rather than an anchor.
- *
- * Keep a Changelog headings read `## [3.0.0] - 2025-04-14`, so the GitHub
- * fragment carries the release date too & cannot be derived from the version
- * alone. Linking the file lands the reader on a document already ordered by
- * release.
- */
+/** Changelog links the file, not a heading fragment (dates are in headings). */
 const CHANGELOG_URL =
   "https://github.com/yummacss/yummacss/blob/main/CHANGELOG.md";
 

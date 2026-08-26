@@ -15,11 +15,7 @@ interface Props {
   registryId?: string;
   id?: string;
   className?: string;
-  /**
-   * Start the snippet's collapsible regions open. Fixture data is folded by
-   * default because the component is the point, but a page whose whole subject
-   * *is* the data shape should say so rather than make the reader click.
-   */
+  /** Start snippet fold regions open (for data-shape-focused pages). */
   expanded?: boolean;
   children?: ReactNode;
 }
@@ -34,16 +30,11 @@ export default function ComponentPreview({
   const [showCode, setShowCode] = useState(false);
   const [RegistryComponent, setRegistryComponent] =
     useState<ComponentType<DemoProps> | null>(null);
-  // A prop-driven component rendered with no props at all is an empty shell:
-  // <Button /> has no label, <Avatar /> has no image. Its own schema already
-  // says what a representative instance looks like, so the preview uses that.
-  // A component with no schema gets nothing extra, exactly as before.
+  // Seed demo from schema when a meta file exists.
   const [demo, setDemo] = useState<{ props: DemoProps; children?: string }>({
     props: {},
   });
-  // The base entry of a migrated component *is* the implementation, so showing
-  // its source here answers a question nobody asked under `### Base`. Usage is
-  // the answer; the implementation stays in the registry JSON & the `.md` route.
+  // Base variants show usage snippet, not registry source.
   const [usage, setUsage] = useState<Token[] | null>(null);
   const actualId = registryId || id;
 
@@ -96,9 +87,6 @@ export default function ComponentPreview({
 
       {showCode &&
         (usage ? (
-          // A file of yours, which is why this imports through the `@/` alias
-          // while the registry source below imports `./`. `page.tsx` is the
-          // placeholder the docs already use for the consumer's own file.
           <TokenBlock tokens={usage} expanded={expanded} title="page.tsx" />
         ) : (
           children

@@ -20,13 +20,7 @@ export const categoryGetters = {
 
 export type Category = keyof typeof categoryGetters;
 
-/**
- * What a reference block lists. Omitted means the utility's own classes.
- *
- * Each of these used to be its own component rendering a single card built
- * from a placeholder, which left the reader to guess which prefixes existed.
- * They are all the same table over a different row set.
- */
+/** Reference block row set; omitted means the utility's own classes. */
 export type ReferenceVariant =
   | "media"
   | "pseudo-class"
@@ -41,14 +35,7 @@ export interface ReferenceRow {
   details: string[];
 }
 
-/**
- * One piece of a collapsed header.
- *
- * The header mixes two kinds of text, and they are not the same thing: the
- * classes are what you would type, the separators & the elision marker are
- * the docs talking about them. They render in different colors, so the header
- * is split here rather than joined into one string.
- */
+/** One token in a collapsed reference header (classes vs punctuation). */
 export interface SummaryToken {
   /** Stable across renders. Separators repeat, so the text alone will not do. */
   id: string;
@@ -76,9 +63,6 @@ interface Variants {
   opacity?: VariantEntry[];
 }
 
-/**
- * Gets the prefix for a utility based on its category and name.
- */
 export function getPrefix(category: Category, name: string): string {
   try {
     const getter = categoryGetters[category];
@@ -109,11 +93,7 @@ export function getValues(category: Category, name: string): string[] {
 
 const SUMMARY_BUDGET = 56;
 
-/**
- * Trims a summary to one line. Six classes is a short list when they read
- * `@sm:m-4` & a wrapped paragraph when they read `@sm:ac-indigo-8`, so the
- * limit is the width they take up rather than how many there are.
- */
+/** Trim summary to one line by character width, not count. */
 function oneLine(parts: string[]): string[] {
   const out: string[] = [];
   let width = 0;
@@ -130,20 +110,11 @@ function oneLine(parts: string[]): string[] {
   return out;
 }
 
-/**
- * A short summary of everything a block accepts, for the collapsed header.
- *
- * The point is that nothing looks excluded. A header reading `m-4  m-8  m-12`
- * invites the reader to think `m-23` is not a class, when the scale runs to
- * 384. So a numeric run is shown as a span rather than as examples, and a
- * short list is shown in full, because listing five values leaves no doubt.
- */
+/** Collapsed header summary: scales fold to spans; short lists stay explicit. */
 function summarize(classNames: string[]): string[] {
   if (classNames.length <= 6) return oneLine(classNames);
 
-  // Only a run varying by a trailing number on a shared stem is a scale, so
-  // `m-0 … m-384` folds while `a:m-4  c:m-4` stays a list of sixteen states
-  // that all happen to end in a digit.
+  // Only trailing-digit runs on a shared stem count as scales.
   const stem = classNames.reduce((acc, c) => {
     let i = 0;
     while (i < acc.length && acc[i] === c[i]) i++;
@@ -164,8 +135,7 @@ function summarize(classNames: string[]): string[] {
   const limit = numeric.length > 2 ? 2 : 3;
   out.push(...named.slice(0, limit));
 
-  // A trailing ellipsis whenever something was left out, so three examples
-  // never read as the complete set. The count beside it says how many.
+  // Ellipsis when named values were truncated.
   if (named.length > limit) out.push("…");
   return oneLine(out);
 }
@@ -173,13 +143,7 @@ function summarize(classNames: string[]): string[] {
 const SEPARATOR = ", ";
 const ELISION = " … ";
 
-/**
- * Splits a summary into classes & the punctuation between them.
- *
- * A run arrives as one string, `m-0 … m-384`, because the width budget has to
- * measure it whole. It comes apart here so the ellipsis inside it is dimmed
- * for the same reason the commas are.
- */
+/** Split summary strings into class tokens and dimmed punctuation. */
 function tokenize(parts: string[]): SummaryToken[] {
   const out: SummaryToken[] = [];
   const push = (text: string, punctuation?: boolean) =>
@@ -207,32 +171,19 @@ function tokenize(parts: string[]): SummaryToken[] {
   return out;
 }
 
-/**
- * One real class off the utility's own scale, to hang variant prefixes on.
- *
- * Spread rather than sequential: `m-4` reads as a value you chose, where `m-0`
- * reads as the only one on offer. Falls back to whatever the utility has.
- */
 const PREFERRED = ["4", "8", "12", "16"];
 
 function exampleClass(category: Category, name: string): string {
   const prefix = getPrefix(category, name);
   const values = getValues(category, name);
-  // Middle rather than first when the scale misses those, so `opacity` hangs
-  // its variants off `o-50` instead of `o-0`, which reads as switched off.
+  // Middle of scale when preferred values are missing (e.g. opacity).
   const value =
     PREFERRED.find((v) => values.includes(v)) ??
     values[Math.floor(values.length / 2)];
   return value === undefined || value === "" ? prefix : `${prefix}-${value}`;
 }
 
-/**
- * The rows one reference block renders.
- *
- * Every row is a class that resolves, read from the same definitions the
- * generator uses, so a value or variant added to the framework shows up
- * without anyone editing a page.
- */
+/** Rows for one reference block, from `@yummacss/core` definitions. */
 export function getReferenceData(
   category: Category,
   name: string,
@@ -279,7 +230,7 @@ export function getReferenceData(
       return fromVariants(
         variants?.mediaQueries,
         (v) => `@${v.prefix}:${base}`,
-        // Not "breakpoints": `@pc` is `(pointer: coarse)`, which has no width.
+        // Not "breakpoints": `@pc` is pointer coarse, not a width.
         "media queries",
       );
 
@@ -293,8 +244,7 @@ export function getReferenceData(
     case "pseudo-element":
       return fromVariants(
         variants?.pseudoElements,
-        // `::`, not `:`. The generator checks the pseudo-element form first
-        // for exactly this reason: `b:` is a pseudo class, `b::` is ::before.
+        // `::` for pseudo-elements; generator checks `::` before `:`.
         (v) => `${v.prefix}::${base}`,
         "pseudo elements",
       );
@@ -307,7 +257,7 @@ export function getReferenceData(
       );
 
     case "negative": {
-      // `--0` is the same as `-0`, so the scale starts at one.
+      // Negative scale skips `0` (`--0` equals `-0`).
       const rows = Object.entries(values)
         .filter(([key]) => /^\d+$/.test(key) && Number(key) !== 0)
         .map(([key, value]) => ({

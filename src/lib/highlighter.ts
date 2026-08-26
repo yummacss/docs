@@ -23,33 +23,20 @@ import {
 } from "@shikijs/transformers";
 import type { Element, Root } from "hast";
 import { decorateCodeHast } from "@/lib/code-decorate.mjs";
-// Imported as a module rather than read from disk. This file is reachable from
-// client chunks via mdx-components, and a node:fs import there is exactly the
-// leak that kept the playground from deploying.
+// Import theme JSON; no `node:fs` (this file reaches client chunks).
 import eclipsa from "@/themes/eclipsa.json";
 
 const theme = eclipsa as unknown as ThemeRegistrationAny;
 const THEME_NAME = eclipsa.name ?? "eclipsa";
 
-/**
- * The fine-grained core, not `@shikijs/rehype`.
- *
- * The bundled entry carries an index of all 332 grammars & spins up an
- * Oniguruma WASM instance per highlighter; `langs` narrowed what was tokenized
- * but never what was loaded. Only the 9 grammars the site actually uses are
- * imported here, and the JS regex engine means no WASM at all. Output is
- * byte-identical to the bundled path, verified across ts, css, html, bash,
- * tsx & mjs.
- */
+/** Fine-grained Shiki core with only site grammars and JS regex engine (no WASM). */
 let highlighter: HighlighterCore | null = null;
 
 function get(): HighlighterCore {
   if (!highlighter) {
     highlighter = createHighlighterCoreSync({
       themes: [theme],
-      // js & mjs alias to javascript; bash aliases to shellscript; yml aliases
-      // to yaml. The aliases come from the grammar files, so the canonical set
-      // is enough.
+      // js/mjs -> javascript; bash -> shellscript; yml -> yaml.
       langs: [
         html,
         css,
@@ -67,12 +54,7 @@ function get(): HighlighterCore {
   return highlighter;
 }
 
-/**
- * Highlight a code string & return HTML for the <pre> element.
- *
- * Unknown or missing languages fall back to plain text rather than throwing,
- * so a stray fence label cannot fail a build.
- */
+/** Highlight code and return HTML for `<pre>`; unknown langs fall back to plain text. */
 export function highlight(
   code: string,
   lang?: string,

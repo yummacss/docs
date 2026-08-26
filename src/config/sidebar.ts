@@ -8,14 +8,7 @@ export interface SidebarLink {
   href: string;
 }
 
-/**
- * Links rendered at the end of the docs nav.
- *
- * Kept out of `sidebarConfig` on purpose: that maps slugs to content pages &
- * everything reading it - prev/next, llms.txt, llms-full.txt & the build-time
- * sidebar check - expects every entry to resolve to an `.mdx` file. These are
- * routes, not pages, so they are only ever rendered by the nav.
- */
+/** Nav footer links; not in `sidebarConfig` (that maps only to `.mdx` slugs). */
 export const docsLinks: SidebarLink[] = [
   { title: "llms.txt", href: "/llms.txt" },
 ];

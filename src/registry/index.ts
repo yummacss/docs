@@ -108,29 +108,16 @@ export function getRegistryImport(id: string): RegistryImport | null {
 export interface RegistryProp {
   name: string;
   /**
-   * The kind of control, not the TypeScript type. `none` covers everything a
-   * JSON schema cannot offer a control for - a ReactNode, an array of objects -
-   * which the props table still documents via `typeName`.
+   * Control kind, not TS type; `none` covers slots and callbacks (`typeName` in table).
    */
   type: "enum" | "boolean" | "string" | "number" | "none";
   /** Shown in the Type column instead of `type`, when the two differ. */
   typeName?: string;
   values?: string[];
   default?: string | boolean | number;
-  /**
-   * A representative value for the demo, for a prop the component cannot
-   * sensibly default. `default` stays the truth the props table reports.
-   */
+  /** Demo value when the component cannot default sensibly. */
   example?: unknown;
-  /**
-   * An iconoir icon name, for a `ReactNode` prop that JSON cannot express.
-   * Without this a component whose only visible content is an icon - Popover's
-   * trigger, Toggle's face - demos itself as an empty box. The preview resolves
-   * it to a real element & the usage snippet prints it as JSX plus its import,
-   * so the copied code compiles. Names must exist in `EXAMPLE_ICONS` in
-   * `component-preview.tsx`, a curated map rather than a dynamic lookup so the
-   * bundler can still shake the icon set.
-   */
+  /** iconoir name for icon slots JSON cannot express; must exist in EXAMPLE_ICONS. */
   exampleIcon?: string;
   description?: string;
 }
@@ -196,9 +183,7 @@ export interface RegistryTarget {
   /** `"base"` for the component itself. */
   variant: string;
   /**
-   * `component` is the props-driven unit `add <name>` installs. `block` is a
-   * composition installed under its own id. `example` only demonstrates a
-   * prop, so there is nothing to install - you pass that prop instead.
+   * `component` via `add <name>`; `block` under its id; `example` is not installable.
    */
   kind: "component" | "block" | "example";
   /** The name to pass to `yummaui add`. */

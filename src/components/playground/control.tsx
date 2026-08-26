@@ -6,15 +6,6 @@ import { Check, NavArrowDown } from "iconoir-react";
 import type { RegistryProp } from "@/registry";
 import { exampleIcon } from "@/utils/demo";
 
-/**
- * The widget for one controllable prop.
- *
- * Which widget appears is the prop's type, which is why the rail can stand in
- * for a Type column: a segment is an enum, a checkbox is a boolean. Short enums
- * get segments because seeing the options costs nothing at three of them;
- * longer ones get a select, because six would not fit a rail. Strings and
- * numbers never reach this component - see `isControllable`.
- */
 const SEGMENT_LIMIT = 3;
 
 interface Props {
@@ -23,10 +14,9 @@ interface Props {
   onChange: (value: unknown) => void;
 }
 
+/** Widget for one controllable prop (enum, boolean, or icon slot). */
 export default function Control({ prop, value, onChange }: Props) {
-  // An icon slot is a `ReactNode` the schema cannot spell, so the control is
-  // not "which glyph" but "is there one": checked puts the schema's own
-  // example in the slot, and the snippet spells it as the JSX it means.
+  // Icon slot control: toggle presence, not which glyph.
   if (prop.exampleIcon) {
     return (
       <Box
@@ -110,11 +100,7 @@ export default function Control({ prop, value, onChange }: Props) {
   return null;
 }
 
-/**
- * A checkbox, which is what a boolean prop is: it is either written on the
- * element or it is not. A switch would suggest a setting that takes effect
- * somewhere, rather than an attribute you are choosing to type.
- */
+/** Checkbox for boolean props (attribute on/off, not a settings switch). */
 function Box({
   checked,
   onCheckedChange,

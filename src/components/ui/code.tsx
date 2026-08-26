@@ -4,7 +4,7 @@ import { Button } from "@base-ui/react";
 import { Check, Copy } from "iconoir-react";
 import { type ReactNode, useRef, useState } from "react";
 
-/** Code blocks always render in dark scheme — familiar eclipsa chrome on every page mode. */
+/** Code blocks always render in dark scheme. */
 const FRAME = "cs-d o-h my-4 bc-border bg-surface bw-1";
 const FRAME_PREVIEW = "cs-d bg-surface";
 
@@ -32,9 +32,7 @@ export default function Code({
   const ref = useRef<HTMLDivElement>(null);
 
   const handleCopy = async () => {
-    // Prefer the original source. innerText is the fallback for the few
-    // blocks still rendered from children; it reflects rendered line breaks
-    // from block-level line spans and <br> elements, unlike textContent.
+    // Prefer raw source; fall back to rendered pre text.
     const text = raw ?? ref.current?.querySelector("pre")?.innerText ?? "";
     await navigator.clipboard.writeText(text);
     setCopied(true);
@@ -45,8 +43,7 @@ export default function Code({
 
   const body = html ? (
     <div
-      // ff-m because this wrapper is a div: the old markup was a <pre>, which
-      // carried monospace implicitly.
+      // Wrapper is a div, not `<pre>`; apply monospace explicitly.
       className="ox-auto px-4 py-4 ff-m lh-5"
       // biome-ignore lint/security/noDangerouslySetInnerHtml: server-generated Shiki output from repo-local source, never user input
       dangerouslySetInnerHTML={{ __html: html }}
@@ -55,9 +52,6 @@ export default function Code({
 
   if (preview) {
     return (
-      // The title sits outside the scroll box on purpose: which file you are
-      // reading has to stay put while the source scrolls under it, and these
-      // blocks are capped at max-h-80 precisely because they are long.
       <div ref={ref} className={FRAME_PREVIEW}>
         <TitleBar title={title} action={copyAction} />
         <div className="oy-auto max-h-80">
@@ -69,8 +63,7 @@ export default function Code({
     );
   }
 
-  // Rendered inside a <CodeGroup>: the group supplies the frame, the tab
-  // strip, and the copy control, so drop the outer chrome here.
+  // Inside CodeGroup: frame and copy live on the group.
   if (grouped) {
     return (
       <div ref={ref}>
@@ -87,15 +80,7 @@ export default function Code({
   );
 }
 
-/**
- * The bar naming the file a block belongs to, with the copy control on the
- * right so it never sits on top of the source.
- *
- * Exported for the same reason as `CopyButton`: `ComponentPreview` renders its
- * usage snippet from a token stream rather than through this component, and a
- * second hand-written copy of this markup is a second thing to keep in step.
- * Renders nothing without a title or action, so callers need no conditional.
- */
+/** File title bar with optional copy action; shared with TokenBlock. */
 export function TitleBar({
   title,
   action,
@@ -105,9 +90,7 @@ export function TitleBar({
 }) {
   if (!title && !action) return null;
 
-  // Titled cells size the bar with py-2 + fs-xs. A copy-only bar has no title
-  // cell, so park the same vertical footprint in a zero-width anchor instead
-  // of padding the action cell — that kept growing the bar past production.
+  // Zero-width anchor matches titled bar height when copy-only.
   const heightAnchor = (
     <div
       className="d-f ai-c py-2 w-0 o-h pe-none invisible"
@@ -134,9 +117,7 @@ export function TitleBar({
   );
 }
 
-/**
- * Exported so the /ui playground's code panel is the same button, not a lookalike.
- */
+/** Shared copy button for code panels. */
 export function CopyButton({
   copied,
   onCopy,
