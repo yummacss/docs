@@ -7,6 +7,7 @@ import { type ReactNode, useId, useState } from "react";
 
 type Size = "sm" | "md" | "lg";
 type Shape = "rounded" | "square" | "squircle";
+type Variant = "default" | "theme";
 
 interface SizeSpec {
   track: string;
@@ -36,6 +37,7 @@ export interface SwitchProps {
   icon?: ReactNode;
   size?: Size;
   shape?: Shape;
+  variant?: Variant;
   disabled?: boolean;
   animate?: boolean;
   className?: string;
@@ -51,6 +53,7 @@ export default function SwitchBase({
   icon,
   size = "md",
   shape = "rounded",
+  variant = "default",
   disabled = false,
   animate = true,
   className,
@@ -69,17 +72,28 @@ export default function SwitchBase({
   };
 
   const trackClasses = [
-    "p-r d-f ai-c m-0 px-1 tp-c tdu-150 ttf-io fv:oo-2 fv:oc-indigo-3",
+    "p-r d-f ai-c m-0 px-1 tp-c tdu-150 ttf-io fv:oo-2",
+    variant === "theme" ? "fv:oc-accent" : "fv:oc-indigo-3",
     track,
     SHAPES[shape],
-    checked ? "bg-indigo" : "bg-silver-1",
+    variant === "theme"
+      ? checked
+        ? "bg-accent"
+        : "bc-border bg-border"
+      : checked
+        ? "bg-indigo"
+        : "bg-silver-1",
     disabled ? "" : "c-p",
     className,
   ]
     .filter(Boolean)
     .join(" ");
 
-  const thumbClasses = ["bg-white", thumb, SHAPES[shape]]
+  const thumbClasses = [
+    variant === "theme" ? (checked ? "bg-page" : "bg-foreground") : "bg-white",
+    thumb,
+    SHAPES[shape],
+  ]
     .filter(Boolean)
     .join(" ");
 
