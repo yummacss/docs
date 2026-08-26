@@ -139,7 +139,7 @@ function Row({
       </div>
 
       {open && (
-        <div className="mt-2 c-accent-dim fs-sm lh-4">
+        <div className="mt-2 c-foreground/80 fs-sm lh-4">
           <PropDescription text={prop.description} />
         </div>
       )}
