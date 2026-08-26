@@ -1,11 +1,6 @@
 "use client";
 
-/**
- * Docs-site theme context. Mirrors github.com/rrenildopereiraa/snippets
- * `src/lib/chrome-theme.tsx`: paired Yumma CSS colors, `cs-l` / `cs-d` /
- * `cs-ld` on <html>, localStorage persistence, light → dark → auto cycle.
- * Default is dark when nothing is stored.
- */
+/** Docs theme: light / dark / auto on `<html>`, persisted in localStorage. */
 import {
   createContext,
   type ReactNode,
@@ -20,8 +15,7 @@ export type ResolvedTheme = "light" | "dark";
 
 export const THEME_STORAGE_KEY = "yummacss.com-theme";
 
-// Yumma CSS color-scheme utilities: `cs-l` / `cs-d` force a scheme, `cs-ld`
-// follows the operating system. Applied to <html> so Base UI portals inherit.
+// `cs-l` / `cs-d` / `cs-ld` on `<html>` so portals inherit color-scheme.
 export const MODE_CLASS: Record<ThemeMode, string> = {
   light: "cs-l",
   dark: "cs-d",
@@ -49,10 +43,10 @@ function readOsTheme(): ResolvedTheme {
     : "light";
 }
 
-/** Blocking script for <head> so the first paint already uses the stored scheme. */
+/** Inline script for first-paint theme (blocking in `<head>`). */
 export const themeInitScript = `(function(){try{var k=${JSON.stringify(THEME_STORAGE_KEY)};var s=localStorage.getItem(k);var m=s==="light"||s==="dark"||s==="auto"?s:"dark";var c={light:"cs-l",dark:"cs-d",auto:"cs-ld"};var r=document.documentElement;r.classList.remove("cs-l","cs-d","cs-ld");r.classList.add(c[m]);}catch(e){}})();`;
 
-/** Same role as snippets' `initChromeMode()` — applied via inline script in Next.js. */
+/** Apply stored theme on client mount (non-blocking path). */
 export function initTheme() {
   applyThemeClass(readStoredTheme());
 }

@@ -1,13 +1,4 @@
-/**
- * A schema description, rendered.
- *
- * Descriptions are written as markdown, and the only markup any of them needs
- * is inline code. Rendering the backticks rather than running a markdown
- * pipeline keeps the schema readable as prose in the JSON file.
- *
- * Shared because the props table and the playground's rail document the same
- * strings, and two renderers would eventually disagree about backticks.
- */
+/** Schema description with inline `code` only; shared by props table and rail. */
 export default function PropDescription({ text }: { text?: string }) {
   if (!text) return null;
 

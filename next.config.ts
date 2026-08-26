@@ -9,12 +9,7 @@ const nextConfig = {
   reactStrictMode: true,
   pageExtensions: ["js", "jsx", "md", "mdx", "mjs", "ts", "tsx"],
   experimental: {
-    // Caps the worker pools used for page-data collection and static
-    // generation. Without it Next spawns one worker per core - 11 on a dev
-    // machine - each holding its own copy of the module graph, which fits
-    // locally but not in a build container. Set to match Vercel's 2-core
-    // builder rather than the local core count.
-    //
+    // Match Vercel's 2-core builder (not local core count).
     cpus: 2,
   },
   async redirects() {
@@ -43,7 +38,7 @@ const withMDX = createMDX({
     remarkPlugins: [
       "remark-frontmatter",
       "remark-gfm",
-      // Directive parsing has to run before the mapping below sees the nodes.
+      // `remark-directive` before admonition mapping.
       "remark-directive",
       path.resolve("src/plugins/remark-admonition.mjs"),
       path.resolve("src/plugins/remark-component-source.mjs"),

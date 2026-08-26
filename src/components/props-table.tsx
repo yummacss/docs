@@ -7,22 +7,7 @@ import PropDescription from "@/components/prop-description";
 import * as registry from "@/registry";
 import { typeOf } from "@/utils/props";
 
-/**
- * A component's prop API, from the same `src/registry/meta/<id>.json` that
- * feeds the generated registry & `yummaui add`. One schema, so the documented
- * API and the shipped one cannot drift apart.
- *
- * Scan first, read second: name/type/default stay visible and dense: the
- * description - the only prose, and the only thing with variable height -
- * is collapsed until a row is opened. A migrated component can carry 8-11
- * props now, versus 0 before the demo files pointed at them, and showing
- * every description at once was the thing Renildo called "drowning."
- *
- * Deliberately not Base UI's pattern of collapsing the whole row behind a
- * chevron: name/type/default are the fields you scan a table like this for,
- * so those stay put. Only the description - the field you read, not scan -
- * is what opens.
- */
+/** Props table from `src/registry/meta/<id>.json`; descriptions collapse per row. */
 export default function PropsTable({ registryId }: { registryId: string }) {
   const [meta, setMeta] = useState<registry.RegistryMeta | null>(null);
   const [open, setOpen] = useState<Set<string>>(new Set());

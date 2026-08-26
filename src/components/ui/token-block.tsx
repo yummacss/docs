@@ -5,15 +5,7 @@ import { useState } from "react";
 import { CopyButton, TitleBar } from "@/components/ui/code";
 import { TOKEN_COLORS, type Token, tokensToText } from "@/utils/snippet";
 
-/**
- * A hand-highlighted block, framed like `Code` down to the copy control on
- * the title bar, because a second style of code block on the same page would
- * only be a thing to look at twice.
- *
- * Lives here rather than beside one caller: the static preview and the
- * playground both render `buildUsage` output, and two copies of this would
- * drift the moment one of them gained a feature.
- */
+/** Hand-highlighted usage snippet; shared by static preview and playground. */
 export default function TokenBlock({
   tokens,
   className = "bc-border btw-1",
@@ -21,17 +13,16 @@ export default function TokenBlock({
   title,
 }: {
   tokens: Token[];
-  /** The frame is the caller's, so a block under a tab strip adds no second rule. */
+  /** Caller supplies frame classes (e.g. no top border under tabs). */
   className?: string;
   expanded?: boolean;
-  /** Which file this belongs in. Same bar `Code` renders, for the same reason. */
+  /** File label in the title bar, like `Code`. */
   title?: string;
 }) {
   const [copied, setCopied] = useState(false);
 
   const copy = async () => {
-    // A denied clipboard permission rejects, and an unhandled rejection here
-    // would take the confirmation down with it rather than just the copy.
+    // Clipboard denial should not break the copied state UI.
     try {
       await navigator.clipboard.writeText(tokensToText(tokens));
     } catch {
@@ -47,9 +38,6 @@ export default function TokenBlock({
         title={title}
         action={<CopyButton copied={copied} onCopy={copy} />}
       />
-      {/* Attributes sit on the element's own line now, so a component with
-          several changed props makes a long one. Wrapping keeps all of it
-          visible; a horizontal scrollbar would hide the closing tag. */}
       <pre className="ox-auto px-4 py-3 ff-m lh-5 ws-pw">
         <code>
           <Folded tokens={tokens} expanded={expanded} />
@@ -59,15 +47,7 @@ export default function TokenBlock({
   );
 }
 
-/**
- * Renders the token stream with collapsible regions, the way an editor's gutter
- * arrow collapses a block.
- *
- * Folding hides nothing: every token is still in the stream & the copy button
- * takes the whole snippet regardless of what is open. It only keeps the shape of
- * the code readable, so a four-item fixture does not push the element it feeds
- * off the screen.
- */
+/** Collapsible token regions; copy still takes the full snippet. */
 function Folded({
   tokens,
   expanded = false,
@@ -107,8 +87,7 @@ function Folded({
       continue;
     }
 
-    // Take the whole region in one go. Emitting the control per token is how it
-    // turned into a row of ellipses, and it left no path that rendered the body.
+    // Consume the whole fold region in one pass.
     const body: Token[] = [];
     while (i < tokens.length && tokens[i].fold === region)
       body.push(tokens[i++]);
@@ -116,18 +95,14 @@ function Folded({
 
     const isOpen = open.includes(region);
 
-    // The control sits at the region's origin in both states, so whatever you
-    // clicked to open is what you click to close. No frame and no fill: it is
-    // punctuation that happens to be interactive.
+    // Control stays at the fold origin in both states.
     output.push(
       <Button
         key={`${region}-fold`}
         aria-expanded={isOpen}
         aria-label={`${isOpen ? "Collapse" : "Expand"} ${region}`}
         onClick={() => toggle(region)}
-        // A button does not inherit type, and `<code>` sets its own size, so
-        // without this the ellipsis is a slightly different monospace at a
-        // slightly different size from the code it sits inside.
+        // Inherit monospace from parent `<code>`.
         style={{ font: "inherit" }}
         className={`d-if p-0 bg-transparent bw-0 va-b c-p a-none fv:oo-2 fv:oc-accent ${
           isOpen ? "c-foreground/25 h:c-foreground/60" : "c-foreground/40 h:c-foreground"

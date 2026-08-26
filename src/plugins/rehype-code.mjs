@@ -1,18 +1,7 @@
 import { visit } from "unist-util-visit";
 
 /**
- * Turn every `<pre><code>` into a `<Code>` element carrying the raw source as
- * a prop, and nothing else.
- *
- * Highlighting deliberately does NOT happen here. Shiki used to run just
- * before this plugin, and its output (a span per token, across the 32,778
- * lines of component source that rehype-registry injects) was inlined into
- * every compiled MDX module. That is what OOMs the 2-core Vercel builder:
- * removing Shiki from this pipeline was the only configuration that ever
- * completed. See NOTES.md for the full elimination table.
- *
- * src/components/ui/code-block.tsx now highlights at render time, so the
- * markup lands in the generated HTML instead of the module graph.
+ * Replace `<pre><code>` with `<Code>` carrying raw source; highlight at render time.
  */
 export default function rehypeCode() {
   return (tree) => {
@@ -22,9 +11,7 @@ export default function rehypeCode() {
       const codeEl = node.children?.find((c) => c.tagName === "code");
       if (!codeEl) return;
 
-      // Without Shiki's transformerMetaPreserve the meta no longer arrives on
-      // the <pre>, so read it off the <code> node where mdast-util-to-hast
-      // leaves it. rehype-registry sets it there too for injected sources.
+      // Meta lives on `<code>` after mdast-util-to-hast (not on `<pre>`).
       const meta = codeEl.data?.meta ?? node.properties?.["data-meta"] ?? "";
 
       const titleMatch =
