@@ -4,7 +4,7 @@
 
 An atomic CSS framework.
 
-[Documentation](https://yummacss.com/docs) • [Playground](https://play.yummacss.com) • [GitHub](https://github.com/yummacss/yummacss) • [X](https://x.com/yummacss)
+Tiny atomic CSS driven utilities with fixed scales for spacing, colors, type and radius.
 
 ## Contributing
 
