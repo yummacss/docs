@@ -2,7 +2,20 @@ import { readdirSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
-/** Fail when sidebar slugs and content pages disagree. */
+/**
+ * Fails the build when a content page is missing from the sidebar, or when the
+ * sidebar points at a page that does not exist.
+ *
+ * The sidebar is the single source of truth for reading order: it drives the
+ * nav, the llms.txt sections & prev/next. That is deliberate, because one file
+ * shows the whole information architecture. The cost is that adding a page is
+ * two edits, and forgetting the second one is silent - the page builds, and is
+ * reachable by URL, but appears in no nav and no llms.txt listing.
+ *
+ * This is the check that makes forgetting loud. It reads the config as text
+ * rather than importing it, so it needs no build step & no generated content.
+ */
+
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 
 /** Slugs listed under one top-level key of the sidebar config. */
@@ -27,7 +40,9 @@ function pagesIn(directory) {
 
 const source = readFileSync(join(root, "src/config/sidebar.ts"), "utf-8");
 
-// Only `sidebarConfig` maps slugs; ignore interfaces and link lists.
+// Only the sidebarConfig object maps slugs to pages. Anything else in the file
+// - the interfaces, or link lists like docsLinks - holds routes rather than
+// page slugs & must not be read as one.
 const configStart = source.indexOf("export const sidebarConfig");
 if (configStart === -1) {
   console.error("Could not find `export const sidebarConfig` to check.");

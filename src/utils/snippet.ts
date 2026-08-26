@@ -24,14 +24,25 @@ export interface Token {
   /** Tokens are positional, so identity is position. */
   id: string;
   /**
-   * Collapsible region name; consecutive tokens with the same name fold together.
+   * Name of the collapsible region this token belongs to, if any. Consecutive
+   * tokens sharing a name fold together, the way an editor's gutter arrow
+   * collapses a block.
    */
   fold?: string;
 }
 
 type Draft = Omit<Token, "id">;
 
-/** Hand-matched Shiki colors; avoids loading Shiki client-side for snippets. */
+/**
+ * Eclipsa, as Shiki resolves it for these exact constructs.
+ *
+ * Shiki runs on the server during page generation, and both of these are built
+ * in a client component from a registry id & a schema, so there is no source
+ * string for it to highlight. Running Shiki in the browser would mean shipping
+ * the core plus two grammars to colour a dozen tokens. These values were read
+ * out of `codeToTokens` for a real shell line and a real JSX element instead,
+ * so a hand-built block is coloured exactly like every authored fence.
+ */
 export const TOKEN_COLORS: Record<TokenKind, string> = {
   command: "#F5FAFF",
   argument: "#BEC6F2",
@@ -62,9 +73,26 @@ export function componentName(id: string): string {
     .join("");
 }
 
+// The install command used to be built here, per preview. It is an authored
+// `<CodeGroup>` in a page's own `## Installation` section now, so it lands in
+// the table of contents and can be linked to - and pnpm/npm tabbing is the
+// same implementation as every other install block on the site rather than a
+// second one. Nothing generates install tokens any more.
+
 const IDENTIFIER = /^[A-Za-z_$][A-Za-z0-9_$]*$/;
 
-/** The `{ "$icon": "Star" }` marker in a value, if any. */
+/**
+ * A JavaScript object literal, not JSON: unquoted keys where they are valid
+ * identifiers, because the snippet is meant to be pasted into a `.tsx` file.
+ */
+/**
+ * The icon a `{ "$icon": "Star" }` marker carries, or null.
+ *
+ * An optional `size` rides along, because a glyph's size belongs to the slot it
+ * sits in rather than to the mechanism: a tour's step badge wants 24px & a
+ * command palette's list row wants 16px, and neither is a default the other
+ * could live with.
+ */
 export function iconMarker(
   value: unknown,
 ): { name: string; size?: string } | null {
@@ -98,7 +126,8 @@ function literal(value: unknown, indent: string): Draft[] {
     return [{ kind: "value", text: String(value) }];
   }
 
-  // `{ "$icon": "Star" }` prints as JSX in the snippet.
+  // `{ "$icon": "Star" }` nested anywhere in an example stands for a glyph the
+  // schema cannot spell in JSON. It prints as the JSX it means.
   const marker = iconMarker(value);
   if (marker) {
     const tokens: Draft[] = [
@@ -150,7 +179,9 @@ function literal(value: unknown, indent: string): Draft[] {
 function attribute(prop: RegistryProp, value: unknown): Draft[] {
   const name: Draft = { kind: "attribute", text: prop.name };
 
-  // Icon props spell inline JSX before the object branch below.
+  // An icon prop is spelled inline as the JSX it actually is. It has to come
+  // before the object branch below, because a React element *is* an object &
+  // would otherwise print as `icon={icon}` referencing nothing.
   if (prop.exampleIcon) {
     return [
       name,
@@ -163,7 +194,9 @@ function attribute(prop: RegistryProp, value: unknown): Draft[] {
     ];
   }
 
-  // Arrays/objects are declared below the element and referenced by name.
+  // An array or an object is declared above the element & referenced by name.
+  // Spelling it inline would be unreadable; leaving it as `items={items}` with
+  // nothing declared would be a snippet the reader's editor rejects.
   if (typeof value === "object" && value !== null) {
     return [
       name,
@@ -174,7 +207,7 @@ function attribute(prop: RegistryProp, value: unknown): Draft[] {
     ];
   }
 
-  // JSX has no shorthand for `false` attributes.
+  // A bare attribute is `true`; JSX has no shorthand for the other one.
   if (typeof value === "boolean") {
     return value
       ? [name]
@@ -204,7 +237,18 @@ function attribute(prop: RegistryProp, value: unknown): Draft[] {
   ];
 }
 
-/** Usage snippet for a component instance (non-default props only). */
+/**
+ * How you use the component, not how it is built.
+ *
+ * The base entry of a migrated component *is* the implementation - it is the
+ * file `yummaui add button` copies - so showing its source under `### Base`
+ * answers a question nobody asked there. `<Button>Label</Button>` is the answer.
+ * The implementation is still one click away in the registry JSON and the `.md`
+ * route.
+ *
+ * Only props that differ from their default are written out, which is what
+ * keeps the snippet copy-pasteable rather than a dump of every option.
+ */
 export function buildUsage(
   id: string,
   meta: RegistryMeta,
@@ -212,7 +256,9 @@ export function buildUsage(
 ): Token[] {
   const name = componentName(id);
 
-  // Import matches `yummaui init` default paths.
+  // The import, because a snippet you can copy but not run is not a snippet.
+  // `components/ui` and the `@/` alias are what `yummaui init` defaults to, so
+  // this is the path the file lands at unless you told it otherwise.
   const tokens: Draft[] = [
     { kind: "keyword", text: "import" },
     { kind: "text", text: " " },
@@ -231,7 +277,8 @@ export function buildUsage(
     return value !== prop.default;
   });
 
-  // Inline icon JSX needs matching iconoir imports.
+  // Icons the snippet is about to spell inline need importing too, or the
+  // thing you copied does not compile.
   const icons = [
     ...new Set(
       props.flatMap((prop) => [
@@ -263,13 +310,16 @@ export function buildUsage(
 
   tokens.push({ kind: "punctuation", text: "<" }, { kind: "tag", text: name });
 
-  // One attribute per line on the opening tag.
+  // Attributes stay on the element's own line. A prop per line turned three
+  // changed values into a seven-line block, and the snippet is a thing you
+  // copy rather than a thing you read down.
   for (const prop of props) {
     tokens.push({ kind: "text", text: " " });
     tokens.push(...attribute(prop, values[prop.name]));
   }
 
-  // Self-close when the schema has no children slot.
+  // A component whose schema declares no children slot is written self-closing,
+  // so the snippet matches how it is actually used.
   if (meta.children === undefined) {
     tokens.push({ kind: "punctuation", text: " />" });
   } else {
@@ -283,7 +333,18 @@ export function buildUsage(
   return identify([...tokens, ...declarations(props, values)]);
 }
 
-/** `const` declarations for object/array props, below the element. */
+/**
+ * Fixture data, below the element rather than above it.
+ *
+ * The component is what you came to read; the data is what it happens to be fed.
+ * Every registry file already puts its own fixtures last for the same reason,
+ * and it stays valid because the array is only evaluated when the component
+ * renders, not when the module loads.
+ *
+ * The body is marked foldable so the default view is one line, `const items =
+ * [ ... ];`. Folding hides nothing: the tokens are all still there & the copy
+ * button takes the whole snippet either way.
+ */
 function declarations(
   props: RegistryProp[],
   values: Record<string, unknown>,
@@ -293,11 +354,14 @@ function declarations(
   for (const prop of props) {
     const value = values[prop.name];
     if (typeof value !== "object" || value === null) continue;
-    // Icons were already spelled inline as JSX.
+    // An icon was already spelled inline as JSX. It is a React element, so it
+    // is an object, but declaring `const icon = {...}` for it would dump the
+    // element's internals into the snippet & contradict the attribute above it.
     if (prop.exampleIcon) continue;
 
     const body = literal(value, "");
-    // Mark inner tokens foldable for the snippet UI.
+    // Everything between the opening and closing bracket, which is what an
+    // editor's gutter arrow would collapse.
     for (const token of body.slice(1, -1)) token.fold = prop.name;
 
     tokens.push(

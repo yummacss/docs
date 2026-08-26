@@ -9,7 +9,11 @@ interface Props {
   children: ReactNode;
 }
 
-/** Callout colors per kind (`note` reuses accent like blockquotes). */
+/**
+ * The three kinds carry the meaning, so each gets its own color rather than a
+ * shared one with a different icon. `note` reuses the accent the blockquote
+ * already used, since that is the one readers have seen for a year.
+ */
 const KINDS: Record<Kind, { rail: string; icon: string; Icon: typeof InfoCircle }> =
   {
     note: {

@@ -1,7 +1,15 @@
 import { allDocs, allUis } from "content-collections";
 import { getAllSlugs, getAllUISlugs } from "@/utils/sidebar";
 
-/** Prev/next order follows the sidebar, not frontmatter `order`. */
+/**
+ * Order prev/next by the sidebar rather than the `order` frontmatter.
+ *
+ * The sidebar is the reading order the site actually presents, & it covers
+ * every page. `order` never described the grouped sections, and it has drifted
+ * into duplicate values across pages, which made the sort unstable. Pages
+ * absent from the sidebar are skipped rather than appended, so prev/next only
+ * walks routes a reader can reach from the nav.
+ */
 function inSidebarOrder<T extends { _meta: { path: string }; title: string }>(
   docs: T[],
   slugs: string[],

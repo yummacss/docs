@@ -3,7 +3,10 @@
  * Run: node scripts/generate-registry.mjs
  */
 
-// Components
+// ---------------------------------------------------------------------------
+// Yumma UI Registry
+// ---------------------------------------------------------------------------
+
 export const registry = {
   "accordion": () => import("./ui/accordion"),
   "alert-dialog": () => import("./ui/alert-dialog"),
@@ -98,18 +101,36 @@ export function getRegistryImport(id: string): RegistryImport | null {
   return (registry as Record<string, RegistryImport>)[id] ?? null;
 }
 
-// Prop schemas
+// ---------------------------------------------------------------------------
+// Prop schemas, for components that have a real API
+// ---------------------------------------------------------------------------
+
 export interface RegistryProp {
   name: string;
-  /** Control kind, not TS type; `none` covers slots/callbacks (`typeName` in table). */
+  /**
+   * The kind of control, not the TypeScript type. `none` covers everything a
+   * JSON schema cannot offer a control for - a ReactNode, an array of objects -
+   * which the props table still documents via `typeName`.
+   */
   type: "enum" | "boolean" | "string" | "number" | "none";
   /** Shown in the Type column instead of `type`, when the two differ. */
   typeName?: string;
   values?: string[];
   default?: string | boolean | number;
-  /** Demo value when the component cannot default sensibly. */
+  /**
+   * A representative value for the demo, for a prop the component cannot
+   * sensibly default. `default` stays the truth the props table reports.
+   */
   example?: unknown;
-  /** iconoir name for icon slots JSON cannot express; must exist in EXAMPLE_ICONS. */
+  /**
+   * An iconoir icon name, for a `ReactNode` prop that JSON cannot express.
+   * Without this a component whose only visible content is an icon - Popover's
+   * trigger, Toggle's face - demos itself as an empty box. The preview resolves
+   * it to a real element & the usage snippet prints it as JSX plus its import,
+   * so the copied code compiles. Names must exist in `EXAMPLE_ICONS` in
+   * `component-preview.tsx`, a curated map rather than a dynamic lookup so the
+   * bundler can still shake the icon set.
+   */
   exampleIcon?: string;
   description?: string;
 }
@@ -117,7 +138,7 @@ export interface RegistryProp {
 export interface RegistryMeta {
   summary?: string;
   props: RegistryProp[];
-  /** Default children text; absent means the component takes none. */
+  /** Default text for components that take children. Absent means they do not. */
   children?: string;
 }
 
@@ -166,12 +187,19 @@ export function getRegistryMeta(id: string): MetaImport | null {
   return (registryMeta as Record<string, MetaImport>)[id] ?? null;
 }
 
-// CLI install targets
+// ---------------------------------------------------------------------------
+// What `yummaui add` addresses
+// ---------------------------------------------------------------------------
+
 export interface RegistryTarget {
   component: string;
   /** `"base"` for the component itself. */
   variant: string;
-  /** `component` via `add <name>`; `block` under its id; `example` is not installable. */
+  /**
+   * `component` is the props-driven unit `add <name>` installs. `block` is a
+   * composition installed under its own id. `example` only demonstrates a
+   * prop, so there is nothing to install - you pass that prop instead.
+   */
   kind: "component" | "block" | "example";
   /** The name to pass to `yummaui add`. */
   install: string;

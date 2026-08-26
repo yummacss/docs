@@ -1,11 +1,28 @@
 import type { RegistryMeta } from "@/registry";
 import { type Category, categoryGetters } from "@/utils/yummacss";
 
-/** MDX to plain markdown for `.md` routes and `llms-full.txt`. */
-// Fence opener/closer at any indentation (MDX nests fences).
+/**
+ * Turns the MDX source of a doc into plain markdown for the `.md` routes and
+ * `llms-full.txt`.
+ *
+ * MDX components have no markdown equivalent, so they are unwrapped: the tags
+ * are dropped & the children are kept, de-indented back to the surrounding
+ * level. That last part matters because children of a paired component are
+ * indented in the source, and a markdown reader would otherwise treat the real
+ * content as an indented code block.
+ *
+ * A handful of components carry meaning that survives the unwrap - a `Step`
+ * title, a `Hint` callout, a `Reference` table, a link card - and are rendered
+ * as the closest markdown construct. Everything else is transparent, and
+ * self-closing components with nothing to unwrap are dropped.
+ */
+
+// A fence opener or closer at any indentation. MDX components nest fences, so
+// the marker is captured to pair a closer with its own opener.
 const FENCE = /^\s*(`{3,}|~{3,})/;
 
-// Tags occupy a whole line except occasional single-line wrappers.
+// Tags occupy a whole line in the docs content, except for the occasional
+// single-line Hint or `div` holding one string.
 const SELF_CLOSING = /^\s*<([A-Za-z][A-Za-z0-9]*)((?:\s[^>]*?)?)\s*\/>\s*$/;
 const OPENING = /^\s*<([A-Za-z][A-Za-z0-9]*)((?:\s[^>]*?)?)>\s*$/;
 const CLOSING = /^\s*<\/([A-Za-z][A-Za-z0-9]*)>\s*$/;
@@ -14,7 +31,8 @@ const INLINE = /^\s*<([A-Za-z][A-Za-z0-9]*)((?:\s[^>]*?)?)>(.*)<\/\1>\s*$/;
 const ATTRIBUTE = /([A-Za-z][A-Za-z0-9_-]*)="([^"]*)"/g;
 const LIST_ITEM = /^\s*[-*+] /;
 
-// Layout HTML wrappers that markdown can replace; other raw HTML stays.
+// The raw HTML that exists purely to lay a docs page out, which markdown can
+// say more simply. Any other raw HTML is left exactly as it was written.
 const HTML_WRAPPERS = new Set(["a", "div"]);
 
 /** Components are unwrapped by name; raw HTML only where markdown can say it. */
@@ -26,10 +44,21 @@ type Node =
   | { kind: "lines"; lines: string[] }
   | { kind: "component"; name: string; attrs: string; children: Node[] };
 
-/** Injected registry source reader; keeps this module client-safe (no `node:fs`). */
+/**
+ * Looks up the source behind a `registryId`, returning null when there is none.
+ *
+ * Injected rather than read here on purpose. The registry lives on disk, and a
+ * `node:fs` import in this module would make it unsafe to reach from a
+ * component: that exact leak took the playground down & failed the first
+ * attempt at the docs OOM fix. Keeping the read in the route handler means this
+ * file stays client-safe by construction rather than by luck.
+ */
 export type RegistryResolver = (registryId: string) => string | null;
 
-/** Injected meta reader; same client-safety rule as `RegistryResolver`. */
+/**
+ * Looks up the prop schema behind a `registryId`. Same injection rule as
+ * `RegistryResolver`, and same reason.
+ */
 export type MetaResolver = (registryId: string) => RegistryMeta | null;
 
 interface RenderOptions {
@@ -45,7 +74,10 @@ function parseAttrs(attrs: string): Record<string, string> {
   return parsed;
 }
 
-/** Strip shared indentation from wrapped component children. */
+/**
+ * Removes the smallest indentation shared by every non-blank line, which is how
+ * a component's children get pulled back to the level of the surrounding prose.
+ */
 function dedent(lines: string[]): string[] {
   let common = Number.POSITIVE_INFINITY;
 
@@ -59,7 +91,10 @@ function dedent(lines: string[]): string[] {
   return lines.map((line) => (line.trim() ? line.slice(common) : line));
 }
 
-/** Mark fenced lines so component tags inside fences are not parsed as markup. */
+/**
+ * Marks the lines that sit inside a fenced code block. Component tags & blank
+ * lines are content there, not markup, so every pass has to skip them.
+ */
 function markFenced(lines: string[]): boolean[] {
   const fenced: boolean[] = [];
   let marker: string | null = null;
@@ -73,7 +108,8 @@ function markFenced(lines: string[]): boolean[] {
       continue;
     }
 
-    // Inside a fence: only a matching marker closes it.
+    // Inside a fence: only a marker of the same character & at least the same
+    // length closes it.
     fenced.push(true);
     if (
       fence &&
@@ -87,7 +123,10 @@ function markFenced(lines: string[]): boolean[] {
   return fenced;
 }
 
-/** Find closing tag for a component, skipping nested blocks and fences. */
+/**
+ * Finds the line closing the component opened at `open`, skipping fences &
+ * nested blocks of the same component. Returns -1 when nothing closes it.
+ */
 function findClosing(
   lines: string[],
   fenced: boolean[],
@@ -190,7 +229,8 @@ function buildPropsTable(meta: RegistryMeta): string[] {
   if (!meta.props?.length) return [];
 
   const rows = meta.props.map((prop) => {
-    // `typeName` when `type` is only `none`.
+    // `typeName` carries the real TypeScript type for anything the schema has
+    // no control for, where `type` would only say `none`.
     const type = prop.typeName
       ? `\`${prop.typeName}\``
       : prop.type === "enum" && prop.values
@@ -251,12 +291,24 @@ function renderComponent(
     return buildReferenceTable(category as Category, name);
   }
 
-  // Registry source becomes a fenced block; PropsTable becomes a markdown table.
+  // `<ComponentPreview registryId="button-base" />` has no children, so it used
+  // to fall through to the "nothing to unwrap" case & vanish. That is why the
+  // UI pages served prose with no component source at all: /ui/components/
+  // button.md was 965 bytes with zero code fences. The registry file IS the
+  // content of these pages, so it becomes a fenced block.
+  // `<PropsTable registryId="button" />` renders from the schema in React, so
+  // it is invisible here. Without this a reader of the `.md` gets the whole
+  // implementation and no statement of the API it exposes.
   if (node.name === "PropsTable" && attrs.registryId && options.resolveMeta) {
     const meta = options.resolveMeta(attrs.registryId);
     return meta ? buildPropsTable(meta) : [];
   }
 
+  // `<ComponentPreview registryId="button-base" />` has no children, so it used
+  // to fall through to the "nothing to unwrap" case & vanish. That is why the
+  // UI pages served prose with no component source at all: /ui/components/
+  // button.md was 965 bytes with zero code fences. The registry file IS the
+  // content of these pages, so it becomes a fenced block.
   if (attrs.registryId && options.resolveRegistry) {
     const source = options.resolveRegistry(attrs.registryId);
     if (!source) return [];
@@ -296,7 +348,10 @@ function renderComponent(
   return children;
 }
 
-/** Fence long enough to contain nested backticks in registry source. */
+/**
+ * Wraps source in a fence long enough to contain it. A registry file could
+ * itself hold a fenced example, and a plain ``` would end the block early.
+ */
 function fencedBlock(source: string, lang: string): string[] {
   const body = source.replace(/\r\n/g, "\n").replace(/\s+$/, "");
   const longest = Math.max(
@@ -331,7 +386,9 @@ function render(
     );
     if (!block.length) continue;
 
-    // Blank line between unwrap blocks unless both are list items.
+    // Unwrapping can butt a block up against its neighbour, so keep the blank
+    // line that markdown needs between them. Consecutive list items are the
+    // exception: a blank line there would loosen the list for no reason.
     const previous = out[out.length - 1];
     const isListItem = LIST_ITEM.test(block[0]);
     const afterListItem = previous !== undefined && LIST_ITEM.test(previous);
@@ -364,7 +421,8 @@ export function mdxToMarkdown(
   content: string,
   options: RenderOptions = {},
 ): string {
-  // Normalize CRLF before splitting lines.
+  // Some content files are authored with CRLF. Normalizing first keeps the
+  // served markdown from mixing them with the lines rendered here.
   const source = content.replace(/\r\n/g, "\n").split("\n");
   const lines = collapseBlankLines(render(parse(source), options));
 
