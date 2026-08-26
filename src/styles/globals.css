@@ -103,6 +103,21 @@ body {
   }
 }
 
+/* Preview Suspense fallback: reserve space and spin until the chunk loads. */
+@keyframes preview-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.preview-spinner {
+  box-sizing: border-box;
+  border: 2px solid #e2e5ef;
+  border-top-color: #8b92ad;
+  border-radius: 50%;
+  animation: preview-spin 0.7s linear infinite;
+}
+
 /* Fold control in code blocks: hide disclosure marker and closed-line gap. */
 [data-fold] > summary {
   list-style: none;
@@ -115,4 +130,3 @@ body {
 [data-fold]:not([open]) > summary {
   display: inline;
 }
-
