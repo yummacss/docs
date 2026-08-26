@@ -245,9 +245,7 @@ export const sidebarConfig = {
         },
       ],
     },
-    // Last, directly above the Resources links. This is a separate package
-    // nobody needs in order to use Yumma CSS, & sitting near Get Started it
-    // would read as a third setup step.
+    // Utils last, above Resources - not a setup step.
     {
       title: "Utils",
       items: ["vite", "postcss", "runtime", "canon", "core"],

@@ -10,8 +10,7 @@ const rootDir = path.join(__dirname, "..");
 // Custom classes defined in the docs' own CSS.
 const ALLOWLIST = ["docs-container", "ff-e", "playground-rail"];
 
-// Only UI code is validated - content/**/*.mdx contains historical
-// class syntax in old release posts.
+// Skip content/**/*.mdx; release posts use old class syntax.
 const UI_SOURCE = [
   "./src/app/**/*.tsx",
   "./src/components/**/*.{ts,tsx}",

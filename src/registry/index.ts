@@ -3,10 +3,7 @@
  * Run: node scripts/generate-registry.mjs
  */
 
-// ---------------------------------------------------------------------------
-// Yumma UI Registry
-// ---------------------------------------------------------------------------
-
+// Components
 export const registry = {
   "accordion": () => import("./ui/accordion"),
   "alert-dialog": () => import("./ui/alert-dialog"),
@@ -101,15 +98,10 @@ export function getRegistryImport(id: string): RegistryImport | null {
   return (registry as Record<string, RegistryImport>)[id] ?? null;
 }
 
-// ---------------------------------------------------------------------------
-// Prop schemas, for components that have a real API
-// ---------------------------------------------------------------------------
-
+// Prop schemas
 export interface RegistryProp {
   name: string;
-  /**
-   * Control kind, not TS type; `none` covers slots and callbacks (`typeName` in table).
-   */
+  /** Control kind, not TS type; `none` covers slots/callbacks (`typeName` in table). */
   type: "enum" | "boolean" | "string" | "number" | "none";
   /** Shown in the Type column instead of `type`, when the two differ. */
   typeName?: string;
@@ -125,7 +117,7 @@ export interface RegistryProp {
 export interface RegistryMeta {
   summary?: string;
   props: RegistryProp[];
-  /** Default text for components that take children. Absent means they do not. */
+  /** Default children text; absent means the component takes none. */
   children?: string;
 }
 
@@ -174,17 +166,12 @@ export function getRegistryMeta(id: string): MetaImport | null {
   return (registryMeta as Record<string, MetaImport>)[id] ?? null;
 }
 
-// ---------------------------------------------------------------------------
-// What `yummaui add` addresses
-// ---------------------------------------------------------------------------
-
+// CLI install targets
 export interface RegistryTarget {
   component: string;
   /** `"base"` for the component itself. */
   variant: string;
-  /**
-   * `component` via `add <name>`; `block` under its id; `example` is not installable.
-   */
+  /** `component` via `add <name>`; `block` under its id; `example` is not installable. */
   kind: "component" | "block" | "example";
   /** The name to pass to `yummaui add`. */
   install: string;

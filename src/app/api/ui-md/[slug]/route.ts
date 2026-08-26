@@ -12,9 +12,7 @@ function renderUiMarkdown(ui: {
   description?: string;
   content?: string;
 }): string {
-  // Without the resolver every <ComponentPreview registryId="..." /> is dropped
-  // and the page serves headings with no component source, which is the whole
-  // reason an agent would read a UI page.
+  // Resolve ComponentPreview or the markdown has headings with no source.
   const body = mdxToMarkdown(ui.content ?? "", {
     resolveRegistry: resolveRegistrySource,
     resolveMeta: resolveRegistryMeta,
