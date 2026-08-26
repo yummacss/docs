@@ -1,6 +1,20 @@
 import { readdirSync } from "node:fs";
 import { basename } from "node:path";
 
+/**
+ * Splitting a registry id into the component and variant the CLI addresses.
+ *
+ * `yummaui add` resolves a name against `/ui/r/index.json` as either a
+ * component or a block, so `add button-danger` is not a command - a variant
+ * only demonstrates a prop and has no file of its own to install. The id is
+ * only how the registry files are keyed. Two generators and the docs all need
+ * the same split, so it lives here rather than being written out three times &
+ * drifting.
+ *
+ * (This used to say the variant was a flag: `add button --variant danger`.
+ * `--variant` was never wired and was removed in `ui@815d2f9`.)
+ */
+
 /** Longest slug first so `checkbox-group` wins over `checkbox`. */
 export function componentSlugs(contentDir) {
   return readdirSync(contentDir)
@@ -9,7 +23,13 @@ export function componentSlugs(contentDir) {
     .sort((a, b) => b.length - a.length);
 }
 
-/** `button-danger` -> `{ component: "button", variant: "danger" }`. */
+/**
+ * `button-danger` -> `{ component: "button", variant: "danger" }`.
+ * `button` -> `{ component: "button", variant: "base" }`.
+ *
+ * An id matching no page keeps its whole name as the component & is flagged, so
+ * a file nobody documents cannot rot silently.
+ */
 export function splitId(id, slugs) {
   const slug = slugs.find((s) => id === s || id.startsWith(`${s}-`));
   if (!slug) return { component: id, variant: "base", orphan: true };

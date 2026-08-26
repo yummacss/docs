@@ -1,7 +1,8 @@
 import path from "node:path";
 import { defineConfig } from "vitest/config";
 
-// `import.meta.dirname` for Vite's native ESM config loader.
+// `import.meta.dirname` rather than `__dirname`: Vite's native config loader
+// does not provide the CJS globals, and warns that it will become the default.
 export default defineConfig({
   test: {
     globals: true,

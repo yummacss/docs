@@ -1,6 +1,20 @@
 #!/usr/bin/env node
 
-/** Emit static registry JSON for the `yummaui` CLI under `public/ui/r/`. */
+/**
+ * Emits the Yumma UI registry as static JSON under `public/ui/r/`.
+ *
+ * This is the contract the `yummaui` CLI reads over HTTP, so the CLI needs no
+ * copy of the components & the registry never has to move out of this repo.
+ * One file per variant plus an index, namespaced under /ui alongside the pages
+ * that document them:
+ *
+ *   /ui/r/index.json        every component, its variants & which one is base
+ *   /ui/r/<variant>.json    source, npm dependencies, target path
+ *
+ * Generated at build time & gitignored: committing 450 JSON files would churn
+ * the diff on every component edit for no benefit.
+ */
+
 import {
   existsSync,
   mkdirSync,
@@ -22,7 +36,8 @@ const outDir = join(cwd, "public/ui/r");
 const pkg = JSON.parse(readFileSync(join(cwd, "package.json"), "utf8"));
 const versions = { ...pkg.dependencies, ...pkg.devDependencies };
 
-// React is implied by a React component library.
+// React is implied by using a React component library at all, so listing it
+// would make every component look heavier than it is.
 const IMPLIED = new Set(["react", "react-dom"]);
 
 /** `@base-ui/react/button` -> `@base-ui/react`, `motion/react` -> `motion`. */
@@ -39,14 +54,22 @@ function dependenciesOf(source) {
     if (!name || IMPLIED.has(name)) continue;
     found.add(name);
   }
-  // Pin deps to the docs build ranges.
+  // Pin to the range the docs build against, so a copied component cannot
+  // land next to an incompatible major.
   return [...found].sort().map((name) => ({
     name,
     version: versions[name] ?? "latest",
   }));
 }
 
-/** `./autocomplete` registry ids referenced by relative imports. */
+/**
+ * `./autocomplete` -> `autocomplete`, when that id is another registry file.
+ *
+ * A demo file imports its component this way rather than by full path, and
+ * the same specifier resolves after `add` copies both files flat into
+ * `componentsDir`, so nothing about the import has to change between the
+ * docs and a consumer's project.
+ */
 function registryDependenciesOf(source, id, allIds) {
   const found = new Set();
   for (const [, spec] of source.matchAll(/from\s+["']([^"']+)["']/g)) {
@@ -59,14 +82,22 @@ function registryDependenciesOf(source, id, allIds) {
 
 const slugs = componentSlugs(contentDir);
 
-/** Prop schema beside the component file (not shipped with copied source). */
+/**
+ * The prop schema, if this component has one.
+ *
+ * Kept beside the component rather than exported from it, because the file is
+ * copied verbatim into someone's project and metadata has no business shipping
+ * with it. One schema then feeds the docs controls, the props table, the
+ * generated snippet & anything else that needs to know the API.
+ */
 function metaOf(id) {
   const file = join(metaDir, `${id}.json`);
   if (!existsSync(file)) return null;
   try {
     return JSON.parse(readFileSync(file, "utf8"));
   } catch (error) {
-    // Broken meta should fail the build.
+    // A broken schema should fail the build rather than silently ship a
+    // component whose controls have quietly vanished.
     throw new Error(`Invalid registry meta for "${id}": ${error.message}`);
   }
 }
@@ -91,12 +122,15 @@ let orphans = 0;
 
 for (const id of ids) {
   const { component, variant, orphan } = splitId(id, slugs);
-  // Orphan registry files match no content page.
+  // A registry file no page references. Emitted anyway, but counted so it
+  // cannot rot silently.
   if (orphan) orphans++;
 
   const source = readFileSync(join(uiDir, `${id}.tsx`), "utf8");
 
-  // component | block | example (prop demo, not installable).
+  // `component` is the thing `add <name>` installs; `block` is a composition
+  // installed under its own id; `example` only demonstrates a prop and is not
+  // installable at all - you get it by passing that prop to the component.
   const kind =
     variant === "base" ? "component" : isBlock(id) ? "block" : "example";
 
@@ -107,10 +141,13 @@ for (const id of ids) {
     kind,
     // summary / props / children, when the component has a declared API.
     ...(metaOf(id) ?? {}),
-    // Next App Router consumers need the directive; Vite ignores it.
+    // 294 of 450 carry the directive. A Vite consumer ignores it; a Next App
+    // Router consumer needs it, and stripping it would break them.
     useClient: /^\s*["']use client["']/.test(source),
     dependencies: dependenciesOf(source),
-    // Demo files importing their base component (resolved transitively by CLI).
+    // A demo importing the component it demonstrates, e.g. `autocomplete-inset`
+    // importing `autocomplete`. The CLI resolves these transitively, so `add
+    // autocomplete-inset` also writes `autocomplete.tsx`.
     registryDependencies: registryDependenciesOf(source, id, idSet),
     files: [
       {
@@ -137,14 +174,16 @@ for (const id of ids) {
     }
     const group = components.get(component);
     if (variant === "base") group.base = id;
-    // Fallback when a component has no `-base` file.
+    // Remembered only so a component with no `-base` file still resolves.
     else if (!group.fallback) group.fallback = id;
 
     if (kind === "block") blocks.push({ id, component });
   }
 }
 
-// Fall back to first variant when no base file exists.
+// A group with no `-base` file has nothing for a bare `add <component>` to
+// resolve to, so fall back to its first other file rather than failing at
+// runtime.
 const index = [...components.values()]
   .sort((a, b) => a.component.localeCompare(b.component))
   .map(({ fallback, ...g }) => ({ ...g, base: g.base ?? fallback }));
