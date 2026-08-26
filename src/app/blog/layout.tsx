@@ -6,7 +6,7 @@ export default function BlogLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-dvh c-white">
+    <div className="min-h-dvh">
       <Navbar />
 
       {/* Same shape as the docs & UI layouts: one container, one 12-column

@@ -40,14 +40,18 @@ export default defineConfig({
   ],
   theme: {
     colors: {
-      "accent-dim": "#9aa5ef",
+      // Dark values = original docs palette (untouched). Light values are pairs only.
+      accent: { light: "#232741", dark: "#bec6f2" },
+      "accent-dim": { light: "#64748b", dark: "#9aa5ef" },
+      border: { light: "#cbd5e1", dark: "#232741" },
+      code: { light: "#9aa5ef", dark: "#dda2f6" },
+      page: { light: "#ffffff", dark: "#151724" },
+      surface: { light: "#f1f5f9", dark: "#1a1d2e" },
+      // Docs prose & headings — not platform white/black (registry previews use those).
+      foreground: { light: "#232741", dark: "#ffffff" },
+      inverse: { light: "#ffffff", dark: "#000000" },
       "diff-add": "#a8e1ad",
       "diff-remove": "#e1a8a8",
-      accent: "#bec6f2",
-      border: "#232741",
-      code: "#dda2f6",
-      page: "#151724",
-      surface: "#1a1d2e",
     },
   },
 });

@@ -60,7 +60,7 @@ export default function PlaygroundRail() {
               <button
                 type="button"
                 onClick={playground.reset}
-                className="p-0 bg-transparent c-white/40 bw-0 fs-xs c-p h:c-white fv:oc-white fv:ow-2"
+                className="p-0 bg-transparent c-accent-dim bw-0 fs-xs c-p h:c-accent fv:oc-accent fv:ow-2"
               >
                 Reset
               </button>
@@ -96,7 +96,7 @@ export default function PlaygroundRail() {
                 >
                   {/* The type stands where the widget would. A slot or a
                       callback has no value a reader could pick. */}
-                  <code className="fs-0 c-white/25 fs-xs ff-m">
+                  <code className="fs-0 c-accent/25 fs-xs ff-m">
                     {typeOf(prop)}
                   </code>
                 </Row>
@@ -136,7 +136,7 @@ function Row({
   onToggle: () => void;
   children: React.ReactNode;
 }) {
-  const name = <code className="c-code fs-xs ff-m">{prop.name}</code>;
+  const name = <code className="c-foreground fs-xs ff-m">{prop.name}</code>;
 
   return (
     <div className="py-2 bc-border bbw-1">
@@ -152,7 +152,7 @@ function Row({
             <NavArrowDown
               aria-hidden
               className={`fs-0 w-3 h-3 tp-c tdu-150 ${
-                open ? "ro-36 c-accent" : "c-white/25"
+                open ? "ro-36 c-accent" : "c-accent/25"
               }`}
             />
           </button>
@@ -163,7 +163,7 @@ function Row({
       </div>
 
       {open && (
-        <div className="mt-2 c-white/60 fs-sm lh-4">
+        <div className="mt-2 c-accent-dim fs-sm lh-4">
           <PropDescription text={prop.description} />
         </div>
       )}

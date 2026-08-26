@@ -62,29 +62,27 @@ export default async function BlogPostPage({
     <>
       <article className="py-8 @lg:gc-s-8">
         <header className="mb-12">
-          <div className="d-f ai-c g-2 mb-4 mt-16 c-white/50 fs-sm">
-            <Link href="/blog" className="h:c-white fv:oc-white fv:ow-2">
+          <div className="d-f ai-c g-2 mb-4 mt-16 c-foreground/50 fs-sm">
+            <Link href="/blog" className="c-foreground/80 h:c-accent fv:oc-accent fv:ow-2">
               Blog
             </Link>
             <span>/</span>
             <span>{formatDate(post?.date || "")}</span>
           </div>
 
-          <h1 className="mb-2 c-white fs-4xl fw-400 @lg:fs-5xl">
-            {post?.title}
-          </h1>
+          <h1 className="mb-2 c-foreground fs-4xl fw-400 @lg:fs-5xl">{post?.title}</h1>
 
-          <p className="mb-6 c-white/70 fs-lg lh-5">{post?.description}</p>
+          <p className="mb-6 c-foreground/70 fs-lg lh-5">{post?.description}</p>
 
           {author && (
-            <div className="d-f ai-c g-4 c-white/70 fs-lg">
+            <div className="d-f ai-c g-4 c-foreground/70 fs-lg">
               <div className="d-f ai-c g-2">
                 <Avatar src={author.avatar} alt={author.name} />
                 <Link
                   href={author.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="c-white/70 h:c-white fv:oc-white fv:ow-2"
+                  className="c-foreground/80 h:c-accent fv:oc-accent fv:ow-2"
                 >
                   {author.name}
                 </Link>

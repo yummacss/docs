@@ -2,7 +2,11 @@
 
 import { Button } from "@base-ui/react";
 import { Check, Copy } from "iconoir-react";
-import { useRef, useState } from "react";
+import { type ReactNode, useRef, useState } from "react";
+
+/** Code blocks always render in dark scheme — familiar eclipsa chrome on every page mode. */
+const FRAME = "cs-d o-h my-4 bc-border bg-surface bw-1";
+const FRAME_PREVIEW = "cs-d bg-surface";
 
 interface Props {
   title?: string;
@@ -37,6 +41,8 @@ export default function Code({
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const copyAction = <CopyButton copied={copied} onCopy={handleCopy} />;
+
   const body = html ? (
     <div
       // ff-m because this wrapper is a div: the old markup was a <pre>, which
@@ -52,12 +58,9 @@ export default function Code({
       // The title sits outside the scroll box on purpose: which file you are
       // reading has to stay put while the source scrolls under it, and these
       // blocks are capped at max-h-80 precisely because they are long.
-      <div ref={ref} className="bg-surface">
-        <TitleBar title={title} />
-        <div className="p-r oy-auto max-h-80">
-          <div className="p-a t-2 r-2">
-            <CopyButton copied={copied} onCopy={handleCopy} />
-          </div>
+      <div ref={ref} className={FRAME_PREVIEW}>
+        <TitleBar title={title} action={copyAction} />
+        <div className="oy-auto max-h-80">
           {body ?? (
             <pre className="ox-auto px-4 py-4 ff-m lh-5">{children}</pre>
           )}
@@ -66,49 +69,67 @@ export default function Code({
     );
   }
 
-  // Rendered inside a <CodeGroup>: the group supplies the frame and the tab
-  // (from this block's title), so drop the outer chrome and title bar here.
+  // Rendered inside a <CodeGroup>: the group supplies the frame, the tab
+  // strip, and the copy control, so drop the outer chrome here.
   if (grouped) {
     return (
-      <div ref={ref} className="p-r">
-        <div className="p-a t-2 r-2">
-          <CopyButton copied={copied} onCopy={handleCopy} />
-        </div>
+      <div ref={ref}>
         {body ?? <pre className="ox-auto px-4 py-4 lh-5">{children}</pre>}
       </div>
     );
   }
 
   return (
-    <div ref={ref} className="p-r o-h my-4 bc-border bg-surface bw-1">
-      <TitleBar title={title} />
-      <div className="p-r">
-        <div className="p-a t-2 r-2">
-          <CopyButton copied={copied} onCopy={handleCopy} />
-        </div>
-        {body ?? <pre className="ox-auto px-4 py-4 lh-5">{children}</pre>}
-      </div>
+    <div ref={ref} className={FRAME}>
+      <TitleBar title={title} action={copyAction} />
+      {body ?? <pre className="ox-auto px-4 py-4 lh-5">{children}</pre>}
     </div>
   );
 }
 
 /**
- * The bar naming the file a block belongs to.
+ * The bar naming the file a block belongs to, with the copy control on the
+ * right so it never sits on top of the source.
  *
  * Exported for the same reason as `CopyButton`: `ComponentPreview` renders its
  * usage snippet from a token stream rather than through this component, and a
  * second hand-written copy of this markup is a second thing to keep in step.
- * Renders nothing without a title, so callers need no conditional.
+ * Renders nothing without a title or action, so callers need no conditional.
  */
-export function TitleBar({ title }: { title?: string | null }) {
-  if (!title) return null;
+export function TitleBar({
+  title,
+  action,
+}: {
+  title?: string | null;
+  action?: ReactNode;
+}) {
+  if (!title && !action) return null;
+
+  // Titled cells size the bar with py-2 + fs-xs. A copy-only bar has no title
+  // cell, so park the same vertical footprint in a zero-width anchor instead
+  // of padding the action cell — that kept growing the bar past production.
+  const heightAnchor = (
+    <div
+      className="d-f ai-c py-2 w-0 o-h pe-none invisible"
+      aria-hidden="true"
+    >
+      <span className="fs-xs ff-m">{"\u200b"}</span>
+    </div>
+  );
 
   return (
     <div className="d-f bc-border bg-page">
-      <div className="d-f ai-c px-6 py-2 brw-1 bc-border bg-surface">
-        <span className="c-accent fs-xs ff-m">{title}</span>
-      </div>
+      {title ? (
+        <div className="d-f ai-c px-6 py-2 brw-1 bc-border bg-surface">
+          <span className="c-accent fs-xs ff-m">{title}</span>
+        </div>
+      ) : (
+        heightAnchor
+      )}
       <div className="f-1 bbw-1 bc-border" />
+      {action ? (
+        <div className="d-f ai-c px-2 bbw-1 bc-border">{action}</div>
+      ) : null}
     </div>
   );
 }
@@ -126,7 +147,7 @@ export function CopyButton({
   return (
     <Button
       onClick={onCopy}
-      className="d-f ai-c g-1 px-2 py-1 c-accent h:c-accent-4 fv:oc-white fv:ow-2"
+      className="d-f ai-c g-1 px-2 py-1 c-accent h:c-accent-4 fv:oc-accent fv:ow-2"
       aria-label="Copy code"
     >
       {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
