@@ -80,7 +80,7 @@ export default function PlaygroundRail() {
                   onToggle={() => toggle(prop.name)}
                 >
                   {/* Type label when no control exists. */}
-                  <code className="fs-0 c-accent/25 fs-xs ff-m">
+                  <code className="fs-0 c-foreground/50 fs-xs ff-m">
                     {typeOf(prop)}
                   </code>
                 </Row>
