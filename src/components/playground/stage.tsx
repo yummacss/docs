@@ -1,6 +1,5 @@
 "use client";
 
-import type { ComponentType } from "react";
 import { lazy, Suspense, useMemo } from "react";
 import { usePlayground } from "@/components/playground/context";
 import TokenBlock from "@/components/ui/token-block";
@@ -48,7 +47,11 @@ export default function ComponentPlayground() {
         </div>
       </Suspense>
 
-      <TokenBlock tokens={usage} title="page.tsx" />
+      <TokenBlock
+        tokens={usage}
+        title="page.tsx"
+        installId={getRegistryTarget(playground.id).install}
+      />
     </div>
   );
 }
