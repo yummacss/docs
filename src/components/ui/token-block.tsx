@@ -1,8 +1,15 @@
 "use client";
 
 import { Button } from "@base-ui/react";
+import { allUis } from "content-collections";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import type { ReactNode } from "react";
 import { useState } from "react";
+import { BaseUI } from "@/components/icons/icons";
+import Install from "@/components/playground/install";
 import { CopyButton, TitleBar } from "@/components/ui/code";
+import { getRegistryTarget } from "@/registry";
 import { TOKEN_COLORS, type Token, tokensToText } from "@/utils/snippet";
 
 /** Hand-highlighted usage snippet; shared by static preview and playground. */
@@ -11,6 +18,7 @@ export default function TokenBlock({
   className = "bc-border btw-1",
   expanded = false,
   title,
+  installId,
 }: {
   tokens: Token[];
   /** Caller supplies frame classes (e.g. no top border under tabs). */
@@ -18,11 +26,13 @@ export default function TokenBlock({
   expanded?: boolean;
   /** File label in the title bar, like `Code`. */
   title?: string;
+  /** When set, title bar offers Install + optional Base UI link instead of Copy. */
+  installId?: string;
 }) {
   const [copied, setCopied] = useState(false);
+  const pathname = usePathname();
 
   const copy = async () => {
-    // Clipboard denial should not break the copied state UI.
     try {
       await navigator.clipboard.writeText(tokensToText(tokens));
     } catch {
@@ -32,12 +42,41 @@ export default function TokenBlock({
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const slug = (pathname || "")
+    .replace(/^\/ui\/components\//, "")
+    .replace(/^\/ui\//, "")
+    .replace(/\/$/, "");
+  const page = allUis.find((ui) => ui._meta.path === slug);
+  const primitive = page?.primitive;
+  const primitiveSlug =
+    typeof primitive === "string"
+      ? primitive
+      : primitive
+        ? getRegistryTarget(installId ?? slug).component
+        : null;
+
+  const action: ReactNode = installId ? (
+    <div className="d-f ai-c g-1">
+      <Install id={installId} />
+      {primitiveSlug && (
+        <Link
+          href={`https://base-ui.com/react/components/${primitiveSlug}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Base UI primitive"
+          className="d-f ai-c jc-c p-1 c-accent td-none h:c-accent-4 fv:oc-accent fv:ow-2"
+        >
+          <BaseUI className="w-4 h-4" />
+        </Link>
+      )}
+    </div>
+  ) : (
+    <CopyButton copied={copied} onCopy={copy} />
+  );
+
   return (
     <div className={`cs-d bg-surface ${className}`}>
-      <TitleBar
-        title={title}
-        action={<CopyButton copied={copied} onCopy={copy} />}
-      />
+      <TitleBar title={title} action={action} />
       <pre className="ox-auto px-4 py-3 ff-m lh-5 ws-pw">
         <code>
           <Folded tokens={tokens} expanded={expanded} />
@@ -87,7 +126,6 @@ function Folded({
       continue;
     }
 
-    // Consume the whole fold region in one pass.
     const body: Token[] = [];
     while (i < tokens.length && tokens[i].fold === region)
       body.push(tokens[i++]);
@@ -95,17 +133,17 @@ function Folded({
 
     const isOpen = open.includes(region);
 
-    // Control stays at the fold origin in both states.
     output.push(
       <Button
         key={`${region}-fold`}
         aria-expanded={isOpen}
         aria-label={`${isOpen ? "Collapse" : "Expand"} ${region}`}
         onClick={() => toggle(region)}
-        // Inherit monospace from parent `<code>`.
         style={{ font: "inherit" }}
         className={`d-if p-0 bg-transparent bw-0 va-b c-p a-none fv:oo-2 fv:oc-accent ${
-          isOpen ? "c-foreground/25 h:c-foreground/60" : "c-foreground/40 h:c-foreground"
+          isOpen
+            ? "c-foreground/25 h:c-foreground/60"
+            : "c-foreground/40 h:c-foreground"
         }`}
       >
         ...
