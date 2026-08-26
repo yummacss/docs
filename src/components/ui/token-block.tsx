@@ -6,9 +6,9 @@ import { CopyButton, TitleBar } from "@/components/ui/code";
 import { TOKEN_COLORS, type Token, tokensToText } from "@/utils/snippet";
 
 /**
- * A hand-highlighted block, framed like `Code` down to the copy button's
- * position, because a second style of code block on the same page would only be
- * a thing to look at twice.
+ * A hand-highlighted block, framed like `Code` down to the copy control on
+ * the title bar, because a second style of code block on the same page would
+ * only be a thing to look at twice.
  *
  * Lives here rather than beside one caller: the static preview and the
  * playground both render `buildUsage` output, and two copies of this would
@@ -42,23 +42,19 @@ export default function TokenBlock({
   };
 
   return (
-    <div className={`bg-surface ${className}`}>
-      <TitleBar title={title} />
-      {/* `p-r` moved off the outer element so the copy button anchors to the
-          code, not to the title bar above it - the same nesting `Code` uses. */}
-      <div className="p-r">
-        <div className="p-a t-2 r-2">
-          <CopyButton copied={copied} onCopy={copy} />
-        </div>
-        {/* Attributes sit on the element's own line now, so a component with
-            several changed props makes a long one. Wrapping keeps all of it
-            visible; a horizontal scrollbar would hide the closing tag. */}
-        <pre className="ox-auto px-4 py-3 ff-m lh-5 ws-pw">
-          <code>
-            <Folded tokens={tokens} expanded={expanded} />
-          </code>
-        </pre>
-      </div>
+    <div className={`cs-d bg-surface ${className}`}>
+      <TitleBar
+        title={title}
+        action={<CopyButton copied={copied} onCopy={copy} />}
+      />
+      {/* Attributes sit on the element's own line now, so a component with
+          several changed props makes a long one. Wrapping keeps all of it
+          visible; a horizontal scrollbar would hide the closing tag. */}
+      <pre className="ox-auto px-4 py-3 ff-m lh-5 ws-pw">
+        <code>
+          <Folded tokens={tokens} expanded={expanded} />
+        </code>
+      </pre>
     </div>
   );
 }
@@ -134,7 +130,7 @@ function Folded({
         // slightly different size from the code it sits inside.
         style={{ font: "inherit" }}
         className={`d-if p-0 bg-transparent bw-0 va-b c-p a-none fv:oo-2 fv:oc-accent ${
-          isOpen ? "c-white/25 h:c-white/60" : "c-white/40 h:c-white"
+          isOpen ? "c-foreground/25 h:c-foreground/60" : "c-foreground/40 h:c-foreground"
         }`}
       >
         ...

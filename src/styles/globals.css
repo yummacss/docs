@@ -133,3 +133,4 @@ body {
 [data-fold]:not([open]) > summary {
   display: inline;
 }
+

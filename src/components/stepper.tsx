@@ -47,9 +47,9 @@ export function Step({
         <span className="c-accent fs-xs">{stepNumber}</span>
       </div>
       <div className="d-f ai-c mb-2">
-        <p className="c-white">{title}</p>
+        <p className="c-foreground">{title}</p>
       </div>
-      <div className="my-5 c-white/80">{children}</div>
+      <div className="my-5 c-foreground/80">{children}</div>
     </li>
   );
 }

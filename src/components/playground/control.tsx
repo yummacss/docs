@@ -62,7 +62,7 @@ export default function Control({ prop, value, onChange }: Props) {
               className={`px-2 py-1 bg-transparent bw-1 ff-m fs-xs c-p tp-c tdu-150 fv:oo--1 fv:oc-accent ${
                 value === option
                   ? "bc-accent-dim c-accent"
-                  : "bc-border c-white/40 h:c-white/70"
+                  : "bc-border c-accent-dim h:c-accent-dim"
               }`}
             >
               {option}
@@ -82,7 +82,7 @@ export default function Control({ prop, value, onChange }: Props) {
           className="d-f fs-0 ai-c jc-sb g-1 px-2 py-1 max-w-32 bc-border bg-transparent c-accent bw-1 ff-m fs-xs c-p us-none fv:oo--1 fv:oc-accent"
         >
           <Select.Value className="o-h to-e ws-nw" />
-          <NavArrowDown className="fs-0 w-3 h-3 c-white/40" aria-hidden />
+          <NavArrowDown className="fs-0 w-3 h-3 c-accent-dim" aria-hidden />
         </Select.Trigger>
         <Select.Portal>
           <Select.Positioner sideOffset={4} className="zi-50">
@@ -93,7 +93,7 @@ export default function Control({ prop, value, onChange }: Props) {
                   value={option}
                   className={(state) =>
                     `d-b px-2 py-1 ff-m fs-xs c-p us-none ${
-                      state.highlighted ? "bg-border c-white" : "c-white/70"
+                      state.highlighted ? "bg-border c-accent" : "c-accent-dim"
                     }`
                   }
                 >

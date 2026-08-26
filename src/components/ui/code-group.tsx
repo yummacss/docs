@@ -9,11 +9,14 @@ import {
   useId,
   useState,
 } from "react";
+import { CopyButton } from "@/components/ui/code";
 import CodeTabs from "@/components/ui/code-tabs";
 
 interface CodeChildProps {
   title?: string;
   lang?: string;
+  /** Raw source from rehype-code; used for the tab-bar copy control. */
+  code?: string;
   grouped?: boolean;
   children?: ReactNode;
 }
@@ -48,6 +51,7 @@ export default function CodeGroup({ children }: Props) {
     (child): child is ReactElement<CodeChildProps> => isValidElement(child),
   );
   const [active, setActive] = useState(0);
+  const [copied, setCopied] = useState(false);
   const groupId = useId();
 
   if (panels.length === 0) return null;
@@ -57,16 +61,29 @@ export default function CodeGroup({ children }: Props) {
 
   const current = Math.min(active, panels.length - 1);
 
+  const handleCopy = async () => {
+    const text = panels[current].props.code ?? "";
+    await navigator.clipboard.writeText(text);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  const select = (id: string) => {
+    setActive(Number(id));
+    setCopied(false);
+  };
+
   return (
-    <div className="p-r o-h my-4 bc-border bg-surface bw-1">
+    <div className="cs-d o-h my-4 bc-border bg-surface bw-1">
       <CodeTabs
         idPrefix={groupId}
         active={String(current)}
-        onSelect={(id) => setActive(Number(id))}
+        onSelect={select}
         tabs={panels.map((child, i) => ({
           id: String(i),
           label: labelFor(child, i),
         }))}
+        action={<CopyButton copied={copied} onCopy={handleCopy} />}
       />
       <div
         role="tabpanel"
