@@ -11,6 +11,7 @@ import {
 } from "react";
 import { getRegistryMeta, type RegistryMeta } from "@/registry";
 import { type DemoProps, seedValues } from "@/utils/demo";
+import { prefetchRegistry } from "@/utils/prefetch-registry";
 
 /** Playground state shared between stage (MDX) and rail (layout column). */
 interface Playground {
@@ -43,7 +44,18 @@ export function PlaygroundProvider({
 
   useEffect(() => {
     const importMeta = getRegistryMeta(id);
-    if (!importMeta) return;
+    if (!importMeta) {
+      setMeta(null);
+      setValues({});
+      setDirty(false);
+      return;
+    }
+
+    // Clear controls for the outgoing id; the stage keeps the last visual frame.
+    setMeta(null);
+    setValues({});
+    setDirty(false);
+    prefetchRegistry(id);
 
     let live = true;
     importMeta().then((module) => {
@@ -53,7 +65,6 @@ export function PlaygroundProvider({
       setDirty(false);
     });
 
-    // Cancel stale meta fetch on navigation.
     return () => {
       live = false;
     };

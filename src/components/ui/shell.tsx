@@ -33,9 +33,7 @@ export default function UIShell({ children }: { children: React.ReactNode }) {
 
   if (!playground) return grid;
 
-  return (
-    <PlaygroundProvider key={playground} id={playground}>
-      {grid}
-    </PlaygroundProvider>
-  );
+  // No key: keep the provider across playground pagination so the stage can
+  // hold the previous frame until the next id is ready.
+  return <PlaygroundProvider id={playground}>{grid}</PlaygroundProvider>;
 }

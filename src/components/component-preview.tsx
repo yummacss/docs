@@ -1,22 +1,15 @@
 "use client";
 import { Toggle } from "@base-ui/react/toggle";
 import type { ComponentType } from "react";
-import {
-  lazy,
-  type ReactNode,
-  Suspense,
-  useEffect,
-  useMemo,
-  useState,
-} from "react";
+import { type ReactNode, useEffect, useState } from "react";
 import PreviewSpinner from "@/components/preview-spinner";
 import TokenBlock from "@/components/ui/token-block";
-import {
-  getRegistryImport,
-  getRegistryMeta,
-  getRegistryTarget,
-} from "@/registry";
+import { getRegistryMeta, getRegistryTarget } from "@/registry";
 import { type DemoProps, resolveIcons, seedValues } from "@/utils/demo";
+import {
+  getCachedRegistryComponent,
+  loadRegistryComponent,
+} from "@/utils/prefetch-registry";
 import { buildUsage, type Token } from "@/utils/snippet";
 
 const PREVIEW_SHELL = "d-f p-r ox-auto ai-c jc-c p-10 min-h-64 bg-white";
@@ -37,38 +30,46 @@ export default function ComponentPreview({
   expanded = false,
   children,
 }: Props) {
+  const actualId = registryId || id;
   const [showCode, setShowCode] = useState(false);
-  // Seed demo from schema when a meta file exists.
   const [demo, setDemo] = useState<{ props: DemoProps; children?: string }>({
     props: {},
   });
-  // Base variants show usage snippet, not registry source.
   const [usage, setUsage] = useState<Token[] | null>(null);
-  const actualId = registryId || id;
-  // Meta-backed previews need seeded props before mount; empty props crash bases.
   const expectsMeta = Boolean(actualId && getRegistryMeta(actualId));
   const [demoReady, setDemoReady] = useState(!expectsMeta);
-
-  // Key lazy() on id only; avoid an empty first paint from useEffect.
-  const RegistryComponent = useMemo(() => {
-    if (!actualId) return null;
-    const importFn = getRegistryImport(actualId);
-    return importFn ? (lazy(importFn) as ComponentType<DemoProps>) : null;
-  }, [actualId]);
+  const [RegistryComponent, setRegistryComponent] =
+    useState<ComponentType<DemoProps> | null>(() =>
+      actualId
+        ? (getCachedRegistryComponent(
+            actualId,
+          ) as ComponentType<DemoProps> | null)
+        : null,
+    );
 
   useEffect(() => {
     if (!actualId) return;
 
+    let live = true;
+
+    loadRegistryComponent(actualId).then((Component) => {
+      if (!live || !Component) return;
+      setRegistryComponent(() => Component as ComponentType<DemoProps>);
+    });
+
     const importMeta = getRegistryMeta(actualId);
     if (!importMeta) {
       setDemoReady(true);
-      return;
+      return () => {
+        live = false;
+      };
     }
 
     setDemoReady(false);
     const target = getRegistryTarget(actualId);
 
     importMeta().then((module) => {
+      if (!live) return;
       const meta = module.default;
       const props = seedValues(meta);
 
@@ -81,31 +82,25 @@ export default function ComponentPreview({
       }
       setDemoReady(true);
     });
+
+    return () => {
+      live = false;
+    };
   }, [actualId]);
 
   const showComponent = RegistryComponent && demoReady;
 
   return (
     <div className={`mb-6 bc-border bw-1 ${className || ""}`}>
-      <Suspense
-        fallback={
-          <div data-preview className={PREVIEW_SHELL}>
-            <PreviewSpinner />
-          </div>
-        }
-      >
-        {showComponent ? (
-          <div data-preview className={PREVIEW_SHELL}>
-            <RegistryComponent {...demo.props}>
-              {demo.children}
-            </RegistryComponent>
-          </div>
-        ) : (
-          <div data-preview className={PREVIEW_SHELL}>
-            <PreviewSpinner />
-          </div>
-        )}
-      </Suspense>
+      {showComponent ? (
+        <div data-preview className={PREVIEW_SHELL}>
+          <RegistryComponent {...demo.props}>{demo.children}</RegistryComponent>
+        </div>
+      ) : (
+        <div data-preview className={PREVIEW_SHELL}>
+          <PreviewSpinner />
+        </div>
+      )}
 
       <Toggle
         pressed={showCode}
