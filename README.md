@@ -1,6 +1,6 @@
 [![Yumma CSS](./public/og.png)](https://yummacss.com)
 
-# www.yummacss.com
+# yummacss.com
 
 An atomic CSS framework.
 
