@@ -80,7 +80,7 @@ export default function PlaygroundRail() {
                   onToggle={() => toggle(prop.name)}
                 >
                   {/* Type label when no control exists. */}
-                  <code className="fs-0 c-accent/25 fs-xs ff-m">
+                  <code className="fs-0 c-foreground/50 fs-xs ff-m">
                     {typeOf(prop)}
                   </code>
                 </Row>
@@ -128,7 +128,7 @@ function Row({
             <NavArrowDown
               aria-hidden
               className={`fs-0 w-3 h-3 tp-c tdu-150 ${
-                open ? "ro-36 c-accent" : "c-accent/25"
+                open ? "ro-36 c-accent" : "c-foreground/40"
               }`}
             />
           </button>
@@ -139,7 +139,7 @@ function Row({
       </div>
 
       {open && (
-        <div className="mt-2 c-accent-dim fs-sm lh-4">
+        <div className="mt-2 c-foreground/80 fs-sm lh-4">
           <PropDescription text={prop.description} />
         </div>
       )}
