@@ -50,7 +50,7 @@ export default function PlaygroundRail() {
                   onChange={(value) => playground?.setValue(prop.name, value)}
                 />
               ) : (
-                <code className="fs-0 c-foreground/50 fs-xs ff-m">
+                <code className="fs-0 c-white/25 fs-xs ff-m">
                   {typeOf(prop)}
                 </code>
               )}
@@ -74,7 +74,7 @@ function Row({
   onToggle: () => void;
   children: React.ReactNode;
 }) {
-  const name = <code className="c-foreground fs-xs ff-m">{prop.name}</code>;
+  const name = <code className="c-code fs-xs ff-m">{prop.name}</code>;
 
   return (
     <div className="py-2 bc-border bbw-1">
@@ -90,7 +90,7 @@ function Row({
             <NavArrowDown
               aria-hidden
               className={`fs-0 w-3 h-3 tp-c tdu-150 ${
-                open ? "ro-36 c-accent" : "c-foreground/40"
+                open ? "ro-36 c-accent" : "c-white/25"
               }`}
             />
           </button>
@@ -101,7 +101,7 @@ function Row({
       </div>
 
       {open && (
-        <div className="mt-2 c-foreground/80 fs-sm lh-4">
+        <div className="mt-2 c-white/60 fs-sm lh-4">
           <PropDescription text={prop.description} />
         </div>
       )}

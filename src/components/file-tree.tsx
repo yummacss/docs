@@ -31,9 +31,9 @@ function Label({ entry, isFolder }: { entry: Entry; isFolder: boolean }) {
   return (
     <>
       {isFolder ? (
-        <Folder className={`${ICON} c-foreground/40`} />
+        <Folder className={`${ICON} c-white/40`} />
       ) : (
-        <Page className={`${ICON} c-foreground/40`} />
+        <Page className={`${ICON} c-white/40`} />
       )}
       <span className="fs-sm ff-m">{entry.name}</span>
     </>
@@ -42,10 +42,11 @@ function Label({ entry, isFolder }: { entry: Entry; isFolder: boolean }) {
 
 function Node({ entry }: { entry: Entry }) {
   const hasChildren = Boolean(entry.children?.length);
-  // Chevron mirrors panel open state; Collapsible owns wiring.
+  // Held here only so the chevron can mirror the panel. Collapsible still
+  // owns the trigger/panel wiring & the hidden state.
   const [open, setOpen] = useState(!entry.collapsed);
   const isFolder = entry.folder || hasChildren;
-  const tone = entry.highlight ? "c-accent" : "c-foreground/80";
+  const tone = entry.highlight ? "c-accent" : "c-white/80";
 
   if (!hasChildren) {
     return (
@@ -60,17 +61,18 @@ function Node({ entry }: { entry: Entry }) {
   return (
     <Collapsible.Root open={open} onOpenChange={setOpen}>
       <Collapsible.Trigger
-        className={`d-f ai-c g-2 w-100% py-1 bg-transparent bw-0 ta-l c-p tdu-150 ttf-io h:c-foreground fv:c-accent ${tone}`}
+        className={`d-f ai-c g-2 w-100% py-1 bg-transparent bw-0 ta-l c-p tdu-150 ttf-io h:c-white fv:c-accent ${tone}`}
       >
         {open ? (
-          <NavArrowDown className={`${ICON} c-foreground/40`} />
+          <NavArrowDown className={`${ICON} c-white/40`} />
         ) : (
-          <NavArrowRight className={`${ICON} c-foreground/40`} />
+          <NavArrowRight className={`${ICON} c-white/40`} />
         )}
         <Label entry={entry} isFolder={isFolder} />
       </Collapsible.Trigger>
 
-      {/* Indent children; left border would align under the caret. */}
+      {/* Indent only. A left border here lands directly under the caret &
+          reads as a line growing out of the icon. */}
       <Collapsible.Panel className="ml-2 pl-4">
         {entry.children?.map((child) => (
           <Node key={child.name} entry={child} />

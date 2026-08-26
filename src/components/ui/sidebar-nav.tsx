@@ -37,7 +37,9 @@ export default function SidebarNav({ sections, basePath, links }: Props) {
   return (
     <aside className="d-none @lg:d-b @lg:gc-s-3">
       <div
-        // Own scroll region so a long nav does not scroll the page (`ob-c`).
+        // 146 links come to roughly 5.7 screens in this window, so the nav is
+        // its own scroll region. `ob-c` keeps reaching its end from scrolling
+        // the page underneath it.
         className="d-f p-st t-20 oy-auto ob-c fd-c g-8 pb-12"
         style={{ maxHeight: "calc(100dvh - 5rem)" }}
       >
@@ -53,7 +55,7 @@ export default function SidebarNav({ sections, basePath, links }: Props) {
                     <li key={entry.slug}>
                       <Link
                         href={href}
-                        className={`d-if ai-c g-3 fs-sm us-none fv:oc-accent fv:oo-2 fv:ow-2 ${isActive ? "c-accent td-u tds-d" : "c-foreground/80 h:c-accent"}`}
+                        className={`d-if ai-c g-3 fs-sm us-none fv:oc-white fv:oo-2 fv:ow-2 ${isActive ? "c-accent td-u tds-d" : "c-white/70 h:c-accent"}`}
                       >
                         {entry.title}
                       </Link>
@@ -73,7 +75,7 @@ export default function SidebarNav({ sections, basePath, links }: Props) {
                           <li key={child.slug}>
                             <Link
                               href={href}
-                              className={`d-if ai-c g-3 fs-sm us-none fv:oc-accent fv:oo-2 fv:ow-2 ${isActive ? "c-accent td-u tds-d" : "c-foreground/80 h:c-accent"}`}
+                              className={`d-if ai-c g-3 fs-sm us-none fv:oc-white fv:oo-2 fv:ow-2 ${isActive ? "c-accent td-u tds-d" : "c-white/70 h:c-accent"}`}
                             >
                               {child.title}
                             </Link>
@@ -98,10 +100,10 @@ export default function SidebarNav({ sections, basePath, links }: Props) {
                     href={link.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="d-if ai-c g-2 c-foreground/80 fs-sm us-none h:c-accent fv:oc-accent fv:oo-2 fv:ow-2"
+                    className="d-if ai-c g-2 c-white/70 fs-sm us-none h:c-accent fv:oc-white fv:oo-2 fv:ow-2"
                   >
                     {link.title}
-                    <ArrowUpRight className="w-3 h-3 c-foreground/80 h:c-accent" />
+                    <ArrowUpRight className="w-3 h-3 c-white/40" />
                   </Link>
                 </li>
               ))}
