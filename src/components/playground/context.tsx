@@ -12,14 +12,7 @@ import {
 import { getRegistryMeta, type RegistryMeta } from "@/registry";
 import { type DemoProps, seedValues } from "@/utils/demo";
 
-/**
- * One playground per page, owned by the route.
- *
- * The stage sits inside the MDX and the controls sit in the page's third
- * column, which are different subtrees, so the state that joins them lives
- * above both. Driving it from the slug rather than from a prop on the stage
- * means the two can never disagree about which component is on the page.
- */
+/** Playground state shared between stage (MDX) and rail (layout column). */
 interface Playground {
   id: string;
   meta: RegistryMeta | null;
@@ -60,8 +53,7 @@ export function PlaygroundProvider({
       setDirty(false);
     });
 
-    // A navigation between two component pages resolves both imports, and
-    // without this the slower one would overwrite the page you are now on.
+    // Cancel stale meta fetch on navigation.
     return () => {
       live = false;
     };

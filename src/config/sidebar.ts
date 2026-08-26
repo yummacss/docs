@@ -8,14 +8,7 @@ export interface SidebarLink {
   href: string;
 }
 
-/**
- * Links rendered at the end of the docs nav.
- *
- * Kept out of `sidebarConfig` on purpose: that maps slugs to content pages &
- * everything reading it - prev/next, llms.txt, llms-full.txt & the build-time
- * sidebar check - expects every entry to resolve to an `.mdx` file. These are
- * routes, not pages, so they are only ever rendered by the nav.
- */
+/** Nav footer links; not in `sidebarConfig` (that maps only to `.mdx` slugs). */
 export const docsLinks: SidebarLink[] = [
   { title: "llms.txt", href: "/llms.txt" },
 ];
@@ -252,9 +245,7 @@ export const sidebarConfig = {
         },
       ],
     },
-    // Last, directly above the Resources links. This is a separate package
-    // nobody needs in order to use Yumma CSS, & sitting near Get Started it
-    // would read as a third setup step.
+    // Utils last, above Resources - not a setup step.
     {
       title: "Utils",
       items: ["vite", "postcss", "runtime", "canon", "core"],

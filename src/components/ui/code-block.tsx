@@ -10,14 +10,7 @@ interface Props {
   grouped?: boolean;
 }
 
-/**
- * Server half of the code block.
- *
- * Runs Shiki during page generation & hands the resulting HTML to the client
- * chrome, so the highlighted markup lands in the generated page rather than in
- * a compiled MDX module. That distinction is the whole point: the module-graph
- * version is what OOMs the Vercel builder.
- */
+/** Server-side Shiki highlight; keeps tokens out of the MDX module graph. */
 export default function CodeBlock({ code = "", meta, title, ...rest }: Props) {
   const html = highlight(code, rest.lang, meta, title);
 

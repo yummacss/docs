@@ -21,13 +21,7 @@ export function tsxFilesIn(dir: string): string[] {
   return out;
 }
 
-/**
- * `{ slug, source }` for every page under `src/content/<collection>`.
- *
- * Line endings are normalized because the content directory is mixed: most
- * pages are CRLF, and anything matching on `^` or `\n` silently fails against
- * them otherwise.
- */
+/** Normalize CRLF so line-anchored regexes match content files. */
 export function contentPages(collection: string) {
   const dir = join(rootDir, "src/content", collection);
 

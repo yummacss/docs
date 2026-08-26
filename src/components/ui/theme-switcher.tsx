@@ -16,9 +16,7 @@ const MODE_TOOLTIP: Record<ThemeMode, string> = {
   auto: "Auto theme (follows OS) — click for light",
 };
 
-/**
- * Cycles light → dark → auto. Same chrome as the search / mobile menu buttons.
- */
+/** Cycles light, dark, auto; matches search/mobile menu chrome. */
 export default function ThemeSwitcher() {
   const { mode, cycleMode } = useTheme();
   const Icon = MODE_ICON[mode];

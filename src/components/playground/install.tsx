@@ -3,13 +3,6 @@
 import { useState } from "react";
 import { CopyButton } from "@/components/ui/code";
 
-/**
- * The install command, in the rail rather than in the page.
- *
- * It was a `## Installation` section with a tab strip, which is a lot of the
- * article's width for one line you copy once and never read again. The
- * component is what the page is for.
- */
 const MANAGERS = {
   pnpm: (id: string) => `pnpm dlx yummaui add ${id}`,
   npm: (id: string) => `npx yummaui add ${id}`,
@@ -17,6 +10,7 @@ const MANAGERS = {
 
 type Manager = keyof typeof MANAGERS;
 
+/** Install command in the playground rail. */
 export default function Install({ id }: { id: string }) {
   const [manager, setManager] = useState<Manager>("pnpm");
   const [copied, setCopied] = useState(false);
@@ -55,9 +49,7 @@ export default function Install({ id }: { id: string }) {
         </div>
       </div>
 
-      {/* The copy control sits under the command rather than beside it. The
-          rail is narrower than `pnpm dlx yummaui add button`, so anything
-          sharing that line lands on top of the last word. */}
+      {/* Copy below the command; the rail is too narrow for one line. */}
       <div className="cs-d p-2 bc-border bg-surface bw-1">
         <code className="d-b c-accent-dim fs-xs ff-m ws-pw">{command}</code>
         <div className="d-f jc-fe mt-1">

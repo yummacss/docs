@@ -24,17 +24,7 @@ const COMPONENT_ITEMS: SearchItem[] = allUis.map((ui) => ({
   category: "ui-components" as const,
 }));
 
-/**
- * A merged page documents several properties, and search indexes pages rather
- * than headings, so each property gets its own entry pointing at the heading
- * it lives under. Same mechanism `generateColorItems` uses for shades.
- *
- * The two halves do different jobs. `title` is the heading as rendered, so a
- * result reads `Margin Block` like every other row rather than dropping into
- * kebab-case; `description` is the CSS property, so typing `margin-block`
- * still finds it & the reader can confirm which property they landed on. Both
- * come from the page itself via `extractProperties`, so neither can drift.
- */
+/** Per-property search entries for merged utility pages. */
 const MERGED_ITEMS: SearchItem[] = allDocs.flatMap((doc) =>
   extractProperties(doc.content ?? "")
     .filter((p) => p.name !== doc.slug)
@@ -93,10 +83,7 @@ export function filterSearchResults(query: string): SearchItem[] {
   const colors = matches.filter((item) => item.category === "colors");
   const others = matches.filter((item) => item.category !== "colors");
 
-  // A property entry is titled `Margin Block` & described `margin-block`, so
-  // the kebab-case name someone types only ever matches the description. Rank
-  // on whichever half leads with the query, or an exact property name sorts
-  // alphabetically among everything else that merely contains it.
+  // Property names match on `description`; rank prefix matches first.
   const leadsWith = (item: SearchItem) =>
     item.title.toLowerCase().startsWith(lowerQuery) ||
     (item.description?.toLowerCase().startsWith(lowerQuery) ?? false);

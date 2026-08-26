@@ -5,17 +5,7 @@ import { extractClasses, validate } from "@yummacss/canon";
 import { describe, expect, it } from "vitest";
 import { rootDir, tsxFilesIn } from "./helpers";
 
-/**
- * Yumma UI ships by copy-paste, not by package. That makes portability the
- * library's actual contract: a component pasted into somebody else's project
- * has their `yumma.config.mjs`, not this one, so any class it uses has to
- * resolve without the docs theme.
- *
- * `scripts/validate-yummacss.mjs` checks this across the whole site as a
- * standalone script. These tests narrow it to `src/registry` - the Yumma UI
- * surface - and put it inside `pnpm test`.
- */
-
+/** Paste portability: registry classes must resolve without the docs theme. */
 // Typed through canon's own option type rather than a hand-rolled shape, so
 // this stays correct if the config surface changes upstream.
 const config = (await import("../yumma.config.mjs")).default as NonNullable<
