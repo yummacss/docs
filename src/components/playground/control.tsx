@@ -4,9 +4,11 @@ import { Select } from "@base-ui/react/select";
 import { NavArrowDown } from "iconoir-react";
 import type { RegistryProp } from "@/registry";
 import SwitchBase from "@/registry/ui/switch";
+import { NAVBAR_TRIGGER_OFF, NAVBAR_TRIGGER_ON } from "@/components/ui/navbar-trigger";
 import { exampleIcon } from "@/utils/demo";
 
 const SEGMENT_LIMIT = 3;
+const RAIL_TRACK = { off: NAVBAR_TRIGGER_OFF, on: NAVBAR_TRIGGER_ON };
 
 interface Props {
   prop: RegistryProp;
@@ -26,7 +28,7 @@ export default function Control({ prop, value, onChange }: Props) {
         ariaLabel={prop.name}
         shape="square"
         size="sm"
-        tone="surface"
+        trackClass={RAIL_TRACK}
       />
     );
   }
@@ -39,7 +41,7 @@ export default function Control({ prop, value, onChange }: Props) {
         ariaLabel={prop.name}
         shape="square"
         size="sm"
-        tone="surface"
+        trackClass={RAIL_TRACK}
       />
     );
   }

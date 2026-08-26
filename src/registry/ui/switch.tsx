@@ -40,8 +40,8 @@ export interface SwitchProps {
   animate?: boolean;
   className?: string;
   ariaLabel?: string;
-  /** Rail track: navbar button chrome (surface / surface-7) + white thumb. */
-  tone?: "default" | "surface";
+  /** Override default indigo/silver-1 track colors (e.g. docs rail chrome). */
+  trackClass?: { off: string; on: string };
 }
 
 export default function SwitchBase({
@@ -57,7 +57,7 @@ export default function SwitchBase({
   animate = true,
   className,
   ariaLabel,
-  tone = "default",
+  trackClass,
 }: SwitchProps) {
   const [internalChecked, setInternalChecked] = useState(
     defaultChecked ?? controlledChecked ?? false,
@@ -73,11 +73,13 @@ export default function SwitchBase({
 
   const trackClasses = [
     "p-r d-f ai-c m-0 px-1 tp-c tdu-150 ttf-io fv:oo-2",
-    tone === "surface" ? "fv:oc-white" : "fv:oc-indigo-3",
+    trackClass ? "fv:oc-white" : "fv:oc-indigo-3",
     track,
     SHAPES[shape],
-    tone === "surface"
-      ? `bc-border bw-1 ${checked ? "bg-surface-7" : "bg-surface"}`
+    trackClass
+      ? checked
+        ? trackClass.on
+        : trackClass.off
       : checked
         ? "bg-indigo"
         : "bg-silver-1",

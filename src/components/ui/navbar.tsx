@@ -9,6 +9,7 @@ import { usePathname } from "next/navigation";
 import { lazy, type ReactNode, Suspense, useEffect, useState } from "react";
 import pkg from "../../../package.json";
 import { YummaCSSDark } from "../icons/yummacss-dark";
+import { NAVBAR_TRIGGER_OFF } from "./navbar-trigger";
 import { SearchDialog } from "./search-dialog";
 
 const MobileDialog = lazy(() => import("./mobile-dialog"));
@@ -113,7 +114,7 @@ export default function Navbar({
               <Button
                 type="button"
                 onClick={() => setSearchOpen(true)}
-                className="d-f ai-c jc-c g-2 h-8 px-3 bc-border bg-surface a:bg-surface-7 c-white bw-1 fs-sm bf-b-sm @lg:px-4 fv:oc-white fv:ow-2"
+                className={`d-f ai-c jc-c g-2 h-8 px-3 ${NAVBAR_TRIGGER_OFF} a:bg-surface-7 c-white fs-sm @lg:px-4 fv:oc-white fv:ow-2`}
               >
                 <Search className="w-4 h-4" />
                 <kbd className="d-none c-white/70 fs-xs us-none @lg:d-b">
