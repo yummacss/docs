@@ -1,6 +1,9 @@
 @import "@fontsource/esteban";
 
-/* Quattro needs explicit bold faces; bare entry is 400 only. Latin scope. */
+/* Quattro's bare entry declares 400 only, so every `fw-500`/`fw-600`/`fw-700`
+   on the site was faux bold & every `<em>` a synthetic oblique. These are the
+   real faces. Latin only, matching the scope of the bare entry. Esteban has no
+   bold to import; it ships 400 alone. */
 @import "@fontsource/ia-writer-quattro/latin-400.css";
 @import "@fontsource/ia-writer-quattro/latin-400-italic.css";
 @import "@fontsource/ia-writer-quattro/latin-700.css";
@@ -32,12 +35,19 @@ body {
   font-family: "iA Writer Quattro", sans-serif;
 }
 
-/* Base UI portal children above navbar (z-index: 10). */
+/* Base UI portals wrap their children in a `<div data-base-ui-portal>` element appended to <body>.
+   Lift every direct child (backdrop, internal backdrop, popup wrapper) above the navbar (z-index: 10). */
 [data-base-ui-portal] > * {
   z-index: 20;
 }
 
-/* Light color-scheme and system font for previews and portal popups. */
+/* reset font and selection for component previews */
+/* This one stays as CSS rather than becoming the `cs-l` utility. Most of these
+   selectors match Base UI portal elements, which render into <body> rather
+   than inside the preview container - so they inherit nothing from it and
+   cannot be reached by adding a class. The rule also sets font-family for the
+   same set, so splitting only `color-scheme` out would mean maintaining the
+   selector list twice. */
 [data-preview],
 [data-preview] *,
 [class*="-popup"],
@@ -93,7 +103,11 @@ body {
   max-width: clamp(40rem, 80vw, 96rem);
 }
 
-/* Sticky playground rail on wide screens only. */
+/* The playground's controls, which stand beside the article rather than under
+   it once there is a column to stand in. Hand-written because the capped height
+   is a calculation, and because it has to stop applying below the breakpoint:
+   on a phone the rail stacks under the article, where a max height would put
+   the last of a component's props inside a second scrollbar. */
 @media (min-width: 64rem) {
   .playground-rail {
     position: sticky;
@@ -118,7 +132,11 @@ body {
   animation: preview-spin 0.7s linear infinite;
 }
 
-/* Fold control in code blocks: hide disclosure marker and closed-line gap. */
+/* A folded fixture inside a code block. The `...` is punctuation that happens
+   to be interactive, so the disclosure triangle goes; and a closed <details>
+   must not leave its own line behind, or a folded region costs the blank line
+   it was meant to save. Both are ::marker/state selectors, which no utility
+   reaches. */
 [data-fold] > summary {
   list-style: none;
 }

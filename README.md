@@ -1,10 +1,10 @@
 [![Yumma CSS](./public/og.png)](https://yummacss.com)
 
-# yummacss.com
+# Yumma CSS Docs
 
-An atomic CSS framework.
+[Yumma CSS](https://yummacss.com) is a utility framework built on CSS property names. `d-f` is `display: flex`, `jc-sb` is `justify-content: space-between`: initials of the property, initials of the value, drawn from a fixed scale.
 
-Tiny atomic CSS driven utilities with fixed scales for spacing, colors, type and radius.
+[Documentation](https://yummacss.com/docs) • [Playground](https://play.yummacss.com) • [GitHub](https://github.com/yummacss/yummacss) • [X](https://x.com/yummacss)
 
 ## Contributing
 
