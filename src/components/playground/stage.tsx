@@ -6,7 +6,7 @@ import { usePlayground } from "@/components/playground/context";
 import PreviewSpinner from "@/components/preview-spinner";
 import TokenBlock from "@/components/ui/token-block";
 import { getRegistryTarget, type RegistryMeta } from "@/registry";
-import { type DemoProps, resolveIcons } from "@/utils/demo";
+import { type DemoProps, resolveIcons, seedValues } from "@/utils/demo";
 import {
   getCachedRegistryComponent,
   loadRegistryComponent,
@@ -29,7 +29,8 @@ export default function ComponentPlayground() {
   playgroundRef.current = playground;
   const [frame, setFrame] = useState<Frame | null>(null);
 
-  // Commit a new frame only when meta and the component module are both ready.
+  // Commit only when meta is present; fixtures come from the schema itself so
+  // a cleared values bag can never ship into the preview.
   useEffect(() => {
     const id = playground?.id;
     const meta = playground?.meta;
@@ -39,12 +40,12 @@ export default function ComponentPlayground() {
 
     const commit = (Component: ComponentType<DemoProps>) => {
       if (!live) return;
-      setFrame({
-        id,
-        meta,
-        values: playgroundRef.current?.values ?? {},
-        Component,
-      });
+      const current = playgroundRef.current;
+      // Prefer the provider's seeded values when they match this id; otherwise
+      // rebuild from meta so options/items/steps are never missing.
+      const values =
+        current?.id === id && current.meta ? current.values : seedValues(meta);
+      setFrame({ id, meta, values, Component });
     };
 
     const cached = getCachedRegistryComponent(id);
@@ -64,7 +65,6 @@ export default function ComponentPlayground() {
     };
   }, [playground?.id, playground?.meta]);
 
-  // Cold start only: no previous frame to hold.
   if (!frame) {
     return (
       <div className="mb-8 bc-border bw-1">
@@ -80,8 +80,9 @@ export default function ComponentPlayground() {
     );
   }
 
-  const live = frame.id === playground?.id;
-  // While the next id loads, keep rendering the previous frame unchanged.
+  // Require meta too: while the provider clears for the next id, values is {}
+  // even if frame.id still matches during the same tick as a remount.
+  const live = frame.id === playground?.id && Boolean(playground?.meta);
   const values = live && playground ? playground.values : frame.values;
   const meta = live && playground?.meta ? playground.meta : frame.meta;
   const set = Object.fromEntries(
