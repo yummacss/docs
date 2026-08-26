@@ -1,8 +1,8 @@
 "use client";
 
-import { Checkbox } from "@base-ui/react/checkbox";
 import { Select } from "@base-ui/react/select";
-import { Check, NavArrowDown } from "iconoir-react";
+import { Switch } from "@base-ui/react/switch";
+import { NavArrowDown } from "iconoir-react";
 import type { RegistryProp } from "@/registry";
 import { exampleIcon } from "@/utils/demo";
 
@@ -16,10 +16,9 @@ interface Props {
 
 /** Widget for one controllable prop (enum, boolean, or icon slot). */
 export default function Control({ prop, value, onChange }: Props) {
-  // Icon slot control: toggle presence, not which glyph.
   if (prop.exampleIcon) {
     return (
-      <Box
+      <SwitchControl
         checked={value !== undefined && value !== null}
         onCheckedChange={(next) =>
           onChange(next ? exampleIcon(prop.exampleIcon ?? "") : undefined)
@@ -31,7 +30,7 @@ export default function Control({ prop, value, onChange }: Props) {
 
   if (prop.type === "boolean") {
     return (
-      <Box
+      <SwitchControl
         checked={Boolean(value)}
         onCheckedChange={onChange}
         label={prop.name}
@@ -100,8 +99,8 @@ export default function Control({ prop, value, onChange }: Props) {
   return null;
 }
 
-/** Checkbox for boolean props (attribute on/off, not a settings switch). */
-function Box({
+/** Square switch for boolean and icon-slot props. */
+function SwitchControl({
   checked,
   onCheckedChange,
   label,
@@ -111,17 +110,19 @@ function Box({
   label: string;
 }) {
   return (
-    <Checkbox.Root
+    <Switch.Root
       checked={checked}
       onCheckedChange={onCheckedChange}
       aria-label={label}
-      className={`d-f fs-0 ai-c jc-c w-4 h-4 p-0 bw-1 c-p tp-c tdu-150 fv:oo-2 fv:oc-accent ${
-        checked ? "bc-accent-dim bg-accent-dim" : "bc-border bg-transparent"
+      className={`p-r d-f ai-c h-4 w-7 p-0 bw-1 c-p tp-c tdu-150 fv:oo-2 fv:oc-accent ${
+        checked ? "bg-accent bc-accent-dim" : "bg-transparent bc-border"
       }`}
     >
-      <Checkbox.Indicator>
-        <Check className="w-3 h-3 c-page" aria-hidden />
-      </Checkbox.Indicator>
-    </Checkbox.Root>
+      <Switch.Thumb
+        className={`d-b w-3 h-3 bg-page bw-1 bc-border tp-c tdu-150 ${
+          checked ? "ml-2" : "ml-0"
+        }`}
+      />
+    </Switch.Root>
   );
 }
