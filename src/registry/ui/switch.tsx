@@ -40,6 +40,8 @@ export interface SwitchProps {
   animate?: boolean;
   className?: string;
   ariaLabel?: string;
+  /** Rail/docs track: surface + white thumb instead of indigo/silver-1. */
+  tone?: "default" | "surface";
 }
 
 export default function SwitchBase({
@@ -55,6 +57,7 @@ export default function SwitchBase({
   animate = true,
   className,
   ariaLabel,
+  tone = "default",
 }: SwitchProps) {
   const [internalChecked, setInternalChecked] = useState(
     defaultChecked ?? controlledChecked ?? false,
@@ -72,7 +75,11 @@ export default function SwitchBase({
     "p-r d-f ai-c m-0 px-1 tp-c tdu-150 ttf-io fv:oo-2 fv:oc-indigo-3",
     track,
     SHAPES[shape],
-    checked ? "bg-indigo" : "bg-silver-1",
+    tone === "surface"
+      ? "bg-surface"
+      : checked
+        ? "bg-indigo"
+        : "bg-silver-1",
     disabled ? "" : "c-p",
     className,
   ]
