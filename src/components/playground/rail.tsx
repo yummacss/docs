@@ -23,18 +23,7 @@ export default function PlaygroundRail() {
     <aside className="bc-border btw-1 @lg:btw-0 @lg:blw-1 @lg:gc-s-3">
       <div className="playground-rail">
         <div className="pt-8 pb-12 @lg:pt-0 @lg:px-8">
-          <div className="d-f ai-c jc-sb g-2 mb-3">
-            <h3 className="c-silver-8 fs-xs fw-600 ls-2 tt-u">Component API</h3>
-            {playground?.dirty && (
-              <button
-                type="button"
-                onClick={playground.reset}
-                className="p-0 bg-transparent c-accent-dim bw-0 fs-xs c-p h:c-accent fv:oc-accent fv:ow-2"
-              >
-                Reset
-              </button>
-            )}
-          </div>
+          <h3 className="mb-3 c-white fs-xs fw-600 ls-2 tt-u">Component API</h3>
 
           {props.map((prop) => (
             <Row
@@ -50,7 +39,7 @@ export default function PlaygroundRail() {
                   onChange={(value) => playground?.setValue(prop.name, value)}
                 />
               ) : (
-                <code className="fs-0 c-white/25 fs-xs ff-m">
+                <code className="fs-0 c-white/80 fs-xs ff-m">
                   {typeOf(prop)}
                 </code>
               )}
