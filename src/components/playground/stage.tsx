@@ -1,12 +1,14 @@
 "use client";
 
-import type { ComponentType } from "react";
 import { lazy, Suspense, useMemo } from "react";
 import { usePlayground } from "@/components/playground/context";
+import PreviewSpinner from "@/components/preview-spinner";
 import TokenBlock from "@/components/ui/token-block";
 import { getRegistryImport, getRegistryTarget } from "@/registry";
 import { type DemoProps, resolveIcons } from "@/utils/demo";
 import { buildUsage } from "@/utils/snippet";
+
+const PREVIEW_SHELL = "d-f p-r ox-auto ai-c jc-c p-10 min-h-64 bg-white";
 
 /** Live preview and usage snippet; id comes from route via PlaygroundProvider. */
 export default function ComponentPlayground() {
@@ -37,11 +39,14 @@ export default function ComponentPlayground() {
 
   return (
     <div className="mb-8 bc-border bw-1">
-      <Suspense fallback={null}>
-        <div
-          data-preview
-          className="d-f p-r ox-auto ai-c jc-c p-10 min-h-64 bg-white"
-        >
+      <Suspense
+        fallback={
+          <div data-preview className={PREVIEW_SHELL}>
+            <PreviewSpinner />
+          </div>
+        }
+      >
+        <div data-preview className={PREVIEW_SHELL}>
           <Component {...(resolveIcons(set) as DemoProps)}>
             {meta.children}
           </Component>
