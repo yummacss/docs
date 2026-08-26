@@ -3,8 +3,8 @@
 import { useEffect, useState } from "react";
 
 /**
- * Spinner for lazy registry preview loads.
- * Delayed so sub-~200ms loads keep a quiet reserved shell instead of a flash.
+ * Cold-start fallback only. Delayed so brief loads do not flash a spinner;
+ * hold-previous pagination should avoid this path after the first frame.
  */
 export default function PreviewSpinner({
   delayMs = 200,
