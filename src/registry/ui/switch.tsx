@@ -40,7 +40,7 @@ export interface SwitchProps {
   animate?: boolean;
   className?: string;
   ariaLabel?: string;
-  /** Rail/docs track: surface + white thumb instead of indigo/silver-1. */
+  /** Rail track: diff-add when on, diff-remove when off; white thumb. */
   tone?: "default" | "surface";
 }
 
@@ -76,7 +76,9 @@ export default function SwitchBase({
     track,
     SHAPES[shape],
     tone === "surface"
-      ? "bg-surface"
+      ? checked
+        ? "bg-diff-add"
+        : "bg-diff-remove"
       : checked
         ? "bg-indigo"
         : "bg-silver-1",
