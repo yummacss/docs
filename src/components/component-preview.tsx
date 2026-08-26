@@ -45,6 +45,9 @@ export default function ComponentPreview({
   // Base variants show usage snippet, not registry source.
   const [usage, setUsage] = useState<Token[] | null>(null);
   const actualId = registryId || id;
+  // Meta-backed previews need seeded props before mount; empty props crash bases.
+  const expectsMeta = Boolean(actualId && getRegistryMeta(actualId));
+  const [demoReady, setDemoReady] = useState(!expectsMeta);
 
   // Key lazy() on id only; avoid an empty first paint from useEffect.
   const RegistryComponent = useMemo(() => {
@@ -57,8 +60,12 @@ export default function ComponentPreview({
     if (!actualId) return;
 
     const importMeta = getRegistryMeta(actualId);
-    if (!importMeta) return;
+    if (!importMeta) {
+      setDemoReady(true);
+      return;
+    }
 
+    setDemoReady(false);
     const target = getRegistryTarget(actualId);
 
     importMeta().then((module) => {
@@ -72,8 +79,11 @@ export default function ComponentPreview({
       if (target.variant === "base") {
         setUsage(buildUsage(target.component, meta, props));
       }
+      setDemoReady(true);
     });
   }, [actualId]);
+
+  const showComponent = RegistryComponent && demoReady;
 
   return (
     <div className={`mb-6 bc-border bw-1 ${className || ""}`}>
@@ -84,7 +94,7 @@ export default function ComponentPreview({
           </div>
         }
       >
-        {RegistryComponent ? (
+        {showComponent ? (
           <div data-preview className={PREVIEW_SHELL}>
             <RegistryComponent {...demo.props}>
               {demo.children}
