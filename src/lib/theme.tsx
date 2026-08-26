@@ -4,6 +4,7 @@
  * Docs-site theme context. Mirrors github.com/rrenildopereiraa/snippets
  * `src/lib/chrome-theme.tsx`: paired Yumma CSS colors, `cs-l` / `cs-d` /
  * `cs-ld` on <html>, localStorage persistence, light → dark → auto cycle.
+ * Default is dark when nothing is stored.
  */
 import {
   createContext,
@@ -28,9 +29,11 @@ export const MODE_CLASS: Record<ThemeMode, string> = {
 };
 
 export function readStoredTheme(): ThemeMode {
-  if (typeof window === "undefined") return "auto";
+  if (typeof window === "undefined") return "dark";
   const stored = window.localStorage.getItem(THEME_STORAGE_KEY);
-  return stored === "light" || stored === "dark" ? stored : "auto";
+  return stored === "light" || stored === "dark" || stored === "auto"
+    ? stored
+    : "dark";
 }
 
 export function applyThemeClass(mode: ThemeMode) {
@@ -47,7 +50,7 @@ function readOsTheme(): ResolvedTheme {
 }
 
 /** Blocking script for <head> so the first paint already uses the stored scheme. */
-export const themeInitScript = `(function(){try{var k=${JSON.stringify(THEME_STORAGE_KEY)};var s=localStorage.getItem(k);var m=s==="light"||s==="dark"?s:"auto";var c={light:"cs-l",dark:"cs-d",auto:"cs-ld"};var r=document.documentElement;r.classList.remove("cs-l","cs-d","cs-ld");r.classList.add(c[m]);}catch(e){}})();`;
+export const themeInitScript = `(function(){try{var k=${JSON.stringify(THEME_STORAGE_KEY)};var s=localStorage.getItem(k);var m=s==="light"||s==="dark"||s==="auto"?s:"dark";var c={light:"cs-l",dark:"cs-d",auto:"cs-ld"};var r=document.documentElement;r.classList.remove("cs-l","cs-d","cs-ld");r.classList.add(c[m]);}catch(e){}})();`;
 
 /** Same role as snippets' `initChromeMode()` — applied via inline script in Next.js. */
 export function initTheme() {
