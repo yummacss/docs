@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@base-ui/react";
 import { Select } from "@base-ui/react/select";
 import { NavArrowDown } from "iconoir-react";
 import type { RegistryProp } from "@/registry";
@@ -47,9 +48,8 @@ export default function Control({ prop, value, onChange }: Props) {
       return (
         <div className="d-f fs-0 g-1">
           {prop.values.map((option) => (
-            <button
+            <Button
               key={option}
-              type="button"
               onClick={() => onChange(option)}
               aria-pressed={value === option}
               className={`px-2 py-1 bg-transparent bw-1 ff-m fs-xs c-p tp-c tdu-150 fv:oo--1 fv:oc-accent ${
@@ -59,7 +59,7 @@ export default function Control({ prop, value, onChange }: Props) {
               }`}
             >
               {option}
-            </button>
+            </Button>
           ))}
         </div>
       );

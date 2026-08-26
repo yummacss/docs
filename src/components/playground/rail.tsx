@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@base-ui/react";
 import { NavArrowDown } from "iconoir-react";
 import { useState } from "react";
 import { usePlayground } from "@/components/playground/context";
@@ -24,15 +25,14 @@ export default function PlaygroundRail() {
       <div className="playground-rail">
         <div className="pt-8 pb-12 @lg:pt-0 @lg:px-8">
           <div className="d-f ai-c jc-sb g-2 mb-3">
-            <h3 className="c-silver-8 fs-xs fw-600 ls-2 tt-u">Component API</h3>
+            <h3 className="c-silver-8 fs-xs ls-2 tt-u">Component API</h3>
             {playground?.dirty && (
-              <button
-                type="button"
+              <Button
                 onClick={playground.reset}
                 className="p-0 bg-transparent c-accent-dim bw-0 fs-xs c-p h:c-accent fv:oc-accent fv:ow-2"
               >
                 Reset
-              </button>
+              </Button>
             )}
           </div>
 
@@ -80,8 +80,7 @@ function Row({
     <div className="py-2 bc-border bbw-1">
       <div className="d-f ai-c jc-sb g-2 fw-w">
         {prop.description ? (
-          <button
-            type="button"
+          <Button
             onClick={onToggle}
             aria-expanded={open}
             className="d-f ai-c g-1 p-0 bg-transparent bw-0 ta-l c-p fv:oo--1 fv:oc-accent"
@@ -93,7 +92,7 @@ function Row({
                 open ? "ro-36 c-accent" : "c-white/25"
               }`}
             />
-          </button>
+          </Button>
         ) : (
           name
         )}
