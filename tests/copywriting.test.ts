@@ -85,6 +85,11 @@ describe("copywriting", () => {
     ).toEqual([]);
   });
 
+  /** Yumma CSS is explained against CSS, never named against another framework. */
+  it("never mentions Tailwind", () => {
+    expect(findAll(allPages, /\btailwind\b/i)).toEqual([]);
+  });
+
   /** Blog exempt; elsewhere the reader is `you`, not `we`. */
   it("uses no first person outside the blog", () => {
     expect(findAll(sitePages, /\b(?:we|we're|our|ours)\b/i)).toEqual([]);
