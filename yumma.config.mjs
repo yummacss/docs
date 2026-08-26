@@ -10,8 +10,6 @@ export default defineConfig({
   ],
   safelist: [
     // `src/lib/code-decorate.mjs` writes class names but is not in `source`
-    // above, so everything it emits has to be listed here. Adding the file to
-    // `source` was tried & the scanner still did not pick it up.
     "mx--4",
     "d-i",
     // The playground's checked checkbox. `bc-accent-dim` generates from the
