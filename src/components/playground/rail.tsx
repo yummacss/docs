@@ -128,7 +128,7 @@ function Row({
             <NavArrowDown
               aria-hidden
               className={`fs-0 w-3 h-3 tp-c tdu-150 ${
-                open ? "ro-36 c-accent" : "c-accent/25"
+                open ? "ro-36 c-accent" : "c-foreground/40"
               }`}
             />
           </button>
