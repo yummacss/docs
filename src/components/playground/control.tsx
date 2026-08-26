@@ -1,6 +1,5 @@
 "use client";
 
-import { Input } from "@base-ui/react";
 import { Checkbox } from "@base-ui/react/checkbox";
 import { Select } from "@base-ui/react/select";
 import { Check, NavArrowDown } from "iconoir-react";
@@ -8,12 +7,13 @@ import type { RegistryProp } from "@/registry";
 import { exampleIcon } from "@/utils/demo";
 
 /**
- * The widget for one prop.
+ * The widget for one controllable prop.
  *
  * Which widget appears is the prop's type, which is why the rail can stand in
- * for a Type column: a segment is an enum, a checkbox is a boolean, a field is
- * a string. Short enums get segments because seeing the options costs nothing
- * at three of them; longer ones get a select, because six would not fit a rail.
+ * for a Type column: a segment is an enum, a checkbox is a boolean. Short enums
+ * get segments because seeing the options costs nothing at three of them;
+ * longer ones get a select, because six would not fit a rail. Strings and
+ * numbers never reach this component - see `isControllable`.
  */
 const SEGMENT_LIMIT = 3;
 
@@ -107,32 +107,7 @@ export default function Control({ prop, value, onChange }: Props) {
     );
   }
 
-  if (prop.type === "number") {
-    return (
-      <Input
-        type="number"
-        value={typeof value === "number" ? value : ""}
-        onChange={(event) =>
-          onChange(
-            event.target.value === "" ? undefined : Number(event.target.value),
-          )
-        }
-        aria-label={prop.name}
-        className="w-16 px-2 py-1 bc-border bg-transparent c-accent bw-1 ff-m fs-xs fv:oo--1 fv:oc-accent"
-      />
-    );
-  }
-
-  return (
-    <Input
-      type="text"
-      value={typeof value === "string" ? value : ""}
-      onChange={(event) => onChange(event.target.value)}
-      placeholder={prop.default === undefined ? "" : String(prop.default)}
-      aria-label={prop.name}
-      className="w-24 px-2 py-1 bc-border bg-transparent c-accent bw-1 ff-m fs-xs fv:oo--1 fv:oc-accent"
-    />
-  );
+  return null;
 }
 
 /**
