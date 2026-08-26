@@ -2,7 +2,7 @@
 import { cva, type VariantProps } from "class-variance-authority";
 import { clsx } from "clsx";
 import type { ComponentType } from "react";
-import { lazy, Suspense, useMemo } from "react";
+import { lazy, Suspense, useEffect, useMemo, useState } from "react";
 import PreviewSpinner from "@/components/preview-spinner";
 import { getRegistryImport } from "@/registry";
 
@@ -35,12 +35,18 @@ export default function Preview({
   className,
 }: PreviewProps) {
   const actualId = registryId || id;
+  // Defer lazy registry mounts until the client; SSR has no Suspense chunk boundary.
+  const [mounted, setMounted] = useState(!actualId);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const RegistryComponent = useMemo(() => {
-    if (!actualId) return null;
+    if (!actualId || !mounted) return null;
     const importFn = getRegistryImport(actualId);
     return importFn ? (lazy(importFn) as ComponentType<object>) : null;
-  }, [actualId]);
+  }, [actualId, mounted]);
 
   return (
     <div
@@ -48,7 +54,13 @@ export default function Preview({
       className={`${clsx(previewVariants({ variant }), className)} bc-border bg-white`}
     >
       <Suspense fallback={<PreviewSpinner />}>
-        {RegistryComponent ? <RegistryComponent /> : children}
+        {RegistryComponent ? (
+          <RegistryComponent />
+        ) : actualId ? (
+          <PreviewSpinner />
+        ) : (
+          children
+        )}
       </Suspense>
     </div>
   );
