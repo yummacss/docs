@@ -13,9 +13,7 @@ export default function PlaygroundRail() {
   const playground = usePlayground();
   const [open, setOpen] = useState<string | null>(null);
 
-  const meta = playground?.meta;
-  const controllable = meta?.props.filter(isControllable) ?? [];
-  const fixed = meta?.props.filter((prop) => !isControllable(prop)) ?? [];
+  const props = playground?.meta?.props ?? [];
 
   const toggle = (name: string) =>
     setOpen((current) => (current === name ? null : name));
@@ -38,40 +36,26 @@ export default function PlaygroundRail() {
             )}
           </div>
 
-          {controllable.map((prop) => (
+          {props.map((prop) => (
             <Row
               key={prop.name}
               prop={prop}
               open={open === prop.name}
               onToggle={() => toggle(prop.name)}
             >
-              <Control
-                prop={prop}
-                value={playground?.values[prop.name]}
-                onChange={(value) => playground?.setValue(prop.name, value)}
-              />
+              {isControllable(prop) ? (
+                <Control
+                  prop={prop}
+                  value={playground?.values[prop.name]}
+                  onChange={(value) => playground?.setValue(prop.name, value)}
+                />
+              ) : (
+                <code className="fs-0 c-foreground/50 fs-xs ff-m">
+                  {typeOf(prop)}
+                </code>
+              )}
             </Row>
           ))}
-
-          {fixed.length > 0 && (
-            <>
-              <h3 className="mt-6 mb-3 c-silver-8 fs-xs fw-600 ls-2 tt-u">
-                Not Controllable
-              </h3>
-              {fixed.map((prop) => (
-                <Row
-                  key={prop.name}
-                  prop={prop}
-                  open={open === prop.name}
-                  onToggle={() => toggle(prop.name)}
-                >
-                  <code className="fs-0 c-foreground/50 fs-xs ff-m">
-                    {typeOf(prop)}
-                  </code>
-                </Row>
-              ))}
-            </>
-          )}
         </div>
       </div>
     </aside>
