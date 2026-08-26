@@ -29,10 +29,10 @@ When the dashed clause names a set, a colon does the work the dash was
 pretending to do:
 
 ```diff
-- Reports any class Yumma CSS does not recognize — typos, borrowed Tailwind
-- classes, utilities renamed between versions.
-+ Reports any class Yumma CSS does not recognize: typos, borrowed Tailwind
-+ classes, utilities renamed between versions.
+- Reports any class Yumma CSS does not recognize — typos, invented utilities,
+- classes renamed between versions.
++ Reports any class Yumma CSS does not recognize: typos, invented utilities,
++ classes renamed between versions.
 ```
 
 The en dash `–` survives in one place only, a numeric range, where it is
@@ -41,6 +41,13 @@ between words.
 
 A spaced hyphen is the same ban wearing a disguise. `works anywhere PostCSS
 runs - not just Next.js` is an em dash typed on a keyboard that lacks one.
+
+### Tailwind
+
+Never name Tailwind. Yumma CSS is explained against CSS: properties, selectors,
+cascade, and what a utility expands to. Naming another framework invites a
+product comparison the docs do not make, and it dates every sentence that does
+it. If a reader needs a foil, the foil is the CSS the class compiles to.
 
 ### "It is not X, it is Y"
 
@@ -233,8 +240,8 @@ Write class names as the utility writes them. `bg-blue-5`, not `bg blue 5`.
 ## Before Publishing
 
 `pnpm test` runs `tests/copywriting.test.ts`, which fails on em dashes, spaced
-hyphens, contractions, UK spellings, sentence-case headings and missing or
-unpunctuated descriptions. The rules it cannot check:
+hyphens, contractions, UK spellings, Tailwind mentions, sentence-case headings
+and missing or unpunctuated descriptions. The rules it cannot check:
 
 1. **Read every negation.** Apply the "would a reader believe it?" test to each
    one. Corrections stay, slogans go.
@@ -249,9 +256,7 @@ unpunctuated descriptions. The rules it cannot check:
 
 ## Where This Comes From
 
-Renildo's reference points are Tailwind, Next.js and Radix. Nothing in this
-file was copied from them, and no claim above describes how they write, because
-the network in this environment cannot reach them to check. Every rule here was
-measured against `src/content` instead, which is the better source anyway: it is
+Nothing in this file was copied from another project's style guide. Every rule
+was measured against `src/content`, which is the better source anyway: it is
 the voice this site already has on its best pages, written down so the worst
 pages can be brought up to it.
