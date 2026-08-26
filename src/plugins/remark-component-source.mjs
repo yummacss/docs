@@ -5,17 +5,7 @@ import { visit } from "unist-util-visit";
 const isDev = process.env.NODE_ENV !== "production";
 const fileCache = new Map();
 
-/**
- * The line ranges of a registry file's fixture data, as `3-40,55-70`.
- *
- * A recipe puts its seed array last, so several of these files are 80% data:
- * `autocomplete-grouped` is 71 lines of team members around 13 lines of the
- * thing you came to read. The component leads, and the data folds away.
- *
- * Matched on the top-level `const x = [` ... `];` shape every registry file
- * already uses, rather than parsed: a fold that misses is a block that stays
- * open, which is exactly what happens today.
- */
+/** Line ranges of top-level `const x = [` fixture blocks, as `3-40,55-70`. */
 function fixtureRanges(source) {
   const lines = source.split("\n");
   const ranges = [];
@@ -25,8 +15,7 @@ function fixtureRanges(source) {
     let end = i + 1;
     while (end < lines.length && !/^\];?$/.test(lines[end])) end++;
     if (end >= lines.length) continue;
-    // The body alone, so the `const x = [` and the `];` stay visible & the
-    // reader can still see what folded away.
+    // Fold array body only; keep `const x = [` and `];` visible.
     if (end - i > 2) ranges.push(`${i + 2}-${end}`);
     i = end;
   }
@@ -77,23 +66,6 @@ export default function remarkComponentSource() {
 
       const folds = fixtureRanges(content);
 
-      /**
-       * Which file you are looking at.
-       *
-       * Without this the page shows two blocks that disagree about the same
-       * import - the usage snippet above says `@/components/ui/button`, this
-       * source says `./button` - and they read as drift. They are both right:
-       * the snippet goes in a file of yours, while this file is *written into*
-       * `components/ui/` by `yummaui add`, where `./button` resolves to its
-       * neighbour. The `./` form is also load-bearing, since
-       * `generate-registry-json.mjs` builds `registryDependencies` by matching
-       * `from "./<id>"`. Naming both files is the whole fix; nothing about the
-       * imports should change.
-       *
-       * `components/ui` is `yummaui init`'s default (`ui/src/commands/init.ts`)
-       * and base ids carry no `-base` suffix, so the target is always
-       * `<id>.tsx` - the same name `targetFileName` resolves to in the CLI.
-       */
       const target = `components/ui/${registryId}.tsx`;
 
       node.children.push({

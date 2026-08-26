@@ -11,8 +11,7 @@ function renderBlogMarkdown(post: (typeof allBlogs)[number]): string {
   const lines = [`# ${post.title}`, ""];
   if (post.description) lines.push(post.description, "");
 
-  // Date & author are frontmatter, so they never appear in the body. They are
-  // the two facts a reader needs to judge whether a post is current.
+  // Frontmatter only - surface date and author in the markdown body.
   const author = post.authors?.[0] ? getAuthor(post.authors[0]) : undefined;
   const meta = [post.date ? formatDate(post.date) : null, author?.name]
     .filter(Boolean)
@@ -30,9 +29,7 @@ export async function GET(
 ) {
   const { slug } = await params;
 
-  // `isVisible`, not a bare find: reading allBlogs directly leaks drafts, and
-  // the 4.0 post is a draft. In production this makes a draft slug a 404 here
-  // exactly as it already is on /blog/[slug].
+  // Use isVisible so drafts 404 here like /blog/[slug].
   const post = allBlogs.find((p) => p._meta.path === slug && isVisible(p));
 
   if (!post) {

@@ -23,8 +23,7 @@ const uiLines = uiIds
   .map((id) => `  "${id}": () => import("./ui/${id}"),`)
   .join("\n");
 
-// Only components with a declared prop API have a meta file, so this map is
-// short & its absence is how a page knows to fall back to a static preview.
+// Only components with meta files get playground controls.
 const metaDir = join(cwd, "src/registry/meta");
 const metaIds = existsSync(metaDir)
   ? readdirSync(metaDir)
@@ -36,17 +35,14 @@ const metaLines = metaIds
   .map((id) => `  "${id}": () => import("./meta/${id}.json"),`)
   .join("\n");
 
-// What `yummaui add` actually addresses. The id is how registry files are keyed;
-// the CLI takes the component by name & the variant as a flag, so the docs need
-// the split to print a command that runs.
+// CLI install target derived from content slugs and registry id shape.
 const slugs = componentSlugs(contentDir);
 const targetLines = uiIds
   .map((id) => {
     const { component, variant } = splitId(id, slugs);
     const kind =
       variant === "base" ? "component" : isBlock(id) ? "block" : "example";
-    // A block installs under its own id; everything else installs the
-    // component, because an example is a prop you pass, not a file you copy.
+    // Blocks install under their own id; examples install the parent component.
     const install = kind === "block" ? id : component;
     return `  "${id}": { component: "${component}", variant: "${variant}", kind: "${kind}", install: "${install}" },`;
   })
@@ -57,10 +53,7 @@ const output = `/**
  * Run: node scripts/generate-registry.mjs
  */
 
-// ---------------------------------------------------------------------------
-// Yumma UI Registry
-// ---------------------------------------------------------------------------
-
+// Components
 export const registry = {
 ${uiLines}
 } as const;
@@ -72,36 +65,18 @@ export function getRegistryImport(id: string): RegistryImport | null {
   return (registry as Record<string, RegistryImport>)[id] ?? null;
 }
 
-// ---------------------------------------------------------------------------
-// Prop schemas, for components that have a real API
-// ---------------------------------------------------------------------------
-
+// Prop schemas
 export interface RegistryProp {
   name: string;
-  /**
-   * The kind of control, not the TypeScript type. \`none\` covers everything a
-   * JSON schema cannot offer a control for - a ReactNode, an array of objects -
-   * which the props table still documents via \`typeName\`.
-   */
+  /** Control kind, not TS type; \`none\` covers slots/callbacks (\`typeName\` in table). */
   type: "enum" | "boolean" | "string" | "number" | "none";
   /** Shown in the Type column instead of \`type\`, when the two differ. */
   typeName?: string;
   values?: string[];
   default?: string | boolean | number;
-  /**
-   * A representative value for the demo, for a prop the component cannot
-   * sensibly default. \`default\` stays the truth the props table reports.
-   */
+  /** Demo value when the component cannot default sensibly. */
   example?: unknown;
-  /**
-   * An iconoir icon name, for a \`ReactNode\` prop that JSON cannot express.
-   * Without this a component whose only visible content is an icon - Popover's
-   * trigger, Toggle's face - demos itself as an empty box. The preview resolves
-   * it to a real element & the usage snippet prints it as JSX plus its import,
-   * so the copied code compiles. Names must exist in \`EXAMPLE_ICONS\` in
-   * \`component-preview.tsx\`, a curated map rather than a dynamic lookup so the
-   * bundler can still shake the icon set.
-   */
+  /** iconoir name for icon slots JSON cannot express; must exist in EXAMPLE_ICONS. */
   exampleIcon?: string;
   description?: string;
 }
@@ -109,7 +84,7 @@ export interface RegistryProp {
 export interface RegistryMeta {
   summary?: string;
   props: RegistryProp[];
-  /** Default text for components that take children. Absent means they do not. */
+  /** Default children text; absent means the component takes none. */
   children?: string;
 }
 
@@ -123,19 +98,12 @@ export function getRegistryMeta(id: string): MetaImport | null {
   return (registryMeta as Record<string, MetaImport>)[id] ?? null;
 }
 
-// ---------------------------------------------------------------------------
-// What \`yummaui add\` addresses
-// ---------------------------------------------------------------------------
-
+// CLI install targets
 export interface RegistryTarget {
   component: string;
   /** \`"base"\` for the component itself. */
   variant: string;
-  /**
-   * \`component\` is the props-driven unit \`add <name>\` installs. \`block\` is a
-   * composition installed under its own id. \`example\` only demonstrates a
-   * prop, so there is nothing to install - you pass that prop instead.
-   */
+  /** \`component\` via \`add <name>\`; \`block\` under its id; \`example\` is not installable. */
   kind: "component" | "block" | "example";
   /** The name to pass to \`yummaui add\`. */
   install: string;

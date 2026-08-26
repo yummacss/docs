@@ -8,19 +8,11 @@ import { getRegistryImport, getRegistryTarget } from "@/registry";
 import { type DemoProps, resolveIcons } from "@/utils/demo";
 import { buildUsage } from "@/utils/snippet";
 
-/**
- * The live component, and the code that produces it.
- *
- * Takes no props: the page's route decides which component this is, and the
- * provider above it holds the state the controls write to. Anything else would
- * let the stage and the rail drift onto two different components.
- */
+/** Live preview and usage snippet; id comes from route via PlaygroundProvider. */
 export default function ComponentPlayground() {
   const playground = usePlayground();
 
-  // Keyed on the id alone. Depending on the whole playground rebuilt `lazy()`
-  // on every keystroke, which handed Suspense a component it had never seen
-  // and blanked the stage until the import resolved again.
+  // Key lazy() on id only; values changes should not remount the component.
   const id = playground?.id;
   const Component = useMemo(() => {
     if (!id) return null;
@@ -32,8 +24,7 @@ export default function ComponentPlayground() {
 
   const { meta, values } = playground;
 
-  // An empty text field means the prop was left alone, not that it was set to
-  // the empty string, so it never reaches the component.
+  // Empty string means unset, not an explicit empty value.
   const set = Object.fromEntries(
     Object.entries(values).filter(([, value]) => value !== ""),
   );
@@ -57,9 +48,6 @@ export default function ComponentPlayground() {
         </div>
       </Suspense>
 
-      {/* Directly under the stage, because the whole point of touching a
-          control is to see what it does to the code you would copy. A file of
-          yours, which is why `buildUsage` imports through the `@/` alias. */}
       <TokenBlock tokens={usage} title="page.tsx" />
     </div>
   );

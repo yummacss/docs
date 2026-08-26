@@ -18,9 +18,7 @@ const docsRedirects = [
     destination: "/docs/naming-convention",
     permanent: true,
   },
-  // IntelliSense was retired 2026-08-16; canon covers the validation half.
-  // `/docs/ide-support` already redirected here, so leaving it pointed at the
-  // deleted page would have turned an existing permanent redirect into a 404.
+  // IntelliSense retired; canon is the replacement.
   {
     source: "/docs/ide-support",
     destination: "/docs/canon",
@@ -31,9 +29,7 @@ const docsRedirects = [
     destination: "/docs/canon",
     permanent: true,
   },
-  // The packages index was split into a page per package. Installation is
-  // where someone landing here is trying to get to: it picks the integration
-  // for them rather than making them choose off a list.
+  // Packages index split; send to installation.
   {
     source: "/docs/packages",
     destination: "/docs/installation",
@@ -61,16 +57,9 @@ const docsRedirects = [
   },
 ];
 
-/**
- * Utility pages merged into a root property keep their old URLs working.
- *
- * Derived from the pages themselves rather than from a list: every merged page
- * documents what it absorbed as `## Heading` + `<Reference name>`, so a
- * property added to a page gets its redirect with nothing else to update. A
- * property whose page still exists is skipped, since that URL is not retired.
- */
 const DOCS_DIR = join(process.cwd(), "src/content/docs");
 
+/** Redirects for properties merged into a parent docs page. */
 function mergedPageRedirects() {
   const files = readdirSync(DOCS_DIR).filter((f) => f.endsWith(".mdx"));
   const pages = new Set(files.map((f) => f.replace(/\.mdx$/, "")));
@@ -92,15 +81,7 @@ const mergedRedirects = mergedPageRedirects();
 
 const RELEASE_TAG = "https://github.com/yummacss/yummacss/releases/tag";
 
-/**
- * Release posts for minor versions were removed - the changelog & the GitHub
- * release for each tag already carry that content, and maintaining a post per
- * minor was not worth the time.
- *
- * Each one redirects to its own release rather than to a generic listing, so a
- * bookmarked link still lands on the notes it pointed at. Every tag below is
- * verified to exist.
- */
+/** Removed minor release posts redirect to their GitHub release tags. */
 const removedReleasePosts = [
   "0.1.0",
   "1.1.0",
@@ -126,8 +107,7 @@ const removedReleasePosts = [
 ];
 
 const blogRedirects = [
-  // `/blog/v0` pointed at `/blog/yummacss-0.1`, which never existed - the file
-  // was `yummacss-0.1.0`. It now resolves to that version's release.
+  // `/blog/v0` -> release tag (post slug was `yummacss-0.1.0`).
   {
     source: "/blog/v0",
     destination: `${RELEASE_TAG}/v0.1.0`,
@@ -176,9 +156,7 @@ const uiRedirects = [
     destination: "/ui/components/customization",
     permanent: true,
   },
-  // These three pointed at `/ui/installation`, which is not a route: /ui pages
-  // render under `/ui/components/[slug]`. Every one of them - including the
-  // bare `/ui` anyone would type - redirected straight into a 404.
+  // `/ui/installation` is not a route; pages live under `/ui/components/`.
   {
     source: "/ui/components",
     destination: "/ui/components/installation",

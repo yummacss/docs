@@ -12,19 +12,7 @@ import ApiReference from "@/components/ui/api-reference";
 import { getRegistryTarget, type RegistryProp } from "@/registry";
 import { isControllable, typeOf } from "@/utils/props";
 
-/**
- * The component's props, as controls.
- *
- * This is the page's API reference. A control already carries the prop's name,
- * its type, its default and every value it accepts, so a table beside it would
- * be the same information twice. Only the description is left over, and it
- * opens on the row rather than in a second column.
- *
- * Every prop gets a row, including the ones no control can represent: a
- * callback or a `ReactNode` slot is still part of the API, and listing only
- * what happens to be controllable would quietly undocument 80 of the library's
- * 406 props.
- */
+/** Playground rail: all props as controls or type labels. */
 export default function PlaygroundRail() {
   const playground = usePlayground();
   const pathname = usePathname();
@@ -43,10 +31,7 @@ export default function PlaygroundRail() {
     setOpen((current) => (current === name ? null : name));
 
   return (
-    // Unlike the table of contents this replaced, the rail is not optional
-    // furniture: it is the page's API reference. Hiding it below `@lg` the way
-    // a contents list can be hidden would leave a phone with no props at all,
-    // so it stacks under the article there instead.
+    // Stacks under article on small screens; sticky rail on `@lg`.
     <aside className="bc-border btw-1 @lg:btw-0 @lg:blw-1 @lg:gc-s-3">
       <div className="playground-rail">
         <div className="pt-8 px-6 pb-12 @lg:pt-0">
@@ -94,8 +79,7 @@ export default function PlaygroundRail() {
                   open={open === prop.name}
                   onToggle={() => toggle(prop.name)}
                 >
-                  {/* The type stands where the widget would. A slot or a
-                      callback has no value a reader could pick. */}
+                  {/* Type label when no control exists. */}
                   <code className="fs-0 c-accent/25 fs-xs ff-m">
                     {typeOf(prop)}
                   </code>
@@ -104,9 +88,7 @@ export default function PlaygroundRail() {
             </>
           )}
 
-          {/* The primitive underneath, which is what you want the moment you
-              edit the file you copied. Every component page sets `primitive`,
-              so this rail is exactly where it belongs. */}
+          {/* Base UI primitive link when frontmatter sets `primitive`. */}
           {currentUI?.primitive && (
             <div className="mt-8 pt-8 bc-border btw-1">
               <ApiReference primitive={currentUI.primitive} />
@@ -118,13 +100,7 @@ export default function PlaygroundRail() {
   );
 }
 
-/**
- * Name on the left, control on the right, description underneath on click.
- *
- * The row wraps rather than squeezing the control: the rail is three of the
- * page's twelve columns, and a long prop name beside a select does not fit
- * that on a laptop.
- */
+/** Prop row: name, control, optional description on click. */
 function Row({
   prop,
   open,

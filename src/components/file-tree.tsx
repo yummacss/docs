@@ -42,8 +42,7 @@ function Label({ entry, isFolder }: { entry: Entry; isFolder: boolean }) {
 
 function Node({ entry }: { entry: Entry }) {
   const hasChildren = Boolean(entry.children?.length);
-  // Held here only so the chevron can mirror the panel. Collapsible still
-  // owns the trigger/panel wiring & the hidden state.
+  // Chevron mirrors panel open state; Collapsible owns wiring.
   const [open, setOpen] = useState(!entry.collapsed);
   const isFolder = entry.folder || hasChildren;
   const tone = entry.highlight ? "c-accent" : "c-foreground/80";
@@ -71,8 +70,7 @@ function Node({ entry }: { entry: Entry }) {
         <Label entry={entry} isFolder={isFolder} />
       </Collapsible.Trigger>
 
-      {/* Indent only. A left border here lands directly under the caret &
-          reads as a line growing out of the icon. */}
+      {/* Indent children; left border would align under the caret. */}
       <Collapsible.Panel className="ml-2 pl-4">
         {entry.children?.map((child) => (
           <Node key={child.name} entry={child} />

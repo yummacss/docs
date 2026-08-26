@@ -5,26 +5,11 @@ import { usePathname } from "next/navigation";
 import { BaseUI } from "@/components/icons/icons";
 
 interface ApiReferenceProps {
-  /**
-   * `true` derives the Base UI slug from the current page's own route, which
-   * only works when the two names match (Switch -> switch). Pass the real
-   * Base UI slug as a string when they diverge - Textarea is built on
-   * Field's `render` prop, not a "Textarea" primitive, which doesn't exist.
-   */
+  /** Pass Base UI slug when it differs from the route (e.g. Textarea -> field). */
   primitive: boolean | string;
 }
 
-/**
- * A link to the Base UI primitive this component is built on.
- *
- * Not the same thing as the page's own `## API Reference`, which documents the
- * props Yumma UI adds. This one documents the primitive underneath, which is
- * what you need the moment you edit the file you copied - and you will, because
- * you own it. The label says "Base UI primitive" rather than "API reference"
- * precisely so the two are not mistaken for each other.
- *
- * Rendered only for pages with `primitive` set in their frontmatter.
- */
+/** Link to the underlying Base UI primitive (not this page's Yumma UI API). */
 export default function ApiReference({ primitive }: ApiReferenceProps) {
   const pathname = usePathname();
   let routeSlug = pathname.replace(/^\/ui\/components\//, "");

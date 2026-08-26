@@ -1,17 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { contentPages } from "./helpers";
 
-/**
- * The mechanical half of `COPYWRITING.md`. Only the rules a regex can settle
- * live here - "is this negation a correction or a slogan" is a judgement call
- * and stays in the file, not in this suite.
- *
- * Written because the docs have drifted this exact way before: the em dashes
- * this suite now catches all arrived in three pages written after the rest of
- * the site had already settled on not using them, and nothing noticed for a
- * week. A rule nobody runs is a rule nobody keeps.
- */
-
+/** Mechanical COPYWRITING.md rules enforced by regex. */
 const collections = ["docs", "ui", "blog"] as const;
 
 /** `{ page, source }` for every page, with the collection folded into `page`. */
@@ -25,11 +15,7 @@ const allPages = collections.flatMap((collection) =>
 /** Pages excluding the blog, which speaks in the first person by design. */
 const sitePages = allPages.filter(({ page }) => !page.startsWith("blog/"));
 
-/**
- * Prose only: frontmatter, fenced code and JSX attributes all legitimately
- * contain characters and casing the prose rules ban. Blank lines are kept so
- * reported line numbers still point at the real line.
- */
+/** Prose lines only; skips frontmatter, fences, and JSX. */
 function prose(source: string): string[] {
   const withoutFrontmatter = source.replace(/^---\n[\s\S]*?\n---/, (block) =>
     block.replace(/[^\n]/g, ""),
@@ -74,23 +60,12 @@ describe("copywriting", () => {
     expect(findAll(allPages, /.{0,30}—.{0,30}/)).toEqual([]);
   });
 
-  /**
-   * A spaced hyphen between words is an em dash typed on a keyboard without
-   * one. Leading `- ` is a list marker and `->` is an arrow, so both are
-   * excluded rather than rewritten.
-   */
+  /** Spaced hyphen dash; excludes list markers and `->`. */
   it("uses no spaced hyphen as a dash", () => {
     expect(findAll(allPages, /\w\s+-\s+(?!>)\w.{0,20}/)).toEqual([]);
   });
 
-  /**
-   * Possessive `'s` is fine. These five endings are not.
-   *
-   * Blog posts are exempt for the same reason they may say `we`: a release
-   * announcement is a person talking, and `What's New in v3.0` is the better
-   * heading. Rewriting a shipped post to match a rule written afterwards buys
-   * nothing.
-   */
+  /** Blog exempt; these contractions are banned in docs and UI prose. */
   it("uses no contractions outside the blog", () => {
     expect(
       findAll(sitePages, /\b\w+(?:n't|'re|'ll|'ve|'d)\b|\bit's\b/i),
@@ -110,10 +85,7 @@ describe("copywriting", () => {
     ).toEqual([]);
   });
 
-  /**
-   * The blog is exempt: it is the team writing about work they did. Everywhere
-   * else the software is the subject and the reader is `you`.
-   */
+  /** Blog exempt; elsewhere the reader is `you`, not `we`. */
   it("uses no first person outside the blog", () => {
     expect(findAll(sitePages, /\b(?:we|we're|our|ours)\b/i)).toEqual([]);
   });
@@ -130,12 +102,7 @@ describe("copywriting", () => {
     expect(dirty).toEqual([]);
   });
 
-  /**
-   * Title Case, with the small words that stay lowercase mid-heading taken
-   * from what the site already does. A word carrying anything other than
-   * letters is a code identifier or a version (`@yummacss/vite`, `Next.js`,
-   * `v4.0`, `validate(options)`) and keeps its own casing.
-   */
+  /** Title Case headings; code identifiers keep their own casing. */
   it("writes headings in Title Case", () => {
     const small = new Set([
       "a",
@@ -166,8 +133,7 @@ describe("copywriting", () => {
         if (!heading?.[1]) return;
 
         const text = heading[1].trim();
-        // A heading that is one bare identifier is the thing's own name:
-        // `## yummacss`, `## @yummacss/vite`. Casing is not ours to set.
+        // Single-token headings are names (`yummacss`, `@yummacss/vite`).
         if (!/\s/.test(text)) return;
 
         const words = text.split(/\s+/);
