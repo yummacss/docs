@@ -1,9 +1,9 @@
 "use client";
 
 import { Select } from "@base-ui/react/select";
-import { Switch } from "@base-ui/react/switch";
 import { NavArrowDown } from "iconoir-react";
 import type { RegistryProp } from "@/registry";
+import SwitchBase from "@/registry/ui/switch";
 import { exampleIcon } from "@/utils/demo";
 
 const SEGMENT_LIMIT = 3;
@@ -18,22 +18,26 @@ interface Props {
 export default function Control({ prop, value, onChange }: Props) {
   if (prop.exampleIcon) {
     return (
-      <SwitchControl
+      <SwitchBase
         checked={value !== undefined && value !== null}
         onCheckedChange={(next) =>
           onChange(next ? exampleIcon(prop.exampleIcon ?? "") : undefined)
         }
-        label={prop.name}
+        ariaLabel={prop.name}
+        shape="square"
+        size="sm"
       />
     );
   }
 
   if (prop.type === "boolean") {
     return (
-      <SwitchControl
+      <SwitchBase
         checked={Boolean(value)}
         onCheckedChange={onChange}
-        label={prop.name}
+        ariaLabel={prop.name}
+        shape="square"
+        size="sm"
       />
     );
   }
@@ -97,32 +101,4 @@ export default function Control({ prop, value, onChange }: Props) {
   }
 
   return null;
-}
-
-/** Square switch for boolean and icon-slot props. */
-function SwitchControl({
-  checked,
-  onCheckedChange,
-  label,
-}: {
-  checked: boolean;
-  onCheckedChange: (checked: boolean) => void;
-  label: string;
-}) {
-  return (
-    <Switch.Root
-      checked={checked}
-      onCheckedChange={onCheckedChange}
-      aria-label={label}
-      className={`p-r d-f ai-c h-4 w-7 p-0 bw-1 c-p tp-c tdu-150 fv:oo-2 fv:oc-accent ${
-        checked ? "bg-accent bc-accent-dim" : "bg-transparent bc-border"
-      }`}
-    >
-      <Switch.Thumb
-        className={`d-b w-3 h-3 bg-page bw-1 bc-border tp-c tdu-150 ${
-          checked ? "ml-2" : "ml-0"
-        }`}
-      />
-    </Switch.Root>
-  );
 }
