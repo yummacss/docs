@@ -10,7 +10,8 @@ const rootDir = path.join(__dirname, "..");
 // Custom classes defined in the docs' own CSS.
 const ALLOWLIST = ["docs-container", "ff-e", "playground-rail"];
 
-// Skip content/**/*.mdx; release posts use old class syntax.
+// Only UI code is validated - content/**/*.mdx contains historical
+// class syntax in old release posts.
 const UI_SOURCE = [
   "./src/app/**/*.tsx",
   "./src/components/**/*.{ts,tsx}",
@@ -79,7 +80,17 @@ function getAllTsxFiles(dir) {
   return files;
 }
 
-// Classes in object literals (prop maps), invisible to className scans.
+// 3. Classes held in object literals rather than className attributes.
+//
+//    `extractClasses` reads class attributes, which is right for demo files but
+//    blind to a prop-driven component, where the classes live in a lookup:
+//
+//      const SHAPES = { rounded: "br-lg", square: "br-0" };
+//
+//    Nothing in that map is inside a className, so canon never saw it and
+//    `br-none` sat there generating no CSS while validation reported clean.
+//    Every component with a real prop API has this shape, so the whole registry
+//    would drift out of validation as it migrates.
 const LOOKS_LIKE_CLASS = /^[a-z@][a-z0-9@:/%.-]*$/i;
 
 /** The body of every `const UPPER_SNAKE = ...` declaration, where class maps live. */
@@ -113,7 +124,9 @@ function classesInStringLiterals(source) {
     }
   };
 
-  // Multi-token strings that look like class lists only.
+  // A multi-token string is a class list only if every token looks like one.
+  // Requiring all of them is what keeps prose out: "Filter by project, mention,
+  // or task status updates" contains `in-app`, which passes on its own.
   for (const [, literal] of source.matchAll(/"([^"\n]*)"/g)) {
     const tokens = literal.trim().split(/\s+/).filter(Boolean);
     if (tokens.length < 2) continue;
@@ -122,7 +135,8 @@ function classesInStringLiterals(source) {
     }
   }
 
-  // Inside class maps, single tokens count as classes.
+  // Inside a class map even a single token is a class, which is the case that
+  // let `br-0` in as `br-none` unnoticed.
   for (const region of classMapRegions(source)) {
     for (const [, literal] of region.matchAll(/"([^"\n]*)"/g))
       consider(literal);
@@ -140,7 +154,8 @@ for (const file of getAllTsxFiles(path.join(rootDir, "src/registry"))) {
   }
 }
 
-// Scan literal candidates via a throwaway file with one className.
+// `validate` only scans source globs, so the candidates are written into one
+// throwaway file with a real class attribute & scanned there.
 const scratch = path.join(rootDir, ".canon-literals");
 fs.mkdirSync(scratch, { recursive: true });
 fs.writeFileSync(

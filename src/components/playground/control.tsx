@@ -1,9 +1,9 @@
 "use client";
 
-import { Checkbox } from "@base-ui/react/checkbox";
 import { Select } from "@base-ui/react/select";
-import { Check, NavArrowDown } from "iconoir-react";
+import { NavArrowDown } from "iconoir-react";
 import type { RegistryProp } from "@/registry";
+import SwitchBase from "@/registry/ui/switch";
 import { exampleIcon } from "@/utils/demo";
 
 const SEGMENT_LIMIT = 3;
@@ -16,25 +16,28 @@ interface Props {
 
 /** Widget for one controllable prop (enum, boolean, or icon slot). */
 export default function Control({ prop, value, onChange }: Props) {
-  // Icon slot control: toggle presence, not which glyph.
   if (prop.exampleIcon) {
     return (
-      <Box
+      <SwitchBase
         checked={value !== undefined && value !== null}
         onCheckedChange={(next) =>
           onChange(next ? exampleIcon(prop.exampleIcon ?? "") : undefined)
         }
-        label={prop.name}
+        ariaLabel={prop.name}
+        shape="square"
+        size="sm"
       />
     );
   }
 
   if (prop.type === "boolean") {
     return (
-      <Box
+      <SwitchBase
         checked={Boolean(value)}
         onCheckedChange={onChange}
-        label={prop.name}
+        ariaLabel={prop.name}
+        shape="square"
+        size="sm"
       />
     );
   }
@@ -98,30 +101,4 @@ export default function Control({ prop, value, onChange }: Props) {
   }
 
   return null;
-}
-
-/** Checkbox for boolean props (attribute on/off, not a settings switch). */
-function Box({
-  checked,
-  onCheckedChange,
-  label,
-}: {
-  checked: boolean;
-  onCheckedChange: (checked: boolean) => void;
-  label: string;
-}) {
-  return (
-    <Checkbox.Root
-      checked={checked}
-      onCheckedChange={onCheckedChange}
-      aria-label={label}
-      className={`d-f fs-0 ai-c jc-c w-4 h-4 p-0 bw-1 c-p tp-c tdu-150 fv:oo-2 fv:oc-accent ${
-        checked ? "bc-accent-dim bg-accent-dim" : "bc-border bg-transparent"
-      }`}
-    >
-      <Checkbox.Indicator>
-        <Check className="w-3 h-3 c-page" aria-hidden />
-      </Checkbox.Indicator>
-    </Checkbox.Root>
-  );
 }

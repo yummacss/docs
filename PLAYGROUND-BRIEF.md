@@ -28,7 +28,7 @@ https://claude.ai/code/artifact/73359fa8-51cd-445f-898a-ee6c72207516
 The last attempt at this broke the site's layout. These are the constraints.
 
 1. **Only real Yumma CSS classes.** There are no arbitrary values and no
-   invented utilities. `pnpm test` runs `tests/classes.test.ts`, which validates every
+   Tailwind. `pnpm test` runs `tests/classes.test.ts`, which validates every
    class under `src/registry` through `@yummacss/canon` against a bare config,
    and `pnpm validate` checks the whole site. If a class you want does not
    exist, do not invent it. Use an inline `style` or restructure. A class that

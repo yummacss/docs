@@ -120,12 +120,12 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
 
   const getCategoryIcon = (category: string) => {
     if (category === "docs") {
-      return <OpenBook className="w-4 h-4 c-foreground/50" />;
+      return <OpenBook className="w-4 h-4 c-white/50" />;
     }
     if (category === "handbook") {
-      return <OpenBook className="w-4 h-4 c-foreground/50" />;
+      return <OpenBook className="w-4 h-4 c-white/50" />;
     }
-    return <ComponentSolid className="w-4 h-4 c-foreground/50" />;
+    return <ComponentSolid className="w-4 h-4 c-white/50" />;
   };
 
   let globalIndex = -1;
@@ -163,7 +163,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                 onKeyDown={handleKeyDown}
               >
                 <div className="d-f ai-c g-3 px-4 py-3 bc-border bbw-1">
-                  <Search className="w-5 h-5 c-accent" />
+                  <Search className="w-5 h-5 c-white" />
                   <Input
                     ref={inputRef}
                     type="text"
@@ -174,7 +174,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                       setSelectedIndex(0);
                     }}
                     autoFocus
-                    className="f-1 bg-transparent c-accent os-none fs-md"
+                    className="f-1 bg-transparent c-white os-none fs-md"
                   />
                 </div>
 
@@ -189,7 +189,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
 
                     return (
                       <div key={category} className="mb-2">
-                        <div className="px-2 py-1 c-accent fs-xs tt-u ls-3">
+                        <div className="px-2 py-1 c-white fs-xs tt-u ls-3">
                           {label}
                         </div>
                         {items.map((item) => {
@@ -210,7 +210,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                                 setSelectedIndex(currentIndex)
                               }
                               className={`d-f b-0 ai-c g-3 w-100% px-3 py-2 ta-l c-p ${
-                                isSelected ? "bg-surface" : "bg-transparent"
+                                isSelected ? "bg-border" : "bg-transparent"
                               }`}
                             >
                               {item.category === "colors" && item.color ? (
@@ -226,11 +226,11 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                               )}
 
                               <div className="f-1 min-w-0">
-                                <div className="o-h c-accent fs-md tw-n to-e ws-nw">
+                                <div className="o-h c-white fs-md tw-n to-e ws-nw">
                                   {item.title}
                                 </div>
                                 {item.description && (
-                                  <div className="o-h c-foreground/50 fs-xs tw-n to-e ws-nw">
+                                  <div className="o-h c-white/50 fs-xs tw-n to-e ws-nw">
                                     {item.category === "colors" && isColorCopied
                                       ? "Copied!"
                                       : item.description}
@@ -239,7 +239,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                               </div>
 
                               {isSelected && (
-                                <LongArrowDownLeftSolid className="fs-0 w-4 h-4 c-foreground/50" />
+                                <LongArrowDownLeftSolid className="fs-0 w-4 h-4 c-white/50" />
                               )}
                             </Button>
                           );
@@ -249,13 +249,13 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                   })}
 
                   {flatResults.length === 0 && (
-                    <div className="px-4 py-8 c-foreground/50 ta-c fs-md">
+                    <div className="px-4 py-8 c-white/50 ta-c fs-md">
                       No results found for "{query}"
                     </div>
                   )}
                 </div>
 
-                <div className="d-f ai-c jc-sb px-4 py-2 bc-border c-foreground/40 btw-1 fs-xs">
+                <div className="d-f ai-c jc-sb px-4 py-2 bc-border c-white/40 btw-1 fs-xs">
                   <div className="d-f ai-c g-4">
                     <span className="d-f ai-c g-1">
                       <kbd className="d-f ai-c p-1 bc-border bg-transparent bw-1">
