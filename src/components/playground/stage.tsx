@@ -78,7 +78,11 @@ export default function ComponentPlayground() {
         </div>
       </Suspense>
 
-      <TokenBlock tokens={usage} title="page.tsx" />
+      <TokenBlock
+        tokens={usage}
+        title="page.tsx"
+        installId={getRegistryTarget(playground.id).install}
+      />
     </div>
   );
 }

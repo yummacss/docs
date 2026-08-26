@@ -1,27 +1,17 @@
 "use client";
 
-import { allUis } from "content-collections";
 import { NavArrowDown } from "iconoir-react";
-import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { usePlayground } from "@/components/playground/context";
 import Control from "@/components/playground/control";
-import Install from "@/components/playground/install";
 import PropDescription from "@/components/prop-description";
-import ApiReference from "@/components/ui/api-reference";
-import { getRegistryTarget, type RegistryProp } from "@/registry";
+import type { RegistryProp } from "@/registry";
 import { isControllable, typeOf } from "@/utils/props";
 
 /** Playground rail: all props as controls or type labels. */
 export default function PlaygroundRail() {
   const playground = usePlayground();
-  const pathname = usePathname();
   const [open, setOpen] = useState<string | null>(null);
-
-  const slug = (pathname || "")
-    .replace(/^\/ui\/components\//, "")
-    .replace(/\/$/, "");
-  const currentUI = allUis.find((ui) => ui._meta.path === slug);
 
   const meta = playground?.meta;
   const controllable = meta?.props.filter(isControllable) ?? [];
@@ -31,14 +21,10 @@ export default function PlaygroundRail() {
     setOpen((current) => (current === name ? null : name));
 
   return (
-    // Stacks under article on small screens; sticky rail on `@lg`.
+    // No extra horizontal pad on small screens: main already has `px-6`.
     <aside className="bc-border btw-1 @lg:btw-0 @lg:blw-1 @lg:gc-s-3">
       <div className="playground-rail">
-        <div className="pt-8 px-6 pb-12 @lg:pt-0">
-          {playground && (
-            <Install id={getRegistryTarget(playground.id).install} />
-          )}
-
+        <div className="pt-8 pb-12 @lg:pt-0 @lg:px-8">
           <div className="d-f ai-c jc-sb g-2 mb-3">
             <h3 className="c-silver-8 fs-xs fw-600 ls-2 tt-u">Component API</h3>
             {playground?.dirty && (
@@ -79,20 +65,12 @@ export default function PlaygroundRail() {
                   open={open === prop.name}
                   onToggle={() => toggle(prop.name)}
                 >
-                  {/* Type label when no control exists. */}
                   <code className="fs-0 c-foreground/50 fs-xs ff-m">
                     {typeOf(prop)}
                   </code>
                 </Row>
               ))}
             </>
-          )}
-
-          {/* Base UI primitive link when frontmatter sets `primitive`. */}
-          {currentUI?.primitive && (
-            <div className="mt-8 pt-8 bc-border btw-1">
-              <ApiReference primitive={currentUI.primitive} />
-            </div>
           )}
         </div>
       </div>
