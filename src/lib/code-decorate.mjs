@@ -1,6 +1,18 @@
-/** Code block decoration on Shiki hast (moved from compile-time rehype pipeline). */
+/**
+ * Decoration applied to a highlighted code block.
+ *
+ * This used to live inside src/plugins/rehype-code.mjs & ran during the MDX
+ * compile, right after Shiki. Highlighting now happens at render time instead
+ * (see src/components/ui/code-block.tsx), because putting a span per token for
+ * 32,778 lines of injected component source into the module graph is what OOMs
+ * the Vercel build. The logic is unchanged; it just operates on the hast Shiki
+ * hands back rather than on the tree mid-compile.
+ */
 
-/** Parse `{1}`, `{3-5}`, `{1,3-5}` ranges from fence meta (1-based line numbers). */
+/**
+ * Parse range expressions like `{1}`, `{3-5}`, `{1,3-5,8}` from meta strings.
+ * Returns a Set of 1-based line numbers.
+ */
 export function parseRanges(meta, key) {
   const regex = new RegExp(`${key}=\\{([^}]+)\\}`);
   const match = typeof meta === "string" ? meta.match(regex) : null;
@@ -21,7 +33,10 @@ export function parseRanges(meta, key) {
   return set;
 }
 
-/** Parse quoted words from meta, excluding the title value. */
+/**
+ * Parse quoted strings from meta, excluding the title value.
+ * e.g. `"@sm:d-b" "@md:d-b"` returns ["@sm:d-b", "@md:d-b"]
+ */
 export function parseWords(meta, titleValue) {
   if (typeof meta !== "string") return [];
   const words = [];
@@ -32,7 +47,10 @@ export function parseWords(meta, titleValue) {
   return titleValue ? words.filter((w) => w !== titleValue) : words;
 }
 
-/** Split text into highlighted word segments. */
+/**
+ * Split a text value by target words, returning an array of
+ * { text, highlighted } segments.
+ */
 function splitByWords(text, words) {
   const escaped = words
     .slice()
@@ -58,7 +76,9 @@ function splitByWords(text, words) {
   return parts;
 }
 
-/** Wrap matching words in highlight spans recursively. */
+/**
+ * Recursively walk a hast node and wrap matching text in highlight spans.
+ */
 function highlightWordsInNode(node, words, classes) {
   if (!node.children) return;
 
@@ -90,11 +110,24 @@ function highlightWordsInNode(node, words, classes) {
 const LINE_CLASSES = "d-b mx--4 px-4";
 const WORD_CLASSES = "bg-accent-dim/10 bw-1 bc-accent-dim/50";
 
-/** Fold 1-based lines behind `<details>`; copy still uses raw source. */
+/**
+ * Collapse the given 1-based lines behind a `...` control, in place.
+ *
+ * `<details>` rather than a client component, because this block is a server-
+ * rendered HTML string by the time it gets here: giving it state would mean
+ * shipping a parser to the browser to find the regions again. The disclosure
+ * triangle is dropped in globals.css, which is a selector problem no utility
+ * can reach.
+ *
+ * Folding hides nothing. Every token stays in the document, so find-in-page
+ * still reaches it & the copy button, which reads the raw source rather than
+ * this tree, takes the whole file either way.
+ */
 function foldRegions(codeEl, foldLines) {
   const children = codeEl.children ?? [];
 
-  // Keep line span and trailing newline together when folding.
+  // Shiki emits one span per line with the newline as a sibling text node, so a
+  // line and its terminator have to travel together or the fold eats the breaks.
   const lines = [];
   for (const child of children) {
     if (child.type === "element" && child.tagName === "span") {
@@ -112,7 +145,8 @@ function foldRegions(codeEl, foldLines) {
       continue;
     }
 
-    // Fold contiguous marked lines as one region.
+    // Take the whole contiguous run in one go, so a region gets one control
+    // rather than one per line.
     const body = [];
     while (i < lines.length && foldLines.has(i + 1)) body.push(...lines[i++]);
     i--;
@@ -126,7 +160,7 @@ function foldRegions(codeEl, foldLines) {
           type: "element",
           tagName: "summary",
           properties: {
-            className: ["d-i", "c-p", "us-none", "c-foreground/40", "h:c-foreground"],
+            className: ["d-i", "c-p", "us-none", "c-white/40", "h:c-white"],
           },
           children: [{ type: "text", value: "..." }],
         },
@@ -139,7 +173,13 @@ function foldRegions(codeEl, foldLines) {
   codeEl.children = output;
 }
 
-/** Apply line, word, and fold decoration to a Shiki `<pre>` hast node. */
+/**
+ * Apply line & word decoration to a highlighted <pre> hast node, in place.
+ *
+ * @param {object} pre  hast element for the <pre> Shiki produced
+ * @param {string} meta raw fence meta, e.g. `title="a.ts" mark={1-3} "word"`
+ * @param {string|null} title parsed title, excluded from word targets
+ */
 export function decorateCodeHast(pre, meta, title) {
   const codeEl = pre.children?.find((c) => c.tagName === "code");
   if (!codeEl) return pre;
@@ -152,7 +192,8 @@ export function decorateCodeHast(pre, meta, title) {
   const hasLineHighlight = markLines.size || delLines.size || insLines.size;
 
   if (hasLineHighlight) {
-    // Drop newline text nodes before applying `display: block` per line.
+    // Remove \n text nodes between line spans to prevent double line breaks
+    // when d-b (display: block) is applied.
     codeEl.children = (codeEl.children ?? []).filter(
       (c) => !(c.type === "text" && c.value === "\n"),
     );
@@ -178,7 +219,13 @@ export function decorateCodeHast(pre, meta, title) {
       if (!lineNode.properties) lineNode.properties = {};
       const props = lineNode.properties;
 
-      // Merge Shiki `class` string into hast `className` (not both).
+      // Shiki writes `class` as a raw string, not hast's canonical
+      // `className`. Setting `className` alongside it serialises TWO class
+      // attributes (`<span class="line" class="d-b">`); the browser keeps the
+      // first & silently drops the rest, so the decoration never applied. The
+      // \n nodes are already gone by then, leaving the block with neither
+      // newlines nor display:block, which collapsed every marked fence onto
+      // one line. Fold both sources into `className` & drop `class`.
       const asList = (v) =>
         Array.isArray(v)
           ? v
@@ -206,7 +253,7 @@ export function decorateCodeHast(pre, meta, title) {
     highlightWordsInNode(codeEl, words, WORD_CLASSES);
   }
 
-  // Surrounding chrome supplies background color.
+  // Strip Shiki's background inline style; the surrounding chrome supplies it.
   if (pre.properties?.style) {
     pre.properties.style = String(pre.properties.style)
       .replace(/background(-color)?:[^;]+;?/gi, "")

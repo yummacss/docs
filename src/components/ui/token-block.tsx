@@ -75,7 +75,7 @@ export default function TokenBlock({
   );
 
   return (
-    <div className={`cs-d bg-surface ${className}`}>
+    <div className={`bg-surface ${className}`}>
       <TitleBar title={title} action={action} />
       <pre className="ox-auto px-4 py-3 ff-m lh-5 ws-pw">
         <code>
@@ -142,8 +142,8 @@ function Folded({
         style={{ font: "inherit" }}
         className={`d-if p-0 bg-transparent bw-0 va-b c-p a-none fv:oo-2 fv:oc-accent ${
           isOpen
-            ? "c-foreground/25 h:c-foreground/60"
-            : "c-foreground/40 h:c-foreground"
+            ? "c-white/25 h:c-white/60"
+            : "c-white/40 h:c-white"
         }`}
       >
         ...

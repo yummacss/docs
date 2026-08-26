@@ -3,8 +3,6 @@
 import { Button } from "@base-ui/react/button";
 import { NavArrowLeft, NavArrowRight } from "iconoir-react";
 import Link from "next/link";
-import { useEffect } from "react";
-import { prefetchRegistry } from "@/utils/prefetch-registry";
 
 interface Props {
   previous: { slug: string; title: string } | null;
@@ -13,12 +11,6 @@ interface Props {
 }
 
 export default function Pagination({ previous, next, basePath }: Props) {
-  // Warm registry chunks for adjacent pages before the click.
-  useEffect(() => {
-    if (previous) prefetchRegistry(previous.slug);
-    if (next) prefetchRegistry(next.slug);
-  }, [previous, next]);
-
   if (!previous && !next) {
     return null;
   }
@@ -28,15 +20,9 @@ export default function Pagination({ previous, next, basePath }: Props) {
       {previous && (
         <Button
           nativeButton={false}
-          render={
-            <Link
-              href={`${basePath}/${previous.slug}`}
-              onMouseEnter={() => prefetchRegistry(previous.slug)}
-              onFocus={() => prefetchRegistry(previous.slug)}
-            />
-          }
+          render={<Link href={`${basePath}/${previous.slug}`} />}
           aria-label={`Previous: ${previous.title}`}
-          className="d-f ai-c jc-c w-8 h-8 bc-border bg-surface a:bg-surface-7 c-foreground h:c-foreground bw-1 fv:oc-foreground fv:oo-2"
+          className="d-f ai-c jc-c w-8 h-8 bc-border bg-surface a:bg-surface-7 c-accent bw-1 fv:oc-white fv:oo-2"
         >
           <NavArrowLeft className="w-4 h-4" />
         </Button>
@@ -45,15 +31,9 @@ export default function Pagination({ previous, next, basePath }: Props) {
       {next && (
         <Button
           nativeButton={false}
-          render={
-            <Link
-              href={`${basePath}/${next.slug}`}
-              onMouseEnter={() => prefetchRegistry(next.slug)}
-              onFocus={() => prefetchRegistry(next.slug)}
-            />
-          }
+          render={<Link href={`${basePath}/${next.slug}`} />}
           aria-label={`Next: ${next.title}`}
-          className="d-f ai-c jc-c w-8 h-8 bc-border bg-surface a:bg-surface-7 c-foreground h:c-foreground bw-1 fv:oc-foreground fv:oo-2"
+          className="d-f ai-c jc-c w-8 h-8 bc-border bg-surface a:bg-surface-7 c-accent bw-1 fv:oc-white fv:oo-2"
         >
           <NavArrowRight className="w-4 h-4" />
         </Button>

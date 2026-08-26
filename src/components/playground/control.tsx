@@ -26,7 +26,6 @@ export default function Control({ prop, value, onChange }: Props) {
         ariaLabel={prop.name}
         shape="square"
         size="sm"
-        variant="theme"
       />
     );
   }
@@ -39,7 +38,6 @@ export default function Control({ prop, value, onChange }: Props) {
         ariaLabel={prop.name}
         shape="square"
         size="sm"
-        variant="theme"
       />
     );
   }

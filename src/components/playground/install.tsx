@@ -45,7 +45,7 @@ export default function Install({ id }: { id: string }) {
       </Menu.Trigger>
       <Menu.Portal>
         <Menu.Positioner sideOffset={4} className="zi-50">
-          <Menu.Popup className="cs-d p-1 min-w-28 bc-border bg-surface bw-1">
+          <Menu.Popup className="p-1 min-w-28 bc-border bg-surface bw-1">
             {(Object.keys(MANAGERS) as Manager[]).map((manager) => (
               <Menu.Item
                 key={manager}

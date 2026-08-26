@@ -9,44 +9,45 @@ export default defineConfig({
     "./src/registry/**/*.tsx",
   ],
   safelist: [
-    // Classes from code-decorate.mjs (not in `source` scan).
+    // `src/lib/code-decorate.mjs` writes class names but is not in `source`
+    // above, so everything it emits has to be listed here. Adding the file to
+    // `source` was tried & the scanner still did not pick it up.
     "mx--4",
     "d-i",
-    // Scanner gap: literal `bg-accent-dim` vs generated `bc-accent-dim`.
+    // The playground's checked checkbox. `bc-accent-dim` generates from the
+    // same string literal & this one does not, which is the scanner gap again
+    // rather than anything about the class.
     "bg-accent-dim",
     "bg-accent-dim/10",
     "bg-diff-add/10",
     "bg-diff-remove/10",
     "bc-accent-dim/50",
-    // Scanner misses plain literals in accordion.tsx (see NOTES.md).
+    // Accordion: the class scanner misses these in this file even though
+    // they're plain, unconditional string literals - see NOTES.md.
     "max-w-96",
     "blc-indigo-5",
     "c-indigo-6",
     "c-indigo-9",
     "ro-36",
-    // Scanner gap in collapsible.tsx.
+    // Collapsible: same scanner gap, different file - see NOTES.md.
     "o-100",
     "tp-t",
     "ro-90",
-    // Scanner gap in menu.tsx.
+    // Menu: same scanner gap again.
     "h-fc",
-    // Scanner gap in tabs.tsx.
+    // Tabs: and again.
     "tp-a",
   ],
   theme: {
     colors: {
-      // Light pairs only; dark values are the original docs palette.
-      accent: { light: "#232741", dark: "#bec6f2" },
-      "accent-dim": { light: "#64748b", dark: "#9aa5ef" },
-      border: { light: "#cbd5e1", dark: "#232741" },
-      code: { light: "#9aa5ef", dark: "#dda2f6" },
-      page: { light: "#ffffff", dark: "#151724" },
-      surface: { light: "#f1f5f9", dark: "#1a1d2e" },
-      // Docs prose colors, not platform white/black.
-      foreground: { light: "#232741", dark: "#ffffff" },
-      inverse: { light: "#ffffff", dark: "#000000" },
+      "accent-dim": "#9aa5ef",
       "diff-add": "#a8e1ad",
       "diff-remove": "#e1a8a8",
+      accent: "#bec6f2",
+      border: "#232741",
+      code: "#dda2f6",
+      page: "#151724",
+      surface: "#1a1d2e",
     },
   },
 });
