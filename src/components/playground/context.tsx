@@ -31,6 +31,13 @@ export function usePlayground(): Playground | null {
   return useContext(PlaygroundContext);
 }
 
+interface Seed {
+  meta: RegistryMeta | null;
+  values: DemoProps;
+}
+
+const EMPTY: Seed = { meta: null, values: {} };
+
 export function PlaygroundProvider({
   id,
   children,
@@ -38,30 +45,29 @@ export function PlaygroundProvider({
   id: string;
   children: ReactNode;
 }) {
-  const [meta, setMeta] = useState<RegistryMeta | null>(null);
-  const [values, setValues] = useState<DemoProps>({});
+  // Meta and values stay in one state so the stage never sees a schema
+  // without its seeded fixtures (options/items/steps).
+  const [seed, setSeed] = useState<Seed>(EMPTY);
   const [dirty, setDirty] = useState(false);
 
   useEffect(() => {
     const importMeta = getRegistryMeta(id);
     if (!importMeta) {
-      setMeta(null);
-      setValues({});
+      setSeed(EMPTY);
       setDirty(false);
       return;
     }
 
-    // Clear controls for the outgoing id; the stage keeps the last visual frame.
-    setMeta(null);
-    setValues({});
+    // Drop the outgoing schema; the stage keeps its last visual frame.
+    setSeed(EMPTY);
     setDirty(false);
     prefetchRegistry(id);
 
     let live = true;
     importMeta().then((module) => {
       if (!live) return;
-      setMeta(module.default);
-      setValues(seedValues(module.default));
+      const meta = module.default;
+      setSeed({ meta, values: seedValues(meta) });
       setDirty(false);
     });
 
@@ -71,19 +77,31 @@ export function PlaygroundProvider({
   }, [id]);
 
   const setValue = useCallback((name: string, value: unknown) => {
-    setValues((current) => ({ ...current, [name]: value }));
+    setSeed((current) => ({
+      ...current,
+      values: { ...current.values, [name]: value },
+    }));
     setDirty(true);
   }, []);
 
   const reset = useCallback(() => {
-    if (!meta) return;
-    setValues(seedValues(meta));
+    setSeed((current) => {
+      if (!current.meta) return current;
+      return { meta: current.meta, values: seedValues(current.meta) };
+    });
     setDirty(false);
-  }, [meta]);
+  }, []);
 
   const playground = useMemo(
-    () => ({ id, meta, values, setValue, reset, dirty }),
-    [id, meta, values, setValue, reset, dirty],
+    () => ({
+      id,
+      meta: seed.meta,
+      values: seed.values,
+      setValue,
+      reset,
+      dirty,
+    }),
+    [id, seed.meta, seed.values, setValue, reset, dirty],
   );
 
   return <PlaygroundContext value={playground}>{children}</PlaygroundContext>;
