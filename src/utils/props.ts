@@ -13,14 +13,17 @@ export function typeOf(prop: RegistryProp): string {
 /**
  * Whether the playground can offer a widget for this prop.
  *
- * A callback or an array of fixture objects has no control a reader could
- * sensibly operate, and the schema marks those `none`. They are still part of
- * the API, so the rail lists them either way.
+ * Only enums, booleans, and icon slots get a control. Strings and numbers are
+ * still part of the API - labels, placeholders, min/max - but a free-text field
+ * for each one would drown the rail in inputs that barely change what the
+ * component looks like. Callbacks and fixture arrays (`none`) have no widget
+ * at all. They stay listed under Not Controllable either way.
  *
  * A slot with an `exampleIcon` is the exception. It is a `ReactNode` too, but
  * the schema names a glyph for it, which is enough to answer the only question
  * a control could ask of a slot: is there something in it.
  */
 export function isControllable(prop: RegistryProp): boolean {
-  return prop.type !== "none" || Boolean(prop.exampleIcon);
+  if (prop.exampleIcon) return true;
+  return prop.type === "enum" || prop.type === "boolean";
 }
