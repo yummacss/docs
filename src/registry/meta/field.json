@@ -53,6 +53,8 @@
       "name": "icon",
       "type": "none",
       "typeName": "ReactNode",
+      "example": null,
+      "exampleIcon": "Mail",
       "description": "Any icon. It is positioned over the control, so pass the glyph and nothing else. Hidden once `error` or `success` is set, which claim the trailing slot for their own icon."
     },
     {
@@ -60,7 +62,8 @@
       "type": "enum",
       "values": ["leading", "trailing"],
       "default": "leading",
-      "description": "Which end `icon` sits at."
+      "description": "Which end `icon` sits at.",
+      "dependsOn": "icon"
     },
     {
       "name": "iconInteractive",

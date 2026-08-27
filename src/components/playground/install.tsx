@@ -3,10 +3,11 @@
 import { Menu } from "@base-ui/react/menu";
 import { Check, NavArrowDown } from "iconoir-react";
 import { useState } from "react";
+import { NPM, Pnpm } from "@/components/icons/icons";
 
 const MANAGERS = {
-  pnpm: (id: string) => `pnpm dlx yummaui add ${id}`,
-  npm: (id: string) => `npx yummaui add ${id}`,
+  pnpm: { command: (id: string) => `pnpm dlx yummaui add ${id}`, Mark: Pnpm },
+  npm: { command: (id: string) => `npx yummaui add ${id}`, Mark: NPM },
 } as const;
 
 type Manager = keyof typeof MANAGERS;
@@ -17,7 +18,7 @@ export default function Install({ id }: { id: string }) {
 
   const copy = async (manager: Manager) => {
     try {
-      await navigator.clipboard.writeText(MANAGERS[manager](id));
+      await navigator.clipboard.writeText(MANAGERS[manager].command(id));
     } catch {
       return;
     }
@@ -51,11 +52,15 @@ export default function Install({ id }: { id: string }) {
                 key={manager}
                 onClick={() => copy(manager)}
                 className={(state) =>
-                  `d-b px-2 py-1 ff-m fs-xs c-p us-none ${
+                  `d-f ai-c g-2 px-2 py-1 ff-m fs-xs c-p us-none ${
                     state.highlighted ? "bg-border c-accent" : "c-accent-dim"
                   }`
                 }
               >
+                {(() => {
+                  const { Mark } = MANAGERS[manager];
+                  return <Mark className="fs-0 w-4 h-4" />;
+                })()}
                 {manager}
               </Menu.Item>
             ))}

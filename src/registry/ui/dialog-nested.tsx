@@ -2,9 +2,14 @@ import { Xmark } from "iconoir-react";
 import Avatar from "./avatar";
 import Dialog from "./dialog";
 
-export default function DialogNested() {
+export default function DialogNested({
+  container,
+}: {
+  /** Portal target, so a popup opened in a framed preview stays in the frame. */
+  container?: HTMLElement | null;
+}) {
   return (
-    <Dialog trigger="Team settings" title="Team settings">
+    <Dialog container={container} trigger="Team settings" title="Team settings">
       <div className="d-f fd-c g-3">
         {teamMembers.map((member) => (
           <div key={`${member.name}-${member.role}`} className="d-f ai-c g-3">
@@ -13,7 +18,7 @@ export default function DialogNested() {
               <span className="c-slate-10 fs-sm fw-500">{member.name}</span>
               <span className="c-slate-6 fs-xs">{member.role}</span>
             </div>
-            <Dialog
+            <Dialog container={container}
               trigger="Remove"
               triggerTone="danger"
               triggerSize="sm"

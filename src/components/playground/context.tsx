@@ -10,7 +10,7 @@ import {
   useState,
 } from "react";
 import { getRegistryMeta, type RegistryMeta } from "@/registry";
-import { type DemoProps, seedValues } from "@/utils/demo";
+import { type DemoProps, exampleIcon, seedValues } from "@/utils/demo";
 import { prefetchRegistry } from "@/utils/prefetch-registry";
 
 /** Playground state shared between stage (MDX) and rail (layout column). */
@@ -19,9 +19,6 @@ interface Playground {
   meta: RegistryMeta | null;
   values: DemoProps;
   setValue: (name: string, value: unknown) => void;
-  reset: () => void;
-  /** Whether anything has been touched, so the reset control can say so. */
-  dirty: boolean;
 }
 
 const PlaygroundContext = createContext<Playground | null>(null);
@@ -46,19 +43,16 @@ export function PlaygroundProvider({
   children: ReactNode;
 }) {
   const [seed, setSeed] = useState<Seed>(EMPTY);
-  const [dirty, setDirty] = useState(false);
 
   useEffect(() => {
     const importMeta = getRegistryMeta(id);
     if (!importMeta) {
       setSeed(EMPTY);
-      setDirty(false);
       return;
     }
 
     // Drop the outgoing schema; the stage keeps its last visual frame.
     setSeed(EMPTY);
-    setDirty(false);
     prefetchRegistry(id);
 
     let live = true;
@@ -66,7 +60,6 @@ export function PlaygroundProvider({
       if (!live) return;
       const meta = module.default;
       setSeed({ meta, values: seedValues(meta) });
-      setDirty(false);
     });
 
     return () => {
@@ -75,31 +68,29 @@ export function PlaygroundProvider({
   }, [id]);
 
   const setValue = useCallback((name: string, value: unknown) => {
-    setSeed((current) => ({
-      ...current,
-      values: { ...current.values, [name]: value },
-    }));
-    setDirty(true);
-  }, []);
-
-  const reset = useCallback(() => {
     setSeed((current) => {
-      if (!current.meta) return current;
-      return { meta: current.meta, values: seedValues(current.meta) };
+      const values = { ...current.values, [name]: value };
+
+      // `iconSide` moves an icon. Rather than do nothing until one is switched
+      // on, picking a side puts the icon there, so the control does what it
+      // says. The schema names the dependency.
+      const prop = current.meta?.props.find((entry) => entry.name === name);
+      const needs = prop?.dependsOn
+        ? current.meta?.props.find((entry) => entry.name === prop.dependsOn)
+        : undefined;
+
+      if (needs?.exampleIcon && !current.values[needs.name]) {
+        values[needs.name] = exampleIcon(needs.exampleIcon);
+      }
+
+      return { ...current, values };
     });
-    setDirty(false);
   }, []);
 
+  // No reset: leaving the page & coming back reseeds from the schema.
   const playground = useMemo(
-    () => ({
-      id,
-      meta: seed.meta,
-      values: seed.values,
-      setValue,
-      reset,
-      dirty,
-    }),
-    [id, seed.meta, seed.values, setValue, reset, dirty],
+    () => ({ id, meta: seed.meta, values: seed.values, setValue }),
+    [id, seed.meta, seed.values, setValue],
   );
 
   return <PlaygroundContext value={playground}>{children}</PlaygroundContext>;

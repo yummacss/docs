@@ -2,11 +2,16 @@ import { Avatar } from "@base-ui/react/avatar";
 import { Clock } from "iconoir-react";
 import PreviewCard from "./preview-card";
 
-export default function PreviewCardCompact() {
+export default function PreviewCardCompact({
+  container,
+}: {
+  /** Portal target, so a popup opened in a framed preview stays in the frame. */
+  container?: HTMLElement | null;
+}) {
   return (
     <p className="m-0 c-slate-10 fs-sm">
       View task{" "}
-      <PreviewCard trigger="#dashboard-redesign">
+      <PreviewCard container={container} trigger="#dashboard-redesign">
         <div className="d-f fd-c g-1">
           <span className="c-slate-10 fs-sm fw-500">Dashboard Redesign</span>
           <span className="c-slate-6 fs-xs">#dashboard-redesign</span>
