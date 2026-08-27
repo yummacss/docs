@@ -25,9 +25,6 @@ interface Playground {
   meta: RegistryMeta | null;
   values: DemoProps;
   setValue: (name: string, value: unknown) => void;
-  reset: () => void;
-  /** Whether anything has been touched, so the reset control can say so. */
-  dirty: boolean;
 }
 
 const PlaygroundContext = createContext<Playground | null>(null);
@@ -46,7 +43,6 @@ export function PlaygroundProvider({
 }) {
   const [meta, setMeta] = useState<RegistryMeta | null>(null);
   const [values, setValues] = useState<DemoProps>({});
-  const [dirty, setDirty] = useState(false);
 
   useEffect(() => {
     const importMeta = getRegistryMeta(id);
@@ -57,7 +53,6 @@ export function PlaygroundProvider({
       if (!live) return;
       setMeta(module.default);
       setValues(seedValues(module.default));
-      setDirty(false);
     });
 
     // A navigation between two component pages resolves both imports, and
@@ -69,18 +64,13 @@ export function PlaygroundProvider({
 
   const setValue = useCallback((name: string, value: unknown) => {
     setValues((current) => ({ ...current, [name]: value }));
-    setDirty(true);
   }, []);
 
-  const reset = useCallback(() => {
-    if (!meta) return;
-    setValues(seedValues(meta));
-    setDirty(false);
-  }, [meta]);
-
+  // Navigating away & back reseeds from the schema, which is the only reset
+  // anyone needs: the page is a thing you poke, not a form you fill in.
   const playground = useMemo(
-    () => ({ id, meta, values, setValue, reset, dirty }),
-    [id, meta, values, setValue, reset, dirty],
+    () => ({ id, meta, values, setValue }),
+    [id, meta, values, setValue],
   );
 
   return <PlaygroundContext value={playground}>{children}</PlaygroundContext>;

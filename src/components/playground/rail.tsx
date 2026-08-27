@@ -40,18 +40,9 @@ export default function PlaygroundRail() {
     <aside className="bc-border btw-1 @lg:btw-0 @lg:blw-1 @lg:gc-s-3">
       <div className="playground-rail">
         <div className="pt-8 px-6 pb-12 @lg:pt-0">
-          <div className="d-f ai-c jc-sb g-2 mb-3">
-            <h3 className="c-silver-8 fs-xs fw-600 ls-2 tt-u">Component API</h3>
-            {playground?.dirty && (
-              <button
-                type="button"
-                onClick={playground.reset}
-                className="p-0 bg-transparent c-white/40 bw-0 fs-xs c-p h:c-white fv:oc-white fv:ow-2"
-              >
-                Reset
-              </button>
-            )}
-          </div>
+          <h3 className="mb-3 c-silver-8 fs-xs fw-600 ls-2 tt-u">
+            Component API
+          </h3>
 
           {controllable.map((prop) => (
             <Row
