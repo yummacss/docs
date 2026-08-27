@@ -41,7 +41,12 @@ export interface SwitchProps {
   className?: string;
   ariaLabel?: string;
   /** Override default indigo/silver-1 track colors (e.g. docs rail chrome). */
-  trackClass?: { off: string; on: string };
+  trackClass?: {
+    off: string;
+    on: string;
+    thumbOff?: string;
+    thumbOn?: string;
+  };
 }
 
 export default function SwitchBase({
@@ -73,7 +78,7 @@ export default function SwitchBase({
 
   const trackClasses = [
     "p-r d-f ai-c m-0 px-1 tp-c tdu-150 ttf-io fv:oo-2",
-    trackClass ? "fv:oc-white" : "fv:oc-indigo-3",
+    trackClass ? "fv:oc-accent" : "fv:oc-indigo-3",
     track,
     SHAPES[shape],
     trackClass
@@ -89,7 +94,15 @@ export default function SwitchBase({
     .filter(Boolean)
     .join(" ");
 
-  const thumbClasses = ["bg-white", thumb, SHAPES[shape]]
+  const thumbClasses = [
+    trackClass
+      ? checked
+        ? (trackClass.thumbOn ?? "bg-white")
+        : (trackClass.thumbOff ?? "bg-white")
+      : "bg-white",
+    thumb,
+    SHAPES[shape],
+  ]
     .filter(Boolean)
     .join(" ");
 

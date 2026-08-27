@@ -2,15 +2,19 @@
 
 import { useState } from "react";
 import SwitchBase from "@/registry/ui/switch";
-import { NAVBAR_TRIGGER_OFF, NAVBAR_TRIGGER_ON } from "@/components/ui/navbar-trigger";
 
 /** Rail switch design candidates — square sm, white thumb unless noted. */
 const MOCKUPS = [
   {
-    id: "1-navbar-chrome",
-    name: "1 · Navbar chrome (current)",
-    note: "bg-surface / bg-surface-7 — blends with page",
-    trackClass: { off: NAVBAR_TRIGGER_OFF, on: NAVBAR_TRIGGER_ON },
+    id: "1-accent-fill",
+    name: "1 · Accent fill (current)",
+    note: "bg-border off, bg-accent on — docs tokens",
+    trackClass: {
+      off: "bc-border bg-border bw-1",
+      on: "bc-accent bg-accent bw-1",
+      thumbOff: "bg-white",
+      thumbOn: "bg-page",
+    },
   },
   {
     id: "2-registry",
@@ -20,20 +24,20 @@ const MOCKUPS = [
   },
   {
     id: "3-segment",
-    name: "3 · Segment buttons",
-    note: "Matches enum chips: border accent-dim when on",
+    name: "3 · Segment tint",
+    note: "Transparent off, accent-dim tint on",
     trackClass: {
       off: "bc-border bg-transparent bw-1",
       on: "bc-accent-dim bg-accent-dim/15 bw-1",
     },
   },
   {
-    id: "4-accent-fill",
-    name: "4 · Accent fill",
-    note: "Muted border off, full accent on",
+    id: "4-navbar-chrome",
+    name: "4 · Navbar chrome",
+    note: "bg-surface / bg-surface-7 — blends with page",
     trackClass: {
-      off: "bc-border bg-border bw-1",
-      on: "bg-accent bw-1 bc-accent",
+      off: "bc-border bg-surface bw-1 bf-b-sm",
+      on: "bc-border bg-surface-7 bw-1 bf-b-sm",
     },
   },
   {

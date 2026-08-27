@@ -23,7 +23,9 @@ export default function PlaygroundRail() {
     <aside className="bc-border btw-1 @lg:btw-0 @lg:blw-1 @lg:gc-s-3">
       <div className="playground-rail">
         <div className="pt-8 pb-12 @lg:pt-0 @lg:px-8">
-          <h3 className="mb-3 c-white fs-xs fw-600 ls-2 tt-u">Component API</h3>
+          <h3 className="mb-3 c-silver-8 fs-xs fw-600 ls-2 tt-u">
+            Component API
+          </h3>
 
           {props.map((prop) => (
             <Row
@@ -39,7 +41,7 @@ export default function PlaygroundRail() {
                   onChange={(value) => playground?.setValue(prop.name, value)}
                 />
               ) : (
-                <code className="fs-0 c-white/80 fs-xs ff-m">
+                <code className="fs-0 c-silver-8 fs-xs ff-m">
                   {typeOf(prop)}
                 </code>
               )}
@@ -79,7 +81,7 @@ function Row({
             <NavArrowDown
               aria-hidden
               className={`fs-0 w-3 h-3 tp-c tdu-150 ${
-                open ? "ro-36 c-accent" : "c-white/25"
+                open ? "ro-36 c-accent" : "c-silver-8"
               }`}
             />
           </button>
@@ -90,7 +92,7 @@ function Row({
       </div>
 
       {open && (
-        <div className="mt-2 c-white/60 fs-sm lh-4">
+        <div className="mt-2 c-white/70 fs-sm lh-4">
           <PropDescription text={prop.description} />
         </div>
       )}
