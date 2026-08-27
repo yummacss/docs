@@ -12,6 +12,8 @@
       "name": "triggerIcon",
       "type": "none",
       "typeName": "ReactNode",
+      "example": null,
+      "exampleIcon": "PagePlus",
       "description": "A glyph beside the trigger's label."
     },
     {
@@ -19,7 +21,8 @@
       "type": "enum",
       "values": ["leading", "trailing"],
       "default": "leading",
-      "description": "Which end of the trigger `triggerIcon` sits at."
+      "description": "Which end of the trigger `triggerIcon` sits at.",
+      "dependsOn": "triggerIcon"
     },
     {
       "name": "triggerTone",
@@ -116,6 +119,12 @@
       "type": "boolean",
       "default": true,
       "description": "The backdrop's fade and the popup's scale-in. Turn it off for an instant dialog, or when the user has asked for reduced motion."
+    },
+    {
+      "name": "container",
+      "type": "none",
+      "typeName": "HTMLElement | null",
+      "description": "Where the popup is rendered. Defaults to `document.body`, which is right almost always; pass an element to portal somewhere else, such as inside a frame or a container that owns its own stacking context."
     }
   ]
 }

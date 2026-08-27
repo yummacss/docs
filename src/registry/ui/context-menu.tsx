@@ -83,6 +83,12 @@ export type ContextMenuItem =
   | ContextMenuSubmenu;
 
 export interface ContextMenuProps {
+  /**
+   * Where the popup is rendered. Defaults to `document.body`, which is right
+   * almost always; pass an element to portal somewhere else - inside a frame,
+   * or inside a container that owns its own stacking context.
+   */
+  container?: HTMLElement | null;
   trigger: ReactNode;
   items: ContextMenuItem[];
   shape?: Shape;
@@ -106,6 +112,7 @@ export default function ContextMenuBase({
   onOpenChange,
   animate = true,
   className,
+  container,
 }: ContextMenuProps) {
   const [internalOpen, setInternalOpen] = useState(false);
   const open = controlledOpen ?? internalOpen;
@@ -234,7 +241,7 @@ export default function ContextMenuBase({
               <NavArrowRight className="fs-0 w-4 h-4 c-slate-4" />
             </ContextMenu.SubmenuTrigger>
 
-            <ContextMenu.Portal>
+            <ContextMenu.Portal container={container}>
               <ContextMenu.Positioner
                 className="ow-0"
                 sideOffset={-4}
@@ -292,7 +299,7 @@ export default function ContextMenuBase({
     });
 
   const popup = (
-    <ContextMenu.Portal keepMounted>
+    <ContextMenu.Portal container={container} keepMounted>
       <ContextMenu.Positioner className="ow-0">
         <ContextMenu.Popup
           render={

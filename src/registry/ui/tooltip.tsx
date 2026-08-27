@@ -32,6 +32,12 @@ const TRIGGER_TONES: Record<TriggerTone, string> = {
 };
 
 export interface TooltipProps {
+  /**
+   * Where the popup is rendered. Defaults to `document.body`, which is right
+   * almost always; pass an element to portal somewhere else - inside a frame,
+   * or inside a container that owns its own stacking context.
+   */
+  container?: HTMLElement | null;
   trigger: ReactNode;
   triggerLabel?: string;
   triggerTone?: TriggerTone;
@@ -61,6 +67,7 @@ export default function TooltipBase({
   shadow = "none",
   animate = true,
   className,
+  container,
 }: TooltipProps) {
   const triggerClasses = [
     "d-f ai-c jc-c bg-transparent bw-0 c-p fv:oo-2",
@@ -116,7 +123,7 @@ export default function TooltipBase({
         <Tooltip.Trigger className={triggerClasses} aria-label={triggerLabel}>
           {trigger}
         </Tooltip.Trigger>
-        <Tooltip.Portal>
+        <Tooltip.Portal container={container}>
           <Tooltip.Positioner side={side} sideOffset={sideOffset}>
             {animate ? <AnimatePresence>{popup}</AnimatePresence> : popup}
           </Tooltip.Positioner>

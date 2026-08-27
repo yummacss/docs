@@ -103,6 +103,12 @@ export type MenuItem =
   | MenuSubmenu;
 
 export interface MenuProps {
+  /**
+   * Where the popup is rendered. Defaults to `document.body`, which is right
+   * almost always; pass an element to portal somewhere else - inside a frame,
+   * or inside a container that owns its own stacking context.
+   */
+  container?: HTMLElement | null;
   trigger: ReactNode;
   items: MenuItem[];
   size?: Size;
@@ -128,6 +134,7 @@ export default function MenuBase({
   onOpenChange,
   animate = true,
   className,
+  container,
 }: MenuProps) {
   const [internalOpen, setInternalOpen] = useState(false);
   const open = controlledOpen ?? internalOpen;
@@ -264,7 +271,7 @@ export default function MenuBase({
               <NavArrowRight className="fs-0 w-4 h-4 c-slate-4" />
             </Menu.SubmenuTrigger>
 
-            <Menu.Portal>
+            <Menu.Portal container={container}>
               <Menu.Positioner
                 className="ow-0"
                 sideOffset={-4}
@@ -321,7 +328,7 @@ export default function MenuBase({
     });
 
   const popup = (
-    <Menu.Portal keepMounted>
+    <Menu.Portal container={container} keepMounted>
       <Menu.Positioner className="ow-0" sideOffset={8}>
         <Menu.Popup
           render={

@@ -44,6 +44,12 @@ export interface CommandGroup {
 }
 
 export interface CommandPaletteProps {
+  /**
+   * Where the popup is rendered. Defaults to `document.body`, which is right
+   * almost always; pass an element to portal somewhere else - inside a frame,
+   * or inside a container that owns its own stacking context.
+   */
+  container?: HTMLElement | null;
   trigger: ReactNode;
   groups: CommandGroup[];
   placeholder?: string;
@@ -65,6 +71,7 @@ export default function CommandPaletteBase({
   shadow = "none",
   animate = true,
   className,
+  container,
 }: CommandPaletteProps) {
   const [open, setOpen] = useState(false);
 
@@ -95,7 +102,7 @@ export default function CommandPaletteBase({
       .join(" ");
 
   const popup = (
-    <Dialog.Portal keepMounted>
+    <Dialog.Portal container={container} keepMounted>
       <Dialog.Backdrop
         render={
           animate ? (

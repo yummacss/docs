@@ -97,6 +97,12 @@ export interface MenubarMenu {
 }
 
 export interface MenubarProps {
+  /**
+   * Where the popup is rendered. Defaults to `document.body`, which is right
+   * almost always; pass an element to portal somewhere else - inside a frame,
+   * or inside a container that owns its own stacking context.
+   */
+  container?: HTMLElement | null;
   menus: MenubarMenu[];
   shape?: Shape;
   shadow?: Shadow;
@@ -112,6 +118,7 @@ export default function MenubarBase({
   iconPosition = "leading",
   animate = true,
   className,
+  container,
 }: MenubarProps) {
   const shadowClass =
     shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "";
@@ -241,7 +248,7 @@ export default function MenubarBase({
               <NavArrowRight className="fs-0 w-4 h-4 c-slate-4" />
             </Menu.SubmenuTrigger>
 
-            <Menu.Portal>
+            <Menu.Portal container={container}>
               <Menu.Positioner
                 className="ow-0"
                 sideOffset={-4}
@@ -307,6 +314,7 @@ export default function MenubarBase({
           popupClasses={popupClasses}
           triggerClasses={triggerClasses}
           renderItems={renderItems}
+          container={container}
         />
       ))}
     </Menubar>
@@ -319,18 +327,20 @@ function MenubarEntry({
   popupClasses,
   triggerClasses,
   renderItems,
+  container,
 }: {
   menu: MenubarMenu;
   animate: boolean;
   popupClasses: string;
   triggerClasses: (disabled: boolean) => (state: { open: boolean }) => string;
   renderItems: (list: MenubarItem[], keyPrefix: string) => ReactNode;
+  container?: HTMLElement | null;
 }) {
   const [open, setOpen] = useState(false);
   const disabled = Boolean(menu.disabled);
 
   const popup = (
-    <Menu.Portal keepMounted>
+    <Menu.Portal container={container} keepMounted>
       <Menu.Positioner className="ow-0" sideOffset={8}>
         <Menu.Popup
           render={

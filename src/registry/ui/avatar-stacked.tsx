@@ -2,7 +2,12 @@ import { Plus } from "iconoir-react";
 import Avatar from "./avatar";
 import Tooltip from "./tooltip";
 
-export default function AvatarStacked() {
+export default function AvatarStacked({
+  container,
+}: {
+  /** Portal target, so a popup opened in a framed preview stays in the frame. */
+  container?: HTMLElement | null;
+}) {
   return (
     <div className="d-f ai-c">
       {stackMembers.map((member, index) => (
@@ -15,7 +20,7 @@ export default function AvatarStacked() {
         />
       ))}
       <Avatar size="sm" fallback={`+${extraCount}`} className="ml--2" />
-      <Tooltip
+      <Tooltip container={container}
         trigger={<Plus className="w-4 h-4" />}
         triggerLabel="Add participant"
         content="Add participant"

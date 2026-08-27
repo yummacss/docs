@@ -59,6 +59,12 @@ const ACTION =
   "d-f b-0 ai-c jc-c w-6 h-6 p-0 bg-transparent c-slate-6 br-sm c-p h:c-slate-10 fv:oo--1 fv:oc-indigo-5";
 
 export interface ComboboxProps {
+  /**
+   * Where the popup is rendered. Defaults to `document.body`, which is right
+   * almost always; pass an element to portal somewhere else - inside a frame,
+   * or inside a container that owns its own stacking context.
+   */
+  container?: HTMLElement | null;
   items: ComboboxItem[] | ComboboxGroup[];
   label?: ReactNode;
   description?: string;
@@ -130,6 +136,7 @@ export default function ComboboxBase({
   animate = true,
   emptyMessage = "No results found.",
   className,
+  container,
 }: ComboboxProps) {
   const [open, setOpen] = useState(false);
   const id = useId();
@@ -240,7 +247,7 @@ export default function ComboboxBase({
 
       <AnimatePresence>
         {open && (
-          <Combobox.Portal keepMounted>
+          <Combobox.Portal container={container} keepMounted>
             <Combobox.Positioner className="ow-0" sideOffset={8}>
               {animate ? (
                 <motion.div

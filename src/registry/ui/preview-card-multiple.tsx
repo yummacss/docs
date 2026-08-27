@@ -1,11 +1,16 @@
 import Avatar from "./avatar";
 import PreviewCard from "./preview-card";
 
-export default function PreviewCardMultiple() {
+export default function PreviewCardMultiple({
+  container,
+}: {
+  /** Portal target, so a popup opened in a framed preview stays in the frame. */
+  container?: HTMLElement | null;
+}) {
   return (
     <p className="m-0 c-slate-10 fs-sm">
       Mentioned{" "}
-      <PreviewCard trigger="John">
+      <PreviewCard container={container} trigger="John">
         <div className="d-f ai-c g-3">
           <Avatar
             size="sm"
@@ -23,7 +28,7 @@ export default function PreviewCardMultiple() {
         </div>
       </PreviewCard>{" "}
       or{" "}
-      <PreviewCard trigger="Jane">
+      <PreviewCard container={container} trigger="Jane">
         <div className="d-f ai-c g-3">
           <Avatar
             size="sm"

@@ -5,12 +5,17 @@ import { Check } from "iconoir-react";
 import { useState } from "react";
 import Popover from "./popover";
 
-export default function PopoverColorPalette() {
+export default function PopoverColorPalette({
+  container,
+}: {
+  /** Portal target, so a popup opened in a framed preview stays in the frame. */
+  container?: HTMLElement | null;
+}) {
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState("indigo");
 
   return (
-    <Popover
+    <Popover container={container}
       open={open}
       onOpenChange={setOpen}
       triggerVariant="label"

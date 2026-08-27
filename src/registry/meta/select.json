@@ -89,6 +89,8 @@
       "name": "icon",
       "type": "none",
       "typeName": "ReactNode",
+      "example": null,
+      "exampleIcon": "Folder",
       "description": "A single icon fixed on the trigger, not per option - for the per-option kind, give an option an `avatar` instead."
     },
     {
@@ -96,7 +98,8 @@
       "type": "enum",
       "values": ["leading", "trailing"],
       "default": "leading",
-      "description": "Which side `icon` sits on. Trailing sits just before the chevron."
+      "description": "Which side `icon` sits on. Trailing sits just before the chevron.",
+      "dependsOn": "icon"
     },
     {
       "name": "disabled",
@@ -115,6 +118,12 @@
       "type": "boolean",
       "default": false,
       "description": "Fills the width of the parent instead of `size`'s fixed width, for a select inside a form column that isn't a fixed size itself - a dialog, say."
+    },
+    {
+      "name": "container",
+      "type": "none",
+      "typeName": "HTMLElement | null",
+      "description": "Where the popup is rendered. Defaults to `document.body`, which is right almost always; pass an element to portal somewhere else, such as inside a frame or a container that owns its own stacking context."
     }
   ]
 }

@@ -71,6 +71,8 @@
       "name": "icon",
       "type": "none",
       "typeName": "ReactNode",
+      "example": null,
+      "exampleIcon": "PageSearch",
       "description": "Any icon. It is positioned over the input and the text is padded around it, so pass the glyph and nothing else."
     },
     {
@@ -78,7 +80,8 @@
       "type": "enum",
       "values": ["leading", "trailing"],
       "default": "leading",
-      "description": "Which end `icon` sits at."
+      "description": "Which end `icon` sits at.",
+      "dependsOn": "icon"
     },
     {
       "name": "disabled",
@@ -121,6 +124,12 @@
       "type": "boolean",
       "default": false,
       "description": "Fills the width of the parent instead of `size`'s fixed width, for an input inside a form column that isn't a fixed size itself - a dialog, say."
+    },
+    {
+      "name": "container",
+      "type": "none",
+      "typeName": "HTMLElement | null",
+      "description": "Where the popup is rendered. Defaults to `document.body`, which is right almost always; pass an element to portal somewhere else, such as inside a frame or a container that owns its own stacking context."
     }
   ]
 }

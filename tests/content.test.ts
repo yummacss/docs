@@ -46,20 +46,62 @@ const uiPages = contentPages("ui");
  * now that the baseline is zero.
  */
 const KNOWN_UNLISTED: string[] = [
-  // Button's group blocks. Cut from the page when it became a playground: four
-  // previews of the same component wearing different wrappers were the bulk of
-  // its length, and none of them said anything the controls do not. They stay
-  // in the registry because `yummaui add button-group` is a published entry
-  // point, and deleting the files would break it for anyone already using one.
+  // Every non-base entry in the registry. A component page is one
+  // playground now, so nothing else is previewed anywhere.
   //
-  // Its icon examples were cut too & are not here, because they were deleted
-  // rather than unlisted: `icon` and `iconSide` are props now, so the controls
-  // reach what those two files were demonstrating, and neither had an install
-  // entry point of its own.
+  // They stay in the registry rather than being deleted: a `block` here has
+  // its own `yummaui add` entry point, and removing the file would break it
+  // for anyone already using one. What is gone is only their documentation,
+  // which is a deliberate trade for a page that is the component & nothing
+  // else. This list is the record of what is undocumented.
+  "autocomplete-grouped",
+  "autocomplete-helper",
+  "autocomplete-icon-leading",
+  "autocomplete-icon-trailing",
+  "autocomplete-loading",
+  "avatar-detailed",
+  "avatar-edit",
+  "avatar-icon-fallback",
+  "avatar-initial-fallback",
+  "avatar-stack-compact",
+  "avatar-stacked",
+  "button-favorite",
   "button-group",
   "button-group-icon",
   "button-group-pill",
   "button-group-pill-label",
+  "checkbox-group-label",
+  "checkbox-group-nested-parent",
+  "checkbox-parent",
+  "combobox-grouped",
+  "combobox-helper",
+  "dialog-edit-profile",
+  "dialog-nested",
+  "dialog-new-task",
+  "dialog-send-invite",
+  "dialog-share-task",
+  "dialog-sign-in",
+  "dialog-sign-up",
+  "field-button",
+  "field-password",
+  "field-prefix",
+  "field-suffix",
+  "onboarding-checklist",
+  "onboarding-pagination",
+  "popover-color-palette",
+  "preview-card-compact",
+  "preview-card-multiple",
+  "preview-card-project",
+  "rating-emoji",
+  "rating-feedback",
+  "select-grouped",
+  "skeleton-activity",
+  "skeleton-filters",
+  "skeleton-list",
+  "skeleton-stats",
+  "toggle-color-picker",
+  "toggle-group",
+  "toolbar-input",
 ];
 
 function referencedIds(): Set<string> {

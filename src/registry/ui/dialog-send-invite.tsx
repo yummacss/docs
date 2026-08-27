@@ -2,9 +2,14 @@ import Dialog from "./dialog";
 import Field from "./field";
 import Select from "./select";
 
-export default function DialogSendInvite() {
+export default function DialogSendInvite({
+  container,
+}: {
+  /** Portal target, so a popup opened in a framed preview stays in the frame. */
+  container?: HTMLElement | null;
+}) {
   return (
-    <Dialog
+    <Dialog container={container}
       trigger="Send invite"
       title="Send invite"
       confirmLabel="Send invite"
@@ -16,7 +21,7 @@ export default function DialogSendInvite() {
           label="Email address"
           placeholder="colleague@company.com"
         />
-        <Select
+        <Select container={container}
           fullWidth
           options={roles}
           label="Role"
