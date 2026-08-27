@@ -12,6 +12,8 @@
       "name": "triggerIcon",
       "type": "none",
       "typeName": "ReactNode",
+      "example": null,
+      "exampleIcon": "PagePlus",
       "description": "A glyph beside the trigger's label."
     },
     {
