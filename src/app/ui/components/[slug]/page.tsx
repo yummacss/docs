@@ -2,6 +2,7 @@ import { allUis } from "content-collections";
 import type { Metadata } from "next";
 import JsonLd from "@/components/json-ld";
 import InstallButton from "@/components/playground/install-button";
+import Description from "@/components/ui/description";
 import Pagination from "@/components/ui/pagination";
 import { getRegistryTarget } from "@/registry";
 import { getUINavigation } from "@/utils/pagination";
@@ -71,7 +72,13 @@ export default async function Page({
             </div>
           </div>
           {ui.description && (
-            <p className="c-white/70 fs-lg">{ui.description}</p>
+            <p className="c-white/70 fs-lg">
+              <Description
+                text={ui.description}
+                primitive={ui.primitive}
+                slug={slug}
+              />
+            </p>
           )}
         </div>
       )}

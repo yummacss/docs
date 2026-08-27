@@ -89,6 +89,12 @@ export default function Control({ prop, value, onChange }: Props) {
 
 /**
  * A switch, for a prop that is either written on the element or not.
+ *
+ * Square, because the site is: nothing else here has a rounded corner, and a
+ * pill in the rail was the one exception. The geometry is Yumma UI's own
+ * switch at `sm` - a track with `px-1`, a thumb that travels `ml-0` to `ml-2`
+ * - rather than numbers picked by eye, which is how the thumb ended up sitting
+ * off-centre.
  */
 function Toggle({
   checked,
@@ -104,13 +110,13 @@ function Toggle({
       checked={checked}
       onCheckedChange={onCheckedChange}
       aria-label={label}
-      className={`d-f fs-0 ai-c w-8 h-4 p-0 br-9999 bw-0 c-p tp-c tdu-150 fv:oo-2 fv:oc-accent ${
+      className={`d-f fs-0 ai-c px-1 w-7 h-4 bw-0 c-p tp-c tdu-150 ttf-io fv:oo-2 fv:oc-accent ${
         checked ? "bg-accent-dim" : "bg-border"
       }`}
     >
       <Switch.Thumb
-        className={`d-b w-3 h-3 br-9999 tp-a tdu-150 ttf-io ${
-          checked ? "ml-4 bg-page" : "ml-1 bg-white/40"
+        className={`d-b w-3 h-2 tp-a tdu-150 ttf-io ${
+          checked ? "ml-2 bg-page" : "ml-0 bg-white/40"
         }`}
       />
     </Switch.Root>
