@@ -21,9 +21,20 @@ interface Props {
   prop: RegistryProp;
   value: unknown;
   onChange: (value: unknown) => void;
+  /**
+   * Nothing this prop could be set to would change the preview, because what
+   * it acts on is not there. `iconSide` with no `icon` is the case that
+   * prompted it: three states, none of them visible.
+   */
+  inert?: boolean;
 }
 
-export default function Control({ prop, value, onChange }: Props) {
+export default function Control({
+  prop,
+  value,
+  onChange,
+  inert = false,
+}: Props) {
   // An icon slot is a `ReactNode` the schema cannot spell, so the control is
   // not "which glyph" but "is there one": checked puts the schema's own
   // example in the slot, and the snippet spells it as the JSX it means.
@@ -59,10 +70,15 @@ export default function Control({ prop, value, onChange }: Props) {
               type="button"
               onClick={() => onChange(option)}
               aria-pressed={value === option}
-              className={`px-2 py-1 bg-transparent bw-1 ff-m fs-xs c-p tp-c tdu-150 fv:oo--1 fv:oc-accent ${
-                value === option
+              disabled={inert}
+              className={`px-2 py-1 bg-transparent bw-1 ff-m fs-xs tp-c tdu-150 fv:oo--1 fv:oc-accent ${
+                inert ? "bc-border c-white/20 c-na" : "c-p"
+              } ${
+                !inert && value === option
                   ? "bc-accent-dim c-accent"
-                  : "bc-border c-white/40 h:c-white/70"
+                  : inert
+                    ? ""
+                    : "bc-border c-white/40 h:c-white/70"
               }`}
             >
               {option}

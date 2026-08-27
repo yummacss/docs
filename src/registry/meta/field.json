@@ -75,7 +75,8 @@
         "trailing"
       ],
       "default": "leading",
-      "description": "Which end `icon` sits at."
+      "description": "Which end `icon` sits at.",
+      "dependsOn": "icon"
     },
     {
       "name": "iconInteractive",

@@ -1,16 +1,12 @@
 "use client";
 
-import { allUis } from "content-collections";
 import { NavArrowDown } from "iconoir-react";
-import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { usePlayground } from "@/components/playground/context";
 import Control from "@/components/playground/control";
-import Install from "@/components/playground/install";
 import PropDescription from "@/components/prop-description";
-import ApiReference from "@/components/ui/api-reference";
-import { getRegistryTarget, type RegistryProp } from "@/registry";
-import { isControllable, typeOf } from "@/utils/props";
+import type { RegistryProp } from "@/registry";
+import { isControllable, isInert, typeOf } from "@/utils/props";
 
 /**
  * The component's props, as controls.
@@ -27,13 +23,7 @@ import { isControllable, typeOf } from "@/utils/props";
  */
 export default function PlaygroundRail() {
   const playground = usePlayground();
-  const pathname = usePathname();
   const [open, setOpen] = useState<string | null>(null);
-
-  const slug = (pathname || "")
-    .replace(/^\/ui\/components\//, "")
-    .replace(/\/$/, "");
-  const currentUI = allUis.find((ui) => ui._meta.path === slug);
 
   const meta = playground?.meta;
   const controllable = meta?.props.filter(isControllable) ?? [];
@@ -50,10 +40,6 @@ export default function PlaygroundRail() {
     <aside className="bc-border btw-1 @lg:btw-0 @lg:blw-1 @lg:gc-s-3">
       <div className="playground-rail">
         <div className="pt-8 px-6 pb-12 @lg:pt-0">
-          {playground && (
-            <Install id={getRegistryTarget(playground.id).install} />
-          )}
-
           <div className="d-f ai-c jc-sb g-2 mb-3">
             <h3 className="c-silver-8 fs-xs fw-600 ls-2 tt-u">Component API</h3>
             {playground?.dirty && (
@@ -73,11 +59,13 @@ export default function PlaygroundRail() {
               prop={prop}
               open={open === prop.name}
               onToggle={() => toggle(prop.name)}
+              inert={isInert(prop, playground?.values ?? {})}
             >
               <Control
                 prop={prop}
                 value={playground?.values[prop.name]}
                 onChange={(value) => playground?.setValue(prop.name, value)}
+                inert={isInert(prop, playground?.values ?? {})}
               />
             </Row>
           ))}
@@ -103,15 +91,6 @@ export default function PlaygroundRail() {
               ))}
             </>
           )}
-
-          {/* The primitive underneath, which is what you want the moment you
-              edit the file you copied. Every component page sets `primitive`,
-              so this rail is exactly where it belongs. */}
-          {currentUI?.primitive && (
-            <div className="mt-8 pt-8 bc-border btw-1">
-              <ApiReference primitive={currentUI.primitive} />
-            </div>
-          )}
         </div>
       </div>
     </aside>
@@ -129,14 +108,21 @@ function Row({
   prop,
   open,
   onToggle,
+  inert = false,
   children,
 }: {
   prop: RegistryProp;
   open: boolean;
   onToggle: () => void;
+  /** Dimmed, because nothing it could be set to would change the preview. */
+  inert?: boolean;
   children: React.ReactNode;
 }) {
-  const name = <code className="c-code fs-xs ff-m">{prop.name}</code>;
+  const name = (
+    <code className={`fs-xs ff-m ${inert ? "c-white/25" : "c-code"}`}>
+      {prop.name}
+    </code>
+  );
 
   return (
     <div className="py-2 bc-border bbw-1">

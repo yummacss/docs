@@ -2,8 +2,8 @@
 
 import { Button } from "@base-ui/react";
 import { useState } from "react";
-import { CopyButton, TitleBar } from "@/components/ui/code";
-import { TOKEN_COLORS, type Token, tokensToText } from "@/utils/snippet";
+import { TitleBar } from "@/components/ui/code";
+import { TOKEN_COLORS, type Token } from "@/utils/snippet";
 
 /**
  * A hand-highlighted block, framed like `Code` down to the copy button's
@@ -27,29 +27,14 @@ export default function TokenBlock({
   /** Which file this belongs in. Same bar `Code` renders, for the same reason. */
   title?: string;
 }) {
-  const [copied, setCopied] = useState(false);
-
-  const copy = async () => {
-    // A denied clipboard permission rejects, and an unhandled rejection here
-    // would take the confirmation down with it rather than just the copy.
-    try {
-      await navigator.clipboard.writeText(tokensToText(tokens));
-    } catch {
-      return;
-    }
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
   return (
     <div className={`bg-surface ${className}`}>
       <TitleBar title={title} />
-      {/* `p-r` moved off the outer element so the copy button anchors to the
-          code, not to the title bar above it - the same nesting `Code` uses. */}
-      <div className="p-r">
-        <div className="p-a t-2 r-2">
-          <CopyButton copied={copied} onCopy={copy} />
-        </div>
+      {/* No copy button. This snippet is what the component looks like once it
+          is in your project, and the thing that puts it there is the install
+          command: pasting this first only buys an import of a file that does
+          not exist yet. Install is one action, at the top of the page. */}
+      <div>
         {/* Attributes sit on the element's own line now, so a component with
             several changed props makes a long one. Wrapping keeps all of it
             visible; a horizontal scrollbar would hide the closing tag. */}

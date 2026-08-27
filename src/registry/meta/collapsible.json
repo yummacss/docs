@@ -59,7 +59,8 @@
         "trailing"
       ],
       "default": "trailing",
-      "description": "Which end of the trigger the icon sits at."
+      "description": "Which end of the trigger the icon sits at.",
+      "dependsOn": "icon"
     },
     {
       "name": "animate",

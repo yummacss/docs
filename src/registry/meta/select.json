@@ -111,7 +111,8 @@
         "trailing"
       ],
       "default": "leading",
-      "description": "Which side `icon` sits on. Trailing sits just before the chevron."
+      "description": "Which side `icon` sits on. Trailing sits just before the chevron.",
+      "dependsOn": "icon"
     },
     {
       "name": "disabled",
