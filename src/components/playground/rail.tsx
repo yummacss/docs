@@ -60,7 +60,7 @@ export default function PlaygroundRail() {
               ) : (
                 // The type stands where the widget would. A callback or a
                 // string has no value a reader could usefully pick here.
-                <code className="fs-0 c-white/25 fs-xs ff-m">
+                <code className="fs-0 c-white/50 fs-xs ff-m">
                   {typeOf(prop)}
                 </code>
               )}
@@ -106,7 +106,7 @@ function Row({
             <NavArrowDown
               aria-hidden
               className={`fs-0 w-3 h-3 tp-c tdu-150 ${
-                open ? "ro-36 c-accent" : "c-white/25"
+                open ? "ro-36 c-accent" : "c-white/40"
               }`}
             />
           </button>

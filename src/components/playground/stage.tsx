@@ -47,9 +47,12 @@ export default function ComponentPlayground() {
 
   return (
     <div className="mb-8 bc-border bw-1">
-      {/* Tall enough that a modal opening inside the frame is not clipped by
-          it. The frame grows past this whenever the component is taller. */}
-      <PreviewFrame minHeight={384}>
+      {/* The stage takes whatever the viewport leaves once the header, the
+          snippet & the page's own padding are accounted for, rather than a
+          fixed 24rem that left dead space under the code block on anything
+          taller than a laptop. The floor keeps a modal from being clipped on
+          a short screen. */}
+      <PreviewFrame minHeight="max(24rem, calc(100dvh - 22rem))">
         <Suspense fallback={null}>
           <Mounted
             Component={Component}

@@ -95,8 +95,12 @@ export function usePreviewContainer() {
 
 interface Props {
   children: ReactNode;
-  /** Room for the component before its own height is known. */
-  minHeight?: number;
+  /**
+   * Room for the component before its own height is known, and the floor it
+   * keeps afterwards. A CSS length rather than a number so the stage can ask
+   * for whatever the viewport leaves it.
+   */
+  minHeight?: number | string;
   className?: string;
 }
 
@@ -111,7 +115,10 @@ export default function PreviewFrame({
   // reader has scrolled to the second one is the cost this avoids.
   const [near, setNear] = useState(false);
   const [body, setBody] = useState<HTMLElement | null>(null);
-  const [height, setHeight] = useState(minHeight);
+  // What the content measures. The floor is applied as `min-height` in CSS,
+  // which is what lets it be a `calc()` the browser resolves rather than a
+  // number this component would have to work out for itself.
+  const [height, setHeight] = useState(0);
 
   useEffect(() => {
     const element = holder.current;
@@ -169,14 +176,13 @@ export default function PreviewFrame({
   useEffect(() => {
     if (!body) return;
 
-    const measure = () =>
-      setHeight(Math.max(minHeight, Math.ceil(body.scrollHeight)));
+    const measure = () => setHeight(Math.ceil(body.scrollHeight));
 
     measure();
     const observer = new ResizeObserver(measure);
     observer.observe(body);
     return () => observer.disconnect();
-  }, [body, minHeight]);
+  }, [body]);
 
   return (
     <div ref={holder} className={className} style={{ minHeight }}>
@@ -187,7 +193,7 @@ export default function PreviewFrame({
           // No `src`: the document is built here rather than fetched, which is
           // what keeps a frame cheaper than a page.
           className="d-b w-100% bw-0"
-          style={{ height }}
+          style={{ height, minHeight }}
         />
       )}
       {/* Outside the element, not between its tags: the portal renders into
