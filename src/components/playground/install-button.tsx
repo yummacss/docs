@@ -3,6 +3,7 @@
 import { Menu } from "@base-ui/react/menu";
 import { Check, Download, NavArrowDown } from "iconoir-react";
 import { useState } from "react";
+import { NPM, Pnpm } from "@/components/icons/icons";
 
 /**
  * The install command, next to the pagination arrows.
@@ -14,8 +15,8 @@ import { useState } from "react";
  * rather than taking a block of the rail.
  */
 const MANAGERS = {
-  pnpm: (id: string) => `pnpm dlx yummaui add ${id}`,
-  npm: (id: string) => `npx yummaui add ${id}`,
+  pnpm: { command: (id: string) => `pnpm dlx yummaui add ${id}`, Mark: Pnpm },
+  npm: { command: (id: string) => `npx yummaui add ${id}`, Mark: NPM },
 };
 
 type Manager = keyof typeof MANAGERS;
@@ -25,7 +26,7 @@ export default function InstallButton({ id }: { id: string }) {
 
   const copy = async (manager: Manager) => {
     try {
-      await navigator.clipboard.writeText(MANAGERS[manager](id));
+      await navigator.clipboard.writeText(MANAGERS[manager].command(id));
     } catch {
       return;
     }
@@ -49,23 +50,26 @@ export default function InstallButton({ id }: { id: string }) {
       </Menu.Trigger>
       <Menu.Portal>
         <Menu.Positioner sideOffset={6} align="end" className="zi-50">
+          {/* Each manager's own mark, and its name. The command itself used
+              to be spelled out here & three of its four words were the same
+              on both lines, which is a lot of text for a menu whose whole job
+              is "which one". */}
           <Menu.Popup className="p-1 bc-border bg-surface bw-1">
-            {/* Says what clicking an item does, and names the component, so
-                "install what" is answered before it is asked. */}
-            <p className="px-3 pt-1 pb-2 c-white/50 fs-xs">
-              Copy the command for <code className="c-code ff-m">{id}</code>
-            </p>
             {(Object.keys(MANAGERS) as Manager[]).map((manager) => (
               <Menu.Item
                 key={manager}
                 onClick={() => copy(manager)}
                 className={(state) =>
-                  `d-b px-3 py-2 ff-m fs-xs c-p us-none ws-nw ${
+                  `d-f ai-c g-2 px-3 py-2 ff-m fs-xs c-p us-none ws-nw ${
                     state.highlighted ? "bg-border c-white" : "c-white/70"
                   }`
                 }
               >
-                {MANAGERS[manager](id)}
+                {(() => {
+                  const { Mark } = MANAGERS[manager];
+                  return <Mark className="fs-0 w-4 h-4" />;
+                })()}
+                {manager}
               </Menu.Item>
             ))}
           </Menu.Popup>
