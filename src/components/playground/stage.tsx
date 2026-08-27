@@ -3,9 +3,7 @@
 import type { ComponentType } from "react";
 import { lazy, Suspense, useMemo } from "react";
 import { usePlayground } from "@/components/playground/context";
-import PreviewFrame, {
-  usePreviewContainer,
-} from "@/components/preview-frame";
+import PreviewFrame, { usePreviewContainer } from "@/components/preview-frame";
 import TokenBlock from "@/components/ui/token-block";
 import { getRegistryImport, getRegistryTarget } from "@/registry";
 import { type DemoProps, resolveIcons } from "@/utils/demo";

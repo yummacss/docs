@@ -103,6 +103,11 @@ export interface RegistryProp {
    * bundler can still shake the icon set.
    */
   exampleIcon?: string;
+  /**
+   * A prop this one has no effect without. iconSide moves an icon that may not
+   * be there, so the playground dims it until icon is set.
+   */
+  dependsOn?: string;
   description?: string;
 }
 

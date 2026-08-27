@@ -5,7 +5,6 @@ import { allUis } from "content-collections";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import ApiReference from "@/components/ui/api-reference";
 import ChangelogLink from "@/components/ui/changelog-link";
 import EditPage from "@/components/ui/edit-page";
 import RssLink from "@/components/ui/rss-link";
@@ -84,10 +83,6 @@ export default function TableOfContents() {
               <>
                 <EditPage />
                 <ViewMarkdown />
-                <Separator />
-                {currentUI?.primitive && (
-                  <ApiReference primitive={currentUI.primitive} />
-                )}
               </>
             )}
           </div>
