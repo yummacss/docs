@@ -64,6 +64,8 @@
       "name": "icon",
       "type": "none",
       "typeName": "ReactNode",
+      "example": null,
+      "exampleIcon": "Check",
       "description": "Any icon. The slot is sized to the badge and the color is inherited, but a glyph that carries its own width and height keeps them - pass it at the badge's icon size (`w-3 h-3` on `sm` and `md`, `w-4 h-4` on `lg`)."
     },
     {

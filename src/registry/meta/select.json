@@ -101,6 +101,8 @@
       "name": "icon",
       "type": "none",
       "typeName": "ReactNode",
+      "example": null,
+      "exampleIcon": "Folder",
       "description": "A single icon fixed on the trigger, not per option - for the per-option kind, give an option an `avatar` instead."
     },
     {
