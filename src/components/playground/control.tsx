@@ -1,13 +1,10 @@
 "use client";
 
-import { Button } from "@base-ui/react";
 import { Select } from "@base-ui/react/select";
+import { Switch } from "@base-ui/react/switch";
 import { NavArrowDown } from "iconoir-react";
 import type { RegistryProp } from "@/registry";
-import SwitchBase from "@/registry/ui/switch";
 import { exampleIcon } from "@/utils/demo";
-
-const SEGMENT_LIMIT = 3;
 
 interface Props {
   prop: RegistryProp;
@@ -15,56 +12,38 @@ interface Props {
   onChange: (value: unknown) => void;
 }
 
-/** Widget for one controllable prop (enum, boolean, or icon slot). */
+/**
+ * Widget for one controllable prop (enum, boolean, or icon slot).
+ *
+ * Every enum is a select, however few values it has. Segments laid each option
+ * out across a rail three columns wide, so `shape` with four ate a line that
+ * `size` with three had already crowded. A select is the same width whatever
+ * the enum holds, which is what lets a column of fifteen share a right edge.
+ */
 export default function Control({ prop, value, onChange }: Props) {
   if (prop.exampleIcon) {
     return (
-      <SwitchBase
+      <Toggle
         checked={value !== undefined && value !== null}
         onCheckedChange={(next) =>
           onChange(next ? exampleIcon(prop.exampleIcon ?? "") : undefined)
         }
-        ariaLabel={prop.name}
-        shape="square"
-        size="sm"
+        label={prop.name}
       />
     );
   }
 
   if (prop.type === "boolean") {
     return (
-      <SwitchBase
+      <Toggle
         checked={Boolean(value)}
         onCheckedChange={onChange}
-        ariaLabel={prop.name}
-        shape="square"
-        size="sm"
+        label={prop.name}
       />
     );
   }
 
   if (prop.type === "enum" && prop.values) {
-    if (prop.values.length <= SEGMENT_LIMIT) {
-      return (
-        <div className="d-f fs-0 g-1">
-          {prop.values.map((option) => (
-            <Button
-              key={option}
-              onClick={() => onChange(option)}
-              aria-pressed={value === option}
-              className={`px-2 py-1 bg-transparent bw-1 ff-m fs-xs c-p tp-c tdu-150 fv:oo--1 fv:oc-accent ${
-                value === option
-                  ? "bc-accent-dim c-accent"
-                  : "bc-border c-accent-dim h:c-accent-dim"
-              }`}
-            >
-              {option}
-            </Button>
-          ))}
-        </div>
-      );
-    }
-
     return (
       <Select.Root
         value={typeof value === "string" ? value : null}
@@ -101,4 +80,40 @@ export default function Control({ prop, value, onChange }: Props) {
   }
 
   return null;
+}
+
+/**
+ * A switch in the docs palette.
+ *
+ * The geometry is Yumma UI's own switch at `sm` - a `px-1` track, a thumb that
+ * travels `ml-0` to `ml-2` - because that is the part worth borrowing. Its
+ * colours are not: `bg-indigo` on a white track is the library's look, and in
+ * the rail it read as a saturated blue stripe with a thumb you could barely
+ * find. These are the page's own accent and border.
+ */
+function Toggle({
+  checked,
+  onCheckedChange,
+  label,
+}: {
+  checked: boolean;
+  onCheckedChange: (checked: boolean) => void;
+  label: string;
+}) {
+  return (
+    <Switch.Root
+      checked={checked}
+      onCheckedChange={onCheckedChange}
+      aria-label={label}
+      className={`d-f fs-0 ai-c px-1 w-7 h-4 bw-0 c-p tp-c tdu-150 ttf-io fv:oo-2 fv:oc-accent ${
+        checked ? "bg-accent-dim" : "bg-border"
+      }`}
+    >
+      <Switch.Thumb
+        className={`d-b w-3 h-2 tp-a tdu-150 ttf-io ${
+          checked ? "ml-2 bg-page" : "ml-0 bg-white/40"
+        }`}
+      />
+    </Switch.Root>
+  );
 }

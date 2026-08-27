@@ -57,7 +57,6 @@ export default function TokenBlock({
 
   const action: ReactNode = installId ? (
     <div className="d-f ai-c g-1">
-      <Install id={installId} />
       {primitiveSlug && (
         <Link
           href={`https://base-ui.com/react/components/${primitiveSlug}`}
