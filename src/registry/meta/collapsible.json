@@ -34,30 +34,21 @@
     {
       "name": "shape",
       "type": "enum",
-      "values": [
-        "square",
-        "squircle"
-      ],
+      "values": ["square", "squircle"],
       "default": "square",
       "description": "Corner radius on the trigger. `square` (no radius) is the plain default here - no rounded variant exists, since none was ever shown for this component."
     },
     {
       "name": "icon",
       "type": "enum",
-      "values": [
-        "chevron",
-        "plus-minus"
-      ],
+      "values": ["chevron", "plus-minus"],
       "default": "chevron",
       "description": "`chevron` rotates one glyph 90\u00b0. `plus-minus` swaps between two glyphs with the same rotation flourish."
     },
     {
       "name": "iconPosition",
       "type": "enum",
-      "values": [
-        "leading",
-        "trailing"
-      ],
+      "values": ["leading", "trailing"],
       "default": "trailing",
       "description": "Which end of the trigger the icon sits at.",
       "dependsOn": "icon"

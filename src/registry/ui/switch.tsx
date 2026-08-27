@@ -39,6 +39,7 @@ export interface SwitchProps {
   disabled?: boolean;
   animate?: boolean;
   className?: string;
+  ariaLabel?: string;
 }
 
 export default function SwitchBase({
@@ -53,6 +54,7 @@ export default function SwitchBase({
   disabled = false,
   animate = true,
   className,
+  ariaLabel,
 }: SwitchProps) {
   const [internalChecked, setInternalChecked] = useState(
     defaultChecked ?? controlledChecked ?? false,
@@ -91,6 +93,7 @@ export default function SwitchBase({
           id={id}
           checked={checked}
           onCheckedChange={handleChange}
+          aria-label={ariaLabel}
           className={trackClasses}
         >
           {icon && checked && (

@@ -37,9 +37,6 @@ export default function SidebarNav({ sections, basePath, links }: Props) {
   return (
     <aside className="d-none @lg:d-b @lg:gc-s-3">
       <div
-        // 146 links come to roughly 5.7 screens in this window, so the nav is
-        // its own scroll region. `ob-c` keeps reaching its end from scrolling
-        // the page underneath it.
         className="d-f p-st t-20 oy-auto ob-c fd-c g-8 pb-12"
         style={{ maxHeight: "calc(100dvh - 5rem)" }}
       >

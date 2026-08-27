@@ -33,11 +33,6 @@ const ui = defineCollection({
     title: z.string(),
     description: z.string().optional(),
     primitive: z.union([z.boolean(), z.string()]).optional(),
-    // Whether the page drives its component from the controls in the right
-    // rail instead of listing a props table. Opt-in per page: the rail is
-    // wired to `<ComponentPlayground />`, so showing it beside a page that
-    // still renders a static preview would give a reader controls that do
-    // nothing.
     playground: z.boolean().optional(),
     content: z.string().optional(),
   }),
@@ -61,8 +56,6 @@ const blog = defineCollection({
     date: z.string(),
     authors: z.array(z.string()),
     cover: z.string().optional(),
-    // Drafts render in dev so they can be previewed, & are excluded from
-    // every production surface. See SHOW_DRAFTS in src/utils/blog.ts.
     draft: z.boolean().optional(),
     content: z.string(),
   }),

@@ -8,20 +8,7 @@ import Sidebar from "@/components/ui/sidebar";
 import TableOfContents from "@/components/ui/toc";
 import { registryMeta } from "@/registry";
 
-/**
- * The Yumma UI grid, and which of two things fills its third column.
- *
- * A component page spends that column on the component's controls; the prose
- * pages under the same route - installation, customization - keep their table
- * of contents. Deciding here rather than in the layout is not a preference:
- * layouts do not re-render on navigation, so a server layout reading the route
- * would still be showing the previous page's answer.
- *
- * A page counts as a component page when it opts in with `playground: true`
- * and the registry has a schema under its slug. The flag is not redundant: 35
- * of the 36 schemas still render a static preview, and a rail beside one of
- * those would be a set of controls that move nothing.
- */
+/** UI layout grid; third column is playground rail or TOC per route. */
 export default function UIShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const slug = (pathname || "")

@@ -39,23 +39,14 @@
     {
       "name": "color",
       "type": "enum",
-      "values": [
-        "yellow",
-        "indigo",
-        "red",
-        "green"
-      ],
+      "values": ["yellow", "indigo", "red", "green"],
       "default": "yellow",
       "description": "The indicator's fill color."
     },
     {
       "name": "shadow",
       "type": "enum",
-      "values": [
-        "none",
-        "inset",
-        "outset"
-      ],
+      "values": ["none", "inset", "outset"],
       "default": "none",
       "description": "Wraps the meter in a padded card. `none` renders it bare, with no card at all."
     },

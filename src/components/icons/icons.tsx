@@ -144,25 +144,6 @@ const BaseUI = (props: SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-const NPM = (props: SVGProps<SVGSVGElement>) => (
-  <svg {...props} viewBox="0 0 2500 2500" aria-label="npm">
-    <path fill="#c00" d="M0 0h2500v2500H0z" />
-    <path
-      fill="#fff"
-      d="M1241.5 268.5h-973v1962.9h972.9V763.5h495v1467.9h495V268.5z"
-    />
-  </svg>
-);
-
-const Pnpm = (props: SVGProps<SVGSVGElement>) => (
-  <svg {...props} viewBox="77.59 45 160 160" aria-label="pnpm">
-    <path fill="#f9ad00" d="M187.6 45h50v50h-50zM132.59 45h50v50h-50z" />
-    <path fill="#f9ad00" d="M77.59 45h50v50h-50zM187.6 100h50v50h-50z" />
-    <path fill="#fff" d="M132.59 100h50v50h-50zM132.59 155h50v50h-50z" />
-    <path fill="#fff" d="M187.6 155h50v50h-50zM77.59 155h50v50h-50z" />
-  </svg>
-);
-
 const Windsurf = (props: SVGProps<SVGSVGElement>) => (
   <svg {...props} viewBox="0 0 1024 1024" fill="none">
     <path
@@ -172,4 +153,4 @@ const Windsurf = (props: SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-export { BaseUI, Cursor, NPM, Pnpm, VisualStudioCode, Windsurf, Zed };
+export { BaseUI, Cursor, VisualStudioCode, Windsurf, Zed };

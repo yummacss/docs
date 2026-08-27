@@ -55,7 +55,7 @@ export interface ButtonProps extends ComponentProps<typeof Button> {
   icon?: ReactNode;
   iconSide?: IconSide;
   iconOnly?: boolean;
-  animate?: boolean;
+  transition?: boolean;
   children?: ReactNode;
 }
 
@@ -68,7 +68,7 @@ export default function ButtonBase({
   icon,
   iconSide = "leading",
   iconOnly = false,
-  animate = true,
+  transition = true,
   disabled,
   className,
   children,
@@ -78,7 +78,7 @@ export default function ButtonBase({
 
   const classes = [
     BASE,
-    animate ? MOTION : "",
+    transition ? MOTION : "",
     VARIANTS[variant],
     iconOnly ? ICON_ONLY[size] : SIZES[size],
     SHAPES[shape],

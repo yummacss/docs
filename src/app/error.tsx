@@ -7,8 +7,6 @@ type Props = ErrorInfo & {
 };
 
 export default function ErrorPage({ error }: Props) {
-  // `error` is `unknown` on ErrorInfo, so a thrown non-Error value (a string,
-  // a plain object) has to fall through to no message rather than a crash here.
   const message = error instanceof Error ? error.message : undefined;
 
   return (

@@ -50,11 +50,7 @@
     {
       "name": "shadow",
       "type": "enum",
-      "values": [
-        "none",
-        "inset",
-        "outset"
-      ],
+      "values": ["none", "inset", "outset"],
       "default": "none",
       "description": "Depth on each star, which becomes a bordered chip. There is no surrounding card - this is what both shadow demos did."
     },
