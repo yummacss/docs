@@ -27,19 +27,3 @@ export function isControllable(prop: RegistryProp): boolean {
   if (prop.exampleIcon) return true;
   return prop.type === "enum" || prop.type === "boolean";
 }
-
-/**
- * Whether this prop does anything given what is currently set.
- *
- * `iconSide` moves an icon that may not be there. Leaving it live is an
- * invitation to click something that cannot change the preview, so the schema
- * names what a prop needs and the rail dims it until that is filled.
- */
-export function isInert(
-  prop: RegistryProp,
-  values: Record<string, unknown>,
-): boolean {
-  if (!prop.dependsOn) return false;
-  const on = values[prop.dependsOn];
-  return on === undefined || on === null || on === false || on === "";
-}
