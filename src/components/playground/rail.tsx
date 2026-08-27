@@ -50,7 +50,7 @@ export default function PlaygroundRail() {
                   onChange={(value) => playground?.setValue(prop.name, value)}
                 />
               ) : (
-                <code className="fs-0 c-white/25 fs-xs ff-m">
+                <code className="fs-0 c-white/70 fs-xs ff-m">
                   {typeOf(prop)}
                 </code>
               )}

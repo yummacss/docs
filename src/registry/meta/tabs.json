@@ -40,43 +40,28 @@
     {
       "name": "orientation",
       "type": "enum",
-      "values": [
-        "horizontal",
-        "vertical"
-      ],
+      "values": ["horizontal", "vertical"],
       "default": "horizontal",
       "description": "`vertical` stacks the tabs and sits any panels beside them rather than below."
     },
     {
       "name": "size",
       "type": "enum",
-      "values": [
-        "sm",
-        "md",
-        "lg"
-      ],
+      "values": ["sm", "md", "lg"],
       "default": "md",
       "description": "Tab padding and label size together."
     },
     {
       "name": "shape",
       "type": "enum",
-      "values": [
-        "pill",
-        "rounded",
-        "square",
-        "squircle"
-      ],
+      "values": ["pill", "rounded", "square", "squircle"],
       "default": "pill",
       "description": "Corner radius on the list, the tabs and the indicator. The list takes one step more than the tabs inside it, so a tab's corner never pokes past the container's."
     },
     {
       "name": "iconPosition",
       "type": "enum",
-      "values": [
-        "leading",
-        "trailing"
-      ],
+      "values": ["leading", "trailing"],
       "default": "leading",
       "description": "Which end of a tab its `icon` sits at. Ignored when `iconOnly` is set."
     },

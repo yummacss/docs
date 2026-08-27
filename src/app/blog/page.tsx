@@ -33,10 +33,6 @@ export default async function BlogPage() {
   const years = Array.from(postsByYear.keys()).sort((a, b) => b - a);
 
   return (
-    // The grid comes from the layout. Docs & UI give columns 1-3 to a sidebar;
-    // the blog has none, so the listing spans 1-9 rather than leaving that
-    // space empty. The TOC auto-places into 10-12 after it. That is ~724px of
-    // content at 1280 instead of the 472px a docs page gets.
     <>
       <div className="mb-16 pt-12 @lg:gc-s-9">
         {/* `ff-e` is explicit: Esteban only applies inside <article> or via the

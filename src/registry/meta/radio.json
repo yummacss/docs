@@ -47,43 +47,28 @@
     {
       "name": "size",
       "type": "enum",
-      "values": [
-        "sm",
-        "md",
-        "lg"
-      ],
+      "values": ["sm", "md", "lg"],
       "default": "md",
       "description": "The circle, the dot and the label together."
     },
     {
       "name": "shape",
       "type": "enum",
-      "values": [
-        "rounded",
-        "square",
-        "squircle"
-      ],
+      "values": ["rounded", "square", "squircle"],
       "default": "rounded",
       "description": "Corner radius. `squircle` uses `corner-shape`, which degrades to a rounded square where that is unsupported."
     },
     {
       "name": "shadow",
       "type": "enum",
-      "values": [
-        "none",
-        "inset",
-        "outset"
-      ],
+      "values": ["none", "inset", "outset"],
       "default": "none",
       "description": "Depth on an unselected circle. A selected one is already a solid fill, so it does not carry the shadow - stacking one on top muddies the colour."
     },
     {
       "name": "iconSide",
       "type": "enum",
-      "values": [
-        "leading",
-        "trailing"
-      ],
+      "values": ["leading", "trailing"],
       "default": "leading",
       "description": "Which side each option's `icon` sits on, when it has one."
     },

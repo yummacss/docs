@@ -27,34 +27,21 @@
     {
       "name": "variant",
       "type": "enum",
-      "values": [
-        "default",
-        "bordered",
-        "ghost",
-        "subtle"
-      ],
+      "values": ["default", "bordered", "ghost", "subtle"],
       "default": "default",
       "description": "`default` is a plain list divided by `separator`. `bordered` boxes each item. `ghost` marks the open item with a left border. `subtle` fills the open item's background."
     },
     {
       "name": "shape",
       "type": "enum",
-      "values": [
-        "rounded",
-        "square",
-        "squircle"
-      ],
+      "values": ["rounded", "square", "squircle"],
       "default": "rounded",
       "description": "Corner radius on `bordered` items. The other variants use a fixed radius, since no shape was ever paired with them."
     },
     {
       "name": "shadow",
       "type": "enum",
-      "values": [
-        "none",
-        "inset",
-        "outset"
-      ],
+      "values": ["none", "inset", "outset"],
       "default": "none",
       "description": "Wraps the whole list in a card. Only applies to the `default` variant."
     },
@@ -67,20 +54,14 @@
     {
       "name": "icon",
       "type": "enum",
-      "values": [
-        "chevron",
-        "plus-minus"
-      ],
+      "values": ["chevron", "plus-minus"],
       "default": "chevron",
       "description": "`chevron` rotates one glyph 180\u00b0. `plus-minus` swaps between two glyphs with a small rotation flourish."
     },
     {
       "name": "iconPosition",
       "type": "enum",
-      "values": [
-        "leading",
-        "trailing"
-      ],
+      "values": ["leading", "trailing"],
       "default": "trailing",
       "description": "Which end of the trigger the icon sits at."
     },
@@ -94,9 +75,7 @@
       "name": "defaultValue",
       "type": "none",
       "typeName": "string[]",
-      "example": [
-        "notifications"
-      ],
+      "example": ["notifications"],
       "description": "Which items start open, by `value`. Pair `value` with `onValueChange` instead if you are controlling it."
     },
     {

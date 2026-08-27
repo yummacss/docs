@@ -23,8 +23,6 @@ const uiLines = uiIds
   .map((id) => `  "${id}": () => import("./ui/${id}"),`)
   .join("\n");
 
-// Only components with a declared prop API have a meta file, so this map is
-// short & its absence is how a page knows to fall back to a static preview.
 const metaDir = join(cwd, "src/registry/meta");
 const metaIds = existsSync(metaDir)
   ? readdirSync(metaDir)
@@ -36,17 +34,13 @@ const metaLines = metaIds
   .map((id) => `  "${id}": () => import("./meta/${id}.json"),`)
   .join("\n");
 
-// What `yummaui add` actually addresses. The id is how registry files are keyed;
-// the CLI takes the component by name & the variant as a flag, so the docs need
-// the split to print a command that runs.
 const slugs = componentSlugs(contentDir);
 const targetLines = uiIds
   .map((id) => {
     const { component, variant } = splitId(id, slugs);
     const kind =
       variant === "base" ? "component" : isBlock(id) ? "block" : "example";
-    // A block installs under its own id; everything else installs the
-    // component, because an example is a prop you pass, not a file you copy.
+
     const install = kind === "block" ? id : component;
     return `  "${id}": { component: "${component}", variant: "${variant}", kind: "${kind}", install: "${install}" },`;
   })

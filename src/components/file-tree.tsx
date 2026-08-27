@@ -42,8 +42,7 @@ function Label({ entry, isFolder }: { entry: Entry; isFolder: boolean }) {
 
 function Node({ entry }: { entry: Entry }) {
   const hasChildren = Boolean(entry.children?.length);
-  // Held here only so the chevron can mirror the panel. Collapsible still
-  // owns the trigger/panel wiring & the hidden state.
+
   const [open, setOpen] = useState(!entry.collapsed);
   const isFolder = entry.folder || hasChildren;
   const tone = entry.highlight ? "c-accent" : "c-white/80";

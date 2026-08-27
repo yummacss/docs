@@ -57,8 +57,6 @@ export default async function BlogPostPage({
   const author = post?.authors?.[0] ? getAuthor(post.authors[0]) : undefined;
 
   return (
-    // The grid now comes from the layout, as it does for docs & UI. `py-8`
-    // moves onto the article so the rendered geometry is unchanged.
     <>
       <article className="py-8 @lg:gc-s-8">
         <header className="mb-12">
@@ -133,8 +131,6 @@ export default async function BlogPostPage({
 }
 
 export function generateStaticParams() {
-  // Combined with `dynamicParams = false` below, omitting drafts here makes a
-  // draft slug a 404 in production instead of being rendered on demand.
   return allBlogs.filter(isVisible).map((post) => ({ slug: post._meta.path }));
 }
 
