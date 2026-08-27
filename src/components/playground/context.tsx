@@ -10,7 +10,7 @@ import {
   useState,
 } from "react";
 import { getRegistryMeta, type RegistryMeta } from "@/registry";
-import { type DemoProps, seedValues } from "@/utils/demo";
+import { type DemoProps, exampleIcon, seedValues } from "@/utils/demo";
 
 /**
  * One playground per page, owned by the route.
@@ -62,9 +62,28 @@ export function PlaygroundProvider({
     };
   }, [id]);
 
-  const setValue = useCallback((name: string, value: unknown) => {
-    setValues((current) => ({ ...current, [name]: value }));
-  }, []);
+  const setValue = useCallback(
+    (name: string, value: unknown) => {
+      const prop = meta?.props.find((entry) => entry.name === name);
+      const needs = prop?.dependsOn
+        ? meta?.props.find((entry) => entry.name === prop.dependsOn)
+        : undefined;
+
+      setValues((current) => {
+        const next = { ...current, [name]: value };
+
+        // `iconSide` moves an icon. Rather than sit disabled until one is
+        // switched on, picking a side puts the icon there: the control does
+        // what it says instead of explaining why it cannot.
+        if (needs?.exampleIcon && !current[needs.name]) {
+          next[needs.name] = exampleIcon(needs.exampleIcon);
+        }
+
+        return next;
+      });
+    },
+    [meta],
+  );
 
   // Navigating away & back reseeds from the schema, which is the only reset
   // anyone needs: the page is a thing you poke, not a form you fill in.

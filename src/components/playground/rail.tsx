@@ -6,7 +6,7 @@ import { usePlayground } from "@/components/playground/context";
 import Control from "@/components/playground/control";
 import PropDescription from "@/components/prop-description";
 import type { RegistryProp } from "@/registry";
-import { isControllable, isInert, typeOf } from "@/utils/props";
+import { isControllable, typeOf } from "@/utils/props";
 
 /**
  * The component's props, as controls.
@@ -16,18 +16,18 @@ import { isControllable, isInert, typeOf } from "@/utils/props";
  * be the same information twice. Only the description is left over, and it
  * opens on the row rather than in a second column.
  *
- * Every prop gets a row, including the ones no control can represent: a
- * callback or a `ReactNode` slot is still part of the API, and listing only
- * what happens to be controllable would quietly undocument 80 of the library's
- * 406 props.
+ * One list, in the order the schema declares. Every prop gets a row; the ones
+ * no control can represent - a callback, a slot, a string - show their type
+ * where the widget would be and are read only. Splitting those into a second
+ * section described the tooling rather than the component, and put `icon` and
+ * `label` in different halves of the rail for no reason a reader would
+ * recognize.
  */
 export default function PlaygroundRail() {
   const playground = usePlayground();
   const [open, setOpen] = useState<string | null>(null);
 
-  const meta = playground?.meta;
-  const controllable = meta?.props.filter(isControllable) ?? [];
-  const fixed = meta?.props.filter((prop) => !isControllable(prop)) ?? [];
+  const props = playground?.meta?.props ?? [];
 
   const toggle = (name: string) =>
     setOpen((current) => (current === name ? null : name));
@@ -44,44 +44,28 @@ export default function PlaygroundRail() {
             Component API
           </h3>
 
-          {controllable.map((prop) => (
+          {props.map((prop) => (
             <Row
               key={prop.name}
               prop={prop}
               open={open === prop.name}
               onToggle={() => toggle(prop.name)}
-              inert={isInert(prop, playground?.values ?? {})}
             >
-              <Control
-                prop={prop}
-                value={playground?.values[prop.name]}
-                onChange={(value) => playground?.setValue(prop.name, value)}
-                inert={isInert(prop, playground?.values ?? {})}
-              />
+              {isControllable(prop) ? (
+                <Control
+                  prop={prop}
+                  value={playground?.values[prop.name]}
+                  onChange={(value) => playground?.setValue(prop.name, value)}
+                />
+              ) : (
+                // The type stands where the widget would. A callback or a
+                // string has no value a reader could usefully pick here.
+                <code className="fs-0 c-white/25 fs-xs ff-m">
+                  {typeOf(prop)}
+                </code>
+              )}
             </Row>
           ))}
-
-          {fixed.length > 0 && (
-            <>
-              <h3 className="mt-6 mb-3 c-silver-8 fs-xs fw-600 ls-2 tt-u">
-                Not Controllable
-              </h3>
-              {fixed.map((prop) => (
-                <Row
-                  key={prop.name}
-                  prop={prop}
-                  open={open === prop.name}
-                  onToggle={() => toggle(prop.name)}
-                >
-                  {/* The type stands where the widget would. A slot or a
-                      callback has no value a reader could pick. */}
-                  <code className="fs-0 c-white/25 fs-xs ff-m">
-                    {typeOf(prop)}
-                  </code>
-                </Row>
-              ))}
-            </>
-          )}
         </div>
       </div>
     </aside>
@@ -99,21 +83,14 @@ function Row({
   prop,
   open,
   onToggle,
-  inert = false,
   children,
 }: {
   prop: RegistryProp;
   open: boolean;
   onToggle: () => void;
-  /** Dimmed, because nothing it could be set to would change the preview. */
-  inert?: boolean;
   children: React.ReactNode;
 }) {
-  const name = (
-    <code className={`fs-xs ff-m ${inert ? "c-white/25" : "c-code"}`}>
-      {prop.name}
-    </code>
-  );
+  const name = <code className="c-code fs-xs ff-m">{prop.name}</code>;
 
   return (
     <div className="py-2 bc-border bbw-1">
