@@ -13,7 +13,14 @@ const MANAGERS = {
 type Manager = keyof typeof MANAGERS;
 
 /** Copies a `yummaui add` command; menu picks the package manager. */
-export default function Install({ id }: { id: string }) {
+export default function Install({
+  id,
+  prominent = false,
+}: {
+  id: string;
+  /** Framed like a page control, for the header beside the pagination arrows. */
+  prominent?: boolean;
+}) {
   const [copied, setCopied] = useState<Manager | null>(null);
 
   const copy = async (manager: Manager) => {
@@ -29,7 +36,11 @@ export default function Install({ id }: { id: string }) {
   return (
     <Menu.Root>
       <Menu.Trigger
-        className="d-f ai-c g-1 px-2 py-1 bg-transparent bw-0 c-accent fs-xs c-p h:c-accent-4 fv:oc-accent fv:ow-2"
+        className={
+          prominent
+            ? "d-f ai-c g-2 pl-3 pr-2 h-8 bc-border bg-surface a:bg-surface-7 c-accent bw-1 fs-sm c-p us-none fv:oc-white fv:oo-2"
+            : "d-f ai-c g-1 px-2 py-1 bg-transparent bw-0 c-accent fs-xs c-p h:c-accent-4 fv:oc-accent fv:ow-2"
+        }
         aria-label="Install command"
       >
         {copied ? (
