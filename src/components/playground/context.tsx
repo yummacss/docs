@@ -21,7 +21,7 @@ interface Playground {
   setValue: (name: string, value: unknown) => void;
   reset: () => void;
   /** Whether anything has been touched, so the reset control can say so. */
-    dirty: boolean;
+  dirty: boolean;
 }
 
 const PlaygroundContext = createContext<Playground | null>(null);
@@ -45,8 +45,6 @@ export function PlaygroundProvider({
   id: string;
   children: ReactNode;
 }) {
-  // Meta and values stay in one state so the stage never sees a schema
-  // without its seeded fixtures (options/items/steps).
   const [seed, setSeed] = useState<Seed>(EMPTY);
   const [dirty, setDirty] = useState(false);
 

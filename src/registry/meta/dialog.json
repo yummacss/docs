@@ -17,30 +17,21 @@
     {
       "name": "triggerIconPosition",
       "type": "enum",
-      "values": [
-        "leading",
-        "trailing"
-      ],
+      "values": ["leading", "trailing"],
       "default": "leading",
       "description": "Which end of the trigger `triggerIcon` sits at."
     },
     {
       "name": "triggerTone",
       "type": "enum",
-      "values": [
-        "neutral",
-        "danger"
-      ],
+      "values": ["neutral", "danger"],
       "default": "neutral",
       "description": "Color: `neutral` or `danger`, for a destructive confirmation."
     },
     {
       "name": "triggerSize",
       "type": "enum",
-      "values": [
-        "sm",
-        "md"
-      ],
+      "values": ["sm", "md"],
       "default": "md",
       "description": "Footprint: `md` or `sm`, for a trigger nested inside other content, like a row action."
     },
@@ -96,10 +87,7 @@
     {
       "name": "confirmTone",
       "type": "enum",
-      "values": [
-        "primary",
-        "danger"
-      ],
+      "values": ["primary", "danger"],
       "default": "primary",
       "description": "Color of the confirm button: `primary` or `danger`, for a destructive action like a delete."
     },
@@ -112,22 +100,14 @@
     {
       "name": "shape",
       "type": "enum",
-      "values": [
-        "rounded",
-        "square",
-        "squircle"
-      ],
+      "values": ["rounded", "square", "squircle"],
       "default": "rounded",
       "description": "Corner radius on the popup and its buttons."
     },
     {
       "name": "shadow",
       "type": "enum",
-      "values": [
-        "none",
-        "inset",
-        "outset"
-      ],
+      "values": ["none", "inset", "outset"],
       "default": "none",
       "description": "Depth on the popup."
     },

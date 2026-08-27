@@ -4,11 +4,7 @@
     {
       "name": "shape",
       "type": "enum",
-      "values": [
-        "line",
-        "block",
-        "circle"
-      ],
+      "values": ["line", "block", "circle"],
       "default": "line",
       "description": "Corner radius, plus a default size: `line` for text, `block` for a control or thumbnail, `circle` for an avatar. Change the size with `size`."
     },
@@ -20,10 +16,7 @@
     {
       "name": "tone",
       "type": "enum",
-      "values": [
-        "default",
-        "subtle"
-      ],
+      "values": ["default", "subtle"],
       "default": "default",
       "description": "`subtle` is one step lighter, for the secondary line in a pair."
     },

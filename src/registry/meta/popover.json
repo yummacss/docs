@@ -17,10 +17,7 @@
     {
       "name": "triggerVariant",
       "type": "enum",
-      "values": [
-        "icon",
-        "label"
-      ],
+      "values": ["icon", "label"],
       "default": "icon",
       "description": "`icon` is a fixed square for a glyph alone; `label` gives the trigger room to pair an icon with text."
     },
@@ -46,12 +43,7 @@
     {
       "name": "side",
       "type": "enum",
-      "values": [
-        "top",
-        "right",
-        "bottom",
-        "left"
-      ],
+      "values": ["top", "right", "bottom", "left"],
       "default": "bottom",
       "description": "Which side of the trigger the popup opens on. It flips automatically if there is no room."
     },
@@ -99,22 +91,14 @@
     {
       "name": "shape",
       "type": "enum",
-      "values": [
-        "rounded",
-        "square",
-        "squircle"
-      ],
+      "values": ["rounded", "square", "squircle"],
       "default": "rounded",
       "description": "Corner radius on the trigger and the popup."
     },
     {
       "name": "shadow",
       "type": "enum",
-      "values": [
-        "none",
-        "inset",
-        "outset"
-      ],
+      "values": ["none", "inset", "outset"],
       "default": "none",
       "description": "Depth on the popup."
     },

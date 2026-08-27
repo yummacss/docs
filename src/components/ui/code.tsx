@@ -28,9 +28,6 @@ export default function Code({
   const ref = useRef<HTMLDivElement>(null);
 
   const handleCopy = async () => {
-    // Prefer the original source. innerText is the fallback for the few
-    // blocks still rendered from children; it reflects rendered line breaks
-    // from block-level line spans and <br> elements, unlike textContent.
     const text = raw ?? ref.current?.querySelector("pre")?.innerText ?? "";
     await navigator.clipboard.writeText(text);
     setCopied(true);
@@ -51,9 +48,6 @@ export default function Code({
 
   if (preview) {
     return (
-      // The title sits outside the scroll box on purpose: which file you are
-      // reading has to stay put while the source scrolls under it, and these
-      // blocks are capped at max-h-80 precisely because they are long.
       <div ref={ref} className="bg-surface">
         <TitleBar title={title} action={copyAction} />
         <div className="oy-auto max-h-80">

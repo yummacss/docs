@@ -58,22 +58,14 @@
     {
       "name": "shape",
       "type": "enum",
-      "values": [
-        "rounded",
-        "square",
-        "squircle"
-      ],
+      "values": ["rounded", "square", "squircle"],
       "default": "rounded",
       "description": "Corner radius, applied to the track, the indicator and the thumb together. `squircle` uses `corner-shape`."
     },
     {
       "name": "shadow",
       "type": "enum",
-      "values": [
-        "none",
-        "inset",
-        "outset"
-      ],
+      "values": ["none", "inset", "outset"],
       "default": "none",
       "description": "Depth on the thumb only. The track and indicator are flush with the control, so a shadow on them would read as a stray line rather than depth."
     },

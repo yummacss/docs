@@ -8,59 +8,60 @@ draft: true
 title: Yumma CSS 4.0
 ---
 
-{/*
-  ============================================================================
-  DRAFT - `draft: true` above keeps this out of the blog listing, the RSS
-  feed, the sitemap, & the production route. It renders at
-  /blog/yummacss-4.0.0 in `next dev` only. Delete the flag to publish.
+{/\*
+============================================================================
+DRAFT - `draft: true` above keeps this out of the blog listing, the RSS
+feed, the sitemap, & the production route. It renders at
+/blog/yummacss-4.0.0 in `next dev` only. Delete the flag to publish.
 
-  This file holds the MASTER decision log for both releases. The dark-mode
-  work moved to 3.29 (see yummacss-3.29.0.mdx) because none of it is
-  breaking; 4.0 is now purely the syntax change & the cascade change.
+This file holds the MASTER decision log for both releases. The dark-mode
+work moved to 3.29 (see yummacss-3.29.0.mdx) because none of it is
+breaking; 4.0 is now purely the syntax change & the cascade change.
 
-  Protocol:
-  - A decision is made      -> add it to the Decision Log below.
-  - The feature ships       -> flip its status, write the real prose section,
-                               & add the CHANGELOG.md entry in the monorepo.
-  - The date above is a schema requirement, not a release date.
+Protocol:
 
-  DESIGN DECISIONS ONLY. Backlog, blockers, session logs & anything else
-  operational belong in NOTES.md at the repo root, which is gitignored. This
-  file becomes a published post; that one never does.
-  ============================================================================
-*/}
+- A decision is made -> add it to the Decision Log below.
+- The feature ships -> flip its status, write the real prose section,
+  & add the CHANGELOG.md entry in the monorepo.
+- The date above is a schema requirement, not a release date.
+
+DESIGN DECISIONS ONLY. Backlog, blockers, session logs & anything else
+operational belong in NOTES.md at the repo root, which is gitignored. This
+file becomes a published post; that one never does.
+============================================================================
+\*/}
 
 ## Decision Log
 
 Master index for 3.29 & 4.0.
 
-| # | Decision | Ships in | Status |
-| --- | --- | --- | --- |
-| 1 | Colon syntax - `d-f` becomes `d:f` | 4.0 | Decided |
-| 2 | Negative values - `m--4` becomes `m:-4` | 4.0 | Decided |
-| 3 | Scale steps stay on dashes - `bg:gray-1` | 4.0 | Decided |
-| 4 | Variants stay prefixed - `h:c-blue` | 4.0 | Decided |
-| 5 | `:disabled` prefix `d` renamed to `di` | 4.0 | Decided |
-| 6 | Dark mode via `light-dark()` + paired theme colors | 3.29 | **Shipped** |
-| 6b | Built-in semantic token vocabulary | - | _Rejected_ |
-| 7 | `@d:` dark escape-hatch variant | - | **Deferred** |
-| 8 | Opacity moves from hex-alpha to `color-mix()` | 3.29 | **Shipped** |
-| 9 | Output wrapped in `@layer` | 4.0 | Decided |
-| 10 | Container queries, without `container-name` | 4.0 | Decided |
-| 11 | `fr` variant for `gtc` / `gtr` | - | **Dropped** |
-| 12 | Codemod - `npx yummacss migrate` | 4.0 | Decided - required |
-| 13 | Live config reload in dev | 3.26 | **Already shipped** |
-| 14 | Unknown-utility warnings suggesting the v4 spelling | 4.0 | Decided |
-| 15 | v3/v4 compat mode for one release | - | _Rejected_ |
-| 16 | Generate shades in OKLCH instead of sRGB | 4.0 | Decided |
-| 17 | Renumber the shade scale to 50/100/200 | - | _Rejected_ |
-| 18 | `color-scheme` utility - `cs-l` / `cs-d` / `cs-ld` | 3.29 | **Shipped** |
-| 19 | Hover fixes - negative values, `::`, opacity suffix | 3.29 | **Shipped** |
-| 20 | Drop pseudo-class stacking (`f:h:`), keep every other stack | 4.0 | Decided |
-| 21 | Warn on stacked media queries (`@sm:@lg:`) | 4.0 | Decided |
-| 22 | `tt-n` becomes `tt:none`, `tl-a` becomes `tl:auto` | 4.0 | Decided |
-| 23 | Custom fonts in `theme.fonts` | 4.0 | Decided |
-| 24 | Only properties that take a negative may be negated | 4.0 | Decided |
+| #   | Decision                                                    | Ships in | Status              |
+| --- | ----------------------------------------------------------- | -------- | ------------------- |
+| 1   | Colon syntax - `d-f` becomes `d:f`                          | 4.0      | Decided             |
+| 2   | Negative values - `m--4` becomes `m:-4`                     | 4.0      | Decided             |
+| 3   | Scale steps stay on dashes - `bg:gray-1`                    | 4.0      | Decided             |
+| 4   | Variants stay prefixed - `h:c-blue`                         | 4.0      | Decided             |
+| 5   | `:disabled` prefix `d` renamed to `di`                      | 4.0      | Decided             |
+| 6   | Dark mode via `light-dark()` + paired theme colors          | 3.29     | **Shipped**         |
+| 6b  | Built-in semantic token vocabulary                          | -        | _Rejected_          |
+| 7   | `@d:` dark escape-hatch variant                             | -        | **Deferred**        |
+| 8   | Opacity moves from hex-alpha to `color-mix()`               | 3.29     | **Shipped**         |
+| 9   | Output wrapped in `@layer`                                  | 4.0      | Decided             |
+| 10  | Container queries, without `container-name`                 | 4.0      | Decided             |
+| 11  | `fr` variant for `gtc` / `gtr`                              | -        | **Dropped**         |
+| 12  | Codemod - `npx yummacss migrate`                            | 4.0      | Decided - required  |
+| 13  | Live config reload in dev                                   | 3.26     | **Already shipped** |
+| 14  | Unknown-utility warnings suggesting the v4 spelling         | 4.0      | Decided             |
+| 15  | v3/v4 compat mode for one release                           | -        | _Rejected_          |
+| 16  | Generate shades in OKLCH instead of sRGB                    | 4.0      | Decided             |
+| 17  | Renumber the shade scale to 50/100/200                      | -        | _Rejected_          |
+| 18  | `color-scheme` utility - `cs-l` / `cs-d` / `cs-ld`          | 3.29     | **Shipped**         |
+| 19  | Hover fixes - negative values, `::`, opacity suffix         | 3.29     | **Shipped**         |
+| 20  | Drop pseudo-class stacking (`f:h:`), keep every other stack | 4.0      | Decided             |
+| 21  | Warn on stacked media queries (`@sm:@lg:`)                  | 4.0      | Decided             |
+| 22  | `tt-n` becomes `tt:none`, `tl-a` becomes `tl:auto`          | 4.0      | Decided             |
+| 23  | Custom fonts in `theme.fonts`                               | 4.0      | Decided             |
+| 24  | Only properties that take a negative may be negated         | 4.0      | Decided             |
 
 ### Why the Colon, in One Place
 
@@ -121,6 +122,7 @@ release weeks after the first.
   Debugging note: dev CSS is minified, so `#ff00ff` is served as `#f0f`. Use a
   color that cannot be shortened to three digits when grepping generated
   output, or the change looks like it never happened.
+
 - **#16 OKLCH, deferred to 4.0.** Shades are mixed toward white & black in
   sRGB. Hue holds up well, under 10 degrees of drift across every default hue, but
   lightness spacing collapses on light-native hues. Measured spread
@@ -135,7 +137,7 @@ release weeks after the first.
   against the generator rather than argued from taste. Every stack compiles
   correctly today & order in the chain is irrelevant, since each prefix is
   resolved by what it is: `@sm:h:bg-red` & `h:@sm:bg-red` produce the same rule.
-  The combinations worth keeping all pair *different kinds* of condition -
+  The combinations worth keeping all pair _different kinds_ of condition -
   `@sm:h:` (media + state), `h:s::` (state + pseudo element), `@sm:s::`, & any
   of those plus an opacity suffix. Two pseudo classes are the one case that
   pairs a kind with itself, and it compiles to a both-at-once selector:
@@ -151,6 +153,7 @@ release weeks after the first.
 
   Removal is 4.0 only. It is unused & undocumented, but stripping it from the v3
   parser would still be a breaking change shipped in a patch.
+
 - **#22 decided.** [Naming Convention](/docs/naming-convention) already tells
   readers that `none` & `auto` are never abbreviated, and names these two as
   the exceptions that change in 4.0. The rule was on the site before it was in
@@ -190,6 +193,7 @@ release weeks after the first.
   is not finished. Two places have to learn the entry at the same time: the
   codemod, or `ff-e` is skipped during the rewrite, and canon, or it reports
   the class the config just legitimized.
+
 - **#21 decided: warn.** Two stacked media queries silently lose all but the
   last. `@sm:@lg:bg-red` compiles to `@media (min-width: 64rem)` with `@sm`
   discarded & no warning. It is arguably reasonable, since two `min-width` bounds describe one range,
@@ -237,17 +241,17 @@ into the API: `m:-4` is the declaration with the whitespace removed.
 Variants keep their prefix position. `h:bg:gray-1` groups & sorts predictably,
 & `h:` stays greppable.
 
-{/* TODO(ship #12): migration section: npx yumma migrate, what it rewrites,
-    what it cannot rewrite (dynamically constructed class strings). There is
-    no compat mode: 3.x syntax stops working in 4.0. */}
+{/_ TODO(ship #12): migration section: npx yumma migrate, what it rewrites,
+what it cannot rewrite (dynamically constructed class strings). There is
+no compat mode: 3.x syntax stops working in 4.0. _/}
 
-{/* TODO(ship #9): @layer section: user CSS outside the layer wins without
-    !important. Note this changes cascade behavior for existing overrides,
-    which is why it lands in a major. */}
+{/_ TODO(ship #9): @layer section: user CSS outside the layer wins without
+!important. Note this changes cascade behavior for existing overrides,
+which is why it lands in a major. _/}
 
-{/* TODO(ship #10): container queries. container-type & unnamed @container
-    queries on the existing breakpoint scale; container-name is excluded
-    because names are irreducibly arbitrary. */}
+{/_ TODO(ship #10): container queries. container-type & unnamed @container
+queries on the existing breakpoint scale; container-name is excluded
+because names are irreducibly arbitrary. _/}
 
 Check the [changelog](https://github.com/yummacss/yummacss/blob/main/CHANGELOG.md)
 for the full list of changes.

@@ -4,48 +4,28 @@
     {
       "name": "variant",
       "type": "enum",
-      "values": [
-        "primary",
-        "secondary",
-        "subtle",
-        "ghost",
-        "danger",
-        "link"
-      ],
+      "values": ["primary", "secondary", "subtle", "ghost", "danger", "link"],
       "default": "primary",
       "description": "Visual weight. `primary` for the main action on a view, `danger` for destructive ones."
     },
     {
       "name": "size",
       "type": "enum",
-      "values": [
-        "sm",
-        "md",
-        "lg"
-      ],
+      "values": ["sm", "md", "lg"],
       "default": "md",
       "description": "Padding and text size."
     },
     {
       "name": "shape",
       "type": "enum",
-      "values": [
-        "rounded",
-        "square",
-        "squircle",
-        "pill"
-      ],
+      "values": ["rounded", "square", "squircle", "pill"],
       "default": "rounded",
       "description": "Corner radius. `squircle` uses `corner-shape`, which degrades to a rounded square where that is unsupported."
     },
     {
       "name": "shadow",
       "type": "enum",
-      "values": [
-        "none",
-        "inset",
-        "outset"
-      ],
+      "values": ["none", "inset", "outset"],
       "default": "none",
       "description": "Depth. `inset` reads as a pressed control, `outset` as a raised one."
     },
@@ -66,10 +46,7 @@
     {
       "name": "iconSide",
       "type": "enum",
-      "values": [
-        "leading",
-        "trailing"
-      ],
+      "values": ["leading", "trailing"],
       "default": "leading",
       "description": "Which end `icon` sits at."
     },

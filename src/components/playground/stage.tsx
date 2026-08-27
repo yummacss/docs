@@ -41,8 +41,7 @@ export default function ComponentPlayground() {
     const commit = (Component: ComponentType<DemoProps>) => {
       if (!live) return;
       const current = playgroundRef.current;
-      // Prefer the provider's seeded values when they match this id; otherwise
-      // rebuild from meta so options/items/steps are never missing.
+
       const values =
         current?.id === id && current.meta ? current.values : seedValues(meta);
       setFrame({ id, meta, values, Component });
@@ -80,8 +79,6 @@ export default function ComponentPlayground() {
     );
   }
 
-  // Require meta too: while the provider clears for the next id, values is {}
-  // even if frame.id still matches during the same tick as a remount.
   const live = frame.id === playground?.id && Boolean(playground?.meta);
   const values = live && playground ? playground.values : frame.values;
   const meta = live && playground?.meta ? playground.meta : frame.meta;
