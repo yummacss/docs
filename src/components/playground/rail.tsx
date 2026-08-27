@@ -24,17 +24,9 @@ export default function PlaygroundRail() {
     <aside className="bc-border btw-1 @lg:btw-0 @lg:blw-1 @lg:gc-s-3">
       <div className="playground-rail">
         <div className="pt-8 pb-12 @lg:pt-0 @lg:px-8">
-          <div className="d-f ai-c jc-sb g-2 mb-3">
-            <h3 className="c-silver-8 fs-xs ls-2 tt-u">Component API</h3>
-            {playground?.dirty && (
-              <Button
-                onClick={playground.reset}
-                className="p-0 bg-transparent c-accent-dim bw-0 fs-xs c-p h:c-accent fv:oc-accent fv:ow-2"
-              >
-                Reset
-              </Button>
-            )}
-          </div>
+          {/* No reset: leaving the page & coming back reseeds from the
+              schema, which is the only reset this needs. */}
+          <h3 className="mb-3 c-silver-8 fs-xs ls-2 tt-u">Component API</h3>
 
           {props.map((prop) => (
             <Row
