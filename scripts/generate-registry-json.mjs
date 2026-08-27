@@ -36,8 +36,6 @@ const outDir = join(cwd, "public/ui/r");
 const pkg = JSON.parse(readFileSync(join(cwd, "package.json"), "utf8"));
 const versions = { ...pkg.dependencies, ...pkg.devDependencies };
 
-// React is implied by using a React component library at all, so listing it
-// would make every component look heavier than it is.
 const IMPLIED = new Set(["react", "react-dom"]);
 
 /** `@base-ui/react/button` -> `@base-ui/react`, `motion/react` -> `motion`. */
@@ -54,8 +52,7 @@ function dependenciesOf(source) {
     if (!name || IMPLIED.has(name)) continue;
     found.add(name);
   }
-  // Pin to the range the docs build against, so a copied component cannot
-  // land next to an incompatible major.
+
   return [...found].sort().map((name) => ({
     name,
     version: versions[name] ?? "latest",
@@ -96,8 +93,6 @@ function metaOf(id) {
   try {
     return JSON.parse(readFileSync(file, "utf8"));
   } catch (error) {
-    // A broken schema should fail the build rather than silently ship a
-    // component whose controls have quietly vanished.
     throw new Error(`Invalid registry meta for "${id}": ${error.message}`);
   }
 }
@@ -122,15 +117,10 @@ let orphans = 0;
 
 for (const id of ids) {
   const { component, variant, orphan } = splitId(id, slugs);
-  // A registry file no page references. Emitted anyway, but counted so it
-  // cannot rot silently.
   if (orphan) orphans++;
 
   const source = readFileSync(join(uiDir, `${id}.tsx`), "utf8");
 
-  // `component` is the thing `add <name>` installs; `block` is a composition
-  // installed under its own id; `example` only demonstrates a prop and is not
-  // installable at all - you get it by passing that prop to the component.
   const kind =
     variant === "base" ? "component" : isBlock(id) ? "block" : "example";
 
@@ -139,15 +129,9 @@ for (const id of ids) {
     component,
     variant,
     kind,
-    // summary / props / children, when the component has a declared API.
     ...(metaOf(id) ?? {}),
-    // 294 of 450 carry the directive. A Vite consumer ignores it; a Next App
-    // Router consumer needs it, and stripping it would break them.
     useClient: /^\s*["']use client["']/.test(source),
     dependencies: dependenciesOf(source),
-    // A demo importing the component it demonstrates, e.g. `autocomplete-inset`
-    // importing `autocomplete`. The CLI resolves these transitively, so `add
-    // autocomplete-inset` also writes `autocomplete.tsx`.
     registryDependencies: registryDependenciesOf(source, id, idSet),
     files: [
       {
@@ -174,16 +158,12 @@ for (const id of ids) {
     }
     const group = components.get(component);
     if (variant === "base") group.base = id;
-    // Remembered only so a component with no `-base` file still resolves.
     else if (!group.fallback) group.fallback = id;
 
     if (kind === "block") blocks.push({ id, component });
   }
 }
 
-// A group with no `-base` file has nothing for a bare `add <component>` to
-// resolve to, so fall back to its first other file rather than failing at
-// runtime.
 const index = [...components.values()]
   .sort((a, b) => a.component.localeCompare(b.component))
   .map(({ fallback, ...g }) => ({ ...g, base: g.base ?? fallback }));

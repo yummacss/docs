@@ -41,6 +41,64 @@ body {
   z-index: 20;
 }
 
+/* reset font and selection for component previews */
+/* This one stays as CSS rather than becoming the `cs-l` utility. Most of these
+   selectors match Base UI portal elements, which render into <body> rather
+   than inside the preview container - so they inherit nothing from it and
+   cannot be reached by adding a class. The rule also sets font-family for the
+   same set, so splitting only `color-scheme` out would mean maintaining the
+   selector list twice. */
+[data-preview],
+[data-preview] *,
+[class*="-popup"],
+[class*="-popup"] *,
+[class*="-backdrop"],
+[class*="-backdrop"] *,
+[role="dialog"],
+[role="dialog"] *,
+[role="alertdialog"],
+[role="alertdialog"] *,
+[role="listbox"],
+[role="listbox"] *,
+[role="menu"],
+[role="menu"] *,
+[role="menubar"],
+[role="menubar"] *,
+[role="navigation"],
+[role="navigation"] * {
+  color-scheme: light;
+  font-family:
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+}
+
+[data-preview]::selection,
+[data-preview] *::selection,
+[class*="-popup"]::selection,
+[class*="-popup"] *::selection,
+[class*="-backdrop"]::selection,
+[class*="-backdrop"] *::selection,
+[role="dialog"]::selection,
+[role="dialog"] *::selection,
+[role="alertdialog"]::selection,
+[role="alertdialog"] *::selection,
+[role="listbox"]::selection,
+[role="listbox"] *::selection,
+[role="menu"]::selection,
+[role="menu"] *::selection,
+[role="menubar"]::selection,
+[role="menubar"] *::selection,
+[role="navigation"]::selection,
+[role="navigation"] *::selection {
+  background-color: Highlight;
+  color: HighlightText;
+}
+
 .docs-container {
   max-width: clamp(40rem, 80vw, 96rem);
 }
@@ -57,6 +115,21 @@ body {
     max-height: calc(100dvh - 5rem);
     overflow-y: auto;
   }
+}
+
+/* Preview Suspense fallback: reserve space and spin until the chunk loads. */
+@keyframes preview-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.preview-spinner {
+  box-sizing: border-box;
+  border: 2px solid #e2e5ef;
+  border-top-color: #8b92ad;
+  border-radius: 50%;
+  animation: preview-spin 0.7s linear infinite;
 }
 
 /* A folded fixture inside a code block. The `...` is punctuation that happens

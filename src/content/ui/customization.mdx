@@ -3,11 +3,9 @@ title: Customization
 description: Props, className & the file you own.
 ---
 
-Every Yumma UI component gives you three levels of control, in the order you should reach for them: **props**, then `className`, then the file itself.
+## Use Props
 
-## Props First
-
-Each component's API Reference table lists everything it accepts. Props are the reliable way to change a component, because the component applies them itself. There is no question of one class beating another.
+Props are the reliable way to change a component, because the component applies them itself.
 
 ```tsx
 <Badge tone="subtle" color="green" size="lg" shape="pill">
@@ -17,37 +15,9 @@ Each component's API Reference table lists everything it accepts. Props are the 
 
 Reach for the table before anything else. Most of what people try to do with `className` already exists as a prop.
 
-## What `className` Can and Cannot Do
+## Own Your Components
 
-`className` is appended to the component's own classes. It is the right tool for anything the component leaves unset: a margin, `fs-0` in a flex row, positioning within your layout:
-
-```tsx
-<Badge className="ml-2">Shipped</Badge>
-```
-
-It is **not** a reliable way to override something the component already sets. Which of two utilities wins is decided by the generated stylesheet's rule order, not by the order you write them, and Yumma CSS has no `!important` escape hatch to force the issue:
-
-```tsx
-// Badge already sets a background. This may or may not win.
-<Badge className="bg-blue-5">Shipped</Badge>
-
-// Say it with the prop instead.
-<Badge tone="solid" color="indigo">Shipped</Badge>
-```
-
-Where a component genuinely needs a per-instance override of something it already sets, it exposes a prop for exactly that rather than leaving you to fight the cascade. Skeleton's `size` replaces the shape's default dimensions instead of competing with them, and takes literal utilities so the class scanner can still see them in your source:
-
-```tsx
-<Skeleton shape="circle" size="w-9 h-9" />
-```
-
-Toggle's `swatchClassName` works the same way, replacing `tone` for a color-picker swatch.
-
-## The File Is Yours
-
-`yummaui add` copies a real file into your project, and nothing overwrites it later. When props & `className` are not enough, edit it.
-
-This is the level to use for anything structural: changing the markup, swapping an icon set, dropping an animation, or wiring in behavior the component does not have. Each component is a single self-contained file, so there is no shared abstraction to work around.
+`yummaui add` copies a real file into your project, and nothing overwrites it later. When props & `className` are not enough, all you need need to do is edit it.
 
 Components are built on [Base UI](https://base-ui.com), so the primitive underneath is documented there, which matters the moment you start editing. Pages built on a primitive link to it directly.
 

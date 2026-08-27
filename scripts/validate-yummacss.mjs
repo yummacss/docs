@@ -124,9 +124,6 @@ function classesInStringLiterals(source) {
     }
   };
 
-  // A multi-token string is a class list only if every token looks like one.
-  // Requiring all of them is what keeps prose out: "Filter by project, mention,
-  // or task status updates" contains `in-app`, which passes on its own.
   for (const [, literal] of source.matchAll(/"([^"\n]*)"/g)) {
     const tokens = literal.trim().split(/\s+/).filter(Boolean);
     if (tokens.length < 2) continue;
@@ -135,8 +132,6 @@ function classesInStringLiterals(source) {
     }
   }
 
-  // Inside a class map even a single token is a class, which is the case that
-  // let `br-0` in as `br-none` unnoticed.
   for (const region of classMapRegions(source)) {
     for (const [, literal] of region.matchAll(/"([^"\n]*)"/g))
       consider(literal);
@@ -154,8 +149,6 @@ for (const file of getAllTsxFiles(path.join(rootDir, "src/registry"))) {
   }
 }
 
-// `validate` only scans source globs, so the candidates are written into one
-// throwaway file with a real class attribute & scanned there.
 const scratch = path.join(rootDir, ".canon-literals");
 fs.mkdirSync(scratch, { recursive: true });
 fs.writeFileSync(

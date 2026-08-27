@@ -94,32 +94,21 @@
     {
       "name": "iconPosition",
       "type": "enum",
-      "values": [
-        "leading",
-        "trailing"
-      ],
+      "values": ["leading", "trailing"],
       "default": "leading",
       "description": "Which end of an item its `icon` sits at. A `shortcut` always trails regardless."
     },
     {
       "name": "shape",
       "type": "enum",
-      "values": [
-        "rounded",
-        "square",
-        "squircle"
-      ],
+      "values": ["rounded", "square", "squircle"],
       "default": "rounded",
       "description": "Corner radius on the trigger, the popup and its items."
     },
     {
       "name": "shadow",
       "type": "enum",
-      "values": [
-        "none",
-        "inset",
-        "outset"
-      ],
+      "values": ["none", "inset", "outset"],
       "default": "none",
       "description": "Depth on the popup."
     },

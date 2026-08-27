@@ -1,10 +1,7 @@
 import { allUis } from "content-collections";
 import type { Metadata } from "next";
 import JsonLd from "@/components/json-ld";
-import InstallButton from "@/components/playground/install-button";
-import Description from "@/components/ui/description";
 import Pagination from "@/components/ui/pagination";
-import { getRegistryTarget } from "@/registry";
 import { getUINavigation } from "@/utils/pagination";
 
 export async function generateMetadata({
@@ -58,27 +55,14 @@ export default async function Page({
         <div className="my-8" data-meta>
           <div className="d-f ai-c jc-sb mb-2">
             <h1 className="c-white fs-4xl fw-400">{ui.title}</h1>
-            <div className="d-f fs-0 ai-c g-2">
-              {/* Only on a component page. The prose pages under this route
-                  share it & have nothing to install. */}
-              {ui.playground && (
-                <InstallButton id={getRegistryTarget(slug).install} />
-              )}
-              <Pagination
-                previous={navigation.previous}
-                next={navigation.next}
-                basePath="/ui/components"
-              />
-            </div>
+            <Pagination
+              previous={navigation.previous}
+              next={navigation.next}
+              basePath="/ui/components"
+            />
           </div>
           {ui.description && (
-            <p className="c-white/70 fs-lg">
-              <Description
-                text={ui.description}
-                primitive={ui.primitive}
-                slug={slug}
-              />
-            </p>
+            <p className="c-white/70 fs-lg">{ui.description}</p>
           )}
         </div>
       )}

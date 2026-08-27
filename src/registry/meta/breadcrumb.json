@@ -33,43 +33,28 @@
     {
       "name": "shape",
       "type": "enum",
-      "values": [
-        "rounded",
-        "square",
-        "squircle"
-      ],
+      "values": ["rounded", "square", "squircle"],
       "default": "rounded",
       "description": "Corner radius. Only visible when `bordered` is set."
     },
     {
       "name": "shadow",
       "type": "enum",
-      "values": [
-        "none",
-        "inset",
-        "outset"
-      ],
+      "values": ["none", "inset", "outset"],
       "default": "none",
       "description": "Depth on the card. Only visible when `bordered` is set."
     },
     {
       "name": "size",
       "type": "enum",
-      "values": [
-        "sm",
-        "md",
-        "lg"
-      ],
+      "values": ["sm", "md", "lg"],
       "default": "md",
       "description": "Text size of every item."
     },
     {
       "name": "separator",
       "type": "enum",
-      "values": [
-        "chevron",
-        "slash"
-      ],
+      "values": ["chevron", "slash"],
       "default": "chevron",
       "description": "The mark between items."
     }

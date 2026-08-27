@@ -10,21 +10,18 @@ import {
   useState,
 } from "react";
 import { getRegistryMeta, type RegistryMeta } from "@/registry";
-import { type DemoProps, exampleIcon, seedValues } from "@/utils/demo";
+import { type DemoProps, seedValues } from "@/utils/demo";
+import { prefetchRegistry } from "@/utils/prefetch-registry";
 
-/**
- * One playground per page, owned by the route.
- *
- * The stage sits inside the MDX and the controls sit in the page's third
- * column, which are different subtrees, so the state that joins them lives
- * above both. Driving it from the slug rather than from a prop on the stage
- * means the two can never disagree about which component is on the page.
- */
+/** Playground state shared between stage (MDX) and rail (layout column). */
 interface Playground {
   id: string;
   meta: RegistryMeta | null;
   values: DemoProps;
   setValue: (name: string, value: unknown) => void;
+  reset: () => void;
+  /** Whether anything has been touched, so the reset control can say so. */
+  dirty: boolean;
 }
 
 const PlaygroundContext = createContext<Playground | null>(null);
@@ -34,6 +31,13 @@ export function usePlayground(): Playground | null {
   return useContext(PlaygroundContext);
 }
 
+interface Seed {
+  meta: RegistryMeta | null;
+  values: DemoProps;
+}
+
+const EMPTY: Seed = { meta: null, values: {} };
+
 export function PlaygroundProvider({
   id,
   children,
@@ -41,55 +45,61 @@ export function PlaygroundProvider({
   id: string;
   children: ReactNode;
 }) {
-  const [meta, setMeta] = useState<RegistryMeta | null>(null);
-  const [values, setValues] = useState<DemoProps>({});
+  const [seed, setSeed] = useState<Seed>(EMPTY);
+  const [dirty, setDirty] = useState(false);
 
   useEffect(() => {
     const importMeta = getRegistryMeta(id);
-    if (!importMeta) return;
+    if (!importMeta) {
+      setSeed(EMPTY);
+      setDirty(false);
+      return;
+    }
+
+    // Drop the outgoing schema; the stage keeps its last visual frame.
+    setSeed(EMPTY);
+    setDirty(false);
+    prefetchRegistry(id);
 
     let live = true;
     importMeta().then((module) => {
       if (!live) return;
-      setMeta(module.default);
-      setValues(seedValues(module.default));
+      const meta = module.default;
+      setSeed({ meta, values: seedValues(meta) });
+      setDirty(false);
     });
 
-    // A navigation between two component pages resolves both imports, and
-    // without this the slower one would overwrite the page you are now on.
     return () => {
       live = false;
     };
   }, [id]);
 
-  const setValue = useCallback(
-    (name: string, value: unknown) => {
-      const prop = meta?.props.find((entry) => entry.name === name);
-      const needs = prop?.dependsOn
-        ? meta?.props.find((entry) => entry.name === prop.dependsOn)
-        : undefined;
+  const setValue = useCallback((name: string, value: unknown) => {
+    setSeed((current) => ({
+      ...current,
+      values: { ...current.values, [name]: value },
+    }));
+    setDirty(true);
+  }, []);
 
-      setValues((current) => {
-        const next = { ...current, [name]: value };
+  const reset = useCallback(() => {
+    setSeed((current) => {
+      if (!current.meta) return current;
+      return { meta: current.meta, values: seedValues(current.meta) };
+    });
+    setDirty(false);
+  }, []);
 
-        // `iconSide` moves an icon. Rather than sit disabled until one is
-        // switched on, picking a side puts the icon there: the control does
-        // what it says instead of explaining why it cannot.
-        if (needs?.exampleIcon && !current[needs.name]) {
-          next[needs.name] = exampleIcon(needs.exampleIcon);
-        }
-
-        return next;
-      });
-    },
-    [meta],
-  );
-
-  // Navigating away & back reseeds from the schema, which is the only reset
-  // anyone needs: the page is a thing you poke, not a form you fill in.
   const playground = useMemo(
-    () => ({ id, meta, values, setValue }),
-    [id, meta, values, setValue],
+    () => ({
+      id,
+      meta: seed.meta,
+      values: seed.values,
+      setValue,
+      reset,
+      dirty,
+    }),
+    [id, seed.meta, seed.values, setValue, reset, dirty],
   );
 
   return <PlaygroundContext value={playground}>{children}</PlaygroundContext>;

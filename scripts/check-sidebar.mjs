@@ -26,8 +26,6 @@ function slugsFor(source, key, nextKey) {
   const end = nextKey ? source.indexOf(`${nextKey}: [`) : source.length;
   const section = source.slice(start, end === -1 ? source.length : end);
 
-  // Every quoted string in the section is either a slug or a group title.
-  // Group titles are always `title: "..."`, so drop those.
   const withoutTitles = section.replace(/title:\s*"[^"]*"/g, "");
   return [...withoutTitles.matchAll(/"([^"]+)"/g)].map((match) => match[1]);
 }
@@ -40,9 +38,6 @@ function pagesIn(directory) {
 
 const source = readFileSync(join(root, "src/config/sidebar.ts"), "utf-8");
 
-// Only the sidebarConfig object maps slugs to pages. Anything else in the file
-// - the interfaces, or link lists like docsLinks - holds routes rather than
-// page slugs & must not be read as one.
 const configStart = source.indexOf("export const sidebarConfig");
 if (configStart === -1) {
   console.error("Could not find `export const sidebarConfig` to check.");

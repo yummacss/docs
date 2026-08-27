@@ -1,62 +1,92 @@
 "use client";
 
 import { Button } from "@base-ui/react";
+import { allUis } from "content-collections";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import type { ReactNode } from "react";
 import { useState } from "react";
-import { TitleBar } from "@/components/ui/code";
-import { TOKEN_COLORS, type Token } from "@/utils/snippet";
+import { BaseUI } from "@/components/icons/icons";
+import Install from "@/components/playground/install";
+import { CopyButton, TitleBar } from "@/components/ui/code";
+import { getRegistryTarget } from "@/registry";
+import { TOKEN_COLORS, type Token, tokensToText } from "@/utils/snippet";
 
-/**
- * A hand-highlighted block, framed like `Code` down to the copy button's
- * position, because a second style of code block on the same page would only be
- * a thing to look at twice.
- *
- * Lives here rather than beside one caller: the static preview and the
- * playground both render `buildUsage` output, and two copies of this would
- * drift the moment one of them gained a feature.
- */
+/** Hand-highlighted usage snippet; shared by static preview and playground. */
 export default function TokenBlock({
   tokens,
   className = "bc-border btw-1",
   expanded = false,
   title,
+  installId,
 }: {
   tokens: Token[];
-  /** The frame is the caller's, so a block under a tab strip adds no second rule. */
+  /** Caller supplies frame classes (e.g. no top border under tabs). */
   className?: string;
   expanded?: boolean;
-  /** Which file this belongs in. Same bar `Code` renders, for the same reason. */
+  /** File label in the title bar, like `Code`. */
   title?: string;
+  /** When set, title bar offers Install + optional Base UI link instead of Copy. */
+  installId?: string;
 }) {
+  const [copied, setCopied] = useState(false);
+  const pathname = usePathname();
+
+  const copy = async () => {
+    try {
+      await navigator.clipboard.writeText(tokensToText(tokens));
+    } catch {
+      return;
+    }
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  const slug = (pathname || "")
+    .replace(/^\/ui\/components\//, "")
+    .replace(/^\/ui\//, "")
+    .replace(/\/$/, "");
+  const page = allUis.find((ui) => ui._meta.path === slug);
+  const primitive = page?.primitive;
+  const primitiveSlug =
+    typeof primitive === "string"
+      ? primitive
+      : primitive
+        ? getRegistryTarget(installId ?? slug).component
+        : null;
+
+  const action: ReactNode = installId ? (
+    <div className="d-f ai-c g-1">
+      <Install id={installId} />
+      {primitiveSlug && (
+        <Link
+          href={`https://base-ui.com/react/components/${primitiveSlug}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Base UI primitive"
+          className="d-f ai-c jc-c p-1 c-accent td-none h:c-accent-4 fv:oc-accent fv:ow-2"
+        >
+          <BaseUI className="w-4 h-4" />
+        </Link>
+      )}
+    </div>
+  ) : (
+    <CopyButton copied={copied} onCopy={copy} />
+  );
+
   return (
     <div className={`bg-surface ${className}`}>
-      <TitleBar title={title} />
-      {/* No copy button. This snippet is what the component looks like once it
-          is in your project, and the thing that puts it there is the install
-          command: pasting this first only buys an import of a file that does
-          not exist yet. Install is one action, at the top of the page. */}
-      <div>
-        {/* Attributes sit on the element's own line now, so a component with
-            several changed props makes a long one. Wrapping keeps all of it
-            visible; a horizontal scrollbar would hide the closing tag. */}
-        <pre className="ox-auto px-4 py-3 ff-m lh-5 ws-pw">
-          <code>
-            <Folded tokens={tokens} expanded={expanded} />
-          </code>
-        </pre>
-      </div>
+      <TitleBar title={title} action={action} />
+      <pre className="ox-auto px-4 py-3 ff-m lh-5 ws-pw">
+        <code>
+          <Folded tokens={tokens} expanded={expanded} />
+        </code>
+      </pre>
     </div>
   );
 }
 
-/**
- * Renders the token stream with collapsible regions, the way an editor's gutter
- * arrow collapses a block.
- *
- * Folding hides nothing: every token is still in the stream & the copy button
- * takes the whole snippet regardless of what is open. It only keeps the shape of
- * the code readable, so a four-item fixture does not push the element it feeds
- * off the screen.
- */
+/** Collapsible token regions; copy still takes the full snippet. */
 function Folded({
   tokens,
   expanded = false,
@@ -96,8 +126,6 @@ function Folded({
       continue;
     }
 
-    // Take the whole region in one go. Emitting the control per token is how it
-    // turned into a row of ellipses, and it left no path that rendered the body.
     const body: Token[] = [];
     while (i < tokens.length && tokens[i].fold === region)
       body.push(tokens[i++]);
@@ -105,18 +133,12 @@ function Folded({
 
     const isOpen = open.includes(region);
 
-    // The control sits at the region's origin in both states, so whatever you
-    // clicked to open is what you click to close. No frame and no fill: it is
-    // punctuation that happens to be interactive.
     output.push(
       <Button
         key={`${region}-fold`}
         aria-expanded={isOpen}
         aria-label={`${isOpen ? "Collapse" : "Expand"} ${region}`}
         onClick={() => toggle(region)}
-        // A button does not inherit type, and `<code>` sets its own size, so
-        // without this the ellipsis is a slightly different monospace at a
-        // slightly different size from the code it sits inside.
         style={{ font: "inherit" }}
         className={`d-if p-0 bg-transparent bw-0 va-b c-p a-none fv:oo-2 fv:oc-accent ${
           isOpen ? "c-white/25 h:c-white/60" : "c-white/40 h:c-white"

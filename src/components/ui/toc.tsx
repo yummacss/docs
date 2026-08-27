@@ -19,8 +19,6 @@ interface TocItem {
 export default function TableOfContents() {
   const pathname = usePathname();
   const [headings, setHeadings] = useState<TocItem[]>([]);
-  // The listing and a post both live under /blog but want different footers,
-  // so the trailing slash is what separates them.
   const isBlogIndex = pathname === "/blog";
   const isBlogPost = pathname?.startsWith("/blog/");
   let slug = (pathname || "").replace(/^\/ui\/components\//, "");

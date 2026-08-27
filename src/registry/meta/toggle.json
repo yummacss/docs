@@ -35,31 +35,21 @@
     {
       "name": "shape",
       "type": "enum",
-      "values": [
-        "rounded",
-        "square",
-        "squircle"
-      ],
+      "values": ["rounded", "square", "squircle"],
       "default": "rounded",
       "description": "Corner radius. `squircle` uses `corner-shape`, which degrades to a rounded square where that is unsupported."
     },
     {
       "name": "size",
       "type": "enum",
-      "values": [
-        "sm",
-        "md"
-      ],
+      "values": ["sm", "md"],
       "default": "md",
       "description": "The button's footprint."
     },
     {
       "name": "tone",
       "type": "enum",
-      "values": [
-        "accent",
-        "ghost"
-      ],
+      "values": ["accent", "ghost"],
       "default": "accent",
       "description": "`accent` is a standalone toggle: bordered and tinted even unpressed. `ghost` is for one that already sits inside a bordered group - plain until pressed."
     },

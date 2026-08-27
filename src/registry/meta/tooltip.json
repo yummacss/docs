@@ -17,10 +17,7 @@
     {
       "name": "triggerTone",
       "type": "enum",
-      "values": [
-        "neutral",
-        "danger"
-      ],
+      "values": ["neutral", "danger"],
       "default": "neutral",
       "description": "The trigger's colour. `danger` reads red, for a destructive action."
     },
@@ -34,12 +31,7 @@
     {
       "name": "side",
       "type": "enum",
-      "values": [
-        "top",
-        "right",
-        "bottom",
-        "left"
-      ],
+      "values": ["top", "right", "bottom", "left"],
       "default": "top",
       "description": "Which side of the trigger the tooltip opens on. It flips automatically if there is no room."
     },
@@ -52,10 +44,7 @@
     {
       "name": "tone",
       "type": "enum",
-      "values": [
-        "light",
-        "dark"
-      ],
+      "values": ["light", "dark"],
       "default": "light",
       "description": "`light` is a bordered white card; `dark` is a solid indigo chip with no border."
     },
@@ -74,22 +63,14 @@
     {
       "name": "shape",
       "type": "enum",
-      "values": [
-        "rounded",
-        "square",
-        "squircle"
-      ],
+      "values": ["rounded", "square", "squircle"],
       "default": "rounded",
       "description": "Corner radius on the tooltip."
     },
     {
       "name": "shadow",
       "type": "enum",
-      "values": [
-        "none",
-        "inset",
-        "outset"
-      ],
+      "values": ["none", "inset", "outset"],
       "default": "none",
       "description": "Depth on the tooltip."
     },
