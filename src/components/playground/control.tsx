@@ -7,15 +7,20 @@ import type { RegistryProp } from "@/registry";
 import SwitchBase from "@/registry/ui/switch";
 import { exampleIcon } from "@/utils/demo";
 
-const SEGMENT_LIMIT = 3;
-
 interface Props {
   prop: RegistryProp;
   value: unknown;
   onChange: (value: unknown) => void;
 }
 
-/** Widget for one controllable prop (enum, boolean, or icon slot). */
+/**
+ * Widget for one controllable prop (enum, boolean, or icon slot).
+ *
+ * Every enum is a select, however few values it has. Segments laid each option
+ * out across a rail three columns wide, so `shape` with four ate a line that
+ * `size` with three had already crowded. A select is the same width whatever
+ * the enum holds, which is what lets a column of fifteen share a right edge.
+ */
 export default function Control({ prop, value, onChange }: Props) {
   if (prop.exampleIcon) {
     return (
@@ -44,27 +49,6 @@ export default function Control({ prop, value, onChange }: Props) {
   }
 
   if (prop.type === "enum" && prop.values) {
-    if (prop.values.length <= SEGMENT_LIMIT) {
-      return (
-        <div className="d-f fs-0 g-1">
-          {prop.values.map((option) => (
-            <Button
-              key={option}
-              onClick={() => onChange(option)}
-              aria-pressed={value === option}
-              className={`px-2 py-1 bg-transparent bw-1 ff-m fs-xs c-p tp-c tdu-150 fv:oo--1 fv:oc-accent ${
-                value === option
-                  ? "bc-accent-dim c-accent"
-                  : "bc-border c-accent-dim h:c-accent-dim"
-              }`}
-            >
-              {option}
-            </Button>
-          ))}
-        </div>
-      );
-    }
-
     return (
       <Select.Root
         value={typeof value === "string" ? value : null}
