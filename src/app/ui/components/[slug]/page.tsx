@@ -56,7 +56,7 @@ export default async function Page({
       {ui && (
         <div className="my-8" data-meta>
           <div className="d-f ai-c jc-sb mb-2">
-            <h1 className="c-white fs-4xl fw-400">{ui.title}</h1>
+            <h1 className="min-w-0 c-white fs-4xl fw-400 ow-bw">{ui.title}</h1>
             <div className="d-f fs-0 ai-c g-2">
               {/* Beside the pagination arrows: installing is the one thing a
                   reader does here that is not looking. Prose pages under this
