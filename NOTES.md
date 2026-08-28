@@ -22,17 +22,35 @@ clearing; keep this file short.
 
 ---
 
+## Comments in code
+
+**One line, and only where the line is not obvious from the code.** No multi-line
+block above every change, no restating what the next statement does, no narrating
+a decision that the diff already shows. This applies to Cursor's changes as much
+as to mine. The bar: a comment earns its place when it records something the
+reader **cannot** recover by reading the code - a bug it works around, a value
+that had to be measured, an ordering that looks arbitrary and is not. Everything
+else belongs in this file or in the commit message. Existing multi-line comments
+are not a licence to add more; shorten them when you are already in the file.
+
+---
+
 ## Where things stand
 
 | repo | branch | state |
 | --- | --- | --- |
-| `docs` | `main` | `6eca3b18`. Playground merged (#108, #129, #130). |
-| `docs` | `claude/yumma-ui-classnames-badge-meter-41lo67` | merged, restart from `main` for new work |
-| `yummacss` | `v4` | 4 ahead of `main`: colon-syntax parsing, fixtures migrated |
-| `yummacss` | `origin/fix/typecheck-clean` | still unmerged, still wanted |
-| `ui` | `release` | CLI, unpublished. `VERSION` says `0.1.0`, ship `0.0.1` |
+| `docs` | `main` | `b4bdde7`. Playground merged (#108, #129, #130). |
+| `yummacss` | `main` | carries the 4.0 codemod (`migrate`, #10) and `fix/typecheck-clean` |
+| `yummacss` | `v4` | 4 ahead of `main` and fast-forwardable: colon syntax, fixtures |
+| `ui` | `main` | `d2d59f4`, published |
 
-Published: `@yummacss/*` at `3.29.2`. `yummaui` not yet published.
+Published: `@yummacss/*` at `3.29.2`, **`yummaui` at `0.1.0`** (`0.0.1` on 2026-08-16,
+`0.1.0` on 2026-08-20). Merged branches are deleted; restart from `main` for new work.
+
+`@yummacss/intellisense` is published at `3.29.2` and has **no consumer left**. Both
+editor extensions, their repos and the Zed marketplace PR are deleted; the monorepo kept
+only the language service; nothing in `docs` or the monorepo imports it. Decide before
+4.0 whether it is deprecated on npm or folded into canon.
 
 `ui` is a **separate repo** (`github.com/yummacss/ui`). The folder and repo are
 `ui`; the **published npm package is `yummaui`**, because `ui` is taken. Do not
@@ -42,35 +60,41 @@ Published: `@yummacss/*` at `3.29.2`. `yummaui` not yet published.
 
 ## Backlog
 
-Roughly in priority order. Nothing here is blocked on anything else unless it
-says so.
+**The priority is shipping 4.0 and clearing what blocks it.** Everything under
+"Blocking 4.0" comes before everything below it; items outside that group are
+worth doing only when they are cheap or when they are in the file already.
 
-**Yumma UI, before publishing `0.0.1`:**
+**Blocking 4.0:**
+
+- [ ] **Fix nitro's tokenizer. Root cause found, see the trap below: an empty
+      string literal flips quote parity for the rest of the file, and every
+      literal after it is skipped.** `src/**/*.{ts,tsx}` in `docs` loses **469
+      distinct class tokens** to this today; 70 of 165 files contain an empty
+      literal. The 16 workaround entries in `yumma.config.mjs`'s safelist are all
+      this one bug, and so is the "multi-`${}` template literal" trap. Changing
+      `[^"]+` to `[^"]*` in `packages/nitro/src/tokenizer.ts` restores parity and
+      takes `accordion.tsx` from 29 tokens to 64, but it is a patch on a design
+      that pairs quotes across a whole file rather than reading string literals.
+      **4.0 is the moment to replace the regex list with a real literal scan**,
+      because the colon syntax adds `:` to every class and widens the surface
+      the regexes have to guess at.
+- [ ] `@yummacss/canon`'s canon list has to ship with 4.0, or every v4 class
+      reads as unknown to AI tools and to `validate()`.
+- [ ] `docs`: every code example. Run the codemod here first; largest real
+      corpus, and it has to be migrated anyway. `yummacss migrate` exists on
+      `yummacss` `main` (`packages/cli/src/commands/migrate.ts`, with tests).
+- [ ] Fast-forward `v4` into `main`, or keep working on `v4` deliberately. It is
+      4 commits ahead and `main` is 0 ahead of it, so the choice is still free.
+
+**Yumma UI (published; these are the next patch, not a release gate):**
 
 - [ ] **The API bug list in `TODO.md`. Cursor owns this queue.** Renildo's own
       pass over the playground; everything in it is a real defect the playground
       exposed by making props exercisable for the first time. Listed here so the
       work is visible, not so it gets picked up.
-- [ ] **`--variant` is advertised and not implemented, and its own help example
-      fails.** `ui/src/cli.ts` documents `-v, --variant <name>` with
-      `add button --variant pill` as an example; `add.ts` never reads the flag,
-      drops anything starting with `-`, and pushes the rest as *names*, so that
-      command exits 1 with "Unknown component or block pill". **The idea is not
-      dead, it was never wired.** The decision to make first: are *examples*
-      addressable (prop combos, no file of their own) or only *blocks*? The docs
-      are safe under either answer, because the `## Installation` sections only
-      ever emit `add <component>`. Renildo's lean was "remove it, let users
-      handle customization", which is already how it behaves.
-- [ ] Set `VERSION` in `ui/src/cli.ts` and `package.json` to `0.0.1`.
-- [ ] **~30 `className` prop descriptions still promise "any utility you pass
-      wins".** That is a lie wherever the component already sets the property
-      (see the cascade gotcha below). Skeleton's two were rewritten; copy that
-      wording to the rest.
-- [ ] `file-upload`'s `error?: boolean` should be `error?: string` to match every
-      other component. Small edit to the component and its schema.
-- [ ] Badge's icon wrapper sets `w-3 h-3`/`w-4 h-4` on a `<span>`, which does not
-      constrain the SVG inside it. Harmless, but a lie in the code. Check
-      Meter's `w-8 h-8` wrapper at the same time.
+- [ ] Badge's icon wrapper sets `w-3 h-3`/`w-4 h-4` on a `<span>` (`badge.tsx`
+      `SIZES`, applied as `iconClasses`), which does not constrain the SVG inside
+      it. Harmless, but a lie in the code. Meter's `w-8 h-8` wrapper is the same.
 - [ ] A line on each page saying which file a code block belongs to. The base
       snippet's `@/components/ui/button` and the variant source's `./button` are
       both correct and look like drift. **`./` is load-bearing**:
@@ -83,38 +107,58 @@ says so.
       and centres the glyph in the gap, which is a spatial fact a type cannot
       state.
 
-**Docs site:**
+**Docs site, layout bugs (both diagnosed, both hit every Yumma UI page):**
+
+- [ ] **The sidebar's top items are hidden behind the navbar on any page short
+      enough not to scroll.** On `/ui/components/*` and `/ui/customization` the
+      first section label and its first links are unreachable. Mechanism: the
+      navbar is `p-f ix-0 t-0` (`navbar.tsx`, `navbarVariants`), `main` carries
+      **no top padding**, and the article column compensates with its own
+      `pt-12`. The sidebar compensates with nothing: it relies on `p-st t-20`
+      in `sidebar-nav.tsx`, and sticky does not engage until the page scrolls,
+      so on a short page the aside renders at document top with its first 5rem
+      underneath the fixed navbar. `toc.tsx` has the identical `p-st t-20` plus
+      `max-height: calc(100dvh - 5rem)` and the same latent bug. **Fix the
+      static offset, not the sticky one** - the sticky value is already right.
+- [ ] **The page title and the pagination arrows overflow on small screens.**
+      `d-f ai-c jc-sb` with an `fs-4xl` `h1` and no `mw-0` on it, in both
+      `app/docs/[slug]/page.tsx` and `app/ui/components/[slug]/page.tsx`. A long
+      unbroken title (`@yummacss/runtime`) has a wide min-content width, refuses
+      to shrink, and pushes the arrows past the right edge. The docs page's
+      `Pagination` also lacks the `fs-0` the UI page's wrapper has, so the
+      buttons get squeezed as well. Wants `mw-0` on the title and either a wrap
+      or a stack below `@sm`.
+
+**Docs site, rest:**
 
 - [ ] **`pnpm lint` is not clean** (10 errors on `main`), and `pnpm validate`
       flags `admonition-body` and `mw-0` in `admonition.tsx`. Pre-existing. Do
       not fold these into an unrelated PR, and do not get blamed for them.
 - [ ] **Decide whether `ComponentPreview` stays.** No MDX page references it any
       more (0 hits for `<ComponentPreview` and `<PropsTable` across
-      `src/content`); the playground replaced both. If it goes, the leftover
-      portal reset block in `globals.css` goes with it, and `props-table.tsx`
-      with it.
-- [ ] 23 `example`-kind previews are undocumented after the MDX migration.
+      `src/content`), but `component-preview.tsx` and `props-table.tsx` are both
+      still wired into `mdx-components.tsx`. If it goes, the leftover portal
+      reset block in `globals.css` goes with it, and `props-table.tsx` with it.
+- [ ] 24 `example`-kind registry entries are undocumented after the MDX
+      migration.
 - [ ] **Unreproduced:** radio, select, breadcrumb and onboarding pages reported
       as erroring. All four returned 200 with no console errors and
       `/api/ui-md/` 200. Needs the actual error text.
-- [ ] 25 utilities never referenced by a `<Reference>`: `scroll-padding-*` (8),
-      `scroll-margin-*` (8), `border-{top,right,bottom,left}-color` (4),
-      `scale-{x,y,z}` (3), `inset-{x,y}` (2). Base pages exist; these need
-      entries, not new pages. Mechanical, a few hours.
+- [ ] 12 logical border utilities exist in core with no page and no
+      `<Reference>`: `border-{block,inline}-{start,end}-{radius,width}` and
+      `border-{start,end}-{start,end}-radius`. They belong as entries on
+      `border-radius.mdx` and `border-width.mdx`, not as new pages. (The older
+      list of 25 - `scroll-*`, `border-*-color`, `scale-*`, `inset-*` - is done.)
 - [ ] `grid-column-span.mdx` and `grid-row-span.mdx` duplicate `grid-column.mdx`
       and `grid-row.mdx` (core has `grid-column` with prefix `gc-s`, so the span
-      concept *is* `grid-column`). Deleting needs redirects in `next.config.ts`
-      **and** a check of what core's `slug` points at first: IntelliSense builds
-      hover links as `yummacss.com/docs/${util.slug}`, so a careless delete
-      recreates 404s that were already fixed once.
+      concept *is* `grid-column`). Deleting needs redirects in `redirects.ts`
+      **and** a check of what core's `slug` points at first: hover links are
+      built as `yummacss.com/docs/${util.slug}`, so a careless delete recreates
+      404s that were already fixed once.
 - [ ] `ui/customization.mdx` becomes the Yumma UI API docs. Cut its two colour
       sections (they duplicate `colors.mdx`), keep and expand "Atomic
       customization" and "Component Slots". `### Flexible by Design` is an empty
       heading: write it or drop it.
-- [ ] `responsive-variant.tsx`, `hover-state.tsx` and `negative-values.tsx`
-      render JSX rather than text, so their content is absent from the `.md`
-      routes. Possible fix: drive them from `@yummacss/core` so the content is
-      data.
 - [ ] `llms-full.txt` walks `sidebarConfig` rather than the blog collection, so
       blog content is absent from it. **The live question is whether it should
       exist at all** - models are expensive to run over a dump, the per-page
@@ -127,44 +171,34 @@ says so.
       `next dev`. A dev-only listing is cheap; a public route exposes unfinished
       writing. Different decisions, decide which one is wanted.
 
-**Before 4.0 ships:**
+**After 4.0 ships:**
 
-- [ ] **Fix the `bg-*` scanner gap in Canon/nitro.** `bg-accent-dim` was never
-      generated while `bc-accent-dim` from the same string literal was.
-      Safelisted in `yumma.config.mjs` as a workaround. This is a real bug, and
-      it is the same family as the template-literal bug below.
-- [ ] The 4.0 codemod. Everything else in 4.0 depends on it existing, and it
-      gates the release.
-- [ ] `@yummacss/canon`'s canon list has to ship with 4.0, or every v4 class
-      reads as unknown to AI tools and to `validate()`.
-- [ ] `intellisense` and `intellisense-zed` class-detection patterns assume the
-      v3 shape and will not match `d:f`.
-- [ ] `docs`: every code example. Run the codemod here first; largest real
-      corpus, and it has to be migrated anyway.
-- [ ] **Zed: PR #6731 against `zed-industries/extensions`** has been open since
-      2026-07-22. All four checks green, CLA signed, the `CHANGES_REQUESTED`
-      review and `needs author action` label are both stale and only a
-      maintainer can clear them. A confirming comment was posted 2026-07-29.
-      **Do not post a second comment** - it reads as nagging. The one distinct
-      signal left is re-requesting review:
-      `gh pr edit 6731 --repo zed-industries/extensions --add-reviewer MrSubidubi`.
+- [ ] **Rename `canon` to `lint` and `runtime` to `cdn`.** Both names describe
+      what the package does rather than what it is called internally. Not before
+      4.0: it is an npm rename on top of a syntax break, and the two should not
+      land in one release. What moves with each: the npm package, the monorepo
+      directory, `canon.mdx` / `runtime.mdx` and their `sidebarConfig` entries,
+      redirects in `redirects.ts`, `llms.txt`, site search, and every mention in
+      the tooling pages. `canon` also appears in prose as a concept ("canon
+      list", "canon-valid"), which the rename does not have to follow.
 
 **Monorepo, small:**
 
-- [ ] Merge `fix/typecheck-clean`. All nine packages pass `pnpm check` on it.
 - [ ] `CHANGELOG.md`: `3.24.7` writes `## Changed` instead of `### Changed`; one
       `### Fix` among 34 `### Fixed`; `3.28.0` has no date on its heading.
 - [ ] Core's `scroll-*` slugs are inconsistent: mostly fully qualified
-      (`scroll-margin#scroll-margin-top`) but two are short (`#bottom`,
-      `#inline-start`). The docs headings were written to match each slug exactly
-      so all 16 anchors land; normalise core and those headings can go uniform.
-- [ ] The `any` density is concentrated in one package: intellisense has 40, every
-      other package has 0 or 1. The colour-merge block
+      (`scroll-margin#scroll-margin-top`) but three are short
+      (`scroll-margin#bottom`, `scroll-margin#inline-start`,
+      `scroll-padding#bottom`). The docs headings were written to match each slug
+      exactly so all 16 anchors land; normalise core and those headings can go
+      uniform.
+- [ ] The `any` density is concentrated in `packages/intellisense`: 33 there,
+      0 or 1 everywhere else, with the colour-merge block
       (`const { percentage, ...userColors } = ... as any` then `createColors`)
-      exists **five times**. Worth consolidating **only because 4.0 decision #16
-      (OKLCH) rewrites `createColors`** - five call sites, five chances to miss
-      one. Do not refactor core/nitro/canon internals; they are clean and 4.0
-      rewrites that surface anyway.
+      repeated four times. **Do not spend time here until the question above -
+      whether that package survives at all - is answered.** Do not refactor
+      core/nitro/canon internals; they are clean and 4.0 rewrites that surface
+      anyway.
 
 ---
 
@@ -269,10 +303,15 @@ yummaui init                     write yummaui.json
 yummaui add <component...>       copy components in
 yummaui list [component]         browse what is available
 
-  -v, --variant <name>   NOT IMPLEMENTED, see backlog
+  -a, --all              add every component
       --overwrite        replace existing files
   -y, --yes              skip prompts
 ```
+
+**`--variant` is gone and stays gone.** It was advertised and never wired, its own
+help example exited 1, and the decision was to let users customise the file they
+own. `--all` took the slot. `VERSION` is no longer retyped either: `cli.ts` imports
+`version` from `package.json`, after the two drifted once.
 
 `add` resolves its argument against `index.components[].component` in
 `/ui/r/index.json`, which holds the **36 component names**, never the flat ids.
@@ -375,12 +414,12 @@ playground, and `yummaui add`. They cannot drift.
 
 ### Versioning
 
-**Ship `0.0.1` and stay on patches.** The version is a claim about stability, and
-the schema has been proven against 36 components but **zero outside users**.
-`0.0.x` is the only range where every release is free. The number is cheap to
-raise and expensive to lower. **The thing that triggers the decision** is not a
-date and not a component count: it is the first outside user filing an issue the
-schema cannot answer without a breaking change.
+**`0.0.1` shipped, then `0.1.0` for `add --all`. Stay in `0.x`.** The version is
+a claim about stability, and the schema has been proven against 36 components but
+**zero outside users**. `0.x` is the range where every release is free. The number
+is cheap to raise and expensive to lower, so nothing gets to `1.0` on a date or a
+component count: **the trigger is the first outside user filing an issue the
+schema cannot answer without a breaking change.**
 
 ---
 
@@ -492,27 +531,45 @@ token in `@yummacss/core` (`#101316`) but nothing is emitted for it, so four
 popups inherited the page's own white text and Onboarding's step icon rendered
 white on white. `validate-yummacss.mjs` will not catch this - it checks whether a
 class is *canon*, which `c-slate-12` is. **`getComputedStyle` on the real element
-is the only way to tell.** Same family as the two scanner bugs below.
+is the only way to tell.** A different failure from the scanner bug below: the
+class is extracted, it just generates nothing.
 
-**The scanner mangles multi-`${}` template literals.** `@yummacss/nitro`'s
-build-time scanner silently drops or corrupts class names extracted from template
-literals containing two or more `${}` interpolations, especially with nested
-ternaries. Confirmed by calling `nitro.scan()` directly and inspecting the
-returned `Set`: it contained garbage like `"className={\`d-f"` and `"o-60\""` -
-fragments of surrounding syntax. **Fix: rewrite every dynamic className to
-`[...].filter(Boolean).join(" ")` with zero backticks**, not fewer, all the way
-to zero. A single-interpolation literal looked safe in isolation and was not once
-the file had other backtick classNames nearby.
+**The scanner drops class names by quote parity, and an empty string literal is
+what flips it. Diagnosed 2026-08-28; this is one bug, not the two it looked
+like.** `packages/nitro/src/tokenizer.ts` finds classes with a list of global
+regexes, among them `/"([^"]+)"/g`. Because `[^"]+` spans newlines and demands at
+least one character, the regex pairs quotes **across the whole file** rather than
+per literal, and `""` cannot match: its opening quote fails, its closing quote
+starts a match that runs to the *next* literal's opening quote. From that point
+the phase is inverted - every real class string lands in a gap and is discarded,
+while the code between literals is captured and scanned as classes. Proof in
+`registry/ui/accordion.tsx`, where `square: { item: "" }` on line 24 flips it and
+`"d-f fd-c w-100% max-w-96"` on line 77 is captured as
+`";\n\n  const rootClasses = [\n    "` instead. This explains everything the
+older notes could not: why the same class survives in one file and not another
+(parity, not position), why `bc-accent-dim` lived while `bg-accent-dim` died, and
+why `"className={\`d-f"` and `"o-60\""` came back from `nitro.scan()` as
+garbage - the backtick regex has the same shape and any `"` inside a `${}` flips
+it too.
 
-**And some plain unconditional string literals are dropped too, cause
-undiagnosed.** `max-w-96`, `blc-indigo-5`, `c-indigo-6`, `c-indigo-9`, `ro-36`,
-and later `bg-accent-dim` (while `bc-accent-dim` from the *same string literal*
-survived). Ruled out: position in file, a per-file class cap, and the `%`/`:`
-characters. Worked around by `yumma.config.mjs`'s `safelist`. **If a component
-renders unstyled despite the class name looking correct, check the built CSS for
-that literal before assuming the component is wrong**:
+**Scale:** across `docs`'s 165 scanned `.ts`/`.tsx` files, 70 contain an empty
+literal and **469 distinct class tokens are lost**. Every non-`code-decorate`
+entry in `yumma.config.mjs`'s safelist is a symptom of this one bug, so treat
+that safelist as a bug list, not as configuration.
+
+`[^"]+` -> `[^"]*` in all three quote regexes restores parity (`accordion.tsx`
+goes from 29 tokens to 64) and needs a zero-length-match guard, but it is a patch
+on a design that guesses at literals with regex alternation. **The real fix is a
+literal scan, and 4.0 is when to do it**, since the colon syntax widens what the
+regexes have to guess at. Until it lands the old workaround still holds: rewrite
+dynamic classNames to `[...].filter(Boolean).join(" ")` with **zero** backticks,
+not fewer.
+
+**If a component renders unstyled despite the class name looking correct**, check
+the built CSS for that literal before assuming the component is wrong:
 `grep -o "\.<class>{[^}]*}" .next/static/chunks/*.css` after a clean
-`rm -rf .next && pnpm build`.
+`rm -rf .next && pnpm build`. Reproducing the tokenizer itself needs no build:
+copy it into a `.mjs` probe and run it over the file.
 
 **Write probes to a `.mjs` file, never a bash heredoc.** Backslash mangling
 between the heredoc and a JS regex has produced false "missing" results at least
@@ -771,9 +828,6 @@ problem, not a value problem.** Aim at the value problems and say so.
 
 ## Parked
 
-- **Inspect mode**: overlay dimensions and the box model on a preview. Survives
-  the `/ui` layout revert because it does not depend on any of it; attach it to
-  the preview and leave the page structure alone.
 - **Interactive palette on `colors.mdx`**: type a hex, see the 13 generated
   shades. Same blocker as exposing `yumma.config.mjs` in `play` - `loadConfig`
   genuinely reads from disk (`node:fs`, `node:crypto`, `tinyglobby`), so it
