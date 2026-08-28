@@ -127,6 +127,14 @@ any className on the site. 75 previously-dropped classes are now found.
 
 **`yummaui` is published at `0.1.0`.** Nothing here blocks a release.
 
+**The `--variant` question is closed, and not the way it was framed.** The flag
+is gone from `cli.ts` (replaced by `-a, --all`), and `add.ts` now resolves a
+name against `index.components[].component` **and** `index.blocks[].id`, so
+`yummaui add button-group-pill` works directly. No component carries a
+`variants` array any more - 36 components, 25 blocks, and blocks are addressed
+by their flat id. Do not re-propose a `--variant` flag: the thing it was for is
+served by making the id addressable.
+
 - [ ] Badge's icon wrapper sets `w-3 h-3`/`w-4 h-4` on a `<span>`, which does not
       constrain the SVG inside it. Harmless, but a lie in the code. Check
       Meter's `w-8 h-8` wrapper at the same time.
