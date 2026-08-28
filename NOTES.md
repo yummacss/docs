@@ -77,12 +77,13 @@ Status: **Phase 1 done bar a release.** Phase 2 is next.
 
 | # | Phase | Repos | Why it sits here |
 | --- | --- | --- | --- |
-| 1 | Fix the class scanner | `yummacss`, `docs` | Root-caused, small, and everything downstream writes classes. A broken scanner silently loses any class written in phases 2-6. |
-| 2 | Yumma UI polish | `ui`, `docs` | Shipped at `0.1.0`; what is left is presentation, not release blocking. |
-| 3 | Docs debt | `docs` | Cheap, mechanical, and the corpus the 4.0 codemod runs against first. |
-| 4 | Retire `@yummacss/intellisense` | `yummacss`, `play` | Frees `play` and closes most of the `any` item. Independent of everything. |
-| 5 | v4 decisions | none, design only | Three of these gate the codemod and the canon list. Decide before building. |
-| 6 | v4 build | all | The codemod, the canon list, the migration. Gated on 5. |
+| 1 | Fix the class scanner | `yummacss`, `docs` | Root-caused, small, and everything downstream writes classes. |
+| 2 | Fix negative values | `yummacss` | A live correctness bug in `3.29.2`: 72 utilities emit CSS the parser throws away. Also a 4.0 blocker. |
+| 3 | Yumma UI: `prune` | `ui` | The one thing a real user said she would use. Everything else on Yumma UI is polish. |
+| 4 | Docs debt | `docs` | Cheap, mechanical, and the corpus the 4.0 codemod runs against first. |
+| 5 | Retire `@yummacss/intellisense` | `yummacss`, `play` | Frees `play` and closes most of the `any` item. Independent of everything. |
+| 6 | v4 decisions | none, design only | These gate the codemod and the canon list. Decide before building. |
+| 7 | v4 build | all | The codemod, the canon list, the migration. Gated on 6.
 
 **`TODO.md` is Cursor's lane and is not a phase.** It holds per-component API
 fixes Renildo is having Cursor work through. Do not pick items out of it, do not
@@ -123,17 +124,77 @@ any className on the site. 75 previously-dropped classes are now found.
 - [ ] `ro-90` is already gone: zero occurrences anywhere in `src` under either
       tokenizer, so it was only ever generating dead CSS.
 
-### Phase 2 - Yumma UI polish
+### Phase 2 - Fix negative values
 
-**`yummaui` is published at `0.1.0`.** Nothing here blocks a release.
+**A live correctness bug in `3.29.2`, not only a 4.0 item.** `generator.ts`
+strips a leading `-` off any value and negates it, with no per-utility notion of
+whether negatives are legal. **72 utilities emit CSS the parser rejects**, so the
+declaration is dropped and the class silently does nothing:
 
-**The `--variant` question is closed, and not the way it was framed.** The flag
-is gone from `cli.ts` (replaced by `-a, --all`), and `add.ts` now resolves a
-name against `index.components[].component` **and** `index.blocks[].id`, so
+```
+w--1      -> width: -.25rem            p--1      -> padding: -.25rem
+br--9999  -> border-radius: -9999px    bw--1     -> border-width: -1px
+lh--1     -> line-height: -1           fw--100   -> font-weight: -100
+tdu--50   -> transition-duration: -50ms  fg--1   -> flex-grow: -1
+```
+
+- [ ] Add a per-utility flag for whether negatives are legal. **40 utilities are
+      legitimate** and must keep working: margins, insets, `z-index`, `order`,
+      `letter-spacing`, `text-indent`, `translate`/`rotate`/`scale`,
+      `scroll-margin`, `outline-offset`, `text-underline-offset`,
+      `transition-delay`, `flex-basis`. Everywhere else a leading `-` should make
+      the class **unknown**, not broken - no rule at all beats a rule the browser
+      discards.
+- [ ] **Two that look wrong and are not.** Negative grid line numbers are legal
+      (`gcs--1` counts back from the end of the explicit grid), and `opacity`
+      clamps rather than rejecting, so `o--10` is useless but valid. That is why
+      the count is 72 and not 77.
+- [ ] `canon` has to reject the illegal ones too, or `validate()` keeps passing
+      them.
+- [ ] Regression test: assert the 40 still generate and a sample of the 72 do
+      not. The enumeration script lives in this session's history only, so
+      rebuild it from `coreUtils()` - generate `<prefix>--<n>` for every utility
+      and compare against the legal set.
+
+### Phase 3 - Yumma UI: `prune`
+
+**Decided 2026-08-28, after a real user's reaction.** She was shown
+`add button --variant pill` and `add button-pill`, said neither made sense, and
+said what she actually wanted was a way to delete what she was not using. That
+is the signal worth acting on.
+
+**Addressing stays exactly as it is.** `--variant` is gone from `cli.ts`
+(replaced by `-a, --all`), and `add.ts` resolves a name against
+`index.components[].component` **and** `index.blocks[].id`, so
 `yummaui add button-group-pill` works directly. No component carries a
-`variants` array any more - 36 components, 25 blocks, and blocks are addressed
-by their flat id. Do not re-propose a `--variant` flag: the thing it was for is
-served by making the id addressable.
+`variants` array any more: 36 components, 25 blocks, blocks addressed by flat
+id. **Do not re-propose a `--variant` flag** - the thing it was for is served by
+making the id addressable.
+
+- [ ] **`yummaui prune`.** Deletes component files nothing in the project uses.
+      One thing it must get right: **blocks import each other** via
+      `from "./<id>"`, so "does anything import this file" is the wrong test -
+      `button` looks used because an unused `button-group-pill` imports it. The
+      correct test is **reachability from outside `componentsDir`**. Dry-run by
+      default, print what it would delete, confirm before writing. `yummaui.json`
+      holds only `componentsDir`, `alias` and `registry` - no manifest of what
+      was installed - but `prune` does not need one, because `componentsDir`
+      *is* the candidate set.
+- [ ] Worth knowing it is safer than the alternative: the workflow it replaces is
+      "delete the unused ones with AI", whose failure mode is deleting a file
+      that *is* used, silently, until a build breaks.
+
+**Parked, deliberately: whether blocks should exist at all.** Renildo's lean is
+no - quality over quantity, components only, not `dialog-sign-up`. Do not act on
+this yet. What is known if it is revisited: **only 10 of 36 components have
+blocks** (dialog 7, button 4, checkbox 3, then 1-2 each), and the cost of an
+unused block is **lines you own, not CSS** - dialog goes 246 to 643 lines with
+all 7, while the CSS grows only 2733B to 3409B, because blocks reuse the same
+utilities. The whole 84-file registry is 14KB of CSS. **The CSS argument against
+blocks does not hold; the ownership argument does.**
+
+**Polish, after `prune`. `yummaui` is published at `0.1.0`, so none of this
+blocks a release.**
 
 - [ ] Badge's icon wrapper sets `w-3 h-3`/`w-4 h-4` on a `<span>`, which does not
       constrain the SVG inside it. Harmless, but a lie in the code. Check
@@ -155,7 +216,7 @@ served by making the id addressable.
       **Confirm and delete this entry rather than hunting for a string that is
       not there.** The cascade gotcha it referred to is still real.
 
-### Phase 3 - Docs debt
+### Phase 4 - Docs debt
 
 - [ ] **12 utilities exist with a page but are not listed on it**, all logical
       properties: `border-radius` is missing its 8 block/inline/start/end
@@ -205,7 +266,7 @@ served by making the id addressable.
       `next dev`. A dev-only listing is cheap; a public route exposes unfinished
       writing. Different decisions, decide which one is wanted.
 
-### Phase 4 - Retire `@yummacss/intellisense`
+### Phase 5 - Retire `@yummacss/intellisense`
 
 The extensions are already deleted (see Rejected). This is the package.
 
@@ -234,28 +295,7 @@ The extensions are already deleted (see Rejected). This is the package.
       `#inline-start`). The docs headings were written to match each slug exactly
       so all 16 anchors land; normalise core and those headings can go uniform.
 
-### Phase 5 - v4 decisions
-
-- [ ] **Negatives are applied to every utility with no allowlist, and 72 of them
-      emit invalid CSS.** `generator.ts` strips a leading `-` off any value and
-      negates it, so `w--1` is `width: -.25rem`, `p--1` is `padding: -.25rem`,
-      `br--9999` is `border-radius: -9999px`, `lh--1` is `line-height: -1`,
-      `fw--100` is `font-weight: -100`, `tdu--50` is
-      `transition-duration: -50ms`. All rejected by the parser; the declaration
-      is dropped and the class silently does nothing. **This must not survive
-      into 4.0.** The fix is a per-utility flag for whether negatives are legal,
-      set on the 40 where they are - margins, insets, `z-index`, `order`,
-      `letter-spacing`, `text-indent`, `translate`/`rotate`/`scale`,
-      `scroll-margin`, `outline-offset`, `text-underline-offset`,
-      `transition-delay`, `flex-basis` - and a rejection everywhere else, so
-      `w--1` is an unknown class rather than a broken rule. Two that look wrong
-      and are not: **negative grid line numbers are legal** (`gcs--1` counts back
-      from the end of the explicit grid) and **`opacity` clamps** rather than
-      rejecting, so `o--10` is useless but valid. `canon` should reject the
-      illegal ones too, or `validate()` keeps passing them.
-
-No code. Each of these changes what gets built in Phase 6, and retrofitting any
-of them is a breaking change.
+### Phase 6 - v4 decisions
 
 - [ ] **Bounded scale or unbounded?** See the 0-384 section below. This one
       decides the shape of canon, so it goes first.
@@ -266,14 +306,14 @@ of them is a breaking change.
 - [ ] Colored box-shadows: 3.29 or 4.0?
 - [ ] `xs` at 32rem has no matching breakpoint. Drop it or add the breakpoint.
 
-### Phase 6 - v4 build
+### Phase 7 - v4 build
 
 - [ ] The 4.0 codemod. Everything else in 4.0 depends on it existing, and it
       gates the release.
-- [ ] `@yummacss/canon`'s canon list, in whatever shape Phase 5 settled.
+- [ ] `@yummacss/canon`'s canon list, in whatever shape Phase 6 settled.
 - [ ] `docs`: every code example. Run the codemod here first; largest real
       corpus, and it has to be migrated anyway.
-- [ ] The config-driven generators, per the Phase 5 answer.
+- [ ] The config-driven generators, per the Phase 6 answer.
 ---
 
 ## The playground
