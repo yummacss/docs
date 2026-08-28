@@ -27,12 +27,15 @@ clearing; keep this file short.
 | repo | branch | state |
 | --- | --- | --- |
 | `docs` | `main` | `6eca3b18`. Playground merged (#108, #129, #130). |
-| `docs` | `claude/yummacss-docs-safelist-m080ha` | sidebar/title layout fixes, unpushed |
+| `docs` | `fix-layout` | PR #132, layout fixes |
+| `docs` | `notes` | PR #133, this file |
+| `yummacss` | `fix-scanner` | PR #11, tokenizer fix + `3.30.0` release prep |
 | `yummacss` | `v4` | 4 ahead of `main`: colon-syntax parsing, fixtures migrated |
-| `yummacss` | `origin/fix/typecheck-clean` | still unmerged, still wanted |
 | `ui` | `release` | **published, `yummaui@0.1.0`** |
 
-Published: `@yummacss/*` at `3.29.2`, `yummaui` at `0.1.0`.
+Published: `@yummacss/*` at `3.29.2`, `yummaui` at `0.1.0`. **`3.30.0` is
+prepared and unpublished** - see Phase 1. There are eight packages, not nine;
+`language-server` was deleted with the extensions.
 
 `ui` is a **separate repo** (`github.com/yummacss/ui`). The folder and repo are
 `ui`; the **published npm package is `yummaui`**, because `ui` is taken. Do not
@@ -105,9 +108,22 @@ generated nothing, 1262 after of which 588 do. Nine classes are no longer
 found and **all nine are in comments and JSDoc discussing classes**, none in
 any className on the site. 75 previously-dropped classes are now found.
 
-- [ ] **Release `yummacss` carrying the fix.** `docs` depends on the published
-      `yummacss@3.29.2`, not the workspace, so nothing in `docs` can change
-      until then.
+- [ ] **Publish `3.30.0`.** Prepared on `fix-scanner`: CHANGELOG entry written,
+      `pnpm bump 3.30.0` run across all nine package.json files, build and 119
+      tests green. Only `pnpm publish-packages` and a `v3.30.0` tag are left.
+      `docs` depends on the published package, not the workspace, so nothing in
+      `docs` can change until this lands.
+- [ ] **Minor, not a patch, for three independent reasons:** `main` carried an
+      unreleased feature (`yummacss migrate`), `tokenizer()` gained an optional
+      `filename` parameter, and the fix removes CSS that used to be generated.
+      A patch must not change how a page renders; this can.
+- [ ] **`yummacss migrate` is held out of `3.30.0` on purpose.** It rewrites
+      classes into the v4 colon syntax, and **this release cannot compile what
+      it writes** - verified: `d-f` generates, `d:f` generates nothing, same for
+      `bg:red-1` and `m:4`. Shipping it would hand users a command that silently
+      kills every class in their project. It is listed under `[Unreleased]` and
+      ships with v4. **If it must ship sooner, it needs a guard that refuses to
+      run unless a v4 generator is present.**
 - [ ] **Then, in `docs/yumma.config.mjs`, in one commit:** replace the five
       enumerated `source` entries with the single glob
       `"./src/**/*.{ts,tsx,mdx,mjs}"`, and delete `safelist` entirely.
@@ -287,7 +303,6 @@ The extensions are already deleted (see Rejected). This is the package.
       #16 (OKLCH) rewrites `createColors`** - five call sites, five chances to
       miss one. Do not refactor core/nitro/canon internals; they are clean and
       4.0 rewrites that surface anyway.
-- [ ] Merge `fix/typecheck-clean`. All nine packages pass `pnpm check` on it.
 - [ ] `CHANGELOG.md`: `3.24.7` writes `## Changed` instead of `### Changed`; one
       `### Fix` among 34 `### Fixed`; `3.28.0` has no date on its heading.
 - [ ] Core's `scroll-*` slugs are inconsistent: mostly fully qualified
