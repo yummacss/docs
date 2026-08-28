@@ -67,7 +67,7 @@ them through.
 
 ## The plan, in phases
 
-Status: **Phase 1 in progress.** Nothing else started.
+Status: **Phase 1 done bar a release.** Phase 2 is next.
 
 | # | Phase | Repos | Why it sits here |
 | --- | --- | --- | --- |
@@ -86,24 +86,28 @@ fix them in passing, and do not fold them into any phase here.
 
 ### Phase 1 - Fix the class scanner
 
-Root cause is in the Traps section under quote-parity drift; read that first.
-Ends with `docs`'s `safelist` at zero entries.
+**Done except the last step, which is gated on a release.**
 
-- [ ] `packages/nitro/src/tokenizer.ts`: replace the regex bag with a lexer that
-      tracks strings, comments, template literals and regex literals. The
-      three-character version (`+` -> `*`, plus a zero-length-match guard) is a
-      real improvement and recovers 8 of 17 safelist entries, but only the lexer
-      ends the category, and it also stops harvesting class-shaped words out of
-      comments and prose.
-- [ ] Regression tests for the cases that produced this: an empty literal
-      `: ""` mid-file, a regex literal holding an odd number of quotes, a quote
-      inside a comment, a quote inside a template literal.
-- [ ] Verify against `docs`'s real 341-file glob, not a fixture. The baseline to
-      beat: 1530 real classes and 82 junk tokens today; the one-character fix
-      gives 1564 and 0.
-- [ ] Empty `docs`'s `safelist` in `yumma.config.mjs` and confirm the pages that
-      depended on it still render styled. `ro-90` is dead either way - zero hits
-      in `src`.
+The tokenizer is rewritten as a lexer in `yummacss` on
+`claude/yummacss-docs-safelist-m080ha` (`d32bc57`), with 16 regression tests in
+`tests/tokenizer.test.ts`; five of them fail against the old tokenizer. Root
+cause and the measurements are in the Traps section.
+
+Against the real 331-file docs source: 1579 tokens before of which 971
+generated nothing, 1262 after of which 588 do. Nine classes are no longer
+found and **all nine are in comments and JSDoc discussing classes**, none in
+any className on the site. 75 previously-dropped classes are now found.
+
+- [ ] **Release `yummacss` carrying the fix.** `docs` depends on the published
+      `yummacss@3.29.2`, not the workspace, so nothing in `docs` can change
+      until then.
+- [ ] **Then, in `docs/yumma.config.mjs`, in one commit:** add
+      `"./src/lib/**/*.mjs"` to `source` and delete `safelist` entirely. Both
+      are needed - `src/lib` was never in the glob. **Verified end to end:**
+      scanning that glob with no safelist generates all sixteen remaining
+      entries. The config carries this as a comment so it is not lost.
+- [ ] `ro-90` is already gone: zero occurrences anywhere in `src` under either
+      tokenizer, so it was only ever generating dead CSS.
 
 ### Phase 2 - Ship Yumma UI `0.0.1`
 
@@ -578,27 +582,33 @@ fragments of surrounding syntax. **Fix: rewrite every dynamic className to
 to zero. A single-interpolation literal looked safe in isolation and was not once
 the file had other backtick classNames nearby.
 
-**Plain string literals are dropped too, and the cause is quote-parity drift.**
-`tokenizer.ts` matches bare strings with `/"([^"]+)"/g`. `[^"]+` is *one*-or-more,
-so an empty literal `""` cannot match; the regex backtracks and starts its next
-match on the **second** quote of that pair, and from there it captures the code
-*between* strings instead of the strings. Every later class in the file is lost
-until another `""` re-syncs it, which is why `bc-accent-dim` survived while
-`bg-accent-dim` from the same literal did not, and why "position in file" and "a
-per-file cap" were correctly ruled out and nothing replaced them. **The bitter
-part: the prescribed fix for the template-literal bug above -
-`[...].filter(Boolean).join(" ")` - is what introduces the `: ""` falsy branches.
-There are 75 in `src`.** The one-character fix (`+` -> `*` in the three
-bare-string regexes, plus a zero-length-match guard or it infinite-loops) was
-measured against
-the real 341-file glob: 1530 -> 1564 real classes, and the 82 junk tokens it used
-to emit as CSS (`biome-ignore`, `hand-written`, `zero-width`, `m-23` scraped
-out of prose) drop to 0. **This is the `bg-*` gap in the 4.0 list, and it is a
-nitro fix, not a docs one.** Regex pairing cannot be made correct in general -
-comments, template literals and regex literals all desync it - so the real fix
-is a lexer that tracks what a string is. **If a component renders unstyled
-despite the class name looking correct, check the built CSS for that literal
-before assuming the component is wrong**:
+**Plain string literals were dropped too: quote-parity drift.** Fixed in nitro
+2026-08-28; kept because it explains every odd scanner report before that date
+and because the shape recurs. `tokenizer.ts` matched bare strings with
+`/"([^"]+)"/g`. `[^"]+` is *one*-or-more, so an empty literal `""` could not
+match; the regex backtracked and began its next match on the **second** quote of
+that pair, capturing the code *between* strings from there on. Every later class
+in the file was lost until another `""` re-synced it - which is why
+`bc-accent-dim` survived while `bg-accent-dim` from the same literal did not,
+and why "position in the file" and "a per-file cap" were correctly ruled out and
+nothing replaced them. A regex literal or a quote inside a comment did the same.
+**The bitter part: the prescribed fix for the template-literal bug above -
+`[...].filter(Boolean).join(" ")` - is what introduces the `: ""` falsy branches
+that cause this.** There were 75 in `src`.
+
+`tokenizer.ts` is now a lexer: JS-family files by extension get a scanner that
+tracks comments, escapes, template literals and regex literals, and everything
+else gets a line-scoped pass, because `.mdx` is prose and an apostrophe must not
+cost more than its line. **Two consequences worth remembering.** Class names in
+comments are no longer collected, which is correct - `m-23` was generating a
+real rule because a sentence explains the scale runs past it - so a class that
+exists *only* in a comment will not generate. And `src/lib/code-decorate.mjs`
+was always scannable; the older note claiming the glob was tried and did not
+help was wrong. Line 43 is `const regex = /"([^"]+)"/g;`, three quotes, hiding
+everything below it. The file contained the very pattern that hid it.
+
+**If a component renders unstyled despite the class name looking correct, check
+the built CSS for that literal before assuming the component is wrong**:
 `grep -o "\.<class>{[^}]*}" .next/static/chunks/*.css` after a clean
 `rm -rf .next && pnpm build`.
 
@@ -606,15 +616,6 @@ before assuming the component is wrong**:
 between the heredoc and a JS regex has produced false "missing" results at least
 three times, on classes that were present. `javascript_tool` against the live DOM
 is better still - no shell in the path at all.
-
-**`src/lib/code-decorate.mjs` is scanned fine; line 43 blinds the rest of it.**
-The old note here said the file is not scanned and that adding it to `source` does
-not help. That was wrong - it is the parity bug above. Line 43 is
-`const regex = /"([^"]+)"/g;`, a regex literal holding **three** double quotes, so
-everything below it desyncs, including `mx--4` on line 110 and `d-i` on line 157.
-The file contains the very pattern that hides it. Those two plus
-`bc-accent-dim/50` survive the one-character fix and need a lexer; `ro-90` has
-zero hits anywhere in `src` and is simply dead.
 
 **A caller's `className` cannot reliably override a class the component already
 sets** for the same property. Which one wins is decided by the generated
