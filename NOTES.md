@@ -98,8 +98,8 @@ fix them in passing, and do not fold them into any phase here.
 
 **Done except the last step, which is gated on a release.**
 
-The tokenizer is rewritten as a lexer in `yummacss` on
-`claude/yummacss-docs-safelist-m080ha` (`d32bc57`), with 16 regression tests in
+The tokenizer is rewritten as a lexer in `yummacss` on `fix-scanner`
+(PR #11, `d32bc57`), with 16 regression tests in
 `tests/tokenizer.test.ts`; five of them fail against the old tokenizer. Root
 cause and the measurements are in the Traps section.
 
@@ -113,10 +113,11 @@ any className on the site. 75 previously-dropped classes are now found.
       tests green. Only `pnpm publish-packages` and a `v3.30.0` tag are left.
       `docs` depends on the published package, not the workspace, so nothing in
       `docs` can change until this lands.
-- [ ] **Minor, not a patch, for three independent reasons:** `main` carried an
-      unreleased feature (`yummacss migrate`), `tokenizer()` gained an optional
-      `filename` parameter, and the fix removes CSS that used to be generated.
-      A patch must not change how a page renders; this can.
+- [ ] **Minor, not a patch:** `tokenizer()` gained an optional `filename`
+      parameter, and the fix removes CSS that used to be generated - a patch
+      must not change how a page renders, and this can. (A third reason applied
+      until `migrate` was unwired: `main` was carrying it as an unreleased
+      feature.)
 - [ ] **`yummacss migrate` is unwired from the CLI, not merely undocumented.**
       It rewrites classes into the v4 colon syntax and **v3 cannot compile what
       it writes** - verified: `d-f` generates, `d:f` generates nothing, same for
