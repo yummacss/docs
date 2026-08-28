@@ -30,9 +30,9 @@ clearing; keep this file short.
 | `docs` | `claude/yummacss-docs-safelist-m080ha` | sidebar/title layout fixes, unpushed |
 | `yummacss` | `v4` | 4 ahead of `main`: colon-syntax parsing, fixtures migrated |
 | `yummacss` | `origin/fix/typecheck-clean` | still unmerged, still wanted |
-| `ui` | `release` | CLI, unpublished. `VERSION` says `0.1.0`, ship `0.0.1` |
+| `ui` | `release` | **published, `yummaui@0.1.0`** |
 
-Published: `@yummacss/*` at `3.29.2`. `yummaui` not yet published.
+Published: `@yummacss/*` at `3.29.2`, `yummaui` at `0.1.0`.
 
 `ui` is a **separate repo** (`github.com/yummacss/ui`). The folder and repo are
 `ui`; the **published npm package is `yummaui`**, because `ui` is taken. Do not
@@ -59,6 +59,12 @@ NOTES.md." The wrap-up rewrites the phase's entry with what actually happened,
 deletes what is finished, and hands back the one-line starter for the next
 session. Clear only after that lands.
 
+**How work lands. Pull requests, never a direct commit.** Renildo previews and
+approves. Branch names are short and made of real words - `fix-scanner`,
+`notes`, `fix-layout` - with no generated suffixes. **PR bodies stay minimal**:
+a line or two on what changed and why. The detail lives in this file, so a PR
+that restates it is duplicating something that will drift.
+
 **The rule for what goes in here** has not changed: an entry earns its place if
 it changes what someone does next. Delete finished entries rather than striking
 them through.
@@ -72,7 +78,7 @@ Status: **Phase 1 done bar a release.** Phase 2 is next.
 | # | Phase | Repos | Why it sits here |
 | --- | --- | --- | --- |
 | 1 | Fix the class scanner | `yummacss`, `docs` | Root-caused, small, and everything downstream writes classes. A broken scanner silently loses any class written in phases 2-6. |
-| 2 | Ship Yumma UI `0.0.1` | `ui`, `docs` | The one real person waiting is waiting on this. |
+| 2 | Yumma UI polish | `ui`, `docs` | Shipped at `0.1.0`; what is left is presentation, not release blocking. |
 | 3 | Docs debt | `docs` | Cheap, mechanical, and the corpus the 4.0 codemod runs against first. |
 | 4 | Retire `@yummacss/intellisense` | `yummacss`, `play` | Frees `play` and closes most of the `any` item. Independent of everything. |
 | 5 | v4 decisions | none, design only | Three of these gate the codemod and the canon list. Decide before building. |
@@ -101,28 +107,26 @@ any className on the site. 75 previously-dropped classes are now found.
 - [ ] **Release `yummacss` carrying the fix.** `docs` depends on the published
       `yummacss@3.29.2`, not the workspace, so nothing in `docs` can change
       until then.
-- [ ] **Then, in `docs/yumma.config.mjs`, in one commit:** add
-      `"./src/lib/**/*.mjs"` to `source` and delete `safelist` entirely. Both
-      are needed - `src/lib` was never in the glob. **Verified end to end:**
-      scanning that glob with no safelist generates all sixteen remaining
-      entries. The config carries this as a comment so it is not lost.
+- [ ] **Then, in `docs/yumma.config.mjs`, in one commit:** replace the five
+      enumerated `source` entries with the single glob
+      `"./src/**/*.{ts,tsx,mdx,mjs}"`, and delete `safelist` entirely.
+      **Measured:** the enumerated list reaches 330 files and 1167 classes, the
+      broad glob 363 and 1262, and **it loses nothing** - every class the list
+      finds, the glob finds. It also picks up `mx--4`, `d-i` and
+      `bc-accent-dim/50` from `src/lib`, which is precisely why they were
+      safelisted. The 91 extra tokens it collects are registry ids, page slugs
+      and package names, none of which match a utility prefix, so they generate
+      no CSS. **Enumerating directories is what created this bug**: `src/lib`
+      was left out by accident and nothing said so. One glob cannot be
+      accidentally narrow. The config carries this as a comment so it is not
+      lost.
 - [ ] `ro-90` is already gone: zero occurrences anywhere in `src` under either
       tokenizer, so it was only ever generating dead CSS.
 
-### Phase 2 - Ship Yumma UI `0.0.1`
+### Phase 2 - Yumma UI polish
 
-- [ ] **`--variant` is advertised and not implemented, and its own help example
-      fails.** `ui/src/cli.ts` documents `-v, --variant <name>` with
-      `add button --variant pill` as an example; `add.ts` never reads the flag,
-      drops anything starting with `-`, and pushes the rest as *names*, so that
-      command exits 1 with "Unknown component or block pill". **The idea is not
-      dead, it was never wired.** The decision to make first: are *examples*
-      addressable (prop combos, no file of their own) or only *blocks*? The docs
-      are safe under either answer, because the `## Installation` sections only
-      ever emit `add <component>`. Renildo's lean was "remove it, let users
-      handle customization", which is already how it behaves.
-- [ ] Set the version to `0.0.1`. `ui/package.json` says `0.1.0` and `cli.ts`
-      imports `version` from it, so it is one edit.
+**`yummaui` is published at `0.1.0`.** Nothing here blocks a release.
+
 - [ ] Badge's icon wrapper sets `w-3 h-3`/`w-4 h-4` on a `<span>`, which does not
       constrain the SVG inside it. Harmless, but a lie in the code. Check
       Meter's `w-8 h-8` wrapper at the same time.
@@ -223,6 +227,24 @@ The extensions are already deleted (see Rejected). This is the package.
       so all 16 anchors land; normalise core and those headings can go uniform.
 
 ### Phase 5 - v4 decisions
+
+- [ ] **Negatives are applied to every utility with no allowlist, and 72 of them
+      emit invalid CSS.** `generator.ts` strips a leading `-` off any value and
+      negates it, so `w--1` is `width: -.25rem`, `p--1` is `padding: -.25rem`,
+      `br--9999` is `border-radius: -9999px`, `lh--1` is `line-height: -1`,
+      `fw--100` is `font-weight: -100`, `tdu--50` is
+      `transition-duration: -50ms`. All rejected by the parser; the declaration
+      is dropped and the class silently does nothing. **This must not survive
+      into 4.0.** The fix is a per-utility flag for whether negatives are legal,
+      set on the 40 where they are - margins, insets, `z-index`, `order`,
+      `letter-spacing`, `text-indent`, `translate`/`rotate`/`scale`,
+      `scroll-margin`, `outline-offset`, `text-underline-offset`,
+      `transition-delay`, `flex-basis` - and a rejection everywhere else, so
+      `w--1` is an unknown class rather than a broken rule. Two that look wrong
+      and are not: **negative grid line numbers are legal** (`gcs--1` counts back
+      from the end of the explicit grid) and **`opacity` clamps** rather than
+      rejecting, so `o--10` is useless but valid. `canon` should reject the
+      illegal ones too, or `validate()` keeps passing them.
 
 No code. Each of these changes what gets built in Phase 6, and retrofitting any
 of them is a breaking change.
@@ -453,12 +475,12 @@ playground, and `yummaui add`. They cannot drift.
 
 ### Versioning
 
-**Ship `0.0.1` and stay on patches.** The version is a claim about stability, and
-the schema has been proven against 36 components but **zero outside users**.
-`0.0.x` is the only range where every release is free. The number is cheap to
-raise and expensive to lower. **The thing that triggers the decision** is not a
-date and not a component count: it is the first outside user filing an issue the
-schema cannot answer without a breaking change.
+**Shipped at `0.1.0`.** The earlier argument for `0.0.1` - that `0.0.x` is the
+only range where every release is free - is settled and does not need
+re-litigating. What carries forward is the trigger it named: **the thing that
+forces a version decision is not a date and not a component count, it is the
+first outside user filing an issue the schema cannot answer without a breaking
+change.** Stay on patches until then.
 
 ---
 
