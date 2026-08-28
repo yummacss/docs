@@ -35,7 +35,7 @@ export default function SidebarNav({ sections, basePath, links }: Props) {
   const pathname = usePathname();
 
   return (
-    <aside className="d-none @lg:d-b @lg:gc-s-3">
+    <aside className="d-none @lg:d-b @lg:gc-s-3 @lg:pt-20">
       <div
         className="d-f p-st t-20 oy-auto ob-c fd-c g-8 pb-12"
         style={{ maxHeight: "calc(100dvh - 5rem)" }}
