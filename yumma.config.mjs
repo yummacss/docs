@@ -12,28 +12,22 @@ export default defineConfig({
     // `src/lib/code-decorate.mjs` writes class names but is not in `source`
     "mx--4",
     "d-i",
-    // The playground's checked checkbox. `bc-accent-dim` generates from the
-    // same string literal & this one does not, which is the scanner gap again
-    // rather than anything about the class.
-    "bg-accent-dim",
     "bg-accent-dim/10",
+    "bc-accent-dim/50",
+    // Everything below is one nitro bug, not configuration: the scanner paired
+    // quotes across a whole file, so an empty literal hid every class after it.
+    // Fixed in nitro; delete these once a release carrying the fix is pinned.
+    "bg-accent-dim",
     "bg-diff-add/10",
     "bg-diff-remove/10",
-    "bc-accent-dim/50",
-    // Accordion: the class scanner misses these in this file even though
-    // they're plain, unconditional string literals - see NOTES.md.
     "max-w-96",
     "blc-indigo-5",
     "c-indigo-6",
     "c-indigo-9",
     "ro-36",
-    // Collapsible: same scanner gap, different file - see NOTES.md.
     "o-100",
     "tp-t",
-    "ro-90",
-    // Menu: same scanner gap again.
     "h-fc",
-    // Tabs: and again.
     "tp-a",
   ],
   theme: {

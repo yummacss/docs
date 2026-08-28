@@ -72,60 +72,53 @@ items**, unless the item says it is parked on a decision. Each phase says what
 
 ### Phase 0 - One extractor. Everything else is built on this
 
-**Severity: this decides whether the 4.0 migration is correct.** Three separate
-pieces of code answer "where are the class strings in this file", all three are
-regex, and all three are wrong in different ways:
+**Mostly done.** `extractClassStrings` is in `@yummacss/nitro` (`src/extract.ts`)
+and the tokenizer, the 4.0 codemod and canon all read through it. What is left
+is a release and a safelist.
 
-| Where | Shape | What it gets wrong |
+Three separate pieces of code used to answer "where are the class strings in
+this file", all three regex, all three wrong differently:
+
+| Where | Was | Now |
 | --- | --- | --- |
-| `nitro/src/tokenizer.ts` | sweeps the file for lone quotes | parity bug, 469 tokens lost in `docs` |
-| `cli/src/services/rewrite.ts` | anchored on `class=`, `cn(`, `clsx(`, `cva(` | never reaches class maps: **1161 of 2403 class tokens in `src/registry/ui` (48%, 55 of 84 files)** would stay on v3 |
-| `intellisense/src/constants.ts` | anchored, quotes paired by backreference | correct on attributes, blind to class maps |
+| `nitro/src/tokenizer.ts` | swept the file for lone quotes; one `""` inverted the pairing and lost 469 tokens in `docs` | reads the lexer |
+| `cli/src/services/rewrite.ts` | anchored on `class=`, `cn(`, `clsx(`, `cva(`; never reached class maps | 1898 -> **3634** class occurrences migrated across the 84 registry files |
+| `canon/src/index.ts` | the same four patterns | object values whose tokens all look like classes are reported too |
 
-The codemod's narrowness is deliberate and right - it writes files back, so a
-false match corrupts source. The answer is not to loosen it, it is to give all
-three the same primitive.
+The lexer walks the file: it tracks comments and escapes, **bounds a quoted
+literal to its own line** (only a template literal may span one, which is a
+language rule and caps the damage from a JSX apostrophe at one line), and
+**recurses into template literals**, which is what reaches a class inside a
+ternary and a code sample inside MDX prose. Each literal carries its offsets
+and its context (`attribute | call | property | bare`), so each caller picks
+its own risk level from one scan.
 
-- [ ] **Write `extractClassStrings(content)` in `@yummacss/nitro`.** A character
-      lexer, not a regex sweep: walk the file, track whether you are inside a
-      `"`, `'`, `` ` ``, a comment or an escape, and emit each literal with its
-      offsets. ~50 lines, no dependency, and language-agnostic, which matters
-      because the source glob includes `.mdx` and consumers use `.html`,
-      `.vue`, `.svelte`. Emit a *context* with each literal (class attribute /
-      call argument / object value / bare) so each caller can choose its own
-      risk level from one scan.
-- [ ] **Point the tokenizer at it.** Fixes the parity bug by construction.
-      Regression fixture: a file with `item: ""` followed by a class map, which
-      today loses everything after line 1.
-- [ ] **Point the codemod at it** and let it rewrite object values whose content
-      is all-classes - the same test `validate-yummacss.mjs` already uses for
-      `UPPER_SNAKE` maps. Keep writing back only what the extractor located by
-      offset, never by re-matching.
-- [ ] **Point canon at it**, which closes "canon is blind to class maps" in the
-      traps below without a fourth implementation.
-- [ ] **Then delete the 16 scanner entries from `yumma.config.mjs`'s safelist**
-      and confirm the CSS still generates. Only `mx--4` and `d-i` stay, and only
-      because `src/lib/*.mjs` is genuinely outside `source`.
+**The gate that keeps the codemod safe:** a class attribute or a `cn`/`clsx`
+argument is a class list by construction, so every token is migrated and
+anything unknown is reported. An object value is only written back when
+**every** token is a known utility, because it writes over someone's source and
+`"m-4 is not a class here"` is a sentence. Canon takes the same split one step
+looser, and skips bare literals and object keys so `aria-hidden` stays out.
 
-**Why a hand-written lexer and not a battle-tested parser.** The instinct is
-right and the tool is wrong. A real JS parser (`oxc`, `acorn`, `swc`) only reads
-JS and TS, and the scanner has to read `.mdx` today plus whatever a consumer
-points `source` at - `.html`, `.vue`, `.svelte`, `.php`. One parser per language
-is not a smaller pile of custom logic than one lexer, and it is why Tailwind
-wrote its own scanner rather than adopting a parser. The bundle argument cuts
-the other way too: nitro is build-time, so nothing here reaches the consumer's
-CSS or their client bundle, but its dependencies do land in their
-`node_modules`, their install time and their supply chain - `oxc-parser` ships
-per-platform native binaries for this. **And an AST is more than the job needs.**
-The question is "where does each string literal start and end", which is a
-lexer, not a parse: no grammar, no language, ~50 lines, and exhaustively
-testable. Reach for a real library where the grammar is genuinely hard and the
-output is a file we hand to someone else - that is the codemod's *rewriting*
-half (`magic-string` for offset-safe edits is worth a look), not the scanning
-half.
+Two invariants worth re-running after any change here. Every migration swaps a
+dash for a colon, so **a rewrite is length-preserving** - a length change is a
+corrupted file, and that held across all 84 files. And over the docs corpus the
+token count barely moves (1432 -> 1430) while its composition improves: 73
+canon-valid classes recovered, and the only valid ones no longer found are four
+written in prose inside a code comment, which never should have generated CSS.
 
-**Done when:** the safelist is two entries, the tokenizer fixture passes, and the
-codemod rewrites a class map in a test.
+- [ ] **Publish a release carrying the fix, then empty the safelist.** This is
+      the only reason `yumma.config.mjs` still has 12 workaround entries: `docs`
+      pins `^3.29.2` and the fix is unreleased, so deleting them now would
+      unstyle the site until 4.0 ships. `ro-90` is already gone - it matched
+      nothing in `src/` at all. The four `code-decorate` entries stay: `src/lib`
+      is genuinely outside `source`.
+- [ ] **`br-none` does not exist and the codemod will not touch a map that
+      contains it** - the gate refuses the whole literal rather than migrate
+      half of it. That is the canon-blindness bug from the traps, now visible.
+      Fix the class before running the codemod over `docs`.
+
+**Done when:** the safelist is four entries and `pnpm validate` is clean.
 
 ### Phase 1 - Ship 4.0
 
