@@ -16,7 +16,7 @@ export default function Pagination({ previous, next, basePath }: Props) {
   }
 
   return (
-    <div className="d-f ai-c g-2">
+    <div className="d-f fs-0 ai-c g-2">
       {previous && (
         <Button
           nativeButton={false}
