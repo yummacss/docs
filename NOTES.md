@@ -117,13 +117,17 @@ any className on the site. 75 previously-dropped classes are now found.
       unreleased feature (`yummacss migrate`), `tokenizer()` gained an optional
       `filename` parameter, and the fix removes CSS that used to be generated.
       A patch must not change how a page renders; this can.
-- [ ] **`yummacss migrate` is held out of `3.30.0` on purpose.** It rewrites
-      classes into the v4 colon syntax, and **this release cannot compile what
+- [ ] **`yummacss migrate` is unwired from the CLI, not merely undocumented.**
+      It rewrites classes into the v4 colon syntax and **v3 cannot compile what
       it writes** - verified: `d-f` generates, `d:f` generates nothing, same for
-      `bg:red-1` and `m:4`. Shipping it would hand users a command that silently
-      kills every class in their project. It is listed under `[Unreleased]` and
-      ships with v4. **If it must ship sooner, it needs a guard that refuses to
-      run unless a v4 generator is present.**
+      `bg:red-1` and `m:4`. Shipping it reachable would hand users a command
+      that silently unstyles their project. The import, the `case "migrate"`
+      and the help line are removed from `packages/cli/src/cli.ts`, with a
+      comment saying why; `commands/migrate.ts`, the services and all 152 lines
+      of `tests/migrate.test.ts` stay, because the tests import the services
+      directly. **Re-wire it when v4 lands** - that is the whole change.
+      Confirmed against the built binary: `yummacss migrate` falls through to
+      the help text.
 - [ ] **Then, in `docs/yumma.config.mjs`, in one commit:** replace the five
       enumerated `source` entries with the single glob
       `"./src/**/*.{ts,tsx,mdx,mjs}"`, and delete `safelist` entirely.
