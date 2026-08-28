@@ -22,9 +22,14 @@ clearing; keep this file short.
 
 ---
 
-## Comments in code
+## House rules for a change
 
-**One line, and only where the line is not obvious from the code.** No multi-line
+**Branch names are short and made of words.** `scanner-fix`, `sidebar-offset`,
+`canon-rename`. No random suffixes, no six-word descriptions. (Sessions started
+from the web get a generated branch name that breaks this; that is the harness,
+not a precedent.)
+
+**One line of comment, and only where the line is not obvious from the code.** No multi-line
 block above every change, no restating what the next statement does, no narrating
 a decision that the diff already shows. This applies to Cursor's changes as much
 as to mine. The bar: a comment earns its place when it records something the
@@ -47,10 +52,11 @@ are not a licence to add more; shorten them when you are already in the file.
 Published: `@yummacss/*` at `3.29.2`, **`yummaui` at `0.1.0`** (`0.0.1` on 2026-08-16,
 `0.1.0` on 2026-08-20). Merged branches are deleted; restart from `main` for new work.
 
-`@yummacss/intellisense` is published at `3.29.2` and has **no consumer left**. Both
-editor extensions, their repos and the Zed marketplace PR are deleted; the monorepo kept
-only the language service; nothing in `docs` or the monorepo imports it. Decide before
-4.0 whether it is deprecated on npm or folded into canon.
+`@yummacss/intellisense` is published at `3.29.2`. Both editor extensions, their repos
+and the Zed marketplace PR are deleted, but the package is **not** orphaned: `play`
+imports `@yummacss/intellisense/monaco` in `src/utils/providers.ts`. That is its only
+consumer. What happens to it is Phase 4, and the answer is "dissolve, after 4.0", not
+"kill now" - the reasoning is there.
 
 `ui` is a **separate repo** (`github.com/yummacss/ui`). The folder and repo are
 `ui`; the **published npm package is `yummaui`**, because `ui` is taken. Do not
@@ -58,35 +64,108 @@ only the language service; nothing in `docs` or the monorepo imports it. Decide 
 
 ---
 
-## Backlog
+## The plan, in phases
 
-**The priority is shipping 4.0 and clearing what blocks it.** Everything under
-"Blocking 4.0" comes before everything below it; items outside that group are
-worth doing only when they are cheap or when they are in the file already.
+Ordered by severity. **Do not start a phase while an earlier one has open
+items**, unless the item says it is parked on a decision. Each phase says what
+"done" means, so the next session can pick up without asking what is next.
 
-**Blocking 4.0:**
+### Phase 0 - One extractor. Everything else is built on this
 
-- [ ] **Fix nitro's tokenizer. Root cause found, see the trap below: an empty
-      string literal flips quote parity for the rest of the file, and every
-      literal after it is skipped.** `src/**/*.{ts,tsx}` in `docs` loses **469
-      distinct class tokens** to this today; 70 of 165 files contain an empty
-      literal. The 16 workaround entries in `yumma.config.mjs`'s safelist are all
-      this one bug, and so is the "multi-`${}` template literal" trap. Changing
-      `[^"]+` to `[^"]*` in `packages/nitro/src/tokenizer.ts` restores parity and
-      takes `accordion.tsx` from 29 tokens to 64, but it is a patch on a design
-      that pairs quotes across a whole file rather than reading string literals.
-      **4.0 is the moment to replace the regex list with a real literal scan**,
-      because the colon syntax adds `:` to every class and widens the surface
-      the regexes have to guess at.
-- [ ] `@yummacss/canon`'s canon list has to ship with 4.0, or every v4 class
-      reads as unknown to AI tools and to `validate()`.
-- [ ] `docs`: every code example. Run the codemod here first; largest real
-      corpus, and it has to be migrated anyway. `yummacss migrate` exists on
-      `yummacss` `main` (`packages/cli/src/commands/migrate.ts`, with tests).
+**Severity: this decides whether the 4.0 migration is correct.** Three separate
+pieces of code answer "where are the class strings in this file", all three are
+regex, and all three are wrong in different ways:
+
+| Where | Shape | What it gets wrong |
+| --- | --- | --- |
+| `nitro/src/tokenizer.ts` | sweeps the file for lone quotes | parity bug, 469 tokens lost in `docs` |
+| `cli/src/services/rewrite.ts` | anchored on `class=`, `cn(`, `clsx(`, `cva(` | never reaches class maps: **1161 of 2403 class tokens in `src/registry/ui` (48%, 55 of 84 files)** would stay on v3 |
+| `intellisense/src/constants.ts` | anchored, quotes paired by backreference | correct on attributes, blind to class maps |
+
+The codemod's narrowness is deliberate and right - it writes files back, so a
+false match corrupts source. The answer is not to loosen it, it is to give all
+three the same primitive.
+
+- [ ] **Write `extractClassStrings(content)` in `@yummacss/nitro`.** A character
+      lexer, not a regex sweep: walk the file, track whether you are inside a
+      `"`, `'`, `` ` ``, a comment or an escape, and emit each literal with its
+      offsets. ~50 lines, no dependency, and language-agnostic, which matters
+      because the source glob includes `.mdx` and consumers use `.html`,
+      `.vue`, `.svelte`. Emit a *context* with each literal (class attribute /
+      call argument / object value / bare) so each caller can choose its own
+      risk level from one scan.
+- [ ] **Point the tokenizer at it.** Fixes the parity bug by construction.
+      Regression fixture: a file with `item: ""` followed by a class map, which
+      today loses everything after line 1.
+- [ ] **Point the codemod at it** and let it rewrite object values whose content
+      is all-classes - the same test `validate-yummacss.mjs` already uses for
+      `UPPER_SNAKE` maps. Keep writing back only what the extractor located by
+      offset, never by re-matching.
+- [ ] **Point canon at it**, which closes "canon is blind to class maps" in the
+      traps below without a fourth implementation.
+- [ ] **Then delete the 16 scanner entries from `yumma.config.mjs`'s safelist**
+      and confirm the CSS still generates. Only `mx--4` and `d-i` stay, and only
+      because `src/lib/*.mjs` is genuinely outside `source`.
+
+**Why a hand-written lexer and not a battle-tested parser.** The instinct is
+right and the tool is wrong. A real JS parser (`oxc`, `acorn`, `swc`) only reads
+JS and TS, and the scanner has to read `.mdx` today plus whatever a consumer
+points `source` at - `.html`, `.vue`, `.svelte`, `.php`. One parser per language
+is not a smaller pile of custom logic than one lexer, and it is why Tailwind
+wrote its own scanner rather than adopting a parser. The bundle argument cuts
+the other way too: nitro is build-time, so nothing here reaches the consumer's
+CSS or their client bundle, but its dependencies do land in their
+`node_modules`, their install time and their supply chain - `oxc-parser` ships
+per-platform native binaries for this. **And an AST is more than the job needs.**
+The question is "where does each string literal start and end", which is a
+lexer, not a parse: no grammar, no language, ~50 lines, and exhaustively
+testable. Reach for a real library where the grammar is genuinely hard and the
+output is a file we hand to someone else - that is the codemod's *rewriting*
+half (`magic-string` for offset-safe edits is worth a look), not the scanning
+half.
+
+**Done when:** the safelist is two entries, the tokenizer fixture passes, and the
+codemod rewrites a class map in a test.
+
+### Phase 1 - Ship 4.0
+
+- [ ] Teach the extractor and the codemod the colon syntax; `d:f` and `@sm:h:`
+      have to survive a round trip. This is why Phase 0 comes first.
+- [ ] `@yummacss/canon`'s canon list ships with 4.0, or every v4 class reads as
+      unknown to AI tools and to `validate()`.
+- [ ] Run the codemod over `docs`. Largest real corpus, has to be migrated
+      anyway, and it is the acceptance test for Phase 0.
 - [ ] Fast-forward `v4` into `main`, or keep working on `v4` deliberately. It is
       4 commits ahead and `main` is 0 ahead of it, so the choice is still free.
 
-**Yumma UI (published; these are the next patch, not a release gate):**
+**Done when:** `docs` builds green on v4 syntax and 4.0 is published.
+
+### Phase 2 - The two layout bugs. Small, visible, not release-gated
+
+Both hit every Yumma UI component page, both are diagnosed, neither is blocked
+on anything. Do them whenever 4.0 is waiting on something else.
+
+- [ ] **The sidebar's top items are hidden behind the navbar on any page short
+      enough not to scroll.** On `/ui/components/*` and `/ui/customization` the
+      first section label and its first links are unreachable. The navbar is
+      `p-f ix-0 t-0` (`navbar.tsx`), `main` carries **no top padding**, and the
+      article column compensates with its own `pt-12`. The sidebar compensates
+      with nothing: it relies on `p-st t-20` in `sidebar-nav.tsx`, and sticky
+      does not engage until the page scrolls, so on a short page the aside
+      renders at document top with its first 5rem under the navbar. `toc.tsx`
+      has the identical pattern and the same latent bug. **Fix the static
+      offset, not the sticky one** - the sticky value is already right.
+- [ ] **The page title and the pagination arrows overflow on small screens.**
+      `d-f ai-c jc-sb` with an `fs-4xl` `h1` that cannot shrink, in both
+      `app/docs/[slug]/page.tsx` and `app/ui/components/[slug]/page.tsx`. A long
+      unbroken title (`@yummacss/runtime`) has a wide min-content width and
+      pushes the arrows past the right edge. The docs page's `Pagination` also
+      lacks the flex-shrink the UI page's wrapper has. Wants **`min-w-0`** on the
+      title (`min-w` is the prefix; `mw-0` is not a class - it is one of the two
+      things `pnpm validate` already flags in `admonition.tsx`) and either a wrap
+      or a stack below `@sm`.
+
+### Phase 3 - Yumma UI, next patch
 
 - [ ] **The API bug list in `TODO.md`. Cursor owns this queue.** Renildo's own
       pass over the playground; everything in it is a real defect the playground
@@ -94,46 +173,53 @@ worth doing only when they are cheap or when they are in the file already.
       work is visible, not so it gets picked up.
 - [ ] Badge's icon wrapper sets `w-3 h-3`/`w-4 h-4` on a `<span>` (`badge.tsx`
       `SIZES`, applied as `iconClasses`), which does not constrain the SVG inside
-      it. Harmless, but a lie in the code. Meter's `w-8 h-8` wrapper is the same.
+      it. Meter's `w-8 h-8` wrapper is the same.
+- [ ] Seed an icon into the Badge, Separator, Meter and Tabs base demos. Each has
+      an `icon` prop no demo passes, so the feature is invisible outside the
+      table. Separator is the one that matters: an icon breaks the rule in half
+      and centres the glyph in the gap, which is a spatial fact a type cannot
+      state.
 - [ ] A line on each page saying which file a code block belongs to. The base
       snippet's `@/components/ui/button` and the variant source's `./button` are
       both correct and look like drift. **`./` is load-bearing**:
       `generate-registry-json.mjs` builds `registryDependencies` by matching
       `from "./<id>"`, so rewriting it to the alias breaks
       `yummaui add <variant>` pulling its component.
-- [ ] Seed an icon into the Badge, Separator, Meter and Tabs base demos. Each has
-      an `icon` prop no demo passes, so the feature is invisible outside the
-      table. Separator is the one that matters: an icon breaks the rule in half
-      and centres the glyph in the gap, which is a spatial fact a type cannot
-      state.
 
-**Docs site, layout bugs (both diagnosed, both hit every Yumma UI page):**
+### Phase 4 - After 4.0 ships: renames and package shape
 
-- [ ] **The sidebar's top items are hidden behind the navbar on any page short
-      enough not to scroll.** On `/ui/components/*` and `/ui/customization` the
-      first section label and its first links are unreachable. Mechanism: the
-      navbar is `p-f ix-0 t-0` (`navbar.tsx`, `navbarVariants`), `main` carries
-      **no top padding**, and the article column compensates with its own
-      `pt-12`. The sidebar compensates with nothing: it relies on `p-st t-20`
-      in `sidebar-nav.tsx`, and sticky does not engage until the page scrolls,
-      so on a short page the aside renders at document top with its first 5rem
-      underneath the fixed navbar. `toc.tsx` has the identical `p-st t-20` plus
-      `max-height: calc(100dvh - 5rem)` and the same latent bug. **Fix the
-      static offset, not the sticky one** - the sticky value is already right.
-- [ ] **The page title and the pagination arrows overflow on small screens.**
-      `d-f ai-c jc-sb` with an `fs-4xl` `h1` and no `mw-0` on it, in both
-      `app/docs/[slug]/page.tsx` and `app/ui/components/[slug]/page.tsx`. A long
-      unbroken title (`@yummacss/runtime`) has a wide min-content width, refuses
-      to shrink, and pushes the arrows past the right edge. The docs page's
-      `Pagination` also lacks the `fs-0` the UI page's wrapper has, so the
-      buttons get squeezed as well. Wants `mw-0` on the title and either a wrap
-      or a stack below `@sm`.
+One announcement, three moves. Not before 4.0: these are npm renames on top of a
+syntax break, and the two should not land in one release.
 
-**Docs site, rest:**
+- [ ] **`canon` -> `lint`, `runtime` -> `cdn`.** Both names describe what the
+      package does rather than what it is called internally. What moves with
+      each: the npm package, the monorepo directory, `canon.mdx` / `runtime.mdx`
+      and their `sidebarConfig` entries, redirects in `redirects.ts`,
+      `llms.txt`, site search, and every mention in the tooling pages. `canon`
+      also survives in prose as a concept ("canon list", "canon-valid"), which
+      the rename does not have to follow.
+- [ ] **Then dissolve `@yummacss/intellisense`, in this order.** Its only
+      consumer is `play` (`src/utils/providers.ts`, six registrations against
+      `@yummacss/intellisense/monaco`). 1243 lines: 924 editor-agnostic plus a
+      319-line Monaco adapter, one test (`tests/hover.test.ts`), published at
+      `3.29.2`. It is not dead code, it is **misfiled** code:
+      1. `validate.ts`, `conflicts.ts` and `sort.ts` are lint features, not
+         editor features. They belong in `lint` once the rename lands, and the
+         CLI grows sort and fix from them.
+      2. `hover.ts`, `core.ts` and `adapters/monaco.ts` are `play`'s editor
+         binding and belong in `play`.
+      3. Deprecate `@yummacss/intellisense` on npm in the same announcement as
+         the two renames.
+      **Do not do this before 4.0.** Every one of those 924 lines has to learn
+      the colon syntax, and doing that inside a Next app with no test harness,
+      while also moving it, is the worst version of both jobs.
+
+### Phase 5 - Docs debt. Real, none of it urgent
 
 - [ ] **`pnpm lint` is not clean** (10 errors on `main`), and `pnpm validate`
-      flags `admonition-body` and `mw-0` in `admonition.tsx`. Pre-existing. Do
-      not fold these into an unrelated PR, and do not get blamed for them.
+      flags `admonition-body` and `mw-0` in `admonition.tsx` - `mw-0` is not a
+      class at all, the fix is `min-w-0`. Pre-existing. Do not fold these into an
+      unrelated PR, and do not get blamed for them.
 - [ ] **Decide whether `ComponentPreview` stays.** No MDX page references it any
       more (0 hits for `<ComponentPreview` and `<PropsTable` across
       `src/content`), but `component-preview.tsx` and `props-table.tsx` are both
@@ -147,8 +233,7 @@ worth doing only when they are cheap or when they are in the file already.
 - [ ] 12 logical border utilities exist in core with no page and no
       `<Reference>`: `border-{block,inline}-{start,end}-{radius,width}` and
       `border-{start,end}-{start,end}-radius`. They belong as entries on
-      `border-radius.mdx` and `border-width.mdx`, not as new pages. (The older
-      list of 25 - `scroll-*`, `border-*-color`, `scale-*`, `inset-*` - is done.)
+      `border-radius.mdx` and `border-width.mdx`, not as new pages.
 - [ ] `grid-column-span.mdx` and `grid-row-span.mdx` duplicate `grid-column.mdx`
       and `grid-row.mdx` (core has `grid-column` with prefix `gc-s`, so the span
       concept *is* `grid-column`). Deleting needs redirects in `redirects.ts`
@@ -170,20 +255,6 @@ worth doing only when they are cheap or when they are in the file already.
       listing, RSS, sitemap and the production route, and render only in
       `next dev`. A dev-only listing is cheap; a public route exposes unfinished
       writing. Different decisions, decide which one is wanted.
-
-**After 4.0 ships:**
-
-- [ ] **Rename `canon` to `lint` and `runtime` to `cdn`.** Both names describe
-      what the package does rather than what it is called internally. Not before
-      4.0: it is an npm rename on top of a syntax break, and the two should not
-      land in one release. What moves with each: the npm package, the monorepo
-      directory, `canon.mdx` / `runtime.mdx` and their `sidebarConfig` entries,
-      redirects in `redirects.ts`, `llms.txt`, site search, and every mention in
-      the tooling pages. `canon` also appears in prose as a concept ("canon
-      list", "canon-valid"), which the rename does not have to follow.
-
-**Monorepo, small:**
-
 - [ ] `CHANGELOG.md`: `3.24.7` writes `## Changed` instead of `### Changed`; one
       `### Fix` among 34 `### Fixed`; `3.28.0` has no date on its heading.
 - [ ] Core's `scroll-*` slugs are inconsistent: mostly fully qualified
@@ -192,13 +263,9 @@ worth doing only when they are cheap or when they are in the file already.
       `scroll-padding#bottom`). The docs headings were written to match each slug
       exactly so all 16 anchors land; normalise core and those headings can go
       uniform.
-- [ ] The `any` density is concentrated in `packages/intellisense`: 33 there,
-      0 or 1 everywhere else, with the colour-merge block
-      (`const { percentage, ...userColors } = ... as any` then `createColors`)
-      repeated four times. **Do not spend time here until the question above -
-      whether that package survives at all - is answered.** Do not refactor
-      core/nitro/canon internals; they are clean and 4.0 rewrites that surface
-      anyway.
+- [ ] The `any` density is concentrated in `packages/intellisense`: 33 there, 0
+      or 1 everywhere else, with the colour-merge block repeated four times.
+      **Phase 4 deletes that package, so do not spend time here.**
 
 ---
 
@@ -591,8 +658,9 @@ that is a real prop, not a className string** (Avatar's `tint`, Skeleton's `size
 Toggle's `swatchClassName`). `className` is still fine for anything the component
 leaves unset.
 
-**Canon is blind to class maps** - it reads `className` attributes, which is
-useless for a prop-driven component where classes live in
+**Canon is blind to class maps, and so is the 4.0 codemod** - both read
+`className` attributes, which is useless for a prop-driven component where
+classes live in
 `const SHAPES = { rounded: "br-lg", square: "br-none" }`. `br-none` does not
 exist and canon reported clean. `validate-yummacss.mjs` now also scans string
 literals inside `UPPER_SNAKE` class maps plus any multi-token string whose tokens
