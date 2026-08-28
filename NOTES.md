@@ -76,12 +76,13 @@ them through.
 
 ## The plan, in phases
 
-Status: **Phase 1 done bar a release.** Phase 2 is next.
+Status: **Phases 1 and 2 done, both waiting on the `3.30.0` release.**
+Phase 3 is next.
 
 | # | Phase | Repos | Why it sits here |
 | --- | --- | --- | --- |
 | 1 | Fix the class scanner | `yummacss`, `docs` | Root-caused, small, and everything downstream writes classes. |
-| 2 | Fix negative values | `yummacss` | A live correctness bug in `3.29.2`: 72 utilities emit CSS the parser throws away. Also a 4.0 blocker. |
+| 2 | Fix negative values | `yummacss` | Done. 72 utilities emitted CSS the parser threw away; shipping in `3.30.0`. |
 | 3 | Yumma UI: `prune` | `ui` | The one thing a real user said she would use. Everything else on Yumma UI is polish. |
 | 4 | Docs debt | `docs` | Cheap, mechanical, and the corpus the 4.0 codemod runs against first. |
 | 5 | Retire `@yummacss/intellisense` | `yummacss`, `play` | Frees `play` and closes most of the `any` item. Independent of everything. |
@@ -108,9 +109,10 @@ generated nothing, 1262 after of which 588 do. Nine classes are no longer
 found and **all nine are in comments and JSDoc discussing classes**, none in
 any className on the site. 75 previously-dropped classes are now found.
 
-- [ ] **Publish `3.30.0`.** Prepared on `fix-scanner`: CHANGELOG entry written,
-      `pnpm bump 3.30.0` run across all nine package.json files, build and 119
-      tests green. Only `pnpm publish-packages` and a `v3.30.0` tag are left.
+- [ ] **Publish `3.30.0`.** Prepared on `fix-scanner` (PR #11), carrying both
+      this and Phase 2: CHANGELOG written, `pnpm bump 3.30.0` run across all
+      nine package.json files, build and 150 tests green. Only
+      `pnpm publish-packages` and a `v3.30.0` tag are left.
       `docs` depends on the published package, not the workspace, so nothing in
       `docs` can change until this lands.
 - [ ] **Minor, not a patch:** `tokenizer()` gained an optional `filename`
@@ -147,35 +149,42 @@ any className on the site. 75 previously-dropped classes are now found.
 
 ### Phase 2 - Fix negative values
 
-**A live correctness bug in `3.29.2`, not only a 4.0 item.** `generator.ts`
-strips a leading `-` off any value and negates it, with no per-utility notion of
-whether negatives are legal. **72 utilities emit CSS the parser rejects**, so the
-declaration is dropped and the class silently does nothing:
+**Done.** On `fix-scanner` (`e93c8bb`), shipping in `3.30.0` alongside Phase 1,
+so both land in one release. 31 regression tests in `tests/negative.test.ts`,
+150 in the suite, build green.
 
-```
-w--1      -> width: -.25rem            p--1      -> padding: -.25rem
-br--9999  -> border-radius: -9999px    bw--1     -> border-width: -1px
-lh--1     -> line-height: -1           fw--100   -> font-weight: -100
-tdu--50   -> transition-duration: -50ms  fg--1   -> flex-grow: -1
-```
+It was two defects sharing one line of code. A leading `-` was applied to any
+utility whose value started with a digit with no notion of whether the property
+accepts one, so **72 utilities emitted CSS the parser discards** (`w--1` was
+`width: -.25rem`). And `negateValue` returned the value unchanged when there was
+no number in it, so the `-` was simply **ignored**: `m--auto` resolved to
+`margin: auto` and `bg--red-1` to the same declaration as `bg-red-1`. Every
+keyword and colour utility had a silent second spelling.
 
-- [ ] Add a per-utility flag for whether negatives are legal. **40 utilities are
-      legitimate** and must keep working: margins, insets, `z-index`, `order`,
-      `letter-spacing`, `text-indent`, `translate`/`rotate`/`scale`,
-      `scroll-margin`, `outline-offset`, `text-underline-offset`,
-      `transition-delay`, `flex-basis`. Everywhere else a leading `-` should make
-      the class **unknown**, not broken - no rule at all beats a rule the browser
-      discards.
-- [ ] **Two that look wrong and are not.** Negative grid line numbers are legal
-      (`gcs--1` counts back from the end of the explicit grid), and `opacity`
-      clamps rather than rejecting, so `o--10` is useless but valid. That is why
-      the count is 72 and not 77.
-- [ ] `canon` has to reject the illegal ones too, or `validate()` keeps passing
-      them.
-- [ ] Regression test: assert the 40 still generate and a sample of the 72 do
-      not. The enumeration script lives in this session's history only, so
-      rebuild it from `coreUtils()` - generate `<prefix>--<n>` for every utility
-      and compare against the legal set.
+One rule fixed both: a leading `-` is meaningful only where the property accepts
+a negative **and** the value is a number to negate. Anything else resolves to no
+class.
+
+Three things worth keeping:
+
+- **Legality is keyed on the CSS property, not the utility** -
+  `core`'s `acceptsNegative` in `helpers/negatable.ts`. A property is a fact
+  about CSS, so a new utility mapping onto `margin-inline` inherits the right
+  answer instead of needing someone to remember a flag. **Do not convert this
+  to a per-utility boolean.**
+- **Canon needed no change.** `validateClasses` resolves through the same
+  `generateCSSRule`, so it reports these as unknown for free. There is a test
+  asserting that, because the shared path is the only thing holding it.
+- **Two that look like bugs and are not**, both covered by tests so nobody
+  "fixes" them: negative grid line numbers are legal (`gcs--1` counts back from
+  the end of the explicit grid), and negative `scale` mirrors. Also
+  `letter-spacing`'s scale is *already* negative, so `ls--1` correctly yields a
+  positive `.05em`, and transforms put the sign inside the parens
+  (`transform: skew(-1deg)`) - a naive "output contains a leading minus"
+  assertion fails on both.
+
+Checked before shipping: `docs`, `ui` and `play` write 19 negative classes
+between them and **every one still generates**.
 
 ### Phase 3 - Yumma UI: `prune`
 
