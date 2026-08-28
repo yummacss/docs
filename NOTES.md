@@ -27,7 +27,7 @@ clearing; keep this file short.
 | repo | branch | state |
 | --- | --- | --- |
 | `docs` | `main` | `6eca3b18`. Playground merged (#108, #129, #130). |
-| `docs` | `claude/yumma-ui-classnames-badge-meter-41lo67` | merged, restart from `main` for new work |
+| `docs` | `claude/yummacss-docs-safelist-m080ha` | sidebar/title layout fixes, unpushed |
 | `yummacss` | `v4` | 4 ahead of `main`: colon-syntax parsing, fixtures migrated |
 | `yummacss` | `origin/fix/typecheck-clean` | still unmerged, still wanted |
 | `ui` | `release` | CLI, unpublished. `VERSION` says `0.1.0`, ship `0.0.1` |
@@ -62,12 +62,13 @@ says so.
       ever emit `add <component>`. Renildo's lean was "remove it, let users
       handle customization", which is already how it behaves.
 - [ ] Set `VERSION` in `ui/src/cli.ts` and `package.json` to `0.0.1`.
-- [ ] **~30 `className` prop descriptions still promise "any utility you pass
-      wins".** That is a lie wherever the component already sets the property
-      (see the cascade gotcha below). Skeleton's two were rewritten; copy that
-      wording to the rest.
-- [ ] `file-upload`'s `error?: boolean` should be `error?: string` to match every
-      other component. Small edit to the component and its schema.
+- [ ] **The ~30 `className` "any utility you pass wins" descriptions cannot be
+      found.** Checked 2026-08-28: zero hits for that phrasing anywhere in `src`,
+      and `className` does not appear in any of the 36 meta schemas at all. Either
+      it was fixed with the `customization.mdx` rewrite or the entry described
+      something else. **Confirm and delete this entry rather than hunting for a
+      string that is not there.** The cascade gotcha it referred to is still real
+      and still in the traps.
 - [ ] Badge's icon wrapper sets `w-3 h-3`/`w-4 h-4` on a `<span>`, which does not
       constrain the SVG inside it. Harmless, but a lie in the code. Check
       Meter's `w-8 h-8` wrapper at the same time.
@@ -129,25 +130,23 @@ says so.
 
 **Before 4.0 ships:**
 
-- [ ] **Fix the `bg-*` scanner gap in Canon/nitro.** `bg-accent-dim` was never
-      generated while `bc-accent-dim` from the same string literal was.
-      Safelisted in `yumma.config.mjs` as a workaround. This is a real bug, and
-      it is the same family as the template-literal bug below.
+- [ ] **Fix nitro's tokenizer.** Root-caused: see the quote-parity trap. Two
+      steps, and the first is three characters. (a) `+` -> `*` in the three
+      bare-string regexes in `packages/nitro/src/tokenizer.ts`, with a
+      zero-length-match guard; recovers 8 safelist entries and stops 82 junk
+      tokens becoming CSS. (b) Replace the regex bag with a lexer that tracks
+      strings, comments, template literals and regex literals, which is the only
+      thing that ends the category. Then cut `docs`'s `safelist` from 17 entries
+      to 4, and to 0 after (b).
 - [ ] The 4.0 codemod. Everything else in 4.0 depends on it existing, and it
       gates the release.
 - [ ] `@yummacss/canon`'s canon list has to ship with 4.0, or every v4 class
-      reads as unknown to AI tools and to `validate()`.
-- [ ] `intellisense` and `intellisense-zed` class-detection patterns assume the
-      v3 shape and will not match `d:f`.
+      reads as unknown to AI tools and to `validate()`. **Blocked on the
+      unbounded-scale decision below** - if `w-97` becomes legal, the list stops
+      being enumerable and canon becomes a parser. Decide that first; building
+      the list twice is the expensive order.
 - [ ] `docs`: every code example. Run the codemod here first; largest real
       corpus, and it has to be migrated anyway.
-- [ ] **Zed: PR #6731 against `zed-industries/extensions`** has been open since
-      2026-07-22. All four checks green, CLA signed, the `CHANGES_REQUESTED`
-      review and `needs author action` label are both stale and only a
-      maintainer can clear them. A confirming comment was posted 2026-07-29.
-      **Do not post a second comment** - it reads as nagging. The one distinct
-      signal left is re-requesting review:
-      `gh pr edit 6731 --repo zed-industries/extensions --add-reviewer MrSubidubi`.
 
 **Monorepo, small:**
 
@@ -158,13 +157,14 @@ says so.
       (`scroll-margin#scroll-margin-top`) but two are short (`#bottom`,
       `#inline-start`). The docs headings were written to match each slug exactly
       so all 16 anchors land; normalise core and those headings can go uniform.
-- [ ] The `any` density is concentrated in one package: intellisense has 40, every
-      other package has 0 or 1. The colour-merge block
-      (`const { percentage, ...userColors } = ... as any` then `createColors`)
-      exists **five times**. Worth consolidating **only because 4.0 decision #16
-      (OKLCH) rewrites `createColors`** - five call sites, five chances to miss
-      one. Do not refactor core/nitro/canon internals; they are clean and 4.0
-      rewrites that surface anyway.
+- [ ] The `any` density was concentrated in `intellisense` (40; every other
+      package has 0 or 1), so deleting that package closes most of this. What
+      survives is the colour-merge block
+      (`const { percentage, ...userColors } = ... as any` then `createColors`),
+      duplicated **five times**. Worth consolidating **only because 4.0 decision
+      #16 (OKLCH) rewrites `createColors`** - five call sites, five chances to
+      miss one. Do not refactor core/nitro/canon internals; they are clean and
+      4.0 rewrites that surface anyway.
 
 ---
 
@@ -504,13 +504,27 @@ fragments of surrounding syntax. **Fix: rewrite every dynamic className to
 to zero. A single-interpolation literal looked safe in isolation and was not once
 the file had other backtick classNames nearby.
 
-**And some plain unconditional string literals are dropped too, cause
-undiagnosed.** `max-w-96`, `blc-indigo-5`, `c-indigo-6`, `c-indigo-9`, `ro-36`,
-and later `bg-accent-dim` (while `bc-accent-dim` from the *same string literal*
-survived). Ruled out: position in file, a per-file class cap, and the `%`/`:`
-characters. Worked around by `yumma.config.mjs`'s `safelist`. **If a component
-renders unstyled despite the class name looking correct, check the built CSS for
-that literal before assuming the component is wrong**:
+**Plain string literals are dropped too, and the cause is quote-parity drift.**
+`tokenizer.ts` matches bare strings with `/"([^"]+)"/g`. `[^"]+` is *one*-or-more,
+so an empty literal `""` cannot match; the regex backtracks and starts its next
+match on the **second** quote of that pair, and from there it captures the code
+*between* strings instead of the strings. Every later class in the file is lost
+until another `""` re-syncs it, which is why `bc-accent-dim` survived while
+`bg-accent-dim` from the same literal did not, and why "position in file" and "a
+per-file cap" were correctly ruled out and nothing replaced them. **The bitter
+part: the prescribed fix for the template-literal bug above -
+`[...].filter(Boolean).join(" ")` - is what introduces the `: ""` falsy branches.
+There are 75 in `src`.** The one-character fix (`+` -> `*` in the three
+bare-string regexes, plus a zero-length-match guard or it infinite-loops) was
+measured against
+the real 341-file glob: 1530 -> 1564 real classes, and the 82 junk tokens it used
+to emit as CSS (`biome-ignore`, `hand-written`, `zero-width`, `m-23` scraped
+out of prose) drop to 0. **This is the `bg-*` gap in the 4.0 list, and it is a
+nitro fix, not a docs one.** Regex pairing cannot be made correct in general -
+comments, template literals and regex literals all desync it - so the real fix
+is a lexer that tracks what a string is. **If a component renders unstyled
+despite the class name looking correct, check the built CSS for that literal
+before assuming the component is wrong**:
 `grep -o "\.<class>{[^}]*}" .next/static/chunks/*.css` after a clean
 `rm -rf .next && pnpm build`.
 
@@ -519,10 +533,14 @@ between the heredoc and a JS regex has produced false "missing" results at least
 three times, on classes that were present. `javascript_tool` against the live DOM
 is better still - no shell in the path at all.
 
-**`src/lib/*.mjs` is not scanned for classes and adding it to `source` does not
-help.** `code-decorate.mjs` writes class names; the glob was tried and the
-scanner still missed the file. Its classes must be safelisted by hand
-(`mx--4`, `bg-accent-dim/10`, `bc-accent-dim/50`, `d-i`).
+**`src/lib/code-decorate.mjs` is scanned fine; line 43 blinds the rest of it.**
+The old note here said the file is not scanned and that adding it to `source` does
+not help. That was wrong - it is the parity bug above. Line 43 is
+`const regex = /"([^"]+)"/g;`, a regex literal holding **three** double quotes, so
+everything below it desyncs, including `mx--4` on line 110 and `d-i` on line 157.
+The file contains the very pattern that hides it. Those two plus
+`bc-accent-dim/50` survive the one-character fix and need a lexer; `ro-90` has
+zero hits anywhere in `src` and is simply dead.
 
 **A caller's `className` cannot reliably override a class the component already
 sets** for the same property. Which one wins is decided by the generated
@@ -541,6 +559,32 @@ exist and canon reported clean. `validate-yummacss.mjs` now also scans string
 literals inside `UPPER_SNAKE` class maps plus any multi-token string whose tokens
 *all* look like classes. Valid `br-` values: `0, xs, sm, md, lg, xl, xxl, 3xl,
 100%, 50%, 9999, px`. Opacity is percentage-based, so `o-1` means 1%, not 1.
+
+**Two layout bugs, one shape: a box that cannot shrink.** Both fixed 2026-08-28,
+kept because both will recur.
+
+*Sticky clamps to its containing block.* The sidebar's scroller asks for
+`calc(100dvh - 5rem)`. On a page short enough not to scroll that is taller than
+the grid row it sits in, and a sticky box may not be offset outside its
+containing block, so it clamped to the grid top at y=0 - under the fixed 49px
+navbar, eating the first section heading and its first link. `main` has no top
+offset; the content column only clears the navbar because it carries `pt-12`.
+Measured on 9 routes, 7 were affected, every Yumma UI component page among them.
+Fixed with `@lg:pt-20` on the `<aside>`, matching `t-20` so the unscrolled and
+stuck positions are identical. **The TOC and the playground rail sit in the same
+grid and were fine** - they are short enough to fit, so sticky never clamped.
+Anything new in that third column inherits the bug the moment it gets tall.
+
+*Flex items default to `min-width: auto`.* The page title could not shrink below
+its longest unbreakable run, so `@yummacss/runtime` pushed the header row 50px
+past a 390px viewport while `Grid Template Columns` was fine. That is the whole
+of the "weird" part: **hyphens and spaces are break opportunities, a slash is
+not.** Fixed with `min-w-0` plus `ow-bw` on the `h1` and `fs-0` on the actions.
+Note `ow-bw` alone does nothing here - `overflow-wrap: break-word` does not
+reduce min-content size, so it cannot rescue a flex item that is not already
+allowed to shrink. **`mw-0` is not a class**; it was sitting in `admonition.tsx`
+doing nothing, which `validate-yummacss.mjs` had been reporting all along. The
+min-width prefix is `min-w`.
 
 **Base UI portals escape the iframe.** They resolve against the top-level
 `document.body`, not the trigger's `ownerDocument`. Pass `container` from
@@ -661,6 +705,22 @@ command `#F5FAFF`, argument `#BEC6F2`, space `#B9BED5`.
 
 ## Rejected. Do not rebuild
 
+- **The editor extensions.** `intellisense` and `intellisense-zed` are deleted:
+  repos gone, unpublished from the VS Code Marketplace and Open VSX, and the Zed
+  marketplace PR (#6731, open since 2026-07-22) withdrawn. The 18k VSIX installs
+  were read as bots, the same way the npm download counts are; the only real user
+  was Renildo. **Do not re-propose an editor extension, and do not treat the
+  download numbers as evidence of an audience.** Two live consequences: v4 no
+  longer has to migrate any class-detection pattern to `d:f`, and the
+  `yummacss.com/docs/${util.slug}` hover links no longer have a consumer - core's
+  `slug` field now only feeds the docs, which changes who the `scroll-*` slug
+  cleanup is for.
+- **`@yummacss/intellisense` as a package** is likely to follow. The plan is for
+  `play` to own completions, colour decorators and hovers itself. Not done, and
+  the one thing to check before deleting: whether anything besides the extensions
+  imported it, and where `play` gets its class list from once it does. This also
+  closes most of the `any` density item in the small-monorepo list.
+
 - **The blog timeline**, after ten mockups. Rejected because it introduces a
   rail, marker blocks and bordered thumbs - three pieces of visual vocabulary
   that exist nowhere else on the site. Two findings worth keeping: a staggered
@@ -730,7 +790,9 @@ they belong together: **move the thing into `yumma.config.mjs` and generate a
 utility for it.** The user names a value once, in config, and gets a real utility
 with a real name; they do not inline a value into a class and get an unnamed one.
 
-1. **Custom font families.** Colours are already configurable; families are not,
+1. **Custom font families. Asked for directly, 2026-08-28 - `theme.fonts`, so
+   the docs can dogfood it and drop `.ff-e`.** Colours are already
+   configurable; families are not,
    which is the whole reason `.ff-e` exists. Config gives `ff-<name>`. Two things
    to settle: the docs need `ff-e` scoped to `article h1..h6`, which a utility
    does not do by itself, so that rule stays and only the class definition goes;
@@ -740,7 +802,9 @@ with a real name; they do not inline a value into a class and get an unnamed one
    that was right: **a built-in container is opinionated, a configured one is
    not.** This site would want **two**, so the config shape is a map of named
    containers, not a single value.
-3. **Viewport-minus utilities.** `max-height: calc(100dvh - 5rem)` appears twice
+3. **Viewport-minus utilities. Asked for directly, 2026-08-28**, framed as the
+   answer to Tailwind users reaching for an arbitrary value on a genuinely common
+   need. `max-height: calc(100dvh - 5rem)` appears twice
    as an inline style (`sidebar-nav.tsx`, `toc.tsx`). Shape: the existing 0-384
    scale subtracted from `100dvh`/`100vh`, e.g. `max-h-dvh--20`. **The sharpest
    version of the case:** an inline style cannot be made conditional on a
@@ -760,6 +824,55 @@ starts to *be* the design system rather than configure it. Decide up front wheth
 the answer is four keys or one `theme.extend`-shaped mechanism, because
 retrofitting that is a breaking change and 4.0 is the cheapest moment to get it
 right.
+
+### The 0-384 scale, the t-shirt aliases, and unbounded values
+
+Measured, because the answers are not what they look like.
+
+**384 is not arbitrary.** The base is `0.25rem` and the range is `0..384` step 1,
+so `384 * 0.25rem = 96rem`, which is exactly the `xxl` breakpoint. **The scale
+runs to the widest breakpoint and stops.** That is a defensible rule and it
+should be written down as one rather than rediscovered.
+
+**The t-shirt aliases are not redundant, with one exception.** `sm` 40rem, `md`
+48rem, `lg` 64rem, `xl` 80rem and `xxl` 96rem are **identical to the media-query
+breakpoints**, so `max-w-md` means "as wide as the `md` breakpoint" - a semantic
+fact the numeric step cannot state, even though every one of them *is* also a
+numeric step (`xs`=128, `sm`=160, `md`=192, `lg`=256, `xl`=320, `xxl`=384).
+**`xs` at 32rem is the odd one out: there is no `xs` breakpoint.** So the answer
+to "why do I even have these" is: keep them and document them as breakpoint
+aliases, and either drop `xs` or add the breakpoint that would justify it.
+
+**"Would unbounded values save SO MUCH code?" - not where it looks.** Generation
+is scan-driven, so the scale costs **zero bytes of output CSS**; only classes
+actually written are emitted. What it costs is the build-time value table: 385
+numeric keys plus 37 aliases is 422 entries, and **34 utilities bind to one of
+those scales, so ~14,300 entries are held per build**. Real, but it is memory and
+table-building, not stylesheet weight. **The second argument for a small scale
+was the IntelliSense completion list, and that argument died with the
+extensions.**
+
+**The idea is still right, for a better reason.** Parsing `w-97` and emitting
+`calc(0.25rem * 97)` deletes the min/max question entirely - no cap to configure,
+no ceiling to justify, no user asking to extend the range. It also stays on the
+right side of the arbitrary-value line, and the distinction is worth stating in
+the 4.0 post: **`w-97` still resolves through the named base, so it is a scale
+step with no ceiling; `w-[24.25rem]` inlines a value and belongs to no scale.**
+Unbounded is not arbitrary.
+
+**What it costs, and what has to be decided first.** Canon stops being "is this
+class in the set" and becomes "does this class parse", which changes
+`validate()`, the canon list that has to ship with 4.0, and every consumer that
+expected an enumerable list. Decide that *before* the canon list is built, not
+after - it is the same "four keys or one mechanism" question as the config
+generators above, and 4.0 is equally the cheapest moment for both.
+
+**Do not rename `yumma.config.mjs`.** The asymmetry with the `yummacss` package
+looks like a mistake and is the convention: `tailwindcss` ships
+`tailwind.config.js`. The cost is not cosmetic either - 15 files in `docs` and 3
+in the monorepo name it, plus every docs example, the blog posts and `play` - and
+decision #15 rules out a compat mode, so `loadConfig` would hard-break rather
+than accept both. Nothing is gained that a reader was confused by.
 
 **The honest ceiling on the whole idea:** `globals.css` today has two custom
 classes (`docs-container`, `ff-e`), which #1 and #2 would remove entirely, plus
