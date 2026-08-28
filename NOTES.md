@@ -27,12 +27,12 @@ clearing; keep this file short.
 | repo | branch | state |
 | --- | --- | --- |
 | `docs` | `main` | `6eca3b18`. Playground merged (#108, #129, #130). |
-| `docs` | `claude/yumma-ui-classnames-badge-meter-41lo67` | merged, restart from `main` for new work |
+| `docs` | `claude/yummacss-docs-safelist-m080ha` | sidebar/title layout fixes, unpushed |
 | `yummacss` | `v4` | 4 ahead of `main`: colon-syntax parsing, fixtures migrated |
 | `yummacss` | `origin/fix/typecheck-clean` | still unmerged, still wanted |
-| `ui` | `release` | CLI, unpublished. `VERSION` says `0.1.0`, ship `0.0.1` |
+| `ui` | `release` | **published, `yummaui@0.1.0`** |
 
-Published: `@yummacss/*` at `3.29.2`. `yummaui` not yet published.
+Published: `@yummacss/*` at `3.29.2`, `yummaui` at `0.1.0`.
 
 `ui` is a **separate repo** (`github.com/yummacss/ui`). The folder and repo are
 `ui`; the **published npm package is `yummaui`**, because `ui` is taken. Do not
@@ -40,34 +40,162 @@ Published: `@yummacss/*` at `3.29.2`. `yummaui` not yet published.
 
 ---
 
-## Backlog
+## How to work this file
 
-Roughly in priority order. Nothing here is blocked on anything else unless it
-says so.
+**One phase per chat session.** Phases are ordered so that finishing one makes
+the next cheaper or safer; do not start two at once. Within a phase the items
+are already in the order to do them.
 
-**Yumma UI, before publishing `0.0.1`:**
+**Starting a session.** Paste this:
 
-- [ ] **The API bug list in `TODO.md`. Cursor owns this queue.** Renildo's own
-      pass over the playground; everything in it is a real defect the playground
-      exposed by making props exercisable for the first time. Listed here so the
-      work is visible, not so it gets picked up.
-- [ ] **`--variant` is advertised and not implemented, and its own help example
-      fails.** `ui/src/cli.ts` documents `-v, --variant <name>` with
-      `add button --variant pill` as an example; `add.ts` never reads the flag,
-      drops anything starting with `-`, and pushes the rest as *names*, so that
-      command exits 1 with "Unknown component or block pill". **The idea is not
-      dead, it was never wired.** The decision to make first: are *examples*
-      addressable (prop combos, no file of their own) or only *blocks*? The docs
-      are safe under either answer, because the `## Installation` sections only
-      ever emit `add <component>`. Renildo's lean was "remove it, let users
-      handle customization", which is already how it behaves.
-- [ ] Set `VERSION` in `ui/src/cli.ts` and `package.json` to `0.0.1`.
-- [ ] **~30 `className` prop descriptions still promise "any utility you pass
-      wins".** That is a lie wherever the component already sets the property
-      (see the cascade gotcha below). Skeleton's two were rewritten; copy that
-      wording to the rest.
-- [ ] `file-upload`'s `error?: boolean` should be `error?: string` to match every
-      other component. Small edit to the component and its schema.
+> Working on yummacss/docs. Read NOTES.md first, then start Phase N. TODO.md is
+> Cursor's queue, leave it alone.
+
+Replace N with the first phase that is not marked done. That is the whole
+message; everything else is in this file on purpose.
+
+**Ending a session.** Say "Time to clear session. Wrap up everything in
+NOTES.md." The wrap-up rewrites the phase's entry with what actually happened,
+deletes what is finished, and hands back the one-line starter for the next
+session. Clear only after that lands.
+
+**How work lands. Pull requests, never a direct commit.** Renildo previews and
+approves. Branch names are short and made of real words - `fix-scanner`,
+`notes`, `fix-layout` - with no generated suffixes. **PR bodies stay minimal**:
+a line or two on what changed and why. The detail lives in this file, so a PR
+that restates it is duplicating something that will drift.
+
+**The rule for what goes in here** has not changed: an entry earns its place if
+it changes what someone does next. Delete finished entries rather than striking
+them through.
+
+---
+
+## The plan, in phases
+
+Status: **Phase 1 done bar a release.** Phase 2 is next.
+
+| # | Phase | Repos | Why it sits here |
+| --- | --- | --- | --- |
+| 1 | Fix the class scanner | `yummacss`, `docs` | Root-caused, small, and everything downstream writes classes. |
+| 2 | Fix negative values | `yummacss` | A live correctness bug in `3.29.2`: 72 utilities emit CSS the parser throws away. Also a 4.0 blocker. |
+| 3 | Yumma UI: `prune` | `ui` | The one thing a real user said she would use. Everything else on Yumma UI is polish. |
+| 4 | Docs debt | `docs` | Cheap, mechanical, and the corpus the 4.0 codemod runs against first. |
+| 5 | Retire `@yummacss/intellisense` | `yummacss`, `play` | Frees `play` and closes most of the `any` item. Independent of everything. |
+| 6 | v4 decisions | none, design only | These gate the codemod and the canon list. Decide before building. |
+| 7 | v4 build | all | The codemod, the canon list, the migration. Gated on 6.
+
+**`TODO.md` is Cursor's lane and is not a phase.** It holds per-component API
+fixes Renildo is having Cursor work through. Do not pick items out of it, do not
+fix them in passing, and do not fold them into any phase here.
+
+---
+
+### Phase 1 - Fix the class scanner
+
+**Done except the last step, which is gated on a release.**
+
+The tokenizer is rewritten as a lexer in `yummacss` on
+`claude/yummacss-docs-safelist-m080ha` (`d32bc57`), with 16 regression tests in
+`tests/tokenizer.test.ts`; five of them fail against the old tokenizer. Root
+cause and the measurements are in the Traps section.
+
+Against the real 331-file docs source: 1579 tokens before of which 971
+generated nothing, 1262 after of which 588 do. Nine classes are no longer
+found and **all nine are in comments and JSDoc discussing classes**, none in
+any className on the site. 75 previously-dropped classes are now found.
+
+- [ ] **Release `yummacss` carrying the fix.** `docs` depends on the published
+      `yummacss@3.29.2`, not the workspace, so nothing in `docs` can change
+      until then.
+- [ ] **Then, in `docs/yumma.config.mjs`, in one commit:** replace the five
+      enumerated `source` entries with the single glob
+      `"./src/**/*.{ts,tsx,mdx,mjs}"`, and delete `safelist` entirely.
+      **Measured:** the enumerated list reaches 330 files and 1167 classes, the
+      broad glob 363 and 1262, and **it loses nothing** - every class the list
+      finds, the glob finds. It also picks up `mx--4`, `d-i` and
+      `bc-accent-dim/50` from `src/lib`, which is precisely why they were
+      safelisted. The 91 extra tokens it collects are registry ids, page slugs
+      and package names, none of which match a utility prefix, so they generate
+      no CSS. **Enumerating directories is what created this bug**: `src/lib`
+      was left out by accident and nothing said so. One glob cannot be
+      accidentally narrow. The config carries this as a comment so it is not
+      lost.
+- [ ] `ro-90` is already gone: zero occurrences anywhere in `src` under either
+      tokenizer, so it was only ever generating dead CSS.
+
+### Phase 2 - Fix negative values
+
+**A live correctness bug in `3.29.2`, not only a 4.0 item.** `generator.ts`
+strips a leading `-` off any value and negates it, with no per-utility notion of
+whether negatives are legal. **72 utilities emit CSS the parser rejects**, so the
+declaration is dropped and the class silently does nothing:
+
+```
+w--1      -> width: -.25rem            p--1      -> padding: -.25rem
+br--9999  -> border-radius: -9999px    bw--1     -> border-width: -1px
+lh--1     -> line-height: -1           fw--100   -> font-weight: -100
+tdu--50   -> transition-duration: -50ms  fg--1   -> flex-grow: -1
+```
+
+- [ ] Add a per-utility flag for whether negatives are legal. **40 utilities are
+      legitimate** and must keep working: margins, insets, `z-index`, `order`,
+      `letter-spacing`, `text-indent`, `translate`/`rotate`/`scale`,
+      `scroll-margin`, `outline-offset`, `text-underline-offset`,
+      `transition-delay`, `flex-basis`. Everywhere else a leading `-` should make
+      the class **unknown**, not broken - no rule at all beats a rule the browser
+      discards.
+- [ ] **Two that look wrong and are not.** Negative grid line numbers are legal
+      (`gcs--1` counts back from the end of the explicit grid), and `opacity`
+      clamps rather than rejecting, so `o--10` is useless but valid. That is why
+      the count is 72 and not 77.
+- [ ] `canon` has to reject the illegal ones too, or `validate()` keeps passing
+      them.
+- [ ] Regression test: assert the 40 still generate and a sample of the 72 do
+      not. The enumeration script lives in this session's history only, so
+      rebuild it from `coreUtils()` - generate `<prefix>--<n>` for every utility
+      and compare against the legal set.
+
+### Phase 3 - Yumma UI: `prune`
+
+**Decided 2026-08-28, after a real user's reaction.** She was shown
+`add button --variant pill` and `add button-pill`, said neither made sense, and
+said what she actually wanted was a way to delete what she was not using. That
+is the signal worth acting on.
+
+**Addressing stays exactly as it is.** `--variant` is gone from `cli.ts`
+(replaced by `-a, --all`), and `add.ts` resolves a name against
+`index.components[].component` **and** `index.blocks[].id`, so
+`yummaui add button-group-pill` works directly. No component carries a
+`variants` array any more: 36 components, 25 blocks, blocks addressed by flat
+id. **Do not re-propose a `--variant` flag** - the thing it was for is served by
+making the id addressable.
+
+- [ ] **`yummaui prune`.** Deletes component files nothing in the project uses.
+      One thing it must get right: **blocks import each other** via
+      `from "./<id>"`, so "does anything import this file" is the wrong test -
+      `button` looks used because an unused `button-group-pill` imports it. The
+      correct test is **reachability from outside `componentsDir`**. Dry-run by
+      default, print what it would delete, confirm before writing. `yummaui.json`
+      holds only `componentsDir`, `alias` and `registry` - no manifest of what
+      was installed - but `prune` does not need one, because `componentsDir`
+      *is* the candidate set.
+- [ ] Worth knowing it is safer than the alternative: the workflow it replaces is
+      "delete the unused ones with AI", whose failure mode is deleting a file
+      that *is* used, silently, until a build breaks.
+
+**Parked, deliberately: whether blocks should exist at all.** Renildo's lean is
+no - quality over quantity, components only, not `dialog-sign-up`. Do not act on
+this yet. What is known if it is revisited: **only 10 of 36 components have
+blocks** (dialog 7, button 4, checkbox 3, then 1-2 each), and the cost of an
+unused block is **lines you own, not CSS** - dialog goes 246 to 643 lines with
+all 7, while the CSS grows only 2733B to 3409B, because blocks reuse the same
+utilities. The whole 84-file registry is 14KB of CSS. **The CSS argument against
+blocks does not hold; the ownership argument does.**
+
+**Polish, after `prune`. `yummaui` is published at `0.1.0`, so none of this
+blocks a release.**
+
 - [ ] Badge's icon wrapper sets `w-3 h-3`/`w-4 h-4` on a `<span>`, which does not
       constrain the SVG inside it. Harmless, but a lie in the code. Check
       Meter's `w-8 h-8` wrapper at the same time.
@@ -82,12 +210,27 @@ says so.
       table. Separator is the one that matters: an icon breaks the rule in half
       and centres the glyph in the gap, which is a spatial fact a type cannot
       state.
+- [ ] **The ~30 `className` "any utility you pass wins" descriptions cannot be
+      found.** Checked 2026-08-28: zero hits for that phrasing anywhere in `src`,
+      and `className` does not appear in any of the 36 meta schemas at all.
+      **Confirm and delete this entry rather than hunting for a string that is
+      not there.** The cascade gotcha it referred to is still real.
 
-**Docs site:**
+### Phase 4 - Docs debt
 
-- [ ] **`pnpm lint` is not clean** (10 errors on `main`), and `pnpm validate`
-      flags `admonition-body` and `mw-0` in `admonition.tsx`. Pre-existing. Do
-      not fold these into an unrelated PR, and do not get blamed for them.
+- [ ] **12 utilities exist with a page but are not listed on it**, all logical
+      properties: `border-radius` is missing its 8 block/inline/start/end
+      corners (`bber`, `bisr`, `bier`, `besr`, `beer`, `bbsr`, `bssr`, `bser`)
+      and `border-width` its 4 sides (`bbew`, `bbsw`, `biew`, `bisw`). These
+      need `<Reference>` entries on the existing pages, not new pages.
+      **Measured 2026-08-28: 239 core utilities, 227 referenced, 0 with no page
+      at all.** The old "25 utilities" entry here was stale - `scroll-padding-*`,
+      `scroll-margin-*`, `border-*-color`, `scale-*` and `inset-*` are all
+      covered now.
+- [ ] **`pnpm lint` is not clean** (10 errors on `main`). `pnpm validate` is down
+      to 3 non-canon classes, all deliberate custom ones (`admonition-body`,
+      `invisible`, `preview-spinner`). Do not fold the lint pass into an
+      unrelated PR, and do not get blamed for it.
 - [ ] **Decide whether `ComponentPreview` stays.** No MDX page references it any
       more (0 hits for `<ComponentPreview` and `<PropsTable` across
       `src/content`); the playground replaced both. If it goes, the leftover
@@ -97,20 +240,16 @@ says so.
 - [ ] **Unreproduced:** radio, select, breadcrumb and onboarding pages reported
       as erroring. All four returned 200 with no console errors and
       `/api/ui-md/` 200. Needs the actual error text.
-- [ ] 25 utilities never referenced by a `<Reference>`: `scroll-padding-*` (8),
-      `scroll-margin-*` (8), `border-{top,right,bottom,left}-color` (4),
-      `scale-{x,y,z}` (3), `inset-{x,y}` (2). Base pages exist; these need
-      entries, not new pages. Mechanical, a few hours.
 - [ ] `grid-column-span.mdx` and `grid-row-span.mdx` duplicate `grid-column.mdx`
       and `grid-row.mdx` (core has `grid-column` with prefix `gc-s`, so the span
       concept *is* `grid-column`). Deleting needs redirects in `next.config.ts`
-      **and** a check of what core's `slug` points at first: IntelliSense builds
-      hover links as `yummacss.com/docs/${util.slug}`, so a careless delete
-      recreates 404s that were already fixed once.
+      **and** a check of what core's `slug` points at first. **The hover-link
+      consumer for `slug` is gone with the extensions**, so this is now a
+      docs-internal decision rather than an API contract.
 - [ ] `ui/customization.mdx` becomes the Yumma UI API docs. Cut its two colour
       sections (they duplicate `colors.mdx`), keep and expand "Atomic
       customization" and "Component Slots". `### Flexible by Design` is an empty
-      heading: write it or drop it.
+      heading: write it or drop it. It also has a typo: "all you need need to do".
 - [ ] `responsive-variant.tsx`, `hover-state.tsx` and `negative-values.tsx`
       render JSX rather than text, so their content is absent from the `.md`
       routes. Possible fix: drive them from `@yummacss/core` so the content is
@@ -127,30 +266,27 @@ says so.
       `next dev`. A dev-only listing is cheap; a public route exposes unfinished
       writing. Different decisions, decide which one is wanted.
 
-**Before 4.0 ships:**
+### Phase 5 - Retire `@yummacss/intellisense`
 
-- [ ] **Fix the `bg-*` scanner gap in Canon/nitro.** `bg-accent-dim` was never
-      generated while `bc-accent-dim` from the same string literal was.
-      Safelisted in `yumma.config.mjs` as a workaround. This is a real bug, and
-      it is the same family as the template-literal bug below.
-- [ ] The 4.0 codemod. Everything else in 4.0 depends on it existing, and it
-      gates the release.
-- [ ] `@yummacss/canon`'s canon list has to ship with 4.0, or every v4 class
-      reads as unknown to AI tools and to `validate()`.
-- [ ] `intellisense` and `intellisense-zed` class-detection patterns assume the
-      v3 shape and will not match `d:f`.
-- [ ] `docs`: every code example. Run the codemod here first; largest real
-      corpus, and it has to be migrated anyway.
-- [ ] **Zed: PR #6731 against `zed-industries/extensions`** has been open since
-      2026-07-22. All four checks green, CLA signed, the `CHANGES_REQUESTED`
-      review and `needs author action` label are both stale and only a
-      maintainer can clear them. A confirming comment was posted 2026-07-29.
-      **Do not post a second comment** - it reads as nagging. The one distinct
-      signal left is re-requesting review:
-      `gh pr edit 6731 --repo zed-industries/extensions --add-reviewer MrSubidubi`.
+The extensions are already deleted (see Rejected). This is the package.
 
-**Monorepo, small:**
-
+- [ ] **`play` is the only consumer left**, importing
+      `@yummacss/intellisense/monaco` from `play/src/utils/providers.ts`. The
+      package is 1,243 lines and its **only adapter is Monaco**, which is play's
+      own editor, so it has become play's editor logic living in the CSS
+      monorepo.
+- [ ] Before moving anything: `validate.ts` is a thin wrapper over
+      `@yummacss/nitro/browser`, so the real logic is already in nitro. The
+      substantial editor-agnostic parts are `sort.ts` (252) and `hover.ts` (251).
+      Decide whether those move into `play` or become something nitro exposes.
+      `constants.ts`'s `CLASS_ATTR_REGEX` is **not** a third copy of the scanner
+      bug - it is anchored on `class=`, so it cannot desync.
+- [ ] What survives of the `any` item afterwards is the colour-merge block
+      (`const { percentage, ...userColors } = ... as any` then `createColors`),
+      duplicated **five times**. Worth consolidating **only because 4.0 decision
+      #16 (OKLCH) rewrites `createColors`** - five call sites, five chances to
+      miss one. Do not refactor core/nitro/canon internals; they are clean and
+      4.0 rewrites that surface anyway.
 - [ ] Merge `fix/typecheck-clean`. All nine packages pass `pnpm check` on it.
 - [ ] `CHANGELOG.md`: `3.24.7` writes `## Changed` instead of `### Changed`; one
       `### Fix` among 34 `### Fixed`; `3.28.0` has no date on its heading.
@@ -158,14 +294,26 @@ says so.
       (`scroll-margin#scroll-margin-top`) but two are short (`#bottom`,
       `#inline-start`). The docs headings were written to match each slug exactly
       so all 16 anchors land; normalise core and those headings can go uniform.
-- [ ] The `any` density is concentrated in one package: intellisense has 40, every
-      other package has 0 or 1. The colour-merge block
-      (`const { percentage, ...userColors } = ... as any` then `createColors`)
-      exists **five times**. Worth consolidating **only because 4.0 decision #16
-      (OKLCH) rewrites `createColors`** - five call sites, five chances to miss
-      one. Do not refactor core/nitro/canon internals; they are clean and 4.0
-      rewrites that surface anyway.
 
+### Phase 6 - v4 decisions
+
+- [ ] **Bounded scale or unbounded?** See the 0-384 section below. This one
+      decides the shape of canon, so it goes first.
+- [ ] **Four config keys or one `theme.extend`-shaped mechanism?** Fonts,
+      containers, viewport-minus and named grids all want the same shape.
+- [ ] **What `@yummacss/canon` ships**, which falls out of the first two: an
+      enumerable list, or a parser.
+- [ ] Colored box-shadows: 3.29 or 4.0?
+- [ ] `xs` at 32rem has no matching breakpoint. Drop it or add the breakpoint.
+
+### Phase 7 - v4 build
+
+- [ ] The 4.0 codemod. Everything else in 4.0 depends on it existing, and it
+      gates the release.
+- [ ] `@yummacss/canon`'s canon list, in whatever shape Phase 6 settled.
+- [ ] `docs`: every code example. Run the codemod here first; largest real
+      corpus, and it has to be migrated anyway.
+- [ ] The config-driven generators, per the Phase 6 answer.
 ---
 
 ## The playground
@@ -375,12 +523,12 @@ playground, and `yummaui add`. They cannot drift.
 
 ### Versioning
 
-**Ship `0.0.1` and stay on patches.** The version is a claim about stability, and
-the schema has been proven against 36 components but **zero outside users**.
-`0.0.x` is the only range where every release is free. The number is cheap to
-raise and expensive to lower. **The thing that triggers the decision** is not a
-date and not a component count: it is the first outside user filing an issue the
-schema cannot answer without a breaking change.
+**Shipped at `0.1.0`.** The earlier argument for `0.0.1` - that `0.0.x` is the
+only range where every release is free - is settled and does not need
+re-litigating. What carries forward is the trigger it named: **the thing that
+forces a version decision is not a date and not a component count, it is the
+first outside user filing an issue the schema cannot answer without a breaking
+change.** Stay on patches until then.
 
 ---
 
@@ -504,13 +652,33 @@ fragments of surrounding syntax. **Fix: rewrite every dynamic className to
 to zero. A single-interpolation literal looked safe in isolation and was not once
 the file had other backtick classNames nearby.
 
-**And some plain unconditional string literals are dropped too, cause
-undiagnosed.** `max-w-96`, `blc-indigo-5`, `c-indigo-6`, `c-indigo-9`, `ro-36`,
-and later `bg-accent-dim` (while `bc-accent-dim` from the *same string literal*
-survived). Ruled out: position in file, a per-file class cap, and the `%`/`:`
-characters. Worked around by `yumma.config.mjs`'s `safelist`. **If a component
-renders unstyled despite the class name looking correct, check the built CSS for
-that literal before assuming the component is wrong**:
+**Plain string literals were dropped too: quote-parity drift.** Fixed in nitro
+2026-08-28; kept because it explains every odd scanner report before that date
+and because the shape recurs. `tokenizer.ts` matched bare strings with
+`/"([^"]+)"/g`. `[^"]+` is *one*-or-more, so an empty literal `""` could not
+match; the regex backtracked and began its next match on the **second** quote of
+that pair, capturing the code *between* strings from there on. Every later class
+in the file was lost until another `""` re-synced it - which is why
+`bc-accent-dim` survived while `bg-accent-dim` from the same literal did not,
+and why "position in the file" and "a per-file cap" were correctly ruled out and
+nothing replaced them. A regex literal or a quote inside a comment did the same.
+**The bitter part: the prescribed fix for the template-literal bug above -
+`[...].filter(Boolean).join(" ")` - is what introduces the `: ""` falsy branches
+that cause this.** There were 75 in `src`.
+
+`tokenizer.ts` is now a lexer: JS-family files by extension get a scanner that
+tracks comments, escapes, template literals and regex literals, and everything
+else gets a line-scoped pass, because `.mdx` is prose and an apostrophe must not
+cost more than its line. **Two consequences worth remembering.** Class names in
+comments are no longer collected, which is correct - `m-23` was generating a
+real rule because a sentence explains the scale runs past it - so a class that
+exists *only* in a comment will not generate. And `src/lib/code-decorate.mjs`
+was always scannable; the older note claiming the glob was tried and did not
+help was wrong. Line 43 is `const regex = /"([^"]+)"/g;`, three quotes, hiding
+everything below it. The file contained the very pattern that hid it.
+
+**If a component renders unstyled despite the class name looking correct, check
+the built CSS for that literal before assuming the component is wrong**:
 `grep -o "\.<class>{[^}]*}" .next/static/chunks/*.css` after a clean
 `rm -rf .next && pnpm build`.
 
@@ -518,11 +686,6 @@ that literal before assuming the component is wrong**:
 between the heredoc and a JS regex has produced false "missing" results at least
 three times, on classes that were present. `javascript_tool` against the live DOM
 is better still - no shell in the path at all.
-
-**`src/lib/*.mjs` is not scanned for classes and adding it to `source` does not
-help.** `code-decorate.mjs` writes class names; the glob was tried and the
-scanner still missed the file. Its classes must be safelisted by hand
-(`mx--4`, `bg-accent-dim/10`, `bc-accent-dim/50`, `d-i`).
 
 **A caller's `className` cannot reliably override a class the component already
 sets** for the same property. Which one wins is decided by the generated
@@ -541,6 +704,32 @@ exist and canon reported clean. `validate-yummacss.mjs` now also scans string
 literals inside `UPPER_SNAKE` class maps plus any multi-token string whose tokens
 *all* look like classes. Valid `br-` values: `0, xs, sm, md, lg, xl, xxl, 3xl,
 100%, 50%, 9999, px`. Opacity is percentage-based, so `o-1` means 1%, not 1.
+
+**Two layout bugs, one shape: a box that cannot shrink.** Both fixed 2026-08-28,
+kept because both will recur.
+
+*Sticky clamps to its containing block.* The sidebar's scroller asks for
+`calc(100dvh - 5rem)`. On a page short enough not to scroll that is taller than
+the grid row it sits in, and a sticky box may not be offset outside its
+containing block, so it clamped to the grid top at y=0 - under the fixed 49px
+navbar, eating the first section heading and its first link. `main` has no top
+offset; the content column only clears the navbar because it carries `pt-12`.
+Measured on 9 routes, 7 were affected, every Yumma UI component page among them.
+Fixed with `@lg:pt-20` on the `<aside>`, matching `t-20` so the unscrolled and
+stuck positions are identical. **The TOC and the playground rail sit in the same
+grid and were fine** - they are short enough to fit, so sticky never clamped.
+Anything new in that third column inherits the bug the moment it gets tall.
+
+*Flex items default to `min-width: auto`.* The page title could not shrink below
+its longest unbreakable run, so `@yummacss/runtime` pushed the header row 50px
+past a 390px viewport while `Grid Template Columns` was fine. That is the whole
+of the "weird" part: **hyphens and spaces are break opportunities, a slash is
+not.** Fixed with `min-w-0` plus `ow-bw` on the `h1` and `fs-0` on the actions.
+Note `ow-bw` alone does nothing here - `overflow-wrap: break-word` does not
+reduce min-content size, so it cannot rescue a flex item that is not already
+allowed to shrink. **`mw-0` is not a class**; it was sitting in `admonition.tsx`
+doing nothing, which `validate-yummacss.mjs` had been reporting all along. The
+min-width prefix is `min-w`.
 
 **Base UI portals escape the iframe.** They resolve against the top-level
 `document.body`, not the trigger's `ownerDocument`. Pass `container` from
@@ -661,6 +850,22 @@ command `#F5FAFF`, argument `#BEC6F2`, space `#B9BED5`.
 
 ## Rejected. Do not rebuild
 
+- **The editor extensions.** `intellisense` and `intellisense-zed` are deleted:
+  repos gone, unpublished from the VS Code Marketplace and Open VSX, and the Zed
+  marketplace PR (#6731, open since 2026-07-22) withdrawn. The 18k VSIX installs
+  were read as bots, the same way the npm download counts are; the only real user
+  was Renildo. **Do not re-propose an editor extension, and do not treat the
+  download numbers as evidence of an audience.** Two live consequences: v4 no
+  longer has to migrate any class-detection pattern to `d:f`, and the
+  `yummacss.com/docs/${util.slug}` hover links no longer have a consumer - core's
+  `slug` field now only feeds the docs, which changes who the `scroll-*` slug
+  cleanup is for.
+- **`@yummacss/intellisense` as a package** is likely to follow. The plan is for
+  `play` to own completions, colour decorators and hovers itself. Not done, and
+  the one thing to check before deleting: whether anything besides the extensions
+  imported it, and where `play` gets its class list from once it does. This also
+  closes most of the `any` density item in the small-monorepo list.
+
 - **The blog timeline**, after ten mockups. Rejected because it introduces a
   rail, marker blocks and bordered thumbs - three pieces of visual vocabulary
   that exist nowhere else on the site. Two findings worth keeping: a staggered
@@ -730,7 +935,9 @@ they belong together: **move the thing into `yumma.config.mjs` and generate a
 utility for it.** The user names a value once, in config, and gets a real utility
 with a real name; they do not inline a value into a class and get an unnamed one.
 
-1. **Custom font families.** Colours are already configurable; families are not,
+1. **Custom font families. Asked for directly, 2026-08-28 - `theme.fonts`, so
+   the docs can dogfood it and drop `.ff-e`.** Colours are already
+   configurable; families are not,
    which is the whole reason `.ff-e` exists. Config gives `ff-<name>`. Two things
    to settle: the docs need `ff-e` scoped to `article h1..h6`, which a utility
    does not do by itself, so that rule stays and only the class definition goes;
@@ -740,7 +947,9 @@ with a real name; they do not inline a value into a class and get an unnamed one
    that was right: **a built-in container is opinionated, a configured one is
    not.** This site would want **two**, so the config shape is a map of named
    containers, not a single value.
-3. **Viewport-minus utilities.** `max-height: calc(100dvh - 5rem)` appears twice
+3. **Viewport-minus utilities. Asked for directly, 2026-08-28**, framed as the
+   answer to Tailwind users reaching for an arbitrary value on a genuinely common
+   need. `max-height: calc(100dvh - 5rem)` appears twice
    as an inline style (`sidebar-nav.tsx`, `toc.tsx`). Shape: the existing 0-384
    scale subtracted from `100dvh`/`100vh`, e.g. `max-h-dvh--20`. **The sharpest
    version of the case:** an inline style cannot be made conditional on a
@@ -760,6 +969,55 @@ starts to *be* the design system rather than configure it. Decide up front wheth
 the answer is four keys or one `theme.extend`-shaped mechanism, because
 retrofitting that is a breaking change and 4.0 is the cheapest moment to get it
 right.
+
+### The 0-384 scale, the t-shirt aliases, and unbounded values
+
+Measured, because the answers are not what they look like.
+
+**384 is not arbitrary.** The base is `0.25rem` and the range is `0..384` step 1,
+so `384 * 0.25rem = 96rem`, which is exactly the `xxl` breakpoint. **The scale
+runs to the widest breakpoint and stops.** That is a defensible rule and it
+should be written down as one rather than rediscovered.
+
+**The t-shirt aliases are not redundant, with one exception.** `sm` 40rem, `md`
+48rem, `lg` 64rem, `xl` 80rem and `xxl` 96rem are **identical to the media-query
+breakpoints**, so `max-w-md` means "as wide as the `md` breakpoint" - a semantic
+fact the numeric step cannot state, even though every one of them *is* also a
+numeric step (`xs`=128, `sm`=160, `md`=192, `lg`=256, `xl`=320, `xxl`=384).
+**`xs` at 32rem is the odd one out: there is no `xs` breakpoint.** So the answer
+to "why do I even have these" is: keep them and document them as breakpoint
+aliases, and either drop `xs` or add the breakpoint that would justify it.
+
+**"Would unbounded values save SO MUCH code?" - not where it looks.** Generation
+is scan-driven, so the scale costs **zero bytes of output CSS**; only classes
+actually written are emitted. What it costs is the build-time value table: 385
+numeric keys plus 37 aliases is 422 entries, and **34 utilities bind to one of
+those scales, so ~14,300 entries are held per build**. Real, but it is memory and
+table-building, not stylesheet weight. **The second argument for a small scale
+was the IntelliSense completion list, and that argument died with the
+extensions.**
+
+**The idea is still right, for a better reason.** Parsing `w-97` and emitting
+`calc(0.25rem * 97)` deletes the min/max question entirely - no cap to configure,
+no ceiling to justify, no user asking to extend the range. It also stays on the
+right side of the arbitrary-value line, and the distinction is worth stating in
+the 4.0 post: **`w-97` still resolves through the named base, so it is a scale
+step with no ceiling; `w-[24.25rem]` inlines a value and belongs to no scale.**
+Unbounded is not arbitrary.
+
+**What it costs, and what has to be decided first.** Canon stops being "is this
+class in the set" and becomes "does this class parse", which changes
+`validate()`, the canon list that has to ship with 4.0, and every consumer that
+expected an enumerable list. Decide that *before* the canon list is built, not
+after - it is the same "four keys or one mechanism" question as the config
+generators above, and 4.0 is equally the cheapest moment for both.
+
+**Do not rename `yumma.config.mjs`.** The asymmetry with the `yummacss` package
+looks like a mistake and is the convention: `tailwindcss` ships
+`tailwind.config.js`. The cost is not cosmetic either - 15 files in `docs` and 3
+in the monorepo name it, plus every docs example, the blog posts and `play` - and
+decision #15 rules out a compat mode, so `loadConfig` would hard-break rather
+than accept both. Nothing is gained that a reader was confused by.
 
 **The honest ceiling on the whole idea:** `globals.css` today has two custom
 classes (`docs-container`, `ff-e`), which #1 and #2 would remove entirely, plus

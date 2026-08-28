@@ -8,13 +8,22 @@ export default defineConfig({
     "./src/mdx-components.tsx",
     "./src/registry/**/*.tsx",
   ],
+  // Every entry below is a workaround for one bug: nitro's tokenizer paired
+  // quotes with a regex, so an empty literal `""` desynced every class after
+  // it in the file. Fixed in the monorepo, not yet released. When a release
+  // carrying that lands, do two things together and this list goes to zero:
+  // add "./src/lib/**/*.mjs" to `source` above, and delete `safelist`
+  // entirely. Verified: scanning that glob with no safelist generates all
+  // sixteen. See NOTES.md, Phase 1.
   safelist: [
-    // `src/lib/code-decorate.mjs` writes class names but is not in `source`
+    // `src/lib/code-decorate.mjs`. It is not in `source`, and the older note
+    // claiming the glob was tried and did not help was wrong - the file holds
+    // `/"([^"]+)"/g` on line 43, three quotes, which hid everything below it.
     "mx--4",
     "d-i",
-    // The playground's checked checkbox. `bc-accent-dim` generates from the
-    // same string literal & this one does not, which is the scanner gap again
-    // rather than anything about the class.
+    // The playground's checked checkbox. `bc-accent-dim` generated from the
+    // same string literal and this one did not, which is the quote-parity
+    // bug rather than anything about the class.
     "bg-accent-dim",
     "bg-accent-dim/10",
     "bg-diff-add/10",
@@ -30,7 +39,6 @@ export default defineConfig({
     // Collapsible: same scanner gap, different file - see NOTES.md.
     "o-100",
     "tp-t",
-    "ro-90",
     // Menu: same scanner gap again.
     "h-fc",
     // Tabs: and again.
