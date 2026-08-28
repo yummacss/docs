@@ -3,7 +3,12 @@
 Operational backlog, standing conventions, and the traps that have cost real
 time. **Not a session log.** Design decisions go in
 `src/content/blog/yummacss-4.0.0.mdx`; shipped work goes in the monorepo
-`CHANGELOG.md`; live API bugs go in `IMPRO.md`.
+`CHANGELOG.md`; live API bugs go in `TODO.md`.
+
+**`TODO.md` is Cursor's lane, not this one.** It holds small per-component API
+fixes that Renildo is having Cursor work through. Do not pick items out of it
+and do not fix them in passing; if something in this file overlaps, say so and
+leave it.
 
 Pruned 2026-08-28 from 2987 lines to this. **The rule that produced the cut:
 an entry earns its place if it changes what someone does next.** A narrative
@@ -42,9 +47,10 @@ says so.
 
 **Yumma UI, before publishing `0.0.1`:**
 
-- [ ] **The API bug list in `IMPRO.md`.** Renildo's own pass over the
-      playground. Everything in it is a real defect the playground exposed by
-      making props exercisable for the first time. This is the live queue.
+- [ ] **The API bug list in `TODO.md`. Cursor owns this queue.** Renildo's own
+      pass over the playground; everything in it is a real defect the playground
+      exposed by making props exercisable for the first time. Listed here so the
+      work is visible, not so it gets picked up.
 - [ ] **`--variant` is advertised and not implemented, and its own help example
       fails.** `ui/src/cli.ts` documents `-v, --variant <name>` with
       `add button --variant pill` as an example; `add.ts` never reads the flag,
