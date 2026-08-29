@@ -16,8 +16,12 @@ jobs:
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
 
-      - name: Auto-merge for web-features
-        if: contains(steps.metadata.outputs.dependency-names, 'web-features')
+      # web-features and the yummacss packages only. Everything else waits for
+      # a human, which is the point of an allow list.
+      - name: Auto-merge
+        if: >
+          contains(steps.metadata.outputs.dependency-names, 'web-features') ||
+          contains(steps.metadata.outputs.dependency-names, 'yummacss')
         run: gh pr merge --auto --squash "$PR_URL"
         env:
           PR_URL: ${{ github.event.pull_request.html_url }}
