@@ -27,12 +27,15 @@ clearing; keep this file short.
 | repo | branch | state |
 | --- | --- | --- |
 | `docs` | `main` | `6eca3b18`. Playground merged (#108, #129, #130). |
-| `docs` | `claude/yummacss-docs-safelist-m080ha` | sidebar/title layout fixes, unpushed |
+| `docs` | `fix-layout` | PR #132, layout fixes |
+| `docs` | `notes` | PR #133, this file |
+| `yummacss` | `fix-scanner` | PR #11, tokenizer fix + `3.30.0` release prep |
 | `yummacss` | `v4` | 4 ahead of `main`: colon-syntax parsing, fixtures migrated |
-| `yummacss` | `origin/fix/typecheck-clean` | still unmerged, still wanted |
 | `ui` | `release` | **published, `yummaui@0.1.0`** |
 
-Published: `@yummacss/*` at `3.29.2`, `yummaui` at `0.1.0`.
+Published: `@yummacss/*` at `3.29.2`, `yummaui` at `0.1.0`. **`3.30.0` is
+prepared and unpublished** - see Phase 1. There are eight packages, not nine;
+`language-server` was deleted with the extensions.
 
 `ui` is a **separate repo** (`github.com/yummacss/ui`). The folder and repo are
 `ui`; the **published npm package is `yummaui`**, because `ui` is taken. Do not
@@ -61,9 +64,19 @@ session. Clear only after that lands.
 
 **How work lands. Pull requests, never a direct commit.** Renildo previews and
 approves. Branch names are short and made of real words - `fix-scanner`,
-`notes`, `fix-layout` - with no generated suffixes. **PR bodies stay minimal**:
-a line or two on what changed and why. The detail lives in this file, so a PR
-that restates it is duplicating something that will drift.
+`notes`, `fix-layout` - with no generated suffixes.
+
+**Write short everywhere except this file.** CHANGELOG entries, PR bodies and
+code comments are one to three lines; one sentence on what changed and why is
+the target, and eighty lines is not. **This file is the exception** - it is the
+only place detail is meant to accumulate, because it is what survives a cleared
+chat. A PR or a comment restating it duplicates something that will drift.
+
+**Document the change in the same commit that makes it.** A new command, flag,
+script or convention gets its entry here as it lands, not later - a cleared
+chat takes the reasoning with it, and the code alone never says why. `pnpm
+release` and `yummaui prune` are the shape: what it does, what it refuses, and
+the one thing that would break it if someone reimplemented it.
 
 **The rule for what goes in here** has not changed: an entry earns its place if
 it changes what someone does next. Delete finished entries rather than striking
@@ -73,12 +86,13 @@ them through.
 
 ## The plan, in phases
 
-Status: **Phase 1 done bar a release.** Phase 2 is next.
+Status: **Phases 1 and 2 done, both waiting on the `3.30.0` release.**
+Phase 3 is next.
 
 | # | Phase | Repos | Why it sits here |
 | --- | --- | --- | --- |
 | 1 | Fix the class scanner | `yummacss`, `docs` | Root-caused, small, and everything downstream writes classes. |
-| 2 | Fix negative values | `yummacss` | A live correctness bug in `3.29.2`: 72 utilities emit CSS the parser throws away. Also a 4.0 blocker. |
+| 2 | Fix negative values | `yummacss` | Done. 72 utilities emitted CSS the parser threw away; shipping in `3.30.0`. |
 | 3 | Yumma UI: `prune` | `ui` | The one thing a real user said she would use. Everything else on Yumma UI is polish. |
 | 4 | Docs debt | `docs` | Cheap, mechanical, and the corpus the 4.0 codemod runs against first. |
 | 5 | Retire `@yummacss/intellisense` | `yummacss`, `play` | Frees `play` and closes most of the `any` item. Independent of everything. |
@@ -95,8 +109,8 @@ fix them in passing, and do not fold them into any phase here.
 
 **Done except the last step, which is gated on a release.**
 
-The tokenizer is rewritten as a lexer in `yummacss` on
-`claude/yummacss-docs-safelist-m080ha` (`d32bc57`), with 16 regression tests in
+The tokenizer is rewritten as a lexer in `yummacss` on `fix-scanner`
+(PR #11, `d32bc57`), with 16 regression tests in
 `tests/tokenizer.test.ts`; five of them fail against the old tokenizer. Root
 cause and the measurements are in the Traps section.
 
@@ -105,9 +119,34 @@ generated nothing, 1262 after of which 588 do. Nine classes are no longer
 found and **all nine are in comments and JSDoc discussing classes**, none in
 any className on the site. 75 previously-dropped classes are now found.
 
-- [ ] **Release `yummacss` carrying the fix.** `docs` depends on the published
-      `yummacss@3.29.2`, not the workspace, so nothing in `docs` can change
-      until then.
+- [ ] **Publish `3.30.0`. Merged, tagged, released - and NOT on npm.** The
+      publish run failed on an `NPM_TOKEN` authorization error; see the trap.
+      Fix the secret and re-run the run. Nothing below can start until
+      `npm view yummacss version` says `3.30.0`.
+      **Publishing is automated - never run `pnpm publish-packages` by hand.**
+      `.github/workflows/publish.yml` fires on a **published GitHub Release**,
+      then installs, builds, tests and runs `pnpm -r publish --no-git-checks`
+      with npm provenance; `notify-downstream.yml` then dispatches to
+      `yummacss/docs` and `yummacss/play`. So the whole release is: merge to
+      `main`, `pnpm release`, press Publish.
+      `docs` depends on the published package, not the workspace, so nothing in
+      `docs` can change until this lands.
+- [ ] **Minor, not a patch:** `tokenizer()` gained an optional `filename`
+      parameter, and the fix removes CSS that used to be generated - a patch
+      must not change how a page renders, and this can. (A third reason applied
+      until `migrate` was unwired: `main` was carrying it as an unreleased
+      feature.)
+- [ ] **`yummacss migrate` is unwired from the CLI, not merely undocumented.**
+      It rewrites classes into the v4 colon syntax and **v3 cannot compile what
+      it writes** - verified: `d-f` generates, `d:f` generates nothing, same for
+      `bg:red-1` and `m:4`. Shipping it reachable would hand users a command
+      that silently unstyles their project. The import, the `case "migrate"`
+      and the help line are removed from `packages/cli/src/cli.ts`, with a
+      comment saying why; `commands/migrate.ts`, the services and all 152 lines
+      of `tests/migrate.test.ts` stay, because the tests import the services
+      directly. **Re-wire it when v4 lands** - that is the whole change.
+      Confirmed against the built binary: `yummacss migrate` falls through to
+      the help text.
 - [ ] **Then, in `docs/yumma.config.mjs`, in one commit:** replace the five
       enumerated `source` entries with the single glob
       `"./src/**/*.{ts,tsx,mdx,mjs}"`, and delete `safelist` entirely.
@@ -126,35 +165,42 @@ any className on the site. 75 previously-dropped classes are now found.
 
 ### Phase 2 - Fix negative values
 
-**A live correctness bug in `3.29.2`, not only a 4.0 item.** `generator.ts`
-strips a leading `-` off any value and negates it, with no per-utility notion of
-whether negatives are legal. **72 utilities emit CSS the parser rejects**, so the
-declaration is dropped and the class silently does nothing:
+**Done.** On `fix-scanner` (`e93c8bb`), shipping in `3.30.0` alongside Phase 1,
+so both land in one release. 31 regression tests in `tests/negative.test.ts`,
+150 in the suite, build green.
 
-```
-w--1      -> width: -.25rem            p--1      -> padding: -.25rem
-br--9999  -> border-radius: -9999px    bw--1     -> border-width: -1px
-lh--1     -> line-height: -1           fw--100   -> font-weight: -100
-tdu--50   -> transition-duration: -50ms  fg--1   -> flex-grow: -1
-```
+It was two defects sharing one line of code. A leading `-` was applied to any
+utility whose value started with a digit with no notion of whether the property
+accepts one, so **72 utilities emitted CSS the parser discards** (`w--1` was
+`width: -.25rem`). And `negateValue` returned the value unchanged when there was
+no number in it, so the `-` was simply **ignored**: `m--auto` resolved to
+`margin: auto` and `bg--red-1` to the same declaration as `bg-red-1`. Every
+keyword and colour utility had a silent second spelling.
 
-- [ ] Add a per-utility flag for whether negatives are legal. **40 utilities are
-      legitimate** and must keep working: margins, insets, `z-index`, `order`,
-      `letter-spacing`, `text-indent`, `translate`/`rotate`/`scale`,
-      `scroll-margin`, `outline-offset`, `text-underline-offset`,
-      `transition-delay`, `flex-basis`. Everywhere else a leading `-` should make
-      the class **unknown**, not broken - no rule at all beats a rule the browser
-      discards.
-- [ ] **Two that look wrong and are not.** Negative grid line numbers are legal
-      (`gcs--1` counts back from the end of the explicit grid), and `opacity`
-      clamps rather than rejecting, so `o--10` is useless but valid. That is why
-      the count is 72 and not 77.
-- [ ] `canon` has to reject the illegal ones too, or `validate()` keeps passing
-      them.
-- [ ] Regression test: assert the 40 still generate and a sample of the 72 do
-      not. The enumeration script lives in this session's history only, so
-      rebuild it from `coreUtils()` - generate `<prefix>--<n>` for every utility
-      and compare against the legal set.
+One rule fixed both: a leading `-` is meaningful only where the property accepts
+a negative **and** the value is a number to negate. Anything else resolves to no
+class.
+
+Three things worth keeping:
+
+- **Legality is keyed on the CSS property, not the utility** -
+  `core`'s `acceptsNegative` in `helpers/negatable.ts`. A property is a fact
+  about CSS, so a new utility mapping onto `margin-inline` inherits the right
+  answer instead of needing someone to remember a flag. **Do not convert this
+  to a per-utility boolean.**
+- **Canon needed no change.** `validateClasses` resolves through the same
+  `generateCSSRule`, so it reports these as unknown for free. There is a test
+  asserting that, because the shared path is the only thing holding it.
+- **Two that look like bugs and are not**, both covered by tests so nobody
+  "fixes" them: negative grid line numbers are legal (`gcs--1` counts back from
+  the end of the explicit grid), and negative `scale` mirrors. Also
+  `letter-spacing`'s scale is *already* negative, so `ls--1` correctly yields a
+  positive `.05em`, and transforms put the sign inside the parens
+  (`transform: skew(-1deg)`) - a naive "output contains a leading minus"
+  assertion fails on both.
+
+Checked before shipping: `docs`, `ui` and `play` write 19 negative classes
+between them and **every one still generates**.
 
 ### Phase 3 - Yumma UI: `prune`
 
@@ -287,7 +333,6 @@ The extensions are already deleted (see Rejected). This is the package.
       #16 (OKLCH) rewrites `createColors`** - five call sites, five chances to
       miss one. Do not refactor core/nitro/canon internals; they are clean and
       4.0 rewrites that surface anyway.
-- [ ] Merge `fix/typecheck-clean`. All nine packages pass `pnpm check` on it.
 - [ ] `CHANGELOG.md`: `3.24.7` writes `## Changed` instead of `### Changed`; one
       `### Fix` among 34 `### Fixed`; `3.28.0` has no date on its heading.
 - [ ] Core's `scroll-*` slugs are inconsistent: mostly fully qualified
@@ -303,6 +348,10 @@ The extensions are already deleted (see Rejected). This is the package.
       containers, viewport-minus and named grids all want the same shape.
 - [ ] **What `@yummacss/canon` ships**, which falls out of the first two: an
       enumerable list, or a parser.
+- [ ] **Move publishing to Trusted Publishing (OIDC)** and drop `NPM_TOKEN`
+      entirely. See the token trap for what to verify first. Not urgent, but it
+      is the only thing that stops this recurring every time a token expires.
+      **The current token dies 2026-11-27**, so that is the deadline.
 - [ ] Colored box-shadows: 3.29 or 4.0?
 - [ ] `xs` at 32rem has no matching breakpoint. Drop it or add the breakpoint.
 
@@ -634,6 +683,79 @@ only exists where a schema backs it.
 ## Traps
 
 The expensive ones, in rough order of how much time they have cost.
+
+**A published GitHub Release does not mean a published npm package.** `3.30.0`
+was tagged and released on 2026-08-29 and the publish run **failed**: build
+green, 150 tests green, tarball packed, provenance signed, then
+`npm error 404 Not Found - PUT https://registry.npmjs.org/@yummacss%2fcore`.
+**A 404 on `PUT` is npm's way of saying unauthorized** - it will not admit
+whether a package exists to a caller that cannot write it - so the cause is the
+`NPM_TOKEN` secret being expired, revoked, or lacking write access to the
+`@yummacss` scope, not a missing package. It died on the first package, so
+nothing partially published; all nine stayed on `3.29.2`, verified against the
+registry. **The fix is two steps and both are needed**: a new token in repo
+secrets, *then* re-run the failed run from the Actions page. Re-running alone
+changes nothing, and a new token alone does not retry - the run reads the
+secret at start. No new tag or release either way.
+
+**Always check the Actions run, not the releases page,
+before believing a version shipped**, and `npm view <pkg> version` is the
+cheapest confirmation.
+
+**The npm token needs "Bypass 2FA" ticked, and that is the wrong long-term
+answer.** 2FA demands a one-time password on publish and a runner cannot type
+one, so without the bypass the workflow fails with `EOTP`. The token also needs
+**Read and write** on the `@yummacss` scope *and* the unscoped `yummacss`
+package - npm's default of `No access` produces the same 404 as an expired one.
+**The secret lives in repository settings, not the organization**, at
+`github.com/yummacss/yummacss/settings/secrets/actions`, and is named
+`NPM_TOKEN` - edit that entry rather than adding a new one, because the workflow
+reads it by name. GitHub's iOS app has no repo settings at all, so rotating a
+token is a mobile-Safari job; re-running the workflow afterwards is in the app.
+
+**The token rotated on 2026-08-29 expires 2026-11-27** (90 days, npm's
+default), so this breaks again then unless Trusted Publishing lands first.
+Settings that work: Read and write, All packages, plus Read and write on the
+`yummacss` organization - the scoped packages are org-owned, so both sections
+are needed.
+
+**npm's own form now steers to Trusted Publishing instead**, which is the real
+fix: OIDC, so npm trusts `publish.yml` in this repo directly and the runner
+exchanges its GitHub identity for a short-lived credential. Nothing to expire,
+nothing to leak, and 2FA stops mattering. `publish.yml` already has
+`id-token: write` for provenance, which is the same permission. **Two things to
+check before migrating**: whether `pnpm -r publish` supports OIDC at the pinned
+pnpm (the feature is in the npm CLI; pnpm's support arrived separately), and
+that it is configured **per package on npmjs, so eight times**. Do not block a
+release on this migration - rotate the token, ship, migrate separately.
+
+**GitHub's "Generate release notes" button does not write notes.** It lists the
+pull requests merged since the last release, one line each with author and link,
+plus a compare URL. No prose, no AI, and **commits pushed straight to `main` do
+not appear at all** because it only sees PRs. For `3.30.0` it would have listed
+five PRs, three of them the same `fix-scanner` branch merged three times, and
+advertised `#10 feat: add the v4 migrate command` - which this release
+deliberately does not ship. **Keep the CHANGELOG as the source of the notes.**
+It is fine as an addition below them, and `.github/release.yml` can categorise
+by label if that is ever wanted.
+
+**Cutting a release is `pnpm bump <version>` then `pnpm release`.** `release`
+reads the version out of `package.json`, extracts that section of
+`CHANGELOG.md` verbatim, and drafts the GitHub Release whose Publish button
+fires `publish.yml`. It refuses on anything upstream being wrong: not on
+`main`, a dirty tree, `main` and `origin/main` disagreeing, a tag that already
+exists, a missing or empty changelog section, or a `package.json` the bump
+missed. With `gh` present it creates the draft; without it, it prints a
+prefilled `releases/new` URL. **Nothing about the release is typed by hand.**
+
+
+**"Is it in the repo" and "is it in the package" are different questions.**
+Every package sets `files: ["dist"]`, so `src` never publishes, and the bundler
+tree-shakes anything the entry does not reach. Unwiring `migrate` from `cli.ts`
+took the whole command out of the tarball: 43170 bytes to 39703, with every
+identifier gone. **Check the built artifact, not the source**, when the question
+is what a user receives - `grep` the `dist` bundle, or diff its size both ways.
+
 
 **A class can be canon-valid and still generate no CSS.** `c-slate-12` is a real
 token in `@yummacss/core` (`#101316`) but nothing is emitted for it, so four
