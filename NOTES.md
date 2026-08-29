@@ -599,6 +599,22 @@ single-scheme.
 **Grid:** `d-g gtc-1 g-8 @lg:gtc-12`. Sidebar 3, content `@lg:gc-s-6`, rail 3.
 The rail is about 15rem of content at 1440px.
 
+**Every `oy-auto` gets `ob-c`.** `overscroll-behavior: contain` is what stops a
+scroller handing the wheel to the page when it reaches its end. The left nav had
+it; the other five scrollers on the site did not, which is why the chaining felt
+random - it depended on what the pointer happened to be over. Measured on
+`/docs/display`: wheeling a `<Reference>` filter list to its end threw the page
+609px. The worst case was the mobile nav dialog (7936/720 on a phone), where the
+page scrolls behind an open menu. `ob-c` is on all six now. **The registry
+popups - `combobox`, `autocomplete`, `command-palette` - still lack it**; that is
+a library change and needs the registry regenerated, so it was left alone.
+
+**Containment is not the same as having something to scroll.** A scroller shorter
+than its `max-height` is not a scroll container at all, so `overscroll-behavior`
+does not apply and the wheel goes to the page - correct behaviour, not a bug. On
+`/blog` the sidebar is 246px in an 820px column, so the empty space under it
+scrolls the page. Nothing to fix; do not "fix" it by making the column a scroller.
+
 **Fonts: Esteban for headings, iA Writer Quattro for body**, and there is an open
 design decision here. Measured by rasterising text and counting ink pixels:
 
@@ -1163,3 +1179,26 @@ problem, not a value problem.** Aim at the value problems and say so.
 - **Colored box-shadows.** 3.29 or 4.0?
 - **Delete the `skeleton` component and let `loading` cover it via a prop.** Way
   less code, and nothing obvious explains why nobody does this.
+- **Base UI `ScrollArea` in the docs sidebars.** Worth doing for the look - it
+  hides the native scrollbar and renders its own thumb, which is the difference
+  between the chunky Windows bar and something that matches the site. **It does
+  not fix scroll chaining**: checked `@base-ui/react@1.7.0`, the viewport sets
+  `overflow: scroll` and never touches `overscroll-behavior`, so `ob-c` stays
+  either way. Cost is four more elements per sidebar and a client component.
+  Aesthetics, not correctness - after v4.
+- **Light theme, and possibly no switch at all.** A light palette was drawn by
+  accident in an artifact and looked better than the dark one. The interesting
+  version of this is not "add a switch" but **pick one scheme and commit**, which
+  is what the site already does - the palette is eight semantic colours with no
+  light/dark pairs, so a switch means pairing every one of them. A theme revert
+  has already cost a day once (see the Cursor branches around `#112`). After v4.
+- **Stop `play` looking like Tailwind Play.** It is close to a clone: same split
+  editor, same generated-CSS drawer, same top-left brand and top-right share.
+  The reference points are `diffs.com` and `trees.software` - what they get right
+  is that the *chrome* is the product: a real window frame with traffic lights, a
+  file tree, tabs, per-line diff gutters, a command bar at the bottom. None of
+  that is playground-specific and all of it reads as its own tool rather than a
+  reskin. Possibly rename to `try.yummacss.com`. **The strategic point stands on
+  its own**: Yumma CSS gets compared to Tailwind constantly, and the playground
+  is the single most-seen surface, so it is the cheapest place to stop inviting
+  the comparison. After v4 and the UI work.

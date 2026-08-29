@@ -180,7 +180,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
 
                 <div
                   ref={listRef}
-                  className="oy-auto px-2 py-2"
+                  className="oy-auto ob-c px-2 py-2"
                   style={{ maxHeight: "calc(70vh - 120px)" }}
                 >
                   {Object.entries(CATEGORY_LABELS).map(([category, label]) => {
