@@ -351,6 +351,7 @@ The extensions are already deleted (see Rejected). This is the package.
 - [ ] **Move publishing to Trusted Publishing (OIDC)** and drop `NPM_TOKEN`
       entirely. See the token trap for what to verify first. Not urgent, but it
       is the only thing that stops this recurring every time a token expires.
+      **The current token dies 2026-11-27**, so that is the deadline.
 - [ ] Colored box-shadows: 3.29 or 4.0?
 - [ ] `xs` at 32rem has no matching breakpoint. Drop it or add the breakpoint.
 
@@ -706,7 +707,11 @@ answer.** 2FA demands a one-time password on publish and a runner cannot type
 one, so without the bypass the workflow fails with `EOTP`. The token also needs
 **Read and write** on the `@yummacss` scope *and* the unscoped `yummacss`
 package - npm's default of `No access` produces the same 404 as an expired one.
-**npm's own form now steers to Trusted Publishing instead**, which is the real
+**The token rotated on 2026-08-29 expires 2026-11-27** (90 days, npm's
+default), so this breaks again then unless Trusted Publishing lands first.
+Settings that work: Read and write, All packages, plus Read and write on the
+`yummacss` organization - the scoped packages are org-owned, so both sections
+are needed. **npm's own form now steers to Trusted Publishing instead**, which is the real
 fix: OIDC, so npm trusts `publish.yml` in this repo directly and the runner
 exchanges its GitHub identity for a short-lived credential. Nothing to expire,
 nothing to leak, and 2FA stops mattering. `publish.yml` already has
