@@ -26,16 +26,15 @@ clearing; keep this file short.
 
 | repo | branch | state |
 | --- | --- | --- |
-| `docs` | `main` | `6eca3b18`. Playground merged (#108, #129, #130). |
-| `docs` | `fix-layout` | PR #132, layout fixes |
-| `docs` | `notes` | PR #133, this file |
-| `yummacss` | `fix-scanner` | PR #11, tokenizer fix + `3.30.0` release prep |
+| `docs` | `main` | `0ed007ac`. Playground, layout fixes and this file merged. |
+| `docs` | `dependabot-yummacss` | dependency updates by Dependabot |
+| `play` | `dependabot-yummacss` | same, plus `3.30.0` |
+| `yummacss` | `main` | `3.30.0` released and published |
 | `yummacss` | `v4` | 4 ahead of `main`: colon-syntax parsing, fixtures migrated |
 | `ui` | `release` | **published, `yummaui@0.1.0`** |
 
-Published: `@yummacss/*` at `3.29.2`, `yummaui` at `0.1.0`. **`3.30.0` is
-prepared and unpublished** - see Phase 1. There are eight packages, not nine;
-`language-server` was deleted with the extensions.
+Published: `@yummacss/*` at `3.30.0`, `yummaui` at `0.1.0`. There are eight
+packages, not nine; `language-server` was deleted with the extensions.
 
 `ui` is a **separate repo** (`github.com/yummacss/ui`). The folder and repo are
 `ui`; the **published npm package is `yummaui`**, because `ui` is taken. Do not
@@ -86,8 +85,8 @@ them through.
 
 ## The plan, in phases
 
-Status: **Phases 1 and 2 done, both waiting on the `3.30.0` release.**
-Phase 3 is next.
+Status: **Phases 1 and 2 shipped in `3.30.0`.** Phase 1's last step - the
+`docs` config - is now unblocked. Phase 3 is next.
 
 | # | Phase | Repos | Why it sits here |
 | --- | --- | --- | --- |
@@ -107,7 +106,7 @@ fix them in passing, and do not fold them into any phase here.
 
 ### Phase 1 - Fix the class scanner
 
-**Done except the last step, which is gated on a release.**
+**Done except the last step, which is now unblocked.**
 
 The tokenizer is rewritten as a lexer in `yummacss` on `fix-scanner`
 (PR #11, `d32bc57`), with 16 regression tests in
@@ -119,24 +118,18 @@ generated nothing, 1262 after of which 588 do. Nine classes are no longer
 found and **all nine are in comments and JSDoc discussing classes**, none in
 any className on the site. 75 previously-dropped classes are now found.
 
-- [ ] **Publish `3.30.0`. Merged, tagged, released - and NOT on npm.** The
-      publish run failed on an `NPM_TOKEN` authorization error; see the trap.
-      Fix the secret and re-run the run. Nothing below can start until
-      `npm view yummacss version` says `3.30.0`.
+- [x] **`3.30.0` is published**, after a new `NPM_TOKEN`; see the trap.
       **Publishing is automated - never run `pnpm publish-packages` by hand.**
       `.github/workflows/publish.yml` fires on a **published GitHub Release**,
       then installs, builds, tests and runs `pnpm -r publish --no-git-checks`
-      with npm provenance; `notify-downstream.yml` then dispatches to
-      `yummacss/docs` and `yummacss/play`. So the whole release is: merge to
-      `main`, `pnpm release`, press Publish.
-      `docs` depends on the published package, not the workspace, so nothing in
-      `docs` can change until this lands.
-- [ ] **Minor, not a patch:** `tokenizer()` gained an optional `filename`
+      with npm provenance. So the whole release is: merge to `main`,
+      `pnpm release`, press Publish.
+- [x] **Minor, not a patch:** `tokenizer()` gained an optional `filename`
       parameter, and the fix removes CSS that used to be generated - a patch
       must not change how a page renders, and this can. (A third reason applied
       until `migrate` was unwired: `main` was carrying it as an unreleased
       feature.)
-- [ ] **`yummacss migrate` is unwired from the CLI, not merely undocumented.**
+- [x] **`yummacss migrate` is unwired from the CLI, not merely undocumented.**
       It rewrites classes into the v4 colon syntax and **v3 cannot compile what
       it writes** - verified: `d-f` generates, `d:f` generates nothing, same for
       `bg:red-1` and `m:4`. Shipping it reachable would hand users a command
@@ -685,7 +678,8 @@ only exists where a schema backs it.
 The expensive ones, in rough order of how much time they have cost.
 
 **A published GitHub Release does not mean a published npm package.** `3.30.0`
-was tagged and released on 2026-08-29 and the publish run **failed**: build
+was tagged and released on 2026-08-29 and the publish run **failed** the first
+time: build
 green, 150 tests green, tarball packed, provenance signed, then
 `npm error 404 Not Found - PUT https://registry.npmjs.org/@yummacss%2fcore`.
 **A 404 on `PUT` is npm's way of saying unauthorized** - it will not admit
@@ -696,7 +690,8 @@ nothing partially published; all nine stayed on `3.29.2`, verified against the
 registry. **The fix is two steps and both are needed**: a new token in repo
 secrets, *then* re-run the failed run from the Actions page. Re-running alone
 changes nothing, and a new token alone does not retry - the run reads the
-secret at start. No new tag or release either way.
+secret at start. No new tag or release either way. That is what happened: a
+fresh granular token, a re-run, and `3.30.0` went out.
 
 **Always check the Actions run, not the releases page,
 before believing a version shipped**, and `npm view <pkg> version` is the
@@ -747,6 +742,21 @@ fires `publish.yml`. It refuses on anything upstream being wrong: not on
 exists, a missing or empty changelog section, or a `package.json` the bump
 missed. With `gh` present it creates the draft; without it, it prints a
 prefilled `releases/new` URL. **Nothing about the release is typed by hand.**
+
+
+**The downstream sites update by Dependabot, not by the release.** The dispatch
+chain - `notify-downstream.yml` to a `repository_dispatch` to each site's
+`update-yummacss.yml` - had four failure points and had been dead for three
+months with nothing to say so. `docs` failed every run since 2026-06-27 at
+`pnpm/action-setup` (`No pnpm version is specified`: no `packageManager` in its
+`package.json`) and so never opened a single PR; `play` opened its PR and then
+died on `gh pr merge --auto`, which needs "Allow auto-merge" on in repo
+settings, so `play#61` just sat there. Both workflows also only ever named two
+of the four `@yummacss` packages, so `canon` and `postcss` drifted behind even
+on a green run. All three workflows are deleted. **Dependabot does it now**,
+which is what has always kept `web-features` current here: the packages sit in
+the `allow` list, grouped into one PR, and `auto-merge.yml` merges it. Cost is
+latency - it polls npm daily rather than firing on the release.
 
 
 **"Is it in the repo" and "is it in the package" are different questions.**
@@ -956,10 +966,13 @@ percentages.** `defaultSize={50}` silently became 50px. v4 also never fires
 `onResize`, so panel open state comes from `isCollapsed()` plus the Group's
 `onLayoutChange`. (`play` only.)
 
-**Bump `RUNTIME_VERSION` in `play`'s `panels/preview.tsx` on every release**,
-alongside the `package.json` dependencies. It was unpinned once and silently
-tracked `latest`; pinning it swaps that for the opposite failure, a preview
-quietly running an old runtime, which is harder to spot.
+**`play`'s preview runtime is no longer a manual bump.** It loads
+`@yummacss/runtime` from a CDN, so its version was never a dependency and no bot
+could reach it - the pin sat at `3.29.2` while everything around it moved.
+`next.config.ts` now reads the number off the `yummacss` devDependency and
+inlines it, so Dependabot's PR moves the iframe too. Still pinned: the runtime
+cannot change under a deployed build. Verified by bumping the spec and diffing
+the built chunks.
 
 **Do not eyeball theme colours out of `eclipsa.json` by scope name.** Run
 `codeToTokens` on the exact construct and read the colours off the output. Shell
