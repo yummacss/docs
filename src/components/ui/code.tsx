@@ -50,7 +50,7 @@ export default function Code({
     return (
       <div ref={ref} className="bg-surface">
         <TitleBar title={title} action={copyAction} />
-        <div className="oy-auto max-h-80">
+        <div className="oy-auto ob-c max-h-80">
           {body ?? (
             <pre className="ox-auto px-4 py-4 ff-m lh-5">{children}</pre>
           )}

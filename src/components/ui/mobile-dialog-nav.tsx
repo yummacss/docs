@@ -77,7 +77,7 @@ export default function MobileDialogNav({ sections, isOpen, onClose }: Props) {
                 </div>
 
                 <div
-                  className="d-f oy-auto fd-c g-8 px-4 py-4"
+                  className="d-f oy-auto ob-c fd-c g-8 px-4 py-4"
                   style={{ height: "calc(100dvh - 60px)" }}
                 >
                   {sections.map((section) => {

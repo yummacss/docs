@@ -99,7 +99,7 @@ export default function Reference({ category, name, variant }: Props) {
           </Accordion.Header>
           <Accordion.Panel className="o-h c-white/70 fs-sm lh-4">
             <div className="px-4 pb-4">
-              <div className="oy-auto max-h-52">
+              <div className="oy-auto ob-c max-h-52">
                 {/* Sticky: the list runs to hundreds of rows, and remembering
                     the filter exists halfway down should not mean scrolling
                     back to the top to reach it. */}
