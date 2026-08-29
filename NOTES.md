@@ -64,9 +64,13 @@ session. Clear only after that lands.
 
 **How work lands. Pull requests, never a direct commit.** Renildo previews and
 approves. Branch names are short and made of real words - `fix-scanner`,
-`notes`, `fix-layout` - with no generated suffixes. **PR bodies stay minimal**:
-a line or two on what changed and why. The detail lives in this file, so a PR
-that restates it is duplicating something that will drift.
+`notes`, `fix-layout` - with no generated suffixes.
+
+**Write short everywhere except this file.** CHANGELOG entries, PR bodies and
+code comments are one to three lines; one sentence on what changed and why is
+the target, and eighty lines is not. **This file is the exception** - it is the
+only place detail is meant to accumulate, because it is what survives a cleared
+chat. A PR or a comment restating it duplicates something that will drift.
 
 **The rule for what goes in here** has not changed: an entry earns its place if
 it changes what someone does next. Delete finished entries rather than striking
@@ -111,8 +115,14 @@ any className on the site. 75 previously-dropped classes are now found.
 
 - [ ] **Publish `3.30.0`.** Prepared on `fix-scanner` (PR #11), carrying both
       this and Phase 2: CHANGELOG written, `pnpm bump 3.30.0` run across all
-      nine package.json files, build and 150 tests green. Only
-      `pnpm publish-packages` and a `v3.30.0` tag are left.
+      nine package.json files, build and 150 tests green.
+      **Publishing is automated - do not run `pnpm publish-packages` by hand.**
+      `.github/workflows/publish.yml` fires on a **published GitHub Release**
+      (or `workflow_dispatch`), then installs, builds, tests and runs
+      `pnpm -r publish --no-git-checks` with npm provenance. So the steps are:
+      merge PR #11 to `main`, then cut a GitHub Release tagged `v3.30.0`.
+      A second workflow, `notify-downstream.yml`, then dispatches to
+      `yummacss/docs` and `yummacss/play` automatically.
       `docs` depends on the published package, not the workspace, so nothing in
       `docs` can change until this lands.
 - [ ] **Minor, not a patch:** `tokenizer()` gained an optional `filename`
@@ -663,6 +673,14 @@ only exists where a schema backs it.
 ## Traps
 
 The expensive ones, in rough order of how much time they have cost.
+
+**"Is it in the repo" and "is it in the package" are different questions.**
+Every package sets `files: ["dist"]`, so `src` never publishes, and the bundler
+tree-shakes anything the entry does not reach. Unwiring `migrate` from `cli.ts`
+took the whole command out of the tarball: 43170 bytes to 39703, with every
+identifier gone. **Check the built artifact, not the source**, when the question
+is what a user receives - `grep` the `dist` bundle, or diff its size both ways.
+
 
 **A class can be canon-valid and still generate no CSS.** `c-slate-12` is a real
 token in `@yummacss/core` (`#101316`) but nothing is emitted for it, so four
