@@ -673,6 +673,16 @@ only exists where a schema backs it.
 
 The expensive ones, in rough order of how much time they have cost.
 
+**GitHub's "Generate release notes" button does not write notes.** It lists the
+pull requests merged since the last release, one line each with author and link,
+plus a compare URL. No prose, no AI, and **commits pushed straight to `main` do
+not appear at all** because it only sees PRs. For `3.30.0` it would have listed
+five PRs, three of them the same `fix-scanner` branch merged three times, and
+advertised `#10 feat: add the v4 migrate command` - which this release
+deliberately does not ship. **Keep the CHANGELOG as the source of the notes.**
+It is fine as an addition below them, and `.github/release.yml` can categorise
+by label if that is ever wanted.
+
 **Cutting a release is `pnpm bump <version>` then `pnpm release`.** `release`
 reads the version out of `package.json`, extracts that section of
 `CHANGELOG.md` verbatim, and drafts the GitHub Release whose Publish button
