@@ -966,10 +966,13 @@ percentages.** `defaultSize={50}` silently became 50px. v4 also never fires
 `onResize`, so panel open state comes from `isCollapsed()` plus the Group's
 `onLayoutChange`. (`play` only.)
 
-**Bump `RUNTIME_VERSION` in `play`'s `panels/preview.tsx` on every release**,
-alongside the `package.json` dependencies. It was unpinned once and silently
-tracked `latest`; pinning it swaps that for the opposite failure, a preview
-quietly running an old runtime, which is harder to spot.
+**`play`'s preview runtime is no longer a manual bump.** It loads
+`@yummacss/runtime` from a CDN, so its version was never a dependency and no bot
+could reach it - the pin sat at `3.29.2` while everything around it moved.
+`next.config.ts` now reads the number off the `yummacss` devDependency and
+inlines it, so Dependabot's PR moves the iframe too. Still pinned: the runtime
+cannot change under a deployed build. Verified by bumping the spec and diffing
+the built chunks.
 
 **Do not eyeball theme colours out of `eclipsa.json` by scope name.** Run
 `codeToTokens` on the exact construct and read the colours off the output. Shell
