@@ -348,6 +348,9 @@ The extensions are already deleted (see Rejected). This is the package.
       containers, viewport-minus and named grids all want the same shape.
 - [ ] **What `@yummacss/canon` ships**, which falls out of the first two: an
       enumerable list, or a parser.
+- [ ] **Move publishing to Trusted Publishing (OIDC)** and drop `NPM_TOKEN`
+      entirely. See the token trap for what to verify first. Not urgent, but it
+      is the only thing that stops this recurring every time a token expires.
 - [ ] Colored box-shadows: 3.29 or 4.0?
 - [ ] `xs` at 32rem has no matching breakpoint. Drop it or add the breakpoint.
 
@@ -697,6 +700,21 @@ secret at start. No new tag or release either way.
 **Always check the Actions run, not the releases page,
 before believing a version shipped**, and `npm view <pkg> version` is the
 cheapest confirmation.
+
+**The npm token needs "Bypass 2FA" ticked, and that is the wrong long-term
+answer.** 2FA demands a one-time password on publish and a runner cannot type
+one, so without the bypass the workflow fails with `EOTP`. The token also needs
+**Read and write** on the `@yummacss` scope *and* the unscoped `yummacss`
+package - npm's default of `No access` produces the same 404 as an expired one.
+**npm's own form now steers to Trusted Publishing instead**, which is the real
+fix: OIDC, so npm trusts `publish.yml` in this repo directly and the runner
+exchanges its GitHub identity for a short-lived credential. Nothing to expire,
+nothing to leak, and 2FA stops mattering. `publish.yml` already has
+`id-token: write` for provenance, which is the same permission. **Two things to
+check before migrating**: whether `pnpm -r publish` supports OIDC at the pinned
+pnpm (the feature is in the npm CLI; pnpm's support arrived separately), and
+that it is configured **per package on npmjs, so eight times**. Do not block a
+release on this migration - rotate the token, ship, migrate separately.
 
 **GitHub's "Generate release notes" button does not write notes.** It lists the
 pull requests merged since the last release, one line each with author and link,
