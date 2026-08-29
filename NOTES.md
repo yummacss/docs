@@ -26,10 +26,9 @@ clearing; keep this file short.
 
 | repo | branch | state |
 | --- | --- | --- |
-| `docs` | `main` | `0ed007ac`. Playground, layout fixes and this file merged. |
-| `docs` | `dependabot-yummacss` | dependency updates by Dependabot |
-| `play` | `dependabot-yummacss` | same, plus `3.30.0` |
-| `yummacss` | `main` | `3.30.0` released and published |
+| `docs` | `main` | `19c38b1`. Dependabot + scroll fix merged; **still on `3.29.2`** |
+| `play` | `main` | `45f1584`. Dependabot merged, and on `3.30.0` |
+| `yummacss` | `main` | `6e68a5b`. `3.30.0` released and published |
 | `yummacss` | `v4` | 4 ahead of `main`: colon-syntax parsing, fixtures migrated |
 | `ui` | `release` | **published, `yummaui@0.1.0`** |
 
@@ -85,8 +84,10 @@ them through.
 
 ## The plan, in phases
 
-Status: **Phases 1 and 2 shipped in `3.30.0`.** Phase 1's last step - the
-`docs` config - is now unblocked. Phase 3 is next.
+Status: **Phases 1 and 2 shipped in `3.30.0`.** Phase 1 has one step left and it
+is **waiting on Dependabot**, not on a decision: `docs` still resolves `3.29.2`,
+so the fixed tokenizer is not running there yet. The grouped PR opens on the next
+daily run and merges itself. **Phase 3 is next and depends on none of it.**
 
 | # | Phase | Repos | Why it sits here |
 | --- | --- | --- | --- |
@@ -140,7 +141,8 @@ any className on the site. 75 previously-dropped classes are now found.
       directly. **Re-wire it when v4 lands** - that is the whole change.
       Confirmed against the built binary: `yummacss migrate` falls through to
       the help text.
-- [ ] **Then, in `docs/yumma.config.mjs`, in one commit:** replace the five
+- [ ] **Once `docs` is actually on `3.30.0`** - check `package.json`, not npm -
+      **edit `docs/yumma.config.mjs` in one commit:** replace the five
       enumerated `source` entries with the single glob
       `"./src/**/*.{ts,tsx,mdx,mjs}"`, and delete `safelist` entirely.
       **Measured:** the enumerated list reaches 330 files and 1167 classes, the
@@ -1204,7 +1206,15 @@ problem, not a value problem.** Aim at the value problems and say so.
   version of this is not "add a switch" but **pick one scheme and commit**, which
   is what the site already does - the palette is eight semantic colours with no
   light/dark pairs, so a switch means pairing every one of them. A theme revert
-  has already cost a day once (see the Cursor branches around `#112`). After v4.
+  has already cost a day once (see the Cursor branches around `#112`), and a
+  second attempt by Cursor was reverted too because it did not resemble the
+  artifact. **Work from the artifact, not from a description of it.**
+  **Whatever happens, code blocks stay dark in the light theme.** The `eclipsa`
+  token colours were picked against `#151724` and eyeballing replacements has
+  already been ruled out (run `codeToTokens`, do not guess by scope name), so a
+  light-mode syntax theme is a whole second colour system to design and verify.
+  Dark code on a light page is also the norm - it reads as deliberate, not as an
+  omission. That makes `surface` the one token that does not flip.
 - **Stop `play` looking like Tailwind Play.** It is close to a clone: same split
   editor, same generated-CSS drawer, same top-left brand and top-right share.
   The reference points are `diffs.com` and `trees.software` - what they get right
