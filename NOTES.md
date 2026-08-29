@@ -113,9 +113,10 @@ generated nothing, 1262 after of which 588 do. Nine classes are no longer
 found and **all nine are in comments and JSDoc discussing classes**, none in
 any className on the site. 75 previously-dropped classes are now found.
 
-- [ ] **Publish `3.30.0`.** Prepared on `fix-scanner` (PR #11), carrying both
-      this and Phase 2: CHANGELOG written, `pnpm bump 3.30.0` run across all
-      nine package.json files, build and 150 tests green.
+- [ ] **Publish `3.30.0`. Merged, tagged, released - and NOT on npm.** The
+      publish run failed on an `NPM_TOKEN` authorization error; see the trap.
+      Fix the secret and re-run the run. Nothing below can start until
+      `npm view yummacss version` says `3.30.0`.
       **Publishing is automated - never run `pnpm publish-packages` by hand.**
       `.github/workflows/publish.yml` fires on a **published GitHub Release**,
       then installs, builds, tests and runs `pnpm -r publish --no-git-checks`
@@ -672,6 +673,20 @@ only exists where a schema backs it.
 ## Traps
 
 The expensive ones, in rough order of how much time they have cost.
+
+**A published GitHub Release does not mean a published npm package.** `3.30.0`
+was tagged and released on 2026-08-29 and the publish run **failed**: build
+green, 150 tests green, tarball packed, provenance signed, then
+`npm error 404 Not Found - PUT https://registry.npmjs.org/@yummacss%2fcore`.
+**A 404 on `PUT` is npm's way of saying unauthorized** - it will not admit
+whether a package exists to a caller that cannot write it - so the cause is the
+`NPM_TOKEN` secret being expired, revoked, or lacking write access to the
+`@yummacss` scope, not a missing package. It died on the first package, so
+nothing partially published; all nine stayed on `3.29.2`, verified against the
+registry. **The fix is a new token in repo secrets, then re-run the failed run**
+- no new tag or release. **Always check the Actions run, not the releases page,
+before believing a version shipped**, and `npm view <pkg> version` is the
+cheapest confirmation.
 
 **GitHub's "Generate release notes" button does not write notes.** It lists the
 pull requests merged since the last release, one line each with author and link,
