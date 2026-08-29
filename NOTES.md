@@ -707,6 +707,12 @@ answer.** 2FA demands a one-time password on publish and a runner cannot type
 one, so without the bypass the workflow fails with `EOTP`. The token also needs
 **Read and write** on the `@yummacss` scope *and* the unscoped `yummacss`
 package - npm's default of `No access` produces the same 404 as an expired one.
+**The secret lives in repository settings, not the organization**, at
+`github.com/yummacss/yummacss/settings/secrets/actions`, and is named
+`NPM_TOKEN` - edit that entry rather than adding a new one, because the workflow
+reads it by name. GitHub's iOS app has no repo settings at all, so rotating a
+token is a mobile-Safari job; re-running the workflow afterwards is in the app.
+
 **The token rotated on 2026-08-29 expires 2026-11-27** (90 days, npm's
 default), so this breaks again then unless Trusted Publishing lands first.
 Settings that work: Read and write, All packages, plus Read and write on the
