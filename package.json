@@ -21,7 +21,7 @@
     "start": "next start",
     "test": "vitest run",
     "test:watch": "vitest",
-    "update-yummacss": "pnpm up yummacss @yummacss/core --latest",
+    "update-yummacss": "pnpm up yummacss \"@yummacss/*\" --latest",
     "validate": "node scripts/validate-yummacss.mjs"
   },
   "dependencies": {
