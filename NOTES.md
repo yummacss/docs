@@ -72,6 +72,12 @@ the target, and eighty lines is not. **This file is the exception** - it is the
 only place detail is meant to accumulate, because it is what survives a cleared
 chat. A PR or a comment restating it duplicates something that will drift.
 
+**Document the change in the same commit that makes it.** A new command, flag,
+script or convention gets its entry here as it lands, not later - a cleared
+chat takes the reasoning with it, and the code alone never says why. `pnpm
+release` and `yummaui prune` are the shape: what it does, what it refuses, and
+the one thing that would break it if someone reimplemented it.
+
 **The rule for what goes in here** has not changed: an entry earns its place if
 it changes what someone does next. Delete finished entries rather than striking
 them through.
@@ -683,8 +689,10 @@ whether a package exists to a caller that cannot write it - so the cause is the
 `NPM_TOKEN` secret being expired, revoked, or lacking write access to the
 `@yummacss` scope, not a missing package. It died on the first package, so
 nothing partially published; all nine stayed on `3.29.2`, verified against the
-registry. **The fix is a new token in repo secrets, then re-run the failed run**
-- no new tag or release. **Always check the Actions run, not the releases page,
+registry. **The fix is two steps and both are needed**: a new token in repo
+secrets, *then* re-run the failed run from the Actions page. Re-running alone
+changes nothing, and a new token alone does not retry - the run reads the
+secret at start. No new tag or release either way. **Always check the Actions run, not the releases page,
 before believing a version shipped**, and `npm view <pkg> version` is the
 cheapest confirmation.
 
