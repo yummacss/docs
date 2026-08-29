@@ -711,7 +711,9 @@ package - npm's default of `No access` produces the same 404 as an expired one.
 default), so this breaks again then unless Trusted Publishing lands first.
 Settings that work: Read and write, All packages, plus Read and write on the
 `yummacss` organization - the scoped packages are org-owned, so both sections
-are needed. **npm's own form now steers to Trusted Publishing instead**, which is the real
+are needed.
+
+**npm's own form now steers to Trusted Publishing instead**, which is the real
 fix: OIDC, so npm trusts `publish.yml` in this repo directly and the runner
 exchanges its GitHub identity for a short-lived credential. Nothing to expire,
 nothing to leak, and 2FA stops mattering. `publish.yml` already has
