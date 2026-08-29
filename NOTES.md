@@ -692,7 +692,9 @@ nothing partially published; all nine stayed on `3.29.2`, verified against the
 registry. **The fix is two steps and both are needed**: a new token in repo
 secrets, *then* re-run the failed run from the Actions page. Re-running alone
 changes nothing, and a new token alone does not retry - the run reads the
-secret at start. No new tag or release either way. **Always check the Actions run, not the releases page,
+secret at start. No new tag or release either way.
+
+**Always check the Actions run, not the releases page,
 before believing a version shipped**, and `npm view <pkg> version` is the
 cheapest confirmation.
 
