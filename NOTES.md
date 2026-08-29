@@ -116,13 +116,12 @@ any className on the site. 75 previously-dropped classes are now found.
 - [ ] **Publish `3.30.0`.** Prepared on `fix-scanner` (PR #11), carrying both
       this and Phase 2: CHANGELOG written, `pnpm bump 3.30.0` run across all
       nine package.json files, build and 150 tests green.
-      **Publishing is automated - do not run `pnpm publish-packages` by hand.**
-      `.github/workflows/publish.yml` fires on a **published GitHub Release**
-      (or `workflow_dispatch`), then installs, builds, tests and runs
-      `pnpm -r publish --no-git-checks` with npm provenance. So the steps are:
-      merge PR #11 to `main`, then cut a GitHub Release tagged `v3.30.0`.
-      A second workflow, `notify-downstream.yml`, then dispatches to
-      `yummacss/docs` and `yummacss/play` automatically.
+      **Publishing is automated - never run `pnpm publish-packages` by hand.**
+      `.github/workflows/publish.yml` fires on a **published GitHub Release**,
+      then installs, builds, tests and runs `pnpm -r publish --no-git-checks`
+      with npm provenance; `notify-downstream.yml` then dispatches to
+      `yummacss/docs` and `yummacss/play`. So the whole release is: merge to
+      `main`, `pnpm release`, press Publish.
       `docs` depends on the published package, not the workspace, so nothing in
       `docs` can change until this lands.
 - [ ] **Minor, not a patch:** `tokenizer()` gained an optional `filename`
@@ -673,6 +672,16 @@ only exists where a schema backs it.
 ## Traps
 
 The expensive ones, in rough order of how much time they have cost.
+
+**Cutting a release is `pnpm bump <version>` then `pnpm release`.** `release`
+reads the version out of `package.json`, extracts that section of
+`CHANGELOG.md` verbatim, and drafts the GitHub Release whose Publish button
+fires `publish.yml`. It refuses on anything upstream being wrong: not on
+`main`, a dirty tree, `main` and `origin/main` disagreeing, a tag that already
+exists, a missing or empty changelog section, or a `package.json` the bump
+missed. With `gh` present it creates the draft; without it, it prints a
+prefilled `releases/new` URL. **Nothing about the release is typed by hand.**
+
 
 **"Is it in the repo" and "is it in the package" are different questions.**
 Every package sets `files: ["dist"]`, so `src` never publishes, and the bundler
