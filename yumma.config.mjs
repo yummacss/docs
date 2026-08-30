@@ -1,9 +1,6 @@
 import { defineConfig } from "yummacss";
 
 export default defineConfig({
-  // One glob, not a list of directories. Enumerating them is what caused the
-  // scanner bug this replaced: `src/lib` was left out by accident and nothing
-  // said so. A glob cannot be accidentally narrow.
   source: ["./src/**/*.{ts,tsx,mdx,mjs}"],
   theme: {
     colors: {

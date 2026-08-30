@@ -93,8 +93,8 @@ importers:
         specifier: ^5.1.0
         version: 5.1.0
       web-features:
-        specifier: ^3.35.1
-        version: 3.35.1
+        specifier: ^3.36.0
+        version: 3.36.0
     devDependencies:
       '@biomejs/biome':
         specifier: 2.5.8
@@ -4466,7 +4466,7 @@ snapshots:
     transitivePeerDependencies:
       - msw
 
-  web-features@3.35.1: {}
+  web-features@3.36.0: {}
 
   why-is-node-running@2.3.0:
     dependencies:
