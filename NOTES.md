@@ -102,6 +102,7 @@ Phase 4 is next.
 | 4 | Docs debt | `docs` | Cheap, mechanical, and the corpus the 4.0 codemod runs against first. |
 | 5 | Retire `@yummacss/intellisense` | `yummacss`, `play` | Frees `play` and closes most of the `any` item. Independent of everything. |
 | 6 | v4 decisions | none, design only | These gate the codemod and the canon list. Decide before building. |
+| 6b | Pre-v4 audit | all | Split: the API half gates Phase 7, the cleanup half is genuinely last. |
 | 7 | v4 build | all | The codemod, the canon list, the migration. Gated on 6.
 
 **`TODO.md` is Cursor's lane and is not a phase.** It holds per-component API
@@ -378,6 +379,63 @@ The extensions are already deleted (see Rejected). This is the package.
       **The current token dies 2026-11-27**, so that is the deadline.
 - [ ] Colored box-shadows: 3.29 or 4.0?
 - [ ] `xs` at 32rem has no matching breakpoint. Drop it or add the breakpoint.
+- [ ] **Drop `tinycolor2` for OKLCH.** These are one decision, not two, and
+      both halves are measured.
+      **Bundle:** `tinycolor2` is a devDependency that tsdown bundles *into*
+      `@yummacss/core`, so it ships to every user. Building core with the calls
+      stubbed: 55,915 B to 40,761 B. **It is 15,154 B, 27% of core, to do
+      `mix` and `toHexString`.** OKLCH conversion is about 30 lines of matrix
+      maths with no dependency, so this shrinks the bundle rather than growing
+      it - which is the opposite of what "adopt OKLCH" sounds like it costs.
+      **Evenness:** measured OKLCH lightness deltas across all 19 default hues.
+      Median max/min ratio **2.5x**; worst yellow **5.6x**, green 5.0x, lime and
+      sky 3.6x; best blue and gray 1.2x, slate 1.3x, indigo 1.4x. **The split is
+      light-native hues against dark-native ones** - mixing toward white
+      compresses the light half of a yellow scale and stretches its dark half,
+      while a blue is already near-uniform. So it is not "5 of 19 hues are
+      broken and the rest are fine" by accident; it is a systematic artefact of
+      mixing in sRGB.
+      **Wider gamut is the weakest argument** and should not be the reason:
+      P3 only shows on wide-gamut displays, and the palette stays in sRGB
+      anyway unless the hues are re-picked.
+      **Blast radius is one function.** `generateShades` in
+      `packages/core/src/helpers/create-colors.ts` is the only place that knows
+      how a shade is derived. Nothing else in core touches `tinycolor2`.
+      `docs` uses it separately - `palette.tsx` for display, `utils/colors.ts`
+      for a luminance check - and would need its own change. `intellisense`
+      uses it and is being deleted in Phase 5 anyway. **`play` does not depend
+      on it at all.**
+      **The catch:** every generated hex changes. That is a visual break for
+      anyone who pinned a colour by eye, which is a v4 change, not a 3.x one.
+
+### Phase 6b - The pre-v4 audit
+
+Renildo's ask: a rundown of the whole codebase for redundancy, performance,
+code reduction and bundle size before v4, plus possibly rewriting how core is
+authored so adding utilities is pleasant.
+
+**Split it in two, because the halves have opposite deadlines.**
+
+- [ ] **Architecture and API - must come BEFORE Phase 7, not last.** How core is
+      authored decides the canon shape, which the codemod and the docs migration
+      are both written against. Doing it after means redoing them. If the
+      utility record shape changes at all, it changes here or not until v5.
+- [ ] **Mechanical cleanup - genuinely last, and cheap.** Dead code, duplicated
+      helpers, bundle size, dependency removal. None of it changes a public
+      shape, so it cannot invalidate work downstream of it. `tinycolor2` above
+      is the biggest single item and is already measured.
+
+**Do not start this as one open-ended sweep.** "Audit the codebase" over 8
+packages plus three sites is the kind of task that produces a long list nobody
+acts on. Pick a measurable target first - shipped bytes per package, or
+"adding one utility touches N files" - and let the findings fall out of chasing
+it. The `tinycolor2` number came from asking one question with a build, not
+from reading everything.
+
+**Baseline, measured 2026-08-30** (`dist`, unminified bytes): core 55,915 |
+runtime 61,457 | cli 39,796 | intellisense 19,589 | nitro 18,897 | canon 3,597 |
+postcss 1,973 | vite 1,727. Core and runtime are where the weight is, and
+`tinycolor2` alone is 27% of core.
 
 ### Phase 7 - v4 build
 
