@@ -9,7 +9,8 @@ export default function DialogSendInvite({
   container?: HTMLElement | null;
 }) {
   return (
-    <Dialog container={container}
+    <Dialog
+      container={container}
       trigger="Send invite"
       title="Send invite"
       confirmLabel="Send invite"
@@ -21,7 +22,8 @@ export default function DialogSendInvite({
           label="Email address"
           placeholder="colleague@company.com"
         />
-        <Select container={container}
+        <Select
+          container={container}
           fullWidth
           options={roles}
           label="Role"

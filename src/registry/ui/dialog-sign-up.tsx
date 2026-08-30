@@ -9,7 +9,8 @@ export default function DialogSignUp({
   container?: HTMLElement | null;
 }) {
   return (
-    <Dialog container={container}
+    <Dialog
+      container={container}
       trigger="Sign up"
       title="Create account"
       confirmLabel="Create account"

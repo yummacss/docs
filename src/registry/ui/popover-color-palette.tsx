@@ -15,7 +15,8 @@ export default function PopoverColorPalette({
   const [selected, setSelected] = useState("indigo");
 
   return (
-    <Popover container={container}
+    <Popover
+      container={container}
       open={open}
       onOpenChange={setOpen}
       triggerVariant="label"

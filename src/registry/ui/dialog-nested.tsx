@@ -18,7 +18,8 @@ export default function DialogNested({
               <span className="c-slate-10 fs-sm fw-500">{member.name}</span>
               <span className="c-slate-6 fs-xs">{member.role}</span>
             </div>
-            <Dialog container={container}
+            <Dialog
+              container={container}
               trigger="Remove"
               triggerTone="danger"
               triggerSize="sm"
