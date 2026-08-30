@@ -26,12 +26,11 @@ clearing; keep this file short.
 
 | repo | branch | state |
 | --- | --- | --- |
-| `docs` | `main` | `0ed007ac`. Playground, layout fixes and this file merged. |
-| `docs` | `dependabot-yummacss` | dependency updates by Dependabot |
-| `play` | `dependabot-yummacss` | same, plus `3.30.0` |
-| `yummacss` | `main` | `3.30.0` released and published |
+| `docs` | `main` | on `3.30.0`, one `source` glob, no `safelist` |
+| `play` | `main` | `45f1584`. Dependabot merged, and on `3.30.0` |
+| `yummacss` | `main` | `6e68a5b`. `3.30.0` released and published |
 | `yummacss` | `v4` | 4 ahead of `main`: colon-syntax parsing, fixtures migrated |
-| `ui` | `release` | **published, `yummaui@0.1.0`** |
+| `ui` | `main` | **published, `yummaui@0.2.1`**, with `prune` |
 
 Published: `@yummacss/*` at `3.30.0`, `yummaui` at `0.1.0`. There are eight
 packages, not nine; `language-server` was deleted with the extensions.
@@ -85,8 +84,10 @@ them through.
 
 ## The plan, in phases
 
-Status: **Phases 1 and 2 shipped in `3.30.0`.** Phase 1's last step - the
-`docs` config - is now unblocked. Phase 3 is next.
+Status: **Phases 1, 2 and 3 are done.** `3.30.0` is published and `docs` is on
+it; the config step that closed Phase 1 changed the generated CSS by **nothing
+at all**. `yummaui` is published at `0.2.1` with `prune`. **Phase 4 is next**,
+and the missing CLI reference page joins it.
 
 | # | Phase | Repos | Why it sits here |
 | --- | --- | --- | --- |
@@ -96,6 +97,7 @@ Status: **Phases 1 and 2 shipped in `3.30.0`.** Phase 1's last step - the
 | 4 | Docs debt | `docs` | Cheap, mechanical, and the corpus the 4.0 codemod runs against first. |
 | 5 | Retire `@yummacss/intellisense` | `yummacss`, `play` | Frees `play` and closes most of the `any` item. Independent of everything. |
 | 6 | v4 decisions | none, design only | These gate the codemod and the canon list. Decide before building. |
+| 6b | Pre-v4 audit | all | Split: the API half gates Phase 7, the cleanup half is genuinely last. |
 | 7 | v4 build | all | The codemod, the canon list, the migration. Gated on 6.
 
 **`TODO.md` is Cursor's lane and is not a phase.** It holds per-component API
@@ -140,7 +142,13 @@ any className on the site. 75 previously-dropped classes are now found.
       directly. **Re-wire it when v4 lands** - that is the whole change.
       Confirmed against the built binary: `yummacss migrate` falls through to
       the help text.
-- [ ] **Then, in `docs/yumma.config.mjs`, in one commit:** replace the five
+- [x] **Done.** `docs/yumma.config.mjs` now has one glob and no `safelist`.
+      **Verified by building the site three times and diffing the emitted
+      selectors**: 3.29.2, then 3.30.0, then 3.30.0 with the config collapsed -
+      516 selectors and 25,776 bytes every time, zero lost, zero gained. The
+      pipeline was proved live first by narrowing `source` to a single file,
+      which dropped the CSS to 5,312 bytes. The original instruction, for the
+      record: replace the five
       enumerated `source` entries with the single glob
       `"./src/**/*.{ts,tsx,mdx,mjs}"`, and delete `safelist` entirely.
       **Measured:** the enumerated list reaches 330 files and 1167 classes, the
@@ -210,18 +218,43 @@ is the signal worth acting on.
 id. **Do not re-propose a `--variant` flag** - the thing it was for is served by
 making the id addressable.
 
-- [ ] **`yummaui prune`.** Deletes component files nothing in the project uses.
-      One thing it must get right: **blocks import each other** via
-      `from "./<id>"`, so "does anything import this file" is the wrong test -
-      `button` looks used because an unused `button-group-pill` imports it. The
-      correct test is **reachability from outside `componentsDir`**. Dry-run by
-      default, print what it would delete, confirm before writing. `yummaui.json`
-      holds only `componentsDir`, `alias` and `registry` - no manifest of what
-      was installed - but `prune` does not need one, because `componentsDir`
-      *is* the candidate set.
-- [ ] Worth knowing it is safer than the alternative: the workflow it replaces is
+- [x] **`yummaui prune` is built.** `src/prune.ts` is the graph, `commands/prune.ts`
+      the shell, 16 tests in `src/prune.test.ts`. Reachability from outside
+      `componentsDir`, as specified. `prune` lists; `prune --write` deletes after
+      a confirmation; `-y` skips it.
+- [x] **One refinement on the spec: `componentsDir` is the candidate set,
+      narrowed by the registry index.** Only a file `add` could have written -
+      an installable name, `.tsx`, directly in `componentsDir` - is ever
+      deletable, so a project's own component in that folder is never touched.
+      This does not reintroduce a manifest, it only narrows, and it costs one
+      index fetch that `add` and `list` already make.
+- [x] **Anything kept is a root**, including those non-candidate files. Without
+      that, a project's own `components/ui/my-card.tsx` importing `./button`
+      would have `button` deleted out from under it. The surviving set has to be
+      closed under its own imports.
+- [x] **Verified end-to-end**, not only in unit tests: served the real registry
+      out of `docs/public/ui/r`, ran `add button tooltip dialog-sign-in`, which
+      wrote 6 files, then `prune` with only `button` imported. It named all five
+      others, including `dialog`, `checkbox` and `field` - pulled in *by*
+      `dialog-sign-in`, and unreachable once the block is. Re-importing the block
+      dropped the list back to `tooltip` alone. After `--write`, zero dangling
+      imports.
+- [x] Worth knowing it is safer than the alternative: the workflow it replaces is
       "delete the unused ones with AI", whose failure mode is deleting a file
       that *is* used, silently, until a build breaks.
+- [x] **Released**, as `0.2.0` then `0.2.1`. **Both times the merge took the
+      branch one commit behind the last push**, so the refactor missed `0.2.0`
+      and the version bump missed `0.2.1`, and both had to be redone by hand.
+      **Push everything before calling a PR ready**; never trail a
+      `chore: prepare` commit after saying so.
+- [ ] **The site has no CLI reference page at all.** `list`, `--all` and
+      `--overwrite` are undocumented too; `installation.mdx` is a per-framework
+      walkthrough and the wrong home for a flag table. One page under
+      `ui > Get Started` would fix all of it, and is the right place to land
+      `prune` when it releases.
+- [ ] **A runtime-built specifier - `import(\`./${name}\`)` - cannot be resolved
+      statically**, so `prune` counts those files and says so rather than
+      guessing. If someone reports a wrongly-deleted file, look there first.
 
 **Parked, deliberately: whether blocks should exist at all.** Renildo's lean is
 no - quality over quantity, components only, not `dialog-sign-up`. Do not act on
@@ -347,6 +380,63 @@ The extensions are already deleted (see Rejected). This is the package.
       **The current token dies 2026-11-27**, so that is the deadline.
 - [ ] Colored box-shadows: 3.29 or 4.0?
 - [ ] `xs` at 32rem has no matching breakpoint. Drop it or add the breakpoint.
+- [ ] **Drop `tinycolor2` for OKLCH.** These are one decision, not two, and
+      both halves are measured.
+      **Bundle:** `tinycolor2` is a devDependency that tsdown bundles *into*
+      `@yummacss/core`, so it ships to every user. Building core with the calls
+      stubbed: 55,915 B to 40,761 B. **It is 15,154 B, 27% of core, to do
+      `mix` and `toHexString`.** OKLCH conversion is about 30 lines of matrix
+      maths with no dependency, so this shrinks the bundle rather than growing
+      it - which is the opposite of what "adopt OKLCH" sounds like it costs.
+      **Evenness:** measured OKLCH lightness deltas across all 19 default hues.
+      Median max/min ratio **2.5x**; worst yellow **5.6x**, green 5.0x, lime and
+      sky 3.6x; best blue and gray 1.2x, slate 1.3x, indigo 1.4x. **The split is
+      light-native hues against dark-native ones** - mixing toward white
+      compresses the light half of a yellow scale and stretches its dark half,
+      while a blue is already near-uniform. So it is not "5 of 19 hues are
+      broken and the rest are fine" by accident; it is a systematic artefact of
+      mixing in sRGB.
+      **Wider gamut is the weakest argument** and should not be the reason:
+      P3 only shows on wide-gamut displays, and the palette stays in sRGB
+      anyway unless the hues are re-picked.
+      **Blast radius is one function.** `generateShades` in
+      `packages/core/src/helpers/create-colors.ts` is the only place that knows
+      how a shade is derived. Nothing else in core touches `tinycolor2`.
+      `docs` uses it separately - `palette.tsx` for display, `utils/colors.ts`
+      for a luminance check - and would need its own change. `intellisense`
+      uses it and is being deleted in Phase 5 anyway. **`play` does not depend
+      on it at all.**
+      **The catch:** every generated hex changes. That is a visual break for
+      anyone who pinned a colour by eye, which is a v4 change, not a 3.x one.
+
+### Phase 6b - The pre-v4 audit
+
+Renildo's ask: a rundown of the whole codebase for redundancy, performance,
+code reduction and bundle size before v4, plus possibly rewriting how core is
+authored so adding utilities is pleasant.
+
+**Split it in two, because the halves have opposite deadlines.**
+
+- [ ] **Architecture and API - must come BEFORE Phase 7, not last.** How core is
+      authored decides the canon shape, which the codemod and the docs migration
+      are both written against. Doing it after means redoing them. If the
+      utility record shape changes at all, it changes here or not until v5.
+- [ ] **Mechanical cleanup - genuinely last, and cheap.** Dead code, duplicated
+      helpers, bundle size, dependency removal. None of it changes a public
+      shape, so it cannot invalidate work downstream of it. `tinycolor2` above
+      is the biggest single item and is already measured.
+
+**Do not start this as one open-ended sweep.** "Audit the codebase" over 8
+packages plus three sites is the kind of task that produces a long list nobody
+acts on. Pick a measurable target first - shipped bytes per package, or
+"adding one utility touches N files" - and let the findings fall out of chasing
+it. The `tinycolor2` number came from asking one question with a build, not
+from reading everything.
+
+**Baseline, measured 2026-08-30** (`dist`, unminified bytes): core 55,915 |
+runtime 61,457 | cli 39,796 | intellisense 19,589 | nitro 18,897 | canon 3,597 |
+postcss 1,973 | vite 1,727. Core and runtime are where the weight is, and
+`tinycolor2` alone is 27% of core.
 
 ### Phase 7 - v4 build
 
@@ -1204,7 +1294,15 @@ problem, not a value problem.** Aim at the value problems and say so.
   version of this is not "add a switch" but **pick one scheme and commit**, which
   is what the site already does - the palette is eight semantic colours with no
   light/dark pairs, so a switch means pairing every one of them. A theme revert
-  has already cost a day once (see the Cursor branches around `#112`). After v4.
+  has already cost a day once (see the Cursor branches around `#112`), and a
+  second attempt by Cursor was reverted too because it did not resemble the
+  artifact. **Work from the artifact, not from a description of it.**
+  **Whatever happens, code blocks stay dark in the light theme.** The `eclipsa`
+  token colours were picked against `#151724` and eyeballing replacements has
+  already been ruled out (run `codeToTokens`, do not guess by scope name), so a
+  light-mode syntax theme is a whole second colour system to design and verify.
+  Dark code on a light page is also the norm - it reads as deliberate, not as an
+  omission. That makes `surface` the one token that does not flip.
 - **Stop `play` looking like Tailwind Play.** It is close to a clone: same split
   editor, same generated-CSS drawer, same top-left brand and top-right share.
   The reference points are `diffs.com` and `trees.software` - what they get right
