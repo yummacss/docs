@@ -31,6 +31,7 @@ clearing; keep this file short.
 | `yummacss` | `main` | `6e68a5b`. `3.30.0` released and published |
 | `yummacss` | `v4` | 4 ahead of `main`: colon-syntax parsing, fixtures migrated |
 | `ui` | `release` | **published, `yummaui@0.1.0`** |
+| `ui` | `prune` | PR, `yummaui prune`; unreleased |
 
 Published: `@yummacss/*` at `3.30.0`, `yummaui` at `0.1.0`. There are eight
 packages, not nine; `language-server` was deleted with the extensions.
@@ -87,7 +88,11 @@ them through.
 Status: **Phases 1 and 2 shipped in `3.30.0`.** Phase 1 has one step left and it
 is **waiting on Dependabot**, not on a decision: `docs` still resolves `3.29.2`,
 so the fixed tokenizer is not running there yet. The grouped PR opens on the next
-daily run and merges itself. **Phase 3 is next and depends on none of it.**
+daily run and merges itself.
+
+**Phase 3 is built and unreleased.** `prune` is in `ui` on the `prune` branch;
+cutting `0.2.0` and writing the missing CLI reference page are what is left.
+Phase 4 is next.
 
 | # | Phase | Repos | Why it sits here |
 | --- | --- | --- | --- |
@@ -212,18 +217,42 @@ is the signal worth acting on.
 id. **Do not re-propose a `--variant` flag** - the thing it was for is served by
 making the id addressable.
 
-- [ ] **`yummaui prune`.** Deletes component files nothing in the project uses.
-      One thing it must get right: **blocks import each other** via
-      `from "./<id>"`, so "does anything import this file" is the wrong test -
-      `button` looks used because an unused `button-group-pill` imports it. The
-      correct test is **reachability from outside `componentsDir`**. Dry-run by
-      default, print what it would delete, confirm before writing. `yummaui.json`
-      holds only `componentsDir`, `alias` and `registry` - no manifest of what
-      was installed - but `prune` does not need one, because `componentsDir`
-      *is* the candidate set.
-- [ ] Worth knowing it is safer than the alternative: the workflow it replaces is
+- [x] **`yummaui prune` is built.** `src/prune.ts` is the graph, `commands/prune.ts`
+      the shell, 16 tests in `src/prune.test.ts`. Reachability from outside
+      `componentsDir`, as specified. `prune` lists; `prune --write` deletes after
+      a confirmation; `-y` skips it.
+- [x] **One refinement on the spec: `componentsDir` is the candidate set,
+      narrowed by the registry index.** Only a file `add` could have written -
+      an installable name, `.tsx`, directly in `componentsDir` - is ever
+      deletable, so a project's own component in that folder is never touched.
+      This does not reintroduce a manifest, it only narrows, and it costs one
+      index fetch that `add` and `list` already make.
+- [x] **Anything kept is a root**, including those non-candidate files. Without
+      that, a project's own `components/ui/my-card.tsx` importing `./button`
+      would have `button` deleted out from under it. The surviving set has to be
+      closed under its own imports.
+- [x] **Verified end-to-end**, not only in unit tests: served the real registry
+      out of `docs/public/ui/r`, ran `add button tooltip dialog-sign-in`, which
+      wrote 6 files, then `prune` with only `button` imported. It named all five
+      others, including `dialog`, `checkbox` and `field` - pulled in *by*
+      `dialog-sign-in`, and unreachable once the block is. Re-importing the block
+      dropped the list back to `tooltip` alone. After `--write`, zero dangling
+      imports.
+- [x] Worth knowing it is safer than the alternative: the workflow it replaces is
       "delete the unused ones with AI", whose failure mode is deleting a file
       that *is* used, silently, until a build breaks.
+- [ ] **Release it as `0.2.0`** - a new command is a feature. Nothing about
+      `prune` is documented on the site yet **and that is deliberate**: it would
+      advertise a command nobody can run. README and CHANGELOG in `ui` carry it
+      already, and they ship with the package.
+- [ ] **The site has no CLI reference page at all.** `list`, `--all` and
+      `--overwrite` are undocumented too; `installation.mdx` is a per-framework
+      walkthrough and the wrong home for a flag table. One page under
+      `ui > Get Started` would fix all of it, and is the right place to land
+      `prune` when it releases.
+- [ ] **A runtime-built specifier - `import(\`./${name}\`)` - cannot be resolved
+      statically**, so `prune` counts those files and says so rather than
+      guessing. If someone reports a wrongly-deleted file, look there first.
 
 **Parked, deliberately: whether blocks should exist at all.** Renildo's lean is
 no - quality over quantity, components only, not `dialog-sign-up`. Do not act on
