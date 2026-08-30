@@ -39,7 +39,7 @@
     "@shikijs/transformers": "4.4.3",
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
-    "@yummacss/core": "^3.29.2",
+    "@yummacss/core": "^3.30.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "iconoir-react": "^7.12.1",
@@ -66,14 +66,14 @@
     "@types/react-dom": "^19.2.4",
     "@types/three": "^0.185.4",
     "@types/tinycolor2": "^1.4.6",
-    "@yummacss/canon": "^3.29.2",
-    "@yummacss/postcss": "^3.29.2",
+    "@yummacss/canon": "^3.30.0",
+    "@yummacss/postcss": "^3.30.0",
     "remark-code-preview": "^1.2.6",
     "sort-package-json": "^4.0.0",
     "tsx": "^4.23.12",
     "typescript": "^7.0.2",
     "vitest": "^4.1.10",
-    "yummacss": "^3.29.2",
+    "yummacss": "^3.30.0",
     "zod": "^4.4.3"
   }
 }
