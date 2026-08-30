@@ -20,7 +20,8 @@ export default function AvatarStacked({
         />
       ))}
       <Avatar size="sm" fallback={`+${extraCount}`} className="ml--2" />
-      <Tooltip container={container}
+      <Tooltip
+        container={container}
         trigger={<Plus className="w-4 h-4" />}
         triggerLabel="Add participant"
         content="Add participant"

@@ -10,7 +10,12 @@ export default function DialogNewTask({
   container?: HTMLElement | null;
 }) {
   return (
-    <Dialog container={container} trigger="New task" title="New task" confirmLabel="Create task">
+    <Dialog
+      container={container}
+      trigger="New task"
+      title="New task"
+      confirmLabel="Create task"
+    >
       <div className="d-f fd-c g-4">
         <Field
           fullWidth
@@ -22,7 +27,8 @@ export default function DialogNewTask({
           label="Description"
           placeholder="Add details about this task..."
         />
-        <Select container={container}
+        <Select
+          container={container}
           fullWidth
           options={priorities}
           label="Priority"
@@ -30,7 +36,8 @@ export default function DialogNewTask({
           defaultValue="medium"
         />
         <div className="d-g g-3 @sm:gtc-2">
-          <Autocomplete container={container}
+          <Autocomplete
+            container={container}
             fullWidth
             items={teamMembers}
             label="Assignee"

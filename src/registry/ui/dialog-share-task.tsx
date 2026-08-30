@@ -9,14 +9,20 @@ export default function DialogShareTask({
   container?: HTMLElement | null;
 }) {
   return (
-    <Dialog container={container} trigger="Share task" title="Share task" confirmLabel="Share">
+    <Dialog
+      container={container}
+      trigger="Share task"
+      title="Share task"
+      confirmLabel="Share"
+    >
       <div className="d-f fd-c g-4">
         <Field
           fullWidth
           label="Team member"
           placeholder="Search by name or email..."
         />
-        <Select container={container}
+        <Select
+          container={container}
           fullWidth
           options={permissions}
           label="Permission level"

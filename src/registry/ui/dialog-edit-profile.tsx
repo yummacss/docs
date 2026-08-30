@@ -11,7 +11,8 @@ export default function DialogEditProfile({
   container?: HTMLElement | null;
 }) {
   return (
-    <Dialog container={container}
+    <Dialog
+      container={container}
       trigger="Edit profile"
       title="Edit profile"
       confirmLabel="Save changes"

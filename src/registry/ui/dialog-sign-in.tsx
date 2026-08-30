@@ -9,7 +9,12 @@ export default function DialogSignIn({
   container?: HTMLElement | null;
 }) {
   return (
-    <Dialog container={container} trigger="Sign in" title="Sign in" confirmLabel="Sign in">
+    <Dialog
+      container={container}
+      trigger="Sign in"
+      title="Sign in"
+      confirmLabel="Sign in"
+    >
       <div className="d-f fd-c g-4">
         <Field
           fullWidth
