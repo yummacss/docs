@@ -2,11 +2,7 @@ import { defineConfig } from "yummacss";
 
 export default defineConfig({
   source: [
-    "./src/app/**/*.tsx",
-    "./src/components/**/*.{ts,tsx}",
-    "./src/content/**/*.mdx",
-    "./src/mdx-components.tsx",
-    "./src/registry/**/*.tsx",
+    "../src/**/*.{ts,tsx,mdx,mjs}"
   ],
   // Every entry below is a workaround for one bug: nitro's tokenizer paired
   // quotes with a regex, so an empty literal `""` desynced every class after
