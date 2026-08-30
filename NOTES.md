@@ -26,12 +26,11 @@ clearing; keep this file short.
 
 | repo | branch | state |
 | --- | --- | --- |
-| `docs` | `main` | `19c38b1`. Dependabot + scroll fix merged; **still on `3.29.2`** |
+| `docs` | `main` | on `3.30.0`, one `source` glob, no `safelist` |
 | `play` | `main` | `45f1584`. Dependabot merged, and on `3.30.0` |
 | `yummacss` | `main` | `6e68a5b`. `3.30.0` released and published |
 | `yummacss` | `v4` | 4 ahead of `main`: colon-syntax parsing, fixtures migrated |
-| `ui` | `release` | **published, `yummaui@0.1.0`** |
-| `ui` | `prune` | PR, `yummaui prune`; unreleased |
+| `ui` | `main` | **published, `yummaui@0.2.1`**, with `prune` |
 
 Published: `@yummacss/*` at `3.30.0`, `yummaui` at `0.1.0`. There are eight
 packages, not nine; `language-server` was deleted with the extensions.
@@ -85,14 +84,10 @@ them through.
 
 ## The plan, in phases
 
-Status: **Phases 1 and 2 shipped in `3.30.0`.** Phase 1 has one step left and it
-is **waiting on Dependabot**, not on a decision: `docs` still resolves `3.29.2`,
-so the fixed tokenizer is not running there yet. The grouped PR opens on the next
-daily run and merges itself.
-
-**Phase 3 is built and unreleased.** `prune` is in `ui` on the `prune` branch;
-cutting `0.2.0` and writing the missing CLI reference page are what is left.
-Phase 4 is next.
+Status: **Phases 1, 2 and 3 are done.** `3.30.0` is published and `docs` is on
+it; the config step that closed Phase 1 changed the generated CSS by **nothing
+at all**. `yummaui` is published at `0.2.1` with `prune`. **Phase 4 is next**,
+and the missing CLI reference page joins it.
 
 | # | Phase | Repos | Why it sits here |
 | --- | --- | --- | --- |
@@ -147,8 +142,13 @@ any className on the site. 75 previously-dropped classes are now found.
       directly. **Re-wire it when v4 lands** - that is the whole change.
       Confirmed against the built binary: `yummacss migrate` falls through to
       the help text.
-- [ ] **Once `docs` is actually on `3.30.0`** - check `package.json`, not npm -
-      **edit `docs/yumma.config.mjs` in one commit:** replace the five
+- [x] **Done.** `docs/yumma.config.mjs` now has one glob and no `safelist`.
+      **Verified by building the site three times and diffing the emitted
+      selectors**: 3.29.2, then 3.30.0, then 3.30.0 with the config collapsed -
+      516 selectors and 25,776 bytes every time, zero lost, zero gained. The
+      pipeline was proved live first by narrowing `source` to a single file,
+      which dropped the CSS to 5,312 bytes. The original instruction, for the
+      record: replace the five
       enumerated `source` entries with the single glob
       `"./src/**/*.{ts,tsx,mdx,mjs}"`, and delete `safelist` entirely.
       **Measured:** the enumerated list reaches 330 files and 1167 classes, the
@@ -242,10 +242,11 @@ making the id addressable.
 - [x] Worth knowing it is safer than the alternative: the workflow it replaces is
       "delete the unused ones with AI", whose failure mode is deleting a file
       that *is* used, silently, until a build breaks.
-- [ ] **Release it as `0.2.0`** - a new command is a feature. Nothing about
-      `prune` is documented on the site yet **and that is deliberate**: it would
-      advertise a command nobody can run. README and CHANGELOG in `ui` carry it
-      already, and they ship with the package.
+- [x] **Released**, as `0.2.0` then `0.2.1`. **Both times the merge took the
+      branch one commit behind the last push**, so the refactor missed `0.2.0`
+      and the version bump missed `0.2.1`, and both had to be redone by hand.
+      **Push everything before calling a PR ready**; never trail a
+      `chore: prepare` commit after saying so.
 - [ ] **The site has no CLI reference page at all.** `list`, `--all` and
       `--overwrite` are undocumented too; `installation.mdx` is a per-framework
       walkthrough and the wrong home for a flag table. One page under
