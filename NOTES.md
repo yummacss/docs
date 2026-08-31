@@ -309,11 +309,26 @@ blocks a release.**
       `pnpm validate` is down to 3 non-canon classes, all deliberate custom ones
       (`admonition-body`, `invisible`, `preview-spinner`). Do not fold the lint
       pass into an unrelated PR, and do not get blamed for it.
-- [ ] **Decide whether `ComponentPreview` stays.** No MDX page references it any
-      more - **re-confirmed 2026-08-30, still 0 hits** for `<ComponentPreview`
-      and `<PropsTable` across `src/content`; the playground replaced both. If it goes, the leftover
-      portal reset block in `globals.css` goes with it, and `props-table.tsx`
-      with it.
+- [x] **`ComponentPreview` and `PropsTable` are gone**, and deleting them
+      surfaced a live bug worth more than the deletion.
+      **The `.md` routes for all 36 Yumma UI pages were empty.**
+      `/ui/components/button.md` served 65 bytes - a title and one sentence, no
+      source, no API. `mdx-markdown.ts` emitted those only for `<PropsTable>`
+      and for a node carrying `registryId`, and `<ComponentPlayground />` uses
+      neither, so both branches went dead and took the content with them. The
+      comment in that file documents fixing this exact failure once before, at
+      965 bytes; the migration undid it silently, because **nothing asserts a
+      `.md` has a body**.
+      **The fix**: `ComponentPlayground` resolves the page's own slug, passed in
+      as `options.registryId` by the `ui-md` route, and emits the source *and*
+      the props table. After: button 65 to 4,240 bytes, tooltip 5,274, dialog
+      9,084, accordion 10,922, each with two fences and a full prop table.
+      **The portal reset in `globals.css` stays - the earlier note was wrong.**
+      `data-preview` is still set by `preview.tsx` and `playground/stage.tsx`.
+      `tests/content.test.ts` was repointed rather than cut: the dead
+      `<ComponentPreview>` regex is gone, and the assertion now checks that
+      every playground page's slug names a real registry entry - the only link
+      between the two, previously checked by nothing. Verified to bite.
 - [ ] 23 `example`-kind previews are undocumented after the MDX migration.
       **Confirmed 2026-08-30: still exactly 23** in `public/ui/r`.
 - [ ] **Unreproduced:** radio, select, breadcrumb and onboarding pages reported
@@ -333,11 +348,11 @@ blocks a release.**
       render JSX rather than text, so their content is absent from the `.md`
       routes. Possible fix: drive them from `@yummacss/core` so the content is
       data.
-- [ ] `llms-full.txt` walks `sidebarConfig` rather than the blog collection, so
-      blog content is absent from it. **The live question is whether it should
-      exist at all** - models are expensive to run over a dump, the per-page
-      `.md` routes are the right granularity, and they already carry source plus
-      the API. `llms.txt` (the index) stays either way.
+- [x] **`llms-full.txt` is deleted.** Measured before removing it: **2.37 MB,
+      about 594,000 tokens**, past most context windows outright. `llms.txt` is
+      21 KB (~5,300) and a page `.md` about 15 KB (~3,900), so the index plus
+      the one page you need is roughly **65x cheaper** and more accurate than
+      the dump. `llms.txt` now says that instead of linking it.
 - [ ] `normalize.mdx` is hand-written; consider sourcing it from
       `@yummacss/nitro` so it cannot drift.
 - [ ] Draft blog posts have no listing. They are already excluded from the
