@@ -57,7 +57,7 @@
 
 - there is no `disabled` prop
 - `defaultPressed` does nothing?
-- `animated` prop does nothing
+- `animated` prop does nothing? originally it had an animation when pressed but now there is none: https://docs-rbktgtech-rrenildopereiraas-projects.vercel.app/ui/components/toggle
 
 ### **Accordion**
 
