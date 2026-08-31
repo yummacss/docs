@@ -2,7 +2,6 @@ import type { MDXComponents } from "mdx/types";
 import Image from "next/image";
 import Admonition from "@/components/admonition";
 import Baseline from "@/components/baseline";
-import ComponentPreview from "@/components/component-preview";
 import FileTree from "@/components/file-tree";
 import Hint from "@/components/hint";
 import {
@@ -14,7 +13,6 @@ import {
 import Palette from "@/components/palette";
 import ComponentPlayground from "@/components/playground/stage";
 import Preview from "@/components/preview";
-import PropsTable from "@/components/props-table";
 import Reference from "@/components/reference";
 import Stepper, { Step } from "@/components/stepper";
 import { Tabs, TabsList, TabsPanel, TabsTab } from "@/components/tabs";
@@ -43,8 +41,6 @@ const components: MDXComponents = {
   Code,
   CodeGroup,
   ComponentPlayground,
-  ComponentPreview,
-  PropsTable,
   Cursor,
   FileTree,
   Hint,

@@ -25,7 +25,11 @@ export function GET() {
     "",
     `Docs: ${BASE}/docs`,
     `UI Components: ${BASE}/ui`,
-    `Full context: ${BASE}/llms-full.txt`,
+    "",
+    "Every page below has a `.md` twin carrying its full text, and for a UI",
+    "component its source and its API. Fetch the ones you need rather than a",
+    "whole-site dump: the index is ~5k tokens and a page is ~4k, where the dump",
+    "this used to advertise was ~594k.",
     "",
   ];
 
