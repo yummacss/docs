@@ -797,8 +797,14 @@ built from `<section>`/`<header>` gets system-ui headings silently.
 every install or CLI command is a plain fence with the pnpm form, no
 `<CodeGroup>` and no `title="pnpm"` label - a single tab labels nothing. `pnpm
 add X -D`, `pnpm dlx X`. This holds in blog posts too, which is how the old rule
-worked. **`pnpx` does not exist** - it was in `yummacss-3.0.0.mdx` five times
-and never ran.
+worked.
+**`pnpx` DOES exist and the old note here was wrong.** Checked on pnpm 10.33:
+`bin/pnpx.cjs` is four lines that splice `dlx` into argv and call pnpm, it is
+shipped with pnpm, and it prints no deprecation warning. The five uses in
+`yummacss-3.0.0.mdx` all ran fine. They were still changed to `pnpm dlx`,
+because that is the form pnpm's own `--help` prints as canonical - a style
+call, not a correctness one. **Do not repeat the claim that it does not
+exist.**
 **A CI example needs `pnpm/action-setup@v6` before `pnpm install`**, or the
 snippet is broken for whoever copies it. `npm install` needed no setup step, so
 this is not a find-and-replace.
