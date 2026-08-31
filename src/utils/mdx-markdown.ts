@@ -2,8 +2,7 @@ import type { RegistryMeta } from "@/registry";
 import { type Category, categoryGetters } from "@/utils/yummacss";
 
 /**
- * Turns the MDX source of a doc into plain markdown for the `.md` routes and
- * `llms-full.txt`.
+ * Turns the MDX source of a doc into plain markdown for the `.md` routes.
  *
  * MDX components have no markdown equivalent, so they are unwrapped: the tags
  * are dropped & the children are kept, de-indented back to the surrounding
@@ -64,7 +63,16 @@ export type MetaResolver = (registryId: string) => RegistryMeta | null;
 interface RenderOptions {
   resolveRegistry?: RegistryResolver;
   resolveMeta?: MetaResolver;
+  /**
+   * The page's own registry id, for `<ComponentPlayground />`, which carries no
+   * id of its own - the route decides which component a page shows, so that the
+   * stage and the rail cannot end up on two different ones.
+   */
+  registryId?: string;
 }
+
+/** Components whose registry id is the page's own, not written on the tag. */
+const PLAYGROUND = new Set(["ComponentPlayground"]);
 
 function parseAttrs(attrs: string): Record<string, string> {
   const parsed: Record<string, string> = {};
@@ -291,28 +299,29 @@ function renderComponent(
     return buildReferenceTable(category as Category, name);
   }
 
-  // `<ComponentPreview registryId="button-base" />` has no children, so it used
-  // to fall through to the "nothing to unwrap" case & vanish. That is why the
-  // UI pages served prose with no component source at all: /ui/components/
-  // button.md was 965 bytes with zero code fences. The registry file IS the
-  // content of these pages, so it becomes a fenced block.
-  // `<PropsTable registryId="button" />` renders from the schema in React, so
-  // it is invisible here. Without this a reader of the `.md` gets the whole
-  // implementation and no statement of the API it exposes.
-  if (node.name === "PropsTable" && attrs.registryId && options.resolveMeta) {
-    const meta = options.resolveMeta(attrs.registryId);
-    return meta ? buildPropsTable(meta) : [];
-  }
+  // A component node has no children, so without a case here it falls through
+  // to "nothing to unwrap" & vanishes, leaving the UI pages as prose with no
+  // component on them - /ui/components/button.md was 65 bytes, a title and a
+  // sentence. The registry file IS the content of these pages, and the schema
+  // is the only statement of the API, so a reader of the `.md` needs both.
+  //
+  // `<ComponentPlayground />` takes no id: the route decides the component, so
+  // the id arrives as an option instead. `registryId` on the node is still read
+  // first, so a page that names one keeps working.
+  const registryId =
+    attrs.registryId ??
+    (PLAYGROUND.has(node.name) ? options.registryId : undefined);
 
-  // `<ComponentPreview registryId="button-base" />` has no children, so it used
-  // to fall through to the "nothing to unwrap" case & vanish. That is why the
-  // UI pages served prose with no component source at all: /ui/components/
-  // button.md was 965 bytes with zero code fences. The registry file IS the
-  // content of these pages, so it becomes a fenced block.
-  if (attrs.registryId && options.resolveRegistry) {
-    const source = options.resolveRegistry(attrs.registryId);
-    if (!source) return [];
-    return fencedBlock(source, "tsx");
+  if (registryId) {
+    const lines: string[] = [];
+    const source = options.resolveRegistry?.(registryId);
+    if (source) lines.push(...fencedBlock(source, "tsx"));
+    const meta = options.resolveMeta?.(registryId);
+    if (meta) {
+      if (lines.length > 0) lines.push("");
+      lines.push(...buildPropsTable(meta));
+    }
+    return lines;
   }
 
   const children = render(node.children, options, node.name === "Stepper");

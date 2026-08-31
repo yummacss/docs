@@ -21,9 +21,6 @@ const registryIds = new Set(
   ].map((match) => match[1]),
 );
 
-/** Both prop spellings the component accepts - see component-preview.tsx. */
-const PREVIEW_ID = /<ComponentPreview[^>]*?\b(?:registryId|id)="([^"]+)"/g;
-
 /**
  * The playground takes no id. Its component is the page's own slug, decided by
  * the route so that the stage and the controls in the rail cannot end up on two
@@ -108,9 +105,6 @@ function referencedIds(): Set<string> {
   const ids = new Set<string>();
 
   for (const { slug, source } of uiPages) {
-    for (const [, id] of source.matchAll(PREVIEW_ID)) {
-      ids.add(id);
-    }
     if (PLAYGROUND.test(source)) ids.add(slug);
   }
 
@@ -118,14 +112,15 @@ function referencedIds(): Set<string> {
 }
 
 describe("Yumma UI content", () => {
+  // The slug is the only link between a playground page and its component, and
+  // nothing checks it at build time: a page whose slug names no registry entry
+  // renders an empty stage, and its `.md` loses both the source and the API.
   it("previews only components that exist", () => {
-    const broken: string[] = [];
-
-    for (const { slug, source } of uiPages) {
-      for (const [, id] of source.matchAll(PREVIEW_ID)) {
-        if (!registryIds.has(id)) broken.push(`${slug}.mdx -> ${id}`);
-      }
-    }
+    const broken = uiPages
+      .filter(
+        ({ slug, source }) => PLAYGROUND.test(source) && !registryIds.has(slug),
+      )
+      .map(({ slug }) => `${slug}.mdx -> ${slug}`);
 
     expect(broken).toEqual([]);
   });
