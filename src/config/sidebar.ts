@@ -256,7 +256,7 @@ export const sidebarConfig = {
     },
   ] satisfies SidebarSection[],
   ui: [
-    { title: "Get Started", items: ["installation", "customization"] },
+    { title: "Get Started", items: ["installation", "cli", "customization"] },
     {
       title: "Forms",
       items: [

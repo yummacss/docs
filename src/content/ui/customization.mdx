@@ -3,6 +3,8 @@ title: Customization
 description: Props, className & the file you own.
 ---
 
+Three ways to change a component, in the order worth trying them.
+
 ## Use Props
 
 Props are the reliable way to change a component, because the component applies them itself.
@@ -13,13 +15,36 @@ Props are the reliable way to change a component, because the component applies 
 </Badge>
 ```
 
-Reach for the table before anything else. Most of what people try to do with `className` already exists as a prop.
+Every component page lists its full API: each prop, its type, its default and what it does. Reach for that table before anything else. Most of what people try to do with `className` already exists as a prop.
+
+## className
+
+Every component takes `className` and appends it to its own classes.
+
+```tsx
+<Button className="w-100%">Save</Button>
+```
+
+That works when you are adding something the component does not already set, like width above.
+
+<Hint icon="warning">
+  It does **not** reliably work for overriding something the component already
+  sets. Passing a class later in the attribute does not make it win.
+</Hint>
+
+Yumma CSS utilities are all single-class selectors, so they all have the same specificity. When two of them set the same property, the winner is whichever comes later **in the generated stylesheet**, which has nothing to do with the order you wrote them in. `c-white` beats `c-accent` whichever way round you pass them.
+
+So `<Button className="c-accent">` on a component that already sets `c-white` silently does nothing, and the same override on a different property works fine. That inconsistency is the reason to prefer a prop.
+
+When there is no prop for what you need, edit the file.
 
 ## Own Your Components
 
-`yummaui add` copies a real file into your project, and nothing overwrites it later. When props & `className` are not enough, all you need need to do is edit it.
+`yummaui add` copies a real file into your project, and nothing overwrites it later. When props and `className` are not enough, all you need to do is edit it.
 
 Components are built on [Base UI](https://base-ui.com), so the primitive underneath is documented there, which matters the moment you start editing. Pages built on a primitive link to it directly.
+
+Removing a component you decided against is [`yummaui prune`](/ui/components/cli#prune).
 
 ## Colors & Theme
 
