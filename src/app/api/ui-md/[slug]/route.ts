@@ -7,14 +7,15 @@ import {
 
 export const dynamic = "force-dynamic";
 
-function renderUiMarkdown(ui: {
-  title: string;
-  description?: string;
-  content?: string;
-}): string {
+function renderUiMarkdown(
+  ui: { title: string; description?: string; content?: string },
+  slug: string,
+): string {
   const body = mdxToMarkdown(ui.content ?? "", {
     resolveRegistry: resolveRegistrySource,
     resolveMeta: resolveRegistryMeta,
+    // `<ComponentPlayground />` names no component; the slug is the component.
+    registryId: slug,
   });
 
   const lines = [`# ${ui.title}`, ""];
@@ -38,7 +39,7 @@ export async function GET(
     return new Response("Not found", { status: 404 });
   }
 
-  const markdown = renderUiMarkdown(ui);
+  const markdown = renderUiMarkdown(ui, slug);
 
   return new Response(markdown, {
     headers: {
