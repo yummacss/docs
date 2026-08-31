@@ -290,25 +290,32 @@ blocks a release.**
 
 ### Phase 4 - Docs debt
 
-- [ ] **12 utilities exist with a page but are not listed on it**, all logical
-      properties: `border-radius` is missing its 8 block/inline/start/end
-      corners (`bber`, `bisr`, `bier`, `besr`, `beer`, `bbsr`, `bssr`, `bser`)
-      and `border-width` its 4 sides (`bbew`, `bbsw`, `biew`, `bisw`). These
-      need `<Reference>` entries on the existing pages, not new pages.
-      **Measured 2026-08-28: 239 core utilities, 227 referenced, 0 with no page
-      at all.** The old "25 utilities" entry here was stale - `scroll-padding-*`,
-      `scroll-margin-*`, `border-*-color`, `scale-*` and `inset-*` are all
-      covered now.
-- [ ] **`pnpm lint` is not clean** (10 errors on `main`). `pnpm validate` is down
-      to 3 non-canon classes, all deliberate custom ones (`admonition-body`,
-      `invisible`, `preview-spinner`). Do not fold the lint pass into an
-      unrelated PR, and do not get blamed for it.
+- [x] **Done: the 12 undocumented utilities are listed.** Re-measured against
+      `3.30.0` before touching anything and the count held exactly - 239 core
+      utilities, 227 referenced, 12 missing, all logical border properties.
+      8 radius corners went on `border-radius.mdx` and 4 widths on
+      `border-width.mdx`, alphabetically, matching the pages' existing shape.
+      Verified in Chromium that each new section renders a real table rather
+      than the empty one `<Reference>` falls through to on a bad name.
+- [x] **`tests/reference.test.ts` is what stops this recurring.** Two
+      assertions: every core utility appears in some `<Reference>`, and every
+      `<Reference>` names a utility that exists. **Both were checked to bite** -
+      deleting an entry fails the first, misspelling one fails both. This is the
+      real deliverable; the 12 entries are a one-off, the test is not.
+- [ ] **`pnpm lint` is not clean: 9 errors and 8 warnings** (re-measured
+      2026-08-30; the old "10 errors" was close). Concentrated in
+      `src/components/icons/icons.tsx`, plus `toc.tsx`, `navbar.tsx`,
+      `palette.tsx`, `json-ld.tsx`, `token-block.tsx` and one app route.
+      `pnpm validate` is down to 3 non-canon classes, all deliberate custom ones
+      (`admonition-body`, `invisible`, `preview-spinner`). Do not fold the lint
+      pass into an unrelated PR, and do not get blamed for it.
 - [ ] **Decide whether `ComponentPreview` stays.** No MDX page references it any
-      more (0 hits for `<ComponentPreview` and `<PropsTable` across
-      `src/content`); the playground replaced both. If it goes, the leftover
+      more - **re-confirmed 2026-08-30, still 0 hits** for `<ComponentPreview`
+      and `<PropsTable` across `src/content`; the playground replaced both. If it goes, the leftover
       portal reset block in `globals.css` goes with it, and `props-table.tsx`
       with it.
 - [ ] 23 `example`-kind previews are undocumented after the MDX migration.
+      **Confirmed 2026-08-30: still exactly 23** in `public/ui/r`.
 - [ ] **Unreproduced:** radio, select, breadcrumb and onboarding pages reported
       as erroring. All four returned 200 with no console errors and
       `/api/ui-md/` 200. Needs the actual error text.
