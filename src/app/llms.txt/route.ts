@@ -18,7 +18,7 @@ export function GET() {
     "> Suffix = initials of the value (e.g. `sb` for `space-between`).",
     "> So `jc-sb` means `justify-content: space-between`.",
     "",
-    "Check your work: `npx @yummacss/canon` reports every class Yumma CSS does not",
+    "Check your work: `pnpm dlx @yummacss/canon` reports every class Yumma CSS does not",
     "recognize, with a suggestion when a close match exists. It validates against the",
     "generator itself, so it is authoritative on whether a class exists. Prefer it over",
     "guessing.",

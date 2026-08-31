@@ -25,25 +25,17 @@ Previous versions required importing large CSS files. v3.0 introduces a CLI that
 
     <Hint icon="info">Learn more about [dependency changes](#dependency-changes).</Hint>
 
-    <CodeGroup>
-
-    ```bash title="pnpm"
+    ```bash
     pnpm add yummacss -D
     ```
-
-    ```bash title="npm"
-    npm install yummacss -D
-    ```
-
-    </CodeGroup>
 
   </Step>
 
   <Step title="Add the configuration file">
-    Next, add the `yumma.config.js` to the root level of your project or run `pnpx yummacss init` to create it for you.
+    Next, add the `yumma.config.js` to the root level of your project or run `pnpm dlx yummacss init` to create it for you.
 
     ```bash
-    pnpx yummacss init
+    pnpm dlx yummacss init
     ```
 
   </Step>
@@ -94,7 +86,7 @@ Previous versions required importing large CSS files. v3.0 introduces a CLI that
     Compiling source files to CSS is handled with a single command:
 
     ```bash
-    pnpx yummacss build
+    pnpm dlx yummacss build
     ```
 
     The CLI generates a new CSS file & purges unused styles based on your `yumma.config.js`.
@@ -227,10 +219,10 @@ Upgrading from v2 or older to v3.0 via the Yumma CLI is a direct process.
   </Step>
 
   <Step title="Compile the SCSS">
-    Run `pnpx yummacss build` to compile your styles.
+    Run `pnpm dlx yummacss build` to compile your styles.
 
     ```bash
-    pnpx yummacss build
+    pnpm dlx yummacss build
     ```
 
   </Step>
@@ -246,17 +238,9 @@ v3.0 introduces core structural changes. Review the breaking changes below befor
 
 v3.0 should be installed as a dev dependency, as it functions as a CLI tool for generating CSS.
 
-<CodeGroup>
-
-```bash title="pnpm"
+```bash
 pnpm add yummacss -D
 ```
-
-```bash title="npm"
-npm install yummacss -D
-```
-
-</CodeGroup>
 
 The full utility set remains available in the distribution folder for manual imports.
 

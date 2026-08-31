@@ -15,17 +15,9 @@ It works with the generator, so variants, opacity modifiers, negative values, cu
 
 Run it with no setup:
 
-<CodeGroup>
-
-```bash title="pnpm"
+```bash
 pnpm dlx @yummacss/canon
 ```
-
-```bash title="npm"
-npx @yummacss/canon
-```
-
-</CodeGroup>
 
 ```json title="package.json"
 {
@@ -73,31 +65,15 @@ Canon exits `0` when every class is valid & `1` when any class is unrecognized, 
 
 Use `--allow` for custom classes defined in your own CSS:
 
-<CodeGroup>
-
-```bash title="pnpm"
+```bash
 pnpm dlx @yummacss/canon --allow "docs-container,brand-logo"
 ```
 
-```bash title="npm"
-npx @yummacss/canon --allow "docs-container,brand-logo"
-```
-
-</CodeGroup>
-
 `--allow` accumulates, so repeating it is equivalent to one comma-separated list:
 
-<CodeGroup>
-
-```bash title="pnpm"
+```bash
 pnpm dlx @yummacss/canon -a docs-container -a brand-logo
 ```
-
-```bash title="npm"
-npx @yummacss/canon -a docs-container -a brand-logo
-```
-
-</CodeGroup>
 
 ## What Gets Scanned
 
@@ -189,9 +165,10 @@ It performs no validation, so it reports every class it finds, valid or not.
 
 ## Use in CI
 
-Canon needs nothing beyond your config & source files, so the whole check is one step:
+Canon needs nothing beyond your config & source files, so no build has to run first:
 
 ```yaml title=".github/workflows/ci.yml"
-- run: npm install
-- run: npx yummacss-canon
+- uses: pnpm/action-setup@v6
+- run: pnpm install
+- run: pnpm dlx @yummacss/canon
 ```
