@@ -39,7 +39,7 @@ export default function SidebarNav({ sections, basePath, links }: Props) {
       <div
         // `oy-auto` clips both axes, so the outward focus ring (`fv:oo-2`)
         // needs horizontal room or its left edge is cut off at the container.
-        className="d-f p-st t-20 oy-auto ob-c fd-c g-8 px-1 pb-12"
+        className="d-f p-st t-20 oy-auto ob-c fd-c g-8 px-2 pb-12"
         style={{ maxHeight: "calc(100dvh - 5rem)" }}
       >
         {sections.map((section) => (
