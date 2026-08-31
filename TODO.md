@@ -12,7 +12,6 @@
 - we SHOULD be a bit more strict, some options are NOT meant to work with other options e.g. we should disable A if B is enabled when needed… maybe using the `diff-remove` color for the switch track to display that that switch is disabled
 - in the menu page clicking on the example trigger then click open in the playground option then switching the open playground option will break the trigger in the example… it won’t open anymore for some reason… bug?
 - why not create a prop to control focus? some people don’t like it… we can also create props to change the focus appearance too like outline color and outline offset (all Yumma CSS utilities btw)
-- remove **Command Palette** component entirely
 
 ### **Autocomplete**
 
