@@ -7,7 +7,6 @@ import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
 import { useState } from "react";
 import { BaseUI } from "@/components/icons/icons";
-import Install from "@/components/playground/install";
 import { CopyButton, TitleBar } from "@/components/ui/code";
 import { getRegistryTarget } from "@/registry";
 import { TOKEN_COLORS, type Token, tokensToText } from "@/utils/snippet";

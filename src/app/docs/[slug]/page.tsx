@@ -1,5 +1,6 @@
 import { allDocs } from "content-collections";
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import JsonLd from "@/components/json-ld";
 import Pagination from "@/components/ui/pagination";
 import { getDocsNavigation } from "@/utils/pagination";
@@ -45,7 +46,11 @@ export default async function Page({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const doc = allDocs.find((d) => d._meta.path === slug)!;
+  const doc = allDocs.find((d) => d._meta.path === slug);
+  // `dynamicParams = false` means an unknown slug 404s before reaching here, so
+  // this never fires - but a `!` would throw a render error rather than a 404
+  // the day that stops being true.
+  if (!doc) notFound();
   const MDXContent = doc.mdx;
   const navigation = getDocsNavigation(slug);
 

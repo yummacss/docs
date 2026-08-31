@@ -1,5 +1,5 @@
+import { statSync } from "node:fs";
 import { allBlogs, allDocs, allUis } from "content-collections";
-import { statSync } from "fs";
 import type { MetadataRoute } from "next";
 import { isVisible } from "@/utils/blog";
 
