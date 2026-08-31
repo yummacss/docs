@@ -247,11 +247,13 @@ making the id addressable.
       and the version bump missed `0.2.1`, and both had to be redone by hand.
       **Push everything before calling a PR ready**; never trail a
       `chore: prepare` commit after saying so.
-- [ ] **The site has no CLI reference page at all.** `list`, `--all` and
-      `--overwrite` are undocumented too; `installation.mdx` is a per-framework
-      walkthrough and the wrong home for a flag table. One page under
-      `ui > Get Started` would fix all of it, and is the right place to land
-      `prune` when it releases.
+- [x] **`ui/cli.mdx` written**, under `ui > Get Started` between installation
+      and customization. Every command, every flag, `yummaui.json` field by
+      field, and the registry URLs. Sourced from `cli.ts`'s own help text and
+      `README.md` at `0.2.1`, not from memory.
+      **`<Hint icon="...">` is the callout, not `<Admonition>`** - 26 uses
+      against 0, even though both are registered in `mdx-components.tsx`.
+      Icons in use: `info`, `heart`, `warning`, `cursor`, `keyboard`.
 - [ ] **A runtime-built specifier - `import(\`./${name}\`)` - cannot be resolved
       statically**, so `prune` counts those files and says so rather than
       guessing. If someone reports a wrongly-deleted file, look there first.
@@ -352,6 +354,13 @@ blocks a release.**
       between the two, previously checked by nothing. Verified to bite.
 - [ ] 23 `example`-kind previews are undocumented after the MDX migration.
       **Confirmed 2026-08-30: still exactly 23** in `public/ui/r`.
+- [x] **`tests/markdown-routes.test.ts` closes the `.md` hole for good.** Two
+      assertions: every docs page renders a body above a floor, and every UI
+      page renders both a fenced source block and a prop table. Both verified to
+      bite - reintroducing the `ComponentPlayground` bug fails the second,
+      gutting a docs page to frontmatter fails the first. **This is the test
+      whose absence let a 965-byte regression be fixed and then silently return
+      at 65 bytes.**
 - [ ] **Unreproduced:** radio, select, breadcrumb and onboarding pages reported
       as erroring. All four returned 200 with no console errors and
       `/api/ui-md/` 200. Needs the actual error text.
@@ -364,10 +373,23 @@ blocks a release.**
       **Worth knowing for v4:** `gc-s-3` generates `grid-column: span 3 / span
       3`, so the utility named `grid-column` **only does spans** - there is no
       way to write `grid-column: 2 / 4`. That is an API gap, not a docs one.
-- [ ] `ui/customization.mdx` becomes the Yumma UI API docs. Cut its two colour
-      sections (they duplicate `colors.mdx`), keep and expand "Atomic
-      customization" and "Component Slots". `### Flexible by Design` is an empty
-      heading: write it or drop it. It also has a typo: "all you need need to do".
+- [x] **`ui/customization.mdx` rewritten** - and **that entry was stale**: the
+      page had already been rewritten at some point. No "Atomic customization",
+      no "Component Slots", no empty `### Flexible by Design`, and one colour
+      section that points at `colors.mdx` rather than duplicating it. Only the
+      "need need" typo was still real. **Check the file before working from a
+      note about it.**
+      What was actually missing: the page's own description promises "Props,
+      className & the file you own" and there was **no `className` section**.
+      Now there is, and it says something true rather than reassuring:
+      **`className` is appended but does not reliably win.** Every Yumma utility
+      is a single-class selector, so they all have equal specificity and the
+      winner is whichever sits later **in the generated stylesheet** - nothing
+      to do with the order you pass them. Measured in the built CSS:
+      `bg-red-5` beats `bg-indigo`, `px-8` beats `p-4`, but **`c-white` beats
+      `c-accent`**, so overriding a colour a component already sets silently
+      does nothing. That inconsistency is the argument for props, and it is the
+      "cascade gotcha" the old `className` note was circling.
 - [ ] `responsive-variant.tsx`, `hover-state.tsx` and `negative-values.tsx`
       render JSX rather than text, so their content is absent from the `.md`
       routes. Possible fix: drive them from `@yummacss/core` so the content is
