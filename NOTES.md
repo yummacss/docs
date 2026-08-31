@@ -334,12 +334,15 @@ blocks a release.**
 - [ ] **Unreproduced:** radio, select, breadcrumb and onboarding pages reported
       as erroring. All four returned 200 with no console errors and
       `/api/ui-md/` 200. Needs the actual error text.
-- [ ] `grid-column-span.mdx` and `grid-row-span.mdx` duplicate `grid-column.mdx`
-      and `grid-row.mdx` (core has `grid-column` with prefix `gc-s`, so the span
-      concept *is* `grid-column`). Deleting needs redirects in `next.config.ts`
-      **and** a check of what core's `slug` points at first. **The hover-link
-      consumer for `slug` is gone with the extensions**, so this is now a
-      docs-internal decision rather than an API contract.
+- [x] **Both span pages deleted**, with 308s to their parents in `redirects.ts`
+      (verified live, and both parents still 200). They were duplicate *pages*,
+      not a stale API: each rendered the identical
+      `<Reference name="grid-column" />` its parent already had, only with `###`
+      headings. **`gc-s` and `gr-s` are current in `3.30.0`** and nothing
+      replaced them. Sidebar is 184 pages now, not 186.
+      **Worth knowing for v4:** `gc-s-3` generates `grid-column: span 3 / span
+      3`, so the utility named `grid-column` **only does spans** - there is no
+      way to write `grid-column: 2 / 4`. That is an API gap, not a docs one.
 - [ ] `ui/customization.mdx` becomes the Yumma UI API docs. Cut its two colour
       sections (they duplicate `colors.mdx`), keep and expand "Atomic
       customization" and "Component Slots". `### Flexible by Design` is an empty
@@ -355,10 +358,14 @@ blocks a release.**
       the dump. `llms.txt` now says that instead of linking it.
 - [ ] `normalize.mdx` is hand-written; consider sourcing it from
       `@yummacss/nitro` so it cannot drift.
-- [ ] Draft blog posts have no listing. They are already excluded from the
-      listing, RSS, sitemap and the production route, and render only in
-      `next dev`. A dev-only listing is cheap; a public route exposes unfinished
-      writing. Different decisions, decide which one is wanted.
+- [x] **Drafts are marked in the listing, dev only.** A separate section was
+      rejected as heavier than the problem: there is exactly **one** draft
+      (`yummacss-4.0.0.mdx`) of 7 posts. The marker is flat uppercase text next
+      to the date, not a badge - the sharp-angles rule rules out a pill.
+      `isVisible` already drops drafts everywhere but `next dev`, so it cannot
+      leak, and that was **checked against the production build**: zero `Draft`
+      markers in `blog.html`, the 4.0 post absent from the listing, and its
+      route not prerendered at all.
 
 ### Phase 5 - Retire `@yummacss/intellisense`
 

@@ -53,6 +53,20 @@ const docsRedirects = [
     destination: "/docs/grid-template-rows",
     permanent: true,
   },
+  // These two were duplicate pages, not a separate utility: each rendered the
+  // same `<Reference name="grid-column" />` its parent already had. `gc-s` and
+  // `gr-s` are current and generate `span N / span N`, so the span concept *is*
+  // `grid-column` - there was never anything on the span page to keep.
+  {
+    source: "/docs/grid-column-span",
+    destination: "/docs/grid-column",
+    permanent: true,
+  },
+  {
+    source: "/docs/grid-row-span",
+    destination: "/docs/grid-row",
+    permanent: true,
+  },
 ];
 
 const DOCS_DIR = join(process.cwd(), "src/content/docs");
