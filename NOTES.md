@@ -793,10 +793,24 @@ leading, loose for display type.
 `h1..h6` to `system-ui` and overrides only `article h1..h6, .ff-e`. Any new page
 built from `<section>`/`<header>` gets system-ui headings silently.
 
-**Package managers: only pnpm and npm, pnpm always the first tab.** Every install
-or CLI command lives in a `<CodeGroup>` with exactly two fences, `title="pnpm"`
-then `title="npm"`, including in blog posts. `pnpm add X -D` / `npm install X -D`,
-`pnpm dlx X` / `npx X`. **`pnpx` does not exist.**
+**pnpm only.** Renildo's call, 2026-08-31, replacing the old two-tab rule:
+every install or CLI command is a plain fence with the pnpm form, no
+`<CodeGroup>` and no `title="pnpm"` label - a single tab labels nothing. `pnpm
+add X -D`, `pnpm dlx X`. This holds in blog posts too, which is how the old rule
+worked.
+**`pnpx` DOES exist and the old note here was wrong.** Checked on pnpm 10.33:
+`bin/pnpx.cjs` is four lines that splice `dlx` into argv and call pnpm, it is
+shipped with pnpm, and it prints no deprecation warning. The five uses in
+`yummacss-3.0.0.mdx` all ran fine. They were still changed to `pnpm dlx`,
+because that is the form pnpm's own `--help` prints as canonical - a style
+call, not a correctness one. **Do not repeat the claim that it does not
+exist.**
+**A CI example needs `pnpm/action-setup@v6` before `pnpm install`**, or the
+snippet is broken for whoever copies it. `npm install` needed no setup step, so
+this is not a find-and-replace.
+**`playground/install.tsx` keeps every manager and is not part of this** - it is
+a product feature handing a reader the command for the manager they use, not a
+terminal example.
 
 **An example earns its place when it shows something the API table cannot say.**
 The table is good at **enumerable** facts (`shape: rounded | square | squircle`

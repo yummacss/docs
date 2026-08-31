@@ -45,7 +45,7 @@ Master index for 3.29 & 4.0.
 | 9   | Output wrapped in `@layer`                                  | 4.0      | Decided             |
 | 10  | Container queries, without `container-name`                 | 4.0      | Decided             |
 | 11  | `fr` variant for `gtc` / `gtr`                              | -        | **Dropped**         |
-| 12  | Codemod - `npx yummacss migrate`                            | 4.0      | Decided - required  |
+| 12  | Codemod - `pnpm dlx yummacss migrate`                            | 4.0      | Decided - required  |
 | 13  | Live config reload in dev                                   | 3.26     | **Already shipped** |
 | 14  | Unknown-utility warnings suggesting the v4 spelling         | 4.0      | Decided             |
 | 15  | v3/v4 compat mode for one release                           | -        | _Rejected_          |
@@ -73,8 +73,8 @@ The scope is deliberately narrow. Only the property/value separator changes:
   levels of nesting when it is really one value with a step.
 - `h:bg-white` stays exactly as it is. Variants remain a prefix, because
   `bg-white:h` puts the condition after the thing it conditions.
-- Naming is always the full package name: `npx yummacss migrate`, matching the
-  npm name & the URL. Never `npx yumma`.
+- Naming is always the full package name: `pnpm dlx yummacss migrate`, matching the
+  npm name & the URL. Never `pnpm dlx yumma`.
 
 Container queries (#10) ship in **4.0**, not a later minor. They change how
 media queries compile, so holding them for 4.1 would mean a second breaking
@@ -237,7 +237,7 @@ into the API: `m:-4` is the declaration with the whitespace removed.
 Variants keep their prefix position. `h:bg:gray-1` groups & sorts predictably,
 & `h:` stays greppable.
 
-- TODO(ship #12): migration section: npx yumma migrate, what it rewrites,
+- TODO(ship #12): migration section: pnpm dlx yumma migrate, what it rewrites,
 what it cannot rewrite (dynamically constructed class strings). There is
 no compat mode: 3.x syntax stops working in 4.0.
 

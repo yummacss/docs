@@ -7,33 +7,17 @@ description: Configure Yumma CSS for your project.
 
 Yumma CSS includes the Yumma CLI, which generates production-ready styles.
 
-<CodeGroup>
-
-```bash title="pnpm"
+```bash
 pnpm add yummacss -D
 ```
-
-```bash title="npm"
-npm install yummacss -D
-```
-
-</CodeGroup>
 
 ## Set Up
 
 Initialize a configuration file in your project.
 
-<CodeGroup>
-
-```bash title="pnpm"
+```bash
 pnpm dlx yummacss init
 ```
-
-```bash title="npm"
-npx yummacss init
-```
-
-</CodeGroup>
 
 This creates a `yumma.config.mjs` file at your project root. The same configuration file powers the CLI & the bundler plugins (`@yummacss/vite` & `@yummacss/postcss`).
 
@@ -244,30 +228,14 @@ The Yumma CSS CLI provides commands to manage your project.
 
 Compile your Yumma CSS files once.
 
-<CodeGroup>
-
-```bash title="pnpm"
+```bash
 pnpm dlx yummacss build
 ```
-
-```bash title="npm"
-npx yummacss build
-```
-
-</CodeGroup>
 
 ### Watch
 
 Watch for file changes & recompile automatically.
 
-<CodeGroup>
-
-```bash title="pnpm"
+```bash
 pnpm dlx yummacss watch
 ```
-
-```bash title="npm"
-npx yummacss watch
-```
-
-</CodeGroup>
