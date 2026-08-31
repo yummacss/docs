@@ -143,6 +143,7 @@ function ColorSwatch({
             }}
           >
             <svg
+              aria-hidden="true"
               viewBox="0 0 10 5"
               className="p-a b--2 l-50% ml--2 w-4 h-2"
               style={{ fill: "#1a1d2e" }}

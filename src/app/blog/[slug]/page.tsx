@@ -2,6 +2,7 @@ import { allBlogs } from "content-collections";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { Avatar } from "@/components/avatar";
 import JsonLd from "@/components/json-ld";
 import TableOfContents from "@/components/ui/toc";
@@ -51,7 +52,11 @@ export default async function BlogPostPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const post = allBlogs.find((p) => p._meta.path === slug)!;
+  const post = allBlogs.find((p) => p._meta.path === slug);
+  // `dynamicParams = false` means an unknown slug 404s before reaching here, so
+  // this never fires - but a `!` would throw a render error rather than a 404
+  // the day that stops being true.
+  if (!post) notFound();
   const MDXContent = post.mdx;
 
   const author = post?.authors?.[0] ? getAuthor(post.authors[0]) : undefined;

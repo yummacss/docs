@@ -1,7 +1,5 @@
 "use client";
 
-import { Separator } from "@base-ui/react";
-import { allUis } from "content-collections";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -21,10 +19,6 @@ export default function TableOfContents() {
   const [headings, setHeadings] = useState<TocItem[]>([]);
   const isBlogIndex = pathname === "/blog";
   const isBlogPost = pathname?.startsWith("/blog/");
-  let slug = (pathname || "").replace(/^\/ui\/components\//, "");
-  slug = slug.replace(/^\/ui\//, "").replace(/\/$/, "");
-  const currentUI = allUis.find((u) => u._meta.path === slug);
-
   // biome-ignore lint/correctness/useExhaustiveDependencies: need this useEffect to re-run this on route change to update the headings
   useEffect(() => {
     const timer = setTimeout(() => {

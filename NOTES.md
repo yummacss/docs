@@ -302,13 +302,34 @@ blocks a release.**
       `<Reference>` names a utility that exists. **Both were checked to bite** -
       deleting an entry fails the first, misspelling one fails both. This is the
       real deliverable; the 12 entries are a one-off, the test is not.
-- [ ] **`pnpm lint` is not clean: 9 errors and 8 warnings** (re-measured
-      2026-08-30; the old "10 errors" was close). Concentrated in
-      `src/components/icons/icons.tsx`, plus `toc.tsx`, `navbar.tsx`,
-      `palette.tsx`, `json-ld.tsx`, `token-block.tsx` and one app route.
-      `pnpm validate` is down to 3 non-canon classes, all deliberate custom ones
-      (`admonition-body`, `invisible`, `preview-spinner`). Do not fold the lint
-      pass into an unrelated PR, and do not get blamed for it.
+- [x] **`pnpm lint` is clean.** 9 errors and 8 warnings to zero, and the 17
+      findings were four different problems, not one:
+      **Dead code (5).** Unused imports in `navbar.tsx`, `token-block.tsx` and
+      `toc.tsx`. Biome's own fix renamed `toc.tsx`'s unused `currentUI` to
+      `_currentUI`, which silences rather than fixes - it was a `.find()` whose
+      result is discarded, so it went, and so did the now-orphaned `slug` above
+      it. **Biome does not flag `slug`**: reassignment counts as a use, so
+      `let x = a; x = b;` reads as live even when nothing ever reads `x`.
+      **Non-null assertions (3).** `allDocs.find(...)!` in the three `[slug]`
+      routes. The invariant is real - `dynamicParams = false` 404s an unknown
+      slug first - so the fix is `if (!doc) notFound()`, which keeps the
+      invariant and turns the day it breaks into a 404 rather than a render
+      error. Each file has **two** of these finds; only the one in the page
+      component carries the `!`.
+      **Decorative SVGs (8).** Brand marks in `icons.tsx` and the tooltip arrow
+      in `palette.tsx` sit beside their own text label, so a `<title>` would
+      have a screen reader announce the name twice. `aria-hidden="true"` goes
+      **before** `{...props}` so a caller can still override it. The three under
+      `public/` are static assets, not source: a `biome.json` override turns the
+      rule off there rather than putting a title in a favicon.
+      **`dangerouslySetInnerHTML` (1).** Correct for JSON-LD, so it is
+      suppressed - but honestly: `JSON.stringify` does not escape `<`, so a
+      frontmatter title containing `</script>` would close the tag and inject
+      the rest as markup. Now escaped to `\u003c`, which is the same string to
+      any JSON parser. Verified round-trip. **A biome-ignore reason must be one
+      line** - a wrapped `//` chain does not suppress anything.
+      `pnpm validate` stays at 3 non-canon classes, all deliberate custom ones
+      (`admonition-body`, `invisible`, `preview-spinner`).
 - [x] **`ComponentPreview` and `PropsTable` are gone**, and deleting them
       surfaced a live bug worth more than the deletion.
       **The `.md` routes for all 36 Yumma UI pages were empty.**
@@ -400,7 +421,6 @@ The extensions are already deleted (see Rejected). This is the package.
       entirely. See the token trap for what to verify first. Not urgent, but it
       is the only thing that stops this recurring every time a token expires.
       **The current token dies 2026-11-27**, so that is the deadline.
-- [ ] Colored box-shadows: 3.29 or 4.0?
 - [ ] `xs` at 32rem has no matching breakpoint. Drop it or add the breakpoint.
 - [ ] **Drop `tinycolor2` for OKLCH.** These are one decision, not two, and
       both halves are measured.
@@ -1301,7 +1321,19 @@ problem, not a value problem.** Aim at the value problems and say so.
   cannot simply be re-exported from `@yummacss/nitro/browser`. Needs a real
   browser config path: parse a config from a string in memory rather than resolve
   and import a file.
-- **Colored box-shadows.** 3.29 or 4.0?
+- **A 4.1, for utilities that are additive rather than breaking.** Renildo's
+  call, 2026-08-31: neither of these gates v4, so neither should delay it.
+  - **Colored box-shadows.**
+  - **Shorten what `gc-s-*` and `gr-s-*` emit.** `grid-column: span 3 / span 3`
+    and `grid-column: span 3` are the same declaration - measured in Chromium,
+    both render 120px, because the Grid spec discards the second span when a
+    placement contains two. Across the 32 `grid-column`/`grid-row` values that
+    is **956 to 654 bytes, 32% smaller**, with no rendering change and no class
+    renamed, so it is **not breaking and does not need v4**.
+  - **A `grid-column: 2 / 4` shorthand.** Lower value than it looks: `gcs-2
+    gce-4` already does it, both taking 1-16. And `/` is the opacity separator
+    (`bg-red/50`), so `gc-2/4` would parse as "gc-2 at 4% opacity" - it would
+    cost a delimiter that already means something.
 - **Delete the `skeleton` component and let `loading` cover it via a prop.** Way
   less code, and nothing obvious explains why nobody does this.
 - **Base UI `ScrollArea` in the docs sidebars.** Worth doing for the look - it

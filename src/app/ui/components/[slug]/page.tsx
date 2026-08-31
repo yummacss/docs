@@ -1,5 +1,6 @@
 import { allUis } from "content-collections";
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import JsonLd from "@/components/json-ld";
 import Install from "@/components/playground/install";
 import Pagination from "@/components/ui/pagination";
@@ -47,7 +48,11 @@ export default async function Page({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const ui = allUis.find((u) => u._meta.path === slug)!;
+  const ui = allUis.find((u) => u._meta.path === slug);
+  // `dynamicParams = false` means an unknown slug 404s before reaching here, so
+  // this never fires - but a `!` would throw a render error rather than a 404
+  // the day that stops being true.
+  if (!ui) notFound();
   const MDXContent = ui.mdx;
   const navigation = getUINavigation(slug);
 
