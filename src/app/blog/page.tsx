@@ -78,8 +78,18 @@ export default async function BlogPage() {
                           <p className="mb-4 max-w-xs c-white/70 lh-5">
                             {post.description}
                           </p>
-                          <div className="d-f ai-c g-2 c-white/50 fs-sm">
+                          <div className="d-f ai-c g-3 c-white/50 fs-sm">
                             <span>{formatDate(post.date)}</span>
+                            {/* Drafts reach this listing only in `next dev` -
+                                `isVisible` drops them everywhere else - so the
+                                marker cannot leak. Without it a draft is
+                                indistinguishable from a published post, which
+                                is the whole reason they were kept unlisted. */}
+                            {post.draft && (
+                              <span className="c-accent fs-xs ls-2 tt-u">
+                                Draft
+                              </span>
+                            )}
                           </div>
                         </div>
                         {/* 14rem only at @xl, not @lg: at @lg the TOC appears
