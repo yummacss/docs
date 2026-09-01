@@ -69,6 +69,10 @@ code comments are one to three lines; one sentence on what changed and why is
 the target, and eighty lines is not. **This file is the exception** - it is the
 only place detail is meant to accumulate, because it is what survives a cleared
 chat. A PR or a comment restating it duplicates something that will drift.
+Twelve-line block comments explaining a file's history are this rule being
+broken; the history goes here. **No "Generated with Claude Code" footer** in a
+PR body, commit or comment - the `Co-Authored-By` trailer already says it, and
+saying it twice reads like a signature on someone else's work.
 
 **Document the change in the same commit that makes it.** A new command, flag,
 script or convention gets its entry here as it lands, not later - a cleared
