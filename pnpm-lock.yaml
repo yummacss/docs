@@ -53,6 +53,9 @@ importers:
       '@yummacss/core':
         specifier: ^3.30.0
         version: 3.30.0
+      '@yummacss/nitro':
+        specifier: ^3.30.0
+        version: 3.30.0
       class-variance-authority:
         specifier: ^0.7.1
         version: 0.7.1
