@@ -59,6 +59,27 @@ describe("Markdown routes", () => {
 
   // The failure that motivated this file: these render through
   // `<ComponentPlayground />`, whose id is the page's own slug.
+  // The floor is a whole-page measure, so a long page can still serve nothing
+  // where it matters: `normalize.mdx` cleared 400 with 18 empty fences.
+  it("leaves no empty code fence in any page", () => {
+    const empty = ["docs", "ui"].flatMap((collection) =>
+      contentPages(collection)
+        .map(({ slug, source }) => ({
+          slug: `${collection}/${slug}`,
+          fences: (
+            mdxToMarkdown(source, {
+              resolveRegistry,
+              resolveMeta,
+              registryId: slug,
+            }).match(/```[^\n]*\n```/g) ?? []
+          ).length,
+        }))
+        .filter(({ fences }) => fences > 0),
+    );
+
+    expect(empty).toEqual([]);
+  });
+
   it("renders source and an API table for every UI component page", () => {
     const broken = contentPages("ui")
       .filter(({ source }) => source.includes("<ComponentPlayground"))
