@@ -56,7 +56,7 @@
 
 - there is no `disabled` prop
 - `defaultPressed` does nothing?
-- `animated` prop does nothing? originally it had an animation when pressed but now there is none: https://docs-rbktgtech-rrenildopereiraas-projects.vercel.app/ui/components/toggle
+- `animate` prop does nothing? originally it had an animation when pressed but now there is none: https://docs-97eq39ar2-rrenildopereiraas-projects.vercel.app/ui/components/toggle
 
 ### **Accordion**
 
@@ -74,12 +74,12 @@
 
 ### Preview Card
 
-- **0024eee** before making Yumma UI I had great copy content and now after the migration there is just this lifeless “Card content goes here.” phrase… restore original content please. (use commit ef1b54f or https://docs-rbktgtech-rrenildopereiraas-projects.vercel.app/ to see the preview of the Yumma UI components if needed
+- **0024eee** before making Yumma UI I had great copy content and now after the migration there is just this lifeless “Card content goes here.” phrase… restore original content please. (use commit ef1b54f or https://docs-97eq39ar2-rrenildopereiraas-projects.vercel.app/ to see the preview of the Yumma UI components if needed
 
 ### Separator
 
 - both `orientation` and `shape` do nothing
-- there are no lines at all, it doesn't look like https://docs-rbktgtech-rrenildopereiraas-projects.vercel.app/ui/components/separator
+- there are no lines at all, it doesn't look like https://docs-97eq39ar2-rrenildopereiraas-projects.vercel.app/ui/components/separator
 
 ### Button
 
@@ -101,20 +101,20 @@
 
 ### Tabs
 
-- when using the `pill` in the `shape` option the the Tabs track turns into a circle and the tab items overflow its container which looks VERY unpleasant to look at. This happens ONLY when using `horizontal` set to `vertical.` this happens because we are not strict at all. you have to look at https://docs-rbktgtech-rrenildopereiraas-projects.vercel.app/ui/components/tabs to understand better the solution.
+- when using the `pill` in the `shape` option the the Tabs track turns into a circle and the tab items overflow its container which looks VERY unpleasant to look at. This happens ONLY when using `horizontal` set to `vertical.` this happens because we are not strict at all. you have to look at https://docs-97eq39ar2-rrenildopereiraas-projects.vercel.app/ui/components/tabs to understand better the solution.
 
 ### Toolbar
 
-- `animation` prop does nothing?
+- `animate` prop does nothing?
 
 ### Alert Dialog
 
-- there is no outbound animation like in https://docs-rbktgtech-rrenildopereiraas-projects.vercel.app/ui/components/alert-dialog
+- there is no outbound animation like in https://docs-97eq39ar2-rrenildopereiraas-projects.vercel.app/ui/components/alert-dialog
 
 ### Dialog
 
 - spacing here looks terrible when it comes to the parent container, copy from Alert Dialog which looks good
-- there is no outbound animation like in https://docs-rbktgtech-rrenildopereiraas-projects.vercel.app/ui/components/dialog
+- there is no outbound animation like in https://docs-97eq39ar2-rrenildopereiraas-projects.vercel.app/ui/components/dialog
 
 ### Popover
 
@@ -137,4 +137,4 @@ there is an intentional grow animation when the onboarding container grows, make
 
 - why does marking `readOnly` makes the stars bigger?
 - `animation` prop does nothing?
-- is there any way to reproduce the original https://docs-rbktgtech-rrenildopereiraas-projects.vercel.app/ui/components/rating#read-only variant via props? i really like this structure and i wanted to keep it in Yumma UI
+- is there any way to reproduce the original https://docs-97eq39ar2-rrenildopereiraas-projects.vercel.app/ui/components/rating#read-only variant via props? i really like this structure and i wanted to keep it in Yumma UI
