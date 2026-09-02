@@ -1,4 +1,5 @@
 import type { RegistryMeta } from "@/registry";
+import { fillNormalizeFences } from "@/utils/normalize-rules.mjs";
 import { type Category, categoryGetters } from "@/utils/yummacss";
 
 /**
@@ -432,7 +433,10 @@ export function mdxToMarkdown(
 ): string {
   // Some content files are authored with CRLF. Normalizing first keeps the
   // served markdown from mixing them with the lines rendered here.
-  const source = content.replace(/\r\n/g, "\n").split("\n");
+  // `normalize=` fences are filled by a rehype plugin this pipeline never runs.
+  const source = fillNormalizeFences(content.replace(/\r\n/g, "\n")).split(
+    "\n",
+  );
   const lines = collapseBlankLines(render(parse(source), options));
 
   return lines.join("\n").trim();

@@ -40,6 +40,7 @@
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
     "@yummacss/core": "^3.30.0",
+    "@yummacss/nitro": "^3.30.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "iconoir-react": "^7.12.1",

@@ -32,7 +32,7 @@ clearing; keep this file short.
 | `yummacss` | `v4` | 4 ahead of `main`: colon-syntax parsing, fixtures migrated |
 | `ui` | `main` | **published, `yummaui@0.2.1`**, with `prune` |
 
-Published: `@yummacss/*` at `3.30.0`, `yummaui` at `0.1.0`. There are eight
+Published: `@yummacss/*` at `3.30.0`, `yummaui` at `0.2.1`. There are eight
 packages, not nine; `language-server` was deleted with the extensions.
 
 `ui` is a **separate repo** (`github.com/yummacss/ui`). The folder and repo are
@@ -69,6 +69,10 @@ code comments are one to three lines; one sentence on what changed and why is
 the target, and eighty lines is not. **This file is the exception** - it is the
 only place detail is meant to accumulate, because it is what survives a cleared
 chat. A PR or a comment restating it duplicates something that will drift.
+Twelve-line block comments explaining a file's history are this rule being
+broken; the history goes here. **No "Generated with Claude Code" footer** in a
+PR body, commit or comment - the `Co-Authored-By` trailer already says it, and
+saying it twice reads like a signature on someone else's work.
 
 **Document the change in the same commit that makes it.** A new command, flag,
 script or convention gets its entry here as it lands, not later - a cleared
@@ -399,8 +403,36 @@ blocks a release.**
       21 KB (~5,300) and a page `.md` about 15 KB (~3,900), so the index plus
       the one page you need is roughly **65x cheaper** and more accurate than
       the dump. `llms.txt` now says that instead of linking it.
-- [ ] `normalize.mdx` is hand-written; consider sourcing it from
-      `@yummacss/nitro` so it cannot drift.
+- [x] **`normalize.mdx` is read from `@yummacss/nitro`.** Measured first: the
+      page and the shipped reset were **already identical** - 23 rules each,
+      zero differences - so this is prevention, not a repair. Each fence now
+      names selectors (```` ```css normalize="html; body" ````) and holds no
+      text of its own.
+      **A rehype plugin, not a component.** The fence has to carry its text
+      *before* Shiki reads it or it would be the one uncoloured block on the
+      site; `rehype-registry` injects component sources the same way for the
+      same reason. It runs first in the chain in `next.config.ts`.
+      **The trap: there are two pipelines, and the first version only fed one.**
+      `.md` routes render from raw MDX through `mdx-markdown.ts` and never run
+      rehype, so `/docs/normalize.md` served **18 empty fences**. Hence
+      `src/utils/normalize-rules.mjs` as the single source both read - `.mjs`
+      deliberately, because Next loads the plugin by path as plain ESM and could
+      not import a `.ts` one, and the `/browser` entry keeps it free of
+      `node:fs` so `mdx-markdown.ts` stays client-safe.
+      **`markdown-routes.test.ts` did not catch it.** Its 400-char floor is a
+      whole-page measure and the page is 3.5 KB of prose, so 18 empty fences
+      cleared it comfortably. There is now an explicit empty-fence assertion
+      across every page in both collections, plus `tests/normalize.test.ts`:
+      every shipped rule is named by some fence, every named rule reaches the
+      `.md` twin, and an unknown selector throws rather than rendering nothing.
+      All three verified to bite.
+      `@yummacss/nitro` moved to `dependencies` - `/api/docs-md/[slug]` is a
+      **dynamic** route, so it is read at request time, not only at build.
+      Dependabot's `@yummacss/*` group already covers it, so the page follows
+      releases on its own.
+      **Fixed in passing:** the last snippet said `normalize: true` while the
+      prose above it said "to disable it set `normalize` to `false`". It says
+      `false` now.
 - [x] **Drafts are marked in the listing, dev only.** A separate section was
       rejected as heavier than the problem: there is exactly **one** draft
       (`yummacss-4.0.0.mdx`) of 7 posts. The marker is flat uppercase text next
