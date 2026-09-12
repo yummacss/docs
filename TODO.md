@@ -15,9 +15,9 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  118
+    Closed  122
     Open    14
-    Done    89%
+    Done    90%
 
 ---
 

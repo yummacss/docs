@@ -1792,6 +1792,36 @@ declares logical properties: `padding` covers `padding-inline` covers
       compound variants appear; a twenty-line local `variants()` helper gets
       the ergonomics without the dependency.
 
+- [x] **cva trial on Button, Badge and Slider.** Three findings, one per
+      component. Button is the case for it: `iconOnly` crossed with `size` is
+      a compound variant, which a flat map cannot say, and it turned out the
+      old ternary had a quiet bug. `iconOnlyActive ? ICON_ONLY[size] :
+      SIZES[size]` swapped the *whole* size string for padding, so an
+      icon-only button silently lost its `fs-*`; all three sizes sat on the
+      inherited 13.33px. A compound variant only overrides the padding, so the
+      type scale survives. Measured across all 2,286 combinations: 573
+      identical, 849 the same classes in a different order, 864 different, and
+      every one of those 864 is an icon-only button gaining its font size. Box
+      geometry is unchanged at 10x10, 18x18 and 26x26 with padding 4, 8 and 12,
+      because the icons carry explicit sizes.
+- [x] **Badge is where cva stops helping.** Its colour is `tone` crossed with
+      `intent`, fifteen combinations over five slots, which as compound
+      variants is seventy-five entries saying what the `INTENTS` table says in
+      forty and reads by role. Only the standalone axes moved, and the table
+      stayed. A full sweep should expect the same split: flat axes convert,
+      dense products do not.
+- [x] **cva does not resolve conflicts; `merge` does, and within one argument
+      too.** That is what makes compound variants viable here: cva emits
+      `px-3 py-2 fs-md p-2` as one string and `merge` returns `fs-md p-2`.
+      Checked directly before writing any of it.
+- [x] **`merge-composition` went blind and had to be taught cva.** It resolved
+      `Record<K, string>` constants, and converting three components dropped it
+      under its own floor. It now reads a `cva(...)` initializer as the bag of
+      strings it is. The floor moved from a cartesian product to the count of
+      strings reached: cva hands `merge` one argument where five maps handed it
+      five, so the product collapses while the coverage does not. Converting
+      all 41 would need this test re-tuned again.
+
 - [ ] **The "does nothing" cluster is not schema drift.** Checked every prop in
       every meta against its component source: 4 hits, all spread-forwarded
       false positives. So `shadow`, `animate`, `defaultPressed` and the rest are
