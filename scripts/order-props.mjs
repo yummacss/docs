@@ -18,7 +18,8 @@ const block = /export const SHARED_PROP_ORDER = \[([\s\S]*?)\] as const;/.exec(
   source,
 );
 
-if (!block) throw new Error("SHARED_PROP_ORDER not found in src/utils/props.ts");
+if (!block)
+  throw new Error("SHARED_PROP_ORDER not found in src/utils/props.ts");
 
 const order = [...block[1].matchAll(/"([^"]+)"/g)].map((match) => match[1]);
 const rank = new Map(order.map((name, index) => [name, index]));
