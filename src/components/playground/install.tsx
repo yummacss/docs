@@ -4,6 +4,7 @@ import { Menu } from "@base-ui/react/menu";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 import { NPM, Pnpm } from "@/components/icons/icons";
+import HintTooltip from "@/components/ui/hint-tooltip";
 import { Check, Copy } from "@/icons";
 
 const MANAGERS = {
@@ -53,20 +54,19 @@ export default function Install({ id }: { id: string }) {
   return (
     <Menu.Root open={open} onOpenChange={setOpen}>
       {/* A square the size of the pagination arrows beside it, so the corner
-          reads as one group of page actions rather than a button and a pair.
-          An icon alone does not say what it does, hence the title as well as
-          the label: the tooltip is the words. */}
-      <Menu.Trigger
-        className="d-f ai-c jc-c fs-0 w-8 h-8 bc-border bg-surface a:bg-surface-7 c-accent bw-1 c-p fv:oc-white fv:oo-2"
-        aria-label="Copy install command"
-        title="Copy install command"
-      >
-        {copied ? (
-          <Check className="w-4 h-4" aria-hidden />
-        ) : (
-          <Copy className="w-4 h-4" aria-hidden />
-        )}
-      </Menu.Trigger>
+          reads as one group of page actions rather than a button and a pair. */}
+      <HintTooltip label="Copy install command">
+        <Menu.Trigger
+          className="d-f ai-c jc-c fs-0 w-8 h-8 bc-border bg-surface a:bg-surface-7 c-accent bw-1 c-p fv:oc-white fv:oo-2"
+          aria-label="Copy install command"
+        >
+          {copied ? (
+            <Check className="w-4 h-4" aria-hidden />
+          ) : (
+            <Copy className="w-4 h-4" aria-hidden />
+          )}
+        </Menu.Trigger>
+      </HintTooltip>
       <AnimatePresence>
         {open && (
           <Menu.Portal>
