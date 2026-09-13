@@ -1915,6 +1915,19 @@ declares logical properties: `padding` covers `padding-inline` covers
       half that should differ per component. 32 schemas moved, content
       untouched, order only.
 
+- [x] **Preview Card marked focus and hover the same way.** The trigger drew
+      `fv:td-u` on focus and `h:td-u` on hover, which is one underline twice:
+      tabbing to it looked exactly like the mouse being over it, and `open`
+      added a third `td-u` on top. It now takes the same `FOCUS` outline as
+      every other focusable part in the set, so hover underlines and focus
+      outlines. Measured in the rendered frame: the anchor carries
+      `fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5` and keeps
+      `h:td-u`.
+
+      It was the one component outside the gate, having no `FOCUS` of its own,
+      so `tests/registry.test.ts` skipped it entirely. Adding the constant
+      brings it inside every check the other 29 already had.
+
 ### Phase 7 - One breaking registry release
 
 All three change something a published `yummaui.json` or an installed CLI
