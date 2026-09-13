@@ -15,6 +15,12 @@ import { type DemoProps, exampleIcon, seedValues } from "@/utils/demo";
 import { applyQuery, keyMapFor, queryFor } from "@/utils/playground-url";
 import { prefetchRegistry } from "@/utils/prefetch-registry";
 import { isInert } from "@/utils/props";
+import {
+  carriedFor,
+  clearCarried,
+  readCarried,
+  writeCarried,
+} from "@/utils/sticky";
 
 /** Playground state shared between stage (MDX) and rail (layout column). */
 interface Playground {
@@ -22,6 +28,10 @@ interface Playground {
   meta: RegistryMeta | null;
   values: DemoProps;
   setValue: (name: string, value: unknown) => void;
+  /** Whether the last page carried anything onto this one. */
+  carried: boolean;
+  /** Drops what was carried and reseeds from the schema. */
+  reset: () => void;
 }
 
 const PlaygroundContext = createContext<Playground | null>(null);
@@ -46,6 +56,7 @@ export function PlaygroundProvider({
   children: ReactNode;
 }) {
   const [seed, setSeed] = useState<Seed>(EMPTY);
+  const [carried, setCarried] = useState(false);
 
   useEffect(() => {
     const importMeta = getRegistryMeta(id);
@@ -91,6 +102,24 @@ export function PlaygroundProvider({
     [seed.meta, seed.values, query],
   );
 
+  // The style axes follow you to the next component, so trying a shape across
+  // the library is one click per page rather than one per page plus a reset.
+  // The URL still decides: a link someone sent is never overwritten.
+  useEffect(() => {
+    if (!seed.meta) return;
+    // Whether the address names the key, not whether the parser has a value
+    // for it: every parser carries the seed as its default, so reading `query`
+    // here would report every key as spoken for and carry nothing, ever.
+    const named = new URLSearchParams(window.location.search);
+    const pending = carriedFor(seed.meta, readCarried(), (name) =>
+      named.has(name),
+    );
+    if (Object.keys(pending).length > 0) {
+      setCarried(true);
+      setQuery(pending);
+    }
+  }, [seed.meta, setQuery]);
+
   const setValue = useCallback(
     (name: string, value: unknown) => {
       const meta = seed.meta;
@@ -120,14 +149,21 @@ export function PlaygroundProvider({
         else if (entry.default !== undefined) next[entry.name] = entry.default;
       }
 
+      writeCarried(next);
       setQuery(queryFor(meta, next));
     },
     [seed.meta, values, setQuery],
   );
 
+  const reset = useCallback(() => {
+    clearCarried();
+    setCarried(false);
+    if (seed.meta) setQuery(queryFor(seed.meta, seed.values));
+  }, [seed.meta, seed.values, setQuery]);
+
   const playground = useMemo(
-    () => ({ id, meta: seed.meta, values, setValue }),
-    [id, seed.meta, values, setValue],
+    () => ({ id, meta: seed.meta, values, setValue, carried, reset }),
+    [id, seed.meta, values, setValue, carried, reset],
   );
 
   return <PlaygroundContext value={playground}>{children}</PlaygroundContext>;
