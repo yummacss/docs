@@ -66,6 +66,26 @@
       "description": "A discriminated union. `{ label }` is a plain action (plus optional `icon`, `shortcut`, `destructive`, `disabled`, `onClick`). `{ type: \"separator\" }` divides. `{ type: \"group\", label?, items }` wraps a `role=\"group\"` block under a heading. `{ type: \"checkbox\", label, checked, onCheckedChange }` and `{ type: \"radio\", value, onValueChange, options }` are the stateful kinds. `{ type: \"submenu\", label, items }` nests, recursively."
     },
     {
+      "name": "iconPosition",
+      "type": "enum",
+      "values": ["leading", "trailing"],
+      "default": "leading",
+      "description": "Which end of an item its `icon` sits at. A `shortcut` always trails regardless."
+    },
+    {
+      "name": "open",
+      "type": "boolean",
+      "description": "Controlled state. There is no `defaultOpen` - a context menu that starts open before anyone right-clicks was never demonstrated & makes no sense.",
+      "controlled": true,
+      "handler": "onOpenChange"
+    },
+    {
+      "name": "onOpenChange",
+      "type": "none",
+      "typeName": "(open: boolean) => void",
+      "description": "Called with the new state. Required for a controlled menu."
+    },
+    {
       "name": "shape",
       "type": "enum",
       "values": ["rounded", "square", "squircle"],
@@ -80,30 +100,10 @@
       "description": "Depth on both the trigger and the popup."
     },
     {
-      "name": "iconPosition",
-      "type": "enum",
-      "values": ["leading", "trailing"],
-      "default": "leading",
-      "description": "Which end of an item its `icon` sits at. A `shortcut` always trails regardless."
-    },
-    {
       "name": "disabled",
       "type": "boolean",
       "default": false,
       "description": "Blocks the menu from opening at all & dims the trigger."
-    },
-    {
-      "name": "open",
-      "type": "boolean",
-      "description": "Controlled state. There is no `defaultOpen` - a context menu that starts open before anyone right-clicks was never demonstrated & makes no sense.",
-      "controlled": true,
-      "handler": "onOpenChange"
-    },
-    {
-      "name": "onOpenChange",
-      "type": "none",
-      "typeName": "(open: boolean) => void",
-      "description": "Called with the new state. Required for a controlled menu."
     },
     {
       "name": "animated",

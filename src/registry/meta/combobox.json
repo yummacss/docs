@@ -44,6 +44,24 @@
       "description": "Placeholder text."
     },
     {
+      "name": "multiple",
+      "type": "boolean",
+      "default": false,
+      "description": "Allows more than one selection. Choices become removable chips under the input."
+    },
+    {
+      "name": "clearable",
+      "type": "boolean",
+      "default": true,
+      "description": "Adds a button that empties the selection. It appears with the first selection rather than with the prop, because an X on an empty field has nothing to do. Works alongside `multiple`, where it clears every chip."
+    },
+    {
+      "name": "emptyMessage",
+      "type": "string",
+      "default": "No results found.",
+      "description": "Shown when nothing matches."
+    },
+    {
       "name": "size",
       "type": "enum",
       "values": ["sm", "md", "lg"],
@@ -65,18 +83,6 @@
       "description": "Depth on the input. `inset` reads as a well, `outset` as a raised control."
     },
     {
-      "name": "multiple",
-      "type": "boolean",
-      "default": false,
-      "description": "Allows more than one selection. Choices become removable chips under the input."
-    },
-    {
-      "name": "clearable",
-      "type": "boolean",
-      "default": true,
-      "description": "Adds a button that empties the selection. It appears with the first selection rather than with the prop, because an X on an empty field has nothing to do. Works alongside `multiple`, where it clears every chip."
-    },
-    {
       "name": "disabled",
       "type": "boolean",
       "default": false,
@@ -95,23 +101,17 @@
       "description": "Fades the popup in and out. Turn it off for a static popup, or when the user has asked for reduced motion."
     },
     {
-      "name": "emptyMessage",
-      "type": "string",
-      "default": "No results found.",
-      "description": "Shown when nothing matches."
+      "name": "focus",
+      "type": "boolean",
+      "typeName": "boolean | string",
+      "default": true,
+      "description": "The focus outline. `true` draws it, `false` removes it along with the danger, error and success tints that ride with it, and a string of Yumma CSS utilities restyles it on every focusable part of the component, which is more than `className` reaches. Removing it outright and putting nothing back fails WCAG 2.4.7."
     },
     {
       "name": "container",
       "type": "none",
       "typeName": "HTMLElement | null",
       "description": "Where the popup is rendered. Defaults to `document.body`, which is right almost always; pass an element to portal somewhere else, such as inside a frame or a container that owns its own stacking context."
-    },
-    {
-      "name": "focus",
-      "type": "boolean",
-      "typeName": "boolean | string",
-      "default": true,
-      "description": "The focus outline. `true` draws it, `false` removes it along with the danger, error and success tints that ride with it, and a string of Yumma CSS utilities restyles it on every focusable part of the component, which is more than `className` reaches. Removing it outright and putting nothing back fails WCAG 2.4.7."
     }
   ]
 }
