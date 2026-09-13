@@ -136,8 +136,7 @@ export interface MenuProps {
   onOpenChange?: (open: boolean) => void;
   animated?: boolean;
   className?: string;
-  focusOutline?: boolean;
-  focusClassName?: string;
+  focus?: boolean | string;
 }
 
 export default function MenuBase({
@@ -152,11 +151,10 @@ export default function MenuBase({
   onOpenChange,
   animated = true,
   className,
-  focusOutline = true,
-  focusClassName,
+  focus = true,
   container,
 }: MenuProps) {
-  const outline = focusOutline ? FOCUS : "";
+  const outline = focus ? merge(FOCUS, focus === true ? "" : focus) : "";
 
   const [internalOpen, setInternalOpen] = useState(false);
   const open = controlledOpen ?? internalOpen;
@@ -186,7 +184,6 @@ export default function MenuBase({
     animated ? "tp-c tdu-150 ttf-io" : "",
     disabled ? "c-slate-4 o-60 c-na" : "c-slate-10 c-p h:bg-silver-1/50",
     className,
-    focusClassName,
   );
 
   // `os-none`: Base UI focuses the popup when it opens, and the browser

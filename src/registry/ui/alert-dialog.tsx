@@ -67,7 +67,7 @@ const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
 const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
 
 // The tone sits with the outline, not in the button's own classes, so
-// `focusOutline` switches the whole treatment off rather than leaving a
+// `focus` switches the whole treatment off rather than leaving a
 // coloured border behind.
 const DANGER_OUTLINE = "fv:oc-red-2/60 fv:bc-red-3";
 
@@ -104,8 +104,7 @@ export interface AlertDialogProps {
   shadow?: Shadow;
   animated?: boolean;
   className?: string;
-  focusOutline?: boolean;
-  focusClassName?: string;
+  focus?: boolean | string;
 }
 
 export default function AlertDialogBase({
@@ -125,17 +124,14 @@ export default function AlertDialogBase({
   shadow = "none",
   animated = true,
   className,
-  focusOutline = true,
-  focusClassName,
+  focus = true,
   container,
 }: AlertDialogProps) {
-  const outline = focusOutline ? FOCUS : "";
+  const outline = focus ? merge(FOCUS, focus === true ? "" : focus) : "";
   const triggerOutline =
-    focusOutline && triggerTone === "danger"
-      ? merge(FOCUS, DANGER_OUTLINE)
-      : outline;
+    focus && triggerTone === "danger" ? merge(FOCUS, DANGER_OUTLINE) : outline;
   const confirmOutline =
-    focusOutline && tone === "danger" ? merge(FOCUS, DANGER_OUTLINE) : outline;
+    focus && tone === "danger" ? merge(FOCUS, DANGER_OUTLINE) : outline;
 
   const [open, setOpen] = useState(false);
 
@@ -148,7 +144,6 @@ export default function AlertDialogBase({
     BUTTON_SHAPES[shape],
     TONE_BUTTON[triggerTone],
     className,
-    focusClassName,
   );
 
   const popupClasses = [
@@ -172,7 +167,6 @@ export default function AlertDialogBase({
     "px-4 py-2 bw-1 fw-500 tp-c tdu-150 ttf-io us-none",
     BUTTON_SHAPES[shape],
     TONE_BUTTON.neutral,
-    focusClassName,
   );
 
   const confirmClasses = merge(
@@ -180,7 +174,6 @@ export default function AlertDialogBase({
     "px-4 py-2 bw-1 fw-500 tp-c tdu-150 ttf-io us-none",
     BUTTON_SHAPES[shape],
     TONE_BUTTON[tone],
-    focusClassName,
   );
 
   const popup = (
@@ -203,7 +196,6 @@ export default function AlertDialogBase({
                     outline,
                     "d-f p-a r-3 t-3 ai-c jc-c w-7 h-7 p-0 c-slate-6 bw-0 h:bg-silver-1/50 h:c-slate-7",
                     CLOSE_SHAPES[shape],
-                    focusClassName,
                   )}
                 />
               }

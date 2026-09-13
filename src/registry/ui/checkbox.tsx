@@ -70,8 +70,7 @@ export interface CheckboxProps
   shape?: Shape;
   shadow?: Shadow;
   className?: string;
-  focusOutline?: boolean;
-  focusClassName?: string;
+  focus?: boolean | string;
 }
 
 export default function CheckboxBase({
@@ -85,11 +84,10 @@ export default function CheckboxBase({
   defaultChecked,
   onCheckedChange,
   className,
-  focusOutline = true,
-  focusClassName,
+  focus = true,
   ...props
 }: CheckboxProps) {
-  const outline = focusOutline ? FOCUS : "";
+  const outline = focus ? merge(FOCUS, focus === true ? "" : focus) : "";
 
   // Spread through `...props`, a controlled `checked` reached Base UI and was
   // ignored. Held here and passed by name it behaves, the way Switch does.
@@ -130,7 +128,6 @@ export default function CheckboxBase({
                   ? CHECKED
                   : UNCHECKED,
               className,
-              focusClassName,
             )
           }
           {...props}

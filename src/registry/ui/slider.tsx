@@ -50,8 +50,7 @@ export interface SliderProps {
   disabled?: boolean;
   formatValue?: (value: Value) => ReactNode;
   className?: string;
-  focusOutline?: boolean;
-  focusClassName?: string;
+  focus?: boolean | string;
 }
 
 export default function SliderBase({
@@ -69,8 +68,7 @@ export default function SliderBase({
   disabled = false,
   formatValue = defaultFormat,
   className,
-  focusOutline = true,
-  focusClassName,
+  focus = true,
 }: SliderProps) {
   const [internalValue, setInternalValue] = useState<Value>(
     defaultValue ?? controlledValue ?? 0,
@@ -86,12 +84,12 @@ export default function SliderBase({
 
   // Focus is held in state because `fv:` never matches here: Base UI puts the
   // focusable `<input type="range">` inside the thumb, so the outline has to be
-  // driven from the input's own focus. `focusClassName` is written with `fv:`
+  // driven from the input's own focus. A `focus` string is written with `fv:`
   // for every other component, so the prefix is dropped rather than asking for
   // a different value here.
   const outline = merge(
-    focusOutline ? FOCUS : "",
-    (focusClassName ?? "").replace(/\bfv:/g, ""),
+    focus ? FOCUS : "",
+    (typeof focus === "string" ? focus : "").replace(/\bfv:/g, ""),
   );
 
   const thumbClasses = (index: number) =>

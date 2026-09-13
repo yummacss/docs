@@ -53,8 +53,7 @@ export interface TabsProps {
   iconPosition?: IconPosition;
   animated?: boolean;
   className?: string;
-  focusOutline?: boolean;
-  focusClassName?: string;
+  focus?: boolean | string;
 }
 
 export default function TabsBase({
@@ -68,10 +67,9 @@ export default function TabsBase({
   iconPosition = "leading",
   animated = true,
   className,
-  focusOutline = true,
-  focusClassName,
+  focus = true,
 }: TabsProps) {
-  const outline = focusOutline ? FOCUS : "";
+  const outline = focus ? merge(FOCUS, focus === true ? "" : focus) : "";
 
   const [internalValue, setInternalValue] = useState(
     defaultValue ?? controlledValue ?? items[0]?.value,
@@ -130,7 +128,6 @@ export default function TabsBase({
               : isSelected
                 ? "c-slate-10"
                 : "c-slate-8 h:c-slate-10",
-            focusClassName,
           );
 
           const labelClasses = ["p-r zi-10 fw-500", spec.text]
