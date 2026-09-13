@@ -8,6 +8,8 @@ import { merge } from "yummacss/merge";
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 
+const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+
 const SHAPES: Record<Shape, string> = {
   rounded: "br-lg",
   square: "",
@@ -59,6 +61,8 @@ export default function PreviewCardBase({
     .filter(Boolean)
     .join(" ");
 
+  const outline = focus ? merge(FOCUS, focus === true ? "" : focus) : "";
+
   return (
     <PreviewCard.Root
       defaultOpen={defaultOpen}
@@ -68,9 +72,8 @@ export default function PreviewCardBase({
       <PreviewCard.Trigger
         className={(state) =>
           merge(
+            outline,
             "c-blue c-p fw-500 td-none h:td-u",
-            focus ? "fv:td-u" : "",
-            focus === true ? "" : focus,
             state.open ? "td-u" : "",
             className,
           )

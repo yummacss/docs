@@ -15,9 +15,9 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  121
-    Open    12
-    Done    91%
+    Closed  123
+    Open    11
+    Done    92%
 
 ---
 
@@ -33,14 +33,7 @@ Empty.
 
 ## Phase 3 - API changes
 
-Breaking for the registry, so they ship together in one release with the
-renames already on `main`.
-
-- [ ] **Preview Card's trigger has no outline.** It marks focus with `fv:td-u`,
-      the same underline hover already draws, so the two states are
-      indistinguishable. Every other focusable part in the set takes `FOCUS`.
-      Found while rolling out `focus`; not fixed there because it
-      changes how the component looks.
+Empty.
 
 ## Phase 4 - Wants mockups
 
