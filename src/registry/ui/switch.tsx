@@ -42,8 +42,7 @@ export interface SwitchProps {
   disabled?: boolean;
   animated?: boolean;
   className?: string;
-  focusOutline?: boolean;
-  focusClassName?: string;
+  focus?: boolean | string;
   ariaLabel?: string;
 }
 
@@ -59,11 +58,10 @@ export default function SwitchBase({
   disabled = false,
   animated = true,
   className,
-  focusOutline = true,
-  focusClassName,
+  focus = true,
   ariaLabel,
 }: SwitchProps) {
-  const outline = focusOutline ? FOCUS : "";
+  const outline = focus ? merge(FOCUS, focus === true ? "" : focus) : "";
 
   const [internalChecked, setInternalChecked] = useState(
     defaultChecked ?? controlledChecked ?? false,
@@ -93,7 +91,6 @@ export default function SwitchBase({
         : "bg-silver-1",
     disabled ? "" : "c-p",
     className,
-    focusClassName,
   );
 
   const thumbClasses = [

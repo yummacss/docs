@@ -35,8 +35,7 @@ export interface PreviewCardProps {
   shadow?: Shadow;
   animated?: boolean;
   className?: string;
-  focusOutline?: boolean;
-  focusClassName?: string;
+  focus?: boolean | string;
 }
 
 export default function PreviewCardBase({
@@ -49,8 +48,7 @@ export default function PreviewCardBase({
   shadow = "none",
   animated = true,
   className,
-  focusOutline = true,
-  focusClassName,
+  focus = true,
   container,
 }: PreviewCardProps) {
   const popupClasses = [
@@ -71,10 +69,10 @@ export default function PreviewCardBase({
         className={(state) =>
           merge(
             "c-blue c-p fw-500 td-none h:td-u",
-            focusOutline ? "fv:td-u" : "",
+            focus ? "fv:td-u" : "",
+            focus === true ? "" : focus,
             state.open ? "td-u" : "",
             className,
-            focusClassName,
           )
         }
       >

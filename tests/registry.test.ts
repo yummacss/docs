@@ -47,26 +47,6 @@ function enclosingStatement(source: string, at: number): string {
     .replace(/\s+/g, " ");
 }
 
-/** Every `merge(...)` call in a file, brackets balanced. */
-function mergeCallsIn(source: string): string[] {
-  const calls: string[] = [];
-
-  for (let open = 0; open < source.length; open++) {
-    if (!source.startsWith("merge(", open)) continue;
-
-    let depth = 0;
-    for (let i = open + 5; i < source.length; i++) {
-      if (source[i] === "(") depth++;
-      else if (source[i] === ")" && --depth === 0) {
-        calls.push(source.slice(open, i));
-        break;
-      }
-    }
-  }
-
-  return calls;
-}
-
 function mappedIds(): string[] {
   const source = readFileSync(indexPath, "utf-8");
   return [...source.matchAll(/^\s*"([^"]+)":\s*\(\)\s*=>\s*import\(/gm)].map(
@@ -492,11 +472,12 @@ describe("Yumma UI registry", () => {
   });
 
   /**
-   * One `FOCUS` per file, reachable only through the `focusOutline` gate, and
-   * `focusClassName` merged wherever the result lands. Written inline, an
-   * outline on an inner part is unreachable: `className` only gets to the root.
+   * One `FOCUS` per file, reachable only through the `focus` gate, and the
+   * caller's own classes folded in at that gate so they reach every site.
+   * Written inline, an outline on an inner part is unreachable: `className`
+   * only ever gets to the root.
    */
-  it("puts every focus outline behind the gate and focusClassName", () => {
+  it("puts every focus outline behind the focus gate", () => {
     const wrong: string[] = [];
 
     for (const id of componentFiles()) {
@@ -507,10 +488,10 @@ describe("Yumma UI registry", () => {
       if (declarations.length !== 1)
         wrong.push(`${id}: ${declarations.length} FOCUS`);
 
-      // Every `fv:` class has to sit somewhere `focusOutline` can reach: the
-      // constant itself, a `*_OUTLINE` tone map folded into the gate, or the
-      // gate expression. Anywhere else and `focusOutline={false}` still leaves
-      // that class painting on focus.
+      // Every `fv:` class has to sit somewhere `focus` can reach: the constant
+      // itself, a `*_OUTLINE` tone map folded into the gate, or the gate
+      // expression. Anywhere else and `focus={false}` still leaves that class
+      // painting on focus.
       for (const use of source.matchAll(/fv:[\w:/.-]+/g)) {
         const at = use.index ?? 0;
         const line = source.slice(source.lastIndexOf("\n", at) + 1, at);
@@ -522,48 +503,31 @@ describe("Yumma UI registry", () => {
           [...source.slice(0, at).matchAll(/^const (\w+)/gm)].pop()?.[1] ?? "";
         const gated =
           /FOCUS$|_OUTLINE$/.test(owner) ||
-          enclosingStatement(source, at).includes("focusOutline");
+          enclosingStatement(source, at).includes("focus");
 
         if (!gated) wrong.push(`${id}: ${use[0]} outside the gate`);
       }
 
-      for (const prop of [
-        "focusClassName?: string",
-        "focusOutline?: boolean",
-      ]) {
-        if (!source.includes(prop))
-          wrong.push(`${id}: no ${prop.split("?")[0]}`);
-      }
+      if (!source.includes("focus?: boolean | string"))
+        wrong.push(`${id}: no focus prop`);
 
       // FOCUS is read inside a `const` initializer and nowhere else, and that
-      // const is gated on `focusOutline`. Read anywhere else, the prop cannot
-      // switch it off and `focusOutline={false}` leaves a coloured border.
+      // const is gated on `focus`. Read anywhere else, the prop cannot switch
+      // it off and `focus={false}` leaves a coloured border.
       for (const use of source.matchAll(/(?<![\w.])[A-Z]*_?FOCUS(?![\w.])/g)) {
         const at = use.index ?? 0;
         const statement = enclosingStatement(source, at);
         if (/\bconst [A-Z_]*FOCUS\b/.test(statement)) continue;
-        if (
-          !/\bconst \w+ =/.test(statement) ||
-          !statement.includes("focusOutline")
-        )
+        if (!/\bconst \w+ =/.test(statement) || !statement.includes("focus"))
           wrong.push(`${id}: FOCUS read outside the gate, in \`${statement}\``);
       }
 
-      // And the gated value reaches the caller's classes wherever it is merged.
-      // Slider folds `focusClassName` in at the declaration instead, since it
-      // has to strip the `fv:` prefix first.
-      const foldedIn = /const \w*[Oo]utline =[^;]*focusClassName/.test(source);
-
-      for (const call of mergeCallsIn(source)) {
-        const reads = [
-          ...call.matchAll(/(?<![\w.])([a-z]\w*[Oo]utline)(?![\w.:])/g),
-        ]
-          .map((m) => m[1])
-          .filter((name) => name !== "focusOutline");
-
-        if (reads.length > 0 && !foldedIn && !call.includes("focusClassName"))
-          wrong.push(`${id}: ${reads[0]} merged without focusClassName`);
-      }
+      // A `focus` string only reaches the inner parts if the gate folds it in,
+      // and the gate is the one place that can.
+      const folds =
+        /const \w*[Oo]utline =[^;]*(focus === true \? ""|typeof focus)/;
+      if (!folds.test(source))
+        wrong.push(`${id}: the gate drops a focus string`);
     }
 
     expect(wrong).toEqual([]);

@@ -51,8 +51,7 @@ export interface BreadcrumbProps {
   size?: Size;
   separator?: Separator;
   className?: string;
-  focusOutline?: boolean;
-  focusClassName?: string;
+  focus?: boolean | string;
 }
 
 export default function BreadcrumbBase({
@@ -63,10 +62,9 @@ export default function BreadcrumbBase({
   size = "md",
   separator = "chevron",
   className,
-  focusOutline = true,
-  focusClassName,
+  focus = true,
 }: BreadcrumbProps) {
-  const outline = focusOutline ? FOCUS : "";
+  const outline = focus ? merge(FOCUS, focus === true ? "" : focus) : "";
 
   const navClasses = merge(
     "d-f ai-c g-2",
@@ -90,7 +88,6 @@ export default function BreadcrumbBase({
           outline,
           item.icon ? "d-f ai-c g-2" : "",
           "c-slate-6 h:c-slate-10",
-          focusClassName,
         );
 
         return (

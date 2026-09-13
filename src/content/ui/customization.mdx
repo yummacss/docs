@@ -44,30 +44,28 @@ When there is no prop for what you need, edit the file.
 
 ## The Focus Outline
 
-Every component marks `:focus-visible` with an outline, and `focusClassName` restyles it.
+Every component marks `:focus-visible` with an outline, and one `focus` prop covers it.
 
 ```tsx
-<Dialog trigger="Rename" title="Rename file" focusClassName="fv:oc-blue-2/60" />
+<Dialog trigger="Rename" title="Rename file" focus="fv:oc-blue-2/60" />
 ```
 
-`className` reaches the root element, so on a Dialog it never gets to the trigger, the close button or the two buttons in the footer. `focusClassName` reaches all four, and any focusable part of any other component.
+A string of Yumma CSS utilities restyles it: the color is `fv:oc-*`, the thickness `fv:ow-*` and the distance from the control `fv:oo-*`. An outline follows the element's own border box, so a control's `shape` carries into it with nothing to keep in step.
 
-It takes Yumma CSS utilities like `className` does, so the color is `fv:oc-*`, the thickness `fv:ow-*` and the distance from the control `fv:oo-*`. An outline follows the element's own border box, so a control's `shape` carries into it with nothing to keep in step.
+This is separate from `className` because `className` reaches the root element and nothing else. A Dialog has four focusable parts, the trigger, the close button and both footer buttons, and `className` only ever lands on the first of them. `focus` reaches all four, and every inner control of any other component.
 
-To replace the outline rather than restyle it, `focusOutline={false}` takes the default off and leaves `focusClassName` to put yours on.
+`focus={false}` removes the outline instead, along with the danger, error and success tints that ride with it.
 
 ```tsx
-<Button focusOutline={false} focusClassName="fv:bg-silver-2">
-  Save
+<Button variant="danger" focus={false} className="fv:bg-silver-2">
+  Delete
 </Button>
 ```
 
-It removes the whole treatment, the danger, error and success tints included. Those ride with the outline rather than sitting in the variant, so one prop clears all of it.
-
 <Hint icon="warning">
   An outline you can turn off is an outline someone can lose. On its own,
-  `focusOutline={false}` leaves nothing marking where the keyboard is, which
-  fails WCAG 2.4.7. Put something back.
+  `focus={false}` leaves nothing marking where the keyboard is, which fails
+  WCAG 2.4.7. Put something back.
 </Hint>
 
 ## Own Your Components

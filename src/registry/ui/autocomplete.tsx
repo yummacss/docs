@@ -101,8 +101,7 @@ export interface AutocompleteProps {
   emptyMessage?: string;
   onQueryChange?: (value: string) => void;
   className?: string;
-  focusOutline?: boolean;
-  focusClassName?: string;
+  focus?: boolean | string;
 }
 
 function isGroupEntry(
@@ -171,11 +170,10 @@ export default function AutocompleteBase({
   emptyMessage = "No results found.",
   onQueryChange,
   className,
-  focusOutline = true,
-  focusClassName,
+  focus = true,
   container,
 }: AutocompleteProps) {
-  const outline = focusOutline ? FOCUS : "";
+  const outline = focus ? merge(FOCUS, focus === true ? "" : focus) : "";
 
   const [open, setOpen] = useState(false);
 
@@ -193,7 +191,6 @@ export default function AutocompleteBase({
     SHADOWS[shadow],
     icon ? ICON_PADDING[iconPosition] : "pl-4",
     className,
-    focusClassName,
   );
 
   const popup = (
