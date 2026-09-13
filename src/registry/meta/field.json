@@ -10,12 +10,6 @@
       "optional": true
     },
     {
-      "name": "required",
-      "type": "boolean",
-      "default": false,
-      "description": "Appends a red asterisk to the label & sets the control's native `required` attribute."
-    },
-    {
       "name": "description",
       "type": "string",
       "description": "A line under the control, for format or context. Replaced by `error` or `success` when either is set."
@@ -29,27 +23,6 @@
       "name": "success",
       "type": "string",
       "description": "Green border, a check icon & this message in place of `description`."
-    },
-    {
-      "name": "size",
-      "type": "enum",
-      "values": ["sm", "md", "lg"],
-      "default": "md",
-      "description": "Height and width of the control."
-    },
-    {
-      "name": "shape",
-      "type": "enum",
-      "values": ["rounded", "square", "squircle"],
-      "default": "square",
-      "description": "Corner radius. `squircle` uses `corner-shape`, which degrades to a rounded square where that is unsupported."
-    },
-    {
-      "name": "shadow",
-      "type": "enum",
-      "values": ["none", "inset", "outset"],
-      "default": "none",
-      "description": "Depth on the control. `inset` reads as a well, `outset` as a raised control."
     },
     {
       "name": "icon",
@@ -98,12 +71,6 @@
       "description": "Static content flush against the control's trailing edge, like a domain suffix."
     },
     {
-      "name": "disabled",
-      "type": "boolean",
-      "default": false,
-      "description": "Blocks interaction and dims the whole field, label included."
-    },
-    {
       "name": "placeholder",
       "type": "string",
       "example": "readme.md",
@@ -120,6 +87,39 @@
       "type": "boolean",
       "default": false,
       "description": "Adds a trailing button that shows and hides the value, for password fields. Always trailing and always interactive, so it overrides `iconPosition` and `icon`."
+    },
+    {
+      "name": "size",
+      "type": "enum",
+      "values": ["sm", "md", "lg"],
+      "default": "md",
+      "description": "Height and width of the control."
+    },
+    {
+      "name": "shape",
+      "type": "enum",
+      "values": ["rounded", "square", "squircle"],
+      "default": "square",
+      "description": "Corner radius. `squircle` uses `corner-shape`, which degrades to a rounded square where that is unsupported."
+    },
+    {
+      "name": "shadow",
+      "type": "enum",
+      "values": ["none", "inset", "outset"],
+      "default": "none",
+      "description": "Depth on the control. `inset` reads as a well, `outset` as a raised control."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "default": false,
+      "description": "Blocks interaction and dims the whole field, label included."
+    },
+    {
+      "name": "required",
+      "type": "boolean",
+      "default": false,
+      "description": "Appends a red asterisk to the label & sets the control's native `required` attribute."
     },
     {
       "name": "focus",

@@ -36,11 +36,15 @@
       "description": "Called with the new state. Required for a controlled toggle."
     },
     {
-      "name": "shape",
-      "type": "enum",
-      "values": ["rounded", "square", "squircle"],
-      "default": "square",
-      "description": "Corner radius. `squircle` uses `corner-shape`, which degrades to a rounded square where that is unsupported."
+      "name": "value",
+      "type": "string",
+      "description": "Identifies this toggle inside a `ToggleGroup`. When set, Base UI derives `pressed` from the group's own value array instead of this component's internal state."
+    },
+    {
+      "name": "aria-label",
+      "type": "string",
+      "example": "Toggle theme",
+      "description": "The button has no visible text, so this is the only accessible name it gets. Set it every time."
     },
     {
       "name": "size",
@@ -50,9 +54,11 @@
       "description": "The button's footprint."
     },
     {
-      "name": "value",
-      "type": "string",
-      "description": "Identifies this toggle inside a `ToggleGroup`. When set, Base UI derives `pressed` from the group's own value array instead of this component's internal state."
+      "name": "shape",
+      "type": "enum",
+      "values": ["rounded", "square", "squircle"],
+      "default": "square",
+      "description": "Corner radius. `squircle` uses `corner-shape`, which degrades to a rounded square where that is unsupported."
     },
     {
       "name": "disabled",
@@ -65,12 +71,6 @@
       "type": "boolean",
       "default": true,
       "description": "The press-scale animation. Turn it off for an instant press, or when the user has asked for reduced motion."
-    },
-    {
-      "name": "aria-label",
-      "type": "string",
-      "example": "Toggle theme",
-      "description": "The button has no visible text, so this is the only accessible name it gets. Set it every time."
     },
     {
       "name": "focus",

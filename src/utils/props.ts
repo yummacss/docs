@@ -46,3 +46,56 @@ export function isInert(
   }
   return null;
 }
+
+/**
+ * Where the props that every component shares belong in its table, so the one
+ * you are hunting for sits in the same place on every page. Anything not named
+ * here is specific to the component and keeps its own order, above these.
+ */
+export const SHARED_PROP_ORDER = [
+  // Style: what it looks like.
+  "variant",
+  "triggerVariant",
+  "tone",
+  "triggerTone",
+  "confirmTone",
+  "iconTone",
+  "intent",
+  "size",
+  "triggerSize",
+  "shape",
+  "iconShape",
+  "shadow",
+  // State: what it is doing.
+  "disabled",
+  "loading",
+  "readOnly",
+  "required",
+  // Behavior.
+  "animated",
+  "transition",
+  // Escape hatches, last because you reach for them last.
+  "className",
+  "focus",
+  "container",
+] as const;
+
+/** Props in table order: the component's own first, then the shared tail. */
+export function inTableOrder<T extends { name: string }>(props: T[]): T[] {
+  const rank = (name: string) => {
+    const index = SHARED_PROP_ORDER.indexOf(
+      name as (typeof SHARED_PROP_ORDER)[number],
+    );
+    return index === -1 ? -1 : index;
+  };
+
+  return [...props]
+    .map((prop, index) => ({ prop, index, rank: rank(prop.name) }))
+    .sort((a, b) => {
+      if (a.rank === -1 && b.rank === -1) return a.index - b.index;
+      if (a.rank === -1) return -1;
+      if (b.rank === -1) return 1;
+      return a.rank - b.rank;
+    })
+    .map((entry) => entry.prop);
+}
