@@ -16,8 +16,9 @@ export interface RadioOption {
   description?: string;
 }
 
-const BASE =
-  "d-f ai-c jc-c p-0 m-0 fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+const RING = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+
+const BASE = "d-f ai-c jc-c p-0 m-0";
 
 const SIZES: Record<Size, string> = {
   sm: "w-3 h-3",
@@ -59,6 +60,7 @@ export interface RadioProps {
   disabled?: boolean;
   animated?: boolean;
   className?: string;
+  focusClassName?: string;
 }
 
 export default function RadioBase({
@@ -72,6 +74,7 @@ export default function RadioBase({
   disabled = false,
   animated = true,
   className,
+  focusClassName,
 }: RadioProps) {
   const labelId = useId();
 
@@ -96,16 +99,16 @@ export default function RadioBase({
       >
         {options.map((option) => {
           const rootClasses = (checked: boolean) =>
-            [
+            merge(
+              RING,
               BASE,
               SIZES[size],
               ROUND,
               checked
                 ? "bg-slate-12"
                 : `bg-white bw-1 bc-silver-3 ${SHADOWS[shadow]}`,
-            ]
-              .filter(Boolean)
-              .join(" ");
+              focusClassName,
+            );
 
           const indicator = (
             <Radio.Indicator className={(state) => dotClasses(state.checked)} />

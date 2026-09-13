@@ -9,6 +9,8 @@ import { merge } from "yummacss/merge";
 type Size = "sm" | "md" | "lg";
 type Shape = "rounded" | "square" | "squircle";
 
+const RING = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+
 interface SizeSpec {
   track: string;
   thumb: string;
@@ -40,6 +42,7 @@ export interface SwitchProps {
   disabled?: boolean;
   animated?: boolean;
   className?: string;
+  focusClassName?: string;
   ariaLabel?: string;
 }
 
@@ -55,6 +58,7 @@ export default function SwitchBase({
   disabled = false,
   animated = true,
   className,
+  focusClassName,
   ariaLabel,
 }: SwitchProps) {
   const [internalChecked, setInternalChecked] = useState(
@@ -70,7 +74,8 @@ export default function SwitchBase({
   };
 
   const trackClasses = merge(
-    "p-r d-f ai-c m-0 px-1 tp-c tdu-150 ttf-io fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5",
+    RING,
+    "p-r d-f ai-c m-0 px-1 tp-c tdu-150 ttf-io",
     track,
     SHAPES[shape],
     // Disabled is a surface, not a transparency, and it is the same surface
@@ -84,6 +89,7 @@ export default function SwitchBase({
         : "bg-silver-1",
     disabled ? "" : "c-p",
     className,
+    focusClassName,
   );
 
   const thumbClasses = [

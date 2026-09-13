@@ -6,6 +6,8 @@ import { merge } from "yummacss/merge";
 type Tone = "outline" | "subtle" | "solid";
 type Shape = "square" | "rounded" | "pill" | "squircle";
 type Size = "sm" | "md" | "lg";
+
+const RING = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
 type Shadow = "none" | "inset" | "outset";
 type IconPosition = "leading" | "trailing";
 
@@ -113,6 +115,7 @@ export interface BadgeProps {
   count?: string | number;
   onClose?: () => void;
   className?: string;
+  focusClassName?: string;
 }
 
 export default function BadgeBase({
@@ -128,6 +131,7 @@ export default function BadgeBase({
   count,
   onClose,
   className,
+  focusClassName,
 }: BadgeProps) {
   const { pad, text, icon: iconSize } = SIZES[size];
 
@@ -181,7 +185,8 @@ export default function BadgeBase({
     .filter(Boolean)
     .join(" ");
 
-  const closeButtonClasses = [
+  const closeButtonClasses = merge(
+    RING,
     "d-f ai-c jc-c w-4 h-4 p-0 bg-transparent br-9999",
     contentColor,
     tone === "outline"
@@ -189,10 +194,8 @@ export default function BadgeBase({
       : tone === "subtle"
         ? INTENTS[intent].subtleHover
         : INTENTS[intent].solidHover,
-    "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5",
-  ]
-    .filter(Boolean)
-    .join(" ");
+    focusClassName,
+  );
 
   return (
     <span className={badgeClasses}>

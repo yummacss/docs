@@ -37,6 +37,8 @@ const ICON_PADDING: Record<IconSide, string> = {
   trailing: "pl-4 pr-10",
 };
 
+const RING = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+
 const STATUS_BORDER: Record<Status, string> = {
   default: "bc-silver-3",
   error: "bc-red-5",
@@ -44,7 +46,7 @@ const STATUS_BORDER: Record<Status, string> = {
 };
 
 const STATUS_RING: Record<Status, string> = {
-  default: "fv:oc-silver-3/60 fv:bc-silver-5",
+  default: "",
   error: "fv:oc-red-2/60 fv:bc-red-3",
   success: "fv:oc-green-2/60 fv:bc-green-3",
 };
@@ -65,6 +67,7 @@ export interface FieldProps
   extends Omit<ComponentProps<typeof Field.Control>, "size"> {
   // merge composes a string, so the Base UI function form is not accepted here.
   className?: string;
+  focusClassName?: string;
   label?: string;
 
   description?: string;
@@ -108,6 +111,7 @@ export default function FieldBase({
   disabled,
   required,
   className,
+  focusClassName,
   type,
   ...props
 }: FieldProps) {
@@ -122,7 +126,11 @@ export default function FieldBase({
       pressed={revealed}
       onPressedChange={setRevealed}
       disabled={disabled}
-      className="d-f ai-c jc-c p-0 bg-transparent bw-0 c-slate-6 c-p us-none fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5"
+      className={merge(
+        RING,
+        "d-f ai-c jc-c p-0 bg-transparent bw-0 c-slate-6 c-p us-none",
+        focusClassName,
+      )}
     >
       {revealed ? (
         <Eye className="w-4 h-4" />
@@ -140,7 +148,8 @@ export default function FieldBase({
   const hasAffix = Boolean(prefixNode) || Boolean(suffix);
 
   const controlClasses = merge(
-    "bg-white c-slate-10 bw-1 fs-md fv:os-s fv:ow-3 fv:oo-0",
+    RING,
+    "bg-white c-slate-10 bw-1 fs-md",
     SIZES[size],
     SHAPES[shape],
     SHADOWS[shadow],
@@ -150,10 +159,12 @@ export default function FieldBase({
       ? ICON_PADDING[activeSide]
       : "px-4",
     className,
+    focusClassName,
   );
 
   const affixControlClasses = merge(
-    "fg-1 bg-white bc-silver-3 c-slate-10 byw-1 fs-md fv:os-s fv:ow-3 fv:oo-0",
+    RING,
+    "fg-1 bg-white bc-silver-3 c-slate-10 byw-1 fs-md",
     HEIGHTS[size],
     STATUS_RING[status],
     prefixNode && suffix
@@ -161,6 +172,7 @@ export default function FieldBase({
       : prefixNode
         ? "pl-3 pr-4 brr-lg brw-1"
         : "pl-4 pr-3 blr-lg blw-1",
+    focusClassName,
   );
 
   const affixBoxClasses =

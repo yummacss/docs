@@ -60,8 +60,9 @@ const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
   outset: "bs-o-sm",
 };
 
-const CONTROL_BASE =
-  "d-f ai-c jc-c w-8 h-8 bw-1 tp-c tdu-150 ttf-io us-none fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+const RING = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+
+const CONTROL_BASE = "d-f ai-c jc-c w-8 h-8 bw-1 tp-c tdu-150 ttf-io us-none";
 
 const slideVariants = {
   enter: (d: number) => ({ x: d > 0 ? 40 : -40, opacity: 0 }),
@@ -100,6 +101,7 @@ export interface OnboardingProps {
   shadow?: Shadow;
   animated?: boolean;
   className?: string;
+  focusClassName?: string;
 }
 
 export default function OnboardingBase({
@@ -114,6 +116,7 @@ export default function OnboardingBase({
   shadow = "none",
   animated = true,
   className,
+  focusClassName,
   container,
 }: OnboardingProps) {
   const [open, setOpen] = useState(false);
@@ -169,9 +172,11 @@ export default function OnboardingBase({
   };
 
   const triggerClasses = merge(
-    "bg-white d-if ai-c g-2 px-3 py-2 bc-silver-2 c-slate-10 bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5",
+    RING,
+    "bg-white d-if ai-c g-2 px-3 py-2 bc-silver-2 c-slate-10 bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50",
     CONTROL_SHAPES[shape],
     className,
+    focusClassName,
   );
 
   const popupClasses = [
@@ -182,19 +187,23 @@ export default function OnboardingBase({
     .filter(Boolean)
     .join(" ");
 
-  const backClasses = [
+  const backClasses = merge(
+    RING,
     CONTROL_BASE,
     CONTROL_SHAPES[shape],
     "bg-white bc-silver-2 c-slate-10 h:bg-silver-1/50",
-  ].join(" ");
+    focusClassName,
+  );
 
-  const forwardClasses = [
+  const forwardClasses = merge(
+    RING,
     CONTROL_BASE,
     CONTROL_SHAPES[shape],
     allTasksDone
       ? "bg-slate-12 h:bg-slate-11 bc-slate-12 c-white"
       : "bg-silver-1 bc-silver-2 c-slate-4",
-  ].join(" ");
+    focusClassName,
+  );
 
   const slide = (
     <div className="d-f fd-c ai-c g-3">
@@ -215,9 +224,12 @@ export default function OnboardingBase({
               <Button
                 key={task.id}
                 onClick={() => toggleTask(task.id)}
-                className={`d-f ai-c g-2 px-3 py-2 w-100% br-lg bw-0 fs-sm ta-l us-none c-p fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5 ${
-                  isChecked ? "bg-green-1/30" : "bg-silver-1/50"
-                }`}
+                className={merge(
+                  RING,
+                  "d-f ai-c g-2 px-3 py-2 w-100% br-lg bw-0 fs-sm ta-l us-none c-p",
+                  isChecked ? "bg-green-1/30" : "bg-silver-1/50",
+                  focusClassName,
+                )}
               >
                 <div
                   className={`d-f ai-c jc-c w-4 h-4 br-sm bw-1 fs-0 ${
@@ -243,7 +255,13 @@ export default function OnboardingBase({
     <AlertDialog.Close
       render={
         <Button
-          className={`d-f ai-c jc-c w-7 h-7 p-0 c-slate-6 bw-0 ${CLOSE_SHAPES[shape]} h:bg-silver-1/50 h:c-slate-7 fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5 ${position}`}
+          className={merge(
+            RING,
+            "d-f ai-c jc-c w-7 h-7 p-0 c-slate-6 bw-0 h:bg-silver-1/50 h:c-slate-7",
+            CLOSE_SHAPES[shape],
+            position,
+            focusClassName,
+          )}
         />
       }
       aria-label="Skip"
@@ -367,11 +385,14 @@ export default function OnboardingBase({
               <Button
                 onClick={() => go(page - 1)}
                 disabled={isFirst}
-                className={`d-f ai-c jc-c w-8 h-8 bw-0 br-lg us-none fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5 ${
+                className={merge(
+                  RING,
+                  "d-f ai-c jc-c w-8 h-8 bw-0 br-lg us-none",
                   isFirst
                     ? "c-slate-3"
-                    : "c-slate-6 h:bg-silver-1 h:c-slate-10 c-p"
-                }`}
+                    : "c-slate-6 h:bg-silver-1 h:c-slate-10 c-p",
+                  focusClassName,
+                )}
                 aria-label="Previous"
               >
                 <ArrowLeft className="w-4 h-4" />
@@ -386,9 +407,12 @@ export default function OnboardingBase({
                       key={String(index)}
                       value={String(index)}
                       className={(state) =>
-                        `d-f ai-c jc-c w-4 h-4 br-9999 bw-0 us-none c-p fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5 ${
-                          state.active ? "bg-slate-12" : "bg-silver-2"
-                        }`
+                        merge(
+                          RING,
+                          "d-f ai-c jc-c w-4 h-4 br-9999 bw-0 us-none c-p",
+                          state.active ? "bg-slate-12" : "bg-silver-2",
+                          focusClassName,
+                        )
                       }
                     />
                   ))}
@@ -404,11 +428,14 @@ export default function OnboardingBase({
                 <Button
                   onClick={() => go(page + 1)}
                   disabled={!allTasksDone}
-                  className={`d-f ai-c jc-c w-8 h-8 bw-0 br-lg us-none fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5 ${
+                  className={merge(
+                    RING,
+                    "d-f ai-c jc-c w-8 h-8 bw-0 br-lg us-none",
                     allTasksDone
                       ? "c-slate-6 h:bg-silver-1 h:c-slate-10 c-p"
-                      : "c-slate-3"
-                  }`}
+                      : "c-slate-3",
+                    focusClassName,
+                  )}
                   aria-label="Next"
                 >
                   <ArrowRight className="w-4 h-4" />

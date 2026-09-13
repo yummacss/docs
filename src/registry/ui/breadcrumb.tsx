@@ -5,6 +5,8 @@ import { merge } from "yummacss/merge";
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 type Size = "sm" | "md" | "lg";
+
+const RING = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
 type Separator = "chevron" | "slash";
 
 const SIZES: Record<Size, string> = {
@@ -49,6 +51,7 @@ export interface BreadcrumbProps {
   size?: Size;
   separator?: Separator;
   className?: string;
+  focusClassName?: string;
 }
 
 export default function BreadcrumbBase({
@@ -59,6 +62,7 @@ export default function BreadcrumbBase({
   size = "md",
   separator = "chevron",
   className,
+  focusClassName,
 }: BreadcrumbProps) {
   const navClasses = merge(
     "d-f ai-c g-2",
@@ -78,12 +82,12 @@ export default function BreadcrumbBase({
       {items.map((item, index) => {
         const isLast = index === items.length - 1;
 
-        const linkClasses = [
+        const linkClasses = merge(
+          RING,
           item.icon ? "d-f ai-c g-2" : "",
-          "c-slate-6 h:c-slate-10 fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5",
-        ]
-          .filter(Boolean)
-          .join(" ");
+          "c-slate-6 h:c-slate-10",
+          focusClassName,
+        );
 
         return (
           <span key={item.label} className="d-f ai-c g-2">

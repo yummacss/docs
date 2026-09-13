@@ -70,6 +70,11 @@
       "values": ["none", "inset", "outset"],
       "default": "none",
       "description": "Wraps the whole block in a card. `none` renders it bare, with no card at all."
+    },
+    {
+      "name": "focusClassName",
+      "type": "string",
+      "description": "Yumma CSS utilities merged into the focus ring on every focusable part of the component, so an `fv:oc-*`, `fv:ow-*` or `fv:oo-*` you pass wins. `className` reaches the root only, which is why this is separate."
     }
   ]
 }

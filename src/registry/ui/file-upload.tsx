@@ -12,6 +12,8 @@ type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 type Border = "dashed" | "solid";
 
+const RING = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+
 const ZONE = "d-f fd-c ai-c g-3 m-0 p-0 w-100 min-w-0 bg-white";
 
 const SHAPES: Record<Shape, string> = {
@@ -58,6 +60,7 @@ export interface FileUploadProps {
   error?: string;
   disabled?: boolean;
   className?: string;
+  focusClassName?: string;
 }
 
 export default function FileUploadBase({
@@ -74,6 +77,7 @@ export default function FileUploadBase({
   error,
   disabled = false,
   className,
+  focusClassName,
 }: FileUploadProps) {
   const id = useId();
   const input = useRef<HTMLInputElement>(null);
@@ -179,10 +183,10 @@ export default function FileUploadBase({
               disabled={disabled}
               onClick={() => input.current?.click()}
               className={merge(
-                "p-0 bg-transparent bw-0 fs-sm fw-500 c-p d:c-na fv:os-s fv:ow-3 fv:oo-1",
-                error
-                  ? "c-red-5 fv:oc-red-2/60"
-                  : "c-slate-12 fv:oc-silver-3/60",
+                RING,
+                "p-0 bg-transparent bw-0 fs-sm fw-500 c-p d:c-na fv:oo-1",
+                error ? "c-red-5 fv:oc-red-2/60" : "c-slate-12",
+                focusClassName,
               )}
             >
               {label}
@@ -217,8 +221,10 @@ export default function FileUploadBase({
                     commit(files.filter((entry) => entry !== file))
                   }
                   className={merge(
-                    "d-f ai-c jc-c w-5 h-5 p-0 bg-transparent bw-0 c-slate-6 c-p h:c-slate-10 fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60",
+                    RING,
+                    "d-f ai-c jc-c w-5 h-5 p-0 bg-transparent bw-0 c-slate-6 c-p h:c-slate-10",
                     SHAPES[shape],
+                    focusClassName,
                   )}
                 >
                   <Xmark className="w-4 h-4" />
