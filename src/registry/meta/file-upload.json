@@ -42,6 +42,18 @@
       "description": "Called with the whole list whenever it changes, on a pick, a drop or a removal."
     },
     {
+      "name": "border",
+      "type": "enum",
+      "values": ["dashed", "solid"],
+      "default": "dashed",
+      "description": "`dashed` is the drop-zone convention and carries the extra width it needs to read as one. `solid` is a heavier, more permanent box, so it stays thin."
+    },
+    {
+      "name": "error",
+      "type": "string",
+      "description": "Turns the border, tile and text red & shows this message in place of `description`. Crosses with `border`, so a solid zone can be in error too."
+    },
+    {
       "name": "shape",
       "type": "enum",
       "values": ["rounded", "square", "squircle"],
@@ -54,18 +66,6 @@
       "values": ["none", "inset", "outset"],
       "default": "none",
       "description": "Depth on the icon tile, not on the zone: a drop target with a drop shadow reads as a card you cannot drop into."
-    },
-    {
-      "name": "border",
-      "type": "enum",
-      "values": ["dashed", "solid"],
-      "default": "dashed",
-      "description": "`dashed` is the drop-zone convention and carries the extra width it needs to read as one. `solid` is a heavier, more permanent box, so it stays thin."
-    },
-    {
-      "name": "error",
-      "type": "string",
-      "description": "Turns the border, tile and text red & shows this message in place of `description`. Crosses with `border`, so a solid zone can be in error too."
     },
     {
       "name": "disabled",

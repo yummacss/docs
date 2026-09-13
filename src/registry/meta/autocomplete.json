@@ -44,6 +44,43 @@
       "description": "Placeholder text."
     },
     {
+      "name": "icon",
+      "type": "none",
+      "typeName": "ReactNode",
+      "example": null,
+      "exampleIcon": "Search",
+      "description": "Any icon. It is positioned over the input and the text is padded around it, so pass the glyph and nothing else."
+    },
+    {
+      "name": "iconPosition",
+      "type": "enum",
+      "values": ["leading", "trailing"],
+      "default": "leading",
+      "description": "Which end `icon` sits at.",
+      "dependsOn": "icon"
+    },
+    {
+      "name": "autoHighlight",
+      "type": "boolean",
+      "default": false,
+      "description": "Highlights the first match as you type, so Enter takes it without an arrow key first."
+    },
+    {
+      "name": "limit",
+      "type": "number",
+      "default": 0,
+      "description": "Cap on how many matches are listed. `0` lists them all.",
+      "min": 0,
+      "max": 10,
+      "step": 1
+    },
+    {
+      "name": "emptyMessage",
+      "type": "string",
+      "default": "No results found.",
+      "description": "Shown when nothing matches."
+    },
+    {
       "name": "size",
       "type": "enum",
       "values": ["sm", "md", "lg"],
@@ -65,22 +102,6 @@
       "description": "Depth on the input. `inset` reads as a well, `outset` as a raised control."
     },
     {
-      "name": "icon",
-      "type": "none",
-      "typeName": "ReactNode",
-      "example": null,
-      "exampleIcon": "Search",
-      "description": "Any icon. It is positioned over the input and the text is padded around it, so pass the glyph and nothing else."
-    },
-    {
-      "name": "iconPosition",
-      "type": "enum",
-      "values": ["leading", "trailing"],
-      "default": "leading",
-      "description": "Which end `icon` sits at.",
-      "dependsOn": "icon"
-    },
-    {
       "name": "disabled",
       "type": "boolean",
       "default": false,
@@ -93,37 +114,10 @@
       "description": "Replaces the results with a loading row, for an async source. The fetching itself is yours; this is only the state."
     },
     {
-      "name": "autoHighlight",
-      "type": "boolean",
-      "default": false,
-      "description": "Highlights the first match as you type, so Enter takes it without an arrow key first."
-    },
-    {
-      "name": "limit",
-      "type": "number",
-      "default": 0,
-      "description": "Cap on how many matches are listed. `0` lists them all.",
-      "min": 0,
-      "max": 10,
-      "step": 1
-    },
-    {
       "name": "animated",
       "type": "boolean",
       "default": true,
       "description": "Fades the popup in and out. Turn it off for a static popup, or when the user has asked for reduced motion."
-    },
-    {
-      "name": "emptyMessage",
-      "type": "string",
-      "default": "No results found.",
-      "description": "Shown when nothing matches."
-    },
-    {
-      "name": "container",
-      "type": "none",
-      "typeName": "HTMLElement | null",
-      "description": "Where the popup is rendered. Defaults to `document.body`, which is right almost always; pass an element to portal somewhere else, such as inside a frame or a container that owns its own stacking context."
     },
     {
       "name": "focus",
@@ -131,6 +125,12 @@
       "typeName": "boolean | string",
       "default": true,
       "description": "The focus outline. `true` draws it, `false` removes it along with the danger, error and success tints that ride with it, and a string of Yumma CSS utilities restyles it on every focusable part of the component, which is more than `className` reaches. Removing it outright and putting nothing back fails WCAG 2.4.7."
+    },
+    {
+      "name": "container",
+      "type": "none",
+      "typeName": "HTMLElement | null",
+      "description": "Where the popup is rendered. Defaults to `document.body`, which is right almost always; pass an element to portal somewhere else, such as inside a frame or a container that owns its own stacking context."
     }
   ]
 }

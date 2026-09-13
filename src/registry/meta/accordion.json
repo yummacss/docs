@@ -25,43 +25,6 @@
       "description": "Each item's `value`, `title`, `content` and optional `disabled`. `value` is what `defaultValue`/`value` reference to control which items are open."
     },
     {
-      "name": "variant",
-      "type": "enum",
-      "values": ["default", "bordered", "ghost", "subtle"],
-      "default": "default",
-      "description": "`default` is a plain list divided by `separator`. `bordered` boxes each item. `ghost` marks the open item with a left border. `subtle` fills the open item's background."
-    },
-    {
-      "name": "shape",
-      "type": "enum",
-      "values": ["rounded", "square", "squircle"],
-      "default": "square",
-      "description": "Corner radius on `bordered` items. The other variants use a fixed radius, since no shape was ever paired with them.",
-      "conflictsWith": [
-        {
-          "prop": "variant",
-          "is": "default"
-        },
-        {
-          "prop": "variant",
-          "is": "ghost"
-        }
-      ]
-    },
-    {
-      "name": "shadow",
-      "type": "enum",
-      "values": ["none", "inset", "outset"],
-      "default": "none",
-      "description": "Wraps the whole list in a card. Only applies to the `default` variant.",
-      "conflictsWith": [
-        {
-          "prop": "variant",
-          "is": "ghost"
-        }
-      ]
-    },
-    {
       "name": "separated",
       "type": "boolean",
       "default": true,
@@ -118,6 +81,43 @@
       "type": "none",
       "typeName": "(value: string[]) => void",
       "description": "Called with the new open items. Required for a controlled accordion."
+    },
+    {
+      "name": "variant",
+      "type": "enum",
+      "values": ["default", "bordered", "ghost", "subtle"],
+      "default": "default",
+      "description": "`default` is a plain list divided by `separator`. `bordered` boxes each item. `ghost` marks the open item with a left border. `subtle` fills the open item's background."
+    },
+    {
+      "name": "shape",
+      "type": "enum",
+      "values": ["rounded", "square", "squircle"],
+      "default": "square",
+      "description": "Corner radius on `bordered` items. The other variants use a fixed radius, since no shape was ever paired with them.",
+      "conflictsWith": [
+        {
+          "prop": "variant",
+          "is": "default"
+        },
+        {
+          "prop": "variant",
+          "is": "ghost"
+        }
+      ]
+    },
+    {
+      "name": "shadow",
+      "type": "enum",
+      "values": ["none", "inset", "outset"],
+      "default": "none",
+      "description": "Wraps the whole list in a card. Only applies to the `default` variant.",
+      "conflictsWith": [
+        {
+          "prop": "variant",
+          "is": "ghost"
+        }
+      ]
     },
     {
       "name": "animated",

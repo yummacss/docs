@@ -2,13 +2,6 @@
   "summary": "A set of toggles sharing one container, in four shapes and both orientations, pressing one or several at a time.",
   "props": [
     {
-      "name": "shape",
-      "type": "enum",
-      "values": ["rounded", "square", "squircle", "pill"],
-      "default": "square",
-      "description": "Corner radius of the container. The toggles inside carry their own `shape`."
-    },
-    {
       "name": "orientation",
       "type": "enum",
       "values": ["horizontal", "vertical"],
@@ -20,12 +13,6 @@
       "type": "boolean",
       "default": false,
       "description": "More than one toggle can be pressed at a time. Off by default, matching Base UI, so a group is single-choice unless you say otherwise."
-    },
-    {
-      "name": "disabled",
-      "type": "boolean",
-      "default": false,
-      "description": "Ignores interaction on every toggle in the group."
     },
     {
       "name": "value",
@@ -41,6 +28,19 @@
       "name": "onValueChange",
       "type": "(value: string[]) => void",
       "description": "Called with the pressed values whenever they change."
+    },
+    {
+      "name": "shape",
+      "type": "enum",
+      "values": ["rounded", "square", "squircle", "pill"],
+      "default": "square",
+      "description": "Corner radius of the container. The toggles inside carry their own `shape`."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "default": false,
+      "description": "Ignores interaction on every toggle in the group."
     },
     {
       "name": "className",

@@ -1902,6 +1902,19 @@ declares logical properties: `padding` covers `padding-inline` covers
       can render as a box on a legacy Windows code page. The omission is
       written into that repo's AGENTS.md next to the rule it breaks.
 
+- [x] **The API tables were in no order at all, and the numbers said so.**
+      `shape` is on 32 components and landed anywhere from the first row to
+      four fifths of the way down; `shadow` ran 0.25 to 0.91, `size` 0.10 to
+      0.67. Only `focus` was consistent, because it had just been appended
+      everywhere at once.
+
+      115 distinct prop names across the schemas is too many to order by hand,
+      and most of them appear once. So only the 21 that recur are placed:
+      style, state, behavior, escape hatches, in that sequence, below whatever
+      the component's own props are. Those keep their own order, which is the
+      half that should differ per component. 32 schemas moved, content
+      untouched, order only.
+
 - [x] **Carrying the style axes between pages, and the check that made it
       work.** The first cut carried nothing at all, in silence. The guard asked
       whether `query[name]` held a value, but every parser is built
