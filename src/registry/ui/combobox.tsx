@@ -22,7 +22,7 @@ export interface ComboboxGroup {
   items: ComboboxItem[];
 }
 
-const RING = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
 
 const INPUT = "pl-4 pr-16 bg-white bc-silver-3 c-slate-10 bw-1 fs-md";
 
@@ -185,7 +185,7 @@ export default function ComboboxBase({
   );
 
   const inputClasses = merge(
-    RING,
+    FOCUS,
     INPUT,
     SIZES[size],
     SHAPES[shape],
@@ -278,7 +278,7 @@ export default function ComboboxBase({
                 id={id}
                 placeholder={placeholder}
                 className={merge(
-                  RING,
+                  FOCUS,
                   "fg-1 w-24 min-w-24 bg-transparent c-slate-10 bw-0",
                   focusClassName,
                 )}
@@ -302,14 +302,14 @@ export default function ComboboxBase({
                 once. */}
             {clearable && (
               <Combobox.Clear
-                className={merge(RING, ACTION, focusClassName)}
+                className={merge(FOCUS, ACTION, focusClassName)}
                 aria-label="Clear selection"
               >
                 <Xmark className="w-4 h-4" />
               </Combobox.Clear>
             )}
             <Combobox.Trigger
-              className={merge(RING, ACTION, focusClassName)}
+              className={merge(FOCUS, ACTION, focusClassName)}
               aria-label="Open popup"
             >
               <ArrowSeparateVertical className="w-4 h-4" />

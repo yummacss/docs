@@ -12,7 +12,7 @@ type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 type Border = "dashed" | "solid";
 
-const RING = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
 
 const ZONE = "d-f fd-c ai-c g-3 m-0 p-0 w-100 min-w-0 bg-white";
 
@@ -183,7 +183,7 @@ export default function FileUploadBase({
               disabled={disabled}
               onClick={() => input.current?.click()}
               className={merge(
-                RING,
+                FOCUS,
                 "p-0 bg-transparent bw-0 fs-sm fw-500 c-p d:c-na fv:oo-1",
                 error ? "c-red-5 fv:oc-red-2/60" : "c-slate-12",
                 focusClassName,
@@ -221,7 +221,7 @@ export default function FileUploadBase({
                     commit(files.filter((entry) => entry !== file))
                   }
                   className={merge(
-                    RING,
+                    FOCUS,
                     "d-f ai-c jc-c w-5 h-5 p-0 bg-transparent bw-0 c-slate-6 c-p h:c-slate-10",
                     SHAPES[shape],
                     focusClassName,

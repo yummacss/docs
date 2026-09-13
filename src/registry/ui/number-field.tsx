@@ -10,11 +10,11 @@ type Size = "sm" | "md" | "lg";
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 
-const RING = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
 
-// The ring sits a pixel inside the group border, so the input and the steppers
-// share one edge instead of drawing two rings against each other.
-const INSET_RING = `${RING} fv:oo--1`;
+// The outline sits a pixel inside the group border, so the input and the
+// steppers share one edge instead of drawing two outlines against each other.
+const INSET_FOCUS = `${FOCUS} fv:oo--1`;
 
 // A number field is a field that happens to step, so the number gets the room
 // and the steppers become a column at the trailing edge.
@@ -40,7 +40,7 @@ const ICON_SIZES: Record<Size, string> = {
 };
 
 // The outline follows the group's own radius, and the group had none: the
-// corners live on the end buttons, so the focus ring drew a square.
+// corners live on the end buttons, so the focus outline drew a square.
 const GROUP_SHAPES: Record<Shape, string> = {
   rounded: "br-lg",
   square: "",
@@ -82,10 +82,15 @@ export default function NumberFieldBase({
 }: NumberFieldProps) {
   const id = useId();
 
-  const stepClasses = merge(INSET_RING, STEP, STEP_SIZES[size], focusClassName);
+  const stepClasses = merge(
+    INSET_FOCUS,
+    STEP,
+    STEP_SIZES[size],
+    focusClassName,
+  );
 
   const inputClasses = merge(
-    INSET_RING,
+    INSET_FOCUS,
     "bg-white bc-transparent c-slate-10 bw-1 ta-l",
     INPUT_SIZES[size],
     SHADOWS[shadow],

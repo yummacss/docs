@@ -464,37 +464,38 @@ describe("Yumma UI registry", () => {
   });
 
   /**
-   * One `RING` per file, and `focusClassName` merged after it wherever the ring
-   * lands. Written inline, a ring on an inner part is unreachable: `className`
-   * only ever gets to the root.
+   * One `FOCUS` per file, and `focusClassName` merged after it wherever the
+   * outline lands. Written inline, an outline on an inner part is unreachable:
+   * `className` only ever gets to the root.
    */
-  it("puts every focus ring behind RING and focusClassName", () => {
+  it("puts every focus outline behind FOCUS and focusClassName", () => {
     const wrong: string[] = [];
 
     for (const id of componentFiles()) {
       const source = readFileSync(join(registryDir, `${id}.tsx`), "utf-8");
-      if (!/\bRING\b/.test(source)) continue;
+      if (!/\bFOCUS\b/.test(source)) continue;
 
-      const declarations = source.match(/^const RING = "[^"]*";$/gm) ?? [];
+      const declarations = source.match(/^const FOCUS = "[^"]*";$/gm) ?? [];
       if (declarations.length !== 1)
-        wrong.push(`${id}: ${declarations.length} RING`);
+        wrong.push(`${id}: ${declarations.length} FOCUS`);
 
-      // `fv:os-s` is the ring's own outline-style, so a second one is a ring
-      // written out by hand next to the constant.
-      const inline = source.replace(/^const RING = "[^"]*";$/gm, "");
-      if (inline.includes("fv:os-s")) wrong.push(`${id}: inline ring`);
+      // `fv:os-s` is the outline's own `outline-style`, so a second one is an
+      // outline written out by hand next to the constant.
+      const inline = source.replace(/^const FOCUS = "[^"]*";$/gm, "");
+      if (inline.includes("fv:os-s"))
+        wrong.push(`${id}: outline written inline`);
 
       if (!source.includes("focusClassName?: string"))
         wrong.push(`${id}: no focusClassName prop`);
 
-      // Every place the ring is read has to be a `merge(...)` that also reads
-      // `focusClassName`, or what the caller passes never reaches that part.
-      // A ring const built from another one is the exception.
-      for (const use of source.matchAll(/(?<![\w.])[A-Z]*_?RING(?![\w.])/g)) {
+      // Every place the outline is read has to be a `merge(...)` that also
+      // reads `focusClassName`, or what the caller passes never reaches that
+      // part. An outline const built from another one is the exception.
+      for (const use of source.matchAll(/(?<![\w.])[A-Z]*_?FOCUS(?![\w.])/g)) {
         const at = use.index ?? 0;
         const from = source.lastIndexOf("\n", at) + 1;
         const line = source.slice(from, source.indexOf("\n", at));
-        if (/^const [A-Z_]*RING\b/.test(line)) continue;
+        if (/^const [A-Z_]*FOCUS\b/.test(line)) continue;
 
         const call = enclosingCall(source, at);
         if (!call?.includes("focusClassName"))
@@ -503,6 +504,24 @@ describe("Yumma UI registry", () => {
     }
 
     expect(wrong).toEqual([]);
+  });
+
+  // Same rule as the content pages, for the source someone installs and the
+  // schema that feeds its props table.
+  it("calls the focus indicator an outline in the source too", () => {
+    const offenders: string[] = [];
+
+    for (const dir of ["src/registry/ui", "src/registry/meta"]) {
+      for (const file of readdirSync(join(rootDir, dir))) {
+        const source = readFileSync(join(rootDir, dir, file), "utf-8");
+        // The bare word, and the `_RING` an underscore hides from `\b`.
+        for (const hit of source.matchAll(/\brings?\b|_RINGS?\b/gi)) {
+          offenders.push(`${file}: ${hit[0]}`);
+        }
+      }
+    }
+
+    expect(offenders).toEqual([]);
   });
 
   /** A component that can take focus says so in its schema, or nothing documents it. */

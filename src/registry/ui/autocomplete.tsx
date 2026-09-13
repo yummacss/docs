@@ -23,7 +23,7 @@ export interface AutocompleteGroup {
   items: AutocompleteItem[];
 }
 
-const RING = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
 
 const INPUT = "bg-white bc-silver-3 c-slate-10 bw-1 fs-md";
 
@@ -182,7 +182,7 @@ export default function AutocompleteBase({
   const id = useId();
 
   const inputClasses = merge(
-    RING,
+    FOCUS,
     INPUT,
     SIZES[size],
     SHAPES[shape],

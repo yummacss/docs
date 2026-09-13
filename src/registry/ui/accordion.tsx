@@ -11,7 +11,7 @@ type Variant = "default" | "bordered" | "ghost" | "subtle";
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 
-const RING = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
 type Indicator = "chevron" | "plus-minus";
 type IndicatorPosition = "leading" | "trailing";
 
@@ -188,7 +188,7 @@ export default function AccordionBase({
             <Accordion.Header className="m-0">
               <Accordion.Trigger
                 className={merge(
-                  RING,
+                  FOCUS,
                   "d-f ai-c",
                   indicatorPosition === "trailing" ? "jc-sb" : "",
                   "g-3 w-100%",

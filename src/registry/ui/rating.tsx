@@ -10,7 +10,7 @@ import { merge } from "yummacss/merge";
 
 type Shadow = "none" | "inset" | "outset";
 
-const RING = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
 
 export interface RatingIcon {
   icon: ReactNode;
@@ -92,7 +92,7 @@ export default function RatingBase({
       "d-f ai-c jc-c p-0 w-9 h-9 br-lg us-none",
       shadowClass || "bw-0",
       disabled ? "c-na o-60" : "",
-      !disabled && !readOnly ? `c-p ${RING}` : "",
+      !disabled && !readOnly ? `c-p ${FOCUS}` : "",
       pressed ? "c-yellow-5" : "c-slate-4",
       !disabled && !readOnly && !pressed ? "h:c-slate-6" : "",
       shadowClass ? "" : "bg-transparent",
@@ -102,7 +102,7 @@ export default function RatingBase({
   const iconClasses = (option: RatingIcon, active: boolean) =>
     merge(
       "d-f ai-c jc-c p-0 w-12 h-12 bw-0 br-lg us-none",
-      disabled ? "c-na o-60" : `c-p ${RING}`,
+      disabled ? "c-na o-60" : `c-p ${FOCUS}`,
       active ? (option.activeClassName ?? "c-yellow-5") : "c-slate-4",
       !disabled && !active ? "h:c-slate-6" : "",
       focusClassName,

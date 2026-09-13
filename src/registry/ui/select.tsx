@@ -24,7 +24,7 @@ export interface SelectGroup {
   items: SelectOption[];
 }
 
-const RING = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
 
 const TRIGGER =
   "d-f ai-c jc-sb bw-1 bc-silver-3 bg-white c-slate-10 us-none c-p";
@@ -177,7 +177,7 @@ export default function SelectBase({
   const id = useId();
 
   const triggerClasses = merge(
-    RING,
+    FOCUS,
     TRIGGER,
     SIZES[size],
     SHAPES[shape],

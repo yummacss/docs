@@ -22,7 +22,7 @@ const ICON_TONES: Record<IconTone, string> = {
   neutral: "c-slate-5",
 };
 
-const RING = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
 
 const BUTTON_BASE =
   "d-if ai-c px-3 py-2 bw-1 fw-500 tp-c tdu-150 ttf-io us-none c-p";
@@ -94,7 +94,7 @@ export default function EmptyStateBase({
             <Button
               onClick={onSecondary}
               className={merge(
-                RING,
+                FOCUS,
                 BUTTON_BASE,
                 "bg-white bc-silver-2 c-slate-10 h:bg-silver-1/50",
                 focusClassName,
@@ -107,7 +107,7 @@ export default function EmptyStateBase({
             <Button
               onClick={onPrimary}
               className={merge(
-                RING,
+                FOCUS,
                 BUTTON_BASE,
                 "g-2 bg-slate-12 h:bg-slate-11 bc-slate-12 c-white",
                 focusClassName,

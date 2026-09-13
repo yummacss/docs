@@ -32,7 +32,7 @@ const EXPECTED_DROPS = [
   "select.tsx: bg-white",
   // No visual change: `td-u` already won.
   "preview-card.tsx: td-none",
-  // `RING` carries the default ring colour, and a danger, error or success
+  // `FOCUS` carries the default outline colour, and a danger, error or success
   // tone is meant to repaint it.
   "alert-dialog.tsx: fv:bc-silver-5",
   "alert-dialog.tsx: fv:oc-silver-3/60",
@@ -47,7 +47,7 @@ const EXPECTED_DROPS = [
   "textarea.tsx: fv:oc-silver-3/60",
   "tooltip.tsx: fv:bc-silver-5",
   "tooltip.tsx: fv:oc-silver-3/60",
-  // The browse button sits inside the dashed zone, so its ring keeps a pixel.
+  // The browse button sits inside the dashed zone, so its outline keeps a pixel.
   "file-upload.tsx: fv:oo-0",
   // A pressed toolbar toggle takes a border.
   "toolbar.tsx: bw-0",

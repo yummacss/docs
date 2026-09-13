@@ -16,7 +16,7 @@ export interface RadioOption {
   description?: string;
 }
 
-const RING = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
 
 const BASE = "d-f ai-c jc-c p-0 m-0";
 
@@ -100,7 +100,7 @@ export default function RadioBase({
         {options.map((option) => {
           const rootClasses = (checked: boolean) =>
             merge(
-              RING,
+              FOCUS,
               BASE,
               SIZES[size],
               ROUND,

@@ -25,7 +25,7 @@ const SHADOWS: Record<Shadow, string> = {
 // the same padding is what keeps the fill clear of the thumb: the indicator
 // takes half a box past `--start-position`, which is the box's edge and a
 // padding beyond the thumb's.
-const RING = "os-s ow-3 oo-0 oc-silver-3/60";
+const FOCUS = "os-s ow-3 oo-0 oc-silver-3/60";
 
 const THUMB_BOX = "d-f ai-c jc-c w-6 h-5 p-1";
 const BOX = "1.5rem";
@@ -83,18 +83,18 @@ export default function SliderBase({
   };
 
   // Focus is held in state because `fv:` never matches here: Base UI puts the
-  // focusable `<input type="range">` inside the thumb, so the ring has to be
+  // focusable `<input type="range">` inside the thumb, so the outline has to be
   // driven from the input's own focus. `focusClassName` is written with `fv:`
   // for every other component, so the prefix is dropped rather than asking for
   // a different value here.
-  const ring = merge(RING, (focusClassName ?? "").replace(/\bfv:/g, ""));
+  const outline = merge(FOCUS, (focusClassName ?? "").replace(/\bfv:/g, ""));
 
   const thumbClasses = (index: number) =>
     merge(
       "w-4 h-3",
       disabled ? "bg-silver-5" : "bg-slate-10",
       SHAPES[shape],
-      focused === index ? ring : "",
+      focused === index ? outline : "",
     );
 
   const focusProps = (index: number) => ({

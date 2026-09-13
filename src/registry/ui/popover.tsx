@@ -10,7 +10,7 @@ type Side = "top" | "right" | "bottom" | "left";
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 
-const RING = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
 type TriggerVariant = "icon" | "label";
 
 /** Base UI waits on `getAnimations()`, which never sees Motion. See NOTES.md. */
@@ -131,7 +131,7 @@ export default function PopoverBase({
   };
 
   const triggerClasses = merge(
-    RING,
+    FOCUS,
     "d-f ai-c jc-c bw-1 bc-silver-2 bg-white c-slate-10 us-none c-p h:bg-silver-1",
     TRIGGER_VARIANTS[triggerVariant],
     TRIGGER_SHAPES[shape],
@@ -175,7 +175,7 @@ export default function PopoverBase({
         {showClose && (
           <Popover.Close
             className={merge(
-              RING,
+              FOCUS,
               "d-f fs-0 ai-c jc-c w-7 h-7 bg-transparent c-slate-5 bw-0 br-9999 c-p h:bg-silver-1/50 h:c-slate-7",
               focusClassName,
             )}
