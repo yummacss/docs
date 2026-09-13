@@ -81,7 +81,7 @@ export default function Code({
  * The bar naming the file a block belongs to, with the copy control on the
  * right so it never sits on top of the source.
  *
- * Exported for the same reason as `CopyButton`: `ComponentPreview` renders its
+ * Exported for the same reason as `CopyButton`: `ComponentPlayground` renders its
  * usage snippet from a token stream rather than through this component, and a
  * second hand-written copy of this markup is a second thing to keep in step.
  * Renders nothing without a title or action, so callers need no conditional.

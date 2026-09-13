@@ -1972,9 +1972,20 @@ declares logical properties: `padding` covers `padding-inline` covers
       `components/ui/...` or `yummaui add ...`. Checked against `main` before
       trusting it: all four old call sites match it.
 
-      Found while reading them: `remark-component-source.mjs` never fires.
-      Nothing in `src/content` is an `<ComponentPreview>` element any more, so
-      the plugin visits no node and the source block it appends is unreachable.
+- [x] **`remark-component-source.mjs` is deleted.** It visits one node name,
+      `ComponentPreview`, which this file records as removed under Phase 4: the
+      component went, the plugin stayed registered in `next.config.ts` and has
+      fired on nothing since. `<ComponentPlayground />` is what the pages use,
+      and it emits its own source through `rehype-registry.mjs` and the `.md`
+      routes.
+
+      Checked before deleting: no `.mdx` anywhere holds a `ComponentPreview`
+      element, `mdx-components.tsx` has no such entry, and nothing but
+      `next.config.ts` named the file. The `.md` routes are the thing that would
+      notice, and `tests/markdown-routes.test.ts` holds their floor.
+
+      `rehype-registry.mjs` is the same shape and worth a look: it acts only on
+      a fence whose meta carries `registryId=`, and `src/content` has none.
 
 ### Phase 7 - One breaking registry release
 
