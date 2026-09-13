@@ -9,12 +9,6 @@
       "optional": true
     },
     {
-      "name": "required",
-      "type": "boolean",
-      "default": false,
-      "description": "Appends a red asterisk to the label & sets the input's native `required` attribute."
-    },
-    {
       "name": "description",
       "type": "string",
       "description": "A line under the control, for context on what the number means."
@@ -73,6 +67,12 @@
       "type": "boolean",
       "default": false,
       "description": "Blocks interaction and dims the whole control, label included."
+    },
+    {
+      "name": "required",
+      "type": "boolean",
+      "default": false,
+      "description": "Appends a red asterisk to the label & sets the input's native `required` attribute."
     },
     {
       "name": "focus",

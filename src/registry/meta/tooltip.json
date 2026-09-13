@@ -38,13 +38,6 @@
       "step": 2
     },
     {
-      "name": "tone",
-      "type": "enum",
-      "values": ["light", "dark", "danger"],
-      "default": "light",
-      "description": "The tooltip's surface and its trigger together. `light` and `dark` are the two neutral surfaces; `danger` reads red at both ends, for a destructive action."
-    },
-    {
       "name": "arrow",
       "type": "boolean",
       "default": true,
@@ -58,6 +51,13 @@
       "min": 0,
       "max": 1000,
       "step": 100
+    },
+    {
+      "name": "tone",
+      "type": "enum",
+      "values": ["light", "dark", "danger"],
+      "default": "light",
+      "description": "The tooltip's surface and its trigger together. `light` and `dark` are the two neutral surfaces; `danger` reads red at both ends, for a destructive action."
     },
     {
       "name": "shape",
@@ -80,17 +80,17 @@
       "description": "The tooltip's fade and rise. Turn it off for an instant tooltip, or when the user has asked for reduced motion."
     },
     {
-      "name": "container",
-      "type": "none",
-      "typeName": "HTMLElement | null",
-      "description": "Where the popup is rendered. Defaults to `document.body`, which is right almost always; pass an element to portal somewhere else, such as inside a frame or a container that owns its own stacking context."
-    },
-    {
       "name": "focus",
       "type": "boolean",
       "typeName": "boolean | string",
       "default": true,
       "description": "The focus outline. `true` draws it, `false` removes it along with the danger, error and success tints that ride with it, and a string of Yumma CSS utilities restyles it on every focusable part of the component, which is more than `className` reaches. Removing it outright and putting nothing back fails WCAG 2.4.7."
+    },
+    {
+      "name": "container",
+      "type": "none",
+      "typeName": "HTMLElement | null",
+      "description": "Where the popup is rendered. Defaults to `document.body`, which is right almost always; pass an element to portal somewhere else, such as inside a frame or a container that owns its own stacking context."
     }
   ]
 }

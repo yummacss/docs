@@ -68,6 +68,16 @@ is written.
   has no `shape` prop at all. Ask that question before adding one.
 - `tests/registry.test.ts` holds the mechanical half.
 
+# Prop order
+
+- A component's own props come first, in whatever order reads best for that
+  component. The props every component shares follow, in one fixed sequence:
+  style, then state, then behavior, then the escape hatches. `shape` sits
+  between `size` and `shadow` on all 32 components that have it.
+- The sequence lives in `SHARED_PROP_ORDER` in `src/utils/props.ts`, the only
+  place to change it. `node scripts/order-props.mjs` re-sorts every schema to
+  match, and `tests/registry.test.ts` fails when one drifts.
+
 # Working
 
 - PRs, never direct commits to `main`. One PR per phase, on a branch named

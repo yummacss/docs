@@ -25,20 +25,6 @@
       "dependsOn": "triggerIcon"
     },
     {
-      "name": "triggerTone",
-      "type": "enum",
-      "values": ["neutral", "danger"],
-      "default": "neutral",
-      "description": "Color: `neutral` or `danger`, for a destructive confirmation."
-    },
-    {
-      "name": "triggerSize",
-      "type": "enum",
-      "values": ["sm", "md"],
-      "default": "md",
-      "description": "Footprint: `md` or `sm`, for a trigger nested inside other content, like a row action."
-    },
-    {
       "name": "onTriggerClick",
       "type": "none",
       "typeName": "() => void",
@@ -88,6 +74,19 @@
       "description": "Called when the confirm button is pressed. The dialog closes either way."
     },
     {
+      "name": "showClose",
+      "type": "boolean",
+      "default": true,
+      "description": "The X in the corner."
+    },
+    {
+      "name": "triggerTone",
+      "type": "enum",
+      "values": ["neutral", "danger"],
+      "default": "neutral",
+      "description": "Color: `neutral` or `danger`, for a destructive confirmation."
+    },
+    {
       "name": "confirmTone",
       "type": "enum",
       "values": ["primary", "danger"],
@@ -95,10 +94,11 @@
       "description": "Color of the confirm button: `primary` or `danger`, for a destructive action like a delete."
     },
     {
-      "name": "showClose",
-      "type": "boolean",
-      "default": true,
-      "description": "The X in the corner."
+      "name": "triggerSize",
+      "type": "enum",
+      "values": ["sm", "md"],
+      "default": "md",
+      "description": "Footprint: `md` or `sm`, for a trigger nested inside other content, like a row action."
     },
     {
       "name": "shape",
@@ -121,17 +121,17 @@
       "description": "The backdrop's fade and the popup's scale-in. Turn it off for an instant dialog, or when the user has asked for reduced motion."
     },
     {
-      "name": "container",
-      "type": "none",
-      "typeName": "HTMLElement | null",
-      "description": "Where the popup is rendered. Defaults to `document.body`, which is right almost always; pass an element to portal somewhere else, such as inside a frame or a container that owns its own stacking context."
-    },
-    {
       "name": "focus",
       "type": "boolean",
       "typeName": "boolean | string",
       "default": true,
       "description": "The focus outline. `true` draws it, `false` removes it along with the danger, error and success tints that ride with it, and a string of Yumma CSS utilities restyles it on every focusable part of the component, which is more than `className` reaches. Removing it outright and putting nothing back fails WCAG 2.4.7."
+    },
+    {
+      "name": "container",
+      "type": "none",
+      "typeName": "HTMLElement | null",
+      "description": "Where the popup is rendered. Defaults to `document.body`, which is right almost always; pass an element to portal somewhere else, such as inside a frame or a container that owns its own stacking context."
     }
   ]
 }

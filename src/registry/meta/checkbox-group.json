@@ -36,15 +36,15 @@
       "description": "Called with the checked values whenever they change."
     },
     {
+      "name": "name",
+      "type": "string",
+      "description": "Form field name for the parent checkbox."
+    },
+    {
       "name": "disabled",
       "type": "boolean",
       "default": false,
       "description": "Ignores interaction on every checkbox in the group."
-    },
-    {
-      "name": "name",
-      "type": "string",
-      "description": "Form field name for the parent checkbox."
     },
     {
       "name": "className",

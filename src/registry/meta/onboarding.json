@@ -81,6 +81,18 @@
       "description": "An X in the corner, so the tour can be skipped without walking to the end."
     },
     {
+      "name": "animatedResize",
+      "type": "boolean",
+      "default": true,
+      "description": "The popup's grow and shrink as steps of different heights come and go. Only steps with `tasks` change height, so this does nothing without them.",
+      "conflictsWith": [
+        {
+          "prop": "animated",
+          "set": false
+        }
+      ]
+    },
+    {
       "name": "shape",
       "type": "enum",
       "values": ["rounded", "square", "squircle"],
@@ -101,29 +113,17 @@
       "description": "The slide transition between steps and the popup's scale-in. Turn it off for an instant tour, or when the user has asked for reduced motion."
     },
     {
-      "name": "animatedResize",
+      "name": "focus",
       "type": "boolean",
+      "typeName": "boolean | string",
       "default": true,
-      "description": "The popup's grow and shrink as steps of different heights come and go. Only steps with `tasks` change height, so this does nothing without them.",
-      "conflictsWith": [
-        {
-          "prop": "animated",
-          "set": false
-        }
-      ]
+      "description": "The focus outline. `true` draws it, `false` removes it along with the danger, error and success tints that ride with it, and a string of Yumma CSS utilities restyles it on every focusable part of the component, which is more than `className` reaches. Removing it outright and putting nothing back fails WCAG 2.4.7."
     },
     {
       "name": "container",
       "type": "none",
       "typeName": "HTMLElement | null",
       "description": "Where the popup is rendered. Defaults to `document.body`, which is right almost always; pass an element to portal somewhere else, such as inside a frame or a container that owns its own stacking context."
-    },
-    {
-      "name": "focus",
-      "type": "boolean",
-      "typeName": "boolean | string",
-      "default": true,
-      "description": "The focus outline. `true` draws it, `false` removes it along with the danger, error and success tints that ride with it, and a string of Yumma CSS utilities restyles it on every focusable part of the component, which is more than `className` reaches. Removing it outright and putting nothing back fails WCAG 2.4.7."
     }
   ]
 }
