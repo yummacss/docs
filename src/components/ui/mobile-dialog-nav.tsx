@@ -4,6 +4,7 @@ import { Dialog } from "@base-ui/react/dialog";
 import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Scroller from "@/components/ui/scroller";
 import { Xmark } from "@/icons";
 import { YummaCSSDark } from "../icons/yummacss-dark";
 
@@ -76,8 +77,8 @@ export default function MobileDialogNav({ sections, isOpen, onClose }: Props) {
                   </Dialog.Close>
                 </div>
 
-                <div
-                  className="d-f oy-auto ob-c fd-c g-8 px-4 py-4"
+                <Scroller
+                  viewportClassName="d-f fd-c g-8 px-4 py-4"
                   style={{ height: "calc(100dvh - 60px)" }}
                 >
                   {sections.map((section) => {
@@ -129,7 +130,7 @@ export default function MobileDialogNav({ sections, isOpen, onClose }: Props) {
                       </div>
                     );
                   })}
-                </div>
+                </Scroller>
               </Dialog.Popup>
             </div>
           </Dialog.Portal>

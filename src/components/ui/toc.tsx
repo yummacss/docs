@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import ChangelogLink from "@/components/ui/changelog-link";
 import EditPage from "@/components/ui/edit-page";
 import RssLink from "@/components/ui/rss-link";
+import Scroller from "@/components/ui/scroller";
 import ViewMarkdown from "@/components/ui/view-markdown";
 
 interface TocItem {
@@ -46,8 +47,8 @@ export default function TableOfContents() {
 
   return (
     <aside className="d-none bc-border blw-1 @lg:d-b @lg:gc-s-3">
-      <div
-        className="p-st t-20 oy-auto ob-c"
+      <Scroller
+        className="p-st t-20"
         style={{ maxHeight: "calc(100dvh - 5rem)" }}
       >
         <div className="px-8 pb-12">
@@ -79,7 +80,7 @@ export default function TableOfContents() {
             )}
           </div>
         </div>
-      </div>
+      </Scroller>
     </aside>
   );
 }
