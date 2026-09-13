@@ -1884,6 +1884,24 @@ declares logical properties: `padding` covers `padding-inline` covers
       **wired and ineffective**, which no static check will find. They need the
       component opened one at a time.
 
+- [x] **The icons half of that entry was only true of one repo.** `play` had
+      five files importing `iconoir-react` and now has `src/icons.ts` with
+      eight icons behind it. `yummacss` and `ui` import zero icons: one is the
+      framework, the other is a terminal CLI, and an icons module in either
+      would be an empty file. The copy half was true of all three, and each
+      had something to find: two `Loading...` in `play`, four UK spellings in
+      `ui`, nothing in `yummacss`.
+
+      Each repo owns its own copy of the rules rather than importing them,
+      which is the same call as the icons module: four small duplicated files
+      beat one shared dependency between repos that ship separately.
+
+      One rule did not travel. The docs site spells an ellipsis as one
+      character; `yummacss`'s CLI keeps `...` in its five spinner labels,
+      because that is the conventional spelling in a terminal and a lone `…`
+      can render as a box on a legacy Windows code page. The omission is
+      written into that repo's AGENTS.md next to the rule it breaks.
+
 ### Phase 7 - One breaking registry release
 
 All three change something a published `yummaui.json` or an installed CLI

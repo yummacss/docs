@@ -15,9 +15,9 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  120
-    Open    13
-    Done    90%
+    Closed  121
+    Open    12
+    Done    91%
 
 ---
 
@@ -53,9 +53,6 @@ Design decisions. Nothing here starts without them.
 
 Nothing here blocks a release, and all of it makes the next change cheaper.
 
-- [ ] Give `play`, `yummacss` and `ui` their own icons module, and their own
-      copy tests. Each repo gets its own file. This is not one module shared
-      across four repos.
 
 ## Phase 6 - After v4
 
