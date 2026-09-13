@@ -15,9 +15,9 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  123
-    Open    11
-    Done    92%
+    Closed  125
+    Open    10
+    Done    93%
 
 ---
 
@@ -59,7 +59,6 @@ Nothing here blocks a release, and all of it makes the next change cheaper.
       3.29.0, so this is a Yumma UI concern now. Big enough to be the headline
       of **1.0**. Mockups need a theme toggle from the start.
 - [ ] **Remove Skeleton**, in favour of a new prop on every component.
-- [ ] `snippets` joins the shared-constants rollout.
 
 ## Decisions
 

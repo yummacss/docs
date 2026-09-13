@@ -1957,6 +1957,25 @@ declares logical properties: `padding` covers `padding-inline` covers
       Both were caught by asking the browser for computed styles rather than by
       looking at the page.
 
+- [x] **The CLI's defaults live in one file.** `components/ui`, the `@/` alias
+      and the CLI's own name were retyped in four places that all mean the same
+      thing: the usage snippet's import, the child imports under it, the source
+      block's title and the `target` on every registry JSON entry.
+      `src/utils/install.mjs` holds them now, as `targetPath`, `importPath` and
+      `addCommand`. `.mjs` because two of the four consumers are the remark
+      plugin and the registry generator, which is the same reason
+      `normalize-rules.mjs` is one.
+
+      The values are unchanged, so nothing rendered moves: the guard in
+      `tests/install.test.ts` pins what the helpers return and then fails any
+      file outside `install.mjs` that interpolates an id into
+      `components/ui/...` or `yummaui add ...`. Checked against `main` before
+      trusting it: all four old call sites match it.
+
+      Found while reading them: `remark-component-source.mjs` never fires.
+      Nothing in `src/content` is an `<ComponentPreview>` element any more, so
+      the plugin visits no node and the source block it appends is unreachable.
+
 ### Phase 7 - One breaking registry release
 
 All three change something a published `yummaui.json` or an installed CLI

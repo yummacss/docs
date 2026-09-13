@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { visit } from "unist-util-visit";
+import { targetPath } from "../utils/install.mjs";
 
 const isDev = process.env.NODE_ENV !== "production";
 const fileCache = new Map();
@@ -90,11 +91,10 @@ export default function remarkComponentSource() {
        * `from "./<id>"`. Naming both files is the whole fix; nothing about the
        * imports should change.
        *
-       * `components/ui` is `yummaui init`'s default (`ui/src/commands/init.ts`)
-       * and base ids carry no `-base` suffix, so the target is always
-       * `<id>.tsx` - the same name `targetFileName` resolves to in the CLI.
+       * Base ids carry no `-base` suffix, so the target is always `<id>.tsx`,
+       * the same name `targetFileName` resolves to in the CLI.
        */
-      const target = `components/ui/${registryId}.tsx`;
+      const target = targetPath(registryId);
 
       node.children.push({
         type: "code",
