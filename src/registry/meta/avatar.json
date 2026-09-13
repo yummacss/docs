@@ -21,20 +21,6 @@
       "typeName": "ReactNode"
     },
     {
-      "name": "size",
-      "type": "enum",
-      "values": ["sm", "md", "lg"],
-      "default": "md",
-      "description": "Diameter, and the size of the initials or icon inside it."
-    },
-    {
-      "name": "shape",
-      "type": "enum",
-      "values": ["circle", "square", "squircle"],
-      "default": "circle",
-      "description": "Corner radius. `squircle` uses `corner-shape`, which degrades to a rounded square where that is unsupported."
-    },
-    {
       "name": "status",
       "type": "enum",
       "values": ["none", "online", "offline", "busy"],
@@ -48,6 +34,20 @@
       "default": false,
       "example": null,
       "description": "A verification check in the top right corner. It sits in the opposite corner to `status`, so both can be on, but the demo starts with only `status`."
+    },
+    {
+      "name": "size",
+      "type": "enum",
+      "values": ["sm", "md", "lg"],
+      "default": "md",
+      "description": "Diameter, and the size of the initials or icon inside it."
+    },
+    {
+      "name": "shape",
+      "type": "enum",
+      "values": ["circle", "square", "squircle"],
+      "default": "circle",
+      "description": "Corner radius. `squircle` uses `corner-shape`, which degrades to a rounded square where that is unsupported."
     }
   ]
 }

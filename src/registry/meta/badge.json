@@ -2,47 +2,6 @@
   "summary": "A small status label, in three tones, six colors, four shapes and three sizes, with an optional dot, icon, count or close button.",
   "props": [
     {
-      "name": "tone",
-      "type": "enum",
-      "values": ["outline", "subtle", "solid"],
-      "default": "outline",
-      "description": "`outline` is a neutral bordered badge regardless of `color`. `subtle` and `solid` tint every part of the badge, including the dot, count and close button, to `color`."
-    },
-    {
-      "name": "intent",
-      "type": "enum",
-      "values": ["neutral", "info", "success", "warning", "danger"],
-      "default": "neutral",
-      "description": "What the badge means, not which hue it is. `tone` decides the look; `intent` tints it, including the dot, count and close button. `outline` stays neutral regardless.",
-      "conflictsWith": [
-        {
-          "prop": "tone",
-          "is": "outline"
-        }
-      ]
-    },
-    {
-      "name": "shape",
-      "type": "enum",
-      "values": ["square", "rounded", "pill", "squircle"],
-      "default": "square",
-      "description": "Corner radius. `squircle` uses `corner-shape`, which degrades to a rounded square where that is unsupported."
-    },
-    {
-      "name": "size",
-      "type": "enum",
-      "values": ["sm", "md", "lg"],
-      "default": "md",
-      "description": "Padding, text size and icon size together."
-    },
-    {
-      "name": "shadow",
-      "type": "enum",
-      "values": ["none", "inset", "outset"],
-      "default": "none",
-      "description": "Depth on the badge. `inset` reads as a well, `outset` as a raised chip."
-    },
-    {
       "name": "icon",
       "type": "none",
       "typeName": "ReactNode",
@@ -75,6 +34,47 @@
       "type": "none",
       "typeName": "() => void",
       "description": "Renders a trailing close button & calls this when it is pressed. The badge itself does not track dismissed state, so remove it from whatever list renders it."
+    },
+    {
+      "name": "tone",
+      "type": "enum",
+      "values": ["outline", "subtle", "solid"],
+      "default": "outline",
+      "description": "`outline` is a neutral bordered badge regardless of `color`. `subtle` and `solid` tint every part of the badge, including the dot, count and close button, to `color`."
+    },
+    {
+      "name": "intent",
+      "type": "enum",
+      "values": ["neutral", "info", "success", "warning", "danger"],
+      "default": "neutral",
+      "description": "What the badge means, not which hue it is. `tone` decides the look; `intent` tints it, including the dot, count and close button. `outline` stays neutral regardless.",
+      "conflictsWith": [
+        {
+          "prop": "tone",
+          "is": "outline"
+        }
+      ]
+    },
+    {
+      "name": "size",
+      "type": "enum",
+      "values": ["sm", "md", "lg"],
+      "default": "md",
+      "description": "Padding, text size and icon size together."
+    },
+    {
+      "name": "shape",
+      "type": "enum",
+      "values": ["square", "rounded", "pill", "squircle"],
+      "default": "square",
+      "description": "Corner radius. `squircle` uses `corner-shape`, which degrades to a rounded square where that is unsupported."
+    },
+    {
+      "name": "shadow",
+      "type": "enum",
+      "values": ["none", "inset", "outset"],
+      "default": "none",
+      "description": "Depth on the badge. `inset` reads as a well, `outset` as a raised chip."
     },
     {
       "name": "focus",

@@ -1,6 +1,7 @@
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
+import { SHARED_PROP_ORDER } from "../src/utils/props";
 import { rootDir } from "./helpers";
 
 /**
@@ -573,6 +574,44 @@ describe("Yumma UI registry", () => {
     }
 
     expect(missing).toEqual([]);
+  });
+
+  /**
+   * The props every component shares sit in one order, below the props that
+   * are the component's own. Hunting for `shape` on one page should not mean
+   * hunting for it somewhere else on the next.
+   */
+  it("puts the shared props in one order, after the component's own", () => {
+    const rank = new Map<string, number>(
+      SHARED_PROP_ORDER.map((name, index) => [name, index]),
+    );
+    const wrong: string[] = [];
+
+    for (const file of readdirSync(join(rootDir, "src/registry/meta"))) {
+      const names: string[] = (
+        JSON.parse(
+          readFileSync(join(rootDir, "src/registry/meta", file), "utf-8"),
+        ).props ?? []
+      ).map((prop: { name: string }) => prop.name);
+
+      const shared = names.filter((name) => rank.has(name));
+      const own = names.filter((name) => !rank.has(name));
+
+      if (shared.length > 0 && own.length > 0) {
+        const firstShared = names.indexOf(shared[0]);
+        const lastOwn = names.lastIndexOf(own[own.length - 1]);
+        if (firstShared < lastOwn)
+          wrong.push(`${file}: ${own[own.length - 1]} sits below ${shared[0]}`);
+      }
+
+      const ranks = shared.map((name) => rank.get(name) ?? 0);
+      if (ranks.some((value, index) => index > 0 && value < ranks[index - 1]))
+        wrong.push(`${file}: ${shared.join(" ")}`);
+    }
+
+    expect(wrong, "run `node scripts/order-props.mjs` to sort these").toEqual(
+      [],
+    );
   });
 
   it("is not empty", () => {

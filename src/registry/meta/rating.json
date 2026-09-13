@@ -49,31 +49,6 @@
       "description": "Called with the new rating. Pressing the current rating again clears it to 0."
     },
     {
-      "name": "disabled",
-      "type": "boolean",
-      "default": false,
-      "description": "Blocks interaction and dims the stars."
-    },
-    {
-      "name": "readOnly",
-      "type": "boolean",
-      "default": false,
-      "description": "A rating that only reports one: an average, someone else's score. It draws at full strength and stays out of the tab order, announced once as a single value rather than as five controls. That is the difference from `disabled`, which dims, because it means \"you could, but not now\"."
-    },
-    {
-      "name": "shadow",
-      "type": "enum",
-      "values": ["none", "inset", "outset"],
-      "default": "none",
-      "description": "Depth on each star, which becomes a bordered chip. There is no surrounding card, which is what both shadow demos did."
-    },
-    {
-      "name": "animated",
-      "type": "boolean",
-      "default": true,
-      "description": "The pop each mark makes as it fills, and the press-scale under the pointer. Turn it off for static stars, or when the user has asked for reduced motion."
-    },
-    {
       "name": "emptyHint",
       "type": "string",
       "default": "Click to rate",
@@ -94,6 +69,31 @@
       "type": "none",
       "typeName": "ReactNode",
       "description": "Extra content below the hint text, like a feedback field."
+    },
+    {
+      "name": "shadow",
+      "type": "enum",
+      "values": ["none", "inset", "outset"],
+      "default": "none",
+      "description": "Depth on each star, which becomes a bordered chip. There is no surrounding card, which is what both shadow demos did."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "default": false,
+      "description": "Blocks interaction and dims the stars."
+    },
+    {
+      "name": "readOnly",
+      "type": "boolean",
+      "default": false,
+      "description": "A rating that only reports one: an average, someone else's score. It draws at full strength and stays out of the tab order, announced once as a single value rather than as five controls. That is the difference from `disabled`, which dims, because it means \"you could, but not now\"."
+    },
+    {
+      "name": "animated",
+      "type": "boolean",
+      "default": true,
+      "description": "The pop each mark makes as it fills, and the press-scale under the pointer. Turn it off for static stars, or when the user has asked for reduced motion."
     },
     {
       "name": "focus",

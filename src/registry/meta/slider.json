@@ -9,12 +9,6 @@
       "optional": true
     },
     {
-      "name": "required",
-      "type": "boolean",
-      "default": false,
-      "description": "Appends a red asterisk to the label."
-    },
-    {
       "name": "description",
       "type": "string",
       "description": "A line under the control, for context on what the value means."
@@ -66,6 +60,12 @@
       "step": 1
     },
     {
+      "name": "formatValue",
+      "type": "none",
+      "typeName": "(value: number | number[]) => ReactNode",
+      "description": "How the value is shown beside the label. Defaults to `50%` for one thumb, `20 - 80` for a range; override for currency, units, or anything else."
+    },
+    {
       "name": "shape",
       "type": "enum",
       "values": ["rounded", "square", "squircle"],
@@ -86,10 +86,10 @@
       "description": "Blocks interaction and dims the control."
     },
     {
-      "name": "formatValue",
-      "type": "none",
-      "typeName": "(value: number | number[]) => ReactNode",
-      "description": "How the value is shown beside the label. Defaults to `50%` for one thumb, `20 - 80` for a range; override for currency, units, or anything else."
+      "name": "required",
+      "type": "boolean",
+      "default": false,
+      "description": "Appends a red asterisk to the label."
     },
     {
       "name": "focus",

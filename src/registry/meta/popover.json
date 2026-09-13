@@ -15,13 +15,6 @@
       "description": "The trigger's `aria-label`. An icon-only trigger has no accessible name without it."
     },
     {
-      "name": "triggerVariant",
-      "type": "enum",
-      "values": ["icon", "label"],
-      "default": "icon",
-      "description": "`icon` is a fixed square for a glyph alone; `label` gives the trigger room to pair an icon with text."
-    },
-    {
       "name": "title",
       "type": "string",
       "example": "Notifications",
@@ -97,6 +90,13 @@
       "description": "An X beside the title. Clicking outside dismisses it either way."
     },
     {
+      "name": "triggerVariant",
+      "type": "enum",
+      "values": ["icon", "label"],
+      "default": "icon",
+      "description": "`icon` is a fixed square for a glyph alone; `label` gives the trigger room to pair an icon with text."
+    },
+    {
       "name": "shape",
       "type": "enum",
       "values": ["rounded", "square", "squircle"],
@@ -117,17 +117,17 @@
       "description": "The popup's scale-in. Turn it off for an instant popup, or when the user has asked for reduced motion."
     },
     {
-      "name": "container",
-      "type": "none",
-      "typeName": "HTMLElement | null",
-      "description": "Where the popup is rendered. Defaults to `document.body`, which is right almost always; pass an element to portal somewhere else, such as inside a frame or a container that owns its own stacking context."
-    },
-    {
       "name": "focus",
       "type": "boolean",
       "typeName": "boolean | string",
       "default": true,
       "description": "The focus outline. `true` draws it, `false` removes it along with the danger, error and success tints that ride with it, and a string of Yumma CSS utilities restyles it on every focusable part of the component, which is more than `className` reaches. Removing it outright and putting nothing back fails WCAG 2.4.7."
+    },
+    {
+      "name": "container",
+      "type": "none",
+      "typeName": "HTMLElement | null",
+      "description": "Where the popup is rendered. Defaults to `document.body`, which is right almost always; pass an element to portal somewhere else, such as inside a frame or a container that owns its own stacking context."
     }
   ]
 }
