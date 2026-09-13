@@ -23,6 +23,22 @@ function componentFiles(): string[] {
     .sort();
 }
 
+/** The innermost `merge(...)` containing `at`, brackets balanced. */
+function enclosingCall(source: string, at: number): string | null {
+  for (let open = at; open >= 0; open--) {
+    if (!source.startsWith("merge(", open)) continue;
+
+    let depth = 0;
+    for (let i = open + 5; i < source.length; i++) {
+      if (source[i] === "(") depth++;
+      else if (source[i] === ")" && --depth === 0)
+        return i > at ? source.slice(open, i) : null;
+    }
+  }
+
+  return null;
+}
+
 function mappedIds(): string[] {
   const source = readFileSync(indexPath, "utf-8");
   return [...source.matchAll(/^\s*"([^"]+)":\s*\(\)\s*=>\s*import\(/gm)].map(
@@ -445,6 +461,72 @@ describe("Yumma UI registry", () => {
     expect(source).toMatch(
       /iconOnlyActive \? ICON_ONLY\[size\] : SIZES\[size\]/,
     );
+  });
+
+  /**
+   * One `RING` per file, and `focusClassName` merged after it wherever the ring
+   * lands. Written inline, a ring on an inner part is unreachable: `className`
+   * only ever gets to the root.
+   */
+  it("puts every focus ring behind RING and focusClassName", () => {
+    const wrong: string[] = [];
+
+    for (const id of componentFiles()) {
+      const source = readFileSync(join(registryDir, `${id}.tsx`), "utf-8");
+      if (!/\bRING\b/.test(source)) continue;
+
+      const declarations = source.match(/^const RING = "[^"]*";$/gm) ?? [];
+      if (declarations.length !== 1)
+        wrong.push(`${id}: ${declarations.length} RING`);
+
+      // `fv:os-s` is the ring's own outline-style, so a second one is a ring
+      // written out by hand next to the constant.
+      const inline = source.replace(/^const RING = "[^"]*";$/gm, "");
+      if (inline.includes("fv:os-s")) wrong.push(`${id}: inline ring`);
+
+      if (!source.includes("focusClassName?: string"))
+        wrong.push(`${id}: no focusClassName prop`);
+
+      // Every place the ring is read has to be a `merge(...)` that also reads
+      // `focusClassName`, or what the caller passes never reaches that part.
+      // A ring const built from another one is the exception.
+      for (const use of source.matchAll(/(?<![\w.])[A-Z]*_?RING(?![\w.])/g)) {
+        const at = use.index ?? 0;
+        const from = source.lastIndexOf("\n", at) + 1;
+        const line = source.slice(from, source.indexOf("\n", at));
+        if (/^const [A-Z_]*RING\b/.test(line)) continue;
+
+        const call = enclosingCall(source, at);
+        if (!call?.includes("focusClassName"))
+          wrong.push(`${id}: ${use[0]} on \`${line.trim()}\``);
+      }
+    }
+
+    expect(wrong).toEqual([]);
+  });
+
+  /** A component that can take focus says so in its schema, or nothing documents it. */
+  it("documents focusClassName wherever the component takes it", () => {
+    const missing: string[] = [];
+
+    for (const id of componentFiles()) {
+      const meta = join(rootDir, "src/registry/meta", `${id}.json`);
+      if (!existsSync(meta)) continue;
+      if (
+        !readFileSync(join(registryDir, `${id}.tsx`), "utf-8").includes(
+          "focusClassName",
+        )
+      )
+        continue;
+
+      const props = JSON.parse(readFileSync(meta, "utf-8")).props ?? [];
+      if (
+        !props.some((prop: { name: string }) => prop.name === "focusClassName")
+      )
+        missing.push(id);
+    }
+
+    expect(missing).toEqual([]);
   });
 
   it("is not empty", () => {

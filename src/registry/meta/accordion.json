@@ -124,6 +124,11 @@
       "type": "boolean",
       "default": true,
       "description": "The icon's rotation & the panel's height/opacity animation. Turn it off for an instant expand/collapse, or when the user has asked for reduced motion."
+    },
+    {
+      "name": "focusClassName",
+      "type": "string",
+      "description": "Yumma CSS utilities merged into the focus ring on every focusable part of the component, so an `fv:oc-*`, `fv:ow-*` or `fv:oo-*` you pass wins. `className` reaches the root only, which is why this is separate."
     }
   ]
 }

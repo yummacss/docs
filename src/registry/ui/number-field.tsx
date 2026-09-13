@@ -10,10 +10,16 @@ type Size = "sm" | "md" | "lg";
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 
+const RING = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+
+// The ring sits a pixel inside the group border, so the input and the steppers
+// share one edge instead of drawing two rings against each other.
+const INSET_RING = `${RING} fv:oo--1`;
+
 // A number field is a field that happens to step, so the number gets the room
 // and the steppers become a column at the trailing edge.
 const STEP =
-  "d-f ai-c jc-c bg-white c-slate-10 us-none c-p h:bg-silver-1/50 a:bg-silver-2 fv:os-s fv:ow-3 fv:oo--1 fv:oc-silver-3/60 fv:bc-silver-5";
+  "d-f ai-c jc-c bg-white c-slate-10 us-none c-p h:bg-silver-1/50 a:bg-silver-2";
 
 const STEP_SIZES: Record<Size, string> = {
   sm: "w-6 h-4",
@@ -59,6 +65,7 @@ export interface NumberFieldProps
   shadow?: Shadow;
 
   className?: string;
+  focusClassName?: string;
 }
 
 export default function NumberFieldBase({
@@ -70,17 +77,20 @@ export default function NumberFieldBase({
   shadow = "none",
   disabled = false,
   className,
+  focusClassName,
   ...props
 }: NumberFieldProps) {
   const id = useId();
 
-  const stepClasses = [STEP, STEP_SIZES[size]].join(" ");
+  const stepClasses = merge(INSET_RING, STEP, STEP_SIZES[size], focusClassName);
 
   const inputClasses = merge(
-    "bg-white bc-transparent c-slate-10 bw-1 ta-l fv:os-s fv:ow-3 fv:oo--1 fv:oc-silver-3/60 fv:bc-silver-5",
+    INSET_RING,
+    "bg-white bc-transparent c-slate-10 bw-1 ta-l",
     INPUT_SIZES[size],
     SHADOWS[shadow],
     className,
+    focusClassName,
   );
 
   return (

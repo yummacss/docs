@@ -1803,6 +1803,29 @@ declares logical properties: `padding` covers `padding-inline` covers
       `tests/registry.test.ts` fails if an `fs-*` reappears in that table or
       the swap turns into a padding-only override.
 
+- [x] **Focus is `focusClassName`, not three props, and the entry was wrong
+      about the gap.** `merge` already resolves `fv:` conflicts both across and
+      within arguments, so on any element `className` reaches, the ring's
+      colour, width and offset were always overridable and nobody knew. The
+      real gap was inner parts: a Dialog has four focusable elements and
+      `className` gets to none of them. So one prop per component, merged after
+      the ring at every site it lands. Colour, width, offset and removal all
+      fall out of the Yumma CSS vocabulary, with no palette union to keep in
+      step and no new value to document.
+
+      The ring itself was copy-pasted inline 45 times across 29 files and is now
+      one `RING` per file. Slider is the exception: Base UI puts the focusable
+      input inside the thumb, so `fv:` never matches and the ring runs off state
+      - it strips the `fv:` prefix so one written value works everywhere.
+
+      `focusRing={false}` was considered and declined. Removing the ring is a
+      WCAG 2.4.7 failure, and a boolean makes removal the shortest path to it;
+      `fv:ow-0` still removes it for anyone who means to.
+
+      Proof the rewrite changed nothing: every `class` attribute on every
+      element of all 42 prerendered component pages is byte-identical before and
+      after, and so is the generated `fv:` CSS.
+
 - [ ] **The "does nothing" cluster is not schema drift.** Checked every prop in
       every meta against its component source: 4 hits, all spread-forwarded
       false positives. So `shadow`, `animate`, `defaultPressed` and the rest are

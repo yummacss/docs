@@ -11,6 +11,8 @@ type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 type IconPosition = "leading" | "trailing";
 
+const RING = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+
 interface SizeSpec {
   trigger: string;
   popup: string;
@@ -134,6 +136,7 @@ export interface MenuProps {
   onOpenChange?: (open: boolean) => void;
   animated?: boolean;
   className?: string;
+  focusClassName?: string;
 }
 
 export default function MenuBase({
@@ -148,6 +151,7 @@ export default function MenuBase({
   onOpenChange,
   animated = true,
   className,
+  focusClassName,
   container,
 }: MenuProps) {
   const [internalOpen, setInternalOpen] = useState(false);
@@ -170,15 +174,15 @@ export default function MenuBase({
     shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "";
 
   const triggerClasses = merge(
+    RING,
     "d-f ai-c g-2 h-fc bg-white bc-silver-2 bw-1 fw-500 us-none",
     spec.trigger,
     TRIGGER_SHAPES[shape],
     shadowClass,
     animated ? "tp-c tdu-150 ttf-io" : "",
-    disabled
-      ? "c-slate-4 o-60 c-na"
-      : "c-slate-10 c-p h:bg-silver-1/50 fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5",
+    disabled ? "c-slate-4 o-60 c-na" : "c-slate-10 c-p h:bg-silver-1/50",
     className,
+    focusClassName,
   );
 
   // `os-none`: Base UI focuses the popup when it opens, and the browser

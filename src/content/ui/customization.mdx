@@ -42,6 +42,24 @@ Only a class that sets the same property is dropped, so nothing you add goes mis
 
 When there is no prop for what you need, edit the file.
 
+## The Focus Ring
+
+Every component draws the same `:focus-visible` ring, and `focusClassName` restyles it.
+
+```tsx
+<Dialog trigger="Rename" title="Rename file" focusClassName="fv:oc-blue-2/60" />
+```
+
+`className` reaches the root element, so on a Dialog it never gets to the trigger, the close button or the two buttons in the footer. `focusClassName` reaches all four, and any focusable part of any other component.
+
+It takes Yumma CSS utilities like `className` does, so the ring's color is `fv:oc-*`, its thickness `fv:ow-*` and its distance from the control `fv:oo-*`.
+
+<Hint icon="warning">
+  A ring you can turn off is a ring someone can lose. `fv:ow-0` removes the only
+  thing telling a keyboard user where they are, so replace the ring rather than
+  delete it.
+</Hint>
+
 ## Own Your Components
 
 `yummaui add` copies a real file into your project, and nothing overwrites it later. When props and `className` are not enough, all you need to do is edit it.

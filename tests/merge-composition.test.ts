@@ -32,6 +32,29 @@ const EXPECTED_DROPS = [
   "select.tsx: bg-white",
   // No visual change: `td-u` already won.
   "preview-card.tsx: td-none",
+  // `RING` carries the default ring colour, and a danger, error or success
+  // tone is meant to repaint it.
+  "alert-dialog.tsx: fv:bc-silver-5",
+  "alert-dialog.tsx: fv:oc-silver-3/60",
+  "button.tsx: fv:bc-silver-5",
+  "button.tsx: fv:oc-silver-3/60",
+  "dialog.tsx: fv:bc-silver-5",
+  "dialog.tsx: fv:oc-silver-3/60",
+  "field.tsx: fv:bc-silver-5",
+  "field.tsx: fv:oc-silver-3/60",
+  "file-upload.tsx: fv:oc-silver-3/60",
+  "textarea.tsx: fv:bc-silver-5",
+  "textarea.tsx: fv:oc-silver-3/60",
+  "tooltip.tsx: fv:bc-silver-5",
+  "tooltip.tsx: fv:oc-silver-3/60",
+  // The browse button sits inside the dashed zone, so its ring keeps a pixel.
+  "file-upload.tsx: fv:oo-0",
+  // A pressed toolbar toggle takes a border.
+  "toolbar.tsx: bw-0",
+  // Both from the resolver reading more than the component can produce: every
+  // value of the `INTENTS` map, and a disabled star crossed with an enabled one.
+  "badge.tsx: bg-transparent",
+  "rating.tsx: c-na",
 ];
 
 function topLevel(source: string, char: string, from = 0): number {

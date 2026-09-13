@@ -10,6 +10,8 @@ import { merge } from "yummacss/merge";
 type Variant = "default" | "bordered" | "ghost" | "subtle";
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
+
+const RING = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
 type Indicator = "chevron" | "plus-minus";
 type IndicatorPosition = "leading" | "trailing";
 
@@ -49,6 +51,7 @@ export interface AccordionProps {
   onValueChange?: (value: string[]) => void;
   animated?: boolean;
   className?: string;
+  focusClassName?: string;
 }
 
 export default function AccordionBase({
@@ -65,6 +68,7 @@ export default function AccordionBase({
   onValueChange,
   animated = true,
   className,
+  focusClassName,
 }: AccordionProps) {
   const [internalValue, setInternalValue] = useState<string[]>(
     defaultValue ?? controlledValue ?? [],
@@ -183,7 +187,8 @@ export default function AccordionBase({
           >
             <Accordion.Header className="m-0">
               <Accordion.Trigger
-                className={[
+                className={merge(
+                  RING,
                   "d-f ai-c",
                   indicatorPosition === "trailing" ? "jc-sb" : "",
                   "g-3 w-100%",
@@ -193,10 +198,8 @@ export default function AccordionBase({
                   triggerRadius,
                   "ta-l",
                   item.disabled ? "c-na o-60" : "c-p",
-                  "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5",
-                ]
-                  .filter(Boolean)
-                  .join(" ")}
+                  focusClassName,
+                )}
               >
                 {indicator === "plus-minus" &&
                   indicatorPosition === "leading" && (

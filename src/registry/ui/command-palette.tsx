@@ -12,6 +12,8 @@ type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 type IconPosition = "leading" | "trailing";
 
+const RING = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+
 const POPUP_SHAPES: Record<Shape, string> = {
   rounded: "br-xxl",
   square: "",
@@ -82,6 +84,7 @@ export interface CommandPaletteProps {
   shadow?: Shadow;
   animated?: boolean;
   className?: string;
+  focusClassName?: string;
 }
 
 export default function CommandPaletteBase({
@@ -94,14 +97,17 @@ export default function CommandPaletteBase({
   shadow = "none",
   animated = true,
   className,
+  focusClassName,
   container,
 }: CommandPaletteProps) {
   const [open, setOpen] = useState(false);
 
   const triggerClasses = merge(
-    "bg-white d-f ai-c g-2 px-3 py-2 bc-silver-2 c-slate-10 bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5",
+    RING,
+    "bg-white d-f ai-c g-2 px-3 py-2 bc-silver-2 c-slate-10 bw-1 fw-500 tp-c tdu-150 ttf-io us-none",
     ITEM_SHAPES[shape],
     className,
+    focusClassName,
   );
 
   const popupClasses = [

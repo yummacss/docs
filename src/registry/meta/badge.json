@@ -75,6 +75,11 @@
       "type": "none",
       "typeName": "() => void",
       "description": "Renders a trailing close button & calls this when it is pressed. The badge itself does not track dismissed state, so remove it from whatever list renders it."
+    },
+    {
+      "name": "focusClassName",
+      "type": "string",
+      "description": "Yumma CSS utilities merged into the focus ring on every focusable part of the component, so an `fv:oc-*`, `fv:ow-*` or `fv:oo-*` you pass wins. `className` reaches the root only, which is why this is separate."
     }
   ],
   "children": "Label"

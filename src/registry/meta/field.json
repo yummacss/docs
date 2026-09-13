@@ -120,6 +120,11 @@
       "type": "boolean",
       "default": false,
       "description": "Adds a trailing button that shows and hides the value, for password fields. Always trailing and always interactive, so it overrides `iconPosition` and `icon`."
+    },
+    {
+      "name": "focusClassName",
+      "type": "string",
+      "description": "Yumma CSS utilities merged into the focus ring on every focusable part of the component, so an `fv:oc-*`, `fv:ow-*` or `fv:oo-*` you pass wins. `className` reaches the root only, which is why this is separate."
     }
   ]
 }

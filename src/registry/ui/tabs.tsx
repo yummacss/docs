@@ -8,6 +8,8 @@ import { merge } from "yummacss/merge";
 type Orientation = "horizontal" | "vertical";
 type Size = "sm" | "md" | "lg";
 type Shape = "pill" | "rounded" | "square" | "squircle";
+
+const RING = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
 type IconPosition = "leading" | "trailing";
 
 const SIZES: Record<Size, { tab: string; text: string }> = {
@@ -51,6 +53,7 @@ export interface TabsProps {
   iconPosition?: IconPosition;
   animated?: boolean;
   className?: string;
+  focusClassName?: string;
 }
 
 export default function TabsBase({
@@ -64,6 +67,7 @@ export default function TabsBase({
   iconPosition = "leading",
   animated = true,
   className,
+  focusClassName,
 }: TabsProps) {
   const [internalValue, setInternalValue] = useState(
     defaultValue ?? controlledValue ?? items[0]?.value,
@@ -110,8 +114,9 @@ export default function TabsBase({
         {items.map((item) => {
           const isSelected = value === item.value;
 
-          const tabClasses = [
-            "p-r zi-10 fg-1 d-f ai-c jc-c bg-transparent us-none fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5",
+          const tabClasses = merge(
+            RING,
+            "p-r zi-10 fg-1 d-f ai-c jc-c bg-transparent us-none",
             item.icon && !item.iconOnly ? "g-2" : "",
             item.count !== undefined ? "g-2" : "",
             spec.tab,
@@ -121,9 +126,8 @@ export default function TabsBase({
               : isSelected
                 ? "c-slate-10"
                 : "c-slate-8 h:c-slate-10",
-          ]
-            .filter(Boolean)
-            .join(" ");
+            focusClassName,
+          );
 
           const labelClasses = ["p-r zi-10 fw-500", spec.text]
             .filter(Boolean)

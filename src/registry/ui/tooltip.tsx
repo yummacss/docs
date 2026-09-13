@@ -9,6 +9,8 @@ type Tone = "light" | "dark" | "danger";
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 
+const RING = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+
 /** Base UI waits on `getAnimations()`, which never sees Motion. See NOTES.md. */
 const TOOLTIP_MOTION = `
   .yui-tooltip-pop {
@@ -43,8 +45,8 @@ const TONES: Record<Tone, string> = {
 
 /** One tone, both ends: a destructive trigger opens a destructive tooltip. */
 const TRIGGER_TONES: Record<Tone, string> = {
-  light: "c-slate-8 h:c-slate-10 fv:oc-silver-3/60 fv:bc-silver-5",
-  dark: "c-slate-8 h:c-slate-10 fv:oc-silver-3/60 fv:bc-silver-5",
+  light: "c-slate-8 h:c-slate-10",
+  dark: "c-slate-8 h:c-slate-10",
   danger: "c-red-7 h:c-red-8 fv:oc-red-2/60 fv:bc-red-3",
 };
 
@@ -97,6 +99,7 @@ export interface TooltipProps {
   shadow?: Shadow;
   animated?: boolean;
   className?: string;
+  focusClassName?: string;
 }
 
 export default function TooltipBase({
@@ -112,12 +115,15 @@ export default function TooltipBase({
   shadow = "none",
   animated = true,
   className,
+  focusClassName,
   container,
 }: TooltipProps) {
   const triggerClasses = merge(
-    "d-f ai-c jc-c bg-transparent bw-0 c-p fv:os-s fv:ow-3 fv:oo-0",
+    RING,
+    "d-f ai-c jc-c bg-transparent bw-0 c-p",
     TRIGGER_TONES[tone],
     className,
+    focusClassName,
   );
 
   const popupClasses = [

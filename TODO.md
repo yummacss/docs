@@ -15,7 +15,7 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  119
+    Closed  120
     Open    13
     Done    90%
 
@@ -36,11 +36,11 @@ Empty.
 Breaking for the registry, so they ship together in one release with the
 renames already on `main`.
 
-- [ ] **A prop to control focus.** Some people do not want a ring at all, and
-      the appearance could be props too: outline colour, outline offset, all
-      Yumma CSS utilities. The indigo change has been and gone, so the pairing
-      this entry was waiting for is spent: the focus classes get rewritten a
-      second time whenever this lands.
+- [ ] **Preview Card's trigger has no ring.** It marks focus with `fv:td-u`,
+      the same underline hover already draws, so the two states are
+      indistinguishable. Every other focusable part in the set takes `RING`.
+      Found while rolling out `focusClassName`; not fixed there because it
+      changes how the component looks.
 
 ## Phase 4 - Wants mockups
 
