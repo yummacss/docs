@@ -107,13 +107,13 @@ body {
    it once there is a column to stand in. Hand-written because the capped height
    is a calculation, and because it has to stop applying below the breakpoint:
    on a phone the rail stacks under the article, where a max height would put
-   the last of a component's props inside a second scrollbar. */
+   the last of a component's props inside a second scrollbar. The scrolling
+   itself is the Scroller's viewport, so no `overflow` here. */
 @media (min-width: 64rem) {
   .playground-rail {
     position: sticky;
     top: 5rem;
     max-height: calc(100dvh - 5rem);
-    overflow-y: auto;
   }
 }
 
@@ -162,4 +162,23 @@ body {
 
 [data-fold]:not([open]) > summary {
   display: inline;
+}
+
+/* Base UI marks the scrollbar with `data-hovering` and `data-scrolling`, and
+   Yumma has no attribute variants until v4, so the fade is written out here
+   the way the popup animations are. */
+.yui-scrollbar {
+  opacity: 0;
+  transition: opacity 150ms ease-in-out;
+}
+
+.yui-scrollbar[data-hovering],
+.yui-scrollbar[data-scrolling] {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .yui-scrollbar {
+    transition: none;
+  }
 }

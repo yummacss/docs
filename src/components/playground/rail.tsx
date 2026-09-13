@@ -7,6 +7,8 @@ import { BaseUI } from "@/components/icons/icons";
 import { usePlayground } from "@/components/playground/context";
 import Control from "@/components/playground/control";
 import PropDescription from "@/components/prop-description";
+import HintTooltip from "@/components/ui/hint-tooltip";
+import Scroller from "@/components/ui/scroller";
 import { NavArrowDown, Undo } from "@/icons";
 import { getRegistryTarget, type RegistryProp } from "@/registry";
 import { primitiveSlug } from "@/utils/primitive";
@@ -33,34 +35,36 @@ export default function PlaygroundRail() {
   return (
     // No extra horizontal pad on small screens: main already has `px-6`.
     <aside className="bc-border btw-1 @lg:btw-0 @lg:blw-1 @lg:gc-s-3">
-      <div className="playground-rail">
+      <Scroller className="playground-rail">
         <div className="pt-8 pb-12 @lg:pt-0 @lg:px-8">
           {/* The reset appears only once a style axis has followed you here,
               so it shows up with work to do rather than sitting inert. */}
           <div className="d-f ai-c jc-sb g-2 mb-3">
             <h3 className="c-silver-8 fs-xs ls-2 tt-u">Component API</h3>
             {playground?.carried && (
-              <Button
-                type="button"
-                onClick={playground.reset}
-                title="Reset the carried styles"
-                className="d-f ai-c g-1 p-0 bg-transparent bw-0 c-silver-8 fs-xs c-p h:c-white fv:oc-accent fv:ow-2"
-              >
-                <Undo className="w-3 h-3" />
-                Reset
-              </Button>
+              <HintTooltip label="Reset the styles carried from the last page">
+                <Button
+                  type="button"
+                  onClick={playground.reset}
+                  className="d-f ai-c g-1 p-0 bg-transparent bw-0 c-silver-8 fs-xs c-p h:c-white fv:oc-accent fv:ow-2"
+                >
+                  <Undo className="w-3 h-3" />
+                  Reset
+                </Button>
+              </HintTooltip>
             )}
             {primitive && (
-              <Link
-                href={`https://base-ui.com/react/components/${primitive}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                title="Base UI reference"
-                aria-label="Base UI reference"
-                className="d-f ai-c jc-c fs-0 c-accent td-none h:c-accent-4 fv:oc-accent fv:ow-2"
-              >
-                <BaseUI className="w-4 h-4" />
-              </Link>
+              <HintTooltip label="Base UI reference">
+                <Link
+                  href={`https://base-ui.com/react/components/${primitive}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Base UI reference"
+                  className="d-f ai-c jc-c fs-0 c-accent td-none h:c-accent-4 fv:oc-accent fv:ow-2"
+                >
+                  <BaseUI className="w-4 h-4" />
+                </Link>
+              </HintTooltip>
             )}
           </div>
 
@@ -90,7 +94,7 @@ export default function PlaygroundRail() {
             );
           })}
         </div>
-      </div>
+      </Scroller>
     </aside>
   );
 }

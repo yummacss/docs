@@ -6,6 +6,7 @@ import { Input } from "@base-ui/react/input";
 import { AnimatePresence, motion } from "motion/react";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import Scroller from "@/components/ui/scroller";
 import {
   ComponentSolid,
   LogOut,
@@ -178,9 +179,9 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                   />
                 </div>
 
-                <div
-                  ref={listRef}
-                  className="oy-auto ob-c px-2 py-2"
+                <Scroller
+                  viewportRef={listRef}
+                  viewportClassName="px-2 py-2"
                   style={{ maxHeight: "calc(70vh - 120px)" }}
                 >
                   {Object.entries(CATEGORY_LABELS).map(([category, label]) => {
@@ -253,7 +254,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                       No results found for "{query}"
                     </div>
                   )}
-                </div>
+                </Scroller>
 
                 <div className="d-f ai-c jc-sb px-4 py-2 bc-border c-white/40 btw-1 fs-xs">
                   <div className="d-f ai-c g-4">

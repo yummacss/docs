@@ -92,6 +92,23 @@ is written.
   what it says. Carrying writes into the URL on arrival rather than changing
   what a parser defaults to, which would make a clean address lie.
 
+# Page chrome
+
+- Every page opens with `SkipLink` and has one `<main id="main">`, so the first
+  Tab skips the navbar and the sidebar.
+- No `title` attributes for tooltips. `HintTooltip` wraps the control and the
+  accessible name stays on its `aria-label`. An `<iframe title>` is that
+  frame's accessible name, not a tooltip, and stays.
+- Bounded scrolling goes through `Scroller`, which is Base UI's Scroll Area
+  with the site's own scrollbar. Two traps it works around: the scroll area's
+  root sets `position: relative` inline, which beats a `p-st` class, so the
+  positioning lives on a wrapper; and every box down to the viewport needs
+  `f-1 min-h-0`, because a viewport on `h-100%` under a `max-height` parent
+  grows to its content and never scrolls.
+- The scrollbar fades on `data-hovering` and `data-scrolling`, written out in
+  `globals.css` next to the popup animations, since Yumma has no attribute
+  variants until v4.
+
 # Working
 
 - PRs, never direct commits to `main`. One PR per phase, on a branch named

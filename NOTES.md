@@ -1934,6 +1934,29 @@ declares logical properties: `padding` covers `padding-inline` covers
       clean address lie: it would render `pill` while saying nothing, and the
       link would open as `square` for whoever was sent it.
 
+- [x] **Skip link, tooltips and scroll areas, and two traps in the last one.**
+      The skip link was simply absent, and so was any `<main>` on the landing
+      page. Measured after: the first Tab stop on a docs page is
+      `A "Skip to main content" href=#main`, visible at 8px from the top, and
+      Enter moves focus to `#main`.
+
+      `title` was seven hits, three of them real. `<iframe title>` is that
+      frame's accessible name, and `<TokenBlock title>` is a prop on our own
+      component; neither is a tooltip. The three icon-only controls now use
+      `HintTooltip` and keep their `aria-label`.
+
+      The Scroll Area rollout broke two things quietly before it worked.
+      Base UI's root sets `position: relative` **inline**, which beats the
+      `p-st` class, so the sidebar, the table of contents and the playground
+      rail all lost sticky positioning while still looking correct in a
+      screenshot; the positioning moved to a wrapper. And a viewport on
+      `h-100%` under a parent with only `max-height` resolves to auto, so the
+      sidebar stopped scrolling entirely and just grew: 5748px of content in a
+      620px box, no scrollbar mounted, because Base UI only mounts one when the
+      viewport can scroll. Flex the whole way down, `f-1 min-h-0`, fixes it.
+      Both were caught by asking the browser for computed styles rather than by
+      looking at the page.
+
 ### Phase 7 - One breaking registry release
 
 All three change something a published `yummaui.json` or an installed CLI
