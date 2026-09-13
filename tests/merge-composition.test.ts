@@ -82,17 +82,6 @@ function constants(source: string): Map<string, string[]> {
 
     if (first === '"' || first === "'") {
       body = source.slice(start, source.indexOf(first, start + 1) + 1);
-    } else if (source.startsWith("cva(", start)) {
-      // A cva config is a bag of class strings the same way a shape map is.
-      // Reading it keeps a converted component inside this check instead of
-      // silently dropping out of it.
-      let depth = 0;
-      let i = start + 3;
-      for (; i < source.length; i++) {
-        if (source[i] === "(") depth++;
-        else if (source[i] === ")" && --depth === 0) break;
-      }
-      body = source.slice(start, i + 1);
     } else if (first === "{") {
       let depth = 0;
       let i = start;
@@ -178,7 +167,6 @@ describe("merge across a component's arguments", () => {
 
   const dropped = new Set<string>();
   let combinations = 0;
-  let resolved = 0;
 
   for (const file of files) {
     const source = readFileSync(join(dir, file), "utf8");
@@ -188,7 +176,6 @@ describe("merge across a component's arguments", () => {
       let acc: string[][] = [[]];
       for (const arg of args) {
         const values = [...new Set(resolve(arg, table))];
-        resolved += values.filter(Boolean).length;
         acc = acc.flatMap((parts) => values.map((v) => [...parts, v]));
         if (acc.length > 3000) {
           acc = acc.slice(0, 3000);
@@ -210,14 +197,8 @@ describe("merge across a component's arguments", () => {
     expect([...dropped].sort()).toEqual([...EXPECTED_DROPS].sort());
   });
 
-  /**
-   * A floor, so the resolver above cannot quietly stop resolving and pass. It
-   * counts the strings it reached rather than their cartesian product: a cva
-   * component hands `merge` one argument where a set of maps handed it five,
-   * so the product collapses while the coverage does not.
-   */
-  it("has strings to merge", () => {
-    expect(resolved).toBeGreaterThan(250);
-    expect(combinations).toBeGreaterThan(1000);
+  // A floor, so the resolver above cannot quietly stop resolving and pass.
+  it("has combinations to merge", () => {
+    expect(combinations).toBeGreaterThan(3000);
   });
 });

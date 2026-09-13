@@ -420,6 +420,33 @@ describe("Yumma UI registry", () => {
     expect(wrong).toEqual([]);
   });
 
+  /**
+   * An icon-only button drops its size's `fs-*` along with the padding, and
+   * that is the intent rather than an oversight: there is no text to scale,
+   * and a font size would resize a glyph passed as a character. A cva trial
+   * turned it into a compound variant, which keeps the `fs-*`, and it was
+   * reverted for this reason. See NOTES.md.
+   */
+  it("keeps an icon-only button off the type scale", () => {
+    const source = readFileSync(
+      join(rootDir, "src/registry/ui/button.tsx"),
+      "utf-8",
+    );
+
+    const iconOnly = /const ICON_ONLY[^=]*=\s*\{([\s\S]*?)\n\};/.exec(source);
+    expect(iconOnly).not.toBeNull();
+
+    const classes = [...(iconOnly?.[1] ?? "").matchAll(/"([^"]*)"/g)].map(
+      (match) => match[1],
+    );
+
+    expect(classes.length).toBeGreaterThan(0);
+    expect(classes.filter((entry) => /\bfs-/.test(entry))).toEqual([]);
+    expect(source).toMatch(
+      /iconOnlyActive \? ICON_ONLY\[size\] : SIZES\[size\]/,
+    );
+  });
+
   it("is not empty", () => {
     expect(mappedIds().length).toBeGreaterThan(0);
   });

@@ -1,7 +1,6 @@
 "use client";
 
 import { Button } from "@base-ui/react";
-import { cva, type VariantProps } from "class-variance-authority";
 import { clsx } from "clsx";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -12,26 +11,24 @@ import { SearchDialog } from "./search-dialog";
 
 const MobileDialog = lazy(() => import("./mobile-dialog"));
 
-const navbarVariants = cva("p-f ix-0 t-0 bbw-1", {
-  variants: {
-    variant: {
-      default: "@lg:bf-b-md bc-border",
-      transparent: "bc-transparent",
-    },
-  },
-  defaultVariants: {
-    variant: "default",
-  },
-});
+type Variant = "default" | "transparent";
 
-interface NavbarProps extends VariantProps<typeof navbarVariants> {
+const BASE = "p-f ix-0 t-0 bbw-1";
+
+const VARIANTS: Record<Variant, string> = {
+  default: "@lg:bf-b-md bc-border",
+  transparent: "bc-transparent",
+};
+
+interface NavbarProps {
+  variant?: Variant;
   className?: string;
   links?: ReactNode;
   showMobileDrawer?: boolean;
 }
 
 export default function Navbar({
-  variant,
+  variant = "default",
   className,
   links,
   showMobileDrawer = false,
@@ -58,7 +55,8 @@ export default function Navbar({
     <>
       <header
         className={clsx(
-          navbarVariants({ variant }),
+          BASE,
+          VARIANTS[variant],
           className,
           "zi-10",
           isLandingPage ? "bg-transparent" : "bg-page",

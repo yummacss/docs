@@ -1,7 +1,6 @@
 "use client";
 
 import { Slider } from "@base-ui/react/slider";
-import { cva } from "class-variance-authority";
 import { type FocusEvent, type ReactNode, useState } from "react";
 import { merge } from "yummacss/merge";
 
@@ -9,36 +8,17 @@ type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 type Value = number | number[];
 
-// The edge is an outline, not a border: Base UI measures the control and
-// positions the thumb inside the track's padding box, so a border would put
-// the two out by its own width.
-const track = cva("p-r h-5 w-100% bg-white os-s ow-1 oo-0 oc-silver-3", {
-  variants: {
-    shape: { rounded: "br-9999", square: "", squircle: "br-xxl cs-s" },
-    shadow: { none: "", inset: "bs-i-md", outset: "bs-o-sm" },
-  },
-  defaultVariants: { shape: "square", shadow: "none" },
-});
+const SHAPES: Record<Shape, string> = {
+  rounded: "br-9999",
+  square: "",
+  squircle: "br-xxl cs-s",
+};
 
-const indicator = cva("", {
-  variants: {
-    shape: { rounded: "br-9999", square: "", squircle: "br-xxl cs-s" },
-    disabled: { true: "bg-silver-1", false: "bg-silver-2 brc-silver-3 brw-1" },
-  },
-  defaultVariants: { shape: "square", disabled: false },
-});
-
-// Focus is held in state because `fv:` never matches here: Base UI puts the
-// focusable `<input type="range">` inside the thumb, so the ring has to be
-// driven from the input's own focus.
-const thumb = cva("w-4 h-3", {
-  variants: {
-    shape: { rounded: "br-9999", square: "", squircle: "br-xxl cs-s" },
-    disabled: { true: "bg-silver-5", false: "bg-slate-10" },
-    focused: { true: "os-s ow-3 oo-0 oc-silver-3/60", false: "" },
-  },
-  defaultVariants: { shape: "square", disabled: false, focused: false },
-});
+const SHADOWS: Record<Shadow, string> = {
+  none: "",
+  inset: "bs-i-md",
+  outset: "bs-o-sm",
+};
 
 // Switch's thumb sits in a box a padding wider on every side, the way Switch's
 // own `px-1` holds it off the ends of its track. Base UI measures that box, so
@@ -98,8 +78,16 @@ export default function SliderBase({
     onValueChange?.(next);
   };
 
+  // Focus is held in state because `fv:` never matches here: Base UI puts the
+  // focusable `<input type="range">` inside the thumb, so the ring has to be
+  // driven from the input's own focus.
   const thumbClasses = (index: number) =>
-    thumb({ shape, disabled, focused: focused === index });
+    merge(
+      "w-4 h-3",
+      disabled ? "bg-silver-5" : "bg-slate-10",
+      SHAPES[shape],
+      focused === index ? "os-s ow-3 oo-0 oc-silver-3/60" : "",
+    );
 
   const focusProps = (index: number) => ({
     onFocus: (event: FocusEvent<HTMLInputElement>) => {
@@ -132,7 +120,16 @@ export default function SliderBase({
         <Slider.Control
           className={`d-f ai-c py-2 us-none ta-none ${disabled ? "c-na" : ""}`}
         >
-          <Slider.Track className={track({ shape, shadow })}>
+          <Slider.Track
+            className={merge(
+              // The edge is an outline, not a border: Base UI measures the
+              // control and positions the thumb inside the track's padding
+              // box, so a border would put the two out by its own width.
+              "p-r h-5 w-100% bg-white os-s ow-1 oo-0 oc-silver-3",
+              SHAPES[shape],
+              SHADOWS[shadow],
+            )}
+          >
             <Slider.Indicator
               style={
                 isRange
@@ -142,7 +139,10 @@ export default function SliderBase({
                     }
                   : { width: `calc(var(--start-position) + ${HALF_BOX})` }
               }
-              className={indicator({ shape, disabled })}
+              className={merge(
+                disabled ? "bg-silver-1" : "bg-silver-2 brc-silver-3 brw-1",
+                SHAPES[shape],
+              )}
             />
             {isRange ? (
               value.map((_, index) => (
