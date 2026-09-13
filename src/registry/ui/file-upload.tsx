@@ -60,8 +60,7 @@ export interface FileUploadProps {
   error?: string;
   disabled?: boolean;
   className?: string;
-  focusOutline?: boolean;
-  focusClassName?: string;
+  focus?: boolean | string;
 }
 
 export default function FileUploadBase({
@@ -78,14 +77,18 @@ export default function FileUploadBase({
   error,
   disabled = false,
   className,
-  focusOutline = true,
-  focusClassName,
+  focus = true,
 }: FileUploadProps) {
-  const outline = focusOutline ? FOCUS : "";
+  const outline = focus ? merge(FOCUS, focus === true ? "" : focus) : "";
   // The browse button sits inside the dashed zone, so its outline keeps a
   // pixel, and an errored zone paints it red.
-  const browseOutline = focusOutline
-    ? merge(FOCUS, "fv:oo-1", error ? "fv:oc-red-2/60" : "")
+  const browseOutline = focus
+    ? merge(
+        FOCUS,
+        "fv:oo-1",
+        error ? "fv:oc-red-2/60" : "",
+        focus === true ? "" : focus,
+      )
     : "";
 
   const id = useId();
@@ -195,7 +198,6 @@ export default function FileUploadBase({
                 browseOutline,
                 "p-0 bg-transparent bw-0 fs-sm fw-500 c-p d:c-na",
                 error ? "c-red-5" : "c-slate-12",
-                focusClassName,
               )}
             >
               {label}
@@ -233,7 +235,6 @@ export default function FileUploadBase({
                     outline,
                     "d-f ai-c jc-c w-5 h-5 p-0 bg-transparent bw-0 c-slate-6 c-p h:c-slate-10",
                     SHAPES[shape],
-                    focusClassName,
                   )}
                 >
                   <Xmark className="w-4 h-4" />

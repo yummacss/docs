@@ -115,8 +115,7 @@ export interface BadgeProps {
   count?: string | number;
   onClose?: () => void;
   className?: string;
-  focusOutline?: boolean;
-  focusClassName?: string;
+  focus?: boolean | string;
 }
 
 export default function BadgeBase({
@@ -132,10 +131,9 @@ export default function BadgeBase({
   count,
   onClose,
   className,
-  focusOutline = true,
-  focusClassName,
+  focus = true,
 }: BadgeProps) {
-  const outline = focusOutline ? FOCUS : "";
+  const outline = focus ? merge(FOCUS, focus === true ? "" : focus) : "";
 
   const { pad, text, icon: iconSize } = SIZES[size];
 
@@ -198,7 +196,6 @@ export default function BadgeBase({
       : tone === "subtle"
         ? INTENTS[intent].subtleHover
         : INTENTS[intent].solidHover,
-    focusClassName,
   );
 
   return (

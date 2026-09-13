@@ -45,7 +45,7 @@ const STATUS_BORDER: Record<Status, string> = {
   success: "bc-green-5",
 };
 
-// The tone sits with the outline, not beside it, so `focusOutline` switches
+// The tone sits with the outline, not beside it, so `focus` switches
 // the whole treatment off rather than leaving a coloured border.
 const STATUS_OUTLINE: Record<Status, string> = {
   default: "",
@@ -69,8 +69,7 @@ export interface FieldProps
   extends Omit<ComponentProps<typeof Field.Control>, "size"> {
   // merge composes a string, so the Base UI function form is not accepted here.
   className?: string;
-  focusOutline?: boolean;
-  focusClassName?: string;
+  focus?: boolean | string;
   label?: string;
 
   description?: string;
@@ -114,14 +113,15 @@ export default function FieldBase({
   disabled,
   required,
   className,
-  focusOutline = true,
-  focusClassName,
+  focus = true,
   type,
   ...props
 }: FieldProps) {
   const [revealed, setRevealed] = useState(false);
   const status: Status = error ? "error" : success ? "success" : "default";
-  const outline = focusOutline ? merge(FOCUS, STATUS_OUTLINE[status]) : "";
+  const outline = focus
+    ? merge(FOCUS, STATUS_OUTLINE[status], focus === true ? "" : focus)
+    : "";
   const message = error ?? success ?? description;
   const reveal = revealable;
   const controlType = reveal && revealed ? "text" : type;
@@ -134,7 +134,6 @@ export default function FieldBase({
       className={merge(
         outline,
         "d-f ai-c jc-c p-0 bg-transparent bw-0 c-slate-6 c-p us-none",
-        focusClassName,
       )}
     >
       {revealed ? (
@@ -163,7 +162,6 @@ export default function FieldBase({
       ? ICON_PADDING[activeSide]
       : "px-4",
     className,
-    focusClassName,
   );
 
   const affixControlClasses = merge(
@@ -175,7 +173,6 @@ export default function FieldBase({
       : prefixNode
         ? "pl-3 pr-4 brr-lg brw-1"
         : "pl-4 pr-3 blr-lg blw-1",
-    focusClassName,
   );
 
   const affixBoxClasses =

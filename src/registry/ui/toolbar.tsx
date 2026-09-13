@@ -99,8 +99,7 @@ export interface ToolbarProps {
   shadow?: Shadow;
   animated?: boolean;
   className?: string;
-  focusOutline?: boolean;
-  focusClassName?: string;
+  focus?: boolean | string;
 }
 
 export default function ToolbarBase({
@@ -109,10 +108,9 @@ export default function ToolbarBase({
   shadow = "none",
   animated = true,
   className,
-  focusOutline = true,
-  focusClassName,
+  focus = true,
 }: ToolbarProps) {
-  const outline = focusOutline ? FOCUS : "";
+  const outline = focus ? merge(FOCUS, focus === true ? "" : focus) : "";
 
   const shadowClass =
     shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "";
@@ -148,7 +146,6 @@ export default function ToolbarBase({
               control={control}
               animated={animated}
               outline={outline}
-              focusClassName={focusClassName}
             />
           );
         }
@@ -161,7 +158,6 @@ export default function ToolbarBase({
                 outline,
                 "h-9 w-40 pl-3 bg-transparent bw-0 fs-sm",
                 control,
-                focusClassName,
               )}
               placeholder={item.placeholder}
               aria-label={item.label}
@@ -212,7 +208,6 @@ export default function ToolbarBase({
                   className={merge(
                     outline,
                     "w-16 bg-transparent c-slate-10 bw-0 ta-c fs-sm fw-500",
-                    focusClassName,
                   )}
                 />
                 <NumberField.Increment
@@ -246,7 +241,6 @@ export default function ToolbarBase({
                 outline,
                 "d-f ai-c g-1 h-9 px-3 c-slate-7 fs-sm fw-500 td-none h:c-slate-10",
                 control,
-                focusClassName,
               )}
             >
               {item.icon}
@@ -267,7 +261,6 @@ export default function ToolbarBase({
           button.disabled
             ? "bg-silver-1 c-slate-4 c-na"
             : "c-p h:bg-silver-1 h:c-slate-10",
-          focusClassName,
         );
 
         return (
@@ -326,13 +319,12 @@ function ToolbarToggles({
   control,
   animated,
   outline,
-  focusClassName,
 }: {
   item: ToolbarTogglesItem;
   control: string;
   animated: boolean;
   outline: string;
-  focusClassName?: string;
+  focus?: boolean | string;
 }) {
   const [internalValue, setInternalValue] = useState<string[]>(
     item.defaultValue ?? item.value ?? [],
@@ -352,7 +344,6 @@ function ToolbarToggles({
       pressed
         ? "bg-silver-1 bc-silver-3 c-slate-12 bw-1"
         : "bg-transparent c-slate-7 h:bg-silver-1 h:c-slate-10",
-      focusClassName,
     );
 
   return (

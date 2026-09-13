@@ -1803,7 +1803,7 @@ declares logical properties: `padding` covers `padding-inline` covers
       `tests/registry.test.ts` fails if an `fs-*` reappears in that table or
       the swap turns into a padding-only override.
 
-- [x] **Focus is `focusClassName`, not three props, and the entry was wrong
+- [x] **Focus is one `focus` prop, not three, and the entry was wrong
       about the gap.** `merge` already resolves `fv:` conflicts both across and
       within arguments, so on any element `className` reaches, the outline's
       colour, width and offset were always overridable and nobody knew. The
@@ -1819,10 +1819,10 @@ declares logical properties: `padding` covers `padding-inline` covers
       runs off state - it strips the `fv:` prefix so one written value works
       everywhere.
 
-      `focusOutline={false}` ships too. I argued against it on the grounds that
+      `focus={false}` ships too. I argued against it on the grounds that
       `fv:os-none` already removes the outline and a boolean just shortens the
       path to a WCAG 2.4.7 failure. Renildo pushed back and was right, for a
-      reason neither of us had checked: `focusClassName` cannot finish the job.
+      reason neither of us had checked: a class string cannot finish the job.
       The outline goes, but `fv:bc-silver-5` is a border colour, so a bordered
       control still shifts on focus, and saying "leave the border alone" needs
       the resting `bc-*` of whichever variant is in play - five of them on
@@ -1834,7 +1834,7 @@ declares logical properties: `padding` covers `padding-inline` covers
       ungated, so the first cut of the prop left a coloured border behind with
       the outline gone. They now sit in `*_OUTLINE` maps folded into the gate,
       and `tests/registry.test.ts` fails on any `fv:` class the gate cannot
-      reach. Measured after: `focusOutline={false}` renders no `fv:` class at
+      reach. Measured after: `focus={false}` renders no `fv:` class at
       all on a danger Button, an errored Field, a success Textarea or a danger
       Tooltip.
 
@@ -1856,6 +1856,27 @@ declares logical properties: `padding` covers `padding-inline` covers
       Proof the rewrite changed nothing: every `class` attribute on every
       element of all 42 prerendered component pages is byte-identical before and
       after, and so is the generated `fv:` CSS.
+
+      Then it became **one** prop. Renildo's objection was that `focusClassName`
+      duplicates `className`, and that policing what belongs in it would cost
+      code. The second half was already untrue: nothing validated it, it was
+      merged like any other string, and the only special handling anywhere is
+      Slider dropping the `fv:` prefix because its outline runs off state. The
+      first half is untrue for anything compound, which is the whole reason the
+      prop exists: `className` lands on the root, and Dialog's outline lands on
+      four elements the root is not.
+
+      So the two collapse into `focus?: boolean | string` rather than one of
+      them being dropped. `false` is off, a string restyles, and the gate folds
+      that string in where it already folds the tone tints, so it reaches every
+      site with no extra argument at any of them. That deleted 85 merge
+      arguments and 109 lines net across the registry, and the props table shows
+      `boolean | string` while the playground still gets a toggle, because meta
+      `type` is the control and `typeName` is the type.
+
+      `focus={false}` reading as "not focusable" is a real hazard with this
+      name. It does not touch the tab order; the schema description says so,
+      and the docs page shows it next to a replacement.
 
 - [ ] **The "does nothing" cluster is not schema drift.** Checked every prop in
       every meta against its component source: 4 hits, all spread-forwarded

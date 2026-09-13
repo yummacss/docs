@@ -43,7 +43,7 @@ const TONES: Record<Tone, string> = {
   danger: "bg-red-7 c-white",
 };
 
-// The tone sits with the outline so `focusOutline` takes it off too.
+// The tone sits with the outline so `focus` takes it off too.
 const DANGER_OUTLINE = "fv:oc-red-2/60 fv:bc-red-3";
 
 /** One tone, both ends: a destructive trigger opens a destructive tooltip. */
@@ -102,8 +102,7 @@ export interface TooltipProps {
   shadow?: Shadow;
   animated?: boolean;
   className?: string;
-  focusOutline?: boolean;
-  focusClassName?: string;
+  focus?: boolean | string;
 }
 
 export default function TooltipBase({
@@ -119,12 +118,15 @@ export default function TooltipBase({
   shadow = "none",
   animated = true,
   className,
-  focusOutline = true,
-  focusClassName,
+  focus = true,
   container,
 }: TooltipProps) {
-  const outline = focusOutline
-    ? merge(FOCUS, tone === "danger" ? DANGER_OUTLINE : "")
+  const outline = focus
+    ? merge(
+        FOCUS,
+        tone === "danger" ? DANGER_OUTLINE : "",
+        focus === true ? "" : focus,
+      )
     : "";
 
   const triggerClasses = merge(
@@ -132,7 +134,6 @@ export default function TooltipBase({
     "d-f ai-c jc-c bg-transparent bw-0 c-p",
     TRIGGER_TONES[tone],
     className,
-    focusClassName,
   );
 
   const popupClasses = [

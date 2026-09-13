@@ -69,7 +69,7 @@ const NEUTRAL_BUTTON = "bg-white bc-silver-2 c-slate-10 h:bg-silver-1/50";
 const PRIMARY_BUTTON = "bg-slate-12 h:bg-slate-11 bc-slate-12 c-white";
 
 // The tone sits with the outline, not in the button's own classes, so
-// `focusOutline` switches the whole treatment off rather than leaving a
+// `focus` switches the whole treatment off rather than leaving a
 // coloured border behind.
 const DANGER_OUTLINE = "fv:oc-red-2/60 fv:bc-red-3";
 
@@ -114,8 +114,7 @@ export interface DialogProps {
   shadow?: Shadow;
   animated?: boolean;
   className?: string;
-  focusOutline?: boolean;
-  focusClassName?: string;
+  focus?: boolean | string;
 }
 
 export default function DialogBase({
@@ -138,19 +137,14 @@ export default function DialogBase({
   shadow = "none",
   animated = true,
   className,
-  focusOutline = true,
-  focusClassName,
+  focus = true,
   container,
 }: DialogProps) {
-  const outline = focusOutline ? FOCUS : "";
+  const outline = focus ? merge(FOCUS, focus === true ? "" : focus) : "";
   const triggerOutline =
-    focusOutline && triggerTone === "danger"
-      ? merge(FOCUS, DANGER_OUTLINE)
-      : outline;
+    focus && triggerTone === "danger" ? merge(FOCUS, DANGER_OUTLINE) : outline;
   const confirmOutline =
-    focusOutline && confirmTone === "danger"
-      ? merge(FOCUS, DANGER_OUTLINE)
-      : outline;
+    focus && confirmTone === "danger" ? merge(FOCUS, DANGER_OUTLINE) : outline;
 
   const [open, setOpen] = useState(false);
 
@@ -162,7 +156,6 @@ export default function DialogBase({
     BUTTON_SHAPES[shape],
     TRIGGER_TONES[triggerTone],
     className,
-    focusClassName,
   );
 
   const popupClasses = [
@@ -179,7 +172,6 @@ export default function DialogBase({
     TRIGGER_SIZES.md,
     BUTTON_SHAPES[shape],
     NEUTRAL_BUTTON,
-    focusClassName,
   );
 
   const confirmClasses = merge(
@@ -188,7 +180,6 @@ export default function DialogBase({
     TRIGGER_SIZES.md,
     BUTTON_SHAPES[shape],
     CONFIRM_TONES[confirmTone],
-    focusClassName,
   );
 
   const popup = (
@@ -211,7 +202,6 @@ export default function DialogBase({
                     outline,
                     "d-f p-a r-3 t-3 ai-c jc-c w-7 h-7 p-0 c-slate-6 bw-0 h:bg-silver-1/50 h:c-slate-7",
                     CLOSE_SHAPES[shape],
-                    focusClassName,
                   )}
                 />
               }
