@@ -1,5 +1,4 @@
 import { Button } from "@base-ui/react";
-import { cva } from "class-variance-authority";
 import { Xmark } from "iconoir-react";
 import type { ReactNode } from "react";
 import { merge } from "yummacss/merge";
@@ -10,27 +9,22 @@ type Size = "sm" | "md" | "lg";
 type Shadow = "none" | "inset" | "outset";
 type IconPosition = "leading" | "trailing";
 
-// Only the axes that stand alone. The colour is `tone` crossed with `intent`,
-// fifteen combinations over five slots, which as compound variants would be
-// seventy-five entries saying what the table below says in forty.
-const shell = cva("d-if ai-c g-1", {
-  variants: {
-    shape: {
-      square: "",
-      rounded: "br-sm",
-      pill: "br-9999",
-      squircle: "br-xxl cs-s",
-    },
-    size: { sm: "px-2 py-0", md: "px-2 py-1", lg: "px-3 py-1" },
-    shadow: { none: "", inset: "bs-i-md", outset: "bs-o-sm" },
-  },
-  defaultVariants: { shape: "square", size: "md", shadow: "none" },
-});
+const SHAPES: Record<Shape, string> = {
+  square: "",
+  rounded: "br-sm",
+  pill: "br-9999",
+  squircle: "br-xxl cs-s",
+};
 
-const SIZES: Record<Size, { text: string; icon: string }> = {
-  sm: { text: "fs-xs", icon: "w-3 h-3" },
-  md: { text: "fs-xs", icon: "w-3 h-3" },
-  lg: { text: "fs-md", icon: "w-4 h-4" },
+const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
+  inset: "bs-i-md",
+  outset: "bs-o-sm",
+};
+
+const SIZES: Record<Size, { pad: string; text: string; icon: string }> = {
+  sm: { pad: "px-2 py-0", text: "fs-xs", icon: "w-3 h-3" },
+  md: { pad: "px-2 py-1", text: "fs-xs", icon: "w-3 h-3" },
+  lg: { pad: "px-3 py-1", text: "fs-md", icon: "w-4 h-4" },
 };
 
 interface ColorSet {
@@ -135,10 +129,13 @@ export default function BadgeBase({
   onClose,
   className,
 }: BadgeProps) {
-  const { text, icon: iconSize } = SIZES[size];
+  const { pad, text, icon: iconSize } = SIZES[size];
 
   const badgeClasses = merge(
-    shell({ shape, size, shadow }),
+    "d-if ai-c g-1",
+    pad,
+    SHAPES[shape],
+    shadow !== "none" ? SHADOWS[shadow] : "",
     tone === "outline"
       ? "bg-white bc-silver-2 bw-1"
       : tone === "subtle"
