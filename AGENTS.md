@@ -68,6 +68,20 @@ is written.
   has no `shape` prop at all. Ask that question before adding one.
 - `tests/registry.test.ts` holds the mechanical half.
 
+# Carried styles
+
+- `shape`, `size`, `shadow`, `animated` and `focus` follow you from one
+  component page to the next, so trying a shape across the library is one
+  click per page. `src/utils/sticky.ts` owns the list.
+- `variant`, `tone` and `intent` are deliberately not carried: they share a
+  name across components and nothing else.
+- A value is carried only if the next component declares that prop and names
+  that value. `shape` alone has six vocabularies, so `pill` reaches Button and
+  never reaches Checkbox.
+- The address wins over what was carried, so a link someone was sent renders
+  what it says. Carrying writes into the URL on arrival rather than changing
+  what a parser defaults to, which would make a clean address lie.
+
 # Working
 
 - PRs, never direct commits to `main`. One PR per phase, on a branch named

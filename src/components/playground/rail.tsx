@@ -7,7 +7,7 @@ import { BaseUI } from "@/components/icons/icons";
 import { usePlayground } from "@/components/playground/context";
 import Control from "@/components/playground/control";
 import PropDescription from "@/components/prop-description";
-import { NavArrowDown } from "@/icons";
+import { NavArrowDown, Undo } from "@/icons";
 import { getRegistryTarget, type RegistryProp } from "@/registry";
 import { primitiveSlug } from "@/utils/primitive";
 import { isControllable, isInert, typeOf } from "@/utils/props";
@@ -35,10 +35,21 @@ export default function PlaygroundRail() {
     <aside className="bc-border btw-1 @lg:btw-0 @lg:blw-1 @lg:gc-s-3">
       <div className="playground-rail">
         <div className="pt-8 pb-12 @lg:pt-0 @lg:px-8">
-          {/* No reset: leaving the page & coming back reseeds from the
-              schema, which is the only reset this needs. */}
+          {/* The reset appears only once a style axis has followed you here,
+              so it shows up with work to do rather than sitting inert. */}
           <div className="d-f ai-c jc-sb g-2 mb-3">
             <h3 className="c-silver-8 fs-xs ls-2 tt-u">Component API</h3>
+            {playground?.carried && (
+              <Button
+                type="button"
+                onClick={playground.reset}
+                title="Reset the carried styles"
+                className="d-f ai-c g-1 p-0 bg-transparent bw-0 c-silver-8 fs-xs c-p h:c-white fv:oc-accent fv:ow-2"
+              >
+                <Undo className="w-3 h-3" />
+                Reset
+              </Button>
+            )}
             {primitive && (
               <Link
                 href={`https://base-ui.com/react/components/${primitive}`}

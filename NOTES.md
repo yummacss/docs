@@ -1902,6 +1902,25 @@ declares logical properties: `padding` covers `padding-inline` covers
       can render as a box on a legacy Windows code page. The omission is
       written into that repo's AGENTS.md next to the rule it breaks.
 
+- [x] **Carrying the style axes between pages, and the check that made it
+      work.** The first cut carried nothing at all, in silence. The guard asked
+      whether `query[name]` held a value, but every parser is built
+      `.withDefault(seed)`, so it always does: every key read as already spoken
+      for by the address. Reading `window.location.search` for whether the key
+      is *named* is the question that was meant.
+
+      Which props carry is decided by measurement, not by name. `shadow` has
+      one vocabulary across all 29 components that take it, `size` effectively
+      one, but `shape` has **six** and `tone` has four with nothing in common.
+      So the rule is per value: carried only if the next component declares the
+      prop and names that value. Measured in the browser: `pill` set on Badge
+      reaches Button and is dropped on Checkbox, which has no `pill`.
+
+      Carrying writes into the URL on arrival rather than changing what the
+      parser defaults to. The other way round is fewer moving parts and makes a
+      clean address lie: it would render `pill` while saying nothing, and the
+      link would open as `square` for whoever was sent it.
+
 ### Phase 7 - One breaking registry release
 
 All three change something a published `yummaui.json` or an installed CLI
