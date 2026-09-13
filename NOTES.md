@@ -1915,18 +1915,24 @@ declares logical properties: `padding` covers `padding-inline` covers
       half that should differ per component. 32 schemas moved, content
       untouched, order only.
 
-- [x] **Preview Card marked focus and hover the same way.** The trigger drew
-      `fv:td-u` on focus and `h:td-u` on hover, which is one underline twice:
-      tabbing to it looked exactly like the mouse being over it, and `open`
-      added a third `td-u` on top. It now takes the same `FOCUS` outline as
-      every other focusable part in the set, so hover underlines and focus
-      outlines. Measured in the rendered frame: the anchor carries
-      `fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5` and keeps
-      `h:td-u`.
+- [x] **Carrying the style axes between pages, and the check that made it
+      work.** The first cut carried nothing at all, in silence. The guard asked
+      whether `query[name]` held a value, but every parser is built
+      `.withDefault(seed)`, so it always does: every key read as already spoken
+      for by the address. Reading `window.location.search` for whether the key
+      is *named* is the question that was meant.
 
-      It was the one component outside the gate, having no `FOCUS` of its own,
-      so `tests/registry.test.ts` skipped it entirely. Adding the constant
-      brings it inside every check the other 29 already had.
+      Which props carry is decided by measurement, not by name. `shadow` has
+      one vocabulary across all 29 components that take it, `size` effectively
+      one, but `shape` has **six** and `tone` has four with nothing in common.
+      So the rule is per value: carried only if the next component declares the
+      prop and names that value. Measured in the browser: `pill` set on Badge
+      reaches Button and is dropped on Checkbox, which has no `pill`.
+
+      Carrying writes into the URL on arrival rather than changing what the
+      parser defaults to. The other way round is fewer moving parts and makes a
+      clean address lie: it would render `pill` while saying nothing, and the
+      link would open as `square` for whoever was sent it.
 
 ### Phase 7 - One breaking registry release
 

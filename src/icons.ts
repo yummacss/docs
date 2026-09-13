@@ -56,6 +56,7 @@ export {
   Trash,
   TriangleFlag,
   Underline,
+  Undo,
   User,
   UserPlus,
   WarningTriangle,
