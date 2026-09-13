@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "@/components/ui/navbar";
+import SkipLink from "@/components/ui/skip-link";
 import { NavArrowRight } from "@/icons";
 
 const title = "Yumma CSS - Get faster at CSS while you use it";
@@ -33,9 +34,11 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <div className="p-r min-h-dvh c-white">
+      <SkipLink />
       <Navbar variant="transparent" />
 
-      <div
+      <main
+        id="main"
         className="d-f p-r ai-fe w-100% mx-auto px-6 pb-16 @md:pb-0"
         style={{
           minHeight: "calc(100dvh - 120px)",
@@ -78,7 +81,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </div>
+      </main>
     </div>
   );
 }

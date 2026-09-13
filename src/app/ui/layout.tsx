@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/ui/navbar";
 import UIShell from "@/components/ui/shell";
+import SkipLink from "@/components/ui/skip-link";
 
 const description =
   "A collection of UI components styled with Yumma CSS and Base UI.";
@@ -20,9 +21,10 @@ export const metadata: Metadata = {
 export default function UILayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-dvh">
+      <SkipLink />
       <Navbar showMobileDrawer />
 
-      <main className="zi-0 mx-auto px-6 docs-container">
+      <main id="main" className="zi-0 mx-auto px-6 docs-container">
         <UIShell>{children}</UIShell>
       </main>
     </div>

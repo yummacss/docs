@@ -1,5 +1,6 @@
 import Navbar from "@/components/ui/navbar";
 import Sidebar from "@/components/ui/sidebar";
+import SkipLink from "@/components/ui/skip-link";
 import TableOfContents from "@/components/ui/toc";
 
 export default function DocsLayout({
@@ -9,9 +10,10 @@ export default function DocsLayout({
 }) {
   return (
     <div className="min-h-dvh c-white">
+      <SkipLink />
       <Navbar showMobileDrawer />
 
-      <main className="is-i mx-auto px-6 docs-container">
+      <main id="main" className="is-i mx-auto px-6 docs-container">
         <div className="d-g gtc-1 g-8 @lg:gtc-12">
           <Sidebar variant="docs" />
 
