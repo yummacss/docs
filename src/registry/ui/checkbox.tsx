@@ -10,8 +10,9 @@ type Size = "sm" | "md" | "lg";
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 
-const BOX =
-  "d-f ai-c jc-c fs-0 fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+
+const BOX = "d-f ai-c jc-c fs-0";
 
 const SIZES: Record<Size, string> = {
   sm: "w-3 h-3",
@@ -69,6 +70,8 @@ export interface CheckboxProps
   shape?: Shape;
   shadow?: Shadow;
   className?: string;
+  focusOutline?: boolean;
+  focusClassName?: string;
 }
 
 export default function CheckboxBase({
@@ -82,8 +85,12 @@ export default function CheckboxBase({
   defaultChecked,
   onCheckedChange,
   className,
+  focusOutline = true,
+  focusClassName,
   ...props
 }: CheckboxProps) {
+  const outline = focusOutline ? FOCUS : "";
+
   // Spread through `...props`, a controlled `checked` reached Base UI and was
   // ignored. Held here and passed by name it behaves, the way Switch does.
   const [internalChecked, setInternalChecked] = useState(
@@ -111,6 +118,7 @@ export default function CheckboxBase({
           onCheckedChange={handleChange}
           className={(state) =>
             merge(
+              outline,
               BOX,
               SIZES[size],
               SHAPES[shape],
@@ -122,6 +130,7 @@ export default function CheckboxBase({
                   ? CHECKED
                   : UNCHECKED,
               className,
+              focusClassName,
             )
           }
           {...props}

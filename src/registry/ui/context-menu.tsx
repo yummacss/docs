@@ -160,7 +160,7 @@ export default function ContextMenuBase({
   );
 
   // `os-none`: Base UI focuses the popup when it opens, and the browser
-  // paints its own dark `auto` ring on it. Nothing was tabbed to, and the
+  // paints its own dark `auto` outline on it. Nothing was tabbed to, and the
   // open menu is its own signal.
   const popupClasses = [
     "py-1 w-52 bg-white bc-silver-2 c-slate-10 bw-1 os-none",
@@ -175,7 +175,7 @@ export default function ContextMenuBase({
     (state: { highlighted: boolean }) =>
       [
         // Highlighting focuses the item, hover included, so the browser
-        // drew its ring on every item the pointer crossed. The
+        // drew its outline on every item the pointer crossed. The
         // highlight background is the signal.
         "d-f ai-c g-2 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p mx-1 os-none",
         spread ? "jc-sb" : "",

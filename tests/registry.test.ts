@@ -23,6 +23,50 @@ function componentFiles(): string[] {
     .sort();
 }
 
+/** The whole statement containing `at`, from the previous `;`/brace to the next. */
+function enclosingStatement(source: string, at: number): string {
+  let start = 0;
+  for (let i = at; i >= 0; i--) {
+    // `${` opens an interpolation, not a new statement.
+    const boundary =
+      ";{}".includes(source[i]) &&
+      !(source[i] === "{" && source[i - 1] === "$");
+    if (boundary) {
+      start = i + 1;
+      break;
+    }
+  }
+
+  const semicolon = source.indexOf(";", at);
+  const end = semicolon === -1 ? source.length : semicolon;
+
+  return source
+    .slice(start, end)
+    .replace(/^\s*\/\/.*$/gm, "")
+    .trim()
+    .replace(/\s+/g, " ");
+}
+
+/** Every `merge(...)` call in a file, brackets balanced. */
+function mergeCallsIn(source: string): string[] {
+  const calls: string[] = [];
+
+  for (let open = 0; open < source.length; open++) {
+    if (!source.startsWith("merge(", open)) continue;
+
+    let depth = 0;
+    for (let i = open + 5; i < source.length; i++) {
+      if (source[i] === "(") depth++;
+      else if (source[i] === ")" && --depth === 0) {
+        calls.push(source.slice(open, i));
+        break;
+      }
+    }
+  }
+
+  return calls;
+}
+
 function mappedIds(): string[] {
   const source = readFileSync(indexPath, "utf-8");
   return [...source.matchAll(/^\s*"([^"]+)":\s*\(\)\s*=>\s*import\(/gm)].map(
@@ -445,6 +489,126 @@ describe("Yumma UI registry", () => {
     expect(source).toMatch(
       /iconOnlyActive \? ICON_ONLY\[size\] : SIZES\[size\]/,
     );
+  });
+
+  /**
+   * One `FOCUS` per file, reachable only through the `focusOutline` gate, and
+   * `focusClassName` merged wherever the result lands. Written inline, an
+   * outline on an inner part is unreachable: `className` only gets to the root.
+   */
+  it("puts every focus outline behind the gate and focusClassName", () => {
+    const wrong: string[] = [];
+
+    for (const id of componentFiles()) {
+      const source = readFileSync(join(registryDir, `${id}.tsx`), "utf-8");
+      if (!/\bFOCUS\b/.test(source)) continue;
+
+      const declarations = source.match(/^const FOCUS = "[^"]*";$/gm) ?? [];
+      if (declarations.length !== 1)
+        wrong.push(`${id}: ${declarations.length} FOCUS`);
+
+      // Every `fv:` class has to sit somewhere `focusOutline` can reach: the
+      // constant itself, a `*_OUTLINE` tone map folded into the gate, or the
+      // gate expression. Anywhere else and `focusOutline={false}` still leaves
+      // that class painting on focus.
+      for (const use of source.matchAll(/fv:[\w:/.-]+/g)) {
+        const at = use.index ?? 0;
+        const line = source.slice(source.lastIndexOf("\n", at) + 1, at);
+        if (/^\s*(\/\/|\*)/.test(line)) continue;
+
+        // The declaration it belongs to: the constant, a `*_OUTLINE` tone map
+        // the gate folds in, or a statement inside the gate itself.
+        const owner =
+          [...source.slice(0, at).matchAll(/^const (\w+)/gm)].pop()?.[1] ?? "";
+        const gated =
+          /FOCUS$|_OUTLINE$/.test(owner) ||
+          enclosingStatement(source, at).includes("focusOutline");
+
+        if (!gated) wrong.push(`${id}: ${use[0]} outside the gate`);
+      }
+
+      for (const prop of [
+        "focusClassName?: string",
+        "focusOutline?: boolean",
+      ]) {
+        if (!source.includes(prop))
+          wrong.push(`${id}: no ${prop.split("?")[0]}`);
+      }
+
+      // FOCUS is read inside a `const` initializer and nowhere else, and that
+      // const is gated on `focusOutline`. Read anywhere else, the prop cannot
+      // switch it off and `focusOutline={false}` leaves a coloured border.
+      for (const use of source.matchAll(/(?<![\w.])[A-Z]*_?FOCUS(?![\w.])/g)) {
+        const at = use.index ?? 0;
+        const statement = enclosingStatement(source, at);
+        if (/\bconst [A-Z_]*FOCUS\b/.test(statement)) continue;
+        if (
+          !/\bconst \w+ =/.test(statement) ||
+          !statement.includes("focusOutline")
+        )
+          wrong.push(`${id}: FOCUS read outside the gate, in \`${statement}\``);
+      }
+
+      // And the gated value reaches the caller's classes wherever it is merged.
+      // Slider folds `focusClassName` in at the declaration instead, since it
+      // has to strip the `fv:` prefix first.
+      const foldedIn = /const \w*[Oo]utline =[^;]*focusClassName/.test(source);
+
+      for (const call of mergeCallsIn(source)) {
+        const reads = [
+          ...call.matchAll(/(?<![\w.])([a-z]\w*[Oo]utline)(?![\w.:])/g),
+        ]
+          .map((m) => m[1])
+          .filter((name) => name !== "focusOutline");
+
+        if (reads.length > 0 && !foldedIn && !call.includes("focusClassName"))
+          wrong.push(`${id}: ${reads[0]} merged without focusClassName`);
+      }
+    }
+
+    expect(wrong).toEqual([]);
+  });
+
+  // Same rule as the content pages, for the source someone installs and the
+  // schema that feeds its props table.
+  it("calls the focus indicator an outline in the source too", () => {
+    const offenders: string[] = [];
+
+    for (const dir of ["src/registry/ui", "src/registry/meta"]) {
+      for (const file of readdirSync(join(rootDir, dir))) {
+        const source = readFileSync(join(rootDir, dir, file), "utf-8");
+        // The bare word, and the `_RING` an underscore hides from `\b`.
+        for (const hit of source.matchAll(/\brings?\b|_RINGS?\b/gi)) {
+          offenders.push(`${file}: ${hit[0]}`);
+        }
+      }
+    }
+
+    expect(offenders).toEqual([]);
+  });
+
+  /** A component that can take focus says so in its schema, or nothing documents it. */
+  it("documents focusClassName wherever the component takes it", () => {
+    const missing: string[] = [];
+
+    for (const id of componentFiles()) {
+      const meta = join(rootDir, "src/registry/meta", `${id}.json`);
+      if (!existsSync(meta)) continue;
+      if (
+        !readFileSync(join(registryDir, `${id}.tsx`), "utf-8").includes(
+          "focusClassName",
+        )
+      )
+        continue;
+
+      const props = JSON.parse(readFileSync(meta, "utf-8")).props ?? [];
+      if (
+        !props.some((prop: { name: string }) => prop.name === "focusClassName")
+      )
+        missing.push(id);
+    }
+
+    expect(missing).toEqual([]);
   });
 
   it("is not empty", () => {

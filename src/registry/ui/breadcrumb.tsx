@@ -5,6 +5,8 @@ import { merge } from "yummacss/merge";
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 type Size = "sm" | "md" | "lg";
+
+const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
 type Separator = "chevron" | "slash";
 
 const SIZES: Record<Size, string> = {
@@ -49,6 +51,8 @@ export interface BreadcrumbProps {
   size?: Size;
   separator?: Separator;
   className?: string;
+  focusOutline?: boolean;
+  focusClassName?: string;
 }
 
 export default function BreadcrumbBase({
@@ -59,7 +63,11 @@ export default function BreadcrumbBase({
   size = "md",
   separator = "chevron",
   className,
+  focusOutline = true,
+  focusClassName,
 }: BreadcrumbProps) {
+  const outline = focusOutline ? FOCUS : "";
+
   const navClasses = merge(
     "d-f ai-c g-2",
     bordered ? "px-3 py-2 bg-white bc-silver-2 bw-1" : "",
@@ -78,12 +86,12 @@ export default function BreadcrumbBase({
       {items.map((item, index) => {
         const isLast = index === items.length - 1;
 
-        const linkClasses = [
+        const linkClasses = merge(
+          outline,
           item.icon ? "d-f ai-c g-2" : "",
-          "c-slate-6 h:c-slate-10 fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5",
-        ]
-          .filter(Boolean)
-          .join(" ");
+          "c-slate-6 h:c-slate-10",
+          focusClassName,
+        );
 
         return (
           <span key={item.label} className="d-f ai-c g-2">

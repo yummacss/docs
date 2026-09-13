@@ -9,6 +9,8 @@ import { merge } from "yummacss/merge";
 type Side = "top" | "right" | "bottom" | "left";
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
+
+const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
 type TriggerVariant = "icon" | "label";
 
 /** Base UI waits on `getAnimations()`, which never sees Motion. See NOTES.md. */
@@ -96,6 +98,8 @@ export interface PopoverProps {
   shadow?: Shadow;
   animated?: boolean;
   className?: string;
+  focusOutline?: boolean;
+  focusClassName?: string;
 }
 
 export default function PopoverBase({
@@ -117,8 +121,12 @@ export default function PopoverBase({
   shadow = "none",
   animated = true,
   className,
+  focusOutline = true,
+  focusClassName,
   container,
 }: PopoverProps) {
+  const outline = focusOutline ? FOCUS : "";
+
   const [uncontrolledOpen, setUncontrolledOpen] = useState(false);
   const open = controlledOpen ?? uncontrolledOpen;
   const setOpen = (next: boolean) => {
@@ -127,11 +135,13 @@ export default function PopoverBase({
   };
 
   const triggerClasses = merge(
-    "d-f ai-c jc-c bw-1 bc-silver-2 bg-white c-slate-10 us-none c-p h:bg-silver-1 fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5",
+    outline,
+    "d-f ai-c jc-c bw-1 bc-silver-2 bg-white c-slate-10 us-none c-p h:bg-silver-1",
     TRIGGER_VARIANTS[triggerVariant],
     TRIGGER_SHAPES[shape],
     open ? "bg-silver-1" : "",
     className,
+    focusClassName,
   );
 
   const popupClasses = [
@@ -168,7 +178,11 @@ export default function PopoverBase({
         </Popover.Title>
         {showClose && (
           <Popover.Close
-            className="d-f fs-0 ai-c jc-c w-7 h-7 bg-transparent c-slate-5 bw-0 br-9999 c-p h:bg-silver-1/50 h:c-slate-7 fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5"
+            className={merge(
+              outline,
+              "d-f fs-0 ai-c jc-c w-7 h-7 bg-transparent c-slate-5 bw-0 br-9999 c-p h:bg-silver-1/50 h:c-slate-7",
+              focusClassName,
+            )}
             aria-label="Close"
           >
             <Xmark aria-hidden className="w-5 h-5" />

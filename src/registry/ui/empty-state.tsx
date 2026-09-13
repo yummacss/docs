@@ -22,8 +22,10 @@ const ICON_TONES: Record<IconTone, string> = {
   neutral: "c-slate-5",
 };
 
+const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+
 const BUTTON_BASE =
-  "d-if ai-c px-3 py-2 bw-1 fw-500 tp-c tdu-150 ttf-io us-none c-p fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+  "d-if ai-c px-3 py-2 bw-1 fw-500 tp-c tdu-150 ttf-io us-none c-p";
 
 export interface EmptyStateProps {
   icon?: ReactNode;
@@ -38,6 +40,8 @@ export interface EmptyStateProps {
   iconShape?: Shape;
   shadow?: Shadow;
   className?: string;
+  focusOutline?: boolean;
+  focusClassName?: string;
 }
 
 export default function EmptyStateBase({
@@ -53,7 +57,11 @@ export default function EmptyStateBase({
   iconShape = "square",
   shadow = "none",
   className,
+  focusOutline = true,
+  focusClassName,
 }: EmptyStateProps) {
+  const outline = focusOutline ? FOCUS : "";
+
   const isCard = shadow !== "none";
   const hasActions = Boolean(primaryLabel || secondaryLabel);
 
@@ -89,10 +97,12 @@ export default function EmptyStateBase({
           {secondaryLabel && (
             <Button
               onClick={onSecondary}
-              className={[
+              className={merge(
+                outline,
                 BUTTON_BASE,
                 "bg-white bc-silver-2 c-slate-10 h:bg-silver-1/50",
-              ].join(" ")}
+                focusClassName,
+              )}
             >
               {secondaryLabel}
             </Button>
@@ -100,10 +110,12 @@ export default function EmptyStateBase({
           {primaryLabel && (
             <Button
               onClick={onPrimary}
-              className={[
+              className={merge(
+                outline,
                 BUTTON_BASE,
                 "g-2 bg-slate-12 h:bg-slate-11 bc-slate-12 c-white",
-              ].join(" ")}
+                focusClassName,
+              )}
             >
               {primaryIcon}
               {primaryLabel}

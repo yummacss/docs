@@ -14,6 +14,8 @@ const SHAPES: Record<Shape, string> = {
 
 type Orientation = "horizontal" | "vertical";
 
+const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+
 export interface SeparatorProps {
   icon?: ReactNode;
   onIconClick?: () => void;
@@ -27,6 +29,8 @@ export interface SeparatorProps {
   iconShape?: Shape;
   orientation?: Orientation;
   className?: string;
+  focusOutline?: boolean;
+  focusClassName?: string;
 }
 
 export default function SeparatorBase({
@@ -36,7 +40,11 @@ export default function SeparatorBase({
   iconShape = "rounded",
   orientation = "horizontal",
   className,
+  focusOutline = true,
+  focusClassName,
 }: SeparatorProps) {
+  const outline = focusOutline ? FOCUS : "";
+
   const vertical = orientation === "vertical";
 
   // A rule fills its container along its own axis. `as-s` covers the common
@@ -53,12 +61,12 @@ export default function SeparatorBase({
     );
   }
 
-  const buttonClasses = [
-    "d-if ai-c jc-c w-8 h-8 bg-white bc-silver-2 c-slate-10 bw-1 tp-c tdu-150 ttf-io us-none c-p h:bg-silver-1/50 fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5",
+  const buttonClasses = merge(
+    outline,
+    "d-if ai-c jc-c w-8 h-8 bg-white bc-silver-2 c-slate-10 bw-1 tp-c tdu-150 ttf-io us-none c-p h:bg-silver-1/50",
     SHAPES[iconShape],
-  ]
-    .filter(Boolean)
-    .join(" ");
+    focusClassName,
+  );
 
   // The same rule either way round: the wrapper turns, and each half grows
   // along whichever axis that leaves. This branch used to hardcode a row and

@@ -12,9 +12,17 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 Short. These were said out loud enough times to belong in a file.
 
-- **PR bodies**: link every component you name to its page,
-  `https://www.yummacss.com/ui/components/<id>`, with the link on the bold
-  heading itself.
+- **PR bodies**: link every component you name to its page, with the link on
+  the bold heading itself. While a branch is open the link is that branch's
+  Vercel preview, so the page shows what the PR changed rather than what is
+  already live:
+  `https://docs-git-<branch>-rrenildopereiraas-projects.vercel.app/ui/components/<id>`,
+  where `<branch>` is the branch name with `/` as `-`. Vercel reports it as
+  `branchAlias` on any deployment of the branch, and it follows the latest
+  push, unlike the per-deployment hash URL. Same for anything else on the docs
+  site the PR touches. Once a branch is merged its alias dies, so a link to
+  shipped work is `https://www.yummacss.com/...` again.
+- The same link rule applies in chat, not only in PR bodies.
 - **PR bodies**: one short block per topic, each under its own bold heading,
   then the checks line (`tsc`, test count, biome, `next build`). A sentence or
   two per topic saying **what changed**, and nothing else. No cause, no
@@ -27,7 +35,10 @@ Short. These were said out loud enough times to belong in a file.
 - **No attribution footers** in commits or PRs. `.claude/settings.json` clears
   them; do not add them by hand either.
 - No em dashes.
-- Never name another framework to explain a Yumma decision.
+- Never name another framework to explain a Yumma decision, and do not borrow
+  its vocabulary either. Focus draws an **outline**, never a ring: Yumma has
+  `os-`, `ow-`, `oo-` and `oc-`, so a box-shadow word for it describes a
+  workaround the library does not need.
 
 # Content model
 

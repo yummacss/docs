@@ -24,8 +24,10 @@ export interface SelectGroup {
   items: SelectOption[];
 }
 
+const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+
 const TRIGGER =
-  "d-f ai-c jc-sb bw-1 bc-silver-3 bg-white c-slate-10 us-none c-p fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+  "d-f ai-c jc-sb bw-1 bc-silver-3 bg-white c-slate-10 us-none c-p";
 
 const SIZES: Record<Size, string> = {
   sm: "h-8 w-56 px-3",
@@ -143,6 +145,8 @@ export interface SelectProps {
   disabled?: boolean;
   animated?: boolean;
   className?: string;
+  focusOutline?: boolean;
+  focusClassName?: string;
 }
 
 export default function SelectBase({
@@ -162,8 +166,12 @@ export default function SelectBase({
   disabled = false,
   animated = true,
   className,
+  focusOutline = true,
+  focusClassName,
   container,
 }: SelectProps) {
+  const outline = focusOutline ? FOCUS : "";
+
   const [open, setOpen] = useState(false);
 
   // A control that gets disabled while its popup is open should put it away.
@@ -173,12 +181,14 @@ export default function SelectBase({
   const id = useId();
 
   const triggerClasses = merge(
+    outline,
     TRIGGER,
     SIZES[size],
     SHAPES[shape],
     SHADOWS[shadow],
     open ? "bg-silver-2/50" : "bg-transparent",
     className,
+    focusClassName,
   );
 
   const iconEl = icon && (

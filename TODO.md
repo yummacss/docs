@@ -15,7 +15,7 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  119
+    Closed  120
     Open    13
     Done    90%
 
@@ -36,11 +36,11 @@ Empty.
 Breaking for the registry, so they ship together in one release with the
 renames already on `main`.
 
-- [ ] **A prop to control focus.** Some people do not want a ring at all, and
-      the appearance could be props too: outline colour, outline offset, all
-      Yumma CSS utilities. The indigo change has been and gone, so the pairing
-      this entry was waiting for is spent: the focus classes get rewritten a
-      second time whenever this lands.
+- [ ] **Preview Card's trigger has no outline.** It marks focus with `fv:td-u`,
+      the same underline hover already draws, so the two states are
+      indistinguishable. Every other focusable part in the set takes `FOCUS`.
+      Found while rolling out `focusClassName`; not fixed there because it
+      changes how the component looks.
 
 ## Phase 4 - Wants mockups
 
@@ -60,7 +60,7 @@ Nothing here blocks a release, and all of it makes the next change cheaper.
 ## Phase 6 - After v4
 
 - [ ] **Coloured box-shadow utilities**, v4 or v4.1. Without them a
-      halo-plus-ring focus treatment cannot be written at all.
+      halo-plus-outline focus treatment cannot be written at all.
 - [ ] **Attribute variants**, v4. Base UI marks popup enter and exit with
       `data-starting-style` and `data-ending-style`, and Yumma has no variant
       that can select an attribute. They are the last hand-written classes in
@@ -97,11 +97,11 @@ Not bugs. Written down so they stop being rediscovered.
 - Focus is treatment A and sits below WCAG 2.1 1.4.11. It was 1.21:1 for the
   outline and 1.80:1 for the border on indigo, and the silver pair that
   replaced it is no better. Deferred deliberately: no users, and a CSS change
-  is reversible. A darker ring, `slate-4` or lower, would pass.
+  is reversible. A darker outline, `slate-4` or lower, would pass.
 - Nothing in the playground survives a reload, by design, until the URL entry
   in Phase 5 lands.
-- Number Field and Toolbar ring the input, not the group around it, so the
-  steppers sit outside the ring. Chosen knowingly: `fv:` everywhere is worth
-  more than a ring that wraps the whole control, which only `fw:` can draw.
-- The focus ring's transition needs `outline-color` in `tp-c`, which landed in
+- Number Field and Toolbar outline the input, not the group around it, so the
+  steppers sit outside it. Chosen knowingly: `fv:` everywhere is worth more
+  than an outline that wraps the whole control, which only `fw:` can draw.
+- The focus outline's transition needs `outline-color` in `tp-c`, which landed in
   the yummacss repo. It reaches the docs on the next Yumma CSS release.

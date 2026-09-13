@@ -64,10 +64,16 @@ const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
   outset: "bs-o-sm",
 };
 
+const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+
+// The tone sits with the outline, not in the button's own classes, so
+// `focusOutline` switches the whole treatment off rather than leaving a
+// coloured border behind.
+const DANGER_OUTLINE = "fv:oc-red-2/60 fv:bc-red-3";
+
 const TONE_BUTTON: Record<Tone, string> = {
-  danger: "bg-red h:bg-red-8 bc-red-7 c-white fv:oc-red-2/60 fv:bc-red-3",
-  neutral:
-    "bg-white bc-silver-2 c-slate-10 h:bg-silver-1/50 fv:oc-silver-3/60 fv:bc-silver-5",
+  danger: "bg-red h:bg-red-8 bc-red-7 c-white",
+  neutral: "bg-white bc-silver-2 c-slate-10 h:bg-silver-1/50",
 };
 
 const TONE_BADGE: Record<Tone, string> = {
@@ -98,6 +104,8 @@ export interface AlertDialogProps {
   shadow?: Shadow;
   animated?: boolean;
   className?: string;
+  focusOutline?: boolean;
+  focusClassName?: string;
 }
 
 export default function AlertDialogBase({
@@ -117,19 +125,30 @@ export default function AlertDialogBase({
   shadow = "none",
   animated = true,
   className,
+  focusOutline = true,
+  focusClassName,
   container,
 }: AlertDialogProps) {
+  const outline = focusOutline ? FOCUS : "";
+  const triggerOutline =
+    focusOutline && triggerTone === "danger"
+      ? merge(FOCUS, DANGER_OUTLINE)
+      : outline;
+  const confirmOutline =
+    focusOutline && tone === "danger" ? merge(FOCUS, DANGER_OUTLINE) : outline;
+
   const [open, setOpen] = useState(false);
 
-  const base =
-    "px-3 py-2 bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:os-s fv:ow-3 fv:oo-0";
+  const base = "px-3 py-2 bw-1 fw-500 tp-c tdu-150 ttf-io us-none";
 
   const triggerClasses = merge(
+    triggerOutline,
     "d-if ai-c g-2",
     base,
     BUTTON_SHAPES[shape],
     TONE_BUTTON[triggerTone],
     className,
+    focusClassName,
   );
 
   const popupClasses = [
@@ -148,21 +167,21 @@ export default function AlertDialogBase({
     .filter(Boolean)
     .join(" ");
 
-  const cancelClasses = [
-    "px-4 py-2 bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5",
+  const cancelClasses = merge(
+    outline,
+    "px-4 py-2 bw-1 fw-500 tp-c tdu-150 ttf-io us-none",
     BUTTON_SHAPES[shape],
     TONE_BUTTON.neutral,
-  ]
-    .filter(Boolean)
-    .join(" ");
+    focusClassName,
+  );
 
-  const confirmClasses = [
-    "px-4 py-2 bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5",
+  const confirmClasses = merge(
+    confirmOutline,
+    "px-4 py-2 bw-1 fw-500 tp-c tdu-150 ttf-io us-none",
     BUTTON_SHAPES[shape],
     TONE_BUTTON[tone],
-  ]
-    .filter(Boolean)
-    .join(" ");
+    focusClassName,
+  );
 
   const popup = (
     <AlertDialog.Portal container={container} keepMounted>
@@ -180,7 +199,12 @@ export default function AlertDialogBase({
             <AlertDialog.Close
               render={
                 <Button
-                  className={`d-f p-a r-3 t-3 ai-c jc-c w-7 h-7 p-0 c-slate-6 bw-0 ${CLOSE_SHAPES[shape]} h:bg-silver-1/50 h:c-slate-7 fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5`}
+                  className={merge(
+                    outline,
+                    "d-f p-a r-3 t-3 ai-c jc-c w-7 h-7 p-0 c-slate-6 bw-0 h:bg-silver-1/50 h:c-slate-7",
+                    CLOSE_SHAPES[shape],
+                    focusClassName,
+                  )}
                 />
               }
               aria-label="Close"

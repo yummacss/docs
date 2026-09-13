@@ -90,6 +90,17 @@
       "type": "none",
       "typeName": "(value: number | number[]) => ReactNode",
       "description": "How the value is shown beside the label. Defaults to `50%` for one thumb, `20 - 80` for a range; override for currency, units, or anything else."
+    },
+    {
+      "name": "focusOutline",
+      "type": "boolean",
+      "default": true,
+      "description": "The focus outline, on by default. `false` removes it, including the danger, error and success tints that ride with it. Nothing then marks where the keyboard is unless `focusClassName` puts something back, which fails WCAG 2.4.7."
+    },
+    {
+      "name": "focusClassName",
+      "type": "string",
+      "description": "Yumma CSS utilities merged into the thumb's focus outline. Base UI puts the focusable input inside the thumb, so `fv:` never matches and the outline is driven from state: write the value with `fv:` as everywhere else and the prefix is dropped for you."
     }
   ]
 }
