@@ -9,13 +9,6 @@
       "description": "The glyph in the badge. No badge renders without one."
     },
     {
-      "name": "iconTone",
-      "type": "enum",
-      "values": ["accent", "neutral"],
-      "default": "accent",
-      "description": "`accent` for an invitation to act, `neutral` for a plain absence: nothing found, nothing to do."
-    },
-    {
       "name": "title",
       "type": "string",
       "example": "No files yet",
@@ -56,6 +49,13 @@
       "type": "none",
       "typeName": "() => void",
       "description": "Called when the secondary button is pressed."
+    },
+    {
+      "name": "iconTone",
+      "type": "enum",
+      "values": ["accent", "neutral"],
+      "default": "accent",
+      "description": "`accent` for an invitation to act, `neutral` for a plain absence: nothing found, nothing to do."
     },
     {
       "name": "iconShape",

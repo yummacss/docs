@@ -25,24 +25,10 @@
       "dependsOn": "triggerIcon"
     },
     {
-      "name": "triggerTone",
-      "type": "enum",
-      "values": ["danger", "neutral"],
-      "default": "danger",
-      "description": "The trigger's own color, independent of the dialog's `tone` - a neutral button can still open a destructive dialog."
-    },
-    {
       "name": "icon",
       "type": "none",
       "typeName": "ReactNode",
       "description": "The glyph in the badge above the title. No badge renders without one."
-    },
-    {
-      "name": "tone",
-      "type": "enum",
-      "values": ["danger", "neutral"],
-      "default": "danger",
-      "description": "Colors the badge and the confirm button together."
     },
     {
       "name": "title",
@@ -81,6 +67,20 @@
       "description": "The X in the corner. The Cancel button remains either way, so turning this off never traps anyone."
     },
     {
+      "name": "tone",
+      "type": "enum",
+      "values": ["danger", "neutral"],
+      "default": "danger",
+      "description": "Colors the badge and the confirm button together."
+    },
+    {
+      "name": "triggerTone",
+      "type": "enum",
+      "values": ["danger", "neutral"],
+      "default": "danger",
+      "description": "The trigger's own color, independent of the dialog's `tone` - a neutral button can still open a destructive dialog."
+    },
+    {
       "name": "shape",
       "type": "enum",
       "values": ["rounded", "square", "squircle"],
@@ -101,17 +101,17 @@
       "description": "The backdrop's fade and the popup's scale-in. Turn it off for an instant dialog, or when the user has asked for reduced motion."
     },
     {
-      "name": "container",
-      "type": "none",
-      "typeName": "HTMLElement | null",
-      "description": "Where the popup is rendered. Defaults to `document.body`, which is right almost always; pass an element to portal somewhere else, such as inside a frame or a container that owns its own stacking context."
-    },
-    {
       "name": "focus",
       "type": "boolean",
       "typeName": "boolean | string",
       "default": true,
       "description": "The focus outline. `true` draws it, `false` removes it along with the danger, error and success tints that ride with it, and a string of Yumma CSS utilities restyles it on every focusable part of the component, which is more than `className` reaches. Removing it outright and putting nothing back fails WCAG 2.4.7."
+    },
+    {
+      "name": "container",
+      "type": "none",
+      "typeName": "HTMLElement | null",
+      "description": "Where the popup is rendered. Defaults to `document.body`, which is right almost always; pass an element to portal somewhere else, such as inside a frame or a container that owns its own stacking context."
     }
   ]
 }

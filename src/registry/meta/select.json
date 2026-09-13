@@ -33,12 +33,6 @@
       "optional": true
     },
     {
-      "name": "required",
-      "type": "boolean",
-      "default": false,
-      "description": "Appends a red asterisk to the label & sets the trigger's native `required` attribute."
-    },
-    {
       "name": "description",
       "type": "string",
       "description": "A line under the control, for context on what the choice means."
@@ -66,6 +60,22 @@
       "description": "Called with the newly selected value, or `null` if the selection was cleared. Required for a controlled select."
     },
     {
+      "name": "icon",
+      "type": "none",
+      "typeName": "ReactNode",
+      "example": null,
+      "exampleIcon": "Folder",
+      "description": "A single icon fixed on the trigger, not per option. For the per-option kind, give an option an `avatar` instead."
+    },
+    {
+      "name": "iconPosition",
+      "type": "enum",
+      "values": ["leading", "trailing"],
+      "default": "leading",
+      "description": "Which side `icon` sits on. Trailing sits just before the chevron.",
+      "dependsOn": "icon"
+    },
+    {
       "name": "size",
       "type": "enum",
       "values": ["sm", "md", "lg"],
@@ -87,26 +97,16 @@
       "description": "Depth on the trigger. `inset` reads as a well, `outset` as a raised control."
     },
     {
-      "name": "icon",
-      "type": "none",
-      "typeName": "ReactNode",
-      "example": null,
-      "exampleIcon": "Folder",
-      "description": "A single icon fixed on the trigger, not per option. For the per-option kind, give an option an `avatar` instead."
-    },
-    {
-      "name": "iconPosition",
-      "type": "enum",
-      "values": ["leading", "trailing"],
-      "default": "leading",
-      "description": "Which side `icon` sits on. Trailing sits just before the chevron.",
-      "dependsOn": "icon"
-    },
-    {
       "name": "disabled",
       "type": "boolean",
       "default": false,
       "description": "Blocks interaction and dims the whole control, label included."
+    },
+    {
+      "name": "required",
+      "type": "boolean",
+      "default": false,
+      "description": "Appends a red asterisk to the label & sets the trigger's native `required` attribute."
     },
     {
       "name": "animated",
@@ -115,17 +115,17 @@
       "description": "Fades and scales the popup in and out. Turn it off for a static popup, or when the user has asked for reduced motion."
     },
     {
-      "name": "container",
-      "type": "none",
-      "typeName": "HTMLElement | null",
-      "description": "Where the popup is rendered. Defaults to `document.body`, which is right almost always; pass an element to portal somewhere else, such as inside a frame or a container that owns its own stacking context."
-    },
-    {
       "name": "focus",
       "type": "boolean",
       "typeName": "boolean | string",
       "default": true,
       "description": "The focus outline. `true` draws it, `false` removes it along with the danger, error and success tints that ride with it, and a string of Yumma CSS utilities restyles it on every focusable part of the component, which is more than `className` reaches. Removing it outright and putting nothing back fails WCAG 2.4.7."
+    },
+    {
+      "name": "container",
+      "type": "none",
+      "typeName": "HTMLElement | null",
+      "description": "Where the popup is rendered. Defaults to `document.body`, which is right almost always; pass an element to portal somewhere else, such as inside a frame or a container that owns its own stacking context."
     }
   ]
 }

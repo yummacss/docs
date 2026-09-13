@@ -76,6 +76,13 @@
       "description": "Each menu's `label`, its `items`, and an optional `disabled`. Every menu owns its own open state, so opening one closes the last."
     },
     {
+      "name": "iconPosition",
+      "type": "enum",
+      "values": ["leading", "trailing"],
+      "default": "leading",
+      "description": "Which end of an item its `icon` sits at. A `shortcut` always trails regardless."
+    },
+    {
       "name": "shape",
       "type": "enum",
       "values": ["rounded", "square", "squircle"],
@@ -88,13 +95,6 @@
       "values": ["none", "inset", "outset"],
       "default": "none",
       "description": "Depth on the bar and its popups. Not on the individual buttons inside the bar: they are transparent, so a shadow on each one reads as noise."
-    },
-    {
-      "name": "iconPosition",
-      "type": "enum",
-      "values": ["leading", "trailing"],
-      "default": "leading",
-      "description": "Which end of an item its `icon` sits at. A `shortcut` always trails regardless."
     },
     {
       "name": "animated",
