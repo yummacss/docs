@@ -15,6 +15,8 @@ import { merge } from "yummacss/merge";
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 
+const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+
 const ROOT_SHAPES: Record<Shape, string> = {
   rounded: "br-xxl",
   square: "",
@@ -97,6 +99,8 @@ export interface ToolbarProps {
   shadow?: Shadow;
   animated?: boolean;
   className?: string;
+  focusOutline?: boolean;
+  focusClassName?: string;
 }
 
 export default function ToolbarBase({
@@ -105,7 +109,11 @@ export default function ToolbarBase({
   shadow = "none",
   animated = true,
   className,
+  focusOutline = true,
+  focusClassName,
 }: ToolbarProps) {
+  const outline = focusOutline ? FOCUS : "";
+
   const shadowClass =
     shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "";
 
@@ -139,6 +147,8 @@ export default function ToolbarBase({
               item={item}
               control={control}
               animated={animated}
+              outline={outline}
+              focusClassName={focusClassName}
             />
           );
         }
@@ -147,12 +157,12 @@ export default function ToolbarBase({
           return (
             <Toolbar.Input
               key={key}
-              className={[
-                "h-9 w-40 pl-3 bg-transparent bw-0 fs-sm fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5",
+              className={merge(
+                outline,
+                "h-9 w-40 pl-3 bg-transparent bw-0 fs-sm",
                 control,
-              ]
-                .filter(Boolean)
-                .join(" ")}
+                focusClassName,
+              )}
               placeholder={item.placeholder}
               aria-label={item.label}
             />
@@ -199,7 +209,11 @@ export default function ToolbarBase({
                 </NumberField.Decrement>
                 <Toolbar.Input
                   render={<NumberField.Input />}
-                  className="w-16 bg-transparent c-slate-10 bw-0 ta-c fs-sm fw-500 fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5"
+                  className={merge(
+                    outline,
+                    "w-16 bg-transparent c-slate-10 bw-0 ta-c fs-sm fw-500",
+                    focusClassName,
+                  )}
                 />
                 <NumberField.Increment
                   render={
@@ -228,12 +242,12 @@ export default function ToolbarBase({
             <Toolbar.Link
               key={key}
               href={item.href}
-              className={[
-                "d-f ai-c g-1 h-9 px-3 c-slate-7 fs-sm fw-500 td-none h:c-slate-10 fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5",
+              className={merge(
+                outline,
+                "d-f ai-c g-1 h-9 px-3 c-slate-7 fs-sm fw-500 td-none h:c-slate-10",
                 control,
-              ]
-                .filter(Boolean)
-                .join(" ")}
+                focusClassName,
+              )}
             >
               {item.icon}
               {item.label}
@@ -242,19 +256,19 @@ export default function ToolbarBase({
         }
 
         const button = item as ToolbarButtonItem;
-        const buttonClasses = [
+        const buttonClasses = merge(
+          outline,
           // `ws-nw`: a toolbar is a row of controls, and a label that wraps
           // makes the whole bar two lines tall to fit one button.
-          "d-f ai-c jc-c ws-nw bg-transparent c-slate-7 bw-0 us-none fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5",
+          "d-f ai-c jc-c ws-nw bg-transparent c-slate-7 bw-0 us-none",
           button.iconOnly ? "w-9 h-9" : "g-1 h-9 px-3 fs-sm fw-500",
           control,
           // Surface, not fade, matching the rest of the library.
           button.disabled
             ? "bg-silver-1 c-slate-4 c-na"
             : "c-p h:bg-silver-1 h:c-slate-10",
-        ]
-          .filter(Boolean)
-          .join(" ");
+          focusClassName,
+        );
 
         return (
           <Toolbar.Button
@@ -311,10 +325,14 @@ function ToolbarToggles({
   item,
   control,
   animated,
+  outline,
+  focusClassName,
 }: {
   item: ToolbarTogglesItem;
   control: string;
   animated: boolean;
+  outline: string;
+  focusClassName?: string;
 }) {
   const [internalValue, setInternalValue] = useState<string[]>(
     item.defaultValue ?? item.value ?? [],
@@ -327,15 +345,15 @@ function ToolbarToggles({
   };
 
   const toggleClasses = (pressed: boolean) =>
-    [
-      "d-f w-9 h-9 ai-c jc-c bw-0 us-none c-p fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5",
+    merge(
+      outline,
+      "d-f w-9 h-9 ai-c jc-c bw-0 us-none c-p",
       control,
       pressed
         ? "bg-silver-1 bc-silver-3 c-slate-12 bw-1"
         : "bg-transparent c-slate-7 h:bg-silver-1 h:c-slate-10",
-    ]
-      .filter(Boolean)
-      .join(" ");
+      focusClassName,
+    );
 
   return (
     <ToggleGroup

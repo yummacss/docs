@@ -42,6 +42,34 @@ Only a class that sets the same property is dropped, so nothing you add goes mis
 
 When there is no prop for what you need, edit the file.
 
+## The Focus Outline
+
+Every component marks `:focus-visible` with an outline, and `focusClassName` restyles it.
+
+```tsx
+<Dialog trigger="Rename" title="Rename file" focusClassName="fv:oc-blue-2/60" />
+```
+
+`className` reaches the root element, so on a Dialog it never gets to the trigger, the close button or the two buttons in the footer. `focusClassName` reaches all four, and any focusable part of any other component.
+
+It takes Yumma CSS utilities like `className` does, so the color is `fv:oc-*`, the thickness `fv:ow-*` and the distance from the control `fv:oo-*`. An outline follows the element's own border box, so a control's `shape` carries into it with nothing to keep in step.
+
+To replace the outline rather than restyle it, `focusOutline={false}` takes the default off and leaves `focusClassName` to put yours on.
+
+```tsx
+<Button focusOutline={false} focusClassName="fv:bg-silver-2">
+  Save
+</Button>
+```
+
+It removes the whole treatment, the danger, error and success tints included. Those ride with the outline rather than sitting in the variant, so one prop clears all of it.
+
+<Hint icon="warning">
+  An outline you can turn off is an outline someone can lose. On its own,
+  `focusOutline={false}` leaves nothing marking where the keyboard is, which
+  fails WCAG 2.4.7. Put something back.
+</Hint>
+
 ## Own Your Components
 
 `yummaui add` copies a real file into your project, and nothing overwrites it later. When props and `className` are not enough, all you need to do is edit it.

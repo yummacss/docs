@@ -32,6 +32,31 @@ const EXPECTED_DROPS = [
   "select.tsx: bg-white",
   // No visual change: `td-u` already won.
   "preview-card.tsx: td-none",
+  // `FOCUS` carries the default outline colour, and a danger, error or success
+  // tone is meant to repaint it.
+  "alert-dialog.tsx: fv:bc-silver-5",
+  "alert-dialog.tsx: fv:oc-silver-3/60",
+  "button.tsx: fv:bc-silver-5",
+  "button.tsx: fv:oc-silver-3/60",
+  "dialog.tsx: fv:bc-silver-5",
+  "dialog.tsx: fv:oc-silver-3/60",
+  "field.tsx: fv:bc-silver-5",
+  "field.tsx: fv:oc-silver-3/60",
+  "file-upload.tsx: fv:oc-silver-3/60",
+  "textarea.tsx: fv:bc-silver-5",
+  "textarea.tsx: fv:oc-silver-3/60",
+  "tooltip.tsx: fv:bc-silver-5",
+  "tooltip.tsx: fv:oc-silver-3/60",
+  // The browse button sits inside the dashed zone, so its outline keeps a pixel.
+  "file-upload.tsx: fv:oo-0",
+  // A pressed toolbar toggle takes a border.
+  "toolbar.tsx: bw-0",
+  // All from the resolver reading more than the component can produce: every
+  // value of the `INTENTS` map, and a disabled star crossed with an enabled one.
+  "badge.tsx: bg-transparent",
+  "badge.tsx: c-slate-10",
+  "badge.tsx: c-white",
+  "rating.tsx: c-na",
 ];
 
 function topLevel(source: string, char: string, from = 0): number {
@@ -79,6 +104,7 @@ function constants(source: string): Map<string, string[]> {
     const start = (match.index ?? 0) + match[0].length;
     const first = source[start];
     let body: string;
+    const extra: string[] = [];
 
     if (first === '"' || first === "'") {
       body = source.slice(start, source.indexOf(first, start + 1) + 1);
@@ -91,14 +117,27 @@ function constants(source: string): Map<string, string[]> {
       }
       body = source.slice(start, i + 1);
     } else {
-      continue;
+      // An expression. The one shape worth following is a constant switched
+      // off by a prop, `focusOutline ? FOCUS : ""`, which is how every
+      // component gates its outline; fold in what that constant holds. Reading
+      // every name in any expression instead pulls whole colour maps in.
+      const end = topLevel(source, ";", start);
+      body = source.slice(start, end < 0 ? source.length : end);
+      for (const [, before, after] of body.matchAll(
+        /\?\s*([A-Z][A-Z0-9_]*)\s*:\s*""|\?\s*""\s*:\s*([A-Z][A-Z0-9_]*)/g,
+      )) {
+        for (const value of table.get(before ?? after) ?? []) extra.push(value);
+      }
     }
 
     const strings = [...body.matchAll(/"([^"\n]*)"|'([^'\n]*)'/g)]
       .map((s) => s[1] ?? s[2])
       .filter((s) => s === "" || s.split(/\s+/).every((t) => CLASSY.test(t)));
 
-    table.set(match[1], strings);
+    // Never an empty list. One argument resolving to no values at all makes the
+    // whole combination set empty, so the merge call is skipped in silence.
+    const values = [...strings, ...extra];
+    table.set(match[1], values.length > 0 ? values : [""]);
   }
 
   return table;
@@ -137,7 +176,9 @@ function resolve(
   }
 
   const name = /^([A-Za-z_$][\w$]*)/.exec(expr);
-  return (name && table.get(name[1])) ?? [""];
+  const known = name ? table.get(name[1]) : undefined;
+
+  return known && known.length > 0 ? known : [""];
 }
 
 function mergeCalls(source: string): string[][] {

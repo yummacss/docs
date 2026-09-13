@@ -9,6 +9,8 @@ type Tone = "light" | "dark" | "danger";
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 
+const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+
 /** Base UI waits on `getAnimations()`, which never sees Motion. See NOTES.md. */
 const TOOLTIP_MOTION = `
   .yui-tooltip-pop {
@@ -41,11 +43,14 @@ const TONES: Record<Tone, string> = {
   danger: "bg-red-7 c-white",
 };
 
+// The tone sits with the outline so `focusOutline` takes it off too.
+const DANGER_OUTLINE = "fv:oc-red-2/60 fv:bc-red-3";
+
 /** One tone, both ends: a destructive trigger opens a destructive tooltip. */
 const TRIGGER_TONES: Record<Tone, string> = {
-  light: "c-slate-8 h:c-slate-10 fv:oc-silver-3/60 fv:bc-silver-5",
-  dark: "c-slate-8 h:c-slate-10 fv:oc-silver-3/60 fv:bc-silver-5",
-  danger: "c-red-7 h:c-red-8 fv:oc-red-2/60 fv:bc-red-3",
+  light: "c-slate-8 h:c-slate-10",
+  dark: "c-slate-8 h:c-slate-10",
+  danger: "c-red-7 h:c-red-8",
 };
 
 /** The arrow paints the popup's own surface, so it follows `tone` with it. */
@@ -97,6 +102,8 @@ export interface TooltipProps {
   shadow?: Shadow;
   animated?: boolean;
   className?: string;
+  focusOutline?: boolean;
+  focusClassName?: string;
 }
 
 export default function TooltipBase({
@@ -112,12 +119,20 @@ export default function TooltipBase({
   shadow = "none",
   animated = true,
   className,
+  focusOutline = true,
+  focusClassName,
   container,
 }: TooltipProps) {
+  const outline = focusOutline
+    ? merge(FOCUS, tone === "danger" ? DANGER_OUTLINE : "")
+    : "";
+
   const triggerClasses = merge(
-    "d-f ai-c jc-c bg-transparent bw-0 c-p fv:os-s fv:ow-3 fv:oo-0",
+    outline,
+    "d-f ai-c jc-c bg-transparent bw-0 c-p",
     TRIGGER_TONES[tone],
     className,
+    focusClassName,
   );
 
   const popupClasses = [

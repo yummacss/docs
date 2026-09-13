@@ -11,6 +11,8 @@ import { merge } from "yummacss/merge";
 type Shape = "rounded" | "square" | "squircle";
 type Size = "sm" | "md";
 
+const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+
 const SHAPES: Record<Shape, string> = {
   rounded: "br-9999",
   square: "",
@@ -48,6 +50,8 @@ export interface ToggleProps
   disabled?: boolean;
   animated?: boolean;
   className?: string;
+  focusOutline?: boolean;
+  focusClassName?: string;
 }
 
 /**
@@ -84,9 +88,13 @@ export default function ToggleBase({
   disabled = false,
   animated = true,
   className,
+  focusOutline = true,
+  focusClassName,
   value,
   ...props
 }: ToggleProps) {
+  const outline = focusOutline ? FOCUS : "";
+
   const grouped = value !== undefined;
   const [internalPressed, setInternalPressed] = useState(
     defaultPressed ?? false,
@@ -109,12 +117,14 @@ export default function ToggleBase({
       {...pressedProps}
       className={(state) =>
         merge(
-          "d-f ai-c jc-c us-none fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5",
+          outline,
+          "d-f ai-c jc-c us-none",
           disabled ? "c-na" : "c-p",
           SIZES[size],
           SHAPES[shape],
           disabled ? DISABLED : `bw-1 ${state.pressed ? PRESSED : UNPRESSED}`,
           className,
+          focusClassName,
         )
       }
       render={(renderProps, state) =>

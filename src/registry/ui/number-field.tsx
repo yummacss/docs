@@ -10,10 +10,16 @@ type Size = "sm" | "md" | "lg";
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 
+const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+
+// The outline sits a pixel inside the group border, so the input and the
+// steppers share one edge instead of drawing two outlines against each other.
+const INSET_FOCUS = `${FOCUS} fv:oo--1`;
+
 // A number field is a field that happens to step, so the number gets the room
 // and the steppers become a column at the trailing edge.
 const STEP =
-  "d-f ai-c jc-c bg-white c-slate-10 us-none c-p h:bg-silver-1/50 a:bg-silver-2 fv:os-s fv:ow-3 fv:oo--1 fv:oc-silver-3/60 fv:bc-silver-5";
+  "d-f ai-c jc-c bg-white c-slate-10 us-none c-p h:bg-silver-1/50 a:bg-silver-2";
 
 const STEP_SIZES: Record<Size, string> = {
   sm: "w-6 h-4",
@@ -34,7 +40,7 @@ const ICON_SIZES: Record<Size, string> = {
 };
 
 // The outline follows the group's own radius, and the group had none: the
-// corners live on the end buttons, so the focus ring drew a square.
+// corners live on the end buttons, so the focus outline drew a square.
 const GROUP_SHAPES: Record<Shape, string> = {
   rounded: "br-lg",
   square: "",
@@ -59,6 +65,8 @@ export interface NumberFieldProps
   shadow?: Shadow;
 
   className?: string;
+  focusOutline?: boolean;
+  focusClassName?: string;
 }
 
 export default function NumberFieldBase({
@@ -70,17 +78,23 @@ export default function NumberFieldBase({
   shadow = "none",
   disabled = false,
   className,
+  focusOutline = true,
+  focusClassName,
   ...props
 }: NumberFieldProps) {
   const id = useId();
 
-  const stepClasses = [STEP, STEP_SIZES[size]].join(" ");
+  const outline = focusOutline ? INSET_FOCUS : "";
+
+  const stepClasses = merge(outline, STEP, STEP_SIZES[size], focusClassName);
 
   const inputClasses = merge(
-    "bg-white bc-transparent c-slate-10 bw-1 ta-l fv:os-s fv:ow-3 fv:oo--1 fv:oc-silver-3/60 fv:bc-silver-5",
+    outline,
+    "bg-white bc-transparent c-slate-10 bw-1 ta-l",
     INPUT_SIZES[size],
     SHADOWS[shadow],
     className,
+    focusClassName,
   );
 
   return (

@@ -25,6 +25,8 @@ const SHADOWS: Record<Shadow, string> = {
 // the same padding is what keeps the fill clear of the thumb: the indicator
 // takes half a box past `--start-position`, which is the box's edge and a
 // padding beyond the thumb's.
+const FOCUS = "os-s ow-3 oo-0 oc-silver-3/60";
+
 const THUMB_BOX = "d-f ai-c jc-c w-6 h-5 p-1";
 const BOX = "1.5rem";
 const HALF_BOX = "0.75rem";
@@ -48,6 +50,8 @@ export interface SliderProps {
   disabled?: boolean;
   formatValue?: (value: Value) => ReactNode;
   className?: string;
+  focusOutline?: boolean;
+  focusClassName?: string;
 }
 
 export default function SliderBase({
@@ -65,6 +69,8 @@ export default function SliderBase({
   disabled = false,
   formatValue = defaultFormat,
   className,
+  focusOutline = true,
+  focusClassName,
 }: SliderProps) {
   const [internalValue, setInternalValue] = useState<Value>(
     defaultValue ?? controlledValue ?? 0,
@@ -79,14 +85,21 @@ export default function SliderBase({
   };
 
   // Focus is held in state because `fv:` never matches here: Base UI puts the
-  // focusable `<input type="range">` inside the thumb, so the ring has to be
-  // driven from the input's own focus.
+  // focusable `<input type="range">` inside the thumb, so the outline has to be
+  // driven from the input's own focus. `focusClassName` is written with `fv:`
+  // for every other component, so the prefix is dropped rather than asking for
+  // a different value here.
+  const outline = merge(
+    focusOutline ? FOCUS : "",
+    (focusClassName ?? "").replace(/\bfv:/g, ""),
+  );
+
   const thumbClasses = (index: number) =>
     merge(
       "w-4 h-3",
       disabled ? "bg-silver-5" : "bg-slate-10",
       SHAPES[shape],
-      focused === index ? "os-s ow-3 oo-0 oc-silver-3/60" : "",
+      focused === index ? outline : "",
     );
 
   const focusProps = (index: number) => ({

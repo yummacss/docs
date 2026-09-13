@@ -268,6 +268,12 @@ describe("shipped copy", () => {
     expect(offenders(/\btailwind\b/i)).toEqual([]);
   });
 
+  // A ring is a box-shadow standing in for an outline. Yumma has `os-`, `ow-`,
+  // `oo-` and `oc-`, so the word for what focus draws is outline.
+  it("calls the focus indicator an outline", () => {
+    expect(offenders(/\brings?\b/i)).toEqual([]);
+  });
+
   /** One ellipsis character, the way the site's own placeholders spell it. */
   it("spells an ellipsis as one character", () => {
     expect(offenders(/\.{3}/)).toEqual([]);

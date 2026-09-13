@@ -60,23 +60,27 @@ const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
   outset: "bs-o-sm",
 };
 
-const BUTTON_BASE =
-  "bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:os-s fv:ow-3 fv:oo-0";
+const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
 
-const NEUTRAL_BUTTON =
-  "bg-white bc-silver-2 c-slate-10 h:bg-silver-1/50 fv:oc-silver-3/60 fv:bc-silver-5";
+const BUTTON_BASE = "bw-1 fw-500 tp-c tdu-150 ttf-io us-none";
 
-const PRIMARY_BUTTON =
-  "bg-slate-12 h:bg-slate-11 bc-slate-12 c-white fv:oc-silver-3/60 fv:bc-silver-5";
+const NEUTRAL_BUTTON = "bg-white bc-silver-2 c-slate-10 h:bg-silver-1/50";
+
+const PRIMARY_BUTTON = "bg-slate-12 h:bg-slate-11 bc-slate-12 c-white";
+
+// The tone sits with the outline, not in the button's own classes, so
+// `focusOutline` switches the whole treatment off rather than leaving a
+// coloured border behind.
+const DANGER_OUTLINE = "fv:oc-red-2/60 fv:bc-red-3";
 
 const TRIGGER_TONES: Record<TriggerTone, string> = {
   neutral: NEUTRAL_BUTTON,
-  danger: "bg-red h:bg-red-8 bc-red-7 c-white fv:oc-red-2/60 fv:bc-red-3",
+  danger: "bg-red h:bg-red-8 bc-red-7 c-white",
 };
 
 const CONFIRM_TONES: Record<ConfirmTone, string> = {
   primary: PRIMARY_BUTTON,
-  danger: "bg-red h:bg-red-8 bc-red-7 c-white fv:oc-red-2/60 fv:bc-red-3",
+  danger: "bg-red h:bg-red-8 bc-red-7 c-white",
 };
 
 const TRIGGER_SIZES: Record<TriggerSize, string> = {
@@ -110,6 +114,8 @@ export interface DialogProps {
   shadow?: Shadow;
   animated?: boolean;
   className?: string;
+  focusOutline?: boolean;
+  focusClassName?: string;
 }
 
 export default function DialogBase({
@@ -132,17 +138,31 @@ export default function DialogBase({
   shadow = "none",
   animated = true,
   className,
+  focusOutline = true,
+  focusClassName,
   container,
 }: DialogProps) {
+  const outline = focusOutline ? FOCUS : "";
+  const triggerOutline =
+    focusOutline && triggerTone === "danger"
+      ? merge(FOCUS, DANGER_OUTLINE)
+      : outline;
+  const confirmOutline =
+    focusOutline && confirmTone === "danger"
+      ? merge(FOCUS, DANGER_OUTLINE)
+      : outline;
+
   const [open, setOpen] = useState(false);
 
   const triggerClasses = merge(
+    triggerOutline,
     "d-if ai-c g-2",
     BUTTON_BASE,
     TRIGGER_SIZES[triggerSize],
     BUTTON_SHAPES[shape],
     TRIGGER_TONES[triggerTone],
     className,
+    focusClassName,
   );
 
   const popupClasses = [
@@ -153,23 +173,23 @@ export default function DialogBase({
     .filter(Boolean)
     .join(" ");
 
-  const cancelClasses = [
+  const cancelClasses = merge(
+    outline,
     BUTTON_BASE,
     TRIGGER_SIZES.md,
     BUTTON_SHAPES[shape],
     NEUTRAL_BUTTON,
-  ]
-    .filter(Boolean)
-    .join(" ");
+    focusClassName,
+  );
 
-  const confirmClasses = [
+  const confirmClasses = merge(
+    confirmOutline,
     BUTTON_BASE,
     TRIGGER_SIZES.md,
     BUTTON_SHAPES[shape],
     CONFIRM_TONES[confirmTone],
-  ]
-    .filter(Boolean)
-    .join(" ");
+    focusClassName,
+  );
 
   const popup = (
     <Dialog.Portal container={container} keepMounted>
@@ -187,7 +207,12 @@ export default function DialogBase({
             <Dialog.Close
               render={
                 <Button
-                  className={`d-f p-a r-3 t-3 ai-c jc-c w-7 h-7 p-0 c-slate-6 bw-0 ${CLOSE_SHAPES[shape]} h:bg-silver-1/50 h:c-slate-7 fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5`}
+                  className={merge(
+                    outline,
+                    "d-f p-a r-3 t-3 ai-c jc-c w-7 h-7 p-0 c-slate-6 bw-0 h:bg-silver-1/50 h:c-slate-7",
+                    CLOSE_SHAPES[shape],
+                    focusClassName,
+                  )}
                 />
               }
               aria-label="Close"

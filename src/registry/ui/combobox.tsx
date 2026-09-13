@@ -22,8 +22,9 @@ export interface ComboboxGroup {
   items: ComboboxItem[];
 }
 
-const INPUT =
-  "pl-4 pr-16 bg-white bc-silver-3 c-slate-10 bw-1 fs-md fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+
+const INPUT = "pl-4 pr-16 bg-white bc-silver-3 c-slate-10 bw-1 fs-md";
 
 const SIZES: Record<Size, string> = {
   sm: "h-8 w-56",
@@ -82,9 +83,8 @@ const SHADOWS: Record<Shadow, string> = {
   outset: "bs-o-sm",
 };
 
-const RING = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
-
-const ACTION = `d-f b-0 ai-c jc-c w-6 h-6 p-0 bg-transparent c-slate-6 c-p h:c-slate-10 ${RING}`;
+const ACTION =
+  "d-f b-0 ai-c jc-c w-6 h-6 p-0 bg-transparent c-slate-6 c-p h:c-slate-10";
 
 export interface ComboboxProps {
   /**
@@ -107,6 +107,8 @@ export interface ComboboxProps {
   animated?: boolean;
   emptyMessage?: string;
   className?: string;
+  focusOutline?: boolean;
+  focusClassName?: string;
 }
 
 function isGroupEntry(
@@ -164,8 +166,12 @@ export default function ComboboxBase({
   animated = true,
   emptyMessage = "No results found.",
   className,
+  focusOutline = true,
+  focusClassName,
   container,
 }: ComboboxProps) {
+  const outline = focusOutline ? FOCUS : "";
+
   const [open, setOpen] = useState(false);
 
   // A control that gets disabled while its popup is open should put it away.
@@ -183,11 +189,13 @@ export default function ComboboxBase({
   );
 
   const inputClasses = merge(
+    outline,
     INPUT,
     SIZES[size],
     SHAPES[shape],
     SHADOWS[shadow],
     className,
+    focusClassName,
   );
 
   const popup = (
@@ -273,7 +281,11 @@ export default function ComboboxBase({
               <Combobox.Input
                 id={id}
                 placeholder={placeholder}
-                className={`fg-1 w-24 min-w-24 bg-transparent c-slate-10 bw-0 ${RING}`}
+                className={merge(
+                  outline,
+                  "fg-1 w-24 min-w-24 bg-transparent c-slate-10 bw-0",
+                  focusClassName,
+                )}
               />
             </Combobox.Chips>
           ) : (
@@ -293,11 +305,17 @@ export default function ComboboxBase({
                 gesture, and excluding it there left no way to empty them at
                 once. */}
             {clearable && (
-              <Combobox.Clear className={ACTION} aria-label="Clear selection">
+              <Combobox.Clear
+                className={merge(outline, ACTION, focusClassName)}
+                aria-label="Clear selection"
+              >
                 <Xmark className="w-4 h-4" />
               </Combobox.Clear>
             )}
-            <Combobox.Trigger className={ACTION} aria-label="Open popup">
+            <Combobox.Trigger
+              className={merge(outline, ACTION, focusClassName)}
+              aria-label="Open popup"
+            >
               <ArrowSeparateVertical className="w-4 h-4" />
             </Combobox.Trigger>
           </div>
