@@ -94,7 +94,7 @@
     {
       "name": "focusClassName",
       "type": "string",
-      "description": "Yumma CSS utilities merged into the thumb's focus ring. Base UI puts the focusable input inside the thumb, so `fv:` never matches and the ring is driven from state: write the value with `fv:` as everywhere else and the prefix is dropped for you."
+      "description": "Yumma CSS utilities merged into the thumb's focus outline. Base UI puts the focusable input inside the thumb, so `fv:` never matches and the outline is driven from state: write the value with `fv:` as everywhere else and the prefix is dropped for you."
     }
   ]
 }

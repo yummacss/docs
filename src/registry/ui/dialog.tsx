@@ -60,7 +60,7 @@ const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
   outset: "bs-o-sm",
 };
 
-const RING = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
 
 const BUTTON_BASE = "bw-1 fw-500 tp-c tdu-150 ttf-io us-none";
 
@@ -138,7 +138,7 @@ export default function DialogBase({
   const [open, setOpen] = useState(false);
 
   const triggerClasses = merge(
-    RING,
+    FOCUS,
     "d-if ai-c g-2",
     BUTTON_BASE,
     TRIGGER_SIZES[triggerSize],
@@ -157,7 +157,7 @@ export default function DialogBase({
     .join(" ");
 
   const cancelClasses = merge(
-    RING,
+    FOCUS,
     BUTTON_BASE,
     TRIGGER_SIZES.md,
     BUTTON_SHAPES[shape],
@@ -166,7 +166,7 @@ export default function DialogBase({
   );
 
   const confirmClasses = merge(
-    RING,
+    FOCUS,
     BUTTON_BASE,
     TRIGGER_SIZES.md,
     BUTTON_SHAPES[shape],
@@ -191,7 +191,7 @@ export default function DialogBase({
               render={
                 <Button
                   className={merge(
-                    RING,
+                    FOCUS,
                     "d-f p-a r-3 t-3 ai-c jc-c w-7 h-7 p-0 c-slate-6 bw-0 h:bg-silver-1/50 h:c-slate-7",
                     CLOSE_SHAPES[shape],
                     focusClassName,

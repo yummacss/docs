@@ -8,7 +8,7 @@ type Shape = "rounded" | "square" | "squircle" | "pill";
 type Shadow = "none" | "inset" | "outset";
 type IconSide = "leading" | "trailing";
 
-const RING = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
 
 const BASE = "d-if ai-c jc-c g-2 bw-1 fw-500 us-none";
 
@@ -90,7 +90,7 @@ export default function ButtonBase({
   const iconOnlyActive = iconOnly && Boolean(icon);
 
   const classes = merge(
-    RING,
+    FOCUS,
     BASE,
     transition ? MOTION : "",
     VARIANTS[variant],

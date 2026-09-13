@@ -37,7 +37,7 @@ const ICON_PADDING: Record<IconSide, string> = {
   trailing: "pl-4 pr-10",
 };
 
-const RING = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
 
 const STATUS_BORDER: Record<Status, string> = {
   default: "bc-silver-3",
@@ -45,7 +45,7 @@ const STATUS_BORDER: Record<Status, string> = {
   success: "bc-green-5",
 };
 
-const STATUS_RING: Record<Status, string> = {
+const STATUS_FOCUS: Record<Status, string> = {
   default: "",
   error: "fv:oc-red-2/60 fv:bc-red-3",
   success: "fv:oc-green-2/60 fv:bc-green-3",
@@ -127,7 +127,7 @@ export default function FieldBase({
       onPressedChange={setRevealed}
       disabled={disabled}
       className={merge(
-        RING,
+        FOCUS,
         "d-f ai-c jc-c p-0 bg-transparent bw-0 c-slate-6 c-p us-none",
         focusClassName,
       )}
@@ -148,13 +148,13 @@ export default function FieldBase({
   const hasAffix = Boolean(prefixNode) || Boolean(suffix);
 
   const controlClasses = merge(
-    RING,
+    FOCUS,
     "bg-white c-slate-10 bw-1 fs-md",
     SIZES[size],
     SHAPES[shape],
     SHADOWS[shadow],
     STATUS_BORDER[status],
-    STATUS_RING[status],
+    STATUS_FOCUS[status],
     showDecorativeIcon || status !== "default"
       ? ICON_PADDING[activeSide]
       : "px-4",
@@ -163,10 +163,10 @@ export default function FieldBase({
   );
 
   const affixControlClasses = merge(
-    RING,
+    FOCUS,
     "fg-1 bg-white bc-silver-3 c-slate-10 byw-1 fs-md",
     HEIGHTS[size],
-    STATUS_RING[status],
+    STATUS_FOCUS[status],
     prefixNode && suffix
       ? "px-3"
       : prefixNode

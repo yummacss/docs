@@ -27,7 +27,10 @@ Short. These were said out loud enough times to belong in a file.
 - **No attribution footers** in commits or PRs. `.claude/settings.json` clears
   them; do not add them by hand either.
 - No em dashes.
-- Never name another framework to explain a Yumma decision.
+- Never name another framework to explain a Yumma decision, and do not borrow
+  its vocabulary either. Focus draws an **outline**, never a ring: Yumma has
+  `os-`, `ow-`, `oo-` and `oc-`, so a box-shadow word for it describes a
+  workaround the library does not need.
 
 # Content model
 

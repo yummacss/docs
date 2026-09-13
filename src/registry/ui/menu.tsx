@@ -11,7 +11,7 @@ type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 type IconPosition = "leading" | "trailing";
 
-const RING = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
 
 interface SizeSpec {
   trigger: string;
@@ -174,7 +174,7 @@ export default function MenuBase({
     shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "";
 
   const triggerClasses = merge(
-    RING,
+    FOCUS,
     "d-f ai-c g-2 h-fc bg-white bc-silver-2 bw-1 fw-500 us-none",
     spec.trigger,
     TRIGGER_SHAPES[shape],
@@ -186,7 +186,7 @@ export default function MenuBase({
   );
 
   // `os-none`: Base UI focuses the popup when it opens, and the browser
-  // paints its own dark `auto` ring on it. Nothing was tabbed to, and the
+  // paints its own dark `auto` outline on it. Nothing was tabbed to, and the
   // open menu is its own signal.
   const popupClasses = [
     "py-1 bg-white bc-silver-2 c-slate-10 bw-1 os-none",
@@ -202,7 +202,7 @@ export default function MenuBase({
     (state: { highlighted: boolean }) =>
       [
         // Highlighting focuses the item, hover included, so the browser
-        // drew its ring on every item the pointer crossed. The highlight
+        // drew its outline on every item the pointer crossed. The highlight
         // background is the signal.
         "d-f ai-c g-2 us-none c-p mx-1 fw-500 os-none",
         spec.item,

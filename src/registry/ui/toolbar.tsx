@@ -15,7 +15,7 @@ import { merge } from "yummacss/merge";
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 
-const RING = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
 
 const ROOT_SHAPES: Record<Shape, string> = {
   rounded: "br-xxl",
@@ -153,7 +153,7 @@ export default function ToolbarBase({
             <Toolbar.Input
               key={key}
               className={merge(
-                RING,
+                FOCUS,
                 "h-9 w-40 pl-3 bg-transparent bw-0 fs-sm",
                 control,
                 focusClassName,
@@ -205,7 +205,7 @@ export default function ToolbarBase({
                 <Toolbar.Input
                   render={<NumberField.Input />}
                   className={merge(
-                    RING,
+                    FOCUS,
                     "w-16 bg-transparent c-slate-10 bw-0 ta-c fs-sm fw-500",
                     focusClassName,
                   )}
@@ -238,7 +238,7 @@ export default function ToolbarBase({
               key={key}
               href={item.href}
               className={merge(
-                RING,
+                FOCUS,
                 "d-f ai-c g-1 h-9 px-3 c-slate-7 fs-sm fw-500 td-none h:c-slate-10",
                 control,
                 focusClassName,
@@ -252,7 +252,7 @@ export default function ToolbarBase({
 
         const button = item as ToolbarButtonItem;
         const buttonClasses = merge(
-          RING,
+          FOCUS,
           // `ws-nw`: a toolbar is a row of controls, and a label that wraps
           // makes the whole bar two lines tall to fit one button.
           "d-f ai-c jc-c ws-nw bg-transparent c-slate-7 bw-0 us-none",
@@ -339,7 +339,7 @@ function ToolbarToggles({
 
   const toggleClasses = (pressed: boolean) =>
     merge(
-      RING,
+      FOCUS,
       "d-f w-9 h-9 ai-c jc-c bw-0 us-none c-p",
       control,
       pressed

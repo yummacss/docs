@@ -9,7 +9,7 @@ type Tone = "light" | "dark" | "danger";
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 
-const RING = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
 
 /** Base UI waits on `getAnimations()`, which never sees Motion. See NOTES.md. */
 const TOOLTIP_MOTION = `
@@ -119,7 +119,7 @@ export default function TooltipBase({
   container,
 }: TooltipProps) {
   const triggerClasses = merge(
-    RING,
+    FOCUS,
     "d-f ai-c jc-c bg-transparent bw-0 c-p",
     TRIGGER_TONES[tone],
     className,

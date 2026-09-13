@@ -11,7 +11,7 @@ import { merge } from "yummacss/merge";
 type Shape = "rounded" | "square" | "squircle";
 type Size = "sm" | "md";
 
-const RING = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
 
 const SHAPES: Record<Shape, string> = {
   rounded: "br-9999",
@@ -113,7 +113,7 @@ export default function ToggleBase({
       {...pressedProps}
       className={(state) =>
         merge(
-          RING,
+          FOCUS,
           "d-f ai-c jc-c us-none",
           disabled ? "c-na" : "c-p",
           SIZES[size],

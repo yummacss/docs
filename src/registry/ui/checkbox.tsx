@@ -10,7 +10,7 @@ type Size = "sm" | "md" | "lg";
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 
-const RING = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
 
 const BOX = "d-f ai-c jc-c fs-0";
 
@@ -114,7 +114,7 @@ export default function CheckboxBase({
           onCheckedChange={handleChange}
           className={(state) =>
             merge(
-              RING,
+              FOCUS,
               BOX,
               SIZES[size],
               SHAPES[shape],

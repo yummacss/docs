@@ -12,7 +12,7 @@ type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 type IconPosition = "leading" | "trailing";
 
-const RING = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
 
 const POPUP_SHAPES: Record<Shape, string> = {
   rounded: "br-xxl",
@@ -103,7 +103,7 @@ export default function CommandPaletteBase({
   const [open, setOpen] = useState(false);
 
   const triggerClasses = merge(
-    RING,
+    FOCUS,
     "bg-white d-f ai-c g-2 px-3 py-2 bc-silver-2 c-slate-10 bw-1 fw-500 tp-c tdu-150 ttf-io us-none",
     ITEM_SHAPES[shape],
     className,

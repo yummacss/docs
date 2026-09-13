@@ -9,7 +9,7 @@ type Orientation = "horizontal" | "vertical";
 type Size = "sm" | "md" | "lg";
 type Shape = "pill" | "rounded" | "square" | "squircle";
 
-const RING = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
 type IconPosition = "leading" | "trailing";
 
 const SIZES: Record<Size, { tab: string; text: string }> = {
@@ -115,7 +115,7 @@ export default function TabsBase({
           const isSelected = value === item.value;
 
           const tabClasses = merge(
-            RING,
+            FOCUS,
             "p-r zi-10 fg-1 d-f ai-c jc-c bg-transparent us-none",
             item.icon && !item.iconOnly ? "g-2" : "",
             item.count !== undefined ? "g-2" : "",

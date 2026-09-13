@@ -1165,17 +1165,17 @@ declares logical properties: `padding` covers `padding-inline` covers
       what breaks it, because nothing tells that div to hide. Yumma has no `data-*` variants, which is what
       forces a raw `<style>` here - a concrete argument for adding attribute
       variants in v4.
-- [x] **The "black thick border" is the browser's own focus ring.** Measured
+- [x] **The "black thick border" is the browser's own focus outline.** Measured
       `outline: rgb(16, 16, 16) auto 1px` - Chrome's default, on two different
-      elements. Base UI focuses the **popup** when a menu opens, so the ring
+      elements. Base UI focuses the **popup** when a menu opens, so the outline
       landed around the whole menu; and it focuses each **item** as it becomes
-      highlighted, hover included, so the ring followed the pointer down the
+      highlighted, hover included, so the outline followed the pointer down the
       list. Neither element was ever tabbed to. `os-none` on both, in
       context-menu, menu and menubar - the open menu and the `data-highlighted`
       background are the signals, and they are untouched. Measured after:
       `outline-style: none`, `outline-width: 0px` on popup and item, with the
       item still reporting `data-highlighted`.
-      Reported against Context Menu only; the same ring was on Menu's items and
+      Reported against Context Menu only; the same outline was on Menu's items and
       Menubar's, so all three are fixed.
 - [x] **The `pill` track was already fixed, and I broke it trying to fix it
       again.** Swept shape x orientation x size: all six combinations give a
@@ -1414,7 +1414,7 @@ declares logical properties: `padding` covers `padding-inline` covers
       arbitrary values and **no coloured box-shadow utilities yet**, so the
       halo variant was never buildable and the shape is
       `fv:os-s fv:ow-3 fv:oo-0` with `fv:oc-indigo-2/60 fv:bc-indigo-3`.
-      **The ring shape lives on the merged base and the hue on the variant**:
+      **The outline's shape lives on the merged base and its hue on the variant**:
       putting the whole cluster on both made `merge` drop one copy in seven
       components, which the composition test caught. Semantic hues follow the
       same shape in red and green. 67 lines across 26 files, measured on
@@ -1422,7 +1422,7 @@ declares logical properties: `padding` covers `padding-inline` covers
       Two things fell out. Number Field uses **`fw:` (focus-within)**, not
       `fv:`, so the sweep missed it: that is the "could never get an outline
       around the whole component" entry, and it renders now. Its Group then
-      drew a **square** ring, because an outline follows the element's own
+      drew a **square** outline, because an outline follows the element's own
       radius and the corners live on the end buttons; the Group carries the
       radius now.
 - [x] **Four "prop does nothing" reports, one cause each, none in the
@@ -1463,10 +1463,10 @@ declares logical properties: `padding` covers `padding-inline` covers
       component using it has the same problem. Needs a decision, so it moved
       out of Phase 1.
 - [x] **Toolbar's number field rang the wrong box.** The input and each
-      stepper carried their own ring, so focusing the input drew a square
+      stepper carried their own outline, so focusing the input drew a square
       flush around the number **between** the minus and the plus, leaving them
       outside it. That is the "buttons get in the way" report, and the reason
-      it looked lost against the bar. The ring moved to the Group on `fw:`,
+      it looked lost against the bar. The outline moved to the Group on `fw:`,
       matching the standalone Number Field.
 - [x] **`layout` cannot resize a dialog.** Motion's `layout` animates with
       **transforms**, which move nothing around them, so the slide eased while
@@ -1498,16 +1498,16 @@ declares logical properties: `padding` covers `padding-inline` covers
       nothing of its own to recolour. The group owns the border now and the
       children own none: measured silver-3 at rest, indigo-3 on focus.
 - [x] **`tp-c` omitted `outline-color`.** A transition group called "colors"
-      that skips the one colour a focus ring animates. Added in the yummacss
+      that skips the one colour a focus outline animates. Added in the yummacss
       repo; the smooth focus appears in the docs on the next release, since
       docs installs the published package.
-- [ ] **`fv:` cannot ring a composite control, and `fw:` is not a style
+- [ ] **`fv:` cannot outline a composite control, and `fw:` is not a style
       choice.** `focus-visible` matches **the element that has focus**. In
       Number Field and Toolbar the focus lands on the `<input>`; the box that
-      should show the ring is the group wrapping the input and both steppers,
+      should show the outline is the group wrapping the input and both steppers,
       and it never receives focus itself. `focus-within` matches an ancestor
       of the focused element, which is the only selector that can do this. The
-      alternative is a ring around the bare input with the steppers outside
+      alternative is an outline around the bare input with the steppers outside
       it, which is the bug that was just fixed. Renildo asked for `fv:` only;
       this is the reason it is still `fw:` in exactly two places.
 - [ ] **The popup enter and exit CSS cannot become utilities.** Base UI marks
@@ -1517,11 +1517,11 @@ declares logical properties: `padding` covers `padding-inline` covers
       Verified in `defaults/variants/`. Until Yumma has them, the
       `yui-*-pop` classes stay; Motion is not an alternative, because Base UI
       waits on `getAnimations()` and never sees it.
-- [x] **`fw:` is gone; both composite controls ring with `fv:`.** Renildo
-      chose the narrower ring knowingly, so Number Field and Toolbar put the
+- [x] **`fw:` is gone; both composite controls outline with `fv:`.** Renildo
+      chose the narrower outline knowingly, so Number Field and Toolbar put the
       cluster on the input that takes focus rather than on the group around
       it. Number Field's input carries a transparent 1px border so the
-      colour half of the ring has something to paint.
+      colour half of the outline has something to paint.
 - [x] **Combobox's chips live inside the field.** They sat in a row under the
       input, which the popup covered the moment it opened. `Combobox.Chips`
       wraps the input as well as the chips, so the box wears the input's own
@@ -1579,7 +1579,7 @@ declares logical properties: `padding` covers `padding-inline` covers
       and the box on `height: auto`. A callback ref attaches when the node
       appears. Measured 256 to 298 across thirteen eased frames on the default
       indicator.
-- [x] **Number Field rings each part that takes focus**, steppers included,
+- [x] **Number Field outlines each part that takes focus**, steppers included,
       the way the docs rail's own stepper does.
 - [x] **Meter's `warning` is yellow**, and Rating's `max` floor is 3.
 - [x] **Number Field is a field with a chevron column.** The steppers left the
@@ -1604,10 +1604,10 @@ declares logical properties: `padding` covers `padding-inline` covers
       100: 4px of fill past the thumb every time, and the fill never overruns
       the track.
 - [x] **`fv:` can never match a Slider thumb.** Base UI puts the focusable
-      `<input type="range">` inside the thumb div, so the ring has to be
+      `<input type="range">` inside the thumb div, so the outline has to be
       driven from that input's `onFocus`, gated on `:focus-visible` so it
-      follows the browser's own rule rather than every focus. It rings the
-      thumb rather than the track, which Switch rings, because a range
+      follows the browser's own rule rather than every focus. It outlines the
+      thumb rather than the track, which Switch outlines, because a range
       slider's track cannot say which of two thumbs has focus.
 - [x] **The colour scale stops at 12**, not 13. `bg-slate-13/45` generated no
       rule at all and the element it was on rendered transparent.
@@ -1635,7 +1635,7 @@ declares logical properties: `padding` covers `padding-inline` covers
       the icon tile and applied to the zone, which is the thing the
       description says must not have it; it now lands on the tile. And the
       trigger stayed indigo inside a red zone, so it takes the error colour
-      and a red ring with everything else.
+      and a red outline with everything else.
 - [x] **The canon test caught five invented classes in one file**, which is
       the most it has ever caught at once: `d-n`, `ff-i`, `ls-none`, `tof-e`
       and a `d:c-p-na` that is not a class in any shape. Two of them have no
@@ -1645,7 +1645,7 @@ declares logical properties: `padding` covers `padding-inline` covers
       class.
 
 - [x] **Indigo is gone from the library.** 91 lines across 35 files. The
-      primary is `slate-12` and the ring pair is `oc-silver-3/60` over
+      primary is `slate-12` and the outline pair is `oc-silver-3/60` over
       `bc-silver-5`, replacing `oc-indigo-2/60` over `bc-indigo-3` in 51
       places. Hover on a primary now goes *lighter*, `h:bg-slate-11`, because
       12 is the floor of the scale and there is nothing darker to go to. Two
@@ -1805,22 +1805,29 @@ declares logical properties: `padding` covers `padding-inline` covers
 
 - [x] **Focus is `focusClassName`, not three props, and the entry was wrong
       about the gap.** `merge` already resolves `fv:` conflicts both across and
-      within arguments, so on any element `className` reaches, the ring's
+      within arguments, so on any element `className` reaches, the outline's
       colour, width and offset were always overridable and nobody knew. The
       real gap was inner parts: a Dialog has four focusable elements and
       `className` gets to none of them. So one prop per component, merged after
-      the ring at every site it lands. Colour, width, offset and removal all
+      the outline at every site it lands. Colour, width, offset and removal all
       fall out of the Yumma CSS vocabulary, with no palette union to keep in
       step and no new value to document.
 
-      The ring itself was copy-pasted inline 45 times across 29 files and is now
-      one `RING` per file. Slider is the exception: Base UI puts the focusable
-      input inside the thumb, so `fv:` never matches and the ring runs off state
-      - it strips the `fv:` prefix so one written value works everywhere.
+      The outline itself was copy-pasted inline 45 times across 29 files and is
+      now one `FOCUS` per file. Slider is the exception: Base UI puts the
+      focusable input inside the thumb, so `fv:` never matches and the outline
+      runs off state - it strips the `fv:` prefix so one written value works
+      everywhere.
 
-      `focusRing={false}` was considered and declined. Removing the ring is a
-      WCAG 2.4.7 failure, and a boolean makes removal the shortest path to it;
+      `focusOutline={false}` was considered and declined. Removing it is a WCAG
+      2.4.7 failure, and a boolean makes removal the shortest path there;
       `fv:ow-0` still removes it for anyone who means to.
+
+      The constant was `RING`, copied from the one already in `combobox.tsx`.
+      A ring is a box-shadow trick another framework needs because it does not
+      have `oo-*`. Yumma has the outline properties, so the word for what these
+      draw is outline, and box-shadow stays free for what it is good at. 36
+      uses across the repo, this file included, renamed with the rollout.
 
       Proof the rewrite changed nothing: every `class` attribute on every
       element of all 42 prerendered component pages is byte-identical before and

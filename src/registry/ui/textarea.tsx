@@ -10,7 +10,7 @@ type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 type Status = "default" | "error" | "success";
 
-const RING = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
 
 const SHAPES: Record<Shape, string> = {
   rounded: "br-lg",
@@ -30,7 +30,7 @@ const STATUS_BORDER: Record<Status, string> = {
   success: "bc-green-5",
 };
 
-const STATUS_RING: Record<Status, string> = {
+const STATUS_FOCUS: Record<Status, string> = {
   default: "",
   error: "fv:oc-red-2/60 fv:bc-red-3",
   success: "fv:oc-green-2/60 fv:bc-green-3",
@@ -108,13 +108,13 @@ export default function TextareaBase({
   const warn = showCounter && remaining <= WARN_AT;
 
   const controlClasses = merge(
-    RING,
+    FOCUS,
     "h-24 w-64 pt-3 pl-3 bg-white c-slate-10 bw-1 fs-md r-none",
     showCounter || status !== "default" ? "pr-10" : "pr-3",
     SHAPES[shape],
     SHADOWS[shadow],
     STATUS_BORDER[status],
-    STATUS_RING[status],
+    STATUS_FOCUS[status],
     className,
     focusClassName,
   );

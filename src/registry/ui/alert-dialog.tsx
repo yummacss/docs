@@ -64,7 +64,7 @@ const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
   outset: "bs-o-sm",
 };
 
-const RING = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
 
 const TONE_BUTTON: Record<Tone, string> = {
   danger: "bg-red h:bg-red-8 bc-red-7 c-white fv:oc-red-2/60 fv:bc-red-3",
@@ -127,7 +127,7 @@ export default function AlertDialogBase({
   const base = "px-3 py-2 bw-1 fw-500 tp-c tdu-150 ttf-io us-none";
 
   const triggerClasses = merge(
-    RING,
+    FOCUS,
     "d-if ai-c g-2",
     base,
     BUTTON_SHAPES[shape],
@@ -153,7 +153,7 @@ export default function AlertDialogBase({
     .join(" ");
 
   const cancelClasses = merge(
-    RING,
+    FOCUS,
     "px-4 py-2 bw-1 fw-500 tp-c tdu-150 ttf-io us-none",
     BUTTON_SHAPES[shape],
     TONE_BUTTON.neutral,
@@ -161,7 +161,7 @@ export default function AlertDialogBase({
   );
 
   const confirmClasses = merge(
-    RING,
+    FOCUS,
     "px-4 py-2 bw-1 fw-500 tp-c tdu-150 ttf-io us-none",
     BUTTON_SHAPES[shape],
     TONE_BUTTON[tone],
@@ -185,7 +185,7 @@ export default function AlertDialogBase({
               render={
                 <Button
                   className={merge(
-                    RING,
+                    FOCUS,
                     "d-f p-a r-3 t-3 ai-c jc-c w-7 h-7 p-0 c-slate-6 bw-0 h:bg-silver-1/50 h:c-slate-7",
                     CLOSE_SHAPES[shape],
                     focusClassName,

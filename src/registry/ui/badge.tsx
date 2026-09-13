@@ -7,7 +7,7 @@ type Tone = "outline" | "subtle" | "solid";
 type Shape = "square" | "rounded" | "pill" | "squircle";
 type Size = "sm" | "md" | "lg";
 
-const RING = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
 type Shadow = "none" | "inset" | "outset";
 type IconPosition = "leading" | "trailing";
 
@@ -186,7 +186,7 @@ export default function BadgeBase({
     .join(" ");
 
   const closeButtonClasses = merge(
-    RING,
+    FOCUS,
     "d-f ai-c jc-c w-4 h-4 p-0 bg-transparent br-9999",
     contentColor,
     tone === "outline"
