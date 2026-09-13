@@ -48,8 +48,7 @@ export interface RatingProps {
   hint?: ReactNode;
   children?: ReactNode;
   className?: string;
-  focusOutline?: boolean;
-  focusClassName?: string;
+  focus?: boolean | string;
 }
 
 export default function RatingBase({
@@ -68,10 +67,9 @@ export default function RatingBase({
   hint,
   children,
   className,
-  focusOutline = true,
-  focusClassName,
+  focus = true,
 }: RatingProps) {
-  const outline = focusOutline ? FOCUS : "";
+  const outline = focus ? merge(FOCUS, focus === true ? "" : focus) : "";
 
   const [internalValue, setInternalValue] = useState(
     defaultValue ?? controlledValue ?? (icons ? -1 : 0),
@@ -100,7 +98,6 @@ export default function RatingBase({
       pressed ? "c-yellow-5" : "c-slate-4",
       !disabled && !readOnly && !pressed ? "h:c-slate-6" : "",
       shadowClass ? "" : "bg-transparent",
-      focusClassName,
     );
 
   const iconClasses = (option: RatingIcon, active: boolean) =>
@@ -109,7 +106,6 @@ export default function RatingBase({
       disabled ? "c-na o-60" : `c-p ${outline}`,
       active ? (option.activeClassName ?? "c-yellow-5") : "c-slate-4",
       !disabled && !active ? "h:c-slate-6" : "",
-      focusClassName,
     );
 
   return (

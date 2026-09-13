@@ -51,8 +51,7 @@ export interface AccordionProps {
   onValueChange?: (value: string[]) => void;
   animated?: boolean;
   className?: string;
-  focusOutline?: boolean;
-  focusClassName?: string;
+  focus?: boolean | string;
 }
 
 export default function AccordionBase({
@@ -69,10 +68,9 @@ export default function AccordionBase({
   onValueChange,
   animated = true,
   className,
-  focusOutline = true,
-  focusClassName,
+  focus = true,
 }: AccordionProps) {
-  const outline = focusOutline ? FOCUS : "";
+  const outline = focus ? merge(FOCUS, focus === true ? "" : focus) : "";
 
   const [internalValue, setInternalValue] = useState<string[]>(
     defaultValue ?? controlledValue ?? [],
@@ -202,7 +200,6 @@ export default function AccordionBase({
                   triggerRadius,
                   "ta-l",
                   item.disabled ? "c-na o-60" : "c-p",
-                  focusClassName,
                 )}
               >
                 {indicator === "plus-minus" &&

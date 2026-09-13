@@ -39,7 +39,7 @@ renames already on `main`.
 - [ ] **Preview Card's trigger has no outline.** It marks focus with `fv:td-u`,
       the same underline hover already draws, so the two states are
       indistinguishable. Every other focusable part in the set takes `FOCUS`.
-      Found while rolling out `focusClassName`; not fixed there because it
+      Found while rolling out `focus`; not fixed there because it
       changes how the component looks.
 
 ## Phase 4 - Wants mockups

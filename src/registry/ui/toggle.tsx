@@ -50,8 +50,7 @@ export interface ToggleProps
   disabled?: boolean;
   animated?: boolean;
   className?: string;
-  focusOutline?: boolean;
-  focusClassName?: string;
+  focus?: boolean | string;
 }
 
 /**
@@ -88,12 +87,11 @@ export default function ToggleBase({
   disabled = false,
   animated = true,
   className,
-  focusOutline = true,
-  focusClassName,
+  focus = true,
   value,
   ...props
 }: ToggleProps) {
-  const outline = focusOutline ? FOCUS : "";
+  const outline = focus ? merge(FOCUS, focus === true ? "" : focus) : "";
 
   const grouped = value !== undefined;
   const [internalPressed, setInternalPressed] = useState(
@@ -124,7 +122,6 @@ export default function ToggleBase({
           SHAPES[shape],
           disabled ? DISABLED : `bw-1 ${state.pressed ? PRESSED : UNPRESSED}`,
           className,
-          focusClassName,
         )
       }
       render={(renderProps, state) =>

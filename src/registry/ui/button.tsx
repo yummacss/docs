@@ -24,7 +24,7 @@ const VARIANTS: Record<Variant, string> = {
   link: "bg-transparent bc-transparent c-slate-10 tuo-2 h:td-u",
 };
 
-// The tone sits with the outline, not in the variant, so `focusOutline`
+// The tone sits with the outline, not in the variant, so `focus`
 // switches the whole treatment off rather than leaving a coloured border.
 const VARIANT_OUTLINE: Partial<Record<Variant, string>> = {
   danger: "fv:oc-red-2/60 fv:bc-red-3",
@@ -68,8 +68,7 @@ export interface ButtonProps extends ComponentProps<typeof Button> {
   /** Does nothing while `icon` is not set. */
   iconOnly?: boolean;
   transition?: boolean;
-  focusOutline?: boolean;
-  focusClassName?: string;
+  focus?: boolean | string;
   children?: ReactNode;
 }
 
@@ -85,12 +84,13 @@ export default function ButtonBase({
   transition = true,
   disabled,
   className,
-  focusOutline = true,
-  focusClassName,
+  focus = true,
   children,
   ...props
 }: ButtonProps) {
-  const outline = focusOutline ? merge(FOCUS, VARIANT_OUTLINE[variant]) : "";
+  const outline = focus
+    ? merge(FOCUS, VARIANT_OUTLINE[variant], focus === true ? "" : focus)
+    : "";
 
   const inactive = disabled || loading;
   // `iconOnly` needs an icon to be only. Without one it dropped the label and
@@ -112,7 +112,6 @@ export default function ButtonBase({
     SHADOWS[shadow],
     inactive ? "o-60 c-na" : "c-p",
     className,
-    focusClassName,
   );
 
   return (

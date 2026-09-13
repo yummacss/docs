@@ -60,8 +60,7 @@ export interface RadioProps {
   disabled?: boolean;
   animated?: boolean;
   className?: string;
-  focusOutline?: boolean;
-  focusClassName?: string;
+  focus?: boolean | string;
 }
 
 export default function RadioBase({
@@ -75,10 +74,9 @@ export default function RadioBase({
   disabled = false,
   animated = true,
   className,
-  focusOutline = true,
-  focusClassName,
+  focus = true,
 }: RadioProps) {
-  const outline = focusOutline ? FOCUS : "";
+  const outline = focus ? merge(FOCUS, focus === true ? "" : focus) : "";
 
   const labelId = useId();
 
@@ -111,7 +109,6 @@ export default function RadioBase({
               checked
                 ? "bg-slate-12"
                 : `bg-white bw-1 bc-silver-3 ${SHADOWS[shadow]}`,
-              focusClassName,
             );
 
           const indicator = (

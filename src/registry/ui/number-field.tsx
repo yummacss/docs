@@ -65,8 +65,7 @@ export interface NumberFieldProps
   shadow?: Shadow;
 
   className?: string;
-  focusOutline?: boolean;
-  focusClassName?: string;
+  focus?: boolean | string;
 }
 
 export default function NumberFieldBase({
@@ -78,15 +77,14 @@ export default function NumberFieldBase({
   shadow = "none",
   disabled = false,
   className,
-  focusOutline = true,
-  focusClassName,
+  focus = true,
   ...props
 }: NumberFieldProps) {
   const id = useId();
 
-  const outline = focusOutline ? INSET_FOCUS : "";
+  const outline = focus ? merge(INSET_FOCUS, focus === true ? "" : focus) : "";
 
-  const stepClasses = merge(outline, STEP, STEP_SIZES[size], focusClassName);
+  const stepClasses = merge(outline, STEP, STEP_SIZES[size]);
 
   const inputClasses = merge(
     outline,
@@ -94,7 +92,6 @@ export default function NumberFieldBase({
     INPUT_SIZES[size],
     SHADOWS[shadow],
     className,
-    focusClassName,
   );
 
   return (

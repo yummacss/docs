@@ -107,8 +107,7 @@ export interface ComboboxProps {
   animated?: boolean;
   emptyMessage?: string;
   className?: string;
-  focusOutline?: boolean;
-  focusClassName?: string;
+  focus?: boolean | string;
 }
 
 function isGroupEntry(
@@ -166,11 +165,10 @@ export default function ComboboxBase({
   animated = true,
   emptyMessage = "No results found.",
   className,
-  focusOutline = true,
-  focusClassName,
+  focus = true,
   container,
 }: ComboboxProps) {
-  const outline = focusOutline ? FOCUS : "";
+  const outline = focus ? merge(FOCUS, focus === true ? "" : focus) : "";
 
   const [open, setOpen] = useState(false);
 
@@ -195,7 +193,6 @@ export default function ComboboxBase({
     SHAPES[shape],
     SHADOWS[shadow],
     className,
-    focusClassName,
   );
 
   const popup = (
@@ -284,7 +281,6 @@ export default function ComboboxBase({
                 className={merge(
                   outline,
                   "fg-1 w-24 min-w-24 bg-transparent c-slate-10 bw-0",
-                  focusClassName,
                 )}
               />
             </Combobox.Chips>
@@ -306,14 +302,14 @@ export default function ComboboxBase({
                 once. */}
             {clearable && (
               <Combobox.Clear
-                className={merge(outline, ACTION, focusClassName)}
+                className={merge(outline, ACTION)}
                 aria-label="Clear selection"
               >
                 <Xmark className="w-4 h-4" />
               </Combobox.Clear>
             )}
             <Combobox.Trigger
-              className={merge(outline, ACTION, focusClassName)}
+              className={merge(outline, ACTION)}
               aria-label="Open popup"
             >
               <ArrowSeparateVertical className="w-4 h-4" />

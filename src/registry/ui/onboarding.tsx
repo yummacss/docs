@@ -101,8 +101,7 @@ export interface OnboardingProps {
   shadow?: Shadow;
   animated?: boolean;
   className?: string;
-  focusOutline?: boolean;
-  focusClassName?: string;
+  focus?: boolean | string;
 }
 
 export default function OnboardingBase({
@@ -117,11 +116,10 @@ export default function OnboardingBase({
   shadow = "none",
   animated = true,
   className,
-  focusOutline = true,
-  focusClassName,
+  focus = true,
   container,
 }: OnboardingProps) {
-  const outline = focusOutline ? FOCUS : "";
+  const outline = focus ? merge(FOCUS, focus === true ? "" : focus) : "";
 
   const [open, setOpen] = useState(false);
   const [page, setPage] = useState(0);
@@ -180,7 +178,6 @@ export default function OnboardingBase({
     "bg-white d-if ai-c g-2 px-3 py-2 bc-silver-2 c-slate-10 bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50",
     CONTROL_SHAPES[shape],
     className,
-    focusClassName,
   );
 
   const popupClasses = [
@@ -196,7 +193,6 @@ export default function OnboardingBase({
     CONTROL_BASE,
     CONTROL_SHAPES[shape],
     "bg-white bc-silver-2 c-slate-10 h:bg-silver-1/50",
-    focusClassName,
   );
 
   const forwardClasses = merge(
@@ -206,7 +202,6 @@ export default function OnboardingBase({
     allTasksDone
       ? "bg-slate-12 h:bg-slate-11 bc-slate-12 c-white"
       : "bg-silver-1 bc-silver-2 c-slate-4",
-    focusClassName,
   );
 
   const slide = (
@@ -232,7 +227,6 @@ export default function OnboardingBase({
                   outline,
                   "d-f ai-c g-2 px-3 py-2 w-100% br-lg bw-0 fs-sm ta-l us-none c-p",
                   isChecked ? "bg-green-1/30" : "bg-silver-1/50",
-                  focusClassName,
                 )}
               >
                 <div
@@ -264,7 +258,6 @@ export default function OnboardingBase({
             "d-f ai-c jc-c w-7 h-7 p-0 c-slate-6 bw-0 h:bg-silver-1/50 h:c-slate-7",
             CLOSE_SHAPES[shape],
             position,
-            focusClassName,
           )}
         />
       }
@@ -395,7 +388,6 @@ export default function OnboardingBase({
                   isFirst
                     ? "c-slate-3"
                     : "c-slate-6 h:bg-silver-1 h:c-slate-10 c-p",
-                  focusClassName,
                 )}
                 aria-label="Previous"
               >
@@ -415,7 +407,6 @@ export default function OnboardingBase({
                           outline,
                           "d-f ai-c jc-c w-4 h-4 br-9999 bw-0 us-none c-p",
                           state.active ? "bg-slate-12" : "bg-silver-2",
-                          focusClassName,
                         )
                       }
                     />
@@ -438,7 +429,6 @@ export default function OnboardingBase({
                     allTasksDone
                       ? "c-slate-6 h:bg-silver-1 h:c-slate-10 c-p"
                       : "c-slate-3",
-                    focusClassName,
                   )}
                   aria-label="Next"
                 >
