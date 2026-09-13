@@ -51,6 +51,7 @@ export interface AccordionProps {
   onValueChange?: (value: string[]) => void;
   animated?: boolean;
   className?: string;
+  focusOutline?: boolean;
   focusClassName?: string;
 }
 
@@ -68,8 +69,11 @@ export default function AccordionBase({
   onValueChange,
   animated = true,
   className,
+  focusOutline = true,
   focusClassName,
 }: AccordionProps) {
+  const outline = focusOutline ? FOCUS : "";
+
   const [internalValue, setInternalValue] = useState<string[]>(
     defaultValue ?? controlledValue ?? [],
   );
@@ -188,7 +192,7 @@ export default function AccordionBase({
             <Accordion.Header className="m-0">
               <Accordion.Trigger
                 className={merge(
-                  FOCUS,
+                  outline,
                   "d-f ai-c",
                   indicatorPosition === "trailing" ? "jc-sb" : "",
                   "g-3 w-100%",

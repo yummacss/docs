@@ -1819,9 +1819,33 @@ declares logical properties: `padding` covers `padding-inline` covers
       runs off state - it strips the `fv:` prefix so one written value works
       everywhere.
 
-      `focusOutline={false}` was considered and declined. Removing it is a WCAG
-      2.4.7 failure, and a boolean makes removal the shortest path there;
-      `fv:ow-0` still removes it for anyone who means to.
+      `focusOutline={false}` ships too. I argued against it on the grounds that
+      `fv:os-none` already removes the outline and a boolean just shortens the
+      path to a WCAG 2.4.7 failure. Renildo pushed back and was right, for a
+      reason neither of us had checked: `focusClassName` cannot finish the job.
+      The outline goes, but `fv:bc-silver-5` is a border colour, so a bordered
+      control still shifts on focus, and saying "leave the border alone" needs
+      the resting `bc-*` of whichever variant is in play - five of them on
+      Button alone. Not expressible from outside. The boolean is the only way
+      off.
+
+      Making it true meant moving every tone tint out of the variant strings:
+      `danger`, `error` and `success` carried their own `fv:oc-*`/`fv:bc-*`,
+      ungated, so the first cut of the prop left a coloured border behind with
+      the outline gone. They now sit in `*_OUTLINE` maps folded into the gate,
+      and `tests/registry.test.ts` fails on any `fv:` class the gate cannot
+      reach. Measured after: `focusOutline={false}` renders no `fv:` class at
+      all on a danger Button, an errored Field, a success Textarea or a danger
+      Tooltip.
+
+      Two test bugs surfaced while wiring the gate, both silent. The guard on
+      the outline check was `/\bRING\b/` inside a regex literal, and the rename
+      script's lookbehind read the `b` of `\b` as a word character, so it stayed
+      `RING` after everything else moved and the check matched nothing.
+      Separately, `merge-composition`'s resolver registered an expression
+      constant with an empty value list, and one argument resolving to no values
+      empties the whole combination set: every `merge` call using `control` went
+      unchecked. A constant now never resolves to nothing.
 
       The constant was `RING`, copied from the one already in `combobox.tsx`.
       A ring is a box-shadow trick another framework needs because it does not

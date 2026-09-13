@@ -30,7 +30,9 @@ const STATUS_BORDER: Record<Status, string> = {
   success: "bc-green-5",
 };
 
-const STATUS_FOCUS: Record<Status, string> = {
+// The tone sits with the outline, not beside it, so `focusOutline` switches
+// the whole treatment off rather than leaving a coloured border.
+const STATUS_OUTLINE: Record<Status, string> = {
   default: "",
   error: "fv:oc-red-2/60 fv:bc-red-3",
   success: "fv:oc-green-2/60 fv:bc-green-3",
@@ -67,6 +69,7 @@ export interface TextareaProps
   shadow?: Shadow;
   onChange?: (event: ChangeEvent<HTMLTextAreaElement>) => void;
   className?: string;
+  focusOutline?: boolean;
   focusClassName?: string;
 }
 
@@ -81,6 +84,7 @@ export default function TextareaBase({
   shadow = "none",
   disabled,
   className,
+  focusOutline = true,
   focusClassName,
   onChange,
   defaultValue,
@@ -98,6 +102,7 @@ export default function TextareaBase({
   };
 
   const status: Status = error ? "error" : success ? "success" : "default";
+  const outline = focusOutline ? merge(FOCUS, STATUS_OUTLINE[status]) : "";
   const message = error ?? success ?? description;
 
   const showCounter = maxLength !== undefined && maxLength > 0;
@@ -108,13 +113,12 @@ export default function TextareaBase({
   const warn = showCounter && remaining <= WARN_AT;
 
   const controlClasses = merge(
-    FOCUS,
+    outline,
     "h-24 w-64 pt-3 pl-3 bg-white c-slate-10 bw-1 fs-md r-none",
     showCounter || status !== "default" ? "pr-10" : "pr-3",
     SHAPES[shape],
     SHADOWS[shadow],
     STATUS_BORDER[status],
-    STATUS_FOCUS[status],
     className,
     focusClassName,
   );

@@ -40,6 +40,7 @@ export interface EmptyStateProps {
   iconShape?: Shape;
   shadow?: Shadow;
   className?: string;
+  focusOutline?: boolean;
   focusClassName?: string;
 }
 
@@ -56,8 +57,11 @@ export default function EmptyStateBase({
   iconShape = "square",
   shadow = "none",
   className,
+  focusOutline = true,
   focusClassName,
 }: EmptyStateProps) {
+  const outline = focusOutline ? FOCUS : "";
+
   const isCard = shadow !== "none";
   const hasActions = Boolean(primaryLabel || secondaryLabel);
 
@@ -94,7 +98,7 @@ export default function EmptyStateBase({
             <Button
               onClick={onSecondary}
               className={merge(
-                FOCUS,
+                outline,
                 BUTTON_BASE,
                 "bg-white bc-silver-2 c-slate-10 h:bg-silver-1/50",
                 focusClassName,
@@ -107,7 +111,7 @@ export default function EmptyStateBase({
             <Button
               onClick={onPrimary}
               className={merge(
-                FOCUS,
+                outline,
                 BUTTON_BASE,
                 "g-2 bg-slate-12 h:bg-slate-11 bc-slate-12 c-white",
                 focusClassName,

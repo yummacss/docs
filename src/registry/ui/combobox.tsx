@@ -107,6 +107,7 @@ export interface ComboboxProps {
   animated?: boolean;
   emptyMessage?: string;
   className?: string;
+  focusOutline?: boolean;
   focusClassName?: string;
 }
 
@@ -165,9 +166,12 @@ export default function ComboboxBase({
   animated = true,
   emptyMessage = "No results found.",
   className,
+  focusOutline = true,
   focusClassName,
   container,
 }: ComboboxProps) {
+  const outline = focusOutline ? FOCUS : "";
+
   const [open, setOpen] = useState(false);
 
   // A control that gets disabled while its popup is open should put it away.
@@ -185,7 +189,7 @@ export default function ComboboxBase({
   );
 
   const inputClasses = merge(
-    FOCUS,
+    outline,
     INPUT,
     SIZES[size],
     SHAPES[shape],
@@ -278,7 +282,7 @@ export default function ComboboxBase({
                 id={id}
                 placeholder={placeholder}
                 className={merge(
-                  FOCUS,
+                  outline,
                   "fg-1 w-24 min-w-24 bg-transparent c-slate-10 bw-0",
                   focusClassName,
                 )}
@@ -302,14 +306,14 @@ export default function ComboboxBase({
                 once. */}
             {clearable && (
               <Combobox.Clear
-                className={merge(FOCUS, ACTION, focusClassName)}
+                className={merge(outline, ACTION, focusClassName)}
                 aria-label="Clear selection"
               >
                 <Xmark className="w-4 h-4" />
               </Combobox.Clear>
             )}
             <Combobox.Trigger
-              className={merge(FOCUS, ACTION, focusClassName)}
+              className={merge(outline, ACTION, focusClassName)}
               aria-label="Open popup"
             >
               <ArrowSeparateVertical className="w-4 h-4" />

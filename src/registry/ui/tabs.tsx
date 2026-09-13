@@ -53,6 +53,7 @@ export interface TabsProps {
   iconPosition?: IconPosition;
   animated?: boolean;
   className?: string;
+  focusOutline?: boolean;
   focusClassName?: string;
 }
 
@@ -67,8 +68,11 @@ export default function TabsBase({
   iconPosition = "leading",
   animated = true,
   className,
+  focusOutline = true,
   focusClassName,
 }: TabsProps) {
+  const outline = focusOutline ? FOCUS : "";
+
   const [internalValue, setInternalValue] = useState(
     defaultValue ?? controlledValue ?? items[0]?.value,
   );
@@ -115,7 +119,7 @@ export default function TabsBase({
           const isSelected = value === item.value;
 
           const tabClasses = merge(
-            FOCUS,
+            outline,
             "p-r zi-10 fg-1 d-f ai-c jc-c bg-transparent us-none",
             item.icon && !item.iconOnly ? "g-2" : "",
             item.count !== undefined ? "g-2" : "",

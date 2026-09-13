@@ -54,10 +54,20 @@ Every component marks `:focus-visible` with an outline, and `focusClassName` res
 
 It takes Yumma CSS utilities like `className` does, so the color is `fv:oc-*`, the thickness `fv:ow-*` and the distance from the control `fv:oo-*`. An outline follows the element's own border box, so a control's `shape` carries into it with nothing to keep in step.
 
+To replace the outline rather than restyle it, `focusOutline={false}` takes the default off and leaves `focusClassName` to put yours on.
+
+```tsx
+<Button focusOutline={false} focusClassName="fv:bg-silver-2">
+  Save
+</Button>
+```
+
+It removes the whole treatment, the danger, error and success tints included. Those ride with the outline rather than sitting in the variant, so one prop clears all of it.
+
 <Hint icon="warning">
-  An outline you can turn off is an outline someone can lose. `fv:ow-0` removes
-  the only thing telling a keyboard user where they are, so replace it rather
-  than delete it.
+  An outline you can turn off is an outline someone can lose. On its own,
+  `focusOutline={false}` leaves nothing marking where the keyboard is, which
+  fails WCAG 2.4.7. Put something back.
 </Hint>
 
 ## Own Your Components

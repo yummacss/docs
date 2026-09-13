@@ -99,6 +99,7 @@ export interface ToolbarProps {
   shadow?: Shadow;
   animated?: boolean;
   className?: string;
+  focusOutline?: boolean;
   focusClassName?: string;
 }
 
@@ -108,8 +109,11 @@ export default function ToolbarBase({
   shadow = "none",
   animated = true,
   className,
+  focusOutline = true,
   focusClassName,
 }: ToolbarProps) {
+  const outline = focusOutline ? FOCUS : "";
+
   const shadowClass =
     shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "";
 
@@ -143,6 +147,7 @@ export default function ToolbarBase({
               item={item}
               control={control}
               animated={animated}
+              outline={outline}
               focusClassName={focusClassName}
             />
           );
@@ -153,7 +158,7 @@ export default function ToolbarBase({
             <Toolbar.Input
               key={key}
               className={merge(
-                FOCUS,
+                outline,
                 "h-9 w-40 pl-3 bg-transparent bw-0 fs-sm",
                 control,
                 focusClassName,
@@ -205,7 +210,7 @@ export default function ToolbarBase({
                 <Toolbar.Input
                   render={<NumberField.Input />}
                   className={merge(
-                    FOCUS,
+                    outline,
                     "w-16 bg-transparent c-slate-10 bw-0 ta-c fs-sm fw-500",
                     focusClassName,
                   )}
@@ -238,7 +243,7 @@ export default function ToolbarBase({
               key={key}
               href={item.href}
               className={merge(
-                FOCUS,
+                outline,
                 "d-f ai-c g-1 h-9 px-3 c-slate-7 fs-sm fw-500 td-none h:c-slate-10",
                 control,
                 focusClassName,
@@ -252,7 +257,7 @@ export default function ToolbarBase({
 
         const button = item as ToolbarButtonItem;
         const buttonClasses = merge(
-          FOCUS,
+          outline,
           // `ws-nw`: a toolbar is a row of controls, and a label that wraps
           // makes the whole bar two lines tall to fit one button.
           "d-f ai-c jc-c ws-nw bg-transparent c-slate-7 bw-0 us-none",
@@ -320,11 +325,13 @@ function ToolbarToggles({
   item,
   control,
   animated,
+  outline,
   focusClassName,
 }: {
   item: ToolbarTogglesItem;
   control: string;
   animated: boolean;
+  outline: string;
   focusClassName?: string;
 }) {
   const [internalValue, setInternalValue] = useState<string[]>(
@@ -339,7 +346,7 @@ function ToolbarToggles({
 
   const toggleClasses = (pressed: boolean) =>
     merge(
-      FOCUS,
+      outline,
       "d-f w-9 h-9 ai-c jc-c bw-0 us-none c-p",
       control,
       pressed

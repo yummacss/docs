@@ -42,6 +42,7 @@ export interface SwitchProps {
   disabled?: boolean;
   animated?: boolean;
   className?: string;
+  focusOutline?: boolean;
   focusClassName?: string;
   ariaLabel?: string;
 }
@@ -58,9 +59,12 @@ export default function SwitchBase({
   disabled = false,
   animated = true,
   className,
+  focusOutline = true,
   focusClassName,
   ariaLabel,
 }: SwitchProps) {
+  const outline = focusOutline ? FOCUS : "";
+
   const [internalChecked, setInternalChecked] = useState(
     defaultChecked ?? controlledChecked ?? false,
   );
@@ -74,7 +78,7 @@ export default function SwitchBase({
   };
 
   const trackClasses = merge(
-    FOCUS,
+    outline,
     "p-r d-f ai-c m-0 px-1 tp-c tdu-150 ttf-io",
     track,
     SHAPES[shape],

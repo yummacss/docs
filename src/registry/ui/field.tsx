@@ -45,7 +45,9 @@ const STATUS_BORDER: Record<Status, string> = {
   success: "bc-green-5",
 };
 
-const STATUS_FOCUS: Record<Status, string> = {
+// The tone sits with the outline, not beside it, so `focusOutline` switches
+// the whole treatment off rather than leaving a coloured border.
+const STATUS_OUTLINE: Record<Status, string> = {
   default: "",
   error: "fv:oc-red-2/60 fv:bc-red-3",
   success: "fv:oc-green-2/60 fv:bc-green-3",
@@ -67,6 +69,7 @@ export interface FieldProps
   extends Omit<ComponentProps<typeof Field.Control>, "size"> {
   // merge composes a string, so the Base UI function form is not accepted here.
   className?: string;
+  focusOutline?: boolean;
   focusClassName?: string;
   label?: string;
 
@@ -111,12 +114,14 @@ export default function FieldBase({
   disabled,
   required,
   className,
+  focusOutline = true,
   focusClassName,
   type,
   ...props
 }: FieldProps) {
   const [revealed, setRevealed] = useState(false);
   const status: Status = error ? "error" : success ? "success" : "default";
+  const outline = focusOutline ? merge(FOCUS, STATUS_OUTLINE[status]) : "";
   const message = error ?? success ?? description;
   const reveal = revealable;
   const controlType = reveal && revealed ? "text" : type;
@@ -127,7 +132,7 @@ export default function FieldBase({
       onPressedChange={setRevealed}
       disabled={disabled}
       className={merge(
-        FOCUS,
+        outline,
         "d-f ai-c jc-c p-0 bg-transparent bw-0 c-slate-6 c-p us-none",
         focusClassName,
       )}
@@ -148,13 +153,12 @@ export default function FieldBase({
   const hasAffix = Boolean(prefixNode) || Boolean(suffix);
 
   const controlClasses = merge(
-    FOCUS,
+    outline,
     "bg-white c-slate-10 bw-1 fs-md",
     SIZES[size],
     SHAPES[shape],
     SHADOWS[shadow],
     STATUS_BORDER[status],
-    STATUS_FOCUS[status],
     showDecorativeIcon || status !== "default"
       ? ICON_PADDING[activeSide]
       : "px-4",
@@ -163,10 +167,9 @@ export default function FieldBase({
   );
 
   const affixControlClasses = merge(
-    FOCUS,
+    outline,
     "fg-1 bg-white bc-silver-3 c-slate-10 byw-1 fs-md",
     HEIGHTS[size],
-    STATUS_FOCUS[status],
     prefixNode && suffix
       ? "px-3"
       : prefixNode
