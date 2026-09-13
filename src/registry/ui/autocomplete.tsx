@@ -101,6 +101,7 @@ export interface AutocompleteProps {
   emptyMessage?: string;
   onQueryChange?: (value: string) => void;
   className?: string;
+  focusOutline?: boolean;
   focusClassName?: string;
 }
 
@@ -170,9 +171,12 @@ export default function AutocompleteBase({
   emptyMessage = "No results found.",
   onQueryChange,
   className,
+  focusOutline = true,
   focusClassName,
   container,
 }: AutocompleteProps) {
+  const outline = focusOutline ? FOCUS : "";
+
   const [open, setOpen] = useState(false);
 
   // A control that gets disabled while its popup is open should put it away.
@@ -182,7 +186,7 @@ export default function AutocompleteBase({
   const id = useId();
 
   const inputClasses = merge(
-    FOCUS,
+    outline,
     INPUT,
     SIZES[size],
     SHAPES[shape],

@@ -49,6 +49,12 @@
       ]
     },
     {
+      "name": "focusOutline",
+      "type": "boolean",
+      "default": true,
+      "description": "The focus outline, on by default. `false` removes it, including the danger, error and success tints that ride with it. Nothing then marks where the keyboard is unless `focusClassName` puts something back, which fails WCAG 2.4.7."
+    },
+    {
       "name": "focusClassName",
       "type": "string",
       "description": "Yumma CSS utilities merged into the focus outline on every focusable part of the component, so an `fv:oc-*`, `fv:ow-*` or `fv:oo-*` you pass wins. `className` reaches the root only, which is why this is separate."

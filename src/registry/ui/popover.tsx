@@ -98,6 +98,7 @@ export interface PopoverProps {
   shadow?: Shadow;
   animated?: boolean;
   className?: string;
+  focusOutline?: boolean;
   focusClassName?: string;
 }
 
@@ -120,9 +121,12 @@ export default function PopoverBase({
   shadow = "none",
   animated = true,
   className,
+  focusOutline = true,
   focusClassName,
   container,
 }: PopoverProps) {
+  const outline = focusOutline ? FOCUS : "";
+
   const [uncontrolledOpen, setUncontrolledOpen] = useState(false);
   const open = controlledOpen ?? uncontrolledOpen;
   const setOpen = (next: boolean) => {
@@ -131,7 +135,7 @@ export default function PopoverBase({
   };
 
   const triggerClasses = merge(
-    FOCUS,
+    outline,
     "d-f ai-c jc-c bw-1 bc-silver-2 bg-white c-slate-10 us-none c-p h:bg-silver-1",
     TRIGGER_VARIANTS[triggerVariant],
     TRIGGER_SHAPES[shape],
@@ -175,7 +179,7 @@ export default function PopoverBase({
         {showClose && (
           <Popover.Close
             className={merge(
-              FOCUS,
+              outline,
               "d-f fs-0 ai-c jc-c w-7 h-7 bg-transparent c-slate-5 bw-0 br-9999 c-p h:bg-silver-1/50 h:c-slate-7",
               focusClassName,
             )}

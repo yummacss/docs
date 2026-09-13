@@ -115,6 +115,7 @@ export interface BadgeProps {
   count?: string | number;
   onClose?: () => void;
   className?: string;
+  focusOutline?: boolean;
   focusClassName?: string;
 }
 
@@ -131,8 +132,11 @@ export default function BadgeBase({
   count,
   onClose,
   className,
+  focusOutline = true,
   focusClassName,
 }: BadgeProps) {
+  const outline = focusOutline ? FOCUS : "";
+
   const { pad, text, icon: iconSize } = SIZES[size];
 
   const badgeClasses = merge(
@@ -186,7 +190,7 @@ export default function BadgeBase({
     .join(" ");
 
   const closeButtonClasses = merge(
-    FOCUS,
+    outline,
     "d-f ai-c jc-c w-4 h-4 p-0 bg-transparent br-9999",
     contentColor,
     tone === "outline"

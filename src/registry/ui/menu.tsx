@@ -136,6 +136,7 @@ export interface MenuProps {
   onOpenChange?: (open: boolean) => void;
   animated?: boolean;
   className?: string;
+  focusOutline?: boolean;
   focusClassName?: string;
 }
 
@@ -151,9 +152,12 @@ export default function MenuBase({
   onOpenChange,
   animated = true,
   className,
+  focusOutline = true,
   focusClassName,
   container,
 }: MenuProps) {
+  const outline = focusOutline ? FOCUS : "";
+
   const [internalOpen, setInternalOpen] = useState(false);
   const open = controlledOpen ?? internalOpen;
 
@@ -174,7 +178,7 @@ export default function MenuBase({
     shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "";
 
   const triggerClasses = merge(
-    FOCUS,
+    outline,
     "d-f ai-c g-2 h-fc bg-white bc-silver-2 bw-1 fw-500 us-none",
     spec.trigger,
     TRIGGER_SHAPES[shape],

@@ -145,6 +145,7 @@ export interface SelectProps {
   disabled?: boolean;
   animated?: boolean;
   className?: string;
+  focusOutline?: boolean;
   focusClassName?: string;
 }
 
@@ -165,9 +166,12 @@ export default function SelectBase({
   disabled = false,
   animated = true,
   className,
+  focusOutline = true,
   focusClassName,
   container,
 }: SelectProps) {
+  const outline = focusOutline ? FOCUS : "";
+
   const [open, setOpen] = useState(false);
 
   // A control that gets disabled while its popup is open should put it away.
@@ -177,7 +181,7 @@ export default function SelectBase({
   const id = useId();
 
   const triggerClasses = merge(
-    FOCUS,
+    outline,
     TRIGGER,
     SIZES[size],
     SHAPES[shape],

@@ -84,6 +84,7 @@ export interface CommandPaletteProps {
   shadow?: Shadow;
   animated?: boolean;
   className?: string;
+  focusOutline?: boolean;
   focusClassName?: string;
 }
 
@@ -97,13 +98,16 @@ export default function CommandPaletteBase({
   shadow = "none",
   animated = true,
   className,
+  focusOutline = true,
   focusClassName,
   container,
 }: CommandPaletteProps) {
+  const outline = focusOutline ? FOCUS : "";
+
   const [open, setOpen] = useState(false);
 
   const triggerClasses = merge(
-    FOCUS,
+    outline,
     "bg-white d-f ai-c g-2 px-3 py-2 bc-silver-2 c-slate-10 bw-1 fw-500 tp-c tdu-150 ttf-io us-none",
     ITEM_SHAPES[shape],
     className,

@@ -60,6 +60,7 @@ export interface FileUploadProps {
   error?: string;
   disabled?: boolean;
   className?: string;
+  focusOutline?: boolean;
   focusClassName?: string;
 }
 
@@ -77,8 +78,16 @@ export default function FileUploadBase({
   error,
   disabled = false,
   className,
+  focusOutline = true,
   focusClassName,
 }: FileUploadProps) {
+  const outline = focusOutline ? FOCUS : "";
+  // The browse button sits inside the dashed zone, so its outline keeps a
+  // pixel, and an errored zone paints it red.
+  const browseOutline = focusOutline
+    ? merge(FOCUS, "fv:oo-1", error ? "fv:oc-red-2/60" : "")
+    : "";
+
   const id = useId();
   const input = useRef<HTMLInputElement>(null);
   const [files, setFiles] = useState<File[]>([]);
@@ -183,9 +192,9 @@ export default function FileUploadBase({
               disabled={disabled}
               onClick={() => input.current?.click()}
               className={merge(
-                FOCUS,
-                "p-0 bg-transparent bw-0 fs-sm fw-500 c-p d:c-na fv:oo-1",
-                error ? "c-red-5 fv:oc-red-2/60" : "c-slate-12",
+                browseOutline,
+                "p-0 bg-transparent bw-0 fs-sm fw-500 c-p d:c-na",
+                error ? "c-red-5" : "c-slate-12",
                 focusClassName,
               )}
             >
@@ -221,7 +230,7 @@ export default function FileUploadBase({
                     commit(files.filter((entry) => entry !== file))
                   }
                   className={merge(
-                    FOCUS,
+                    outline,
                     "d-f ai-c jc-c w-5 h-5 p-0 bg-transparent bw-0 c-slate-6 c-p h:c-slate-10",
                     SHAPES[shape],
                     focusClassName,
