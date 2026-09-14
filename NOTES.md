@@ -2083,6 +2083,34 @@ declares logical properties: `padding` covers `padding-inline` covers
       solve a collision that does not happen. The reason now sits in the
       component as a comment, because the next reader will ask the same thing.
 
+- [ ] **What `accent` would actually touch, measured before choosing.** The
+      entry offers two options and the second one depends on the first, which
+      is worth knowing before either is built.
+
+      **There is no indirection to override.** Every component names its colour
+      as a literal Yumma class; `grep -c "var(--"` over `src/registry/ui`
+      returns hits only in Slider and Tabs, for geometry. So a playground-only
+      accent cannot simply repoint a variable. What it can do is inject a
+      stylesheet into the preview iframe that redefines the accent classes,
+      which changes the rendered preview and nothing in the copied source.
+
+      **The accent is the filled surface, not the dark text.** `slate-12`
+      plays two roles and only one of them is the accent:
+
+      | Class | Uses | Files | Role |
+      |---|---|---|---|
+      | `bg-slate-12` | 14 | 11 | filled control |
+      | `bc-slate-12` | 6 | 6 | its border |
+      | `bg-slate-11` | 4 | 4 | its hover |
+      | `blc-slate-12` | 1 | 1 | the open accordion's rule |
+      | `c-slate-12` | 17 | 12 | **emphasised text, leave alone** |
+
+      So the surface is **25 declarations across four class names**, not the 41
+      files the entry estimated. `c-white` is the text sitting on it, so an
+      accent has to stay dark enough to carry white: taking a Yumma family and
+      using its `-12` and `-11` keeps that true for all nineteen of them, and
+      those rules are already in the stylesheet.
+
 ### Phase 7 - One breaking registry release
 
 All three change something a published `yummaui.json` or an installed CLI
