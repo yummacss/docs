@@ -67,7 +67,7 @@
       "name": "loading",
       "type": "boolean",
       "default": false,
-      "description": "Dims the button and blocks interaction. Sets `aria-busy` rather than `disabled`, because to a screen reader a busy control is not an unavailable one."
+      "description": "Dims the button and blocks interaction, while leaving it focusable: `aria-busy` and `aria-disabled` rather than the native `disabled` attribute, which would drop the control out of the tab order while a reader is waiting on it."
     },
     {
       "name": "transition",
