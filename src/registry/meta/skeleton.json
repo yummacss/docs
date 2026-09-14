@@ -27,7 +27,7 @@
       "type": "enum",
       "values": ["line", "block", "circle"],
       "default": "line",
-      "description": "Corner radius, plus a default size: `line` for text, `block` for a control or thumbnail, `circle` for an avatar. Change the size with `size`."
+      "description": "Corner radius, plus a default size: `line` for text, `block` for a control or thumbnail, `circle` for an avatar. Change the size with `dimensions`."
     },
     {
       "name": "animated",
