@@ -5,12 +5,13 @@ import Link from "next/link";
 import { useState } from "react";
 import { BaseUI } from "@/components/icons/icons";
 import { usePlayground } from "@/components/playground/context";
-import Control from "@/components/playground/control";
+import Control, { EnumSelect } from "@/components/playground/control";
 import PropDescription from "@/components/prop-description";
 import HintTooltip from "@/components/ui/hint-tooltip";
 import Scroller from "@/components/ui/scroller";
 import { NavArrowDown, Undo } from "@/icons";
 import { getRegistryTarget, type RegistryProp } from "@/registry";
+import { ACCENTS } from "@/utils/accent";
 import { primitiveSlug } from "@/utils/primitive";
 import { isControllable, isInert, typeOf } from "@/utils/props";
 
@@ -37,6 +38,22 @@ export default function PlaygroundRail() {
     <aside className="bc-border btw-1 @lg:btw-0 @lg:blw-1 @lg:gc-s-3">
       <Scroller className="playground-rail">
         <div className="pt-8 pb-12 @lg:pt-0 @lg:px-8">
+          {/* Above the API heading, because it is not one of these props:
+              it recolours the preview and never reaches the Code tab. */}
+          {playground && (
+            <div className="d-f ai-c jc-sb g-2 pb-4 mb-4 bc-border bbw-1">
+              <HintTooltip label="Preview only. The code you copy is unchanged.">
+                <span className="d-f ai-c g-1 c-silver-8 fs-xs">Accent</span>
+              </HintTooltip>
+              <EnumSelect
+                name="accent"
+                values={ACCENTS}
+                value={playground.accent}
+                onChange={(value) => playground.setAccent(String(value))}
+              />
+            </div>
+          )}
+
           {/* The reset appears only once a style axis has followed you here,
               so it shows up with work to do rather than sitting inert. */}
           <div className="d-f ai-c jc-sb g-2 mb-3">
