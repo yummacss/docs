@@ -20,7 +20,7 @@ const SHAPES: Record<Shape, string> = {
 
 const SHADOWS: Record<Shadow, string> = {
   none: "",
-  inset: "bs-i-md",
+  inset: "bs-i-3xl",
   outset: "bs-o-sm",
 };
 

@@ -60,7 +60,7 @@ const CLOSE_SHAPES: Record<Shape, string> = {
 };
 
 const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
-  inset: "bs-i-md",
+  inset: "bs-i-3xl",
   outset: "bs-o-sm",
 };
 
@@ -205,7 +205,7 @@ export default function AlertDialogBase({
             </AlertDialog.Close>
           )}
 
-          <div className="d-f fd-c ai-c g-3 pt-10 pb-6 px-4 bg-white">
+          <div className="d-f fd-c ai-c g-3 pt-10 pb-6 px-4">
             {icon && <span className={badgeClasses}>{icon}</span>}
             <AlertDialog.Title className="c-slate-10 fs-md fw-500">
               {title}
@@ -215,7 +215,7 @@ export default function AlertDialogBase({
             </AlertDialog.Description>
           </div>
 
-          <div className="d-f jc-c g-3 px-4 pb-4 bg-white">
+          <div className="d-f jc-c g-3 px-4 pb-4">
             <AlertDialog.Close render={<Button className={cancelClasses} />}>
               {cancelLabel}
             </AlertDialog.Close>
