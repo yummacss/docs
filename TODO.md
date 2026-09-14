@@ -56,8 +56,8 @@ Nothing here blocks a release, and all of it makes the next change cheaper.
       that can select an attribute. They are the last hand-written classes in
       the registry: without them the popup animations cannot be utilities.
 - [ ] **Dark theme across every component.** Yumma CSS has handled dark since
-      3.29.0, so this is a Yumma UI concern now. Big enough to be the headline
-      of **1.0**. Mockups need a theme toggle from the start.
+      3.29.0, so this is a Yumma UI concern now. Not a `1.0`: see NOTES.md
+      under Versioning. Mockups need a theme toggle from the start.
 - [ ] **Remove Skeleton**, in favour of a new prop on every component.
 
 ## Decisions
