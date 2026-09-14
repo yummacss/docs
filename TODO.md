@@ -15,9 +15,9 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  128
-    Open     9
-    Done    93%
+    Closed  129
+    Open     8
+    Done    94%
 
 ---
 
@@ -73,10 +73,6 @@ Blocked on Renildo. Each one holds up the entry beside it.
       than both at once?
 - [ ] **Install command:** a dialog offering yarn and bun alongside pnpm and
       npm, a dropdown, or is a dialog overkill?
-- [ ] **`bs-i-md` is invisible.** Alert Dialog's `inset` shadow is applied and
-      unreadable: 10% black at 4px blur inside a white panel. It is a Yumma
-      CSS token, so every component using it is the same. Strengthen the
-      token, drop `inset` from the surfaces it cannot show on, or leave it?
 
 ## Known and accepted
 

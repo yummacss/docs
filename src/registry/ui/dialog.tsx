@@ -56,7 +56,7 @@ const CLOSE_SHAPES: Record<Shape, string> = {
 };
 
 const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
-  inset: "bs-i-md",
+  inset: "bs-i-3xl",
   outset: "bs-o-sm",
 };
 
@@ -212,7 +212,7 @@ export default function DialogBase({
           )}
 
           {header && (
-            <div className="d-f fd-c ai-c jc-c g-3 px-4 pt-5 bg-white">
+            <div className="d-f fd-c ai-c jc-c g-3 px-4 pt-5">
               {header}
             </div>
           )}
@@ -223,7 +223,7 @@ export default function DialogBase({
               above the title was a single `py-2` - which is what put it
               against the top edge when there is no header. */}
           <div
-            className={`d-f fd-c g-3 px-4 pb-6 bg-white ${
+            className={`d-f fd-c g-3 px-4 pb-6 ${
               header ? "pt-5" : "pt-10"
             }`}
           >
@@ -241,7 +241,7 @@ export default function DialogBase({
           </div>
 
           {confirmLabel && (
-            <div className="d-g gtc-2 g-3 px-4 pb-4 bg-white">
+            <div className="d-g gtc-2 g-3 px-4 pb-4">
               <Dialog.Close render={<Button className={cancelClasses} />}>
                 {cancelLabel}
               </Dialog.Close>

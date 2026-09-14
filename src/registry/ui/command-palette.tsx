@@ -50,7 +50,7 @@ const PALETTE_MOTION = `
 `;
 
 const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
-  inset: "bs-i-md",
+  inset: "bs-i-3xl",
   outset: "bs-o-sm",
 };
 
