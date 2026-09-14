@@ -6,10 +6,11 @@ import { useState } from "react";
 import { NPM, Pnpm } from "@/components/icons/icons";
 import HintTooltip from "@/components/ui/hint-tooltip";
 import { Check, Copy } from "@/icons";
+import { addCommand } from "@/utils/install.mjs";
 
 const MANAGERS = {
-  pnpm: { command: (id: string) => `pnpm dlx yummaui add ${id}`, Mark: Pnpm },
-  npm: { command: (id: string) => `npx yummaui add ${id}`, Mark: NPM },
+  pnpm: { runner: "pnpm dlx", Mark: Pnpm },
+  npm: { runner: "npx", Mark: NPM },
 } as const;
 
 type Manager = keyof typeof MANAGERS;
@@ -21,7 +22,9 @@ export default function Install({ id }: { id: string }) {
 
   const copy = async (manager: Manager) => {
     try {
-      await navigator.clipboard.writeText(MANAGERS[manager].command(id));
+      await navigator.clipboard.writeText(
+        addCommand(MANAGERS[manager].runner, id),
+      );
     } catch {
       return;
     }
