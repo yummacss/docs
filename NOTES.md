@@ -360,12 +360,27 @@ blocks a release.**
 - [ ] Badge's icon wrapper sets `w-3 h-3`/`w-4 h-4` on a `<span>`, which does not
       constrain the SVG inside it. Harmless, but a lie in the code. Check
       Meter's `w-8 h-8` wrapper at the same time.
-- [ ] A line on each page saying which file a code block belongs to. The base
-      snippet's `@/components/ui/button` and the variant source's `./button` are
-      both correct and look like drift. **`./` is load-bearing**:
-      `generate-registry-json.mjs` builds `registryDependencies` by matching
-      `from "./<id>"`, so rewriting it to the alias breaks
-      `yummaui add <variant>` pulling its component.
+- [x] **Every code block now names its file, and the drift this entry feared
+      cannot happen yet.** Checked all 42 UI pages: the rendered page carries
+      exactly one code block, the usage snippet, already titled `page.tsx`. The
+      component's own source appears only in the `.md` twin, and no `.md`
+      contains both spellings, because **no variant source is displayed
+      anywhere on the site** - the two plugins that once did it visit nodes
+      `src/content` no longer holds.
+
+      What was actually missing: the `.md`'s fence carried a whole component
+      source with nothing saying where the file goes. It now opens
+      ``` ```tsx title="components/ui/badge.tsx" ```, the same `title=` meta an
+      authored fence uses, built from `targetPath` so it cannot drift from the
+      registry's own `target`. `tests/markdown-routes.test.ts` fails any UI page
+      whose fence is unnamed; verified to bite.
+
+      **`./` stays load-bearing**: `generate-registry-json.mjs` builds
+      `registryDependencies` by matching `from "./<id>"`, so rewriting a variant
+      to the alias breaks `yummaui add <variant>` pulling its component. The
+      half of this entry about two blocks disagreeing comes back the day variant
+      sources are shown, which is the same gap as the 23 undocumented
+      `example`-kind previews under Phase 4.
 - [ ] Seed an icon into the Badge, Separator, Meter and Tabs base demos. Each has
       an `icon` prop no demo passes, so the feature is invisible outside the
       table. Separator is the one that matters: an icon breaks the rule in half
@@ -1987,6 +2002,50 @@ declares logical properties: `padding` covers `padding-inline` covers
       `rehype-registry.mjs` is the same shape and worth a look: it acts only on
       a fence whose meta carries `registryId=`, and `src/content` has none.
 
+- [x] **Skeleton stays, and the entry asking to delete it was wrong.** The
+      Parked note said "nothing obvious explains why nobody does this". There
+      is a reason, and it is structural: `loading` is a prop on a component
+      that is already on the page, and a skeleton stands where **no component
+      exists yet**. A prop cannot render before the thing that declares it.
+
+      Measured across the four examples in the registry: 38 placeholder
+      rectangles, **zero** Yumma UI components inside any of them. Three of the
+      four render N rows from an array, where N is the number of rows that will
+      exist once the data lands. There is no List component to hang a prop on,
+      and never was.
+
+      The two states are also different states. `loading` on Autocomplete and
+      Combobox swaps the results for a spinner row; on Button it dims and marks
+      the control busy. Every one of those is a live component reporting that
+      it is waiting. None of them is a placeholder for absent layout.
+
+- [x] **Verifying that entry found a real bug in Button's `loading`.** The
+      schema said it "sets `aria-busy` rather than `disabled`, because to a
+      screen reader a busy control is not an unavailable one". The rendered
+      button carried `disabled` as a native attribute, next to a useless
+      `tabindex="0"`: native `disabled` wins, so the control left the tab order
+      and the sentence describing the whole point of the prop was false.
+
+      Base UI's `Button` takes `focusableWhenDisabled`, which swaps the native
+      attribute for `aria-disabled` and keeps `tabIndex`, while `useButton`
+      still refuses the click, the pointerdown and the key activation. Passing
+      it for `loading` but not for a genuine `disabled` is the whole fix.
+      Measured after, in the browser: loading is `aria-busy="true"`,
+      `aria-disabled="true"`, no native `disabled`, `tabIndex` 0 and focusable;
+      `disabled` is unchanged at native `disabled` and unfocusable.
+
+      `tests/registry.test.ts` grew the guard and lost a dead one: the
+      `focusClassName` test had nothing left to check after PR 198 collapsed
+      that prop into `focus`, so it passed by skipping all 39 components. The
+      replacement fails any component that folds `loading` into Base UI's
+      `disabled` without asking for `focusableWhenDisabled` back. Verified to
+      bite by removing the fix.
+
+      Also fixed in passing: Skeleton's `shape` description told you to change
+      the size with `size`, a prop renamed to `dimensions`. Swept the other 38
+      schemas for the same mistake; the rest of the backticked names are fields
+      on an `items` object, not props that went missing.
+
 ### Phase 7 - One breaking registry release
 
 All three change something a published `yummaui.json` or an installed CLI
@@ -2816,6 +2875,11 @@ command `#F5FAFF`, argument `#BEC6F2`, space `#B9BED5`.
 
 ## Rejected. Do not rebuild
 
+- **Deleting `Skeleton` in favour of a `loading` prop.** Nobody does this
+  because a prop cannot render before the component that declares it, and a
+  skeleton stands where no component exists yet. Worked through under Phase 6.
+  Do not re-propose it as a code saving.
+
 - **The editor extensions.** `intellisense` and `intellisense-zed` are deleted:
   repos gone, unpublished from the VS Code Marketplace and Open VSX, and the Zed
   marketplace PR (#6731, open since 2026-07-22) withdrawn. The 18k VSIX installs
@@ -3040,8 +3104,6 @@ problem, not a value problem.** Aim at the value problems and say so.
     gce-4` already does it, both taking 1-16. And `/` is the opacity separator
     (`bg-red/50`), so `gc-2/4` would parse as "gc-2 at 4% opacity" - it would
     cost a delimiter that already means something.
-- **Delete the `skeleton` component and let `loading` cover it via a prop.** Way
-  less code, and nothing obvious explains why nobody does this.
 - **Base UI `ScrollArea` in the docs sidebars.** Worth doing for the look - it
   hides the native scrollbar and renders its own thumb, which is the difference
   between the chunky Windows bar and something that matches the site. **It does

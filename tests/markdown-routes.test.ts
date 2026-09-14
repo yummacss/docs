@@ -1,6 +1,7 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
+import { targetPath } from "../src/utils/install.mjs";
 import { mdxToMarkdown } from "../src/utils/mdx-markdown";
 import { contentPages, rootDir } from "./helpers";
 
@@ -122,7 +123,10 @@ describe("Markdown routes", () => {
     expect(leaking).toEqual([]);
   });
 
-  it("renders source and an API table for every UI component page", () => {
+  // The fence carries the component's whole source, and nothing else on the
+  // page says where that file goes. Authored fences name their file the same
+  // way, so a reader of the `.md` gets one answer in one form.
+  it("renders named source and an API table for every UI component page", () => {
     const broken = contentPages("ui")
       .filter(({ source }) => source.includes("<ComponentPlayground"))
       .map(({ slug, source }) => {
@@ -134,10 +138,11 @@ describe("Markdown routes", () => {
         return {
           slug,
           fenced: body.includes("```"),
+          named: body.includes(`\`\`\`tsx title="${targetPath(slug)}"`),
           api: body.includes("| Prop | Type | Default | Description |"),
         };
       })
-      .filter(({ fenced, api }) => !fenced || !api);
+      .filter(({ fenced, named, api }) => !fenced || !named || !api);
 
     expect(broken).toEqual([]);
   });
