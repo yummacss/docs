@@ -184,8 +184,6 @@ const Yarn = (props: SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-// Cream rather than the monochrome black the mark ships as: black on the
-// menu's own surface is invisible.
 const Bun = (props: SVGProps<SVGSVGElement>) => (
   <svg aria-hidden="true" {...props} viewBox="0 0 24 24" aria-label="bun">
     <path

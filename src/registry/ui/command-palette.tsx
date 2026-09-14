@@ -26,7 +26,6 @@ const ITEM_SHAPES: Record<Shape, string> = {
   squircle: "br-xxl cs-s",
 };
 
-/** Base UI waits on `getAnimations()`, which never sees Motion. See NOTES.md. */
 const PALETTE_MOTION = `
   .yui-palette-pop {
     transition: opacity 200ms ease-out, scale 200ms ease-out;
@@ -69,11 +68,6 @@ export interface CommandGroup {
 }
 
 export interface CommandPaletteProps {
-  /**
-   * Where the popup is rendered. Defaults to `document.body`, which is right
-   * almost always; pass an element to portal somewhere else - inside a frame,
-   * or inside a container that owns its own stacking context.
-   */
   container?: HTMLElement | null;
   trigger: ReactNode;
   groups: CommandGroup[];

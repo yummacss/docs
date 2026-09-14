@@ -10,7 +10,6 @@ interface NavItem {
   title: string;
 }
 
-/** A route rather than a content page, so it carries its own href. */
 interface NavLink {
   title: string;
   href: string;

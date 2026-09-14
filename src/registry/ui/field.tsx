@@ -45,8 +45,6 @@ const STATUS_BORDER: Record<Status, string> = {
   success: "bc-green-5",
 };
 
-// The tone sits with the outline, not beside it, so `focus` switches
-// the whole treatment off rather than leaving a coloured border.
 const STATUS_OUTLINE: Record<Status, string> = {
   default: "",
   error: "fv:oc-red-2/60 fv:bc-red-3",
@@ -67,7 +65,6 @@ const STATUS_MESSAGE: Record<Status, string> = {
 
 export interface FieldProps
   extends Omit<ComponentProps<typeof Field.Control>, "size"> {
-  // merge composes a string, so the Base UI function form is not accepted here.
   className?: string;
   focus?: boolean | string;
   label?: string;
@@ -82,17 +79,14 @@ export interface FieldProps
   shadow?: Shadow;
 
   icon?: ReactNode;
-  /** Does nothing while `revealable` is true. */
   iconPosition?: IconSide;
 
-  /** Does nothing while `revealable` is true. */
   iconInteractive?: boolean;
 
   prefixNode?: ReactNode;
 
   suffix?: ReactNode;
 
-  /** Adds a trailing button that shows and hides the value. Password fields. */
   revealable?: boolean;
 }
 

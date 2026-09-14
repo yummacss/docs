@@ -11,7 +11,6 @@ type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 type IconPosition = "leading" | "trailing";
 
-/** Base UI waits on `getAnimations()`, which never sees Motion. See NOTES.md. */
 const MENUBAR_MOTION = `
   .yui-menubar-pop {
     transition: opacity 150ms ease-out;
@@ -111,11 +110,6 @@ export interface MenubarMenu {
 }
 
 export interface MenubarProps {
-  /**
-   * Where the popup is rendered. Defaults to `document.body`, which is right
-   * almost always; pass an element to portal somewhere else - inside a frame,
-   * or inside a container that owns its own stacking context.
-   */
   container?: HTMLElement | null;
   menus: MenubarMenu[];
   shape?: Shape;
@@ -144,9 +138,6 @@ export default function MenubarBase({
     className,
   );
 
-  // `os-none`: Base UI focuses the popup when it opens, and the browser
-  // paints its own dark `auto` outline on it. Nothing was tabbed to, and the
-  // open menu is its own signal.
   const popupClasses = [
     "py-1 w-52 bg-white bc-silver-2 c-slate-10 bw-1 os-none",
     POPUP_SHAPES[shape],
@@ -169,9 +160,6 @@ export default function MenubarBase({
     (destructive: boolean, spread: boolean) =>
     (state: { highlighted: boolean }) =>
       [
-        // Highlighting focuses the item, hover included, so the browser
-        // drew its outline on every item the pointer crossed. The
-        // highlight background is the signal.
         "d-f ai-c g-2 py-2 pl-2 pr-3 fs-sm us-none c-p mx-1 fw-500 os-none",
         spread ? "jc-sb" : "",
         ITEM_SHAPES[shape],

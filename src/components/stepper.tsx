@@ -11,7 +11,6 @@ interface StepProps {
   title?: string;
 }
 
-// interface for injected props
 interface InjectedStepProps {
   stepNumber?: number;
   isLast?: boolean;

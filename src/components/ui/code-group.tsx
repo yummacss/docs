@@ -15,7 +15,6 @@ import CodeTabs from "@/components/ui/code-tabs";
 interface CodeChildProps {
   title?: string;
   lang?: string;
-  /** Raw source from rehype-code; used for the tab-bar copy control. */
   code?: string;
   grouped?: boolean;
   children?: ReactNode;
@@ -25,27 +24,6 @@ interface Props {
   children?: ReactNode;
 }
 
-/**
- * Groups consecutive fenced code blocks into a tabbed panel.
- *
- * Each child is a `<Code>` produced by the rehype-code plugin; its `title`
- * meta becomes the tab label (falling back to `lang`, then a positional name).
- * Blank lines around the fences inside the wrapper are required so MDX parses
- * them as code rather than JSX text.
- *
- * Usage:
- *   <CodeGroup>
- *
- *   ```ts title="vite.config.ts"
- *   ...
- *   ```
- *
- *   ```js title="astro.config.mjs"
- *   ...
- *   ```
- *
- *   </CodeGroup>
- */
 export default function CodeGroup({ children }: Props) {
   const panels = Children.toArray(children).filter(
     (child): child is ReactElement<CodeChildProps> => isValidElement(child),

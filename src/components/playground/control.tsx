@@ -13,19 +13,9 @@ interface Props {
   prop: RegistryProp;
   value: unknown;
   onChange: (value: unknown) => void;
-  /** The prop cannot do anything under the current values. */
   inert?: boolean;
 }
 
-/**
- * Widget for one controllable prop (enum, boolean, or icon slot).
- *
- * Every enum is a select, however few values it has. Segments laid each option
- * out across a rail three columns wide, so `shape` with four ate a line that
- * `size` with three had already crowded. Triggers share a fixed width so the
- * column lines up; the popup shares that width (`w-32`), grows with short
- * lists, and scrolls past `max-h-40`.
- */
 export default function Control({ prop, value, onChange, inert }: Props) {
   if (prop.exampleIcon) {
     return (
@@ -40,8 +30,6 @@ export default function Control({ prop, value, onChange, inert }: Props) {
     );
   }
 
-  // An optional string is on or off, never typed into: the words are the
-  // schema's, and turning one off is what the component's own guard reads.
   if (prop.optional) {
     return (
       <Toggle
@@ -95,11 +83,6 @@ export default function Control({ prop, value, onChange, inert }: Props) {
   return null;
 }
 
-/**
- * Minus, the value, plus. A range input would read the bound off the schema
- * too, but half of these props have no bound and an unbounded slider has no
- * position to show.
- */
 function Stepper({
   name,
   value,
@@ -245,15 +228,6 @@ export function EnumSelect({
   );
 }
 
-/**
- * A switch in the docs palette.
- *
- * The geometry is Yumma UI's own switch at `sm` - a `px-1` track, a thumb that
- * travels `ml-0` to `ml-2` - because that is the part worth borrowing. Its
- * colours are not: `bg-slate-12` on a white track is the library's look, and in
- * the rail it read as a saturated blue stripe with a thumb you could barely
- * find. These are the page's own accent and border.
- */
 function Toggle({
   checked,
   onCheckedChange,

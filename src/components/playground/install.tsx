@@ -8,8 +8,6 @@ import HintTooltip from "@/components/ui/hint-tooltip";
 import { Check, Copy } from "@/icons";
 import { addCommand } from "@/utils/install.mjs";
 
-// The four runners `yummaui` itself resolves (`ui/src/project.ts`), in the
-// same order its detection lists them.
 const MANAGERS = {
   pnpm: { runner: "pnpm dlx", Mark: Pnpm },
   npm: { runner: "npx", Mark: NPM },
@@ -19,7 +17,6 @@ const MANAGERS = {
 
 type Manager = keyof typeof MANAGERS;
 
-/** Copies a `yummaui add` command; menu picks the package manager. */
 export default function Install({ id }: { id: string }) {
   const [open, setOpen] = useState(false);
   const [copied, setCopied] = useState<Manager | null>(null);
@@ -60,8 +57,6 @@ export default function Install({ id }: { id: string }) {
 
   return (
     <Menu.Root open={open} onOpenChange={setOpen}>
-      {/* A square the size of the pagination arrows beside it, so the corner
-          reads as one group of page actions rather than a button and a pair. */}
       <HintTooltip label="Copy install command">
         <Menu.Trigger
           className="d-f ai-c jc-c fs-0 w-8 h-8 bc-border bg-surface a:bg-surface-7 c-accent bw-1 c-p fv:oc-white fv:oo-2"

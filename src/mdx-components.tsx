@@ -19,7 +19,6 @@ import { Tabs, TabsList, TabsPanel, TabsTab } from "@/components/tabs";
 import Code from "@/components/ui/code-block";
 import CodeGroup from "@/components/ui/code-group";
 
-// generate IDs from heading text
 function generateId(children: React.ReactNode): string {
   const text =
     typeof children === "string"
@@ -30,7 +29,7 @@ function generateId(children: React.ReactNode): string {
 
   return text
     .toLowerCase()
-    .replace(/['']/g, "") // strip apostrophes first
+    .replace(/['']/g, "")
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-|-$/g, "");
 }

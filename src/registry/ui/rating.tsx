@@ -25,7 +25,6 @@ const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
 
 export interface RatingProps {
   label?: string;
-  /** Does nothing while `icons` is set. */
   max?: number;
   icons?: RatingIcon[];
   defaultValue?: number;
@@ -36,15 +35,7 @@ export interface RatingProps {
   shadow?: Shadow;
   animated?: boolean;
   emptyHint?: string;
-  /**
-   * A figure beside the marks rather than under them - an average, where the
-   * marks round it. Without it the row is unchanged.
-   */
   score?: ReactNode;
-  /**
-   * Replaces the `3 / 5` readout under the marks. A read-only average reports
-   * what it is an average *of*, which the number of filled stars cannot say.
-   */
   hint?: ReactNode;
   children?: ReactNode;
   className?: string;
@@ -84,11 +75,6 @@ export default function RatingBase({
   const shadowClass =
     shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "";
 
-  // `p-0` is not decoration. Yumma's normalize gives every button `.5rem` of
-  // padding, so a 36px button with `box-sizing:border-box` leaves 20px of
-  // content and the 24px star is squeezed to 20 wide by 24 tall. The read-only
-  // star is a `<span>`, which never had the padding, so it drew at its real
-  // size - and the difference read as read-only making the stars *bigger*.
   const starClasses = (pressed: boolean) =>
     merge(
       "d-f ai-c jc-c p-0 w-9 h-9 br-lg us-none",
@@ -216,15 +202,6 @@ export default function RatingBase({
   );
 }
 
-/**
- * The pop a mark makes when it fills.
- *
- * `animated` used to mean `whileTap` alone, which lasts exactly as long as the
- * pointer is held down: click a star and it is over before the star has
- * finished filling. Keyed on the state, so remounting is what replays it -
- * a keyframe array would be a fresh target on every render and could retrigger
- * on its own.
- */
 function Pop({ on, children }: { on: boolean; children: ReactNode }) {
   return (
     <motion.span
@@ -239,7 +216,6 @@ function Pop({ on, children }: { on: boolean; children: ReactNode }) {
   );
 }
 
-/** The marks, with a figure alongside them when there is one. */
 function Scored({
   score,
   children,

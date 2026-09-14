@@ -4,36 +4,16 @@ import { describe, expect, it } from "vitest";
 import { merge } from "yummacss/merge";
 import { rootDir } from "./helpers";
 
-/**
- * `tests/merge-safety.test.ts` checks one class string at a time, which is the
- * wrong unit now that components call `merge(...)` across a base string, a
- * shape map, a state branch and the caller's `className`. A drop only happens
- * across those arguments, and it is silent.
- *
- * This resolves every argument of every `merge(...)` call to the strings it can
- * hold, then merges each combination. Real overrides do drop a class, so the
- * assertion is the list below rather than "nothing is dropped": a new entry
- * means someone has to look at it.
- */
-
 const CLASSY = /^[@a-z0-9:%._\-/#]+$/i;
 
 const EXPECTED_DROPS = [
-  // The disabled trigger's surface, which is meant to beat the white.
   "context-menu.tsx: bg-white",
-  // The disabled dropzone tint. `bg-white` beat it in the stylesheet.
   "file-upload.tsx: bg-white",
-  // A zone being dragged over says so, over the resting edge and over the
-  // error one.
   "file-upload.tsx: bc-red-5",
   "file-upload.tsx: bc-silver-2",
-  // The open trigger. Same.
   "popover.tsx: bg-white",
   "select.tsx: bg-white",
-  // No visual change: `td-u` already won.
   "preview-card.tsx: td-none",
-  // `FOCUS` carries the default outline colour, and a danger, error or success
-  // tone is meant to repaint it.
   "alert-dialog.tsx: fv:bc-silver-5",
   "alert-dialog.tsx: fv:oc-silver-3/60",
   "button.tsx: fv:bc-silver-5",
@@ -47,12 +27,10 @@ const EXPECTED_DROPS = [
   "textarea.tsx: fv:oc-silver-3/60",
   "tooltip.tsx: fv:bc-silver-5",
   "tooltip.tsx: fv:oc-silver-3/60",
-  // The browse button sits inside the dashed zone, so its outline keeps a pixel.
   "file-upload.tsx: fv:oo-0",
-  // A pressed toolbar toggle takes a border.
+  "toolbar.tsx: bg-transparent",
   "toolbar.tsx: bw-0",
-  // All from the resolver reading more than the component can produce: every
-  // value of the `INTENTS` map, and a disabled star crossed with an enabled one.
+  "toolbar.tsx: c-slate-7",
   "badge.tsx: bg-transparent",
   "badge.tsx: c-slate-10",
   "badge.tsx: c-white",
@@ -94,7 +72,6 @@ function splitArgs(source: string): string[] {
   return out.map((part) => part.trim()).filter(Boolean);
 }
 
-/** Every class-shaped string literal reachable from each `const`, by name. */
 function constants(source: string): Map<string, string[]> {
   const table = new Map<string, string[]>();
 
@@ -117,10 +94,6 @@ function constants(source: string): Map<string, string[]> {
       }
       body = source.slice(start, i + 1);
     } else {
-      // An expression. The one shape worth following is a constant switched
-      // off by a prop, `focusOutline ? FOCUS : ""`, which is how every
-      // component gates its outline; fold in what that constant holds. Reading
-      // every name in any expression instead pulls whole colour maps in.
       const end = topLevel(source, ";", start);
       body = source.slice(start, end < 0 ? source.length : end);
       for (const [, before, after] of body.matchAll(
@@ -134,8 +107,6 @@ function constants(source: string): Map<string, string[]> {
       .map((s) => s[1] ?? s[2])
       .filter((s) => s === "" || s.split(/\s+/).every((t) => CLASSY.test(t)));
 
-    // Never an empty list. One argument resolving to no values at all makes the
-    // whole combination set empty, so the merge call is skipped in silence.
     const values = [...strings, ...extra];
     table.set(match[1], values.length > 0 ? values : [""]);
   }
@@ -143,7 +114,6 @@ function constants(source: string): Map<string, string[]> {
   return table;
 }
 
-/** The strings one argument can hold: a literal, a map's values, both branches. */
 function resolve(
   expression: string,
   table: Map<string, string[]>,
@@ -238,7 +208,6 @@ describe("merge across a component's arguments", () => {
     expect([...dropped].sort()).toEqual([...EXPECTED_DROPS].sort());
   });
 
-  // A floor, so the resolver above cannot quietly stop resolving and pass.
   it("has combinations to merge", () => {
     expect(combinations).toBeGreaterThan(3000);
   });

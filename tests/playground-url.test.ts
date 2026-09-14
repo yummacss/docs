@@ -6,16 +6,6 @@ import { applyQuery, keyMapFor, queryFor } from "@/utils/playground-url";
 import { isControllable } from "@/utils/props";
 import { rootDir } from "./helpers";
 
-/**
- * nuqs owns the address bar; what is checked here is the schema half. Every
- * controllable prop has to get a parser, that parser has to default to the
- * value the page opens on, and a value has to survive the trip out to the
- * query and back.
- *
- * The seed is passed in rather than computed, the way the provider passes it,
- * so these stay pure functions with nothing rendered.
- */
-
 type Values = Record<string, unknown>;
 
 const GLYPH = { glyph: true };
@@ -30,7 +20,6 @@ const schemas = readdirSync(metaDir)
     meta: JSON.parse(readFileSync(join(metaDir, file), "utf8")) as RegistryMeta,
   }));
 
-/** What a page opens on: every documented default, and a glyph in every slot. */
 function seed(meta: RegistryMeta): Values {
   const values: Values = {};
 
@@ -48,7 +37,6 @@ function seed(meta: RegistryMeta): Values {
   return values;
 }
 
-/** A value each controllable prop can take that is not the one it starts on. */
 function changed(meta: RegistryMeta): Values {
   const values = { ...seed(meta) };
 
@@ -94,7 +82,6 @@ describe("playground url", () => {
     expect(missing).toEqual([]);
   });
 
-  /** nuqs drops a parameter that equals its default, so this is the clean URL. */
   it("defaults every parser to the value the page opens on", () => {
     const wrong: string[] = [];
 
@@ -127,8 +114,6 @@ describe("playground url", () => {
 
       for (const prop of meta.props) {
         if (!isControllable(prop)) continue;
-        // An icon is an element and an optional string is words; either way
-        // only presence travels.
         const presence = prop.exampleIcon || prop.optional;
         const before = presence
           ? Boolean(wanted[prop.name])

@@ -26,7 +26,6 @@ const CONTROL_SHAPES: Record<Shape, string> = {
   squircle: "br-xxl cs-s",
 };
 
-/** Base UI waits on `getAnimations()`, which never sees Motion. See NOTES.md. */
 const ONBOARDING_MOTION = `
   .yui-onboarding-pop {
     transition: opacity 200ms ease-out, scale 200ms ease-out;
@@ -83,11 +82,6 @@ export interface OnboardingStep {
 }
 
 export interface OnboardingProps {
-  /**
-   * Where the popup is rendered. Defaults to `document.body`, which is right
-   * almost always; pass an element to portal somewhere else - inside a frame,
-   * or inside a container that owns its own stacking context.
-   */
   container?: HTMLElement | null;
   trigger: ReactNode;
   triggerIcon?: ReactNode;
@@ -95,7 +89,6 @@ export interface OnboardingProps {
   steps: OnboardingStep[];
   indicator?: Indicator;
   showClose?: boolean;
-  /** Does nothing while `animated` is not set. */
   animatedResize?: boolean;
   shape?: Shape;
   shadow?: Shadow;
@@ -131,15 +124,10 @@ export default function OnboardingBase({
   const isLast = page === steps.length - 1;
   const doneCount = checked[page]?.size ?? 0;
 
-  // Tasks belong to the checklist indicator. A step can carry them under any
-  // other indicator and they stay out of the way, gate and all.
   const showTasks = indicator === "checklist";
   const tasks = showTasks ? step.tasks : undefined;
   const allTasksDone = !tasks || doneCount >= tasks.length;
 
-  // `layout` animates with transforms, which move nothing around them, so the
-  // popup jumped while the slide eased inside it. A measured height is the
-  // only kind the popup follows.
   const resizes = animated && animatedResize;
   const watcher = useRef<ResizeObserver | null>(null);
   const [contentHeight, setContentHeight] = useState<number | null>(null);
@@ -281,8 +269,6 @@ export default function OnboardingBase({
 
           {indicator !== "dots" && (
             <div className="d-f ai-c jc-sb px-8 pt-5">
-              {/* The skip button rides in the header rather than over it. Sat
-                  absolute, it landed on top of the "1 / 3". */}
               <div className="d-f ai-c g-2">
                 {showClose && closeButton("")}
                 {indicator === "count" && (
@@ -292,7 +278,6 @@ export default function OnboardingBase({
                 )}
                 {indicator === "checklist" && (
                   <span className="c-slate-5 fs-xs">
-                    {/* A step with nothing to tick reports the tour instead. */}
                     {tasks?.length
                       ? `${doneCount} / ${tasks.length} done`
                       : `${page + 1} / ${steps.length}`}
@@ -325,10 +310,6 @@ export default function OnboardingBase({
           )}
 
           <div className="px-8 pt-4 pb-10">
-            {/* `layout` belongs to the box that changes height, not the slide
-                inside it: on the slide it eased the content while the popup
-                jumped. `popLayout` takes the outgoing slide out of flow so the
-                height this animates to is the incoming one. */}
             <motion.div
               initial={false}
               animate={

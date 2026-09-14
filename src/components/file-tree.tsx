@@ -6,17 +6,8 @@ import { Folder, NavArrowDown, NavArrowRight, Page } from "@/icons";
 
 interface Entry {
   name: string;
-  /**
-   * Defaults to a file. Set for directories, with or without children.
-   */
   folder?: boolean;
-  /**
-   * Draws attention to the entry the surrounding prose is about.
-   */
   highlight?: boolean;
-  /**
-   * Collapsed on first render. Expanded by default.
-   */
   collapsed?: boolean;
   children?: Entry[];
 }
@@ -49,7 +40,6 @@ function Node({ entry }: { entry: Entry }) {
 
   if (!hasChildren) {
     return (
-      // Spacer keeps leaf icons aligned with the folder rows above them.
       <span className={`d-f ai-c g-2 py-1 ${tone}`}>
         <span aria-hidden="true" className="d-b fs-0 w-4" />
         <Label entry={entry} isFolder={isFolder} />
@@ -70,8 +60,6 @@ function Node({ entry }: { entry: Entry }) {
         <Label entry={entry} isFolder={isFolder} />
       </Collapsible.Trigger>
 
-      {/* Indent only. A left border here lands directly under the caret &
-          reads as a line growing out of the icon. */}
       <Collapsible.Panel className="ml-2 pl-4">
         {entry.children?.map((child) => (
           <Node key={child.name} entry={child} />

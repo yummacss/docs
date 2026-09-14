@@ -24,8 +24,6 @@ const VARIANTS: Record<Variant, string> = {
   link: "bg-transparent bc-transparent c-slate-10 tuo-2 h:td-u",
 };
 
-// The tone sits with the outline, not in the variant, so `focus`
-// switches the whole treatment off rather than leaving a coloured border.
 const VARIANT_OUTLINE: Partial<Record<Variant, string>> = {
   danger: "fv:oc-red-2/60 fv:bc-red-3",
 };
@@ -56,7 +54,6 @@ const SHADOWS: Record<Shadow, string> = {
 };
 
 export interface ButtonProps extends ComponentProps<typeof Button> {
-  // merge composes a string, so the Base UI function form is not accepted here.
   className?: string;
   variant?: Variant;
   size?: Size;
@@ -65,7 +62,6 @@ export interface ButtonProps extends ComponentProps<typeof Button> {
   loading?: boolean;
   icon?: ReactNode;
   iconPosition?: IconSide;
-  /** Does nothing while `icon` is not set. */
   iconOnly?: boolean;
   transition?: boolean;
   focus?: boolean | string;
@@ -93,14 +89,7 @@ export default function ButtonBase({
     : "";
 
   const inactive = disabled || loading;
-  // Loading blocks the same interactions as `disabled` but must not set the
-  // native attribute: that drops the button out of the tab order, so a reader
-  // moving through the form never reaches the control it is waiting on.
   const busy = loading && !disabled;
-  // `iconOnly` needs an icon to be only. Without one it dropped the label and
-  // put nothing in its place, and `ICON_ONLY` is padding rather than a fixed
-  // size - so the button collapsed to an empty 18px box. The prop yields
-  // instead: no icon, no effect.
   const iconOnlyActive = iconOnly && Boolean(icon);
 
   const classes = merge(
@@ -108,9 +97,6 @@ export default function ButtonBase({
     BASE,
     transition ? MOTION : "",
     VARIANTS[variant],
-    // Swapping the whole size string, not just its padding, is deliberate: a
-    // button with no text has no type scale to keep, and an `fs-*` here would
-    // resize a glyph passed as a character rather than an svg.
     iconOnlyActive ? ICON_ONLY[size] : SIZES[size],
     SHAPES[shape],
     SHADOWS[shadow],
@@ -124,8 +110,6 @@ export default function ButtonBase({
       disabled={inactive}
       focusableWhenDisabled={busy}
       aria-busy={loading || undefined}
-      // A label the eye cannot see still has to reach a screen reader, so a
-      // string child becomes the name unless one is passed.
       aria-label={
         iconOnlyActive && typeof children === "string" ? children : undefined
       }

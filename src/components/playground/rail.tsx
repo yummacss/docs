@@ -15,16 +15,12 @@ import { ACCENTS } from "@/utils/accent";
 import { primitiveSlug } from "@/utils/primitive";
 import { isControllable, isInert, typeOf } from "@/utils/props";
 
-/** Playground rail: all props as controls or type labels. */
 export default function PlaygroundRail() {
   const playground = usePlayground();
   const [open, setOpen] = useState<string | null>(null);
 
   const props = playground?.meta?.props ?? [];
 
-  // The Base UI link belongs on this header rather than on the stage: it
-  // answers a question the props below raise, since those are the props that
-  // page documents.
   const target = playground ? getRegistryTarget(playground.id) : null;
   const primitive = target
     ? primitiveSlug(target.component, target.install)
@@ -34,12 +30,9 @@ export default function PlaygroundRail() {
     setOpen((current) => (current === name ? null : name));
 
   return (
-    // No extra horizontal pad on small screens: main already has `px-6`.
     <aside className="bc-border btw-1 @lg:btw-0 @lg:blw-1 @lg:gc-s-3">
       <Scroller className="playground-rail">
         <div className="pt-8 pb-12 @lg:pt-0 @lg:px-8">
-          {/* Above the API heading, because it is not one of these props:
-              it recolours the preview and never reaches the Code tab. */}
           {playground && (
             <div className="d-f ai-c jc-sb g-2 pb-4 mb-4 bc-border bbw-1">
               <HintTooltip label="Preview only. The code you copy is unchanged.">
@@ -54,8 +47,6 @@ export default function PlaygroundRail() {
             </div>
           )}
 
-          {/* The reset appears only once a style axis has followed you here,
-              so it shows up with work to do rather than sitting inert. */}
           <div className="d-f ai-c jc-sb g-2 mb-3">
             <h3 className="c-silver-8 fs-xs ls-2 tt-u">Component API</h3>
             {playground?.carried && (
@@ -116,7 +107,6 @@ export default function PlaygroundRail() {
   );
 }
 
-/** Prop row: name, control, optional description on click. */
 function Row({
   prop,
   inert,
@@ -131,8 +121,6 @@ function Row({
   children: React.ReactNode;
 }) {
   const name = <code className="c-code fs-xs ff-m">{prop.name}</code>;
-  // The reason waits for someone to reach for the control. Shown on arrival it
-  // is a wall of red on a page nobody has touched yet.
   const [attempted, setAttempted] = useState(false);
 
   return (
@@ -155,8 +143,6 @@ function Row({
         ) : (
           name
         )}
-        {/* The control is locked, so the press never reaches it; the wrapper
-            is what hears the attempt. */}
         <span
           onPointerDownCapture={() => inert && setAttempted(true)}
           onFocusCapture={() => inert && setAttempted(true)}

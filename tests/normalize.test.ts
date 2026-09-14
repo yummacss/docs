@@ -7,9 +7,6 @@ import {
 } from "../src/utils/normalize-rules.mjs";
 import { contentPages } from "./helpers";
 
-// The page names selectors and is filled from the shipped reset. These are what
-// make that worth having: a rule the page never names fails.
-
 const page = () => {
   const found = contentPages("docs").find(({ slug }) => slug === "normalize");
   if (!found) throw new Error("normalize.mdx is missing");
@@ -29,8 +26,6 @@ describe("Normalize page", () => {
     expect(undocumented).toEqual([]);
   });
 
-  // The rendered page fills its fences in rehype; the `.md` twin is a second
-  // pipeline that has to be checked separately.
   it("carries every rule it names into the .md twin", () => {
     const source = page();
     const markdown = mdxToMarkdown(source);

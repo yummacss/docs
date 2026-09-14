@@ -14,7 +14,6 @@ function renderUiMarkdown(
   const body = mdxToMarkdown(ui.content ?? "", {
     resolveRegistry: resolveRegistrySource,
     resolveMeta: resolveRegistryMeta,
-    // `<ComponentPlayground />` names no component; the slug is the component.
     registryId: slug,
   });
 
