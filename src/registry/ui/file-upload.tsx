@@ -103,10 +103,29 @@ export default function FileUploadBase({
     onFilesChange?.(next);
   };
 
+  // Name, size and date together, which is also the row's key: picking the
+  // same file twice listed it twice and React warned about the duplicate.
+  const identity = (file: File) =>
+    `${file.name}:${file.size}:${file.lastModified}`;
+
   const add = (incoming: FileList | null) => {
     if (!incoming?.length) return;
     const picked = Array.from(incoming);
-    commit(multiple ? [...files, ...picked] : picked.slice(0, 1));
+
+    if (!multiple) {
+      commit(picked.slice(0, 1));
+      return;
+    }
+
+    const held = new Set(files.map(identity));
+    const fresh = picked.filter((file) => {
+      const key = identity(file);
+      if (held.has(key)) return false;
+      held.add(key);
+      return true;
+    });
+
+    if (fresh.length > 0) commit([...files, ...fresh]);
   };
 
   const onChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -214,7 +233,7 @@ export default function FileUploadBase({
         <div className="d-f fd-c g-1 w-100% px-6 pb-6">
           {files.map((file) => (
             <div
-              key={`${file.name}:${file.lastModified}`}
+              key={identity(file)}
               className={merge(
                 "d-f ai-c jc-sb g-3 px-3 py-2 bg-silver-1/50 bc-silver-2 bw-1",
                 SHAPES[shape],

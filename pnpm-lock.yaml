@@ -51,11 +51,11 @@ importers:
         specifier: ^2.0.0
         version: 2.0.0(next@16.3.1(@types/node@26.2.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react@19.2.8)
       '@yummacss/core':
-        specifier: ^3.31.0
-        version: 3.31.0
+        specifier: ^3.31.1
+        version: 3.31.1
       '@yummacss/nitro':
-        specifier: ^3.31.0
-        version: 3.31.0
+        specifier: ^3.31.1
+        version: 3.31.1
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
@@ -99,8 +99,8 @@ importers:
         specifier: ^3.38.0
         version: 3.38.0
       yummacss:
-        specifier: ^3.31.0
-        version: 3.31.0
+        specifier: ^3.31.1
+        version: 3.31.1
     devDependencies:
       '@biomejs/biome':
         specifier: 2.5.8
@@ -133,11 +133,11 @@ importers:
         specifier: ^1.4.6
         version: 1.4.6
       '@yummacss/canon':
-        specifier: ^3.31.0
-        version: 3.31.0
+        specifier: ^3.31.1
+        version: 3.31.1
       '@yummacss/postcss':
-        specifier: ^3.31.0
-        version: 3.31.0(postcss@8.5.26)
+        specifier: ^3.31.1
+        version: 3.31.1(postcss@8.5.26)
       remark-code-preview:
         specifier: ^1.2.6
         version: 1.2.6
@@ -1277,18 +1277,18 @@ packages:
   '@vitest/utils@4.1.10':
     resolution: {integrity: sha512-fy9am/HWxbaGt/Sawrp90vt6Y6jQwf1RX77cz3uwoJwJVMli/e1IEwRPnMNJ7vKfPTwo0diXifkpPvwH9v7nGA==}
 
-  '@yummacss/canon@3.31.0':
-    resolution: {integrity: sha512-JgL8xIvQ652+I+hOHppDetxyTjB+/5f3eqaa5puHDrRkBMUtRw4KFEtU+3Bi/UNckjLFBdx5nCGPg691jmfjSw==}
+  '@yummacss/canon@3.31.1':
+    resolution: {integrity: sha512-jhCdWRr7ii20sLo2FWgttusNcYdCkLtzhEpwUV4lVMvk6CCr/sMBda/2SQI0SJ7FAeoHcUC2m+3IrE/omY8Lkg==}
     hasBin: true
 
-  '@yummacss/core@3.31.0':
-    resolution: {integrity: sha512-ntg1WxrQ4jdgGK1yQIK855oxkSu+1R6FK/k7X3hlcxvO+dPjp50VxwZDUDKELM19sBVdSmrd2nKsyYpEGEefaw==}
+  '@yummacss/core@3.31.1':
+    resolution: {integrity: sha512-GCgvpP5KI+gsZdLI1XD444yHy4iqLFRY5MZfgg6HEkfd9Km3sey/rWQ8k1OiUkfnziIJe+b4UrWK43f78jGUdA==}
 
-  '@yummacss/nitro@3.31.0':
-    resolution: {integrity: sha512-PuIkC10i8abBb2wryeKgNguNVcMIf24bMSGjaCk623n8G87+td6MNdtrsvRpmp6I9i2Opz+qSuKHCGFd7xlifA==}
+  '@yummacss/nitro@3.31.1':
+    resolution: {integrity: sha512-Ys1MNEea5rfmryi/EiljB1Ckb2NyHY+FIdvJNnINtLbTzbgnvdeP0L0NOEy6OZFczaUSV/ukB1RW5Ppicm6V/w==}
 
-  '@yummacss/postcss@3.31.0':
-    resolution: {integrity: sha512-XqyJBNwzViHDmMKP8rfzAC4KkYvMa6fMSjTe3ZnT3bMPLUPiGoK9SFDerDH56ctOIqLmGZ8ryrQL5i2H7PyKgw==}
+  '@yummacss/postcss@3.31.1':
+    resolution: {integrity: sha512-z+fqddH5q2ok7Fxc8IccP+yW52hIsV57Oax1xDqBa5tzSRBoWWJ/3+UT2UdUXTqANo7Tt7E2utzHrIM3aRGatg==}
     peerDependencies:
       postcss: ^8.0.0
 
@@ -2309,8 +2309,8 @@ packages:
     resolution: {integrity: sha512-4LCcse/U2MHZ63HAJVE+v71o7yOdIe4cZ70Wpf8D/IyjDKYQLV5GD46B+hSTjJsvV5PztjvHoU580EftxjDZFQ==}
     engines: {node: '>=12.20'}
 
-  yummacss@3.31.0:
-    resolution: {integrity: sha512-CDGphg3C9o3Kty9YsM4l3QZvWYRMzyLcqJk5XpouSK7ojlv5wQSxmNf0YIeOl4p+i6jGuPCWaPocBCebjzebZQ==}
+  yummacss@3.31.1:
+    resolution: {integrity: sha512-QZYfjpMLOW4KxnuQsbmv6OF8boGF9cnWHWSa3ctmLzxqrZcfdkORe7+PeJVtXol3KIzIGYVYYGICUc/MQ+Zegw==}
     hasBin: true
 
   zod@4.4.3:
@@ -3072,22 +3072,22 @@ snapshots:
       convert-source-map: 2.0.0
       tinyrainbow: 3.1.1
 
-  '@yummacss/canon@3.31.0':
+  '@yummacss/canon@3.31.1':
     dependencies:
-      '@yummacss/nitro': 3.31.0
+      '@yummacss/nitro': 3.31.1
       tinyglobby: 0.2.17
 
-  '@yummacss/core@3.31.0': {}
+  '@yummacss/core@3.31.1': {}
 
-  '@yummacss/nitro@3.31.0':
+  '@yummacss/nitro@3.31.1':
     dependencies:
-      '@yummacss/core': 3.31.0
+      '@yummacss/core': 3.31.1
       tinyglobby: 0.2.17
       zod: 4.4.3
 
-  '@yummacss/postcss@3.31.0(postcss@8.5.26)':
+  '@yummacss/postcss@3.31.1(postcss@8.5.26)':
     dependencies:
-      '@yummacss/nitro': 3.31.0
+      '@yummacss/nitro': 3.31.1
       postcss: 8.5.26
 
   acorn-jsx@5.3.2(acorn@8.18.0):
@@ -4501,10 +4501,10 @@ snapshots:
 
   yocto-queue@1.2.2: {}
 
-  yummacss@3.31.0:
+  yummacss@3.31.1:
     dependencies:
-      '@yummacss/core': 3.31.0
-      '@yummacss/nitro': 3.31.0
+      '@yummacss/core': 3.31.1
+      '@yummacss/nitro': 3.31.1
 
   zod@4.4.3: {}
 
