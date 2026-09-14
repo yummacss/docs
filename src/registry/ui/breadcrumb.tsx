@@ -15,8 +15,6 @@ const SIZES: Record<Size, string> = {
   lg: "fs-md",
 };
 
-// Both separators are quieter than the label and both follow it. The chevron
-// needs a bigger box to get there: its ink fills a little over half of one.
 const SEPARATOR_SIZES: Record<Size, string> = {
   sm: "w-4 h-4",
   md: "w-5 h-5",
@@ -44,9 +42,7 @@ export interface BreadcrumbItem {
 export interface BreadcrumbProps {
   items: BreadcrumbItem[];
   bordered?: boolean;
-  /** Does nothing while `bordered` is not set. */
   shape?: Shape;
-  /** Does nothing while `bordered` is not set. */
   shadow?: Shadow;
   size?: Size;
   separator?: Separator;

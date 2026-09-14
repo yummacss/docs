@@ -9,9 +9,7 @@ interface Props {
   lang?: string;
   preview?: boolean;
   grouped?: boolean;
-  /** Highlighted <pre> markup, produced on the server by code-block.tsx. */
   html?: string;
-  /** Original source, used for copying so no markup can leak into it. */
   raw?: string;
   children?: React.ReactNode;
 }
@@ -38,8 +36,6 @@ export default function Code({
 
   const body = html ? (
     <div
-      // ff-m because this wrapper is a div: the old markup was a <pre>, which
-      // carried monospace implicitly.
       className="ox-auto px-4 py-4 ff-m lh-5"
       // biome-ignore lint/security/noDangerouslySetInnerHtml: server-generated Shiki output from repo-local source, never user input
       dangerouslySetInnerHTML={{ __html: html }}
@@ -59,8 +55,6 @@ export default function Code({
     );
   }
 
-  // Rendered inside a <CodeGroup>: the group supplies the frame, the tab
-  // strip, and the copy control, so drop the outer chrome here.
   if (grouped) {
     return (
       <div ref={ref}>
@@ -77,15 +71,6 @@ export default function Code({
   );
 }
 
-/**
- * The bar naming the file a block belongs to, with the copy control on the
- * right so it never sits on top of the source.
- *
- * Exported for the same reason as `CopyButton`: `ComponentPlayground` renders its
- * usage snippet from a token stream rather than through this component, and a
- * second hand-written copy of this markup is a second thing to keep in step.
- * Renders nothing without a title or action, so callers need no conditional.
- */
 export function TitleBar({
   title,
   action,
@@ -95,9 +80,6 @@ export function TitleBar({
 }) {
   if (!title && !action) return null;
 
-  // Titled cells size the bar with py-2 + fs-xs. A copy-only bar has no title
-  // cell, so park the same vertical footprint in a zero-width anchor instead
-  // of padding the action cell — that kept growing the bar past production.
   const heightAnchor = (
     <div className="d-f ai-c py-2 w-0 o-h pe-none invisible" aria-hidden="true">
       <span className="fs-xs ff-m">{"\u200b"}</span>
@@ -121,9 +103,6 @@ export function TitleBar({
   );
 }
 
-/**
- * Exported so the /ui playground's code panel is the same button, not a lookalike.
- */
 export function CopyButton({
   copied,
   onCopy,

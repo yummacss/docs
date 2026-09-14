@@ -3,13 +3,6 @@ import { join, relative } from "node:path";
 import { describe, expect, it } from "vitest";
 import { rootDir } from "./helpers";
 
-/**
- * `src/icons.ts` is the docs site's single icon import, and the registry is
- * pointedly outside it: a component file is copied verbatim into someone's
- * project, where `@/icons` resolves to nothing. Both halves are asserted,
- * because the second one fails as a broken install rather than a broken build.
- */
-
 const DIRECT = /from\s+["']iconoir-react["']/;
 const SHARED = /from\s+["']@\/icons["']/;
 

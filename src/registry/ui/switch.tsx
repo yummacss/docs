@@ -80,10 +80,6 @@ export default function SwitchBase({
     "p-r d-f ai-c m-0 px-1 tp-c tdu-150 ttf-io",
     track,
     SHAPES[shape],
-    // Disabled is a surface, not a transparency, and it is the same surface
-    // whether the switch is on or off - the thumb's position is what says
-    // which, so a disabled switch still reports its value instead of dimming
-    // into something that could be read as either.
     disabled
       ? "bw-1 bc-silver-2 bg-silver-1"
       : checked

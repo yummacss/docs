@@ -24,11 +24,6 @@ const SIZES: Record<Size, string> = {
   md: "w-12 h-12",
 };
 
-// The one state this component had no way to express. Same surface as the
-// other controls, so a disabled Toggle in a Toolbar matches the disabled
-// Checkbox beside it.
-// No cursor here: it is set once below, so `c-na` and `c-p` never reach
-// `merge` as two arguments it has to choose between.
 const DISABLED = "bw-1 bc-silver-2 bg-silver-1 c-slate-4";
 
 const PRESSED = "bg-slate-12 bc-slate-12 c-white";
@@ -46,22 +41,12 @@ export interface ToggleProps
   shape?: Shape;
   size?: Size;
 
-  /** Blocks the press and marks the control, keeping its pressed state legible. */
   disabled?: boolean;
   animated?: boolean;
   className?: string;
   focus?: boolean | string;
 }
 
-/**
- * The pop a toggle makes as it takes hold.
- *
- * `animated` used to mean `whileTap` alone, which lasts exactly as long as the
- * pointer is held down - press and it is over before you have let go, which is
- * why it read as no animation at all. Keyed on the state, so remounting is
- * what replays it: a keyframe array would be a fresh target on every render
- * and could retrigger on its own.
- */
 function Pop({ on, children }: { on: boolean; children: ReactNode }) {
   return (
     <motion.span

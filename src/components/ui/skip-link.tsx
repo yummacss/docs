@@ -1,12 +1,3 @@
-/**
- * The first thing a keyboard reaches on every page, parked off the top until
- * it takes focus. Without it, reaching an article means tabbing through the
- * whole navbar and the whole sidebar, on every page.
- *
- * Styled as one of the pagination buttons, square corners included: it is a
- * page action like they are, and `surface` sits close enough to `page` that
- * the border is what separates it from the background.
- */
 export default function SkipLink() {
   return (
     <a

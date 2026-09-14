@@ -5,12 +5,6 @@ import type { RegistryMeta } from "../src/registry";
 import { carriedFor } from "../src/utils/sticky";
 import { rootDir } from "./helpers";
 
-/**
- * A carried value follows you between components, so the guard that matters is
- * the one that stops a value the next component has never heard of. `shape`
- * alone carries six vocabularies across the registry.
- */
-
 function meta(id: string): RegistryMeta {
   return JSON.parse(
     readFileSync(join(rootDir, "src/registry/meta", `${id}.json`), "utf-8"),
@@ -27,7 +21,6 @@ describe("carried styles", () => {
   });
 
   it("drops a value the next component has no name for", () => {
-    // `pill` is Badge's and Button's; Checkbox has square, rounded, squircle.
     expect(carriedFor(meta("checkbox"), { shape: "pill" }, unclaimed)).toEqual(
       {},
     );

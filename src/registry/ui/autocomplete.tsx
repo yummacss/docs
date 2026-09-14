@@ -33,7 +33,6 @@ const SIZES: Record<Size, string> = {
   lg: "h-12 w-72",
 };
 
-/** Base UI waits on `getAnimations()`, which never sees Motion. See NOTES.md. */
 const AUTOCOMPLETE_MOTION = `
   .yui-autocomplete-pop {
     transition: opacity 150ms ease-out, scale 150ms ease-out;
@@ -78,11 +77,6 @@ const ICON_PADDING: Record<IconSide, string> = {
 };
 
 export interface AutocompleteProps {
-  /**
-   * Where the popup is rendered. Defaults to `document.body`, which is right
-   * almost always; pass an element to portal somewhere else - inside a frame,
-   * or inside a container that owns its own stacking context.
-   */
   container?: HTMLElement | null;
   items: AutocompleteItem[] | AutocompleteGroup[];
   label?: ReactNode;
@@ -177,7 +171,6 @@ export default function AutocompleteBase({
 
   const [open, setOpen] = useState(false);
 
-  // A control that gets disabled while its popup is open should put it away.
   useEffect(() => {
     if (disabled) setOpen(false);
   }, [disabled]);

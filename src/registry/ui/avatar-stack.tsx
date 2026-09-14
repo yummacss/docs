@@ -16,9 +16,7 @@ export interface AvatarStackProps {
   className?: string;
   children: ReactNode;
   overlap?: Overlap;
-  /** Show at most this many, then a +N avatar for the rest. */
   max?: number;
-  /** Size of the +N avatar, to match the ones you passed. */
   size?: Size;
 }
 

@@ -20,11 +20,6 @@ const SHADOWS: Record<Shadow, string> = {
   outset: "bs-o-sm",
 };
 
-// Switch's thumb sits in a box a padding wider on every side, the way Switch's
-// own `px-1` holds it off the ends of its track. Base UI measures that box, so
-// the same padding is what keeps the fill clear of the thumb: the indicator
-// takes half a box past `--start-position`, which is the box's edge and a
-// padding beyond the thumb's.
 const FOCUS = "os-s ow-3 oo-0 oc-silver-3/60";
 
 const THUMB_BOX = "d-f ai-c jc-c w-6 h-5 p-1";
@@ -82,11 +77,6 @@ export default function SliderBase({
     onValueChange?.(next);
   };
 
-  // Focus is held in state because `fv:` never matches here: Base UI puts the
-  // focusable `<input type="range">` inside the thumb, so the outline has to be
-  // driven from the input's own focus. A `focus` string is written with `fv:`
-  // for every other component, so the prefix is dropped rather than asking for
-  // a different value here.
   const outline = merge(
     focus ? FOCUS : "",
     (typeof focus === "string" ? focus : "").replace(/\bfv:/g, ""),
@@ -133,9 +123,6 @@ export default function SliderBase({
         >
           <Slider.Track
             className={merge(
-              // The edge is an outline, not a border: Base UI measures the
-              // control and positions the thumb inside the track's padding
-              // box, so a border would put the two out by its own width.
               "p-r h-5 w-100% bg-white os-s ow-1 oo-0 oc-silver-3",
               SHAPES[shape],
               SHADOWS[shadow],

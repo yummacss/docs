@@ -38,7 +38,6 @@ const CHIPS_SIZES: Record<Size, string> = {
   lg: "min-h-12 w-72 fs-lg",
 };
 
-/** Base UI waits on `getAnimations()`, which never sees Motion. See NOTES.md. */
 const COMBOBOX_MOTION = `
   .yui-combobox-pop {
     transition: opacity 150ms ease-out, scale 150ms ease-out;
@@ -87,11 +86,6 @@ const ACTION =
   "d-f b-0 ai-c jc-c w-6 h-6 p-0 bg-transparent c-slate-6 c-p h:c-slate-10";
 
 export interface ComboboxProps {
-  /**
-   * Where the popup is rendered. Defaults to `document.body`, which is right
-   * almost always; pass an element to portal somewhere else - inside a frame,
-   * or inside a container that owns its own stacking context.
-   */
   container?: HTMLElement | null;
   items: ComboboxItem[] | ComboboxGroup[];
   label?: ReactNode;
@@ -172,7 +166,6 @@ export default function ComboboxBase({
 
   const [open, setOpen] = useState(false);
 
-  // A control that gets disabled while its popup is open should put it away.
   useEffect(() => {
     if (disabled) setOpen(false);
   }, [disabled]);
@@ -246,16 +239,9 @@ export default function ComboboxBase({
         )}
 
         <div className="p-r">
-          {/* `Chips` is not decoration: `Chip` reads a context off it, and
-              without it the first selection threw on
-              `setHighlightedChipIndex`. It wraps the input as well as the
-              chips, which is what puts them inside the field. */}
           {multiple ? (
             <Combobox.Chips className={chipsClasses}>
               <Combobox.Value>
-                {/* Three shapes, not two: `null`, the array, and the single
-                    string left over from single-select. Base UI types the
-                    callback `any`, so nothing warned. See NOTES.md. */}
                 {(selected: string[] | string | null) => (
                   <>
                     {toChips(selected).map((chip) => (
@@ -294,12 +280,6 @@ export default function ComboboxBase({
           <div
             className={`d-f p-a r-2 b-0 ai-c jc-c c-slate-6 ${ACTION_HEIGHTS[size]}`}
           >
-            {/* Base UI unmounts `Clear` while there is nothing to clear, which
-                is right - an X on an empty field does nothing - so the button
-                appears with the first selection rather than with the prop.
-                It works in `multiple` too: clearing the chips is the same
-                gesture, and excluding it there left no way to empty them at
-                once. */}
             {clearable && (
               <Combobox.Clear
                 className={merge(outline, ACTION)}

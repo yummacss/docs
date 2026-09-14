@@ -6,7 +6,6 @@ import { useState } from "react";
 import { CopyButton, TitleBar } from "@/components/ui/code";
 import { TOKEN_COLORS, type Token, tokensToText } from "@/utils/snippet";
 
-/** Hand-highlighted usage snippet; shared by static preview and playground. */
 export default function TokenBlock({
   tokens,
   className = "bc-border btw-1",
@@ -15,15 +14,9 @@ export default function TokenBlock({
   fill = false,
 }: {
   tokens: Token[];
-  /** Caller supplies frame classes (e.g. no top border under tabs). */
   className?: string;
   expanded?: boolean;
-  /** File label in the title bar, like `Code`. */
   title?: string;
-  /**
-   * Take the height a flex parent gives, and scroll the code inside it.
-   * Without it an expanded fold grows the block, which scrolls the page.
-   */
   fill?: boolean;
 }) {
   const [copied, setCopied] = useState(false);
@@ -38,8 +31,6 @@ export default function TokenBlock({
     setTimeout(() => setCopied(false), 2000);
   };
 
-  // Copy on every block. The Base UI link and Install moved to the stage's tab
-  // bar, where they are visible from the Preview tab too.
   const action: ReactNode = <CopyButton copied={copied} onCopy={copy} />;
 
   return (
@@ -58,7 +49,6 @@ export default function TokenBlock({
   );
 }
 
-/** Collapsible token regions; copy still takes the full snippet. */
 function Folded({
   tokens,
   expanded = false,

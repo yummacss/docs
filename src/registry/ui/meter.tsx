@@ -12,10 +12,6 @@ const INTENTS = {
   danger: "bg-red",
 } satisfies Record<string, string>;
 
-/**
- * Five meanings, not nineteen hues. Point one at another family here and the
- * type follows. Literal strings, because the scanner reads source.
- */
 type Intent = keyof typeof INTENTS;
 
 const SHADOWS: Record<Exclude<Shadow, "none">, string> = {

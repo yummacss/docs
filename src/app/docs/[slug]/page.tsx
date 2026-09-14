@@ -47,9 +47,6 @@ export default async function Page({
 }) {
   const { slug } = await params;
   const doc = allDocs.find((d) => d._meta.path === slug);
-  // `dynamicParams = false` means an unknown slug 404s before reaching here, so
-  // this never fires - but a `!` would throw a render error rather than a 404
-  // the day that stops being true.
   if (!doc) notFound();
   const MDXContent = doc.mdx;
   const navigation = getDocsNavigation(slug);

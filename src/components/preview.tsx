@@ -32,7 +32,6 @@ export default function Preview({
   className,
 }: PreviewProps) {
   const actualId = registryId || id;
-  // Defer lazy registry mounts until the client; SSR has no Suspense chunk boundary.
   const [mounted, setMounted] = useState(!actualId);
 
   useEffect(() => {

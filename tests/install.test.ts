@@ -4,16 +4,9 @@ import { describe, expect, it } from "vitest";
 import { addCommand, importPath, targetPath } from "../src/utils/install.mjs";
 import { rootDir } from "./helpers";
 
-/**
- * The docs print the CLI's defaults in four places. `src/utils/install.mjs` is
- * the one that knows them; the guard below is what keeps the other three from
- * quietly growing their own copy again.
- */
-
 const SOURCE = /\.(ts|tsx|mjs)$/;
 const OWNER = join(rootDir, "src/utils/install.mjs");
 
-/** An id interpolated into the install path or the install command. */
 const RETYPED = [/components\/ui\/\$\{/, /yummaui add \$\{/];
 
 function sourceFilesIn(dir: string): string[] {

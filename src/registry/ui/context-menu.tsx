@@ -10,7 +10,6 @@ type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 type IconPosition = "leading" | "trailing";
 
-/** Base UI waits on `getAnimations()`, which never sees Motion. See NOTES.md. */
 const CONTEXT_MENU_MOTION = `
   .yui-context-menu-pop {
     transition: opacity 150ms ease-out;
@@ -97,11 +96,6 @@ export type ContextMenuItem =
   | ContextMenuSubmenu;
 
 export interface ContextMenuProps {
-  /**
-   * Where the popup is rendered. Defaults to `document.body`, which is right
-   * almost always; pass an element to portal somewhere else - inside a frame,
-   * or inside a container that owns its own stacking context.
-   */
   container?: HTMLElement | null;
   trigger: ReactNode;
   items: ContextMenuItem[];
@@ -136,7 +130,6 @@ export default function ContextMenuBase({
     onOpenChange?.(next);
   };
 
-  // A control that gets disabled while its popup is open should put it away.
   useEffect(() => {
     if (!disabled || !open) return;
     setInternalOpen(false);
@@ -146,22 +139,15 @@ export default function ContextMenuBase({
   const shadowClass =
     shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "";
 
-  // No shadow here. `shadow` describes the menu that opens, and lifting the
-  // dashed area you right-click made the page look like the area was the
-  // floating thing.
   const triggerClasses = merge(
     "d-f ai-c jc-c h-48 w-60 bg-white bs-d bw-1 fs-sm fw-500 us-none",
     TRIGGER_SHAPES[shape],
-    // The same disabled surface the other controls use, rather than a fade.
     disabled
       ? "bg-silver-1 bc-silver-2 c-slate-4 c-na"
       : "bc-slate-3 c-slate-10",
     className,
   );
 
-  // `os-none`: Base UI focuses the popup when it opens, and the browser
-  // paints its own dark `auto` outline on it. Nothing was tabbed to, and the
-  // open menu is its own signal.
   const popupClasses = [
     "py-1 w-52 bg-white bc-silver-2 c-slate-10 bw-1 os-none",
     POPUP_SHAPES[shape],
@@ -174,9 +160,6 @@ export default function ContextMenuBase({
     (destructive: boolean, spread: boolean) =>
     (state: { highlighted: boolean }) =>
       [
-        // Highlighting focuses the item, hover included, so the browser
-        // drew its outline on every item the pointer crossed. The
-        // highlight background is the signal.
         "d-f ai-c g-2 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p mx-1 os-none",
         spread ? "jc-sb" : "",
         ITEM_SHAPES[shape],

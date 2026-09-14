@@ -49,16 +49,10 @@ export default async function Page({
 }) {
   const { slug } = await params;
   const ui = allUis.find((u) => u._meta.path === slug);
-  // `dynamicParams = false` means an unknown slug 404s before reaching here, so
-  // this never fires - but a `!` would throw a render error rather than a 404
-  // the day that stops being true.
   if (!ui) notFound();
   const MDXContent = ui.mdx;
   const navigation = getUINavigation(slug);
 
-  // A playground page is its stage: the article is capped to the viewport and
-  // the stage takes whatever the header leaves, so there is no bottom margin to
-  // scroll to and no height to guess at. A prose page keeps flowing.
   const stage = Boolean(ui.playground);
 
   return (
@@ -68,10 +62,6 @@ export default async function Page({
           <div className="d-f ai-c jc-sb mb-2">
             <h1 className="min-w-0 c-white fs-4xl fw-400 ow-bw">{ui.title}</h1>
             <div className="d-f fs-0 ai-c g-2">
-              {/* Installing is a page action, so it sits with the other page
-                  actions rather than inside the stage: the tab bar switches
-                  views and does nothing else. A square the size of the arrows,
-                  so the corner is one group. */}
               {ui.playground && (
                 <Install id={getRegistryTarget(slug).install} />
               )}

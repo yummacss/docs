@@ -20,7 +20,6 @@ interface SizeSpec {
   text: string;
 }
 
-/** Base UI waits on `getAnimations()`, which never sees Motion. See NOTES.md. */
 const MENU_MOTION = `
   .yui-menu-pop {
     transition: opacity 150ms ease-out;
@@ -119,11 +118,6 @@ export type MenuItem =
   | MenuSubmenu;
 
 export interface MenuProps {
-  /**
-   * Where the popup is rendered. Defaults to `document.body`, which is right
-   * almost always; pass an element to portal somewhere else - inside a frame,
-   * or inside a container that owns its own stacking context.
-   */
   container?: HTMLElement | null;
   trigger: ReactNode;
   items: MenuItem[];
@@ -164,7 +158,6 @@ export default function MenuBase({
     onOpenChange?.(next);
   };
 
-  // A control that gets disabled while its popup is open should put it away.
   useEffect(() => {
     if (!disabled || !open) return;
     setInternalOpen(false);
@@ -186,9 +179,6 @@ export default function MenuBase({
     className,
   );
 
-  // `os-none`: Base UI focuses the popup when it opens, and the browser
-  // paints its own dark `auto` outline on it. Nothing was tabbed to, and the
-  // open menu is its own signal.
   const popupClasses = [
     "py-1 bg-white bc-silver-2 c-slate-10 bw-1 os-none",
     spec.popup,
@@ -202,9 +192,6 @@ export default function MenuBase({
     (destructive: boolean, spread: boolean) =>
     (state: { highlighted: boolean }) =>
       [
-        // Highlighting focuses the item, hover included, so the browser
-        // drew its outline on every item the pointer crossed. The highlight
-        // background is the signal.
         "d-f ai-c g-2 us-none c-p mx-1 fw-500 os-none",
         spec.item,
         spec.text,
