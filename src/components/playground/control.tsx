@@ -165,7 +165,7 @@ function Stepper({
   );
 }
 
-function EnumSelect({
+export function EnumSelect({
   name,
   values,
   value,

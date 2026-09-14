@@ -8,6 +8,7 @@ import PreviewSpinner from "@/components/preview-spinner";
 import { Tabs, TabsList, TabsPanel, TabsTab } from "@/components/tabs";
 import TokenBlock from "@/components/ui/token-block";
 import { getRegistryTarget, type RegistryMeta } from "@/registry";
+import { accentCss, DEFAULT_ACCENT } from "@/utils/accent";
 import {
   type DemoProps,
   exampleChildren,
@@ -134,7 +135,12 @@ export default function ComponentPlayground() {
       </TabsList>
 
       <TabsPanel value="preview" className={FILL}>
-        <PreviewFrame className="f-1 min-h-0" minHeight={0} fill>
+        <PreviewFrame
+          className="f-1 min-h-0"
+          minHeight={0}
+          fill
+          accentCss={accentCss(playground?.accent ?? DEFAULT_ACCENT)}
+        >
           <Mounted
             key={uncontrolled}
             Component={Component}

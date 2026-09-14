@@ -15,9 +15,9 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  130
-    Open     7
-    Done    95%
+    Closed  131
+    Open     6
+    Done    96%
 
 ---
 
@@ -63,10 +63,6 @@ Nothing here blocks a release, and all of it makes the next change cheaper.
 
 Blocked on Renildo. Each one holds up the entry beside it.
 
-- [ ] **An `accent` prop?** Whether it is a real prop on the components, which
-      is 41 files and a value that ships with the copied source, or a
-      playground-only setting that recolours the preview without changing what
-      anyone installs.
 - [ ] **File Upload: remove it?** Base UI ships no primitive, and it is the
       least functional component in the set.
 - [ ] **Install command:** a dialog offering yarn and bun alongside pnpm and

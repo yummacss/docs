@@ -212,9 +212,7 @@ export default function DialogBase({
           )}
 
           {header && (
-            <div className="d-f fd-c ai-c jc-c g-3 px-4 pt-5">
-              {header}
-            </div>
+            <div className="d-f fd-c ai-c jc-c g-3 px-4 pt-5">{header}</div>
           )}
 
           {/* One padded column with a gap, the way Alert Dialog does it. Title,
@@ -223,9 +221,7 @@ export default function DialogBase({
               above the title was a single `py-2` - which is what put it
               against the top edge when there is no header. */}
           <div
-            className={`d-f fd-c g-3 px-4 pb-6 ${
-              header ? "pt-5" : "pt-10"
-            }`}
+            className={`d-f fd-c g-3 px-4 pb-6 ${header ? "pt-5" : "pt-10"}`}
           >
             <Dialog.Title className="c-slate-10 fs-md fw-500 ta-c">
               {title}

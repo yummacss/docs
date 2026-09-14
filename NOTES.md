@@ -2083,9 +2083,10 @@ declares logical properties: `padding` covers `padding-inline` covers
       solve a collision that does not happen. The reason now sits in the
       component as a comment, because the next reader will ask the same thing.
 
-- [ ] **What `accent` would actually touch, measured before choosing.** The
-      entry offers two options and the second one depends on the first, which
-      is worth knowing before either is built.
+- [x] **`accent` is a preview setting, not a prop.** Renildo's call,
+      2026-09-14: pick one and go. The entry offered two options and the
+      second one depends on the first, which is why the measurement came
+      first.
 
       **There is no indirection to override.** Every component names its colour
       as a literal Yumma class; `grep -c "var(--"` over `src/registry/ui`
@@ -2105,11 +2106,29 @@ declares logical properties: `padding` covers `padding-inline` covers
       | `blc-slate-12` | 1 | 1 | the open accordion's rule |
       | `c-slate-12` | 17 | 12 | **emphasised text, leave alone** |
 
-      So the surface is **25 declarations across four class names**, not the 41
-      files the entry estimated. `c-white` is the text sitting on it, so an
-      accent has to stay dark enough to carry white: taking a Yumma family and
-      using its `-12` and `-11` keeps that true for all nineteen of them, and
-      those rules are already in the stylesheet.
+      `c-white` is the text sitting on it, so an accent has to stay dark enough
+      to carry white: taking a Yumma family and using its `-12` and `-11` keeps
+      that true for all nineteen of them.
+
+      **What shipped.** `src/utils/accent.ts` owns one table, and it drives both
+      the CSS and the guard. The stage hands the rules to `PreviewFrame`, which
+      keeps a `<style id="accent">` last in the frame's head, so a
+      same-specificity override wins on source order. It lives in
+      `localStorage` and deliberately **not** in the URL: an address states
+      what the component is, and an accent changes nothing about it.
+
+      **Six classes, not four.** The registry scan in `tests/accent.test.ts`
+      found the two the measurement missed: the dark Tooltip's arrow is
+      `f-slate-12 s-slate-12` and paints the popup's own surface, so without
+      them a coral tooltip kept a near-black point. Measured after: popup and
+      arrow both `#291217`.
+
+      **The honesty check is the test, not the copy.** The Code tab is
+      byte-identical before and after switching accent, verified in the
+      browser, and `c-slate-12` stays `#101316` on the next page. The guard
+      fails any component that names a `slate-11` or `slate-12` class the table
+      does not cover, which is the only thing that would notice the accent
+      going stale.
 
 ### Phase 7 - One breaking registry release
 

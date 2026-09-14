@@ -11,6 +11,7 @@ import {
   useState,
 } from "react";
 import { getRegistryMeta, type RegistryMeta } from "@/registry";
+import { DEFAULT_ACCENT, readAccent, writeAccent } from "@/utils/accent";
 import { type DemoProps, exampleIcon, seedValues } from "@/utils/demo";
 import { applyQuery, keyMapFor, queryFor } from "@/utils/playground-url";
 import { prefetchRegistry } from "@/utils/prefetch-registry";
@@ -32,6 +33,9 @@ interface Playground {
   carried: boolean;
   /** Drops what was carried and reseeds from the schema. */
   reset: () => void;
+  /** Preview-only: recolours the frame, never the source anyone copies. */
+  accent: string;
+  setAccent: (family: string) => void;
 }
 
 const PlaygroundContext = createContext<Playground | null>(null);
@@ -57,6 +61,16 @@ export function PlaygroundProvider({
 }) {
   const [seed, setSeed] = useState<Seed>(EMPTY);
   const [carried, setCarried] = useState(false);
+  // Server-rendered as the default and corrected on mount: reading storage
+  // during render would make the first paint disagree with the markup.
+  const [accent, setAccentState] = useState(DEFAULT_ACCENT);
+
+  useEffect(() => setAccentState(readAccent()), []);
+
+  const setAccent = useCallback((family: string) => {
+    setAccentState(family);
+    writeAccent(family);
+  }, []);
 
   useEffect(() => {
     const importMeta = getRegistryMeta(id);
@@ -162,8 +176,17 @@ export function PlaygroundProvider({
   }, [seed.meta, seed.values, setQuery]);
 
   const playground = useMemo(
-    () => ({ id, meta: seed.meta, values, setValue, carried, reset }),
-    [id, seed.meta, values, setValue, carried, reset],
+    () => ({
+      id,
+      meta: seed.meta,
+      values,
+      setValue,
+      carried,
+      reset,
+      accent,
+      setAccent,
+    }),
+    [id, seed.meta, values, setValue, carried, reset, accent, setAccent],
   );
 
   return <PlaygroundContext value={playground}>{children}</PlaygroundContext>;
