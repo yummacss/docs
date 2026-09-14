@@ -65,8 +65,6 @@ Blocked on Renildo. Each one holds up the entry beside it.
 
 - [ ] **File Upload: remove it?** Base UI ships no primitive, and it is the
       least functional component in the set.
-- [ ] **Install command:** a dialog offering yarn and bun alongside pnpm and
-      npm, a dropdown, or is a dialog overkill?
 
 ## Known and accepted
 

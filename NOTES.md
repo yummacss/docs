@@ -2130,6 +2130,26 @@ declares logical properties: `padding` covers `padding-inline` covers
       does not cover, which is the only thing that would notice the accent
       going stale.
 
+- [x] **The install menu offers four package managers, and a dialog is
+      overkill.** Renildo's call, 2026-09-14. The dropdown already existed and
+      holds four at 114px, so the question answered itself once the missing two
+      were added.
+
+      The gap was not a design one: **`yummaui` has resolved four runners since
+      it shipped** (`runner()` in `ui/src/project.ts` returns `pnpm dlx`,
+      `npx`, `yarn dlx` or `bunx` from what it detects), and the docs offered
+      two. Copied and checked in the browser, all four: `pnpm dlx yummaui add
+      button`, `npx ...`, `yarn dlx ...`, `bunx ...`.
+
+      The marks come from `simple-icons`, extracted and inlined rather than
+      added as a dependency, the same as the npm and pnpm marks already there.
+      **Bun ships monochrome black**, which is invisible on the menu's own
+      surface, so it is drawn in its cream instead.
+
+      `cli.mdx` keeps `pnpm dlx` through every example and names the other
+      three once, under the first fence. Rewriting ten fences into tabs buys
+      nothing the sentence does not.
+
 ### Phase 7 - One breaking registry release
 
 All three change something a published `yummaui.json` or an installed CLI
