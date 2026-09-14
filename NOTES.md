@@ -1455,13 +1455,39 @@ declares logical properties: `padding` covers `padding-inline` covers
 - [x] **Onboarding's tasks belong to `checklist`.** They rendered on any
       indicator, gate on the forward button included, once the example seeded
       them. Tied to the indicator now.
-- [ ] **Alert Dialog `inset` renders and cannot be seen.** Measured
-      `rgba(0, 0, 0, 0.1) 0px 2px 4px 0px inset`, present and applied; two
-      screenshots against `none` are indistinguishable. 10% black at 4px blur
-      inside a white panel with a light border has nothing to read against.
-      Not an Alert Dialog bug: `bs-i-md` is a Yumma CSS token and every
-      component using it has the same problem. Needs a decision, so it moved
-      out of Phase 1.
+- [x] **`inset` was two bugs, and the token was only half of one.** Renildo's
+      call, 2026-09-14, after the measurements below.
+
+      **One token cannot serve a 16px checkbox and a 384px panel.** An inset
+      shadow's peak darkness never changes with the box; only its coverage
+      does. `bs-i-md` peaks at **236** on white, eleven shades *lighter* than
+      the `bc-silver-2` border it sits inside (**225**), so it never reads as
+      depth anywhere. `bs-i-3xl` is the first step that beats the border
+      (**214**) - and at 3xl a 16px checkbox is 100% covered, a flat grey
+      square. So the registry carries two values rather than the framework
+      carrying a different one: **12 panels on `bs-i-3xl`, 16 controls
+      unchanged on `bs-i-md`.** Nothing in `bs-i-*` moved, so nobody on Yumma
+      CSS is repainted.
+
+      The line is the measured height of the surface the shadow actually lands
+      on, not the component's reputation. Meter and Progress read as controls
+      and are not: the shadow is on their outer 256x71 card, so they are
+      panels. Toolbar is 54px and went the other way; a 24px band is 44% of it.
+      Menu, Menubar and Combobox pass one class to a small trigger *and* a
+      popup, so they stay on `md` whatever their popup measures.
+
+      **Alert Dialog's own bug was never the token.** The panel has
+      `padding: 0` and two children carrying `bg-white` that cover it top to
+      bottom. **An inset shadow paints above the element's background and below
+      its children**, so an opaque child hides it completely - measured
+      identical to `shadow="none"`, 255 flat, even at 3xl. Dialog had the same
+      three. Dropping the redundant `bg-white` (the panel is already white) is
+      the fix: Alert Dialog now reads 225 border, 214, then back to white over
+      24 rows.
+
+      Checked all 12 panels for the same covering: only those two had it.
+      Breadcrumb's `inset` is gated on `bordered`, off by default, so it has
+      never been visible either - left alone, since that is the prop working.
 - [x] **Toolbar's number field rang the wrong box.** The input and each
       stepper carried their own outline, so focusing the input drew a square
       flush around the number **between** the minus and the plus, leaving them
