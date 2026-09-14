@@ -130,6 +130,8 @@ is written.
   another: a stacked PR merged after its base has already gone up the chain
   lands on a dead branch and never reaches `main`, and it reports itself
   merged. Wait for `main` instead.
+- A maintained dependency beats code we would own, even when ours is smaller.
+  Weigh a package by what it costs to maintain, not by what it weighs.
 - Base UI primitives over raw HTML. A `<button>`, `<input>`, `<fieldset>` or
   anything else with a primitive uses it; where a primitive has to render a
   different element, that is its `render` prop, not a raw tag. Raw tags are for
