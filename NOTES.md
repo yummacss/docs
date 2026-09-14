@@ -2243,34 +2243,39 @@ The extensions are already deleted (see Rejected). This is the package.
       is the only thing that stops this recurring every time a token expires.
       **The current token dies 2026-11-27**, so that is the deadline.
 - [ ] `xs` at 32rem has no matching breakpoint. Drop it or add the breakpoint.
-- [ ] **Drop `tinycolor2` for OKLCH.** These are one decision, not two, and
-      both halves are measured.
-      **Bundle:** `tinycolor2` is a devDependency that tsdown bundles *into*
-      `@yummacss/core`, so it ships to every user. Building core with the calls
-      stubbed: 55,915 B to 40,761 B. **It is 15,154 B, 27% of core, to do
-      `mix` and `toHexString`.** OKLCH conversion is about 30 lines of matrix
-      maths with no dependency, so this shrinks the bundle rather than growing
-      it - which is the opposite of what "adopt OKLCH" sounds like it costs.
-      **Evenness:** measured OKLCH lightness deltas across all 19 default hues.
-      Median max/min ratio **2.5x**; worst yellow **5.6x**, green 5.0x, lime and
-      sky 3.6x; best blue and gray 1.2x, slate 1.3x, indigo 1.4x. **The split is
-      light-native hues against dark-native ones** - mixing toward white
-      compresses the light half of a yellow scale and stretches its dark half,
-      while a blue is already near-uniform. So it is not "5 of 19 hues are
-      broken and the rest are fine" by accident; it is a systematic artefact of
-      mixing in sRGB.
-      **Wider gamut is the weakest argument** and should not be the reason:
-      P3 only shows on wide-gamut displays, and the palette stays in sRGB
-      anyway unless the hues are re-picked.
-      **Blast radius is one function.** `generateShades` in
-      `packages/core/src/helpers/create-colors.ts` is the only place that knows
-      how a shade is derived. Nothing else in core touches `tinycolor2`.
-      `docs` uses it separately - `palette.tsx` for display, `utils/colors.ts`
-      for a luminance check - and would need its own change. `intellisense`
-      uses it and is being deleted in Phase 8 anyway. **`play` does not depend
-      on it at all.**
-      **The catch:** every generated hex changes. That is a visual break for
-      anyone who pinned a colour by eye, which is a v4 change, not a 3.x one.
+- [x] **`tinycolor2` stays.** Renildo's call, 2026-09-14, after the swap was
+      built and measured.
+
+      **The reason is ownership, not bytes.** A maintained package is battle
+      tested and can be used the same way in `docs`, `yummacss` and anywhere
+      else. Hand-rolled colour maths is neither: it is 40 lines nobody but us
+      has ever run, sitting in the one function that decides every colour in
+      the framework. The same reason Base UI wins over handcrafted components.
+
+      **What the swap actually bought, measured on a real build:**
+      `packages/core/dist/index.mjs` 55,930 B to 41,831 B, a 25% cut, and core
+      would have had no dependencies at all.
+
+      **What it did not buy, which is why the entry was wrong.** The old note
+      said OKLCH would fix the uneven ramps. It does not. Max over min of
+      consecutive OKLab lightness steps, across all 19 families:
+
+      | | sRGB mix | OKLab mix |
+      |---|---|---|
+      | median | 2.51x | 2.37x |
+      | yellow, the worst | 5.60x | 5.19x |
+      | green | 4.97x | 3.83x |
+      | silver, lavender, violet, indigo, slate, gray | | slightly worse |
+
+      **The space was never the problem.** The weights are absolute
+      percentages from the base toward white and black, so a light-native hue
+      crowds its light half into whatever lightness sits above it. Yellow is at
+      L 0.97: six light steps share 0.03, six dark steps share 0.97. That is
+      arithmetic. Fixing it means targeting lightness directly, which cannot
+      also keep the base at index 6 unless the base sits mid-lightness.
+
+      **If OKLCH is ever wanted, it arrives as a dependency**, not as matrix
+      maths in `create-colors.ts`. Do not re-propose hand-rolled conversion.
 
 ### Phase 9b - The pre-v4 audit
 
@@ -3009,6 +3014,12 @@ command `#F5FAFF`, argument `#BEC6F2`, space `#B9BED5`.
 ---
 
 ## Rejected. Do not rebuild
+
+- **Replacing a dependency with our own code to save bytes.** `tinycolor2` was
+  swapped for 40 lines of OKLab conversion, measured at a 25% cut to core, and
+  rejected: a package is battle tested and shared across repos, ours is neither.
+  Weigh a dependency by what it costs to own, not by what it weighs. The same
+  rule is why Base UI beats handcrafted components in the registry.
 
 - **Deleting `Skeleton` in favour of a `loading` prop.** Nobody does this
   because a prop cannot render before the component that declares it, and a
