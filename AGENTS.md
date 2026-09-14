@@ -92,6 +92,18 @@ is written.
   what it says. Carrying writes into the URL on arrival rather than changing
   what a parser defaults to, which would make a clean address lie.
 
+# Accent
+
+- The accent recolours the **preview** and nothing anyone installs. It works by
+  redefining the classes the components name, inside the preview frame only, so
+  the Code tab stays byte-identical when it changes.
+- `src/utils/accent.ts` holds the one table that drives both the CSS and the
+  guard. A component that names a new `slate-11` or `slate-12` class fails
+  `tests/accent.test.ts` until the table covers it.
+- `c-slate-12` is a label on white, not a control, so it is never part of it.
+- It lives in `localStorage`, never the URL: an address states what the
+  component is, and the accent changes nothing about it.
+
 # Page chrome
 
 - Every page opens with `SkipLink` and has one `<main id="main">`, so the first
