@@ -93,6 +93,10 @@ export default function ButtonBase({
     : "";
 
   const inactive = disabled || loading;
+  // Loading blocks the same interactions as `disabled` but must not set the
+  // native attribute: that drops the button out of the tab order, so a reader
+  // moving through the form never reaches the control it is waiting on.
+  const busy = loading && !disabled;
   // `iconOnly` needs an icon to be only. Without one it dropped the label and
   // put nothing in its place, and `ICON_ONLY` is padding rather than a fixed
   // size - so the button collapsed to an empty 18px box. The prop yields
@@ -118,6 +122,7 @@ export default function ButtonBase({
     <Button
       className={classes}
       disabled={inactive}
+      focusableWhenDisabled={busy}
       aria-busy={loading || undefined}
       // A label the eye cannot see still has to reach a screen reader, so a
       // string child becomes the name unless one is passed.
