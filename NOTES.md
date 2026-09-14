@@ -1987,6 +1987,17 @@ declares logical properties: `padding` covers `padding-inline` covers
       `rehype-registry.mjs` is the same shape and worth a look: it acts only on
       a fence whose meta carries `registryId=`, and `src/content` has none.
 
+- [x] **Avatar keeps `verified` and `status` together.** Renildo's call,
+      2026-09-14. The question assumed they compete for a corner; they do not.
+      `status` is `b-0 r-0`, `verified` is `t-0 r-0`, and measured with both on
+      at every size and both shapes the vertical overlap is **0** - 20px apart
+      on `sm`, 32px on `md`, 40px on `lg`. A square avatar puts them on the
+      hard corners and clips nothing.
+
+      Making them exclusive would have removed a combination that works to
+      solve a collision that does not happen. The reason now sits in the
+      component as a comment, because the next reader will ask the same thing.
+
 ### Phase 7 - One breaking registry release
 
 All three change something a published `yummaui.json` or an installed CLI

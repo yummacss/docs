@@ -130,6 +130,8 @@ export default function AvatarBase({
         </Avatar.Fallback>
       </Avatar.Root>
 
+      {/* Opposite corners, so both can be on: measured at every size and
+          shape, the two badges never touch. */}
       {status !== "none" && (
         <span
           role="img"

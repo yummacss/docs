@@ -15,8 +15,8 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  126
-    Open    10
+    Closed  127
+    Open     9
     Done    93%
 
 ---
@@ -70,8 +70,6 @@ Blocked on Renildo. Each one holds up the entry beside it.
       anyone installs.
 - [ ] **File Upload: remove it?** Base UI ships no primitive, and it is the
       least functional component in the set.
-- [ ] **Avatar:** should `verified` and `status` be mutually exclusive rather
-      than both at once?
 - [ ] **Install command:** a dialog offering yarn and bun alongside pnpm and
       npm, a dropdown, or is a dialog overkill?
 - [ ] **`bs-i-md` is invisible.** Alert Dialog's `inset` shadow is applied and
