@@ -27,13 +27,13 @@
     {
       "name": "accept",
       "type": "string",
-      "description": "Passed to the file input, so the picker filters by it. A comma separated list of extensions or MIME types, `image/*,.pdf`."
+      "description": "Passed to the file input, so the picker filters by it. A comma separated list of extensions or MIME types, `image/*,.pdf`. A drop is not filtered: the browser only applies this to the picker, so check the type yourself in `onFilesChange`."
     },
     {
       "name": "multiple",
       "type": "boolean",
       "default": false,
-      "description": "Lets the zone hold more than one file. Each pick or drop adds to the list; off, the newest file replaces the old one."
+      "description": "Lets the zone hold more than one file. Each pick or drop adds to the list, and a file already in it is not added twice; off, the newest file replaces the old one."
     },
     {
       "name": "onFilesChange",
