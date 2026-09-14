@@ -2335,10 +2335,25 @@ playground, and `yummaui add`. They cannot drift.
 
 ### Versioning
 
-**Shipped at `0.1.0`.** The earlier argument for `0.0.1` - that `0.0.x` is the
-only range where every release is free - is settled and does not need
-re-litigating. What carries forward is the trigger it named: **the thing that
-forces a version decision is not a date and not a component count, it is the
+**Two things are versioned, and neither of them is Yumma UI.** The CLI is a
+package at `0.3.0`, and the framework is a package at `3.31.1`. The registry is
+the third thing and it is not a package at all: `yummaui add` writes a file into
+your repo and never touches it again, so there is no installed version to
+compare against and no upgrade to publish.
+
+**A `1.0` for Yumma UI was planned around the dark theme and dropped.**
+Renildo's call, 2026-09-14: a `1.0` would be a version number on the CLI, which
+is the part that barely changes. Almost every change lands in the registry - 110
+commits against `src/registry` since it started, including four global prop
+renames - and the CLI's version says nothing about any of them.
+
+**What the registry gets instead is `CHANGELOG.md`, dated rather than
+numbered.** It is the only channel that reaches somebody holding a copy taken
+months ago, because nothing else will: they have a file, not a dependency. A
+version number there would describe a package they do not have installed.
+
+What carries forward from the old note is the trigger it named: **the thing that
+forces a CLI version decision is not a date and not a component count, it is the
 first outside user filing an issue the schema cannot answer without a breaking
 change.** Stay on patches until then.
 
