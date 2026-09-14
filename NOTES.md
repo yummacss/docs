@@ -360,12 +360,27 @@ blocks a release.**
 - [ ] Badge's icon wrapper sets `w-3 h-3`/`w-4 h-4` on a `<span>`, which does not
       constrain the SVG inside it. Harmless, but a lie in the code. Check
       Meter's `w-8 h-8` wrapper at the same time.
-- [ ] A line on each page saying which file a code block belongs to. The base
-      snippet's `@/components/ui/button` and the variant source's `./button` are
-      both correct and look like drift. **`./` is load-bearing**:
-      `generate-registry-json.mjs` builds `registryDependencies` by matching
-      `from "./<id>"`, so rewriting it to the alias breaks
-      `yummaui add <variant>` pulling its component.
+- [x] **Every code block now names its file, and the drift this entry feared
+      cannot happen yet.** Checked all 42 UI pages: the rendered page carries
+      exactly one code block, the usage snippet, already titled `page.tsx`. The
+      component's own source appears only in the `.md` twin, and no `.md`
+      contains both spellings, because **no variant source is displayed
+      anywhere on the site** - the two plugins that once did it visit nodes
+      `src/content` no longer holds.
+
+      What was actually missing: the `.md`'s fence carried a whole component
+      source with nothing saying where the file goes. It now opens
+      ``` ```tsx title="components/ui/badge.tsx" ```, the same `title=` meta an
+      authored fence uses, built from `targetPath` so it cannot drift from the
+      registry's own `target`. `tests/markdown-routes.test.ts` fails any UI page
+      whose fence is unnamed; verified to bite.
+
+      **`./` stays load-bearing**: `generate-registry-json.mjs` builds
+      `registryDependencies` by matching `from "./<id>"`, so rewriting a variant
+      to the alias breaks `yummaui add <variant>` pulling its component. The
+      half of this entry about two blocks disagreeing comes back the day variant
+      sources are shown, which is the same gap as the 23 undocumented
+      `example`-kind previews under Phase 4.
 - [ ] Seed an icon into the Badge, Separator, Meter and Tabs base demos. Each has
       an `icon` prop no demo passes, so the feature is invisible outside the
       table. Separator is the one that matters: an icon breaks the rule in half
