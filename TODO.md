@@ -15,9 +15,9 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  131
-    Open     6
-    Done    96%
+    Closed  133
+    Open     4
+    Done    97%
 
 ---
 
@@ -63,8 +63,6 @@ Nothing here blocks a release, and all of it makes the next change cheaper.
 
 Blocked on Renildo. Each one holds up the entry beside it.
 
-- [ ] **File Upload: remove it?** Base UI ships no primitive, and it is the
-      least functional component in the set.
 
 ## Known and accepted
 

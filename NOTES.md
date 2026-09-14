@@ -2150,6 +2150,37 @@ declares logical properties: `padding` covers `padding-inline` covers
       three once, under the first fence. Rewriting ten fences into tabs buys
       nothing the sentence does not.
 
+- [x] **File Upload stays, and "least functional in the set" does not hold.**
+      Renildo's call, 2026-09-14: keep it, test it. Driven in a real browser
+      rather than read, every path works:
+
+      | Path | Result |
+      |---|---|
+      | Browse, single | lists the file, second pick replaces it |
+      | Browse, multiple | appends, in pick order |
+      | Drop | `dropped.txt` listed, `preventDefault` called so the browser does not open it |
+      | Drag highlight | border `#101316` and `bg-silver-2/50` on `dragenter`, cleared after `drop` |
+      | Remove | takes the row out, leaves the rest |
+      | Disabled | blocks the drop and the browse button |
+      | Sizes | 6 B, 293 KB, 1 B |
+
+      The true half of the entry is that Base UI ships no primitive for it, so
+      this one is a `Fieldset` wrapping an `Input type="file"` and its own
+      handlers. That is the reason it exists, not a reason to delete it.
+
+      **One real bug, found by testing it.** Picking or dropping the same file
+      twice in `multiple` mode listed it twice with the same React key, and
+      React warned: *Encountered two children with the same key*. The list now
+      keys and de-duplicates on the same identity, name plus size plus date,
+      so a repeat is ignored. Measured after: one row, no warning, and
+      distinct files still append.
+
+      **One gap left open on purpose.** `accept` reaches the input, so it
+      filters the picker, and **a drop is not filtered at all** - the browser
+      only applies it to the dialog. Rejecting a dropped file would need the
+      component to raise its own error, and `error` is the caller's prop
+      today, so the schema says to check the type in `onFilesChange` instead.
+
 ### Phase 7 - One breaking registry release
 
 All three change something a published `yummaui.json` or an installed CLI
