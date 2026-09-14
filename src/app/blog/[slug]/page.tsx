@@ -53,9 +53,6 @@ export default async function BlogPostPage({
 }) {
   const { slug } = await params;
   const post = allBlogs.find((p) => p._meta.path === slug);
-  // `dynamicParams = false` means an unknown slug 404s before reaching here, so
-  // this never fires - but a `!` would throw a render error rather than a 404
-  // the day that stops being true.
   if (!post) notFound();
   const MDXContent = post.mdx;
 

@@ -4,15 +4,6 @@ import * as core from "@yummacss/core";
 import { describe, expect, it } from "vitest";
 import { rootDir } from "./helpers";
 
-/**
- * A utility that core generates but no page lists is invisible: it works, it is
- * canon, and nobody can find out it exists. That is how the twelve logical
- * border properties went undocumented - nothing failed, so nothing said so.
- *
- * `<Reference>` renders null when `getReferenceData` finds no match, so a typo
- * in `name` costs a section silently too. Both directions are checked here.
- */
-
 const CATEGORIES = {
   background: core.backgroundUtils,
   border: core.borderUtils,
@@ -31,7 +22,6 @@ const CATEGORIES = {
   transition: core.transitionUtils,
 } as const;
 
-/** Every `category:name` core exposes. */
 function coreUtilities(): Set<string> {
   const out = new Set<string>();
   for (const [category, getter] of Object.entries(CATEGORIES)) {
@@ -49,7 +39,6 @@ function mdxFilesIn(dir: string, out: string[] = []): string[] {
   return out;
 }
 
-/** Every `category:name` written in a `<Reference>` anywhere in the content. */
 function referenced(): Set<string> {
   const out = new Set<string>();
   for (const file of mdxFilesIn(join(rootDir, "src/content"))) {

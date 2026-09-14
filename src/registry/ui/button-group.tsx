@@ -17,9 +17,7 @@ export interface ButtonGroupProps {
   className?: string;
   children: ReactNode;
   shape?: Shape;
-  /** Rules between the buttons. */
   separated?: boolean;
-  /** Buttons share the width instead of sizing to their label. */
   stretch?: boolean;
 }
 

@@ -35,8 +35,6 @@ export default async function BlogPage() {
   return (
     <>
       <div className="mb-16 pt-12 @lg:gc-s-9">
-        {/* `ff-e` is explicit: Esteban only applies inside <article> or via the
-            class, and this page is not an article. */}
         <div className="my-8">
           <h1 className="mb-2 c-white ff-e fs-4xl fw-400">Blog Articles</h1>
           <p className="c-white/70 fs-lg">
@@ -48,8 +46,6 @@ export default async function BlogPage() {
           {years.map((year, yearIndex) => (
             <div key={year}>
               <div className="mb-16">
-                {/* `id` is load-bearing: toc.tsx collects `main h2` elements
-                    that have one, which is how the years reach the sidebar. */}
                 <h2
                   id={String(year)}
                   className="mb-8 c-white ff-e fs-4xl fw-400"
@@ -63,28 +59,16 @@ export default async function BlogPage() {
                       href={`/blog/${post._meta.path}`}
                       className="d-b fv:oc-white fv:ow-2"
                     >
-                      {/* Goes side by side at @sm, not @lg: by 40rem the column
-                        is already ~592px, which fits a 10rem cover beside the
-                        text. Waiting for @lg left the cover full width, and
-                        nine of those made the page enormous. */}
                       <div className="d-f fd-c g-6 @sm:fd-r">
                         <div className="@sm:f-1">
                           <h3 className="mb-4 c-white fs-xxl fw-400">
                             {post.title}
                           </h3>
-                          {/* The container grows to 96rem, so without a cap
-                              the description reaches ~84 characters at 1600px
-                              and keeps going. 32rem holds it near 64. */}
                           <p className="mb-4 max-w-xs c-white/70 lh-5">
                             {post.description}
                           </p>
                           <div className="d-f ai-c g-3 c-white/50 fs-sm">
                             <span>{formatDate(post.date)}</span>
-                            {/* Drafts reach this listing only in `next dev` -
-                                `isVisible` drops them everywhere else - so the
-                                marker cannot leak. Without it a draft is
-                                indistinguishable from a published post, which
-                                is the whole reason they were kept unlisted. */}
                             {post.draft && (
                               <span className="c-accent fs-xs ls-2 tt-u">
                                 Draft
@@ -92,11 +76,6 @@ export default async function BlogPage() {
                             )}
                           </div>
                         </div>
-                        {/* 14rem only at @xl, not @lg: at @lg the TOC appears
-                          and takes three columns, so bumping the cover at the
-                          same breakpoint squeezed the description to ~40
-                          characters at exactly 1024px. Waiting until 80rem
-                          keeps every width between 45 and 75. */}
                         {post.cover && (
                           <div className="@sm:w-40 @sm:fs-0 @xl:w-56">
                             <div className="o-h b-1 bc-border bg-white/10">

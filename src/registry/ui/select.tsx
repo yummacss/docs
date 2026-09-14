@@ -35,7 +35,6 @@ const SIZES: Record<Size, string> = {
   lg: "h-12 w-72 px-4",
 };
 
-/** Base UI waits on `getAnimations()`, which never sees Motion. See NOTES.md. */
 const SELECT_MOTION = `
   .yui-select-pop {
     transition: opacity 150ms ease-out, scale 150ms ease-out;
@@ -123,11 +122,6 @@ function renderOption(option: SelectOption, shape: Shape) {
 }
 
 export interface SelectProps {
-  /**
-   * Where the popup is rendered. Defaults to `document.body`, which is right
-   * almost always; pass an element to portal somewhere else - inside a frame,
-   * or inside a container that owns its own stacking context.
-   */
   container?: HTMLElement | null;
   options: SelectOption[] | SelectGroup[];
   label?: string;
@@ -172,7 +166,6 @@ export default function SelectBase({
 
   const [open, setOpen] = useState(false);
 
-  // A control that gets disabled while its popup is open should put it away.
   useEffect(() => {
     if (disabled) setOpen(false);
   }, [disabled]);

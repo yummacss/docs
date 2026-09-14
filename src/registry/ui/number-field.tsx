@@ -12,12 +12,8 @@ type Shadow = "none" | "inset" | "outset";
 
 const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
 
-// The outline sits a pixel inside the group border, so the input and the
-// steppers share one edge instead of drawing two outlines against each other.
 const INSET_FOCUS = `${FOCUS} fv:oo--1`;
 
-// A number field is a field that happens to step, so the number gets the room
-// and the steppers become a column at the trailing edge.
 const STEP =
   "d-f ai-c jc-c bg-white c-slate-10 us-none c-p h:bg-silver-1/50 a:bg-silver-2";
 
@@ -39,8 +35,6 @@ const ICON_SIZES: Record<Size, string> = {
   lg: "w-4 h-4",
 };
 
-// The outline follows the group's own radius, and the group had none: the
-// corners live on the end buttons, so the focus outline drew a square.
 const GROUP_SHAPES: Record<Shape, string> = {
   rounded: "br-lg",
   square: "",

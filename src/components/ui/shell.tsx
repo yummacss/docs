@@ -9,7 +9,6 @@ import Sidebar from "@/components/ui/sidebar";
 import TableOfContents from "@/components/ui/toc";
 import { registryMeta } from "@/registry";
 
-/** UI layout grid; third column is playground rail or TOC per route. */
 export default function UIShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const slug = (pathname || "")
@@ -38,8 +37,6 @@ export default function UIShell({ children }: { children: React.ReactNode }) {
 
   if (!playground) return grid;
 
-  // The provider reads the query, and reading the query is what makes a page
-  // dynamic. Only the playground pays that; the grid renders either way.
   return (
     <Suspense fallback={grid}>
       <PlaygroundProvider id={playground}>{grid}</PlaygroundProvider>

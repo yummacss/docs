@@ -2,10 +2,6 @@
 
 import { useEffect, useState } from "react";
 
-/**
- * Cold-start fallback only. Delayed so brief loads do not flash a spinner;
- * hold-previous pagination should avoid this path after the first frame.
- */
 export default function PreviewSpinner({
   delayMs = 200,
 }: {

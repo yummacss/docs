@@ -23,10 +23,6 @@ import { buildUsage } from "@/utils/snippet";
 
 const PREVIEW_SHELL = "d-f p-r ox-auto ai-c jc-c p-10 bg-white";
 
-// The stage takes whatever the capped column leaves it, rather than a height
-// worked out from the header above it. That arithmetic was right until a
-// description wrapped to two lines, and then the page scrolled by exactly the
-// difference. Flex cannot drift.
 const FILL = "d-f fd-c f-1 min-h-0";
 
 interface Frame {
@@ -36,15 +32,12 @@ interface Frame {
   Component: ComponentType<DemoProps>;
 }
 
-/** Live preview and usage snippet; keeps the last ready frame while the next loads. */
 export default function ComponentPlayground() {
   const playground = usePlayground();
   const playgroundRef = useRef(playground);
   playgroundRef.current = playground;
   const [frame, setFrame] = useState<Frame | null>(null);
 
-  // Commit only when meta is present; fixtures come from the schema itself so
-  // a cleared values bag can never ship into the preview.
   useEffect(() => {
     const id = playground?.id;
     const meta = playground?.meta;
@@ -78,10 +71,6 @@ export default function ComponentPlayground() {
     };
   }, [playground?.id, playground?.meta]);
 
-  // A controlled prop cannot move without its handler, so the playground is
-  // the thing that owns it. Memoised: a fresh identity each render made Base UI
-  // re-report its own state and overwrite what the control had just set. The
-  // snippet never prints these; they belong to the demo.
   const handlerProps = playground?.meta?.props;
   const handlers = useMemo(
     () =>
@@ -116,17 +105,11 @@ export default function ComponentPlayground() {
   const usage = buildUsage(getRegistryTarget(frame.id).component, meta, set);
   const { Component } = frame;
 
-  // `defaultChecked` and friends seed `useState`, which reads a prop once and
-  // never again, so changing one in the controls did nothing. Remount instead:
-  // 13 components take an uncontrolled default.
   const uncontrolled = Object.entries(set)
     .filter(([name]) => name.startsWith("default"))
     .map(([name, value]) => `${name}:${JSON.stringify(value)}`)
     .join("|");
 
-  // Preview and code share one height, and the code scrolls inside it. Stacked,
-  // an expanded snippet pushed the page down and put a scrollbar on the window;
-  // the point of the tabs is that the page never scrolls.
   return (
     <Tabs defaultValue="preview" className={FILL}>
       <TabsList>
@@ -159,15 +142,6 @@ export default function ComponentPlayground() {
   );
 }
 
-/**
- * The component, inside the frame, holding a portal target if it takes one.
- *
- * Base UI resolves a portal against the top-level `document.body` rather than
- * the document its trigger renders in, so a modal opened in a framed preview
- * would still land on the page and cover the controls driving it. The schema
- * decides whether to pass `container`: on a component with no popup it would
- * reach the DOM as an unknown attribute.
- */
 function Mounted({
   Component,
   props,

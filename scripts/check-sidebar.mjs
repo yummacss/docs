@@ -2,23 +2,8 @@ import { readdirSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
-/**
- * Fails the build when a content page is missing from the sidebar, or when the
- * sidebar points at a page that does not exist.
- *
- * The sidebar is the single source of truth for reading order: it drives the
- * nav, the llms.txt sections & prev/next. That is deliberate, because one file
- * shows the whole information architecture. The cost is that adding a page is
- * two edits, and forgetting the second one is silent - the page builds, and is
- * reachable by URL, but appears in no nav and no llms.txt listing.
- *
- * This is the check that makes forgetting loud. It reads the config as text
- * rather than importing it, so it needs no build step & no generated content.
- */
-
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 
-/** Slugs listed under one top-level key of the sidebar config. */
 function slugsFor(source, key, nextKey) {
   const start = source.indexOf(`${key}: [`);
   if (start === -1) throw new Error(`No "${key}" key in the sidebar config.`);

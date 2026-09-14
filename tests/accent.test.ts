@@ -10,12 +10,6 @@ import {
 } from "../src/utils/accent";
 import { rootDir } from "./helpers";
 
-/**
- * The accent recolours the preview by redefining the classes the components
- * name, so it goes stale the moment a component names a new one. The guard
- * below is the only thing that would notice.
- */
-
 describe("preview accent", () => {
   it("emits nothing for the colour the components already ship", () => {
     expect(accentCss(DEFAULT_ACCENT)).toBe("");
@@ -30,9 +24,6 @@ describe("preview accent", () => {
       const css = accentCss(family);
       expect(css.split("\n")).toHaveLength(ACCENT_CLASSES.length);
       expect(css).toMatch(/#[0-9a-f]{6}/i);
-      // The dark text is a label, not a control, and must stay where it is.
-      // Compared as whole selectors: `c-slate-12` is a substring of
-      // `.bc-slate-12`, so a `toContain` here passes nothing useful.
       const selectors = css
         .split("\n")
         .map((rule) => rule.slice(0, rule.indexOf(" {")));

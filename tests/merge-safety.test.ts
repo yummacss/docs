@@ -4,10 +4,6 @@ import { describe, expect, it } from "vitest";
 import { merge } from "yummacss/merge";
 import { rootDir } from "./helpers";
 
-// merge removes classes, and a wrong removal throws nothing: a colour or some
-// spacing quietly changes. A component's own class list should never lose a
-// class to it, so anything dropped here is a bug in the map.
-
 const CLASS_STRING = /"([^"\n]{3,200})"|'([^'\n]{3,200})'|`([^`\n$]{3,200})`/g;
 
 function classStrings(source: string): string[] {
@@ -38,8 +34,6 @@ describe("merge against the registry", () => {
     expect(losses).toEqual([]);
   });
 
-  // radio and slider took a className and never merged it, so an override
-  // silently did nothing on exactly the components the feature is for.
   it("merges the className every component accepts", () => {
     const unmerged = files.filter((file) => {
       const source = readFileSync(join(dir, file), "utf8");
@@ -49,8 +43,6 @@ describe("merge against the registry", () => {
     expect(unmerged).toEqual([]);
   });
 
-  // A floor, so the regex above cannot quietly stop matching and pass. Well
-  // under the real count, which moves as components come and go.
   it("finds class strings to check", () => {
     const count = files.reduce(
       (n, file) =>

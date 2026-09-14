@@ -30,8 +30,6 @@ const STATUS_BORDER: Record<Status, string> = {
   success: "bc-green-5",
 };
 
-// The tone sits with the outline, not beside it, so `focus` switches
-// the whole treatment off rather than leaving a coloured border.
 const STATUS_OUTLINE: Record<Status, string> = {
   default: "",
   error: "fv:oc-red-2/60 fv:bc-red-3",

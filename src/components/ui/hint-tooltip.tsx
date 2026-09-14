@@ -3,11 +3,6 @@
 import { Tooltip } from "@base-ui/react/tooltip";
 import type { ReactElement } from "react";
 
-/**
- * The docs site's own tooltip, for the icon-only controls in the page chrome.
- * `title` is the browser's version of this and cannot be styled, delayed or
- * placed; the accessible name stays on the trigger's `aria-label` either way.
- */
 export default function HintTooltip({
   label,
   children,

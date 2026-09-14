@@ -19,13 +19,7 @@ const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
 export interface SeparatorProps {
   icon?: ReactNode;
   onIconClick?: () => void;
-  /** Does nothing while `icon` is set. */
   label?: ReactNode;
-  /**
-   * Corner radius on the icon button, which is the only thing here that has
-   * corners: a rule is one pixel across, where a radius draws nothing. It was
-   * called `shape`, and read as a promise the separator could not keep.
-   */
   iconShape?: Shape;
   orientation?: Orientation;
   className?: string;
@@ -45,9 +39,6 @@ export default function SeparatorBase({
 
   const vertical = orientation === "vertical";
 
-  // A rule fills its container along its own axis. `as-s` covers the common
-  // case - a vertical rule in a flex row, like a button group - where the row
-  // has a height but has not declared one for its children to read.
   const rule = vertical ? "w-px h-100% as-s" : "h-px w-100%";
 
   if (!icon && !label) {
@@ -65,9 +56,6 @@ export default function SeparatorBase({
     SHAPES[iconShape],
   );
 
-  // The same rule either way round: the wrapper turns, and each half grows
-  // along whichever axis that leaves. This branch used to hardcode a row and
-  // `h-px`, so `orientation` reached the plain separator and nothing else.
   const half = `fg-1 bg-silver-2 ${vertical ? "w-px" : "h-px"}`;
 
   return (

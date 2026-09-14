@@ -23,24 +23,19 @@ import {
   writeCarried,
 } from "@/utils/sticky";
 
-/** Playground state shared between stage (MDX) and rail (layout column). */
 interface Playground {
   id: string;
   meta: RegistryMeta | null;
   values: DemoProps;
   setValue: (name: string, value: unknown) => void;
-  /** Whether the last page carried anything onto this one. */
   carried: boolean;
-  /** Drops what was carried and reseeds from the schema. */
   reset: () => void;
-  /** Preview-only: recolours the frame, never the source anyone copies. */
   accent: string;
   setAccent: (family: string) => void;
 }
 
 const PlaygroundContext = createContext<Playground | null>(null);
 
-/** Null on a page that has no playground, which the rail treats as its cue. */
 export function usePlayground(): Playground | null {
   return useContext(PlaygroundContext);
 }
@@ -61,8 +56,6 @@ export function PlaygroundProvider({
 }) {
   const [seed, setSeed] = useState<Seed>(EMPTY);
   const [carried, setCarried] = useState(false);
-  // Server-rendered as the default and corrected on mount: reading storage
-  // during render would make the first paint disagree with the markup.
   const [accent, setAccentState] = useState(DEFAULT_ACCENT);
 
   useEffect(() => setAccentState(readAccent()), []);
@@ -79,7 +72,6 @@ export function PlaygroundProvider({
       return;
     }
 
-    // Drop the outgoing schema; the stage keeps its last visual frame.
     setSeed(EMPTY);
     prefetchRegistry(id);
 
@@ -94,9 +86,6 @@ export function PlaygroundProvider({
     };
   }, [id]);
 
-  // One parser per controllable prop, each defaulting to the schema's own seed.
-  // nuqs drops a parameter that matches its default, which is what keeps an
-  // untouched page on a clean address.
   const keyMap = useMemo(
     () => (seed.meta ? keyMapFor(seed.meta, seed.values) : {}),
     [seed.meta, seed.values],
@@ -116,14 +105,8 @@ export function PlaygroundProvider({
     [seed.meta, seed.values, query],
   );
 
-  // The style axes follow you to the next component, so trying a shape across
-  // the library is one click per page rather than one per page plus a reset.
-  // The URL still decides: a link someone sent is never overwritten.
   useEffect(() => {
     if (!seed.meta) return;
-    // Whether the address names the key, not whether the parser has a value
-    // for it: every parser carries the seed as its default, so reading `query`
-    // here would report every key as spoken for and carry nothing, ever.
     const named = new URLSearchParams(window.location.search);
     const pending = carriedFor(seed.meta, readCarried(), (name) =>
       named.has(name),
@@ -141,9 +124,6 @@ export function PlaygroundProvider({
 
       const next = { ...values, [name]: value };
 
-      // `iconPosition` moves an icon. Rather than do nothing until one is
-      // switched on, picking a side puts the icon there, so the control does
-      // what it says. The schema names the dependency.
       const prop = meta.props.find((entry) => entry.name === name);
       const needs = prop?.dependsOn
         ? meta.props.find((entry) => entry.name === prop.dependsOn)
@@ -153,9 +133,6 @@ export function PlaygroundProvider({
         next[needs.name] = exampleIcon(needs.exampleIcon);
       }
 
-      // A prop that just became inert gives up its value. Left on, it reads as
-      // switched on and doing nothing, which is the thing the flag exists to
-      // stop. Booleans go off; everything else returns to its default.
       for (const entry of meta.props) {
         if (entry.name === name) continue;
         if (!isInert(entry, next, meta.props)) continue;

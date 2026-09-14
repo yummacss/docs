@@ -8,14 +8,8 @@ import Checkbox from "./checkbox";
 export interface CheckboxGroupProps {
   className?: string;
   children: ReactNode;
-  /** Names the group for screen readers, and is shown above it. */
   label?: ReactNode;
-  /**
-   * Renders a checkbox above the group that checks and clears all of them, and
-   * is indeterminate while only some are checked. Needs `allValues`.
-   */
   parentLabel?: ReactNode;
-  /** Every value in the group, which is how the parent knows its state. */
   allValues?: string[];
   value?: string[];
   defaultValue?: string[];
@@ -40,9 +34,6 @@ export default function CheckboxGroupBase({
 
   return (
     <CheckboxGroup
-      // Only a plain `label` names the group by reference. Pointing
-      // `aria-labelledby` at the parent checkbox would make the group's name an
-      // interactive control, so a string `parentLabel` names it by value.
       aria-labelledby={label ? labelId : undefined}
       aria-label={
         !label && typeof parentLabel === "string" ? parentLabel : undefined

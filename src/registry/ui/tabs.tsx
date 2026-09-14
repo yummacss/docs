@@ -87,9 +87,6 @@ export default function TabsBase({
 
   const rootClasses = merge(isVertical ? "d-f ai-s g-4" : "w-fc", className);
 
-  // `br-9999` on a column resolves against its width, so the track becomes a
-  // capsule and square-cornered tabs escape the curve. The tabs keep their
-  // shape; only the track steps down.
   const listShape = isVertical && shape === "pill" ? "rounded" : shape;
 
   const listClasses = merge(

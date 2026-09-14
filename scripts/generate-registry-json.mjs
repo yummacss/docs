@@ -1,20 +1,5 @@
 #!/usr/bin/env node
 
-/**
- * Emits the Yumma UI registry as static JSON under `public/ui/r/`.
- *
- * This is the contract the `yummaui` CLI reads over HTTP, so the CLI needs no
- * copy of the components & the registry never has to move out of this repo.
- * One file per variant plus an index, namespaced under /ui alongside the pages
- * that document them:
- *
- *   /ui/r/index.json        every component, its variants & which one is base
- *   /ui/r/<variant>.json    source, npm dependencies, target path
- *
- * Generated at build time & gitignored: committing 450 JSON files would churn
- * the diff on every component edit for no benefit.
- */
-
 import {
   existsSync,
   mkdirSync,
@@ -38,7 +23,6 @@ const versions = { ...pkg.dependencies, ...pkg.devDependencies };
 
 const IMPLIED = new Set(["react", "react-dom"]);
 
-/** `@base-ui/react/button` -> `@base-ui/react`, `motion/react` -> `motion`. */
 function packageName(specifier) {
   if (specifier.startsWith(".") || specifier.startsWith("@/")) return null;
   const parts = specifier.split("/");
@@ -59,14 +43,6 @@ function dependenciesOf(source) {
   }));
 }
 
-/**
- * `./autocomplete` -> `autocomplete`, when that id is another registry file.
- *
- * A demo file imports its component this way rather than by full path, and
- * the same specifier resolves after `add` copies both files flat into
- * `componentsDir`, so nothing about the import has to change between the
- * docs and a consumer's project.
- */
 function registryDependenciesOf(source, id, allIds) {
   const found = new Set();
   for (const [, spec] of source.matchAll(/from\s+["']([^"']+)["']/g)) {
@@ -79,14 +55,6 @@ function registryDependenciesOf(source, id, allIds) {
 
 const slugs = componentSlugs(contentDir);
 
-/**
- * The prop schema, if this component has one.
- *
- * Kept beside the component rather than exported from it, because the file is
- * copied verbatim into someone's project and metadata has no business shipping
- * with it. One schema then feeds the docs controls, the props table, the
- * generated snippet & anything else that needs to know the API.
- */
 function metaOf(id) {
   const file = join(metaDir, `${id}.json`);
   if (!existsSync(file)) return null;
@@ -112,8 +80,6 @@ mkdirSync(outDir, { recursive: true });
 
 const idSet = new Set(ids);
 const components = new Map();
-// Kept as an empty array until the breaking release drops the key: an
-// installed CLI reads index.blocks and would throw on its absence.
 const blocks = [];
 let orphans = 0;
 

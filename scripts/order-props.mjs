@@ -1,11 +1,3 @@
-/**
- * Sorts every prop schema into table order: the component's own props first,
- * in their own order, then the shared tail in one fixed sequence.
- *
- * `tests/registry.test.ts` fails when a schema drifts out of it; this puts it
- * back. The order itself lives in `src/utils/props.ts`.
- */
-
 import { readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";

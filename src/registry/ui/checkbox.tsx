@@ -53,12 +53,6 @@ const SHADOWS: Record<Shadow, string> = {
 const CHECKED = "bg-slate-12";
 const UNCHECKED = "bw-1 bc-silver-3 bg-transparent";
 
-// Disabled is a surface, not a transparency. The fade this used to carry as
-// well took the label's contrast down with it and flattened the very thing it
-// was meant to mark, while the box underneath was already doing the work.
-// Checked and unchecked share the surface: the tick is the difference, and it
-// stays readable, because a control is usually disabled *because* its value
-// was settled elsewhere and that value is what you want to read off it.
 const DISABLED_BOX = "bw-1 bc-silver-2 bg-silver-1";
 
 export interface CheckboxProps
@@ -89,8 +83,6 @@ export default function CheckboxBase({
 }: CheckboxProps) {
   const outline = focus ? merge(FOCUS, focus === true ? "" : focus) : "";
 
-  // Spread through `...props`, a controlled `checked` reached Base UI and was
-  // ignored. Held here and passed by name it behaves, the way Switch does.
   const [internalChecked, setInternalChecked] = useState(
     defaultChecked ?? false,
   );

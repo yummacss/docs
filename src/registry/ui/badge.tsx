@@ -40,8 +40,6 @@ interface ColorSet {
   dotSubtle: string;
 }
 
-// Written out rather than built from the family name: the scanner reads
-// source, so a template literal generates no CSS.
 const INTENTS = {
   neutral: {
     subtleBg: "bg-slate-1",
@@ -95,16 +93,11 @@ const INTENTS = {
   },
 } satisfies Record<string, ColorSet>;
 
-/**
- * Five meanings, not nineteen hues. Point one at another family here and the
- * type follows the table rather than repeating it.
- */
 type Intent = keyof typeof INTENTS;
 
 export interface BadgeProps {
   children: ReactNode;
   tone?: Tone;
-  /** Does nothing while `tone` is `outline`. */
   intent?: Intent;
   shape?: Shape;
   size?: Size;

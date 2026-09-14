@@ -21,7 +21,6 @@ export interface ToggleGroupProps {
   children: ReactNode;
   shape?: Shape;
   orientation?: Orientation;
-  /** More than one toggle can be pressed at a time. */
   multiple?: boolean;
   disabled?: boolean;
   value?: readonly string[];
