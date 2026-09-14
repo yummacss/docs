@@ -15,9 +15,9 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  130
-    Open     7
-    Done    95%
+    Closed  131
+    Open     6
+    Done    96%
 
 ---
 
@@ -69,8 +69,6 @@ Blocked on Renildo. Each one holds up the entry beside it.
       anyone installs.
 - [ ] **File Upload: remove it?** Base UI ships no primitive, and it is the
       least functional component in the set.
-- [ ] **Install command:** a dialog offering yarn and bun alongside pnpm and
-      npm, a dropdown, or is a dialog overkill?
 
 ## Known and accepted
 

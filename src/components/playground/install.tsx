@@ -3,14 +3,18 @@
 import { Menu } from "@base-ui/react/menu";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
-import { NPM, Pnpm } from "@/components/icons/icons";
+import { Bun, NPM, Pnpm, Yarn } from "@/components/icons/icons";
 import HintTooltip from "@/components/ui/hint-tooltip";
 import { Check, Copy } from "@/icons";
 import { addCommand } from "@/utils/install.mjs";
 
+// The four runners `yummaui` itself resolves (`ui/src/project.ts`), in the
+// same order its detection lists them.
 const MANAGERS = {
   pnpm: { runner: "pnpm dlx", Mark: Pnpm },
   npm: { runner: "npx", Mark: NPM },
+  yarn: { runner: "yarn dlx", Mark: Yarn },
+  bun: { runner: "bunx", Mark: Bun },
 } as const;
 
 type Manager = keyof typeof MANAGERS;
