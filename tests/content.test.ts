@@ -6,7 +6,7 @@ import { contentPages, rootDir } from "./helpers";
 /**
  * The link between a Yumma UI doc page and the component it previews is a
  * string id, checked by nobody. A typo in `registryId` makes
- * `<ComponentPreview>` render an empty box - `getRegistryImport` returns null
+ * `<ComponentPlayground>` render an empty box - `getRegistryImport` returns null
  * and the Suspense boundary falls through to nothing - so the page still
  * builds and still deploys, just without the component on it.
  */

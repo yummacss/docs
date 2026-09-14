@@ -1957,6 +1957,36 @@ declares logical properties: `padding` covers `padding-inline` covers
       Both were caught by asking the browser for computed styles rather than by
       looking at the page.
 
+- [x] **The CLI's defaults live in one file.** `components/ui`, the `@/` alias
+      and the CLI's own name were retyped in four places that all mean the same
+      thing: the usage snippet's import, the child imports under it, the source
+      block's title and the `target` on every registry JSON entry.
+      `src/utils/install.mjs` holds them now, as `targetPath`, `importPath` and
+      `addCommand`. `.mjs` because two of the four consumers are the remark
+      plugin and the registry generator, which is the same reason
+      `normalize-rules.mjs` is one.
+
+      The values are unchanged, so nothing rendered moves: the guard in
+      `tests/install.test.ts` pins what the helpers return and then fails any
+      file outside `install.mjs` that interpolates an id into
+      `components/ui/...` or `yummaui add ...`. Checked against `main` before
+      trusting it: all four old call sites match it.
+
+- [x] **`remark-component-source.mjs` is deleted.** It visits one node name,
+      `ComponentPreview`, which this file records as removed under Phase 4: the
+      component went, the plugin stayed registered in `next.config.ts` and has
+      fired on nothing since. `<ComponentPlayground />` is what the pages use,
+      and it emits its own source through `rehype-registry.mjs` and the `.md`
+      routes.
+
+      Checked before deleting: no `.mdx` anywhere holds a `ComponentPreview`
+      element, `mdx-components.tsx` has no such entry, and nothing but
+      `next.config.ts` named the file. The `.md` routes are the thing that would
+      notice, and `tests/markdown-routes.test.ts` holds their floor.
+
+      `rehype-registry.mjs` is the same shape and worth a look: it acts only on
+      a fence whose meta carries `registryId=`, and `src/content` has none.
+
 ### Phase 7 - One breaking registry release
 
 All three change something a published `yummaui.json` or an installed CLI

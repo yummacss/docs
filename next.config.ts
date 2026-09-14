@@ -39,7 +39,6 @@ const withMDX = createMDX({
       "remark-gfm",
       "remark-directive",
       path.resolve("src/plugins/remark-admonition.mjs"),
-      path.resolve("src/plugins/remark-component-source.mjs"),
     ],
     rehypePlugins: [
       path.resolve("src/plugins/rehype-normalize.mjs"),

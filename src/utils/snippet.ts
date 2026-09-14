@@ -1,4 +1,5 @@
 import type { RegistryMeta, RegistryProp } from "@/registry";
+import { importPath } from "@/utils/install.mjs";
 
 export type PropValue = string | boolean | number;
 
@@ -260,8 +261,7 @@ export function buildUsage(
   const name = componentName(id);
 
   // The import, because a snippet you can copy but not run is not a snippet.
-  // `components/ui` and the `@/` alias are what `yummaui init` defaults to, so
-  // this is the path the file lands at unless you told it otherwise.
+  // The path is `yummaui init`'s defaults, spelled once in `utils/install.mjs`.
   const tokens: Draft[] = [
     { kind: "keyword", text: "import" },
     { kind: "text", text: " " },
@@ -269,7 +269,7 @@ export function buildUsage(
     { kind: "text", text: " " },
     { kind: "keyword", text: "from" },
     { kind: "text", text: " " },
-    { kind: "string", text: `"@/components/ui/${id}"` },
+    { kind: "string", text: `"${importPath(id)}"` },
     { kind: "punctuation", text: ";" },
     { kind: "text", text: "\n" },
   ];
@@ -330,9 +330,9 @@ export function buildUsage(
       { kind: "text", text: " " },
       {
         kind: "string",
-        text: `"@/components/ui/${child
-          .replace(/([a-z0-9])([A-Z])/g, "$1-$2")
-          .toLowerCase()}"`,
+        text: `"${importPath(
+          child.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase(),
+        )}"`,
       },
       { kind: "punctuation", text: ";" },
       { kind: "text", text: "\n" },

@@ -24,6 +24,7 @@ import {
   writeFileSync,
 } from "node:fs";
 import { basename, join } from "node:path";
+import { targetPath } from "../src/utils/install.mjs";
 import { componentSlugs, splitId } from "./lib/registry-ids.mjs";
 
 const cwd = process.cwd();
@@ -136,7 +137,7 @@ for (const id of ids) {
     files: [
       {
         path: `${id}.tsx`,
-        target: `components/ui/${id}.tsx`,
+        target: targetPath(id),
         content: source,
       },
     ],
