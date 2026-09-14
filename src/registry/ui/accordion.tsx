@@ -36,14 +36,10 @@ const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
 export interface AccordionProps {
   items: AccordionItem[];
   variant?: Variant;
-  /** Does nothing while `variant` is `default` or `variant` is `ghost`. */
   shape?: Shape;
-  /** Does nothing while `variant` is `ghost`. */
   shadow?: Shadow;
-  /** Does nothing while `variant` is not `default`. */
   separated?: boolean;
   indicator?: Indicator;
-  /** Does nothing while `indicator` is `chevron`. */
   indicatorPosition?: IndicatorPosition;
   multiple?: boolean;
   defaultValue?: string[];
@@ -82,11 +78,6 @@ export default function AccordionBase({
     onValueChange?.(next);
   };
 
-  // `default` is one surface, so its shadow goes on the root. `bordered` and
-  // `subtle` are a gap-separated stack, where a root shadow would be drawn
-  // around the gaps: those get it per item instead. `ghost` has no surface to
-  // lift at all. Gated to `default` alone, the prop did nothing in three
-  // variants out of four.
   const isCard = variant === "default" && shadow !== "none";
   const itemShadow =
     shadow !== "none" && (variant === "bordered" || variant === "subtle")
@@ -142,8 +133,6 @@ export default function AccordionBase({
 
         const triggerRadius =
           variant === "bordered" ? SHAPES[shape].trigger : "br-sm";
-        // `subtle` is a tinted surface like `bordered`, so its copy needs the
-        // same gutter. Without it the text sat on the fill's left edge.
         const inset = variant === "bordered" || variant === "subtle" || isCard;
         const triggerPadX = inset ? "px-4" : "px-0";
         const triggerPadY =
@@ -259,8 +248,6 @@ export default function AccordionBase({
                 <p className={panelClasses}>{item.content}</p>
               </Accordion.Panel>
             ) : (
-              // keepMounted either way, so `animated` changes the transition
-              // and not the height of the whole accordion.
               <Accordion.Panel keepMounted>
                 <p className={panelClasses}>{item.content}</p>
               </Accordion.Panel>

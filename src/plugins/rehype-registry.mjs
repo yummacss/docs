@@ -49,8 +49,6 @@ export default function rehypeRegistry() {
           }
 
           if (fs.existsSync(filePath)) {
-            // In dev mode, always read fresh to avoid stale cache across HMR cycles.
-            // In production, cache for build performance.
             if (isDev || !fileCache.has(filePath)) {
               fileCache.set(filePath, fs.readFileSync(filePath, "utf-8"));
             }

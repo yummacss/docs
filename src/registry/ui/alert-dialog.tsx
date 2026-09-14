@@ -30,7 +30,6 @@ const BUTTON_SHAPES: Record<Shape, string> = {
   squircle: "br-xxl cs-s",
 };
 
-/** Base UI waits on `getAnimations()`, which never sees Motion. See NOTES.md. */
 const ALERT_MOTION = `
   .yui-alert-pop {
     transition: opacity 200ms ease-out, scale 200ms ease-out;
@@ -66,9 +65,6 @@ const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
 
 const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
 
-// The tone sits with the outline, not in the button's own classes, so
-// `focus` switches the whole treatment off rather than leaving a
-// coloured border behind.
 const DANGER_OUTLINE = "fv:oc-red-2/60 fv:bc-red-3";
 
 const TONE_BUTTON: Record<Tone, string> = {
@@ -82,11 +78,6 @@ const TONE_BADGE: Record<Tone, string> = {
 };
 
 export interface AlertDialogProps {
-  /**
-   * Where the popup is rendered. Defaults to `document.body`, which is right
-   * almost always; pass an element to portal somewhere else - inside a frame,
-   * or inside a container that owns its own stacking context.
-   */
   container?: HTMLElement | null;
   trigger: ReactNode;
   triggerIcon?: ReactNode;

@@ -26,7 +26,6 @@ const BUTTON_SHAPES: Record<Shape, string> = {
   squircle: "br-xxl cs-s",
 };
 
-/** Base UI waits on `getAnimations()`, which never sees Motion. See NOTES.md. */
 const DIALOG_MOTION = `
   .yui-dialog-pop {
     transition: opacity 200ms ease-out, scale 200ms ease-out;
@@ -68,9 +67,6 @@ const NEUTRAL_BUTTON = "bg-white bc-silver-2 c-slate-10 h:bg-silver-1/50";
 
 const PRIMARY_BUTTON = "bg-slate-12 h:bg-slate-11 bc-slate-12 c-white";
 
-// The tone sits with the outline, not in the button's own classes, so
-// `focus` switches the whole treatment off rather than leaving a
-// coloured border behind.
 const DANGER_OUTLINE = "fv:oc-red-2/60 fv:bc-red-3";
 
 const TRIGGER_TONES: Record<TriggerTone, string> = {
@@ -89,11 +85,6 @@ const TRIGGER_SIZES: Record<TriggerSize, string> = {
 };
 
 export interface DialogProps {
-  /**
-   * Where the popup is rendered. Defaults to `document.body`, which is right
-   * almost always; pass an element to portal somewhere else - inside a frame,
-   * or inside a container that owns its own stacking context.
-   */
   container?: HTMLElement | null;
   trigger: ReactNode;
   triggerIcon?: ReactNode;
@@ -215,11 +206,6 @@ export default function DialogBase({
             <div className="d-f fd-c ai-c jc-c g-3 px-4 pt-5">{header}</div>
           )}
 
-          {/* One padded column with a gap, the way Alert Dialog does it. Title,
-              description and children each carried their own `py-` before, so
-              the space between them was two paddings stacked and the space
-              above the title was a single `py-2` - which is what put it
-              against the top edge when there is no header. */}
           <div
             className={`d-f fd-c g-3 px-4 pb-6 ${header ? "pt-5" : "pt-10"}`}
           >

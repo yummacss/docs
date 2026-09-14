@@ -5,27 +5,8 @@ import { targetPath } from "@/utils/install.mjs";
 import { fillNormalizeFences } from "@/utils/normalize-rules.mjs";
 import { type Category, categoryGetters } from "@/utils/yummacss";
 
-/**
- * Turns the MDX source of a doc into plain markdown for the `.md` routes.
- *
- * MDX components have no markdown equivalent, so they are unwrapped: the tags
- * are dropped & the children are kept, de-indented back to the surrounding
- * level. That last part matters because children of a paired component are
- * indented in the source, and a markdown reader would otherwise treat the real
- * content as an indented code block.
- *
- * A handful of components carry meaning that survives the unwrap - a `Step`
- * title, a `Hint` callout, a `Reference` table, a link card - and are rendered
- * as the closest markdown construct. Everything else is transparent, and
- * self-closing components with nothing to unwrap are dropped.
- */
-
-// A fence opener or closer at any indentation. MDX components nest fences, so
-// the marker is captured to pair a closer with its own opener.
 const FENCE = /^\s*(`{3,}|~{3,})/;
 
-// Tags occupy a whole line in the docs content, except for the occasional
-// single-line Hint or `div` holding one string.
 const SELF_CLOSING = /^\s*<([A-Za-z][A-Za-z0-9]*)((?:\s[^>]*?)?)\s*\/>\s*$/;
 const OPENING = /^\s*<([A-Za-z][A-Za-z0-9]*)((?:\s[^>]*?)?)>\s*$/;
 const CLOSING = /^\s*<\/([A-Za-z][A-Za-z0-9]*)>\s*$/;
@@ -35,11 +16,8 @@ const ATTRIBUTE = /([A-Za-z][A-Za-z0-9_-]*)="([^"]*)"/g;
 const MDX_IMPORT = /^import\s.*\sfrom\s/;
 const LIST_ITEM = /^\s*[-*+] /;
 
-// The raw HTML that exists purely to lay a docs page out, which markdown can
-// say more simply. Any other raw HTML is left exactly as it was written.
 const HTML_WRAPPERS = new Set(["a", "div"]);
 
-/** Components are unwrapped by name; raw HTML only where markdown can say it. */
 function unwrappable(name: string): boolean {
   return /^[A-Z]/.test(name) || HTML_WRAPPERS.has(name);
 }
@@ -48,35 +26,16 @@ type Node =
   | { kind: "lines"; lines: string[] }
   | { kind: "component"; name: string; attrs: string; children: Node[] };
 
-/**
- * Looks up the source behind a `registryId`, returning null when there is none.
- *
- * Injected rather than read here on purpose. The registry lives on disk, and a
- * `node:fs` import in this module would make it unsafe to reach from a
- * component: that exact leak took the playground down & failed the first
- * attempt at the docs OOM fix. Keeping the read in the route handler means this
- * file stays client-safe by construction rather than by luck.
- */
 export type RegistryResolver = (registryId: string) => string | null;
 
-/**
- * Looks up the prop schema behind a `registryId`. Same injection rule as
- * `RegistryResolver`, and same reason.
- */
 export type MetaResolver = (registryId: string) => RegistryMeta | null;
 
 interface RenderOptions {
   resolveRegistry?: RegistryResolver;
   resolveMeta?: MetaResolver;
-  /**
-   * The page's own registry id, for `<ComponentPlayground />`, which carries no
-   * id of its own - the route decides which component a page shows, so that the
-   * stage and the rail cannot end up on two different ones.
-   */
   registryId?: string;
 }
 
-/** Components whose registry id is the page's own, not written on the tag. */
 const PLAYGROUND = new Set(["ComponentPlayground"]);
 
 function parseAttrs(attrs: string): Record<string, string> {
@@ -87,10 +46,6 @@ function parseAttrs(attrs: string): Record<string, string> {
   return parsed;
 }
 
-/**
- * Removes the smallest indentation shared by every non-blank line, which is how
- * a component's children get pulled back to the level of the surrounding prose.
- */
 function dedent(lines: string[]): string[] {
   let common = Number.POSITIVE_INFINITY;
 
@@ -104,10 +59,6 @@ function dedent(lines: string[]): string[] {
   return lines.map((line) => (line.trim() ? line.slice(common) : line));
 }
 
-/**
- * Marks the lines that sit inside a fenced code block. Component tags & blank
- * lines are content there, not markup, so every pass has to skip them.
- */
 function markFenced(lines: string[]): boolean[] {
   const fenced: boolean[] = [];
   let marker: string | null = null;
@@ -121,8 +72,6 @@ function markFenced(lines: string[]): boolean[] {
       continue;
     }
 
-    // Inside a fence: only a marker of the same character & at least the same
-    // length closes it.
     fenced.push(true);
     if (
       fence &&
@@ -136,10 +85,6 @@ function markFenced(lines: string[]): boolean[] {
   return fenced;
 }
 
-/**
- * Finds the line closing the component opened at `open`, skipping fences &
- * nested blocks of the same component. Returns -1 when nothing closes it.
- */
 function findClosing(
   lines: string[],
   fenced: boolean[],
@@ -183,8 +128,6 @@ function parse(lines: string[]): Node[] {
       continue;
     }
 
-    // MDX machinery, not content. Only outside a fence - `import` inside one is
-    // the code being documented, on nine pages.
     if (MDX_IMPORT.test(line)) continue;
 
     const selfClosing = line.match(SELF_CLOSING);
@@ -214,7 +157,6 @@ function parse(lines: string[]): Node[] {
     const opening = line.match(OPENING);
     if (opening && unwrappable(opening[1])) {
       const close = findClosing(lines, fenced, i, opening[1]);
-      // An unclosed tag runs to the end of the document rather than leaking.
       const end = close === -1 ? lines.length : close;
 
       flush();
@@ -229,7 +171,6 @@ function parse(lines: string[]): Node[] {
       continue;
     }
 
-    // A closing tag with no opener: drop it, so no tag reaches the output.
     const closing = line.match(CLOSING);
     if (closing && unwrappable(closing[1])) continue;
 
@@ -241,13 +182,10 @@ function parse(lines: string[]): Node[] {
   return nodes;
 }
 
-/** The same schema the controls & the props table use, as markdown. */
 function buildPropsTable(meta: RegistryMeta): string[] {
   if (!meta.props?.length) return [];
 
   const rows = meta.props.map((prop) => {
-    // `typeName` carries the real TypeScript type for anything the schema has
-    // no control for, where `type` would only say `none`.
     const type = prop.typeName
       ? `\`${prop.typeName}\``
       : prop.type === "enum" && prop.values
@@ -255,7 +193,6 @@ function buildPropsTable(meta: RegistryMeta): string[] {
         : `\`${prop.type}\``;
     const fallback =
       prop.default === undefined ? "-" : `\`${JSON.stringify(prop.default)}\``;
-    // A pipe inside a cell would end the column early.
     const description = (prop.description ?? "").replaceAll("|", "\\|");
     return `| \`${prop.name}\` | ${type} | ${fallback} | ${description} |`;
   });
@@ -310,9 +247,6 @@ function buildBaseline(path: string): string[] {
   return [`**${baseline.label}.** ${baseline.description}`, "", support];
 }
 
-// Only the base hex per family: the 13 shades are generated from it by the rule
-// the prose states, and every shade is already listed on each colour utility's
-// own page.
 function buildPalette(): string[] {
   return [
     "| Family | Base |",
@@ -342,15 +276,6 @@ function renderComponent(
     return buildReferenceTable(category as Category, name);
   }
 
-  // A component node has no children, so without a case here it falls through
-  // to "nothing to unwrap" & vanishes, leaving the UI pages as prose with no
-  // component on them - /ui/components/button.md was 65 bytes, a title and a
-  // sentence. The registry file IS the content of these pages, and the schema
-  // is the only statement of the API, so a reader of the `.md` needs both.
-  //
-  // `<ComponentPlayground />` takes no id: the route decides the component, so
-  // the id arrives as an option instead. `registryId` on the node is still read
-  // first, so a page that names one keeps working.
   const registryId =
     attrs.registryId ??
     (PLAYGROUND.has(node.name) ? options.registryId : undefined);
@@ -358,9 +283,6 @@ function renderComponent(
   if (registryId) {
     const lines: string[] = [];
     const source = options.resolveRegistry?.(registryId);
-    // The fence is the file `yummaui add <id>` writes, so it says so. Authored
-    // fences carry the same `title=` meta, and a reader of the `.md` has no
-    // other way to tell where the code goes.
     if (source)
       lines.push(
         ...fencedBlock(source, "tsx", `title="${targetPath(registryId)}"`),
@@ -375,7 +297,6 @@ function renderComponent(
 
   const children = render(node.children, options, node.name === "Stepper");
 
-  // A step title names the step, so it survives even an empty step.
   if (node.name === "Step" && attrs.title) {
     const label = stepNumber ? `${stepNumber}. ${attrs.title}` : attrs.title;
     return children.length
@@ -383,16 +304,12 @@ function renderComponent(
       : [`**${label}**`];
   }
 
-  // Nothing to unwrap: a component that only renders interactive UI.
   if (!children.length) return [];
 
-  // A Hint is a callout, which markdown spells as a blockquote.
   if (node.name === "Hint") {
     return children.map((line) => (line.trim() ? `> ${line}` : ">"));
   }
 
-  // A link wrapping a block of text is a card on the page. As markdown it is a
-  // list item: the first line names the link, the rest describe it.
   if (node.name === "a" && attrs.href) {
     const [label, ...rest] = children
       .filter((line) => line.trim())
@@ -406,10 +323,6 @@ function renderComponent(
   return children;
 }
 
-/**
- * Wraps source in a fence long enough to contain it. A registry file could
- * itself hold a fenced example, and a plain ``` would end the block early.
- */
 function fencedBlock(source: string, lang: string, meta?: string): string[] {
   const body = source.replace(/\r\n/g, "\n").replace(/\s+$/, "");
   const longest = Math.max(
@@ -448,9 +361,6 @@ function render(
     );
     if (!block.length) continue;
 
-    // Unwrapping can butt a block up against its neighbour, so keep the blank
-    // line that markdown needs between them. Consecutive list items are the
-    // exception: a blank line there would loosen the list for no reason.
     const previous = out[out.length - 1];
     const isListItem = LIST_ITEM.test(block[0]);
     const afterListItem = previous !== undefined && LIST_ITEM.test(previous);
@@ -463,7 +373,6 @@ function render(
   return out;
 }
 
-/** Collapses runs of blank lines, leaving fenced code blocks untouched. */
 function collapseBlankLines(lines: string[]): string[] {
   const fenced = markFenced(lines);
   const out: string[] = [];
@@ -483,9 +392,6 @@ export function mdxToMarkdown(
   content: string,
   options: RenderOptions = {},
 ): string {
-  // Some content files are authored with CRLF. Normalizing first keeps the
-  // served markdown from mixing them with the lines rendered here.
-  // `normalize=` fences are filled by a rehype plugin this pipeline never runs.
   const source = fillNormalizeFences(content.replace(/\r\n/g, "\n")).split(
     "\n",
   );

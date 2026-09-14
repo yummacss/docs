@@ -1,8 +1,5 @@
 import data from "web-features/data.json";
 
-// Browser support for a BCD path, shared by `baseline.tsx` and the `.md`
-// renderer in `mdx-markdown.ts`.
-
 interface FeatureStatus {
   baseline: false | "low" | "high";
   support: Record<string, string | undefined>;

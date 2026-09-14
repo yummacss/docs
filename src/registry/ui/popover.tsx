@@ -13,7 +13,6 @@ type Shadow = "none" | "inset" | "outset";
 const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
 type TriggerVariant = "icon" | "label";
 
-/** Base UI waits on `getAnimations()`, which never sees Motion. See NOTES.md. */
 const POPOVER_MOTION = `
   .yui-popover-pop {
     transition: opacity 150ms ease-out, scale 150ms ease-out;
@@ -50,20 +49,6 @@ const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
   outset: "bs-o-sm",
 };
 
-/**
- * Where the arrow sits, and which way it points.
- *
- * Base UI gives the arrow `position:absolute` and the offset *along* the
- * popup's edge; the offset *across* that edge, and the rotation, are the
- * consumer's - without them the arrow lands on top of the content, which is
- * what "completely out of place" was. The key is the side Base UI actually
- * placed the popup on, not the `side` asked for, because it flips on
- * collision; `style` takes a function of that state for exactly this.
- *
- * The box is 16x8. Rotating it a quarter turn leaves the box that shape but
- * draws it 8x16, so a vertical edge needs 8 + (16 - 8) / 2. Yumma has no
- * negative inset values, so this is a style object rather than classes.
- */
 const ARROW_PLACEMENT: Record<string, CSSProperties> = {
   top: { bottom: -8, rotate: "180deg" },
   bottom: { top: -8 },
@@ -74,11 +59,6 @@ const ARROW_PLACEMENT: Record<string, CSSProperties> = {
 };
 
 export interface PopoverProps {
-  /**
-   * Where the popup is rendered. Defaults to `document.body`, which is right
-   * almost always; pass an element to portal somewhere else - inside a frame,
-   * or inside a container that owns its own stacking context.
-   */
   container?: HTMLElement | null;
   trigger: ReactNode;
   triggerLabel?: string;
@@ -159,7 +139,6 @@ export default function PopoverBase({
         >
           <svg viewBox="0 0 10 5" width="16" height="8">
             <title>Arrow</title>
-            {/* The popup's own surface: `bg-white bc-silver-2`. */}
             <path
               d="M0 5 L5 0 L10 5"
               strokeWidth="1"

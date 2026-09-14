@@ -5,20 +5,6 @@ import { targetPath } from "../src/utils/install.mjs";
 import { mdxToMarkdown } from "../src/utils/mdx-markdown";
 import { contentPages, rootDir } from "./helpers";
 
-/**
- * The `.md` twin of every page is what a model reads, and it is rendered by
- * unwrapping MDX components. A component with no case in `mdx-markdown.ts` has
- * no children to unwrap, so it vanishes and takes the page's content with it -
- * silently, because the route still returns 200 with the title and description
- * the layout adds.
- *
- * That has now happened twice. First at 965 bytes, fixed; then again at **65**
- * when every UI page moved to `<ComponentPlayground />`, which neither of the
- * two cases then present matched. Nothing failed either time, because nothing
- * asserted a `.md` had a body.
- */
-
-/** What the `ui-md` route injects. Kept in step with that route by hand. */
 const resolveRegistry = (id: string) => {
   for (const root of ["ui", "docs"]) {
     try {
@@ -42,9 +28,6 @@ const resolveMeta = (id: string) => {
 };
 
 describe("Markdown routes", () => {
-  // Frontmatter-only prose renders to very little; a real page renders to a
-  // lot. The gap between them is wide enough that one number separates a
-  // rendered page from an empty one without being brittle.
   const FLOOR = 400;
 
   it("renders a body for every docs page", () => {
@@ -58,10 +41,6 @@ describe("Markdown routes", () => {
     expect(thin).toEqual([]);
   });
 
-  // The failure that motivated this file: these render through
-  // `<ComponentPlayground />`, whose id is the page's own slug.
-  // The floor is a whole-page measure, so a long page can still serve nothing
-  // where it matters: `normalize.mdx` cleared 400 with 18 empty fences.
   it("leaves no empty code fence in any page", () => {
     const empty = ["docs", "ui"].flatMap((collection) =>
       contentPages(collection)
@@ -81,8 +60,6 @@ describe("Markdown routes", () => {
     expect(empty).toEqual([]);
   });
 
-  // `<Baseline />` is self-closing, so it fell through the same hole
-  // `<ComponentPlayground />` did: 130 pages served no browser support at all.
   it("renders browser support wherever the page shows it", () => {
     const missing = contentPages("docs")
       .filter(({ source }) => source.includes("<Baseline"))
@@ -96,7 +73,6 @@ describe("Markdown routes", () => {
     expect(missing).toEqual([]);
   });
 
-  // MDX machinery, and expressions the page interpolates, are not content.
   it("leaves no unrendered MDX in any page", () => {
     const leaking = ["docs", "ui"].flatMap((collection) =>
       contentPages(collection)
@@ -108,7 +84,6 @@ describe("Markdown routes", () => {
             registryId: slug,
           }),
         }))
-        // Fenced lines are the code being documented; only the rest is markup.
         .map(({ slug, body }) => ({
           slug,
           bad: body
@@ -123,9 +98,6 @@ describe("Markdown routes", () => {
     expect(leaking).toEqual([]);
   });
 
-  // The fence carries the component's whole source, and nothing else on the
-  // page says where that file goes. Authored fences name their file the same
-  // way, so a reader of the `.md` gets one answer in one form.
   it("renders named source and an API table for every UI component page", () => {
     const broken = contentPages("ui")
       .filter(({ source }) => source.includes("<ComponentPlayground"))

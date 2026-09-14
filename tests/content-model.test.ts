@@ -3,19 +3,9 @@ import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { rootDir } from "./helpers";
 
-/**
- * The mechanical half of the content model in AGENTS.md. The examples are one
- * world, a person looking after their own files and settings, and the words
- * below are the ones that give away the world it used to be.
- *
- * This reads the examples, not the prose: a schema is free to *describe* a
- * prop with any word it needs.
- */
-
 const ORG =
   /\b(?:teams?|members?|invitations?|invites?|invited|sprints?|invoices?|subscriptions?|billing|collaborat\w*|assignees?|reassign\w*|workspaces?|onboard(?:ing)? your team)\b/i;
 
-/** Components whose whole subject is a person, so a person belongs in them. */
 const PEOPLE = new Set(["avatar", "avatar-stack", "preview-card"]);
 
 const metaDir = join(rootDir, "src/registry/meta");
@@ -28,7 +18,6 @@ const schemas = readdirSync(metaDir)
     meta: JSON.parse(readFileSync(join(metaDir, file), "utf8")),
   }));
 
-/** Every string inside a value, however deeply it is nested. */
 function strings(value: unknown): string[] {
   if (typeof value === "string") return [value];
   if (Array.isArray(value)) return value.flatMap(strings);
@@ -38,7 +27,6 @@ function strings(value: unknown): string[] {
   return [];
 }
 
-/** The example content of one schema: prop examples, children, the summary. */
 function examples(meta: {
   props?: { name: string; example?: unknown }[];
   children?: unknown;
@@ -108,7 +96,6 @@ describe("content model", () => {
     expect(found).toEqual([]);
   });
 
-  /** Every glyph an example names has to be one the preview can resolve. */
   it("names icons the demo can render", () => {
     const known = new Set(
       readFileSync(join(rootDir, "src/utils/demo.tsx"), "utf8")

@@ -38,9 +38,6 @@ const LABEL_SIZES: Record<Size, string> = {
   lg: "fs-md",
 };
 
-// Round, and not a prop. A square radio is a checkbox to anyone who has used
-// a form before, and the two do different things: one of these, or any of
-// these. The shape is the affordance, so it is not a style axis.
 const ROUND = "br-9999";
 
 const SHADOWS: Record<Shadow, string> = {

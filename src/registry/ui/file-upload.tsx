@@ -35,7 +35,6 @@ const SHADOWS: Record<Shadow, string> = {
 
 const UNITS = ["B", "KB", "MB", "GB"];
 
-/** A size a person reads, not a byte count. */
 function formatSize(bytes: number) {
   let size = bytes;
   let unit = 0;
@@ -80,8 +79,6 @@ export default function FileUploadBase({
   focus = true,
 }: FileUploadProps) {
   const outline = focus ? merge(FOCUS, focus === true ? "" : focus) : "";
-  // The browse button sits inside the dashed zone, so its outline keeps a
-  // pixel, and an errored zone paints it red.
   const browseOutline = focus
     ? merge(
         FOCUS,
@@ -130,13 +127,9 @@ export default function FileUploadBase({
 
   const onChange = (event: ChangeEvent<HTMLInputElement>) => {
     add(event.target.files);
-    // The same file twice in a row is not a change, so the picker would stay
-    // silent the second time.
     event.target.value = "";
   };
 
-  // `dragOver` has to preventDefault on every tick or the browser opens the
-  // file instead of handing it over.
   const onDragOver = (event: DragEvent) => {
     if (disabled) return;
     event.preventDefault();
@@ -161,10 +154,6 @@ export default function FileUploadBase({
     SHAPES[shape],
     BORDERS[border],
     error ? "bc-red-5" : "bc-silver-2",
-    // Surface, not fade: the zone fills, so the dashed edge stops reading as
-    // an invitation to drop something on it. No border colour here - the line
-    // above already sets one, and repeating it silently beat `bc-red-5` on a
-    // zone that was both disabled and in error.
     disabled
       ? "bg-silver-1 c-slate-5 c-na"
       : dragging

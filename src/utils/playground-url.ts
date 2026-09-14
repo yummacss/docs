@@ -2,19 +2,8 @@ import { parseAsBoolean, parseAsInteger, parseAsStringLiteral } from "nuqs";
 import type { RegistryMeta, RegistryProp } from "@/registry";
 import { isControllable } from "@/utils/props";
 
-/**
- * The playground's configuration as nuqs parsers, one per controllable prop.
- *
- * Each parser carries the schema's own seed as its default, and nuqs drops a
- * parameter that matches its default, so a page nobody has touched keeps a
- * clean address and a link carries only what someone changed. An icon slot
- * holds an element, which a URL cannot, so it travels as the only thing its
- * control offers: whether there is one.
- */
-
 type Values = Record<string, unknown>;
 
-/** The parser for one prop, or null when its value cannot travel in a URL. */
 function parserFor(prop: RegistryProp, seeded: unknown) {
   if (prop.exampleIcon || prop.optional) {
     return parseAsBoolean.withDefault(Boolean(seeded));
@@ -22,9 +11,6 @@ function parserFor(prop: RegistryProp, seeded: unknown) {
   if (prop.type === "boolean") {
     return parseAsBoolean.withDefault(Boolean(seeded));
   }
-  // A default is whatever the page opens on, which is the seed and not the
-  // documented default: a prop the seed leaves out has nothing to rest on, and
-  // nuqs then keeps it out of the URL rather than inventing a value for it.
   if (prop.type === "number") {
     return typeof seeded === "number"
       ? parseAsInteger.withDefault(seeded)
@@ -44,7 +30,6 @@ export type PlaygroundParser = NonNullable<ReturnType<typeof parserFor>>;
 
 export type PlaygroundKeyMap = Record<string, PlaygroundParser>;
 
-/** Every controllable prop of a schema, as parsers keyed by prop name. */
 export function keyMapFor(
   meta: RegistryMeta,
   seeded: Values,
@@ -60,12 +45,6 @@ export function keyMapFor(
   return map;
 }
 
-/**
- * The seeded values with the parsed query applied over them.
- *
- * nuqs has already rejected anything the parsers do not take, so what arrives
- * here is a value the schema names or the seed it fell back to.
- */
 export function applyQuery(
   meta: RegistryMeta,
   query: Values,
@@ -89,19 +68,12 @@ export function applyQuery(
       continue;
     }
 
-    // A parser with no default reports null when the URL says nothing.
     if (value !== null) values[prop.name] = value;
   }
 
   return values;
 }
 
-/**
- * What the query has to say for a value bag, with icons back down to a flag.
- *
- * A prop the bag has nothing for is left out rather than sent as `undefined`,
- * so its parser keeps the default it was built with.
- */
 export function queryFor(
   meta: RegistryMeta,
   values: Values,

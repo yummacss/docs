@@ -4,14 +4,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Github } from "@/icons";
 
-/**
- * Linked as a file rather than an anchor.
- *
- * Keep a Changelog headings read `## [3.0.0] - 2025-04-14`, so the GitHub
- * fragment carries the release date too & cannot be derived from the version
- * alone. Linking the file lands the reader on a document already ordered by
- * release.
- */
 const CHANGELOG_URL =
   "https://github.com/yummacss/yummacss/blob/main/CHANGELOG.md";
 

@@ -13,8 +13,6 @@ export default function EditPage() {
   ) {
     contentPath = `/ui/${contentPath.replace(/^\/ui\/components\//, "")}`;
   }
-  // `main`, not `release`. The production branch was renamed; the old ref only
-  // still resolves because GitHub 302-redirects a renamed branch.
   const url = `https://github.com/yummacss/docs/blob/main/src/content${contentPath}.mdx`;
 
   return (
