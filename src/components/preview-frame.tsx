@@ -121,6 +121,8 @@ interface Props {
    * becomes a flex child of its own holder rather than asking for `100%`.
    */
   fill?: boolean;
+  /** Extra CSS for this frame, appended after the page's own rules. */
+  accentCss?: string;
   className?: string;
 }
 
@@ -128,6 +130,7 @@ export default function PreviewFrame({
   children,
   minHeight = 240,
   fill = false,
+  accentCss = "",
   className = "",
 }: Props) {
   const holder = useRef<HTMLDivElement>(null);
@@ -180,6 +183,11 @@ export default function PreviewFrame({
       base.textContent = RESET;
       target.head.append(page, base);
 
+      // Last in the head, so a same-specificity override wins on source order.
+      const accent = target.createElement("style");
+      accent.id = "accent";
+      target.head.append(accent);
+
       const root = target.createElement("div");
       root.id = "root";
       if (fill) root.dataset.fill = "";
@@ -194,6 +202,11 @@ export default function PreviewFrame({
     element.addEventListener("load", attach);
     return () => element.removeEventListener("load", attach);
   }, [near, fill]);
+
+  useEffect(() => {
+    const style = frame.current?.contentDocument?.getElementById("accent");
+    if (style) style.textContent = accentCss;
+  }, [accentCss, body]);
 
   useEffect(() => {
     if (!body || fill) return;
