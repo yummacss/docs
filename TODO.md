@@ -69,8 +69,6 @@ Blocked on Renildo. Each one holds up the entry beside it.
       anyone installs.
 - [ ] **File Upload: remove it?** Base UI ships no primitive, and it is the
       least functional component in the set.
-- [ ] **Avatar:** should `verified` and `status` be mutually exclusive rather
-      than both at once?
 - [ ] **Install command:** a dialog offering yarn and bun alongside pnpm and
       npm, a dropdown, or is a dialog overkill?
 
