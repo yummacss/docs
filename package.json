@@ -39,8 +39,8 @@
     "@shikijs/transformers": "4.4.3",
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
-    "@yummacss/core": "^3.31.0",
-    "@yummacss/nitro": "^3.31.0",
+    "@yummacss/core": "^3.31.1",
+    "@yummacss/nitro": "^3.31.1",
     "clsx": "^2.1.1",
     "iconoir-react": "^7.12.1",
     "motion": "^13.1.0",
@@ -55,7 +55,7 @@
     "tinycolor2": "^1.6.0",
     "unist-util-visit": "^5.1.0",
     "web-features": "^3.37.0",
-    "yummacss": "^3.31.0"
+    "yummacss": "^3.31.1"
   },
   "devDependencies": {
     "@biomejs/biome": "2.5.8",
@@ -68,8 +68,8 @@
     "@types/react-dom": "^19.2.4",
     "@types/three": "^0.185.4",
     "@types/tinycolor2": "^1.4.6",
-    "@yummacss/canon": "^3.31.0",
-    "@yummacss/postcss": "^3.31.0",
+    "@yummacss/canon": "^3.31.1",
+    "@yummacss/postcss": "^3.31.1",
     "remark-code-preview": "^1.2.6",
     "sort-package-json": "^4.0.0",
     "tsx": "^4.23.12",
