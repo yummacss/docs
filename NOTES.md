@@ -2238,10 +2238,26 @@ The extensions are already deleted (see Rejected). This is the package.
       containers, viewport-minus and named grids all want the same shape.
 - [ ] **What `@yummacss/canon` ships**, which falls out of the first two: an
       enumerable list, or a parser.
-- [ ] **Move publishing to Trusted Publishing (OIDC)** and drop `NPM_TOKEN`
-      entirely. See the token trap for what to verify first. Not urgent, but it
-      is the only thing that stops this recurring every time a token expires.
-      **The current token dies 2026-11-27**, so that is the deadline.
+- [ ] **Move publishing to Trusted Publishing (OIDC)**, half done. The repo
+      side landed in `yummacss#27`; **the npmjs side is a web form per package,
+      so eight times**, and only Renildo can do it. **The current token dies
+      2026-11-27.**
+
+      The thing this entry said to verify first is answered: **`pnpm -r publish`
+      cannot do OIDC.** pnpm 10.30.3's only `trustedPublish` references are
+      install-side, and its bundle has zero hits for
+      `ACTIONS_ID_TOKEN_REQUEST_URL`, `oidc` or `id-token`. npm 12.0.2 has
+      `lib/utils/oidc.js` and does. Node 22 ships npm 10.9.7, so the workflow
+      installs a current one.
+
+      `npm publish` cannot be aimed at the workspace either: seven of eight
+      manifests carry `workspace:*` and npm would ship that string. `pnpm pack`
+      rewrites it, verified on `@yummacss/nitro`. So the shape is pack with
+      pnpm, publish the tarball with npm.
+
+      **`NODE_AUTH_TOKEN` stays until a release proves OIDC ran**, so there is
+      no flag day: npm falls back to the token wherever no trusted publisher is
+      configured. Nothing is exercised until a real release.
 - [ ] `xs` at 32rem has no matching breakpoint. Drop it or add the breakpoint.
 - [x] **`tinycolor2` stays.** Renildo's call, 2026-09-14, after the swap was
       built and measured.
