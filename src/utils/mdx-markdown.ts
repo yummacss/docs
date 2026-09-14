@@ -1,6 +1,7 @@
 import type { RegistryMeta } from "@/registry";
 import { baselineFor } from "@/utils/baseline";
 import { COLOR_FAMILIES, SHADE_LABELS } from "@/utils/colors";
+import { targetPath } from "@/utils/install.mjs";
 import { fillNormalizeFences } from "@/utils/normalize-rules.mjs";
 import { type Category, categoryGetters } from "@/utils/yummacss";
 
@@ -357,7 +358,13 @@ function renderComponent(
   if (registryId) {
     const lines: string[] = [];
     const source = options.resolveRegistry?.(registryId);
-    if (source) lines.push(...fencedBlock(source, "tsx"));
+    // The fence is the file `yummaui add <id>` writes, so it says so. Authored
+    // fences carry the same `title=` meta, and a reader of the `.md` has no
+    // other way to tell where the code goes.
+    if (source)
+      lines.push(
+        ...fencedBlock(source, "tsx", `title="${targetPath(registryId)}"`),
+      );
     const meta = options.resolveMeta?.(registryId);
     if (meta) {
       if (lines.length > 0) lines.push("");
@@ -403,7 +410,7 @@ function renderComponent(
  * Wraps source in a fence long enough to contain it. A registry file could
  * itself hold a fenced example, and a plain ``` would end the block early.
  */
-function fencedBlock(source: string, lang: string): string[] {
+function fencedBlock(source: string, lang: string, meta?: string): string[] {
   const body = source.replace(/\r\n/g, "\n").replace(/\s+$/, "");
   const longest = Math.max(
     0,
@@ -411,7 +418,11 @@ function fencedBlock(source: string, lang: string): string[] {
   );
   const fence = "`".repeat(Math.max(3, longest + 1));
 
-  return [`${fence}${lang}`, ...body.split("\n"), fence];
+  return [
+    `${fence}${lang}${meta ? ` ${meta}` : ""}`,
+    ...body.split("\n"),
+    fence,
+  ];
 }
 
 function render(
