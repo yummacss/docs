@@ -553,27 +553,28 @@ describe("Yumma UI registry", () => {
   });
 
   /** A component that can take focus says so in its schema, or nothing documents it. */
-  it("documents focusClassName wherever the component takes it", () => {
-    const missing: string[] = [];
+  /**
+   * A component that is waiting is not a component that is unavailable. Base
+   * UI's `disabled` writes the native attribute, which takes the control out
+   * of the tab order, so anything folding `loading` into it has to ask for
+   * `focusableWhenDisabled` back.
+   */
+  it("keeps a loading control in the tab order", () => {
+    const wrong: string[] = [];
 
     for (const id of componentFiles()) {
-      const meta = join(rootDir, "src/registry/meta", `${id}.json`);
-      if (!existsSync(meta)) continue;
-      if (
-        !readFileSync(join(registryDir, `${id}.tsx`), "utf-8").includes(
-          "focusClassName",
-        )
-      )
-        continue;
+      const source = readFileSync(join(registryDir, `${id}.tsx`), "utf-8");
+      if (!/\bloading\?:/.test(source)) continue;
 
-      const props = JSON.parse(readFileSync(meta, "utf-8")).props ?? [];
-      if (
-        !props.some((prop: { name: string }) => prop.name === "focusClassName")
-      )
-        missing.push(id);
+      const folded = [...source.matchAll(/disabled=\{([^}]*)\}/g)].some(
+        (match) => /\bloading\b/.test(match[1]) || /\binactive\b/.test(match[1]),
+      );
+      if (!folded) continue;
+
+      if (!source.includes("focusableWhenDisabled")) wrong.push(id);
     }
 
-    expect(missing).toEqual([]);
+    expect(wrong).toEqual([]);
   });
 
   /**
