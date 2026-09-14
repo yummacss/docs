@@ -15,8 +15,8 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  126
-    Open    10
+    Closed  128
+    Open     9
     Done    93%
 
 ---
@@ -58,7 +58,6 @@ Nothing here blocks a release, and all of it makes the next change cheaper.
 - [ ] **Dark theme across every component.** Yumma CSS has handled dark since
       3.29.0, so this is a Yumma UI concern now. Big enough to be the headline
       of **1.0**. Mockups need a theme toggle from the start.
-- [ ] **Remove Skeleton**, in favour of a new prop on every component.
 
 ## Decisions
 
