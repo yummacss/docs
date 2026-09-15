@@ -2232,8 +2232,28 @@ The extensions are already deleted (see Rejected). This is the package.
 
 ### Phase 9 - v4 decisions
 
-- [ ] **Bounded scale or unbounded?** See the 0-384 section below. This one
-      decides the shape of canon, so it goes first.
+- [ ] **Bounded scale or unbounded?** See the 0-384 section below. Still open,
+      but **no longer the thing that decides canon's shape**, and no longer a
+      cost question. Measured 2026-09-15:
+
+      **Canon cannot be a list, by arithmetic.** 239 utilities hold 29,877 base
+      classes, which is already 233,607 B of text and 78,417 B gzipped. But the
+      real class space is every one of those crossed with 7 media queries, 16
+      pseudo-classes, 4 pseudo-elements and opacity: **64,693,160 classes.**
+      Nothing ships that. `validateClasses` already strips variants and walks
+      the tables rather than consulting a list, which is why `@prm:tp-none`
+      validated the moment its entry existed and `@zz:d-f` never did.
+
+      **The build cost the old note worried about is not real.** `coreUtils()`
+      returns a module constant built once at import: **4 KB of heap, 0.000 ms**
+      per call, same object every time. Not 14,300 entries per build.
+
+      So the question shrinks to **12 utilities**, the ones on the 0-384 scale
+      with 419 values each: `w`, `h`, `xs`, `ys` and their `min-`/`max-` forms.
+      Everything else is under 400 and most are under 20. Whether those twelve
+      keep a table or parse `w-97` arithmetically is worth deciding on the
+      reason the section already gives - it deletes the min/max question - and
+      not on bytes, memory or build time, because none of those move.
 - [ ] **Four config keys or one `theme.extend`-shaped mechanism?** Fonts,
       containers, viewport-minus and named grids all want the same shape.
 - [ ] **What `@yummacss/canon` ships**, which falls out of the first two: an
