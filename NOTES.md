@@ -2217,6 +2217,11 @@ depends on, so they ship together or the ecosystem churns three times.
 
 The extensions are already deleted (see Rejected). This is the package.
 
+**It is deprecated at the v4 launch and `play` takes the logic.** Renildo's
+call, 2026-09-16. Until then it stays building: the 4.0 colon syntax reached
+`core.ts`, `hover.ts`, `sort.ts` and `conflicts.ts` on the `v4` branch, which is
+maintenance of a package on its way out, not investment in it.
+
 - [ ] **`play` is the only consumer left**, importing
       `@yummacss/intellisense/monaco` from `play/src/utils/providers.ts`. The
       package is 1,243 lines and its **only adapter is Monaco**, which is play's
@@ -2271,7 +2276,8 @@ The extensions are already deleted (see Rejected). This is the package.
       for the generators to read. Not built yet: it lands with the Phase 10
       config-driven generators.
 - [ ] **What `@yummacss/canon` ships**, which falls out of the first two: an
-      enumerable list, or a parser.
+      enumerable list, or a parser. **The surface around it is settled**: see
+      Linting below. Rules are ours, the CLI and the report are a linter's.
 - [ ] **Move publishing to Trusted Publishing (OIDC)**, half done. The repo
       side landed in `yummacss#27`; **the npmjs side is a web form per package,
       so eight times**, and only Renildo can do it. **The current token dies
@@ -3342,6 +3348,56 @@ classes (`docs-container`, `ff-e`), which #1 and #2 would remove entirely, plus
 one selector-scoped rule no utility can replace - the preview reset, which matches
 Base UI portals in `<body>` by role and attribute. **Some CSS is a *selector*
 problem, not a value problem.** Aim at the value problems and say so.
+
+---
+
+## Linting: hand the reporting to a real linter
+
+Renildo's call, 2026-09-16, prompted by `https://github.com/shadcn-ui/lint`.
+**Targets 4.1 for Yumma CSS and 0.4.0 for Yumma UI.** Neither gates v4.
+
+**The shape: rules are ours, everything around them is not.** `@yummacss/canon`
+today is 166 lines and most of them are a linter nobody asked us to write: its
+own CLI, its own arg parsing, its own `--allow` flag, its own report format, its
+own exit code. A rule plugin for **oxlint** and **biome** deletes all of it and
+returns things we would otherwise have to build one at a time: a line and column
+per finding, a per-line ignore comment, editor squiggles, CI annotations, and a
+config file the project already has. The `--allow` flag in particular is the
+wrong shape - an allowlist belongs next to the line it excuses, not in a CI
+argument.
+
+**Rename it when it moves.** `canon` names the concept, not the tool. `lint` or
+`linter` says what a developer runs. The rename lands with the plugin, not
+before, since the package is published and 4.0 is the cheap moment.
+
+**Two rule families, and the second is the interesting one.**
+
+- *Is this a real class?* What `canon` does now: `bg-redd-5` is not canon, and
+  the suggestion machinery in nitro already produces `bg-red-5`. Straight port.
+- *Is this the right way to write it?* New. **`p-8` on a `Button` should be the
+  `size` prop**, because a component that takes a size prop and then gets padded
+  by hand has two sources of truth. **`style={{ display: "flex" }}` should be
+  `d-f`**. Neither is a correctness error, so neither belongs in a build. Both
+  are exactly what a linter is for.
+
+**Why the rule can be stated at all: Yumma has no arbitrary values.** A class
+either names a value in the tables or it is not a class, so "this component was
+styled outside its own API" is a decidable question rather than a heuristic. The
+same rule against a library that accepts one-off values in the class name has no
+ground to stand on.
+
+**This is also the answer to the AI question.** An agent writing Yumma UI has
+nothing telling it that `size="lg"` exists and `p-8` is the wrong reach. A lint
+rule is the one channel that reaches an agent, a reviewer and an editor at once,
+and it is the channel they already read.
+
+**JSDoc on both libraries belongs to the same push**, for the same reason: the
+prop is documented where it is used rather than only on the docs site.
+
+**What this does not change:** the canon check itself still comes from nitro's
+tables, which is the part that cannot drift. The plugin is a reporting shell
+around `validateClasses`, not a second source of truth. Anything that needs its
+own table has failed the test.
 
 ---
 
