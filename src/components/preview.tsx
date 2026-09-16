@@ -47,7 +47,7 @@ export default function Preview({
   return (
     <div
       data-preview
-      className={`${clsx(BASE, VARIANTS[variant], className)} bc-border bg-white`}
+      className={`${clsx(BASE, VARIANTS[variant], className)} bc:border bg:white`}
     >
       <Suspense fallback={<PreviewSpinner />}>
         {RegistryComponent ? (

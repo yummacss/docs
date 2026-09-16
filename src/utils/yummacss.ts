@@ -166,7 +166,7 @@ function exampleClass(category: Category, name: string): string {
   const value =
     PREFERRED.find((v) => values.includes(v)) ??
     values[Math.floor(values.length / 2)];
-  return value === undefined || value === "" ? prefix : `${prefix}-${value}`;
+  return value === undefined || value === "" ? prefix : `${prefix}:${value}`;
 }
 
 export function getReferenceData(
@@ -243,7 +243,7 @@ export function getReferenceData(
       const rows = Object.entries(values)
         .filter(([key]) => /^\d+$/.test(key) && Number(key) !== 0)
         .map(([key, value]) => ({
-          className: `${prefix}--${key}`,
+          className: `${prefix}:-${key}`,
           details: declare(`-${value}`),
         }));
       if (rows.length === 0) return null;
@@ -256,7 +256,7 @@ export function getReferenceData(
 
     default: {
       const rows = Object.entries(values).map(([key, value]) => ({
-        className: key === "" ? prefix : `${prefix}-${key}`,
+        className: key === "" ? prefix : `${prefix}:${key}`,
         details: declare(value),
       }));
       if (rows.length === 0) return null;

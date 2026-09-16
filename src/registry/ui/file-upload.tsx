@@ -179,10 +179,10 @@ export default function FileUploadBase({
         multiple={multiple}
         disabled={disabled}
         onChange={onChange}
-        className="d-none"
+        className="d:none"
       />
 
-      <div className="d-f fd-c ai-c g-2 p-8 ta-c">
+      <div className="d:f fd:c ai:c g:2 p:8 ta:c">
         <div
           className={merge(
             "d-f ai-c jc-c w-10 h-10 bw-1",
@@ -193,12 +193,12 @@ export default function FileUploadBase({
         >
           {icon ?? (
             <CloudUpload
-              className={`w-5 h-5 ${error ? "c-red-5" : "c-slate-6"}`}
+              className={`w:5 h:5 ${error ? "c:red-5" : "c:slate-6"}`}
             />
           )}
         </div>
-        <div className="d-f fd-c ai-c g-1">
-          <span className={`fs-sm fw-500 ${error ? "c-red-5" : "c-slate-10"}`}>
+        <div className="d:f fd:c ai:c g:1">
+          <span className={`fs:sm fw:500 ${error ? "c:red-5" : "c:slate-10"}`}>
             <Button
               disabled={disabled}
               onClick={() => input.current?.click()}
@@ -212,14 +212,14 @@ export default function FileUploadBase({
             </Button>{" "}
             or drag and drop
           </span>
-          <span className={`fs-xs fw-400 ${error ? "c-red-5" : "c-slate-6"}`}>
+          <span className={`fs:xs fw:400 ${error ? "c:red-5" : "c:slate-6"}`}>
             {hint}
           </span>
         </div>
       </div>
 
       {files.length > 0 && (
-        <div className="d-f fd-c g-1 w-100% px-6 pb-6">
+        <div className="d:f fd:c g:1 w:100% px:6 pb:6">
           {files.map((file) => (
             <div
               key={identity(file)}
@@ -228,10 +228,10 @@ export default function FileUploadBase({
                 SHAPES[shape],
               )}
             >
-              <span className="o-h fs-xs c-slate-10 to-e ws-nw">
+              <span className="o:h fs:xs c:slate-10 to:e ws:nw">
                 {file.name}
               </span>
-              <span className="d-f ai-c g-2 fs-xs c-slate-6">
+              <span className="d:f ai:c g:2 fs:xs c:slate-6">
                 {formatSize(file.size)}
                 <Button
                   aria-label={`Remove ${file.name}`}
@@ -245,7 +245,7 @@ export default function FileUploadBase({
                     SHAPES[shape],
                   )}
                 >
-                  <Xmark className="w-4 h-4" />
+                  <Xmark className="w:4 h:4" />
                 </Button>
               </span>
             </div>
@@ -255,7 +255,7 @@ export default function FileUploadBase({
 
       {message && (
         <p
-          className={`w-100% m-0 pb-6 fs-xs ta-c ${error ? "c-red-5" : "c-slate-6"}`}
+          className={`w:100% m:0 pb:6 fs:xs ta:c ${error ? "c:red-5" : "c:slate-6"}`}
         >
           {message}
         </p>

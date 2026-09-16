@@ -2,7 +2,7 @@ import Avatar from "./avatar";
 
 export default function AvatarStackCompact() {
   return (
-    <div className="d-f ai-c p-px bg-white bc-silver-3 br-9999 bw-1">
+    <div className="d:f ai:c p:px bg:white bc:silver-3 br:9999 bw:1">
       {stackMembers.map((member, index) => (
         <Avatar
           key={member.avatarUrl}
@@ -12,7 +12,7 @@ export default function AvatarStackCompact() {
           className={index > 0 ? "ml--2" : ""}
         />
       ))}
-      <Avatar size="sm" fallback={`+${extraCount}`} className="ml--2" />
+      <Avatar size="sm" fallback={`+${extraCount}`} className="ml:-2" />
     </div>
   );
 }

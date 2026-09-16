@@ -46,11 +46,11 @@ export default function Hint({ icon, children }: Props) {
   const Icon = icons[icon];
 
   return (
-    <div className="d-f ai-c g-2 mb-4">
-      <span className="d-f ai-c fs-0 p-1 bc-border bg-surface c-accent bw-1">
-        <Icon className="w-5 h-5" />
+    <div className="d:f ai:c g:2 mb:4">
+      <span className="d:f ai:c fs:0 p:1 bc:border bg:surface c:accent bw:1">
+        <Icon className="w:5 h:5" />
       </span>
-      <span className="c-white/80">{children}</span>
+      <span className="c:white/80">{children}</span>
     </div>
   );
 }

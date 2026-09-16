@@ -216,7 +216,7 @@ function buildReferenceTable(category: Category, name: string): string[] {
 
     const rows = Object.entries(util.values as Record<string, string>).map(
       ([suffix, value]) => {
-        const cls = suffix === "" ? util.prefix : `${util.prefix}-${suffix}`;
+        const cls = suffix === "" ? util.prefix : `${util.prefix}:${suffix}`;
         const props = (util.properties as string[]).join(", ");
         return `| \`${cls}\` | ${props} | \`${value}\` |`;
       },

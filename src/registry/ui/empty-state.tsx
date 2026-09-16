@@ -85,13 +85,13 @@ export default function EmptyStateBase({
     <div className={rootClasses}>
       {icon && <div className={badgeClasses}>{icon}</div>}
 
-      <div className="d-f fd-c ai-c g-1 ta-c">
-        <span className="c-slate-10 fs-md fw-500">{title}</span>
-        {description && <span className="c-slate-6 fs-sm">{description}</span>}
+      <div className="d:f fd:c ai:c g:1 ta:c">
+        <span className="c:slate-10 fs:md fw:500">{title}</span>
+        {description && <span className="c:slate-6 fs:sm">{description}</span>}
       </div>
 
       {hasActions && (
-        <div className="d-f g-3">
+        <div className="d:f g:3">
           {secondaryLabel && (
             <Button
               onClick={onSecondary}

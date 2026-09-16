@@ -176,7 +176,7 @@ export default function AccordionBase({
             disabled={item.disabled}
             className={itemClasses}
           >
-            <Accordion.Header className="m-0">
+            <Accordion.Header className="m:0">
               <Accordion.Trigger
                 className={merge(
                   outline,
@@ -199,7 +199,7 @@ export default function AccordionBase({
                       className={glyphColor}
                     />
                   )}
-                <div className="d-f ai-c g-3">
+                <div className="d:f ai:c g:3">
                   <span
                     className={["fs-sm fw-500", titleColor]
                       .filter(Boolean)
@@ -208,7 +208,7 @@ export default function AccordionBase({
                     {item.title}
                   </span>
                   {item.disabled && (
-                    <Lock className="w-3 h-3 c-slate-4" aria-hidden />
+                    <Lock className="w:3 h:3 c:slate-4" aria-hidden />
                   )}
                 </div>
                 {indicator === "chevron" ? (
@@ -241,7 +241,7 @@ export default function AccordionBase({
                         : { height: 0, opacity: 0 }
                     }
                     transition={{ duration: 0.2, ease: "easeOut" }}
-                    className="d-b o-h"
+                    className="d:b o:h"
                   />
                 )}
               >
@@ -281,7 +281,7 @@ function ChevronGlyph({
     <motion.span
       animate={{ rotate: isOpen ? 180 : 0 }}
       transition={{ duration: 0.15, ease: "easeInOut" }}
-      className="d-f"
+      className="d:f"
     >
       <NavArrowDown className={merge("fs-0 w-4 h-4", className)} aria-hidden />
     </motion.span>
@@ -313,7 +313,7 @@ function PlusMinusGlyph({
       initial={false}
       animate={{ rotate: isOpen ? 90 : 0 }}
       transition={{ duration: 0.15, ease: "easeInOut" }}
-      className="d-f"
+      className="d:f"
     >
       {icon}
     </motion.span>

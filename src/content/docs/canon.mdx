@@ -89,7 +89,7 @@ classnames("...")       cva("...")
 Two limits worth knowing:
 
 :::warning[Runtime classes are invisible]
-Template literal expressions cannot be validated statically. In `` className={`p-4 ${size}`} `` the `p-4` is checked & the `${size}` is skipped, so classes assembled at runtime are invisible to canon.
+Template literal expressions cannot be validated statically. In `` className={`p:4 ${size}`} `` the `p-4` is checked & the `${size}` is skipped, so classes assembled at runtime are invisible to canon.
 :::
 
 Classes are validated against **your** config. A code example that shows a different project's config will be reported, because the custom colors in it do not exist in yours. This is correct behavior rather than a false negative, but it means documentation & changelog files usually want a narrower `source` than the generator uses.
@@ -146,7 +146,7 @@ Each entry in `invalid` carries the class name, the absolute paths of every file
 | --- | --- | --- |
 | `className` | `string` | The unrecognized class. |
 | `files` | `string[]` | Absolute paths of the files it appears in. |
-| `suggestion` | `string \| undefined` | The closest valid class, e.g. `g-4` for `gap-4`. |
+| `suggestion` | `string \| undefined` | The closest valid class, e.g. `g:4` for `gap-4`. |
 
 Only `config` is available exclusively through the API. Everything else has a CLI equivalent.
 

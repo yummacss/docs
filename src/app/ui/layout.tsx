@@ -20,11 +20,11 @@ export const metadata: Metadata = {
 
 export default function UILayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-dvh">
+    <div className="min-h:dvh">
       <SkipLink />
       <Navbar showMobileDrawer />
 
-      <main id="main" className="zi-0 mx-auto px-6 docs-container">
+      <main id="main" className="zi:0 mx:auto px:6 docs-container">
         <UIShell>{children}</UIShell>
       </main>
     </div>

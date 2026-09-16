@@ -64,7 +64,7 @@ export const EXAMPLE_ICONS: Record<
 
 export function exampleIcon(name: string) {
   const Icon = EXAMPLE_ICONS[name];
-  return Icon ? <Icon className="w-5 h-5" /> : undefined;
+  return Icon ? <Icon className="w:5 h:5" /> : undefined;
 }
 
 export function seedValues(meta: RegistryMeta): DemoProps {

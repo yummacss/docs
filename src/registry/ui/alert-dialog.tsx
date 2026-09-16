@@ -170,11 +170,11 @@ export default function AlertDialogBase({
   const popup = (
     <AlertDialog.Portal container={container} keepMounted>
       <AlertDialog.Backdrop
-        className={`p-f i-0 min-h-dvh bg-black/5 bf-b-xs ${
+        className={`p:f i:0 min-h:dvh bg:black/5 bf-b:xs ${
           animated ? "yui-alert-fade" : ""
         }`}
       />
-      <AlertDialog.Viewport className="d-f p-f i-0 ai-c jc-c">
+      <AlertDialog.Viewport className="d:f p:f i:0 ai:c jc:c">
         <AlertDialog.Popup
           className={`${popupClasses} ${animated ? "yui-alert-pop" : ""}`}
           style={{ maxWidth: "90vw" }}
@@ -192,21 +192,21 @@ export default function AlertDialogBase({
               }
               aria-label="Close"
             >
-              <Xmark aria-hidden className="w-5 h-5" />
+              <Xmark aria-hidden className="w:5 h:5" />
             </AlertDialog.Close>
           )}
 
-          <div className="d-f fd-c ai-c g-3 pt-10 pb-6 px-4">
+          <div className="d:f fd:c ai:c g:3 pt:10 pb:6 px:4">
             {icon && <span className={badgeClasses}>{icon}</span>}
-            <AlertDialog.Title className="c-slate-10 fs-md fw-500">
+            <AlertDialog.Title className="c:slate-10 fs:md fw:500">
               {title}
             </AlertDialog.Title>
-            <AlertDialog.Description className="m-0 c-slate-6 fs-sm lh-4 ta-c">
+            <AlertDialog.Description className="m:0 c:slate-6 fs:sm lh:4 ta:c">
               {description}
             </AlertDialog.Description>
           </div>
 
-          <div className="d-f jc-c g-3 px-4 pb-4">
+          <div className="d:f jc:c g:3 px:4 pb:4">
             <AlertDialog.Close render={<Button className={cancelClasses} />}>
               {cancelLabel}
             </AlertDialog.Close>

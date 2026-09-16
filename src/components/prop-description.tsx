@@ -12,7 +12,7 @@ export default function PropDescription({ text }: { text?: string }) {
         }))
         .map((segment) =>
           segment.code ? (
-            <code key={segment.id} className="c-code fs-sm ff-m">
+            <code key={segment.id} className="c:code fs:sm ff:m">
               {segment.value}
             </code>
           ) : (

@@ -121,12 +121,12 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
 
   const getCategoryIcon = (category: string) => {
     if (category === "docs") {
-      return <OpenBook className="w-4 h-4 c-white/50" />;
+      return <OpenBook className="w:4 h:4 c:white/50" />;
     }
     if (category === "handbook") {
-      return <OpenBook className="w-4 h-4 c-white/50" />;
+      return <OpenBook className="w:4 h:4 c:white/50" />;
     }
-    return <ComponentSolid className="w-4 h-4 c-white/50" />;
+    return <ComponentSolid className="w:4 h:4 c:white/50" />;
   };
 
   let globalIndex = -1;
@@ -145,9 +145,9 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                   transition={{ duration: 0.15, ease: "easeOut" }}
                 />
               }
-              className="p-f zi-10 t-0 l-0 r-0 b-0 bg-black/60 bf-b-sm fgr-90"
+              className="p:f zi:10 t:0 l:0 r:0 b:0 bg:black/60 bf-b:sm fgr:90"
             />
-            <div className="d-f p-f zi-10 t-0 l-0 r-0 b-0 ai-fs jc-c pt-12 pe-none @md:ai-c @md:pt-0">
+            <div className="d:f p:f zi:10 t:0 l:0 r:0 b:0 ai:fs jc:c pt:12 pe:none @md:ai:c @md:pt:0">
               <Dialog.Popup
                 render={
                   <motion.div
@@ -157,14 +157,14 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                     transition={{ duration: 0.15, ease: "easeOut" }}
                   />
                 }
-                className="o-h w-100% max-w-xs bc-border bg-page bw-1 pe-auto"
+                className="o:h w:100% max-w:xs bc:border bg:page bw:1 pe:auto"
                 style={{
                   maxHeight: "70vh",
                 }}
                 onKeyDown={handleKeyDown}
               >
-                <div className="d-f ai-c g-3 px-4 py-3 bc-border bbw-1">
-                  <Search className="w-5 h-5 c-white" />
+                <div className="d:f ai:c g:3 px:4 py:3 bc:border bbw:1">
+                  <Search className="w:5 h:5 c:white" />
                   <Input
                     ref={inputRef}
                     type="text"
@@ -175,7 +175,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                       setSelectedIndex(0);
                     }}
                     autoFocus
-                    className="f-1 bg-transparent c-white os-none fs-md"
+                    className="f:1 bg:transparent c:white os:none fs:md"
                   />
                 </div>
 
@@ -189,8 +189,8 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                     if (!items || items.length === 0) return null;
 
                     return (
-                      <div key={category} className="mb-2">
-                        <div className="px-2 py-1 c-white fs-xs tt-u ls-3">
+                      <div key={category} className="mb:2">
+                        <div className="px:2 py:1 c:white fs:xs tt:u ls:3">
                           {label}
                         </div>
                         {items.map((item) => {
@@ -210,13 +210,13 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                               onMouseEnter={() =>
                                 setSelectedIndex(currentIndex)
                               }
-                              className={`d-f b-0 ai-c g-3 w-100% px-3 py-2 ta-l c-p ${
-                                isSelected ? "bg-border" : "bg-transparent"
+                              className={`d:f b:0 ai:c g:3 w:100% px:3 py:2 ta:l c:p ${
+                                isSelected ? "bg:border" : "bg:transparent"
                               }`}
                             >
                               {item.category === "colors" && item.color ? (
                                 <div
-                                  className="fs-0 w-4 h-4"
+                                  className="fs:0 w:4 h:4"
                                   style={{
                                     backgroundColor: item.color,
                                     border: getBorderColor(item.color),
@@ -226,12 +226,12 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                                 getCategoryIcon(item.category)
                               )}
 
-                              <div className="f-1 min-w-0">
-                                <div className="o-h c-white fs-md tw-n to-e ws-nw">
+                              <div className="f:1 min-w:0">
+                                <div className="o:h c:white fs:md tw:n to:e ws:nw">
                                   {item.title}
                                 </div>
                                 {item.description && (
-                                  <div className="o-h c-white/50 fs-xs tw-n to-e ws-nw">
+                                  <div className="o:h c:white/50 fs:xs tw:n to:e ws:nw">
                                     {item.category === "colors" && isColorCopied
                                       ? "Copied!"
                                       : item.description}
@@ -240,7 +240,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                               </div>
 
                               {isSelected && (
-                                <LongArrowDownLeftSolid className="fs-0 w-4 h-4 c-white/50" />
+                                <LongArrowDownLeftSolid className="fs:0 w:4 h:4 c:white/50" />
                               )}
                             </Button>
                           );
@@ -250,35 +250,35 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                   })}
 
                   {flatResults.length === 0 && (
-                    <div className="px-4 py-8 c-white/50 ta-c fs-md">
+                    <div className="px:4 py:8 c:white/50 ta:c fs:md">
                       No results found for "{query}"
                     </div>
                   )}
                 </Scroller>
 
-                <div className="d-f ai-c jc-sb px-4 py-2 bc-border c-white/40 btw-1 fs-xs">
-                  <div className="d-f ai-c g-4">
-                    <span className="d-f ai-c g-1">
-                      <kbd className="d-f ai-c p-1 bc-border bg-transparent bw-1">
-                        <NavArrowUp className="w-4 h-4" />
+                <div className="d:f ai:c jc:sb px:4 py:2 bc:border c:white/40 btw:1 fs:xs">
+                  <div className="d:f ai:c g:4">
+                    <span className="d:f ai:c g:1">
+                      <kbd className="d:f ai:c p:1 bc:border bg:transparent bw:1">
+                        <NavArrowUp className="w:4 h:4" />
                       </kbd>
-                      <kbd className="d-f ai-c p-1 bc-border bg-transparent bw-1">
-                        <NavArrowDown className="w-4 h-4" />
+                      <kbd className="d:f ai:c p:1 bc:border bg:transparent bw:1">
+                        <NavArrowDown className="w:4 h:4" />
                       </kbd>
-                      <span className="ml-1 fs-md">to navigate</span>
+                      <span className="ml:1 fs:md">to navigate</span>
                     </span>
-                    <span className="d-f ai-c g-1">
-                      <kbd className="d-f ai-c p-1 bc-border bg-transparent bw-1">
-                        <LongArrowDownLeftSolid className="w-4 h-4" />
+                    <span className="d:f ai:c g:1">
+                      <kbd className="d:f ai:c p:1 bc:border bg:transparent bw:1">
+                        <LongArrowDownLeftSolid className="w:4 h:4" />
                       </kbd>
-                      <span className="ml-1 fs-md">to select</span>
+                      <span className="ml:1 fs:md">to select</span>
                     </span>
                   </div>
-                  <span className="d-f ai-c g-1">
-                    <kbd className="d-f ai-c p-1 bc-border bg-transparent bw-1">
-                      <LogOut className="w-4 h-4" />
+                  <span className="d:f ai:c g:1">
+                    <kbd className="d:f ai:c p:1 bc:border bg:transparent bw:1">
+                      <LogOut className="w:4 h:4" />
                     </kbd>
-                    <span className="ml-1 fs-md">to close</span>
+                    <span className="ml:1 fs:md">to close</span>
                   </span>
                 </div>
               </Dialog.Popup>

@@ -140,16 +140,16 @@ export default function TabsBase({
               aria-label={item.iconOnly ? item.label : undefined}
             >
               {item.icon && iconPosition === "leading" && (
-                <span className="d-f p-r zi-10">{item.icon}</span>
+                <span className="d:f p:r zi:10">{item.icon}</span>
               )}
               {!item.iconOnly && (
                 <span className={labelClasses}>{item.label}</span>
               )}
               {item.icon && iconPosition === "trailing" && (
-                <span className="d-f p-r zi-10">{item.icon}</span>
+                <span className="d:f p:r zi:10">{item.icon}</span>
               )}
               {item.count !== undefined && (
-                <span className="d-f p-r zi-10 ai-c jc-c h-5 px-2 br-9999 fs-xs fw-500 bg-silver-8 c-white">
+                <span className="d:f p:r zi:10 ai:c jc:c h:5 px:2 br:9999 fs:xs fw:500 bg:silver-8 c:white">
                   {item.count}
                 </span>
               )}

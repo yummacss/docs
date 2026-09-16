@@ -123,16 +123,16 @@ export default function TextareaBase({
   return (
     <Field.Root
       disabled={disabled}
-      className={`d-f fd-c g-2 ${disabled ? "o-60 c-na" : ""}`}
+      className={`d:f fd:c g:2 ${disabled ? "o:60 c:na" : ""}`}
     >
       {label && (
-        <Field.Label className="c-slate-10 fs-sm fw-500">
+        <Field.Label className="c:slate-10 fs:sm fw:500">
           {label}
-          {required && <span className="c-red-5"> *</span>}
+          {required && <span className="c:red-5"> *</span>}
         </Field.Label>
       )}
 
-      <div className="d-f p-r ai-s">
+      <div className="d:f p:r ai:s">
         {}
         <Field.Control
           render={<textarea />}
@@ -148,33 +148,33 @@ export default function TextareaBase({
           }
         />
         {status !== "default" && (
-          <span className={`d-f p-a r-3 t-3 ai-c jc-c ${STATUS_ICON[status]}`}>
+          <span className={`d:f p:a r:3 t:3 ai:c jc:c ${STATUS_ICON[status]}`}>
             {status === "error" ? (
-              <WarningTriangle className="w-4 h-4" />
+              <WarningTriangle className="w:4 h:4" />
             ) : (
-              <Check className="w-4 h-4" />
+              <Check className="w:4 h:4" />
             )}
           </span>
         )}
       </div>
 
       {message && (
-        <p className={`m-0 fs-xs ${STATUS_MESSAGE[status]}`}>{message}</p>
+        <p className={`m:0 fs:xs ${STATUS_MESSAGE[status]}`}>{message}</p>
       )}
 
       {showCounter && (
-        <div className="d-f fd-c g-1">
-          <div className="d-f jc-sb">
-            <span className="c-slate-5 fs-xs">
+        <div className="d:f fd:c g:1">
+          <div className="d:f jc:sb">
+            <span className="c:slate-5 fs:xs">
               {remaining} characters remaining
             </span>
-            <span className={`fs-xs fw-500 ${warn ? "c-red" : "c-slate-5"}`}>
+            <span className={`fs:xs fw:500 ${warn ? "c:red" : "c:slate-5"}`}>
               {value.length} / {maxLength}
             </span>
           </div>
-          <div className="w-100% h-1 bg-silver-2 br-9999 o-h">
+          <div className="w:100% h:1 bg:silver-2 br:9999 o:h">
             <div
-              className={`h-100% br-9999 ${warn ? "bg-red" : "bg-slate-12"}`}
+              className={`h:100% br:9999 ${warn ? "bg:red" : "bg:slate-12"}`}
               style={{ width: `${percent}%` }}
             />
           </div>

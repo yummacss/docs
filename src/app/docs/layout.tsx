@@ -9,15 +9,15 @@ export default function DocsLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-dvh c-white">
+    <div className="min-h:dvh c:white">
       <SkipLink />
       <Navbar showMobileDrawer />
 
-      <main id="main" className="is-i mx-auto px-6 docs-container">
-        <div className="d-g gtc-1 g-8 @lg:gtc-12">
+      <main id="main" className="is:i mx:auto px:6 docs-container">
+        <div className="d:g gtc:1 g:8 @lg:gtc:12">
           <Sidebar variant="docs" />
 
-          <div className="pt-12 @lg:gc-s-6">
+          <div className="pt:12 @lg:gc-s:6">
             <article>{children}</article>
           </div>
 

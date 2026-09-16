@@ -96,11 +96,11 @@ export default function RatingBase({
 
   return (
     <div className={merge("d-f fd-c ai-c jc-c g-4 p-8 h-56", className)}>
-      {label && <span className="c-slate-10 fs-sm fw-500">{label}</span>}
+      {label && <span className="c:slate-10 fs:sm fw:500">{label}</span>}
 
       <Scored score={score}>
         <Row
-          className={`d-f ${icons ? "g-3" : "g-1"}`}
+          className={`d:f ${icons ? "g:3" : "g:1"}`}
           readOnly={readOnly}
           label={`${value} out of ${max} stars`}
         >
@@ -139,7 +139,7 @@ export default function RatingBase({
                   const filled = star <= value;
                   const mark = (
                     <Star
-                      className={`fs-0 w-6 h-6 ${filled ? "f-current" : ""}`}
+                      className={`fs:0 w:6 h:6 ${filled ? "f:current" : ""}`}
                       fill="none"
                     />
                   );
@@ -186,7 +186,7 @@ export default function RatingBase({
         </Row>
       </Scored>
 
-      <span className="c-slate-6 fs-xs">
+      <span className="c:slate-6 fs:xs">
         {hint ??
           (icons
             ? value >= 0
@@ -206,7 +206,7 @@ function Pop({ on, children }: { on: boolean; children: ReactNode }) {
   return (
     <motion.span
       key={on ? "on" : "off"}
-      className="d-f"
+      className="d:f"
       initial={{ scale: on ? 0.8 : 1 }}
       animate={{ scale: 1 }}
       transition={{ duration: 0.25, ease: "easeOut" }}
@@ -226,8 +226,8 @@ function Scored({
   if (score === undefined || score === null) return <>{children}</>;
 
   return (
-    <div className="d-f ai-c g-3">
-      <span className="c-slate-10 fs-xxl fw-500">{score}</span>
+    <div className="d:f ai:c g:3">
+      <span className="c:slate-10 fs:xxl fw:500">{score}</span>
       {children}
     </div>
   );

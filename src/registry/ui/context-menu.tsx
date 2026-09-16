@@ -181,7 +181,7 @@ export default function ContextMenuBase({
         return (
           <ContextMenu.Separator
             key={key}
-            className="my-1 w-100% h-px bg-silver-2"
+            className="my:1 w:100% h:px bg:silver-2"
           />
         );
       }
@@ -190,7 +190,7 @@ export default function ContextMenuBase({
         return (
           <ContextMenu.Group key={key}>
             {item.label && (
-              <div className="px-3 py-1 fs-xs fw-600 c-slate-5 us-none">
+              <div className="px:3 py:1 fs:xs fw:600 c:slate-5 us:none">
                 {item.label}
               </div>
             )}
@@ -208,9 +208,9 @@ export default function ContextMenuBase({
             disabled={item.disabled}
             className={itemClasses(false, false)}
           >
-            <span className="d-f ai-c jc-c fs-0 w-4 h-4 bc-silver-3 br-sm bw-1">
+            <span className="d:f ai:c jc:c fs:0 w:4 h:4 bc:silver-3 br:sm bw:1">
               <ContextMenu.CheckboxItemIndicator>
-                <Check className="w-3 h-3 c-slate-12" />
+                <Check className="w:3 h:3 c:slate-12" />
               </ContextMenu.CheckboxItemIndicator>
             </span>
             {item.label}
@@ -231,9 +231,9 @@ export default function ContextMenuBase({
                 value={option.value}
                 className={itemClasses(false, false)}
               >
-                <span className="d-f ai-c jc-c fs-0 w-4 h-4 bc-silver-3 br-9999 bw-1">
+                <span className="d:f ai:c jc:c fs:0 w:4 h:4 bc:silver-3 br:9999 bw:1">
                   <ContextMenu.RadioItemIndicator>
-                    <Circle className="w-2 h-2 c-slate-12 f-current" />
+                    <Circle className="w:2 h:2 c:slate-12 f:current" />
                   </ContextMenu.RadioItemIndicator>
                 </span>
                 {option.label}
@@ -247,13 +247,13 @@ export default function ContextMenuBase({
         return (
           <ContextMenu.SubmenuRoot key={key}>
             <ContextMenu.SubmenuTrigger className={itemClasses(false, true)}>
-              <span className="fg-1">{item.label}</span>
-              <NavArrowRight className="fs-0 w-4 h-4 c-slate-4" />
+              <span className="fg:1">{item.label}</span>
+              <NavArrowRight className="fs:0 w:4 h:4 c:slate-4" />
             </ContextMenu.SubmenuTrigger>
 
             <ContextMenu.Portal container={container}>
               <ContextMenu.Positioner
-                className="ow-0"
+                className="ow:0"
                 sideOffset={-4}
                 alignOffset={-4}
               >
@@ -281,15 +281,15 @@ export default function ContextMenuBase({
           className={itemClasses(destructive, trailing)}
         >
           {action.icon && iconPosition === "leading" && (
-            <span className="d-f fs-0 c-slate-5">{action.icon}</span>
+            <span className="d:f fs:0 c:slate-5">{action.icon}</span>
           )}
           {trailing ? (
-            <span className="fg-1">{action.label}</span>
+            <span className="fg:1">{action.label}</span>
           ) : (
             action.label
           )}
           {action.icon && iconPosition === "trailing" && (
-            <span className="d-f fs-0 c-slate-5">{action.icon}</span>
+            <span className="d:f fs:0 c:slate-5">{action.icon}</span>
           )}
           {action.shortcut && (
             <span
@@ -300,7 +300,7 @@ export default function ContextMenuBase({
                 .filter(Boolean)
                 .join(" ")}
             >
-              <KeyCommand className="w-3 h-3" />
+              <KeyCommand className="w:3 h:3" />
               <span>{action.shortcut}</span>
             </span>
           )}
@@ -310,7 +310,7 @@ export default function ContextMenuBase({
 
   const popup = (
     <ContextMenu.Portal container={container} keepMounted>
-      <ContextMenu.Positioner className="ow-0">
+      <ContextMenu.Positioner className="ow:0">
         <ContextMenu.Popup
           className={`${popupClasses} ${animated ? "yui-context-menu-pop" : ""}`}
         >

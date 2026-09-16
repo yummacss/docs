@@ -6,7 +6,7 @@ export default function AutocompleteHelper() {
       items={cities}
       label={
         <>
-          City <span className="c-red-5">*</span>
+          City <span className="c:red-5">*</span>
         </>
       }
       placeholder="Search cities"

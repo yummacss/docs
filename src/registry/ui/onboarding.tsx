@@ -193,18 +193,18 @@ export default function OnboardingBase({
   );
 
   const slide = (
-    <div className="d-f fd-c ai-c g-3">
-      <div className="d-ib p-r">
-        <div className="p-a l--3 h-12 w-12 bg-white/70 bc-silver-2 bw-1 br-xl ro--3 tty-1" />
-        <div className="p-a r--3 h-12 w-12 bg-white/70 bc-silver-2 bw-1 br-xl ro-3 tty-1" />
-        <div className="d-f p-r ai-c jc-c h-14 w-14 bg-white bc-silver-2 bw-1 br-xl">
+    <div className="d:f fd:c ai:c g:3">
+      <div className="d:ib p:r">
+        <div className="p:a l:-3 h:12 w:12 bg:white/70 bc:silver-2 bw:1 br:xl ro:-3 tty:1" />
+        <div className="p:a r:-3 h:12 w:12 bg:white/70 bc:silver-2 bw:1 br:xl ro:3 tty:1" />
+        <div className="d:f p:r ai:c jc:c h:14 w:14 bg:white bc:silver-2 bw:1 br:xl">
           {step.icon}
         </div>
       </div>
-      <span className="c-slate-10 fs-md fw-500">{step.title}</span>
-      <p className="m-0 c-slate-6 fs-sm lh-4">{step.description}</p>
+      <span className="c:slate-10 fs:md fw:500">{step.title}</span>
+      <p className="m:0 c:slate-6 fs:sm lh:4">{step.description}</p>
       {tasks && tasks.length > 0 && (
-        <div className="d-f fd-c g-2 w-100% pt-2 ta-l">
+        <div className="d:f fd:c g:2 w:100% pt:2 ta:l">
           {tasks.map((task) => {
             const isChecked = checked[page]?.has(task.id) ?? false;
             return (
@@ -218,13 +218,13 @@ export default function OnboardingBase({
                 )}
               >
                 <div
-                  className={`d-f ai-c jc-c w-4 h-4 br-sm bw-1 fs-0 ${
+                  className={`d:f ai:c jc:c w:4 h:4 br:sm bw:1 fs:0 ${
                     isChecked
-                      ? "bg-green bc-green-5 c-white bw-0"
-                      : "bc-silver-3"
+                      ? "bg:green bc:green-5 c:white bw:0"
+                      : "bc:silver-3"
                   }`}
                 >
-                  {isChecked && <Check className="w-3 h-3" />}
+                  {isChecked && <Check className="w:3 h:3" />}
                 </div>
                 <span className={isChecked ? "c-green-7" : "c-slate-10"}>
                   {task.label}
@@ -251,16 +251,16 @@ export default function OnboardingBase({
       }
       aria-label="Skip"
     >
-      <Xmark aria-hidden className="w-4 h-4" />
+      <Xmark aria-hidden className="w:4 h:4" />
     </AlertDialog.Close>
   );
 
   const popup = (
     <AlertDialog.Portal container={container} keepMounted>
       <AlertDialog.Backdrop
-        className={`p-f i-0 min-h-dvh bg-black/5 bf-b-xs ${animated ? "yui-onboarding-fade" : ""}`}
+        className={`p:f i:0 min-h:dvh bg:black/5 bf-b:xs ${animated ? "yui-onboarding-fade" : ""}`}
       />
-      <AlertDialog.Viewport className="d-f p-f i-0 ai-c jc-c">
+      <AlertDialog.Viewport className="d:f p:f i:0 ai:c jc:c">
         <AlertDialog.Popup
           className={`${popupClasses} ${animated ? "yui-onboarding-pop" : ""}`}
           style={{ maxWidth: "90vw" }}
@@ -268,33 +268,33 @@ export default function OnboardingBase({
           {showClose && indicator === "dots" && closeButton("p-a l-3 t-3")}
 
           {indicator !== "dots" && (
-            <div className="d-f ai-c jc-sb px-8 pt-5">
-              <div className="d-f ai-c g-2">
+            <div className="d:f ai:c jc:sb px:8 pt:5">
+              <div className="d:f ai:c g:2">
                 {showClose && closeButton("")}
                 {indicator === "count" && (
-                  <span className="c-slate-5 fs-xs">
+                  <span className="c:slate-5 fs:xs">
                     {page + 1} / {steps.length}
                   </span>
                 )}
                 {indicator === "checklist" && (
-                  <span className="c-slate-5 fs-xs">
+                  <span className="c:slate-5 fs:xs">
                     {tasks?.length
                       ? `${doneCount} / ${tasks.length} done`
                       : `${page + 1} / ${steps.length}`}
                   </span>
                 )}
               </div>
-              <div className="d-f g-2">
+              <div className="d:f g:2">
                 {!isFirst && (
                   <Button onClick={() => go(page - 1)} className={backClasses}>
-                    <ArrowLeft className="w-4 h-4" />
+                    <ArrowLeft className="w:4 h:4" />
                   </Button>
                 )}
                 {isLast ? (
                   <AlertDialog.Close
                     render={<Button className={forwardClasses} />}
                   >
-                    <Check className="w-4 h-4" />
+                    <Check className="w:4 h:4" />
                   </AlertDialog.Close>
                 ) : (
                   <Button
@@ -302,14 +302,14 @@ export default function OnboardingBase({
                     disabled={!allTasksDone}
                     className={forwardClasses}
                   >
-                    <ArrowRight className="w-4 h-4" />
+                    <ArrowRight className="w:4 h:4" />
                   </Button>
                 )}
               </div>
             </div>
           )}
 
-          <div className="px-8 pt-4 pb-10">
+          <div className="px:8 pt:4 pb:10">
             <motion.div
               initial={false}
               animate={
@@ -318,9 +318,9 @@ export default function OnboardingBase({
                   : { height: "auto" }
               }
               transition={{ duration: 0.2, ease: "easeOut" }}
-              className="d-f p-r o-h fd-c jc-c"
+              className="d:f p:r o:h fd:c jc:c"
             >
-              <div ref={contentRef} className="d-f fd-c ai-c w-100% ta-c">
+              <div ref={contentRef} className="d:f fd:c ai:c w:100% ta:c">
                 {animated ? (
                   <AnimatePresence mode="wait" custom={direction}>
                     <motion.div
@@ -331,7 +331,7 @@ export default function OnboardingBase({
                       animate="center"
                       exit="exit"
                       transition={{ duration: 0.2, ease: "easeOut" }}
-                      className="d-f fd-c ai-c g-3"
+                      className="d:f fd:c ai:c g:3"
                     >
                       {slide}
                     </motion.div>
@@ -344,10 +344,10 @@ export default function OnboardingBase({
           </div>
 
           {indicator === "progress" && (
-            <div className="d-f jc-c pb-6">
-              <div className="p-r o-h w-32 h-1 bg-silver-2 br-9999">
+            <div className="d:f jc:c pb:6">
+              <div className="p:r o:h w:32 h:1 bg:silver-2 br:9999">
                 <motion.div
-                  className="p-a l-0 t-0 h-100% bg-slate-12 br-9999"
+                  className="p:a l:0 t:0 h:100% bg:slate-12 br:9999"
                   initial={false}
                   animate={{
                     width: `${((page + 1) / steps.length) * 100}%`,
@@ -359,7 +359,7 @@ export default function OnboardingBase({
           )}
 
           {indicator === "dots" && (
-            <div className="d-f ai-c jc-c g-4 pb-8">
+            <div className="d:f ai:c jc:c g:4 pb:8">
               <Button
                 onClick={() => go(page - 1)}
                 disabled={isFirst}
@@ -372,13 +372,13 @@ export default function OnboardingBase({
                 )}
                 aria-label="Previous"
               >
-                <ArrowLeft className="w-4 h-4" />
+                <ArrowLeft className="w:4 h:4" />
               </Button>
               <Tabs.Root
                 value={String(page)}
                 onValueChange={(v) => go(Number(v))}
               >
-                <Tabs.List className="d-f g-2 jc-c">
+                <Tabs.List className="d:f g:2 jc:c">
                   {steps.map((_, index) => (
                     <Tabs.Tab
                       key={String(index)}
@@ -398,7 +398,7 @@ export default function OnboardingBase({
                 <AlertDialog.Close
                   render={<Button className={forwardClasses} />}
                 >
-                  <Check className="w-4 h-4" />
+                  <Check className="w:4 h:4" />
                 </AlertDialog.Close>
               ) : (
                 <Button
@@ -413,7 +413,7 @@ export default function OnboardingBase({
                   )}
                   aria-label="Next"
                 >
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w:4 h:4" />
                 </Button>
               )}
             </div>

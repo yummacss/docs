@@ -157,14 +157,14 @@ export default function PreviewFrame({
   return (
     <div
       ref={holder}
-      className={`${fill ? "d-f fd-c" : ""} ${className}`}
+      className={`${fill ? "d:f fd:c" : ""} ${className}`}
       style={{ minHeight }}
     >
       {near && (
         <iframe
           ref={frame}
           title="Component preview"
-          className={`d-b w-100% bw-0 ${fill ? "f-1 min-h-0" : ""}`}
+          className={`d:b w:100% bw:0 ${fill ? "f:1 min-h:0" : ""}`}
           style={fill ? undefined : { height: measured, minHeight }}
         />
       )}

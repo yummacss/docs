@@ -99,10 +99,10 @@ export default function SwitchBase({
 
   return (
     <Field.Root
-      className={`d-f fd-c g-1 ${disabled ? "c-na" : ""}`}
+      className={`d:f fd:c g:1 ${disabled ? "c:na" : ""}`}
       disabled={disabled}
     >
-      <div className="d-f ai-c g-2">
+      <div className="d:f ai:c g:2">
         <Switch.Root
           id={id}
           checked={checked}
@@ -111,7 +111,7 @@ export default function SwitchBase({
           className={trackClasses}
         >
           {icon && checked && (
-            <span className="d-f p-a l-1 ai-c jc-c w-3 h-3 c-white">
+            <span className="d:f p:a l:1 ai:c jc:c w:3 h:3 c:white">
               {icon}
             </span>
           )}
@@ -134,8 +134,8 @@ export default function SwitchBase({
         {label && (
           <Field.Label
             htmlFor={id}
-            className={`fs-sm fw-500 us-none ${
-              disabled ? "c-slate-5" : "c-slate-10 c-p"
+            className={`fs:sm fw:500 us:none ${
+              disabled ? "c:slate-5" : "c:slate-10 c:p"
             }`}
           >
             {label}
@@ -144,7 +144,7 @@ export default function SwitchBase({
       </div>
 
       {description && (
-        <p className="pl-12 m-0 c-slate-6 fs-xs fw-400">{description}</p>
+        <p className="pl:12 m:0 c:slate-6 fs:xs fw:400">{description}</p>
       )}
     </Field.Root>
   );
