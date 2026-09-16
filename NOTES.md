@@ -684,7 +684,7 @@ declares logical properties: `padding` covers `padding-inline` covers
       Needs a `yummacss` release to reach `docs`.
       **`pl-4 pr-4` should have been `px-4` in the first place.** Fix the
       component too, not only the table.
-- [ ] **`merge` breaks in v4, and it is the sixth colon-splitter.** v4 classes
+- [x] **`merge` breaks in v4, and it is the sixth colon-splitter.** v4 classes
       are `bg:red-5`, `h:bg:red-5`, `@sm:d:b`. `merge` takes the variant with
       `className.lastIndexOf(":")` and cuts the prefix at dashes, so `bg:red-5`
       resolves to a variant named `bg`. **`yummacss` commit `b9eb894` on `v4`
@@ -692,6 +692,17 @@ declares logical properties: `padding` covers `padding-inline` covers
       conflicts, the monaco adapter, `suggestClasses`) and put **one splitter in
       core** that peels a variant only when what remains is not already a
       utility. `merge` uses that splitter. It does not grow its own.
+      **Fixed, but not that way, and the entry's instruction was not followed.**
+      `yummacss/merge` is the one entry point that ships self-contained:
+      `merge.mjs` is 9,531 bytes with `merge-map` inlined and no imports at all.
+      Importing core's `splitVariants` makes that file *smaller*, 9,289 bytes,
+      because tsdown then externalises `@yummacss/core` - the 56 KB follows at
+      load instead, so the measurement flatters a change that costs six times
+      the bytes. The peel rule is instead generated into `merge-map.ts` beside
+      `PREFIXES` and `BY_VALUE`, from the same core tables, on the same CLI
+      build. It is a seventh splitter by count and not by maintenance: nothing
+      about it is hand-written, and core remains the only source. If `merge`
+      ever stops being size-sensitive, this is the one to collapse back.
 - [ ] **Canon lint: two rules `merge-map` makes nearly free.** **`pl-4 pr-4`
       should be `px-4`** is "two classes whose properties union equals a
       shorthand's", needing no data the map does not carry. **A `style`
@@ -2383,12 +2394,45 @@ written against today's tables.
 
 ### Phase 10 - v4 build
 
-- [ ] The 4.0 codemod. Everything else in 4.0 depends on it existing, and it
-      gates the release.
+- [x] **The 4.0 codemod.** Wired, and it round-trips: `yummacss migrate` on a
+      sample app produces classes that `yummacss build` then compiles, variants,
+      opacity suffixes, negatives and template literals included.
 - [ ] `@yummacss/canon`'s canon list, in whatever shape Phase 9 settled.
 - [ ] `docs`: every code example. Run the codemod here first; largest real
       corpus, and it has to be migrated anyway.
 - [ ] The config-driven generators, per the Phase 9 answer.
+
+**`v4` was 49 commits behind `main` and three of main's fixes had been lost on
+it.** The branch was written before the `prm` rename, the `xs` breakpoint, the
+tokenizer rewrite, `merge` and the comment strip. Merging main back in raised 18
+conflict hunks across 10 files, and resolving a file wholesale to one side is
+what dropped the fixes, twice. All three came back only because the tests
+caught them:
+
+- `negateValue` returned the value unchanged where main returns `null`, and
+  `matchValue` never asked `acceptsNegative`, so `m:-auto` emitted
+  `margin: auto`.
+- `buildUtilityMap` in intellisense was keyed `m-4`, so every hover returned
+  null.
+
+**The codemod rewrote `d:` to `di:`, a variant core has never had.** Every
+disabled style in a migrated project would have vanished with no warning, and
+`tests/migrate.test.ts` asserted the rename, so the tests agreed with the bug.
+The rename is gone: the 4.0 parser peels `d:` on its own, verified against the
+generator, `d:f` is display flex and `d:m:4` is a margin under `:disabled`.
+
+**`merge` was a no-op on every 4.0 class**, which is the TODO entry's symptom,
+and the cause was the sixth colon-splitter as recorded. It split the variant at
+the *last* colon and cut the prefix at a dash. It now peels variants off the
+front against a set generated with the rest of `merge-map.ts`, and reads the
+prefix up to the first colon. The rule that resolves the ambiguity: a leading
+token is a variant only when what follows still holds a colon, so `h:4` is a
+height and `h:h:4` is a height under hover.
+
+**The codemod's report named `?` and `:` as classes needing a look**, because a
+template expression is split on whitespace like anything else. A `${` token is
+reported only when its braces balance, so `bg-${tone}-5` is still named and the
+operators inside it are not.
 ---
 
 ## The playground
