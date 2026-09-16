@@ -2326,10 +2326,11 @@ authored so adding utilities is pleasant.
 
 **Split it in two, because the halves have opposite deadlines.**
 
-- [ ] **Architecture and API - must come BEFORE Phase 10, not last.** How core is
+- [x] **Architecture and API - must come BEFORE Phase 10, not last.** How core is
       authored decides the canon shape, which the codemod and the docs migration
       are both written against. Doing it after means redoing them. If the
       utility record shape changes at all, it changes here or not until v5.
+      **Closed 2026-09-16 without a rewrite**, see below.
 - [ ] **Mechanical cleanup - genuinely last, and cheap.** Dead code, duplicated
       helpers, bundle size, dependency removal. None of it changes a public
       shape, so it cannot invalidate work downstream of it. `tinycolor2` above
@@ -2346,6 +2347,39 @@ from reading everything.
 runtime 61,457 | cli 39,796 | intellisense 19,589 | nitro 18,897 | canon 3,597 |
 postcss 1,973 | vite 1,727. Core and runtime are where the weight is, and
 `tinycolor2` alone is 27% of core.
+
+**The target picked was "adding one utility touches N files". Measured
+2026-09-16: N is 3, and none of the three repeats data held by another.**
+
+| File | What it carries |
+| --- | --- |
+| `packages/core/src/utilities/<group>.ts` | the whole utility: prefix, properties, slug, values, variants |
+| `docs/src/content/docs/<slug>.mdx` | frontmatter and three `<Reference>` calls, which read the table |
+| `docs/src/config/sidebar.ts` | one line |
+
+Everything else derives. `merge-map.ts` looks like a fourth, a 385-line
+prefix-to-properties table in the CLI, but `packages/cli/scripts/generate-merge-map.mjs`
+regenerates it from core on every `cli` build. `@yummacss/intellisense`,
+`@yummacss/nitro` and the docs `Reference` component all import the tables
+rather than restating them, so a utility added to core reaches validation,
+hover, sorting, merging and the docs page with no second edit.
+
+`470d08b`, which added `mix-blend-mode`, is the shape of the work: one 27-line
+object in `effect.ts`, nothing else but the changelog. Later commits look wider
+only because they carry version bumps.
+
+The record shape earns its five fields. `slug` is not the record key restated:
+92 of 239 point at a shared docs page with an anchor, as
+`border-bottom-radius -> border-radius#bottom-radius`. `variants` is typed
+optional but all 239 set it, to one of exactly two constants, `base` (226) and
+`all` (13, which is `base` plus the opacity scale). Defaulting it would drop
+226 lines of `variants: base,` and is the only change the audit found worth
+making; it is cosmetic, it is not a shape change, and it is not worth touching
+in release week.
+
+**So core is not rewritten for v4.** The utility record stands as it is, which
+means the canon shape, the codemod and the docs migration in Phase 10 can be
+written against today's tables.
 
 ### Phase 10 - v4 build
 
