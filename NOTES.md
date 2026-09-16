@@ -2254,8 +2254,11 @@ The extensions are already deleted (see Rejected). This is the package.
       keep a table or parse `w-97` arithmetically is worth deciding on the
       reason the section already gives - it deletes the min/max question - and
       not on bytes, memory or build time, because none of those move.
-- [ ] **Four config keys or one `theme.extend`-shaped mechanism?** Fonts,
-      containers, viewport-minus and named grids all want the same shape.
+- [x] **One `theme.extend`-shaped mechanism**, not four keys. Renildo's call,
+      2026-09-16. Fonts, containers, viewport-minus and named grids all go
+      through it, so there is one thing to document, one to validate and one
+      for the generators to read. Not built yet: it lands with the Phase 10
+      config-driven generators.
 - [ ] **What `@yummacss/canon` ships**, which falls out of the first two: an
       enumerable list, or a parser.
 - [ ] **Move publishing to Trusted Publishing (OIDC)**, half done. The repo
@@ -2278,7 +2281,9 @@ The extensions are already deleted (see Rejected). This is the package.
       **`NODE_AUTH_TOKEN` stays until a release proves OIDC ran**, so there is
       no flag day: npm falls back to the token wherever no trusted publisher is
       configured. Nothing is exercised until a real release.
-- [ ] `xs` at 32rem has no matching breakpoint. Drop it or add the breakpoint.
+- [x] **`xs` gets the breakpoint**, rather than losing the alias. Renildo's
+      call, 2026-09-16, shipped in `yummacss`. Every t-shirt width alias now
+      names a query that exists, and the set gains a narrow-screen query.
 - [x] **`tinycolor2` stays.** Renildo's call, 2026-09-14, after the swap was
       built and measured.
 
