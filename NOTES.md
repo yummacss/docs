@@ -2404,8 +2404,14 @@ written against today's tables.
       sample app produces classes that `yummacss build` then compiles, variants,
       opacity suffixes, negatives and template literals included.
 - [ ] `@yummacss/canon`'s canon list, in whatever shape Phase 9 settled.
-- [ ] `docs`: every code example. Run the codemod here first; largest real
-      corpus, and it has to be migrated anyway.
+- [x] **`docs`: every code example.** Done on `feat/v4-syntax`, which **cannot
+      merge until 4.0 is published**: `docs` installs `yummacss@^3.31.0` from
+      npm, and 3.x compiles none of what the branch now contains. 3,081 classes
+      in 106 files, then 390 of 408 canon-valid under 4.0 and 342 rules
+      generated. The 18 are all expected: two ellipsis placeholders, the site's
+      own six custom classes, and the prefix, custom-colour and
+      custom-breakpoint examples, which are correct 4.0 and invalid only
+      because this project declares none of them.
 - [ ] The config-driven generators, per the Phase 9 answer.
 
 **`v4` was 49 commits behind `main` and three of main's fixes had been lost on
@@ -3219,8 +3225,13 @@ user and she preferred it, and she already likes Tailwind. The lesson is not tha
 the docs are thin. It is that **the v3 dash syntax reads as a worse Tailwind
 rather than as CSS**, which is the actual argument for the colon syntax.
 
-**Nested variants: keep media + state, drop state+state.** Verified against the
-generator: `f:h:bg-red` produces `.f\:h\:bg-red:focus:hover`, which is real but
+**Nested variants: keep media + state, drop state+state. Decision #20 is
+recorded and not implemented.** Verified against the `v4` branch on 2026-09-16:
+`f:h:bg:red` still produces `.f\:h\:bg\:red:focus:hover`, and `@sm:@lg:bg:red`
+still collapses to `64rem` with no warning. `nested-variants.mdx` says it "is
+being removed in 4.0", which is a promise the branch does not yet keep.
+
+Originally verified against the generator: `f:h:bg-red` produces `.f\:h\:bg-red:focus:hover`, which is real but
 almost useless; `@sm:h:bg-red` ("hover styles only above 40rem") is the valuable
 case, since hover is unreliable on touch. Dropping state+state removes parser
 surface and codemod cases at close to zero cost. Recorded as #20 in the 4.0 draft.
@@ -3348,6 +3359,47 @@ classes (`docs-container`, `ff-e`), which #1 and #2 would remove entirely, plus
 one selector-scoped rule no utility can replace - the preview reset, which matches
 Base UI portals in `<body>` by role and attribute. **Some CSS is a *selector*
 problem, not a value problem.** Aim at the value problems and say so.
+
+---
+
+## What the codemod cannot see
+
+Running it over `docs` was the point of running it over `docs`. Four things it
+does not touch, three of them found only by reading the diff:
+
+- **Code-fence highlight annotations.** ` ```tsx "ai-fs" ` sits above a line the
+  codemod rewrites to `ai:fs`, so every migrated example lost its highlighting.
+  36 of them across 10 files. Expressive Code's own syntax, not a class
+  attribute, so this stays a docs problem and not the codemod's.
+- **Class names built in code.** Four sites in `src/utils/yummacss.ts` and
+  `src/utils/mdx-markdown.ts` join a prefix to a value with a dash, and they are
+  what renders every reference table on the site. A template literal is not a
+  class attribute, so nothing flagged them.
+- **Class names in prose.** 51 inline mentions across six pages outside the
+  blog, including a sentence in `naming-convention.mdx` whose whole point was
+  that `tt-n` becomes the spelled-out value, which a half-migration turned into
+  nonsense.
+- **A `del={1}` line.** The 4.0 post shows the old syntax above the new one. The
+  codemod rewrote the old line, so the post demonstrated a class becoming
+  itself. Anywhere the docs teach the migration, the codemod erases the lesson.
+
+**The release announcements keep the syntax they shipped with.** Rewriting
+`yummacss-1.0.0.mdx` to 4.0 makes it claim a syntax that did not exist when it
+was published. They are a record, so they are excluded, and they are why the
+canon count above is quoted outside the blog.
+
+**Three bugs it found in itself**, all the same shape: the codemod read core's
+defaults where it should have read the project's config.
+
+- `theme.screens` was ignored, so `@3xl:d-b` in a project with that breakpoint
+  stayed in 3.x syntax. It was not even reported, because the skip filter
+  required a letter after the `@`.
+- `config.prefix` was ignored, so a prefixed project kept every class it had.
+- All three variant splitters spelled a variant name `[a-z]+`, which no
+  breakpoint called `2xl` or `3xl` can match.
+
+`theme.colors` was handled from the start, which is what made the other two
+visible: one branch of the same question was answered and the others were not.
 
 ---
 

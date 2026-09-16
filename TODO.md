@@ -16,7 +16,7 @@ than adjusting the numbers by hand:
     grep -c '^- \[ \]' TODO.md
 
     Closed  133
-    Open     5
+    Open     6
     Done    96%
 
 ---
@@ -58,6 +58,10 @@ Nothing here blocks a release, and all of it makes the next change cheaper.
 - [ ] **Dark theme across every component.** Yumma CSS has handled dark since
       3.29.0, so this is a Yumma UI concern now. Not a `1.0`: see NOTES.md
       under Versioning. Mockups need a theme toggle from the start.
+- [ ] **Drop state+state variant stacking**, v4. Decision #20 is recorded and
+      not implemented: `f:h:bg:red` still compiles on the `v4` branch, and
+      `nested-variants.mdx` already tells readers it is going. Either build it
+      or change the page.
 - [ ] **A lint plugin for oxlint and biome**, CSS 4.1 and UI 0.4.0. Replaces
       `canon`'s own CLI and report, and adds the rules a build cannot carry:
       `p-8` on a `Button` should be the `size` prop, `style={{ display: "flex" }}`
