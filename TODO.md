@@ -16,7 +16,7 @@ than adjusting the numbers by hand:
     grep -c '^- \[ \]' TODO.md
 
     Closed  133
-    Open     6
+    Open     5
     Done    96%
 
 ---
@@ -51,17 +51,16 @@ Nothing here blocks a release, and all of it makes the next change cheaper.
 
 - [ ] **Coloured box-shadow utilities**, v4 or v4.1. Without them a
       halo-plus-outline focus treatment cannot be written at all.
-- [ ] **Attribute variants**, v4. Base UI marks popup enter and exit with
-      `data-starting-style` and `data-ending-style`, and Yumma has no variant
-      that can select an attribute. They are the last hand-written classes in
-      the registry: without them the popup animations cannot be utilities.
+- [ ] **Attribute variants**, 4.1 at the earliest, and not for `data-*`.
+      Renildo's call, 2026-09-16: `data-starting-style` and `data-ending-style`
+      are Base UI's vocabulary, not vanilla CSS, so Yumma CSS will not grow
+      variants for them. What is left to decide is whether standard attributes
+      (`[open]`, `[hidden]`, `aria-expanded`, `aria-selected`) are worth a
+      variant at all. The registry's 185 lines of popup CSS stay hand-written
+      and become a Yumma UI concern. See NOTES.md under Attribute variants.
 - [ ] **Dark theme across every component.** Yumma CSS has handled dark since
       3.29.0, so this is a Yumma UI concern now. Not a `1.0`: see NOTES.md
       under Versioning. Mockups need a theme toggle from the start.
-- [ ] **Drop state+state variant stacking**, v4. Decision #20 is recorded and
-      not implemented: `f:h:bg:red` still compiles on the `v4` branch, and
-      `nested-variants.mdx` already tells readers it is going. Either build it
-      or change the page.
 - [ ] **A lint plugin for oxlint and biome**, CSS 4.1 and UI 0.4.0. Replaces
       `canon`'s own CLI and report, and adds the rules a build cannot carry:
       `p-8` on a `Button` should be the `size` prop, `style={{ display: "flex" }}`
