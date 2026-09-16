@@ -134,7 +134,7 @@ export default function PopoverBase({
     <>
       {arrow && (
         <Popover.Arrow
-          className="d-f w-4 h-2"
+          className="d:f w:4 h:2"
           style={(state) => ARROW_PLACEMENT[state.side]}
         >
           <svg viewBox="0 0 10 5" width="16" height="8">
@@ -142,14 +142,14 @@ export default function PopoverBase({
             <path
               d="M0 5 L5 0 L10 5"
               strokeWidth="1"
-              className="f-white s-silver-2"
+              className="f:white s:silver-2"
             />
           </svg>
         </Popover.Arrow>
       )}
 
-      <div className="d-f ai-s jc-sb g-3">
-        <Popover.Title className="m-0 mb-1 c-slate-10 fs-sm fw-500">
+      <div className="d:f ai:s jc:sb g:3">
+        <Popover.Title className="m:0 mb:1 c:slate-10 fs:sm fw:500">
           {title}
         </Popover.Title>
         {showClose && (
@@ -160,13 +160,13 @@ export default function PopoverBase({
             )}
             aria-label="Close"
           >
-            <Xmark aria-hidden className="w-5 h-5" />
+            <Xmark aria-hidden className="w:5 h:5" />
           </Popover.Close>
         )}
       </div>
 
       {description && (
-        <Popover.Description className="m-0 c-slate-8 fs-xs">
+        <Popover.Description className="m:0 c:slate-8 fs:xs">
           {description}
         </Popover.Description>
       )}

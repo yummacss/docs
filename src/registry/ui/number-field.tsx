@@ -92,35 +92,35 @@ export default function NumberFieldBase({
     <NumberField.Root
       id={id}
       disabled={disabled}
-      className={`d-f fd-c ai-fs g-2 ${disabled ? "o-60 c-na" : ""}`}
+      className={`d:f fd:c ai:fs g:2 ${disabled ? "o:60 c:na" : ""}`}
       {...props}
     >
       {label && (
-        <NumberField.ScrubArea className="c-er">
-          <label htmlFor={id} className="c-slate-10 fs-sm fw-500 c-er">
+        <NumberField.ScrubArea className="c:er">
+          <label htmlFor={id} className="c:slate-10 fs:sm fw:500 c:er">
             {label}
-            {required && <span className="c-red-5"> *</span>}
+            {required && <span className="c:red-5"> *</span>}
           </label>
         </NumberField.ScrubArea>
       )}
 
       <NumberField.Group
-        className={`d-f o-h bc-silver-3 bw-1 ${GROUP_SHAPES[shape]}`}
+        className={`d:f o:h bc:silver-3 bw:1 ${GROUP_SHAPES[shape]}`}
       >
         <NumberField.Input required={required} className={inputClasses} />
-        <span className="d-f fd-c blc-silver-3 blw-1">
+        <span className="d:f fd:c blc:silver-3 blw:1">
           <NumberField.Increment className={stepClasses}>
             <NavArrowUp className={ICON_SIZES[size]} />
           </NumberField.Increment>
           <NumberField.Decrement
-            className={`${stepClasses} btc-silver-3 btw-1`}
+            className={`${stepClasses} btc:silver-3 btw:1`}
           >
             <NavArrowDown className={ICON_SIZES[size]} />
           </NumberField.Decrement>
         </span>
       </NumberField.Group>
 
-      {description && <p className="m-0 c-slate-6 fs-xs">{description}</p>}
+      {description && <p className="m:0 c:slate-6 fs:xs">{description}</p>}
     </NumberField.Root>
   );
 }

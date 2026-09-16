@@ -71,7 +71,7 @@ export default function SeparatorBase({
           {icon}
         </Button>
       ) : (
-        <span className="fs-0 c-slate-6 fs-xs fw-500 tt-u ls-3">{label}</span>
+        <span className="fs:0 c:slate-6 fs:xs fw:500 tt:u ls:3">{label}</span>
       )}
       <Separator orientation={orientation} className={half} />
     </div>

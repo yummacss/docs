@@ -52,11 +52,11 @@ export default function ProgressBase({
 
   return (
     <Progress.Root className={rootClasses} value={value}>
-      <div className="d-f jc-sb ai-c">
-        <Progress.Label className="c-slate-10 fs-sm fw-500">
+      <div className="d:f jc:sb ai:c">
+        <Progress.Label className="c:slate-10 fs:sm fw:500">
           {label}
         </Progress.Label>
-        <Progress.Value className="c-slate-8 fs-sm" />
+        <Progress.Value className="c:slate-8 fs:sm" />
       </div>
       <Progress.Track className={trackClasses}>
         {isIndeterminate ? (
@@ -75,7 +75,7 @@ export default function ProgressBase({
                   .join(" ")}
               />
             }
-            className="h-100%"
+            className="h:100%"
           />
         ) : (
           <Progress.Indicator

@@ -30,13 +30,13 @@ export default function PlaygroundRail() {
     setOpen((current) => (current === name ? null : name));
 
   return (
-    <aside className="bc-border btw-1 @lg:btw-0 @lg:blw-1 @lg:gc-s-3">
+    <aside className="bc:border btw:1 @lg:btw:0 @lg:blw:1 @lg:gc-s:3">
       <Scroller className="playground-rail">
-        <div className="pt-8 pb-12 @lg:pt-0 @lg:px-8">
+        <div className="pt:8 pb:12 @lg:pt:0 @lg:px:8">
           {playground && (
-            <div className="d-f ai-c jc-sb g-2 pb-4 mb-4 bc-border bbw-1">
+            <div className="d:f ai:c jc:sb g:2 pb:4 mb:4 bc:border bbw:1">
               <HintTooltip label="Preview only. The code you copy is unchanged.">
-                <span className="d-f ai-c g-1 c-silver-8 fs-xs">Accent</span>
+                <span className="d:f ai:c g:1 c:silver-8 fs:xs">Accent</span>
               </HintTooltip>
               <EnumSelect
                 name="accent"
@@ -47,16 +47,16 @@ export default function PlaygroundRail() {
             </div>
           )}
 
-          <div className="d-f ai-c jc-sb g-2 mb-3">
-            <h3 className="c-silver-8 fs-xs ls-2 tt-u">Component API</h3>
+          <div className="d:f ai:c jc:sb g:2 mb:3">
+            <h3 className="c:silver-8 fs:xs ls:2 tt:u">Component API</h3>
             {playground?.carried && (
               <HintTooltip label="Reset the styles carried from the last page">
                 <Button
                   type="button"
                   onClick={playground.reset}
-                  className="d-f ai-c g-1 p-0 bg-transparent bw-0 c-silver-8 fs-xs c-p h:c-white fv:oc-accent fv:ow-2"
+                  className="d:f ai:c g:1 p:0 bg:transparent bw:0 c:silver-8 fs:xs c:p h:c:white fv:oc:accent fv:ow:2"
                 >
-                  <Undo className="w-3 h-3" />
+                  <Undo className="w:3 h:3" />
                   Reset
                 </Button>
               </HintTooltip>
@@ -68,9 +68,9 @@ export default function PlaygroundRail() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Base UI reference"
-                  className="d-f ai-c jc-c fs-0 c-accent td-none h:c-accent-4 fv:oc-accent fv:ow-2"
+                  className="d:f ai:c jc:c fs:0 c:accent td:none h:c:accent-4 fv:oc:accent fv:ow:2"
                 >
-                  <BaseUI className="w-4 h-4" />
+                  <BaseUI className="w:4 h:4" />
                 </Link>
               </HintTooltip>
             )}
@@ -94,7 +94,7 @@ export default function PlaygroundRail() {
                     onChange={(value) => playground?.setValue(prop.name, value)}
                   />
                 ) : (
-                  <code className="fs-0 c-white/70 fs-xs ff-m">
+                  <code className="fs:0 c:white/70 fs:xs ff:m">
                     {typeOf(prop)}
                   </code>
                 )}
@@ -120,23 +120,23 @@ function Row({
   onToggle: () => void;
   children: React.ReactNode;
 }) {
-  const name = <code className="c-code fs-xs ff-m">{prop.name}</code>;
+  const name = <code className="c:code fs:xs ff:m">{prop.name}</code>;
   const [attempted, setAttempted] = useState(false);
 
   return (
-    <div className="py-2 bc-border bbw-1">
-      <div className="d-f ai-c jc-sb g-2 fw-w">
+    <div className="py:2 bc:border bbw:1">
+      <div className="d:f ai:c jc:sb g:2 fw:w">
         {prop.description ? (
           <Button
             onClick={onToggle}
             aria-expanded={open}
-            className="d-f ai-c g-1 p-0 bg-transparent bw-0 ta-l c-p fv:oo--1 fv:oc-accent"
+            className="d:f ai:c g:1 p:0 bg:transparent bw:0 ta:l c:p fv:oo:-1 fv:oc:accent"
           >
             {name}
             <NavArrowDown
               aria-hidden
-              className={`fs-0 w-3 h-3 tp-c tdu-150 ${
-                open ? "ro-36 c-accent" : "c-white/25"
+              className={`fs:0 w:3 h:3 tp:c tdu:150 ${
+                open ? "ro:36 c:accent" : "c:white/25"
               }`}
             />
           </Button>
@@ -152,13 +152,13 @@ function Row({
       </div>
 
       {inert && attempted && (
-        <div className="mt-1 c-diff-remove fs-xs">
-          Does nothing while <code className="ff-m">{inert}</code>.
+        <div className="mt:1 c:diff-remove fs:xs">
+          Does nothing while <code className="ff:m">{inert}</code>.
         </div>
       )}
 
       {open && (
-        <div className="mt-2 c-white/60 fs-sm lh-4">
+        <div className="mt:2 c:white/60 fs:sm lh:4">
           <PropDescription text={prop.description} />
         </div>
       )}

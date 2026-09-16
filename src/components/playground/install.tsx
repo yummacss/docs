@@ -34,7 +34,7 @@ export default function Install({ id }: { id: string }) {
   };
 
   const popup = (
-    <Menu.Popup className="p-1 oy-auto w-fc max-w-32 max-h-40 bc-border bg-surface bw-1">
+    <Menu.Popup className="p:1 oy:auto w:fc max-w:32 max-h:40 bc:border bg:surface bw:1">
       {(Object.keys(MANAGERS) as Manager[]).map((manager) => (
         <Menu.Item
           key={manager}
@@ -47,7 +47,7 @@ export default function Install({ id }: { id: string }) {
         >
           {(() => {
             const { Mark } = MANAGERS[manager];
-            return <Mark className="fs-0 w-4 h-4" />;
+            return <Mark className="fs:0 w:4 h:4" />;
           })()}
           {manager}
         </Menu.Item>
@@ -59,13 +59,13 @@ export default function Install({ id }: { id: string }) {
     <Menu.Root open={open} onOpenChange={setOpen}>
       <HintTooltip label="Copy install command">
         <Menu.Trigger
-          className="d-f ai-c jc-c fs-0 w-8 h-8 bc-border bg-surface a:bg-surface-7 c-accent bw-1 c-p fv:oc-white fv:oo-2"
+          className="d:f ai:c jc:c fs:0 w:8 h:8 bc:border bg:surface a:bg:surface-7 c:accent bw:1 c:p fv:oc:white fv:oo:2"
           aria-label="Copy install command"
         >
           {copied ? (
-            <Check className="w-4 h-4" aria-hidden />
+            <Check className="w:4 h:4" aria-hidden />
           ) : (
-            <Copy className="w-4 h-4" aria-hidden />
+            <Copy className="w:4 h:4" aria-hidden />
           )}
         </Menu.Trigger>
       </HintTooltip>
@@ -77,7 +77,7 @@ export default function Install({ id }: { id: string }) {
               align="end"
               sideOffset={4}
               collisionAvoidance={{ side: "none", fallbackAxisSide: "none" }}
-              className="zi-50"
+              className="zi:50"
             >
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}

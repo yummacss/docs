@@ -133,7 +133,7 @@ export default function ToolbarBase({
           return (
             <Toolbar.Separator
               key={key}
-              className="w-px h-5 mx-1 bg-silver-2"
+              className="w:px h:5 mx:1 bg:silver-2"
             />
           );
         }
@@ -185,7 +185,7 @@ export default function ToolbarBase({
               max={item.max}
               aria-label={item.label}
             >
-              <NumberField.Group className="d-f ai-c">
+              <NumberField.Group className="d:f ai:c">
                 <NumberField.Decrement
                   render={
                     animated
@@ -201,7 +201,7 @@ export default function ToolbarBase({
                   }
                   className={animated ? undefined : stepClasses}
                 >
-                  <Minus className="w-5 h-5" />
+                  <Minus className="w:5 h:5" />
                 </NumberField.Decrement>
                 <Toolbar.Input
                   render={<NumberField.Input />}
@@ -225,7 +225,7 @@ export default function ToolbarBase({
                   }
                   className={animated ? undefined : stepClasses}
                 >
-                  <Plus className="w-5 h-5" />
+                  <Plus className="w:5 h:5" />
                 </NumberField.Increment>
               </NumberField.Group>
             </NumberField.Root>
@@ -293,7 +293,7 @@ function Pop({ on, children }: { on: boolean; children: ReactNode }) {
   return (
     <motion.span
       key={on ? "on" : "off"}
-      className="d-f"
+      className="d:f"
       initial={{ scale: on ? 0.8 : 1 }}
       animate={{ scale: 1 }}
       transition={{ duration: 0.25, ease: "easeOut" }}
@@ -337,7 +337,7 @@ function ToolbarToggles({
 
   return (
     <ToggleGroup
-      className="d-f g-1"
+      className="d:f g:1"
       value={value}
       onValueChange={handleChange}
       aria-label={item.label}

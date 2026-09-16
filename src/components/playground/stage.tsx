@@ -88,8 +88,8 @@ export default function ComponentPlayground() {
 
   if (!frame) {
     return (
-      <div className={`bc-border bw-1 ${FILL}`}>
-        <div data-preview className={`f-1 min-h-0 ${PREVIEW_SHELL}`}>
+      <div className={`bc:border bw:1 ${FILL}`}>
+        <div data-preview className={`f:1 min-h:0 ${PREVIEW_SHELL}`}>
           <PreviewSpinner />
         </div>
       </div>
@@ -119,7 +119,7 @@ export default function ComponentPlayground() {
 
       <TabsPanel value="preview" className={FILL}>
         <PreviewFrame
-          className="f-1 min-h-0"
+          className="f:1 min-h:0"
           minHeight={0}
           fill
           accentCss={accentCss(playground?.accent ?? DEFAULT_ACCENT)}

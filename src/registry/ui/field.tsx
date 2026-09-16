@@ -131,9 +131,9 @@ export default function FieldBase({
       )}
     >
       {revealed ? (
-        <Eye className="w-4 h-4" />
+        <Eye className="w:4 h:4" />
       ) : (
-        <EyeClosed className="w-4 h-4" />
+        <EyeClosed className="w:4 h:4" />
       )}
     </Toggle>
   ) : (
@@ -175,19 +175,19 @@ export default function FieldBase({
   return (
     <Field.Root
       disabled={disabled}
-      className={`d-f fd-c g-2 c-slate-10 fs-sm ${disabled ? "o-60 c-na" : ""}`}
+      className={`d:f fd:c g:2 c:slate-10 fs:sm ${disabled ? "o:60 c:na" : ""}`}
     >
       {label && (
-        <Field.Label className="fw-500">
+        <Field.Label className="fw:500">
           {label}
-          {required && <span className="c-red-5"> *</span>}
+          {required && <span className="c:red-5"> *</span>}
         </Field.Label>
       )}
 
       {hasAffix ? (
-        <div className="d-f ai-c">
+        <div className="d:f ai:c">
           {prefixNode && (
-            <div className={`${affixBoxClasses} blr-lg blw-1`}>
+            <div className={`${affixBoxClasses} blr:lg blw:1`}>
               {prefixNode}
             </div>
           )}
@@ -198,11 +198,11 @@ export default function FieldBase({
             {...props}
           />
           {suffix && (
-            <div className={`${affixBoxClasses} brr-lg brw-1`}>{suffix}</div>
+            <div className={`${affixBoxClasses} brr:lg brw:1`}>{suffix}</div>
           )}
         </div>
       ) : (
-        <div className="d-f p-r ai-c">
+        <div className="d:f p:r ai:c">
           {showDecorativeIcon && (
             <span
               className={merge(
@@ -221,11 +221,11 @@ export default function FieldBase({
             {...props}
           />
           {status !== "default" && (
-            <span className={`d-f p-a r-3 ai-c pe-none ${STATUS_ICON[status]}`}>
+            <span className={`d:f p:a r:3 ai:c pe:none ${STATUS_ICON[status]}`}>
               {status === "error" ? (
-                <WarningTriangle className="w-4 h-4" />
+                <WarningTriangle className="w:4 h:4" />
               ) : (
-                <Check className="w-4 h-4" />
+                <Check className="w:4 h:4" />
               )}
             </span>
           )}
@@ -233,7 +233,7 @@ export default function FieldBase({
       )}
 
       {message && (
-        <Field.Description className={`fs-xs ${STATUS_MESSAGE[status]}`}>
+        <Field.Description className={`fs:xs ${STATUS_MESSAGE[status]}`}>
           {message}
         </Field.Description>
       )}

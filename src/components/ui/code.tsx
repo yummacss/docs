@@ -36,7 +36,7 @@ export default function Code({
 
   const body = html ? (
     <div
-      className="ox-auto px-4 py-4 ff-m lh-5"
+      className="ox:auto px:4 py:4 ff:m lh:5"
       // biome-ignore lint/security/noDangerouslySetInnerHtml: server-generated Shiki output from repo-local source, never user input
       dangerouslySetInnerHTML={{ __html: html }}
     />
@@ -44,11 +44,11 @@ export default function Code({
 
   if (preview) {
     return (
-      <div ref={ref} className="bg-surface">
+      <div ref={ref} className="bg:surface">
         <TitleBar title={title} action={copyAction} />
-        <div className="oy-auto ob-c max-h-80">
+        <div className="oy:auto ob:c max-h:80">
           {body ?? (
-            <pre className="ox-auto px-4 py-4 ff-m lh-5">{children}</pre>
+            <pre className="ox:auto px:4 py:4 ff:m lh:5">{children}</pre>
           )}
         </div>
       </div>
@@ -58,15 +58,15 @@ export default function Code({
   if (grouped) {
     return (
       <div ref={ref}>
-        {body ?? <pre className="ox-auto px-4 py-4 lh-5">{children}</pre>}
+        {body ?? <pre className="ox:auto px:4 py:4 lh:5">{children}</pre>}
       </div>
     );
   }
 
   return (
-    <div ref={ref} className="o-h my-4 bc-border bg-surface bw-1">
+    <div ref={ref} className="o:h my:4 bc:border bg:surface bw:1">
       <TitleBar title={title} action={copyAction} />
-      {body ?? <pre className="ox-auto px-4 py-4 lh-5">{children}</pre>}
+      {body ?? <pre className="ox:auto px:4 py:4 lh:5">{children}</pre>}
     </div>
   );
 }
@@ -81,23 +81,23 @@ export function TitleBar({
   if (!title && !action) return null;
 
   const heightAnchor = (
-    <div className="d-f ai-c py-2 w-0 o-h pe-none invisible" aria-hidden="true">
-      <span className="fs-xs ff-m">{"\u200b"}</span>
+    <div className="d:f ai:c py:2 w:0 o:h pe:none invisible" aria-hidden="true">
+      <span className="fs:xs ff:m">{"\u200b"}</span>
     </div>
   );
 
   return (
-    <div className="d-f bc-border bg-page">
+    <div className="d:f bc:border bg:page">
       {title ? (
-        <div className="d-f ai-c px-6 py-2 brw-1 bc-border bg-surface">
-          <span className="c-accent fs-xs ff-m">{title}</span>
+        <div className="d:f ai:c px:6 py:2 brw:1 bc:border bg:surface">
+          <span className="c:accent fs:xs ff:m">{title}</span>
         </div>
       ) : (
         heightAnchor
       )}
-      <div className="f-1 bbw-1 bc-border" />
+      <div className="f:1 bbw:1 bc:border" />
       {action ? (
-        <div className="d-f ai-c px-2 bbw-1 bc-border">{action}</div>
+        <div className="d:f ai:c px:2 bbw:1 bc:border">{action}</div>
       ) : null}
     </div>
   );
@@ -113,11 +113,11 @@ export function CopyButton({
   return (
     <Button
       onClick={onCopy}
-      className="d-f ai-c g-1 px-2 py-1 c-accent h:c-accent-4 fv:oc-white fv:ow-2"
+      className="d:f ai:c g:1 px:2 py:1 c:accent h:c:accent-4 fv:oc:white fv:ow:2"
       aria-label="Copy code"
     >
-      {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
-      <span className="fs-xs">{copied ? "Copied!" : "Copy"}</span>
+      {copied ? <Check className="w:4 h:4" /> : <Copy className="w:4 h:4" />}
+      <span className="fs:xs">{copied ? "Copied!" : "Copy"}</span>
     </Button>
   );
 }
