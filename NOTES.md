@@ -2275,9 +2275,13 @@ maintenance of a package on its way out, not investment in it.
       through it, so there is one thing to document, one to validate and one
       for the generators to read. Not built yet: it lands with the Phase 10
       config-driven generators.
-- [ ] **What `@yummacss/canon` ships**, which falls out of the first two: an
-      enumerable list, or a parser. **The surface around it is settled**: see
-      Linting below. Rules are ours, the CLI and the report are a linter's.
+- [x] **What `@yummacss/canon` ships**, which falls out of the first two: an
+      enumerable list, or a parser. **Answered by the code, not by a decision.**
+      `validateClasses` calls `buildUtils(config)` and walks the tables, so it
+      already is a parser, and a list was never possible: 29,877 base classes
+      expand past 64M once variants are counted. Nothing ships differently in
+      4.0. The surface around it is settled too, see Linting below: rules are
+      ours, the CLI and the report are a linter's.
 - [ ] **Move publishing to Trusted Publishing (OIDC)**, half done. The repo
       side landed in `yummacss#27`; **the npmjs side is a web form per package,
       so eight times**, and only Renildo can do it. **The current token dies
@@ -3456,9 +3460,11 @@ config file the project already has. The `--allow` flag in particular is the
 wrong shape - an allowlist belongs next to the line it excuses, not in a CI
 argument.
 
-**Rename it when it moves.** `canon` names the concept, not the tool. `lint` or
-`linter` says what a developer runs. The rename lands with the plugin, not
-before, since the package is published and 4.0 is the cheap moment.
+**Renamed, 2026-09-16, ahead of the plugin.** Renildo's call: 4.0 is the cheap
+moment for a breaking rename, so it does not wait for 4.1. `@yummacss/canon` is
+`@yummacss/lint`, the binary is `yummacss-lint`, the docs page is `/docs/lint`,
+and the API is unchanged. `canon` still names the concept in prose, the set of
+classes Yumma recognises; it no longer names the tool.
 
 **Two rule families, and the second is the interesting one.**
 

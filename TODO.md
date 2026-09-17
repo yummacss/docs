@@ -49,8 +49,9 @@ Nothing here blocks a release, and all of it makes the next change cheaper.
 
 ## Phase 6 - After v4
 
-- [ ] **Coloured box-shadow utilities**, v4 or v4.1. Without them a
-      halo-plus-outline focus treatment cannot be written at all.
+- [ ] **Coloured box-shadow utilities**, 4.1. Renildo's call, 2026-09-16: it
+      does not gate v4. Without them a halo-plus-outline focus treatment cannot
+      be written at all.
 - [ ] **Attribute variants**, 4.1 at the earliest, and not for `data-*`.
       Renildo's call, 2026-09-16: `data-starting-style` and `data-ending-style`
       are Base UI's vocabulary, not vanilla CSS, so Yumma CSS will not grow
@@ -58,6 +59,7 @@ Nothing here blocks a release, and all of it makes the next change cheaper.
       (`[open]`, `[hidden]`, `aria-expanded`, `aria-selected`) are worth a
       variant at all. The registry's 185 lines of popup CSS stay hand-written
       and become a Yumma UI concern. See NOTES.md under Attribute variants.
+      Renildo, 2026-09-16: rarely used, not worth the work.
 - [ ] **Dark theme across every component.** Yumma CSS has handled dark since
       3.29.0, so this is a Yumma UI concern now. Not a `1.0`: see NOTES.md
       under Versioning. Mockups need a theme toggle from the start.
