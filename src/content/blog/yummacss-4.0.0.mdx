@@ -3,23 +3,23 @@ authors:
   - Renildo
 cover: /blog/yummacss-4.0.0.png
 date: 2026-09-17
-description: "Every utility is written with a colon now. One codemod, a new breakpoint & a reduced-motion variant."
+description: "New colon syntax. Layered output, codemod & more."
 title: Yumma CSS 4.0
 draft: true
 ---
 
 Every class name changes in this release. A utility now separates its property from its value the way CSS does, with a colon.
 
-## The Colon
+## Use Colon Syntax
 
-`d:f` reads as `display: flex` with the whitespace taken out. `d-f` did not read as anything.
+Here's an example of the new colon syntax:
 
 ```tsx del={1} ins={2}
 <div className="d-f jc-c ai-c"></div>
 <div className="d:f jc:c ai:c"></div>
 ```
 
-The rule is one line: `:` separates a property from its value, `-` subdivides a value. So a shade keeps its dash, because `red-5` is one value with a step, not two levels of nesting.
+Colons separate a property from its value, while the minus sign (-) divides a value. If you're using a shade like `red-5`, for example, it keeps its dash because `red-5` is one value with a step, not two levels of nesting.
 
 ```tsx "bg:gray-1" "c:blue-4"
 <div className="bg:gray-1 c:blue-4"></div>
@@ -58,7 +58,7 @@ A height, a margin under `:hover`, & a height under `:hover`. One splitter in `@
 
 ## Migrating
 
-There is no compatibility mode. 3.x class names stop working, so the codemod is not optional.
+There is no compatibility mode. 3.x class names stop working, so the codemod is NOT optional.
 
 <CodeGroup>
 ```bash title="Preview"
@@ -104,7 +104,7 @@ Where a class is simply wrong, the unknown-utility warning folds both separators
 
 ## Spelled-Out Values
 
-`none` & `auto` are never abbreviated, which two utilities did not follow. `tt-n` read as nothing at all.
+`none` & `auto` are never abbreviated, which two utilities did not follow. `tt-n` read as nothing at all. This is now amended.
 
 ```tsx del={1,3} ins={2,4}
 <p className="tt-n"></p>
@@ -117,7 +117,7 @@ Every other value on both utilities is unchanged, & the codemod rewrites these t
 
 ## Renamed to `@yummacss/lint`
 
-`@yummacss/canon` is now [`@yummacss/lint`](/docs/lint), & its binary is `yummacss-lint`. Nothing about the API changed. `canon` named the idea, the set of classes Yumma CSS recognizes; `lint` names what you actually run.
+`@yummacss/canon` is now [`@yummacss/lint`](/docs/lint), & its binary is `yummacss-lint`. Nothing about the API changed.
 
 ```bash del={1} ins={2}
 pnpm dlx @yummacss/canon
