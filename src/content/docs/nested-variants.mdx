@@ -111,14 +111,11 @@ A breakpoint is a `min-width`, so two of them describe one range with a single l
 
 ## Two Pseudo Classes
 
-Two pseudo classes compile to a selector that requires both at once, which is rarely the intent. `f:h:bg-red` produces `:focus:hover`, matching only an element that is focused *and* hovered in the same moment.
+Two pseudo classes compile to a selector that requires both at once. `f:h:bg-red` produces `:focus:hover`, matching only an element that is focused *and* hovered in the same moment.
 
-<Hint icon="warning">
-  Stacking two pseudo classes is being removed in 4.0. To style two states the
-  same way, apply a separate utility for each.
-</Hint>
+That is a different rule from styling either state, not a shorter way of writing it. Pick the one that says what you mean.
 
-```tsx ins={2} del={1}
-<button type="button" className="f:h:bg-red">Both at once</button>
-<button type="button" className="f:bg-red h:bg-red">Either one</button>
+```tsx
+<button type="button" className="f:h:bg-red">Focused and hovered</button>
+<button type="button" className="f:bg-red h:bg-red">Focused or hovered</button>
 ```

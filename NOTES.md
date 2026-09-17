@@ -2275,9 +2275,13 @@ maintenance of a package on its way out, not investment in it.
       through it, so there is one thing to document, one to validate and one
       for the generators to read. Not built yet: it lands with the Phase 10
       config-driven generators.
-- [ ] **What `@yummacss/canon` ships**, which falls out of the first two: an
-      enumerable list, or a parser. **The surface around it is settled**: see
-      Linting below. Rules are ours, the CLI and the report are a linter's.
+- [x] **What `@yummacss/canon` ships**, which falls out of the first two: an
+      enumerable list, or a parser. **Answered by the code, not by a decision.**
+      `validateClasses` calls `buildUtils(config)` and walks the tables, so it
+      already is a parser, and a list was never possible: 29,877 base classes
+      expand past 64M once variants are counted. Nothing ships differently in
+      4.0. The surface around it is settled too, see Linting below: rules are
+      ours, the CLI and the report are a linter's.
 - [ ] **Move publishing to Trusted Publishing (OIDC)**, half done. The repo
       side landed in `yummacss#27`; **the npmjs side is a web form per package,
       so eight times**, and only Renildo can do it. **The current token dies
@@ -3225,11 +3229,19 @@ user and she preferred it, and she already likes Tailwind. The lesson is not tha
 the docs are thin. It is that **the v3 dash syntax reads as a worse Tailwind
 rather than as CSS**, which is the actual argument for the colon syntax.
 
-**Nested variants: keep media + state, drop state+state. Decision #20 is
-recorded and not implemented.** Verified against the `v4` branch on 2026-09-16:
-`f:h:bg:red` still produces `.f\:h\:bg\:red:focus:hover`, and `@sm:@lg:bg:red`
-still collapses to `64rem` with no warning. `nested-variants.mdx` says it "is
-being removed in 4.0", which is a promise the branch does not yet keep.
+**Nested variants: keep both. Decision #20 is reversed.** Renildo's call,
+2026-09-16: `f:h:bg:red` next to `f:bg:red h:bg:red` reads as confusing at first
+and then as the better tool, and it is shorter. The two are not alternatives, so
+there was never a form to drop: one matches focused **and** hovered, the other
+either. `nested-variants.mdx` no longer says the stacked form is going, and it
+stops calling it "rarely the intent".
+
+Nothing to build. The generator already does this, verified on the `v4` branch
+2026-09-16: `f:h:bg:red` produces `.f\:h\:bg\:red:focus:hover`.
+
+**Still open, and the real bug that entry was carrying:** `@sm:@lg:bg:red`
+silently collapses to `64rem`. Two media queries cannot both apply, so one is
+dropped with no warning. That is a canon question, not a parser one.
 
 Originally verified against the generator: `f:h:bg-red` produces `.f\:h\:bg-red:focus:hover`, which is real but
 almost useless; `@sm:h:bg-red` ("hover styles only above 40rem") is the valuable
@@ -3403,6 +3415,36 @@ visible: one branch of the same question was answered and the others were not.
 
 ---
 
+## Attribute variants: not for `data-*`
+
+Renildo's call, 2026-09-16. **`data-starting-style` and `data-ending-style` are
+Base UI's vocabulary. They are not present in vanilla CSS, so Yumma CSS will not
+grow variants that name them.** A general-purpose CSS framework that ships
+selectors for one component library's conventions has stopped being general
+purpose.
+
+This kills the premise of the TODO entry, which was written entirely from the
+registry's needs. **Verified 2026-09-16, the mechanism was never the problem:**
+two entries in `pseudo-classes.ts` with a value of `[data-open]` produce
+`.xo\:o\:100[data-open]`, stack correctly under `@sm:` and `h:`, and pass canon,
+with no parser change at all. It was always a vocabulary question wearing a
+parser question's clothes.
+
+**So the 185 lines stay where they are.** Twelve components each carry a
+`*_MOTION` template literal, 4 lines for a popup and 8 where a backdrop fades
+too, and they are the last hand-written CSS in the registry. Yumma UI wraps Base
+UI, so Yumma UI carrying Base-UI-shaped CSS is the right place for it. Yumma CSS
+carrying it is not.
+
+**What is actually left to decide, and it is not a 4.0 question:** whether
+standard attributes earn a variant. `[open]`, `[hidden]`, `aria-expanded`,
+`aria-selected`, `aria-current`, `aria-pressed` and `aria-invalid` are HTML and
+W3C, present in vanilla CSS, and nothing to do with any library. The four that
+overlap a pseudo class Yumma already has (`:disabled`, `:checked`, `:required`,
+`:read-only`) are not candidates. This is a 4.1 question at the earliest.
+
+---
+
 ## Linting: hand the reporting to a real linter
 
 Renildo's call, 2026-09-16, prompted by `https://github.com/shadcn-ui/lint`.
@@ -3418,9 +3460,11 @@ config file the project already has. The `--allow` flag in particular is the
 wrong shape - an allowlist belongs next to the line it excuses, not in a CI
 argument.
 
-**Rename it when it moves.** `canon` names the concept, not the tool. `lint` or
-`linter` says what a developer runs. The rename lands with the plugin, not
-before, since the package is published and 4.0 is the cheap moment.
+**Renamed, 2026-09-16, ahead of the plugin.** Renildo's call: 4.0 is the cheap
+moment for a breaking rename, so it does not wait for 4.1. `@yummacss/canon` is
+`@yummacss/lint`, the binary is `yummacss-lint`, the docs page is `/docs/lint`,
+and the API is unchanged. `canon` still names the concept in prose, the set of
+classes Yumma recognises; it no longer names the tool.
 
 **Two rule families, and the second is the interesting one.**
 
