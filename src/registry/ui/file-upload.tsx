@@ -100,8 +100,6 @@ export default function FileUploadBase({
     onFilesChange?.(next);
   };
 
-  // Name, size and date together, which is also the row's key: picking the
-  // same file twice listed it twice and React warned about the duplicate.
   const identity = (file: File) =>
     `${file.name}:${file.size}:${file.lastModified}`;
 
