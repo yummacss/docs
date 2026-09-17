@@ -68,7 +68,7 @@
     "@types/react-dom": "^19.2.4",
     "@types/three": "^0.185.4",
     "@types/tinycolor2": "^1.4.6",
-    "@yummacss/canon": "^3.31.1",
+    "@yummacss/lint": "^3.31.1",
     "@yummacss/postcss": "^3.31.1",
     "remark-code-preview": "^1.2.6",
     "sort-package-json": "^4.0.0",
