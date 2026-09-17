@@ -53,10 +53,6 @@ const docsRedirects = [
     destination: "/docs/grid-template-rows",
     permanent: true,
   },
-  // These two were duplicate pages, not a separate utility: each rendered the
-  // same `<Reference name="grid-column" />` its parent already had. `gc-s` and
-  // `gr-s` are current and generate `span N / span N`, so the span concept *is*
-  // `grid-column` - there was never anything on the span page to keep.
   {
     source: "/docs/grid-column-span",
     destination: "/docs/grid-column",
@@ -217,7 +213,6 @@ const uiRedirects = [
   })),
 ];
 
-// Collapsible was removed: a single-item Accordion is the same control.
 const removedComponents = [
   {
     source: "/ui/components/collapsible",
