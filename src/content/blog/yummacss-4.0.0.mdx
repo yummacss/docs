@@ -2,252 +2,131 @@
 authors:
   - Renildo
 cover: /blog/yummacss-4.0.0.png
-date: 2026-08-01
-description: "New colon syntax. Layered output, container queries & more."
-draft: true
+date: 2026-09-17
+description: "Every utility is written with a colon now. One codemod, a new breakpoint & a reduced-motion variant."
 title: Yumma CSS 4.0
 ---
 
-DRAFT - `draft: true` above keeps this out of the blog listing, the RSS
-feed, the sitemap, & the production route. It renders at
-/blog/yummacss-4.0.0 in `next dev` only. Delete the flag to publish.
+Every class name changes in this release. A utility now separates its property from its value the way CSS does, with a colon.
 
-This file holds the MASTER decision log for both releases. The dark-mode
-work moved to 3.29 (see yummacss-3.29.0.mdx) because none of it is
-breaking; 4.0 is now purely the syntax change & the cascade change.
+## The Colon
 
-Protocol:
-
-- A decision is made -> add it to the Decision Log below.
-- The feature ships -> flip its status, write the real prose section,
-  & add the CHANGELOG.md entry in the monorepo.
-- The date above is a schema requirement, not a release date.
-
-DESIGN DECISIONS ONLY. Backlog, blockers, session logs & anything else
-operational belong in NOTES.md at the repo root, which is gitignored. This
-file becomes a published post; that one never does.
-
-## Decision Log
-
-Master index for 3.29 & 4.0.
-
-| #   | Decision                                                    | Ships in | Status              |
-| --- | ----------------------------------------------------------- | -------- | ------------------- |
-| 1   | Colon syntax - `d-f` becomes `d:f`                          | 4.0      | Decided             |
-| 2   | Negative values - `m--4` becomes `m:-4`                     | 4.0      | Decided             |
-| 3   | Scale steps stay on dashes - `bg:gray-1`                    | 4.0      | Decided             |
-| 4   | Variants stay prefixed - `h:c-blue`                         | 4.0      | Decided             |
-| 5   | `:disabled` prefix `d` renamed to `di`                      | 4.0      | Decided             |
-| 6   | Dark mode via `light-dark()` + paired theme colors          | 3.29     | **Shipped**         |
-| 6b  | Built-in semantic token vocabulary                          | -        | _Rejected_          |
-| 7   | `@d:` dark escape-hatch variant                             | -        | **Deferred**        |
-| 8   | Opacity moves from hex-alpha to `color-mix()`               | 3.29     | **Shipped**         |
-| 9   | Output wrapped in `@layer`                                  | 4.0      | Decided             |
-| 10  | Container queries, without `container-name`                 | 4.0      | Decided             |
-| 11  | `fr` variant for `gtc` / `gtr`                              | -        | **Dropped**         |
-| 12  | Codemod - `pnpm dlx yummacss migrate`                            | 4.0      | Decided - required  |
-| 13  | Live config reload in dev                                   | 3.26     | **Already shipped** |
-| 14  | Unknown-utility warnings suggesting the v4 spelling         | 4.0      | Decided             |
-| 15  | v3/v4 compat mode for one release                           | -        | _Rejected_          |
-| 16  | Generate shades in OKLCH instead of sRGB                    | 4.0      | Decided             |
-| 17  | Renumber the shade scale to 50/100/200                      | -        | _Rejected_          |
-| 18  | `color-scheme` utility - `cs-l` / `cs-d` / `cs-ld`          | 3.29     | **Shipped**         |
-| 19  | Hover fixes - negative values, `::`, opacity suffix         | 3.29     | **Shipped**         |
-| 20  | Drop pseudo-class stacking (`f:h:`), keep every other stack | 4.0      | Decided             |
-| 21  | Warn on stacked media queries (`@sm:@lg:`)                  | 4.0      | Decided             |
-| 22  | `tt-n` becomes `tt:none`, `tl-a` becomes `tl:auto`          | 4.0      | Decided             |
-| 23  | Custom fonts in `theme.fonts`                               | 4.0      | Decided             |
-| 24  | Only properties that take a negative may be negated         | 4.0      | Decided             |
-
-### Why the Colon, in One Place
-
-The point of 4.0 is to close the distance to vanilla CSS. `d:f` reads as
-`display: flex` with the whitespace removed; `d-f` does not read as anything.
-The colon is the separator CSS already uses, so the notation stops looking
-borrowed from anywhere and starts looking like what it is.
-
-The scope is deliberately narrow. Only the property/value separator changes:
-
-- `d-f` -> `d:f`, `ta-c` -> `ta:c`
-- `bg-red-1` -> `bg:red-1`. **Shades keep the dash.** `bg:red:1` reads as three
-  levels of nesting when it is really one value with a step.
-- `h:bg-white` stays exactly as it is. Variants remain a prefix, because
-  `bg-white:h` puts the condition after the thing it conditions.
-- Naming is always the full package name: `pnpm dlx yummacss migrate`, matching the
-  npm name & the URL. Never `pnpm dlx yumma`.
-
-Container queries (#10) ship in **4.0**, not a later minor. They change how
-media queries compile, so holding them for 4.1 would mean a second breaking
-release weeks after the first.
-
-### Resolved
-
-- **#7 deferred.** `@` means "compiles to an `@media` wrapper" (`@sm`, `@pc`).
-  That is only honest if the variant compiles to
-  `@media (prefers-color-scheme: dark)`, but the useful behavior is
-  following a manual toggle, which is a selector, not an at-rule. Since the
-  token layer already handles both OS preference & manual toggle via
-  `color-scheme`, the escape hatch is not needed yet. Design it when a real
-  case appears; that case will also settle the notation.
-- **#11 dropped.** `gtc-1` … `gtc-16` already generate
-  `repeat(N, minmax(0, 1fr))`, & `gtc-s` / `gtr-s` already generate
-  `subgrid`. A `fr` variant would differ from `gtc-1` only in `1fr` vs
-  `minmax(0, 1fr)`, a real difference in shrink behavior, but two
-  near-identical classes is a footgun & `minmax(0, 1fr)` is usually wanted.
-- **#15 rejected.** Clean break, no dual-syntax parser. The user base is one
-  person who will be migrated by hand. The codemod (#12) is still required.
-- **`subtle` token contrast.** Measured against the real gray scale, no single
-  value passes AA in both schemes: `gray-6` is 3.66 on white, `gray` is 3.88
-  on `gray-12`. Resolved by making it a pair like every other token -
-  `light-dark(gray, gray-6)` gives 4.83 light / 5.13 dark, both passing, & it
-  still sits below `muted` (6.13 / 6.56) in the hierarchy.
-
-- **#6b rejected.** No built-in `page` / `surface` / `fg` vocabulary. Dark mode
-  is opt-in per color: every utility color applies in both schemes as it always
-  has, & a user who wants a specific color to differ in dark mode defines it as
-  a pair. Shipping 11 opinionated names would claim namespace & impose a design
-  system on people who only wanted one color to change. The token table from
-  the earlier draft is still a sound recipe. It belongs in the docs as an
-  example, not in core.
-- **#13 needs no work.** Verified against a running `next dev`: editing
-  `yumma.config.mjs` propagates to the served CSS in roughly ten seconds with
-  no source file touched & no restart. `loadConfig` busts the ESM import cache
-  with the file's mtime, & the PostCSS plugin registers the config path as a
-  `dependency` message, so Turbopack watches it. Both landed in 3.26.
-
-  Debugging note: dev CSS is minified, so `#ff00ff` is served as `#f0f`. Use a
-  color that cannot be shortened to three digits when grepping generated
-  output, or the change looks like it never happened.
-
-- **#16 OKLCH, deferred to 4.0.** Shades are mixed toward white & black in
-  sRGB. Hue holds up well, under 10 degrees of drift across every default hue, but
-  lightness spacing collapses on light-native hues. Measured spread
-  between the largest & smallest step: blue 23%, red 103%, magenta 160%,
-  cyan 226%, lime 261%, **yellow 460%**. So `yellow-1` through `yellow-6` are
-  nearly indistinguishable while the dark end plummets. OKLCH fixes this, but
-  it changes every generated color value, which is major-only. `tinycolor2`
-  cannot parse `oklch()` or `lch()` at all, so it also needs a new color
-  library or hand-rolled matrices. Shade generation is now isolated inside
-  `generateShades` so the swap stays contained.
-- **#20 decided: drop pseudo-class stacking, keep everything else.** Measured
-  against the generator rather than argued from taste. Every stack compiles
-  correctly today & order in the chain is irrelevant, since each prefix is
-  resolved by what it is: `@sm:h:bg-red` & `h:@sm:bg-red` produce the same rule.
-  The combinations worth keeping all pair _different kinds_ of condition -
-  `@sm:h:` (media + state), `h:s::` (state + pseudo element), `@sm:s::`, & any
-  of those plus an opacity suffix. Two pseudo classes are the one case that
-  pairs a kind with itself, and it compiles to a both-at-once selector:
-  `f:h:bg-red` is `:focus:hover`, matching only an element focused **and**
-  hovered simultaneously. Nobody wants that; they want either state to trigger,
-  which is two utilities.
-
-  Dropping it is free. A scan of every real corpus - `docs/src`, the 450-file
-  registry, `play/src` - found **zero** uses, there are **no tests** covering
-  it, and it appears in no documentation. So there is nothing to migrate, no
-  test to delete, and no codemod case to write. It removes parser surface at
-  genuinely zero cost.
-
-  Removal is 4.0 only. It is unused & undocumented, but stripping it from the v3
-  parser would still be a breaking change shipped in a patch.
-
-- **#22 decided.** [Naming Convention](/docs/naming-convention) already tells
-  readers that `none` & `auto` are never abbreviated, and names these two as
-  the exceptions that change in 4.0. The rule was on the site before it was in
-  this table, so this row records what the page already promises. `tt-n` reads
-  as nothing at all, & the codemod rewrites both.
-- **#23 decided: `theme.fonts`.** `theme` takes `colors` & `screens`, so a
-  project's palette & breakpoints are first-class, but there is no font entry.
-  That is why the docs site defines `.ff-e` as hand-written CSS in
-  `globals.css` rather than configuring Esteban: the class works, it is simply
-  not a generated one, so canon reports it & every consumer has to allowlist
-  it.
-
-  A record keyed the way `colors` is, where the key becomes the value after
-  the colon:
-
-  ```js title="yumma.config.mjs"
-  export default defineConfig({
-    theme: {
-      fonts: {
-        e: ["Esteban", "serif"],
-        m: ["iA Writer Quattro", "sans-serif"],
-      },
-    },
-  });
-  ```
-
-  Each key generates `ff:<key>`, so `ff:e` becomes
-  `font-family: "Esteban", serif`. An array is the stack in order & a string
-  is a one-entry stack. Keys replace the defaults they collide with rather
-  than merging, which is what `colors` already does.
-
-  No shade-equivalent behavior: a font has no scale to derive, so unlike a
-  color it generates exactly one utility per key.
-
-  The migration is the acceptance test. `.ff-e` comes out of `globals.css` &
-  goes into the config, and if the docs site cannot drop that rule the feature
-  is not finished. Two places have to learn the entry at the same time: the
-  codemod, or `ff-e` is skipped during the rewrite, and canon, or it reports
-  the class the config just legitimized.
-
-- **#21 decided: warn.** Two stacked media queries silently lose all but the
-  last. `@sm:@lg:bg-red` compiles to `@media (min-width: 64rem)` with `@sm`
-  discarded & no warning. It is arguably reasonable, since two `min-width` bounds describe one range,
-  but the silence is the problem, since the class name says
-  something the CSS does not do. Natural home is the #14 unknown-utility warning
-  work, and canon should probably flag it too. Documented as a footgun in
-  [Nested Variants](/docs/nested-variants) in the meantime.
-- **#17 rejected.** Renaming shades to 50/100/200 imports the identity 4.0
-  exists to move away from, breaks every class name, grows the codemod, &
-  renders nothing differently. The current 1-12 scale with an unnumbered base
-  at the midpoint is monotonic & works.
-
----
-
-## Post Draft
-
-Everything below is prose for the published post. Sections stay commented out
-until the feature actually ships.
-
-## What's New in v4.0
-
-v4.0 changes how every utility is written. `-` becomes `:` between a property &
-its value, which makes the class a compressed form of the declaration it
-generates.
+`d:f` reads as `display: flex` with the whitespace taken out. `d-f` did not read as anything.
 
 ```tsx del={1} ins={2}
 <div className="d-f jc-c ai-c"></div>
 <div className="d:f jc:c ai:c"></div>
 ```
 
-The rule is one line: `:` separates property from value, `-` subdivides a value.
+The rule is one line: `:` separates a property from its value, `-` subdivides a value. So a shade keeps its dash, because `red-5` is one value with a step, not two levels of nesting.
 
-```tsx
+```tsx "bg:gray-1" "c:blue-4"
 <div className="bg:gray-1 c:blue-4"></div>
 ```
 
-Negative values stop being a special case. `m--4` was a parser artifact leaking
-into the API: `m:-4` is the declaration with the whitespace removed.
+Variants keep their prefix position, so a condition still reads before the thing it conditions & `h:` stays greppable.
+
+```tsx "@sm:h:bg:gray-1"
+<div className="@sm:h:bg:gray-1"></div>
+```
+
+## Negative Values
+
+`m--4` was a parser artifact leaking into the API. The double dash meant nothing to a reader; it was there so the parser could tell a sign from a separator.
 
 ```tsx del={1} ins={2}
 <div className="m--4"></div>
 <div className="m:-4"></div>
 ```
 
-Variants keep their prefix position. `h:bg:gray-1` groups & sorts predictably,
-& `h:` stays greppable.
+A negative is also refused where the property cannot take one. `m:-4` is a margin, `w:-1` is not a class.
 
-- TODO(ship #12): migration section: pnpm dlx yumma migrate, what it rewrites,
-what it cannot rewrite (dynamically constructed class strings). There is
-no compat mode: 3.x syntax stops working in 4.0.
+## When a Variant & a Utility Share a Prefix
 
-- TODO(ship #9): @layer section: user CSS outside the layer wins without
-!important. Note this changes cascade behavior for existing overrides,
-which is why it lands in a major.
+Giving both the same separator makes ten variant prefixes collide with a utility prefix. `h:` is `:hover`, & it is also `height`.
 
-- TODO(ship #10): container queries. container-type & unnamed @container
-queries on the existing breakpoint scale; container-name is excluded
-because names are irreducibly arbitrary.
+A variant is peeled only when what remains is not itself a utility, so all three of these read the way you would expect.
 
-Check the [changelog](https://github.com/yummacss/yummacss/blob/main/CHANGELOG.md)
-for the full list of changes.
+```tsx "h:4" "h:m:4" "h:h:4"
+<div className="h:4"></div>
+<div className="h:m:4"></div>
+<div className="h:h:4"></div>
+```
+
+A height, a margin under `:hover`, & a height under `:hover`. One splitter in `@yummacss/core` decides this, & every package that reads a class name reads that splitter.
+
+## Migrating
+
+There is no compatibility mode. 3.x class names stop working, so the codemod is not optional.
+
+<CodeGroup>
+```bash title="Preview"
+pnpm dlx yummacss migrate --dry-run
+```
+
+```bash title="Rewrite"
+pnpm dlx yummacss migrate
+```
+</CodeGroup>
+
+It reads your `yumma.config.mjs`, so custom colors, custom breakpoints & a configured `prefix` all migrate with everything else. What it cannot rewrite is a class built at runtime, so it names every one it left alone & why.
+
+```bash
+Scanned 345 files and rewrote 3081 classes in 111 files.
+
+Left alone (2):
+ "bg-${tone}-5" - built at runtime
+ "docs-card" - not a known utility
+```
+
+Those are yours. A class assembled from a variable was never visible to the scanner either, so if it rendered before, it was in your `safelist`, & the safelist entry needs the same rewrite.
+
+Where a class is simply wrong, the unknown-utility warning folds both separators before it measures distance, so a class typed the old way still gets its new answer.
+
+```bash
+"gap-4" - did you mean "g:4"?
+```
+
+## New Variants
+
+`@xs:` is a breakpoint at 32rem. Every t-shirt width alias now names a query that exists, rather than starting at `@sm:` with nothing below it.
+
+```tsx "@xs:d:f"
+<div className="d:b @xs:d:f"></div>
+```
+
+`@prm:` applies a utility under `prefers-reduced-motion`, so an animation is switched off in a class rather than in a stylesheet sitting beside it.
+
+```tsx "@prm:tp:none"
+<div className="tp:c tdu:200 @prm:tp:none"></div>
+```
+
+## Spelled-Out Values
+
+`none` & `auto` are never abbreviated, which two utilities did not follow. `tt-n` read as nothing at all.
+
+```tsx del={1,3} ins={2,4}
+<p className="tt-n"></p>
+<p className="tt:none"></p>
+<table className="tl-a"></table>
+<table className="tl:auto"></table>
+```
+
+Every other value on both utilities is unchanged, & the codemod rewrites these two.
+
+## Renamed to `@yummacss/lint`
+
+`@yummacss/canon` is now [`@yummacss/lint`](/docs/lint), & its binary is `yummacss-lint`. Nothing about the API changed. `canon` named the idea, the set of classes Yumma CSS recognizes; `lint` names what you actually run.
+
+```bash del={1} ins={2}
+pnpm dlx @yummacss/canon
+pnpm dlx @yummacss/lint
+```
+
+## Smaller Changes
+
+`tp:c` now transitions `outline-color` along with the other colors, so a focus outline fades with the rest of the treatment.
+
+`merge` reads the new syntax. It split the variant at the last colon & cut the prefix at a dash, which made it a no-op on every 4.0 class.
+
+The full list is in the [changelog](https://github.com/yummacss/yummacss/blob/main/CHANGELOG.md).
