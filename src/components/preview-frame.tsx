@@ -138,6 +138,7 @@ export default function PreviewFrame({
     return () => element.removeEventListener("load", attach);
   }, [near, fill]);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: `body` is the remount signal, not a value read
   useEffect(() => {
     const style = frame.current?.contentDocument?.getElementById("accent");
     if (style) style.textContent = accentCss;
