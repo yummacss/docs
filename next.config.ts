@@ -3,7 +3,6 @@ import { withContentCollections } from "@content-collections/next";
 import createMDX from "@next/mdx";
 import { redirects } from "./redirects";
 
-/** @type {import('next').NextConfig} */
 const nextConfig = {
   allowedDevOrigins: ["192.168.1.68"],
   reactStrictMode: true,
