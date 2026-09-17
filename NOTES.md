@@ -3445,6 +3445,42 @@ overlap a pseudo class Yumma already has (`:disabled`, `:checked`, `:required`,
 
 ---
 
+## Doc comments are API, and the strip took them
+
+Renildo wants them back on the config and on Yumma UI, after 4.0. **They were
+there.** `chore: remove code comments` (`92e8557`) took 66 lines off
+`packages/nitro/src/config/schema.ts`, 36 off canon's `index.ts`, 18 off vite,
+5 off core, and shrank postcss. The blank line between every field of the
+`Config` interface is where each one used to sit.
+
+**Verified 2026-09-17: `@yummacss/nitro`'s shipped `index.d.mts` has zero doc
+comments.** So hovering `source` in a `yumma.config.mjs` shows
+`string[] | undefined` and nothing else, where it used to show what the field
+is for, an `@example` and a `@default`.
+
+**The rule that was missing, and the reason to write it down:** a comment in
+implementation code explains the code to whoever maintains it. A doc comment on
+an exported type is not that. It is copied into the emitted `.d.ts` and shipped,
+so it is part of the published interface, and deleting it removes a feature
+rather than tidying a file. The no-comments rule was meant for the first kind
+and was applied to both.
+
+**Nothing has replaced it.** Zed, VS Code and Cursor all read hover text through
+the same TypeScript language server, which reads it out of the `.d.ts`, which
+gets it from the doc comment above the declaration. There is no newer mechanism
+to reach for, and `defineConfig` already carries the types themselves, so prose
+is the only part missing.
+
+**Two surfaces, and the second never had any.** The monorepo's is a restore:
+`Config`, `defineConfig`, and what each package exports. Yumma UI's is new work:
+`ButtonProps` declares six props and says nothing about any of them, and the
+same holds across the registry, which is the case Renildo describes as writing
+without knowing what A, B or C do.
+
+Additive and non-breaking either way, so it does not gate 4.0 and fits a 4.0.1.
+
+---
+
 ## Linting: hand the reporting to a real linter
 
 Renildo's call, 2026-09-16, prompted by `https://github.com/shadcn-ui/lint`.
