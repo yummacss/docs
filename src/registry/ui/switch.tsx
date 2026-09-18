@@ -9,7 +9,7 @@ import { merge } from "yummacss/merge";
 type Size = "sm" | "md" | "lg";
 type Shape = "rounded" | "square" | "squircle";
 
-const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:silver-3/60 fv:bc:silver-5";
 
 interface SizeSpec {
   track: string;
@@ -19,15 +19,15 @@ interface SizeSpec {
 }
 
 const SIZES: Record<Size, SizeSpec> = {
-  sm: { track: "h-4 w-7", thumb: "w-3 h-2", travel: 8, travelClass: "ml-2" },
-  md: { track: "h-5 w-9", thumb: "w-4 h-3", travel: 12, travelClass: "ml-3" },
-  lg: { track: "h-6 w-11", thumb: "w-5 h-4", travel: 16, travelClass: "ml-4" },
+  sm: { track: "h:4 w:7", thumb: "w:3 h:2", travel: 8, travelClass: "ml:2" },
+  md: { track: "h:5 w:9", thumb: "w:4 h:3", travel: 12, travelClass: "ml:3" },
+  lg: { track: "h:6 w:11", thumb: "w:5 h:4", travel: 16, travelClass: "ml:4" },
 };
 
 const SHAPES: Record<Shape, string> = {
-  rounded: "br-9999",
+  rounded: "br:9999",
   square: "",
-  squircle: "br-xxl cs-s",
+  squircle: "br:xxl cs:s",
 };
 
 export interface SwitchProps {
@@ -77,20 +77,20 @@ export default function SwitchBase({
 
   const trackClasses = merge(
     outline,
-    "p-r d-f ai-c m-0 px-1 tp-c tdu-150 ttf-io",
+    "p:r d:f ai:c m:0 px:1 tp:c tdu:150 ttf:io",
     track,
     SHAPES[shape],
     disabled
-      ? "bw-1 bc-silver-2 bg-silver-1"
+      ? "bw:1 bc:silver-2 bg:silver-1"
       : checked
-        ? "bg-slate-12"
-        : "bg-silver-1",
+        ? "bg:slate-12"
+        : "bg:silver-1",
     disabled ? "" : "c-p",
     className,
   );
 
   const thumbClasses = [
-    disabled ? "bg-silver-3" : "bg-white",
+    disabled ? "bg:silver-3" : "bg:white",
     thumb,
     SHAPES[shape],
   ]
@@ -127,7 +127,7 @@ export default function SwitchBase({
             className={
               animated
                 ? thumbClasses
-                : `${thumbClasses} ${checked ? travelClass : "ml-0"}`
+                : `${thumbClasses} ${checked ? travelClass : "ml:0"}`
             }
           />
         </Switch.Root>

@@ -55,7 +55,7 @@
     "tinycolor2": "^1.6.0",
     "unist-util-visit": "^5.1.0",
     "web-features": "^3.38.0",
-    "yummacss": "^3.31.1"
+    "yummacss": "^4.0.0"
   },
   "devDependencies": {
     "@biomejs/biome": "2.5.14",
@@ -69,7 +69,7 @@
     "@types/three": "^0.186.0",
     "@types/tinycolor2": "^1.4.6",
     "@yummacss/lint": "^4.0.0",
-    "@yummacss/postcss": "^3.31.1",
+    "@yummacss/postcss": "^4.0.0",
     "remark-code-preview": "^1.2.6",
     "sort-package-json": "^4.0.0",
     "tsx": "^4.23.13",

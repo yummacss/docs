@@ -9,7 +9,7 @@ type Tone = "light" | "dark" | "danger";
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 
-const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:silver-3/60 fv:bc:silver-5";
 
 const TOOLTIP_MOTION = `
   .yui-tooltip-pop {
@@ -26,34 +26,34 @@ const TOOLTIP_MOTION = `
 `;
 
 const SHAPES: Record<Shape, string> = {
-  rounded: "br-lg",
+  rounded: "br:lg",
   square: "",
-  squircle: "br-3xl cs-s",
+  squircle: "br:3xl cs:s",
 };
 
 const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
-  inset: "bs-i-md",
-  outset: "bs-o-sm",
+  inset: "bs-i:md",
+  outset: "bs-o:sm",
 };
 
 const TONES: Record<Tone, string> = {
-  light: "bg-white bc-silver-2 c-slate-10 bw-1",
-  dark: "bg-slate-12 c-white",
-  danger: "bg-red-7 c-white",
+  light: "bg:white bc:silver-2 c:slate-10 bw:1",
+  dark: "bg:slate-12 c:white",
+  danger: "bg:red-7 c:white",
 };
 
-const DANGER_OUTLINE = "fv:oc-red-2/60 fv:bc-red-3";
+const DANGER_OUTLINE = "fv:oc:red-2/60 fv:bc:red-3";
 
 const TRIGGER_TONES: Record<Tone, string> = {
-  light: "c-slate-8 h:c-slate-10",
-  dark: "c-slate-8 h:c-slate-10",
-  danger: "c-red-7 h:c-red-8",
+  light: "c:slate-8 h:c:slate-10",
+  dark: "c:slate-8 h:c:slate-10",
+  danger: "c:red-7 h:c:red-8",
 };
 
 const ARROW_TONES: Record<Tone, string> = {
-  light: "f-white s-silver-2",
-  dark: "f-slate-12 s-slate-12",
-  danger: "f-red-7 s-red-7",
+  light: "f:white s:silver-2",
+  dark: "f:slate-12 s:slate-12",
+  danger: "f:red-7 s:red-7",
 };
 
 const ARROW_PLACEMENT: Record<string, CSSProperties> = {
@@ -108,17 +108,17 @@ export default function TooltipBase({
 
   const triggerClasses = merge(
     outline,
-    "d-f ai-c jc-c bg-transparent bw-0 c-p",
+    "d:f ai:c jc:c bg:transparent bw:0 c:p",
     TRIGGER_TONES[tone],
     className,
   );
 
   const popupClasses = [
-    "px-3 py-2 fs-sm us-none",
+    "px:3 py:2 fs:sm us:none",
     TONES[tone],
     SHAPES[shape],
     shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "",
-    arrow ? "p-r" : "",
+    arrow ? "p:r" : "",
   ]
     .filter(Boolean)
     .join(" ");

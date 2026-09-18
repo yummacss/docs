@@ -7,25 +7,25 @@ type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 
 const BADGE_SHAPES: Record<Shape, string> = {
-  rounded: "br-lg",
+  rounded: "br:lg",
   square: "",
-  squircle: "br-xxl cs-s",
+  squircle: "br:xxl cs:s",
 };
 
 const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
-  inset: "bs-i-3xl",
-  outset: "bs-o-sm",
+  inset: "bs-i:3xl",
+  outset: "bs-o:sm",
 };
 
 const ICON_TONES: Record<IconTone, string> = {
-  accent: "c-slate-12",
-  neutral: "c-slate-5",
+  accent: "c:slate-12",
+  neutral: "c:slate-5",
 };
 
-const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:silver-3/60 fv:bc:silver-5";
 
 const BUTTON_BASE =
-  "d-if ai-c px-3 py-2 bw-1 fw-500 tp-c tdu-150 ttf-io us-none c-p";
+  "d:if ai:c px:3 py:2 bw:1 fw:500 tp:c tdu:150 ttf:io us:none c:p";
 
 export interface EmptyStateProps {
   icon?: ReactNode;
@@ -63,18 +63,18 @@ export default function EmptyStateBase({
   const isCard = shadow !== "none";
   const hasActions = Boolean(primaryLabel || secondaryLabel);
 
-  const gap = icon || hasActions ? "g-4" : "g-1";
+  const gap = icon || hasActions ? "g:4" : "g:1";
 
   const rootClasses = merge(
-    "d-f fd-c ai-c jc-c p-8",
+    "d:f fd:c ai:c jc:c p:8",
     gap,
-    isCard ? "bg-white bc-silver-2 bw-1" : "",
+    isCard ? "bg:white bc:silver-2 bw:1" : "",
     shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "",
     className,
   );
 
   const badgeClasses = [
-    "d-f ai-c jc-c w-10 h-10 bg-white bc-silver-3 bw-1",
+    "d:f ai:c jc:c w:10 h:10 bg:white bc:silver-3 bw:1",
     ICON_TONES[iconTone],
     BADGE_SHAPES[iconShape],
   ]
@@ -98,7 +98,7 @@ export default function EmptyStateBase({
               className={merge(
                 outline,
                 BUTTON_BASE,
-                "bg-white bc-silver-2 c-slate-10 h:bg-silver-1/50",
+                "bg:white bc:silver-2 c:slate-10 h:bg:silver-1/50",
               )}
             >
               {secondaryLabel}
@@ -110,7 +110,7 @@ export default function EmptyStateBase({
               className={merge(
                 outline,
                 BUTTON_BASE,
-                "g-2 bg-slate-12 h:bg-slate-11 bc-slate-12 c-white",
+                "g:2 bg:slate-12 h:bg:slate-11 bc:slate-12 c:white",
               )}
             >
               {primaryIcon}

@@ -16,7 +16,7 @@ interface Props {
   data: Entry[];
 }
 
-const ICON = "fs-0 w-4 h-4";
+const ICON = "fs:0 w:4 h:4";
 
 function Label({ entry, isFolder }: { entry: Entry; isFolder: boolean }) {
   return (
@@ -36,7 +36,7 @@ function Node({ entry }: { entry: Entry }) {
 
   const [open, setOpen] = useState(!entry.collapsed);
   const isFolder = entry.folder || hasChildren;
-  const tone = entry.highlight ? "c-accent" : "c-white/80";
+  const tone = entry.highlight ? "c:accent" : "c:white/80";
 
   if (!hasChildren) {
     return (

@@ -12,18 +12,18 @@ type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 type IconPosition = "leading" | "trailing";
 
-const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:silver-3/60 fv:bc:silver-5";
 
 const POPUP_SHAPES: Record<Shape, string> = {
-  rounded: "br-xxl",
+  rounded: "br:xxl",
   square: "",
-  squircle: "br-3xl cs-s",
+  squircle: "br:3xl cs:s",
 };
 
 const ITEM_SHAPES: Record<Shape, string> = {
-  rounded: "br-lg",
+  rounded: "br:lg",
   square: "",
-  squircle: "br-xxl cs-s",
+  squircle: "br:xxl cs:s",
 };
 
 const PALETTE_MOTION = `
@@ -49,8 +49,8 @@ const PALETTE_MOTION = `
 `;
 
 const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
-  inset: "bs-i-3xl",
-  outset: "bs-o-sm",
+  inset: "bs-i:3xl",
+  outset: "bs-o:sm",
 };
 
 export interface CommandItem {
@@ -100,13 +100,13 @@ export default function CommandPaletteBase({
 
   const triggerClasses = merge(
     outline,
-    "bg-white d-f ai-c g-2 px-3 py-2 bc-silver-2 c-slate-10 bw-1 fw-500 tp-c tdu-150 ttf-io us-none",
+    "bg:white d:f ai:c g:2 px:3 py:2 bc:silver-2 c:slate-10 bw:1 fw:500 tp:c tdu:150 ttf:io us:none",
     ITEM_SHAPES[shape],
     className,
   );
 
   const popupClasses = [
-    "o-h w-96 bg-white bc-silver-2 c-slate-10 bw-1",
+    "o:h w:96 bg:white bc:silver-2 c:slate-10 bw:1",
     POPUP_SHAPES[shape],
     shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "",
   ]
@@ -115,10 +115,10 @@ export default function CommandPaletteBase({
 
   const itemClasses = (spread: boolean) => (state: { highlighted: boolean }) =>
     [
-      "d-f ai-c g-2 py-2 px-2 mx-2 fs-sm us-none c-p",
-      spread ? "jc-sb" : "",
+      "d:f ai:c g:2 py:2 px:2 mx:2 fs:sm us:none c:p",
+      spread ? "jc:sb" : "",
       ITEM_SHAPES[shape],
-      state.highlighted ? "bg-silver-2/50" : "bg-transparent",
+      state.highlighted ? "bg:silver-2/50" : "bg:transparent",
     ]
       .filter(Boolean)
       .join(" ");

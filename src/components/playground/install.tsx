@@ -40,8 +40,8 @@ export default function Install({ id }: { id: string }) {
           key={manager}
           onClick={() => copy(manager)}
           className={(state) =>
-            `d-f ai-c g-2 px-2 py-1 ff-m fs-xs c-p us-none ${
-              state.highlighted ? "bg-border c-accent" : "c-accent-dim"
+            `d:f ai:c g:2 px:2 py:1 ff:m fs:xs c:p us:none ${
+              state.highlighted ? "bg:border c:accent" : "c:accent-dim"
             }`
           }
         >

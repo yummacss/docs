@@ -7,9 +7,9 @@ type Overlap = "none" | "sm" | "md" | "lg";
 
 const OVERLAPS: Record<Overlap, string> = {
   none: "",
-  sm: "ml--1",
-  md: "ml--2",
-  lg: "ml--3",
+  sm: "ml:-1",
+  md: "ml:-2",
+  lg: "ml:-3",
 };
 
 export interface AvatarStackProps {
@@ -32,7 +32,7 @@ export default function AvatarStack({
   const hidden = items.length - shown.length;
 
   return (
-    <div className={merge("d-f ai-c", className)}>
+    <div className={merge("d:f ai:c", className)}>
       {shown.map((child, index) => (
         // biome-ignore lint/suspicious/noArrayIndexKey: position is the identity here
         <span key={index} className={index > 0 ? OVERLAPS[overlap] : undefined}>

@@ -5,18 +5,18 @@ import { merge } from "yummacss/merge";
 type Shadow = "none" | "inset" | "outset";
 
 const INTENTS = {
-  neutral: "bg-slate",
-  info: "bg-blue",
-  success: "bg-green",
-  warning: "bg-yellow",
-  danger: "bg-red",
+  neutral: "bg:slate",
+  info: "bg:blue",
+  success: "bg:green",
+  warning: "bg:yellow",
+  danger: "bg:red",
 } satisfies Record<string, string>;
 
 type Intent = keyof typeof INTENTS;
 
 const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
-  inset: "bs-i-3xl",
-  outset: "bs-o-sm",
+  inset: "bs-i:3xl",
+  outset: "bs-o:sm",
 };
 
 export interface MeterProps {
@@ -48,17 +48,17 @@ export default function MeterBase({
   const hasHeader = Boolean(icon);
 
   const rootClasses = merge(
-    "d-f fd-c w-64",
-    hasHeader ? "g-3" : "g-2",
-    isCard ? "p-4 bg-white bc-silver-2 bw-1" : "",
+    "d:f fd:c w:64",
+    hasHeader ? "g:3" : "g:2",
+    isCard ? "p:4 bg:white bc:silver-2 bw:1" : "",
     shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "",
     className,
   );
 
   const indicatorClasses = merge(
-    "d-b h-100%",
+    "d:b h:100%",
     INTENTS[intent],
-    animated ? "tp-w tdu-500 ttf-io" : "",
+    animated ? "tp:w tdu:500 ttf:io" : "",
   );
 
   return (

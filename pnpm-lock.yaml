@@ -257,8 +257,8 @@ importers:
         specifier: ^3.38.0
         version: 3.38.0
       yummacss:
-        specifier: ^3.31.1
-        version: 3.31.1
+        specifier: ^4.0.0
+        version: 4.0.0
     devDependencies:
       '@biomejs/biome':
         specifier: 2.5.14
@@ -294,8 +294,8 @@ importers:
         specifier: ^4.0.0
         version: 4.0.0
       '@yummacss/postcss':
-        specifier: ^3.31.1
-        version: 3.31.1(postcss@8.5.28)
+        specifier: ^4.0.0
+        version: 4.0.0(postcss@8.5.28)
       remark-code-preview:
         specifier: ^1.2.6
         version: 1.2.6
@@ -1427,9 +1427,6 @@ packages:
   '@vitest/spy@5.0.1':
     resolution: {integrity: sha512-rbto/mF/SGERxEgYOek7Xm6B9b+y+mVoo+f4b2LymYO8zM1b7uB5nHuhVMTP2hxdzgxvGiZYGxGIaMvL5y180Q==}
 
-  '@yummacss/core@3.31.1':
-    resolution: {integrity: sha512-GCgvpP5KI+gsZdLI1XD444yHy4iqLFRY5MZfgg6HEkfd9Km3sey/rWQ8k1OiUkfnziIJe+b4UrWK43f78jGUdA==}
-
   '@yummacss/core@4.0.0':
     resolution: {integrity: sha512-V1+ioZ0DjtQcVT+x6/Knla0pXieeLbVWwHoEsdQb+qAwB9IOEgysI7U2TLUUSrnIUCS+w1nufIh12yyxoT/2aA==}
 
@@ -1437,14 +1434,11 @@ packages:
     resolution: {integrity: sha512-89Zhx+4jUmLbB0AkXkalJz1rFCFOH5WzWZGyK2uQKfRnvDKP9lMBj1beG+/aET5TTfGtUgIaItB4XjSip8YO5g==}
     hasBin: true
 
-  '@yummacss/nitro@3.31.1':
-    resolution: {integrity: sha512-Ys1MNEea5rfmryi/EiljB1Ckb2NyHY+FIdvJNnINtLbTzbgnvdeP0L0NOEy6OZFczaUSV/ukB1RW5Ppicm6V/w==}
-
   '@yummacss/nitro@4.0.0':
     resolution: {integrity: sha512-eIss9W7PVmSR9f6dcDhPDR490l8T7RLYa03K5BkDD1Th9tMAzi7GKSUHXa5E5QcpdXLt4AzhdGkIn0gQoGngkg==}
 
-  '@yummacss/postcss@3.31.1':
-    resolution: {integrity: sha512-z+fqddH5q2ok7Fxc8IccP+yW52hIsV57Oax1xDqBa5tzSRBoWWJ/3+UT2UdUXTqANo7Tt7E2utzHrIM3aRGatg==}
+  '@yummacss/postcss@4.0.0':
+    resolution: {integrity: sha512-XXw/tsxazgjhJ8oUMoTOEK+3wOs2hUWVidcdw4hF1BgNqTttCuP8ZO/2YlUFjYMTezTOG3vxLbzfdnZ5H/jTqg==}
     peerDependencies:
       postcss: ^8.0.0
 
@@ -2452,8 +2446,8 @@ packages:
     resolution: {integrity: sha512-4LCcse/U2MHZ63HAJVE+v71o7yOdIe4cZ70Wpf8D/IyjDKYQLV5GD46B+hSTjJsvV5PztjvHoU580EftxjDZFQ==}
     engines: {node: '>=12.20'}
 
-  yummacss@3.31.1:
-    resolution: {integrity: sha512-QZYfjpMLOW4KxnuQsbmv6OF8boGF9cnWHWSa3ctmLzxqrZcfdkORe7+PeJVtXol3KIzIGYVYYGICUc/MQ+Zegw==}
+  yummacss@4.0.0:
+    resolution: {integrity: sha512-us8SJEjwAjW8kfRrW0fF52DghGktILYk8BYEV9jzyPqC+CDHdHpFRKHHktdXnRPPISnJxXmDEc1HWjkD7nPQOA==}
     hasBin: true
 
   zod@4.6.5:
@@ -3192,8 +3186,6 @@ snapshots:
 
   '@vitest/spy@5.0.1': {}
 
-  '@yummacss/core@3.31.1': {}
-
   '@yummacss/core@4.0.0': {}
 
   '@yummacss/lint@4.0.0':
@@ -3201,21 +3193,15 @@ snapshots:
       '@yummacss/nitro': 4.0.0
       tinyglobby: 0.2.17
 
-  '@yummacss/nitro@3.31.1':
-    dependencies:
-      '@yummacss/core': 3.31.1
-      tinyglobby: 0.2.17
-      zod: 4.6.5
-
   '@yummacss/nitro@4.0.0':
     dependencies:
       '@yummacss/core': 4.0.0
       tinyglobby: 0.2.17
       zod: 4.6.5
 
-  '@yummacss/postcss@3.31.1(postcss@8.5.28)':
+  '@yummacss/postcss@4.0.0(postcss@8.5.28)':
     dependencies:
-      '@yummacss/nitro': 3.31.1
+      '@yummacss/nitro': 4.0.0
       postcss: 8.5.28
 
   acorn-jsx@5.3.2(acorn@8.18.0):
@@ -4615,10 +4601,10 @@ snapshots:
 
   yocto-queue@1.2.2: {}
 
-  yummacss@3.31.1:
+  yummacss@4.0.0:
     dependencies:
-      '@yummacss/core': 3.31.1
-      '@yummacss/nitro': 3.31.1
+      '@yummacss/core': 4.0.0
+      '@yummacss/nitro': 4.0.0
 
   zod@4.6.5: {}
 

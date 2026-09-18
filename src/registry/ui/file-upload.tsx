@@ -12,25 +12,25 @@ type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 type Border = "dashed" | "solid";
 
-const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:silver-3/60 fv:bc:silver-5";
 
-const ZONE = "d-f fd-c ai-c g-3 m-0 p-0 w-100 min-w-0 bg-white";
+const ZONE = "d:f fd:c ai:c g:3 m:0 p:0 w:100 min-w:0 bg:white";
 
 const SHAPES: Record<Shape, string> = {
-  rounded: "br-xxl",
-  square: "br-0",
-  squircle: "br-3xl cs-s",
+  rounded: "br:xxl",
+  square: "br:0",
+  squircle: "br:3xl cs:s",
 };
 
 const BORDERS: Record<Border, string> = {
-  dashed: "bw-2 bs-d",
-  solid: "bw-1",
+  dashed: "bw:2 bs:d",
+  solid: "bw:1",
 };
 
 const SHADOWS: Record<Shadow, string> = {
   none: "",
-  inset: "bs-i-md",
-  outset: "bs-o-sm",
+  inset: "bs-i:md",
+  outset: "bs-o:sm",
 };
 
 const UNITS = ["B", "KB", "MB", "GB"];
@@ -82,8 +82,8 @@ export default function FileUploadBase({
   const browseOutline = focus
     ? merge(
         FOCUS,
-        "fv:oo-1",
-        error ? "fv:oc-red-2/60" : "",
+        "fv:oo:1",
+        error ? "fv:oc:red-2/60" : "",
         focus === true ? "" : focus,
       )
     : "";
@@ -151,11 +151,11 @@ export default function FileUploadBase({
     ZONE,
     SHAPES[shape],
     BORDERS[border],
-    error ? "bc-red-5" : "bc-silver-2",
+    error ? "bc:red-5" : "bc:silver-2",
     disabled
-      ? "bg-silver-1 c-slate-5 c-na"
+      ? "bg:silver-1 c:slate-5 c:na"
       : dragging
-        ? "bc-slate-12 bg-silver-2/50"
+        ? "bc:slate-12 bg:silver-2/50"
         : "",
     className,
   );
@@ -183,10 +183,10 @@ export default function FileUploadBase({
       <div className="d:f fd:c ai:c g:2 p:8 ta:c">
         <div
           className={merge(
-            "d-f ai-c jc-c w-10 h-10 bw-1",
+            "d:f ai:c jc:c w:10 h:10 bw:1",
             SHAPES[shape],
             SHADOWS[shadow],
-            error ? "bg-red-1/50 bc-red-5" : "bg-white bc-silver-2",
+            error ? "bg:red-1/50 bc:red-5" : "bg:white bc:silver-2",
           )}
         >
           {icon ?? (
@@ -202,8 +202,8 @@ export default function FileUploadBase({
               onClick={() => input.current?.click()}
               className={merge(
                 browseOutline,
-                "p-0 bg-transparent bw-0 fs-sm fw-500 c-p d:c-na",
-                error ? "c-red-5" : "c-slate-12",
+                "p:0 bg:transparent bw:0 fs:sm fw:500 c:p d:c:na",
+                error ? "c:red-5" : "c:slate-12",
               )}
             >
               {label}
@@ -222,7 +222,7 @@ export default function FileUploadBase({
             <div
               key={identity(file)}
               className={merge(
-                "d-f ai-c jc-sb g-3 px-3 py-2 bg-silver-1/50 bc-silver-2 bw-1",
+                "d:f ai:c jc:sb g:3 px:3 py:2 bg:silver-1/50 bc:silver-2 bw:1",
                 SHAPES[shape],
               )}
             >
@@ -239,7 +239,7 @@ export default function FileUploadBase({
                   }
                   className={merge(
                     outline,
-                    "d-f ai-c jc-c w-5 h-5 p-0 bg-transparent bw-0 c-slate-6 c-p h:c-slate-10",
+                    "d:f ai:c jc:c w:5 h:5 p:0 bg:transparent bw:0 c:slate-6 c:p h:c:slate-10",
                     SHAPES[shape],
                   )}
                 >

@@ -11,7 +11,7 @@ type Variant = "default" | "bordered" | "ghost" | "subtle";
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 
-const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:silver-3/60 fv:bc:silver-5";
 type Indicator = "chevron" | "plus-minus";
 type IndicatorPosition = "leading" | "trailing";
 
@@ -23,14 +23,14 @@ export interface AccordionItem {
 }
 
 const SHAPES: Record<Shape, { item: string; trigger: string }> = {
-  rounded: { item: "br-lg", trigger: "br-sm" },
+  rounded: { item: "br:lg", trigger: "br:sm" },
   square: { item: "", trigger: "" },
-  squircle: { item: "br-xxl cs-s", trigger: "br-xxl cs-s" },
+  squircle: { item: "br:xxl cs:s", trigger: "br:xxl cs:s" },
 };
 
 const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
-  inset: "bs-i-3xl",
-  outset: "bs-o-sm",
+  inset: "bs-i:3xl",
+  outset: "bs-o:sm",
 };
 
 export interface AccordionProps {
@@ -85,10 +85,10 @@ export default function AccordionBase({
       : "";
 
   const rootClasses = merge(
-    "d-f fd-c w-100% max-w-96",
-    variant === "bordered" || variant === "subtle" ? "g-2" : "",
+    "d:f fd:c w:100% max-w:96",
+    variant === "bordered" || variant === "subtle" ? "g:2" : "",
     isCard
-      ? ["bg-white br-lg bw-1 bc-silver-2", SHADOWS[shadow]]
+      ? ["bg:white br:lg bw:1 bc:silver-2", SHADOWS[shadow]]
           .filter(Boolean)
           .join(" ")
       : "",
@@ -108,13 +108,13 @@ export default function AccordionBase({
 
         const itemClasses =
           variant === "bordered"
-            ? ["bg-white bc-silver-3 bw-1", SHAPES[shape].item, itemShadow]
+            ? ["bg:white bc:silver-3 bw:1", SHAPES[shape].item, itemShadow]
                 .filter(Boolean)
                 .join(" ")
             : variant === "ghost"
               ? [
-                  "blw-2 pl-4",
-                  isOpen ? "blc-slate-12" : "blc-silver-3",
+                  "blw:2 pl:4",
+                  isOpen ? "blc:slate-12" : "blc:silver-3",
                   isLast ? "" : "mb-3",
                 ]
                   .filter(Boolean)
@@ -122,52 +122,52 @@ export default function AccordionBase({
               : variant === "subtle"
                 ? [
                     SHAPES[shape].item,
-                    isOpen ? "bg-silver-1" : "bg-silver-1 h:bg-silver-2",
+                    isOpen ? "bg:silver-1" : "bg:silver-1 h:bg:silver-2",
                     itemShadow,
                   ]
                     .filter(Boolean)
                     .join(" ")
                 : separated && !isLast
-                  ? "bbw-1 bc-silver-3"
+                  ? "bbw:1 bc:silver-3"
                   : "";
 
         const triggerRadius =
-          variant === "bordered" ? SHAPES[shape].trigger : "br-sm";
+          variant === "bordered" ? SHAPES[shape].trigger : "br:sm";
         const inset = variant === "bordered" || variant === "subtle" || isCard;
-        const triggerPadX = inset ? "px-4" : "px-0";
+        const triggerPadX = inset ? "px:4" : "px:0";
         const triggerPadY =
           variant === "ghost"
-            ? "py-2"
+            ? "py:2"
             : variant === "default" && !separated
-              ? "py-3"
-              : "py-4";
-        const panelPadX = inset ? "px-4" : "";
+              ? "py:3"
+              : "py:4";
+        const panelPadX = inset ? "px:4" : "";
 
         const titleColor = item.disabled
-          ? "c-slate-4"
+          ? "c:slate-4"
           : variant === "ghost"
             ? isOpen
-              ? "c-slate-12"
-              : "c-slate-8"
+              ? "c:slate-12"
+              : "c:slate-8"
             : variant === "subtle"
               ? isOpen
-                ? "c-slate-12"
-                : "c-slate-8"
-              : "c-slate-8";
+                ? "c:slate-12"
+                : "c:slate-8"
+              : "c:slate-8";
         const contentColor =
-          variant === "subtle" && isOpen ? "c-slate-12" : "c-slate-6";
-        const panelClasses = ["m-0 pb-4", panelPadX, "fs-sm lh-4", contentColor]
+          variant === "subtle" && isOpen ? "c:slate-12" : "c:slate-6";
+        const panelClasses = ["m:0 pb:4", panelPadX, "fs:sm lh:4", contentColor]
           .filter(Boolean)
           .join(" ");
         const glyphColor = item.disabled
-          ? "c-slate-4"
+          ? "c:slate-4"
           : variant === "ghost"
             ? isOpen
-              ? "c-slate-10"
-              : "c-slate-6"
+              ? "c:slate-10"
+              : "c:slate-6"
             : variant === "subtle" && isOpen
-              ? "c-slate-10"
-              : "c-slate-6";
+              ? "c:slate-10"
+              : "c:slate-6";
 
         return (
           <Accordion.Item
@@ -180,15 +180,15 @@ export default function AccordionBase({
               <Accordion.Trigger
                 className={merge(
                   outline,
-                  "d-f ai-c",
-                  indicatorPosition === "trailing" ? "jc-sb" : "",
-                  "g-3 w-100%",
+                  "d:f ai:c",
+                  indicatorPosition === "trailing" ? "jc:sb" : "",
+                  "g:3 w:100%",
                   triggerPadY,
                   triggerPadX,
-                  "bg-transparent bw-0",
+                  "bg:transparent bw:0",
                   triggerRadius,
-                  "ta-l",
-                  item.disabled ? "c-na o-60" : "c-p",
+                  "ta:l",
+                  item.disabled ? "c:na o:60" : "c:p",
                 )}
               >
                 {indicator === "plus-minus" &&
@@ -201,7 +201,7 @@ export default function AccordionBase({
                   )}
                 <div className="d:f ai:c g:3">
                   <span
-                    className={["fs-sm fw-500", titleColor]
+                    className={["fs:sm fw:500", titleColor]
                       .filter(Boolean)
                       .join(" ")}
                   >
@@ -271,7 +271,7 @@ function ChevronGlyph({
   if (!animated) {
     return (
       <NavArrowDown
-        className={merge("fs-0 w-4 h-4", isOpen ? "ro-36" : "ro-0", className)}
+        className={merge("fs:0 w:4 h:4", isOpen ? "ro:36" : "ro:0", className)}
         aria-hidden
       />
     );
@@ -283,7 +283,7 @@ function ChevronGlyph({
       transition={{ duration: 0.15, ease: "easeInOut" }}
       className="d:f"
     >
-      <NavArrowDown className={merge("fs-0 w-4 h-4", className)} aria-hidden />
+      <NavArrowDown className={merge("fs:0 w:4 h:4", className)} aria-hidden />
     </motion.span>
   );
 }
@@ -297,7 +297,7 @@ function PlusMinusGlyph({
   animated: boolean;
   className: string;
 }) {
-  const glyphClasses = merge("fs-0 w-4 h-4", className);
+  const glyphClasses = merge("fs:0 w:4 h:4", className);
   const icon = isOpen ? (
     <Minus className={glyphClasses} aria-hidden />
   ) : (

@@ -63,7 +63,7 @@ export default function Reference({ category, name, variant }: Props) {
                       {data.summary.map((token) => (
                         <span
                           key={token.id}
-                          className={token.punctuation ? "c-white/40" : ""}
+                          className={token.punctuation ? "c:white/40" : ""}
                         >
                           {token.text}
                         </span>

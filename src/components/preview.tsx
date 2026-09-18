@@ -7,13 +7,13 @@ import { getRegistryImport } from "@/registry";
 
 type Variant = "centered" | "inline" | "inlineCentered" | "noPadding";
 
-const BASE = "btw-1 brw-1 blw-1 min-h-64";
+const BASE = "btw:1 brw:1 blw:1 min-h:64";
 
 const VARIANTS: Record<Variant, string> = {
-  centered: "d-f ai-c jc-c p-10",
-  inline: "d-f fd-c p-4",
-  inlineCentered: "d-f jc-c p-10",
-  noPadding: "d-f fd-c",
+  centered: "d:f ai:c jc:c p:10",
+  inline: "d:f fd:c p:4",
+  inlineCentered: "d:f jc:c p:10",
+  noPadding: "d:f fd:c",
 };
 
 interface PreviewProps {

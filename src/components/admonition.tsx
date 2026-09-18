@@ -14,18 +14,18 @@ const KINDS: Record<
   { rail: string; icon: string; Icon: typeof InfoCircle }
 > = {
   note: {
-    rail: "bc-accent bg-accent-dim/10",
-    icon: "c-accent",
+    rail: "bc:accent bg:accent-dim/10",
+    icon: "c:accent",
     Icon: InfoCircle,
   },
   warning: {
-    rail: "bc-diff-remove bg-diff-remove/10",
-    icon: "c-diff-remove",
+    rail: "bc:diff-remove bg:diff-remove/10",
+    icon: "c:diff-remove",
     Icon: WarningTriangle,
   },
   success: {
-    rail: "bc-diff-add bg-diff-add/10",
-    icon: "c-diff-add",
+    rail: "bc:diff-add bg:diff-add/10",
+    icon: "c:diff-add",
     Icon: CheckCircle,
   },
 };
