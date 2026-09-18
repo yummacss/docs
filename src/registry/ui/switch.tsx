@@ -85,7 +85,7 @@ export default function SwitchBase({
       : checked
         ? "bg:slate-12"
         : "bg:silver-1",
-    disabled ? "" : "c-p",
+    disabled ? "" : "c:p",
     className,
   );
 

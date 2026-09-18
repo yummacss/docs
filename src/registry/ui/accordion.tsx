@@ -115,7 +115,7 @@ export default function AccordionBase({
               ? [
                   "blw:2 pl:4",
                   isOpen ? "blc:slate-12" : "blc:silver-3",
-                  isLast ? "" : "mb-3",
+                  isLast ? "" : "mb:3",
                 ]
                   .filter(Boolean)
                   .join(" ")
