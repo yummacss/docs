@@ -118,21 +118,74 @@ export type MenuItem =
   | MenuSubmenu;
 
 export interface MenuProps {
+  /**
+   * Where the popup is rendered. Defaults to `document.body`, which is right
+   * almost always; pass an element to portal somewhere else, such as inside a
+   * frame or a container that owns its own stacking context.
+   */
   container?: HTMLElement | null;
+  /**
+   * The button's content. Pass a chevron yourself if you want one. It is not
+   * added for you, so an avatar, a name and an icon compose as freely as a
+   * plain string.
+   */
   trigger: ReactNode;
+  /**
+   * A discriminated union. `{ label }` is a plain action (plus optional `icon`,
+   * `shortcut`, `destructive`, `disabled`, `onClick`). `{ type: "separator" }`
+   * divides. `{ type: "group", label?, items }` wraps a `role="group"` block
+   * under a heading. `{ type: "checkbox", label, checked, onCheckedChange }`
+   * and `{ type: "radio", value, onValueChange, options }` are the stateful
+   * kinds. `{ type: "submenu", label, icon?, items }` nests, recursively.
+   */
   items: MenuItem[];
+  /** Trigger padding, popup width, item padding and item text size together. */
   size?: Size;
+  /**
+   * Corner radius on the trigger, popup and items together. `squircle` steps
+   * the popup & item radius up one and adds `corner-shape`.
+   */
   shape?: Shape;
+  /** Depth on both the trigger and the popup. */
   shadow?: Shadow;
+  /**
+   * Which end of an item its `icon` sits at. A `shortcut` always trails
+   * regardless.
+   */
   iconPosition?: IconPosition;
+  /** Blocks the menu from opening at all & dims the trigger. */
   disabled?: boolean;
+  /**
+   * Controlled state. There is no `defaultOpen` - a dropdown that starts open
+   * before anyone presses its trigger was never demonstrated.
+   */
   open?: boolean;
+  /** Called with the new state. Required for a controlled menu. */
   onOpenChange?: (open: boolean) => void;
+  /**
+   * The popup's fade and the trigger's hover transition. Turn it off for an
+   * instant menu, or when the user has asked for reduced motion.
+   */
   animated?: boolean;
+  /**
+   * Extra classes. `merge` folds them in last, so one here replaces the
+   * component's own class for the same utility.
+   */
   className?: string;
+  /**
+   * The focus outline. `true` draws it, `false` removes it along with the
+   * danger, error and success tints that ride with it, and a string of Yumma
+   * CSS utilities restyles it on every focusable part of the component, which
+   * is more than `className` reaches. Removing it outright and putting nothing
+   * back fails WCAG 2.4.7.
+   */
   focus?: boolean | string;
 }
 
+/**
+ * A dropdown menu built from an item list: actions, checkboxes, radios, groups,
+ * separators and nested submenus, in three sizes.
+ */
 export default function MenuBase({
   trigger,
   items,

@@ -6,18 +6,39 @@ import { merge } from "yummacss/merge";
 import Checkbox from "./checkbox";
 
 export interface CheckboxGroupProps {
+  /** Merged with the group's own classes, so a utility you pass wins. */
   className?: string;
+  /** The checkboxes. */
   children: ReactNode;
+  /** Names the group for screen readers and is shown above it. */
   label?: ReactNode;
+  /**
+   * Renders a checkbox above the group that checks and clears all of them, and
+   * is indeterminate while only some are checked. Needs `allValues`, and
+   * indents the group under it.
+   */
   parentLabel?: ReactNode;
+  /**
+   * Every value in the group. Without it the parent cannot tell all-checked
+   * from some-checked.
+   */
   allValues?: string[];
+  /** The checked values, controlled. Pair with `onValueChange`. */
   value?: string[];
+  /** The checked values on first render, uncontrolled. */
   defaultValue?: string[];
+  /** Called with the checked values whenever they change. */
   onValueChange?: (value: string[]) => void;
+  /** Ignores interaction on every checkbox in the group. */
   disabled?: boolean;
+  /** Form field name for the parent checkbox. */
   name?: string;
 }
 
+/**
+ * A labelled group of checkboxes, optionally led by a parent checkbox that
+ * checks and clears every one and sits indeterminate in between.
+ */
 export default function CheckboxGroupBase({
   className,
   children,

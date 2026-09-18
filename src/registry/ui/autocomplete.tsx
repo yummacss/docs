@@ -77,24 +77,86 @@ const ICON_PADDING: Record<IconSide, string> = {
 };
 
 export interface AutocompleteProps {
+  /**
+   * Where the popup is rendered. Defaults to `document.body`, which is right
+   * almost always; pass an element to portal somewhere else, such as inside a
+   * frame or a container that owns its own stacking context.
+   */
   container?: HTMLElement | null;
+  /**
+   * What to search. `label` is matched and shown; `description` and `avatar`
+   * are optional. The shape is fixed rather than generic because you own the
+   * file: data that does not fit is an edit to the item body, not an API.
+   */
   items: AutocompleteItem[] | AutocompleteGroup[];
+  /**
+   * Field label above the input. Leave it out and the input is described by its
+   * placeholder alone.
+   */
   label?: ReactNode;
+  /**
+   * A line under the input, for what the field expects rather than a
+   * restatement of the label.
+   */
   description?: string;
+  /** Placeholder text. */
   placeholder?: string;
+  /**
+   * Height and width of the input. The popup matches it, or it reads as a
+   * different control.
+   */
   size?: Size;
+  /**
+   * Corner radius, applied to the input and the popup together. `squircle` uses
+   * `corner-shape`.
+   */
   shape?: Shape;
+  /**
+   * Depth on the input. `inset` reads as a well, `outset` as a raised control.
+   */
   shadow?: Shadow;
+  /**
+   * Any icon. It is positioned over the input and the text is padded around it,
+   * so pass the glyph and nothing else.
+   */
   icon?: ReactNode;
+  /** Which end `icon` sits at. */
   iconPosition?: IconSide;
+  /** Blocks interaction and dims the field. */
   disabled?: boolean;
+  /**
+   * Replaces the results with a loading row, for an async source. The fetching
+   * itself is yours; this is only the state.
+   */
   loading?: boolean;
+  /**
+   * Highlights the first match as you type, so Enter takes it without an arrow
+   * key first.
+   */
   autoHighlight?: boolean;
+  /** Cap on how many matches are listed. `0` lists them all. */
   limit?: number;
+  /**
+   * Fades the popup in and out. Turn it off for a static popup, or when the
+   * user has asked for reduced motion.
+   */
   animated?: boolean;
+  /** Shown when nothing matches. */
   emptyMessage?: string;
+  /** Called with the text as it is typed. */
   onQueryChange?: (value: string) => void;
+  /**
+   * Extra classes. `merge` folds them in last, so one here replaces the
+   * component's own class for the same utility.
+   */
   className?: string;
+  /**
+   * The focus outline. `true` draws it, `false` removes it along with the
+   * danger, error and success tints that ride with it, and a string of Yumma
+   * CSS utilities restyles it on every focusable part of the component, which
+   * is more than `className` reaches. Removing it outright and putting nothing
+   * back fails WCAG 2.4.7.
+   */
   focus?: boolean | string;
 }
 
@@ -146,6 +208,10 @@ function renderItem(item: AutocompleteItem, shape: Shape) {
   );
 }
 
+/**
+ * A text input that filters a list as you type, in three sizes, three shapes
+ * and three shadows, with an optional icon and a loading state.
+ */
 export default function AutocompleteBase({
   items,
   label,

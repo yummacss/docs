@@ -47,19 +47,59 @@ const SHADOWS: Record<Shadow, string> = {
 };
 
 export interface RadioProps {
+  /**
+   * The choices. `value` and `label` are required; `description` and `icon` are
+   * optional per option. The shape is fixed rather than generic because you own
+   * the file: data that does not fit is an edit to the option body, not an API.
+   */
   options: RadioOption[];
+  /**
+   * A caption above the group, correctly wired to it via `aria-labelledby`.
+   * Without one the group has no accessible name at all.
+   */
   label?: string;
+  /**
+   * The option selected when you are not controlling the group. Pair `value`
+   * with `onValueChange` instead if you are.
+   */
   defaultValue?: string;
+  /** Controlled selection. */
   value?: string;
+  /** Called with the newly selected value. Required for a controlled group. */
   onValueChange?: (value: string) => void;
+  /** The circle, the dot and the label together. */
   size?: Size;
+  /**
+   * Depth on an unselected circle. A selected one is already a solid fill, so
+   * it does not carry the shadow: stacking one on top muddies the color.
+   */
   shadow?: Shadow;
+  /** Blocks interaction and dims every option. */
   disabled?: boolean;
+  /**
+   * The dot's transition when selection changes. Turn it off for a static
+   * group, or when the user has asked for reduced motion.
+   */
   animated?: boolean;
+  /**
+   * Extra classes. `merge` folds them in last, so one here replaces the
+   * component's own class for the same utility.
+   */
   className?: string;
+  /**
+   * The focus outline. `true` draws it, `false` removes it along with the
+   * danger, error and success tints that ride with it, and a string of Yumma
+   * CSS utilities restyles it on every focusable part of the component, which
+   * is more than `className` reaches. Removing it outright and putting nothing
+   * back fails WCAG 2.4.7.
+   */
   focus?: boolean | string;
 }
 
+/**
+ * A single choice from a short list, always round, with an optional icon and
+ * description on each option.
+ */
 export default function RadioBase({
   options,
   label,

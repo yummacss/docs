@@ -94,14 +94,44 @@ export type ToolbarItem =
   | ToolbarNumberItem;
 
 export interface ToolbarProps {
+  /**
+   * A discriminated union. `{ label }` is a button (plus optional `icon`,
+   * `iconOnly`, `disabled`, `onClick`). `{ type: "separator" }` divides. `{
+   * type: "toggles", options }` is an icon toggle group. `{ type: "input",
+   * label }` and `{ type: "link", label, href }` are the remaining kinds.
+   */
   items: ToolbarItem[];
+  /**
+   * Corner radius on the bar and every control inside it. The bar takes one
+   * step more than its controls.
+   */
   shape?: Shape;
+  /** Depth on the bar. */
   shadow?: Shadow;
+  /**
+   * The press-scale on buttons and toggles. Turn it off for static controls, or
+   * when the user has asked for reduced motion.
+   */
   animated?: boolean;
+  /**
+   * Extra classes. `merge` folds them in last, so one here replaces the
+   * component's own class for the same utility.
+   */
   className?: string;
+  /**
+   * The focus outline. `true` draws it, `false` removes it along with the
+   * danger, error and success tints that ride with it, and a string of Yumma
+   * CSS utilities restyles it on every focusable part of the component, which
+   * is more than `className` reaches. Removing it outright and putting nothing
+   * back fails WCAG 2.4.7.
+   */
   focus?: boolean | string;
 }
 
+/**
+ * A toolbar with roving focus, built from an item list: buttons, icon toggles,
+ * separators, an input and links.
+ */
 export default function ToolbarBase({
   items,
   shape = "square",

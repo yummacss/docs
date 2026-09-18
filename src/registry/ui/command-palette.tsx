@@ -68,19 +68,57 @@ export interface CommandGroup {
 }
 
 export interface CommandPaletteProps {
+  /**
+   * Where the popup is rendered. Defaults to `document.body`, which is right
+   * almost always; pass an element to portal somewhere else, such as inside a
+   * frame or a container that owns its own stacking context.
+   */
   container?: HTMLElement | null;
+  /** The trigger button's label. A search glyph is always drawn beside it. */
   trigger: ReactNode;
+  /**
+   * Each group's `label` and its `items`. An item takes `id`, `label`, and
+   * optional `description`, `shortcut`, `icon` and `onSelect`. A divider is
+   * drawn between groups automatically.
+   */
   groups: CommandGroup[];
+  /** The search input's placeholder. */
   placeholder?: string;
+  /** Shown when the query matches nothing. */
   emptyMessage?: string;
+  /**
+   * Which end of an item its `icon` sits at. A `shortcut` always trails
+   * regardless.
+   */
   iconPosition?: IconPosition;
+  /** Corner radius on the trigger, the popup and its items. */
   shape?: Shape;
+  /** Depth on the popup. */
   shadow?: Shadow;
+  /**
+   * The backdrop's fade and the popup's scale-in. Turn it off for an instant
+   * palette, or when the user has asked for reduced motion.
+   */
   animated?: boolean;
+  /**
+   * Extra classes. `merge` folds them in last, so one here replaces the
+   * component's own class for the same utility.
+   */
   className?: string;
+  /**
+   * The focus outline. `true` draws it, `false` removes it along with the
+   * danger, error and success tints that ride with it, and a string of Yumma
+   * CSS utilities restyles it on every focusable part of the component, which
+   * is more than `className` reaches. Removing it outright and putting nothing
+   * back fails WCAG 2.4.7.
+   */
   focus?: boolean | string;
 }
 
+/**
+ * A searchable command dialog, grouped, with optional per-item descriptions,
+ * shortcuts and icons.
+ */
 export default function CommandPaletteBase({
   trigger,
   groups,

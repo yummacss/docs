@@ -57,16 +57,50 @@ const DISABLED_BOX = "bw:1 bc:silver-2 bg:silver-1";
 
 export interface CheckboxProps
   extends Omit<ComponentProps<typeof Checkbox.Root>, "className"> {
+  /**
+   * The text beside the box. The whole thing is one `<label>`, so clicking the
+   * text toggles it.
+   */
   label?: ReactNode;
 
+  /**
+   * A second line under the label, indented to line up with it. Use it for the
+   * consequence of ticking the box, not for a restatement of the label.
+   */
   description?: string;
+  /**
+   * Box, tick and label together. The description's indent follows, so it stays
+   * aligned with the label at every size.
+   */
   size?: Size;
+  /**
+   * Corner radius. `squircle` uses `corner-shape`, which degrades to a rounded
+   * square where that is unsupported.
+   */
   shape?: Shape;
+  /**
+   * Depth on the box. `inset` reads as a well, `outset` as a raised control.
+   */
   shadow?: Shadow;
+  /**
+   * Extra classes. `merge` folds them in last, so one here replaces the
+   * component's own class for the same utility.
+   */
   className?: string;
+  /**
+   * The focus outline. `true` draws it, `false` removes it along with the
+   * danger, error and success tints that ride with it, and a string of Yumma
+   * CSS utilities restyles it on every focusable part of the component, which
+   * is more than `className` reaches. Removing it outright and putting nothing
+   * back fails WCAG 2.4.7.
+   */
   focus?: boolean | string;
 }
 
+/**
+ * A single tick box with its label, in three sizes, three shapes and three
+ * shadows, with indeterminate, disabled and read-only states.
+ */
 export default function CheckboxBase({
   label,
   description,

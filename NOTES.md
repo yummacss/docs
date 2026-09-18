@@ -721,6 +721,13 @@ declares logical properties: `padding` covers `padding-inline` covers
 
 ### Phase 6 - Yumma UI API (`TODO.md`)
 
+- [x] **Doc comments across the registry.** The 430 prop descriptions already
+      existed in `src/registry/meta/*.json` and had never reached the `.tsx`
+      files, which are what `yummaui add` copies and what anyone hovers.
+      `node scripts/doc-comments.mjs` carries them across and
+      `tests/registry.test.ts` fails on drift. See NOTES.md under Doc comments
+      are API.
+
 - [x] **`iconSide` renamed to `iconPosition`.** Measured: **14 components split
       across two names for one prop** - `iconPosition` on 9, `iconSide` on 5,
       identical `leading`/`trailing` values on both. `iconPosition` wins on
@@ -3494,6 +3501,27 @@ same holds across the registry, which is the case Renildo describes as writing
 without knowing what A, B or C do.
 
 Additive and non-breaking either way, so it does not gate 4.0 and fits a 4.0.1.
+
+**Both surfaces are done.** The monorepo shipped its restore. The registry's was
+not writing prose at all: **all 430 prop descriptions already existed**, in
+`src/registry/meta/*.json`, where they have always driven the prop tables on the
+site. They just never reached the `.tsx`, which is the file `yummaui add` copies
+into someone's project and the only one they ever hover. So the work was a
+carry-across, and it belongs to a script rather than to 39 files edited by hand:
+`node scripts/doc-comments.mjs` writes them, and `tests/registry.test.ts` fails
+naming any prop whose comment has drifted from its description. Same shape as
+`order-props.mjs`.
+
+**Six names the prop tables do not carry**, because adding them to the meta
+would add a row to every table on the site: `className` and `children`, plus
+`tint`, `ariaLabel`, `onQueryChange` and `onChange` on one component each. Those
+live in an `EXTRA` map in the script. The component's `summary` goes above the
+default export, so hovering the tag says what the component is.
+
+**Props the interface does not declare get nothing**, and that is correct.
+`ButtonProps extends ComponentProps<typeof Button>`, so `disabled` is described
+in the meta and inherited from Base UI rather than declared; redeclaring it to
+hang a comment on it would widen the API to document it.
 
 ---
 

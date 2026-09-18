@@ -24,24 +24,84 @@ const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
 };
 
 export interface RatingProps {
+  /** Text above the stars. */
   label?: string;
+  /**
+   * How many marks to draw, and the top of the scale. Ignored when `icons` is
+   * set.
+   */
   max?: number;
+  /**
+   * A custom icon set, for a single-choice picker instead of N stars. When set,
+   * `value`/`defaultValue` index into it (0-based, `-1` for none) rather than
+   * counting filled stars, and `count`/`shadow` are ignored.
+   */
   icons?: RatingIcon[];
+  /**
+   * The rating on first render. Pair `value` with `onValueChange` instead if
+   * you are controlling it.
+   */
   defaultValue?: number;
+  /** Controlled rating. */
   value?: number;
+  /**
+   * Called with the new rating. Pressing the current rating again clears it to
+   * 0.
+   */
   onValueChange?: (value: number) => void;
+  /** Blocks interaction and dims the stars. */
   disabled?: boolean;
+  /**
+   * A rating that only reports one: an average, someone else's score. It draws
+   * at full strength and stays out of the tab order, announced once as a single
+   * value rather than as five controls. That is the difference from `disabled`,
+   * which dims, because it means "you could, but not now".
+   */
   readOnly?: boolean;
+  /**
+   * Depth on each star, which becomes a bordered chip. There is no surrounding
+   * card, which is what both shadow demos did.
+   */
   shadow?: Shadow;
+  /**
+   * The pop each mark makes as it fills, and the press-scale under the pointer.
+   * Turn it off for static stars, or when the user has asked for reduced
+   * motion.
+   */
   animated?: boolean;
+  /**
+   * Shown under the stars while nothing is selected. Once a rating is set it
+   * reads `3 / 5`.
+   */
   emptyHint?: string;
+  /**
+   * A figure beside the marks rather than under them: an average, where the
+   * marks round it.
+   */
   score?: ReactNode;
+  /**
+   * Replaces the `3 / 5` readout under the marks. A read-only average reports
+   * what it is an average of, which a count of filled stars cannot say.
+   */
   hint?: ReactNode;
+  /** Extra content below the hint text, like a feedback field. */
   children?: ReactNode;
+  /**
+   * Extra classes. `merge` folds them in last, so one here replaces the
+   * component's own class for the same utility.
+   */
   className?: string;
+  /**
+   * The focus outline. `true` draws it, `false` removes it along with the
+   * danger, error and success tints that ride with it, and a string of Yumma
+   * CSS utilities restyles it on every focusable part of the component, which
+   * is more than `className` reaches. Removing it outright and putting nothing
+   * back fails WCAG 2.4.7.
+   */
   focus?: boolean | string;
 }
 
+/** A star rating input, with an optional shadow on each star. */
 export default function RatingBase({
   label,
   max = 5,

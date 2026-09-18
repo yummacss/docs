@@ -31,23 +31,67 @@ function defaultFormat(value: Value): ReactNode {
 }
 
 export interface SliderProps {
+  /** Text beside the value, above the track. */
   label?: string;
+  /** Appends a red asterisk to the label. */
   required?: boolean;
+  /** A line under the control, for context on what the value means. */
   description?: string;
+  /**
+   * A single number for one thumb, or a two-item array for a range with two.
+   * Whichever shape you start with is the shape the slider keeps. It does not
+   * switch thumb count at runtime.
+   */
   defaultValue?: Value;
+  /** Controlled value, same shape rule as `defaultValue`. */
   value?: Value;
+  /**
+   * Called with the new value on every change. Required for a controlled
+   * slider.
+   */
   onValueChange?: (value: Value) => void;
+  /** Lower bound. */
   min?: number;
+  /** Upper bound. */
   max?: number;
+  /** Amount each keyboard press or drag increment changes the value by. */
   step?: number;
+  /**
+   * Corner radius, applied to the track, the indicator and the thumb together.
+   * `squircle` uses `corner-shape`.
+   */
   shape?: Shape;
+  /**
+   * Depth on the thumb only. The track and indicator are flush with the
+   * control, so a shadow on them would read as a stray line rather than depth.
+   */
   shadow?: Shadow;
+  /** Blocks interaction and dims the control. */
   disabled?: boolean;
+  /**
+   * How the value is shown beside the label. Defaults to `50%` for one thumb,
+   * `20 - 80` for a range; override for currency, units, or anything else.
+   */
   formatValue?: (value: Value) => ReactNode;
+  /**
+   * Extra classes. `merge` folds them in last, so one here replaces the
+   * component's own class for the same utility.
+   */
   className?: string;
+  /**
+   * The focus outline. `true` draws it, `false` removes it along with the
+   * danger, error and success tints that ride with it, and a string of Yumma
+   * CSS utilities restyles it on every focusable part of the component, which
+   * is more than `className` reaches. Removing it outright and putting nothing
+   * back fails WCAG 2.4.7.
+   */
   focus?: boolean | string;
 }
 
+/**
+ * A value between a min and a max, one thumb or two for a range, in three
+ * shapes and three thumb shadows.
+ */
 export default function SliderBase({
   label,
   required = false,
