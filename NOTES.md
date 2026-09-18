@@ -48,17 +48,16 @@ has to branch off `normalize-source`, not `main`, until they land.
 prefixes per class. `docs` runs on the slow one until `merge-perf` merges and
 ships.
 
-`ui` is a **separate repo**, now named `github.com/yummacss/yummui`. The old
-`ui` URL still resolves, and a rename redirect is exactly what npm provenance
-refuses, so nothing may rely on it. The **published npm package is `yummaui`**,
-with the extra `a`, because `ui` was taken.
+`ui` is a **separate repo**, `github.com/yummacss/yummaui` since 2026-09-18. It
+was `ui`, then `yummui`, and the repo name now matches the published npm
+package, which took the extra `a` because `ui` was taken. Both old URLs still
+resolve by redirect.
 
-**`repository.url` names the repo, `yummui`, not the package.** The mismatch
-looks like a typo and is not one: the publish workflow compares that field to
-`GITHUB_REPOSITORY` and fails the release when they differ, which is what held
-`0.3.0` back twice. Editing the field to say `yummaui` re-breaks it. The only
-fix that removes the mismatch is renaming the repo on GitHub, and then the
-field is already right.
+**`repository.url` must name the repo, and a redirect does not count.** The
+publish workflow compares that field to `GITHUB_REPOSITORY` and fails the
+release before it builds anything when the two differ, which held `0.3.0` back
+twice while the names disagreed. They agree now. The thing to watch is a future
+rename: the field moves in the same commit, or the next release stops.
 
 ---
 
@@ -2296,8 +2295,8 @@ maintenance of a package on its way out, not investment in it.
       2026-11-27.**
 
       **The eight monorepo forms were filled on 2026-09-18.** `yummaui` is a
-      ninth, and it lives in the `yummui` repo, so its form takes that name
-      rather than the package's.
+      ninth, in its own repo, so its form names `yummaui/publish.yml` rather
+      than the monorepo's.
 
       An earlier version of this entry said `pnpm publish` cannot do OIDC. That
       is half right and the wrong half is the one that matters. pnpm runs no
@@ -2312,7 +2311,7 @@ maintenance of a package on its way out, not investment in it.
       `npm publish` still cannot be aimed at the workspace: seven of eight
       manifests carry `workspace:*` and npm would ship that string. `pnpm pack`
       rewrites it, verified on `@yummacss/nitro`. So the monorepo packs with
-      pnpm and publishes the tarball with npm, and `yummui` gets the same result
+      pnpm and publishes the tarball with npm, and `yummaui` gets the same result
       through `pnpm publish` once npm is current.
 
       **`NODE_AUTH_TOKEN` stays until a release proves OIDC ran**, so there is
