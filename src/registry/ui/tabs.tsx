@@ -43,19 +43,61 @@ export interface TabItem {
 }
 
 export interface TabsProps {
+  /**
+   * Each tab's `value` and `label`, plus optional `icon`, `iconOnly`, `count`,
+   * `disabled` and `panel`. `label` stays the accessible name when `iconOnly`
+   * hides it.
+   */
   items: TabItem[];
+  /**
+   * The tab selected on first render. Falls back to the first item. Pair
+   * `value` with `onValueChange` instead if you are controlling it.
+   */
   defaultValue?: string;
+  /** Controlled selection. */
   value?: string;
+  /** Called with the newly selected tab's `value`. */
   onValueChange?: (value: string) => void;
+  /**
+   * `vertical` stacks the tabs and sits any panels beside them rather than
+   * below.
+   */
   orientation?: Orientation;
+  /** Tab padding and label size together. */
   size?: Size;
+  /**
+   * Corner radius on the track and the tabs. `pill` steps down to `rounded`
+   * when `orientation` is vertical: a capsule resolves its radius against the
+   * narrow axis, so the track becomes a blob and the selected tab's indicator
+   * is clipped to the curve.
+   */
   shape?: Shape;
+  /** Which end of a tab its `icon` sits at. Ignored when `iconOnly` is set. */
   iconPosition?: IconPosition;
+  /**
+   * The indicator's slide between tabs. Turn it off for an instant jump, or
+   * when the user has asked for reduced motion.
+   */
   animated?: boolean;
+  /**
+   * Extra classes. `merge` folds them in last, so one here replaces the
+   * component's own class for the same utility.
+   */
   className?: string;
+  /**
+   * The focus outline. `true` draws it, `false` removes it along with the
+   * danger, error and success tints that ride with it, and a string of Yumma
+   * CSS utilities restyles it on every focusable part of the component, which
+   * is more than `className` reaches. Removing it outright and putting nothing
+   * back fails WCAG 2.4.7.
+   */
   focus?: boolean | string;
 }
 
+/**
+ * A tab list with a sliding indicator, horizontal or vertical, in three sizes
+ * and four shapes, with optional icons, counters and panels.
+ */
 export default function TabsBase({
   items,
   defaultValue,

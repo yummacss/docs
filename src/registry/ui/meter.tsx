@@ -20,18 +20,52 @@ const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
 };
 
 export interface MeterProps {
+  /** The current value. */
   value: number;
+  /** Defaults to Base UI's own Meter minimum (0). */
   min?: number;
+  /** Defaults to Base UI's own Meter maximum (100). */
   max?: number;
+  /**
+   * Text above the track, correctly wired to it via Base UI's own Meter.Label.
+   */
   label: ReactNode;
+  /**
+   * A line under the label. Only shown alongside `icon` - without one there is
+   * no header block for it to sit in.
+   */
   description?: string;
+  /**
+   * A leading avatar. Setting this switches the header to a grouped
+   * icon+label+description block & moves the value display below the track
+   * instead of beside the label. It sits in a fixed 32px tile that colors the
+   * glyph but does not resize it, so pass one sized to fit (`w-4 h-4`).
+   */
   icon?: ReactNode;
+  /**
+   * What the reading means, not which hue it is. The five map to Yumma families
+   * in the shipped `INTENTS` table; point one somewhere else and the type
+   * follows.
+   */
   intent?: Intent;
+  /**
+   * Wraps the meter in a padded card. `none` renders it bare, with no card at
+   * all.
+   */
   shadow?: Shadow;
+  /** The indicator's width transition as `value` changes. */
   animated?: boolean;
+  /**
+   * Extra classes. `merge` folds them in last, so one here replaces the
+   * component's own class for the same utility.
+   */
   className?: string;
 }
 
+/**
+ * A labelled progress meter, in four colors, with an optional icon, description
+ * and card shadow.
+ */
 export default function MeterBase({
   value,
   min,

@@ -40,16 +40,42 @@ export interface BreadcrumbItem {
 }
 
 export interface BreadcrumbProps {
+  /**
+   * Each item's `label`, `href`, optional `icon` and `iconOnly`. The last item
+   * is always rendered as the current page: a plain span with
+   * `aria-current="page"`, never a link, regardless of whether it has an
+   * `href`.
+   */
   items: BreadcrumbItem[];
+  /** Wraps the trail in a bordered card. */
   bordered?: boolean;
+  /** Corner radius. Only visible when `bordered` is set. */
   shape?: Shape;
+  /** Depth on the card. Only visible when `bordered` is set. */
   shadow?: Shadow;
+  /** Text size of every item. */
   size?: Size;
+  /** The mark between items. */
   separator?: Separator;
+  /**
+   * Extra classes. `merge` folds them in last, so one here replaces the
+   * component's own class for the same utility.
+   */
   className?: string;
+  /**
+   * The focus outline. `true` draws it, `false` removes it along with the
+   * danger, error and success tints that ride with it, and a string of Yumma
+   * CSS utilities restyles it on every focusable part of the component, which
+   * is more than `className` reaches. Removing it outright and putting nothing
+   * back fails WCAG 2.4.7.
+   */
   focus?: boolean | string;
 }
 
+/**
+ * A navigation trail, plain or in a bordered card, with three sizes and two
+ * separator styles.
+ */
 export default function BreadcrumbBase({
   items,
   bordered = false,

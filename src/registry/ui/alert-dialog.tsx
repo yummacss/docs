@@ -78,26 +78,75 @@ const TONE_BADGE: Record<Tone, string> = {
 };
 
 export interface AlertDialogProps {
+  /**
+   * Where the popup is rendered. Defaults to `document.body`, which is right
+   * almost always; pass an element to portal somewhere else, such as inside a
+   * frame or a container that owns its own stacking context.
+   */
   container?: HTMLElement | null;
+  /** The trigger button's label. */
   trigger: ReactNode;
+  /** A glyph beside the trigger's label. */
   triggerIcon?: ReactNode;
+  /** Which end of the trigger `triggerIcon` sits at. */
   triggerIconPosition?: IconPosition;
+  /**
+   * The trigger's own color, independent of the dialog's `tone` - a neutral
+   * button can still open a destructive dialog.
+   */
   triggerTone?: Tone;
+  /** The glyph in the badge above the title. No badge renders without one. */
   icon?: ReactNode;
+  /** Colors the badge and the confirm button together. */
   tone?: Tone;
+  /** The dialog's heading, wired up by Base UI's own AlertDialog.Title. */
   title: string;
+  /** The body text, wired up by Base UI's own AlertDialog.Description. */
   description: string;
+  /** The dismissing button's label. */
   cancelLabel?: string;
+  /** The confirming button's label. */
   confirmLabel: string;
+  /**
+   * Called when the confirm button is pressed. The dialog closes either way.
+   */
   onConfirm?: () => void;
+  /**
+   * The X in the corner. The Cancel button remains either way, so turning this
+   * off never traps anyone.
+   */
   showClose?: boolean;
+  /**
+   * Corner radius on the popup, the badge and the buttons. `square` squares off
+   * the badge too.
+   */
   shape?: Shape;
+  /** Depth on the popup. */
   shadow?: Shadow;
+  /**
+   * The backdrop's fade and the popup's scale-in. Turn it off for an instant
+   * dialog, or when the user has asked for reduced motion.
+   */
   animated?: boolean;
+  /**
+   * Extra classes. `merge` folds them in last, so one here replaces the
+   * component's own class for the same utility.
+   */
   className?: string;
+  /**
+   * The focus outline. `true` draws it, `false` removes it along with the
+   * danger, error and success tints that ride with it, and a string of Yumma
+   * CSS utilities restyles it on every focusable part of the component, which
+   * is more than `className` reaches. Removing it outright and putting nothing
+   * back fails WCAG 2.4.7.
+   */
   focus?: boolean | string;
 }
 
+/**
+ * A confirmation dialog with a badge, title, description and a cancel/confirm
+ * pair, in two tones.
+ */
 export default function AlertDialogBase({
   trigger,
   triggerIcon,

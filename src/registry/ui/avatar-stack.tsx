@@ -13,13 +13,30 @@ const OVERLAPS: Record<Overlap, string> = {
 };
 
 export interface AvatarStackProps {
+  /** Merged with the stack's own classes, so a utility you pass wins. */
   className?: string;
+  /** The avatars. Each one overlaps the one before it. */
   children: ReactNode;
+  /**
+   * How far each avatar sits over the one before it. `none` spaces them
+   * normally.
+   */
   overlap?: Overlap;
+  /**
+   * Show at most this many avatars, then one more reading `+N` for the rest.
+   * Unset shows every avatar you pass.
+   */
   max?: number;
+  /**
+   * Size of the `+N` avatar only. The avatars you pass carry their own `size`.
+   */
   size?: Size;
 }
 
+/**
+ * Overlapping avatars in one row, with an optional cap that collapses the rest
+ * into a +N avatar.
+ */
 export default function AvatarStack({
   className,
   children,

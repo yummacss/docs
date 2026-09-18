@@ -17,15 +17,44 @@ type Orientation = "horizontal" | "vertical";
 const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:silver-3/60 fv:bc:silver-5";
 
 export interface SeparatorProps {
+  /**
+   * Renders as a clickable button in the middle, sized & shaped to match. Wins
+   * over `label` if both are set.
+   */
   icon?: ReactNode;
+  /** Called when the icon button is pressed. */
   onIconClick?: () => void;
+  /** Renders as plain text in the middle. Ignored if `icon` is set. */
   label?: ReactNode;
+  /**
+   * Corner radius on the icon button, which is the only part with corners. Only
+   * visible alongside `icon`.
+   */
   iconShape?: Shape;
+  /**
+   * A vertical rule for a row layout, like a button group. Applies to the
+   * `icon` and `label` forms too, which turn with it.
+   */
   orientation?: Orientation;
+  /**
+   * Extra classes. `merge` folds them in last, so one here replaces the
+   * component's own class for the same utility.
+   */
   className?: string;
+  /**
+   * The focus outline. `true` draws it, `false` removes it along with the
+   * danger, error and success tints that ride with it, and a string of Yumma
+   * CSS utilities restyles it on every focusable part of the component, which
+   * is more than `className` reaches. Removing it outright and putting nothing
+   * back fails WCAG 2.4.7.
+   */
   focus?: boolean | string;
 }
 
+/**
+ * A horizontal or vertical divider, plain, or with a clickable icon or a text
+ * label in the middle.
+ */
 export default function SeparatorBase({
   icon,
   onIconClick,

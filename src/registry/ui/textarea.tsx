@@ -52,24 +52,68 @@ const WARN_AT = 20;
 
 export interface TextareaProps
   extends Omit<ComponentProps<"textarea">, "className" | "onChange"> {
+  /**
+   * Text above the control. `Field.Root` and `Field.Label` associate it
+   * automatically, so no `id`/`htmlFor` bookkeeping is needed.
+   */
   label?: string;
 
+  /**
+   * Appends a red asterisk to the label & sets the control's native `required`
+   * attribute.
+   */
   required?: boolean;
 
+  /**
+   * A line under the control, for format or context. Replaced by `error` or
+   * `success` when either is set.
+   */
   description?: string;
 
+  /**
+   * Red border, a warning icon & this message in place of `description`. Wins
+   * over `success` if both are set.
+   */
   error?: string;
 
+  /** Green border, a check icon & this message in place of `description`. */
   success?: string;
 
+  /**
+   * Caps the value and draws the counter under the field. Zero draws neither.
+   */
   maxLength?: number;
+  /**
+   * Corner radius. `squircle` uses `corner-shape`, which degrades to a rounded
+   * square where that is unsupported.
+   */
   shape?: Shape;
+  /**
+   * Depth on the control. `inset` reads as a well, `outset` as a raised
+   * control.
+   */
   shadow?: Shadow;
+  /** Called on every input event. */
   onChange?: (event: ChangeEvent<HTMLTextAreaElement>) => void;
+  /**
+   * Extra classes. `merge` folds them in last, so one here replaces the
+   * component's own class for the same utility.
+   */
   className?: string;
+  /**
+   * The focus outline. `true` draws it, `false` removes it along with the
+   * danger, error and success tints that ride with it, and a string of Yumma
+   * CSS utilities restyles it on every focusable part of the component, which
+   * is more than `className` reaches. Removing it outright and putting nothing
+   * back fails WCAG 2.4.7.
+   */
   focus?: boolean | string;
 }
 
+/**
+ * A multi-line text field, in three shapes and three shadows, with an optional
+ * character counter and error or success states.
+ */
 export default function TextareaBase({
   label,
   required = false,

@@ -85,29 +85,90 @@ const TRIGGER_SIZES: Record<TriggerSize, string> = {
 };
 
 export interface DialogProps {
+  /**
+   * Where the popup is rendered. Defaults to `document.body`, which is right
+   * almost always; pass an element to portal somewhere else, such as inside a
+   * frame or a container that owns its own stacking context.
+   */
   container?: HTMLElement | null;
+  /** The trigger button's label. */
   trigger: ReactNode;
+  /** A glyph beside the trigger's label. */
   triggerIcon?: ReactNode;
+  /** Which end of the trigger `triggerIcon` sits at. */
   triggerIconPosition?: IconPosition;
+  /** Color: `neutral` or `danger`, for a destructive confirmation. */
   triggerTone?: TriggerTone;
+  /**
+   * Footprint: `md` or `sm`, for a trigger nested inside other content, like a
+   * row action.
+   */
   triggerSize?: TriggerSize;
+  /**
+   * Fires when the trigger is pressed, before the dialog opens, for capturing
+   * which row triggered it, say, in a dialog reused across a list.
+   */
   onTriggerClick?: () => void;
+  /**
+   * Content above the title: an avatar and name block, say. Centered in its own
+   * padded row.
+   */
   header?: ReactNode;
+  /** The dialog's heading, wired up by Base UI's own Dialog.Title. */
   title: string;
+  /** The body text, wired up by Base UI's own Dialog.Description. */
   description?: ReactNode;
+  /**
+   * The body, below the description. Form fields and anything else go here.
+   * Style them yourself.
+   */
   children?: ReactNode;
+  /** The dismissing button's label. */
   cancelLabel?: string;
+  /**
+   * The confirming button's label. No footer renders without this, so an
+   * informational dialog closes by its X alone.
+   */
   confirmLabel?: string;
+  /**
+   * Called when the confirm button is pressed. The dialog closes either way.
+   */
   onConfirm?: () => void;
+  /**
+   * Color of the confirm button: `primary` or `danger`, for a destructive
+   * action like a delete.
+   */
   confirmTone?: ConfirmTone;
+  /** The X in the corner. */
   showClose?: boolean;
+  /** Corner radius on the popup and its buttons. */
   shape?: Shape;
+  /** Depth on the popup. */
   shadow?: Shadow;
+  /**
+   * The backdrop's fade and the popup's scale-in. Turn it off for an instant
+   * dialog, or when the user has asked for reduced motion.
+   */
   animated?: boolean;
+  /**
+   * Extra classes. `merge` folds them in last, so one here replaces the
+   * component's own class for the same utility.
+   */
   className?: string;
+  /**
+   * The focus outline. `true` draws it, `false` removes it along with the
+   * danger, error and success tints that ride with it, and a string of Yumma
+   * CSS utilities restyles it on every focusable part of the component, which
+   * is more than `className` reaches. Removing it outright and putting nothing
+   * back fails WCAG 2.4.7.
+   */
   focus?: boolean | string;
 }
 
+/**
+ * A modal dialog with a title, optional description and body, and an optional
+ * cancel/confirm pair.
+ */
 export default function DialogBase({
   trigger,
   triggerIcon,

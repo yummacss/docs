@@ -32,18 +32,50 @@ const UNPRESSED = "bg:white bc:silver-5 c:slate-12 h:bg:silver-1";
 export interface ToggleProps
   extends Omit<ComponentProps<"button">, "className" | "value">,
     Pick<ComponentProps<typeof Toggle>, "value"> {
+  /** Shown while not pressed. */
   icon?: ReactNode;
 
+  /** Shown while pressed. */
   pressedIcon?: ReactNode;
+  /**
+   * Starting state when you are not controlling it. Pair `pressed` with
+   * `onPressedChange` instead if you are.
+   */
   defaultPressed?: boolean;
+  /** Controlled state. */
   pressed?: boolean;
+  /** Called with the new state. Required for a controlled toggle. */
   onPressedChange?: (pressed: boolean) => void;
+  /**
+   * Corner radius. `squircle` uses `corner-shape`, which degrades to a rounded
+   * square where that is unsupported.
+   */
   shape?: Shape;
+  /** The button's footprint. */
   size?: Size;
 
+  /**
+   * Blocks the press and marks the control. The pressed state stays legible, so
+   * a disabled toggle still reports its value.
+   */
   disabled?: boolean;
+  /**
+   * The press-scale animation. Turn it off for an instant press, or when the
+   * user has asked for reduced motion.
+   */
   animated?: boolean;
+  /**
+   * Extra classes. `merge` folds them in last, so one here replaces the
+   * component's own class for the same utility.
+   */
   className?: string;
+  /**
+   * The focus outline. `true` draws it, `false` removes it along with the
+   * danger, error and success tints that ride with it, and a string of Yumma
+   * CSS utilities restyles it on every focusable part of the component, which
+   * is more than `className` reaches. Removing it outright and putting nothing
+   * back fails WCAG 2.4.7.
+   */
   focus?: boolean | string;
 }
 
@@ -61,6 +93,9 @@ function Pop({ on, children }: { on: boolean; children: ReactNode }) {
   );
 }
 
+/**
+ * A two-state icon button, in three shapes, with an optional press animation.
+ */
 export default function ToggleBase({
   icon,
   pressedIcon,

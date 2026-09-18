@@ -28,21 +28,53 @@ const BUTTON_BASE =
   "d:if ai:c px:3 py:2 bw:1 fw:500 tp:c tdu:150 ttf:io us:none c:p";
 
 export interface EmptyStateProps {
+  /** The glyph in the badge. No badge renders without one. */
   icon?: ReactNode;
+  /**
+   * `accent` for an invitation to act, `neutral` for a plain absence: nothing
+   * found, nothing to do.
+   */
   iconTone?: IconTone;
+  /** The heading. */
   title: string;
+  /** A line under the title. */
   description?: string;
+  /** The filled button. Omit it for a state with nothing to do. */
   primaryLabel?: string;
+  /** A glyph before the primary label. */
   primaryIcon?: ReactNode;
+  /** Called when the primary button is pressed. */
   onPrimary?: () => void;
+  /** The outlined button beside the primary one. */
   secondaryLabel?: string;
+  /** Called when the secondary button is pressed. */
   onSecondary?: () => void;
+  /** Corner radius on the badge. */
   iconShape?: Shape;
+  /**
+   * Wraps the whole block in a card. `none` renders it bare, with no card at
+   * all.
+   */
   shadow?: Shadow;
+  /**
+   * Extra classes. `merge` folds them in last, so one here replaces the
+   * component's own class for the same utility.
+   */
   className?: string;
+  /**
+   * The focus outline. `true` draws it, `false` removes it along with the
+   * danger, error and success tints that ride with it, and a string of Yumma
+   * CSS utilities restyles it on every focusable part of the component, which
+   * is more than `className` reaches. Removing it outright and putting nothing
+   * back fails WCAG 2.4.7.
+   */
   focus?: boolean | string;
 }
 
+/**
+ * A placeholder for an empty list, with an optional badge icon and up to two
+ * actions.
+ */
 export default function EmptyStateBase({
   icon,
   iconTone = "accent",

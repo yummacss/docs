@@ -20,14 +20,40 @@ const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
 };
 
 export interface ProgressProps {
+  /**
+   * The current value, 0-100. Pass `null` for an indeterminate, always-animated
+   * sliding bar. There is no fill level to show, so the schema here cannot demo
+   * it, but the prop accepts it.
+   */
   value: number | null;
+  /**
+   * Text above the track, correctly wired to it via Base UI's own
+   * Progress.Label.
+   */
   label: ReactNode;
+  /** Corner radius on both the track and the indicator. */
   shape?: Shape;
+  /**
+   * Wraps the bar in a padded card. `none` renders it bare, with no card at
+   * all.
+   */
   shadow?: Shadow;
+  /**
+   * The indicator's width transition as `value` changes. Indeterminate progress
+   * always animates regardless of this.
+   */
   animated?: boolean;
+  /**
+   * Extra classes. `merge` folds them in last, so one here replaces the
+   * component's own class for the same utility.
+   */
   className?: string;
 }
 
+/**
+ * A labelled progress bar, determinate or indeterminate, in three shapes with
+ * an optional card shadow.
+ */
 export default function ProgressBase({
   value,
   label,
