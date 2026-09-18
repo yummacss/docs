@@ -10,42 +10,42 @@ type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 type Status = "default" | "error" | "success";
 
-const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:silver-3/60 fv:bc:silver-5";
 
 const SHAPES: Record<Shape, string> = {
-  rounded: "br-lg",
+  rounded: "br:lg",
   square: "",
-  squircle: "br-xxl cs-s",
+  squircle: "br:xxl cs:s",
 };
 
 const SHADOWS: Record<Shadow, string> = {
   none: "",
-  inset: "bs-i-3xl",
-  outset: "bs-o-sm",
+  inset: "bs-i:3xl",
+  outset: "bs-o:sm",
 };
 
 const STATUS_BORDER: Record<Status, string> = {
-  default: "bc-silver-3",
-  error: "bc-red-5",
-  success: "bc-green-5",
+  default: "bc:silver-3",
+  error: "bc:red-5",
+  success: "bc:green-5",
 };
 
 const STATUS_OUTLINE: Record<Status, string> = {
   default: "",
-  error: "fv:oc-red-2/60 fv:bc-red-3",
-  success: "fv:oc-green-2/60 fv:bc-green-3",
+  error: "fv:oc:red-2/60 fv:bc:red-3",
+  success: "fv:oc:green-2/60 fv:bc:green-3",
 };
 
 const STATUS_ICON: Record<Status, string> = {
   default: "",
-  error: "c-red-5",
-  success: "c-green-5",
+  error: "c:red-5",
+  success: "c:green-5",
 };
 
 const STATUS_MESSAGE: Record<Status, string> = {
-  default: "c-slate-6",
-  error: "c-red-5",
-  success: "c-green-6",
+  default: "c:slate-6",
+  error: "c:red-5",
+  success: "c:green-6",
 };
 
 const WARN_AT = 20;
@@ -112,8 +112,8 @@ export default function TextareaBase({
 
   const controlClasses = merge(
     outline,
-    "h-24 w-64 pt-3 pl-3 bg-white c-slate-10 bw-1 fs-md r-none",
-    showCounter || status !== "default" ? "pr-10" : "pr-3",
+    "h:24 w:64 pt:3 pl:3 bg:white c:slate-10 bw:1 fs:md r:none",
+    showCounter || status !== "default" ? "pr:10" : "pr:3",
     SHAPES[shape],
     SHADOWS[shadow],
     STATUS_BORDER[status],

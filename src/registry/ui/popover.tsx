@@ -10,7 +10,7 @@ type Side = "top" | "right" | "bottom" | "left";
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 
-const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:silver-3/60 fv:bc:silver-5";
 type TriggerVariant = "icon" | "label";
 
 const POPOVER_MOTION = `
@@ -28,25 +28,25 @@ const POPOVER_MOTION = `
 `;
 
 const TRIGGER_VARIANTS: Record<TriggerVariant, string> = {
-  icon: "w-10 h-10",
-  label: "px-3 py-2 g-2",
+  icon: "w:10 h:10",
+  label: "px:3 py:2 g:2",
 };
 
 const TRIGGER_SHAPES: Record<Shape, string> = {
-  rounded: "br-lg",
+  rounded: "br:lg",
   square: "",
-  squircle: "br-xxl cs-s",
+  squircle: "br:xxl cs:s",
 };
 
 const POPUP_SHAPES: Record<Shape, string> = {
-  rounded: "br-lg",
+  rounded: "br:lg",
   square: "",
-  squircle: "br-3xl cs-s",
+  squircle: "br:3xl cs:s",
 };
 
 const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
-  inset: "bs-i-3xl",
-  outset: "bs-o-sm",
+  inset: "bs-i:3xl",
+  outset: "bs-o:sm",
 };
 
 const ARROW_PLACEMENT: Record<string, CSSProperties> = {
@@ -114,18 +114,18 @@ export default function PopoverBase({
 
   const triggerClasses = merge(
     outline,
-    "d-f ai-c jc-c bw-1 bc-silver-2 bg-white c-slate-10 us-none c-p h:bg-silver-1",
+    "d:f ai:c jc:c bw:1 bc:silver-2 bg:white c:slate-10 us:none c:p h:bg:silver-1",
     TRIGGER_VARIANTS[triggerVariant],
     TRIGGER_SHAPES[shape],
-    open ? "bg-silver-1" : "",
+    open ? "bg:silver-1" : "",
     className,
   );
 
   const popupClasses = [
-    "px-4 py-3 w-56 bg-white bc-silver-2 c-slate-10 bw-1",
+    "px:4 py:3 w:56 bg:white bc:silver-2 c:slate-10 bw:1",
     POPUP_SHAPES[shape],
     shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "",
-    arrow ? "p-r" : "",
+    arrow ? "p:r" : "",
   ]
     .filter(Boolean)
     .join(" ");
@@ -156,7 +156,7 @@ export default function PopoverBase({
           <Popover.Close
             className={merge(
               outline,
-              "d-f fs-0 ai-c jc-c w-7 h-7 bg-transparent c-slate-5 bw-0 br-9999 c-p h:bg-silver-1/50 h:c-slate-7",
+              "d:f fs:0 ai:c jc:c w:7 h:7 bg:transparent c:slate-5 bw:0 br:9999 c:p h:bg:silver-1/50 h:c:slate-7",
             )}
             aria-label="Close"
           >

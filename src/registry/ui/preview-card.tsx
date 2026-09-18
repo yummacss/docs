@@ -8,17 +8,17 @@ import { merge } from "yummacss/merge";
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 
-const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:silver-3/60 fv:bc:silver-5";
 
 const SHAPES: Record<Shape, string> = {
-  rounded: "br-lg",
+  rounded: "br:lg",
   square: "",
-  squircle: "br-xxl cs-s",
+  squircle: "br:xxl cs:s",
 };
 
 const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
-  inset: "bs-i-3xl",
-  outset: "bs-o-sm",
+  inset: "bs-i:3xl",
+  outset: "bs-o:sm",
 };
 
 export interface PreviewCardProps {
@@ -49,7 +49,7 @@ export default function PreviewCardBase({
   container,
 }: PreviewCardProps) {
   const popupClasses = [
-    "d-f fd-c g-3 w-64 p-3 bg-white bc-silver-2 bw-1 c-slate-10 fs-sm",
+    "d:f fd:c g:3 w:64 p:3 bg:white bc:silver-2 bw:1 c:slate-10 fs:sm",
     SHAPES[shape],
     shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "",
   ]
@@ -68,8 +68,8 @@ export default function PreviewCardBase({
         className={(state) =>
           merge(
             outline,
-            "c-blue c-p fw-500 td-none h:td-u",
-            state.open ? "td-u" : "",
+            "c:blue c:p fw:500 td:none h:td:u",
+            state.open ? "td:u" : "",
             className,
           )
         }

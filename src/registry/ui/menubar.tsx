@@ -25,32 +25,32 @@ const MENUBAR_MOTION = `
 `;
 
 const BAR_SHAPES: Record<Shape, string> = {
-  rounded: "br-lg",
+  rounded: "br:lg",
   square: "",
-  squircle: "br-xxl cs-s",
+  squircle: "br:xxl cs:s",
 };
 
 const TRIGGER_SHAPES: Record<Shape, string> = {
-  rounded: "br-lg",
+  rounded: "br:lg",
   square: "",
-  squircle: "br-xxl cs-s",
+  squircle: "br:xxl cs:s",
 };
 
 const POPUP_SHAPES: Record<Shape, string> = {
-  rounded: "br-xxl",
+  rounded: "br:xxl",
   square: "",
-  squircle: "br-3xl cs-s",
+  squircle: "br:3xl cs:s",
 };
 
 const ITEM_SHAPES: Record<Shape, string> = {
-  rounded: "br-xl",
+  rounded: "br:xl",
   square: "",
-  squircle: "br-xxl cs-s",
+  squircle: "br:xxl cs:s",
 };
 
 const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
-  inset: "bs-i-md",
-  outset: "bs-o-sm",
+  inset: "bs-i:md",
+  outset: "bs-o:sm",
 };
 
 export interface MenubarAction {
@@ -132,14 +132,14 @@ export default function MenubarBase({
     shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "";
 
   const barClasses = merge(
-    "d-f g-1 p-1 bg-white bc-silver-2 bw-1",
+    "d:f g:1 p:1 bg:white bc:silver-2 bw:1",
     BAR_SHAPES[shape],
     shadowClass,
     className,
   );
 
   const popupClasses = [
-    "py-1 w-52 bg-white bc-silver-2 c-slate-10 bw-1 os-none",
+    "py:1 w:52 bg:white bc:silver-2 c:slate-10 bw:1 os:none",
     POPUP_SHAPES[shape],
     shadowClass,
   ]
@@ -148,10 +148,10 @@ export default function MenubarBase({
 
   const triggerClasses = (disabled: boolean) => (state: { open: boolean }) =>
     [
-      "h-8 px-3 fs-sm fw-500 us-none bw-0 bg-transparent",
+      "h:8 px:3 fs:sm fw:500 us:none bw:0 bg:transparent",
       TRIGGER_SHAPES[shape],
-      disabled ? "c-slate-4 o-60 c-na" : "c-slate-10 c-p h:bg-silver-1/50",
-      !disabled && state.open ? "bg-silver-2/50" : "",
+      disabled ? "c:slate-4 o:60 c:na" : "c:slate-10 c:p h:bg:silver-1/50",
+      !disabled && state.open ? "bg:silver-2/50" : "",
     ]
       .filter(Boolean)
       .join(" ");
@@ -160,15 +160,15 @@ export default function MenubarBase({
     (destructive: boolean, spread: boolean) =>
     (state: { highlighted: boolean }) =>
       [
-        "d-f ai-c g-2 py-2 pl-2 pr-3 fs-sm us-none c-p mx-1 fw-500 os-none",
-        spread ? "jc-sb" : "",
+        "d:f ai:c g:2 py:2 pl:2 pr:3 fs:sm us:none c:p mx:1 fw:500 os:none",
+        spread ? "jc:sb" : "",
         ITEM_SHAPES[shape],
-        destructive ? "c-red" : "",
+        destructive ? "c:red" : "",
         state.highlighted
           ? destructive
-            ? "bg-red-1/50"
-            : "bg-silver-2/50"
-          : "bg-transparent",
+            ? "bg:red-1/50"
+            : "bg:silver-2/50"
+          : "bg:transparent",
       ]
         .filter(Boolean)
         .join(" ");
@@ -293,8 +293,8 @@ export default function MenubarBase({
           {action.shortcut && (
             <span
               className={[
-                "d-f ai-c g-1 ml-4 fw-400 fs-xs",
-                destructive ? "c-red" : "c-slate-6",
+                "d:f ai:c g:1 ml:4 fw:400 fs:xs",
+                destructive ? "c:red" : "c:slate-6",
               ]
                 .filter(Boolean)
                 .join(" ")}

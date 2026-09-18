@@ -13,21 +13,21 @@ type Shadow = "none" | "inset" | "outset";
 type IconPosition = "leading" | "trailing";
 
 const POPUP_SHAPES: Record<Shape, string> = {
-  rounded: "br-xxl",
+  rounded: "br:xxl",
   square: "",
-  squircle: "br-3xl cs-s",
+  squircle: "br:3xl cs:s",
 };
 
 const BADGE_SHAPES: Record<Shape, string> = {
-  rounded: "br-9999",
+  rounded: "br:9999",
   square: "",
-  squircle: "br-xxl cs-s",
+  squircle: "br:xxl cs:s",
 };
 
 const BUTTON_SHAPES: Record<Shape, string> = {
-  rounded: "br-lg",
+  rounded: "br:lg",
   square: "",
-  squircle: "br-xxl cs-s",
+  squircle: "br:xxl cs:s",
 };
 
 const ALERT_MOTION = `
@@ -53,28 +53,28 @@ const ALERT_MOTION = `
 `;
 
 const CLOSE_SHAPES: Record<Shape, string> = {
-  rounded: "br-9999",
+  rounded: "br:9999",
   square: "",
-  squircle: "br-lg cs-s",
+  squircle: "br:lg cs:s",
 };
 
 const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
-  inset: "bs-i-3xl",
-  outset: "bs-o-sm",
+  inset: "bs-i:3xl",
+  outset: "bs-o:sm",
 };
 
-const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:silver-3/60 fv:bc:silver-5";
 
-const DANGER_OUTLINE = "fv:oc-red-2/60 fv:bc-red-3";
+const DANGER_OUTLINE = "fv:oc:red-2/60 fv:bc:red-3";
 
 const TONE_BUTTON: Record<Tone, string> = {
-  danger: "bg-red h:bg-red-8 bc-red-7 c-white",
-  neutral: "bg-white bc-silver-2 c-slate-10 h:bg-silver-1/50",
+  danger: "bg:red h:bg:red-8 bc:red-7 c:white",
+  neutral: "bg:white bc:silver-2 c:slate-10 h:bg:silver-1/50",
 };
 
 const TONE_BADGE: Record<Tone, string> = {
-  danger: "bg-red-1/50 c-red",
-  neutral: "bg-silver-2 c-slate-7",
+  danger: "bg:red-1/50 c:red",
+  neutral: "bg:silver-2 c:slate-7",
 };
 
 export interface AlertDialogProps {
@@ -126,11 +126,11 @@ export default function AlertDialogBase({
 
   const [open, setOpen] = useState(false);
 
-  const base = "px-3 py-2 bw-1 fw-500 tp-c tdu-150 ttf-io us-none";
+  const base = "px:3 py:2 bw:1 fw:500 tp:c tdu:150 ttf:io us:none";
 
   const triggerClasses = merge(
     triggerOutline,
-    "d-if ai-c g-2",
+    "d:if ai:c g:2",
     base,
     BUTTON_SHAPES[shape],
     TONE_BUTTON[triggerTone],
@@ -138,7 +138,7 @@ export default function AlertDialogBase({
   );
 
   const popupClasses = [
-    "o-h p-r w-96 bg-white bc-silver-2 c-slate-10 bw-1",
+    "o:h p:r w:96 bg:white bc:silver-2 c:slate-10 bw:1",
     POPUP_SHAPES[shape],
     shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "",
   ]
@@ -146,7 +146,7 @@ export default function AlertDialogBase({
     .join(" ");
 
   const badgeClasses = [
-    "d-f ai-c jc-c w-12 h-12",
+    "d:f ai:c jc:c w:12 h:12",
     TONE_BADGE[tone],
     BADGE_SHAPES[shape],
   ]
@@ -155,14 +155,14 @@ export default function AlertDialogBase({
 
   const cancelClasses = merge(
     outline,
-    "px-4 py-2 bw-1 fw-500 tp-c tdu-150 ttf-io us-none",
+    "px:4 py:2 bw:1 fw:500 tp:c tdu:150 ttf:io us:none",
     BUTTON_SHAPES[shape],
     TONE_BUTTON.neutral,
   );
 
   const confirmClasses = merge(
     confirmOutline,
-    "px-4 py-2 bw-1 fw-500 tp-c tdu-150 ttf-io us-none",
+    "px:4 py:2 bw:1 fw:500 tp:c tdu:150 ttf:io us:none",
     BUTTON_SHAPES[shape],
     TONE_BUTTON[tone],
   );
@@ -185,7 +185,7 @@ export default function AlertDialogBase({
                 <Button
                   className={merge(
                     outline,
-                    "d-f p-a r-3 t-3 ai-c jc-c w-7 h-7 p-0 c-slate-6 bw-0 h:bg-silver-1/50 h:c-slate-7",
+                    "d:f p:a r:3 t:3 ai:c jc:c w:7 h:7 p:0 c:slate-6 bw:0 h:bg:silver-1/50 h:c:slate-7",
                     CLOSE_SHAPES[shape],
                   )}
                 />

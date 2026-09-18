@@ -11,7 +11,7 @@ type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 type IconPosition = "leading" | "trailing";
 
-const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:silver-3/60 fv:bc:silver-5";
 
 interface SizeSpec {
   trigger: string;
@@ -34,37 +34,37 @@ const MENU_MOTION = `
 `;
 
 const SIZES: Record<Size, SizeSpec> = {
-  sm: { trigger: "px-2 py-1", popup: "w-44", item: "py-1 px-2", text: "fs-xs" },
+  sm: { trigger: "px:2 py:1", popup: "w:44", item: "py:1 px:2", text: "fs:xs" },
   md: {
-    trigger: "px-3 py-2",
-    popup: "w-52",
-    item: "py-2 pl-2 pr-3",
-    text: "fs-sm",
+    trigger: "px:3 py:2",
+    popup: "w:52",
+    item: "py:2 pl:2 pr:3",
+    text: "fs:sm",
   },
-  lg: { trigger: "px-4 py-3", popup: "w-60", item: "py-3 px-4", text: "fs-md" },
+  lg: { trigger: "px:4 py:3", popup: "w:60", item: "py:3 px:4", text: "fs:md" },
 };
 
 const TRIGGER_SHAPES: Record<Shape, string> = {
-  rounded: "br-lg",
+  rounded: "br:lg",
   square: "",
-  squircle: "br-xxl cs-s",
+  squircle: "br:xxl cs:s",
 };
 
 const POPUP_SHAPES: Record<Shape, string> = {
-  rounded: "br-xxl",
+  rounded: "br:xxl",
   square: "",
-  squircle: "br-3xl cs-s",
+  squircle: "br:3xl cs:s",
 };
 
 const ITEM_SHAPES: Record<Shape, string> = {
-  rounded: "br-xl",
+  rounded: "br:xl",
   square: "",
-  squircle: "br-xxl cs-s",
+  squircle: "br:xxl cs:s",
 };
 
 const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
-  inset: "bs-i-md",
-  outset: "bs-o-sm",
+  inset: "bs-i:md",
+  outset: "bs-o:sm",
 };
 
 export interface MenuAction {
@@ -170,17 +170,17 @@ export default function MenuBase({
 
   const triggerClasses = merge(
     outline,
-    "d-f ai-c g-2 h-fc bg-white bc-silver-2 bw-1 fw-500 us-none",
+    "d:f ai:c g:2 h:fc bg:white bc:silver-2 bw:1 fw:500 us:none",
     spec.trigger,
     TRIGGER_SHAPES[shape],
     shadowClass,
-    animated ? "tp-c tdu-150 ttf-io" : "",
-    disabled ? "c-slate-4 o-60 c-na" : "c-slate-10 c-p h:bg-silver-1/50",
+    animated ? "tp:c tdu:150 ttf:io" : "",
+    disabled ? "c:slate-4 o:60 c:na" : "c:slate-10 c:p h:bg:silver-1/50",
     className,
   );
 
   const popupClasses = [
-    "py-1 bg-white bc-silver-2 c-slate-10 bw-1 os-none",
+    "py:1 bg:white bc:silver-2 c:slate-10 bw:1 os:none",
     spec.popup,
     POPUP_SHAPES[shape],
     shadowClass,
@@ -192,17 +192,17 @@ export default function MenuBase({
     (destructive: boolean, spread: boolean) =>
     (state: { highlighted: boolean }) =>
       [
-        "d-f ai-c g-2 us-none c-p mx-1 fw-500 os-none",
+        "d:f ai:c g:2 us:none c:p mx:1 fw:500 os:none",
         spec.item,
         spec.text,
-        spread ? "jc-sb" : "",
+        spread ? "jc:sb" : "",
         ITEM_SHAPES[shape],
-        destructive ? "c-red" : "",
+        destructive ? "c:red" : "",
         state.highlighted
           ? destructive
-            ? "bg-red-1/50"
-            : "bg-silver-2/50"
-          : "bg-transparent",
+            ? "bg:red-1/50"
+            : "bg:silver-2/50"
+          : "bg:transparent",
       ]
         .filter(Boolean)
         .join(" ");
@@ -327,8 +327,8 @@ export default function MenuBase({
           {action.shortcut && (
             <span
               className={[
-                "d-f ai-c g-1 ml-4 fw-400 fs-xs",
-                destructive ? "c-red" : "c-slate-6",
+                "d:f ai:c g:1 ml:4 fw:400 fs:xs",
+                destructive ? "c:red" : "c:slate-6",
               ]
                 .filter(Boolean)
                 .join(" ")}

@@ -1,7 +1,7 @@
 import { readFileSync } from "node:fs";
 import { join, relative } from "node:path";
-import type { ValidateOptions } from "@yummacss/canon";
-import { extractClasses, validate } from "@yummacss/canon";
+import type { ValidateOptions } from "@yummacss/lint";
+import { extractClasses, validate } from "@yummacss/lint";
 import { describe, expect, it } from "vitest";
 import { rootDir, tsxFilesIn } from "./helpers";
 

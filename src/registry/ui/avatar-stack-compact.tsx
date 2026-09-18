@@ -9,7 +9,7 @@ export default function AvatarStackCompact() {
           size="sm"
           src={member.avatarUrl}
           name={member.name}
-          className={index > 0 ? "ml--2" : ""}
+          className={index > 0 ? "ml:-2" : ""}
         />
       ))}
       <Avatar size="sm" fallback={`+${extraCount}`} className="ml:-2" />

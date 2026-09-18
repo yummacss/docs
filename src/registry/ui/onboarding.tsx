@@ -15,15 +15,15 @@ type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 
 const POPUP_SHAPES: Record<Shape, string> = {
-  rounded: "br-xxl",
+  rounded: "br:xxl",
   square: "",
-  squircle: "br-3xl cs-s",
+  squircle: "br:3xl cs:s",
 };
 
 const CONTROL_SHAPES: Record<Shape, string> = {
-  rounded: "br-lg",
+  rounded: "br:lg",
   square: "",
-  squircle: "br-xxl cs-s",
+  squircle: "br:xxl cs:s",
 };
 
 const ONBOARDING_MOTION = `
@@ -49,19 +49,19 @@ const ONBOARDING_MOTION = `
 `;
 
 const CLOSE_SHAPES: Record<Shape, string> = {
-  rounded: "br-9999",
+  rounded: "br:9999",
   square: "",
-  squircle: "br-lg cs-s",
+  squircle: "br:lg cs:s",
 };
 
 const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
-  inset: "bs-i-3xl",
-  outset: "bs-o-sm",
+  inset: "bs-i:3xl",
+  outset: "bs-o:sm",
 };
 
-const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:silver-3/60 fv:bc:silver-5";
 
-const CONTROL_BASE = "d-f ai-c jc-c w-8 h-8 bw-1 tp-c tdu-150 ttf-io us-none";
+const CONTROL_BASE = "d:f ai:c jc:c w:8 h:8 bw:1 tp:c tdu:150 ttf:io us:none";
 
 const slideVariants = {
   enter: (d: number) => ({ x: d > 0 ? 40 : -40, opacity: 0 }),
@@ -163,13 +163,13 @@ export default function OnboardingBase({
 
   const triggerClasses = merge(
     outline,
-    "bg-white d-if ai-c g-2 px-3 py-2 bc-silver-2 c-slate-10 bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50",
+    "bg:white d:if ai:c g:2 px:3 py:2 bc:silver-2 c:slate-10 bw:1 fw:500 tp:c tdu:150 ttf:io us:none h:bg:silver-1/50",
     CONTROL_SHAPES[shape],
     className,
   );
 
   const popupClasses = [
-    "o-h p-r w-96 bg-white bc-silver-2 c-slate-10 bw-1",
+    "o:h p:r w:96 bg:white bc:silver-2 c:slate-10 bw:1",
     POPUP_SHAPES[shape],
     shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "",
   ]
@@ -180,7 +180,7 @@ export default function OnboardingBase({
     outline,
     CONTROL_BASE,
     CONTROL_SHAPES[shape],
-    "bg-white bc-silver-2 c-slate-10 h:bg-silver-1/50",
+    "bg:white bc:silver-2 c:slate-10 h:bg:silver-1/50",
   );
 
   const forwardClasses = merge(
@@ -188,8 +188,8 @@ export default function OnboardingBase({
     CONTROL_BASE,
     CONTROL_SHAPES[shape],
     allTasksDone
-      ? "bg-slate-12 h:bg-slate-11 bc-slate-12 c-white"
-      : "bg-silver-1 bc-silver-2 c-slate-4",
+      ? "bg:slate-12 h:bg:slate-11 bc:slate-12 c:white"
+      : "bg:silver-1 bc:silver-2 c:slate-4",
   );
 
   const slide = (
@@ -213,8 +213,8 @@ export default function OnboardingBase({
                 onClick={() => toggleTask(task.id)}
                 className={merge(
                   outline,
-                  "d-f ai-c g-2 px-3 py-2 w-100% br-lg bw-0 fs-sm ta-l us-none c-p",
-                  isChecked ? "bg-green-1/30" : "bg-silver-1/50",
+                  "d:f ai:c g:2 px:3 py:2 w:100% br:lg bw:0 fs:sm ta:l us:none c:p",
+                  isChecked ? "bg:green-1/30" : "bg:silver-1/50",
                 )}
               >
                 <div
@@ -226,7 +226,7 @@ export default function OnboardingBase({
                 >
                   {isChecked && <Check className="w:3 h:3" />}
                 </div>
-                <span className={isChecked ? "c-green-7" : "c-slate-10"}>
+                <span className={isChecked ? "c:green-7" : "c:slate-10"}>
                   {task.label}
                 </span>
               </Button>
@@ -243,7 +243,7 @@ export default function OnboardingBase({
         <Button
           className={merge(
             outline,
-            "d-f ai-c jc-c w-7 h-7 p-0 c-slate-6 bw-0 h:bg-silver-1/50 h:c-slate-7",
+            "d:f ai:c jc:c w:7 h:7 p:0 c:slate-6 bw:0 h:bg:silver-1/50 h:c:slate-7",
             CLOSE_SHAPES[shape],
             position,
           )}
@@ -265,7 +265,7 @@ export default function OnboardingBase({
           className={`${popupClasses} ${animated ? "yui-onboarding-pop" : ""}`}
           style={{ maxWidth: "90vw" }}
         >
-          {showClose && indicator === "dots" && closeButton("p-a l-3 t-3")}
+          {showClose && indicator === "dots" && closeButton("p:a l:3 t:3")}
 
           {indicator !== "dots" && (
             <div className="d:f ai:c jc:sb px:8 pt:5">
@@ -365,10 +365,10 @@ export default function OnboardingBase({
                 disabled={isFirst}
                 className={merge(
                   outline,
-                  "d-f ai-c jc-c w-8 h-8 bw-0 br-lg us-none",
+                  "d:f ai:c jc:c w:8 h:8 bw:0 br:lg us:none",
                   isFirst
-                    ? "c-slate-3"
-                    : "c-slate-6 h:bg-silver-1 h:c-slate-10 c-p",
+                    ? "c:slate-3"
+                    : "c:slate-6 h:bg:silver-1 h:c:slate-10 c:p",
                 )}
                 aria-label="Previous"
               >
@@ -386,8 +386,8 @@ export default function OnboardingBase({
                       className={(state) =>
                         merge(
                           outline,
-                          "d-f ai-c jc-c w-4 h-4 br-9999 bw-0 us-none c-p",
-                          state.active ? "bg-slate-12" : "bg-silver-2",
+                          "d:f ai:c jc:c w:4 h:4 br:9999 bw:0 us:none c:p",
+                          state.active ? "bg:slate-12" : "bg:silver-2",
                         )
                       }
                     />
@@ -406,10 +406,10 @@ export default function OnboardingBase({
                   disabled={!allTasksDone}
                   className={merge(
                     outline,
-                    "d-f ai-c jc-c w-8 h-8 bw-0 br-lg us-none",
+                    "d:f ai:c jc:c w:8 h:8 bw:0 br:lg us:none",
                     allTasksDone
-                      ? "c-slate-6 h:bg-silver-1 h:c-slate-10 c-p"
-                      : "c-slate-3",
+                      ? "c:slate-6 h:bg:silver-1 h:c:slate-10 c:p"
+                      : "c:slate-3",
                   )}
                   aria-label="Next"
                 >

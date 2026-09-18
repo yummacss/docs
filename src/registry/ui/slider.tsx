@@ -9,20 +9,20 @@ type Shadow = "none" | "inset" | "outset";
 type Value = number | number[];
 
 const SHAPES: Record<Shape, string> = {
-  rounded: "br-9999",
+  rounded: "br:9999",
   square: "",
-  squircle: "br-xxl cs-s",
+  squircle: "br:xxl cs:s",
 };
 
 const SHADOWS: Record<Shadow, string> = {
   none: "",
-  inset: "bs-i-md",
-  outset: "bs-o-sm",
+  inset: "bs-i:md",
+  outset: "bs-o:sm",
 };
 
-const FOCUS = "os-s ow-3 oo-0 oc-silver-3/60";
+const FOCUS = "os:s ow:3 oo:0 oc:silver-3/60";
 
-const THUMB_BOX = "d-f ai-c jc-c w-6 h-5 p-1";
+const THUMB_BOX = "d:f ai:c jc:c w:6 h:5 p:1";
 const BOX = "1.5rem";
 const HALF_BOX = "0.75rem";
 
@@ -84,8 +84,8 @@ export default function SliderBase({
 
   const thumbClasses = (index: number) =>
     merge(
-      "w-4 h-3",
-      disabled ? "bg-silver-5" : "bg-slate-10",
+      "w:4 h:3",
+      disabled ? "bg:silver-5" : "bg:slate-10",
       SHAPES[shape],
       focused === index ? outline : "",
     );
@@ -98,7 +98,7 @@ export default function SliderBase({
   });
 
   return (
-    <div className={merge("d-f fd-c g-2 w-64", className)}>
+    <div className={merge("d:f fd:c g:2 w:64", className)}>
       <div className="d:f ai:c jc:sb">
         {label && (
           <label className="c:slate-10 fs:sm fw:500 us:none">
@@ -123,7 +123,7 @@ export default function SliderBase({
         >
           <Slider.Track
             className={merge(
-              "p-r h-5 w-100% bg-white os-s ow-1 oo-0 oc-silver-3",
+              "p:r h:5 w:100% bg:white os:s ow:1 oo:0 oc:silver-3",
               SHAPES[shape],
               SHADOWS[shadow],
             )}
@@ -138,7 +138,7 @@ export default function SliderBase({
                   : { width: `calc(var(--start-position) + ${HALF_BOX})` }
               }
               className={merge(
-                disabled ? "bg-silver-1" : "bg-silver-2 brc-silver-3 brw-1",
+                disabled ? "bg:silver-1" : "bg:silver-2 brc:silver-3 brw:1",
                 SHAPES[shape],
               )}
             />

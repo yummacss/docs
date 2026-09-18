@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { extractClasses, validate } from "@yummacss/canon";
+import { extractClasses, validate } from "@yummacss/lint";
 import config from "../yumma.config.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));

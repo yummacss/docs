@@ -9,32 +9,32 @@ const SURFACE: {
   shade: number;
 }[] = [
   {
-    name: "bg-slate-12",
+    name: "bg:slate-12",
     selector: ".bg-slate-12",
     property: "background-color",
     shade: 12,
   },
   {
-    name: "bc-slate-12",
+    name: "bc:slate-12",
     selector: ".bc-slate-12",
     property: "border-color",
     shade: 12,
   },
   {
-    name: "blc-slate-12",
+    name: "blc:slate-12",
     selector: ".blc-slate-12",
     property: "border-left-color",
     shade: 12,
   },
   {
-    name: "h:bg-slate-11",
+    name: "h:bg:slate-11",
     selector: ".h\\:bg-slate-11:hover",
     property: "background-color",
     shade: 11,
   },
-  { name: "f-slate-12", selector: ".f-slate-12", property: "fill", shade: 12 },
+  { name: "f:slate-12", selector: ".f-slate-12", property: "fill", shade: 12 },
   {
-    name: "s-slate-12",
+    name: "s:slate-12",
     selector: ".s-slate-12",
     property: "stroke",
     shade: 12,
@@ -43,7 +43,7 @@ const SURFACE: {
 
 export const ACCENT_CLASSES = SURFACE.map((entry) => entry.name);
 
-export const ACCENT_EXCLUDES = ["c-slate-12"];
+export const ACCENT_EXCLUDES = ["c:slate-12"];
 
 export const ACCENTS = Object.keys(colorTheme);
 

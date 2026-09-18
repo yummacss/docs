@@ -10,41 +10,41 @@ type Size = "sm" | "md" | "lg";
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 
-const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:silver-3/60 fv:bc:silver-5";
 
-const INSET_FOCUS = `${FOCUS} fv:oo--1`;
+const INSET_FOCUS = `${FOCUS} fv:oo:-1`;
 
 const STEP =
-  "d-f ai-c jc-c bg-white c-slate-10 us-none c-p h:bg-silver-1/50 a:bg-silver-2";
+  "d:f ai:c jc:c bg:white c:slate-10 us:none c:p h:bg:silver-1/50 a:bg:silver-2";
 
 const STEP_SIZES: Record<Size, string> = {
-  sm: "w-6 h-4",
-  md: "w-7 h-5",
-  lg: "w-8 h-6",
+  sm: "w:6 h:4",
+  md: "w:7 h:5",
+  lg: "w:8 h:6",
 };
 
 const INPUT_SIZES: Record<Size, string> = {
-  sm: "h-8 w-28 pl-3 fs-sm",
-  md: "h-10 w-32 pl-3 fs-md",
-  lg: "h-12 w-36 pl-4 fs-lg",
+  sm: "h:8 w:28 pl:3 fs:sm",
+  md: "h:10 w:32 pl:3 fs:md",
+  lg: "h:12 w:36 pl:4 fs:lg",
 };
 
 const ICON_SIZES: Record<Size, string> = {
-  sm: "w-3 h-3",
-  md: "w-4 h-4",
-  lg: "w-4 h-4",
+  sm: "w:3 h:3",
+  md: "w:4 h:4",
+  lg: "w:4 h:4",
 };
 
 const GROUP_SHAPES: Record<Shape, string> = {
-  rounded: "br-lg",
+  rounded: "br:lg",
   square: "",
-  squircle: "br-xxl cs-s",
+  squircle: "br:xxl cs:s",
 };
 
 const SHADOWS: Record<Shadow, string> = {
   none: "",
-  inset: "bs-i-md",
-  outset: "bs-o-sm",
+  inset: "bs-i:md",
+  outset: "bs-o:sm",
 };
 
 export interface NumberFieldProps
@@ -82,7 +82,7 @@ export default function NumberFieldBase({
 
   const inputClasses = merge(
     outline,
-    "bg-white bc-transparent c-slate-10 bw-1 ta-l",
+    "bg:white bc:transparent c:slate-10 bw:1 ta:l",
     INPUT_SIZES[size],
     SHADOWS[shadow],
     className,
