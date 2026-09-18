@@ -9,14 +9,14 @@ type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 
 const SHAPES: Record<Shape, string> = {
-  rounded: "br-9999",
+  rounded: "br:9999",
   square: "",
-  squircle: "br-xxl cs-s",
+  squircle: "br:xxl cs:s",
 };
 
 const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
-  inset: "bs-i-3xl",
-  outset: "bs-o-sm",
+  inset: "bs-i:3xl",
+  outset: "bs-o:sm",
 };
 
 export interface ProgressProps {
@@ -40,13 +40,13 @@ export default function ProgressBase({
   const isIndeterminate = value === null;
 
   const rootClasses = merge(
-    "d-f fd-c g-2 w-64",
-    isCard ? "p-4 bg-white bc-silver-2 br-lg bw-1" : "",
+    "d:f fd:c g:2 w:64",
+    isCard ? "p:4 bg:white bc:silver-2 br:lg bw:1" : "",
     shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "",
     className,
   );
 
-  const trackClasses = ["o-h h-2 bg-silver-2", SHAPES[shape]]
+  const trackClasses = ["o:h h:2 bg:silver-2", SHAPES[shape]]
     .filter(Boolean)
     .join(" ");
 
@@ -70,7 +70,7 @@ export default function ProgressBase({
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
-                className={["h-100% bg-slate-12", SHAPES[shape]]
+                className={["h:100% bg:slate-12", SHAPES[shape]]
                   .filter(Boolean)
                   .join(" ")}
               />
@@ -89,9 +89,9 @@ export default function ProgressBase({
             }
             className={(state) =>
               [
-                "h-100%",
+                "h:100%",
                 SHAPES[shape],
-                state.status === "complete" ? "bg-green" : "bg-slate-12",
+                state.status === "complete" ? "bg:green" : "bg:slate-12",
               ]
                 .filter(Boolean)
                 .join(" ")

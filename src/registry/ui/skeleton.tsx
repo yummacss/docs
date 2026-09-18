@@ -7,20 +7,20 @@ type Shape = "line" | "block" | "circle";
 type Tone = "default" | "subtle";
 
 const RADII: Record<Shape, string> = {
-  line: "br-xs",
-  block: "br-lg",
-  circle: "br-9999",
+  line: "br:xs",
+  block: "br:lg",
+  circle: "br:9999",
 };
 
 const SIZES: Record<Shape, string> = {
-  line: "h-3 w-100%",
-  block: "h-8 w-24",
-  circle: "w-10 h-10",
+  line: "h:3 w:100%",
+  block: "h:8 w:24",
+  circle: "w:10 h:10",
 };
 
 const TONES: Record<Tone, string> = {
-  default: "bg-silver-2",
-  subtle: "bg-silver-1",
+  default: "bg:silver-2",
+  subtle: "bg:silver-1",
 };
 
 export interface SkeletonProps {

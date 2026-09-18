@@ -15,23 +15,23 @@ import { merge } from "yummacss/merge";
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 
-const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:silver-3/60 fv:bc:silver-5";
 
 const ROOT_SHAPES: Record<Shape, string> = {
-  rounded: "br-xxl",
+  rounded: "br:xxl",
   square: "",
-  squircle: "br-3xl cs-s",
+  squircle: "br:3xl cs:s",
 };
 
 const CONTROL_SHAPES: Record<Shape, string> = {
-  rounded: "br-lg",
+  rounded: "br:lg",
   square: "",
-  squircle: "br-xxl cs-s",
+  squircle: "br:xxl cs:s",
 };
 
 const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
-  inset: "bs-i-md",
-  outset: "bs-o-sm",
+  inset: "bs-i:md",
+  outset: "bs-o:sm",
 };
 
 export interface ToolbarButtonItem {
@@ -116,7 +116,7 @@ export default function ToolbarBase({
     shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "";
 
   const rootClasses = merge(
-    "d-f ai-c g-1 p-2 bg-white bc-silver-2 bw-1",
+    "d:f ai:c g:1 p:2 bg:white bc:silver-2 bw:1",
     ROOT_SHAPES[shape],
     shadowClass,
     className,
@@ -156,7 +156,7 @@ export default function ToolbarBase({
               key={key}
               className={merge(
                 outline,
-                "h-9 w-40 pl-3 bg-transparent bw-0 fs-sm",
+                "h:9 w:40 pl:3 bg:transparent bw:0 fs:sm",
                 control,
               )}
               placeholder={item.placeholder}
@@ -167,7 +167,7 @@ export default function ToolbarBase({
 
         if ("type" in item && item.type === "number") {
           const stepClasses = [
-            "d-f ai-c jc-c w-9 h-9 bg-transparent c-slate-7 bw-0 us-none c-p h:bg-silver-1 h:c-slate-10",
+            "d:f ai:c jc:c w:9 h:9 bg:transparent c:slate-7 bw:0 us:none c:p h:bg:silver-1 h:c:slate-10",
             control,
           ]
             .filter(Boolean)
@@ -207,7 +207,7 @@ export default function ToolbarBase({
                   render={<NumberField.Input />}
                   className={merge(
                     outline,
-                    "w-16 bg-transparent c-slate-10 bw-0 ta-c fs-sm fw-500",
+                    "w:16 bg:transparent c:slate-10 bw:0 ta:c fs:sm fw:500",
                   )}
                 />
                 <NumberField.Increment
@@ -239,7 +239,7 @@ export default function ToolbarBase({
               href={item.href}
               className={merge(
                 outline,
-                "d-f ai-c g-1 h-9 px-3 c-slate-7 fs-sm fw-500 td-none h:c-slate-10",
+                "d:f ai:c g:1 h:9 px:3 c:slate-7 fs:sm fw:500 td:none h:c:slate-10",
                 control,
               )}
             >
@@ -252,12 +252,12 @@ export default function ToolbarBase({
         const button = item as ToolbarButtonItem;
         const buttonClasses = merge(
           outline,
-          "d-f ai-c jc-c ws-nw bg-transparent c-slate-7 bw-0 us-none",
-          button.iconOnly ? "w-9 h-9" : "g-1 h-9 px-3 fs-sm fw-500",
+          "d:f ai:c jc:c ws:nw bg:transparent c:slate-7 bw:0 us:none",
+          button.iconOnly ? "w:9 h:9" : "g:1 h:9 px:3 fs:sm fw:500",
           control,
           button.disabled
-            ? "bg-silver-1 c-slate-4 c-na"
-            : "c-p h:bg-silver-1 h:c-slate-10",
+            ? "bg:silver-1 c:slate-4 c:na"
+            : "c:p h:bg:silver-1 h:c:slate-10",
         );
 
         return (
@@ -328,11 +328,11 @@ function ToolbarToggles({
   const toggleClasses = (pressed: boolean) =>
     merge(
       outline,
-      "d-f w-9 h-9 ai-c jc-c bw-0 us-none c-p",
+      "d:f w:9 h:9 ai:c jc:c bw:0 us:none c:p",
       control,
       pressed
-        ? "bg-silver-1 bc-silver-3 c-slate-12 bw-1"
-        : "bg-transparent c-slate-7 h:bg-silver-1 h:c-slate-10",
+        ? "bg:silver-1 bc:silver-3 c:slate-12 bw:1"
+        : "bg:transparent c:slate-7 h:bg:silver-1 h:c:slate-10",
     );
 
   return (

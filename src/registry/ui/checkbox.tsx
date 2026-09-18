@@ -10,50 +10,50 @@ type Size = "sm" | "md" | "lg";
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 
-const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:silver-3/60 fv:bc:silver-5";
 
-const BOX = "d-f ai-c jc-c fs-0";
+const BOX = "d:f ai:c jc:c fs:0";
 
 const SIZES: Record<Size, string> = {
-  sm: "w-3 h-3",
-  md: "w-4 h-4",
-  lg: "w-5 h-5",
+  sm: "w:3 h:3",
+  md: "w:4 h:4",
+  lg: "w:5 h:5",
 };
 
 const ICON_SIZES: Record<Size, string> = {
-  sm: "w-2 h-2",
-  md: "w-3 h-3",
-  lg: "w-4 h-4",
+  sm: "w:2 h:2",
+  md: "w:3 h:3",
+  lg: "w:4 h:4",
 };
 
 const LABEL_SIZES: Record<Size, string> = {
-  sm: "fs-xs",
-  md: "fs-sm",
-  lg: "fs-md",
+  sm: "fs:xs",
+  md: "fs:sm",
+  lg: "fs:md",
 };
 
 const DESCRIPTION_INDENT: Record<Size, string> = {
-  sm: "ml-5",
-  md: "ml-6",
-  lg: "ml-7",
+  sm: "ml:5",
+  md: "ml:6",
+  lg: "ml:7",
 };
 
 const SHAPES: Record<Shape, string> = {
-  rounded: "br-sm",
-  square: "br-0",
-  squircle: "br-xxl cs-s",
+  rounded: "br:sm",
+  square: "br:0",
+  squircle: "br:xxl cs:s",
 };
 
 const SHADOWS: Record<Shadow, string> = {
   none: "",
-  inset: "bs-i-md",
-  outset: "bs-o-sm",
+  inset: "bs-i:md",
+  outset: "bs-o:sm",
 };
 
-const CHECKED = "bg-slate-12";
-const UNCHECKED = "bw-1 bc-silver-3 bg-transparent";
+const CHECKED = "bg:slate-12";
+const UNCHECKED = "bw:1 bc:silver-3 bg:transparent";
 
-const DISABLED_BOX = "bw-1 bc-silver-2 bg-silver-1";
+const DISABLED_BOX = "bw:1 bc:silver-2 bg:silver-1";
 
 export interface CheckboxProps
   extends Omit<ComponentProps<typeof Checkbox.Root>, "className"> {

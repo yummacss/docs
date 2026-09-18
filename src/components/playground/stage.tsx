@@ -21,9 +21,9 @@ import {
 } from "@/utils/prefetch-registry";
 import { buildUsage } from "@/utils/snippet";
 
-const PREVIEW_SHELL = "d-f p-r ox-auto ai-c jc-c p-10 bg-white";
+const PREVIEW_SHELL = "d:f p:r ox:auto ai:c jc:c p:10 bg:white";
 
-const FILL = "d-f fd-c f-1 min-h-0";
+const FILL = "d:f fd:c f:1 min-h:0";
 
 interface Frame {
   id: string;

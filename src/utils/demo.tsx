@@ -93,7 +93,7 @@ export function resolveIcons(value: unknown): unknown {
   const marker = iconMarker(value);
   if (marker) {
     const Icon = EXAMPLE_ICONS[marker.name];
-    return Icon ? <Icon className={marker.size ?? "w-6 h-6"} /> : undefined;
+    return Icon ? <Icon className={marker.size ?? "w:6 h:6"} /> : undefined;
   }
   if (Array.isArray(value)) return value.map(resolveIcons);
   if (typeof value === "object" && value !== null) {

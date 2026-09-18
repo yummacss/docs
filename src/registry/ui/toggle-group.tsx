@@ -8,13 +8,13 @@ type Shape = "rounded" | "square" | "squircle" | "pill";
 type Orientation = "horizontal" | "vertical";
 
 const SHAPES: Record<Shape, string> = {
-  rounded: "br-lg",
-  square: "br-0",
-  squircle: "br-xxl cs-s",
-  pill: "br-9999",
+  rounded: "br:lg",
+  square: "br:0",
+  squircle: "br:xxl cs:s",
+  pill: "br:9999",
 };
 
-const BASE = "p-r d-f g-1 p-1 w-fc bg-white bc-silver-2 bw-1";
+const BASE = "p:r d:f g:1 p:1 w:fc bg:white bc:silver-2 bw:1";
 
 export interface ToggleGroupProps {
   className?: string;
@@ -50,7 +50,7 @@ export default function ToggleGroupBase({
       className={merge(
         BASE,
         SHAPES[shape],
-        orientation === "vertical" && "fd-c",
+        orientation === "vertical" && "fd:c",
         className,
       )}
     >

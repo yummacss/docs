@@ -13,54 +13,54 @@ type IconSide = "leading" | "trailing";
 type Status = "default" | "error" | "success";
 
 const SIZES: Record<Size, string> = {
-  sm: "h-8 w-56",
-  md: "h-10 w-64",
-  lg: "h-12 w-72",
+  sm: "h:8 w:56",
+  md: "h:10 w:64",
+  lg: "h:12 w:72",
 };
 
-const HEIGHTS: Record<Size, string> = { sm: "h-8", md: "h-10", lg: "h-12" };
+const HEIGHTS: Record<Size, string> = { sm: "h:8", md: "h:10", lg: "h:12" };
 
 const SHAPES: Record<Shape, string> = {
-  rounded: "br-lg",
-  square: "br-0",
-  squircle: "br-xxl cs-s",
+  rounded: "br:lg",
+  square: "br:0",
+  squircle: "br:xxl cs:s",
 };
 
 const SHADOWS: Record<Shadow, string> = {
   none: "",
-  inset: "bs-i-md",
-  outset: "bs-o-sm",
+  inset: "bs-i:md",
+  outset: "bs-o:sm",
 };
 
 const ICON_PADDING: Record<IconSide, string> = {
-  leading: "pl-10 pr-4",
-  trailing: "pl-4 pr-10",
+  leading: "pl:10 pr:4",
+  trailing: "pl:4 pr:10",
 };
 
-const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:silver-3/60 fv:bc:silver-5";
 
 const STATUS_BORDER: Record<Status, string> = {
-  default: "bc-silver-3",
-  error: "bc-red-5",
-  success: "bc-green-5",
+  default: "bc:silver-3",
+  error: "bc:red-5",
+  success: "bc:green-5",
 };
 
 const STATUS_OUTLINE: Record<Status, string> = {
   default: "",
-  error: "fv:oc-red-2/60 fv:bc-red-3",
-  success: "fv:oc-green-2/60 fv:bc-green-3",
+  error: "fv:oc:red-2/60 fv:bc:red-3",
+  success: "fv:oc:green-2/60 fv:bc:green-3",
 };
 
 const STATUS_ICON: Record<Status, string> = {
   default: "",
-  error: "c-red-5",
-  success: "c-green-5",
+  error: "c:red-5",
+  success: "c:green-5",
 };
 
 const STATUS_MESSAGE: Record<Status, string> = {
-  default: "c-slate-6",
-  error: "c-red-5",
-  success: "c-green-6",
+  default: "c:slate-6",
+  error: "c:red-5",
+  success: "c:green-6",
 };
 
 export interface FieldProps
@@ -127,7 +127,7 @@ export default function FieldBase({
       disabled={disabled}
       className={merge(
         outline,
-        "d-f ai-c jc-c p-0 bg-transparent bw-0 c-slate-6 c-p us-none",
+        "d:f ai:c jc:c p:0 bg:transparent bw:0 c:slate-6 c:p us:none",
       )}
     >
       {revealed ? (
@@ -147,30 +147,30 @@ export default function FieldBase({
 
   const controlClasses = merge(
     outline,
-    "bg-white c-slate-10 bw-1 fs-md",
+    "bg:white c:slate-10 bw:1 fs:md",
     SIZES[size],
     SHAPES[shape],
     SHADOWS[shadow],
     STATUS_BORDER[status],
     showDecorativeIcon || status !== "default"
       ? ICON_PADDING[activeSide]
-      : "px-4",
+      : "px:4",
     className,
   );
 
   const affixControlClasses = merge(
     outline,
-    "fg-1 bg-white bc-silver-3 c-slate-10 byw-1 fs-md",
+    "fg:1 bg:white bc:silver-3 c:slate-10 byw:1 fs:md",
     HEIGHTS[size],
     prefixNode && suffix
-      ? "px-3"
+      ? "px:3"
       : prefixNode
-        ? "pl-3 pr-4 brr-lg brw-1"
-        : "pl-4 pr-3 blr-lg blw-1",
+        ? "pl:3 pr:4 brr:lg brw:1"
+        : "pl:4 pr:3 blr:lg blw:1",
   );
 
   const affixBoxClasses =
-    "d-f ai-c jc-c px-3 bg-white bc-silver-3 c-slate-6 byw-1 fs-md";
+    "d:f ai:c jc:c px:3 bg:white bc:silver-3 c:slate-6 byw:1 fs:md";
 
   return (
     <Field.Root
@@ -206,9 +206,9 @@ export default function FieldBase({
           {showDecorativeIcon && (
             <span
               className={merge(
-                "d-f p-a ai-c c-slate-5",
-                !(iconInteractive || reveal) && "pe-none",
-                activeSide === "leading" ? "l-3" : "r-3",
+                "d:f p:a ai:c c:slate-5",
+                !(iconInteractive || reveal) && "pe:none",
+                activeSide === "leading" ? "l:3" : "r:3",
               )}
             >
               {activeIcon}

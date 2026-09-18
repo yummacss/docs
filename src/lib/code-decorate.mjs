@@ -81,8 +81,8 @@ function highlightWordsInNode(node, words, classes) {
   node.children = newChildren;
 }
 
-const LINE_CLASSES = "d-b mx--4 px-4";
-const WORD_CLASSES = "bg-accent-dim/10 bw-1 bc-accent-dim/50";
+const LINE_CLASSES = "d:b mx:-4 px:4";
+const WORD_CLASSES = "bg:accent-dim/10 bw:1 bc:accent-dim/50";
 
 function foldRegions(codeEl, foldLines) {
   const children = codeEl.children ?? [];
@@ -111,13 +111,13 @@ function foldRegions(codeEl, foldLines) {
     output.push({
       type: "element",
       tagName: "details",
-      properties: { className: ["d-i"], "data-fold": "" },
+      properties: { className: ["d:i"], "data-fold": "" },
       children: [
         {
           type: "element",
           tagName: "summary",
           properties: {
-            className: ["d-i", "c-p", "us-none", "c-white/40", "h:c-white"],
+            className: ["d:i", "c:p", "us:none", "c:white/40", "h:c:white"],
           },
           children: [{ type: "text", value: "..." }],
         },
@@ -155,13 +155,13 @@ export function decorateCodeHast(pre, meta, title) {
       let extra = "";
 
       if (delLines.has(lineNum)) {
-        extra = `${LINE_CLASSES} bg-diff-remove/10`;
+        extra = `${LINE_CLASSES} bg:diff-remove/10`;
       } else if (insLines.has(lineNum)) {
-        extra = `${LINE_CLASSES} bg-diff-add/10`;
+        extra = `${LINE_CLASSES} bg:diff-add/10`;
       } else if (markLines.has(lineNum)) {
-        extra = `${LINE_CLASSES} bg-accent-dim/10`;
+        extra = `${LINE_CLASSES} bg:accent-dim/10`;
       } else {
-        extra = "d-b";
+        extra = "d:b";
       }
 
       if (!lineNode.properties) lineNode.properties = {};

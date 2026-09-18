@@ -15,15 +15,15 @@ type TriggerSize = "sm" | "md";
 type ConfirmTone = "primary" | "danger";
 
 const POPUP_SHAPES: Record<Shape, string> = {
-  rounded: "br-xxl",
+  rounded: "br:xxl",
   square: "",
-  squircle: "br-3xl cs-s",
+  squircle: "br:3xl cs:s",
 };
 
 const BUTTON_SHAPES: Record<Shape, string> = {
-  rounded: "br-lg",
+  rounded: "br:lg",
   square: "",
-  squircle: "br-xxl cs-s",
+  squircle: "br:xxl cs:s",
 };
 
 const DIALOG_MOTION = `
@@ -49,39 +49,39 @@ const DIALOG_MOTION = `
 `;
 
 const CLOSE_SHAPES: Record<Shape, string> = {
-  rounded: "br-9999",
+  rounded: "br:9999",
   square: "",
-  squircle: "br-lg cs-s",
+  squircle: "br:lg cs:s",
 };
 
 const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
-  inset: "bs-i-3xl",
-  outset: "bs-o-sm",
+  inset: "bs-i:3xl",
+  outset: "bs-o:sm",
 };
 
-const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:silver-3/60 fv:bc:silver-5";
 
-const BUTTON_BASE = "bw-1 fw-500 tp-c tdu-150 ttf-io us-none";
+const BUTTON_BASE = "bw:1 fw:500 tp:c tdu:150 ttf:io us:none";
 
-const NEUTRAL_BUTTON = "bg-white bc-silver-2 c-slate-10 h:bg-silver-1/50";
+const NEUTRAL_BUTTON = "bg:white bc:silver-2 c:slate-10 h:bg:silver-1/50";
 
-const PRIMARY_BUTTON = "bg-slate-12 h:bg-slate-11 bc-slate-12 c-white";
+const PRIMARY_BUTTON = "bg:slate-12 h:bg:slate-11 bc:slate-12 c:white";
 
-const DANGER_OUTLINE = "fv:oc-red-2/60 fv:bc-red-3";
+const DANGER_OUTLINE = "fv:oc:red-2/60 fv:bc:red-3";
 
 const TRIGGER_TONES: Record<TriggerTone, string> = {
   neutral: NEUTRAL_BUTTON,
-  danger: "bg-red h:bg-red-8 bc-red-7 c-white",
+  danger: "bg:red h:bg:red-8 bc:red-7 c:white",
 };
 
 const CONFIRM_TONES: Record<ConfirmTone, string> = {
   primary: PRIMARY_BUTTON,
-  danger: "bg-red h:bg-red-8 bc-red-7 c-white",
+  danger: "bg:red h:bg:red-8 bc:red-7 c:white",
 };
 
 const TRIGGER_SIZES: Record<TriggerSize, string> = {
-  sm: "px-2 py-1 fs-xs",
-  md: "px-3 py-2",
+  sm: "px:2 py:1 fs:xs",
+  md: "px:3 py:2",
 };
 
 export interface DialogProps {
@@ -141,7 +141,7 @@ export default function DialogBase({
 
   const triggerClasses = merge(
     triggerOutline,
-    "d-if ai-c g-2",
+    "d:if ai:c g:2",
     BUTTON_BASE,
     TRIGGER_SIZES[triggerSize],
     BUTTON_SHAPES[shape],
@@ -150,7 +150,7 @@ export default function DialogBase({
   );
 
   const popupClasses = [
-    "o-h p-r w-96 bg-white bc-silver-2 c-slate-10 bw-1",
+    "o:h p:r w:96 bg:white bc:silver-2 c:slate-10 bw:1",
     POPUP_SHAPES[shape],
     shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "",
   ]
@@ -191,7 +191,7 @@ export default function DialogBase({
                 <Button
                   className={merge(
                     outline,
-                    "d-f p-a r-3 t-3 ai-c jc-c w-7 h-7 p-0 c-slate-6 bw-0 h:bg-silver-1/50 h:c-slate-7",
+                    "d:f p:a r:3 t:3 ai:c jc:c w:7 h:7 p:0 c:slate-6 bw:0 h:bg:silver-1/50 h:c:slate-7",
                     CLOSE_SHAPES[shape],
                   )}
                 />

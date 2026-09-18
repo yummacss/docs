@@ -24,26 +24,26 @@ const CONTEXT_MENU_MOTION = `
 `;
 
 const TRIGGER_SHAPES: Record<Shape, string> = {
-  rounded: "br-xxl cs-s",
+  rounded: "br:xxl cs:s",
   square: "",
-  squircle: "br-xxl cs-s",
+  squircle: "br:xxl cs:s",
 };
 
 const POPUP_SHAPES: Record<Shape, string> = {
-  rounded: "br-xxl",
+  rounded: "br:xxl",
   square: "",
-  squircle: "br-3xl cs-s",
+  squircle: "br:3xl cs:s",
 };
 
 const ITEM_SHAPES: Record<Shape, string> = {
-  rounded: "br-xl",
+  rounded: "br:xl",
   square: "",
-  squircle: "br-xxl cs-s",
+  squircle: "br:xxl cs:s",
 };
 
 const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
-  inset: "bs-i-3xl",
-  outset: "bs-o-sm",
+  inset: "bs-i:3xl",
+  outset: "bs-o:sm",
 };
 
 export interface ContextMenuAction {
@@ -140,16 +140,16 @@ export default function ContextMenuBase({
     shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "";
 
   const triggerClasses = merge(
-    "d-f ai-c jc-c h-48 w-60 bg-white bs-d bw-1 fs-sm fw-500 us-none",
+    "d:f ai:c jc:c h:48 w:60 bg:white bs:d bw:1 fs:sm fw:500 us:none",
     TRIGGER_SHAPES[shape],
     disabled
-      ? "bg-silver-1 bc-silver-2 c-slate-4 c-na"
-      : "bc-slate-3 c-slate-10",
+      ? "bg:silver-1 bc:silver-2 c:slate-4 c:na"
+      : "bc:slate-3 c:slate-10",
     className,
   );
 
   const popupClasses = [
-    "py-1 w-52 bg-white bc-silver-2 c-slate-10 bw-1 os-none",
+    "py:1 w:52 bg:white bc:silver-2 c:slate-10 bw:1 os:none",
     POPUP_SHAPES[shape],
     shadowClass,
   ]
@@ -160,15 +160,15 @@ export default function ContextMenuBase({
     (destructive: boolean, spread: boolean) =>
     (state: { highlighted: boolean }) =>
       [
-        "d-f ai-c g-2 py-2 pl-2 pr-3 fs-sm fw-500 us-none c-p mx-1 os-none",
-        spread ? "jc-sb" : "",
+        "d:f ai:c g:2 py:2 pl:2 pr:3 fs:sm fw:500 us:none c:p mx:1 os:none",
+        spread ? "jc:sb" : "",
         ITEM_SHAPES[shape],
-        destructive ? "c-red" : "",
+        destructive ? "c:red" : "",
         state.highlighted
           ? destructive
-            ? "bg-red-1/50"
-            : "bg-silver-2/50"
-          : "bg-transparent",
+            ? "bg:red-1/50"
+            : "bg:silver-2/50"
+          : "bg:transparent",
       ]
         .filter(Boolean)
         .join(" ");
@@ -294,8 +294,8 @@ export default function ContextMenuBase({
           {action.shortcut && (
             <span
               className={[
-                "d-f ai-c g-1 ml-4 fw-400 fs-xs",
-                destructive ? "c-red" : "c-slate-6",
+                "d:f ai:c g:1 ml:4 fw:400 fs:xs",
+                destructive ? "c:red" : "c:slate-6",
               ]
                 .filter(Boolean)
                 .join(" ")}

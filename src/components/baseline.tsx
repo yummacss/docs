@@ -21,7 +21,7 @@ export default function Baseline({ path }: Props) {
 
   const { level, label, description, browsers } = baseline;
   const statusColor =
-    level === "high" ? "c-green" : level === "low" ? "c-green-5" : "c-yellow";
+    level === "high" ? "c:green" : level === "low" ? "c:green-5" : "c:yellow";
   const StatusIcon =
     level === "high" ? CheckCircle : level === "low" ? Sparks : WarningTriangle;
 

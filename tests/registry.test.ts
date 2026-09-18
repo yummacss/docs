@@ -267,7 +267,7 @@ describe("Yumma UI registry", () => {
         );
 
         const squircle = entries.get("squircle");
-        if (squircle !== undefined && !squircle.includes("cs-s")) {
+        if (squircle !== undefined && !squircle.includes("cs:s")) {
           wrong.push(`${file}:${name} squircle is not a squircle`);
         }
 
@@ -276,7 +276,7 @@ describe("Yumma UI registry", () => {
         if (pill !== undefined && rounded !== undefined && pill === rounded) {
           wrong.push(`${file}:${name} pill and rounded are the same`);
         }
-        if (pill !== undefined && !pill.includes("br-9999")) {
+        if (pill !== undefined && !pill.includes("br:9999")) {
           wrong.push(`${file}:${name} pill is not fully round`);
         }
       }

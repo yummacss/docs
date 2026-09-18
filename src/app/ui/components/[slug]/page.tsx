@@ -77,7 +77,7 @@ export default async function Page({
           )}
         </div>
       )}
-      <div className={stage ? "d-f fd-c f-1 min-h-0" : ""}>
+      <div className={stage ? "d:f fd:c f:1 min-h:0" : ""}>
         <MDXContent />
       </div>
       <JsonLd

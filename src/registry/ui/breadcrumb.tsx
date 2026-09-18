@@ -6,30 +6,30 @@ type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 type Size = "sm" | "md" | "lg";
 
-const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:silver-3/60 fv:bc:silver-5";
 type Separator = "chevron" | "slash";
 
 const SIZES: Record<Size, string> = {
-  sm: "fs-xs",
-  md: "fs-sm",
-  lg: "fs-md",
+  sm: "fs:xs",
+  md: "fs:sm",
+  lg: "fs:md",
 };
 
 const SEPARATOR_SIZES: Record<Size, string> = {
-  sm: "w-4 h-4",
-  md: "w-5 h-5",
-  lg: "w-6 h-6",
+  sm: "w:4 h:4",
+  md: "w:5 h:5",
+  lg: "w:6 h:6",
 };
 
 const SHAPES: Record<Shape, string> = {
-  rounded: "br-lg",
+  rounded: "br:lg",
   square: "",
-  squircle: "br-xxl cs-s",
+  squircle: "br:xxl cs:s",
 };
 
 const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
-  inset: "bs-i-md",
-  outset: "bs-o-sm",
+  inset: "bs-i:md",
+  outset: "bs-o:sm",
 };
 
 export interface BreadcrumbItem {
@@ -63,15 +63,15 @@ export default function BreadcrumbBase({
   const outline = focus ? merge(FOCUS, focus === true ? "" : focus) : "";
 
   const navClasses = merge(
-    "d-f ai-c g-2",
-    bordered ? "px-3 py-2 bg-white bc-silver-2 bw-1" : "",
+    "d:f ai:c g:2",
+    bordered ? "px:3 py:2 bg:white bc:silver-2 bw:1" : "",
     bordered ? SHAPES[shape] : "",
     bordered && shadow !== "none" ? SHADOWS[shadow] : "",
     className,
   );
 
-  const labelClasses = [SIZES[size], "fw-400"].filter(Boolean).join(" ");
-  const currentClasses = [SIZES[size], "fw-500 c-slate-12"]
+  const labelClasses = [SIZES[size], "fw:400"].filter(Boolean).join(" ");
+  const currentClasses = [SIZES[size], "fw:500 c:slate-12"]
     .filter(Boolean)
     .join(" ");
 
@@ -82,15 +82,15 @@ export default function BreadcrumbBase({
 
         const linkClasses = merge(
           outline,
-          item.icon ? "d-f ai-c g-2" : "",
-          "c-slate-6 h:c-slate-10",
+          item.icon ? "d:f ai:c g:2" : "",
+          "c:slate-6 h:c:slate-10",
         );
 
         return (
           <span key={item.label} className="d:f ai:c g:2">
             {isLast ? (
               <span
-                className={["d-f ai-c g-1", currentClasses].join(" ")}
+                className={["d:f ai:c g:1", currentClasses].join(" ")}
                 aria-current="page"
               >
                 {item.label}
