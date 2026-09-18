@@ -3524,6 +3524,33 @@ hang a comment on it would widen the API to document it.
 
 ---
 
+## The runtime package is a CDN package
+
+`@yummacss/runtime` is `@yummacss/cdn`. The name describes what the thing is, a
+script tag served from a CDN, rather than what it is not.
+
+**The old name keeps publishing**, so a page pointing at it carries on working.
+`packages/runtime` is now a manifest, a README and a tsdown config whose entry is
+`../cdn/src/index.ts`, so both names build from one source. Verified: the two
+`index.iife.js` files come out byte-identical.
+
+**`exports` and `module` named a `./dist/index.js` the build never wrote.** The
+tsdown config emits `iife` only, so `import "@yummacss/runtime"` has been failing
+for as long as those fields have been there. Both are dropped from the cdn
+manifest. A script tag reads `unpkg` and `jsdelivr`, which are correct.
+
+**Play waits for the first publish.** `next.config.ts` pins the script to the
+exact version in `devDependencies.yummacss`, so pointing it at
+`@yummacss/cdn@<version>` 404s until that version is on npm. It stays on the old
+name until then, which is safe because the old name still publishes. Switch it
+in the release that ships `@yummacss/cdn`.
+
+**`npm deprecate` is a registry operation, not a file.** Nothing in the repo can
+set the notice npm prints on install, so it is a command Renildo runs once after
+the first publish of the new name.
+
+---
+
 ## Linting: hand the reporting to a real linter
 
 Renildo's call, 2026-09-16, prompted by `https://github.com/shadcn-ui/lint`.
