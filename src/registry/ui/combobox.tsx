@@ -86,21 +86,76 @@ const ACTION =
   "d:f b:0 ai:c jc:c w:6 h:6 p:0 bg:transparent c:slate-6 c:p h:c:slate-10";
 
 export interface ComboboxProps {
+  /**
+   * Where the popup is rendered. Defaults to `document.body`, which is right
+   * almost always; pass an element to portal somewhere else, such as inside a
+   * frame or a container that owns its own stacking context.
+   */
   container?: HTMLElement | null;
+  /**
+   * What to choose from. Same shape as Autocomplete's: `label` is matched and
+   * shown, `description` and `avatar` are optional.
+   */
   items: ComboboxItem[] | ComboboxGroup[];
+  /** Field label above the input. */
   label?: ReactNode;
+  /**
+   * A line under the input, for what the field expects rather than a
+   * restatement of the label.
+   */
   description?: string;
+  /** Placeholder text. */
   placeholder?: string;
+  /**
+   * Height and width of the input. The popup and the trigger column follow it.
+   */
   size?: Size;
+  /**
+   * Corner radius, applied to the input and the popup together. `squircle` uses
+   * `corner-shape`.
+   */
   shape?: Shape;
+  /**
+   * Depth on the input. `inset` reads as a well, `outset` as a raised control.
+   */
   shadow?: Shadow;
+  /**
+   * Allows more than one selection. Choices become removable chips under the
+   * input.
+   */
   multiple?: boolean;
+  /**
+   * Adds a button that empties the selection. It appears with the first
+   * selection rather than with the prop, because an X on an empty field has
+   * nothing to do. Works alongside `multiple`, where it clears every chip.
+   */
   clearable?: boolean;
+  /** Blocks interaction and dims the field. */
   disabled?: boolean;
+  /**
+   * Replaces the results with a loading row, for an async source. The fetching
+   * itself is yours; this is only the state.
+   */
   loading?: boolean;
+  /**
+   * Fades the popup in and out. Turn it off for a static popup, or when the
+   * user has asked for reduced motion.
+   */
   animated?: boolean;
+  /** Shown when nothing matches. */
   emptyMessage?: string;
+  /**
+   * Extra classes. `merge` folds them in last, so one here replaces the
+   * component's own class for the same utility.
+   */
   className?: string;
+  /**
+   * The focus outline. `true` draws it, `false` removes it along with the
+   * danger, error and success tints that ride with it, and a string of Yumma
+   * CSS utilities restyles it on every focusable part of the component, which
+   * is more than `className` reaches. Removing it outright and putting nothing
+   * back fails WCAG 2.4.7.
+   */
   focus?: boolean | string;
 }
 
@@ -144,6 +199,10 @@ function renderItem(item: ComboboxItem, shape: Shape) {
   );
 }
 
+/**
+ * A filtering input that commits to a selection, in three sizes, three shapes
+ * and three shadows, single or multiple with removable chips.
+ */
 export default function ComboboxBase({
   items,
   label,

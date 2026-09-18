@@ -46,22 +46,82 @@ function formatSize(bytes: number) {
 }
 
 export interface FileUploadProps {
+  /** The clickable part of the prompt, before "or drag and drop". */
   label?: string;
+  /** The quieter line under the prompt, for what this zone accepts. */
   hint?: string;
+  /**
+   * A line outside the zone, for formats and limits. Replaced by `error`'s
+   * message when it is set.
+   */
   description?: string;
+  /**
+   * Replaces the cloud glyph in the tile. It is sized and colored by the zone,
+   * so pass the glyph and nothing else.
+   */
   icon?: ReactNode;
+  /**
+   * Passed to the file input, so the picker filters by it. A comma separated
+   * list of extensions or MIME types, `image/*,.pdf`. A drop is not filtered:
+   * the browser only applies this to the picker, so check the type yourself in
+   * `onFilesChange`.
+   */
   accept?: string;
+  /**
+   * Lets the zone hold more than one file. Each pick or drop adds to the list,
+   * and a file already in it is not added twice; off, the newest file replaces
+   * the old one.
+   */
   multiple?: boolean;
+  /**
+   * Called with the whole list whenever it changes, on a pick, a drop or a
+   * removal.
+   */
   onFilesChange?: (files: File[]) => void;
+  /**
+   * Corner radius. `squircle` uses `corner-shape`, which degrades to a rounded
+   * square where that is unsupported.
+   */
   shape?: Shape;
+  /**
+   * Depth on the icon tile, not on the zone: a drop target with a drop shadow
+   * reads as a card you cannot drop into.
+   */
   shadow?: Shadow;
+  /**
+   * `dashed` is the drop-zone convention and carries the extra width it needs
+   * to read as one. `solid` is a heavier, more permanent box, so it stays thin.
+   */
   border?: Border;
+  /**
+   * Turns the border, tile and text red & shows this message in place of
+   * `description`. Crosses with `border`, so a solid zone can be in error too.
+   */
   error?: string;
+  /**
+   * Blocks the picker and refuses drops, dims the zone and fills it, so it
+   * reads as unavailable rather than merely empty.
+   */
   disabled?: boolean;
+  /**
+   * Extra classes. `merge` folds them in last, so one here replaces the
+   * component's own class for the same utility.
+   */
   className?: string;
+  /**
+   * The focus outline. `true` draws it, `false` removes it along with the
+   * danger, error and success tints that ride with it, and a string of Yumma
+   * CSS utilities restyles it on every focusable part of the component, which
+   * is more than `className` reaches. Removing it outright and putting nothing
+   * back fails WCAG 2.4.7.
+   */
   focus?: boolean | string;
 }
 
+/**
+ * A drop zone for files, in three shapes, dashed or solid, that picks by click
+ * or by drop and lists what it holds.
+ */
 export default function FileUploadBase({
   label = "Upload files",
   hint = "Drag and drop files here",

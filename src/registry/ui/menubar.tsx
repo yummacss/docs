@@ -110,15 +110,47 @@ export interface MenubarMenu {
 }
 
 export interface MenubarProps {
+  /**
+   * Where the popup is rendered. Defaults to `document.body`, which is right
+   * almost always; pass an element to portal somewhere else, such as inside a
+   * frame or a container that owns its own stacking context.
+   */
   container?: HTMLElement | null;
+  /**
+   * Each menu's `label`, its `items`, and an optional `disabled`. Every menu
+   * owns its own open state, so opening one closes the last.
+   */
   menus: MenubarMenu[];
+  /**
+   * Corner radius on the bar, its buttons, the popups and their items together.
+   */
   shape?: Shape;
+  /**
+   * Depth on the bar and its popups. Not on the individual buttons inside the
+   * bar: they are transparent, so a shadow on each one reads as noise.
+   */
   shadow?: Shadow;
+  /**
+   * Which end of an item its `icon` sits at. A `shortcut` always trails
+   * regardless.
+   */
   iconPosition?: IconPosition;
+  /**
+   * The popups' fade in/out. Turn it off for instant menus, or when the user
+   * has asked for reduced motion.
+   */
   animated?: boolean;
+  /**
+   * Extra classes. `merge` folds them in last, so one here replaces the
+   * component's own class for the same utility.
+   */
   className?: string;
 }
 
+/**
+ * An application menu bar: a row of dropdown menus, each built from the same
+ * item list as Menu.
+ */
 export default function MenubarBase({
   menus,
   shape = "square",

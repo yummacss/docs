@@ -66,22 +66,75 @@ const ARROW_PLACEMENT: Record<string, CSSProperties> = {
 };
 
 export interface TooltipProps {
+  /**
+   * Where the popup is rendered. Defaults to `document.body`, which is right
+   * almost always; pass an element to portal somewhere else, such as inside a
+   * frame or a container that owns its own stacking context.
+   */
   container?: HTMLElement | null;
+  /**
+   * The trigger's content, an icon usually. Pair it with `triggerLabel` when
+   * there is no text.
+   */
   trigger: ReactNode;
+  /**
+   * The trigger's `aria-label`. An icon-only trigger has no accessible name
+   * without it.
+   */
   triggerLabel?: string;
+  /** The tooltip's text. */
   content: ReactNode;
+  /**
+   * Which side of the trigger the tooltip opens on. It flips automatically if
+   * there is no room.
+   */
   side?: Side;
+  /** Gap between the trigger and the tooltip, in pixels. */
   sideOffset?: number;
+  /**
+   * The tooltip's surface and its trigger together. `light` and `dark` are the
+   * two neutral surfaces; `danger` reads red at both ends, for a destructive
+   * action.
+   */
   tone?: Tone;
+  /**
+   * A pointer notched into the tooltip's edge, aimed back at the trigger. It
+   * re-aims itself when `side` changes.
+   */
   arrow?: boolean;
+  /**
+   * How long a hover must rest before it opens, in ms. Set to `0` to open on
+   * contact.
+   */
   delay?: number;
+  /** Corner radius on the tooltip. */
   shape?: Shape;
+  /** Depth on the tooltip. */
   shadow?: Shadow;
+  /**
+   * The tooltip's fade and rise. Turn it off for an instant tooltip, or when
+   * the user has asked for reduced motion.
+   */
   animated?: boolean;
+  /**
+   * Extra classes. `merge` folds them in last, so one here replaces the
+   * component's own class for the same utility.
+   */
   className?: string;
+  /**
+   * The focus outline. `true` draws it, `false` removes it along with the
+   * danger, error and success tints that ride with it, and a string of Yumma
+   * CSS utilities restyles it on every focusable part of the component, which
+   * is more than `className` reaches. Removing it outright and putting nothing
+   * back fails WCAG 2.4.7.
+   */
   focus?: boolean | string;
 }
 
+/**
+ * A hover tooltip, light or dark, positionable on any side, with an optional
+ * arrow.
+ */
 export default function TooltipBase({
   trigger,
   triggerLabel,

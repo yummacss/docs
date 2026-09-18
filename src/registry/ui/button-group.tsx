@@ -14,13 +14,28 @@ const SHAPES: Record<Shape, string> = {
 const BASE = "d:f ai:c o:h w:fc bg:white bc:silver-2 bw:1";
 
 export interface ButtonGroupProps {
+  /** Merged with the group's own classes, so a utility you pass wins. */
   className?: string;
+  /** The buttons, spaced and rounded as one control. */
   children: ReactNode;
+  /**
+   * Corner radius of the group. `pill` also insets the buttons, so a pill
+   * `Button` inside sits clear of the border.
+   */
   shape?: Shape;
+  /**
+   * Draws a rule between each pair of buttons. Turn it off when the buttons
+   * already carry their own edges.
+   */
   separated?: boolean;
+  /** Buttons share the full width instead of sizing to their labels. */
   stretch?: boolean;
 }
 
+/**
+ * A row of related buttons sharing one border, in four shapes, with optional
+ * rules between them.
+ */
 export default function ButtonGroup({
   className,
   children,

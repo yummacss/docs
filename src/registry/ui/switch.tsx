@@ -31,21 +31,59 @@ const SHAPES: Record<Shape, string> = {
 };
 
 export interface SwitchProps {
+  /** Text beside the track. */
   label?: string;
+  /** A line under the label, for the consequence of turning it on. */
   description?: string;
+  /**
+   * Starting state when you are not controlling it. Pair `checked` with
+   * `onCheckedChange` instead if you are.
+   */
   defaultChecked?: boolean;
+  /** Controlled state. */
   checked?: boolean;
+  /** Called with the new state. Required for a controlled switch. */
   onCheckedChange?: (checked: boolean) => void;
+  /**
+   * Shown on the track, revealed as the thumb slides past it once checked.
+   * Absent from the DOM while unchecked, not just hidden.
+   */
   icon?: ReactNode;
+  /** Track and thumb together. */
   size?: Size;
+  /**
+   * Corner radius, applied to the track and the thumb together. `squircle` uses
+   * `corner-shape`.
+   */
   shape?: Shape;
+  /** Blocks interaction and dims the whole control, label included. */
   disabled?: boolean;
+  /**
+   * The thumb's slide when the state changes. Turn it off for an instant jump,
+   * or when the user has asked for reduced motion.
+   */
   animated?: boolean;
+  /**
+   * Extra classes. `merge` folds them in last, so one here replaces the
+   * component's own class for the same utility.
+   */
   className?: string;
+  /**
+   * The focus outline. `true` draws it, `false` removes it along with the
+   * danger, error and success tints that ride with it, and a string of Yumma
+   * CSS utilities restyles it on every focusable part of the component, which
+   * is more than `className` reaches. Removing it outright and putting nothing
+   * back fails WCAG 2.4.7.
+   */
   focus?: boolean | string;
+  /** The accessible name, for a switch with no visible label. */
   ariaLabel?: string;
 }
 
+/**
+ * An on/off control, in three sizes and three shapes, with an optional icon
+ * revealed on the track.
+ */
 export default function SwitchBase({
   label,
   description,

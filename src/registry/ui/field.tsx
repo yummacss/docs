@@ -65,31 +65,92 @@ const STATUS_MESSAGE: Record<Status, string> = {
 
 export interface FieldProps
   extends Omit<ComponentProps<typeof Field.Control>, "size"> {
+  /**
+   * Extra classes. `merge` folds them in last, so one here replaces the
+   * component's own class for the same utility.
+   */
   className?: string;
+  /**
+   * The focus outline. `true` draws it, `false` removes it along with the
+   * danger, error and success tints that ride with it, and a string of Yumma
+   * CSS utilities restyles it on every focusable part of the component, which
+   * is more than `className` reaches. Removing it outright and putting nothing
+   * back fails WCAG 2.4.7.
+   */
   focus?: boolean | string;
+  /**
+   * Text above the control. `Field.Root` and `Field.Label` associate it
+   * automatically, so no `id`/`htmlFor` bookkeeping is needed.
+   */
   label?: string;
 
+  /**
+   * A line under the control, for format or context. Replaced by `error` or
+   * `success` when either is set.
+   */
   description?: string;
 
+  /**
+   * Red border, a warning icon & this message in place of `description`. Wins
+   * over `success` if both are set.
+   */
   error?: string;
 
+  /** Green border, a check icon & this message in place of `description`. */
   success?: string;
+  /** Height and width of the control. */
   size?: Size;
+  /**
+   * Corner radius. `squircle` uses `corner-shape`, which degrades to a rounded
+   * square where that is unsupported.
+   */
   shape?: Shape;
+  /**
+   * Depth on the control. `inset` reads as a well, `outset` as a raised
+   * control.
+   */
   shadow?: Shadow;
 
+  /**
+   * Any icon. It is positioned over the control, so pass the glyph and nothing
+   * else. Hidden once `error` or `success` is set, which claim the trailing
+   * slot for their own icon.
+   */
   icon?: ReactNode;
+  /** Which end `icon` sits at. */
   iconPosition?: IconSide;
 
+  /**
+   * Lets `icon` receive pointer events, for an inline button, a clear or reveal
+   * toggle, instead of a decorative glyph.
+   */
   iconInteractive?: boolean;
 
+  /**
+   * Static content flush against the control's leading edge, like a URL scheme.
+   * Mutually exclusive with `icon`/`suffix` in practice: each claims the same
+   * row.
+   */
   prefixNode?: ReactNode;
 
+  /**
+   * Static content flush against the control's trailing edge, like a domain
+   * suffix.
+   */
   suffix?: ReactNode;
 
+  /**
+   * Adds a trailing button that shows and hides the value, for password fields.
+   * Always trailing and always interactive, so it overrides `iconPosition` and
+   * `icon`.
+   */
   revealable?: boolean;
 }
 
+/**
+ * A labelled input, in three sizes, three shapes and three shadows, with an
+ * optional icon and error or success states.
+ */
 export default function FieldBase({
   label,
   description,
