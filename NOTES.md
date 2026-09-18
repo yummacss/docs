@@ -48,9 +48,17 @@ has to branch off `normalize-source`, not `main`, until they land.
 prefixes per class. `docs` runs on the slow one until `merge-perf` merges and
 ships.
 
-`ui` is a **separate repo** (`github.com/yummacss/ui`). The folder and repo are
-`ui`; the **published npm package is `yummaui`**, because `ui` is taken. Do not
-"fix" that mismatch.
+`ui` is a **separate repo**, now named `github.com/yummacss/yummui`. The old
+`ui` URL still resolves, and a rename redirect is exactly what npm provenance
+refuses, so nothing may rely on it. The **published npm package is `yummaui`**,
+with the extra `a`, because `ui` was taken.
+
+**`repository.url` names the repo, `yummui`, not the package.** The mismatch
+looks like a typo and is not one: the publish workflow compares that field to
+`GITHUB_REPOSITORY` and fails the release when they differ, which is what held
+`0.3.0` back twice. Editing the field to say `yummaui` re-breaks it. The only
+fix that removes the mismatch is renaming the repo on GitHub, and then the
+field is already right.
 
 ---
 
@@ -2287,17 +2295,25 @@ maintenance of a package on its way out, not investment in it.
       so eight times**, and only Renildo can do it. **The current token dies
       2026-11-27.**
 
-      The thing this entry said to verify first is answered: **`pnpm -r publish`
-      cannot do OIDC.** pnpm 10.30.3's only `trustedPublish` references are
-      install-side, and its bundle has zero hits for
-      `ACTIONS_ID_TOKEN_REQUEST_URL`, `oidc` or `id-token`. npm 12.0.2 has
-      `lib/utils/oidc.js` and does. Node 22 ships npm 10.9.7, so the workflow
-      installs a current one.
+      **The eight monorepo forms were filled on 2026-09-18.** `yummaui` is a
+      ninth, and it lives in the `yummui` repo, so its form takes that name
+      rather than the package's.
 
-      `npm publish` cannot be aimed at the workspace either: seven of eight
+      An earlier version of this entry said `pnpm publish` cannot do OIDC. That
+      is half right and the wrong half is the one that matters. pnpm runs no
+      exchange of its own: 10.30.3's `trustedPublish` references are all
+      install-side trust checks and the bundle has zero hits for
+      `ACTIONS_ID_TOKEN_REQUEST_URL`. But it packs and then hands the tarball to
+      the `npm` binary on PATH (`pnpm.cjs:188852`), so OIDC works whenever that
+      npm is new enough. **The npm version is the whole question.** Node 22
+      ships 10.9.7, which has no `lib/utils/oidc.js`; a current npm has it. Both
+      workflows now install one before publishing.
+
+      `npm publish` still cannot be aimed at the workspace: seven of eight
       manifests carry `workspace:*` and npm would ship that string. `pnpm pack`
-      rewrites it, verified on `@yummacss/nitro`. So the shape is pack with
-      pnpm, publish the tarball with npm.
+      rewrites it, verified on `@yummacss/nitro`. So the monorepo packs with
+      pnpm and publishes the tarball with npm, and `yummui` gets the same result
+      through `pnpm publish` once npm is current.
 
       **`NODE_AUTH_TOKEN` stays until a release proves OIDC ran**, so there is
       no flag day: npm falls back to the token wherever no trusted publisher is
