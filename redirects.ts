@@ -19,6 +19,11 @@ const docsRedirects = [
     permanent: true,
   },
   {
+    source: "/docs/runtime",
+    destination: "/docs/cdn",
+    permanent: true,
+  },
+  {
     source: "/docs/ide-support",
     destination: "/docs/canon",
     permanent: true,
