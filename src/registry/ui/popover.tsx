@@ -59,28 +59,94 @@ const ARROW_PLACEMENT: Record<string, CSSProperties> = {
 };
 
 export interface PopoverProps {
+  /**
+   * Where the popup is rendered. Defaults to `document.body`, which is right
+   * almost always; pass an element to portal somewhere else, such as inside a
+   * frame or a container that owns its own stacking context.
+   */
   container?: HTMLElement | null;
+  /**
+   * The trigger's content, an icon usually. Pair it with `triggerLabel` when
+   * there is no text.
+   */
   trigger: ReactNode;
+  /**
+   * The trigger's `aria-label`. An icon-only trigger has no accessible name
+   * without it.
+   */
   triggerLabel?: string;
+  /**
+   * `icon` is a fixed square for a glyph alone; `label` gives the trigger room
+   * to pair an icon with text.
+   */
   triggerVariant?: TriggerVariant;
+  /** The popup's heading, wired up by Base UI's own Popover.Title. */
   title: string;
+  /** The body text, wired up by Base UI's own Popover.Description. */
   description?: ReactNode;
+  /**
+   * Extra content below the description: a swatch grid, say. Style it yourself.
+   */
   children?: ReactNode;
+  /**
+   * Which side of the trigger the popup opens on. It flips automatically if
+   * there is no room.
+   */
   side?: Side;
+  /** Gap between the trigger and the popup, in pixels. */
   sideOffset?: number;
+  /**
+   * A pointer notched into the popup's edge, aimed back at the trigger. It
+   * re-aims itself when `side` changes.
+   */
   arrow?: boolean;
+  /**
+   * Opens on hover as well as click. Consider that a popup which opens on hover
+   * is hard to reach on touch.
+   */
   openOnHover?: boolean;
+  /**
+   * How long a hover must rest before the popup opens, in ms. Ignored unless
+   * `openOnHover` is set.
+   */
   delay?: number;
+  /**
+   * Controlled open state, for closing the popup from inside `children` - after
+   * a selection, say. Uncontrolled (the default) if omitted.
+   */
   open?: boolean;
+  /** Called whenever the popup opens or closes, controlled or not. */
   onOpenChange?: (open: boolean) => void;
+  /** An X beside the title. Clicking outside dismisses it either way. */
   showClose?: boolean;
+  /** Corner radius on the trigger and the popup. */
   shape?: Shape;
+  /** Depth on the popup. */
   shadow?: Shadow;
+  /**
+   * The popup's scale-in. Turn it off for an instant popup, or when the user
+   * has asked for reduced motion.
+   */
   animated?: boolean;
+  /**
+   * Extra classes. `merge` folds them in last, so one here replaces the
+   * component's own class for the same utility.
+   */
   className?: string;
+  /**
+   * The focus outline. `true` draws it, `false` removes it along with the
+   * danger, error and success tints that ride with it, and a string of Yumma
+   * CSS utilities restyles it on every focusable part of the component, which
+   * is more than `className` reaches. Removing it outright and putting nothing
+   * back fails WCAG 2.4.7.
+   */
   focus?: boolean | string;
 }
 
+/**
+ * A click- or hover-triggered popup with a title and description, positionable
+ * on any side, with an optional arrow and close button.
+ */
 export default function PopoverBase({
   trigger,
   triggerLabel,

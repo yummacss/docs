@@ -122,26 +122,87 @@ function renderOption(option: SelectOption, shape: Shape) {
 }
 
 export interface SelectProps {
+  /**
+   * Where the popup is rendered. Defaults to `document.body`, which is right
+   * almost always; pass an element to portal somewhere else, such as inside a
+   * frame or a container that owns its own stacking context.
+   */
   container?: HTMLElement | null;
+  /**
+   * The choices. `value` and `label` are required; `description` and `avatar`
+   * are optional per option. The shape is fixed rather than generic because you
+   * own the file: data that does not fit is an edit to the option body, not an
+   * API.
+   */
   options: SelectOption[] | SelectGroup[];
+  /** Text above the trigger. */
   label?: string;
+  /**
+   * Appends a red asterisk to the label & sets the trigger's native `required`
+   * attribute.
+   */
   required?: boolean;
+  /** A line under the control, for context on what the choice means. */
   description?: string;
+  /** Shown on the trigger before anything is selected. */
   placeholder?: string;
+  /**
+   * The option selected when you are not controlling it. Pair `value` with
+   * `onValueChange` instead if you are.
+   */
   defaultValue?: string | null;
+  /** Controlled selection. */
   value?: string | null;
+  /**
+   * Called with the newly selected value, or `null` if the selection was
+   * cleared. Required for a controlled select.
+   */
   onValueChange?: (value: string | null) => void;
+  /** Height and width of the trigger. The popup follows it. */
   size?: Size;
+  /**
+   * Corner radius, applied to the trigger and the popup together. `squircle`
+   * uses `corner-shape`.
+   */
   shape?: Shape;
+  /**
+   * Depth on the trigger. `inset` reads as a well, `outset` as a raised
+   * control.
+   */
   shadow?: Shadow;
+  /**
+   * A single icon fixed on the trigger, not per option. For the per-option
+   * kind, give an option an `avatar` instead.
+   */
   icon?: ReactNode;
+  /** Which side `icon` sits on. Trailing sits just before the chevron. */
   iconPosition?: IconSide;
+  /** Blocks interaction and dims the whole control, label included. */
   disabled?: boolean;
+  /**
+   * Fades and scales the popup in and out. Turn it off for a static popup, or
+   * when the user has asked for reduced motion.
+   */
   animated?: boolean;
+  /**
+   * Extra classes. `merge` folds them in last, so one here replaces the
+   * component's own class for the same utility.
+   */
   className?: string;
+  /**
+   * The focus outline. `true` draws it, `false` removes it along with the
+   * danger, error and success tints that ride with it, and a string of Yumma
+   * CSS utilities restyles it on every focusable part of the component, which
+   * is more than `className` reaches. Removing it outright and putting nothing
+   * back fails WCAG 2.4.7.
+   */
   focus?: boolean | string;
 }
 
+/**
+ * A choice from a closed list, in three sizes, three shapes and three shadows,
+ * with an optional icon on the trigger and an avatar per option.
+ */
 export default function SelectBase({
   options,
   label,

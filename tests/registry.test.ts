@@ -503,6 +503,52 @@ describe("Yumma UI registry", () => {
     );
   });
 
+  it("carries every prop description into the component", () => {
+    const metaDir = join(rootDir, "src/registry/meta");
+    const bare: string[] = [];
+
+    for (const file of readdirSync(metaDir).sort()) {
+      const id = file.replace(/\.json$/, "");
+      const meta = JSON.parse(readFileSync(join(metaDir, file), "utf8"));
+      const source = readFileSync(join(registryDir, `${id}.tsx`), "utf8");
+      const described = new Map<string, string>(
+        (meta.props ?? []).map(
+          (prop: { name: string; description: string }) => [
+            prop.name,
+            prop.description,
+          ],
+        ),
+      );
+
+      const match = /export interface \w+Props[^{]*\{([\s\S]*?)\n\}/.exec(
+        source,
+      );
+      if (!match) {
+        bare.push(`${id}: no Props interface`);
+        continue;
+      }
+
+      for (const entry of match[1].matchAll(
+        /\/\*\*([\s\S]*?)\*\/\n {2}(\w+)\??:|^ {2}(\w+)\??:/gm,
+      )) {
+        const name = entry[2] ?? entry[3];
+        const wanted = described.get(name);
+        if (!wanted) continue;
+
+        const got = (entry[1] ?? "")
+          .replace(/^\s*\*/gm, "")
+          .replace(/\s+/g, " ")
+          .trim();
+        if (got !== wanted) bare.push(`${id}.${name}`);
+      }
+    }
+
+    expect(
+      bare,
+      "run `node scripts/doc-comments.mjs` to carry these across",
+    ).toEqual([]);
+  });
+
   it("is not empty", () => {
     expect(mappedIds().length).toBeGreaterThan(0);
   });

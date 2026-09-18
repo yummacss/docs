@@ -96,19 +96,60 @@ export type ContextMenuItem =
   | ContextMenuSubmenu;
 
 export interface ContextMenuProps {
+  /**
+   * Where the popup is rendered. Defaults to `document.body`, which is right
+   * almost always; pass an element to portal somewhere else, such as inside a
+   * frame or a container that owns its own stacking context.
+   */
   container?: HTMLElement | null;
+  /** The right-clickable area's label. */
   trigger: ReactNode;
+  /**
+   * A discriminated union. `{ label }` is a plain action (plus optional `icon`,
+   * `shortcut`, `destructive`, `disabled`, `onClick`). `{ type: "separator" }`
+   * divides. `{ type: "group", label?, items }` wraps a `role="group"` block
+   * under a heading. `{ type: "checkbox", label, checked, onCheckedChange }`
+   * and `{ type: "radio", value, onValueChange, options }` are the stateful
+   * kinds. `{ type: "submenu", label, items }` nests, recursively.
+   */
   items: ContextMenuItem[];
+  /**
+   * Corner radius on the trigger, popup and items together. `squircle` steps
+   * the popup & item radius up one and adds `corner-shape`.
+   */
   shape?: Shape;
+  /** Depth on both the trigger and the popup. */
   shadow?: Shadow;
+  /**
+   * Which end of an item its `icon` sits at. A `shortcut` always trails
+   * regardless.
+   */
   iconPosition?: IconPosition;
+  /** Blocks the menu from opening at all & dims the trigger. */
   disabled?: boolean;
+  /**
+   * Controlled state. There is no `defaultOpen` - a context menu that starts
+   * open before anyone right-clicks was never demonstrated & makes no sense.
+   */
   open?: boolean;
+  /** Called with the new state. Required for a controlled menu. */
   onOpenChange?: (open: boolean) => void;
+  /**
+   * The popup's fade in/out. Turn it off for an instant appearance, or when the
+   * user has asked for reduced motion.
+   */
   animated?: boolean;
+  /**
+   * Extra classes. `merge` folds them in last, so one here replaces the
+   * component's own class for the same utility.
+   */
   className?: string;
 }
 
+/**
+ * A right-click menu built from an item list: actions, checkboxes, radios,
+ * groups, separators and nested submenus.
+ */
 export default function ContextMenuBase({
   trigger,
   items,

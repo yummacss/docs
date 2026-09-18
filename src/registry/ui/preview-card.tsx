@@ -22,19 +22,55 @@ const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
 };
 
 export interface PreviewCardProps {
+  /**
+   * Where the popup is rendered. Defaults to `document.body`, which is right
+   * almost always; pass an element to portal somewhere else, such as inside a
+   * frame or a container that owns its own stacking context.
+   */
   container?: HTMLElement | null;
+  /** The inline content that opens the card on hover or focus. */
   trigger: ReactNode;
+  /** The card's contents. */
   children: ReactNode;
+  /**
+   * Starting state when you are not controlling it. Pair `open` with
+   * `onOpenChange` instead if you are.
+   */
   defaultOpen?: boolean;
+  /** Controlled state. */
   open?: boolean;
+  /** Called with the new state. Required for a controlled preview card. */
   onOpenChange?: (open: boolean) => void;
+  /**
+   * Corner radius on the card. `squircle` uses `corner-shape`, which degrades
+   * to a rounded square where that is unsupported.
+   */
   shape?: Shape;
+  /**
+   * Depth on the card. `inset` reads as a well, `outset` as a raised control.
+   */
   shadow?: Shadow;
+  /**
+   * The card's fade in/out. Turn it off for an instant appearance, or when the
+   * user has asked for reduced motion.
+   */
   animated?: boolean;
+  /**
+   * Extra classes. `merge` folds them in last, so one here replaces the
+   * component's own class for the same utility.
+   */
   className?: string;
+  /**
+   * The focus outline. `true` draws it, `false` removes it along with the
+   * danger, error and success tints that ride with it, and a string of Yumma
+   * CSS utilities restyles it on every focusable part of the component, which
+   * is more than `className` reaches. Removing it outright and putting nothing
+   * back fails WCAG 2.4.7.
+   */
   focus?: boolean | string;
 }
 
+/** A hover-triggered card, in three shapes with an optional shadow. */
 export default function PreviewCardBase({
   trigger,
   children,

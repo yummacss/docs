@@ -59,18 +59,54 @@ const STATUSES: Record<Exclude<Status, "none">, string> = {
 };
 
 export interface AvatarProps {
+  /** The image. Leave it out, or let it fail, and the fallback takes over. */
   src?: string;
+  /**
+   * Alt text for the image, and the source of the initials when there is no
+   * image. Without it the fallback is a generic person icon.
+   */
   name?: string;
+  /** Diameter, and the size of the initials or icon inside it. */
   size?: Size;
+  /**
+   * Corner radius. `squircle` uses `corner-shape`, which degrades to a rounded
+   * square where that is unsupported.
+   */
   shape?: Shape;
+  /**
+   * A presence dot in the bottom right corner. It carries meaning, so it is
+   * labelled for screen readers rather than left decorative.
+   */
   status?: Status;
+  /**
+   * A verification check in the top right corner. `status` takes the bottom
+   * right, so the two never collide and both can be on at once. The demo starts
+   * with only `status`.
+   */
   verified?: boolean;
+  /**
+   * What shows when there is no image, in place of the initials. Leave it empty
+   * for the initials, or for the person icon when there is no `name` either.
+   */
   fallback?: ReactNode;
+  /**
+   * Recolours the fallback. It reaches the initials and the icon, never an
+   * image.
+   */
   tint?: Tint;
+  /** Drawn inside the avatar, in place of an image or initials. */
   children?: ReactNode;
+  /**
+   * Extra classes. `merge` folds them in last, so one here replaces the
+   * component's own class for the same utility.
+   */
   className?: string;
 }
 
+/**
+ * A user's picture, in three sizes and three shapes, falling back to their
+ * initials and then to an icon, with optional presence and verification badges.
+ */
 export default function AvatarBase({
   src,
   name,

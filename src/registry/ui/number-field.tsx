@@ -49,19 +49,55 @@ const SHADOWS: Record<Shadow, string> = {
 
 export interface NumberFieldProps
   extends Omit<ComponentProps<typeof NumberField.Root>, "className" | "id"> {
+  /**
+   * Text above the control. Also a scrub area: drag left or right on it to
+   * change the value.
+   */
   label?: string;
 
+  /**
+   * Appends a red asterisk to the label & sets the input's native `required`
+   * attribute.
+   */
   required?: boolean;
 
+  /** A line under the control, for context on what the number means. */
   description?: string;
+  /**
+   * Height of the buttons and the input together. The icon inside the buttons
+   * grows only at `lg`.
+   */
   size?: Size;
+  /**
+   * Corner radius on the group's outer edges. `squircle` uses `corner-shape`,
+   * which degrades to a rounded square where that is unsupported.
+   */
   shape?: Shape;
+  /**
+   * Depth across the buttons and the input. `inset` reads as a well, `outset`
+   * as a raised control.
+   */
   shadow?: Shadow;
 
+  /**
+   * Extra classes. `merge` folds them in last, so one here replaces the
+   * component's own class for the same utility.
+   */
   className?: string;
+  /**
+   * The focus outline. `true` draws it, `false` removes it along with the
+   * danger, error and success tints that ride with it, and a string of Yumma
+   * CSS utilities restyles it on every focusable part of the component, which
+   * is more than `className` reaches. Removing it outright and putting nothing
+   * back fails WCAG 2.4.7.
+   */
   focus?: boolean | string;
 }
 
+/**
+ * A number input with increment and decrement buttons, in three sizes, three
+ * shapes and three shadows.
+ */
 export default function NumberFieldBase({
   label,
   required = false,

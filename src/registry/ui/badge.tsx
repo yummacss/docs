@@ -96,21 +96,73 @@ const INTENTS = {
 type Intent = keyof typeof INTENTS;
 
 export interface BadgeProps {
+  /** The badge's label. */
   children: ReactNode;
+  /**
+   * `outline` is a neutral bordered badge regardless of `color`. `subtle` and
+   * `solid` tint every part of the badge, including the dot, count and close
+   * button, to `color`.
+   */
   tone?: Tone;
+  /**
+   * What the badge means, not which hue it is. `tone` decides the look;
+   * `intent` tints it, including the dot, count and close button. `outline`
+   * stays neutral regardless.
+   */
   intent?: Intent;
+  /**
+   * Corner radius. `squircle` uses `corner-shape`, which degrades to a rounded
+   * square where that is unsupported.
+   */
   shape?: Shape;
+  /** Padding, text size and icon size together. */
   size?: Size;
+  /** Depth on the badge. `inset` reads as a well, `outset` as a raised chip. */
   shadow?: Shadow;
+  /**
+   * Any icon. The slot is sized to the badge and the color is inherited, but a
+   * glyph that carries its own width and height keeps them, so pass it at the
+   * badge's icon size (`w-3 h-3` on `sm` and `md`, `w-4 h-4` on `lg`).
+   */
   icon?: ReactNode;
+  /** Which end `icon` sits at. */
   iconPosition?: IconPosition;
+  /**
+   * A small leading status indicator, tinted to `color`. Typically used alone,
+   * without `icon`.
+   */
   dot?: boolean;
+  /**
+   * A trailing numeric badge. Reads as attention-red on `outline` regardless of
+   * `color`, since a notification count usually means the same thing no matter
+   * the parent badge's own theme.
+   */
   count?: string | number;
+  /**
+   * Renders a trailing close button & calls this when it is pressed. The badge
+   * itself does not track dismissed state, so remove it from whatever list
+   * renders it.
+   */
   onClose?: () => void;
+  /**
+   * Extra classes. `merge` folds them in last, so one here replaces the
+   * component's own class for the same utility.
+   */
   className?: string;
+  /**
+   * The focus outline. `true` draws it, `false` removes it along with the
+   * danger, error and success tints that ride with it, and a string of Yumma
+   * CSS utilities restyles it on every focusable part of the component, which
+   * is more than `className` reaches. Removing it outright and putting nothing
+   * back fails WCAG 2.4.7.
+   */
   focus?: boolean | string;
 }
 
+/**
+ * A small status label, in three tones, six colors, four shapes and three
+ * sizes, with an optional dot, icon, count or close button.
+ */
 export default function BadgeBase({
   children,
   tone = "outline",

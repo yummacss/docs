@@ -82,21 +82,67 @@ export interface OnboardingStep {
 }
 
 export interface OnboardingProps {
+  /**
+   * Where the popup is rendered. Defaults to `document.body`, which is right
+   * almost always; pass an element to portal somewhere else, such as inside a
+   * frame or a container that owns its own stacking context.
+   */
   container?: HTMLElement | null;
+  /** The trigger button's label. */
   trigger: ReactNode;
+  /** A glyph beside the trigger's label. */
   triggerIcon?: ReactNode;
+  /** Which end of the trigger its `triggerIcon` sits at. */
   iconPosition?: IconPosition;
+  /**
+   * Each step's `icon`, `title` and `description`. Steps advance one at a time
+   * and the dialog resets to the first when it closes.
+   */
   steps: OnboardingStep[];
+  /**
+   * `count` reads "1 / 3" in the header. `progress` draws a filling bar under
+   * the slide. `dots` moves navigation to a bottom row of step dots between
+   * prev/next arrows. `checklist` counts the current step's `tasks` instead of
+   * the steps, and falls back to the step count on a step with none.
+   */
   indicator?: Indicator;
+  /**
+   * An X in the corner, so the tour can be skipped without walking to the end.
+   */
   showClose?: boolean;
+  /**
+   * The popup's grow and shrink as steps of different heights come and go. Only
+   * steps with `tasks` change height, so this does nothing without them.
+   */
   animatedResize?: boolean;
+  /** Corner radius on the trigger, the popup and its controls. */
   shape?: Shape;
+  /** Depth on the popup. */
   shadow?: Shadow;
+  /**
+   * The slide transition between steps and the popup's scale-in. Turn it off
+   * for an instant tour, or when the user has asked for reduced motion.
+   */
   animated?: boolean;
+  /**
+   * Extra classes. `merge` folds them in last, so one here replaces the
+   * component's own class for the same utility.
+   */
   className?: string;
+  /**
+   * The focus outline. `true` draws it, `false` removes it along with the
+   * danger, error and success tints that ride with it, and a string of Yumma
+   * CSS utilities restyles it on every focusable part of the component, which
+   * is more than `className` reaches. Removing it outright and putting nothing
+   * back fails WCAG 2.4.7.
+   */
   focus?: boolean | string;
 }
 
+/**
+ * A paged product tour in a dialog, one step at a time, with a count or a
+ * progress bar.
+ */
 export default function OnboardingBase({
   trigger,
   triggerIcon,
