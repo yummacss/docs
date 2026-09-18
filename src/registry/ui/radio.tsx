@@ -16,34 +16,34 @@ export interface RadioOption {
   description?: string;
 }
 
-const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:silver-3/60 fv:bc:silver-5";
 
-const BASE = "d-f ai-c jc-c p-0 m-0";
+const BASE = "d:f ai:c jc:c p:0 m:0";
 
 const SIZES: Record<Size, string> = {
-  sm: "w-3 h-3",
-  md: "w-4 h-4",
-  lg: "w-5 h-5",
+  sm: "w:3 h:3",
+  md: "w:4 h:4",
+  lg: "w:5 h:5",
 };
 
 const DOT_SIZES: Record<Size, string> = {
-  sm: "w-1 h-1",
-  md: "w-2 h-2",
-  lg: "w-3 h-3",
+  sm: "w:1 h:1",
+  md: "w:2 h:2",
+  lg: "w:3 h:3",
 };
 
 const LABEL_SIZES: Record<Size, string> = {
-  sm: "fs-xs",
-  md: "fs-sm",
-  lg: "fs-md",
+  sm: "fs:xs",
+  md: "fs:sm",
+  lg: "fs:md",
 };
 
-const ROUND = "br-9999";
+const ROUND = "br:9999";
 
 const SHADOWS: Record<Shadow, string> = {
   none: "",
-  inset: "bs-i-md",
-  outset: "bs-o-sm",
+  inset: "bs-i:md",
+  outset: "bs-o:sm",
 };
 
 export interface RadioProps {
@@ -78,7 +78,7 @@ export default function RadioBase({
   const labelId = useId();
 
   const dotClasses = (checked: boolean) =>
-    checked ? `${DOT_SIZES[size]} ${ROUND} bg-white` : "d-none";
+    checked ? `${DOT_SIZES[size]} ${ROUND} bg:white` : "d:none";
 
   return (
     <div className="d:f fd:c g:2">
@@ -94,7 +94,7 @@ export default function RadioBase({
         value={value}
         onValueChange={onValueChange}
         disabled={disabled}
-        className={merge("d-f fd-c g-3 ai-fs", className)}
+        className={merge("d:f fd:c g:3 ai:fs", className)}
       >
         {options.map((option) => {
           const rootClasses = (checked: boolean) =>
@@ -104,8 +104,8 @@ export default function RadioBase({
               SIZES[size],
               ROUND,
               checked
-                ? "bg-slate-12"
-                : `bg-white bw-1 bc-silver-3 ${SHADOWS[shadow]}`,
+                ? "bg:slate-12"
+                : `bg:white bw:1 bc:silver-3 ${SHADOWS[shadow]}`,
             );
 
           const indicator = (

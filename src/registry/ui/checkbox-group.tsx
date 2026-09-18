@@ -43,7 +43,7 @@ export default function CheckboxGroupBase({
       onValueChange={onValueChange}
       allValues={allValues}
       disabled={disabled}
-      className={merge("d-f fd-c g-2 c-slate-10", className)}
+      className={merge("d:f fd:c g:2 c:slate-10", className)}
     >
       {label && (
         <div className="fs:xs fw:600 c:slate-5 us:none" id={labelId}>
@@ -51,7 +51,7 @@ export default function CheckboxGroupBase({
         </div>
       )}
       {parentLabel && <Checkbox name={name} parent label={parentLabel} />}
-      <div className={merge("d-f fd-c g-2", parentLabel ? "ml-6" : undefined)}>
+      <div className={merge("d:f fd:c g:2", parentLabel ? "ml:6" : undefined)}>
         {children}
       </div>
     </CheckboxGroup>

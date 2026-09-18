@@ -9,6 +9,6 @@ minimumReleaseAgeExclude:
   - '@yummacss/canon@3.31.0'
   - '@yummacss/core@3.31.0 || 4.0.0'
   - '@yummacss/nitro@3.31.0 || 4.0.0'
-  - '@yummacss/postcss@3.31.0'
-  - yummacss@3.31.0
+  - '@yummacss/postcss@3.31.0 || 4.0.0'
+  - yummacss@3.31.0 || 4.0.0
   - '@yummacss/lint@4.0.0'

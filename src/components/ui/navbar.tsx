@@ -13,11 +13,11 @@ const MobileDialog = lazy(() => import("./mobile-dialog"));
 
 type Variant = "default" | "transparent";
 
-const BASE = "p-f ix-0 t-0 bbw-1";
+const BASE = "p:f ix:0 t:0 bbw:1";
 
 const VARIANTS: Record<Variant, string> = {
-  default: "@lg:bf-b-md bc-border",
-  transparent: "bc-transparent",
+  default: "@lg:bf-b:md bc:border",
+  transparent: "bc:transparent",
 };
 
 interface NavbarProps {
@@ -58,8 +58,8 @@ export default function Navbar({
           BASE,
           VARIANTS[variant],
           className,
-          "zi-10",
-          isLandingPage ? "bg-transparent" : "bg-page",
+          "zi:10",
+          isLandingPage ? "bg:transparent" : "bg:page",
         )}
       >
         <div className="mx:auto px:3 py:2 docs-container">

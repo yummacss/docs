@@ -9,27 +9,27 @@ type Orientation = "horizontal" | "vertical";
 type Size = "sm" | "md" | "lg";
 type Shape = "pill" | "rounded" | "square" | "squircle";
 
-const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:silver-3/60 fv:bc:silver-5";
 type IconPosition = "leading" | "trailing";
 
 const SIZES: Record<Size, { tab: string; text: string }> = {
-  sm: { tab: "py-1 px-2", text: "fs-xs" },
-  md: { tab: "py-2 px-3", text: "fs-sm" },
-  lg: { tab: "py-3 px-4", text: "fs-md" },
+  sm: { tab: "py:1 px:2", text: "fs:xs" },
+  md: { tab: "py:2 px:3", text: "fs:sm" },
+  lg: { tab: "py:3 px:4", text: "fs:md" },
 };
 
 const LIST_SHAPES: Record<Shape, string> = {
-  pill: "br-9999",
-  rounded: "br-lg",
+  pill: "br:9999",
+  rounded: "br:lg",
   square: "",
-  squircle: "br-3xl cs-s",
+  squircle: "br:3xl cs:s",
 };
 
 const TAB_SHAPES: Record<Shape, string> = {
-  pill: "br-9999",
-  rounded: "br-lg",
+  pill: "br:9999",
+  rounded: "br:lg",
   square: "",
-  squircle: "br-xxl cs-s",
+  squircle: "br:xxl cs:s",
 };
 
 export interface TabItem {
@@ -85,21 +85,21 @@ export default function TabsBase({
   const isVertical = orientation === "vertical";
   const hasPanels = items.some((item) => item.panel !== undefined);
 
-  const rootClasses = merge(isVertical ? "d-f ai-s g-4" : "w-fc", className);
+  const rootClasses = merge(isVertical ? "d:f ai:s g:4" : "w:fc", className);
 
   const listShape = isVertical && shape === "pill" ? "rounded" : shape;
 
   const listClasses = merge(
-    "d-f p-r g-1 p-1 w-fc bg-silver-1 bw-1 bc-silver-2",
+    "d:f p:r g:1 p:1 w:fc bg:silver-1 bw:1 bc:silver-2",
     LIST_SHAPES[listShape],
-    isVertical && "fd-c",
-    hasPanels && !isVertical && "mb-6",
+    isVertical && "fd:c",
+    hasPanels && !isVertical && "mb:6",
   );
 
   const indicatorClasses = merge(
-    "p-a l-0 t-0 zi-0 bg-white",
+    "p:a l:0 t:0 zi:0 bg:white",
     TAB_SHAPES[shape],
-    animated && "tp-a tdu-200 ttf-io",
+    animated && "tp:a tdu:200 ttf:io",
   );
 
   return (
@@ -115,19 +115,19 @@ export default function TabsBase({
 
           const tabClasses = merge(
             outline,
-            "p-r zi-10 fg-1 d-f ai-c jc-c bg-transparent us-none",
-            item.icon && !item.iconOnly ? "g-2" : "",
-            item.count !== undefined ? "g-2" : "",
+            "p:r zi:10 fg:1 d:f ai:c jc:c bg:transparent us:none",
+            item.icon && !item.iconOnly ? "g:2" : "",
+            item.count !== undefined ? "g:2" : "",
             spec.tab,
             TAB_SHAPES[shape],
             item.disabled
-              ? "c-slate-5 o-60 c-na"
+              ? "c:slate-5 o:60 c:na"
               : isSelected
-                ? "c-slate-10"
-                : "c-slate-8 h:c-slate-10",
+                ? "c:slate-10"
+                : "c:slate-8 h:c:slate-10",
           );
 
-          const labelClasses = ["p-r zi-10 fw-500", spec.text]
+          const labelClasses = ["p:r zi:10 fw:500", spec.text]
             .filter(Boolean)
             .join(" ");
 

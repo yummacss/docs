@@ -181,7 +181,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
 
                 <Scroller
                   viewportRef={listRef}
-                  viewportClassName="px-2 py-2"
+                  viewportClassName="px:2 py:2"
                   style={{ maxHeight: "calc(70vh - 120px)" }}
                 >
                   {Object.entries(CATEGORY_LABELS).map(([category, label]) => {

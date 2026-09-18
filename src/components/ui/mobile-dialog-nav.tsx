@@ -78,7 +78,7 @@ export default function MobileDialogNav({ sections, isOpen, onClose }: Props) {
                 </div>
 
                 <Scroller
-                  viewportClassName="d-f fd-c g-8 px-4 py-4"
+                  viewportClassName="d:f fd:c g:8 px:4 py:4"
                   style={{ height: "calc(100dvh - 60px)" }}
                 >
                   {sections.map((section) => {
@@ -114,11 +114,11 @@ export default function MobileDialogNav({ sections, isOpen, onClose }: Props) {
                                     />
                                   }
                                   className={[
-                                    "d-if ai-c g-3 w-100% py-2 px-3 fs-md us-none",
-                                    "fv:oc-white fv:oo-2 fv:ow-2",
+                                    "d:if ai:c g:3 w:100% py:2 px:3 fs:md us:none",
+                                    "fv:oc:white fv:oo:2 fv:ow:2",
                                     isActive
-                                      ? "c-white bg-border"
-                                      : "c-white/70 h:c-white h:bg-white/5",
+                                      ? "c:white bg:border"
+                                      : "c:white/70 h:c:white h:bg:white/5",
                                   ].join(" ")}
                                 >
                                   {item.title}

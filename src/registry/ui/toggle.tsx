@@ -11,23 +11,23 @@ import { merge } from "yummacss/merge";
 type Shape = "rounded" | "square" | "squircle";
 type Size = "sm" | "md";
 
-const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:silver-3/60 fv:bc:silver-5";
 
 const SHAPES: Record<Shape, string> = {
-  rounded: "br-9999",
+  rounded: "br:9999",
   square: "",
-  squircle: "br-xxl cs-s",
+  squircle: "br:xxl cs:s",
 };
 
 const SIZES: Record<Size, string> = {
-  sm: "w-9 h-9",
-  md: "w-12 h-12",
+  sm: "w:9 h:9",
+  md: "w:12 h:12",
 };
 
-const DISABLED = "bw-1 bc-silver-2 bg-silver-1 c-slate-4";
+const DISABLED = "bw:1 bc:silver-2 bg:silver-1 c:slate-4";
 
-const PRESSED = "bg-slate-12 bc-slate-12 c-white";
-const UNPRESSED = "bg-white bc-silver-5 c-slate-12 h:bg-silver-1";
+const PRESSED = "bg:slate-12 bc:slate-12 c:white";
+const UNPRESSED = "bg:white bc:silver-5 c:slate-12 h:bg:silver-1";
 
 export interface ToggleProps
   extends Omit<ComponentProps<"button">, "className" | "value">,
@@ -101,11 +101,11 @@ export default function ToggleBase({
       className={(state) =>
         merge(
           outline,
-          "d-f ai-c jc-c us-none",
-          disabled ? "c-na" : "c-p",
+          "d:f ai:c jc:c us:none",
+          disabled ? "c:na" : "c:p",
           SIZES[size],
           SHAPES[shape],
-          disabled ? DISABLED : `bw-1 ${state.pressed ? PRESSED : UNPRESSED}`,
+          disabled ? DISABLED : `bw:1 ${state.pressed ? PRESSED : UNPRESSED}`,
           className,
         )
       }

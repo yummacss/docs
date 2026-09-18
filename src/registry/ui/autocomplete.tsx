@@ -23,14 +23,14 @@ export interface AutocompleteGroup {
   items: AutocompleteItem[];
 }
 
-const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:silver-3/60 fv:bc:silver-5";
 
-const INPUT = "bg-white bc-silver-3 c-slate-10 bw-1 fs-md";
+const INPUT = "bg:white bc:silver-3 c:slate-10 bw:1 fs:md";
 
 const SIZES: Record<Size, string> = {
-  sm: "h-8 w-56",
-  md: "h-10 w-64",
-  lg: "h-12 w-72",
+  sm: "h:8 w:56",
+  md: "h:10 w:64",
+  lg: "h:12 w:72",
 };
 
 const AUTOCOMPLETE_MOTION = `
@@ -48,32 +48,32 @@ const AUTOCOMPLETE_MOTION = `
 `;
 
 const ITEM_SHAPES: Record<Shape, string> = {
-  rounded: "br-md",
+  rounded: "br:md",
   square: "",
-  squircle: "br-lg cs-s",
+  squircle: "br:lg cs:s",
 };
 
 const POPUP_SIZES: Record<Size, string> = {
-  sm: "w-56",
-  md: "w-64",
-  lg: "w-72",
+  sm: "w:56",
+  md: "w:64",
+  lg: "w:72",
 };
 
 const SHAPES: Record<Shape, string> = {
-  rounded: "br-lg",
-  square: "br-0",
-  squircle: "br-xxl cs-s",
+  rounded: "br:lg",
+  square: "br:0",
+  squircle: "br:xxl cs:s",
 };
 
 const SHADOWS: Record<Shadow, string> = {
   none: "",
-  inset: "bs-i-md",
-  outset: "bs-o-sm",
+  inset: "bs-i:md",
+  outset: "bs-o:sm",
 };
 
 const ICON_PADDING: Record<IconSide, string> = {
-  leading: "pl-10 pr-4",
-  trailing: "pl-4 pr-10",
+  leading: "pl:10 pr:4",
+  trailing: "pl:4 pr:10",
 };
 
 export interface AutocompleteProps {
@@ -182,7 +182,7 @@ export default function AutocompleteBase({
     SIZES[size],
     SHAPES[shape],
     SHADOWS[shadow],
-    icon ? ICON_PADDING[iconPosition] : "pl-4",
+    icon ? ICON_PADDING[iconPosition] : "pl:4",
     className,
   );
 

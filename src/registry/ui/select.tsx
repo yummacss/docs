@@ -24,15 +24,15 @@ export interface SelectGroup {
   items: SelectOption[];
 }
 
-const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:silver-3/60 fv:bc:silver-5";
 
 const TRIGGER =
-  "d-f ai-c jc-sb bw-1 bc-silver-3 bg-white c-slate-10 us-none c-p";
+  "d:f ai:c jc:sb bw:1 bc:silver-3 bg:white c:slate-10 us:none c:p";
 
 const SIZES: Record<Size, string> = {
-  sm: "h-8 w-56 px-3",
-  md: "h-10 w-64 px-3",
-  lg: "h-12 w-72 px-4",
+  sm: "h:8 w:56 px:3",
+  md: "h:10 w:64 px:3",
+  lg: "h:12 w:72 px:4",
 };
 
 const SELECT_MOTION = `
@@ -50,27 +50,27 @@ const SELECT_MOTION = `
 `;
 
 const ITEM_SHAPES: Record<Shape, string> = {
-  rounded: "br-md",
+  rounded: "br:md",
   square: "",
-  squircle: "br-lg cs-s",
+  squircle: "br:lg cs:s",
 };
 
 const POPUP_SIZES: Record<Size, string> = {
-  sm: "w-56",
-  md: "w-64",
-  lg: "w-72",
+  sm: "w:56",
+  md: "w:64",
+  lg: "w:72",
 };
 
 const SHAPES: Record<Shape, string> = {
-  rounded: "br-lg",
+  rounded: "br:lg",
   square: "",
-  squircle: "br-xxl cs-s",
+  squircle: "br:xxl cs:s",
 };
 
 const SHADOWS: Record<Shadow, string> = {
   none: "",
-  inset: "bs-i-md",
-  outset: "bs-o-sm",
+  inset: "bs-i:md",
+  outset: "bs-o:sm",
 };
 
 function isGroupEntry(entry: SelectOption | SelectGroup): entry is SelectGroup {
@@ -91,8 +91,8 @@ function renderOption(option: SelectOption, shape: Shape) {
       key={option.value}
       value={option.value}
       className={(state) =>
-        `d-f ai-c g-3 py-2 px-3 mx-1 ${ITEM_SHAPES[shape]} fs-sm fw-500 us-none c-p c-slate-10 ${
-          state.highlighted ? "bg-silver-2/50" : "bg-transparent"
+        `d:f ai:c g:3 py:2 px:3 mx:1 ${ITEM_SHAPES[shape]} fs:sm fw:500 us:none c:p c:slate-10 ${
+          state.highlighted ? "bg:silver-2/50" : "bg:transparent"
         }`
       }
     >
@@ -177,7 +177,7 @@ export default function SelectBase({
     SIZES[size],
     SHAPES[shape],
     SHADOWS[shadow],
-    open ? "bg-silver-2/50" : "bg-transparent",
+    open ? "bg:silver-2/50" : "bg:transparent",
     className,
   );
 

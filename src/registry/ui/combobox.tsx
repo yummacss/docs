@@ -22,20 +22,20 @@ export interface ComboboxGroup {
   items: ComboboxItem[];
 }
 
-const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:silver-3/60 fv:bc:silver-5";
 
-const INPUT = "pl-4 pr-16 bg-white bc-silver-3 c-slate-10 bw-1 fs-md";
+const INPUT = "pl:4 pr:16 bg:white bc:silver-3 c:slate-10 bw:1 fs:md";
 
 const SIZES: Record<Size, string> = {
-  sm: "h-8 w-56",
-  md: "h-10 w-64",
-  lg: "h-12 w-72",
+  sm: "h:8 w:56",
+  md: "h:10 w:64",
+  lg: "h:12 w:72",
 };
 
 const CHIPS_SIZES: Record<Size, string> = {
-  sm: "min-h-8 w-56 fs-sm",
-  md: "min-h-10 w-64 fs-md",
-  lg: "min-h-12 w-72 fs-lg",
+  sm: "min-h:8 w:56 fs:sm",
+  md: "min-h:10 w:64 fs:md",
+  lg: "min-h:12 w:72 fs:lg",
 };
 
 const COMBOBOX_MOTION = `
@@ -53,37 +53,37 @@ const COMBOBOX_MOTION = `
 `;
 
 const ITEM_SHAPES: Record<Shape, string> = {
-  rounded: "br-md",
+  rounded: "br:md",
   square: "",
-  squircle: "br-lg cs-s",
+  squircle: "br:lg cs:s",
 };
 
 const POPUP_SIZES: Record<Size, string> = {
-  sm: "w-56",
-  md: "w-64",
-  lg: "w-72",
+  sm: "w:56",
+  md: "w:64",
+  lg: "w:72",
 };
 
 const ACTION_HEIGHTS: Record<Size, string> = {
-  sm: "h-8",
-  md: "h-10",
-  lg: "h-12",
+  sm: "h:8",
+  md: "h:10",
+  lg: "h:12",
 };
 
 const SHAPES: Record<Shape, string> = {
-  rounded: "br-lg",
-  square: "br-0",
-  squircle: "br-xxl cs-s",
+  rounded: "br:lg",
+  square: "br:0",
+  squircle: "br:xxl cs:s",
 };
 
 const SHADOWS: Record<Shadow, string> = {
   none: "",
-  inset: "bs-i-md",
-  outset: "bs-o-sm",
+  inset: "bs-i:md",
+  outset: "bs-o:sm",
 };
 
 const ACTION =
-  "d-f b-0 ai-c jc-c w-6 h-6 p-0 bg-transparent c-slate-6 c-p h:c-slate-10";
+  "d:f b:0 ai:c jc:c w:6 h:6 p:0 bg:transparent c:slate-6 c:p h:c:slate-10";
 
 export interface ComboboxProps {
   container?: HTMLElement | null;
@@ -116,8 +116,8 @@ function renderItem(item: ComboboxItem, shape: Shape) {
       key={item.label}
       value={item.label}
       className={(state) =>
-        `d-f ai-c g-2 py-2 px-3 mx-1 ${ITEM_SHAPES[shape]} fs-sm fw-500 us-none c-p ${
-          state.highlighted ? "bg-silver-2/50" : "bg-transparent"
+        `d:f ai:c g:2 py:2 px:3 mx:1 ${ITEM_SHAPES[shape]} fs:sm fw:500 us:none c:p ${
+          state.highlighted ? "bg:silver-2/50" : "bg:transparent"
         }`
       }
     >
@@ -172,7 +172,7 @@ export default function ComboboxBase({
   const id = useId();
 
   const chipsClasses = merge(
-    "d-f fw-w ai-c g-1 py-1 pl-2 pr-16 bg-white bc-silver-3 c-slate-10 bw-1",
+    "d:f fw:w ai:c g:1 py:1 pl:2 pr:16 bg:white bc:silver-3 c:slate-10 bw:1",
     CHIPS_SIZES[size],
     SHAPES[shape],
     SHADOWS[shadow],
@@ -266,7 +266,7 @@ export default function ComboboxBase({
                 placeholder={placeholder}
                 className={merge(
                   outline,
-                  "fg-1 w-24 min-w-24 bg-transparent c-slate-10 bw-0",
+                  "fg:1 w:24 min-w:24 bg:transparent c:slate-10 bw:0",
                 )}
               />
             </Combobox.Chips>

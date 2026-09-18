@@ -110,8 +110,8 @@ function Stepper({
   const atMax = max !== undefined && value >= max;
 
   const button = (spent: boolean) =>
-    `d-f fs-0 ai-c jc-c w-6 h-6 bw-0 bg-transparent ff-m fs-xs fv:oo--1 fv:oc-accent ${
-      inert || spent ? "c-white/25 c-na" : "c-accent-dim h:c-accent c-p"
+    `d:f fs:0 ai:c jc:c w:6 h:6 bw:0 bg:transparent ff:m fs:xs fv:oo:-1 fv:oc:accent ${
+      inert || spent ? "c:white/25 c:na" : "c:accent-dim h:c:accent c:p"
     }`;
 
   return (
@@ -171,8 +171,8 @@ export function EnumSelect({
             key={option}
             value={option}
             className={(state) =>
-              `d-b px-2 py-1 ff-m fs-xs c-p us-none ${
-                state.highlighted ? "bg-border c-accent" : "c-accent-dim"
+              `d:b px:2 py:1 ff:m fs:xs c:p us:none ${
+                state.highlighted ? "bg:border c:accent" : "c:accent-dim"
               }`
             }
           >
@@ -245,10 +245,10 @@ function Toggle({
       onCheckedChange={onCheckedChange}
       disabled={inert}
       aria-label={label}
-      className={`d-f fs-0 ai-c px-1 w-7 h-4 bw-0 tp-c tdu-150 ttf-io fv:oo-2 fv:oc-accent ${
+      className={`d:f fs:0 ai:c px:1 w:7 h:4 bw:0 tp:c tdu:150 ttf:io fv:oo:2 fv:oc:accent ${
         inert
-          ? "bg-diff-remove/30 c-na"
-          : `c-p ${checked ? "bg-accent-dim" : "bg-border"}`
+          ? "bg:diff-remove/30 c:na"
+          : `c-p ${checked ? "bg:accent-dim" : "bg:border"}`
       }`}
     >
       <Switch.Thumb

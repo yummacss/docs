@@ -10,7 +10,7 @@ import { merge } from "yummacss/merge";
 
 type Shadow = "none" | "inset" | "outset";
 
-const FOCUS = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
+const FOCUS = "fv:os:s fv:ow:3 fv:oo:0 fv:oc:silver-3/60 fv:bc:silver-5";
 
 export interface RatingIcon {
   icon: ReactNode;
@@ -19,8 +19,8 @@ export interface RatingIcon {
 }
 
 const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
-  inset: "bg-white bc-silver-2 bw-1 bs-i-md",
-  outset: "bg-white bc-silver-2 bw-1 bs-o-sm",
+  inset: "bg:white bc:silver-2 bw:1 bs-i:md",
+  outset: "bg:white bc:silver-2 bw:1 bs-o:sm",
 };
 
 export interface RatingProps {
@@ -77,25 +77,25 @@ export default function RatingBase({
 
   const starClasses = (pressed: boolean) =>
     merge(
-      "d-f ai-c jc-c p-0 w-9 h-9 br-lg us-none",
-      shadowClass || "bw-0",
-      disabled ? "c-na o-60" : "",
-      !disabled && !readOnly ? `c-p ${outline}` : "",
-      pressed ? "c-yellow-5" : "c-slate-4",
-      !disabled && !readOnly && !pressed ? "h:c-slate-6" : "",
+      "d:f ai:c jc:c p:0 w:9 h:9 br:lg us:none",
+      shadowClass || "bw:0",
+      disabled ? "c:na o:60" : "",
+      !disabled && !readOnly ? `c:p ${outline}` : "",
+      pressed ? "c:yellow-5" : "c:slate-4",
+      !disabled && !readOnly && !pressed ? "h:c:slate-6" : "",
       shadowClass ? "" : "bg-transparent",
     );
 
   const iconClasses = (option: RatingIcon, active: boolean) =>
     merge(
-      "d-f ai-c jc-c p-0 w-12 h-12 bw-0 br-lg us-none",
-      disabled ? "c-na o-60" : `c-p ${outline}`,
-      active ? (option.activeClassName ?? "c-yellow-5") : "c-slate-4",
-      !disabled && !active ? "h:c-slate-6" : "",
+      "d:f ai:c jc:c p:0 w:12 h:12 bw:0 br:lg us:none",
+      disabled ? "c:na o:60" : `c:p ${outline}`,
+      active ? (option.activeClassName ?? "c:yellow-5") : "c:slate-4",
+      !disabled && !active ? "h:c:slate-6" : "",
     );
 
   return (
-    <div className={merge("d-f fd-c ai-c jc-c g-4 p-8 h-56", className)}>
+    <div className={merge("d:f fd:c ai:c jc:c g:4 p:8 h:56", className)}>
       {label && <span className="c:slate-10 fs:sm fw:500">{label}</span>}
 
       <Scored score={score}>
