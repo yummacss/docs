@@ -3529,25 +3529,29 @@ hang a comment on it would widen the API to document it.
 `@yummacss/runtime` is `@yummacss/cdn`. The name describes what the thing is, a
 script tag served from a CDN, rather than what it is not.
 
-**The old name keeps publishing**, so a page pointing at it carries on working.
-`packages/runtime` is now a manifest, a README and a tsdown config whose entry is
-`../cdn/src/index.ts`, so both names build from one source. Verified: the two
-`index.iife.js` files come out byte-identical.
+**The old name is gone.** It shipped as a shim first, a manifest and a tsdown
+config pointing at `../cdn/src/index.ts`, but Renildo deleted
+`@yummacss/runtime` from npm on 2026-09-18 and the shim came back out: npm
+refuses a version number that has been published once, so the next release would
+have failed on that package and, because the publish loop runs under `bash -e`,
+taken the packages after it down too.
 
 **`exports` and `module` named a `./dist/index.js` the build never wrote.** The
 tsdown config emits `iife` only, so `import "@yummacss/runtime"` has been failing
 for as long as those fields have been there. Both are dropped from the cdn
 manifest. A script tag reads `unpkg` and `jsdelivr`, which are correct.
 
-**Play waits for the first publish.** `next.config.ts` pins the script to the
-exact version in `devDependencies.yummacss`, so pointing it at
-`@yummacss/cdn@<version>` 404s until that version is on npm. It stays on the old
-name until then, which is safe because the old name still publishes. Switch it
-in the release that ships `@yummacss/cdn`.
+**Play's preview is broken until `@yummacss/cdn` publishes.** `next.config.ts`
+pins the script to the exact version in `devDependencies.yummacss`, and it
+pointed at `@yummacss/runtime@4.0.2`, which now 404s. There is no URL that works
+in the meantime: the old name is deleted and the new one has never published. It
+now names `@yummacss/cdn`, so the only thing left at release time is bumping
+`devDependencies.yummacss` to the version that ships it.
 
-**`npm deprecate` is a registry operation, not a file.** Nothing in the repo can
-set the notice npm prints on install, so it is a command Renildo runs once after
-the first publish of the new name.
+**Deleting beats deprecating here, and costs one thing.** A deprecation notice
+would have left the old URL serving. Deleting means every page on the old script
+tag breaks at once, which is the right call at zero users and the wrong one
+later.
 
 ---
 

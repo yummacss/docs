@@ -16,14 +16,37 @@ than adjusting the numbers by hand:
     grep -c '^- \[ \]' TODO.md
 
     Closed  134
-    Open     5
-    Done    96%
+    Open    28
+    Done    83%
 
 ---
 
 ## Phase 1 - Broken
 
-Empty.
+Renildo's pass over the site, 2026-09-18. Reproduce each before acting on it.
+
+- [ ] **Play's preview loads nothing.** It points at
+      `unpkg.com/@yummacss/runtime@4.0.2`, which 404s since the package was
+      deleted. Confirmed: npm returns 404 for both the old name and
+      `@yummacss/cdn`, which has never published. Nothing fixes it but shipping
+      `@yummacss/cdn`, then bumping play's `devDependencies.yummacss` to that
+      version, since `next.config.ts` reads the URL's version from it.
+- [ ] **A focus outline flashes after a dialog closes**, and again on the next
+      click of the trigger rather than on the close. Seen on Dialog, Command
+      Palette, Empty State and Button, so it is the focus treatment itself, not
+      any one component.
+- [ ] **Avatar Stack ignores its 4th value and its `size`.** Passing a fourth
+      avatar does nothing and changing `size` does nothing.
+- [ ] **Button Group draws vertical lines on mouse press.** Only on click, so
+      look at the pressed state rather than the borders between items.
+- [ ] **Skeleton's `delay` drifts into `0.6000000000000001`** and overflows the
+      number field. Verified: the meta gives `delay` a `min` and a `max` and no
+      `step`, so the field steps by a float and nothing rounds the result.
+- [ ] **The arrow sits flush against its trigger**, seen on Popover. It also
+      wants to be smaller. Both apply to every component using the arrow part.
+- [ ] **Progress: `animated` moves the bar** rather than transitioning its width
+      as `value` changes, which is what its description claims. Base UI's own
+      progress animates; match that.
 
 
 ## Phase 2 - Content model
@@ -33,7 +56,24 @@ Empty.
 
 ## Phase 3 - API changes
 
-Empty.
+- [ ] **Dialog has no `size`.** Reported by Mayranne, using it for real: her
+      buttons are 14px and 16px and the dialog's text is 13.33px, which is a
+      browser default rather than a chosen size, and the padding differs too.
+- [ ] **Alert Dialog and Button disagree on sizing.** Same report: the alert
+      dialog has more padding and smaller text than the button it sits beside.
+      She prefers the dialog's, so pick one and make both use it.
+- [ ] **Meter's `animated` describes an animation Base UI's meter does not
+      have.** Remove the prop.
+- [ ] **Preview Card has no arrow** and Base UI supports one. Add it, on by
+      default.
+- [ ] **No way to turn a component's icons off.** There is no `icon` boolean on
+      Menu, Menubar, Context Menu or the others that draw one.
+- [ ] **Onboarding: drop the close button.** Esc dismisses, which is the
+      default, with a prop to opt out of it. Under `shape="square"` the icon
+      containers stay rounded and should not.
+- [ ] **Does Badge have `focus`?** It declares the prop. Verify what it reaches:
+      the badge itself is not focusable, but its close button renders a Base UI
+      `Button`, so the prop may be right for the wrong reason.
 
 ## Phase 4 - Wants mockups
 
@@ -41,10 +81,31 @@ Design decisions. Nothing here starts without them.
 
 - [ ] Replace the stage's tab bar with the **browser window** treatment,
       redrawn in Yumma CSS's own colours. **3 mockups.** Not urgent.
+- [ ] **A small radius becomes the default shape**, in place of `square`.
+      Renildo's call, 2026-09-18. Touches every component and the `shape`
+      vocabulary in AGENTS.md, where `rounded` is already defined per control,
+      so decide whether this changes the default or the definition.
+- [ ] **Try other icon packs**, Phosphor and Solar among them, nothing
+      overrated. Mockups first: the bar is that they look consistent across the
+      whole site.
+- [ ] **The icon is too big**, reported by Mayranne, who does not think it is
+      deliberate.
 
 ## Phase 5 - Infrastructure
 
 Nothing here blocks a release, and all of it makes the next change cheaper.
+
+The Component API rail, from Renildo's pass on 2026-09-18.
+
+- [ ] **A disabled prop explains itself in red.** Say why it is inert in a
+      tooltip, or another Base UI part that fits, rather than an error colour on
+      something that is not an error. `isInert` in `src/utils/props.ts` already
+      returns the reason string.
+- [ ] **Remove the Reset button** from the rail.
+- [ ] **Say that the component is theirs.** The rail shows the API; it should
+      also say that they own the file and can change anything in it.
+- [ ] **A long prop name pushes its control onto the next line.** Keep the name
+      and its control inline at every width.
 
 
 ## Phase 6 - After v4
@@ -71,6 +132,15 @@ Nothing here blocks a release, and all of it makes the next change cheaper.
 ## Decisions
 
 Blocked on Renildo. Each one holds up the entry beside it.
+
+- [ ] **Alphabetical order in the Component API rail?** Renildo asked, and it
+      fights the rule in AGENTS.md: a component's own props come first, then the
+      shared ones in `SHARED_PROP_ORDER`, which puts `variant` above `shape`
+      above `className` on purpose. Alphabetical is easier to scan and loses
+      that grouping. One or the other, not both.
+- [ ] **A destructive action's icon should be red.** Context Menu, Command
+      Palette and anywhere else a delete sits in a list. Decide whether the icon
+      takes the tone or the whole row does.
 
 
 ## Known and accepted
