@@ -116,8 +116,8 @@ function Stepper({
 
   return (
     <div
-      className={`d-f fs-0 ai-c jc-sb w-32 bw-1 ${
-        inert ? "bc-diff-remove/40" : "bc-border"
+      className={`d:f fs:0 ai:c jc:sb w:32 bw:1 ${
+        inert ? "bc:diff-remove/40" : "bc:border"
       }`}
     >
       <Button
@@ -131,7 +131,7 @@ function Stepper({
       </Button>
       <span
         aria-live="polite"
-        className={`ff-m fs-xs ${inert ? "c-diff-remove" : "c-accent"}`}
+        className={`ff:m fs:xs ${inert ? "c:diff-remove" : "c:accent"}`}
       >
         {value}
       </span>
@@ -164,7 +164,7 @@ export function EnumSelect({
   const [open, setOpen] = useState(false);
 
   const popup = (
-    <Select.Popup className="p-1 oy-auto w-32 max-h-40 bc-border bg-surface bw-1">
+    <Select.Popup className="p:1 oy:auto w:32 max-h:40 bc:border bg:surface bw:1">
       <Select.List>
         {values.map((option) => (
           <Select.Item
@@ -193,14 +193,14 @@ export function EnumSelect({
     >
       <Select.Trigger
         aria-label={name}
-        className={`d-f fs-0 ai-c jc-sb g-1 px-2 py-1 w-32 bg-transparent bw-1 ff-m fs-xs us-none fv:oo--1 fv:oc-accent ${
+        className={`d:f fs:0 ai:c jc:sb g:1 px:2 py:1 w:32 bg:transparent bw:1 ff:m fs:xs us:none fv:oo:-1 fv:oc:accent ${
           inert
-            ? "bc-diff-remove/40 c-diff-remove c-na"
-            : "bc-border c-accent c-p"
+            ? "bc:diff-remove/40 c:diff-remove c:na"
+            : "bc:border c:accent c:p"
         }`}
       >
-        <Select.Value className="o-h to-e ws-nw" />
-        <NavArrowDown className="fs-0 w-3 h-3 c-accent-dim" aria-hidden />
+        <Select.Value className="o:h to:e ws:nw" />
+        <NavArrowDown className="fs:0 w:3 h:3 c:accent-dim" aria-hidden />
       </Select.Trigger>
       <AnimatePresence>
         {open && (
@@ -210,7 +210,7 @@ export function EnumSelect({
               sideOffset={4}
               alignItemWithTrigger={false}
               collisionAvoidance={{ side: "none", fallbackAxisSide: "none" }}
-              className="zi-50"
+              className="zi:50"
             >
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
@@ -252,8 +252,8 @@ function Toggle({
       }`}
     >
       <Switch.Thumb
-        className={`d-b w-3 h-2 tp-a tdu-150 ttf-io ${
-          checked ? "ml-2 bg-page" : "ml-0 bg-white/40"
+        className={`d:b w:3 h:2 tp:a tdu:150 ttf:io ${
+          checked ? "ml:2 bg:page" : "ml:0 bg:white/40"
         }`}
       />
     </Switch.Root>

@@ -24,11 +24,11 @@ export default function Palette({
   blackPercentage = 14,
 }: Props) {
   return (
-    <div className="d-f fd-c g-1">
-      <div className="d-none @lg:d-f fd-c g-1 @md:fd-r @md:ai-c">
-        <div className="d-f ai-c ws-nw ta-c @md:w-24 @md:min-w-24 @md:mr-2" />
+    <div className="d:f fd:c g:1">
+      <div className="d:none @lg:d:f fd:c g:1 @md:fd:r @md:ai:c">
+        <div className="d:f ai:c ws:nw ta:c @md:w:24 @md:min-w:24 @md:mr:2" />
         <div
-          className="d-g g-1 f-1 my-2 w-100%"
+          className="d:g g:1 f:1 my:2 w:100%"
           style={{
             gridTemplateColumns: `repeat(${scale.length}, minmax(0, 1fr))`,
           }}
@@ -36,7 +36,7 @@ export default function Palette({
           {scale.map((label) => (
             <div
               key={`header-${label}`}
-              className="d-f ai-c jc-c c-white fs-sm"
+              className="d:f ai:c jc:c c:white fs:sm"
             >
               {label}
             </div>
@@ -53,13 +53,13 @@ export default function Palette({
         return (
           <div
             key={colorItem.name}
-            className="d-f fd-c g-1 ai-c @md:ai-c @md:fd-r"
+            className="d:f fd:c g:1 ai:c @md:ai:c @md:fd:r"
           >
-            <p className="d-f ai-c c-white ws-nw o-h fs-sm @md:w-24 @md:min-w-24 @md:mr-2">
+            <p className="d:f ai:c c:white ws:nw o:h fs:sm @md:w:24 @md:min-w:24 @md:mr:2">
               {colorItem.name}
             </p>
             <div
-              className="d-g g-1 f-1 w-100%"
+              className="d:g g:1 f:1 w:100%"
               style={{
                 gridTemplateColumns: `repeat(${scale.length}, minmax(0, 1fr))`,
               }}
@@ -117,7 +117,7 @@ function ColorSwatch({
   return (
     <Tooltip.Root open={tooltipOpen} onOpenChange={setTooltipOpen}>
       <Tooltip.Trigger
-        className="p-r w-100% ar-1/1 c-p os-none"
+        className="p:r w:100% ar:1/1 c:p os:none"
         style={{
           backgroundColor: shade,
           border: getBorderColor(shade),
@@ -130,7 +130,7 @@ function ColorSwatch({
       <Tooltip.Portal>
         <Tooltip.Positioner sideOffset={10}>
           <Tooltip.Popup
-            className="d-f p-r fd-c px-2 py-1 bc-border bg-surface c-white bw-1 fs-xs"
+            className="d:f p:r fd:c px:2 py:1 bc:border bg:surface c:white bw:1 fs:xs"
             style={{
               transformOrigin: "bottom center",
               transition: !showCopied
@@ -144,11 +144,11 @@ function ColorSwatch({
             <svg
               aria-hidden="true"
               viewBox="0 0 10 5"
-              className="p-a b--2 l-50% ml--2 w-4 h-2 f-surface"
+              className="p:a b:-2 l:50% ml:-2 w:4 h:2 f:surface"
             >
               <path
                 d="M0 0 L5 5 L10 0"
-                className="f-surface"
+                className="f:surface"
                 stroke="#232741"
                 strokeWidth="1"
               />

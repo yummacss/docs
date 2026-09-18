@@ -249,7 +249,7 @@ export const sidebarConfig = {
     },
     {
       title: "Utils",
-      items: ["vite", "postcss", "runtime", "canon", "core"],
+      items: ["vite", "postcss", "runtime", "lint", "core"],
     },
   ] satisfies SidebarSection[],
   ui: [

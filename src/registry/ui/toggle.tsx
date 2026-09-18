@@ -51,7 +51,7 @@ function Pop({ on, children }: { on: boolean; children: ReactNode }) {
   return (
     <motion.span
       key={on ? "on" : "off"}
-      className="d-f"
+      className="d:f"
       initial={{ scale: on ? 0.8 : 1 }}
       animate={{ scale: 1 }}
       transition={{ duration: 0.25, ease: "easeOut" }}

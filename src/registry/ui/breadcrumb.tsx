@@ -87,7 +87,7 @@ export default function BreadcrumbBase({
         );
 
         return (
-          <span key={item.label} className="d-f ai-c g-2">
+          <span key={item.label} className="d:f ai:c g:2">
             {isLast ? (
               <span
                 className={["d-f ai-c g-1", currentClasses].join(" ")}
@@ -111,11 +111,11 @@ export default function BreadcrumbBase({
             {!isLast &&
               (separator === "chevron" ? (
                 <NavArrowRight
-                  className={`c-slate-4 ${SEPARATOR_SIZES[size]}`}
+                  className={`c:slate-4 ${SEPARATOR_SIZES[size]}`}
                   aria-hidden="true"
                 />
               ) : (
-                <span className={`c-slate-4 ${SIZES[size]}`} aria-hidden="true">
+                <span className={`c:slate-4 ${SIZES[size]}`} aria-hidden="true">
                   /
                 </span>
               ))}

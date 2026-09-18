@@ -64,31 +64,31 @@ export default function MeterBase({
   return (
     <Meter.Root className={rootClasses} value={value} min={min} max={max}>
       {hasHeader ? (
-        <div className="d-f ai-c g-3">
-          <span className="d-f ai-c jc-c fs-0 w-8 h-8 bg-silver-1 c-slate-12">
+        <div className="d:f ai:c g:3">
+          <span className="d:f ai:c jc:c fs:0 w:8 h:8 bg:silver-1 c:slate-12">
             {icon}
           </span>
-          <div className="d-f fd-c">
-            <Meter.Label className="c-slate-10 fs-sm fw-500">
+          <div className="d:f fd:c">
+            <Meter.Label className="c:slate-10 fs:sm fw:500">
               {label}
             </Meter.Label>
             {description && (
-              <span className="c-slate-5 fs-xs">{description}</span>
+              <span className="c:slate-5 fs:xs">{description}</span>
             )}
           </div>
         </div>
       ) : (
-        <div className="d-f jc-sb ai-c">
-          <Meter.Label className="c-slate-10 fs-sm fw-500">{label}</Meter.Label>
-          <Meter.Value className="c-slate-8 fs-sm" />
+        <div className="d:f jc:sb ai:c">
+          <Meter.Label className="c:slate-10 fs:sm fw:500">{label}</Meter.Label>
+          <Meter.Value className="c:slate-8 fs:sm" />
         </div>
       )}
 
-      <Meter.Track className="o-h h-2 bg-silver-2">
+      <Meter.Track className="o:h h:2 bg:silver-2">
         <Meter.Indicator className={indicatorClasses} />
       </Meter.Track>
 
-      {hasHeader && <Meter.Value className="d-f jc-fe c-slate-5 fs-xs" />}
+      {hasHeader && <Meter.Value className="d:f jc:fe c:slate-5 fs:xs" />}
     </Meter.Root>
   );
 }

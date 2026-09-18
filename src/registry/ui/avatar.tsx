@@ -100,13 +100,13 @@ export default function AvatarBase({
     .join(" ");
 
   return (
-    <span className="d-if p-r w-fc va-m">
+    <span className="d:if p:r w:fc va:m">
       <Avatar.Root className={classes}>
         {src && (
           <Avatar.Image
             src={src}
             alt={name ?? ""}
-            className="of-c w-100% h-100%"
+            className="of:c w:100% h:100%"
           />
         )}
         <Avatar.Fallback className={fallbackClasses}>
@@ -119,7 +119,7 @@ export default function AvatarBase({
         <span
           role="img"
           aria-label={status}
-          className={`p-a b-0 r-0 bc-white br-9999 bw-2 ${BADGE_SIZES[size]} ${STATUSES[status]}`}
+          className={`p:a b:0 r:0 bc:white br:9999 bw:2 ${BADGE_SIZES[size]} ${STATUSES[status]}`}
         />
       )}
 
@@ -127,9 +127,9 @@ export default function AvatarBase({
         <span
           role="img"
           aria-label="Verified"
-          className={`d-f p-a t-0 r-0 ai-c jc-c bg-white bc-white br-9999 bw-1 ${BADGE_SIZES[size]}`}
+          className={`d:f p:a t:0 r:0 ai:c jc:c bg:white bc:white br:9999 bw:1 ${BADGE_SIZES[size]}`}
         >
-          <CheckCircle className="w-100% h-100% c-slate-12" />
+          <CheckCircle className="w:100% h:100% c:slate-12" />
         </span>
       )}
 

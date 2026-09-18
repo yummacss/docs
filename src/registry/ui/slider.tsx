@@ -99,14 +99,14 @@ export default function SliderBase({
 
   return (
     <div className={merge("d-f fd-c g-2 w-64", className)}>
-      <div className="d-f ai-c jc-sb">
+      <div className="d:f ai:c jc:sb">
         {label && (
-          <label className="c-slate-10 fs-sm fw-500 us-none">
+          <label className="c:slate-10 fs:sm fw:500 us:none">
             {label}
-            {required && <span className="c-red-5"> *</span>}
+            {required && <span className="c:red-5"> *</span>}
           </label>
         )}
-        <span className="c-slate-8 fs-sm">{formatValue(value)}</span>
+        <span className="c:slate-8 fs:sm">{formatValue(value)}</span>
       </div>
 
       <Slider.Root
@@ -119,7 +119,7 @@ export default function SliderBase({
         thumbAlignment="edge"
       >
         <Slider.Control
-          className={`d-f ai-c py-2 us-none ta-none ${disabled ? "c-na" : ""}`}
+          className={`d:f ai:c py:2 us:none ta:none ${disabled ? "c:na" : ""}`}
         >
           <Slider.Track
             className={merge(
@@ -163,7 +163,7 @@ export default function SliderBase({
         </Slider.Control>
       </Slider.Root>
 
-      {description && <p className="m-0 c-slate-6 fs-xs">{description}</p>}
+      {description && <p className="m:0 c:slate-6 fs:xs">{description}</p>}
     </div>
   );
 }

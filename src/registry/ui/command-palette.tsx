@@ -126,28 +126,28 @@ export default function CommandPaletteBase({
   const popup = (
     <Dialog.Portal container={container} keepMounted>
       <Dialog.Backdrop
-        className={`p-f i-0 min-h-dvh bg-black/5 bf-b-xs ${animated ? "yui-palette-fade" : ""}`}
+        className={`p:f i:0 min-h:dvh bg:black/5 bf-b:xs ${animated ? "yui-palette-fade" : ""}`}
       />
-      <Dialog.Viewport className="d-f p-f i-0 ai-c jc-c">
+      <Dialog.Viewport className="d:f p:f i:0 ai:c jc:c">
         <Dialog.Popup
           className={`${popupClasses} ${animated ? "yui-palette-pop" : ""}`}
           style={{ maxWidth: "90vw" }}
         >
           <Combobox.Root inline items={groups} autoHighlight>
-            <div className="d-f ai-c g-2 px-4 py-1">
-              <Search className="fs-0 w-5 h-5 c-slate-4" />
+            <div className="d:f ai:c g:2 px:4 py:1">
+              <Search className="fs:0 w:5 h:5 c:slate-4" />
               <Combobox.Input
                 placeholder={placeholder}
                 autoFocus
-                className="h-10 w-100% bg-transparent c-slate-10 fs-md"
+                className="h:10 w:100% bg:transparent c:slate-10 fs:md"
               />
             </div>
-            <div className="w-100% h-px bg-silver-2" />
+            <div className="w:100% h:px bg:silver-2" />
             <div>
-              <Combobox.List className="oy-auto max-h-72 py-1 ow-0">
+              <Combobox.List className="oy:auto max-h:72 py:1 ow:0">
                 {(group: CommandGroup, groupIndex: number) => (
                   <Combobox.Group key={group.label}>
-                    <div className="px-4 pt-2 pb-1 c-slate-5 fs-xs fw-500">
+                    <div className="px:4 pt:2 pb:1 c:slate-5 fs:xs fw:500">
                       {group.label}
                     </div>
                     {group.items.map((item) => {
@@ -166,29 +166,29 @@ export default function CommandPaletteBase({
                           className={itemClasses(trailing)}
                         >
                           {item.icon && iconPosition === "leading" && (
-                            <span className="d-f fs-0 c-slate-5">
+                            <span className="d:f fs:0 c:slate-5">
                               {item.icon}
                             </span>
                           )}
 
-                          <span className="d-f fd-c fg-1">
-                            <span className="c-slate-10 fw-500">
+                          <span className="d:f fd:c fg:1">
+                            <span className="c:slate-10 fw:500">
                               {item.label}
                             </span>
                             {item.description && (
-                              <span className="c-slate-5 fs-xs">
+                              <span className="c:slate-5 fs:xs">
                                 {item.description}
                               </span>
                             )}
                           </span>
 
                           {item.icon && iconPosition === "trailing" && (
-                            <span className="d-f fs-0 c-slate-5">
+                            <span className="d:f fs:0 c:slate-5">
                               {item.icon}
                             </span>
                           )}
                           {item.shortcut && (
-                            <span className="d-f ai-c g-1 px-1 py-1 ml-3 bc-silver-2 bw-1 c-slate-5 br-md fs-xs us-none">
+                            <span className="d:f ai:c g:1 px:1 py:1 ml:3 bc:silver-2 bw:1 c:slate-5 br:md fs:xs us:none">
                               {item.shortcut}
                             </span>
                           )}
@@ -196,13 +196,13 @@ export default function CommandPaletteBase({
                       );
                     })}
                     {groupIndex < groups.length - 1 && (
-                      <div className="w-100% h-px my-1 bg-silver-2" />
+                      <div className="w:100% h:px my:1 bg:silver-2" />
                     )}
                   </Combobox.Group>
                 )}
               </Combobox.List>
-              <Combobox.Empty className="c-slate-6 fs-sm">
-                <div className="py-8 px-4 ta-c fs-sm">{emptyMessage}</div>
+              <Combobox.Empty className="c:slate-6 fs:sm">
+                <div className="py:8 px:4 ta:c fs:sm">{emptyMessage}</div>
               </Combobox.Empty>
             </div>
           </Combobox.Root>
@@ -217,7 +217,7 @@ export default function CommandPaletteBase({
         {PALETTE_MOTION}
       </style>
       <Dialog.Trigger render={<Button className={triggerClasses} />}>
-        <Search className="w-4 h-4" />
+        <Search className="w:4 h:4" />
         <span>{trigger}</span>
       </Dialog.Trigger>
 

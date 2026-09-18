@@ -112,32 +112,32 @@ function renderItem(item: AutocompleteItem, shape: Shape) {
       render={(props, state) => (
         <div
           {...props}
-          className={`d-f ai-c g-3 py-2 px-3 mx-1 c-slate-10 ${ITEM_SHAPES[shape]} fs-sm us-none c-p ${
-            state.highlighted ? "bg-silver-2/50" : "bg-transparent"
+          className={`d:f ai:c g:3 py:2 px:3 mx:1 c:slate-10 ${ITEM_SHAPES[shape]} fs:sm us:none c:p ${
+            state.highlighted ? "bg:silver-2/50" : "bg:transparent"
           }`}
         >
           {item.icon ? (
-            <span className="d-f fs-0 ai-c jc-c w-6 h-6 c-slate-5">
+            <span className="d:f fs:0 ai:c jc:c w:6 h:6 c:slate-5">
               {item.icon}
             </span>
           ) : (
             item.avatar && (
-              <Avatar.Root className="fs-0 w-6 h-6 bc-white br-9999 bw-1">
+              <Avatar.Root className="fs:0 w:6 h:6 bc:white br:9999 bw:1">
                 <Avatar.Image
                   src={item.avatar}
                   alt=""
-                  className="of-c w-100% h-100% br-9999"
+                  className="of:c w:100% h:100% br:9999"
                 />
-                <Avatar.Fallback className="d-f ai-c jc-c w-100% h-100% bg-silver-2 c-slate-8 fs-xs">
+                <Avatar.Fallback className="d:f ai:c jc:c w:100% h:100% bg:silver-2 c:slate-8 fs:xs">
                   {item.label[0]}
                 </Avatar.Fallback>
               </Avatar.Root>
             )
           )}
-          <div className="d-f fd-c min-w-0">
-            <span className="o-h fw-500 to-e ws-nw">{item.label}</span>
+          <div className="d:f fd:c min-w:0">
+            <span className="o:h fw:500 to:e ws:nw">{item.label}</span>
             {item.description && (
-              <span className="c-slate-6 fs-xs">{item.description}</span>
+              <span className="c:slate-6 fs:xs">{item.description}</span>
             )}
           </div>
         </div>
@@ -188,16 +188,16 @@ export default function AutocompleteBase({
 
   const popup = (
     <Autocomplete.Popup
-      className={`o-h bg-white bc-silver-2 c-slate-10 bw-1 ${POPUP_SIZES[size]} ${SHAPES[shape]} ${animated ? "yui-autocomplete-pop" : ""}`}
+      className={`o:h bg:white bc:silver-2 c:slate-10 bw:1 ${POPUP_SIZES[size]} ${SHAPES[shape]} ${animated ? "yui-autocomplete-pop" : ""}`}
     >
       {loading ? (
         <div
-          className="d-f py-3 px-4 ai-c g-2 c-slate-6 fs-sm us-none"
+          className="d:f py:3 px:4 ai:c g:2 c:slate-6 fs:sm us:none"
           role="status"
         >
           <motion.span
             aria-hidden
-            className="d-b w-4 h-4 bc-silver-3 btc-slate-8 bw-2 br-9999"
+            className="d:b w:4 h:4 bc:silver-3 btc:slate-8 bw:2 br:9999"
             animate={animated ? { rotate: 360 } : undefined}
             transition={{
               duration: 0.7,
@@ -209,11 +209,11 @@ export default function AutocompleteBase({
         </div>
       ) : (
         <>
-          <Autocomplete.List className="oy-auto max-h-72 py-1 ow-0">
+          <Autocomplete.List className="oy:auto max-h:72 py:1 ow:0">
             {(entry: AutocompleteItem | AutocompleteGroup) =>
               isGroupEntry(entry) ? (
                 <Autocomplete.Group key={entry.group}>
-                  <Autocomplete.GroupLabel className="px-3 pt-2 pb-1 fs-xs fw-500 c-slate-5 us-none">
+                  <Autocomplete.GroupLabel className="px:3 pt:2 pb:1 fs:xs fw:500 c:slate-5 us:none">
                     {entry.group}
                   </Autocomplete.GroupLabel>
                   {entry.items.map((entry) => renderItem(entry, shape))}
@@ -223,8 +223,8 @@ export default function AutocompleteBase({
               )
             }
           </Autocomplete.List>
-          <Autocomplete.Empty className="c-slate-6 fs-sm">
-            <div className="pt-2 pb-3 px-4 us-none">{emptyMessage}</div>
+          <Autocomplete.Empty className="c:slate-6 fs:sm">
+            <div className="pt:2 pb:3 px:4 us:none">{emptyMessage}</div>
           </Autocomplete.Empty>
         </>
       )}
@@ -241,16 +241,16 @@ export default function AutocompleteBase({
       autoHighlight={autoHighlight}
       limit={limit > 0 ? limit : undefined}
     >
-      <div className={`d-f fd-c g-2 ${disabled ? "o-60 c-na" : ""}`}>
+      <div className={`d:f fd:c g:2 ${disabled ? "o:60 c:na" : ""}`}>
         {label && (
-          <label htmlFor={id} className="c-slate-10 fs-sm fw-500">
+          <label htmlFor={id} className="c:slate-10 fs:sm fw:500">
             {label}
           </label>
         )}
-        <div className="d-f p-r ai-c">
+        <div className="d:f p:r ai:c">
           {icon && (
             <span
-              className={`d-f p-a ai-c c-slate-5 pe-none ${iconPosition === "leading" ? "l-3" : "r-3"}`}
+              className={`d:f p:a ai:c c:slate-5 pe:none ${iconPosition === "leading" ? "l:3" : "r:3"}`}
             >
               {icon}
             </span>
@@ -264,10 +264,10 @@ export default function AutocompleteBase({
             className={inputClasses}
           />
         </div>
-        {description && <p className="m-0 c-slate-6 fs-xs">{description}</p>}
+        {description && <p className="m:0 c:slate-6 fs:xs">{description}</p>}
       </div>
       <Autocomplete.Portal container={container} keepMounted>
-        <Autocomplete.Positioner className="ow-0" sideOffset={8}>
+        <Autocomplete.Positioner className="ow:0" sideOffset={8}>
           {popup}
         </Autocomplete.Positioner>
       </Autocomplete.Portal>

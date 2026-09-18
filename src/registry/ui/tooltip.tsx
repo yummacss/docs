@@ -131,7 +131,7 @@ export default function TooltipBase({
     >
       {arrow && (
         <Tooltip.Arrow
-          className="d-f w-4 h-2"
+          className="d:f w:4 h:2"
           style={(state) => ARROW_PLACEMENT[state.side]}
         >
           <svg viewBox="0 0 10 5" width="16" height="8">

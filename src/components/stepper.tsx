@@ -20,7 +20,7 @@ export function Stepper({ children }: StepperProps) {
   const childArray = React.Children.toArray(children);
 
   return (
-    <ol className="p-r ml-4 bc-border blw-2 bs-d">
+    <ol className="p:r ml:4 bc:border blw:2 bs:d">
       {childArray.map((child, i) => {
         if (React.isValidElement<StepProps & InjectedStepProps>(child)) {
           return React.cloneElement(child, {
@@ -42,13 +42,13 @@ export function Step({
 }: StepProps & InjectedStepProps) {
   return (
     <li className={isLast ? "ml-8" : "mb-10 ml-8"}>
-      <div className="d-f p-a l--3 ai-c jc-c w-6 h-6 bc-border bg-surface bw-1">
-        <span className="c-accent fs-xs">{stepNumber}</span>
+      <div className="d:f p:a l:-3 ai:c jc:c w:6 h:6 bc:border bg:surface bw:1">
+        <span className="c:accent fs:xs">{stepNumber}</span>
       </div>
-      <div className="d-f ai-c mb-2">
-        <p className="c-white">{title}</p>
+      <div className="d:f ai:c mb:2">
+        <p className="c:white">{title}</p>
       </div>
-      <div className="my-5 c-white/80">{children}</div>
+      <div className="my:5 c:white/80">{children}</div>
     </li>
   );
 }

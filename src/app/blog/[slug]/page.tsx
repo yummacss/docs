@@ -60,31 +60,31 @@ export default async function BlogPostPage({
 
   return (
     <>
-      <article className="py-8 @lg:gc-s-8">
-        <header className="mb-12">
-          <div className="d-f ai-c g-2 mb-4 mt-16 c-white/50 fs-sm">
-            <Link href="/blog" className="h:c-white fv:oc-white fv:ow-2">
+      <article className="py:8 @lg:gc-s:8">
+        <header className="mb:12">
+          <div className="d:f ai:c g:2 mb:4 mt:16 c:white/50 fs:sm">
+            <Link href="/blog" className="h:c:white fv:oc:white fv:ow:2">
               Blog
             </Link>
             <span>/</span>
             <span>{formatDate(post?.date || "")}</span>
           </div>
 
-          <h1 className="mb-2 c-white fs-4xl fw-400 @lg:fs-5xl">
+          <h1 className="mb:2 c:white fs:4xl fw:400 @lg:fs:5xl">
             {post?.title}
           </h1>
 
-          <p className="mb-6 c-white/70 fs-lg lh-5">{post?.description}</p>
+          <p className="mb:6 c:white/70 fs:lg lh:5">{post?.description}</p>
 
           {author && (
-            <div className="d-f ai-c g-4 c-white/70 fs-lg">
-              <div className="d-f ai-c g-2">
+            <div className="d:f ai:c g:4 c:white/70 fs:lg">
+              <div className="d:f ai:c g:2">
                 <Avatar src={author.avatar} alt={author.name} />
                 <Link
                   href={author.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="c-white/70 h:c-white fv:oc-white fv:ow-2"
+                  className="c:white/70 h:c:white fv:oc:white fv:ow:2"
                 >
                   {author.name}
                 </Link>
@@ -94,7 +94,7 @@ export default async function BlogPostPage({
         </header>
 
         {post?.cover && (
-          <div className="o-h b-1 mb-12 bc-border">
+          <div className="o:h b:1 mb:12 bc:border">
             <Image
               src={post.cover}
               alt={post.title || "Blog cover"}
@@ -102,7 +102,7 @@ export default async function BlogPostPage({
               unoptimized
               width={1200}
               height={630}
-              className="w-100% h-auto bg-surface us-none"
+              className="w:100% h:auto bg:surface us:none"
             />
           </div>
         )}

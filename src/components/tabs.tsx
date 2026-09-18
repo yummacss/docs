@@ -18,7 +18,7 @@ export function Tabs({
   return (
     <BaseTabs.Root
       defaultValue={defaultValue}
-      className={`bw-1 bc-border ${className}`}
+      className={`bw:1 bc:border ${className}`}
       style={style}
       {...props}
     >
@@ -41,13 +41,13 @@ export function TabsList({
 }: TabsListProps) {
   return (
     <BaseTabs.List
-      className={`d-f p-r zi-0 px-1 cg-1 bbw-1 bc-border ox-auto ${className}`}
+      className={`d:f p:r zi:0 px:1 cg:1 bbw:1 bc:border ox:auto ${className}`}
       style={style}
       {...props}
     >
       {children}
       <BaseTabs.Indicator
-        className="p-a l-0 t-50% h-6 bc-border bg-surface bw-1 tdu-200 ttf-io"
+        className="p:a l:0 t:50% h:6 bc:border bg:surface bw:1 tdu:200 ttf:io"
         style={{
           zIndex: -1,
           translate: "var(--active-tab-left) -50%",
@@ -76,7 +76,7 @@ export function TabsTab({
   return (
     <BaseTabs.Tab
       value={value}
-      className={`d-f ai-c jc-c bw-0 m-0 px-2 py-0 fs-sm fw-500 us-none ws-nw h-8 a-none os-none bg-transparent ${className}`}
+      className={`d:f ai:c jc:c bw:0 m:0 px:2 py:0 fs:sm fw:500 us:none ws:nw h:8 a:none os:none bg:transparent ${className}`}
       style={{
         color: "#989ec2",
         fontFamily: "inherit",
@@ -99,14 +99,14 @@ interface TabsPanelProps extends React.ComponentProps<typeof BaseTabs.Panel> {
 export function TabsPanel({
   children,
   value,
-  className = "p-4",
+  className = "p:4",
   style,
   ...props
 }: TabsPanelProps) {
   return (
     <BaseTabs.Panel
       value={value}
-      className={`p-r os-none ${className}`}
+      className={`p:r os:none ${className}`}
       style={style}
       {...props}
     >

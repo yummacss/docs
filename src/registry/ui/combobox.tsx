@@ -122,23 +122,23 @@ function renderItem(item: ComboboxItem, shape: Shape) {
       }
     >
       {item.avatar && (
-        <Avatar.Root className="d-if o-h ai-c jc-c w-6 h-6 bc-white br-9999 bw-1 us-none">
+        <Avatar.Root className="d:if o:h ai:c jc:c w:6 h:6 bc:white br:9999 bw:1 us:none">
           <Avatar.Image
             src={item.avatar}
             alt=""
-            className="of-c w-100% h-100%"
+            className="of:c w:100% h:100%"
           />
-          <Avatar.Fallback className="d-f ai-c jc-c w-100% h-100% c-slate-8 fs-xs">
+          <Avatar.Fallback className="d:f ai:c jc:c w:100% h:100% c:slate-8 fs:xs">
             {item.label[0]}
           </Avatar.Fallback>
         </Avatar.Root>
       )}
-      <span className="fg-1 min-w-0 o-h to-e ws-nw">{item.label}</span>
+      <span className="fg:1 min-w:0 o:h to:e ws:nw">{item.label}</span>
       {item.description && (
-        <span className="fs-0 c-slate-6 fw-400">{item.description}</span>
+        <span className="fs:0 c:slate-6 fw:400">{item.description}</span>
       )}
-      <Combobox.ItemIndicator className="d-f ml-auto c-slate-12">
-        <Check className="w-3 h-3" />
+      <Combobox.ItemIndicator className="d:f ml:auto c:slate-12">
+        <Check className="w:3 h:3" />
       </Combobox.ItemIndicator>
     </Combobox.Item>
   );
@@ -190,17 +190,17 @@ export default function ComboboxBase({
 
   const popup = (
     <Combobox.Popup
-      className={`o-h bg-white bc-silver-2 c-slate-10 bw-1 ${POPUP_SIZES[size]} ${SHAPES[shape]} ${animated ? "yui-combobox-pop" : ""}`}
+      className={`o:h bg:white bc:silver-2 c:slate-10 bw:1 ${POPUP_SIZES[size]} ${SHAPES[shape]} ${animated ? "yui-combobox-pop" : ""}`}
     >
       {loading ? (
-        <div className="py-4 px-4 c-slate-6 fs-sm us-none">Loading...</div>
+        <div className="py:4 px:4 c:slate-6 fs:sm us:none">Loading...</div>
       ) : (
         <>
-          <Combobox.List className="oy-auto py-1 max-h-72 ow-0">
+          <Combobox.List className="oy:auto py:1 max-h:72 ow:0">
             {(entry: ComboboxItem | ComboboxGroup) =>
               isGroupEntry(entry) ? (
                 <Combobox.Group key={entry.group}>
-                  <Combobox.GroupLabel className="px-3 pt-2 pb-1 fs-xs fw-500 c-slate-5 us-none">
+                  <Combobox.GroupLabel className="px:3 pt:2 pb:1 fs:xs fw:500 c:slate-5 us:none">
                     {entry.group}
                   </Combobox.GroupLabel>
                   {entry.items.map((entry) => renderItem(entry, shape))}
@@ -210,8 +210,8 @@ export default function ComboboxBase({
               )
             }
           </Combobox.List>
-          <Combobox.Empty className="c-slate-6 fs-sm">
-            <div className="py-4 px-4">{emptyMessage}</div>
+          <Combobox.Empty className="c:slate-6 fs:sm">
+            <div className="py:4 px:4">{emptyMessage}</div>
           </Combobox.Empty>
         </>
       )}
@@ -227,18 +227,18 @@ export default function ComboboxBase({
       disabled={disabled}
     >
       <div
-        className={`d-f p-r fd-c g-2 c-slate-10 fs-sm ${disabled ? "o-60 c-na" : ""}`}
+        className={`d:f p:r fd:c g:2 c:slate-10 fs:sm ${disabled ? "o:60 c:na" : ""}`}
       >
         <style href="yumma-ui-combobox-motion" precedence="default">
           {COMBOBOX_MOTION}
         </style>
         {label && (
-          <label htmlFor={id} className="fw-500">
+          <label htmlFor={id} className="fw:500">
             {label}
           </label>
         )}
 
-        <div className="p-r">
+        <div className="p:r">
           {multiple ? (
             <Combobox.Chips className={chipsClasses}>
               <Combobox.Value>
@@ -247,14 +247,14 @@ export default function ComboboxBase({
                     {toChips(selected).map((chip) => (
                       <Combobox.Chip
                         key={chip}
-                        className="d-f ai-c g-1 px-2 py-0 h-6 bg-white bc-silver-3 c-slate-10 bw-1 fs-xs fw-500"
+                        className="d:f ai:c g:1 px:2 py:0 h:6 bg:white bc:silver-3 c:slate-10 bw:1 fs:xs fw:500"
                       >
                         {chip}
                         <Combobox.ChipRemove
-                          className="d-f b-0 ai-c jc-c p-0 bg-transparent c-slate-6 c-p h:c-slate-10"
+                          className="d:f b:0 ai:c jc:c p:0 bg:transparent c:slate-6 c:p h:c:slate-10"
                           aria-label={`Remove ${chip}`}
                         >
-                          <Xmark className="w-3 h-3" />
+                          <Xmark className="w:3 h:3" />
                         </Combobox.ChipRemove>
                       </Combobox.Chip>
                     ))}
@@ -278,29 +278,29 @@ export default function ComboboxBase({
             />
           )}
           <div
-            className={`d-f p-a r-2 b-0 ai-c jc-c c-slate-6 ${ACTION_HEIGHTS[size]}`}
+            className={`d:f p:a r:2 b:0 ai:c jc:c c:slate-6 ${ACTION_HEIGHTS[size]}`}
           >
             {clearable && (
               <Combobox.Clear
                 className={merge(outline, ACTION)}
                 aria-label="Clear selection"
               >
-                <Xmark className="w-4 h-4" />
+                <Xmark className="w:4 h:4" />
               </Combobox.Clear>
             )}
             <Combobox.Trigger
               className={merge(outline, ACTION)}
               aria-label="Open popup"
             >
-              <ArrowSeparateVertical className="w-4 h-4" />
+              <ArrowSeparateVertical className="w:4 h:4" />
             </Combobox.Trigger>
           </div>
         </div>
 
-        {description && <p className="m-0 c-slate-6 fs-xs">{description}</p>}
+        {description && <p className="m:0 c:slate-6 fs:xs">{description}</p>}
       </div>
       <Combobox.Portal container={container} keepMounted>
-        <Combobox.Positioner className="ow-0" sideOffset={8}>
+        <Combobox.Positioner className="ow:0" sideOffset={8}>
           {popup}
         </Combobox.Positioner>
       </Combobox.Portal>

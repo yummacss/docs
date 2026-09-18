@@ -22,11 +22,11 @@ function Label({ entry, isFolder }: { entry: Entry; isFolder: boolean }) {
   return (
     <>
       {isFolder ? (
-        <Folder className={`${ICON} c-white/40`} />
+        <Folder className={`${ICON} c:white/40`} />
       ) : (
-        <Page className={`${ICON} c-white/40`} />
+        <Page className={`${ICON} c:white/40`} />
       )}
-      <span className="fs-sm ff-m">{entry.name}</span>
+      <span className="fs:sm ff:m">{entry.name}</span>
     </>
   );
 }
@@ -40,8 +40,8 @@ function Node({ entry }: { entry: Entry }) {
 
   if (!hasChildren) {
     return (
-      <span className={`d-f ai-c g-2 py-1 ${tone}`}>
-        <span aria-hidden="true" className="d-b fs-0 w-4" />
+      <span className={`d:f ai:c g:2 py:1 ${tone}`}>
+        <span aria-hidden="true" className="d:b fs:0 w:4" />
         <Label entry={entry} isFolder={isFolder} />
       </span>
     );
@@ -50,17 +50,17 @@ function Node({ entry }: { entry: Entry }) {
   return (
     <Collapsible.Root open={open} onOpenChange={setOpen}>
       <Collapsible.Trigger
-        className={`d-f ai-c g-2 w-100% py-1 bg-transparent bw-0 ta-l c-p tdu-150 ttf-io h:c-white fv:c-accent ${tone}`}
+        className={`d:f ai:c g:2 w:100% py:1 bg:transparent bw:0 ta:l c:p tdu:150 ttf:io h:c:white fv:c:accent ${tone}`}
       >
         {open ? (
-          <NavArrowDown className={`${ICON} c-white/40`} />
+          <NavArrowDown className={`${ICON} c:white/40`} />
         ) : (
-          <NavArrowRight className={`${ICON} c-white/40`} />
+          <NavArrowRight className={`${ICON} c:white/40`} />
         )}
         <Label entry={entry} isFolder={isFolder} />
       </Collapsible.Trigger>
 
-      <Collapsible.Panel className="ml-2 pl-4">
+      <Collapsible.Panel className="ml:2 pl:4">
         {entry.children?.map((child) => (
           <Node key={child.name} entry={child} />
         ))}
@@ -71,7 +71,7 @@ function Node({ entry }: { entry: Entry }) {
 
 export default function FileTree({ data }: Props) {
   return (
-    <div className="my-6 p-4 bg-surface">
+    <div className="my:6 p:4 bg:surface">
       {data.map((entry) => (
         <Node key={entry.name} entry={entry} />
       ))}

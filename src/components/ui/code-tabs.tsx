@@ -17,11 +17,11 @@ export default function CodeTabs<T extends string>({
   action?: ReactNode;
 }) {
   return (
-    <div className="d-f bc-border bg-page">
+    <div className="d:f bc:border bg:page">
       <div
         role="tablist"
         aria-orientation="horizontal"
-        className="d-f f-1 ox-auto"
+        className="d:f f:1 ox:auto"
       >
         {tabs.map((tab, index) => {
           const selected = tab.id === active;
@@ -43,20 +43,20 @@ export default function CodeTabs<T extends string>({
                   onSelect(tabs[(index - 1 + tabs.length) % tabs.length].id);
                 }
               }}
-              className={`d-f ai-c px-6 py-2 brw-1 bc-border fs-sm ff-m ws-nw c-p a-none ${
+              className={`d:f ai:c px:6 py:2 brw:1 bc:border fs:sm ff:m ws:nw c:p a:none ${
                 selected
-                  ? "c-accent bg-surface"
-                  : "c-accent-dim bg-transparent bbw-1"
+                  ? "c:accent bg:surface"
+                  : "c:accent-dim bg:transparent bbw:1"
               }`}
             >
               {tab.label}
             </Button>
           );
         })}
-        <div className="f-1 bbw-1 bc-border" />
+        <div className="f:1 bbw:1 bc:border" />
       </div>
       {action ? (
-        <div className="d-f ai-c px-2 bbw-1 bc-border">{action}</div>
+        <div className="d:f ai:c px:2 bbw:1 bc:border">{action}</div>
       ) : null}
     </div>
   );

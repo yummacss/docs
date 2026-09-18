@@ -17,19 +17,19 @@ export default function Scroller({
   children: ReactNode;
 }) {
   return (
-    <div className={`d-f fd-c ${className}`} style={style}>
-      <ScrollArea.Root className="d-f f-1 fd-c min-h-0">
+    <div className={`d:f fd:c ${className}`} style={style}>
+      <ScrollArea.Root className="d:f f:1 fd:c min-h:0">
         <ScrollArea.Viewport
           ref={viewportRef}
-          className={`f-1 min-h-0 ob-c fv:oc-accent fv:os-s fv:ow-2 fv:oo--2 ${viewportClassName}`}
+          className={`f:1 min-h:0 ob:c fv:oc:accent fv:os:s fv:ow:2 fv:oo:-2 ${viewportClassName}`}
         >
           {children}
         </ScrollArea.Viewport>
         <ScrollArea.Scrollbar
           orientation="vertical"
-          className="yui-scrollbar d-f w-1 py-1 jc-c"
+          className="yui-scrollbar d:f w:1 py:1 jc:c"
         >
-          <ScrollArea.Thumb className="w-100% br-9999 bg-white/20" />
+          <ScrollArea.Thumb className="w:100% br:9999 bg:white/20" />
         </ScrollArea.Scrollbar>
       </ScrollArea.Root>
     </div>
